@@ -155,7 +155,7 @@ formulas:
       - delta_max
       - burn_cost
     output_range: [0, 0.10]
-    expression: "q_desp = min(2q, q + delta_desp, q_max); lift = max(S22, S23) - S <= delta_max"
+    expression: "q_desp = min(2q, q+delta_desp, q_max, q+delta_max*(1-q)/(1-S)); q_retry = min(q, delta_max/(1-S)); lift = max(S22, S23) - S <= delta_max"
     notes: "Caps the realm success lift from capabilities 22 and 23; at most one acts per realm step. Must agree with the progression targets (0.30 baseline, 0.70 with the player edge)."
     added: 2026-11-03
     revised: ""
@@ -190,7 +190,7 @@ formulas:
       - N0
       - f_tier
       - stat_power_weights
-    output_range: [13, 67.2]
+    output_range: [10.7, 67.2]
     expression: "B = P * ((n-k)*S0 + (k-c)*N0 + c*f_tier*N0)"
     notes: "Budget in W for an LLM-filled or authored cluster; the LLM Game Master fill validator enforces it."
     added: 2026-11-03
@@ -265,7 +265,7 @@ constants:
       - design/gdd/kinh-mach-do.md
     value: [0.15, 0.25, 0.35]
     unit: share of next great bonus
-    notes: "Trung kỳ and hậu kỳ are extra; đại viên mãn is an advance deducted from the great breakthrough."
+    notes: "Trung kỳ and hậu kỳ are extra; đại viên mãn is an advance deducted from the great breakthrough. Stored as integer percents 15/25/35 (pct_trung, pct_hau, pct_dai); share(p,B)=floor((p*B+50)/100), integer arithmetic only."
     added: 2026-11-03
     revised: ""
   - name: kinh_mach_birth_points
@@ -347,6 +347,16 @@ constants:
     value: 0.15
     unit: share of NPCs per realm
     notes: "Target ceiling for NPCs holding any hidden cluster."
+    added: 2026-11-03
+    revised: ""
+  - name: tree_breakthrough_chance_cap
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: 8
+    unit: percentage points
+    notes: "Ceiling on the summed breakthrough_chance of all Kinh Mạch huyệt in a life (player and NPC). Guess until the bot run confirms it; the visible tree alone must stay at or under 4."
     added: 2026-11-03
     revised: ""
 

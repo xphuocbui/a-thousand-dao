@@ -105,3 +105,22 @@ strength) move baseline and edge together. Round 3's values stand. A real fix ne
 lever that applies only to lives without the edge (e.g. a baseline-only breakthrough
 penalty) or a larger sample (96+ lives per arm); both are design decisions for the
 Cảnh Giới & Bình Cảnh GDD, not more blind tuning.
+
+## Kinh Mạch Đồ hooks (see design/gdd/kinh-mach-do.md)
+
+Two rules from the Kinh Mạch Đồ GDD act on this spec's numbers; the GDD owns them and
+the registry names them (`breakthrough_guard`, `npc_unseal_chance`,
+`npc_cluster_holder_max_share`).
+
+- **Breakthrough guard (Formulas E2).** Capabilities #22 (Hồi Quang Phản Chiếu) and #23
+  (Thiêu Thọ Phá Cảnh) may lift a realm's success chance by at most 0.10, whatever the
+  baseline (about 0.30) or edge (about 0.70) target. The retry chance is clamped to
+  `min(q, 0.10/(1−S))` and the desperation chance to `q + 0.10·(1−q)/(1−S)`. At most one
+  of them acts per realm step. The next calibration round must run arms "neither", "#22
+  only" and "#23 only" (≥ 2,000 NPCs per arm) and confirm the lift.
+- **NPC unseal chance (Formulas G).** An NPC's chance of holding a sealed cluster uses
+  this spec's edge curve (`base_step` 0.30, `max_step` 0.70, the NPC's edge score e):
+  `a = a_max[r]·(base_step + min(e,1)·(max_step − base_step))/max_step`. Holders must stay
+  under 15% of NPCs per realm, with a median chiến lực uplift under 15%.
+- **Recalibration.** The level ladder and the rescaled huyệt values (GDD Formulas A and A2)
+  change the points a life earns, so the calibration rounds above must be rerun on them.

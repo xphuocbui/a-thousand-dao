@@ -1,6 +1,6 @@
 # Kinh Mạch Đồ (Skill Tree)
 
-> **Status**: Designed (pending /design-review)
+> **Status**: In Review (2026-11-03: the second lean /design-review found 1 blocker; it is fixed along with the recommended items, re-review pending, see `reviews/kinh-mach-do-review-log.md`)
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-03
@@ -51,6 +51,20 @@ Given) meet: two cultivators with the same root diverge by the regions they walk
 clusters their lives earned, and power from a hidden cluster is earned through play,
 never picked off a list. It stays inside Pillar 2 (Every Number Is Bounded and Visible)
 because every LLM-written value is budgeted and recorded.
+
+## Player Fantasy
+
+*Draft derived from the Overview and Pillars 1–3; edit freely.*
+
+You read the map the way a cultivator reads their own body. Your linh căn tells you which
+regions of the tree are yours to walk, and every point is a small, permanent decision: no
+refunds, no respec. The planning pleasure is in the long routes: you spot a notable twelve
+steps away and count what it will cost.
+
+Then, far out on the rim, a silhouette you have been eyeing opens because of something your
+life did: a hard-won item, a công pháp you stayed with for years, a story moment you lived
+through. The door should feel earned, never bought. Two cultivators with the same root end
+up with different trees, because their lives opened different doors.
 
 ## Detailed Design
 
@@ -105,7 +119,8 @@ are in Formulas.
        kỳ** 25%. These are extra.
      - Reaching **đại viên mãn** grants 35% of it as an **advance**, so the great
        breakthrough then pays the remaining 65%.
-   - **Events:** an event may grant 1.
+   - **Events:** an event may grant 1 (the Event Engine's budget file caps grants; Open
+     Question 11).
    - Every great and small breakthrough also raises base stats.
 
    Totals at đại viên mãn: Luyện Khí 51, Trúc Cơ 120, Kết Đan 216, Nguyên Anh 357, Hóa Thần
@@ -117,12 +132,16 @@ are in Formulas.
    open huyệt, and, for a huyệt that names a minimum element count, the player's linh căn
    must have that many base elements. Opening a path to a target opens every huyệt on the
    shortest route, all or nothing: it fails without spending anything if the points do not
-   cover the whole route. Points are never refunded and there is no respec.
+   cover the whole route. When several routes are equally short, the one with the highest
+   total scaled value (rule 4) is taken, then the one whose huyệt ids sort lowest; the path
+   tool previews that route. Points are never refunded and there is no respec.
 4. **Bonuses.** Each open huyệt adds its stat modifiers to the character's stat sheet under
    the source "Kinh Mạch: <name> #<id>". A sector huyệt's values are multiplied by
    0.5 + purity/100 for the sector's element, or by 0.25 if the player lacks that element;
    a bridge huyệt uses the average of its two sectors' multipliers; keystones and the root
-   are exact. So purity, not just element count, decides which regions pay off.
+   are exact. So purity, not just element count, decides which regions pay off. The summed
+   `breakthrough_chance` from all Kinh Mạch huyệt is clamped at `tree_breakthrough_cap`
+   (Formulas F), and the stat sheet shows the clamp.
 5. **NPCs** spend their points greedily under the same rules: every reachable huyệt is
    scored by its kind and boosted if it lies in a sector favoured by the NPC's archetype,
    with a small random term, until the points run out. The weights are
@@ -151,7 +170,11 @@ are in Formulas.
    lower, so the rare inner cluster can open in Luyện Khí. The number of clusters, and each
    cluster's location and kind, are rolled once with the tree seed (`cluster_count`,
    `inner_share`, `sealed_share`). No type has a fixed count. The cluster list,
-   positions, sizes, themes and conditions are the same in every life.
+   positions, sizes, themes and conditions are the same in every life. The seed rolls only
+   the count, each cluster's location and kind, and its size. Theme, element affinity,
+   sector, entry links and the placement of capabilities are authored in the data after
+   the seed is accepted, and the content build fails if the catalogue cannot be placed
+   (AC-KMD-41).
 7. **Seal conditions.** Each cluster has exactly one, fixed in data, with an optional
    minimum realm:
    - *event*: an Event Engine effect that unseals this cluster, carried only by the event
@@ -176,12 +199,14 @@ are in Formulas.
     - **Eligible clusters** are hidden open clusters whose gate is at or below the
       player's realm.
     - **The choice is deterministic.** Among the eligible clusters, the engine takes those
-      with the theme the event hints, if any have it. It then takes the nearest by route
-      length from the player's open huyệt, then the lowest cluster id.
+      with the theme the event hints, if any have it. It then takes the lowest C_enter
+      (Formulas B) from the player's open huyệt, then the lowest cluster id.
     - **The fill.** The chosen cluster then needs its huyệt names, descriptions and
       bonuses. The engine sends the LLM a fill request with:
       - the theme and element affinity;
       - the cluster's budget (Formulas F);
+      - its slot list: each huyệt id with its role, small or notable (the reply is keyed
+        by slot id);
       - the unlocking event's people, place and text.
     - **Validation.** The reply is repaired by the validator (rule 11).
     - **Fallback.** The fill comes from the theme's template pool if the LLM is off,
@@ -251,7 +276,7 @@ are in Formulas.
     | 6 | Song Tu Công Pháp | Cultivate a second công pháp at 50% speed with its full bonuses | Công Pháp |
     | 7 | Thai Tức Quy Nguyên | Age at three-quarters speed during bế quan | Thọ Nguyên |
     | 8 | Mộng Trung Ngộ Đạo | Seasons spent travelling also cultivate, at 50% rate | Cultivation, Travel |
-    | 9 | Hấp Tinh Đại Pháp | Defeating a cultivator gives tu vi worth 5% of the current stage; tâm ma +2 each time | Combat, Tâm Ma |
+    | 9 | Hấp Tinh Đại Pháp | Defeating a cultivator gives tu vi worth 5% of the current stage; tâm ma +2 each time | Cảnh Giới, Character Stats (tâm ma) |
     | 10 | Đan Hỏa Phân Lô | Brew two recipes in one season | Luyện Đan |
     | 11 | Dị Đan Hóa Sinh | A failed brew has a 30% chance of a random mutated pill within budget instead of ash | Luyện Đan |
     | 12 | Bách Thảo Tàng Linh | Harvested herbs keep aging in the bag at half speed | Herbs |
@@ -264,10 +289,14 @@ are in Formulas.
     | 19 | Khí Vận Chi Tử | Once per realm, reroll a failed event check | Event Engine |
     | 20 | Liễm Tức Ẩn Thân | Others see the character two stages lower; hostile events −30% frequency | Event Engine, NPCs |
     | 21 | Thuấn Di Ấn | Once a year, travel instantly to any visited place | Travel |
-    | 22 | Hồi Quang Phản Chiếu | With under 5 years of thọ nguyên left, breakthrough chance ×2 | Cảnh Giới |
+    | 22 | Hồi Quang Phản Chiếu | With under 5 years of thọ nguyên left, breakthrough chance up to ×2 (capped by Formulas E2) | Cảnh Giới |
     | 23 | Thiêu Thọ Phá Cảnh | After a failed breakthrough, burn 10 years of thọ nguyên to retry at once | Cảnh Giới, Thọ Nguyên |
     | 24 | Biến Dị Khai Mở | Each realm breakthrough rolls one extra chance at a new biến dị | Linh Căn |
     | 25 | Tâm Ma Hóa Lực | Tâm ma above 50 adds attack (+tâm ma ÷ 2 %); backlash chance ×2 | Tâm Ma, Combat |
+
+    #14 sits on a **hybrid-theme cluster** (Trận Đạo and Linh Điền), so its place on the
+    map is between those two themes; it is still one notable of one cluster (Open
+    Question 9).
 
     Capabilities 22 and 23 act on breakthrough odds. Each is usable once per realm, and at
     most one of them acts per realm step. #22's gain is capped, and #23 costs the greater
@@ -297,6 +326,8 @@ story moment, even in Visible mode.
 | Subject | State | Becomes | When | Guard |
 |---|---|---|---|---|
 | Cluster | Hidden | Unsealed | Its one condition fires | Sealed kind; realm minimum met; not already unsealed |
+| Cluster | Hidden | Pending | Its one condition fires below the gate realm | Sealed kind; realm minimum not met; a Mạch Ấn key, if used, is consumed |
+| Cluster | Pending | Unsealed | The character reaches the gate realm | Automatic; no further input |
 | Cluster | Hidden | Awaiting fill | A story moment unseals it | Open kind; per-realm allowance left; chosen by rule 10 |
 | Cluster | Awaiting fill | Unsealed | The fill is recorded | Always completes (LLM or template pool) |
 | Cluster | Unsealed | (stays) | Never goes back | Unsealing is permanent for the life |
@@ -304,7 +335,7 @@ story moment, even in Visible mode.
 | Huyệt | Open | (stays) | Never closes | No refund, no respec |
 | Capability | Not held | Held | Its notable is opened | Sealed cluster only; held for the rest of the life |
 
-A hidden or awaiting-fill cluster's huyệt are Closed and cannot be opened.
+A hidden, pending or awaiting-fill cluster's huyệt are Closed and cannot be opened.
 
 ### Interactions with Other Systems
 
@@ -313,7 +344,7 @@ All interfaces are provisional where the other GDD does not exist yet.
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
 | Linh Căn | in | purity per element, base element count (rule 3, 4) | Linh Căn |
-| Character Stats | out | modifiers {source, stat, value}; the tree never computes a stat | Character Stats (stat keys and their meaning) |
+| Character Stats | out | modifiers {source, stat, value}; the character's capability set (held capability ids); the tree never computes a stat | Character Stats (stat keys and their meaning; storage of the capability set) |
 | Cảnh Giới & Bình Cảnh | in | points per stage and per breakthrough; the realm (realm minimum, budgets) | Cảnh Giới |
 | Event Engine | in | effects "unseal this cluster" and "story moment: unseal an open cluster", both gated by the budget file; the existing "grant a point" effect | Event Engine (gating); this GDD (what the effects do) |
 | Item DB | in | Mạch Ấn key items bound to a cluster | Item DB (item kind); this GDD (what the key does) |
@@ -322,7 +353,7 @@ All interfaces are provisional where the other GDD does not exist yet.
 | World Database | out | "cluster unsealed" events and recorded fills, searchable by player and cluster | World Database |
 | NPC Builds | in/out | allocation and clusters unsealed at generation | NPC Builds (generation); this GDD (cluster rules) |
 | Combat | none direct | only the stat modifiers above | — |
-| Capability hosts (Pháp bảo, Công Pháp, Luyện Đan, Herbs, Phù Lục, Trận Pháp, Linh Điền, Linh Thú, Travel, Thọ Nguyên, Tâm Ma, Event Engine, Cảnh Giới, Linh Căn) | out | "character holds capability X" queries; each host system implements the rule change behind its capabilities | this GDD (catalogue and when one is held); each host system (the behaviour) |
+| Capability hosts (Pháp bảo in Luyện Khí, Công Pháp, Time & Turn, Luyện Đan, Linh Thảo & Linh Điền, Phù Lục, Trận Pháp, Linh Thú, Travel & Map, Event Engine, Cảnh Giới, Linh Căn, Character Stats; the capability-to-host list is in Dependencies) | out | the character's capability set, which each host reads; each host implements the rule change behind its capabilities | this GDD (catalogue and when one is held); each host system (the behaviour) |
 | Guidance Layer / Debug Terminal / Game UI | out | map with silhouettes and hints, visibility mode, "an unsealed cluster has unopened huyệt" goals | Guidance Layer |
 | Save/Load | out | the per-life state of rule 15 and the fill records | Save/Load |
 
@@ -331,7 +362,12 @@ All interfaces are provisional where the other GDD does not exist yet.
 Values are in **W**, a common power unit: 1 W = the value of +1% attack. A huyệt's
 power is the weighted sum of its modifiers (formula F1). All values marked "guess"
 need a bot run (`tools/balance/autoplay.gd`, `tools/balance/npc_cohort.gd`) before
-they are trusted. Rounding is half away from zero (GDScript `round()`) everywhere.
+they are trusted. Rounding is half away from zero everywhere. **Point shares are
+computed in integer arithmetic, never with float `round()`**: `0.35 * 90` is
+31.499999999999996 in IEEE floats, so a float implementation would round the
+Hóa Thần advance to 31 instead of 32 and give 565 points at level 300 instead of 566.
+The shares are stored as integer percents (`pct_trung` 15, `pct_hau` 25, `pct_dai` 35)
+and `share(p, B) = floor((p·B + 50) / 100)`.
 
 ### A. Points
 
@@ -342,7 +378,7 @@ The points_total formula is defined as:
 where, for each realm i with levels [lo_i, hi_i], N_i = hi_i − lo_i + 1, its own bonus
 B_i and the next realm's bonus B_next:
 
-`bonus_i(L) = [L ≥ lo_i]·(B_i − round(α_d·B_i)) + [L ≥ t_i]·round(α_t·B_next) + [L ≥ h_i]·round(α_h·B_next) + [L ≥ hi_i]·round(α_d·B_next)`
+`bonus_i(L) = [L ≥ lo_i]·(B_i − share(p_d, B_i)) + [L ≥ t_i]·share(p_t, B_next) + [L ≥ h_i]·share(p_h, B_next) + [L ≥ hi_i]·share(p_d, B_next)`
 
 with `t_i = lo_i + floor(N_i/3)` (first level of trung kỳ) and
 `h_i = lo_i + floor(2·N_i/3)` (first level of hậu kỳ). Luyện Khí has no entry term.
@@ -354,8 +390,9 @@ with `t_i = lo_i + floor(N_i/3)` (first level of trung kỳ) and
 | pts_birth | int | 2 | data file | Points at birth |
 | lo_i, hi_i | int | Luyện Khí 1–39, Trúc Cơ 40–79, Kết Đan 80–129, Nguyên Anh 130–199, Hóa Thần 200–300 | data file | Realm level bands (provisional; Cảnh Giới owns them) |
 | B_i | int | Trúc Cơ 15, Kết Đan 25, Nguyên Anh 40, Hóa Thần 60; after Hóa Thần 90 (placeholder) | data file | Great breakthrough bonus |
-| α_t, α_h | float | 0.15, 0.25 | data file | Trung kỳ and hậu kỳ shares of the next bonus (extra) |
-| α_d | float | 0.35 | data file | Đại viên mãn share of the next bonus (advance, deducted from the breakthrough) |
+| p_t, p_h | int (percent) | 15, 25 | data file (`pct_trung`, `pct_hau`) | Trung kỳ and hậu kỳ shares of the next bonus (extra) |
+| p_d | int (percent) | 35 | data file (`pct_dai`) | Đại viên mãn share of the next bonus (advance, deducted from the breakthrough) |
+| share(p, B) | int | 0–B | calculated | `floor((p·B + 50) / 100)`: half rounds up, integer arithmetic only |
 | t_i, h_i | int | e.g. Luyện Khí 14 and 27, Trúc Cơ 53 and 66 | calculated | First level of trung kỳ and hậu kỳ |
 | pts_event | int | 0+ | calculated | Event grants, +1 each |
 | points_total | int | 2–566 (+ events) | calculated | Points earned in the life |
@@ -378,7 +415,7 @@ with `t_i = lo_i + floor(N_i/3)` (first level of trung kỳ) and
 - 2 at birth + 59 from levels.
 - Luyện Khí bonuses: 2 + 4 + 5.
 - Trúc Cơ entry: 15 − 5 = 10.
-- Trúc Cơ trung kỳ: round(0.15·25) = 4.
+- Trúc Cơ trung kỳ: share(15, 25) = floor(425/100) = 4.
 - Total: **86**.
 
 ### A2. Huyệt value scale
@@ -406,7 +443,7 @@ The value_scale formula is defined as:
 - Tree power at Luyện Khí's end stays about 106 W.
 - At Hóa Thần đại viên mãn it is about 566 × 2.1 ≈ 1,190 W, about 1.8× the old ladder's
   650 W: a deliberate tilt toward later realms.
-- Without the rescale it would be about 4,100 W (6.3×).
+- Without the rescale it would be about 4,270 W (6.6×): 566 × 7.55.
 
 **Example:** The old mean is 7.55 W per point. Divided by 3.64 it is 2.07. The split is
 S0 = 1.2 and N0 = 8, which keeps notables about 6.7× a small huyệt:
@@ -457,8 +494,8 @@ The reach_cost formula is defined as:
 
 | Life | Points | Reach |
 |---|---|---|
-| Luyện Khí đại viên mãn | 51 | Its focus sectors' inner band and the first half of the middle band (d ≈ 10). The rare inner hidden cluster (n ≤ 6: 5–12 points) fits. A keystone beeline (22 points) is possible but costs 43% of the life |
-| Trúc Cơ đại viên mãn | 120 | Its focus sectors cleared out to d 22 |
+| Luyện Khí đại viên mãn | 51 | Its focus sectors' inner band and the first half of the middle band (d ≈ 10). The rare inner hidden cluster (n ≤ 6: 6–13 points) fits. A keystone beeline (22 points) is possible but costs 43% of the life |
+| Trúc Cơ đại viên mãn | 120 | One focus sector cleared out to d 22 (a whole sector is 18 + 52 + 34 = 104 huyệt) and most of a second sector's inner band |
 | Kết Đan sơ kỳ | 137 | Anchors open, so a 9-huyệt outer cluster costs 9 of the 17 new points |
 | Nguyên Anh+ | 243–566 | Enough for many clusters; unsealing, not points, is the limit |
 
@@ -516,7 +553,7 @@ The cluster_premium formula is defined as:
 |----------|------|-------|--------|-------------|
 | P_min, P_max | float | 1.25, 1.75 | data file | Premium bounds (cap of +75% by user decision) |
 | w_d, w_n | float | 0.5, 0.5 | data file | Weight of reach vs size; w_d + w_n = 1 |
-| d_entry | int | 4–23 | calculated (B) | Depth of the cluster's entry huyệt |
+| d_entry | int | 4–23 | calculated (B) | Depth of the cluster's entry huyệt: d(link_K) + 1, from the shallower link for a two-link cluster. AC-KMD-12 speaks of the link's depth, AC-KMD-29 of d_entry |
 | d_lo, d_hi | int | 4, 23 | data file | Entry depth bounds |
 | S0, N0 | float | 1.2, 8 W | data file (A2) | Base small and notable values |
 | E_small, E_notable | float | 1.5–2.1, 10–14 W | calculated | Target value per hidden huyệt |
@@ -559,7 +596,8 @@ Initial tiers (guess):
 A measurement compares the metric with and without the capability: chiến lực for combat
 capabilities, the system's own output for the others (e.g. alchemy throughput). The
 capability's attack equivalent then sets the tier: below half a notable is T1, up to one
-notable is T2, and above that or unmeasurable is T3.
+notable is T2, and above that or unmeasurable is T3. The initial T2 entries above are
+guesses made before any measurement.
 
 **Output Range:** 0–7 W of stats; the capability itself is not scaled by linh căn.
 
@@ -574,35 +612,54 @@ Capabilities #22 and #23 must not move a realm's breakthrough success by more th
 **Attempt model.** A realm step is a series of attempts, each succeeding with chance q,
 until one succeeds or the life ends. S is the resulting chance of crossing the realm.
 - **#22 (desperation)** replaces one attempt's chance q with q_desp.
-- **#23 (retry)** adds one extra attempt with chance q right after a failure, without
-  waiting.
+- **#23 (retry)** adds one extra attempt with chance q_retry (at most q) right after a
+  failure, without waiting.
 - **At most one of #22 and #23 acts per realm step.** A character holding both chooses
   which to use for that realm.
 
 The breakthrough_guard formula is defined as:
 
-`q_desp = min(2q, q + Δ_desp, q_max)` ; `S'_22 = 1 − (1 − S)·(1 − q_desp)/(1 − q)` ; `S'_23 = S + q·(1 − S)` ; `max(S'_22, S'_23) ≤ S + δ_max`
+`q_desp = min(2q, q + Δ_desp, q_max, q + δ_max·(1 − q)/(1 − S))` ; `q_retry = min(q, δ_max/(1 − S))` ; `S'_22 = 1 − (1 − S)·(1 − q_desp)/(1 − q)` ; `S'_23 = S + q_retry·(1 − S)` ; `max(S'_22, S'_23) ≤ S + δ_max`
+
+The last two terms are the guard's construction: each is the largest value of the
+attempt chance that keeps its own lift at or below δ_max for any S (solve
+`(1−S)·(q_desp − q)/(1−q) ≤ δ_max` and `q_retry·(1−S) ≤ δ_max`). The bound therefore
+holds by construction and is tested analytically; the bot run only confirms it.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | S | float | ≈ 0.30 / ≈ 0.70 | data file (progression targets) | Success per realm before capabilities, baseline / player edge |
 | q | float | 0.01–0.95 | calculated (`CultivationRules`) | Chance per attempt |
+| q_retry | float | 0.01–0.95 | calculated | Chance of #23's extra attempt, clamped by the guard |
 | q_max | float | 0.95 | data file | Ceiling on any attempt's chance |
 | Δ_desp | float | 0.15 | data file | Cap on #22's gain over q |
 | δ_max | float | 0.10 | data file | Allowed lift per realm |
 | burn_cost | int | max(10, 0.05·L_r) years | data file | #23's lifespan cost, L_r being the realm's lifespan |
 
 **Output Range:**
-- The analytic lift is at most about 0.075 at S = 0.70 and q = 0.25.
-- With large q, #23's analytic lift q·(1 − S) can exceed 0.10; the bot measurement
-  (Acceptance Criteria) is binding.
-- If it fails, lower #23 to a retry at q/2.
+- For every S in 0–1 and q in 0.01–0.95, the lift of each capability is ≤ δ_max = 0.10.
+- At S = 0.70 and q = 0.25 the clamps do not bind and the lift is 0.075 (#23) and 0.060
+  (#22). The clamps bind where S is low or q is large.
+- Without the clamps the guard fails at the baseline: at S = 0.30, q = 0.30 (one roll) #22
+  would lift by +0.150 and #23 by +0.210.
+- The clamps only bound the lift. The bot measurement (Acceptance Criteria) still checks
+  the whole attempt model once Cảnh Giới defines it.
+- **Intent.** A capability may lift a realm's success by up to 0.10: a life at the 0.70
+  edge target reaches at most 0.80, and a life without edges at most 0.40. This is
+  deliberate. Capabilities are earned, rare (one per outer sealed cluster) and bounded,
+  and the player-facing text says "up to ×2, capped".
 
-**Example:** S = 0.70, q = 0.25:
-- #23 alone: 0.70 + 0.25·0.30 = **0.775**.
-- #22 alone: q_desp = 0.40, so 1 − 0.30·0.60/0.75 = **0.76**.
+**Example:** S = 0.70, q = 0.25 (clamps do not bind):
+- #23 alone: q_retry = min(0.25, 0.10/0.30) = 0.25, so 0.70 + 0.25·0.30 = **0.775**.
+- #22 alone: q_desp = min(0.50, 0.40, 0.95, 0.25 + 0.10·0.75/0.30 = 0.50) = 0.40, so
+  1 − 0.30·0.60/0.75 = **0.76**.
 - They can't both act in one realm step, so the lift is at most +0.075.
+
+**Example (clamps bind):** S = 0.30, q = 0.30:
+- #23: q_retry = min(0.30, 0.10/0.70) = 0.1429, so the lift is 0.1429·0.70 = **0.100**.
+- #22: q_desp = min(0.60, 0.45, 0.95, 0.30 + 0.10·0.70/0.70 = 0.40) = 0.40, so the lift is
+  0.70·0.10/0.70 = **0.100**.
 
 ### F. Fill budget
 
@@ -616,11 +673,19 @@ The cluster budget formula is defined as:
 
 The per-huyệt cap formulas are defined as:
 
-`power(small) ≤ tol·E_small` ; `power(notable) ≤ E_notable`
+`power(small) ≤ tol·E_small` ; `power(notable) ≤ E_notable` ; `power(capability notable) ≤ f_tier·E_notable`
 
 The compounding cap formula is defined as:
 
 `Σ_cluster value_c ≤ cap9_c·(n/9)^γ`
+
+The lifespan cap formula is defined as:
+
+`Σ_cluster lifespan_years ≤ φ_r·L_r`
+
+The tree-wide ceiling formula is defined as:
+
+`Σ_tree breakthrough_chance ≤ tree_breakthrough_cap`
 
 The final scale formula is defined as:
 
@@ -637,7 +702,8 @@ Open-cluster fills are clamped at runtime.
 | tol | float | 1.2 | data file | Spread allowed on one small huyệt |
 | cap9_c | float | table below | data file | Per-cluster cap on a compounding stat for n = 9 |
 | γ | float | 0.5 | data file | Compounding caps grow sublinearly with size |
-| φ_r | float | 0.10 (Luyện Khí–Kết Đan), 0.05 (Nguyên Anh+) | data file | Hard ceiling on lifespan_years per notable, as a share of realm lifespan |
+| φ_r | float | 0.10 (Luyện Khí–Kết Đan), 0.05 (Nguyên Anh+) | data file | Ceiling on a cluster's summed lifespan_years, as a share of realm lifespan (a whole n = 15 budget would otherwise allow 22%) |
+| tree_breakthrough_cap | float | 8 (guess) | data file | Ceiling, in percentage points, on the summed breakthrough_chance of every Kinh Mạch huyệt in a life; applies to NPCs too |
 | L_r | int | 120–2000 | data file (`cultivation_realms.json`) | Realm lifespan: the player's realm at fill time; the gate realm for sealed clusters |
 | B | float | 13–67 W | calculated | Cluster budget |
 
@@ -656,6 +722,14 @@ reference. All weights are guesses until checked by the bot.
 | mission_income_pct | 0.7 | field_plots | 10 |
 | lifespan_years | 300 / L_r per year | | |
 
+**Precision.** Values are held as whole counts of their precision unit (+12.3% attack is
+123 units of 0.1), so every floor is exact:
+- 0.1: every `_pct` stat, `stealth`, `alchemy_success`, `refining_success`,
+  `breakthrough_chance` and `lifespan_years` (in years).
+- 0.01: `khi_van`, `ngo_tinh`, `dan_doc_decay` and `density_bonus`.
+- 1: `field_plots` (Character Stats confirms the unit). One plot is 10 W, so it fits only
+  a notable, and only when the cluster's compounding cap allows at least 1 (n ≥ 9).
+
 Compounding caps per cluster at n = 9 (the old values ÷ k_pts; guesses):
 - cultivation_speed_pct 4
 - breakthrough_chance 0.5
@@ -665,6 +739,10 @@ Compounding caps per cluster at n = 9 (the old values ÷ k_pts; guesses):
 - density_bonus 0.04
 - dan_doc_decay 0.8
 - field_plots 1
+
+`lifespan_years` has its own per-cluster ceiling, φ_r·L_r, and `breakthrough_chance` also
+has the tree-wide ceiling above, because its per-cluster cap alone lets many clusters add
+up.
 
 Excluded from fills (never allowed):
 - rule flags (single_artifact, safe_failure, dan_doc_no_penalty);
@@ -677,32 +755,57 @@ Forbidden shapes: a negative value, a capability, more than 2 stats on one huy�
 notable count other than k, and fewer than 3 distinct stats across the cluster.
 
 Repair order (every repair is recorded on the fill and shown to the player). Values
-are kept to 0.1 display precision for percentages and 0.01 for small flat stats.
-1. **Shape.**
-   - Drop extra huyệt beyond n; add missing ones from the theme's pool.
-   - The k highest-power huyệt become the notables; any others are demoted to small
-     huyệt.
+are held to their stat's precision (table above) and are only ever rounded down, so
+rounding can lower a fill's power but never raise it.
+1. **Shape.** The fill is slot-indexed: the request lists the cluster's n slots by id,
+   each with its role (small or notable) taken from the map, and the reply holds one
+   entry per slot id.
+   - Drop entries whose slot id is unknown or repeated; fill missing slots from the
+     theme's pool.
+   - A slot's role always comes from the map, never from the reply. A reply that marks a
+     different set of notables is ignored on that field, and the mismatch is recorded.
+     So notables stay on the slots farthest from the entry (rule 6).
    - Remove capability and rule text.
 2. **Keys.** Replace a disallowed or flag key with a stat from the theme's pool.
-3. **Signs.** Remove a negative or zero value. If a huyệt is left with no stat, it gets
-   one from the pool.
+3. **Signs and size.** Remove a negative, zero or sub-unit value (below one precision
+   unit of its stat, such as +0.04% attack). If a huyệt is left with no stat, it gets one
+   from the pool, in whole units, so a replacement passes steps 6–9 like any other
+   value.
 4. **Stat count.** On a huyệt with more than 2 stats, keep the 2 with the highest power.
 5. **Variety.** While the cluster has fewer than 3 distinct stats, the lowest-power
    duplicate stat is replaced from the pool.
 6. **Per-stat cap.** Clamp each value to cap_power / w, where cap_power is the huyệt's
-   power cap (tol·E_small or E_notable). There is no flooring, so a stat with a large w
-   still fits as a fraction.
+   power cap (tol·E_small or E_notable), rounded down to the stat's precision. If that is
+   below one unit (`field_plots` on a small huyệt), the stat is removed and replaced from
+   the pool as in step 3.
 7. **Huyệt cap.** Scale any huyệt over its power cap down to the cap.
 8. **Compounding caps.** Scale down each stat that breaks its compounding cap, across
-   the cluster.
-9. **Budget.** Apply scale_all.
+   the cluster, and scale `lifespan_years` down to φ_r·L_r.
+9. **Budget and quantize.** One loop, so the total never exceeds B:
+   - Let B_rest = B, with every huyệt unfixed.
+   - Scale the unfixed huyệt by min(1, B_rest / their summed power), then round every
+     value down to its precision. A value that rounds to 0 is dropped.
+   - A huyệt left with no stat is **fixed**: it keeps its highest-power stat at one
+     precision unit. That is within every cap, because step 3 guaranteed the value was at
+     least one unit before scaling. Subtract the fixed huyệt's power from B_rest and
+     repeat on the unfixed huyệt.
+   - Each pass fixes at least one huyệt, so the loop ends within n passes. If B_rest
+     drops below 0, the reply is unrepairable and the pool fill is used.
+10. **Record.** Record a repair only when a value changed.
+
+Scaling and rounding down only lower power, so every cap from steps 6–8 and B still hold,
+with no tolerance. A reply that needs no scaling is changed only by its own rounding,
+because step 3 already removed sub-unit values.
 
 A reply the validator cannot repair (invalid JSON, or no usable huyệt at all) is
 replaced entirely by a pool fill.
 
-**Output Range:** 13 W (n 3, inner, P 1.25) to 67 W (n 15, k 3, P 1.75). A clamped fill
-never exceeds B and has no negatives. Because the per-huyệt power cap binds first,
-lifespan_years on a notable is at most about 4% of L_r, below the φ_r ceiling.
+**Output Range:** 13 W (n 3, inner, P 1.25) to 67 W (n 15, k 3, P 1.75) for a cluster
+without a capability. The lowest B of a capability cluster is about 10.7 W (n 7, outer at
+d_entry 16, T3). A clamped fill never exceeds B and has no negatives. Per notable,
+lifespan_years is at most about 4% of L_r, because the per-huyệt cap binds first; per
+cluster it is held to φ_r·L_r (12 years at L_r = 120 in Luyện Khí through Kết Đan), where a
+whole n = 15 budget would otherwise allow 22%.
 
 **Example:** n = 9, k = 1, c = 0, P = 1.5724, so B = 1.5724·(8·1.2 + 8) = **27.67 W**.
 A valid fill:
@@ -725,8 +828,10 @@ The npc_unseal_chance formula is defined as:
 
 `a(r, e) = a_max[r] · (base_step + min(e, 1)·(max_step − base_step)) / max_step` ; `p(r, e) = 1 − (1 − a)^(1/M_r)` per eligible sealed cluster, and p = 0 when M_r = 0
 
-An NPC rolls p once per eligible sealed cluster when it is generated. A cluster is
-eligible if the NPC has its element and its gate is at or below the NPC's realm. An NPC
+An NPC rolls p once per eligible sealed cluster when it is generated, in an order
+shuffled with the NPC's own seed so that no cluster id is favoured. A cluster is eligible
+if the NPC has its element and its gate is at or below the NPC's realm. Only
+element-matching clusters roll, so the real holder share sits below a; a is a ceiling. An NPC
 holds at most 1 cluster below Nguyên Anh, and at most 2 from Nguyên Anh.
 
 **Variables:**
@@ -799,6 +904,7 @@ There is one data key per parameter, used in both the rules and the formulas.
 | — | `fill_stats` | the weight table in F |
 | — | `cong_phap_seasons` | 24 for an ordinary công pháp, 48 for a high-tier one; seasons add up (rule 7) |
 | — | `open_unseals_per_realm` | Luyện Khí 1, Trúc Cơ 1, Kết Đan 1, Nguyên Anh 2, Hóa Thần 2 |
+| tree_breakthrough_cap | `tree_breakthrough_cap` | 8 percentage points (guess) |
 | a_max[r] | `npc_unseal_share` | 0.02, 0.10, 0.18, 0.22, 0.22 |
 | — | NPC allocation weights | `tree_kind_scores` and `tree_focus_weight` in `world_generation.json` (rule 5) |
 
@@ -854,8 +960,9 @@ generated.
 - **If the LLM is off, times out or returns invalid JSON:** the fill comes from the
   theme's template pool. If the theme has no pool, the generic pool is used. A fill
   always completes in the same turn.
-- **If the reply has the wrong huyệt or notable count:** extra huyệt are dropped and
-  missing ones are filled from the pool. The adjustment is recorded on the fill like any
+- **If the reply has unknown or repeated slot ids, missing slots, or marks the wrong
+  notables:** bad entries are dropped, missing slots are filled from the pool, and roles
+  come from the map's slots. The adjustment is recorded on the fill like any
   clamp.
 - **If a name is empty, duplicates an existing huyệt name or fails the text filter:** it
   is replaced with "<cluster name> · huyệt <n>". The stats are kept.
@@ -910,7 +1017,7 @@ bidirectional-dependency rule requires.
 | 1 | Data-Driven Config | `meridian_tree.json`, `meridian_fill.json`, `meridian_capabilities.json`, and the cluster and point parameters |
 | 2 | Deterministic Simulation Core | The seeded RNG for map generation (fixed seed per content release) and NPC allocation; Breakdown for explainable values |
 | 6 | Linh Căn | Purity per element and base element count (rules 3 and 4) |
-| 7 | Character Stats | Accepts modifiers {source, stat, value}; owns stat keys, units and meaning, and the stat weights' reference values |
+| 7 | Character Stats | Accepts modifiers {source, stat, value}; owns stat keys, units and meaning, and the stat weights' reference values; stores the character's capability set (held capability ids), which Kinh Mạch Đồ writes and every capability host reads |
 | 8 | Cảnh Giới & Bình Cảnh | Level, realm and stage; level bands, breakthrough bonuses and α shares (Formulas A); realm lifespan L_r; breakthrough attempts for #22 and #23 |
 
 **Upstream: the cluster layer needs them; the base tree works without them (soft)**
@@ -929,7 +1036,7 @@ bidirectional-dependency rule requires.
 
 | # | System | What it takes |
 |---|---|---|
-| 21 | Combat | Only the stat modifiers, through Character Stats; capability effects owned by Combat (#1, #4, #9, #17, #25) |
+| 21 | Combat | Only the stat modifiers, through Character Stats. No capability behaviour is hosted by Combat; each is owned by exactly one host below (for #9, Combat only reports the defeat to Cảnh Giới) |
 | 24 | NPC Build Generation | The allocation rules (rule 5) and the allocator budget (Formulas, Computational budget); NPC unseals and `npc_effect` |
 | 27 | World Generation & History | Generates NPCs through NPC Build Generation, so it is bound by the allocator budget |
 | 33 | Balance Simulation Harness | Reruns calibration with the new point ladder and rescaled values (A, A2) |
@@ -945,29 +1052,59 @@ bidirectional-dependency rule requires.
 - This breaks what would otherwise be cycles with the upstream hosts (Cảnh Giới, Linh
   Căn, Character Stats, Event Engine, Công Pháp).
 
-The hosts:
+The hosts, each capability owned by exactly one (all 25 appear once):
 - Pháp bảo (inside Luyện Khí #16): #1, #2, #3
 - Công Pháp #9: #6
 - Time & Turn #4: #7, #8
 - Luyện Đan #15: #10, #11
-- Linh Thảo & Linh Điền #14: #12, #14
+- Linh Thảo & Linh Điền #14: #12
 - Phù Lục #18: #13
-- Trận Pháp #17: #14, #15
+- Trận Pháp #17: #14 (it publishes a location-independent flag that Linh Thảo & Linh
+  Điền reads), #15
 - Linh Thú #19: #16, #17
 - Event Engine #23: #5, #18, #19, #20
 - Travel & Map #25: #21
-- Cảnh Giới #8: #22, #23
+- Cảnh Giới #8: #9 (tu vi from a defeat; Combat reports the defeat, and the tâm ma
+  change goes through Character Stats), #22, #23
 - Linh Căn #6: #24
-- Character Stats #7: #4, #25
+- Character Stats #7: #4, #25 (and the tâm ma part of #9)
 
-**Systems index change (proposed for Phase 5).**
-- Row 10's Depends On becomes Linh Căn, Character Stats, Cảnh Giới, Config, Sim Core,
-  and soft: Event Engine, Item DB, Công Pháp, LLM GM, World DB, Edges.
-- Status becomes "Designed (partially implemented)": the base tree is built at
-  prototype scale; clusters, levels and capabilities are not built.
+**Systems index.**
+- Row 10's Depends On already reads Linh Căn, Character Stats, Cảnh Giới, Config, Sim
+  Core, and soft: Event Engine, Item DB, Công Pháp, LLM GM, World DB, Edges.
+- Its status follows this GDD's review. When the GDD is approved it becomes "Designed
+  (partially implemented)": the base tree is built at prototype scale; clusters, levels
+  and capabilities are not built.
 - No new cycle: Event Engine, Item DB, Công Pháp and LLM GM don't depend on Kinh Mạch
   Đồ, and capability hosts depend on the character's capability set, not on this
   system. NPC Builds already depends on it in one direction only.
+
+## Tuning Knobs
+
+Every knob is a data key (see Parameter keys). Ranges marked *derived* follow from other
+numbers in this GDD; ranges marked *guess* wait for a bot run.
+
+| Knob | Value | Safe range | What it moves |
+|---|---|---|---|
+| `cluster_count` | 75 | 60–90, derived: below about 55 the seed rule (25 capability-eligible clusters) cannot be met | Hidden share of the map; about 9 huyệt per cluster |
+| `cluster_size_mean` / `_sd` | 9 / 2.5 | mean 8–11, derived: at mean 7 only about 25 clusters have n ≥ 7, which is the seed rule's floor | Cluster size, entry cost, gate realm, budget |
+| `inner_share` | 0.15 | 0.12–0.18, derived from the seed window of 9–14 inner clusters | How many clusters can open in Luyện Khí |
+| `sealed_share` | 0.667 | 0.55–0.75 | Sealed against open split; the authoring load (about 9 huyệt per sealed cluster) |
+| `huyet_per_notable` | 5 | 4–6 | Notable density in clusters (about 16%) |
+| S0 / N0 | 1.2 / 8 | S0 1.1–1.3 at N0 = 8; N0 7.2–8.7 at S0 = 1.2 (both derived from AC-KMD-06's 2.0–2.2 W mean). Hard ceiling N0 < 19, so the strongest hidden notable (N0·1.75·1.5) stays under the 50 W keystone floor | Tree power per point |
+| P_min / P_max | 1.25 / 1.75 | P_max ≤ 1.75 (user cap); P_min ≥ 1.0 | How much more a hidden huyệt pays than a visible one |
+| `tol` | 1.2 | 1.0–1.5 | Spread allowed on one small huyệt |
+| γ | 0.5 | 0.3–1.0 (1.0 is linear) | How fast compounding caps grow with cluster size |
+| `capability_stat_share` | T1 0.5, T2 0.25, T3 0 | each ≤ 0.5, with T1 ≥ T2 ≥ T3 | Stats kept beside a capability |
+| φ_r | 0.10 / 0.05 | 0.05–0.15 | Most lifespan one cluster may give |
+| `tree_breakthrough_cap` | 8 pp | 4–12, guess | Most breakthrough chance the tree may give |
+| δ_max | 0.10 | 0.05–0.10, derived: above 0.10 an edge life exceeds 0.80 | Breakthrough lift from capabilities #22 and #23 |
+| `open_unseals_per_realm` | 1 / 1 / 1 / 2 / 2 | 0–3 per realm | How often a story moment can open the tree |
+| `npc_unseal_share` | 0.02–0.22 | up to 0.22, derived: the holder share must stay under 15% (AC-KMD-49) | How many NPCs hold a cluster |
+| `cong_phap_seasons` | 24 / 48 | set when the Công Pháp GDD fixes the season length | Length of a công pháp seal |
+
+**Target outcome (guess).** A typical life unseals 3–6 clusters by Nguyên Anh. The
+autoplay bot reports it; AC-KMD-49 bounds NPCs only.
 
 ## Visual/Audio Requirements
 
@@ -1005,7 +1142,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 
 | Document | Relationship |
 |---|---|
-| `design/gdd/game-concept.md` | Pillars 1–3. The concept's Kinh Mạch section must be updated for levels, scale and capabilities (system 10 was flagged for a concept update in the systems index) |
+| `design/gdd/game-concept.md` | Pillars 1–3. The concept has no Kinh Mạch section, so no concept update is outstanding |
 | `design/gdd/systems-index.md` | System 10; dependency and status changes proposed under Dependencies |
 | `design/quick-specs/progression-and-edges.md` | Breakthrough targets (3 in 10 baseline, 7 in 10 with the player's edge); NPC edge curve used in Formulas G; the calibration must be rerun for Formulas A and A2 |
 | `design/quick-specs/luyen-khi-and-tran-phap.md` | Pháp bảo slots and formations, touched by capabilities #1–3, #14, #15 |
@@ -1035,7 +1172,7 @@ Drafted with qa-lead.
 
 **Points (rule 2, Formulas A)**
 
-- **AC-KMD-01** [Logic] With half-away-from-zero rounding, points_total(L) returns:
+- **AC-KMD-01** [Logic] With the integer `share()` of Formulas A, points_total(L) returns:
 
   | L | Total | L | Total | L | Total |
   |---|---|---|---|---|---|
@@ -1055,8 +1192,10 @@ Drafted with qa-lead.
   | Kết Đan | 96 | 113 |
   | Nguyên Anh | 153 | 176 |
   | Hóa Thần | 233 | 267 |
-- **AC-KMD-02** [Logic] points_total(266) = 477 and points_total(267) = 501. A
-  banker's-rounding implementation (500 at 267, 565 at 300) fails this test.
+- **AC-KMD-02** [Logic] points_total(266) = 477, points_total(267) = 501 and
+  points_total(300) = 566. A banker's-rounding implementation (500 at 267, 565 at 300)
+  fails this test, and so does a float implementation (`round(0.35 * 90)` = 31 gives 565
+  at 300). `share(35, 90)` = 32 and `share(25, 90)` = 23 are asserted directly.
 - **AC-KMD-03** [Logic] Each đại viên mãn advance plus the next entry term equals that
   bonus: 5+10 = 15, 9+16 = 25, 14+26 = 40, 21+39 = 60.
 - **AC-KMD-04** [Logic] points_total never decreases over 1..300.
@@ -1074,6 +1213,8 @@ Drafted with qa-lead.
   - Every keystone has power ≥ 50 W under the F weights.
   - k_pts = 3.643 (±0.001).
   - The mean power of visible non-keystone huyệt on the target map is 2.0–2.2 W.
+  - The visible tree's summed breakthrough_chance is at most 4 pp (half of
+    `tree_breakthrough_cap`), which leaves room for hidden clusters.
 - **AC-KMD-07** [Integration, Bot: `autoplay.gd`, ≥ 60 lives = 20 seeds × 3 origins]
   The median tree power at Luyện Khí đại viên mãn is 90–125 W.
 
@@ -1109,6 +1250,8 @@ Drafted with qa-lead.
   - With 5 points, all 5 open.
   - After any sequence of opens, level losses and loads, the new open set contains the
     old one.
+  - Two equally short routes: the one with the higher total scaled value opens; on equal
+    value, the one with the lower ids. The preview shows the same route.
 - **AC-KMD-15** [Logic] Rule 4.
   - Purity 60 gives ×1.10, purity 100 gives ×1.50, and an absent element gives ×0.25.
   - A bridge between Mộc 60 and an absent Hỏa gives ×0.675.
@@ -1146,7 +1289,7 @@ Drafted with qa-lead.
     | 5 | inner | Luyện Khí |
     | 11 | inner | Kết Đan |
 - **AC-KMD-20** [Logic] Seed rejection. A seed giving 8 or 15 inner clusters, or fewer
-  than 25 capability hosts, is rejected. The accepted seed is the same on every run.
+  than 25 capability-eligible clusters (outer, sealed, n ≥ 7), is rejected. The accepted seed is the same on every run.
 - **AC-KMD-21** [Logic] In every cluster, each notable's route distance from the
   nearest entry is ≥ that of every small huyệt.
 - **AC-KMD-22** [Logic] Event condition. The authored template's unseal effect moves
@@ -1186,8 +1329,9 @@ Drafted with qa-lead.
 **Fills and validator (rules 10, 11, 12; Formulas D, E, F)**
 
 - **AC-KMD-29** [Logic] Premium.
-  - d 19, n 9 gives P = 1.5724 (±0.0005), E_small = 1.887 and E_notable = 12.58.
-  - d 5, n 5 gives 1.305; d 4, n 3 gives 1.25; d 23, n 15 gives 1.75.
+  - d_entry 19 (link at d 18), n 9 gives P = 1.5724 (±0.0005), E_small = 1.887 and
+    E_notable = 12.58.
+  - d_entry 5, n 5 gives 1.305; d_entry 4, n 3 gives 1.25; d_entry 23, n 15 gives 1.75.
   - The strongest scaled notable is 21 W, below 50.
 - **AC-KMD-30** [Logic] Budget B.
 
@@ -1209,7 +1353,10 @@ Drafted with qa-lead.
   |---|---|
   | 12 huyệt for n 9 | 9 (extras dropped) |
   | 6 huyệt for n 9 | 9 (3 added from the pool) |
-  | 2 notables for k 1 | 1 notable (the highest-power one), the other demoted |
+  | Reply marks 2 notables for k 1 | Roles come from the slot map: 1 notable; the extra mark is ignored and recorded |
+  | An unknown or repeated slot id | Entry dropped; a missing slot is filled from the pool |
+  | +0.04% attack (below one unit of 0.1) | Removed; a pool stat is added if the huyệt is left empty |
+  | `field_plots` on a small huyệt | Removed (one plot is 10 W, over the small cap); replaced from the pool |
   | −5% defense | stat removed (replaced from the pool if the huyệt is left empty) |
   | A huyệt with 3 stats | the 2 highest-power stats kept |
   | 2 distinct stats | 3 or more |
@@ -1217,14 +1364,22 @@ Drafted with qa-lead.
   - +30% attack on a small is cut to 2.264 W.
   - Cultivation speed summing to 9 at n = 9 is cut to 4. The cap is 2.667 at n = 4 and
     5.164 at n = 15.
-  - A fill of 34.6 W against B = 27.67 is scaled by 0.7997.
-  - A notable's lifespan_years at L_r = 120 is at most 5.03 years.
+  - A fill of 34.6 W against B = 27.67 is scaled by 0.7997, then every value is rounded
+    down to its precision (step 9), so the result is ≤ 27.67 and never above it.
+  - Fixture where scale_all < 1 and one huyệt's only stat is a single unit: after step 9
+    that huyệt keeps one unit, the others are rescaled on the remaining budget, and the
+    total is ≤ B with no tolerance. If the fixed huyệt alone exceed B, the pool fill is
+    used.
+  - A notable's lifespan_years at L_r = 120 is at most 5.03 years, and a cluster's summed
+    lifespan_years is cut to 12 years (φ_r·L_r).
   - +0.4% breakthrough_chance on a small is allowed: 2.0 W ≤ 2.264 W.
 - **AC-KMD-35** [Logic] Property test over 500 seeded hostile fills. After the
   validator, every fill:
-  - has power ≤ B and no negative values;
+  - has power ≤ B (exactly, no tolerance) and no negative values;
+  - has summed lifespan_years ≤ φ_r·L_r;
   - uses only `fill_stats` keys, with at most 2 stats per huyệt;
-  - has n huyệt and k notables, with at least 3 distinct stats;
+  - has n huyệt and k notables on the map's notable slots, with at least 3 distinct stats;
+  - has every value an exact multiple of its precision;
   - has no capability or flag;
   - records every repair.
 - **AC-KMD-36** [Logic] LLM off.
@@ -1250,8 +1405,9 @@ Drafted with qa-lead.
 **Capabilities (rules 16–18; Formula E2)**
 
 - **AC-KMD-41** [Config/Data] The catalogue.
-  - 25 entries with unique ids. Tiers: #10 and #19 are T1; #5, #22 and #23 are T3; the
-    rest are T2.
+  - 25 entries with unique ids. Every tier is T1, T2 or T3. The launch assignment (#10 and
+    #19 T1; #5, #22 and #23 T3; the rest T2) is provisional (Open Question 5): the test
+    compares it with a golden list that changes in the same commit as any re-tiering.
   - Each `npc_effect` is from the closed set and within its caps, and incompatibility
     lists are symmetric.
   - Each capability sits on exactly one notable of a distinct outer sealed cluster with
@@ -1266,7 +1422,14 @@ Drafted with qa-lead.
   pháp bảo is listed with no effect.
 - **AC-KMD-44** [Logic] E2 values.
   - burn_cost(L_r): 120 gives 10, 500 gives 25, 2000 gives 100.
-  - q_desp: 0.25 gives 0.40, 0.10 gives 0.20, 0.90 gives 0.95.
+  - q_desp at S = 0.70: q = 0.25 gives 0.40, q = 0.10 gives 0.20, and q = 0.70 gives 0.80
+    (the δ_max term, 0.70 + 0.10·0.30/0.30, binds, and the lift is exactly 0.100).
+  - q_desp at S = 0.95, q = 0.90 is 0.95 (q_max binds; the lift is 0.025).
+  - S below q cannot occur (S ≥ q); the property test skips those pairs.
+  - Guard clamps: at S = 0.30, q = 0.30, q_retry = 0.1429 and q_desp = 0.40; both lifts
+    are 0.100 (±0.001).
+  - Property test: for S in 0.05–0.95 (step 0.05) and q in 0.01–min(S, 0.95), the lift of #22 and
+    of #23 is ≤ 0.10 + 1e-9 and q_retry ≤ q.
   - With remaining lifespan = burn_cost, the retry is not offered; with burn_cost + 1,
     it is offered.
 - **AC-KMD-45** [Integration, needs the Cảnh Giới host]
@@ -1289,7 +1452,8 @@ Drafted with qa-lead.
   - Only clusters of the NPC's elements at or below its realm are rolled.
 - **AC-KMD-48** [Logic] With every roll forced to succeed:
   - a Trúc Cơ NPC holds 1 cluster, and Nguyên Anh and Hóa Thần NPCs hold 2;
-  - rolls go in ascending id, and open clusters are never held.
+  - rolls go in the NPC's seeded shuffled order (identical on a repeat run, and not
+    ascending id), and open clusters are never held.
   - `npc_effect`:
     - `chien_luc_mult` is capped at ×1.10;
     - `p_step_add` 0.05 on 0.68 gives 0.70;
@@ -1330,8 +1494,11 @@ Drafted with qa-lead.
   test).
   - Setup: 200 seeded Hóa Thần NPCs at 566 points on the target map, plan cache cold.
   - Measurement: `Time.get_ticks_usec()` around the allocate call only.
-  - Pass: p95 ≤ 50 ms and max ≤ 100 ms.
-  - Record median, p95, max and the CPU in `production/qa/evidence/`.
+  - Pass: p95 ≤ 50 ms and max ≤ 100 ms on the project's reference machine. A run on
+    other hardware is informational.
+  - Record median, p95, max and the CPU model in `production/qa/evidence/`; the first
+    passing run on a machine is its baseline, and a later run on the same machine may
+    not exceed it by more than 20%.
 - **AC-KMD-55** [Logic] With a counter injected into the allocator: BFS passes ≤ targets
   reached + 1, and there is no full frontier rescan per point.
 
@@ -1343,12 +1510,21 @@ Drafted with qa-lead.
 - **AC-KMD-57** [UI] Before spending, each huyệt shows its value after rule 4 (including
   ×0.25 for an absent element). The path tool shows the route cost and total gain
   before committing.
-- **AC-KMD-58** [UI] The terminal shows:
-  - Silhouette and Visible content as rule 13 describes;
-  - "to be written by the story" for open clusters;
-  - the waiting realm for pending unseals;
-  - each fill's repairs;
-  - held capabilities with their rule text, and a reason when one is suppressed or idle.
+- **AC-KMD-58** [UI] The captured transcript shows each of these lines:
+  - Silhouette: a hidden cluster line has its location and theme and no condition text;
+    after the player opens a huyệt next to its entry, the condition line appears.
+  - Visible: every cluster line carries its condition; a sealed cluster lists its huyệt
+    names and values; an open cluster reads exactly "to be written by the story".
+  - A pending unseal line names the realm it waits for.
+  - Each fill's repairs are listed one per line, in repair order.
+  - Each held capability line has its name and rule text; an idle or suppressed one adds
+    its reason ("no pháp bảo", "suppressed by <name>").
+
+**Stat ceilings (Formulas F)**
+
+- **AC-KMD-59** [Logic] With open huyệt carrying 11 pp of breakthrough_chance in total,
+  the stat sheet's Kinh Mạch contribution is 8 and the breakdown shows the clamp. At 7 pp
+  nothing is clamped. The ceiling applies to an NPC's sheet the same way.
 
 **Still provisional:**
 - AC-KMD-01 and AC-KMD-02 at L ≥ 267 depend on Open Question 2 (the realm after Hóa
@@ -1366,5 +1542,10 @@ Drafted with qa-lead.
 | 4 | The fixed list of cluster themes, and whether each theme gets a stat whitelist (so a Đan Đạo cluster can't be all attack) | game-designer | Fill validator; sealed authoring |
 | 5 | Capability tiers by measurement (only 5 of 25 have a provisional tier) and the list of incompatible pairs | systems-designer + bot | Formulas E; rule 18 |
 | 6 | Content plan for about 50 fully authored sealed clusters (about 450 huyệt) and 10 more sector keystones (2 per sector instead of 1) | user + writer | Content release 1 |
-| 7 | The lifespan ceiling φ_r never binds, because the per-huyệt power cap binds first. Keep it as a safety net or drop it? | systems-designer | none |
+| 7 | ~~Is φ_r a dead parameter?~~ **Resolved 2026-11-03:** φ_r is now the per-cluster ceiling on summed lifespan_years (Formulas F) | systems-designer | — |
+| 9 | #14 Động Phủ Tùy Thân: the user suggested it may need notables from two clusters (Trận Đạo and Linh Điền). This revision keeps rule 16 (one notable, one cluster) and places it on a hybrid-theme cluster. Does the capability instead require both clusters? That would need a new rule and a changed seed check | user | Rule 16; AC-KMD-41 |
 | 8 | Recalibrate breakthrough targets and NPC cohorts on the level ladder with rescaled values (Formulas A, A2) before any of it ships | Balance harness | Implementation sign-off |
+| 10 | Is the center keystone Ngũ Hành Luân Chuyển adjacent to Đan Điền (a 1-point take for a 5-element root) or behind the gates? | user | Rule 1; AC-KMD-09 |
+| 11 | Cap on event point grants per realm (the Event Engine's budget file should set it) | Event Engine GDD | Rule 2 |
+| 12 | The map generator's topology for the target map (edges inside wheels, routes, how clusters attach) is not specified; AC-KMD-08's golden hash exists only once it is | technical-director | Implementation of rule 1 |
+| 13 | Where Mạch Ấn keys come from (loot, shop, event reward), and the intended number of clusters a typical life unseals | Item DB + Event Engine GDDs | Item seals; Tuning Knobs target |
