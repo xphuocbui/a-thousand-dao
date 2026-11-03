@@ -96,3 +96,12 @@ Round 4 was reverted: the baseline barely moved while the edge fell below target
 round 3's values stand. The baseline's first step needs a lever that does not also hit
 the edge (e.g. herb age or Đan Đạo level for the Trúc Cơ Đan, or making the edge's
 Phá Cảnh Phù / cơ duyên stronger while the pill chance drops).
+| 5 (TC pill 0.04, Hoàng Tinh Sâm 40y, Phá Cảnh Phù +35) | 20/48 = 42% | 7/20 = 35% | 17/24 = 71% | 9/17 = 53% |
+
+Round 5 was reverted too: the baseline's first step moved only 46% → 42% while the edge's
+second step fell 74% → 53%. Rounds 3–5 show the bot's results are noisy (±10 points at
+this sample size) and that the single levers tried (pill chance, herb age, talisman
+strength) move baseline and edge together. Round 3's values stand. A real fix needs a
+lever that applies only to lives without the edge (e.g. a baseline-only breakthrough
+penalty) or a larger sample (96+ lives per arm); both are design decisions for the
+Cảnh Giới & Bình Cảnh GDD, not more blind tuning.
