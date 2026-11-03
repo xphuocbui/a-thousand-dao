@@ -203,7 +203,8 @@ are in Formulas.
     comparable. A notable that carries a capability carries fewer stats
     (`capability_stat_share`). A cluster's modifiers scale with its affinity element
     exactly as rule 4.
-13. **Visibility modes** (a per-life setting fixed at character creation):
+13. **Visibility modes.** A per-life setting, chosen at character creation and changeable
+    at any time during play:
     - **Silhouette**: a hidden cluster shows on the map by its location and theme only; its
       content stays hidden and its condition is revealed only after a *discovery*. A
       discovery happens when the player opens a huyệt adjacent to the cluster's entry, or
@@ -211,7 +212,13 @@ are in Formulas.
     - **Visible**: every cluster shows its location and theme from the start, with its
       condition and, for sealed clusters, its content; an open cluster shows "to be
       written by the story".
-    Default: Thiên Định lives use Silhouette, Tự Định lives use Visible.
+    The suggested default is Silhouette for Thiên Định lives and Visible for Tự Định lives,
+    but any life may pick either mode and switch freely. Switching changes only what is
+    displayed:
+    - Discoveries persist across switches.
+    - A cluster whose condition the player saw in Visible mode counts as discovered after
+      switching to Silhouette.
+    - An open cluster's content stays hidden in both modes until its story moment.
 14. **NPCs.** When a gifted NPC is generated, it may have sealed clusters unsealed, with a
     chance that rises with its realm and edge score (`npc_unseal_chance`, Progression
     Edges owns the edge score); never open clusters, which need the LLM. Unsealed
@@ -1168,7 +1175,10 @@ Drafted with qa-lead.
   - Once the realm allowance is used, the next story moment is dropped and logged and
     grants nothing. The same happens when no cluster is eligible.
 - **AC-KMD-28** [Logic] Visibility.
-  - Thiên Định defaults to Silhouette and Tự Định to Visible.
+  - Thiên Định suggests Silhouette and Tự Định suggests Visible.
+  - Either life can choose either mode at creation and switch at any time.
+  - After a switch from Visible to Silhouette, every condition shown in Visible counts
+    as discovered. Discoveries are never lost on a switch.
   - In Silhouette, the condition stays hidden until a discovery. Discovery comes from
     either entry of a two-link cluster, or from an event, NPC or item hint.
   - In either mode, an open cluster's content is empty before its fill is recorded.
@@ -1343,7 +1353,6 @@ Drafted with qa-lead.
 **Still provisional:**
 - AC-KMD-01 and AC-KMD-02 at L ≥ 267 depend on Open Question 2 (the realm after Hóa
   Thần).
-- AC-KMD-28's defaults depend on Open Question 1.
 - Capability behaviours are tested in each host system's GDD; here only presence, data
   and the guard are covered.
 
@@ -1351,8 +1360,8 @@ Drafted with qa-lead.
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
-| 1 | May a Thiên Định life choose Visible mode, or is Silhouette fixed for it (achievement fairness)? | user | UI, Thành Tựu |
-| 2 | What realm follows Hóa Thần? Its bonus (placeholder 90) sets the Hóa Thần đại viên mãn advance (32 points) | user + Cảnh Giới GDD | Formulas A at level 300 |
+| 1 | ~~May a Thiên Định life choose Visible mode?~~ **Resolved 2026-11-03:** any life chooses either mode at creation and can switch during play (rule 13) | user | — |
+| 2 | What comes after Hóa Thần (an end, more realms, or ascension)? **Deferred by the user 2026-11-03.** The placeholder next bonus of 90 stands, so the level-300 advance is 32 points | user + Cảnh Giới GDD | Nothing for now |
 | 3 | Level bands, tu vi per level and the size of the stat rise at each great and small breakthrough | Cảnh Giới GDD | Formulas A; implementation |
 | 4 | The fixed list of cluster themes, and whether each theme gets a stat whitelist (so a Đan Đạo cluster can't be all attack) | game-designer | Fill validator; sealed authoring |
 | 5 | Capability tiers by measurement (only 5 of 25 have a provisional tier) and the list of incompatible pairs | systems-designer + bot | Formulas E; rule 18 |
