@@ -54,7 +54,7 @@
 #   in any other shape is reported as unsupported layout, with its number.
 
 version: 1
-last_updated: ""
+last_updated: "2026-11-03"
 
 # ─── ENTITIES ────────────────────────────────────────────────────────────────
 # Named game-world objects: enemies, NPCs, characters, factions, bosses.
@@ -123,7 +123,78 @@ items: []
 #   output_range[min, max], added
 # Optional: expression (the actual formula), notes
 
-formulas: []
+formulas:
+  - name: points_total
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    variables:
+      - L
+      - pts_birth
+      - realm_level_bands
+      - great_breakthrough_bonus
+      - small_breakthrough_shares
+      - pts_event
+    output_range: [2, 566]
+    expression: "pts_birth + (L - 1) + sum of realm bonuses reached + pts_event"
+    notes: "Kinh Mạch points earned by highest level L; Cảnh Giới owns the ladder (provisional). Half-away-from-zero rounding. 51/120/216/357/566 at each đại viên mãn."
+    added: 2026-11-03
+    revised: ""
+  - name: breakthrough_guard
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+      - design/quick-specs/progression-and-edges.md
+    variables:
+      - S
+      - q
+      - q_max
+      - delta_desp
+      - delta_max
+      - burn_cost
+    output_range: [0, 0.10]
+    expression: "q_desp = min(2q, q + delta_desp, q_max); lift = max(S22, S23) - S <= delta_max"
+    notes: "Caps the realm success lift from capabilities 22 and 23; at most one acts per realm step. Must agree with the progression targets (0.30 baseline, 0.70 with the player edge)."
+    added: 2026-11-03
+    revised: ""
+  - name: npc_unseal_chance
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+      - design/quick-specs/progression-and-edges.md
+    variables:
+      - a_max
+      - base_step
+      - max_step
+      - edge
+      - M_r
+    output_range: [0, 0.02]
+    expression: "a = a_max[r] * (base_step + min(e,1)*(max_step-base_step)) / max_step; p = 1 - (1-a)^(1/M_r)"
+    notes: "Per eligible sealed cluster, rolled at NPC generation. Shares the NPC edge curve (0.30/0.70) with Progression Edges."
+    added: 2026-11-03
+    revised: ""
+  - name: cluster_fill_budget
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    variables:
+      - P
+      - n
+      - k
+      - c
+      - S0
+      - N0
+      - f_tier
+      - stat_power_weights
+    output_range: [13, 67.2]
+    expression: "B = P * ((n-k)*S0 + (k-c)*N0 + c*f_tier*N0)"
+    notes: "Budget in W for an LLM-filled or authored cluster; the LLM Game Master fill validator enforces it."
+    added: 2026-11-03
+    revised: ""
 
 # Example:
 #
@@ -156,7 +227,128 @@ formulas: []
 #
 # Required fields: name, status, source, referenced_by, value, unit, added
 
-constants: []
+constants:
+  - name: level_cap
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: 300
+    unit: level
+    notes: "Highest cultivation level; 1 Kinh Mạch point per level gained."
+    added: 2026-11-03
+    revised: ""
+  - name: realm_level_bands
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: "Luyện Khí 1-39, Trúc Cơ 40-79, Kết Đan 80-129, Nguyên Anh 130-199, Hóa Thần 200-300"
+    unit: levels
+    notes: "Provisional; Cảnh Giới & Bình Cảnh owns them. The bình cảnh holds the level at each band top until the breakthrough."
+    added: 2026-11-03
+    revised: ""
+  - name: great_breakthrough_bonus
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: [15, 25, 40, 60]
+    unit: points
+    notes: "Trúc Cơ, Kết Đan, Nguyên Anh, Hóa Thần. Placeholder 90 for the realm after Hóa Thần."
+    added: 2026-11-03
+    revised: ""
+  - name: small_breakthrough_shares
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: [0.15, 0.25, 0.35]
+    unit: share of next great bonus
+    notes: "Trung kỳ and hậu kỳ are extra; đại viên mãn is an advance deducted from the great breakthrough."
+    added: 2026-11-03
+    revised: ""
+  - name: kinh_mach_birth_points
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: 2
+    unit: points
+    notes: "Points at birth."
+    added: 2026-11-03
+    revised: ""
+  - name: huyet_value_small
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: 1.2
+    unit: W
+    notes: "S0 after the A2 rescale; 1 W = +1% attack."
+    added: 2026-11-03
+    revised: ""
+  - name: huyet_value_notable
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: 8
+    unit: W
+    notes: "N0 after the A2 rescale."
+    added: 2026-11-03
+    revised: ""
+  - name: keystone_min_power
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: 50
+    unit: W
+    notes: "Weakest keystone positive side; no cluster huyệt may exceed it (max 21 W)."
+    added: 2026-11-03
+    revised: ""
+  - name: stat_power_weights
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: "attack/defense/linh_luc_pct 1.0, khi_huyet_pct 1.2, than_thuc/artifact_power_pct 1.3, tam_ma_resist/stealth 1.5, dan_doc_resist 1.6, cultivation_speed_pct 2.2, herb_growth 0.9, mission_income 0.7, alchemy_success 2.7, breakthrough_chance 5, khi_van/ngo_tinh 5, refining_success 2.0, formation_power 1.0, dan_doc_decay 8, density_bonus 140, field_plots 10, lifespan_years 300/L_r"
+    unit: W per displayed unit
+    notes: "Shared by the fill validator, NPC Builds and Character Stats; guesses until the bot confirms."
+    added: 2026-11-03
+    revised: ""
+  - name: hidden_cluster_count
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: 75
+    unit: clusters
+    notes: "Launch release; about 50 sealed and 25 open, sizes N(9, 2.5) clamped 3-15."
+    added: 2026-11-03
+    revised: ""
+  - name: capability_count
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: 25
+    unit: capabilities
+    notes: "Authored catalogue; sealed outer clusters with n >= 7 only."
+    added: 2026-11-03
+    revised: ""
+  - name: npc_cluster_holder_max_share
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+      - design/quick-specs/progression-and-edges.md
+    value: 0.15
+    unit: share of NPCs per realm
+    notes: "Target ceiling for NPCs holding any hidden cluster."
+    added: 2026-11-03
+    revised: ""
 
 # Example:
 #
