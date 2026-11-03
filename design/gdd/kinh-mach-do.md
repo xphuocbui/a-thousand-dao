@@ -152,7 +152,7 @@ are in Formulas.
    - **Levels:** 1 point per level gained. A level gives points only; stat rises come from
      breakthroughs.
    - **Great breakthroughs:** entering a new realm (its early stage, sơ kỳ). Each one has a
-     bonus (`breakthrough_bonus`: Foundation Establishment [Trúc Cơ] 15, Core Formation [Kết
+     bonus (`great_breakthrough_bonus`: Foundation Establishment [Trúc Cơ] 15, Core Formation [Kết
      Đan] 25, Nascent Soul [Nguyên Anh] 40, Deity Transformation [Hóa Thần] 60).
    - **Small breakthroughs:** inside each realm, the early, middle and late stages (sơ kỳ,
      trung kỳ, hậu kỳ) split the realm's levels into thirds, and great perfection (đại viên
@@ -336,8 +336,8 @@ are in Formulas.
     | 19 | Child of Fortune (Khí Vận Chi Tử) | Once per realm, reroll a failed event check | Event Engine |
     | 20 | Concealed Breath (Liễm Tức Ẩn Thân) | Others see the character two stages lower; hostile events −30% frequency | Event Engine, NPCs |
     | 21 | Blink Mark (Thuấn Di Ấn) | Once a year, travel instantly to any visited place | Travel |
-    | 22 | Last Radiance (Hồi Quang Phản Chiếu) | With under 5 years of lifespan left, breakthrough chance up to ×2 (capped by Formulas E2) | Realms |
-    | 23 | Burning Life to Break Through (Thiêu Thọ Phá Cảnh) | After a failed breakthrough, burn 10 years of lifespan (5% of the realm's lifespan if more) to retry at once | Realms, Lifespan |
+    | 22 | Last Radiance (Hồi Quang Phản Chiếu) | With under 5 years of lifespan left, the breakthrough chance of a pill attempt is up to ×2 (capped by Formulas E2) | Realms |
+    | 23 | Burning Life to Break Through (Thiêu Thọ Phá Cảnh) | After a failed pill attempt, burn 10 years of lifespan (5% of the realm's lifespan if more) to retry at once | Realms, Lifespan |
     | 24 | Mutation Awakening (Biến Dị Khai Mở) | Each realm breakthrough rolls one extra chance at a new root mutation (biến dị) | Spiritual Root |
     | 25 | Heart Demon Turned to Strength (Tâm Ma Hóa Lực) | Heart demon above 50 adds attack (+heart demon ÷ 2 %); backlash chance ×2 | Heart Demon, Combat |
 
@@ -392,7 +392,7 @@ All interfaces are provisional where the other GDD does not exist yet.
 |---|---|---|---|
 | Spiritual Root | in | purity per element, base element count (rule 3, 4) | Spiritual Root |
 | Character Stats | out | modifiers {source, stat, value}; the character's capability set (held capability ids); the tree never computes a stat | Character Stats (stat keys and their meaning; storage of the capability set) |
-| Realms & Bottlenecks | in | points per stage and per breakthrough; the realm (realm minimum, budgets) | Realms |
+| Realms & Bottlenecks | in | the highest level reached (points_total, Formulas A) and the ladder constants (bands, great breakthrough bonuses, shares); the realm (realm minimum, budgets). Its `level_gained`, `stage_reached` and `breakthrough_succeeded` events trigger the recompute | Realms |
 | Event Engine | in | effects "unseal this cluster" and "story moment: unseal an open cluster", both gated by the budget file; the existing "grant a point" effect | Event Engine (gating); this GDD (what the effects do) |
 | Item DB | in | Meridian Seal key items bound to a cluster | Item DB (item kind); this GDD (what the key does) |
 | Cultivation Techniques | in | a cultivation technique's list of clusters it can unseal, and active-seasons tracking | Cultivation Techniques (record); this GDD (the rule) |
@@ -699,11 +699,12 @@ guesses made before any measurement.
 Capabilities #22 Last Radiance and #23 Burning Life to Break Through must not move a
 realm's breakthrough success by more than δ_max.
 
-**Attempt model.** A realm step is a series of attempts, each succeeding with chance q,
+**Attempt model.** A realm step is a series of pill attempts (bare attempts, defined
+by Realms & Bottlenecks, are not part of it), each succeeding with chance q,
 until one succeeds or the life ends. S is the resulting chance of crossing the realm.
 - **#22 (desperation)** replaces one attempt's chance q with q_desp.
 - **#23 (retry)** adds one extra attempt with chance q_retry (at most q) right after a
-  failure, without waiting.
+  failed pill attempt, without waiting.
 - **At most one of #22 and #23 acts per realm step.** A character holding both chooses
   which to use for that realm.
 
@@ -721,7 +722,7 @@ formulas assume S < 1: at S = 1 there is nothing to lift, and neither capability
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| S | float | ≈ 0.30 / ≈ 0.70 | data file (progression targets) | Success per realm before capabilities, baseline / player edge |
+| S | float | 0–0.95 | calculated (S_guard, Realms & Bottlenecks GDD, Formulas H) | Lower bound on success per realm before capabilities, from the pill attempts made and the pills held (targets ≈ 0.30 baseline / ≈ 0.70 player edge) |
 | q | float | 0.01–0.95 | calculated (`CultivationRules`) | Chance per attempt |
 | q_retry | float | 0.01–0.95 | calculated | Chance of #23's extra attempt, clamped by the guard |
 | q_max | float | 0.95 | data file | Ceiling on any attempt's chance |
@@ -1443,7 +1444,7 @@ as the bidirectional-dependency rule requires.
 | 2 | Deterministic Simulation Core | The seeded RNG for map generation (fixed seed per content release) and NPC allocation; Breakdown for explainable values |
 | 6 | Spiritual Root (Linh Căn) | Purity per element and base element count (rules 3 and 4) |
 | 7 | Character Stats | Accepts modifiers {source, stat, value}; owns stat keys, units and meaning, and the stat weights' reference values; stores the character's capability set (held capability ids), which the Meridian Map writes and every capability host reads |
-| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Level, realm and stage; level bands, breakthrough bonuses and α shares (Formulas A); realm lifespan L_r; breakthrough attempts for #22 and #23 |
+| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Level, realm and stage; level bands, great breakthrough bonuses and the `pct_trung` / `pct_hau` / `pct_dai` shares (Formulas A); realm lifespan L_r; pill attempts for #22 and #23 |
 
 **Upstream: the cluster layer needs them; the base tree works without them (soft)**
 
@@ -1519,7 +1520,7 @@ numbers in this GDD; ranges marked *guess* wait for a bot run.
 | `cluster_count` | 75 | 60–90, derived: below about 55 the seed rule (25 capability-eligible clusters) cannot be met. The inner window of 9–14 is fixed, so at either end about half of all seeds are rejected; move the window with the count | Hidden share of the map; about 9 acupoints (huyệt) per cluster |
 | `size_realm_gates` (g1, g2) / `cap_min_n` | 6, 10 / 7 | g1 5–6 and always below `cap_min_n` (at g1 = 7 an outer n = 7 cluster would gate at Foundation Establishment [Trúc Cơ]), g2 9–11; cap_min_n 7 (it must keep every capability at Core Formation [Kết Đan] or later) | Which realm each cluster size opens in; how many clusters can carry a capability |
 | Δ_desp / `q_max` / burn share | 0.15 / 0.95 / 5% | Δ_desp 0.05–0.15, q_max ≤ 0.95, burn share 3–10%, guess | Strength of #22 Last Radiance (Hồi Quang Phản Chiếu) and cost of #23 Burning Life to Break Through (Thiêu Thọ Phá Cảnh) (Formulas E2) |
-| `pts_birth`, `breakthrough_bonus`, `pct_trung` / `pct_hau` / `pct_dai` | 2, 15/25/40/60, 15/25/35 | provisional; Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) owns them. Keep `pct_trung` + `pct_hau` + `pct_dai` ≤ 100 | Points per life (Formulas A) |
+| `pts_birth`, `great_breakthrough_bonus`, `pct_trung` / `pct_hau` / `pct_dai` | 2, 15/25/40/60, 15/25/35 | provisional; Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) owns them. Keep `pct_trung` + `pct_hau` + `pct_dai` ≤ 100 | Points per life (Formulas A) |
 | `cluster_size_mean` / `_sd` | 9 / 2.5 | mean 8–11, derived: at mean 7 only about 25 clusters have n ≥ 7, which is the seed rule's floor | Cluster size, entry cost, gate realm, budget |
 | `inner_share` | 0.15 | 0.12–0.18, derived from the seed window of 9–14 inner clusters | How many clusters can open in Qi Refining (Luyện Khí) |
 | `sealed_share` | 0.667 | 0.55–0.75 | Sealed against open split; the authoring load (about 9 acupoints per sealed cluster) |

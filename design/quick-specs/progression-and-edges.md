@@ -79,6 +79,13 @@ generation's realm mix is set to match these rates.
 
 ## Calibration log
 
+> **Superseded values (2026-11-03).** The Realms & Bottlenecks GDD (`design/gdd/canh-gioi.md`,
+> Formulas C–G) replaces round 3's values: the FE→CF pill becomes 0.16; bare chances become
+> 0.004 / 0.0037 / 0.0037 / 0.003 with no talent bonuses; heart demon is +15 per failure with
+> 0.25 decay; Phá Cảnh Phù is +10 and boosts only pill attempts; each great breakthrough also
+> needs a realm condition. The next calibration round runs on those values. The rounds
+> below are kept as history.
+
 | Round (2026-11-03) | Baseline QR→FE | Baseline FE→CF | Edge QR→FE | Edge FE→CF |
 |---|---|---|---|---|
 | 1 (old odds; bot declined event gifts) | 24/30 = 80% | 8/24 = 33% | 24/24 = 100% | 10/24 = 42% |

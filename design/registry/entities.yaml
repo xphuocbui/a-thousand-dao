@@ -124,6 +124,65 @@ items: []
 # Optional: expression (the actual formula), notes
 
 formulas:
+  - name: level_cost
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    variables:
+      - T_c
+      - g
+      - b
+      - lo
+      - hi
+    output_range: [9.6, 30456]
+    expression: "cost(L) = c0*r^(L-lo); r = g^(1/(M-1)); c0 = T_c*(r-1)/(r^M-1); bar = b*cost(hi-1)"
+    notes: "Tu vi per level; realm climbing costs sum to climb_total. Bars 230 / 2,360 / 14,096 / 65,821."
+    added: 2026-11-03
+    revised: ""
+  - name: stage_multiplier
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    variables:
+      - stage_power_step
+      - s
+    output_range: [1.0, 1.45]
+    expression: "1 + stage_power_step * s, s = small breakthroughs reached in the realm"
+    notes: "Multiplies spiritual power, divine sense, vitality and the combat power realm term; resets to 1.0 on the next realm."
+    added: 2026-11-03
+    revised: ""
+  - name: realm_step_success
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/quick-specs/progression-and-edges.md
+    variables:
+      - P_C
+      - lambda
+      - q_pill
+      - S_bare
+    output_range: [0, 1]
+    expression: "S = P_C*(1 - e^(-lambda*q_pill + talisman extras)) + S_bare"
+    notes: "Targets about 0.30 baseline and 0.70 with the player edge; the baseline lever is pill supply (herb min_age)."
+    added: 2026-11-03
+    revised: ""
+  - name: guard_success
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/gdd/kinh-mach-do.md
+    variables:
+      - q_i
+      - s_max
+    output_range: [0, 0.95]
+    expression: "S_guard = min(1 - prod(1 - q_i) over pill attempts made plus held pills with the condition met, s_max)"
+    notes: "Lower bound on realm-step success; used as S by the Meridian Map breakthrough guard (E2)."
+    added: 2026-11-03
+    revised: ""
   - name: points_total
     status: active
     source: design/gdd/kinh-mach-do.md
@@ -228,11 +287,188 @@ formulas:
 # Required fields: name, status, source, referenced_by, value, unit, added
 
 constants:
+  - name: stage_power_step
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: 0.15
+    unit: multiplier per small breakthrough
+    notes: "User decision; derived ceiling 0.24."
+    added: 2026-11-03
+    revised: ""
+  - name: realm_climb_totals
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: [1025, 5600, 42000, 276000, 1850000]
+    unit: tu vi
+    notes: "Built totals rescaled x1/x2/x3/x4/x5 (user decision) so later realms take real time."
+    added: 2026-11-03
+    revised: ""
+  - name: bottleneck_bar_mult
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: [4, 10, 10, 10]
+    unit: x last climbing cost
+    notes: "QR, FE, CF, NS; Deity Transformation has no bar."
+    added: 2026-11-03
+    revised: ""
+  - name: breakthrough_pill_chance
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/quick-specs/progression-and-edges.md
+    value: [0.06, 0.16, 0.20, 0.15]
+    unit: chance per pill attempt
+    notes: "QR->FE, FE->CF, CF->NS, NS->DT."
+    added: 2026-11-03
+    revised: ""
+  - name: breakthrough_bare_chance
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/quick-specs/progression-and-edges.md
+    value: [0.004, 0.0037, 0.0037, 0.003]
+    unit: chance per bare attempt
+    notes: "No bonuses apply; bare_attempt_cap bounds the total at about 0.012 per realm step."
+    added: 2026-11-03
+    revised: ""
+  - name: failure_tam_ma_gain
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/quick-specs/progression-and-edges.md
+    value: 15
+    unit: heart demon per failed attempt
+    notes: "Lands before the qi deviation roll; bare failures too."
+    added: 2026-11-03
+    revised: ""
+  - name: failure_tu_vi_loss_pct
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: 0.30
+    unit: share of the bottleneck bar lost per failed attempt
+    notes: "Built value; sets the refill time after a failure."
+    added: 2026-11-03
+    revised: ""
+  - name: failure_khi_huyet_loss_pct
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: 0.40
+    unit: share of maximum vitality lost per failed attempt
+    notes: "Floor is vitality_floor (0.05)."
+    added: 2026-11-03
+    revised: ""
+  - name: vitality_floor
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: 0.05
+    unit: share of maximum vitality
+    notes: "Floor for the failure loss and the vitality after a qi deviation."
+    added: 2026-11-03
+    revised: ""
+  - name: backlash_death_tam_ma_threshold
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: 90
+    unit: heart demon
+    notes: "A qi deviation that hits at this heart demon or more kills; no deviation hit means no death."
+    added: 2026-11-03
+    revised: ""
+  - name: tam_ma_backlash_divisor
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: 2.0
+    unit: divisor on Dao heart
+    notes: "Deviation chance = max(0, heart demon - Dao heart / divisor) %."
+    added: 2026-11-03
+    revised: ""
+  - name: tam_ma_natural_decay
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: 0.25
+    unit: heart demon per season
+    notes: "Was 0.5."
+    added: 2026-11-03
+    revised: ""
+  - name: breakthrough_talisman_value
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/quick-specs/progression-and-edges.md
+    value: 10
+    unit: percentage points
+    notes: "Phá Cảnh Phù; one per pill attempt, never on bare attempts."
+    added: 2026-11-03
+    revised: ""
+  - name: core_density_min
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: 1.4
+    unit: spiritual qi density
+    notes: "Core Formation condition: place density plus density_bonus."
+    added: 2026-11-03
+    revised: ""
+  - name: nascent_tam_ma_max
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: 20
+    unit: heart demon
+    notes: "Nascent Soul condition (at most)."
+    added: 2026-11-03
+    revised: ""
+  - name: bare_attempt_cap
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: 3
+    unit: attempts per realm step
+    notes: "Bare breakthrough attempts allowed per realm step; bounds S_bare at about 0.012."
+    added: 2026-11-03
+    revised: ""
+  - name: breakthrough_success_targets
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/gdd/kinh-mach-do.md
+      - design/quick-specs/progression-and-edges.md
+    value: [0.30, 0.70]
+    unit: realm-step success
+    notes: "Baseline / player edge; the Deity Transformation target includes the Heavenly Tribulation."
+    added: 2026-11-03
+    revised: ""
   - name: level_cap
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
+      - design/gdd/canh-gioi.md
     value: 300
     unit: level
     notes: "Highest cultivation level; 1 Kinh Mạch point per level gained."
@@ -240,9 +476,10 @@ constants:
     revised: ""
   - name: realm_level_bands
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
+      - design/gdd/canh-gioi.md
     value: "Luyện Khí 1-39, Trúc Cơ 40-79, Kết Đan 80-129, Nguyên Anh 130-199, Hóa Thần 200-300"
     unit: levels
     notes: "Provisional; Cảnh Giới & Bình Cảnh owns them. The bình cảnh holds the level at each band top until the breakthrough."
@@ -250,9 +487,10 @@ constants:
     revised: ""
   - name: great_breakthrough_bonus
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
+      - design/gdd/canh-gioi.md
     value: [15, 25, 40, 60]
     unit: points
     notes: "Trúc Cơ, Kết Đan, Nguyên Anh, Hóa Thần. Placeholder 90 for the realm after Hóa Thần."
@@ -260,9 +498,10 @@ constants:
     revised: ""
   - name: small_breakthrough_shares
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
+      - design/gdd/canh-gioi.md
     value: [0.15, 0.25, 0.35]
     unit: share of next great bonus
     notes: "Trung kỳ and hậu kỳ are extra; đại viên mãn is an advance deducted from the great breakthrough. Stored as integer percents 15/25/35 (pct_trung, pct_hau, pct_dai); share(p,B)=floor((p*B+50)/100), integer arithmetic only."

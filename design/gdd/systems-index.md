@@ -60,7 +60,7 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 5 | Save/Load (inferred) | Persistence | MVP | Implemented | — | World DB, Time & Turn |
 | 6 | Spiritual Roots (Linh Căn) (incl. changing spiritual roots) | Progression | MVP | Implemented | — (quick spec for changing roots: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md) | Config, Sim Core |
 | 7 | Character Stats (innate talent [thiên phú], derived, craft mastery [đạo nghệ]) | Progression | MVP | Implemented | — | Spiritual Roots, Sim Core, Config |
-| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Progression | MVP | Implemented | — (calibration notes: design/quick-specs/progression-and-edges.md) | Character Stats, Spiritual Roots, Time & Turn, Item DB |
+| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Progression | MVP | Approved (third lean review 2026-11-03, 7 recommended revisions open; built on the old stage ladder; levels, conditions and the pill/bare split not built) | design/gdd/canh-gioi.md | Config, Sim Core, Time & Turn, Spiritual Roots, Character Stats, Item DB; soft: Cultivation Techniques, Spirit Herbs, Alchemy, Formations, Travel & Map, Event Engine, Progression Edges |
 | 9 | Cultivation Techniques (Công Pháp) | Progression | MVP | Implemented | — | Item DB, Spiritual Roots, Realms |
 | 10 | Meridian Map (Kinh Mạch Đồ) (added by request) | Progression | MVP | Approved: 6 lean reviews, the sixth found no blockers (partially implemented: base tree at 202-acupoint [huyệt] prototype scale; levels, clusters, capabilities not built) | design/gdd/kinh-mach-do.md | Spiritual Roots, Character Stats, Realms, Config, Sim Core; soft: Event Engine, Item DB, Cultivation Techniques, LLM GM, World DB, Edges |
 | 11 | Progression Edges: destiny perk (thiên mệnh), fortuitous encounters (cơ duyên), NPC edges (added by request) | Progression | MVP | Implemented | quick spec: design/quick-specs/progression-and-edges.md | Character Stats, Realms, Event Engine (player half) |
@@ -290,11 +290,11 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | Total systems identified | 38 |
 | Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (beasts only), 21 (duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin) |
 | Systems not started | 6: 12, 22, 31, 34, 37, 38 (plus spirit insects [linh trùng], inside 19) |
-| GDDs started | 1 (10 Meridian Map [Kinh Mạch Đồ], designed 2026-11-03) |
+| GDDs started | 2 (10 Meridian Map [Kinh Mạch Đồ], approved; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], approved 2026-11-03) |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
 | Design docs reviewed | 1 (Meridian Map: 6 lean passes; the fourth and fifth each found 1 blocker, fixed; the sixth APPROVED) |
 | Design docs approved | 0 |
-| MVP systems designed | 1 / 25 |
+| MVP systems designed | 2 / 25 |
 | Vertical Slice systems designed | 0 / 8 |
 
 ---
