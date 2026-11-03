@@ -98,3 +98,75 @@ Open Questions 12 (map topology) and 10 (center keystone) were resolved after th
 - AC-KMD-06/10/11/12 updated and AC-KMD-60..66 added.
 
 These sections (rule 1, Formulas A2, B, D d_entry, H, Tuning Knobs, Parameter keys) have NOT had an independent /design-review. Review them before the tree generator is built.
+
+## Review — 2026-11-03 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none (lean)
+Blocking items: 1 | Recommended: 7
+Summary: Full re-review, including the topology added after the closure. All arithmetic reproduces (points ladder, visible tree sizing of 802, skeleton edges 506, degree split 40/45, premium, budgets, E2 guard, NPC unseal chance, cluster-size distribution) and the registry has no conflicts. All three third-pass blockers are resolved. One new blocker in the shape catalogue: the 2-step notable rule cannot be met for some (shape, n, E) combinations, so AC-KMD-66 could not pass. The GDD was revised in the same session (see Resolution); the hashes below are of the version reviewed, before those edits, so the next review runs in full.
+Prior verdict resolved: Yes (third-pass blockers fixed; the post-closure topology is now reviewed)
+Findings:
+- [BLOCKING] Topology G6 / AC-KMD-66: notable_min_entry_dist 2 is unsatisfiable for Ring n 5 (E 3, and the bridge pair v0,v2) and Star n 5 (E 3); "supports n and E" ignored it
+- [RECOMMENDED] Formulas A2 / Rule 1: the center keystone (d 1, 50 W, 1 point) is about +47% of a Luyện Khí tree; keystone drawbacks unpriced; AC-KMD-07 silent on 5-element lives
+- [RECOMMENDED] Tuning Knobs: g1 range 5-7 conflicts with cap_min_n 7 (g1 = 7 gates an n = 7 capability cluster at Trúc Cơ)
+- [RECOMMENDED] G7 link capacity: about 150 kinh lộ host slots, not 175, so the ratio is about 1.27 against a 1.25 margin; inner and middle unchecked; no expansion capacity stated for rule 19
+- [RECOMMENDED] Generator feasibility: combined seed acceptance rate unknown against seed_max_attempts 64; G8.3 repair does not re-run the local checks
+- [RECOMMENDED] Formulas F step 9 vs AC-KMD-35: a dropped sole stat plus an attack_pct fix can leave fewer than 3 distinct stats
+- [RECOMMENDED] Text: "wheels" undefined; Open Question 6 "10 more keystones" arithmetic; Formulas H hard-coded radial counts; "about 4%" lifespan figure is 4.7%
+- [RECOMMENDED] Open Questions 5, 9 and 14 still open (capability tiers, #14 two-cluster requirement, tree-wide lifespan ceiling)
+Resolution (same day, user chose revise now): "supports" now includes the notable-distance test with unsupported and supported fixtures in AC-KMD-66 (user chose this over relaxing the rule at n 5); AC-KMD-67 added for generator acceptance (at least 10% of 200 seeds); center keystone kept and marked intended, 5-element lives excluded from AC-KMD-07's median (user's choice); g1 range 5-6; link capacity recounted to 1.27 with an expansion note; G8.3 repair re-runs local checks; step 9 variety re-check added; text items fixed. Open Questions 5, 9 and 14 stay open. Re-review pending.
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md da0d3b4866255a7ebe335fc9db118ac9dd3155a9
+Reviewed-Content-Hash: design/registry/entities.yaml 62f8c116bf16e792b73237ee632743d092a6079d
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/game-concept.md 1e19d8772a8f7a098184d3223d3e9d86b4a9a261
+Reviewed-Content-Hash: design/gdd/systems-index.md f939cd73cd055edcfa4cb425c6816c07349d8a0e
+Reviewed-Content-Hash: design/quick-specs/progression-and-edges.md 9a0d75dc0b6082a4ec34474342cd299edfc8fbbd
+
+## Review — 2026-11-03 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none (lean)
+Blocking items: 1 | Recommended: 7
+Summary: Full re-review of the revision made after the fourth pass. The prior blocker (notable distance vs AC-KMD-66) is resolved: the Ring and Star n=5 fixtures check out by hand, as do the recounted link capacity (about 150 kinh lộ slots, ratio 1.27), the hội and degree split (40 and 45), the 802 total, the 2.36 average degree and the AC-KMD-12, 29, 30, 34 and 63 fixtures. The registry has no conflicts. One new blocker: the step 9 "variety after the loop" re-check added last pass compares against B_rest, which ignores the unfixed huyệt, and does not check the per-huyệt cap, so it can exceed B or a huyệt cap; AC-KMD-35 does not assert the per-huyệt cap. The GDD was revised in the same session (see Resolution); the hashes below are of the version reviewed, before those edits, so the next review runs in full.
+Prior verdict resolved: Yes (fourth-pass blocker fixed)
+Findings:
+- [BLOCKING] Formulas F step 9 variety re-check: tests B_rest (not the cluster's real total) and ignores the huyệt power cap, so a result can exceed B or a cap; AC-KMD-35 has no per-huyệt cap assertion
+- [RECOMMENDED] G6 "supports" depends on role (bridge slots) and k (visible vs hidden); AC-KMD-66 enumerated only (shape, n, E); no check that some shape always supports
+- [RECOMMENDED] link_capacity_margin: G7 says report-only above 1.0, Tuning Knobs said it rejects the launch map; AC-KMD-67 listed it as a rejection reason
+- [RECOMMENDED] entry_count_weights range 1.8-2.3 "derived from margin 1.25" is wrong: the margin caps the mean at about 2.03; AC-KMD-65's 2.15 gives a ratio of about 1.18
+- [RECOMMENDED] Name collision: right radial R (R2 at G1, R9, R17) vs ring roads R1-R3
+- [RECOMMENDED] G8.3 shape conversion does not say how entries move to the new shape's slots
+- [RECOMMENDED] ring_anchor_depths safe range (K1 4-6, K2 13-15) breaks the hard-coded hội spacing of G2 / AC-KMD-61
+- [RECOMMENDED] Open Questions 4, 5, 9 and 14 still open; map size stated as 1,475 and 1,477
+Resolution (same day, user chose revise now): variety unit now needs a single-stat huyệt, room under its cap and the cluster's real total plus the unit at or below B, else the pool fill; AC-KMD-35 asserts the huyệt cap and AC-KMD-34 has three variety fixtures; "supports" is evaluated per role and k, with a coverage property and two new fixtures in AC-KMD-66; link margin is report-only everywhere (user's choice); entry mean range 1.8-2.15 with the derivation corrected; rings renamed K1-K3 (user's choice); G8.3 maps entries by slot index; ring anchors fixed at 5 / 14 / 20 (user's choice); 1,477 explained; extra hội hosts noted in G7. Open Questions 4, 5, 9 and 14 stay open. Re-review pending.
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md fb0a2d39d413b52356d569e0ad421f322d6e21c6
+Reviewed-Content-Hash: design/registry/entities.yaml 62f8c116bf16e792b73237ee632743d092a6079d
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/game-concept.md 1e19d8772a8f7a098184d3223d3e9d86b4a9a261
+Reviewed-Content-Hash: design/gdd/systems-index.md a0191fa9c6b5e4a48bd28e8ffd9253732c7a8acf
+Reviewed-Content-Hash: design/quick-specs/progression-and-edges.md 9a0d75dc0b6082a4ec34474342cd299edfc8fbbd
+
+## Review — 2026-11-03 — Verdict: APPROVED
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none (lean)
+Blocking items: 0 | Recommended: 8
+Summary: Full re-review after the step 9 variety fix. The prior blocker is resolved: the variety unit needs a single-stat huyệt, room under its cap, and the cluster's real total plus the unit at or below B. Recomputed by hand with no discrepancy: every AC-KMD-01 row and AC-02/03, the 802 total, 430 kinh lộ, 85 hội (40/45), 506 skeleton and 946 total edges (mean degree 2.36), AC-KMD-66 fixtures, link capacity 1.27, AC-30 budgets, E2 examples, AC-47. The registry has no conflicts. Remaining items are wording and specification detail, not design gaps.
+Prior verdict resolved: Yes (fifth-pass blocker fixed)
+Findings:
+- [RECOMMENDED] AC-KMD-34: "lifespan_years at L_r = 120 is at most 5.03 years" holds only for the n 9, d_entry 19 cluster; at P 1.75 the cap is 5.6 years (consistent with the 4.7% in Formulas F). Name the cluster or state 5.6
+- [RECOMMENDED] Formulas F step 9 variety unit: no rule for which qualifying huyệt receives it, whether to try the next stat when the highest-power stat's unit does not fit, or whether candidates come from the theme pool or all fill_stats
+- [RECOMMENDED] Formulas F step 9: "each pass fixes at least one huyệt" is false for the last pass; state that the loop ends when a pass leaves no huyệt empty
+- [RECOMMENDED] Formulas A2 keystone note points to Open Question 4 (themes); keystone content is Open Question 6, which omits the center keystone Ngũ Hành Luân Chuyển
+- [RECOMMENDED] Symbol collisions: ring K1-K3 vs cluster K (C_enter(K), AC-22..25); radial L/C/R vs level L, link L_i and Formulas C
+- [RECOMMENDED] G7 link capacity is global; hidden clusters in a rim region can use only that sector's K3 hosts (about 4 per sector plus degree-3 hội); add a per-region estimate
+- [RECOMMENDED] AC-KMD-66 repeats one sentence; Tuning Knobs entry mean 1.8-2.15 vs AC-KMD-65 1.85-2.15 needs a note
+- [RECOMMENDED] Open Questions 4, 5, 9 and 14 still open
+Resolution: GDD status header and systems-index row 10 set to Approved in the same session (header text only, so the hash below covers the approved content). The recommended items are not yet applied.
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md 0ceac03087eb94201cd31665418675d96f8b7fd8
+Reviewed-Content-Hash: design/registry/entities.yaml 62f8c116bf16e792b73237ee632743d092a6079d
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/game-concept.md 1e19d8772a8f7a098184d3223d3e9d86b4a9a261
+Reviewed-Content-Hash: design/gdd/systems-index.md 4c91de89f41daa69aaff5f2a664a519f30e5b8bf
+Reviewed-Content-Hash: design/quick-specs/progression-and-edges.md 9a0d75dc0b6082a4ec34474342cd299edfc8fbbd

@@ -1,6 +1,6 @@
 # Kinh Mạch Đồ (Skill Tree)
 
-> **Status**: Designed (2026-11-03). Three lean /design-review passes returned NEEDS REVISION, and every blocker was fixed. By the user's decision there is no fourth pass: the remaining fill-validator rounding details are settled during implementation against AC-KMD-31..39. Topology (Open Question 12) was decided afterwards and has not been independently reviewed; review it before the tree generator is built. See `reviews/kinh-mach-do-review-log.md`.
+> **Status**: Approved (2026-11-03). Six lean /design-review passes: the first five returned NEEDS REVISION and every blocker was fixed; the sixth (a full re-review after the step 9 variety fix) found no blockers. Recommended revisions (AC-KMD-34 lifespan figure, step 9 variety tie-breaks, symbol collisions, per-region link capacity) are settled during implementation or the next edit. Open Questions 4, 5, 9 and 14 stay open. See `reviews/kinh-mach-do-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-03
@@ -112,11 +112,12 @@ are in Formulas.
    where routes still matter.
    - **Kinh lộ (highways).** Chains of small huyệt with element stats carry the
      player between clusters, like PoE's attribute paths.
-     - Each sector has 3 **radial kinh lộ** from its gate to the rim. They fork and
-       merge along the way.
+     - Each sector has 3 **radial kinh lộ** from its gate to the rim, named L (left), C
+       (centre) and R (right). They fork and merge along the way.
      - At each band edge (inner/middle, middle/outer and the rim) a **ring kinh lộ**
        runs sideways. It links neighbouring clusters and continues across sector
-       borders.
+       borders. The rings are named K1, K2 and K3, so a name starting with K is a ring
+       and one starting with L, C or R is a radial.
    - **Hội huyệt (junctions).** Where kinh lộ meet, roughly every 3–5 steps; these are
      the crossroads a route is planned around.
    - **Cluster entries.** Every cluster, visible or hidden, has 1–3 entries (about 2 on
@@ -137,8 +138,8 @@ are in Formulas.
    - **Hidden clusters** are wired exactly like visible ones. One with 2 entries becomes
      a shortcut once unsealed.
    - **Size.** The kinh lộ and extra bridges bring the visible tree to about 800 huyệt
-     and the map to about 1,475 (Formulas H). Chosen 2026-11-03: 4 middle wheels of 9 per
-     sector and longer outer rings (3 ring huyệt per R2 and R3 segment).
+     and the map to about 1,475 (Formulas H). Chosen 2026-11-03: 4 middle clusters of 9 per
+     sector and longer outer rings (3 ring huyệt per K2 and K3 segment).
 2. **Points.** Cultivation runs on **levels 1–300**. Each realm is a band of levels, and at
    the top of the band the bình cảnh holds the level until the realm breakthrough succeeds.
    Points come from:
@@ -498,6 +499,16 @@ border ring huyệt mixes the two neighbouring elements, like a bridge. They nev
 - At Hóa Thần đại viên mãn tree power is about 1,100–1,300 W (guess), 1.7–2.0× the old
   ladder's 650 W: a deliberate tilt toward later realms.
 - Without the rescale it would be about 4,270 W (6.6×): 566 × 7.55.
+- **Keystones are outside this budget, by design.** A keystone's 50 W is its positive side;
+  its drawback is authored with it and is part of its net value.
+  - A sector keystone beeline costs 22 points for about 75 W (21 kinh lộ at 1.2 W plus the
+    keystone's 50 W), about 3.4 W per point against the 2.07 target. The drawback must
+    bring the net back toward the target when keystone content is authored (Open Question 4).
+  - **Center keystone (intended).** Ngũ Hành Luân Chuyển costs 1 point at d 1 and needs a
+    5-element (Ngũ Hành, Legendary) root, so it is a deliberate jump of about +47% of a
+    Luyện Khí tree for the rarest root. It is the one place the tree hands power over
+    cheaply, an accepted tension with Pillar 3: the root itself is the price. AC-KMD-07
+    leaves 5-element lives out of its median.
 
 **Example:**
 - **Efficient 51-point route:** 13 kinh lộ, 30 small huyệt and 8 notables, so
@@ -518,9 +529,9 @@ generated.
 | Band | Depth | Contents |
 |---|---|---|
 | Core | 0–1 | Đan Điền, 5 gates (hội), and the center keystone next to Đan Điền |
-| Inner | 2–6 | 3 radial kinh lộ per sector, the R1 ring (junctions at d 5, ring huyệt at d 6) and 2 small clusters per sector; inner hidden clusters link at d 3–7 |
-| Middle | 7–14 | Radials, 2 fork-and-merge connectors and 4 base wheels per sector, and the middle bridge clusters; R2 junctions at d 14 |
-| Outer | 15–22 | Outer kinh lộ: radials, the R2 ring (d 15–16), braids (d 17–18) and the rim ring R3 (junctions at d 20, ring huyệt at d 21–22). Also 2 base wheels per sector and the outer bridges. Outer hidden clusters link at d 15–22; keystones sit at d 22 |
+| Inner | 2–6 | 3 radial kinh lộ per sector, the K1 ring (junctions at d 5, ring huyệt at d 6) and 2 small clusters per sector; inner hidden clusters link at d 3–7 |
+| Middle | 7–14 | Radials, 2 fork-and-merge connectors and 4 base clusters per sector, and the middle bridge clusters; K2 junctions at d 14 |
+| Outer | 15–22 | Outer kinh lộ: radials, the K2 ring (d 15–16), braids (d 17–18) and the rim ring K3 (junctions at d 20, ring huyệt at d 21–22). Also 2 base clusters per sector and the outer bridges. Outer hidden clusters link at d 15–22; keystones sit at d 22 |
 | Expansion | beyond the launch map's deepest huyệt | Reserved, empty at launch |
 
 Band depths are measured on visible huyệt and cluster link points. A hidden cluster's
@@ -554,7 +565,7 @@ The reach_cost formula is defined as:
 
 | Life | Points | Reach |
 |---|---|---|
-| Luyện Khí đại viên mãn | 51 | Its focus sector's inner band and 2–3 of its 4 middle wheels (d ≈ 10–13), about 6–8 notables. The rare inner hidden cluster (n ≤ 6: 6–13 points) fits. A keystone beeline (22 points) is possible but costs 43% of the life |
+| Luyện Khí đại viên mãn | 51 | Its focus sector's inner band and 2–3 of its 4 middle clusters (d ≈ 10–13), about 6–8 notables. The rare inner hidden cluster (n ≤ 6: 6–13 points) fits. A keystone beeline (22 points) is possible but costs 43% of the life |
 | Trúc Cơ đại viên mãn | 120 | Every cluster and both keystones of one focus sector (about 98 points, guess; the whole sector is 27 + 62 + 52 = 141 huyệt, but most of its kinh lộ need not be walked), and a second sector's inner band (about 12 points) |
 | Kết Đan sơ kỳ | 137 | The focus sector's outer kinh lộ is open to d 20, so a 9-huyệt outer cluster costs 9 of the 17 new points |
 | Nguyên Anh+ | 243–566 | Enough for many clusters; unsealing, not points, is the limit |
@@ -858,19 +869,38 @@ rounding can lower a fill's power but never raise it.
    - Scale the unfixed huyệt by min(1, B_rest / their summed power), taken from their
      step-8 values on every pass, then round every value down to its precision. A value
      that rounds to 0 is dropped.
-   - A huyệt left with no stat is **fixed**: it gets one precision unit of its
-     highest-power stat that has no compounding cap and no lifespan ceiling (for example
-     `attack_pct`), or of the pool's first such stat if it had none. That is within every
-     cap: one unit of an uncapped stat passes the per-huyệt cap (steps 3 and 6), and it
-     has no cluster cap to break. Subtract the fixed huyệt's power from B_rest and repeat
-     on the unfixed huyệt.
+   - A huyệt left with no stat is **fixed**: it gets one precision unit of an uncapped
+     stat, meaning one with no compounding cap and no lifespan ceiling (for example
+     `attack_pct`). The choice, in order:
+     - the huyệt's own highest-power uncapped stat, if the cluster does not have it yet;
+     - else the pool's first uncapped stat the cluster does not have yet;
+     - else its own highest-power uncapped stat, or the pool's first if it had none.
+
+     That is within every cap: one unit of an uncapped stat passes the per-huyệt cap
+     (steps 3 and 6), and it has no cluster cap to break. Subtract the fixed huyệt's power
+     from B_rest and repeat on the unfixed huyệt.
+   - **Variety after the loop.** If the cluster now has fewer than 3 distinct stats
+     (because a dropped stat was the only copy), add one precision unit of an uncapped stat
+     the cluster lacks (highest power first, then the pool's order). Repeat until there are
+     3 distinct stats. A unit goes on a huyệt only when all of these hold:
+     - the huyệt has exactly one stat;
+     - its power plus the unit stays within its power cap (steps 6–7): a small at 2.2 W
+       against a 2.264 W cap cannot take a 0.1 W unit;
+     - the cluster's **actual** total power plus the unit stays at or below B. Use the
+       cluster's real total, not B_rest: B_rest ignores the unfixed huyệt, which were already
+       scaled to fit it.
+
+     If no huyệt qualifies, the pool fill is used. So AC-KMD-35's "at least 3 distinct
+     stats" holds for every result without breaking B or a huyệt cap.
    - Each pass fixes at least one huyệt, so the loop ends within n passes. If B_rest
      drops below 0, the reply is unrepairable and the pool fill is used.
 10. **Record.** Record a repair only when a value changed.
 
-Scaling and rounding down only lower power, and the one place a value is raised (the
-fixed huyệt of step 9) uses an uncapped stat, so every cap from steps 6–8 and B still
-hold, with no tolerance. A reply that needs no scaling is changed only by its own rounding,
+Scaling and rounding down only lower power. The two places a value is raised, the fixed
+huyệt and the variety unit of step 9, each add one unit of an uncapped stat. The fixed
+huyệt cannot break a cap (it has no other stat). The variety unit is added only where the
+huyệt cap and B still hold. So every cap from steps 6–8 and B still hold, with no
+tolerance. A reply that needs no scaling is changed only by its own rounding,
 because step 3 already removed sub-unit values.
 
 A reply the validator cannot repair (invalid JSON, or no usable huyệt at all) is
@@ -879,7 +909,7 @@ replaced entirely by a pool fill.
 **Output Range:** 13 W (n 3, inner, P 1.25) to 67 W (n 15, k 3, P 1.75) for a cluster
 without a capability. The lowest B of a capability cluster is about 10.7 W (n 7, outer at
 d_entry 16, T3). A clamped fill never exceeds B and has no negatives. Per notable,
-lifespan_years is at most about 4% of L_r, because the per-huyệt cap binds first; per
+lifespan_years is at most about 4.7% of L_r (14 W ÷ 300), because the per-huyệt cap binds first; per
 cluster it is held to φ_r·L_r (12 years at L_r = 120 in Luyện Khí through Kết Đan), where a
 whole n = 15 budget would otherwise allow 22%.
 
@@ -947,14 +977,15 @@ The visible_tree formula is defined as:
 |----------|------|-------|--------|-------------|
 | core | int | 7 | data file | Đan Điền, 5 gates (each a hội of degree 4) and the center keystone, which sits next to Đan Điền at d 1 |
 | R | int | 3 | data file (`radials_per_sector`) | Radial kinh lộ per sector, from the gate to the rim |
-| a1, a2, a3 | int | 5, 14, 20 | data file (`ring_anchor_depths`) | Depth of the R1, R2 and R3 ring junctions on every radial |
-| m1, m2, m3 | int | 2, 3, 3 | data file (`ring_interior`) | Ring huyệt between two junctions, at depths anchor + min(i, m + 1 − i): R1 at 6, 6; R2 at 15, 16, 15; R3 at 21, 22, 21 |
+| a1, a2, a3 | int | 5, 14, 20 | data file (`ring_anchor_depths`) | Depth of the K1, K2 and K3 ring junctions on every radial |
+| m1, m2, m3 | int | 2, 3, 3 | data file (`ring_interior`) | Ring huyệt between two junctions, at depths anchor + min(i, m + 1 − i): K1 at 6, 6; K2 at 15, 16, 15; K3 at 21, 22, 21 |
 | Σn_inner, Σn_middle, Σn_outer | int | 2×4, 4×9, 2×9 | data file (`base_cluster_slots`) | Visible base clusters per sector |
 | ks | int | 2 | data file | Sector keystones, at d 22 |
 | n_bm, n_bo | int | 5, 5 | data file (`base_cluster_slots`) | Middle and outer bridge cluster per border (4 small + 1 notable each) |
 | inner_s, middle_s, outer_s | int | 27, 62, 52 | calculated | Visible huyệt per sector per band |
 | bridge_pair | int | 18 | calculated | Visible huyệt per border |
 | k_vis(n) | int | 1–3 | calculated | Notables in a visible cluster (`huyet_per_notable_visible` = 4) |
+| R·5, R·8 | int | 15, 24 | calculated | Radial huyệt in the inner (d 2–6) and middle (d 7–14) bands. Fixed by the band edges, not by a1 and a2; changing a ring anchor moves ring huyệt only |
 | N_vis | int | 80 | calculated | Visible notables |
 | ν | float | 0.100 | calculated | Share of notables among visible huyệt |
 | V | int | 802 | calculated | Visible huyệt |
@@ -963,12 +994,12 @@ Per sector (hội are kinh lộ huyệt and are counted in that column):
 
 | Band | Kinh lộ | Hội | Base clusters (count × size, notables) | Keystones | Total |
 |---|---|---|---|---|---|
-| Inner d 2–6 | 19: radials 3 × 5; R1 2 segments × 2 at d 6 | 3: R1 junctions at d 5 | 2 × 4 (3 + 1) → 2 | 0 | **27** |
-| Middle d 7–14 | 26: radials 3 × 8; 2 connectors × 1 (d 9, d 10) | 7: 4 connector ends (d 8–11), 3 R2 junctions at d 14 | 4 × 9 (7 + 2) → 8 | 0 | **62** |
-| Outer d 15–22 | 32: radials 3 × 6; R2 2 × 3 (d 15, 16, 15); 2 braids × 1 (d 18); R3 2 × 3 (d 21, 22, 21) | 6: 3 braid junctions at d 17, 3 R3 junctions at d 20 | 2 × 9 (7 + 2) → 4 | 2 at d 22 | **52** |
+| Inner d 2–6 | 19: radials 3 × 5; K1 2 segments × 2 at d 6 | 3: K1 junctions at d 5 | 2 × 4 (3 + 1) → 2 | 0 | **27** |
+| Middle d 7–14 | 26: radials 3 × 8; 2 connectors × 1 (d 9, d 10) | 7: 4 connector ends (d 8–11), 3 K2 junctions at d 14 | 4 × 9 (7 + 2) → 8 | 0 | **62** |
+| Outer d 15–22 | 32: radials 3 × 6; K2 2 × 3 (d 15, 16, 15); 2 braids × 1 (d 18); K3 2 × 3 (d 21, 22, 21) | 6: 3 braid junctions at d 17, 3 K3 junctions at d 20 | 2 × 9 (7 + 2) → 4 | 2 at d 22 | **52** |
 | Sector | 77 | 16 | 8 clusters, 62 huyệt, 14 notables | 2 | **141** |
 
-Per border: 8 kinh lộ (the R1, R2 and R3 border segments of 2, 3 and 3 huyệt), a middle
+Per border: 8 kinh lộ (the K1, K2 and K3 border segments of 2, 3 and 3 huyệt), a middle
 bridge cluster of 5 and an outer bridge cluster of 5, so **18** huyệt and 2 notables. That
 makes 5 crossings per border.
 
@@ -980,7 +1011,7 @@ makes 5 crossings per border.
 - ν = 80 / 802 = **0.100** (was 0.134). Visible clusters are 22% notables.
 - Every visible cluster pays 2.56–2.9 W per point, below the weakest outer hidden cluster
   at about 3.0 W (n 9, k 1). The cluster sizes were chosen to keep that order.
-- With about 675 hidden huyệt (Formulas C), the map holds about **1,477**. An accepted
+- With about 675 hidden huyệt (Formulas C), the map holds about **1,477** (802 + 675; the rest of this document rounds it to 1,475). An accepted
   seed falls in 1,410–1,545, which is ±3σ of the summed hidden sizes (σ ≈ 22).
 - Edges:
   - The skeleton has 506 edges: kinh lộ, core and keystones.
@@ -1033,33 +1064,33 @@ versions.
 **G3. Ring kinh lộ.**
 - Ring junctions sit at d 5, 14 and 20 on every radial.
 - A segment's i-th interior huyệt sits at anchor + min(i, m + 1 − i):
-  - R1 (m 2): 6, 6;
-  - R2 (m 3): 15, 16, 15;
-  - R3 (m 3): 21, 22, 21.
+  - K1 (m 2): 6, 6;
+  - K2 (m 3): 15, 16, 15;
+  - K3 (m 3): 21, 22, 21.
 - Segments run L–C and C–R inside a sector, and from R of sector s to L of sector s + 1
   across each border.
-- R3 huyệt stay at d 22 or less for m3 ≤ 4.
+- K3 huyệt stay at d 22 or less for m3 ≤ 4.
 - Junction degrees:
-  - R1 and R2 junctions: 4;
-  - R3 junctions: 3;
+  - K1 and K2 junctions: 4;
+  - K3 junctions: 3;
   - C17: 4;
   - connector ends, L17 and R17: 3.
 
 **G4. Keystones.**
-- On each in-sector R3 segment, the seed picks one of its two d 21 huyệt as host. The
+- On each in-sector K3 segment, the seed picks one of its two d 21 huyệt as host. The
   keystone attaches there at d 22, with degree 1.
 - The d 22 ring huyệt never hosts a keystone, which would sit at d 23. It never hosts a
   visible cluster link either, because the entry would sit at d 23.
 
 **G5. Regions, tags and neighbours.**
 - **Sector regions:** each gap (L–C and C–R) has five regions:
-  - inner: gate to R1;
-  - middle-low: R1 to the connector;
-  - middle-high: connector to R2;
-  - outer-low: R2 to the braid;
-  - outer-high: braid to R3.
+  - inner: gate to K1;
+  - middle-low: K1 to the connector;
+  - middle-high: connector to K2;
+  - outer-low: K2 to the braid;
+  - outer-high: braid to K3.
 
-  Beyond R3, the rim region holds hidden clusters only.
+  Beyond K3, the rim region holds hidden clusters only.
 - **Border regions:** each border has middle, outer and rim regions, between R of sector s
   and L of sector s + 1.
 - **Tags:**
@@ -1077,10 +1108,25 @@ before C–R, then the borders.
   - each gap gets 1 outer cluster (n 9), in outer-low or outer-high as the seed picks;
   - each border gets a middle bridge and an outer bridge (n 5).
 - **Shape:**
+  - A shape **supports** a cluster only when both hold. The test is made on the cluster
+    itself: its n, its E, its role (a bridge uses the bridge-pair slots, any other cluster
+    the E slots) and its k (`floor(n/4)` for a visible cluster, `floor(n/5)` for a hidden
+    one). The same (shape, n, E) can therefore support a hidden cluster and not a visible
+    one.
+    - its entry slots exist for E (shape table);
+    - for n ≥ 5, at least k non-entry nodes lie at least `notable_min_entry_dist` steps from
+      every entry. Ring at n = 5 with E = 2 as a bridge pair (v0, v2) and with E = 3,
+      Star at n = 5 with E = 3, and Crescent at n = 5 with E = 3, fail this, so they are
+      not supported.
+  - **Some shape always supports.** Chain supports every non-bridge cluster (with entries
+    at v0–v2, the nodes v4 onward are at least 2 steps away: n − 4 ≥ k), and Crescent
+    supports every bridge (n 5, E 2: v2 only, k = 1). So the fallback below never runs
+    out. AC-KMD-66 checks it.
   - The theme's preferred shape is used with chance `shape_preferred_share` (0.6), if it
     supports n and E.
   - Otherwise the shape is drawn uniformly from the other shapes that support them.
-  - Fallback order: Ring, then Crescent, then Chain.
+  - Fallback order: Ring, then Crescent, then Chain, each only if it supports n and E.
+    So a Ring bridge (n 5) falls back to Crescent.
 - **Entries:**
   - E is drawn from `entry_count_weights` (1: 0.20, 2: 0.60, 3: 0.20), then set to
     E ← min(E, max(1, n − k − 1)).
@@ -1097,7 +1143,8 @@ before C–R, then the borders.
 - **Notables:** take the k non-entry nodes farthest from their nearest entry, breaking ties
   by lower slot index. This meets AC-KMD-21 by construction. In addition, for n ≥ 5 every
   notable must be at least `notable_min_entry_dist` (2, guess) steps from its nearest
-  entry, so the player pays for small huyệt first.
+  entry, so the player pays for small huyệt first. The shape's "supports" test (above)
+  guarantees this is satisfiable before a shape is chosen.
 - **Local checks:**
   - **Depth fit:** every huyệt y, with `d(y) = min_i (d(L_i) + 1 + dist(e_i, y))`, lies in
     its band. Inner clusters sit at d 3–6, middle clusters and middle bridges at 7–14, and
@@ -1117,15 +1164,30 @@ before C–R, then the borders.
   - regions are filled fewest-placed first, then by the seed.
 - **Extra hosts allowed for hidden clusters only:**
   - small non-entry, non-notable huyệt of a visible cluster with internal degree ≤ 2;
-  - degree-3 hội (L17, R17 and the R3 junctions), which then reach degree 4.
+  - degree-3 hội (L17, R17 and the K3 junctions), which then reach degree 4.
 - All links of one hidden cluster share one tag, so unsealing never adds a border
   crossing.
 - **Outer link capacity (guess):**
-  - Supply is about 225 slots: about 175 on kinh lộ and about 50 on visible cluster huyệt.
+  - Supply is about 200 slots: about 150 on kinh lộ and about 50 on visible cluster huyệt.
+    - Kinh lộ: 26 non-hội outer huyệt per sector (12 radial, 6 K2 ring, 2 braid, 6 K3 ring)
+      × 5 = 130, plus 6 per border × 5 = 30, minus the 10 keystone hosts = 150.
+    - Visible cluster hosts are usable by hidden clusters only. Visible outer clusters
+      cannot use hosts at d 19 or deeper, since their entry would leave no room below d 22.
+    - The degree-3 hội that hidden clusters may also use (L17, R17 and the K3 junctions:
+      5 per sector, 25 in all) are extra headroom and are not counted in the 150.
   - Demand is about 158: about 30 visible entries and about 128 hidden ones.
-  - The ratio is about 1.42, against `link_capacity_margin` 1.25.
+  - The ratio is about 1.27, against `link_capacity_margin` 1.25: the margin is thin, so
+    AC-KMD-67 reports it per seed.
   - This is checked before G7. Below 1.0 the seed is rejected; below the margin it is
     reported.
+  - The same check runs per band for the inner and middle bands (hosts and demand counted
+    the same way); it is reported only, since the inner and middle bands hold few hidden
+    entries.
+  - **Expansion capacity.** Rule 19 links new content to existing outer huyệt. The launch
+    map leaves about 40–70 free outer slots (about 20–35 clusters at E = 2). A release that
+    needs more may link new clusters to the previous release's outer clusters, which is
+    allowed by rule 19 because those are existing huyệt, or must add its own kinh lộ
+    in the expansion band.
 
 **Shortcut rule.** For every cluster with 2–3 entries, visible or hidden, and every pair of
 its links:
@@ -1154,6 +1216,12 @@ its links:
    - **Repair below the floor:** turn tree-shaped clusters into a Ring (one more edge
      each) in fill order, then Rings into a Double ring, until the floor is met. Above the
      ceiling, apply the reverse.
+   - A converted shape must still be one that supports the cluster (G6). Each entry stays
+     on its host and moves to the new shape's slot of the same index (shape table order);
+     the conversion is skipped if that slot does not exist or already has internal degree 3.
+     The local checks (depth fit, notables, shortcut rule with the new s_ij, distinct
+     hosts) are re-run after each conversion, and a conversion that fails any of them is
+     skipped.
    - With every shape a tree and a mean E of 1.7, the visible graph would reach about
      2.25, so the repair can matter.
 4. **Two routes:**
@@ -1420,7 +1488,7 @@ numbers in this GDD; ranges marked *guess* wait for a bot run.
 | Knob | Value | Safe range | What it moves |
 |---|---|---|---|
 | `cluster_count` | 75 | 60–90, derived: below about 55 the seed rule (25 capability-eligible clusters) cannot be met. The inner window of 9–14 is fixed, so at either end about half of all seeds are rejected; move the window with the count | Hidden share of the map; about 9 huyệt per cluster |
-| `size_realm_gates` (g1, g2) / `cap_min_n` | 6, 10 / 7 | g1 5–7, g2 9–11; cap_min_n 7 (it must keep every capability at Kết Đan or later) | Which realm each cluster size opens in; how many clusters can carry a capability |
+| `size_realm_gates` (g1, g2) / `cap_min_n` | 6, 10 / 7 | g1 5–6 and always below `cap_min_n` (at g1 = 7 an outer n = 7 cluster would gate at Trúc Cơ), g2 9–11; cap_min_n 7 (it must keep every capability at Kết Đan or later) | Which realm each cluster size opens in; how many clusters can carry a capability |
 | Δ_desp / `q_max` / burn share | 0.15 / 0.95 / 5% | Δ_desp 0.05–0.15, q_max ≤ 0.95, burn share 3–10%, guess | Strength of #22 and cost of #23 (Formulas E2) |
 | `pts_birth`, `breakthrough_bonus`, `pct_trung` / `pct_hau` / `pct_dai` | 2, 15/25/40/60, 15/25/35 | provisional; Cảnh Giới owns them. Keep `pct_trung` + `pct_hau` + `pct_dai` ≤ 100 | Points per life (Formulas A) |
 | `cluster_size_mean` / `_sd` | 9 / 2.5 | mean 8–11, derived: at mean 7 only about 25 clusters have n ≥ 7, which is the seed rule's floor | Cluster size, entry cost, gate realm, budget |
@@ -1430,17 +1498,18 @@ numbers in this GDD; ranges marked *guess* wait for a bot run.
 | S0 / N0 | 1.2 / 8 | S0 1.1–1.4 at N0 = 8; N0 7.0–9.1 at S0 = 1.2. Derived from AC-KMD-07's 90–125 W on the A2 routes, which are guesses. Hard ceiling N0 < 19, so the strongest hidden notable (N0·1.75·1.5) stays under the 50 W keystone floor | Tree power per point |
 | `huyet_value_highway` (H0) | 1.2 | 1.0–1.2. Derived: at 0.9 the weak route of A2 falls to about 89 W, under AC-KMD-07's 90 W floor; at most S0, so clusters stay the destinations | Cost of walking kinh lộ |
 | `radials_per_sector` | 3 | 3, fixed by user decision; any change rewrites Formulas H | Kinh lộ density |
-| `ring_anchor_depths` | 5 / 14 / 20 | R1 4–6, R2 13–15. R3 is fixed at 20, derived: a keystone at d 22 hangs off a d 21 ring huyệt | Where the rings sit |
-| `ring_interior` | 2 / 3 / 3 | 2–4 each. Derived: the 3–5 step hội spacing, and m3 ≤ 4 keeps R3 at d 22 or less. Each +1 on a ring adds 15 huyệt (2 per sector, 1 per border) and 15 link slots | Ring length; link capacity |
+| `ring_anchor_depths` | 5 / 14 / 20 | Fixed at 5 / 14 / 20 (user decision 2026-11-03). The hội lists of G2 and AC-KMD-61, the connectors and the braids are built around these depths: K1 at 4 or 6, or K2 at 13 or 15, breaks the 3–5 hội spacing, and a keystone at d 22 hangs off a d 21 ring huyệt. A different anchor means rewriting G2 first | Where the rings sit |
+| `ring_interior` | 2 / 3 / 3 | 2–4 each. Derived: the 3–5 step hội spacing, and m3 ≤ 4 keeps K3 at d 22 or less. Each +1 on a ring adds 15 huyệt (2 per sector, 1 per border) and 15 link slots | Ring length; link capacity |
 | `base_cluster_slots` | inner 2×4, middle 4×9, outer 2×9, bridges 5/5 | inner 4–5 (it must fit d 3–6); middle and outer 6–9 (guess); bridges 5–7 | Visible content vs map size |
 | `huyet_per_notable_visible` | 4 | 4–5. Derived: at 3, a 6-huyệt cluster pays about 3.5 W per point, above the weakest hidden cluster (about 3.0) | Visible ν |
-| `entry_count_weights` | 0.20 / 0.60 / 0.20 | mean 1.8–2.3. The low end is the user's "about 2"; the high end is derived from `link_capacity_margin` 1.25 | Entries, average degree, shortcuts |
+| `entry_count_weights` | 0.20 / 0.60 / 0.20 | mean 1.8–2.15. The low end is the user's "about 2". Derived: with about 200 outer link slots and 79 outer-linked clusters, a mean above about 2.03 takes the outer ratio under the 1.25 margin (1.18 at 2.15), which is reported, not rejected | Entries, average degree, shortcuts |
 | `shape_preferred_share` | 0.6 | 0.4–0.8 (guess) | How readable a theme's shape is vs variety |
 | `route2_min_extra` | 2 | fixed by user decision | Two-route rule |
 | `degree_avg_window` | 2.30–2.60 | fixed by user decision. The launch map is expected near 2.36; the G8 repair holds the floor | Flexibility |
-| `link_capacity_margin` | 1.25 | 1.1–1.5 (guess); the launch outer ratio is about 1.42 | Seed rejection rate |
+| `link_capacity_margin` | 1.25 | 1.1–1.5 (guess). Report only: a seed whose outer ratio is below the margin is listed in AC-KMD-67's report, not rejected; a ratio below 1.0 rejects the seed (G7). The launch ratio is about 1.27 | How often the capacity report flags a seed |
 | `cluster_retry` / `seed_max_attempts` | 8 / 64 | 4–16 / 32–256 (guess) | Build time vs rejection |
-| `notable_min_entry_dist` | 2 | 1–3 (guess); applies only at n ≥ 5 | Small huyệt are paid for before a notable |
+| `notable_min_entry_dist` | 2 | 1–3 (guess); applies only at n ≥ 5. Higher values make fewer (shape, n, E) combinations supported (G6), so bridges and small clusters lose shapes | Small huyệt are paid for before a notable |
+| `w_d`, `w_n` / `d_lo`, `d_hi` | 0.5, 0.5 / 4, 23 | w_d + w_n = 1; d_lo and d_hi follow the shallowest and deepest possible entry (derived from the link depths 3–22) | How much a hidden cluster's reach and size raise its premium |
 | P_min / P_max | 1.25 / 1.75 | P_max ≤ 1.75 (user cap); P_min ≥ 1.0 | How much more a hidden huyệt pays than a visible one |
 | `tol` | 1.2 | 1.0–1.5 | Spread allowed on one small huyệt |
 | γ | 0.5 | 0.3–1.0 (1.0 is linear) | How fast compounding caps grow with cluster size |
@@ -1569,7 +1638,8 @@ Drafted with qa-lead.
   - The visible tree's summed breakthrough_chance is at most 4 pp (half of
     `tree_breakthrough_cap`), which leaves room for hidden clusters.
 - **AC-KMD-07** [Integration, Bot: `autoplay.gd`, ≥ 60 lives = 20 seeds × 3 origins]
-  The median tree power at Luyện Khí đại viên mãn is 90–125 W.
+  The median tree power at Luyện Khí đại viên mãn is 90–125 W. Lives with a 5-element root
+  are left out of the median (the center keystone, Formulas A2) and reported separately.
 
 **Map and reach (rules 1, 3, 4, 5, 8; Formulas B and H)**
 
@@ -1600,7 +1670,7 @@ Drafted with qa-lead.
   - Every kinh lộ huyệt's d equals its template depth:
     - gates: 1;
     - ring junctions: 5, 14 and 20;
-    - ring huyệt: 6 (R1), 15–16 (R2) and 21–22 (R3);
+    - ring huyệt: 6 (K1), 15–16 (K2) and 21–22 (K3);
     - connector huyệt: 9 and 10;
     - braid huyệt: 18.
   - Visible clusters by band:
@@ -1754,9 +1824,17 @@ Drafted with qa-lead.
   - A notable's lifespan_years at L_r = 120 is at most 5.03 years, and a cluster's summed
     lifespan_years is cut to 12 years (φ_r·L_r).
   - +0.4% breakthrough_chance on a small is allowed: 2.0 W ≤ 2.264 W.
+  - Variety fixtures, a cluster left with 2 distinct stats after step 9:
+    - the only single-stat huyệt is a small at 2.2 W (cap 2.264 W): a 0.1 W unit would
+      reach 2.3 W, so no unit is added and the pool fill is used;
+    - the cluster's real total is within 0.05 W of B: the pool fill is used;
+    - a single-stat huyệt with room under its cap and the cluster under B gains one unit
+      of an uncapped stat the cluster lacked, and the cluster has 3 distinct stats.
 - **AC-KMD-35** [Logic] Property test over 500 seeded hostile fills. After the
   validator, every fill:
   - has power ≤ B (exactly, no tolerance) and no negative values;
+  - has every huyệt within its own power cap (`tol·E_small` for a small, `E_notable` for a
+    notable), exactly, no tolerance;
   - has summed lifespan_years ≤ φ_r·L_r;
   - has every stat's cluster sum within its compounding cap, `cap9_c·(n/9)^γ` rounded down
     to the stat's precision;
@@ -1894,9 +1972,9 @@ Drafted with qa-lead.
     Điền, which has exactly 6 (5 gates and the center keystone).
   - Every degree-4 huyệt is a hội.
   - In the visible graph the 85 hội have degree 3–4:
-    - 40 have degree 4: 5 gates, 15 R1 junctions, 15 R2 junctions and 5 C17 braid
+    - 40 have degree 4: 5 gates, 15 K1 junctions, 15 K2 junctions and 5 C17 braid
       junctions;
-    - 45 have degree 3: 15 R3 junctions, 20 connector ends and 10 side braid junctions.
+    - 45 have degree 3: 15 K3 junctions, 20 connector ends and 10 side braid junctions.
   - The average degree is 2.30–2.60 on the visible graph and on the full graph (expected
     about 2.36 on each, guess).
 - **AC-KMD-61** [Logic] Hội spacing.
@@ -1906,7 +1984,7 @@ Drafted with qa-lead.
     - R: d 1, 5, 9, 14, 17, 20.
 
     χ = 1 mirrors L and R.
-  - R1 segments are 3 steps, and R2 and R3 segments 4 steps.
+  - K1 segments are 3 steps, and K2 and K3 segments 4 steps.
   - Every connector and braid is 2 steps.
 - **AC-KMD-62** [Logic] Two routes.
   - Every neighbour pair on the launch map passes this test:
@@ -1928,7 +2006,7 @@ Drafted with qa-lead.
 - **AC-KMD-64** [Logic] Crossings.
   - Each of the 5 borders has exactly 5 border-tagged components, each touching both
     neighbouring sectors:
-    - the R1, R2 and R3 border segments, of 2, 3 and 3 huyệt;
+    - the K1, K2 and K3 border segments, of 2, 3 and 3 huyệt;
     - two bridge clusters of 5.
   - No edge joins huyệt of two different sector tags.
   - Bridge links sit on side radials, never on border ring huyệt.
@@ -1944,12 +2022,36 @@ Drafted with qa-lead.
   minimum to 15, and every E of 1–3 that has slots:
   - the graph is connected and has the internal edge count in the table;
   - internal degree is ≤ 3, and every entry slot has internal degree ≤ 2;
-  - the notable rule passes AC-KMD-21;
+  - the notable rule passes AC-KMD-21.
+
+  For every combination the shape *supports* (G6), also:
   - for n ≥ 5, every notable is at least 2 steps from its nearest entry (guess).
 
-  A combination without enough slots falls back (Ring, then Crescent, then Chain) and is
-  never emitted. The same seed gives every cluster the same shape, entries and notables.
-  The accepted seed and its attempt count are golden values (AC-KMD-08).
+  A combination without enough slots, or one that fails the distance test, is not
+  supported: it falls back (Ring, then Crescent, then Chain) and is never emitted. The
+  test runs per cluster role and k: once with k = `floor(n/4)` (visible) and once with
+  k = `floor(n/5)` (hidden), and once more for the bridge pair at n 5, E 2.
+  - Fixtures that must be unsupported: Ring n 5 with E 3, Ring n 5 as a bridge pair
+    (v0, v2), Star n 5 with E 3 and Crescent n 5 with E 3.
+  - Fixtures that must be supported: Crescent n 5 as a bridge pair, Chain n 5 with E 3 and
+    Ring n 6 with E 3.
+  - **Coverage property:** for every n from 3 to 15, every E allowed by
+    E ≤ max(1, n − k − 1), and both k values, at least one shape supports the cluster
+    (Chain for a non-bridge, Crescent for a bridge). A failure means the fallback can run
+    out.
+
+  The same seed gives every cluster the same shape, entries and
+  notables. The same seed gives every cluster the same shape, entries and
+  notables. The accepted seed and its attempt count are golden values (AC-KMD-08).
+- **AC-KMD-67** [Integration, offline generator run] Generator acceptance. Over 200
+  consecutive tree seeds, the generator reports how many are accepted (Formulas C and G8).
+  - At least 10% are accepted, so 64 attempts fail with probability under 0.2%
+    (`0.9^64`). A lower rate fails the test: loosen the checks before raising
+    `seed_max_attempts`.
+  - The report lists the rejection reason per seed (inner count, capability floor, depth
+    fit, shortcut rule, two routes, crossings, degree, link capacity below 1.0). A seed
+    whose outer ratio is between 1.0 and `link_capacity_margin` is accepted and listed as
+    a warning with its ratio.
 
 **UI (debug terminal; a captured transcript is the evidence)**
 
@@ -1990,7 +2092,7 @@ Drafted with qa-lead.
 | 3 | Level bands, tu vi per level and the size of the stat rise at each great and small breakthrough | Cảnh Giới GDD | Formulas A; implementation |
 | 4 | The fixed list of cluster themes, and whether each theme gets a stat whitelist (so a Đan Đạo cluster can't be all attack) | game-designer | Fill validator; sealed authoring |
 | 5 | Capability tiers by measurement (only 5 of 25 have a provisional tier) and the list of incompatible pairs | systems-designer + bot | Formulas E; rule 18 |
-| 6 | Content plan for about 50 fully authored sealed clusters (about 450 huyệt) and 10 more sector keystones (2 per sector instead of 1) | user + writer | Content release 1 |
+| 6 | Content plan for about 50 fully authored sealed clusters (about 450 huyệt) and the sector keystones (2 per sector, 10 in all) | user + writer | Content release 1 |
 | 7 | ~~Is φ_r a dead parameter?~~ **Resolved 2026-11-03:** φ_r is now the per-cluster ceiling on summed lifespan_years (Formulas F) | systems-designer | — |
 | 9 | #14 Động Phủ Tùy Thân: the user suggested it may need notables from two clusters (Trận Đạo and Linh Điền). This revision keeps rule 16 (one notable, one cluster) and places it on a hybrid-theme cluster. Does the capability instead require both clusters? That would need a new rule and a changed seed check | user | Rule 16; AC-KMD-41 |
 | 8 | Recalibrate breakthrough targets and NPC cohorts on the level ladder with rescaled values (Formulas A, A2) before any of it ships | Balance harness | Implementation sign-off |
