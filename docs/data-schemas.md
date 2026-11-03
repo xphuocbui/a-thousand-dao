@@ -199,8 +199,10 @@ System prompts for `event_system`, `narrate_system`, `talk_system`, `epitaph_sys
 
 ### session_advisor.json — thresholds for the Advisor (goals and menu)
 `lifespan_warning_years`, `lifespan_urgent_years`, `khi_huyet_warning_pct`,
-`dan_doc_warning`, `tam_ma_warning`, `low_linh_thach`; `menu`: `cultivate_seasons`,
-`closed_door_years`, `max_goal_entries`. Read by `Advisor`.
+`dan_doc_warning`, `tam_ma_warning`, `low_linh_thach`, `beast_loyalty_warning`,
+`invest_affordability_mult` (suggest a formation or refine only with this many times its
+cost in hand); `menu`: `cultivate_seasons`, `closed_door_years`, `max_goal_entries`,
+`label_max_chars`. Read by `Advisor`.
 
 ### character_stat_labels.json — readable names for modifier stat keys
 `labels{stat: {name, unit}}`; unit `pct` (+n%), `flat`, `years`, `flag` (name only).

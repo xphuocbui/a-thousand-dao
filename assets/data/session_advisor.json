@@ -9,6 +9,9 @@
   "menu": {
     "cultivate_seasons": 4,
     "closed_door_years": 5,
-    "max_goal_entries": 4
-  }
+    "max_goal_entries": 4,
+    "label_max_chars": 70
+  },
+  "beast_loyalty_warning": 40,
+  "invest_affordability_mult": 2
 }

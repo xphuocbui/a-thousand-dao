@@ -49,7 +49,7 @@ static func goals(s: GameSession) -> Array:
 	out.append_array(_breakthrough_goals(s, c, gd, sh, bottleneck))
 
 	for b in s.beasts.owned(c):
-		if int(b.get("loyalty", 0)) < 40:
+		if int(b.get("loyalty", 0)) < int(cfg.beast_loyalty_warning):
 			out.append(_g("beast_" + str(b.id), "warn", "%s is hungry and may leave (loyalty %d); feeding costs %d LT a year." % [b.name, int(b.get("loyalty", 0)), s.beasts.feed_cost(c)], "beasts", "Check your linh thú"))
 	if c.tree_points > 0:
 		out.append(_g("tree", "goal", "%d Kinh Mạch point(s) to spend." % c.tree_points, "tree", "Spend %d Kinh Mạch point(s)" % c.tree_points))
@@ -156,7 +156,7 @@ static func actions(s: GameSession) -> Array:
 		if g.command == "" or seen.has(g.command) or seen.size() >= int(cfg.max_goal_entries):
 			continue
 		seen[g.command] = true
-		out.append({"label": str(g.action) if str(g.action) != "" else _short(g.text), "command": g.command, "group": "goal"})
+		out.append({"label": str(g.action) if str(g.action) != "" else _short(g.text, int(cfg.label_max_chars)), "command": g.command, "group": "goal"})
 	var place: Dictionary = s.db.get_record("places", c.location_id)
 	var std: Array = [
 		{"label": "Cultivate 1 year", "command": "cul %d" % int(cfg.cultivate_seasons), "group": "time"},
@@ -382,7 +382,7 @@ static func _investment_goals(s: GameSession, c: Character, gd: GameData, sh: St
 	var at_home: bool = c.location_id == c.home_id
 	for f in s.formations.config().formations:
 		var ck: Dictionary = s.formations.can_build(c, f.id)
-		if ck.ok and c.linh_thach >= int(ck.cost.lt) * 2:
+		if ck.ok and c.linh_thach >= int(ck.cost.lt) * int(gd.file("session_advisor").invest_affordability_mult):
 			var lv: int = s.formations.level(c, f.id) + 1
 			out.append(_g("formation_" + str(f.id), "tip", "%s level %d: %s for %d LT." % [f.name, lv, gd.format_mod(str(f.stat), float(f.per_level) * float(lv)), int(ck.cost.lt)],
 				"formation build %s" % f.id, "Raise %s to level %d (%d LT)" % [f.name, lv, int(ck.cost.lt)]))
@@ -390,7 +390,7 @@ static func _investment_goals(s: GameSession, c: Character, gd: GameData, sh: St
 	var tier: int = c.realm_index
 	for b in gd.artifacts_file().bases:
 		var rk: Dictionary = s.refinery.check(c, b.id, tier)
-		if rk.ok and c.linh_thach >= int(rk.fuel) * 2:
+		if rk.ok and c.linh_thach >= int(rk.fuel) * int(gd.file("session_advisor").invest_affordability_mult):
 			out.append(_g("refine", "tip", "You can refine a %s (%.0f%%, fuel from %d LT)." % [gd.artifact_tier(tier).name, s.refinery.success_chance(c, sh, tier).total, int(rk.fuel)],
 				"refine", "Refine a %s…" % gd.artifact_tier(tier).name))
 			break
@@ -443,10 +443,10 @@ static func _stat_name(gd: GameData, stat: String) -> String:
 	return stat
 
 
-static func _short(text: String) -> String:
+static func _short(text: String, max_chars: int) -> String:
 	var cut: int = text.find(". ")
 	var t: String = text if cut == -1 else text.substr(0, cut)
-	return t if t.length() <= 70 else t.substr(0, 69) + "…"
+	return t if t.length() <= max_chars else t.substr(0, max_chars - 1) + "…"
 
 
 static func _g(id: String, severity: String, text: String, command: String, action: String = "") -> Dictionary:
