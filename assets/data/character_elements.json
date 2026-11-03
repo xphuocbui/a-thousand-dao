@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "cycle": ["moc", "hoa", "tho", "kim", "thuy"],
+  "elements": {
+    "kim": {"name": "Kim", "ansi": "33", "word": "Canh Kim", "role": "mission_income", "role_desc": "linh thạch from missions and bounties"},
+    "moc": {"name": "Mộc", "ansi": "32", "word": "Thanh Mộc", "role": "herb_growth", "role_desc": "linh thảo age faster in your field"},
+    "thuy": {"name": "Thủy", "ansi": "34", "word": "Huyền Thủy", "role": "dan_doc_decay", "role_desc": "đan độc fades faster"},
+    "hoa": {"name": "Hỏa", "ansi": "31", "word": "Xích Diễm", "role": "alchemy", "role_desc": "luyện đan success and quality"},
+    "tho": {"name": "Thổ", "ansi": "93", "word": "Hậu Thổ", "role": "field_plots", "role_desc": "more linh điền plots"}
+  },
+  "element_effects": {
+    "herb_growth_pct_per_purity": 0.8,
+    "alchemy_success_per_purity": 0.25,
+    "dan_doc_decay_per_purity": 0.05,
+    "field_plots_per_purity": 0.04,
+    "mission_income_pct_per_purity": 0.8,
+    "absent_element_tree_scale": 0.25,
+    "tree_scale_base": 0.5
+  },
+  "bien_di": [
+    {"id": "quang", "name": "Quang", "parents": ["moc", "hoa"], "order": 1, "kind": "stable", "desc": "Light", "effects": [{"stat": "tam_ma_resist_pct", "value": 10, "kind": "flat"}]},
+    {"id": "dung_nham", "name": "Dung Nham", "parents": ["hoa", "tho"], "order": 1, "kind": "stable", "desc": "Lava", "effects": [{"stat": "alchemy_success", "value": 8, "kind": "flat"}]},
+    {"id": "trong", "name": "Trọng", "parents": ["tho", "kim"], "order": 1, "kind": "stable", "desc": "Gravity", "effects": [{"stat": "defense_pct", "value": 15, "kind": "flat"}]},
+    {"id": "bang", "name": "Băng", "parents": ["kim", "thuy"], "order": 1, "kind": "stable", "desc": "Ice", "effects": [{"stat": "dan_doc_resist_pct", "value": 15, "kind": "flat"}]},
+    {"id": "sinh_menh", "name": "Sinh Mệnh", "parents": ["thuy", "moc"], "order": 1, "kind": "stable", "desc": "Life", "effects": [{"stat": "herb_growth_pct", "value": 30, "kind": "flat"}, {"stat": "lifespan_years", "value": 10, "kind": "flat"}]},
+    {"id": "phong", "name": "Phong", "parents": ["kim", "moc"], "order": 1, "kind": "volatile", "desc": "Wind", "effects": [{"stat": "travel_speed_pct", "value": 50, "kind": "flat"}]},
+    {"id": "doc", "name": "Độc", "parents": ["moc", "tho"], "order": 1, "kind": "volatile", "desc": "Poison", "effects": [{"stat": "attack_pct", "value": 10, "kind": "flat"}, {"stat": "dan_doc_resist_pct", "value": 10, "kind": "flat"}]},
+    {"id": "am", "name": "Ám", "parents": ["tho", "thuy"], "order": 1, "kind": "volatile", "desc": "Darkness", "effects": [{"stat": "stealth", "value": 15, "kind": "flat"}]},
+    {"id": "vu", "name": "Vụ", "parents": ["thuy", "hoa"], "order": 1, "kind": "volatile", "desc": "Mist, illusion", "effects": [{"stat": "stealth", "value": 10, "kind": "flat"}, {"stat": "tam_ma_resist_pct", "value": 5, "kind": "flat"}]},
+    {"id": "loi", "name": "Lôi", "parents": ["hoa", "kim"], "order": 1, "kind": "volatile", "desc": "Thunder", "effects": [{"stat": "attack_pct", "value": 20, "kind": "flat"}]},
+    {"id": "kiem", "name": "Kiếm", "parents": ["phong", "kim"], "order": 2, "kind": "combat", "desc": "Sword", "effects": [{"stat": "attack_pct", "value": 30, "kind": "flat"}]},
+    {"id": "thien_loi", "name": "Thiên Lôi", "parents": ["loi", "quang"], "order": 2, "kind": "combat", "desc": "Heavenly thunder", "effects": [{"stat": "attack_pct", "value": 35, "kind": "flat"}, {"stat": "breakthrough_chance", "value": 3, "kind": "flat"}]},
+    {"id": "huy_diet", "name": "Hủy Diệt", "parents": ["dung_nham", "loi"], "order": 2, "kind": "combat", "desc": "Destruction", "effects": [{"stat": "attack_pct", "value": 45, "kind": "flat"}, {"stat": "tam_ma_resist_pct", "value": -10, "kind": "flat"}]},
+    {"id": "huyet", "name": "Huyết", "parents": ["sinh_menh", "doc"], "order": 2, "kind": "combat", "desc": "Blood", "effects": [{"stat": "khi_huyet_pct", "value": 30, "kind": "flat"}]},
+    {"id": "tu", "name": "Tử", "parents": ["am", "doc"], "order": 2, "kind": "combat", "desc": "Death", "effects": [{"stat": "attack_pct", "value": 25, "kind": "flat"}, {"stat": "mi_luc", "value": -10, "kind": "flat"}]},
+    {"id": "dan_hoa", "name": "Đan Hỏa", "parents": ["hoa", "sinh_menh"], "order": 2, "kind": "craft", "desc": "Alchemy fire", "effects": [{"stat": "alchemy_success", "value": 15, "kind": "flat"}, {"stat": "alchemy_yield", "value": 1, "kind": "flat"}]},
+    {"id": "linh_thuc", "name": "Linh Thực", "parents": ["tho", "sinh_menh"], "order": 2, "kind": "craft", "desc": "Spirit plants", "effects": [{"stat": "herb_growth_pct", "value": 60, "kind": "flat"}, {"stat": "field_plots", "value": 2, "kind": "flat"}]},
+    {"id": "tinh_kim", "name": "Tinh Kim", "parents": ["kim", "dung_nham"], "order": 2, "kind": "craft", "desc": "Refined metal", "effects": [{"stat": "artifact_power_pct", "value": 25, "kind": "flat"}, {"stat": "refining_success", "value": 15, "kind": "flat"}]},
+    {"id": "tran", "name": "Trận", "parents": ["trong", "tho"], "order": 2, "kind": "craft", "desc": "Formations", "effects": [{"stat": "defense_pct", "value": 20, "kind": "flat"}, {"stat": "density_bonus", "value": 0.2, "kind": "flat"}, {"stat": "formation_power_pct", "value": 25, "kind": "flat"}]},
+    {"id": "hon", "name": "Hồn", "parents": ["am", "sinh_menh"], "order": 2, "kind": "esoteric", "desc": "Soul", "effects": [{"stat": "than_thuc_pct", "value": 40, "kind": "flat"}]},
+    {"id": "huyen", "name": "Huyễn", "parents": ["vu", "am"], "order": 2, "kind": "esoteric", "desc": "Illusion", "effects": [{"stat": "stealth", "value": 25, "kind": "flat"}, {"stat": "mi_luc", "value": 10, "kind": "flat"}]},
+    {"id": "tinh_than", "name": "Tinh Thần", "parents": ["quang", "am"], "order": 2, "kind": "esoteric", "desc": "Stars", "effects": [{"stat": "ngo_tinh", "value": 10, "kind": "flat"}, {"stat": "khi_van", "value": 5, "kind": "flat"}]},
+    {"id": "khong_gian", "name": "Không Gian", "parents": ["trong", "phong"], "order": 2, "kind": "esoteric", "desc": "Space", "effects": [{"stat": "travel_speed_pct", "value": 100, "kind": "flat"}, {"stat": "field_plots", "value": 1, "kind": "flat"}]},
+    {"id": "am_tinh", "name": "Âm", "parents": ["bang", "am"], "order": 2, "kind": "esoteric", "desc": "Yin", "effects": [{"stat": "cultivation_speed_pct", "value": 10, "kind": "flat"}]},
+    {"id": "duong", "name": "Dương", "parents": ["quang", "dung_nham"], "order": 2, "kind": "esoteric", "desc": "Yang", "effects": [{"stat": "cultivation_speed_pct", "value": 10, "kind": "flat"}]},
+    {"id": "luan_hoi", "name": "Luân Hồi", "parents": ["sinh_menh", "tu"], "order": 3, "kind": "esoteric", "desc": "Reincarnation", "effects": [{"stat": "lifespan_years", "value": 50, "kind": "flat"}]},
+    {"id": "thai_cuc", "name": "Thái Cực", "parents": ["am_tinh", "duong"], "order": 3, "kind": "apex", "desc": "Supreme ultimate", "effects": [{"stat": "cultivation_speed_pct", "value": 40, "kind": "flat"}, {"stat": "tam_ma_resist_pct", "value": 30, "kind": "flat"}]},
+    {"id": "thoi_gian", "name": "Thời Gian", "parents": ["khong_gian", "luan_hoi"], "order": 4, "kind": "apex", "desc": "Time", "effects": [{"stat": "lifespan_years", "value": 200, "kind": "flat"}, {"stat": "herb_growth_pct", "value": 100, "kind": "flat"}]},
+    {"id": "hon_don", "name": "Hỗn Độn", "parents": ["kim", "moc", "thuy", "hoa", "tho"], "order": 3, "kind": "apex", "desc": "Chaos (all five base elements)", "effects": [{"stat": "cultivation_speed_pct", "value": 25, "kind": "flat"}, {"stat": "breakthrough_chance", "value": 5, "kind": "flat"}]}
+  ]
+}

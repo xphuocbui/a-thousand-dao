@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "field": {
+    "base_plots": 3,
+    "max_plots": 12,
+    "seed_rarity_max": 3,
+    "must_be_home": true
+  },
+  "mission": {
+    "sect_base_income": 10,
+    "bounty_base_income": 8,
+    "income_realm_scale": {
+      "luyen_khi": 1,
+      "truc_co": 8,
+      "ket_dan": 60,
+      "nguyen_anh": 400,
+      "hoa_than": 3000
+    },
+    "injury_chance": 0.1,
+    "injury_khi_huyet_loss_pct": 20
+  },
+  "market": {
+    "buy_markup": 1.5,
+    "sell_ratio": 0.6,
+    "mi_luc_price_per_point": 0.004,
+    "stock_herbs": 6,
+    "stock_artifacts": 3,
+    "stock_pills": 3,
+    "stock_cong_phap": 1,
+    "stock_seed_types": 5,
+    "aged_herb_max_years": 60,
+    "restock_every_years": 1,
+    "stock_herb_rarity_max": 4,
+    "stock_artifact_grade_base": 2,
+    "stock_breakthrough_pill_chance": 0.3,
+    "stock_pill_quality_max": 1,
+    "stock_pill_qty_max": 3,
+    "stock_pill_price_budget_mult": 2,
+    "stock_materials": 4,
+    "stock_material_qty_max": 3
+  },
+  "talk": {
+    "per_npc_per_season": 1,
+    "relationship_min": -100,
+    "relationship_max": 100,
+    "attitude_change_max": 10,
+    "friendly_threshold": 30,
+    "hostile_threshold": -30
+  },
+  "closed_door": {
+    "max_years": 50
+  },
+  "pill": {
+    "toxicity_effect_divisor": 100,
+    "realm_scale_penalty": 0.1,
+    "quality_effect_step": 0.25
+  },
+  "explore": {
+    "loot_linh_thach_frac": [
+      0.05,
+      0.15
+    ],
+    "lost_item_check": {
+      "stat": "than_hon",
+      "difficulty": 70
+    },
+    "material_find_chance": 0.4,
+    "material_qty_max": 2
+  },
+  "death": {
+    "khi_huyet_zero_dies": true
+  },
+  "sect": {
+    "stipend_per_year_by_realm": {
+      "luyen_khi": 12,
+      "truc_co": 80,
+      "ket_dan": 200,
+      "nguyen_anh": 1300,
+      "hoa_than": 10000
+    },
+    "join_rank": "ngoai_mon"
+  },
+  "cultivate": {
+    "max_seasons_per_command": 40
+  },
+  "home_place_types": [
+    "tran",
+    "thanh"
+  ]
+}

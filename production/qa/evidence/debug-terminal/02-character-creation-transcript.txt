@@ -1,0 +1,194 @@
+
+Ten Thousand Daos — debug terminal
+Type 'help' for commands, 'new' to begin a life. LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+> new
+Tên (name) [Vô Danh]: Lâm Vô Danh
+Giới tính m/f [m]: m
+Xuất thân (origin):
+  1) Tán tu — Nobody. Free, poor, no sect obligations.
+  2) Đệ tử tông môn — Outer disciple of a generated sect: stipend, sect missions, a better công pháp.
+  3) Con cháu gia tộc — Minor clan heir: more linh thạch and a field already growing.
+Choose 1-3 [1]: 2
+World seed [793656932]: 4242
+Birth mode: 1) Thiên Định — roll, achievements on   2) Tự Định — choose, casual  [1]: 1
+
+Lâm Vô Danh — Đệ tử tông môn
+  Đơn linh căn: Thổ 61
+  Ngộ tính 63 Thượng · Căn cốt 33 Trung · Thần hồn 32 Trung · Khí vận 33 Trung · Đạo tâm 42 Trung · Mị lực 70 Thượng
+  Linh thạch 50. Curve in Luyện Khí: x1.00 (more elements: slower now, much faster later).
+Accept? y = accept, r = reroll, q = cancel [y]: r
+
+Lâm Vô Danh — Đệ tử tông môn
+  Đơn linh căn: Thủy 67
+  Ngộ tính 38 Trung · Căn cốt 51 Trung · Thần hồn 52 Trung · Khí vận 60 Trung · Đạo tâm 26 Hạ · Mị lực 43 Trung
+  Linh thạch 50. Curve in Luyện Khí: x1.00 (more elements: slower now, much faster later).
+Accept? y = accept, r = reroll, q = cancel [y]: y
+Generating the world (seed 4242)...
+A new world: 3 regions, 16 places, 5 sects, 177 people, 191 recorded events (Thiên Nguyên lịch năm 300).
+Lâm Vô Danh is born: Đơn linh căn: Thủy 67
+
+Lâm Vô Danh — 16 / 120 tuổi          Luyện Khí Tầng 1  0 / 30
+Xuất thân: Đệ tử tông môn | Tông môn: Huyết Sát Cốc | Mode: Thiên Định (achievements on)
+LINH CĂN  Đơn linh căn (1 counted for the curve)
+  Mộc 0   Hỏa 0   Thổ 0   Kim 0   Thủy 67 Thượng
+  Curve now x1.00 vs Đơn linh căn
+THIÊN PHÚ  Ngộ tính 38 Trung · Căn cốt 51 Trung · Thần hồn 52 Trung
+           Khí vận 60 Trung · Đạo tâm 26 Hạ · Mị lực 43 Trung
+TRẠNG THÁI Linh lực 130 · Thần thức 52 · Khí huyết 510/510
+           Đan độc 0 (pill effect -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 50
+CÔNG PHÁP  Huyền Thủy Kinh [Huyền giai, Thủy] speed x1.3, up to Kết Đan | attack_pct +13.5 · tu vi 15.0 / season here
+ĐẠO NGHỆ   none yet (practice raises them)
+CHIẾN LỰC  149 (offense 89 + defense 60) · thần thức 0/52 used
+KINH MẠCH  1 huyệt open, 2 points unspent
+(explain <stat> shows any number's breakdown: rate, power, life, ngo_tinh, attack_pct, ...)
+
+Thiên Trì Cốc (l9) — Cốc, Bắc Hoang Nguyên. Linh khí 1.45, danger 2
+  Headquarters of Huyết Sát Cốc
+  Your động phủ is here.
+People here (15):
+  p19    Thượng Quan Bách     Kết Đan Hậu kỳ         Tán tu, Huyết Sát Cốc | chiến lực 40173 | attitude 0
+  p20    Mộ Dung Tùng         Kết Đan Trung kỳ       Trận sư | chiến lực 26416 | attitude 0
+  p21    Triệu Minh           Kết Đan Sơ kỳ          Linh thực sư, Huyết Sát Cốc | chiến lực 17389 | attitude 0
+  p22    Mộ Dung Quân         Luyện Khí Tầng 6       Kiếm tu | chiến lực 259 | attitude 0
+  p23    Trương Mặc           Trúc Cơ Sơ kỳ          Pháp tu, Huyết Sát Cốc | chiến lực 2376 | attitude 0
+  p24    Cố Hằng              Luyện Khí Tầng 5       Tán tu, Huyết Sát Cốc | chiến lực 197 | attitude 0
+  p25    Thẩm Nguyệt          Luyện Khí Tầng 3       Tán tu, Huyết Sát Cốc | chiến lực 191 | attitude 0
+  p26    Diệp Thần            Luyện Khí Tầng 2       Tán tu, Huyết Sát Cốc | chiến lực 198 | attitude 0
+  p27    Tô Cảnh              Luyện Khí Tầng 1       Tán tu, Huyết Sát Cốc | chiến lực 182 | attitude 0
+  p28    Thẩm Ngọc            Luyện Khí Tầng 9       Tán tu, Huyết Sát Cốc | chiến lực 228 | attitude 0
+  p29    Thẩm Hà              Luyện Khí Tầng 13      Trận sư | chiến lực 339 | attitude 0
+  p30    Hàn Linh             Luyện Khí Tầng 2       Đan sư | chiến lực 180 | attitude 0
+  p31    Âu Dương Trường Không Luyện Khí Tầng 10      Tán tu, Huyết Sát Cốc | chiến lực 321 | attitude 0
+  p32    Tạ Linh              Luyện Khí Tầng 6       Tán tu, Huyết Sát Cốc | chiến lực 223 | attitude 0
+  p33    Chu Trường Không     Luyện Khí Tầng 13      Kiếm tu, Huyết Sát Cốc | chiến lực 385 | attitude 0
+Roads:
+  -> l8    Thạch Lâm Đảo (1 season)
+  -> l10   Mê Vụ Trấn (1 season)
+Try: field, recipes, cul 4, explore, tree, look, talk <id>, help
+[Thiên Nguyên lịch năm 300, Xuân | Lâm Vô Danh | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 50 | Thiên Trì Cốc]
+> new
+Tên (name) [Vô Danh]: Tô Tuyết
+Giới tính m/f [m]: f
+Xuất thân (origin):
+  1) Tán tu — Nobody. Free, poor, no sect obligations.
+  2) Đệ tử tông môn — Outer disciple of a generated sect: stipend, sect missions, a better công pháp.
+  3) Con cháu gia tộc — Minor clan heir: more linh thạch and a field already growing.
+Choose 1-3 [1]: 3
+World seed [793656933]: 99
+Birth mode: 1) Thiên Định — roll, achievements on   2) Tự Định — choose, casual  [1]: 2
+Tự Định: set each thiên phú 1-100 (enter = 50).
+  Ngộ tính (Comprehension: learning công pháp, đốn ngộ, discovering recipes, breaking bình cảnh): 70
+  Căn cốt (Physique: khí huyết, đan độc resistance, body cultivation): 55
+  Thần hồn (Soul strength: base of thần thức (artifact control, detection)): 60
+  Khí vận (Fortune: kỳ ngộ, rare finds, crafting crits, ceiling of LLM-invented rewards): 40
+  Đạo tâm (Dao heart: resists tâm ma, qi deviation and illusions): 65
+  Mị lực (Presence: NPC attitude, prices, what people will tell you): 50
+Linh căn purities, e.g. 'hoa=80 moc=60 tho=40' (elements: kim moc thuy hoa tho).
+  purities: hoa=85 moc=70 thuy=40
+  biến dị ids to force (blank = roll from purities): 
+
+Tô Tuyết — Con cháu gia tộc
+  Tam linh căn: Mộc 70, Hỏa 85, Thủy 40
+  Ngộ tính 70 Thượng · Căn cốt 55 Trung · Thần hồn 60 Trung · Khí vận 40 Trung · Đạo tâm 65 Thượng · Mị lực 50 Trung
+  Linh thạch 120. Curve in Luyện Khí: x0.50 (more elements: slower now, much faster later).
+Generating the world (seed 99)...
+A new world: 3 regions, 17 places, 7 sects, 218 people, 204 recorded events (Thiên Nguyên lịch năm 300).
+Tô Tuyết is born: Tam linh căn: Mộc 70, Hỏa 85, Thủy 40
+
+Tô Tuyết — 16 / 120 tuổi          Luyện Khí Tầng 1  0 / 30
+Xuất thân: Con cháu gia tộc | Tông môn: — | Mode: Tự Định (casual)
+LINH CĂN  Tam linh căn (3 counted for the curve)
+  Mộc 70 Thượng   Hỏa 85 Thượng   Thổ 0   Kim 0   Thủy 40 Trung
+  Curve now x0.50 vs Đơn linh căn
+THIÊN PHÚ  Ngộ tính 70 Thượng · Căn cốt 55 Trung · Thần hồn 60 Trung
+           Khí vận 40 Trung · Đạo tâm 65 Thượng · Mị lực 50 Trung
+TRẠNG THÁI Linh lực 100 · Thần thức 60 · Khí huyết 550/550
+           Đan độc 0 (pill effect -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 120
+CÔNG PHÁP  Liệt Hỏa Chân Kinh [Hoàng giai, Hỏa] speed x1.0, up to Trúc Cơ · tu vi 4.7 / season here
+ĐẠO NGHỆ   none yet (practice raises them)
+CHIẾN LỰC  133 (offense 72 + defense 61) · thần thức 0/60 used
+KINH MẠCH  1 huyệt open, 2 points unspent
+(explain <stat> shows any number's breakdown: rate, power, life, ngo_tinh, attack_pct, ...)
+
+Liệt Diễm Thành (l1) — Thành, Tử Vân Châu. Linh khí 0.82, danger 1, market, bounties
+  Your động phủ is here.
+People here (10):
+  p89    Thượng Quan Bách     Luyện Khí Tầng 8       Trận sư | chiến lực 297 | attitude 0
+  p90    Tạ Cảnh              Trúc Cơ Sơ kỳ          Kiếm tu | chiến lực 3431 | attitude 0
+  p91    Hàn Yên              Luyện Khí Tầng 10      Pháp tu | chiến lực 279 | attitude 0
+  p110   Lý Linh              Kết Đan Trung kỳ       Pháp tu | chiến lực 46002 | attitude 0
+  p115   Hàn Lan              Luyện Khí Tầng 6       Tán tu | chiến lực 270 | attitude 0
+  p122   Diệp Huyền           Trúc Cơ Trung kỳ       Linh thực sư | chiến lực 2005 | attitude 0
+  p131   Lâm Băng             Luyện Khí Tầng 5       Tán tu | chiến lực 252 | attitude 0
+  p132   Triệu Khinh Vũ       Trúc Cơ Sơ kỳ          Tán tu | chiến lực 2116 | attitude 0
+  p136   Lâm Thiếu Bạch       Trúc Cơ Đại viên mãn   Tán tu | chiến lực 3205 | attitude 0
+  p142   Lâm Tùng             Luyện Khí Tầng 2       Tán tu | chiến lực 185 | attitude 0
+Roads:
+  -> l2    Hàn Sơn Sơn (1 season)
+  -> l5    Lưu Vân Sơn (1 season)
+  -> l6    Thất Tinh Thành (3 seasons)
+  -> l12   Mê Vụ Thành (3 seasons)
+Try: field, recipes, cul 4, explore, tree, look, talk <id>, help
+[Thiên Nguyên lịch năm 300, Xuân | Tô Tuyết | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 120 | Liệt Diễm Thành]
+> sheet
+Tô Tuyết — 16 / 120 tuổi          Luyện Khí Tầng 1  0 / 30
+Xuất thân: Con cháu gia tộc | Tông môn: — | Mode: Tự Định (casual)
+LINH CĂN  Tam linh căn (3 counted for the curve)
+  Mộc 70 Thượng   Hỏa 85 Thượng   Thổ 0   Kim 0   Thủy 40 Trung
+  Curve now x0.50 vs Đơn linh căn
+THIÊN PHÚ  Ngộ tính 70 Thượng · Căn cốt 55 Trung · Thần hồn 60 Trung
+           Khí vận 40 Trung · Đạo tâm 65 Thượng · Mị lực 50 Trung
+TRẠNG THÁI Linh lực 100 · Thần thức 60 · Khí huyết 550/550
+           Đan độc 0 (pill effect -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 120
+CÔNG PHÁP  Liệt Hỏa Chân Kinh [Hoàng giai, Hỏa] speed x1.0, up to Trúc Cơ · tu vi 4.7 / season here
+ĐẠO NGHỆ   none yet (practice raises them)
+CHIẾN LỰC  133 (offense 72 + defense 61) · thần thức 0/60 used
+KINH MẠCH  1 huyệt open, 2 points unspent
+(explain <stat> shows any number's breakdown: rate, power, life, ngo_tinh, attack_pct, ...)
+[Thiên Nguyên lịch năm 300, Xuân | Tô Tuyết | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 120 | Liệt Diễm Thành]
+> tree map
+                                                                              
+                                                                              
+                              .     .      K     .                            
+                        .                              .                      
+                               .     .    .     .                             
+                          .                          .                        
+                                  .    N     .                                
+                    :       .                      N       :                  
+           .                       .   .    .                       .         
+              .               .                  .               .            
+       .                 N           .    .           N                 .     
+                 N              N              N              .               
+           .        .                .    .                .        .         
+     K        .                  .            .                  N        .   
+        .         .    .                .               .    .         .      
+                          .     :  N        N  :     .                        
+   .        .       N                   .                  .       .        K 
+       .        .       .    N       .    .       .    .       .        .     
+                                 .      +     .                               
+  .   .   .   .    .   .    N   .              .   N    .   N    .   N   .   .
+                                    +      +                                  
+              .    N   .   .   .        @       .   N   .   N    .            
+  .   .   N                 :        +  + +        :                 .   .   .
+                                 .            .                               
+                N            N     .        .     N            N              
+                         .           .    .           .                       
+        :             .         N              N         .             :      
+                  .         .       .   :  .       .         .                
+              N          .     .                .     N          .            
+           .         .             .        .             .         .         
+       .          .          N                    N          N          .     
+              .          .        N          .        .          .            
+                      N      .                    .      N                    
+           .      .               .     N    .               .      .         
+                           .                        .                         
+               K      .          .            .          .      .             
+                           .                        .                         
+                    .           .       :      .           K                  
+                         .                            .                       
+                               .                .                             
+                                                                              
+@ Đan Điền  # open  + openable  N notable  K keystone  o gate  . huyệt  : kỳ kinh bridge
+Sectors clockwise from the top: Mộc → Hỏa → Thổ → Kim → Thủy  (tương sinh order)
+[Thiên Nguyên lịch năm 300, Xuân | Tô Tuyết | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 120 | Liệt Diễm Thành]
+> 

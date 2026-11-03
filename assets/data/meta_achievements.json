@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "_doc": "Thành tựu, earned only in Thiên Định (rolled) lives and kept across lives (user://achievements.json). Spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md. Condition types: realm {realm, max_age?, origin?, min_elements?}; skill {skill, level}; formation {level}; beasts {count}; bien_di {count}; age {age}; event {type} (an event of that type logged for the player).",
+  "achievements": [
+    {"id": "truc_co", "name": "Trúc Cơ thành công", "desc": "Reach Trúc Cơ.", "condition": {"type": "realm", "realm": "truc_co"}},
+    {"id": "ket_dan", "name": "Kết thành Kim Đan", "desc": "Reach Kết Đan.", "condition": {"type": "realm", "realm": "ket_dan"}},
+    {"id": "nguyen_anh", "name": "Nguyên Anh xuất thế", "desc": "Reach Nguyên Anh.", "condition": {"type": "realm", "realm": "nguyen_anh"}},
+    {"id": "thieu_nien_truc_co", "name": "Thiếu niên Trúc Cơ", "desc": "Reach Trúc Cơ before age 45.", "condition": {"type": "realm", "realm": "truc_co", "max_age": 45}},
+    {"id": "tan_tu_ket_dan", "name": "Tán tu thành Đan", "desc": "Reach Kết Đan as a tán tu.", "condition": {"type": "realm", "realm": "ket_dan", "origin": "tan_tu"}},
+    {"id": "ngu_hanh_ket_dan", "name": "Ngũ Hành viên mãn", "desc": "Reach Kết Đan with five elements.", "condition": {"type": "realm", "realm": "ket_dan", "min_elements": 5}},
+    {"id": "dan_su", "name": "Đan sư", "desc": "Đan Đạo level 6.", "condition": {"type": "skill", "skill": "dan_dao", "level": 6}},
+    {"id": "luyen_khi_su", "name": "Luyện khí sư", "desc": "Luyện khí level 5.", "condition": {"type": "skill", "skill": "luyen_khi", "level": 5}},
+    {"id": "phu_su", "name": "Phù sư", "desc": "Phù lục level 5.", "condition": {"type": "skill", "skill": "phu_luc", "level": 5}},
+    {"id": "tran_dao", "name": "Trận đạo đại sư", "desc": "Raise a formation to level 5.", "condition": {"type": "formation", "level": 5}},
+    {"id": "ngu_thu", "name": "Ngự thú sư", "desc": "Keep a linh thú.", "condition": {"type": "beasts", "count": 1}},
+    {"id": "di_linh_can", "name": "Dị linh căn", "desc": "Own three biến dị at once.", "condition": {"type": "bien_di", "count": 3}},
+    {"id": "truong_tho", "name": "Trường thọ", "desc": "Live to 300.", "condition": {"type": "age", "age": 300}},
+    {"id": "thay_can", "name": "Thay căn đổi cốt", "desc": "Change your linh căn with a treasure.", "condition": {"type": "event", "event": "player_linh_can_changed"}}
+  ]
+}

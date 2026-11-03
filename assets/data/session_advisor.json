@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "lifespan_warning_years": 15,
+  "lifespan_urgent_years": 5,
+  "khi_huyet_warning_pct": 50,
+  "dan_doc_warning": 50,
+  "tam_ma_warning": 40,
+  "low_linh_thach": 10,
+  "menu": {
+    "cultivate_seasons": 4,
+    "closed_door_years": 5,
+    "max_goal_entries": 4
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "khi_van_ceiling": {
+    "base": 0.75,
+    "per_point": 0.005
+  },
+  "difficulty": {
+    "min": 5,
+    "max": 95
+  },
+  "max_choices": 4,
+  "min_choices": 2,
+  "max_effects_per_outcome": 3,
+  "max_title_chars": 80,
+  "max_text_chars": 900,
+  "max_name_chars": 40,
+  "allowed_check_stats": [
+    "ngo_tinh",
+    "can_cot",
+    "than_hon",
+    "khi_van",
+    "dao_tam",
+    "mi_luc"
+  ],
+  "allowed_effect_types": [
+    "linh_thach",
+    "tu_vi",
+    "herb",
+    "material",
+    "artifact",
+    "cong_phap",
+    "pill",
+    "khi_huyet_loss_pct",
+    "tam_ma",
+    "dan_doc",
+    "relationship",
+    "tree_point",
+    "treasure",
+    "talisman",
+    "breakthrough_pill",
+    "plan_herb"
+  ],
+  "per_realm": {
+    "luyen_khi": {
+      "linh_thach_max": 80,
+      "linh_thach_loss_max": 40,
+      "tu_vi_pct_max": 0.5,
+      "artifact_grade_max": 2,
+      "herb_rarity_max": 3,
+      "herb_age_max": 40,
+      "material_rarity_max": 2,
+      "cong_phap_tier_max": 1,
+      "pill_price_max": 150,
+      "khi_huyet_loss_pct_max": 60,
+      "tam_ma_max": 15,
+      "dan_doc_max": 15,
+      "relationship_max": 30,
+      "tree_point_max": 1,
+      "treasures": []
+    },
+    "truc_co": {
+      "linh_thach_max": 600,
+      "linh_thach_loss_max": 300,
+      "tu_vi_pct_max": 0.4,
+      "artifact_grade_max": 3,
+      "herb_rarity_max": 4,
+      "herb_age_max": 120,
+      "material_rarity_max": 3,
+      "cong_phap_tier_max": 2,
+      "pill_price_max": 1500,
+      "khi_huyet_loss_pct_max": 60,
+      "tam_ma_max": 15,
+      "dan_doc_max": 15,
+      "relationship_max": 30,
+      "tree_point_max": 1,
+      "treasures": [
+        "linh_can_qua"
+      ]
+    },
+    "ket_dan": {
+      "linh_thach_max": 5000,
+      "linh_thach_loss_max": 2500,
+      "tu_vi_pct_max": 0.3,
+      "artifact_grade_max": 4,
+      "herb_rarity_max": 5,
+      "herb_age_max": 400,
+      "material_rarity_max": 4,
+      "cong_phap_tier_max": 3,
+      "pill_price_max": 8000,
+      "khi_huyet_loss_pct_max": 60,
+      "tam_ma_max": 15,
+      "dan_doc_max": 15,
+      "relationship_max": 30,
+      "tree_point_max": 2,
+      "treasures": [
+        "linh_can_qua"
+      ]
+    },
+    "nguyen_anh": {
+      "linh_thach_max": 40000,
+      "linh_thach_loss_max": 20000,
+      "tu_vi_pct_max": 0.25,
+      "artifact_grade_max": 4,
+      "herb_rarity_max": 5,
+      "herb_age_max": 1000,
+      "material_rarity_max": 4,
+      "cong_phap_tier_max": 3,
+      "pill_price_max": 60000,
+      "khi_huyet_loss_pct_max": 60,
+      "tam_ma_max": 15,
+      "dan_doc_max": 15,
+      "relationship_max": 30,
+      "tree_point_max": 2,
+      "treasures": [
+        "linh_can_qua"
+      ]
+    },
+    "hoa_than": {
+      "linh_thach_max": 300000,
+      "linh_thach_loss_max": 150000,
+      "tu_vi_pct_max": 0.2,
+      "artifact_grade_max": 4,
+      "herb_rarity_max": 5,
+      "herb_age_max": 3000,
+      "material_rarity_max": 4,
+      "cong_phap_tier_max": 3,
+      "pill_price_max": 400000,
+      "khi_huyet_loss_pct_max": 60,
+      "tam_ma_max": 15,
+      "dan_doc_max": 15,
+      "relationship_max": 30,
+      "tree_point_max": 3,
+      "treasures": [
+        "linh_can_qua"
+      ]
+    }
+  },
+  "check": {
+    "base": 0.5,
+    "per_point": 0.01,
+    "khi_van_per_point": 0.002,
+    "khi_van_neutral": 50,
+    "stealth_per_point": 0.01,
+    "min": 0.05,
+    "max": 0.95
+  },
+  "default_artifact_grade_offset": -1,
+  "default_cong_phap_tier_offset": -1,
+  "npc_realm_offset": {
+    "min": -1,
+    "max": 1
+  },
+  "context": {
+    "npcs_here_max": 8,
+    "recent_events_max": 6,
+    "sect_mates_max": 4
+  },
+  "free_exit_choice": {
+    "label": "Lặng lẽ rời đi",
+    "text": "Ngươi không có gì để đổi, đành quay lưng rời đi."
+  },
+  "co_duyen_effects": [
+    "breakthrough_pill",
+    "plan_herb",
+    "talisman:pha_canh"
+  ],
+  "_co_duyen_doc": "Effects in co_duyen_effects are protagonist gifts: allowed only for a life with the edge, at a bình cảnh, while character_edges.json player.co_duyen_per_realm is not used up."
+}

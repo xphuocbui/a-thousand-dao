@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "materials": [
+    {"id": "linh_thach_khoang", "name": "Linh Thạch Khoáng", "element": "", "base_value": 8, "rarity": 1, "desc": "Raw spirit-stone ore."},
+    {"id": "tinh_thiet", "name": "Tinh Thiết", "element": "kim", "base_value": 15, "rarity": 1, "desc": "Refined iron for pháp khí."},
+    {"id": "yeu_dan", "name": "Yêu Đan", "element": "", "base_value": 40, "rarity": 2, "desc": "A demon beast's core."},
+    {"id": "han_ngoc", "name": "Hàn Ngọc", "element": "thuy", "base_value": 35, "rarity": 2, "desc": "Cold jade."},
+    {"id": "xich_dong", "name": "Xích Đồng", "element": "hoa", "base_value": 30, "rarity": 2, "desc": "Red copper that holds fire."},
+    {"id": "linh_moc_tam", "name": "Linh Mộc Tâm", "element": "moc", "base_value": 50, "rarity": 3, "desc": "Heartwood of a spirit tree."},
+    {"id": "huyen_hoang_thach", "name": "Huyền Hoàng Thạch", "element": "tho", "base_value": 60, "rarity": 3, "desc": "Dark-yellow formation stone."},
+    {"id": "loi_kich_moc", "name": "Lôi Kích Mộc", "element": "moc", "base_value": 120, "rarity": 4, "desc": "Wood struck by heavenly lightning."}
+  ]
+}

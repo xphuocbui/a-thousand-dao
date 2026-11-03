@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "realms": [
+    {
+      "id": "luyen_khi",
+      "name": "Luyện Khí",
+      "stage_names": ["Tầng 1", "Tầng 2", "Tầng 3", "Tầng 4", "Tầng 5", "Tầng 6", "Tầng 7", "Tầng 8", "Tầng 9", "Tầng 10", "Tầng 11", "Tầng 12", "Tầng 13"],
+      "stage_curve_groups": ["lk_early", "lk_early", "lk_early", "lk_early", "lk_mid", "lk_mid", "lk_mid", "lk_mid", "lk_mid", "lk_late", "lk_late", "lk_late", "lk_late"],
+      "tu_vi_required": [30, 35, 40, 50, 60, 70, 80, 95, 110, 130, 150, 175, 200],
+      "lifespan": 120,
+      "base_rate": 10.0,
+      "power_base": 100.0,
+      "stage_power_step": 0.08,
+      "than_thuc_mult": 1.0,
+      "khi_huyet_mult": 1.0,
+      "linh_luc_base": 100.0,
+      "tree_points_per_stage": 1,
+      "entry_requirement": null
+    },
+    {
+      "id": "truc_co",
+      "name": "Trúc Cơ",
+      "stage_names": ["Sơ kỳ", "Trung kỳ", "Hậu kỳ", "Đại viên mãn"],
+      "stage_curve_groups": ["tc_so", "tc_trung", "tc_hau", "tc_dvm"],
+      "tu_vi_required": [600, 900, 1300, 1800],
+      "lifespan": 200,
+      "base_rate": 25.0,
+      "power_base": 1000.0,
+      "stage_power_step": 0.3,
+      "than_thuc_mult": 3.0,
+      "khi_huyet_mult": 4.0,
+      "linh_luc_base": 800.0,
+      "tree_points_per_stage": 3,
+      "entry_requirement": {"item_tag": "truc_co_dan", "base_chance": 0.005, "pill_chance": 0.06}
+    },
+    {
+      "id": "ket_dan",
+      "name": "Kết Đan",
+      "stage_names": ["Sơ kỳ", "Trung kỳ", "Hậu kỳ", "Đại viên mãn"],
+      "stage_curve_groups": ["kd_so", "kd_trung", "kd_hau", "kd_dvm"],
+      "tu_vi_required": [3000, 4500, 6500, 9000],
+      "lifespan": 500,
+      "base_rate": 60.0,
+      "power_base": 10000.0,
+      "stage_power_step": 0.3,
+      "than_thuc_mult": 10.0,
+      "khi_huyet_mult": 15.0,
+      "linh_luc_base": 6000.0,
+      "tree_points_per_stage": 4,
+      "entry_requirement": {"item_tag": "ngung_nguyen_dan", "base_chance": 0.01, "pill_chance": 0.20}
+    },
+    {
+      "id": "nguyen_anh",
+      "name": "Nguyên Anh",
+      "stage_names": ["Sơ kỳ", "Trung kỳ", "Hậu kỳ", "Đại viên mãn"],
+      "stage_curve_groups": ["na", "na", "na", "na"],
+      "tu_vi_required": [15000, 22000, 32000, 45000],
+      "lifespan": 1000,
+      "base_rate": 150.0,
+      "power_base": 100000.0,
+      "stage_power_step": 0.3,
+      "than_thuc_mult": 30.0,
+      "khi_huyet_mult": 50.0,
+      "linh_luc_base": 50000.0,
+      "tree_points_per_stage": 5,
+      "entry_requirement": {"item_tag": "hoa_anh_dan", "base_chance": 0.01, "pill_chance": 0.2}
+    },
+    {
+      "id": "hoa_than",
+      "name": "Hóa Thần",
+      "stage_names": ["Sơ kỳ", "Trung kỳ", "Hậu kỳ", "Đại viên mãn"],
+      "stage_curve_groups": ["ht", "ht", "ht", "ht"],
+      "tu_vi_required": [80000, 120000, 170000, 240000],
+      "lifespan": 2000,
+      "base_rate": 400.0,
+      "power_base": 1000000.0,
+      "stage_power_step": 0.3,
+      "than_thuc_mult": 100.0,
+      "khi_huyet_mult": 150.0,
+      "linh_luc_base": 400000.0,
+      "tree_points_per_stage": 6,
+      "entry_requirement": {"item_tag": "hoa_than_dan", "base_chance": 0.005, "pill_chance": 0.15}
+    }
+  ],
+  "breakthrough": {
+    "pill_quality_bonus_per_grade": 0.015,
+    "ngo_tinh_bonus_per_point": 0.0005,
+    "dao_tam_bonus_per_point": 0.00025,
+    "failure_tu_vi_loss_pct": 0.3,
+    "failure_tam_ma_gain": 10,
+    "failure_khi_huyet_loss_pct": 0.4,
+    "backlash_death_tam_ma_threshold": 90,
+    "tam_ma_backlash_divisor": 2.0
+  },
+  "cultivation": {
+    "no_cong_phap_mult": 0.3,
+    "ngo_tinh_divisor": 200.0,
+    "dan_doc_divisor": 200.0,
+    "closed_door_efficiency": 1.2,
+    "seasons_per_year": 4
+  }
+}

@@ -1,0 +1,119 @@
+# Scripted session exercising every debug-terminal command.
+# Run: godot --headless --path . -s res://src/debug_terminal/terminal_main.gd -- --no-llm --commands res://tests/integration/debug_terminal/smoke_commands.txt --exit-after-commands
+# Pass = exit code 0 and no "SCRIPT ERROR" in the output (tools/run-terminal-smoke.sh checks both).
+help
+new quick SmokeTest 777
+status
+sheet
+explain rate
+explain power
+explain life
+explain ngo_tinh
+explain attack_pct
+inv
+field
+recipes
+look
+map
+db stats
+db sects
+db people alive
+db items legendary
+db events breakthrough
+db show s1
+db show p1
+db show l1
+legends 5
+tree
+tree targets
+tree map
+tree node 112
+tree alloc 112
+tree go 115
+debug tp 10
+tree go 140
+plant hoang_tinh_sam
+plant hoa linh chi
+field
+debug event linh_thao_hoang_da
+event
+choose 1
+debug event cuop_tu_chan_duong
+choose 1
+debug event yeu_thu
+choose 2
+debug event dong_phu_co
+choose 3
+debug templates
+cul 4
+bequan 2
+field
+harvest all
+debug herb ngung_khi_thao 3
+debug herb ngung_khi_thao 3
+debug herb thanh_tam_lien 5
+craft tu_khi_dan
+inv
+recipes
+debug lt 500
+market
+mission
+explore
+look
+news 5
+debug item artifact 2
+debug item cong_phap 1
+inv
+buildgen kiem_tu 1
+buildgen dan_su 2
+debug tuvi 2000
+breakthrough
+debug herb hoang_tinh_sam 35
+debug herb hoa_linh_chi 12
+debug tuvi 2000
+sheet
+chronicle
+# interactive layer: goals, HUD, menu numbers, pickers (id left out)
+goals
+status
+1
+event
+1
+menu off
+cul 1
+menu on
+menu
+equip
+1
+use
+1
+talk
+1
+Chào đạo hữu
+go
+1
+tree alloc
+1
+plant
+99
+craft
+
+
+# crafts: luyện khí and trận pháp
+debug lt 2000
+explain refine
+refine
+1
+formation
+formation build
+2
+explain upkeep
+achievements
+beasts
+talisman
+1
+save smoke_test
+load smoke_test
+status
+llm
+quit

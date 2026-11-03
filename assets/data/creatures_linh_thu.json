@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "_doc": "Linh thú (spirit beasts). Spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md. Owned beasts are people records with owner_id; they cultivate in the world tick, add power_share of their chiến lực to the owner's offense, follow the owner, and eat feed_lt_by_realm linh thạch a year. tame chance = base + (Thần hồn - than_hon_neutral) x than_hon_per_point + Ngự thú level x per_skill_level, clamped to [min, max].",
+  "skill": "ngu_thu",
+  "tame": {"base": 0.15, "than_hon_neutral": 50, "than_hon_per_point": 0.004, "per_skill_level": 0.05, "min": 0.02, "max": 0.8},
+  "max_beasts_base": 1,
+  "than_hon_per_extra_beast": 40,
+  "power_share": 0.5,
+  "feed_lt_by_realm": [5, 40, 300, 2000, 15000],
+  "loyalty": {"start": 80, "max": 100, "unfed_loss": 25, "fed_gain": 5},
+  "growth_per_skill_level": 0.1,
+  "xp_per_tame": 60.0,
+  "xp_per_year_fed": 10.0,
+  "xp_per_level": 100.0,
+  "max_level": 9
+}

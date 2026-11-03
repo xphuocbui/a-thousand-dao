@@ -1,0 +1,416 @@
+{
+  "schema_version": 1,
+  "calendar_name": "Thiên Nguyên lịch",
+  "regions": {
+    "min": 3,
+    "max": 4
+  },
+  "places_per_region": {
+    "min": 4,
+    "max": 6
+  },
+  "place_types": [
+    {
+      "id": "thanh",
+      "suffix": "Thành",
+      "weight": 14,
+      "density": [
+        0.8,
+        1
+      ],
+      "danger": 1,
+      "market": true,
+      "bounties": true
+    },
+    {
+      "id": "tran",
+      "suffix": "Trấn",
+      "weight": 16,
+      "density": [
+        0.6,
+        0.9
+      ],
+      "danger": 1,
+      "market": false,
+      "bounties": true
+    },
+    {
+      "id": "phuong_thi",
+      "suffix": "Phường Thị",
+      "weight": 8,
+      "density": [
+        0.9,
+        1.1
+      ],
+      "danger": 1,
+      "market": true,
+      "bounties": false
+    },
+    {
+      "id": "son",
+      "suffix": "Sơn",
+      "weight": 18,
+      "density": [
+        1,
+        1.5
+      ],
+      "danger": 2,
+      "market": false,
+      "bounties": false
+    },
+    {
+      "id": "coc",
+      "suffix": "Cốc",
+      "weight": 12,
+      "density": [
+        1.1,
+        1.6
+      ],
+      "danger": 2,
+      "market": false,
+      "bounties": false
+    },
+    {
+      "id": "ho",
+      "suffix": "Hồ",
+      "weight": 8,
+      "density": [
+        1,
+        1.4
+      ],
+      "danger": 2,
+      "market": false,
+      "bounties": false
+    },
+    {
+      "id": "bi_canh",
+      "suffix": "Bí Cảnh",
+      "weight": 6,
+      "density": [
+        1.5,
+        2.2
+      ],
+      "danger": 4,
+      "market": false,
+      "bounties": false
+    },
+    {
+      "id": "dao",
+      "suffix": "Đảo",
+      "weight": 6,
+      "density": [
+        1,
+        1.5
+      ],
+      "danger": 3,
+      "market": false,
+      "bounties": false
+    }
+  ],
+  "travel": {
+    "same_region_seasons": 1,
+    "cross_region_seasons": 3,
+    "extra_links_per_region": 2
+  },
+  "sects": {
+    "min": 4,
+    "max": 6,
+    "alignments": [
+      {
+        "id": "chinh",
+        "name": "Chính đạo",
+        "weight": 50
+      },
+      {
+        "id": "ma",
+        "name": "Ma đạo",
+        "weight": 25
+      },
+      {
+        "id": "trung",
+        "name": "Trung lập",
+        "weight": 25
+      }
+    ],
+    "members_min": 8,
+    "members_max": 20,
+    "member_archetype_share": 0.5
+  },
+  "people": {
+    "loose_cultivators": 40,
+    "age_min_by_realm": [
+      16,
+      30,
+      80,
+      200,
+      500
+    ],
+    "age_max_lifespan_frac": 0.85,
+    "traits_per_person": 2,
+    "female_chance": 0.4,
+    "loose_tan_tu_share": 0.4,
+    "townsfolk_per_town": {
+      "min": 2,
+      "max": 4
+    },
+    "townsfolk_realm_max": 1
+  },
+  "npc_builds": {
+    "artifacts_base": 1,
+    "artifacts_per_realm": 1,
+    "artifacts_max": 3,
+    "cong_phap_tier_per_realm": 0.75,
+    "skill_level_base": 1,
+    "skill_level_per_realm": 2,
+    "archetype_skills": {
+      "dan_su": "dan_dao",
+      "linh_thuc_su": "linh_thuc",
+      "tran_su": "tran_dao"
+    },
+    "tree_focus_weight": 2,
+    "tree_kind_scores": {
+      "root": 0,
+      "gate": 1,
+      "small": 1,
+      "bridge": 1,
+      "notable": 4,
+      "bridge_notable": 3,
+      "keystone": 1.5
+    },
+    "archetype_element_purity": {
+      "mean": 55,
+      "sd": 15,
+      "min": 20,
+      "max": 100
+    },
+    "artifact_root_element_chance": 0.6,
+    "leader_realm_min": "ket_dan",
+    "elder_realm_min": "truc_co"
+  },
+  "realm_distribution": [
+    {
+      "realm": "luyen_khi",
+      "weight": 55
+    },
+    {
+      "realm": "truc_co",
+      "weight": 28
+    },
+    {
+      "realm": "ket_dan",
+      "weight": 12
+    },
+    {
+      "realm": "nguyen_anh",
+      "weight": 4
+    },
+    {
+      "realm": "hoa_than",
+      "weight": 1
+    }
+  ],
+  "archetypes": [
+    {
+      "id": "kiem_tu",
+      "name": "Kiếm tu",
+      "elements": [
+        "kim"
+      ],
+      "tree_focus": [
+        "kim"
+      ],
+      "artifact_bases": [
+        "phi_kiem"
+      ],
+      "weight": 20
+    },
+    {
+      "id": "dan_su",
+      "name": "Đan sư",
+      "elements": [
+        "hoa"
+      ],
+      "tree_focus": [
+        "hoa",
+        "moc"
+      ],
+      "artifact_bases": [
+        "ho_lo",
+        "chuong"
+      ],
+      "weight": 15
+    },
+    {
+      "id": "the_tu",
+      "name": "Thể tu",
+      "elements": [
+        "tho"
+      ],
+      "tree_focus": [
+        "tho"
+      ],
+      "artifact_bases": [
+        "giap",
+        "thuan"
+      ],
+      "weight": 12
+    },
+    {
+      "id": "tran_su",
+      "name": "Trận sư",
+      "elements": [
+        "tho",
+        "kim"
+      ],
+      "tree_focus": [
+        "tho",
+        "kim"
+      ],
+      "artifact_bases": [
+        "ky",
+        "an"
+      ],
+      "weight": 10
+    },
+    {
+      "id": "linh_thuc_su",
+      "name": "Linh thực sư",
+      "elements": [
+        "moc"
+      ],
+      "tree_focus": [
+        "moc",
+        "thuy"
+      ],
+      "artifact_bases": [
+        "phien",
+        "chuong"
+      ],
+      "weight": 10
+    },
+    {
+      "id": "phap_tu",
+      "name": "Pháp tu",
+      "elements": [
+        "thuy",
+        "hoa"
+      ],
+      "tree_focus": [
+        "thuy",
+        "hoa"
+      ],
+      "artifact_bases": [
+        "an",
+        "cham",
+        "phien"
+      ],
+      "weight": 18
+    },
+    {
+      "id": "tan_tu",
+      "name": "Tán tu",
+      "elements": [],
+      "tree_focus": [],
+      "artifact_bases": [],
+      "weight": 15
+    }
+  ],
+  "history": {
+    "years": 300,
+    "events_per_year": 1.2,
+    "event_weights": [
+      {
+        "type": "breakthrough",
+        "weight": 30
+      },
+      {
+        "type": "death_age",
+        "weight": 10
+      },
+      {
+        "type": "duel",
+        "weight": 14
+      },
+      {
+        "type": "sect_war",
+        "weight": 4
+      },
+      {
+        "type": "treasure_found",
+        "weight": 10
+      },
+      {
+        "type": "treasure_lost",
+        "weight": 4
+      },
+      {
+        "type": "disciple",
+        "weight": 10
+      },
+      {
+        "type": "betrayal",
+        "weight": 4
+      },
+      {
+        "type": "secret_realm",
+        "weight": 4
+      },
+      {
+        "type": "newcomer",
+        "weight": 20
+      }
+    ],
+    "legendary_artifacts": 6,
+    "texts": {
+      "breakthrough": "{a} đột phá {realm}.",
+      "death_age": "{a} ({realm}) thọ nguyên cạn kiệt, tọa hóa tại {place}.",
+      "duel_win": "{a} và {b} giao đấu tại {place}; {a} thắng.",
+      "duel_kill": "{a} chém giết {b} ({realm}) tại {place}.",
+      "sect_war": "{s1} và {s2} khai chiến; {s1} chiếm thượng phong.",
+      "sect_war_fall": "{s1} san bằng {s2}. {s2} từ đó tuyệt tích.",
+      "treasure_found": "{a} tìm được {item} tại {place}.",
+      "treasure_lost": "{item} của {a} thất lạc tại {place}.",
+      "disciple": "{a} thu {b} làm đệ tử.",
+      "betrayal": "{a} phản bội {s1}, gia nhập {s2}.",
+      "betrayal_rogue": "{a} phản bội {s1}, trở thành tán tu.",
+      "secret_realm": "{place} khai mở; {a} là người đầu tiên bước vào.",
+      "newcomer": "{a} bước lên con đường tu tiên tại {place}.",
+      "sect_founded": "{a} khai sáng {s1} tại {place}.",
+      "tick_breakthrough": "Tin đồn: {a} vừa đột phá {realm}.",
+      "tick_death": "{a} ({realm}) đã tọa hóa.",
+      "tick_duel": "{a} và {b} đại chiến tại {place}; {winner} thắng.",
+      "player_born": "{a} bước lên con đường tu tiên tại {place}.",
+      "player_breakthrough": "{a} đột phá {realm} thành công.",
+      "player_breakthrough_fail": "{a} đột phá {realm} thất bại.",
+      "player_death": "{a} qua đời: {cause}.",
+      "player_found_lost": "{a} tìm thấy {item} thất lạc tại {place}.",
+      "player_refined": "{a} luyện thành {item}.",
+      "player_co_duyen": "{a} gặp cơ duyên tại {place}.",
+      "player_linh_can_changed": "Linh căn của {a} biến đổi.",
+      "player_formation": "{a} bố trí trận pháp tại động phủ ở {place}.",
+      "player_formation_decay": "Trận pháp tại động phủ của {a} suy yếu vì thiếu linh thạch duy trì.",
+      "player_joined_sect": "{a} bái nhập {s1}."
+    },
+    "fallen_sects": 1,
+    "duel_kill_chance": 0.3,
+    "sect_fall_chance": 0,
+    "founder_realm_range": [
+      2,
+      4
+    ],
+    "legend_held_chance": 0.6,
+    "betrayal_rogue_chance": 0.5
+  },
+  "tick": {
+    "event_chance_per_season": 0.6,
+    "npc_cultivation_seasons_per_stage": 12,
+    "npc_aging": true,
+    "npc_breakthrough_pill_chance_factor": 0.5
+  },
+  "season_names": [
+    "Xuân",
+    "Hạ",
+    "Thu",
+    "Đông"
+  ]
+}

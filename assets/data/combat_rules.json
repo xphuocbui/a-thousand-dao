@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "power": {
+    "base_offense_share": 0.5,
+    "base_defense_share": 0.5,
+    "cong_phap_share": 0.2,
+    "khi_huyet_weight": 0.02,
+    "linh_luc_weight": 0.02
+  },
+  "duel": {
+    "ratio_exponent": 2.0,
+    "min_win_chance": 0.02,
+    "max_win_chance": 0.98,
+    "khi_van_per_point": 0.001,
+    "rounds": 3,
+    "injured_power_floor": 0.4
+  },
+  "beast": {"name_prefixes": ["Hắc Phong", "Xích Mục", "Thiết Bối", "Băng Lân", "Kim Giác", "Độc Nhãn"], "name_bases": ["Lang", "Hổ", "Mãng", "Ưng", "Hùng", "Giao"], "power_mult": 1.1}
+}

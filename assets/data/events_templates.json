@@ -1,0 +1,1172 @@
+{
+  "schema_version": 1,
+  "random_event_chance": {
+    "base": 0.12,
+    "per_danger": 0.06,
+    "explore_bonus": 0.55
+  },
+  "templates": [
+    {
+      "id": "lao_gia_ban_thao",
+      "weight": 10,
+      "place_types": [
+        "thanh",
+        "tran",
+        "phuong_thi"
+      ],
+      "npc": {
+        "mode": "new",
+        "archetype": "linh_thuc_su",
+        "realm_offset": 0
+      },
+      "title": "Lão giả bán thảo dược",
+      "text": "Ở góc chợ {place}, một lão giả tên {npc} bày vài gốc linh thảo cũ kỹ. Ông nheo mắt nhìn ngươi: \"Gốc này đã tích tụ linh khí nhiều năm, chỉ bán cho người có duyên.\"",
+      "choices": [
+        {
+          "label": "Mua gốc linh thảo (giá vừa phải)",
+          "check": {
+            "type": "none"
+          },
+          "always": [
+            {
+              "type": "linh_thach",
+              "budget_frac": [
+                -0.3,
+                -0.2
+              ]
+            }
+          ],
+          "success": {
+            "text": "Ngươi trả linh thạch, nhận về một gốc linh thảo còn thơm mùi đất.",
+            "effects": [
+              {
+                "type": "herb",
+                "age_range": [
+                  8,
+                  30
+                ],
+                "rarity_max": 3
+              }
+            ]
+          }
+        },
+        {
+          "label": "Mặc cả (Mị lực)",
+          "check": {
+            "type": "stat",
+            "stat": "mi_luc",
+            "difficulty": 55
+          },
+          "success": {
+            "text": "{npc} bật cười, chịu bán rẻ cho ngươi.",
+            "effects": [
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  -0.12,
+                  -0.08
+                ]
+              },
+              {
+                "type": "herb",
+                "age_range": [
+                  8,
+                  30
+                ],
+                "rarity_max": 3
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 10
+              }
+            ]
+          },
+          "failure": {
+            "text": "{npc} phẩy tay áo: \"Không có duyên.\" rồi thu dọn rời đi.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -5
+              }
+            ]
+          }
+        },
+        {
+          "label": "Bỏ đi",
+          "check": {
+            "type": "none"
+          },
+          "success": {
+            "text": "Ngươi lắc đầu bước qua.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "cuop_tu_chan_duong",
+      "weight": 10,
+      "place_types": [
+        "son",
+        "coc",
+        "dao",
+        "tran"
+      ],
+      "npc": {
+        "mode": "new",
+        "archetype": "tan_tu",
+        "realm_offset": 0
+      },
+      "title": "Cướp tu chặn đường",
+      "text": "Trên đường qua {place}, {npc} ({npc_realm}) từ trong rừng bước ra, kiếm quang lóe lên: \"Để lại túi trữ vật, tha cho ngươi một mạng.\"",
+      "choices": [
+        {
+          "label": "Liều mạng giao đấu",
+          "check": {
+            "type": "combat",
+            "enemy": "event_npc"
+          },
+          "success": {
+            "text": "Ngươi đánh lui {npc}, nhặt được chiến lợi phẩm hắn bỏ lại.",
+            "effects": [
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.3,
+                  0.6
+                ]
+              },
+              {
+                "type": "artifact",
+                "grade_offset": -1
+              }
+            ]
+          },
+          "failure": {
+            "text": "{npc} quá mạnh. Ngươi trọng thương, túi trữ vật bị cướp sạch một phần.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 50
+              },
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  -0.5,
+                  -0.3
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Bỏ chạy (Thần hồn)",
+          "check": {
+            "type": "stat",
+            "stat": "than_hon",
+            "difficulty": 50,
+            "evade": true
+          },
+          "success": {
+            "text": "Ngươi thu liễm khí tức, lẩn vào sương mù thoát thân.",
+            "effects": []
+          },
+          "failure": {
+            "text": "Ngươi bị đuổi kịp, trúng một chưởng.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 30
+              }
+            ]
+          }
+        },
+        {
+          "label": "Nộp linh thạch",
+          "check": {
+            "type": "none"
+          },
+          "always": [
+            {
+              "type": "linh_thach",
+              "budget_frac": [
+                -0.4,
+                -0.25
+              ]
+            }
+          ],
+          "success": {
+            "text": "{npc} cười lạnh, nhận linh thạch rồi biến mất.",
+            "effects": [
+              {
+                "type": "tam_ma",
+                "amount": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "linh_thao_hoang_da",
+      "weight": 12,
+      "place_types": [
+        "son",
+        "coc",
+        "ho",
+        "dao"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Linh thảo hoang dã",
+      "text": "Giữa vách đá ở {place}, ngươi ngửi thấy linh khí nồng đậm. Một gốc linh thảo mọc khuất sau rêu, không rõ đã bao nhiêu năm tuổi.",
+      "choices": [
+        {
+          "label": "Quan sát kỹ trước khi hái (Ngộ tính)",
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 45
+          },
+          "success": {
+            "text": "Ngươi nhận ra cách hái không làm tổn thương rễ. Linh thảo còn nguyên dược tính.",
+            "effects": [
+              {
+                "type": "herb",
+                "age_range": [
+                  15,
+                  60
+                ],
+                "rarity_max": 4
+              }
+            ]
+          },
+          "failure": {
+            "text": "Ngươi hái vội, rễ đứt, dược tính tổn hao quá nửa.",
+            "effects": [
+              {
+                "type": "herb",
+                "age_range": [
+                  3,
+                  10
+                ],
+                "rarity_max": 2
+              }
+            ]
+          }
+        },
+        {
+          "label": "Thử vận may (Khí vận)",
+          "check": {
+            "type": "stat",
+            "stat": "khi_van",
+            "difficulty": 60
+          },
+          "success": {
+            "text": "Phía sau gốc thứ nhất còn một gốc già hơn!",
+            "effects": [
+              {
+                "type": "herb",
+                "age_range": [
+                  30,
+                  100
+                ],
+                "rarity_max": 4
+              }
+            ]
+          },
+          "failure": {
+            "text": "Một con rắn độc lao ra cắn trúng tay ngươi.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 20
+              },
+              {
+                "type": "dan_doc",
+                "amount": 8
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dong_phu_co",
+      "weight": 6,
+      "place_types": [
+        "son",
+        "coc",
+        "bi_canh"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Động phủ cổ",
+      "text": "Một trận pháp đã mục nát che lấp cửa động ở {place}. Bên trong thấp thoáng ánh sáng của cấm chế còn sót lại từ một vị tiền bối vô danh.",
+      "choices": [
+        {
+          "label": "Dùng thần thức dò cấm chế (Thần hồn)",
+          "check": {
+            "type": "stat",
+            "stat": "than_hon",
+            "difficulty": 60
+          },
+          "success": {
+            "text": "Ngươi tìm ra khe hở của cấm chế. Trên bệ đá là một quyển công pháp và một kiện pháp khí.",
+            "effects": [
+              {
+                "type": "cong_phap",
+                "tier_offset": 0
+              },
+              {
+                "type": "artifact",
+                "grade_offset": 0
+              }
+            ]
+          },
+          "failure": {
+            "text": "Cấm chế phản phệ, thần hồn ngươi chấn động.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 35
+              },
+              {
+                "type": "tam_ma",
+                "amount": 5
+              }
+            ]
+          }
+        },
+        {
+          "label": "Phá cửa bằng sức mạnh (Căn cốt)",
+          "check": {
+            "type": "stat",
+            "stat": "can_cot",
+            "difficulty": 65
+          },
+          "success": {
+            "text": "Cửa đá vỡ tung. Ngươi chỉ kịp lấy vài thứ trước khi động sụp.",
+            "effects": [
+              {
+                "type": "material",
+                "rarity_max": 3
+              },
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.3,
+                  0.6
+                ]
+              }
+            ]
+          },
+          "failure": {
+            "text": "Đá đổ ầm ầm, ngươi bị vùi nửa người.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 45
+              }
+            ]
+          }
+        },
+        {
+          "label": "Ghi nhớ vị trí rồi rời đi",
+          "check": {
+            "type": "none"
+          },
+          "success": {
+            "text": "Ngươi khắc dấu vị trí vào ngọc giản, để dành sau này.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "yeu_thu",
+      "weight": 10,
+      "place_types": [
+        "son",
+        "coc",
+        "ho",
+        "dao",
+        "bi_canh"
+      ],
+      "npc": {
+        "mode": "beast",
+        "realm_offset": 0
+      },
+      "title": "Yêu thú xuất hiện",
+      "text": "Đất ở {place} rung chuyển. Một con yêu thú ({npc_realm}) gầm lên, mắt đỏ rực nhìn chằm chằm vào ngươi.",
+      "choices": [
+        {
+          "label": "Săn yêu thú",
+          "check": {
+            "type": "combat",
+            "enemy": "event_npc"
+          },
+          "success": {
+            "text": "Yêu thú gục xuống. Ngươi mổ lấy yêu đan còn ấm.",
+            "effects": [
+              {
+                "type": "material",
+                "material": "yeu_dan"
+              },
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.1,
+                  0.3
+                ]
+              }
+            ]
+          },
+          "failure": {
+            "text": "Móng vuốt xé toạc hộ thể linh quang, ngươi lết được về.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 55
+              }
+            ]
+          }
+        },
+        {
+          "label": "Lặng lẽ lui đi (Thần hồn)",
+          "check": {
+            "type": "stat",
+            "stat": "than_hon",
+            "difficulty": 40,
+            "evade": true
+          },
+          "success": {
+            "text": "Ngươi nín thở, rút lui khỏi lãnh địa của nó.",
+            "effects": []
+          },
+          "failure": {
+            "text": "Nó phát hiện ra ngươi. Một đuôi quất tới.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 25
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "don_ngo",
+      "weight": 5,
+      "place_types": [
+        "son",
+        "coc",
+        "ho",
+        "bi_canh",
+        "dao"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Đốn ngộ",
+      "text": "Gió núi {place} thổi qua, mây trôi rồi tan. Trong khoảnh khắc ấy, một ý niệm lóe lên trong tâm trí ngươi như sấm sét giữa trời quang.",
+      "choices": [
+        {
+          "label": "Nhập định, nắm lấy linh cảm (Ngộ tính)",
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 55
+          },
+          "success": {
+            "text": "Kinh mạch rung động, một huyệt đạo mới như tự mở ra.",
+            "effects": [
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.3,
+                  0.6
+                ]
+              },
+              {
+                "type": "tree_point",
+                "amount": 1
+              }
+            ]
+          },
+          "failure": {
+            "text": "Linh cảm vụt mất, để lại nỗi bứt rứt trong lòng.",
+            "effects": [
+              {
+                "type": "tam_ma",
+                "amount": 6
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giữ tâm bình thản (Đạo tâm)",
+          "check": {
+            "type": "stat",
+            "stat": "dao_tam",
+            "difficulty": 40
+          },
+          "success": {
+            "text": "Ngươi không cưỡng cầu, chỉ lặng lẽ cảm thụ.",
+            "effects": [
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.15,
+                  0.3
+                ]
+              },
+              {
+                "type": "tam_ma",
+                "amount": -5
+              }
+            ]
+          },
+          "failure": {
+            "text": "Tâm không tĩnh, cảm ngộ hóa thành hư ảo.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "dong_mon_nho_giup",
+      "weight": 8,
+      "place_types": [
+        "any"
+      ],
+      "requires_sect": true,
+      "npc": {
+        "mode": "existing_sect"
+      },
+      "title": "Đồng môn nhờ giúp",
+      "text": "{npc} ({npc_realm}), đồng môn ở {sect}, tìm đến ngươi với vẻ mặt ngượng ngùng: \"Sư huynh, ta đang thiếu linh thạch mua dược liệu cho sư phụ, có thể giúp một tay?\"",
+      "choices": [
+        {
+          "label": "Cho mượn linh thạch",
+          "check": {
+            "type": "none"
+          },
+          "always": [
+            {
+              "type": "linh_thach",
+              "budget_frac": [
+                -0.25,
+                -0.15
+              ]
+            }
+          ],
+          "success": {
+            "text": "{npc} chắp tay cảm tạ, hứa sẽ ghi nhớ ân tình này.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 20
+              }
+            ]
+          }
+        },
+        {
+          "label": "Từ chối khéo (Mị lực)",
+          "check": {
+            "type": "stat",
+            "stat": "mi_luc",
+            "difficulty": 45
+          },
+          "success": {
+            "text": "{npc} gượng cười, không để bụng.",
+            "effects": []
+          },
+          "failure": {
+            "text": "{npc} quay đi, ánh mắt lạnh lùng.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": -15
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "bi_canh_mo",
+      "weight": 4,
+      "place_types": [
+        "bi_canh"
+      ],
+      "npc": {
+        "mode": "new",
+        "archetype": "kiem_tu",
+        "realm_offset": 1
+      },
+      "title": "Bí cảnh khai mở",
+      "text": "Cửa vào {place} rung chuyển, ánh sáng ngũ sắc tuôn ra. Nhiều tu sĩ đổ dồn tới, trong đó có {npc} ({npc_realm}) đang canh giữ lối vào sâu nhất.",
+      "choices": [
+        {
+          "label": "Tranh đoạt cơ duyên với {npc}",
+          "check": {
+            "type": "combat",
+            "enemy": "event_npc"
+          },
+          "success": {
+            "text": "Ngươi vượt cấp đánh bại {npc}, đoạt được bảo vật trong tầng sâu nhất.",
+            "effects": [
+              {
+                "type": "artifact",
+                "grade_offset": 1
+              },
+              {
+                "type": "tu_vi",
+                "budget_frac": [
+                  0.2,
+                  0.4
+                ]
+              }
+            ]
+          },
+          "failure": {
+            "text": "Ngươi bị đánh văng khỏi bí cảnh, máu nhuộm áo.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 60
+              }
+            ]
+          }
+        },
+        {
+          "label": "Thu thập ở tầng ngoài (Khí vận)",
+          "check": {
+            "type": "stat",
+            "stat": "khi_van",
+            "difficulty": 50
+          },
+          "success": {
+            "text": "Ở tầng ngoài, ngươi vẫn nhặt được linh thảo quý.",
+            "effects": [
+              {
+                "type": "herb",
+                "age_range": [
+                  20,
+                  80
+                ],
+                "rarity_max": 4
+              },
+              {
+                "type": "material",
+                "rarity_max": 3
+              }
+            ]
+          },
+          "failure": {
+            "text": "Tầng ngoài đã bị vét sạch.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "dau_gia_nho",
+      "weight": 6,
+      "place_types": [
+        "thanh",
+        "phuong_thi"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Phiên đấu giá nhỏ",
+      "text": "Một phiên đấu giá nhỏ được tổ chức ở {place}. Món cuối cùng là một kiện pháp khí phủ đầy bụi, không ai để ý.",
+      "choices": [
+        {
+          "label": "Ra giá (Khí vận quyết định giá)",
+          "check": {
+            "type": "stat",
+            "stat": "khi_van",
+            "difficulty": 50
+          },
+          "always": [
+            {
+              "type": "linh_thach",
+              "budget_frac": [
+                -0.5,
+                -0.35
+              ]
+            }
+          ],
+          "success": {
+            "text": "Lau sạch bụi, ngươi phát hiện đây là hàng tốt hơn nhiều so với giá trả.",
+            "effects": [
+              {
+                "type": "artifact",
+                "grade_offset": 1
+              }
+            ]
+          },
+          "failure": {
+            "text": "Đúng là đồ cũ, chỉ dùng tạm được.",
+            "effects": [
+              {
+                "type": "artifact",
+                "grade_offset": -1
+              }
+            ]
+          }
+        },
+        {
+          "label": "Chỉ xem",
+          "check": {
+            "type": "none"
+          },
+          "success": {
+            "text": "Ngươi ghi nhớ mặt những kẻ ra giá cao.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "tam_ma_xam_nhap",
+      "weight": 6,
+      "place_types": [
+        "any"
+      ],
+      "npc": {
+        "mode": "none"
+      },
+      "requires_tam_ma": 20,
+      "title": "Tâm ma xâm nhập",
+      "text": "Nửa đêm, ngươi giật mình tỉnh giấc. Trong bóng tối, hình bóng của chính ngươi đang mỉm cười, thì thầm những điều ngươi muốn quên.",
+      "choices": [
+        {
+          "label": "Trấn áp tâm ma (Đạo tâm)",
+          "check": {
+            "type": "stat",
+            "stat": "dao_tam",
+            "difficulty": 55
+          },
+          "success": {
+            "text": "Ngươi nhìn thẳng vào nó cho đến khi nó tan biến.",
+            "effects": [
+              {
+                "type": "tam_ma",
+                "amount": -12
+              }
+            ]
+          },
+          "failure": {
+            "text": "Lời thì thầm bám lấy ngươi đến tận sáng.",
+            "effects": [
+              {
+                "type": "tam_ma",
+                "amount": 8
+              }
+            ]
+          }
+        },
+        {
+          "label": "Tụng kinh tĩnh tâm",
+          "check": {
+            "type": "none"
+          },
+          "success": {
+            "text": "Đêm dài trôi qua, lòng ngươi tạm yên.",
+            "effects": [
+              {
+                "type": "tam_ma",
+                "amount": -4
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "co_nhan",
+      "weight": 6,
+      "place_types": [
+        "any"
+      ],
+      "npc": {
+        "mode": "existing_any"
+      },
+      "title": "Gặp gỡ cố nhân",
+      "text": "{npc} ({npc_realm}) đang ngồi uống trà ở {place}. Nghe nói người này từng {npc_history}. Ánh mắt hai người chạm nhau.",
+      "choices": [
+        {
+          "label": "Đến bắt chuyện (Mị lực)",
+          "check": {
+            "type": "stat",
+            "stat": "mi_luc",
+            "difficulty": 45
+          },
+          "success": {
+            "text": "{npc} kể cho ngươi nghe một tin đồn về nơi có linh thạch khoáng chưa ai khai thác.",
+            "effects": [
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 10
+              },
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.2,
+                  0.4
+                ]
+              }
+            ]
+          },
+          "failure": {
+            "text": "{npc} chỉ gật đầu chiếu lệ.",
+            "effects": []
+          }
+        },
+        {
+          "label": "Lặng lẽ quan sát",
+          "check": {
+            "type": "none"
+          },
+          "success": {
+            "text": "Ngươi ghi nhớ khí tức của {npc}.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "thuong_nhan_bi_nan",
+      "weight": 7,
+      "place_types": [
+        "son",
+        "tran",
+        "coc"
+      ],
+      "npc": {
+        "mode": "new",
+        "archetype": "tan_tu",
+        "realm_offset": -1
+      },
+      "title": "Thương nhân bị nạn",
+      "text": "Bên vệ đường gần {place}, thương nhân {npc} nằm thoi thóp bên cỗ xe đổ nát. Hàng hóa vương vãi, không có ai canh giữ.",
+      "choices": [
+        {
+          "label": "Cứu chữa cho hắn",
+          "check": {
+            "type": "none"
+          },
+          "always": [
+            {
+              "type": "linh_thach",
+              "budget_frac": [
+                -0.1,
+                -0.05
+              ]
+            }
+          ],
+          "success": {
+            "text": "{npc} tỉnh lại, dập đầu tạ ơn và đưa ngươi một phần hàng hóa.",
+            "effects": [
+              {
+                "type": "material",
+                "rarity_max": 2
+              },
+              {
+                "type": "relationship",
+                "npc": "event_npc",
+                "amount": 25
+              }
+            ]
+          }
+        },
+        {
+          "label": "Lấy hàng rồi đi",
+          "check": {
+            "type": "none"
+          },
+          "success": {
+            "text": "Ngươi nhặt lấy những gì có giá trị. Đêm đó ngươi ngủ không yên.",
+            "effects": [
+              {
+                "type": "linh_thach",
+                "budget_frac": [
+                  0.3,
+                  0.5
+                ]
+              },
+              {
+                "type": "tam_ma",
+                "amount": 8
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "linh_can_qua_chin",
+      "weight": 2,
+      "place_types": [
+        "son",
+        "coc",
+        "bi_canh"
+      ],
+      "requires_realm_min": 1,
+      "npc": {
+        "mode": "beast",
+        "realm_offset": 1
+      },
+      "title": "Linh Căn Quả chín",
+      "text": "Sâu trong {place}, một gốc cây cổ thụ kết duy nhất một trái sáng như ngọc: Linh Căn Quả ngàn năm mới chín. Dưới gốc, {npc} cuộn mình canh giữ.",
+      "choices": [
+        {
+          "label": "Đoạt quả (giao đấu)",
+          "check": {
+            "type": "combat"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi đánh lui {npc}, hái được Linh Căn Quả.",
+            "effects": [
+              {
+                "type": "treasure",
+                "treasure": "linh_can_qua"
+              }
+            ]
+          },
+          "failure": {
+            "text": "{npc} quá mạnh; ngươi trọng thương mà lui.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 40
+              }
+            ]
+          }
+        },
+        {
+          "label": "Chờ nó ngủ say rồi lẻn tới (Thần hồn)",
+          "check": {
+            "type": "stat",
+            "stat": "than_hon",
+            "difficulty": 75,
+            "evade": true
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi nín thở hái quả rồi biến mất trong bóng cây.",
+            "effects": [
+              {
+                "type": "treasure",
+                "treasure": "linh_can_qua"
+              }
+            ]
+          },
+          "failure": {
+            "text": "{npc} tỉnh giấc; ngươi phải bỏ chạy tay trắng.",
+            "effects": [
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 20
+              }
+            ]
+          }
+        },
+        {
+          "label": "Ghi nhớ nơi này rồi rời đi",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi lặng lẽ rời đi; có lẽ duyên chưa tới.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "co_duyen_chi_diem",
+      "weight": 30,
+      "place_types": [
+        "any"
+      ],
+      "requires_edge": true,
+      "requires_bottleneck": true,
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Cơ duyên: tiền bối chỉ điểm",
+      "text": "Đêm ấy ở {place}, ngươi nghe tiếng sáo từ đỉnh núi. Một lão nhân áo xám ngồi trên tảng đá, nhìn ngươi như đã chờ từ lâu: \"Bình cảnh của ngươi, lão phu nhìn thấy rồi.\"",
+      "choices": [
+        {
+          "label": "Cung kính thỉnh giáo (Ngộ tính)",
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 40
+          },
+          "always": [],
+          "success": {
+            "text": "Lão nhân điểm vài câu, rồi để lại một lá phù vẽ bằng chu sa trước khi biến mất.",
+            "effects": [
+              {
+                "type": "talisman",
+                "talisman": "pha_canh"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Ngươi chưa thấu lời lão; lão thở dài, để lại một lá phù rồi đi.",
+            "effects": [
+              {
+                "type": "talisman",
+                "talisman": "pha_canh"
+              },
+              {
+                "type": "tam_ma",
+                "amount": 5
+              }
+            ]
+          }
+        },
+        {
+          "label": "Nghi ngờ, lặng lẽ rời đi",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi rời đi; tiếng sáo cũng tắt.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "co_duyen_linh_duoc",
+      "weight": 30,
+      "place_types": [
+        "any"
+      ],
+      "requires_edge": true,
+      "requires_bottleneck": true,
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Cơ duyên: linh dược tự tìm đến",
+      "text": "Một con linh thú nhỏ dẫn ngươi qua khe núi gần {place}. Dưới tán cây là đúng thứ linh dược ngươi đang thiếu cho lần đột phá này, tuổi vừa đủ.",
+      "choices": [
+        {
+          "label": "Cẩn thận đào lấy (Căn cốt)",
+          "check": {
+            "type": "stat",
+            "stat": "can_cot",
+            "difficulty": 35
+          },
+          "always": [],
+          "success": {
+            "text": "Rễ còn nguyên, linh khí không tổn hao.",
+            "effects": [
+              {
+                "type": "plan_herb"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Đất lở; ngươi bị thương nhẹ nhưng vẫn giữ được gốc dược.",
+            "effects": [
+              {
+                "type": "plan_herb"
+              },
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 15
+              }
+            ]
+          }
+        },
+        {
+          "label": "Để nó lại cho trời đất",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi để linh dược lại.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "co_duyen_di_dan",
+      "weight": 30,
+      "place_types": [
+        "any"
+      ],
+      "requires_edge": true,
+      "requires_bottleneck": true,
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Cơ duyên: đan dược di lưu",
+      "text": "Trong một động phủ sụp đổ gần {place}, giữa tro bụi trăm năm, một bình ngọc vẫn còn niêm phong. Trên nhãn là tên viên đan ngươi cần để phá cảnh.",
+      "choices": [
+        {
+          "label": "Phá niêm phong (Thần hồn)",
+          "check": {
+            "type": "stat",
+            "stat": "than_hon",
+            "difficulty": 45
+          },
+          "always": [],
+          "success": {
+            "text": "Cấm chế tan; viên đan vẫn còn dược lực.",
+            "effects": [
+              {
+                "type": "breakthrough_pill"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Cấm chế phản phệ, nhưng viên đan vẫn rơi vào tay ngươi.",
+            "effects": [
+              {
+                "type": "breakthrough_pill"
+              },
+              {
+                "type": "khi_huyet_loss_pct",
+                "amount": 25
+              }
+            ]
+          }
+        },
+        {
+          "label": "Không động vào",
+          "check": {
+            "type": "none"
+          },
+          "always": [],
+          "success": {
+            "text": "Ngươi rời khỏi động phủ.",
+            "effects": []
+          }
+        }
+      ]
+    }
+  ]
+}

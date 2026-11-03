@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "provider": "deepseek",
+  "base_url": "https://api.deepseek.com",
+  "path": "/chat/completions",
+  "model": "deepseek-chat",
+  "timeout_sec": 60.0,
+  "temperature": 1.0,
+  "max_tokens": 1200,
+  "language": "vi",
+  "key_env_vars": ["DEEPSEEK_API_KEY", "LLM_API_KEY"],
+  "user_config_path": "user://llm_config.json",
+  "use_for": {"events": true, "narration": true, "talk": true, "epitaph": true}
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "_doc": "Display names for modifier stat keys (Kinh Mạch huyệt, biến dị, pháp bảo affixes, công pháp bonuses). unit: pct = percent, flat = plain number, years, flag = on/off. Thiên phú keys use their names from character_attributes.json.",
+  "labels": {
+    "cultivation_speed_pct": {
+      "name": "tu luyện speed",
+      "unit": "pct"
+    },
+    "cultivation_speed_per_element_pct": {
+      "name": "tu luyện speed per linh căn element",
+      "unit": "pct"
+    },
+    "attack_pct": {
+      "name": "attack",
+      "unit": "pct"
+    },
+    "defense_pct": {
+      "name": "defense",
+      "unit": "pct"
+    },
+    "khi_huyet_pct": {
+      "name": "khí huyết",
+      "unit": "pct"
+    },
+    "linh_luc_pct": {
+      "name": "linh lực",
+      "unit": "pct"
+    },
+    "than_thuc_pct": {
+      "name": "thần thức",
+      "unit": "pct"
+    },
+    "tam_ma_resist_pct": {
+      "name": "tâm ma resistance",
+      "unit": "pct"
+    },
+    "dan_doc_resist_pct": {
+      "name": "đan độc resistance",
+      "unit": "pct"
+    },
+    "dan_doc_decay": {
+      "name": "đan độc fading per season",
+      "unit": "flat"
+    },
+    "dan_doc_no_penalty": {
+      "name": "đan độc no longer weakens pills",
+      "unit": "flag"
+    },
+    "pill_effect_pct": {
+      "name": "pill effect",
+      "unit": "pct"
+    },
+    "herb_growth_pct": {
+      "name": "herb growth",
+      "unit": "pct"
+    },
+    "field_plots": {
+      "name": "linh điền plots",
+      "unit": "flat"
+    },
+    "alchemy_success": {
+      "name": "luyện đan success",
+      "unit": "pct"
+    },
+    "alchemy_yield": {
+      "name": "pills per luyện đan",
+      "unit": "flat"
+    },
+    "breakthrough_chance": {
+      "name": "breakthrough chance",
+      "unit": "pct"
+    },
+    "lifespan_years": {
+      "name": "thọ nguyên",
+      "unit": "years"
+    },
+    "lifespan_pct": {
+      "name": "thọ nguyên",
+      "unit": "pct"
+    },
+    "density_bonus": {
+      "name": "linh khí density",
+      "unit": "flat"
+    },
+    "artifact_power_pct": {
+      "name": "pháp bảo power",
+      "unit": "pct"
+    },
+    "artifact_attack_pct": {
+      "name": "pháp bảo attack",
+      "unit": "pct"
+    },
+    "artifact_defense_pct": {
+      "name": "pháp bảo defense",
+      "unit": "pct"
+    },
+    "element_affinity_pct": {
+      "name": "element match bonus",
+      "unit": "pct"
+    },
+    "than_thuc_cost_pct": {
+      "name": "thần thức cost",
+      "unit": "pct"
+    },
+    "single_artifact": {
+      "name": "only one pháp bảo, much stronger",
+      "unit": "flag"
+    },
+    "mission_income_pct": {
+      "name": "mission income",
+      "unit": "pct"
+    },
+    "travel_speed_pct": {
+      "name": "travel speed",
+      "unit": "pct"
+    },
+    "stealth": {
+      "name": "stealth (when fleeing or hiding)",
+      "unit": "flat"
+    },
+    "refining_success": {
+      "name": "luyện khí success",
+      "unit": "pct"
+    },
+    "formation_power_pct": {
+      "name": "trận pháp strength",
+      "unit": "pct"
+    },
+    "safe_failure": {
+      "name": "failed breakthroughs cost no tu vi, half the tâm ma",
+      "unit": "flag"
+    },
+    "co_duyen_pct": {
+      "name": "cơ duyên frequency",
+      "unit": "pct"
+    }
+  }
+}

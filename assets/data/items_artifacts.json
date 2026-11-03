@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "grades": [
+    {"id": "pham", "name": "Phàm phẩm", "rank": 0, "affixes": 0, "power_mult": 1.0, "value_mult": 1.0, "weight": 40},
+    {"id": "ha", "name": "Hạ phẩm", "rank": 1, "affixes": 1, "power_mult": 1.3, "value_mult": 2.0, "weight": 30},
+    {"id": "trung", "name": "Trung phẩm", "rank": 2, "affixes": 2, "power_mult": 1.7, "value_mult": 4.0, "weight": 18},
+    {"id": "thuong", "name": "Thượng phẩm", "rank": 3, "affixes": 3, "power_mult": 2.2, "value_mult": 9.0, "weight": 9},
+    {"id": "cuc", "name": "Cực phẩm", "rank": 4, "affixes": 4, "power_mult": 3.0, "value_mult": 20.0, "weight": 3}
+  ],
+  "tiers": [
+    {"realm": "luyen_khi", "name": "Pháp khí", "power_scale": 1.0, "value_scale": 1.0},
+    {"realm": "truc_co", "name": "Pháp bảo", "power_scale": 10.0, "value_scale": 8.0},
+    {"realm": "ket_dan", "name": "Linh bảo", "power_scale": 100.0, "value_scale": 60.0},
+    {"realm": "nguyen_anh", "name": "Thông thiên linh bảo", "power_scale": 1000.0, "value_scale": 400.0},
+    {"realm": "hoa_than", "name": "Tiên khí phỏng chế", "power_scale": 10000.0, "value_scale": 3000.0}
+  ],
+  "bases": [
+    {"id": "phi_kiem", "name": "Phi Kiếm", "attack": 30.0, "defense": 0.0, "than_thuc_cost": 20.0, "base_value": 20, "weight": 25},
+    {"id": "an", "name": "Ấn", "attack": 40.0, "defense": 5.0, "than_thuc_cost": 30.0, "base_value": 25, "weight": 10},
+    {"id": "chuong", "name": "Chuông", "attack": 10.0, "defense": 25.0, "than_thuc_cost": 25.0, "base_value": 25, "weight": 10},
+    {"id": "ho_lo", "name": "Hồ Lô", "attack": 25.0, "defense": 10.0, "than_thuc_cost": 25.0, "base_value": 25, "weight": 8},
+    {"id": "thuan", "name": "Thuẫn", "attack": 0.0, "defense": 35.0, "than_thuc_cost": 15.0, "base_value": 18, "weight": 12},
+    {"id": "giap", "name": "Giáp", "attack": 0.0, "defense": 30.0, "than_thuc_cost": 5.0, "base_value": 18, "weight": 12},
+    {"id": "phien", "name": "Phiến", "attack": 32.0, "defense": 5.0, "than_thuc_cost": 25.0, "base_value": 22, "weight": 8},
+    {"id": "cham", "name": "Châm", "attack": 22.0, "defense": 0.0, "than_thuc_cost": 10.0, "base_value": 15, "weight": 8},
+    {"id": "ky", "name": "Kỳ", "attack": 15.0, "defense": 15.0, "than_thuc_cost": 20.0, "base_value": 20, "weight": 7}
+  ],
+  "affixes": [
+    {"id": "liet", "word": "Liệt", "stat": "artifact_attack_pct", "min": 10.0, "max": 30.0, "weight": 20},
+    {"id": "kien", "word": "Kiên", "stat": "artifact_defense_pct", "min": 10.0, "max": 30.0, "weight": 20},
+    {"id": "linh", "word": "Linh", "stat": "than_thuc_cost_pct", "min": -10.0, "max": -30.0, "weight": 12},
+    {"id": "tu_khi", "word": "Tụ Khí", "stat": "cultivation_speed_pct", "min": 2.0, "max": 6.0, "weight": 8},
+    {"id": "ho_than", "word": "Hộ Thân", "stat": "khi_huyet_pct", "min": 5.0, "max": 15.0, "weight": 12},
+    {"id": "duong_sinh", "word": "Dưỡng Sinh", "stat": "dan_doc_resist_pct", "min": 5.0, "max": 15.0, "weight": 8},
+    {"id": "tinh_tam", "word": "Tĩnh Tâm", "stat": "tam_ma_resist_pct", "min": 5.0, "max": 15.0, "weight": 8},
+    {"id": "phuc_duyen", "word": "Phúc Duyên", "stat": "khi_van", "min": 2.0, "max": 6.0, "weight": 5},
+    {"id": "nguyen_to", "word": "", "stat": "element_affinity_pct", "min": 10.0, "max": 25.0, "weight": 15, "element_bound": true}
+  ],
+  "element_chance": 0.6,
+  "element_match_bonus_pct": 15.0,
+  "equip": {"max_slots": 6, "single_artifact_keystone_mult": 2.5}
+}

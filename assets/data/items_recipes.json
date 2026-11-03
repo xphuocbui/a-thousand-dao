@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "alchemy": {
+    "skill_success_per_level": 6.0,
+    "ngo_tinh_success_per_point": 0.1,
+    "min_success": 5.0,
+    "max_success": 95.0,
+    "khi_van_crit_per_point": 0.15,
+    "crit_extra_yield": 1,
+    "xp_per_level": 100.0,
+    "max_level": 9,
+    "fail_xp_fraction": 0.5,
+    "quality_grade_thresholds": [0.0, 1.5, 2.5, 3.5]
+  },
+  "recipes": [
+    {"id": "tu_khi_dan", "name": "Tụ Khí Đan", "ingredients": [{"herb": "ngung_khi_thao", "min_age": 1.0, "qty": 2}], "difficulty": 40.0, "min_level": 1, "yield": 2, "xp": 25.0, "toxicity": 6.0, "price": 12, "effect": {"type": "tu_vi", "value": 25.0, "realm_scale": "luyen_khi"}, "desc": "Gathers qi; small tu vi."},
+    {"id": "thanh_doc_dan", "name": "Thanh Độc Đan", "ingredients": [{"herb": "thanh_tam_lien", "min_age": 3.0, "qty": 1}], "difficulty": 45.0, "min_level": 1, "yield": 2, "xp": 30.0, "toxicity": 0.0, "price": 20, "effect": {"type": "dan_doc", "value": -25.0}, "desc": "Washes out đan độc."},
+    {"id": "hoi_xuan_dan", "name": "Hồi Xuân Đan", "ingredients": [{"herb": "ngung_khi_thao", "min_age": 1.0, "qty": 1}, {"herb": "thanh_tam_lien", "min_age": 3.0, "qty": 1}], "difficulty": 40.0, "min_level": 1, "yield": 2, "xp": 25.0, "toxicity": 3.0, "price": 18, "effect": {"type": "heal_pct", "value": 50.0}, "desc": "Restores khí huyết."},
+    {"id": "hoang_long_dan", "name": "Hoàng Long Đan", "ingredients": [{"herb": "hoa_linh_chi", "min_age": 10.0, "qty": 1}, {"herb": "hoang_tinh_sam", "min_age": 10.0, "qty": 1}], "difficulty": 60.0, "min_level": 3, "yield": 2, "xp": 60.0, "toxicity": 10.0, "price": 90, "effect": {"type": "tu_vi", "value": 150.0, "realm_scale": "truc_co"}, "desc": "Trúc Cơ-grade cultivation pill."},
+    {"id": "tinh_tam_dan", "name": "Tĩnh Tâm Đan", "ingredients": [{"herb": "thanh_tam_lien", "min_age": 10.0, "qty": 1}, {"herb": "bang_tam_thao", "min_age": 30.0, "qty": 1}], "difficulty": 60.0, "min_level": 3, "yield": 1, "xp": 70.0, "toxicity": 2.0, "price": 150, "effect": {"type": "tam_ma", "value": -25.0}, "desc": "Stills the heart; reduces tâm ma."},
+    {"id": "truc_co_dan", "name": "Trúc Cơ Đan", "ingredients": [{"herb": "hoang_tinh_sam", "min_age": 30.0, "qty": 1}, {"herb": "hoa_linh_chi", "min_age": 10.0, "qty": 1}], "difficulty": 55.0, "min_level": 2, "yield": 1, "xp": 80.0, "toxicity": 5.0, "price": 400, "effect": {"type": "breakthrough", "tag": "truc_co_dan"}, "desc": "Foundation pill: needed to break into Trúc Cơ."},
+    {"id": "huyet_khi_dan", "name": "Huyết Khí Đan", "ingredients": [{"herb": "xich_huyet_dang", "min_age": 20.0, "qty": 1}], "difficulty": 55.0, "min_level": 3, "yield": 1, "xp": 60.0, "toxicity": 8.0, "price": 120, "effect": {"type": "stat", "stat": "can_cot", "value": 2.0, "max_uses": 3}, "desc": "Permanently strengthens căn cốt (3 uses per life)."},
+    {"id": "ngung_nguyen_dan", "name": "Ngưng Nguyên Đan", "ingredients": [{"herb": "kim_tuy_qua", "min_age": 100.0, "qty": 1}, {"herb": "xich_huyet_dang", "min_age": 20.0, "qty": 1}], "difficulty": 70.0, "min_level": 5, "yield": 1, "xp": 200.0, "toxicity": 10.0, "price": 3000, "effect": {"type": "breakthrough", "tag": "ngung_nguyen_dan"}, "desc": "Core-condensing pill: needed to break into Kết Đan."},
+    {"id": "tay_tuy_dan", "name": "Tẩy Tủy Đan", "ingredients": [{"herb": "xich_huyet_dang", "min_age": 40.0, "qty": 1}, {"herb": "bang_tam_thao", "min_age": 40.0, "qty": 1}], "difficulty": 70.0, "min_level": 5, "yield": 1, "xp": 150.0, "toxicity": 25.0, "price": 2500, "effect": {"type": "purity", "value": 6.0, "max_uses": 3}, "desc": "Marrow-washing pill: purifies the weakest spiritual root (+purity), three times a life."},
+    {"id": "dien_tho_dan", "name": "Diên Thọ Đan", "ingredients": [{"herb": "van_nien_moc_linh", "min_age": 100.0, "qty": 1}, {"herb": "kim_tuy_qua", "min_age": 50.0, "qty": 1}], "difficulty": 75.0, "min_level": 6, "yield": 1, "xp": 250.0, "toxicity": 5.0, "price": 5000, "effect": {"type": "lifespan", "value": 15.0, "max_uses": 2}, "desc": "Extends thọ nguyên by 15 years (2 uses per life)."}
+  ]
+}

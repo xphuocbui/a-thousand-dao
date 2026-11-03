@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "thien_phu": [
+    {"id": "ngo_tinh", "name": "Ngộ tính", "desc": "Comprehension: learning công pháp, đốn ngộ, discovering recipes, breaking bình cảnh"},
+    {"id": "can_cot", "name": "Căn cốt", "desc": "Physique: khí huyết, đan độc resistance, body cultivation"},
+    {"id": "than_hon", "name": "Thần hồn", "desc": "Soul strength: base of thần thức (artifact control, detection)"},
+    {"id": "khi_van", "name": "Khí vận", "desc": "Fortune: kỳ ngộ, rare finds, crafting crits, ceiling of LLM-invented rewards"},
+    {"id": "dao_tam", "name": "Đạo tâm", "desc": "Dao heart: resists tâm ma, qi deviation and illusions"},
+    {"id": "mi_luc", "name": "Mị lực", "desc": "Presence: NPC attitude, prices, what people will tell you"}
+  ],
+  "roll": {"mean": 45.0, "sd": 16.0, "min": 1, "max": 100},
+  "grade_bands": [
+    {"name": "Hạ", "max": 30},
+    {"name": "Trung", "max": 60},
+    {"name": "Thượng", "max": 85},
+    {"name": "Cực phẩm", "max": 99},
+    {"name": "Thiên", "max": 100}
+  ],
+  "linh_can": {
+    "count_weights": {"1": 45, "2": 30, "3": 15, "4": 7, "5": 3},
+    "purity_mean": 50.0,
+    "purity_sd": 20.0,
+    "purity_min": 10,
+    "purity_max": 100,
+    "bien_di_chance_factor": 0.5,
+    "bien_di_higher_order_factor": 0.25,
+    "bien_di_purity_factor": 0.8,
+    "bien_di_counts_as_element": true,
+    "max_counted_elements": 8
+  },
+  "element_count_curve": {
+    "1": {"lk_early": 1.0, "lk_mid": 1.0, "lk_late": 1.0, "tc_so": 1.0, "tc_trung": 1.0, "tc_hau": 1.0, "tc_dvm": 1.0, "kd_so": 1.0, "kd_trung": 1.0, "kd_hau": 1.0, "kd_dvm": 1.0, "na": 1.0, "ht": 1.0},
+    "2": {"lk_early": 0.6, "lk_mid": 0.7, "lk_late": 0.8, "tc_so": 0.9, "tc_trung": 1.0, "tc_hau": 1.3, "tc_dvm": 1.6, "kd_so": 2.0, "kd_trung": 2.4, "kd_hau": 2.8, "kd_dvm": 3.1, "na": 3.5, "ht": 4.0},
+    "3": {"lk_early": 0.5, "lk_mid": 0.6, "lk_late": 0.75, "tc_so": 0.9, "tc_trung": 1.0, "tc_hau": 1.4, "tc_dvm": 1.8, "kd_so": 2.3, "kd_trung": 2.8, "kd_hau": 3.4, "kd_dvm": 3.9, "na": 4.5, "ht": 5.5},
+    "4": {"lk_early": 0.4, "lk_mid": 0.5, "lk_late": 0.6, "tc_so": 0.75, "tc_trung": 0.9, "tc_hau": 1.0, "tc_dvm": 1.5, "kd_so": 2.1, "kd_trung": 2.8, "kd_hau": 3.6, "kd_dvm": 4.3, "na": 5.0, "ht": 7.0},
+    "5": {"lk_early": 0.3, "lk_mid": 0.4, "lk_late": 0.5, "tc_so": 0.6, "tc_trung": 0.75, "tc_hau": 0.85, "tc_dvm": 0.95, "kd_so": 1.0, "kd_trung": 1.8, "kd_hau": 2.8, "kd_dvm": 3.8, "na": 6.0, "ht": 9.0}
+  },
+  "derived": {
+    "khi_huyet_per_can_cot": 10.0,
+    "than_thuc_per_than_hon": 1.0,
+    "dan_doc_max": 100.0,
+    "tam_ma_max": 100.0,
+    "dan_doc_natural_decay": 1.0,
+    "tam_ma_natural_decay": 0.5,
+    "injury_recovery_pct_per_season": 0.25
+  },
+  "start": {
+    "age": 16.0,
+    "linh_thach": 50,
+    "tree_points": 2
+  },
+  "origins": [
+    {"id": "tan_tu", "name": "Tán tu", "desc": "Nobody. Free, poor, no sect obligations.", "linh_thach": 30, "starting_herbs": [{"herb": "ngung_khi_thao", "age": 0.0, "qty": 2}], "cong_phap_tier": "hoang", "sect": false, "khi_van_bonus": 5},
+    {"id": "tong_mon", "name": "Đệ tử tông môn", "desc": "Outer disciple of a generated sect: stipend, sect missions, a better công pháp.", "linh_thach": 50, "starting_herbs": [{"herb": "ngung_khi_thao", "age": 0.0, "qty": 1}], "cong_phap_tier": "huyen", "sect": true, "stipend_per_year": 12},
+    {"id": "gia_toc", "name": "Con cháu gia tộc", "desc": "Minor clan heir: more linh thạch and a field already growing.", "linh_thach": 120, "starting_herbs": [{"herb": "ngung_khi_thao", "age": 1.0, "qty": 2}, {"herb": "hoang_tinh_sam", "age": 8.0, "qty": 1}], "cong_phap_tier": "hoang", "sect": false}
+  ]
+}

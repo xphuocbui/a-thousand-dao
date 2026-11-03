@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "_doc": "Edges over the baseline progression. Spec: design/quick-specs/progression-and-edges.md. perks: thiên mệnh, stat modifiers on the sheet (effects), on/off flags (as stats with value 1), and one-time birth effects (birth.purity_all). player: what the main character's edge includes. npc: edge score sources and the per-breakthrough chance range (p = base_step + min(score, 1) x (max_step - base_step)).",
+  "perks": [
+    {"id": "dao_cot", "name": "Đạo Cốt Thiên Sinh", "desc": "Born with Dao bones: every breakthrough comes easier.",
+     "effects": [{"stat": "breakthrough_chance", "value": 12}]},
+    {"id": "bat_diet_dao_tam", "name": "Bất Diệt Đạo Tâm", "desc": "An unbreakable heart: a failed breakthrough costs no tu vi and half the tâm ma.",
+     "effects": [{"stat": "safe_failure", "value": 1}, {"stat": "dao_tam", "value": 10}]},
+    {"id": "to_truyen_linh_dien", "name": "Tổ Truyền Linh Điền", "desc": "An ancestral spirit field: one more plot, herbs age faster.",
+     "effects": [{"stat": "field_plots", "value": 1}, {"stat": "herb_growth_pct", "value": 40}]},
+    {"id": "co_ngoc_tan_hon", "name": "Cổ Ngọc Tàn Hồn", "desc": "An old jade pendant holds a remnant soul that guides you at each bình cảnh.",
+     "effects": [{"stat": "ngo_tinh", "value": 8}, {"stat": "breakthrough_chance", "value": 6}]},
+    {"id": "thien_do_ky_duyen", "name": "Thiên Đố Kỳ Duyên", "desc": "Heaven's favour: more khí vận, and cơ duyên come twice as often.",
+     "effects": [{"stat": "khi_van", "value": 15}, {"stat": "co_duyen_pct", "value": 100}]},
+    {"id": "dan_tam", "name": "Đan Tâm Thông Linh", "desc": "A heart attuned to the cauldron: better luyện đan, stronger pills.",
+     "effects": [{"stat": "alchemy_success", "value": 15}, {"stat": "pill_effect_pct", "value": 25}]},
+    {"id": "tho_nguyen", "name": "Thọ Nguyên Dư Dả", "desc": "A long-lived bloodline: more years to reach the next realm.",
+     "effects": [{"stat": "lifespan_pct", "value": 20}]},
+    {"id": "linh_can_thuan_tinh", "name": "Linh Căn Thuần Tịnh", "desc": "A pure root: every owned element is purer from birth, and you cultivate faster.",
+     "effects": [{"stat": "cultivation_speed_pct", "value": 10}], "birth": {"purity_all": 8}}
+  ],
+  "player": {
+    "perk_choices": 3,
+    "starting_items": [{"talisman": "pha_canh", "qty": 2}],
+    "co_duyen_bottleneck_event_bonus": 0.25,
+    "co_duyen_per_realm": 2
+  },
+  "npc": {
+    "base_step": 0.30,
+    "max_step": 0.70,
+    "strong_root": {"purity_from": 60, "purity_to": 90, "weight": 0.35, "per_bien_di": 0.1, "bien_di_max": 0.2},
+    "sect_rank": {"noi_mon": 0.1, "truong_lao": 0.25, "tong_chu": 0.35},
+    "rich_family": {"chance": 0.15, "weight": 0.3},
+    "blessing": {"chance": 0.05, "weight": 0.35},
+    "fated_breakthrough_per_season": 0.08
+  }
+}

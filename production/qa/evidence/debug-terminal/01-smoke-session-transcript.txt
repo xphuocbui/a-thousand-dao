@@ -1,0 +1,894 @@
+
+Ten Thousand Daos — debug terminal
+Type 'help' for commands, 'new' to begin a life. LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+> help
+General
+  help [command]                         this list
+  quit                                   leave
+  status                                 one-line status
+  save [slot] / load [slot] / saves      save files in user://saves
+  color on|off                           ANSI colours
+New life
+  new                                    character creation (Thiên Định roll or Tự Định choose), then world generation
+  new quick [name] [seed]                roll and accept immediately (scripts)
+Character
+  sheet                                  full character sheet
+  explain <what>                         breakdown of any number: rate power life ngo_tinh attack_pct ...
+  inv                                    inventory
+  field                                  linh điền (herb plots, ripeness)
+  recipes                                đan phương with odds
+  chronicle                              your life story so far
+Actions (cost time)
+  cul [seasons]                          tu luyện (default 1 season)
+  bequan <years>                         closed-door cultivation, no events
+  mission                                sect mission at your sect HQ, or bounty in a town
+  explore                                search this place (events, lost treasures)
+  go <place id>                          travel along a road
+  craft <recipe id>                      luyện đan (one season)
+  breakthrough                           attempt the bình cảnh into the next realm
+Actions (free)
+  plant <herb id|item id>                buy a seed / transplant a herb (at home)
+  harvest [plot|all]                     harvest herbs
+  use <item id>                          eat a pill
+  equip|unequip <item id>                pháp bảo
+  learn <item id>                        switch công pháp
+  market / buy <id> / sell <id>          trade at a market
+  talk <person id> [what you say]        conversation (LLM or template)
+  event / choose <n>                     read / answer the pending event
+World
+  look                                   this place, people, roads
+  map                                    all regions and roads
+  news [n]                               recent world events
+  legends [n]                            history of the world
+  db stats|people|sects|places|items|events [filter] database queries
+  db show <id>                           any record with its history
+Kinh Mạch Đồ
+  tree                                   points and openable huyệt
+  tree map                               ASCII map
+  tree targets                           notables/keystones by cost
+  tree node <id>                         details
+  tree alloc <id>                        open one adjacent huyệt
+  tree go <id>                           open the whole path
+LLM
+  llm                                    status
+  llm on|off                             toggle for this run
+  llm key <key>                          store an API key (user://, not the repo)
+  llm url <base_url> [model]             endpoint, e.g. https://api.deepseek.com deepseek-chat
+  llm lang vi|en                         story language
+  llm test                               one round trip
+  llm last                               last request and response
+Debug
+  debug event [template id]              force an event
+  debug tuvi <n>                         add tu vi
+  debug lt <n>                           add linh thạch
+  debug herb <herb id> <age>             give a herb
+  debug tp <n>                           add Kinh Mạch points
+  debug heal                             full khí huyết, clear đan độc/tâm ma
+  debug item artifact|cong_phap [grade]  generate an item
+  buildgen <archetype> [realm 0-4]       generate and show an NPC build
+  debug templates                        list event templates
+> new quick SmokeTest 777
+Generating the world (seed 777)...
+A new world: 4 regions, 20 places, 7 sects, 247 people, 185 recorded events (Thiên Nguyên lịch năm 300).
+SmokeTest is born: Đơn linh căn: Kim 35
+
+SmokeTest — 16 / 120 tuổi          Luyện Khí Tầng 1  0 / 30
+Xuất thân: Tán tu | Tông môn: — | Mode: Thiên Định (achievements on)
+LINH CĂN  Đơn linh căn (1 counted for the curve)
+  Mộc 0   Hỏa 0   Thổ 0   Kim 35 Trung   Thủy 0
+  Curve now x1.00 vs Đơn linh căn
+THIÊN PHÚ  Ngộ tính 25 Hạ · Căn cốt 47 Trung · Thần hồn 33 Trung
+           Khí vận 31 Trung · Đạo tâm 56 Trung · Mị lực 39 Trung
+TRẠNG THÁI Linh lực 100 · Thần thức 33 · Khí huyết 470/470
+           Đan độc 0 (pill effect -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+CÔNG PHÁP  Duệ Kim Tâm Pháp [Hoàng giai, Kim] speed x1.0, up to Trúc Cơ · tu vi 3.3 / season here
+ĐẠO NGHỆ   none yet (practice raises them)
+CHIẾN LỰC  131 (offense 72 + defense 59) · thần thức 0/33 used
+KINH MẠCH  1 huyệt open, 2 points unspent
+(explain <stat> shows any number's breakdown: rate, power, life, ngo_tinh, attack_pct, ...)
+
+Liệt Diễm Trấn (l20) — Trấn, Đông Hải Quần Đảo. Linh khí 0.84, danger 1, bounties
+  Your động phủ is here.
+People here (5):
+  p146   Tư Mã Hằng           Trúc Cơ Hậu kỳ         Linh thực sư | chiến lực 3064 | attitude 0
+  p147   Diệp Kiếm            Trúc Cơ Sơ kỳ          Kiếm tu | chiến lực 2017 | attitude 0
+  p154   Lạc Bách             Luyện Khí Tầng 12      Tán tu | chiến lực 360 | attitude 0
+  p155   Cố Kiếm              Trúc Cơ Sơ kỳ          Tán tu | chiến lực 1729 | attitude 0
+  p160   Tạ Khải              Trúc Cơ Hậu kỳ         Linh thực sư | chiến lực 2864 | attitude 0
+Roads:
+  -> l19   Thiên Trì Thành (1 season)
+  -> l18   Mê Vụ Phường Thị (1 season)
+Try: field, recipes, cul 4, explore, tree, look, talk <id>, help
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> status
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> sheet
+SmokeTest — 16 / 120 tuổi          Luyện Khí Tầng 1  0 / 30
+Xuất thân: Tán tu | Tông môn: — | Mode: Thiên Định (achievements on)
+LINH CĂN  Đơn linh căn (1 counted for the curve)
+  Mộc 0   Hỏa 0   Thổ 0   Kim 35 Trung   Thủy 0
+  Curve now x1.00 vs Đơn linh căn
+THIÊN PHÚ  Ngộ tính 25 Hạ · Căn cốt 47 Trung · Thần hồn 33 Trung
+           Khí vận 31 Trung · Đạo tâm 56 Trung · Mị lực 39 Trung
+TRẠNG THÁI Linh lực 100 · Thần thức 33 · Khí huyết 470/470
+           Đan độc 0 (pill effect -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+CÔNG PHÁP  Duệ Kim Tâm Pháp [Hoàng giai, Kim] speed x1.0, up to Trúc Cơ · tu vi 3.3 / season here
+ĐẠO NGHỆ   none yet (practice raises them)
+CHIẾN LỰC  131 (offense 72 + defense 59) · thần thức 0/33 used
+KINH MẠCH  1 huyệt open, 2 points unspent
+(explain <stat> shows any number's breakdown: rate, power, life, ngo_tinh, attack_pct, ...)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> explain rate
+Tu vi / season = 3.31
+    Luyện Khí base rate                = 10
+    Linh căn curve (1 elements)        x1  -> 10
+    Công pháp Duệ Kim Tâm Pháp (1.0x, purity 35) x0.35  -> 3.50
+    Ngộ tính 25                        x1.13  -> 3.94
+    Linh khí density                   x0.84  -> 3.31
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> explain power
+Realm Luyện Khí Tầng 1: base 100
+Offense = 72
+    Realm share                        = 50
+    Công pháp Duệ Kim Tâm Pháp         +20  -> 70
+    Linh lực 100 x 0.02                +2  -> 72
+Defense = 59.40
+    Realm share                        = 50
+    Khí huyết 470 x 0.02               +9.40  -> 59.40
+Chiến lực = 131.40
+    Offense                            = 72
+    Defense                            +59.40  -> 131.40
+Thần thức used 0 / 33
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> explain life
+Thọ nguyên = 120
+    Luyện Khí lifespan                 = 120
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> explain ngo_tinh
+Ngộ tính = 25
+    Thiên phú (innate)                 = 25
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> explain attack_pct
+No modifiers for 'attack_pct'. Try: rate, power, life, than_thuc, khi_huyet, linh_luc, herb, plots, dan_doc, mission, breakthrough, backlash, a thiên phú id, or a stat key ().
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> inv
+Linh thạch: 30
+Công pháp:
+  i503   Duệ Kim Tâm Pháp [Hoàng giai, Kim] speed x1.0, up to Trúc Cơ [cultivating]
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> field
+Linh điền at Liệt Diễm Trấn: 3 plots, growth x1.00 per season-year ('explain herb')
+  [0] i504   Ngưng Khí Thảo [Mộc] 0.0 năm, potency 0.10 | Tụ Khí Đan in 1.0 y, Hồi Xuân Đan in 1.0 y
+  [1] i505   Ngưng Khí Thảo [Mộc] 0.0 năm, potency 0.10 | Tụ Khí Đan in 1.0 y, Hồi Xuân Đan in 1.0 y
+  [2] empty
+Seeds for sale anywhere: ngung_khi_thao (Ngưng Khí Thảo, 2 LT), thanh_tam_lien (Thanh Tâm Liên, 5 LT), hoa_linh_chi (Hỏa Linh Chi, 8 LT), hoang_tinh_sam (Hoàng Tinh Sâm, 15 LT), xich_huyet_dang (Xích Huyết Đằng, 30 LT), bang_tam_thao (Băng Tâm Thảo, 40 LT)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> recipes
+Đan Đạo level 0. 'craft <recipe id>' takes one season.
+  tu_khi_dan        Tụ Khí Đan         lvl 1   63%  need 2 x Ngưng Khí Thảo (>= 1 năm)  | Gathers qi; small tu vi.
+      ingredients: 2x Ngưng Khí Thảo>=1y
+  thanh_doc_dan     Thanh Độc Đan      lvl 1   58%  need 1 x Thanh Tâm Liên (>= 3 năm)  | Washes out đan độc.
+      ingredients: 1x Thanh Tâm Liên>=3y
+  hoi_xuan_dan      Hồi Xuân Đan       lvl 1   63%  need 1 x Ngưng Khí Thảo (>= 1 năm), 1 x Thanh Tâm Liên (>= 3 năm)  | Restores khí huyết.
+      ingredients: 1x Ngưng Khí Thảo>=1y, 1x Thanh Tâm Liên>=3y
+  hoang_long_dan    Hoàng Long Đan     lvl 3   43%  need 1 x Hỏa Linh Chi (>= 10 năm), 1 x Hoàng Tinh Sâm (>= 10 năm)  | Trúc Cơ-grade cultivation pill.
+      ingredients: 1x Hỏa Linh Chi>=10y, 1x Hoàng Tinh Sâm>=10y
+  tinh_tam_dan      Tĩnh Tâm Đan       lvl 3   43%  need 1 x Thanh Tâm Liên (>= 10 năm), 1 x Băng Tâm Thảo (>= 30 năm)  | Stills the heart; reduces tâm ma.
+      ingredients: 1x Thanh Tâm Liên>=10y, 1x Băng Tâm Thảo>=30y
+  truc_co_dan       Trúc Cơ Đan        lvl 2   48%  need 1 x Hoàng Tinh Sâm (>= 30 năm), 1 x Hỏa Linh Chi (>= 10 năm)  | Foundation pill: needed to break into Trúc Cơ.
+      ingredients: 1x Hoàng Tinh Sâm>=30y, 1x Hỏa Linh Chi>=10y
+  huyet_khi_dan     Huyết Khí Đan      lvl 3   48%  need 1 x Xích Huyết Đằng (>= 20 năm)  | Permanently strengthens căn cốt (3 uses per life).
+      ingredients: 1x Xích Huyết Đằng>=20y
+  ngung_nguyen_dan  Ngưng Nguyên Đan   lvl 5   33%  need 1 x Kim Tủy Quả (>= 100 năm), 1 x Xích Huyết Đằng (>= 20 năm)  | Core-condensing pill: needed to break into Kết Đan.
+      ingredients: 1x Kim Tủy Quả>=100y, 1x Xích Huyết Đằng>=20y
+  dien_tho_dan      Diên Thọ Đan       lvl 6   28%  need 1 x Vạn Niên Mộc Linh (>= 100 năm), 1 x Kim Tủy Quả (>= 50 năm)  | Extends thọ nguyên by 15 years (2 uses per life).
+      ingredients: 1x Vạn Niên Mộc Linh>=100y, 1x Kim Tủy Quả>=50y
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> look
+Liệt Diễm Trấn (l20) — Trấn, Đông Hải Quần Đảo. Linh khí 0.84, danger 1, bounties
+  Your động phủ is here.
+People here (5):
+  p146   Tư Mã Hằng           Trúc Cơ Hậu kỳ         Linh thực sư | chiến lực 3064 | attitude 0
+  p147   Diệp Kiếm            Trúc Cơ Sơ kỳ          Kiếm tu | chiến lực 2017 | attitude 0
+  p154   Lạc Bách             Luyện Khí Tầng 12      Tán tu | chiến lực 360 | attitude 0
+  p155   Cố Kiếm              Trúc Cơ Sơ kỳ          Tán tu | chiến lực 1729 | attitude 0
+  p160   Tạ Khải              Trúc Cơ Hậu kỳ         Linh thực sư | chiến lực 2864 | attitude 0
+Roads:
+  -> l19   Thiên Trì Thành (1 season)
+  -> l18   Mê Vụ Phường Thị (1 season)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> map
+Tử Vân Châu (r1)
+  l1    Hắc Phong Thành          lk 0.97 dg 1 M  roads: l2(1), l6(3), l15(3)
+  l2    Phượng Minh Thành        lk 0.98 dg 1 M  roads: l1(1), l3(1), l5(1)
+  l3    Hàn Sơn Thành            lk 0.87 dg 1 M  roads: l2(1), l4(1), l5(1)
+  l4    Bạch Thạch Thành         lk 0.95 dg 1 M  roads: l3(1), l5(1)
+  l5    Vọng Nguyệt Sơn          lk 1.04 dg 2 S  roads: l4(1), l2(1), l3(1)
+Lạc Hà Lĩnh (r2)
+  l6    Ngọc Tuyền Thành         lk 0.84 dg 1 M  roads: l7(1), l1(3), l10(3)
+  l7    Thanh Dương Cốc          lk 1.15 dg 2 S  roads: l6(1), l8(1), l9(1)
+  l8    Vạn Hoa Bí Cảnh          lk 2.07 dg 4  roads: l7(1), l9(1)
+  l9    Cổ Mộc Trấn              lk 0.81 dg 1  roads: l8(1), l7(1)
+Vân Châu (r3)
+  l10   Long Tích Thành          lk 0.97 dg 1 M  roads: l11(1), l12(1), l6(3), l15(3)
+  l11   Hồng Diệp Thành          lk 0.84 dg 1 M  roads: l10(1), l12(1)
+  l12   Cửu Khúc Hồ              lk 1.06 dg 2 S  roads: l11(1), l13(1), l10(1)
+  l13   Tử Trúc Sơn              lk 1.17 dg 2 S  roads: l12(1), l14(1)
+  l14   Thạch Lâm Trấn           lk 0.82 dg 1  roads: l13(1)
+Đông Hải Quần Đảo (r4)
+  l15   Tàng Kiếm Thành          lk 0.99 dg 1 M  roads: l16(1), l10(3), l1(3)
+  l16   Huyền Âm Sơn             lk 1.47 dg 2 S  roads: l15(1), l17(1), l19(1)
+  l17   Lạc Nhật Cốc             lk 1.48 dg 2 S  roads: l16(1), l18(1)
+  l18   Mê Vụ Phường Thị         lk 1.09 dg 1 M  roads: l17(1), l19(1), l20(1)
+  l19   Thiên Trì Thành          lk 0.80 dg 1 M  roads: l18(1), l20(1), l16(1)
+  l20   Liệt Diễm Trấn           lk 0.84 dg 1  roads: l19(1), l18(1) <YOU> <HOME>
+M = market, S = sect headquarters, lk = linh khí density, dg = danger. 'go <place id>' travels along a road.
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> db stats
+  people   247
+  sects    7
+  places   20
+  regions  4
+  items    505
+  events   185
+  living people 188, dead 59
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> db sects
+  s1    Tử Tiêu Các            Chính đạo  active    members 20
+  s2    Thái Hư Phái           Ma đạo     active    members 18
+  s3    Tàng Phong Tông        Trung lập  active    members 17
+  s4    Huyết Sát Sơn Trang    Trung lập  active    members 19
+  s5    Hợp Hoan Sơn Trang     Ma đạo     active    members 13
+  s6    Vạn Kiếm Tông          Ma đạo     active    members 13
+  s7    Lạc Hà Cốc             Ma đạo     fallen    members 0
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> db people alive
+p1     Chu Thiếu Bạch       Kết Đan Trung kỳ       Pháp tu, Tử Tiêu Các | chiến lực 33172 | attitude 0
+p2     Kỷ Nham              Trúc Cơ Sơ kỳ          Pháp tu, Tử Tiêu Các | chiến lực 2627 | attitude 0
+p3     Ôn Ngọc              Kết Đan Sơ kỳ          Pháp tu, Tử Tiêu Các | chiến lực 20563 | attitude 0
+p4     Cung Hiên            Trúc Cơ Sơ kỳ          Kiếm tu, Tử Tiêu Các | chiến lực 2924 | attitude 0
+p5     Bạch Dao             Luyện Khí Tầng 9       Pháp tu, Tử Tiêu Các | chiến lực 295 | attitude 0
+p6     Diệp Viễn            Luyện Khí Tầng 6       Đan sư, Tử Tiêu Các | chiến lực 231 | attitude 0
+p7     Kỷ Vân               Luyện Khí Tầng 6       Pháp tu, Tử Tiêu Các | chiến lực 247 | attitude 0
+p8     Hàn Dật              Luyện Khí Tầng 13      Kiếm tu, Tử Tiêu Các | chiến lực 382 | attitude 0
+p9     Phương Minh          Trúc Cơ Sơ kỳ          Tán tu, Tử Tiêu Các | chiến lực 2425 | attitude 0
+p10    Trương Hằng          Trúc Cơ Sơ kỳ          Kiếm tu, Tử Tiêu Các | chiến lực 2758 | attitude 0
+p11    Kỷ Huyền             Trúc Cơ Sơ kỳ          Pháp tu, Tử Tiêu Các | chiến lực 2365 | attitude 0
+p12    Lục Vô Kỵ            Luyện Khí Tầng 8       Kiếm tu, Tử Tiêu Các | chiến lực 290 | attitude 0
+p13    Kỷ Hằng              Luyện Khí Tầng 1       Pháp tu, Tàng Phong Tông | chiến lực 164 | attitude 0
+p14    Chu Tử Yên           Luyện Khí Tầng 4       Đan sư, Tử Tiêu Các | chiến lực 178 | attitude 0
+p15    Nhạc Thần            Luyện Khí Tầng 11      Đan sư, Tử Tiêu Các | chiến lực 276 | attitude 0
+p16    Tần Trường Không     Luyện Khí Tầng 8       Pháp tu, Tử Tiêu Các | chiến lực 213 | attitude 0
+p17    Bạch Mộng            Luyện Khí Tầng 4       Pháp tu, Tử Tiêu Các | chiến lực 185 | attitude 0
+p18    Kỷ Dao               Luyện Khí Tầng 7       Pháp tu, Tử Tiêu Các | chiến lực 232 | attitude 0
+p19    Tư Mã Vân            Luyện Khí Tầng 6       Pháp tu, Tử Tiêu Các | chiến lực 214 | attitude 0
+p20    Mạc Uyển             Luyện Khí Tầng 5       Kiếm tu, Tử Tiêu Các | chiến lực 269 | attitude 0
+p21    Trương Lăng          Luyện Khí Tầng 6       Trận sư, Tử Tiêu Các | chiến lực 257 | attitude 0
+p22    Mạc Mộng             Nguyên Anh Đại viên mãn Kiếm tu, Thái Hư Phái | chiến lực 1076433 | attitude 0
+p23    Tạ Thiếu Bạch        Kết Đan Trung kỳ       Đan sư, Thái Hư Phái | chiến lực 36146 | attitude 0
+p24    Lâm Hiên             Kết Đan Hậu kỳ         Pháp tu, Thái Hư Phái | chiến lực 43606 | attitude 0
+p25    Diệp Ngọc            Trúc Cơ Sơ kỳ          Kiếm tu, Thái Hư Phái | chiến lực 3145 | attitude 0
+p26    Kỷ Yên               Luyện Khí Tầng 3       Kiếm tu, Thái Hư Phái | chiến lực 208 | attitude 0
+p27    Thượng Quan Nhược    Luyện Khí Tầng 3       Kiếm tu, Thái Hư Phái | chiến lực 202 | attitude 0
+p28    Mạc Lăng             Luyện Khí Tầng 5       Tán tu, Thái Hư Phái | chiến lực 207 | attitude 0
+p29    Cung Nguyệt          Trúc Cơ Đại viên mãn   Tán tu, Thái Hư Phái | chiến lực 4897 | attitude 0
+p30    Tạ Yên               Trúc Cơ Hậu kỳ         Linh thực sư | chiến lực 2549 | attitude 0
+p31    Tư Mã Viễn           Luyện Khí Tầng 2       Thể tu, Thái Hư Phái | chiến lực 192 | attitude 0
+p32    Doãn Tuyết           Luyện Khí Tầng 8       Pháp tu | chiến lực 235 | attitude 0
+p33    Bạch Yên             Luyện Khí Tầng 10      Pháp tu, Thái Hư Phái | chiến lực 289 | attitude 0
+p34    Trương Viễn          Luyện Khí Tầng 5       Kiếm tu, Thái Hư Phái | chiến lực 254 | attitude 0
+p35    Vương Thanh          Luyện Khí Tầng 8       Kiếm tu, Thái Hư Phái | chiến lực 276 | attitude 0
+p36    Lâm Tuyết            Luyện Khí Tầng 5       Kiếm tu, Thái Hư Phái | chiến lực 229 | attitude 0
+p37    Lục Trần             Luyện Khí Tầng 13      Kiếm tu, Thái Hư Phái | chiến lực 377 | attitude 0
+p38    Tư Mã Trần           Luyện Khí Tầng 7       Kiếm tu, Thái Hư Phái | chiến lực 212 | attitude 0
+p39    Lục Thanh            Luyện Khí Tầng 12      Kiếm tu, Thái Hư Phái | chiến lực 351 | attitude 0
+p40    Diệp Nghiên          Nguyên Anh Trung kỳ    Kiếm tu, Tàng Phong Tông | chiến lực 467965 | attitude 0
+p41    Triệu Lạc Anh        Trúc Cơ Hậu kỳ         Kiếm tu, Tàng Phong Tông | chiến lực 3733 | attitude 0
+p42    Mạc Thiên            Kết Đan Hậu kỳ         Linh thực sư, Tàng Phong Tông | chiến lực 26309 | attitude 0
+p43    Trương Mặc           Trúc Cơ Hậu kỳ         Pháp tu, Tàng Phong Tông | chiến lực 4366 | attitude 0
+p44    Hàn Mộng             Luyện Khí Tầng 7       Trận sư, Thái Hư Phái | chiến lực 251 | attitude 0
+p45    Tiêu Khải            Luyện Khí Tầng 9       Tán tu, Tàng Phong Tông | chiến lực 302 | attitude 0
+p46    Kỷ Khải              Luyện Khí Tầng 8       Thể tu, Tàng Phong Tông | chiến lực 292 | attitude 0
+p47    Tư Mã Thiếu Bạch     Luyện Khí Tầng 10      Kiếm tu, Tàng Phong Tông | chiến lực 293 | attitude 0
+p48    Tư Mã Mặc            Trúc Cơ Đại viên mãn   Kiếm tu, Tàng Phong Tông | chiến lực 6691 | attitude 0
+p49    Cố Thiếu Bạch        Luyện Khí Tầng 13      Kiếm tu, Tàng Phong Tông | chiến lực 290 | attitude 0
+p50    Chu Dao              Luyện Khí Tầng 9       Thể tu, Tàng Phong Tông | chiến lực 293 | attitude 0
+p51    Tô Tuyết             Luyện Khí Tầng 1       Kiếm tu, Tàng Phong Tông | chiến lực 161 | attitude 0
+p52    Vương Thiếu Bạch     Luyện Khí Tầng 3       Pháp tu, Tàng Phong Tông | chiến lực 149 | attitude 0
+p53    Chu Khải             Luyện Khí Tầng 4       Kiếm tu, Tàng Phong Tông | chiến lực 251 | attitude 0
+p54    Tạ Thần              Luyện Khí Tầng 3       Kiếm tu, Tàng Phong Tông | chiến lực 205 | attitude 0
+p55    Bạch Quân            Luyện Khí Tầng 10      Kiếm tu, Huyết Sát Sơn Trang | chiến lực 278 | attitude 0
+p56    Cung Trường Không    Luyện Khí Tầng 12      Kiếm tu, Tàng Phong Tông | chiến lực 323 | attitude 0
+p57    Tạ Phong             Luyện Khí Tầng 13      Kiếm tu, Tàng Phong Tông | chiến lực 454 | attitude 0
+p58    Lâm Tùng             Kết Đan Sơ kỳ          Linh thực sư, Huyết Sát Sơn Trang | chiến lực 26572 | attitude 0
+p59    Doãn Kiếm            Kết Đan Sơ kỳ          Đan sư, Huyết Sát Sơn Trang | chiến lực 27083 | attitude 0
+p60    Ôn Nham              Kết Đan Sơ kỳ          Linh thực sư, Huyết Sát Sơn Trang | chiến lực 24493 | attitude 0
+(60 shown of 188; filter by name, id, place id, sect id, or 'alive'/'dead')
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> db items legendary
+  i477   p182         Linh Ấn [Cực phẩm Linh bảo] ATK 12000 DEF 1500 thần thức 300 | than_thuc_cost_pct -25.9, cultivation_speed_pct +4.6, dan_doc_resist_pct +9.6
+  i478   p42          Huyền Thủy Kiên Phiến [Cực phẩm Linh bảo, Thủy] ATK 9600 DEF 1500 thần thức 250 | artifact_defense_pct +16.4, artifact_attack_pct +24.1, cultivation_speed_pct +3.2, khi_huyet_pct +5.2
+  i479   l16          Hậu Thổ Phúc Duyên Phi Kiếm [Thượng phẩm Linh bảo, Thổ] ATK 6600 DEF 0 thần thức 200 | khi_van +5.7, khi_huyet_pct +13.7, than_thuc_cost_pct -12.7
+  i480   l9           Phúc Duyên Phi Kiếm [Cực phẩm Linh bảo] ATK 9000 DEF 0 thần thức 200 | khi_van +6.0, artifact_defense_pct +10.2, tam_ma_resist_pct +10.0, cultivation_speed_pct +2.6
+  i481   l18          Liệt Chuông [Thượng phẩm Linh bảo] ATK 2200 DEF 5500 thần thức 250 | artifact_attack_pct +15.7, artifact_defense_pct +30.0, tam_ma_resist_pct +6.6
+  i482   l18          Canh Kim Linh Hồ Lô [Cực phẩm Linh bảo, Kim] ATK 7500 DEF 3000 thần thức 250 | than_thuc_cost_pct -23.3, element_affinity_pct +25.0, dan_doc_resist_pct +5.6, artifact_attack_pct +21.4
+(6 shown of 6; filter by name, kind, owner id, 'lost', 'legendary')
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> db events breakthrough
+  e4     năm   8 breakthrough       Doãn Kiếm đột phá Trúc Cơ.
+  e5     năm  10 breakthrough       Thượng Quan Trường Không đột phá Trúc Cơ.
+  e23    năm  55 breakthrough       Âu Dương Hiên đột phá Trúc Cơ.
+  e28    năm  66 breakthrough       Chu Quân đột phá Trúc Cơ.
+  e33    năm  78 breakthrough       Thượng Quan Trường Không đột phá Kết Đan.
+  e35    năm  83 breakthrough       Thẩm Quân đột phá Trúc Cơ.
+  e40    năm  90 breakthrough       Âu Dương Hiên đột phá Kết Đan.
+  e44    năm 101 breakthrough       Doãn Kiếm đột phá Kết Đan.
+  e56    năm 126 breakthrough       Lý Vô Kỵ đột phá Trúc Cơ.
+  e65    năm 143 breakthrough       Tạ Thiếu Bạch đột phá Trúc Cơ.
+  e70    năm 151 breakthrough       Nhạc Hằng đột phá Trúc Cơ.
+  e74    năm 158 breakthrough       Mộ Dung Băng đột phá Trúc Cơ.
+  e89    năm 187 breakthrough       Lý Vô Kỵ đột phá Kết Đan.
+  e91    năm 188 breakthrough       Thẩm Cảnh đột phá Trúc Cơ.
+  e92    năm 190 breakthrough       Mộ Dung Băng đột phá Kết Đan.
+  e93    năm 192 breakthrough       Lâm Hiên đột phá Trúc Cơ.
+  e103   năm 211 breakthrough       Âu Dương Viễn đột phá Trúc Cơ.
+  e106   năm 215 breakthrough       Mạc Mộng đột phá Trúc Cơ.
+  e110   năm 219 breakthrough       Tạ Khải đột phá Trúc Cơ.
+  e112   năm 220 breakthrough       Lục Trường Không đột phá Trúc Cơ.
+  e114   năm 223 breakthrough       Thẩm Quân đột phá Kết Đan.
+  e118   năm 234 breakthrough       Tư Mã Tùng đột phá Trúc Cơ.
+  e121   năm 239 breakthrough       Mộ Dung Băng đột phá Nguyên Anh.
+  e125   năm 244 breakthrough       Cố Thiên đột phá Trúc Cơ.
+  e127   năm 246 breakthrough       Chu Quân đột phá Kết Đan.
+  e129   năm 249 breakthrough       Thẩm Vô Kỵ đột phá Trúc Cơ.
+  e130   năm 250 breakthrough       Mộ Dung Minh đột phá Trúc Cơ.
+  e136   năm 254 breakthrough       Lâm Tùng đột phá Trúc Cơ.
+  e137   năm 255 breakthrough       Đông Phương Lăng đột phá Trúc Cơ.
+  e143   năm 262 breakthrough       Cung Hiên đột phá Trúc Cơ.
+  e144   năm 263 breakthrough       Lâm Hiên đột phá Kết Đan.
+  e146   năm 265 breakthrough       Thẩm Quân đột phá Nguyên Anh.
+  e149   năm 267 breakthrough       Diệp Nghiên đột phá Trúc Cơ.
+  e150   năm 268 breakthrough       Đông Phương Kiếm đột phá Trúc Cơ.
+  e153   năm 271 breakthrough       Ôn Ngọc đột phá Trúc Cơ.
+  e155   năm 272 breakthrough       Kỷ Nham đột phá Trúc Cơ.
+  e160   năm 275 breakthrough       Lý Minh đột phá Trúc Cơ.
+  e161   năm 276 breakthrough       Lý Hằng đột phá Trúc Cơ.
+  e163   năm 278 breakthrough       Tiêu Tịch đột phá Trúc Cơ.
+  e164   năm 279 breakthrough       Thẩm Vô Kỵ đột phá Kết Đan.
+  e165   năm 280 breakthrough       Diệp Lạc Anh đột phá Trúc Cơ.
+  e169   năm 284 breakthrough       Hàn Dao đột phá Trúc Cơ.
+  e170   năm 285 breakthrough       Tô Ngọc đột phá Trúc Cơ.
+  e172   năm 287 breakthrough       Cung Nguyệt đột phá Trúc Cơ.
+  e175   năm 290 breakthrough       Nhạc Thần đột phá Trúc Cơ.
+  e180   năm 295 breakthrough       Bạch Thiếu Bạch đột phá Trúc Cơ.
+  e182   năm 297 breakthrough       Đông Phương Lăng đột phá Kết Đan.
+(47 matching)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> db show s1
+s1 Tử Tiêu Các — Chính đạo, specialty Pháp tu, active
+  headquarters Cửu Khúc Hồ, founded năm 44
+  living members: 20
+    p1     Chu Thiếu Bạch       Kết Đan Trung kỳ       Pháp tu, Tử Tiêu Các | chiến lực 33172 | attitude 0 [tong_chu]
+    p2     Kỷ Nham              Trúc Cơ Sơ kỳ          Pháp tu, Tử Tiêu Các | chiến lực 2627 | attitude 0 [truong_lao]
+    p3     Ôn Ngọc              Kết Đan Sơ kỳ          Pháp tu, Tử Tiêu Các | chiến lực 20563 | attitude 0 [truong_lao]
+    p4     Cung Hiên            Trúc Cơ Sơ kỳ          Kiếm tu, Tử Tiêu Các | chiến lực 2924 | attitude 0 [noi_mon]
+    p5     Bạch Dao             Luyện Khí Tầng 9       Pháp tu, Tử Tiêu Các | chiến lực 295 | attitude 0 [noi_mon]
+    p6     Diệp Viễn            Luyện Khí Tầng 6       Đan sư, Tử Tiêu Các | chiến lực 231 | attitude 0 [noi_mon]
+    p7     Kỷ Vân               Luyện Khí Tầng 6       Pháp tu, Tử Tiêu Các | chiến lực 247 | attitude 0 [noi_mon]
+    p8     Hàn Dật              Luyện Khí Tầng 13      Kiếm tu, Tử Tiêu Các | chiến lực 382 | attitude 0 [noi_mon]
+    p9     Phương Minh          Trúc Cơ Sơ kỳ          Tán tu, Tử Tiêu Các | chiến lực 2425 | attitude 0 [noi_mon]
+    p10    Trương Hằng          Trúc Cơ Sơ kỳ          Kiếm tu, Tử Tiêu Các | chiến lực 2758 | attitude 0 [noi_mon]
+    p11    Kỷ Huyền             Trúc Cơ Sơ kỳ          Pháp tu, Tử Tiêu Các | chiến lực 2365 | attitude 0 [noi_mon]
+    p12    Lục Vô Kỵ            Luyện Khí Tầng 8       Kiếm tu, Tử Tiêu Các | chiến lực 290 | attitude 0 [ngoai_mon]
+  history (7):
+    năm 44: Âu Dương Dật khai sáng Tử Tiêu Các tại Cửu Khúc Hồ.
+    năm 61: Tử Tiêu Các và Hợp Hoan Sơn Trang khai chiến; Tử Tiêu Các chiếm thượng phong.
+    năm 181: Thái Hư Phái và Tử Tiêu Các khai chiến; Thái Hư Phái chiếm thượng phong.
+    năm 209: Tử Tiêu Các và Huyết Sát Sơn Trang khai chiến; Tử Tiêu Các chiếm thượng phong.
+    năm 260: Tử Tiêu Các và Huyết Sát Sơn Trang khai chiến; Tử Tiêu Các chiếm thượng phong.
+    năm 265: Kỷ Hằng phản bội Tử Tiêu Các, gia nhập Tàng Phong Tông.
+    năm 288: Tàng Phong Tông và Tử Tiêu Các khai chiến; Tàng Phong Tông chiếm thượng phong.
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> db show p1
+p1     Chu Thiếu Bạch       Kết Đan Trung kỳ       Pháp tu, Tử Tiêu Các | chiến lực 33172 | attitude 0
+  age 92, linh căn Song linh căn: Hỏa 53, Thủy 62
+  thiên phú ngo_tinh 13, can_cot 33, than_hon 31, khi_van 13, dao_tam 37, mi_luc 27
+  traits: chính trực, cuồng ngạo
+  owns i1     Nhu Thủy Kinh [Địa giai, Thủy] speed x1.7, up to Nguyên Anh | lifespan_years +13.2, than_thuc_pct +7.2 [cultivating]
+  owns i2     Tụ Khí Châm [Thượng phẩm Linh bảo] ATK 4840 DEF 0 thần thức 100 | cultivation_speed_pct +3.9, artifact_defense_pct +20.1, artifact_attack_pct +11.2 [equipped]
+  owns i3     Huyền Thủy Tĩnh Tâm Ấn [Hạ phẩm Linh bảo, Thủy] ATK 5200 DEF 650 thần thức 300 | tam_ma_resist_pct +10.6
+  owns i4     Huyền Thủy Kiên Châm [Hạ phẩm Linh bảo, Thủy] ATK 2860 DEF 0 thần thức 100 | artifact_defense_pct +29.5 [equipped]
+  created by: worldgen
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> db show l1
+l1 Hắc Phong Thành (thanh) density 0.97 danger 1
+  history (5):
+    năm 33: Thượng Quan Trường Không tìm được Lôi Kích Mộc tại Hắc Phong Thành.
+    năm 207: Ôn Ngọc và Tạ Yên giao đấu tại Hắc Phong Thành; Ôn Ngọc thắng.
+    năm 217: Ôn Ngọc tìm được Yêu Đan tại Hắc Phong Thành.
+    năm 248: Thẩm Vô Kỵ tìm được Linh Mộc Tâm tại Hắc Phong Thành.
+    năm 257: Mộ Dung Tịch (Luyện Khí) thọ nguyên cạn kiệt, tọa hóa tại Hắc Phong Thành.
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> legends 5
+năm 295: Bạch Thiếu Bạch đột phá Trúc Cơ.
+năm 296: Vạn Hoa Bí Cảnh khai mở; Mộ Dung Băng là người đầu tiên bước vào.
+năm 297: Đông Phương Lăng đột phá Kết Đan.
+năm 298: Tiêu Băng tìm được Linh Thạch Khoáng tại Cửu Khúc Hồ.
+năm 299: Hàn Dao thu Nhạc Nguyệt làm đệ tử.
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> tree
+Kinh Mạch Đồ: 1 huyệt open, 2 unspent points. Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets
+Openable now:
+  #1    Mộc Môn                  gate           cultivation_speed_pct +0.8  (x0.25 from linh căn)
+  #38   Hỏa Môn                  gate           cultivation_speed_pct +0.8  (x0.25 from linh căn)
+  #75   Thổ Môn                  gate           cultivation_speed_pct +0.8  (x0.25 from linh căn)
+  #112  Kim Môn                  gate           cultivation_speed_pct +2.5  (x0.85 from linh căn)
+  #149  Thủy Môn                 gate           cultivation_speed_pct +0.8  (x0.25 from linh căn)
+  #201  Ngũ Hành Luân Chuyển     keystone       cultivation_speed_per_element_pct +8.0  (requires 5 base elements in your linh căn)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> tree targets
+Notables and keystones by distance ('tree go <id>' opens the whole path):
+  #201  cost  1  Ngũ Hành Luân Chuyển       keystone       cultivation_speed_per_element_pct +8.0  — Requires all five base elements: +8% cultivation speed per element in your linh căn.
+  #155  cost  3  Băng Tâm                   notable        tam_ma_resist_pct +3.8  (x0.25 from linh căn)
+  #154  cost  3  Thượng Thiện Nhược Thủy    notable        dan_doc_decay +0.8  (x0.25 from linh căn)
+  #118  cost  3  Canh Kim Kiếm Ý            notable        attack_pct +18.7  (x0.85 from linh căn)
+  #117  cost  3  Kim Ngọc Mãn Đường         notable        mission_income_pct +25.5  (x0.85 from linh căn)
+  #80   cost  3  Bất Động Như Sơn           notable        defense_pct +5.5  (x0.25 from linh căn)
+  #79   cost  3  Hậu Thổ Linh Điền          notable        field_plots +0.5  (x0.25 from linh căn)
+  #44   cost  3  Liệt Hỏa Kinh Mạch         notable        attack_pct +4.5  (x0.25 from linh căn)
+  #5    cost  3  Vạn Mộc Hồi Xuân           notable        herb_growth_pct +6.3  (x0.25 from linh căn)
+  #7    cost  3  Trường Sinh Huyệt          notable        lifespan_years +2.0  (x0.25 from linh căn)
+  #43   cost  3  Đan Tâm Huyệt              notable        alchemy_success +2.0, alchemy_yield +0.3  (x0.25 from linh căn)
+  #162  cost  5  Thủy Nguyệt Kính Hoa       notable        stealth +3.8  (x0.25 from linh căn)
+  #160  cost  5  Linh Tuyền                 notable        linh_luc_pct +5.0  (x0.25 from linh căn)
+  #51   cost  5  Hỏa Luyện Chân Thân        notable        khi_huyet_pct +2.5, attack_pct +2.0  (x0.25 from linh căn)
+  #12   cost  5  Mộc Linh Tụ Khí            notable        cultivation_speed_pct +2.0  (x0.25 from linh căn)
+  #124  cost  5  Ngự Khí Thông Thần         notable        artifact_power_pct +12.8  (x0.85 from linh căn)
+  #123  cost  5  Thần Thức Như Đao          notable        than_thuc_pct +12.8  (x0.85 from linh căn)
+  #15   cost  5  Thanh Mộc Linh Thể         notable        khi_huyet_pct +3.8, dan_doc_resist_pct +2.5  (x0.25 from linh căn)
+  #52   cost  5  Lô Hỏa Thuần Thanh         notable        alchemy_success +1.5, dan_doc_resist_pct +2.0  (x0.25 from linh căn)
+  #88   cost  5  Địa Mạch Tụ Linh           notable        density_bonus +0.0  (x0.25 from linh căn)
+  #87   cost  5  Kim Cương Bất Hoại         notable        khi_huyet_pct +4.5  (x0.25 from linh căn)
+  #199  cost  7  Sinh Mệnh Huyệt            bridge_notable lifespan_years +1.3, herb_growth_pct +2.5  (x0.25 from linh căn)
+  #196  cost  7  Hàn Băng Huyệt             bridge_notable dan_doc_resist_pct +5.5, than_thuc_pct +3.3  (x0.55 from linh căn)
+  #193  cost  7  Trọng Lực Huyệt            bridge_notable defense_pct +5.5, attack_pct +4.4  (x0.55 from linh căn)
+  #190  cost  7  Dung Nham Huyệt            bridge_notable alchemy_success +1.3, defense_pct +2.0  (x0.25 from linh căn)
+  #187  cost  7  Quang Minh Huyệt           bridge_notable tam_ma_resist_pct +2.0, cultivation_speed_pct +1.0  (x0.25 from linh căn)
+  #173  cost  7  Bách Xuyên Quy Hải         notable        cultivation_speed_pct +2.5  (x0.25 from linh căn)
+  #169  cost  7  Nhu Thủy Hóa Kình          notable        defense_pct +3.0, linh_luc_pct +2.0  (x0.25 from linh căn)
+  #59   cost  7  Diễm Tâm Ngộ Đạo           notable        ngo_tinh +1.0  (x0.25 from linh căn)
+  #61   cost  7  Chước Nhiệt Linh Mạch      notable        cultivation_speed_pct +2.0  (x0.25 from linh căn)
+  #136  cost  7  Duệ Kim Phá Giáp           notable        attack_pct +10.2, breakthrough_chance +1.7  (x0.85 from linh căn)
+  #134  cost  7  Thiên Kim Chi Mệnh         notable        khi_van +3.4  (x0.85 from linh căn)
+  #25   cost  7  Xuân Phong Hóa Vũ          notable        mi_luc +1.3, herb_growth_pct +2.5  (x0.25 from linh căn)
+  #23   cost  7  Linh Điền Chi Chủ          notable        field_plots +0.3, herb_growth_pct +2.5  (x0.25 from linh căn)
+  #97   cost  7  Sơn Nhạc Trấn Tâm          notable        tam_ma_resist_pct +3.0  (x0.25 from linh căn)
+  #96   cost  7  Thổ Nạp Vạn Vật            notable        dan_doc_resist_pct +3.8  (x0.25 from linh căn)
+  #72   cost  9  Phần Thân Luyện Đạo        keystone       attack_pct +50.0, khi_huyet_pct -30.0  — Burn the body for power.
+  #35   cost  9  Vạn Cổ Trường Thanh        keystone       lifespan_pct +25.0, cultivation_speed_pct -15.0  — Live a quarter longer; cultivate slower.
+  #146  cost  9  Nhất Kiếm Phá Vạn Pháp     keystone       single_artifact +1.0  — Only one pháp bảo can be equipped; its power x2.5.
+  #183  cost  9  Thủy Đạo Vô Thường         keystone       dan_doc_no_penalty +1.0, pill_effect_pct -25.0  — Đan độc no longer slows cultivation; pills are 25% weaker.
+  #109  cost  9  Đại Địa Chi Tâm            keystone       defense_pct +60.0, travel_speed_pct -50.0  — Unmovable as the earth; travel is slow.
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> tree map
+                                                                              
+                                                                              
+                              .     .      K     .                            
+                        .                              .                      
+                               .     .    .     .                             
+                          .                          .                        
+                                  .    N     .                                
+                    :       .                      N       :                  
+           .                       .   .    .                       .         
+              .               .                  .               .            
+       .                 N           .    .           N                 .     
+                 N              N              N              .               
+           .        .                .    .                .        .         
+     K        .                  .            .                  N        .   
+        .         .    .                .               .    .         .      
+                          .     :  N        N  :     .                        
+   .        .       N                   .                  .       .        K 
+       .        .       .    N       .    .       .    .       .        .     
+                                 .      +     .                               
+  .   .   .   .    .   .    N   .              .   N    .   N    .   N   .   .
+                                    +      +                                  
+              .    N   .   .   .        @       .   N   .   N    .            
+  .   .   N                 :        +  + +        :                 .   .   .
+                                 .            .                               
+                N            N     .        .     N            N              
+                         .           .    .           .                       
+        :             .         N              N         .             :      
+                  .         .       .   :  .       .         .                
+              N          .     .                .     N          .            
+           .         .             .        .             .         .         
+       .          .          N                    N          N          .     
+              .          .        N          .        .          .            
+                      N      .                    .      N                    
+           .      .               .     N    .               .      .         
+                           .                        .                         
+               K      .          .            .          .      .             
+                           .                        .                         
+                    .           .       :      .           K                  
+                         .                            .                       
+                               .                .                             
+                                                                              
+@ Đan Điền  # open  + openable  N notable  K keystone  o gate  . huyệt  : kỳ kinh bridge
+Sectors clockwise from the top: Mộc → Hỏa → Thổ → Kim → Thủy  (tương sinh order)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> tree node 112
+#112 Kim Môn — gate, sector kim, ring 1
+  bonus: cultivation_speed_pct +2.5  (x0.85 from linh căn)
+  links: #0, #113, #114, #115
+  path from your open huyệt: #112 (1 points)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> tree alloc 112
+Opened #112 Kim Môn: cultivation_speed_pct +2.5  (x0.85 from linh căn)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> tree go 115
+Opened #115 Kim huyệt: artifact_power_pct +2.5  (x0.85 from linh căn)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> debug tp 10
+Kinh Mạch points: 10.
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> tree go 140
+Opened #114 Kim huyệt: artifact_power_pct +2.5  (x0.85 from linh căn)
+Opened #117 Kim Ngọc Mãn Đường: mission_income_pct +25.5  (x0.85 from linh căn)
+Opened #120 Kim huyệt: than_thuc_pct +2.5  (x0.85 from linh căn)
+Opened #124 Ngự Khí Thông Thần: artifact_power_pct +12.8  (x0.85 from linh căn)
+Opened #129 Kim huyệt: mission_income_pct +5.1  (x0.85 from linh căn)
+Opened #134 Thiên Kim Chi Mệnh: khi_van +3.4  (x0.85 from linh căn)
+Opened #140 Kim huyệt: attack_pct +5.1  (x0.85 from linh căn)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 30 | Liệt Diễm Trấn]
+> plant hoang_tinh_sam
+Planted Hoàng Tinh Sâm in plot 2 (-15 linh thạch).
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 15 | Liệt Diễm Trấn]
+> plant hoa linh chi
+All 3 plots are in use.
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 15 | Liệt Diễm Trấn]
+> field
+Linh điền at Liệt Diễm Trấn: 3 plots, growth x1.00 per season-year ('explain herb')
+  [0] i504   Ngưng Khí Thảo [Mộc] 0.0 năm, potency 0.10 | Tụ Khí Đan in 1.0 y, Hồi Xuân Đan in 1.0 y
+  [1] i505   Ngưng Khí Thảo [Mộc] 0.0 năm, potency 0.10 | Tụ Khí Đan in 1.0 y, Hồi Xuân Đan in 1.0 y
+  [2] i506   Hoàng Tinh Sâm [Thổ] 0.0 năm, potency 0.10 | Hoàng Long Đan in 10.0 y, Trúc Cơ Đan in 30.0 y
+Seeds for sale anywhere: ngung_khi_thao (Ngưng Khí Thảo, 2 LT), thanh_tam_lien (Thanh Tâm Liên, 5 LT), hoa_linh_chi (Hỏa Linh Chi, 8 LT), hoang_tinh_sam (Hoàng Tinh Sâm, 15 LT), xich_huyet_dang (Xích Huyết Đằng, 30 LT), bang_tam_thao (Băng Tâm Thảo, 40 LT)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 15 | Liệt Diễm Trấn]
+> debug event linh_thao_hoang_da
+
+*** EVENT: Linh thảo hoang dã ***  (type 'event' to read, 'choose <n>' to act)
+=== Linh thảo hoang dã ===  [template:linh_thao_hoang_da]
+Giữa vách đá ở Liệt Diễm Trấn, ngươi ngửi thấy linh khí nồng đậm. Một gốc linh thảo mọc khuất sau rêu, không rõ đã bao nhiêu năm tuổi.
+
+  1) Quan sát kỹ trước khi hái (Ngộ tính)   [ngo_tinh vs 45: 27%]
+  2) Thử vận may (Khí vận)   [khi_van vs 60: 24%]
+choose <n>
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 15 | Liệt Diễm Trấn | EVENT]
+> event
+=== Linh thảo hoang dã ===  [template:linh_thao_hoang_da]
+Giữa vách đá ở Liệt Diễm Trấn, ngươi ngửi thấy linh khí nồng đậm. Một gốc linh thảo mọc khuất sau rêu, không rõ đã bao nhiêu năm tuổi.
+
+  1) Quan sát kỹ trước khi hái (Ngộ tính)   [ngo_tinh vs 45: 27%]
+  2) Thử vận may (Khí vận)   [khi_van vs 60: 24%]
+choose <n>
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 15 | Liệt Diễm Trấn | EVENT]
+> choose 1
+> Quan sát kỹ trước khi hái (Ngộ tính)
+
+Ngươi hái vội, rễ đứt, dược tính tổn hao quá nửa.
+
+  ngo_tinh check: 27% chance, roll 32 -> FAILURE
+  gained Hỏa Linh Chi [Hỏa] 8.5 năm, potency 1.39 [i507]
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 15 | Liệt Diễm Trấn]
+> debug event cuop_tu_chan_duong
+
+*** EVENT: Cướp tu chặn đường ***  (type 'event' to read, 'choose <n>' to act)
+=== Cướp tu chặn đường ===  [template:cuop_tu_chan_duong]
+Trên đường qua Liệt Diễm Trấn, Diệp Dật (Luyện Khí Tầng 8) từ trong rừng bước ra, kiếm quang lóe lên: "Để lại túi trữ vật, tha cho ngươi một mạng."
+
+  1) Liều mạng giao đấu   [combat 135 vs 290: ~18%]
+  2) Bỏ chạy (Thần hồn)   [than_hon vs 50: 30%]
+  3) Nộp linh thạch   [no check, cost -24 LT]
+choose <n>
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 15 | Liệt Diễm Trấn | EVENT]
+> choose 1
+> Liều mạng giao đấu
+
+Ngươi đánh lui Diệp Dật, nhặt được chiến lợi phẩm hắn bỏ lại.
+
+  Combat: chiến lực 135 vs Diệp Dật 290 -> 18% chance, roll 10 -> VICTORY
+  linh thạch +29 (now 44)
+  gained Hồ Lô [Phàm phẩm Pháp khí] ATK 25 DEF 10 thần thức 25 [i510]
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 44 | Liệt Diễm Trấn]
+> debug event yeu_thu
+
+*** EVENT: Yêu thú xuất hiện ***  (type 'event' to read, 'choose <n>' to act)
+=== Yêu thú xuất hiện ===  [template:yeu_thu]
+Đất ở Liệt Diễm Trấn rung chuyển. Một con yêu thú (Luyện Khí Tầng 9) gầm lên, mắt đỏ rực nhìn chằm chằm vào ngươi.
+
+  1) Săn yêu thú   [combat 135 vs 186: ~35%]
+  2) Lặng lẽ lui đi (Thần hồn)   [than_hon vs 40: 40%]
+choose <n>
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 100% | LT 44 | Liệt Diễm Trấn | EVENT]
+> choose 2
+> Lặng lẽ lui đi (Thần hồn)
+
+Nó phát hiện ra ngươi. Một đuôi quất tới.
+
+  than_hon check: 40% chance, roll 49 -> FAILURE
+  khí huyết -25% (now 75%)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 75% | LT 44 | Liệt Diễm Trấn]
+> debug event dong_phu_co
+
+*** EVENT: Động phủ cổ ***  (type 'event' to read, 'choose <n>' to act)
+=== Động phủ cổ ===  [template:dong_phu_co]
+Một trận pháp đã mục nát che lấp cửa động ở Liệt Diễm Trấn. Bên trong thấp thoáng ánh sáng của cấm chế còn sót lại từ một vị tiền bối vô danh.
+
+  1) Dùng thần thức dò cấm chế (Thần hồn)   [than_hon vs 60: 20%]
+  2) Phá cửa bằng sức mạnh (Căn cốt)   [can_cot vs 65: 29%]
+  3) Ghi nhớ vị trí rồi rời đi   [no check]
+choose <n>
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 75% | LT 44 | Liệt Diễm Trấn | EVENT]
+> choose 3
+> Ghi nhớ vị trí rồi rời đi
+
+Ngươi khắc dấu vị trí vào ngọc giản, để dành sau này.
+
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 75% | LT 44 | Liệt Diễm Trấn]
+> debug templates
+  lao_gia_ban_thao       Lão giả bán thảo dược (places: thanh, tran, phuong_thi)
+  cuop_tu_chan_duong     Cướp tu chặn đường (places: son, coc, dao, tran)
+  linh_thao_hoang_da     Linh thảo hoang dã (places: son, coc, ho, dao)
+  dong_phu_co            Động phủ cổ (places: son, coc, bi_canh)
+  yeu_thu                Yêu thú xuất hiện (places: son, coc, ho, dao, bi_canh)
+  don_ngo                Đốn ngộ (places: son, coc, ho, bi_canh, dao)
+  dong_mon_nho_giup      Đồng môn nhờ giúp (places: any)
+  bi_canh_mo             Bí cảnh khai mở (places: bi_canh)
+  dau_gia_nho            Phiên đấu giá nhỏ (places: thanh, phuong_thi)
+  tam_ma_xam_nhap        Tâm ma xâm nhập (places: any)
+  co_nhan                Gặp gỡ cố nhân (places: any)
+  thuong_nhan_bi_nan     Thương nhân bị nạn (places: son, tran, coc)
+[Thiên Nguyên lịch năm 300, Xuân | SmokeTest | Luyện Khí Tầng 1 0/30 | tuổi 16/120 | KH 75% | LT 44 | Liệt Diễm Trấn]
+> cul 4
+Tu luyện 4 season(s): +14 tu vi. Now Luyện Khí Tầng 1 (14 / 30).
+
+*** EVENT: Thương nhân bị nạn ***  (type 'event' to read, 'choose <n>' to act)
+  [tin đồn] Cố Yên và Triệu Viễn đại chiến tại Lạc Nhật Cốc; Triệu Viễn thắng.
+  [tin đồn] Diệp Viễn và Ôn Thiên đại chiến tại Cửu Khúc Hồ; Diệp Viễn thắng.
+  [tin đồn] Tin đồn: Giang Lan vừa đột phá Trúc Cơ.
+=== Thương nhân bị nạn ===  [template:thuong_nhan_bi_nan]
+Bên vệ đường gần Liệt Diễm Trấn, thương nhân Tần Khinh Vũ nằm thoi thóp bên cỗ xe đổ nát. Hàng hóa vương vãi, không có ai canh giữ.
+
+  1) Cứu chữa cho hắn   [no check, cost -5 LT]
+  2) Lấy hàng rồi đi   [no check]
+choose <n>
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 44 | Liệt Diễm Trấn | EVENT]
+> bequan 2
+An event is waiting: 'Thương nhân bị nạn'. Use 'event' to read it and 'choose <n>'.
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 44 | Liệt Diễm Trấn | EVENT]
+> field
+Linh điền at Liệt Diễm Trấn: 3 plots, growth x1.00 per season-year ('explain herb')
+  [0] i504   Ngưng Khí Thảo [Mộc] 1.0 năm, potency 1.00 | Tụ Khí Đan READY, Hồi Xuân Đan READY
+  [1] i505   Ngưng Khí Thảo [Mộc] 1.0 năm, potency 1.00 | Tụ Khí Đan READY, Hồi Xuân Đan READY
+  [2] i506   Hoàng Tinh Sâm [Thổ] 1.0 năm, potency 0.10 | Hoàng Long Đan in 9.0 y, Trúc Cơ Đan in 29.0 y
+Seeds for sale anywhere: ngung_khi_thao (Ngưng Khí Thảo, 2 LT), thanh_tam_lien (Thanh Tâm Liên, 5 LT), hoa_linh_chi (Hỏa Linh Chi, 8 LT), hoang_tinh_sam (Hoàng Tinh Sâm, 15 LT), xich_huyet_dang (Xích Huyết Đằng, 30 LT), bang_tam_thao (Băng Tâm Thảo, 40 LT)
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 44 | Liệt Diễm Trấn | EVENT]
+> harvest all
+Plot 2: Hoàng Tinh Sâm is not mature yet (1.0 / 10 năm); left in the ground. Use 'harvest 2' to force.
+Harvested Ngưng Khí Thảo [Mộc] 1.0 năm, potency 1.00.
+Harvested Ngưng Khí Thảo [Mộc] 1.0 năm, potency 1.00.
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 44 | Liệt Diễm Trấn | EVENT]
+> debug herb ngung_khi_thao 3
+Gave Ngưng Khí Thảo [Mộc] 3.0 năm, potency 1.79 [i513].
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 44 | Liệt Diễm Trấn | EVENT]
+> debug herb ngung_khi_thao 3
+Gave Ngưng Khí Thảo [Mộc] 3.0 năm, potency 1.79 [i514].
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 44 | Liệt Diễm Trấn | EVENT]
+> debug herb thanh_tam_lien 5
+Gave Thanh Tâm Liên [Thủy] 5.0 năm, potency 1.37 [i515].
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 44 | Liệt Diễm Trấn | EVENT]
+> craft tu_khi_dan
+An event is waiting: 'Thương nhân bị nạn'. Use 'event' to read it and 'choose <n>'.
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 44 | Liệt Diễm Trấn | EVENT]
+> inv
+Linh thạch: 44
+Công pháp:
+  i503   Duệ Kim Tâm Pháp [Hoàng giai, Kim] speed x1.0, up to Trúc Cơ [cultivating]
+Pháp bảo:
+  i510   Hồ Lô [Phàm phẩm Pháp khí] ATK 25 DEF 10 thần thức 25
+Linh thảo (harvested):
+  i504   Ngưng Khí Thảo [Mộc] 1.0 năm, potency 1.00
+  i505   Ngưng Khí Thảo [Mộc] 1.0 năm, potency 1.00
+  i507   Hỏa Linh Chi [Hỏa] 8.5 năm, potency 1.39
+  i513   Ngưng Khí Thảo [Mộc] 3.0 năm, potency 1.79
+  i514   Ngưng Khí Thảo [Mộc] 3.0 năm, potency 1.79
+  i515   Thanh Tâm Liên [Thủy] 5.0 năm, potency 1.37
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 44 | Liệt Diễm Trấn | EVENT]
+> recipes
+Đan Đạo level 0. 'craft <recipe id>' takes one season.
+  tu_khi_dan        Tụ Khí Đan         lvl 1   63%  HAVE  | Gathers qi; small tu vi.
+      ingredients: 2x Ngưng Khí Thảo>=1y
+  thanh_doc_dan     Thanh Độc Đan      lvl 1   58%  HAVE  | Washes out đan độc.
+      ingredients: 1x Thanh Tâm Liên>=3y
+  hoi_xuan_dan      Hồi Xuân Đan       lvl 1   63%  HAVE  | Restores khí huyết.
+      ingredients: 1x Ngưng Khí Thảo>=1y, 1x Thanh Tâm Liên>=3y
+  hoang_long_dan    Hoàng Long Đan     lvl 3   43%  need 1 x Hỏa Linh Chi (>= 10 năm), 1 x Hoàng Tinh Sâm (>= 10 năm)  | Trúc Cơ-grade cultivation pill.
+      ingredients: 1x Hỏa Linh Chi>=10y, 1x Hoàng Tinh Sâm>=10y
+  tinh_tam_dan      Tĩnh Tâm Đan       lvl 3   43%  need 1 x Thanh Tâm Liên (>= 10 năm), 1 x Băng Tâm Thảo (>= 30 năm)  | Stills the heart; reduces tâm ma.
+      ingredients: 1x Thanh Tâm Liên>=10y, 1x Băng Tâm Thảo>=30y
+  truc_co_dan       Trúc Cơ Đan        lvl 2   48%  need 1 x Hoàng Tinh Sâm (>= 30 năm), 1 x Hỏa Linh Chi (>= 10 năm)  | Foundation pill: needed to break into Trúc Cơ.
+      ingredients: 1x Hoàng Tinh Sâm>=30y, 1x Hỏa Linh Chi>=10y
+  huyet_khi_dan     Huyết Khí Đan      lvl 3   48%  need 1 x Xích Huyết Đằng (>= 20 năm)  | Permanently strengthens căn cốt (3 uses per life).
+      ingredients: 1x Xích Huyết Đằng>=20y
+  ngung_nguyen_dan  Ngưng Nguyên Đan   lvl 5   33%  need 1 x Kim Tủy Quả (>= 100 năm), 1 x Xích Huyết Đằng (>= 20 năm)  | Core-condensing pill: needed to break into Kết Đan.
+      ingredients: 1x Kim Tủy Quả>=100y, 1x Xích Huyết Đằng>=20y
+  dien_tho_dan      Diên Thọ Đan       lvl 6   28%  need 1 x Vạn Niên Mộc Linh (>= 100 năm), 1 x Kim Tủy Quả (>= 50 năm)  | Extends thọ nguyên by 15 years (2 uses per life).
+      ingredients: 1x Vạn Niên Mộc Linh>=100y, 1x Kim Tủy Quả>=50y
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 44 | Liệt Diễm Trấn | EVENT]
+> debug lt 500
+Linh thạch 544.
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> market
+No market at Liệt Diễm Trấn. 'map' marks markets with M.
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> mission
+An event is waiting: 'Thương nhân bị nạn'. Use 'event' to read it and 'choose <n>'.
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> explore
+An event is waiting: 'Thương nhân bị nạn'. Use 'event' to read it and 'choose <n>'.
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> look
+Liệt Diễm Trấn (l20) — Trấn, Đông Hải Quần Đảo. Linh khí 0.84, danger 1, bounties
+  Your động phủ is here.
+People here (8):
+  p146   Tư Mã Hằng           Trúc Cơ Hậu kỳ         Linh thực sư | chiến lực 3064 | attitude 0
+  p147   Diệp Kiếm            Trúc Cơ Sơ kỳ          Kiếm tu | chiến lực 2017 | attitude 0
+  p154   Lạc Bách             Luyện Khí Tầng 12      Tán tu | chiến lực 360 | attitude 0
+  p155   Cố Kiếm              Trúc Cơ Sơ kỳ          Tán tu | chiến lực 1729 | attitude 0
+  p160   Tạ Khải              Trúc Cơ Hậu kỳ         Linh thực sư | chiến lực 2864 | attitude 0
+  p248   Diệp Dật             Luyện Khí Tầng 8       Tán tu | chiến lực 290 | attitude 0
+  p249   Hắc Phong Giao       Luyện Khí Tầng 9       yêu thú | chiến lực 186 | attitude 0
+  p250   Tần Khinh Vũ         Luyện Khí Tầng 12      Tán tu | chiến lực 319 | attitude 0
+Roads:
+  -> l19   Thiên Trì Thành (1 season)
+  -> l18   Mê Vụ Phường Thị (1 season)
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> news 5
+năm 300: Cố Yên và Triệu Viễn đại chiến tại Lạc Nhật Cốc; Triệu Viễn thắng.
+năm 300: Diệp Viễn và Ôn Thiên đại chiến tại Cửu Khúc Hồ; Diệp Viễn thắng.
+năm 301: Tin đồn: Giang Lan vừa đột phá Trúc Cơ.
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> debug item artifact 2
+Gave Huyền Thủy Hộ Thân Phiến [Trung phẩm Pháp khí, Thủy] ATK 54 DEF 9 thần thức 25 | khi_huyet_pct +5.6, element_affinity_pct +11.7 [i516].
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> debug item cong_phap 1
+Gave Thương Lan Tâm Pháp [Huyền giai, Thủy] speed x1.3, up to Kết Đan | alchemy_success +5.5 [i517].
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> inv
+Linh thạch: 544
+Công pháp:
+  i503   Duệ Kim Tâm Pháp [Hoàng giai, Kim] speed x1.0, up to Trúc Cơ [cultivating]
+  i517   Thương Lan Tâm Pháp [Huyền giai, Thủy] speed x1.3, up to Kết Đan | alchemy_success +5.5
+Pháp bảo:
+  i510   Hồ Lô [Phàm phẩm Pháp khí] ATK 25 DEF 10 thần thức 25
+  i516   Huyền Thủy Hộ Thân Phiến [Trung phẩm Pháp khí, Thủy] ATK 54 DEF 9 thần thức 25 | khi_huyet_pct +5.6, element_affinity_pct +11.7
+Linh thảo (harvested):
+  i504   Ngưng Khí Thảo [Mộc] 1.0 năm, potency 1.00
+  i505   Ngưng Khí Thảo [Mộc] 1.0 năm, potency 1.00
+  i507   Hỏa Linh Chi [Hỏa] 8.5 năm, potency 1.39
+  i513   Ngưng Khí Thảo [Mộc] 3.0 năm, potency 1.79
+  i514   Ngưng Khí Thảo [Mộc] 3.0 năm, potency 1.79
+  i515   Thanh Tâm Liên [Thủy] 5.0 năm, potency 1.37
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> buildgen kiem_tu 1
+p251   Mộ Dung Khải         Trúc Cơ Hậu kỳ         Kiếm tu | chiến lực 4288 | attitude 0
+  age 50, linh căn Song linh căn: Hỏa 36, Kim 67
+  thiên phú ngo_tinh 9, can_cot 53, than_hon 44, khi_van 42, dao_tam 64, mi_luc 16
+  traits: âm hiểm, ẩn dật
+  owns i518   Canh Kim Bí Điển [Huyền giai, Kim] speed x1.3, up to Kết Đan | herb_growth_pct +12.7 [cultivating]
+  owns i519   Canh Kim Phi Kiếm [Phàm phẩm Pháp bảo, Kim] ATK 300 DEF 0 thần thức 60 [equipped]
+  owns i520   Canh Kim Phi Kiếm [Phàm phẩm Pháp bảo, Kim] ATK 300 DEF 0 thần thức 60 [equipped]
+  created by: debug
+Kinh Mạch (24 huyệt): Kim Ngọc Mãn Đường, Canh Kim Kiếm Ý, Ngự Khí Thông Thần, Thần Thức Như Đao, Thiên Kim Chi Mệnh, Trọng Lực Huyệt, Nhất Kiếm Phá Vạn Pháp
+Realm Trúc Cơ Hậu kỳ: base 1600
+Offense = 3389
+    Realm share                        = 800
+    Công pháp Canh Kim Bí Điển         +416  -> 1216
+    Canh Kim Phi Kiếm                  +1099  -> 2315
+    attack_pct (+45.5%)                x1.45  -> 3368
+    Linh lực 1040 x 0.02               +20.80  -> 3389
+Defense = 899.20
+    Realm share                        = 800
+    defense_pct (+7.1%)                x1.07  -> 856.80
+    Khí huyết 2120 x 0.02              +42.40  -> 899.20
+Chiến lực = 4288
+    Offense                            = 3389
+    Defense                            +899.20  -> 4288
+Thần thức used 60 / 169  (not enough for: i520)
+(registered as p251 at your location; 'talk p251' works)
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> buildgen dan_su 2
+p252   Bạch Vân             Kết Đan Sơ kỳ          Đan sư | chiến lực 29303 | attitude 0
+  age 203, linh căn Song linh căn: Hỏa 71, Kim 49
+  thiên phú ngo_tinh 24, can_cot 68, than_hon 51, khi_van 36, dao_tam 62, mi_luc 28
+  traits: đa nghi, si tình
+  owns i521   Chu Tước Kinh [Huyền giai, Hỏa] speed x1.3, up to Kết Đan | defense_pct +13.0 [cultivating]
+  owns i522   Xích Diễm Chuông [Phàm phẩm Linh bảo, Hỏa] ATK 1000 DEF 2500 thần thức 250 [equipped]
+  owns i523   Hồ Lô [Phàm phẩm Linh bảo] ATK 2500 DEF 1000 thần thức 250 [equipped]
+  owns i524   Chuông [Phàm phẩm Linh bảo] ATK 1000 DEF 2500 thần thức 250
+  created by: debug
+Kinh Mạch (31 huyệt): Đan Tâm Huyệt, Liệt Hỏa Kinh Mạch, Hỏa Luyện Chân Thân, Lô Hỏa Thuần Thanh, Chước Nhiệt Linh Mạch, Trường Sinh Huyệt, Thanh Mộc Linh Thể, Hậu Thổ Linh Điền, Bất Động Như Sơn, Dung Nham Huyệt
+Realm Kết Đan Sơ kỳ: base 10000
+Offense = 17557
+    Realm share                        = 5000
+    Công pháp Chu Tước Kinh            +2600  -> 7600
+    Xích Diễm Chuông                   +1259  -> 8859
+    Hồ Lô                              +2772  -> 11631
+    attack_pct (+49.6%)                x1.50  -> 17401
+    Linh lực 7800 x 0.02               +156  -> 17557
+Defense = 11745
+    Realm share                        = 5000
+    Xích Diễm Chuông                   +3147  -> 8147
+    Hồ Lô                              +1109  -> 9256
+    defense_pct (+24.3%)               x1.24  -> 11509
+    Khí huyết 11817 x 0.02             +236.33  -> 11745
+Chiến lực = 29303
+    Offense                            = 17557
+    Defense                            +11745  -> 29303
+Thần thức used 500 / 510
+(registered as p252 at your location; 'talk p252' works)
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 1 14/30 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> debug tuvi 2000
+tu vi added; +12 stages; now Luyện Khí Tầng 13 200
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> breakthrough
+An event is waiting: 'Thương nhân bị nạn'. Use 'event' to read it and 'choose <n>'.
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> debug herb hoang_tinh_sam 35
+Gave Hoàng Tinh Sâm [Thổ] 35.0 năm, potency 1.90 [i525].
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> debug herb hoa_linh_chi 12
+Gave Hỏa Linh Chi [Hỏa] 12.0 năm, potency 1.63 [i526].
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> debug tuvi 2000
+tu vi added; +0 stages; now Luyện Khí Tầng 13 200
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> sheet
+SmokeTest — 17 / 120 tuổi          Luyện Khí Tầng 13  200 / 200
+Xuất thân: Tán tu | Tông môn: — | Mode: Thiên Định (achievements on)
+LINH CĂN  Đơn linh căn (1 counted for the curve)
+  Mộc 0   Hỏa 0   Thổ 0   Kim 35 Trung   Thủy 0
+  Curve now x1.00 vs Đơn linh căn
+THIÊN PHÚ  Ngộ tính 25 Hạ · Căn cốt 47 Trung · Thần hồn 33 Trung
+           Khí vận 34 Trung(+3) · Đạo tâm 56 Trung · Mị lực 39 Trung
+TRẠNG THÁI Linh lực 100 · Thần thức 34 · Khí huyết 470/470
+           Đan độc 0 (pill effect -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 544
+CÔNG PHÁP  Duệ Kim Tâm Pháp [Hoàng giai, Kim] speed x1.0, up to Trúc Cơ · tu vi 3.4 / season here
+ĐẠO NGHỆ   none yet (practice raises them)
+CHIẾN LỰC  254 (offense 146 + defense 107) · thần thức 0/34 used
+KINH MẠCH  10 huyệt open, 15 points unspent
+(explain <stat> shows any number's breakdown: rate, power, life, ngo_tinh, attack_pct, ...)
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> chronicle
+năm 300: SmokeTest bước lên con đường tu tiên tại Liệt Diễm Trấn.
+năm 300: Linh thảo hoang dã — Quan sát kỹ trước khi hái (Ngộ tính): thất bại
+    Ngươi hái vội, rễ đứt, dược tính tổn hao quá nửa.
+năm 300: Cướp tu chặn đường — Liều mạng giao đấu: thành công
+    Ngươi đánh lui Diệp Dật, nhặt được chiến lợi phẩm hắn bỏ lại.
+năm 300: Yêu thú xuất hiện — Lặng lẽ lui đi (Thần hồn): thất bại
+    Nó phát hiện ra ngươi. Một đuôi quất tới.
+năm 300: Động phủ cổ — Ghi nhớ vị trí rồi rời đi: thành công
+    Ngươi khắc dấu vị trí vào ngọc giản, để dành sau này.
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> save smoke_test
+Saved to C:/Users/xphuo/AppData/Roaming/Godot/app_userdata/Ten Thousand Daos/saves/smoke_test.json
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> load smoke_test
+Loaded SmokeTest — Luyện Khí Tầng 13, Thiên Nguyên lịch năm 301, Xuân.
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> status
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> llm
+LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+[Thiên Nguyên lịch năm 301, Xuân | SmokeTest | Luyện Khí Tầng 13 200/200 | tuổi 17/120 | KH 100% | LT 544 | Liệt Diễm Trấn | EVENT]
+> quit

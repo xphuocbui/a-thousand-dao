@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "surnames": ["Lâm", "Hàn", "Lý", "Vương", "Triệu", "Tô", "Trương", "Chu", "Tiêu", "Diệp", "Mộ Dung", "Âu Dương", "Thượng Quan", "Tư Mã", "Đông Phương", "Bạch", "Lạc", "Ôn", "Tần", "Lục", "Tạ", "Mạc", "Phương", "Cố", "Doãn", "Thẩm", "Kỷ", "Nhạc", "Cung", "Giang"],
+  "given_male": ["Phong", "Vân", "Thiên", "Hạo", "Kiếm", "Trần", "Huyền", "Minh", "Khải", "Dật", "Viễn", "Thần", "Tịch", "Lăng", "Quân", "Trường Không", "Thiếu Bạch", "Mặc", "Tùng", "Bách", "Nham", "Hiên", "Cảnh", "Hằng", "Vô Kỵ", "Bất Phàm"],
+  "given_female": ["Tuyết", "Nguyệt", "Linh", "Yên", "Dao", "Thanh", "Uyển", "Nhược", "Vũ", "Lan", "Ngọc", "Hà", "Băng", "Nghiên", "Tâm", "Tử Yên", "Thanh Ca", "Mộng", "Khinh Vũ", "Lạc Anh"],
+  "sect_first": ["Thanh Vân", "Huyền Thiên", "Thái Ất", "Tử Tiêu", "Lạc Hà", "Bích Thủy", "Vạn Kiếm", "Ngự Linh", "Thiên Cơ", "Hắc Sát", "Huyết Sát", "U Minh", "Kim Quang", "Linh Lung", "Phiêu Miểu", "Thái Hư", "Cửu Hoa", "Tàng Phong", "Bách Thảo", "Hợp Hoan"],
+  "sect_suffix": ["Tông", "Môn", "Cốc", "Các", "Phái", "Cung", "Sơn Trang", "Điện"],
+  "regions": ["Vân Châu", "Thương Lan Vực", "Bắc Hoang Nguyên", "Lạc Hà Lĩnh", "Đông Hải Quần Đảo", "Tử Vân Châu", "Hoàng Sa Vực", "Bích Lạc Châu", "Huyền Băng Nguyên"],
+  "place_words": ["Thanh Dương", "Lạc Nhật", "Bạch Thạch", "Hắc Phong", "Ngọc Tuyền", "Vọng Nguyệt", "Cửu Khúc", "Lưu Vân", "Kim Sa", "Tử Trúc", "Hàn Sơn", "Liệt Diễm", "Vạn Hoa", "Thiên Trì", "Long Tích", "Phượng Minh", "Tàng Kiếm", "Mê Vụ", "Cổ Mộc", "Huyền Âm", "Thất Tinh", "Bích Ba", "Thạch Lâm", "Hồng Diệp"],
+  "traits": [
+    {"id": "than_trong", "name": "thận trọng"},
+    {"id": "tham_lam", "name": "tham lam"},
+    {"id": "chinh_truc", "name": "chính trực"},
+    {"id": "am_hiem", "name": "âm hiểm"},
+    {"id": "hao_sang", "name": "hào sảng"},
+    {"id": "lanh_dam", "name": "lãnh đạm"},
+    {"id": "cuong_ngao", "name": "cuồng ngạo"},
+    {"id": "si_tinh", "name": "si tình"},
+    {"id": "hieu_chien", "name": "hiếu chiến"},
+    {"id": "an_dat", "name": "ẩn dật"},
+    {"id": "trung_thanh", "name": "trung thành"},
+    {"id": "da_nghi", "name": "đa nghi"}
+  ]
+}

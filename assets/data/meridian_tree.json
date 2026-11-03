@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "name": "Kinh Mạch Đồ",
+  "seed": 20261102,
+  "rings": 9,
+  "ring_spacing": 1.0,
+  "nodes_base": 2,
+  "nodes_growth": 0.5,
+  "same_ring_link_chance": 0.55,
+  "notable_rings": [3, 5, 7],
+  "notables_per_ring": 2,
+  "keystone_ring": 9,
+  "bridge_rings": [3, 6, 8],
+  "center_keystone_ring": 4,
+  "root": {"name": "Đan Điền", "mods": []},
+  "gate_mods": [{"stat": "cultivation_speed_pct", "value": 3.0}],
+  "small_pools": {
+    "moc": [{"stat": "herb_growth_pct", "value": 6.0}, {"stat": "khi_huyet_pct", "value": 4.0}, {"stat": "cultivation_speed_pct", "value": 2.0}, {"stat": "dan_doc_resist_pct", "value": 3.0}],
+    "hoa": [{"stat": "alchemy_success", "value": 2.0}, {"stat": "attack_pct", "value": 5.0}, {"stat": "cultivation_speed_pct", "value": 2.0}, {"stat": "artifact_power_pct", "value": 3.0}],
+    "tho": [{"stat": "defense_pct", "value": 5.0}, {"stat": "khi_huyet_pct", "value": 5.0}, {"stat": "density_bonus", "value": 0.03}, {"stat": "dan_doc_resist_pct", "value": 3.0}],
+    "kim": [{"stat": "attack_pct", "value": 6.0}, {"stat": "mission_income_pct", "value": 6.0}, {"stat": "than_thuc_pct", "value": 3.0}, {"stat": "artifact_power_pct", "value": 3.0}],
+    "thuy": [{"stat": "linh_luc_pct", "value": 6.0}, {"stat": "dan_doc_decay", "value": 0.5}, {"stat": "tam_ma_resist_pct", "value": 3.0}, {"stat": "cultivation_speed_pct", "value": 2.0}],
+    "bridge": [{"stat": "cultivation_speed_pct", "value": 3.0}, {"stat": "breakthrough_chance", "value": 1.0}, {"stat": "khi_van", "value": 1.0}]
+  },
+  "notables": {
+    "moc": [
+      {"name": "Trường Sinh Huyệt", "mods": [{"stat": "lifespan_years", "value": 8.0}]},
+      {"name": "Vạn Mộc Hồi Xuân", "mods": [{"stat": "herb_growth_pct", "value": 25.0}]},
+      {"name": "Thanh Mộc Linh Thể", "mods": [{"stat": "khi_huyet_pct", "value": 15.0}, {"stat": "dan_doc_resist_pct", "value": 10.0}]},
+      {"name": "Mộc Linh Tụ Khí", "mods": [{"stat": "cultivation_speed_pct", "value": 8.0}]},
+      {"name": "Xuân Phong Hóa Vũ", "mods": [{"stat": "mi_luc", "value": 5.0}, {"stat": "herb_growth_pct", "value": 10.0}]},
+      {"name": "Linh Điền Chi Chủ", "mods": [{"stat": "field_plots", "value": 1.0}, {"stat": "herb_growth_pct", "value": 10.0}]}
+    ],
+    "hoa": [
+      {"name": "Đan Tâm Huyệt", "mods": [{"stat": "alchemy_success", "value": 8.0}, {"stat": "alchemy_yield", "value": 1.0}]},
+      {"name": "Liệt Hỏa Kinh Mạch", "mods": [{"stat": "attack_pct", "value": 18.0}]},
+      {"name": "Hỏa Luyện Chân Thân", "mods": [{"stat": "khi_huyet_pct", "value": 10.0}, {"stat": "attack_pct", "value": 8.0}]},
+      {"name": "Lô Hỏa Thuần Thanh", "mods": [{"stat": "alchemy_success", "value": 6.0}, {"stat": "dan_doc_resist_pct", "value": 8.0}]},
+      {"name": "Diễm Tâm Ngộ Đạo", "mods": [{"stat": "ngo_tinh", "value": 4.0}]},
+      {"name": "Chước Nhiệt Linh Mạch", "mods": [{"stat": "cultivation_speed_pct", "value": 8.0}]}
+    ],
+    "tho": [
+      {"name": "Hậu Thổ Linh Điền", "mods": [{"stat": "field_plots", "value": 2.0}]},
+      {"name": "Bất Động Như Sơn", "mods": [{"stat": "defense_pct", "value": 22.0}]},
+      {"name": "Địa Mạch Tụ Linh", "mods": [{"stat": "density_bonus", "value": 0.15}]},
+      {"name": "Kim Cương Bất Hoại", "mods": [{"stat": "khi_huyet_pct", "value": 18.0}]},
+      {"name": "Thổ Nạp Vạn Vật", "mods": [{"stat": "dan_doc_resist_pct", "value": 15.0}]},
+      {"name": "Sơn Nhạc Trấn Tâm", "mods": [{"stat": "tam_ma_resist_pct", "value": 12.0}]}
+    ],
+    "kim": [
+      {"name": "Canh Kim Kiếm Ý", "mods": [{"stat": "attack_pct", "value": 22.0}]},
+      {"name": "Kim Ngọc Mãn Đường", "mods": [{"stat": "mission_income_pct", "value": 30.0}]},
+      {"name": "Thần Thức Như Đao", "mods": [{"stat": "than_thuc_pct", "value": 15.0}]},
+      {"name": "Ngự Khí Thông Thần", "mods": [{"stat": "artifact_power_pct", "value": 15.0}]},
+      {"name": "Duệ Kim Phá Giáp", "mods": [{"stat": "attack_pct", "value": 12.0}, {"stat": "breakthrough_chance", "value": 2.0}]},
+      {"name": "Thiên Kim Chi Mệnh", "mods": [{"stat": "khi_van", "value": 4.0}]}
+    ],
+    "thuy": [
+      {"name": "Thượng Thiện Nhược Thủy", "mods": [{"stat": "dan_doc_decay", "value": 3.0}]},
+      {"name": "Băng Tâm", "mods": [{"stat": "tam_ma_resist_pct", "value": 15.0}]},
+      {"name": "Linh Tuyền", "mods": [{"stat": "linh_luc_pct", "value": 20.0}]},
+      {"name": "Thủy Nguyệt Kính Hoa", "mods": [{"stat": "stealth", "value": 15.0}]},
+      {"name": "Bách Xuyên Quy Hải", "mods": [{"stat": "cultivation_speed_pct", "value": 10.0}]},
+      {"name": "Nhu Thủy Hóa Kình", "mods": [{"stat": "defense_pct", "value": 12.0}, {"stat": "linh_luc_pct", "value": 8.0}]}
+    ],
+    "bridge": [
+      {"pair": ["moc", "hoa"], "name": "Quang Minh Huyệt", "mods": [{"stat": "tam_ma_resist_pct", "value": 8.0}, {"stat": "cultivation_speed_pct", "value": 4.0}]},
+      {"pair": ["hoa", "tho"], "name": "Dung Nham Huyệt", "mods": [{"stat": "alchemy_success", "value": 5.0}, {"stat": "defense_pct", "value": 8.0}]},
+      {"pair": ["tho", "kim"], "name": "Trọng Lực Huyệt", "mods": [{"stat": "defense_pct", "value": 10.0}, {"stat": "attack_pct", "value": 8.0}]},
+      {"pair": ["kim", "thuy"], "name": "Hàn Băng Huyệt", "mods": [{"stat": "dan_doc_resist_pct", "value": 10.0}, {"stat": "than_thuc_pct", "value": 6.0}]},
+      {"pair": ["thuy", "moc"], "name": "Sinh Mệnh Huyệt", "mods": [{"stat": "lifespan_years", "value": 5.0}, {"stat": "herb_growth_pct", "value": 10.0}]}
+    ]
+  },
+  "keystones": {
+    "moc": {"name": "Vạn Cổ Trường Thanh", "mods": [{"stat": "lifespan_pct", "value": 25.0}, {"stat": "cultivation_speed_pct", "value": -15.0}], "desc": "Live a quarter longer; cultivate slower."},
+    "hoa": {"name": "Phần Thân Luyện Đạo", "mods": [{"stat": "attack_pct", "value": 50.0}, {"stat": "khi_huyet_pct", "value": -30.0}], "desc": "Burn the body for power."},
+    "tho": {"name": "Đại Địa Chi Tâm", "mods": [{"stat": "defense_pct", "value": 60.0}, {"stat": "travel_speed_pct", "value": -50.0}], "desc": "Unmovable as the earth; travel is slow."},
+    "kim": {"name": "Nhất Kiếm Phá Vạn Pháp", "mods": [{"stat": "single_artifact", "value": 1.0}], "desc": "Only one pháp bảo can be equipped; its power x2.5."},
+    "thuy": {"name": "Thủy Đạo Vô Thường", "mods": [{"stat": "dan_doc_no_penalty", "value": 1.0}, {"stat": "pill_effect_pct", "value": -25.0}], "desc": "Đan độc no longer slows cultivation; pills are 25% weaker."},
+    "center": {"name": "Ngũ Hành Luân Chuyển", "mods": [{"stat": "cultivation_speed_per_element_pct", "value": 8.0}], "requires_elements": 5, "desc": "Requires all five base elements: +8% cultivation speed per element in your linh căn."}
+  },
+  "points": {"bonus_on_don_ngo": 1}
+}
