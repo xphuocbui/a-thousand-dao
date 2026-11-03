@@ -12,9 +12,11 @@
 Ten Thousand Daos is a roguelite cultivation game: one life of 60–120 minutes, a procedurally
 generated world with centuries of history, and a build the player constructs rather than picks
 (Pillar 3, Power Is Built, Not Given). Its mechanical scope is four interlocking layers. A
-**character layer** (linh căn, thiên phú, cảnh giới, công pháp, Kinh Mạch Đồ, thiên mệnh edges)
-decides how fast and how safely a life advances. An **economy layer** (linh thảo that ages,
-luyện đan, luyện khí, trận pháp, phù lục, linh thú, linh thạch) turns time and linh căn
+**character layer** (spiritual roots [linh căn], innate talent [thiên phú], realms [cảnh giới],
+cultivation techniques [công pháp], the Meridian Map [Kinh Mạch Đồ], destiny perk [thiên mệnh] edges)
+decides how fast and how safely a life advances. An **economy layer** (spirit herbs [linh thảo] that age,
+alchemy [luyện đan], artifact refining [luyện khí], formations [trận pháp], talismans [phù lục],
+spirit beasts [linh thú], spirit stones [linh thạch]) turns time and spiritual root
 affinity into assets (Pillar 4, Every Season Counts). A **world layer** (world generation with
 history, a seasonal living-world tick, NPC builds under the player's own rules) gives the LLM
 facts to build on (Pillar 5, A World That Remembers). A **bounded story layer** (an engine-side
@@ -42,11 +44,12 @@ the Status column says whether it exists.
 ## Systems Enumeration
 
 Short names used in "Depends On": Config, Sim Core, World DB, Time & Turn, Save/Load,
-Linh Căn, Character Stats, Cảnh Giới, Công Pháp, Kinh Mạch, Edges, Codex, Item DB,
-Linh Thảo, Luyện Đan, Luyện Khí, Trận Pháp, Phù Lục, Linh Thú, Market, Combat,
-Thiên Kiếp, Event Engine, NPC Builds, Travel, Sects, World Gen, Living World, LLM GM,
-Dialogue, Quests, Thành Tựu, Balance Harness, Localization, Guidance, Debug Terminal,
-Game UI, Audio.
+Spiritual Roots (Linh Căn), Character Stats, Realms (Cảnh Giới), Cultivation Techniques (Công Pháp),
+Meridian Map (Kinh Mạch), Edges, Codex, Item DB, Spirit Herbs (Linh Thảo), Alchemy (Luyện Đan),
+Artifact Refining (Luyện Khí), Formations (Trận Pháp), Talismans (Phù Lục), Spirit Beasts (Linh Thú),
+Market, Combat, Heavenly Tribulation (Thiên Kiếp), Event Engine, NPC Builds, Travel, Sects, World Gen,
+Living World, LLM GM, Dialogue, Quests, Achievements (Thành Tựu), Balance Harness, Localization,
+Guidance, Debug Terminal, Game UI, Audio.
 
 | # | System Name | Category | Priority | Status | Design Doc | Depends On |
 |---|-------------|----------|----------|--------|------------|------------|
@@ -55,42 +58,42 @@ Game UI, Audio.
 | 3 | World Database | Core | MVP | Implemented | — | — |
 | 4 | Time & Turn Structure | Core | MVP | Implemented | — | Config |
 | 5 | Save/Load (inferred) | Persistence | MVP | Implemented | — | World DB, Time & Turn |
-| 6 | Linh Căn (incl. changing linh căn) | Progression | MVP | Implemented | — (quick spec for changing roots: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md) | Config, Sim Core |
-| 7 | Character Stats (thiên phú, derived, đạo nghệ) | Progression | MVP | Implemented | — | Linh Căn, Sim Core, Config |
-| 8 | Cảnh Giới & Bình Cảnh | Progression | MVP | Implemented | — (calibration notes: design/quick-specs/progression-and-edges.md) | Character Stats, Linh Căn, Time & Turn, Item DB |
-| 9 | Công Pháp | Progression | MVP | Implemented | — | Item DB, Linh Căn, Cảnh Giới |
-| 10 | Kinh Mạch Đồ (added by request) | Progression | MVP | Approved: 6 lean reviews, the sixth found no blockers (partially implemented: base tree at 202-huyệt prototype scale; levels, clusters, capabilities not built) | design/gdd/kinh-mach-do.md | Linh Căn, Character Stats, Cảnh Giới, Config, Sim Core; soft: Event Engine, Item DB, Công Pháp, LLM GM, World DB, Edges |
-| 11 | Progression Edges: thiên mệnh, cơ duyên, NPC edges (added by request) | Progression | MVP | Implemented | quick spec: design/quick-specs/progression-and-edges.md | Character Stats, Cảnh Giới, Event Engine (player half) |
-| 12 | Codex & Karmic Carryover | Progression | Vertical Slice | Not Started | — | Item DB, Luyện Đan, Linh Căn, Save/Load |
+| 6 | Spiritual Roots (Linh Căn) (incl. changing spiritual roots) | Progression | MVP | Implemented | — (quick spec for changing roots: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md) | Config, Sim Core |
+| 7 | Character Stats (innate talent [thiên phú], derived, craft mastery [đạo nghệ]) | Progression | MVP | Implemented | — | Spiritual Roots, Sim Core, Config |
+| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Progression | MVP | Implemented | — (calibration notes: design/quick-specs/progression-and-edges.md) | Character Stats, Spiritual Roots, Time & Turn, Item DB |
+| 9 | Cultivation Techniques (Công Pháp) | Progression | MVP | Implemented | — | Item DB, Spiritual Roots, Realms |
+| 10 | Meridian Map (Kinh Mạch Đồ) (added by request) | Progression | MVP | Approved: 6 lean reviews, the sixth found no blockers (partially implemented: base tree at 202-acupoint [huyệt] prototype scale; levels, clusters, capabilities not built) | design/gdd/kinh-mach-do.md | Spiritual Roots, Character Stats, Realms, Config, Sim Core; soft: Event Engine, Item DB, Cultivation Techniques, LLM GM, World DB, Edges |
+| 11 | Progression Edges: destiny perk (thiên mệnh), fortuitous encounters (cơ duyên), NPC edges (added by request) | Progression | MVP | Implemented | quick spec: design/quick-specs/progression-and-edges.md | Character Stats, Realms, Event Engine (player half) |
+| 12 | Codex & Karmic Carryover | Progression | Vertical Slice | Not Started | — | Item DB, Alchemy, Spiritual Roots, Save/Load |
 | 13 | Item Database & Generation (inferred) | Economy | MVP | Implemented | — | Config, Sim Core, World DB |
-| 14 | Linh Thảo & Linh Điền | Economy | MVP | Implemented | — | Item DB, Character Stats, Time & Turn |
-| 15 | Luyện Đan | Economy | MVP | Implemented | — | Linh Thảo, Item DB, Character Stats |
-| 16 | Luyện Khí | Economy | Vertical Slice | Implemented | quick spec: design/quick-specs/luyen-khi-and-tran-phap.md | Item DB, Character Stats |
-| 17 | Trận Pháp | Economy | Alpha | Implemented | quick spec: design/quick-specs/luyen-khi-and-tran-phap.md | Item DB, Character Stats, Time & Turn |
-| 18 | Phù Lục | Economy | Alpha | Implemented | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | Item DB, Character Stats |
-| 19 | Linh Thú & Linh Trùng | Economy | Alpha | Implemented (linh thú only) | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | World DB, Character Stats, Time & Turn |
-| 20 | Market & Linh Thạch Economy (inferred) | Economy | MVP | Implemented | — | Item DB, Character Stats, Cảnh Giới, World Gen |
-| 21 | Combat | Gameplay | MVP | Implemented (power duel only) | — | Character Stats, Cảnh Giới, Công Pháp, Kinh Mạch, Luyện Khí, Trận Pháp, Phù Lục, Linh Thú |
-| 22 | Thiên Kiếp (tribulation) | Gameplay | MVP | Not Started | — | Combat, Cảnh Giới, Event Engine |
-| 23 | Event Engine: templates, budgets, validator, resolver | Gameplay | MVP | Implemented | — | World DB, Character Stats, Item DB, NPC Builds, Luyện Đan, Phù Lục, Linh Thú, Combat |
-| 24 | NPC Build Generation (inferred) | Gameplay | MVP | Implemented | — | Character Stats, Công Pháp, Kinh Mạch, Item DB, Edges (NPC half) |
+| 14 | Spirit Herbs & Spirit Fields (Linh Thảo & Linh Điền) | Economy | MVP | Implemented | — | Item DB, Character Stats, Time & Turn |
+| 15 | Alchemy (Luyện Đan) | Economy | MVP | Implemented | — | Spirit Herbs, Item DB, Character Stats |
+| 16 | Artifact Refining (Luyện Khí) | Economy | Vertical Slice | Implemented | quick spec: design/quick-specs/luyen-khi-and-tran-phap.md | Item DB, Character Stats |
+| 17 | Formations (Trận Pháp) | Economy | Alpha | Implemented | quick spec: design/quick-specs/luyen-khi-and-tran-phap.md | Item DB, Character Stats, Time & Turn |
+| 18 | Talismans (Phù Lục) | Economy | Alpha | Implemented | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | Item DB, Character Stats |
+| 19 | Spirit Beasts & Spirit Insects (Linh Thú & Linh Trùng) | Economy | Alpha | Implemented (spirit beasts only) | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | World DB, Character Stats, Time & Turn |
+| 20 | Market & Spirit Stone (Linh Thạch) Economy (inferred) | Economy | MVP | Implemented | — | Item DB, Character Stats, Realms, World Gen |
+| 21 | Combat | Gameplay | MVP | Implemented (power duel only) | — | Character Stats, Realms, Cultivation Techniques, Meridian Map, Artifact Refining, Formations, Talismans, Spirit Beasts |
+| 22 | Heavenly Tribulation (Thiên Kiếp) | Gameplay | MVP | Not Started | — | Combat, Realms, Event Engine |
+| 23 | Event Engine: templates, budgets, validator, resolver | Gameplay | MVP | Implemented | — | World DB, Character Stats, Item DB, NPC Builds, Alchemy, Talismans, Spirit Beasts, Combat |
+| 24 | NPC Build Generation (inferred) | Gameplay | MVP | Implemented | — | Character Stats, Cultivation Techniques, Meridian Map, Item DB, Edges (NPC half) |
 | 25 | Travel & Map (inferred) | Gameplay | MVP | Implemented | — | World Gen, Time & Turn |
 | 26 | Sects & Missions (inferred) | Gameplay | MVP | Implemented (thin) | — | World Gen, Character Stats, Market |
 | 27 | World Generation & History | Narrative | MVP | Implemented | — | World DB, NPC Builds, Item DB, Config, Sim Core |
-| 28 | Living World Tick | Narrative | Vertical Slice | Implemented (abstract) | — | World DB, Cảnh Giới, NPC Builds, Edges (NPC half), Time & Turn |
+| 28 | Living World Tick | Narrative | Vertical Slice | Implemented (abstract) | — | World DB, Realms, NPC Builds, Edges (NPC half), Time & Turn |
 | 29 | LLM Game Master: events, narration, epitaph, provider config | Narrative | MVP | Implemented (mock-tested only) | — | Event Engine, World DB, Config |
 | 30 | NPC Interaction & Dialogue | Narrative | Vertical Slice | Implemented (thin) | — | World DB, LLM GM, Time & Turn |
 | 31 | Quests | Narrative | Vertical Slice | Not Started | — | Event Engine, LLM GM, Dialogue, World DB |
-| 32 | Thành Tựu (achievements) | Meta | Vertical Slice | Implemented | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | Character Stats, Cảnh Giới, World DB, Save/Load |
-| 33 | Balance Simulation Harness | Meta | MVP | Implemented | — | Time & Turn, Character Stats, Cảnh Giới, Event Engine, Market, Edges |
+| 32 | Achievements (Thành Tựu) | Meta | Vertical Slice | Implemented | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | Character Stats, Realms, World DB, Save/Load |
+| 33 | Balance Simulation Harness | Meta | MVP | Implemented | — | Time & Turn, Character Stats, Realms, Event Engine, Market, Edges |
 | 34 | Localization & Hán-Việt Glossary | Meta | Alpha | Not Started | — | LLM GM, Event Engine, Guidance, Game UI, Config |
-| 35 | Guidance Layer: Advisor, change line, tutorial role (inferred) | UI | Vertical Slice | Implemented | — | Cảnh Giới, Linh Thảo, Luyện Đan, Event Engine, Market, Travel, Sects, Edges, Kinh Mạch |
+| 35 | Guidance Layer: Advisor, change line, tutorial role (inferred) | UI | Vertical Slice | Implemented | — | Realms, Spirit Herbs, Alchemy, Event Engine, Market, Travel, Sects, Edges, Meridian Map |
 | 36 | Debug Terminal (added by request) | UI | MVP | Implemented | docs/debug-terminal.md (run guide, not a GDD) | Guidance, Save/Load, LLM GM |
 | 37 | Game UI: Godot, 2D ink-wash | UI | Vertical Slice | Not Started | — | Guidance, Save/Load |
 | 38 | Audio | Audio | Full Vision | Not Started | — | Game UI, Event Engine |
 
-**Folded in, not listed separately:** đạo nghệ (into Character Stats), the life chronicle and
-LLM provider settings (into LLM GM), changing linh căn (into Linh Căn). The `GameSession`
+**Folded in, not listed separately:** craft mastery (into Character Stats), the life chronicle and
+LLM provider settings (into LLM GM), changing spiritual roots (into Spiritual Roots). The `GameSession`
 facade is an architecture decision (an ADR), not a design system.
 
 ---
@@ -121,14 +124,14 @@ facade is an architecture decision (an ADR), not a design system.
 | **Full Vision** | Polish and content-complete features | Beta / release | Design as needed | 1: 38 |
 
 **Why these placements** (from the concept's MVP definition and scope tiers):
-- MVP holds the whole engine chain (linh căn → herbs → pills → breakthrough → combat), because
+- MVP holds the whole engine chain (spiritual roots [linh căn] → herbs → pills → breakthrough → combat), because
   Pillar 3 (Power Is Built) cannot be tested without all of it; the Event Engine, because
   Pillar 2 forbids the LLM from running before its budgets exist; and World DB, world
   generation and NPC builds, because Pillar 5 (A World That Remembers) needs facts to recall.
-- Systems 10 (Kinh Mạch Đồ) and 11 (Progression Edges) are MVP because the user required them
+- Systems 10 (Meridian Map [Kinh Mạch Đồ]) and 11 (Progression Edges) are MVP because the user required them
   for the first playable terminal; the concept's own MVP list does not mention them.
-- Luyện Khí, the living-world tick, Codex, NPC memory and quests are Vertical Slice and
-  Trận Pháp, Phù Lục and Linh Thú are Alpha exactly as the concept's scope tiers say, even
+- Artifact Refining (Luyện Khí), the living-world tick, Codex, NPC memory and quests are Vertical Slice and
+  Formations (Trận Pháp), Talismans (Phù Lục) and Spirit Beasts (Linh Thú) are Alpha exactly as the concept's scope tiers say, even
   though they are already built.
 - Localization is Alpha although the concept's Scope tiers put localization at Full Vision;
   its market risk says "matters early", and string externalization needs an ADR before Alpha.
@@ -149,26 +152,26 @@ Design and build from top to bottom.
 
 1. **Time & Turn Structure** — depends on: Config. The season is the unit crafts, herbs and aging count in.
 2. **Item Database & Generation** — depends on: Config, Sim Core, World DB.
-3. **Linh Căn** — depends on: Config, Sim Core.
+3. **Spiritual Roots (Linh Căn)** — depends on: Config, Sim Core.
 4. **Save/Load** — depends on: World DB, Time & Turn.
-5. **Character Stats** — depends on: Linh Căn, Sim Core, Config. *Bottleneck.*
-6. **Cảnh Giới & Bình Cảnh** — depends on: Character Stats, Linh Căn, Time & Turn, Item DB.
-7. **Công Pháp** — depends on: Item DB, Linh Căn, Cảnh Giới (realm ladder as data).
+5. **Character Stats** — depends on: Spiritual Roots, Sim Core, Config. *Bottleneck.*
+6. **Realms & Bottlenecks (Cảnh Giới & Bình Cảnh)** — depends on: Character Stats, Spiritual Roots, Time & Turn, Item DB.
+7. **Cultivation Techniques (Công Pháp)** — depends on: Item DB, Spiritual Roots, Realms (realm ladder as data).
 
 ### Feature Layer
 
-1. **Linh Thảo & Linh Điền** — Item DB, Character Stats, Time & Turn.
-2. **Luyện Đan** — Linh Thảo, Item DB, Character Stats.
-3. **Kinh Mạch Đồ** — Linh Căn, Character Stats, Cảnh Giới.
-4. **Luyện Khí / Trận Pháp / Phù Lục / Linh Thú** — each on Item DB (Linh Thú on World DB) and Character Stats; each exposes a combat contribution and nothing back.
-5. **NPC Build Generation** — Character Stats, Công Pháp, Kinh Mạch, Item DB, Edges (NPC half).
+1. **Spirit Herbs & Spirit Fields (Linh Thảo & Linh Điền)** — Item DB, Character Stats, Time & Turn.
+2. **Alchemy (Luyện Đan)** — Spirit Herbs, Item DB, Character Stats.
+3. **Meridian Map (Kinh Mạch Đồ)** — Spiritual Roots, Character Stats, Realms.
+4. **Artifact Refining (Luyện Khí) / Formations (Trận Pháp) / Talismans (Phù Lục) / Spirit Beasts (Linh Thú)** — each on Item DB (Spirit Beasts on World DB) and Character Stats; each exposes a combat contribution and nothing back.
+5. **NPC Build Generation** — Character Stats, Cultivation Techniques, Meridian Map, Item DB, Edges (NPC half).
 6. **World Generation & History** — World DB, NPC Builds, Item DB, Config, Sim Core.
-7. **Travel & Map, Market & Linh Thạch Economy, Sects & Missions** — World Gen plus Character Stats, Cảnh Giới, Time & Turn.
-8. **Combat** — Character Stats, Cảnh Giới, Công Pháp, Kinh Mạch, and the four asset systems (read-only).
-9. **Event Engine** — World DB, Character Stats, Item DB, NPC Builds, Luyện Đan, Phù Lục, Linh Thú, Combat. *Bottleneck.*
-10. **Progression Edges** — Character Stats, Cảnh Giới, Event Engine (player half: cơ duyên).
-11. **Thiên Kiếp** — Combat, Cảnh Giới, Event Engine.
-12. **Living World Tick** — World DB, Cảnh Giới, NPC Builds, Edges (NPC half), Time & Turn.
+7. **Travel & Map, Market & Spirit Stone (Linh Thạch) Economy, Sects & Missions** — World Gen plus Character Stats, Realms, Time & Turn.
+8. **Combat** — Character Stats, Realms, Cultivation Techniques, Meridian Map, and the four asset systems (read-only).
+9. **Event Engine** — World DB, Character Stats, Item DB, NPC Builds, Alchemy, Talismans, Spirit Beasts, Combat. *Bottleneck.*
+10. **Progression Edges** — Character Stats, Realms, Event Engine (player half: fortuitous encounters [cơ duyên]).
+11. **Heavenly Tribulation (Thiên Kiếp)** — Combat, Realms, Event Engine.
+12. **Living World Tick** — World DB, Realms, NPC Builds, Edges (NPC half), Time & Turn.
 
 ### Presentation Layer
 
@@ -181,15 +184,15 @@ Design and build from top to bottom.
 
 ### Polish Layer
 
-1. **Codex & Karmic Carryover** — Item DB, Luyện Đan, Linh Căn, Save/Load.
-2. **Thành Tựu** — Character Stats, Cảnh Giới, World DB, Save/Load.
-3. **Balance Simulation Harness** — the session API over Time & Turn, Character Stats, Cảnh Giới, Event Engine, Market, Edges.
+1. **Codex & Karmic Carryover** — Item DB, Alchemy, Spiritual Roots, Save/Load.
+2. **Achievements (Thành Tựu)** — Character Stats, Realms, World DB, Save/Load.
+3. **Balance Simulation Harness** — the session API over Time & Turn, Character Stats, Realms, Event Engine, Market, Edges.
 4. **Localization & Hán-Việt Glossary** — every text-producing system.
 5. **Audio** — Game UI, Event Engine.
 
 **Bottlenecks** (many dependents; high design risk): Character Stats (about 20), Item DB,
 World DB, Config, Event Engine, Combat. **Leaves** (low risk, design late): Audio, Localization,
-Balance Harness, Game UI, Debug Terminal, Thành Tựu, Codex.
+Balance Harness, Game UI, Debug Terminal, Achievements, Codex.
 
 ---
 
@@ -205,37 +208,37 @@ Unbuilt systems (22, 31, 12, 37, 34, 38): `/design-system`. Effort: S = 1 sessio
 | 3 | World Database | MVP | Foundation | game-designer | M |
 | 4 | Time & Turn Structure | MVP | Core | game-designer | M |
 | 5 | Item Database & Generation | MVP | Core | economy-designer | M |
-| 6 | Linh Căn | MVP | Core | systems-designer | L |
+| 6 | Spiritual Roots (Linh Căn) | MVP | Core | systems-designer | L |
 | 7 | Character Stats | MVP | Core | systems-designer | M |
-| 8 | Cảnh Giới & Bình Cảnh | MVP | Core | systems-designer | L |
-| 9 | Công Pháp | MVP | Core | game-designer | M |
+| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | MVP | Core | systems-designer | L |
+| 9 | Cultivation Techniques (Công Pháp) | MVP | Core | game-designer | M |
 | 10 | Save/Load | MVP | Core | gameplay-programmer | S |
-| 11 | Linh Thảo & Linh Điền | MVP | Feature | economy-designer | M |
-| 12 | Luyện Đan | MVP | Feature | economy-designer | M |
-| 13 | Kinh Mạch Đồ | MVP | Feature | systems-designer | M |
+| 11 | Spirit Herbs & Spirit Fields (Linh Thảo & Linh Điền) | MVP | Feature | economy-designer | M |
+| 12 | Alchemy (Luyện Đan) | MVP | Feature | economy-designer | M |
+| 13 | Meridian Map (Kinh Mạch Đồ) | MVP | Feature | systems-designer | M |
 | 14 | NPC Build Generation | MVP | Feature | systems-designer | M |
 | 15 | World Generation & History | MVP | Feature | world-builder | L |
 | 16 | Travel & Map | MVP | Feature | level-designer | S |
-| 17 | Market & Linh Thạch Economy | MVP | Feature | economy-designer | M |
+| 17 | Market & Spirit Stone (Linh Thạch) Economy | MVP | Feature | economy-designer | M |
 | 18 | Sects & Missions | MVP | Feature | game-designer | M |
 | 19 | Combat | MVP | Feature | systems-designer | L |
 | 20 | Event Engine | MVP | Feature | systems-designer | L |
 | 21 | Progression Edges | MVP | Feature | systems-designer | M |
-| 22 | Thiên Kiếp | MVP | Feature | game-designer | M |
+| 22 | Heavenly Tribulation (Thiên Kiếp) | MVP | Feature | game-designer | M |
 | 23 | LLM Game Master | MVP | Presentation | narrative-director | L |
 | 24 | Debug Terminal | MVP | Presentation | ux-designer | S |
 | 25 | Balance Simulation Harness | MVP | Polish | qa-lead | S |
-| 26 | Luyện Khí | Vertical Slice | Feature | economy-designer | M |
+| 26 | Artifact Refining (Luyện Khí) | Vertical Slice | Feature | economy-designer | M |
 | 27 | Living World Tick | Vertical Slice | Feature | world-builder | M |
 | 28 | NPC Interaction & Dialogue | Vertical Slice | Presentation | narrative-director | M |
 | 29 | Quests | Vertical Slice | Presentation | narrative-director | L |
 | 30 | Guidance Layer | Vertical Slice | Presentation | ux-designer | S |
 | 31 | Game UI | Vertical Slice | Presentation | ux-designer | L |
 | 32 | Codex & Karmic Carryover | Vertical Slice | Polish | game-designer | M |
-| 33 | Thành Tựu | Vertical Slice | Polish | game-designer | S |
-| 34 | Trận Pháp | Alpha | Feature | economy-designer | M |
-| 35 | Phù Lục | Alpha | Feature | economy-designer | M |
-| 36 | Linh Thú & Linh Trùng | Alpha | Feature | systems-designer | L |
+| 33 | Achievements (Thành Tựu) | Vertical Slice | Polish | game-designer | S |
+| 34 | Formations (Trận Pháp) | Alpha | Feature | economy-designer | M |
+| 35 | Talismans (Phù Lục) | Alpha | Feature | economy-designer | M |
+| 36 | Spirit Beasts & Spirit Insects (Linh Thú & Linh Trùng) | Alpha | Feature | systems-designer | L |
 | 37 | Localization & Hán-Việt Glossary | Alpha | Polish | localization-lead | M |
 | 38 | Audio | Full Vision | Polish | audio-director | M |
 
@@ -245,23 +248,23 @@ Unbuilt systems (22, 31, 12, 37, 34, 38): `/design-system`. Effort: S = 1 sessio
 
 Four were found; all are resolved by splitting a contract, not by designing the systems together.
 
-1. **Cảnh Giới ↔ Công Pháp.** Công pháp speed feeds the cultivation rate; công pháp tiers cap
+1. **Realms (Cảnh Giới) ↔ Cultivation Techniques (Công Pháp).** Technique speed feeds the cultivation rate; technique tiers cap
    at a realm. *Resolution:* the realm ladder (ids, names, stage counts) is a data contract owned
-   by Cảnh Giới; Công Pháp depends on it, and the rate formula consumes công pháp through the
+   by Realms; Cultivation Techniques depends on it, and the rate formula consumes techniques through the
    stat interface.
-2. **Combat ↔ Phù Lục / Linh Thú / Trận Pháp.** The assets feed combat power; combat outcomes
+2. **Combat ↔ Talismans (Phù Lục) / Spirit Beasts (Linh Thú) / Formations (Trận Pháp).** The assets feed combat power; combat outcomes
    consume talismans and trigger taming. *Resolution:* assets only expose a read-only combat
    contribution; the hooks "on a won fight, offer taming" and "consume the talisman" belong to
    the Event Engine.
-3. **Progression Edges ↔ Event Engine.** Cơ duyên are events, and the engine reads the edge
+3. **Progression Edges ↔ Event Engine.** Fortuitous encounters (cơ duyên) are events, and the engine reads the edge
    state. *Resolution:* the Event Engine defines a generic gated-gift rule keyed on context flags
-   (edge, cơ duyên left, at a bình cảnh); Edges supplies the flags and the templates.
+   (edge, fortuitous encounters left, at a bottleneck [bình cảnh]); Edges supplies the flags and the templates.
 4. **Progression Edges → Event Engine → NPC Builds → Progression Edges** (found while writing
    this index). NPC Builds assigns NPC edges, the Event Engine creates NPCs through NPC Builds,
-   and the player half of Edges (cơ duyên) depends on the Event Engine. *Resolution:* design
+   and the player half of Edges (fortuitous encounters) depends on the Event Engine. *Resolution:* design
    Edges in two halves: the **NPC half** (edge score and fate, a pure function over a record,
-   no Event Engine dependency) sits below NPC Builds; the **player half** (thiên mệnh, starting
-   items, cơ duyên) sits above the Event Engine. One GDD, two dependency layers.
+   no Event Engine dependency) sits below NPC Builds; the **player half** (destiny perk [thiên mệnh], starting
+   items, fortuitous encounters) sits above the Event Engine. One GDD, two dependency layers.
 
 ---
 
@@ -270,10 +273,10 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | System | Risk Type | Risk Description | Mitigation |
 |--------|-----------|-----------------|------------|
 | Event Engine, LLM Game Master | Technical | Pillar 2 rests on them. The real DeepSeek path is untested; the narration number check only catches digits; structured-output reliability is unproven | Run the real model early (key pending); extend the check to numbers written in words; keep template fallback |
-| Combat, Thiên Kiếp | Design | The duel is a power ratio only; there is no tribulation; the concept's open question (how assets combine, how vượt cấp works) is unanswered | Answer it in the Combat GDD; prototype with the balance harness |
-| Cảnh Giới & Bình Cảnh, Progression Edges | Design | Baseline per-step odds measured 42–46% / 27–35% against a 30% target while the edge sits at 71–79% / 53–74% against 70%; single levers move both together | Decide a baseline-only lever or a larger sample (96+ lives per arm) in the Cảnh Giới GDD; log in design/quick-specs/progression-and-edges.md |
-| Market & Linh Thạch Economy, crafts | Design | Degenerate-strategy risk across five crafts; nothing past Kết Đan is worth buying yet | Headless sims per linh căn tier; add sinks when later realms are designed |
-| Content volume | Scope | Concept targets about 60 linh thảo, 40 recipes, 40 pháp bảo, 30 phù lục; the build has 8 herbs and 10 recipes | Content pass per tier; do not widen systems before the MVP loop is validated |
+| Combat, Heavenly Tribulation (Thiên Kiếp) | Design | The duel is a power ratio only; there is no tribulation; the concept's open question (how assets combine, how fighting beyond one's realm [vượt cấp] works) is unanswered | Answer it in the Combat GDD; prototype with the balance harness |
+| Realms & Bottlenecks (Cảnh Giới & Bình Cảnh), Progression Edges | Design | Baseline per-step odds measured 42–46% / 27–35% against a 30% target while the edge sits at 71–79% / 53–74% against 70%; single levers move both together | Decide a baseline-only lever or a larger sample (96+ lives per arm) in the Realms & Bottlenecks GDD; log in design/quick-specs/progression-and-edges.md |
+| Market & Spirit Stone (Linh Thạch) Economy, crafts | Design | Degenerate-strategy risk across five crafts; nothing past Core Formation (Kết Đan) is worth buying yet | Headless sims per spiritual root (linh căn) tier; add sinks when later realms are designed |
+| Content volume | Scope | Concept targets about 60 spirit herbs (linh thảo), 40 recipes, 40 magic treasures (pháp bảo), 30 talismans (phù lục); the build has 8 herbs and 10 recipes | Content pass per tier; do not widen systems before the MVP loop is validated |
 | Game UI | Technical | Nothing built; 2D ink-wash pipeline unproven; the Advisor and StateSnapshot APIs must be enough for a UI | Vertical slice (`/vertical-slice`) before committing; art bible first |
 | Localization | Scope | Vietnamese text sits inside data files; Vietnamese, Chinese and English are all planned | ADR on string externalization before Alpha |
 | Design debt | Process | 32 systems built with no GDDs; `project.yaml` stage is "Concept" | Reverse-document in the order above; reconcile stage with `/project-stage-detect` |
@@ -285,11 +288,11 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | Metric | Count |
 |--------|-------|
 | Total systems identified | 38 |
-| Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (thú only), 21 (duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin) |
-| Systems not started | 6: 12, 22, 31, 34, 37, 38 (plus Linh Trùng, inside 19) |
-| GDDs started | 1 (10 Kinh Mạch Đồ, designed 2026-11-03) |
+| Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (beasts only), 21 (duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin) |
+| Systems not started | 6: 12, 22, 31, 34, 37, 38 (plus spirit insects [linh trùng], inside 19) |
+| GDDs started | 1 (10 Meridian Map [Kinh Mạch Đồ], designed 2026-11-03) |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
-| Design docs reviewed | 1 (Kinh Mạch Đồ: 6 lean passes; the fourth and fifth each found 1 blocker, fixed; the sixth APPROVED) |
+| Design docs reviewed | 1 (Meridian Map: 6 lean passes; the fourth and fifth each found 1 blocker, fixed; the sixth APPROVED) |
 | Design docs approved | 0 |
 | MVP systems designed | 1 / 25 |
 | Vertical Slice systems designed | 0 / 8 |
@@ -299,11 +302,11 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 ## Next Steps
 
 - [x] Review and approve this systems enumeration (2026-11-03)
-- [ ] Reverse-document the MVP Foundation and Core systems in design order (`/reverse-document design src/gameplay/<area>`), starting with 1 to 3, then Linh Căn, Character Stats and Cảnh Giới & Bình Cảnh
+- [ ] Reverse-document the MVP Foundation and Core systems in design order (`/reverse-document design src/gameplay/<area>`), starting with 1 to 3, then Spiritual Roots (Linh Căn), Character Stats and Realms & Bottlenecks (Cảnh Giới & Bình Cảnh)
 - [ ] Run `/design-review` on each completed GDD (first: `design/gdd/kinh-mach-do.md`, in a fresh session)
-- [ ] Carry the level ladder (levels 1–300, great and small breakthrough bonuses, stat rises at every breakthrough) from the Kinh Mạch Đồ GDD into the Cảnh Giới & Bình Cảnh GDD
-- [ ] Design the unbuilt MVP system, Thiên Kiếp, with `/design-system thien-kiep`
-- [ ] Update `design/gdd/game-concept.md` to include Kinh Mạch Đồ, Progression Edges and the Debug Terminal
+- [ ] Carry the level ladder (levels 1–300, great and small breakthrough bonuses, stat rises at every breakthrough) from the Meridian Map (Kinh Mạch Đồ) GDD into the Realms & Bottlenecks GDD
+- [ ] Design the unbuilt MVP system, Heavenly Tribulation (Thiên Kiếp), with `/design-system thien-kiep`
+- [ ] Update `design/gdd/game-concept.md` to include the Meridian Map, Progression Edges and the Debug Terminal
 - [ ] Reconcile `project.yaml` stage with `/project-stage-detect`
 - [ ] Run `/gate-check technical-setup` when the MVP systems are designed
 - [ ] Validate the highest-risk systems with `/vertical-slice` before committing to Production

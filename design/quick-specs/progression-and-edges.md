@@ -1,4 +1,4 @@
-# Quick spec: Progression targets and edges (thiên mệnh, cơ duyên, NPC edges)
+# Quick spec: Progression targets and edges (destiny perk [thiên mệnh], fortuitous encounters [cơ duyên], NPC edges)
 
 *Status: in progress, 2026-11-03. Decisions by the user (this session): the game is tuned so
 anyone without an edge makes about 3 in 10 realm breakthroughs; the main character's edge
@@ -7,7 +7,9 @@ player's level; five-element roots follow the same baseline (slow early, strong 
 
 ## Targets
 
-| Who | Per breakthrough (LK→TC, TC→KĐ, …) | Reach Kết Đan from birth |
+Abbreviations: QR = Qi Refining (Luyện Khí), FE = Foundation Establishment (Trúc Cơ), CF = Core Formation (Kết Đan), NS = Nascent Soul (Nguyên Anh).
+
+| Who | Per breakthrough (QR→FE, FE→CF, …) | Reach Core Formation from birth |
 |---|---|---|
 | Anyone without an edge, competent play | ~30% | ~9% |
 | Main character with the edge, competent play | ~70% | ~49% |
@@ -17,24 +19,24 @@ Measured with `tools/balance/autoplay.gd` (`--edge off` = baseline, `--edge on` 
 
 ## The player's edge (three parts, all in character_edges.json)
 
-1. **Thiên mệnh (birth perk).** Thiên Định: three perks are rolled, the player picks one.
-   Tự Định: any one. Perks are ordinary stat modifiers on the sheet (source "Thiên mệnh: …",
+1. **Destiny perk (thiên mệnh), the birth perk.** Fated birth (Thiên Định): three perks are rolled, the player picks one.
+   Self-made birth (Tự Định): any one. Perks are ordinary stat modifiers on the sheet (source "Thiên mệnh: …",
    shown by `explain`), plus a few flags and one-time birth effects:
 
    | Perk | Effect |
    |---|---|
    | Đạo Cốt Thiên Sinh | +breakthrough chance |
-   | Bất Diệt Đạo Tâm | failed breakthroughs lose no tu vi and half the tâm ma; +Đạo tâm |
-   | Tổ Truyền Linh Điền | +1 linh điền plot, herbs grow faster |
-   | Cổ Ngọc Tàn Hồn | +Ngộ tính, +breakthrough chance |
-   | Thiên Đố Kỳ Duyên | +Khí vận, cơ duyên come twice as often |
-   | Đan Tâm Thông Linh | +luyện đan success, stronger pills |
-   | Thọ Nguyên Dư Dả | +thọ nguyên % |
-   | Linh Căn Thuần Tịnh | +purity on every owned root at birth, +tu luyện speed |
+   | Bất Diệt Đạo Tâm | failed breakthroughs lose no cultivation base (tu vi) and half the heart demon (tâm ma); +Dao heart (đạo tâm) |
+   | Tổ Truyền Linh Điền | +1 spirit field (linh điền) plot, herbs grow faster |
+   | Cổ Ngọc Tàn Hồn | +comprehension (ngộ tính), +breakthrough chance |
+   | Thiên Đố Kỳ Duyên | +fortune (khí vận), fortuitous encounters (cơ duyên) come twice as often |
+   | Đan Tâm Thông Linh | +alchemy (luyện đan) success, stronger pills |
+   | Thọ Nguyên Dư Dả | +lifespan (thọ nguyên) % |
+   | Linh Căn Thuần Tịnh | +purity on every owned root at birth, +cultivation (tu luyện) speed |
 
 2. **Starting items.** One Phá Cảnh Phù: a talisman used automatically on the next
-   breakthrough attempt (+breakthrough chance). It can also be drawn later with phù lục.
-3. **Cơ duyên.** At a bình cảnh the player's chance of an event rises, and protagonist-only
+   breakthrough attempt (+breakthrough chance). It can also be drawn later with the talisman craft (phù lục).
+3. **Fortuitous encounters.** At a bottleneck (bình cảnh) the player's chance of an event rises, and protagonist-only
    templates become eligible: an old master's guidance (Phá Cảnh Phù), the missing herb of
    the next breakthrough pill found at the age it needs, or a forgotten breakthrough pill.
    At most `co_duyen_per_realm` such gifts per realm; the validator enforces it for LLM
@@ -46,10 +48,10 @@ A life created with `edge: false` (balance baseline) gets none of the three.
 
 Each NPC gets an edge score e in [0, 1] from sources in character_edges.json → `npc`:
 
-    e = strong root (purity and biến dị) + sect value (rank) + rich family + blessing (a perk)
+    e = strong root (purity and root mutation [biến dị]) + sect value (rank) + rich family + blessing (a perk)
     p_step = base_step + min(e, 1) × (max_step − base_step)          (0.30 → 0.70)
 
-The world tick rolls each NPC's fate once per realm when it reaches the bình cảnh: with
+The world tick rolls each NPC's fate once per realm when it reaches the bottleneck (bình cảnh): with
 probability p_step it is fated to break through (then does so within a few years); otherwise
 it stays until death. `db show <id>` explains the NPC's chance and its sources. World
 generation's realm mix is set to match these rates.
@@ -59,29 +61,29 @@ generation's realm mix is set to match these rates.
 | Knob | File | Effect |
 |---|---|---|
 | entry_requirement.pill_chance / base_chance | cultivation_realms.json | baseline per-attempt odds |
-| breakthrough.ngo_tinh_bonus_per_point, dao_tam_bonus_per_point | cultivation_realms.json | how much thiên phú helps |
+| breakthrough.ngo_tinh_bonus_per_point, dao_tam_bonus_per_point | cultivation_realms.json | how much innate talent (thiên phú) helps |
 | perk effects | character_edges.json | size of the player's edge |
 | Phá Cảnh Phù value | crafting_talismans.json | starting-item strength |
-| co_duyen_bottleneck_event_bonus, co_duyen_per_realm | character_edges.json | cơ duyên frequency |
+| co_duyen_bottleneck_event_bonus, co_duyen_per_realm | character_edges.json | fortuitous encounter (cơ duyên) frequency |
 | npc.base_step, npc.max_step, source weights | character_edges.json | NPC progression |
 
 ## Acceptance criteria
 
-1. Baseline bot (no edge): LK→TC and TC→KĐ each ≈ 30% (±10 points over ≥ 24 lives).
+1. Baseline bot (no edge): QR→FE and FE→CF each ≈ 30% (±10 points over ≥ 24 lives).
 2. Player bot (edge): each ≈ 70% (±10 points).
 3. NPC cohort with no edges: ≈ 30% per realm; an NPC with e = 1 ≈ 70%.
 4. A perk's effect shows in `explain` with its name as the source.
 5. A Phá Cảnh Phù is used by the next breakthrough and its bonus shows in the odds first.
-6. Cơ duyên templates appear only for a life with the edge, only at a bình cảnh, at most
+6. Fortuitous encounter (cơ duyên) templates appear only for a life with the edge, only at a bottleneck (bình cảnh), at most
    `co_duyen_per_realm` times per realm.
 
 ## Calibration log
 
-| Round (2026-11-03) | Baseline LK→TC | Baseline TC→KĐ | Edge LK→TC | Edge TC→KĐ |
+| Round (2026-11-03) | Baseline QR→FE | Baseline FE→CF | Edge QR→FE | Edge FE→CF |
 |---|---|---|---|---|
 | 1 (old odds; bot declined event gifts) | 24/30 = 80% | 8/24 = 33% | 24/24 = 100% | 10/24 = 42% |
-| 2 (TC pill 0.06, KĐ pill 0.30; bot values outcomes) | 18/36 = 50% | 8/18 = 44% | 17/24 = 71% | 12/17 = 71% |
-| 3 (TC pill 0.06 / bare 0.005, KĐ pill 0.20 / bare 0.01, Ngộ 0.0005, Đạo tâm 0.00025, quality 0.015; Phá Cảnh Phù +25, 2 at start, 2 cơ duyên per realm) | 22/48 = 46% | 6/22 = 27% | 19/24 = 79% | 14/19 = 74% |
+| 2 (FE pill 0.06, CF pill 0.30; bot values outcomes) | 18/36 = 50% | 8/18 = 44% | 17/24 = 71% | 12/17 = 71% |
+| 3 (FE pill 0.06 / bare 0.005, CF pill 0.20 / bare 0.01, comprehension [ngộ tính] 0.0005, Dao heart [đạo tâm] 0.00025, quality 0.015; Phá Cảnh Phù +25, 2 at start, 2 fortuitous encounters [cơ duyên] per realm) | 22/48 = 46% | 6/22 = 27% | 19/24 = 79% | 14/19 = 74% |
 
 NPC cohorts (tools/balance/npc_cohort.gd, 200 each): no edge 29% / 28% / 25%; all edges
 68% / 71% / 64%. On target.
@@ -90,13 +92,13 @@ Still open after round 3: the baseline's first step is too easy (46% vs 30%). Ne
 adjustment: Trúc Cơ Đan pill_chance ≈ 0.04, with Phá Cảnh Phù raised so the edge stays
 near 70%. A round where the pill and bare odds were equal (0.02 / 0.02) was stopped:
 the unit test caught that the pill must always matter.
-| 4 (TC pill 0.03, failed breakthrough loses 50% tu vi) | 21/48 = 44% | 6/21 = 29% | 15/24 = 63% | 9/15 = 60% |
+| 4 (FE pill 0.03, failed breakthrough loses 50% cultivation base [tu vi]) | 21/48 = 44% | 6/21 = 29% | 15/24 = 63% | 9/15 = 60% |
 
 Round 4 was reverted: the baseline barely moved while the edge fell below target, so
 round 3's values stand. The baseline's first step needs a lever that does not also hit
-the edge (e.g. herb age or Đan Đạo level for the Trúc Cơ Đan, or making the edge's
-Phá Cảnh Phù / cơ duyên stronger while the pill chance drops).
-| 5 (TC pill 0.04, Hoàng Tinh Sâm 40y, Phá Cảnh Phù +35) | 20/48 = 42% | 7/20 = 35% | 17/24 = 71% | 9/17 = 53% |
+the edge (e.g. herb age or Way of Alchemy [Đan Đạo] level for the Trúc Cơ Đan, or making the edge's
+Phá Cảnh Phù / fortuitous encounters stronger while the pill chance drops).
+| 5 (FE pill 0.04, Hoàng Tinh Sâm 40y, Phá Cảnh Phù +35) | 20/48 = 42% | 7/20 = 35% | 17/24 = 71% | 9/17 = 53% |
 
 Round 5 was reverted too: the baseline's first step moved only 46% → 42% while the edge's
 second step fell 74% → 53%. Rounds 3–5 show the bot's results are noisy (±10 points at
@@ -104,16 +106,16 @@ this sample size) and that the single levers tried (pill chance, herb age, talis
 strength) move baseline and edge together. Round 3's values stand. A real fix needs a
 lever that applies only to lives without the edge (e.g. a baseline-only breakthrough
 penalty) or a larger sample (96+ lives per arm); both are design decisions for the
-Cảnh Giới & Bình Cảnh GDD, not more blind tuning.
+Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) GDD, not more blind tuning.
 
-## Kinh Mạch Đồ hooks (see design/gdd/kinh-mach-do.md)
+## Meridian Map (Kinh Mạch Đồ) hooks (see design/gdd/kinh-mach-do.md)
 
-Two rules from the Kinh Mạch Đồ GDD act on this spec's numbers; the GDD owns them and
+Two rules from the Meridian Map GDD act on this spec's numbers; the GDD owns them and
 the registry names them (`breakthrough_guard`, `npc_unseal_chance`,
 `npc_cluster_holder_max_share`).
 
-- **Breakthrough guard (Formulas E2).** Capabilities #22 (Hồi Quang Phản Chiếu) and #23
-  (Thiêu Thọ Phá Cảnh) may lift a realm's success chance by at most 0.10, whatever the
+- **Breakthrough guard (Formulas E2).** Capabilities #22 Last Radiance (Hồi Quang Phản Chiếu) and #23
+  Burning Life to Break Through (Thiêu Thọ Phá Cảnh) may lift a realm's success chance by at most 0.10, whatever the
   baseline (about 0.30) or edge (about 0.70) target. The retry chance is clamped to
   `min(q, 0.10/(1−S))` and the desperation chance to `q + 0.10·(1−q)/(1−S)`. At most one
   of them acts per realm step. The next calibration round must run arms "neither", "#22
@@ -121,6 +123,6 @@ the registry names them (`breakthrough_guard`, `npc_unseal_chance`,
 - **NPC unseal chance (Formulas G).** An NPC's chance of holding a sealed cluster uses
   this spec's edge curve (`base_step` 0.30, `max_step` 0.70, the NPC's edge score e):
   `a = a_max[r]·(base_step + min(e,1)·(max_step − base_step))/max_step`. Holders must stay
-  under 15% of NPCs per realm, with a median chiến lực uplift under 15%.
-- **Recalibration.** The level ladder and the rescaled huyệt values (GDD Formulas A and A2)
+  under 15% of NPCs per realm, with a median combat power (chiến lực) uplift under 15%.
+- **Recalibration.** The level ladder and the rescaled acupoint (huyệt) values (GDD Formulas A and A2)
   change the points a life earns, so the calibration rounds above must be rerun on them.
