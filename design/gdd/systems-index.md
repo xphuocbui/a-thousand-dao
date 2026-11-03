@@ -59,7 +59,7 @@ Game UI, Audio.
 | 7 | Character Stats (thiên phú, derived, đạo nghệ) | Progression | MVP | Implemented | — | Linh Căn, Sim Core, Config |
 | 8 | Cảnh Giới & Bình Cảnh | Progression | MVP | Implemented | — (calibration notes: design/quick-specs/progression-and-edges.md) | Character Stats, Linh Căn, Time & Turn, Item DB |
 | 9 | Công Pháp | Progression | MVP | Implemented | — | Item DB, Linh Căn, Cảnh Giới |
-| 10 | Kinh Mạch Đồ (added by request) | Progression | MVP | In Review (partially implemented: base tree at 202-huyệt prototype scale; levels, clusters, capabilities not built) | design/gdd/kinh-mach-do.md | Linh Căn, Character Stats, Cảnh Giới, Config, Sim Core; soft: Event Engine, Item DB, Công Pháp, LLM GM, World DB, Edges |
+| 10 | Kinh Mạch Đồ (added by request) | Progression | MVP | Designed: 3 reviews, all blockers fixed (partially implemented: base tree at 202-huyệt prototype scale; levels, clusters, capabilities not built) | design/gdd/kinh-mach-do.md | Linh Căn, Character Stats, Cảnh Giới, Config, Sim Core; soft: Event Engine, Item DB, Công Pháp, LLM GM, World DB, Edges |
 | 11 | Progression Edges: thiên mệnh, cơ duyên, NPC edges (added by request) | Progression | MVP | Implemented | quick spec: design/quick-specs/progression-and-edges.md | Character Stats, Cảnh Giới, Event Engine (player half) |
 | 12 | Codex & Karmic Carryover | Progression | Vertical Slice | Not Started | — | Item DB, Luyện Đan, Linh Căn, Save/Load |
 | 13 | Item Database & Generation (inferred) | Economy | MVP | Implemented | — | Config, Sim Core, World DB |
@@ -287,9 +287,9 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | Total systems identified | 38 |
 | Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (thú only), 21 (duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin) |
 | Systems not started | 6: 12, 22, 31, 34, 37, 38 (plus Linh Trùng, inside 19) |
-| GDDs started | 1 (10 Kinh Mạch Đồ, designed 2026-11-03, review pending) |
+| GDDs started | 1 (10 Kinh Mạch Đồ, designed 2026-11-03) |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
-| Design docs reviewed | 0 |
+| Design docs reviewed | 1 (Kinh Mạch Đồ: 3 lean passes, all blockers fixed; not formally APPROVED) |
 | Design docs approved | 0 |
 | MVP systems designed | 1 / 25 |
 | Vertical Slice systems designed | 0 / 8 |

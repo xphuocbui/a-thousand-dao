@@ -1,6 +1,6 @@
 # Kinh Mạch Đồ (Skill Tree)
 
-> **Status**: In Review (2026-11-03: the second lean /design-review found 1 blocker; it is fixed along with the recommended items, re-review pending, see `reviews/kinh-mach-do-review-log.md`)
+> **Status**: Designed (2026-11-03). Three lean /design-review passes returned NEEDS REVISION, and every blocker was fixed. By the user's decision there is no fourth pass: the remaining fill-validator rounding details are settled during implementation against AC-KMD-31..39. Open Question 12 (map layout) must be resolved before rule 1 is built. See `reviews/kinh-mach-do-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-03
@@ -154,8 +154,8 @@ are in Formulas.
    - a **theme**, which is a system the game already has (Đan Đạo, Luyện Khí, Trận Đạo,
      Phù Đạo, Ngự Thú, Thần Thức, Thọ Nguyên, Tâm Cảnh, and so on);
    - an element affinity;
-   - a **location**: *outer*, in the outer band (the usual case), or *inner*, in the
-     inner or middle band (rare);
+   - a **location**: *outer*, in the outer band (the usual case), or *inner*,
+     linking at depth 3–7 (rare; its interior may reach into the middle band);
    - one or two entry links to existing huyệt;
    - a **kind**, *sealed* or *open*;
    - exactly one **seal condition**;
@@ -290,7 +290,7 @@ are in Formulas.
     | 20 | Liễm Tức Ẩn Thân | Others see the character two stages lower; hostile events −30% frequency | Event Engine, NPCs |
     | 21 | Thuấn Di Ấn | Once a year, travel instantly to any visited place | Travel |
     | 22 | Hồi Quang Phản Chiếu | With under 5 years of thọ nguyên left, breakthrough chance up to ×2 (capped by Formulas E2) | Cảnh Giới |
-    | 23 | Thiêu Thọ Phá Cảnh | After a failed breakthrough, burn 10 years of thọ nguyên to retry at once | Cảnh Giới, Thọ Nguyên |
+    | 23 | Thiêu Thọ Phá Cảnh | After a failed breakthrough, burn 10 years of thọ nguyên (5% of the realm's lifespan if more) to retry at once | Cảnh Giới, Thọ Nguyên |
     | 24 | Biến Dị Khai Mở | Each realm breakthrough rolls one extra chance at a new biến dị | Linh Căn |
     | 25 | Tâm Ma Hóa Lực | Tâm ma above 50 adds attack (+tâm ma ÷ 2 %); backlash chance ×2 | Tâm Ma, Combat |
 
@@ -425,7 +425,7 @@ end), so huyệt values are scaled down to keep a typical life's tree power unch
 
 The value_scale formula is defined as:
 
-`k_pts = points_total(anchor) / points_old(anchor)` ; `S0 = S0_old / k_pts` (rounded to a clean value) ; `N0 = N0_old / k_pts` (re-split) ; `w̄ = (1 − ν)·S0 + ν·N0`
+`k_pts = points_total(anchor) / points_old(anchor)` ; `w̄ = w̄_old / k_pts` ; `S0, N0` chosen as clean values with `(1 − ν)·S0 + ν·N0 = w̄` (the launch split is S0 = 1.2, N0 = 8, a design choice, not an output)
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -445,7 +445,8 @@ The value_scale formula is defined as:
   650 W: a deliberate tilt toward later realms.
 - Without the rescale it would be about 4,270 W (6.6×): 566 × 7.55.
 
-**Example:** The old mean is 7.55 W per point. Divided by 3.64 it is 2.07. The split is
+**Example:** The old mean is 7.55 W per point (it uses the prototype's own notable share,
+not ν = 0.134). Divided by 3.64 it is 2.07. The split is
 S0 = 1.2 and N0 = 8, which keeps notables about 6.7× a small huyệt:
 (1 − 0.134)·1.2 + 0.134·8 = 2.11 W per point. A typical small huyệt becomes +1.2%
 attack (or +0.5% cultivation speed); a notable +8% attack.
@@ -525,7 +526,7 @@ An inner cluster's gate is one realm lower, so it can reach Luyện Khí.
 | U, U' | float | 0–1 | calculated (seeded) | Uniform draws |
 
 **Output Range:**
-- E[n] = 9, so 75 clusters hold about 675 huyệt. Each tail clamp has a 0.5% chance.
+- E[n] = 9, so 75 clusters hold about 675 huyệt. Each tail clamp has about a 1.4% chance.
 - k: 1 notable with probability 0.58, 2 with 0.41, 3 with 0.014. That's about 108
   hidden notables (16% density).
 - About 11 inner and 64 outer clusters. A seed is accepted only if the inner count is
@@ -624,7 +625,9 @@ The breakthrough_guard formula is defined as:
 The last two terms are the guard's construction: each is the largest value of the
 attempt chance that keeps its own lift at or below δ_max for any S (solve
 `(1−S)·(q_desp − q)/(1−q) ≤ δ_max` and `q_retry·(1−S) ≤ δ_max`). The bound therefore
-holds by construction and is tested analytically; the bot run only confirms it.
+holds by construction and is tested analytically; the bot run only confirms it. The
+formulas assume S < 1: at S = 1 there is nothing to lift, and neither capability acts
+(the implementation must test this before dividing by 1 − S).
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -649,6 +652,10 @@ holds by construction and is tested analytically; the bot run only confirms it.
   edge target reaches at most 0.80, and a life without edges at most 0.40. This is
   deliberate. Capabilities are earned, rare (one per outer sealed cluster) and bounded,
   and the player-facing text says "up to ×2, capped".
+- **Baseline includes the tree.** The 0.30 / 0.70 targets are measured with the tree's own
+  `breakthrough_chance` already counted (AC-KMD-50 runs the bot with it), so the tree's
+  8 pp ceiling sits inside the targets, and the capabilities add at most 0.10 on top.
+  Cảnh Giới must treat the tree's share as part of the calibration, not an extra.
 
 **Example:** S = 0.70, q = 0.25 (clamps do not bind):
 - #23 alone: q_retry = min(0.25, 0.10/0.30) = 0.25, so 0.70 + 0.25·0.30 = **0.775**.
@@ -691,8 +698,12 @@ The final scale formula is defined as:
 
 `scale_all = min(1, B / Σ power)`
 
-Sealed clusters are authored to the same numbers. The validator checks them in tests.
-Open-cluster fills are clamped at runtime.
+Sealed clusters are authored to the same numbers. The validator checks them in tests, in
+**sealed mode**, which differs from the normal mode in one way: the cluster's one
+capability notable (c = 1) is allowed, and it is exempt from step 3's rule that every
+huyệt has a stat and from the capability ban. Its stats are held to f_tier·E_notable, so
+a T3 capability notable has none. Every other rule and step applies unchanged.
+Open-cluster fills run in the normal mode (c = 0) and are clamped at runtime.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -705,7 +716,7 @@ Open-cluster fills are clamped at runtime.
 | φ_r | float | 0.10 (Luyện Khí–Kết Đan), 0.05 (Nguyên Anh+) | data file | Ceiling on a cluster's summed lifespan_years, as a share of realm lifespan (a whole n = 15 budget would otherwise allow 22%) |
 | tree_breakthrough_cap | float | 8 (guess) | data file | Ceiling, in percentage points, on the summed breakthrough_chance of every Kinh Mạch huyệt in a life; applies to NPCs too |
 | L_r | int | 120–2000 | data file (`cultivation_realms.json`) | Realm lifespan: the player's realm at fill time; the gate realm for sealed clusters |
-| B | float | 13–67 W | calculated | Cluster budget |
+| B | float | 10.7–67 W | calculated | Cluster budget (10.7 W is the smallest capability cluster; 13 W the smallest without one) |
 
 Stat weights (W per displayed unit). The base notables in `meridian_tree.json` are the
 reference. All weights are guesses until checked by the bot.
@@ -780,21 +791,27 @@ rounding can lower a fill's power but never raise it.
    the pool as in step 3.
 7. **Huyệt cap.** Scale any huyệt over its power cap down to the cap.
 8. **Compounding caps.** Scale down each stat that breaks its compounding cap, across
-   the cluster, and scale `lifespan_years` down to φ_r·L_r.
+   the cluster, and scale `lifespan_years` down to φ_r·L_r. A stat whose cluster cap,
+   rounded down to its precision, is below one unit (`field_plots` when n < 9) is removed
+   and replaced from the pool as in step 3.
 9. **Budget and quantize.** One loop, so the total never exceeds B:
    - Let B_rest = B, with every huyệt unfixed.
-   - Scale the unfixed huyệt by min(1, B_rest / their summed power), then round every
-     value down to its precision. A value that rounds to 0 is dropped.
-   - A huyệt left with no stat is **fixed**: it keeps its highest-power stat at one
-     precision unit. That is within every cap, because step 3 guaranteed the value was at
-     least one unit before scaling. Subtract the fixed huyệt's power from B_rest and
-     repeat on the unfixed huyệt.
+   - Scale the unfixed huyệt by min(1, B_rest / their summed power), taken from their
+     step-8 values on every pass, then round every value down to its precision. A value
+     that rounds to 0 is dropped.
+   - A huyệt left with no stat is **fixed**: it gets one precision unit of its
+     highest-power stat that has no compounding cap and no lifespan ceiling (for example
+     `attack_pct`), or of the pool's first such stat if it had none. That is within every
+     cap: one unit of an uncapped stat passes the per-huyệt cap (steps 3 and 6), and it
+     has no cluster cap to break. Subtract the fixed huyệt's power from B_rest and repeat
+     on the unfixed huyệt.
    - Each pass fixes at least one huyệt, so the loop ends within n passes. If B_rest
      drops below 0, the reply is unrepairable and the pool fill is used.
 10. **Record.** Record a repair only when a value changed.
 
-Scaling and rounding down only lower power, so every cap from steps 6–8 and B still hold,
-with no tolerance. A reply that needs no scaling is changed only by its own rounding,
+Scaling and rounding down only lower power, and the one place a value is raised (the
+fixed huyệt of step 9) uses an uncapped stat, so every cap from steps 6–8 and B still
+hold, with no tolerance. A reply that needs no scaling is changed only by its own rounding,
 because step 3 already removed sub-unit values.
 
 A reply the validator cannot repair (invalid JSON, or no usable huyệt at all) is
@@ -1086,7 +1103,10 @@ numbers in this GDD; ranges marked *guess* wait for a bot run.
 
 | Knob | Value | Safe range | What it moves |
 |---|---|---|---|
-| `cluster_count` | 75 | 60–90, derived: below about 55 the seed rule (25 capability-eligible clusters) cannot be met | Hidden share of the map; about 9 huyệt per cluster |
+| `cluster_count` | 75 | 60–90, derived: below about 55 the seed rule (25 capability-eligible clusters) cannot be met. The inner window of 9–14 is fixed, so at either end about half of all seeds are rejected; move the window with the count | Hidden share of the map; about 9 huyệt per cluster |
+| `size_realm_gates` (g1, g2) / `cap_min_n` | 6, 10 / 7 | g1 5–7, g2 9–11; cap_min_n 7 (it must keep every capability at Kết Đan or later) | Which realm each cluster size opens in; how many clusters can carry a capability |
+| Δ_desp / `q_max` / burn share | 0.15 / 0.95 / 5% | Δ_desp 0.05–0.15, q_max ≤ 0.95, burn share 3–10%, guess | Strength of #22 and cost of #23 (Formulas E2) |
+| `pts_birth`, `breakthrough_bonus`, `pct_trung` / `pct_hau` / `pct_dai` | 2, 15/25/40/60, 15/25/35 | provisional; Cảnh Giới owns them. Keep `pct_trung` + `pct_hau` + `pct_dai` ≤ 100 | Points per life (Formulas A) |
 | `cluster_size_mean` / `_sd` | 9 / 2.5 | mean 8–11, derived: at mean 7 only about 25 clusters have n ≥ 7, which is the seed rule's floor | Cluster size, entry cost, gate realm, budget |
 | `inner_share` | 0.15 | 0.12–0.18, derived from the seed window of 9–14 inner clusters | How many clusters can open in Luyện Khí |
 | `sealed_share` | 0.667 | 0.55–0.75 | Sealed against open split; the authoring load (about 9 huyệt per sealed cluster) |
@@ -1361,9 +1381,15 @@ Drafted with qa-lead.
   | A huyệt with 3 stats | the 2 highest-power stats kept |
   | 2 distinct stats | 3 or more |
 - **AC-KMD-34** [Logic] Value repairs, in order.
-  - +30% attack on a small is cut to 2.264 W.
-  - Cultivation speed summing to 9 at n = 9 is cut to 4. The cap is 2.667 at n = 4 and
-    5.164 at n = 15.
+  - +30% attack on a small is cut to +2.2%: the cap is 2.264 W, rounded down to the 0.1
+    precision, so the huyệt has 2.2 W.
+  - Cultivation speed summing to 9 at n = 9 is scaled down to a sum of at most 4 (rounding
+    down can leave it a little under). The cap is 2.667 at n = 4 and 5.164 at n = 15.
+  - A notable whose only stat is `field_plots`, in an n = 7 cluster, loses it at step 8
+    (the cluster cap, 0.88, is below one unit) and gets a pool stat.
+  - Three smalls in an n = 3 cluster, each with only 0.1 `breakthrough_chance` (cap 0.289):
+    all three are dropped at step 9, and each is fixed with one unit of an uncapped pool
+    stat. The cluster's `breakthrough_chance` sums to 0.
   - A fill of 34.6 W against B = 27.67 is scaled by 0.7997, then every value is rounded
     down to its precision (step 9), so the result is ≤ 27.67 and never above it.
   - Fixture where scale_all < 1 and one huyệt's only stat is a single unit: after step 9
@@ -1377,6 +1403,8 @@ Drafted with qa-lead.
   validator, every fill:
   - has power ≤ B (exactly, no tolerance) and no negative values;
   - has summed lifespan_years ≤ φ_r·L_r;
+  - has every stat's cluster sum within its compounding cap, `cap9_c·(n/9)^γ` rounded down
+    to the stat's precision;
   - uses only `fill_stats` keys, with at most 2 stats per huyệt;
   - has n huyệt and k notables on the map's notable slots, with at least 3 distinct stats;
   - has every value an exact multiple of its precision;
@@ -1396,8 +1424,9 @@ Drafted with qa-lead.
   - A recorded fill is byte-identical after reload and after a later story moment.
   - A save taken between unseal and record loads as Awaiting fill and re-requests with
     identical inputs.
-- **AC-KMD-39** [Logic, data-driven] Every authored sealed cluster passes the validator
-  with zero repairs.
+- **AC-KMD-39** [Logic, data-driven] Every authored sealed cluster passes the validator in
+  sealed mode (Formulas F) with zero repairs. A T3 capability notable with no stats
+  passes; the same notable in normal mode is repaired.
 - **AC-KMD-40** [Logic] Formula E with E_notable = 12.58.
   - T1 gives 6.29 W, T2 3.145 W and T3 0 W.
   - A capability notable's authored power is ≤ f_tier·E_notable.
@@ -1494,8 +1523,9 @@ Drafted with qa-lead.
   test).
   - Setup: 200 seeded Hóa Thần NPCs at 566 points on the target map, plan cache cold.
   - Measurement: `Time.get_ticks_usec()` around the allocate call only.
-  - Pass: p95 ≤ 50 ms and max ≤ 100 ms on the project's reference machine. A run on
-    other hardware is informational.
+  - Pass: p95 ≤ 50 ms and max ≤ 100 ms on the reference machine, the owner's development
+    PC (AMD RX 9070 XT, 61 GB RAM; record its CPU model on the first run). A run on other
+    hardware is informational.
   - Record median, p95, max and the CPU model in `production/qa/evidence/`; the first
     passing run on a machine is its baseline, and a later run on the same machine may
     not exceed it by more than 20%.
@@ -1549,3 +1579,4 @@ Drafted with qa-lead.
 | 11 | Cap on event point grants per realm (the Event Engine's budget file should set it) | Event Engine GDD | Rule 2 |
 | 12 | The map generator's topology for the target map (edges inside wheels, routes, how clusters attach) is not specified; AC-KMD-08's golden hash exists only once it is | technical-director | Implementation of rule 1 |
 | 13 | Where Mạch Ấn keys come from (loot, shop, event reward), and the intended number of clusters a typical life unseals | Item DB + Event Engine GDDs | Item seals; Tuning Knobs target |
+| 14 | Should `lifespan_years` get a tree-wide ceiling like `breakthrough_chance`? Today only each cluster is held to φ_r·L_r, so 5 unsealed clusters could add up to 50% of a realm's lifespan | user + systems-designer | Formulas F; balance sign-off |
