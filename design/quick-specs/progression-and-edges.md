@@ -90,3 +90,9 @@ Still open after round 3: the baseline's first step is too easy (46% vs 30%). Ne
 adjustment: Trúc Cơ Đan pill_chance ≈ 0.04, with Phá Cảnh Phù raised so the edge stays
 near 70%. A round where the pill and bare odds were equal (0.02 / 0.02) was stopped:
 the unit test caught that the pill must always matter.
+| 4 (TC pill 0.03, failed breakthrough loses 50% tu vi) | 21/48 = 44% | 6/21 = 29% | 15/24 = 63% | 9/15 = 60% |
+
+Round 4 was reverted: the baseline barely moved while the edge fell below target, so
+round 3's values stand. The baseline's first step needs a lever that does not also hit
+the edge (e.g. herb age or Đan Đạo level for the Trúc Cơ Đan, or making the edge's
+Phá Cảnh Phù / cơ duyên stronger while the pill chance drops).

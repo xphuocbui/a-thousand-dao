@@ -15,7 +15,7 @@ extends RefCounted
 ## [codeblock]
 ## for g in Advisor.goals(session):
 ##     print("%s: %s" % [g.severity, g.text])
-## var odds: Dictionary = Advisor.choice_odds(session, 0)   # {chance: 0.62, text: "ngo_tinh vs 50: 62%"}
+## var odds: Dictionary = Advisor.choice_odds(session, 0)   # {chance (0..1), text, ok, reason}
 ## [/codeblock]
 
 const SEVERITY_ORDER := {"urgent": 0, "warn": 1, "goal": 2, "tip": 3}
