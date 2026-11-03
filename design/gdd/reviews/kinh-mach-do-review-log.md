@@ -89,3 +89,12 @@ Reviewed-Content-Hash: design/quick-specs/progression-and-edges.md 9a0d75dc0b608
 
 ## Closure — 2026-11-03 — Status: Designed (no fourth pass)
 The user decided to stop the review loop after the third pass. The blockers went 4, then 1, then 3, all narrowing to fill-validator rounding details, and the core design has been stable since review 2. The remaining validator details are finalised during implementation against AC-KMD-31..39. Not a formal APPROVED verdict. Open Question 12 (map layout) blocks the rule 1 build.
+
+## Post-closure change — 2026-11-03 — topology (not reviewed)
+Open Questions 12 (map topology) and 10 (center keystone) were resolved after the closure, by user decision with systems-designer numbers:
+- kinh lộ highways (3 radials per sector, 3 ring roads), hội junctions, 1–3 entries per cluster;
+- flexibility limits, 5 crossings per border, 8 shape templates, generator spec G1–G8;
+- visible tree 802 (map about 1,475), H0 = 1.2, Đan Điền exempt at degree 6;
+- AC-KMD-06/10/11/12 updated and AC-KMD-60..66 added.
+
+These sections (rule 1, Formulas A2, B, D d_entry, H, Tuning Knobs, Parameter keys) have NOT had an independent /design-review. Review them before the tree generator is built.
