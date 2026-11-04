@@ -44,12 +44,12 @@ Example: soul strength 70, Beast Taming (Ngự thú) 2: 0.15 + 0.08 + 0.10 = 33%
 ## Changing spiritual roots (linh căn)
 
 - **Tẩy Tủy Đan** (recipe, Way of Alchemy [Đan Đạo] 5, two 40-year herbs): raises the weakest owned
-  element by max(1, round(6 × pill potency)), max 3 per life. It never rolls for root mutations
-  (biến dị); it only recomputes the purity of owned mutations built on that element. The rules are
-  owned by `design/gdd/linh-can.md` (rule 11), which wins on any difference.
+  element by max(1, round(6 × pill potency)), max 3 per life. It never rolls for variant roots
+  (biến dị linh căn); it only recomputes the purity of derived variants built on that element. The rules are
+  owned by `design/gdd/linh-can.md` (rule 13), which wins on any difference.
 - **Linh Căn Quả** (items_treasures.json): adds a missing element at purity 20–35, then rolls once for
-  each mutation that becomes eligible (or +8 to the weakest element when all five are owned: no roll,
-  owned mutations' purity recomputed). Rare by design. Events only, and only from
+  each derived variant that becomes eligible (or +8 to the weakest element when all five are owned: no roll,
+  derived variants' purity recomputed). Rare by design. Events only, and only from
   Foundation Establishment (Trúc Cơ) up: `events_budgets.json` per_realm `treasures` lists what an event may grant; the
   validator drops anything else (LLM included). Template: "Linh Căn Quả chín" (beast
   guardian, realm ≥ Foundation Establishment, weight 2).
@@ -57,7 +57,7 @@ Example: soul strength 70, Beast Taming (Ngự thú) 2: 0.15 + 0.08 + 0.10 = 33%
 ## Achievements (Thành tựu)
 
 **Rules.** Conditions in meta_achievements.json (realm reached, with max age / origin /
-element count; skill levels; formation level; beasts kept; root mutation (biến dị) owned; age; a logged
+element count; skill levels; formation level; beasts kept; variant root (biến dị linh căn) owned; age; a logged
 event). Checked after every command. Earned only in Fated-birth (Thiên Định) lives; any `debug` or
 `buildgen` command marks the life (`cheated`, saved) and it earns none. Kept across lives
 in `user://achievements.json`; scripted runs (`--commands`) keep them in memory so tests

@@ -1,6 +1,6 @@
 # Character Stats
 
-> **Status**: In Review (2026-11-04, after cross-GDD review 04g: holder-raised ceilings; awaiting re-review). See `reviews/character-stats-review-log.md`.
+> **Status**: In Review (2026-11-04, aligned to the Spiritual Roots redesign: variant role lines added; holder-raised ceilings and Time's root factor removed; awaiting re-review). See `reviews/character-stats-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-04
@@ -32,7 +32,7 @@ alike. It has three layers.
   tâm) and presence (mị lực). Each is graded from Lower (Hạ) to Heavenly (Thiên). The
   spiritual root (linh căn) sits beside them, but Spiritual Roots owns its rules. Talents
   change only through rare, capped effects: a talent pill limited to a few uses per life,
-  an event, a root mutation (biến dị).
+  or an event.
 - **State.** What changes every season: cultivation base (tu vi), age against lifespan
   (thọ nguyên), vitality (khí huyết), pill toxicity (đan độc), heart demon (tâm ma) and
   spirit stones (linh thạch).
@@ -40,7 +40,7 @@ alike. It has three layers.
   vitality, spiritual power (linh lực) and the realm term of combat power (chiến lực). Each
   is a realm base × the stage multiplier × talent and modifiers.
 
-Every modifier from anywhere (root mutations and generating pairs, the Meridian Map and
+Every modifier from anywhere (root variants and generating pairs, the Meridian Map and
 its capabilities, the cultivation technique, magic treasures, consumables and tools,
 destiny perks, formations, craft mastery) lands on one stat sheet with its source, so any
 total can be explained. Craft mastery (đạo nghệ) levels sit alongside, rise only by
@@ -89,7 +89,7 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
    - an event effect inside the Event Engine's budget.
 
    The base value stays clamped to 1–100. Climbing realms never changes it. Root
-   mutations give modifiers, not base changes.
+   variants give modifiers, not base changes.
 5. **Effective talent.** Effective value = base + the stat sheet's flat modifiers on that
    talent's key, clamped to 1–150. Every rule that reads a talent reads the effective
    value. The grade shown is the base value's grade.
@@ -156,7 +156,7 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
 
 12. **Modifiers.** Every bonus or penalty is a modifier {source, stat, value}. There are
     nine source kinds:
-    - root mutations;
+    - root variants (biến dị linh căn: purity-scaled role lines, Formulas G);
     - Spiritual Roots generating pairs (`cultivation_speed_pct` +3 each, Formulas I);
     - Meridian Map acupoints and capabilities;
     - the active cultivation technique;
@@ -195,49 +195,28 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
       lifespan bonus is lifespan pill years plus every `lifespan_years` modifier. An
       equipped treasure's lifespan is its `lifespan_years` modifier and is counted once,
       inside that sum; there is no separate treasure term.
-    - **Holder-raised ceilings** (user decision 2026-11-04, cross-GDD review 04g, F15).
-      A mutation may raise one character-wide ceiling, for its holder only, to a
-      stated value. It declares this in its data as an effect of kind "ceiling_raise"
-      (key, value), where the key is a `bonus_ceilings` key. The raise is not a sheet
-      modifier and adds no bonus by itself; it only moves where the clamp falls.
-      - Raises on the same key do not stack: ceiling(k) is the base ceiling or, if the
-        character holds any raise on k, the highest raised value.
-      - The sheet shows the raised ceiling with its source (for example "Ceiling 6
-        (Pill Fire)"), and the clamp line names that raise.
-      - Penalties still apply after the cap, now the raised cap.
-      - Today: Pill Fire raises `alchemy_success` 3 → 6, Lava (a stable mutation) raises
-        `alchemy_success` 3 → 5 (user decision 2026-11-04), and Spirit Farming raises
-        `herb_growth_pct` 10 → 20. A holder of both Pill Fire and Lava gets 6, the
-        highest. Spiritual Roots owns which mutations raise which
-        ceilings, the values, and their prices; they are Spiritual Roots knobs.
     - **Penalties apply after the cap** (user decision 2026-11-04, fourth-pass review).
       The ceiling clamps only the sum of the positive modifiers; the negative ones are
       added afterwards: total = min(Σ positive, ceiling) + Σ negative. Each modifier is
       sorted by its own sign, so a source with a bonus and a penalty on the same key
-      feeds both sums. Bonus above the ceiling therefore never absorbs a penalty: on a
-      non-holder (ceiling 10), a +60 source with a −20 penalty gives 10 − 20 = −10, not
-      min(40, 10) = 10. A Spirit Farming holder (ceiling 20) with the same lines gets
-      20 − 20 = 0.
+      feeds both sums. Bonus above the ceiling therefore never absorbs a penalty: a +60 source with a
+      −20 penalty gives 10 − 20 = −10, not min(40, 10) = 10.
     - **A negative lifespan bonus is allowed** (no earlier rule bounded it). It lowers the
       cap below the realm's base lifespan. A change the player makes that would put the
       cap at or below the character's age needs Realms rule 14's confirmation; a loss
       without a player choice follows Realms' Edge Case for it.
-    - **What is capped.** A root term is a purity factor or a mutation's declared root
-      factor (today only Time's `herb_age_root_pct`, Formulas G) inside a formula, and
+    - **What is capped.** A root term is a purity factor inside a formula, and
       it never enters the sheet; every sheet modifier on a ceiling key is capped,
-      whatever its source. So the root terms (Wood's herb growth, Time's herb aging and
+      whatever its source. So the root terms (Wood's herb growth and
       Earth's plots, Formulas G; Fire's brew success, +0.25 pp per purity point, in
       Realms Formulas D and owned by Alchemy) are not capped. Nor are `field_plots`
       (bounded by `max_plots`; a deliberate build lever: extra plots can beat the
       breakthrough odds, and Realms' targets assume none (user decision 2026-11-04)) or
       `lifespan_pct` (no current source grants it; Open Question 7). The sheet shows
-      each clamp as a line. Every other mutation modifier is a sheet modifier, not a
-      root term, and is capped: a root mutation's `lifespan_years` counts under the
-      lifespan ceiling (user decision
-      2026-11-04, cross-GDD review W10) and its `herb_growth_pct` under the herb growth
-      ceiling (user decision 2026-11-04, cross-GDD review 04f, B1), like any other
-      source. Spiritual Roots prices both at what the ceiling (raised, for a holder)
-      lets through.
+      each clamp as a line. A variant's role lines are sheet modifiers, not root terms;
+      none of the eight sits on a ceiling key. Any source of `lifespan_years` or
+      `herb_growth_pct` counts under its ceiling (user decisions 2026-11-04, cross-GDD
+      reviews W10 and 04f, B1).
 15. **Stat keys.** This GDD owns every key, its unit and its meaning. Units:
     - `pct`: percentage points, so 1 = +1 %;
     - `flat`: a plain number;
@@ -316,7 +295,7 @@ Meridian Map have approved GDDs.
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
-| Spiritual Roots (Linh Căn) | in | per-element purity, root mutations (their modifiers), base element count, and one `cultivation_speed_pct` +3 modifier per generating pair owned (source "Tương sinh: <from> → <to>"); Time's root factor `herb_age_root_pct` (kind "root") for Formulas G; mutations' holder ceiling raises (kind "ceiling_raise") for Formulas I | Spiritual Roots |
+| Spiritual Roots (Linh Căn) | in | per-element purity, root variants with their purities (their role lines, Formulas G), `n_base`, `n_eff`, and one `cultivation_speed_pct` +3 modifier per generating pair owned (source "Tương sinh: <from> → <to>") | Spiritual Roots |
 | Realms & Bottlenecks | in / out | in: realm, level, stage multiplier, heart demon +15 per failure, vitality −40 %; out: effective comprehension and Dao heart, the comprehension factor `comp` (Formulas J), `breakthrough_chance` (tree share capped), the bonus ceilings on herb growth, alchemy success and lifespan (rule 14), `qi_deviation_pct`, `safe_failure`, heart demon | Realms (the ladder); this GDD (the stats) |
 | Meridian Map (Kinh Mạch Đồ) | in | acupoint modifiers {source, stat, value}; capability ids into the set | Meridian Map (what nodes give); this GDD (keys, units, the set) |
 | Cultivation Techniques | in | technique bonuses (modifiers) and technique power for spiritual power | Cultivation Techniques |
@@ -382,8 +361,8 @@ The effective_talent formula is defined as:
 
 **Output Range:** 1–150.
 
-**Example:** comprehension base 45 plus a Stars (Tinh Thần) mutation's +10 = **55**.
-Presence base 5 with a Death (Tử) mutation's −10 → clamped to **1**.
+**Example:** comprehension base 45 plus a perk's +10 = **55**.
+Presence base 5 with a −10 penalty → clamped to **1**.
 
 ### C. Realm-scaled derived values
 
@@ -533,7 +512,7 @@ deviation sets 0.05, then 0.30, 0.55, 0.80 and 1.0.
 
 The element_multipliers formulas are defined as:
 
-`herb_growth = (1 + k_h · purity_wood) · (1 + herb_age_root_pct / 100) · max(0, 1 + herb_growth_pct / 100)`
+`herb_growth = (1 + k_h · purity_wood) · max(0, 1 + herb_growth_pct / 100)`
 
 `mission_income = (1 + k_m · purity_metal) · max(0, 1 + mission_income_pct/100)`
 
@@ -550,22 +529,27 @@ plots and toxicity decay add.
 | k_h, k_m | float | 0.008, 0.008 | data file (`herb_growth_pct_per_purity`, `mission_income_pct_per_purity`, stored as 0.8 %) | Per purity point |
 | k_f | float | 0.04 | data file (`field_plots_per_purity`) | Plots per Earth purity point |
 | base_plots, max_plots | int | 3, 12 | data file | |
-| herb_age_root_pct | float | 0, or Time's value (25 today; a Spiritual Roots knob, safe 0–68; registry `herb_age_root_pct`) | data file (Time (Thời Gian) mutation's effects in `character_elements.json`, kind "root"; added by the data pass) | Time's herb-aging root factor: Time's value for a character holding the Time mutation, else 0. A root term like Wood's purity factor (rule 14): set by the mutation, never a stat sheet modifier, not under the herb growth ceiling |
-| herb_growth_pct | float | at most ceiling(`herb_growth_pct`): 10, or 20 for a Spirit Farming holder (rule 14); negative allowed | calculated (stat sheet total after Formulas I) | Herb growth bonus, ceilinged with penalties added after the cap (rule 14); the factor `max(0, 1 + herb_growth_pct/100)` floors at 0 |
+| herb_growth_pct | float | at most the ceiling, 10 (rule 14); negative allowed | calculated (stat sheet total after Formulas I) | Herb growth bonus, ceilinged with penalties added after the cap (rule 14); the factor `max(0, 1 + herb_growth_pct/100)` floors at 0 |
 | mission_income_pct | float | no ceiling (not a rule 14 key), negative allowed | calculated (stat sheet total after Formulas I) | Mission income bonus; the factor floors at 0 |
 | total(field_plots) | int | any; the result is clamped | calculated (stat sheet) | Extra plots |
 
-**Output Range:** the purity term is 1.0–1.8 and the Time term is 1.0 or
-1 + herb_age_root_pct/100 (1.25 at 25). Herb growth is 0 up to
-1.8 × (1 + herb_age_root_pct/100) × (1 + ceiling/100): 2.475 at 25 (Wood 100 with Time at
-the base ceiling of 10: 1.8 × 1.25 × 1.10). A Spirit Farming holder's raised ceiling of 20
-gives 1.8 × 1.20 = 2.16 without Time, and 2.7 only if one character could hold both
-mutations (Spiritual Roots decides); it reaches 0 when `herb_growth_pct` is −100 or below. Mission
+**Output Range:** the purity term is 1.0–1.8. Herb growth is 0 up to 1.8 × (1 + ceiling/100) = 1.98
+(Wood 100 at the ceiling of 10); it reaches 0 when `herb_growth_pct` is −100 or below. Mission
 income is ≥ 0, with no upper bound set here because `mission_income_pct` has no ceiling.
 Field plots 1–12.
 
+**Variant roles.** Each owned variant adds its `variant_effects` lines to the sheet, with the
+source "Biến dị: <data name>":
+
+`value(v, k) = floor(per_purity(v, k) · purity_v / 0.1) · 0.1`
+
+The floor is taken in integer arithmetic on hundredths, and the value follows the variant's
+current purity. Spiritual Roots Formulas E owns the coefficients and prices. None of the
+eight variants' keys is under a rule 14 ceiling. For example, Thunder at purity 47 gives
+`attack_pct` +14.1.
+
 **Example:** Wood 60 with `herb_growth_pct` +10 (the ceiling) → 1.48 × 1.1 = **1.628**.
-Wood 60 with Time and +10 → 1.48 × 1.25 × 1.1 = **2.035**. Earth 60 with
+Earth 60 with
 `field_plots` +3 → 3 + 2 + 3 = **8** plots.
 
 ### H. Fortune and presence factors
@@ -601,7 +585,7 @@ The stacking formulas are defined as:
 
 `total(k) = Σ v_i` ; for `breakthrough_chance`: `total = min(Σ_tree v_i, cap_tree) + Σ_other v_i`
 
-for `herb_growth_pct` and `alchemy_success`: `total = min(Σ⁺ v_i, ceiling(k)) + Σ⁻ v_i`, where `ceiling(k) = max(base_ceiling(k), max_j raise_j(k))` over the holder's "ceiling_raise" effects on k (just `base_ceiling(k)` if none)
+for `herb_growth_pct` and `alchemy_success`: `total = min(Σ⁺ v_i, ceiling(k)) + Σ⁻ v_i`
 
 lifespan bonus: `B_life = min(pill_years + Σ⁺ lifespan_years, f_life · L_realm) + Σ⁻ lifespan_years`
 
@@ -617,9 +601,7 @@ treasure term.
 |----------|------|-------|--------|-------------|
 | v_i | int (precision units) | per key | calculated | One modifier, quantized once when it enters the sheet |
 | cap_tree | float | 8 pp | data file (`tree_breakthrough_cap`, owned by the Meridian Map) | Cap on the tree's share |
-| base_ceiling(k) | float | `herb_growth_pct` 10, `alchemy_success` 3 pp (**change** 04f, were 40 and 8) | data file (`bonus_ceilings`) | The character-wide ceiling for a character with no raise on k |
-| raise_j(k) | float | today `alchemy_success` 6 (Pill Fire) and 5 (Lava), `herb_growth_pct` 20 (Spirit Farming); Spiritual Roots knobs | data file (the mutation's effects in `character_elements.json`, kind "ceiling_raise" (key, value)) | One holder raise on k from a mutation the character holds (rule 14) |
-| ceiling(k) | float | base_ceiling(k) up to the highest raise; today 3, 5 or 6 pp for alchemy, 10 or 20 for herb growth | calculated | Character-wide ceiling on the positive modifiers of every source, root mutations and craft mastery included: the base ceiling, or the highest holder raise on k (raises do not stack); penalties are added after it (rule 14) |
+| ceiling(k) | float | `herb_growth_pct` 10, `alchemy_success` 3 pp (**change** 04f, were 40 and 8) | data file (`bonus_ceilings`) | Character-wide ceiling on the positive modifiers of every source, craft mastery included; penalties are added after it (rule 14) |
 | f_life | float | 0.15 (guess) | data file (`bonus_ceilings.lifespan_frac`) | Lifespan bonus ceiling as a share of the realm's base lifespan |
 | L_realm | int | 120 / 200 / 500 / 1,000 / 2,000 | data file (Realms & Bottlenecks) | The realm's base lifespan |
 | pill_years | float | ≥ 0 | stored on the character (Item DB lifespan pills) | Lifespan years from pills taken; the raw sum is kept (Edge Cases) |
@@ -629,10 +611,8 @@ treasure term.
 The ceiling values are calibrated by Realms & Bottlenecks. The derived limit is Realms'
 `bonus_ceiling_target`: each gate's birth-mix mean S at all ceilings, best plot play and
 one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which owns the computed figures.
-The target covers lives without root factors beyond Wood's purity term (so no Time
-`herb_age_root_pct`), without holder raises and without extra plots: those are root
-advantages or builds outside the target, per Realms AC-CG-60 (user decision 2026-11-04,
-cross-GDD review 04g, C5). The tree's `breakthrough_chance` share (cap_tree) is also
+The target covers lives without extra plots: those are builds outside the target, per
+Realms AC-CG-60 (user decision 2026-11-04). The tree's `breakthrough_chance` share (cap_tree) is also
 inside Realms Formulas C's q-extras ceiling, which Realms owns.
 
 **Output Range:** multipliers ≥ 0; flags 0/1. A ceilinged total is at most its ceiling
@@ -656,12 +636,9 @@ are ordinary entries in the sum.
 **Example:** heart demon 54.25 → #25 adds 27.125 → stored **27.1**. Tree modifiers of
 5.0 and 4.5 pp on `breakthrough_chance` → min(9.5, 8) = 8, plus a +12 perk (not capped) =
 **20**. Two secret arts with `herb_growth_pct` 25 each plus a tree +6 → min(56, 10) =
-**10**. A Spirit Farming mutation's +60 alone, on its holder (raised ceiling 20) →
-min(60, 20) = **20**. On a non-holder (ceiling 10), a +60 with a −20 penalty →
-min(60, 10) − 20 = **−10**, so herb growth takes × 0.9; the holder gets 20 − 20 = **0**;
-a +5 with the −20 → 5 − 20 = **−15**. A Pill Fire holder (raised ceiling 6) with
-`alchemy_success` +2, +2 and +3 → min(7, 6) = **6**; a non-holder with the same lines →
-**3**. In QR (base lifespan 120), two arts with `lifespan_years` 15 →
+**10**. A +60 with a −20 penalty → min(60, 10) − 20 = **−10**, so herb growth takes × 0.9;
+a +5 with the −20 → 5 − 20 = **−15**. `alchemy_success` +2, +2 and +3 → min(7, 3) = **3**.
+In QR (base lifespan 120), two arts with `lifespan_years` 15 →
 min(30, 18) = **18** years; add a `lifespan_years` −5 penalty → 18 − 5 = **13**.
 
 ### J. Comprehension factor
@@ -708,13 +685,9 @@ cross-GDD review N5: the factor was built but had no formula in any GDD.)
   **(new)**. Each ceiling clamps the positive modifiers only; penalties are added after
   it (rule 14).
 
-**`character_elements.json`** (owned by Spiritual Roots; the effect kinds this GDD reads):
-- kind "root": a mutation's declared root factor (today Time's `herb_age_root_pct`, Formulas G).
-- kind "ceiling_raise" (key, value) **(new, 04g F15)**: a mutation raises the
-  `bonus_ceilings` key for its holder to the value; raises on one key do not stack (the
-  highest applies; Formulas I). Today Pill Fire {`alchemy_success`, 6}, Lava
-  {`alchemy_success`, 5} and Spirit Farming {`herb_growth_pct`, 20}. Data validation rejects a key that is not in
-  `bonus_ceilings` and a value at or below the base ceiling.
+**`character_elements.json`** (owned by Spiritual Roots): `variants` and `variant_effects` (per
+variant a list of {`stat`, `per_purity`}), read by Formulas G's variant role lines. The
+effect kinds "root" and "ceiling_raise" were removed with the relocated mutations.
 
 **`events_budgets.json`, `combat_rules.json`, `items_recipes.json`, `session_actions.json`**
 (the fortune and presence factors, Formulas H; each key moves to data if it is
@@ -787,16 +760,9 @@ hard-coded):
   applied when the bonus is read, so held-back years count again when a great
   breakthrough raises the ceiling (Realms rule 14).
 - **If a ceiling key holds bonus above its ceiling and a penalty:** the penalty applies
-  after the cap, so the bonus above the ceiling does not absorb it (rule 14). On a
-  non-holder, a +60 `herb_growth_pct` with a −20 penalty gives 10 − 20 = −10, and herb
-  growth takes × 0.9; a Spirit Farming holder (raised ceiling 20) gets 20 − 20 = 0. The
-  sheet shows the clamp line (60 → 10, or 60 → 20 naming the raise) and then the
-  penalty line.
-- **If a character holds two raises on the same key:** they do not stack; the highest
-  raised value is the ceiling, and the sheet names that raise as the source.
-- **If a raise is lost** (the mutation is removed): the ceiling returns to the base at
-  the next read; the stored modifiers are unchanged and simply clamp lower. At −100 or below the herb growth factor floors at 0 (`max(0, …)`,
-  Formulas G), never negative.
+  after the cap, so the bonus above the ceiling does not absorb it (rule 14). A +60 `herb_growth_pct` with a −20 penalty gives 10 − 20 = −10, and herb growth
+  takes × 0.9. The sheet shows the clamp line (60 → 10) and then the penalty line. At −100
+  or below the herb growth factor floors at 0 (`max(0, …)`, Formulas G), never negative.
 - **If lifespan penalties push the lifespan bonus below 0:** that is allowed, and the
   cap falls below the realm's base lifespan. A player change that would put the cap at
   or below the age needs Realms rule 14's confirmation first.
@@ -837,7 +803,7 @@ its own Dependencies section.
 |---|---|---|
 | 1 | Data-Driven Config | `character_attributes.json`, `character_stat_labels.json`, `character_elements.json`, the realm multipliers in `cultivation_realms.json` |
 | 2 | Deterministic Simulation Core | The seeded RNG for talent rolls; Breakdown for every derived value |
-| 6 | Spiritual Roots (Linh Căn) | Element purities, root mutations and their modifiers, base element count, generating-pair `cultivation_speed_pct` modifiers (up to +15 in all; they stack additively under Formulas I); Time's root factor `herb_age_root_pct` (kind "root") for Formulas G; holder ceiling raises (kind "ceiling_raise") for Formulas I |
+| 6 | Spiritual Roots (Linh Căn) | Element purities, root variants with their purities and role lines, `n_base`, `n_eff`, generating-pair `cultivation_speed_pct` modifiers (up to +15 in all; they stack additively under Formulas I) |
 
 **Modifier and value sources (soft).** Each pushes values into the sheet through one
 provider interface. Character Stats never calls them, which breaks the cycles described
@@ -900,8 +866,7 @@ Ranges marked *derived* follow from another constraint in this GDD or an approve
 | `mi_luc_price_per_point` | 0.004 | 0.002–0.004; *derived*: ≤ 0.4286 ÷ (effective talent clamp − 50), which is 0.00429 at clamp 150, or buy-sell loops profit | Prices |
 | Precision grid | 0.1 / 0.01 / 1 | fixed (Meridian Map, Formulas F) | Stacking |
 | `ngo_tinh_divisor` | 200 | 150–300 | How much comprehension speeds cultivation: ×1.225 at 45 (200), ×1.30 at 45 (150). Moving it moves every realm's years (Realms years table) |
-| `bonus_ceilings` | `herb_growth_pct` 10, `alchemy_success` 3, `lifespan_frac` 0.15 (**change** 04f, were 40 and 8) | 5–10, 2–3, 0.10–0.15: at most the current values until the bot run (AC-CG-60) confirms headroom; *derived*: the derived limit is Realms' `bonus_ceiling_target`: each gate's birth-mix mean S at all ceilings, best plot play and one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which owns the computed figures. The target covers lives without root factors beyond Wood, without holder raises and without extra plots; those are root advantages or builds outside the target, per Realms AC-CG-60 (04g C5). Penalties apply after the cap (rule 14) | How far a dedicated alchemy build can push breakthrough odds and lifespan |
-| Holder ceiling raises ("ceiling_raise") | Pill Fire `alchemy_success` 6, Lava `alchemy_success` 5, Spirit Farming `herb_growth_pct` 20 | **Spiritual Roots knobs**, not this GDD's: Spiritual Roots owns which mutations raise what, the values and the prices. This GDD fixes only the rules: one key per raise, above the base ceiling, highest raise applies, penalties after the raised cap (rule 14). Outside `bonus_ceiling_target` (Realms AC-CG-60) | How far a mutation's holder can push its craft line past the shared ceiling |
+| `bonus_ceilings` | `herb_growth_pct` 10, `alchemy_success` 3, `lifespan_frac` 0.15 (**change** 04f, were 40 and 8) | 5–10, 2–3, 0.10–0.15: at most the current values until the bot run (AC-CG-60) confirms headroom; *derived*: the derived limit is Realms' `bonus_ceiling_target`: each gate's birth-mix mean S at all ceilings, best plot play and one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which owns the computed figures. The target covers lives without extra plots; those are builds outside the target, per Realms AC-CG-60. Penalties apply after the cap (rule 14) | How far a dedicated alchemy build can push breakthrough odds and lifespan |
 
 ## Visual/Audio Requirements
 
@@ -936,7 +901,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `design/gdd/game-concept.md` | Character Stats (three layers, draft formulas), birth modes, Pillars 2 and 3 |
 | `design/gdd/canh-gioi.md` | Stage multiplier (Formulas B), heart demon gain and decay, the Nascent Soul condition, qi deviation (rule 10, which must read `qi_deviation_pct`); Realms Formulas D (pill supply reads `herb_growth_pct`, `alchemy_success` and h); `bonus_ceiling_target` (AC-CG-60); this GDD answers its Open Questions 6 and 7 |
 | `design/gdd/kinh-mach-do.md` | Acupoint modifiers, stat weights and precision (Formulas F), capabilities #4 and #25, the tree cap |
-| `design/gdd/linh-can.md` | Element purities, base element count, root mutation modifiers and the generating-pair `cultivation_speed_pct` modifiers that enter the sheet |
+| `design/gdd/linh-can.md` | Element purities, base element count, root variant role lines and the generating-pair `cultivation_speed_pct` modifiers that enter the sheet |
 | `design/gdd/cong-phap.md` | Technique bonuses through the provider interface, `tech_power` (Formulas C), and the slot-dependent lifespan years that Realms rule 14's confirmation covers |
 | `design/glossary.md` | Terms |
 | `assets/data/character_attributes.json`, `character_stat_labels.json`, `character_elements.json` | The data this GDD's keys change |
@@ -983,7 +948,7 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   Lower, with the effective value still 1 or more.
 - **AC-CS-07** [Logic] Rule 4.
   - Climbing QR → FE → CF never changes comprehension base 45.
-  - A Stars mutation shows as a +10 sheet modifier with the mutation as its source, for an
+  - A perk's +10 shows as a sheet modifier with the perk as its source, for an
     effective 55.
   - An event's +3 on base 99 gives 100.
 - **AC-CS-08** [Logic] Formula B, for each of the six talent keys:
@@ -1081,9 +1046,6 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   - Wood 60 with `herb_growth_pct` +10 → 1.48 × 1.1 = 1.628; Metal 50 → 1.4.
   - Wood 60 with `herb_growth_pct` sources summing to +40 → total 10, with a clamp line
     (40 → 10) → 1.628.
-  - Wood 60, Time held, `herb_growth_pct` +10 → 1.48 × 1.25 × 1.1 = 2.035. The Time
-    owner's +25 (`herb_age_root_pct`) is not shown as a sheet modifier and has no
-    clamp line.
   - Earth 60 with +3 → 8 plots.
   - Earth 100 with +7 → 12 (clamped); Earth 0 with −5 → 1.
   - `herb_growth_pct` −150 → 0.
@@ -1212,33 +1174,21 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
 - **AC-CS-54** [Logic] Rule 14, bonus ceilings.
   - Two technique `herb_growth_pct` 25 lines plus a tree +6 give a total of 10, with
     a clamp line; Wood purity 50 still multiplies herb growth by 1.4 on top.
-  - A Spirit Farming mutation (+60) on its holder gives 20, with a clamp line
-    (60 → 20) naming the Spirit Farming raise (04f B1; 04g F15).
-  - Penalties after the cap: on a non-holder, a +60 source with a −20 penalty gives
-    10 − 20 = −10, with a clamp line (60 → 10) and a separate penalty line; on a Spirit
-    Farming holder the same lines give 20 − 20 = 0; a +5 with a −20 gives
+  - Penalties after the cap: a +60 source with a −20 penalty gives 10 − 20 = −10, with a
+    clamp line (60 → 10) and a separate penalty line; a +5 with a −20 gives
     −15, with no clamp line; +8 and +6 give 10, with a clamp line (14 → 10).
   - *(Provisional until system 14 defines the mastery curve.)* A Spirit Fields mastery
     `herb_growth_pct` +6 with a technique +8 gives 10, with a clamp line (14 → 10); the
     breakdown names the +6's source as the Spirit Fields craft.
   - `alchemy_success` 2 + 2 gives 3.
-  - Holder-raised ceilings (04g F15):
-    - A Pill Fire holder with `alchemy_success` +2, +2 and +3 gives 6, with a clamp
-      line (7 → 6) naming the Pill Fire raise; the sheet shows the ceiling as 6 with
-      Pill Fire as its source.
-    - A Pill Fire holder who also holds another `alchemy_success` raise to 5 has a
-      ceiling of 6 (the highest), not 11 or 5; the same +2 +2 +3 gives 6.
-    - A non-holder with +2, +2 and +3 gives 3, with a clamp line (7 → 3) and no raise
-      shown.
-    - A Pill Fire holder with +2 +2 +3 and a −2 penalty gives 6 − 2 = 4 (penalty after
-      the raised cap).
+  - `alchemy_success` +2, +2 and +3 gives 3, with a clamp line (7 → 3).
   - At QR (base lifespan 120), a lifespan pill of 10 plus two `lifespan_years` 15
     lines give a lifespan bonus of 18, with a clamp line. At FE (200), a pill of 10
     plus one `lifespan_years` 15 line gives 25, under the ceiling of 30, with no
     clamp line.
   - `field_plots` and `lifespan_pct` are not clamped by these ceilings.
   - A stored lifespan bonus of 40 counts 18 in QR, 30 in FE and 40 in CF, with the raw
-    sum unchanged. A mutation's `lifespan_years` is part of the sum and is clamped with
+    sum unchanged. Every `lifespan_years` modifier is part of the sum and is clamped with
     the rest.
   - At QR, a pill of 10 plus two `lifespan_years` 15 lines and a `lifespan_years` −5
     line give 18 − 5 = 13. A −30 line alone gives −30, and the cap is 90, below the
@@ -1256,10 +1206,10 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
-| 1 | ~~Spiritual Roots' purity rules and each root mutation's modifiers~~ **Answered 2026-11-04 by the Spiritual Roots GDD:** the purity rules and mutation modifiers are in `linh-can.md`; the values here follow it | — | — |
+| 1 | ~~Spiritual Roots' purity rules and each root mutation's modifiers~~ **Answered 2026-11-04 by the Spiritual Roots GDD:** the purity rules and variant roles are in `linh-can.md` (redesigned 2026-11-04); the values here follow it | — | — |
 | 2 | What attack and defense mean in combat, and how combat uses vitality (× max(v, 0.4) as built) | Combat GDD | The Combat keys in rule 15 |
 | 3 | The NPC attitude scale that presence feeds | NPC Interaction GDD | Formulas H |
 | 4 | Event Engine budgets for talent, heart demon and vitality effects | Event Engine GDD | Rule 4 (event talent changes) |
 | 5 | The talents' unbuilt roles: physique's body cultivation; soul strength's formation complexity and detection | the respective systems | Rule 1 |
 | 6 | Implementation changes: the resist clamp to 2.0; `dan_doc_no_penalty` also covering pills; the cleansing floor; two key renames; `stage_power_step` as one global key; derived values taking the stage multiplier; the new `qi_deviation_pct` key, which Realms & Bottlenecks rule 10 must read; the `mi_luc` and talent labels; the provider interface for modifier sources | implementation story | Building this GDD |
-| 7 | `lifespan_pct` is outside the lifespan ceiling and no current source grants it. Any source that will (a mutation, a perk, a treasure) needs a price and a bound first, since it multiplies the whole cap and feeds pill supply through the growing years W | user, Realms & Bottlenecks | Any `lifespan_pct` source |
+| 7 | `lifespan_pct` is outside the lifespan ceiling and no current source grants it. Any source that will (a Way, a perk, a treasure) needs a price and a bound first, since it multiplies the whole cap and feeds pill supply through the growing years W | user, Realms & Bottlenecks | Any `lifespan_pct` source |

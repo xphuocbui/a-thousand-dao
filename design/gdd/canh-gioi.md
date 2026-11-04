@@ -1,6 +1,6 @@
 # Realms & Bottlenecks (Cảnh Giới & Bình Cảnh)
 
-> **Status**: In Review (2026-11-04, after cross-GDD review 04g: shorter CF/NS herbs, failure insight, q-extras ceiling, root factors and holders outside the target, plant plan; awaiting re-review). See `reviews/canh-gioi-review-log.md`.
+> **Status**: In Review (2026-11-04, after cross-GDD review 04g: shorter CF/NS herbs, failure insight, q-extras ceiling, root factors and holders outside the target, plant plan; then aligned to the Spiritual Roots redesign: curve keyed by `n_eff`, Time and craft-mutation holders removed; awaiting re-review). See `reviews/canh-gioi-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-04
@@ -302,7 +302,7 @@ interfaces are provisional.
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
 | Character Stats | out / in | out: realm, level, stage multiplier (bases for spiritual power, divine sense, vitality, the combat power realm term); in: comprehension, Dao heart, and the stat sheet's `breakthrough_chance` | Character Stats (stat keys, units); this GDD (the ladder) |
-| Spiritual Roots (Linh Căn) | in / out | in: base element count (mutations excluded) and the curve factor, looked up by realm and stage. Out: the `breakthrough_succeeded` event (player only, rule 9), which triggers Mutation Awakening (its rule 9; capability #24) | Spiritual Roots (the curve, the roll); this GDD (the event) |
+| Spiritual Roots (Linh Căn) | in / out | in: the effective element count `n_eff` (innate variants count, derived ones do not) and the curve factor, looked up by realm and stage. Out: the `breakthrough_succeeded` event (player only, rule 9), which triggers Mutation Awakening (its rule 10; capability #24) | Spiritual Roots (the curve, the roll); this GDD (the event) |
 | Time & Turn | in / out | in: seasons, age, death by old age; out: the bottleneck state and the ripening year of the next brew, for a one-click "retreat until ripe" (cross-GDD review 04g, F2; Open Question 18) | Time & Turn |
 | Item DB | in | breakthrough pills (the realm's entry pill tag and quality), breakthrough talismans (consumed) | Item DB |
 | Meridian Map (Kinh Mạch Đồ) | out | `level_gained`, `stage_reached` and `breakthrough_succeeded` events, and the ladder constants (bands, `great_breakthrough_bonus`, `pct_trung` / `pct_hau` / `pct_dai`), which this GDD owns | Meridian Map (point arithmetic); this GDD (the ladder and its constants) |
@@ -495,7 +495,7 @@ The pill_supply formula is defined as:
 
 `B = the number of brews k = 1, 2, … that count` ; brew k counts if `A_k ≤ cap − 0.25`, where `A_1 = max(e + T_1, e + Y_climb)` and `A_k = max(e + T_k, A_(k−1) + r)` ; `T_k = C_k / h` ; `C_k = min { c : the herbs of k recipes fit in n_plots plots of c herb-years each }`
 
-`W = cap − e` ; `n_plots = clamp(3 + ⌊0.04 · purity_earth⌋ + field_plots, 1, 12)` ; `h = (1 + 0.008 · purity_wood) · (1 + herb_age_root_pct / 100) · max(0, 1 + herb_growth_pct / 100)` ; `p_brew = clamp(p_brew0 + 0.0025 · purity_fire + alchemy_success / 100, 0.05, 0.95)`
+`W = cap − e` ; `n_plots = clamp(3 + ⌊0.04 · purity_earth⌋ + field_plots, 1, 12)` ; `h = (1 + 0.008 · purity_wood) · max(0, 1 + herb_growth_pct / 100)` ; `p_brew = clamp(p_brew0 + 0.0025 · purity_fire + alchemy_success / 100, 0.05, 0.95)`
 
 **Pills are whole** (changed 2026-11-04, cross-GDD review 04f, B2). A herb ripens only at
 its `min_age`, and a pill needs every herb of its recipe. So supply is a count of brews per
@@ -531,8 +531,7 @@ the plots can still finish under the counting rule. It shows B_remaining, the pi
 and the chance of brewing no pill, (1 − p_brew)^B_remaining.
 
 The spiritual root enters through all three terms (added 2026-11-04, cross-GDD review D1):
-- Earth adds plots and Wood speeds herbs (Character Stats, Formulas G). The Time (Thời
-  Gian) mutation adds a herb-aging root factor, ×1.25 (added 2026-11-04).
+- Earth adds plots and Wood speeds herbs (Character Stats, Formulas G).
 - Fire raises brew success (Alchemy, as built: +0.25 percentage points per purity point).
 - An absent element has purity 0.
 
@@ -543,12 +542,11 @@ The spiritual root enters through all three terms (added 2026-11-04, cross-GDD r
 | e | float | years | calculated | Age at the realm's entry; 16 at Qi Refining (guess) |
 | cap | float | years | calculated (rule 14) | The realm's lifespan cap at entry: 120 / 200 / 500 / 1,000 at baseline, raised by the lifespan bonus |
 | W | float | years | calculated | Growing years: `cap − e`. The calibration takes it from the entry-age model below: QR→FE 104 for every life; FE→CF 94 / 116 / 144, CF→NS 310 / 342 / 382, NS→DT 540 / 645 / 767 (10th / 50th / 90th percentile of the lives that reach the gate; recomputed after 04g) |
-| Y_climb | float | years | calculated (Spiritual Roots Formulas B) | Years to clear the realm, including the first bar fill, by base element count: QR 25 / 33 / 36 / 43 / 50, FE 64 / 52 / 48 / 57 / 69, CF 187 / 71 / 58 / 55 / 79, NS 456 / 128 / 97 / 84 / 66 |
+| Y_climb | float | years | calculated (Spiritual Roots Formulas B) | Years to clear the realm, including the first bar fill, by `n_eff`: QR 25 / 33 / 36 / 43 / 50, FE 64 / 52 / 48 / 57 / 69, CF 187 / 71 / 58 / 55 / 79, NS 456 / 128 / 97 / 84 / 66 |
 | r | float | years | calculated (Formulas A) | Gap between attempts: the refill time (7.4 / 12.6 / 14.5 / 23.4 seasons for a 3-element root, scaled by the root's Y_climb ÷ the 3-element Y_climb; guess) plus the attempt's season |
 | C_k, T_k | int, float | herb-years, years | calculated | Plot capacity that holds k recipes, and the year after entry it is reached |
 | n_plots | int | 1–12 | calculated (Character Stats, Formulas G) | Spirit field plots: base 3, +1 per 25 Earth purity, plus `field_plots` |
-| h | float | 0 or above (0 when `herb_growth_pct` ≤ −100) | calculated (Character Stats, Formulas G) | Herb growth factor from Wood purity, `herb_age_root_pct` and `herb_growth_pct`. At h = 0 no herb ripens: T_k = ∞ and B = 0 |
-| herb_age_root_pct | float | 0 or 25 | calculated (Character Stats, Formulas G; Spiritual Roots) | Time's herb-aging root factor: 25 for a character holding the Time (Thời Gian) mutation, else 0. A root term like Wood's: set by the mutation, not a sheet modifier, and not under the herb growth ceiling (added 2026-11-04) |
+| h | float | 0 or above (0 when `herb_growth_pct` ≤ −100) | calculated (Character Stats, Formulas G) | Herb growth factor from Wood purity and `herb_growth_pct`. At h = 0 no herb ripens: T_k = ∞ and B = 0 |
 | p_brew0 | float | 0.05–0.95 | calculated (Alchemy) | Brew success without Fire: about 0.65 for the FE pill, 0.64 for the CF pill, 0.65 for the NS and DT pills (guess) |
 | p_brew | float | 0.05–0.95 | calculated (Alchemy) | Brew success with Fire purity and `alchemy_success` |
 | herb_growth_pct, alchemy_success | float | at most 10, at most 3 pp; negative totals allowed (h floors at 0) | calculated (Character Stats, rule 14 ceilings) | Character-wide totals from every Character Stats rule 12 source. Penalties apply after the cap: total = min(Σ positive, ceiling) + Σ negative. `alchemy_success` adds percentage points to brew success (user decision 2026-11-04) |
@@ -579,7 +577,7 @@ the realm, so the calibration derives it instead of guessing one value per gate.
 fixed-seed simulation of 20,000 lives per element count (purities by Spiritual Roots
 Formulas A) follows each life through the four gates. Its assumptions:
 - every life enters Qi Refining at age 16 (guess);
-- the climb takes Y_climb by base element count, from Spiritual Roots Formulas B (whose
+- the climb takes Y_climb by `n_eff`, from Spiritual Roots Formulas B (whose
   rate factor of 1.25 is itself a guess);
 - the baseline lifespan caps are the base lifespans, 120 / 200 / 500 / 1,000;
 - breakthrough herbs are plantable from the realm's entry, not earlier (the rule below);
@@ -642,8 +640,7 @@ technique mastery stall.
   giving up.
 - **The targets assume no extra plots** (user decision 2026-11-04). The 0.30 / 0.70
   targets and `bonus_ceiling_target` 0.45 are set on a life with `field_plots` 0, so
-  base 3 plus Earth's plots. Extra plots from any source (the Spirit Farming mutation,
-  Tổ Truyền Linh Điền and other perks, items, Spirit Fields) are a deliberate build lever
+  base 3 plus Earth's plots. Extra plots from any source (Tổ Truyền Linh Điền and other perks, items, Spirit Fields) are a deliberate build lever
   that can beat those odds. Pillar 3 applies: power is built. The tree gives no plots at
   its launch values (user decision 2026-11-04, cross-GDD review 04g, F11).
 - **Plant order (bot rule).** At the realm's entry the bot plants the packing that
@@ -691,18 +688,11 @@ and 04f).
   no other bonus 0.62–0.75. AC-CG-60 runs at `field_plots` 0 (Open Question 13, answered
   for fields), and the bot's calibration runs (AC-CG-30, AC-CG-60) take no plot node from
   the tree (cross-GDD review 04g, F11).
-- **Root factors and craft-mutation holders are outside the target too** (user decisions
-  2026-11-04, cross-GDD review 04g, C5 and F15).
-  - `bonus_ceiling_target` covers lives with no root factor beyond Wood's purity: Time's
-    herb-aging factor is excluded, and AC-CG-60 runs with Mutation Awakening off.
-  - A craft mutation raises its holder's ceiling (Character Stats and Spiritual Roots
-    define it). Pill Fire raises `alchemy_success` 3 → 6, Lava raises it 3 → 5, and
-    Spirit Farming raises `herb_growth_pct` 10 → 20 and adds 2 `field_plots`. Raises do
-    not stack: the highest applies.
-  - On the ceiling run with `field_plots` 0, a Pill Fire holder reaches 0.45 / 0.47 / 0.46
-    / 0.46, a Lava holder 0.45 / 0.47 / 0.46 / 0.46 and a Spirit Farming holder 0.46 /
-    0.50 / 0.48 / 0.48; with Spirit Farming's two plots, 0.62 / 0.67 / 0.65 / 0.64 (a field
-    build). Like root factors, holders sit outside the target.
+- **Variant roots.** AC-CG-60 runs with Mutation Awakening off. No variant grants a ceiling
+  key or a root factor, so variants do not move these ceilings; Chaos's
+  `breakthrough_chance` joins the q extras (Formulas C). The craft-mutation holders and
+  Time's root factor left with the Spiritual Roots redesign (2026-11-04). If the Way (Đạo)
+  brings a ceiling raise or root factor back, it must re-run this calibration.
 
 **The Core Formation herb.**
 - Kim Tủy Quả (rarity 4) becomes plantable from Foundation Establishment on, so the CF
@@ -716,36 +706,16 @@ and 04f).
 factor h gathers:
 - **elemental affinity:** Wood purity (Character Stats Formulas G; a root term, not
   capped);
-- **Time (Thời Gian):** a ×1.25 herb-aging root factor, outside the ceiling
-  (`herb_age_root_pct` 25; Character Stats Formulas G). It is set by the mutation, not
-  a sheet modifier;
 - **items** (spirit field tools, fertilisers), **techniques** (auxiliary arts), **the
   tree** and **destiny perks**: `herb_growth_pct` modifiers;
-- **root mutations:** Life and Spirit Farming grant `herb_growth_pct`, which counts under
-  the ceiling; Time's old +100 % is dropped in the data pass (Spiritual Roots Open
-  Question 1) (cross-GDD reviews 04f, B1, and 04g, C4);
 - **knowledge:** Spirit Fields craft mastery (đạo nghệ) adds `herb_growth_pct` as a sheet
   modifier. Its curve belongs to Spirit Herbs & Spirit Fields (system 14, no GDD yet;
   Open Question 12).
 
-**Growth pays in steps.** Everything except the root terms (Wood's purity and Time's
-herb-aging factor) shares Character Stats' `herb_growth_pct` ceiling of 10. A plot ripens one more herb only when ⌊h · W⌋ crosses the next sum of
+**Growth pays in steps.** Everything except the root term (Wood's purity) shares Character Stats' `herb_growth_pct` ceiling of 10. A plot ripens one more herb only when ⌊h · W⌋ crosses the next sum of
 herb ages, so between steps extra growth is worth nothing. The Advisor names the next step
 ("+4 % herb growth: one more brew"). Pricing growth by steps rather than linearly is open
 (cross-GDD review 04f, F7; Open Question 15).
-
-**What Time's factor does** (entry-age model, recomputed 2026-11-04 after 04g). A
-root-free life holding Time (h 1.25) brews one more pill at the median W of QR→FE and
-FE→CF (3 → 4) and two more at CF→NS and NS→DT (3 → 5), where the shorter herbs let the
-faster clock add steps. At the 10th-percentile W it brews 4 instead of 3 (QR→FE, CF→NS,
-NS→DT) and 3 instead of 2 (FE→CF). Over the birth mix, a life that gains Time at Core
-Formation goes from 0.30 to 0.38 at CF→NS and to 0.37 at NS→DT (a rare life holding it
-from Qi Refining gains +0.07–0.09 at every gate). At the three ceilings with the talisman
-it reaches 0.53 at CF→NS and NS→DT. Root factors are outside `bonus_ceiling_target` (user
-decision 2026-11-04, cross-GDD review 04g, C5; the ceilings paragraph above). Time is an
-order-4 mutation formed mostly by Awakening at Core Formation or later, and it is not in
-the birth mix, so the baseline means and Formulas E's table are unchanged; Spiritual
-Roots owns how often it occurs.
 
 ### E. Realm-step success
 
@@ -807,12 +777,12 @@ edge's W comes from the edge's own crossings, which are earlier (FE→CF median 
 Character Stats ceilings 10 / 3 / 15 %, the step's talisman, typical q extras, best plots,
 `field_plots` 0, #22 and #23 off):
 
-| Gate | + talisman | Tree at 8 pp (under X_q) | Ceiling run (AC-CG-60) | Fully built, no edge (every q extra at its maximum, X_q 0.10) | Edge + full build (Đạo Cốt, G as above) | Pill Fire holder (alchemy 6) | Lava holder (alchemy 5) | Spirit Farming holder (herb 20; with its +2 plots) |
-|---|---|---|---|---|---|---|---|---|
-| QR→FE | 0.337 | 0.374 | 0.437 | 0.519 | 0.826 | 0.450 | 0.446 | 0.456 (0.624) |
-| FE→CF | 0.346 | 0.376 | 0.459 | 0.541 | 0.854 | 0.473 | 0.469 | 0.495 (0.672) |
-| CF→NS | 0.340 | 0.384 | 0.450 | 0.547 | 0.858 | 0.464 | 0.460 | 0.483 (0.655) |
-| NS→DT | 0.344 | 0.387 | 0.447 | 0.542 | 0.852 | 0.461 | 0.456 | 0.478 (0.642) |
+| Gate | + talisman | Tree at 8 pp (under X_q) | Ceiling run (AC-CG-60) | Fully built, no edge (every q extra at its maximum, X_q 0.10) | Edge + full build (Đạo Cốt, G as above) |
+|---|---|---|---|---|---|
+| QR→FE | 0.337 | 0.374 | 0.437 | 0.519 | 0.826 |
+| FE→CF | 0.346 | 0.376 | 0.459 | 0.541 | 0.854 |
+| CF→NS | 0.340 | 0.384 | 0.450 | 0.547 | 0.858 |
+| NS→DT | 0.344 | 0.387 | 0.447 | 0.542 | 0.852 |
 
 The fully built life with no edge stays at or below about 0.55 and edge plus full build at
 about 0.85, which is what the q-extras ceiling was sized for (Formulas C; cross-GDD review
@@ -831,8 +801,7 @@ about 0.85, which is what the q-extras ceiling was sized for (Formulas C; cross-
   - The realm step's talisman: about +0.04 (0.30 → 0.34).
   - A tree that maximises its 8 pp: about +0.08 (0.30 → 0.37–0.39); the q-extras ceiling
     clips it on a typical life (Formulas C; it was +0.12 before the ceiling).
-  - **Extra plots, as a build** (user decision 2026-11-04): `field_plots` from the Spirit
-    Farming mutation, Tổ Truyền Linh Điền and other perks, items or Spirit Fields add
+  - **Extra plots, as a build** (user decision 2026-11-04): `field_plots` from Tổ Truyền Linh Điền and other perks, items or Spirit Fields add
     brews (the tree gives none at its launch values). The targets assume none; 12 plots
     and no other bonus give 0.62–0.75 (Formulas D).
   - **Everything at once, no edge:** 0.52–0.55 (the builds table above).
@@ -970,7 +939,7 @@ shown as one line of the breakdown.
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | base | float | per realm | data file | Realm base rate |
-| curve | float | 0.3–9.0 | Spiritual Roots (Formulas B) | `element_count_curve[base element count][stage group]` |
+| curve | float | 0.3–9.0 | Spiritual Roots (Formulas B) | `element_count_curve[n_eff][stage group]` |
 | tech, comp, density, tox | float | 0+ (comp 1.005–1.75) | Cultivation Techniques (Formulas A), Character Stats (Formulas J, `comp = 1 + effective comprehension ÷ 200`), Travel & Map / Formulas, Character Stats | Technique speed, comprehension, local qi density and pill-toxicity penalty factors |
 | speed_pct | float | 0 upward (no ceiling; a five-element root's generating pairs alone are +15, with techniques, the tree and items on top) | calculated (stat sheet `cultivation_speed_pct`, Character Stats Formulas I) | The sum of every speed bonus, including Spiritual Roots' generating pairs (+3 % each, up to +15) |
 
@@ -1204,7 +1173,7 @@ written, it must list Realms & Bottlenecks in its own Dependencies section.
 | 1 | Data-Driven Config | `cultivation_realms.json` (bands, costs, chances, conditions), `character_attributes.json` (curve, heart demon decay) |
 | 2 | Deterministic Simulation Core | The seeded RNG for attempts and NPC fate; Breakdown for every rate and chance |
 | 4 | Time & Turn | Seasons, age, death by old age; a one-click "retreat until ripe" at the bottleneck (Open Question 18) |
-| 6 | Spiritual Roots (Linh Căn) | Base element count (mutations excluded) and the curve factor by realm and stage |
+| 6 | Spiritual Roots (Linh Căn) | `n_eff` (its Formulas B) and the curve factor by realm and stage |
 | 7 | Character Stats | Comprehension, Dao heart, heart demon, vitality and the stat sheet (`breakthrough_chance`, `cultivation_speed_pct`, flags); it receives the stage multiplier |
 | 13 | Item Database & Generation | Breakthrough pills (tag, quality), breakthrough talismans |
 
@@ -1224,7 +1193,7 @@ written, it must list Realms & Bottlenecks in its own Dependencies section.
 | # | System | What it takes |
 |---|---|---|
 | 10 | Meridian Map | `level_gained`, `stage_reached` and `breakthrough_succeeded` events; the ladder constants; S_guard for its guard (E2). Rule 8 consumes Formulas E2's q_desp with τ_a (#22 on a talisman attempt); E2's q includes the step's failure insight, and its q_retry subtracts the insight #23's failed roll would add (Formulas H) |
-| 6 | Spiritual Roots (Linh Căn) | The `breakthrough_succeeded` event, for Mutation Awakening (its rule 9). Spiritual Roots is also upstream (the curve); the event breaks the cycle, since neither system calls the other |
+| 6 | Spiritual Roots (Linh Căn) | The `breakthrough_succeeded` event, for Mutation Awakening (its rule 10). Spiritual Roots is also upstream (the curve); the event breaks the cycle, since neither system calls the other |
 | 21 | Combat | The combat power realm term (realm base × stage multiplier); it reports defeats for capability #9 |
 | 22 | Heavenly Tribulation | The hand-off after a successful Deity Transformation roll |
 | 24 / 28 | NPC Build Generation, Living World Tick | NPC realm, stage and level; the fate roll |
@@ -1258,7 +1227,7 @@ other numbers in this GDD; ranges marked *guess* wait for a bot run.
 |---|---|---|---|
 | `climb_total` | 1,025 / 5,600 / 42,000 / 276,000 / 1,850,000 | QR −30 % to +19 % (first derived from a five-element root at 84 % of the half-lifespan ceiling in QR at tech 1.0, Spiritual Roots Formulas B; with Cultivation Techniques' `count_gain` 1.27 it is about 44 years, 73 %, so +19 % is now a margin, not the limit); FE and CF −30 % to +30 % (five-element check pending, AC-CG-33a); NS and DT −30 % to +8 % (derived: +30 % would push a 1-element NS and DT past the ceiling); derived ceiling: a root of any element count must clear a realm in at most half its lifespan | Years per realm (Pillar 4) |
 | `climb_growth` | 6 / 3 / 3 / 3 / 3 | 2–6 (QR 4–8) | How much later levels cost than early ones |
-| `bonus_ceiling_target` (calibration target, not a data key) | S 0.45 per gate, no edge, at best plot play with the realm step's talisman (04f), for lives without extra plots (`field_plots` 0), without a root factor beyond Wood (Time excluded) and without a craft mutation's raised ceiling (04g) | 0.40–0.50; *derived*: must stay well under the 0.70 edge target, or the edge stops being distinct | How much a dedicated alchemy build can raise breakthrough odds. Met by tuning Character Stats' `bonus_ceilings`: 10 / 3 / 15 % with the 5 pp talisman gives 0.44–0.46 in the entry-age model after failure insight (Formulas D; AC-CG-60), accepted inside AC-CG-60's ≤ 0.48 tolerance (user decision 2026-11-04). Outside it by design (user decisions 2026-11-04): extra plots (+1 plot gives 0.52–0.55), Time's root factor (0.53 at CF→NS and NS→DT) and craft-mutation holders (Pill Fire and Lava 0.45–0.47, Spirit Farming 0.46–0.50) |
+| `bonus_ceiling_target` (calibration target, not a data key) | S 0.45 per gate, no edge, at best plot play with the realm step's talisman (04f), for lives without extra plots (`field_plots` 0) | 0.40–0.50; *derived*: must stay well under the 0.70 edge target, or the edge stops being distinct | How much a dedicated alchemy build can raise breakthrough odds. Met by tuning Character Stats' `bonus_ceilings`: 10 / 3 / 15 % with the 5 pp talisman gives 0.44–0.46 in the entry-age model after failure insight (Formulas D; AC-CG-60), accepted inside AC-CG-60's ≤ 0.48 tolerance (user decision 2026-11-04). Outside it by design (user decisions 2026-11-04): extra plots (+1 plot gives 0.52–0.55) |
 | `q_extras_ceiling_pp` (`breakthrough`) | 10 pp (**new** after 04g, F14) | 8–10 (*derived*: a fully built life with no edge gives 0.48–0.50 at 8, 0.52–0.55 at 10, 0.54–0.57 at 11 and 0.56–0.59 at 12; the 0.55 bound sets the top, and it must stay above the typical extras, 6.25 pp) | How much talent, pill quality, the tree and events can add to a pill attempt together. Destiny perks, the talisman and failure insight are outside it |
 | `failure_insight_pp`, `failure_insight_cap` (`breakthrough`) | 2 pp per failed pill attempt, cap 4 pp (**new** after 04g, F13) | pp 1–3, cap 2–6, with `pill_chance` re-tuned (*derived* at today's `pill_chance`: off gives 0.25–0.27, 1 / 2 gives 0.27–0.29, 2 / 2 gives 0.28–0.29, 2 / 6 gives 0.30–0.31, 3 / 6 gives 0.32) | How much a failure teaches. Larger values move odds from the first pill to the later ones |
 | `bar_mult` | 4 / 10 / 10 / 10 | 6–15 (QR 3–5) | Bottleneck bar size; with the 30 % loss, how many levels a failure costs |
@@ -1342,7 +1311,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 |---|---|
 | `design/gdd/game-concept.md` | Realm Ladder, Character Stats (draft formulas, heart demon, Dao heart) and Pillars 2–4 |
 | `design/gdd/kinh-mach-do.md` | Points arithmetic (Formulas A), the breakthrough guard (E2, which now takes S_guard from Formulas H here), and capabilities #9, #22 and #23 hosted here; the ladder constants it reads (bonuses, shares) are owned and registered here |
-| `design/gdd/linh-can.md` | The element-count curve (Formulas B), the generating-pair speed bonus (Formulas C), Mutation Awakening on `breakthrough_succeeded` (rule 9), and the birth mix the 0.30 / 0.70 targets average over (Formulas A) |
+| `design/gdd/linh-can.md` | The element-count curve (Formulas B), the generating-pair speed bonus (Formulas C), Mutation Awakening on `breakthrough_succeeded` (rule 10), and the birth mix the 0.30 / 0.70 targets average over (Formulas A) |
 | `design/gdd/character-stats.md` | The stat sheet (`cultivation_speed_pct` stacking, Formulas I), the comprehension factor (Formulas J), the bonus ceilings and lifespan bonus (rule 14, Formulas I), comprehension, Dao heart, heart demon and vitality keys shared with this GDD |
 | `design/gdd/cong-phap.md` | Technique speed `tech` in the rate (Formulas A, including the tier cap and crude floor), slot-dependent bonuses (rule 12) that rule 14's confirmation covers, and the breakthrough-preview ×0.25 warning |
 | `design/quick-specs/progression-and-edges.md` | The 0.30 / 0.70 targets and the NPC edge curve. Its round-3 values (FE→CF pill 0.20, bare 0.005 / 0.01, heart demon +10, talisman +25) are superseded by Formulas C and F |
@@ -1735,16 +1704,14 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - the Advisor's years-to-bottleneck against years left;
   - the Advisor's warning before a cultivation pill at a full bar.
 - **AC-CG-60** [Bot] Formulas D, bonus ceilings. `autoplay.gd --edge off`, ≥ 330
-  bottleneck arrivals per gate, roots by the birth mix with Mutation Awakening off (no
-  root factor beyond Wood, no craft mutation's raised ceiling; cross-GDD review 04g, C5
-  and F15), with auxiliary arts, items and pills chosen to push `herb_growth_pct`,
+  bottleneck arrivals per gate, roots by the birth mix with Mutation Awakening off, with auxiliary arts, items and pills chosen to push `herb_growth_pct`,
   `alchemy_success` and the lifespan bonus to their Character Stats ceilings (10 / 3 /
   15 %), plots at best play, `field_plots` 0 with no plot node from the tree (F11),
   failure insight on, #22 and #23 off, and the realm step's one talisman (5 pp) used.
   Each gate's mean crossing rate is ≤ 0.48 (`bonus_ceiling_target` 0.45 + 0.03;
   entry-age model values 0.44 / 0.46 / 0.45 / 0.45, Formulas D, accepted inside this
   tolerance by user decision 2026-11-04), and the transcript shows the clamp lines.
-  Field builds, root factors and holders are outside the ceiling target by design (user
+  Field builds are outside the ceiling target by design (user
   decisions 2026-11-04; +1 plot gives 0.52–0.55, `max_plots` 12 gives 0.78–0.88). If a
   gate is over, lower the Character Stats `bonus_ceilings`, not the recipes or
   `pill_chance`. **Run order:** this run uses the `pill_chance` that AC-CG-30 set; run

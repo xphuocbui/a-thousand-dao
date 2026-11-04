@@ -74,18 +74,17 @@ and the LLM generates events, quests and people the player routes through, insid
 | **Narrative** (drama, story arc) | 5 | Emergent per-life chronicle written by the LLM from recorded world facts |
 | **Challenge** (obstacle course, mastery) | 2 | Planning under lifespan (thọ nguyên) pressure; bottlenecks (bình cảnh); tribulations; degenerate-proof economy |
 | **Fellowship** (social connection) | N/A | Single-player; sharing builds and lives happens outside the game |
-| **Discovery** (exploration, secrets) | 3 | Root mutations (biến dị), recipes, cultivation technique (công pháp) combinations, each world's history, secret domains (bí cảnh) |
+| **Discovery** (exploration, secrets) | 3 | Variant roots (biến dị linh căn), the Way (Đạo), recipes, cultivation technique (công pháp) combinations, each world's history, secret domains (bí cảnh) |
 | **Expression** (self-expression, creativity) | 1 | Every life a different spiritual root (linh căn), cultivation technique set and engine; no classes |
 | **Submission** (relaxation, comfort zone) | 7 | Turn-based, no reflex pressure; tending an engine season after season |
 
 *Rationale:* the developer ranked self-expression first and challenge/mastery a close second; the
 first prototype showed that expression only matters when it happens *inside a system* the player
-understands and exploits. Discovery ranks above Fantasy because each life's spiritual root, root
-mutations and world history are new things to uncover.
+understands and exploits. Discovery ranks above Fantasy because each life's spiritual root, variant roots, Ways and world history are new things to uncover.
 
 ### Key Dynamics (Emergent player behaviors)
 
-- Players read their spiritual root and plan an engine around it ("Fire (Hỏa) + Wood (Mộc) with a Pill Fire (Đan Hỏa) mutation — I'm an alchemist this life").
+- Players read their spiritual root and plan an engine around it ("Fire (Hỏa) + Metal (Kim) with a Thunder (Lôi) root — I'm a duelist this life").
 - Players invest now for a breakthrough decades away ("plant this herb now; in 30 years it's the Core Formation (Kết Đan) bottleneck").
 - Players with many-element roots plan how to survive and fund the slow early years before the crossover.
 - Players set up cross-realm fights deliberately, stacking magic treasures (pháp bảo), formations (trận pháp) and talismans (phù lục).
@@ -95,7 +94,7 @@ mutations and world history are new things to uncover.
 
 ### Core Mechanics (Systems we build)
 
-1. **Spiritual root** — a set of elements — Metal (Kim), Wood, Water (Thủy), Fire, Earth (Thổ) — each with a purity (độ tinh khiết), plus any root mutations (about 30, formed by rule from element combinations). More elements is better late and slower early, with fast crossovers (see Spiritual Root below). Can change during a life, rarely.
+1. **Spiritual root** — a set of elements — Metal (Kim), Wood, Water (Thủy), Fire, Earth (Thổ) — each with a purity (độ tinh khiết), plus, in about 1 life in 8, a variant root (biến dị linh căn; eight in all, formed from owned elements or born innate). More elements is better late and slower early, with fast crossovers (see Spiritual Root below). Can change during a life, rarely.
 2. **Realms (cảnh giới) and bottlenecks** — Qi Refining (Luyện Khí), layers (tầng) 1–13 → Foundation Establishment (Trúc Cơ) → Core Formation → Nascent Soul (Nguyên Anh) → Deity Transformation (Hóa Thần), each major realm with early / middle / late stage / great perfection (sơ / trung / hậu kỳ / đại viên mãn). Roughly 10× power per major realm. Every major breakthrough needs specific resources; each realm extends lifespan.
 3. **The building system** — spirit herbs (linh thảo) that gain value with age → alchemy (luyện đan) → pills; artifact refining (luyện chế pháp bảo), with magic treasures refined and nourished over years; spirit beasts / spirit insects (linh thú / linh trùng), bred in numbers; talismans; formations. Crafting affinity comes from the spiritual root.
 4. **Cultivation techniques — the Dao folded in** — found and combined, compatible (or not) with your spiritual root; they set cultivation speed and the divine abilities (thần thông) you gain.
@@ -103,7 +102,7 @@ mutations and world history are new things to uncover.
 6. **World generation with history** — before each life, world-gen simulates a few centuries in seconds (sects founded and destroyed, wars, deaths, artifacts and cultivation techniques lost) and writes the result to the world database that seeds the LLM.
 7. **Living world tick** — at each season's end, sects and named NPCs take abstract actions (expand, feud, die, break through, hunt a treasure); the world changes whether or not the player is there.
 8. **Bounded LLM game master** — generates events, quests, NPC dialogue and narration from the world database; may author numbers only inside engine-set budgets, which the engine clamps and records.
-9. **Meta-progression** — a Codex of discovered recipes and root mutations, and karmic carryover across lives.
+9. **Meta-progression** — a Codex of discovered recipes and variant roots, and karmic carryover across lives.
 
 ---
 
@@ -124,8 +123,8 @@ mutations and world history are new things to uncover.
 Why more is better, through rules rather than a flat bonus: each element owned unlocks its
 cultivation techniques (công pháp) and crafts; each generating (tương sinh) pair inside the root
 (Wood→Fire→Earth→Metal→Water→Wood, i.e. Mộc→Hỏa→Thổ→Kim→Thủy→Mộc) speeds cultivation, and a full
-five-element cycle closes the loop for the largest bonus; every pair is a chance at a root mutation
-(biến dị).
+five-element cycle closes the loop for the largest bonus; specific elements can converge or transmute into a variant root
+(biến dị linh căn).
 
 ### Trade-off — slower early, better late, fast crossovers
 
@@ -145,37 +144,25 @@ stage, 5+ at Core Formation early stage; each further element pushes parity abou
 later, and growth after parity is steep. A many-element root must survive and fund a slow Qi
 Refining and Foundation Establishment through its crafts, caution and engine.
 
-### Root mutations — formed by rule
+### Variant roots (biến dị linh căn)
 
-**First order (two base elements).** Generating pairs give stable, nurturing mutations; overcoming
-(tương khắc) pairs give volatile, aggressive ones.
+Eight rarer roots sit beside the five elements, and each has a role and a hidden Meridian Map
+sector of its own. They arise in three ways.
 
-| Generating pair | Mutation | Overcoming pair | Mutation |
-|---|---|---|---|
-| Wood + Fire | Light (Quang) | Metal + Wood | Wind (Phong) |
-| Fire + Earth | Lava (Dung Nham) | Wood + Earth | Poison (Độc) |
-| Earth + Metal | Gravity (Trọng) | Earth + Water | Darkness (Ám) |
-| Metal + Water | Ice (Băng) | Water + Fire | Mist (Vụ), illusion |
-| Water + Wood | Life (Sinh Mệnh) | Fire + Metal | Thunder (Lôi) |
+| Origin | Variants |
+|---|---|
+| Convergence (Hội Tụ): specific owned elements meet | Thunder (Lôi) from Fire + Metal; Darkness (Ám) from Earth + Water; Chaos (Hỗn Độn) from all five |
+| Transmutation (Chuyển Hóa): one element runs pure | Light (Quang) from Fire; Ice (Băng) from Water |
+| Innate (Thiên Sinh): simply born with it | Wind (Phong); Blood (Huyết); Void (Hư Không), only on roots of two elements or fewer |
 
-**Higher order (mutations combine further; rarer, stronger).**
-
-| Combat | Crafting | Esoteric | Apex |
-|---|---|---|---|
-| Wind + Metal → Sword (Kiếm) | Fire + Life → Pill Fire (Đan Hỏa): alchemy (luyện đan) | Darkness + Life → Soul (Hồn): divine sense (thần thức), puppets (khôi lỗi), spirit beasts (linh thú) | Yin (Âm) + Yang (Dương) → Taiji (Thái Cực) |
-| Thunder + Light → Heavenly Thunder (Thiên Lôi) | Earth + Life → Spirit Farming (Linh Thực): spirit herbs (linh thảo) | Mist + Darkness → Illusion (Huyễn) | Space (Không Gian) + Reincarnation (Luân Hồi) → Time (Thời Gian) |
-| Lava + Thunder → Destruction (Hủy Diệt) | Metal + Lava → Refined Metal (Tinh Kim): magic treasures (pháp bảo) | Light + Darkness → Stars (Tinh Thần) | All five base elements → Chaos (Hỗn Độn) |
-| Life + Poison → Blood (Huyết) | Gravity + Earth → Array (Trận): formations (trận pháp) | Gravity + Wind → Space | |
-| Darkness + Poison → Death (Tử) | | Ice + Darkness → Yin; Light + Lava → Yang | |
-| | | Life + Death → Reincarnation | |
-
-Names and pairings are drafts. **Open question:** do root mutations count as extra elements for the
-tier curve (e.g. five-element root + Thunder = 6)?
+An innate variant counts as an extra element for the speed curve; the others do not. The
+rules are in `design/gdd/linh-can.md`. The older higher-order mutations (Sword, Pill Fire,
+Space, Time and the rest) moved to a separate system, the Way (Đạo), which is not yet designed.
 
 ### Changing spiritual roots (linh căn)
 
 The spiritual root can change during a life, but rarely: rare treasures or secret arts (bí thuật)
-can add an element, raise purity or trigger a root mutation — making the root a long-term build goal
+can add an element, raise purity or trigger a variant root — making the root a long-term build goal
 as well as a starting condition.
 
 ---
@@ -210,8 +197,8 @@ Scale 1–100 with grade bands: **Lower (Hạ)** 1–30 · **Middle (Trung)** 31
 
 | Stat | Meaning | Drives |
 |---|---|---|
-| **Spiritual root** (linh căn) | Purity (độ tinh khiết) per element (Metal · Wood · Water · Fire · Earth, i.e. Kim · Mộc · Thủy · Hỏa · Thổ; 0 = absent) + root mutations (biến dị) with derived purity (e.g. geometric mean of parents × 0.8) | Element count and its curve; cultivation speed with matching cultivation techniques (công pháp); craft affinity |
-| **Comprehension** (ngộ tính) | How fast you understand | Learning cultivation techniques, enlightenment (đốn ngộ), discovering recipes and root mutations, breaking bottlenecks (bình cảnh) |
+| **Spiritual root** (linh căn) | Purity (độ tinh khiết) per element (Metal · Wood · Water · Fire · Earth, i.e. Kim · Mộc · Thủy · Hỏa · Thổ; 0 = absent) + variant roots (biến dị linh căn), each with its own purity | Element count and its curve; cultivation speed with matching cultivation techniques (công pháp); craft affinity |
+| **Comprehension** (ngộ tính) | How fast you understand | Learning cultivation techniques, enlightenment (đốn ngộ), discovering recipes and variant roots, breaking bottlenecks (bình cảnh) |
 | **Physique** (căn cốt) | Body foundation | Vitality (khí huyết), pill toxicity (đan độc) resistance, body-cultivation techniques |
 | **Soul strength** (thần hồn) | Base of spiritual sense | Divine sense (thần thức): magic treasure (pháp bảo) control count, swarm size, formation (trận pháp) complexity, detection |
 | **Fortune** (khí vận) | Luck | Lucky encounters (kỳ ngộ), rare finds, crafting crits, and the ceiling of LLM-invented reward budgets |
@@ -246,9 +233,9 @@ tested against Dao heart at every breakthrough).
 
 ```
 Lâm Vô Danh — 47 / 200 tuổi                    Trúc Cơ sơ kỳ  3,420 / 5,000
-LINH CĂN  Tứ linh căn (Tam + 1 biến dị)
+LINH CĂN  Tam linh căn + Quang
   Hỏa 78 Thượng   Mộc 52 Trung   Thổ 31 Trung   Kim 0   Thủy 0
-  Biến dị: Quang 51 (Mộc × Hỏa)            parity at Trúc Cơ hậu kỳ · now 0.75×
+  Biến dị: Quang 62 (từ Hỏa)                parity at Trúc Cơ trung kỳ · now 0.75×
 THIÊN PHÚ  Ngộ tính 72 Thượng · Căn cốt 44 Trung · Thần hồn 58 Trung
            Khí vận 23 Hạ · Đạo tâm 66 Thượng · Mị lực 40 Trung
 TRẠNG THÁI Linh lực 840/840 · Thần thức 290 · Khí huyết 1,320
@@ -271,8 +258,8 @@ CHIẾN LỰC  2,950 = realm 1,800 + công pháp 420 + pháp bảo 600 + phù l�
 
 ### Player Type Appeal (Bartle Taxonomy)
 
-- [x] **Achievers** (goal completion, collection, progression) — How: realms, the Codex of recipes and root mutations (biến dị), ascending with every spiritual root tier
-- [x] **Explorers** (discovery, understanding systems, finding secrets) — How: root mutation rules, recipes, cultivation technique (công pháp) combinations, secret domains (bí cảnh), each world's history
+- [x] **Achievers** (goal completion, collection, progression) — How: realms, the Codex of recipes and variant roots (biến dị linh căn), ascending with every spiritual root tier
+- [x] **Explorers** (discovery, understanding systems, finding secrets) — How: variant root rules, the Way (Đạo), recipes, cultivation technique (công pháp) combinations, secret domains (bí cảnh), each world's history
 - [ ] **Socializers** (relationships, cooperation, community) — How: only indirectly, via sharing builds and lives
 - [ ] **Killers/Competitors** (domination, PvP, leaderboards) — How: not served
 
@@ -314,14 +301,14 @@ Breakthroughs are natural stopping points.
 
 ### Long-Term Progression
 
-- **Codex** of discovered recipes and root mutations (biến dị).
+- **Codex** of discovered recipes and variant roots (biến dị linh căn).
 - **Karmic carryover** grants a small inheritance to the next life.
 - **A new world and a new spiritual root each life**, so no two engines are the same.
 - Harder world settings after a first Core Formation (Kết Đan); long-term goal: reach Deity Transformation (Hóa Thần) with every spiritual root tier.
 
 ### Retention Hooks
 
-- **Curiosity**: undiscovered root mutations and recipes, the next world's history, what a five-element root (Ngũ Hành linh căn) can do
+- **Curiosity**: undiscovered variant roots and recipes, the next world's history, what a five-element root (Ngũ Hành linh căn) can do
 - **Investment**: herbs aging toward a breakthrough, magic treasures nourished for years, the Codex
 - **Social**: sharing spiritual root rolls, engines and absurd cross-realm (vượt cấp) wins (outside the game)
 - **Mastery**: reaching higher realms, beating harder world settings, making a "bad" spiritual root work
@@ -430,7 +417,7 @@ Stories grow from recorded facts — people, places, items and history in the wo
 | **Art Pipeline Complexity** | Medium (custom 2D; compositable glyph system for icons) |
 | **Audio Needs** | Moderate (guqin-led ambient music, UI and crafting SFX) |
 | **Networking** | None for gameplay; optional HTTPS to an LLM API provider |
-| **Content Volume** | 5 base elements and ~30 root mutations (biến dị); 5 realms (Qi Refining–Deity Transformation, i.e. Luyện Khí–Hóa Thần); ~60 spirit herbs (linh thảo), ~40 pill (đan dược) recipes, ~40 magic treasures (pháp bảo), ~20 spirit beasts/spirit insects (linh thú/linh trùng), ~30 talismans (phù lục), ~20 formations (trận pháp), ~40 cultivation techniques (công pháp); 1-2 provinces; 40+ hours to master |
+| **Content Volume** | 5 base elements and 8 variant roots (biến dị linh căn); 5 realms (Qi Refining–Deity Transformation, i.e. Luyện Khí–Hóa Thần); ~60 spirit herbs (linh thảo), ~40 pill (đan dược) recipes, ~40 magic treasures (pháp bảo), ~20 spirit beasts/spirit insects (linh thú/linh trùng), ~30 talismans (phù lục), ~20 formations (trận pháp), ~40 cultivation techniques (công pháp); 1-2 provinces; 40+ hours to master |
 | **Procedural Systems** | Spiritual root (linh căn) generation; world generation with centuries of history per life; seasonal living-world tick; LLM-generated events, quests, dialogue and narration; procedural map layout per life |
 
 ---
@@ -461,7 +448,7 @@ Stories grow from recorded facts — people, places, items and history in the wo
 - Scope not assessed by producer (PR-SCOPE skipped — Lean mode).
 
 ### Open Questions
-- Do root mutations (biến dị) count as extra elements for the tier curve (e.g. five-element root + Thunder = 6, i.e. Ngũ Hành + Lôi)? — decide in the spiritual root GDD.
+- ~~Do root mutations (biến dị) count as extra elements for the tier curve?~~ **Answered in the Spiritual Roots GDD (redesign 2026-11-04):** innate variants count as an extra element for the curve, derived ones do not.
 - How the seven innate talents (thiên phú) roll (distributions, correlations, origin influence) and whether Self-made birth (Tự Định) has any limits — decide in the character-stats GDD.
 - Time granularity: is a turn a season or a year, and how does closed-door cultivation (bế quan) for years interact with herb aging? — answer in the next prototype.
 - Exact combat resolution: how cultivation base (tu vi) and each asset type combine, and how cross-realm combat (vượt cấp) becomes possible — answer in the combat GDD and prototype.
@@ -474,7 +461,7 @@ Stories grow from recorded facts — people, places, items and history in the wo
 **Core hypothesis**: If the player plans an engine shaped by their spiritual root (linh căn) — spirit herbs (linh thảo) → pills (đan dược) → breakthrough — under lifespan (thọ nguyên) pressure, they will feel the compounding of their own plan — evidenced by deliberate long-term investments the player can explain, and by different spiritual roots leading to visibly different engines.
 
 **Required for MVP**:
-1. Character generation: innate talents (thiên phú), by Fated birth (Thiên Định) roll and Self-made birth (Tự Định) choice, including spiritual root element count, purity, first-order root mutations (biến dị), and the slow-early / fast-crossover curve; pill toxicity (đan độc) and heart demon (tâm ma)
+1. Character generation: innate talents (thiên phú), by Fated birth (Thiên Định) roll and Self-made birth (Tự Định) choice, including spiritual root element count, purity, variant roots (biến dị linh căn), and the slow-early / fast-crossover curve; pill toxicity (đan độc) and heart demon (tâm ma)
 2. Qi Refining (Luyện Khí) → Foundation Establishment (Trúc Cơ) → Core Formation (Kết Đan) with bottlenecks (bình cảnh) and lifespan
 3. Spirit herb aging + alchemy (luyện đan) — the only craft in the MVP
 4. A handful of cultivation techniques (công pháp) with spiritual root compatibility
@@ -484,7 +471,7 @@ Stories grow from recorded facts — people, places, items and history in the wo
 
 **Explicitly NOT in MVP** (defer to later):
 - Artifact refining (luyện chế pháp bảo), spirit beasts / spirit insects (linh thú / linh trùng), talismans (phù lục), formations (trận pháp)
-- Higher-order root mutations and changing spiritual roots
+- The Way (Đạo) and changing spiritual roots
 - Nascent Soul (Nguyên Anh) and above
 - Living-world season tick, Codex, karmic carryover
 - Final art and audio; LLM API provider option
@@ -495,7 +482,7 @@ Stories grow from recorded facts — people, places, items and history in the wo
 | ---- | ---- | ---- | ---- |
 | **MVP** | Qi Refining → Core Formation, 1 small province | Spiritual root, herbs + alchemy, combat check, LLM harness, minimal world-gen | ~2-3 months |
 | **Vertical Slice** | + Nascent Soul | + Artifact refining, living-world tick, Codex, NPC memory, quests, art direction | ~6 months |
-| **Alpha** | Qi Refining → Deity Transformation (Hóa Thần), ~30 root mutations | All five crafts rough; changing spiritual roots; full history generation; local/API settings | ~13 months |
+| **Alpha** | Qi Refining → Deity Transformation (Hóa Thần), the Way (Đạo) | All five crafts rough; changing spiritual roots; full history generation; local/API settings | ~13 months |
 | **Full Vision** | 1-2 provinces, full content | Polish, Vietnamese / Chinese / English localization, Steam release | 18-24 months |
 
 ---

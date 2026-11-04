@@ -168,3 +168,6 @@ No base ceiling values changed.
 
 ## Cleanup — 2026-11-04 (user decisions after cross-GDD review 04g; no new review)
 User decision 2026-11-04: Lava, a stable mutation, raises `alchemy_success` 3 → 5 for its holder. Rule 14's "Holder-raised ceilings" now says "a mutation may raise…" (was "a craft mutation") and lists Lava with Pill Fire and Spirit Farming; raises still do not stack (highest applies; a Pill Fire and Lava holder gets 6). The same wording and the Lava raise are applied in Formulas I (raise_j(k) and ceiling(k) rows: alchemy 3, 5 or 6), the `character_elements.json` parameter-key entry, the Tuning Knobs raises row, and the Interactions row for Spiritual Roots. No base ceiling values changed. Status unchanged.
+
+## Revision — 2026-11-04 (Spiritual Roots redesign; no new review)
+Aligned to the redesign: variant role lines added to Formulas G; holder-raised ceilings (rule 14, Formulas I, effect kinds, knobs, AC-CS-54) and Time's root factor (Formulas G, AC-CS-28) removed; Stars and Death examples replaced. The bonus ceilings are unchanged.

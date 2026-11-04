@@ -185,3 +185,37 @@ User decision on `design/gdd/gdd-cross-review-2026-11-04g.md` F11. Formulas F we
 
 ## Cleanup — 2026-11-04 (user decisions after cross-GDD review 04g; no new review)
 Realms & Bottlenecks adds failure insight: each failed pill attempt in a realm step adds ι = 0.02 to later attempts in that step, at most 0.04 (`breakthrough.failure_insight_pp` 2, `failure_insight_cap` 4). #23's failed extra roll then raises the next attempt by ι, and the old guard's #23 lift could exceed δ_max (0.1115 at q 0.30 after one failed attempt at 0.28; 0.1009 at the CF→NS baseline, attempts 0.0825 and 0.1025). Formulas E2 now uses `q_retry = min(q, (δ_max − ι_23)/(1 − S))`, where ι_23 = 0 if the step's insight is at the cap, else min(failure_insight_pp, cap − insight). The exact lift is q_retry·(1 − S) + ι_23·(1 − q_retry)·F_0 with F_0 ≤ 1, so it is ≤ δ_max by construction (conservative). The carry reaches only the next attempt, which needs `failure_insight_cap` ≤ 2 × `failure_insight_pp` (true at launch values); above that ι_23 must become the summed carry. q in E2 is now the attempt's chance including insight and excluding τ_a; #22 is unaffected and stays exact. With ι_23 = 0, q_retry equals the old formula. Updated: attempt model, formula line, derivation (new "#23's insight carry" paragraph), variables (q, ι_23, F_0), output range, the two existing examples (labelled ι_23 = 0), a new example (S 0.17654, q 0.1025, ι_23 0.02: q_retry 0.09715, lift 0.0800 + 0.0166 = 0.0966; old guard 0.1009), AC-KMD-44 (new insight line; the property test covers ι_23 in {0, 0.02} at worst-case F_0 = 1), and the Dependencies row for Realms & Bottlenecks. No tuned values changed. Status unchanged; re-review is the main session's call.
+
+## Revision — 2026-11-04 (Spiritual Roots redesign; no new review)
+Reopened from Approved. Capability #24 text aligned; dependency rows name the owned variants; Open Question 15 added for the hidden variant sectors, whose geometry is undesigned. Next: /design-system retrofit design/gdd/kinh-mach-do.md.
+
+## Revision — 2026-11-04 (variant sectors; no new review)
+Extended through /design-system retrofit (no missing sections, so the user chose an additive extension with every edit shown first). Adds rule 20, Formulas H2–H4, generator step G9, keys, knobs, edge cases and AC-KMD-68 to 89 for the eight hidden variant sectors. User decisions: placement by origin; about 30 acupoints each; about 3 W per point (2.95); Wind and Void themed on weighted stats; Qi Refining power accepted with no shallow discount; Chaos on the K1 ring. G1–G8 are unchanged. Formulas by systems-designer, criteria and an arithmetic recheck by qa-lead. Open Question 15 answered; 16 and 17 added. Needs /design-review in a fresh session.
+
+## Review — 2026-11-04 — Verdict: APPROVED
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none (lean)
+Blocking items: 0 | Recommended: 9
+Summary: Lean re-review of the whole GDD after the variant-sector extension (rule 20, Formulas H2–H4, G9, AC-KMD-68 to 89). Recomputed by hand with no discrepancy: H2 sizing, edges (268), depths and C_clear, host pools and link ratios; H3 sector value (88.5 W) and the gain table; H4 splits, flooring (Wind 88.10 W) and the three compounding caps; Thunder 47 / 51 and Light 69 purities; AC-KMD-84 and AC-KMD-86 worked values. The registry has no conflicts. Remaining items are a missing test arm, one id-block wording gap and stale text.
+Prior verdict resolved: Yes (reopened for the variant sectors; none of the 2026-11-03 recommended items applied yet)
+Findings:
+- [RECOMMENDED] Formulas H3 / AC-KMD-89: "macro targets untouched" holds only for direct breakthrough_chance; Ice (dan_doc_resist_pct, dan_doc_decay) and Light (tam_ma_resist_pct) reach breakthrough odds through pill toxicity and heart demon, and the bot arms (Wind, Thunder, Chaos) do not cover them
+- [RECOMMENDED] AC-KMD-52 vs G9 / AC-KMD-81: release-2 ids go above 100729, so "id ≥ 100000 is a variant" breaks; define the block as 100000–100799 and say where release-2 base ids start
+- [RECOMMENDED] Rule 1 table: the Variant sector row is not indented and breaks the table
+- [RECOMMENDED] Dependencies preamble: "None of the systems below has a GDD yet" is stale (Linh Căn, Character Stats, Realms, Công Pháp exist)
+- [RECOMMENDED] AC-KMD-49 / rule 20: no criterion bounds NPC variant-holder uplift (about +25 % Qi Refining tree power)
+- [RECOMMENDED] Computational budget: about 3,200 BFS steps is now about 3,700 with the sectors
+- [RECOMMENDED] Player Fantasy does not mention the variant sectors (advisory at standard)
+- [RECOMMENDED] Carried over unapplied from 2026-11-03: AC-KMD-34 5.03 years, step 9 variety tie-break and last-pass wording, A2 keystone Open Question pointer, K/L/C/R symbol collisions, per-region G7 capacity, AC-KMD-66 repeated sentence
+- [RECOMMENDED] Open Questions 4, 5, 9 and 14 still open
+Resolution: GDD status header and systems-index row 10 set to Approved in the same session, before the hash below was taken, so the hash covers the final file.
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md c95fda2f3db1240f4eab6afc0ba9d3b3ceb8fe62
+Reviewed-Content-Hash: design/registry/entities.yaml 454a4906d2577c927c2194447dbca63568a2c309
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/game-concept.md 548ea01d5cd8dd7c3c864164389a3b388caff094
+Reviewed-Content-Hash: design/gdd/systems-index.md 0df28c5e1b72d12660d2dcd305af494e11925c0d
+Reviewed-Content-Hash: design/quick-specs/progression-and-edges.md 749608cd590755a04ab1faed55f585aa16cbebbe
+Reviewed-Content-Hash: design/gdd/linh-can.md 989c2939b9b735317d8d4e871d4df0a407968404
+Reviewed-Content-Hash: design/gdd/character-stats.md 7bf79075658e456d8919f4f22e29fd5484a98646
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 9f1acabdc4d0b501c48438e00c4c2160931d1e72

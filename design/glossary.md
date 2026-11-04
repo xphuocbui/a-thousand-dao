@@ -33,7 +33,8 @@ It will be revisited with Localization & Hán-Việt Glossary (system 34).
 | English | Hán-Việt | Notes |
 |---|---|---|
 | spiritual root | linh căn | |
-| root mutation | biến dị | Variant linh căn traits |
+| variant root | biến dị linh căn | One of eight rarer roots beside the five elements (short form: biến dị) |
+| the Way | Đạo | The system that holds the mutations moved out of the root; not the crafts (Way of Alchemy [Đan Đạo] and so on) |
 | purity | độ tinh khiết | Per-element value of a spiritual root |
 | innate talent | thiên phú | The 1–100 birth attributes |
 | comprehension | ngộ tính | |
@@ -81,24 +82,31 @@ It will be revisited with Localization & Hán-Việt Glossary (system 34).
 | Wood / Fire / Earth / Metal / Water | Mộc / Hỏa / Thổ / Kim / Thủy |
 | overcoming cycle | tương khắc |
 
-Root mutation names (biến dị):
+Variant root names (biến dị linh căn):
 
 | English | Hán-Việt | English | Hán-Việt |
 |---|---|---|---|
-| Light | Quang | Pill Fire | Đan Hỏa |
-| Wind | Phong | Spirit Farming | Linh Thực |
+| Light | Quang | Wind | Phong |
+| Darkness | Ám | Blood | Huyết |
+| Ice | Băng | Void | Hư Không |
+| Thunder | Lôi | Chaos | Hỗn Độn |
+
+Seeds for the Way (Đạo), moved out of the root by the 2026-11-04 redesign; names are not
+commitments until that system is designed:
+
+| English | Hán-Việt | English | Hán-Việt |
+|---|---|---|---|
 | Lava | Dung Nham | Refined Metal | Tinh Kim |
-| Poison | Độc | Array | Trận |
-| Gravity | Trọng | Soul | Hồn |
-| Darkness | Ám | Illusion | Huyễn |
-| Ice | Băng | Stars | Tinh Thần |
-| Mist | Vụ | Space | Không Gian |
-| Life | Sinh Mệnh | Yin / Yang | Âm / Dương |
-| Thunder | Lôi | Reincarnation | Luân Hồi |
-| Sword | Kiếm | Taiji | Thái Cực |
-| Heavenly Thunder | Thiên Lôi | Time | Thời Gian |
-| Destruction | Hủy Diệt | Chaos | Hỗn Độn |
-| Blood | Huyết | Death | Tử |
+| Gravity | Trọng | Array | Trận |
+| Life | Sinh Mệnh | Soul | Hồn |
+| Poison | Độc | Illusion | Huyễn |
+| Mist | Vụ | Stars | Tinh Thần |
+| Sword | Kiếm | Space | Không Gian |
+| Heavenly Thunder | Thiên Lôi | Yin / Yang | Âm / Dương |
+| Destruction | Hủy Diệt | Reincarnation | Luân Hồi |
+| Death | Tử | Taiji | Thái Cực |
+| Pill Fire | Đan Hỏa | Time | Thời Gian |
+| Spirit Farming | Linh Thực | | |
 
 ## Crafts, items and world
 

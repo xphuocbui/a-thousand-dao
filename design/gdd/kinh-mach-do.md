@@ -1,10 +1,10 @@
 # Meridian Map (Kinh Mạch Đồ)
 
-> **Status**: Approved (2026-11-03). Six lean /design-review passes: the first five returned NEEDS REVISION and every blocker was fixed; the sixth (a full re-review after the step 9 variety fix) found no blockers. Recommended revisions (AC-KMD-34 lifespan figure, step 9 variety tie-breaks, symbol collisions, per-region link capacity) are settled during implementation or the next edit. Open Questions 4, 5, 9 and 14 stay open. See `reviews/kinh-mach-do-review-log.md`.
+> **Status**: Approved (2026-11-04: lean re-review after the Spiritual Roots redesign added the hidden variant sectors, rule 20, Formulas H2–H4 and G9; 0 blockers, 9 recommended). Seven lean /design-review passes: the first five returned NEEDS REVISION and every blocker was fixed; the sixth and seventh found no blockers. Recommended revisions (variant-sector breakthrough side effects through toxicity and heart demon, the reserved id block, AC-KMD-34 lifespan figure, step 9 variety tie-breaks, symbol collisions, per-region link capacity) are settled during implementation or the next edit. Open Questions 4, 5, 9 and 14 stay open. See `reviews/kinh-mach-do-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-03
-> **Last Verified**: 2026-11-03
+> **Last Updated**: 2026-11-04
+> **Last Verified**: 2026-11-04
 > **Implements Pillar**: Pillar 1 (Your Dao, Your Name), Pillar 3 (Power Is Built, Not Given); touches Pillar 2 (Every Number Is Bounded and Visible)
 
 ## Summary
@@ -21,6 +21,9 @@ The Meridian Map (Kinh Mạch Đồ) is the game's PoE-style passive tree.
   cluster, which may carry one of 25 **capabilities** (rule changes such as dual-wielding
   magic treasures [pháp bảo] or a second cultivation technique). A story moment unseals an
   **open** cluster, which the LLM fills inside a validated budget.
+- **Variant sectors.** Each of the eight variant roots (biến dị linh căn) has a hidden sector of
+  30 acupoints, 240 in all and outside the 1,475, that stays locked and undrawn until the root
+  owns that variant.
 - **Bounds.** Every number is bounded and recorded. NPCs build on the same tree under
   the same rules.
 
@@ -50,6 +53,11 @@ opened with points like any other.
 What varies between lives is only what fills the open clusters; positions, themes and
 conditions never change.
 
+A rarer root opens a further layer. Each variant root (biến dị linh căn) has its own small sector,
+not drawn at all until the root owns that variant, and where it sits tells how the variant arose:
+innate ones near the dantian, a transmutation off its element, a convergence as a chord across the
+wheel between its two elements.
+
 The tree is where Pillar 1 (Your Dao, Your Name) and Pillar 3 (Power Is Built, Not
 Given) meet: two cultivators with the same root diverge by the regions they walk and the
 clusters their lives earned, and power from a hidden cluster is earned through play,
@@ -74,8 +82,8 @@ up with different trees, because their lives opened different doors.
 
 Rules 2–5 are **built** (debug terminal, `src/gameplay/meridian/`) on a 202-acupoint
 (huyệt) prototype map; rule 1 describes the **target map**, which replaces it at PoE scale
-(about 1,475 acupoints) and is not yet built. Rules 6–19 are the cluster design and are **not yet
-implemented**. Quantities in these rules are named parameters; their values and ranges
+(about 1,475 acupoints) and is not yet built. Rules 6–20 are the cluster and variant sector design and
+are **not yet implemented**. Quantities in these rules are named parameters; their values and ranges
 are in Formulas.
 
 ### Core Rules
@@ -98,7 +106,7 @@ are in Formulas.
    - **Outer band:** keystones and most hidden clusters.
    - **Expansion band:** reserved beyond the rim and empty at launch (rule 19).
 
-   The map is built from seven kinds of piece:
+   The map is built from eight kinds of piece:
 
    | Piece | Visible | Content |
    |---|---|---|
@@ -109,6 +117,7 @@ are in Formulas.
    | Keystone | yes | One trade-off rule; two per sector at the rim plus the center (11) |
    | Sealed cluster | hidden | Fully authored (rule 12); may carry a capability (rule 16) |
    | Open cluster | hidden | Written by the LLM at its story moment, inside the budget (rules 10–11) |
+| Variant sector | locked until owned | 30 acupoints themed on one variant root, outside the base totals (rule 20) |
 
    The prototype built today is a 9-ring, 202-acupoint version of the same layout: gates on
    ring 1, notables on rings 3, 5 and 7, keystones on ring 9, bridges on rings 3, 6 and 8.
@@ -182,8 +191,8 @@ are in Formulas.
 4. **Bonuses.** Each open acupoint adds its stat modifiers to the character's stat sheet
    under the source "Kinh Mạch: <name> #<id>". A sector acupoint's values are multiplied by
    0.5 + purity/100 for the sector's element, or by 0.25 if the player lacks that element;
-   a bridge acupoint uses the average of its two sectors' multipliers; keystones and the
-   root are exact. So purity, not just element count, decides which regions pay off. The
+   a bridge acupoint uses the average of its two sectors' multipliers; a variant sector's
+   acupoint uses 0.5 + purity/100 for its variant (rule 20); keystones and the root are exact. So purity, not just element count, decides which regions pay off. The
    summed `breakthrough_chance` from all Meridian Map (Kinh Mạch Đồ) acupoints is clamped
    at `tree_breakthrough_cap` (Formulas F), and the stat sheet shows the clamp.
 5. **NPCs** spend their points greedily under the same rules: every reachable acupoint is
@@ -339,7 +348,7 @@ are in Formulas.
     | 21 | Blink Mark (Thuấn Di Ấn) | Once a year, travel instantly to any visited place | Travel |
     | 22 | Last Radiance (Hồi Quang Phản Chiếu) | With under 5 years of lifespan left, the breakthrough chance of a pill attempt is up to ×2 (capped by Formulas E2) | Realms |
     | 23 | Burning Life to Break Through (Thiêu Thọ Phá Cảnh) | After a failed pill attempt, burn 10 years of lifespan (5% of the realm's lifespan if more; the years are added to age, Realms rule 18) to retry at once | Realms |
-    | 24 | Mutation Awakening (Biến Dị Khai Mở) | Each completed realm breakthrough gives one more roll to every unowned root mutation (biến dị) whose parents are all owned (Spiritual Roots rule 9; pricing open, see its Open Question 5) | Spiritual Root |
+    | 24 | Mutation Awakening (Biến Dị Khai Mở) | Each completed realm breakthrough gives one more roll to every unowned, non-declined derived variant root (biến dị) whose requirement is met (Spiritual Roots rule 10; pricing open, see its Open Question 3) | Spiritual Root |
     | 25 | Heart Demon Turned to Strength (Tâm Ma Hóa Lực) | Heart demon above 50 adds attack (+heart demon ÷ 2 %); backlash chance ×2 | Heart Demon, Combat |
 
     #14 sits on a **hybrid-theme cluster** (Way of Formations and Spirit Fields), so its
@@ -363,9 +372,51 @@ are in Formulas.
     existing outer acupoints, and never moves, renumbers or reshapes anything already there.
     Saves, recorded fills, World Database events and the Codex stay valid across content
     updates. The fixed seed applies to each content release separately, so adding a
-    release never rerolls an earlier one.
+    release never rerolls an earlier one. The variant sectors (rule 20) ship in the first release,
+    so their host links are part of it; any later change to them follows this rule.
 
-**What the player cannot do:** refund or respec; open a hidden acupoint; unseal by paying
+**Variant sectors (added 2026-11-04)**
+
+20. **Variant sectors.** Each of the eight variant roots (biến dị linh căn; Spiritual Roots
+    rule 9) has its own sector of `variant_sector_size` (30) acupoints, built from existing
+    pieces: a meridian road chain, two clusters and an apex cluster (Formulas H2).
+    - **Placement tells the origin.**
+
+      | Origin | Variant | Where | Entry depth |
+      |---|---|---|---|
+      | Innate (Thiên Sinh) | Wind (Phong), Blood (Huyết), Void (Hư Không) | A spur off an inner radial, near the dantian | 3, 4, 5 |
+      | Convergence (Hội Tụ) | Chaos (Hỗn Độn) | A spur off the K1 ring | 7 |
+      | Transmutation (Chuyển Hóa) | Light (Quang), Ice (Băng) | A spur off the element's own sector (Fire, Water) | 8 |
+      | Convergence (Hội Tụ) | Thunder (Lôi), Darkness (Ám) | A chord across the wheel joining the two elements' sectors (Fire–Metal, Earth–Water), with an entry on each side | 9–13 |
+
+    - **Locked.** While the root does not own the variant, the sector is not drawn and not
+      hinted in either visibility mode (rule 13). Its acupoints cannot be opened, are not
+      part of the frontier, are never routed through by the path tool, and are not counted
+      in the reported map size. No event, item or point opens it.
+    - **Unlocked.** When the root gains the variant, at birth or later, the sector is
+      visible at once and its entries join the frontier wherever they touch an open
+      acupoint. It has no seal and no realm minimum, and every acupoint still costs 1 point
+      under rule 3. Variants are never lost, so a sector never relocks. Nothing is refunded
+      when a sector appears.
+    - **Nothing new is saved.** Whether a sector is unlocked is read from the root; its open
+      acupoints are saved like any other (rule 15).
+    - **Value.** A sector's acupoints scale by 0.5 + purity/100 for its variant, recomputed
+      when a derived variant's purity changes. There is no absent value, since a locked
+      sector cannot be opened.
+    - **Content.** Stats come from the variant's theme (`variant_stats`, Formulas H4), using
+      weighted stats only. Clusters are generated like base clusters; each sector has one
+      authored apex notable. Its roads are kind `variant_road`, not meridian roads, so they
+      carry the theme's stats and rule 1's element-only limit does not apply. A sector holds no keystone, no capability, no
+      `breakthrough_chance` and no stat under a character-wide ceiling. An LLM never fills
+      one.
+    - **Links.** A sector joins the map only at its hosts, and never links to another
+      sector. A chord is a real route between its two element sectors, for its holder only.
+    - **NPCs.** An NPC that owns a variant may spend in its sector under rule 5. Sector
+      acupoints score by their kind (a road as a small acupoint, the apex as a notable) and
+      get no sector focus boost.
+
+**What the player cannot do:** refund or respec; open a hidden acupoint; see or open a locked
+variant sector; unseal by paying
 points; choose or edit what fills an open cluster; see an open cluster's content before its
 story moment, even in Visible mode.
 
@@ -382,8 +433,10 @@ story moment, even in Visible mode.
 | Acupoint | Closed | Open | The player spends 1 point | Rule 3; its cluster, if any, is Unsealed |
 | Acupoint | Open | (stays) | Never closes | No refund, no respec |
 | Capability | Not held | Held | Its notable is opened | Sealed cluster only; held for the rest of the life |
+| Variant sector | Locked | Unlocked | The root gains the variant (Spiritual Roots) | Automatic; never goes back |
 
-A hidden, pending or awaiting-fill cluster's acupoints are Closed and cannot be opened.
+A hidden, pending or awaiting-fill cluster's acupoints, and a locked sector's, are Closed and cannot
+be opened.
 
 ### Interactions with Other Systems
 
@@ -391,7 +444,7 @@ All interfaces are provisional where the other GDD does not exist yet.
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
-| Spiritual Root | in | purity per element, base element count (rule 3, 4) | Spiritual Root |
+| Spiritual Root | in | purity per element, base element count (rule 3, 4), owned variants with purities (variant sectors, rule 20) | Spiritual Root |
 | Character Stats | out | modifiers {source, stat, value}; the character's capability set (held capability ids); the tree never computes a stat | Character Stats (stat keys and their meaning; storage of the capability set) |
 | Realms & Bottlenecks | in | the highest level reached (points_total, Formulas A) and the ladder constants (bands, great breakthrough bonuses, shares); the realm (realm minimum, budgets). Its `level_gained`, `stage_reached` and `breakthrough_succeeded` events trigger the recompute | Realms |
 | Event Engine | in | effects "unseal this cluster" and "story moment: unseal an open cluster", both gated by the budget file; the existing "grant a point" effect | Event Engine (gating); this GDD (what the effects do) |
@@ -1150,6 +1203,261 @@ acupoints and 2 notables. That makes 5 crossings per border.
   That is far less than the sector's 141, because most of its meridian roads never need
   walking.
 
+### H2. Variant sector sizing
+
+Each of the eight variants owns one sector of 30 acupoints, built only from existing pieces:
+a chain of meridian road acupoints, cluster A of 4, cluster B of 9, and the apex cluster X of
+9 with its authored apex notable. Notable counts follow `k_vis`, so A has 1, B has 2 and X
+has 2 (one of them the apex). Layout is fixed: A is a Chain, B and X are Rings. Entry counts
+are set by this layout, not drawn from `entry_count_weights`.
+
+The variant_sector formulas are defined as:
+
+`n_sector = n_road + n_A + n_B + n_X` ; `k_sector = k_vis(n_A) + k_vis(n_B) + k_vis(n_X)` ; `d(y) = min_i ( d(L_i) + 1 + dist(e_i, y) )` ; `C_enter = e` ; `C_clear = e + n_sector − 1`
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| n_road | int | 8 | data file (`variant_road_count`) | Road acupoints: R1–R8 in a spur; F1–F4 and M1–M4 in a chord |
+| n_A, n_B, n_X | int | 4, 9, 9 | data file (`variant_cluster_slots`) | Cluster sizes. X is the apex cluster |
+| k_vis(n) | int | 1, 2, 2 | calculated (H) | floor(n / 4) notables per cluster |
+| n_sector | int | 30 | calculated | 8 + 4 + 9 + 9 |
+| k_sector | int | 5 | calculated | Notables per sector: 4 ordinary and 1 apex |
+| e | int | 3–13 | data file (`variant_entry_depth`) | Depth of the sector's first acupoint. The host sits at e − 1 |
+| d(L_i) | int | 2–12 | calculated | Depth of host i, a visible acupoint, so its depth is frozen |
+| dist(e_i, y) | int | 0–12 | calculated | Steps inside the sector from entry acupoint i to y |
+| C_enter, C_clear | int | 3–42 | calculated | Points from a fresh character (Formulas B) |
+
+**Layout (fixed for every variant):**
+
+| Origin | Roads | A (4, Chain) | B (9, Ring) | X (9, Ring) |
+|---|---|---|---|---|
+| Spur (6 variants, 1 host link) | Chain R1–R8. R1 is the entry acupoint | 1 entry at R3 | 2 entries at R5 and R6 | 1 entry at R8. Apex and the 2nd notable on its two farthest nodes |
+| Chord (Thunder, Darkness; 2 host links) | Spine F1–F2–F3–F4–M4–M3–M2–M1. F1 and M1 are the entries | 1 entry at F2 | 2 entries at M2 and M3 | 2 entries at F4 and M4. Apex on the farthest node |
+
+Cluster entries are internal links onto road acupoints, which become degree 3 (non-junction,
+allowed). No sector acupoint has degree 4. Edges per sector: a spur has 7 + 1 + (3 + 1) +
+(9 + 2) + (9 + 1) = **33**, and a chord has 7 + 2 + (3 + 1) + (9 + 2) + (9 + 2) = **35**.
+
+**Depth span of each class (e = entry depth):**
+
+| Class | Spur | Chord (both entries at e) |
+|---|---|---|
+| Road acupoints | e … e+7 | e … e+3 |
+| Cluster A | e+3 … e+6 (notable at e+6) | e+2 … e+5 (notable e+5) |
+| Cluster B | e+5 … e+9 (both notables at e+9) | e+2 … e+6 (notables e+6) |
+| Cluster X | e+8 … e+12 (apex and 2nd notable at e+12) | e+4 … e+8 (apex e+8, 2nd notable e+7) |
+
+| Variant | e | Roads | A | B | X (apex) | C_enter | C_clear |
+|---|---|---|---|---|---|---|---|
+| Wind (Phong) | 3 | 3–10 | 6–9 | 8–12 | 11–15 (15) | 3 | 32 |
+| Blood (Huyết) | 4 | 4–11 | 7–10 | 9–13 | 12–16 (16) | 4 | 33 |
+| Void (Hư Không) | 5 | 5–12 | 8–11 | 10–14 | 13–17 (17) | 5 | 34 |
+| Chaos (Hỗn Độn) | 7 | 7–14 | 10–13 | 12–16 | 15–19 (19) | 7 | 36 |
+| Light (Quang), Ice (Băng) | 8 | 8–15 | 11–14 | 13–17 | 16–20 (20) | 8 | 37 |
+| Thunder (Lôi), Darkness (Ám) | 9–13, one value per chord | 9–16 | 11–18 | 11–19 | 13–21 (17–21) | 9–13 | 38–42 |
+
+No sector acupoint is deeper than 21, so nothing reaches the expansion band.
+
+**Entry links per origin:**
+
+| Variant | Links | Host (existing acupoint) | Host pool per sector |
+|---|---|---|---|
+| Wind, Blood, Void | 1 each, in a sector drawn from `rng("variant:"+id)`, distinct hosts | Radial acupoint at d 2, 3 and 4 respectively | 3 per depth |
+| Chaos | 1, in a sector drawn from `rng("variant:hon_don")` | K1 ring acupoint at d 6, non-junction | 4 |
+| Light, Ice | 1, in Fire and Water | Radial at d 7 (L7, C7, R7). Fallback d 8 (then e = 9), non-junction | 3 (+2) |
+| Thunder | 2, one in Fire and one in Metal, both at depth e − 1 | Non-junction road acupoint of the middle band, d 8–12 | 13: L 4, C 3, R 4, plus the two connector acupoints |
+| Darkness | 2, one in Earth and one in Water | Same | 13 |
+
+- **Totals:** 10 host links, all on non-junction road acupoints that go to degree 3. No
+  junction or keystone gains a link, so the degree rules hold.
+- **Link capacity (estimate, not simulated):** the middle band has 19 non-junction road
+  acupoints per sector (d 7–13) against about 10 of base demand. With variant demand added,
+  the ratios are Fire and Water 1.58, Earth and Metal 1.73 and Wood 1.90, all above
+  `link_capacity_margin` 1.25. The inner band has 45 radial hosts at d 2–4 against about 31 of
+  demand, about 1.45.
+
+**No band skipping.** Sector depth is BFS depth with every sector unlocked, and it equals the
+depth with only that sector unlocked:
+- a single-entry spur cannot shorten anything;
+- a chord's route from host to host is 9 edges and its hosts are at equal depth, so
+  |d(L_F) − d(L_M)| = 0 ≤ s + 2 = 9 holds;
+- B's links (R5, R6; M2, M3 differ by 1) and X's links (F4, M4 differ by 0) also satisfy
+  |Δd| ≤ s + 2.
+
+Reaching a sector acupoint at depth d therefore costs at least d points, with all sectors
+open or none. If a host shortage forces different chord entries, |e_F − e_M| ≤ 2
+(`variant_chord_depth_gap`). A chord is a modest route: because the dantian is always open, it
+never beats the base route at e = 9, ties at e = 10 and saves at most 3 points at e = 13.
+
+**Totals:**
+
+| Quantity | Value |
+|---|---|
+| Acupoints | 8 × 30 = **240**: 64 roads, 136 cluster smalls, 40 notables (8 of them apex) |
+| Edges | 6 × 33 + 2 × 35 = **268** (258 internal, 10 host links) |
+| Mean degree of a sector's own nodes | spur 2.17, chord 2.27 |
+| Full map, every sector unlocked | 802 + 675 + 240 = **1,717** acupoints; about 2,011 edges; mean degree about **2.34** (guess, on the base 2.36 guess) |
+| Notables in the full map | 80 + about 108 + 40 = about 228 |
+| Visible map | V = 802 and mean degree 2.36, unchanged. Sectors are reported separately; `tree_size_target` still means the base map |
+
+**Output Range:** n_sector is always 30. e runs 3–13, d(y) runs 3–21 and C_clear runs 32–42. A
+fresh Qi Refining life (51 points) can clear any sector and keeps 9–19 points. A Foundation
+Establishment life (120 points) keeps 78–88.
+
+**Example:**
+- **Wind:** host Earth radial C2 (d 2), so e = 3. Roads sit at d 3–10, A at 6–9, B at 8–12 and
+  X at 11–15, with the apex at d 15. C_clear = 3 + 29 = 32.
+- **Thunder, e = 11:** Fire and Metal hosts at d 10. Roads at d 11–14, A at 13–16, B at 13–17
+  and X at 15–19, with the apex at d 19. C_clear = 40.
+
+### H3. Variant sector value
+
+Variant clusters are priced at the lowest hidden premium, `variant_premium` = P_min = 1.25,
+with the base values S0, N0 and H0. Formula D gives every hidden cluster P ≥ 1.25, so E_small,
+E_notable and the budget of clusters A and B hold at any entry depth by construction. X, with
+its apex, passes because n = 9 gives P ≥ 1.375. Roads are priced like smalls. The apex is 1.1 × an ordinary notable.
+
+The variant_value formulas are defined as:
+
+`W_road = H0·P_v` ; `W_small = S0·P_v` ; `W_notable = N0·P_v` ; `W_apex = a_apex·N0·P_v` ; `W_sector = n_road·W_road + n_small·W_small + (k_sector − 1)·W_notable + W_apex` ; `W_scaled(p) = W_sector·(0.5 + p/100)` ; `G(p) = W_scaled(p) − w̄_target·n_sector` ; `g_QR = G / P_LK` ; `g_FE = G / (w̄_target·120)`
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| P_v | float | 1.25 | data file (`variant_premium`) | Equal to P_min |
+| H0, S0, N0 | float | 1.2, 1.2, 8 W | data file (A2) | Base values |
+| a_apex | float | 1.1 | data file (`variant_apex_ratio`) | Apex notable over an ordinary notable |
+| n_small | int | 17 | calculated | Cluster smalls: 3 + 7 + 7 |
+| p | int | derived 8–80, innate 10–100 | calculated (Spiritual Roots D2) | Variant purity |
+| w̄_target | float | 2.07 W | calculated (A2) | Main-map W per point |
+| P_LK | float | 106 W | calculated (A2) | Qi Refining tree power target at 51 points |
+| W_sector | float | 88.5 W | calculated | Unscaled sector value |
+| G(p) | float | −10.8 to +70.65 W | calculated | Gain over spending the same 30 points on the main map |
+
+| Class | Count | Unscaled W | p 43 (×0.93) | p 50 (×1.0) | p 80 (×1.3) | p 100 (×1.5) |
+|---|---|---|---|---|---|---|
+| Road | 8 | 1.5 | 1.40 | 1.50 | 1.95 | 2.25 |
+| Small | 17 | 1.5 | 1.40 | 1.50 | 1.95 | 2.25 |
+| Notable | 4 | 10.0 | 9.30 | 10.0 | 13.0 | 15.0 |
+| Apex | 1 | 11.0 | 10.23 | 11.0 | 14.3 | 16.5 |
+| Sector | 30 | 88.5 | 82.3 | 88.5 | 115.05 | 132.75 |
+
+Unscaled, A = 14.5 W, B = 30.5 W, X = 31.5 W and the roads 12 W. 88.5 / 30 = **2.95 W per
+point**, against 2.56–2.9 for visible clusters, about 3.07 for a hidden n = 9 cluster and 2.07
+for the main-map average.
+
+**Checks:**
+
+| Check | Limit | Value | Result |
+|---|---|---|---|
+| Small ≤ tol·E_small | 1.8 (strictest, at P_min) | 1.5 | pass |
+| Notable ≤ E_notable | 10.0 at P_min | 10.0 | pass, no slack |
+| Apex ≤ E_notable at the shallowest apex (Wind, X entry d 11, P = 1.467) | 11.74 | 11.0 | pass; a 12 W apex would fail |
+| Cluster budget B = P·[(n−k)·S0 + k·N0] | A 14.5, B 30.5, X ≥ 35.8 | 14.5, 30.5, 31.5 | pass |
+| Compounding caps | H4 | at the cap | pass |
+| Ceiling keys | none allowed | none used | pass |
+| Scaled value | below the 50 W keystone floor | 16.5 W at most | pass |
+
+**Output Range:**
+- W_scaled runs 51.3 W (derived p 8) to 132.75 W (innate p 100).
+- At purity 20 or below a sector pays less than the main map (break-even is 20.17). That follows
+  the existing rule that purity decides which regions pay.
+- These are prices before rounding. Flooring each authored value to its precision takes
+  0.4–1.6 W off a sector, and the sheet's single floor (Character Stats Formulas I) takes another
+  1.6–4.2 W off a fully open one, as it does for any acupoint.
+
+**Gain over the same 30 points on the main map (62.1 W):**
+
+| Purity | W_scaled | G | g_QR | g_FE |
+|---|---|---|---|---|
+| 8 | 51.3 | −10.8 | −10.2 % | −4.3 % |
+| 43 (derived mean) | 82.3 | +20.2 | +19.1 % | +8.1 % |
+| 50 (innate mean) | 88.5 | +26.4 | +24.9 % | +10.6 % |
+| 70 | 106.2 | +44.1 | +41.6 % | +17.8 % |
+| 80 (derived maximum) | 115.05 | +52.95 | +50.0 % | +21.3 % |
+| 100 | 132.75 | +70.65 | +66.7 % | +28.4 % |
+
+- **Origin changes only cost.** Clearing a sector in Qi Refining leaves 17–19 of 51 points for
+  innate lives, 15 for Chaos, 14 for Light and Ice and 9–13 for Thunder and Darkness. The road
+  to a host is treated as shared with the main map.
+- **Qi Refining power is accepted (user decision 2026-11-04).** About 4.3 % of lives hold an
+  innate variant and reach about +25 % tree power at mean purity, and +41.6 % at purity 70. The
+  rare root is the price, as with the center keystone. Depth cannot change this, since the same
+  30 points earn the same value anywhere. No sector carries `breakthrough_chance`, so the macro
+  targets are untouched. AC-KMD-07 leaves these lives out of its median.
+- The variant's role bonus (Spiritual Roots Formulas E, about 14–15 W at purity 47–50) comes on
+  top.
+
+**Example:** Thunder at purity 47 scales by 0.97: W_scaled = 88.5 × 0.97 = 85.8 W, a gain of 85.8
+− 62.1 = +23.7 W, or +22.4 % of a Qi Refining tree, plus 14.1 W from its role line.
+
+### H4. Variant stat themes
+
+Every stat below has a Meridian weight (Formulas F). Excluded: `travel_speed_pct`,
+`co_duyen_pct`, `breakthrough_chance`, the keys under character-wide ceilings
+(`herb_growth_pct`, `alchemy_success`, `lifespan_years`) and `ngo_tinh`, which feeds the
+q-extras ceiling. Every cluster holds at least 3 distinct stats and every acupoint at most 2.
+
+| Variant | Lead | Stat 2 | Stat 3 | W per stat (of 88.5) | Units at purity factor 1.0 | Apex notable (≤ 11.0 W) |
+|---|---|---|---|---|---|---|
+| Thunder | attack_pct | artifact_power_pct | linh_luc_pct | 42.0 / 29.0 / 17.5 | +42.0 % / +22.3 % / +17.5 % | attack_pct +11.0 |
+| Darkness | stealth | than_thuc_pct | defense_pct | 30.5 / 39.0 / 19.0 | +20.3 / +30.0 % / +19.0 % | stealth +7.3 |
+| Chaos | cultivation_speed_pct (capped) | linh_luc_pct | khi_huyet_pct | 23.3 / 48.7 / 16.5 | +10.6 % / +48.7 % / +13.7 % | cultivation_speed_pct +2.0, linh_luc_pct +6.6 |
+| Light | tam_ma_resist_pct | formation_power_pct | than_thuc_pct | 42.0 / 29.0 / 17.5 | +28.0 % / +29.0 % / +13.5 % | tam_ma_resist_pct +7.3 |
+| Ice | dan_doc_resist_pct | dan_doc_decay (capped) | defense_pct | 55.2 / 16.8 / 16.5 | +34.5 % / +2.1 / +16.5 % | dan_doc_decay +0.4, dan_doc_resist_pct +4.8 |
+| Wind | defense_pct | mission_income_pct | stealth | 42.0 / 29.0 / 17.5 | +42.0 % / +41.4 % / +11.7 | defense_pct +11.0 |
+| Blood | khi_huyet_pct | attack_pct | defense_pct | 42.0 / 29.0 / 17.5 | +35.0 % / +29.0 % / +17.5 % | khi_huyet_pct +9.1 |
+| Void | khi_van (capped) | mission_income_pct | than_thuc_pct | 13.3 / 30.0 / 45.2 | +2.66 / +42.9 % / +34.8 % | khi_van +0.50, than_thuc_pct +6.5 |
+
+The Units column is before flooring; the Apex column is floored. The eight lead stats are
+distinct. Wind carries Escape Arts (Độn Thuật) type stats and Void
+carries Fortune (Khí Vận) type stats; their travel speed and fortune roles live in Spiritual
+Roots Formulas E. Chaos and Void lead by theme, not by share, because compounding caps bind; Darkness's stealth is
+held below its Stat 2 on purpose.
+
+**Which piece carries which** (standard map for Thunder, Light, Wind and Blood; S1, S2 and S3 are
+the table's three stats):
+
+| Piece | Carries |
+|---|---|
+| Roads (8) | S1 |
+| A (4) | smalls S1, S2, S3; notable S2 |
+| B (9) | smalls S1×3, S2×2, S3×2; notables S1 and S3 |
+| X (9) | smalls S1×2, S2×3, S3×2; notable S2; apex S1 |
+
+**Overrides:**
+- **Darkness (stealth held to 30.5 W):** roads and the apex carry stealth. A: smalls stealth,
+  than_thuc, defense; notable than_thuc. B: smalls than_thuc×3, defense×2, stealth×2; notables
+  than_thuc and defense. X: smalls defense×3, than_thuc×2, stealth×2; notable than_thuc.
+- **Chaos (cultivation speed at its cap, 10.6 % in all):** roads carry linh_luc. A: smalls
+  khi_huyet×3; notable cultivation speed 2.6 plus linh_luc 4.28 W. B: smalls khi_huyet×4, linh_luc×3;
+  each notable cultivation speed 2.0 plus linh_luc 5.6 W. X: smalls khi_huyet×4, linh_luc×3;
+  notable cultivation speed 2.0 plus linh_luc 5.6 W; apex cultivation speed 2.0 plus linh_luc
+  6.6 W.
+- **Ice:** roads carry dan_doc_resist. A: smalls defense×3; notable decay 0.5 plus resist 6.0 W.
+  B: smalls defense×4, resist×3; each notable decay 0.4 plus resist 6.8 W. X: smalls defense×4,
+  resist×3; notable decay 0.4 plus resist 6.8 W; apex decay 0.4 plus resist 7.8 W.
+- **Void (khi_van at its cap, 2.66 in all):** roads carry than_thuc. A: smalls mission×2,
+  than_thuc; notable khi_van 0.66 plus than_thuc 6.7 W. B: smalls mission×4, than_thuc×3;
+  notables (khi_van 0.5 plus mission 7.5 W) and (khi_van 0.5 plus than_thuc 7.5 W). X: smalls
+  mission×4, than_thuc×3; notable khi_van 0.5 plus mission 7.5 W; apex khi_van 0.5 plus
+  than_thuc 8.5 W.
+
+**Compounding-cap check (unscaled; caps are cap9·(n/9)^0.5):**
+
+| Stat | Variant | A (n = 4) | B | X | Cap per cluster |
+|---|---|---|---|---|---|
+| cultivation_speed_pct | Chaos | 2.6 | 4.0 | 4.0 | 2.66 / 4 / 4 |
+| khi_van | Void | 0.66 | 1.00 | 1.00 | 0.66 / 1 / 1 |
+| dan_doc_decay | Ice | 0.5 | 0.8 | 0.8 | 0.53 / 0.8 / 0.8 |
+
+No other stat in a sector has a compounding cap.
+
+**Example:** Thunder's A cluster at purity factor 1.0 holds smalls of +1.5 % attack, +1.1 %
+artifact power and +1.5 % spiritual power, and a notable of +7.6 % artifact power (9.88 W at
+1.3 W per point, floored to precision under the 10.0 W cap).
+
 #### Topology generator
 
 Every draw comes from a sub-stream `rng(tag)`, seeded with `hash64(tree_seed, tag)`. Use
@@ -1360,6 +1668,32 @@ its links:
    - A seed is accepted only when both the Formulas C checks and these checks pass.
    - If no seed passes, the content build fails.
 
+**G9. Variant sectors.** Runs after G8 accepts a seed, and uses only the sub-streams
+`rng("variant:"+id)`. No accept or reject test reads it, so the base seed, counts and
+accepted-seed ranges never change. A failure here stops the content build and never moves the
+seed loop.
+1. **Order:** catalogue order, Wind, Blood, Void, Thunder, Darkness, Chaos, Light, Ice.
+2. **Hosts:** per Formulas H2. Every host is a distinct road acupoint, not a junction, a keystone
+   or a cluster entry, with degree 2 before the link. If a pool is empty, the fallbacks run in
+   this order, and when they are used up the content build fails:
+   - a drawn sector (Wind, Blood, Void, Chaos): the next sector in cycle order;
+   - Light and Ice: a d 8 host, so e = 9;
+   - a chord: the next value of e in 9–13, then a depth gap up to `variant_chord_depth_gap`.
+3. **Ids and tags:** variant acupoints have the integer id 100000 + 100·slot + n (slot 0–7 in
+   catalogue order; n 0–29: roads, then A, B and X), so ids still sort, and the tag
+   `variant:<id>`, and no sector tag. So G8's crossing check does not read them: a chord is not a border crossing, and
+   the 5 crossings per border stand. They are not regions, neighbours or link slots for G5–G7.
+4. **Checks:**
+   - every acupoint has degree ≤ 4, the dantian excepted, and only junctions reach 4;
+   - BFS with every sector unlocked gives the same d for every base acupoint;
+   - each sector's depths match Formulas H2, with that sector alone unlocked and with all
+     unlocked;
+   - no edge joins two variant tags;
+   - the full graph's mean degree is reported against `degree_avg_window`; outside it is a
+     warning. The sector layout is fixed, so there is no repair.
+5. **Hash:** variant data, with the 10 host links, has its own golden hash, so the base map hash
+   of AC-KMD-08 is unaffected.
+
 **Shape templates.**
 - Internal degree is at most 3.
 - Entry slots are taken in the order listed. A slot is skipped if it doesn't exist at this
@@ -1427,6 +1761,15 @@ There is one data key per parameter, used in both the rules and the formulas.
 | tree_breakthrough_cap | `tree_breakthrough_cap` | 8 percentage points (guess) |
 | a_max[r] | `npc_unseal_share` | 0.02, 0.10, 0.18, 0.22, 0.22 |
 | — | NPC allocation weights | `tree_kind_scores` and `tree_focus_weight` in `world_generation.json` (rule 5) |
+| n_sector | `variant_sector_size` | 30 |
+| n_road | `variant_road_count` | 8 |
+| n_A, n_B, n_X | `variant_cluster_slots` | clusters [4, 9], apex cluster 9 |
+| P_v | `variant_premium` | 1.25 (= P_min) |
+| a_apex | `variant_apex_ratio` | 1.1 |
+| e | `variant_entry_depth` | phong 3, huyet 4, hu_khong 5, hon_don 7, quang 8, bang 8; loi and am a value 9–13 drawn once per chord from `rng("variant:"+id)` |
+| — | `variant_hosts` | phong, huyet, hu_khong [inner radial, sector drawn]; hon_don [K1 ring, sector drawn]; quang [hoa]; bang [thuy]; loi [hoa, kim]; am [tho, thuy] |
+| — | `variant_stats` | per variant: the sector and apex names, the three stats and W split, and the per-piece assignment (H4); caps use the existing `fill_stats` caps |
+| — | `variant_chord_depth_gap` | 0 (fallback up to 2) |
 
 ### Computational budget
 
@@ -1454,8 +1797,8 @@ are generated.
   reports the target as unreachable and spends nothing (rule 8).
 - **If a path is cheaper through an inner hidden cluster once it is unsealed:** routes
   may pass through unsealed clusters like any other acupoint.
-- **If the spiritual root (linh căn) changes mid-life** (a root mutation [biến dị] adds or
-  changes an element): every open acupoint's multiplier is recomputed immediately under
+- **If the spiritual root (linh căn) changes mid-life** (a Linh Căn Quả or Tẩy Tủy Đan adds or
+  raises an element): every open acupoint's multiplier is recomputed immediately under
   rule 4. An acupoint whose element count requirement is no longer met stays open and
   keeps contributing, since there is no respec.
 
@@ -1519,6 +1862,27 @@ are generated.
 - **If the seed's inner cluster count falls outside 9–14:** the next seed is tried at
   generation time (Formulas C). Players never see a rejected seed.
 
+**Variant sectors**
+
+- **If a variant forms mid-life (Mutation Awakening, a Linh Căn Quả):** its sector appears at
+  once, and its entries join the frontier only where they touch an open acupoint. If the host
+  is closed, the player walks to it first. Points already spent stay spent.
+- **If an innate variant's host sits in a sector of an element the root lacks:** the road to it
+  pays the ×0.25 absent multiplier (rule 4). The host's sector is drawn once with the map, so
+  this is fixed and can be learned.
+- **If a variant's purity is 20 or below:** the sector pays less than the main map (Formulas H3).
+  It is not blocked; the value shown before spending tells the player (AC-KMD-57).
+- **If a derived variant's purity rises (Tẩy Tủy Đan):** its open sector acupoints are recomputed
+  immediately under rule 4, like any open acupoint.
+- **If a chord is shorter than the existing route between its two sectors:** the path tool may
+  use it, for its holder only. A locked sector is never routed through.
+- **If a root owns two or more variants:** each sector unlocks on its own; they never link to
+  each other, and points are spent in each separately.
+- **If a sector's hosts cannot be placed:** the content build fails (G9). The seed never moves.
+- **If a save holds an open variant acupoint on a root that lacks the variant** (an edited save):
+  it is treated as an unknown id: the acupoint is skipped, its point returns as unspent and one
+  line is logged (AC-KMD-53).
+
 **Display**
 
 - **If a cluster has 2 or 3 entry links:** discovery in Silhouette mode triggers from any
@@ -1539,7 +1903,7 @@ as the bidirectional-dependency rule requires.
 |---|---|---|
 | 1 | Data-Driven Config | `meridian_tree.json`, `meridian_fill.json`, `meridian_capabilities.json`, and the cluster and point parameters |
 | 2 | Deterministic Simulation Core | The seeded RNG for map generation (fixed seed per content release) and NPC allocation; Breakdown for explainable values |
-| 6 | Spiritual Root (Linh Căn) | Purity per element and base element count (rules 3 and 4) |
+| 6 | Spiritual Root (Linh Căn) | Purity per element and base element count (rules 3 and 4); owned variants with purities, for the hidden variant sectors (rule 20) |
 | 7 | Character Stats | Accepts modifiers {source, stat, value}; owns stat keys, units and meaning, and the stat weights' reference values; stores the character's capability set (held capability ids), which the Meridian Map writes and every capability host reads |
 | 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Level, realm and stage; level bands, great breakthrough bonuses and the `pct_trung` / `pct_hau` / `pct_dai` shares (Formulas A); realm lifespan L_r; pill attempts for #22 and #23; the breakthrough talisman (one per realm step, τ 0.05, rule 8), which enters Formulas E2 as τ_a; failure insight (`breakthrough.failure_insight_pp` 2, `failure_insight_cap` 4), which enters E2 through q (insight included) and ι_23 |
 
@@ -1647,6 +2011,11 @@ numbers in this GDD; ranges marked *guess* wait for a bot run.
 | `open_unseals_per_realm` | 1 / 1 / 1 / 2 / 2 | 0–3 per realm | How often a story moment can open the tree |
 | `npc_unseal_share` | 0.02–0.22 | up to 0.22, derived: the holder share must stay under 15% (AC-KMD-49) | How many NPCs hold a cluster |
 | `cong_phap_seasons` | 24 / 48 | fixed by the Cultivation Techniques (Công Pháp) GDD (rule 15, `seal_seasons` 24 / 24 / 48 / 48 by tier); 12–60 safe | Length of a cultivation technique seal |
+| `variant_premium` | 1.25 | 1.0–1.25. Above about 1.29 Wind's A cluster exceeds Formulas D's notable cap, so a raise needs a per-cluster check | Sector power per point (2.95 W at 1.25) |
+| `variant_apex_ratio` | 1.1 | 1.0–1.17. Hard cap: N0·P_v·a_apex ≤ E_notable at the shallowest apex (11.74 W) | How much the apex outweighs the other notables |
+| `variant_entry_depth` | 3, 4, 5 innate; 7 Chaos; 8 transmutation; 9–13 chords | innate 3–5; Chaos 7 (the K1 ring); chords only while the middle band has hosts | Cost to reach and clear a sector. Does not change its gain |
+| Stealth share (Darkness) | 30.5 W (+20.3) | 20–42 W | Evasion strength, a guess: 1 stealth is about 1 pp of check chance |
+| Chaos cultivation speed | +10.6 % | at most the compounding cap, 10.6 % | The only place sectors add cultivation speed |
 
 **Target outcome (guess).** A typical life unseals 3–6 clusters by Nascent Soul (Nguyên Anh). The
 autoplay bot reports it; AC-KMD-49 bounds NPCs only.
@@ -1680,6 +2049,9 @@ These apply to the Debug Terminal now and to the Game UI later.
   - A pending unseal shows the realm it waits for.
 - **Fills.** Every clamp on an LLM fill is listed on the cluster, in the same style as
   event clamps.
+- **Variant sectors.** A locked sector is not drawn and not hinted, in either visibility mode. An
+  unlocked one shows its name, its variant's purity and its scale. When a variant forms mid-life,
+  the screen shows where its sector appeared and which host opens it.
 - **Capabilities.** Held capabilities are listed with their rule text and, when one
   can't act or is suppressed, the reason.
 
@@ -1695,6 +2067,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `assets/data/meridian_tree.json` | The built prototype map; to be regenerated at the target scale |
 | `assets/data/cultivation_realms.json` | Holds the old stage ladder; must move to level bands (Realms & Bottlenecks [Cảnh Giới & Bình Cảnh] GDD) |
 | `docs/debug-terminal.md` | Terminal commands for the tree |
+| `design/gdd/linh-can.md` | The variant roots, their purities and the sector contract (its rule 12), which rule 20 fulfils |
 
 ## Acceptance Criteria
 
@@ -1707,7 +2080,7 @@ Drafted with qa-lead.
   seeded RNG. LLM tests inject `LlmService` disabled or faked, and never write the LLM
   config or achievements.
 - Evidence for the debug terminal is a captured transcript in `production/qa/evidence/`,
-  not a screen capture.
+  not a screen capture. The exception is AC-KMD-87, which needs retained screenshots.
 - **[Bot]** items are judged on the printed output of `tools/balance/autoplay.gd` or
   `tools/balance/npc_cohort.gd`. `npc_cohort.gd` needs three new outputs: generation at
   realm r, the share of NPCs holding a cluster, and combat power (chiến lực) with and
@@ -1767,7 +2140,8 @@ Drafted with qa-lead.
     `tree_breakthrough_cap`), which leaves room for hidden clusters.
 - **AC-KMD-07** [Integration, Bot: `autoplay.gd`, ≥ 60 lives = 20 seeds × 3 origins]
   The median tree power at Qi Refining great perfection is 90–125 W. Lives with a 5-element root
-  are left out of the median (the center keystone, Formulas A2) and reported separately.
+  (the center keystone, Formulas A2) or an owned variant sector (Formulas H3) are left out of the
+  median and reported separately.
 
 **Map and reach (rules 1, 3, 4, 5, 8; Formulas B and H)**
 
@@ -2228,6 +2602,205 @@ Drafted with qa-lead.
   the stat sheet's Kinh Mạch contribution is 8 and the breakdown shows the clamp. At 7 pp
   nothing is clamped. The ceiling applies to an NPC's sheet the same way.
 
+**Variant sectors (rule 20; Formulas H2–H4, G9)**
+
+The base-map criteria (AC-KMD-06, -10, -11, -60, -63, -64, -65) count base acupoints only: anything with a `variant:` tag is outside their totals, including the 24 variant clusters, which are not among the 125. Fixtures set `variant_entry_depth` directly where a chord's e matters. AC-LC-33 and AC-LC-34 cover the root's side; these cover the map's side. A **variant id** is an id in the reserved block of G9.
+
+- **AC-KMD-68** [Logic] Rule 20, locked. Root {Fire 86, Metal 40}, no variant owned, Thunder's Fire host open.
+  - All 240 variant acupoints fail `can_allocate` with a reason, spend 0 and are absent from `frontier()`.
+  - `path_to` to any of them reports unreachable and spends 0.
+  - The host's neighbour list holds no variant id, and its degree reads 2.
+  - A Meridian Seal (Mạch Ấn), an event unseal effect and a point spend aimed at a sector each change nothing: points, open set and stat sheet stay identical.
+  - The stat sheet has no modifier from a variant acupoint.
+- **AC-KMD-69** [Logic] Rule 20, not hinted and not counted, in Silhouette and in Visible.
+  - For a life owning no variant, the map listing has 0 entries with a variant id, a `variant:` tag or a sector name. This also holds after switching mode both ways.
+  - Opening a host produces no discovery, hint or condition line.
+  - Reported size is 802 visible, and the total equals AC-KMD-10's golden value.
+  - With Wind owned, those two figures are unchanged and a separate sector line reads 30. With Wind and Blood owned, it reads 60.
+- **AC-KMD-70** [Logic] Rule 20, unlocked at birth. Root with Wind, e = 3, host at d 2, no realm reached.
+  - `path_to` R1 opens 3 acupoints with 3 points. With 2 points it fails and spends 0.
+  - `path_to` the apex (d 15) opens 15 with 15 points. With 14 it fails and spends 0.
+  - Opening all 30 from a fresh character spends exactly 32: the 2 base acupoints plus 30, 1 point each.
+  - No sector acupoint carries a seal or a realm minimum.
+- **AC-KMD-71** [Logic] Rule 20, unlocked mid-life. Root {Fire 86, Metal 40}, Thunder e = 11, 51 points (40 spent, 11 unspent), Fire host open, Metal host closed.
+  - When Thunder forms, F1 is in `frontier()` on the same call and M1 is not.
+  - Spent stays 40, unspent stays 11 and the open set is unchanged: nothing is refunded.
+  - With both hosts closed, no variant id is in `frontier()`, and `can_allocate` on F1 refuses as not connected.
+  - After the player opens a host, its entry joins `frontier()`.
+  - After a later root change and a save/load, every open sector acupoint stays open and the frontier is unchanged: the sector never relocks.
+- **AC-KMD-72** [Logic] Rule 20, nothing new is saved.
+  - A save with Wind and 5 sector acupoints open has the same key set as a save of the same life with no variant.
+  - The 5 Wind ids sit in the ordinary open list, and no key records an unlocked state.
+  - The round trip meets AC-KMD-51: serialising twice gives identical output.
+- **AC-KMD-73** [Logic] Rule 20, scale. A sector acupoint's scale is 0.5 + purity/100 for its variant.
+
+  | Purity | Scale | Road 1.5 W | Notable 10 W | Apex 11 W |
+  |---|---|---|---|---|
+  | 8 | 0.58 | 0.87 | 5.80 | 6.38 |
+  | 43 | 0.93 | 1.395 | 9.30 | 10.23 |
+  | 50 | 1.00 | 1.50 | 10.0 | 11.0 |
+  | 80 | 1.30 | 1.95 | 13.0 | 14.3 |
+  | 100 | 1.50 | 2.25 | 15.0 | 16.5 |
+
+  - With Fire 86, Metal 40 and Thunder 47, a Thunder road reads ×0.97, never ×1.36, ×0.9 or a bridge average.
+  - An open Thunder road of +1.5 attack gives 1.455, stored as +1.4 on the sheet (floored once, Character Stats Formulas I). A Tẩy Tủy Đan lifting Metal 40 → 48 makes it 1.515, stored as +1.5, on the same call (AC-LC-34 asserts the scale, this the sheet).
+  - An open Wind road at purity 62 stays 1.68, stored as +1.6, through that pill.
+  - The modifier source is `Kinh Mạch: <name> #<id>` with the variant id.
+- **AC-KMD-74** [Logic, data-driven] Rule 20 and H4, content limits, over all 240 acupoints.
+  - There are 0 keystones and 0 capabilities.
+  - No acupoint carries `breakthrough_chance`, `travel_speed_pct`, `co_duyen_pct`, `ngo_tinh`, `herb_growth_pct`, `alchemy_success` or `lifespan_years`.
+  - Every acupoint has 1–2 stats, each positive and each with a weight in `fill_stats`.
+  - Each of the 24 clusters has at least 3 distinct stats.
+  - The 8 leads are distinct and exactly: `attack_pct`, `stealth`, `cultivation_speed_pct`, `tam_ma_resist_pct`, `dan_doc_resist_pct`, `defense_pct`, `khi_huyet_pct`, `khi_van`.
+  - An injected `LlmService` counter reads 0 calls across generation and unlocking.
+  - The lint fails on fixtures with `breakthrough_chance` in a sector, 3 stats on one acupoint, and a cluster of 2 distinct stats.
+- **AC-KMD-75** [Logic] H2 sizing.
+  - Every sector has 30 acupoints: 8 roads and clusters of 4, 9 and 9, in Chain, Ring and Ring shapes.
+  - Notables per cluster are 1, 2 and 2: 5 in all, one of them the apex.
+  - No draw is made from `entry_count_weights`.
+  - A spur has 33 edges (1 host link) and a chord 35 (2 host links).
+  - No sector acupoint has degree 4.
+  - Mean degree of a sector's own nodes is 65/30 for a spur and 68/30 for a chord.
+  - Totals: 240 acupoints (64 roads, 136 smalls, 40 notables, 8 of them apex) and 268 edges (258 internal, 10 host links).
+- **AC-KMD-76** [Logic] H2 depths, on the sector's own BFS.
+
+  | Variant | e | Roads | A | B | X | Apex | C_enter | C_clear |
+  |---|---|---|---|---|---|---|---|---|
+  | Wind | 3 | 3–10 | 6–9 | 8–12 | 11–15 | 15 | 3 | 32 |
+  | Blood | 4 | 4–11 | 7–10 | 9–13 | 12–16 | 16 | 4 | 33 |
+  | Void | 5 | 5–12 | 8–11 | 10–14 | 13–17 | 17 | 5 | 34 |
+  | Chaos | 7 | 7–14 | 10–13 | 12–16 | 15–19 | 19 | 7 | 36 |
+  | Light, Ice | 8 | 8–15 | 11–14 | 13–17 | 16–20 | 20 | 8 | 37 |
+  | Light or Ice, d 8 host fallback | 9 | 9–16 | 12–15 | 14–18 | 17–21 | 21 | 9 | 38 |
+  | Chord fixture | 9 | 9–12 | 11–14 | 11–15 | 13–17 | 17 | 9 | 38 |
+  | Chord fixture | 11 | 11–14 | 13–16 | 13–17 | 15–19 | 19 | 11 | 40 |
+  | Chord fixture | 13 | 13–16 | 15–18 | 15–19 | 17–21 | 21 | 13 | 42 |
+
+  - Spur notables sit at e+6 (A), e+9 (both of B) and e+12 (apex and second notable of X).
+  - Chord notables sit at e+5 (A), e+6 (both of B), e+8 (apex) and e+7 (second notable of X).
+  - No sector acupoint is deeper than 21 or shallower than 3.
+- **AC-KMD-77** [Logic] H2, no band skipping.
+  - These states give the same d for all 802 visible acupoints and every hidden-cluster acupoint: no sector unlocked, each sector alone (8 runs), all 8 unlocked, and each of those with all 75 hidden clusters sealed and unsealed.
+  - Each sector's depths are identical alone and with all unlocked.
+  - For all 240 acupoints, the route cost from Đan Điền alone equals d.
+  - Shortcut pairs: chord hosts Δ0 ≤ 9 (s 7), R5/R6 and M2/M3 Δ1 ≤ 3 (s 1), F4/M4 Δ0 ≤ 3 (s 1).
+  - Fixture: chord hosts at d 10 and d 12 are accepted, base depths are unchanged, and the sector's deepest acupoint is d 19. Hosts at d 10 and d 13 are rejected (`variant_chord_depth_gap`).
+- **AC-KMD-78** [Logic, data-driven] H3 unit values and checks.
+  - Road 1.5, small 1.5, notable 10.0 and apex 11.0 W.
+  - Roads 12.0, A 14.5, B 30.5, X 31.5.
+  - W_sector 88.5 and 88.5/30 = 2.95 W per point.
+  - Small 1.5 ≤ 1.8 and notable 10.0 ≤ 10.0.
+  - Wind's X: d_entry 11, n 9 gives P = 1.4671 (±0.0005) and E_notable = 11.74. An 11.0 W apex passes. A 12 W apex fails.
+  - `variant_apex_ratio` 1.17 passes and 1.18 fails.
+  - Budgets: A 14.5 ≤ 14.5, B 30.5 ≤ 30.5, X 31.5 ≤ 35.80 (Wind, the lowest).
+  - The largest scaled acupoint is 16.5 W, below 50.
+- **AC-KMD-79** [Logic, data-driven] H3 gain, with fixture constants w̄_target = 2.07 and P_LK = 106, using `assert_near`.
+
+  | Purity | W_scaled | G | g_QR | g_FE |
+  |---|---|---|---|---|
+  | 8 | 51.33 | −10.77 | −10.16 % | −4.34 % |
+  | 20 | 61.95 | −0.15 | −0.14 % | −0.06 % |
+  | 21 | 62.835 | +0.735 | +0.69 % | +0.30 % |
+  | 43 | 82.305 | +20.205 | +19.06 % | +8.13 % |
+  | 50 | 88.5 | +26.4 | +24.91 % | +10.63 % |
+  | 70 | 106.2 | +44.1 | +41.60 % | +17.75 % |
+  | 80 | 115.05 | +52.95 | +49.95 % | +21.32 % |
+  | 100 | 132.75 | +70.65 | +66.65 % | +28.44 % |
+- **AC-KMD-80** [Logic, data-driven] H4 themes.
+  - The W split per variant sums to 88.5 (±0.02):
+
+    | Variant | Lead | Stat 2 | Stat 3 | Sector power after flooring (±0.01, provisional) |
+    |---|---|---|---|---|
+    | Thunder | 42.0 | 29.0 | 17.5 | 87.84 |
+    | Darkness | 30.5 | 39.0 | 19.0 | 87.67 |
+    | Chaos | 23.32 | 48.68 | 16.5 | 87.76 |
+    | Light | 42.0 | 29.0 | 17.5 | 87.88 |
+    | Ice | 55.2 | 16.8 | 16.5 | 87.22 |
+    | Wind | 42.0 | 29.0 | 17.5 | 88.10 |
+    | Blood | 42.0 | 29.0 | 17.5 | 87.54 |
+    | Void | 13.3 | 30.0 | 45.2 | 86.92 |
+
+  - Every value is a whole count of its Formulas F precision, floored, and no sector exceeds 88.5 W.
+  - Each piece carries the stats of H4's standard map or the variant's override.
+  - Apex notables:
+    - Thunder and Wind: 11.0.
+    - Darkness and Light: 7.3.
+    - Blood: 9.1.
+    - Chaos: speed 2.0, `linh_luc_pct` 6.6.
+    - Ice: decay 0.40, resist 4.8.
+    - Void: `khi_van` 0.50, `than_thuc_pct` 6.5.
+
+    Each is at most 11.0 W.
+  - Compounding caps (A / B / X):
+    - Chaos `cultivation_speed_pct` 2.6 / 4.0 / 4.0 against 2.667 / 4 / 4.
+    - Void `khi_van` 0.66 / 1.00 / 1.00 against 0.667 / 1 / 1.
+    - Ice `dan_doc_decay` 0.5 / 0.8 / 0.8 against 0.533 / 0.8 / 0.8.
+  - No other sector stat has a compounding cap.
+  - The validator fails fixtures with Chaos X at 4.1, Void A at 0.67 and Ice A at 0.54.
+- **AC-KMD-81** [Logic] G9, determinism and isolation.
+  - Two generations and two lives with different character seeds give identical variant ids, tags, edges, host links, kinds, modifiers and d. Positions join this check when the Game UI sets them (Open Question 16).
+  - With G9 on and off, the AC-KMD-08 base hash, accepted seed, attempt count and all base counts are identical. The base hash excludes variant acupoints and the 10 host links, which belong to the variant hash.
+  - Variant data matches its own golden hash.
+  - Changing one `variant_stats` value changes the variant hash and leaves the base hash unchanged.
+  - An injected counter shows G9 draws only from `rng("variant:"+id)`, in the order `phong`, `huyet`, `hu_khong`, `loi`, `am`, `hon_don`, `quang`, `bang`.
+  - Every acupoint has the integer id 100000 + 100·slot + n (slot 0–7 in catalogue order, n 0–29: roads, then A, B and X), the tag `variant:<id>` and no sector tag.
+  - G5–G7's regions, neighbours and link slots, and G8's crossing result, are identical with and without G9.
+- **AC-KMD-82** [Logic] G9, hosts and graph checks.
+  - The 10 hosts are distinct. Each is a road acupoint that is not a junction, keystone or cluster entry, has degree 2 before its link and 3 after, and has d = e − 1.
+  - Wind, Blood and Void: a radial at d 2, 3 and 4. Chaos: a K1 ring acupoint at d 6 with a sector tag.
+  - Light in Fire and Ice in Water: a radial at d 7.
+  - Thunder in Fire and Metal, and Darkness in Earth and Water: both hosts at one depth in d 8–12.
+  - On an empty fixture, for χ = 0 and χ = 1, the pools per sector are:
+    - 3 at each of d 2, 3 and 4;
+    - 4 for Chaos;
+    - 3 at d 7, plus 2 at d 8;
+    - 13 for chords (L 4, C 3, R 4, 2 connectors).
+  - Fixture: with L7, C7 and R7 occupied, Light takes L8 or R8 with e = 9 (depths in AC-KMD-76).
+  - Fixture: with the drawn sector's d 2 pool occupied, Wind takes the next sector in cycle order.
+  - No edge joins two variant tags.
+  - Every acupoint has degree ≤ 4 except Đan Điền (6), and only junctions reach 4.
+  - With all sectors in the graph, AC-KMD-60, -63, -64 and -65 still pass, and each border still has exactly 5 crossings.
+  - Full-graph mean degree is reported; a value outside `degree_avg_window` is a warning (expected about 2.34, provisional).
+- **AC-KMD-83** [Logic] G9, failure. Fixture: every fallback in Thunder's order is empty.
+  - The content build fails and the error names `loi`.
+  - The seed does not move, the attempt count is unchanged, and G1–G8 do not re-run.
+  - The base hash is unchanged and no partial variant data is emitted.
+  - The launch seed passes G9.
+- **AC-KMD-84** [Logic] Chords. Root {Fire 86, Metal 40}, Thunder 47, base roads 1.2 W, open set = Đan Điền plus the route to the Fire host.
+  - Each chord has exactly 2 entries, F1 and M1, each joining `frontier()` when its host is open.
+  - e = 11 (hosts at d 10): for the holder, `path_to` the Metal host is the chord, 9 acupoints. For a life without Thunder it is the base route, 10 acupoints, with no variant id.
+  - e = 10 (hosts at d 9): both routes cost 9. The holder takes the chord at 12.72 W rather than the base 9.72 W (rule 3).
+  - e = 9 (hosts at d 8): the holder takes the base route, 8 acupoints.
+  - After the holder opens the chord, the Metal host's d is still 10, and a fresh character's route cost to it is still 10.
+- **AC-KMD-85** [Logic] NPCs, fixed seed, random term injected as 0, `tree_kind_scores` small 1 and notable 4, `tree_focus_weight` 2.
+  - An NPC owning Thunder may open Thunder acupoints, and every open is legal. An NPC owning no variant opens none of the 240.
+  - Points spent = min(points, reachable), and reachable includes owned sectors only.
+  - A Fire-archetype NPC scores a Thunder road 1 and a Thunder notable or apex 4, the same at `tree_focus_weight` 0 and 2.
+  - Repeat runs are identical.
+- **AC-KMD-86** [Logic] Edge cases. A closed host is covered by AC-KMD-71.
+  - Absent element: root {Water 60} + Wind 50, host in Earth. `path_to` R1 costs 3 and previews 0.30 + 0.30 + 1.50 = 2.10 W.
+  - Low purity: Light at purity 8 (Fire 10). `can_allocate` passes, and a road previews 0.87 W. Nothing blocks a sector for low purity.
+  - Two variants: {Fire 86, Metal 40} + Thunder 47 + Light 69.
+    - Each sector unlocks on its own, at ×0.97 and ×1.19.
+    - A point in one changes nothing in the other.
+    - No route between them stays inside variant tags.
+    - After Metal 40 → 48, Thunder reads ×1.01 and Light ×1.19.
+  - Edited save: an open variant id on a root that lacks the variant is skipped, its point returns as unspent, and one line is logged, as for an unknown id (AC-KMD-53).
+- **AC-KMD-87** [UI] Variant sectors on screen. Evidence is a retained screenshot of each state in `production/qa/evidence/`, from a windowed run per `.claude/docs/run-and-observe.md`, not a transcript alone.
+  - Locked: a life owning no variant, one shot in Silhouette and one in Visible, showing no sector, name, hint or host marker.
+  - Unlocked: Thunder shows its name, purity 47 and scale ×0.97.
+  - Mid-life: on forming, the screen shows where the sector appeared and which host opens it.
+  - Before spending: a Light road at purity 8 shows 0.87 W (AC-KMD-57).
+- **AC-KMD-88** [Integration, offline generator run] G9 over every seed accepted in AC-KMD-67's 200-seed run, in report mode.
+  - The report lists G9 pass or fail per seed, with the variant and reason for each failure.
+  - It also gives hosts left per pool, full-graph mean degree, and middle and inner link ratios with variant demand added.
+  - Pass: at least 90 % of accepted seeds pass G9 (provisional).
+  - Ratios are expected at about 1.58 Fire and Water, 1.73 Earth and Metal, 1.90 Wood and 1.45 inner (provisional). A ratio below `link_capacity_margin` is listed as a warning, as in G7.
+- **AC-KMD-89** [Integration, Bot: `autoplay.gd`, ≥ 60 lives per arm = 20 seeds × 3 origins] Lives holding a sector. Arms are Wind at purity 50, Thunder 47 and Chaos 44, each told to clear its sector in Qi Refining and paired with the same seeds with sector spending off.
+  - The printed output gives each arm's median tree power at Qi Refining great perfection, separately from AC-KMD-07's median.
+  - The Wind arm's gain is +15 to +35 W (expected +26.4, provisional).
+  - Breakthrough success in every arm stays inside AC-KMD-50's `autoplay.gd` windows, 0.70 ± 0.10 with edge on and 0.30 ± 0.10 with edge off.
+
 **Still provisional:**
 - AC-KMD-01 and AC-KMD-02 at L ≥ 267 depend on Open Question 2 (the realm after Hóa
   Thần).
@@ -2252,3 +2825,6 @@ Drafted with qa-lead.
 | 12 | ~~The map generator's topology~~ **Design decided 2026-11-03** (rule 1, Topology: kinh lộ highways, hội huyệt, 1–3 entries, flexibility limits, 5 crossings per border, a shape catalogue). The generator spec and sizing are in Formulas H. AC-KMD-08's golden hash is set when the generator is built | technical-director (generator spec) | — |
 | 13 | Where Meridian Seal (Mạch Ấn) keys come from (loot, shop, event reward), and the intended number of clusters a typical life unseals | Item DB + Event Engine GDDs | Item seals; Tuning Knobs target |
 | 14 | Should `lifespan_years` get a tree-wide ceiling like `breakthrough_chance`? Today only each cluster is held to φ_r·L_r, so 5 unsealed clusters could add up to 50% of a realm's lifespan | user + systems-designer | Formulas F; balance sign-off |
+| 15 | ~~Hidden variant sectors~~ **Answered 2026-11-04** by rule 20, Formulas H2–H4 and G9. Weights for `travel_speed_pct` and `co_duyen_pct` stay open under Spiritual Roots Open Question 2 | — | — |
+| 16 | Where variant sectors are drawn. G9 fixes the graph, not positions, and on the wheel the Fire–Metal and Earth–Water chords must cross with no edge between them. The Game UI sets positions; the variant hash then includes them | Game UI | AC-KMD-81 |
+| 17 | Building and content for variant sectors: `path_to` must read the character's owned variants, and the 8 sector names and apex notables need writing. The H3 and H4 values are guesses until AC-KMD-88 and AC-KMD-89 run | content, implementation story | Rule 20 |

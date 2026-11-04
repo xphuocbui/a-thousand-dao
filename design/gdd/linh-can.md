@@ -1,6 +1,6 @@
 # Spiritual Roots (Linh Căn)
 
-> **Status**: In Review (2026-11-04, after cross-GDD review 04g: holder-raised ceilings priced, plots at 20 W; awaiting re-review). See `reviews/linh-can-review-log.md`.
+> **Status**: Approved (lean /design-review 2026-11-04 of the redesign: no blocking items; re-reviewed lean 2026-11-05 after the Meridian Map variant sectors landed: no blocking items; the pre-redesign version is in git at b7f4639)
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-04
@@ -9,43 +9,55 @@
 
 ## Summary
 
-The spiritual root is the talent a cultivator is born with for the five elements.
-- **Elements and purity.** One to five elements, each with a purity of 10–100. A
-  five-element root is about 1 life in 67.
-- **Cultivation speed.** Many-element roots cultivate slower early and far faster late.
-  Each generating pair inside the root adds +3 % cultivation speed.
-- **Roles and scaling.** Each element has a craft or economy role, and purity scales the
-  Meridian Map and techniques.
-- **Mutations (biến dị).** 29 of them form from element pairs and combine up to Chaos.
-  Each rolls once, about 13.5 % of lives have one, and each is held to a power band.
-- **Changes.** The root changes only through a few capped pills and event fruits, and
-  never loses anything. It is the run's first reveal and a long-term build goal.
+The spiritual root is the talent a cultivator is born with: one to five base elements
+(Metal, Wood, Water, Fire, Earth) with purities of 10–100, plus, in about 1 life in 8, one
+of eight variant roots (Light, Darkness, Ice, Wind, Thunder, Void, Blood, Chaos).
+- **Variants** arise by convergence of owned elements, transmutation of one element, or
+  innately at birth. Each has a purity-scaled role and its own hidden Meridian Map sector.
+  Innate ones count as an extra element for the speed curve.
+- **Speed and roles.** Many-element roots cultivate slower early and far faster late, each
+  generating pair adds +3 %, and every element and variant has a craft, economy or combat
+  role.
+- **Changes.** The root changes only through a few capped pills and event fruits, never
+  loses anything, and is the run's first reveal and a long-term build goal.
 
-> **Quick reference** — Layer: `Core` · Priority: `MVP` · Key deps: `Config, Sim Core`
+The old higher-order mutations moved to a new system, the Way (Đạo).
+
+> **Quick reference** — Layer: `Core` · Priority: `MVP` · Key deps: `Config, Sim Core; soft: Realms & Bottlenecks, Character Stats`
 
 ## Overview
 
-The spiritual root (linh căn) is the talent a cultivator is born with for the five
-elements (ngũ hành): Wood, Fire, Earth, Metal and Water (Mộc, Hỏa, Thổ, Kim, Thủy).
-- **Elements and purity.** A root owns one to five of them, each with a purity from 10
+The spiritual root (linh căn) is the talent a cultivator is born with. It has two layers.
+
+- **Base elements.** The five elements (ngũ hành): Metal (Kim), Wood (Mộc), Water (Thủy),
+  Fire (Hỏa) and Earth (Thổ). A root owns one to five of them, each with a purity from 10
   to 100.
-- **Root mutations (biến dị).** Pairs of owned elements can form mutations, such as
-  Thunder from Fire and Metal or Life from Water and Wood. Mutations can combine further,
-  up to the apex Chaos (Hỗn Độn), which needs all five.
+- **Variant roots (biến dị linh căn).** Eight rarer roots: Light (Quang), Darkness (Ám),
+  Ice (Băng), Wind (Phong), Thunder (Lôi), Void (Hư Không), Blood (Huyết) and Chaos (Hỗn
+  Độn). A variant is not built from other variants. It arises in one of three ways: a
+  *convergence* of specific owned elements (Thunder from Fire and Metal), a
+  *transmutation* of one element (Ice from Water), or it is *innate*, appearing at birth
+  with no element requirement (Wind, Blood, Void).
 
-The root shapes everything:
-- **Cultivation speed.** Many-element roots start slow and grow fastest late, and every
-  generating (tương sinh) pair inside the root adds a little speed.
-- **Element roles.** Each element has a craft or economy role: Wood grows herbs, Fire
-  brews pills, Earth adds field plots, Metal earns from missions and Water clears pill
-  toxicity.
-- **Purity scaling.** Purity sets how much each Meridian Map region and cultivation
-  technique pays.
-- **Mutation bonuses.** Each mutation adds its own bonuses to the stat sheet.
+The root shapes the life from the first season:
+- **Cultivation speed.** Many-element roots start slow and grow fastest late, and each
+  generating (tương sinh) pair inside the root adds a little speed. Variants count
+  partly toward that curve.
+- **Roles.** Each base element and each variant has a craft or economy role (Wood grows
+  herbs, Fire brews pills, Wind speeds travel, Blood deepens vitality, and so on).
+- **Meridian Map.** Purity scales the five element sectors. Each variant has a sector of
+  its own that stays hidden and locked until the root owns that variant.
+- **Techniques.** Purity sets how well a cultivation technique (công pháp) that names an
+  element or variant runs.
 
-The root is rolled at birth (or chosen in a Self-made life). It changes only rarely,
-through a few treasures and pills, so it is both the hand you are dealt and a long-term
-build goal.
+The root is rolled at birth (or chosen in a Self-made life) and changes only rarely, so
+it is both the hand you are dealt and a long-term build goal.
+
+**What this system no longer holds.** The older second-, third- and fourth-order
+mutations (Sword, Pill Fire, Spirit Farming, Space, Time and the rest) are not part of the
+root. They move to a separate system, the Way (Đạo), which has many more possibilities and
+is designed on its own. This GDD defines only the contract it expects from that system
+(see Dependencies).
 
 The system exists because it is the first and strongest source of Pillar 1 (Your Dao,
 Your Name). Two lives with different roots play differently from the first season. A
@@ -57,74 +69,85 @@ Pillar 4 (Every Season Counts) applied to a whole life.
 
 You open a life with a hand you did not choose, and you learn to love it. A single root
 is a sprinter: fast now, with a long way to go. A five-element root is a long gamble: you
-are slow and fragile in Qi Refining, then you pull away from everyone who started fast. A
-mutation (biến dị) is a gift you did not earn, and a few treasures and the Meridian Map's
-Mutation Awakening let you keep chasing the ones you missed. Nothing is ever taken from
-the root, so every change is a step forward in a build you chose to pursue.
+are slow and fragile in Qi Refining, then you pull away from everyone who started fast.
+
+A variant root is a gift you did not earn, and each kind feels different to get. Thunder
+is what happens when Fire and Metal in you meet. Ice is your Water running pure. Wind,
+Blood and Void simply arrive, and the rarest of them make a life you will retell. A
+variant also opens a place on the Meridian Map that nobody without it can even see.
+
+Nothing is ever taken from the root, so every change is a step forward in a build you
+chose to pursue.
 
 ## Detailed Design
 
-This section documents the system as built, plus the user's decisions of 2026-11-04.
-Changes from the built game are marked **(change)**.
-
 ### Core Rules
+
+This section is the 2026-11-04 redesign. It replaces the earlier 29-mutation catalogue
+with eight variant roots and moves the rest to the Way (Đạo). Items that differ from the
+pre-redesign GDD (git b7f4639) are marked **(change)**.
 
 **Elements**
 
 1. **The five elements.**
    - **Generating cycle:** Wood → Fire → Earth → Metal → Water → Wood (tương sinh).
    - **Overcoming pairs** (tương khắc): Metal–Wood, Wood–Earth, Earth–Water, Water–Fire,
-     Fire–Metal.
-   - An owned element has an integer purity of 10–100 (`purity_min`–100). A mutation's
-     purity is computed (rule 9) and can fall below 10: 8 for a first-order mutation from
-     two minimum-purity parents, lower for higher orders, never below 1. An absent
-     element has purity 0.
+     Fire–Metal. They give no speed. The two pair convergences form from an overcoming
+     pair (Thunder from Fire–Metal, Darkness from Earth–Water).
+   - An owned element has an integer purity of 10–100 (`purity_min`–100); an absent
+     element has purity 0. A derived variant's purity (rule 10) can fall below 10: its
+     floor is 8 (all required elements at 10), and a clamp to 1 stays only as a guard.
 2. **Birth.**
    - **Fated birth (Thiên Định):**
-     - the element count is drawn from `count_weights`, 45 / 32 / 15 / 6.5 / 1.5 % for 1
-       to 5 elements (**change**, was 45 / 30 / 15 / 7 / 3; user decision);
+     - the base element count is drawn from `count_weights`, 45 / 32 / 15 / 6.5 / 1.5 %
+       for 1 to 5 elements;
      - the elements are chosen uniformly at random;
-     - each purity is drawn from N(`purity_mean`, `purity_sd`), rounded (**change**: the
-       code truncates today) and clamped to `purity_min`–100;
-     - mutations are then rolled (rule 9).
+     - each purity is drawn from N(`purity_mean`, `purity_sd`), rounded and clamped to
+       `purity_min`–100;
+     - variants are then rolled (rules 9 and 10).
    - **Self-made birth (Tự Định):** the player picks the elements and their purities
-     (10–100; values outside are rejected at input) and may pick mutations whose parents
-     they own. Picks are validated lowest order first, so a picked mutation counts as
-     owned for a later pick of a higher order. A picked mutation's purity follows rule
-     9's formula. Nothing is rolled:
-     every mutation eligible at birth goes into the rolled set, picked or not.
-3. **Tier.** The number of **base** elements names the root:
-
-   | Elements | Tier |
-   |---|---|
-   | 1 | Single root (Đơn linh căn) |
-   | 2 | Dual root (Song linh căn) |
-   | 3 | Triple root (Tam linh căn) |
-   | 4 | Quadruple root (Tứ linh căn) |
-   | 5 | Five-element root (Ngũ Hành linh căn) |
-
-   Mutations never change the tier.
+     (10–100; values outside are rejected at input) and may pick any variant the root
+     qualifies for (rule 9). A picked derived variant takes its formula purity (rule 10);
+     a picked innate variant takes `purity_mean`. Nothing is rolled. Every variant that
+     qualifies at birth, picked or not, goes into the rolled set; the ones not picked are
+     marked **declined** and are never rolled, not even by Mutation Awakening. A derived
+     variant that did not qualify at birth rolls normally if a root change later makes it
+     eligible. Picks are free: Self-made is the casual mode with achievements off, and Fated lives are the
+     competitive mode (user decision 2026-11-04, kept for the redesign).
+3. **Tier and effective count (change).**
+   - **Tier.** The number of **base** elements, `n_base`, names the root: 1 Single
+     (Đơn linh căn), 2 Dual (Song), 3 Triple (Tam), 4 Quadruple (Tứ), 5 Five-element
+     (Ngũ Hành linh căn). Variants never change the tier. The root line shows the owned
+     variants after it, for example "Dual root + Wind".
+   - **Effective count.** `n_eff = min(n_cap, n_base + n_innate)`, where `n_innate` is
+     the number of **innate** variants owned and `n_cap` is 5 (the curve has five rows).
+     A convergence or transmutation variant is mutated from elements the root already
+     counts, so it adds nothing. Chaos counts as 5, which a root that can hold it already
+     has. `n_eff` is read by the curve only. Everything else that depends on the element
+     count reads `n_base`: the tier, the generating pairs, the center keystone and
+     Cultivation Techniques' `count_gain`, which divides out the strongest-purity gain of
+     an n-element root (an innate variant does not change that purity).
 
 **Cultivation**
 
 4. **The element-count curve.**
-   - **Lookup:** the curve factor is `element_count_curve[base element count][stage
-     group]`, where Realms & Bottlenecks supplies the stage group (4 per realm).
-   - **Mutations do not count (change):** the built game counts them, up to 8; user
-     decision.
+   - **Lookup:** the curve factor is `element_count_curve[n_eff][stage group]`, where
+     Realms & Bottlenecks supplies the stage group (4 per realm). The table is unchanged
+     from the pre-redesign GDD.
    - **Shape:** fewer elements are faster early and many elements far faster late.
-     Parity with a single root comes at Foundation Establishment's middle stage for 2–3
-     elements, its late stage for 4, and Core Formation's early stage for 5.
-5. **Generating-pair bonus (new; user decision).** Each generating pair whose two
-   elements are both owned adds `pair_bonus_pct` to cultivation speed. It appears as a
-   stat sheet modifier whose source is the data's Vietnamese name, for example
-   "Tương sinh: Mộc → Hỏa". Stat sheet sources always use these data names; the root
-   line and other text show English names with Hán-Việt annotation (Wood [Mộc]).
-   - A five-element root holds all 5 pairs.
-   - The full cycle is also rewarded by the Chaos mutation (rule 8).
-   - Overcoming pairs give no speed. They are where volatile mutations come from.
+     Parity with a single root comes at Foundation Establishment's middle stage for 2–3,
+     its late stage for 4 and Core Formation's early stage for 5.
+   - **Trade-off.** An innate variant is a real extra element for the curve: Wind on a
+     single root makes it cultivate like a dual root. It buys late speed with early
+     speed.
+5. **Generating-pair bonus.** Each generating pair whose two **base** elements are both
+   owned adds `pair_bonus_pct` (3) to cultivation speed. It appears as a stat sheet
+   modifier whose source is the data's Vietnamese name, for example "Tương sinh: Mộc →
+   Hỏa". Stat sheet sources always use data names; the root line and other text show
+   English names with Hán-Việt annotation (Wood [Mộc]). A five-element root holds all 5
+   pairs. Variants form no pairs.
 
-**What each element does**
+**What each element and variant does**
 
 6. **Element roles**, as built. Character Stats owns the formulas (its Formulas G) and the
    crafts own their checks:
@@ -137,201 +160,253 @@ Changes from the built game are marked **(change)**.
    | Metal (Kim) | Mission income |
    | Water (Thủy) | Pill-toxicity decay |
 
-7. **Purity as a scale.**
-   - **Meridian Map:** acupoints scale by 0.5 + purity ÷ 100 for their sector's element,
-     or 0.25 if it is absent; bridges average their two sectors (that GDD, rule 4).
-   - **Cultivation techniques:** a technique's speed scales by the average purity of
-     the elements and mutations it names ÷ 100. A technique naming an element or
-     mutation the root lacks cannot be used at its speed (Cultivation Techniques owns the
-     fallback).
+7. **Variant roles (change).** A variant has a role like an element does. Its strength
+   scales with the variant's purity, so purity matters for a variant too. Character Stats
+   owns the formulas (its Formulas G), and the per-purity coefficients are data
+   (`variant_effects` in the elements data file; Formulas E sets their pricing).
 
-**Root mutations (biến dị)**
+   | Variant | Role | Stat it scales |
+   |---|---|---|
+   | Light (Quang) | Heart-demon ward | `tam_ma_resist_pct` |
+   | Darkness (Ám) | Stealth and ambush | `stealth` |
+   | Ice (Băng) | Pill-toxicity resistance | `dan_doc_resist_pct` |
+   | Wind (Phong) | Travel | `travel_speed_pct` |
+   | Thunder (Lôi) | Offense | `attack_pct` |
+   | Blood (Huyết) | Vitality | `khi_huyet_pct` |
+   | Void (Hư Không) | Secret realms and fortunate encounters | `co_duyen_pct` |
+   | Chaos (Hỗn Độn) | Cultivation and breakthrough | `cultivation_speed_pct` and `breakthrough_chance` |
 
-8. **The catalogue.** It holds 29 mutations, in `character_elements.json`, each with
-   parents, an order and fixed stat modifiers:
-   - **First order:** 10 mutations from two base elements. The five generating pairs give
-     *stable* ones (Light, Lava, Gravity, Ice, Life). The five overcoming pairs give
-     *volatile* ones (Wind, Poison, Darkness, Mist, Thunder).
-   - **Higher order:** 19 mutations from mutations, or a mutation plus an element (15
-     at order 2, 3 at order 3, 1 at order 4). They come in combat, craft, esoteric and
-     apex kinds, up to Taiji, Time and Chaos.
-   - **Chaos (Hỗn Độn)** needs all five base elements.
-   - **Bonuses.** Each owned mutation adds its modifiers to the stat sheet with the source
-     "Biến dị: <data name>", for example "Biến dị: Quang". The values are fixed, not scaled
-     by the mutation's purity.
-   - **Power bands (change; user decision).** A mutation's modifiers, priced in the
-     Meridian Map's power unit W, stay within its order's band: order 1 ≤ 30 W, order 2
-     ≤ 60 W, order 3 ≤ 100 W, order 4 ≤ 150 W (Formulas E), and no lower than a floor of
-     10 / 15 / 30 / 50 W, so a mutation is never a dud. Values outside a band are retuned
-     in data. Today's data breaks the floor for Death and Reincarnation (Formulas E,
-     Open Question 1). Lava returns to its band through its alchemy ceiling raise 3 → 5
-     (13.5 W; user decision 2026-11-04), once the data pass adds it.
-     **Holder-raised ceilings** (user decision 2026-11-04, cross-GDD review 04g, F15;
-     Character Stats rule 14). A mutation may raise one character-wide ceiling for its
-     holder only: Pill Fire raises `alchemy_success` 3 → 6 (31.2 W), Lava raises
-     `alchemy_success` 3 → 5 (13.5 W) and Spirit Farming raises `herb_growth_pct`
-     10 → 20 (49 W). Raises on one key do not stack, and the
-     highest applies. Formulas E prices each raise as power. Time, the apex, takes its power outside the character-wide
-     ceilings: +40 % cultivation speed and a ×1.25 herb-aging root factor, 110.5 W (user
-     decision 2026-11-04). Until the data pass adds those lines, Time's built data prices
-     at 0 W and fails the floor too (AC-LC-25).
-9. **Forming mutations.** Each mutation rolls **once**, when its parents first become all
-   owned: at birth, or when a root change adds an element (rule 11). The only other roll
-   is Mutation Awakening (below). A purity change never triggers a roll (**change**; user
-   decision: the built game re-rolls every eligible mutation after any change, which let
-   purity pills farm mutations).
-   - in one pass, every mutation that has just become eligible rolls;
-   - lower orders roll first, so a mutation formed in this pass can be a parent later in
-     the same pass; within one order, mutations roll in catalogue order (the order of
-     `character_elements.json`), one uniform draw each, and a roll succeeds when the draw
-     is below the chance. An ineligible mutation makes no draw (full draw order: Formulas A);
-   - the chance is the product of the parents' current purities ÷ 100, × a factor
-     (`bien_di_chance_factor` for first order, smaller for higher orders; see Formulas);
-   - a mutation's purity is round(the parents' geometric-mean current purity ×
-     `bien_di_purity_factor`), clamped to 1–100. It is **recomputed from the current
-     parents** whenever a parent's purity changes (**change**; user decision 2026-11-04),
-     lowest order first, so a Tẩy Tủy Đan also lifts the purity of the mutations built on
-     that element. A mutation's modifiers stay fixed (rule 8), and the change never rolls.
-   - **Mutation Awakening (Biến Dị Khai Mở; user decision 2026-11-04).** This system
-     subscribes to Realms & Bottlenecks' `breakthrough_succeeded` event (a successful move
-     to the next realm). On each event, if the Meridian Map capability #24 is in the
-     character's capability set (Character Stats rule 16), it gives one more roll to
-     every mutation that is not owned but whose parents are all owned, including the
-     ones that failed earlier. The chance is the same formula at the parents' current
-     purities, the pass rules above apply, and a mutation that forms is owned from then
-     on. Nothing else re-rolls a failed mutation.
-   - **At most two Awakening passes per life.** Every capability sits behind the Core
-     Formation gate (Meridian Map rule 16: none can affect the first two
-     breakthroughs), so only Core Formation → Nascent Soul and Nascent Soul → Deity
-     Transformation can fire it.
-10. **What a mutation is and is not.**
-    - A mutation counts as an owned id for techniques, crafts and recipes that name it,
-      and its current purity (rule 9) is used there.
-    - It does **not** count toward the tier, the element-count curve or generating
-      pairs.
+   Each owned variant adds its lines to the stat sheet with the source
+   "Biến dị: <data name>", for example "Biến dị: Quang". Variant roles stay inside
+   the existing character-wide ceilings (Character Stats rule 14); the earlier
+   holder-raised ceilings belonged to craft mutations that moved to the Way and are gone
+   from this system.
+8. **Purity as a scale.**
+   - **Meridian Map:** an element sector's acupoints scale by 0.5 + purity ÷ 100 for the
+     sector's element, or 0.25 if it is absent; bridges average their two sectors. A
+     **variant sector** scales by 0.5 + purity ÷ 100 for its variant (rule 12).
+   - **Cultivation techniques:** a technique's speed scales by the average purity of the
+     elements and variants it names ÷ 100. A technique naming something the root lacks
+     cannot be used at its speed (Cultivation Techniques owns the fallback).
+
+**Variant roots (biến dị linh căn)**
+
+9. **The catalogue and the three origins (change).** Eight variants, in
+   `character_elements.json`, no orders and no chains. The table is in catalogue order,
+   which is also the roll order: innate first, then derived.
+
+   | Variant | Origin | Requirement |
+   |---|---|---|
+   | Wind (Phong) | Innate (Thiên Sinh) | none |
+   | Blood (Huyết) | Innate | none |
+   | Void (Hư Không) | Innate | `n_base` ≤ `void_max_elements` (2), at birth |
+   | Thunder (Lôi) | Convergence (Hội Tụ) | owns Fire and Metal |
+   | Darkness (Ám) | Convergence | owns Earth and Water |
+   | Chaos (Hỗn Độn) | Convergence | owns all five base elements |
+   | Light (Quang) | Transmutation (Chuyển Hóa) | owns Fire |
+   | Ice (Băng) | Transmutation | owns Water |
+
+   - **Convergence** and **transmutation** are *derived*: the variant is formed from
+     elements the root owns. A transmutation keeps its element; nothing is replaced.
+   - **Innate** variants are decided once, at birth, and are independent of the elements.
+     They are never rolled again, by Awakening or by a root change.
+10. **Forming variants.**
+    - **When.** Each derived variant rolls **once**, when its requirement is first met:
+      at birth, or when a root change adds an element (rule 13). Each innate variant
+      rolls once, at birth only, if it is eligible. The only other roll is Mutation
+      Awakening (below). A purity change never triggers a roll.
+    - **Pass order.** In one pass every variant that has just become eligible rolls, in
+      catalogue order (the order of `character_elements.json`), one uniform draw each; a
+      roll succeeds when the draw is below the chance. An ineligible variant makes no
+      draw (full draw order: Formulas A). No variant is a parent of another, so the order
+      only fixes the draws.
+    - **Chance.** Pair convergence (Thunder, Darkness): `convergence_factor` × the product
+      of the required elements' purities ÷ 100. Chaos: the same with `chaos_factor`,
+      capped at 1. Transmutation: `transmutation_factor` × its element's purity ÷ 100.
+      Innate: a flat `innate_chance` per variant. Formulas D sets the values.
+    - **Purity.** A derived variant's purity is round(`variant_purity_factor` (0.8) × the
+      geometric mean of its required elements' current purities), clamped 1–100. It is
+      **recomputed** whenever a required element's purity changes, so a Tẩy Tủy Đan lifts
+      the variant built on that element. An innate variant's purity is drawn from the
+      birth purity distribution when it forms and never changes.
+    - **Mutation Awakening (Biến Dị Khai Mở).** This system subscribes to Realms &
+      Bottlenecks' `breakthrough_succeeded` event (a successful move to the next realm).
+      On each event, if the Meridian Map capability #24 is in the character's capability
+      set (Character Stats rule 16), it gives one more roll to every **derived** variant
+      that is not owned, not declined (rule 2) and whose requirement is met, including
+      ones that failed earlier. Innate variants are not re-rolled. The chance is the same formula at the
+      current purities, and a variant that forms is owned from then on.
+    - **At most two Awakening passes per life.** Every capability sits behind the Core
+      Formation gate (Meridian Map rule 16), so only Core Formation → Nascent Soul and
+      Nascent Soul → Deity Transformation can fire it.
+11. **What a variant is and is not.**
+    - It counts as an owned id for techniques, crafts and recipes that name it, and its
+      current purity (rule 10) is used there.
+    - It does **not** count as a base element: it forms no generating pair, is not
+      counted in the tier or `n_base`, and does not scale an element sector. An innate
+      variant counts once toward `n_eff` (rule 3).
+12. **Variant sectors (Meridian Map contract).**
+    - Each variant has its own sector on the Meridian Map. A sector is **hidden and
+      locked** while the root does not own its variant: it is not drawn, no point can be
+      spent in it, and it is not counted when the map's visible size is reported.
+    - When the root gains the variant, at birth or later (Awakening, Linh Căn Quả), its
+      sector becomes visible and spendable from that moment. Variants are never lost, so
+      a sector never relocks.
+    - The sector's geometry, size, attachment points and pricing belong to the Meridian
+      Map (its rule 20). This system supplies only the owned set and each variant's purity.
 
 **Changing the root**
 
-11. **Root changes**, only through items and events (as built; quick spec
+13. **Root changes**, only through items and events (quick spec
     `phu-luc-linh-thu-thanh-tuu.md`):
-    - **Tẩy Tủy Đan** (Marrow-Cleansing Pill): raises the weakest owned element by
-      max(1, round(6 × pill potency)), capped at 100. At most 3 per life; a further pill, or one taken when
-      every owned element is at 100, is refused and kept.
-    - **Linh Căn Quả** (Spiritual Root Fruit; rare by design, user decision 2026-11-04):
-      adds a missing element, chosen uniformly at
-      random unless the event names one, at purity 20–35. An event-named element that is
-      already owned is ignored, and the element is chosen uniformly among the missing
-      ones. If all five are owned it adds
-      +8 to the weakest instead (ties in cycle order); with all five at 100 it is refused
-      and kept. It is granted only by events, from Foundation Establishment on, and can
-      be used whenever held.
-
-    After a change that adds an element, the mutations it makes newly eligible roll (rule
-    9); a purity change rolls nothing. Every change is recorded in the World Database.
-12. **No loss.** A change never removes an element or a mutation, and purity never falls.
+    - **Tẩy Tủy Đan** (Marrow-Cleansing Pill): raises the weakest owned **base** element by
+      max(1, round(6 × pill potency)), capped at 100. At most 3 per life; a further pill,
+      or one taken when every owned element is at 100, is refused and kept. Derived
+      variants' purities are recomputed; no variant rolls.
+    - **Linh Căn Quả** (Spiritual Root Fruit; rare by design): adds a missing element,
+      chosen uniformly at random unless the event names one, at purity 20–35. An
+      event-named element that is already owned is ignored, and the element is chosen
+      uniformly among the missing ones. If all five are owned it adds +8 to the weakest
+      instead (ties in cycle order); with all five at 100 it is refused and kept. It is
+      granted only by events, from Foundation Establishment on.
+    - After a change that adds an element, the **derived** variants it makes newly
+      eligible roll (rule 10). Innate variants do not roll. Every change is recorded in
+      the World Database.
+14. **No loss.** A change never removes an element or a variant, and purity never falls.
     There is no respec.
-13. **NPCs** roll and change their roots by the same rules, except Mutation Awakening:
-    `breakthrough_succeeded` is player-only (Realms & Bottlenecks rule 9, user decision
-    2026-11-04), so NPCs get no Awakening passes. Their mutations come from the birth
-    roll and from root changes.
+15. **NPCs** roll and change their roots by the same rules, except Mutation Awakening:
+    `breakthrough_succeeded` is player-only (Realms & Bottlenecks rule 9), so NPCs get no
+    Awakening passes.
+
+**What moved to the Way (Đạo)**
+
+16. **Relocated mutations.** These are no longer part of the root and are never rolled
+    here: Lava (Dung Nham), Gravity (Trọng), Life (Sinh Mệnh), Poison (Độc), Mist (Vụ),
+    Sword (Kiếm), Heavenly Thunder (Thiên Lôi), Destruction (Hủy Diệt), Death (Tử), Pill
+    Fire (Đan Hỏa), Spirit Farming (Linh Thực), Refined Metal (Tinh Kim), Array (Trận),
+    Soul (Hồn), Illusion (Huyễn), Stars (Tinh Thần), Space (Không Gian), Yin (Âm), Yang
+    (Dương), Reincarnation (Luân Hồi), Taiji (Thái Cực) and Time (Thời Gian). They are
+    **seeds** for the Way's own design, not commitments. The Way may read the root
+    (elements, purities, variants) as prerequisites. Anything that named one of them (a
+    technique, a recipe, an item) is re-pointed when the Way is designed.
 
 **What the player cannot do:**
 - choose the root in a Fated life;
-- remove an element or a mutation;
+- remove an element or a variant;
 - raise purity above 100;
-- make a mutation count as an element.
+- make a variant count as a base element (pairs, tier, element sectors);
+- pick a variant the root does not qualify for in a Self-made life.
 
 ### States and Transitions
 
-The root has no states. It is a set of values that only grows: the elements and their
-purities, the owned mutations with their purities, the **rolled set** (every mutation id
-that has rolled or been marked rolled) and the Tẩy Tủy Đan use counter. All four are saved.
+The root has no states. It is a set of values that only grows: the base elements and their
+purities, the owned variants (each with its origin kind and purity), the **rolled set**
+(every variant id that has rolled or been marked rolled) and the Tẩy Tủy Đan use counter.
+All four are saved.
 
 | Event | Effect | Guard |
 |---|---|---|
-| Birth | Elements, purities and mutations set (rule 2) | Once per life |
-| Tẩy Tủy Đan | Weakest element +max(1, round(6 × potency)), capped at 100; no mutation roll; owned mutations' purity recomputed | 3 per life; refused (and kept) beyond that, or when every owned element is at 100 |
-| Linh Căn Quả | New element at 20–35, then rolls for newly eligible mutations (or +8 to one element: no roll, owned mutations' purity recomputed) | Events only, Foundation Establishment on |
-| New mutation formed | Added with its purity and modifiers | Parents owned; not already owned |
-| Realm breakthrough | Every unowned mutation whose parents are owned rolls once more (rule 9) | Mutation Awakening (Meridian Map #24) held; a successful realm change |
+| Birth | Elements, purities and variants set (rules 2, 9, 10) | Once per life |
+| Tẩy Tủy Đan | Weakest base element +max(1, round(6 × potency)), capped at 100; no roll; derived variants' purity recomputed | 3 per life; refused (and kept) beyond that, or when every owned element is at 100 |
+| Linh Căn Quả | New element at 20–35, then the newly eligible derived variants roll (or +8 to one element: no roll, derived purities recomputed) | Events only, Foundation Establishment on |
+| Variant formed | Added with its purity and origin; its Meridian Map sector unlocks (rule 12) | Requirement met; not already owned; not declined; a first roll needs the variant outside the rolled set, an Awakening roll does not |
+| Realm breakthrough | Every unowned derived variant whose requirement is met rolls once more (rule 10) | Mutation Awakening (Meridian Map #24) held; a successful realm change |
 
 ### Interactions with Other Systems
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
-| Character Stats | out | per-element purity, base element count, mutation modifiers (into the stat sheet), the generating-pair bonus modifier | this GDD (the root); Character Stats (the sheet, the element multipliers) |
-| Realms & Bottlenecks | out / in | out: the curve factor by base element count and stage group. In: the player-only `breakthrough_succeeded` event, which triggers the Mutation Awakening roll (rule 9) | this GDD (the curve, the roll); Realms (the stage groups, the event) |
-| Meridian Map | out / in | out: purity per element (acupoint scaling), base element count (the center keystone needs all five). In: whether capability #24 (Mutation Awakening) is held, read from the character's capability set; the Meridian Map never calls this system | Meridian Map (the scaling rule, the capability); Character Stats (the capability set); this GDD (the roll, rule 9) |
-| Cultivation Techniques | out | purity of the elements and mutations a technique names | Cultivation Techniques |
-| Crafts (Alchemy, Spirit Fields, Artifact Refining, Formations) | out | element purities for their roles; craft mutations (Pill Fire, Spirit Farming, Refined Metal, Array) | each craft |
+| Character Stats | out | per-element purity, `n_base`, `n_eff`, the variant set with purities (into the sheet through the variant roles), the generating-pair bonus modifier | this GDD (the root); Character Stats (the sheet, the element and variant role formulas) |
+| Realms & Bottlenecks | out / in | out: the curve factor by `n_eff` and stage group. In: the player-only `breakthrough_succeeded` event, which triggers the Mutation Awakening roll (rule 10) | this GDD (the curve, the roll); Realms (the stage groups, the event) |
+| Meridian Map | out / in | out: purity per element (acupoint scaling), `n_base` (the center keystone needs all five), the owned variants with purities (which variant sectors unlock and how they scale). In: whether capability #24 (Mutation Awakening) is held, read from the character's capability set; the Meridian Map never calls this system | Meridian Map (the scaling rule, the capability, the variant sectors' geometry); Character Stats (the capability set); this GDD (the roll, rule 10) |
+| Cultivation Techniques | out | purity of the elements and variants a technique names; `n_base` for the technique count gain | Cultivation Techniques |
+| Crafts (Alchemy, Spirit Fields, Artifact Refining, Formations) | out | element purities for their roles. Craft mutations no longer exist here | each craft |
+| The Way (Đạo) | out | the root as read-only prerequisites (elements, purities, variants). The Way owns the relocated mutations (rule 16) | the Way (undesigned; provisional contract) |
 | Item DB, Event Engine | in | Tẩy Tủy Đan and Linh Căn Quả effects (budgeted by events) | Item DB, Event Engine |
-| World Database | out | root changes and mutations formed | World Database |
+| World Database | out | root changes and variants formed | World Database |
 | NPC Builds, World Generation | in / out | NPC roots rolled by the same rules | NPC Builds |
-| Codex & Karmic Carryover | out | mutations discovered across lives | Codex |
-| Guidance Layer, Debug Terminal, Game UI | out | the root line, tier, purities, mutations and their parents, the curve position | Guidance Layer |
-| Save/Load | out | elements, purities, mutations, change counts | Save/Load |
+| Codex & Karmic Carryover | out | variants discovered across lives | Codex |
+| Guidance Layer, Debug Terminal, Game UI | out | the root line, tier, `n_eff`, purities, variants and their origin, the curve position | Guidance Layer |
+| Save/Load | out | elements, purities, variants, the rolled set, change counts | Save/Load |
 
 ## Formulas
 
-Proposed with `systems-designer` (2026-11-04); figures re-checked by simulation (400,000
-births). Values marked *guess* need a bot run; **(change)** marks a difference from the
-build. Realm abbreviations: QR, FE, CF, NS, DT.
+Redesign formulas, drafted with `systems-designer` (2026-11-04). Rates come from a
+2,000,000-life Monte Carlo and were re-checked analytically. Values marked *guess* need a
+bot run. Realm abbreviations: QR, FE, CF, NS, DT.
 
 ### A. Birth roll
 
 The birth_roll formula is defined as:
 
-`P(n) = w_n / Σw` ; `P(subset) = 1 / C(5, n)` ; `purity = clamp(round(N(μ, σ)), p_min, p_max)`
+`P(n_base = n) = w_n / Σw` ; `P(subset) = 1 / C(5, n_base)` ; `purity = clamp(round(N(μ, σ)), p_min, p_max)` ; `variant formed iff u < chance_v`
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| w_n | float | 45 / 32 / 15 / 6.5 / 1.5 | data file (`count_weights`) | Weight for 1–5 elements (user decision) |
-| μ, σ | float | 50, 20 | data file (`purity_mean`, `purity_sd`) | Purity distribution |
+| w_n | float | 45 / 32 / 15 / 6.5 / 1.5 | data file (`count_weights`) | Weight for 1–5 base elements |
+| μ, σ | float | 50, 20 | data file (`purity_mean`, `purity_sd`) | Purity distribution, used for elements and for innate variants |
 | p_min, p_max | int | 10, 100 | data file | Purity clamp |
-| purity | int | 10–100 | calculated | One owned element's purity |
+| purity | int | 10–100 | calculated | One owned element's, or one innate variant's, purity |
+| u | float | [0, 1) | calculated (seeded RNG) | One uniform draw per roll |
+| chance_v | float | 0–1 | calculated | The variant's chance (Formulas D) |
 
 **Output Range:**
-- Tier shares are 45 / 32 / 15 / 6.5 / 1.5 %, so a five-element root is about 1 life in
-  67.
-- About 2.4 % of purity draws clamp to 10 and 0.67 % to 100; the mean is 50.1.
-- The chance that an element has purity ≥ 85 is 4.2 %. By tier, a root has at least one
-  such element with chance 4.2 / 8.3 / 12.2 / 15.9 / 19.5 % (7.7 % of all births).
+- Tier shares are 45 / 32 / 15 / 6.5 / 1.5 %. About 2.4 % of purity draws clamp to 10
+  and 0.67 % to 100. The mean is 50.1.
+- An element has purity ≥ 85 with chance 4.2 %. A root has at least one such element
+  with chance 4.2 / 8.3 / 12.2 / 15.9 / 19.5 % by tier (7.7 % of births).
 
 **Draw order (Fated birth).** The seeded RNG is consumed in this order, so a seed always
-gives the same root and tests can stub it:
-1. **Count:** one uniform draw u. The count is the smallest n with u · Σw ≤ the cumulative
-   weight of n (the intervals are (0, 45], (45, 77], (77, 92], (92, 98.5], (98.5, 100]).
-2. **Elements:** a partial Fisher–Yates shuffle of [Wood, Fire, Earth, Metal, Water] (cycle
-   order). For i = 0 … n−1, one uniform draw u gives j = i + floor(u · (5 − i)), and
-   positions i and j swap. The first n positions are the owned elements.
-3. **Purities:** one normal draw per owned element, in cycle order (not shuffle order),
-   rounded and clamped as above.
-4. **Mutations:** the rolls of rule 9, lower order first, catalogue order within an
-   order, one uniform draw per eligible mutation.
+gives the same root and tests can stub it.
 
-Self-made birth makes no draws in steps 1–3 (step 4 draws nothing either: rule 2).
-The build's own order is aligned in the implementation story (Open Question 7).
+| Step | What | Uniform draws | Normal draws |
+|---|---|---|---|
+| 1. Count | Smallest n with u · Σw < the cumulative weight of n (half-open intervals [0, 45), [45, 77), [77, 92), [92, 98.5), [98.5, 100), the same convention as every variant roll) | 1 | 0 |
+| 2. Elements | Partial Fisher–Yates over [Wood, Fire, Earth, Metal, Water] (cycle order). For i = 0 … n_base−1, j = i + floor(u · (5 − i)); swap i and j | `n_base` (the last draw is still made when `n_base` = 5) | 0 |
+| 3. Purities | One per owned element, in cycle order (not shuffle order) | 0 | `n_base` |
+| 4. Innate rolls | Wind, Blood, Void, in catalogue order. Each rolls `u < innate_chance[v]`. Void is eligible only when `n_base` ≤ `void_max_elements`, and **makes no draw otherwise** | 1 each for Wind and Blood; 1 for Void only if `n_base` ≤ 2 | 1 immediately after each success (that variant's purity); none after a failure |
+| 5. Derived rolls | Thunder, Darkness, Chaos, Light, Ice, in catalogue order. A variant rolls only if its requirement is met, **and makes no draw otherwise** | 1 per variant whose requirement is met | 0 (purity is a formula) |
 
-**Example:** a count roll of 0.80 falls in (77, 92], so the root has 3 elements. Subset
-draws 0.0, 0.0 and 0.9 pick Wood, Fire and Water (the last swaps position 4 into position
-2). The purity draws in cycle order are Wood 40, Fire 86 and Water 2 → clamped to 10 (a
-draw of −2.4σ).
+- **Uniform draws per birth:** `1 + n_base + 2 + [n_base ≤ 2] + d`, where d (0–5) is the
+  number of derived variants whose requirement is met. The most is 13 (`n_base` 5, d = 5).
+- **Normal draws per birth:** `n_base + (innate successes)`.
+- **Self-made birth** makes no draws at all. The player's picks stand: derived picks take
+  the formula purity, innate picks take `purity_mean`.
+- **The rolled set** is every variant that made a roll at birth, success or failure. In a
+  Self-made life it is every variant that qualifies, picked or not; the ones not picked
+  are also marked **declined** (rule 2).
 
-### B. Element-count curve
+**Example:** the count roll is 0.80, in [77, 92), so 3 elements. Subset draws pick Wood,
+Fire and Water. The purity draws in cycle order are Wood 40, Fire 86 and Water 2σ below
+the mean, clamped to 10.
+- Wind draws 0.021 < 0.025, so it forms, and a normal draw of +0.5σ gives purity 60.
+- Blood draws 0.40 and fails.
+- Void makes no draw (`n_base` 3).
+- Thunder, Darkness and Chaos are not eligible and make no draw.
+- Light draws 0.05 < 0.12 × 0.86 = 0.103 and forms, at purity round(0.8 × 86) = 69.
+- Ice draws 0.20 > 0.12 × 0.10 = 0.012 and fails.
 
-The curve_factor formula is defined as:
+The root is a Triple root + Wind, Light. That is 8 uniform and 4 normal draws, and
+`n_eff` = 4.
 
-`curve_factor = element_count_curve[n_base][stage_group]`
+### B. Effective count and the element-count curve
+
+The effective_count and curve_factor formulas are defined as:
+
+`n_eff = min(n_cap, n_base + n_innate)` ; `curve_factor = element_count_curve[n_eff][stage_group]`
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| n_base | int | 1–5 | calculated | Base elements only; mutations excluded (**change**) |
-| stage_group | enum | 13 keys | data file (Realms & Bottlenecks) | Prefix = realm: `lk` QR, `tc` FE, `kd` CF, `na` NS, `ht` DT. QR `[lk_early, lk_mid, lk_late, lk_late]`; FE `tc_so / tc_trung / tc_hau / tc_dvm`; CF `kd_so / kd_trung / kd_hau / kd_dvm` (early / mid / late / peak); NS `na`; DT `ht`. The table below abbreviates `trung` to `tr` |
+| n_base | int | 1–5 | calculated | Base elements owned |
+| n_innate | int | 0–3 | calculated | Innate variants owned (Wind, Blood, Void). Derived variants add 0 |
+| n_cap | int | 5 | data file (`n_cap`) | The curve has five rows |
+| n_eff | int | 1–5 | calculated | Row of the curve. Integer, no interpolation |
+| stage_group | enum | 13 keys | data file (Realms & Bottlenecks) | Prefix = realm: `lk` QR, `tc` FE, `kd` CF, `na` NS, `ht` DT. QR `[lk_early, lk_mid, lk_late, lk_late]`; FE `tc_so / tc_trung / tc_hau / tc_dvm`; CF `kd_so / kd_trung / kd_hau / kd_dvm`; NS `na`; DT `ht`. The table abbreviates `trung` to `tr` |
 | curve_factor | float | 0.3–9.0 | data file (`element_count_curve`) | Speed relative to a single root |
 
-| n | lk_e | lk_m | lk_l | tc_so | tc_tr | tc_hau | tc_dvm | kd_so | kd_tr | kd_hau | kd_dvm | na | ht |
+| n_eff | lk_e | lk_m | lk_l | tc_so | tc_tr | tc_hau | tc_dvm | kd_so | kd_tr | kd_hau | kd_dvm | na | ht |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | 2 | .6 | .7 | .8 | .9 | **1.0** | 1.3 | 1.6 | 2.0 | 2.4 | 2.8 | 3.1 | 3.5 | 4.0 |
@@ -339,10 +414,18 @@ The curve_factor formula is defined as:
 | 4 | .4 | .5 | .6 | .75 | .9 | **1.0** | 1.5 | 2.1 | 2.8 | 3.6 | 4.3 | 5.0 | 7.0 |
 | 5 | .3 | .4 | .5 | .6 | .75 | .85 | .95 | **1.0** | 1.8 | 2.8 | 3.8 | 6.0 | 9.0 |
 
-**Output Range:** 0.3–9.0. The parity points (bold) hold exactly as the concept promised.
-
-Years per realm (Realms & Bottlenecks Formulas A costs, other rate factors 1.25 *guess*,
-with each tier's expected pair bonus: 0 / 1.5 / 4.5 / 9 / 15 %), and the share of the half-lifespan ceiling:
+**Output Range:**
+- `n_eff` runs 1–5. It is at least `n_base` and is raised only by innate variants. The
+  maximum is reached by 2 base + 3 innate, 3 base + 2, 4 base + 1, or 5 base.
+- `curve_factor` runs 0.3–9.0. The parity points (bold) are unchanged: 2–3 at FE middle,
+  4 at FE late, 5 at CF early.
+- Births by `n_eff`, 1–5: **43.00 / 32.55 / 15.83 / 6.85 / 1.76 %**, against
+  `n_base` 45 / 32 / 15 / 6.5 / 1.5 %. An innate variant moves 4.3 % of lives up one row.
+  Derived variants never move a row.
+- Years per realm and the share of the half-lifespan ceiling (Realms & Bottlenecks
+  Formulas A costs, other rate factors 1.25 *guess*, each tier's expected pair bonus 0 /
+  1.5 / 4.5 / 9 / 15 %; carried over unchanged from the pre-redesign GDD). The table holds
+  for a root with no innate variant, 95.7 % of births:
 
 | Elements | QR | FE | CF | NS | DT | Whole life |
 |---|---|---|---|---|---|---|
@@ -352,16 +435,20 @@ with each tier's expected pair bonus: 0 / 1.5 / 4.5 / 9 / 15 %), and the share o
 | 4 | 43 (72 %) | 57 (57 %) | 55 (22 %) | 84 (17 %) | 121 (12 %) | 359 |
 | 5 | 50 (84 %) | 69 (69 %) | 79 (32 %) | 66 (13 %) | 89 (9 %) | 354 |
 
-- **The tight spots.** A single root at NS and DT needs other rate factors of at least
-  about 1.15; a five-element root in QR is at 84 %. If technique purity (about 0.5 on
-  average) sits inside those factors, these lives fail to clear the realm in half their
-  lifespan. Realms & Bottlenecks owns that rate, so a bot run must confirm it.
-- **The pair bonus fixes QR for five elements.** Without it, a five-element root needs 58
-  years in QR, 97 % of the ceiling.
+- A root with an innate variant reads the row of `n_eff` but pays the pair bonus of
+  `n_base`. A Dual root + Wind runs the 3-element curve with at most 1 pair (+3 %), where a
+  true Triple root has 1 or 2.
+- The tight spots are unchanged: a single root at NS and DT needs other rate factors of at
+  least about 1.15, and a five-element root in QR sits at 84 %. Realms & Bottlenecks owns
+  that rate, so a bot run must confirm it.
 
-**Example:** a triple root in FE without the pair bonus:
-1,223 ÷ (125 × 0.9) + 1,782 ÷ 125 + 2,595 ÷ (125 × 1.4) + 2,360 ÷ (125 × 1.8) = 10.9 +
-14.3 + 14.8 + 10.5 = **50.4 years**.
+**Example:** a Dual root (Fire, Water) + Wind has `n_base` 2 and `n_innate` 1, so `n_eff`
+= min(5, 3) = 3.
+- At FE middle its factor is 1.0, where a plain Dual root also has 1.0 (parity).
+- In QR early it is 0.5, against 0.6 for a plain Dual root.
+- At CF great perfection it is 3.9, against 3.1.
+
+A Four-element root + Wind + Blood has `n_eff` = min(5, 6) = 5.
 
 ### C. Generating-pair bonus
 
@@ -369,17 +456,19 @@ The pair_bonus formula is defined as:
 
 `pair_pct = pair_bonus_pct · Σ_{i=0..4} [owned(e_i) ∧ owned(e_{(i+1) mod 5})]`
 
-One `cultivation_speed_pct` modifier is added per pair. They add to the other cultivation
-speed bonuses (Character Stats, Formulas I).
+One `cultivation_speed_pct` modifier is added per pair, with source "Tương sinh: <from> →
+<to>". They add to the other cultivation speed bonuses (Character Stats Formulas I). Only
+**base** elements count. Variants form no pairs.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | e_i | enum | Wood, Fire, Earth, Metal, Water | data file (`cycle`) | The generating cycle |
-| pair_bonus_pct | float | 3 | data file (new; user decision) | Bonus per generating pair |
+| owned(e) | bool | true / false | calculated | The base element is owned |
+| pair_bonus_pct | float | 3 | data file | Bonus per generating pair |
 | pair_pct | float | 0–15 | calculated | Total bonus |
 
-**Output Range:** 0–15 %. The pairs are the five edges of a cycle, so:
+**Output Range:** 0–15 %. The pairs are the five edges of a cycle.
 
 | Elements | Generating pairs | Bonus |
 |---|---|---|
@@ -389,208 +478,204 @@ speed bonuses (Character Stats, Formulas I).
 | 4 | always 3 | 9 % |
 | 5 | always 5 | 15 % |
 
-- **Power check.** One pair is 6.6 W at the Meridian Map's 2.2 W per cultivation speed
-  point, about half a notable. All five are 33 W, under the 50 W keystone floor; the
-  ceiling for the knob is 4.5 %.
-- **Dominance check.** At DT a five-element root runs at 9 × 1.15 = ×10.35 against a
-  single root, and with Chaos (+25 %) at ×12.6. A four-element root runs at 7 × 1.09 =
-  ×7.6. Over a whole life five elements (354 years) lead four (359) by about 1 %, so
-  years alone do not separate the top two tiers.
-- **Rare roots are meant to win (user decision 2026-11-04).** Five elements also bring
-  the keystone, Chaos, more mutations and all five pairs, so the rarest root is the
-  strongest by design (Pillar 1). Its price is a slow, fragile Qi Refining. How large its
-  early head start stays open (Open Question 11).
+- **Power check.** One pair is 6.6 W at 2.2 W per cultivation speed point, about half a
+  notable. All five are 33 W, under the 50 W keystone floor. The ceiling for the knob is
+  4.5 %.
+- **Rare roots are meant to win** (user decision 2026-11-04). The five-element root also
+  holds the keystone and the chance at Chaos, and its price is a slow, fragile Qi
+  Refining.
 
-**Example:** Fire, Water and Wood own Wood → Fire and Water → Wood, so 2 pairs and **+6 %**.
+**Example:** Fire, Water and Wood own Wood → Fire and Water → Wood, so 2 pairs and
+**+6 %**. A Wind variant adds no pair and no bonus.
 
-### D. Mutation formation
+### D. Variant formation
 
-The mutation formulas are defined as:
+**D1. Chance.** The variant_chance formulas are defined as:
 
-`chance = f_order · Π_parents (purity_p / 100)` ; `f_1 = bien_di_chance_factor` ; `f_o = bien_di_higher_order_factor / (o − 1)` for o ≥ 2
+`chance_v = min(1, f_v · Π_{e ∈ req(v)} purity_e / 100)` for derived variants ; `chance_v = innate_chance[v]` for innate variants
 
-`purity_m = clamp(round(bien_di_purity_factor · (Π_parents purity_p)^(1/m)), 1, 100)`, using the parents' **current** purities and recomputed whenever one changes
+`f_v = convergence_factor` for the pair convergences (Thunder, Darkness) ; `transmutation_factor` for Light and Ice ; `chaos_factor` for Chaos
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| purity_p | int | 1–100 | calculated | Each parent's purity |
-| o, m | int | 1–4, 2–5 | data file | The mutation's order and parent count |
-| bien_di_chance_factor | float | 0.5 | data file | First-order factor |
-| bien_di_higher_order_factor | float | 0.25 | data file | Gives 0.25 / 0.125 / 0.083 at orders 2 / 3 / 4 |
-| bien_di_purity_factor | float | 0.8 | data file | Purity discount |
+| req(v) | set | 1, 2 or 5 base elements | data file (variant `requires`) | Thunder {Fire, Metal}; Darkness {Earth, Water}; Chaos all five; Light {Fire}; Ice {Water} |
+| purity_e | int | 10–100 | calculated | The element's **current** purity at the roll |
+| convergence_factor | float | 0.6 | data file | Pair convergence factor |
+| transmutation_factor | float | 0.12 | data file | Transmutation factor |
+| chaos_factor | float | 5 | data file | Five-parent factor; the `min(1, …)` clamp matters only for this variant |
+| innate_chance | float | Wind 0.025, Blood 0.015, Void 0.005 | data file | Flat chance, rolled at birth only |
+| void_max_elements | int | 2 | data file | Void is eligible only when `n_base` ≤ this at birth |
+| chance_v | float | 0–1 | calculated | The roll succeeds when `u < chance_v` |
 
 **Output Range:**
-- A first-order chance runs from 0.5 % (two parents at 10) to 50 % (two at 100), with a
-  mean of about 12.6 %.
-- A first-order mutation's purity is at most 80. An order-2 mutation can reach 72 (an
-  element at 100 with a mutation at 80).
-- At birth (simulated):
+- Pair convergence: 0.6 % (both parents at 10) to 60 % (both at 100). Transmutation: 1.2 %
+  to 12 %. Chaos: 0.005 % (five at 10) to 100 % (the clamp binds from a product of 0.2,
+  for example five at 72.5).
+- Chance at average purities (0.501), by `n_base`:
 
-  | Elements | ≥ 1 first-order mutation | Any higher order | Mean mutations |
-  |---|---|---|---|
-  | 2 | 12.6 % | 0.2 % | 0.13 |
-  | 3 | 32.6 % | 0.8 % | 0.39 |
-  | 4 | 53.7 % | 2.2 % | 0.78 |
-  | 5 | 71.7 % | 5.0 % | 1.31 |
+| Variant | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| Thunder, Darkness | 0 | 1.5 % | 4.5 % | 9.0 % | 15.1 % |
+| Light, Ice | 1.2 % | 2.4 % | 3.6 % | 4.8 % | 6.0 % |
+| Chaos | 0 | 0 | 0 | 0 | 15.8 % |
 
-- Across all births, **13.5 %** have at least one mutation. Chaos is about 0.4 % of
-  five-element roots, and Taiji and Time are effectively unreachable at birth.
-- Rolls happen once, at first eligibility (rule 9), so these rates hold over a life
-  without Mutation Awakening. Linh Căn Quả's new element adds new rolls.
-- With Mutation Awakening held, a mutation with chance c that failed has formed by the
-  k-th later breakthrough with probability 1 − (1 − c)^(1 + k) at constant purity.
-  At most two Awakening passes exist in a life (rule 9), so k ≤ 2: Light at 17.2 %
-  reaches at most 1 − 0.828³ = **43 %**, after the birth roll and both passes. The
-  capability is priced by the Meridian Map (Open Question 5).
+- **Rates per birth (simulated; analytic check in brackets):**
 
-**Example:** Wood 40 and Fire 86 form Light (Quang) with chance 0.5 × 0.40 × 0.86 =
-**17.2 %**, at purity round(0.8 × √3,440) = **47**.
+| Variant | % of births |
+|---|---|
+| Thunder | 2.00 (1.97) |
+| Darkness | 1.97 (1.97) |
+| Chaos | 0.23 (0.236) |
+| Light | 2.26 (2.25) |
+| Ice | 2.26 (2.25) |
+| Wind | 2.50 |
+| Blood | 1.50 |
+| Void | 0.38 (0.385) |
+| At least one variant | **12.14** |
+| At least one innate | 4.34 (4.33) |
 
-### E. Mutation power
+- Chaos is 15.8 % of five-element roots, about 1 life in 420.
 
-The mutation_power formula is defined as:
+**Example:** Fire 86 and Metal 40 give Thunder chance 0.6 × 0.86 × 0.40 = **20.6 %**.
+Fire 86 gives Light 0.12 × 0.86 = **10.3 %**. Five elements at 60 / 50 / 45 / 70 / 55 give
+Chaos 5 × 0.0520 = **26.0 %**.
 
-`power_W = Σ_{k uncapped} w_k · v_k + Σ_{k ceilinged} [ w_k · max(0, min(a_k + v_k, c_k) − min(a_k, c_k)) + w_k · (c'_k − c_k) ]` ; `floor[order] ≤ power_W ≤ band[order]`
+**D2. Purity.** The variant_purity formulas are defined as:
 
-`c_k = max(base_k, highest raise on k among the guaranteed ancestors)` ; `c'_k = max(c_k, r_k)`, or c'_k = c_k when the mutation has no raise on k
-
-**Ceilinged keys, priced at the margin (user decision 2026-11-04, fourth-pass review).**
-A key under one of Character Stats' character-wide bonus ceilings (its rule 14:
-`herb_growth_pct` 10, `alchemy_success` 3, the lifespan bonus 15 % of the realm's base
-lifespan) is priced at what the ceiling still lets through **after the mutation's
-guaranteed ancestors**, not at its data value. This one rule replaces the earlier per-key
-wording and extends it: W10 priced lifespan years up to the ceiling, 04f B1 did the same
-for herb growth, and this rule adds `alchemy_success` and makes all three marginal.
-- **Guaranteed ancestors** of a mutation are its mutation parents in Formulas D's parent
-  list, their mutation parents, and so on to first order. A mutation forms only when every
-  parent is owned (rule 9; Self-made picks are validated the same way, rule 2), and nothing
-  is ever lost (rule 12), so every guaranteed ancestor's modifiers are on the sheet
-  whenever the mutation is. Base elements carry no sheet modifiers, so they add nothing to
-  a_k, and Chaos (all five base elements) has no ancestors.
-- Only ancestors count. A mutation that merely shares a parent is not guaranteed: Lava is
-  not counted for Pill Fire, even on a root that holds both.
-- Other sources (techniques, the tree, items, pills, craft mastery) are not counted. They
-  are not guaranteed, and the price is the mutation's own worth.
-
-**Root factors are uncapped keys (user decision 2026-11-04).** A modifier of kind "root"
-(today only `herb_age_root_pct`) is not a sheet modifier: it is a separate multiplying
-factor in the herb-aging formula, like Wood's root term, and sits outside rule 14's herb
-growth ceiling. It is not a ceilinged key, so it is priced in full, w_k · v_k, in the
-first sum. Character Stats Formulas G and Realms & Bottlenecks Formulas D take it as
-`h = (1 + 0.008 · purity_wood) · (1 + herb_age_root_pct/100) · max(0, 1 + herb_growth_pct/100)`.
-
-**Holder-raised ceilings are priced as headroom (user decision 2026-11-04, cross-GDD review
-04g, F15).** A mutation with an effect of kind "ceiling_raise" (key k, value r_k) moves
-its holder's ceiling on k (Character Stats rule 14). The rule has three parts:
-- **The raise is priced in full, as headroom:** w_k · (c'_k − c_k). It counts whether or
-  not anything fills it, because techniques, the tree, items and pills can fill the room,
-  much as a plot is priced whether or not it is sown. It is marginal over the
-  ancestors: c_k already includes the highest raise on k among the guaranteed
-  ancestors, and a raise at or below c_k adds 0 W, since raises do not stack. A raise
-  held by an owned mutation that is not an ancestor is not counted, just as for lines.
-- **The mutation's own line on k is priced against c_k**, the ceiling that holds without
-  this mutation's raise.
-- **No double counting.** The brief's form prices the line against the raised ceiling,
-  min(a_k + v_k, c'_k) − min(a_k, c'_k). That form is equivalent only if the raise is
-  then priced for the part of (c_k, c'_k] that the line does **not** fill. Pricing the
-  line against c'_k and the raise in full pays twice for the band the line fills: Pill
-  Fire would be 8.1 + 16.2 + 15 = 39.3 W, while its holder gets 6 alchemy points (16.2 W)
-  and the yield (15 W), which is 31.2 W. Both correct forms give the same total for every
-  a_k, v_k, c_k and c'_k. The worth delivered on k is then w_k · (c'_k − a_k) when the
-  ancestors and the line reach c'_k.
+`purity_v = clamp(round(variant_purity_factor · (Π_{e ∈ req(v)} purity_e)^(1/m)), 1, 100)` for derived variants, recomputed whenever a required element's purity changes ; `purity_v = clamp(round(N(μ, σ)), p_min, p_max)` for innate variants, drawn once and fixed
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| w_k | float | per stat | data file (the Meridian Map's Formulas F weights) | W per unit of key k. Lifespan years are 300 ÷ the QR lifespan, 2.5 W per year, since most lives end in QR. Ceilinged keys: `herb_growth_pct` 0.9, `alchemy_success` 2.7, `lifespan_years` 2.5. Uncapped keys used by Time: `cultivation_speed_pct` 2.2, and the root factor `herb_age_root_pct` 0.9 (priced like herb growth, but in full). `field_plots` **20 W per plot** (Meridian Map Formulas F, repriced from 10 W by cross-GDD review 04g, F11) |
-| v_k | float | signed | data file (`character_elements.json`) | The mutation's own fixed modifier on key k |
-| a_k | float | ≥ 0 | calculated | Sum of key k over the mutation's guaranteed ancestors (0 for first order and for Chaos) |
-| base_k | float | 10 / 3 / 18 | data file (Character Stats `bonus_ceilings`) | Base ceiling for `herb_growth_pct` 10, `alchemy_success` 3, and `lifespan_years` 18: the QR lifespan bonus ceiling, 15 % of 120 years (W10) |
-| r_k | float | > base_k | data file (`character_elements.json`, effect kind "ceiling_raise") | The mutation's own raised ceiling on key k: Pill Fire `alchemy_success` 6, Spirit Farming `herb_growth_pct` 20, Lava `alchemy_success` 5 |
-| c_k | float | ≥ base_k | calculated | The ceiling on k without this mutation's raise: base_k, or the highest raise on k among the guaranteed ancestors |
-| c'_k | float | ≥ c_k | calculated | The holder's ceiling on k with this mutation's raise: max(c_k, r_k); equal to c_k when the mutation has no raise on k |
-| band[order], floor[order] | float | ceilings 30 / 60 / 100 / 150 W; floors 10 / 15 / 30 / 50 W | data file (`bien_di_power_band`, new) | User decision |
-| power_W | float | see Output Range | calculated | The mutation's price |
-
-Stats the Meridian Map doesn't price (*guess*): travel speed 0.3 W per point,
-`alchemy_yield` 15 W per +1, presence 2 W per point.
+| variant_purity_factor | float | 0.8 | data file | Discount on the geometric mean |
+| m | int | 1, 2 or 5 | calculated | Number of required elements |
+| purity_e | int | 10–100 | calculated | Current element purity |
+| purity_v | int | derived 8–80; innate 10–100 | calculated | The variant's purity |
 
 **Output Range:**
-- A ceilinged key's term is bounded: it is 0 when the ancestors already fill the
-  ceiling (a_k ≥ c_k), and at most w_k · c_k when a_k = 0 and v_k ≥ c_k. That is 9 W for
-  herb growth, 8.1 W for alchemy success and 45 W for lifespan years.
-- A raise term is at least 0 and at most w_k · (r_k − base_k), which is 0 when an
-  ancestor already holds an equal or higher raise. Today that maximum is 8.1 W for Pill
-  Fire's alchemy 3 → 6, 9 W for Spirit Farming's herb growth 10 → 20 and 5.4 W for
-  Lava's alchemy 3 → 5. A ceilinged key's line plus raise is at most w_k · r_k.
-- Uncapped keys are unbounded in the formula; the band clamps them in data.
-- No mutation today has a negative value on a ceilinged key. A negative value on a
-  ceilinged key is priced in full (w_k · v_k, negative), because Character Stats applies
-  penalties after the cap (its rule 14).
-- Each mutation must sit between its order's floor and ceiling. Today's values, which
-  need retuning **(change)**:
+- A derived purity is at most 80 (all required at 100) and at least 8, so the 1–100 clamp
+  is only a guard.
+- Exact .5 ties cannot occur. The geometric mean of integers is an integer or irrational,
+  and 0.8 g = k + 0.5 needs g = (10k + 5)/8, never an integer. Float `round()` is
+  therefore safe here.
+- A derived variant formed with chance ∝ purity has a typical purity of about 43, so the
+  derived typical value sits at roughly 0.86 of the purity-50 figure used in Formulas E.
+  Innate purity has mean 50.1.
 
-| Order (floor–ceiling) | Within band | Over or under band |
-|---|---|---|
-| 1 (10–30) | Light 15, Gravity 15, Ice 24, Wind 15, Poison 26, Darkness 22.5, Mist 22.5, Thunder 20, Lava 13.5 (`alchemy_success` +8 with 3 priced = 8.1 W, plus its raise 3 → 5 = 5.4 W; user decision 2026-11-04; was 22, and 8.1 without the raise) | Over: **Life 34** (herb +30 with 10 priced = 9 W, +10 lifespan years = 25 W) |
-| 2 (15–60) | Sword 30, Heavenly Thunder 50, Destruction 30 net, Blood 36, Pill Fire 31.2 (raise 3 → 6 = 8.1 W, alchemy +15 priced to the pre-raise 3 = 8.1 W, `alchemy_yield` 15 W; was 23.1), Spirit Farming 49 (raise 10 → 20 = 9 W; herb +60 adds 0 over Life's 30 at the pre-raise 10; +2 plots at 20 W = 40 W; was 20), Soul 52, Illusion 57.5, Space 50 (travel +100 = 30 W, +1 plot = 20 W; was 40), Yin 22, Yang 22 | Over: **Array 73, Stars 75, Refined Metal 62.5**. Under: **Death 5 net** (its −10 presence eats it) |
-| 3 (30–100) | Chaos 80 | Over: **Taiji 133**. Under: **Reincarnation 20** (+50 years over Life's 10: 18 − 10 = 8 years priced; was 45) |
-| 4 (50–150) | Time 110.5 (+40 % cultivation speed = 88 W, plus the herb-aging root factor +25 % = 22.5 W, priced in full; was 0) | — |
+**Example:** Fire 86 and Metal 40 give Thunder round(0.8 × √3,440) = round(46.9) = **47**.
+After a Tẩy Tủy Đan lifts Metal to 48, Thunder is round(0.8 × √4,128) = **51**. Light on
+Fire 86 is round(68.8) = **69**. Five elements at 60 / 50 / 45 / 70 / 55 give Chaos
+round(0.8 × 55.3) = **44**.
 
-What the margin shows:
-- Time's old +200 years and +100 % herb growth add nothing (0 W). A character who holds
-  Time already holds Reincarnation and Life, whose 60 years and 30 % fill both ceilings.
-  Its power now comes from two uncapped lines instead (user decision 2026-11-04), and the
-  two old lines are dropped in the data pass.
-- Reincarnation adds 8 years over Life.
-- Spirit Farming's herb line adds nothing over Life at the base ceiling. Its herb
-  identity is now the raise, 10 → 20 (9 W), which its +60 % fills for the holder.
-- Pill Fire's alchemy is now delivered up to 6 through its raise, and Lava's up to 5
-  through its own.
-- Plots at 20 W are now most of Spirit Farming's price (40 of 49 W) and two-fifths of
-  Space's (20 of 50 W).
+**D3. Mutation Awakening (Biến Dị Khai Mở).** The awakening formulas are defined as:
 
-These data values stay for now and show as held back: Time (+200 years, +100 % herb
-growth; the data file still holds them until the data pass, but they are not design
-values), Reincarnation (+50 years), Spirit Farming (+60 %; 20 is delivered at most),
-Pill Fire (+15; 6 is delivered at most) and Lava (+8; 5 is delivered at most).
-The data pass in Open Question 1 trims or replaces them, and adds Time's two new lines. A mutation never exists without
-its ancestors, and the herb growth and alchemy ceilings are flat, so those held-back parts
-are never delivered. The lifespan ceiling grows with realm (15 % of base lifespan), so
-held-back years do deliver more after QR; the price uses QR by decision W10.
+`c_j = chance_v at the purities of pass j` ; `P(v owned after pass k) = 1 − Π_{j=0..k} (1 − c_j)`, with pass 0 the birth roll and k ≤ `awakening_max_passes`
 
-For the over-band mutations, Life must fall to 30 W (by 4), Array, Stars and Refined
-Metal to 60 W (by 13, 15 and 2.5 W) and Taiji to 100 W (by 33). Death needs a larger positive side (Destruction's
-30 W net is inside its band). Each value must also respect the Meridian Map's compounding
-caps (for example Stars' +10 comprehension against a cap of 1 per cluster; that cap is for
-clusters, but it shows the scale).
+`top_up ≈ g · E_p`, with g ≈ 6 percentage points per pass fired
 
-**Example:** Light: `tam_ma_resist_pct` +10 × 1.5 = **15 W**. Heavenly Thunder: 35 ×
-1.0 + 3 × 5 = **50 W**. Reincarnation: its one guaranteed ancestor with lifespan is Life
-(+10; Death has none), so 2.5 × (min(10 + 50, 18) − min(10, 18)) = 2.5 × 8 = **20 W**.
-Time: its design lines are uncapped, so 2.2 × 40 (`cultivation_speed_pct`) + 0.9 × 25
-(`herb_age_root_pct`, a root factor, ×1.25 on h) = 88 + 22.5 = **110.5 W**, inside the
-order-4 band of 50–150 W. Its old +200 years and +100 % herb growth would add 0 W: its
-ancestors (Space, Gravity, Wind, Reincarnation, Life, Death, Darkness and Poison) give
-a = 60 years and 30 % herb growth, both at or above the ceilings.
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| c_j | float | as D1 | calculated | The chance at pass j. Only derived, unowned, not-declined variants whose requirement is met roll |
+| awakening_max_passes | int | 2 | data file | Only CF→NS and NS→DT can fire it |
+| g | float | about 6 pp | calculated (analytic) | Lives newly holding their first variant per pass fired |
+| E_p | float | 0–2 | **estimate** | Expected passes fired per life: share of lives that reach a CF+ breakthrough **and** hold capability #24 |
+| top_up | float | 0–about 12 pp | calculated | Added to the 12.14 % birth rate |
 
-**Example (holder-raised ceilings):** Pill Fire has no ancestor with alchemy (Life has
-none), so c = 3 and c' = 6. Its line is 2.7 × (min(0 + 15, 3) − 0) = 8.1 W, its raise is
-2.7 × (6 − 3) = 8.1 W, and `alchemy_yield` +1 is 15 W, making **31.2 W**. That equals
-the worth it delivers: 6 points (16.2 W) plus the yield. Spirit Farming's ancestor Life
-holds +30 % herb growth, so c = 10 and c' = 20. Its line is 0.9 × (min(90, 10) −
-min(30, 10)) = 0 W, its raise is 0.9 × 10 = 9 W, and +2 plots are 2 × 20 = 40 W, making
-**49 W**, inside the order-2 band (60 W). The holder's herb growth goes from 10 to 20,
-which is 10 points, or 9 W.
+**Output Range:**
+- Pass gain, derived analytically at average purities, ignoring Tẩy Tủy gains (which would
+  raise it a little).
+  - Pass 1 gross is Light 2.10 + Ice 2.10 + Thunder 1.58 + Darkness 1.58 + Chaos 0.16 =
+    7.5 % of lives. About 0.88 of those hold no variant already, so the net is about
+    **6.6 pp**.
+  - Pass 2 net is about **5.8 pp**.
+  - Both passes together add about **12 pp**, only if every life fired both.
+- **Estimate** (unsourced; Open Question 1): the 13.5 % target needs a top-up of 1.36 pp,
+  which is E_p ≈ 0.23.
+
+| E_p (passes per life) | Total lives holding a variant |
+|---|---|
+| 0.05 | 12.4 % |
+| 0.10 | 12.7 % |
+| 0.20 | 13.3 % |
+| 0.23 | 13.5 % |
+| 0.40 | 14.5 % |
+
+- Planning assumption: **E_p ≈ 0.2 → about 13.3 %**, a rounding of the 13.5 % target.
+  If few lives reach Nascent Soul the total is nearer 12.4–12.7 %, which is accepted
+  without a retune (hold the macro target, do not chase it).
+- A single variant's reach: Light on Fire 86 (10.3 %) is owned by the second pass with
+  probability 1 − 0.8968³ = **27.9 %**, after the birth roll and both passes.
+
+**Example:** Thunder on Fire 86, Metal 40 (20.6 %). It fails at birth. A Core Formation →
+Nascent Soul breakthrough gives a second roll at the same purities and forms it with
+probability 20.6 %. The chance it is owned after both passes is 1 − 0.794³ = **50 %**.
+
+### E. Variant power
+
+The variant_power formulas are defined as:
+
+`value_{v,k} = floor(per_purity_{v,k} · purity_v / u_k) · u_k` ; `power_W(v) = Σ_k w_k · value_{v,k}` ; `floor_band ≤ power_W(v | purity 50)` and `power_W(v | purity 100) ≤ ceiling_band`
+
+All variant keys are unceilinged (Character Stats rule 14), so each is priced in full.
+There is no marginal pricing, no ancestors and no holder-raised ceilings. Because power is
+linear in purity, `power_W(100) ≈ 2 · power_W(50)`.
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| per_purity_{v,k} | float | table below | data file (`variant_effects`) | Displayed units of key k per purity point, at most 2 decimals |
+| purity_v | int | 8–100 | calculated | Variant purity (Formulas D2) |
+| u_k | float | 0.1 (all keys here) | constant (Meridian Map Formulas F precision) | The displayed unit. Values are whole counts of u_k and are only rounded **down**, in integer arithmetic on hundredths, so rounding can lower a price but never raise it |
+| w_k | float | table below | constant (design-only; Meridian Map Formulas F weights, not runtime data) | W per displayed unit |
+| floor_band, ceiling_band | float | 10 / 30 W (common); 20 / 60 W (Chaos) | data file (`variant_power_band`, `variant_power_band_apex`) | The band |
+| power_W | float | 0–about 60 | calculated | The variant's price |
+
+| Variant | Key | w (W/unit) | Per purity | Value p50 | Value p100 | W p50 | W p100 | In band |
+|---|---|---|---|---|---|---|---|---|
+| Light (Quang) | `tam_ma_resist_pct` | 1.5 | 0.20 | 10.0 | 20.0 | 15.0 | 30.0 | yes |
+| Darkness (Ám) | `stealth` | 1.5 | 0.20 | 10.0 | 20.0 | 15.0 | 30.0 | yes |
+| Ice (Băng) | `dan_doc_resist_pct` | 1.6 | 0.18 | 9.0 | 18.0 | 14.4 | 28.8 | yes |
+| Wind (Phong) | `travel_speed_pct` | 0.3 *guess* | 1.00 | 50.0 | 100.0 | 15.0 | 30.0 | yes |
+| Thunder (Lôi) | `attack_pct` | 1.0 | 0.30 | 15.0 | 30.0 | 15.0 | 30.0 | yes |
+| Blood (Huyết) | `khi_huyet_pct` | 1.2 | 0.25 | 12.5 | 25.0 | 15.0 | 30.0 | yes |
+| Void (Hư Không) | `co_duyen_pct` | 0.3 *guess* | 1.00 | 50.0 | 100.0 | 15.0 | 30.0 | yes |
+| Chaos (Hỗn Độn) | `cultivation_speed_pct` | 2.2 | 0.13 | 6.5 | 13.0 | 14.3 | 28.6 | |
+| | `breakthrough_chance` | 5 | 0.06 | 3.0 pp | 6.0 pp | 15.0 | 30.0 | |
+| | **Chaos total** | | | | | **29.3** | **58.6** | **yes (apex band)** |
+
+**Output Range:**
+- **Common band: 10–30 W**, the old order-1 band, now flat for all seven non-Chaos
+  variants. Every one has a purity-50 price of 14.4–15.0 W (≥ 10) and a purity-100 price
+  of 28.8–30.0 W (≤ 30). Ice is trimmed to 0.18 to stay under the ceiling at its 1.6
+  weight.
+- **Reachable range.** A derived variant tops out at purity 80, so its real ceiling is
+  24 W. Its typical purity is about 43, around 13 W. Only innate variants (Wind, Blood,
+  Void) can reach the purity-100 ceiling.
+- **Chaos band: 20–60 W** (user decision 2026-11-04: raised to about 30 W at purity 50).
+  Chaos is about 2 × a common variant at the same purity. The derived maximum, purity 80,
+  gives +10.4 % cultivation speed and +4.8 pp `breakthrough_chance`, 46.9 W. 0.14 / 0.06
+  would price 60.8 W at purity 100, over the band, so cultivation speed is 0.13.
+- Chaos's `breakthrough_chance` line is not tree-capped (the cap is per source) but joins
+  Realms & Bottlenecks' per-attempt extras ceiling in its Formulas C, which Realms owns.
+- `co_duyen_pct` and `travel_speed_pct` have no Meridian weight, because the map excludes
+  them from fills. 0.3 W per point is a *guess* carried from the earlier pricing of travel
+  speed, applied to both (Open Question 2).
+
+**Example:** Thunder at purity 47 (the Fire 86 / Metal 40 root): value = floor(0.30 × 47 /
+0.1) × 0.1 = floor(141) × 0.1 = **+14.1 % attack**, which is 14.1 W. Blood at innate
+purity 50: **+12.5 % `khi_huyet_pct`** = 15.0 W. Chaos at 44: +5.7 % cultivation speed and
++2.6 pp `breakthrough_chance` = 12.54 + 13.0 = **25.54 W**. W figures are exact and are
+never rounded; prose may show them to one decimal.
 
 ### F. Root changes
 
 The root_change formulas are defined as:
 
-`gain = max(1, round(tay_tuy_value · potency))` ; `purity' = min(100, purity + gain)` (Tẩy Tủy Đan, on the weakest owned element)
+`gain = max(1, round(tay_tuy_value · potency))` ; `purity' = min(100, purity + gain)` (Tẩy Tủy Đan, on the weakest owned **base** element, no roll, then derived variants' purity recomputed by D2)
 
-`purity_new ~ U{20..35}` for an added element (Linh Căn Quả), or `min(purity + raise, 100)` when all five are owned
+`purity_new ~ U{20..35}` for an added element (Linh Căn Quả), followed by the derived rolls of D1 for variants that **became eligible**, or `min(purity + raise, 100)` on the weakest element when all five are owned (no roll; derived purities recomputed)
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -602,75 +687,127 @@ The root_change formulas are defined as:
 
 **Output Range:**
 - Three Tẩy Tủy Đan at quality 1 and low toxicity give about +8 each, **+24** in total
-  (*guess*). The gain always lands on the weakest element, so per element it averages
-  12 / 8 / 6 / 4.8 for 2–5 elements.
-- A Linh Căn Quả adds an element at 27.5 on average. That changes the tier, the curve
-  row and the pairs, and rolls the newly eligible first-order mutations. On a root of 1
-  / 2 / 3 / 4 elements, the new pairs give an expected chance of at least one new
-  first-order mutation of 7 / 13 / 19 / 25 % at average purities (this is not the pair
-  bonus, which is +3 % per generating pair).
-- Purity pills never roll mutations (rule 9), but they recompute owned mutations' purity.
-  Wood 40 → 48 with Fire 86 moves Light from 47 to round(0.8 × √(48 × 86)) = **51**.
+  (*guess*). The gain lands on the weakest element, so per element it averages 12 / 8 / 6 /
+  4.8 for 2–5 elements.
+- Purity pills never roll variants but they recompute derived purity. Metal 40 → 48 with
+  Fire 86 moves Thunder from 47 to **51**. Because variant power is linear in purity
+  (Formulas E), the same pill adds about 1.2 W to Thunder.
+- A Linh Căn Quả adds an element at 27.5 on average. That changes `n_base`, the pairs and,
+  through the cap, `n_eff`.
+  - **Newly eligible derived variants** roll once each. The expected number of new
+    variants at average purities is **3.0 / 4.6 / 6.3 / 16.6 %** on a root of 1 / 2 / 3 /
+    4 base elements. Light and Ice are 3.3 % each, a convergence is 8.3 % and Chaos on the
+    fifth element is 8.7 %.
+  - Innate variants never roll.
+  - On a root with `n_eff` already 5 (for example 4 base + Wind), the new element changes
+    the pairs but not the curve row.
+- **Linh Căn Quả draw order.** A Tẩy Tủy Đan makes no draw. A fruit that adds an element
+  makes, in order: 1 uniform draw for the element, uniform over the missing elements in
+  cycle order, skipped when a valid event names one; 1 uniform draw for its purity, 20 +
+  floor(u · 16); then 1 uniform draw per newly eligible derived variant, in catalogue
+  order. The +8 path makes no draw. Which seeded stream these use is Open Question 7.
 
-**Example:** Water 10 with potency 1.25 → +8, so Water 18 (no roll). A Linh Căn Quả on
-{Wood 40, Fire 86} adds Earth 28. The new pair Fire → Earth takes the pair bonus from +3 % to +6 %. Two
-mutations become eligible and roll once each: Lava at 0.5 × 0.86 × 0.28 = **12 %** and
-Poison (Wood–Earth) at 0.5 × 0.40 × 0.28 = **5.6 %**.
+**Example:** Water 10 with potency 1.25 → +8 (round(7.5) = 8), so Water 18, with no roll.
+A Linh Căn Quả on {Fire 86, Wood 40} adds Metal 28, and Fire–Metal makes Thunder eligible.
+It rolls once at 0.6 × 0.86 × 0.28 = **14.4 %**, and if it forms its purity is round(0.8 ×
+√2,408) = **39**. Light was rolled at birth and does not roll again. `n_base` goes 2 → 3
+and the pair bonus is unchanged, because Metal is not adjacent to Fire or Wood in the
+generating cycle.
 
 ### G. Purity as a scale (owned elsewhere)
 
 Restated for reference:
-- **The Meridian Map** owns acupoint scaling: 0.5 + purity ÷ 100, or 0.25 if absent, so
-  0.6–1.5.
-- **Cultivation Techniques** owns the technique factor: the average purity of the ids it
-  names ÷ 100, about 0.5 for a typical root.
-- **Character Stats** owns the element role formulas (Formulas G).
+- **The Meridian Map** owns acupoint scaling: `0.5 + purity / 100` for an element sector
+  (0.25 if the element is absent, so 0.6–1.5), and bridges average their two sectors. A
+  **variant sector** scales by `0.5 + purity / 100` for its variant. It is hidden and
+  locked while the variant is not owned, so there is no absent value. A derived variant
+  gives 0.58–1.30 and an innate one 0.6–1.5.
+- **Cultivation Techniques** owns the technique factor: the average purity of the elements
+  and variants it names ÷ 100, about 0.5 for a typical root.
+- **Character Stats** owns the element and variant role formulas (Formulas G). Formulas E
+  sets the variant coefficients.
 
-**Example:** with Wood 40 and Fire 86, a Wood–Fire bridge acupoint is (0.9 + 1.36) ÷ 2 =
-1.13, and a technique naming both runs at 0.63.
+**Example:** with Fire 86 and Thunder 47, the Thunder sector scales by 0.5 + 0.47 = 0.97.
+A technique naming both Fire and Thunder runs at (86 + 47) ÷ 2 ÷ 100 = **0.665**. A
+Wood–Fire bridge acupoint on Wood 40 and Fire 86 is (0.9 + 1.36) ÷ 2 = 1.13.
 
 ### Parameter keys
 
 **`character_attributes.json` (`linh_can`):**
-- `count_weights` {1: 45, 2: 32, 3: 15, 4: 6.5, 5: 1.5} **(change)**;
-- `purity_mean` 50, `purity_sd` 20, `purity_min` 10, `purity_max` 100;
-- `pair_bonus_pct` 3 **(new)**;
-- `bien_di_chance_factor` 0.5, `bien_di_higher_order_factor` 0.25,
-  `bien_di_purity_factor` 0.8;
-- `bien_di_power_band` [30, 60, 100, 150] **(new)**;
-- removed: `bien_di_counts_as_element` and `max_counted_elements` (dead once mutations
-  stop counting) **(change)**.
 
-**`character_attributes.json` (`element_count_curve`):** unchanged values, keyed by base
-element count.
+| Key | Value | Meaning |
+|---|---|---|
+| `count_weights` | {1: 45, 2: 32, 3: 15, 4: 6.5, 5: 1.5} | Birth weights for the number of base elements (unchanged) |
+| `purity_mean`, `purity_sd` | 50, 20 | Purity distribution for elements and innate variants (unchanged) |
+| `purity_min`, `purity_max` | 10, 100 | Purity clamp (unchanged) |
+| `pair_bonus_pct` | 3 | Cultivation speed per generating pair (unchanged) |
+| `element_count_curve` | table in Formulas B | Keyed by `n_eff` **(change)**; values unchanged |
+| `n_cap` | 5 **(new)** | Upper limit of `n_eff` (the curve has five rows) |
+| `void_max_elements` | 2 **(new)** | Void is eligible only when `n_base` is at most this, at birth |
+| `convergence_factor` | 0.6 **(new)** | Chance factor for Thunder and Darkness |
+| `transmutation_factor` | 0.12 **(new)** | Chance factor for Light and Ice |
+| `chaos_factor` | 5 **(new)** | Chance factor for Chaos (five parents) |
+| `innate_chance` | {phong: 0.025, huyet: 0.015, hu_khong: 0.005} **(new)** | Flat birth chance per innate variant |
+| `variant_purity_factor` | 0.8 **(renamed from `bien_di_purity_factor`)** | Discount on the geometric mean for derived purity |
+| `awakening_max_passes` | 2 **(new)** | Mutation Awakening passes per life. Structural, not a limit the code enforces: only CF→NS and NS→DT can fire it, and no pass counter is saved |
+| `variant_power_band` | [10, 30] W **(replaces `bien_di_power_band`)** | Common band: floor at purity 50, ceiling at purity 100 |
+| `variant_power_band_apex` | [20, 60] W **(new)** | Chaos band |
 
-**`character_elements.json`:** mutation `effects` retuned into their bands **(change)**.
-Effects gain a new kind, **"root" (new)**: a root factor that multiplies its formula
-directly instead of adding to the stat sheet, and sits outside the character-wide
-ceilings. Today only Time uses it: `herb_age_root_pct` 25 (×1.25 on herb aging h),
-alongside `cultivation_speed_pct` 40 (Formulas E).
-Effects also gain the kind **"ceiling_raise" (new; user decision 2026-11-04, cross-GDD
-review 04g, F15)**, with a key and a value. The key is a Character Stats `bonus_ceilings`
-key, and the value is the holder's raised ceiling (Character Stats rule 14). It is not a
-sheet modifier. The data pass adds three raises: Pill Fire (`dan_hoa`) `alchemy_success` 6,
-Spirit Farming (`linh_thuc`) `herb_growth_pct` 20, and Lava (`dung_nham`)
-`alchemy_success` 5 (user decision 2026-11-04).
+Removed: `bien_di_chance_factor`, `bien_di_higher_order_factor`, `bien_di_power_band` (the
+four-value form), `herb_age_root_pct` (Time moved to the Way).
+
+**`character_elements.json`:**
+
+| Key | Value | Meaning |
+|---|---|---|
+| `variants` | 8 entries **(replaces `bien_di`)** | Per variant: `id`, `name`, `desc`, `origin` (convergence, transmutation, innate), `requires` (element ids; empty for innate). Catalogue order is the roll order: Wind, Blood, Void, then Thunder, Darkness, Chaos, Light, Ice |
+| `variant_effects` | per variant a list of {`stat`, `per_purity`} **(new)** | Quang `tam_ma_resist_pct` 0.20; Am `stealth` 0.20; Bang `dan_doc_resist_pct` 0.18; Phong `travel_speed_pct` 1.00; Loi `attack_pct` 0.30; Huyet `khi_huyet_pct` 0.25; Hu Khong `co_duyen_pct` 1.00; Hon Don `cultivation_speed_pct` 0.13 and `breakthrough_chance` 0.06 |
+| `element_effects` | unchanged | Per-purity element roles (for example `herb_growth_pct_per_purity` 0.8) |
+
+**Other data files:**
+
+| Key | Value | File | Meaning |
+|---|---|---|---|
+| `tay_tuy_value` | 6 | `items_recipes.json` | Base purity per Tẩy Tủy Đan (minimum gain 1) |
+| `max_uses` | 3 | `items_recipes.json` | Tẩy Tủy Đan per life |
+| Linh Căn Quả purity range, raise | 20–35, 8 | `items_treasures.json` | Purity of the added element, and the raise when all five are owned |
+
+Design-only constants (not runtime): the Meridian Map stat weights used by Formulas E, with
+`travel_speed_pct` and `co_duyen_pct` at 0.3 W per point as a guess.
 
 ## Edge Cases
+
+`systems-designer` not consulted for this section (Lean mode). Review manually before
+production.
 
 **Birth**
 
 - **If a purity draw falls outside 10–100:** it is clamped. About 2.4 % of draws land on
-  10 and 0.6 % on 100.
+  10 and 0.67 % on 100. This applies to innate variant purity too.
 - **If the root has five elements:** it holds all five generating pairs and is eligible
-  for Chaos at birth.
-- **If a Self-made player picks mutations:** they need the parents owned, cost nothing
-  (Self-made is the casual mode, with achievements off) and never count toward the
-  curve. The picked mutations still obey their power bands.
+  for Chaos at birth. Innate variants cannot raise its `n_eff` above 5.
+- **If several innate variants form at birth:** each adds 1 to `n_eff`, capped at 5. A
+  single root with Wind, Blood and Void has `n_eff` 4. Each innate variant draws its own
+  purity right after its success (Formulas A).
+- **If Void would be eligible but the root has three or more base elements:** Void makes
+  no draw. A Self-made pick of Void on such a root is rejected at input.
 - **If a Self-made player picks the strongest root:** five elements at 100 plus every
-  mutation is allowed. Free picks make it the dominant choice, and that is accepted by
-  user decision 2026-11-04: Self-made is casual, and Fated lives are the competitive
-  mode.
+  qualifying variant (all five derived at their formula purities, plus Wind and Blood) is
+  allowed, and is the dominant choice. That is accepted: Self-made is casual (rule 2).
+- **If a Self-made life leaves a qualifying variant unpicked:** it is declined and never
+  rolls, Awakening included (rule 2). **(change)**: before the redesign, Awakening could
+  still form it.
+
+**Effective count**
+
+- **If an innate variant puts `n_eff` above `n_base`:** the curve uses `n_eff`, but the
+  pair bonus, the tier name and the Meridian center keystone use `n_base`. A Dual root +
+  Wind cultivates on the 3-element curve with at most one pair.
+- **If a root reaches `n_eff` 5 through innate variants:** it uses the five-element curve
+  row but is not a five-element root. It cannot hold Chaos, does not hold all five pairs
+  and does not open the center keystone.
+- **If a Linh Căn Quả adds an element to a root already at `n_eff` 5:** `n_base` and the
+  pairs change; `n_eff` stays 5.
 
 **Root changes**
 
@@ -679,43 +816,62 @@ Spirit Farming (`linh_thuc`) `herb_growth_pct` 20, and Lava (`dung_nham`)
 - **If every owned element is already at 100:** the Tẩy Tủy Đan cannot be taken and is
   not consumed.
 - **If a Linh Căn Quả is used with all five elements owned:** the +8 goes to the weakest
-  element, ties in cycle order, capped at 100. Nothing rolls; the purity of owned
-  mutations built on that element is recomputed (rule 9).
-- **If an added element raises the element count mid-realm:** the tier, the curve row
-  and the generating pairs change at once. In an early stage the curve factor can fall,
-  so cultivation slows until the curve's crossover. The UI shows the old and new speed
-  before the fruit is used.
-- **If a newly formed mutation makes a higher order eligible:** that higher order rolls
-  in the same pass, because lower orders roll first.
-- **If a mutation already rolled and failed:** it never rolls again in that life (rule
-  9), except through Mutation Awakening. The root keeps the set of rolled mutation ids.
-- **If Mutation Awakening is held and no unowned mutation has its parents owned:** the
-  breakthrough makes 0 rolls and writes no record.
-- **If an Awakening roll forms a mutation that is a parent of a higher order:** the higher
-  order rolls in the same pass (a first roll if it was never eligible, a re-roll if it
-  failed earlier).
-- **If a Self-made life left eligible mutations unpicked:** they are in the rolled set, so
-  Mutation Awakening can still form them.
-- **If a Tẩy Tủy Đan raises an element:** the purity of every owned mutation built on it is
-  recomputed, lowest order first, with no roll; the modifiers do not change.
+  element, ties in cycle order, capped at 100. Nothing rolls; the purity of derived
+  variants built on that element is recomputed.
+- **If an added element raises `n_eff` mid-realm:** the curve row and the generating
+  pairs change at once. In an early stage the curve factor can fall, so cultivation slows
+  until the curve's crossover. The UI shows the old and new speed before the fruit is
+  used.
+- **If a Linh Căn Quả adds the fifth element:** Chaos becomes eligible and rolls in the
+  same pass as any other newly eligible derived variant, in catalogue order.
+- **If a Linh Căn Quả would make Void eligible:** it cannot. Void is innate and decided at
+  birth; adding elements never rolls it, and a root that holds Void keeps it when it later
+  grows past two elements.
+- **If a derived variant already rolled and failed:** it never rolls again in that life,
+  except through Mutation Awakening. The root keeps the rolled set.
+- **If Mutation Awakening is held and no unowned, non-declined derived variant has its
+  requirement met:** the breakthrough makes 0 rolls and writes no record.
+- **If every roll in an Awakening pass fails:** no record is written. Only a formed
+  variant is recorded.
+- **If a Tẩy Tủy Đan raises an element:** the purity of every derived variant that
+  requires it is recomputed, with no roll. Its role values (Formulas E) follow the new
+  purity at once. Innate purity never changes.
+
+**Meridian Map sectors**
+
+- **If a variant forms mid-life (Awakening, Linh Căn Quả):** its sector appears and is
+  spendable from the next point spend. Points already spent elsewhere are not refunded.
+- **If a derived variant's purity rises:** its sector's acupoint scale (0.5 + purity ÷ 100)
+  rises with it, like an element sector's.
+- **If an NPC owns a variant:** its sector is available to the NPC's build by the same
+  rule; hiding is a presentation rule for the player's map only.
 
 **Use by other systems**
 
-- **If a technique names a mutation the root lacks:** the technique cannot run at its
+- **If a technique names a variant the root lacks:** the technique cannot run at its
   speed. Cultivation Techniques owns the fallback (as built, ×0.3 of the strongest
   purity).
+- **If a technique, recipe or item names a relocated mutation (rule 16):** this system
+  reports it as not owned. Until the Way is designed and the reference is re-pointed, the
+  content is unusable, and the data pass must flag it (Cross-References).
 - **If a mortal NPC has no root:** it does not cultivate and is outside this system. A
   cultivator always has at least one element.
 
 **Saves**
 
-- **If a save comes from the build where mutations counted toward the curve:** the curve
-  now uses the base count, and the mutations stay owned. Their modifiers are recomputed
-  from the retuned data, and their purity from the current parents (a stored purity is
-  ignored).
-- **If a save has no rolled-mutation set:** every mutation whose parents are owned is
-  marked as rolled on load. This preserves the save's outcome and prevents a free
-  re-roll.
+- **If a save holds pre-redesign mutations:** the eight retained ids (Light, Darkness,
+  Ice, Wind, Thunder, Chaos, Blood and the new Void, which no old save holds) keep their
+  ownership; their purity is recomputed by D2 for derived variants, and for Wind and Blood
+  (now innate) the stored purity is kept, clamped to 10–100. Relocated mutations are
+  dropped from the root and handed to the Way's migration, which that system defines. The
+  game is pre-release, so this matters only for development saves.
+- **If a save has no rolled set:** every derived variant whose requirement is met is
+  marked as rolled on load, and every innate variant is marked as rolled. This preserves
+  the save's outcome and prevents a free re-roll.
+- **If a pre-redesign save has a rolled set:** relocated ids are dropped from it, retained
+  ids stay, and then the same marking applies. Light now needs only Fire and Ice only
+  Water, so a root can meet a requirement it never rolled; those variants are marked
+  rolled and get no first roll, though Awakening can still roll them.
 
 ## Dependencies
 
@@ -723,8 +879,8 @@ Spirit Farming (`linh_thuc`) `herb_growth_pct` 20, and Lava (`dung_nham`)
 
 | # | System | What Spiritual Roots needs from it |
 |---|---|---|
-| 1 | Data-Driven Config | `character_attributes.json` (`linh_can`, `element_count_curve`), `character_elements.json` |
-| 2 | Deterministic Simulation Core | The seeded RNG for the birth roll and mutation rolls |
+| 1 | Data-Driven Config | `character_attributes.json` (`linh_can`, `element_count_curve`), `character_elements.json` (`variants`, `variant_effects`) |
+| 2 | Deterministic Simulation Core | The seeded RNG for the birth roll and variant rolls |
 
 **Upstream, soft (needed for a part of the system):**
 
@@ -737,400 +893,444 @@ Spirit Farming (`linh_thuc`) `herb_growth_pct` 20, and Lava (`dung_nham`)
 
 | # | System | What it takes |
 |---|---|---|
-| 7 | Character Stats | Purities, base element count, mutation modifiers and pair-bonus modifiers (through its provider interface); Time's root factor `herb_age_root_pct` (kind "root") for Formulas G's herb growth; the holder-raised ceilings (kind "ceiling_raise") of Pill Fire and Spirit Farming for rule 14 |
-| 8 | Realms & Bottlenecks | The curve factor by base element count and stage group; Time's `herb_age_root_pct` in Formulas D's herb growth factor h |
-| 10 | Meridian Map | Purity per element; base element count for the center keystone |
-| 9 | Cultivation Techniques | Purity of the elements and mutations a technique names |
-| 14–18 | Crafts | Element purities for their roles; craft mutations |
+| 7 | Character Stats | Purities, `n_base`, `n_eff`, the variant set with purities and the variant role lines (Formulas E), the pair-bonus modifiers (through its provider interface). **No longer**: Time's `herb_age_root_pct` or the holder-raised ceilings (relocated mutations) |
+| 8 | Realms & Bottlenecks | The curve factor by `n_eff` and stage group. **No longer**: Time's `herb_age_root_pct` in its Formulas D herb factor h |
+| 10 | Meridian Map | Purity per element; `n_base` for the center keystone; the owned variants and their purities for the hidden variant sectors (rule 12) |
+| 9 | Cultivation Techniques | Purity of the elements and variants a technique names; `n_base` for the count gain (unchanged) |
+| 14–18 | Crafts | Element purities for their roles. **No longer**: craft mutations |
+| 39 | The Way (Đạo) **(new, undesigned)** | The root as read-only prerequisites; the relocated mutations as seeds (rule 16). Provisional: the Way's GDD confirms or changes this contract |
 | 13, 23 | Item DB, Event Engine | They call the root-change rules (Tẩy Tủy Đan, Linh Căn Quả) |
-| 3 | World Database | Root changes and mutations formed |
+| 3 | World Database | Root changes and variants formed |
 | 24, 27 | NPC Builds, World Generation | NPC roots by the same rules |
-| 12 | Codex & Karmic Carryover | Mutations discovered across lives |
+| 12 | Codex & Karmic Carryover | Variants discovered across lives |
 | 35–37 | Guidance Layer, Debug Terminal, Game UI | The root display |
-| 5 | Save/Load | Elements, purities, mutations, rolled set, pill counts |
+| 5 | Save/Load | Elements, purities, variants with origin, the rolled set with declined marks, pill counts |
 
 **Cycles and how they are broken:**
-- **Spiritual Roots ↔ Realms & Bottlenecks.** Realms reads the curve factor; Spiritual Roots
-  takes the stage group as a lookup argument and subscribes to the `breakthrough_succeeded`
-  event. Realms never calls this system, and this system never calls Realms.
-- **Spiritual Roots ↔ Character Stats and the Meridian Map.** Both read purities and the
-  base element count. This system reads only the capability set, which the Meridian Map
-  writes and Character Stats holds; the Meridian Map never calls it (its capability-host
-  rule).
-- Item DB and the Event Engine invoke the change rules (rule 11); this system reads nothing
-  from them.
+- **Spiritual Roots ↔ Realms & Bottlenecks.** Realms reads the curve factor; Spiritual
+  Roots takes the stage group as a lookup argument and subscribes to the
+  `breakthrough_succeeded` event. Neither system calls the other.
+- **Spiritual Roots ↔ Character Stats and the Meridian Map.** Both read purities, counts
+  and variants. This system reads only the capability set, which the Meridian Map writes
+  and Character Stats holds; the Meridian Map never calls it (its capability-host rule).
+- **Spiritual Roots → the Way.** One-way: the Way reads the root; this system reads
+  nothing from the Way.
+- Item DB and the Event Engine invoke the change rules (rule 13); this system reads
+  nothing from them.
+
+**Bidirectional check.** Character Stats, Realms & Bottlenecks, the Meridian Map and
+Cultivation Techniques each list this system. All four were aligned to the redesign on
+2026-11-04. The Meridian Map now defines the variant sectors (its rule 20, Formulas H2–H4
+and G9; its Open Question 15 is answered), and the Way's row is in the systems index.
 
 ## Tuning Knobs
 
 | Knob | Value | Safe range | What it moves |
 |---|---|---|---|
-| `count_weights` | 45 / 32 / 15 / 6.5 / 1.5 | five-element weight 0.5–3; the weights sum to 100 | Tier rarity; the five-element share is also the share of lives that can reach the center keystone (*derived*) |
-| `purity_mean` | 50 | 40–60; *derived* floor 40, below which five-element roots fail QR in time | Every purity-scaled value |
+| `count_weights` | 45 / 32 / 15 / 6.5 / 1.5 | five-element weight 0.5–3; the weights sum to 100 | Tier rarity; the five-element share is also the share of lives that can reach the center keystone and Chaos (*derived*) |
+| `purity_mean` | 50 | 40–60; *derived* floor 40, below which five-element roots fail QR in time. Cultivation Techniques' `tech_norm` 2.0 is tied to it | Every purity-scaled value, element and variant |
 | `purity_sd` | 20 | 15–25 | The share of purity ≥ 85 per element: 1.1 % at 15, 4.2 % at 20, 8.4 % at 25 |
-| `purity_min` | 10 | 5–20 | The lowest purity; mutations from minimum-purity parents |
+| `purity_min` | 10 | 5–20 | The lowest element purity; the derived-variant floor (0.8 × this) |
 | `pair_bonus_pct` | 3 | 1–4.5; *derived* ceiling 4.5 (5 pairs under the 50 W keystone floor) | The pair bonus; at 2 four- and five-element roots tie, at 4+ five pulls ahead |
-| `bien_di_chance_factor` | 0.5 | 0.3–0.6 | First-order rate: about 9 % of births at 0.3, 13.5 % at 0.5, 16 % at 0.6 |
-| `bien_di_higher_order_factor` | 0.25 | 0.1–0.4 | Higher-order rates |
-| `bien_di_purity_factor` | 0.8 | 0.6–1.0 | Mutation purity |
-| `bien_di_power_band` | ceilings 30 / 60 / 100 / 150 W; floors 10 / 15 / 30 / 50 W | each band ≤ the next; the order-2 ceiling (60 W) already exceeds the weakest keystone (50 W, registry `keystone_min_power`), so raising it widens that gap (*derived*) | How strong a mutation may be |
-| Time's root factor `herb_age_root_pct` (effect kind "root") | 25 (×1.25 on h), 22.5 W | any value keeping Time inside 50–150 W with its +40 % cultivation speed (88 W): 0–68; priced in full at 0.9 W per % (not ceilinged) | Herb aging for an apex holder, multiplying like Wood's root term outside the herb growth ceiling. Read by Character Stats Formulas G and Realms Formulas D (h); registry entry `herb_age_root_pct` |
-| Holder-raised ceilings (effect kind "ceiling_raise") | Pill Fire `alchemy_success` 6 (31.2 W); Spirit Farming `herb_growth_pct` 20 (49 W); Lava `alchemy_success` 5 (13.5 W; user decision 2026-11-04) | Inside each band at 2.7 W per alchemy point and 0.9 W per herb %: Pill Fire 4–16, Spirit Farming 11–32, Lava 4–11. Keep Lava below Pill Fire, so the order-2 craft mutation stays the alchemy identity. Any Pill Fire change re-runs Realms' AC-CG-60 | How far a craft holder outgrows the flat character-wide ceiling. Read by Character Stats rule 14 |
-| `element_count_curve` | Formulas B | any change must keep the parity points | Pacing by tier |
+| `n_cap` | 5 | 5 only, unless a sixth curve row is added (which reopens Realms' years table) | How far innate variants can push `n_eff` |
+| `convergence_factor` | 0.6 | 0.4–0.8 | Thunder and Darkness, about 1.3–2.6 % of births each |
+| `transmutation_factor` | 0.12 | 0.08–0.16 | Light and Ice, about 1.5–3.0 % of births each |
+| `chaos_factor` | 5 | 2–8 | Chaos: about 6–25 % of five-element roots (0.09–0.38 % of births); the `min(1, …)` clamp binds sooner as it rises |
+| `innate_chance` | Wind 0.025, Blood 0.015, Void 0.005 | each 0–0.04; keep their sum ≤ 0.06 so that at most about 6 % of lives move up a curve row | Innate rarity and the share of lives whose `n_eff` exceeds `n_base` |
+| `void_max_elements` | 2 | 1–3; at 5 Void is unconditional | Void's niche as a sparse-root gift |
+| `variant_purity_factor` | 0.8 | 0.6–1.0; at 1.0 a derived variant can reach purity 100 and the 30 W ceiling | Derived variant purity, hence its role strength and sector scale |
+| `variant_effects` | Formulas E table | any value keeping each variant inside its band (common 10–30 W, Chaos 20–60 W) at purity 50 and 100 | Each variant's role strength |
+| `variant_power_band`, `variant_power_band_apex` | 10–30 W; 20–60 W | the apex ceiling should stay above the weakest keystone (50 W, registry `keystone_min_power`) only at purity 100, which a derived Chaos cannot reach (max 80, 46.9 W) | How strong a variant may be |
+| `element_count_curve` | Formulas B | any change must keep the parity points | Pacing by `n_eff` |
+| `awakening_max_passes` | 2 | structural (only CF→NS and NS→DT can fire it) | Mutation Awakening's reach |
 | Tẩy Tủy Đan, Linh Căn Quả values | 6 × 3 per life; 20–35 or +8 | owned by Item DB | Root growth over a life |
+
+**Interactions.** Raising `variant_purity_factor` raises every derived variant's power and
+sector scale at once; retune `variant_effects` in the same pass. Raising any
+`innate_chance` also raises the share of lives on a higher curve row, which moves Realms
+& Bottlenecks' tier pacing; check it with the Realms bot run (Open Question 1).
 
 ## Visual/Audio Requirements
 
-Deferred to the Game UI GDD (system 37). Intent: each element has its colour (the data
-already holds an ANSI colour per element); mutations show their parents; a mutation forming
-is a celebrated moment.
+Deferred to the Game UI GDD (system 37). Intent: each element and each variant has its
+colour (the data already holds an ANSI colour per element; variants need one each in the
+data pass); a variant shows its origin (the elements it converged or transmuted from, or
+"innate"); a variant forming is a celebrated moment, and its Meridian sector revealing
+itself is part of that moment.
 
 ## Game Feel
 
 Not specified at this tier. Intent: the birth roll is the run's first big reveal; a
-five-element root should feel like a gamble on the long game, and a mutation like a
-gift.
+five-element root should feel like a gamble on the long game; a derived variant should
+feel earned by the root you have, and an innate one like fate.
 
 ## UI Requirements
 
 These apply to the Debug Terminal now and to the Game UI later.
 - **The root line.** It shows the tier, each element with its purity (in its colour) and
-  each mutation with its purity, for example "Triple root: Wood 40, Fire 86, Water 10 |
-  Light 47".
-- **Speed.** The current curve factor, where parity comes, and the generating pairs with
-  their +3 % each.
-- **Mutations.** Each owned mutation's parents and bonuses (via `explain`). Mutations
-  that rolled and failed are not shown as available.
-- **Root changes.** Before a Linh Căn Quả is used, the screen shows the new tier and the
-  speed before and after; a Tẩy Tủy Đan shows which element it will raise.
+  each variant with its purity, and the effective count when it differs from the tier,
+  for example "Dual root + Wind (counts as 3): Fire 86, Water 10 | Wind 60".
+- **Speed.** The current curve factor (by `n_eff`), where parity comes, and the generating
+  pairs with their +3 % each.
+- **Variants.** Each owned variant's origin, requirement and role lines (via `explain`).
+  Variants that rolled and failed, or were declined, are not shown as available.
+- **Meridian Map.** An unowned variant's sector is not drawn and not hinted; the map shows
+  only owned variants' sectors.
+- **Root changes.** Before a Linh Căn Quả is used, the screen shows the new tier, the new
+  `n_eff` and the speed before and after; a Tẩy Tủy Đan shows which element it will raise
+  and which derived variants' purity will rise with it. When the fruit's element is
+  random, the tier, `n_eff` and curve factor are still exact (they depend only on the
+  count); the pair bonus is shown as a range.
 
 ## Cross-References
 
 | Document | Relationship |
 |---|---|
-| `design/gdd/game-concept.md` | Spiritual Root System (tiers, the trade-off, mutations, changing roots); its open question on counting mutations is answered here (they don't) |
-| `design/gdd/canh-gioi.md` | Stage groups and the years-per-realm costs (Formulas A); its five-element DT figure (103 years, 89 with the pair bonus) matches Formulas B (Open Question 4, closed); the player-only `breakthrough_succeeded` event that Mutation Awakening reads (rule 9); Formulas D's herb growth factor h, which reads Time's `herb_age_root_pct` |
-| `design/gdd/character-stats.md` | Element role formulas (Formulas G), the stat sheet and its provider interface; rule 14 (the ceilings, the root-term test, penalties after the cap), which Formulas E prices against |
-| `design/gdd/kinh-mach-do.md` | Acupoint scaling (rule 4), stat weights W for mutation power (Formulas F) |
-| `design/gdd/cong-phap.md` | Rule 7's purity contract, which a technique's speed (`match`) and bonuses (F) read; usability of techniques naming a mutation (its rule 8) |
+| `design/gdd/game-concept.md` | Spiritual Root System: tiers, the trade-off, root mutations, changing roots. Now has a "Variant roots" section (eight variants, three origins) and names the Way (Đạo); re-check its remaining Spiritual Root prose against this GDD at its next edit |
+| `design/gdd/canh-gioi.md` | Stage groups and the years-per-realm costs (Formulas A); the `breakthrough_succeeded` event (Mutation Awakening). **Cross-edit done** (its status line, 2026-11-04): curve keyed by `n_eff`, Time's `herb_age_root_pct` removed, AC-CG-60 runs with Awakening off |
+| `design/gdd/character-stats.md` | Element and variant role formulas (Formulas G), the stat sheet and provider interface, rule 14 (ceilings). **Cross-edit done** (its status line, 2026-11-04): variant role lines added, holder-raised ceilings and Time's root factor removed, `co_duyen_pct` is a sheet key. Its Formulas G example no longer names Time (checked 2026-11-05) |
+| `design/gdd/kinh-mach-do.md` | Acupoint scaling (rule 4), stat weights W (Formulas F). Its rule 20 and Formulas H2–H4 define the hidden variant sectors (rule 12). Still open there: weights for `travel_speed_pct` and `co_duyen_pct` (Open Question 2) |
+| `design/gdd/cong-phap.md` | Rule 7's purity contract (`match`); usability of techniques naming an id the root lacks (its rule 8). `count_gain` stays keyed by `n_base` (rule 3). Wording aligned to variant roots (its status line). **Pending**: techniques naming relocated mutations are re-pointed to the Way |
+| The Way (Đạo), system 39 | **New, undesigned.** Owns the relocated mutations (rule 16) and reads the root. Run `/design-system dao` |
 | `design/quick-specs/phu-luc-linh-thu-thanh-tuu.md` | Tẩy Tủy Đan and Linh Căn Quả |
-| `design/glossary.md` | Element and mutation names |
-| `assets/data/character_attributes.json`, `character_elements.json` | The data this GDD's keys change |
-| `src/gameplay/character/linh_can.gd`, `src/gameplay/cultivation/cultivation_rules.gd` | Code the (change) items touch |
+| `design/glossary.md` | Element and variant names |
+| `assets/data/character_attributes.json`, `character_elements.json` | The data this GDD's keys change: `bien_di` → `variants` + `variant_effects`, new chance keys, curve keyed by `n_eff` |
+| `src/gameplay/character/linh_can.gd`, `src/gameplay/cultivation/cultivation_rules.gd` | Code the redesign touches |
 
 ## Acceptance Criteria
 
-Drafted with `qa-lead`, which recomputed every number and checked the rates on 4,000,000
-simulated births.
+Drafted with `qa-lead`, which recomputed every worked number and checked the birth rates on
+2,000,000 simulated births.
 
-- **Gate levels.** Logic, Integration and UI are BLOCKING; Config/Data is ADVISORY.
-- **Suites.** Logic suites live in `tests/unit/character/` (next to
-  `linh_can_rules_test.gd` and `linh_can_change_test.gd`); integration suites live in
-  `tests/integration/character/`. Every statistical test uses a fixed seed, with
-  tolerances of about four standard errors.
-- **UI evidence** is a debug-terminal transcript kept with its ANSI colour codes in
+- **Tags.** Each criterion carries [story type · gate]. Logic, Integration and UI are
+  BLOCKING and Config/Data is ADVISORY (`testing.strict` is unset). BLOCKED-ON means the
+  criterion is written and gated but cannot run until the named cross-edit lands.
+- **Suites.** Logic suites live in `tests/unit/character/`, next to
+  `linh_can_rules_test.gd` and `linh_can_change_test.gd`. Integration suites live in
+  `tests/integration/character/`.
+- **RNG stub.** A test double returns a scripted list and logs each call in order: U is a
+  uniform draw in [0, 1), N is a normal draw. N returns the final sample, so N 40.0 is raw
+  purity 40.0 before rounding. A call past the end of the list, or a value left over,
+  fails the test.
+- **Statistical tests.** Each uses a fixed seed stored as a constant in the test, with a
+  tolerance of at least four standard errors.
+- **Notation.** {Fire 86, Metal 40} + Thunder 47 is a root with those purities that owns
+  Thunder at 47.
+  - Cycle order: Wood, Fire, Earth, Metal, Water.
+  - Catalogue order: Wind, Blood, Void, Thunder, Darkness, Chaos, Light, Ice.
+  - "Forced" means the stub makes that roll succeed (U 0.0) or fail (U 0.99).
+- **UI evidence** is a retained screenshot plus transcript in
   `production/qa/evidence/debug-terminal/`.
 
 **Birth**
 
-- **AC-LC-01** [Config/Data] The data holds:
-  - `count_weights` 45 / 32 / 15 / 6.5 / 1.5 (summing to 100);
-  - purity 50 / 20 / 10 / 100;
-  - `pair_bonus_pct` 3;
-  - the three mutation factors 0.5 / 0.25 / 0.8;
-  - the power-band ceilings and floors.
-
-  `bien_di_counts_as_element` and `max_counted_elements` are gone, from the data and from
-  `src/`.
-- **AC-LC-02** [Logic] Formula A. Stubbed count draws 0.30 / 0.60 / 0.80 / 0.95 / 0.99
-  give 1 / 2 / 3 / 4 / 5 elements.
-- **AC-LC-03** [Logic] Rule 2, over 200,000 births:
+- **AC-LC-01** [Logic · BLOCKING] Rule 2, count. Stubbed count draws 0.0 / 0.30 / 0.449 / 0.451 / 0.60 / 0.769 / 0.771 / 0.80 / 0.919 / 0.921 / 0.95 / 0.984 / 0.986 / 0.99 / 0.9999 give 1 / 1 / 1 / 2 / 2 / 2 / 3 / 3 / 3 / 4 / 4 / 4 / 5 / 5 / 5 elements. The values sit either side of each boundary on purpose: an exact float boundary such as 0.92 × 100 is not reliable, so the test does not rely on one.
+- **AC-LC-02** [Logic · BLOCKING] Rule 2, elements, over 200,000 births:
   - tier shares 45 / 32 / 15 / 6.5 / 1.5 % (±0.5 pp);
-  - among 2-element roots each of the 10 pairs appears 10 % ± 1.0 pp of the time, and
-    among 3-element roots each of the 10 triples does.
-- **AC-LC-04** [Logic] Rounding, not truncating. Raw 59.6 / 84.5 / 10.4 / 10.5 / 99.5 /
-  2.0 / 130 gives 60 / 85 / 10 / 11 / 100 / 10 / 100.
-- **AC-LC-05** [Logic] Formula A distribution, over 200,000 draws:
-  - exactly 10: 2.41 % (±0.2 pp); exactly 100: 0.67 % (±0.1 pp);
-  - ≥ 85: 4.24 % (±0.25 pp); mean 50.1 (±0.2);
-  - roots with any element ≥ 85: 4.2 / 8.3 / 12.2 / 15.9 / 19.5 % by tier (±1.0 pp), and
-    7.7 % overall.
-- **AC-LC-06** [Logic] The Formula A example, with a stub RNG returning, in order: 0.80
-  (count); 0.0, 0.0, 0.9 (elements); normal draws 40.0, 86.0, 2.0 (purities); 0.99, 0.99,
-  0.99 (the Light, Life and Mist rolls). The root is {Wood 40, Fire 86, Water 10}, a
-  Triple root with no mutations, the rolled set is {Light, Life, Mist}, and the stub was
-  consumed in exactly that order with nothing left over.
-- **AC-LC-07** [Logic] Rule 3. Tiers 1–5 are named correctly. {Wood, Fire} plus Light is
-  Dual; all five plus Chaos is Five-element.
-- **AC-LC-08** [Logic] Rule 2, Self-made.
-  - Picked purities are kept, and the RNG is called 0 times.
-  - Purity 9 or 101 is rejected at input.
-  - A mutation without its parents is rejected; one with its parents is accepted at the
-    formula purity.
-  - Every eligible mutation goes into the rolled set, picked or not.
+  - among 2-element roots each of the 10 pairs appears 10 % ± 1.0 pp of the time, and among 3-element roots each of the 10 triples does.
+- **AC-LC-03** [Logic · BLOCKING] Purity rounding and clamp.
+  - Raw 59.6 / 84.5 / 10.4 / 10.5 / 99.5 / 2.0 / 130 gives 60 / 85 / 10 / 11 / 100 / 10 / 100, for an element and for an innate variant.
+  - Over 200,000 draws: exactly 10 is 2.41 % (±0.2 pp), exactly 100 is 0.67 % (±0.1 pp), ≥ 85 is 4.24 % (±0.25 pp), and the mean is 50.1 (±0.2).
+- **AC-LC-04** [Logic · BLOCKING] Draw order, Triple root. The stub gives U 0.80, U 0.0, U 0.0, U 0.9, N 40.0, N 86.0, N 10.0, U 0.021, N 60.0, U 0.40, U 0.05, U 0.20. Then:
+  - the root is {Wood 40, Fire 86, Water 10} + Wind 60, Light 69, a Triple root with effective count 4;
+  - Void, Thunder, Darkness and Chaos make no draw;
+  - the rolled set is {Wind, Blood, Light, Ice};
+  - the call log equals that list exactly: 8 U, 4 N, and the N for Wind comes directly after its U.
+- **AC-LC-05** [Logic · BLOCKING] Draw order, Dual root with Void. The stub gives U 0.50, U 0.30, U 0.60, N 86.0, N 40.0, U 0.99, U 0.010, N 30.0, U 0.004, N 75.0, U 0.10, U 0.99. Then:
+  - the root is {Fire 86, Metal 40} + Blood 30, Void 75, Thunder 47, with `n_base` 2 and `n_eff` 4;
+  - Wind failed with no N after it, and Blood and Void each drew their N directly after success;
+  - Light drew and failed; Darkness, Chaos and Ice made no draw;
+  - the rolled set is {Wind, Blood, Void, Thunder, Light}.
+- **AC-LC-06** [Logic · BLOCKING] Draw counts.
+  - Five elements: U 0.99, U 0.0 × 5, N 60.0, 50.0, 45.0, 70.0, 55.0, U 0.99 × 7 makes 13 U and 5 N. The fifth element draw is still made, Void makes no draw, and all five derived variants draw.
+  - Single root {Wood 50}: U 0.30, U 0.0, N 50.0, U 0.99 × 3 makes 5 U and 1 N, with no derived draw.
+  - Over 10,000 seeded births, U = 1 + `n_base` + 2 + (1 if `n_base` ≤ 2) + the number of derived variants whose requirement is met, and N = `n_base` + innate successes.
+  - The same seed twice gives the same root and rolled set.
+- **AC-LC-07** [Logic · BLOCKING] Rule 1, ranges. Over 10,000 seeded births:
+  - every owned element is an integer in 10–100 and every absent element reports 0;
+  - every derived variant is in 8–80 and every innate variant in 10–100;
+  - {Earth 10, Water 10} + Darkness has Darkness at 8.
+- **AC-LC-08** [Logic · BLOCKING] Rule 3, tier. 1–5 base elements name Single, Dual, Triple, Quadruple and Five-element. {Fire, Metal} + Thunder is Dual, {Wood} + Wind is Single, and all five + Chaos is Five-element.
+- **AC-LC-09** [Logic · BLOCKING] Rule 2, Self-made, on {Fire 86, Metal 40} with picks Thunder and Wind:
+  - the RNG is called 0 times;
+  - Thunder is 47 and Wind is 50;
+  - the rolled set is {Wind, Blood, Void, Thunder, Light} and the declined set is {Blood, Void, Light};
+  - purity 9 or 101 is rejected at input, and 10 and 100 are accepted;
+  - Thunder on {Fire 86} is rejected;
+  - Void on any 3-, 4- or 5-element root is rejected, and Void on {Fire, Metal} is accepted at 50;
+  - five elements at 100 with all five derived variants, Wind and Blood is accepted, with every derived variant at 80.
+- **AC-LC-10** [Integration · BLOCKING] Rule 2, declined. Given the AC-LC-09 root with capability #24 held, when Core Formation → Nascent Soul succeeds with rolls forced to succeed, then Light makes no draw and is not owned. When a Linh Căn Quả then adds Water, Ice (which did not qualify at birth) makes one draw and Light still makes none.
 
-**Curve and pairs**
+**Effective count, curve and pairs**
 
-- **AC-LC-09** [Config/Data] `element_count_curve` equals the Formulas B table (65
-  values).
-- **AC-LC-10** [Logic] Rule 4, the curve's shape.
-  - The parity points are exactly 1.0, and each column before them is below 1.0.
-  - `lk_early` falls with element count (1 / 0.6 / 0.5 / 0.4 / 0.3).
-  - `ht` rises (1 / 4 / 5.5 / 7 / 9).
-  - No row ever falls from one stage group to the next.
-- **AC-LC-11** [Logic] Mutations excluded.
-  - {Wood 40, Fire 86} plus Light gives 0.6 at `lk_early` and 4.0 at `ht`.
-  - For 1,000 seeded roots, the factor with mutations equals the factor without them.
-- **AC-LC-12** [Logic] Formula C, over all 31 element subsets:
-  - 1 element → 0 pairs; 2 → 50 / 50 between 0 and 1; 3 → 50 / 50 between 1 and 2; 4 →
-    3; 5 → 5;
-  - {Fire, Water, Wood} → 2 pairs, +6 %;
-  - overcoming pairs and mutations add nothing.
-- **AC-LC-13** [Logic] Over 200,000 births, the pair distributions match AC-LC-12
-  (±1.0 pp).
-- **AC-LC-14** [Integration] With Realms & Bottlenecks: a triple root in FE at 125 a
-  year, with no pair bonus, takes 10.87 + 14.26 + 14.83 + 10.49 = **50.44 ± 0.1 years**.
+- **AC-LC-11** [Logic · BLOCKING] Rule 3, `n_eff`:
+  - {Fire} = 1;
+  - {Fire} + Wind = 2;
+  - {Fire} + Wind, Blood, Void = 4;
+  - {Fire, Water} + Wind = 3;
+  - {Fire, Metal} + Thunder, Light = 2 (derived adds 0);
+  - {Fire, Metal} + Wind, Blood, Void = 5;
+  - three elements + Wind, Blood = 5;
+  - four elements + Wind = 5;
+  - four elements + Wind, Blood = 5 (capped from 6);
+  - all five + Chaos = 5;
+  - all five + Wind = 5.
+- **AC-LC-12** [Config/Data · ADVISORY] `element_count_curve` holds 65 values, identical to `assets/data/character_attributes.json` at git b7f4639, and its rows are keyed 1–5.
+- **AC-LC-13** [Logic · BLOCKING] Rule 4, shape.
+  - The factor is exactly 1.0 at `tc_trung` for rows 2 and 3, at `tc_hau` for row 4 and at `kd_so` for row 5, and below 1.0 in every earlier column.
+  - `lk_early` runs 1 / 0.6 / 0.5 / 0.4 / 0.3 and `ht` runs 1 / 4 / 5.5 / 7 / 9.
+  - No row falls from one stage group to the next.
+- **AC-LC-14** [Logic · BLOCKING] Rules 3–5, what reads which count.
+  - {Fire 86, Water 60} + Wind reads 0.5 at `lk_early`, 1.0 at `tc_trung` and 3.9 at `kd_dvm`. Plain {Fire 86, Water 60} reads 0.6, 1.0 and 3.1.
+  - {Fire 86, Metal 40} + Thunder reads 0.6 at `lk_early` and 4.0 at `ht`.
+  - Over 1,000 seeded roots, removing the derived variants never changes the factor.
+  - {Wood 40, Fire 86} + Wind has tier Dual, `n_eff` 3 and 1 pair (+3 %).
+  - {Fire, Metal} + Wind, Blood, Void has `n_eff` 5, tier Dual, 0 pairs, and Chaos is not eligible.
+- **AC-LC-15** [Integration · BLOCKING] Curve with Realms & Bottlenecks.
+  - Stage groups map QR `lk_early` / `lk_mid` / `lk_late` / `lk_late`; FE `tc_so` / `tc_trung` / `tc_hau` / `tc_dvm`; CF `kd_so` / `kd_trung` / `kd_hau` / `kd_dvm`; NS `na`; DT `ht`.
+  - A Dual root + Wind reads 0.75 at QR stage 4, 4.5 at NS and 5.5 at DT.
+  - At equal rate with the pair bonus off, it crosses FE in the same time as a plain Triple root.
+  - A single root in FE early stage that gains a second element reads 0.9 on the next cultivation tick.
+  - {Fire, Water} + Wind in FE early stage that gains Metal goes from 0.9 to 0.75 on the next tick, and its pairs go from 0 to 1.
+  - A four-element root + Wind that gains its fifth element keeps its factor and goes from 3 pairs to 5.
+- **AC-LC-16** [Logic · BLOCKING] Formula C, over all 31 element subsets.
+  - 1 element gives 0 pairs. 2 elements give 0 or 1 pair, 5 subsets each. 3 elements give 1 or 2 pairs, 5 subsets each. 4 elements give 3 and 5 elements give 5.
+  - The bonus is 3 % per pair, 0–15 % in total.
+  - {Fire, Water, Wood} is 2 pairs, +6 %.
+  - The overcoming pair {Fire, Metal} is 0 pairs, and adding Thunder or Wind to it stays 0.
+- **AC-LC-17** [Integration · BLOCKING] Rule 5, stat sheet.
+  - {Wood, Fire, Water} gives exactly two `cultivation_speed_pct` +3 modifiers, sourced "Tương sinh: Mộc → Hỏa" and "Tương sinh: Thủy → Mộc".
+  - A five-element root gets five totalling +15.
+  - A single root gets none.
 
-**Mutations**
+**Variants: data and rolls**
 
-- **AC-LC-15** [Config/Data] The catalogue.
-  - 29 mutations, 10 / 15 / 3 / 1 by order.
-  - The 10 first-order mutations cover the 10 element pairs: generating pairs are
-    `stable`, overcoming pairs are `volatile`.
-  - Chaos has all five elements as parents, and every parent exists.
-  - Every mutation's order is above that of each mutation parent.
-- **AC-LC-16** [Logic] Formula D chances, within 1e-9:
-  - Light (40, 86) = 0.172;
-  - Pill Fire (86, Life 47) = 0.10105;
-  - Chaos (all 50) = 0.00390625;
-  - Time (40, 40) = 0.013333;
-  - first order at 10 / 10 = 0.005, and at 100 / 100 = 0.5.
-- **AC-LC-17** [Logic] Formula D purity:
-  - Light (40, 86) → 47; Lava (86, 28) → 39; Pill Fire (86, 47) → 51;
-  - Chaos (40, 86, 28, 50, 10) → 28;
-  - 10 / 10 → 8; 100 / 100 → 80; an element at 100 with a mutation at 80 → 72.
-- **AC-LC-18** [Logic] Over 50,000 rolls, Light on {Wood 40, Fire 86} forms 17.2 % ±
-  0.8 pp of the time, always at purity 47.
-- **AC-LC-19** [Logic] Birth rates by tier (50,000 births each):
-  - at least one first-order mutation: 12.6 / 32.6 / 53.7 / 71.7 % (±1.0 pp);
-  - any higher order: 0.2 / 0.8 / 2.2 / 5.0 % (±0.3 pp);
-  - mean mutations 0.13 / 0.39 / 0.78 / 1.31 (±0.02 / ±0.03 / ±0.04 / ±0.05). The test
-    also asserts that each listed tolerance is at least four standard errors of that
-    run's mean (4 × the sample standard deviation ÷ √50,000), so a tolerance too tight
-    for the data fails on the fixed seed instead of passing by luck;
-  - Chaos in 0.40 % (±0.15 pp) of five-element roots.
-- **AC-LC-20** [Logic] Over 200,000 births, 13.5 % ± 0.5 pp have at least one mutation.
-- **AC-LC-21** [Logic] Rule 9, ordering and chaining, on {Wood, Fire, Water}:
-  - with every roll forced to succeed: {Light, Life, Mist, Pill Fire}, with all three
-    first-order rolls before Pill Fire's;
-  - with every roll forced to fail: no mutations, and the rolled set is {Light, Life,
-    Mist}.
-- **AC-LC-22** [Logic] Rule 9, rolling once.
-  - A second formation pass makes 0 rolls.
-  - Three Tẩy Tủy Đan and a five-element Linh Căn Quả make 0 rolls.
-  - A failed mutation never rolls again, unless Mutation Awakening is held (AC-LC-45).
-- **AC-LC-23** [Logic] Rule 10.
-  - Light counts as owned, but `base_count()` is unchanged.
-  - A technique naming [Wood, Light] at 40 / 47 runs at 0.435.
-  - Light's modifier is the same at purity 47 and at purity 80.
-- **AC-LC-24** [Logic] Formula E, power, with fixed fixtures that do not read the data
-  files that Open Question 1 retunes:
-  - Light (`tam_ma_resist_pct` +10) is 15 W;
-  - a fixture of 35 × 1.0 W plus 3 × 5 W is 50 W;
-  - a fixture with a 25 W positive side and presence −10 nets 5 W (presence at 2 W per
-    point);
-  - the ceilinged-key fixtures use hard-coded fixture values, not the data: ceilings
-    `herb_growth_pct` 10, `alchemy_success` 3 and `lifespan_years` 18, and weights 0.9,
-    2.7 and 2.5 W per unit. A data change to Character Stats' `bonus_ceilings` or the
-    Meridian Map's weights does not change these expectations;
-  - with no ancestors, lifespan is priced up to 18 years: +200 `lifespan_years` is 45 W
-    and +10 is 25 W (W10);
-  - with no ancestors, herb growth is priced up to 10: +100 or +30 `herb_growth_pct` is
-    9 W, and +5 is 4.5 W (04f, B1);
-  - with no ancestors, `alchemy_success` +8 is 3 × 2.7 = 8.1 W, and +2 is 5.4 W;
-  - marginal over ancestors: a fixture mutation with +60 `herb_growth_pct` whose
-    ancestor holds +30 (already at the ceiling) is 0 W on that key; one with +50
-    `lifespan_years` whose ancestor holds +10 is 2.5 × 8 = 20 W; a fixture whose
-    ancestor chain holds +60 years and +30 % herb growth prices +200 years and +100 %
-    herb growth at 0 W;
-  - only ancestors count: a fixture mutation with +15 `alchemy_success` and no ancestors
-    is 8.1 W even when another owned mutation that is not its ancestor holds +8;
-  - a root factor is priced in full, not as a ceilinged key: a fixture with
-    `herb_age_root_pct` +25 (kind "root") is 25 × 0.9 = 22.5 W, even when its ancestors
-    hold +30 % `herb_growth_pct`; adding +40 `cultivation_speed_pct` at 2.2 W per % makes
-    110.5 W;
-  - plots use a hard-coded fixture weight of 20 W per plot: +2 `field_plots` is 40 W and
-    +1 is 20 W (04g, F11);
-  - holder-raised ceilings (kind "ceiling_raise"), with the fixture ceilings and weights
-    above:
-    - with no ancestors, `alchemy_success` +15 and a raise 3 → 6 is 8.1 W (line, priced to
-      3) + 8.1 W (raise) = 16.2 W, **not** 24.3 W (the band 3–6 is not paid twice);
-    - with no ancestors, `alchemy_success` +2 and a raise 3 → 6 is 5.4 + 8.1 = 13.5 W
-      (the unfilled headroom is still priced);
-    - a raise with no line on that key, `herb_growth_pct` 10 → 20, is 9 W;
-    - marginal over an ancestor's line: `herb_growth_pct` +60 and a raise 10 → 20, with an
-      ancestor holding +30, is 0 + 9 = 9 W; adding +2 `field_plots` makes 49 W;
-    - marginal over an ancestor's raise: a raise of `alchemy_success` 3 → 6 whose ancestor
-      raises it to 5 is 2.7 W, and a raise to 4 under an ancestor's raise to 6 is 0 W (no
-      stacking);
-    - only ancestors count: a raise 3 → 6 with no ancestors is 8.1 W even when an owned
-      mutation that is not its ancestor raises the same key to 5;
-    - the equivalent form gives the same totals in every fixture above: the line priced
-      against c' plus the raise priced only for the part of (c, c'] the line leaves
-      empty;
-    - the fixture of `alchemy_success` +15, a raise 3 → 6 and `alchemy_yield` +1 at 15 W
-      is 31.2 W.
-- **AC-LC-25** [Config/Data] Every mutation's power (Formulas E, with ancestors from the
-  data) is within its order's ceiling and floor. This is expected to fail until Open
-  Question 1's data retune:
-  - over the ceiling: Life (34 W), Array (73), Stars (75), Refined Metal (62.5) and Taiji
-    (133);
-  - under the floor: Death (5 W net) and Reincarnation (20 W).
+- **AC-LC-18** [Config/Data · ADVISORY] Rule 9, catalogue. `character_elements.json` has no `bien_di` key and exactly 8 `variants`, in this order:
 
-  Raises are read from the data's "ceiling_raise" effects and plots are priced at 20 W.
-  With the three decided raises, Pill Fire (31.2 W), Lava (13.5 W), Spirit Farming (49 W)
-  and Space (50 W) are inside their band. Before the data pass adds the raises, Pill Fire
-  prices at 23.1 W and Spirit Farming at 40 W, and both are still in band; Lava prices at
-  8.1 W and fails its floor until its raise is added. Time is 110.5 W
-  once the data pass gives it its design lines (Open Question 1); with today's data it
-  still prices at 0 W and fails until then.
+  | id | origin | `requires` |
+  |---|---|---|
+  | `phong` | innate | [] |
+  | `huyet` | innate | [] |
+  | `hu_khong` | innate | [] |
+  | `loi` | convergence | hoa, kim |
+  | `am` | convergence | tho, thuy |
+  | `hon_don` | convergence | all five |
+  | `quang` | transmutation | hoa |
+  | `bang` | transmutation | thuy |
+
+  Every entry has `id`, `name`, `desc`, `origin` and `requires`, and every id in `requires` is an element.
+- **AC-LC-19** [Config/Data · ADVISORY] Parameters.
+  - `linh_can` holds `count_weights` 45 / 32 / 15 / 6.5 / 1.5 (sum 100), `purity_mean` 50, `purity_sd` 20, `purity_min` 10, `purity_max` 100, `pair_bonus_pct` 3, `n_cap` 5, `void_max_elements` 2, `convergence_factor` 0.6, `transmutation_factor` 0.12, `chaos_factor` 5, `innate_chance` {phong 0.025, huyet 0.015, hu_khong 0.005}, `variant_purity_factor` 0.8, `awakening_max_passes` 2, `variant_power_band` [10, 30] and `variant_power_band_apex` [20, 60].
+  - `bien_di_chance_factor`, `bien_di_higher_order_factor`, `bien_di_purity_factor`, `bien_di_power_band`, `herb_age_root_pct`, `bien_di_counts_as_element` and `max_counted_elements` are gone from the data and from `src/`.
+- **AC-LC-20** [Logic · BLOCKING] Formula D1 chances, within 1e-9:
+  - Thunder (Fire 86, Metal 40) = 0.2064 (20.6 %);
+  - Light (Fire 86) = 0.1032 (10.3 %);
+  - Chaos (60 / 50 / 45 / 70 / 55) = 0.259875 (26.0 %);
+  - Ice (Water 10) = 0.012 and Ice (Water 100) = 0.12;
+  - Darkness at 10 / 10 = 0.006 and at 100 / 100 = 0.6;
+  - Chaos with five at 10 = 0.00005, five at 72 = 0.967458816, and five at 73 = 1.0 (clamped);
+  - Wind, Blood and Void are 0.025, 0.015 and 0.005 on every root.
+
+  A draw equal to the chance fails: U 0.025 on Wind does not form it.
+- **AC-LC-21** [Logic · BLOCKING] Formula D2 purity:
+  - Thunder (86, 40) → 47 and (86, 48) → 51;
+  - Thunder (86, 28) → 39;
+  - Light (86) → 69;
+  - Chaos (60 / 50 / 45 / 70 / 55) → 44;
+  - any derived variant with all requirements at 10 → 8 and at 100 → 80.
+- **AC-LC-22** [Logic · BLOCKING] Rule 10, formation over 50,000 rolls. Thunder on {Fire 86, Metal 40} forms 20.64 % ± 0.75 pp of the time, always at 47. Light on {Fire 86} forms 10.32 % ± 0.55 pp, always at 69.
+- **AC-LC-23** [Logic · BLOCKING] Formula D1, birth rates over 200,000 births:
+
+  | Measure | Rate | Tolerance |
+  |---|---|---|
+  | At least one variant | 12.14 % | ±0.30 pp |
+  | At least one innate | 4.34 % | ±0.20 pp |
+  | Wind | 2.50 % | ±0.15 pp |
+  | Blood | 1.50 % | ±0.12 pp |
+  | Void | 0.385 % | ±0.06 pp |
+  | Thunder | 1.97 % | ±0.15 pp |
+  | Darkness | 1.97 % | ±0.15 pp |
+  | Light | 2.25 % | ±0.15 pp |
+  | Ice | 2.25 % | ±0.15 pp |
+  | Chaos | 0.236 % | ±0.05 pp |
+
+  Births by `n_eff` 1–5 are 43.00 / 32.55 / 15.83 / 6.85 / 1.76 % (±0.45 / 0.45 / 0.35 / 0.25 / 0.12 pp).
+- **AC-LC-24** [Logic · BLOCKING] Rule 10, rolling once. Given {Fire 86, Metal 40} with Thunder and Light rolled and failed:
+  - a second formation pass makes 0 draws;
+  - three Tẩy Tủy Đan make 0 draws;
+  - a Linh Căn Quả adding Water draws for Ice only, never for Thunder or Light.
+- **AC-LC-25** [Logic · BLOCKING] Rules 9 and 11, what a variant is. {Fire 86} + Light 69:
+  - Light reports as owned at purity 69;
+  - Fire is still owned at 86;
+  - the tier is Single, `n_base` is 1 and `n_eff` is 1;
+  - there are 0 pairs.
+
+**Roles and power**
+
+- **AC-LC-26** [Integration · BLOCKING] Rule 6, element roles as built. On {Wood 40, Fire 86, Earth 50, Metal 40, Water 60} the root's lines in each breakdown are:
+  - herb growth "Mộc purity 40" +32 %;
+  - alchemy "Hỏa purity 86" +21.5;
+  - field plots "Thổ purity 50" +2;
+  - mission income "Kim purity 40" +32 %;
+  - pill-toxicity decay "Thủy purity 60" +3.0.
+
+  Adding Wind or Thunder changes none of these. An absent element contributes 0.
+- **AC-LC-27** [Logic · BLOCKING] Formula E, with hard-coded fixture weights (W per displayed unit):
+
+  | Variant | Key | Per purity | W per unit | Value p50 / p100 | W p50 / p100 |
+  |---|---|---|---|---|---|
+  | Light | `tam_ma_resist_pct` | 0.20 | 1.5 | 10.0 / 20.0 | 15.0 / 30.0 |
+  | Darkness | `stealth` | 0.20 | 1.5 | 10.0 / 20.0 | 15.0 / 30.0 |
+  | Ice | `dan_doc_resist_pct` | 0.18 | 1.6 | 9.0 / 18.0 | 14.4 / 28.8 |
+  | Wind | `travel_speed_pct` | 1.00 | 0.3 | 50.0 / 100.0 | 15.0 / 30.0 |
+  | Thunder | `attack_pct` | 0.30 | 1.0 | 15.0 / 30.0 | 15.0 / 30.0 |
+  | Blood | `khi_huyet_pct` | 0.25 | 1.2 | 12.5 / 25.0 | 15.0 / 30.0 |
+  | Void | `co_duyen_pct` | 1.00 | 0.3 | 50.0 / 100.0 | 15.0 / 30.0 |
+  | Chaos | `cultivation_speed_pct` | 0.13 | 2.2 | 6.5 / 13.0 | 14.3 / 28.6 |
+  | Chaos | `breakthrough_chance` | 0.06 | 5 | 3.0 / 6.0 | 15.0 / 30.0 |
+  | Chaos total | | | | | 29.3 / 58.6 |
+
+  Values floor to 0.1 in integer arithmetic on hundredths:
+  - Thunder 47 → 14.1 and Thunder 51 → 15.3;
+  - Blood 47 → 11.7 and Ice 47 → 8.4;
+  - Chaos 44 → 5.7 and 2.6 (25.54 W);
+  - Chaos 80 → 10.4 and 4.8 (46.88 W).
+
+  A floating-point floor returns 15.2 for Thunder 51 and 4.7 for Chaos 80 at the `breakthrough_chance` line, so those two cases catch it.
+- **AC-LC-28** [Config/Data · ADVISORY] Band check. `variant_effects` has one entry per variant and two for `hon_don`.
+  - Each `per_purity` has at most 2 decimals and each `stat` exists in `character_stat_labels.json`.
+  - At the AC-LC-27 weights, the seven common variants price ≥ 10 W at purity 50 and ≤ 30 W at purity 100.
+  - Chaos prices ≥ 20 W at 50 and ≤ 60 W at 100.
+  - The Wind and Void results are provisional: their 0.3 W weight is a guess.
+- **AC-LC-29** [Integration · BLOCKING] Rule 7, stat sheet. Each owned variant adds exactly these lines:
+
+  | Owned | Stat and value | Source |
+  |---|---|---|
+  | Light 69 | `tam_ma_resist_pct` +13.8 | "Biến dị: Quang" |
+  | Darkness 47 | `stealth` +9.4 | "Biến dị: Ám" |
+  | Ice 47 | `dan_doc_resist_pct` +8.4 | "Biến dị: Băng" |
+  | Wind 60 | `travel_speed_pct` +60.0 | "Biến dị: Phong" |
+  | Thunder 47 | `attack_pct` +14.1 | "Biến dị: Lôi" |
+  | Blood 50 | `khi_huyet_pct` +12.5 | "Biến dị: Huyết" |
+  | Void 75 | `co_duyen_pct` +75.0 | "Biến dị: Hư Không" |
+  | Chaos 44 | `cultivation_speed_pct` +5.7 and `breakthrough_chance` +2.6 | "Biến dị: Hỗn Độn" |
+
+  - An unowned variant adds no line.
+  - Thunder's line reads +15.3 straight after a pill lifts it to 51.
+  - Chaos's line sits outside the tree's 8 pp cap: tree lines at the cap plus Chaos 80 total +12.8 pp on the sheet.
+
+**Mutation Awakening (Biến Dị Khai Mở)**
+
+- **AC-LC-30** [Integration · BLOCKING] Rule 10 and Formula D3. Given a player on {Fire 86, Metal 40} with the rolled set {Wind, Blood, Void, Thunder, Light} and nothing owned:
+  - without #24, a realm breakthrough makes 0 draws;
+  - with #24, Core Formation → Nascent Soul makes exactly 2 U and 0 N, Thunder at chance 0.2064 then Light at 0.1032, and forced fail changes nothing and writes no record;
+  - with Metal raised to 48 first, Thunder's chance is 0.24768, read from current purities;
+  - Nascent Soul → Deity Transformation with forced success forms Thunder and Light, and they make no further draw;
+  - Wind, Blood, Void and Ice make no draw in any pass, even with every roll forced to succeed.
+- **AC-LC-31** [Logic · BLOCKING] Formula D3, reach, over 50,000 fixture lives of a birth roll plus two passes. Thunder on {Fire 86, Metal 40} is owned in 50.0 % ± 0.9 pp and Light on {Fire 86} in 27.9 % ± 0.85 pp.
+- **AC-LC-32** [Integration · BLOCKING] Zero rolls. With #24 held, a breakthrough on {Wood 40} makes 0 draws and writes 0 World Database records. The same holds for {Fire 86} + Light, and for a root whose only unowned eligible variants are declined.
+
+**Meridian Map and techniques**
+
+- **AC-LC-33** [Integration · BLOCKING] Rule 12.
+  - While a variant is unowned, its sector is not drawn, a spend into it is refused, and the reported map size excludes it.
+  - A root with Wind at birth has the Wind sector visible and spendable at the first spend.
+  - Thunder forming mid-life, through Awakening or a Linh Căn Quả, makes its sector visible and spendable at the next spend, and refunds nothing.
+  - Across every later root change and a save/load, the sector stays visible.
+  - An NPC owning a variant can spend in that sector.
+- **AC-LC-34** [Integration · BLOCKING] Formula G and rule 8, with {Wood 40, Fire 86} and {Fire 86, Metal 40} + Thunder 47, Wind 62.
+  - Sector scale: Thunder 0.97, then 1.01 after a pill lifts it to 51; Wind 1.12, unchanged by the pill.
+  - A technique naming Fire and Thunder runs at 0.665, then 0.685 after the pill.
+  - On {Wood 40, Fire 86}: Wood sector 0.9, Fire 1.36, absent Earth 0.25, Wood–Fire bridge 1.13, and a Wood–Fire technique runs at 0.63.
+  - Owning Thunder does not change the Fire or Metal sector scale.
+- **AC-LC-35** [Integration · BLOCKING] Center keystone reads `n_base`. It is refused on four elements + Wind (`n_eff` 5) and on {Fire, Metal} + Wind, Blood, Void, and allowed on all five base elements.
+- **AC-LC-36** [Integration · BLOCKING] Rule 3, `count_gain` reads `n_base`. A Dual root + Wind and a Dual root + Thunder read the same `count_gain` as a plain Dual root, and a Triple root reads its own value.
 
 **Root changes**
 
-- **AC-LC-26** [Logic] Rule 11, Tẩy Tủy Đan.
+- **AC-LC-37** [Logic · BLOCKING] Rule 13, Tẩy Tủy Đan.
   - Water 10 at potency 1.25 → 18, with 0 RNG calls.
-  - Potency 0.05 → +1, and potency 0 → +1.
+  - Potency 0.05 → +1 and potency 0 → +1.
   - A weakest element at 97 with potency 1.0 → 100.
-- **AC-LC-27** [Logic] Ties go in cycle order.
-  - {Water 30, Metal 50, Fire 30} → Fire gains.
-  - {Water 30, Wood 30} → Wood gains.
-- **AC-LC-28** [Logic] With every owned element at 100, the pill is refused and **kept**:
-  the inventory, the use counter, the purities and the World Database are all unchanged.
-- **AC-LC-29** [Logic] A fourth Tẩy Tủy Đan in one life is refused and kept.
-- **AC-LC-30** [Logic] The Formula F example. Starting from {Wood 40, Fire 86}, with Light
-  already rolled, the fruit adds Earth 28:
-  - the root becomes Triple and the pairs go from +3 % to +6 %;
-  - exactly two rolls: Lava 0.1204 and Poison 0.056; Light does not roll again.
-  - Over 16,000 draws, the added purity is uniform over 20–35 (each value 6.25 % ±
-    0.8 pp, about four standard errors).
-- **AC-LC-31** [Logic] A Linh Căn Quả chains in one pass.
-  - {Wood 40, Water 60}, with Life rolled and failed, plus Earth, every roll forced to
-    succeed → {Poison, Darkness, Death}. Life never rolls again.
-  - {Wood, Fire, Earth, Metal} plus Water, with every earlier mutation rolled and failed
-    and every roll forced to succeed, forms exactly ten, in one pass and order by
-    order: {Ice, Life, Darkness, Mist} (order 1, catalogue order), then {Pill Fire, Spirit
-    Farming, Soul, Illusion, Yin} (order 2), then {Chaos} (order 3).
-- **AC-LC-32** [Logic] A Linh Căn Quả with all five owned, on {Wood 50, Fire 30, Earth 60,
-  Metal 30, Water 90}:
-  - Fire gains 8, to 38 (a tie broken in cycle order);
+  - Ties go in cycle order: {Fire 30, Metal 50, Water 30} raises Fire, and {Wood 30, Water 30} raises Wood.
+  - Variants are not candidates: {Fire 40, Metal 50} + Wind 12 raises Fire.
+- **AC-LC-38** [Logic · BLOCKING] Rule 10 recompute. {Fire 86, Metal 40} + Thunder 47, Light 69, Wind 60 at potency 1.25 raises Metal to 48. Thunder becomes 51, Light stays 69 and Wind stays 60, with 0 draws. {Fire 30, Metal 30} + Thunder 24 at potency 1.0 raises Fire to 36 and Thunder to 26.
+- **AC-LC-39** [Logic · BLOCKING] Refused and kept. A fourth Tẩy Tủy Đan, or one taken with every owned element at 100, is refused. The inventory, the use counter, the purities and the World Database are all unchanged. A refusal at 100 does not count toward the three.
+- **AC-LC-40** [Logic · BLOCKING] Linh Căn Quả adds an element. Given {Fire 86, Wood 40} with the rolled set {Wind, Blood, Void, Light}, an event naming Metal, and added purity 28:
+  - the call log is 1 U for the purity, then 1 U for Thunder at chance 0.14448, with no element draw;
+  - a forced success forms it at 39, and Light does not roll;
+  - `n_base` goes 2 → 3 and the pairs stay at 1 (+3 %);
+  - an event naming owned Fire is ignored, and over 16,000 uses Earth, Metal and Water each appear 33.3 % ± 1.5 pp, never Fire;
+  - with no named element the same shares hold;
+  - over 16,000 uses each purity from 20 to 35 appears 6.25 % ± 0.8 pp.
+- **AC-LC-41** [Logic · BLOCKING] Fifth element. Given {Wood 50, Fire 60, Earth 50, Metal 40} with Wind, Blood, Thunder and Light rolled and failed, a Linh Căn Quả adds Water at 30.
+  - Exactly three rolls are made, in order: Darkness (0.09), Chaos (0.09), Ice (0.036).
+  - Forced success forms Darkness 31, Chaos 36 and Ice 24.
+  - The root is Five-element with 5 pairs.
+- **AC-LC-42** [Logic · BLOCKING] Innate never rolls later. A Linh Căn Quả or a pill makes no draw for Wind, Blood or Void on any root. {Fire, Metal} + Void 75 that gains Water keeps Void at 75, with `n_base` 3 and `n_eff` 4.
+- **AC-LC-43** [Logic · BLOCKING] All five owned, on {Wood 50, Fire 30, Earth 60, Metal 30, Water 90} + Thunder 24:
+  - a Linh Căn Quả raises Fire to 38, a tie broken in cycle order;
+  - Thunder becomes 27 and 0 rolls are made;
+  - an event naming any element still takes this path;
   - a weakest element at 95 → 100;
-  - 0 rolls, and the purity of an owned mutation built on the raised element is
-    recomputed (AC-LC-46's rule);
-  - with all five at 100, it is refused and kept.
-- **AC-LC-33** [Logic] Rule 12. Over 1,000 random sequences of changes, the element and
-  mutation sets never lose a member, no purity falls, and none exceeds 100.
-- **AC-LC-34** [Integration] A single root in FE early stage uses a Linh Căn Quả (the
-  fixture grants it; events grant it from FE on). The next cultivation tick reads a curve
-  factor of 0.9 (two elements, `tc_so`) and the new pair count.
+  - with all five at 100, the fruit is refused and kept.
+- **AC-LC-44** [Logic · BLOCKING] Rule 14. Over 1,000 seeded random sequences of pills, fruits and Awakening passes, no element or variant is lost, no purity falls, and none exceeds 100.
+- **AC-LC-45** [Integration · BLOCKING] World Database. Each accepted change and each formed variant writes exactly one record with the old and new values. A refused item, and an Awakening pass with no formed variant, writes none.
 
-**Contracts**
+**NPCs and relocated mutations**
 
-- **AC-LC-35** [Integration] Character Stats. With Light owned, the sheet has exactly one
-  modifier from it: `tam_ma_resist_pct`, at its current data value, with source
-  "Biến dị: Quang".
-- **AC-LC-36** [Integration] Character Stats, pairs.
-  - {Wood, Fire, Water} gives exactly two `cultivation_speed_pct` +3 modifiers, sourced
-    "Tương sinh: Mộc → Hỏa" and "Tương sinh: Thủy → Mộc".
-  - A five-element root gets five modifiers totalling +15; a single root gets none.
-- **AC-LC-37** [Integration] Realms & Bottlenecks.
-  - The stage-group mapping is QR `lk_early` / `lk_mid` / `lk_late` / `lk_late`; FE
-    `tc_so` / `tc_trung` / `tc_hau` / `tc_dvm`; CF `kd_so` / `kd_trung` / `kd_hau` /
-    `kd_dvm`; NS `na`; DT `ht`.
-  - A triple root with mutations reads 0.75 at QR stage 4, 4.5 at NS and 5.5 at DT.
-- **AC-LC-38** [Integration] Meridian Map and Cultivation Techniques, with {Wood 40, Fire
-  86}:
-  - the Wood sector scales 0.9, Fire 1.36, the absent Earth 0.25;
-  - the bridge is 1.13 and a Wood–Fire technique runs at 0.63;
-  - the center keystone is locked for {Wood 40, Fire 86} (2 base elements). Two further
-    fixture roots check the threshold: {Wood, Fire, Earth, Metal} plus Light, Lava and
-    Gravity (4 base elements plus mutations) stays locked, and all five base elements
-    unlock it (the Meridian Map's rule: refused with 4, allowed with 5).
-- **AC-LC-39** [Integration] World Database. Each change and each formed mutation writes
-  exactly one record with the old and new values. A refused item writes none.
-- **AC-LC-40** [Integration] Rule 13. An NPC with the same seed gets the same root and
-  rolled set as a player; every NPC cultivator has at least one element; NPC pills follow
-  AC-LC-26 to AC-LC-28; an NPC stage advance or breakthrough makes 0 Awakening rolls and
-  writes 0 records.
+- **AC-LC-46** [Integration · BLOCKING] Rule 15.
+  - An NPC and a player with the same seed get the same root and rolled set.
+  - Every NPC cultivator has at least one element.
+  - NPC pills and fruits follow AC-LC-37 to AC-LC-43.
+  - An NPC breakthrough with #24 in its capability set makes 0 Awakening draws and writes 0 records.
+- **AC-LC-47** [Logic · BLOCKING] Rule 16. For each of the 22 ids `dung_nham`, `trong`, `sinh_menh`, `doc`, `vu`, `kiem`, `thien_loi`, `huy_diet`, `tu`, `dan_hoa`, `linh_thuc`, `tinh_kim`, `tran`, `hon`, `huyen`, `tinh_than`, `khong_gian`, `am_tinh`, `duong`, `luan_hoi`, `thai_cuc`, `thoi_gian`:
+  - the root reports not owned and purity 0;
+  - the id is absent from `variants`;
+  - it never enters an owned or rolled set over 200,000 births and 1,000 change sequences.
 
-**Persistence**
+**Saves**
 
-- **AC-LC-41** [Logic] A save/load round trip keeps:
-  - the elements, purities and mutations;
-  - the rolled set and the pill count, so after a reload a fourth pill is still refused
-    and a failed mutation still never rolls.
-- **AC-LC-42** [Logic] An old save with no rolled set: {Wood 40, Fire 86, Water 60} with
-  Life.
-  - It loads with the rolled set {Light, Life, Mist, Pill Fire}.
-  - A later Earth fruit, every roll forced to succeed, forms only newly eligible
-    mutations and never Light, Mist or Pill Fire.
-- **AC-LC-43** [Logic] An old save from the mutation-counting build: {Wood 40, Fire 86}
-  plus Light keeps Light, uses curve 0.6 at `lk_early`, and takes Light's modifier from
-  the current data (a stored 99 is ignored), and its purity from the current parents (a
-  stored purity is ignored).
+- **AC-LC-48** [Logic · BLOCKING] Round trip. A save/load keeps the elements, purities, variants with origin, the rolled set with declined marks, and the pill count. After reload:
+  - a fourth pill is still refused;
+  - a failed variant still makes no draw on a fruit;
+  - a declined variant still makes no Awakening draw.
+- **AC-LC-49** [Logic · BLOCKING] Pre-redesign save. Given {Wood 40, Fire 86, Metal 40, Water 60} holding `quang` stored 47, `loi` stored 99, `phong` stored 39, `huyet` stored 6, `dan_hoa` and `kiem`, with an old rolled set holding `quang`, `loi` and `kiem`:
+  - after load Light is 69 and Thunder 47 (stored purities ignored);
+  - Wind is 39 and Blood is 10 (stored value kept, clamped);
+  - `dan_hoa` and `kiem` are not in the root or the rolled set;
+  - Ice, which the old rolled set lacks but whose requirement is met, is marked rolled;
+  - the tier is Quadruple and `n_eff` is 5.
+- **AC-LC-50** [Logic · BLOCKING] Save with no rolled set. {Wood 40, Fire 86, Water 60} + Light loads with the rolled set {Wind, Blood, Void, Light, Ice}. A later fruit adding Earth at 28 draws for Darkness only (chance 0.1008), not for Ice. With #24 held, a later Awakening pass does roll Ice.
 
 **UI**
 
-- **AC-LC-44** [UI] The fixture is {Wood 40, Fire 86, Water 10} plus Light 47, with Life
-  failed. The transcript shows:
-  - the root line "Triple root: Wood 40, Fire 86, Water 10 | Light 47", in element
-    colours;
-  - the speed line, which contains the curve factor as a number, the name of the stage
-    where parity comes, and one entry per generating pair with its source ("Tương sinh:
-    Mộc → Hỏa", "Tương sinh: Thủy → Mộc") and "+3 %";
-  - `explain` for Light, with its parents and +10 heart demon resistance;
-  - no Life;
-  - a Linh Căn Quả preview, with the tier and the speed before and after;
-  - a Tẩy Tủy Đan preview naming Water.
-
-**Mutation Awakening, purity recompute and named fruits** (added 2026-11-04; numbered
-after the first draft, so they sit here)
-
-- **AC-LC-45** [Integration] Mutation Awakening, with {Wood 40, Fire 86} and Light rolled
-  and failed:
-  - without capability #24, a realm breakthrough makes 0 rolls;
-  - with it, one breakthrough with the roll forced to fail leaves the set unchanged, and
-    the roll's chance is 0.172 (within 1e-9);
-  - the next breakthrough with the roll forced to succeed forms Light at purity 47, and
-    Light never rolls again;
-  - on {Wood, Fire, Water} with Light, Life and Mist failed, one forced-success
-    breakthrough forms {Light, Life, Mist, Pill Fire} in one pass;
-  - with nothing eligible, a breakthrough makes 0 rolls and writes 0 records.
-- **AC-LC-46** [Logic] Mutation purity recompute, with {Wood 40, Fire 86, Water 60} and
-  Light 47, Life 39 and Pill Fire 46 owned. A Tẩy Tủy Đan that raises Wood to 48 gives
-  Light 51, Life 43 and Pill Fire 49, with 0 RNG calls, 0 rolls and no change to any
-  modifier.
-- **AC-LC-47** [Logic] A Linh Căn Quả whose event names an owned element adds a uniformly
-  chosen missing element instead; with all five owned it adds the +8 rule.
+- **AC-LC-51** [UI · BLOCKING] Root line and `explain`. Evidence is a retained screenshot plus transcript in `production/qa/evidence/debug-terminal/`.
+  - {Fire 86, Water 60} + Wind 62 shows the tier "Dual root", Fire [Hỏa] 86, Water [Thủy] 60, Wind [Phong] 62 with origin innate, and "(counts as 3)".
+  - {Fire 86, Metal 40} + Thunder 47 shows Thunder [Lôi] 47 with origin convergence and no "counts as" text.
+  - A variant that failed its roll does not appear.
+  - `explain` for Thunder shows its origin, its requirement (Fire and Metal), purity 47 and +14.1 attack with source "Biến dị: Lôi".
+  - `explain rate` shows the curve row read (3 for the first fixture) and each pair source.
+  - The Linh Căn Quả preview for an event naming Metal on the first fixture in FE early stage shows Dual → Triple, the factor 0.9 → 0.75 and the added +3 % pair.
+  - With no named element, the preview shows the same tier and factor and the pair bonus as a range.
 
 **Not testable here, by design:**
-- The years-per-realm table and the tight spots depend on the guessed rate factor (Open
-  Question 2).
-- The weights for travel speed, `alchemy_yield` and presence are guesses, so AC-LC-25 is
-  provisional.
-- "A celebrated moment" when a mutation forms is a Game UI matter.
+- Total lives holding a variant (about 13.3 %) depends on E_p, an unsourced estimate that needs a bot run (Open Question 1).
+- The years-per-realm table depends on the guessed rate factor.
+- The Wind and Void weights are guesses, so their band results in AC-LC-28 are provisional.
+- Granting Linh Căn Quả only by events from Foundation Establishment on belongs to the Event Engine's suite.
 
 ## Open Questions
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
-| 1 | Retune the out-of-band mutations in data, priced by Formulas E's marginal rule. Over the ceiling: Life 34, Array 73, Stars 75, Refined Metal 62.5, Taiji 133. Under the floor: Death 5 net, Reincarnation 20 (8 years over Life). **Holder-raised ceilings are decided (user decision 2026-11-04, cross-GDD review 04g, F15).** The data pass adds "ceiling_raise" effects: Pill Fire `alchemy_success` 6 (31.2 W, was 23.1), Spirit Farming `herb_growth_pct` 20 (49 W, was 20; plots now 20 W each, F11) and Lava `alchemy_success` 5. **Lava's raise 3 → 5 is decided (user decision 2026-11-04):** +5.4 W, so 8.1 → 13.5 W, which clears its 10 W floor and gives it an alchemy identity below Pill Fire's 6. Character Stats rule 14 now says "a mutation" (not "a craft mutation"), so Lava, a stable mutation, may hold the raise; that resolves the conflict this question noted. Spirit Farming stays within the order-2 band at 49 W, so no plot trim is needed. If the plot weight rises past 25 W, +2 plots would push it over 60 W, and the trim would be +1 plot. The held-back lines should be trimmed or replaced: Reincarnation's +50 years (Life already fills part of the ceiling), Spirit Farming's +60 % herb growth (it delivers at most its raised 20, so +20 or less would do; Life's 30 already fills the base ceiling), Pill Fire's +15 alchemy (6 delivered, so +6 would do), and Lava's +8 (5 delivered with its raise, so +5 would do). **Time's power is decided (user decision 2026-11-04):** +40 `cultivation_speed_pct` (88 W) and the root factor `herb_age_root_pct` +25 (kind "root", ×1.25 on h, 22.5 W), 110.5 W in total. Data pass for Time: add `cultivation_speed_pct` 40 and `herb_age_root_pct` 25; remove its `herb_growth_pct` +100 and `lifespan_years` +200 lines (0 W over its ancestors). Still open: the retunes for Life, Array, Stars, Refined Metal, Taiji, Death and Reincarnation; until they land, rule 8's "never a dud" promise fails for Death and Reincarnation (and for Lava only until the data pass adds its raise) | content (data), systems-designer, user (Time) | Formulas E, rule 8 |
-| 2 | Bot check of the tight timing spots: single roots at NS and DT, five-element roots in QR, depending on how technique purity enters the rate | Realms & Bottlenecks calibration | Formulas B |
-| 3 | Closed 2026-11-04: Cultivation Techniques rule 8. A technique naming an id the root lacks can be learned but not slotted; with no usable main method the cultivator cultivates crudely at ×0.3 of the strongest base purity | — | — |
-| 4 | Closed 2026-11-04: Realms & Bottlenecks now lists 103 years at DT for a five-element root (89 with the pair bonus), matching Formulas B | — | — |
-| 5 | Meridian Map capability #24 (Mutation Awakening): its text was aligned with rule 9 on 2026-11-04; it still needs a price, since it lifts Light from 17 % to at most 43 % over its two possible passes | Meridian Map | Capability pricing |
-| 6 | Character Stats' Stars (+10 comprehension) and Death (−10 presence) examples follow this GDD's data, so they change with the Open Question 1 retune | Character Stats | Data consistency |
-| 7 | Implementation changes: rounding the purity draw; the draw order of Formulas A; the curve by base count; pair-bonus modifiers; rolling mutations once (a saved rolled set); power bands; removing the two dead keys; the new count weights | implementation story | Building this GDD |
-| 8 | Total mutation power is bounded only per mutation. With Mutation Awakening a five-element root can own up to 25 mutations; simulate the expected and maximum total W per tier and decide whether an aggregate cap is needed | systems-designer | Formulas E |
-| 9 | Linh Căn Quả is rare by design (user decision 2026-11-04) and has no per-life counter, yet one fruit is worth ×3.5 at NS and ×4 at DT for a single root, and used early it can lower speed. Its frequency covers both modes (adding an element, and the +8 raise that bypasses Tẩy Tủy Đan's 3-per-life limit) and is owned by the Event Engine budgets (`events_budgets.json` `treasures`): set a target frequency there | Item DB, Event Engine | Rule 11 |
-| 10 | Single roots (45 % of lives) need 1,657 years for a whole life against 513 for a dual root. State their late-game identity, after the Open Question 2 bot run | game-designer, Realms calibration | Player Fantasy |
-| 11 | A five-element root starts with about 109 W (keystone, pair bonus, mean mutations) against the Meridian Map's ~106 W end-of-Qi-Refining target, which conflicts with "slow and fragile in Qi Refining" (cross-review D2). Options: a Qi Refining drawback on the keystone, gating it at Foundation Establishment, or moving it outward. The ~109 W figure uses mutation prices from before the marginal rule and the retune, so recompute it after Open Question 1. That recompute must also use Time's new price (110.5 W, was 54 before the marginal rule and 0 after it); Time needs its whole ancestor chain, so its share of a birth's mean mutation power is very small, but it changes | Meridian Map, game-designer | Player Fantasy, Formulas C |
-| 12 | Draw order and RNG stream for the rolls after birth. Formulas A fixes the birth order only. Linh Căn Quả makes three kinds of draw: the missing element (unless the event names one), its purity U{20..35}, and the rule 9 rolls. Mutation Awakening makes the rule 9 rolls on `breakthrough_succeeded`. Which seeded stream (Deterministic Simulation Core) each draws from, and the order of those draws, must be fixed, or seeded tests and replays diverge | systems-designer, Deterministic Simulation Core | AC-LC-30, AC-LC-45, AC-LC-47 determinism |
+| 1 | Awakening frequency and pacing. Formulas D3 assumes about 0.2 Awakening passes per life (13.3 % of lives with a variant); a bot run must supply the real figure. The same run checks the tight timing spots (single roots at NS and DT, five-element roots in QR) and the share of lives that innate variants move up a curve row (4.3 %) | Realms & Bottlenecks calibration, systems-designer | Formulas B, D3 |
+| 2 | `travel_speed_pct` (Wind) and `co_duyen_pct` (Void) have no Meridian Map weight; Formulas E prices both at 0.3 W per point, a guess. Void's purity-100 value (+100 %) matches the Cơ duyên edge's `co_duyen_pct` +100, which also carries `khi_van` 15 | Meridian Map, systems-designer | Formulas E |
+| 3 | Meridian Map capability #24 (Mutation Awakening) still needs a price. It now affects only five derived variants: Light on Fire 86 goes from 10.3 % to 27.9 % over its two possible passes | Meridian Map | Capability pricing |
+| 4 | ~~The variant sectors (rule 12) are a contract only~~ **Closed 2026-11-04:** Meridian Map rule 20 and its Formulas H2–H4 define geometry, size, attachment and pricing | — | — |
+| 5 | A five-element root's early power. Before the redesign it started with about 109 W (keystone, pair bonus, mean mutations) against the Meridian Map's ~106 W end-of-QR target (cross-review D2). Recompute with the variant prices (a five-element root averages more derived variants: 16 % Chaos, 15 % each convergence, 6 % each transmutation) and the variant sectors (Meridian Map Formulas H3: 88.5 W at purity 50) | Meridian Map, game-designer | Player Fantasy, Formulas C |
+| 6 | Linh Căn Quả is rare by design and has no per-life counter, yet one fruit can add a curve row and make Chaos or a convergence eligible. Its frequency is owned by the Event Engine budgets (`events_budgets.json` `treasures`): set a target frequency there | Item DB, Event Engine | Rule 13 |
+| 7 | Draw order and RNG stream for the rolls after birth. Formulas A fixes the birth order only. Linh Căn Quả draws the missing element, its purity U{20..35} and the derived rolls; Awakening draws the derived rolls on `breakthrough_succeeded`. Which seeded stream each uses, and the order, must be fixed, or seeded tests and replays diverge | systems-designer, Deterministic Simulation Core | Determinism ACs |
+| 8 | Single roots (45 % of lives) need 1,657 years for a whole life against 513 for a dual root. With innate variants a single root can now move up a row (Wind, Blood, Void); state single roots' late-game identity after the Open Question 1 bot run | game-designer, Realms calibration | Player Fantasy |
+| 9 | The Way (Đạo), system 39, is undesigned. Its GDD decides what the relocated mutations become, how they are gained (not by the root roll), what it reads from the root, and the migration of content that named them (techniques, recipes, items). Keep its scope distinct from craft mastery (đạo nghệ, Character Stats). A plain id search gives false hits when scoping that migration: `huyen` is a technique rank in `items_cong_phap.json`, and `tran` is an unrelated id in the event, action and world data | game-designer, user | Rule 16; Cultivation Techniques re-pointing |
+| 10 | Implementation changes: `bien_di` → `variants` + `variant_effects`; the three origin kinds and chance keys; `n_eff` wherever a count is looked up; innate draws in the birth order; the declined mark in the rolled set; removing the relocated mutations and their dead keys (`herb_age_root_pct`, holder-raised ceilings) | implementation story | Building this GDD |

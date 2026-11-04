@@ -136,26 +136,28 @@ formulas:
       - purity_mean
       - purity_sd
     output_range: [10, 100]
-    expression: "count ~ weights; elements uniform; purity = clamp(round(N(50,20)), 10, 100)"
+    expression: "count ~ weights; elements uniform; purity = clamp(round(N(50,20)), 10, 100); then innate rolls, then derived rolls, in catalogue order"
     notes: "Five-element root about 1 life in 67; 7.7% of births have an element at 85+."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-04
   - name: curve_factor
+    # 2026-11-04 (Spiritual Roots redesign): was keyed by base element count.
     status: active
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/linh-can.md
       - design/gdd/canh-gioi.md
     variables:
-      - n_base
+      - n_eff
       - stage_group
     output_range: [0.3, 9.0]
-    expression: "element_count_curve[base element count][stage group]"
-    notes: "Mutations excluded (user decision 2026-11-04). Parity: 2-3 elements at FE mid, 4 at FE late, 5 at CF early."
+    expression: "element_count_curve[n_eff][stage group]"
+    notes: "Keyed by n_eff (effective_element_count): innate variants count, derived variants do not. Parity: 2-3 at FE mid, 4 at FE late, 5 at CF early."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-04
   - name: mutation_chance
-    status: active
+    # 2026-11-04 (Spiritual Roots redesign): the 29-mutation orders are gone; replaced by variant_chance.
+    status: deprecated
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/linh-can.md
@@ -286,10 +288,11 @@ formulas:
       - q_pill
       - S_bare
     output_range: [0, 1]
-    expression: "S = P_C * (1 - fail * (1 - q)^G) + S_bare; fail = (1 - p_brew)^B + k_tau * ((1 - p_brew*q)^B - (1 - p_brew)^B), k_tau = (1 - q - tau)/(1 - q) if the realm step's one talisman is used on a held pill, else 1; B = brews whose herbs fit the plots and whose attempt can start before the lifespan cap (Realms Formulas D); W = lifespan cap at entry - age at entry; n_plots = clamp(3 + floor(0.04*purity_earth) + field_plots, 1, 12); h = (1 + 0.008*purity_wood) * (1 + herb_age_root_pct/100) * max(0, 1 + herb_growth_pct/100), herb_age_root_pct 25 for a Time mutation holder else 0 (root term, not capped); p_brew = clamp(p_brew0 + 0.0025*purity_fire + alchemy_success/100, 0.05, 0.95)"
+    expression: "S = P_C * (1 - fail * (1 - q)^G) + S_bare; fail = (1 - p_brew)^B + k_tau * ((1 - p_brew*q)^B - (1 - p_brew)^B), k_tau = (1 - q - tau)/(1 - q) if the realm step's one talisman is used on a held pill, else 1; B = brews whose herbs fit the plots and whose attempt can start before the lifespan cap (Realms Formulas D); W = lifespan cap at entry - age at entry; n_plots = clamp(3 + floor(0.04*purity_earth) + field_plots, 1, 12); h = (1 + 0.008*purity_wood) * max(0, 1 + herb_growth_pct/100); p_brew = clamp(p_brew0 + 0.0025*purity_fire + alchemy_success/100, 0.05, 0.95)"
     notes: "Targets 0.30 baseline and 0.70 with the player edge are means over the birth mix (45/32/15/6.5/1.5 % elements), user decision 2026-11-04. Since cross-GDD reviews 04f/04g: discrete brews, W from an entry-age model, plots at best play with no extra field_plots, attempts in order with rising q from failure insight (+2 pp per failed pill attempt in the step, cap 4), q extras under a 10 pp ceiling, one talisman per realm step at 5 pp on a held pill. Means 0.299 / 0.302 / 0.298 / 0.301 from a fixed-seed scratch model, not a bot run. Fine lever pill_chance; coarse lever the recipe."
     added: 2026-11-03
-    revised: 2026-11-04
+    revised: 2026-11-05
+    # was: h = (1 + 0.008*purity_wood) * (1 + herb_age_root_pct/100) * max(0, 1 + herb_growth_pct/100), herb_age_root_pct 25 for a Time mutation holder else 0 (root term, not capped); before 2026-11-05. Time moved to the Way (Spiritual Roots redesign); Realms Formulas D dropped the factor.
   - name: guard_success
     status: active
     source: design/gdd/canh-gioi.md
@@ -434,9 +437,39 @@ formulas:
     # a negative lifespan bonus (penalties apply after the cap, Character Stats rule 14) can put the cap below L_realm; lifespan_pct is assumed >= 0; no current source grants lifespan_pct (Character Stats Open Question 7).
     output_range: [0, unbounded]
     expression: "(L_realm + min(pill_years + sum_pos(lifespan_years), lifespan_frac * L_realm) + sum_neg(lifespan_years)) * (1 + lifespan_pct/100), floored at 0; an equipped treasure's lifespan is its own lifespan_years modifier, counted once; death by old age at age >= cap"
-    notes: "Realms rule 14 owns it; Character Stats supplies the ceilinged bonus (its rule 14, Formulas I). A slot, equipment or main-method change that would put the cap at or below the age needs confirmation. A mutation lifespan_years counts under the ceiling (W10, 2026-11-04)."
+    notes: "Realms rule 14 owns it; Character Stats supplies the ceilinged bonus (its rule 14, Formulas I). A slot, equipment or main-method change that would put the cap at or below the age needs confirmation. Every lifespan_years modifier counts under the ceiling (W10, 2026-11-04)."
     added: 2026-11-04
     revised: 2026-11-04
+  - name: effective_element_count
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/canh-gioi.md
+    variables:
+      - n_base
+      - n_innate
+      - n_cap
+    output_range: [1, 5]
+    expression: "n_eff = min(n_cap, n_base + n_innate)"
+    notes: "Read by the curve only. Tier, generating pairs, the center keystone and technique count_gain read n_base. Innate variants: Wind, Blood, Void."
+    added: 2026-11-04
+    revised: ""
+  - name: variant_chance
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/kinh-mach-do.md
+    variables:
+      - f_v
+      - required_purities
+      - innate_chance
+    output_range: [0, 1]
+    expression: "derived: min(1, f_v * prod(purity_e/100)); innate: flat innate_chance; derived purity = round(0.8 * geomean(current required purities)), recomputed; innate purity drawn once from the birth distribution"
+    notes: "Rolls once at first eligibility; innate at birth only. Mutation Awakening (Meridian Map #24) re-rolls unowned, non-declined derived variants, at most 2 passes per life. 12.14% of births hold a variant; about 13.3% of lives with Awakening (estimate)."
+    added: 2026-11-04
+    revised: ""
 
 # Example:
 #
@@ -505,7 +538,8 @@ constants:
     added: 2026-11-04
     revised: ""
   - name: bien_di_factors
-    status: active
+    # 2026-11-04 (Spiritual Roots redesign): was chance 0.5 / 0.25/(o-1), purity 0.8; replaced by variant_factors.
+    status: deprecated
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/linh-can.md
@@ -513,9 +547,10 @@ constants:
     unit: factor
     notes: "Mutation formation."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-04
   - name: bien_di_power_band
-    status: active
+    # 2026-11-04 (Spiritual Roots redesign): was 30/60/100/150 W with floors 10/15/30/50 W by order; replaced by variant_power_band.
+    status: deprecated
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/character-stats.md
@@ -527,7 +562,8 @@ constants:
     added: 2026-11-04
     revised: 2026-11-04
   - name: herb_age_root_pct
-    status: active
+    # 2026-11-04 (Spiritual Roots redesign): Time moved to the Way (Dao); no root factor remains in Spiritual Roots.
+    status: deprecated
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/character-stats.md
@@ -536,9 +572,10 @@ constants:
     unit: percent, a root factor on herb growth h (kind "root")
     notes: "Time (Thoi Gian) mutation only; 0 for everyone else. A root term like Wood purity: never a stat sheet modifier, not under the herb_growth_pct ceiling. Spiritual Roots knob, safe range 0-68 (Time must stay within its 150 W band). Priced in full at 0.9 W per percent. Added 2026-11-04 (user decision)."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-04
   - name: mutation_catalogue_size
-    status: active
+    # 2026-11-04 (Spiritual Roots redesign): was 29; replaced by variant_catalogue_size (8). The other mutations moved to the Way (Dao), system 39.
+    status: deprecated
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/linh-can.md
@@ -546,8 +583,9 @@ constants:
     unit: mutations
     notes: "10 / 15 / 3 / 1 by order 1-4."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-04
   - name: element_count_curve
+    # 2026-11-04 (Spiritual Roots redesign): was keyed by base element count (mutations excluded).
     status: active
     source: design/gdd/linh-can.md
     referenced_by:
@@ -555,9 +593,9 @@ constants:
       - design/gdd/canh-gioi.md
     value: "5 rows (1-5 base elements) x 13 stage groups; 0.3-9.0; row 1 is all 1.0; parity points tc_trung (2-3), tc_hau (4), kd_so (5)"
     unit: speed factor relative to a single root
-    notes: "Full table in linh-can.md Formulas B; data in character_attributes.json. Keyed by base element count (mutations excluded)."
+    notes: "Full table in linh-can.md Formulas B; data in character_attributes.json. Keyed by n_eff; table values unchanged by the redesign."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-04
   - name: root_change_parameters
     status: active
     source: design/gdd/linh-can.md
@@ -566,7 +604,7 @@ constants:
       - design/quick-specs/phu-luc-linh-thu-thanh-tuu.md
     value: "Tay Tuy Dan: 6 purity x potency (min +1), max 3 per life; Linh Can Qua: new element at 20-35, or +8 when all five are owned"
     unit: purity points
-    notes: "Item values are owned by Item DB; this system owns the rules (rule 11). Linh Can Qua is rare by design (no per-life counter): frequency is owned by the Event Engine budgets."
+    notes: "Item values are owned by Item DB; this system owns the rules (rule 13). Linh Can Qua is rare by design (no per-life counter): frequency is owned by the Event Engine budgets."
     added: 2026-11-04
     revised: ""
   - name: talent_roll
@@ -1139,7 +1177,7 @@ constants:
       - design/gdd/linh-can.md
     value: {herb_growth_pct: 10, alchemy_success: 3, lifespan_frac: 0.15}
     unit: pct / percentage points / share of the realm's base lifespan
-    notes: "Character-wide ceilings over every Character Stats rule 12 source (techniques, tree, items and consumables, pills, destiny perks, root mutations and generating pairs, formations, craft mastery). Penalties apply after the cap: total = min(sum of positive modifiers, ceiling) + sum of negative modifiers. The lifespan bonus is lifespan pill years plus every lifespan_years modifier (an equipped treasure's counted once), capped the same way; a negative bonus is allowed and can lower the cap below the base. Root terms, field_plots and lifespan_pct are not capped. Lowered 2026-11-04 (cross-GDD review 04f; were 40 / 8); safe range at most the current values until AC-CG-60 confirms headroom. The computed ceiling run belongs to Realms bonus_ceiling_target and AC-CG-60. Holder raises (user decision 2026-11-04, cross-GDD review 04g F15): a craft mutation may raise one key for its holder via a ceiling_raise effect (today Pill Fire alchemy_success 3 -> 6, Spirit Farming herb_growth_pct 10 -> 20; Spiritual Roots knobs); raises do not stack (highest applies), penalties apply after the raised cap, and raised lives are outside bonus_ceiling_target."
+    notes: "Character-wide ceilings over every Character Stats rule 12 source (techniques, tree, items and consumables, pills, destiny perks, root variants and generating pairs, formations, craft mastery). Penalties apply after the cap: total = min(sum of positive modifiers, ceiling) + sum of negative modifiers. The lifespan bonus is lifespan pill years plus every lifespan_years modifier (an equipped treasure's counted once), capped the same way; a negative bonus is allowed and can lower the cap below the base. Root terms, field_plots and lifespan_pct are not capped. Lowered 2026-11-04 (cross-GDD review 04f; were 40 / 8); safe range at most the current values until AC-CG-60 confirms headroom. The computed ceiling run belongs to Realms bonus_ceiling_target and AC-CG-60. Holder raises were removed with the Spiritual Roots redesign (2026-11-04)."
     added: 2026-11-04
     revised: 2026-11-04
   - name: bonus_ceiling_target
@@ -1150,10 +1188,74 @@ constants:
       - design/gdd/character-stats.md
     value: 0.45
     unit: great-breakthrough success S per gate, no edge
-    notes: "Calibration target, not a data key: a life with every bonus_ceilings stat at its ceiling, plots at best play with field_plots 0 and the realm step's one talisman reaches at most this S (AC-CG-60). The 0.30 / 0.70 targets are calibrated at best plot play on the bot's typical loadout (Realms Formulas D). Scope (2026-11-04, cross-GDD review 04g C5/F15): lives without root factors beyond Wood (no Time), without holder ceiling raises and without extra field_plots; those are root advantages or builds outside the target. With failure insight the ceiling run is 0.437 / 0.459 / 0.450 / 0.447, accepted within AC-CG-60's measured <= 0.48 (user decision 2026-11-04). A fully built life without an edge reaches 0.52-0.55 and edge plus full build 0.83-0.86 under the q-extras ceiling."
+    notes: "Calibration target, not a data key: a life with every bonus_ceilings stat at its ceiling, plots at best play with field_plots 0 and the realm step's one talisman reaches at most this S (AC-CG-60). The 0.30 / 0.70 targets are calibrated at best plot play on the bot's typical loadout (Realms Formulas D). Scope (2026-11-04, cross-GDD review 04g C5/F15): lives without extra field_plots, a build outside the target (root factors and holder raises left with the Spiritual Roots redesign, 2026-11-04). With failure insight the ceiling run is 0.437 / 0.459 / 0.450 / 0.447, accepted within AC-CG-60's measured <= 0.48 (user decision 2026-11-04). A fully built life without an edge reaches 0.52-0.55 and edge plus full build 0.83-0.86 under the q-extras ceiling."
     added: 2026-11-04
     revised: 2026-11-04
 
+  - name: variant_factors
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: "convergence 0.6, transmutation 0.12, chaos 5; purity factor 0.8"
+    unit: factor
+    notes: "Variant formation; replaces bien_di_factors."
+    added: 2026-11-04
+    revised: ""
+  - name: innate_chance
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: {phong: 0.025, huyet: 0.015, hu_khong: 0.005}
+    unit: chance per birth
+    notes: "Void is eligible only when n_base <= void_max_elements (2). Innate variants raise n_eff by 1 each."
+    added: 2026-11-04
+    revised: ""
+  - name: variant_power_band
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/character-stats.md
+      - design/gdd/kinh-mach-do.md
+    value: "common 10-30 W; Chaos 20-60 W"
+    unit: W, floor at purity 50, ceiling at purity 100
+    notes: "Priced with the Meridian Map stat weights; travel_speed_pct and co_duyen_pct at 0.3 W per point are a guess (Spiritual Roots Open Question 2). Replaces bien_di_power_band."
+    added: 2026-11-04
+    revised: ""
+  - name: variant_catalogue_size
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: 8
+    unit: variants
+    notes: "3 innate (Wind, Blood, Void), 3 convergence (Thunder, Darkness, Chaos), 2 transmutation (Light, Ice). Replaces mutation_catalogue_size."
+    added: 2026-11-04
+    revised: ""
+  - name: variant_sector_size
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+      - design/gdd/linh-can.md
+    value: 30
+    unit: acupoints per variant sector
+    notes: "8 roads and clusters of 4, 9 and 9, with 5 notables (1 apex). 8 sectors: 240 acupoints, 268 edges, 10 host links, outside the base map totals (tree_size_target). Locked and undrawn until the root owns the variant (Meridian Map rule 20)."
+    added: 2026-11-04
+    revised: ""
+  - name: variant_sector_value
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+      - design/gdd/linh-can.md
+    value: "premium 1.25, apex ratio 1.1; 88.5 W per sector, 2.95 W per point"
+    unit: W, unscaled (purity factor 1.0)
+    notes: "Scales by 0.5 + purity/100 for the variant. Qi Refining power accepted by user decision 2026-11-04: about +25 % at mean innate purity; those lives are left out of AC-KMD-07. No sector carries breakthrough_chance. Guesses until AC-KMD-88 and AC-KMD-89 run."
+    added: 2026-11-04
+    revised: ""
 # Example:
 #
 # constants:

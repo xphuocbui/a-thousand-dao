@@ -48,7 +48,7 @@ A life created with `edge: false` (balance baseline) gets none of the three.
 
 Each NPC gets an edge score e in [0, 1] from sources in character_edges.json → `npc`:
 
-    e = strong root (purity and root mutation [biến dị]) + sect value (rank) + rich family + blessing (a perk)
+    e = strong root (purity and variant root [biến dị linh căn]) + sect value (rank) + rich family + blessing (a perk)
     p_step = base_step + min(e, 1) × (max_step − base_step)          (0.30 → 0.70)
 
 The world tick rolls each NPC's fate once per realm when it reaches the bottleneck (bình cảnh): with

@@ -67,3 +67,6 @@ Reviewed-Content-Hash: design/glossary.md ff571453f374812f6f9f2e2a38eac45a38fb22
 
 ## Cleanup — 2026-11-04 (no new review)
 Applied after the second pass: rule 6 and AC-CP-05 carry the Realms rule 14 lifespan confirmation; the slotting preview shows the new cap; the Interactions and Cross-References rows name Realms rule 14; the stale Bidirectionality paragraph and the Edge Cases header are corrected; bonus_budget and bonus_single_cap have Tuning Knobs rows. No values changed.
+
+## Revision — 2026-11-04 (Spiritual Roots redesign; no new review)
+Reopened from Approved. Wording aligned from mutations to variant roots; rule references updated. Harmony: a derived variant counts as its required elements, an innate variant is neutral (new; innate variants have no parents). count_gain stays keyed by n_base. Open Question 11 added for techniques naming relocated mutations.

@@ -1,6 +1,6 @@
 # Cultivation Techniques (Công Pháp)
 
-> **Status**: Approved (2026-11-04, second lean /design-review: no blockers, 6 recommended revisions open). See `reviews/cong-phap-review-log.md`.
+> **Status**: In Review (2026-11-04: reopened by the Spiritual Roots redesign, wording aligned from mutations to variant roots). Previously Approved (2026-11-04, second lean /design-review: no blockers, 6 recommended revisions open). See `reviews/cong-phap-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-04
@@ -30,7 +30,7 @@ A cultivation technique (công pháp) is the method a cultivator uses to draw sp
 
 **What a technique has.** Each technique is an item with:
 - a tier (Yellow, Profound, Earth or Heaven; Hoàng, Huyền, Địa, Thiên);
-- the elements or root mutations (biến dị) it names;
+- the elements or variant roots (biến dị) it names;
 - a ladder of technique layers (tầng công pháp), mastered one by one over seasons. In
   this GDD "layer" always means a technique layer, never one of Qi Refining's 13
   layers (glossary).
@@ -68,7 +68,7 @@ which technique you commit your seasons to. The decision has two sides:
    copy found in the world is an Item DB manual (bí tịch) that points at the template.
    A template has:
    - `id`, `name`, `tier` (0–3) and `kind` (rule 2);
-   - `names`: the elements or root mutations it draws on (1–3 ids; none for a body
+   - `names`: the elements or variant roots it draws on (1–3 ids; none for a body
      technique);
    - `layers`: the layer count, set by the tier (rule 5);
    - `bonuses`: stat modifiers, each with a value at full mastery (Formulas D);
@@ -143,24 +143,23 @@ which technique you commit your seasons to. The decision has two sides:
    - Mastery is never lost: not by unslotting, by a failed breakthrough or by any
      other cost.
 8. **A named id the root lacks.**
-   - A technique is **usable** only if the root has every element and mutation it
+   - A technique is **usable** only if the root has every element and variant it
      names. Body techniques are always usable.
    - An unusable technique cannot be slotted.
    - If a root change makes a slotted technique unusable, it is unslotted at the
      start of the next season. No current root change removes an element or a
-     mutation (Spiritual Roots), so this is a guard only.
+     variant (Spiritual Roots), so this is a guard only.
    - With no usable main method in the main slot, the cultivator cultivates crudely:
      the speed factor is `no_cong_phap_mult` (0.3) × the strongest base purity ÷ 100
      (Formulas A, as built). There is no technique power, and the main slot gains no
      mastery (auxiliary arts still do).
-   - This answers Spiritual Roots Open Question 3.
 
 **What a technique gives**
 
 9. **Speed.** Only the main method (and the #6 second main) gives speed. Its factor
    comes from:
    - the tier scale;
-   - the average purity of the named ids (the Spiritual Roots contract, rule 7 there);
+   - the average purity of the named ids (the Spiritual Roots contract, rule 8 there);
    - the mastered layer (Formulas A).
 
    This factor is the `tech` term of the Realms cultivation rate.
@@ -189,7 +188,8 @@ which technique you commit your seasons to. The decision has two sides:
         element**: ×1.00 (neutral);
       - **either overcomes the other** (tương khắc): ×0.60.
     - Harmony is checked between each base element the art names and each element
-      the main method names (a mutation counts as its parent elements). The worst
+      the main method names (a derived variant counts as its required elements; an innate
+      variant has none and is neutral). The worst
       relation applies.
     - Body techniques, and any art while the main slot is empty, are always
       neutral.
@@ -218,7 +218,7 @@ which technique you commit your seasons to. The decision has two sides:
 
 17. **Authored and generated.**
     - **Authored** templates are hand-written catalogue entries. All Earth and
-      Heaven techniques are authored, as are all techniques naming a mutation, all
+      Heaven techniques are authored, as are all techniques naming a variant, all
       body techniques and every technique a world's history or a sect hands down.
       The target is about 40 (Concept); the MVP has a handful per kind.
     - **Generated commons** are Yellow and Profound main methods and secret arts,
@@ -271,7 +271,7 @@ every transition. Losing the manual item never unlearns a technique.
 
 | System | Direction | Data | Owner |
 |---|---|---|---|
-| Spiritual Roots | in | the purity of each named element and mutation; root changes that make a technique usable | Spiritual Roots |
+| Spiritual Roots | in | the purity of each named element and variant; root changes that make a technique usable | Spiritual Roots |
 | Realms & Bottlenecks | in / out | in: the current realm, for layer gates and the tier cap. Out: `tech`, the speed factor in the cultivation rate (Realms Formulas I); slot changes that Realms rule 14's lifespan confirmation covers | this GDD (the factor); Realms (the rate) |
 | Character Stats | in / out | in: effective Comprehension (mastery) and Physique (body techniques). Out: technique bonuses through the provider interface, and `tech_power` for spiritual power | this GDD (values); Character Stats (the interface) |
 | Meridian Map | in / out | in: capability #6 (second main slot). Out: `seal_clusters` and main-slot season counts | Meridian Map (the rule); this GDD (the record and `cong_phap_seasons`) |
@@ -310,7 +310,7 @@ with
 - `L = max(L_floor, 1 − δ · d)`;
 - `edge = S[tier] / S[par(r)]` if r ≤ the tier's max realm, else 1;
 - `beyond = beyond_realm_mult` (0.25) if r > the tier's max realm, else 1;
-- `match = avg_purity(names) / 100` (Spiritual Roots rule 7);
+- `match = avg_purity(names) / 100` (Spiritual Roots rule 8);
 - `g = count_gain[n_base]`, the **element-count gain**: 1.00 / 1.22 / 1.33 / 1.41 /
   1.46 for 1–5 base elements, and 1.27 for five elements in QR.
 
@@ -506,7 +506,7 @@ The technique_bonus formula is defined as:
 - `H` = the harmony factor (rule 12) for an auxiliary art; 1.0 for the main method.
 
 H is the worst relation over every pair (art element, main element), with a
-mutation counted as its parent elements. The generating cycle is Wood → Fire → Earth
+derived variant counted as its required elements and an innate variant neutral. The generating cycle is Wood → Fire → Earth
 → Metal → Water → Wood (`character_elements.json` `cycle`). The overcoming relation
 is Wood–Earth, Earth–Water, Water–Fire, Fire–Metal and Metal–Wood.
 
@@ -651,11 +651,11 @@ reviews and three cross-GDD reviews have checked it, but no specialist pass has.
   auxiliary slot:** the action is refused with a reason line (rules 2 and 6).
 - **If the player changes slots mid-season:** the action is refused. Slots change
   only at a season start.
-- **If a root gains an element or a mutation** (a Linh Căn Quả, a mutation
-  awakening): every known technique that becomes usable moves to Known · usable at
+- **If a root gains an element or a variant** (a Linh Căn Quả, a Mutation
+  Awakening): every known technique that becomes usable moves to Known · usable at
   the next season start. Nothing is auto-slotted.
-- **If a mutation's purity changes because a parent changed** (Spiritual Roots rule
-  9): match and F for techniques naming it update at the next season start.
+- **If a derived variant's purity changes because a required element changed** (Spiritual
+  Roots rule 10): match and F for techniques naming it update at the next season start.
 - **If the strongest base elements tie when the starting technique is chosen:** the
   first of the tied elements in `cycle` order is used.
 
@@ -712,13 +712,13 @@ reviews and three cross-GDD reviews have checked it, but no specialist pass has.
   the guaranteed copy is reserved and, if its source is lost, reappears in a market
   stock the next season. The player may still not have bought it yet; the
   breakthrough preview then warns (UI Requirements). It can happen for an authored
-  mutation technique. The life then switches to a base-element
+  variant technique. The life then switches to a base-element
   par method and pays the ramp.
 
 **Content validation (load-time errors)**
 - **If a template's `unlock_layer` is above its `layers`, its `layers` does not match
   its tier, it names more than 3 ids, a `names` id is not a base element or catalogue
-  mutation, a body technique names any id, a main method or secret art names none,
+  variant, a body technique names any id, a main method or secret art names none,
   a generated common is above Profound, a bonus stat has no `bonus_pool` row, or the
   bonuses exceed the tier's bonus budget or the single-bonus cap (Formulas D):** the
   data validator rejects the file at load. The game
@@ -738,7 +738,7 @@ reviews and three cross-GDD reviews have checked it, but no specialist pass has.
 |---|---|---|
 | 1 | Data-Driven Config | `items_cong_phap.json` (tiers, templates, globals), `cultivation_realms.json` (`no_cong_phap_mult`), `character_elements.json` (`cycle`) |
 | 2 | Deterministic Simulation Core | The seeded RNG for generated commons |
-| 6 | Spiritual Roots | Purity of each named element and mutation; the base elements (usability, starting technique, root bias); mutation parents (harmony) |
+| 6 | Spiritual Roots | Purity of each named element and variant; the base elements (usability, starting technique, root bias); derived variants' required elements (harmony) |
 | 8 | Realms & Bottlenecks | The current realm, for layer gates, the par tier and the tier cap |
 | 7 | Character Stats | Effective Comprehension (mastery) and Physique (body techniques); the precision grid and tolerance rule |
 | 13 | Item DB | Manuals as items that point at templates; storage for generated commons |
@@ -998,9 +998,9 @@ applied above).
   - {Wood 60, Water 60} → Wood (the first tied element in `cycle` order).
   - {Fire 50, Metal 50, Earth 30} → Fire.
   - {Earth 70, Metal 70, Water 70} → Earth.
-  - {Wood 40, Fire 86} plus Light 90 → Fire, because mutations are ignored.
+  - {Wood 40, Fire 86} plus Wind 90 → Fire, because variants are ignored.
 - **AC-CP-12** [Config/Data] Rule 17, the shipped catalogue.
-  - Every Earth and Heaven template, every template naming a mutation (biến dị) and
+  - Every Earth and Heaven template, every template naming a variant (biến dị) and
     every body technique has `origin` `authored`.
   - There is at least one main method, one secret art and one body technique.
 
@@ -1068,7 +1068,7 @@ applied above).
   - The same at FE, k 6, on the five-element root gives 0.6849 (1.46).
   - Root R at CF with a Profound [Wood, Fire] main at k 8 gives **0.9708**, shown
     0.97. At NS the same method computes 0.2427 and gives the crude floor **0.258**.
-  - Mutations do not change `g`: a 2-element root holding Thunder (Lôi) uses 1.22.
+  - Variants do not change `g`: a 2-element root holding Thunder (Lôi) or Wind (Phong) uses 1.22.
   - `explain` shows `g` inside the technique line, as "÷ 1.22 (2 elements)".
 - **AC-CP-19** [Logic] Formulas B, gain.
   - Comprehension 45: 1.45 cultivating, 0.725 idle.
@@ -1099,7 +1099,8 @@ applied above).
     generates the art (tương sinh) at 1.15; 10 at 1.00 (the art generates the main, or
     the same element); 10 overcoming pairs (tương khắc) at 0.60.
   - An art naming [Wood, Fire] under a Water main: 0.60 (the worst relation).
-  - An art naming Light under a Water main: 0.60 (a mutation counts as its parents).
+  - An art naming Light under a Water main: 0.60 (a derived variant counts as its required elements).
+  - An art naming Wind under a Water main: no harmony penalty (an innate variant is neutral).
   - A Light main against an Earth art: 0.60.
   - Body techniques, and any art while the main slot is empty: 1.00.
   - Example: root {Wood 70, Water 50, Metal 50}, a Profound [Wood] secret art with
@@ -1120,7 +1121,7 @@ applied above).
 - **AC-CP-25** [Logic] Formulas E, rolls. Over 100,000 seeded commons:
   - unfixed tier: Yellow 62.5 % ± 0.6 pp, Profound 37.5 % ± 0.6 pp;
   - 2-element commons 20.0 % ± 0.5 pp;
-  - never 3 elements, never above Profound, never a mutation, never a body
+  - never 3 elements, never above Profound, never a variant, never a body
     technique;
   - `abilities` and `seal_clusters` always empty, `origin` `generated`;
   - bonus count 0 / 1 / 1 / 2 for a Yellow main / Profound main / Yellow art /
@@ -1174,7 +1175,7 @@ applied above).
   - A Spiritual Root Fruit (Linh Căn Quả) that adds Water mid-season makes a known
     [Water] technique Known · usable at the next season start, not before, and it is
     not auto-slotted.
-  - A mutation purity change updates match and F at the next season start.
+  - A derived variant's purity change updates match and F at the next season start.
 - **AC-CP-32** [Logic] The tier cap covers main-method speed only. A Profound [Fire]
   main at k 9, root R, at NS:
   - `tech` is 0.43;
@@ -1191,7 +1192,7 @@ applied above).
   - `unlock_layer` above `layers`;
   - `layers` not matching the tier;
   - more than 3 `names`;
-  - a `names` id that is neither a base element nor a catalogue mutation;
+  - a `names` id that is neither a base element nor a catalogue variant;
   - a body technique naming any id;
   - a main method or secret art naming none;
   - a generated common above Profound;
@@ -1342,10 +1343,11 @@ Comprehension.
 | 1 | Confirm the hand-computed Formulas A check (mean tech₀.₅ 0.91–0.98 per realm) and the Formulas B pacing with a bot run, and re-run Realms AC-CG-33 and AC-CG-33a with the new factor. User decisions 2026-11-04: keep κ 2.0; the strongest-element starter's speed-up for multi-element roots is divided out per element count by `count_gain` (cross-GDD review N6, replacing the earlier `climb_total` plan, which could not fit its safe range); five elements in QR use 1.27, not 1.46, to keep the QR tail at about 6 %. The bot confirms `count_gain` (AC-CP-48); pill supply stays the breakthrough lever | Realms & Bottlenecks calibration (bot) | Formulas A and B sign-off |
 | 2 | #6 Twin Technique Cultivation is additive, up to +50 % speed, which can shorten realm years by about a third. Check it against its Meridian Map price; the alternative `max(main, 0.5 × second)` would make it nearly worthless | Meridian Map, systems-designer | Capability pricing |
 | 3 | What each divine ability does | Combat GDD | Rule 13 effects |
-| 4 | Author the catalogue: about 40 templates, with an MVP handful per kind (main method, secret art, body technique), including mutation techniques, heirlooms and the rule 18 par methods for each element | content (writer, systems-designer) | Rule 17, rule 18 |
-| 5 | About 8 % of one-element lives (purity 21 or less) and about 3 % of five-element lives breach the 60-year QR ceiling. The median holds. A match floor would close the tail, but it would change the Spiritual Roots rule 7 contract | game-designer, Spiritual Roots | Pillar 4 tail |
-| 6 | Rule 18 guarantees base-element par methods only. Should a mutation root also get a guaranteed mutation technique path, or is a switch back to a base element its intended cost? | game-designer | Rule 18 |
+| 4 | Author the catalogue: about 40 templates, with an MVP handful per kind (main method, secret art, body technique), including variant techniques, heirlooms and the rule 18 par methods for each element | content (writer, systems-designer) | Rule 17, rule 18 |
+| 5 | About 8 % of one-element lives (purity 21 or less) and about 3 % of five-element lives breach the 60-year QR ceiling. The median holds. A match floor would close the tail, but it would change the Spiritual Roots rule 8 contract | game-designer, Spiritual Roots | Pillar 4 tail |
+| 6 | Rule 18 guarantees base-element par methods only. Should a variant root also get a guaranteed variant technique path, or is a switch back to a base element its intended cost? | game-designer | Rule 18 |
 | 7 | Whether known techniques carry over between lives | Codex & Karmic Carryover | — |
 | 8 | Implementation changes: <ul><li>the factor with κ, the par-tier edge and L;</li><li>layers and mastery;</li><li>slots: main, auxiliary and #6;</li><li>separate `speed_mult` and `power_mult`;</li><li>`no_tech_power`;</li><li>bonus scaling and harmony;</li><li>commons capped at 2 elements, with root bias and the secret-art bonus;</li><li>seal counting;</li><li>validators, including the bonus budget;</li><li>the crude floor;</li><li>the starting technique's tie-break.</li></ul> | implementation story | Building this GDD |
 | 9 | Rule 18 needs at least 10 authored single-element par methods (5 Earth, 5 Heaven; the Profound ones can be commons) out of about 40, and placing one per element per realm in every world strains the 15 / 5 Earth and Heaven rarity weights. Options: allow generated Earth and Heaven methods for guarantee placements only; guarantee only the elements present in the starting province; or grow the catalogue | game-designer, content | Rules 17 and 18 |
 | 10 | There is no Player Fantasy section (advisory at the standard tier) | game-designer | — |
+| 11 | Techniques naming a relocated mutation (Spiritual Roots rule 16) are re-pointed when the Way (Đạo) is designed. Until then those templates fail the `names` validation | game-designer, the Way | Rule 17 catalogue |

@@ -166,3 +166,58 @@ Changes:
 
 ## Cleanup — 2026-11-04 (user decisions after cross-GDD review 04g; no new review)
 User decision 2026-11-04: Lava's `alchemy_success` raise 3 → 5 is confirmed. "Proposed, user to confirm" is removed everywhere (rule 8, Formulas E variables, output range, band table, margin notes and held-back list, Parameter keys, Tuning Knobs, AC-LC-25, OQ1). Lava prices at 13.5 W, inside its order-1 band, so it leaves the under-floor lists in rule 8, AC-LC-25 and OQ1 (it moves to the within-band column of the band table); AC-LC-25 and OQ1 note that before the data pass adds the raise, Lava still prices at 8.1 W and fails its floor. Rule 8 now says "a mutation may raise…", and OQ1 records that Character Stats rule 14 now says "a mutation", which resolves the conflict it noted. The tree-gives-no-plots note was not added: this GDD does not name the tree as a plot source. No tuned values changed. Status unchanged.
+
+## Redesign — 2026-11-04 (no new review)
+User-directed rebuild of the GDD (/design-system): five elements plus eight flat variant roots (three origins: convergence, transmutation, innate); 22 mutations moved to the new system 39, the Way (Đạo); variants get purity-scaled roles and hidden Meridian Map sectors; innate variants count toward the curve (n_eff); Self-made picks stay free, declined variants never roll. Formulas by systems-designer, AC-LC-01..51 by qa-lead. Earlier verdicts in this log apply to the pre-redesign text (git b7f4639). Needs /design-review in a fresh session.
+
+## Review — 2026-11-04 (first review of the redesign) — Verdict: APPROVED
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 0 | Recommended: 8
+Summary: First review of the redesign (five elements + eight variant roots; 22 mutations moved to the Way). Every worked chance, purity, price, birth rate, draw count and AC stub sequence recomputes; registry values match. Open work is cross-system: Meridian Map variant sectors, the Wind and Void weights, the Way.
+Prior verdict resolved: Yes (earlier verdicts applied to the pre-redesign text, git b7f4639)
+Findings:
+- [RECOMMENDED] Rule 12 / AC-LC-33, 34: variant sectors are a contract only; Meridian Map Open Question 15, capability #24 price
+- [RECOMMENDED] Cross-References and Dependencies: stale "pending cross-edit" wording (fixed in this session)
+- [RECOMMENDED] character-stats Formulas G example still named Time (fixed in this session)
+- [RECOMMENDED] Formulas E: Chaos breakthrough_chance is under Realms' 10 pp q-extras ceiling but the section says every variant key is unceilinged
+- [RECOMMENDED] Wind and Void priced on a guessed 0.3 W per point weight (Open Question 2)
+- [RECOMMENDED] Formulas A / AC-LC-01: count roll used a closed upper bound, variant rolls use u < chance (fixed: half-open, AC boundary values moved off exact floats)
+- [RECOMMENDED] Light reach 27.8 vs 27.9 and registry rule number (fixed in this session)
+- [RECOMMENDED] Data files still hold pre-redesign shape (bien_di); AC-LC-18 and 19 fail until the data pass (Open Question 10)
+Reviewed-Content-Hash: design/gdd/linh-can.md 4115275a964b926f75e75810cff982794c9cbce0
+Reviewed-Content-Hash: design/registry/entities.yaml 3884819fdaf07f174f31d15ba4b6f76a56b792ca
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/character-stats.md 7bf79075658e456d8919f4f22e29fd5484a98646
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 9f1acabdc4d0b501c48438e00c4c2160931d1e72
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md e2e932ec476590295cbb93e626b21b7bc81da0b5
+Reviewed-Content-Hash: design/gdd/cong-phap.md cfa220cbdfb71a405667dba257fcb71cb92f7298
+Reviewed-Content-Hash: design/gdd/game-concept.md 548ea01d5cd8dd7c3c864164389a3b388caff094
+Reviewed-Content-Hash: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md d4103af24fb601354c8c46232e355e0a16561a87
+Reviewed-Content-Hash: assets/data/character_elements.json 01385a80395e4086d65a80043c9f522eea2c90fb
+Reviewed-Content-Hash: design/gdd/systems-index.md cadcaa85edb93b547f543c2f23d3a6c9cb0e035f
+
+## Review — 2026-11-05 — Verdict: APPROVED
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 0 | Recommended: 6
+Summary: Lean re-review after the Meridian Map variant sectors (its rule 20, Formulas H2–H4) landed. Recomputed with no discrepancy: the AC-LC-01, 04, 05, 06 draw sequences, every worked chance and purity (AC-LC-20, 21, 38, 40, 41, 43, 49, 50), the birth rates, the power table including Chaos at 44, 50, 80 and 100, the sheet lines of AC-LC-29, and the sector scales shared with Meridian Map AC-KMD-73 and 86. Registry matches. Rule 12, the edge cases and AC-LC-33/34 agree with Meridian Map rule 20.
+Prior verdict resolved: Yes (the 2026-11-04 recommended items are applied or tracked; Open Question 4 closed)
+Findings:
+- [RECOMMENDED] Dependencies, bidirectional check: stale statements about the Meridian Map's variant sectors and a Time example in Character Stats (fixed in this session)
+- [RECOMMENDED] Cross-References, Character Stats row: stale "Still open" Time example (fixed in this session)
+- [RECOMMENDED] Formulas E: the 10–30 W band prices the role line only; the Meridian sector adds about 88.5 W unscaled (about 103 W with the role at purity 50), so say so and link Meridian H3
+- [RECOMMENDED] Formulas A / Edge Cases "Saves" / AC-LC-04 vs AC-LC-50: the rolled set excludes Void on a 3-element birth but the no-rolled-set load marks every innate variant; state the difference
+- [RECOMMENDED] Formulas E opening line: "all variant keys are unceilinged" holds for Character Stats rule 14 only; Chaos breakthrough_chance joins Realms' 10 pp q-extras ceiling
+- [RECOMMENDED] AC-LC-29: no criterion points at the Realms clamp when the tree (8 pp) and Chaos (4.8 pp) are both present
+Resolution: Status header and the two stale cross-reference statements edited in this session, before the hash below was taken, so the hash covers the final file. Items 3 to 6 are not yet applied.
+Reviewed-Content-Hash: design/gdd/linh-can.md 01525f1f35a406d3ea2c89ebe858c97ae300ca4f
+Reviewed-Content-Hash: design/registry/entities.yaml 454a4906d2577c927c2194447dbca63568a2c309
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/character-stats.md 7bf79075658e456d8919f4f22e29fd5484a98646
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 9f1acabdc4d0b501c48438e00c4c2160931d1e72
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md c95fda2f3db1240f4eab6afc0ba9d3b3ceb8fe62
+Reviewed-Content-Hash: design/gdd/game-concept.md 548ea01d5cd8dd7c3c864164389a3b388caff094
+Reviewed-Content-Hash: design/gdd/systems-index.md 0df28c5e1b72d12660d2dcd305af494e11925c0d
