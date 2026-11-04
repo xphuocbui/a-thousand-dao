@@ -309,10 +309,12 @@ the bottleneck bar at level hi; it exists only if the realm has a next realm.
   from the element-count curve: the 5-element DT figure was 137. Values exclude the
   generating-pair bonus (with it, 5 elements at DT is 89 years). The 1.25 rate factor is
   a guess; that GDD's tight timing spots depend on it (its Open Question 2).
-  The Cultivation Techniques GDD (Formulas A) normalises a typical technique to 1.0,
-  but its strongest-element starter makes multi-element roots climb about 24 % faster
-  than this table (3-element QR about 29 years). Its Open Question 1 hands this to the
-  bot run; if confirmed, the lever is `climb_total` (user decision 2026-11-04).
+  The Cultivation Techniques GDD (Formulas A) normalises a typical technique to 1.0.
+  Its strongest-element starter would make multi-element roots climb about 24 % faster
+  than this table, so it divides that gain out per element count (`count_gain`), and
+  every element count meets this table on average (user decision 2026-11-04,
+  cross-GDD review N6). `climb_total` is not the lever: one global value cannot fix a
+  gap that depends on the element count without slowing single roots.
 
   Without the rescale a 3-element root would take 20–38 years per realm, only 2–4 % of
   the lifespan after QR.
@@ -411,7 +413,8 @@ The spiritual root enters through all three terms (added 2026-11-04, cross-GDD r
 Earth adds plots and Wood speeds herbs (Character Stats, Formulas G), and Fire raises brew
 success (Alchemy, as built: +0.25 percentage points per purity point). An absent element has
 purity 0. The root multiplier is `m = (n_plots / 3) · h · (p_brew / p_brew0)` for a life
-with no `field_plots`, `herb_growth_pct` or other alchemy bonus.
+with no `field_plots`, `herb_growth_pct` or other alchemy bonus; the targets themselves
+are calibrated on a typical loadout (below).
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -434,6 +437,23 @@ with no `field_plots`, `herb_growth_pct` or other alchemy bonus.
 **Example:** QR→FE for a root with no Wood, Earth or Fire: λ = 0.65 × 3 × 0.5 × 1 × 104 ÷
 50 = **2.03** pills. For the root {Wood 40, Fire 86, Water 10}: h = 1.32, p_brew = 0.865, so
 m = 1.32 × 0.865 ÷ 0.65 = 1.757 and λ = **3.56** pills.
+
+**Calibration loadout and bonus ceilings** (user decision 2026-11-04, cross-GDD review
+G1). Techniques, the tree, items and pills add `herb_growth_pct`, `alchemy_success` and
+lifespan, which raise λ through h, p_brew and W. Two common secret arts alone lift the
+QR→FE baseline from 0.30 to about 0.37, and two mastered Profound arts lift CF→NS to
+about 0.49. So:
+- The 0.30 / 0.70 targets hold for a **typical** life, not a bare one. The bot's typical
+  loadout is Cultivation Techniques' AC-CP-46 policy, two auxiliary arts drawn as
+  par-tier Market commons (`root_bias` 0.6) with their rolled bonuses, and the tree as
+  the bot allocates it. AC-CG-30 sets the final Y on that loadout. The hand Y values
+  above assume no bonuses, so the bot will raise them; a life that skips every bonus
+  lands a little below 0.30.
+- Character Stats caps the three totals character-wide (its rule 14 and Formulas I:
+  `herb_growth_pct` 40, `alchemy_success` 8, lifespan bonus 15 % of the realm's base
+  lifespan). The ceilings are set so that a life with all three at their ceilings
+  and no edge reaches at most `bonus_ceiling_target` **S 0.45** at each gate
+  (AC-CG-60). Building into alchemy pays, up to a bound the player can see.
 
 The Core Formation pill's herb Kim Tủy Quả (rarity 4) becomes plantable from Foundation
 Establishment on (`seed_rarity_max` 4 from FE; user decision), so the CF pill is a
@@ -590,12 +610,13 @@ shown as one line of the breakdown.
 |----------|------|-------|--------|-------------|
 | base | float | per realm | data file | Realm base rate |
 | curve | float | 0.3–9.0 | Spiritual Roots (Formulas B) | `element_count_curve[base element count][stage group]` |
-| tech, comp, density, tox | float | 0+ | Cultivation Techniques, Character Stats, Travel & Map / Formulas, Character Stats | Technique speed, comprehension, local qi density and pill-toxicity penalty factors |
+| tech, comp, density, tox | float | 0+ (comp 1.005–1.75) | Cultivation Techniques (Formulas A), Character Stats (Formulas J, `comp = 1 + effective comprehension ÷ 200`), Travel & Map / Formulas, Character Stats | Technique speed, comprehension, local qi density and pill-toxicity penalty factors |
 | speed_pct | float | 0–about 40 | calculated (stat sheet `cultivation_speed_pct`, Character Stats Formulas I) | The sum of every speed bonus, including Spiritual Roots' generating pairs (+3 % each, up to +15) |
 
 **Output Range:** 0 upward. The speed bonuses never reduce the rate below 0.
 
-**Example:** base 25, comprehension 1.25, the other factors 1.0: 31.25 per season. With
+**Example:** base 25, comprehension factor 1.25 (effective comprehension 50), the other
+factors 1.0: 31.25 per season. With
 two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
 
 ### Parameter keys
@@ -834,6 +855,7 @@ other numbers in this GDD; ranges marked *guess* wait for a bot run.
 |---|---|---|---|
 | `climb_total` | 1,025 / 5,600 / 42,000 / 276,000 / 1,850,000 | QR −30 % to +19 % (derived: a five-element root already uses 84 % of the half-lifespan ceiling in QR, Spiritual Roots Formulas B); FE and CF −30 % to +30 % (five-element check pending, AC-CG-33a); NS and DT −30 % to +8 % (derived: +30 % would push a 1-element NS and DT past the ceiling); derived ceiling: a root of any element count must clear a realm in at most half its lifespan | Years per realm (Pillar 4) |
 | `climb_growth` | 6 / 3 / 3 / 3 / 3 | 2–6 (QR 4–8) | How much later levels cost than early ones |
+| `bonus_ceiling_target` (calibration target, not a data key) | S 0.45 per gate, no edge | 0.40–0.50; *derived*: must stay well under the 0.70 edge target, or the edge stops being distinct | How much a dedicated alchemy build can raise breakthrough odds. Met by tuning Character Stats' `bonus_ceilings` (AC-CG-60) |
 | `bar_mult` | 4 / 10 / 10 / 10 | 6–15 (QR 3–5) | Bottleneck bar size; with the 30 % loss, how many levels a failure costs |
 | `stage_power_step` | 0.15 | 0.10–0.20; derived ceiling 0.24, above which divine sense's great-breakthrough jump becomes smaller than the realm's own ladder | Stat rise per small breakthrough |
 | `pill_chance` | 0.06 / 0.16 / 0.20 / 0.15 | ±0.03; derived by p_pill = −ln(1 − S) ÷ λ − E − τ | Per-attempt odds; moves baseline and edge equally, so not the baseline lever |
@@ -962,7 +984,8 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 - **AC-CG-07** [Logic] Rule 3.
   - The rate breakdown has one line each for base rate, root curve, technique,
     comprehension, qi density and toxicity, plus the speed bonus.
-  - Base 25 with comprehension factor 1.25 and the rest 1.0 gives 31.25; halving any one
+  - Base 25 with comprehension factor 1.25 (effective comprehension 50, Character
+    Stats Formulas J) and the rest 1.0 gives 31.25; halving any one
     factor halves the total.
   - A +6 % speed bonus (two generating pairs) gives 33.125 (multiplied, Formulas I), not
     31.25 + 6; a total bonus of −150 % gives 0, never a negative rate.
@@ -1072,7 +1095,8 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 - **AC-CG-30** [Bot] Formula E. `autoplay.gd --edge off`, run to ≥ 330 bottleneck arrivals
   per gate, with roots rolled by the birth mix: each gate's mean crossing rate is
   0.25–0.35. Bare successes count. Bot policy: capabilities #22 and #23 disabled, the tree
-  as the bot allocates it. Per tier (`--elements 1..5`, ≥ 330 arrivals each), each gate is
+  as the bot allocates it, and techniques as the typical loadout (Formulas D,
+  calibration loadout); Y is tuned on this run. Per tier (`--elements 1..5`, ≥ 330 arrivals each), each gate is
   within ±0.05 of the Formulas E row (0.26 / 0.30 / 0.35 / 0.40 / 0.46 at QR→FE).
 - **AC-CG-31** [Bot] The same with `--edge on`: each gate's mean is 0.65–0.75, and each
   tier is within ±0.05 of the Formulas E edge row. Until the Heavenly Tribulation exists,
@@ -1234,6 +1258,12 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - the Capped message at level 300;
   - the Advisor's years-to-bottleneck against years left;
   - the Advisor's warning before a cultivation pill at a full bar.
+- **AC-CG-60** [Bot] Formulas D, bonus ceilings. `autoplay.gd --edge off`, ≥ 330
+  bottleneck arrivals per gate, roots by the birth mix, with auxiliary arts, items and
+  pills chosen to push `herb_growth_pct`, `alchemy_success` and the lifespan bonus to
+  their Character Stats ceilings. Each gate's mean crossing rate is ≤ 0.48
+  (`bonus_ceiling_target` 0.45 + 0.03), and the transcript shows the clamp lines. If a
+  gate is over, lower the Character Stats `bonus_ceilings`, not Y.
 
 **Still provisional:**
 - The Deity Transformation success criteria stand until the Heavenly Tribulation GDD

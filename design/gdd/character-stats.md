@@ -175,6 +175,15 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
     most `tree_breakthrough_cap` (8 pp) to `breakthrough_chance`. It is applied to the
     tree's modifiers only, and the sheet shows the clamp as a line. Other sources of the
     same key are not capped by it.
+    - **Character-wide bonus ceilings** (user decision 2026-11-04, cross-GDD review G1).
+      Three totals are capped across every source (techniques, the tree, items and
+      pills), because they feed breakthrough odds through pill supply (Realms Formulas
+      D): `herb_growth_pct` at 40, `alchemy_success` at 8 and the lifespan bonus
+      (pill and treasure lifespan plus `lifespan_years`) at 15 % of the realm's base
+      lifespan (Formulas I). The root's own terms (Wood's herb growth, Earth's plots,
+      Fire's brew success) are separate factors and are not capped, nor are
+      `field_plots` (bounded by `max_plots`) or `lifespan_pct` (Spiritual Roots Open
+      Question on its price). The sheet shows each clamp as a line.
 15. **Stat keys.** This GDD owns every key, its unit and its meaning. Units:
     - `pct`: percentage points, so 1 = +1 %;
     - `flat`: a plain number;
@@ -253,7 +262,7 @@ interfaces are provisional.
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
 | Spiritual Roots (Linh Căn) | in | per-element purity, root mutations (their modifiers), base element count, and one `cultivation_speed_pct` +3 modifier per generating pair owned (source "Tương sinh: <from> → <to>") | Spiritual Roots |
-| Realms & Bottlenecks | in / out | in: realm, level, stage multiplier, heart demon +15 per failure, vitality −40 %; out: effective comprehension and Dao heart, `breakthrough_chance` (tree share capped), `qi_deviation_pct`, `safe_failure`, heart demon | Realms (the ladder); this GDD (the stats) |
+| Realms & Bottlenecks | in / out | in: realm, level, stage multiplier, heart demon +15 per failure, vitality −40 %; out: effective comprehension and Dao heart, the comprehension factor `comp` (Formulas J), `breakthrough_chance` (tree share capped), the bonus ceilings on herb growth, alchemy success and lifespan (rule 14), `qi_deviation_pct`, `safe_failure`, heart demon | Realms (the ladder); this GDD (the stats) |
 | Meridian Map (Kinh Mạch Đồ) | in | acupoint modifiers {source, stat, value}; capability ids into the set | Meridian Map (what nodes give); this GDD (keys, units, the set) |
 | Cultivation Techniques | in | technique bonuses (modifiers) and technique power for spiritual power | Cultivation Techniques |
 | Item DB (magic treasures, pills) | in | equipped treasure affixes; pill effects (toxicity, talent pills, heart demon pills) | Item DB |
@@ -526,6 +535,8 @@ The stacking formulas are defined as:
 
 `total(k) = Σ v_i` ; for `breakthrough_chance`: `total = min(Σ_tree v_i, cap_tree) + Σ_other v_i`
 
+for `herb_growth_pct` and `alchemy_success`: `total = min(Σ v_i, ceiling(k))` ; lifespan bonus: `min(pill_years + treasure_years + Σ lifespan_years, f_life · L_realm)`
+
 `mult(k) = max(0, 1 + total(k)/100)` for `_pct` keys ; `flag(k) = total(k) > 0`
 
 **Variables:**
@@ -533,6 +544,13 @@ The stacking formulas are defined as:
 |----------|------|-------|--------|-------------|
 | v_i | int (precision units) | per key | calculated | One modifier, quantized once when it enters the sheet |
 | cap_tree | float | 8 pp | data file (`tree_breakthrough_cap`, owned by the Meridian Map) | Cap on the tree's share |
+| ceiling(k) | float | `herb_growth_pct` 40, `alchemy_success` 8 pp (guesses) | data file (`bonus_ceilings`) | Character-wide ceiling over every source (rule 14) |
+| f_life | float | 0.15 (guess) | data file (`bonus_ceilings.lifespan_frac`) | Lifespan bonus ceiling as a share of the realm's base lifespan |
+| L_realm | int | 120 / 200 / 500 / 1,000 / 2,000 | data file (Realms & Bottlenecks) | The realm's base lifespan |
+
+The ceiling values are calibrated by Realms & Bottlenecks: a life with all three at
+their ceilings and no edge must reach at most S 0.45 at each great breakthrough
+(Realms Formulas D, AC-CG-60).
 
 **Output Range:** multipliers ≥ 0; flags 0/1. Spiritual Roots' generating-pair modifiers
 (`cultivation_speed_pct` +3 each, 0–15 in all) are ordinary entries in the sum.
@@ -551,7 +569,32 @@ The stacking formulas are defined as:
 
 **Example:** heart demon 54.25 → #25 adds 27.125 → stored **27.1**. Tree modifiers of
 5.0 and 4.5 pp on `breakthrough_chance` → min(9.5, 8) = 8, plus a +12 perk (not capped) =
-**20**.
+**20**. Two secret arts with `herb_growth_pct` 25 each plus a tree +6 → min(56, 40) =
+**40**. In QR (base lifespan 120), two arts with `lifespan_years` 15 → min(30, 18) =
+**18** years.
+
+### J. Comprehension factor
+
+The comprehension_factor formula is defined as:
+
+`comp = 1 + ngo_tinh_eff ÷ ngo_tinh_divisor`
+
+Realms & Bottlenecks multiplies `comp` into the cultivation rate (its Formulas I).
+Cultivation Techniques' mastery reads effective comprehension directly, not `comp`.
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| ngo_tinh_eff | float | 1–150 | calculated (Formulas B) | Effective comprehension (ngộ tính) |
+| ngo_tinh_divisor | float | 200 (as built) | data file (`cultivation_realms.json`) | How much comprehension speeds cultivation |
+| comp | float | 1.005–1.75 | calculated | The comprehension factor |
+
+**Output Range:** 1.005 at comprehension 1, 1.5 at 100, 1.75 at the clamp of 150. Never
+below 1, so comprehension only ever speeds cultivation.
+
+**Example:** comprehension 45 (the roll mean) gives 1 + 45 ÷ 200 = **1.225**; 50 gives
+**1.25**, the value the Realms and Spiritual Roots examples use. (Added 2026-11-04,
+cross-GDD review N5: the factor was built but had no formula in any GDD.)
 
 ### Parameter keys
 
@@ -569,6 +612,8 @@ The stacking formulas are defined as:
   - `effective_talent_min` 1, `effective_talent_max` 150 **(new: hard-coded in
     `stat_sheet.gd` today)**;
   - `heart_demon_strength` {threshold 50, divisor 2, deviation_pct 100} for #25 **(new)**.
+- `bonus_ceilings` {`herb_growth_pct` 40, `alchemy_success` 8, `lifespan_frac` 0.15}
+  **(new)**.
 
 **`events_budgets.json`, `combat_rules.json`, `items_recipes.json`, `session_actions.json`**
 (the fortune and presence factors, Formulas H; each key moves to data if it is
@@ -582,7 +627,8 @@ hard-coded):
 - per realm: `than_thuc_mult`, `khi_huyet_mult`, `linh_luc_base`, `power_base` (unchanged);
 - `stage_power_step` 0.15, one global key **(change)**: it is per realm today, at 0.08
   for QR and 0.3 for the rest;
-- `breakthrough.failure_khi_huyet_loss_frac` 0.4 **(rename)**.
+- `breakthrough.failure_khi_huyet_loss_frac` 0.4 **(rename)**;
+- `ngo_tinh_divisor` 200 (as built; owned here, Formulas J).
 
 **`character_stat_labels.json`:**
 - add `qi_deviation_pct` and `mi_luc` **(new)**;
@@ -732,6 +778,8 @@ Ranges marked *derived* follow from another constraint in this GDD or an approve
 | Fortune in checks, duels | 0.002, 0.001 per point | 0–0.004, 0–0.002 | Luck against skill |
 | `mi_luc_price_per_point` | 0.004 | 0.002–0.004; *derived*: ≤ 0.4286 ÷ (effective talent clamp − 50), which is 0.00429 at clamp 150, or buy-sell loops profit | Prices |
 | Precision grid | 0.1 / 0.01 / 1 | fixed (Meridian Map, Formulas F) | Stacking |
+| `ngo_tinh_divisor` | 200 | 150–300 | How much comprehension speeds cultivation: ×1.225 at 45 (200), ×1.30 at 45 (150). Moving it moves every realm's years (Realms years table) |
+| `bonus_ceilings` | `herb_growth_pct` 40, `alchemy_success` 8, `lifespan_frac` 0.15 | 25–60, 5–12, 0.10–0.25; *derived*: all three at their ceilings, without the edge, must keep each great breakthrough at S ≤ 0.45 (Realms AC-CG-60) | How far a dedicated alchemy build can push breakthrough odds and lifespan |
 
 ## Visual/Audio Requirements
 
@@ -1026,6 +1074,19 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   `cultivation_speed_pct` +10 as well, the rate multiplier is 1.16.
 - **AC-CS-52** [Logic] Lifespan stacking. A realm lifespan of 200, a pill bonus of 10,
   `lifespan_years` +5 and `lifespan_pct` +10 give a cap of (200 + 10 + 5) × 1.10 = 236.5.
+- **AC-CS-53** [Logic] Formulas J. Effective comprehension 1 / 45 / 50 / 100 / 150
+  gives `comp` 1.005 / 1.225 / 1.25 / 1.5 / 1.75 with `ngo_tinh_divisor` 200, and the
+  rate breakdown's comprehension line shows that value. A +10 comprehension modifier
+  at base 45 gives 1.275.
+- **AC-CS-54** [Logic] Rule 14, bonus ceilings.
+  - Two technique `herb_growth_pct` 25 lines plus a tree +6 give a total of 40, with
+    a clamp line; Wood purity 50 still multiplies herb growth by 1.4 on top.
+  - `alchemy_success` 6 + 5 gives 8.
+  - At QR (base lifespan 120), a lifespan pill of 10 plus two `lifespan_years` 15
+    lines give a lifespan bonus of 18, with a clamp line. At FE (200), a pill of 10
+    plus one `lifespan_years` 15 line gives 25, under the ceiling of 30, with no
+    clamp line.
+  - `field_plots` and `lifespan_pct` are not clamped by these ceilings.
 
 **Not testable here, by design:**
 - That only the Meridian Map adds capabilities: a code-review and API-shape item.

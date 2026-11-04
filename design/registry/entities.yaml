@@ -382,6 +382,7 @@ formulas:
       - design/gdd/linh-can.md
     variables:
       - tech_norm
+      - count_gain
       - speed_mult
       - par_tier
       - match
@@ -389,11 +390,13 @@ formulas:
       - layer_speed_floor
       - beyond_realm_mult
       - second_main_mult
+      - no_cong_phap_mult
     output_range: [0.03, 4.35]
-    expression: "tech_one = tech_norm * (S[tier]/S[par(r)] if r <= max_realm else 1) * avg_purity(names)/100 * max(floor, 1 - penalty*max(0, min(3r, layers) - k)) * (0.25 if r > max_realm else 1); tech = tech_one(main) + 0.5*tech_one(second, #6 only); crude = 0.3 * strongest_purity/100"
-    notes: "The tech term of Realms Formulas I. A par-tier technique at match 0.5 with every allowed layer mastered gives 1.0 in every realm. Strongest-element starters make multi-element roots about 24% faster than the Realms years table (Cultivation Techniques OQ1; bot decides)."
+    # 2026-11-04 (cross-GDD review N6, N10): was "tech_one = tech_norm * ...; tech = tech_one(main) + 0.5*tech_one(second, #6 only)" with no count_gain and no crude floor.
+    expression: "tech_one = (tech_norm / count_gain[n_base, QR 5-element 1.27]) * (S[tier]/S[par(r)] if r <= max_realm else 1) * avg_purity(names)/100 * max(floor, 1 - penalty*max(0, min(3r, layers) - k)) * (0.25 if r > max_realm else 1); tech = max(tech_one(main), crude) + 0.5*tech_one(second, #6 only); crude = 0.3 * strongest_purity/100 (also the whole value with no usable main method)"
+    notes: "The tech term of Realms Formulas I. A par-tier technique naming the root's strongest element, at average match for its element count and every allowed layer mastered, gives 1.0 in every realm; count_gain divides out the strongest-element gain (user decision 2026-11-04)."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-04
   - name: tech_power
     status: active
     source: design/gdd/cong-phap.md
@@ -1044,6 +1047,52 @@ constants:
     value: 0.5
     unit: multiplier
     notes: "Capability #6 Twin Technique Cultivation: a second main method at 50% speed with its full bonuses, additive in tech (Cultivation Techniques Formulas A, OQ2)."
+    added: 2026-11-04
+    revised: ""
+  - name: count_gain
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+      - design/gdd/canh-gioi.md
+    value: [1.00, 1.22, 1.33, 1.41, 1.46]
+    unit: divisor on tech_norm, by base element count 1-5
+    notes: "Expected strongest purity of an n-element root / 50 (61.2 / 66.8 / 70.4 / 73.1 vs 50.1). Five elements in QR use count_gain_qr_5 1.27 (tail about 6% over the QR half-lifespan ceiling, AC-CP-47). Replaces the climb_total plan (cross-GDD review N6, user decision 2026-11-04). Recompute if purity_mean or purity_sd moves."
+    added: 2026-11-04
+    revised: ""
+  - name: ngo_tinh_divisor
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+      - design/gdd/canh-gioi.md
+    value: 200
+    unit: comprehension points per +1.0 of the comprehension factor
+    notes: "comp = 1 + effective comprehension / ngo_tinh_divisor (Character Stats Formulas J); multiplied into the Realms cultivation rate (Formulas I). 1.225 at 45, 1.25 at 50. Key lives in cultivation_realms.json (as built). Added by cross-GDD review N5."
+    added: 2026-11-04
+    revised: ""
+  - name: bonus_ceilings
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+      - design/gdd/canh-gioi.md
+      - design/gdd/cong-phap.md
+      - design/gdd/kinh-mach-do.md
+    value: {herb_growth_pct: 40, alchemy_success: 8, lifespan_frac: 0.15}
+    unit: pct / percentage points / share of the realm's base lifespan
+    notes: "Character-wide ceilings over every source (techniques, tree, items, pills); the lifespan bonus is pill + treasure lifespan + lifespan_years. Root terms, field_plots and lifespan_pct are not capped. Guesses, tuned so bonus_ceiling_target holds (cross-GDD review G1)."
+    added: 2026-11-04
+    revised: ""
+  - name: bonus_ceiling_target
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
+    value: 0.45
+    unit: great-breakthrough success S per gate, no edge
+    notes: "Calibration target, not a data key: a life with every bonus_ceilings stat at its ceiling reaches at most this S (AC-CG-60). The 0.30 / 0.70 targets are calibrated on the bot's typical loadout (Realms Formulas D)."
     added: 2026-11-04
     revised: ""
 

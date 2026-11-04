@@ -846,6 +846,12 @@ Compounding caps per cluster at n = 9 (the old values ÷ k_pts; guesses):
 has the tree-wide ceiling above, because its per-cluster cap alone lets many clusters add
 up.
 
+The tree's `herb_growth_pct`, `alchemy_success` and `lifespan_years` also count toward
+Character Stats' character-wide bonus ceilings (its rule 14 and Formulas I), which they
+share with techniques, items and pills (user decision 2026-11-04, cross-GDD review G1).
+A fill can therefore add value the sheet later clamps; the fill validator prices it at
+full W, as for any other stat.
+
 Excluded from fills (never allowed):
 - rule flags (single_artifact, safe_failure, dan_doc_no_penalty);
 - cultivation_speed_per_element_pct and lifespan_pct;

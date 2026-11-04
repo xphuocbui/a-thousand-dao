@@ -174,6 +174,9 @@ which technique you commit your seasons to. The decision has two sides:
 12. **Bonuses.** Every slotted, usable technique adds its bonuses through the
     Character Stats provider interface, with one source line per technique.
     - A bonus scales with the mastered layer (Formulas D).
+    - `herb_growth_pct`, `alchemy_success` and `lifespan_years` count toward Character
+      Stats' character-wide bonus ceilings (its Formulas I), shared with the tree,
+      items and pills (user decision 2026-11-04, cross-GDD review G1).
     - An auxiliary art's bonuses are also scaled by its harmony with the main
       method (Formulas D). Harmony is directional:
       - **the main method generates the art** (tương sinh, main → art): ×1.15;
@@ -230,8 +233,15 @@ which technique you commit your seasons to. The decision has two sides:
     only that element. Any root therefore has a next step.
     - "Reachable" means a sect library, a market stock or a quest reward in the
       starting province.
+    - **The guaranteed copy is reserved.** NPCs never buy, take or learn from it, and
+      no market restock removes it.
+    - **If its source is lost** (the sect is destroyed or closed to the player, or the
+      quest fails or expires), the same technique appears in a market stock in the
+      starting province at the next season start, at its normal price (Formulas E),
+      and stays there until bought. The World Database records the new location.
+      (User decision 2026-11-04, cross-GDD review T2.)
     - World Generation, Sects & Missions and Market own where each one appears. This
-      GDD owns the guarantee.
+      GDD owns the guarantee and the fallback.
 19. **NPCs.** NPCs follow the same rules: same slots, layers and mastery. NPC Build
     Generation picks their techniques and sets their layers to fit their realm and
     age.
@@ -281,7 +291,7 @@ Realm index *r*: QR = 1, FE = 2, CF = 3, NS = 4, DT = 5. Layer *k*: 1 to the tie
 
 The tech_speed formula is defined as:
 
-`tech_one = κ · edge · match · L · beyond`
+`tech_one = (κ ÷ g) · edge · match · L · beyond`
 `tech = max(tech_one(main), crude) + f2 · tech_one(second)` (the second term only with capability #6)
 `tech = crude = no_cong_phap_mult · strongest_purity / 100` (no usable main method; rule 8)
 
@@ -295,12 +305,27 @@ with
 - `L = max(L_floor, 1 − δ · d)`;
 - `edge = S[tier] / S[par(r)]` if r ≤ the tier's max realm, else 1;
 - `beyond = beyond_realm_mult` (0.25) if r > the tier's max realm, else 1;
-- `match = avg_purity(names) / 100` (Spiritual Roots rule 7).
+- `match = avg_purity(names) / 100` (Spiritual Roots rule 7);
+- `g = count_gain[n_base]`, the **element-count gain**: 1.00 / 1.22 / 1.33 / 1.41 /
+  1.46 for 1–5 base elements, and 1.27 for five elements in QR.
 
 The **par tier** `par(r)` is the lowest tier whose max realm is at or above *r*:
-Yellow for QR and FE, Profound for CF, Earth for NS and Heaven for DT. A par-tier
-technique with match 0.5 and every allowed layer mastered gives exactly 1.0 in every
-realm, which is the value the Realms years table assumes.
+Yellow for QR and FE, Profound for CF, Earth for NS and Heaven for DT. For a single
+root, a par-tier technique with match 0.5 and every allowed layer mastered gives
+exactly 1.0 in every realm, which is the value the Realms years table assumes.
+
+**The element-count gain** (user decision 2026-11-04, cross-GDD review N6). A player
+picks a technique naming the root's strongest element, and the strongest of *n*
+elements has a higher purity than a single root's one element: 61.2 / 66.8 / 70.4 /
+73.1 against 50.1 for 2–5 elements, exact over the Spiritual Roots purity roll. `g`
+is that ratio, so a par-tier technique naming the strongest element gives 1.0 on
+average for every element count, and the Realms years table holds for all tiers. It
+is applied per element count, not through κ or Realms `climb_total`, because either
+of those would also slow single roots, which already sit near their Nascent Soul and
+Deity Transformation ceilings. Five elements in QR use 1.27 instead of 1.46, so that
+at most about 6 % of five-element lives spend more than half of QR's lifespan there
+(AC-CP-47); the full 1.46 would put about 19 % there. A technique naming a weaker
+element, or several elements, still gives less, as before.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -313,6 +338,7 @@ realm, which is the value the Realms years table assumes.
 | L_floor (`layer_speed_floor`) | float | 0.70 (guess; safe 0.5–0.8) | data file | Lower bound of L; reached at d = 5 with the defaults |
 | S[tier] (`speed_mult`) | float | 1.00 / 1.15 / 1.30 / 1.45 (guess; edge per tier 1.10–1.25) | data file | Tier speed scale (**changed** from 1.0 / 1.3 / 1.7 / 2.2; power is now separate, Formulas C) |
 | κ (`tech_norm`) | float | 2.0 (derived: 1 ÷ typical match 0.5; safe 1.8–2.2) | data file | Normaliser |
+| g (`count_gain`) | float | 1.00 / 1.22 / 1.33 / 1.41 / 1.46 by base element count; 1.27 for five elements in QR (derived; see above) | data file | Element-count gain divided out of κ |
 | match | float | 0.10–1.00 | calculated (Spiritual Roots) | Average purity of the named ids ÷ 100 |
 | beyond_realm_mult | float | 0.25 | data file (value from Realms rule 13) | Tier cap |
 | f2 (`second_main_mult`) | float | 0.5 | data file (value from Meridian Map #6) | Second main method's speed share |
@@ -333,13 +359,16 @@ realm, which is the value the Realms years table assumes.
 - The #6 second term has no floor.
 - tech is never negative.
 
-**Example:** a Profound technique naming Wood 40 and Fire 86 has match 0.63.
-- **CF, layer 8:** cap = 9, d = 1, L = 0.94 and edge = 1, so tech = 2 × 1 × 0.63 ×
-  0.94 = **1.18**.
-- **Same technique at NS:** it is beyond its realm, so 2 × 0.63 × 0.94 × 0.25 =
-  **0.30**.
+**Example:** a Profound technique naming Wood 40 and Fire 86 has match 0.63. The
+root {Wood 40, Fire 86} has two base elements, so g = 1.22.
+- **CF, layer 8:** cap = 9, d = 1, L = 0.94 and edge = 1, so tech = 2 ÷ 1.22 × 1 ×
+  0.63 × 0.94 = **0.97**.
+- **Same technique at NS:** it is beyond its realm, so 2 ÷ 1.22 × 0.63 × 0.94 × 0.25
+  = 0.243, below crude (0.3 × 0.86 = 0.258), so the crude floor gives **0.258**.
 - **With #6:** a Yellow Wood technique at FE (match 0.40, layer 6) in the second slot
-  adds 0.5 × 2 × 0.40 = 0.40.
+  adds 0.5 × 2 ÷ 1.22 × 0.40 = 0.33.
+- With `g` pinned to 1.0, as in the default test fixture, the same three give 1.18,
+  0.30 and 0.40 (AC-CP-14, AC-CP-17).
 
 **Check: the technique a typical life holds gives about 1.0.** This assumes a
 3-element root, Comprehension 45, and a forced switch to the next par tier at each
@@ -354,18 +383,20 @@ tier ceiling, with mastery costs from Formulas B.
 | DT | a fresh Heaven | 55 % | 0.91 | 0.91 |
 
 - The result is 0.91–0.98 at match 0.5, within 10 % of the Realms assumption.
-- **Raw speed is higher for multi-element roots** (`qa-lead`): the starter names the
-  strongest element, which averages purity 67 for a 3-element root, so raw tech is
-  about 1.31 in QR and FE and 1.22–1.24 later. Such lives would clear realms about
-  24 % faster than the Realms years table. κ stays 2.0, because lowering it would push
-  1-element roots past their ceiling; the bot run decides (Open Question 1).
+- **Multi-element roots** (`qa-lead`): the starter names the strongest element, which
+  averages purity 67 for a 3-element root. Without `g`, raw tech would be about 1.31
+  in QR and FE and 1.22–1.24 later, and such lives would clear realms about 24 %
+  faster than the Realms years table. `g` (1.33 for three elements) divides that
+  out, so raw tech is about 0.98 in QR and FE and 0.92 later. κ stays 2.0.
 - The starter names the strongest element, so its mean match is 0.58 (derived,
   weighted by the count weights). That is +16 % in QR and FE.
 - **The QR half-lifespan ceiling:**
-  - **Five-element roots.** The starter match is about 0.73, so tech ≈ 1.43 and QR
-    takes about 58 ÷ 1.43 ≈ 41 years against the 60-year ceiling. A five-element
-    life breaches the ceiling only if its strongest purity is 49 or less, which
-    happens about 3 % of the time.
+  - **Five-element roots.** The starter match is about 0.73, so with `g` 1.27 tech ≈
+    2.0 ÷ 1.27 × 0.73 × 0.98 ≈ 1.13. A five-element root always holds all five
+    generating pairs (+15 %), so QR takes about 50 ÷ 1.13 ≈ 44 years against the
+    60-year ceiling (the Spiritual Roots table's 50 years assumes tech 1.0). A
+    five-element life breaches the ceiling if its strongest purity is 53 or less,
+    which happens about 6 % of the time.
   - **One-element roots.** The QR figure is 25 years at tech 1.0. The ceiling
     breaks below tech 0.42 (purity 21 or less), about 8 % of one-element lives.
   - The Realms check is on the median, which holds. A match floor would close the
@@ -575,7 +606,9 @@ Market owns the final bands.
 - `seal_seasons` 24 / 24 / 48 / 48 (new; the Meridian Map's `cong_phap_seasons`).
 
 **`items_cong_phap.json`, global:**
-- slots and speed: `aux_slots` 2, `tech_norm` 2.0, `layer_speed_penalty` 0.06,
+- slots and speed: `aux_slots` 2, `tech_norm` 2.0, `count_gain` [1.00, 1.22, 1.33,
+  1.41, 1.46] by base element count with `count_gain_qr_5` 1.27 (new),
+  `layer_speed_penalty` 0.06,
   `layer_speed_floor` 0.70, `beyond_realm_mult` 0.25, `second_main_mult` 0.5;
 - mastery: `mastery_base` 1.0, `mastery_comp_divisor` 100, `mastery_idle_frac` 0.5,
   `second_main_mastery` 1.0, `trio_cost` [60, 84, 118, 165, 231], `layer_weights`
@@ -670,8 +703,11 @@ manually before production.
 - **If a manual is lost, stolen or destroyed:** the technique stays known (States
   table).
 - **If no par-tier technique for the root's elements has been found when a tier
-  ceiling is reached:** this cannot happen under rule 18 for a base element. It can
-  happen for an authored mutation technique. The life then switches to a base-element
+  ceiling is reached:** this cannot happen under rule 18 for a base element, because
+  the guaranteed copy is reserved and, if its source is lost, reappears in a market
+  stock the next season. The player may still not have bought it yet; the
+  breakthrough preview then warns (UI Requirements). It can happen for an authored
+  mutation technique. The life then switches to a base-element
   par method and pays the ramp.
 
 **Content validation (load-time errors)**
@@ -717,7 +753,7 @@ manually before production.
 | 7 | Character Stats | Technique bonuses through the provider interface; `tech_power` for spiritual power |
 | 10 | Meridian Map | `seal_clusters`, main-slot cultivating-season counts, `seal_seasons` (its `cong_phap_seasons`) |
 | 21 | Combat | `tech_power`; the unlocked divine abilities (provisional: no Combat GDD) |
-| 20 | Market | Manuals for sale; commons with root bias; prices from Formulas E |
+| 20 | Market | Manuals for sale; commons with root bias; prices from Formulas E; the rule 18 reserved copy and its fallback stock |
 | 23, 29 | Event Engine, LLM GM | The catalogue and the commons an event may grant; validation of technique effects |
 | 24 | NPC Build Generation | Templates, slots and layer rules for NPCs |
 | 26, 27 | Sects & Missions, World Generation & History | Authored techniques to place; the next-tier guarantee (rule 18) |
@@ -754,6 +790,7 @@ All keys are in `items_cong_phap.json` unless noted.
 | Knob | Value | Safe range | What it moves |
 |---|---|---|---|
 | `tech_norm` (κ) | 2.0 | 1.8–2.2; *derived* as 1 ÷ the typical match 0.5 | Every technique's speed. It is tied to Spiritual Roots' `purity_mean` 50: if that moves, κ must follow, or the Realms years table drifts |
+| `count_gain`, `count_gain_qr_5` | 1.00 / 1.22 / 1.33 / 1.41 / 1.46; 1.27 | *derived* each as the expected strongest purity of an n-element root ÷ 50 (±0.05 for bot tuning, AC-CP-48); `count_gain[1]` must stay 1.0; `count_gain_qr_5` 1.20–1.30, *derived*: above 1.30 more than about 9.5 % of five-element lives spend over half of QR's lifespan there (AC-CP-47) | Whether every element count meets the Realms years table. Must be recomputed if Spiritual Roots' `purity_mean` or `purity_sd` moves |
 | `speed_mult` | 1.00 / 1.15 / 1.30 / 1.45 | edge per tier 1.10–1.25 | How much a tier above par is worth against a better root fit. At 1.25 per tier, tier dominates match more often |
 | `layer_speed_penalty` (δ) | 0.06 | 0.04–0.10 | The cost of switching. At 0.10, staying with a technique matters more |
 | `layer_speed_floor` | 0.70 | 0.5–0.8 | The worst ramp. **Coupled with δ:** the floor binds only from (1 − floor) ÷ δ unmastered layers (5 at the defaults), so change the two together |
@@ -806,8 +843,8 @@ These apply to the Debug Terminal now and to the Game UI later.
     *k* of *layers*, and stored mastery against the next cost;
   - the gate: "layer 7 needs Core Formation".
 - **Speed.** The rate breakdown has one technique line. Its tooltip, or `explain`,
-  splits it into κ, edge, match, L and beyond, for example "Profound Wood–Fire,
-  layer 8: 2.0 × 1.00 × 0.63 × 0.94 = 1.18".
+  splits it into κ, g, edge, match, L and beyond, for example "Profound Wood–Fire,
+  layer 8: 2.0 ÷ 1.22 (2 elements) × 1.00 × 0.63 × 0.94 = 0.97".
   - A beyond-realm method is flagged in the line: "[beyond its realm: ×0.25]", as
     built.
 - **Harmony.** Each auxiliary art shows its relation to the main method (generated
@@ -819,6 +856,10 @@ These apply to the Debug Terminal now and to the Game UI later.
   trade-off (Formulas A) visible.
 - **Manual items.** Market and inventory show tier, kind, named ids, whether the
   manual fits the root, and whether it is already learned.
+- **Before a great breakthrough.** If the main method's max realm is below the next
+  realm, the breakthrough preview warns before the attempt, for example "At Nascent
+  Soul your Profound Fire method runs at ×0.25. Next-tier Fire method: <source>". The
+  source is the rule 18 guaranteed copy's current location.
 
 ## Cross-References
 
@@ -858,7 +899,9 @@ applied above).
 - **Default fixture** unless stated:
   - root R = {Wood (Mộc) 40, Fire (Hỏa) 86};
   - Comprehension (ngộ tính) 45, Physique (căn cốt) 60;
-  - every season spent cultivating, stage multiplier 1.00, no speed bonuses.
+  - every season spent cultivating, stage multiplier 1.00, no speed bonuses;
+  - `count_gain` pinned to 1.0 for every element count, so the `tech` values below
+    test the other terms; AC-CP-18a tests `g` itself.
 - *k* is the highest mastered technique layer (tầng công pháp).
 
 **Rules**
@@ -1010,6 +1053,15 @@ applied above).
   - A Heaven method at purity 100 at QR, k 3, gives 2.9. Adding a second Heaven
     method in the #6 slot gives 4.35.
   - Over every tier × realm × k × purity in {10, 50, 100}, `tech` ≥ 0.
+- **AC-CP-18a** [Logic] The element-count gain `g`, with live `count_gain`.
+  - A Yellow [Water] method at QR, k 3, on roots whose strongest element is Water 50
+    and that hold 1 / 2 / 3 / 4 / 5 base elements gives `tech` 1.0 / 0.8197 / 0.7519
+    / 0.7092 / 0.7874 (five elements use 1.27 in QR).
+  - The same at FE, k 6, on the five-element root gives 0.6849 (1.46).
+  - Root R at CF with a Profound [Wood, Fire] main at k 8 gives **0.9708**, shown
+    0.97. At NS the same method computes 0.2427 and gives the crude floor **0.258**.
+  - Mutations do not change `g`: a 2-element root holding Thunder (Lôi) uses 1.22.
+  - `explain` shows `g` inside the technique line, as "÷ 1.22 (2 elements)".
 - **AC-CP-19** [Logic] Formulas B, gain.
   - Comprehension 45: 1.45 cultivating, 0.725 idle.
   - Comprehension 1, idle: 0.505.
@@ -1210,6 +1262,16 @@ applied above).
   - generated common records.
 
   A save taken while a technique is held at a gate reloads with stored = cost.
+- **AC-CP-49** [Integration] Rule 18, reservation and fallback. In a seeded world with
+  a guaranteed Profound [Earth] method:
+  - over 100 seasons of NPC market purchases, no NPC buys, takes or learns from the
+    reserved copy;
+  - if the sect holding it is destroyed at season N, the same technique is in a
+    starting-province market stock at season N + 1, at its Formulas E price, and the
+    World Database records the move;
+  - the same holds when the quest offering it fails, and when the sect closes to the
+    player;
+  - a restock never removes the fallback copy before it is bought.
 
 **UI**
 
@@ -1221,6 +1283,10 @@ applied above).
   - each auxiliary art's harmony relation and multiplier;
   - a refused slot action for a [Water] technique on root R, naming Water;
   - a refused mid-season change.
+- **AC-CP-50** [UI] The breakthrough preview of an FE-peak character with a Yellow
+  [Fire] main method warns "×0.25" for Core Formation and names the location of the
+  rule 18 guaranteed Profound [Fire] method. A character whose main method reaches
+  the next realm sees no warning.
 
 **Balance** (`tools/balance/autoplay.gd`)
 
@@ -1232,25 +1298,27 @@ Comprehension.
   `--elements 3` on a fixed seed list, ≥ 100 lives, with Comprehension pinned at 45
   and every season cultivating. The policy keeps the starter through FE, then at
   each ceiling switches to the par-tier method naming the strongest element.
-  - Measure per realm the season-weighted mean of tech₀.₅ = `tech` × 0.5 ÷ match.
+  - Measure per realm the season-weighted mean of tech₀.₅ = `tech` × g × 0.5 ÷ match.
   - Targets, each ±0.04: QR 0.98, FE 0.98, CF 0.92, NS 0.91, DT 0.91.
   - Every realm must lie in 0.87–1.02.
-  - The raw mean `tech` must lie in 0.80–1.40 in every realm (expected about 1.31 in
-    QR and FE).
+  - The raw mean `tech` must lie in 0.80–1.20 in every realm (expected about 0.98 in
+    QR and FE, and 0.92 later).
 - **AC-CP-47** [Balance] The QR half-lifespan ceiling under Formulas A. Run
   `--elements 1` and `--elements 5`, ≥ 400 lives each.
-  - Median QR years ≤ 60 for both (expected about 25 and 35–41).
-  - Share of lives over 60 years: ≤ 13.5 % for 1-element (hand 7.7 %) and ≤ 6.5 % for
-    5-element (hand 2.8 %).
+  - Median QR years ≤ 60 for both (expected about 25 and about 44).
+  - Share of lives over 60 years: ≤ 13.5 % for 1-element (hand 7.7 %) and ≤ 9.5 % for
+    5-element (hand about 6 % with `g` 1.27 in QR; limit raised from 6.5 % with the
+    `g` decision, keeping the hand-plus-about-3.5-points margin).
 - **AC-CP-48** [Balance] Re-check of the Realms years table.
   - AC-CG-33 and AC-CG-33a re-run with Formulas A–C active, and both pass. Expected
     1-element NS median about 465 against the 500 ceiling.
-  - On AC-CP-46's run, record the 3-element median years per realm against 38 / 50 /
-    60 / 101 / 168. Expected about 29 and 38 in QR and FE (about −24 %).
-  - If any realm is more than 20 % under the table, the fix is a Realms `climb_total`
-    raise within its safe range, not a κ change (user decision 2026-11-04, Open
-    Question 1). The Realms baseline breakthrough targets (AC-CG-30/31) are then
-    re-run.
+  - Run `--elements 2`, `3` and `4` with AC-CP-46's policy, ≥ 100 lives each. The
+    median years per realm are within ±10 % of the Spiritual Roots years table
+    (Formulas B) for that element count; for 3 elements, 38 / 50 / 60 / 101 / 168
+    without the pair bonus.
+  - If a count is off by more, retune that count's `count_gain`, not κ or Realms
+    `climb_total` (user decision 2026-11-04, cross-GDD review N6). The Realms
+    baseline breakthrough targets (AC-CG-30/31) are then re-run.
 
 **Not testable here, by design:**
 - Lowering a realm: no rule does it.
@@ -1263,7 +1331,7 @@ Comprehension.
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
-| 1 | Confirm the hand-computed Formulas A check (mean tech 0.91–0.98 per realm at match 0.5) and the Formulas B pacing with a bot run, and re-run Realms AC-CG-33 and AC-CG-33a with the new factor. Expected: multi-element roots climb about 24 % faster than the Realms years table (strongest-element starter). User decision 2026-11-04: keep κ 2.0; if the bot confirms, the lever is Realms `climb_total` (raise it; its QR +19 % cap came from the five-element ceiling, which this factor relaxes), and pill supply stays the breakthrough lever | Realms & Bottlenecks calibration (bot) | Formulas A and B sign-off |
+| 1 | Confirm the hand-computed Formulas A check (mean tech₀.₅ 0.91–0.98 per realm) and the Formulas B pacing with a bot run, and re-run Realms AC-CG-33 and AC-CG-33a with the new factor. User decisions 2026-11-04: keep κ 2.0; the strongest-element starter's speed-up for multi-element roots is divided out per element count by `count_gain` (cross-GDD review N6, replacing the earlier `climb_total` plan, which could not fit its safe range); five elements in QR use 1.27, not 1.46, to keep the QR tail at about 6 %. The bot confirms `count_gain` (AC-CP-48); pill supply stays the breakthrough lever | Realms & Bottlenecks calibration (bot) | Formulas A and B sign-off |
 | 2 | #6 Twin Technique Cultivation is additive, up to +50 % speed, which can shorten realm years by about a third. Check it against its Meridian Map price; the alternative `max(main, 0.5 × second)` would make it nearly worthless | Meridian Map, systems-designer | Capability pricing |
 | 3 | What each divine ability does | Combat GDD | Rule 13 effects |
 | 4 | Author the catalogue: about 40 templates, with an MVP handful per kind (main method, secret art, body technique), including mutation techniques, heirlooms and the rule 18 par methods for each element | content (writer, systems-designer) | Rule 17, rule 18 |

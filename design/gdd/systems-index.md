@@ -59,9 +59,9 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 4 | Time & Turn Structure | Core | MVP | Implemented | — | Config |
 | 5 | Save/Load (inferred) | Persistence | MVP | Implemented | — | World DB, Time & Turn |
 | 6 | Spiritual Roots (Linh Căn) (incl. changing spiritual roots) | Progression | MVP | Approved (third lean review 2026-11-04, no blockers, 9 recommended revisions open) | design/gdd/linh-can.md | Config, Sim Core; soft: Realms (breakthrough event, stage group), Character Stats (capability set) |
-| 7 | Character Stats (innate talent [thiên phú], derived, craft mastery [đạo nghệ]) | Progression | MVP | Approved (second lean review 2026-11-04, no blockers, 7 recommended revisions open) (built; resist clamp, cleansing floor, key renames, stage multiplier on derived values and the provider interface not built) | design/gdd/character-stats.md | Spiritual Roots, Sim Core, Config; soft (via the provider interface): Realms, Meridian Map, Cultivation Techniques, Item DB, Progression Edges, Formations |
-| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Progression | MVP | Approved (fifth lean review 2026-11-04, no blockers, 8 recommended revisions open) | design/gdd/canh-gioi.md | Config, Sim Core, Time & Turn, Spiritual Roots, Character Stats, Item DB; soft: Cultivation Techniques, Spirit Herbs, Alchemy, Formations, Travel & Map, Event Engine, Progression Edges |
-| 9 | Cultivation Techniques (Công Pháp) | Progression | MVP | Approved (first lean review 2026-11-04, no blockers, 8 recommended revisions open) (built as a flat item; layers, mastery, slots, harmony, the normalised speed factor and the speed/power split not built) | design/gdd/cong-phap.md | Spiritual Roots, Realms, Character Stats, Item DB; soft: Time & Turn, Meridian Map |
+| 7 | Character Stats (innate talent [thiên phú], derived, craft mastery [đạo nghệ]) | Progression | MVP | Needs Revision | design/gdd/character-stats.md | Spiritual Roots, Sim Core, Config; soft (via the provider interface): Realms, Meridian Map, Cultivation Techniques, Item DB, Progression Edges, Formations |
+| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Progression | MVP | Needs Revision | design/gdd/canh-gioi.md | Config, Sim Core, Time & Turn, Spiritual Roots, Character Stats, Item DB; soft: Cultivation Techniques, Spirit Herbs, Alchemy, Formations, Travel & Map, Event Engine, Progression Edges |
+| 9 | Cultivation Techniques (Công Pháp) | Progression | MVP | Needs Revision | design/gdd/cong-phap.md | Spiritual Roots, Realms, Character Stats, Item DB; soft: Time & Turn, Meridian Map |
 | 10 | Meridian Map (Kinh Mạch Đồ) (added by request) | Progression | MVP | Approved: 6 lean reviews, the sixth found no blockers (partially implemented: base tree at 202-acupoint [huyệt] prototype scale; levels, clusters, capabilities not built) | design/gdd/kinh-mach-do.md | Spiritual Roots, Character Stats, Realms, Config, Sim Core; soft: Event Engine, Item DB, Cultivation Techniques, LLM GM, World DB, Edges |
 | 11 | Progression Edges: destiny perk (thiên mệnh), fortuitous encounters (cơ duyên), NPC edges (added by request) | Progression | MVP | Implemented | quick spec: design/quick-specs/progression-and-edges.md | Character Stats, Realms, Event Engine (player half) |
 | 12 | Codex & Karmic Carryover | Progression | Vertical Slice | Not Started | — | Item DB, Alchemy, Spiritual Roots, Save/Load |
@@ -91,6 +91,11 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 36 | Debug Terminal (added by request) | UI | MVP | Implemented | docs/debug-terminal.md (run guide, not a GDD) | Guidance, Save/Load, LLM GM |
 | 37 | Game UI: Godot, 2D ink-wash | UI | Vertical Slice | Not Started | — | Guidance, Save/Load |
 | 38 | Audio | Audio | Full Vision | Not Started | — | Game UI, Event Engine |
+
+**Needs Revision (2026-11-04, cross-GDD review `gdd-cross-review-2026-11-04b.md`, verdict FAIL):**
+- 7 Character Stats: previously approved after its second lean review. Built, except the resist clamp, cleansing floor, key renames, stage multiplier on derived values and the provider interface. Blocking: N5 (`comp`), shared with Realms.
+- 8 Realms & Bottlenecks: previously approved after its fifth lean review. Blocking: N5, N6 (`climb_total` ranges), G1 (λ calibration).
+- 9 Cultivation Techniques: previously approved after its first lean review. Built as a flat item; layers, mastery, slots, harmony, the normalised speed factor and the speed/power split are not built. Blocking: G1 (bonus pool), N6 (AC-CP-48), T2 (rule 18).
 
 **Folded in, not listed separately:** craft mastery (into Character Stats), the life chronicle and
 LLM provider settings (into LLM GM), changing spiritual roots (into Spiritual Roots). The `GameSession`
