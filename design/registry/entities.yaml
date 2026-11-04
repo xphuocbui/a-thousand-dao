@@ -54,7 +54,7 @@
 #   in any other shape is reported as unsupported layout, with its number.
 
 version: 1
-last_updated: "2026-11-03"
+last_updated: "2026-11-04"
 
 # ─── ENTITIES ────────────────────────────────────────────────────────────────
 # Named game-world objects: enemies, NPCs, characters, factions, bosses.
@@ -124,6 +124,66 @@ items: []
 # Optional: expression (the actual formula), notes
 
 formulas:
+  - name: effective_talent
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+      - design/gdd/canh-gioi.md
+    variables:
+      - base
+      - flat_modifiers
+    output_range: [1, 150]
+    expression: "clamp(base + sum of flat modifiers on the talent key, 1, 150)"
+    notes: "Every rule reads the effective value; the grade comes from the base."
+    added: 2026-11-04
+    revised: ""
+  - name: derived_values
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+      - design/gdd/canh-gioi.md
+    variables:
+      - talent
+      - per_point
+      - realm_mult
+      - stage_mult
+      - pct
+    output_range: [0, unbounded]
+    expression: "divine_sense = eff(than_hon)*1.0*than_thuc_mult*stage_mult*(1+pct); vitality_max = eff(can_cot)*10*khi_huyet_mult*stage_mult*(1+pct); spiritual_power = linh_luc_base*stage_mult*tech_power*(1+pct) [+0.20*vitality_max with #4]; combat_realm_term = power_base*stage_mult"
+    notes: "Realm bases unchanged (Realms OQ7); smallest great-breakthrough jump x2.07. Unbounded above: tech_power (up to about 2.0) and pct bonuses scale it."
+    added: 2026-11-04
+    revised: ""
+  - name: qi_deviation_chance
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+      - design/gdd/canh-gioi.md
+      - design/gdd/kinh-mach-do.md
+    variables:
+      - heart_demon
+      - dao_tam
+      - qi_deviation_pct
+    output_range: [0, 100]
+    expression: "clamp(max(0, hd - eff(dao_tam)/2) * max(0, 1 + qi_deviation_pct/100), 0, 100) %"
+    notes: "Heart demon gain lands before the roll; death needs a deviation and hd >= 90."
+    added: 2026-11-04
+    revised: ""
+  - name: presence_price
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+    variables:
+      - mi_luc
+      - value
+    output_range: [1, inf]
+    expression: "charm = (eff(mi_luc)-50)*0.004; buy = ceil(value*1.5*(1-charm)); sell = max(1, floor(value*0.6*(1+charm)))"
+    notes: "Market consumer; buy rounds up and sell rounds down so loops never profit."
+    added: 2026-11-04
+    revised: ""
   - name: level_cost
     status: active
     source: design/gdd/canh-gioi.md
@@ -287,11 +347,105 @@ formulas:
 # Required fields: name, status, source, referenced_by, value, unit, added
 
 constants:
+  - name: talent_roll
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+    value: "N(45, 16), clamped 1-100, rounded"
+    unit: talent value
+    notes: "Grade shares 18.2 / 65.1 / 16.1 / 0.54 / 0.033 % (Lower to Heavenly)."
+    added: 2026-11-04
+    revised: ""
+  - name: talent_grade_bands
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+    value: [30, 60, 85, 99, 100]
+    unit: band max
+    notes: "Lower / Middle / Upper / Supreme / Heavenly."
+    added: 2026-11-04
+    revised: ""
+  - name: resist_factor_clamp
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+      - design/gdd/canh-gioi.md
+    value: [0.1, 2.0]
+    unit: multiplier
+    notes: "Gain factor for toxicity and heart demon resistance; negative resistance raises gains."
+    added: 2026-11-04
+    revised: ""
+  - name: cleanse_potency_floor
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+    value: 0.25
+    unit: potency
+    notes: "Cleansing pills keep at least this at toxicity 100."
+    added: 2026-11-04
+    revised: ""
+  - name: linh_luc_conversion
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+      - design/gdd/kinh-mach-do.md
+    value: 0.2
+    unit: share of max vitality
+    notes: "Capability #4; added after linh_luc_pct."
+    added: 2026-11-04
+    revised: ""
+  - name: dan_doc_divisors
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+    value: [200, 100]
+    unit: toxicity
+    notes: "Cultivation slowdown divisor (max -50%) / pill potency divisor (to 0)."
+    added: 2026-11-04
+    revised: ""
+  - name: mi_luc_price_per_point
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+    value: 0.004
+    unit: charm per presence point
+    notes: "Derived ceiling 0.00429 or buy-sell loops profit."
+    added: 2026-11-04
+    revised: ""
+  - name: khi_van_reward_ceiling
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+    value: "0.75 + 0.005 * fortune"
+    unit: multiplier
+    notes: "Event Engine reward budgets."
+    added: 2026-11-04
+    revised: ""
+  - name: stat_precision_grid
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+      - design/gdd/kinh-mach-do.md
+    value: "0.1: pct keys, stealth, lifespan_years; 0.01: the six talent keys, dan_doc_decay, density_bonus; 1: field_plots, alchemy_yield, flags"
+    unit: units
+    notes: "Authored values rounded to grid (off-grid fails validation); computed values floored with 1e-6 tolerance."
+    added: 2026-11-04
+    revised: ""
   - name: stage_power_step
     status: active
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
     value: 0.15
     unit: multiplier per small breakthrough
     notes: "User decision; derived ceiling 0.24."
@@ -344,6 +498,7 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
       - design/quick-specs/progression-and-edges.md
     value: 15
     unit: heart demon per failed attempt
@@ -361,20 +516,32 @@ constants:
     added: 2026-11-03
     revised: ""
   - name: failure_khi_huyet_loss_pct
-    status: active
+    status: deprecated
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
     value: 0.40
     unit: share of maximum vitality lost per failed attempt
-    notes: "Floor is vitality_floor (0.05)."
+    notes: "Superseded by failure_khi_huyet_loss_frac (the value is a fraction, not a percent)."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-04
+  - name: failure_khi_huyet_loss_frac
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
+    value: 0.40
+    unit: share of maximum vitality lost per failed attempt
+    notes: "Floor is vitality_floor (0.05). Renamed from failure_khi_huyet_loss_pct (it holds a fraction)."
+    added: 2026-11-03
+    revised: 2026-11-04
   - name: vitality_floor
     status: active
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
     value: 0.05
     unit: share of maximum vitality
     notes: "Floor for the failure loss and the vitality after a qi deviation."
@@ -405,9 +572,10 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
     value: 0.25
     unit: heart demon per season
-    notes: "Was 0.5."
+    notes: "Was 0.5. Safe range 0.15-0.25 (n_90 must stay 7-10)."
     added: 2026-11-03
     revised: ""
   - name: breakthrough_talisman_value

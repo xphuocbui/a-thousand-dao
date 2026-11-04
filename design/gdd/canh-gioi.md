@@ -133,9 +133,9 @@ implementation story; Open Questions lists what the move touches.
    advance already paid at great perfection).
 10. **Failure.** The bar loses 30 % of its content (`failure_tu_vi_loss_pct`), the
     character gains heart demon (tâm ma, `failure_tam_ma_gain`) and loses 40 % of maximum
-    vitality (`failure_khi_huyet_loss_pct`, floor 5 %). The heart demon gain lands first;
+    vitality (`failure_khi_huyet_loss_frac`, floor 5 %). The heart demon gain lands first;
     then a qi deviation (tẩu hỏa nhập ma) rolls with chance max(0, heart demon − Dao heart
-    ÷ `tam_ma_backlash_divisor`) %, using the new value. Heart demon is a decimal number.
+    ÷ `tam_ma_backlash_divisor`) % × (1 + `qi_deviation_pct` ÷ 100), using the new value Heart demon is a decimal number.
     A deviation that hits sets vitality to 5 %, unless heart demon is
     `backlash_death_tam_ma_threshold` (90) or more, in which case the character dies.
     Death needs both: a deviation hit and heart demon at 90 or more. With no deviation hit
@@ -351,7 +351,7 @@ other attempt is bare: it uses p_bare alone and burns nothing.
 | p_pill | float | 0.06 / 0.16 / 0.20 / 0.15 | data file (`entry_requirement.pill_chance`) | Entry pill chance at QR→FE, FE→CF, CF→NS, NS→DT (FE→CF lowered from 0.20) |
 | p_bare | float | 0.004 / 0.0037 / 0.0037 / 0.003 | data file (`entry_requirement.base_chance`) | Bare chance, the only term of a bare attempt; not clamped |
 | k_q·rank | float | 0–0.075 | data file | Pill quality, 0.015 per grade |
-| k_n·ngo | float | 0–0.05 | data file | Comprehension (ngộ tính), 0.0005 per point; pill attempts only |
+| k_n·ngo | float | 0–0.075 | data file | Comprehension (ngộ tính), 0.0005 per point; pill attempts only |
 | k_d·dao | float | 0–0.025 | data file | Dao heart (đạo tâm), 0.00025 per point; pill attempts only |
 | q_tree | float | 0–0.08 | calculated (Meridian Map) | The tree's breakthrough chance, capped by the Meridian Map's `tree_breakthrough_cap` (8 pp); item and event bonuses go in q_bonus and are not capped by it |
 | τ | float | 0.10 | data file (`crafting_talismans.json`) | Breakthrough talisman (Phá Cảnh Phù), at most one per pill attempt (user decision) |
@@ -493,7 +493,8 @@ The heart_demon_per_failure formula is defined as:
   deliberate rare tail risk (user decision 2026-11-03): it needs a deviation hit and heart
   demon of 90 or more, i.e. 7 or more failures in quick succession (3 bare attempts plus a
   run of failed pill attempts), which normal play almost never produces (AC-CG-36a).
-- The qi deviation (tẩu hỏa nhập ma) chance is max(0, heart demon − Dao heart ÷ 2) %. After
+- The qi deviation (tẩu hỏa nhập ma) chance is max(0, heart demon − Dao heart ÷ 2) % ×
+  (1 + `qi_deviation_pct` ÷ 100) (Character Stats, Formulas E). After
   one failure with Dao heart 30 it is 0 %; after two quick failures it is about 13 %.
 
 **Example:** QR→FE: 15 − 0.25 × 7.4 = 13.2, so ⌈90 ÷ 13.2⌉ = **7**.
@@ -503,7 +504,7 @@ The heart_demon_per_failure formula is defined as:
 | Condition | Key | Value | Why |
 |---|---|---|---|
 | CF: local spiritual qi | `core_density_min` | 1.4 (user decision) | Place density plus `density_bonus`, the same sum the cultivation rate uses. About 18 % of places qualify, 2–4 per world (guess): mountains 20 %, valleys 40 %, islands 20 %, every secret domain (bí cảnh), no lakes or towns. A gathering formation (Tụ Linh Trận, +0.15 per level, home only) reaches it at level 3 from a home at 1.0, or level 4 in a town. At 1.3, 28 % of places would qualify; at 1.5 only 9.5 %, mostly secret domains |
-| NS: heart demon | `nascent_tam_ma_max` | 20 (user decision) | One failure (+15) still allows the next attempt. Two quick failures (about 30) force a 10-year wait or a calming pill (Tĩnh Tâm Đan, −25). It tests a whole realm of conduct, including kills |
+| NS: heart demon | `nascent_tam_ma_max` | 20 (user decision) | One failure (+15) still allows the next attempt. Two quick failures (about 30) force a 10-year wait or a calming pill (Tĩnh Tâm Đan, −25). Kills add no heart demon (Character Stats), so it tests failed breakthroughs, events and capability #9 across the realm |
 | DT: insight | `condition.type` "insight" | kept once gained (user decision) | One enlightenment event unlocks every later attempt in that realm step, so λ is not limited by insights |
 
 ### H. Guard hook (for the Meridian Map's Formulas E2)
@@ -550,7 +551,7 @@ attempt log is saved with the character.
   hard-coded clamp).
 - `breakthrough.failure_tam_ma_gain` 15.
 - `breakthrough.failure_tu_vi_loss_pct` 0.30 (bar lost on a failure).
-- `breakthrough.failure_khi_huyet_loss_pct` 0.40 (share of maximum vitality lost).
+- `breakthrough.failure_khi_huyet_loss_frac` 0.40 (share of maximum vitality lost).
 - `breakthrough.vitality_floor` 0.05 (floor for that loss, and vitality after a deviation).
 - `breakthrough.backlash_death_tam_ma_threshold` 90 (a deviation at or above it kills).
 - `breakthrough.tam_ma_backlash_divisor` 2.0 (Dao heart divisor in the deviation chance).
@@ -758,7 +759,7 @@ other numbers in this GDD; ranges marked *guess* wait for a bot run.
 | Comprehension, Dao heart, quality per-point bonuses | 0.0005 / 0.00025 / 0.015 | ±50 % | How much talent and pill quality matter |
 | Breakthrough talisman τ (`pha_canh` value) | 10 pp | 5–10; derived ceiling: at most the pill's chance from FE→CF on | The talisman's weight against the pill |
 | `failure_tam_ma_gain` | 15 | 10–20 | How fast back-to-back failures become deadly |
-| `tam_ma_natural_decay` | 0.25 per season | 0.2–0.5 | How long a failure haunts the character |
+| `tam_ma_natural_decay` | 0.25 per season | 0.15–0.25; *derived*: n_90 must stay at 7–10, which holds up to about 0.256 (at 0.5 it is 8 / 11 / 12 / 28) | How long a failure haunts the character |
 | `failure_tu_vi_loss_pct` | 0.30 | 0.2–0.4 | Refill time after a failure |
 | `core_density_min` | 1.4 | 1.3–1.5; derived: 28 % to 9.5 % of places qualify | How hard the Core Formation condition is |
 | `nascent_tam_ma_max` | 20 | 15–30 | How much heart demon a Nascent Soul attempt tolerates |
@@ -946,8 +947,9 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - A raw 0.9625 is clamped to 0.95.
   - A raw 0 is clamped to 0.01.
   - A bare 0.0037 stays 0.0037.
-- **AC-CG-25** [Logic] Rule 8. A sheet `breakthrough_chance` of 0.12 counts as 0.08, so
-  FE→CF q = 0.3825.
+- **AC-CG-25** [Logic] Rule 8. Tree-sourced `breakthrough_chance` of 12 pp counts as 8 pp
+  (q_tree 0.08), so the FE→CF baseline q = 0.3825. A non-tree bonus (a perk) is a
+  separate q_bonus term and is not capped (Character Stats rule 14).
 - **AC-CG-26** [Logic] Rule 9. A forced FE→CF success at level 79 leads to:
   - level 80, bar 0, full vitality;
   - CF bases at multiplier 1.00;
@@ -1140,8 +1142,8 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 | 3 | When can a baseline life craft a breakthrough talisman? Formulas C assumes not before the QR→FE bottleneck but yes from FE→CF on. If it can, baseline QR→FE success rises from 0.30 to about 0.47 | calibration (bot) | Formulas C and E sign-off |
 | 4 | The Nascent Soul and Deity Transformation pill recipes (about 270 and 470 plot-years), including a new top-rarity herb for Deity Transformation | Item DB, economy-designer | Those two gates |
 | 5 | Fortuitous encounter weights that give the edge about 1.2–1.6 gift pills per gate | Progression Edges | The edge's 0.70 |
-| 6 | How fast killing adds heart demon, which decides how hard the Nascent Soul condition is | Character Stats, Combat | Formulas G tuning |
-| 7 | The realm bases for spiritual power, divine sense and vitality, now that they take the stage multiplier | Character Stats GDD | Rule 6 for those three stats |
+| 6 | ~~How fast killing adds heart demon~~ **Answered 2026-11-04 by Character Stats:** kills add none (user decision) | — | — |
+| 7 | ~~The realm bases with the stage multiplier~~ **Answered 2026-11-04 by Character Stats (Formulas C):** unchanged; every great-breakthrough jump stays ≥ ×2.07 | — | — |
 | 8 | The move from stages to levels in code: `cultivation_rules.gd` (cost curve, pill vs bare attempts, conditions), `combat_power.gd`, `world_ticker.gd` (NPCs advance by 4 stages, including in Qi Refining), `build_generator.gd` (`tree_points_for`), the terminal views, the Advisor, the event context and save migration | implementation story | Building this GDD |
 | 9 | The FE pill ginseng's text says "thirty years"; with `min_age` 25 the text must change, or keep 30 and accept a baseline of 0.27 | Item DB | Data consistency |
 | 10 | The Deity Transformation baseline P_C: how often a baseline life gets an enlightenment event that grants the insight, and the matching event rate (needed to verify AC-CG-31) | Event Engine, calibration (bot) | Formulas E for Deity Transformation |
