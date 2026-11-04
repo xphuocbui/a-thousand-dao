@@ -1,6 +1,6 @@
 # Spiritual Roots (Linh Căn)
 
-> **Status**: Approved (2026-11-04, third lean /design-review, after the cross-GDD review blockers C1 and D1 were applied; 9 recommended items remain open). See `reviews/linh-can-review-log.md`.
+> **Status**: In Review (2026-11-04, after cross-GDD review 04g: holder-raised ceilings priced, plots at 20 W; awaiting re-review). See `reviews/linh-can-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-04
@@ -163,7 +163,18 @@ Changes from the built game are marked **(change)**.
      Meridian Map's power unit W, stay within its order's band: order 1 ≤ 30 W, order 2
      ≤ 60 W, order 3 ≤ 100 W, order 4 ≤ 150 W (Formulas E), and no lower than a floor of
      10 / 15 / 30 / 50 W, so a mutation is never a dud. Values outside a band are retuned
-     in data.
+     in data. Today's data breaks the floor for Death and Reincarnation (Formulas E,
+     Open Question 1). Lava returns to its band through its alchemy ceiling raise 3 → 5
+     (13.5 W; user decision 2026-11-04), once the data pass adds it.
+     **Holder-raised ceilings** (user decision 2026-11-04, cross-GDD review 04g, F15;
+     Character Stats rule 14). A mutation may raise one character-wide ceiling for its
+     holder only: Pill Fire raises `alchemy_success` 3 → 6 (31.2 W), Lava raises
+     `alchemy_success` 3 → 5 (13.5 W) and Spirit Farming raises `herb_growth_pct`
+     10 → 20 (49 W). Raises on one key do not stack, and the
+     highest applies. Formulas E prices each raise as power. Time, the apex, takes its power outside the character-wide
+     ceilings: +40 % cultivation speed and a ×1.25 herb-aging root factor, 110.5 W (user
+     decision 2026-11-04). Until the data pass adds those lines, Time's built data prices
+     at 0 W and fails the floor too (AC-LC-25).
 9. **Forming mutations.** Each mutation rolls **once**, when its parents first become all
    owned: at birth, or when a root change adds an element (rule 11). The only other roll
    is Mutation Awakening (below). A purity change never triggers a roll (**change**; user
@@ -440,36 +451,138 @@ The mutation formulas are defined as:
 
 The mutation_power formula is defined as:
 
-`power_W = Σ_stats w[stat] · value` ; `power_W ≤ band[order]`
+`power_W = Σ_{k uncapped} w_k · v_k + Σ_{k ceilinged} [ w_k · max(0, min(a_k + v_k, c_k) − min(a_k, c_k)) + w_k · (c'_k − c_k) ]` ; `floor[order] ≤ power_W ≤ band[order]`
+
+`c_k = max(base_k, highest raise on k among the guaranteed ancestors)` ; `c'_k = max(c_k, r_k)`, or c'_k = c_k when the mutation has no raise on k
+
+**Ceilinged keys, priced at the margin (user decision 2026-11-04, fourth-pass review).**
+A key under one of Character Stats' character-wide bonus ceilings (its rule 14:
+`herb_growth_pct` 10, `alchemy_success` 3, the lifespan bonus 15 % of the realm's base
+lifespan) is priced at what the ceiling still lets through **after the mutation's
+guaranteed ancestors**, not at its data value. This one rule replaces the earlier per-key
+wording and extends it: W10 priced lifespan years up to the ceiling, 04f B1 did the same
+for herb growth, and this rule adds `alchemy_success` and makes all three marginal.
+- **Guaranteed ancestors** of a mutation are its mutation parents in Formulas D's parent
+  list, their mutation parents, and so on to first order. A mutation forms only when every
+  parent is owned (rule 9; Self-made picks are validated the same way, rule 2), and nothing
+  is ever lost (rule 12), so every guaranteed ancestor's modifiers are on the sheet
+  whenever the mutation is. Base elements carry no sheet modifiers, so they add nothing to
+  a_k, and Chaos (all five base elements) has no ancestors.
+- Only ancestors count. A mutation that merely shares a parent is not guaranteed: Lava is
+  not counted for Pill Fire, even on a root that holds both.
+- Other sources (techniques, the tree, items, pills, craft mastery) are not counted. They
+  are not guaranteed, and the price is the mutation's own worth.
+
+**Root factors are uncapped keys (user decision 2026-11-04).** A modifier of kind "root"
+(today only `herb_age_root_pct`) is not a sheet modifier: it is a separate multiplying
+factor in the herb-aging formula, like Wood's root term, and sits outside rule 14's herb
+growth ceiling. It is not a ceilinged key, so it is priced in full, w_k · v_k, in the
+first sum. Character Stats Formulas G and Realms & Bottlenecks Formulas D take it as
+`h = (1 + 0.008 · purity_wood) · (1 + herb_age_root_pct/100) · max(0, 1 + herb_growth_pct/100)`.
+
+**Holder-raised ceilings are priced as headroom (user decision 2026-11-04, cross-GDD review
+04g, F15).** A mutation with an effect of kind "ceiling_raise" (key k, value r_k) moves
+its holder's ceiling on k (Character Stats rule 14). The rule has three parts:
+- **The raise is priced in full, as headroom:** w_k · (c'_k − c_k). It counts whether or
+  not anything fills it, because techniques, the tree, items and pills can fill the room,
+  much as a plot is priced whether or not it is sown. It is marginal over the
+  ancestors: c_k already includes the highest raise on k among the guaranteed
+  ancestors, and a raise at or below c_k adds 0 W, since raises do not stack. A raise
+  held by an owned mutation that is not an ancestor is not counted, just as for lines.
+- **The mutation's own line on k is priced against c_k**, the ceiling that holds without
+  this mutation's raise.
+- **No double counting.** The brief's form prices the line against the raised ceiling,
+  min(a_k + v_k, c'_k) − min(a_k, c'_k). That form is equivalent only if the raise is
+  then priced for the part of (c_k, c'_k] that the line does **not** fill. Pricing the
+  line against c'_k and the raise in full pays twice for the band the line fills: Pill
+  Fire would be 8.1 + 16.2 + 15 = 39.3 W, while its holder gets 6 alchemy points (16.2 W)
+  and the yield (15 W), which is 31.2 W. Both correct forms give the same total for every
+  a_k, v_k, c_k and c'_k. The worth delivered on k is then w_k · (c'_k − a_k) when the
+  ancestors and the line reach c'_k.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| w[stat] | float | per stat | data file (the Meridian Map's Formulas F weights) | W per unit; lifespan years at 300 ÷ the QR lifespan (2.5 W per year), since most lives end there |
-| value | float | signed | data file (`character_elements.json`) | Each fixed modifier |
-| band[order] | float | 30 / 60 / 100 / 150 W | data file (`bien_di_power_band`, new) | User decision |
+| w_k | float | per stat | data file (the Meridian Map's Formulas F weights) | W per unit of key k. Lifespan years are 300 ÷ the QR lifespan, 2.5 W per year, since most lives end in QR. Ceilinged keys: `herb_growth_pct` 0.9, `alchemy_success` 2.7, `lifespan_years` 2.5. Uncapped keys used by Time: `cultivation_speed_pct` 2.2, and the root factor `herb_age_root_pct` 0.9 (priced like herb growth, but in full). `field_plots` **20 W per plot** (Meridian Map Formulas F, repriced from 10 W by cross-GDD review 04g, F11) |
+| v_k | float | signed | data file (`character_elements.json`) | The mutation's own fixed modifier on key k |
+| a_k | float | ≥ 0 | calculated | Sum of key k over the mutation's guaranteed ancestors (0 for first order and for Chaos) |
+| base_k | float | 10 / 3 / 18 | data file (Character Stats `bonus_ceilings`) | Base ceiling for `herb_growth_pct` 10, `alchemy_success` 3, and `lifespan_years` 18: the QR lifespan bonus ceiling, 15 % of 120 years (W10) |
+| r_k | float | > base_k | data file (`character_elements.json`, effect kind "ceiling_raise") | The mutation's own raised ceiling on key k: Pill Fire `alchemy_success` 6, Spirit Farming `herb_growth_pct` 20, Lava `alchemy_success` 5 |
+| c_k | float | ≥ base_k | calculated | The ceiling on k without this mutation's raise: base_k, or the highest raise on k among the guaranteed ancestors |
+| c'_k | float | ≥ c_k | calculated | The holder's ceiling on k with this mutation's raise: max(c_k, r_k); equal to c_k when the mutation has no raise on k |
+| band[order], floor[order] | float | ceilings 30 / 60 / 100 / 150 W; floors 10 / 15 / 30 / 50 W | data file (`bien_di_power_band`, new) | User decision |
+| power_W | float | see Output Range | calculated | The mutation's price |
 
 Stats the Meridian Map doesn't price (*guess*): travel speed 0.3 W per point,
 `alchemy_yield` 15 W per +1, presence 2 W per point.
 
-**Output Range:** each mutation within its band. Today's values, which need retuning
-**(change)**:
+**Output Range:**
+- A ceilinged key's term is bounded: it is 0 when the ancestors already fill the
+  ceiling (a_k ≥ c_k), and at most w_k · c_k when a_k = 0 and v_k ≥ c_k. That is 9 W for
+  herb growth, 8.1 W for alchemy success and 45 W for lifespan years.
+- A raise term is at least 0 and at most w_k · (r_k − base_k), which is 0 when an
+  ancestor already holds an equal or higher raise. Today that maximum is 8.1 W for Pill
+  Fire's alchemy 3 → 6, 9 W for Spirit Farming's herb growth 10 → 20 and 5.4 W for
+  Lava's alchemy 3 → 5. A ceilinged key's line plus raise is at most w_k · r_k.
+- Uncapped keys are unbounded in the formula; the band clamps them in data.
+- No mutation today has a negative value on a ceilinged key. A negative value on a
+  ceilinged key is priced in full (w_k · v_k, negative), because Character Stats applies
+  penalties after the cap (its rule 14).
+- Each mutation must sit between its order's floor and ceiling. Today's values, which
+  need retuning **(change)**:
 
-| Order | Within band | Over or under band |
+| Order (floor–ceiling) | Within band | Over or under band |
 |---|---|---|
-| 1 (≤ 30) | Light 15, Lava 22, Gravity 15, Ice 24, Wind 15, Poison 26, Darkness 22.5, Mist 22.5, Thunder 20 | **Life 52** (+30 % herb growth, +10 lifespan years) |
-| 2 (≤ 60) | Sword 30, Heavenly Thunder 50, Blood 36, Pill Fire 55.5, Soul 52, Illusion 57.5, Space 40, Yin 22, Yang 22, Destruction 30 net | **Spirit Farming 74, Array 73, Stars 75, Refined Metal 62.5**; under the 15 W floor: **Death 5 net** (its −10 presence eats it) |
-| 3 (≤ 100) | Chaos 80 | **Reincarnation 125** (+50 years), **Taiji 133** |
-| 4 (≤ 150) | — | **Time 590** (+200 years, 167 % of a QR lifespan) |
+| 1 (10–30) | Light 15, Gravity 15, Ice 24, Wind 15, Poison 26, Darkness 22.5, Mist 22.5, Thunder 20, Lava 13.5 (`alchemy_success` +8 with 3 priced = 8.1 W, plus its raise 3 → 5 = 5.4 W; user decision 2026-11-04; was 22, and 8.1 without the raise) | Over: **Life 34** (herb +30 with 10 priced = 9 W, +10 lifespan years = 25 W) |
+| 2 (15–60) | Sword 30, Heavenly Thunder 50, Destruction 30 net, Blood 36, Pill Fire 31.2 (raise 3 → 6 = 8.1 W, alchemy +15 priced to the pre-raise 3 = 8.1 W, `alchemy_yield` 15 W; was 23.1), Spirit Farming 49 (raise 10 → 20 = 9 W; herb +60 adds 0 over Life's 30 at the pre-raise 10; +2 plots at 20 W = 40 W; was 20), Soul 52, Illusion 57.5, Space 50 (travel +100 = 30 W, +1 plot = 20 W; was 40), Yin 22, Yang 22 | Over: **Array 73, Stars 75, Refined Metal 62.5**. Under: **Death 5 net** (its −10 presence eats it) |
+| 3 (30–100) | Chaos 80 | Over: **Taiji 133**. Under: **Reincarnation 20** (+50 years over Life's 10: 18 − 10 = 8 years priced; was 45) |
+| 4 (50–150) | Time 110.5 (+40 % cultivation speed = 88 W, plus the herb-aging root factor +25 % = 22.5 W, priced in full; was 0) | — |
 
-Retuning direction: lifespan bonuses become `lifespan_pct` or fewer years (for example
-Time +15 %, Reincarnation +25 years); the over-band craft mutations lose about a fifth;
-Death gets a larger positive side (Destruction's 30 W net is inside its band). Each value must also respect the
-Meridian Map's compounding caps (for example Stars' +10 comprehension against a cap of 1
-per cluster; that cap is for clusters, but it shows the scale).
+What the margin shows:
+- Time's old +200 years and +100 % herb growth add nothing (0 W). A character who holds
+  Time already holds Reincarnation and Life, whose 60 years and 30 % fill both ceilings.
+  Its power now comes from two uncapped lines instead (user decision 2026-11-04), and the
+  two old lines are dropped in the data pass.
+- Reincarnation adds 8 years over Life.
+- Spirit Farming's herb line adds nothing over Life at the base ceiling. Its herb
+  identity is now the raise, 10 → 20 (9 W), which its +60 % fills for the holder.
+- Pill Fire's alchemy is now delivered up to 6 through its raise, and Lava's up to 5
+  through its own.
+- Plots at 20 W are now most of Spirit Farming's price (40 of 49 W) and two-fifths of
+  Space's (20 of 50 W).
+
+These data values stay for now and show as held back: Time (+200 years, +100 % herb
+growth; the data file still holds them until the data pass, but they are not design
+values), Reincarnation (+50 years), Spirit Farming (+60 %; 20 is delivered at most),
+Pill Fire (+15; 6 is delivered at most) and Lava (+8; 5 is delivered at most).
+The data pass in Open Question 1 trims or replaces them, and adds Time's two new lines. A mutation never exists without
+its ancestors, and the herb growth and alchemy ceilings are flat, so those held-back parts
+are never delivered. The lifespan ceiling grows with realm (15 % of base lifespan), so
+held-back years do deliver more after QR; the price uses QR by decision W10.
+
+For the over-band mutations, Life must fall to 30 W (by 4), Array, Stars and Refined
+Metal to 60 W (by 13, 15 and 2.5 W) and Taiji to 100 W (by 33). Death needs a larger positive side (Destruction's
+30 W net is inside its band). Each value must also respect the Meridian Map's compounding
+caps (for example Stars' +10 comprehension against a cap of 1 per cluster; that cap is for
+clusters, but it shows the scale).
 
 **Example:** Light: `tam_ma_resist_pct` +10 × 1.5 = **15 W**. Heavenly Thunder: 35 ×
-1.0 + 3 × 5 = **50 W**.
+1.0 + 3 × 5 = **50 W**. Reincarnation: its one guaranteed ancestor with lifespan is Life
+(+10; Death has none), so 2.5 × (min(10 + 50, 18) − min(10, 18)) = 2.5 × 8 = **20 W**.
+Time: its design lines are uncapped, so 2.2 × 40 (`cultivation_speed_pct`) + 0.9 × 25
+(`herb_age_root_pct`, a root factor, ×1.25 on h) = 88 + 22.5 = **110.5 W**, inside the
+order-4 band of 50–150 W. Its old +200 years and +100 % herb growth would add 0 W: its
+ancestors (Space, Gravity, Wind, Reincarnation, Life, Death, Darkness and Poison) give
+a = 60 years and 30 % herb growth, both at or above the ceilings.
+
+**Example (holder-raised ceilings):** Pill Fire has no ancestor with alchemy (Life has
+none), so c = 3 and c' = 6. Its line is 2.7 × (min(0 + 15, 3) − 0) = 8.1 W, its raise is
+2.7 × (6 − 3) = 8.1 W, and `alchemy_yield` +1 is 15 W, making **31.2 W**. That equals
+the worth it delivers: 6 points (16.2 W) plus the yield. Spirit Farming's ancestor Life
+holds +30 % herb growth, so c = 10 and c' = 20. Its line is 0.9 × (min(90, 10) −
+min(30, 10)) = 0 W, its raise is 0.9 × 10 = 9 W, and +2 plots are 2 × 20 = 40 W, making
+**49 W**, inside the order-2 band (60 W). The holder's herb growth goes from 10 to 20,
+which is 10 points, or 9 W.
 
 ### F. Root changes
 
@@ -532,6 +645,16 @@ Restated for reference:
 element count.
 
 **`character_elements.json`:** mutation `effects` retuned into their bands **(change)**.
+Effects gain a new kind, **"root" (new)**: a root factor that multiplies its formula
+directly instead of adding to the stat sheet, and sits outside the character-wide
+ceilings. Today only Time uses it: `herb_age_root_pct` 25 (×1.25 on herb aging h),
+alongside `cultivation_speed_pct` 40 (Formulas E).
+Effects also gain the kind **"ceiling_raise" (new; user decision 2026-11-04, cross-GDD
+review 04g, F15)**, with a key and a value. The key is a Character Stats `bonus_ceilings`
+key, and the value is the holder's raised ceiling (Character Stats rule 14). It is not a
+sheet modifier. The data pass adds three raises: Pill Fire (`dan_hoa`) `alchemy_success` 6,
+Spirit Farming (`linh_thuc`) `herb_growth_pct` 20, and Lava (`dung_nham`)
+`alchemy_success` 5 (user decision 2026-11-04).
 
 ## Edge Cases
 
@@ -614,8 +737,8 @@ element count.
 
 | # | System | What it takes |
 |---|---|---|
-| 7 | Character Stats | Purities, base element count, mutation modifiers and pair-bonus modifiers (through its provider interface) |
-| 8 | Realms & Bottlenecks | The curve factor by base element count and stage group |
+| 7 | Character Stats | Purities, base element count, mutation modifiers and pair-bonus modifiers (through its provider interface); Time's root factor `herb_age_root_pct` (kind "root") for Formulas G's herb growth; the holder-raised ceilings (kind "ceiling_raise") of Pill Fire and Spirit Farming for rule 14 |
+| 8 | Realms & Bottlenecks | The curve factor by base element count and stage group; Time's `herb_age_root_pct` in Formulas D's herb growth factor h |
 | 10 | Meridian Map | Purity per element; base element count for the center keystone |
 | 9 | Cultivation Techniques | Purity of the elements and mutations a technique names |
 | 14–18 | Crafts | Element purities for their roles; craft mutations |
@@ -650,6 +773,8 @@ element count.
 | `bien_di_higher_order_factor` | 0.25 | 0.1–0.4 | Higher-order rates |
 | `bien_di_purity_factor` | 0.8 | 0.6–1.0 | Mutation purity |
 | `bien_di_power_band` | ceilings 30 / 60 / 100 / 150 W; floors 10 / 15 / 30 / 50 W | each band ≤ the next; the order-2 ceiling (60 W) already exceeds the weakest keystone (50 W, registry `keystone_min_power`), so raising it widens that gap (*derived*) | How strong a mutation may be |
+| Time's root factor `herb_age_root_pct` (effect kind "root") | 25 (×1.25 on h), 22.5 W | any value keeping Time inside 50–150 W with its +40 % cultivation speed (88 W): 0–68; priced in full at 0.9 W per % (not ceilinged) | Herb aging for an apex holder, multiplying like Wood's root term outside the herb growth ceiling. Read by Character Stats Formulas G and Realms Formulas D (h); registry entry `herb_age_root_pct` |
+| Holder-raised ceilings (effect kind "ceiling_raise") | Pill Fire `alchemy_success` 6 (31.2 W); Spirit Farming `herb_growth_pct` 20 (49 W); Lava `alchemy_success` 5 (13.5 W; user decision 2026-11-04) | Inside each band at 2.7 W per alchemy point and 0.9 W per herb %: Pill Fire 4–16, Spirit Farming 11–32, Lava 4–11. Keep Lava below Pill Fire, so the order-2 craft mutation stays the alchemy identity. Any Pill Fire change re-runs Realms' AC-CG-60 | How far a craft holder outgrows the flat character-wide ceiling. Read by Character Stats rule 14 |
 | `element_count_curve` | Formulas B | any change must keep the parity points | Pacing by tier |
 | Tẩy Tủy Đan, Linh Căn Quả values | 6 × 3 per life; 20–35 or +8 | owned by Item DB | Root growth over a life |
 
@@ -683,9 +808,10 @@ These apply to the Debug Terminal now and to the Game UI later.
 | Document | Relationship |
 |---|---|
 | `design/gdd/game-concept.md` | Spiritual Root System (tiers, the trade-off, mutations, changing roots); its open question on counting mutations is answered here (they don't) |
-| `design/gdd/canh-gioi.md` | Stage groups and the years-per-realm costs (Formulas A); its five-element DT figure needs correcting (Open Questions) |
-| `design/gdd/character-stats.md` | Element role formulas (Formulas G), the stat sheet and its provider interface |
+| `design/gdd/canh-gioi.md` | Stage groups and the years-per-realm costs (Formulas A); its five-element DT figure (103 years, 89 with the pair bonus) matches Formulas B (Open Question 4, closed); the player-only `breakthrough_succeeded` event that Mutation Awakening reads (rule 9); Formulas D's herb growth factor h, which reads Time's `herb_age_root_pct` |
+| `design/gdd/character-stats.md` | Element role formulas (Formulas G), the stat sheet and its provider interface; rule 14 (the ceilings, the root-term test, penalties after the cap), which Formulas E prices against |
 | `design/gdd/kinh-mach-do.md` | Acupoint scaling (rule 4), stat weights W for mutation power (Formulas F) |
+| `design/gdd/cong-phap.md` | Rule 7's purity contract, which a technique's speed (`match`) and bonuses (F) read; usability of techniques naming a mutation (its rule 8) |
 | `design/quick-specs/phu-luc-linh-thu-thanh-tuu.md` | Tẩy Tủy Đan and Linh Căn Quả |
 | `design/glossary.md` | Element and mutation names |
 | `assets/data/character_attributes.json`, `character_elements.json` | The data this GDD's keys change |
@@ -787,8 +913,10 @@ simulated births.
 - **AC-LC-19** [Logic] Birth rates by tier (50,000 births each):
   - at least one first-order mutation: 12.6 / 32.6 / 53.7 / 71.7 % (±1.0 pp);
   - any higher order: 0.2 / 0.8 / 2.2 / 5.0 % (±0.3 pp);
-  - mean mutations 0.13 / 0.39 / 0.78 / 1.31 (±0.02 / ±0.03 / ±0.04 / ±0.05; confirm
-    against the first seeded run);
+  - mean mutations 0.13 / 0.39 / 0.78 / 1.31 (±0.02 / ±0.03 / ±0.04 / ±0.05). The test
+    also asserts that each listed tolerance is at least four standard errors of that
+    run's mean (4 × the sample standard deviation ÷ √50,000), so a tolerance too tight
+    for the data fails on the fixed seed instead of passing by luck;
   - Chaos in 0.40 % (±0.15 pp) of five-element roots.
 - **AC-LC-20** [Logic] Over 200,000 births, 13.5 % ± 0.5 pp have at least one mutation.
 - **AC-LC-21** [Logic] Rule 9, ordering and chaining, on {Wood, Fire, Water}:
@@ -809,12 +937,62 @@ simulated births.
   - Light (`tam_ma_resist_pct` +10) is 15 W;
   - a fixture of 35 × 1.0 W plus 3 × 5 W is 50 W;
   - a fixture with a 25 W positive side and presence −10 nets 5 W (presence at 2 W per
-    point).
-- **AC-LC-25** [Config/Data] Every mutation's power is within its order's ceiling and
-  floor. This is expected to fail until Open Question 1 is done:
-  - over the ceiling: Life, Spirit Farming, Array, Stars, Refined Metal, Reincarnation,
-    Taiji and Time;
-  - under the floor: Death.
+    point);
+  - the ceilinged-key fixtures use hard-coded fixture values, not the data: ceilings
+    `herb_growth_pct` 10, `alchemy_success` 3 and `lifespan_years` 18, and weights 0.9,
+    2.7 and 2.5 W per unit. A data change to Character Stats' `bonus_ceilings` or the
+    Meridian Map's weights does not change these expectations;
+  - with no ancestors, lifespan is priced up to 18 years: +200 `lifespan_years` is 45 W
+    and +10 is 25 W (W10);
+  - with no ancestors, herb growth is priced up to 10: +100 or +30 `herb_growth_pct` is
+    9 W, and +5 is 4.5 W (04f, B1);
+  - with no ancestors, `alchemy_success` +8 is 3 × 2.7 = 8.1 W, and +2 is 5.4 W;
+  - marginal over ancestors: a fixture mutation with +60 `herb_growth_pct` whose
+    ancestor holds +30 (already at the ceiling) is 0 W on that key; one with +50
+    `lifespan_years` whose ancestor holds +10 is 2.5 × 8 = 20 W; a fixture whose
+    ancestor chain holds +60 years and +30 % herb growth prices +200 years and +100 %
+    herb growth at 0 W;
+  - only ancestors count: a fixture mutation with +15 `alchemy_success` and no ancestors
+    is 8.1 W even when another owned mutation that is not its ancestor holds +8;
+  - a root factor is priced in full, not as a ceilinged key: a fixture with
+    `herb_age_root_pct` +25 (kind "root") is 25 × 0.9 = 22.5 W, even when its ancestors
+    hold +30 % `herb_growth_pct`; adding +40 `cultivation_speed_pct` at 2.2 W per % makes
+    110.5 W;
+  - plots use a hard-coded fixture weight of 20 W per plot: +2 `field_plots` is 40 W and
+    +1 is 20 W (04g, F11);
+  - holder-raised ceilings (kind "ceiling_raise"), with the fixture ceilings and weights
+    above:
+    - with no ancestors, `alchemy_success` +15 and a raise 3 → 6 is 8.1 W (line, priced to
+      3) + 8.1 W (raise) = 16.2 W, **not** 24.3 W (the band 3–6 is not paid twice);
+    - with no ancestors, `alchemy_success` +2 and a raise 3 → 6 is 5.4 + 8.1 = 13.5 W
+      (the unfilled headroom is still priced);
+    - a raise with no line on that key, `herb_growth_pct` 10 → 20, is 9 W;
+    - marginal over an ancestor's line: `herb_growth_pct` +60 and a raise 10 → 20, with an
+      ancestor holding +30, is 0 + 9 = 9 W; adding +2 `field_plots` makes 49 W;
+    - marginal over an ancestor's raise: a raise of `alchemy_success` 3 → 6 whose ancestor
+      raises it to 5 is 2.7 W, and a raise to 4 under an ancestor's raise to 6 is 0 W (no
+      stacking);
+    - only ancestors count: a raise 3 → 6 with no ancestors is 8.1 W even when an owned
+      mutation that is not its ancestor raises the same key to 5;
+    - the equivalent form gives the same totals in every fixture above: the line priced
+      against c' plus the raise priced only for the part of (c, c'] the line leaves
+      empty;
+    - the fixture of `alchemy_success` +15, a raise 3 → 6 and `alchemy_yield` +1 at 15 W
+      is 31.2 W.
+- **AC-LC-25** [Config/Data] Every mutation's power (Formulas E, with ancestors from the
+  data) is within its order's ceiling and floor. This is expected to fail until Open
+  Question 1's data retune:
+  - over the ceiling: Life (34 W), Array (73), Stars (75), Refined Metal (62.5) and Taiji
+    (133);
+  - under the floor: Death (5 W net) and Reincarnation (20 W).
+
+  Raises are read from the data's "ceiling_raise" effects and plots are priced at 20 W.
+  With the three decided raises, Pill Fire (31.2 W), Lava (13.5 W), Spirit Farming (49 W)
+  and Space (50 W) are inside their band. Before the data pass adds the raises, Pill Fire
+  prices at 23.1 W and Spirit Farming at 40 W, and both are still in band; Lava prices at
+  8.1 W and fails its floor until its raise is added. Time is 110.5 W
+  once the data pass gives it its design lines (Open Question 1); with today's data it
+  still prices at 0 W and fails until then.
 
 **Root changes**
 
@@ -853,22 +1031,6 @@ simulated births.
 - **AC-LC-34** [Integration] A single root in FE early stage uses a Linh Căn Quả (the
   fixture grants it; events grant it from FE on). The next cultivation tick reads a curve
   factor of 0.9 (two elements, `tc_so`) and the new pair count.
-- **AC-LC-45** [Integration] Mutation Awakening, with {Wood 40, Fire 86} and Light rolled
-  and failed:
-  - without capability #24, a realm breakthrough makes 0 rolls;
-  - with it, one breakthrough with the roll forced to fail leaves the set unchanged, and
-    the roll's chance is 0.172 (within 1e-9);
-  - the next breakthrough with the roll forced to succeed forms Light at purity 47, and
-    Light never rolls again;
-  - on {Wood, Fire, Water} with Light, Life and Mist failed, one forced-success
-    breakthrough forms {Light, Life, Mist, Pill Fire} in one pass;
-  - with nothing eligible, a breakthrough makes 0 rolls and writes 0 records.
-- **AC-LC-46** [Logic] Mutation purity recompute, with {Wood 40, Fire 86, Water 60} and
-  Light 47, Life 39 and Pill Fire 46 owned. A Tẩy Tủy Đan that raises Wood to 48 gives
-  Light 51, Life 43 and Pill Fire 49, with 0 RNG calls, 0 rolls and no change to any
-  modifier.
-- **AC-LC-47** [Logic] A Linh Căn Quả whose event names an owned element adds a uniformly
-  chosen missing element instead; with all five owned it adds the +8 rule.
 
 **Contracts**
 
@@ -888,8 +1050,10 @@ simulated births.
   86}:
   - the Wood sector scales 0.9, Fire 1.36, the absent Earth 0.25;
   - the bridge is 1.13 and a Wood–Fire technique runs at 0.63;
-  - the center keystone stays locked at 4 base elements plus any mutations, and unlocks
-    at 5.
+  - the center keystone is locked for {Wood 40, Fire 86} (2 base elements). Two further
+    fixture roots check the threshold: {Wood, Fire, Earth, Metal} plus Light, Lava and
+    Gravity (4 base elements plus mutations) stays locked, and all five base elements
+    unlock it (the Meridian Map's rule: refused with 4, allowed with 5).
 - **AC-LC-39** [Integration] World Database. Each change and each formed mutation writes
   exactly one record with the old and new values. A refused item writes none.
 - **AC-LC-40** [Integration] Rule 13. An NPC with the same seed gets the same root and
@@ -927,6 +1091,26 @@ simulated births.
   - a Linh Căn Quả preview, with the tier and the speed before and after;
   - a Tẩy Tủy Đan preview naming Water.
 
+**Mutation Awakening, purity recompute and named fruits** (added 2026-11-04; numbered
+after the first draft, so they sit here)
+
+- **AC-LC-45** [Integration] Mutation Awakening, with {Wood 40, Fire 86} and Light rolled
+  and failed:
+  - without capability #24, a realm breakthrough makes 0 rolls;
+  - with it, one breakthrough with the roll forced to fail leaves the set unchanged, and
+    the roll's chance is 0.172 (within 1e-9);
+  - the next breakthrough with the roll forced to succeed forms Light at purity 47, and
+    Light never rolls again;
+  - on {Wood, Fire, Water} with Light, Life and Mist failed, one forced-success
+    breakthrough forms {Light, Life, Mist, Pill Fire} in one pass;
+  - with nothing eligible, a breakthrough makes 0 rolls and writes 0 records.
+- **AC-LC-46** [Logic] Mutation purity recompute, with {Wood 40, Fire 86, Water 60} and
+  Light 47, Life 39 and Pill Fire 46 owned. A Tẩy Tủy Đan that raises Wood to 48 gives
+  Light 51, Life 43 and Pill Fire 49, with 0 RNG calls, 0 rolls and no change to any
+  modifier.
+- **AC-LC-47** [Logic] A Linh Căn Quả whose event names an owned element adds a uniformly
+  chosen missing element instead; with all five owned it adds the +8 rule.
+
 **Not testable here, by design:**
 - The years-per-realm table and the tight spots depend on the guessed rate factor (Open
   Question 2).
@@ -938,14 +1122,15 @@ simulated births.
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
-| 1 | Retune the over-band and under-band mutations in data (Life, Spirit Farming, Array, Stars, Refined Metal, Reincarnation, Taiji, Time; Death) | content (data), systems-designer | Formulas E |
+| 1 | Retune the out-of-band mutations in data, priced by Formulas E's marginal rule. Over the ceiling: Life 34, Array 73, Stars 75, Refined Metal 62.5, Taiji 133. Under the floor: Death 5 net, Reincarnation 20 (8 years over Life). **Holder-raised ceilings are decided (user decision 2026-11-04, cross-GDD review 04g, F15).** The data pass adds "ceiling_raise" effects: Pill Fire `alchemy_success` 6 (31.2 W, was 23.1), Spirit Farming `herb_growth_pct` 20 (49 W, was 20; plots now 20 W each, F11) and Lava `alchemy_success` 5. **Lava's raise 3 → 5 is decided (user decision 2026-11-04):** +5.4 W, so 8.1 → 13.5 W, which clears its 10 W floor and gives it an alchemy identity below Pill Fire's 6. Character Stats rule 14 now says "a mutation" (not "a craft mutation"), so Lava, a stable mutation, may hold the raise; that resolves the conflict this question noted. Spirit Farming stays within the order-2 band at 49 W, so no plot trim is needed. If the plot weight rises past 25 W, +2 plots would push it over 60 W, and the trim would be +1 plot. The held-back lines should be trimmed or replaced: Reincarnation's +50 years (Life already fills part of the ceiling), Spirit Farming's +60 % herb growth (it delivers at most its raised 20, so +20 or less would do; Life's 30 already fills the base ceiling), Pill Fire's +15 alchemy (6 delivered, so +6 would do), and Lava's +8 (5 delivered with its raise, so +5 would do). **Time's power is decided (user decision 2026-11-04):** +40 `cultivation_speed_pct` (88 W) and the root factor `herb_age_root_pct` +25 (kind "root", ×1.25 on h, 22.5 W), 110.5 W in total. Data pass for Time: add `cultivation_speed_pct` 40 and `herb_age_root_pct` 25; remove its `herb_growth_pct` +100 and `lifespan_years` +200 lines (0 W over its ancestors). Still open: the retunes for Life, Array, Stars, Refined Metal, Taiji, Death and Reincarnation; until they land, rule 8's "never a dud" promise fails for Death and Reincarnation (and for Lava only until the data pass adds its raise) | content (data), systems-designer, user (Time) | Formulas E, rule 8 |
 | 2 | Bot check of the tight timing spots: single roots at NS and DT, five-element roots in QR, depending on how technique purity enters the rate | Realms & Bottlenecks calibration | Formulas B |
 | 3 | Closed 2026-11-04: Cultivation Techniques rule 8. A technique naming an id the root lacks can be learned but not slotted; with no usable main method the cultivator cultivates crudely at ×0.3 of the strongest base purity | — | — |
 | 4 | Closed 2026-11-04: Realms & Bottlenecks now lists 103 years at DT for a five-element root (89 with the pair bonus), matching Formulas B | — | — |
 | 5 | Meridian Map capability #24 (Mutation Awakening): its text was aligned with rule 9 on 2026-11-04; it still needs a price, since it lifts Light from 17 % to at most 43 % over its two possible passes | Meridian Map | Capability pricing |
-| 6 | Character Stats Open Question 1 can close, and its Stars (+10 comprehension) and Death (−10 presence) examples change after the Open Question 1 retune | Character Stats | Data consistency |
+| 6 | Character Stats' Stars (+10 comprehension) and Death (−10 presence) examples follow this GDD's data, so they change with the Open Question 1 retune | Character Stats | Data consistency |
 | 7 | Implementation changes: rounding the purity draw; the draw order of Formulas A; the curve by base count; pair-bonus modifiers; rolling mutations once (a saved rolled set); power bands; removing the two dead keys; the new count weights | implementation story | Building this GDD |
 | 8 | Total mutation power is bounded only per mutation. With Mutation Awakening a five-element root can own up to 25 mutations; simulate the expected and maximum total W per tier and decide whether an aggregate cap is needed | systems-designer | Formulas E |
 | 9 | Linh Căn Quả is rare by design (user decision 2026-11-04) and has no per-life counter, yet one fruit is worth ×3.5 at NS and ×4 at DT for a single root, and used early it can lower speed. Its frequency covers both modes (adding an element, and the +8 raise that bypasses Tẩy Tủy Đan's 3-per-life limit) and is owned by the Event Engine budgets (`events_budgets.json` `treasures`): set a target frequency there | Item DB, Event Engine | Rule 11 |
 | 10 | Single roots (45 % of lives) need 1,657 years for a whole life against 513 for a dual root. State their late-game identity, after the Open Question 2 bot run | game-designer, Realms calibration | Player Fantasy |
-| 11 | A five-element root starts with about 109 W (keystone, pair bonus, mean mutations) against the Meridian Map's ~106 W end-of-Qi-Refining target, which conflicts with "slow and fragile in Qi Refining" (cross-review D2). Options: a Qi Refining drawback on the keystone, gating it at Foundation Establishment, or moving it outward | Meridian Map, game-designer | Player Fantasy, Formulas C |
+| 11 | A five-element root starts with about 109 W (keystone, pair bonus, mean mutations) against the Meridian Map's ~106 W end-of-Qi-Refining target, which conflicts with "slow and fragile in Qi Refining" (cross-review D2). Options: a Qi Refining drawback on the keystone, gating it at Foundation Establishment, or moving it outward. The ~109 W figure uses mutation prices from before the marginal rule and the retune, so recompute it after Open Question 1. That recompute must also use Time's new price (110.5 W, was 54 before the marginal rule and 0 after it); Time needs its whole ancestor chain, so its share of a birth's mean mutation power is very small, but it changes | Meridian Map, game-designer | Player Fantasy, Formulas C |
+| 12 | Draw order and RNG stream for the rolls after birth. Formulas A fixes the birth order only. Linh Căn Quả makes three kinds of draw: the missing element (unless the event names one), its purity U{20..35}, and the rule 9 rolls. Mutation Awakening makes the rule 9 rolls on `breakthrough_succeeded`. Which seeded stream (Deterministic Simulation Core) each draws from, and the order of those draws, must be fixed, or seeded tests and replays diverge | systems-designer, Deterministic Simulation Core | AC-LC-30, AC-LC-45, AC-LC-47 determinism |

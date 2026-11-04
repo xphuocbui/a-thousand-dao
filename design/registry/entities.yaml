@@ -280,14 +280,16 @@ formulas:
       - design/quick-specs/progression-and-edges.md
     variables:
       - P_C
-      - lambda
+      - B
+      - p_brew
+      - G
       - q_pill
       - S_bare
     output_range: [0, 1]
-    expression: "S = P_C * (1 - e^(-(lambda * q_pill + talisman extras))) + S_bare; lambda = p_brew * n_plots * f * h * W / Y + lambda_market + G (root terms: Earth plots, Wood herb growth, Fire brew success)"
-    notes: "Targets 0.30 baseline and 0.70 with the player edge are means over the birth mix (45/32/15/6.5/1.5 % elements), user decision 2026-11-04; pill plot-years Y were rescaled x1.43 for the root terms. The baseline lever is pill supply (herb min_age)."
+    expression: "S = P_C * (1 - fail * (1 - q)^G) + S_bare; fail = (1 - p_brew)^B + k_tau * ((1 - p_brew*q)^B - (1 - p_brew)^B), k_tau = (1 - q - tau)/(1 - q) if the realm step's one talisman is used on a held pill, else 1; B = brews whose herbs fit the plots and whose attempt can start before the lifespan cap (Realms Formulas D); W = lifespan cap at entry - age at entry; n_plots = clamp(3 + floor(0.04*purity_earth) + field_plots, 1, 12); h = (1 + 0.008*purity_wood) * (1 + herb_age_root_pct/100) * max(0, 1 + herb_growth_pct/100), herb_age_root_pct 25 for a Time mutation holder else 0 (root term, not capped); p_brew = clamp(p_brew0 + 0.0025*purity_fire + alchemy_success/100, 0.05, 0.95)"
+    notes: "Targets 0.30 baseline and 0.70 with the player edge are means over the birth mix (45/32/15/6.5/1.5 % elements), user decision 2026-11-04. Since cross-GDD reviews 04f/04g: discrete brews, W from an entry-age model, plots at best play with no extra field_plots, attempts in order with rising q from failure insight (+2 pp per failed pill attempt in the step, cap 4), q extras under a 10 pp ceiling, one talisman per realm step at 5 pp on a held pill. Means 0.299 / 0.302 / 0.298 / 0.301 from a fixed-seed scratch model, not a bot run. Fine lever pill_chance; coarse lever the recipe."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-04
   - name: guard_success
     status: active
     source: design/gdd/canh-gioi.md
@@ -325,18 +327,20 @@ formulas:
     referenced_by:
       - design/gdd/kinh-mach-do.md
       - design/quick-specs/progression-and-edges.md
+      - design/gdd/canh-gioi.md
     variables:
       - S
       - q
       - q_max
       - delta_desp
       - delta_max
+      - tau_a
       - burn_cost
     output_range: [0, 0.10]
-    expression: "q_desp = min(2q, q+delta_desp, q_max, q+delta_max*(1-q)/(1-S)); q_retry = min(q, delta_max/(1-S)); lift = max(S22, S23) - S <= delta_max"
+    expression: "tau_a = the breakthrough talisman on this attempt (0 or tau 0.05, Realms rule 8); q = the attempt chance without tau_a; q_desp = min(2q, q + delta_desp, q_max - tau_a, q + delta_max*(1 - q - tau_a)/(1 - S)); #22 attempt chance = q_desp + tau_a; S22 = 1 - (1 - S)*(1 - q_desp - tau_a)/(1 - q - tau_a); q_retry = min(q, (delta_max - iota_23)/(1 - S)), iota_23 = the failure insight the extra roll would add if it failed (0.02, or 0 at the cap); q includes insight and excludes tau_a (#23 never carries a talisman); S23 = S + q_retry*(1 - S); lift = max(S22, S23) - S <= delta_max"
     notes: "Caps the realm success lift from capabilities 22 and 23; at most one acts per realm step. Must agree with the progression targets (0.30 baseline, 0.70 with the player edge)."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-04
   - name: npc_unseal_chance
     status: active
     source: design/gdd/kinh-mach-do.md
@@ -414,6 +418,25 @@ formulas:
     notes: "Multiplies Character Stats spiritual power; Combat reads it. power_mult 1.0/1.3/1.7/2.2 is now separate from speed_mult."
     added: 2026-11-04
     revised: ""
+  - name: lifespan_cap
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
+      - design/gdd/cong-phap.md
+      - design/gdd/linh-can.md
+      - design/gdd/kinh-mach-do.md
+    variables:
+      - L_realm
+      - bonus_ceilings
+      - lifespan_pct
+    # a negative lifespan bonus (penalties apply after the cap, Character Stats rule 14) can put the cap below L_realm; lifespan_pct is assumed >= 0; no current source grants lifespan_pct (Character Stats Open Question 7).
+    output_range: [0, unbounded]
+    expression: "(L_realm + min(pill_years + sum_pos(lifespan_years), lifespan_frac * L_realm) + sum_neg(lifespan_years)) * (1 + lifespan_pct/100), floored at 0; an equipped treasure's lifespan is its own lifespan_years modifier, counted once; death by old age at age >= cap"
+    notes: "Realms rule 14 owns it; Character Stats supplies the ceilinged bonus (its rule 14, Formulas I). A slot, equipment or main-method change that would put the cap at or below the age needs confirmation. A mutation lifespan_years counts under the ceiling (W10, 2026-11-04)."
+    added: 2026-11-04
+    revised: 2026-11-04
 
 # Example:
 #
@@ -495,11 +518,23 @@ constants:
     status: active
     source: design/gdd/linh-can.md
     referenced_by:
+      - design/gdd/character-stats.md
       - design/gdd/linh-can.md
       - design/gdd/kinh-mach-do.md
     value: "ceilings 30/60/100/150 W; floors 10/15/30/50 W"
     unit: W by order
-    notes: "Priced with the Meridian Map stat weights; lifespan years at 2.5 W."
+    notes: "Priced with the Meridian Map stat weights. Every key under a character-wide ceiling (herb_growth_pct 10 at 0.9 W per %, alchemy_success 3 at 2.7 W per pp, lifespan years 18 at the QR ceiling at 2.5 W per year) is priced at what the ceiling lets through, marginal over the mutation's guaranteed ancestors (W10; cross-GDD review 04f B1; linh-can fourth pass, 2026-11-04). Out of band until the data retune (Spiritual Roots Open Question 1): over the ceiling Life, Array, Stars, Refined Metal, Taiji; under the floor Lava (8.1 W; a proposed raise 3 -> 5 gives 13.5 W, user to confirm in the data pass), Death, Reincarnation. Holder-raised ceilings (effect kind ceiling_raise, Character Stats rule 14; cross-GDD review 04g F15): the raise is priced in full as headroom, w_k*(c'_k - c_k), with c_k the base ceiling or the highest raise among guaranteed ancestors, and the mutation's own line is priced against c_k, so the raised band is never paid twice. Pill Fire alchemy_success 3 -> 6, 31.2 W; Spirit Farming herb_growth_pct 10 -> 20, 49 W; field_plots at 20 W per plot (Meridian Map Formulas F), so Space is 50 W. Time is repriced at 110.5 W (cultivation_speed_pct +40 and a herb_age_root_pct +25 root factor, priced in full since root factors are not ceilinged; user decision 2026-11-04)."
+    added: 2026-11-04
+    revised: 2026-11-04
+  - name: herb_age_root_pct
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/character-stats.md
+      - design/gdd/canh-gioi.md
+    value: 25
+    unit: percent, a root factor on herb growth h (kind "root")
+    notes: "Time (Thoi Gian) mutation only; 0 for everyone else. A root term like Wood purity: never a stat sheet modifier, not under the herb_growth_pct ceiling. Spiritual Roots knob, safe range 0-68 (Time must stay within its 150 W band). Priced in full at 0.9 W per percent. Added 2026-11-04 (user decision)."
     added: 2026-11-04
     revised: ""
   - name: mutation_catalogue_size
@@ -664,10 +699,32 @@ constants:
     referenced_by:
       - design/gdd/canh-gioi.md
       - design/quick-specs/progression-and-edges.md
-    value: [0.06, 0.16, 0.20, 0.15]
+    value: [0.04, 0.045, 0.02, 0.0225]
     unit: chance per pill attempt
-    notes: "QR->FE, FE->CF, CF->NS, NS->DT."
+    notes: "QR->FE, FE->CF, CF->NS, NS->DT. Changed 2026-11-04 (cross-GDD review 04g: failure insight and the q-extras ceiling; was 0.06 x4, earlier 0.06 / 0.16 / 0.20 / 0.15). First-attempt q 0.1025 / 0.1075 / 0.0825 / 0.085 (0.2225 / 0.2275 / 0.2025 / 0.205 with Dao Cot). Built data still 0.06 / 0.20 / 0.20 / 0.15."
     added: 2026-11-03
+    revised: 2026-11-04
+  - name: failure_insight
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/gdd/kinh-mach-do.md
+    value: {failure_insight_pp: 2, failure_insight_cap: 4}
+    unit: percentage points on later pill attempts in the same realm step
+    notes: "Each failed pill attempt (including #23's extra roll) adds failure_insight_pp to later pill attempts in the step, up to the cap; resets only on a successful breakthrough; bare attempts neither use nor add it; outside the q-extras ceiling; saved. User decision 2026-11-04 (cross-GDD review 04g F13)."
+    added: 2026-11-04
+    revised: ""
+  - name: q_extras_ceiling_pp
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+      - design/gdd/kinh-mach-do.md
+    value: 10
+    unit: percentage points
+    notes: "Character-wide ceiling on the summed per-attempt extras (pill quality, comprehension, Dao heart, the tree breakthrough_chance, item and event bonuses); destiny perks, the talisman and failure insight are outside it; the tree is also under tree_breakthrough_cap 8 pp. Sized so a fully built life without an edge stays at or below 0.55. User decision 2026-11-04 (cross-GDD review 04g F14; answers Realms Open Question 13)."
+    added: 2026-11-04
     revised: ""
   - name: breakthrough_bare_chance
     status: active
@@ -771,11 +828,11 @@ constants:
     referenced_by:
       - design/gdd/canh-gioi.md
       - design/quick-specs/progression-and-edges.md
-    value: 10
+    value: 5
     unit: percentage points
-    notes: "Phá Cảnh Phù; one per pill attempt, never on bare attempts."
+    notes: "Phá Cảnh Phù; on at most one held pill attempt per realm step (per_realm_step 1), never on bare attempts or #23's extra roll; worth about +0.04 on a gate's mean. Changed 2026-11-04 (cross-GDD review 04f and the canh-gioi eighth pass; was 10 pp, one per attempt)."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-04
   - name: core_density_min
     status: active
     source: design/gdd/canh-gioi.md
@@ -815,7 +872,7 @@ constants:
       - design/quick-specs/progression-and-edges.md
     value: [0.30, 0.70]
     unit: realm-step success
-    notes: "Baseline / player edge, as means over the birth mix (per element count 1-5 at QR->FE: baseline 0.26/0.30/0.35/0.40/0.46, edge 0.67/0.70/0.74/0.78/0.82); the Deity Transformation target includes the Heavenly Tribulation."
+    notes: "Baseline / player edge, as means over the birth mix (per element count 1-5 at QR->FE: baseline 0.26/0.31/0.36/0.41/0.47, edge 0.67/0.71/0.75/0.79/0.83; the edge needs about 1.2-1.4 gift pills per gate (1.42 / 1.19 / 1.35 / 1.29); figures from the canh-gioi entry-age model, 2026-11-04); the Deity Transformation target includes the Heavenly Tribulation."
     added: 2026-11-03
     revised: 2026-11-04
   - name: breakthrough_pill_plot_years
@@ -823,11 +880,11 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
-    value: "FE pill 50 (ginseng min_age 40 + 10), CF pill about 172 (Kim Tuy Qua min_age 152 + 20), NS pill about 390, DT pill about 680"
+    value: "FE pill 90 (2 ginseng at min_age 40 + 10), CF pill 102 (2 Kim Tuy Qua at 42 + 18), NS pill 250 (4 at 60 + 10), DT pill 480 (4 at 100 + 80)"
     unit: plot-years per pill (Y)
-    notes: "Rescaled x1.43 on 2026-11-04 for the spiritual-root terms in lambda (was 35 / 120 / 270 / 470). Recipes are owned by Item DB."
+    notes: "Changed 2026-11-04 (cross-GDD review 04g F2: shorter, more numerous CF/NS herbs). W p10/p50/p90 from the entry-age model: 104 / 94-116-144 / 310-342-382 / 540-645-767. Brew guarantee: a root-free life (3 plots, h 1) brews at least 2 at W p10 and 3 at W p50, so main-herb min_age <= 47 / 46 / 82 / 141 at qty 2 / 2 / 4 / 4. Idle years at a full bar remain about 54 % / 57 % of W at CF->NS / NS->DT (F2 partial, accepted; Time & Turn owes a retreat-until-ripe). Recipes are owned by Item DB."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-04
   - name: level_cap
     status: active
     source: design/gdd/canh-gioi.md
@@ -917,7 +974,7 @@ constants:
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
-    value: "attack/defense/linh_luc_pct 1.0, khi_huyet_pct 1.2, than_thuc/artifact_power_pct 1.3, tam_ma_resist/stealth 1.5, dan_doc_resist 1.6, cultivation_speed_pct 2.2, herb_growth 0.9, mission_income 0.7, alchemy_success 2.7, breakthrough_chance 5, khi_van/ngo_tinh 5, refining_success 2.0, formation_power 1.0, dan_doc_decay 8, density_bonus 140, field_plots 10, lifespan_years 300/L_r"
+    value: "attack/defense/linh_luc_pct 1.0, khi_huyet_pct 1.2, than_thuc/artifact_power_pct 1.3, tam_ma_resist/stealth 1.5, dan_doc_resist 1.6, cultivation_speed_pct 2.2, herb_growth 0.9, mission_income 0.7, alchemy_success 2.7, breakthrough_chance 5, khi_van/ngo_tinh 5, refining_success 2.0, formation_power 1.0, dan_doc_decay 8, density_bonus 140, field_plots 20 (2026-11-04, cross-GDD review 04g F11; no tree acupoint can hold a plot at launch values), lifespan_years 300/L_r"
     unit: W per displayed unit
     notes: "Shared by the fill validator, NPC Builds and Character Stats; guesses until the bot confirms."
     added: 2026-11-03
@@ -1079,11 +1136,12 @@ constants:
       - design/gdd/canh-gioi.md
       - design/gdd/cong-phap.md
       - design/gdd/kinh-mach-do.md
-    value: {herb_growth_pct: 40, alchemy_success: 8, lifespan_frac: 0.15}
+      - design/gdd/linh-can.md
+    value: {herb_growth_pct: 10, alchemy_success: 3, lifespan_frac: 0.15}
     unit: pct / percentage points / share of the realm's base lifespan
-    notes: "Character-wide ceilings over every source (techniques, tree, items, pills); the lifespan bonus is pill + treasure lifespan + lifespan_years. Root terms, field_plots and lifespan_pct are not capped. Guesses, tuned so bonus_ceiling_target holds (cross-GDD review G1)."
+    notes: "Character-wide ceilings over every Character Stats rule 12 source (techniques, tree, items and consumables, pills, destiny perks, root mutations and generating pairs, formations, craft mastery). Penalties apply after the cap: total = min(sum of positive modifiers, ceiling) + sum of negative modifiers. The lifespan bonus is lifespan pill years plus every lifespan_years modifier (an equipped treasure's counted once), capped the same way; a negative bonus is allowed and can lower the cap below the base. Root terms, field_plots and lifespan_pct are not capped. Lowered 2026-11-04 (cross-GDD review 04f; were 40 / 8); safe range at most the current values until AC-CG-60 confirms headroom. The computed ceiling run belongs to Realms bonus_ceiling_target and AC-CG-60. Holder raises (user decision 2026-11-04, cross-GDD review 04g F15): a craft mutation may raise one key for its holder via a ceiling_raise effect (today Pill Fire alchemy_success 3 -> 6, Spirit Farming herb_growth_pct 10 -> 20; Spiritual Roots knobs); raises do not stack (highest applies), penalties apply after the raised cap, and raised lives are outside bonus_ceiling_target."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-04
   - name: bonus_ceiling_target
     status: active
     source: design/gdd/canh-gioi.md
@@ -1092,9 +1150,9 @@ constants:
       - design/gdd/character-stats.md
     value: 0.45
     unit: great-breakthrough success S per gate, no edge
-    notes: "Calibration target, not a data key: a life with every bonus_ceilings stat at its ceiling reaches at most this S (AC-CG-60). The 0.30 / 0.70 targets are calibrated on the bot's typical loadout (Realms Formulas D)."
+    notes: "Calibration target, not a data key: a life with every bonus_ceilings stat at its ceiling, plots at best play with field_plots 0 and the realm step's one talisman reaches at most this S (AC-CG-60). The 0.30 / 0.70 targets are calibrated at best plot play on the bot's typical loadout (Realms Formulas D). Scope (2026-11-04, cross-GDD review 04g C5/F15): lives without root factors beyond Wood (no Time), without holder ceiling raises and without extra field_plots; those are root advantages or builds outside the target. With failure insight the ceiling run is 0.437 / 0.459 / 0.450 / 0.447, accepted within AC-CG-60's measured <= 0.48 (user decision 2026-11-04). A fully built life without an edge reaches 0.52-0.55 and edge plus full build 0.83-0.86 under the q-extras ceiling."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-04
 
 # Example:
 #

@@ -322,7 +322,7 @@ are in Formulas.
     | 4 | Blood Commands Spirit (Huyết Ngự Linh) | 20% of vitality counts as spiritual power; below 30% vitality, −20% in combat | Character Stats, Combat |
     | 5 | Soul Leaves the Body (Linh Hồn Xuất Khiếu) | Once per realm, survive a death in an event at 5% vitality, losing one stage | Event Engine, Realms |
     | 6 | Twin Technique Cultivation (Song Tu Công Pháp) | Cultivate a second cultivation technique at 50% speed with its full bonuses | Cultivation Techniques (Công Pháp) |
-    | 7 | Embryonic Breath (Thai Tức Quy Nguyên) | Age at three-quarters speed during closed-door cultivation (bế quan) | Lifespan (Thọ Nguyên) |
+    | 7 | Embryonic Breath (Thai Tức Quy Nguyên) | Age at three-quarters speed during closed-door cultivation (bế quan) | Time & Turn (aging) |
     | 8 | Dao in Dreams (Mộng Trung Ngộ Đạo) | Seasons spent travelling also cultivate, at 50% rate | Cultivation, Travel |
     | 9 | Great Essence-Draining Art (Hấp Tinh Đại Pháp) | Defeating a cultivator gives cultivation base (tu vi) worth 5% of the current stage; heart demon (tâm ma) +2 each time | Realms, Character Stats (heart demon) |
     | 10 | Divided Furnace Flame (Đan Hỏa Phân Lô) | Brew two recipes in one season | Alchemy (Luyện Đan) |
@@ -338,7 +338,7 @@ are in Formulas.
     | 20 | Concealed Breath (Liễm Tức Ẩn Thân) | Others see the character two stages lower; hostile events −30% frequency | Event Engine, NPCs |
     | 21 | Blink Mark (Thuấn Di Ấn) | Once a year, travel instantly to any visited place | Travel |
     | 22 | Last Radiance (Hồi Quang Phản Chiếu) | With under 5 years of lifespan left, the breakthrough chance of a pill attempt is up to ×2 (capped by Formulas E2) | Realms |
-    | 23 | Burning Life to Break Through (Thiêu Thọ Phá Cảnh) | After a failed pill attempt, burn 10 years of lifespan (5% of the realm's lifespan if more) to retry at once | Realms, Lifespan |
+    | 23 | Burning Life to Break Through (Thiêu Thọ Phá Cảnh) | After a failed pill attempt, burn 10 years of lifespan (5% of the realm's lifespan if more; the years are added to age, Realms rule 18) to retry at once | Realms |
     | 24 | Mutation Awakening (Biến Dị Khai Mở) | Each completed realm breakthrough gives one more roll to every unowned root mutation (biến dị) whose parents are all owned (Spiritual Roots rule 9; pricing open, see its Open Question 5) | Spiritual Root |
     | 25 | Heart Demon Turned to Strength (Tâm Ma Hóa Lực) | Heart demon above 50 adds attack (+heart demon ÷ 2 %); backlash chance ×2 | Heart Demon, Combat |
 
@@ -703,28 +703,64 @@ realm's breakthrough success by more than δ_max.
 **Attempt model.** A realm step is a series of pill attempts (bare attempts, defined
 by Realms & Bottlenecks, are not part of it), each succeeding with chance q,
 until one succeeds or the life ends. S is the resulting chance of crossing the realm.
-- **#22 (desperation)** replaces one attempt's chance q with q_desp.
+- **#22 (desperation)** replaces one attempt's chance q with q_desp. If that attempt
+  also carries the realm step's breakthrough talisman (Realms & Bottlenecks rule 8: at
+  most one per realm step, τ = 0.05, on a held pill attempt), τ_a is the talisman's
+  part of the attempt's chance and q is the chance without it; the attempt then
+  succeeds with q_desp + τ_a. On any other attempt τ_a = 0.
 - **#23 (retry)** adds one extra attempt with chance q_retry (at most q) right after a
-  failed pill attempt, without waiting.
+  failed pill attempt, without waiting. The extra roll never carries a talisman (Realms
+  & Bottlenecks rule 8), so it has no τ_a term.
+- **Failure insight (Realms & Bottlenecks).** Each failed pill attempt in a realm step
+  adds ι = `breakthrough.failure_insight_pp` (0.02) to the chance of later attempts in
+  that step, up to `failure_insight_cap` (0.04). **In E2, q is the attempt's chance
+  including insight and excluding τ_a.** #23's extra roll is a pill attempt: if it
+  fails, it adds ι_23 to the next attempt. #22 is unaffected and stays exact: the #22
+  attempt is still one attempt, and its failure adds the same insight with or without
+  #22, so every later attempt is the same in both cases.
 - **At most one of #22 and #23 acts per realm step.** A character holding both chooses
   which to use for that realm.
 
 The breakthrough_guard formula is defined as:
 
-`q_desp = min(2q, q + Δ_desp, q_max, q + δ_max·(1 − q)/(1 − S))` ; `q_retry = min(q, δ_max/(1 − S))` ; `S'_22 = 1 − (1 − S)·(1 − q_desp)/(1 − q)` ; `S'_23 = S + q_retry·(1 − S)` ; `max(S'_22, S'_23) ≤ S + δ_max`
+`q_desp = min(2q, q + Δ_desp, q_max − τ_a, q + δ_max·(1 − q − τ_a)/(1 − S))` ; attempt chance `= q_desp + τ_a` ; `ι_23 = 0 if I ≥ failure_insight_cap, else min(failure_insight_pp, failure_insight_cap − I)` ; `q_retry = min(q, (δ_max − ι_23)/(1 − S))` ; `S'_22 = 1 − (1 − S)·(1 − q_desp − τ_a)/(1 − q − τ_a)` ; `S'_23 = S + q_retry·(1 − S) + ι_23·(1 − q_retry)·F_0` ; `max(S'_22, S'_23) ≤ S + δ_max`
 
-The last two terms are the guard's construction: each is the largest value of the
-attempt chance that keeps its own lift at or below δ_max for any S (solve
-`(1−S)·(q_desp − q)/(1−q) ≤ δ_max` and `q_retry·(1−S) ≤ δ_max`). The bound therefore
-holds by construction and is tested analytically; the bot run only confirms it. The
-formulas assume S < 1: at S = 1 there is nothing to lift, and neither capability acts
-(the implementation must test this before dividing by 1 − S).
+The last terms of q_desp and q_retry are the guard's construction: each is the largest
+value of the attempt chance that keeps its own lift at or below δ_max for any S (solve
+`(1−S)·(q_desp − q)/(1 − q − τ_a) ≤ δ_max` and `q_retry·(1−S) ≤ δ_max − ι_23`). The bound
+therefore holds by construction, with or without the talisman and the insight, and is
+tested analytically; the bot run only confirms it.
+
+**#23's insight carry.** If the extra roll fails, the next pill attempt's chance rises
+from p_next to p_next + ι_23. The lift is then exactly q_retry·(1 − S) + ι_23·(1 −
+q_retry)·F_0, where F_0 = (1 − S)/(1 − p_next) is the chance of failing every attempt in
+the step except that next one (F_0 = 0 if there is no next attempt). Because (1 −
+q_retry)·F_0 ≤ 1, the carry is at most ι_23 and the lift at most (δ_max − ι_23) + ι_23
+= δ_max; the guard is conservative (it reserves the full ι_23). The carry reaches only
+the next attempt: the attempt that triggered the extra roll has already added insight
+(I ≥ failure_insight_pp), so once the next attempt also fails, both paths sit at the
+cap. **This needs `failure_insight_cap` ≤ 2 × `failure_insight_pp`** (4 ≤ 2 × 2 today).
+Above that, a failed extra roll lifts several later attempts, and ι_23 in q_retry must
+become their summed carry. The `q_max − τ_a` term keeps the attempt
+chance q_desp + τ_a at or below q_max. **With τ_a = 0 every #22 formula reduces exactly
+to its form before the talisman** (`min(2q, q + Δ_desp, q_max, q + δ_max·(1 − q)/(1 − S))`
+and `1 − (1 − S)·(1 − q_desp)/(1 − q)`). q_retry has no τ_a term, because #23's extra
+roll never carries a talisman; **with ι_23 = 0 it reduces exactly to its old form**
+`min(q, δ_max/(1 − S))`. The doubling (2q) and Δ_desp caps apply to q, not to the
+talisman: #22 never doubles τ_a. The formulas assume S < 1: at S = 1 there is nothing
+to lift, and neither capability acts (the implementation must test this before
+dividing by 1 − S). The #22 lift's denominator 1 − q − τ_a is positive, because the
+attempt chance q + τ_a is clamped to q_max = 0.95 (Realms & Bottlenecks Formulas).
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| S | float | 0–0.95 | calculated (S_guard, Realms & Bottlenecks GDD, Formulas H) | Lower bound on success per realm before capabilities, from the pill attempts made and the pills held (targets ≈ 0.30 baseline / ≈ 0.70 player edge) |
-| q | float | 0.01–0.95 | calculated (`CultivationRules`) | Chance per attempt |
+| S | float | 0 ≤ S < 1 (S_guard is capped at 0.95) | calculated (S_guard, Realms & Bottlenecks GDD, Formulas H) | Lower bound on success per realm before capabilities, from the pill attempts made and the pills held (targets ≈ 0.30 baseline / ≈ 0.70 player edge) |
+| q | float | 0.01–0.95 (0.01–0.90 when τ_a = 0.05) | calculated (`CultivationRules`) | Chance per attempt, including failure insight, without τ_a |
+| τ_a | float | 0 or τ = 0.05 | calculated (τ from Realms & Bottlenecks, Formulas, `crafting_talismans.json`) | The breakthrough talisman on the attempt #22 acts on: τ if the realm step's one talisman is used on that attempt, else 0. If the q_max clamp cuts the talisman short, τ_a is the part that applies, so q + τ_a ≤ q_max |
+| q_desp | float | q to q_max − τ_a | calculated | #22's chance for the attempt without τ_a, clamped by the guard; the attempt succeeds with q_desp + τ_a |
+| ι_23 | float | 0 or 0.02 (0 to `failure_insight_pp`) | calculated (`breakthrough.failure_insight_pp` 2 and `failure_insight_cap` 4 pp, Realms & Bottlenecks) | The insight #23's extra roll would add if it failed: 0 if the step's current insight I is at the cap, else min(failure_insight_pp, failure_insight_cap − I) |
+| F_0 | float | 0–1 | calculated | Chance of failing every attempt in the step except the one after the extra roll; used only to state the carry exactly (the guard assumes F_0 = 1) |
 | q_retry | float | 0.01–0.95 | calculated | Chance of #23's extra attempt, clamped by the guard |
 | q_max | float | 0.95 | data file | Ceiling on any attempt's chance |
 | Δ_desp | float | 0.15 | data file | Cap on #22's gain over q |
@@ -732,32 +768,64 @@ formulas assume S < 1: at S = 1 there is nothing to lift, and neither capability
 | burn_cost | int | max(10, 0.05·L_r) years | data file | #23's lifespan cost, L_r being the realm's lifespan |
 
 **Output Range:**
-- For every S in 0–1 and q in 0.01–0.95, the lift of each capability is ≤ δ_max = 0.10.
+- For every S with 0 ≤ S < 1 (S_guard is capped at 0.95), q in 0.01–0.95 and τ_a in {0, 0.05} with q + τ_a ≤ q_max, the
+  lift of each capability is ≤ δ_max = 0.10. Before τ_a was added, a talisman on the #22
+  attempt allowed up to δ_max·(1 − q)/(1 − q − τ) = 0.106 at q = 0.1225 (0.006 over).
+  This holds for ι_23 in {0, 0.02} too. Before ι_23 was added, #23's insight carry
+  allowed 0.1115 (q 0.30 after one failed attempt at 0.28, S 0.5104) and 0.1009 at the
+  CF→NS baseline (attempts 0.0825 and 0.1025); the new guard gives 0.0920 and 0.0966.
 - At S = 0.70 and q = 0.25 the clamps do not bind and the lift is 0.075 (#23) and 0.060
   (#22). The clamps bind where S is low or q is large.
 - Without the clamps the guard fails at the baseline: at S = 0.30, q = 0.30 (one roll) #22
   would lift by +0.150 and #23 by +0.210.
 - The clamps only bound the lift. The bot measurement (Acceptance Criteria) still checks
   the whole attempt model once Realms & Bottlenecks defines it.
-- **Intent.** A capability may lift a realm's success by up to 0.10: a life at the 0.70
-  edge target reaches at most 0.80, and a life without edges at most 0.40. This is
-  deliberate. Capabilities are earned, rare (one per outer sealed cluster) and bounded,
+- **Intent.** A capability adds at most δ_max (0.10) to whatever S the life has built.
+  This is deliberate. Capabilities are earned, rare (one per outer sealed cluster) and bounded,
   and the player-facing text says "up to ×2, capped".
 - **Baseline includes the tree.** The 0.30 / 0.70 targets are measured with the tree's own
-  `breakthrough_chance` already counted (AC-KMD-50 runs the bot with it), so the tree's
-  8 pp ceiling sits inside the targets, and the capabilities add at most 0.10 on top.
+  `breakthrough_chance` already counted (AC-KMD-50 runs the bot with it), so the tree as
+  the bot allocates it (about 0.02 of the cap) sits inside the targets; a maxed tree is
+  Realms & Bottlenecks Open Question 13. The capabilities add at most 0.10 on top.
   Realms & Bottlenecks must treat the tree's share as part of the calibration, not an extra.
+  The bot takes no `field_plots` acupoint (Formulas F, plot price).
 
-**Example:** S = 0.70, q = 0.25 (clamps do not bind):
+**Example:** S = 0.70, q = 0.25, ι_23 = 0 (clamps do not bind):
 - #23 alone: q_retry = min(0.25, 0.10/0.30) = 0.25, so 0.70 + 0.25·0.30 = **0.775**.
 - #22 alone: q_desp = min(0.50, 0.40, 0.95, 0.25 + 0.10·0.75/0.30 = 0.50) = 0.40, so
   1 − 0.30·0.60/0.75 = **0.76**.
 - They can't both act in one realm step, so the lift is at most +0.075.
 
-**Example (clamps bind):** S = 0.30, q = 0.30:
+**Example (clamps bind):** S = 0.30, q = 0.30, ι_23 = 0:
 - #23: q_retry = min(0.30, 0.10/0.70) = 0.1429, so the lift is 0.1429·0.70 = **0.100**.
 - #22: q_desp = min(0.60, 0.45, 0.95, 0.30 + 0.10·0.70/0.70 = 0.40) = 0.40, so the lift is
   0.70·0.10/0.70 = **0.100**.
+- Both use τ_a = 0 (no talisman on the attempt), where the formulas are the old ones.
+
+**Example (talisman on the #22 attempt):** S = 0.1725 (= q + τ_a, the lowest S this
+attempt allows, since S ≥ the attempt's chance), q = 0.1225, τ_a = 0.05:
+- q_desp = min(0.245, 0.2725, 0.95 − 0.05 = 0.90, 0.1225 + 0.10·0.8275/0.8275 =
+  0.2225) = **0.2225** (the δ_max term binds).
+- The attempt's chance is q_desp + τ_a = **0.2725**, against 0.1725 with the talisman
+  alone.
+- The lift is (1 − S)·(q_desp − q)/(1 − q − τ_a) = 0.8275·0.10/0.8275 = **0.100**.
+- Under the old guard (no τ_a), q_desp would be min(0.245, 0.2725, 0.95, 0.1225 +
+  0.10·0.8775/0.8275 = 0.2285) = 0.2285 and the lift 0.8275·0.1060/0.8275 = 0.106, over
+  δ_max.
+
+**Example (#23 with failure insight, CF→NS baseline):** two pill attempts at 0.0825 and
+0.1025 (0.0825 + ι after the first fails), so S = 1 − 0.9175·0.8975 = 0.17654 (1 − S =
+0.82346). #23 acts after the first failure: insight I = 0.02, so the extra roll has
+q = 0.1025 and ι_23 = min(0.02, 0.04 − 0.02) = 0.02.
+- q_retry = min(0.1025, 0.08/0.82346) = **0.09715** (the δ_max − ι_23 term binds).
+- Direct lift: 0.09715·0.82346 = **0.0800**.
+- Carry: if the extra roll fails, the second attempt is 0.1225 instead of 0.1025.
+  F_0 = 0.9175 (fail the first attempt; nothing follows the second), so the carry is
+  0.02·(1 − 0.09715)·0.9175 = **0.0166**.
+- Lift: 0.0800 + 0.0166 = **0.0966** ≤ δ_max. Check from the sequence: failing all is
+  0.9175·0.90285·0.8775 = 0.72689 against 0.82346, a lift of 0.0966.
+- Under the old guard, q_retry = 0.1025 and the lift is 0.1025·0.82346 + 0.02·0.8975·0.9175
+  = 0.0844 + 0.0165 = 0.1009, over δ_max.
 
 ### F. Fill budget
 
@@ -821,7 +889,7 @@ reference. All weights are guesses until checked by the bot.
 | dan_doc_resist_pct | 1.6 | formation_power_pct | 1.0 |
 | cultivation_speed_pct | 2.2 | dan_doc_decay | 8 |
 | herb_growth_pct | 0.9 | density_bonus | 140 |
-| mission_income_pct | 0.7 | field_plots | 10 |
+| mission_income_pct | 0.7 | field_plots | 20 |
 | lifespan_years | 300 / L_r per year | | |
 
 **Precision.** Values are held as whole counts of their precision unit (+12.3% attack is
@@ -829,8 +897,10 @@ reference. All weights are guesses until checked by the bot.
 - 0.1: every `_pct` stat, `stealth`, `alchemy_success`, `refining_success`,
   `breakthrough_chance` and `lifespan_years` (in years).
 - 0.01: `khi_van`, `ngo_tinh`, `dan_doc_decay` and `density_bonus`.
-- 1: `field_plots` (Character Stats confirms the unit). One plot is 10 W, so it fits only
-  a notable, and only when the cluster's compounding cap allows at least 1 (n ≥ 9).
+- 1: `field_plots` (Character Stats confirms the unit). One plot is 20 W, so it fits only
+  a notable with E_notable ≥ 20 W, and only when the cluster's compounding cap allows at
+  least 1 (n ≥ 9). At launch values E_notable is at most 14 W (Formulas D), so no
+  acupoint can carry a plot: step 6 removes it wherever a fill puts it.
 
 Compounding caps per cluster at n = 9 (the old values ÷ k_pts; guesses):
 - cultivation_speed_pct 4
@@ -844,7 +914,26 @@ Compounding caps per cluster at n = 9 (the old values ÷ k_pts; guesses):
 
 `lifespan_years` has its own per-cluster ceiling, φ_r·L_r, and `breakthrough_chance` also
 has the tree-wide ceiling above, because its per-cluster cap alone lets many clusters add
-up.
+up. The tree's `breakthrough_chance` is bounded by both `tree_breakthrough_cap` and Realms
+& Bottlenecks' character-wide ceiling on the summed per-attempt extras (its Formulas C),
+whichever binds first; Realms & Bottlenecks owns that q-extras ceiling and its value.
+
+**Plot price (user decision 2026-11-04, cross-GDD review 04g F11).** `field_plots` is
+priced at 20 W, not 10 W. At the root-free median one plot is worth about +0.06 S at a
+breakthrough, which is about 3.8 pp of q (Realms & Bottlenecks Formulas D: fields are a
+build). At `breakthrough_chance`'s 5 W per pp that is about 19 W, rounded to 20 W. At
+10 W a plot bought odds at about twice the rate of `breakthrough_chance` and sat outside
+`tree_breakthrough_cap`.
+- **Effect on fills.** 20 W is over every acupoint's power cap at launch values
+  (tol·E_small ≤ 2.52 W, E_notable ≤ 14 W, a capability notable ≤ 7 W), so step 6 removes
+  any plot and fills the acupoint from the theme's pool. No cluster over-spends: B does
+  not depend on w, and the replacement stat is held to the same caps. The tree therefore
+  gives no plots unless N0·P reaches 20 W (N0 ≥ 11.43 at P_max), which is outside the N0
+  safe range (7.0–9.1). The `field_plots` compounding cap of 1 stays as the guard for
+  that case.
+- **Bot calibration.** The bot's calibration runs (Realms & Bottlenecks AC-CG-30 and
+  AC-CG-60, and this GDD's AC-KMD-50) take no `field_plots` acupoint. Fields are a build
+  outside Realms & Bottlenecks' 0.30 / 0.70 targets.
 
 The tree's `herb_growth_pct`, `alchemy_success` and `lifespan_years` also count toward
 Character Stats' character-wide bonus ceilings (its rule 14 and Formulas I), which they
@@ -884,12 +973,13 @@ rounding can lower a fill's power but never raise it.
    duplicate stat is replaced from the pool.
 6. **Per-stat cap.** Clamp each value to cap_power / w, where cap_power is the acupoint's
    power cap (tol·E_small or E_notable), rounded down to the stat's precision. If that is
-   below one unit (`field_plots` on a small acupoint), the stat is removed and replaced
+   below one unit (`field_plots` on any acupoint at launch values), the stat is removed and replaced
    from the pool as in step 3.
 7. **Acupoint cap.** Scale any acupoint over its power cap down to the cap.
 8. **Compounding caps.** Scale down each stat that breaks its compounding cap, across
    the cluster, and scale `lifespan_years` down to φ_r·L_r. A stat whose cluster cap,
-   rounded down to its precision, is below one unit (`field_plots` when n < 9) is removed
+   rounded down to its precision, is below one unit (`field_plots` when n < 9, if a plot
+   passed step 6) is removed
    and replaced from the pool as in step 3.
 9. **Budget and quantize.** One loop, so the total never exceeds B:
    - Let B_rest = B, with every acupoint unfixed.
@@ -1451,7 +1541,7 @@ as the bidirectional-dependency rule requires.
 | 2 | Deterministic Simulation Core | The seeded RNG for map generation (fixed seed per content release) and NPC allocation; Breakdown for explainable values |
 | 6 | Spiritual Root (Linh Căn) | Purity per element and base element count (rules 3 and 4) |
 | 7 | Character Stats | Accepts modifiers {source, stat, value}; owns stat keys, units and meaning, and the stat weights' reference values; stores the character's capability set (held capability ids), which the Meridian Map writes and every capability host reads |
-| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Level, realm and stage; level bands, great breakthrough bonuses and the `pct_trung` / `pct_hau` / `pct_dai` shares (Formulas A); realm lifespan L_r; pill attempts for #22 and #23 |
+| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Level, realm and stage; level bands, great breakthrough bonuses and the `pct_trung` / `pct_hau` / `pct_dai` shares (Formulas A); realm lifespan L_r; pill attempts for #22 and #23; the breakthrough talisman (one per realm step, τ 0.05, rule 8), which enters Formulas E2 as τ_a; failure insight (`breakthrough.failure_insight_pp` 2, `failure_insight_cap` 4), which enters E2 through q (insight included) and ι_23 |
 
 **Upstream: the cluster layer needs them; the base tree works without them (soft)**
 
@@ -1840,7 +1930,7 @@ Drafted with qa-lead.
   | Reply marks 2 notables for k 1 | Roles come from the slot map: 1 notable; the extra mark is ignored and recorded |
   | An unknown or repeated slot id | Entry dropped; a missing slot is filled from the pool |
   | +0.04% attack (below one unit of 0.1) | Removed; a pool stat is added if the acupoint is left empty |
-  | `field_plots` on a small acupoint | Removed (one plot is 10 W, over the small cap); replaced from the pool |
+  | `field_plots` on a small acupoint or a notable | Removed (one plot is 20 W, over the small cap and over E_notable ≤ 14 W); replaced from the pool |
   | −5% defense | stat removed (replaced from the pool if the acupoint is left empty) |
   | An acupoint with 3 stats | the 2 highest-power stats kept |
   | 2 distinct stats | 3 or more |
@@ -1849,8 +1939,11 @@ Drafted with qa-lead.
     precision, so the acupoint has 2.2 W.
   - Cultivation speed summing to 9 at n = 9 is scaled down to a sum of at most 4 (rounding
     down can leave it a little under). The cap is 2.667 at n = 4 and 5.164 at n = 15.
-  - A notable whose only stat is `field_plots`, in an n = 7 cluster, loses it at step 8
-    (the cluster cap, 0.88, is below one unit) and gets a pool stat.
+  - A notable whose only stat is `field_plots` loses it at step 6 (20 W is over its
+    E_notable, at most 14 W at launch values) and gets a pool stat.
+  - With a fixture data file whose N0 lifts that notable's E_notable to at least 20 W, the
+    same notable in an n = 7 cluster passes step 6 but loses the plot at step 8 (the
+    cluster cap, 0.88, is below one unit) and gets a pool stat.
   - Three smalls in an n = 3 cluster, each with only 0.1 `breakthrough_chance` (cap 0.289):
     all three are dropped at step 9, and each is fixed with one unit of an uncapped pool
     stat. The cluster's `breakthrough_chance` sums to 0.
@@ -1927,11 +2020,25 @@ Drafted with qa-lead.
   - q_desp at S = 0.70: q = 0.25 gives 0.40, q = 0.10 gives 0.20, and q = 0.70 gives 0.80
     (the δ_max term, 0.70 + 0.10·0.30/0.30, binds, and the lift is exactly 0.100).
   - q_desp at S = 0.95, q = 0.90 is 0.95 (q_max binds; the lift is 0.025).
-  - S below q cannot occur (S ≥ q); the property test skips those pairs.
-  - Guard clamps: at S = 0.30, q = 0.30, q_retry = 0.1429 and q_desp = 0.40; both lifts
-    are 0.100 (±0.001).
-  - Property test: for S in 0.05–0.95 (step 0.05) and q in 0.01–min(S, 0.95), the lift of #22 and
-    of #23 is ≤ 0.10 + 1e-9 and q_retry ≤ q.
+  - S below the attempt's chance cannot occur (S ≥ q + τ_a); the property test skips
+    those pairs.
+  - Guard clamps: at S = 0.30, q = 0.30, ι_23 = 0, q_retry = 0.1429 and q_desp = 0.40;
+    both lifts are 0.100 (±0.001).
+  - #23 with failure insight: pill attempts at 0.0825 and 0.1025 give S = 1 −
+    0.9175·0.8975 = 0.17654375. #23 after the first failure has q 0.1025 and ι_23 0.02,
+    so q_retry = min(0.1025, 0.08/0.82345625) = 0.09715 (± 1e-5). The lift computed from
+    the attempt sequence, 0.82345625 − 0.9175·(1 − q_retry)·0.8775, is 0.0966 (± 1e-4;
+    0.0800 direct plus 0.0166 carry), ≤ 0.10. With the old guard (q_retry 0.1025) the same
+    sequence lifts 0.1009. ι_23 is 0.02 at insight 0.02 and 0 at insight 0.04 (the cap).
+  - Guard clamps with the talisman: with τ_a 0.05 at S 0.1725 (= q + τ_a) and q 0.1225,
+    q_desp = min(0.245, 0.2725, 0.90, 0.1225 + 0.10·0.8275/0.8275) = 0.2225 (± 1e-9;
+    the δ_max term binds), the attempt's chance is 0.2725, and the #22 lift is
+    (1 − 0.1725)·(0.2225 − 0.1225)/0.8275 = 0.100 (± 1e-9). With τ_a 0 the #22 values
+    equal the old formulas'.
+  - Property test: for S in 0.05–0.95 (step 0.05), τ_a in {0, 0.05} and q in
+    0.01–min(S − τ_a, 0.95 − τ_a) (a pair with an empty q range is skipped), the lift of #22 and of #23 is ≤ 0.10 + 1e-9, q ≤ q_desp,
+    q_desp + τ_a ≤ 0.95 and q_retry ≤ q. For #23 the test also runs ι_23 in {0, 0.02}
+    and takes the lift at its worst case, q_retry·(1 − S) + ι_23·(1 − q_retry) (F_0 = 1).
   - With remaining lifespan = burn_cost, the retry is not offered; with burn_cost + 1,
     it is offered.
 - **AC-KMD-45** [Integration, needs the Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) host]
@@ -1973,6 +2080,8 @@ Drafted with qa-lead.
     and 0.70 ± 0.05 with all edges.
   - `autoplay.gd` over ≥ 60 lives: 0.70 ± 0.10 with edge on and 0.30 ± 0.10 with edge
     off.
+  - In both runs the bot takes no `field_plots` acupoint (Formulas F, plot price): fields
+    are a build outside these targets.
 
 **Persistence and content releases (rules 15, 19)**
 

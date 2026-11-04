@@ -37,3 +37,33 @@ Applied the key recommended items:
 Recorded as Open Questions: the rule 18 guarantee load (9) and the missing Player Fantasy (10); the Realms years-table drift stays with Open Question 1. Cross-system constants were already registered.
 
 The status header is set to Approved. No tuned values changed except the new budget keys.
+
+## Review — 2026-11-04 (second pass) — Verdict: APPROVED
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 0 | Recommended: 6
+Summary: Full re-review after the cross-GDD fixes. The only content change since the first pass is the rule 12 bullet requiring confirmation when a slot or main-method change would drop the lifespan cap to the age or below; it agrees with Realms rule 14 and AC-CG-62. About 45 hand-computed values (Formulas A-E examples, AC-CP-06, 14-28, 37, 39) were recomputed and match, and all owned registry values agree.
+Prior verdict resolved: Yes (first-pass recommendations were applied in the cleanup)
+Findings:
+- [RECOMMENDED] Rule 6 / AC-CP-05 / UI Requirements / Interactions / Cross-References: "no cost" slot swaps and the slotting preview do not mention the rule 14 lifespan confirmation or cap
+- [RECOMMENDED] Dependencies: stale "Bidirectionality" paragraph (index row 9 already carries the dependencies)
+- [RECOMMENDED] Rule 8 guard: an involuntary unslot could lower the lifespan cap with no stated behaviour (Realms NG8)
+- [RECOMMENDED] Tuning Knobs: bonus_budget and bonus_single_cap have no safe-range row
+- [RECOMMENDED] Edge Cases: stale "systems-designer was not consulted" header
+- [RECOMMENDED] Open Questions 1, 2, 5, 6, 9 carried (balance guesses and the rule 18 content load)
+- [ADVISORY] Player Fantasy section absent (advisory at standard)
+Note: the Status header and systems-index row were set to Approved before this hash was taken.
+
+Reviewed-Content-Hash: design/gdd/cong-phap.md 71bb0c29b137f9b8a632d5a6f75f06260191691b
+Reviewed-Content-Hash: design/registry/entities.yaml 6c13ff12951f6e07a0026696ed94eea801d06d70
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/linh-can.md c374398023153060a9ebf19d835d2a7a055a9b83
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 862f0775bcfd3fa9f23ba42fac9e97626f2d07e1
+Reviewed-Content-Hash: design/gdd/character-stats.md e777ab76a33ac9e2cc21bede7abbf4e9f8e1a989
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md 2484b6a22721d7a3ebae4f9c941fdd197a6ac0f7
+Reviewed-Content-Hash: design/gdd/game-concept.md 22b0a52bfb634daaf974870d4c706c394ac9b3bd
+Reviewed-Content-Hash: design/glossary.md ff571453f374812f6f9f2e2a38eac45a38fb22ca
+
+## Cleanup — 2026-11-04 (no new review)
+Applied after the second pass: rule 6 and AC-CP-05 carry the Realms rule 14 lifespan confirmation; the slotting preview shows the new cap; the Interactions and Cross-References rows name Realms rule 14; the stale Bidirectionality paragraph and the Edge Cases header are corrected; bonus_budget and bonus_single_cap have Tuning Knobs rows. No values changed.

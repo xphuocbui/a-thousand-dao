@@ -1,6 +1,6 @@
 # Cultivation Techniques (Công Pháp)
 
-> **Status**: Approved (2026-11-04, first lean /design-review; 8 recommended items, the key 5 applied in cleanup, the rest in Open Questions). See `reviews/cong-phap-review-log.md`.
+> **Status**: Approved (2026-11-04, second lean /design-review: no blockers, 6 recommended revisions open). See `reviews/cong-phap-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-04
@@ -122,7 +122,8 @@ which technique you commit your seasons to. The decision has two sides:
      techniques.
    - Capability #6 Twin Technique Cultivation (Meridian Map) adds a second main
      slot. Its method cultivates at 50 % speed with its full bonuses (Formulas A).
-   - Slots can be changed at the start of any season, at no cost. The technique
+   - Slots can be changed at the start of any season, at no cost, except that a change
+     which would end the life needs the confirmation of Realms rule 14 (rule 12). The technique
      you take out keeps its layers and its stored mastery (rule 7). A season's
      mastery and rate use the slots as set at its start.
    - The same technique cannot fill two slots.
@@ -177,6 +178,10 @@ which technique you commit your seasons to. The decision has two sides:
     - `herb_growth_pct`, `alchemy_success` and `lifespan_years` count toward Character
       Stats' character-wide bonus ceilings (its Formulas I), shared with the tree,
       items and pills (user decision 2026-11-04, cross-GDD review G1).
+    - Because bonuses count only while slotted, a slot or main-method change that would
+      lower the lifespan cap to the character's age or below needs the player's
+      confirmation, and a confirmed change kills (Realms rule 14; user decision
+      2026-11-04, cross-GDD review NG4).
     - An auxiliary art's bonuses are also scaled by its harmony with the main
       method (Formulas D). Harmony is directional:
       - **the main method generates the art** (tương sinh, main → art): ×1.15;
@@ -267,7 +272,7 @@ every transition. Losing the manual item never unlearns a technique.
 | System | Direction | Data | Owner |
 |---|---|---|---|
 | Spiritual Roots | in | the purity of each named element and mutation; root changes that make a technique usable | Spiritual Roots |
-| Realms & Bottlenecks | in / out | in: the current realm, for layer gates and the tier cap. Out: `tech`, the speed factor in the cultivation rate (Realms Formulas I) | this GDD (the factor); Realms (the rate) |
+| Realms & Bottlenecks | in / out | in: the current realm, for layer gates and the tier cap. Out: `tech`, the speed factor in the cultivation rate (Realms Formulas I); slot changes that Realms rule 14's lifespan confirmation covers | this GDD (the factor); Realms (the rate) |
 | Character Stats | in / out | in: effective Comprehension (mastery) and Physique (body techniques). Out: technique bonuses through the provider interface, and `tech_power` for spiritual power | this GDD (values); Character Stats (the interface) |
 | Meridian Map | in / out | in: capability #6 (second main slot). Out: `seal_clusters` and main-slot season counts | Meridian Map (the rule); this GDD (the record and `cong_phap_seasons`) |
 | Time & Turn | in | whether the season was spent cultivating (full or idle mastery rate) | Time & Turn |
@@ -629,8 +634,8 @@ Market owns the final bands.
 
 ## Edge Cases
 
-`systems-designer` was not consulted for this section (lean mode). Review it
-manually before production.
+This section was drafted without `systems-designer` (lean mode). Two lean design
+reviews and three cross-GDD reviews have checked it, but no specialist pass has.
 
 **Slots and usability**
 - **If the main slot is empty but auxiliary arts are slotted:** cultivation is crude
@@ -779,9 +784,9 @@ manually before production.
   Meridian Map reads.
 
 **Bidirectionality.** All four approved GDDs list this system: Spiritual Roots,
-Character Stats, Realms and the Meridian Map. The index row's dependencies were
-Item DB, Spiritual Roots and Realms; it gains Character Stats, plus soft Time & Turn
-and Meridian Map (Phase 5 index update).
+Character Stats, Realms and the Meridian Map. Index row 9 already carries the
+dependencies (Spiritual Roots, Realms, Character Stats, Item DB; soft Time & Turn and
+Meridian Map).
 
 ## Tuning Knobs
 
@@ -808,6 +813,8 @@ All keys are in `items_cong_phap.json` unless noted.
 | `power_layer_floor` | 0.6 | 0.4–0.8 | How much a found high-tier technique is worth before it is mastered |
 | `no_tech_power` | 0.5 | 0.4–0.8 | Spiritual power with no main method |
 | `bonus_layer_floor` | 0.3 | 0.2–0.5 | Bonus value at layer 1 |
+| `bonus_budget` | 1.0 / 2.0 / 3.0 / 4.0 | ±25 % (guess); generated commons must stay inside it (a Profound secret art at pool maxima uses 2.0) | The total bonus a tier of technique may carry; the validator rejects a template over it |
+| `bonus_single_cap` | 1.5 | 1.2–2.0 (guess) | The largest single bonus, in pool maxima |
 | `body_factor_cap` | 1.5 | 1.2–1.5 | How far Physique can push a body technique |
 | `harmony` | 1.15 / 1.00 / 0.60 | generating 1.05–1.25; overcoming 0.4–0.8 | Whether auxiliary arts must be chosen around the main method |
 | `aux_slots` | 2 | 1–3 | Build width |
@@ -853,7 +860,8 @@ These apply to the Debug Terminal now and to the Game UI later.
   missing id ("needs Water"), and shows each one's kept layers.
 - **Before learning or slotting.** The screen previews the speed and bonus change,
   and the seasons to reach the speed of the current method. This makes the ramp
-  trade-off (Formulas A) visible.
+  trade-off (Formulas A) visible. It also shows the new lifespan cap, and the death
+  confirmation of Realms rule 14 when the change would end the life.
 - **Manual items.** Market and inventory show tier, kind, named ids, whether the
   manual fits the root, and whether it is already learned.
 - **Before a great breakthrough.** If the main method's max realm is below the next
@@ -867,7 +875,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 |---|---|
 | `design/gdd/game-concept.md` | Cultivation techniques (core mechanic 4), the ~40 content target, onboarding (one technique at start) |
 | `design/gdd/linh-can.md` | Rule 7 (the purity scale of named ids, a locked contract); Open Question 3 there is answered by rule 8 here |
-| `design/gdd/canh-gioi.md` | Formulas I (the `tech` term), rule 13 (the ×0.25 tier cap), the years-per-realm table that Formulas A calibrates against |
+| `design/gdd/canh-gioi.md` | Formulas I (the `tech` term), rule 13 (the ×0.25 tier cap), rule 14 (the lifespan confirmation for slot changes), the years-per-realm table that Formulas A calibrates against |
 | `design/gdd/character-stats.md` | The provider interface, spiritual power (`tech_power`, range edited to 0.5–2.2), effective Comprehension and Physique, the precision and tolerance rules, Market rounding |
 | `design/gdd/kinh-mach-do.md` | Rule 7 (technique seals; `cong_phap_seasons` fixed here; cultivating seasons only), capability #6 |
 | `design/glossary.md` | Tier, kind and element names |
@@ -939,7 +947,7 @@ applied above).
   - a main method in an auxiliary slot, or an auxiliary art in the main slot;
   - any slot change mid-season.
 
-  At a season start a swap costs no season and no resource. The technique taken out
+  At a season start a swap costs no season and no resource (a swap that would put the lifespan cap at or below the age first needs Realms rule 14's confirmation: AC-CG-62). The technique taken out
   keeps its k and stored mastery exactly. A season's mastery and rate use the slots
   as they were at its start.
 - **AC-CP-06** [Logic] Rule 7, mastery. A Yellow [Fire] main method from k 1 at QR,
