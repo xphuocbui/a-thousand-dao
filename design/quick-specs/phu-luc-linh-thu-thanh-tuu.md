@@ -44,10 +44,12 @@ Example: soul strength 70, Beast Taming (Ngự thú) 2: 0.15 + 0.08 + 0.10 = 33%
 ## Changing spiritual roots (linh căn)
 
 - **Tẩy Tủy Đan** (recipe, Way of Alchemy [Đan Đạo] 5, two 40-year herbs): raises the weakest owned
-  element by 6 × pill multiplier, max 3 per life, then re-checks root mutation (biến dị) by the normal
-  rule.
-- **Linh Căn Quả** (items_treasures.json): adds a missing element at purity 20–35 (or +8 to
-  one when all five are owned), then re-checks root mutation. Events only, and only from
+  element by max(1, round(6 × pill potency)), max 3 per life. It never rolls for root mutations
+  (biến dị); it only recomputes the purity of owned mutations built on that element. The rules are
+  owned by `design/gdd/linh-can.md` (rule 11), which wins on any difference.
+- **Linh Căn Quả** (items_treasures.json): adds a missing element at purity 20–35, then rolls once for
+  each mutation that becomes eligible (or +8 to the weakest element when all five are owned: no roll,
+  owned mutations' purity recomputed). Rare by design. Events only, and only from
   Foundation Establishment (Trúc Cơ) up: `events_budgets.json` per_realm `treasures` lists what an event may grant; the
   validator drops anything else (LLM included). Template: "Linh Căn Quả chín" (beast
   guardian, realm ≥ Foundation Establishment, weight 2).

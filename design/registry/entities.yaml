@@ -124,6 +124,63 @@ items: []
 # Optional: expression (the actual formula), notes
 
 formulas:
+  - name: root_birth_roll
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/character-stats.md
+    variables:
+      - count_weights
+      - purity_mean
+      - purity_sd
+    output_range: [10, 100]
+    expression: "count ~ weights; elements uniform; purity = clamp(round(N(50,20)), 10, 100)"
+    notes: "Five-element root about 1 life in 67; 7.7% of births have an element at 85+."
+    added: 2026-11-04
+    revised: ""
+  - name: curve_factor
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/canh-gioi.md
+    variables:
+      - n_base
+      - stage_group
+    output_range: [0.3, 9.0]
+    expression: "element_count_curve[base element count][stage group]"
+    notes: "Mutations excluded (user decision 2026-11-04). Parity: 2-3 elements at FE mid, 4 at FE late, 5 at CF early."
+    added: 2026-11-04
+    revised: ""
+  - name: mutation_chance
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/kinh-mach-do.md
+    variables:
+      - order
+      - parent_purities
+    output_range: [0, 0.5]
+    expression: "f_order * prod(purity_p/100); f_1 = 0.5, f_o = 0.25/(o-1); purity = round(0.8 * geomean(current parent purities)), recomputed when a parent changes"
+    notes: "Each mutation rolls once, at first eligibility, plus one extra roll per realm breakthrough while Mutation Awakening (Meridian Map #24) is held (at most 2 such rolls per life: capabilities sit behind the Core Formation gate); 13.5% of births have one."
+    added: 2026-11-04
+    revised: 2026-11-04
+  - name: generating_pair_bonus
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/character-stats.md
+    variables:
+      - pair_bonus_pct
+      - owned_pairs
+    output_range: [0, 15]
+    expression: "pair_bonus_pct * number of generating pairs owned (cultivation_speed_pct)"
+    notes: "One stat sheet modifier per pair, source "Tương sinh: X → Y"."
+    added: 2026-11-04
+    revised: ""
   - name: effective_talent
     status: active
     source: design/gdd/character-stats.md
@@ -225,8 +282,8 @@ formulas:
       - q_pill
       - S_bare
     output_range: [0, 1]
-    expression: "S = P_C*(1 - e^(-lambda*q_pill + talisman extras)) + S_bare"
-    notes: "Targets about 0.30 baseline and 0.70 with the player edge; the baseline lever is pill supply (herb min_age)."
+    expression: "S = P_C * (1 - e^(-(lambda * q_pill + talisman extras))) + S_bare; lambda = p_brew * n_plots * f * h * W / Y + lambda_market + G (root terms: Earth plots, Wood herb growth, Fire brew success)"
+    notes: "Targets 0.30 baseline and 0.70 with the player edge are means over the birth mix (45/32/15/6.5/1.5 % elements), user decision 2026-11-04; pill plot-years Y were rescaled x1.43 for the root terms. The baseline lever is pill supply (herb min_age)."
     added: 2026-11-03
     revised: ""
   - name: guard_success
@@ -347,6 +404,93 @@ formulas:
 # Required fields: name, status, source, referenced_by, value, unit, added
 
 constants:
+  - name: root_count_weights
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/kinh-mach-do.md
+    value: [45, 32, 15, 6.5, 1.5]
+    unit: percent
+    notes: "For 1-5 base elements (user decision; was 45/30/15/7/3)."
+    added: 2026-11-04
+    revised: ""
+  - name: root_purity_distribution
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/character-stats.md
+      - design/gdd/kinh-mach-do.md
+    value: "N(50, 20) clamped 10-100, rounded"
+    unit: purity
+    notes: "2.4% clamp to 10, 0.67% to 100; mean 50.1."
+    added: 2026-11-04
+    revised: ""
+  - name: pair_bonus_pct
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/character-stats.md
+    value: 3
+    unit: cultivation_speed_pct per pair
+    notes: "Derived ceiling 4.5 (5 pairs under the 50 W keystone floor)."
+    added: 2026-11-04
+    revised: ""
+  - name: bien_di_factors
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: "chance 0.5 (order 1), 0.25/(o-1) (higher); purity 0.8"
+    unit: factor
+    notes: "Mutation formation."
+    added: 2026-11-04
+    revised: ""
+  - name: bien_di_power_band
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/kinh-mach-do.md
+    value: "ceilings 30/60/100/150 W; floors 10/15/30/50 W"
+    unit: W by order
+    notes: "Priced with the Meridian Map stat weights; lifespan years at 2.5 W."
+    added: 2026-11-04
+    revised: ""
+  - name: mutation_catalogue_size
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: 29
+    unit: mutations
+    notes: "10 / 15 / 3 / 1 by order 1-4."
+    added: 2026-11-04
+    revised: ""
+  - name: element_count_curve
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/canh-gioi.md
+    value: "5 rows (1-5 base elements) x 13 stage groups; 0.3-9.0; row 1 is all 1.0; parity points tc_trung (2-3), tc_hau (4), kd_so (5)"
+    unit: speed factor relative to a single root
+    notes: "Full table in linh-can.md Formulas B; data in character_attributes.json. Keyed by base element count (mutations excluded)."
+    added: 2026-11-04
+    revised: ""
+  - name: root_change_parameters
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/quick-specs/phu-luc-linh-thu-thanh-tuu.md
+    value: "Tay Tuy Dan: 6 purity x potency (min +1), max 3 per life; Linh Can Qua: new element at 20-35, or +8 when all five are owned"
+    unit: purity points
+    notes: "Item values are owned by Item DB; this system owns the rules (rule 11). Linh Can Qua is rare by design (no per-life counter): frequency is owned by the Event Engine budgets."
+    added: 2026-11-04
+    revised: ""
   - name: talent_roll
     status: active
     source: design/gdd/character-stats.md
@@ -628,8 +772,18 @@ constants:
       - design/quick-specs/progression-and-edges.md
     value: [0.30, 0.70]
     unit: realm-step success
-    notes: "Baseline / player edge; the Deity Transformation target includes the Heavenly Tribulation."
+    notes: "Baseline / player edge, as means over the birth mix (per element count 1-5 at QR->FE: baseline 0.26/0.30/0.35/0.40/0.46, edge 0.67/0.70/0.74/0.78/0.82); the Deity Transformation target includes the Heavenly Tribulation."
     added: 2026-11-03
+    revised: 2026-11-04
+  - name: breakthrough_pill_plot_years
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: "FE pill 50 (ginseng min_age 40 + 10), CF pill about 172 (Kim Tuy Qua min_age 152 + 20), NS pill about 390, DT pill about 680"
+    unit: plot-years per pill (Y)
+    notes: "Rescaled x1.43 on 2026-11-04 for the spiritual-root terms in lambda (was 35 / 120 / 270 / 470). Recipes are owned by Item DB."
+    added: 2026-11-04
     revised: ""
   - name: level_cap
     status: active

@@ -35,7 +35,6 @@ Reviewed-Content-Hash: design/gdd/canh-gioi.md af0e0c230dcf4e2777c4871746fe931a0
 Reviewed-Content-Hash: design/registry/entities.yaml 57b684f7a5d0e30d1a83314b4ed97bb43451179f
 Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
 Reviewed-Content-Hash: design/gdd/game-concept.md 22b0a52bfb634daaf974870d4c706c394ac9b3bd
-Reviewed-Content-Hash: design/gdd/systems-index.md f8af49e44797a7bc02d97f9e4a547c98f6023b18
 Reviewed-Content-Hash: design/gdd/kinh-mach-do.md b312884ca296971fa555f47e71561ad5f81df2c2
 Reviewed-Content-Hash: design/glossary.md a057a5eea33c30b06ab8caaf778e93f4e0ab0f0f
 
@@ -67,7 +66,6 @@ Resolution (same day, user chose revise now):
 The GDD and registry are deliberately not stamped (revised after this review), so the next run treats them as changed.
 Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
 Reviewed-Content-Hash: design/gdd/game-concept.md 22b0a52bfb634daaf974870d4c706c394ac9b3bd
-Reviewed-Content-Hash: design/gdd/systems-index.md 56027ff60584cb61054c1e854b3fcf546dbc50fe
 Reviewed-Content-Hash: design/gdd/kinh-mach-do.md b312884ca296971fa555f47e71561ad5f81df2c2
 Reviewed-Content-Hash: design/glossary.md a057a5eea33c30b06ab8caaf778e93f4e0ab0f0f
 
@@ -91,7 +89,6 @@ Reviewed-Content-Hash: design/gdd/canh-gioi.md 40960ba624b4eb39fa7e1ed30faefca73
 Reviewed-Content-Hash: design/registry/entities.yaml 787b3f3e6bcd8df02bb1ef57f1485ea261ae20ae
 Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
 Reviewed-Content-Hash: design/gdd/game-concept.md 22b0a52bfb634daaf974870d4c706c394ac9b3bd
-Reviewed-Content-Hash: design/gdd/systems-index.md b89660b0cdd48fde52749f0c86e2496555a5c814
 Reviewed-Content-Hash: design/gdd/kinh-mach-do.md b312884ca296971fa555f47e71561ad5f81df2c2
 Reviewed-Content-Hash: design/glossary.md a057a5eea33c30b06ab8caaf778e93f4e0ab0f0f
 
@@ -109,3 +106,60 @@ Applied the third pass's 7 recommended items and the cross-GDD review's warnings
 - the #23-after-deviation chain is stated.
 
 Not applied: a Player Fantasy section (advisory at the standard tier). Wording only; no values changed.
+
+## Review — 2026-11-04 (fourth pass) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none (lean)
+Blocking items: 2 | Recommended: 9
+Summary: Formulas A–H, the D1 birth-mix calibration and the sampled ACs reproduce, and cross-review blockers C1 and D1 are resolved. Two blockers remained: the cultivation-rate formula was undefined and "plus" read as additive (cross-review C9), and Open Question 4 still held pre-recalibration plot-years (270 / 470 against 390 / 680). Both were fixed the same day, with the other cross-review warnings (C2, C3, C5–C8, C10, C13, C16, C17) and user decisions on the event contract (player only; Deity Transformation after the Tribulation), a season-start rate, and a +19 % QR climb_total cap.
+Prior verdict resolved: Partly (C1 and D1 resolved; C9 and the warnings found open and fixed here)
+Findings:
+- [BLOCKING] Rule 3 / Formulas / AC-CG-07: no rate formula, "plus cultivation-speed bonuses" ambiguous; Formulas I added, multiplicative (fixed)
+- [BLOCKING] Open Questions 4: NS and DT pill plot-years 270 / 470 contradicted Formulas D (390 / 680) (fixed)
+- [RECOMMENDED] Interactions / Dependencies / Cross-References: stale "no GDD yet" text, missing linh-can and character-stats rows (fixed)
+- [RECOMMENDED] Parameter keys: stage_power_step per realm against Character Stats' global key; vitality_floor and tam_ma_natural_decay owned twice (partly fixed; Open Question 11 for Character Stats)
+- [RECOMMENDED] Tuning Knobs: climb_total range ignored five-element QR; joint failure_tam_ma_gain / nascent_tam_ma_max constraint missing (fixed)
+- [RECOMMENDED] Rule 9 / Edge Cases: breakthrough_succeeded emitters and Deity Transformation timing undefined (fixed)
+- [RECOMMENDED] Rule 3 / Edge Cases: curve factor across a stage-group boundary undefined; AC-CG-08a added (fixed)
+- [RECOMMENDED] Registry: realm_step_success, breakthrough_success_targets and plot-years not updated for D1 (fixed)
+- [RECOMMENDED] Formulas D: W for CF and NS not stated; the last two λ are calibration targets (noted)
+- [RECOMMENDED] Small: rule 10 fused sentence, Open Question 6 cite, NS and DT stage groups, base-count wording (fixed)
+- [ADVISORY] Player Fantasy section absent (not added; advisory at standard)
+
+Note: the target GDD and design/registry/entities.yaml are deliberately not stamped below, because both were revised after this review; the next /design-review therefore runs in full.
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/linh-can.md dc1b2fb3e6905722ccb342f4cac31d89d5a84fe0
+Reviewed-Content-Hash: design/gdd/character-stats.md 812988e463b2de24d385260b023cc4616c0ccdb7
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md 15bfc056b73de8895c01444f48a17d49e2ad84a3
+Reviewed-Content-Hash: design/gdd/game-concept.md 22b0a52bfb634daaf974870d4c706c394ac9b3bd
+Reviewed-Content-Hash: design/glossary.md a057a5eea33c30b06ab8caaf778e93f4e0ab0f0f
+Reviewed-Content-Hash: design/gdd/gdd-cross-review-2026-11-04.md bc6ceef75f67d96fef0bfe089e05ba08a5730918
+
+## Review — 2026-11-04 (fifth pass) — Verdict: APPROVED
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none (lean)
+Blocking items: 0 | Recommended: 8
+Summary: Full re-review after the fourth pass's fixes. Level costs, attempt chances, supply and success, failure and heart-demon figures, the S_guard series, the migration mapping and the sampled ACs reproduce from the formulas and the registry; no registry conflicts; Spiritual Roots, Character Stats and the Meridian Map list Realms in return. Remaining items are bookkeeping (realm base rates not stated, stale systems-index text, missing cycle entries) and calibration the GDD already marks as bot-run work.
+Prior verdict resolved: Yes (2 blockers fixed)
+Findings:
+- [RECOMMENDED] Formulas I / Parameter keys: realm base rates (10 / 25 / 60 / 150 / 400 in the built data) not stated, though the years-per-realm table depends on them
+- [RECOMMENDED] Dependencies: "Systems index change (proposed for Phase 5)" is stale
+- [RECOMMENDED] Dependencies: cycles list omits Realms-Character Stats and Realms-Meridian Map
+- [RECOMMENDED] Player Fantasy section absent (advisory at standard)
+- [RECOMMENDED] AC-CG-33a: "extend to FE and CF after the first run" is open-ended
+- [RECOMMENDED] AC-CG-30 to 32 and 54 [Bot]: need per-life lambda and q logging in autoplay.gd
+- [RECOMMENDED] Open Question 9: "thirty years" text conflicts with the earlier min_age 25
+- [RECOMMENDED] Header status still reads "pending re-review"
+
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 943bb6c6bb9137d909d4cfd212cb7838bb63dcf5
+Reviewed-Content-Hash: design/registry/entities.yaml e2cecf0f0cfa507b467ba301a020ac3cd2c8333c
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/linh-can.md 3830e428a2190d178cc469a4e377bf4e688f4f68
+Reviewed-Content-Hash: design/gdd/character-stats.md 812988e463b2de24d385260b023cc4616c0ccdb7
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md 15bfc056b73de8895c01444f48a17d49e2ad84a3
+Reviewed-Content-Hash: design/gdd/game-concept.md 22b0a52bfb634daaf974870d4c706c394ac9b3bd
+Reviewed-Content-Hash: design/glossary.md a057a5eea33c30b06ab8caaf778e93f4e0ab0f0f
+Reviewed-Content-Hash: design/gdd/gdd-cross-review-2026-11-04.md bc6ceef75f67d96fef0bfe089e05ba08a5730918
+Reviewed-Content-Hash: assets/data/cultivation_realms.json f1e3a5e060225dab4335aa41029a6a83eadbfbfa

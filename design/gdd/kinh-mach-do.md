@@ -338,7 +338,7 @@ are in Formulas.
     | 21 | Blink Mark (Thuấn Di Ấn) | Once a year, travel instantly to any visited place | Travel |
     | 22 | Last Radiance (Hồi Quang Phản Chiếu) | With under 5 years of lifespan left, the breakthrough chance of a pill attempt is up to ×2 (capped by Formulas E2) | Realms |
     | 23 | Burning Life to Break Through (Thiêu Thọ Phá Cảnh) | After a failed pill attempt, burn 10 years of lifespan (5% of the realm's lifespan if more) to retry at once | Realms, Lifespan |
-    | 24 | Mutation Awakening (Biến Dị Khai Mở) | Each realm breakthrough rolls one extra chance at a new root mutation (biến dị) | Spiritual Root |
+    | 24 | Mutation Awakening (Biến Dị Khai Mở) | Each completed realm breakthrough gives one more roll to every unowned root mutation (biến dị) whose parents are all owned (Spiritual Roots rule 9; pricing open, see its Open Question 5) | Spiritual Root |
     | 25 | Heart Demon Turned to Strength (Tâm Ma Hóa Lực) | Heart demon above 50 adds attack (+heart demon ÷ 2 %); backlash chance ×2 | Heart Demon, Combat |
 
     #14 sits on a **hybrid-theme cluster** (Way of Formations and Spirit Fields), so its

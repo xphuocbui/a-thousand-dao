@@ -252,7 +252,7 @@ interfaces are provisional.
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
-| Spiritual Roots (Linh Căn) | in | per-element purity, root mutations (their modifiers), base element count | Spiritual Roots |
+| Spiritual Roots (Linh Căn) | in | per-element purity, root mutations (their modifiers), base element count, and one `cultivation_speed_pct` +3 modifier per generating pair owned (source "Tương sinh: <from> → <to>") | Spiritual Roots |
 | Realms & Bottlenecks | in / out | in: realm, level, stage multiplier, heart demon +15 per failure, vitality −40 %; out: effective comprehension and Dao heart, `breakthrough_chance` (tree share capped), `qi_deviation_pct`, `safe_failure`, heart demon | Realms (the ladder); this GDD (the stats) |
 | Meridian Map (Kinh Mạch Đồ) | in | acupoint modifiers {source, stat, value}; capability ids into the set | Meridian Map (what nodes give); this GDD (keys, units, the set) |
 | Cultivation Techniques | in | technique bonuses (modifiers) and technique power for spiritual power | Cultivation Techniques |
@@ -534,7 +534,8 @@ The stacking formulas are defined as:
 | v_i | int (precision units) | per key | calculated | One modifier, quantized once when it enters the sheet |
 | cap_tree | float | 8 pp | data file (`tree_breakthrough_cap`, owned by the Meridian Map) | Cap on the tree's share |
 
-**Output Range:** multipliers ≥ 0; flags 0/1.
+**Output Range:** multipliers ≥ 0; flags 0/1. Spiritual Roots' generating-pair modifiers
+(`cultivation_speed_pct` +3 each, 0–15 in all) are ordinary entries in the sum.
 
 **Rounding rule:** quantize at storage, by flooring, once.
 - Modifiers are stored as integer units of their key's precision (0.1, 0.01 or 1), so sums
@@ -670,7 +671,7 @@ its own Dependencies section.
 |---|---|---|
 | 1 | Data-Driven Config | `character_attributes.json`, `character_stat_labels.json`, `character_elements.json`, the realm multipliers in `cultivation_realms.json` |
 | 2 | Deterministic Simulation Core | The seeded RNG for talent rolls; Breakdown for every derived value |
-| 6 | Spiritual Roots (Linh Căn) | Element purities, root mutations and their modifiers, base element count |
+| 6 | Spiritual Roots (Linh Căn) | Element purities, root mutations and their modifiers, base element count, generating-pair `cultivation_speed_pct` modifiers (up to +15 in all; they stack additively under Formulas I) |
 
 **Modifier and value sources (soft).** Each pushes values into the sheet through one
 provider interface. Character Stats never calls them, which breaks the cycles described

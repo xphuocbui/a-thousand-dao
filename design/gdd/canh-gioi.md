@@ -1,10 +1,10 @@
 # Realms & Bottlenecks (Cảnh Giới & Bình Cảnh)
 
-> **Status**: Approved (2026-11-03, third lean /design-review; its 7 recommended items and the cross-GDD review warnings applied 2026-11-04). See `reviews/canh-gioi-review-log.md`.
+> **Status**: Approved (2026-11-04, fifth lean /design-review, after the cross-GDD review blockers C1 and D1 were applied). See `reviews/canh-gioi-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-03
-> **Last Verified**: 2026-11-03
+> **Last Updated**: 2026-11-04
+> **Last Verified**: 2026-11-04
 > **Implements Pillar**: Pillar 3 (Power Is Built, Not Given), Pillar 4 (Every Season Counts); touches Pillar 2 (Every Number Is Bounded and Visible)
 
 ## Summary
@@ -74,11 +74,15 @@ implementation story; Open Questions lists what the move touches.
    k is levels 3k−2 to 3k). Layers and stages are independent overlays, so Qi Refining's
    middle stage starts at level 14 and its late stage at level 27, both inside a layer.
 3. **Cultivation base (tu vi).** The character holds a bar toward the next level. Each
-   season it gains the cultivation rate, as built and always shown as a breakdown
-   (Pillar 2): realm base rate × spiritual root curve × cultivation technique ×
-   comprehension × local qi density × pill-toxicity penalty, plus cultivation-speed
-   bonuses. When the bar reaches the current level's cost, the level rises and the surplus
-   carries over; several levels can rise in one season. Costs are data (Formulas).
+   season it gains the cultivation rate, always shown as a breakdown (Pillar 2): realm
+   base rate × spiritual root curve × cultivation technique × comprehension × local qi
+   density × pill-toxicity penalty × (1 + cultivation-speed bonuses ÷ 100). The speed
+   bonuses are one multiplier, not a flat addition (Formulas I).
+   - **Season-start rate.** The rate is computed once, at the start of the season, from
+     the stage then (user decision 2026-11-04). A stage-group boundary crossed during
+     the season changes the curve factor from the next season.
+   - When the bar reaches the current level's cost, the level rises and the surplus
+     carries over; several levels can rise in one season. Costs are data (Formulas).
 4. **Level reward.** Each level gained is announced to the Meridian Map, which pays 1
    point per level. Points are a pure function of the highest level reached (the Meridian
    Map's Formulas A); the `level_gained`, `stage_reached` and `breakthrough_succeeded`
@@ -131,11 +135,16 @@ implementation story; Open Questions lists what the move touches.
    vitality full, stats at the next realm's bases, lifespan cap (thọ nguyên) raised to the
    new realm's, and the great breakthrough bonus points paid (the bonus minus the `pct_dai` (35 %)
    advance already paid at great perfection).
+   - **The `breakthrough_succeeded` event** fires once per success, for the player only
+     (user decision 2026-11-04). NPC stage advances and fate rolls (rule 12) emit
+     nothing, so NPCs get no Mutation Awakening from it.
+   - For the Deity Transformation step the event fires when the Heavenly Tribulation
+     resolves in survival. Until that system exists, it fires on roll success.
 10. **Failure.** The bar loses 30 % of its content (`failure_tu_vi_loss_pct`), the
     character gains heart demon (tâm ma, `failure_tam_ma_gain`) and loses 40 % of maximum
     vitality (`failure_khi_huyet_loss_frac`, floor 5 %). The heart demon gain lands first;
     then a qi deviation (tẩu hỏa nhập ma) rolls with chance max(0, heart demon − Dao heart
-    ÷ `tam_ma_backlash_divisor`) % × (1 + `qi_deviation_pct` ÷ 100), using the new value Heart demon is a decimal number.
+    ÷ `tam_ma_backlash_divisor`) % × (1 + `qi_deviation_pct` ÷ 100), using the new value. Heart demon is a decimal number.
     A deviation that hits sets vitality to 5 %, unless heart demon is
     `backlash_death_tam_ma_threshold` (90) or more, in which case the character dies.
     Death needs both: a deviation hit and heart demon at 90 or more. With no deviation hit
@@ -217,19 +226,20 @@ Small breakthroughs are events inside Climbing, not states.
 | Attempting | At great perfection (bar refilling) | The roll fails | No fatal qi deviation; bar down 30 % |
 | Attempting | Dead | Qi deviation with heart demon at 90 or more | — |
 | Attempting | Attempting (#23 extra roll) | A pill attempt failed, #23 is held and unused this realm step, and remaining lifespan exceeds burn_cost | Same season; no bar refill; not combined with #22 on the step. Success and failure resolve as above |
-| Attempting | Tribulation | The roll succeeds on the Deity Transformation breakthrough | Owned by Heavenly Tribulation; until it is designed, success stands |
-| Tribulation | Climbing (Deity Transformation, early stage) or Dead | The tribulation resolves | Heavenly Tribulation GDD |
+| Attempting | Tribulation | The roll succeeds on the Deity Transformation breakthrough | Owned by Heavenly Tribulation; until it is designed, success stands and `breakthrough_succeeded` fires on the roll |
+| Tribulation | Climbing (Deity Transformation, early stage) or Dead | The tribulation resolves | Heavenly Tribulation GDD; `breakthrough_succeeded` fires on survival |
 | Any | Dead | Age reaches the lifespan cap | Old age |
 
 ### Interactions with Other Systems
 
-Character Stats, Spiritual Roots, Time & Turn and Item DB have no GDD yet, so their
+Character Stats (`character-stats.md`), Spiritual Roots (`linh-can.md`) and the Meridian
+Map have GDDs. Time & Turn, Item DB and the other systems below have none yet, so their
 interfaces are provisional.
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
 | Character Stats | out / in | out: realm, level, stage multiplier (bases for spiritual power, divine sense, vitality, the combat power realm term); in: comprehension, Dao heart, and the stat sheet's `breakthrough_chance` | Character Stats (stat keys, units); this GDD (the ladder) |
-| Spiritual Roots (Linh Căn) | in | element count and the curve factor, looked up by realm and stage | Spiritual Roots |
+| Spiritual Roots (Linh Căn) | in / out | in: base element count (mutations excluded) and the curve factor, looked up by realm and stage. Out: the `breakthrough_succeeded` event (player only, rule 9), which triggers Mutation Awakening (its rule 9; capability #24) | Spiritual Roots (the curve, the roll); this GDD (the event) |
 | Time & Turn | in | seasons, age, death by old age | Time & Turn |
 | Item DB | in | breakthrough pills (the realm's entry pill tag and quality), breakthrough talismans (consumed) | Item DB |
 | Meridian Map (Kinh Mạch Đồ) | out | `level_gained`, `stage_reached` and `breakthrough_succeeded` events, and the ladder constants (bands, `great_breakthrough_bonus`, `pct_trung` / `pct_hau` / `pct_dai`), which this GDD owns | Meridian Map (point arithmetic); this GDD (the ladder and its constants) |
@@ -291,9 +301,14 @@ the bottleneck bar at level hi; it exists only if the realm has a next realm.
   | Root | QR | FE | CF | NS | DT |
   |---|---|---|---|---|---|
   | 1 element | 25 | 64 | 187 | 456 | 925 |
-  | 3 elements | 38 | 50 | 61 | 101 | 168 |
-  | 5 elements | 58 | 80 | 90 | 76 | 137 |
+  | 3 elements | 38 | 50 | 60 | 101 | 168 |
+  | 5 elements | 58 | 80 | 91 | 76 | 103 |
   | Lifespan cap | 120 | 200 | 500 | 1,000 | 2,000 |
+
+  Corrected 2026-11-04 from the Spiritual Roots GDD (Formulas B), which recomputed these
+  from the element-count curve: the 5-element DT figure was 137. Values exclude the
+  generating-pair bonus (with it, 5 elements at DT is 89 years). The 1.25 rate factor is
+  a guess; that GDD's tight timing spots depend on it (its Open Question 2).
 
   Without the rescale a 3-element root would take 20–38 years per realm, only 2–4 % of
   the lifespan after QR.
@@ -384,24 +399,37 @@ extras E = 0.0625 (guess):
 
 The pill_supply formula is defined as:
 
-`λ = p_brew · n_plots · f · (1 + g_herb) · W / Y + λ_market + G` ; `Y = Σ_j qty_j · min_age_j`
+`λ = p_brew · n_plots · f · h · W / Y + λ_market + G` ; `Y = Σ_j qty_j · min_age_j`
+
+`n_plots = clamp(3 + ⌊0.04 · purity_earth⌋ + field_plots, 1, 12)` ; `h = (1 + 0.008 · purity_wood) · max(0, 1 + herb_growth_pct / 100)` ; `p_brew = clamp(p_brew0 + 0.0025 · purity_fire, 0.05, 0.95)`
+
+The spiritual root enters through all three terms (added 2026-11-04, cross-GDD review D1):
+Earth adds plots and Wood speeds herbs (Character Stats, Formulas G), and Fire raises brew
+success (Alchemy, as built: +0.25 percentage points per purity point). An absent element has
+purity 0. The root multiplier is `m = (n_plots / 3) · h · (p_brew / p_brew0)` for a life
+with no `field_plots`, `herb_growth_pct` or other alchemy bonus.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| p_brew | float | 0.05–0.95 | calculated (Alchemy) | Brew success; about 0.65 for the FE pill, 0.64 for the CF pill (guess) |
-| n_plots | int | 3–12 | data file / calculated | Spirit field plots (base 3) |
+| p_brew0 | float | 0.05–0.95 | calculated (Alchemy) | Brew success without Fire; about 0.65 for the FE pill, 0.64 for the CF pill (guess) |
+| p_brew | float | 0.05–0.95 | calculated (Alchemy) | Brew success with Fire purity |
+| purity_earth, purity_wood, purity_fire | int | 0, 10–100 | calculated (Spiritual Roots) | 0 when the element is absent |
+| n_plots | int | 1–12 | calculated (Character Stats, Formulas G) | Spirit field plots: base 3, +1 per 25 Earth purity, plus `field_plots` |
 | f | float | 0–1 | constant (bot policy) | Share of plots given to breakthrough herbs; 0.5 (guess) |
-| g_herb | float | 0+ | calculated | `herb_growth_pct` ÷ 100 |
-| W | float | years | calculated | Growing years left in the realm: about 104 in QR, 140 in FE (guess) |
-| Y | float | plot-years | data file (recipe) | Plot-years per pill: FE pill 25 + 10 = 35 (ginseng age lowered from 30); CF pill 100 + 20 = 120; NS pill ≈ 270, DT pill ≈ 470 (new recipes, guess) |
+| h | float | 0+ | calculated (Character Stats, Formulas G) | Herb growth factor from Wood purity and `herb_growth_pct` |
+| m | float | 1–5.8 | calculated | Root multiplier (5.8 = Earth, Wood and Fire all at 100: 7/3 × 1.8 × 0.90/0.65); birth-mix means 1.22 / 1.48 / 1.78 / 2.13 / 2.52 for 1–5 elements |
+| W | float | years | calculated | Growing years left in the realm: about 104 in QR, 140 in FE (guess). The CF→NS and NS→DT λ (0.70, 0.80) are calibration targets: with Y ≈ 390 / 680 and p_brew0 ≈ 0.65 they imply W ≈ 280 / 560 years, which the bot run must confirm |
+| Y | float | plot-years | data file (recipe) | Plot-years per pill, recalibrated ×1.43 for the root terms (Formulas E): FE pill 40 + 10 = 50 (was 35); CF pill about 152 + 20 = 172 (was 120); NS pill ≈ 390, DT pill ≈ 680 (new recipes, guess) |
 | λ_market | float | 0+ | calculated (Market) | Pills bought; about 0 at baseline (a pill is stocked about 1 restock in 10 and costs 11–15 years of missions) |
 | G | float | 0–2 | calculated | Pills gifted by fortuitous encounters (cơ duyên); they ignore min_age |
 | λ | float | 0+ | calculated | Expected pill attempts in the realm step |
 
-**Output Range:** 0 upward, roughly proportional to plots ÷ min_age.
+**Output Range:** 0 upward, roughly proportional to plots ÷ min_age, and ×1–5.8 by root.
 
-**Example:** QR→FE: λ = 0.65 × 3 × 0.5 × 104 ÷ 35 = **2.90** pills.
+**Example:** QR→FE for a root with no Wood, Earth or Fire: λ = 0.65 × 3 × 0.5 × 1 × 104 ÷
+50 = **2.03** pills. For the root {Wood 40, Fire 86, Water 10}: h = 1.32, p_brew = 0.865, so
+m = 1.32 × 0.865 ÷ 0.65 = 1.757 and λ = **3.56** pills.
 
 The Core Formation pill's herb Kim Tủy Quả (rarity 4) becomes plantable from Foundation
 Establishment on (`seed_rarity_max` 4 from FE; user decision), so the CF pill is a
@@ -418,20 +446,33 @@ For a known number of pills A, use `S = 1 − Π_{i=1..A} (1 − q_i)` instead.
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| P_C | float | 0–1 | calculated | Chance the life ever meets the realm condition; about 1 for the CF density condition with competent play; the CF→NS heart-demon gate's P_C is also assumed about 1 until kill-driven heart demon is designed (Open Question 6) |
+| P_C | float | 0–1 | calculated | Chance the life ever meets the realm condition; about 1 for the CF density condition with competent play; the CF→NS heart-demon gate's P_C is also assumed about 1 (kills add no heart demon, Character Stats, so the gate tests failed breakthroughs, events and #9) |
 | Σq | float | 0+ | calculated | Expected successes from pill attempts |
 | S_bare | float | 0–0.012 | calculated | The most a life spamming bare attempts can add: at most `bare_attempt_cap` (3) attempts per realm step, so 0.0119 / 0.0110 / 0.0110 / 0.0090 |
 | S | float | 0–1 | calculated | Chance to cross the bottleneck before the life ends |
 
-**Output Range:** 0–1. The targets need Σq = −ln 0.7 = 0.357 at baseline and
-−ln 0.3 = 1.204 with the edge, so the edge must multiply expected successes by 3.37.
+**Output Range:** 0–1. For a single life the targets need Σq = −ln 0.7 = 0.357 at
+baseline and −ln 0.3 = 1.204 with the edge.
 
-| Gate | Baseline λ | Baseline S (P_C = 1) | Gift pills G the edge needs for 0.70 (Đạo Cốt only; QR→FE adds the 2 starting talismans; no Tổ Truyền Linh Điền) |
-|---|---|---|---|
-| QR→FE | 2.90 | 0.299 | 1.24 |
-| FE→CF | 1.12 | 0.303 | 1.60 |
-| CF→NS | 1.00 | 0.304 | 1.50 |
-| NS→DT | 1.15 | 0.302 (provisional: P_C < 1 lowers it, Open Question 10) | 1.63 |
+**The targets are averages over the birth mix (user decision 2026-11-04, cross-GDD review
+D1).** λ depends on the root (Formulas D), so S does too. The 0.30 / 0.70 targets are the
+mean S over lives born with the count weights 45 / 32 / 15 / 6.5 / 1.5 % and the purity
+roll of Spiritual Roots (Formulas A). Without recalibration the root terms would lift the
+baseline mean to about 0.40; scaling every pill's plot-years Y by about ×1.43 (root-free λ
+×0.70) brings it back. Roots with more elements then cross more often, so "more elements
+is better" also holds for breakthrough odds. Figures are exact expectations over the
+purity distribution, not simulated:
+
+| Gate | Root-free λ | Mean S (P_C = 1) | S by element count 1 / 2 / 3 / 4 / 5 | Gift pills G the edge needs for a mean of 0.70 (Đạo Cốt only; QR→FE adds the 2 starting talismans; no Tổ Truyền Linh Điền) | Edge S by element count |
+|---|---|---|---|---|---|
+| QR→FE | 2.03 | 0.301 | 0.26 / 0.30 / 0.35 / 0.40 / 0.46 | 1.27 | 0.67 / 0.70 / 0.74 / 0.78 / 0.82 |
+| FE→CF | 0.78 | 0.304 | 0.26 / 0.31 / 0.36 / 0.41 / 0.46 | 1.61 | 0.68 / 0.70 / 0.73 / 0.76 / 0.79 |
+| CF→NS | 0.70 | 0.304 | 0.26 / 0.31 / 0.36 / 0.41 / 0.46 | 1.50 | 0.68 / 0.70 / 0.73 / 0.76 / 0.79 |
+| NS→DT | 0.80 | 0.302 (provisional: P_C < 1 lowers it, Open Question 10) | 0.26 / 0.31 / 0.35 / 0.41 / 0.46 | 1.64 | 0.68 / 0.70 / 0.73 / 0.76 / 0.79 |
+
+The q_pill values are unchanged: 0.1225 / 0.3225 / 0.3625 / 0.3125 at baseline, +0.12 with
+Đạo Cốt. Mean S is the birth-weighted mean of the per-tier S, each itself a mean of
+1 − e^(−λ·m·q) over the tier's roots.
 
 - **What the targets assume (bot policy).** The 0.30 / 0.70 targets are measured with
   capabilities #22 and #23 disabled and the tree allocated as the bot plays it (typically
@@ -440,8 +481,8 @@ For a known number of pills A, use `S = 1 − Π_{i=1..A} (1 − q_i)` instead.
   about 0.04–0.05 more.
 - **The baseline-only lever.** For QR→FE through CF→NS it is pill supply, set by the
   herbs' min_age and the plot count. Gift pills ignore min_age, so a change moves the
-  baseline about 1.7× as much as the edge. Example: Kim Tủy Quả at 150 years instead of
-  100 moves the baseline 0.30 → 0.225 and the edge only 0.70 → 0.65. Changing p_pill is
+  baseline about 1.7× as much as the edge. Example: Kim Tủy Quả at 202 years instead of
+  152 moves the baseline mean 0.30 → 0.245 and the edge mean only 0.70 → 0.67. Changing p_pill is
   a bad lever, because it moves both equally.
 - **The Deity Transformation lever** is the condition. Fortuitous encounters can grant
   the edge the insight (P_C = 1), while baseline lives depend on the enlightenment
@@ -452,7 +493,8 @@ For a known number of pills A, use `S = 1 − Π_{i=1..A} (1 − q_i)` instead.
   GDD. Until then, the roll target is 0.30 / 0.70.
 - **What the edge contributes.** Each perk pays through q, λ, G or P_C:
   - Đạo Cốt: +0.12 on q.
-  - Tổ Truyền Linh Điền: λ × 1.87 (+1 plot, faster herbs).
+  - Tổ Truyền Linh Điền: λ × 1.87 (+1 plot, faster herbs; figure for a root with no Earth
+    or Wood, so smaller for roots that already have them).
   - The starting talismans: QR→FE only.
   - Gift pills or herbs already at age: G.
   - Gifts that meet a condition (a spirit vein, a calming pill, an enlightenment event):
@@ -469,7 +511,8 @@ For a known number of pills A, use `S = 1 − Π_{i=1..A} (1 − q_i)` instead.
 
 S_bare is left out of the table above. The bare-attempt cap (rule 11) bounds it at about 0.012, inside the ±0.05 tolerance. The heart demon does not: a patient life that waits out the decay could otherwise make dozens of attempts. A bare success counts as a crossing.
 
-**Example:** CF→NS baseline: 1 − e^(−1.0 × 0.3625) = **0.304**.
+**Example:** CF→NS for a root with m = 1: 1 − e^(−0.70 × 0.3625) = **0.224**; for the
+{Wood 40, Fire 86, Water 10} root (m = 1.757): 1 − e^(−0.70 × 1.757 × 0.3625) = **0.360**.
 
 ### F. Failure and heart demon
 
@@ -529,14 +572,37 @@ attempt log is saved with the character.
 - q_retry = min(0.3625, 0.10 ÷ 0.6375) = 0.157;
 - lift = 0.157 × 0.6375 = **0.100**.
 
+### I. Cultivation rate
+
+The cultivation_rate formula is defined as:
+
+`rate = base · curve · tech · comp · density · tox · max(0, 1 + speed_pct ÷ 100)`
+
+It is computed once per season, at the start of the season (rule 3). Every factor is
+shown as one line of the breakdown.
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| base | float | per realm | data file | Realm base rate |
+| curve | float | 0.3–9.0 | Spiritual Roots (Formulas B) | `element_count_curve[base element count][stage group]` |
+| tech, comp, density, tox | float | 0+ | Cultivation Techniques, Character Stats, Travel & Map / Formulas, Character Stats | Technique speed, comprehension, local qi density and pill-toxicity penalty factors |
+| speed_pct | float | 0–about 40 | calculated (stat sheet `cultivation_speed_pct`, Character Stats Formulas I) | The sum of every speed bonus, including Spiritual Roots' generating pairs (+3 % each, up to +15) |
+
+**Output Range:** 0 upward. The speed bonuses never reduce the rate below 0.
+
+**Example:** base 25, comprehension 1.25, the other factors 1.0: 31.25 per season. With
+two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
+
 ### Parameter keys
 
 **`cultivation_realms.json`, per realm:**
 - `levels` `[lo, hi]`, `climb_total`, `climb_growth`, `bar_mult` (null for DT).
 - `layers` `{count: 13, levels_per_layer: 3}`, Qi Refining only.
-- `stage_power_step` 0.15.
-- `stage_curve_groups`: 4 entries (early, middle, late, great perfection); QR becomes
-  `[lk_early, lk_mid, lk_late, lk_late]`.
+- `stage_curve_groups`: 4 entries (early, middle, late, great perfection), keys of
+  `element_count_curve`: QR becomes `[lk_early, lk_mid, lk_late, lk_late]`, FE `[tc_so,
+  tc_trung, tc_hau, tc_dvm]`, CF `[kd_so, kd_trung, kd_hau, kd_dvm]`, NS `[na, na, na,
+  na]` and DT `[ht, ht, ht, ht]`.
 - `entry_requirement`:
   - `pill_chance` 0.06 / 0.16 / 0.20 / 0.15;
   - `base_chance` 0.004 / 0.0037 / 0.0037 / 0.003;
@@ -556,6 +622,11 @@ attempt log is saved with the character.
 - `breakthrough.backlash_death_tam_ma_threshold` 90 (a deviation at or above it kills).
 - `breakthrough.tam_ma_backlash_divisor` 2.0 (Dao heart divisor in the deviation chance).
 - `guard.s_max` 0.95.
+- `stage_power_step` 0.15, one global key (**change**: per realm today; Character Stats
+  AC-CS-36 tests it as global).
+- Keys shared with Character Stats, one owner each (cross-review C6, C7): this GDD owns
+  the values of `vitality_floor` and `tam_ma_natural_decay`; Character Stats reads them
+  (Open Question 11).
 
 **`cultivation_realms.json`, ladder constants owned here (the Meridian Map reads them):**
 - `bare_attempt_cap` 3 (bare attempts per realm step).
@@ -568,9 +639,11 @@ attempt log is saved with the character.
 - `character_attributes.json`: `tam_ma_natural_decay` 0.25.
 - `crafting_talismans.json`: `pha_canh` value 10.
 - Item DB and economy:
-  - the FE pill's ginseng `min_age` 25 (update its "thirty years" text);
+  - the FE pill's ginseng `min_age` 40 (2026-11-04, root terms in λ; its "thirty years"
+    text becomes "forty years");
+  - Kim Tủy Quả `min_age` about 152 (2026-11-04, same reason);
   - `field.seed_rarity_max` 4 from FE on;
-  - new NS and DT pill recipes (`hoa_anh_dan`, `hoa_than_dan`) sized to Y ≈ 270 and 470
+  - new NS and DT pill recipes (`hoa_anh_dan`, `hoa_than_dan`) sized to Y ≈ 390 and 680
     plot-years;
   - fortuitous encounter weights favouring pills and herbs already at age.
 
@@ -581,7 +654,9 @@ attempt log is saved with the character.
 - **If one season gains several levels and crosses one or more stage boundaries:**
   - each small breakthrough fires in order and pays its points;
   - stats use the final stage multiplier;
-  - the log lists every level and stage reached.
+  - the log lists every level and stage reached;
+  - the whole season's gain uses the season-start rate (rule 3), so a curve-factor change
+    at a stage-group boundary applies from the next season.
 - **If cultivation base overflows the realm's last climbing level:** the surplus carries
   into the bottleneck bar. Anything beyond a full bar is lost, and the bar shows it as
   wasted.
@@ -635,7 +710,8 @@ attempt log is saved with the character.
 - **If the Deity Transformation insight is gained before great perfection:** any insight
   gained while in Nascent Soul counts, and it is kept for every later attempt.
 - **If a Deity Transformation roll succeeds before the Heavenly Tribulation exists:** the
-  success stands.
+  success stands and `breakthrough_succeeded` fires on the roll. Once the Tribulation
+  exists, the event fires only if the character survives it.
 - **If the character is at a spirit vein that only a secret domain holds:** the condition
   counts while the character is there. The attempt still takes its season inside the
   domain.
@@ -662,7 +738,7 @@ attempt log is saved with the character.
 
 **NPCs**
 
-- **If an NPC is fated to break through:** it does so with chance `fated_breakthrough_per_season` (0.08, as built) each season.
+- **If an NPC is fated to break through:** it does so with chance `fated_breakthrough_per_season` (0.08, as built) each season. It emits no `breakthrough_succeeded` event (rule 9).
 - **If a fated NPC dies of old age before its breakthrough lands:** the death stands, and
   the world database records it as dying at the bottleneck.
 - **If an NPC's stage changes:** its level becomes the first level of the new stage, and
@@ -686,9 +762,10 @@ attempt log is saved with the character.
 
 ## Dependencies
 
-Only the Meridian Map (Kinh Mạch Đồ) has a GDD among the systems below; every other
-interface is provisional. When each GDD is written, it must list Realms & Bottlenecks
-in its own Dependencies section.
+Spiritual Roots (`linh-can.md`), Character Stats (`character-stats.md`) and the Meridian
+Map (Kinh Mạch Đồ, `kinh-mach-do.md`) have GDDs among the systems below, and each lists
+Realms & Bottlenecks. Every other interface is provisional. When each remaining GDD is
+written, it must list Realms & Bottlenecks in its own Dependencies section.
 
 **Upstream: this system cannot work without them (hard)**
 
@@ -697,7 +774,7 @@ in its own Dependencies section.
 | 1 | Data-Driven Config | `cultivation_realms.json` (bands, costs, chances, conditions), `character_attributes.json` (curve, heart demon decay) |
 | 2 | Deterministic Simulation Core | The seeded RNG for attempts and NPC fate; Breakdown for every rate and chance |
 | 4 | Time & Turn | Seasons, age, death by old age |
-| 6 | Spiritual Roots (Linh Căn) | Element count and the curve factor by realm and stage |
+| 6 | Spiritual Roots (Linh Căn) | Base element count (mutations excluded) and the curve factor by realm and stage |
 | 7 | Character Stats | Comprehension, Dao heart, heart demon, vitality and the stat sheet (`breakthrough_chance`, `cultivation_speed_pct`, flags); it receives the stage multiplier |
 | 13 | Item Database & Generation | Breakthrough pills (tag, quality), breakthrough talismans |
 
@@ -717,6 +794,7 @@ in its own Dependencies section.
 | # | System | What it takes |
 |---|---|---|
 | 10 | Meridian Map | `level_gained`, `stage_reached` and `breakthrough_succeeded` events; the ladder constants; S_guard for its guard (E2) |
+| 6 | Spiritual Roots (Linh Căn) | The `breakthrough_succeeded` event, for Mutation Awakening (its rule 9). Spiritual Roots is also upstream (the curve); the event breaks the cycle, since neither system calls the other |
 | 21 | Combat | The combat power realm term (realm base × stage multiplier); it reports defeats for capability #9 |
 | 22 | Heavenly Tribulation | The hand-off after a successful Deity Transformation roll |
 | 24 / 28 | NPC Build Generation, Living World Tick | NPC realm, stage and level; the fate roll |
@@ -750,7 +828,7 @@ other numbers in this GDD; ranges marked *guess* wait for a bot run.
 
 | Knob | Value | Safe range | What it moves |
 |---|---|---|---|
-| `climb_total` | 1,025 / 5,600 / 42,000 / 276,000 / 1,850,000 | −30 % to +30 % for QR to CF, −30 % to +8 % for NS and DT (derived: +30 % would push a 1-element NS and DT past the ceiling); derived ceiling: a 1-element root must clear a realm in at most half its lifespan | Years per realm (Pillar 4) |
+| `climb_total` | 1,025 / 5,600 / 42,000 / 276,000 / 1,850,000 | QR −30 % to +19 % (derived: a five-element root already uses 84 % of the half-lifespan ceiling in QR, Spiritual Roots Formulas B); FE and CF −30 % to +30 % (five-element check pending, AC-CG-33a); NS and DT −30 % to +8 % (derived: +30 % would push a 1-element NS and DT past the ceiling); derived ceiling: a root of any element count must clear a realm in at most half its lifespan | Years per realm (Pillar 4) |
 | `climb_growth` | 6 / 3 / 3 / 3 / 3 | 2–6 (QR 4–8) | How much later levels cost than early ones |
 | `bar_mult` | 4 / 10 / 10 / 10 | 6–15 (QR 3–5) | Bottleneck bar size; with the 30 % loss, how many levels a failure costs |
 | `stage_power_step` | 0.15 | 0.10–0.20; derived ceiling 0.24, above which divine sense's great-breakthrough jump becomes smaller than the realm's own ladder | Stat rise per small breakthrough |
@@ -758,13 +836,13 @@ other numbers in this GDD; ranges marked *guess* wait for a bot run.
 | `base_chance` | 0.004 / 0.0037 / 0.0037 / 0.003 | jointly with `bare_attempt_cap`: 1 − (1 − base_chance)^cap ≤ 0.03 (derived), so at most 0.0101 at cap 3 and 0.0061 at cap 5 | Hope for bare attempts; must stay near-hopeless |
 | Comprehension, Dao heart, quality per-point bonuses | 0.0005 / 0.00025 / 0.015 | ±50 % | How much talent and pill quality matter |
 | Breakthrough talisman τ (`pha_canh` value) | 10 pp | 5–10; derived ceiling: at most the pill's chance from FE→CF on | The talisman's weight against the pill |
-| `failure_tam_ma_gain` | 15 | 10–20 | How fast back-to-back failures become deadly |
+| `failure_tam_ma_gain` | 15 | 10–20, and at most `nascent_tam_ma_max` (one failure must still allow the next Nascent Soul attempt; Character Stats states 10–20 exclusive, so align at its next pass) | How fast back-to-back failures become deadly |
 | `tam_ma_natural_decay` | 0.25 per season | 0.15–0.25; *derived*: n_90 must stay at 7–10, which holds up to about 0.256 (at 0.5 it is 8 / 11 / 12 / 28) | How long a failure haunts the character |
 | `failure_tu_vi_loss_pct` | 0.30 | 0.2–0.4 | Refill time after a failure |
 | `core_density_min` | 1.4 | 1.3–1.5; derived: 28 % to 9.5 % of places qualify | How hard the Core Formation condition is |
-| `nascent_tam_ma_max` | 20 | 15–30 | How much heart demon a Nascent Soul attempt tolerates |
-| FE pill ginseng `min_age` (Item DB) | 25 years | 20–35; derived baseline QR→FE success 0.34–0.25 | **The baseline lever** at QR→FE |
-| Kim Tủy Quả `min_age` (Item DB) | 100 years | 80–130 (derived: 150 gives baseline 0.225, outside 0.30 ± 0.05) | The baseline lever at FE→CF |
+| `nascent_tam_ma_max` | 20 | 15–30, and at least `failure_tam_ma_gain` | How much heart demon a Nascent Soul attempt tolerates |
+| FE pill ginseng `min_age` (Item DB) | 40 years (**change** 2026-11-04, was 25; recalibrated for the root terms in λ, Formulas D–E) | 35–50; derived baseline QR→FE mean success 0.33–0.26 (30 gives 0.36, outside 0.30 ± 0.05) | **The baseline lever** at QR→FE |
+| Kim Tủy Quả `min_age` (Item DB) | about 152 years (**change** 2026-11-04, was 100; same reason) | 125–195 (derived: mean success 0.35–0.25; 120 gives 0.36 and 202 gives 0.245) | The baseline lever at FE→CF |
 | Fortuitous encounter weights (Progression Edges) | favour pills and herbs at age | enough for about 1.2–1.6 gift pills per gate | The edge's 0.70 |
 | `bare_attempt_cap` | 3 | 2–5, jointly with `base_chance` under the same 0.03 limit (see the row above) | How much a patient life can add from bare attempts |
 | `great_breakthrough_bonus`, `pct_trung` / `pct_hau` / `pct_dai` | 15 / 25 / 40 / 60 and 15 / 25 / 35 | provisional (owned here; the Meridian Map reads them); shares sum to at most 100 | Meridian points per life |
@@ -817,6 +895,8 @@ These apply to the Debug Terminal now and to the Game UI later.
 |---|---|
 | `design/gdd/game-concept.md` | Realm Ladder, Character Stats (draft formulas, heart demon, Dao heart) and Pillars 2–4 |
 | `design/gdd/kinh-mach-do.md` | Points arithmetic (Formulas A), the breakthrough guard (E2, which now takes S_guard from Formulas H here), and capabilities #9, #22 and #23 hosted here; the ladder constants it reads (bonuses, shares) are owned and registered here |
+| `design/gdd/linh-can.md` | The element-count curve (Formulas B), the generating-pair speed bonus (Formulas C), Mutation Awakening on `breakthrough_succeeded` (rule 9), and the birth mix the 0.30 / 0.70 targets average over (Formulas A) |
+| `design/gdd/character-stats.md` | The stat sheet (`cultivation_speed_pct` stacking, Formulas I), comprehension, Dao heart, heart demon and vitality keys shared with this GDD |
 | `design/quick-specs/progression-and-edges.md` | The 0.30 / 0.70 targets and the NPC edge curve. Its round-3 values (FE→CF pill 0.20, bare 0.005 / 0.01, heart demon +10, talisman +25) are superseded by Formulas C and F |
 | `design/glossary.md` | Terms and realm abbreviations |
 | `design/gdd/systems-index.md` | System 8; the changes proposed under Dependencies |
@@ -880,13 +960,19 @@ Drafted with `qa-lead`, which recomputed every GDD number.
     comprehension, qi density and toxicity, plus the speed bonus.
   - Base 25 with comprehension factor 1.25 and the rest 1.0 gives 31.25; halving any one
     factor halves the total.
-  - It matches the built output for the same inputs.
+  - A +6 % speed bonus (two generating pairs) gives 33.125 (multiplied, Formulas I), not
+    31.25 + 6; a total bonus of −150 % gives 0, never a negative rate.
+  - With no speed bonus it matches the built output for the same inputs.
 - **AC-CG-08** [Logic] Rule 3, several levels in one season.
   - QR level 13, bar 0, gains 40.18 → level 15, bar 5.00.
   - QR level 13 gains 336.52 → level 27, bar 1.00:
     - `stage_reached` fires twice, middle then late;
     - `level_gained` fires 14 times, ascending;
     - stage_mult ends at 1.30.
+- **AC-CG-08a** [Logic] Rule 3, season-start rate. A five-element root at CF level 94
+  (early stage; the middle stage starts at 96) gains enough in one season to reach level
+  97. The whole season's gain uses `kd_so` (1.0), and the next season's rate uses
+  `kd_trung` (1.8).
 - **AC-CG-09** [Logic] Rule 7, overflow.
   - QR level 38, bar 0, gains 357.60 → level 39 with the bottleneck bar full at 230.40,
     and 69.60 reported wasted.
@@ -968,21 +1054,35 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 **Supply and success**
 
 - **AC-CG-29** [Logic] Formulas D and E.
-  - λ(0.65, 3, 0.5, 0, 104, 35, 0, 0) = 2.897; with G = 1 it is 3.897.
-  - S = 0.2990 / 0.3032 / 0.3041 / 0.3019 for (2.90, 0.1225), (1.12, 0.3225),
-    (1.00, 0.3625) and (1.15, 0.3125).
+  - λ(p_brew0 0.65, Earth 0, f 0.5, Wood 0, Fire 0, W 104, Y 50, λ_market 0, G 0) = 2.028;
+    with G = 1 it is 3.028.
+  - With Wood 40, Fire 86, Earth 0 and Y 50: h = 1.32, p_brew = 0.865, λ = 3.562.
+  - Earth 25 / 49 / 50 / 100 gives n_plots 4 / 4 / 5 / 7; Fire 100 with p_brew0 0.70 gives
+    p_brew 0.95 (clamped).
+  - S = 0.2200 / 0.2228 / 0.2241 / 0.2212 for root-free (2.028, 0.1225), (0.7814, 0.3225),
+    (0.70, 0.3625) and (0.80, 0.3125).
+  - The birth-mix mean S at those root-free λ values (exact expectation over Spiritual Roots
+    Formulas A) is 0.301 / 0.304 / 0.304 / 0.302 (±0.002).
   - P_C 0.6, λ 1.9, q 0.3125 gives 0.2686.
   - The known-A form with [0.3625, 0.3625] gives 0.5936.
 - **AC-CG-30** [Bot] Formula E. `autoplay.gd --edge off`, run to ≥ 330 bottleneck arrivals
-  per gate: each gate's crossing rate is 0.25–0.35. Bare successes count. Bot policy:
-  capabilities #22 and #23 disabled, the tree as the bot allocates it.
-- **AC-CG-31** [Bot] The same with `--edge on`: each gate is 0.65–0.75. Until the Heavenly
-  Tribulation exists, the DT roll is held to 0.30 / 0.70.
+  per gate, with roots rolled by the birth mix: each gate's mean crossing rate is
+  0.25–0.35. Bare successes count. Bot policy: capabilities #22 and #23 disabled, the tree
+  as the bot allocates it. Per tier (`--elements 1..5`, ≥ 330 arrivals each), each gate is
+  within ±0.05 of the Formulas E row (0.26 / 0.30 / 0.35 / 0.40 / 0.46 at QR→FE).
+- **AC-CG-31** [Bot] The same with `--edge on`: each gate's mean is 0.65–0.75, and each
+  tier is within ±0.05 of the Formulas E edge row. Until the Heavenly Tribulation exists,
+  the DT roll is held to 0.30 / 0.70.
 - **AC-CG-32** [Bot] Alternative to 30–31: the mean of the analytic per-life S over ≥ 50
   lives per arm is in the same windows. This needs per-life λ and q logging, which
   `autoplay.gd` does not have yet.
 - **AC-CG-33** [Bot] `climb_total` ceiling. `autoplay.gd --elements 1` over ≥ 50 lives:
   the median years to clear each realm is at most 60 / 100 / 250 / 500 / 1,000.
+- **AC-CG-33a** [Bot] `climb_total` ceiling for five elements. `autoplay.gd --elements 5`
+  over ≥ 50 lives: the median years to clear QR is at most 60 (the half-lifespan
+  ceiling), at the current totals and at `climb_total` +19 %. Expected about 50 at the
+  current totals, with the full pair bonus (Spiritual Roots Formulas B). Extend to FE and
+  CF after the first run.
 
 **Failure and heart demon**
 
@@ -1025,7 +1125,8 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 - **AC-CG-44** [Logic] Rule 7, DT.
   - With no insight the attempt is bare; with an insight it is a pill attempt.
   - An insight gained at NS 150 counts, and it remains after a failure.
-  - With no Tribulation system, a success reaches level 200.
+  - With no Tribulation system, a success reaches level 200 and `breakthrough_succeeded`
+    fires once, on the roll.
 - **AC-CG-45** [Logic] Edge case. At the FE→CF gate holding a pill and a talisman, at
   density 1.39:
   - the preview says "condition not met", shows q 0.0037, says it uses one of the `bare_attempt_cap`
@@ -1070,7 +1171,10 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - one `breakthrough_succeeded` per success.
 
   Nothing fires on a failure, a bare failure or a stage loss, and re-climbing after a
-  stage loss fires nothing.
+  stage loss fires nothing. A real Spiritual Roots subscriber, subscribed at the same
+  time, receives the same `breakthrough_succeeded` events, one per success. A fated NPC's
+  stage advance or breakthrough (AC-CG-53) fires no `breakthrough_succeeded` event for
+  either subscriber.
 - **AC-CG-52** [Integration] For the AC-CG-50 state, the Meridian Map's guard reads S_guard
   from this system and computes q_retry 0.157 and lift 0.100.
 
@@ -1108,11 +1212,12 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - `bare_attempt_cap` is 3, `great_breakthrough_bonus` is [15, 25, 40, 60] and the shares `pct_trung` / `pct_hau` / `pct_dai` are 15 / 25 / 35 (this GDD owns them; the Meridian Map reads them), the shares sum to at most 100;
   - the bands are contiguous over 1–300;
   - every Parameter key has its GDD value, and the conditions match Formula G;
-  - QR `stage_curve_groups` is `[lk_early, lk_mid, lk_late, lk_late]`;
+  - `stage_curve_groups` match Parameter keys for all five realms (QR `[lk_early, lk_mid,
+    lk_late, lk_late]`, NS `na` ×4, DT `ht` ×4), and `stage_power_step` is one global key;
   - `tu_vi_required` and `tree_points_per_stage` are absent;
   - the five failure and death keys (Parameter keys, global) hold 0.30 / 0.40 / 0.05 / 90 /
     2.0;
-  - `tam_ma_natural_decay` is 0.25, `pha_canh` is 10, and the FE ginseng `min_age` is 25.
+  - `tam_ma_natural_decay` is 0.25, `pha_canh` is 10, the FE ginseng `min_age` is 40 and Kim Tủy Quả's is 152.
 
 **UI (debug terminal transcripts)**
 
@@ -1140,10 +1245,11 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 | 1 | What lies beyond Deity Transformation? Deferred by the user (the Meridian Map's Open Question 2) | user | Nothing for now |
 | 2 | The Heavenly Tribulation's survival chance p_t, which sets the Deity Transformation roll target (0.30 ÷ p_t) | Heavenly Tribulation GDD | Formulas E for Deity Transformation |
 | 3 | When can a baseline life craft a breakthrough talisman? Formulas C assumes not before the QR→FE bottleneck but yes from FE→CF on. If it can, baseline QR→FE success rises from 0.30 to about 0.47 | calibration (bot) | Formulas C and E sign-off |
-| 4 | The Nascent Soul and Deity Transformation pill recipes (about 270 and 470 plot-years), including a new top-rarity herb for Deity Transformation | Item DB, economy-designer | Those two gates |
+| 4 | The Nascent Soul and Deity Transformation pill recipes (about 390 and 680 plot-years after the 2026-11-04 root recalibration, Formulas D; they were 270 and 470), including a new top-rarity herb for Deity Transformation | Item DB, economy-designer | Those two gates |
 | 5 | Fortuitous encounter weights that give the edge about 1.2–1.6 gift pills per gate | Progression Edges | The edge's 0.70 |
 | 6 | ~~How fast killing adds heart demon~~ **Answered 2026-11-04 by Character Stats:** kills add none (user decision) | — | — |
 | 7 | ~~The realm bases with the stage multiplier~~ **Answered 2026-11-04 by Character Stats (Formulas C):** unchanged; every great-breakthrough jump stays ≥ ×2.07 | — | — |
 | 8 | The move from stages to levels in code: `cultivation_rules.gd` (cost curve, pill vs bare attempts, conditions), `combat_power.gd`, `world_ticker.gd` (NPCs advance by 4 stages, including in Qi Refining), `build_generator.gd` (`tree_points_for`), the terminal views, the Advisor, the event context and save migration | implementation story | Building this GDD |
-| 9 | The FE pill ginseng's text says "thirty years"; with `min_age` 25 the text must change, or keep 30 and accept a baseline of 0.27 | Item DB | Data consistency |
+| 9 | The FE pill ginseng's text says "thirty years"; with `min_age` 40 (2026-11-04 recalibration) the text must change to "forty years" | Item DB | Data consistency |
 | 10 | The Deity Transformation baseline P_C: how often a baseline life gets an enlightenment event that grants the insight, and the matching event rate (needed to verify AC-CG-31) | Event Engine, calibration (bot) | Formulas E for Deity Transformation |
+| 11 | Duplicate keys with Character Stats: `vitality_floor` (here `breakthrough.vitality_floor`, there `derived.vitality_floor`) and `tam_ma_natural_decay` (listed in both Parameter keys). This GDD owns the values; Character Stats should read them and drop its copies, and its AC-CS-36 / AC-CG-58 then agree | Character Stats | Data consistency |
