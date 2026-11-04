@@ -228,9 +228,10 @@ are in Formulas.
      LLM-invented event);
    - *item*: a Meridian Seal (Mạch Ấn) key item bound to this cluster is used and consumed;
    - *cultivation technique* (công pháp): a cultivation technique that lists this cluster is
-     the active cultivation technique for a number of seasons (`cong_phap_seasons`). The
-     seasons add up and need not be in a row: switching to another cultivation technique
-     pauses the count, and it never resets.
+     the active cultivation technique (the main slot) for a number of seasons spent
+     cultivating (`cong_phap_seasons`; idle seasons do not count, Cultivation Techniques
+     rule 15). The seasons add up and need not be in a row: switching to another
+     cultivation technique pauses the count, and it never resets.
    Open clusters are unsealed only by the *story moment* effect (rule 10).
 8. **Hidden state.** While hidden, a cluster's acupoints cannot be opened, are not part of the
    frontier, and are never routed through by the path tool. Nothing refunds or bypasses
@@ -1325,7 +1326,7 @@ There is one data key per parameter, used in both the rules and the formulas.
 | f_tier | `capability_stat_share` | T1 0.5, T2 0.25, T3 0 |
 | B | `fill_total_power` (computed per cluster) | Formulas F |
 | — | `fill_stats` | the weight table in F |
-| — | `cong_phap_seasons` | 24 for an ordinary cultivation technique (công pháp), 48 for a high-tier one; seasons add up (rule 7) |
+| — | `cong_phap_seasons` | 24 for a Yellow or Profound cultivation technique (công pháp), 48 for Earth or Heaven (fixed by the Cultivation Techniques GDD, key `seal_seasons`); cultivating seasons in the main slot add up (rule 7) |
 | — | `open_unseals_per_realm` | Qi Refining 1, Foundation Establishment 1, Core Formation 1, Nascent Soul 2, Deity Transformation 2 |
 | tree_breakthrough_cap | `tree_breakthrough_cap` | 8 percentage points (guess) |
 | a_max[r] | `npc_unseal_share` | 0.02, 0.10, 0.18, 0.22, 0.22 |
@@ -1549,7 +1550,7 @@ numbers in this GDD; ranges marked *guess* wait for a bot run.
 | δ_max | 0.10 | 0.05–0.10, derived: above 0.10 an edge life exceeds 0.80 | Breakthrough lift from capabilities #22 Last Radiance and #23 Burning Life to Break Through |
 | `open_unseals_per_realm` | 1 / 1 / 1 / 2 / 2 | 0–3 per realm | How often a story moment can open the tree |
 | `npc_unseal_share` | 0.02–0.22 | up to 0.22, derived: the holder share must stay under 15% (AC-KMD-49) | How many NPCs hold a cluster |
-| `cong_phap_seasons` | 24 / 48 | set when the Cultivation Techniques (Công Pháp) GDD fixes the season length | Length of a cultivation technique seal |
+| `cong_phap_seasons` | 24 / 48 | fixed by the Cultivation Techniques (Công Pháp) GDD (rule 15, `seal_seasons` 24 / 24 / 48 / 48 by tier); 12–60 safe | Length of a cultivation technique seal |
 
 **Target outcome (guess).** A typical life unseals 3–6 clusters by Nascent Soul (Nguyên Anh). The
 autoplay bot reports it; AC-KMD-49 bounds NPCs only.

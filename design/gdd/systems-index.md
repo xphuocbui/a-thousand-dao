@@ -61,7 +61,7 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 6 | Spiritual Roots (Linh Căn) (incl. changing spiritual roots) | Progression | MVP | Approved (third lean review 2026-11-04, no blockers, 9 recommended revisions open) | design/gdd/linh-can.md | Config, Sim Core; soft: Realms (breakthrough event, stage group), Character Stats (capability set) |
 | 7 | Character Stats (innate talent [thiên phú], derived, craft mastery [đạo nghệ]) | Progression | MVP | Approved (second lean review 2026-11-04, no blockers, 7 recommended revisions open) (built; resist clamp, cleansing floor, key renames, stage multiplier on derived values and the provider interface not built) | design/gdd/character-stats.md | Spiritual Roots, Sim Core, Config; soft (via the provider interface): Realms, Meridian Map, Cultivation Techniques, Item DB, Progression Edges, Formations |
 | 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Progression | MVP | Approved (fifth lean review 2026-11-04, no blockers, 8 recommended revisions open) | design/gdd/canh-gioi.md | Config, Sim Core, Time & Turn, Spiritual Roots, Character Stats, Item DB; soft: Cultivation Techniques, Spirit Herbs, Alchemy, Formations, Travel & Map, Event Engine, Progression Edges |
-| 9 | Cultivation Techniques (Công Pháp) | Progression | MVP | Implemented | — | Item DB, Spiritual Roots, Realms |
+| 9 | Cultivation Techniques (Công Pháp) | Progression | MVP | Approved (first lean review 2026-11-04, no blockers, 8 recommended revisions open) (built as a flat item; layers, mastery, slots, harmony, the normalised speed factor and the speed/power split not built) | design/gdd/cong-phap.md | Spiritual Roots, Realms, Character Stats, Item DB; soft: Time & Turn, Meridian Map |
 | 10 | Meridian Map (Kinh Mạch Đồ) (added by request) | Progression | MVP | Approved: 6 lean reviews, the sixth found no blockers (partially implemented: base tree at 202-acupoint [huyệt] prototype scale; levels, clusters, capabilities not built) | design/gdd/kinh-mach-do.md | Spiritual Roots, Character Stats, Realms, Config, Sim Core; soft: Event Engine, Item DB, Cultivation Techniques, LLM GM, World DB, Edges |
 | 11 | Progression Edges: destiny perk (thiên mệnh), fortuitous encounters (cơ duyên), NPC edges (added by request) | Progression | MVP | Implemented | quick spec: design/quick-specs/progression-and-edges.md | Character Stats, Realms, Event Engine (player half) |
 | 12 | Codex & Karmic Carryover | Progression | Vertical Slice | Not Started | — | Item DB, Alchemy, Spiritual Roots, Save/Load |
@@ -290,11 +290,11 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | Total systems identified | 38 |
 | Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (beasts only), 21 (duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin) |
 | Systems not started | 6: 12, 22, 31, 34, 37, 38 (plus spirit insects [linh trùng], inside 19) |
-| GDDs started | 4 (10 Meridian Map [Kinh Mạch Đồ], approved; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], approved 2026-11-03; 7 Character Stats, designed 2026-11-04, review pending; 6 Spiritual Roots, designed 2026-11-04, review pending) |
+| GDDs started | 5 (10 Meridian Map [Kinh Mạch Đồ], approved; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], approved; 7 Character Stats, approved 2026-11-04; 6 Spiritual Roots [Linh Căn], approved 2026-11-04; 9 Cultivation Techniques [Công Pháp], approved 2026-11-04) |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
-| Design docs reviewed | 1 (Meridian Map: 6 lean passes; the fourth and fifth each found 1 blocker, fixed; the sixth APPROVED) |
-| Design docs approved | 0 |
-| MVP systems designed | 4 / 25 |
+| Design docs reviewed | 4 (Meridian Map: 6 lean passes; Realms & Bottlenecks: 5; Character Stats: 2; Spiritual Roots: 3; each last pass APPROVED) |
+| Design docs approved | 4 (6, 7, 8, 10) |
+| MVP systems designed | 5 / 25 |
 | Vertical Slice systems designed | 0 / 8 |
 
 ---

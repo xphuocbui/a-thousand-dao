@@ -342,7 +342,7 @@ The derived_values formulas are defined as:
 | B_ll | float | 100 / 800 / 6,000 / 50,000 / 400,000 | data file (`linh_luc_base`) | Spiritual power base |
 | B_p | float | 100 / 1,000 / 10,000 / 100,000 / 1,000,000 | data file (`power_base`) | Combat power base |
 | stage_mult | float | 1.00–1.45 | calculated (Realms & Bottlenecks, Formulas B) | Small-breakthrough multiplier |
-| tech_power | float | about 0.5–2.0 (guess) | data file (technique `power_mult`) | Cultivation technique power |
+| tech_power | float | 0.5–2.2 | calculated (Cultivation Techniques, Formulas C: tier `power_mult` × layer depth; 0.5 with no main method) | Cultivation technique power |
 | [#4], c4 | bool, float | 0/1, 0.20 | calculated, data file (`linh_luc_conversion`) | Capability #4; added after the pct step, so `linh_luc_pct` does not multiply it |
 
 **Output Range:** all ≥ 0; maximum vitality ≥ 1. Displayed values round half away from

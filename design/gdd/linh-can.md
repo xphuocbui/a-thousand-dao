@@ -940,7 +940,7 @@ simulated births.
 |---|---|---|---|
 | 1 | Retune the over-band and under-band mutations in data (Life, Spirit Farming, Array, Stars, Refined Metal, Reincarnation, Taiji, Time; Death) | content (data), systems-designer | Formulas E |
 | 2 | Bot check of the tight timing spots: single roots at NS and DT, five-element roots in QR, depending on how technique purity enters the rate | Realms & Bottlenecks calibration | Formulas B |
-| 3 | The technique fallback when a named element or mutation is missing | Cultivation Techniques GDD | Rule 7 |
+| 3 | Closed 2026-11-04: Cultivation Techniques rule 8. A technique naming an id the root lacks can be learned but not slotted; with no usable main method the cultivator cultivates crudely at ×0.3 of the strongest base purity | — | — |
 | 4 | Closed 2026-11-04: Realms & Bottlenecks now lists 103 years at DT for a five-element root (89 with the pair bonus), matching Formulas B | — | — |
 | 5 | Meridian Map capability #24 (Mutation Awakening): its text was aligned with rule 9 on 2026-11-04; it still needs a price, since it lifts Light from 17 % to at most 43 % over its two possible passes | Meridian Map | Capability pricing |
 | 6 | Character Stats Open Question 1 can close, and its Stars (+10 comprehension) and Death (−10 presence) examples change after the Open Question 1 retune | Character Stats | Data consistency |

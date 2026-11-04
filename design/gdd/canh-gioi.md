@@ -309,6 +309,10 @@ the bottleneck bar at level hi; it exists only if the realm has a next realm.
   from the element-count curve: the 5-element DT figure was 137. Values exclude the
   generating-pair bonus (with it, 5 elements at DT is 89 years). The 1.25 rate factor is
   a guess; that GDD's tight timing spots depend on it (its Open Question 2).
+  The Cultivation Techniques GDD (Formulas A) normalises a typical technique to 1.0,
+  but its strongest-element starter makes multi-element roots climb about 24 % faster
+  than this table (3-element QR about 29 years). Its Open Question 1 hands this to the
+  bot run; if confirmed, the lever is `climb_total` (user decision 2026-11-04).
 
   Without the rescale a 3-element root would take 20–38 years per realm, only 2–4 % of
   the lifespan after QR.

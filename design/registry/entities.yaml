@@ -130,6 +130,7 @@ formulas:
     referenced_by:
       - design/gdd/linh-can.md
       - design/gdd/character-stats.md
+      - design/gdd/cong-phap.md
     variables:
       - count_weights
       - purity_mean
@@ -209,9 +210,10 @@ formulas:
       - pct
     output_range: [0, unbounded]
     expression: "divine_sense = eff(than_hon)*1.0*than_thuc_mult*stage_mult*(1+pct); vitality_max = eff(can_cot)*10*khi_huyet_mult*stage_mult*(1+pct); spiritual_power = linh_luc_base*stage_mult*tech_power*(1+pct) [+0.20*vitality_max with #4]; combat_realm_term = power_base*stage_mult"
-    notes: "Realm bases unchanged (Realms OQ7); smallest great-breakthrough jump x2.07. Unbounded above: tech_power (up to about 2.0) and pct bonuses scale it."
+    notes: "Realm bases unchanged (Realms OQ7); smallest great-breakthrough jump x2.07. Unbounded above: tech_power (up to 2.2, Cultivation Techniques Formulas C) and pct bonuses scale it."
+    # was: tech_power (up to about 2.0); changed by design/gdd/cong-phap.md
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-04
   - name: qi_deviation_chance
     status: active
     source: design/gdd/character-stats.md
@@ -370,6 +372,44 @@ formulas:
     expression: "B = P * ((n-k)*S0 + (k-c)*N0 + c*f_tier*N0)"
     notes: "Budget in W for an LLM-filled or authored cluster; the LLM Game Master fill validator enforces it."
     added: 2026-11-03
+    revised: ""
+  - name: technique_speed_factor
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+      - design/gdd/canh-gioi.md
+      - design/gdd/linh-can.md
+    variables:
+      - tech_norm
+      - speed_mult
+      - par_tier
+      - match
+      - layer_speed_penalty
+      - layer_speed_floor
+      - beyond_realm_mult
+      - second_main_mult
+    output_range: [0.03, 4.35]
+    expression: "tech_one = tech_norm * (S[tier]/S[par(r)] if r <= max_realm else 1) * avg_purity(names)/100 * max(floor, 1 - penalty*max(0, min(3r, layers) - k)) * (0.25 if r > max_realm else 1); tech = tech_one(main) + 0.5*tech_one(second, #6 only); crude = 0.3 * strongest_purity/100"
+    notes: "The tech term of Realms Formulas I. A par-tier technique at match 0.5 with every allowed layer mastered gives 1.0 in every realm. Strongest-element starters make multi-element roots about 24% faster than the Realms years table (Cultivation Techniques OQ1; bot decides)."
+    added: 2026-11-04
+    revised: ""
+  - name: tech_power
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+      - design/gdd/character-stats.md
+    variables:
+      - power_mult
+      - power_layer_floor
+      - k
+      - layers
+      - no_tech_power
+    output_range: [0.5, 2.2]
+    expression: "power_mult[tier] * (0.6 + 0.4*(k-1)/(layers-1)) for the main method; no_tech_power 0.5 with no usable main method"
+    notes: "Multiplies Character Stats spiritual power; Combat reads it. power_mult 1.0/1.3/1.7/2.2 is now separate from speed_mult."
+    added: 2026-11-04
     revised: ""
 
 # Example:
@@ -949,6 +989,62 @@ constants:
     unit: percentage points
     notes: "Ceiling on the summed breakthrough_chance of all Kinh Mạch huyệt in a life (player and NPC). Guess until the bot run confirms it; the visible tree alone must stay at or under 4."
     added: 2026-11-03
+    revised: ""
+  - name: tech_norm
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+      - design/gdd/linh-can.md
+    value: 2.0
+    unit: multiplier
+    notes: "Derived as 1 / typical technique match 0.5; tied to Spiritual Roots purity_mean 50. If purity_mean moves, tech_norm must follow."
+    added: 2026-11-04
+    revised: ""
+  - name: beyond_realm_mult
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+      - design/gdd/canh-gioi.md
+    value: 0.25
+    unit: multiplier
+    notes: "Main-method speed in a realm above the tier's max realm (Realms rule 13). Power, bonuses and abilities are unaffected."
+    added: 2026-11-04
+    revised: ""
+  - name: no_cong_phap_mult
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+      - design/gdd/canh-gioi.md
+      - design/gdd/linh-can.md
+    value: 0.3
+    unit: multiplier
+    notes: "Crude cultivation with no usable main method: 0.3 x strongest base purity / 100. Key stays in cultivation_realms.json."
+    added: 2026-11-04
+    revised: ""
+  - name: cong_phap_seal_seasons
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+      - design/gdd/kinh-mach-do.md
+    value: [24, 24, 48, 48]
+    unit: seasons (Yellow, Profound, Earth, Heaven)
+    notes: "The Meridian Map's cong_phap_seasons; key seal_seasons. Counts only cultivating seasons with the technique in the main slot."
+    added: 2026-11-04
+    revised: ""
+  - name: second_main_mult
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+      - design/gdd/cong-phap.md
+    value: 0.5
+    unit: multiplier
+    notes: "Capability #6 Twin Technique Cultivation: a second main method at 50% speed with its full bonuses, additive in tech (Cultivation Techniques Formulas A, OQ2)."
+    added: 2026-11-04
     revised: ""
 
 # Example:

@@ -13,7 +13,7 @@ It will be revisited with Localization & Hán-Việt Glossary (system 34).
 |---|---|---|
 | realm | cảnh giới | |
 | Qi Refining | Luyện Khí | First realm, layers 1–13. Do not confuse with artifact refining |
-| layer | tầng | Qi Refining's 13 sub-steps |
+| layer | tầng | Qi Refining's 13 sub-steps. Not a technique layer (below) |
 | Foundation Establishment | Trúc Cơ | |
 | Core Formation | Kết Đan | |
 | Nascent Soul | Nguyên Anh | |
@@ -105,6 +105,16 @@ Root mutation names (biến dị):
 | English | Hán-Việt | Notes |
 |---|---|---|
 | cultivation technique | công pháp | |
+| technique layer | tầng công pháp | A technique's mastery steps: 3 per realm, 6 / 9 / 12 / 15 by tier. Always written "technique layer" when Qi Refining layers could be meant |
+| great completion | đại thành | A technique's last layer mastered |
+| Yellow / Profound / Earth / Heaven tier | Hoàng / Huyền / Địa / Thiên giai | Technique tiers, ranks 0–3 |
+| main method | tâm pháp (chủ tu) | The technique that sets cultivation speed |
+| auxiliary art | phụ tu | A slot for a secret art or a body technique |
+| secret art | bí thuật | An auxiliary art that names elements |
+| body technique | luyện thể công pháp | An auxiliary art that names no element; scales with physique |
+| manual | bí tịch | The item a technique is learned from |
+| harmony | (tương sinh / tương khắc between arts) | How an auxiliary art's elements relate to the main method's |
+| crude cultivation | — | Cultivating with no usable main method, at ×0.3 of the strongest purity |
 | magic treasure | pháp bảo | |
 | artifact refining | luyện chế pháp bảo (craft: Luyện Khí) | Write "artifact refining" to avoid the realm name |
 | alchemy | luyện đan | |
