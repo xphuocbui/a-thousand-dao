@@ -1,10 +1,10 @@
 # Cultivation Techniques (Công Pháp)
 
-> **Status**: In Review (2026-11-04: reopened by the Spiritual Roots redesign, wording aligned from mutations to variant roots). Previously Approved (2026-11-04, second lean /design-review: no blockers, 6 recommended revisions open). See `reviews/cong-phap-review-log.md`.
+> **Status**: In Review (2026-11-05: independent review findings applied; cross-GDD review CONCERNS, no blockers). See `reviews/cong-phap-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-04
-> **Last Verified**: 2026-11-04
+> **Last Updated**: 2026-11-05
+> **Last Verified**: 2026-11-05
 > **Implements Pillar**: Pillar 3 (Power Is Built, Not Given); touches Pillar 1 (Your Dao, Your Name) and Pillar 4 (Every Season Counts)
 
 ## Summary
@@ -32,8 +32,8 @@ A cultivation technique (công pháp) is the method a cultivator uses to draw sp
 - a tier (Yellow, Profound, Earth or Heaven; Hoàng, Huyền, Địa, Thiên);
 - the elements or variant roots (biến dị) it names;
 - a ladder of technique layers (tầng công pháp), mastered one by one over seasons. In
-  this GDD "layer" always means a technique layer, never one of Qi Refining's 13
-  layers (glossary).
+  this GDD "layer" always means a technique layer, never a Qi Refining layer, which is
+  one level of that realm (glossary).
 
 **What it does.** The technique's speed factor feeds the Realms cultivation rate. The
 factor depends on how well the cultivator's root matches the named elements and how
@@ -67,13 +67,14 @@ which technique you commit your seasons to. The decision has two sides:
 1. **What a technique is.** A technique is a template in `items_cong_phap.json`. Each
    copy found in the world is an Item DB manual (bí tịch) that points at the template.
    A template has:
-   - `id`, `name`, `tier` (0–3) and `kind` (rule 2);
+   - `id`, `name`, `tier` (0–3) and `tech_kind` (rule 2: `main`, `secret` or `body`);
    - `names`: the elements or variant roots it draws on (1–3 ids; none for a body
      technique);
    - `layers`: the layer count, set by the tier (rule 5);
    - `bonuses`: stat modifiers, each with a value at full mastery (Formulas D);
    - `abilities`: divine abilities (thần thông), each `{ability_id, unlock_layer}`;
-   - `seal_clusters`: Meridian Map sealed clusters it can unseal (rule 15);
+   - `seal_clusters`: Meridian Map sealed clusters it lists; empty and unread for now
+     (the interim rule in rule 15);
    - `origin`: `authored` or `generated` (rule 17).
 2. **Kinds.**
    - **Main method** (tâm pháp): the only kind that sets cultivation speed and
@@ -199,17 +200,27 @@ which technique you commit your seasons to. The decision has two sides:
     - This GDD owns which abilities a technique carries and when they unlock.
       Combat owns what each ability does (provisional: Combat has no GDD).
 14. **Combat.** Combat reads `tech_power` and the unlocked abilities. The technique
-    line of the power breakdown (`cong_phap_share` 0.2, as built) belongs to Combat.
+    line of the power breakdown (`cong_phap_share` 0.2, as built) belongs to Combat. It
+    exists only with a usable main method: with none there is no technique line, and
+    `no_tech_power` applies to spiritual power only (as built).
 
 **Hooks for other systems**
 
-15. **Meridian seals.** A technique's `seal_clusters` follow the Meridian Map's rule
-    7: a season counts while the technique is in the main slot (not the #6 slot or
-    an auxiliary slot) **and** the season is spent cultivating. Idle seasons do not
-    count, so a sealing technique cannot be swapped in to farm counts. The counts
-    add up and never reset. `cong_phap_seasons` is
-    24 for Yellow and Profound techniques and 48 for Earth and Heaven, the values
-    the Meridian Map left for this GDD to fix.
+15. **Meridian seals.** Technique seals follow the Meridian Map's rule 7: a season
+    counts while the technique is in the main slot (not the #6 slot or an auxiliary
+    slot) **and** the season is spent cultivating. Idle seasons do not count, so a
+    sealing technique cannot be swapped in to farm counts. The counts add up and never
+    reset. `cong_phap_seasons` is 24 for Yellow and Profound techniques and 48 for
+    Earth and Heaven, the values the Meridian Map left for this GDD to fix.
+    - **Interim rule (as built; Open Question 12).** No template lists clusters yet, so
+      `seal_clusters` is not read. A main method counts as listing every
+      technique-sealed cluster in a sector whose element it names. Any main method
+      qualifies, generated commons and the starting technique included.
+    - **One count per technique.** The clusters of a sector share the technique's single
+      count; each cluster has no count of its own. Once the count reaches
+      `cong_phap_seasons`, one such cluster opens per cultivating season, while the
+      technique stays in the main slot, until every cluster whose minimum realm is met
+      has opened. Different techniques keep separate counts.
 16. **The starting technique.** Each life starts knowing one generated Yellow main
     method that names the strongest base element, at layer 1, in the main slot (as
     built; Concept onboarding).
@@ -223,8 +234,9 @@ which technique you commit your seasons to. The decision has two sides:
       The target is about 40 (Concept); the MVP has a handful per kind.
     - **Generated commons** are Yellow and Profound main methods and secret arts,
       rolled from tier templates (Formulas E). They name 1 element, or 2 with chance
-      `multi_element_chance`. Each draws its bonuses from `bonus_pool` and has no
-      abilities or seals.
+      `multi_element_chance`. Each draws its bonuses from `bonus_pool`. It has no
+      abilities and an empty `seal_clusters`, but as a main method it can still open
+      seals under rule 15's interim rule.
     - A common offered to the player (market stock, an event reward) draws each
       element from the player's root with chance `root_bias` (0.6). Without the
       bias a random 1-element technique fits a 1-element root only 1 time in 5.
@@ -274,7 +286,7 @@ every transition. Losing the manual item never unlearns a technique.
 | Spiritual Roots | in | the purity of each named element and variant; root changes that make a technique usable | Spiritual Roots |
 | Realms & Bottlenecks | in / out | in: the current realm, for layer gates and the tier cap. Out: `tech`, the speed factor in the cultivation rate (Realms Formulas I); slot changes that Realms rule 14's lifespan confirmation covers | this GDD (the factor); Realms (the rate) |
 | Character Stats | in / out | in: effective Comprehension (mastery) and Physique (body techniques). Out: technique bonuses through the provider interface, and `tech_power` for spiritual power | this GDD (values); Character Stats (the interface) |
-| Meridian Map | in / out | in: capability #6 (second main slot). Out: `seal_clusters` and main-slot season counts | Meridian Map (the rule); this GDD (the record and `cong_phap_seasons`) |
+| Meridian Map | in / out | in: capability #6 (second main slot). Out: the elements a main method names (rule 15's interim rule; `seal_clusters` later) and main-slot season counts | Meridian Map (the rule); this GDD (the record and `cong_phap_seasons`) |
 | Time & Turn | in | whether the season was spent cultivating (full or idle mastery rate) | Time & Turn |
 | Item DB | in / out | manuals as items pointing at templates; generated commons stored as records | Item DB (storage); this GDD (the record schema) |
 | Combat | out | `tech_power`; the unlocked divine abilities | this GDD (which and when); Combat (effects; provisional) |
@@ -344,7 +356,7 @@ element, or several elements, still gives less, as before.
 | S[tier] (`speed_mult`) | float | 1.00 / 1.15 / 1.30 / 1.45 (guess; edge per tier 1.10–1.25) | data file | Tier speed scale (**changed** from 1.0 / 1.3 / 1.7 / 2.2; power is now separate, Formulas C) |
 | κ (`tech_norm`) | float | 2.0 (derived: 1 ÷ typical match 0.5; safe 1.8–2.2) | data file | Normaliser |
 | g (`count_gain`) | float | 1.00 / 1.22 / 1.33 / 1.41 / 1.46 by base element count; 1.27 for five elements in QR (derived; see above) | data file | Element-count gain divided out of κ |
-| match | float | 0.10–1.00 | calculated (Spiritual Roots) | Average purity of the named ids ÷ 100 |
+| match | float | 0.08–1.00 (0.08: a derived variant at its purity floor of 8) | calculated (Spiritual Roots) | Average purity of the named ids ÷ 100 |
 | beyond_realm_mult | float | 0.25 | data file (value from Realms rule 13) | Tier cap |
 | f2 (`second_main_mult`) | float | 0.5 | data file (value from Meridian Map #6) | Second main method's speed share |
 | no_cong_phap_mult | float | 0.3 (as built) | data file | Crude cultivation multiplier |
@@ -354,7 +366,7 @@ element, or several elements, still gives less, as before.
 **Output Range:**
 - The main slot runs from 0.03 (crude at strongest purity 10, or the crude floor) to
   2.9 (a Heaven technique in QR or FE at match 1.0, which is vanishingly rare). Before
-  the floor, one technique can be as low as 0.035 (beyond its realm at match 0.10 and
+  the floor, one technique can be as low as 0.028 (beyond its realm at match 0.08 and
   L 0.70).
 - Under normal play a technique gives 0.8–1.4.
 - κ is not applied to the crude branch: crude is 0.03–0.30. A beyond-realm main
@@ -393,8 +405,8 @@ tier ceiling, with mastery costs from Formulas B.
   in QR and FE and 1.22–1.24 later, and such lives would clear realms about 24 %
   faster than the Realms years table. `g` (1.33 for three elements) divides that
   out, so raw tech is about 0.98 in QR and FE and 0.92 later. κ stays 2.0.
-- The starter names the strongest element, so its mean match is 0.58 (derived,
-  weighted by the count weights). That is +16 % in QR and FE.
+- Across all roots the starter's mean match is 0.58 (derived, weighted by the count
+  weights), +16 % on raw match; `g` divides that out too.
 - **The QR half-lifespan ceiling:**
   - **Five-element roots.** The starter match is about 0.73, so with `g` 1.27 tech ≈
     2.0 ÷ 1.27 × 0.73 × 0.98 ≈ 1.13. A five-element root always holds all five
@@ -485,7 +497,7 @@ measures depth relative to the realm.
 | p_floor (`power_layer_floor`) | float | 0.6 (guess; safe 0.4–0.8) | data file | Share of the power at layer 1 |
 | k, layers | int | as in A | calculated, data file | Mastered layer; ladder length |
 | no_tech_power | float | 0.5 (guess) | data file | Spiritual power factor with no main method (as built it was 1.0) |
-| tech_power | float | 0.5–2.2 | calculated | Read by Character Stats (spiritual power) and Combat |
+| tech_power | float | 0.5–2.2 | calculated | Read by Character Stats (spiritual power) and, with a main method, Combat (rule 14) |
 
 **Output Range:** 0.5 (no main method) to 2.2 (a Heaven technique at great
 completion). A Yellow technique at layer 1 gives 0.6. The Character Stats range
@@ -522,15 +534,15 @@ is Wood–Earth, Earth–Water, Water–Fire, Fire–Metal and Metal–Wood.
 |----------|------|-------|--------|-------------|
 | v_full | float | per bonus (`bonus_pool` min–max, or authored) | data file | Value at great completion, before F and H |
 | b_floor (`bonus_layer_floor`) | float | 0.3 (guess; safe 0.2–0.5) | data file | Share of the bonus at layer 1 |
-| avg_purity | float | 10–100 | calculated (Spiritual Roots) | As in A, but in the Meridian Map's 0.5 + purity ÷ 100 form |
+| avg_purity | float | 8–100 | calculated (Spiritual Roots) | As in A, but in the Meridian Map's 0.5 + purity ÷ 100 form |
 | physique | float | 1–150 | calculated (Character Stats) | Effective Physique (căn cốt) |
 | F_cap (`body_factor_cap`) | float | 1.5 (guess; safe 1.2–1.5) | data file | Cap on the body-technique factor |
 | H (`harmony`) | float | 0.60 / 1.00 / 1.15 | data file | Harmony multiplier |
 | v | float | 0 to about 1.73 × v_full | calculated | Bonus delivered; one provider line per technique |
 
 **Output Range:**
-- F is 0.6–1.5 in the purity form and 0.51–1.5 in the Physique form; H is 0.60–1.15.
-- So v runs from 0.3 × 0.6 × 0.6 ≈ 0.11 × v_full (layer 1, low purity, overcoming)
+- F is 0.58–1.5 in the purity form and 0.51–1.5 in the Physique form; H is 0.60–1.15.
+- So v runs from 0.3 × 0.58 × 0.6 ≈ 0.10 × v_full (layer 1, low purity, overcoming)
   up to 1.5 × 1.15 ≈ 1.73 × v_full (great completion, purity 100, generated by the
   main method).
 
@@ -586,11 +598,12 @@ The common_roll formula is defined as:
 | value | int | 30 / 200 / 1,500 / 12,000 (as built) | data file | Tier price base |
 | q̄ | float | 0–1 (0.5 with no bonuses) | calculated | Mean of clamp((v_full − min) ÷ (max − min), 0, 1) over the bonuses |
 | price_base, price_spread | float | 0.85, 0.30 (guess; band ±10–25 %) | data file | Price band |
-| price | int | 0.85–1.15 × value, rounded to the nearest integer (half away from zero) | calculated | Item value; Market applies its own buy and sell rounding |
+| price | int | 0.85–1.15 × value, rounded to the nearest integer (half away from zero) | calculated | Item value of a generated common; Market applies its own buy and sell rounding |
 
 **Output Range:** Yellow commons cost 26–35 and Profound commons 170–230. The price
-formula applies to authored manuals too: Earth 1,275–1,725 and Heaven 10,200–13,800.
-Market owns the final bands.
+formula applies to generated commons only. An authored manual sits at its tier's data
+`value` (as built): 200 Profound, 1,500 Earth and 12,000 Heaven. Market owns the final
+bands.
 
 **Example:**
 - **Price.** A Profound main method with linh_luc_pct 15 (pool 5–20) has q̄ = 0.667,
@@ -611,7 +624,7 @@ Market owns the final bands.
 - `seal_seasons` 24 / 24 / 48 / 48 (new; the Meridian Map's `cong_phap_seasons`).
 
 **`items_cong_phap.json`, global:**
-- slots and speed: `aux_slots` 2, `tech_norm` 2.0, `count_gain` [1.00, 1.22, 1.33,
+- slots and speed: `aux_slots` 2, `second_main_capability` 6, `tech_norm` 2.0, `count_gain` [1.00, 1.22, 1.33,
   1.41, 1.46] by base element count with `count_gain_qr_5` 1.27 (new),
   `layer_speed_penalty` 0.06,
   `layer_speed_floor` 0.70, `beyond_realm_mult` 0.25, `second_main_mult` 0.5;
@@ -644,13 +657,12 @@ reviews and three cross-GDD reviews have checked it, but no specialist pass has.
 - **If the #6 second slot holds a method while the main slot is empty or unusable:**
   the second slot is inert. It gives no speed, bonuses or mastery until the main
   slot holds a usable method. Moving the method into the main slot is the intended
-  play.
+  play, and the move empties the #6 slot (rule 6). While the main slot holds a usable
+  method, a method in the #6 slot cannot also go there.
 - **If capability #6 is lost:** the second slot is emptied at the next season start.
   The method keeps its layers and stored mastery.
 - **If the player tries to slot the same technique twice, or a main method in an
   auxiliary slot:** the action is refused with a reason line (rules 2 and 6).
-- **If the player changes slots mid-season:** the action is refused. Slots change
-  only at a season start.
 - **If a root gains an element or a variant** (a Linh Căn Quả, a Mutation
   Awakening): every known technique that becomes usable moves to Known · usable at
   the next season start. Nothing is auto-slotted.
@@ -756,7 +768,7 @@ reviews and three cross-GDD reviews have checked it, but no specialist pass has.
 |---|---|---|
 | 8 | Realms & Bottlenecks | `tech`, the speed factor in the cultivation rate (Formulas A) |
 | 7 | Character Stats | Technique bonuses through the provider interface; `tech_power` for spiritual power |
-| 10 | Meridian Map | `seal_clusters`, main-slot cultivating-season counts, `seal_seasons` (its `cong_phap_seasons`) |
+| 10 | Meridian Map | The elements a main method names (rule 15's interim rule; `seal_clusters` later), main-slot cultivating-season counts, `seal_seasons` (its `cong_phap_seasons`) |
 | 21 | Combat | `tech_power`; the unlocked divine abilities (provisional: no Combat GDD) |
 | 20 | Market | Manuals for sale; commons with root bias; prices from Formulas E; the rule 18 reserved copy and its fallback stock |
 | 23, 29 | Event Engine, LLM GM | The catalogue and the commons an event may grant; validation of technique effects |
@@ -783,7 +795,7 @@ reviews and three cross-GDD reviews have checked it, but no specialist pass has.
   Character Stats (the capability-host rule), and the seal counts are state the
   Meridian Map reads.
 
-**Bidirectionality.** All four approved GDDs list this system: Spiritual Roots,
+**Bidirectionality.** All four related GDDs list this system: Spiritual Roots,
 Character Stats, Realms and the Meridian Map. Index row 9 already carries the
 dependencies (Spiritual Roots, Realms, Character Stats, Item DB; soft Time & Turn and
 Meridian Map).
@@ -852,8 +864,8 @@ These apply to the Debug Terminal now and to the Game UI later.
 - **Speed.** The rate breakdown has one technique line. Its tooltip, or `explain`,
   splits it into κ, g, edge, match, L and beyond, for example "Profound Wood–Fire,
   layer 8: 2.0 ÷ 1.22 (2 elements) × 1.00 × 0.63 × 0.94 = 0.97".
-  - A beyond-realm method is flagged in the line: "[beyond its realm: ×0.25]", as
-    built.
+  - A beyond-realm method is flagged in the line: "[beyond its realm]", as built. The
+    ×0.25 itself is not shown yet (Open Question 8).
 - **Harmony.** Each auxiliary art shows its relation to the main method (generated
   by it / neutral / overcoming) and the resulting ×1.15 / ×1.00 / ×0.60.
 - **Known list.** It lists known techniques, marks the unusable ones with the
@@ -874,7 +886,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | Document | Relationship |
 |---|---|
 | `design/gdd/game-concept.md` | Cultivation techniques (core mechanic 4), the ~40 content target, onboarding (one technique at start) |
-| `design/gdd/linh-can.md` | Rule 7 (the purity scale of named ids, a locked contract); Open Question 3 there is answered by rule 8 here |
+| `design/gdd/linh-can.md` | Rule 8 (the purity scale of named ids, a locked contract); the fallback that rule leaves to this GDD is rule 8 here |
 | `design/gdd/canh-gioi.md` | Formulas I (the `tech` term), rule 13 (the ×0.25 tier cap), rule 14 (the lifespan confirmation for slot changes), the years-per-realm table that Formulas A calibrates against |
 | `design/gdd/character-stats.md` | The provider interface, spiritual power (`tech_power`, range edited to 0.5–2.2), effective Comprehension and Physique, the precision and tolerance rules, Market rounding |
 | `design/gdd/kinh-mach-do.md` | Rule 7 (technique seals; `cong_phap_seasons` fixed here; cultivating seasons only), capability #6 |
@@ -944,8 +956,7 @@ applied above).
   the state is unchanged:
   - a third auxiliary slot;
   - the same technique in two slots;
-  - a main method in an auxiliary slot, or an auxiliary art in the main slot;
-  - any slot change mid-season.
+  - a main method in an auxiliary slot, or an auxiliary art in the main slot.
 
   At a season start a swap costs no season and no resource (a swap that would put the lifespan cap at or below the age first needs Realms rule 14's confirmation: AC-CG-62). The technique taken out
   keeps its k and stored mastery exactly. A season's mastery and rate use the slots
@@ -968,8 +979,8 @@ applied above).
   Guard case: a test-only fixture removes Fire from the root. The slotted [Fire] main
   method is unslotted at the next season start, not at once.
 - **AC-CP-08** [Logic] Rule 8, crude cultivation, with R and an empty main slot:
-  - `tech` = 0.3 × 86 ÷ 100 = 0.258, with the label "no usable cultivation
-    technique";
+  - `tech` = 0.3 × 86 ÷ 100 = 0.258, with the label "No main method (crude)", as
+    built;
   - `tech_power` = 0.5;
   - the main slot gains no mastery;
   - a slotted auxiliary art still gains 1.45 a season, and its bonus uses harmony
@@ -983,9 +994,9 @@ applied above).
   - when it is reslotted, `a1` returns with no new mastery.
 
   Known but unslotted techniques never add abilities.
-- **AC-CP-10** [Logic] Rule 15, seal counting. A Yellow fixture lists `seal_clusters`
-  [c]. Over 10 seasons it spends 6 cultivating in the main slot, 2 idle in the main
-  slot and 2 cultivating in an auxiliary slot. Its count is 6.
+- **AC-CP-10** [Logic] Rule 15, seal counting. A Yellow [Fire] fixture has an empty
+  `seal_clusters`. Over 10 seasons it spends 6 cultivating in the main slot, 2 idle in
+  the main slot and 2 cultivating in an auxiliary slot. Its count is 6.
   - The count holds at 6 through 5 seasons unslotted, and reaches 9 after 3 more
     cultivating seasons in the main slot.
   - Seasons in the #6 slot add 0.
@@ -1025,8 +1036,8 @@ applied above).
 - **AC-CP-14** [Logic] Formulas A example, rules 9 and 10. Root R, a Profound (Huyền)
   [Wood, Fire] main method, match 0.63:
   - at CF, k 8: `tech` = **1.1844**, shown 1.18;
-  - at NS, k 8 (d is still 1): **0.2961**, shown 0.30, with the ×0.25 visible in the
-    breakdown.
+  - at NS, k 8 (d is still 1): **0.2961**, shown 0.30, with "[beyond its realm]" in
+    the breakdown line.
 - **AC-CP-15** [Logic] Parity. Root {Water 50} and a [Water] method at every allowed
   layer:
   - Yellow at QR k 3 and at FE k 6;
@@ -1101,7 +1112,8 @@ applied above).
   - An art naming [Wood, Fire] under a Water main: 0.60 (the worst relation).
   - An art naming Light under a Water main: 0.60 (a derived variant counts as its required elements).
   - An art naming Wind under a Water main: no harmony penalty (an innate variant is neutral).
-  - A Light main against an Earth art: 0.60.
+  - A Light main against an Earth art: 1.15 (Light counts as Fire, and Fire generates Earth).
+  - A Light main against a Metal art: 0.60 (Fire overcomes Metal).
   - Body techniques, and any art while the main slot is empty: 1.00.
   - Example: root {Wood 70, Water 50, Metal 50}, a Profound [Wood] secret art with
     `attack_pct` 12 at k 6 of 9:
@@ -1118,6 +1130,8 @@ applied above).
   - A Yellow main method with no bonuses: 30.
   - A Profound bonus at the pool minimum: 170; at the maximum: 230.
   - A Yellow secret art with its bonus at the minimum: 26; at the maximum: 35.
+  - An authored manual sits at its tier's `value`, whatever its bonuses: 200, 1,500 or
+    12,000.
 - **AC-CP-25** [Logic] Formulas E, rolls. Over 100,000 seeded commons:
   - unfixed tier: Yellow 62.5 % ± 0.6 pp, Profound 37.5 % ± 0.6 pp;
   - 2-element commons 20.0 % ± 0.5 pp;
@@ -1164,7 +1178,11 @@ applied above).
   - `tech` is crude, 0.258, and `tech_power` is 0.5;
   - the #6 method adds no bonus line, and its stored mastery is unchanged after a
     season;
-  - moved to the main slot at the next season start, it sets `tech`.
+  - moved to the main slot at the next season start, it sets `tech`, the #6 slot is
+    empty, and it gives one speed term, one bonus line and one season's mastery.
+
+  With a usable main method in the main slot, moving the #6 method there is refused
+  with a reason line, and the state is unchanged.
 
   When #6 is lost, the second slot is emptied at the next season start, and the
   method keeps its k and stored mastery.
@@ -1225,10 +1243,13 @@ applied above).
   - an Earth main method at k 9 gives **9,087.27** (6,000 × 1.514545);
   - an empty main slot gives 3,000.00;
   - a Heaven method in the #6 slot changes neither.
-- **AC-CP-38** [Integration] Meridian Map (Kinh Mạch Đồ). A Yellow fixture with
-  `seal_clusters` [c] sits in the main slot, cultivating.
+- **AC-CP-38** [Integration] Meridian Map (Kinh Mạch Đồ). A Yellow [Fire] fixture
+  sits in the main slot, cultivating, and c is a technique-sealed Fire cluster.
   - After 23 counted seasons, c is still sealed. On the 24th it unseals and exactly
     one "cluster unsealed" event is written.
+  - With two such clusters, the second opens on the next cultivating season, off the
+    same count. A method that does not name Fire opens neither.
+  - A generated common and the starting technique qualify (rule 15's interim rule).
   - It still unseals on the 24th counted season when 6 idle seasons and 5
     auxiliary-slot seasons are mixed in.
   - An Earth fixture unseals on the 48th, not the 47th.
@@ -1236,12 +1257,12 @@ applied above).
   - Without capability #6, slotting a second main method is refused.
 - **AC-CP-39** [Integration] Combat (provisional: no Combat GDD).
   - The technique line of the power breakdown is base × `cong_phap_share` 0.2 ×
-    `tech_power`: base × 0.302909 for an Earth method at k 9, and base × 0.1 with no
-    main method.
+    `tech_power`: base × 0.302909 for an Earth method at k 9. With no main method there
+    is no technique line (rule 14).
   - The ability list Combat reads equals AC-CP-09's unlocked list at each step.
 - **AC-CP-40** [Integration] Market.
-  - For every presence value 1–150 and every price in 26–35 and 170–230, a manual's
-    sell price is at least 1 below its buy price. A buy-and-resell loop never makes a
+  - For every presence value 1–150 and every price in 26–35 and 170–230, plus 1,500
+    and 12,000, a manual's sell price is at least 1 below its buy price. A buy-and-resell loop never makes a
     profit.
   - Player-offer stock follows AC-CP-26's rates.
 - **AC-CP-41** [Integration] Event Engine with a stub LLM.
@@ -1288,20 +1309,24 @@ applied above).
   - each known technique with its tier, kind, "k / layers" and Gated or Great
     completion state, with unusable ones marked by the missing id;
   - the rate breakdown's one technique line at 1.18 for the AC-CP-14 fixture, and its
-    `explain` split into κ, edge, match, L and beyond;
+    `explain` split into κ, g, edge, match, L and beyond;
   - each auxiliary art's harmony relation and multiplier;
-  - a refused slot action for a [Water] technique on root R, naming Water;
-  - a refused mid-season change.
+  - a refused slot action for a [Water] technique on root R, naming Water.
+
+  The `explain` split, harmony display and missing-id text are unbuilt (Open Question 8).
 - **AC-CP-50** [UI] The breakthrough preview of an FE-peak character with a Yellow
   [Fire] main method warns "×0.25" for Core Formation and names the location of the
   rule 18 guaranteed Profound [Fire] method. A character whose main method reaches
-  the next realm sees no warning.
+  the next realm sees no warning. Unbuilt (Open Question 8).
 
 **Balance** (`tools/balance/autoplay.gd`)
 
-The harness needs three things first: per-season logging of `tech` and match, a
-policy that switches technique at each tier ceiling, and an option to pin
-Comprehension.
+The harness needs four things first: per-season logging of `tech` and match, a
+policy that switches technique at each tier ceiling, an option to pin Comprehension,
+and a mode that rolls purities at a fixed element count. `--elements N` as built fixes
+every purity at 60 and every talent at 50, so it has no purity spread for AC-CP-47's
+tail shares and cannot show the strongest-purity gain that `g` divides out. The
+`--elements` runs below mean that rolled mode.
 
 - **AC-CP-46** [Balance] **Formulas A calibration, the main bot check.** Run
   `--elements 3` on a fixed seed list, ≥ 100 lives, with Comprehension pinned at 45
@@ -1320,11 +1345,16 @@ Comprehension.
     `g` decision, keeping the hand-plus-about-3.5-points margin).
 - **AC-CP-48** [Balance] Re-check of the Realms years table.
   - AC-CG-33 and AC-CG-33a re-run with Formulas A–C active, and both pass. Expected
-    1-element NS median about 465 against the 500 ceiling.
-  - Run `--elements 2`, `3` and `4` with AC-CP-46's policy, ≥ 100 lives each. The
-    median years per realm are within ±10 % of the Spiritual Roots years table
-    (Formulas B) for that element count; for 3 elements, 38 / 50 / 60 / 101 / 168
-    without the pair bonus.
+    1-element NS median about 465 at Comprehension 50 (about 474 at 45) against the 500
+    ceiling.
+  - Run `--elements 2`, `3` and `4` with AC-CP-46's policy, ≥ 100 lives each, with the
+    generating-pair bonus on. The median years per realm are within ±10 % of the
+    Spiritual Roots years table (its Formulas B), the one reference: it includes each
+    tier's expected pair bonus, so 3 elements is 36 / 48 / 58 / 97 / 161.
+  - By hand this policy runs over that band at NS and DT: about +11 % for 3 elements and
+    +12–15 % for 4, from the ramp and Comprehension 45 against the table's 1.25 factor
+    (density 1). An overrun of that size is not by itself a `count_gain` error (Open
+    Question 1).
   - If a count is off by more, retune that count's `count_gain`, not κ or Realms
     `climb_total` (user decision 2026-11-04, cross-GDD review N6). The Realms
     baseline breakthrough targets (AC-CG-30/31) are then re-run.
@@ -1340,14 +1370,16 @@ Comprehension.
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
-| 1 | Confirm the hand-computed Formulas A check (mean tech₀.₅ 0.91–0.98 per realm) and the Formulas B pacing with a bot run, and re-run Realms AC-CG-33 and AC-CG-33a with the new factor. User decisions 2026-11-04: keep κ 2.0; the strongest-element starter's speed-up for multi-element roots is divided out per element count by `count_gain` (cross-GDD review N6, replacing the earlier `climb_total` plan, which could not fit its safe range); five elements in QR use 1.27, not 1.46, to keep the QR tail at about 6 %. The bot confirms `count_gain` (AC-CP-48); pill supply stays the breakthrough lever | Realms & Bottlenecks calibration (bot) | Formulas A and B sign-off |
+| 1 | Confirm the hand-computed Formulas A check (mean tech₀.₅ 0.91–0.98 per realm) and the Formulas B pacing with a bot run, and re-run Realms AC-CG-33 and AC-CG-33a with the new factor. User decisions 2026-11-04: keep κ 2.0; the strongest-element starter's speed-up for multi-element roots is divided out per element count by `count_gain` (cross-GDD review N6, replacing the earlier `climb_total` plan, which could not fit its safe range); five elements in QR use 1.27, not 1.46, to keep the QR tail at about 6 %. The bot confirms `count_gain` (AC-CP-48); pill supply stays the breakthrough lever. The hand model puts NS and DT over AC-CP-48's ±10 % band for 3 and 4 elements, so that run must decide whether the band or the expectation moves | Realms & Bottlenecks calibration (bot) | Formulas A and B sign-off |
 | 2 | #6 Twin Technique Cultivation is additive, up to +50 % speed, which can shorten realm years by about a third. Check it against its Meridian Map price; the alternative `max(main, 0.5 × second)` would make it nearly worthless | Meridian Map, systems-designer | Capability pricing |
 | 3 | What each divine ability does | Combat GDD | Rule 13 effects |
-| 4 | Author the catalogue: about 40 templates, with an MVP handful per kind (main method, secret art, body technique), including variant techniques, heirlooms and the rule 18 par methods for each element | content (writer, systems-designer) | Rule 17, rule 18 |
-| 5 | About 8 % of one-element lives (purity 21 or less) and about 3 % of five-element lives breach the 60-year QR ceiling. The median holds. A match floor would close the tail, but it would change the Spiritual Roots rule 8 contract | game-designer, Spiritual Roots | Pillar 4 tail |
+| 4 | Author the catalogue: about 40 templates, with an MVP handful per kind (main method, secret art, body technique), including variant techniques, heirlooms and the rule 18 par methods for each element. Also give every template a source: `kim_cang_the`, `long_tuong_cong`, `phong_hanh_quyet` and `am_anh_bi_thuat` cannot be obtained in play, because Profound rolls are always generated and callers ask only for main methods and secret arts, so rule 2's body-technique route does not exist yet | content (writer, systems-designer) | Rule 17, rule 18 |
+| 5 | About 8 % of one-element lives (purity 21 or less) and about 6 % of five-element lives (purity 53 or less) breach the 60-year QR ceiling. The median holds. A match floor would close the tail, but it would change the Spiritual Roots rule 8 contract | game-designer, Spiritual Roots | Pillar 4 tail |
 | 6 | Rule 18 guarantees base-element par methods only. Should a variant root also get a guaranteed variant technique path, or is a switch back to a base element its intended cost? | game-designer | Rule 18 |
 | 7 | Whether known techniques carry over between lives | Codex & Karmic Carryover | — |
-| 8 | Implementation changes: <ul><li>the factor with κ, the par-tier edge and L;</li><li>layers and mastery;</li><li>slots: main, auxiliary and #6;</li><li>separate `speed_mult` and `power_mult`;</li><li>`no_tech_power`;</li><li>bonus scaling and harmony;</li><li>commons capped at 2 elements, with root bias and the secret-art bonus;</li><li>seal counting;</li><li>validators, including the bonus budget;</li><li>the crude floor;</li><li>the starting technique's tie-break.</li></ul> | implementation story | Building this GDD |
-| 9 | Rule 18 needs at least 10 authored single-element par methods (5 Earth, 5 Heaven; the Profound ones can be commons) out of about 40, and placing one per element per realm in every world strains the 15 / 5 Earth and Heaven rarity weights. Options: allow generated Earth and Heaven methods for guarantee placements only; guarantee only the elements present in the starting province; or grow the catalogue | game-designer, content | Rules 17 and 18 |
+| 8 | Built: the speed factor, layers and mastery, slots, the speed and power split, bonuses and harmony, commons, seal counting and the crude floor. Display still unbuilt: <ul><li>the `explain` split of the technique line, and the ×0.25 in it;</li><li>each art's harmony relation and multiplier;</li><li>the missing id on unusable techniques and in the refusal;</li><li>the preview before learning or slotting (speed, bonus, seasons to catch up);</li><li>the breakthrough-preview warning with the source location (AC-CP-50).</li></ul> | implementation story | UI Requirements, AC-CP-45, AC-CP-50 |
+| 9 | Rule 18 needs at least 10 authored single-element par methods (5 Earth, 5 Heaven; the Profound ones can be commons) out of about 40. Those 10 now exist in the data, and the build stocks all 15 as reserved market copies. Placing one per element per realm through sects and quests in every world would still strain the 15 / 5 Earth and Heaven rarity weights. Options: allow generated Earth and Heaven methods for guarantee placements only; guarantee only the elements present in the starting province; or grow the catalogue | game-designer, content | Rules 17 and 18 |
 | 10 | There is no Player Fantasy section (advisory at the standard tier) | game-designer | — |
-| 11 | Techniques naming a relocated mutation (Spiritual Roots rule 16) are re-pointed when the Way (Đạo) is designed. Until then those templates fail the `names` validation | game-designer, the Way | Rule 17 catalogue |
+| 11 | Techniques naming a relocated mutation (Spiritual Roots rule 16) are re-pointed when the Way (Đạo) is designed. Until then such a template would fail the `names` validation; no shipped template names one | game-designer, the Way | Rule 17 catalogue |
+| 12 | Rule 15's interim sector rule stands in for authored `seal_clusters`. Authoring them means the code reads the field and commons stop opening seals. Until then the starting technique opens the technique-sealed clusters of its element, and the Meridian Map's rule 7 ("lists this cluster") reads narrower than the build | game-designer, content, Meridian Map | Rule 15, rule 17 |
+| 13 | Rules with no built path yet: <ul><li>the load-time validator (Edge Cases, AC-CP-34): nothing in `src/` reads `bonus_budget` or `bonus_single_cap`;</li><li>emptying the #6 slot when capability #6 is lost, and rule 8's guard for the #6 slot;</li><li>the unfixed tier roll (Formulas E, AC-CP-25): every caller fixes the tier, the market uses the realm index as the tier, and the tier `weight` values are unread.</li></ul> | implementation story | Edge Cases, AC-CP-25, AC-CP-34 |

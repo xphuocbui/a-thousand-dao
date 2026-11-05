@@ -126,11 +126,13 @@ cultivation techniques (công pháp) and crafts; each generating (tương sinh) 
 five-element cycle closes the loop for the largest bonus; specific elements can converge or transmute into a variant root
 (biến dị linh căn).
 
+The ladder has 110 levels in five realms: 1–10, 11–40, 41–80, 81–100 and 101–110.
+
 ### Trade-off — slower early, better late, fast crossovers
 
 Relative cultivation speed vs. a single root at the same stage:
 
-| | QR 1–4 | QR 5–9 | QR 10–13 | FE early | FE mid | FE late | FE GP | CF early | CF mid | CF late | NS early |
+| | QR early (1–3) | QR middle (4–6) | QR late (7–10) | FE early | FE mid | FE late | FE GP | CF early | CF mid | CF late | NS early |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Dual (2) | 0.6 | 0.7 | 0.8 | 0.9 | **1.0** | 1.3 | 1.6 | 2.0 | 2.4 | 2.8 | 3.5 |
 | Triple (3) | 0.5 | 0.6 | 0.75 | 0.9 | **1.0** | 1.4 | 1.8 | 2.3 | 2.8 | 3.4 | 4.5 |
@@ -161,7 +163,7 @@ Space, Time and the rest) moved to a separate system, the Way (Đạo), which is
 
 ### Changing spiritual roots (linh căn)
 
-The spiritual root can change during a life, but rarely: rare treasures or secret arts (bí thuật)
+The spiritual root can change during a life, but rarely: rare treasures and pills
 can add an element, raise purity or trigger a variant root — making the root a long-term build goal
 as well as a starting condition.
 

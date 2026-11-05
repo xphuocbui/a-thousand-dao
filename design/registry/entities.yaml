@@ -339,10 +339,10 @@ formulas:
       - tau_a
       - burn_cost
     output_range: [0, 0.10]
-    expression: "tau_a = the breakthrough talisman on this attempt (0 or f*tau, tau 0.05, f the gate_factor, Realms rule 8); q = the attempt chance without tau_a; q_desp = min(2q, q + delta_desp, q_max - tau_a, q + delta_max*(1 - q - tau_a)/(1 - S)); #22 attempt chance = q_desp + tau_a; S22 = 1 - (1 - S)*(1 - q_desp - tau_a)/(1 - q - tau_a); q_retry = min(q, (delta_max - iota_23)/(1 - S)), iota_23 = the failure insight the extra roll would add if it failed (0.02, or 0 at the cap); q includes insight and excludes tau_a (#23 never carries a talisman); S23 = S + q_retry*(1 - S); lift = max(S22, S23) - S <= delta_max"
+    expression: "tau_a = the breakthrough talisman on this attempt (0 or f*tau, tau 0.05, f the gate_factor, Realms rule 8); q = the attempt chance without tau_a; q_desp = min(2q, q + delta_desp, q_max - tau_a, q + delta_max*(1 - q - tau_a)/(1 - S)); #22 attempt chance = q_desp + tau_a; S22 = 1 - (1 - S)*(1 - q_desp - tau_a)/(1 - q - tau_a); q_retry = min(q, (delta_max - iota_23)/(1 - S)), iota_23 = the failure insight the extra roll would add if it failed (f*0.02, or 0 at the cap); q includes insight and excludes tau_a (#23 never carries a talisman); S23 = S + q_retry*(1 - S) + iota_23*(1 - q_retry)*F_0; lift = max(S22, S23) - S <= delta_max"
     notes: "Caps the realm success lift from capabilities 22 and 23; at most one acts per realm step. Must agree with the progression targets (0.30 baseline, 0.70 with the player edge)."
     added: 2026-11-03
-    revised: 2026-11-04
+    revised: 2026-11-05
   - name: npc_unseal_chance
     status: active
     source: design/gdd/kinh-mach-do.md
@@ -374,9 +374,9 @@ formulas:
       - N0
       - f_tier
       - stat_power_weights
-    output_range: [10.7, 67.2]
+    output_range: [10.9, 49.0]
     expression: "B = P * ((n-k)*S0 + (k-c)*N0 + c*f_tier*N0)"
-    notes: "Budget in W for an LLM-filled or authored cluster; the LLM Game Master fill validator enforces it."
+    notes: "Budget in W for an LLM-filled or authored cluster; the LLM Game Master fill validator enforces it. Unshrunk. A cluster shrunk by region capacity uses P_shrunk = P(d, n)*n_rolled/n."
     added: 2026-11-03
     revised: ""
   - name: technique_speed_factor
@@ -403,6 +403,19 @@ formulas:
     notes: "The tech term of Realms Formulas I. A par-tier technique naming the root's strongest element, at average match for its element count and every allowed layer mastered, gives 1.0 in every realm; count_gain divides out the strongest-element gain (user decision 2026-11-04)."
     added: 2026-11-04
     revised: 2026-11-04
+  - name: talent_gain
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+    variables:
+      - value
+      - pill_potency
+    output_range: [1, 100]
+    expression: "max(1, round(value * pill_potency)); base clamped to 100"
+    notes: "Matches purity pills, so a weak pill still gives +1."
+    added: 2026-11-05
+    revised: ""
   - name: tech_power
     status: active
     source: design/gdd/cong-phap.md
@@ -417,7 +430,7 @@ formulas:
       - no_tech_power
     output_range: [0.5, 2.2]
     expression: "power_mult[tier] * (0.6 + 0.4*(k-1)/(layers-1)) for the main method; no_tech_power 0.5 with no usable main method"
-    notes: "Multiplies Character Stats spiritual power; Combat reads it. power_mult 1.0/1.3/1.7/2.2 is now separate from speed_mult."
+    notes: "Multiplies Character Stats spiritual power. Combat reads it only with a usable main method; with none there is no combat technique line, and no_tech_power applies to spiritual power only. power_mult 1.0/1.3/1.7/2.2 is separate from speed_mult."
     added: 2026-11-04
     revised: ""
   - name: lifespan_cap
@@ -433,7 +446,7 @@ formulas:
       - L_realm
       - bonus_ceilings
       - lifespan_pct
-    # a negative lifespan bonus (penalties apply after the cap, Character Stats rule 14) can put the cap below L_realm; lifespan_pct is assumed >= 0; no current source grants lifespan_pct (Character Stats Open Question 7).
+    # a negative lifespan bonus (penalties apply after the cap, Character Stats rule 14) can put the cap below L_realm; lifespan_pct is assumed >= 0; lifespan_pct sources: perk tho_nguyen +20 and Wood keystone Vạn Cổ Trường Thanh +25, bound +45 in total (Character Stats rule 14).
     output_range: [0, unbounded]
     expression: "(L_realm + min(pill_years + sum_pos(lifespan_years), lifespan_frac * L_realm) + sum_neg(lifespan_years)) * (1 + lifespan_pct/100), floored at 0; an equipped treasure's lifespan is its own lifespan_years modifier, counted once; death by old age at age >= cap"
     notes: "Realms rule 14 owns it; Character Stats supplies the ceilinged bonus (its rule 14, Formulas I). A slot, equipment or main-method change that would put the cap at or below the age needs confirmation. Every lifespan_years modifier counts under the ceiling (W10, 2026-11-04)."
@@ -590,7 +603,7 @@ constants:
     referenced_by:
       - design/gdd/linh-can.md
       - design/gdd/canh-gioi.md
-    value: "5 rows (1-5 base elements) x 13 stage groups; 0.3-9.0; row 1 is all 1.0; parity points tc_trung (2-3), tc_hau (4), kd_so (5)"
+    value: "5 rows (n_eff 1-5) x 13 stage groups; 0.3-9.0; row 1 is all 1.0; parity points tc_trung (2-3), tc_hau (4), kd_so (5)"
     unit: speed factor relative to a single root
     notes: "Full table in linh-can.md Formulas B; data in character_attributes.json. Keyed by n_eff; table values unchanged by the redesign."
     added: 2026-11-04
@@ -848,6 +861,27 @@ constants:
     notes: "Floor is vitality_floor (0.05). Renamed from failure_khi_huyet_loss_pct (it holds a fraction)."
     added: 2026-11-03
     revised: 2026-11-04
+  - name: lifespan_pct_bound
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+      - design/gdd/canh-gioi.md
+    value: 45
+    unit: percent
+    notes: "Data bound, not a runtime clamp."
+    added: 2026-11-05
+    revised: ""
+  - name: archetype_keep_chance
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+    value: 0.2
+    unit: chance
+    notes: "Chance an NPC keeps an archetype whose elements its root lacks any of (rule 15). Data: world_generation.json npc_builds. Owned by NPC Builds; a guess."
+    added: 2026-11-05
+    revised: ""
   - name: vitality_floor
     status: active
     source: design/gdd/canh-gioi.md
@@ -856,7 +890,7 @@ constants:
       - design/gdd/character-stats.md
     value: 0.05
     unit: share of maximum vitality
-    notes: "Floor for the failure loss and the vitality after a qi deviation."
+    notes: "Floor for a failed breakthrough and a mission wound, and the vitality after a qi deviation; event effects have no floor (a loss to 0 is a fatal event, Character Stats rule 9). Only copy: breakthrough.vitality_floor."
     added: 2026-11-03
     revised: ""
   - name: backlash_death_tam_ma_threshold
@@ -1035,7 +1069,7 @@ constants:
       - design/gdd/kinh-mach-do.md
     value: 50
     unit: W
-    notes: "Weakest keystone positive side; no cluster huyệt may exceed it (max 21 W)."
+    notes: "Weakest keystone positive side; rule keystones with no F weight pass by list (AC-KMD-06); no cluster huyệt may exceed it (21 W unshrunk, about 25.8 W shrunk)."
     added: 2026-11-03
     revised: ""
   - name: stat_power_weights
@@ -1055,7 +1089,7 @@ constants:
       - design/gdd/kinh-mach-do.md
     value: 75
     unit: clusters
-    notes: "Launch release; about 50 sealed and 25 open, sizes N(9, 2.5) clamped 3-15."
+    notes: "Launch release; 48 sealed and 27 open on the launch seed, sizes N(8, 2) clamped 3-12."
     added: 2026-11-03
     revised: ""
   - name: capability_count
@@ -1086,7 +1120,7 @@ constants:
       - design/gdd/kinh-mach-do.md
     value: 1.2
     unit: W
-    notes: "H0, the value of a kinh lộ (highway) huyệt, hội included; element stats only, never breakthrough_chance."
+    notes: "H0, the value of a kinh lộ (highway) huyệt, hội included; generic road_stats, exact on every root (rule 21); the 5 gates keep their element's lead stat and scale by purity; never breakthrough_chance."
     added: 2026-11-03
     revised: ""
   - name: visible_huyet_count
@@ -1161,7 +1195,7 @@ constants:
       - design/gdd/kinh-mach-do.md
     value: [24, 24, 48, 48]
     unit: seasons (Yellow, Profound, Earth, Heaven)
-    notes: "The Meridian Map's cong_phap_seasons; key seal_seasons. Counts only cultivating seasons with the technique in the main slot."
+    notes: "The Meridian Map's cong_phap_seasons; key seal_seasons. Counts only cultivating seasons with the technique in the main slot. Interim (Cultivation Techniques rule 15, Open Question 12): seal_clusters is unread; any main method lists the technique-sealed clusters of sectors it names, and those clusters share the technique's one count."
     added: 2026-11-04
     revised: ""
   - name: second_main_mult

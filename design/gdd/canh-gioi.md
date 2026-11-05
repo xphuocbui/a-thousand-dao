@@ -1,6 +1,6 @@
 # Realms & Bottlenecks (Cảnh Giới & Bình Cảnh)
 
-> **Status**: Needs Revision (independent review 2026-11-05: 6 blocking items, then a second review the same day with 5 more, all addressed in this revision). Changes since 2026-11-04, all user decisions: 110-level ladder, points moved into breakthroughs, last two gates harder through heavenly suppression and per-gate NPC odds, NPC intake, and NPC odds of 1 in 8 / 12 / 15 / 20 in a world of 5,000 cultivators. Built in the debug terminal on 2026-11-05. See `reviews/canh-gioi-review-log.md`.
+> **Status**: In Review (2026-11-05: independent review findings applied; cross-GDD review CONCERNS, no blockers). Not built yet: the plant plan (B and S before sowing, the manual-layout warning), B_remaining from the plot state, the full breakdown before an attempt, and the per-stage print. See `reviews/canh-gioi-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-05
@@ -96,12 +96,14 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
      the season changes the curve factor from the next season.
    - When the bar reaches the current level's cost, the level rises and the surplus
      carries over; several levels can rise in one season. Costs are data (Formulas).
-4. **Level reward.** Each level gained is announced to the Meridian Map, which pays 1
-   point per level. Breakthroughs pay far more (rules 5 and 9): a level is steady
-   progress, and a breakthrough is the payoff. Points are a pure function of the highest level reached (the Meridian
-   Map's Formulas A); the `level_gained`, `stage_reached` and `breakthrough_succeeded`
-   events tell it when to recompute and feed the log, UI and achievements. A level never
-   changes stats.
+4. **Level reward.** Each level gained pays 1 Meridian Map point. Breakthroughs pay far
+   more (rules 5 and 9): a level is steady progress, and a breakthrough is the payoff.
+   Points are a pure function of the highest level reached (the Meridian Map's Formulas
+   A), so climbing adds them directly. `add_tu_vi` returns what happened as a value:
+   `levels_gained` (levels above the highest reached) and `stages_reached` (stages
+   entered), and its caller feeds the log and UI from that. Only `breakthrough_succeeded`
+   (rule 9) is an event (decision 2026-11-05: level and stage events were never built, and
+   nothing needs them). A level never changes stats.
 
 **Breakthroughs**
 
@@ -114,8 +116,7 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
    multiplier. The multiplier is 1.0 in the early stage and rises by `stage_power_step` at
    each small breakthrough. A great breakthrough moves the character to the next realm's
    bases (about ×10 per realm) at multiplier 1.0. Innate talents (thiên phú) never change
-   by climbing. Today only combat power uses the stage multiplier; extending it to the
-   other three is part of this design.
+   by climbing.
 7. **The bottleneck (bình cảnh) and its condition.** At great perfection of a realm that
    has a next realm, the level cannot rise. The character still cultivates: the bottleneck
    bar (its cost is data) fills, and any excess is lost. When the bar is full the
@@ -235,12 +236,15 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
       NPC with e ≥ 1 matches the player's edge odds, so true rivals exist.
     - **Mortals are not simulated.** The world's mortal population is far larger, but it
       is background only. NPC counts here mean cultivators.
-    - **Intake.** Each season the world replaces its dead: new cultivators enter Qi Refining
-      at age 16, with edges rolled as at world generation, until it is back at
-      `people.world_cultivators` (about 42 a year at 5,000). A new cultivator's sect rank is
-      rolled from `npc.intake_rank_shares`. The intake follows the target, not the
-      population, because an intake set as a share of the population drifts: a simulated
-      world settled near 6,300 (user decision 2026-11-05). Living World Tick owns the spawn.
+    - **Intake.** Each season the world replaces that season's dead: new cultivators enter
+      Qi Refining at age 16, with edges rolled as at world generation, until it is back at
+      the larger of `people.world_cultivators` and `people.world_cultivators_min` (about 42
+      a year at 5,000; decision 2026-11-05: the minimum holds in every season, not only at
+      world generation). A share `npc.intake_sect_share` (0.9) join a sect, at a rank rolled
+      from `npc.intake_rank_shares`; the rest are loose cultivators. The intake follows the
+      target, not the population, because an intake set as a share of the population
+      drifts: a simulated world settled near 6,300 (user decision 2026-11-05). Living World
+      Tick owns the spawn.
 13. **Realm effects.** The realm, not the level, sets: the lifespan cap, the base
     cultivation rate, the stat bases, the cultivation technique tier cap (a technique
     beyond its maximum realm works at ×0.25, never below the crude floor; Cultivation
@@ -335,7 +339,7 @@ interfaces are provisional.
 | Spiritual Roots (Linh Căn) | in / out | in: the effective element count `n_eff` (innate variants count, derived ones do not) and the curve factor, looked up by realm and stage. Out: the `breakthrough_succeeded` event (player only, rule 9), which triggers Mutation Awakening (its rule 10; capability #24) | Spiritual Roots (the curve, the roll); this GDD (the event) |
 | Time & Turn | in / out | in: seasons, age, death by old age; out: the bottleneck state and the ripening year of the next brew, for a one-click "retreat until ripe" (cross-GDD review 04g, F2; Open Question 18) | Time & Turn |
 | Item DB | in | breakthrough pills (the realm's entry pill tag and quality), breakthrough talismans (consumed) | Item DB |
-| Meridian Map (Kinh Mạch Đồ) | out | `level_gained`, `stage_reached` and `breakthrough_succeeded` events, and the ladder constants (bands, `great_breakthrough_bonus`, `small_breakthrough_bonus`), which this GDD owns | Meridian Map (point arithmetic); this GDD (the ladder and its constants) |
+| Meridian Map (Kinh Mạch Đồ) | out | the highest level reached (points are a function of it, rule 4), the `breakthrough_succeeded` event, and the ladder constants (bands, `great_breakthrough_bonus`, `small_breakthrough_bonus`), which this GDD owns | Meridian Map (point arithmetic); this GDD (the ladder and its constants) |
 | Cultivation Techniques (Công Pháp) | in / out | in: technique speed in the rate; out: the realm for the tier cap | Cultivation Techniques |
 | Progression Edges | in | perks, talismans and fortuitous encounters as attempt bonuses; the NPC edge score e | Progression Edges (the edges); this GDD (where they plug in) |
 | Event Engine | out / in | out: the bottleneck flag (raises event chance and unlocks protagonist-only templates), realm-keyed budgets; in: events that grant cultivation base | Event Engine |
@@ -344,10 +348,10 @@ interfaces are provisional.
 | Travel & Map | in | the place's spiritual qi density (spirit veins) for the Core Formation condition | Travel & Map |
 | Formations (Trận Pháp) | in | a gathering formation's density bonus, which counts toward the Core Formation condition | Formations |
 | Event Engine (insight) | in | the Deity Transformation breakthrough insight, granted by an enlightenment event | Event Engine (the event); this GDD (the condition) |
-| Living World Tick / NPC Builds | out / in | NPC realm and stage, fate roll, yearly intake | Living World Tick |
+| Living World Tick / NPC Builds | out / in | NPC realm and stage, fate roll, seasonal intake | Living World Tick |
 | World Generation | out | world size, starting realm shares | World Generation |
 | Spirit Herbs & Spirit Fields, Alchemy | in | pill supply: herb ages, plots, brew success (Formulas D) | Spirit Herbs, Alchemy |
-| Market | out | realm price tiers, breakthrough pill stock | Market |
+| Market | out | realm price tiers, breakthrough pill stock, and no breakthrough main herb in random stock (Formulas D) | Market |
 | Guidance Layer / Debug Terminal / Game UI | out | bottleneck state, the attempt chance breakdown, goals | Guidance Layer |
 | Save/Load | out | level, bar, bottleneck state, bare attempts used this realm step, the failure insight count, the flag "talisman used this breakthrough", per-realm capability use | Save/Load |
 
@@ -552,7 +556,7 @@ The npc_fate formula is defined as:
 | base_g | float | 0.123 / 0.078 / 0.059 / 0.032 | data file (`npc.gate_steps`) | Fate at e = 0, solved for the arrival targets |
 | max_g | float | 0.70 / 0.70 / 0.30 / 0.20 | data file (`npc.gate_steps`) | Fate at e ≥ 1, equal to the player's edge target |
 | k_g | float | 6 at every gate | data file (`npc.gate_steps`, `edge_power`) | Edge power. Most of an edge's value comes near e = 1 (*guess*) |
-| p_add | float | 0–0.05 | calculated (Meridian Map Formulas G) | A held capability's `p_step_add`. Effect on the mean is under 0.001 |
+| p_add | float | 0–0.15 | calculated (Meridian Map Formulas G) | The sum of the held capabilities' `p_step_add` (#6, #22 and #23, 0.05 each). Effect on the mean is under 0.001 |
 | p_step | float | 0.032–0.70 | calculated | The NPC's chance to be fated at this gate |
 
 **Output Range:** 0.123–0.70, 0.078–0.70, 0.059–0.30 and 0.032–0.20 at the four gates. The
@@ -609,8 +613,11 @@ realm step, not an average:
   division is performed (cross-GDD review 04g, S1).
 
 The Advisor computes B and shows it ("3 brews possible this realm, 21 %"), so the plan is
-readable before the first seed goes in (Pillar 2). A plot may grow different herbs in
-turn, for example two ginseng and then two companion herbs.
+readable before the first seed goes in (Pillar 2). It applies the counting rule from the
+character's age: Y_climb becomes the years to a full bar at the rate now, stage by stage,
+and r the refill at great perfection plus the attempt's season (`Advisor.brew_plan`;
+decision 2026-11-05). A plot may grow different herbs in turn, for example two ginseng and
+then two companion herbs.
 
 **B_remaining (Advisor).** Mid-realm, the Advisor recomputes from the current plot state
 (the herbs in the ground and their ages, the empty plots) and the years left: the brews
@@ -629,7 +636,7 @@ The spiritual root enters through all three terms (added 2026-11-04, cross-GDD r
 | e | float | years | calculated | Age at the realm's entry; 16 at Qi Refining (guess) |
 | cap | float | years | calculated (rule 14) | The realm's lifespan cap at entry: 120 / 200 / 500 / 1,000 at baseline, raised by the lifespan bonus |
 | W | float | years | calculated | Growing years: `cap − e`. The calibration takes it from the entry-age model below: QR→FE 104 for every life; FE→CF 94 / 116 / 144, CF→NS 310 / 342 / 382, NS→DT 540 / 645 / 767 (10th / 50th / 90th percentile of the lives that reach the gate; recomputed after 04g) |
-| Y_climb | float | years | calculated (Spiritual Roots Formulas B) | Years to clear the realm, including the first bar fill, by `n_eff`: QR 25 / 33 / 36 / 43 / 50, FE 64 / 52 / 48 / 57 / 69, CF 187 / 71 / 58 / 55 / 79, NS 456 / 128 / 97 / 84 / 66 |
+| Y_climb | float | years | calculated (Spiritual Roots Formulas B) | Years to clear the realm, including the first bar fill and each tier's expected pair bonus (the years table in Formulas A leaves that bonus out, so its 3- and 5-element rows are longer), by `n_eff`: QR 25 / 33 / 36 / 43 / 50, FE 64 / 52 / 48 / 57 / 69, CF 187 / 71 / 58 / 55 / 79, NS 456 / 128 / 97 / 84 / 66 |
 | r | float | years | calculated (Formulas A) | Gap between attempts: the refill time (7.4 / 12.6 / 14.5 / 23.4 seasons for a 3-element root, scaled by the root's Y_climb ÷ the 3-element Y_climb; guess) plus the attempt's season |
 | C_k, T_k | int, float | herb-years, years | calculated | Plot capacity that holds k recipes, and the year after entry it is reached |
 | n_plots | int | 1–12 | calculated (Character Stats, Formulas G) | Spirit field plots: base 3, +1 per 25 Earth purity, plus `field_plots` |
@@ -640,7 +647,7 @@ The spiritual root enters through all three terms (added 2026-11-04, cross-GDD r
 | purity_earth, purity_wood, purity_fire | int | 0, 10–100 | calculated (Spiritual Roots) | 0 when the element is absent |
 | recipe | list | (min_age, qty) per herb | data file (Item DB) | FE pill: 2 ginseng at 40 + 1 companion at 10. CF pill: 2 Kim Tủy Quả at 42 + 1 Xích Huyết Đằng at 18. NS pill: 4 at 60 + 1 at 10 (new recipe, guess). DT pill: 4 at 100 + 1 at 80 (new recipe, guess). **Change** 2026-11-04 (after cross-GDD review 04g, F2: the NS and DT herbs shortened toward the 3-element climbs and doubled in number; the eighth pass had 2 × 130 + 40 and 2 × 230 + 80, and 04f 2 × 50 + 20, 2 × 100 + 40 and 2 × 200 + 80) |
 | Y | float | plot-years | calculated | Σ qty · min_age: 90 / 102 / 250 / 480. A summary of a recipe's size only; B is the rule |
-| M_market | float | 0+ | calculated (Market) | Pills bought; about 0 at baseline (a pill is stocked about 1 restock in 10 and costs 11–15 years of missions). A bought pill enters Formulas E like a gift pill |
+| M_market | float | 0+ | calculated (Market) | Pills bought; about 0 at baseline (a pill is stocked about 1 restock in 10 and costs 11–15 years of missions). A bought pill enters Formulas E like a gift pill. The market adds no brews: it never stocks a main herb (below) |
 | G | float | 0–2 | calculated | Pills gifted by fortuitous encounters (cơ duyên); they skip growing and brewing. In the calibration G is an expectation, so it may be fractional |
 
 **Output Range:** B from 0 upward. A root-free life brews 3 at the median W of every gate,
@@ -684,13 +691,23 @@ Formulas A) follows each life through the four gates. Its assumptions:
 Means are stable to ±0.002 across seeds. The model is a scratch script, not a bot run;
 AC-CG-30 replaces it.
 
-**Breakthrough herbs are plantable from the realm's entry, not earlier.** A gate's main
-herb unlocks when the character enters the realm whose bottleneck it serves: ginseng in
-Qi Refining, Kim Tủy Quả in Foundation Establishment (`seed_rarity_by_realm` in
-`session_actions.json`; user decision), the NS pill's herb in Core Formation and the DT pill's
-herb in Nascent Soul. So no life can grow the next pill's main herb a realm early, and W
-starts at entry. Companion herbs can be grown earlier, which adds at most about +0.05 at
-NS→DT; that stays inside the test windows and is accepted.
+**Breakthrough herbs are plantable from the realm's entry, not earlier, and no market sells
+them.** A gate's main herb unlocks when the character enters the realm whose bottleneck it
+serves: ginseng in Qi Refining, Kim Tủy Quả in Foundation Establishment
+(`seed_rarity_by_realm` in `session_actions.json`; user decision), the NS pill's herb in Core
+Formation and the DT pill's herb in Nascent Soul. So neither seeds nor the market let a life
+grow the next pill's main herb a realm early, and W starts at entry. Companion herbs can be
+grown earlier, which adds at most about +0.05 at NS→DT; that stays inside the test windows
+and is accepted.
+- **Market stock** (decision 2026-11-05, third review, B1). Random market stock never holds a
+  breakthrough recipe's main herb, at any age. The main herb is the recipe's ingredient with
+  the most herb-years (qty × `min_age`), derived from the recipes, so a new recipe needs no
+  list (`Market.breakthrough_main_herbs`). Before this, a market sold ripe ginseng and Kim
+  Tủy Quả (0.27 and 0.12 a restock), and young Kim Tủy Quả could be transplanted a realm
+  early. That added brews outside this model: 0.55–0.70 at QR→FE with no edge, against 0.30.
+  Companion herbs stay on sale, because the main herb sets B.
+- **Fortuitous encounters** can still give such a herb. That is part of G, and
+  `co_duyen_per_realm` bounds it.
 
 **The brew guarantee** (revised 2026-11-04, eighth pass). A root-free life (3 plots, h 1)
 must brew at least 2 pills at the gate's 10th-percentile W and 3 at its median W, by exact
@@ -1125,8 +1142,9 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
 - `character_attributes.json`: `tam_ma_natural_decay` 0.25.
 - `character_edges.json`: new `npc.gate_steps`, four `{base, max, edge_power}` entries (Formulas C2). `npc.base_step` and `npc.max_step` stay as the Meridian Map's edge curve (its Formulas G).
 - `world_generation.json`: new `people.world_cultivators` 5,000 and `people.world_cultivators_min` 3,000, `realm_distribution` becomes the settled shares of about 79 / 17 / 4 / 0.5 / 0.06 % (**change**, was 55 / 28 / 12 / 4 / 1; Open Question 21).
-- `character_edges.json`: new `npc.intake_rank_shares` (elder 0.06, inner 0.30, the rest outer; a new cultivator is never a leader).
-- `cultivation_realms.json`, rules: `closed_door_efficiency` 1.2 (rule 3).
+- `character_edges.json`: new `npc.intake_sect_share` 0.9 (the share of new cultivators who join a sect) and `npc.intake_rank_shares` (elder 0.06, inner 0.30, the rest outer; a new cultivator is never a leader).
+- `cultivation_realms.json`, `cultivation` block: `closed_door_efficiency` 1.2 (rule 3).
+- `session_actions.json`: `closed_door.max_years` 50 (rule 3).
 - `crafting_talismans.json`: `pha_canh` value 5 (**change** eighth pass, was 10); new
   `per_realm_step` 1 (at most one talisman per realm step, rule 8; 04f).
 - Item DB and economy (all **change** 04f, cross-GDD review B2; the four recipes below are
@@ -1148,7 +1166,7 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
 **Levels and stages**
 
 - **If one season gains several levels and crosses one or more stage boundaries:**
-  - each small breakthrough fires in order and pays its points;
+  - each small breakthrough is reached in order and pays its points;
   - stats use the final stage multiplier;
   - the log lists every level and stage reached;
   - the whole season's gain uses the season-start rate (rule 3), so a curve-factor change
@@ -1160,8 +1178,9 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
   full:** the excess is lost. Before the player consumes a cultivation pill at a full
   bar, the Advisor warns that it would be wasted.
 - **If an effect would move the level outside 1–110:** it is clamped to that range.
-- **If a level is regained after a stage loss:** `level_gained` fires only for a level
-  above the highest ever reached, so no level pays twice.
+- **If a level is regained after a stage loss:** `levels_gained` lists only a level above
+  the highest ever reached, so no level pays twice. `stages_reached` lists a stage entered
+  again, and that pays nothing.
 - **If the level is 110:** the state is Capped. Cultivating adds nothing, and the UI says
   so. What lies beyond is an open question.
 - **If an effect costs a stage** (for example capability #5, which saves the life by
@@ -1180,8 +1199,12 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
 
 - **If the player attempts with a pill but the condition is unmet:**
   - the attempt is bare and burns no pill;
-  - before the roll, the attempt preview shows "condition not met" and the bare chance,
-    and the player must confirm.
+  - before the roll, the attempt preview shows "condition not met", the bare chance after
+    heavenly suppression and the bare attempts left, and the player must confirm;
+  - with the bare attempts used up, the attempt is refused with no preview (rule 11).
+- **If the player attempts with no pill held:** the attempt is bare and needs no
+  confirmation, because no pill is at stake (decision 2026-11-05, the build's rule). The
+  bottleneck panel already shows its chance as bare.
 - **If several matching pills are held:** the highest-quality one is burned.
 - **If several talismans are held:** only one can be used per realm step (rule 8). The
   first pill attempt with the toggle on burns it (the toggle is on by default for the
@@ -1265,8 +1288,9 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
 **NPCs**
 
 - **If an NPC is fated to break through:** it does so with chance `fated_breakthrough_per_season` (0.08, as built) each season. It emits no `breakthrough_succeeded` event (rule 9).
-- **If a fated NPC dies of old age before its breakthrough lands:** the death stands, and
-  the world database records it as dying at the bottleneck.
+- **If a fated NPC dies of old age before its breakthrough lands:** the death stands. Its
+  record keeps `bt_fate`, which names the realm and that it was fated; nothing else marks
+  the bottleneck (decision 2026-11-05).
 - **If a world has no Deity Transformation cultivator for a while, or a sixth:** that is
   valid. The headcounts are targets for the cohort, not caps, and the player never counts
   against them.
@@ -1277,17 +1301,16 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
 
 - **If a save holds the old stage ladder (realm, stage, cultivation base in the stage):**
   - it migrates to level = the first level of the matching stage + ⌊(cultivation base
-    fraction) × the stage's levels⌋;
-  - its points are recomputed with the Meridian Map's points_total, and the difference is
-    added as unspent;
-  - if more points were already spent than the new total allows, the allocation is kept
-    and the unspent count is 0;
-  - a fraction that would land past the realm's last climbing level is clamped to great
-    perfection with a full bottleneck bar; an old save at a full bottleneck maps to great
-    perfection with a full bar;
+    fraction) × the stage's levels⌋, and the bar restarts at 0;
+  - the old map's acupoint ids mean nothing on the new map, so the map resets to its root
+    and every point comes back unspent: points_total at the new level;
+  - a level past the realm's last is clamped to great perfection; only a full last stage
+    keeps a full bottleneck bar, and every other save at great perfection has bar 0;
   - an old Qi Refining layer k of 13 maps to level 1 + ⌊(k − 1 + fraction) × 9 ÷ 13⌋;
   - heart demon and other state carry over unchanged;
-  - the migration is logged once.
+  - the migration is not logged.
+
+  (Decision 2026-11-05: this text follows the built code. Only test saves can reach it.)
 - **If a save holds the 300-level ladder:** it is not migrated (user decision 2026-11-05).
   The game is pre-release, so only test saves can hold it, and loading one is refused with a
   message saying so. Older stage-ladder saves keep their migration, because that code
@@ -1326,14 +1349,14 @@ written, it must list Realms & Bottlenecks in its own Dependencies section.
 
 | # | System | What it takes |
 |---|---|---|
-| 10 | Meridian Map | `level_gained`, `stage_reached` and `breakthrough_succeeded` events; the ladder constants; S_guard for its guard (E2). Rule 8 consumes Formulas E2's q_desp with τ_a (#22 on a talisman attempt); E2's q includes the step's failure insight, and its q_retry subtracts the insight #23's failed roll would add (Formulas H) |
+| 10 | Meridian Map | The highest level reached (rule 4) and the `breakthrough_succeeded` event; the ladder constants; S_guard for its guard (E2). Rule 8 consumes Formulas E2's q_desp with τ_a (#22 on a talisman attempt); E2's q includes the step's failure insight, and its q_retry subtracts the insight #23's failed roll would add (Formulas H) |
 | 6 | Spiritual Roots (Linh Căn) | The `breakthrough_succeeded` event, for Mutation Awakening (its rule 10). Spiritual Roots is also upstream (the curve); the event breaks the cycle, since neither system calls the other |
 | 21 | Combat | The combat power realm term (realm base × stage multiplier); it reports defeats for capability #9 |
 | 22 | Heavenly Tribulation | The hand-off after a successful Deity Transformation roll |
 | 24 / 28 | NPC Build Generation, Living World Tick | NPC realm, stage and level; the fate roll; the intake |
 | 27 | World Generation & History | The world size and starting realm shares that the headcount targets need |
 | 9 | Cultivation Techniques | The realm, for the technique tier cap |
-| 20 | Market | Realm price tiers and breakthrough pill stock |
+| 20 | Market | Realm price tiers, breakthrough pill stock, and the recipes' main herbs, which it leaves out of random stock (Formulas D) |
 | 23 | Event Engine | The bottleneck flag (event chance, protagonist-only templates) and realm-keyed budgets |
 | 32 | Achievements (Thành Tựu) | Realms reached |
 | 33 | Balance Simulation Harness | The gate targets (Formulas E), the headcount targets (Formulas C2) and the per-life attempt log |
@@ -1423,8 +1446,9 @@ These apply to the Debug Terminal now and to the Game UI later.
   - the qi deviation chance if this attempt fails;
   - bare attempts used out of `bare_attempt_cap`.
 - **Attempt preview.** Before any attempt, the full chance breakdown shows whether it will
-  be a pill attempt or a bare one. A bare attempt needs an explicit confirmation. A pill
-  attempt shows the toggle "use talisman on this attempt" (rule 8), on by default for the
+  be a pill attempt or a bare one (not built: the bottleneck panel shows the total and the
+  kind). A bare attempt with a pill held needs an explicit confirmation, and one with no
+  pill held does not (Edge Cases; decision 2026-11-05). A pill attempt shows the toggle "use talisman on this attempt" (rule 8), on by default for the
   step's first pill attempt. The breakdown shows the failure insight line, and the
   q-extras clamp line when the extras exceed `q_extras_ceiling_pp`.
 - **Warnings** (Advisor):
@@ -1458,7 +1482,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `design/glossary.md` | Terms and realm abbreviations |
 | `design/gdd/systems-index.md` | System 8; the changes proposed under Dependencies |
 | `assets/data/cultivation_realms.json`, `character_attributes.json`, `crafting_talismans.json`, `items_recipes.json` | Data the parameter keys change |
-| `src/gameplay/cultivation/cultivation_rules.gd`, `combat/combat_power.gd`, `world/world_ticker.gd`, `build/build_generator.gd` | Code that moves from stages to levels (Open Questions) |
+| `src/gameplay/cultivation/ladder.gd`, `cultivation_rules.gd`, `combat/combat_power.gd`, `world/world_ticker.gd`, `build/build_generator.gd`, `economy/market.gd`, `session/advisor.gd` | Code that runs this design |
 
 ## Acceptance Criteria
 
@@ -1526,8 +1550,8 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 - **AC-CG-08** [Logic] Rule 3, several levels in one season.
   - QR level 3, bar 0, gains 144.33 → level 5, bar 5.00.
   - QR level 3 gains 358.40 → level 7, bar 1.00:
-    - `stage_reached` fires twice, middle then late;
-    - `level_gained` fires 4 times, ascending;
+    - `stages_reached` lists middle then late;
+    - `levels_gained` lists 4 levels, ascending;
     - stage_mult ends at 1.30.
 - **AC-CG-08a** [Logic] Rule 3, season-start rate. A five-element root at CF level 53
   (early stage; the middle stage starts at 54) gains enough in one season to reach level
@@ -1646,7 +1670,8 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - Counting rule: FE→CF, 3-element root, entry age 80 → attempts could start at 128,
     164 and 182, B = 3. NS→DT, single root, entry age 520 (W 480): packing gives 3, but
     the climb ends at 976 and r = 23.4 ÷ 4 × 456 ÷ 97 + 0.25 = 27.75, so the second attempt
-    would start at 1,003.75 > 999.75 and B = 1.
+    would start at 1,003.75 > 999.75 and B = 1. `Advisor.brew_plan` gives the same B for
+    that life at a rate of 187.5 a season.
   - FE→CF with Wood 40 at entry 80: h = 1.32, T_4 = 144 ÷ 1.32 = 109.1, B = 4.
   - `herb_growth_pct` −150 → h 0 → B 0, with no division performed (cross-GDD review 04g,
     S1).
@@ -1779,16 +1804,15 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 
 **Cross-system contracts**
 
-- **AC-CG-51** [Integration] A real Meridian Map subscriber receives:
-  - one `level_gained` per new highest level, ascending;
-  - one `stage_reached` per small breakthrough;
-  - one `breakthrough_succeeded` per success.
-
-  Nothing fires on a failure, a bare failure or a stage loss, and re-climbing after a
-  stage loss fires nothing. A real Spiritual Roots subscriber, subscribed at the same
-  time, receives the same `breakthrough_succeeded` events, one per success. A fated NPC's
-  stage advance or breakthrough (AC-CG-53) fires no `breakthrough_succeeded` event for
-  either subscriber.
+- **AC-CG-51** [Integration] The contract with the Meridian Map and Spiritual Roots.
+  - `add_tu_vi` returns `levels_gained` (each new highest level, ascending) and
+    `stages_reached` (each stage entered), and the points they paid.
+  - After a stage loss, re-climbing returns no `levels_gained` and pays no points;
+    `stages_reached` lists the stage again.
+  - A subscriber to `breakthrough_succeeded` receives one event per player success, and
+    none on a failure, a bare failure or a stage loss.
+  - A fated NPC's stage advance or breakthrough (AC-CG-53) fires no
+    `breakthrough_succeeded` event.
 - **AC-CG-52** [Integration] For the AC-CG-50 state, the Meridian Map's guard reads S_guard
   from this system and, with the failure-insight term (Formulas H; ι 0.02), computes
   q_retry = min(0.3825, 0.08 ÷ 0.6375) = 0.1255 and a roll lift of 0.080.
@@ -1803,10 +1827,13 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - An NPC's level is the first level of its stage: FE middle → 21, CF late → 67, NS
     great perfection → 100.
   - Exactly one fate roll per realm, even over 40 ticks at the bottleneck.
-  - A fated NPC that dies first is recorded as having died at the bottleneck.
-- **AC-CG-54** [Bot] `npc_cohort.gd`: all-edge steps are within ±0.05 of max (0.70 / 0.70 /
-  0.30 / 0.20) at 330 NPCs per gate, and no-edge steps within ±25 % of base (0.123 / 0.078 /
-  0.059 / 0.032) at 5,000 NPCs per gate. AC-CG-53 checks the exact values.
+  - A fated NPC that dies first keeps `bt_fate` on its record, with its realm and the fated
+    result.
+- **AC-CG-54** [Bot] `npc_cohort.gd --size 5000` (intake off, so only the cohort lives in the
+  world). The all-edges cohort (e = 1: sect leader, rich family, a blessing) crosses each
+  gate within ±0.05 of max (0.70 / 0.70 / 0.30 / 0.20). The no-edge cohort crosses QR→FE
+  within ±25 % of base (0.123). Too few no-edge NPCs reach the later gates to test here:
+  AC-CG-53 checks their exact values, and AC-CG-69 their means.
 
 **Stage loss, persistence and migration**
 
@@ -1823,13 +1850,12 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - FE middle stage at fraction 0.5 → level 26.
   - CF late stage at 0.99 → 79.
   - CF great perfection at 0.5 → 80.
-  - A fraction that would pass the last climbing level → great perfection with a full
-    bar.
+  - CF late stage at 1.0 → level 80, bar 0.
+  - A full last stage → great perfection with a full bar.
   - Old QR layer 5 of 13 at 0.5 → level 4.
-  - A 300-level save (a level above 110, or a band not matching the data) is refused on load with a message, and nothing is loaded.
-  - A great-perfection save with a partial bar keeps the fraction: bar = fraction × the bottleneck bar.
-  - Unspent points = points_total(level) − spent, never below 0.
-  - The migration is logged once; a second load logs nothing.
+  - A save of version 2 (the 300-level ladder) is refused on load with a message, and nothing is loaded.
+  - A great-perfection save with a partial bar → bar 0.
+  - The map is back at its root, and unspent points = points_total(level).
 - **AC-CG-58** [Config/Data] A data test of `cultivation_realms.json`:
   - `bare_attempt_cap` is 3, `great_breakthrough_bonus` is [30, 40, 61, 100] and `small_breakthrough_bonus` is [[13, 13, 14], [3, 3, 3], [5, 5, 6], [20, 20, 20], [33, 33, 33]] (this GDD owns them; the Meridian Map reads them), and points_total at each realm's last level is 51 / 120 / 216 / 357 / 566;
   - `pct_trung`, `pct_hau`, `pct_dai`, `bar_mult` and `layers` are absent;
@@ -1931,11 +1957,19 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - The breakdown has a heavenly suppression line at the last two gates only.
 - **AC-CG-69** [Bot] World headcount (`tools/balance/world_census.gd`). A 5,000-cultivator
   world, run 2,000 years from world generation over at least 30 seeds: each gate's arrival
-  mean is within 0.02 of 1 in 8 / 12 / 15 / 20, the mean over the last 500 years is 20–35
-  Nascent Soul and 1.5–5 Deity Transformation. The world ends every year at its size.
+  mean (the mean p_step on its ARRIVAL line, after the default 500 burn-in years) is within
+  0.02 of 1 in 8 / 12 / 15 / 20, the mean over the last 500 years is 20–35 Nascent Soul and
+  1.5–5 Deity Transformation. The world ends every year at its size.
   `npc.gate_steps` is tuned on this run.
 - **AC-CG-70** [UI] A transcript of a CF→NS attempt preview shows the heavenly suppression
-  line, and the chance shown equals the chance rolled.
+  line, and the chance shown equals the chance rolled. The same holds for the bare-attempt
+  confirmation [Logic]: with a pill held and heart demon above 20 at CF→NS it shows 0.118 %
+  (0.0037 × 0.32) and the bare attempts left, and with none left the attempt is refused
+  with no confirmation.
+- **AC-CG-71** [Logic] Formulas D, market stock. Over 120 restocks no random stock holds
+  ginseng, Kim Tủy Quả or the NS and DT main herbs, at any age, and companion herbs are
+  still sold. `Market.breakthrough_main_herbs` returns one main herb per breakthrough recipe
+  and no companion.
 - **AC-CG-67** [UI] Transcripts show the failure insight line and the q-extras clamp line
   in an attempt preview, and the plant plan with its planned B and S and the warning for
   a worse manual layout.
@@ -1944,9 +1978,9 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 - The Deity Transformation success criteria stand until the Heavenly Tribulation GDD
   exists.
 - Pacing guesses (T_r, W, p_brew) are testable only through AC-CG-33 and the bot targets.
-- Bot items 30–33, 36a, 40b, 54, 60 and 69 need the tooling gaps closed: per-life B, p_brew
-  and q logging, a best-play plot policy, a cohort size of at least 330, the gate fixture
-  (Formulas E), rolled purities per element count, and the NPC intake.
+- Bot items 30–33, 36a, 40b and 60 need the tooling gaps closed: per-life B, p_brew and q
+  logging, a best-play plot policy, a cohort size of at least 330, the gate fixture
+  (Formulas E), and rolled purities per element count.
 
 ## Open Questions
 
@@ -1956,10 +1990,10 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 | 2 | The Heavenly Tribulation's survival chance p_t, which sets the Deity Transformation roll target (0.20 ÷ p_t) | Heavenly Tribulation GDD | Formulas E for Deity Transformation |
 | 3 | ~~When can a baseline life craft a breakthrough talisman?~~ **Answered 2026-11-04 (cross-GDD review 04f):** the talisman is no longer in the baseline at any gate. It is a crafted build bonus limited to one per realm step (rule 8), and AC-CG-60's ceiling run includes it | — | — |
 | 4 | The Nascent Soul and Deity Transformation pill recipes: proposed 4 herbs at 60 + 1 at 10 and 4 at 100 + 1 at 80 (Formulas D; changed 2026-11-04 after cross-GDD review 04g, F2, from 2 × 130 + 40 and 2 × 230 + 80; guesses), including a new top-rarity herb for Deity Transformation. Each recipe must meet the brew guarantee (main herb `min_age` ≤ 82 for NS and ≤ 141 for DT at qty 4). The shorter herbs cut the years at a full bar up to the third attempt from 234 to 184 at CF→NS and from 431 to 371 at NS→DT (54 % and 57 % of W, against 48 % and 41 % at the first two gates). F2 is accepted as partial (user decision 2026-11-04): the rest of the wait stays while B is 3 at the median, and Time & Turn owes a one-click "retreat until ripe" (Open Question 18) | Item DB, economy-designer | Those two gates |
-| 5 | Fortuitous encounter weights that give the edge about 1.2–1.4 gift pills per gate (1.42 / 1.19 / 1.35 / 1.29, an expectation; recomputed after 04g) | Progression Edges | The edge's 0.70 |
+| 5 | ~~Fortuitous encounters gave the edge too few gift pills~~ **Answered 2026-11-05:** `co_duyen_per_realm` is 3 / 3 / 2 / 2 / 2. Over 72 Đạo Cốt lives the first two gates measured 72 % and 75 % (they were 62 % and 55 %), and the last two 39 % and 20 %. The gate fixture (AC-CG-31) gives the final reading | — | — |
 | 6 | ~~How fast killing adds heart demon~~ **Answered 2026-11-04 by Character Stats:** kills add none (user decision) | — | — |
 | 7 | ~~The realm bases with the stage multiplier~~ **Answered 2026-11-04 by Character Stats (Formulas C):** unchanged; every great-breakthrough jump stays ≥ ×2.07 | — | — |
-| 8 | The move to the 110-level ladder in code (the 300-level ladder is built): `cultivation_rules.gd` (cost curve, pill vs bare attempts, conditions), `combat_power.gd`, `world_ticker.gd` (NPCs advance by 4 stages, including in Qi Refining), `build_generator.gd` (`tree_points_for`), the terminal views, the Advisor, the event context and save migration | implementation story | Building this GDD |
+| 8 | ~~The move to the 110-level ladder in code~~ **Answered 2026-11-05:** the game runs the 110-level ladder (`ladder.gd`, `cultivation_rules.gd`, `combat_power.gd`, `world_ticker.gd`, `build_generator.gd`, the terminal views, the Advisor and save handling). What is not built is in the status line | — | — |
 | 9 | The data already holds `pill_chance`, failure insight, the q-extras ceiling, `pha_canh` 5, `per_realm_step` and all four recipes. It now also holds the level bands, `level_cap`, `bottleneck_bar`, `gate_factor`, the two breakthrough bonus keys and `npc.gate_steps`; the game moved to them on 2026-11-05 | Item DB, implementation story | Data consistency |
 | 10 | The Deity Transformation baseline P_C: how often a baseline life gets an enlightenment event that grants the insight, and the matching event rate (needed to verify AC-CG-31) | Event Engine, calibration (bot) | Formulas E for Deity Transformation |
 | 11 | Duplicate keys with Character Stats: `vitality_floor` (here `breakthrough.vitality_floor`, there `derived.vitality_floor`) and `tam_ma_natural_decay` (listed in both Parameter keys). This GDD owns the values; Character Stats should read them and drop its copies, and its AC-CS-36 / AC-CG-58 then agree | Character Stats | Data consistency |
@@ -1972,5 +2006,5 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 | 18 | Time & Turn's one-click "retreat until ripe" (cross-GDD review 04g, F2, accepted as partial): at a full bar the years waiting for herbs stay at 54 % (CF→NS) and 57 % (NS→DT) of W for a root-free 3-element life at the median W (48 % and 41 % at QR→FE and FE→CF). The wait must cost no attention: one action advances seasons until the next brew can be made or an event, attack or warning needs the player. What interrupts it, and how it shows the years skipped? | Time & Turn, Guidance Layer | Pillar 4 at the CF and NS bottlenecks |
 | 19 | ~~Does #22 and #23's +0.10 guard swamp the last two gates?~~ **Answered 2026-11-05 (independent review):** no. E2 works on suppressed values, so its 2q term holds the lift to about +0.06 and +0.04 (Formulas H) | — | — |
 | 20 | ~~Core Formation pile-up~~ **Answered 2026-11-05 (user decision):** NPC odds of 1 in 8 / 12 / 15 / 20 settle Core Formation at about 4 % of cultivators | — | — |
-| 21 | A world of 5,000 simulated cultivators (never fewer than 3,000) is far larger than today's (sects of 8–20 plus 40 loose cultivators). World generation must place them and start from the settled realm shares, it must give the top sects Nascent Soul leaders (`leader_realm_min` is Core Formation today), and the season tick needs a performance check at that size | World Generation, Living World Tick | AC-CG-69 |
+| 21 | The world of 5,000 simulated cultivators (never fewer than 3,000) is built: world generation places them from the settled realm shares, and the season tick runs at about 60–90 ms. Still open: the Overview's top sect leaders are Nascent Soul, but `leader_realm_min` is Core Formation | World Generation, Living World Tick | Sect leaders' realm |
 | 22 | `gate_factor` 0.32 / 0.20 comes from a scratch model; AC-CG-31 sets its final value. `npc.gate_steps` is solved from the game's own edge scores and checked by AC-CG-69 | Balance Simulation Harness | The late-gate targets |

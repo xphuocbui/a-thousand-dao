@@ -12,8 +12,8 @@ It will be revisited with Localization & Hán-Việt Glossary (system 34).
 | English | Hán-Việt | Notes |
 |---|---|---|
 | realm | cảnh giới | |
-| Qi Refining | Luyện Khí | First realm, layers 1–13. Do not confuse with artifact refining |
-| layer | tầng | Qi Refining's 13 sub-steps. Not a technique layer (below) |
+| Qi Refining | Luyện Khí | First realm, levels 1–10. Do not confuse with artifact refining |
+| layer | tầng | One Qi Refining level: level k is layer k, 10 in all. Not a technique layer (below) |
 | Foundation Establishment | Trúc Cơ | |
 | Core Formation | Kết Đan | |
 | Nascent Soul | Nguyên Anh | |

@@ -1,6 +1,6 @@
 # Spiritual Roots (Linh Căn)
 
-> **Status**: Needs Revision (independent review 2026-11-05: 1 blocking item, confirmed fixed by a second review the same day, which raised 2 more (NPC archetype elements, the birth perk), addressed in this revision. The earlier approval was set aside by the user. Earlier passes are in `reviews/linh-can-review-log.md`; the pre-redesign version is in git at b7f4639)
+> **Status**: In Review (2026-11-05: independent review findings applied; cross-GDD review CONCERNS, no blockers). See `reviews/linh-can-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-05
@@ -38,7 +38,7 @@ The spiritual root (linh căn) is the talent a cultivator is born with. It has t
   Độn). A variant is not built from other variants. It arises in one of three ways: a
   *convergence* of specific owned elements (Thunder from Fire and Metal), a
   *transmutation* of one element (Ice from Water), or it is *innate*, appearing at birth
-  with no element requirement (Wind, Blood, Void).
+  with no required element (Wind, Blood, and Void, which asks only for a sparse root).
 
 The root shapes the life from the first season:
 - **Cultivation speed.** Many-element roots start slow and grow fastest late, and each
@@ -118,12 +118,14 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    - **Birth perk.** After every birth roll, a destiny perk with `birth.purity_all` (Linh Căn
      Thuần Tịnh, +8) raises every owned base element, capped at 100, and derived variants'
      purities are recomputed. It makes no roll and writes no change record, because it is
-     part of birth; the birth chances used the raw purities. It applies in Self-made lives too.
+     part of birth; the birth chances used the raw purities. It applies in Self-made lives too,
+     and to an NPC whose blessing (Progression Edges) is that perk.
 3. **Tier and effective count (change).**
    - **Tier.** The number of **base** elements, `n_base`, names the root: 1 Single
      (Đơn linh căn), 2 Dual (Song), 3 Triple (Tam), 4 Quadruple (Tứ), 5 Five-element
      (Ngũ Hành linh căn). Variants never change the tier. The root line shows the owned
-     variants after it, for example "Dual root + Wind".
+     variants after the elements, for example "Dual root: Fire [Hỏa] 86, Water [Thủy] 60 +
+     Wind [Phong] 62 (counts as 3)".
    - **Effective count.** `n_eff = min(n_cap, n_base + n_innate)`, where `n_innate` is
      the number of **innate** variants owned and `n_cap` is 5 (the curve has five rows).
      A convergence or transmutation variant is mutated from elements the root already
@@ -161,8 +163,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    |---|---|
    | Wood (Mộc) | Herb growth |
    | Fire (Hỏa) | Alchemy success and quality |
-   | Earth (Thổ) | Spirit field plots |
-   | Metal (Kim) | Mission income |
+   | Earth (Thổ) | Spirit field plots; cuts formation upkeep |
+   | Metal (Kim) | Mission income; refining success |
    | Water (Thủy) | Pill-toxicity decay |
 
 7. **Variant roles (change).** A variant has a role like an element does. Its strength
@@ -187,8 +189,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    holder-raised ceilings belonged to craft mutations that moved to the Way and are gone
    from this system.
 8. **Purity as a scale.**
-   - **Meridian Map:** an element sector's acupoints scale by 0.5 + purity ÷ 100 for the
-     sector's element, or 0.25 if it is absent; bridges average their two sectors. A
+   - **Meridian Map:** an element sector's gate and cluster acupoints scale by 0.5 + purity ÷ 100 for the
+     sector's element, or 0.25 if it is absent; meridian roads are exact (Meridian Map rule 21); bridges average their two sectors. A
      **variant sector** scales by 0.5 + purity ÷ 100 for its variant (rule 12).
    - **Cultivation techniques:** a technique's speed scales by the average purity of the
      elements and variants it names ÷ 100. A technique naming something the root lacks
@@ -213,7 +215,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
 
    - **Convergence** and **transmutation** are *derived*: the variant is formed from
      elements the root owns. A transmutation keeps its element; nothing is replaced.
-   - **Innate** variants are decided once, at birth, and are independent of the elements.
+   - **Innate** variants are decided once, at birth, and do not depend on which elements
+     the root owns (Void reads only the element count).
      They are never rolled again, by Awakening or by a root change.
 10. **Forming variants.**
     - **When.** Each derived variant rolls **once**, when its requirement is first met:
@@ -272,7 +275,7 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
     - **Linh Căn Quả** (Spiritual Root Fruit; rare by design): adds a missing element
       at purity 20–35. The player picks which one when the fruit is used, so the fruit holds
       no element until then (user decision 2026-11-05). An NPC's fruit takes a missing
-      element uniformly at random. If all five are owned it adds +8 to the weakest
+      element uniformly at random (not reachable yet, rule 15). If all five are owned it adds +8 to the weakest
       instead (ties in cycle order); with all five at 100 it is refused and kept. It is
       granted only by events, from Foundation Establishment on.
     - After a change that adds an element, the **derived** variants it makes newly
@@ -283,9 +286,13 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
 15. **NPCs** roll and change their roots by the same rules, except Mutation Awakening:
     `breakthrough_succeeded` is player-only (Realms & Bottlenecks rule 9), so NPCs get no
     Awakening passes. An archetype never changes a root (user decision 2026-11-05). An NPC
-    whose root lacks its archetype's elements usually switches to an archetype that fits,
-    and may keep it anyway with chance `archetype_keep_chance` (0.2, a guess), at the
+    whose root lacks any of its archetype's elements usually switches to an archetype that
+    fits, and may keep it anyway with chance `archetype_keep_chance` (0.2, a guess), at the
     disadvantage of a poor match. NPC Builds owns that pick.
+    - **Root changes are not reachable for NPCs yet.** Nothing gives an NPC a Linh Căn Quả or
+      feeds it a Tẩy Tủy Đan: fruits come from events the player resolves, and root-change
+      records are written for the player only. Rule 13 is the rule for when that path exists;
+      until then it is tested at function level.
 
 **What moved to the Way (Đạo)**
 
@@ -309,7 +316,7 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
 ### States and Transitions
 
 The root has no states. It is a set of values that only grows: the base elements and their
-purities, the owned variants (each with its origin kind and purity), the **rolled set**
+purities, the owned variants (each with its purity; its origin kind comes from the data), the **rolled set**
 (every variant id that has rolled or been marked rolled) and the Tẩy Tủy Đan use counter.
 All four are saved.
 
@@ -333,7 +340,9 @@ All four are saved.
 | The Way (Đạo) | out | the root as read-only prerequisites (elements, purities, variants). The Way owns the relocated mutations (rule 16) | the Way (undesigned; provisional contract) |
 | Item DB, Event Engine | in | Tẩy Tủy Đan and Linh Căn Quả effects (budgeted by events) | Item DB, Event Engine |
 | World Database | out | root changes and variants formed | World Database |
-| NPC Builds, World Generation | in / out | NPC roots rolled by the same rules | NPC Builds |
+| NPC Builds, World Generation | in / out | NPC roots rolled by the same rules; the owned elements, for the archetype fit (rule 15) | NPC Builds |
+| Progression Edges | in / out | in: the birth perk's `birth.purity_all`, raising purity after the birth rolls (rule 2), for the player and a blessed NPC. Out: purities and the variant count, for the NPC edge score | Progression Edges |
+| Market, Combat, Achievements | out | the root as read-only input: stock bias (Market), artifact element match (Combat), `n_base` and the variant count (Achievements) | each system |
 | Codex & Karmic Carryover | out | variants discovered across lives | Codex |
 | Guidance Layer, Debug Terminal, Game UI | out | the root line, tier, `n_eff`, purities, variants and their origin, the curve position | Guidance Layer |
 | Save/Load | out | elements, purities, variants, the rolled set, change counts | Save/Load |
@@ -491,8 +500,8 @@ One `cultivation_speed_pct` modifier is added per pair, with source "Tương sin
 | 4 | always 3 | 9 % |
 | 5 | always 5 | 15 % |
 
-- **Power check.** One pair is 6.6 W at 2.2 W per cultivation speed point, about half a
-  notable. All five are 33 W, under the 50 W keystone floor. The ceiling for the knob is
+- **Power check.** One pair is 6.6 W at 2.2 W per cultivation speed point, about two-thirds
+  to four-fifths of a notable (8–10 W). All five are 33 W, under the 50 W keystone floor. The ceiling for the knob is
   4.5 %.
 - **Rare roots are meant to win** (user decision 2026-11-04). The five-element root also
   holds the keystone and the chance at Chaos, and its price is a slow, fragile Qi
@@ -720,7 +729,8 @@ The root_change formulas are defined as:
   makes, in order: for an NPC only, 1 uniform draw for the element, uniform over the missing
   elements in cycle order (the player picks, with no draw); 1 uniform draw for its purity,
   20 + floor(u · 16); then 1 uniform draw per newly eligible derived variant, in catalogue
-  order. The +8 path makes no draw. Which seeded stream these use is Open Question 7.
+  order. The +8 path makes no draw. A player's fruit and Mutation Awakening draw from the
+  session's one seeded RNG, in call order; its state is saved with the game.
 
 **Example:** Water 10 with potency 1.25 → +8 (round(7.5) = 8), so Water 18, with no roll.
 A Linh Căn Quả on {Fire 86, Wood 40} adds Metal 28, and Fire–Metal makes Thunder eligible.
@@ -732,7 +742,7 @@ generating cycle.
 ### G. Purity as a scale (owned elsewhere)
 
 Restated for reference:
-- **The Meridian Map** owns acupoint scaling: `0.5 + purity / 100` for an element sector
+- **The Meridian Map** owns acupoint scaling (meridian roads are exact and do not scale): `0.5 + purity / 100` for an element sector
   (0.25 if the element is absent, so 0.6–1.5), and bridges average their two sectors. A
   **variant sector** scales by `0.5 + purity / 100` for its variant. It is hidden and
   locked while the variant is not owned, so there is no absent value. A derived variant
@@ -787,6 +797,7 @@ four-value form), `herb_age_root_pct` (Time moved to the Way).
 | `tay_tuy_value` | 6 | `items_recipes.json` | Base purity per Tẩy Tủy Đan (minimum gain 1) |
 | `max_uses` | 3 | `items_recipes.json` | Tẩy Tủy Đan per life |
 | Linh Căn Quả purity range, raise | 20–35, 8 | `items_treasures.json` | Purity of the added element, and the raise when all five are owned |
+| `npc_builds.archetype_keep_chance` | 0.2 (*guess*) | `world_generation.json` | Chance an NPC keeps an archetype its root does not fit (rule 15). Owned by NPC Builds |
 
 Design-only constants (not runtime): the Meridian Map stat weights used by Formulas E, with
 `travel_speed_pct` and `co_duyen_pct` at 0.3 W per point as a guess.
@@ -919,10 +930,12 @@ production.
 | 39 | The Way (Đạo) **(new, undesigned)** | The root as read-only prerequisites; the relocated mutations as seeds (rule 16). Provisional: the Way's GDD confirms or changes this contract |
 | 13, 23 | Item DB, Event Engine | They call the root-change rules (Tẩy Tủy Đan, Linh Căn Quả) |
 | 3 | World Database | Root changes and variants formed |
-| 24, 27 | NPC Builds, World Generation | NPC roots by the same rules |
+| 24, 27 | NPC Builds, World Generation | NPC roots by the same rules; the owned elements for the archetype fit (rule 15) |
 | 12 | Codex & Karmic Carryover | Variants discovered across lives |
 | 35–37 | Guidance Layer, Debug Terminal, Game UI | The root display |
-| 5 | Save/Load | Elements, purities, variants with origin, the rolled set with declined marks, pill counts |
+| 5 | Save/Load | Elements, purities, variants with purities, the rolled set with declined marks, pill counts |
+| 11 | Progression Edges | It calls the birth perk rule (rule 2); it reads purities and the variant count for the NPC edge score |
+| 20, 21, 32 | Market, Combat, Achievements | The root as read-only input (stock bias, artifact element match, `n_base` and the variant count) |
 
 **Cycles and how they are broken:**
 - **Spiritual Roots ↔ Realms & Bottlenecks.** Realms reads the curve factor; Spiritual
@@ -933,8 +946,8 @@ production.
   and Character Stats holds; the Meridian Map never calls it (its capability-host rule).
 - **Spiritual Roots → the Way.** One-way: the Way reads the root; this system reads
   nothing from the Way.
-- Item DB and the Event Engine invoke the change rules (rule 13); this system reads
-  nothing from them.
+- Item DB and the Event Engine invoke the change rules (rule 13), and Progression Edges
+  invokes the birth perk (rule 2); this system reads nothing from them.
 
 **Bidirectional check.** Character Stats, Realms & Bottlenecks, the Meridian Map and
 Cultivation Techniques each list this system. All four were aligned to the redesign on
@@ -963,6 +976,7 @@ and G9; its Open Question 15 is answered), and the Way's row is in the systems i
 | `element_count_curve` | Formulas B | any change must keep the parity points | Pacing by `n_eff` |
 | `awakening_max_passes` | 2 | structural (only CF→NS and NS→DT can fire it) | Mutation Awakening's reach |
 | Tẩy Tủy Đan, Linh Căn Quả values | 6 × 3 per life; 20–35 or +8 | owned by Item DB | Root growth over a life |
+| `archetype_keep_chance` | 0.2 (*guess*) | 0–1; owned by NPC Builds | How many NPCs stay in an archetype their root does not fit (rule 15) |
 
 **Interactions.** Raising `variant_purity_factor` raises every derived variant's power and
 sector scale at once; retune `variant_effects` in the same pass. Raising any
@@ -988,18 +1002,22 @@ feel earned by the root you have, and an innate one like fate.
 These apply to the Debug Terminal now and to the Game UI later.
 - **The root line.** It shows the tier, each element with its purity (in its colour) and
   each variant with its purity, and the effective count when it differs from the tier,
-  for example "Dual root + Wind (counts as 3): Fire 86, Water 10 | Wind 60".
-- **Speed.** The current curve factor (by `n_eff`), where parity comes, and the generating
-  pairs with their +3 % each.
-- **Variants.** Each owned variant's origin, requirement and role lines (via `explain`).
-  Variants that rolled and failed, or were declined, are not shown as available.
+  for example "Dual root: Fire [Hỏa] 86, Water [Thủy] 60 + Wind [Phong] 62 (counts as 3)".
+  It appears on the birth line and in NPC views.
+- **The sheet's root block.** It shows the tier, the curve row and factor, a bar per element
+  and, for each owned variant, its purity, origin and role lines.
+- **Speed.** The current curve factor (by `n_eff`), where parity comes (not built yet, Open
+  Question 12), and the generating pairs with their +3 % each.
+- **Variants.** Each owned variant's origin, requirement and role lines (via `explain`; not
+  built yet, Open Question 12). Variants that rolled and failed, or were declined, are not
+  shown as available.
 - **Meridian Map.** An unowned variant's sector is not drawn and not hinted; the map shows
   only owned variants' sectors.
 - **Root changes.** Before a Linh Căn Quả is used, the screen lists each missing element
   to pick from, and for each one the new tier, the new `n_eff`, the speed before and after,
   the pair bonus and the derived variants it would make eligible. The added purity is still
   rolled, so it is shown as 20–35. A Tẩy Tủy Đan shows which element it will raise and which
-  derived variants' purity will rise with it.
+  derived variants' purity will rise with it (not built yet, Open Question 12).
 
 ## Cross-References
 
@@ -1015,7 +1033,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `design/quick-specs/progression-and-edges.md` | The birth perk Linh Căn Thuần Tịnh (rule 2) |
 | `design/glossary.md` | Element and variant names |
 | `assets/data/character_attributes.json`, `character_elements.json` | The data behind this GDD's keys: `bien_di` → `variants` + `variant_effects`, new chance keys, curve keyed by `n_eff` |
-| `src/gameplay/character/linh_can.gd`, `src/gameplay/cultivation/cultivation_rules.gd` | Code the redesign touches |
+| `src/gameplay/character/linh_can.gd`, `src/gameplay/cultivation/cultivation_rules.gd`, `src/gameplay/items/treasure_effects.gd`, `src/gameplay/items/pill_effects.gd`, `src/gameplay/build/build_generator.gd` | Code the redesign touches |
 
 ## Acceptance Criteria
 
@@ -1080,6 +1098,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - Void on any 3-, 4- or 5-element root is rejected, and Void on {Fire, Metal} is accepted at 50;
   - five elements at 100 with all five derived variants, Wind and Blood is accepted, with every derived variant at 80.
 - **AC-LC-10** [Integration · BLOCKING] Rule 2, declined. Given the AC-LC-09 root with capability #24 held, when Core Formation → Nascent Soul succeeds with rolls forced to succeed, then Light makes no draw and is not owned. When a Linh Căn Quả then adds Water, Ice (which did not qualify at birth) makes one draw and Light still makes none.
+- **AC-LC-52** [Logic · BLOCKING] Rule 2, birth perk. {Fire 86, Metal 40} + Thunder 47 with Linh Căn Thuần Tịnh gives Fire 94, Metal 48 and Thunder round(0.8 × √4512) = 54, with 0 rolls and 0 change records. Fire 95 stops at 100.
 
 **Effective count, curve and pairs**
 
@@ -1140,7 +1159,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 
   Every entry has `id`, `name`, `desc`, `origin` and `requires`, and every id in `requires` is an element.
 - **AC-LC-19** [Config/Data · ADVISORY] Parameters.
-  - `linh_can` holds `count_weights` 45 / 32 / 15 / 6.5 / 1.5 (sum 100), `purity_mean` 50, `purity_sd` 20, `purity_min` 10, `purity_max` 100, `pair_bonus_pct` 3, `n_cap` 5, `void_max_elements` 2, `convergence_factor` 0.6, `transmutation_factor` 0.12, `chaos_factor` 5, `innate_chance` {phong 0.025, huyet 0.015, hu_khong 0.005}, `variant_purity_factor` 0.8, `awakening_max_passes` 2, `variant_power_band` [10, 30] and `variant_power_band_apex` [20, 60].
+  - `linh_can` holds `count_weights` 45 / 32 / 15 / 6.5 / 1.5 (sum 100), `purity_mean` 50, `purity_sd` 20, `purity_min` 10, `purity_max` 100, `pair_bonus_pct` 3, `n_cap` 5, `void_max_elements` 2, `convergence_factor` 0.6, `transmutation_factor` 0.12, `chaos_factor` 5, `innate_chance` {phong 0.025, huyet 0.015, hu_khong 0.005}, `variant_purity_factor` 0.8, `awakening_capability` 24, `awakening_max_passes` 2, `variant_power_band` [10, 30] and `variant_power_band_apex` [20, 60].
   - `bien_di_chance_factor`, `bien_di_higher_order_factor`, `bien_di_purity_factor`, `bien_di_power_band`, `herb_age_root_pct`, `bien_di_counts_as_element` and `max_counted_elements` are gone from the data and from `src/`.
 - **AC-LC-20** [Logic · BLOCKING] Formula D1 chances, within 1e-9:
   - Thunder (Fire 86, Metal 40) = 0.2064 (20.6 %);
@@ -1282,7 +1301,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - a forced success forms it at 39, and Light does not roll;
   - `n_base` goes 2 → 3 and the pairs stay at 1 (+3 %);
   - the pick offers Earth, Metal and Water, never owned Fire;
-  - an NPC's fruit first draws 1 U for the element: over 16,000 NPC uses, Earth, Metal and Water each appear 33.3 % ± 1.5 pp, never Fire;
+  - at function level (rule 15), an NPC's fruit first draws 1 U for the element: over 16,000 NPC uses, Earth, Metal and Water each appear 33.3 % ± 1.5 pp, never Fire;
   - over 16,000 uses each purity from 20 to 35 appears 6.25 % ± 0.8 pp.
 - **AC-LC-41** [Logic · BLOCKING] Fifth element. Given {Wood 50, Fire 60, Earth 50, Metal 40} with Wind, Blood, Thunder and Light rolled and failed, a Linh Căn Quả adds Water at 30.
   - Exactly three rolls are made, in order: Darkness (0.09), Chaos (0.09), Ice (0.036).
@@ -1301,10 +1320,11 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 **NPCs and relocated mutations**
 
 - **AC-LC-46** [Integration · BLOCKING] Rule 15.
-  - An NPC and a player with the same seed get the same root and rolled set.
-  - An archetype adds no element: an NPC whose root lacks its archetype's element keeps its root, and over 16,000 such NPCs about 20 % ± 1 pp keep the archetype.
+  - An NPC and a player with the same RNG state at the root roll get the same root and rolled set.
+  - An archetype adds no element: an NPC whose root lacks any of its archetype's elements keeps its root, and over 16,000 such NPCs about 20 % ± 1.3 pp keep the archetype.
+  - An NPC blessed with Linh Căn Thuần Tịnh has every element at its rolled purity + 8, capped at 100, and derived variants recomputed. A blessing with no birth effect leaves the root unchanged.
   - Every NPC cultivator has at least one element.
-  - NPC pills and fruits follow AC-LC-37 to AC-LC-43.
+  - At function level (rule 15), NPC pills and fruits follow AC-LC-37 to AC-LC-43.
   - An NPC breakthrough with #24 in its capability set makes 0 Awakening draws and writes 0 records.
 - **AC-LC-47** [Logic · BLOCKING] Rule 16. For each of the 22 ids `dung_nham`, `trong`, `sinh_menh`, `doc`, `vu`, `kiem`, `thien_loi`, `huy_diet`, `tu`, `dan_hoa`, `linh_thuc`, `tinh_kim`, `tran`, `hon`, `huyen`, `tinh_than`, `khong_gian`, `am_tinh`, `duong`, `luan_hoi`, `thai_cuc`, `thoi_gian`:
   - the root reports not owned and purity 0;
@@ -1313,7 +1333,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 
 **Saves**
 
-- **AC-LC-48** [Logic · BLOCKING] Round trip. A save/load keeps the elements, purities, variants with origin, the rolled set with declined marks, and the pill count. After reload:
+- **AC-LC-48** [Logic · BLOCKING] Round trip. A save/load keeps the elements, purities, variants with their purities, the rolled set with declined marks, and the pill count; each variant's origin still reads from the data. After reload:
   - a fourth pill is still refused;
   - a failed variant still makes no draw on a fruit;
   - a declined variant still makes no Awakening draw.
@@ -1328,13 +1348,12 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 **UI**
 
 - **AC-LC-51** [UI · BLOCKING] Root line and `explain`. Evidence is a retained screenshot plus transcript in `production/qa/evidence/debug-terminal/`.
-  - {Fire 86, Water 60} + Wind 62 shows the tier "Dual root", Fire [Hỏa] 86, Water [Thủy] 60, Wind [Phong] 62 with origin innate, and "(counts as 3)".
-  - {Fire 86, Metal 40} + Thunder 47 shows Thunder [Lôi] 47 with origin convergence and no "counts as" text.
-  - A variant that failed its roll does not appear.
-  - `explain` for Thunder shows its origin, its requirement (Fire and Metal), purity 47 and +14.1 attack with source "Biến dị: Lôi".
-  - `explain rate` shows the curve row read (3 for the first fixture) and each pair source.
+  - {Fire 86, Water 60} + Wind 62: the root line (birth line) reads "Dual root: Fire [Hỏa] 86, Water [Thủy] 60 + Wind [Phong] 62 (counts as 3)". The sheet's root block shows curve row 3 and Wind 62 with origin innate.
+  - {Fire 86, Metal 40} + Thunder 47: the root line reads "Dual root: Fire [Hỏa] 86, Metal [Kim] 40 + Thunder [Lôi] 47" with no "counts as" text. The sheet's root block shows Thunder 47 with origin convergence.
+  - A variant that failed its roll does not appear on either screen.
+  - **Provisional** (not built, Open Question 12): `explain` for Thunder shows its origin, its requirement (Fire and Metal), purity 47 and +14.1 attack with source "Biến dị: Lôi".
+  - `explain rate` shows the curve row read (3 for the first fixture). **Provisional** (not built, Open Question 12): it also shows each pair source.
   - The Linh Căn Quả preview on the first fixture in FE early stage lists each missing element, and Metal shows Dual → Triple, the factor 0.9 → 0.75 and the added +3 % pair.
-- **AC-LC-52** [Logic · BLOCKING] Rule 2, birth perk. {Fire 86, Metal 40} + Thunder 47 with Linh Căn Thuần Tịnh gives Fire 94, Metal 48 and Thunder round(0.8 × √4512) = 54, with 0 rolls and 0 change records. Fire 95 stops at 100.
 
 **Not testable here, by design:**
 - Total lives holding a variant (about 12.4–13.5 %) depends on E_p, an unsourced estimate that needs a bot run (Open Question 1).
@@ -1352,8 +1371,9 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 | 4 | ~~The variant sectors (rule 12) are a contract only~~ **Closed 2026-11-04:** Meridian Map rule 20 and its Formulas H2–H4 define geometry, size, attachment and pricing | — | — |
 | 5 | A five-element root's early power. Before the redesign it started with about 109 W (keystone, pair bonus, mean mutations) against the Meridian Map's ~106 W end-of-QR target (cross-review D2). Recompute with the variant prices (a five-element root averages more derived variants: 16 % Chaos, 15 % each convergence, 6 % each transmutation) and the variant sectors (Meridian Map Formulas H3: 88.5 W at purity 50) | Meridian Map, game-designer | Player Fantasy, Formulas C |
 | 6 | Linh Căn Quả is rare by design and has no per-life counter, yet one fruit can add a curve row and make Chaos or a convergence eligible. Its frequency is owned by the Event Engine budgets (`events_budgets.json` `treasures`): set a target frequency there | Item DB, Event Engine | Rule 13 |
-| 7 | RNG stream for the rolls after birth. Formulas F and rule 10 fix the draw order; which seeded stream each roll uses must be fixed too, or seeded tests and replays diverge | systems-designer, Deterministic Simulation Core | Determinism ACs |
+| 7 | ~~RNG stream for the rolls after birth~~ **Closed 2026-11-05:** as built, a player's fruit and Mutation Awakening draw from the session's one seeded RNG, in call order, and its state is saved with the game (Formulas F) | — | — |
 | 8 | Single roots (45 % of lives) need 1,657 years for a whole life against 513 for a dual root. With innate variants a single root can now move up a row (Wind, Blood, Void); state single roots' late-game identity after the Open Question 1 bot run | game-designer, Realms calibration | Player Fantasy |
 | 9 | The Way (Đạo), system 39, is undesigned. Its GDD decides what the relocated mutations become, how they are gained (not by the root roll), what it reads from the root, and the migration of content that named them (techniques, recipes, items). Keep its scope distinct from craft mastery (đạo nghệ, Character Stats). A plain id search gives false hits when scoping that migration: `huyen` is a technique rank in `items_cong_phap.json`, and `tran` is an unrelated id in the event, action and world data | game-designer, user | Rule 16; Cultivation Techniques re-pointing |
 | 10 | ~~Implementation changes: `bien_di` → `variants` + `variant_effects`; the three origin kinds and chance keys; `n_eff` wherever a count is looked up; innate draws in the birth order; the declined mark in the rolled set; removing the relocated mutations and their dead keys (`herb_age_root_pct`, holder-raised ceilings)~~ **Built 2026-11-05** | — | — |
-| 11 | The built fruit picks a random element at grant and stores it on the item (`event_resolver.gd`). Rule 13 now has the player pick at use, so the code and the item's stored data must change | implementation story | Building this GDD |
+| 11 | ~~The built fruit picks a random element at grant~~ **Closed 2026-11-05:** the build picks at use (`treasure_effects.gd`), and the item holds no element | — | — |
+| 12 | UI Requirements not built in the Debug Terminal: `explain` for a variant id (origin, requirement, purity, role lines); each pair source in `explain rate` (it shows one summed line); where parity comes; the Tẩy Tủy Đan preview. AC-LC-51's two provisional bullets wait on the first two | implementation story | AC-LC-51 |

@@ -1,10 +1,10 @@
 # Character Stats
 
-> **Status**: In Review (2026-11-04, aligned to the Spiritual Roots redesign: variant role lines added; holder-raised ceilings and Time's root factor removed; awaiting re-review). See `reviews/character-stats-review-log.md`.
+> **Status**: In Review (2026-11-05: independent review findings applied; cross-GDD review CONCERNS, no blockers). See `reviews/character-stats-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-04
-> **Last Verified**: 2026-11-04
+> **Last Updated**: 2026-11-05
+> **Last Verified**: 2026-11-05
 > **Implements Pillar**: Pillar 2 (Every Number Is Bounded and Visible), Pillar 3 (Power Is Built, Not Given); touches Pillar 1 (Your Dao, Your Name)
 
 ## Summary
@@ -55,9 +55,9 @@ two pillars:
 
 ## Detailed Design
 
-This section documents the system as built, plus the contracts the approved Realms &
-Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marked
-**(change)**.
+This section documents the system as built in the debug terminal, plus the contracts
+Realms & Bottlenecks and the Meridian Map rely on. Open Question 6 lists what is specified
+here but not built yet.
 
 ### Core Rules
 
@@ -68,10 +68,10 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
    | Talent | Key | Drives |
    |---|---|---|
    | Comprehension (ngộ tính) | `ngo_tinh` | Cultivation speed, learning techniques, enlightenment (đốn ngộ), recipes, pill-attempt breakthrough chance |
-   | Physique (căn cốt) | `can_cot` | Maximum vitality, pill-toxicity resistance, body cultivation |
+   | Physique (căn cốt) | `can_cot` | Maximum vitality, body cultivation |
    | Soul strength (thần hồn) | `than_hon` | Divine sense: magic treasure control, detection, formation complexity |
    | Fortune (khí vận) | `khi_van` | Lucky encounters (kỳ ngộ), rare finds, crafting crits, the ceiling of LLM-invented rewards |
-   | Dao heart (đạo tâm) | `dao_tam` | Resisting heart demon and qi deviation; pill-attempt breakthrough chance |
+   | Dao heart (đạo tâm) | `dao_tam` | Resisting qi deviation; pill-attempt breakthrough chance |
    | Presence (mị lực) | `mi_luc` | NPC attitude, prices, what people share |
 
 2. **Birth.**
@@ -85,7 +85,7 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
    (Trung) 31–60, Upper (Thượng) 61–85, Supreme (Cực phẩm) 86–99, Heavenly (Thiên) 100.
 4. **Permanent change.** The base value changes only through:
    - a talent pill: an effect of type `stat`, limited per life by the recipe's
-     `max_uses`;
+     `max_uses`; its gain is Formulas D's `talent_gain`;
    - an event effect inside the Event Engine's budget.
 
    The base value stays clamped to 1–100. Climbing realms never changes it. Root
@@ -102,10 +102,11 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
    |---|---|---|
    | Cultivation base (tu vi) | ≥ 0 | Realms & Bottlenecks |
    | Age | years, +0.25 per season, and #23's burn (Realms rule 18) | Time & Turn |
-   | Vitality (khí huyết, current) | a fraction of maximum, 0.05–1.0 while alive | this GDD |
+   | Vitality (khí huyết, current) | a fraction of maximum, above 0 and up to 1.0 while alive (rule 9) | this GDD |
    | Pill toxicity (đan độc) | 0–100, decimal | this GDD |
    | Heart demon (tâm ma) | 0–100, decimal | this GDD |
    | Spirit stones (linh thạch) | integer ≥ 0 | Market |
+| Craft mastery (đạo nghệ) | per craft, `skills[id]` = {level, xp}: level an integer from 0 (untrained) to the craft's `max_level` (Alchemy 9), xp ≥ 0. Level n + 1 costs `xp_per_level` × (n + 1) | this GDD stores it; each craft sets its `max_level`, xp and what a level does |
 
 7. **Pill toxicity.**
    - **Gain:** each pill adds its toxicity × (1 − `dan_doc_resist_pct` ÷ 100), with the factor clamped to 0.1–2.0, so negative resistance (a penalty)
@@ -123,12 +124,16 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
      raises the gain.
    - **Kills add none** (user decision, 2026-11-04). The only defeat-based gain is
      capability #9's +2, and only while #9 is held.
-   - **Decay:** `tam_ma_natural_decay` per season (**change**: 0.5 → 0.25, set by Realms &
-     Bottlenecks). Calming pills and events can lower it further.
+   - **Decay:** `tam_ma_natural_decay` per season (0.25, set by Realms & Bottlenecks).
+     Calming pills and events can lower it further.
    - **Effects:** see the thresholds table under States and Transitions.
 9. **Vitality.**
-   - **Losses:** failed breakthroughs (40 % of maximum), fights and events. It never
-     falls below 5 % while alive.
+   - **Losses:** failed breakthroughs (40 % of maximum), mission wounds and event effects.
+   - **The floor:** a failed breakthrough or a mission wound stops at 5 %
+     (`vitality_floor`). A vitality-loss event effect has no floor.
+   - **Fatal event:** a vitality-loss event effect that brings vitality to 0 or below is a
+     fatal event, and the character dies. Capability #5 can survive it (the Meridian Map's
+     catalogue).
    - **Recovery:** `injury_recovery_frac_per_season` of maximum each season.
    - A great breakthrough refills it.
    - A qi deviation sets it to the 5 % floor (Realms & Bottlenecks rule 10).
@@ -136,8 +141,7 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
 **Derived values**
 
 10. **The four realm-scaled values.** Each takes the realm's multiplier and the stage
-    multiplier from Realms & Bottlenecks, ×1.00 to ×1.45 (**change**: today only combat
-    power uses the stage multiplier):
+    multiplier from Realms & Bottlenecks, ×1.00 to ×1.45:
     - **Divine sense** (thần thức) = effective soul strength × per point × realm
       multiplier × stage multiplier × (1 + `than_thuc_pct`).
     - **Maximum vitality** = effective physique × per point × realm multiplier × stage
@@ -190,8 +194,7 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
     - **Character-wide bonus ceilings** (user decision 2026-11-04, cross-GDD review G1).
       Three totals are capped across every rule 12 source, because they feed
       breakthrough odds through pill supply (Realms Formulas D): `herb_growth_pct` at 10,
-      `alchemy_success` at 3 (**change** 2026-11-04, cross-GDD review 04f; were 40 and 8)
-      and the lifespan bonus at 15 % of the realm's base lifespan (Formulas I). The
+      `alchemy_success` at 3 (cross-GDD review 04f; were 40 and 8) and the lifespan bonus at 15 % of the realm's base lifespan (Formulas I). The
       lifespan bonus is lifespan pill years plus every `lifespan_years` modifier. An
       equipped treasure's lifespan is its `lifespan_years` modifier and is counted once,
       inside that sum; there is no separate treasure term.
@@ -212,11 +215,18 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
       Realms Formulas D and owned by Alchemy) are not capped. Nor are `field_plots`
       (bounded by `max_plots`; a deliberate build lever: extra plots can beat the
       breakthrough odds, and Realms' targets assume none (user decision 2026-11-04)) or
-      `lifespan_pct` (no current source grants it; Open Question 7). The sheet shows
-      each clamp as a line. A variant's role lines are sheet modifiers, not root terms;
+      `lifespan_pct` (bounded below). Alchemy's own brew-success terms are not sheet
+      modifiers, so they are not capped either: Đan Đạo level (+6 pp per level, up to 54 pp
+      at level 9) and comprehension (+0.1 pp per point) sit in Alchemy's base brew success,
+      which Realms' p_brew0 carries. The sheet shows each clamp as a line. A variant's role lines are sheet modifiers, not root terms;
       none of the eight sits on a ceiling key. Any source of `lifespan_years` or
       `herb_growth_pct` counts under its ceiling (user decisions 2026-11-04, cross-GDD
       reviews W10 and 04f, B1).
+    - **`lifespan_pct` sources and bound** (user decision 2026-11-05). Two sources grant it:
+      the destiny perk Thọ Nguyên Dư Dả (`tho_nguyen`, +20) and the Wood keystone Vạn Cổ
+      Trường Thanh (+25). Each is held at most once, so the total is at most **+45**. This
+      is a bound on the data, not a runtime clamp: a new source must fit inside +45 or
+      reopen this decision (Open Question 7).
 15. **Stat keys.** This GDD owns every key, its unit and its meaning. Units:
     - `pct`: percentage points, so 1 = +1 %;
     - `flat`: a plain number;
@@ -232,15 +242,15 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
     |---|---|
     | Cultivation | `cultivation_speed_pct`, `cultivation_speed_per_element_pct` (pct, × the root's base element count), `density_bonus` (flat qi density), `breakthrough_chance` (pct, pill attempts only) |
     | Combat | `attack_pct`, `defense_pct`, `khi_huyet_pct`, `linh_luc_pct`, `than_thuc_pct`, `artifact_power_pct` (pct); artifact-local: `artifact_attack_pct`, `artifact_defense_pct`, `element_affinity_pct`, `than_thuc_cost_pct` (pct, applied by Combat only); `single_artifact` (flag) |
-    | Toxicity and heart demon | `tam_ma_resist_pct`, `dan_doc_resist_pct`, `pill_effect_pct` (pct); `dan_doc_decay` (flat per season); `dan_doc_no_penalty`, `safe_failure` (flag); **(new)** `qi_deviation_pct` (pct: the qi deviation chance is × (1 + total ÷ 100); +100 doubles it) |
+    | Toxicity and heart demon | `tam_ma_resist_pct`, `dan_doc_resist_pct`, `pill_effect_pct` (pct); `dan_doc_decay` (flat per season); `dan_doc_no_penalty`, `safe_failure` (flag); `qi_deviation_pct` (pct: the qi deviation chance is × (1 + total ÷ 100); +100 doubles it) |
     | Lifespan | `lifespan_years` (years), `lifespan_pct` (pct) |
     | Crafts and economy | `alchemy_success`, `refining_success`, `formation_power_pct`, `herb_growth_pct`, `mission_income_pct` (pct); `alchemy_yield` (flat pills); `field_plots` (flat, integer) |
     | World | `travel_speed_pct`, `co_duyen_pct` (pct); `stealth` (flat) |
     | Talents | `ngo_tinh`, `can_cot`, `than_hon`, `khi_van`, `dao_tam`, `mi_luc` (flat, onto the effective talent) |
 
     A key not in this table is rejected by data validation, and an LLM-written fill is
-    repaired (the Meridian Map's validator). `mi_luc` needs a display label
-    (**change**: it is missing from `character_stat_labels.json`).
+    repaired (the Meridian Map's validator). The six talent keys display by their
+    `character_attributes.json` names; `character_stat_labels.json` gives their unit.
 
 **Capabilities**
 
@@ -259,6 +269,9 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
 18. **#25 Heart Demon Turned to Strength (Tâm Ma Hóa Lực), hosted here:**
     - while heart demon is above 50, the sheet adds `attack_pct` = heart demon ÷ 2;
     - it always adds `qi_deviation_pct` +100, which doubles the qi deviation chance.
+19. **#2 Divided Divine Sense (Thần Thức Phân Hóa), sheet line hosted here:** it adds
+    `than_thuc_pct` +20 (`params.than_thuc_pct`) as a sheet line. Its extra magic treasure
+    slot belongs to the treasure host.
 
 **What the player cannot do:**
 - raise a talent's base value above 100 or permanently by more than the pills' use
@@ -270,14 +283,15 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
 ### States and Transitions
 
 The character is Alive or Dead. Death comes from old age, a fatal qi deviation or a fatal
-event; Realms & Bottlenecks and Time & Turn own those triggers.
+event (rule 9). Realms & Bottlenecks and Time & Turn own the first two triggers.
 
 Heart demon has thresholds rather than states:
 
 | Heart demon | What it means |
 |---|---|
-| 0–20 | Calm. The Nascent Soul breakthrough condition holds (≤ 20) |
-| above 20 | Heart demon intrusion events become eligible (`requires_tam_ma` 20, as built); the Nascent Soul condition fails |
+| below 20 | Calm |
+| 20 and above | Heart demon intrusion events become eligible (`requires_tam_ma` 20, as built) |
+| above 20 | The Nascent Soul condition fails (it holds at ≤ 20) |
 | above 50 | Capability #25 adds attack |
 | 90 and above | A qi deviation after a failed breakthrough kills |
 
@@ -285,13 +299,14 @@ Vitality bands, for display and the Advisor:
 - full: 100 %;
 - injured: below 50 %;
 - critical: below 30 %, where capability #4 adds its −20 % attack;
-- floor: 5 %.
+- floor: 5 %, after a failed breakthrough or a mission wound (rule 9).
 
 ### Interactions with Other Systems
 
 Time & Turn, Combat, Event Engine and the crafts have no GDD yet; their interfaces are
-provisional. Spiritual Roots, Realms & Bottlenecks, Cultivation Techniques and the
-Meridian Map have approved GDDs.
+provisional. Spiritual Roots and Realms & Bottlenecks have GDDs at Needs Revision;
+Cultivation Techniques and the Meridian Map have GDDs In Review (systems index,
+2026-11-05).
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
@@ -307,13 +322,12 @@ Meridian Map have approved GDDs.
 | Market, NPC Interaction | out | presence (prices, attitude) | Market, NPC Interaction |
 | Crafts (Alchemy, Artifact Refining, Talismans, Spirit Fields, Beast Taming) | out / in | out: craft mastery levels, element multipliers, craft stat keys; in: modifiers a craft grants from its mastery level (Spirit Fields: `herb_growth_pct`, under the rule 14 ceiling) | each craft |
 | Guidance Layer, Debug Terminal, Game UI | out | the sheet, `explain` breakdowns, grades, thresholds | Guidance Layer |
-| Save/Load | out | talents, state values, craft mastery, the capability set, talent-pill use counts | Save/Load |
+| Save/Load | out | talents, state values, craft mastery, the capability set, the lifespan bonus from pills (`pill_years`), per-life use counts of every pill with `max_uses` | Save/Load |
 
 ## Formulas
 
-Proposed with `systems-designer` (2026-11-04). Values marked *guess* need a bot run;
-**(change)** marks a difference from the code or data as built. Realm abbreviations: QR,
-FE, CF, NS, DT (`design/glossary.md`).
+Proposed with `systems-designer` (2026-11-04). Values marked *guess* need a bot run.
+Realm abbreviations: QR, FE, CF, NS, DT (`design/glossary.md`).
 
 ### A. Talent roll and grade
 
@@ -421,7 +435,9 @@ The toxicity formulas are defined as:
 
 `cultivation_mult = 1 if dan_doc_no_penalty, else max(0, 1 − dd/D_c)`
 
-`pill_potency = (1 + q_step · quality) · P_dd · max(0, 1 + pill_effect_pct/100) · [0.1 if made for a lower realm]`, with `P_dd = 1 if dan_doc_no_penalty, else max(floor_c, 1 − dd/D_p)`
+`pill_potency = (1 + q_step · quality) · P_dd · max(0, 1 + pill_effect_pct/100) · [s_r if made for a lower realm]`, with `P_dd = 1 if dan_doc_no_penalty, else max(floor_c, 1 − dd/D_p)`
+
+`talent_gain = max(1, round(value · pill_potency))` ; `base' = clamp(base + talent_gain, 1, 100)`
 
 `decay = max(0, d_nat + k_w · purity_water + dan_doc_decay)` ; `dd' = max(0, dd − decay)` each season
 
@@ -430,22 +446,29 @@ The toxicity formulas are defined as:
 |----------|------|-------|--------|-------------|
 | tox_pill | float | 0–about 20 | data file (recipe `toxicity`) | The pill's toxicity |
 | R_d | float | −100 to 90 | calculated (`dan_doc_resist_pct`) | Toxicity resistance; negative from penalties |
-| f_min, f_max | float | 0.1, 2.0 | data file | Resist factor clamp. **(change)** f_max was 1.0, which ignored penalties |
+| f_min, f_max | float | 0.1, 2.0 | data file | Resist factor clamp |
 | dd | float | 0–100 | calculated | Current toxicity |
 | D_c | float | 200 | data file (`dan_doc_divisor`) | Cultivation divisor: at most −50 % (kept on purpose) |
 | D_p | float | 100 | data file (`toxicity_effect_divisor`) | Pill divisor: potency can fall to 0 (kept on purpose) |
-| floor_c | float | 0.25 for cleansing pills, 0 otherwise | data file (`cleanse_potency_floor`) | **(change)** Cleansing pills (toxicity and heart demon types) keep at least 25 % strength, which removes the soft lock at toxicity 100 |
+| floor_c | float | 0.25 for cleansing pills, 0 otherwise | data file (`cleanse_potency_floor`) | Cleansing pills (toxicity and heart demon types) keep at least 25 % strength, which removes the soft lock at toxicity 100 |
 | q_step | float | 0.25 | data file (`quality_effect_step`) | Potency per quality grade |
+| quality | int | 0 upward | Item DB | The pill's quality grade |
+| s_r | float | 0.1 | data file (`realm_scale_penalty`) | Potency factor of a pill made for a lower realm |
+| value | float | per recipe | data file (recipe `effect.value`) | A talent pill's listed gain |
 | d_nat, k_w | float | 1.0, 0.05 | data file (`dan_doc_natural_decay`, `dan_doc_decay_per_purity`) | Natural decay and Water purity factor |
 
 **Output Range:**
 - gain: 0.1 to 2.0 × the pill's toxicity;
 - cultivation multiplier: 0.5–1.0;
 - potency: 0 upward;
+- talent gain: 1 upward, an integer, rounded half away from zero; the base stays at most
+  100;
 - decay: 0 upward.
 
-Potency is computed before the pill's own toxicity is added. **(change)**
-`dan_doc_no_penalty` protects pill potency as well as cultivation, as rule 7 states.
+Potency is computed before the pill's own toxicity is added. `dan_doc_no_penalty` protects
+pill potency as well as cultivation, as rule 7 states. Talent gain follows the purity
+pills' rule (Spiritual Roots), so a talent pill always gives at least +1, even at potency
+0, and it spends one use.
 
 **Example:** a pill worth 100 cultivation base, quality 2, toxicity 8, taken at toxicity
 40 with 20 % resistance:
@@ -470,7 +493,7 @@ The heart_demon formulas are defined as:
 |----------|------|-------|--------|-------------|
 | amount | float | 15 per failed breakthrough; events; +2 per defeat (#9) | data file (`failure_tam_ma_gain` 15) | Kills add none (user decision) |
 | R_t | float | −100 to 90 | calculated (`tam_ma_resist_pct`) | Heart demon resistance; negative from penalties (e.g. Destruction −10 → gains ×1.10) |
-| d_t | float | 0.25 per season | data file (`tam_ma_natural_decay`) | **(change)** was 0.5 |
+| d_t | float | 0.25 per season | data file (`tam_ma_natural_decay`) | Natural decay |
 | k_b | float | 2 | data file (`tam_ma_backlash_divisor`) | Dao heart divisor |
 | qi_deviation_pct | float | 0–100 | calculated (stat sheet) | Capability #25 adds +100, doubling the chance |
 
@@ -491,22 +514,24 @@ deviation **and** heart demon ≥ 90.
 
 The vitality formulas are defined as:
 
-`v' = max(v_floor, v − loss)` ; `v' = min(1, v + r_v)` each season ; `attack_pct −20 while v < 0.30` (capability #4)
+`v' = max(v_floor, v − loss)` for a failed breakthrough or a mission wound ; `v' = v − loss`, fatal at `v' ≤ 0`, for an event effect ; `v' = min(1, v + r_v)` each season ; `attack_pct −20 while v < 0.30` (capability #4)
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| v | float | 0.05–1.0 | calculated | Current vitality as a fraction of maximum |
-| v_floor | float | 0.05 | data file | Floor while alive |
-| loss | float | 0.4 per failed breakthrough; fights and events vary | data file (`failure_khi_huyet_loss_frac`, **(change)** renamed from `…_pct`: it holds a fraction) | |
-| r_v | float | 0.25 | data file (`injury_recovery_frac_per_season`, **(change)** renamed) | Recovery per season |
+| v | float | above 0, up to 1.0 | calculated | Current vitality as a fraction of maximum |
+| v_floor | float | 0.05 | data file (`breakthrough.vitality_floor`) | Floor of a failed breakthrough or a mission wound |
+| loss | float | 0.4 per failed breakthrough; 0.2 per mission wound; event effects 0.15–0.60 | data file (`failure_khi_huyet_loss_frac`, `injury_khi_huyet_loss_pct`, the event's `khi_huyet_loss_pct`) | |
+| r_v | float | 0.25 | data file (`injury_recovery_frac_per_season`) | Recovery per season |
+| v_c | float | 0.4 | data file (`duel.injured_power_floor`) | Combat's floor on the vitality factor |
 
-**Output Range:** 0.05–1.0. A great breakthrough sets v = 1. Combat reads vitality as
-× max(v, 0.4). Vitality is compared in integer tenths of a percent, round(v × 1000) half away from
+**Output Range:** above 0, up to 1.0 while alive; 0 or below is a fatal event. A great
+breakthrough sets v = 1. Combat reads vitality as × max(v, v_c). Vitality is compared in integer tenths of a percent, round(v × 1000) half away from
 zero, so 0.05 + 0.25 lands exactly on 300.
 
 **Example:** a failure takes vitality from 1.0 to 0.6, then 0.85, then 1.0. A qi
-deviation sets 0.05, then 0.30, 0.55, 0.80 and 1.0.
+deviation sets 0.05, then 0.30, 0.55, 0.80 and 1.0. An event effect of 15 % at 0.05 is
+fatal; a failed breakthrough at 0.05 leaves 0.05.
 
 ### G. Element-driven multipliers
 
@@ -519,8 +544,7 @@ The element_multipliers formulas are defined as:
 `plots = clamp(base_plots + ⌊k_f · purity_earth⌋ + total(field_plots), 1, max_plots)`
 
 Toxicity decay is in D. `total(field_plots)` is the stat sheet's `field_plots` total.
-**(change)** Rule 11 is corrected to match: herb growth and mission income multiply; field
-plots and toxicity decay add.
+Herb growth and mission income multiply; field plots and toxicity decay add (rule 11).
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -560,7 +584,7 @@ the listed systems consume them.
 | Formula | Consumer |
 |---|---|
 | Reward ceiling = `0.75 + 0.005 · eff(khi_van)` (× the event budget's spirit stone and cultivation base caps) | Event Engine |
-| Check chance = `clamp(0.5 + (stat − difficulty) · 0.01 + (eff(khi_van) − 50) · 0.002 [+ stealth · 0.01 when evading], 0.05, 0.95)` | Event Engine |
+| Check chance = `clamp(0.5 + (stat − difficulty) · 0.01 + (eff(khi_van) − 50) · 0.002 [+ stealth · 0.01 when evading], 0.05, 0.95)`. The fortune term is omitted when the checked stat is fortune | Event Engine |
 | Duel win chance gains `(fortune_A − fortune_B) · 0.001`, clamped 0.02–0.98 | Combat |
 | Alchemy crit chance = `eff(khi_van) · 0.0015` | Alchemy |
 | `charm = (eff(mi_luc) − 50) · 0.004`; buy = ⌈value × 1.5 × (1 − charm)⌉; sell = max(1, ⌊value × 0.6 × (1 + charm)⌋). Buy rounds up and sell rounds down, so rounding never favours the player in a loop | Market |
@@ -601,7 +625,7 @@ treasure term.
 |----------|------|-------|--------|-------------|
 | v_i | int (precision units) | per key | calculated | One modifier, quantized once when it enters the sheet |
 | cap_tree | float | 8 pp | data file (`tree_breakthrough_cap`, owned by the Meridian Map) | Cap on the tree's share |
-| ceiling(k) | float | `herb_growth_pct` 10, `alchemy_success` 3 pp (**change** 04f, were 40 and 8) | data file (`bonus_ceilings`) | Character-wide ceiling on the positive modifiers of every source, craft mastery included; penalties are added after it (rule 14) |
+| ceiling(k) | float | `herb_growth_pct` 10, `alchemy_success` 3 pp (04f; were 40 and 8) | data file (`bonus_ceilings`) | Character-wide ceiling on the positive modifiers of every source, craft mastery's sheet modifiers included (rule 12; Alchemy's level term is not one, rule 14); penalties are added after it (rule 14) |
 | f_life | float | 0.15 (guess) | data file (`bonus_ceilings.lifespan_frac`) | Lifespan bonus ceiling as a share of the realm's base lifespan |
 | L_realm | int | 120 / 200 / 500 / 1,000 / 2,000 | data file (Realms & Bottlenecks) | The realm's base lifespan |
 | pill_years | float | ≥ 0 | stored on the character (Item DB lifespan pills) | Lifespan years from pills taken; the raw sum is kept (Edge Cases) |
@@ -609,8 +633,9 @@ treasure term.
 | B_life | float | at most f_life · L_realm; negative allowed | calculated | The lifespan bonus Realms rule 14 adds to the base lifespan |
 
 The ceiling values are calibrated by Realms & Bottlenecks. The derived limit is Realms'
-`bonus_ceiling_target`: each gate's birth-mix mean S at all ceilings, best plot play and
-one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which owns the computed figures.
+`bonus_ceiling_target`: with `gate_factor` set to 1, each gate's birth-mix mean S at all
+ceilings, best plot play and one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which
+owns the computed figures.
 The target covers lives without extra plots: those are builds outside the target, per
 Realms AC-CG-60 (user decision 2026-11-04). The tree's `breakthrough_chance` share (cap_tree) is also
 inside Realms Formulas C's q-extras ceiling, which Realms owns.
@@ -671,42 +696,43 @@ cross-GDD review N5: the factor was built but had no formula in any GDD.)
 - `derived`:
   - `than_thuc_per_than_hon` 1.0, `khi_huyet_per_can_cot` 10;
   - `dan_doc_natural_decay` 1.0;
-  - `tam_ma_natural_decay` 0.25 **(change)**, read-only here: Realms & Bottlenecks owns
-    the value (its Open Question 11);
-  - `injury_recovery_frac_per_season` 0.25 **(rename)**;
-  - `vitality_floor` 0.05 (read-only here, same owner);
-  - `resist_factor_min` 0.1, `resist_factor_max` 2.0 **(new)**;
-  - `cleanse_potency_floor` 0.25 **(new)**;
-  - `linh_luc_conversion` 0.20 (#4) **(new)**;
-  - `effective_talent_min` 1, `effective_talent_max` 150 **(new: hard-coded in
-    `stat_sheet.gd` today)**;
-  - `heart_demon_strength` {threshold 50, divisor 2, deviation_pct 100} for #25 **(new)**.
-- `bonus_ceilings` {`herb_growth_pct` 10, `alchemy_success` 3, `lifespan_frac` 0.15} (**change** 04f, were 40 and 8)
-  **(new)**. Each ceiling clamps the positive modifiers only; penalties are added after
-  it (rule 14).
+  - `tam_ma_natural_decay` 0.25, read-only here: Realms & Bottlenecks owns the value;
+  - `injury_recovery_frac_per_season` 0.25;
+  - `resist_factor_min` 0.1, `resist_factor_max` 2.0;
+  - `cleanse_potency_floor` 0.25;
+  - `linh_luc_conversion` 0.20 (#4);
+  - `effective_talent_min` 1, `effective_talent_max` 150;
+  - `heart_demon_strength` {threshold 50, divisor 2, deviation_pct 100} for #25.
+- `bonus_ceilings` {`herb_growth_pct` 10, `alchemy_success` 3, `lifespan_frac` 0.15}. Each
+  ceiling clamps the positive modifiers only; penalties are added after it (rule 14).
 
 **`character_elements.json`** (owned by Spiritual Roots): `variants` and `variant_effects` (per
 variant a list of {`stat`, `per_purity`}), read by Formulas G's variant role lines. The
 effect kinds "root" and "ceiling_raise" were removed with the relocated mutations.
 
-**`events_budgets.json`, `combat_rules.json`, `items_recipes.json`, `session_actions.json`**
-(the fortune and presence factors, Formulas H; each key moves to data if it is
-hard-coded):
-- `khi_van_reward_base` 0.75, `khi_van_reward_per_point` 0.005;
-- `khi_van_check_per_point` 0.002, `khi_van_duel_per_point` 0.001,
-  `khi_van_crit_per_point` 0.15 (%);
-- `mi_luc_price_per_point` 0.004.
+**The fortune, presence and pill factors (Formulas D, F and H):**
+- `events_budgets.json`: `khi_van_ceiling.base` 0.75, `khi_van_ceiling.per_point` 0.005;
+  `check.base` 0.5, `check.per_point` 0.01, `check.khi_van_per_point` 0.002,
+  `check.khi_van_neutral` 50, `check.stealth_per_point` 0.01, `check.min` 0.05,
+  `check.max` 0.95.
+- `combat_rules.json`: `duel.khi_van_per_point` 0.001, `duel.min_win_chance` 0.02,
+  `duel.max_win_chance` 0.98, `duel.injured_power_floor` 0.4.
+- `items_recipes.json`: `alchemy.khi_van_crit_per_point` 0.15 (%).
+- `session_actions.json`: `market.mi_luc_price_per_point` 0.004, `market.buy_markup` 1.5,
+  `market.sell_ratio` 0.6; `pill.toxicity_effect_divisor` 100, `pill.quality_effect_step`
+  0.25, `pill.realm_scale_penalty` 0.1.
 
 **`cultivation_realms.json`:**
-- per realm: `than_thuc_mult`, `khi_huyet_mult`, `linh_luc_base`, `power_base` (unchanged);
-- `stage_power_step` 0.15, one global key **(change)**: it is per realm today, at 0.08
-  for QR and 0.3 for the rest;
-- `breakthrough.failure_khi_huyet_loss_frac` 0.4 **(rename)**;
-- `ngo_tinh_divisor` 200 (as built; owned here, Formulas J).
+- per realm: `than_thuc_mult`, `khi_huyet_mult`, `linh_luc_base`, `power_base`;
+- `ladder.stage_power_step` 0.15, one global key;
+- `breakthrough.failure_khi_huyet_loss_frac` 0.4;
+- `breakthrough.vitality_floor` 0.05, read-only here: Realms & Bottlenecks owns it, and
+  this is its only copy;
+- `cultivation.dan_doc_divisor` 200;
+- `cultivation.ngo_tinh_divisor` 200 (owned here, Formulas J).
 
-**`character_stat_labels.json`:**
-- add `qi_deviation_pct` and `mi_luc` **(new)**;
-- give the six talent keys labels.
+**`character_stat_labels.json`:** every rule 15 key has an entry with its unit. Talent
+display names come from `character_attributes.json` (rule 15).
 
 ## Edge Cases
 
@@ -716,6 +742,8 @@ hard-coded):
   spent:** it cannot be taken and is not consumed. The item explains why.
 - **If a talent pill would overshoot 100** (for example +5 at 97): it is taken, consumed
   and clamped at 100. Its preview shows the real gain (+3) first.
+- **If potency would round a talent pill's gain to 0:** it gives +1 and spends one use
+  (Formulas D).
 - **If an origin bonus would push a talent above 100:** it is clamped to 100.
 - **If an event or pill would lower a talent's base below 1:** it is clamped to 1. The
   grade is Lower, and the base never reads 0 or negative.
@@ -727,13 +755,17 @@ hard-coded):
 **State**
 
 - **If a pill is taken at toxicity 100:** the gain is clamped at 100. A normal pill's
-  potency is 0; a cleansing pill keeps 25 %. Before the player takes it, the Advisor warns
+  potency is 0; a cleansing pill keeps 25 %; a talent pill still gives its minimum +1.
+  Before the player takes it, the Advisor warns
   what the pill will actually do.
 - **If heart demon or toxicity would go below 0 or above 100:** it is clamped.
 - **If resistance goes below −100:** the factor stops at ×2.0. Above 90 % it stops at
   ×0.1, so a gain never disappears entirely.
-- **If vitality is at the 5 % floor and takes more damage:** it stays at 5 %. Only an
-  explicit cause (old age, a fatal qi deviation, a fatal event) kills.
+- **If vitality is at 5 % and a failed breakthrough or a mission wound hits:** it stays
+  at 5 %, and the character lives.
+- **If a vitality-loss event effect brings vitality to 0 or below:** that is a fatal event
+  (rule 9), and the character dies, whatever vitality was before. With capability #5
+  unused this realm, the character survives at 5 % and loses one stage.
 - **If recovery lands vitality exactly on 30 %:** capability #4's −20 % attack is off,
   because it applies strictly below 30 %. The comparison uses integer tenths of a
   percent.
@@ -823,7 +855,7 @@ below.
 - **Every system that reads a stat:** Realms & Bottlenecks, Combat, Event Engine, Market,
   NPC Interaction, every craft, Travel & Map, NPC Builds, the Living World Tick, Guidance
   and the UI, Save/Load and the Balance Harness.
-- **Capability #4 and #25 behaviour** is hosted here.
+- **Capability #4 and #25 behaviour, and #2's sheet line,** are hosted here.
 
 **Cycles and how they are broken.** Realms ↔ Character Stats, and every modifier source ↔
 Character Stats:
@@ -849,6 +881,8 @@ Ranges marked *derived* follow from another constraint in this GDD or an approve
 | `linh_luc_conversion` (#4) | 0.20 | 0.05–0.25 | #4's spiritual power: about +22 % at CF at physique 45, about +50 % at physique 100 |
 | `dan_doc_divisor` (cultivation) | 200 | 200–400; *derived*: below 200 the slowdown would exceed the −50 % that Formula D's 0.5–1.0 output range promises | The cultivation slowdown at full toxicity (−50 % at 200) |
 | `toxicity_effect_divisor` (pills) | 100 | 100–200 | Pill potency at high toxicity |
+| `quality_effect_step` | 0.25 | 0.15–0.35 (*guess*) | How much a pill's quality raises its effect |
+| `realm_scale_penalty` | 0.1 | 0.05–0.25 (*guess*) | How little a pill made for a lower realm still does |
 | `cleanse_potency_floor` | 0.25 | 0.1–0.5 | How well cleansing works at toxicity 100 |
 | `dan_doc_natural_decay`, `dan_doc_decay_per_purity` | 1.0, 0.05 | 0.5–2.0, 0.02–0.08 | Toxicity recovery; Water's value |
 | `resist_factor_min` / `resist_factor_max` | 0.1 / 2.0 | 0.05–0.25 / 1.5–2.0 | Resistance floor and how much penalties bite |
@@ -866,12 +900,12 @@ Ranges marked *derived* follow from another constraint in this GDD or an approve
 | `mi_luc_price_per_point` | 0.004 | 0.002–0.004; *derived*: ≤ 0.4286 ÷ (effective talent clamp − 50), which is 0.00429 at clamp 150, or buy-sell loops profit | Prices |
 | Precision grid | 0.1 / 0.01 / 1 | fixed (Meridian Map, Formulas F) | Stacking |
 | `ngo_tinh_divisor` | 200 | 150–300 | How much comprehension speeds cultivation: ×1.225 at 45 (200), ×1.30 at 45 (150). Moving it moves every realm's years (Realms years table) |
-| `bonus_ceilings` | `herb_growth_pct` 10, `alchemy_success` 3, `lifespan_frac` 0.15 (**change** 04f, were 40 and 8) | 5–10, 2–3, 0.10–0.15: at most the current values until the bot run (AC-CG-60) confirms headroom; *derived*: the derived limit is Realms' `bonus_ceiling_target`: each gate's birth-mix mean S at all ceilings, best plot play and one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which owns the computed figures. The target covers lives without extra plots; those are builds outside the target, per Realms AC-CG-60. Penalties apply after the cap (rule 14) | How far a dedicated alchemy build can push breakthrough odds and lifespan |
+| `bonus_ceilings` | `herb_growth_pct` 10, `alchemy_success` 3, `lifespan_frac` 0.15 (04f; were 40 and 8) | 5–10, 2–3, 0.10–0.15: at most the current values until the bot run (AC-CG-60) confirms headroom; *derived*: the derived limit is Realms' `bonus_ceiling_target`: with `gate_factor` set to 1, each gate's birth-mix mean S at all ceilings, best plot play and one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which owns the computed figures. The target covers lives without extra plots; those are builds outside the target, per Realms AC-CG-60. Penalties apply after the cap (rule 14) | How far a dedicated alchemy build can push breakthrough odds and lifespan |
 
 ## Visual/Audio Requirements
 
 Deferred to the Game UI GDD (system 37). Intent: grades get distinct colours, from Lower
-to Heavenly; heart demon above 20, and again above 90, reads as danger.
+to Heavenly; heart demon at 20 and above, and again at 90 and above, reads as danger.
 
 ## Game Feel
 
@@ -905,7 +939,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `design/gdd/cong-phap.md` | Technique bonuses through the provider interface, `tech_power` (Formulas C), and the slot-dependent lifespan years that Realms rule 14's confirmation covers |
 | `design/glossary.md` | Terms |
 | `assets/data/character_attributes.json`, `character_stat_labels.json`, `character_elements.json` | The data this GDD's keys change |
-| `src/gameplay/character/stat_sheet.gd`, `character_rules.gd`, `src/gameplay/items/pill_effects.gd` | Code the (change) items touch |
+| `src/gameplay/character/stat_sheet.gd`, `character_rules.gd`, `src/gameplay/items/pill_effects.gd` | The code that builds this GDD |
 
 ## Acceptance Criteria
 
@@ -938,12 +972,14 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   - A Fated birth keeps achievements on.
 - **AC-CS-05** [Logic] Rule 2. An origin's +5 fortune turns 98 into 100 (clamped) and 40
   into 45; the other talents are unchanged.
-- **AC-CS-06** [Logic] Rule 4 and edge cases. A fixture talent pill gives comprehension
-  +5, with 2 uses.
+- **AC-CS-06** [Logic] Rule 4, Formulas D and edge cases. A fixture talent pill gives
+  comprehension +5, with 2 uses, quality 0 and recipe toxicity 0, taken at toxicity 0.
   - From base 45: the pills give 50, then 55. The third is refused, is not consumed, and
     carries its own reason.
   - At base 100 it is refused and not consumed.
   - At base 97 it is consumed, gives 100, and its preview shows +3.
+  - `talent_gain`: value 5 at potency 1.5 gives 8; value 2 at potency 0.75 gives 2; value 2
+    at potency 0.48 and at potency 0 each give 1.
 - **AC-CS-07a** [Logic] Rule 4 and edge cases. An event effect of −10 on base 5 gives 1,
   Lower, with the effective value still 1 or more.
 - **AC-CS-07** [Logic] Rule 4.
@@ -1014,7 +1050,10 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   - a failure: 1000 → 600 → 850 → 1000;
   - a deviation: 50 → 300 → 550 → 800 → 1000;
   - a failure at 300 → 50;
-  - a 0.5 loss at 50 → 50, still alive;
+  - a failure at 50 → 50, still alive;
+  - an event effect of 50 % at 1000 → 500, still alive;
+  - an event effect of 15 % at 50 is fatal: the character is dead;
+  - the same event with capability #5 unused: alive at 50, one stage lower;
   - a great breakthrough at 550 → 1000.
 - **AC-CS-21** [Logic] Rule 17, #4's boundary.
   - Holding #4 at vitality 0.299, the −20 attack line is present.
@@ -1058,8 +1097,9 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   - −150 gives 0.
   - A flag at +1 is on; at +1 −1 or −1 it is off.
 - **AC-CS-30** [Logic] Rule 12.
-  - Nine modifiers, one from each of rule 12's nine source kinds, keep their
-    {source, stat, value} and sum to the total.
+  - *(Provisional until Spirit Fields mastery and timed consumables have a built path,
+    Open Question 6.)* Nine modifiers, one from each of rule 12's nine source kinds, keep
+    their {source, stat, value} and sum to the total.
   - Unequipping a treasure removes its modifiers in the same call.
   - Artifact-local keys appear in no sheet total.
 - **AC-CS-31** [Logic] Rule 14.
@@ -1067,10 +1107,12 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   - Tree 3.0 + 4.0 plus the perk → 19.0, with no clamp.
   - The perk alone → 12.0.
 - **AC-CS-32** [Integration] Pill attempts use effective talents and the capped tree
-  share. Comprehension 55 effective, Dao heart 40 effective, with the AC-CS-31 modifiers,
-  at FE→CF rank 0 with no talisman:
+  share, at FE→CF rank 0 with no talisman, tree 9.5 pp and a perk's 12 pp:
   - Realms receives q_tree 0.08 and q_bonus 0.12;
-  - q = 0.3975 (base talents would give 0.39).
+  - effective comprehension 20 (base 10 + 10) and Dao heart 20: the extras are 0.095, under
+    the ceiling, and q = 0.26 (the base talents would give 0.255);
+  - clamp case: comprehension 55 and Dao heart 40 effective: the extras are 0.1175, clamped
+    to 0.10, and q = 0.265 (Realms AC-CG-25).
 - **AC-CS-33** [Logic] Formula I, computed values.
   - #25 at heart demon 54.25 is stored as 271 units, at 50.1 as 250.
   - A computed 3.456 is stored as 345.
@@ -1088,8 +1130,9 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   - Every listed `derived` value is present.
   - `stage_power_step` is one global 0.15.
   - The renamed `…_frac` keys are present and the old `…_pct` names are gone.
-  - Every rule 15 key has a label, including `mi_luc`, `qi_deviation_pct` and the six
-    talents.
+  - `vitality_floor` exists only as `breakthrough.vitality_floor`.
+  - Every rule 15 key has a label entry with its unit, and the six talents show their
+    `character_attributes.json` names.
 
 **Capabilities**
 
@@ -1115,6 +1158,7 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   - Base 50 + 5 gives 1.025 (the effective value).
 - **AC-CS-43** [Logic] Formula H, checks.
   - Stat 60, difficulty 50, fortune 70 → 0.64; when evading with stealth 10 → 0.74.
+  - A fortune check omits the fortune term: fortune 70, difficulty 50 → 0.70, not 0.74.
   - The chance clamps to 0.95 and 0.05.
   - Duel fortune 80 against 30 → +0.05, kept within 0.02–0.98.
 - **AC-CS-44** [Logic] Formula H, presence, on value 1,000.
@@ -1132,8 +1176,8 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
 **Persistence**
 
 - **AC-CS-45** [Logic] An in-memory round trip keeps every value equal: talent bases,
-  state values, craft mastery, the capability set {4, 25} and talent-pill use counts. The
-  derived values match after load.
+  state values, craft mastery, the capability set {4, 25}, the lifespan bonus from pills
+  and pill use counts. The derived values match after load.
 - **AC-CS-46** [Logic] Load hardening.
   - A save with no capabilities loads an empty set.
   - Heart demon 120 → 100, and toxicity −5 → 0.
@@ -1194,6 +1238,16 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
     line give 18 − 5 = 13. A −30 line alone gives −30, and the cap is 90, below the
     base of 120.
   - An equipped treasure with `lifespan_years` +10 adds 10 once, not twice.
+- **AC-CS-55** [Logic] Rule 19, #2. Holding #2 adds a `than_thuc_pct` +20 line, and divine
+  sense at CF ×1.00 with soul strength 45 goes from 450 to 540. Without #2 there is no
+  line.
+- **AC-CS-56** [Config/Data] Rule 14, `lifespan_pct`. Across the destiny perks and the tree
+  keystones, the only `lifespan_pct` sources are `tho_nguyen` (+20) and the Wood keystone
+  Vạn Cổ Trường Thanh (+25), summing to at most +45. With both at QR with a lifespan bonus
+  of 18, the cap is 138 × 1.45 = 200.1.
+- **AC-CS-57** [Integration] Heart demon thresholds. A template with `requires_tam_ma` 20
+  is not eligible at 19.9 and is eligible at 20.0; the Nascent Soul condition holds at 20.0
+  and fails at 20.1.
 
 **Not testable here, by design:**
 - That only the Meridian Map adds capabilities: a code-review and API-shape item.
@@ -1210,6 +1264,6 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
 | 2 | What attack and defense mean in combat, and how combat uses vitality (× max(v, 0.4) as built) | Combat GDD | The Combat keys in rule 15 |
 | 3 | The NPC attitude scale that presence feeds | NPC Interaction GDD | Formulas H |
 | 4 | Event Engine budgets for talent, heart demon and vitality effects | Event Engine GDD | Rule 4 (event talent changes) |
-| 5 | The talents' unbuilt roles: physique's body cultivation; soul strength's formation complexity and detection | the respective systems | Rule 1 |
-| 6 | Implementation changes: the resist clamp to 2.0; `dan_doc_no_penalty` also covering pills; the cleansing floor; two key renames; `stage_power_step` as one global key; derived values taking the stage multiplier; the new `qi_deviation_pct` key, which Realms & Bottlenecks rule 10 must read; the `mi_luc` and talent labels; the provider interface for modifier sources | implementation story | Building this GDD |
-| 7 | `lifespan_pct` is outside the lifespan ceiling and no current source grants it. Any source that will (a Way, a perk, a treasure) needs a price and a bound first, since it multiplies the whole cap and feeds pill supply through the growing years W | user, Realms & Bottlenecks | Any `lifespan_pct` source |
+| 5 | The talents' unbuilt roles: soul strength's formation complexity and detection | the respective systems | Rule 1 |
+| 6 | Specified here, not built yet: the provider interface for modifier sources; a talent pill's gain preview (AC-CS-06); the Advisor's per-pill warnings and the Nascent Soul heart demon warning (AC-CS-50; only the general toxicity and heart demon warnings exist); the vitality band names and heart demon bands on the sheet (AC-CS-49); load-time rejection of unknown stat keys and off-grid authored values (AC-CS-34, AC-CS-35); capability #9's +2 heart demon; Spirit Fields mastery's `herb_growth_pct` and timed consumables as sheet sources (AC-CS-30); automated tests for most ACs (`tests/unit/character/` covers few, and none carry AC ids) | implementation story | Building this GDD |
+| 7 | ~~`lifespan_pct` is outside the lifespan ceiling; who may grant it?~~ **Answered 2026-11-05 (user decision):** the perk `tho_nguyen` (+20) and the Wood keystone (+25) are accepted, bound +45 in total (rule 14). Still open: any other source (a Way, a treasure) needs a price and must fit the bound, since it multiplies the whole cap and feeds pill supply through the growing years W; and no bot run has measured these two against the gate targets (AC-CG-60 does not include them) | user, Realms & Bottlenecks | Any new `lifespan_pct` source |

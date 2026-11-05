@@ -386,3 +386,21 @@ Reviewed-Content-Hash: design/gdd/game-concept.md 97d16997e271c1a187365e08392eab
 Reviewed-Content-Hash: design/gdd/systems-index.md a623e273f1661fa40a9195582b36c8421d95c717
 Reviewed-Content-Hash: design/quick-specs/progression-and-edges.md e5b628da56a83b2d49faefb5a4bd9ad9db8e494b
 Reviewed-Content-Hash: assets/data/cultivation_realms.json af886e3b0d9dc33e04258d7de906fc71b6e27454
+
+## Review — 2026-11-05 (independent, ahead of the cross-GDD pass) — Verdict: NEEDS REVISION
+Review mode: solo · Workflow: standard
+Scope signal: XL
+Specialists: none
+Blocking items: 5 | Recommended: 9
+Summary: Market herbs bypassed the pill-supply model; intake refilled late; registry guard; bare preview; Advisor brew plan.
+Prior verdict resolved: Yes
+Resolution: Fixed the same day by the reviewing agent under decisions from the main session, with the user's mandate to accept the right fixes. A cross-GDD review then found no blockers (design/gdd/gdd-cross-review-2026-11-05.md). The fixes have not had their own solo re-review. The hashes stamp the files as reviewed, before those fixes.
+Reviewed-Content-Hash: design/gdd/canh-gioi.md bab602ac6aefc7a4e8589f7078e93f28560c930c
+Reviewed-Content-Hash: design/registry/entities.yaml 598fceae60b85a79be6a2763e0bba270d5e0f684
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/systems-index.md 316bd191788182445931fcf87c1dae09c7ac0fbd
+Reviewed-Content-Hash: design/gdd/game-concept.md 97d16997e271c1a187365e08392eab74f8ed60e2
+Reviewed-Content-Hash: design/gdd/character-stats.md 55d9ae80692694927176c65f7603cb63f1cab407
+Reviewed-Content-Hash: design/gdd/cong-phap.md cfa220cbdfb71a405667dba257fcb71cb92f7298
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md a9ddc4cd7fdba22c937c6afa9bb916ad1a2827db
+Reviewed-Content-Hash: design/gdd/linh-can.md f88b04a3e103bc0e817ff0ef33948dd9e7d14227

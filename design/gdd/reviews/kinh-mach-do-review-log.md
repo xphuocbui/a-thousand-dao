@@ -222,3 +222,21 @@ Reviewed-Content-Hash: design/gdd/canh-gioi.md 9f1acabdc4d0b501c48438e00c4c21609
 
 ## Revision 2026-11-05 (user direction, not a review)
 Rule 21 added: generic road stats with exact value, cluster sizes rising toward the rim (3 / 5 / 8), clusters in the border gaps, region capacity with shrunk clusters keeping their value in stronger acupoints (past the normal per-acupoint caps, user decision), rim placement for big clusters, and the drawing rules in UI Requirements. Formulas C, F and H, G6, G7, Parameter keys, Tuning Knobs, AC-KMD-07/10 and new AC-KMD-90..95 updated. Status back to In Review; a fresh /design-review is due. AC-KMD-07's tree power needs a new bot run.
+
+## Review — 2026-11-05 (independent, ahead of the cross-GDD pass) — Verdict: NEEDS REVISION
+Review mode: solo · Workflow: standard
+Scope signal: XL
+Specialists: none
+Blocking items: 10 | Recommended: 11
+Summary: Rule 21 and n_max 12 were not carried through: Formulas C, D and H, shrink rule, road values, entry mean, G7 hosts, and built-claim gaps.
+Prior verdict resolved: Yes
+Resolution: Fixed the same day by the reviewing agent under decisions from the main session, with the user's mandate to accept the right fixes. A cross-GDD review then found no blockers (design/gdd/gdd-cross-review-2026-11-05.md). The fixes have not had their own solo re-review. The hashes stamp the files as reviewed, before those fixes.
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md a9ddc4cd7fdba22c937c6afa9bb916ad1a2827db
+Reviewed-Content-Hash: design/registry/entities.yaml 598fceae60b85a79be6a2763e0bba270d5e0f684
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/systems-index.md 316bd191788182445931fcf87c1dae09c7ac0fbd
+Reviewed-Content-Hash: design/gdd/game-concept.md 97d16997e271c1a187365e08392eab74f8ed60e2
+Reviewed-Content-Hash: design/gdd/canh-gioi.md bab602ac6aefc7a4e8589f7078e93f28560c930c
+Reviewed-Content-Hash: design/gdd/character-stats.md 55d9ae80692694927176c65f7603cb63f1cab407
+Reviewed-Content-Hash: design/gdd/cong-phap.md cfa220cbdfb71a405667dba257fcb71cb92f7298
+Reviewed-Content-Hash: design/gdd/linh-can.md f88b04a3e103bc0e817ff0ef33948dd9e7d14227

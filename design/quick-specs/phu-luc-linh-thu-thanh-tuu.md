@@ -72,7 +72,7 @@ never write the player's record (`--achievements-file` overrides).
 | tame.base, per_skill_level | creatures_linh_thu.json | 0.05–0.3, 0.02–0.1 | how often beasts join |
 | power_share | creatures_linh_thu.json | 0.2–1.0 | beast weight in combat |
 | feed_lt_by_realm | creatures_linh_thu.json | per realm | the beast sink |
-| purity, raise (Linh Căn Quả) | items_treasures.json | 10–40, 4–15 | size of a root change |
+| purity, raise (Linh Căn Quả) | items_treasures.json | 20–35, 8 | size of a root change |
 | treasures per realm | events_budgets.json | lists | where root changes can happen |
 
 ## Acceptance criteria

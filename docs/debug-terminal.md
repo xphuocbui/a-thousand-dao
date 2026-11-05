@@ -114,7 +114,7 @@ World, Kinh Mạch Đồ, LLM, Debug). Debug commands (`debug event <template>`,
 | Story | `narrative/narrator.gd`, `events/*` | LLM or template events, LLM narration with a number check, NPC talk, an epitaph; `chronicle` |
 | Item generation | `items/item_factory.gd` | linh thảo (age → potency), đan dược (quality), pháp bảo (grade, tier, element, affixes), công pháp (tier, elements, bonuses), materials |
 | Build generation | `build/build_generator.gd` | every NPC gets linh căn, thiên phú, công pháp, artifacts limited by thần thức, Kinh Mạch points spent toward its archetype, đạo nghệ — same rules as the player |
-| Passive tree (PoE-like) | `meridian/meridian_tree.gd`, `meridian_generator.gd` | design/gdd/kinh-mach-do.md: 802 visible acupoints, 75 hidden clusters, 25 capabilities, 8 locked variant sectors; terminal `tree`, `tree clusters`, `tree mode` |
+| Passive tree (PoE-like) | `meridian/meridian_tree.gd`, `meridian_generator.gd` | design/gdd/kinh-mach-do.md: 772 visible acupoints, 75 hidden clusters, 25 capabilities, 8 locked variant sectors; terminal `tree`, `tree clusters`, `tree mode` |
 | LLM events | `narrative/llm_service.gd`, `events/event_validator.gd` | DeepSeek/OpenAI-compatible; the engine clamps every number to `events_budgets.json`, registers new people before they appear, drops unknown effects, and shows each adjustment |
 | Databases | `world/world_db.gd` | people, sects, places, regions, items, events — one JSON-serializable store, event index per entity; terminal `db` |
 | Crafting / economy | `crafting/herb_field.gd`, `alchemy.gd`, `items/pill_effects.gd`, `economy/market.gd` | herbs age by Mộc, alchemy by Hỏa/Đan Đạo, đan độc brake, markets by realm budget |
