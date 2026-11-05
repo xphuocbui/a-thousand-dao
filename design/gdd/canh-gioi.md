@@ -138,8 +138,9 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
      chance, plus:
      - the **q extras**: pill quality, comprehension, Dao heart, the tree's breakthrough
        chance (capped by the Meridian Map's `tree_breakthrough_cap`, 8 pp, which limits
-       the tree's own contribution only) and item and event bonuses (fortuitous
-       encounters [cơ duyên]). Their sum is capped character-wide at
+       the tree's own contribution only), a Dao node's breakthrough chance (the Way,
+       `dao.md` rule 4: counted here only, outside the tree's 8 pp cap) and item and event
+       bonuses (fortuitous encounters [cơ duyên]). Their sum is capped character-wide at
        `q_extras_ceiling_pp` (10 pp; Formulas C; user decision 2026-11-04, cross-GDD
        review 04g, F14);
      - outside that ceiling: destiny-perk (thiên mệnh) bonuses such as Đạo Cốt, the
@@ -486,7 +487,7 @@ attempts made earlier in the realm step, #23's extra roll included (rule 10).
 | k_n·ngo | float | 0–0.075 | data file | Comprehension (ngộ tính), 0.0005 per point; pill attempts only |
 | k_d·dao | float | 0–0.025 | data file | Dao heart (đạo tâm), 0.00025 per point; pill attempts only |
 | q_tree | float | 0–0.08 | calculated (Meridian Map) | The tree's breakthrough chance, capped by the Meridian Map's `tree_breakthrough_cap` (8 pp) and then counted under X_q |
-| q_event | float | 0+ | calculated | Item and event bonuses (fortuitous encounters) and the Chaos root variant's `breakthrough_chance` (Spiritual Roots Formulas E), counted under X_q |
+| q_event | float | 0+ | calculated | Item and event bonuses (fortuitous encounters), the Chaos root variant's `breakthrough_chance` (Spiritual Roots Formulas E) and any Dao node's `breakthrough_chance` (`dao.md` rule 4), counted under X_q |
 | X_q | float | 0.10 | data file (`breakthrough.q_extras_ceiling_pp`, 10) | Character-wide ceiling on the summed q extras (**new** 2026-11-04, cross-GDD review 04g, F14). Sized in the entry-age model so a fully built life with no edge stays at or below about 0.55 per gate (Formulas E) |
 | q_destiny | float | 0–0.30 | calculated | Destiny-perk (thiên mệnh) bonuses, e.g. Đạo Cốt +0.12. Outside X_q: they are the edge |
 | ι_j | float | 0–0.04 | calculated (rule 10) | Failure insight on the step's pill attempt after j failed ones. Outside X_q; bounded by its own cap |
@@ -1356,6 +1357,7 @@ written, it must list Realms & Bottlenecks in its own Dependencies section.
 | 24 / 28 | NPC Build Generation, Living World Tick | NPC realm, stage and level; the fate roll; the intake |
 | 27 | World Generation & History | The world size and starting realm shares that the headcount targets need |
 | 9 | Cultivation Techniques | The realm, for the technique tier cap |
+| 39 | The Way (Đạo) | The realm, for the one glimpse a realm from Foundation Establishment (`dao.md` rule 6). The Way adds no ceiling raise or root factor (rule 4); if one is ever added this calibration must be re-run |
 | 20 | Market | Realm price tiers, breakthrough pill stock, and the recipes' main herbs, which it leaves out of random stock (Formulas D) |
 | 23 | Event Engine | The bottleneck flag (event chance, protagonist-only templates) and realm-keyed budgets |
 | 32 | Achievements (Thành Tựu) | Realms reached |

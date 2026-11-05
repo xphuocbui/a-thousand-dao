@@ -300,10 +300,10 @@ formulas:
     variables:
       - dao_node_cost
       - dao_premium
-      - w_bar
+      - w_target
     output_range: [11.2, 13.7]
-    expression: "mean node value = dao_premium * dao_node_cost * w_bar; lint: 18-22 nodes, mean within 10 %"
-    notes: "Every node costs a flat 3 points; w_bar is the Meridian Map w_target 2.07 W per point. A Dao node beats the acupoints it replaces by design (user decision 2026-11-06)."
+    expression: "mean node value = dao_premium * dao_node_cost * w_target; lint: 19-22 nodes, mean within 10 %, each branch mean within dao_branch_tol (20 %), each keystone route mean >= dao_route_floor (0.9) of the target; per stat key, a Dao's W on the key <= its headroom (Character Stats ceiling x F1 weight; cultivation_speed_pct <= dao_rate_cap_pct x 2.2 W)"
+    notes: "Every node costs a flat 3 points; w_target is the Meridian Map's 2.07 W per point (the GDD writes it w-bar). A Dao node beats the acupoints it replaces by design (user decision 2026-11-06). Branch and route lint added by design-review 2026-11-06; key-headroom lint added by the third pass the same day. output_range is at the defaults (cost 3, premium 2); the bands scale with the knobs."
     added: 2026-11-05
     revised: 2026-11-06
   - name: dao_offer
@@ -315,10 +315,10 @@ formulas:
       - E
       - dao_offer_size
     output_range: [1, 3]
-    expression: "offer = first min(3, |E|) of a uniform Fisher-Yates shuffle of E; E = qualified, not yet glimpsed Daos"
-    notes: "One draw per entry offered; reproducible from the seed."
+    expression: "offer = first min(dao_offer_size, |E|) of a uniform Fisher-Yates shuffle of E; E = qualified, not yet glimpsed Daos"
+    notes: "One draw per entry offered; reproducible from the seed. Output range is [1, dao_offer_size] (1-3 at the default)."
     added: 2026-11-05
-    revised: ""
+    revised: 2026-11-06
   - name: npc_dao
     status: active
     source: design/gdd/dao.md
@@ -328,9 +328,9 @@ formulas:
       - points_total
       - npc_dao_share
       - dao_premium
-      - C_dao
+      - dao_full_points
     output_range: [1.0, 1.667]
-    expression: "P_npc = min(C_dao, floor(npc_dao_share * points_total(level))); map_points = points_total - P_npc; power_mult = (map_points + dao_premium * P_npc) / map_points"
+    expression: "P_npc = min(dao_full_points, floor(npc_dao_share * points_total(level))); map_points = points_total - P_npc; power_mult = (map_points + dao_premium * P_npc) / map_points"
     notes: "An NPC's simplified Dao effect on combat power; rolls once per realm from Core Formation until the first success (one Dao per NPC). P_npc is deducted from the Meridian Map allocation, and those points earn the player's dao_premium (user decision 2026-11-06), about 11-25 % over a Dao-less NPC of the level; assumes map power near linear in points, a bot run must confirm."
     added: 2026-11-05
     revised: 2026-11-06
@@ -848,7 +848,7 @@ constants:
       - design/gdd/kinh-mach-do.md
     value: 10
     unit: percentage points
-    notes: "Character-wide ceiling on the summed per-attempt extras (pill quality, comprehension, Dao heart, the tree breakthrough_chance, the Chaos variant's line, item and event bonuses); destiny perks, the talisman and failure insight are outside it; the tree is also under tree_breakthrough_cap 8 pp. Sized so a fully built life without an edge stays at or below 0.55. User decision 2026-11-04 (cross-GDD review 04g F14; answers Realms Open Question 13)."
+    notes: "Character-wide ceiling on the summed per-attempt extras (pill quality, comprehension, Dao heart, the tree breakthrough_chance, a Dao node's breakthrough_chance, the Chaos variant's line, item and event bonuses); destiny perks, the talisman and failure insight are outside it; the tree is also under tree_breakthrough_cap 8 pp. Sized so a fully built life without an edge stays at or below 0.55. User decision 2026-11-04 (cross-GDD review 04g F14; answers Realms Open Question 13)."
     added: 2026-11-04
     revised: ""
   - name: breakthrough_bare_chance
@@ -963,7 +963,48 @@ constants:
       - design/gdd/dao.md
     value: 20
     unit: nodes per Dao
-    notes: "Lint 18-22, keystone included (user decision 2026-11-06)."
+    notes: "Lint 19-22, keystone included: three branches of 6 or 7 plus the keystone (user decision 2026-11-06; 18 removed on design-review 2026-11-06)."
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: w_target
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao.md
+    value: 2.07
+    unit: W per point
+    notes: "Target mean W per skill point on the Meridian Map (its Formulas A2: 7.55 / 3.64). The Way prices a Dao node against it (dao_node_value). Registered by design-review 2026-11-06."
+    added: 2026-11-06
+    revised: ""
+  - name: dao_branch_tol
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 0.2
+    unit: share of the target mean
+    notes: "How far a branch's mean node value may sit from the target. A guess (design-review 2026-11-06)."
+    added: 2026-11-06
+    revised: ""
+  - name: dao_route_floor
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 0.9
+    unit: share of the target mean
+    notes: "Least mean node value on any keystone route. A guess (design-review 2026-11-06)."
+    added: 2026-11-06
+    revised: ""
+  - name: dao_rate_cap_pct
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 10
+    unit: percent cultivation speed per Dao
+    notes: "Most cultivation_speed_pct one Dao's lines may sum to (lint, Formulas D1 part 4). cultivation_speed_pct has no Character Stats ceiling. A guess; user decision 2026-11-06 (design-review third pass)."
     added: 2026-11-06
     revised: ""
   - name: dao_ability_credit

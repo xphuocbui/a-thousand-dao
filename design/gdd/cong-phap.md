@@ -773,6 +773,7 @@ reviews and three cross-GDD reviews have checked it, but no specialist pass has.
 | 20 | Market | Manuals for sale; commons with root bias; prices from Formulas E; the rule 18 reserved copy and its fallback stock |
 | 23, 29 | Event Engine, LLM GM | The catalogue and the commons an event may grant; validation of technique effects |
 | 24 | NPC Build Generation | Templates, slots and layer rules for NPCs |
+| 39 | The Way (Đạo) | Daos that may name a technique kind and tier as a requirement (`dao.md` rule 5); an open question on relocated mutation ids is closed (OQ 11) |
 | 26, 27 | Sects & Missions, World Generation & History | Authored techniques to place; the next-tier guarantee (rule 18) |
 | 3 | World Database | Known techniques, layers and stored mastery per character |
 | 12 | Codex & Karmic Carryover | Techniques discovered across lives (if that system chooses to keep them) |
