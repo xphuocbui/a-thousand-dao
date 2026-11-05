@@ -63,7 +63,7 @@
       "name": "Phá Cảnh Phù",
       "use": "breakthrough",
       "stat": "breakthrough_chance",
-      "value": 25,
+      "value": 5,
       "difficulty": 70,
       "min_level": 4,
       "ink_lt": 150,
@@ -75,5 +75,6 @@
       "desc": "A realm-breaking talisman: +breakthrough chance on the next attempt."
     }
   ],
+  "per_realm_step": 1,
   "than_hon_neutral": 50
 }

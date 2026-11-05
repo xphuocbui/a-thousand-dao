@@ -7,7 +7,7 @@ func _session(mode: String = "roll") -> GameSession:
 	var llm := LlmService.new(gd)
 	llm.enabled = false
 	var s := GameSession.new(gd, llm, TestFixtures.tree())
-	var spec := {"mode": mode, "name": "Thành", "gender": "male", "origin": "tan_tu", "thien_phu": {}, "purities": {"hoa": 60}, "bien_di": []}
+	var spec := {"mode": mode, "name": "Thành", "gender": "male", "origin": "tan_tu", "thien_phu": {}, "purities": {"hoa": 60}, "variants": []}
 	s.new_game(4242, spec)
 	s.pending_event = {}
 	return s

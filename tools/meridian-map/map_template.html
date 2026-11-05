@@ -1,0 +1,325 @@
+<title>Kinh Mạch Đồ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@500;700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap">
+<style>
+/* Layout: a meridian chart on the left, read like an acupuncture scroll; a narrow reference column on the right. */
+:root{
+  --paper:#e9ece6; --panel:#f3f5f0; --ink:#1d2622; --ink-soft:#57635c; --rule:#c9cfc6; --link:#a9b3aa; --accent:#1f7a6b;
+  --wood:#2f8f4e; --fire:#cf4a2f; --earth:#b58a1c; --metal:#6d7f96; --water:#2a6fc2; --variant:#8a4fb8; --root:#1d2622;
+  --display:"Noto Serif Display",Georgia,serif; --body:"Be Vietnam Pro",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#101513; --panel:#171d1a; --ink:#e6ebe6; --ink-soft:#9aa69e; --rule:#2c3531; --link:#3c4842; --accent:#4cc2ab;
+  --wood:#5ccb7f; --fire:#f0745a; --earth:#dcb44a; --metal:#a3b5cb; --water:#6aa8f0; --variant:#bb8ae6; --root:#e6ebe6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#101513; --panel:#171d1a; --ink:#e6ebe6; --ink-soft:#9aa69e; --rule:#2c3531; --link:#3c4842; --accent:#4cc2ab;
+  --wood:#5ccb7f; --fire:#f0745a; --earth:#dcb44a; --metal:#a3b5cb; --water:#6aa8f0; --variant:#bb8ae6; --root:#e6ebe6; color-scheme:dark}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.45}
+.app{display:grid;grid-template-columns:minmax(0,1fr) 340px;height:100%}
+.stage{position:relative;min-width:0;overflow:hidden;background:var(--paper)}
+canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+canvas.drag{cursor:grabbing}
+.tools{position:absolute;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));display:flex;gap:6px}
+.tools button{width:36px;height:36px;border:1px solid var(--rule);background:var(--panel);color:var(--ink);font:500 16px var(--body);cursor:pointer}
+.tip{position:absolute;pointer-events:none;background:var(--panel);border:1px solid var(--rule);padding:6px 9px;font-size:12px;max-width:260px;z-index:2}
+.tip b{font-weight:600}
+aside{background:var(--panel);border-left:1px solid var(--rule);overflow-y:auto;padding-block:20px;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+h1{font:700 30px/1.1 var(--display);margin:0;text-wrap:balance}
+.sub{color:var(--ink-soft);font-size:13px;margin:4px 0 0}
+.counts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.counts div{font-size:11px;color:var(--ink-soft)}
+.counts b{display:block;font:700 22px var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+h2{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 8px;font-weight:600}
+label.row{display:flex;gap:8px;align-items:center;font-size:13px;padding:3px 0;cursor:pointer}
+label.row input{accent-color:var(--accent);margin:0}
+.sw{width:11px;height:11px;border-radius:50%;flex:none}
+input[type=search]{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);font:400 14px var(--body)}
+input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.results{margin-top:6px;display:flex;flex-direction:column}
+.results button{all:unset;cursor:pointer;font-size:13px;padding:4px 2px;border-bottom:1px solid var(--rule)}
+.results button:hover,.results button:focus-visible{color:var(--accent)}
+.key{display:grid;grid-template-columns:1fr 1fr;gap:3px 12px;font-size:12px;color:var(--ink-soft)}
+.key span{display:flex;gap:7px;align-items:center}
+.key i{flex:none;width:12px;text-align:center;color:var(--ink);font-style:normal}
+.detail{border-top:1px solid var(--rule);padding-top:14px}
+.detail h3{font:700 20px/1.2 var(--display);margin:0}
+.detail .meta{font-size:12px;color:var(--ink-soft);margin:3px 0 8px}
+.detail ul{margin:0 0 8px;padding-left:16px;font-size:13px}
+.detail p{font-size:13px;margin:0 0 6px}
+.cost{font-size:13px}
+.cost b{font-variant-numeric:tabular-nums}
+@media (max-width:760px){
+  html,body{height:auto}
+  .app{grid-template-columns:minmax(0,1fr);height:auto}
+  .stage{height:62vh}
+  aside{border-left:0;border-top:1px solid var(--rule)}
+}
+</style>
+
+<div class="app">
+  <div class="stage" id="stage">
+    <canvas id="map" aria-label="Meridian map. Drag to pan, scroll to zoom, select an acupoint for details."></canvas>
+    <div class="tip" id="tip" hidden></div>
+    <div class="tools">
+      <button id="zin" aria-label="Zoom in">+</button>
+      <button id="zout" aria-label="Zoom out">−</button>
+      <button id="zfit" aria-label="Fit the whole map">⤢</button>
+    </div>
+  </div>
+  <aside>
+    <div>
+      <h1>Kinh Mạch Đồ</h1>
+      <p class="sub">The generated map as the game builds it. Every life gets this same map.</p>
+    </div>
+    <div class="counts" id="counts"></div>
+    <div>
+      <label for="q"><h2>Find an acupoint</h2></label>
+      <input id="q" type="search" placeholder="Name, theme or capability" autocomplete="off">
+      <div class="results" id="results"></div>
+    </div>
+    <div class="detail" id="detail">
+      <h3>Dantian [Đan Điền]</h3>
+      <p class="meta">The start of every route.</p>
+      <p>Select any acupoint to see what it gives and the shortest route to it. Each step on a route costs 1 point.</p>
+    </div>
+    <div>
+      <h2>Show</h2>
+      <label class="row"><input type="checkbox" id="f-sealed" checked>Sealed clusters</label>
+      <label class="row"><input type="checkbox" id="f-open" checked>Open clusters</label>
+      <label class="row"><input type="checkbox" id="f-caps">Only highlight capabilities</label>
+    </div>
+    <div>
+      <h2>Variant sectors</h2>
+      <div id="variants"></div>
+    </div>
+    <div>
+      <h2>Key</h2>
+      <div class="key" id="elements"></div>
+      <div class="key" style="margin-top:8px">
+        <span><i>●</i>Notable</span><span><i>◆</i>Keystone</span>
+        <span><i>○</i>Sealed cluster</span><span><i>◌</i>Open cluster</span>
+        <span><i>★</i>Sector apex</span><span><i>◎</i>Capability</span>
+        <span><i>◇</i>Variant sector entry</span>
+      </div>
+      <p class="sub">No two edges cross, and no edge runs close past an acupoint it does not join. Variant sectors sit outside the rim and join the map at their ◇ entry marks; select an entry to see where it leads.</p>
+      <p class="sub">Sealed cluster content and sector names are placeholder filler until the authored pass.</p>
+    </div>
+  </aside>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const nodes=D.nodes, byId=new Map(nodes.map(n=>[n.i,n])), clusters=new Map(D.clusters.map(c=>[c.id,c]));
+const edgeOf=new Map(D.edges.map(e=>[Math.min(e[0],e[1])+'-'+Math.max(e[0],e[1]),e]));
+const variantName=new Map(D.variants.map(v=>[v.id,v]));
+const elementName=new Map(D.elements.map(e=>[e.id,e.name]));
+const ELEMENT_VAR={moc:'--wood',hoa:'--fire',tho:'--earth',kim:'--metal',thuy:'--water'};
+const canvas=document.getElementById('map'),ctx=canvas.getContext('2d'),stage=document.getElementById('stage'),tip=document.getElementById('tip');
+let view={x:0,y:0,k:1},colors={},selected=null,route=new Set(),routeEdges=[],hover=null;
+const show={sealed:true,open:true,caps:false,variants:new Set(D.variants.map(v=>v.id))};
+
+function readColors(){
+  const s=getComputedStyle(document.documentElement);
+  for(const k of ['--paper','--ink','--ink-soft','--rule','--link','--accent','--wood','--fire','--earth','--metal','--water','--variant','--root'])colors[k]=s.getPropertyValue(k).trim();
+}
+// A variant sector is drawn outside the rim, so its host links are shown as paired entry marks.
+function portal(a,b){return !!a.v!==!!b.v;}
+function colorOf(n){
+  if(n.v)return colors['--variant'];
+  const e=String(n.s).split('-')[0];
+  return ELEMENT_VAR[e]?colors[ELEMENT_VAR[e]]:colors['--root'];
+}
+function visible(n){
+  if(n.v)return show.variants.has(n.v);
+  if(n.c>=0){const k=clusters.get(n.c);return k.kind==='sealed'?show.sealed:show.open;}
+  return true;
+}
+function size(n){
+  switch(n.k){case'root':return 9;case'keystone':return 7.5;case'gate':return 5;case'apex':return 7;case'notable':case'bridge_notable':return 4;case'road':case'junction':case'variant_road':return 1.7;default:return 2.3;}
+}
+function resize(){
+  const r=stage.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);
+  canvas.width=r.width*dpr;canvas.height=r.height*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);draw();
+}
+function fit(){
+  const r=stage.getBoundingClientRect();
+  let m=0;for(const n of nodes)m=Math.max(m,Math.abs(n.x),Math.abs(n.y));
+  view.k=Math.min(r.width,r.height)/(2*m+40);view.x=r.width/2;view.y=r.height/2;draw();
+}
+function sx(n){return n.x*view.k+view.x}
+function sy(n){return n.y*view.k+view.y}
+function shape(n,x,y,r,col){
+  ctx.fillStyle=col;ctx.strokeStyle=col;ctx.lineWidth=1.2;
+  if(n.k==='keystone'){ctx.beginPath();ctx.moveTo(x,y-r);ctx.lineTo(x+r,y);ctx.lineTo(x,y+r);ctx.lineTo(x-r,y);ctx.closePath();ctx.fill();return;}
+  if(n.k==='apex'){ctx.beginPath();for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,q=i%2?r*.45:r;ctx[i?'lineTo':'moveTo'](x+Math.cos(a)*q,y+Math.sin(a)*q);}ctx.closePath();ctx.fill();return;}
+  ctx.beginPath();ctx.arc(x,y,r,0,7);
+  if(n.c>=0){
+    const open=clusters.get(n.c).kind==='open';
+    ctx.setLineDash(open?[2,2]:[]);ctx.stroke();ctx.setLineDash([]);
+  }else ctx.fill();
+}
+function trace(e,a,b){
+  ctx.moveTo(sx(a),sy(a));
+  if(e.length>2)ctx.quadraticCurveTo(e[2]*view.k+view.x,e[3]*view.k+view.y,sx(b),sy(b));
+  else ctx.lineTo(sx(b),sy(b));
+}
+function draw(){
+  const r=stage.getBoundingClientRect();
+  ctx.fillStyle=colors['--paper'];ctx.fillRect(0,0,r.width,r.height);
+  // Band rings: depth 6, 14 and 22 mark the inner, middle and outer bands.
+  ctx.strokeStyle=colors['--rule'];ctx.lineWidth=1;ctx.setLineDash([3,5]);
+  for(const d of [6.5,14.5,22.5]){ctx.beginPath();ctx.arc(view.x,view.y,(110+d*46)*view.k,0,7);ctx.stroke();}
+  ctx.setLineDash([]);
+  const scale=Math.max(.6,Math.min(1.6,Math.sqrt(view.k*2.2)));
+  ctx.strokeStyle=colors['--link'];ctx.lineWidth=.8;ctx.globalAlpha=show.caps?.35:1;ctx.beginPath();
+  for(const e of D.edges){
+    const a=byId.get(e[0]),b=byId.get(e[1]);
+    if(!visible(a)||!visible(b))continue;
+    trace(e,a,b);
+  }
+  ctx.stroke();ctx.globalAlpha=1;
+  for(const n of nodes){
+    if(!visible(n))continue;
+    const x=sx(n),y=sy(n);
+    if(x<-20||y<-20||x>r.width+20||y>r.height+20)continue;
+    ctx.globalAlpha=show.caps&&!n.p?.22:1;
+    shape(n,x,y,size(n)*scale,colorOf(n));
+    if(n.p){ctx.strokeStyle=colors['--accent'];ctx.lineWidth=1.6;ctx.beginPath();ctx.arc(x,y,(size(n)+3.5)*scale,0,7);ctx.stroke();}
+    if(n.l.some(l=>portal(n,byId.get(l))&&visible(byId.get(l)))){ctx.strokeStyle=colors['--variant'];ctx.lineWidth=1.6;const q=(size(n)+4)*scale;ctx.beginPath();ctx.moveTo(x,y-q);ctx.lineTo(x+q,y);ctx.lineTo(x,y+q);ctx.lineTo(x-q,y);ctx.closePath();ctx.stroke();}
+  }
+  ctx.globalAlpha=1;
+  if(routeEdges.length){
+    ctx.strokeStyle=colors['--accent'];ctx.lineWidth=2.4;ctx.beginPath();
+    for(const [a,b] of routeEdges){if(portal(a,b))continue;const e=edgeOf.get(a.i<b.i?a.i+'-'+b.i:b.i+'-'+a.i);trace(e[0]===a.i?e:[a.i,b.i].concat(e.slice(2)),a,b);}
+    ctx.stroke();
+  }
+  if(selected){ctx.strokeStyle=colors['--ink'];ctx.lineWidth=2;ctx.beginPath();ctx.arc(sx(selected),sy(selected),size(selected)*scale+5,0,7);ctx.stroke();}
+  // Names appear once there is room for them.
+  ctx.fillStyle=colors['--ink'];ctx.font='11px "Be Vietnam Pro",system-ui,sans-serif';ctx.textAlign='left';
+  const used=[];
+  for(const n of nodes){
+    if(!visible(n))continue;
+    const big=n.k==='keystone'||n.k==='apex'||n.p,mid=n.k==='notable'||n.k==='bridge_notable'||n.k==='gate';
+    if(!((big&&view.k>.5)||(mid&&view.k>1)||view.k>2.2))continue;
+    const x=sx(n)+size(n)*scale+4,y=sy(n)+3;
+    if(x<0||y<0||x>r.width||y>r.height)continue;
+    const w=ctx.measureText(n.n).width;
+    if(used.some(u=>x<u[0]+u[2]&&x+w>u[0]&&Math.abs(y-u[1])<12))continue;
+    used.push([x,y,w]);ctx.fillText(n.n,x,y);
+  }
+}
+function pick(px,py){
+  let best=null,bd=14*14;
+  for(const n of nodes){
+    if(!visible(n))continue;
+    const dx=sx(n)-px,dy=sy(n)-py,q=dx*dx+dy*dy;
+    if(q<bd){bd=q;best=n;}
+  }
+  return best;
+}
+function shortest(target){
+  const prev=new Map([[0,-1]]),queue=[0];
+  for(let h=0;h<queue.length;h++){
+    const c=queue[h];if(c===target.i)break;
+    for(const l of byId.get(c).l){if(!prev.has(l)&&visible(byId.get(l))){prev.set(l,c);queue.push(l);}}
+  }
+  if(!prev.has(target.i))return null;
+  const p=[];for(let c=target.i;c!==-1;c=prev.get(c))p.push(c);
+  return p.reverse();
+}
+function kindLabel(n){
+  return {root:'Dantian',gate:'Element gate',road:'Meridian road',junction:'Junction',small:'Acupoint',notable:'Notable',keystone:'Keystone',bridge:'Bridge acupoint',bridge_notable:'Bridge notable',variant_road:'Sector road',apex:'Sector apex'}[n.k]||n.k;
+}
+function sectorLabel(n){
+  if(n.v)return variantName.get(n.v).name;
+  if(!n.s)return 'Centre';
+  return String(n.s).split('-').map(e=>elementName.get(e)||e).join(' to ');
+}
+function escapeHtml(t){return String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function select(n,center){
+  selected=n;route=new Set();routeEdges=[];
+  const box=document.getElementById('detail');
+  const p=shortest(n);
+  if(p){for(let i=1;i<p.length;i++)routeEdges.push([byId.get(p[i-1]),byId.get(p[i])]);}
+  let h=`<h3>${escapeHtml(n.n)}</h3><p class="meta">${kindLabel(n)} · ${escapeHtml(sectorLabel(n))} · depth ${n.d}</p>`;
+  if(n.m.length)h+='<ul>'+n.m.map(m=>`<li>${escapeHtml(m)}</li>`).join('')+'</ul>';
+  else if(n.k!=='root')h+='<p>No stats of its own.</p>';
+  if(n.e)h+=`<p>${escapeHtml(n.e)}</p>`;
+  if(n.c>=0){
+    const k=clusters.get(n.c);
+    h+=`<p>${escapeHtml(k.name)}: ${k.kind} cluster of ${k.size}, ${k.location}, opens from ${escapeHtml(k.gate)}${k.kind==='sealed'?`, seal: ${k.seal}`:', filled at a story moment'}.</p>`;
+    if(n.p)h+=`<p><b>${escapeHtml(k.capability)}.</b> ${escapeHtml(k.capability_desc)}</p>`;
+  }
+  if(n.v)h+=`<p>Locked until the root owns ${escapeHtml(variantName.get(n.v).name)}.</p>`;
+  const doors=n.l.map(l=>byId.get(l)).filter(m=>portal(n,m));
+  if(doors.length)h+=`<p>Entry: joins ${doors.map(m=>escapeHtml(m.n)).join(' and ')} (depth ${doors[0].d}).</p>`;
+  h+=`<p class="cost">${p?`Route from the dantian: <b>${p.length-1}</b> point${p.length===2?'':'s'}`:'No route with the layers shown'}.</p>`;
+  box.innerHTML=h;
+  if(center){const r=stage.getBoundingClientRect();view.k=Math.max(view.k,1);view.x=r.width/2-n.x*view.k;view.y=r.height/2-n.y*view.k;}
+  draw();
+}
+// Pan, zoom, pinch.
+const pts=new Map();let moved=0,pinch=0;
+canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId);pts.set(e.pointerId,[e.offsetX,e.offsetY]);moved=0;canvas.classList.add('drag');});
+canvas.addEventListener('pointermove',e=>{
+  if(pts.size===2&&pts.has(e.pointerId)){
+    pts.set(e.pointerId,[e.offsetX,e.offsetY]);
+    const [a,b]=[...pts.values()],dist=Math.hypot(a[0]-b[0],a[1]-b[1]);
+    if(pinch)zoomAt((a[0]+b[0])/2,(a[1]+b[1])/2,dist/pinch);
+    pinch=dist;moved=9;return;
+  }
+  if(pts.has(e.pointerId)){
+    const p=pts.get(e.pointerId),dx=e.offsetX-p[0],dy=e.offsetY-p[1];
+    view.x+=dx;view.y+=dy;moved+=Math.abs(dx)+Math.abs(dy);pts.set(e.pointerId,[e.offsetX,e.offsetY]);tip.hidden=true;draw();return;
+  }
+  const n=pick(e.offsetX,e.offsetY);
+  if(n!==hover){hover=n;
+    if(n){tip.innerHTML=`<b>${escapeHtml(n.n)}</b><br>${n.m.map(escapeHtml).join(', ')||kindLabel(n)}`;tip.hidden=false;}else tip.hidden=true;
+  }
+  if(n){tip.style.left=Math.min(e.offsetX+14,stage.clientWidth-270)+'px';tip.style.top=(e.offsetY+14)+'px';}
+});
+function release(e){
+  pts.delete(e.pointerId);pinch=0;canvas.classList.remove('drag');
+  if(moved<5&&e.type==='pointerup'){const n=pick(e.offsetX,e.offsetY);if(n)select(n,false);}
+}
+canvas.addEventListener('pointerup',release);canvas.addEventListener('pointercancel',release);
+canvas.addEventListener('pointerleave',()=>{tip.hidden=true;hover=null;});
+function zoomAt(px,py,f){const k=Math.max(.2,Math.min(9,view.k*f));f=k/view.k;view.x=px-(px-view.x)*f;view.y=py-(py-view.y)*f;view.k=k;draw();}
+canvas.addEventListener('wheel',e=>{e.preventDefault();zoomAt(e.offsetX,e.offsetY,Math.exp(-e.deltaY*.0015));},{passive:false});
+const mid=()=>{const r=stage.getBoundingClientRect();return [r.width/2,r.height/2]};
+document.getElementById('zin').onclick=()=>zoomAt(...mid(),1.4);
+document.getElementById('zout').onclick=()=>zoomAt(...mid(),1/1.4);
+document.getElementById('zfit').onclick=fit;
+// Filters.
+function refilter(){if(selected&&visible(selected))select(selected,false);else draw();}
+document.getElementById('f-sealed').onchange=e=>{show.sealed=e.target.checked;refilter();};
+document.getElementById('f-open').onchange=e=>{show.open=e.target.checked;refilter();};
+document.getElementById('f-caps').onchange=e=>{show.caps=e.target.checked;draw();};
+const vbox=document.getElementById('variants');
+for(const v of D.variants){
+  const l=document.createElement('label');l.className='row';
+  l.innerHTML=`<input type="checkbox" id="v-${v.id}" checked>${escapeHtml(v.name)} <span class="sub" style="margin:0">${v.origin}</span>`;
+  l.querySelector('input').onchange=e=>{e.target.checked?show.variants.add(v.id):show.variants.delete(v.id);refilter();};
+  vbox.appendChild(l);
+}
+const ebox=document.getElementById('elements');
+for(const e of D.elements){const s=document.createElement('span');s.innerHTML=`<b class="sw" style="background:var(${ELEMENT_VAR[e.id]})"></b>${escapeHtml(e.name)}`;ebox.appendChild(s);}
+{const s=document.createElement('span');s.innerHTML='<b class="sw" style="background:var(--variant)"></b>Variant sector';ebox.appendChild(s);}
+const base=nodes.filter(n=>n.c<0&&!n.v).length,hidden=nodes.filter(n=>n.c>=0).length,sector=nodes.filter(n=>n.v).length;
+document.getElementById('counts').innerHTML=`<div><b>${base}</b>visible</div><div><b>${hidden}</b>in ${D.clusters.length} hidden clusters</div><div><b>${sector}</b>in 8 variant sectors</div>`;
+// Search.
+const q=document.getElementById('q'),res=document.getElementById('results');
+q.oninput=()=>{
+  const t=q.value.trim().toLowerCase();res.innerHTML='';if(t.length<2)return;
+  const hits=nodes.filter(n=>n.n.toLowerCase().includes(t)&&n.k!=='road'&&n.k!=='junction'&&n.k!=='variant_road').slice(0,8);
+  if(!hits.length){res.textContent='No acupoint has that name.';return;}
+  for(const n of hits){const b=document.createElement('button');b.textContent=`${n.n} · ${sectorLabel(n)}`;b.onclick=()=>select(n,true);res.appendChild(b);}
+};
+function boot(){readColors();resize();fit();}
+new ResizeObserver(resize).observe(stage);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{readColors();draw();});
+new MutationObserver(()=>{readColors();draw();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);
+boot();
+</script>

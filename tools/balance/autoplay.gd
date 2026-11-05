@@ -23,14 +23,18 @@ extends SceneTree
 const TREE_WEIGHTS := {
 	"cultivation_speed_pct": 3.0, "cultivation_speed_per_element_pct": 3.0, "breakthrough_chance": 3.0,
 	"alchemy_success": 2.0, "herb_growth_pct": 2.0, "lifespan_years": 0.5, "lifespan_pct": 2.0,
-	"field_plots": 4.0, "pill_effect_pct": 1.0, "dan_doc_resist_pct": 0.5, "tam_ma_resist_pct": 0.5,
+	"field_plots": 0.0, "pill_effect_pct": 1.0, "dan_doc_resist_pct": 0.5, "tam_ma_resist_pct": 0.5,
 }
-const MAX_TURNS := 6000
+const MAX_TURNS := 14000
+## Brews the plant plan keeps planted ahead.
+const cfg_recipes := 4
 
 var gd: GameData
 var tree: MeridianTree
 var verbose: bool = false
 var edge_on: bool = true
+## Birth perk for --edge on lives; "" takes a random one.
+var perk_id: String = ""
 
 
 func _init() -> void:
@@ -40,6 +44,7 @@ func _init() -> void:
 	var elements: int = int(_list_arg(args, "--elements", "0")[0])
 	edge_on = str(_list_arg(args, "--edge", "on")[0]) != "off"
 	verbose = args.has("--verbose")
+	perk_id = str(_list_arg(args, "--perk", "any")[0]).replace("any", "")
 	gd = GameData.load_from("res://assets/data")
 	tree = MeridianTree.generate(gd)
 	var rows: Array = []
@@ -60,7 +65,7 @@ func _life(seed_v: int, origin: String, elements: int) -> Dictionary:
 	var llm := LlmService.new(gd)
 	llm.enabled = false
 	var s := GameSession.new(gd, llm, tree)
-	var spec := {"mode": "roll", "name": "Auto", "gender": "male", "origin": origin, "edge": edge_on}
+	var spec := {"mode": "roll", "name": "Auto", "gender": "male", "origin": origin, "edge": edge_on, "perk": perk_id}
 	if elements > 0:
 		var rng := RandomNumberGenerator.new()
 		rng.seed = seed_v
@@ -72,11 +77,12 @@ func _life(seed_v: int, origin: String, elements: int) -> Dictionary:
 			purities[e] = 60
 		spec["character"] = CharacterFactory.custom_player(gd, rng, "Auto", "male", origin, tp, purities, []).to_dict()
 	s.new_game(seed_v, spec)
-	var st := {"seed": seed_v, "origin": origin, "root": s.player.linh_can.describe(gd), "elements": s.player.linh_can.counted_elements(gd),
-		"reached": {}, "events": 0, "bt_attempts": 0, "crafts": 0, "trips": 0, "max_lt": 0, "target": "", "next_trip_year": 0,
-		"pill_sources": [], "builds": 0, "refines": 0, "turn": 0}
+	var st := {"seed": seed_v, "origin": origin, "root": s.player.linh_can.describe(gd), "elements": s.player.linh_can.n_eff(gd),
+		"reached": {}, "arrived": {}, "tech_price": 0, "events": 0, "bt_attempts": 0, "crafts": 0, "trips": 0, "max_lt": 0, "target": "", "next_trip_year": 0,
+		"pill_sources": [], "builds": 0, "refines": 0, "turn": 0, "use": {}}
 	for turn in MAX_TURNS:
-		if s.life_over:
+		# Nothing after the last gate changes the gate odds, so the life stops there.
+		if s.life_over or s.player.realm_index >= gd.realms().size() - 1:
 			break
 		_step(s, st)
 		if verbose and turn % 80 == 0:
@@ -86,6 +92,7 @@ func _life(seed_v: int, origin: String, elements: int) -> Dictionary:
 		st.max_lt = maxi(st.max_lt, s.player.linh_thach)
 	var c: Character = s.player
 	st["death_age"] = c.age
+	st["level"] = c.level
 	st["final"] = gd.realm_label(c.realm_index, c.stage)
 	st["final_realm"] = c.realm_index
 	st["lt"] = c.linh_thach
@@ -103,6 +110,8 @@ func _step(s: GameSession, st: Dictionary) -> void:
 	if _breakthrough_if_ready(s, st):
 		return
 	_spend_points(s)
+	if _maybe_technique(s, st):
+		return
 	st.turn += 1
 	if st.turn % 8 == 0:
 		_equip_idle(s)
@@ -123,8 +132,9 @@ func _step(s: GameSession, st: Dictionary) -> void:
 	_use_pills(s)
 	if _invest(s, st, plan):
 		return
-	if c.linh_thach < _money_needed(s, plan):
+	if c.linh_thach < maxi(_money_needed(s, plan), int(st.get("tech_price", 0))):
 		if Advisor.can_work_here(s):
+			st.use["mission"] = int(st.use.get("mission", 0)) + 1
 			s.mission()
 			return
 		var work: String = Advisor.nearest_work_place(s)
@@ -137,8 +147,10 @@ func _step(s: GameSession, st: Dictionary) -> void:
 		st.target = c.home_id
 		return
 	if st.turn % 12 == 0 and int(s.db.get_record("places", c.location_id).get("danger", 9)) <= 2:
+		st.use["explore"] = int(st.use.get("explore", 0)) + 1
 		s.explore()
 		return
+	st.use["cultivate"] = int(st.use.get("cultivate", 0)) + 1
 	s.cultivate(1)
 
 
@@ -163,18 +175,111 @@ func _breakthrough_if_ready(s: GameSession, st: Dictionary) -> bool:
 	var c: Character = s.player
 	if not CultivationRules.at_bottleneck(c, gd):
 		return false
+	if not st.arrived.has(c.realm_index):
+		st.arrived[c.realm_index] = c.age
 	var tag: String = str(gd.realm(c.realm_index + 1).entry_requirement.item_tag)
 	var has_pill: bool = not Advisor.best_pill(s, tag).is_empty()
-	var left: float = CultivationRules.lifespan(c, gd, s.sheet()).total - c.age
-	if not has_pill and left > 3.0:
+	var sh: StatSheet = s.sheet()
+	var left: float = CultivationRules.lifespan(c, gd, sh).total - c.age
+	var met: bool = CultivationRules.breakthrough_condition(c, gd, s.local_density(sh)).met
+	if has_pill and not met and left > 3.0:
+		return _chase_condition(s, st)
+	if (not has_pill or not met) and left > 3.0:
+		return false
+	if (not has_pill or not met) and not CultivationRules.bare_attempt_left(c, gd):
 		return false
 	st.bt_attempts += 1
 	var before: int = c.realm_index
-	s.breakthrough()
+	s.breakthrough(true)
 	if c.realm_index > before:
 		st.reached[c.realm_index] = c.age
 		st.pill_sources.append("pill" if has_pill else "no pill")
 	return true
+
+
+## Goes after the realm condition: a place with enough qi for Core Formation, or a place where
+## enlightenment can come for the Deity Transformation insight. Heart demon is waited for.
+## Returns true when it spent the turn.
+func _chase_condition(s: GameSession, st: Dictionary) -> bool:
+	var c: Character = s.player
+	var cond: Variant = gd.realm(c.realm_index + 1).entry_requirement.get("condition")
+	if cond == null or st.target != "":
+		return false
+	match str(cond.type):
+		"density_min":
+			var bonus: float = s.sheet().total("density_bonus")
+			st.target = _nearest_place(s, func(p): return float(p.get("density", 1.0)) + bonus >= float(cond.value))
+		"insight":
+			var types: Array = gd.event_templates().templates.filter(func(t): return t.id == "don_ngo")[0].place_types
+			if types.has(str(s.db.get_record("places", c.location_id).get("type", ""))):
+				st.use["seek_insight"] = int(st.use.get("seek_insight", 0)) + 1
+				s.explore()
+				return true
+			st.target = _nearest_place(s, func(p): return types.has(str(p.get("type", ""))))
+	return false
+
+
+func _nearest_place(s: GameSession, keep: Callable) -> String:
+	var here: String = s.player.location_id
+	var seen: Dictionary = {here: true}
+	var queue: Array = [here]
+	while not queue.is_empty():
+		var cur: String = queue.pop_front()
+		if keep.call(s.db.get_record("places", cur)):
+			return "" if cur == here else cur
+		for l in s.db.get_record("places", cur).links:
+			if not seen.has(l.to):
+				seen[l.to] = true
+				queue.append(l.to)
+	return ""
+
+
+## Rule 18 in play: moves to a main method that reaches the next realm, buying the reserved
+## par-tier manual when none is known. Returns true when it set a trip.
+func _maybe_technique(s: GameSession, st: Dictionary) -> bool:
+	var c: Character = s.player
+	if st.target != "":
+		return false
+	var at_top: bool = CultivationRules.at_great_perfection(c, gd)
+	var want: int = CongPhap.par_tier(gd, mini(c.realm_index + (1 if at_top else 0), gd.realms().size() - 1))
+	var main: Dictionary = CongPhap.main_entry(c)
+	if not main.is_empty() and int(main.def.tier) >= want:
+		return false
+	for key in c.techniques.keys():
+		var e: Dictionary = c.techniques[key]
+		if str(e.def.tech_kind) == "main" and int(e.def.tier) >= want and CongPhap.usable(c, e.def):
+			s.set_slot("main", 0, str(key))
+			return false
+	var best: Dictionary = {}
+	var best_p: float = -1.0
+	var best_place: String = ""
+	for place in s.db.all("places"):
+		if not bool(place.get("market", false)):
+			continue
+		for it in s.market.stock(place.id):
+			if it.kind != "cong_phap" or int(it.tier) < want or str(it.tech_kind) != "main":
+				continue
+			var p: float = c.linh_can.average_purity(it.names)
+			if p > best_p:
+				best_p = p
+				best = it
+				best_place = place.id
+	if best.is_empty() or best_p <= 0.0:
+		return false
+	var price: int = s.market.buy_price(c, s.sheet(), best)
+	st["tech_price"] = price
+	if c.linh_thach < price:
+		return false
+	if c.location_id != best_place:
+		st.target = best_place
+		return true
+	if s.buy(best.id).ok:
+		var mine: Array = s.db.items_of(c.id).filter(func(i): return i.kind == "cong_phap" and i.get("tech_id", "") == best.tech_id)
+		if not mine.is_empty():
+			s.learn(mine[0].id)
+			s.set_slot("main", 0, str(best.tech_id))
+		st.tech_price = 0
+	return false
 
 
 func _spend_points(s: GameSession) -> void:
@@ -182,7 +287,7 @@ func _spend_points(s: GameSession) -> void:
 	while c.tree_points > 0:
 		var best: int = -1
 		var best_score: float = -INF
-		for nid in tree.frontier(c.tree_nodes):
+		for nid in tree.frontier(c):
 			if not tree.can_allocate(c, nid, gd).ok:
 				continue
 			var sc: float = _node_value(nid, c) + 0.5 * tree.neighbors(nid).map(func(n): return _node_value(n, c)).max()
@@ -220,10 +325,23 @@ func _tend_field(s: GameSession, plan: Dictionary) -> bool:
 			acted = s.harvest(int(cmd.get_slice(" ", 1))).ok or acted
 		elif cmd.begins_with("plant ") and c.linh_thach >= int(gd.herb(stt.herb).seed_price):
 			acted = s.plant(cmd.get_slice(" ", 1)).ok or acted
-	# Keep a plot free for every plan herb still waiting in the bag.
-	var waiting: int = _plan(s).get("statuses", []).filter(func(x): return str(x.text).contains("you hold one")).size()
-	while s.field.plot_count(c, s.sheet()) - s.field.planted(c).size() > waiting and c.linh_thach >= _money_needed(s, plan) + 2:
-		if not s.plant("ngung_khi_thao").ok:
+	# Harvest every ripe recipe herb, so its plot can take the next one in the plan.
+	var ages: Dictionary = {}
+	for ing in plan.get("recipe", {}).get("ingredients", []):
+		ages[ing.herb] = float(ing.min_age)
+	for p in s.field.planted(c).keys():
+		var h2: Dictionary = s.field.planted(c)[p]
+		if ages.has(h2.template) and float(h2.age) >= float(ages[h2.template]):
+			acted = s.harvest(int(p)).ok or acted
+	# The plant plan: free plots rotate into the next brews' herbs (Formulas D).
+	var recipe: Dictionary = plan.get("recipe", {})
+	while not recipe.is_empty() and s.field.free_plot(c, s.sheet()) != -1:
+		var herb: String = Advisor.next_plant(s, recipe, int(cfg_recipes))
+		# Training comes after the first brew is in the ground: a competent life reaches the
+		# recipe's level plus one, which is what the brew odds assume.
+		if Advisor.next_plant(s, recipe, 1) == "" and c.skill_level(Alchemy.SKILL) < int(recipe.min_level) + 1:
+			herb = "ngung_khi_thao" if s.field.planted(c).values().filter(func(h): return h.template == "ngung_khi_thao").is_empty() else herb
+		if herb == "" or c.linh_thach < int(gd.herb(herb).seed_price) or not s.plant(herb).ok:
 			break
 		acted = true
 	return acted
@@ -232,13 +350,14 @@ func _tend_field(s: GameSession, plan: Dictionary) -> bool:
 func _craft(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
 	var c: Character = s.player
 	var recipe: Dictionary = plan.get("recipe", {})
-	if not recipe.is_empty() and plan.get("pill", {}).is_empty():
+	if not recipe.is_empty():
 		if s.alchemy.find_ingredients(c, recipe).ok and c.skill_level(Alchemy.SKILL) + 1 >= int(recipe.min_level):
 			st.crafts += 1
 			s.craft(recipe.id)
 			return true
 	# Train Đan Đạo only up to one level above what the next pill needs.
 	var want: int = int(recipe.get("min_level", 1)) + 1
+	st.use["crafttry"] = int(st.use.get("crafttry", 0)) + 1
 	if c.skill_level(Alchemy.SKILL) >= want:
 		return false
 	for rid in ["hoang_long_dan", "tu_khi_dan"]:
@@ -262,7 +381,7 @@ func _reserved(plan: Dictionary, r: Dictionary) -> bool:
 ## Spends spare linh thạch: formations at home (herb growth first), then refining.
 func _invest(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
 	var c: Character = s.player
-	var reserve: int = _money_needed(s, plan) + s.formations.upkeep(c) * 5
+	var reserve: int = _money_needed(s, plan) + s.formations.upkeep(c) * 5 + int(st.get("tech_price", 0))
 	if c.location_id == c.home_id:
 		for fid in ["thanh_moc", "tu_linh", "ho_son"]:
 			var ck: Dictionary = s.formations.can_build(c, fid)
@@ -308,7 +427,7 @@ func _use_pills(s: GameSession) -> void:
 			"heal_pct":
 				use = c.vitality < 0.5
 			"tam_ma":
-				use = c.tam_ma >= 30.0
+				use = c.tam_ma >= 18.0
 			"lifespan", "stat":
 				use = true
 		if use:
@@ -362,6 +481,7 @@ func _at_market_shop(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
 
 
 func _travel_step(s: GameSession, st: Dictionary) -> void:
+	st.use["travel"] = int(st.use.get("travel", 0)) + 1
 	var hop: String = Advisor.next_hop(s, s.player.location_id, st.target)
 	if hop == "":
 		st.target = ""
@@ -431,6 +551,8 @@ func _fx_value(s: GameSession, effects: Array) -> float:
 				v += 50.0
 			"tree_point":
 				v += 80.0 * float(fx.get("amount", 1))
+			"insight":
+				v += 500.0 if c.realm_index == gd.realm_index("nguyen_anh") else 0.0
 			"breakthrough_pill", "plan_herb", "treasure":
 				v += 1000.0
 			"khi_huyet_loss_pct":
@@ -448,12 +570,18 @@ func _row_text(r: Dictionary) -> String:
 	var ages: PackedStringArray = []
 	for ri in [1, 2, 3]:
 		ages.append("%-5s %5s" % [gd.realm(ri).name.substr(0, 5), ("%.0f" % r.reached[ri]) if r.reached.has(ri) else "—"])
-	return "seed %4d %-8s %-36s %s | died %3.0f %-22s | LT now %6d max %7d | Đan Đạo %d | ev %3d bt %d crafts %3d trips %d trận %d khí %d %s" % [
-		r.seed, r.origin, r.root.substr(0, 36), " · ".join(ages), r.death_age, r.final, r.lt, r.max_lt, r.dan_dao, r.events, r.bt_attempts, r.crafts, r.trips, r.builds, r.refines, ",".join(r.pill_sources)]
+	return "use %s cause %s\nseed %4d %-8s %-36s %s | died %3.0f %-22s | LT now %6d max %7d | Đan Đạo %d | ev %3d bt %d crafts %3d trips %d trận %d khí %d %s" % [
+		str(r.use), str(r.cause), r.seed, r.origin, r.root.substr(0, 36), " · ".join(ages), r.death_age, r.final, r.lt, r.max_lt, r.dan_dao, r.events, r.bt_attempts, r.crafts, r.trips, r.builds, r.refines, ",".join(r.pill_sources)]
 
 
 func _summary(rows: Array, origins: Array) -> void:
 	print("Summary (median ages; n = lives; edge %s):" % ("on" if edge_on else "off"))
+	var gates: PackedStringArray = []
+	for ri in range(0, gd.realms().size() - 1):
+		var arrived: int = rows.filter(func(r): return r.arrived.has(ri)).size()
+		var crossed: int = rows.filter(func(r): return r.reached.has(ri + 1)).size()
+		gates.append("%s→%s %d/%d = %.0f%%" % [gd.realm(ri).name, gd.realm(ri + 1).name, crossed, arrived, 100.0 * float(crossed) / maxf(float(arrived), 1.0)])
+	print("  per gate (crossed / arrived at a full bar): " + " · ".join(gates))
 	var reached: Array = [rows.size(), 0, 0, 0]
 	for r in rows:
 		for ri in [1, 2, 3]:

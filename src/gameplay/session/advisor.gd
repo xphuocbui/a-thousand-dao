@@ -47,6 +47,7 @@ static func goals(s: GameSession) -> Array:
 		out.append(_g("tam_ma", "warn", "Tâm ma %.0f: a breakthrough now risks tẩu hỏa nhập ma (%.0f%%)." % [c.tam_ma, CultivationRules.backlash_chance(c, gd, sh).total], ""))
 
 	out.append_array(_breakthrough_goals(s, c, gd, sh, bottleneck))
+	out.append_array(_ladder_warnings(s, c, gd, sh))
 
 	for b in s.beasts.owned(c):
 		if int(b.get("loyalty", 0)) < int(cfg.beast_loyalty_warning):
@@ -80,6 +81,26 @@ static func goals(s: GameSession) -> Array:
 	return indexed.map(func(x): return x[0])
 
 
+## Warnings from the ladder and techniques: a full bar wasting tu vi, a main method past its
+## tier, a next-tier method to buy, and the brews still possible.
+static func _ladder_warnings(s: GameSession, c: Character, gd: GameData, sh: StatSheet) -> Array:
+	var out: Array = []
+	var main: Dictionary = CongPhap.main_entry(c)
+	if main.is_empty():
+		out.append(_g("technique", "warn", "No main method in the slot: you cultivate crudely. Use 'tech' and 'slot main <row>'.", "tech", "Check your techniques"))
+	else:
+		var max_realm: int = gd.realm_index(str(CongPhap.tier_of(gd, main.def).max_realm))
+		if c.realm_index > max_realm:
+			out.append(_g("technique", "warn", "%s stops at %s: speed x0.25 until you change method." % [main.def.name, gd.realm(max_realm).name], "tech", "Check your techniques"))
+		elif c.realm_index == max_realm and CultivationRules.at_great_perfection(c, gd):
+			out.append(_g("technique", "tip", "%s reaches no further than this realm; find the next tier before you break through." % main.def.name, ""))
+	if CultivationRules.at_great_perfection(c, gd):
+		var plan: Dictionary = brew_plan(s)
+		var p_none: float = pow(1.0 - float(plan.p_brew), float(plan.b))
+		out.append(_g("brews", "tip", "%d brew(s) possible this realm; chance of brewing no pill %.0f%%." % [int(plan.b), p_none * 100.0], ""))
+	return out
+
+
 ## Cultivation progress: {rate, seasons_to_stage, bottleneck, requirement}. seasons_to_stage
 ## is -1 at a bình cảnh or when the rate is zero.
 static func progress(s: GameSession) -> Dictionary:
@@ -87,7 +108,7 @@ static func progress(s: GameSession) -> Dictionary:
 	var sh: StatSheet = s.sheet()
 	var density: float = float(s.db.get_record("places", c.location_id).get("density", 1.0))
 	var rate: float = CultivationRules.rate_per_season(c, s.gd, s.db, sh, density).total
-	var req: float = CultivationRules.stage_requirement(c, s.gd)
+	var req: float = CultivationRules.level_requirement(c, s.gd)
 	var bottleneck: bool = CultivationRules.at_bottleneck(c, s.gd)
 	var seasons: int = -1
 	if not bottleneck and rate > 0.0:
@@ -104,9 +125,82 @@ static func breakthrough_odds(s: GameSession) -> Dictionary:
 	var tag: String = str(s.gd.realm(c.realm_index + 1).entry_requirement.item_tag)
 	var pill: Dictionary = best_pill(s, tag)
 	var sh: StatSheet = s.sheet()
-	var used: Array = Talismans.apply_for_check(c, s.gd, s.db, sh, "breakthrough", false, false)
-	var b: Breakdown = CultivationRules.breakthrough_chance(c, s.gd, sh, int(pill.quality) if not pill.is_empty() else -1)
-	return {"chance": b.total, "pill": pill, "used": used, "breakdown": b}
+	var cond: Dictionary = CultivationRules.breakthrough_condition(c, s.gd, s.local_density(sh))
+	var rank: int = int(pill.quality) if not pill.is_empty() and cond.met else -1
+	var talisman: bool = rank >= 0 and s.talisman_available()
+	var b: Breakdown = CultivationRules.breakthrough_chance(c, s.gd, sh, rank, talisman)
+	return {"chance": b.total, "pill": pill, "used": ["Phá Cảnh Phù"] if talisman else [], "breakdown": b, "condition": cond}
+
+
+## Formulas D: the brews that can count in this realm step, from the first brew's ripening and
+## the bar: {b, years_first, p_brew}. Packing is first-fit-decreasing over the plots.
+static func brew_plan(s: GameSession) -> Dictionary:
+	var c: Character = s.player
+	var gd: GameData = s.gd
+	if c.realm_index >= gd.realms().size() - 1:
+		return {"b": 0, "years_first": 0.0, "p_brew": 0.0}
+	var sh: StatSheet = s.sheet()
+	var recipe: Dictionary = recipe_for_tag(gd, str(gd.realm(c.realm_index + 1).entry_requirement.item_tag))
+	var h: float = CharacterRules.herb_growth(c, gd, sh).total
+	var plots: int = s.field.plot_count(c, sh)
+	var p_brew: float = s.alchemy.success_chance(c, sh, recipe).total / 100.0
+	if recipe.is_empty() or h <= 0.0:
+		return {"b": 0, "years_first": INF, "p_brew": p_brew}
+	var cap: float = CultivationRules.lifespan(c, gd, sh).total
+	var refill: float = 0.3 * Ladder.bar_cost(gd, c.realm_index) / maxf(float(progress(s).rate), 1.0) / float(gd.cultivation_rules().seasons_per_year)
+	var b: int = 0
+	var last: float = c.age
+	var first: float = 0.0
+	for k in range(1, 9):
+		var t: float = _pack_capacity(recipe, k, plots) / h
+		if k == 1:
+			first = t
+		var at: float = maxf(c.age + t, last + (refill if k > 1 else 0.0))
+		if at > cap - 0.25:
+			break
+		b = k
+		last = at
+	return {"b": b, "years_first": first, "p_brew": p_brew}
+
+
+## The plant plan (Formulas D): the herb the next free plot should grow. Recipes are filled in
+## order, counting herbs held and growing, so plots rotate into the staggered layout. Returns a
+## herb id, or "" when [param recipes] brews are covered.
+static func next_plant(s: GameSession, recipe: Dictionary, recipes: int) -> String:
+	var c: Character = s.player
+	var supply: Dictionary = {}
+	for it in s.db.items_of(c.id):
+		if it.kind == "herb":
+			supply[it.template] = int(supply.get(it.template, 0)) + 1
+	for k in recipes:
+		for ing in recipe.ingredients:
+			for i in int(ing.qty):
+				var left: int = int(supply.get(ing.herb, 0))
+				if left > 0:
+					supply[ing.herb] = left - 1
+				else:
+					return str(ing.herb)
+	return ""
+
+
+## C_k: the smallest herb-years per plot that fit [param k] recipes' herbs in [param plots] plots.
+static func _pack_capacity(recipe: Dictionary, k: int, plots: int) -> float:
+	var ages: Array = []
+	for ing in recipe.ingredients:
+		for i in int(ing.qty) * k:
+			ages.append(float(ing.min_age))
+	ages.sort()
+	ages.reverse()
+	var loads: Array = []
+	loads.resize(maxi(plots, 1))
+	loads.fill(0.0)
+	for a in ages:
+		var best: int = 0
+		for i in loads.size():
+			if float(loads[i]) < float(loads[best]):
+				best = i
+		loads[best] = float(loads[best]) + float(a)
+	return float(loads.max())
 
 
 ## Odds of one choice of the pending event: {chance (0..1, or -1 without a check), text, ok, reason}.
@@ -115,6 +209,8 @@ static func choice_odds(s: GameSession, index: int) -> Dictionary:
 	var ch: Dictionary = ev.choices[index]
 	var sh: StatSheet = s.sheet()
 	var used: Array = Talismans.apply_for_check(s.player, s.gd, s.db, sh, str(ch.check.type), bool(ch.check.get("evade", false)), false)
+	if used.is_empty():
+		used = []
 	var allowed: Dictionary = s.resolver.can_choose(s.player, ev, index)
 	var out := {"chance": -1.0, "text": "no check", "ok": allowed.ok, "reason": allowed.reason}
 	match str(ch.check.type):
@@ -288,40 +384,42 @@ static func _breakthrough_goals(s: GameSession, c: Character, gd: GameData, sh: 
 	return [_g("breakthrough", sev, text, command, action)]
 
 
-## Where one recipe ingredient stands: {text, command, action, ready}.
+## Where one recipe ingredient stands: {text, command, action, ready}. A recipe may need several
+## of a herb, so held, ripening and missing herbs are counted against [code]ing.qty[/code].
 static func ingredient_status(s: GameSession, c: Character, sh: StatSheet, ing: Dictionary) -> Dictionary:
 	var gd: GameData = s.gd
 	var herb: Dictionary = gd.herb(str(ing.herb))
 	var need_age: float = float(ing.min_age)
-	var label: String = "%s ≥%.0fy" % [herb.get("name", ing.herb), need_age]
+	var qty: int = int(ing.qty)
+	var label: String = "%s ≥%.0fy%s" % [herb.get("name", ing.herb), need_age, " x%d" % qty if qty > 1 else ""]
 	var have: int = s.db.items_of(c.id).filter(func(i): return i.kind == "herb" and int(i.get("plot", -1)) < 0 and i.template == ing.herb and float(i.age) >= need_age).size()
-	if have >= int(ing.qty):
+	if have >= qty:
 		return {"text": "%s ✓" % label, "command": "", "action": "", "ready": true}
-	var best: Dictionary = {}
-	var best_plot: int = -1
+	var growing: Array = []
 	var planted: Dictionary = s.field.planted(c)
 	for p in planted.keys():
 		var h: Dictionary = planted[p]
-		if h.template == ing.herb and (best.is_empty() or float(h.age) > float(best.age)):
-			best = h
-			best_plot = int(p)
-	if best.is_empty():
-		# A young herb in the bag only ages once it is planted.
-		var young: Array = s.db.items_of(c.id).filter(func(i): return i.kind == "herb" and int(i.get("plot", -1)) < 0 and i.template == ing.herb)
-		young.sort_custom(func(a, b): return float(a.age) > float(b.age))
-		if not young.is_empty():
-			var y: Dictionary = young[0]
-			var at_home: bool = c.location_id == c.home_id
-			var free: bool = s.field.free_plot(c, sh) != -1
-			var where: String = "plant it to keep it aging" if at_home and free else ("free a plot and plant it" if at_home else "plant it at home")
-			return {"text": "%s: you hold one aged %.0fy; %s" % [label, float(y.age), where], "command": "plant %s" % y.id if at_home and free else "",
-				"action": "Plant your %s (%.0fy)" % [herb.get("name", ing.herb), float(y.age)], "ready": false}
-	if not best.is_empty():
-		var years: float = s.field.years_until(c, sh, best, need_age)
-		if years <= 0.0:
-			return {"text": "%s ripe in plot %d" % [label, best_plot], "command": "harvest %d" % best_plot, "action": "Harvest %s (plot %d)" % [herb.get("name", ing.herb), best_plot], "ready": true}
-		return {"text": "%s growing in plot %d (%.1f y left)" % [label, best_plot, years], "command": "", "action": "", "ready": false}
-	if int(herb.get("rarity", 99)) <= int(gd.session().field.seed_rarity_max):
+		if h.template != ing.herb:
+			continue
+		if float(h.age) >= need_age:
+			return {"text": "%s ripe in plot %d" % [label, int(p)], "command": "harvest %d" % int(p), "action": "Harvest %s (plot %d)" % [herb.get("name", ing.herb), int(p)], "ready": true}
+		growing.append(h)
+	if have + growing.size() >= qty:
+		var years: float = 0.0
+		for h in growing:
+			years = maxf(years, s.field.years_until(c, sh, h, need_age))
+		return {"text": "%s growing (%.1f y left)" % [label, years], "command": "", "action": "", "ready": false}
+	# A young herb in the bag only ages once it is planted.
+	var young: Array = s.db.items_of(c.id).filter(func(i): return i.kind == "herb" and int(i.get("plot", -1)) < 0 and i.template == ing.herb and float(i.age) < need_age)
+	young.sort_custom(func(a, b): return float(a.age) > float(b.age))
+	if not young.is_empty():
+		var y: Dictionary = young[0]
+		var at_home: bool = c.location_id == c.home_id
+		var free: bool = s.field.free_plot(c, sh) != -1
+		var where: String = "plant it to keep it aging" if at_home and free else ("free a plot and plant it" if at_home else "plant it at home")
+		return {"text": "%s: you hold one aged %.0fy; %s" % [label, float(y.age), where], "command": "plant %s" % y.id if at_home and free else "",
+			"action": "Plant your %s (%.0fy)" % [herb.get("name", ing.herb), float(y.age)], "ready": false}
+	if int(herb.get("rarity", 99)) <= int(gd.session().field.seed_rarity_by_realm[c.realm_index]):
 		return {"text": "%s: plant a seed (%d LT)" % [label, int(herb.seed_price)], "command": "plant %s" % ing.herb if c.location_id == c.home_id else "", "action": "Plant %s (%d LT)" % [herb.get("name", ing.herb), int(herb.seed_price)], "ready": false}
 	# Seeds are not sold: buy a young one at a market and let it age in the field.
 	var place: Dictionary = s.db.get_record("places", c.location_id)
@@ -430,10 +528,10 @@ static func recipe_for_tag(gd: GameData, tag: String) -> Dictionary:
 
 
 static func _eta(gd: GameData, c: Character, prog: Dictionary) -> String:
-	var stages_left: int = gd.stage_count(c.realm_index) - 1 - c.stage
-	if stages_left <= 0 or int(prog.seasons_to_stage) < 0:
+	var levels_left: int = Ladder.band(gd, c.realm_index)[1] - c.level
+	if levels_left <= 0 or int(prog.seasons_to_stage) < 0:
 		return ""
-	return " (%d tầng to go)" % stages_left
+	return " (%d levels to go)" % levels_left
 
 
 static func _stat_name(gd: GameData, stat: String) -> String:

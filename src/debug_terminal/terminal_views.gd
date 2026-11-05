@@ -38,10 +38,10 @@ static func hud(s: GameSession, io: TerminalIO) -> Array:
 	if bool(prog.bottleneck):
 		eta = io.paint("BÌNH CẢNH", "1;33")
 	elif int(prog.seasons_to_stage) >= 0:
-		eta = "+%.1f/season, next tầng in %s" % [prog.rate, _seasons_text(int(prog.seasons_to_stage), int(gd.cultivation_rules().seasons_per_year))]
+		eta = "+%.1f/season, next level in %s" % [prog.rate, _seasons_text(int(prog.seasons_to_stage), int(gd.cultivation_rules().seasons_per_year))]
 	else:
 		eta = "no progress here"
-	lines.append(" %s  %s %.0f/%.0f  %s" % [io.paint("%-22s" % gd.realm_label(c.realm_index, c.stage), C_BOLD), bar(io, tv_frac, 16, C_CYAN, true), c.tu_vi, prog.requirement, eta])
+	lines.append(" %s  %s %.0f/%.0f  %s" % [io.paint("%-22s" % level_text(gd, c), C_BOLD), bar(io, tv_frac, 16, C_CYAN, true), c.tu_vi, prog.requirement, eta])
 	var age_frac: float = clampf(c.age / maxf(life, 1.0), 0.0, 1.0)
 	var age_col: String = C_GREEN if age_frac < 0.6 else (C_YELLOW if age_frac < 0.85 else C_RED)
 	var kh_col: String = C_RED if c.vitality < 0.3 else (C_YELLOW if c.vitality < 0.6 else C_GREEN)
@@ -61,6 +61,7 @@ static func hud(s: GameSession, io: TerminalIO) -> Array:
 			continue
 		lines.append_array(goal_lines(io, g))
 		shown += 1
+	lines.append_array(bottleneck(s, io))
 	return lines
 
 
@@ -217,9 +218,58 @@ static func status_line(s: GameSession) -> String:
 	var sh: StatSheet = s.sheet()
 	var place: Dictionary = s.db.get_record("places", c.location_id)
 	return "[%s | %s | %s %.0f/%.0f | tuổi %d/%d | KH %d%% | LT %d | %s%s]" % [
-		s.clock_label(), c.name, s.gd.realm_label(c.realm_index, c.stage), c.tu_vi, CultivationRules.stage_requirement(c, s.gd),
+		s.clock_label(), c.name, s.gd.realm_label(c.realm_index, c.stage), c.tu_vi, CultivationRules.level_requirement(c, s.gd),
 		int(c.age), int(CultivationRules.lifespan(c, s.gd, sh).total), int(c.vitality * 100.0), c.linh_thach, place.get("name", "?"),
 		" | EVENT" if s.has_pending_event() else ""]
+
+
+## The root with a bar per element and any variants: the sheet's and the birth card's block.
+static func root_block(gd: GameData, c: Character, io: TerminalIO) -> Array:
+	var lines: Array = []
+	lines.append(io.paint(" ROOT [linh căn]", C_BOLD) + "  %s — curve row %d, now x%.2f vs a single root" % [c.linh_can.tier_name(gd), c.linh_can.n_eff(gd), CultivationRules.curve_factor(c, gd)])
+	for e in gd.element_cycle():
+		var p: float = c.linh_can.purity(e)
+		var el: Dictionary = gd.element(e)
+		var name_txt: String = elem(io, gd, e, "%-4s" % gd.element_name(e))
+		var val: String = ("%3d %-8s" % [int(p), gd.grade_name(p)]) if p > 0.0 else io.paint("  —         ", C_DIM)
+		var role: String = io.paint(str(el.get("role_desc", "")), C_DIM if p <= 0.0 else "")
+		lines.append("   %s %s %s %s" % [name_txt, bar(io, p / 100.0, 20, str(el.get("ansi", "")), true), val, role])
+	for def in gd.variant_defs():
+		if c.linh_can.variants.has(def.id):
+			var line_txt: PackedStringArray = []
+			for l in c.linh_can.variant_lines(gd, str(def.id)):
+				line_txt.append(gd.format_mod(str(l.stat), float(l.value)))
+			lines.append("   %s %d  (%s)  %s" % [io.paint(gd.element_label(str(def.id)), C_MAGENTA), int(c.linh_can.variants[def.id]), def.origin, ", ".join(line_txt)])
+	return lines
+
+
+## The six talents with bars, coloured by grade.
+static func talent_block(gd: GameData, c: Character, sh: StatSheet, io: TerminalIO) -> Array:
+	var lines: Array = []
+	lines.append(io.paint(" THIÊN PHÚ", C_BOLD))
+	var defs: Array = gd.thien_phu_defs()
+	var cells: Array = []
+	for def in defs:
+		var v: float = sh.effective(def.id, c)
+		var bonus: int = int(v) - c.base_stat(def.id)
+		var bonus_txt: String = io.paint("%+d" % bonus, C_GREEN if bonus > 0 else C_RED) if bonus != 0 else "  "
+		cells.append("%-9s %s %3d %-8s%s" % [def.name, bar(io, v / 100.0, 10, grade_color(gd, v), true), int(v), io.paint("%-8s" % gd.grade_name(v), grade_color(gd, v)), bonus_txt])
+	for i in range(0, cells.size(), 2):
+		lines.append(("   " + cells[i] + ("   " + cells[i + 1] if i + 1 < cells.size() else "")).strip_edges(false, true))
+	return lines
+
+
+## The card shown while a character is being made, before the world exists.
+static func birth_card(gd: GameData, c: Character, io: TerminalIO) -> Array:
+	var sh := StatSheet.build(c, gd, null, null)
+	var lines: Array = ["", rule(io, "%s — %s" % [c.name, gd.origin(c.origin).get("name", "")], "━"), ""]
+	lines.append_array(root_block(gd, c, io))
+	lines.append("")
+	lines.append_array(talent_block(gd, c, sh, io))
+	lines.append("")
+	lines.append(" Linh thạch %s · more elements: slower now, much faster later" % io.paint(str(c.linh_thach), C_YELLOW))
+	lines.append("━".repeat(WIDTH))
+	return lines
 
 
 ## Full character sheet (game-concept.md § Character Stats example layout).
@@ -231,40 +281,19 @@ static func sheet(s: GameSession, io: TerminalIO) -> Array:
 	var life: float = CultivationRules.lifespan(c, gd, sh).total
 	var origin: Dictionary = gd.origin(c.origin)
 	var sect: Dictionary = s.db.get_record("sects", c.sect_id)
-	lines.append(rule(io, "%s — %s%s" % [c.name, gd.realm_label(c.realm_index, c.stage), "" if c.alive else " (đã mất)"], "━"))
+	lines.append(rule(io, "%s — %s%s" % [c.name, level_text(gd, c), "" if c.alive else " (đã mất)"], "━"))
 	lines.append(" Tuổi %d / %d · Xuất thân %s · Tông môn %s%s · %s" % [int(c.age), int(life), origin.get("name", c.origin), sect.get("name", "—"),
 		(" (%s)" % c.sect_rank) if c.sect_rank != "" else "", "Thiên Định (achievements on)" if c.birth_mode == "thien_dinh" else "Tự Định (casual)"])
 	lines.append("")
-	lines.append(io.paint(" LINH CĂN", C_BOLD) + "  %s — %d element(s) count for the speed curve, now x%.2f vs Đơn linh căn" % [c.linh_can.tier_name(), c.linh_can.counted_elements(gd), CultivationRules.curve_factor(c, gd)])
-	for e in gd.element_cycle():
-		var p: float = c.linh_can.purity(e)
-		var el: Dictionary = gd.element(e)
-		var name_txt: String = elem(io, gd, e, "%-4s" % gd.element_name(e))
-		var val: String = ("%3d %-8s" % [int(p), gd.grade_name(p)]) if p > 0.0 else io.paint("  —         ", C_DIM)
-		var role: String = io.paint(str(el.get("role_desc", "")), C_DIM if p <= 0.0 else "")
-		lines.append("   %s %s %s %s" % [name_txt, bar(io, p / 100.0, 20, str(el.get("ansi", "")), true), val, role])
-	if not c.linh_can.bien_di.is_empty():
-		for id in c.linh_can.bien_di.keys():
-			var def: Dictionary = gd.bien_di(id)
-			lines.append("   %s %d  (%s)  %s" % [io.paint("Biến dị " + str(def.name), C_MAGENTA), int(c.linh_can.bien_di[id]), " × ".join(def.parents.map(func(x): return gd.element_name(x))), ", ".join(def.get("effects", []).map(func(fx): return gd.format_mod(str(fx.stat), float(fx.value))))])
+	lines.append_array(root_block(gd, c, io))
 	lines.append("")
-	lines.append(io.paint(" THIÊN PHÚ", C_BOLD))
-	var defs: Array = gd.thien_phu_defs()
-	var cells: Array = []
-	for def in defs:
-		var v: float = sh.effective(def.id, c)
-		var bonus: int = int(v) - c.base_stat(def.id)
-		var bonus_txt: String = io.paint("%+d" % bonus, C_GREEN if bonus > 0 else C_RED) if bonus != 0 else "  "
-		cells.append("%-9s %s %3d %-8s%s" % [def.name, bar(io, v / 100.0, 10, grade_color(gd, v), true), int(v), io.paint("%-8s" % gd.grade_name(v), grade_color(gd, v)), bonus_txt])
-	for i in range(0, cells.size(), 2):
-		lines.append(("   " + cells[i] + ("   " + cells[i + 1] if i + 1 < cells.size() else "")).strip_edges(false, true))
+	lines.append_array(talent_block(gd, c, sh, io))
 	lines.append("")
 	var kh: float = CharacterRules.khi_huyet_max(c, gd, sh).total
-	lines.append(io.paint(" TRẠNG THÁI", C_BOLD) + " Linh lực %.0f · Thần thức %.0f · Khí huyết %.0f/%.0f" % [CharacterRules.linh_luc(c, gd, s.db, sh).total, CharacterRules.than_thuc(c, gd, sh).total, kh * c.vitality, kh])
+	lines.append(io.paint(" TRẠNG THÁI", C_BOLD) + " Linh lực %.0f · Thần thức %.0f · Khí huyết %.0f/%.0f" % [CharacterRules.linh_luc(c, gd, sh).total, CharacterRules.than_thuc(c, gd, sh).total, kh * c.vitality, kh])
 	lines.append("            Đan độc %.0f (pills -%d%%) · Tâm ma %.0f (backlash %.0f%%) · Linh thạch %d" % [c.dan_doc, int(c.dan_doc), c.tam_ma, CultivationRules.backlash_chance(c, gd, sh).total, c.linh_thach])
-	var cp: Dictionary = s.db.get_record("items", c.cong_phap_id)
 	var rate: float = CultivationRules.rate_per_season(c, gd, s.db, sh, float(s.db.get_record("places", c.location_id).get("density", 1.0))).total
-	lines.append(io.paint(" CÔNG PHÁP", C_BOLD) + "  %s" % (s.items.describe(cp) if not cp.is_empty() else "none"))
+	lines.append(io.paint(" CÔNG PHÁP", C_BOLD) + "  %s" % CongPhap.speed_factor(c, gd).label)
 	lines.append("            tu vi %.1f per season here ('explain rate')" % rate)
 	var skills: PackedStringArray = []
 	for k in c.skills.keys():
@@ -303,7 +332,7 @@ static func explain(s: GameSession, what: String) -> Array:
 		"khi_huyet":
 			return Array(CharacterRules.khi_huyet_max(c, gd, sh).lines())
 		"linh_luc":
-			return Array(CharacterRules.linh_luc(c, gd, s.db, sh).lines())
+			return Array(CharacterRules.linh_luc(c, gd, sh).lines())
 		"herb", "herb_growth":
 			return Array(CharacterRules.herb_growth(c, gd, sh).lines())
 		"plots", "field":
@@ -406,11 +435,66 @@ static func inventory(s: GameSession) -> Array:
 		lines.append(titles[k] + ":")
 		for it in groups[k]:
 			var mark: String = ""
-			if it.id == s.player.cong_phap_id:
-				mark = " [cultivating]"
+			if s.player.techniques.has(str(it.get("tech_id", ""))):
+				mark = " [known]"
 			elif s.player.equipped.has(it.id):
 				mark = " [equipped]"
 			lines.append("  %-6s %s%s" % [it.id, s.items.describe(it), mark])
+	return lines
+
+
+## "Luyện Khí Trung kỳ L14 (tầng 5)": realm, stage, level and the Qi Refining layer.
+static func level_text(gd: GameData, c: Character) -> String:
+	var layer: int = Ladder.layer_of_level(gd, c.level)
+	return "%s L%d%s" % [gd.realm_label(c.realm_index, c.stage), c.level, " (tầng %d)" % layer if layer > 0 else ""]
+
+
+## The bottleneck panel, shown at great perfection (canh-gioi.md UI Requirements).
+static func bottleneck(s: GameSession, io: TerminalIO) -> Array:
+	var c: Character = s.player
+	var gd: GameData = s.gd
+	if not CultivationRules.at_great_perfection(c, gd):
+		return []
+	var sh: StatSheet = s.sheet()
+	var bar_cost: float = Ladder.bar_cost(gd, c.realm_index)
+	var odds: Dictionary = Advisor.breakthrough_odds(s)
+	var cond: Dictionary = CultivationRules.breakthrough_condition(c, gd, s.local_density(sh))
+	var lines: Array = [io.paint(" BOTTLENECK", "1;33") + "  bar %.0f / %.0f%s" % [c.tu_vi, bar_cost, " (full)" if CultivationRules.at_bottleneck(c, gd) else ""]]
+	if str(cond.text) != "":
+		lines.append("   condition %s: %s" % ["met" if bool(cond.met) else "NOT MET", cond.text])
+	lines.append("   pill: %s" % (("%s, quality %d" % [odds.pill.name, int(odds.pill.quality)]) if not odds.pill.is_empty() else "none held"))
+	var talisman: String = "used this breakthrough" if c.talisman_used else ("available" if s.talisman_available() else "none held")
+	lines.append("   talisman: %s" % talisman)
+	lines.append("   attempts this step: %d pill (next insight +%.2f), %d/%d bare" % [c.attempt_log.size(), CultivationRules.failure_insight(gd, c.failed_pills), c.bare_attempts, int(gd.ladder().bare_attempt_cap)])
+	lines.append("   qi deviation if this fails: %.0f%%" % CultivationRules.backlash_chance(c, gd, sh).total)
+	lines.append("   this attempt: %.1f%% (%s)" % [float(odds.chance) * 100.0, "pill" if not odds.pill.is_empty() and bool(cond.met) else "bare"])
+	return lines
+
+
+## Known techniques with layers, mastery and slots. Row numbers feed the 'slot' command.
+static func techniques(s: GameSession, io: TerminalIO) -> Array:
+	var c: Character = s.player
+	var gd: GameData = s.gd
+	var lines: Array = [rule(io, "Techniques [công pháp]", "─")]
+	var row: int = 1
+	for key in c.techniques.keys():
+		var e: Dictionary = c.techniques[key]
+		var slot: String = ""
+		if key == c.main_tech:
+			slot = "[main]"
+		elif key == c.second_tech:
+			slot = "[second]"
+		elif c.aux_tech.has(key):
+			slot = "[aux%d]" % (c.aux_tech.find(key) + 1)
+		var next: int = int(e.layer) + 1
+		var prog: String = "great completion"
+		if next <= int(e.def.layers):
+			prog = "mastery %.1f/%.1f%s" % [float(e.mastery), CongPhap.layer_cost(gd, e.def, next, c.realm_index), " (gated: needs a higher realm)" if CongPhap.gated(c, next) else ""]
+		var usable: String = "" if CongPhap.usable(c, e.def) else " UNUSABLE"
+		lines.append("  %2d %-24s %-6s layer %d/%d  %s %s%s" % [row, e.def.name, e.def.tech_kind, int(e.layer), int(e.def.layers), prog, slot, usable])
+		row += 1
+	var f: Dictionary = CongPhap.speed_factor(c, gd)
+	lines.append("  Speed factor x%.2f: %s · technique power %.2f" % [f.mult, f.label, CongPhap.tech_power(c, gd)])
 	return lines
 
 
@@ -433,7 +517,7 @@ static func field(s: GameSession) -> Array:
 					var left: float = s.field.years_until(c, sh, h, float(ing.min_age))
 					uses.append("%s %s" % [r.name, "READY" if left <= 0.0 else "in %.1f y" % left])
 		lines.append("  [%d] %-6s %s | %s" % [i, h.id, s.items.describe(h), ", ".join(uses)])
-	lines.append("Seeds for sale anywhere: " + ", ".join(s.field.seed_catalog().map(func(h): return "%s (%s, %d LT)" % [h.id, h.name, int(h.seed_price)])))
+	lines.append("Seeds for sale anywhere: " + ", ".join(s.field.seed_catalog(s.player.realm_index).map(func(h): return "%s (%s, %d LT)" % [h.id, h.name, int(h.seed_price)])))
 	return lines
 
 
@@ -537,7 +621,7 @@ static func show(s: GameSession, id: String) -> Array:
 			if c.master_id != "":
 				lines.append("  master: %s" % s.db.get_record("people", c.master_id).get("name", c.master_id))
 			for it in s.db.items_of(id):
-				lines.append("  owns %-6s %s%s" % [it.id, s.items.describe(it), " [equipped]" if c.equipped.has(it.id) else (" [cultivating]" if it.id == c.cong_phap_id else "")])
+				lines.append("  owns %-6s %s%s" % [it.id, s.items.describe(it), " [equipped]" if c.equipped.has(it.id) else ""])
 			lines.append("  created by: %s" % rec.get("created_by", "?"))
 		"items":
 			lines.append("%s %s" % [id, s.items.describe(rec)])
@@ -604,6 +688,9 @@ static func event(s: GameSession, io: TerminalIO = null) -> Array:
 			continue
 		lines.append(io.paint("║  ", C_YELLOW) + io.paint(label, C_BOLD))
 		lines.append(io.paint("║       ", C_YELLOW) + detail)
+		if s.player.has_capability(18):
+			lines.append(io.paint("║       ", C_YELLOW) + io.paint("on success: %s" % str(ch.success.get("text", "")), C_DIM))
+			lines.append(io.paint("║       ", C_YELLOW) + io.paint("on failure: %s" % str(ch.get("failure", {}).get("text", "")), C_DIM))
 	var warnings: Array = s.pending_meta.get("warnings", [])
 	if not warnings.is_empty():
 		for w in wrap_text("engine adjustments: " + "; ".join(warnings), WIDTH - 4):
@@ -618,25 +705,55 @@ static func event(s: GameSession, io: TerminalIO = null) -> Array:
 static func tree_summary(s: GameSession, io: TerminalIO) -> Array:
 	var c: Character = s.player
 	var t: MeridianTree = s.tree
-	var lines: Array = ["Kinh Mạch Đồ: %d huyệt open, %d unspent points. Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets" % [c.tree_nodes.size(), c.tree_points]]
+	var lines: Array = ["Kinh Mạch Đồ (%d of %d huyệt shown): %d unsealed cluster(s), capabilities: %s." % [c.tree_nodes.size(), t.reported_size(c), c.unsealed.size(), ", ".join(c.capabilities.map(func(id): return str(s.gd.capability(int(id)).get("name", id)))) if not c.capabilities.is_empty() else "none"]]
+	lines.append("%d huyệt open, %d unspent points. Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets" % [c.tree_nodes.size(), c.tree_points])
 	lines.append("Openable now:")
-	for nid in t.frontier(c.tree_nodes):
+	for nid in t.frontier(c):
 		var nd: Dictionary = t.node(nid)
 		var ok: Dictionary = t.can_allocate(c, nid, s.gd)
 		lines.append("  #%-4d %-24s %-14s %s%s" % [nid, nd.name, nd.kind, t.describe_mods(nid, c.linh_can, s.gd), "" if ok.ok or c.tree_points <= 0 else "  (" + ok.reason + ")"])
 	return lines
 
 
+## Hidden clusters as the visibility mode allows (Meridian Map rule 13). Silhouette shows the
+## place and theme; a condition appears after a discovery. An open cluster's content stays
+## hidden in both modes until its story moment.
+static func tree_clusters(s: GameSession, io: TerminalIO) -> Array:
+	var c: Character = s.player
+	var visible: bool = c.tree_visibility == "visible"
+	var lines: Array = [rule(io, "Hidden clusters (%s mode; 'tree mode visible|silhouette')" % c.tree_visibility, "─")]
+	var ids: Array = s.tree.clusters.keys()
+	ids.sort()
+	for id in ids:
+		var k: Dictionary = s.tree.clusters[id]
+		var state: String = "UNSEALED" if c.unsealed.has(int(id)) else "hidden"
+		var known: bool = visible or c.discovered.has(int(id)) or c.unsealed.has(int(id))
+		var cond: String = "condition unknown"
+		if known:
+			cond = "seal: %s, gate %s" % [k.seal.type, s.gd.realm(int(k.gate)).name]
+		var content: String = ""
+		if known and (str(k.kind) == "sealed" or c.unsealed.has(int(id))):
+			content = ", %d huyệt" % int(k.size)
+			if int(k.capability) > 0:
+				content += ", capability %s" % s.gd.capability(int(k.capability)).name
+		elif visible and str(k.kind) == "open":
+			content = ", to be written by the story"
+		lines.append("  %-3d %-20s %-5s %-6s %s%s [%s]" % [int(id), str(s.gd.tree_config().themes[k.theme].name), k.location, s.gd.element_name(str(k.sector)), cond, content, state])
+	return lines
+
+
 ## Every notable and keystone with the cost (points) to reach it.
 static func tree_targets(s: GameSession) -> Array:
 	var c: Character = s.player
+	var dist: Dictionary = s.tree.distances(c)
 	var t: MeridianTree = s.tree
 	var rows: Array = []
 	for nd in t.nodes.values():
-		if not (nd.kind in ["notable", "keystone", "bridge_notable"]) or c.tree_nodes.has(nd.id):
+		if not (nd.kind in ["notable", "keystone", "bridge_notable", "apex"]) or c.tree_nodes.has(nd.id) or not dist.has(int(nd.id)):
 			continue
-		var path: Array = t.path_to(c.tree_nodes, nd.id)
-		rows.append({"cost": path.size(), "line": "  #%-4d cost %2d  %-26s %-14s %s%s" % [nd.id, path.size(), nd.name, nd.kind, t.describe_mods(nd.id, c.linh_can, s.gd), ("  — " + nd.desc) if nd.desc != "" else ""]})
+		var path: Array = []
+		path.resize(int(dist[int(nd.id)]))
+		rows.append({"cost": path.size(), "line": "  #%-4d cost %2d  %-26s %-14s %s%s" % [nd.id, path.size(), nd.name, nd.kind, t.describe_mods(nd.id, c.linh_can, s.gd), ("  — " + nd.get("desc", "")) if nd.get("desc", "") != "" else ""]})
 	rows.sort_custom(func(a, b): return a.cost < b.cost)
 	return ["Notables and keystones by distance ('tree go <id>' opens the whole path):"] + rows.map(func(r): return r.line)
 
@@ -648,11 +765,11 @@ static func tree_node(s: GameSession, nid: int) -> Array:
 	if nd.is_empty():
 		return ["No huyệt #%d." % nid]
 	var c: Character = s.player
-	var path: Array = t.path_to(c.tree_nodes, nid)
+	var path: Array = t.path_to(c, s.gd, nid)
 	return [
-		"#%d %s — %s, sector %s, ring %d%s" % [nid, nd.name, nd.kind, nd.sector, int(nd.ring), " [OPEN]" if c.tree_nodes.has(nid) else ""],
+		"#%d %s — %s, sector %s, depth %d%s" % [nid, nd.name, nd.kind, nd.sector, int(nd.depth), " [OPEN]" if c.tree_nodes.has(nid) else ""],
 		"  bonus: %s" % t.describe_mods(nid, c.linh_can, s.gd),
-		"  %s" % nd.desc if nd.desc != "" else "",
+		"  %s" % nd.get("desc", "") if nd.get("desc", "") != "" else "",
 		"  links: %s" % ", ".join(nd.links.map(func(x): return "#%d" % int(x))),
 		"  path from your open huyệt: %s (%d points)" % [", ".join(path.map(func(x): return "#%d" % int(x))), path.size()] if not c.tree_nodes.has(nid) else "",
 	].filter(func(l): return l != "")
@@ -674,18 +791,21 @@ static func tree_map(s: GameSession, io: TerminalIO) -> Array:
 			crow.append("")
 		grid.append(row)
 		colors.append(crow)
-	var frontier: Array = t.frontier(c.tree_nodes)
+	var frontier: Array = t.frontier(c)
 	var rank := {" ": 0, ".": 1, ":": 1, "o": 2, "N": 3, "K": 4, "+": 5, "#": 6, "@": 7}
 	for nd in t.nodes.values():
-		var x: int = int(roundf(float(w) / 2.0 + float(nd.x) * 4.2))
-		var y: int = int(roundf(float(h) / 2.0 + float(nd.y) * 2.1))
+		if not t.accessible(c, int(nd.id)):
+			continue
+		var r: float = float(nd.depth) * 1.5
+		var x: int = int(roundf(float(w) / 2.0 + sin(deg_to_rad(float(nd.angle))) * r))
+		var y: int = int(roundf(float(h) / 2.0 - cos(deg_to_rad(float(nd.angle))) * r * 0.5))
 		if x < 0 or x >= w or y < 0 or y >= h:
 			continue
 		var ch: String = "."
 		match str(nd.kind):
 			"root": ch = "@"
 			"gate": ch = "o"
-			"notable", "bridge_notable": ch = "N"
+			"notable", "bridge_notable", "apex": ch = "N"
 			"keystone": ch = "K"
 			"bridge": ch = ":"
 		if c.tree_nodes.has(nd.id) and nd.kind != "root":

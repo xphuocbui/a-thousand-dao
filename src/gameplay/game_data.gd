@@ -21,7 +21,7 @@ var _herbs: Dictionary = {}
 var _recipes: Dictionary = {}
 var _materials: Dictionary = {}
 var _artifact_bases: Dictionary = {}
-var _bien_di: Dictionary = {}
+var _variants: Dictionary = {}
 var _origins: Dictionary = {}
 var _archetypes: Dictionary = {}
 var _place_types: Dictionary = {}
@@ -46,7 +46,7 @@ func setup(reg: DataRegistry) -> void:
 	_recipes = _index(file("items_recipes").get("recipes", []))
 	_materials = _index(file("items_materials").get("materials", []))
 	_artifact_bases = _index(file("items_artifacts").get("bases", []))
-	_bien_di = _index(file("character_elements").get("bien_di", []))
+	_variants = _index(file("character_elements").get("variants", []))
 	_origins = _index(file("character_attributes").get("origins", []))
 	_archetypes = _index(file("world_generation").get("archetypes", []))
 	_place_types = _index(file("world_generation").get("place_types", []))
@@ -86,10 +86,24 @@ func realm_index_by_name(realm_name: String) -> int:
 
 ## Number of stages in a realm.
 func stage_count(realm_idx: int) -> int:
-	return (realm(realm_idx).tu_vi_required as Array).size()
+	return (realm(realm_idx).stage_names as Array).size()
 
 
-## Display name such as "Trúc Cơ Trung kỳ" or "Luyện Khí Tầng 5".
+## Ladder constants of cultivation_realms.json.
+func ladder() -> Dictionary:
+	return file("cultivation_realms").get("ladder", {})
+
+
+## Grid of a stat key (Character Stats rule 15): 0.1, 0.01 or 1.
+func stat_precision(stat: String) -> float:
+	var f: Dictionary = file("character_stat_labels")
+	if f.get("precision_overrides", {}).has(stat):
+		return float(f.precision_overrides[stat])
+	var unit: String = str(f.get("labels", {}).get(stat, {}).get("unit", "flat"))
+	return float(f.get("precision_by_unit", {}).get(unit, 0.01))
+
+
+## Display name such as "Trúc Cơ Trung kỳ".
 func realm_label(realm_idx: int, stage: int) -> String:
 	var r: Dictionary = realm(realm_idx)
 	var names: Array = r.stage_names
@@ -189,12 +203,22 @@ func element(element_id: String) -> Dictionary:
 	return elements_file().get("elements", {}).get(element_id, {})
 
 
-## Display name of an element or biến dị id.
+## Data (Vietnamese) name of an element or variant id; used as stat sheet sources.
 func element_name(element_id: String) -> String:
 	var e: Dictionary = element(element_id)
 	if not e.is_empty():
 		return e.name
-	return _bien_di.get(element_id, {}).get("name", element_id)
+	return _variants.get(element_id, {}).get("name", element_id)
+
+
+## Player-facing label of an element or variant id, such as "Fire [Hỏa]".
+func element_label(element_id: String) -> String:
+	var e: Dictionary = element(element_id)
+	if e.is_empty():
+		e = _variants.get(element_id, {})
+	if e.is_empty():
+		return element_id
+	return "%s [%s]" % [e.get("name_en", e.name), e.name]
 
 
 ## Element effect constants (element_effects block).
@@ -202,14 +226,19 @@ func element_effects() -> Dictionary:
 	return elements_file().get("element_effects", {})
 
 
-## All biến dị definitions.
-func bien_di_defs() -> Array:
-	return elements_file().get("bien_di", [])
+## All variant root definitions, in catalogue (roll) order.
+func variant_defs() -> Array:
+	return elements_file().get("variants", [])
 
 
-## Biến dị definition by id.
-func bien_di(bien_di_id: String) -> Dictionary:
-	return _bien_di.get(bien_di_id, {})
+## Variant root definition by id ({} for anything else, such as a relocated mutation).
+func variant(variant_id: String) -> Dictionary:
+	return _variants.get(variant_id, {})
+
+
+## Per-purity stat lines of a variant: [{stat, per_purity}].
+func variant_effects(variant_id: String) -> Array:
+	return elements_file().get("variant_effects", {}).get(variant_id, [])
 
 
 # --- Items ------------------------------------------------------------------------
@@ -313,6 +342,32 @@ func place_type(type_id: String) -> Dictionary:
 ## meridian_tree.json content.
 func tree_config() -> Dictionary:
 	return file("meridian_tree")
+
+
+## meridian_tree.json content (alias read by the stat sheet).
+func meridian_config() -> Dictionary:
+	return file("meridian_tree")
+
+
+## The capability catalogue, in id order.
+func capabilities() -> Array:
+	return file("meridian_capabilities").get("capabilities", [])
+
+
+## The capability with [param capability_id], or {}.
+func capability(capability_id: int) -> Dictionary:
+	for c in capabilities():
+		if int(c.id) == capability_id:
+			return c
+	return {}
+
+
+## The authored technique template with [param template_id], or {}.
+func tech_template(template_id: String) -> Dictionary:
+	for t in cong_phap_file().get("templates", []):
+		if t.id == template_id:
+			return t
+	return {}
 
 
 ## combat_rules.json content.

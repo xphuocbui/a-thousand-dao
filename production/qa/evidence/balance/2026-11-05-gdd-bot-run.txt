@@ -1,0 +1,24 @@
+Bot run on the GDD rules, final map, 2026-11-05 (tools/balance/autoplay.gd).
+Lives: 300 baseline (--edge off), 120 edge (--perk dao_cot). Script errors: 0.
+A gate's rate is crossed / arrived at a full bar. +/- is a 95 % interval.
+
+Baseline (target about 30 %)
+  Luyện Khí -> Trúc Cơ     83/300  27.7 % +/- 5.1
+  Trúc Cơ -> Kết Đan       18/72   25.0 % +/- 10.0
+  Kết Đan -> Nguyên Anh    12/18   66.7 % +/- 21.8
+  Nguyên Anh -> Hóa Thần   10/12   83.3 % +/- 21.1
+
+Edge, Đạo Cốt (target about 70 %)
+  Luyện Khí -> Trúc Cơ     67/120  55.8 % +/- 8.9
+  Trúc Cơ -> Kết Đan       38/61   62.3 % +/- 12.2
+  Kết Đan -> Nguyên Anh    31/38   81.6 % +/- 12.3
+  Nguyên Anh -> Hóa Thần   23/31   74.2 % +/- 15.4
+
+First gate by element count, baseline (crossed / lives)
+  1: 32/129  2: 30/102  3: 11/42  4: 6/18  5: 4/9
+
+NPC cohort, 330 per cohort (tools/balance/npc_cohort.gd, run before the last map changes)
+  no edge   35 % / 35 % / 23 %
+  all edges 71 % / 67 % / 65 %
+
+Lives run until death or Hóa Thần. Lives that reached Hóa Thần stop there.

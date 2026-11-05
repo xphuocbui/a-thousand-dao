@@ -496,6 +496,9 @@
               {
                 "type": "tree_point",
                 "amount": 1
+              },
+              {
+                "type": "insight"
               }
             ]
           },
@@ -1163,6 +1166,150 @@
           "always": [],
           "success": {
             "text": "Ngươi rời khỏi động phủ.",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "co_dong_phu",
+      "weight": 3,
+      "place_types": [
+        "son",
+        "coc",
+        "bi_canh",
+        "dao"
+      ],
+      "requires_realm_min": 1,
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Cổ động phủ",
+      "text": "Sau vách đá {place} là một động phủ cổ, trên vách khắc đồ hình kinh mạch chưa từng thấy.",
+      "choices": [
+        {
+          "label": "Nhập định theo đồ hình (Ngộ tính)",
+          "check": {
+            "type": "stat",
+            "stat": "ngo_tinh",
+            "difficulty": 50
+          },
+          "success": {
+            "text": "Một mạch ẩn trong cơ thể chợt khai thông.",
+            "effects": [
+              {
+                "type": "unseal_sealed"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Đồ hình mờ dần, ngươi không nắm được gì.",
+            "effects": [
+              {
+                "type": "tam_ma",
+                "amount": 3
+              }
+            ]
+          }
+        },
+        {
+          "label": "Rời đi",
+          "check": {
+            "type": "none"
+          },
+          "success": {
+            "text": "Ngươi để động phủ lại cho người hữu duyên.",
+            "effects": []
+          },
+          "failure": {
+            "text": "",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "thien_co_chi_hinh",
+      "weight": 3,
+      "place_types": [
+        "any"
+      ],
+      "requires_realm_min": 0,
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Thiên cơ chi hình",
+      "text": "Một giấc mộng lạ: dòng khí trong người ngươi vẽ nên một hình chưa ai từng đặt tên.",
+      "choices": [
+        {
+          "label": "Theo dòng khí (Thần hồn)",
+          "check": {
+            "type": "stat",
+            "stat": "than_hon",
+            "difficulty": 45
+          },
+          "success": {
+            "text": "Một vùng kinh mạch chưa ai biết nay thuộc về ngươi.",
+            "effects": [
+              {
+                "type": "unseal_open"
+              }
+            ]
+          },
+          "failure": {
+            "text": "Ngươi tỉnh giấc, chỉ còn dư âm.",
+            "effects": []
+          }
+        },
+        {
+          "label": "Tĩnh tâm bỏ qua",
+          "check": {
+            "type": "none"
+          },
+          "success": {
+            "text": "Giấc mộng tan.",
+            "effects": []
+          },
+          "failure": {
+            "text": "",
+            "effects": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "mach_an_co_vat",
+      "weight": 2,
+      "place_types": [
+        "son",
+        "coc",
+        "bi_canh",
+        "dao",
+        "phuong_thi"
+      ],
+      "requires_realm_min": 1,
+      "npc": {
+        "mode": "none"
+      },
+      "title": "Mạch Ấn cổ vật",
+      "text": "Giữa đống phế vật ở {place}, một phiến ngọc khắc đồ hình kinh mạch tỏa sáng khi ngươi chạm vào.",
+      "choices": [
+        {
+          "label": "Nhận lấy",
+          "check": {
+            "type": "none"
+          },
+          "success": {
+            "text": "Ngọc phiến nóng lên trong tay ngươi.",
+            "effects": [
+              {
+                "type": "treasure",
+                "treasure": "mach_an"
+              }
+            ]
+          },
+          "failure": {
+            "text": "",
             "effects": []
           }
         }

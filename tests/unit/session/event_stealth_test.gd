@@ -14,7 +14,7 @@ func _session() -> GameSession:
 
 
 func _stealthy(s: GameSession) -> void:
-	s.player.linh_can.bien_di["am"] = 60.0
+	s.player.linh_can.variants["am"] = 60.0
 
 
 func test_stealth_raises_only_evade_checks() -> void:

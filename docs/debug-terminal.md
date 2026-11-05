@@ -105,14 +105,16 @@ World, Kinh Mạch Đồ, LLM, Debug). Debug commands (`debug event <template>`,
 | Request | Where | Notes |
 |---|---|---|
 | Character creation | `character/character_factory.gd`, terminal `new` | Thiên Định (rolled, rerollable, achievements flag) / Tự Định (chosen, casual) |
-| Character stats | `character/stat_sheet.gd`, `character_rules.gd`, `cultivation/cultivation_rules.gd` | 3 layers from the concept; every number is a `Breakdown` (`explain`) |
-| Linh căn | `character/linh_can.gd` | more elements = slower early / faster late (data curve), rule-derived biến dị (≈30, chained) |
+| Character stats | `character/stat_sheet.gd`, `character_rules.gd` | design/gdd/character-stats.md: quantized modifiers, character-wide ceilings with penalties after the cap, stage-scaled derived values, the capability set |
+| The ladder | `cultivation/ladder.gd`, `cultivation/cultivation_rules.gd` | design/gdd/canh-gioi.md: levels 1-300, stages, level costs, bottleneck bar, a separate condition per gate, pill and bare attempts, failure insight, the q-extras ceiling, lifespan ceiling |
+| Techniques | `cultivation/cong_phap.gd`, terminal `tech`, `slot` | design/gdd/cong-phap.md: main and auxiliary slots, layers and mastery, speed and power, harmony, reserved par-tier manuals |
+| Spiritual roots | `character/linh_can.gd` | design/gdd/linh-can.md: five elements, eight variant roots of three origins, `n_base` for tier and pairs, `n_eff` for the curve, a fixed birth draw order, Mutation Awakening |
 | World generation + history | `world/world_generator.gd` | regions, places, roads, sects with ranked members, townsfolk, loose cultivators, legendary and lost treasures, ~300 years of legends consistent with the present |
 | Living world | `world/world_ticker.gd` | each season NPCs age, cultivate, break through, die, duel |
 | Story | `narrative/narrator.gd`, `events/*` | LLM or template events, LLM narration with a number check, NPC talk, an epitaph; `chronicle` |
 | Item generation | `items/item_factory.gd` | linh thảo (age → potency), đan dược (quality), pháp bảo (grade, tier, element, affixes), công pháp (tier, elements, bonuses), materials |
 | Build generation | `build/build_generator.gd` | every NPC gets linh căn, thiên phú, công pháp, artifacts limited by thần thức, Kinh Mạch points spent toward its archetype, đạo nghệ — same rules as the player |
-| Passive tree (PoE-like) | `meridian/meridian_tree.gd` | Kinh Mạch Đồ: 202 huyệt, 5 element sectors in tương sinh order, 30 notables, 5 keystones + a center keystone for Ngũ Hành roots, bridges; bonuses scale with your purity in that sector; ASCII `tree map` |
+| Passive tree (PoE-like) | `meridian/meridian_tree.gd`, `meridian_generator.gd` | design/gdd/kinh-mach-do.md: 802 visible acupoints, 75 hidden clusters, 25 capabilities, 8 locked variant sectors; terminal `tree`, `tree clusters`, `tree mode` |
 | LLM events | `narrative/llm_service.gd`, `events/event_validator.gd` | DeepSeek/OpenAI-compatible; the engine clamps every number to `events_budgets.json`, registers new people before they appear, drops unknown effects, and shows each adjustment |
 | Databases | `world/world_db.gd` | people, sects, places, regions, items, events — one JSON-serializable store, event index per entity; terminal `db` |
 | Crafting / economy | `crafting/herb_field.gd`, `alchemy.gd`, `items/pill_effects.gd`, `economy/market.gd` | herbs age by Mộc, alchemy by Hỏa/Đan Đạo, đan độc brake, markets by realm budget |
@@ -190,11 +192,14 @@ testing the LLM path offline: `node tools/llm-mock/mock_server.js` then
 ## Known limitations and open questions
 
 - **Balance (tools/balance/autoplay.gd, tools/balance/npc_cohort.gd).** Targets (user, 2026-11-03):
-  without an edge about 3 in 10 make each realm breakthrough; the main character's edge
-  lifts that to about 7 in 10; NPC edges range between. The bot plays whole lives through the
-  session API following the Advisor; `--edge off` measures the baseline. Latest (round 3):
-  baseline 46% / 27% per step (first step still too easy), edge 79% / 74%, NPC cohorts on
-  target. Calibration log and the next adjustment: `design/quick-specs/progression-and-edges.md`.
+  without an edge about 3 in 10 make each realm breakthrough; the main character's edge lifts
+  that to about 7 in 10; NPC edges range between. The bot plays whole lives through the session
+  API with the plant plan; `--edge off` measures the baseline and `--perk dao_cot` the edge the
+  calibration assumes. Latest run on the GDD rules (2026-11-05; 300 baseline, 120 edge lives; a
+  gate's rate is crossed / arrived at a full bar): baseline 27.7 % / 25.0 % / 66.7 % / 83.3 %,
+  edge 55.8 % / 62.3 % / 81.6 % / 74.2 %. The two late baseline figures rest on 18 and 12 lives.
+  Raw results: `production/qa/evidence/balance/2026-11-05-gdd-bot-run.txt`.
+  NPC cohorts: no edge 35 / 35 / 23 %, all edges 71 / 67 / 65 %.
   `godot --headless --path . -s res://tools/balance/autoplay.gd -- --edge off --seeds 1,2,3`
 - **Balance is first-pass.** Values come from the concept's draft tables; nothing
   has been playtested. In particular: event difficulty against low thiên phú, early
@@ -206,10 +211,15 @@ testing the LLM path offline: `node tools/llm-mock/mock_server.js` then
   there is no "win"; a life ends at death.
 - **Built 2026-11-03, first pass**: luyện khí, trận pháp, phù lục, linh thú, changing
   linh căn, thành tựu (specs in `design/quick-specs/`). **Not yet built**: linh trùng
-  swarms, a Codex of discovered recipes and biến dị, karmic carryover, a path past Kết Đan
-  (no Hóa Anh Đan recipe, so Nguyên Anh is reached only by a pill-less breakthrough).
-- **Open design questions carried from the concept**: whether biến dị count as
-  elements for the curve (data flag, currently yes), turn granularity (season vs
-  year), and exact combat resolution (currently a power-ratio duel).
+  swarms, a Codex of discovered recipes and variants, karmic carryover.
+- **Built 2026-11-05 from the GDDs, with placeholders**: sealed cluster content and the
+  variant sector names are theme-pool filler; a technique-sealed cluster opens for a main
+  method naming its element; open cluster fills use the template pool, never the LLM;
+  the Heavenly Tribulation is absent, so the Deity Transformation roll stands alone; divine
+  abilities exist on techniques but Combat reads none; #20's "seen two stages lower" is not
+  shown; the Advisor shows brews possible and `Advisor.next_plant` holds the plant plan, but the
+  terminal has no one-click command for it yet. The viewer is built by `tools/meridian-map/`.
+- **Open design questions carried from the concept**: turn granularity (season vs year)
+  and exact combat resolution (currently a power-ratio duel).
 - Unit tests read the real data files (they are project fixtures, read-only); a
   test-only data set would make them independent of tuning changes.

@@ -135,32 +135,80 @@ func _artifact_name(base: Dictionary, elem: String, affixes: Array) -> String:
 
 # --- Công pháp ------------------------------------------------------------------
 
-## A công pháp manual of tier rank 0..3 for [param elements] (empty = roll).
-func cong_phap(rng: RandomNumberGenerator, tier_rank: int, elements: Array = [], flavor_name: String = "") -> Dictionary:
+## A technique manual of tier rank 0..3 (cong-phap.md rule 17, Formulas E). Tiers above the
+## commons are authored, so they come from the catalogue. [param names] fixes the elements
+## (empty = roll). [param opts]: kind ("main" or "secret"), root (the LinhCan a player offer
+## leans toward).
+func cong_phap(rng: RandomNumberGenerator, tier_rank: int, names: Array = [], flavor_name: String = "", opts: Dictionary = {}) -> Dictionary:
 	var cfg: Dictionary = _gd.cong_phap_file()
+	var kind: String = str(opts.get("kind", "main"))
+	if not Array(cfg.commons_tiers).map(func(t): return int(t)).has(tier_rank):
+		var t: Dictionary = _catalogue_pick(rng, tier_rank, kind, names)
+		if not t.is_empty():
+			return manual_from_template(t)
+		tier_rank = int(cfg.commons_tiers[-1])
 	var tier: Dictionary = _gd.cong_phap_tier(tier_rank)
-	var elems: Array = elements.duplicate()
+	var elems: Array = names.duplicate()
 	if elems.is_empty():
-		if rng.randf() < float(cfg.multi_element_chance):
-			var n: int = int(RngUtils.pick(rng, cfg.multi_element_count))
-			elems = RngUtils.shuffled(rng, _gd.element_cycle()).slice(0, n)
-		else:
-			elems = [RngUtils.pick(rng, _gd.element_cycle())]
+		elems = _roll_names(rng, cfg, opts.get("root"))
 	var prefix_key: String = elems[0] if elems.size() == 1 else "multi"
 	var name: String = flavor_name.substr(0, 40)
 	if name == "":
 		name = "%s %s" % [RngUtils.pick(rng, cfg.element_prefixes[prefix_key]), RngUtils.pick(rng, cfg.suffixes)]
 	var bonuses: Array = []
-	var pool: Array = cfg.bonus_pool.duplicate()
-	for i in int(tier.bonus_count):
+	var pool: Array = cfg.bonus_pool.filter(func(b): return not bool(b.get("authored_only", false)))
+	var q_sum: float = 0.0
+	var n: int = int(tier.bonus_count) + (int(cfg.secret_art_bonus_extra) if kind == "secret" else 0)
+	for i in n:
 		var b: Dictionary = RngUtils.pick(rng, pool)
 		pool.erase(b)
-		bonuses.append({"stat": b.stat, "value": snappedf(rng.randf_range(float(b.min), float(b.max)), 0.1)})
+		var v: float = snappedf(rng.randf_range(float(b.min), float(b.max)), 0.1)
+		bonuses.append({"stat": b.stat, "value": v})
+		q_sum += clampf((v - float(b.min)) / (float(b.max) - float(b.min)), 0.0, 1.0)
+	var q: float = q_sum / float(n) if n > 0 else 0.5
 	return {
-		"kind": "cong_phap", "name": name, "tier": int(tier.rank), "tier_name": tier.name,
-		"elements": elems, "speed_mult": float(tier.speed_mult), "power_mult": float(tier.power_mult),
-		"max_realm": tier.max_realm, "bonuses": bonuses, "value": int(tier.value), "owner_id": "",
+		"kind": "cong_phap", "name": name, "tech_id": "gen_%d" % rng.randi(), "tier": int(tier.rank), "tier_name": tier.name,
+		"tech_kind": kind, "names": elems, "layers": int(tier.layers), "bonuses": bonuses, "abilities": [],
+		"seal_clusters": [], "origin": "generated", "value": _manual_price(cfg, tier, q), "owner_id": "",
 	}
+
+
+## A manual of an authored template.
+func manual_from_template(t: Dictionary) -> Dictionary:
+	var cfg: Dictionary = _gd.cong_phap_file()
+	var tier: Dictionary = _gd.cong_phap_tier(int(t.tier))
+	return {
+		"kind": "cong_phap", "name": t.name, "tech_id": t.id, "tier": int(t.tier), "tier_name": tier.name,
+		"tech_kind": t.tech_kind, "names": t.names.duplicate(), "layers": int(t.layers), "bonuses": t.bonuses.duplicate(true),
+		"abilities": t.abilities.duplicate(true), "seal_clusters": t.seal_clusters.duplicate(), "origin": "authored",
+		"value": _manual_price(cfg, tier, 0.5), "owner_id": "",
+	}
+
+
+func _catalogue_pick(rng: RandomNumberGenerator, tier_rank: int, kind: String, names: Array) -> Dictionary:
+	var all: Array = _gd.cong_phap_file().get("templates", []).filter(func(t): return int(t.tier) == tier_rank and str(t.tech_kind) == kind)
+	var fit: Array = all.filter(func(t): return not names.is_empty() and names.has(t.names[0] if not t.names.is_empty() else ""))
+	var from: Array = fit if not fit.is_empty() else all
+	return RngUtils.pick(rng, from) if not from.is_empty() else {}
+
+
+## Formulas E: 1 or 2 elements, each leaning toward [param root] on a player offer.
+func _roll_names(rng: RandomNumberGenerator, cfg: Dictionary, root: Variant) -> Array:
+	var n: int = int(cfg.multi_element_count[0]) if rng.randf() < float(cfg.multi_element_chance) else 1
+	var out: Array = []
+	for i in n:
+		var left: Array = _gd.element_cycle().filter(func(e): return not out.has(e))
+		var from: Array = left
+		if root != null and rng.randf() < float(cfg.root_bias):
+			var own: Array = left.filter(func(e): return root.elements.has(e))
+			if not own.is_empty():
+				from = own
+		out.append(RngUtils.pick(rng, from))
+	return out
+
+
+func _manual_price(cfg: Dictionary, tier: Dictionary, q: float) -> int:
+	return int(roundf(float(tier.value) * (float(cfg.price_base) + float(cfg.price_spread) * q)))
 
 
 # --- Materials --------------------------------------------------------------------
@@ -226,12 +274,13 @@ func describe(item: Dictionary) -> String:
 				(" | " + ", ".join(aff)) if not aff.is_empty() else ""]
 		"cong_phap":
 			var els: PackedStringArray = []
-			for e in item.elements:
+			for e in item.get("names", []):
 				els.append(_gd.element_name(e))
 			var bon: PackedStringArray = []
 			for b in item.bonuses:
 				bon.append(_gd.format_mod(str(b.stat), float(b.value)))
-			return "%s [%s, %s] speed x%.1f, up to %s%s" % [item.name, item.tier_name, "/".join(els), float(item.speed_mult), _gd.realm(_gd.realm_index(item.max_realm)).name, (" | " + ", ".join(bon)) if not bon.is_empty() else ""]
+			var tier: Dictionary = _gd.cong_phap_tier(int(item.tier))
+			return "%s [%s %s, %s] %d layers, up to %s%s" % [item.name, item.tier_name, item.tech_kind, "/".join(els) if not els.is_empty() else "body", int(item.layers), _gd.realm(_gd.realm_index(str(tier.max_realm))).name, (" | " + ", ".join(bon)) if not bon.is_empty() else ""]
 		"material":
 			return "%s x%d" % [item.name, int(item.qty)]
 		"treasure":

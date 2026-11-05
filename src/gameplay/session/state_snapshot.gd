@@ -29,7 +29,7 @@ static func take(s: GameSession) -> Dictionary:
 		skills[k] = c.skill_level(k)
 	return {
 		"year": s.year, "season": s.season,
-		"realm_index": c.realm_index, "stage": c.stage, "realm_label": s.gd.realm_label(c.realm_index, c.stage),
+		"realm_index": c.realm_index, "stage": c.stage, "level": c.level, "realm_label": s.gd.realm_label(c.realm_index, c.stage),
 		"tu_vi": c.tu_vi, "age": c.age, "lifespan": CultivationRules.lifespan(c, s.gd, sh).total,
 		"linh_thach": c.linh_thach, "vitality": c.vitality, "dan_doc": c.dan_doc, "tam_ma": c.tam_ma,
 		"tree_points": c.tree_points, "tree_nodes": c.tree_nodes.size(),
@@ -49,6 +49,8 @@ static func diff(a: Dictionary, b: Dictionary, gd: GameData) -> Array:
 		out.append(_c("time", seasons, seasons, "%s passed" % _duration(seasons, gd)))
 	if int(b.realm_index) != int(a.realm_index) or int(b.stage) != int(a.stage):
 		out.append(_c("realm", a.realm_label, b.realm_label, "%s → %s" % [a.realm_label, b.realm_label]))
+	elif int(b.level) != int(a.level):
+		out.append(_c("realm", int(a.level), int(b.level), "Level %d → %d" % [int(a.level), int(b.level)]))
 	elif _moved(a.tu_vi, b.tu_vi):
 		out.append(_num("tu_vi", "Tu vi", float(a.tu_vi), float(b.tu_vi)))
 	if _moved(a.lifespan, b.lifespan):

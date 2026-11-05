@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "_doc": "The launch capability catalogue, design/gdd/kinh-mach-do.md rule 17. params are the numbers in each rule. npc_effect is the closed set in Formulas G.",
+  "capabilities": [
+    {
+      "id": 1,
+      "name": "Song Khí Hợp Bích",
+      "name_en": "Twin Arms in Harmony",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "chien_luc_mult",
+        "value": 1.05
+      },
+      "params": {
+        "attack_pct": 15
+      },
+      "desc": "Two magic treasures of the same kind work as a pair: +15% attack for the pair."
+    },
+    {
+      "id": 2,
+      "name": "Thần Thức Phân Hóa",
+      "name_en": "Divided Divine Sense",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "chien_luc_mult",
+        "value": 1.05
+      },
+      "params": {
+        "slots": 1,
+        "than_thuc_pct": 20
+      },
+      "desc": "+1 magic treasure slot and +20% divine sense."
+    },
+    {
+      "id": 3,
+      "name": "Dưỡng Bảo Nội Thể",
+      "name_en": "Treasure Nurtured Within",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "chien_luc_mult",
+        "value": 1.05
+      },
+      "params": {
+        "per_year_pct": 1,
+        "max_pct": 50
+      },
+      "desc": "The first equipped treasure costs no divine sense and grows +1% per year, up to +50%."
+    },
+    {
+      "id": 4,
+      "name": "Huyết Ngự Linh",
+      "name_en": "Blood Commands Spirit",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "chien_luc_mult",
+        "value": 1.1
+      },
+      "params": {},
+      "desc": "20% of vitality counts as spiritual power; below 30% vitality, -20% attack."
+    },
+    {
+      "id": 5,
+      "name": "Linh Hồn Xuất Khiếu",
+      "name_en": "Soul Leaves the Body",
+      "tier": "T3",
+      "npc_effect": {
+        "type": "survive_once",
+        "value": 0
+      },
+      "params": {},
+      "desc": "Once per realm, survive a death in an event at 5% vitality, losing one stage."
+    },
+    {
+      "id": 6,
+      "name": "Song Tu Công Pháp",
+      "name_en": "Twin Technique Cultivation",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "p_step_add",
+        "value": 0.03
+      },
+      "params": {},
+      "desc": "A second main method at 50% speed with its full bonuses."
+    },
+    {
+      "id": 7,
+      "name": "Thai Tức Quy Nguyên",
+      "name_en": "Embryonic Breath",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {
+        "age_mult": 0.75
+      },
+      "desc": "Age at three-quarters speed during closed-door cultivation."
+    },
+    {
+      "id": 8,
+      "name": "Mộng Trung Ngộ Đạo",
+      "name_en": "Dao in Dreams",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {
+        "rate_mult": 0.5
+      },
+      "desc": "Seasons spent travelling also cultivate, at 50% rate."
+    },
+    {
+      "id": 9,
+      "name": "Hấp Tinh Đại Pháp",
+      "name_en": "Great Essence-Draining Art",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "chien_luc_mult",
+        "value": 1.05
+      },
+      "params": {
+        "stage_frac": 0.05,
+        "tam_ma": 2
+      },
+      "desc": "Defeating a cultivator gives cultivation base worth 5% of the current stage; heart demon +2."
+    },
+    {
+      "id": 10,
+      "name": "Đan Hỏa Phân Lô",
+      "name_en": "Divided Furnace Flame",
+      "tier": "T1",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {},
+      "desc": "Brew two recipes in one season."
+    },
+    {
+      "id": 11,
+      "name": "Dị Đan Hóa Sinh",
+      "name_en": "Strange Pill Reborn",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {
+        "chance": 0.3
+      },
+      "desc": "A failed brew has a 30% chance of a random lesser pill instead of ash."
+    },
+    {
+      "id": 12,
+      "name": "Bách Thảo Tàng Linh",
+      "name_en": "Hundred Herbs Kept Alive",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {
+        "rate": 0.5
+      },
+      "desc": "Harvested herbs keep aging in the bag at half speed."
+    },
+    {
+      "id": 13,
+      "name": "Phù Lục Bất Tận",
+      "name_en": "Endless Talismans",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {
+        "chance": 0.3
+      },
+      "desc": "30% chance a used talisman is not consumed."
+    },
+    {
+      "id": 14,
+      "name": "Động Phủ Tùy Thân",
+      "name_en": "Portable Cave Abode",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {},
+      "desc": "Formations and spirit fields work wherever you are; the field can be tended anywhere."
+    },
+    {
+      "id": 15,
+      "name": "Trận Trung Trận",
+      "name_en": "Formation Within a Formation",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {
+        "extra_levels": 2,
+        "upkeep_mult": 2
+      },
+      "desc": "Formations may exceed their maximum by 2 levels; upkeep for those levels x2."
+    },
+    {
+      "id": 16,
+      "name": "Vạn Thú Đồng Tâm",
+      "name_en": "Ten Thousand Beasts, One Heart",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "chien_luc_mult",
+        "value": 1.05
+      },
+      "params": {
+        "extra_beasts": 2,
+        "loyalty_floor": 30
+      },
+      "desc": "+2 spirit beasts kept; loyalty never drops below 30."
+    },
+    {
+      "id": 17,
+      "name": "Thú Hồn Hợp Thể",
+      "name_en": "Beast Soul Union",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "chien_luc_mult",
+        "value": 1.05
+      },
+      "params": {},
+      "desc": "The strongest spirit beast adds its full combat power instead of half."
+    },
+    {
+      "id": 18,
+      "name": "Thiên Cơ Diễn Toán",
+      "name_en": "Reading Heaven's Secrets",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {},
+      "desc": "See every choice's success and failure outcomes before choosing."
+    },
+    {
+      "id": 19,
+      "name": "Khí Vận Chi Tử",
+      "name_en": "Child of Fortune",
+      "tier": "T1",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {},
+      "desc": "Once per realm, reroll a failed event check."
+    },
+    {
+      "id": 20,
+      "name": "Liễm Tức Ẩn Thân",
+      "name_en": "Concealed Breath",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {
+        "stages": 2,
+        "hostile_mult": 0.7
+      },
+      "desc": "Others see you two stages lower; hostile events -30% frequency."
+    },
+    {
+      "id": 21,
+      "name": "Thuấn Di Ấn",
+      "name_en": "Blink Mark",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {},
+      "desc": "Once a year, travel instantly to any visited place."
+    },
+    {
+      "id": 22,
+      "name": "Hồi Quang Phản Chiếu",
+      "name_en": "Last Radiance",
+      "tier": "T3",
+      "npc_effect": {
+        "type": "p_step_add",
+        "value": 0.05
+      },
+      "params": {
+        "years_left": 5,
+        "delta_desp": 0.15,
+        "delta_max": 0.1
+      },
+      "desc": "With under 5 years of lifespan left, one pill attempt per realm is up to x2, capped."
+    },
+    {
+      "id": 23,
+      "name": "Thiêu Thọ Phá Cảnh",
+      "name_en": "Burning Life to Break Through",
+      "tier": "T3",
+      "npc_effect": {
+        "type": "p_step_add",
+        "value": 0.05
+      },
+      "params": {
+        "burn_years": 10,
+        "burn_frac": 0.05,
+        "delta_max": 0.1
+      },
+      "desc": "After a failed pill attempt, burn 10 years (5% of the realm's lifespan if more) to retry at once."
+    },
+    {
+      "id": 24,
+      "name": "Biến Dị Khai Mở",
+      "name_en": "Mutation Awakening",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "none",
+        "value": 0
+      },
+      "params": {},
+      "desc": "Each completed realm breakthrough gives one more roll to every unowned, non-declined derived variant whose requirement is met."
+    },
+    {
+      "id": 25,
+      "name": "Tâm Ma Hóa Lực",
+      "name_en": "Heart Demon Turned to Strength",
+      "tier": "T2",
+      "npc_effect": {
+        "type": "chien_luc_mult",
+        "value": 1.05
+      },
+      "params": {},
+      "desc": "Heart demon above 50 adds attack; qi deviation chance x2."
+    }
+  ]
+}

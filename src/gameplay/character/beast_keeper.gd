@@ -31,7 +31,8 @@ func config() -> Dictionary:
 ## How many beasts the character can keep (Thần hồn raises it).
 func capacity(c: Character, sheet: StatSheet) -> int:
 	var cfg: Dictionary = config()
-	return int(cfg.max_beasts_base) + int(sheet.effective("than_hon", c) / float(cfg.than_hon_per_extra_beast))
+	var extra: int = int(gd_extra_beasts(c))
+	return extra + int(cfg.max_beasts_base) + int(sheet.effective("than_hon", c) / float(cfg.than_hon_per_extra_beast))
 
 
 ## Chance (0..1) to tame a beaten beast, as a breakdown.
@@ -119,6 +120,8 @@ func feed(c: Character) -> Array:
 			c.add_skill_xp(str(cfg.skill), float(cfg.xp_per_year_fed), float(cfg.xp_per_level), int(cfg.max_level))
 			continue
 		b["loyalty"] = int(b.get("loyalty", 0)) - int(cfg.loyalty.unfed_loss)
+		if c.has_capability(16):
+			b["loyalty"] = maxi(int(b.loyalty), int(_gd.capability(16).params.loyalty_floor))
 		if int(b.loyalty) <= 0:
 			b["owner_id"] = ""
 			c.beasts.erase(id)
@@ -134,8 +137,18 @@ static func power_shares(c: Character, gd: GameData, db: WorldDB) -> Array:
 		return []
 	var share: float = float(gd.file("creatures_linh_thu").power_share)
 	var out: Array = []
+	var strongest: int = -1
 	for id in c.beasts:
 		var b: Dictionary = db.get_record("people", id)
 		if not b.is_empty() and b.alive and str(b.get("owner_id", "")) == c.id:
 			out.append({"name": str(b.name), "power": float(b.get("power", 0.0)) * share})
+			if strongest < 0 or float(out[-1].power) > float(out[strongest].power):
+				strongest = out.size() - 1
+	if c.has_capability(17) and strongest >= 0:
+		out[strongest].power = float(out[strongest].power) / share
 	return out
+
+
+## Capability #16's extra beasts.
+func gd_extra_beasts(c: Character) -> int:
+	return int(_gd.capability(16).params.extra_beasts) if c.has_capability(16) else 0

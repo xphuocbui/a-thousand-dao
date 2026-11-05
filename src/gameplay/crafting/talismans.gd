@@ -101,7 +101,7 @@ func draw(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, talisman_i
 ## or "stat" with [param evade]) to [param sheet]; with [param consume] one of each kind
 ## is used up.
 ## Returns the names applied.
-static func apply_for_check(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, check_type: String, evade: bool, consume: bool) -> Array:
+static func apply_for_check(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, check_type: String, evade: bool, consume: bool, rng: Variant = null) -> Array:
 	var want: String = check_type if check_type in ["combat", "breakthrough"] else ("evade" if evade else "")
 	if want == "" or db == null:
 		return []
@@ -116,11 +116,16 @@ static func apply_for_check(c: Character, gd: GameData, db: WorldDB, sheet: Stat
 		seen[it.template] = true
 		sheet.add_mod("Phù lục: %s" % d.name, str(d.stat), float(d.value))
 		used.append(str(d.name))
-		if consume:
+		if consume and not (rng != null and keeps_talisman(c, gd, rng)):
 			it["qty"] = int(it.qty) - 1
 			if int(it.qty) <= 0:
 				db.remove("items", it.id)
 	return used
+
+
+## Capability #13: a used talisman may survive.
+static func keeps_talisman(c: Character, gd: GameData, rng: Variant) -> bool:
+	return c.has_capability(13) and rng.randf() < float(gd.capability(13).params.chance)
 
 
 func _add(c: Character, talisman_id: String, qty: int) -> void:

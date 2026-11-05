@@ -17,16 +17,23 @@
     {"name": "Thiên", "max": 100}
   ],
   "linh_can": {
-    "count_weights": {"1": 45, "2": 30, "3": 15, "4": 7, "5": 3},
+    "count_weights": {"1": 45, "2": 32, "3": 15, "4": 6.5, "5": 1.5},
     "purity_mean": 50.0,
     "purity_sd": 20.0,
     "purity_min": 10,
     "purity_max": 100,
-    "bien_di_chance_factor": 0.5,
-    "bien_di_higher_order_factor": 0.25,
-    "bien_di_purity_factor": 0.8,
-    "bien_di_counts_as_element": true,
-    "max_counted_elements": 8
+    "pair_bonus_pct": 3.0,
+    "n_cap": 5,
+    "void_max_elements": 2,
+    "convergence_factor": 0.6,
+    "transmutation_factor": 0.12,
+    "chaos_factor": 5.0,
+    "innate_chance": {"phong": 0.025, "huyet": 0.015, "hu_khong": 0.005},
+    "variant_purity_factor": 0.8,
+    "awakening_max_passes": 2,
+    "awakening_capability": 24,
+    "variant_power_band": [10, 30],
+    "variant_power_band_apex": [20, 60]
   },
   "element_count_curve": {
     "1": {"lk_early": 1.0, "lk_mid": 1.0, "lk_late": 1.0, "tc_so": 1.0, "tc_trung": 1.0, "tc_hau": 1.0, "tc_dvm": 1.0, "kd_so": 1.0, "kd_trung": 1.0, "kd_hau": 1.0, "kd_dvm": 1.0, "na": 1.0, "ht": 1.0},
@@ -41,9 +48,18 @@
     "dan_doc_max": 100.0,
     "tam_ma_max": 100.0,
     "dan_doc_natural_decay": 1.0,
-    "tam_ma_natural_decay": 0.5,
-    "injury_recovery_pct_per_season": 0.25
+    "tam_ma_natural_decay": 0.25,
+    "injury_recovery_frac_per_season": 0.25,
+    "vitality_floor": 0.05,
+    "resist_factor_min": 0.1,
+    "resist_factor_max": 2.0,
+    "cleanse_potency_floor": 0.25,
+    "linh_luc_conversion": 0.20,
+    "effective_talent_min": 1,
+    "effective_talent_max": 150,
+    "heart_demon_strength": {"threshold": 50, "divisor": 2, "deviation_pct": 100}
   },
+  "bonus_ceilings": {"herb_growth_pct": 10, "alchemy_success": 3, "lifespan_frac": 0.15},
   "start": {
     "age": 16.0,
     "linh_thach": 50,
@@ -51,7 +67,7 @@
   },
   "origins": [
     {"id": "tan_tu", "name": "Tán tu", "desc": "Nobody. Free, poor, no sect obligations.", "linh_thach": 30, "starting_herbs": [{"herb": "ngung_khi_thao", "age": 0.0, "qty": 2}], "cong_phap_tier": "hoang", "sect": false, "khi_van_bonus": 5},
-    {"id": "tong_mon", "name": "Đệ tử tông môn", "desc": "Outer disciple of a generated sect: stipend, sect missions, a better công pháp.", "linh_thach": 50, "starting_herbs": [{"herb": "ngung_khi_thao", "age": 0.0, "qty": 1}], "cong_phap_tier": "huyen", "sect": true, "stipend_per_year": 12},
+    {"id": "tong_mon", "name": "Đệ tử tông môn", "desc": "Outer disciple of a generated sect: stipend, sect missions, a better công pháp.", "linh_thach": 50, "starting_herbs": [{"herb": "ngung_khi_thao", "age": 0.0, "qty": 1}], "cong_phap_tier": "hoang", "sect": true, "stipend_per_year": 12},
     {"id": "gia_toc", "name": "Con cháu gia tộc", "desc": "Minor clan heir: more linh thạch and a field already growing.", "linh_thach": 120, "starting_herbs": [{"herb": "ngung_khi_thao", "age": 1.0, "qty": 2}, {"herb": "hoang_tinh_sam", "age": 8.0, "qty": 1}], "cong_phap_tier": "hoang", "sect": false}
   ]
 }

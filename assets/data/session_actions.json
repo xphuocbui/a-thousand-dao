@@ -3,8 +3,14 @@
   "field": {
     "base_plots": 3,
     "max_plots": 12,
-    "seed_rarity_max": 3,
-    "must_be_home": true
+    "must_be_home": true,
+    "seed_rarity_by_realm": [
+      3,
+      4,
+      5,
+      6,
+      6
+    ]
   },
   "mission": {
     "sect_base_income": 10,
@@ -37,7 +43,8 @@
     "stock_pill_qty_max": 3,
     "stock_pill_price_budget_mult": 2,
     "stock_materials": 4,
-    "stock_material_qty_max": 3
+    "stock_material_qty_max": 3,
+    "stock_secret_art_chance": 0.3
   },
   "talk": {
     "per_npc_per_season": 1,

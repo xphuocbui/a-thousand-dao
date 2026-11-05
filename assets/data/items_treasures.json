@@ -2,8 +2,30 @@
   "schema_version": 1,
   "_doc": "Rare treasures used with 'use'. Linh Căn Quả changes the linh căn (game-concept.md § Changing linh căn). Granted by events only, per events_budgets.json per_realm.treasures. purity = [min, max] for a new element; raise = purity added when the element is already owned.",
   "treasures": [
-    {"id": "linh_can_qua", "name": "Linh Căn Quả", "base_value": 4000, "rarity": 5,
-     "effect": {"type": "add_element", "purity": [20, 35], "raise": 8},
-     "desc": "A fruit that ripens once a millennium; whoever eats it grows a new spiritual root."}
+    {
+      "id": "linh_can_qua",
+      "name": "Linh Căn Quả",
+      "base_value": 4000,
+      "rarity": 5,
+      "effect": {
+        "type": "add_element",
+        "purity": [
+          20,
+          35
+        ],
+        "raise": 8
+      },
+      "desc": "A fruit that ripens once a millennium; whoever eats it grows a new spiritual root."
+    },
+    {
+      "id": "mach_an",
+      "name": "Mạch Ấn",
+      "base_value": 800,
+      "rarity": 4,
+      "effect": {
+        "type": "unseal_item"
+      },
+      "desc": "A meridian seal key: used once, it opens a hidden cluster."
+    }
   ]
 }

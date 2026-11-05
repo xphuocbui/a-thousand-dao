@@ -122,21 +122,3 @@ func test_formations_survive_save_and_load() -> void:
 	var t := GameSession.new(gd, llm, TestFixtures.tree())
 	assert_true(t.load_dict(d).ok, "loaded")
 	assert_eq(t.formations.level(t.player, "ho_son"), 3, "level kept")
-
-
-func test_tinh_kim_helps_refining_and_tran_strengthens_formations() -> void:
-	var s := _session()
-	var c: Character = s.player
-	c.location_id = c.home_id
-	c.formations = {"tu_linh": 2}
-	var chance_before: float = s.refinery.success_chance(c, s.sheet(), 0).total
-	var density_before: float = s.sheet().total("density_bonus")
-	c.linh_can.bien_di["tinh_kim"] = 50.0
-	c.linh_can.bien_di["tran"] = 50.0
-	var sh: StatSheet = s.sheet()
-	assert_true(s.refinery.success_chance(c, sh, 0).total > chance_before, "Tinh Kim raises refining success")
-	var formation_part: float = 0.0
-	for m in sh.sources("density_bonus"):
-		if str(m.source).begins_with("Trận pháp"):
-			formation_part = float(m.value)
-	assert_true(formation_part > density_before, "Trận makes the formation stronger: %.2f vs %.2f" % [formation_part, density_before])

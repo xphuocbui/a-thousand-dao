@@ -17,7 +17,7 @@ func test_new_game_registers_player_and_world() -> void:
 	assert_true(s.db.count("people") > 50, "people generated: %d" % s.db.count("people"))
 	assert_true(s.db.count("events") > 100, "history generated: %d" % s.db.count("events"))
 	assert_eq(s.db.get_record("people", s.player.id).name, "Thử Nghiệm", "player in people table")
-	assert_true(s.player.cong_phap_id != "", "starting công pháp")
+	assert_true(s.player.main_tech != "", "starting công pháp")
 	assert_true(not s.field.planted(s.player).is_empty(), "gia tộc starts with planted herbs")
 
 

@@ -1,14 +1,109 @@
 {
   "schema_version": 1,
-  "potency": {"per_doubling": 0.5, "max_potency": 5.0},
+  "potency": {
+    "per_doubling": 0.5,
+    "max_potency": 5
+  },
   "herbs": [
-    {"id": "ngung_khi_thao", "name": "Ngưng Khí Thảo", "element": "moc", "mature_years": 1.0, "base_value": 2, "seed_price": 2, "rarity": 1, "desc": "Common qi-gathering grass."},
-    {"id": "thanh_tam_lien", "name": "Thanh Tâm Liên", "element": "thuy", "mature_years": 3.0, "base_value": 6, "seed_price": 5, "rarity": 1, "desc": "A lotus that cools the heart and washes out toxins."},
-    {"id": "hoa_linh_chi", "name": "Hỏa Linh Chi", "element": "hoa", "mature_years": 5.0, "base_value": 10, "seed_price": 8, "rarity": 2, "desc": "Fire-natured lingzhi; the base of most pills."},
-    {"id": "hoang_tinh_sam", "name": "Hoàng Tinh Sâm", "element": "tho", "mature_years": 10.0, "base_value": 20, "seed_price": 15, "rarity": 2, "desc": "Earth ginseng; at thirty years it can found a Trúc Cơ."},
-    {"id": "xich_huyet_dang", "name": "Xích Huyết Đằng", "element": "hoa", "mature_years": 20.0, "base_value": 45, "seed_price": 30, "rarity": 3, "desc": "Blood-red vine that strengthens khí huyết."},
-    {"id": "bang_tam_thao", "name": "Băng Tâm Thảo", "element": "thuy", "mature_years": 30.0, "base_value": 60, "seed_price": 40, "rarity": 3, "desc": "Ice-heart grass; calms tâm ma."},
-    {"id": "kim_tuy_qua", "name": "Kim Tủy Quả", "element": "kim", "mature_years": 50.0, "base_value": 150, "seed_price": 90, "rarity": 4, "desc": "Golden-marrow fruit; at a hundred years it can form a golden core."},
-    {"id": "van_nien_moc_linh", "name": "Vạn Niên Mộc Linh", "element": "moc", "mature_years": 100.0, "base_value": 400, "seed_price": 250, "rarity": 5, "desc": "Wood spirit that only wakes after a century; extends life."}
+    {
+      "id": "ngung_khi_thao",
+      "name": "Ngưng Khí Thảo",
+      "element": "moc",
+      "mature_years": 1,
+      "base_value": 2,
+      "seed_price": 2,
+      "rarity": 1,
+      "desc": "Common qi-gathering grass."
+    },
+    {
+      "id": "thanh_tam_lien",
+      "name": "Thanh Tâm Liên",
+      "element": "thuy",
+      "mature_years": 3,
+      "base_value": 6,
+      "seed_price": 5,
+      "rarity": 1,
+      "desc": "A lotus that cools the heart and washes out toxins."
+    },
+    {
+      "id": "hoa_linh_chi",
+      "name": "Hỏa Linh Chi",
+      "element": "hoa",
+      "mature_years": 5,
+      "base_value": 10,
+      "seed_price": 8,
+      "rarity": 2,
+      "desc": "Fire-natured lingzhi; the base of most pills."
+    },
+    {
+      "id": "hoang_tinh_sam",
+      "name": "Hoàng Tinh Sâm",
+      "element": "tho",
+      "mature_years": 10,
+      "base_value": 20,
+      "seed_price": 15,
+      "rarity": 2,
+      "desc": "Earth ginseng; at forty years it can found a Trúc Cơ."
+    },
+    {
+      "id": "xich_huyet_dang",
+      "name": "Xích Huyết Đằng",
+      "element": "hoa",
+      "mature_years": 20,
+      "base_value": 45,
+      "seed_price": 30,
+      "rarity": 3,
+      "desc": "Blood-red vine that strengthens khí huyết."
+    },
+    {
+      "id": "bang_tam_thao",
+      "name": "Băng Tâm Thảo",
+      "element": "thuy",
+      "mature_years": 30,
+      "base_value": 60,
+      "seed_price": 40,
+      "rarity": 3,
+      "desc": "Ice-heart grass; calms tâm ma."
+    },
+    {
+      "id": "kim_tuy_qua",
+      "name": "Kim Tủy Quả",
+      "element": "kim",
+      "mature_years": 50,
+      "base_value": 150,
+      "seed_price": 90,
+      "rarity": 4,
+      "desc": "Golden-marrow fruit; at forty-two years it can form a golden core."
+    },
+    {
+      "id": "van_nien_moc_linh",
+      "name": "Vạn Niên Mộc Linh",
+      "element": "moc",
+      "mature_years": 100,
+      "base_value": 400,
+      "seed_price": 250,
+      "rarity": 5,
+      "desc": "Wood spirit that only wakes after a century; extends life."
+    },
+    {
+      "id": "anh_tam_lien",
+      "name": "Anh Tâm Liên",
+      "element": "thuy",
+      "mature_years": 60,
+      "base_value": 900,
+      "seed_price": 400,
+      "rarity": 5,
+      "desc": "Infant-heart lotus; at sixty years it can birth a Nguyên Anh."
+    },
+    {
+      "id": "hoa_than_qua",
+      "name": "Hóa Thần Quả",
+      "element": "hoa",
+      "mature_years": 100,
+      "base_value": 3000,
+      "seed_price": 1200,
+      "rarity": 6,
+      "desc": "Spirit-changing fruit; at a hundred years it can carry a soul to Hóa Thần."
+    }
   ]
 }

@@ -31,5 +31,7 @@ static func character(purities: Dictionary, stat_value: int = 50, realm_index: i
 		c.linh_can.elements[e] = int(purities[e])
 	c.realm_index = realm_index
 	c.stage = stage
+	c.level = Ladder.stage_first_level(game_data(), realm_index, stage)
+	c.level_peak = c.level
 	c.tree_nodes = [MeridianTree.ROOT_ID]
 	return c

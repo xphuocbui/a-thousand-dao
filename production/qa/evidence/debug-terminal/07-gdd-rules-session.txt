@@ -1,0 +1,338 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> new quick Evidence 909
+Generating the world (seed 909)...
+A new world: 4 regions, 22 places, 7 sects, 230 people, 202 recorded events (Thiên Nguyên lịch năm 300).
+Evidence is born: Dual root: Wood [Mộc] 68, Water [Thủy] 38 + Wind [Phong] 36 (counts as 3)
+
+━━ Evidence — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+
+ ROOT [linh căn]  Dual root — curve row 3, now x0.50 vs a single root
+   Mộc  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁  68 Thượng   linh thảo age faster in your field
+   Hỏa  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thạch from missions and bounties
+   Thủy ▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁  38 Trung    đan độc fades faster
+   Wind [Phong] 36  (innate)  +36% travel speed
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▆▆▁▁▁  74 Thượng       Căn cốt   ▆▆▆▆▁▁▁▁▁▁  42 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  49 Trung        Khí vận   ▆▆▆▆▁▁▁▁▁▁  37 Trung
+   Đạo tâm   ▆▆▆▆▆▆▁▁▁▁  56 Trung        Mị lực    ▆▆▁▁▁▁▁▁▁▁  19 Hạ
+
+ TRẠNG THÁI Linh lực 60 · Thần thức 49 · Khí huyết 420/420
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Thanh Mộc Kinh (layer 1/6)
+            tu vi 5.1 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  122 = offense 63 + defense 58 · thần thức 0/49 carried ('explain power')
+ KINH MẠCH  1 huyệt open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Đan Tâm Thông Linh — A heart attuned to the cauldron: better luyện đan, stronger pills.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Bích Ba Trấn (l13) — Trấn, Tử Vân Châu. Linh khí 0.74, danger 1, bounties
+  Your động phủ is here.
+People here (5):
+  p102   Hàn Vũ               Luyện Khí Sơ kỳ        Đan sư | chiến lực 170 | attitude 0
+  p103   Lục Nghiên           Trúc Cơ Trung kỳ       Trận sư | chiến lực 2330 | attitude 0
+  p104   Mộ Dung Khải         Trúc Cơ Hậu kỳ         Đan sư | chiến lực 2706 | attitude 0
+  p105   Cố Linh              Trúc Cơ Sơ kỳ          Tán tu | chiến lực 2093 | attitude 0
+  p154   Hàn Bất Phàm         Kết Đan Trung kỳ       Đan sư | chiến lực 20294 | attitude 0
+Roads:
+  -> l12   Hàn Sơn Thành (1 season)
+  -> l14   Huyền Âm Cốc (1 season)
+  -> l16   Cổ Mộc Trấn (1 season)
+
+━━ Evidence · Thiên Nguyên lịch năm 300, Xuân · Bích Ba Trấn ━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/10  +5.1/season, next level in 2 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 122 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Bích Ba Trấn                 7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Talk to someone… (5 here)           15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> sheet
+━━ Evidence — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+
+ ROOT [linh căn]  Dual root — curve row 3, now x0.50 vs a single root
+   Mộc  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁  68 Thượng   linh thảo age faster in your field
+   Hỏa  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thạch from missions and bounties
+   Thủy ▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁  38 Trung    đan độc fades faster
+   Wind [Phong] 36  (innate)  +36% travel speed
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▆▆▁▁▁  74 Thượng       Căn cốt   ▆▆▆▆▁▁▁▁▁▁  42 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  49 Trung        Khí vận   ▆▆▆▆▁▁▁▁▁▁  37 Trung
+   Đạo tâm   ▆▆▆▆▆▆▁▁▁▁  56 Trung        Mị lực    ▆▆▁▁▁▁▁▁▁▁  19 Hạ
+
+ TRẠNG THÁI Linh lực 60 · Thần thức 49 · Khí huyết 420/420
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Thanh Mộc Kinh (layer 1/6)
+            tu vi 5.1 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  122 = offense 63 + defense 58 · thần thức 0/49 carried ('explain power')
+ KINH MẠCH  1 huyệt open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Đan Tâm Thông Linh — A heart attuned to the cauldron: better luyện đan, stronger pills.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+> tech
+── Techniques [công pháp] ────────────────────────────────────────────────────
+   1 Thanh Mộc Kinh           main   layer 1/6  mastery 0.0/19.8 [main]
+  Speed factor x0.98: Thanh Mộc Kinh (layer 1/6) · technique power 0.60
+> tree
+Kinh Mạch Đồ (1 of 1466 huyệt shown): 0 unsealed cluster(s), capabilities: none.
+1 huyệt open, 2 unspent points. Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets
+Openable now:
+  #1    Ngũ Hành Luân Chuyển     keystone       +8% tu luyện speed per linh căn element  (requires 5 base elements in your root)
+  #2    Môn Mộc                  gate           +1.2% khí huyết  (x1.18 from your root)
+  #3    Môn Hỏa                  gate           +0.30% attack  (x0.25 from your root)
+  #4    Môn Thổ                  gate           +0.30% defense  (x0.25 from your root)
+  #5    Môn Kim                  gate           +0.30% attack  (x0.25 from your root)
+  #6    Môn Thủy                 gate           +1.1% linh lực  (x0.88 from your root)
+> tree clusters
+── Hidden clusters (silhouette mode; 'tree mode visible|silhouette') ─────────
+  0   Đan Đạo              outer Mộc    condition unknown [hidden]
+  1   Luyện Khí            outer Hỏa    condition unknown [hidden]
+  2   Trận Đạo             outer Thổ    condition unknown [hidden]
+  3   Phù Đạo              outer Kim    condition unknown [hidden]
+  4   Ngự Thú              inner Thủy   condition unknown [hidden]
+  5   Thần Thức            outer Mộc    condition unknown [hidden]
+  6   Thọ Nguyên           outer Hỏa    condition unknown [hidden]
+  7   Tâm Cảnh             outer Thổ    condition unknown [hidden]
+  8   Kiếm Ý               outer Kim    condition unknown [hidden]
+  9   Hộ Thể               outer Thủy   condition unknown [hidden]
+  10  Khí Huyết            outer Mộc    condition unknown [hidden]
+  11  Linh Lực             inner Hỏa    condition unknown [hidden]
+  12  Linh Điền            outer Thổ    condition unknown [hidden]
+  13  Ngộ Đạo              outer Kim    condition unknown [hidden]
+  14  Đan Đạo              outer Thủy   condition unknown [hidden]
+  15  Luyện Khí            outer Mộc    condition unknown [hidden]
+  16  Trận Đạo             outer Hỏa    condition unknown [hidden]
+  17  Phù Đạo              outer Thổ    condition unknown [hidden]
+  18  Ngự Thú              inner Kim    condition unknown [hidden]
+  19  Thần Thức            outer Thủy   condition unknown [hidden]
+  20  Thọ Nguyên           inner Mộc    condition unknown [hidden]
+  21  Tâm Cảnh             outer Hỏa    condition unknown [hidden]
+  22  Kiếm Ý               outer Thổ    condition unknown [hidden]
+  23  Hộ Thể               outer Kim    condition unknown [hidden]
+  24  Khí Huyết            outer Thủy   condition unknown [hidden]
+  25  Linh Lực             inner Mộc    condition unknown [hidden]
+  26  Linh Điền            inner Hỏa    condition unknown [hidden]
+  27  Ngộ Đạo              outer Thổ    condition unknown [hidden]
+  28  Đan Đạo              outer Kim    condition unknown [hidden]
+  29  Luyện Khí            outer Thủy   condition unknown [hidden]
+  30  Trận Đạo             outer Mộc    condition unknown [hidden]
+  31  Phù Đạo              outer Hỏa    condition unknown [hidden]
+  32  Ngự Thú              outer Thổ    condition unknown [hidden]
+  33  Thần Thức            outer Kim    condition unknown [hidden]
+  34  Thọ Nguyên           inner Thủy   condition unknown [hidden]
+  35  Tâm Cảnh             outer Mộc    condition unknown [hidden]
+  36  Kiếm Ý               outer Hỏa    condition unknown [hidden]
+  37  Hộ Thể               outer Thổ    condition unknown [hidden]
+  38  Khí Huyết            outer Kim    condition unknown [hidden]
+  39  Linh Lực             outer Thủy   condition unknown [hidden]
+  40  Linh Điền            outer Mộc    condition unknown [hidden]
+  41  Ngộ Đạo              outer Hỏa    condition unknown [hidden]
+  42  Đan Đạo              outer Thổ    condition unknown [hidden]
+  43  Luyện Khí            outer Kim    condition unknown [hidden]
+  44  Trận Đạo             outer Thủy   condition unknown [hidden]
+  45  Phù Đạo              outer Mộc    condition unknown [hidden]
+  46  Ngự Thú              outer Hỏa    condition unknown [hidden]
+  47  Thần Thức            outer Thổ    condition unknown [hidden]
+  48  Thọ Nguyên           outer Kim    condition unknown [hidden]
+  49  Tâm Cảnh             outer Thủy   condition unknown [hidden]
+  50  Kiếm Ý               outer Mộc    condition unknown [hidden]
+  51  Hộ Thể               outer Hỏa    condition unknown [hidden]
+  52  Khí Huyết            outer Thổ    condition unknown [hidden]
+  53  Linh Lực             outer Kim    condition unknown [hidden]
+  54  Linh Điền            outer Thủy   condition unknown [hidden]
+  55  Ngộ Đạo              inner Mộc    condition unknown [hidden]
+  56  Đan Đạo              outer Hỏa    condition unknown [hidden]
+  57  Luyện Khí            inner Thổ    condition unknown [hidden]
+  58  Trận Đạo             inner Kim    condition unknown [hidden]
+  59  Phù Đạo              outer Thủy   condition unknown [hidden]
+  60  Ngự Thú              outer Mộc    condition unknown [hidden]
+  61  Thần Thức            inner Hỏa    condition unknown [hidden]
+  62  Thọ Nguyên           outer Thổ    condition unknown [hidden]
+  63  Tâm Cảnh             outer Kim    condition unknown [hidden]
+  64  Kiếm Ý               outer Thủy   condition unknown [hidden]
+  65  Hộ Thể               outer Mộc    condition unknown [hidden]
+  66  Khí Huyết            outer Hỏa    condition unknown [hidden]
+  67  Linh Lực             outer Thổ    condition unknown [hidden]
+  68  Linh Điền            outer Kim    condition unknown [hidden]
+  69  Ngộ Đạo              outer Thủy   condition unknown [hidden]
+  70  Đan Đạo              outer Hỏa    condition unknown [hidden]
+  71  Luyện Khí            outer Hỏa    condition unknown [hidden]
+  72  Trận Đạo             inner Thổ    condition unknown [hidden]
+  73  Phù Đạo              outer Kim    condition unknown [hidden]
+  74  Ngự Thú              inner Thủy   condition unknown [hidden]
+> tree mode visible
+Tree display: visible.
+> tree clusters
+── Hidden clusters (visible mode; 'tree mode visible|silhouette') ────────────
+  0   Đan Đạo              outer Mộc    seal: event, gate Kết Đan, 8 huyệt, capability Song Khí Hợp Bích [hidden]
+  1   Luyện Khí            outer Hỏa    seal: item, gate Trúc Cơ, 6 huyệt [hidden]
+  2   Trận Đạo             outer Thổ    seal: technique, gate Kết Đan, 9 huyệt, capability Thần Thức Phân Hóa [hidden]
+  3   Phù Đạo              outer Kim    seal: story, gate Kết Đan, to be written by the story [hidden]
+  4   Ngự Thú              inner Thủy   seal: story, gate Trúc Cơ, to be written by the story [hidden]
+  5   Thần Thức            outer Mộc    seal: event, gate Kết Đan, 8 huyệt, capability Dưỡng Bảo Nội Thể [hidden]
+  6   Thọ Nguyên           outer Hỏa    seal: story, gate Trúc Cơ, to be written by the story [hidden]
+  7   Tâm Cảnh             outer Thổ    seal: item, gate Kết Đan, 7 huyệt, capability Huyết Ngự Linh [hidden]
+  8   Kiếm Ý               outer Kim    seal: story, gate Trúc Cơ, to be written by the story [hidden]
+  9   Hộ Thể               outer Thủy   seal: technique, gate Kết Đan, 8 huyệt, capability Linh Hồn Xuất Khiếu [hidden]
+  10  Khí Huyết            outer Mộc    seal: story, gate Nguyên Anh, to be written by the story [hidden]
+  11  Linh Lực             inner Hỏa    seal: event, gate Luyện Khí, 6 huyệt [hidden]
+  12  Linh Điền            outer Thổ    seal: story, gate Kết Đan, to be written by the story [hidden]
+  13  Ngộ Đạo              outer Kim    seal: item, gate Kết Đan, 9 huyệt, capability Song Tu Công Pháp [hidden]
+  14  Đan Đạo              outer Thủy   seal: technique, gate Kết Đan, 10 huyệt, capability Thai Tức Quy Nguyên [hidden]
+  15  Luyện Khí            outer Mộc    seal: event, gate Nguyên Anh, 11 huyệt, capability Mộng Trung Ngộ Đạo [hidden]
+  16  Trận Đạo             outer Hỏa    seal: story, gate Kết Đan, to be written by the story [hidden]
+  17  Phù Đạo              outer Thổ    seal: story, gate Trúc Cơ, to be written by the story [hidden]
+  18  Ngự Thú              inner Kim    seal: item, gate Trúc Cơ, 10 huyệt [hidden]
+  19  Thần Thức            outer Thủy   seal: technique, gate Kết Đan, 10 huyệt, capability Hấp Tinh Đại Pháp [hidden]
+  20  Thọ Nguyên           inner Mộc    seal: story, gate Trúc Cơ, to be written by the story [hidden]
+  21  Tâm Cảnh             outer Hỏa    seal: event, gate Trúc Cơ, 4 huyệt [hidden]
+  22  Kiếm Ý               outer Thổ    seal: story, gate Trúc Cơ, to be written by the story [hidden]
+  23  Hộ Thể               outer Kim    seal: story, gate Nguyên Anh, to be written by the story [hidden]
+  24  Khí Huyết            outer Thủy   seal: item, gate Kết Đan, 7 huyệt, capability Đan Hỏa Phân Lô [hidden]
+  25  Linh Lực             inner Mộc    seal: technique, gate Luyện Khí, 6 huyệt [hidden]
+  26  Linh Điền            inner Hỏa    seal: event, gate Luyện Khí, 6 huyệt [hidden]
+  27  Ngộ Đạo              outer Thổ    seal: item, gate Kết Đan, 8 huyệt, capability Dị Đan Hóa Sinh [hidden]
+  28  Đan Đạo              outer Kim    seal: technique, gate Trúc Cơ, 3 huyệt [hidden]
+  29  Luyện Khí            outer Thủy   seal: event, gate Nguyên Anh, 14 huyệt, capability Bách Thảo Tàng Linh [hidden]
+  30  Trận Đạo             outer Mộc    seal: item, gate Nguyên Anh, 12 huyệt, capability Phù Lục Bất Tận [hidden]
+  31  Phù Đạo              outer Hỏa    seal: story, gate Kết Đan, to be written by the story [hidden]
+  32  Ngự Thú              outer Thổ    seal: technique, gate Kết Đan, 7 huyệt, capability Động Phủ Tùy Thân [hidden]
+  33  Thần Thức            outer Kim    seal: story, gate Kết Đan, to be written by the story [hidden]
+  34  Thọ Nguyên           inner Thủy   seal: event, gate Luyện Khí, 6 huyệt [hidden]
+  35  Tâm Cảnh             outer Mộc    seal: item, gate Kết Đan, 10 huyệt, capability Trận Trung Trận [hidden]
+  36  Kiếm Ý               outer Hỏa    seal: technique, gate Kết Đan, 10 huyệt, capability Vạn Thú Đồng Tâm [hidden]
+  37  Hộ Thể               outer Thổ    seal: event, gate Trúc Cơ, 5 huyệt [hidden]
+  38  Khí Huyết            outer Kim    seal: item, gate Trúc Cơ, 3 huyệt [hidden]
+  39  Linh Lực             outer Thủy   seal: story, gate Kết Đan, to be written by the story [hidden]
+  40  Linh Điền            outer Mộc    seal: story, gate Nguyên Anh, to be written by the story [hidden]
+  41  Ngộ Đạo              outer Hỏa    seal: technique, gate Trúc Cơ, 5 huyệt [hidden]
+  42  Đan Đạo              outer Thổ    seal: event, gate Kết Đan, 9 huyệt, capability Thú Hồn Hợp Thể [hidden]
+  43  Luyện Khí            outer Kim    seal: item, gate Kết Đan, 7 huyệt, capability Thiên Cơ Diễn Toán [hidden]
+  44  Trận Đạo             outer Thủy   seal: story, gate Nguyên Anh, to be written by the story [hidden]
+  45  Phù Đạo              outer Mộc    seal: technique, gate Nguyên Anh, 11 huyệt, capability Khí Vận Chi Tử [hidden]
+  46  Ngự Thú              outer Hỏa    seal: event, gate Kết Đan, 7 huyệt, capability Liễm Tức Ẩn Thân [hidden]
+  47  Thần Thức            outer Thổ    seal: item, gate Kết Đan, 8 huyệt, capability Thuấn Di Ấn [hidden]
+  48  Thọ Nguyên           outer Kim    seal: technique, gate Kết Đan, 10 huyệt, capability Hồi Quang Phản Chiếu [hidden]
+  49  Tâm Cảnh             outer Thủy   seal: event, gate Kết Đan, 9 huyệt, capability Thiêu Thọ Phá Cảnh [hidden]
+  50  Kiếm Ý               outer Mộc    seal: item, gate Nguyên Anh, 11 huyệt, capability Biến Dị Khai Mở [hidden]
+  51  Hộ Thể               outer Hỏa    seal: technique, gate Kết Đan, 8 huyệt, capability Tâm Ma Hóa Lực [hidden]
+  52  Khí Huyết            outer Thổ    seal: event, gate Nguyên Anh, 14 huyệt [hidden]
+  53  Linh Lực             outer Kim    seal: item, gate Trúc Cơ, 4 huyệt [hidden]
+  54  Linh Điền            outer Thủy   seal: technique, gate Kết Đan, 7 huyệt [hidden]
+  55  Ngộ Đạo              inner Mộc    seal: event, gate Luyện Khí, 6 huyệt [hidden]
+  56  Đan Đạo              outer Hỏa    seal: story, gate Kết Đan, to be written by the story [hidden]
+  57  Luyện Khí            inner Thổ    seal: story, gate Luyện Khí, to be written by the story [hidden]
+  58  Trận Đạo             inner Kim    seal: story, gate Trúc Cơ, to be written by the story [hidden]
+  59  Phù Đạo              outer Thủy   seal: story, gate Kết Đan, to be written by the story [hidden]
+  60  Ngự Thú              outer Mộc    seal: item, gate Kết Đan, 9 huyệt [hidden]
+  61  Thần Thức            inner Hỏa    seal: technique, gate Kết Đan, 11 huyệt [hidden]
+  62  Thọ Nguyên           outer Thổ    seal: story, gate Kết Đan, to be written by the story [hidden]
+  63  Tâm Cảnh             outer Kim    seal: story, gate Trúc Cơ, to be written by the story [hidden]
+  64  Kiếm Ý               outer Thủy   seal: story, gate Nguyên Anh, to be written by the story [hidden]
+  65  Hộ Thể               outer Mộc    seal: event, gate Nguyên Anh, 14 huyệt [hidden]
+  66  Khí Huyết            outer Hỏa    seal: item, gate Trúc Cơ, 6 huyệt [hidden]
+  67  Linh Lực             outer Thổ    seal: story, gate Nguyên Anh, to be written by the story [hidden]
+  68  Linh Điền            outer Kim    seal: technique, gate Trúc Cơ, 6 huyệt [hidden]
+  69  Ngộ Đạo              outer Thủy   seal: event, gate Kết Đan, 10 huyệt [hidden]
+  70  Đan Đạo              outer Hỏa    seal: story, gate Kết Đan, to be written by the story [hidden]
+  71  Luyện Khí            outer Hỏa    seal: story, gate Nguyên Anh, to be written by the story [hidden]
+  72  Trận Đạo             inner Thổ    seal: item, gate Luyện Khí, 6 huyệt [hidden]
+  73  Phù Đạo              outer Kim    seal: story, gate Kết Đan, to be written by the story [hidden]
+  74  Ngự Thú              inner Thủy   seal: technique, gate Luyện Khí, 6 huyệt [hidden]
+> cul 8
+Tu luyện 8 season(s): +41 tu vi. Now Luyện Khí Sơ kỳ (11 / 11).
+  [tin đồn] Hàn Vũ và Phương Trường Không đại chiến tại Bích Ba Trấn; Phương Trường Không thắng.
+  [tin đồn] Tin đồn: Kỷ Tịch vừa đột phá Trúc Cơ.
+  [tin đồn] Giang Lan và Cung Thần đại chiến tại Ngọc Tuyền Cốc; Giang Lan thắng.
+ Δ 2 years passed · Tu vi 0 → 11 (+11) · Kinh Mạch points 2 → 5 (+3)
+
+━━ Evidence · Thiên Nguyên lịch năm 302, Xuân · Bích Ba Trấn ━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L4 (tầng 2)  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁ 11/11  +5.1/season, next level in 1 season
+ Tuổi  18/120  ▆▆▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 122 · 5 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 5 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 5 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Bích Ba Trấn                 7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Talk to someone… (5 here)           15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> explain rate
+Tu vi / season = 5.12
+    Luyện Khí base rate                = 10
+    Root curve (row 3)                 x0.50  -> 5
+    Thanh Mộc Kinh (layer 1/6)         x0.98  -> 4.90
+    Ngộ tính 74                        x1.37  -> 6.72
+    Linh khí density                   x0.74  -> 4.97
+    cultivation_speed_pct (+3.0%)      x1.03  -> 5.12
+> debug tuvi 1400
+tu vi added; +3 stages; now Luyện Khí Đại viên mãn 230
+ Δ Luyện Khí Sơ kỳ → Luyện Khí Đại viên mãn · Kinh Mạch points 5 → 51 (+46)
+   Chiến lực 122 → 176 (+54)
+
+━━ Evidence · Thiên Nguyên lịch năm 302, Xuân · Bích Ba Trấn ━━━━━━━━━━━━━━━━━
+ Luyện Khí Đại viên mãn L39 (tầng 13)  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 230/230  BÌNH CẢNH
+ Tuổi  18/120  ▆▆▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 176 · 51 Kinh Mạch pt
+ ‼ Bình cảnh! Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to train);
+   Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y: plant a
+   seed (8 LT). (Without it: 0%.)  → plant hoang_tinh_sam
+ ➤ 51 Kinh Mạch point(s) to spend.  → tree
+ BOTTLENECK  bar 230 / 230 (full)
+   pill: none held
+   talisman: available
+   attempts this step: 0 pill (next insight +0.00), 0/3 bare
+   qi deviation if this fails: 0%
+   this attempt: 0.4% (bare)
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 51 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Bích Ba Trấn                 7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Talk to someone… (5 here)           15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> explain breakthrough
+Breakthrough chance = 0.09
+    Pill attempt, truc_co_dan          = 0.04
+    Pill quality 0                     +0  -> 0.04
+    Ngộ tính 74                        +0.04  -> 0.08
+    Đạo tâm 56                         +0.01  -> 0.09
+(shown with a phẩm 0 pill; without one the base is lower)
+> (end of input)

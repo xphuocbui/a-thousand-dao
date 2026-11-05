@@ -32,18 +32,20 @@ static func roll_player(gd: GameData, rng: RandomNumberGenerator, player_name: S
 	return c
 
 
-## Tự Định player: given thiên phú (missing ones default to the roll mean) and
-## element purities. Biến dị still roll from the chosen purities unless
-## [param forced_bien_di] names them.
-static func custom_player(gd: GameData, rng: RandomNumberGenerator, player_name: String, gender: String, origin_id: String, thien_phu: Dictionary, purities: Dictionary, forced_bien_di: Array = []) -> Character:
+## Tự Định player: given thiên phú (missing ones default to the roll mean), element purities
+## and variant picks. Nothing is rolled (linh-can.md rule 2). An invalid root choice falls
+## back to one element at the mean, the frontend rejects it first with
+## [method LinhCan.self_made_error].
+static func custom_player(gd: GameData, rng: RandomNumberGenerator, player_name: String, gender: String, origin_id: String, thien_phu: Dictionary, purities: Dictionary, picks: Array = []) -> Character:
 	var c := _base_player(gd, player_name, gender, origin_id)
 	c.birth_mode = "tu_dinh"
 	var r: Dictionary = gd.attributes().roll
 	for def in gd.thien_phu_defs():
 		c.thien_phu[def.id] = clampi(int(thien_phu.get(def.id, r.mean)), int(r.min), int(r.max))
-	c.linh_can = LinhCan.from_purities(gd, purities, rng, forced_bien_di)
-	if c.linh_can.base_count() == 0:
-		c.linh_can.elements[RngUtils.pick(rng, gd.element_cycle())] = int(r.mean)
+	if LinhCan.self_made_error(gd, purities, picks) == "":
+		c.linh_can = LinhCan.self_made(gd, purities, picks)
+	else:
+		c.linh_can = LinhCan.self_made(gd, {RngUtils.pick(rng, gd.element_cycle()): int(gd.attributes().linh_can.purity_mean)})
 	_apply_origin(gd, c)
 	return c
 

@@ -10,4 +10,4 @@ if [ ! -x "$GODOT_CONSOLE" ] && ! command -v "$GODOT_CONSOLE" >/dev/null 2>&1; t
   echo "Godot console build not found at $GODOT_CONSOLE; set GODOT_CONSOLE." >&2
   exit 1
 fi
-exec "$GODOT_CONSOLE" --headless --path "$ROOT" -s res://src/debug_terminal/terminal_main.gd -- "$@"
+exec "$GODOT_CONSOLE" --headless --path "$ROOT" -s res://src/debug_terminal/terminal_main.gd -- --color "$@"

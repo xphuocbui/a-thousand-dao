@@ -18,7 +18,7 @@ extends RefCounted
 static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -> Dictionary:
 	var cfg: Dictionary = gd.combat().power
 	var realm: Dictionary = gd.realm(c.realm_index)
-	var base: float = float(realm.power_base) * (1.0 + float(c.stage) * float(realm.stage_power_step))
+	var base: float = float(realm.power_base) * Ladder.stage_mult(gd, c.stage)
 	var lines := PackedStringArray()
 	lines.append("Realm %s: base %.0f" % [gd.realm_label(c.realm_index, c.stage), base])
 
@@ -27,9 +27,9 @@ static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -
 	var defense := Breakdown.new("Defense")
 	defense.base("Realm share", base * float(cfg.base_defense_share))
 
-	var cp: Dictionary = db.get_record("items", c.cong_phap_id) if db != null else {}
-	if not cp.is_empty():
-		offense.add("Công pháp %s" % cp.name, base * float(cfg.cong_phap_share) * float(cp.get("power_mult", 1.0)))
+	var main: Dictionary = CongPhap.main_entry(c)
+	if not main.is_empty():
+		offense.add("Công pháp %s" % main.def.name, base * float(cfg.cong_phap_share) * CongPhap.tech_power(c, gd))
 
 	# Artifacts, limited by thần thức capacity and the single-artifact keystone.
 	var capacity: float = CharacterRules.than_thuc(c, gd, sheet).total
@@ -43,6 +43,9 @@ static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -
 		if art.is_empty():
 			continue
 		var cost: float = float(art.than_thuc_cost) * clampf(1.0 + _affix(art, "than_thuc_cost_pct") / 100.0, 0.1, 2.0)
+		var nurtured: bool = c.has_capability(3) and item_id == c.equipped[0]
+		if nurtured:
+			cost = 0.0
 		if spent + cost > capacity or (single and not used.is_empty()):
 			overflow.append(item_id)
 			continue
@@ -53,6 +56,11 @@ static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -
 			mult += (float(art_cfg.element_match_bonus_pct) + _affix(art, "element_affinity_pct")) / 100.0
 		if single:
 			mult *= float(art_cfg.equip.single_artifact_keystone_mult)
+		if nurtured:
+			var p3: Dictionary = gd.capability(3).params
+			mult += minf(float(c.nurture_years) * float(p3.per_year_pct), float(p3.max_pct)) / 100.0
+		if c.has_capability(1) and _pair_count(c, db, str(art.get("base", ""))) >= 2:
+			mult += float(gd.capability(1).params.attack_pct) / 100.0
 		var atk: float = float(art.attack) * (1.0 + _affix(art, "artifact_attack_pct") / 100.0) * mult
 		var dfn: float = float(art.defense) * (1.0 + _affix(art, "artifact_defense_pct") / 100.0) * mult
 		if atk > 0.0:
@@ -65,7 +73,7 @@ static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -
 	defense.add_pct("defense_pct", sheet.total("defense_pct"))
 
 	var kh: float = CharacterRules.khi_huyet_max(c, gd, sheet).total
-	var ll: float = CharacterRules.linh_luc(c, gd, db, sheet).total
+	var ll: float = CharacterRules.linh_luc(c, gd, sheet).total
 	defense.add("Khí huyết %.0f x %s" % [kh, str(cfg.khi_huyet_weight)], kh * float(cfg.khi_huyet_weight))
 	offense.add("Linh lực %.0f x %s" % [ll, str(cfg.linh_luc_weight)], ll * float(cfg.linh_luc_weight))
 
@@ -96,6 +104,13 @@ static func duel(power_a: float, power_b: float, khi_van_a: float, khi_van_b: fl
 	chance = clampf(chance, float(cfg.min_win_chance), float(cfg.max_win_chance))
 	var roll: float = rng.randf()
 	return {"win": roll < chance, "chance": chance, "roll": roll}
+
+
+## How many equipped treasures share a base (capability #1).
+static func _pair_count(c: Character, db: WorldDB, base: String) -> int:
+	if db == null or base == "":
+		return 0
+	return c.equipped.filter(func(id): return str(db.get_record("items", id).get("base", "")) == base).size()
 
 
 static func _affix(art: Dictionary, stat: String) -> float:

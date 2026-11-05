@@ -51,7 +51,8 @@ func build_cost(formation_id: String, target_level: int) -> Dictionary:
 
 ## Highest level the character can build for this formation now.
 func max_level(c: Character, formation_id: String) -> int:
-	return mini(int(def(formation_id).max_level), c.skill_level(str(config().skill)) + 1)
+	var extra: int = int(_gd.capability(15).params.extra_levels) if c.has_capability(15) else 0
+	return mini(int(def(formation_id).max_level) + extra, c.skill_level(str(config().skill)) + 1 + extra)
 
 
 ## Whether the next level can be built: {ok, reason, cost}.
@@ -59,10 +60,10 @@ func can_build(c: Character, formation_id: String) -> Dictionary:
 	var f: Dictionary = def(formation_id)
 	if f.is_empty():
 		return {"ok": false, "reason": "unknown formation '%s' (%s)" % [formation_id, ", ".join(config().formations.map(func(x): return x.id))]}
-	if c.location_id != c.home_id:
+	if c.location_id != c.home_id and not c.has_capability(14):
 		return {"ok": false, "reason": "formations are laid at your động phủ"}
 	var target: int = level(c, formation_id) + 1
-	if target > int(f.max_level):
+	if target > int(f.max_level) + (int(_gd.capability(15).params.extra_levels) if c.has_capability(15) else 0):
 		return {"ok": false, "reason": "%s is at its highest level" % f.name}
 	if target > max_level(c, formation_id):
 		return {"ok": false, "reason": "level %d needs Trận pháp level %d (you have %d)" % [target, target - 1, c.skill_level(str(config().skill))]}
@@ -96,7 +97,9 @@ func build(c: Character, formation_id: String) -> Dictionary:
 func upkeep(c: Character) -> int:
 	var total: float = 0.0
 	for id in c.formations.keys():
-		total += float(def(id).get("upkeep_lt_per_level", 0)) * float(c.formations[id])
+		var per: float = float(def(id).get("upkeep_lt_per_level", 0))
+		var over: int = maxi(int(c.formations[id]) - int(def(id).max_level), 0)
+		total += per * float(int(c.formations[id]) - over) + per * float(over) * (float(_gd.capability(15).params.upkeep_mult) if over > 0 else 1.0)
 	var cut: float = clampf(c.linh_can.purity("tho") * float(config().tho_upkeep_cut_per_purity), 0.0, 0.9)
 	return int(roundf(total * (1.0 - cut)))
 
@@ -134,6 +137,6 @@ static func add_mods(c: Character, gd: GameData, sheet: StatSheet) -> void:
 		var lv: int = int(c.formations.get(f.id, 0))
 		if lv <= 0:
 			continue
-		if str(f.applies) == "home" and c.location_id != c.home_id:
+		if str(f.applies) == "home" and c.location_id != c.home_id and not c.has_capability(14):
 			continue
 		sheet.add_mod("Trận pháp: %s level %d" % [f.name, lv], str(f.stat), float(f.per_level) * float(lv) * power)

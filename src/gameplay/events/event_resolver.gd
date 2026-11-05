@@ -19,6 +19,8 @@ var _db: WorldDB
 var _builds: BuildGenerator
 var _items: ItemFactory
 var _alchemy: Alchemy
+## Set by the session: Callable(kind: String) -> String, unseals a cluster and returns its line.
+var unseal_fn: Callable
 
 
 func _init(gd: GameData, db: WorldDB, builds: BuildGenerator, items: ItemFactory) -> void:
@@ -64,7 +66,7 @@ func resolve(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: 
 		lines.append(_apply(c, sheet, rng, event, fx, items))
 	var success: bool = true
 	var check_line: String = ""
-	var used: Array = Talismans.apply_for_check(c, _gd, _db, sheet, str(choice.check.type), bool(choice.check.get("evade", false)), true)
+	var used: Array = Talismans.apply_for_check(c, _gd, _db, sheet, str(choice.check.type), bool(choice.check.get("evade", false)), true, rng)
 	if not used.is_empty():
 		lines.append("used %s" % ", ".join(used))
 	match str(choice.check.type):
@@ -73,6 +75,11 @@ func resolve(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: 
 			var roll: float = rng.randf()
 			success = roll < chance
 			check_line = "%s check: %.0f%% chance, roll %.0f -> %s" % [choice.check.stat, chance * 100.0, roll * 100.0, "SUCCESS" if success else "FAILURE"]
+			if not success and c.has_capability(19) and not c.cap_used.has("19"):
+				c.cap_used["19"] = true
+				roll = rng.randf()
+				success = roll < chance
+				check_line += "; Khí Vận Chi Tử rerolls %.0f -> %s" % [roll * 100.0, "SUCCESS" if success else "FAILURE"]
 		"combat":
 			var enemy_rec: Dictionary = _db.get_record("people", str(choice.check.enemy))
 			var enemy := Character.from_dict(enemy_rec)
@@ -81,6 +88,11 @@ func resolve(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: 
 			var duel: Dictionary = CombatPower.duel(mine, theirs, sheet.effective("khi_van", c), float(enemy.base_stat("khi_van")), _gd, rng)
 			success = duel.win
 			check_line = "Combat: chiến lực %.0f vs %s %.0f -> %.0f%% chance, roll %.0f -> %s" % [mine, enemy.name, theirs, duel.chance * 100.0, duel.roll * 100.0, "VICTORY" if success else "DEFEAT"]
+			if success and not enemy.is_beast and c.has_capability(9):
+				var p9: Dictionary = _gd.capability(9).params
+				var drained: Dictionary = CultivationRules.add_tu_vi(c, _gd, float(p9.stage_frac) * CultivationRules.stage_cost(c, _gd))
+				CharacterRules.add_tam_ma(c, _gd, sheet, float(p9.tam_ma))
+				lines.append("Hấp Tinh Đại Pháp: tu vi +%.0f" % (float(drained.gained) - float(drained.wasted)))
 			if success and enemy.is_beast:
 				var tame: Dictionary = BeastKeeper.new(_gd, _db).try_tame(c, sheet, rng, str(choice.check.enemy))
 				if str(tame.get("message", "")) != "":
@@ -92,9 +104,15 @@ func resolve(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: 
 		lines.append(_apply(c, sheet, rng, event, fx, items))
 	var died: bool = false
 	if c.vitality <= 0.0 and bool(_gd.session().death.khi_huyet_zero_dies):
-		c.alive = false
-		c.death_cause = "Tử nạn: %s" % event.title
-		died = true
+		if c.has_capability(5) and not c.cap_used.has("5"):
+			c.cap_used["5"] = true
+			c.vitality = float(_gd.breakthrough_rules().vitality_floor)
+			CultivationRules.lose_stage(c, _gd)
+			lines.append("Linh Hồn Xuất Khiếu: your soul slips free; you live, one stage lower.")
+		else:
+			c.alive = false
+			c.death_cause = "Tử nạn: %s" % event.title
+			died = true
 	return {"success": success, "lines": lines.filter(func(l): return l != ""), "items": items, "died": died, "check_line": check_line, "outcome_text": outcome.text}
 
 
@@ -126,6 +144,14 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 			var cfg: Dictionary = _gd.session().talk
 			rec["attitude"] = clampi(int(rec.get("attitude", 0)) + int(fx.amount), int(cfg.relationship_min), int(cfg.relationship_max))
 			return "%s's attitude %+d (now %d)" % [rec.name, int(fx.amount), int(rec.attitude)]
+		"insight":
+			# The Deity Transformation insight: any enlightenment in Nascent Soul (Realms rule 7).
+			if c.realm_index == _gd.realm_index("nguyen_anh") and not c.has_insight:
+				c.has_insight = true
+				return "breakthrough insight gained"
+			return ""
+		"unseal_sealed", "unseal_open":
+			return str(unseal_fn.call(str(fx.type).trim_prefix("unseal_"))) if unseal_fn.is_valid() else ""
 		"tree_point":
 			c.tree_points += int(fx.amount)
 			return "+%d Kinh Mạch point(s)" % int(fx.amount)
@@ -144,7 +170,7 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 			return _give(c, a, items)
 		"cong_phap":
 			var elems: Array = [fx.element] if str(fx.get("element", "")) != "" else []
-			var cp: Dictionary = _items.cong_phap(rng, int(fx.tier), elems, str(fx.get("name", "")))
+			var cp: Dictionary = _items.cong_phap(rng, int(fx.tier), elems, str(fx.get("name", "")), {"root": c.linh_can})
 			return _give(c, cp, items)
 		"talisman":
 			var tal: Dictionary = _items.talisman(str(fx.talisman), 1)

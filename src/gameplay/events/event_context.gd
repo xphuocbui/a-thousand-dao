@@ -60,7 +60,7 @@ static func budget(c: Character, gd: GameData, sheet: StatSheet) -> Dictionary:
 	var ceiling: float = float(cfg.khi_van_ceiling.base) + kv * float(cfg.khi_van_ceiling.per_point)
 	b["ceiling"] = ceiling
 	b["linh_thach_max"] = int(float(b.linh_thach_max) * ceiling)
-	b["tu_vi_max"] = int(float(b.tu_vi_pct_max) * ceiling * CultivationRules.stage_requirement(c, gd))
+	b["tu_vi_max"] = int(float(b.tu_vi_pct_max) * ceiling * CultivationRules.stage_cost(c, gd))
 	return b
 
 

@@ -19,8 +19,12 @@ extends RefCounted
 ## [/codeblock]
 
 signal life_ended(summary: Dictionary)
+## A great breakthrough succeeded (player only, Realms rule 9). [param realm_index] is the new realm.
+signal breakthrough_succeeded(realm_index: int)
 
-const SAVE_VERSION := 1
+const SAVE_VERSION := 2
+## Save versions load_dict can migrate from.
+const SAVE_VERSIONS_READ := [1, 2]
 
 var gd: GameData
 var tree: MeridianTree
@@ -72,7 +76,7 @@ func _init(game_data: GameData, llm_service: LlmService, meridian_tree: Meridian
 # --- Life cycle -------------------------------------------------------------------
 
 ## Generates a new world and player. [param spec]: mode ("roll" | "custom"), name, gender,
-## origin, and for custom: thien_phu {id: value}, purities {element: purity}, bien_di [ids].
+## origin, and for custom: thien_phu {id: value}, purities {element: purity}, variants [ids].
 func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	seed_value = seed_v
 	rng.seed = seed_v
@@ -96,7 +100,7 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 		player = Character.from_dict(spec.character)
 		player.id = ""
 	elif str(spec.get("mode", "roll")) == "custom":
-		player = CharacterFactory.custom_player(gd, rng, name, gender, origin, spec.get("thien_phu", {}), spec.get("purities", {}), spec.get("bien_di", []))
+		player = CharacterFactory.custom_player(gd, rng, name, gender, origin, spec.get("thien_phu", {}), spec.get("purities", {}), spec.get("variants", []))
 	else:
 		player = CharacterFactory.roll_player(gd, rng, name, gender, origin)
 	if edge:
@@ -146,6 +150,7 @@ func _wire() -> void:
 	templates = EventTemplateSource.new(gd, db, builds)
 	validator = EventValidator.new(gd, db, builds)
 	resolver = EventResolver.new(gd, db, builds, items)
+	resolver.unseal_fn = _unseal_from_event
 	narrator = Narrator.new(gd, db, llm, templates, validator)
 
 
@@ -166,9 +171,16 @@ func _place_player() -> void:
 		home = RngUtils.pick(rng, towns) if not towns.is_empty() else RngUtils.pick(rng, db.all("places"))
 	player.home_id = home.id
 	player.location_id = home.id
-	var cp: Dictionary = items.cong_phap(rng, gd.cong_phap_tier_rank(str(o.get("cong_phap_tier", "hoang"))), [player.linh_can.strongest_element()])
+	var cp: Dictionary = items.cong_phap(rng, gd.cong_phap_tier_rank(str(o.get("cong_phap_tier", "hoang"))), [_starting_element()])
 	cp["owner_id"] = player.id
-	player.cong_phap_id = db.add("items", cp)
+	db.add("items", cp)
+	CongPhap.learn(player, cp)
+	player.main_tech = str(cp.tech_id)
+	var province: Array = db.find("places", func(p): return bool(p.get("market", false)) and p.get("region_id", "") == home.get("region_id", ""))
+	if province.is_empty():
+		province = db.find("places", func(p): return bool(p.get("market", false)))
+	if not province.is_empty():
+		market.stock_guaranteed(province[0].id)
 	var plot: int = 0
 	for h in o.get("starting_herbs", []):
 		for k in int(h.qty):
@@ -180,6 +192,15 @@ func _place_player() -> void:
 	_log("player_born", {"a": player.id, "place": home.id})
 	if player.sect_id != "":
 		_log("player_joined_sect", {"a": player.id, "s1": player.sect_id})
+
+
+## The strongest base element, ties in cycle order (cong-phap.md Edge Cases).
+func _starting_element() -> String:
+	var best: String = ""
+	for e in gd.element_cycle():
+		if player.linh_can.elements.has(e) and (best == "" or int(player.linh_can.elements[e]) > int(player.linh_can.elements[best])):
+			best = e
+	return best
 
 
 ## Writes the live player object back to its people record.
@@ -234,7 +255,12 @@ func _guard(needs_time: bool) -> Dictionary:
 func _pass_season(mode: String) -> Dictionary:
 	var sh: StatSheet = sheet()
 	var out := {"tu_vi": 0.0, "stages": 0, "points": 0, "news": [], "died": false}
-	if mode == "cultivate" or mode == "closed_door":
+	var cultivating: bool = mode == "cultivate" or mode == "closed_door"
+	out["techniques"] = CongPhap.season_tick(player, gd, sh.effective("ngo_tinh", player), cultivating)
+	if cultivating:
+		for l in _check_technique_seals():
+			_notices.append("  " + l)
+	if cultivating:
 		var density: float = float(db.get_record("places", player.location_id).get("density", 1.0))
 		var gain: float = CultivationRules.rate_per_season(player, gd, db, sh, density).total
 		if mode == "closed_door":
@@ -245,12 +271,19 @@ func _pass_season(mode: String) -> Dictionary:
 		out.points = res.tree_points
 		if res.stages > 0:
 			sh = sheet()
+	elif mode == "travel" and player.has_capability(8):
+		var density_t: float = float(db.get_record("places", player.location_id).get("density", 1.0))
+		var r8: Dictionary = CultivationRules.add_tu_vi(player, gd, float(gd.capability(8).params.rate_mult) * CultivationRules.rate_per_season(player, gd, db, sh, density_t).total)
+		out.tu_vi = r8.gained
+		out.stages = r8.stages
+		out.points = r8.tree_points
 	field.grow(player, sh, 1)
 	var d: Dictionary = gd.attributes().derived
 	player.dan_doc = maxf(player.dan_doc - CharacterRules.dan_doc_decay(player, gd, sh).total, 0.0)
 	player.tam_ma = maxf(player.tam_ma - float(d.tam_ma_natural_decay), 0.0)
-	player.vitality = minf(player.vitality + float(d.injury_recovery_pct_per_season), 1.0)
-	player.age += 1.0 / float(gd.cultivation_rules().seasons_per_year)
+	player.vitality = minf(player.vitality + float(d.injury_recovery_frac_per_season), 1.0)
+	var aging: float = float(gd.capability(7).params.age_mult) if mode == "closed_door" and player.has_capability(7) else 1.0
+	player.age += aging / float(gd.cultivation_rules().seasons_per_year)
 	season += 1
 	if season >= int(gd.cultivation_rules().seasons_per_year):
 		season = 0
@@ -265,6 +298,8 @@ func _pass_season(mode: String) -> Dictionary:
 
 
 func _yearly() -> void:
+	if player.has_capability(3) and not player.equipped.is_empty():
+		player.nurture_years += 1
 	if player.sect_id != "":
 		var stipend: int = int(gd.session().sect.stipend_per_year_by_realm.get(gd.realm(player.realm_index).id, 0))
 		player.linh_thach += stipend
@@ -305,7 +340,14 @@ func _maybe_event(bonus: float) -> Array:
 		chance += float(ProgressionEdges.config(gd).player.co_duyen_bottleneck_event_bonus) * (1.0 + sheet().total("co_duyen_pct") / 100.0)
 	if rng.randf() >= chance:
 		return []
-	return start_event("")
+	var lines: Array = start_event("")
+	# Capability #20: a hostile event may pass the character by.
+	if player.has_capability(20) and has_pending_event() and rng.randf() >= float(gd.capability(20).params.hostile_mult):
+		if pending_event.choices.any(func(ch): return str(ch.check.type) == "combat"):
+			pending_event = {}
+			pending_meta = {}
+			return []
+	return lines
 
 
 ## Generates an event now (LLM first, templates as fallback). [param template_id] forces a template.
@@ -351,7 +393,7 @@ func cultivate(seasons: int) -> Dictionary:
 			break
 	lines.push_front("Tu luyện %d season(s): +%.0f tu vi%s. Now %s (%.0f / %.0f)." % [done, total,
 		(", +%d stage(s), +%d Kinh Mạch points" % [stages, points]) if stages > 0 else "",
-		gd.realm_label(player.realm_index, player.stage), player.tu_vi, CultivationRules.stage_requirement(player, gd)])
+		gd.realm_label(player.realm_index, player.stage), player.tu_vi, CultivationRules.level_requirement(player, gd)])
 	if CultivationRules.at_bottleneck(player, gd):
 		lines.insert(1, "  Bình cảnh! Further tu vi is wasted. Use 'breakthrough' (a %s helps greatly)." % str(gd.realm(player.realm_index + 1).entry_requirement.item_tag))
 	lines.append_array(_news_lines(news))
@@ -483,7 +525,7 @@ func travel(dest_id: String) -> Dictionary:
 	var news: Array = []
 	var died: bool = false
 	for i in seasons:
-		var r: Dictionary = _pass_season("")
+		var r: Dictionary = _pass_season("travel")
 		news.append_array(r.news)
 		if r.died:
 			died = true
@@ -491,18 +533,37 @@ func travel(dest_id: String) -> Dictionary:
 	if died:
 		return {"ok": true, "lines": ["You die on the road."] + death_lines()}
 	player.location_id = dest_id
+	if not player.visited.has(dest_id):
+		player.visited.append(dest_id)
 	for b in beasts.owned(player):
 		b["location_id"] = dest_id
 	sync_player()
 	var dest: Dictionary = db.get_record("places", dest_id)
-	market.ensure_stock(rng, dest_id, year, player.realm_index)
+	market.ensure_stock(rng, dest_id, year, player.realm_index, player.linh_can)
 	var lines: Array = ["You travel %d season(s) and arrive at %s." % [seasons, dest.name]]
 	lines.append_array(_news_lines(news))
 	lines.append_array(_maybe_event(0.0))
 	return {"ok": true, "lines": lines}
 
 
-## Luyện đan one recipe (one season).
+## Capability #21: once a year, travel instantly to any visited place.
+func blink(dest_id: String) -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	if not player.has_capability(21):
+		return {"ok": false, "lines": ["You hold no Blink Mark."]}
+	if player.blink_year == year:
+		return {"ok": false, "lines": ["The mark has not recovered this year."]}
+	if not player.visited.has(dest_id):
+		return {"ok": false, "lines": ["You have not been to %s." % dest_id]}
+	player.blink_year = year
+	player.location_id = dest_id
+	sync_player()
+	return {"ok": true, "lines": ["You step through the mark to %s." % db.get_record("places", dest_id).get("name", dest_id)]}
+
+
+## Luyện đan one recipe (one season; with capability #10 two recipes share a season).
 func craft(recipe_id: String) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -511,6 +572,10 @@ func craft(recipe_id: String) -> Dictionary:
 	if not r.ok:
 		return {"ok": false, "lines": [r.message]}
 	var lines: Array = [r.message]
+	if player.has_capability(10) and not player.cap_used.has("10_brew"):
+		player.cap_used["10_brew"] = true
+		return {"ok": true, "lines": lines + ["The second furnace is still lit: one more brew fits this season."]}
+	player.cap_used.erase("10_brew")
 	var t: Dictionary = _pass_season("")
 	lines.append_array(_news_lines(t.news))
 	if t.died:
@@ -626,12 +691,16 @@ func use_item(item_id: String) -> Dictionary:
 		return g
 	if db.get_record("items", item_id).get("kind", "") == "treasure":
 		var t: Dictionary = TreasureEffects.use(player, gd, db, rng, item_id)
+		if t.has("unseal_item"):
+			return _use_seal_key(item_id)
 		if t.ok:
-			_log("player_linh_can_changed", {"a": player.id})
+			_log_root_changes("player_linh_can_changed", t.changes)
 		sync_player()
 		return {"ok": t.ok, "lines": [t.message]}
-	var r: Dictionary = PillEffects.consume(player, gd, db, sheet(), item_id, rng)
+	var r: Dictionary = PillEffects.consume(player, gd, db, sheet(), item_id)
 	var lines: Array = [r.message]
+	if r.ok:
+		_log_root_changes("player_root_purified", r.get("changes", []))
 	if r.ok and float(r.get("tu_vi", 0.0)) > 0.0:
 		var res: Dictionary = CultivationRules.add_tu_vi(player, gd, float(r.tu_vi))
 		if res.stages > 0:
@@ -652,8 +721,9 @@ func equip(item_id: String) -> Dictionary:
 		return {"ok": false, "lines": ["You own no pháp bảo %s." % item_id]}
 	if player.equipped.has(item_id):
 		return {"ok": false, "lines": ["Already equipped."]}
-	if player.equipped.size() >= int(gd.artifacts_file().equip.max_slots):
-		return {"ok": false, "lines": ["All %d slots are full." % int(gd.artifacts_file().equip.max_slots)]}
+	var slots: int = int(gd.artifacts_file().equip.max_slots) + (int(gd.capability(2).params.slots) if player.has_capability(2) else 0)
+	if player.equipped.size() >= slots:
+		return {"ok": false, "lines": ["All %d slots are full." % slots]}
 	player.equipped.append(item_id)
 	sync_player()
 	var p: Dictionary = CombatPower.compute(player, gd, db, sheet())
@@ -675,55 +745,131 @@ func unequip(item_id: String) -> Dictionary:
 	return {"ok": true, "lines": ["Unequipped %s." % db.get_record("items", item_id).get("name", item_id)]}
 
 
-## Switches the active công pháp to an owned manual.
+## Reads an owned manual: its technique joins the known list at layer 1 (cong-phap.md rule 4).
 func learn(item_id: String) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
 		return g
 	var item: Dictionary = db.get_record("items", item_id)
 	if item.is_empty() or item.owner_id != player.id or item.kind != "cong_phap":
-		return {"ok": false, "lines": ["You own no công pháp %s." % item_id]}
-	player.cong_phap_id = item_id
+		return {"ok": false, "lines": ["You own no manual %s." % item_id]}
+	if not CongPhap.learn(player, item):
+		return {"ok": false, "lines": ["You already know %s." % item.name]}
 	sync_player()
-	var f: Dictionary = CultivationRules.cong_phap_factor(player, gd, item)
-	var lines: Array = ["You now cultivate %s. Factor: %s = x%.2f." % [item.name, f.label, f.mult]]
-	if player.linh_can.average_purity(item.elements) <= 0.0:
-		lines.append("  Your linh căn lacks its element(s); you cultivate crudely with it.")
+	var lines: Array = ["You learn %s at layer 1. Put it in a slot with 'slot'." % item.name]
+	if not CongPhap.usable(player, player.techniques[str(item.tech_id)].def):
+		lines.append("  Your root lacks what it names, so it cannot be slotted yet.")
 	return {"ok": true, "lines": lines}
 
 
-## Attempts the bình cảnh breakthrough into the next realm, consuming the best required pill.
-func breakthrough() -> Dictionary:
+## Changes a technique slot at the season start. [param slot] is main, second or aux with
+## [param index]; key "" empties it. A change that would end the life needs [param confirm]
+## (Realms rule 14). Returns {ok, lines, needs_confirm}.
+func set_slot(slot: String, index: int, key: String, confirm: bool = false) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	var before: Dictionary = {"main": player.main_tech, "second": player.second_tech, "aux": player.aux_tech.duplicate()}
+	var r: Dictionary = CongPhap.set_slot(player, gd, slot, index, key)
+	if not r.ok:
+		return {"ok": false, "lines": [r.reason]}
+	var cap: float = CultivationRules.lifespan(player, gd, sheet()).total
+	if cap <= player.age and not confirm:
+		player.main_tech = before.main
+		player.second_tech = before.second
+		player.aux_tech = before.aux
+		return {"ok": false, "needs_confirm": true, "lines": ["Your lifespan falls to %d; you are %d: you will die of old age." % [int(cap), int(player.age)]]}
+	sync_player()
+	if cap <= player.age:
+		_end_life("Thọ nguyên cạn kiệt ở tuổi %d" % int(player.age))
+		return {"ok": true, "lines": death_lines()}
+	var f: Dictionary = CongPhap.speed_factor(player, gd)
+	return {"ok": true, "lines": ["Slots set. Speed factor: %s = x%.2f." % [f.label, f.mult]]}
+
+
+## Local spiritual qi: the place's density plus density_bonus, the same sum the rate uses.
+func local_density(sh: StatSheet) -> float:
+	return float(db.get_record("places", player.location_id).get("density", 1.0)) + sh.total("density_bonus")
+
+
+## True if a talisman would go on this attempt: one held, and none used this realm step.
+func talisman_available() -> bool:
+	return not _breakthrough_talisman().is_empty() and not player.talisman_used
+
+
+func _breakthrough_talisman() -> Dictionary:
+	for it in db.items_of(player.id):
+		if it.kind == "talisman" and str(Talismans.def_of(gd, str(it.template)).get("use", "")) == "breakthrough":
+			return it
+	return {}
+
+
+## Attempts the great breakthrough (Realms rules 7-11). The best matching pill and the
+## talisman burn on a pill attempt. With a pill held but the condition unmet the attempt
+## would be bare: that needs [param confirm_bare]. [param use_talisman] is the preview toggle.
+## [param burn_life] commits capability #23's extra roll if this pill attempt fails.
+func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_life: bool = false) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
 		return g
 	if not CultivationRules.at_bottleneck(player, gd):
-		return {"ok": false, "lines": ["You are not at a bình cảnh (%s, %.0f / %.0f tu vi)." % [gd.realm_label(player.realm_index, player.stage), player.tu_vi, CultivationRules.stage_requirement(player, gd)]]}
+		return {"ok": false, "lines": ["You are not at a bottleneck (%s, %.0f / %.0f tu vi)." % [gd.realm_label(player.realm_index, player.stage), player.tu_vi, CultivationRules.level_requirement(player, gd)]]}
 	var next: Dictionary = gd.realm(player.realm_index + 1)
-	var tag: String = str(next.entry_requirement.item_tag)
-	var pill: Dictionary = {}
-	for it in db.items_of(player.id):
-		if it.kind == "pill" and str(gd.recipe(it.template).effect.get("tag", "")) == tag:
-			if pill.is_empty() or int(it.quality) > int(pill.quality):
-				pill = it
+	var pill: Dictionary = Advisor.best_pill(self, str(next.entry_requirement.item_tag))
 	var sh: StatSheet = sheet()
-	var rank: int = int(pill.quality) if not pill.is_empty() else -1
-	var used: Array = Talismans.apply_for_check(player, gd, db, sh, "breakthrough", false, true)
-	var chance: Breakdown = CultivationRules.breakthrough_chance(player, gd, sh, rank)
-	var lines: Array = []
-	if not used.is_empty():
-		lines.append("You burn %s." % ", ".join(used))
-	lines.append_array(Array(chance.lines()))
-	if not pill.is_empty():
+	var cond: Dictionary = CultivationRules.breakthrough_condition(player, gd, local_density(sh))
+	var is_pill: bool = not pill.is_empty() and bool(cond.met)
+	if not pill.is_empty() and not bool(cond.met) and not confirm_bare:
+		return {"ok": false, "needs_confirm": true, "lines": ["Condition not met: %s. This would be a bare attempt at %.2f%%, burning no pill." % [cond.text, 100.0 * float(next.entry_requirement.base_chance)]]}
+	if not is_pill and not CultivationRules.bare_attempt_left(player, gd):
+		return {"ok": false, "lines": ["Bare attempts used up for this breakthrough."]}
+	var rank: int = int(pill.quality) if is_pill else -1
+	var talisman: bool = is_pill and use_talisman and talisman_available()
+	var chance: Breakdown = CultivationRules.breakthrough_chance(player, gd, sh, rank, talisman)
+	var odds: float = chance.total
+	var lines: Array = Array(chance.lines())
+	var step_used: bool = player.cap_used.has("22") or player.cap_used.has("23")
+	var left: float = CultivationRules.lifespan(player, gd, sh).total - player.age
+	var tau: float = CultivationRules.talisman_value(gd) if talisman else 0.0
+	var held: int = int(pill.get("qty", 0)) if is_pill else 0
+	if is_pill and player.has_capability(22) and not step_used and left < float(gd.capability(22).params.years_left):
+		var s_guard: float = CultivationRules.guard_success(player, gd, held, odds - tau)
+		odds = CultivationRules.q_desperate(gd, odds - tau, tau, s_guard) + tau
+		player.cap_used["22"] = true
+		step_used = true
+		lines.append("  Hồi Quang Phản Chiếu lifts this attempt to %.1f%%." % (odds * 100.0))
+	if talisman:
+		var tal: Dictionary = _breakthrough_talisman()
+		if not Talismans.keeps_talisman(player, gd, rng):
+			tal["qty"] = int(tal.qty) - 1
+			if int(tal.qty) <= 0:
+				db.remove("items", tal.id)
+		player.talisman_used = true
+		lines.push_front("You burn %s." % tal.name)
+	if is_pill:
 		pill["qty"] = int(pill.qty) - 1
 		if int(pill.qty) <= 0:
 			db.remove("items", pill.id)
 		lines.append("  Consumed 1 %s." % pill.name)
-	var res: Dictionary = CultivationRules.attempt_breakthrough(player, gd, sh, rng, rank)
+	var res: Dictionary = CultivationRules.resolve_attempt(player, gd, sh, rng, odds, is_pill)
 	lines.append("Roll %.0f vs %.0f%%." % [res.roll * 100.0, res.chance * 100.0])
+	if not res.success and not res.died and is_pill and burn_life and player.has_capability(23) and not step_used:
+		var burn: float = CultivationRules.burn_cost(player, gd)
+		var life_left: float = CultivationRules.lifespan(player, gd, sheet()).total - player.age
+		if life_left > burn:
+			player.age += burn
+			player.cap_used["23"] = true
+			var q: float = CultivationRules.breakthrough_chance(player, gd, sheet(), rank, false).total
+			var insight: float = CultivationRules.failure_insight(gd, player.failed_pills)
+			var s_g: float = CultivationRules.guard_success(player, gd, maxi(held - 1, 0), q)
+			var retry: float = CultivationRules.q_retry(gd, q, insight, s_g)
+			lines.append("Thiêu Thọ Phá Cảnh: %.0f years burn; an extra roll at %.1f%%." % [burn, retry * 100.0])
+			res = CultivationRules.resolve_attempt(player, gd, sheet(), rng, retry, true)
+			lines.append("Roll %.0f vs %.0f%%." % [res.roll * 100.0, res.chance * 100.0])
 	if res.success:
 		_log("player_breakthrough", {"a": player.id, "realm": next.name})
-		lines.append("*** ĐỘT PHÁ THÀNH CÔNG! You are now %s. +%d Kinh Mạch points. Thọ nguyên rises to %.0f. ***" % [gd.realm_label(player.realm_index, player.stage), res.points, CultivationRules.lifespan(player, gd, sheet()).total])
+		lines.append("*** BREAKTHROUGH! You are now %s. +%d Kinh Mạch points. Lifespan rises to %.0f. ***" % [gd.realm_label(player.realm_index, player.stage), res.points, CultivationRules.lifespan(player, gd, sheet()).total])
+		lines.append_array(_on_breakthrough_succeeded())
 	else:
 		_log("player_breakthrough_fail", {"a": player.id, "realm": next.name})
 		lines.append("Breakthrough failed: -%.0f tu vi, tâm ma +%.1f, khí huyết now %d%%." % [res.tu_vi_lost, res.tam_ma_gained, int(player.vitality * 100.0)])
@@ -740,12 +886,28 @@ func breakthrough() -> Dictionary:
 	return {"ok": true, "lines": lines}
 
 
+## The player-only breakthrough_succeeded event: Mutation Awakening when capability #24 is held
+## (linh-can.md rule 10). Only a formed variant is recorded.
+func _on_breakthrough_succeeded() -> Array:
+	breakthrough_succeeded.emit(player.realm_index)
+	if not player.has_capability(int(gd.attributes().linh_can.awakening_capability)):
+		return []
+	var formed: Array = player.linh_can.awakening_pass(gd, rng)
+	var changes: Array = []
+	for id in formed:
+		changes.append({"what": "variant", "id": id, "from": 0, "to": int(player.linh_can.variants[id])})
+	_log_root_changes("player_variant_awakened", changes)
+	return [TreasureEffects.variants_text(gd, player.linh_can, formed).strip_edges()] if not formed.is_empty() else []
+
+
 ## Opens a Kinh Mạch Đồ node; with [param walk_path] opens the whole shortest path.
 func tree_allocate(node_id: int, walk_path: bool) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
 		return g
-	var targets: Array = tree.path_to(player.tree_nodes, node_id) if walk_path else [node_id]
+	var targets: Array = tree.path_to(player, gd, node_id) if walk_path else [node_id]
+	if walk_path and targets.size() > player.tree_points:
+		return {"ok": false, "lines": ["The route costs %d points; you have %d." % [targets.size(), player.tree_points]]}
 	if targets.is_empty():
 		return {"ok": false, "lines": ["Nothing to open (already open or unreachable)."]}
 	if targets.size() > player.tree_points:
@@ -759,6 +921,15 @@ func tree_allocate(node_id: int, walk_path: bool) -> Dictionary:
 		player.tree_nodes.append(int(nid))
 		player.tree_points -= 1
 		lines.append("Opened #%d %s: %s" % [int(nid), tree.node(int(nid)).name, tree.describe_mods(int(nid), player.linh_can, gd)])
+		for nb in tree.neighbors(int(nid)):
+			var hint: int = int(tree.node(nb).get("cluster", -1))
+			if hint >= 0 and not player.discovered.has(hint):
+				player.discovered.append(hint)
+				lines.append("  You sense a hidden cluster nearby: %s." % tree.clusters[hint].name)
+		var cap: int = int(tree.node(int(nid)).get("capability", 0))
+		if cap > 0 and not player.has_capability(cap):
+			player.grant_capability(cap)
+			lines.append("  Capability gained: %s. %s" % [gd.capability(cap).name, gd.capability(cap).desc])
 	sync_player()
 	return {"ok": true, "lines": lines}
 
@@ -883,7 +1054,7 @@ func to_dict() -> Dictionary:
 
 ## Restores a session saved by [method to_dict]. Returns {ok, lines}.
 func load_dict(d: Dictionary) -> Dictionary:
-	if int(d.get("version", 0)) != SAVE_VERSION:
+	if not SAVE_VERSIONS_READ.has(int(d.get("version", 0))):
 		return {"ok": false, "lines": ["Save version %s is not supported." % str(d.get("version"))]}
 	seed_value = int(d.seed)
 	rng.seed = str(d.rng_seed).to_int()
@@ -891,6 +1062,16 @@ func load_dict(d: Dictionary) -> Dictionary:
 	year = int(d.year)
 	season = int(d.season)
 	db = WorldDB.from_dict(d.db)
+	for rec in db.all("people"):
+		if rec.has("linh_can"):
+			rec["linh_can"] = LinhCan.migrate_record(rec.linh_can, gd)
+		var old_ladder: bool = not rec.has("level")
+		Ladder.migrate_record(rec, gd)
+		CongPhap.migrate_record(rec, db, gd)
+		if old_ladder:
+			# The old map's ids mean nothing on the new map: the points come back unspent.
+			rec["tree_nodes"] = [MeridianTree.ROOT_ID]
+			rec["tree_points"] = Ladder.points_total(gd, int(rec.level))
 	_wire()
 	player = Character.from_dict(db.get_record("people", str(d.player_id)))
 	pending_event = d.get("pending_event", {})
@@ -916,6 +1097,91 @@ func _herb_id(what: String) -> String:
 		if WorldDB.fold(h.name).contains(needle) or WorldDB.fold(h.id).contains(needle):
 			return h.id
 	return what
+
+
+## Uses a Meridian Seal key on the nearest item-sealed cluster the realm allows.
+func _use_seal_key(item_id: String) -> Dictionary:
+	var cid: int = pick_cluster("sealed", "item")
+	if cid < 0:
+		return {"ok": false, "lines": ["The seal finds nothing it can open yet."]}
+	var line: String = unseal_cluster(cid, "item")
+	db.remove("items", item_id)
+	return {"ok": true, "lines": [line]}
+
+
+## An event's unseal effect: "sealed" or "open". An open unseal is limited per realm (rule 10).
+func _unseal_from_event(kind: String) -> String:
+	if kind == "open":
+		var key: String = str(player.realm_index)
+		if int(player.open_unseals.get(key, 0)) >= int(gd.tree_config().open_unseals_per_realm[player.realm_index]):
+			return ""
+		var open_id: int = pick_cluster("open")
+		if open_id < 0:
+			return ""
+		player.open_unseals[key] = int(player.open_unseals.get(key, 0)) + 1
+		return unseal_cluster(open_id, "story")
+	var sealed_id: int = pick_cluster("sealed", "event")
+	return unseal_cluster(sealed_id, "event") if sealed_id >= 0 else ""
+
+
+## Unseals a hidden cluster for the player if its gate allows (Meridian Map rule 9). An open
+## cluster gets its template fill here, recorded as canonical. Returns the text line.
+func unseal_cluster(cluster_id: int, source: String) -> String:
+	var k: Dictionary = tree.clusters.get(cluster_id, {})
+	if k.is_empty() or player.unsealed.has(cluster_id) or int(k.gate) > player.realm_index:
+		return ""
+	player.unsealed.append(cluster_id)
+	if not player.discovered.has(cluster_id):
+		player.discovered.append(cluster_id)
+	if str(k.kind) == "open":
+		player.fills[str(cluster_id)] = {"source": "template"}
+	db.log_event(year, season, "cluster_unsealed", "%s khai mở %s." % [player.name, k.name], [player.id], [], [], {"cluster": cluster_id, "source": source})
+	sync_player()
+	return "A hidden cluster opens: %s (%d huyệt, %s)." % [k.name, int(k.size), k.location]
+
+
+## The cluster to unseal: rule 10's choice (lowest reach, then lowest id) among clusters of
+## [param kind] whose gate allows it, with [param seal] on sealed ones. -1 if none.
+func pick_cluster(kind: String, seal: String = "") -> int:
+	var dist: Dictionary = tree.distances(player)
+	var best: int = -1
+	var best_reach: int = 1 << 30
+	for k in tree.clusters_of(kind):
+		if player.unsealed.has(int(k.id)) or int(k.gate) > player.realm_index:
+			continue
+		if seal != "" and str(k.seal.type) != seal:
+			continue
+		var reach: int = 1 << 29
+		for l in k.links:
+			reach = mini(reach, int(dist.get(int(l), 1 << 29)))
+		if reach < best_reach:
+			best_reach = reach
+			best = int(k.id)
+	return best
+
+
+## Technique seals (Meridian Map rule 7): after enough cultivating seasons in the main slot, a
+## main method opens a technique-sealed cluster of its element. Until sealed clusters are
+## authored with their own techniques, naming the cluster's element is what "lists" it.
+func _check_technique_seals() -> Array:
+	var lines: Array = []
+	var main: Dictionary = CongPhap.main_entry(player)
+	if main.is_empty() or int(main.get("seal_seasons", 0)) < int(CongPhap.tier_of(gd, main.def).seal_seasons):
+		return lines
+	for k in tree.clusters_of("sealed"):
+		if str(k.seal.type) == "technique" and Array(main.def.names).has(k.sector) and not player.unsealed.has(int(k.id)):
+			var t: String = unseal_cluster(int(k.id), "technique")
+			if t != "":
+				lines.append(t)
+				break
+	return lines
+
+
+## One World Database record per root change, with old and new values (linh-can.md AC-LC-45).
+func _log_root_changes(type: String, changes: Array) -> void:
+	for ch in changes:
+		var text: String = str(gd.world_gen().history.texts.get(type, type)).replace("{a}", player.name)
+		db.log_event(year, season, type, text, [player.id], [], [], ch)
 
 
 func _log(type: String, refs: Dictionary) -> String:

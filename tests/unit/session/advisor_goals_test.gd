@@ -15,8 +15,10 @@ func _session(origin: String = "gia_toc") -> GameSession:
 func _to_bottleneck(s: GameSession) -> void:
 	var c: Character = s.player
 	c.realm_index = 0
-	c.stage = s.gd.stage_count(0) - 1
-	c.tu_vi = CultivationRules.stage_requirement(c, s.gd)
+	c.level = Ladder.band(s.gd, 0)[1]
+	c.level_peak = c.level
+	c.stage = Ladder.stage_of_level(s.gd, c.level)
+	c.tu_vi = CultivationRules.level_requirement(c, s.gd)
 	for it in s.db.items_of(c.id):
 		if it.kind == "pill":
 			s.db.remove("items", it.id)

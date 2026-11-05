@@ -48,7 +48,7 @@ static func apply_birth(c: Character, gd: GameData, perk_id: String) -> void:
 	var birth: Dictionary = p.get("birth", {})
 	if birth.has("purity_all"):
 		for e in c.linh_can.elements.keys():
-			c.linh_can.raise_purity(e, int(birth.purity_all))
+			c.linh_can.raise_purity(gd, e, int(birth.purity_all))
 
 
 ## Adds every owned perk's effects to a stat sheet (source "Thiên mệnh: <name>").
@@ -56,7 +56,7 @@ static func add_perk_mods(c: Character, gd: GameData, sheet: StatSheet) -> void:
 	for id in c.perks:
 		var p: Dictionary = perk(gd, str(id))
 		for fx in p.get("effects", []):
-			sheet.add_mod("Thiên mệnh: %s" % p.name, str(fx.stat), float(fx.value))
+			sheet.add_mod("Thiên mệnh: %s" % p.name, str(fx.stat), float(fx.value), StatSheet.KIND_PERK)
 
 
 ## Gives a new NPC its background edges (rich family, a blessing) by chance.
@@ -84,9 +84,9 @@ static func npc_edge_score(rec: Dictionary, gd: GameData) -> Breakdown:
 		var frac: float = clampf((avg - float(sr.purity_from)) / (float(sr.purity_to) - float(sr.purity_from)), 0.0, 1.0)
 		if frac > 0.0:
 			b.add("Strong linh căn (purity %d)" % int(avg), frac * float(sr.weight))
-		var bd: int = lc.get("bien_di", {}).size()
+		var bd: int = lc.get("variants", {}).size()
 		if bd > 0:
-			b.add("Biến dị ×%d" % bd, minf(float(bd) * float(sr.per_bien_di), float(sr.bien_di_max)))
+			b.add("Biến dị ×%d" % bd, minf(float(bd) * float(sr.per_variant), float(sr.variant_max)))
 	var rank: String = str(rec.get("sect_rank", ""))
 	if cfg.sect_rank.has(rank):
 		b.add("Valued by the sect (%s)" % rank, float(cfg.sect_rank[rank]))
@@ -108,5 +108,9 @@ static func npc_step_chance(rec: Dictionary, gd: GameData) -> Breakdown:
 	for step in score.steps:
 		if str(step.op) == "+" and float(step.value) != 0.0:
 			b.add(str(step.label), float(step.value) * (float(cfg.max_step) - float(cfg.base_step)))
+	for id in rec.get("capabilities", []):
+		var fx: Dictionary = gd.capability(int(id)).get("npc_effect", {})
+		if str(fx.get("type", "")) == "p_step_add":
+			b.add("Capability: %s" % gd.capability(int(id)).name, float(fx.value))
 	b.clamp_to(float(cfg.base_step), float(cfg.max_step))
 	return b

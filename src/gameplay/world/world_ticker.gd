@@ -34,7 +34,8 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			continue
 		p["age"] = float(p.age) + season_years
 		var c := Character.from_dict(p)
-		var lifespan: float = float(_gd.realm(c.realm_index).lifespan) + c.lifespan_bonus
+		var base_life: float = float(_gd.realm(c.realm_index).lifespan)
+		var lifespan: float = base_life + minf(c.lifespan_bonus, base_life * float(_gd.attributes().bonus_ceilings.lifespan_frac))
 		if c.age >= lifespan:
 			p["alive"] = false
 			p["death_cause"] = "Thọ nguyên cạn kiệt"
@@ -46,6 +47,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 		if c.stage < _gd.stage_count(c.realm_index) - 1:
 			if rng.randf() < stage_chance:
 				p["stage"] = c.stage + 1
+				p["level"] = Ladder.stage_first_level(_gd, c.realm_index, c.stage + 1)
 				_builds.refresh_power(p.id)
 		elif c.realm_index < _gd.realms().size() - 1:
 			# Fate is rolled once per realm at the bình cảnh (ProgressionEdges: 0.30 baseline,
@@ -57,6 +59,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			if bool(fate.ok) and rng.randf() < float(ProgressionEdges.config(_gd).npc.fated_breakthrough_per_season):
 				p["realm_index"] = c.realm_index + 1
 				p["stage"] = 0
+				p["level"] = Ladder.stage_first_level(_gd, c.realm_index + 1, 0)
 				_builds.refresh_power(p.id)
 				news.append(_log(year, season, "tick_breakthrough", texts, {"a": p.id, "realm": _gd.realm(c.realm_index + 1).name}))
 	if rng.randf() < float(cfg.event_chance_per_season):

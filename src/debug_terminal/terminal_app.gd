@@ -33,7 +33,8 @@ const HELP := [
 		["cul [seasons]", "tu luyện (default 1 season)"], ["bequan <years>", "closed-door cultivation, no events"],
 		["mission", "sect mission at your sect HQ, or bounty in a town"], ["explore", "search this place (events, lost treasures)"],
 		["go [place id]", "travel along a road (no id: pick from a list)"], ["craft [recipe id]", "luyện đan, one season (no id: pick)"],
-		["breakthrough", "attempt the bình cảnh into the next realm"],
+		["breakthrough [notalisman] [burn]", "attempt the great breakthrough into the next realm"],
+		["tech", "known techniques, layers, slots"], ["slot main|aux1|aux2|second <row> | slot clear <slot>", "change technique slots"],
 	]],
 	["Actions (free)", [
 		["plant [herb id|item id]", "buy a seed / transplant a herb (at home)"], ["harvest [plot|all]", "harvest herbs"],
@@ -55,7 +56,7 @@ const HELP := [
 		["db show <id>", "any record with its history"],
 	]],
 	["Kinh Mạch Đồ", [
-		["tree", "points and openable huyệt"], ["tree map", "ASCII map"], ["tree targets", "notables/keystones by cost"],
+		["tree", "points and openable huyệt"], ["tree map", "ASCII map"], ["tree targets", "notables/keystones by cost"], ["tree clusters", "hidden clusters"], ["tree mode visible|silhouette", "what hidden clusters show"],
 		["tree node <id>", "details"], ["tree alloc [id]", "open one adjacent huyệt (no id: pick)"], ["tree go <id>", "open the whole path"],
 	]],
 	["LLM", [
@@ -217,7 +218,17 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 			if rid != "":
 				_r(s.craft(rid))
 		"breakthrough", "bt":
-			_r(s.breakthrough())
+			var no_talisman: bool = args.has("notalisman")
+			var burn: bool = args.has("burn")
+			var bt: Dictionary = s.breakthrough(false, not no_talisman, burn)
+			if bool(bt.get("needs_confirm", false)):
+				io.out_lines(bt.lines)
+				var yes: Variant = io.read_line("  Attempt anyway? (yes/no): ")
+				if str(yes) == "yes":
+					bt = s.breakthrough(true, not no_talisman, burn)
+				else:
+					return
+			_r(bt)
 		"plant":
 			var what: String = " ".join(args) if args.size() > 0 else _pick_seed()
 			if what != "":
@@ -238,9 +249,15 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 			if ue != "":
 				_r(s.unequip(ue))
 		"learn":
-			var lc: String = _arg(args, 0, "") if args.size() > 0 else _pick_item("Cultivate which công pháp?", func(it): return it.kind == "cong_phap" and it.id != s.player.cong_phap_id)
+			var lc: String = _arg(args, 0, "") if args.size() > 0 else _pick_item("Read which manual?", func(it): return it.kind == "cong_phap" and not s.player.techniques.has(str(it.get("tech_id", ""))))
 			if lc != "":
 				_r(s.learn(lc))
+		"blink":
+			_r(s.blink(_arg(args, 0, "")))
+		"tech", "techniques":
+			io.out_lines(TerminalViews.techniques(s, io))
+		"slot":
+			_slot_command(s, args)
 		"refine", "luyenkhi":
 			var design: String = _arg(args, 0, "") if args.size() > 0 else _pick_design()
 			if design != "":
@@ -267,7 +284,7 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 			if b != "":
 				_r(s.buy(b))
 		"sell":
-			var sl: String = _arg(args, 0, "") if args.size() > 0 else _pick_item("Sell what?", func(it): return it.id != s.player.cong_phap_id and not s.player.equipped.has(it.id) and not (it.kind == "herb" and int(it.get("plot", -1)) >= 0))
+			var sl: String = _arg(args, 0, "") if args.size() > 0 else _pick_item("Sell what?", func(it): return not s.player.equipped.has(it.id) and not (it.kind == "herb" and int(it.get("plot", -1)) >= 0))
 			if sl != "":
 				_r(s.sell(sl))
 		"talk":
@@ -449,7 +466,7 @@ func _pick_recipe() -> String:
 func _pick_seed() -> String:
 	var s: GameSession = session
 	var rows: Array = []
-	for h in s.field.seed_catalog():
+	for h in s.field.seed_catalog(s.player.realm_index):
 		rows.append({"label": "%-18s seed %3d LT · matures in %.0f y · %s" % [h.name, int(h.seed_price), float(h.mature_years), h.desc], "value": h.id})
 	for it in s.db.items_of(s.player.id):
 		if it.kind == "herb" and int(it.get("plot", -1)) < 0:
@@ -572,6 +589,34 @@ func _pick_perk(rng: RandomNumberGenerator, rolled: bool) -> String:
 	return _pick(title, rows)
 
 
+## slot main <n> | slot aux1 <n> | slot aux2 <n> | slot second <n> | slot clear <slot>, where n
+## is the row number shown by 'tech'.
+func _slot_command(s: GameSession, args: Array) -> void:
+	var name: String = _arg(args, 0, "")
+	var clear: bool = name == "clear"
+	if clear:
+		name = _arg(args, 1, "")
+	var slot: String = "aux" if name.begins_with("aux") else name
+	var index: int = int(name.substr(3)) - 1 if slot == "aux" else 0
+	var key: String = ""
+	if not clear:
+		var keys: Array = s.player.techniques.keys()
+		var row: int = int(_arg(args, 1, "0")) - 1
+		if row < 0 or row >= keys.size():
+			io.out("Usage: slot main|aux1|aux2|second <row from 'tech'>, or slot clear <slot>.")
+			return
+		key = str(keys[row])
+	var r: Dictionary = s.set_slot(slot, index, key)
+	if bool(r.get("needs_confirm", false)):
+		io.out_lines(r.lines)
+		var yes: Variant = io.read_line("  Confirm? (yes/no): ")
+		if str(yes) == "yes":
+			r = s.set_slot(slot, index, key, true)
+		else:
+			return
+	_r(r)
+
+
 func _custom_character(spec: Dictionary, rng: RandomNumberGenerator) -> Character:
 	io.out("Tự Định: set each thiên phú 1-100 (enter = 50).")
 	var tp: Dictionary = {}
@@ -580,28 +625,34 @@ func _custom_character(spec: Dictionary, rng: RandomNumberGenerator) -> Characte
 		if v == null:
 			return null
 		tp[def.id] = int(v) if str(v).is_valid_int() else 50
-	io.out("Linh căn purities, e.g. 'hoa=80 moc=60 tho=40' (elements: kim moc thuy hoa tho).")
-	var p_in: Variant = io.read_line("  purities: ")
 	var purities: Dictionary = {}
-	for pair in str(p_in).split(" ", false):
-		var kv: PackedStringArray = pair.split("=")
-		if kv.size() == 2:
-			purities[kv[0].strip_edges()] = int(kv[1])
-	var b_in: Variant = io.read_line("  biến dị ids to force (blank = roll from purities): ")
-	var forced: Array = Array(str(b_in).split(" ", false))
-	var c := CharacterFactory.custom_player(gd, rng, spec.name, spec.gender, spec.origin, tp, purities, forced)
+	var picks: Array = []
+	while true:
+		io.out("Root purities 10-100, e.g. 'hoa=80 moc=60 tho=40' (elements: kim moc thuy hoa tho).")
+		var p_in: Variant = io.read_line("  purities: ")
+		if p_in == null:
+			return null
+		purities = {}
+		for pair in str(p_in).split(" ", false):
+			var kv: PackedStringArray = pair.split("=")
+			if kv.size() == 2:
+				purities[kv[0].strip_edges()] = float(kv[1])
+		io.out("Variants you qualify for: phong huyet hu_khong (one or two elements), loi (hoa+kim), am (tho+thuy), hon_don (all five), quang (hoa), bang (thuy). Any you leave out never forms.")
+		var b_in: Variant = io.read_line("  variant ids (blank = none): ")
+		if b_in == null:
+			return null
+		picks = Array(str(b_in).split(" ", false))
+		var err: String = LinhCan.self_made_error(gd, purities, picks)
+		if err == "":
+			break
+		io.out(err)
+	var c := CharacterFactory.custom_player(gd, rng, spec.name, spec.gender, spec.origin, tp, purities, picks)
 	io.out_lines(_preview(c))
 	return c
 
 
 func _preview(c: Character) -> Array:
-	var lines: Array = ["", "%s — %s" % [c.name, gd.origin(c.origin).get("name", "")], "  " + c.linh_can.describe(gd)]
-	var tp: PackedStringArray = []
-	for def in gd.thien_phu_defs():
-		tp.append("%s %s" % [def.name, CharacterRules.graded(gd, float(c.base_stat(def.id)))])
-	lines.append("  " + " · ".join(tp))
-	lines.append("  Linh thạch %d. Curve in Luyện Khí: x%.2f (more elements: slower now, much faster later)." % [c.linh_thach, CultivationRules.curve_factor(c, gd)])
-	return lines
+	return TerminalViews.birth_card(gd, c, io)
 
 
 func _start(seed_v: int, spec: Dictionary) -> void:
@@ -714,6 +765,16 @@ func _match(rec: Dictionary, filter: String) -> bool:
 func _tree(args: Array) -> void:
 	var s: GameSession = session
 	match _arg(args, 0, ""):
+		"clusters":
+			io.out_lines(TerminalViews.tree_clusters(session, io))
+		"mode":
+			var mode: String = _arg(args, 1, "")
+			if mode in ["visible", "silhouette"]:
+				session.player.tree_visibility = mode
+				session.sync_player()
+				io.out("Tree display: %s." % mode)
+			else:
+				io.out("Usage: tree mode visible|silhouette")
 		"":
 			io.out_lines(TerminalViews.tree_summary(s, io))
 		"map":
@@ -769,7 +830,7 @@ func _pick_formation() -> String:
 func _pick_huyet() -> String:
 	var s: GameSession = session
 	var rows: Array = []
-	for nid in s.tree.frontier(s.player.tree_nodes):
+	for nid in s.tree.frontier(s.player):
 		var nd: Dictionary = s.tree.node(nid)
 		var ok: Dictionary = s.tree.can_allocate(s.player, nid, gd)
 		var why: String = "" if ok.ok or s.player.tree_points <= 0 else io.paint("  (" + str(ok.reason) + ")", "2")

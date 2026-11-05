@@ -19,8 +19,10 @@ func _session(edge: bool = true, perk: String = "") -> GameSession:
 func _to_bottleneck(s: GameSession) -> void:
 	var c: Character = s.player
 	c.realm_index = 0
-	c.stage = s.gd.stage_count(0) - 1
-	c.tu_vi = CultivationRules.stage_requirement(c, s.gd)
+	c.level = Ladder.band(s.gd, 0)[1]
+	c.level_peak = c.level
+	c.stage = Ladder.stage_of_level(s.gd, c.level)
+	c.tu_vi = CultivationRules.level_requirement(c, s.gd)
 
 
 func _starting_pha_canh(s: GameSession) -> int:
@@ -69,7 +71,7 @@ func test_bat_diet_dao_tam_keeps_tu_vi_on_a_failed_breakthrough() -> void:
 	var sh: StatSheet = s.sheet()
 	sh.add_mod("test: force failure", "breakthrough_chance", -1000.0)
 	var tu_vi: float = c.tu_vi
-	var r: Dictionary = CultivationRules.attempt_breakthrough(c, s.gd, sh, s.rng, -1)
+	var r: Dictionary = CultivationRules.resolve_attempt(c, s.gd, sh, s.rng, 0.0, false)
 	assert_false(r.success, "failed")
 	assert_near(c.tu_vi, tu_vi, 0.001, "no tu vi lost")
 
@@ -77,9 +79,11 @@ func test_bat_diet_dao_tam_keeps_tu_vi_on_a_failed_breakthrough() -> void:
 func test_pha_canh_phu_is_previewed_then_used_by_the_breakthrough() -> void:
 	var s := _session(true, "tho_nguyen")
 	_to_bottleneck(s)
+	s.alchemy.add_pills(s.player, "truc_co_dan", 0, 1)
 	var with_t: float = Advisor.breakthrough_odds(s).chance
 	var plain := _session(false)
 	_to_bottleneck(plain)
+	plain.alchemy.add_pills(plain.player, "truc_co_dan", 0, 1)
 	var without_t: float = Advisor.breakthrough_odds(plain).chance
 	assert_true(with_t > without_t, "talisman in the odds: %.2f vs %.2f" % [with_t, without_t])
 	var held: int = _starting_pha_canh(s)
@@ -106,9 +110,9 @@ func test_co_duyen_needs_the_edge_and_a_binh_canh_and_comes_once_per_realm() -> 
 func test_npc_step_chance_runs_from_base_to_max() -> void:
 	var gd := game_data()
 	var cfg: Dictionary = gd.file("character_edges").npc
-	var plain := {"linh_can": {"elements": {"kim": 40}, "bien_di": {}}, "sect_rank": "", "background": "", "perks": []}
+	var plain := {"linh_can": {"elements": {"kim": 40}, "variants": {}}, "sect_rank": "", "background": "", "perks": []}
 	assert_near(ProgressionEdges.npc_step_chance(plain, gd).total, float(cfg.base_step), 0.001, "no edge: base")
-	var gifted := {"linh_can": {"elements": {"kim": 95, "hoa": 95}, "bien_di": {"loi": 80, "phong": 80}}, "sect_rank": "tong_chu", "background": "rich_family", "perks": ["dao_cot"]}
+	var gifted := {"linh_can": {"elements": {"kim": 95, "hoa": 95}, "variants": {"loi": 80, "phong": 80}}, "sect_rank": "tong_chu", "background": "rich_family", "perks": ["dao_cot"]}
 	assert_near(ProgressionEdges.npc_step_chance(gifted, gd).total, float(cfg.max_step), 0.001, "all edges: capped at max")
 
 

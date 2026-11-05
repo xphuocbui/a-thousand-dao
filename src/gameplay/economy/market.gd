@@ -30,7 +30,7 @@ static func owner_of(place_id: String) -> String:
 
 
 ## Regenerates stock if the place has a market and the stock is older than the restock period.
-func ensure_stock(rng: RandomNumberGenerator, place_id: String, year: int, realm_index: int) -> void:
+func ensure_stock(rng: RandomNumberGenerator, place_id: String, year: int, realm_index: int, root: LinhCan = null) -> void:
 	var place: Dictionary = _db.get_record("places", place_id)
 	if place.is_empty() or not bool(place.get("market", false)):
 		return
@@ -38,7 +38,8 @@ func ensure_stock(rng: RandomNumberGenerator, place_id: String, year: int, realm
 	if place.has("stock_year") and year - int(place.stock_year) < int(cfg.restock_every_years):
 		return
 	for old in stock(place_id):
-		_db.remove("items", old.id)
+		if not bool(old.get("reserved", false)):
+			_db.remove("items", old.id)
 	var owner: String = owner_of(place_id)
 	var tier: int = clampi(realm_index, 0, _gd.realms().size() - 1)
 	for i in int(cfg.stock_herbs):
@@ -74,10 +75,43 @@ func ensure_stock(rng: RandomNumberGenerator, place_id: String, year: int, realm
 		m["owner_id"] = owner
 		_db.add("items", m)
 	for i in int(cfg.stock_cong_phap):
-		var cp: Dictionary = _items.cong_phap(rng, clampi(tier, 0, 3))
+		var cp_kind: String = "secret" if rng.randf() < float(cfg.get("stock_secret_art_chance", 0.0)) else "main"
+		var cp: Dictionary = _items.cong_phap(rng, clampi(tier, 0, 3), [], "", {"kind": cp_kind, "root": root})
 		cp["owner_id"] = owner
 		_db.add("items", cp)
 	place["stock_year"] = year
+
+
+## Rule 18: stocks a reserved copy of each par-tier single-element main method for every realm
+## from Core Formation up. The copies survive restocks and appear once per manual.
+func stock_guaranteed(place_id: String) -> void:
+	var owner: String = owner_of(place_id)
+	var have: Array = stock(place_id).map(func(it): return str(it.get("tech_id", "")))
+	for r in range(2, _gd.realms().size()):
+		var par: int = CongPhap.par_tier(_gd, r)
+		for e in _gd.element_cycle():
+			var m: Dictionary = _par_manual(par, str(e))
+			if m.is_empty() or have.has(str(m.tech_id)):
+				continue
+			m["reserved"] = true
+			m["owner_id"] = owner
+			_db.add("items", m)
+			have.append(str(m.tech_id))
+
+
+func _par_manual(par: int, element: String) -> Dictionary:
+	for t in _gd.cong_phap_file().get("templates", []):
+		if int(t.tier) == par and t.tech_kind == "main" and t.names == [element]:
+			return _items.manual_from_template(t)
+	var m: Dictionary = _items.cong_phap(_rng_for(par, element), par, [element])
+	m["tech_id"] = "par_%d_%s" % [par, element]
+	return m
+
+
+func _rng_for(par: int, element: String) -> RandomNumberGenerator:
+	var r := RandomNumberGenerator.new()
+	r.seed = hash("%d:%s" % [par, element])
+	return r
 
 
 ## Items for sale at a place.
@@ -93,13 +127,13 @@ func _charm(c: Character, sheet: StatSheet) -> float:
 ## Price to buy one unit.
 func buy_price(c: Character, sheet: StatSheet, item: Dictionary) -> int:
 	var v: float = float(_items.value_of(item)) * float(_gd.session().market.buy_markup) * (1.0 - _charm(c, sheet))
-	return maxi(1, int(roundf(v)))
+	return maxi(1, int(ceilf(v - 1e-6)))
 
 
 ## Price received for selling one unit.
 func sell_price(c: Character, sheet: StatSheet, item: Dictionary) -> int:
 	var v: float = float(_items.value_of(item)) * float(_gd.session().market.sell_ratio) * (1.0 + _charm(c, sheet))
-	return maxi(1, int(roundf(v)))
+	return maxi(1, int(floorf(v + 1e-6)))
 
 
 ## Buys one unit (stacks split). Returns {ok, message, item_id}.
@@ -136,8 +170,8 @@ func sell(c: Character, sheet: StatSheet, place_id: String, item_id: String) -> 
 	var item: Dictionary = _db.get_record("items", item_id)
 	if item.is_empty() or item.owner_id != c.id:
 		return {"ok": false, "message": "You do not own %s." % item_id}
-	if item_id == c.cong_phap_id or c.equipped.has(item_id):
-		return {"ok": false, "message": "Unequip or stop cultivating %s first." % item.name}
+	if c.equipped.has(item_id):
+		return {"ok": false, "message": "Unequip %s first." % item.name}
 	if item.kind == "herb" and int(item.get("plot", -1)) >= 0:
 		return {"ok": false, "message": "Harvest %s before selling it." % item.name}
 	var price: int = sell_price(c, sheet, item)

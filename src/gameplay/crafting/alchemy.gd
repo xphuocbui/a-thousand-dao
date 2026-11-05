@@ -103,6 +103,9 @@ func craft(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, recipe_id
 	else:
 		out.levels = c.add_skill_xp(SKILL, float(recipe.xp) * float(cfg.fail_xp_fraction), float(cfg.xp_per_level), int(cfg.max_level))
 		out.message = "Failed (%.0f%% vs roll %.0f): the cauldron cracks; the herbs are ash." % [chance, roll]
+		if c.has_capability(11) and rng.randf() < float(_gd.capability(11).params.chance):
+			out.pill_id = add_pills(c, str(cfg.mutated_pill), 0, 1)
+			out.message += " Dị Đan Hóa Sinh: a strange pill forms in the ash."
 	if out.levels > 0:
 		out.message += " Đan Đạo rises to level %d." % c.skill_level(SKILL)
 	return out

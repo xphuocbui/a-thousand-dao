@@ -387,6 +387,8 @@
       "player_refined": "{a} luyện thành {item}.",
       "player_co_duyen": "{a} gặp cơ duyên tại {place}.",
       "player_linh_can_changed": "Linh căn của {a} biến đổi.",
+      "player_root_purified": "Linh căn của {a} được tẩy luyện.",
+      "player_variant_awakened": "Biến dị linh căn của {a} khai mở.",
       "player_formation": "{a} bố trí trận pháp tại động phủ ở {place}.",
       "player_formation_decay": "Trận pháp tại động phủ của {a} suy yếu vì thiếu linh thạch duy trì.",
       "player_joined_sect": "{a} bái nhập {s1}."

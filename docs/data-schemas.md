@@ -5,15 +5,16 @@ Files follow `[system]_[name].json`, keys are `snake_case`, and each file carrie
 `schema_version`. Godot parses every JSON number as a float; code converts with
 `int()` where an integer is meant. Loaded by `src/gameplay/game_data.gd` (`GameData`).
 
-Design source for all of this: `design/gdd/game-concept.md` (§ Linh Căn, § Cảnh Giới,
-§ Character Stats). Values are first-pass drafts for the debug terminal; the GDDs
-written after `/map-systems` own their final tuning.
+Design source: the GDDs in `design/gdd/` own the values of the files they name
+(Spiritual Roots, Character Stats, Realms & Bottlenecks, Cultivation Techniques, Meridian
+Map). Systems with no GDD yet keep first-pass drafts from `design/gdd/game-concept.md`.
 
 | File | What it defines | Read by |
 |---|---|---|
 | `cultivation_realms.json` | Realm ladder and breakthrough rules | `CultivationRules`, `CombatPower`, `BuildGenerator` |
 | `character_attributes.json` | Thiên phú, roll distribution, grade bands, linh căn rolls, element-count curve, derived constants, start values, origins | `CharacterFactory`, `LinhCan`, `CultivationRules`, `CharacterRules` |
-| `character_elements.json` | Five elements, their economy roles, biến dị definitions | `LinhCan`, `MeridianTree`, `StatSheet`, `CharacterRules` |
+| `meridian_capabilities.json` | The 25 capabilities: tier, parameters, NPC effect | `GameData`, every host system |
+| `character_elements.json` | Five elements, their economy roles, the 8 variant roots and their role lines | `LinhCan`, `MeridianTree`, `StatSheet`, `CharacterRules` |
 | `items_herbs.json` | Linh thảo templates and potency curve | `ItemFactory`, `HerbField`, `Alchemy` |
 | `items_recipes.json` | Alchemy rules and đan phương | `Alchemy`, `PillEffects`, `Market` |
 | `items_artifacts.json` | Pháp bảo grades, tiers, bases, affixes, equip rules | `ItemFactory`, `CombatPower` |
@@ -40,20 +41,18 @@ written after `/map-systems` own their final tuning.
 ## Schemas and units
 
 ### cultivation_realms.json
-- `realms[]`: `id`, `name`, `stage_names[]`, `stage_curve_groups[]` (keys into
-  `element_count_curve`), `tu_vi_required[]` (tu vi to finish each stage),
-  `lifespan` (years of thọ nguyên), `base_rate` (tu vi per season before multipliers),
-  `power_base` (chiến lực base at stage 0), `stage_power_step` (+fraction per stage),
-  `than_thuc_mult` / `khi_huyet_mult` (realm multipliers), `linh_luc_base`,
-  `tree_points_per_stage` (Kinh Mạch points per stage-up and on entry),
-  `entry_requirement` (`null`, or `{item_tag, base_chance, pill_chance}` — chances 0..1).
-- `breakthrough`: `pill_quality_bonus_per_grade` (+chance per pill quality rank),
-  `ngo_tinh_bonus_per_point`, `dao_tam_bonus_per_point` (+chance per point),
-  `failure_tu_vi_loss_pct` (fraction lost), `failure_tam_ma_gain` (points),
-  `failure_khi_huyet_loss_pct` (fraction of vitality), `backlash_death_tam_ma_threshold`,
-  `tam_ma_backlash_divisor` (backlash % = Tâm ma − Đạo tâm / divisor).
-- `cultivation`: `no_cong_phap_mult`, `ngo_tinh_divisor` (×(1+Ngộ/divisor)),
-  `dan_doc_divisor` (×(1−Đan độc/divisor)), `closed_door_efficiency`, `seasons_per_year`.
+
+Schema 2 (design/gdd/canh-gioi.md Parameter keys). Per realm: `levels` [lo, hi], `climb_total`
+(sum of the realm's level costs), `climb_growth` (last cost / first cost), `bar_mult`
+(bottleneck bar as a multiple of the last climbing cost; null with no next realm), `layers`
+(Qi Refining only), `stage_names` and `stage_curve_groups` (4 entries), `lifespan`, `base_rate`,
+`power_base`, `than_thuc_mult`, `khi_huyet_mult`, `linh_luc_base`, `entry_requirement`
+({item_tag, base_chance, pill_chance, condition}; condition is null, density_min, tam_ma_max or
+insight).
+`ladder`: level_cap, stage_power_step, bare_attempt_cap, great_breakthrough_bonus, pct_trung,
+pct_hau, pct_dai, pts_birth, and legacy_tu_vi_required (read only to migrate old saves).
+`breakthrough`: pill and talent terms, q_extras_ceiling_pp, failure_insight_pp and _cap,
+chance_min/max, failure penalties, vitality_floor. `guard.s_max` feeds Meridian Formulas E2.
 
 ### character_attributes.json
 - `thien_phu[]`: `{id, name, desc}` — the six innate stats besides linh căn.
@@ -76,15 +75,10 @@ written after `/map-systems` own their final tuning.
   `cong_phap_tier`, `sect` (joins a generated sect), optional `khi_van_bonus`, `stipend_per_year`.
 
 ### character_elements.json
-- `cycle`: tương sinh order (Mộc→Hỏa→Thổ→Kim→Thủy); also the Kinh Mạch sector order.
-- `elements{}`: `name`, `ansi` (terminal colour), `word` (name part), `role`, `role_desc`.
-- `element_effects`: per purity point — `herb_growth_pct_per_purity` (Mộc),
-  `alchemy_success_per_purity` (Hỏa, success % points), `dan_doc_decay_per_purity` (Thủy),
-  `field_plots_per_purity` (Thổ), `mission_income_pct_per_purity` (Kim);
-  `tree_scale_base` and `absent_element_tree_scale` (Kinh Mạch node scale = base + purity/100,
-  or the absent value).
-- `bien_di[]`: `id`, `name`, `parents[]` (element or biến dị ids), `order`, `kind`,
-  `desc`, `effects[{stat, value, kind}]` (flat stat modifiers).
+
+`cycle` (generating order), `elements` (name, name_en, role), `tiers` (root names by n_base),
+`element_effects` (per-purity roles), `variants` (8, in roll order: id, name, name_en, origin,
+requires, desc) and `variant_effects` (per variant: {stat, per_purity}).
 
 ### items_herbs.json
 - `potency`: `per_doubling` (potency = 1 + k·log2(age/mature)), `max_potency`.
@@ -112,21 +106,27 @@ written after `/map-systems` own their final tuning.
   `equip.max_slots`, `equip.single_artifact_keystone_mult`.
 
 ### items_cong_phap.json
-- `tiers[]`: `rank` 0–3 (Hoàng/Huyền/Địa/Thiên), `speed_mult`, `power_mult`,
-  `max_realm` (beyond it cultivation ×0.25), `bonus_count`, `value`, `weight`.
-- `element_prefixes{}`, `suffixes[]`: name parts; `multi_element_chance`, `multi_element_count`;
-  `bonus_pool[{stat, min, max}]`.
+
+Schema 2 (design/gdd/cong-phap.md Parameter keys). `tiers`: rank, speed_mult, power_mult,
+max_realm, layers, layer_cost_mult, bonus_count, value, weight, bonus_budget, seal_seasons.
+Global: slots and speed (aux_slots, tech_norm, count_gain, layer_speed_penalty and floor,
+beyond_realm_mult, second_main_mult), mastery (mastery_base, trio_cost, layer_weights,
+catchup_mult), power and bonuses, harmony, commons (commons_tiers, root_bias, price_base,
+price_spread, bonus_pool). `templates`: the authored catalogue (id, name, tier, tech_kind main,
+secret or body, names, layers, bonuses, abilities, seal_clusters, origin).
 
 ### items_materials.json
 - `materials[]`: `id`, `name`, `element`, `base_value`, `rarity`, `desc`.
 
 ### meridian_tree.json
-- `seed` (fixed: the tree is the same every life), `rings`, `nodes_base` + `nodes_growth`
-  (nodes per sector ring = base + floor(ring × growth)), `same_ring_link_chance`,
-  `notable_rings[]`, `notables_per_ring`, `keystone_ring`, `bridge_rings[]`.
-- `root`, `gate_mods`, `small_pools{element|bridge: [{stat, value}]}`,
-  `notables{element: [{name, mods}], bridge: [{pair, name, mods}]}`,
-  `keystones{element|center: {name, mods, desc, requires_elements?}}`.
+
+Schema 2 (design/gdd/kinh-mach-do.md Parameter keys). Topology (radials_per_sector,
+ring_anchor_depths, ring_interior, base_cluster_slots, entry_count_weights, shapes), values
+(huyet_value_*, stat_weights in W per displayed unit), hidden clusters (cluster_count, size
+keys, inner_share, sealed_share, size_realm_gates, cap_min_n, premium), themes and
+element_themes, keystones and center_keystone, the variant sector keys, tree_breakthrough_cap,
+npc_unseal_share and open_unseals_per_realm. Sealed cluster content is theme-pool filler until
+the authored pass (the GDD's Open Question 6).
 
 ### world_generation.json
 - `regions`, `places_per_region` (`min`/`max`), `place_types[]` (`suffix`, `weight`,

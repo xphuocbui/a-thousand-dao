@@ -47,9 +47,9 @@ func free_plot(c: Character, sheet: StatSheet) -> int:
 	return -1
 
 
-## Herb templates whose seeds can be bought anywhere (rarity <= seed_rarity_max).
-func seed_catalog() -> Array:
-	var max_r: int = int(_gd.session().field.seed_rarity_max)
+## Herb templates whose seeds can be bought anywhere at a realm (seed_rarity_by_realm).
+func seed_catalog(realm_index: int = 0) -> Array:
+	var max_r: int = int(_gd.session().field.seed_rarity_by_realm[realm_index])
 	return _gd.herbs().filter(func(h): return int(h.rarity) <= max_r)
 
 
@@ -58,7 +58,7 @@ func plant_seed(c: Character, sheet: StatSheet, herb_id: String) -> Dictionary:
 	var t: Dictionary = _gd.herb(herb_id)
 	if t.is_empty():
 		return {"ok": false, "message": "Unknown herb '%s'." % herb_id}
-	if not seed_catalog().has(t):
+	if not seed_catalog(c.realm_index).has(t):
 		return {"ok": false, "message": "%s seeds are too rare to buy; find or buy a living plant and transplant it." % t.name}
 	var check: Dictionary = _can_work(c, sheet)
 	if not check.ok:
@@ -93,7 +93,7 @@ func harvest(c: Character, plot: int) -> Dictionary:
 	var p: Dictionary = planted(c)
 	if not p.has(plot):
 		return {"ok": false, "message": "Plot %d is empty." % plot}
-	if bool(_gd.session().field.must_be_home) and c.location_id != c.home_id:
+	if bool(_gd.session().field.must_be_home) and c.location_id != c.home_id and not c.has_capability(14):
 		return {"ok": false, "message": "You must be at your động phủ to harvest."}
 	var item: Dictionary = p[plot]
 	item["plot"] = -1
@@ -106,6 +106,11 @@ func grow(c: Character, sheet: StatSheet, seasons: int) -> float:
 	var years: float = float(seasons) / float(_gd.cultivation_rules().seasons_per_year) * mult
 	for item in planted(c).values():
 		item["age"] = float(item.age) + years
+	if c.has_capability(12):
+		var rate: float = float(_gd.capability(12).params.rate)
+		for item in _db.items_of(c.id):
+			if item.kind == "herb" and int(item.get("plot", -1)) < 0:
+				item["age"] = float(item.age) + years * rate
 	return mult
 
 
@@ -116,7 +121,7 @@ func years_until(c: Character, sheet: StatSheet, item: Dictionary, target_age: f
 
 
 func _can_work(c: Character, sheet: StatSheet) -> Dictionary:
-	if bool(_gd.session().field.must_be_home) and c.location_id != c.home_id:
+	if bool(_gd.session().field.must_be_home) and c.location_id != c.home_id and not c.has_capability(14):
 		return {"ok": false, "message": "You must be at your động phủ (home) to tend the field."}
 	var plot: int = free_plot(c, sheet)
 	if plot == -1:

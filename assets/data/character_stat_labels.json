@@ -133,6 +133,48 @@
     "co_duyen_pct": {
       "name": "cơ duyên frequency",
       "unit": "pct"
+    },
+    "qi_deviation_pct": {
+      "name": "qi deviation chance",
+      "unit": "pct"
+    },
+    "ngo_tinh": {
+      "name": "ngo_tinh",
+      "unit": "flat"
+    },
+    "can_cot": {
+      "name": "can_cot",
+      "unit": "flat"
+    },
+    "than_hon": {
+      "name": "than_hon",
+      "unit": "flat"
+    },
+    "khi_van": {
+      "name": "khi_van",
+      "unit": "flat"
+    },
+    "dao_tam": {
+      "name": "dao_tam",
+      "unit": "flat"
+    },
+    "mi_luc": {
+      "name": "mi_luc",
+      "unit": "flat"
     }
+  },
+  "precision_by_unit": {
+    "pct": 0.1,
+    "years": 0.1,
+    "flat": 0.01,
+    "flag": 1
+  },
+  "precision_overrides": {
+    "stealth": 0.1,
+    "field_plots": 1,
+    "alchemy_yield": 1,
+    "alchemy_success": 0.1,
+    "refining_success": 0.1,
+    "breakthrough_chance": 0.1
   }
 }

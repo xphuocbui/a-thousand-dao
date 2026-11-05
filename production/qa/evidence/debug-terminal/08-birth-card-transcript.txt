@@ -1,0 +1,19 @@
+Birth mode: 1) Thiên Định — roll, achievements on   2) Tự Định — choose, casual  [1]: 1
+
+━━ Lâm — Tán tu ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ ROOT [linh căn]  Single root — curve row 1, now x1.00 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁  84 Thượng   linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▁▁▁▁▁▁  35 Trung        Căn cốt   ▆▆▆▆▁▁▁▁▁▁  38 Trung
+   Thần hồn  ▆▆▁▁▁▁▁▁▁▁  23 Hạ           Khí vận   ▆▆▆▆▆▆▆▁▁▁  67 Thượng
+   Đạo tâm   ▆▁▁▁▁▁▁▁▁▁  13 Hạ           Mị lực    ▆▆▆▆▆▁▁▁▁▁  53 Trung
+
+ Linh thạch 30 · more elements: slower now, much faster later
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Accept? y = accept, r = reroll, q = cancel [y]: r

@@ -69,7 +69,7 @@ func met(s: GameSession, cond: Dictionary) -> bool:
 		"beasts":
 			return c.beasts.size() >= int(cond.count)
 		"bien_di":
-			return c.linh_can.bien_di.size() >= int(cond.count)
+			return c.linh_can.variants.size() >= int(cond.count)
 		"age":
 			return c.age >= float(cond.age)
 		"event":
