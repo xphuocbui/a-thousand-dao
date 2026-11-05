@@ -46,8 +46,8 @@ moved out of the root (Spiritual Roots rule 16) a home, with new Daos added besi
 **What a Dao is**
 
 1. **A Dao is a small tree.** Each Dao (data: `dao.json`) has an id, a name with its Hán-Việt
-   form, a requirement (rule 5) and about 20 nodes: three branches of six or seven, and a
-   keystone. A node has a kind and its effect. Adding a Dao is a data change,
+   form, a requirement (rule 5), its theme stats (rule 12) and about 20 nodes: three branches of six
+   or seven, and a keystone. A node has a kind and its effect. Adding a Dao is a data change,
    never a rule change.
 2. **The catalogue** is the 22 mutations moved out of the root (Spiritual Roots rule 16: Lava,
    Gravity, Life, Poison, Mist, Sword, Heavenly Thunder, Destruction, Death, Pill Fire, Spirit
@@ -104,9 +104,22 @@ moved out of the root (Spiritual Roots rule 16) a home, with new Daos added besi
     (user decision 2026-11-05). An NPC holds **at most one Dao**: it keeps its first
     successful roll and later rolls are ignored (review decision 2026-11-05). The Dao points
     `P_npc` (Formulas D3) are deducted from the points the Meridian Map allocator gives the
-    NPC, so an NPC's Dao is point-neutral: the player's premium (rule 10) does not apply to NPCs
-    yet (Open Question 5). The Dao's effect is a power
+    NPC, and those points are worth `dao_premium` times what they buy on the map, the same
+    premium the player gets (rule 10; user decision 2026-11-06). The Dao's effect is a power
     multiplier, not the tree, and it emits no per-season simulation.
+
+**Theme**
+
+12. **A tree belongs to its Dao.** Every node comes from its Dao's theme (user decision
+    2026-11-06): with the name hidden, a player can tell the Dao from its nodes. Sword's tree is
+    blades and cutting, Pill Fire's is the furnace, Time's is years and ageing.
+    - **Stat lines** use only the Dao's `theme_stats`, a list in its data. There is no filler:
+      a line any Dao could hold belongs on the Meridian Map instead.
+    - **Passives** belong to one Dao. No passive id appears in two trees.
+    - **Each branch** is a named facet of the theme, and the **keystone** is the Dao's
+      signature, the effect the build is named for.
+    - **Theme comes before combat value.** A craft Dao such as Spirit Farming needs no attack
+      line. It still meets the node-value lint (Formulas D1), through its own stats and passives.
 
 **What the player cannot do:** buy a node in a Dao it has not glimpsed; refund a node; make a
 node raise a ceiling or multiply a whole rate; hold an art before the combat system exists.
@@ -223,34 +236,40 @@ Three draws pick the offer from those 7. The player takes one, and the other two
 The npc_dao formula is defined as:
 
 `P_npc = min(C_dao, ⌊npc_dao_share · points_total(level)⌋)` ; `map_points = points_total − P_npc` ;
-`power_mult = points_total ÷ map_points`
+`power_mult = (map_points + dao_premium · P_npc) ÷ map_points`
 
 An NPC rolls once per realm entered from Core Formation, with chance `npc_dao_chance`, until
 its first success (rule 11: at most one Dao). On success it takes one Dao uniformly from those
 it qualifies for. The Meridian Map allocator gets `map_points`, and `power_mult` multiplies the
-resulting combat power, as a capability's `npc_effect` does. `power_mult` is the point-neutral
-value: it restores the W the deducted points would have bought on the map, so an NPC with a Dao
-is as strong as one without, with a different shape. Review decision 2026-11-05; assumes map
-power is close to linear in points, which a bot run must confirm (Open Question 5).
+resulting combat power, as a capability's `npc_effect` does. `power_mult` restores the W the
+deducted points would have bought on the map and adds the premium, so an NPC with a Dao is
+stronger than one without, as a player's is (user decision 2026-11-06, on the deduction from
+review decision 2026-11-05). It assumes map power is close to linear in points, which a bot run
+must confirm (Open Question 5).
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | `npc_dao_chance` | float | 0.5 | data file, *guess* | Chance of a Dao per realm from Core Formation, until the first success |
 | `npc_dao_share` | float | 0.25 | data file, *guess* | Share of an NPC's points it has put into its Dao |
+| `dao_premium` | float | 2 | data file (Formulas D1) | What a Dao point is worth against a map point, the player's value |
 | points_total(level) | int | 161–566 | Meridian Map Formulas A | The NPC's points: an NPC's level is the first level of its stage |
 | P_npc | int | 40–60 | calculated | Points put into the Dao, deducted from the map |
 | map_points | int | 121–506 | calculated | Points the Meridian Map allocator gets |
 
-**Output Range:** `power_mult` 1.00 (no Dao) to about 1.33. Below the cap it is a plateau
-of 1.331–1.333 (161 points: 1.331; 164, 216 and 240 points: 1.333), and it falls once the
-60-point cap binds above 240 points (566 points: 1.119).
+**Output Range:** `power_mult` 1.00 (no Dao) to about 1.67. Below the cap it is a plateau
+of 1.661–1.667 (161 points: 1.661; 164, 216 and 240 points: 1.667), and it falls once the
+60-point cap binds above 240 points (304 points: 1.492; 566 points: 1.237).
 The ratio `P_npc ÷ points_total` never exceeds `npc_dao_share`, so `power_mult` never exceeds
-1 ÷ (1 − 0.25) = 1.333. `npc_dao_power_max` is retired.
+1 + 2 × 0.25 ÷ 0.75 = 1.667.
+`power_mult` acts on the smaller map allocation, so the gain over an NPC of the same level with
+no Dao is `(points_total + (dao_premium − 1) · P_npc) ÷ points_total`: at most +25 %, falling to
+about +11 % at 566 points. `npc_dao_power_max` is retired.
 
 **Example:** a Core Formation NPC at level 41 has 161 points, so P_npc = min(60, ⌊40.25⌋) = 40,
-map_points = 121 and power_mult = 161 ÷ 121 = **1.331**. A Nascent Soul NPC at level 87 has 304
-points, so ⌊76.0⌋ caps at 60, map_points = 244 and power_mult = 304 ÷ 244 = **1.246**.
+map_points = 121 and power_mult = (121 + 80) ÷ 121 = **1.661**, about +25 % over a Dao-less NPC
+of that level. A Nascent Soul NPC at level 87 has 304 points, so ⌊76.0⌋ caps at 60,
+map_points = 244 and power_mult = (244 + 120) ÷ 244 = **1.492**, about +20 %.
 
 ## Edge Cases
 
@@ -352,7 +371,7 @@ Question 4, 5).
 | Knob | Value | Safe range | What it moves |
 |---|---|---|---|
 | `dao_node_cost` | 3 | 3–5 | Points per node, flat. Moves a Dao's total cost with it |
-| `dao_premium` | 2 | 1.5–3 | How much a node beats the acupoints it replaces. 3 lets Daos outshine the map |
+| `dao_premium` | 2 | 1.5–3 | How much a node beats the acupoints it replaces, for the player and for NPCs. 3 lets Daos outshine the map |
 | `dao_node_count`, `dao_full_points` | 20, 60 | 18–22, 54–66 | How much of a life's points a Dao takes (4 Daos = 240 of 566), and the authoring load |
 | `dao_ability_credit` | 10 / 18 / 30 W | ±30 % | What a passive counts for in the node-value lint |
 | `dao_glimpses_per_realm` | 1 | 1–2 | Daos per life (4 at 1) |
@@ -360,7 +379,7 @@ Question 4, 5).
 | `dao_offer_size` | 3 | 2–4 | Choice at a glimpse; needs `dao_open_min` ≥ offer size + 3 |
 | `dao_open_min` | 6 | 6–10 | How many Daos anyone can be offered |
 | `npc_dao_chance` | 0.5 | 0.2–0.8 | How common Dao-holding NPCs are |
-| `npc_dao_share` | 0.25 | 0.1–0.30 | NPC points in the Dao; `power_mult` caps at 1 ÷ (1 − share), so 0.30 gives 1.43 |
+| `npc_dao_share` | 0.25 | 0.1–0.30 | NPC points in the Dao; `power_mult` caps at 1 + `dao_premium` × share ÷ (1 − share), so 0.30 gives 1.86 |
 
 ## Visual/Audio Requirements
 
@@ -373,6 +392,7 @@ Not specified at this tier. Intent for later work:
 - **A glimpse** is a moment: three Daos offered, one chosen, and a tree to look at.
 - **A node** feels like a real purchase: 3 points, and clearly better than 3 acupoints.
 - **A keystone** is the payoff that names the build.
+- **A tree** reads as its Dao: every node sounds like Sword, or Time, and like nothing else.
 
 ## UI Requirements
 
@@ -405,7 +425,8 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 
 - **AC-DAO-01** [Config/Data] Every Dao in `dao.json` has 18–22 nodes and a mean node value of
   11.2–13.7 W, no shipped node is an art, at least six Daos have no root or technique
-  requirement, and no node carries a ceiling raise or a root factor.
+  requirement, no node carries a ceiling raise or a root factor, every stat line uses only its
+  Dao's `theme_stats`, and no passive id appears in two Daos.
 - **AC-DAO-02** [Logic] Formulas D1: every node costs 3 points, whether a 4 W line or a 34 W
   keystone, and V̄ is 12.42 W.
 - **AC-DAO-03** [Logic] The Formulas D1 example Dao totals 60 points and 236 W, a mean of 11.8 W
@@ -440,8 +461,8 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 **NPCs**
 
 - **AC-DAO-11** [Logic] Formulas D3: a Core Formation NPC at level 41 has P_npc 40, map_points
-  121 and power_mult 1.331 (±0.001). A Nascent Soul NPC at level 87 has P_npc 60, map_points
-  244 and power_mult 1.246 (±0.001). An NPC with no Dao has power_mult 1.000.
+  121 and power_mult 1.661 (±0.001). A Nascent Soul NPC at level 87 has P_npc 60, map_points
+  244 and power_mult 1.492 (±0.001). An NPC with no Dao has power_mult 1.000.
 - **AC-DAO-12** [Logic] Over 16,000 NPC rolls at `npc_dao_chance` 0.5, 50 % ± 1.6 pp succeed. An
   NPC generated at Core Formation rolls once, for its current realm only. An NPC that has a Dao
   makes no further roll in later realms and still holds exactly that one Dao.
@@ -466,6 +487,9 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
   the tree's 8 pp cap.
 - **AC-DAO-19** [Logic] A node removed by a data change is refunded, and a node that needed it
   stays bought.
+- **AC-DAO-20** [Config/Data] A content review of the shipped catalogue: shown a tree's nodes with the
+  Dao's name hidden, a reviewer names the Dao, and each branch has a named facet of the theme
+  (rule 12).
 
 **UI**
 
@@ -477,10 +501,10 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 | # | Question | Owner | Blocks |
 |---|---|---|---|
 | 1 | The `dao_glimpse` contract: which events grant it, how often (the rate), and what the validator checks | Event Engine | Any Dao in play |
-| 2 | The catalogue: a tree of about 20 nodes for each of the 22 seeds and the new Daos, so 440+ nodes. Which new Daos, and what each requirement is | game-designer, user | Content pass |
+| 2 | The catalogue: a tree of about 20 nodes for each of the 22 seeds and the new Daos, so 440+ nodes, each from its Dao's theme (rule 12). Which new Daos, what each requirement is, and each Dao's `theme_stats`. A narrow theme with few stats needs more passives, which adds authoring work | game-designer, user | Content pass |
 | 3 | The combat system. Arts are on hold until it exists, and the ability credit for an art tier needs its own pricing then | Combat (not designed), user | Art nodes |
 | 4 | `dao_ability_credit` (10 / 18 / 30 W) is a guess. `dao_premium` 2 makes a fully built life about 40 % stronger in tree power than the map alone: check that against combat and NPC power once trees exist | systems-designer | A content pass and a bot run |
-| 5 | Should NPC Daos get the player's premium (rule 10)? They are point-neutral for now, so a player's Dao is worth more than an NPC's. `npc_dao_chance` and `npc_dao_share` are guesses, and so is the assumption behind `power_mult = points_total ÷ map_points` (map power close to linear in points). A bot run must confirm that an NPC with a Dao is as strong as one without, and check the combined NPC uplift with cluster holders (Meridian Map AC-KMD-49) | NPC Builds, bot run | AC-DAO-11, 12 |
+| 5 | `npc_dao_chance` and `npc_dao_share` are guesses, and so is the assumption behind `power_mult` (map power close to linear in points). A bot run must confirm that a Dao-holding NPC ends up about 11–25 % above a Dao-less NPC of its level, check the combined NPC uplift with cluster holders (Meridian Map AC-KMD-49), and re-run the world census, since stronger NPCs may change who dies | NPC Builds, bot run | AC-DAO-11, 12 |
 | 6 | May a perk or a sect grant an early glimpse (a birth edge)? It would touch Progression Edges | game-designer | The edge |
 | 7 | Do Dao trees sit on the Meridian Map screen or on their own? | ux-designer | The UI |
 | 8 | The Way is Alpha (provisional) in the index. Should the first release ship Daos before Combat exists, with stat lines and passives only? | user | Scope |

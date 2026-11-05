@@ -327,13 +327,15 @@ formulas:
     variables:
       - points_total
       - npc_dao_share
+      - dao_premium
       - C_dao
-    output_range: [1.0, 1.334]
-    expression: "P_npc = min(C_dao, floor(npc_dao_share * points_total(level))); map_points = points_total - P_npc; power_mult = points_total / map_points"
-    notes: "An NPC's simplified Dao effect on combat power; rolls once per realm from Core Formation until the first success (one Dao per NPC). P_npc is deducted from the Meridian Map allocation, so a Dao is power-neutral; assumes map power near linear in points, a bot run must confirm."
+    output_range: [1.0, 1.667]
+    expression: "P_npc = min(C_dao, floor(npc_dao_share * points_total(level))); map_points = points_total - P_npc; power_mult = (map_points + dao_premium * P_npc) / map_points"
+    notes: "An NPC's simplified Dao effect on combat power; rolls once per realm from Core Formation until the first success (one Dao per NPC). P_npc is deducted from the Meridian Map allocation, and those points earn the player's dao_premium (user decision 2026-11-06), about 11-25 % over a Dao-less NPC of the level; assumes map power near linear in points, a bot run must confirm."
     added: 2026-11-05
-    revised: 2026-11-05
-    # was: power_mult = 1 + npc_dao_power_max * P_npc / C_dao, output_range [1.0, 1.12]; no point deduction (design-review 2026-11-05)
+    revised: 2026-11-06
+    # was: power_mult = points_total / map_points, output_range [1.0, 1.334] (before user decision 2026-11-06)
+    # earlier: power_mult = 1 + npc_dao_power_max * P_npc / C_dao, output_range [1.0, 1.12]; no point deduction (design-review 2026-11-05)
   - name: guard_success
     status: active
     source: design/gdd/canh-gioi.md
