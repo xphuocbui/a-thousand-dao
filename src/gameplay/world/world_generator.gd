@@ -161,7 +161,8 @@ func _make_loose_cultivators(rng: RandomNumberGenerator) -> void:
 	for place in places.filter(func(p): return p.type in ["thanh", "tran", "phuong_thi"]):
 		for k in rng.randi_range(int(pcfg.townsfolk_per_town.min), int(pcfg.townsfolk_per_town.max)):
 			_builds.create_person(rng, {"realm_index": rng.randi_range(0, int(pcfg.townsfolk_realm_max)), "location_id": place.id})
-	for i in int(_gd.world_gen().people.loose_cultivators):
+	var made: int = _db.find("people", func(p): return p.alive and not p.get("is_beast", false)).size()
+	for i in maxi(maxi(int(pcfg.world_cultivators), int(pcfg.world_cultivators_min)) - made, 0):
 		var place: Dictionary = RngUtils.pick(rng, places)
 		_builds.create_person(rng, {"archetype": "tan_tu" if rng.randf() < float(_gd.world_gen().people.loose_tan_tu_share) else "", "location_id": place.id})
 

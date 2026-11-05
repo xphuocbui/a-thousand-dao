@@ -194,9 +194,7 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 					return _give(c, _items.herb(str(ing.herb), float(ing.min_age) + 1.0), items)
 			return ""
 		"treasure":
-			var missing: Array = _gd.element_cycle().filter(func(e): return not c.linh_can.elements.has(e))
-			var elem: String = str(RngUtils.pick(rng, missing)) if not missing.is_empty() else str(RngUtils.pick(rng, _gd.element_cycle()))
-			return _give(c, _items.treasure(str(fx.treasure), elem), items)
+			return _give(c, _items.treasure(str(fx.treasure)), items)
 		"pill":
 			var pid: String = _alchemy.add_pills(c, str(fx.recipe), 0, 1)
 			items.append(pid)

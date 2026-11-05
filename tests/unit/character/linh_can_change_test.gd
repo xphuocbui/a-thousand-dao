@@ -154,11 +154,30 @@ func test_no_change_ever_removes_anything_ac44() -> void:
 func test_accepted_changes_write_one_record_each_ac45() -> void:
 	var s := _session()
 	var before: int = s.db.count("events")
-	var t: Dictionary = s.items.treasure("linh_can_qua", "tho")
+	var t: Dictionary = s.items.treasure("linh_can_qua")
 	t["owner_id"] = s.player.id
 	var tid: String = s.db.add("items", t)
-	var r: Dictionary = s.use_item(tid)
+	var missing: Array = s.gd.element_cycle().filter(func(e): return not s.player.linh_can.has(e))
+	var ask: Dictionary = s.use_item(tid)
+	assert_true(ask.get("needs_element", false), "no pick: the fruit asks")
+	assert_eq(ask.options, missing, "it offers the missing elements")
+	assert_true(s.db.has_record("items", tid), "and is kept")
+	var r: Dictionary = s.use_item(tid, str(missing[0]))
+	assert_true(s.player.linh_can.has(str(missing[0])), "the picked element grew")
 	assert_true(r.ok, "used: %s" % str(r.lines))
 	assert_false(s.db.has_record("items", tid), "consumed")
 	var added: int = 1 + s.player.linh_can.variants.size()
 	assert_eq(s.db.count("events"), before + added, "one record per change")
+
+
+func test_the_birth_perk_raises_every_element_with_no_roll_ac52() -> void:
+	var gd := game_data()
+	var c := TestFixtures.character({"hoa": 86, "kim": 40})
+	c.linh_can.variants["loi"] = 47
+	ProgressionEdges.apply_birth(c, gd, "linh_can_thuan_tinh")
+	assert_eq(int(c.linh_can.purity("hoa")), 94, "Fire")
+	assert_eq(int(c.linh_can.purity("kim")), 48, "Metal")
+	assert_eq(int(c.linh_can.purity("loi")), 54, "Thunder recomputed")
+	var top := TestFixtures.character({"hoa": 95})
+	ProgressionEdges.apply_birth(top, gd, "linh_can_thuan_tinh")
+	assert_eq(int(top.linh_can.purity("hoa")), 100, "capped")

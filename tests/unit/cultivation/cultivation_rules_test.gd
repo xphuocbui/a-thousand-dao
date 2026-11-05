@@ -28,41 +28,41 @@ func _sheet(c: Character) -> StatSheet:
 
 func test_levels_fix_the_realm_and_clamp_ac01() -> void:
 	var gd := game_data()
-	var want := {1: 0, 39: 0, 40: 1, 79: 1, 80: 2, 129: 2, 130: 3, 199: 3, 200: 4, 300: 4}
+	var want := {1: 0, 10: 0, 11: 1, 40: 1, 41: 2, 80: 2, 81: 3, 100: 3, 101: 4, 110: 4}
 	for l in want.keys():
 		assert_eq(Ladder.realm_of_level(gd, l), want[l], "level %d" % l)
 	assert_eq(Ladder.clamp_level(gd, 0), 1, "floor")
-	assert_eq(Ladder.clamp_level(gd, 301), 300, "cap")
+	assert_eq(Ladder.clamp_level(gd, 111), 110, "cap")
 
 
 func test_stage_starts_match_the_table_ac02() -> void:
 	var gd := game_data()
-	var want: Array = [[14, 27, 39], [53, 66, 79], [96, 113, 129], [153, 176, 199], [233, 267, 300]]
+	var want: Array = [[4, 7, 10], [21, 31, 40], [54, 67, 80], [87, 94, 100], [104, 107, 110]]
 	for i in want.size():
 		assert_eq(Ladder.stage_starts(gd, i), want[i], "realm %d" % i)
-	assert_eq(Ladder.stage_of_level(gd, 52), 0, "FE 52 early")
-	assert_eq(Ladder.stage_of_level(gd, 53), 1, "FE 53 middle")
-	assert_eq(Ladder.stage_of_level(gd, 66), 2, "FE 66 late")
-	assert_eq(Ladder.stage_of_level(gd, 79), 3, "FE 79 great perfection")
+	assert_eq(Ladder.stage_of_level(gd, 20), 0, "FE 20 early")
+	assert_eq(Ladder.stage_of_level(gd, 21), 1, "FE 21 middle")
+	assert_eq(Ladder.stage_of_level(gd, 31), 2, "FE 31 late")
+	assert_eq(Ladder.stage_of_level(gd, 40), 3, "FE 40 great perfection")
 
 
-func test_layer_label_is_ceil_of_a_third_ac03() -> void:
+func test_a_qi_refining_level_is_its_layer_ac03() -> void:
 	var gd := game_data()
-	var want := {1: 1, 4: 2, 14: 5, 27: 9, 39: 13}
+	var want := {1: 1, 4: 4, 7: 7, 10: 10, 11: 0}
 	for l in want.keys():
 		assert_eq(Ladder.layer_of_level(gd, l), want[l], "level %d" % l)
 
 
 func test_level_costs_match_the_table_ac04() -> void:
 	var gd := game_data()
-	var cases: Array = [[1, 9.60], [20, 24.09], [38, 57.60], [40, 78.67], [59, 136.26], [78, 236.01], [80, 469.87], [104, 813.84], [128, 1409.60], [130, 2194.04], [164, 3800.19], [198, 6582.13], [200, 10152.05], [250, 17681.70], [299, 30456.15]]
+	var cases: Array = [[1, 39.55], [5, 96.87], [9, 237.29], [11, 105.70], [25, 183.08], [39, 317.10], [41, 590.03], [60, 1021.96], [79, 1770.09], [81, 7935.87], [90, 13745.33], [99, 23807.62], [101, 111535.09], [105, 193184.44], [109, 334605.27]]
 	for c in cases:
 		assert_near(Ladder.level_cost(gd, c[0]), c[1], c[1] * 0.001, "level %d" % c[0])
 
 
 func test_costs_sum_to_the_climb_total_and_bars_match_ac05() -> void:
 	var gd := game_data()
-	var bars: Array = [230.40, 2360.11, 14096.04, 65821.26, 0.0]
+	var bars: Array = [230.0, 2360.0, 14096.0, 65821.0, 0.0]
 	for i in gd.realms().size():
 		var b: Array = Ladder.band(gd, i)
 		var sum: float = 0.0
@@ -74,19 +74,19 @@ func test_costs_sum_to_the_climb_total_and_bars_match_ac05() -> void:
 
 func test_level_rises_when_the_bar_reaches_the_cost_ac06() -> void:
 	var gd := game_data()
-	var c := _at(60)
-	for i in 4:
+	var c := _at(25)
+	for i in 5:
 		CultivationRules.add_tu_vi(c, gd, 31.25)
-	assert_eq(c.level, 60, "still 60")
-	assert_near(c.tu_vi, 125.0, 0.01, "bar")
+	assert_eq(c.level, 25, "still 25")
+	assert_near(c.tu_vi, 156.25, 0.01, "bar")
 	CultivationRules.add_tu_vi(c, gd, 31.25)
-	assert_eq(c.level, 61, "level 61")
-	assert_near(c.tu_vi, 15.99, 0.01, "surplus")
+	assert_eq(c.level, 26, "level 26")
+	assert_near(c.tu_vi, 4.42, 0.01, "surplus")
 
 
 func test_rate_multiplies_every_factor_ac07() -> void:
 	var gd := game_data()
-	var c := _at(45, {"hoa": 50})
+	var c := _at(15, {"hoa": 50})
 	c.main_tech = ""
 	var sheet := StatSheet.new()
 	sheet.add_mod("test", "cultivation_speed_pct", 6.0)
@@ -96,35 +96,38 @@ func test_rate_multiplies_every_factor_ac07() -> void:
 	var neg := StatSheet.new()
 	neg.add_mod("test", "cultivation_speed_pct", -150.0)
 	assert_eq(CultivationRules.rate_per_season(c, gd, null, neg, 1.0).total, 0.0, "never negative")
+	var door: Breakdown = CultivationRules.rate_per_season(c, gd, null, sheet, 1.0, true)
+	assert_near(door.total, b.total * 1.2, 0.001, "closed-door season")
+	assert_true(door.steps.any(func(s): return s.label == "Bế quan"), "its own breakdown line")
 
 
 func test_one_grant_climbs_several_levels_and_stages_ac08() -> void:
 	var gd := game_data()
-	var c := _at(13)
-	var r: Dictionary = CultivationRules.add_tu_vi(c, gd, 336.52)
-	assert_eq(c.level, 27, "level 27")
+	var c := _at(3)
+	var r: Dictionary = CultivationRules.add_tu_vi(c, gd, 358.40)
+	assert_eq(c.level, 7, "level 7")
 	assert_near(c.tu_vi, 1.0, 0.05, "bar 1")
 	assert_eq(r.stages_reached, [1, 2], "middle then late")
-	assert_eq(r.levels_gained.size(), 14, "14 levels")
+	assert_eq(r.levels_gained.size(), 4, "4 levels")
 	assert_near(Ladder.stage_mult(gd, c.stage), 1.30, 1e-9, "stage_mult")
 
 
 func test_overflow_past_a_full_bar_is_wasted_ac09_ac10() -> void:
 	var gd := game_data()
-	var c := _at(38)
-	var r: Dictionary = CultivationRules.add_tu_vi(c, gd, 357.60)
-	assert_eq(c.level, 39, "great perfection")
-	assert_near(c.tu_vi, 230.40, 0.01, "bar full")
+	var c := _at(9)
+	var r: Dictionary = CultivationRules.add_tu_vi(c, gd, 536.89)
+	assert_eq(c.level, 10, "great perfection")
+	assert_near(c.tu_vi, 230.0, 0.01, "bar full")
 	assert_near(r.wasted, 69.60, 0.05, "wasted")
 	assert_true(r.bottleneck, "at the bottleneck")
 	assert_near(CultivationRules.add_tu_vi(c, gd, 50.0).wasted, 50.0, 0.001, "further gain wasted")
 
 
-func test_level_300_is_capped_ac11() -> void:
+func test_level_110_is_capped_ac11() -> void:
 	var gd := game_data()
-	var c := _at(300)
+	var c := _at(110)
 	var r: Dictionary = CultivationRules.add_tu_vi(c, gd, 1000000.0)
-	assert_eq(c.level, 300, "level")
+	assert_eq(c.level, 110, "level")
 	assert_eq(c.tu_vi, 0.0, "bar")
 	assert_false(CultivationRules.at_bottleneck(c, gd), "no bottleneck")
 	assert_eq(r.levels, 0, "nothing fires")
@@ -132,20 +135,20 @@ func test_level_300_is_capped_ac11() -> void:
 
 func test_stage_multiplier_steps_at_each_small_breakthrough_ac13() -> void:
 	var gd := game_data()
-	var want := {13: 1.00, 14: 1.15, 26: 1.15, 27: 1.30, 38: 1.30, 39: 1.45, 40: 1.00, 80: 1.00, 130: 1.00, 200: 1.00}
+	var want := {3: 1.00, 4: 1.15, 6: 1.15, 7: 1.30, 9: 1.30, 10: 1.45, 11: 1.00, 41: 1.00, 81: 1.00, 101: 1.00}
 	for l in want.keys():
 		assert_near(Ladder.stage_mult(gd, Ladder.stage_of_level(gd, l)), want[l], 1e-9, "level %d" % l)
 
 
 func test_derived_values_take_the_stage_multiplier_ac14() -> void:
 	var gd := game_data()
-	var c := _at(66)
+	var c := _at(31)
 	var sheet := _sheet(c)
 	assert_near(CharacterRules.khi_huyet_max(c, gd, sheet).total, 50.0 * 10.0 * 4.0 * 1.30, 0.01, "vitality")
 	assert_near(CharacterRules.than_thuc(c, gd, sheet).total, 50.0 * 1.0 * 3.0 * 1.30, 0.01, "divine sense")
 	var power := func(l): return float(gd.realm(Ladder.realm_of_level(gd, l)).power_base) * Ladder.stage_mult(gd, Ladder.stage_of_level(gd, l))
-	assert_near(power.call(129), 14500.0, 0.01, "CF 129")
-	assert_near(power.call(130), 100000.0, 0.01, "NS 130")
+	assert_near(power.call(80), 14500.0, 0.01, "CF 80")
+	assert_near(power.call(81), 100000.0, 0.01, "NS 81")
 
 
 # --- Attempts ---------------------------------------------------------------------
@@ -210,14 +213,14 @@ func test_success_enters_the_next_realm_and_clears_the_step_ac26() -> void:
 	var res: Dictionary = CultivationRules.resolve_attempt(c, gd, _sheet(c), ScriptedRng.new(["U", 0.0]), 0.5, true)
 	assert_true(res.success, "success")
 	assert_eq(c.realm_index, 2, "Core Formation")
-	assert_eq(c.level, 80, "level 80")
+	assert_eq(c.level, 41, "level 41")
 	assert_eq(c.stage, 0, "early")
 	assert_eq(c.tu_vi, 0.0, "bar 0")
 	assert_eq(c.vitality, 1.0, "vitality full")
 	assert_eq(c.failed_pills, 0, "insight reset")
 	assert_eq(c.bare_attempts, 0, "bare count reset")
 	assert_false(c.talisman_used, "talisman flag clear")
-	assert_eq(res.points, 17, "137 - 120")
+	assert_eq(res.points, 41, "161 - 120, the great bonus and the level")
 
 
 func test_failure_takes_the_penalties_ac34() -> void:
@@ -230,7 +233,7 @@ func test_failure_takes_the_penalties_ac34() -> void:
 	assert_eq(c.tam_ma, 15.0, "heart demon +15")
 	assert_near(c.vitality, 0.6, 1e-6, "vitality -40 %")
 	assert_eq(c.failed_pills, 1, "insight")
-	assert_eq(c.level, 79, "level unchanged")
+	assert_eq(c.level, 40, "level unchanged")
 
 
 func test_vitality_floor_holds_ac35() -> void:
@@ -321,27 +324,60 @@ func test_lifespan_bonus_meets_the_ceiling_and_penalties_follow_ac61() -> void:
 
 func test_points_match_the_table_kmd01() -> void:
 	var gd := game_data()
-	var want := {1: 2, 13: 14, 14: 17, 26: 29, 27: 34, 38: 45, 39: 51, 40: 62, 53: 79, 60: 86, 79: 120, 80: 137, 129: 216, 130: 243, 199: 357, 200: 397, 266: 477, 267: 501, 300: 566}
+	var want := {1: 2, 3: 4, 4: 18, 7: 34, 9: 36, 10: 51, 11: 82, 20: 91, 21: 95, 26: 100, 31: 108, 40: 120, 41: 161, 54: 179, 80: 216, 81: 278, 100: 357, 101: 458, 106: 496, 107: 530, 110: 566}
 	for l in want.keys():
 		assert_eq(Ladder.points_total(gd, l), want[l], "level %d" % l)
-	assert_eq(Ladder.share(35, 90), 32, "share rounds half up")
-	assert_eq(Ladder.share(25, 90), 23, "share(25, 90)")
 
 
 func test_points_pay_on_new_peaks_only_kmd04() -> void:
 	var gd := game_data()
-	var c := _at(59)
-	c.level_peak = 60
+	var c := _at(25)
+	c.level_peak = 26
 	c.tree_points = 0
-	var r: Dictionary = CultivationRules.add_tu_vi(c, gd, Ladder.level_cost(gd, 59))
-	assert_eq(c.level, 60, "regained")
+	var r: Dictionary = CultivationRules.add_tu_vi(c, gd, Ladder.level_cost(gd, 25))
+	assert_eq(c.level, 26, "regained")
 	assert_eq(r.tree_points, 0, "no level pays twice")
 
 
 func test_old_stage_saves_migrate_to_a_level_ac57() -> void:
 	var gd := game_data()
 	var mid := Ladder.migrate_record({"realm_index": 0, "stage": 4, "tu_vi": 30.0}, gd)
-	assert_eq(mid.level, 14, "layer 5, half way: 3*4 + 1 + 1")
+	assert_eq(mid.level, 4, "old layer 5 of 13, half way: 1 + floor(4.5 x 9 / 13)")
 	var full := Ladder.migrate_record({"realm_index": 1, "stage": 3, "tu_vi": 1800.0}, gd)
-	assert_eq(full.level, 79, "full bottleneck to great perfection")
-	assert_near(float(full.tu_vi), 2360.11, 0.01, "full bar")
+	assert_eq(full.level, 40, "full bottleneck to great perfection")
+	assert_near(float(full.tu_vi), 2360.0, 0.01, "full bar")
+
+
+# --- Heavenly suppression ------------------------------------------------------
+
+func test_suppression_scales_the_last_two_gates_only_ac68() -> void:
+	var gd := game_data()
+	var c := _gate(2)
+	c.thien_phu.ngo_tinh = 40
+	c.thien_phu.dao_tam = 30
+	var sheet := _sheet(c)
+	sheet.add_mod("Huyệt", "breakthrough_chance", 2.0, StatSheet.KIND_TREE)
+	sheet.add_mod("Thiên mệnh: X", "breakthrough_chance", 12.0, StatSheet.KIND_PERK)
+	var b: Breakdown = CultivationRules.breakthrough_chance(c, gd, sheet, 1)
+	assert_near(b.total, 0.0648, 1e-6, "(0.0825 + 0.12) x 0.32")
+	assert_true(b.steps.any(func(s): return str(s.label).begins_with("Heavenly suppression")), "its own line")
+	var first: Breakdown = CultivationRules.breakthrough_chance(_gate(1), gd, _sheet(_gate(1)), 1)
+	assert_false(first.steps.any(func(s): return str(s.label).begins_with("Heavenly suppression")), "no line at a factor of 1")
+
+
+func test_suppression_scales_a_bare_attempt_and_the_floor_holds_ac68() -> void:
+	var gd := game_data()
+	var c := _gate(2)
+	assert_near(CultivationRules.breakthrough_chance(c, gd, _sheet(c), -1).total, 0.001184, 1e-9, "bare, not clamped")
+	var low := _gate(3, {"hoa": 50}, 1)
+	var sheet := _sheet(low)
+	sheet.add_mod("x", "breakthrough_chance", -50.0, StatSheet.KIND_PERK)
+	assert_near(CultivationRules.breakthrough_chance(low, gd, sheet, 0).total, 0.01, 1e-9, "clamped to q_min")
+
+
+func test_retry_reserves_the_suppressed_insight_ac22() -> void:
+	var gd := game_data()
+	var plain: float = CultivationRules.q_retry(gd, 0.5, 0.0, 0.5, 1.0)
+	var suppressed: float = CultivationRules.q_retry(gd, 0.5, 0.0, 0.5, 0.32)
+	assert_near(plain, (0.10 - 0.02) / 0.5, 1e-9, "iota 0.02")
+	assert_near(suppressed, (0.10 - 0.0064) / 0.5, 1e-9, "iota 0.0064")

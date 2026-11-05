@@ -44,7 +44,7 @@ func test_realm_data_matches_the_gdd_ac58() -> void:
 		var r: Dictionary = gd.realm(i + 1).entry_requirement
 		assert_eq(float(r.pill_chance), pills[i], "pill %d" % i)
 		assert_eq(float(r.base_chance), bare[i], "bare %d" % i)
-	assert_eq(int(gd.ladder().level_cap), 300, "level cap")
+	assert_eq(int(gd.ladder().level_cap), 110, "level cap")
 	assert_eq(float(gd.ladder().stage_power_step), 0.15, "stage step")
 	assert_eq(int(gd.ladder().bare_attempt_cap), 3, "bare cap")
 

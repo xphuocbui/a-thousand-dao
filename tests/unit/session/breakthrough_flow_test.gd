@@ -166,10 +166,10 @@ func test_soul_leaves_the_body_saves_a_life_once_per_realm_cap5() -> void:
 	var c: Character = s.player
 	c.grant_capability(5)
 	c.realm_index = 1
-	c.level = 60
+	c.level = 26
 	c.stage = 1
 	CultivationRules.lose_stage(c, s.gd)
-	assert_eq(c.level, 40, "first level of the previous stage")
+	assert_eq(c.level, 11, "first level of the previous stage")
 	assert_eq(c.tu_vi, 0.0, "bar reset")
 	assert_eq(c.realm_index, 1, "never crosses a realm")
 
@@ -231,6 +231,23 @@ func test_the_plant_plan_fills_recipes_in_order_ac66() -> void:
 	s.db.add("items", c)
 	assert_eq(Advisor.next_plant(s, recipe, 1), "", "one recipe covered")
 	assert_eq(Advisor.next_plant(s, recipe, 2), "hoang_tinh_sam", "the next brew starts")
+
+
+func test_a_300_level_save_is_refused_ac57() -> void:
+	var s := _session()
+	var d: Dictionary = s.to_dict()
+	d["version"] = 2
+	var r: Dictionary = s.load_dict(d)
+	assert_false(r.ok, "refused")
+	assert_true(str(r.lines[0]).contains("300-level"), "says why: %s" % str(r.lines))
+
+
+func test_a_closed_door_year_earns_the_efficiency_ac07() -> void:
+	var s := _session()
+	var sh: StatSheet = s.sheet()
+	var open: float = CultivationRules.rate_per_season(s.player, s.gd, s.db, sh, 1.0).total
+	var door: float = CultivationRules.rate_per_season(s.player, s.gd, s.db, sh, 1.0, true).total
+	assert_near(door, open * float(s.gd.cultivation_rules().closed_door_efficiency), 0.001, "x1.2")
 
 
 func test_a_save_round_trip_keeps_the_step_state_ac56() -> void:

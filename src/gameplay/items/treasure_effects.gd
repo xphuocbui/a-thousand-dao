@@ -12,7 +12,7 @@ extends RefCounted
 
 ## Uses one treasure from the player's possessions. Returns {ok, message, changes}. A refused
 ## treasure is kept.
-static func use(c: Character, gd: GameData, db: WorldDB, rng: Variant, item_id: String) -> Dictionary:
+static func use(c: Character, gd: GameData, db: WorldDB, rng: Variant, item_id: String, element: String = "") -> Dictionary:
 	var item: Dictionary = db.get_record("items", item_id)
 	if item.is_empty() or item.owner_id != c.id or item.kind != "treasure":
 		return {"ok": false, "message": "You have no treasure %s." % item_id, "changes": []}
@@ -22,7 +22,10 @@ static func use(c: Character, gd: GameData, db: WorldDB, rng: Variant, item_id: 
 	var changes: Array = []
 	match str(fx.get("type", "")):
 		"add_element":
-			var r: Dictionary = apply_fruit(c, gd, rng, fx, str(item.get("element", "")))
+			var missing: Array = gd.element_cycle().filter(func(e): return not c.linh_can.elements.has(e))
+			if not missing.is_empty() and not missing.has(element):
+				return {"ok": false, "needs_element": true, "options": missing, "message": "", "changes": []}
+			var r: Dictionary = apply_fruit(c, gd, rng, fx, element)
 			if not r.ok:
 				return {"ok": false, "message": "%s can do nothing for a root already perfect." % item.name, "changes": []}
 			msg = r.message
@@ -35,8 +38,30 @@ static func use(c: Character, gd: GameData, db: WorldDB, rng: Variant, item_id: 
 	return {"ok": true, "message": "You consume %s. %s" % [item.name, msg], "changes": changes}
 
 
-## Applies a Linh Căn Quả to [param c]. Draw order (Formulas F): element (skipped when the
-## event names a valid missing one), purity, then one per newly eligible derived variant. With
+## What each pick would do (linh-can.md UI): tier, n_eff, curve factor, pair bonus and the
+## derived variants it would make eligible. The added purity stays a roll, 20-35.
+static func preview_lines(c: Character, gd: GameData, options: Array, item_id: String) -> Array:
+	var lc: LinhCan = c.linh_can
+	var pair: int = int(gd.attributes().linh_can.pair_bonus_pct)
+	var before: float = CultivationRules.curve_factor(c, gd)
+	var lines: Array = ["Choose the element this fruit grows (purity 20-35): use %s <element>" % item_id]
+	for e in options:
+		var next: LinhCan = LinhCan.from_dict(lc.to_dict())
+		next.add_element(str(e), int(gd.attributes().linh_can.purity_mean))
+		c.linh_can = next
+		var after: float = CultivationRules.curve_factor(c, gd)
+		c.linh_can = lc
+		var eligible: Array = []
+		for def in gd.variant_defs():
+			var id: String = str(def.id)
+			if not next.rolled.has(id) and not next.declined.has(id) and next.requirement_met(gd, id):
+				eligible.append(gd.element_label(id))
+		lines.append("  %-5s %s: %s -> %s, row %d -> %d, speed x%.2f -> x%.2f, pairs +%d%% -> +%d%%%s" % [e, gd.element_label(str(e)), lc.tier_name(gd), next.tier_name(gd), lc.n_eff(gd), next.n_eff(gd), before, after, pair * lc.generating_pairs(gd).size(), pair * next.generating_pairs(gd).size(), (", may form " + ", ".join(eligible)) if not eligible.is_empty() else ""])
+	return lines
+
+
+## Applies a Linh Căn Quả to [param c]. Draw order (Formulas F): element (an NPC's only; the
+## player picks), purity, then one per newly eligible derived variant. With
 ## all five owned the weakest gains the raise, no draws; refused when all are at 100.
 ## Returns {ok, message, changes}, where changes are {what, id, from, to} for the World Database.
 static func apply_fruit(c: Character, gd: GameData, rng: Variant, fx: Dictionary, named: String = "") -> Dictionary:

@@ -443,7 +443,7 @@ static func inventory(s: GameSession) -> Array:
 	return lines
 
 
-## "Luyện Khí Trung kỳ L14 (tầng 5)": realm, stage, level and the Qi Refining layer.
+## "Luyện Khí Trung kỳ L5 (tầng 5)": realm, stage, level and the Qi Refining layer.
 static func level_text(gd: GameData, c: Character) -> String:
 	var layer: int = Ladder.layer_of_level(gd, c.level)
 	return "%s L%d%s" % [gd.realm_label(c.realm_index, c.stage), c.level, " (tầng %d)" % layer if layer > 0 else ""]
@@ -465,7 +465,7 @@ static func bottleneck(s: GameSession, io: TerminalIO) -> Array:
 	lines.append("   pill: %s" % (("%s, quality %d" % [odds.pill.name, int(odds.pill.quality)]) if not odds.pill.is_empty() else "none held"))
 	var talisman: String = "used this breakthrough" if c.talisman_used else ("available" if s.talisman_available() else "none held")
 	lines.append("   talisman: %s" % talisman)
-	lines.append("   attempts this step: %d pill (next insight +%.2f), %d/%d bare" % [c.attempt_log.size(), CultivationRules.failure_insight(gd, c.failed_pills), c.bare_attempts, int(gd.ladder().bare_attempt_cap)])
+	lines.append("   attempts this step: %d pill (next insight +%.2f), %d/%d bare" % [c.attempt_log.size(), CultivationRules.failure_insight(gd, c.failed_pills) * CultivationRules.gate_factor(c, gd), c.bare_attempts, int(gd.ladder().bare_attempt_cap)])
 	lines.append("   qi deviation if this fails: %.0f%%" % CultivationRules.backlash_chance(c, gd, sh).total)
 	lines.append("   this attempt: %.1f%% (%s)" % [float(odds.chance) * 100.0, "pill" if not odds.pill.is_empty() and bool(cond.met) else "bare"])
 	return lines

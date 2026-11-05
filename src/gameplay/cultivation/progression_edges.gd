@@ -99,18 +99,22 @@ static func npc_edge_score(rec: Dictionary, gd: GameData) -> Breakdown:
 	return b
 
 
-## Chance (0..1) that an NPC makes its next realm breakthrough, as a breakdown.
+## Chance (0..1) that an NPC is fated at its next gate, as a breakdown (canh-gioi.md Formulas C2).
 static func npc_step_chance(rec: Dictionary, gd: GameData) -> Breakdown:
 	var cfg: Dictionary = config(gd).npc
+	var steps: Array = cfg.gate_steps
+	var gate: Dictionary = steps[clampi(int(rec.get("realm_index", 0)), 0, steps.size() - 1)]
+	var lo: float = float(gate.base)
+	var hi: float = float(gate.max)
 	var score: Breakdown = npc_edge_score(rec, gd)
 	var b := Breakdown.new("Breakthrough chance (NPC)")
-	b.base("Baseline", float(cfg.base_step))
-	for step in score.steps:
-		if str(step.op) == "+" and float(step.value) != 0.0:
-			b.add(str(step.label), float(step.value) * (float(cfg.max_step) - float(cfg.base_step)))
+	b.base("Baseline", lo)
+	var e: float = minf(score.total, 1.0)
+	if e > 0.0:
+		b.add("Edges (score %.2f)" % score.total, pow(e, float(gate.edge_power)) * (hi - lo))
 	for id in rec.get("capabilities", []):
 		var fx: Dictionary = gd.capability(int(id)).get("npc_effect", {})
 		if str(fx.get("type", "")) == "p_step_add":
 			b.add("Capability: %s" % gd.capability(int(id)).name, float(fx.value))
-	b.clamp_to(float(cfg.base_step), float(cfg.max_step))
+	b.clamp_to(lo, hi)
 	return b

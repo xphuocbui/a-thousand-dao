@@ -42,6 +42,7 @@ func test_growth_scales_with_moc_purity() -> void:
 	var s := _session()
 	var h := _plant(s, "ngung_khi_thao", 0.0, 0)
 	s.player.linh_can.elements = {"moc": 100}
+	s.player.perks.clear()
 	var mult: float = s.field.grow(s.player, s.sheet(), 4)
 	var expected: float = 1.0 + float(s.gd.element_effects().herb_growth_pct_per_purity)
 	assert_near(mult, expected, 0.001, "Mộc 100 multiplier")

@@ -137,7 +137,8 @@
     "member_archetype_share": 0.5
   },
   "people": {
-    "loose_cultivators": 40,
+    "world_cultivators": 5000,
+    "world_cultivators_min": 3000,
     "age_min_by_realm": [
       16,
       30,
@@ -177,36 +178,31 @@
       "bridge_notable": 3,
       "keystone": 1.5
     },
-    "archetype_element_purity": {
-      "mean": 55,
-      "sd": 15,
-      "min": 20,
-      "max": 100
-    },
     "artifact_root_element_chance": 0.6,
+    "archetype_keep_chance": 0.2,
     "leader_realm_min": "ket_dan",
     "elder_realm_min": "truc_co"
   },
   "realm_distribution": [
     {
       "realm": "luyen_khi",
-      "weight": 55
+      "weight": 79.4
     },
     {
       "realm": "truc_co",
-      "weight": 28
+      "weight": 16.7
     },
     {
       "realm": "ket_dan",
-      "weight": 12
+      "weight": 3.8
     },
     {
       "realm": "nguyen_anh",
-      "weight": 4
+      "weight": 0.53
     },
     {
       "realm": "hoa_than",
-      "weight": 1
+      "weight": 0.06
     }
   ],
   "archetypes": [

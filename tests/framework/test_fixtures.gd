@@ -7,10 +7,13 @@ static var _gd: GameData = null
 static var _tree: MeridianTree = null
 
 
-## The project's real data, loaded once.
+## The project's real data, loaded once. Worlds stay small here so suites run fast: a test that
+## needs the real world size reads it from the data file itself.
 static func game_data() -> GameData:
 	if _gd == null:
 		_gd = GameData.load_from("res://assets/data")
+		_gd.world_gen().people.world_cultivators = 80
+		_gd.world_gen().people.world_cultivators_min = 0
 	return _gd
 
 

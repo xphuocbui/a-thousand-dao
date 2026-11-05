@@ -239,7 +239,7 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 		"use", "eat":
 			var u: String = _arg(args, 0, "") if args.size() > 0 else _pick_item("Use which pill or treasure?", func(it): return it.kind in ["pill", "treasure"])
 			if u != "":
-				_r(s.use_item(u))
+				_r(s.use_item(u, _arg(args, 1, "")))
 		"equip":
 			var e: String = _arg(args, 0, "") if args.size() > 0 else _pick_item("Equip which pháp bảo?", func(it): return it.kind == "artifact" and not s.player.equipped.has(it.id))
 			if e != "":

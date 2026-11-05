@@ -46,6 +46,10 @@ func _init() -> void:
 	verbose = args.has("--verbose")
 	perk_id = str(_list_arg(args, "--perk", "any")[0]).replace("any", "")
 	gd = GameData.load_from("res://assets/data")
+	# A life's odds do not depend on how many strangers exist, so lives run in a small world.
+	var world: int = int(_list_arg(args, "--world", "300")[0])
+	gd.world_gen().people.world_cultivators = world
+	gd.world_gen().people.world_cultivators_min = world
 	tree = MeridianTree.generate(gd)
 	var rows: Array = []
 	var started: int = Time.get_ticks_msec()

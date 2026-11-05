@@ -1,0 +1,12 @@
+new quick Ladder110 777
+status
+db stats
+explain rate
+debug tuvi 300
+status
+debug tuvi 1000
+status
+tree
+closed 1
+status
+quit

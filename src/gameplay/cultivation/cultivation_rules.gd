@@ -22,7 +22,7 @@ static func curve_factor(c: Character, gd: GameData) -> float:
 
 ## Formulas I: cultivation per season, computed once at the start of the season.
 ## [param density] is the place's spiritual qi.
-static func rate_per_season(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, density: float) -> Breakdown:
+static func rate_per_season(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, density: float, closed_door: bool = false) -> Breakdown:
 	var rules: Dictionary = gd.cultivation_rules()
 	var realm: Dictionary = gd.realm(c.realm_index)
 	var b := Breakdown.new("Tu vi / season")
@@ -34,6 +34,8 @@ static func rate_per_season(c: Character, gd: GameData, db: WorldDB, sheet: Stat
 	b.mul("Linh khí density", maxf(density + sheet.total("density_bonus"), 0.1))
 	if not sheet.has_flag("dan_doc_no_penalty") and c.dan_doc > 0.0:
 		b.mul("Đan độc %d" % int(c.dan_doc), maxf(1.0 - c.dan_doc / float(rules.dan_doc_divisor), 0.0))
+	if closed_door:
+		b.mul("Bế quan", float(rules.closed_door_efficiency))
 	var pct: float = sheet.total("cultivation_speed_pct") + sheet.total("cultivation_speed_per_element_pct") * float(c.linh_can.base_count())
 	b.add_pct("cultivation_speed_pct", pct)
 	b.clamp_to(0.0, INF)
@@ -156,6 +158,15 @@ static func failure_insight(gd: GameData, failed: int) -> float:
 	return minf(float(failed) * float(rules.failure_insight_pp), float(rules.failure_insight_cap)) / 100.0
 
 
+## Heavenly suppression (gate_factor) on the character's next great breakthrough: 1 at the first
+## two gates and at the top of the ladder.
+static func gate_factor(c: Character, gd: GameData) -> float:
+	if c.realm_index >= gd.realms().size() - 1:
+		return 1.0
+	var req: Variant = gd.realm(c.realm_index + 1).get("entry_requirement")
+	return 1.0 if req == null else float(req.get("gate_factor", 1.0))
+
+
 ## Formulas C: the attempt chance as a breakdown. [param pill_rank] is the pill's quality, or
 ## -1 for a bare attempt. [param talisman] puts a breakthrough talisman on a pill attempt.
 static func breakthrough_chance(c: Character, gd: GameData, sheet: StatSheet, pill_rank: int, talisman: bool = false) -> Breakdown:
@@ -168,6 +179,7 @@ static func breakthrough_chance(c: Character, gd: GameData, sheet: StatSheet, pi
 		return b
 	if pill_rank < 0:
 		b.base("Bare attempt, no %s" % req.item_tag, float(req.base_chance))
+		_suppress(b, c, gd)
 		return b
 	b.base("Pill attempt, %s" % req.item_tag, float(req.pill_chance))
 	var ngo: float = sheet.effective("ngo_tinh", c)
@@ -198,8 +210,16 @@ static func breakthrough_chance(c: Character, gd: GameData, sheet: StatSheet, pi
 		b.add("Failure insight (%d failed pill attempt%s)" % [c.failed_pills, "" if c.failed_pills == 1 else "s"], insight)
 	if talisman:
 		b.add("Phá Cảnh Phù", talisman_value(gd))
+	_suppress(b, c, gd)
 	b.clamp_to(float(rules.chance_min), float(rules.chance_max))
 	return b
+
+
+## Adds the heavenly suppression line at the gates that have one.
+static func _suppress(b: Breakdown, c: Character, gd: GameData) -> void:
+	var f: float = gate_factor(c, gd)
+	if f != 1.0:
+		b.mul("Heavenly suppression (thiên đạo áp chế)", f)
 
 
 ## τ: the breakthrough talisman's bonus as a fraction.
@@ -244,11 +264,12 @@ static func q_desperate(gd: GameData, q: float, tau: float, s: float) -> float:
 
 
 ## Meridian Map E2: #23's extra roll, at most q. [param insight] is the step's current insight
-## as a fraction; the roll's failure would add iota, so the guard reserves it.
-static func q_retry(gd: GameData, q: float, insight: float, s: float) -> float:
+## as a fraction; the roll's failure would add iota, so the guard reserves it. [param f] is the
+## gate's heavenly suppression, which scales iota.
+static func q_retry(gd: GameData, q: float, insight: float, s: float, f: float = 1.0) -> float:
 	var rules: Dictionary = gd.breakthrough_rules()
 	var cap: float = float(rules.failure_insight_cap) / 100.0
-	var iota: float = 0.0 if insight >= cap else minf(float(rules.failure_insight_pp) / 100.0, cap - insight)
+	var iota: float = 0.0 if insight >= cap else f * minf(float(rules.failure_insight_pp) / 100.0, cap - insight)
 	if s >= 1.0:
 		return 0.0
 	return minf(q, (float(gd.capability(23).params.delta_max) - iota) / (1.0 - s))

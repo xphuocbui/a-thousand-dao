@@ -32,6 +32,14 @@
     "sect_rank": {"noi_mon": 0.1, "truong_lao": 0.25, "tong_chu": 0.35},
     "rich_family": {"chance": 0.15, "weight": 0.3},
     "blessing": {"chance": 0.05, "weight": 0.35},
-    "fated_breakthrough_per_season": 0.08
+    "fated_breakthrough_per_season": 0.08,
+    "gate_steps": [
+      {"base": 0.123, "max": 0.70, "edge_power": 6},
+      {"base": 0.078, "max": 0.70, "edge_power": 6},
+      {"base": 0.059, "max": 0.30, "edge_power": 6},
+      {"base": 0.032, "max": 0.20, "edge_power": 6}
+    ],
+    "intake_sect_share": 0.9,
+    "intake_rank_shares": {"truong_lao": 0.06, "noi_mon": 0.30}
   }
 }

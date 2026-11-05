@@ -1,15 +1,15 @@
 class_name Ladder
 extends RefCounted
-## The cultivation ladder: levels 1-300, realm bands, stages, level costs, the stage multiplier
+## The cultivation ladder: levels 1-110, realm bands, stages, level costs, the stage multiplier
 ## and Kinh Mạch points. Pure functions of data. Design: design/gdd/canh-gioi.md rules 1-6,
 ## Formulas A-B; points: design/gdd/kinh-mach-do.md Formulas A.
 ##
 ## Usage:
 ## [codeblock]
-## var realm: int = Ladder.realm_of_level(gd, 60)        # 1 (Trúc Cơ)
-## var stage: int = Ladder.stage_of_level(gd, 60)        # 1 (middle)
-## var cost: float = Ladder.level_cost(gd, 60)           # 140.3
-## var total: int = Ladder.points_total(gd, 60)          # 86
+## var realm: int = Ladder.realm_of_level(gd, 26)        # 1 (Trúc Cơ)
+## var stage: int = Ladder.stage_of_level(gd, 26)        # 1 (middle)
+## var cost: float = Ladder.level_cost(gd, 25)           # 183.1
+## var total: int = Ladder.points_total(gd, 26)          # 100
 ## [/codeblock]
 
 ## Stage ids: 0 early (sơ kỳ), 1 middle (trung kỳ), 2 late (hậu kỳ), 3 great perfection.
@@ -65,13 +65,9 @@ static func stage_mult(gd: GameData, stage: int) -> float:
 	return 1.0 + float(gd.ladder().stage_power_step) * float(clampi(stage, 0, GREAT_PERFECTION))
 
 
-## Qi Refining layer label of a level (ceil(L / levels_per_layer)), or 0 outside Qi Refining.
+## Qi Refining layer of a level (a level is its layer, rule 2), or 0 outside Qi Refining.
 static func layer_of_level(gd: GameData, level: int) -> int:
-	var layers: Dictionary = gd.realm(realm_of_level(gd, level)).get("layers", {})
-	if layers.is_empty():
-		return 0
-	var per: int = int(layers.levels_per_layer)
-	return (level + per - 1) / per
+	return level if realm_of_level(gd, level) == 0 else 0
 
 
 ## Formulas A: cultivation base needed to go from [param level] to level + 1.
@@ -87,10 +83,8 @@ static func level_cost(gd: GameData, level: int) -> float:
 
 ## The bottleneck bar of a realm, or 0 for a realm with no next realm.
 static func bar_cost(gd: GameData, realm_idx: int) -> float:
-	var mult: Variant = gd.realm(realm_idx).get("bar_mult")
-	if mult == null:
-		return 0.0
-	return float(mult) * level_cost(gd, band(gd, realm_idx)[1] - 1)
+	var bar: Variant = gd.realm(realm_idx).get("bottleneck_bar")
+	return 0.0 if bar == null else float(bar)
 
 
 ## Total cost of a stage: the sum of its levels' costs, or the bar at great perfection.
@@ -105,32 +99,20 @@ static func stage_total_cost(gd: GameData, realm_idx: int, stage: int) -> float:
 	return total
 
 
-## share(p, B) = floor((p x B + 50) / 100): half rounds up, integer arithmetic only.
-static func share(percent: int, bonus: int) -> int:
-	return (percent * bonus + 50) / 100
-
-
-## Kinh Mạch Formulas A: points earned by [param level], before event grants.
+## Kinh Mạch Formulas A: points earned by [param level], before event grants. Whole numbers
+## from data: each realm's great bonus on entry, and its three small bonuses.
 static func points_total(gd: GameData, level: int) -> int:
 	var cfg: Dictionary = gd.ladder()
-	var bonuses: Array = cfg.great_breakthrough_bonus
-	var p_t: int = int(cfg.pct_trung)
-	var p_h: int = int(cfg.pct_hau)
-	var p_d: int = int(cfg.pct_dai)
+	var great: Array = cfg.great_breakthrough_bonus
+	var small: Array = cfg.small_breakthrough_bonus
 	var total: int = int(cfg.pts_birth) + level - 1
 	for i in gd.realms().size():
-		var lo: int = band(gd, i)[0]
+		if i > 0 and level >= band(gd, i)[0]:
+			total += int(great[i - 1])
 		var starts: Array = stage_starts(gd, i)
-		var b_next: int = int(bonuses[i])
-		if i > 0 and level >= lo:
-			var b_own: int = int(bonuses[i - 1])
-			total += b_own - share(p_d, b_own)
-		if level >= int(starts[0]):
-			total += share(p_t, b_next)
-		if level >= int(starts[1]):
-			total += share(p_h, b_next)
-		if level >= int(starts[2]):
-			total += share(p_d, b_next)
+		for s in starts.size():
+			if level >= int(starts[s]):
+				total += int(small[i][s])
 	return total
 
 
@@ -148,7 +130,7 @@ static func migrate_record(rec: Dictionary, gd: GameData) -> Dictionary:
 	var b: Array = band(gd, realm_idx)
 	var level: int
 	if realm_idx == 0:
-		level = 3 * old_stage + 1 + int(floorf(frac * 3.0))
+		level = 1 + int(floorf((float(old_stage) + frac) * float(b[1] - 1) / float(legacy.size())))
 	else:
 		var from_level: int = stage_first_level(gd, realm_idx, old_stage)
 		var to_level: int = stage_first_level(gd, realm_idx, old_stage + 1) if old_stage < GREAT_PERFECTION else b[1]

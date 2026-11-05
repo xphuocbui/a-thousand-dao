@@ -12,15 +12,11 @@
       ],
       "levels": [
         1,
-        39
+        10
       ],
       "climb_total": 1025,
       "climb_growth": 6,
-      "bar_mult": 4,
-      "layers": {
-        "count": 13,
-        "levels_per_layer": 3
-      },
+      "bottleneck_bar": 230,
       "stage_curve_groups": [
         "lk_early",
         "lk_mid",
@@ -45,12 +41,12 @@
         "Đại viên mãn"
       ],
       "levels": [
-        40,
-        79
+        11,
+        40
       ],
       "climb_total": 5600,
       "climb_growth": 3,
-      "bar_mult": 10,
+      "bottleneck_bar": 2360,
       "stage_curve_groups": [
         "tc_so",
         "tc_trung",
@@ -67,7 +63,8 @@
         "item_tag": "truc_co_dan",
         "base_chance": 0.004,
         "pill_chance": 0.04,
-        "condition": null
+        "condition": null,
+        "gate_factor": 1
       }
     },
     {
@@ -80,12 +77,12 @@
         "Đại viên mãn"
       ],
       "levels": [
-        80,
-        129
+        41,
+        80
       ],
       "climb_total": 42000,
       "climb_growth": 3,
-      "bar_mult": 10,
+      "bottleneck_bar": 14096,
       "stage_curve_groups": [
         "kd_so",
         "kd_trung",
@@ -105,7 +102,8 @@
         "condition": {
           "type": "density_min",
           "value": 1.4
-        }
+        },
+        "gate_factor": 1
       }
     },
     {
@@ -118,12 +116,12 @@
         "Đại viên mãn"
       ],
       "levels": [
-        130,
-        199
+        81,
+        100
       ],
       "climb_total": 276000,
       "climb_growth": 3,
-      "bar_mult": 10,
+      "bottleneck_bar": 65821,
       "stage_curve_groups": [
         "na",
         "na",
@@ -143,7 +141,8 @@
         "condition": {
           "type": "tam_ma_max",
           "value": 20
-        }
+        },
+        "gate_factor": 0.32
       }
     },
     {
@@ -156,12 +155,12 @@
         "Đại viên mãn"
       ],
       "levels": [
-        200,
-        300
+        101,
+        110
       ],
       "climb_total": 1850000,
       "climb_growth": 3,
-      "bar_mult": null,
+      "bottleneck_bar": null,
       "stage_curve_groups": [
         "ht",
         "ht",
@@ -181,7 +180,8 @@
         "condition": {
           "type": "insight",
           "consumed": false
-        }
+        },
+        "gate_factor": 0.2
       }
     }
   ],
@@ -208,21 +208,44 @@
     "closed_door_efficiency": 1.2,
     "seasons_per_year": 4
   },
-  "_doc": "The ladder. design/gdd/canh-gioi.md Parameter keys. levels = [lo, hi]; climb_total = sum of climbing costs; climb_growth = last cost / first cost; bar_mult = bottleneck bar as a multiple of the last climbing cost (null: no next realm).",
+  "_doc": "The ladder. design/gdd/canh-gioi.md Parameter keys. levels = [lo, hi]; climb_total = sum of climbing costs; climb_growth = last cost / first cost; bottleneck_bar = the bar at the realm's last level (null: no next realm); entry_requirement.gate_factor = heavenly suppression on the attempt into this realm.",
   "ladder": {
-    "level_cap": 300,
+    "level_cap": 110,
     "stage_power_step": 0.15,
     "bare_attempt_cap": 3,
     "great_breakthrough_bonus": [
-      15,
-      25,
+      30,
       40,
-      60,
-      90
+      61,
+      100
     ],
-    "pct_trung": 15,
-    "pct_hau": 25,
-    "pct_dai": 35,
+    "small_breakthrough_bonus": [
+      [
+        13,
+        13,
+        14
+      ],
+      [
+        3,
+        3,
+        3
+      ],
+      [
+        5,
+        5,
+        6
+      ],
+      [
+        20,
+        20,
+        20
+      ],
+      [
+        33,
+        33,
+        33
+      ]
+    ],
     "pts_birth": 2,
     "_legacy_doc": "Stage costs of the pre-level ladder, read only to migrate old saves (canh-gioi.md Edge Cases, Saves).",
     "legacy_tu_vi_required": [

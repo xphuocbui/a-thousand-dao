@@ -111,9 +111,13 @@ func test_npc_step_chance_runs_from_base_to_max() -> void:
 	var gd := game_data()
 	var cfg: Dictionary = gd.file("character_edges").npc
 	var plain := {"linh_can": {"elements": {"kim": 40}, "variants": {}}, "sect_rank": "", "background": "", "perks": []}
-	assert_near(ProgressionEdges.npc_step_chance(plain, gd).total, float(cfg.base_step), 0.001, "no edge: base")
+	assert_near(ProgressionEdges.npc_step_chance(plain, gd).total, float(cfg.gate_steps[0].base), 0.001, "no edge: base")
 	var gifted := {"linh_can": {"elements": {"kim": 95, "hoa": 95}, "variants": {"loi": 80, "phong": 80}}, "sect_rank": "tong_chu", "background": "rich_family", "perks": ["dao_cot"]}
-	assert_near(ProgressionEdges.npc_step_chance(gifted, gd).total, float(cfg.max_step), 0.001, "all edges: capped at max")
+	assert_near(ProgressionEdges.npc_step_chance(gifted, gd).total, float(cfg.gate_steps[0].max), 0.001, "all edges: capped at max")
+	for g in 4:
+		var at_gate: Dictionary = gifted.duplicate()
+		at_gate["realm_index"] = g
+		assert_near(ProgressionEdges.npc_step_chance(at_gate, gd).total, float(cfg.gate_steps[g].max), 0.001, "gate %d max" % g)
 
 
 func test_fated_npcs_break_through_and_unfated_ones_do_not() -> void:

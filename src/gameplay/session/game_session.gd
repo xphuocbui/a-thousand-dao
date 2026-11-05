@@ -22,9 +22,10 @@ signal life_ended(summary: Dictionary)
 ## A great breakthrough succeeded (player only, Realms rule 9). [param realm_index] is the new realm.
 signal breakthrough_succeeded(realm_index: int)
 
-const SAVE_VERSION := 2
-## Save versions load_dict can migrate from.
-const SAVE_VERSIONS_READ := [1, 2]
+const SAVE_VERSION := 3
+## Save versions load_dict can read. 1 is the old stage ladder, which migrates. 2 is the
+## 300-level ladder, which is refused (canh-gioi.md Edge Cases, Saves).
+const SAVE_VERSIONS_READ := [1, 3]
 
 var gd: GameData
 var tree: MeridianTree
@@ -262,9 +263,7 @@ func _pass_season(mode: String) -> Dictionary:
 			_notices.append("  " + l)
 	if cultivating:
 		var density: float = float(db.get_record("places", player.location_id).get("density", 1.0))
-		var gain: float = CultivationRules.rate_per_season(player, gd, db, sh, density).total
-		if mode == "closed_door":
-			gain *= float(gd.cultivation_rules().closed_door_efficiency)
+		var gain: float = CultivationRules.rate_per_season(player, gd, db, sh, density, mode == "closed_door").total
 		var res: Dictionary = CultivationRules.add_tu_vi(player, gd, gain)
 		out.tu_vi = gain
 		out.stages = res.stages
@@ -684,15 +683,18 @@ func harvest(plot: int) -> Dictionary:
 	return {"ok": any_ok, "lines": lines}
 
 
-## Eats a pill.
-func use_item(item_id: String) -> Dictionary:
+## Eats a pill or uses a treasure. [param element] is the player's pick for a Linh Căn Quả;
+## without a valid one the fruit is kept and the answer lists the choices.
+func use_item(item_id: String, element: String = "") -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
 		return g
 	if db.get_record("items", item_id).get("kind", "") == "treasure":
-		var t: Dictionary = TreasureEffects.use(player, gd, db, rng, item_id)
+		var t: Dictionary = TreasureEffects.use(player, gd, db, rng, item_id, element)
 		if t.has("unseal_item"):
 			return _use_seal_key(item_id)
+		if t.get("needs_element", false):
+			return {"ok": false, "needs_element": true, "options": t.options, "lines": TreasureEffects.preview_lines(player, gd, t.options, item_id)}
 		if t.ok:
 			_log_root_changes("player_linh_can_changed", t.changes)
 		sync_player()
@@ -830,7 +832,7 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 	var lines: Array = Array(chance.lines())
 	var step_used: bool = player.cap_used.has("22") or player.cap_used.has("23")
 	var left: float = CultivationRules.lifespan(player, gd, sh).total - player.age
-	var tau: float = CultivationRules.talisman_value(gd) if talisman else 0.0
+	var tau: float = CultivationRules.talisman_value(gd) * CultivationRules.gate_factor(player, gd) if talisman else 0.0
 	var held: int = int(pill.get("qty", 0)) if is_pill else 0
 	if is_pill and player.has_capability(22) and not step_used and left < float(gd.capability(22).params.years_left):
 		var s_guard: float = CultivationRules.guard_success(player, gd, held, odds - tau)
@@ -862,7 +864,7 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 			var q: float = CultivationRules.breakthrough_chance(player, gd, sheet(), rank, false).total
 			var insight: float = CultivationRules.failure_insight(gd, player.failed_pills)
 			var s_g: float = CultivationRules.guard_success(player, gd, maxi(held - 1, 0), q)
-			var retry: float = CultivationRules.q_retry(gd, q, insight, s_g)
+			var retry: float = CultivationRules.q_retry(gd, q, insight, s_g, CultivationRules.gate_factor(player, gd))
 			lines.append("Thiêu Thọ Phá Cảnh: %.0f years burn; an extra roll at %.1f%%." % [burn, retry * 100.0])
 			res = CultivationRules.resolve_attempt(player, gd, sheet(), rng, retry, true)
 			lines.append("Roll %.0f vs %.0f%%." % [res.roll * 100.0, res.chance * 100.0])
@@ -1054,6 +1056,8 @@ func to_dict() -> Dictionary:
 
 ## Restores a session saved by [method to_dict]. Returns {ok, lines}.
 func load_dict(d: Dictionary) -> Dictionary:
+	if int(d.get("version", 0)) == 2:
+		return {"ok": false, "lines": ["This save uses the old 300-level ladder and cannot be loaded."]}
 	if not SAVE_VERSIONS_READ.has(int(d.get("version", 0))):
 		return {"ok": false, "lines": ["Save version %s is not supported." % str(d.get("version"))]}
 	seed_value = int(d.seed)
