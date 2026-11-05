@@ -1,16 +1,16 @@
 # Meridian Map (Kinh Mạch Đồ)
 
-> **Status**: Approved (2026-11-04: lean re-review after the Spiritual Roots redesign added the hidden variant sectors, rule 20, Formulas H2–H4 and G9; 0 blockers, 9 recommended). Seven lean /design-review passes: the first five returned NEEDS REVISION and every blocker was fixed; the sixth and seventh found no blockers. Recommended revisions (variant-sector breakthrough side effects through toxicity and heart demon, the reserved id block, AC-KMD-34 lifespan figure, step 9 variety tie-breaks, symbol collisions, per-region link capacity) are settled during implementation or the next edit. Open Questions 4, 5, 9 and 14 stay open. See `reviews/kinh-mach-do-review-log.md`.
+> **Status**: In Review (2026-11-05: map density revision by user direction, rule 21: generic roads, smaller clusters, clusters in the border gaps, region capacity, the drawing rules; awaiting a fresh /design-review). Previously Approved (2026-11-04: lean re-review after the Spiritual Roots redesign added the hidden variant sectors, rule 20, Formulas H2–H4 and G9; 0 blockers, 9 recommended). Seven lean /design-review passes: the first five returned NEEDS REVISION and every blocker was fixed; the sixth and seventh found no blockers. Recommended revisions (variant-sector breakthrough side effects through toxicity and heart demon, the reserved id block, AC-KMD-34 lifespan figure, step 9 variety tie-breaks, symbol collisions, per-region link capacity) are settled during implementation or the next edit. Open Questions 4, 5, 9 and 14 stay open. See `reviews/kinh-mach-do-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-04
+> **Last Updated**: 2026-11-05
 > **Last Verified**: 2026-11-04
 > **Implements Pillar**: Pillar 1 (Your Dao, Your Name), Pillar 3 (Power Is Built, Not Given); touches Pillar 2 (Every Number Is Bounded and Visible)
 
 ## Summary
 
 The Meridian Map (Kinh Mạch Đồ) is the game's PoE-style passive tree.
-- **The map.** One fixed map of about 1,475 acupoints (huyệt), growing from the dantian
+- **The map.** One fixed map of about 1,300 acupoints (huyệt), growing from the dantian
   (Đan Điền) through inner, middle and outer bands. It is identical in every life and
   append-only at the rim.
 - **Points.** Earned per level (1–300) and at every great and small breakthrough.
@@ -22,7 +22,7 @@ The Meridian Map (Kinh Mạch Đồ) is the game's PoE-style passive tree.
   magic treasures [pháp bảo] or a second cultivation technique). A story moment unseals an
   **open** cluster, which the LLM fills inside a validated budget.
 - **Variant sectors.** Each of the eight variant roots (biến dị linh căn) has a hidden sector of
-  30 acupoints, 240 in all and outside the 1,475, that stays locked and undrawn until the root
+  30 acupoints, 240 in all and outside the 1,300, that stays locked and undrawn until the root
   owns that variant.
 - **Bounds.** Every number is bounded and recorded. NPCs build on the same tree under
   the same rules.
@@ -80,10 +80,9 @@ up with different trees, because their lives opened different doors.
 
 ## Detailed Design
 
-Rules 2–5 are **built** (debug terminal, `src/gameplay/meridian/`) on a 202-acupoint
-(huyệt) prototype map; rule 1 describes the **target map**, which replaces it at PoE scale
-(about 1,475 acupoints) and is not yet built. Rules 6–20 are the cluster and variant sector design and
-are **not yet implemented**. Quantities in these rules are named parameters; their values and ranges
+Rules 1–21 are **built** in the debug terminal (`src/gameplay/meridian/`, 2026-11-05), with
+sealed cluster content as theme-pool filler (Open Question 6) and open-cluster fills from the
+template pool only. Quantities in these rules are named parameters; their values and ranges
 are in Formulas.
 
 ### Core Rules
@@ -92,7 +91,7 @@ are in Formulas.
 
 1. **The map.** Generated deterministically from `assets/data/meridian_tree.json` (fixed
    seed), so it is identical in every life. About `tree_size_target` acupoints (about
-   1,475: about 800 visible, about 675 in hidden clusters), laid out from the core outward
+   1,300: 772 visible, about 525 in hidden clusters), laid out from the core outward
    in bands:
    - **Core:** the dantian (Đan Điền) at the center and five element gates in generating
      cycle (tương sinh) order, clockwise from the top (Wood → Fire → Earth → Metal →
@@ -110,7 +109,7 @@ are in Formulas.
 
    | Piece | Visible | Content |
    |---|---|---|
-   | Meridian road (highway) | yes | Chains of small acupoints carrying their sector's element stats only (H0; never breakthrough_chance). A border ring acupoint mixes both neighbouring elements. Each sector has 3 radials, and 3 rings cross every sector. They connect regions; 430 at launch, gates included |
+   | Meridian road (highway) | yes | Chains of small acupoints carrying generic stats (`road_stats`: mostly vitality, then spiritual power and divine sense; H0; never breakthrough_chance), the same in every sector and not scaled by the root (rule 21). Each sector has 3 radials, and 3 rings cross every sector. They connect regions; 430 at launch, gates included |
    | Junction acupoint (hội huyệt) | yes | A meridian road acupoint where meridian roads meet: a gate, a ring junction, or a fork or merge point. It has 3–4 links and is the only kind of acupoint that may have 4 (the dantian excepted). Same stats as meridian roads; 85 at launch, counted within the meridian roads |
    | Base cluster | yes | A shaped group of small acupoints around 1–3 notables, generated from its theme's pool (themes such as Sword Intent [Kiếm Ý], Body Guarding [Hộ Thể], Spiritual Power [Linh Lực], Vitality [Khí Huyết], Divine Sense [Thần Thức], Way of Alchemy [Đan Đạo], Artifact Refining [Luyện Khí], Way of Formations [Trận Đạo], Way of Talismans [Phù Đạo], Beast Taming [Ngự Thú], Spirit Fields [Linh Điền], Longevity [Thọ Nguyên], Heart State [Tâm Cảnh], Fortune [Khí Vận], Escape Arts [Độn Thuật]); 40 at launch |
    | Bridge cluster | yes | Mixes the two neighbouring sectors' elements; one in the middle band and one in the outer band of every border (10) |
@@ -124,7 +123,7 @@ are in Formulas.
 
    **Topology (how acupoints connect), decided 2026-11-03.** The aim is a flexible graph
    where routes still matter.
-   - **Meridian roads (highways).** Chains of small acupoints with element stats carry the
+   - **Meridian roads (highways).** Chains of small acupoints with generic stats carry the
      player between clusters, like PoE's attribute paths.
      - Each sector has 3 **radial meridian roads** from its gate to the rim, named L
        (left), C (centre) and R (right). They fork and merge along the way.
@@ -151,9 +150,9 @@ are in Formulas.
      authored data may override.
    - **Hidden clusters** are wired exactly like visible ones. One with 2 entries becomes
      a shortcut once unsealed.
-   - **Size.** The meridian roads and extra bridges bring the visible tree to about 800
-     acupoints and the map to about 1,475 (Formulas H). Chosen 2026-11-03: 4 middle clusters
-     of 9 per sector and longer outer rings (3 ring acupoints per K2 and K3 segment).
+   - **Size.** The meridian roads and bridges bring the visible tree to 772 acupoints and the
+     map to about 1,300 (Formulas H). Clusters grow toward the rim: 3 inner, 5 middle, 8 outer
+     (rule 21). The outer rings keep 3 ring acupoints per K2 and K3 segment.
 2. **Points.** Cultivation runs on **levels 1–300**. Each realm is a band of levels, and at
    the top of the band the bottleneck (bình cảnh) holds the level until the realm breakthrough succeeds.
    Points come from:
@@ -190,9 +189,10 @@ are in Formulas.
    tool previews that route. Points are never refunded and there is no respec.
 4. **Bonuses.** Each open acupoint adds its stat modifiers to the character's stat sheet
    under the source "Kinh Mạch: <name> #<id>". A sector acupoint's values are multiplied by
-   0.5 + purity/100 for the sector's element, or by 0.25 if the player lacks that element;
+   0.5 + purity/100 for the sector's element, or by 0.25 if the player lacks that element
+   (gates and cluster acupoints; meridian roads are exact, rule 21);
    a bridge acupoint uses the average of its two sectors' multipliers; a variant sector's
-   acupoint uses 0.5 + purity/100 for its variant (rule 20); keystones and the root are exact. So purity, not just element count, decides which regions pay off. The
+   acupoint uses 0.5 + purity/100 for its variant (rule 20); keystones, meridian roads and the root are exact. So purity, not just element count, decides which regions pay off. The
    summed `breakthrough_chance` from all Meridian Map (Kinh Mạch Đồ) acupoints is clamped
    at `tree_breakthrough_cap` (Formulas F), and the stat sheet shows the clamp.
 5. **NPCs** spend their points greedily under the same rules: every reachable acupoint is
@@ -415,6 +415,29 @@ are in Formulas.
       acupoints score by their kind (a road as a small acupoint, the apex as a notable) and
       get no sector focus boost.
 
+**Map density and drawing (added 2026-11-05, user direction)**
+
+21. **Density.** The map must read clearly: no packed clusters and no empty gaps.
+    - **Generic roads.** Meridian roads and junctions carry `road_stats` at H0, the same in
+      every sector, like PoE's attribute paths. Their value is exact, so a road pays the same
+      on every root. The five gates keep their element's lead stat and scale by purity.
+    - **Size grows outward.** Visible clusters are 3 acupoints in the inner band, 5 in the
+      middle band and 8 in the outer band. Hidden clusters are smaller on average (Formulas
+      C), and inner ones are at most `inner_cluster_size_max`.
+    - **Border gaps are filled.** The gap between two sectors holds clusters as well as its
+      bridges: one inner, one middle and one outer, so all three gaps of a sector read alike.
+    - **Region capacity.** Each region holds at most `region_capacity` acupoints. A hidden
+      cluster that does not fit moves to the rim, which has no limit. An inner hidden cluster
+      cannot move, so it shrinks to the room left, down to `cluster_size_min`.
+    - **Stronger, not poorer.** A shrunk cluster keeps its full value: the premium and the
+      per-acupoint caps of Formulas F are multiplied by n_rolled ÷ n, so its acupoints may
+      pass the normal E_small and E_notable (user decision 2026-11-05).
+    - **Big clusters go to the rim.** A hidden cluster of `rim_cluster_size_min` or more takes
+      a rim region first, with one link, so more of them fit outside.
+    - **The map must be drawable.** All of a cluster's links lie on one region's boundary, and
+      a later cluster stays on one side of an earlier one in that region. So the base map has
+      a drawing with no crossing edges. Requirements are under UI Requirements.
+
 **What the player cannot do:** refund or respec; open a hidden acupoint; see or open a locked
 variant sector; unseal by paying
 points; choose or edit what fills an open cluster; see an open cluster's content before its
@@ -554,10 +577,11 @@ design choice, not an output.
 | P_LK | float | 95–116 W | calculated | Tree power at Qi Refining's end |
 | Keystone | float | ≥ 50 W | data file | Keystones keep full strength; not rescaled |
 
-**Meridian road stat pool.** Meridian roads and junction acupoints carry only their
-sector's element stats; a border ring acupoint mixes the two neighbouring elements, like a
-bridge. They never carry `breakthrough_chance`, so the extra meridian roads do not touch
-the tree's breakthrough ceiling.
+**Meridian road stat pool.** Meridian roads and junction acupoints carry generic stats
+(`road_stats`, rule 21), border ring acupoints included. They never carry
+`breakthrough_chance`, so the extra meridian roads do not touch the tree's breakthrough
+ceiling. They no longer carry cultivation speed or resistances, so the power figures below,
+measured with element stats, need a new bot run (AC-KMD-07).
 
 **Output Range:**
 - Tree power at Qi Refining's end is about 95–116 W, with a median of about 102–109 W
@@ -656,8 +680,8 @@ Refining.
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | N_clusters | int | 75 | data file | Hidden clusters in the launch release |
-| μ_n, σ_n | float | 9, 2.5 | data file | Size distribution |
-| n_min, n_max | int | 3, 15 | data file | Size clamp |
+| μ_n, σ_n | float | 8, 2 | data file | Size distribution (rule 21; were 9, 2.5) |
+| n_min, n_max | int | 3, 12 | data file | Size clamp (rule 21; n_max was 15). An inner cluster also stops at `inner_cluster_size_max` (5) and at its region's room |
 | huyet_per_notable | int | 5 | data file | One notable per full 5 acupoints |
 | share_inner | float | 0.15 | data file | Chance a cluster is inner |
 | share_sealed | float | 0.667 | data file | Chance a cluster is sealed |
@@ -666,7 +690,7 @@ Refining.
 | U, U' | float | 0–1 | calculated (seeded) | Uniform draws |
 
 **Output Range:**
-- E[n] = 9, so 75 clusters hold about 675 acupoints. Each tail clamp has about a 1.4% chance.
+- E[n] = 8 before the inner limits. The launch seed's 75 clusters hold 524 acupoints.
 - k: 1 notable with probability 0.58, 2 with 0.41, 3 with 0.014. That's about 108
   hidden notables (16% density).
 - About 11 inner and 64 outer clusters. A seed is accepted only if the inner count is
@@ -893,6 +917,8 @@ The cluster budget formula is defined as:
 The per-acupoint cap formulas are defined as:
 
 `power(small) ≤ tol·E_small` ; `power(notable) ≤ E_notable` ; `power(capability notable) ≤ f_tier·E_notable`
+
+For a cluster shrunk by region capacity (rule 21), E_small and E_notable are multiplied by n_rolled ÷ n, so the cluster keeps its value in fewer, stronger acupoints (user decision 2026-11-05).
 
 The compounding cap formula is defined as:
 
@@ -1149,7 +1175,8 @@ The visible_tree formula is defined as:
 | R | int | 3 | data file (`radials_per_sector`) | Radial meridian roads per sector, from the gate to the rim |
 | a1, a2, a3 | int | 5, 14, 20 | data file (`ring_anchor_depths`) | Depth of the K1, K2 and K3 ring junctions on every radial |
 | m1, m2, m3 | int | 2, 3, 3 | data file (`ring_interior`) | Ring acupoints between two junctions, at depths anchor + min(i, m + 1 − i): K1 at 6, 6; K2 at 15, 16, 15; K3 at 21, 22, 21 |
-| Σn_inner, Σn_middle, Σn_outer | int | 2×4, 4×9, 2×9 | data file (`base_cluster_slots`) | Visible base clusters per sector |
+| Σn_inner, Σn_middle, Σn_outer | int | 2×3, 4×5, 2×8 | data file (`base_cluster_slots`) | Visible base clusters per sector, in the L–C and C–R gaps |
+| n_gi, n_gm, n_go | int | 3, 5, 6 | data file (`base_cluster_slots`) | Visible clusters in each border gap, beside its bridges (rule 21) |
 | ks | int | 2 | data file | Sector keystones, at d 22 |
 | n_bm, n_bo | int | 5, 5 | data file (`base_cluster_slots`) | Middle and outer bridge cluster per border (4 small + 1 notable each) |
 | inner_s, middle_s, outer_s | int | 27, 62, 52 | calculated | Visible acupoints per sector per band |
@@ -1158,7 +1185,7 @@ The visible_tree formula is defined as:
 | R·5, R·8 | int | 15, 24 | calculated | Radial acupoints in the inner (d 2–6) and middle (d 7–14) bands. Fixed by the band edges, not by a1 and a2; changing a ring anchor moves ring acupoints only |
 | N_vis | int | 80 | calculated | Visible notables |
 | ν | float | 0.100 | calculated | Share of notables among visible acupoints |
-| V | int | 802 | calculated | Visible acupoints |
+| V | int | 772 | calculated | Visible acupoints |
 
 Per sector (junctions are meridian road acupoints and are counted in that column):
 
@@ -1173,16 +1200,20 @@ Per border: 8 meridian road acupoints (the K1, K2 and K3 border segments of 2, 3
 acupoints), a middle bridge cluster of 5 and an outer bridge cluster of 5, so **18**
 acupoints and 2 notables. That makes 5 crossings per border.
 
+**Revised 2026-11-05 (rule 21).** The per-sector table above and the edge counts below still
+show the 2026-11-03 split; these totals replace them.
+
 **Output Range:**
-- V = 7 + 5·141 + 5·18 = **802**:
-  - 430 meridian road acupoints including the 5 gates (54%), 85 of them junctions;
-  - 50 visible clusters holding 360 acupoints (280 small and **80 notables**);
+- V = 442 + 5·56 + 50 = **772**:
+  - 430 meridian road acupoints including the 5 gates, 85 of them junctions;
+  - 65 visible clusters holding 330 acupoints (**75 notables**): per sector 56 in base and gap
+    clusters, and 10 bridges of 5;
   - 11 keystones and the dantian.
-- ν = 80 / 802 = **0.100** (was 0.134). Visible clusters are 22% notables.
-- Every visible cluster pays 2.56–2.9 W per point, below the weakest outer hidden cluster
-  at about 3.0 W (n 9, k 1). The cluster sizes were chosen to keep that order.
-- With about 675 hidden acupoints (Formulas C), the map holds about **1,477** (802 + 675; the rest of this document rounds it to 1,475). An accepted
-  seed falls in 1,410–1,545, which is ±3σ of the summed hidden sizes (σ ≈ 22).
+- ν = 75 / 772 = **0.097**.
+- Hidden clusters hold 524 acupoints on the launch seed, so the map holds **1,296** (this
+  document rounds it to about 1,300).
+- Mean degree on the launch seed is about 2.30, the bottom of `degree_avg_window`, because rim
+  clusters take one link.
 - Edges:
   - The skeleton has 506 edges: meridian roads, core and keystones.
   - Visible clusters add about 340 internal edges and about 100 entry links, for a total
@@ -1297,9 +1328,9 @@ never beats the base route at e = 9, ties at e = 10 and saves at most 3 points a
 | Acupoints | 8 × 30 = **240**: 64 roads, 136 cluster smalls, 40 notables (8 of them apex) |
 | Edges | 6 × 33 + 2 × 35 = **268** (258 internal, 10 host links) |
 | Mean degree of a sector's own nodes | spur 2.17, chord 2.27 |
-| Full map, every sector unlocked | 802 + 675 + 240 = **1,717** acupoints; about 2,011 edges; mean degree about **2.34** (guess, on the base 2.36 guess) |
-| Notables in the full map | 80 + about 108 + 40 = about 228 |
-| Visible map | V = 802 and mean degree 2.36, unchanged. Sectors are reported separately; `tree_size_target` still means the base map |
+| Full map, every sector unlocked | 772 + 524 + 240 = **1,536** acupoints; mean degree about **2.3** |
+| Notables in the full map | 75 + about 90 + 40 = about 205 (guess) |
+| Visible map | V = 772, unchanged by sectors. Sectors are reported separately; `tree_size_target` still means the base map |
 
 **Output Range:** n_sector is always 30. e runs 3–13, d(y) runs 3–21 and C_clear runs 32–42. A
 fresh Qi Refining life (51 points) can clear any sector and keeps 9–19 points. A Foundation
@@ -1529,10 +1560,16 @@ versions.
 **G6. Visible clusters.** Clusters are filled in sector order, inner band to outer, L–C gap
 before C–R, then the borders.
 - **Slots:**
-  - each gap gets 1 inner cluster (n 4);
-  - each gap gets 1 middle-low and 1 middle-high cluster (n 9);
-  - each gap gets 1 outer cluster (n 9), in outer-low or outer-high as the seed picks;
-  - each border gets a middle bridge and an outer bridge (n 5).
+  - each gap gets 1 inner cluster (n 3);
+  - each gap gets 1 middle-low and 1 middle-high cluster (n 5);
+  - each gap gets 1 outer cluster (n 8), in outer-low or outer-high as the seed picks;
+  - each border gets a middle bridge and an outer bridge (n 5), placed first;
+  - each border gets 1 inner (n 3), 1 middle (n 5) and 1 outer (n 6) cluster (rule 21).
+- **Border inner region (added 2026-11-05):** each border also has an inner region, between
+  R of sector s and L of sector s + 1, from the gates to K1.
+- **Non-crossing wiring (added 2026-11-05):** a region keeps its open faces. A cluster takes
+  its links from one face, which splits at those links, so a later cluster stays on one side.
+- **Entries:** a double ring's entries stay on its outer ring; n ≤ 5 takes at most 2 entries.
 - **Shape:**
   - A shape **supports** a cluster only when both hold. The test is made on the cluster
     itself: its n, its E, its role (a bridge uses the bridge-pair slots, any other cluster
@@ -1582,12 +1619,16 @@ before C–R, then the borders.
   seed.
 
 **G7. Hidden clusters.**
-- Size, k, location and kind come from Formulas C, unchanged.
+- Size, k, location and kind come from Formulas C, then region capacity may shrink an inner
+  cluster (rule 21).
 - The authored catalogue supplies theme and sector. Each cluster is then wired as in G6:
-  - inner clusters go to their sector's inner regions, with links at d 3–7;
+  - inner clusters go to their sector's inner regions or its border inner region, with links
+    at d 3–7;
   - outer clusters go to their sector's outer-low, outer-high or rim regions, or the
     matching border regions, with links at d 15–22;
-  - regions are filled fewest-placed first, then by the seed.
+  - regions are filled fewest-placed first, then by the seed, among regions with room;
+  - a cluster of `rim_cluster_size_min` or more tries rim regions first, and a rim cluster
+    takes one link.
 - **Extra hosts allowed for hidden clusters only:**
   - small non-entry, non-notable acupoints of a visible cluster with internal degree ≤ 2;
   - degree-3 junctions (L17, R17 and the K3 junctions), which then reach degree 4.
@@ -1730,12 +1771,16 @@ There is one data key per parameter, used in both the rules and the formulas.
 
 | Symbol | Data key | Value |
 |---|---|---|
-| — | `tree_size_target` | ≈ 1,475 (≈ 800 visible + ≈ 675 hidden) |
+| — | `tree_size_target` | ≈ 1,300 (772 visible + about 525 hidden) |
+| — | `road_stats` | khi_huyet_pct, linh_luc_pct, khi_huyet_pct, than_thuc_pct, in rotation |
+| — | `region_capacity` | inner 6, border_inner 6, middle_low 7, middle_high 9, outer_low 12, outer_high 12, border_middle 14, border_outer 18; the rim has no limit |
+| — | `inner_cluster_size_max` | 5 |
+| — | `rim_cluster_size_min` | 7 |
 | H0 | `huyet_value_highway` | 1.2 W |
 | R | `radials_per_sector` | 3 |
 | a1, a2, a3 | `ring_anchor_depths` | 5, 14, 20 |
 | m1, m2, m3 | `ring_interior` | 2, 3, 3 |
-| — | `base_cluster_slots` | per sector: inner 2×4, middle 4×9, outer 2×9; per border: middle bridge 5, outer bridge 5 |
+| — | `base_cluster_slots` | per sector: inner 2×3, middle 4×5, outer 2×8; per border: inner 3, middle 5, outer 6, middle bridge 5, outer bridge 5 |
 | — | `huyet_per_notable_visible` | 4 |
 | — | `entry_count_weights` | E = 1 / 2 / 3: 0.20, 0.60, 0.20 |
 | — | `shape_preferred_share` | 0.6 |
@@ -1746,8 +1791,8 @@ There is one data key per parameter, used in both the rules and the formulas.
 | — | `seed_max_attempts` | 64 |
 | — | `notable_min_entry_dist` | 2 (guess) |
 | N_clusters | `cluster_count` | 75 |
-| μ_n, σ_n | `cluster_size_mean`, `cluster_size_sd` | 9, 2.5 |
-| n_min, n_max | `cluster_size_min`, `cluster_size_max` | 3, 15 |
+| μ_n, σ_n | `cluster_size_mean`, `cluster_size_sd` | 8, 2 |
+| n_min, n_max | `cluster_size_min`, `cluster_size_max` | 3, 12 |
 | — | `huyet_per_notable` | 5 |
 | share_inner | `inner_share` | 0.15 |
 | share_sealed | `sealed_share` | 0.667 |
@@ -1982,7 +2027,7 @@ numbers in this GDD; ranges marked *guess* wait for a bot run.
 | `size_realm_gates` (g1, g2) / `cap_min_n` | 6, 10 / 7 | g1 5–6 and always below `cap_min_n` (at g1 = 7 an outer n = 7 cluster would gate at Foundation Establishment [Trúc Cơ]), g2 9–11; cap_min_n 7 (it must keep every capability at Core Formation [Kết Đan] or later) | Which realm each cluster size opens in; how many clusters can carry a capability |
 | Δ_desp / `q_max` / burn share | 0.15 / 0.95 / 5% | Δ_desp 0.05–0.15, q_max ≤ 0.95, burn share 3–10%, guess | Strength of #22 Last Radiance (Hồi Quang Phản Chiếu) and cost of #23 Burning Life to Break Through (Thiêu Thọ Phá Cảnh) (Formulas E2) |
 | `pts_birth`, `great_breakthrough_bonus`, `pct_trung` / `pct_hau` / `pct_dai` | 2, 15/25/40/60, 15/25/35 | provisional; Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) owns them. Keep `pct_trung` + `pct_hau` + `pct_dai` ≤ 100 | Points per life (Formulas A) |
-| `cluster_size_mean` / `_sd` | 9 / 2.5 | mean 8–11, derived: at mean 7 only about 25 clusters have n ≥ 7, which is the seed rule's floor | Cluster size, entry cost, gate realm, budget |
+| `cluster_size_mean` / `_sd` | 8 / 2 | mean 8–11, derived: at mean 7 only about 25 clusters have n ≥ 7, which is the seed rule's floor | Cluster size, entry cost, gate realm, budget |
 | `inner_share` | 0.15 | 0.12–0.18, derived from the seed window of 9–14 inner clusters | How many clusters can open in Qi Refining (Luyện Khí) |
 | `sealed_share` | 0.667 | 0.55–0.75 | Sealed against open split; the authoring load (about 9 acupoints per sealed cluster) |
 | `huyet_per_notable` | 5 | 4–6 | Notable density in clusters (about 16%) |
@@ -1991,7 +2036,9 @@ numbers in this GDD; ranges marked *guess* wait for a bot run.
 | `radials_per_sector` | 3 | 3, fixed by user decision; any change rewrites Formulas H | Meridian road density |
 | `ring_anchor_depths` | 5 / 14 / 20 | Fixed at 5 / 14 / 20 (user decision 2026-11-03). The junction (hội huyệt) lists of G2 and AC-KMD-61, the connectors and the braids are built around these depths: K1 at 4 or 6, or K2 at 13 or 15, breaks the 3–5 junction spacing, and a keystone at d 22 hangs off a d 21 ring acupoint. A different anchor means rewriting G2 first | Where the rings sit |
 | `ring_interior` | 2 / 3 / 3 | 2–4 each. Derived: the 3–5 step junction spacing, and m3 ≤ 4 keeps K3 at d 22 or less. Each +1 on a ring adds 15 acupoints (2 per sector, 1 per border) and 15 link slots | Ring length; link capacity |
-| `base_cluster_slots` | inner 2×4, middle 4×9, outer 2×9, bridges 5/5 | inner 4–5 (it must fit d 3–6); middle and outer 6–9 (guess); bridges 5–7 | Visible content vs map size |
+| `base_cluster_slots` | inner 2×3, middle 4×5, outer 2×8, border gaps 3/5/6, bridges 5/5 | keep sizes rising toward the rim; a slot must fit its `region_capacity` | Visible content vs map size and readability |
+| `region_capacity` | see Parameter keys | a value is safe while the drawing rules pass (UI Requirements); raise only with a clean layout | How much a region holds; how many clusters move to the rim |
+| `road_stats` | vitality-led rotation | generic stats only; never `breakthrough_chance` or a ceiling key | What walking a road gives every build |
 | `huyet_per_notable_visible` | 4 | 4–5. Derived: at 3, a 6-acupoint cluster pays about 3.5 W per point, above the weakest hidden cluster (about 3.0) | Visible ν |
 | `entry_count_weights` | 0.20 / 0.60 / 0.20 | mean 1.8–2.15. The low end is the user's "about 2". Derived: with about 200 outer link slots and 79 outer-linked clusters, a mean above about 2.03 takes the outer ratio under the 1.25 margin (1.18 at 2.15), which is reported, not rejected | Entries, average degree, shortcuts |
 | `shape_preferred_share` | 0.6 | 0.4–0.8 (guess) | How readable a theme's shape is vs variety |
@@ -2054,6 +2101,16 @@ These apply to the Debug Terminal now and to the Game UI later.
   the screen shows where its sector appeared and which host opens it.
 - **Capabilities.** Held capabilities are listed with their rule text and, when one
   can't act or is suppressed, the reason.
+- **Drawing the map (added 2026-11-05, user direction).** Any drawing of the map keeps these
+  rules. The viewer in `tools/meridian-map/` reports them on every build.
+  - No two edges cross unless they share an acupoint.
+  - An acupoint stays at least `map_clearance` (15 units) from any edge it is not on.
+  - Connected acupoints sit one standard step apart (46 units; road acupoints exactly one step
+    along a radial). Ring edges are longer, because the ring is wider than its acupoints.
+  - Edges may curve. A curve must pass the same two checks, or the edge stays straight.
+  - Variant sectors are drawn outside the rim, and each host link is a pair of entry marks, not
+    a line. That is the one exception to drawing every edge, because the Fire–Metal and
+    Earth–Water chords cannot be drawn without crossing (Open Question 16).
 
 ## Cross-References
 
@@ -2134,8 +2191,7 @@ Drafted with qa-lead.
     dantian (Đan Điền) is 1.80–1.98 W (expected 1.889). The mean over visible cluster
     acupoints only is 2.60–2.85 W (expected 2.711).
   - Every meridian road (kinh lộ) acupoint, junctions (hội huyệt) included, carries only
-    element stats, never
-    `breakthrough_chance`.
+    `road_stats`, never `breakthrough_chance`, and pays the same on every root.
   - The visible tree's summed breakthrough_chance is at most 4 pp (half of
     `tree_breakthrough_cap`), which leaves room for hidden clusters.
 - **AC-KMD-07** [Integration, Bot: `autoplay.gd`, ≥ 60 lives = 20 seeds × 3 origins]
@@ -2155,18 +2211,15 @@ Drafted with qa-lead.
   - The center keystone is refused with 4 base elements and allowed with 5.
   - The center keystone is at d 1, adjacent to the dantian, which has exactly 6 links.
 - **AC-KMD-10** [Logic] Formula H.
-  - The map has 802 visible acupoints:
+  - The map has 772 visible acupoints:
     - 430 meridian road acupoints, including the 5 gates, of which 85 are junctions;
-    - 50 visible clusters holding 360 acupoints, 80 of them notables;
+    - 65 visible clusters holding 330 acupoints, 75 of them notables;
     - 11 keystones;
     - the dantian.
-  - Per sector: inner 27, middle 62, outer 52.
-    - Meridian road acupoints 19 / 26 / 32.
-    - Clusters 2 × 4, 4 × 9, 2 × 9.
-    - 2 keystones.
-  - Per border: 18 (8 meridian road acupoints and two bridge clusters of 5).
+  - Per sector: meridian road acupoints 19 / 26 / 32, clusters 2 × 3, 4 × 5, 2 × 8, 2 keystones.
+  - Per border: 8 meridian road acupoints, two bridge clusters of 5, and clusters of 3, 5 and 6.
   - Every visible cluster has clamp(floor(n/4), 1, 3) notables.
-  - The total, 802 plus the cluster sizes, matches a golden value in 1,410–1,545.
+  - The total, 772 plus the cluster sizes, matches a golden value in 1,250–1,410.
 - **AC-KMD-11** [Logic] Bands.
   - Every visible acupoint has d ≤ 22, and the sector keystones sit at exactly d = 22.
   - Every meridian road acupoint's d equals its template depth:
@@ -2520,7 +2573,7 @@ Drafted with qa-lead.
   - A fixture pair whose best second route is ℓ1 + 1 fails validation: the generator
     re-draws, then rejects the seed.
 - **AC-KMD-63** [Logic] No band skipping.
-  - BFS with all 75 hidden clusters unsealed gives the same d for all 802 visible acupoints as
+  - BFS with all 75 hidden clusters unsealed gives the same d for all 772 visible acupoints as
     the visible graph does.
   - Every cluster with 2–3 entries satisfies |d(L_i) − d(L_j)| ≤ s_ij + 2 for every pair.
   - Fixture: a hidden cluster linked at d 15 and d 21.
@@ -2615,7 +2668,7 @@ The base-map criteria (AC-KMD-06, -10, -11, -60, -63, -64, -65) count base acupo
 - **AC-KMD-69** [Logic] Rule 20, not hinted and not counted, in Silhouette and in Visible.
   - For a life owning no variant, the map listing has 0 entries with a variant id, a `variant:` tag or a sector name. This also holds after switching mode both ways.
   - Opening a host produces no discovery, hint or condition line.
-  - Reported size is 802 visible, and the total equals AC-KMD-10's golden value.
+  - Reported size is 772 visible, and the total equals AC-KMD-10's golden value.
   - With Wind owned, those two figures are unchanged and a separate sector line reads 30. With Wind and Blood owned, it reads 60.
 - **AC-KMD-70** [Logic] Rule 20, unlocked at birth. Root with Wind, e = 3, host at d 2, no realm reached.
   - `path_to` R1 opens 3 acupoints with 3 points. With 2 points it fails and spends 0.
@@ -2680,7 +2733,7 @@ The base-map criteria (AC-KMD-06, -10, -11, -60, -63, -64, -65) count base acupo
   - Chord notables sit at e+5 (A), e+6 (both of B), e+8 (apex) and e+7 (second notable of X).
   - No sector acupoint is deeper than 21 or shallower than 3.
 - **AC-KMD-77** [Logic] H2, no band skipping.
-  - These states give the same d for all 802 visible acupoints and every hidden-cluster acupoint: no sector unlocked, each sector alone (8 runs), all 8 unlocked, and each of those with all 75 hidden clusters sealed and unsealed.
+  - These states give the same d for all 772 visible acupoints and every hidden-cluster acupoint: no sector unlocked, each sector alone (8 runs), all 8 unlocked, and each of those with all 75 hidden clusters sealed and unsealed.
   - Each sector's depths are identical alone and with all unlocked.
   - For all 240 acupoints, the route cost from Đan Điền alone equals d.
   - Shortcut pairs: chord hosts Δ0 ≤ 9 (s 7), R5/R6 and M2/M3 Δ1 ≤ 3 (s 1), F4/M4 Δ0 ≤ 3 (s 1).
@@ -2807,6 +2860,15 @@ The base-map criteria (AC-KMD-06, -10, -11, -60, -63, -64, -65) count base acupo
 - Capability behaviours are tested in each host system's GDD; here only presence, data
   and the guard are covered.
 
+**Map density (added 2026-11-05)**
+
+- **AC-KMD-90** [Logic] Rule 21, roads. Every road and junction carries only `road_stats` and has scale 1.0 on any root. Every gate still scales by purity.
+- **AC-KMD-91** [Logic] Rule 21, gaps. Every border inner, middle and outer region holds at least one cluster.
+- **AC-KMD-92** [Logic] Rule 21, capacity. No region's load exceeds `region_capacity`, and every inner hidden cluster has n ≤ `inner_cluster_size_max`.
+- **AC-KMD-93** [Logic] Rule 21, strength. A cluster shrunk from n_rolled to n has premium × n_rolled ÷ n.
+- **AC-KMD-94** [Logic] G5–G7, wiring. All of a cluster's links lie on its region's boundary, and no two clusters in a region have interleaved links.
+- **AC-KMD-95** [Integration] UI Requirements, drawing. `tools/meridian-map/build.js` reports 0 crossings and 0 acupoints under `map_clearance` on the launch seed.
+
 ## Open Questions
 
 | # | Question | Owner | Blocks |
@@ -2826,5 +2888,5 @@ The base-map criteria (AC-KMD-06, -10, -11, -60, -63, -64, -65) count base acupo
 | 13 | Where Meridian Seal (Mạch Ấn) keys come from (loot, shop, event reward), and the intended number of clusters a typical life unseals | Item DB + Event Engine GDDs | Item seals; Tuning Knobs target |
 | 14 | Should `lifespan_years` get a tree-wide ceiling like `breakthrough_chance`? Today only each cluster is held to φ_r·L_r, so 5 unsealed clusters could add up to 50% of a realm's lifespan | user + systems-designer | Formulas F; balance sign-off |
 | 15 | ~~Hidden variant sectors~~ **Answered 2026-11-04** by rule 20, Formulas H2–H4 and G9. Weights for `travel_speed_pct` and `co_duyen_pct` stay open under Spiritual Roots Open Question 2 | — | — |
-| 16 | Where variant sectors are drawn. G9 fixes the graph, not positions, and on the wheel the Fire–Metal and Earth–Water chords must cross with no edge between them. The Game UI sets positions; the variant hash then includes them | Game UI | AC-KMD-81 |
+| 16 | Where variant sectors are drawn. G9 fixes the graph, not positions, and on the wheel the Fire–Metal and Earth–Water chords must cross with no edge between them. **Viewer answer 2026-11-05:** sectors sit outside the rim with paired entry marks. The Game UI confirms or replaces it; the variant hash then includes the positions | Game UI | AC-KMD-81 |
 | 17 | Building and content for variant sectors: `path_to` must read the character's owned variants, and the 8 sector names and apex notables need writing. The H3 and H4 values are guesses until AC-KMD-88 and AC-KMD-89 run | content, implementation story | Rule 20 |

@@ -1063,21 +1063,21 @@ constants:
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
-    value: 802
+    value: 772
     unit: huyệt
-    notes: "Visible tree at launch: 430 kinh lộ (85 hội), 50 visible clusters with 360 huyệt (80 notables), 11 keystones, Đan Điền."
+    notes: "Visible tree at launch: 430 kinh lộ (85 hội), 65 visible clusters with 330 huyệt (75 notables), 11 keystones, Đan Điền."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-05
   - name: tree_size_target
     status: active
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
-    value: "≈ 1,475"
+    value: "≈ 1,300"
     unit: huyệt
-    notes: "About 802 visible plus about 675 hidden at launch; the rim is append-only (rule 19)."
+    notes: "772 visible plus about 525 hidden at launch; the rim is append-only (rule 19)."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-05
   - name: tree_breakthrough_chance_cap
     status: active
     source: design/gdd/kinh-mach-do.md

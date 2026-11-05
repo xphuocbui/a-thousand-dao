@@ -219,3 +219,6 @@ Reviewed-Content-Hash: design/quick-specs/progression-and-edges.md 749608cd59075
 Reviewed-Content-Hash: design/gdd/linh-can.md 989c2939b9b735317d8d4e871d4df0a407968404
 Reviewed-Content-Hash: design/gdd/character-stats.md 7bf79075658e456d8919f4f22e29fd5484a98646
 Reviewed-Content-Hash: design/gdd/canh-gioi.md 9f1acabdc4d0b501c48438e00c4c2160931d1e72
+
+## Revision 2026-11-05 (user direction, not a review)
+Rule 21 added: generic road stats with exact value, cluster sizes rising toward the rim (3 / 5 / 8), clusters in the border gaps, region capacity with shrunk clusters keeping their value in stronger acupoints (past the normal per-acupoint caps, user decision), rim placement for big clusters, and the drawing rules in UI Requirements. Formulas C, F and H, G6, G7, Parameter keys, Tuning Knobs, AC-KMD-07/10 and new AC-KMD-90..95 updated. Status back to In Review; a fresh /design-review is due. AC-KMD-07's tree power needs a new bot run.
