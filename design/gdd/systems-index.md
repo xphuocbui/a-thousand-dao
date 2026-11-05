@@ -73,7 +73,7 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 18 | Talismans (Phù Lục) | Economy | Alpha | Implemented | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | Item DB, Character Stats |
 | 19 | Spirit Beasts & Spirit Insects (Linh Thú & Linh Trùng) | Economy | Alpha | Implemented (spirit beasts only) | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | World DB, Character Stats, Time & Turn |
 | 20 | Market & Spirit Stone (Linh Thạch) Economy (inferred) | Economy | MVP | Implemented | — | Item DB, Character Stats, Realms, World Gen |
-| 21 | Combat | Gameplay | MVP | Implemented (power duel only) | — | Character Stats, Realms, Cultivation Techniques, Meridian Map, Artifact Refining, Formations, Talismans, Spirit Beasts |
+| 21 | Combat | Gameplay | MVP | Implemented (power duel only). **A full combat system is needed** (user decision 2026-11-05): the power ratio cannot host skills, and The Way's arts wait on it | — | Character Stats, Realms, Cultivation Techniques, Meridian Map, Artifact Refining, Formations, Talismans, Spirit Beasts |
 | 22 | Heavenly Tribulation (Thiên Kiếp) | Gameplay | MVP | Not Started | — | Combat, Realms, Event Engine |
 | 23 | Event Engine: templates, budgets, validator, resolver | Gameplay | MVP | Implemented | — | World DB, Character Stats, Item DB, NPC Builds, Alchemy, Talismans, Spirit Beasts, Combat |
 | 24 | NPC Build Generation (inferred) | Gameplay | MVP | Implemented | — | Character Stats, Cultivation Techniques, Meridian Map, Item DB, Edges (NPC half) |
@@ -91,7 +91,7 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 36 | Debug Terminal (added by request) | UI | MVP | Implemented | docs/debug-terminal.md (run guide, not a GDD) | Guidance, Save/Load, LLM GM |
 | 37 | Game UI: Godot, 2D ink-wash | UI | Vertical Slice | Not Started | — | Guidance, Save/Load |
 | 38 | Audio | Audio | Full Vision | Not Started | — | Game UI, Event Engine |
-| 39 | The Way (Đạo) (added by request; holds the mutations moved out of the root) | Progression | Alpha (provisional) | Not Started | — | Spiritual Roots; contract provisional (Spiritual Roots Open Question 9); soft: Cultivation Techniques (techniques naming relocated mutations, its Open Question 11), Realms (any ceiling raise or root factor re-runs the breakthrough calibration) |
+| 39 | The Way (Đạo) (added by request; holds the mutations moved out of the root) | Progression | Alpha (provisional) | Designed (2026-11-05, pending review) | design/gdd/dao.md | Spiritual Roots; contract provisional (Spiritual Roots Open Question 9); Meridian Map (shared skill points); Combat (arts only, on hold: needs a full combat system); soft: Cultivation Techniques (techniques naming relocated mutations, its Open Question 11), Realms (any ceiling raise or root factor re-runs the breakthrough calibration) |
 
 **Implementation note (2026-11-05).** Systems 6-10 are now built in the debug terminal from their GDDs (uncommitted on feature/debug-terminal). The Meridian Map GDD was revised to match by rule 21 (generic roads, smaller clusters, border gap clusters, region capacity, drawing rules), so it is back In Review. Results: `production/qa/evidence/balance/2026-11-05-gdd-bot-run.txt`.
 
@@ -188,7 +188,7 @@ Design and build from top to bottom.
 10. **Progression Edges** — Character Stats, Realms, Event Engine (player half: fortuitous encounters [cơ duyên]).
 11. **Heavenly Tribulation (Thiên Kiếp)** — Combat, Realms, Event Engine.
 12. **Living World Tick** — World DB, Realms, NPC Builds, Edges (NPC half), Time & Turn.
-13. **The Way (Đạo)** — Spiritual Roots (read-only); soft: Cultivation Techniques, Realms. Provisional until its GDD.
+13. **The Way (Đạo)** — Spiritual Roots (read-only), Meridian Map (shared skill points); soft: Cultivation Techniques, Realms, Event Engine; Combat for arts only (on hold). Provisional until its GDD is approved.
 
 ### Presentation Layer
 
@@ -291,7 +291,7 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | System | Risk Type | Risk Description | Mitigation |
 |--------|-----------|-----------------|------------|
 | Event Engine, LLM Game Master | Technical | Pillar 2 rests on them. The real DeepSeek path is untested; the narration number check only catches digits; structured-output reliability is unproven | Run the real model early (key pending); extend the check to numbers written in words; keep template fallback |
-| Combat, Heavenly Tribulation (Thiên Kiếp) | Design | The duel is a power ratio only; there is no tribulation; the concept's open question (how assets combine, how fighting beyond one's realm [vượt cấp] works) is unanswered | Answer it in the Combat GDD; prototype with the balance harness |
+| Combat, Heavenly Tribulation (Thiên Kiếp) | Design | The duel is a power ratio only, and a full combat system is needed (user decision 2026-11-05; The Way's arts wait on it); there is no tribulation; the concept's open question (how assets combine, how fighting beyond one's realm [vượt cấp] works) is unanswered | Answer it in the Combat GDD; prototype with the balance harness |
 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh), Progression Edges | Design | Baseline per-step odds measured 42–46% / 27–35% against a 30% target while the edge sits at 71–79% / 53–74% against 70%; single levers move both together | Decide a baseline-only lever or a larger sample (96+ lives per arm) in the Realms & Bottlenecks GDD; log in design/quick-specs/progression-and-edges.md |
 | Market & Spirit Stone (Linh Thạch) Economy, crafts | Design | Degenerate-strategy risk across five crafts; nothing past Core Formation (Kết Đan) is worth buying yet | Headless sims per spiritual root (linh căn) tier; add sinks when later realms are designed |
 | Content volume | Scope | Concept targets about 60 spirit herbs (linh thảo), 40 recipes, 40 magic treasures (pháp bảo), 30 talismans (phù lục); the build has 8 herbs and 10 recipes | Content pass per tier; do not widen systems before the MVP loop is validated |
@@ -307,8 +307,8 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 |--------|-------|
 | Total systems identified | 39 |
 | Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (beasts only), 21 (duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin) |
-| Systems not started | 7: 12, 22, 31, 34, 37, 38, 39 (plus spirit insects [linh trùng], inside 19) |
-| GDDs started | 5 (10 Meridian Map [Kinh Mạch Đồ] and 9 Cultivation Techniques [Công Pháp], reopened 2026-11-04 by the Spiritual Roots redesign; 7 Character Stats, in review after the cross-GDD review 04f revisions; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], needs revision after the 2026-11-05 review, fixes applied; 6 Spiritual Roots [Linh Căn], redesigned 2026-11-04, pending review) |
+| Systems not started | 6: 12, 22, 31, 34, 37, 38 (plus spirit insects [linh trùng], inside 19) |
+| GDDs started | 6 (11 The Way [Đạo], designed 2026-11-05, pending review; 10 Meridian Map [Kinh Mạch Đồ] and 9 Cultivation Techniques [Công Pháp], reopened 2026-11-04 by the Spiritual Roots redesign; 7 Character Stats, in review after the cross-GDD review 04f revisions; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], needs revision after the 2026-11-05 review, fixes applied; 6 Spiritual Roots [Linh Căn], redesigned 2026-11-04, pending review) |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
 | Design docs reviewed | 5, each independently on 2026-11-05 (reports in design/gdd/reviews/) |
 | Design docs approved | 0; 6, 7, 8, 9 and 10 in review after the 2026-11-05 reviews, with a clean cross-GDD pass (CONCERNS, no blockers) |
@@ -324,7 +324,8 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 - [ ] Run `/design-review` on each completed GDD (first: `design/gdd/kinh-mach-do.md`, in a fresh session)
 - [x] Carry the level ladder (great and small breakthrough bonuses, stat rises at every breakthrough) from the Meridian Map (Kinh Mạch Đồ) GDD into the Realms & Bottlenecks GDD (done; the ladder is now 110 levels, 2026-11-05)
 - [ ] Design the unbuilt MVP system, Heavenly Tribulation (Thiên Kiếp), with `/design-system thien-kiep`
-- [ ] Design the Way (Đạo) with `/design-system dao`: the planned next GDD, taken ahead of its Alpha place in the design order. It owns the mutations moved out of the root, and Spiritual Roots Open Question 9 and Cultivation Techniques Open Question 11 wait on it
+- [ ] Design a full combat system (Combat, #21): the built duel is a power ratio and cannot host skills. The Way's arts, and any future active technique, depend on it
+- [x] Design the Way (Đạo) with `/design-system dao` (done 2026-11-05: design/gdd/dao.md; run `/design-review` on it in a fresh session; its catalogue of trees is a content pass, and its arts wait on a full combat system)
 - [ ] Update `design/gdd/game-concept.md` to include the Meridian Map, Progression Edges and the Debug Terminal
 - [ ] Reconcile `project.yaml` stage with `/project-stage-detect`
 - [ ] Run `/gate-check technical-setup` when the MVP systems are designed

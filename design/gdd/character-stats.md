@@ -825,8 +825,8 @@ display names come from `character_attributes.json` (rule 15).
 
 ## Dependencies
 
-Spiritual Roots, Realms & Bottlenecks, Cultivation Techniques and the Meridian Map have
-GDDs among the systems below; every other interface is provisional. When each GDD is written, it must list Character Stats in
+Spiritual Roots, Realms & Bottlenecks, Cultivation Techniques, the Meridian Map and the Way
+(Đạo) have GDDs among the systems below; every other interface is provisional. When each GDD is written, it must list Character Stats in
 its own Dependencies section.
 
 **Upstream (hard):**
@@ -845,6 +845,7 @@ below.
 |---|---|---|---|
 | 8 | Realms & Bottlenecks | Realm, level and stage multiplier, held on the character | Every realm-scaled value stays at QR early |
 | 10 | Meridian Map | Acupoint modifiers and capability ids | No tree bonuses |
+| 39 | The Way (Đạo) | Dao stat-line modifiers with the Dao and node as their source, and passive ability ids in the capability-style record (`design/gdd/dao.md` rules 3 and 4; no ceiling raises and no root factors) | No Dao bonuses |
 | 9 | Cultivation Techniques | Technique bonuses and technique power | Spiritual power at `no_tech_power` 0.5 (Cultivation Techniques rule 11) |
 | 13 | Item DB | Equipped treasure affixes, consumables and tools (fertilisers, timed pill effects), lifespan pill years | No item bonuses |
 | 11 | Progression Edges | Destiny perk modifiers and flags | No player edge |

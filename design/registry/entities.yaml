@@ -292,6 +292,48 @@ formulas:
     added: 2026-11-03
     revised: 2026-11-05
     # was: h = (1 + 0.008*purity_wood) * (1 + herb_age_root_pct/100) * max(0, 1 + herb_growth_pct/100), herb_age_root_pct 25 for a Time mutation holder else 0 (root term, not capped); before 2026-11-05. Time moved to the Way (Spiritual Roots redesign); Realms Formulas D dropped the factor.
+  - name: dao_node_value
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    variables:
+      - dao_node_cost
+      - dao_premium
+      - w_bar
+    output_range: [11.2, 13.7]
+    expression: "mean node value = dao_premium * dao_node_cost * w_bar; lint: 18-22 nodes, mean within 10 %"
+    notes: "Every node costs a flat 3 points; w_bar is the Meridian Map w_target 2.07 W per point. A Dao node beats the acupoints it replaces by design (user decision 2026-11-06)."
+    added: 2026-11-05
+    revised: 2026-11-06
+  - name: dao_offer
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    variables:
+      - E
+      - dao_offer_size
+    output_range: [1, 3]
+    expression: "offer = first min(3, |E|) of a uniform Fisher-Yates shuffle of E; E = qualified, not yet glimpsed Daos"
+    notes: "One draw per entry offered; reproducible from the seed."
+    added: 2026-11-05
+    revised: ""
+  - name: npc_dao
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    variables:
+      - points_total
+      - npc_dao_share
+      - C_dao
+    output_range: [1.0, 1.334]
+    expression: "P_npc = min(C_dao, floor(npc_dao_share * points_total(level))); map_points = points_total - P_npc; power_mult = points_total / map_points"
+    notes: "An NPC's simplified Dao effect on combat power; rolls once per realm from Core Formation until the first success (one Dao per NPC). P_npc is deducted from the Meridian Map allocation, so a Dao is power-neutral; assumes map power near linear in points, a bot run must confirm."
+    added: 2026-11-05
+    revised: 2026-11-05
+    # was: power_mult = 1 + npc_dao_power_max * P_npc / C_dao, output_range [1.0, 1.12]; no point deduction (design-review 2026-11-05)
   - name: guard_success
     status: active
     source: design/gdd/canh-gioi.md
@@ -882,6 +924,126 @@ constants:
     notes: "Chance an NPC keeps an archetype whose elements its root lacks any of (rule 15). Data: world_generation.json npc_builds. Owned by NPC Builds; a guess."
     added: 2026-11-05
     revised: ""
+  - name: dao_full_points
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 60
+    unit: points
+    notes: "Points a Mastered Dao costs: 20 nodes at 3 points (user decisions 2026-11-05, 2026-11-06)."
+    added: 2026-11-05
+    revised: ""
+  - name: dao_node_cost
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 3
+    unit: points per node
+    notes: "Flat, whatever the node gives (user decision 2026-11-06)."
+    added: 2026-11-05
+    revised: 2026-11-06
+  - name: dao_premium
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 2
+    unit: multiple of what the same points buy on the map
+    notes: "User decision 2026-11-06, so a Dao feels special."
+    added: 2026-11-06
+    revised: ""
+  - name: dao_node_count
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 20
+    unit: nodes per Dao
+    notes: "Lint 18-22, keystone included (user decision 2026-11-06)."
+    added: 2026-11-06
+    revised: ""
+  - name: dao_ability_credit
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: "T1 10, T2 18, T3 30"
+    unit: W per ability tier
+    notes: "Credit for a passive ability or art by capability tier. A guess; needs a content pass."
+    added: 2026-11-05
+    revised: ""
+  - name: dao_glimpses_per_realm
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 1
+    unit: glimpses per realm
+    notes: "From dao_glimpse_realm_min; the Event Engine owns the rate (user decision 2026-11-05)."
+    added: 2026-11-05
+    revised: ""
+  - name: dao_glimpse_realm_min
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 1
+    unit: realm index
+    notes: "Foundation Establishment is the first realm that allows a glimpse."
+    added: 2026-11-05
+    revised: ""
+  - name: dao_offer_size
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 3
+    unit: Daos per glimpse
+    notes: "The player picks one of three (user decision 2026-11-05)."
+    added: 2026-11-05
+    revised: ""
+  - name: dao_open_min
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 6
+    unit: Daos
+    notes: "Catalogue lint: Daos with no root or technique requirement, so an offer of three always exists."
+    added: 2026-11-05
+    revised: ""
+  - name: npc_dao_chance
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 0.5
+    unit: chance per realm
+    notes: "NPC Dao roll per realm from Core Formation. A guess."
+    added: 2026-11-05
+    revised: ""
+  - name: npc_dao_share
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 0.25
+    unit: share of points
+    notes: "Share of an NPC's points in its Dao. A guess."
+    added: 2026-11-05
+    revised: ""
+  - name: npc_dao_power_max
+    status: deprecated
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 0.12
+    unit: power multiplier
+    notes: "Retired 2026-11-05: npc_dao power_mult is now points_total / (points_total - P_npc), power-neutral, so no separate maximum exists."
+    added: 2026-11-05
+    revised: 2026-11-05
   - name: vitality_floor
     status: active
     source: design/gdd/canh-gioi.md

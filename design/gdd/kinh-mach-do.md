@@ -189,6 +189,12 @@ are in Formulas.
       Question 11).
     - Every great and small breakthrough also raises base stats.
 
+   **Shared with the Way (Đạo).** The same points also buy Dao nodes (`design/gdd/dao.md`
+   rule 7), at a higher cost per node. This system owns the total. The Way keeps its own count
+   of points spent, and a character's unspent points are the total minus the acupoints opened
+   minus the Way's count. A point spent on a Dao node is never returned to the map. For an
+   NPC, the Way deducts its Dao points from the points the allocator receives (dao.md Formulas D3).
+
    Totals at great perfection: Qi Refining 51, Foundation Establishment 120, Core Formation
    216, Nascent Soul 357, Deity Transformation 566. Formulas has the exact computation. Realms & Bottlenecks (Cảnh
    Giới & Bình Cảnh) owns the level bands, the stat rises and these values, and the Event
@@ -2070,7 +2076,7 @@ are generated.
 ## Dependencies
 
 Spiritual Roots, Character Stats, Realms & Bottlenecks and Cultivation Techniques have GDDs that
-list this one. The other systems below have none yet, so their interfaces are provisional. When
+list this one. The Way (Đạo, `dao.md`) has a GDD that shares this system's point pool. The other systems below have none yet, so their interfaces are provisional. When
 each GDD is written, it must list the Meridian Map (Kinh Mạch Đồ) in its own Dependencies section,
 as the bidirectional-dependency rule requires.
 
@@ -2095,6 +2101,7 @@ as the bidirectional-dependency rule requires.
 | 23 | Event Engine                       | The "unseal this cluster" and "story moment" effects, gated by budget; event point grants | Event seals and open clusters can't be unsealed                    |
 | 29 | LLM Game Master                    | Fill request transport                                                                    | The template pool fills every open cluster                         |
 | 11 | Progression Edges                  | The NPC edge score for `npc_unseal_chance`                                                | NPCs never unseal clusters                                         |
+| 39 | The Way (Đạo)                      | The count of points spent on Dao nodes (dao.md rule 7), which the unspent figure subtracts; an NPC's `P_npc`, deducted from the allocator's points | Unspent points are the total minus acupoints only; no Dao exists   |
 
 **Downstream: systems that depend on the Meridian Map**
 
