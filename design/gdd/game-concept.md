@@ -95,7 +95,7 @@ understands and exploits. Discovery ranks above Fantasy because each life's spir
 ### Core Mechanics (Systems we build)
 
 1. **Spiritual root** — a set of elements — Metal (Kim), Wood, Water (Thủy), Fire, Earth (Thổ) — each with a purity (độ tinh khiết), plus, in about 1 life in 8, a variant root (biến dị linh căn; eight in all, formed from owned elements or born innate). More elements is better late and slower early, with fast crossovers (see Spiritual Root below). Can change during a life, rarely.
-2. **Realms (cảnh giới) and bottlenecks** — Qi Refining (Luyện Khí), layers (tầng) 1–13 → Foundation Establishment (Trúc Cơ) → Core Formation → Nascent Soul (Nguyên Anh) → Deity Transformation (Hóa Thần), each major realm with early / middle / late stage / great perfection (sơ / trung / hậu kỳ / đại viên mãn). Roughly 10× power per major realm. Every major breakthrough needs specific resources; each realm extends lifespan.
+2. **Realms (cảnh giới) and bottlenecks** — Qi Refining (Luyện Khí), layers (tầng) 1–10 → Foundation Establishment (Trúc Cơ) → Core Formation → Nascent Soul (Nguyên Anh) → Deity Transformation (Hóa Thần), each major realm with early / middle / late stage / great perfection (sơ / trung / hậu kỳ / đại viên mãn). Roughly 10× power per major realm. Every major breakthrough needs specific resources; each realm extends lifespan.
 3. **The building system** — spirit herbs (linh thảo) that gain value with age → alchemy (luyện đan) → pills; artifact refining (luyện chế pháp bảo), with magic treasures refined and nourished over years; spirit beasts / spirit insects (linh thú / linh trùng), bred in numbers; talismans; formations. Crafting affinity comes from the spiritual root.
 4. **Cultivation techniques — the Dao folded in** — found and combined, compatible (or not) with your spiritual root; they set cultivation speed and the divine abilities (thần thông) you gain.
 5. **Combat as a test of what you built** — cultivation base (tu vi) × assets (magic treasures, formations, talismans, swarm size), resolved by the engine and fully inspectable, then narrated by the LLM. Cross-realm combat is only possible through what you built.
@@ -171,7 +171,7 @@ as well as a starting condition.
 
 | Realm | Sub-stages | Lifespan (thọ nguyên), design value | Power vs. realm below |
 |---|---|---|---|
-| Qi Refining (Luyện Khí) | layers (tầng) 1–13 | ~120 years | a mortal stands no chance |
+| Qi Refining (Luyện Khí) | layers (tầng) 1–10 | ~120 years | a mortal stands no chance |
 | Foundation Establishment (Trúc Cơ) | early / middle / late stage / great perfection (sơ / trung / hậu kỳ / đại viên mãn) | ~200 | ~10× |
 | Core Formation (Kết Đan) | same | ~500 | ~10× |
 | Nascent Soul (Nguyên Anh) | same | ~1000 | ~10× |

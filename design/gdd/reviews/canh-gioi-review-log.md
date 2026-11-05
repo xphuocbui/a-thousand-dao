@@ -318,3 +318,71 @@ Figures from a fixed-seed scratch model (seed 20261104, 20,000 lives per element
 
 ## Revision — 2026-11-04 (Spiritual Roots redesign; no new review)
 Aligned to the redesign: curve and Y_climb keyed by n_eff; Time's herb factor and the "What Time's factor does" paragraph removed; craft-mutation holder columns and notes removed from Formulas D and E; AC-CG-60 scope simplified. No target or ceiling value changed. The birth-mix means were computed before innate variants moved 4.3 % of lives up a curve row, so the bot run must re-check them (Spiritual Roots Open Question 1).
+
+## Review — 2026-11-05 — Verdict: NEEDS REVISION
+Review mode: solo · Workflow: standard
+Scope signal: XL
+Specialists: none
+Blocking items: 6 | Recommended: 11
+Summary: Independent re-review by a fresh subagent, read-only, of the 110-level ladder and late-gate revision. Player targets hold in the model, and the ladder, costs and points recompute. Blockers were undefined suppression on #22 and #23, tests that contradicted the formulas, and a world headcount that needed an intake rule and edge selection. No bot or game run.
+Prior verdict resolved: Yes
+Findings:
+- [BLOCKING] Rules 8, 17, 18, Formulas H: heavenly suppression undefined for #22, #23 and a talisman on a #22 attempt
+- [BLOCKING] Acceptance Criteria: AC-CG-20, 21, 31 and 47 contradict the formulas or keep 300-level numbers
+- [BLOCKING] Formulas E, AC-CG-30: target is a birth-mix mean but the test measures arrivals
+- [BLOCKING] Formulas C2: world headcount needs an intake rule that did not exist
+- [BLOCKING] Formulas C2: NPC odds overshoot the headcount once edge selection is modelled
+- [BLOCKING] Registry, Summary, Open Questions: stale late-gate targets
+- [RECOMMENDED] Formulas D: brew guarantee should be 46 / 46 / 82 / 141
+- [RECOMMENDED] Formulas E: post-suppression figures low
+- [RECOMMENDED] AC-CG-69: windows and seed count
+- [RECOMMENDED] Acceptance Criteria: arrival counts expensive at late gates
+- [RECOMMENDED] Formulas E, Edge Cases: second starting talisman stated two ways
+- [RECOMMENDED] Rule 7: "fewer kills" contradicts Character Stats
+- [RECOMMENDED] Open Questions: "data not moved" partly false
+- [RECOMMENDED] Game concept: layers 1–13
+- [RECOMMENDED] Edge Cases, Saves: migration gaps
+- [RECOMMENDED] States and Transitions: no stage-loss row
+- [RECOMMENDED] Formulas E: S_bare omits suppression
+Resolution: All blockers and the plain-error items were fixed after this review, on the user's instruction, and are NOT yet reviewed. User decisions: intake rule plus re-derived NPC odds, targets stay birth-mix means measured from a gate fixture. New from that work: `edge_full` 1.4, `npc_intake_per_year` 142. Left open: the second starting talisman and the save-migration gaps. The hashes below stamp the files as reviewed, before those fixes, so the next freshness check reports them changed.
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 3dbcfde3cc903d285e7ed38d82683627be9c48b4
+Reviewed-Content-Hash: design/registry/entities.yaml caa09b94e15419dcb851f36f77d27c89c876be4a
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/linh-can.md 4c8abfb95124d01d27bf531dbb5ba14eeac020fb
+Reviewed-Content-Hash: design/gdd/character-stats.md 7bf79075658e456d8919f4f22e29fd5484a98646
+Reviewed-Content-Hash: design/gdd/cong-phap.md cfa220cbdfb71a405667dba257fcb71cb92f7298
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md 3957524a53436c15089fa33deaeb1a66ea085229
+Reviewed-Content-Hash: design/gdd/game-concept.md 548ea01d5cd8dd7c3c864164389a3b388caff094
+Reviewed-Content-Hash: design/gdd/systems-index.md 977b2a49f2ae746844dbe750346aa00e24fb00cd
+Reviewed-Content-Hash: design/quick-specs/progression-and-edges.md 749608cd590755a04ab1faed55f585aa16cbebbe
+Reviewed-Content-Hash: assets/data/cultivation_realms.json af886e3b0d9dc33e04258d7de906fc71b6e27454
+
+## Revision — 2026-11-05 (NPC odds and world size; no new review)
+User decisions after the 2026-11-05 review: NPC arrival means of 1 in 8 / 12 / 15 / 20, player edge odds unchanged, world of 5,000 simulated cultivators, never fewer than 3,000 (was 25,000). `npc.gate_steps` re-derived with edge selection (base 0.12 / 0.075 / 0.05 / 0.0075, `edge_power` 6); `edge_full` and the `p_step_add` exception removed; intake 42.5 a year; Open Question 20 answered. Not yet reviewed.
+
+## Review — 2026-11-05 (second independent review) — Verdict: NEEDS REVISION
+Review mode: solo · Workflow: standard
+Scope signal: XL
+Specialists: none
+Blocking items: 5 | Recommended: 13
+Summary: Fresh read-only review. The model reproduces the ladder, points, odds and builds, and the owner's targets are used consistently. Blockers were text and test fixes; none needed a rebalance.
+Prior verdict resolved: Partly (bot tests still measured arrivals)
+Findings:
+- [BLOCKING] AC-CG-60, 40b, 36a: measured arrivals from birth instead of the gate fixture
+- [BLOCKING] Meridian Map AC-KMD-50 and the quick spec: retired targets
+- [BLOCKING] Rule 3, Formulas I: closed-door cultivation had no rule
+- [BLOCKING] Rule 12: "never fewer than 3,000" was not enforced
+- [BLOCKING] Registry breakthrough_guard omitted suppression
+- [RECOMMENDED] Thirteen items: fixed except plant-plan force-harvest and committing the entry-age tables to the repo
+Resolution: Fixed on the user's instruction and NOT yet reviewed. User decisions: closed-door added to the rules; skip another round and build. While building, a world simulation showed an intake set as a share of population drifts to about 6,300, so the world now replaces its dead up to `people.world_cultivators`. The hashes stamp the files as reviewed, before those fixes.
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 68261c1ab3ee96bfe30ff4f4f363abeaa6327290
+Reviewed-Content-Hash: design/registry/entities.yaml c4290ef42c28e913206d3a13e72840596edd4ce4
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/linh-can.md 0c53e0c0e82c78907a9067fd8e0dc86c50a26626
+Reviewed-Content-Hash: design/gdd/character-stats.md 55d9ae80692694927176c65f7603cb63f1cab407
+Reviewed-Content-Hash: design/gdd/cong-phap.md cfa220cbdfb71a405667dba257fcb71cb92f7298
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md 8a3b40480be08d1afbaf0686522c57136fbb38ae
+Reviewed-Content-Hash: design/gdd/game-concept.md 97d16997e271c1a187365e08392eab74f8ed60e2
+Reviewed-Content-Hash: design/gdd/systems-index.md a623e273f1661fa40a9195582b36c8421d95c717
+Reviewed-Content-Hash: design/quick-specs/progression-and-edges.md e5b628da56a83b2d49faefb5a4bd9ad9db8e494b
+Reviewed-Content-Hash: assets/data/cultivation_realms.json af886e3b0d9dc33e04258d7de906fc71b6e27454

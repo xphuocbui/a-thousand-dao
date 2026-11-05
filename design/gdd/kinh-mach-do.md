@@ -1,6 +1,6 @@
 # Meridian Map (Kinh Mạch Đồ)
 
-> **Status**: In Review (2026-11-05: map density revision by user direction, rule 21: generic roads, smaller clusters, clusters in the border gaps, region capacity, the drawing rules; awaiting a fresh /design-review). Previously Approved (2026-11-04: lean re-review after the Spiritual Roots redesign added the hidden variant sectors, rule 20, Formulas H2–H4 and G9; 0 blockers, 9 recommended). Seven lean /design-review passes: the first five returned NEEDS REVISION and every blocker was fixed; the sixth and seventh found no blockers. Recommended revisions (variant-sector breakthrough side effects through toxicity and heart demon, the reserved id block, AC-KMD-34 lifespan figure, step 9 variety tie-breaks, symbol collisions, per-region link capacity) are settled during implementation or the next edit. Open Questions 4, 5, 9 and 14 stay open. See `reviews/kinh-mach-do-review-log.md`.
+> **Status**: In Review (2026-11-05: points realigned to the 110-level ladder, with the same great perfection totals; map density revision by user direction, rule 21: generic roads, smaller clusters, clusters in the border gaps, region capacity, the drawing rules; awaiting a fresh /design-review). Previously Approved (2026-11-04: lean re-review after the Spiritual Roots redesign added the hidden variant sectors, rule 20, Formulas H2–H4 and G9; 0 blockers, 9 recommended). Seven lean /design-review passes: the first five returned NEEDS REVISION and every blocker was fixed; the sixth and seventh found no blockers. Recommended revisions (variant-sector breakthrough side effects through toxicity and heart demon, the reserved id block, AC-KMD-34 lifespan figure, step 9 variety tie-breaks, symbol collisions, per-region link capacity) are settled during implementation or the next edit. Open Questions 4, 5, 9 and 14 stay open. See `reviews/kinh-mach-do-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-05
@@ -13,7 +13,7 @@ The Meridian Map (Kinh Mạch Đồ) is the game's PoE-style passive tree.
 - **The map.** One fixed map of about 1,300 acupoints (huyệt), growing from the dantian
   (Đan Điền) through inner, middle and outer bands. It is identical in every life and
   append-only at the rim.
-- **Points.** Earned per level (1–300) and at every great and small breakthrough.
+- **Points.** Earned per level (1–110) and, mostly, at great and small breakthroughs.
 - **Value.** Every acupoint's value scales with the spiritual root's (linh căn) purity in
   its element.
 - **Hidden clusters.** About 75, mostly at the rim, that points alone can't reach. An
@@ -153,32 +153,32 @@ are in Formulas.
    - **Size.** The meridian roads and bridges bring the visible tree to 772 acupoints and the
      map to about 1,300 (Formulas H). Clusters grow toward the rim: 3 inner, 5 middle, 8 outer
      (rule 21). The outer rings keep 3 ring acupoints per K2 and K3 segment.
-2. **Points.** Cultivation runs on **levels 1–300**. Each realm is a band of levels, and at
+2. **Points.** Cultivation runs on **levels 1–110**. Each realm is a band of levels, and at
    the top of the band the bottleneck (bình cảnh) holds the level until the realm breakthrough succeeds.
    Points come from:
    - **Birth:** 2.
    - **Levels:** 1 point per level gained. A level gives points only; stat rises come from
      breakthroughs.
    - **Great breakthroughs:** entering a new realm (its early stage, sơ kỳ). Each one has a
-     bonus (`great_breakthrough_bonus`: Foundation Establishment [Trúc Cơ] 15, Core Formation [Kết
-     Đan] 25, Nascent Soul [Nguyên Anh] 40, Deity Transformation [Hóa Thần] 60).
+     bonus (`great_breakthrough_bonus`: Foundation Establishment [Trúc Cơ] 30, Core Formation [Kết
+     Đan] 40, Nascent Soul [Nguyên Anh] 61, Deity Transformation [Hóa Thần] 100), paid in
+     full on success.
    - **Small breakthroughs:** inside each realm, the early, middle and late stages (sơ kỳ,
      trung kỳ, hậu kỳ) split the realm's levels into thirds, and great perfection (đại viên
      mãn) is the realm's last level.
-     - Reaching the **middle stage** grants 15% of the next great breakthrough's bonus, and
-       the **late stage** 25%. These are extra.
-     - Reaching **great perfection** grants 35% of it as an **advance**, so the great
-       breakthrough then pays the remaining 65%.
+     - Reaching the **middle stage**, the **late stage** and **great perfection** each pays
+       that realm's `small_breakthrough_bonus`: Qi Refining 13 / 13 / 14, Foundation
+       Establishment 3 / 3 / 3, Core Formation 5 / 5 / 6, Nascent Soul 20 / 20 / 20, Deity
+       Transformation 33 / 33 / 33.
    - **Events:** an event may grant 1 (the Event Engine's budget file caps grants; Open
      Question 11).
    - Every great and small breakthrough also raises base stats.
 
    Totals at great perfection: Qi Refining 51, Foundation Establishment 120, Core Formation
-   216, Nascent Soul 357, Deity Transformation 566 (with a placeholder for the realm after
-   Deity Transformation). Formulas has the exact computation. Realms & Bottlenecks (Cảnh
+   216, Nascent Soul 357, Deity Transformation 566. Formulas has the exact computation. Realms & Bottlenecks (Cảnh
    Giới & Bình Cảnh) owns the level bands, the stat rises and these values, and the Event
    Engine owns event grants; they are provisional here. The built
-   prototype still uses the old ladder (stages, 1/3/4/5/6 points per stage, 86 at most).
+   game still uses the 300-level ladder, which reaches the same totals.
 3. **Opening an acupoint** costs 1 point. It must not already be open, must be adjacent to
    an open acupoint, and, for an acupoint that names a minimum element count, the player's
    spiritual root (linh căn) must have that many base elements. Opening a path to a target
@@ -358,8 +358,8 @@ are in Formulas.
     Capabilities 22 and 23 act on breakthrough odds. Each is usable once per realm, and at
     most one of them acts per realm step. #22's gain is capped, and #23 costs the greater
     of 10 years and 5% of the realm's lifespan (Formulas E2). They must be calibrated against
-    the progression targets (about 3 in 10 baseline, about 7 in 10 with the player's
-    edge) before they ship. NPCs can hold sealed clusters (rule 14), so this applies to NPCs
+    the progression targets (Realms & Bottlenecks Formulas E: the player's edge is 0.70 / 0.70 /
+    0.30 / 0.20) before they ship. NPCs can hold sealed clusters (rule 14), so this applies to NPCs
     too.
 18. **Capabilities do not stack with themselves.** A capability is held or not. Two
     capabilities that touch the same number apply in catalogue order, and each
@@ -486,13 +486,8 @@ All interfaces are provisional where the other GDD does not exist yet.
 Values are in **W**, a common power unit: 1 W = the value of +1% attack. An acupoint's
 (huyệt) power is the weighted sum of its modifiers (formula F1). All values marked "guess"
 need a bot run (`tools/balance/autoplay.gd`, `tools/balance/npc_cohort.gd`) before
-they are trusted. Rounding is half away from zero everywhere. **Point shares are
-computed in integer arithmetic, never with float `round()`**: `0.35 * 90` is
-31.499999999999996 in IEEE floats, so a float implementation would round the
-Deity Transformation (Hóa Thần) advance to 31 instead of 32 and give 565 points at level
-300 instead of 566.
-The shares are stored as integer percents (`pct_trung` 15, `pct_hau` 25, `pct_dai` 35)
-and `share(p, B) = floor((p·B + 50) / 100)`.
+they are trusted. Rounding is half away from zero everywhere. Points are whole numbers
+read from data, so Formulas A needs no rounding.
 
 ### A. Points
 
@@ -500,10 +495,10 @@ The points_total formula is defined as:
 
 `points_total(L) = pts_birth + (L − 1) + Σ_i bonus_i(L) + pts_event`
 
-where, for each realm i with levels [lo_i, hi_i], N_i = hi_i − lo_i + 1, its own bonus
-B_i and the next realm's bonus B_next:
+where, for each realm i with levels [lo_i, hi_i], N_i = hi_i − lo_i + 1, its great bonus
+B_i and its small bonuses s_i,1 to s_i,3:
 
-`bonus_i(L) = [L ≥ lo_i]·(B_i − share(p_d, B_i)) + [L ≥ t_i]·share(p_t, B_next) + [L ≥ h_i]·share(p_h, B_next) + [L ≥ hi_i]·share(p_d, B_next)`
+`bonus_i(L) = [L ≥ lo_i]·B_i + [L ≥ t_i]·s_i,1 + [L ≥ h_i]·s_i,2 + [L ≥ hi_i]·s_i,3`
 
 with `t_i = lo_i + floor(N_i/3)` (first level of the middle stage [trung kỳ]) and
 `h_i = lo_i + floor(2·N_i/3)` (first level of the late stage [hậu kỳ]). Qi Refining (Luyện
@@ -512,37 +507,35 @@ Khí) has no entry term.
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| L | int | 1–300 | calculated | Highest level ever reached (a level lost later never takes points back) |
+| L | int | 1–110 | calculated | Highest level ever reached (a level lost later never takes points back) |
 | pts_birth | int | 2 | data file | Points at birth |
-| lo_i, hi_i | int | Qi Refining 1–39, Foundation Establishment (Trúc Cơ) 40–79, Core Formation (Kết Đan) 80–129, Nascent Soul (Nguyên Anh) 130–199, Deity Transformation 200–300 | data file | Realm level bands (provisional; Realms & Bottlenecks [Cảnh Giới & Bình Cảnh] owns them) |
-| B_i | int | Foundation Establishment 15, Core Formation 25, Nascent Soul 40, Deity Transformation 60; after Deity Transformation 90 (placeholder) | data file | Great breakthrough bonus |
-| p_t, p_h | int (percent) | 15, 25 | data file (`pct_trung`, `pct_hau`) | Middle-stage and late-stage shares of the next bonus (extra) |
-| p_d | int (percent) | 35 | data file (`pct_dai`) | Great perfection (đại viên mãn) share of the next bonus (advance, deducted from the breakthrough) |
-| share(p, B) | int | 0–B | calculated | `floor((p·B + 50) / 100)`: half rounds up, integer arithmetic only |
-| t_i, h_i | int | e.g. Qi Refining 14 and 27, Foundation Establishment 53 and 66 | calculated | First level of the middle and late stages |
+| lo_i, hi_i | int | Qi Refining 1–10, Foundation Establishment (Trúc Cơ) 11–40, Core Formation (Kết Đan) 41–80, Nascent Soul (Nguyên Anh) 81–100, Deity Transformation 101–110 | data file | Realm level bands (provisional; Realms & Bottlenecks [Cảnh Giới & Bình Cảnh] owns them) |
+| B_i | int | Foundation Establishment 30, Core Formation 40, Nascent Soul 61, Deity Transformation 100 | data file (`great_breakthrough_bonus`) | Great breakthrough bonus, paid in full on success |
+| s_i,1, s_i,2, s_i,3 | int | Qi Refining 13, 13, 14; Foundation Establishment 3, 3, 3; Core Formation 5, 5, 6; Nascent Soul 20, 20, 20; Deity Transformation 33, 33, 33 | data file (`small_breakthrough_bonus`) | Points at the realm's middle stage, late stage and great perfection (đại viên mãn) |
+| t_i, h_i | int | e.g. Qi Refining 4 and 7, Foundation Establishment 21 and 31 | calculated | First level of the middle and late stages |
 | pts_event | int | 0+ | calculated | Event grants, +1 each |
 | points_total | int | 2–566 (+ events) | calculated | Points earned in the life |
 
-**Output Range:** 2 at level 1 to 566 at level 300, plus events; never decreases.
+**Output Range:** 2 at level 1 to 566 at level 110, plus events; never decreases.
 
 | Point | Level | Total |
 |---|---|---|
-| Qi Refining great perfection | 39 | 51 |
-| Foundation Establishment early stage (sơ kỳ) | 40 | 62 |
-| Foundation Establishment great perfection | 79 | 120 |
-| Core Formation early stage | 80 | 137 |
-| Core Formation great perfection | 129 | 216 |
-| Nascent Soul early stage | 130 | 243 |
-| Nascent Soul great perfection | 199 | 357 |
-| Deity Transformation early stage | 200 | 397 |
-| Deity Transformation great perfection | 300 | 566 |
+| Qi Refining great perfection | 10 | 51 |
+| Foundation Establishment early stage (sơ kỳ) | 11 | 82 |
+| Foundation Establishment great perfection | 40 | 120 |
+| Core Formation early stage | 41 | 161 |
+| Core Formation great perfection | 80 | 216 |
+| Nascent Soul early stage | 81 | 278 |
+| Nascent Soul great perfection | 100 | 357 |
+| Deity Transformation early stage | 101 | 458 |
+| Deity Transformation great perfection | 110 | 566 |
 
-**Example:** Level 60 (Foundation Establishment middle stage):
-- 2 at birth + 59 from levels.
-- Qi Refining bonuses: 2 + 4 + 5.
-- Foundation Establishment entry: 15 − 5 = 10.
-- Foundation Establishment middle stage: share(15, 25) = floor(425/100) = 4.
-- Total: **86**.
+**Example:** Level 26 (Foundation Establishment middle stage):
+- 2 at birth + 25 from levels.
+- Qi Refining small breakthroughs: 13 + 13 + 14 = 40.
+- Foundation Establishment entry: 30.
+- Foundation Establishment middle stage: 3.
+- Total: **100**.
 
 ### A2. Acupoint value scale
 
@@ -660,8 +653,8 @@ The reach_cost formula is defined as:
 |---|---|---|
 | Qi Refining great perfection | 51 | Its focus sector's inner band and 2–3 of its 4 middle clusters (d ≈ 10–13), about 6–8 notables. The rare inner hidden cluster (n ≤ 6: 6–13 points) fits. A keystone beeline (22 points) is possible but costs 43% of the life |
 | Foundation Establishment great perfection | 120 | Every cluster and both keystones of one focus sector (about 98 points, guess; the whole sector is 27 + 62 + 52 = 141 acupoints, but most of its meridian roads need not be walked), and a second sector's inner band (about 12 points) |
-| Core Formation early stage | 137 | The focus sector's outer meridian road is open to d 20, so a 9-acupoint outer cluster costs 9 of the 17 new points |
-| Nascent Soul+ | 243–566 | Enough for many clusters; unsealing, not points, is the limit |
+| Core Formation early stage | 161 | The focus sector's outer meridian road is open to d 20, so a 9-acupoint outer cluster costs 9 of the 41 new points |
+| Nascent Soul+ | 278–566 | Enough for many clusters; unsealing, not points, is the limit |
 
 ### C. Hidden cluster generation
 
@@ -795,6 +788,9 @@ until one succeeds or the life ends. S is the resulting chance of crossing the r
   fails, it adds ι_23 to the next attempt. #22 is unaffected and stays exact: the #22
   attempt is still one attempt, and its failure adds the same insight with or without
   #22, so every later attempt is the same in both cases.
+- **Heavenly suppression (Realms & Bottlenecks Formulas C and H).** At the last two gates
+  every value here is after `gate_factor` f: q and S use suppressed chances, τ_a = f · τ and
+  ι_23 scales by f.
 - **At most one of #22 and #23 acts per realm step.** A character holding both chooses
   which to use for that realm.
 
@@ -832,11 +828,11 @@ attempt chance q + τ_a is clamped to q_max = 0.95 (Realms & Bottlenecks Formula
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| S | float | 0 ≤ S < 1 (S_guard is capped at 0.95) | calculated (S_guard, Realms & Bottlenecks GDD, Formulas H) | Lower bound on success per realm before capabilities, from the pill attempts made and the pills held (targets ≈ 0.30 baseline / ≈ 0.70 player edge) |
+| S | float | 0 ≤ S < 1 (S_guard is capped at 0.95) | calculated (S_guard, Realms & Bottlenecks GDD, Formulas H) | Lower bound on success per realm before capabilities, from the pill attempts made and the pills held (player edge targets ≈ 0.70 / 0.70 / 0.30 / 0.20) |
 | q | float | 0.01–0.95 (0.01–0.90 when τ_a = 0.05) | calculated (`CultivationRules`) | Chance per attempt, including failure insight, without τ_a |
-| τ_a | float | 0 or τ = 0.05 | calculated (τ from Realms & Bottlenecks, Formulas, `crafting_talismans.json`) | The breakthrough talisman on the attempt #22 acts on: τ if the realm step's one talisman is used on that attempt, else 0. If the q_max clamp cuts the talisman short, τ_a is the part that applies, so q + τ_a ≤ q_max |
+| τ_a | float | 0 or f · τ (0.05; 0.016 at CF→NS, 0.01 at NS→DT) | calculated (τ from Realms & Bottlenecks, Formulas, `crafting_talismans.json`) | The breakthrough talisman on the attempt #22 acts on: τ if the realm step's one talisman is used on that attempt, else 0. If the q_max clamp cuts the talisman short, τ_a is the part that applies, so q + τ_a ≤ q_max |
 | q_desp | float | q to q_max − τ_a | calculated | #22's chance for the attempt without τ_a, clamped by the guard; the attempt succeeds with q_desp + τ_a |
-| ι_23 | float | 0 or 0.02 (0 to `failure_insight_pp`) | calculated (`breakthrough.failure_insight_pp` 2 and `failure_insight_cap` 4 pp, Realms & Bottlenecks) | The insight #23's extra roll would add if it failed: 0 if the step's current insight I is at the cap, else min(failure_insight_pp, failure_insight_cap − I) |
+| ι_23 | float | 0 or f × 0.02 (0 to f × `failure_insight_pp`) | calculated (`breakthrough.failure_insight_pp` 2 and `failure_insight_cap` 4 pp, Realms & Bottlenecks) | The insight #23's extra roll would add if it failed: 0 if the step's current insight I is at the cap, else min(failure_insight_pp, failure_insight_cap − I) |
 | F_0 | float | 0–1 | calculated | Chance of failing every attempt in the step except the one after the extra roll; used only to state the carry exactly (the guard assumes F_0 = 1) |
 | q_retry | float | 0.01–0.95 | calculated | Chance of #23's extra attempt, clamped by the guard |
 | q_max | float | 0.95 | data file | Ceiling on any attempt's chance |
@@ -1158,7 +1154,7 @@ cluster. Holders mostly hold one.
 **Capabilities on NPCs.** An NPC holding a capability notable gets that capability's
 `npc_effect` from a closed set:
 - `chien_luc_mult` up to ×1.10;
-- `p_step_add` up to +0.05, with the NPC's p_step still clamped to max_step 0.70;
+- `p_step_add` up to +0.05, with the NPC's p_step still clamped to the gate's max (Realms & Bottlenecks Formulas C2);
 - `survive_once`;
 - `none`: the capability shows in the World Database and story context only.
 
@@ -1950,7 +1946,7 @@ as the bidirectional-dependency rule requires.
 | 2 | Deterministic Simulation Core | The seeded RNG for map generation (fixed seed per content release) and NPC allocation; Breakdown for explainable values |
 | 6 | Spiritual Root (Linh Căn) | Purity per element and base element count (rules 3 and 4); owned variants with purities, for the hidden variant sectors (rule 20) |
 | 7 | Character Stats | Accepts modifiers {source, stat, value}; owns stat keys, units and meaning, and the stat weights' reference values; stores the character's capability set (held capability ids), which the Meridian Map writes and every capability host reads |
-| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Level, realm and stage; level bands, great breakthrough bonuses and the `pct_trung` / `pct_hau` / `pct_dai` shares (Formulas A); realm lifespan L_r; pill attempts for #22 and #23; the breakthrough talisman (one per realm step, τ 0.05, rule 8), which enters Formulas E2 as τ_a; failure insight (`breakthrough.failure_insight_pp` 2, `failure_insight_cap` 4), which enters E2 through q (insight included) and ι_23 |
+| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Level, realm and stage; level bands, `great_breakthrough_bonus` and `small_breakthrough_bonus` (Formulas A); realm lifespan L_r; pill attempts for #22 and #23; the breakthrough talisman (one per realm step, τ 0.05, rule 8), which enters Formulas E2 as τ_a; failure insight (`breakthrough.failure_insight_pp` 2, `failure_insight_cap` 4), which enters E2 through q (insight included) and ι_23 |
 
 **Upstream: the cluster layer needs them; the base tree works without them (soft)**
 
@@ -2026,7 +2022,7 @@ numbers in this GDD; ranges marked *guess* wait for a bot run.
 | `cluster_count` | 75 | 60–90, derived: below about 55 the seed rule (25 capability-eligible clusters) cannot be met. The inner window of 9–14 is fixed, so at either end about half of all seeds are rejected; move the window with the count | Hidden share of the map; about 9 acupoints (huyệt) per cluster |
 | `size_realm_gates` (g1, g2) / `cap_min_n` | 6, 10 / 7 | g1 5–6 and always below `cap_min_n` (at g1 = 7 an outer n = 7 cluster would gate at Foundation Establishment [Trúc Cơ]), g2 9–11; cap_min_n 7 (it must keep every capability at Core Formation [Kết Đan] or later) | Which realm each cluster size opens in; how many clusters can carry a capability |
 | Δ_desp / `q_max` / burn share | 0.15 / 0.95 / 5% | Δ_desp 0.05–0.15, q_max ≤ 0.95, burn share 3–10%, guess | Strength of #22 Last Radiance (Hồi Quang Phản Chiếu) and cost of #23 Burning Life to Break Through (Thiêu Thọ Phá Cảnh) (Formulas E2) |
-| `pts_birth`, `great_breakthrough_bonus`, `pct_trung` / `pct_hau` / `pct_dai` | 2, 15/25/40/60, 15/25/35 | provisional; Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) owns them. Keep `pct_trung` + `pct_hau` + `pct_dai` ≤ 100 | Points per life (Formulas A) |
+| `pts_birth`, `great_breakthrough_bonus`, `small_breakthrough_bonus` | 2, 30/40/61/100, and per realm 13/13/14, 3/3/3, 5/5/6, 20/20/20, 33/33/33 | provisional; Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) owns them. Keep the great perfection totals at 51/120/216/357/566, or retune A2 | Points per life (Formulas A) |
 | `cluster_size_mean` / `_sd` | 8 / 2 | mean 8–11, derived: at mean 7 only about 25 clusters have n ≥ 7, which is the seed rule's floor | Cluster size, entry cost, gate realm, budget |
 | `inner_share` | 0.15 | 0.12–0.18, derived from the seed window of 9–14 inner clusters | How many clusters can open in Qi Refining (Luyện Khí) |
 | `sealed_share` | 0.667 | 0.55–0.75 | Sealed against open split; the authoring load (about 9 acupoints per sealed cluster) |
@@ -2083,8 +2079,7 @@ Not specified at this tier. Intent for later work:
 These apply to the Debug Terminal now and to the Game UI later.
 
 - **Point budget.** Spent and unspent points are always visible, along with the next
-  point source (next level, next small breakthrough, next great breakthrough, with its
-  advance shown separately).
+  point source (next level, next small breakthrough, next great breakthrough).
 - **Before spending.**
   - Every acupoint (huyệt) shows its scaled value (after rule 4) before a point is spent.
   - The path tool shows the full route cost and the total gain before committing.
@@ -2147,37 +2142,37 @@ Drafted with qa-lead.
 
 **Points (rule 2, Formulas A)**
 
-- **AC-KMD-01** [Logic] With the integer `share()` of Formulas A, points_total(L) returns:
+- **AC-KMD-01** [Logic] points_total(L) returns:
 
   | L | Total | L | Total | L | Total |
   |---|---|---|---|---|---|
-  | 1 | 2 | 39 | 51 | 129 | 216 |
-  | 13 | 14 | 40 | 62 | 130 | 243 |
-  | 14 | 17 | 53 | 79 | 199 | 357 |
-  | 26 | 29 | 60 | 86 | 200 | 397 |
-  | 27 | 34 | 79 | 120 | 300 | 566 |
-  | 38 | 45 | 80 | 137 | | |
+  | 1 | 2 | 20 | 91 | 80 | 216 |
+  | 3 | 4 | 21 | 95 | 81 | 278 |
+  | 4 | 18 | 26 | 100 | 100 | 357 |
+  | 7 | 34 | 31 | 108 | 101 | 458 |
+  | 9 | 36 | 40 | 120 | 110 | 566 |
+  | 10 | 51 | 41 | 161 | | |
+  | 11 | 82 | 54 | 179 | | |
 
   The first levels of the middle stage (trung kỳ) and late stage (hậu kỳ) are:
 
   | Realm | Middle stage | Late stage |
   |---|---|---|
-  | Qi Refining (Luyện Khí) | 14 | 27 |
-  | Foundation Establishment (Trúc Cơ) | 53 | 66 |
-  | Core Formation (Kết Đan) | 96 | 113 |
-  | Nascent Soul (Nguyên Anh) | 153 | 176 |
-  | Deity Transformation (Hóa Thần) | 233 | 267 |
-- **AC-KMD-02** [Logic] points_total(266) = 477, points_total(267) = 501 and
-  points_total(300) = 566. A banker's-rounding implementation (500 at 267, 565 at 300)
-  fails this test, and so does a float implementation (`round(0.35 * 90)` = 31 gives 565
-  at 300). `share(35, 90)` = 32 and `share(25, 90)` = 23 are asserted directly.
-- **AC-KMD-03** [Logic] Each great perfection (đại viên mãn) advance plus the next entry term equals that
-  bonus: 5+10 = 15, 9+16 = 25, 14+26 = 40, 21+39 = 60.
-- **AC-KMD-04** [Logic] points_total never decreases over 1..300.
-  - At L = 60 (86 points), dropping to level 52 and climbing back keeps the total at 86
+  | Qi Refining (Luyện Khí) | 4 | 7 |
+  | Foundation Establishment (Trúc Cơ) | 21 | 31 |
+  | Core Formation (Kết Đan) | 54 | 67 |
+  | Nascent Soul (Nguyên Anh) | 87 | 94 |
+  | Deity Transformation (Hóa Thần) | 104 | 107 |
+- **AC-KMD-02** [Logic] points_total(106) = 496, points_total(107) = 530 and
+  points_total(110) = 566. Every value is a whole number from data, with no rounding.
+- **AC-KMD-03** [Logic] A great breakthrough pays its whole bonus at once: from great
+  perfection to the next realm's first level the total rises by 31, 41, 62 and 101 (the
+  bonus plus the level's own point), and nothing was paid in advance.
+- **AC-KMD-04** [Logic] points_total never decreases over 1..110.
+  - At L = 26 (100 points), dropping to level 20 and climbing back keeps the total at 100
     at every step, and no acupoint closes.
 - **AC-KMD-05** [Logic] Event grants and unspent points.
-  - Each event grant adds exactly 1: L = 39 with 2 grants gives 53.
+  - Each event grant adds exactly 1: L = 10 with 2 grants gives 53.
   - With every reachable acupoint open, new points stay unspent, and the count is
     unchanged after 20 turns.
 
@@ -2503,10 +2498,8 @@ Drafted with qa-lead.
   - The median combat power uplift among holders is under 15%.
 - **AC-KMD-50** [Integration, Bot] Breakthrough rates on the level ladder with rescaled
   values.
-  - `npc_cohort.gd` at 1,000 per cohort: per-realm success is 0.30 ± 0.05 with no edge
-    and 0.70 ± 0.05 with all edges.
-  - `autoplay.gd` over ≥ 60 lives: 0.70 ± 0.10 with edge on and 0.30 ± 0.10 with edge
-    off.
+  - `npc_cohort.gd`: as Realms & Bottlenecks AC-CG-54.
+  - `autoplay.gd`: as Realms & Bottlenecks AC-CG-30 and AC-CG-31.
   - In both runs the bot takes no `field_plots` acupoint (Formulas F, plot price): fields
     are a build outside these targets.
 
@@ -2633,9 +2626,9 @@ Drafted with qa-lead.
 
 **UI (debug terminal; a captured transcript is the evidence)**
 
-- **AC-KMD-56** [UI] At level 38 the terminal shows spent and unspent points and the next
-  sources: level 39 +1, the great perfection (đại viên mãn) advance +5 (shown separately) and the Foundation Establishment (Trúc Cơ)
-  breakthrough +10.
+- **AC-KMD-56** [UI] At level 9 the terminal shows spent and unspent points and the next
+  sources: level 10 +1, great perfection (đại viên mãn) +14 and the Foundation Establishment (Trúc Cơ)
+  breakthrough +31.
 - **AC-KMD-57** [UI] Before spending, each acupoint shows its value after rule 4 (including
   ×0.25 for an absent element). The path tool shows the route cost and total gain
   before committing.
@@ -2855,8 +2848,6 @@ The base-map criteria (AC-KMD-06, -10, -11, -60, -63, -64, -65) count base acupo
   - Breakthrough success in every arm stays inside AC-KMD-50's `autoplay.gd` windows, 0.70 ± 0.10 with edge on and 0.30 ± 0.10 with edge off.
 
 **Still provisional:**
-- AC-KMD-01 and AC-KMD-02 at L ≥ 267 depend on Open Question 2 (the realm after Hóa
-  Thần).
 - Capability behaviours are tested in each host system's GDD; here only presence, data
   and the guard are covered.
 
@@ -2874,7 +2865,7 @@ The base-map criteria (AC-KMD-06, -10, -11, -60, -63, -64, -65) count base acupo
 | # | Question | Owner | Blocks |
 |---|---|---|---|
 | 1 | ~~May a Thiên Định life choose Visible mode?~~ **Resolved 2026-11-03:** any life chooses either mode at creation and can switch during play (rule 13) | user | — |
-| 2 | What comes after Deity Transformation (Hóa Thần) (an end, more realms, or ascension)? **Deferred by the user 2026-11-03.** The placeholder next bonus of 90 stands, so the level-300 advance is 32 points | user + Cảnh Giới GDD | Nothing for now |
+| 2 | What comes after Deity Transformation (Hóa Thần) (an end, more realms, or ascension)? **Deferred by the user 2026-11-03.** Points no longer depend on it: since 2026-11-05 each realm's small bonuses are its own | user + Cảnh Giới GDD | Nothing for now |
 | 3 | Level bands, tu vi per level and the size of the stat rise at each great and small breakthrough | Cảnh Giới GDD | Formulas A; implementation |
 | 4 | The fixed list of cluster themes, and whether each theme gets a stat whitelist (so a Đan Đạo cluster can't be all attack) | game-designer | Fill validator; sealed authoring |
 | 5 | Capability tiers by measurement (only 5 of 25 have a provisional tier) and the list of incompatible pairs | systems-designer + bot | Formulas E; rule 18 |

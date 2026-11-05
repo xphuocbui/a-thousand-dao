@@ -221,3 +221,61 @@ Reviewed-Content-Hash: design/gdd/canh-gioi.md 9f1acabdc4d0b501c48438e00c4c21609
 Reviewed-Content-Hash: design/gdd/kinh-mach-do.md c95fda2f3db1240f4eab6afc0ba9d3b3ceb8fe62
 Reviewed-Content-Hash: design/gdd/game-concept.md 548ea01d5cd8dd7c3c864164389a3b388caff094
 Reviewed-Content-Hash: design/gdd/systems-index.md 0df28c5e1b72d12660d2dcd305af494e11925c0d
+
+## Review — 2026-11-05 — Verdict: NEEDS REVISION
+Review mode: solo · Workflow: standard
+Scope signal: L
+Specialists: none
+Blocking items: 1 | Recommended: 10
+Summary: Independent re-review by a fresh subagent, read-only, after the user set the earlier approval aside. The core maths recomputes; the blocker is wording that contradicts the Meridian Map's frontier rule. No bot or game run, so E_p and the tight timing spots stay not assessed.
+Prior verdict resolved: Earlier approval set aside by the user
+Findings:
+- [BLOCKING] Detailed Design rule 12, Edge Cases, AC-LC-33: "spendable" contradicts Meridian rule 20; entries join the frontier only with their host open
+- [RECOMMENDED] Formulas D3: E_p about 0.2 is unreachable under the new gate odds; 13.5 % target has no live source
+- [RECOMMENDED] Formulas D3: Awakening nets wrong (6.0 / 4.8 / 10.8 pp, g about 5.4)
+- [RECOMMENDED] Formulas B: tight spots are not unchanged for roots above their base row
+- [RECOMMENDED] Formulas E, AC-LC-29: Chaos and the q-extras ceiling not stated consistently
+- [RECOMMENDED] Formulas E: Void's `co_duyen_pct` and "secret realms" have no defined effect
+- [RECOMMENDED] Formulas F: when Linh Căn Quả picks its element is undefined; code picks at grant
+- [RECOMMENDED] Formulas E: the variant band prices the role line only
+- [RECOMMENDED] Edge Cases: Void in the rolled set differs by path
+- [RECOMMENDED] Open Questions, Cross-References: stale bookkeeping
+- [RECOMMENDED] Parameter keys: `awakening_capability` undocumented; other keys unread by code
+Resolution: The blocker and the plain-error items were fixed after this review, on the user's instruction, and are NOT yet reviewed. Left open as design questions: Void's effect, the Linh Căn Quả element timing, and the keys code does not read. The hashes below stamp the files as reviewed, before those fixes, so the next freshness check reports them changed.
+Reviewed-Content-Hash: design/gdd/linh-can.md 4c8abfb95124d01d27bf531dbb5ba14eeac020fb
+Reviewed-Content-Hash: design/registry/entities.yaml caa09b94e15419dcb851f36f77d27c89c876be4a
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/character-stats.md 7bf79075658e456d8919f4f22e29fd5484a98646
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 3dbcfde3cc903d285e7ed38d82683627be9c48b4
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md 3957524a53436c15089fa33deaeb1a66ea085229
+Reviewed-Content-Hash: design/gdd/cong-phap.md cfa220cbdfb71a405667dba257fcb71cb92f7298
+Reviewed-Content-Hash: design/gdd/game-concept.md 548ea01d5cd8dd7c3c864164389a3b388caff094
+Reviewed-Content-Hash: design/gdd/systems-index.md 977b2a49f2ae746844dbe750346aa00e24fb00cd
+
+## Revision — 2026-11-05 (user decisions after the review; no new review)
+Linh Căn Quả: the player picks the element when the fruit is used, and an NPC's fruit stays random (rule 13, Formulas F, UI, AC-LC-40, AC-LC-51, Open Question 11). Void's effect deferred by the user (Open Question 2). Not yet reviewed.
+
+## Review — 2026-11-05 (second independent review) — Verdict: NEEDS REVISION
+Review mode: solo · Workflow: standard
+Scope signal: L
+Specialists: none
+Blocking items: 2 | Recommended: 4
+Summary: Fresh read-only review. The earlier blocker is resolved and the core maths recomputes. Both blockers are statements the data and code contradicted.
+Prior verdict resolved: Yes
+Findings:
+- [BLOCKING] Rule 15: NPC roots were not rolled by the same rules; archetype elements were added after the roll
+- [BLOCKING] Rules 2, 13: the birth perk Linh Căn Thuần Tịnh changes the root and was undocumented
+- [RECOMMENDED] Formulas D3: "at most" was not a bound, and the formula did not give its table
+- [RECOMMENDED] Formulas F: fruit figures stale after the player pick
+- [RECOMMENDED] Formulas D, E: typical derived purity about 45.5, not 43
+- [RECOMMENDED] Open Question 7: RNG streams still open though built
+Resolution: Fixed on the user's instruction and NOT yet reviewed. User decision on the first blocker: an archetype never changes a root; an NPC whose root does not fit usually switches archetype and may keep it at a disadvantage. Open Question 7 and the Meridian Map's "43 (derived mean)" row are left open. The hashes stamp the files as reviewed, before those fixes.
+Reviewed-Content-Hash: design/gdd/linh-can.md 0c53e0c0e82c78907a9067fd8e0dc86c50a26626
+Reviewed-Content-Hash: design/registry/entities.yaml c4290ef42c28e913206d3a13e72840596edd4ce4
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/character-stats.md 55d9ae80692694927176c65f7603cb63f1cab407
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 68261c1ab3ee96bfe30ff4f4f363abeaa6327290
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md 8a3b40480be08d1afbaf0686522c57136fbb38ae
+Reviewed-Content-Hash: design/gdd/cong-phap.md cfa220cbdfb71a405667dba257fcb71cb92f7298
+Reviewed-Content-Hash: design/gdd/game-concept.md 97d16997e271c1a187365e08392eab74f8ed60e2
+Reviewed-Content-Hash: design/gdd/systems-index.md a623e273f1661fa40a9195582b36c8421d95c717

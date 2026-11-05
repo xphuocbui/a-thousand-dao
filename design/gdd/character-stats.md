@@ -184,7 +184,7 @@ Bottlenecks and Meridian Map GDDs rely on. Changes from the built game are marke
     most `tree_breakthrough_cap` (8 pp) to `breakthrough_chance`. It is applied to the
     tree's modifiers only, and the sheet shows the clamp as a line. Other sources of the
     same key are not capped by it. The summed per-attempt extras that `breakthrough_chance`
-    joins (pill quality, comprehension, Dao heart, the tree's share, event bonuses; destiny
+    joins (pill quality, comprehension, Dao heart, the tree's share, the Chaos variant's line, event bonuses; destiny
     perks excluded) also meet Realms & Bottlenecks' q-extras ceiling in its Formulas C,
     which Realms owns and sets; this GDD does not define its value.
     - **Character-wide bonus ceilings** (user decision 2026-11-04, cross-GDD review G1).

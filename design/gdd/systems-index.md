@@ -2,7 +2,7 @@
 
 > **Status**: Approved (system list, dependencies and priority tiers approved by the user, 2026-11-03)
 > **Created**: 2026-11-03
-> **Last Updated**: 2026-11-03
+> **Last Updated**: 2026-11-05
 > **Source Concept**: design/gdd/game-concept.md
 
 ---
@@ -58,9 +58,9 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 3 | World Database | Core | MVP | Implemented | — | — |
 | 4 | Time & Turn Structure | Core | MVP | Implemented | — | Config |
 | 5 | Save/Load (inferred) | Persistence | MVP | Implemented | — | World DB, Time & Turn |
-| 6 | Spiritual Roots (Linh Căn) (incl. changing spiritual roots) | Progression | MVP | Approved (redesign 2026-11-04: 5 elements + 8 variant roots; lean /design-review, no blockers) | design/gdd/linh-can.md | Config, Sim Core; soft: Realms (breakthrough event, stage group), Character Stats (capability set) |
+| 6 | Spiritual Roots (Linh Căn) (incl. changing spiritual roots) | Progression | MVP | Needs Revision (independent review 2026-11-05: 1 blocker, fixed; awaiting a fresh re-review) | design/gdd/linh-can.md | Config, Sim Core; soft: Realms (breakthrough event, stage group), Character Stats (capability set) |
 | 7 | Character Stats (innate talent [thiên phú], derived, craft mastery [đạo nghệ]) | Progression | MVP | In Review | design/gdd/character-stats.md | Spiritual Roots, Sim Core, Config; soft (via the provider interface): Realms, Meridian Map, Cultivation Techniques, Item DB, Progression Edges, Formations, Spirit Herbs & Spirit Fields |
-| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Progression | MVP | In Review | design/gdd/canh-gioi.md | Config, Sim Core, Time & Turn, Spiritual Roots, Character Stats, Item DB; soft: Cultivation Techniques, Spirit Herbs, Alchemy, Formations, Travel & Map, Event Engine, Progression Edges |
+| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Progression | MVP | Needs Revision (independent review 2026-11-05: 6 blockers, fixed; awaiting a fresh re-review) | design/gdd/canh-gioi.md | Config, Sim Core, Time & Turn, Spiritual Roots, Character Stats, Item DB; soft: Cultivation Techniques, Spirit Herbs, Alchemy, Formations, Travel & Map, Event Engine, Progression Edges |
 | 9 | Cultivation Techniques (Công Pháp) | Progression | MVP | In Review, reopened 2026-11-04 by the Spiritual Roots redesign. Was Approved (second lean review 2026-11-04, no blockers, 6 recommended revisions open) | design/gdd/cong-phap.md | Spiritual Roots, Realms, Character Stats, Item DB; soft: Time & Turn, Meridian Map |
 | 10 | Meridian Map (Kinh Mạch Đồ) (added by request) | Progression | MVP | In Review 2026-11-05 (map density revision, rule 21). Approved 2026-11-04 (lean re-review after the Spiritual Roots redesign added the variant sectors: 0 blockers, 9 recommended; 7 lean reviews in all; partially implemented: base tree at 202-acupoint [huyệt] prototype scale; levels, clusters, capabilities not built) | design/gdd/kinh-mach-do.md | Spiritual Roots, Character Stats, Realms, Config, Sim Core; soft: Event Engine, Item DB, Cultivation Techniques, LLM GM, World DB, Edges |
 | 11 | Progression Edges: destiny perk (thiên mệnh), fortuitous encounters (cơ duyên), NPC edges (added by request) | Progression | MVP | Implemented | quick spec: design/quick-specs/progression-and-edges.md | Character Stats, Realms, Event Engine (player half) |
@@ -91,14 +91,14 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 36 | Debug Terminal (added by request) | UI | MVP | Implemented | docs/debug-terminal.md (run guide, not a GDD) | Guidance, Save/Load, LLM GM |
 | 37 | Game UI: Godot, 2D ink-wash | UI | Vertical Slice | Not Started | — | Guidance, Save/Load |
 | 38 | Audio | Audio | Full Vision | Not Started | — | Game UI, Event Engine |
-| 39 | The Way (Đạo) (added by request; holds the mutations moved out of the root) | Progression | Alpha (provisional) | Not Started | — | Spiritual Roots; contract provisional (Spiritual Roots Open Question 9) |
+| 39 | The Way (Đạo) (added by request; holds the mutations moved out of the root) | Progression | Alpha (provisional) | Not Started | — | Spiritual Roots; contract provisional (Spiritual Roots Open Question 9); soft: Cultivation Techniques (techniques naming relocated mutations, its Open Question 11), Realms (any ceiling raise or root factor re-runs the breakthrough calibration) |
 
 **Implementation note (2026-11-05).** Systems 6-10 are now built in the debug terminal from their GDDs (uncommitted on feature/debug-terminal). The Meridian Map GDD was revised to match by rule 21 (generic roads, smaller clusters, border gap clusters, region capacity, drawing rules), so it is back In Review. Results: `production/qa/evidence/balance/2026-11-05-gdd-bot-run.txt`.
 
-**In Review (2026-11-04). The sixth cross-GDD pass, `gdd-cross-review-2026-11-04f.md`, gave FAIL with 3 blockers; all three were revised the same day with user decisions (discrete brews, best plot play, the odds lever, one talisman per realm step, ceilings 10 / 3 / 15 %, mutation herb growth under the ceiling). Each revised GDD awaits a /design-review re-review, then a /review-all-gdds re-run. The seventh pass, `gdd-cross-review-2026-11-04g.md`, gave FAIL with 3 mechanical blockers (registry `breakthrough_guard` and `lifespan_cap`, h = 0 in Realms Formulas D) and design warnings F2, F11, F13-F16 and C5 awaiting user rulings.**
-- 6 Spiritual Roots: Approved. Lean /design-review 2026-11-04 of the redesign (five elements + eight variant roots; the 22 old mutations moved to the Way): no blocking items, 8 recommended revisions (4 applied). Open: Meridian Map variant sectors (its Open Question 15), Wind and Void weights (guess), the Way (undesigned).
+**In Review (2026-11-04). The sixth cross-GDD pass, `reviews/cross-gdd/gdd-cross-review-2026-11-04f.md`, gave FAIL with 3 blockers; all three were revised the same day with user decisions (discrete brews, best plot play, the odds lever, one talisman per realm step, ceilings 10 / 3 / 15 %, mutation herb growth under the ceiling). Each revised GDD awaits a /design-review re-review, then a /review-all-gdds re-run. The seventh pass, `gdd-cross-review-2026-11-04g.md`, gave FAIL with 3 mechanical blockers (registry `breakthrough_guard` and `lifespan_cap`, h = 0 in Realms Formulas D) and design warnings F2, F11, F13-F16 and C5 awaiting user rulings.**
+- 6 Spiritual Roots: Needs Revision. Independent review 2026-11-05 found 1 blocker (sector "spendable" against the Meridian frontier rule), fixed, with the plain-error items; a fresh re-review is due. A second review found 2 more, also fixed. Left open: what Void's `co_duyen_pct` does (deferred by the user). The earlier lean /design-review of 2026-11-04 on the redesign (five elements + eight variant roots; the 22 old mutations moved to the Way) found no blocking items and 8 recommended revisions (4 applied). Open: Meridian Map variant sectors (its Open Question 15), Wind and Void weights (guess), the Way (undesigned).
 - 7 Character Stats: In Review. Fourth lean review (2026-11-04) NEEDS REVISION, revised: AC-CS-28, penalties apply after the cap, rule 12 / 14 source lists (nine kinds), craft mastery AC and Dependencies row, Formulas G rows.
-- 8 Realms & Bottlenecks: Needs Revision per 04g (its h = 0 blocker is fixed). Revised after 04g with user rulings: CF/NS recipes 4x60+10 / 4x100+80, pill_chance 0.04 / 0.045 / 0.02 / 0.0225, failure insight (+2 pp per failed attempt, cap 4), q-extras ceiling 10 pp, root factors and holder raises outside the target, Advisor plant plan; means 0.30 at every gate, ceiling run 0.44-0.46 accepted within AC-CG-60. Cross-GDD review 04h (FAIL: C1 insight-cap knob limit, F20 alchemy_yield scope) closed the balancing passes by user direction: macro targets hold, slightly overpowered builds are acceptable.
+- 8 Realms & Bottlenecks: Needs Revision. Independent review 2026-11-05 found 6 blockers, fixed, with the plain-error items; a fresh re-review is due. After it, the user set NPC odds of 1 in 8 / 12 / 15 / 20 and a world of 5,000 cultivators (never fewer than 3,000). A second review found 5 more, also fixed. Earlier: Needs Revision per 04g (its h = 0 blocker is fixed). Revised after 04g with user rulings: CF/NS recipes 4x60+10 / 4x100+80, pill_chance 0.04 / 0.045 / 0.02 / 0.0225, failure insight (+2 pp per failed attempt, cap 4), q-extras ceiling 10 pp, root factors and holder raises outside the target, Advisor plant plan; means 0.30 at every gate, ceiling run 0.44-0.46 accepted within AC-CG-60. Cross-GDD review 04h (FAIL: C1 insight-cap knob limit, F20 alchemy_yield scope) closed the balancing passes by user direction: macro targets hold, slightly overpowered builds are acceptable.
 - 9 Cultivation Techniques: approved after its second lean review. Built as a flat item; layers, mastery, slots, harmony, the normalised speed factor and the speed/power split are not built. No 04f findings of its own.
 - 10 Meridian Map: approved. Cleanup 2026-11-04: Formulas E2 guard handles a talisman on a #22 attempt (user decision). 04f warnings: F7 (linear W prices for a step growth payoff) and I1 (host labels).
 
@@ -136,7 +136,7 @@ facade is an architecture decision (an ADR), not a design system.
 |------|------------|------------------|----------------|---------|
 | **MVP** | Required for the core loop; without these you cannot test "is this fun?" | First playable | Design FIRST | 25: 1–11, 13, 14, 15, 20–27, 29, 33, 36 |
 | **Vertical Slice** | One complete, polished area | Vertical slice / demo | Design SECOND | 8: 12, 16, 28, 30, 31, 32, 35, 37 |
-| **Alpha** | All features present in rough form | Alpha | Design THIRD | 4: 17, 18, 19, 34 |
+| **Alpha** | All features present in rough form | Alpha | Design THIRD | 5: 17, 18, 19, 34, 39 |
 | **Full Vision** | Polish and content-complete features | Beta / release | Design as needed | 1: 38 |
 
 **Why these placements** (from the concept's MVP definition and scope tiers):
@@ -188,6 +188,7 @@ Design and build from top to bottom.
 10. **Progression Edges** — Character Stats, Realms, Event Engine (player half: fortuitous encounters [cơ duyên]).
 11. **Heavenly Tribulation (Thiên Kiếp)** — Combat, Realms, Event Engine.
 12. **Living World Tick** — World DB, Realms, NPC Builds, Edges (NPC half), Time & Turn.
+13. **The Way (Đạo)** — Spiritual Roots (read-only); soft: Cultivation Techniques, Realms. Provisional until its GDD.
 
 ### Presentation Layer
 
@@ -215,7 +216,7 @@ Balance Harness, Game UI, Debug Terminal, Achievements, Codex.
 ## Recommended Design Order
 
 Built systems: `/reverse-document design src/gameplay/<area>`, then `/design-review`.
-Unbuilt systems (22, 31, 12, 37, 34, 38): `/design-system`. Effort: S = 1 session, M = 2–3, L = 4+.
+Unbuilt systems (22, 31, 12, 37, 34, 38, 39): `/design-system`. Effort: S = 1 session, M = 2–3, L = 4+.
 
 | Order | System | Priority | Layer | Agent(s) | Est. Effort |
 |-------|--------|----------|-------|----------|-------------|
@@ -252,11 +253,12 @@ Unbuilt systems (22, 31, 12, 37, 34, 38): `/design-system`. Effort: S = 1 sessio
 | 31 | Game UI | Vertical Slice | Presentation | ux-designer | L |
 | 32 | Codex & Karmic Carryover | Vertical Slice | Polish | game-designer | M |
 | 33 | Achievements (Thành Tựu) | Vertical Slice | Polish | game-designer | S |
-| 34 | Formations (Trận Pháp) | Alpha | Feature | economy-designer | M |
-| 35 | Talismans (Phù Lục) | Alpha | Feature | economy-designer | M |
-| 36 | Spirit Beasts & Spirit Insects (Linh Thú & Linh Trùng) | Alpha | Feature | systems-designer | L |
-| 37 | Localization & Hán-Việt Glossary | Alpha | Polish | localization-lead | M |
-| 38 | Audio | Full Vision | Polish | audio-director | M |
+| 34 | The Way (Đạo) | Alpha (provisional) | Feature | game-designer | L |
+| 35 | Formations (Trận Pháp) | Alpha | Feature | economy-designer | M |
+| 36 | Talismans (Phù Lục) | Alpha | Feature | economy-designer | M |
+| 37 | Spirit Beasts & Spirit Insects (Linh Thú & Linh Trùng) | Alpha | Feature | systems-designer | L |
+| 38 | Localization & Hán-Việt Glossary | Alpha | Polish | localization-lead | M |
+| 39 | Audio | Full Vision | Polish | audio-director | M |
 
 ---
 
@@ -306,10 +308,10 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | Total systems identified | 39 |
 | Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (beasts only), 21 (duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin) |
 | Systems not started | 7: 12, 22, 31, 34, 37, 38, 39 (plus spirit insects [linh trùng], inside 19) |
-| GDDs started | 5 (10 Meridian Map [Kinh Mạch Đồ] and 9 Cultivation Techniques [Công Pháp], reopened 2026-11-04 by the Spiritual Roots redesign; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], and 7 Character Stats, in review after the cross-GDD review 04f revisions; 6 Spiritual Roots [Linh Căn], redesigned 2026-11-04, pending review) |
+| GDDs started | 5 (10 Meridian Map [Kinh Mạch Đồ] and 9 Cultivation Techniques [Công Pháp], reopened 2026-11-04 by the Spiritual Roots redesign; 7 Character Stats, in review after the cross-GDD review 04f revisions; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], needs revision after the 2026-11-05 review, fixes applied; 6 Spiritual Roots [Linh Căn], redesigned 2026-11-04, pending review) |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
-| Design docs reviewed | 5 (Meridian Map: 6 lean passes; Realms & Bottlenecks: 7; Character Stats: 3; Spiritual Roots: 3; Cultivation Techniques: 2) |
-| Design docs approved | 0; 7, 8, 9 and 10 in review (9 and 10 reopened by the Spiritual Roots redesign); 6 redesigned, pending review |
+| Design docs reviewed | 5 (Meridian Map: 6 lean passes; Realms & Bottlenecks: 8; Character Stats: 3; Spiritual Roots: 1 since its earlier 3 were set aside; Cultivation Techniques: 2) |
+| Design docs approved | 0; 7, 9 and 10 in review (9 and 10 reopened by the Spiritual Roots redesign); 6 and 8 need revision after the 2026-11-05 reviews, fixes applied, re-review due |
 | MVP systems designed | 5 / 25 |
 | Vertical Slice systems designed | 0 / 8 |
 
@@ -320,8 +322,9 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 - [x] Review and approve this systems enumeration (2026-11-03)
 - [ ] Reverse-document the MVP Foundation and Core systems in design order (`/reverse-document design src/gameplay/<area>`), starting with 1 to 3, then Spiritual Roots (Linh Căn), Character Stats and Realms & Bottlenecks (Cảnh Giới & Bình Cảnh)
 - [ ] Run `/design-review` on each completed GDD (first: `design/gdd/kinh-mach-do.md`, in a fresh session)
-- [ ] Carry the level ladder (levels 1–300, great and small breakthrough bonuses, stat rises at every breakthrough) from the Meridian Map (Kinh Mạch Đồ) GDD into the Realms & Bottlenecks GDD
+- [x] Carry the level ladder (great and small breakthrough bonuses, stat rises at every breakthrough) from the Meridian Map (Kinh Mạch Đồ) GDD into the Realms & Bottlenecks GDD (done; the ladder is now 110 levels, 2026-11-05)
 - [ ] Design the unbuilt MVP system, Heavenly Tribulation (Thiên Kiếp), with `/design-system thien-kiep`
+- [ ] Design the Way (Đạo) with `/design-system dao`: the planned next GDD, taken ahead of its Alpha place in the design order. It owns the mutations moved out of the root, and Spiritual Roots Open Question 9 and Cultivation Techniques Open Question 11 wait on it
 - [ ] Update `design/gdd/game-concept.md` to include the Meridian Map, Progression Edges and the Debug Terminal
 - [ ] Reconcile `project.yaml` stage with `/project-stage-detect`
 - [ ] Run `/gate-check technical-setup` when the MVP systems are designed

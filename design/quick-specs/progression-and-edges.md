@@ -13,7 +13,9 @@ Abbreviations: QR = Qi Refining (Luyện Khí), FE = Foundation Establishment (T
 |---|---|---|
 | Anyone without an edge, competent play | ~30% | ~9% |
 | Main character with the edge, competent play | ~70% | ~49% |
-| NPC with edges | 30% → up to 70% as edges stack | — |
+| NPC, world average | 1 in 8, 1 in 12, 1 in 15, 1 in 20 at the four gates | 1 in 96 |
+
+The first two rows hold at the first two gates. Since 2026-11-05 the last two are far harder: the player's edge is 30% and 20%. NPC odds follow Realms & Bottlenecks Formulas C2, and an NPC with full edges matches the player.
 
 Measured with `tools/balance/autoplay.gd` (`--edge off` = baseline, `--edge on` = player).
 
@@ -34,7 +36,7 @@ Measured with `tools/balance/autoplay.gd` (`--edge off` = baseline, `--edge on` 
    | Thọ Nguyên Dư Dả | +lifespan (thọ nguyên) % |
    | Linh Căn Thuần Tịnh | +purity on every owned root at birth, +cultivation (tu luyện) speed |
 
-2. **Starting items.** One Phá Cảnh Phù: a talisman used automatically on the next
+2. **Starting items.** Two Phá Cảnh Phù: a talisman used automatically on the next
    breakthrough attempt (+breakthrough chance). It can also be drawn later with the talisman craft (phù lục).
 3. **Fortuitous encounters.** At a bottleneck (bình cảnh) the player's chance of an event rises, and protagonist-only
    templates become eligible: an old master's guidance (Phá Cảnh Phù), the missing herb of
@@ -49,7 +51,7 @@ A life created with `edge: false` (balance baseline) gets none of the three.
 Each NPC gets an edge score e in [0, 1] from sources in character_edges.json → `npc`:
 
     e = strong root (purity and variant root [biến dị linh căn]) + sect value (rank) + rich family + blessing (a perk)
-    p_step = base_step + min(e, 1) × (max_step − base_step)          (0.30 → 0.70)
+    p_step: per gate, Realms & Bottlenecks Formulas C2 (Meridian Map Formulas G keeps base_step 0.30 and max_step 0.70)
 
 The world tick rolls each NPC's fate once per realm when it reaches the bottleneck (bình cảnh): with
 probability p_step it is fated to break through (then does so within a few years); otherwise
@@ -71,7 +73,7 @@ generation's realm mix is set to match these rates.
 
 1. Baseline bot (no edge): QR→FE and FE→CF each ≈ 30% (±10 points over ≥ 24 lives).
 2. Player bot (edge): each ≈ 70% (±10 points).
-3. NPC cohort with no edges: ≈ 30% per realm; an NPC with e = 1 ≈ 70%.
+3. NPC cohort: as Realms & Bottlenecks AC-CG-54.
 4. A perk's effect shows in `explain` with its name as the source.
 5. A Phá Cảnh Phù is used by the next breakthrough and its bonus shows in the odds first.
 6. Fortuitous encounter (cơ duyên) templates appear only for a life with the edge, only at a bottleneck (bình cảnh), at most

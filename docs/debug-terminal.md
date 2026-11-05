@@ -106,7 +106,7 @@ World, Kinh Mạch Đồ, LLM, Debug). Debug commands (`debug event <template>`,
 |---|---|---|
 | Character creation | `character/character_factory.gd`, terminal `new` | Thiên Định (rolled, rerollable, achievements flag) / Tự Định (chosen, casual) |
 | Character stats | `character/stat_sheet.gd`, `character_rules.gd` | design/gdd/character-stats.md: quantized modifiers, character-wide ceilings with penalties after the cap, stage-scaled derived values, the capability set |
-| The ladder | `cultivation/ladder.gd`, `cultivation/cultivation_rules.gd` | design/gdd/canh-gioi.md: levels 1-300, stages, level costs, bottleneck bar, a separate condition per gate, pill and bare attempts, failure insight, the q-extras ceiling, lifespan ceiling |
+| The ladder | `cultivation/ladder.gd`, `cultivation/cultivation_rules.gd` | design/gdd/canh-gioi.md: levels 1-110, stages, level costs, bottleneck bar, a separate condition per gate, pill and bare attempts, failure insight, the q-extras ceiling, lifespan ceiling |
 | Techniques | `cultivation/cong_phap.gd`, terminal `tech`, `slot` | design/gdd/cong-phap.md: main and auxiliary slots, layers and mastery, speed and power, harmony, reserved par-tier manuals |
 | Spiritual roots | `character/linh_can.gd` | design/gdd/linh-can.md: five elements, eight variant roots of three origins, `n_base` for tier and pairs, `n_eff` for the curve, a fixed birth draw order, Mutation Awakening |
 | World generation + history | `world/world_generator.gd` | regions, places, roads, sects with ranked members, townsfolk, loose cultivators, legendary and lost treasures, ~300 years of legends consistent with the present |

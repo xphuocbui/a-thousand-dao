@@ -253,14 +253,13 @@ formulas:
     variables:
       - T_c
       - g
-      - b
       - lo
       - hi
-    output_range: [9.6, 30456]
-    expression: "cost(L) = c0*r^(L-lo); r = g^(1/(M-1)); c0 = T_c*(r-1)/(r^M-1); bar = b*cost(hi-1)"
-    notes: "Tu vi per level; realm climbing costs sum to climb_total. Bars 230 / 2,360 / 14,096 / 65,821."
+    output_range: [39.5, 334605]
+    expression: "cost(L) = c0*r^(L-lo); r = g^(1/(M-1)); c0 = T_c*(r-1)/(r^M-1)"
+    notes: "Tu vi per level on the 110-level ladder; realm climbing costs sum to climb_total. Bars are their own data, bottleneck_bar."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-05
   - name: stage_multiplier
     status: active
     source: design/gdd/canh-gioi.md
@@ -288,8 +287,8 @@ formulas:
       - q_pill
       - S_bare
     output_range: [0, 1]
-    expression: "S = P_C * (1 - fail * (1 - q)^G) + S_bare; fail = (1 - p_brew)^B + k_tau * ((1 - p_brew*q)^B - (1 - p_brew)^B), k_tau = (1 - q - tau)/(1 - q) if the realm step's one talisman is used on a held pill, else 1; B = brews whose herbs fit the plots and whose attempt can start before the lifespan cap (Realms Formulas D); W = lifespan cap at entry - age at entry; n_plots = clamp(3 + floor(0.04*purity_earth) + field_plots, 1, 12); h = (1 + 0.008*purity_wood) * max(0, 1 + herb_growth_pct/100); p_brew = clamp(p_brew0 + 0.0025*purity_fire + alchemy_success/100, 0.05, 0.95)"
-    notes: "Targets 0.30 baseline and 0.70 with the player edge are means over the birth mix (45/32/15/6.5/1.5 % elements), user decision 2026-11-04. Since cross-GDD reviews 04f/04g: discrete brews, W from an entry-age model, plots at best play with no extra field_plots, attempts in order with rising q from failure insight (+2 pp per failed pill attempt in the step, cap 4), q extras under a 10 pp ceiling, one talisman per realm step at 5 pp on a held pill. Means 0.299 / 0.302 / 0.298 / 0.301 from a fixed-seed scratch model, not a bot run. Fine lever pill_chance; coarse lever the recipe."
+    expression: "S = P_C * (1 - F) + S_bare; F = sum over x of C(B,x) p_brew^x (1-p_brew)^(B-x) prod_{j<G+x}(1 - q_j); q_j = min(q_max, q + f*min(j*iota_pp, iota_cap) + f*tau*[j = 0 and the step's talisman is used]); B = brews whose herbs fit the plots and whose attempt can start before the lifespan cap (Realms Formulas D); W = lifespan cap at entry - age at entry; n_plots = clamp(3 + floor(0.04*purity_earth) + field_plots, 1, 12); h = (1 + 0.008*purity_wood) * max(0, 1 + herb_growth_pct/100); p_brew = clamp(p_brew0 + 0.0025*purity_fire + alchemy_success/100, 0.05, 0.95)"
+    notes: "Before gate_factor. Live targets: player edge 0.70/0.70/0.30/0.20; baseline 0.30 at the first two gates. Targets 0.30 baseline and 0.70 with the player edge are means over the birth mix (45/32/15/6.5/1.5 % elements), user decision 2026-11-04. Since cross-GDD reviews 04f/04g: discrete brews, W from an entry-age model, plots at best play with no extra field_plots, attempts in order with rising q from failure insight (+2 pp per failed pill attempt in the step, cap 4), q extras under a 10 pp ceiling, one talisman per realm step at 5 pp on a held pill. Means 0.299 / 0.302 / 0.298 / 0.301 from a fixed-seed scratch model, not a bot run. Fine lever pill_chance; coarse lever the recipe."
     added: 2026-11-03
     revised: 2026-11-05
     # was: h = (1 + 0.008*purity_wood) * (1 + herb_age_root_pct/100) * max(0, 1 + herb_growth_pct/100), herb_age_root_pct 25 for a Time mutation holder else 0 (root term, not capped); before 2026-11-05. Time moved to the Way (Spiritual Roots redesign); Realms Formulas D dropped the factor.
@@ -317,13 +316,13 @@ formulas:
       - pts_birth
       - realm_level_bands
       - great_breakthrough_bonus
-      - small_breakthrough_shares
+      - small_breakthrough_bonus
       - pts_event
     output_range: [2, 566]
     expression: "pts_birth + (L - 1) + sum of realm bonuses reached + pts_event"
-    notes: "Kinh Mạch points earned by highest level L; Cảnh Giới owns the ladder (provisional). Half-away-from-zero rounding. 51/120/216/357/566 at each đại viên mãn."
+    notes: "Kinh Mạch points earned by highest level L; Cảnh Giới owns the ladder (provisional). Whole numbers from data, no rounding. 51/120/216/357/566 at each đại viên mãn; these totals are what acupoint values are built on."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-05
   - name: breakthrough_guard
     status: active
     source: design/gdd/kinh-mach-do.md
@@ -340,7 +339,7 @@ formulas:
       - tau_a
       - burn_cost
     output_range: [0, 0.10]
-    expression: "tau_a = the breakthrough talisman on this attempt (0 or tau 0.05, Realms rule 8); q = the attempt chance without tau_a; q_desp = min(2q, q + delta_desp, q_max - tau_a, q + delta_max*(1 - q - tau_a)/(1 - S)); #22 attempt chance = q_desp + tau_a; S22 = 1 - (1 - S)*(1 - q_desp - tau_a)/(1 - q - tau_a); q_retry = min(q, (delta_max - iota_23)/(1 - S)), iota_23 = the failure insight the extra roll would add if it failed (0.02, or 0 at the cap); q includes insight and excludes tau_a (#23 never carries a talisman); S23 = S + q_retry*(1 - S); lift = max(S22, S23) - S <= delta_max"
+    expression: "tau_a = the breakthrough talisman on this attempt (0 or f*tau, tau 0.05, f the gate_factor, Realms rule 8); q = the attempt chance without tau_a; q_desp = min(2q, q + delta_desp, q_max - tau_a, q + delta_max*(1 - q - tau_a)/(1 - S)); #22 attempt chance = q_desp + tau_a; S22 = 1 - (1 - S)*(1 - q_desp - tau_a)/(1 - q - tau_a); q_retry = min(q, (delta_max - iota_23)/(1 - S)), iota_23 = the failure insight the extra roll would add if it failed (0.02, or 0 at the cap); q includes insight and excludes tau_a (#23 never carries a talisman); S23 = S + q_retry*(1 - S); lift = max(S22, S23) - S <= delta_max"
     notes: "Caps the realm success lift from capabilities 22 and 23; at most one acts per realm step. Must agree with the progression targets (0.30 baseline, 0.70 with the player edge)."
     added: 2026-11-03
     revised: 2026-11-04
@@ -467,7 +466,7 @@ formulas:
       - innate_chance
     output_range: [0, 1]
     expression: "derived: min(1, f_v * prod(purity_e/100)); innate: flat innate_chance; derived purity = round(0.8 * geomean(current required purities)), recomputed; innate purity drawn once from the birth distribution"
-    notes: "Rolls once at first eligibility; innate at birth only. Mutation Awakening (Meridian Map #24) re-rolls unowned, non-declined derived variants, at most 2 passes per life. 12.14% of births hold a variant; about 13.3% of lives with Awakening (estimate)."
+    notes: "Rolls once at first eligibility; innate at birth only. Mutation Awakening (Meridian Map #24) re-rolls unowned, non-declined derived variants, at most 2 passes per life. 12.14% of births hold a variant; about 12.4-13.5% of lives with Awakening under the current gate odds (estimate)."
     added: 2026-11-04
     revised: ""
 
@@ -721,15 +720,46 @@ constants:
     notes: "Built totals rescaled x1/x2/x3/x4/x5 (user decision) so later realms take real time."
     added: 2026-11-03
     revised: ""
-  - name: bottleneck_bar_mult
+  - name: bottleneck_bar
+    # 2026-11-05: replaces bottleneck_bar_mult, keeping the bars of the 300-level ladder.
     status: active
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
-    value: [4, 10, 10, 10]
-    unit: x last climbing cost
-    notes: "QR, FE, CF, NS; Deity Transformation has no bar."
+    value: [230, 2360, 14096, 65821]
+    unit: tu vi
+    notes: "QR, FE, CF, NS; Deity Transformation has no bar. Absolute, so a band change cannot move refill times, brew windows or odds."
     added: 2026-11-03
+    revised: 2026-11-05
+  - name: gate_factor
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: [1, 1, 0.32, 0.20]
+    unit: multiplier on pill and bare chance
+    notes: "Heavenly suppression (thiên đạo áp chế) at QR->FE, FE->CF, CF->NS, NS->DT. Sized for the player's edge mean of 0.70 / 0.70 / 0.30 / 0.20. Scratch model; AC-CG-31 sets the final value."
+    added: 2026-11-05
+    revised: ""
+  - name: npc_gate_steps
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: "base 0.123/0.078/0.059/0.032; max 0.70/0.70/0.30/0.20; edge_power 6 at every gate"
+    unit: NPC fate chance per gate
+    notes: "p_step = base + min(e,1)^k * (max - base). Target arrival means 1 in 8 / 12 / 15 / 20 (user decision 2026-11-05); NPCs keep their edge, so arrivals are richer in edges. Solved from measured edge scores (world_census.gd --edges); checked by AC-CG-69."
+    added: 2026-11-05
+    revised: ""
+  - name: world_headcount_targets
+    status: active
+    source: design/gdd/canh-gioi.md
+    referenced_by:
+      - design/gdd/canh-gioi.md
+    value: "5,000 simulated cultivators (world_cultivators), at least 3,000 (world_cultivators_min): Nascent Soul about 27, Deity Transformation about 3"
+    unit: cultivators per world
+    notes: "User decision 2026-11-05. Cohort targets, not caps; the player does not count. Mortals are not simulated."
+    added: 2026-11-05
     revised: ""
   - name: breakthrough_pill_chance
     status: active
@@ -739,7 +769,7 @@ constants:
       - design/quick-specs/progression-and-edges.md
     value: [0.04, 0.045, 0.02, 0.0225]
     unit: chance per pill attempt
-    notes: "QR->FE, FE->CF, CF->NS, NS->DT. Changed 2026-11-04 (cross-GDD review 04g: failure insight and the q-extras ceiling; was 0.06 x4, earlier 0.06 / 0.16 / 0.20 / 0.15). First-attempt q 0.1025 / 0.1075 / 0.0825 / 0.085 (0.2225 / 0.2275 / 0.2025 / 0.205 with Dao Cot). Built data still 0.06 / 0.20 / 0.20 / 0.15."
+    notes: "QR->FE, FE->CF, CF->NS, NS->DT. Changed 2026-11-04 (cross-GDD review 04g: failure insight and the q-extras ceiling; was 0.06 x4, earlier 0.06 / 0.16 / 0.20 / 0.15). First-attempt q 0.1025 / 0.1075 / 0.0825 / 0.085 (0.2225 / 0.2275 / 0.2025 / 0.205 with Dao Cot)."
     added: 2026-11-03
     revised: 2026-11-04
   - name: failure_insight
@@ -761,7 +791,7 @@ constants:
       - design/gdd/kinh-mach-do.md
     value: 10
     unit: percentage points
-    notes: "Character-wide ceiling on the summed per-attempt extras (pill quality, comprehension, Dao heart, the tree breakthrough_chance, item and event bonuses); destiny perks, the talisman and failure insight are outside it; the tree is also under tree_breakthrough_cap 8 pp. Sized so a fully built life without an edge stays at or below 0.55. User decision 2026-11-04 (cross-GDD review 04g F14; answers Realms Open Question 13)."
+    notes: "Character-wide ceiling on the summed per-attempt extras (pill quality, comprehension, Dao heart, the tree breakthrough_chance, the Chaos variant's line, item and event bonuses); destiny perks, the talisman and failure insight are outside it; the tree is also under tree_breakthrough_cap 8 pp. Sized so a fully built life without an edge stays at or below 0.55. User decision 2026-11-04 (cross-GDD review 04g F14; answers Realms Open Question 13)."
     added: 2026-11-04
     revised: ""
   - name: breakthrough_bare_chance
@@ -908,9 +938,9 @@ constants:
       - design/gdd/canh-gioi.md
       - design/gdd/kinh-mach-do.md
       - design/quick-specs/progression-and-edges.md
-    value: [0.30, 0.70]
+    value: "player edge 0.70/0.70/0.30/0.20; no edge 0.30 at the first two gates; NPC arrival means 1 in 8 / 12 / 15 / 20"
     unit: realm-step success
-    notes: "Baseline / player edge, as means over the birth mix (per element count 1-5 at QR->FE: baseline 0.26/0.31/0.36/0.41/0.47, edge 0.67/0.71/0.75/0.79/0.83; the edge needs about 1.2-1.4 gift pills per gate (1.42 / 1.19 / 1.35 / 1.29); figures from the canh-gioi entry-age model, 2026-11-04); the Deity Transformation target includes the Heavenly Tribulation."
+    notes: "Baseline / player edge, as means over the birth mix (per element count 1-5 at QR->FE: baseline 0.25/0.30/0.36/0.42/0.49, edge 0.66/0.71/0.75/0.79/0.84; the edge needs about 1.2-1.4 gift pills per gate (1.42 / 1.19 / 1.35 / 1.29); figures from the canh-gioi entry-age model, 2026-11-04); the Deity Transformation target includes the Heavenly Tribulation."
     added: 2026-11-03
     revised: 2026-11-04
   - name: breakthrough_pill_plot_years
@@ -920,7 +950,7 @@ constants:
       - design/gdd/canh-gioi.md
     value: "FE pill 90 (2 ginseng at min_age 40 + 10), CF pill 102 (2 Kim Tuy Qua at 42 + 18), NS pill 250 (4 at 60 + 10), DT pill 480 (4 at 100 + 80)"
     unit: plot-years per pill (Y)
-    notes: "Changed 2026-11-04 (cross-GDD review 04g F2: shorter, more numerous CF/NS herbs). W p10/p50/p90 from the entry-age model: 104 / 94-116-144 / 310-342-382 / 540-645-767. Brew guarantee: a root-free life (3 plots, h 1) brews at least 2 at W p10 and 3 at W p50, so main-herb min_age <= 47 / 46 / 82 / 141 at qty 2 / 2 / 4 / 4. Idle years at a full bar remain about 54 % / 57 % of W at CF->NS / NS->DT (F2 partial, accepted; Time & Turn owes a retreat-until-ripe). Recipes are owned by Item DB."
+    notes: "Changed 2026-11-04 (cross-GDD review 04g F2: shorter, more numerous CF/NS herbs). W p10/p50/p90 from the entry-age model: 104 / 94-116-144 / 310-342-382 / 540-645-767. Brew guarantee: a root-free life (3 plots, h 1) brews at least 2 at W p10 and 3 at W p50, so main-herb min_age <= 46 / 46 / 82 / 141 at qty 2 / 2 / 4 / 4. Idle years at a full bar remain about 54 % / 57 % of W at CF->NS / NS->DT (F2 partial, accepted; Time & Turn owes a retreat-until-ripe). Recipes are owned by Item DB."
     added: 2026-11-04
     revised: 2026-11-04
   - name: level_cap
@@ -929,44 +959,45 @@ constants:
     referenced_by:
       - design/gdd/kinh-mach-do.md
       - design/gdd/canh-gioi.md
-    value: 300
+    value: 110
     unit: level
     notes: "Highest cultivation level; 1 Kinh Mạch point per level gained."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-05
   - name: realm_level_bands
     status: active
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
       - design/gdd/canh-gioi.md
-    value: "Luyện Khí 1-39, Trúc Cơ 40-79, Kết Đan 80-129, Nguyên Anh 130-199, Hóa Thần 200-300"
+    value: "Luyện Khí 1-10, Trúc Cơ 11-40, Kết Đan 41-80, Nguyên Anh 81-100, Hóa Thần 101-110"
     unit: levels
-    notes: "Provisional; Cảnh Giới & Bình Cảnh owns them. The bình cảnh holds the level at each band top until the breakthrough."
+    notes: "User decision 2026-11-05; Cảnh Giới & Bình Cảnh owns them. The bình cảnh holds the level at each band top until the breakthrough."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-05
   - name: great_breakthrough_bonus
     status: active
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
       - design/gdd/canh-gioi.md
-    value: [15, 25, 40, 60]
+    value: [30, 40, 61, 100]
     unit: points
-    notes: "Trúc Cơ, Kết Đan, Nguyên Anh, Hóa Thần. Placeholder 90 for the realm after Hóa Thần."
+    notes: "Trúc Cơ, Kết Đan, Nguyên Anh, Hóa Thần. Paid in full on success; nothing is advanced at đại viên mãn."
     added: 2026-11-03
-    revised: ""
-  - name: small_breakthrough_shares
+    revised: 2026-11-05
+  - name: small_breakthrough_bonus
+    # 2026-11-05: replaces small_breakthrough_shares (pct_trung, pct_hau, pct_dai).
     status: active
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
       - design/gdd/canh-gioi.md
-    value: [0.15, 0.25, 0.35]
-    unit: share of next great bonus
-    notes: "Trung kỳ and hậu kỳ are extra; đại viên mãn is an advance deducted from the great breakthrough. Stored as integer percents 15/25/35 (pct_trung, pct_hau, pct_dai); share(p,B)=floor((p*B+50)/100), integer arithmetic only."
+    value: "Luyện Khí 13/13/14, Trúc Cơ 3/3/3, Kết Đan 5/5/6, Nguyên Anh 20/20/20, Hóa Thần 33/33/33"
+    unit: points at trung kỳ / hậu kỳ / đại viên mãn
+    notes: "Sized so đại viên mãn totals stay 51/120/216/357/566."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-05
   - name: kinh_mach_birth_points
     status: active
     source: design/gdd/kinh-mach-do.md

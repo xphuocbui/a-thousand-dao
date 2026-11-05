@@ -43,14 +43,13 @@ Map). Systems with no GDD yet keep first-pass drafts from `design/gdd/game-conce
 ### cultivation_realms.json
 
 Schema 2 (design/gdd/canh-gioi.md Parameter keys). Per realm: `levels` [lo, hi], `climb_total`
-(sum of the realm's level costs), `climb_growth` (last cost / first cost), `bar_mult`
-(bottleneck bar as a multiple of the last climbing cost; null with no next realm), `layers`
-(Qi Refining only), `stage_names` and `stage_curve_groups` (4 entries), `lifespan`, `base_rate`,
+(sum of the realm's level costs), `climb_growth` (last cost / first cost), `bottleneck_bar`
+(the bar at the realm's last level; null with no next realm), `stage_names` and `stage_curve_groups` (4 entries), `lifespan`, `base_rate`,
 `power_base`, `than_thuc_mult`, `khi_huyet_mult`, `linh_luc_base`, `entry_requirement`
-({item_tag, base_chance, pill_chance, condition}; condition is null, density_min, tam_ma_max or
+({item_tag, base_chance, pill_chance, gate_factor, condition}; condition is null, density_min, tam_ma_max or
 insight).
-`ladder`: level_cap, stage_power_step, bare_attempt_cap, great_breakthrough_bonus, pct_trung,
-pct_hau, pct_dai, pts_birth, and legacy_tu_vi_required (read only to migrate old saves).
+`ladder`: level_cap, stage_power_step, bare_attempt_cap, great_breakthrough_bonus,
+small_breakthrough_bonus (per realm, three each), pts_birth, and legacy_tu_vi_required (read only to migrate old saves).
 `breakthrough`: pill and talent terms, q_extras_ceiling_pp, failure_insight_pp and _cap,
 chance_min/max, failure penalties, vitality_floor. `guard.s_max` feeds Meridian Formulas E2.
 
@@ -133,12 +132,12 @@ the authored pass (the GDD's Open Question 6).
   `density` range = linh khí multiplier, `danger` 1–4, `market`, `bounties`).
 - `travel`: seasons per road (`same_region_seasons`, `cross_region_seasons`), `extra_links_per_region`.
 - `sects`: count, `alignments[]`, `members_min/max`, `member_archetype_share`.
-- `people`: `loose_cultivators`, `townsfolk_per_town`, `townsfolk_realm_max`,
+- `people`: `world_cultivators`, `world_cultivators_min`, `townsfolk_per_town`, `townsfolk_realm_max`,
   `age_min_by_realm[]`, `age_max_lifespan_frac`, `traits_per_person`, `female_chance`,
   `loose_tan_tu_share`.
 - `npc_builds`: artifact counts, `cong_phap_tier_per_realm`, skill levels, `archetype_skills`,
   Kinh Mạch greedy scoring (`tree_focus_weight`, `tree_kind_scores`),
-  `archetype_element_purity`, `artifact_root_element_chance`, `leader_realm_min`, `elder_realm_min`.
+  `artifact_root_element_chance`, `archetype_keep_chance`, `leader_realm_min`, `elder_realm_min`.
 - `realm_distribution[]`, `archetypes[]` (`elements`, `tree_focus`, `artifact_bases`, `weight`).
 - `history`: `years` simulated, `events_per_year`, `event_weights[]`, `legendary_artifacts`,
   `fallen_sects`, `duel_kill_chance`, `founder_realm_range`, `legend_held_chance`,
