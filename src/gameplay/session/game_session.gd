@@ -131,7 +131,7 @@ func _grant_edge(perk_id: String) -> void:
 
 ## Event context with the session facts the rules need (edge, cơ duyên left this realm).
 func event_context() -> Dictionary:
-	var per: int = int(ProgressionEdges.config(gd).player.co_duyen_per_realm)
+	var per: int = ProgressionEdges.co_duyen_limit(gd, player.realm_index)
 	var left: int = per - int(co_duyen_used.get(player.realm_index, 0)) if edge else 0
 	return EventContext.build(player, gd, db, sheet(), year, season, llm.language, {"edge": edge, "co_duyen_left": left})
 
@@ -335,7 +335,7 @@ func _maybe_event(bonus: float) -> Array:
 	var cfg: Dictionary = gd.event_templates().random_event_chance
 	var place: Dictionary = db.get_record("places", player.location_id)
 	var chance: float = float(cfg.base) + float(cfg.per_danger) * float(place.get("danger", 1)) + bonus
-	if edge and CultivationRules.at_bottleneck(player, gd) and int(co_duyen_used.get(player.realm_index, 0)) < int(ProgressionEdges.config(gd).player.co_duyen_per_realm):
+	if edge and CultivationRules.at_bottleneck(player, gd) and int(co_duyen_used.get(player.realm_index, 0)) < ProgressionEdges.co_duyen_limit(gd, player.realm_index):
 		chance += float(ProgressionEdges.config(gd).player.co_duyen_bottleneck_event_bonus) * (1.0 + sheet().total("co_duyen_pct") / 100.0)
 	if rng.randf() >= chance:
 		return []
@@ -821,10 +821,12 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 	var sh: StatSheet = sheet()
 	var cond: Dictionary = CultivationRules.breakthrough_condition(player, gd, local_density(sh))
 	var is_pill: bool = not pill.is_empty() and bool(cond.met)
-	if not pill.is_empty() and not bool(cond.met) and not confirm_bare:
-		return {"ok": false, "needs_confirm": true, "lines": ["Condition not met: %s. This would be a bare attempt at %.2f%%, burning no pill." % [cond.text, 100.0 * float(next.entry_requirement.base_chance)]]}
 	if not is_pill and not CultivationRules.bare_attempt_left(player, gd):
 		return {"ok": false, "lines": ["Bare attempts used up for this breakthrough."]}
+	if not pill.is_empty() and not bool(cond.met) and not confirm_bare:
+		var cap: int = int(gd.ladder().bare_attempt_cap)
+		var bare: float = CultivationRules.breakthrough_chance(player, gd, sh, -1).total
+		return {"ok": false, "needs_confirm": true, "lines": ["Condition not met: %s. This would be a bare attempt at %.3f%%, burning no pill and using 1 of the %d of %d bare attempts left." % [cond.text, 100.0 * bare, cap - player.bare_attempts, cap]]}
 	var rank: int = int(pill.quality) if is_pill else -1
 	var talisman: bool = is_pill and use_talisman and talisman_available()
 	var chance: Breakdown = CultivationRules.breakthrough_chance(player, gd, sh, rank, talisman)

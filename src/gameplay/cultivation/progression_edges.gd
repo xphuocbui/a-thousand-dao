@@ -59,13 +59,21 @@ static func add_perk_mods(c: Character, gd: GameData, sheet: StatSheet) -> void:
 			sheet.add_mod("Thiên mệnh: %s" % p.name, str(fx.stat), float(fx.value), StatSheet.KIND_PERK)
 
 
-## Gives a new NPC its background edges (rich family, a blessing) by chance.
+## Fortuitous encounters a life with the edge may receive in [param realm_index].
+static func co_duyen_limit(gd: GameData, realm_index: int) -> int:
+	var per: Array = config(gd).player.co_duyen_per_realm
+	return int(per[clampi(realm_index, 0, per.size() - 1)])
+
+
+## Gives a new NPC its background edges (rich family, a blessing) by chance. Call it after the
+## root is rolled: a blessing is a perk given at birth, birth effects included (linh-can.md
+## rules 2 and 15).
 static func assign_npc_edges(c: Character, gd: GameData, rng: RandomNumberGenerator) -> void:
 	var cfg: Dictionary = config(gd).npc
 	if rng.randf() < float(cfg.rich_family.chance):
 		c.background = "rich_family"
 	if rng.randf() < float(cfg.blessing.chance):
-		c.perks.append(str(RngUtils.pick(rng, perks(gd)).id))
+		apply_birth(c, gd, str(RngUtils.pick(rng, perks(gd)).id))
 
 
 ## An NPC's edge score (0..) from its record, as a breakdown.

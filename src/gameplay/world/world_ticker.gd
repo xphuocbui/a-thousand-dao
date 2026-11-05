@@ -33,8 +33,6 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	for p in _db.all("people"):
 		if not p.alive or p.get("is_player", false):
 			continue
-		if not p.get("is_beast", false):
-			cultivators += 1
 		p["age"] = float(p.age) + season_years
 		# Read the record directly: a full Character per NPC per season is too slow at world size.
 		var realm_index: int = int(p.realm_index)
@@ -47,6 +45,8 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			p["death_year"] = year
 			news.append(_log(year, season, "tick_death", texts, {"a": p.id, "realm": _gd.realm(realm_index).name}))
 			continue
+		if not p.get("is_beast", false):
+			cultivators += 1
 		if p.get("is_beast", false) and str(p.get("owner_id", "")) == "":
 			continue
 		if stage < _gd.stage_count(realm_index) - 1:
@@ -81,10 +81,12 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	return news
 
 
-## New cultivators (canh-gioi.md rule 12): each season the world replaces its dead, back up to
-## world_cultivators. Tied to the target, not to the population, so it cannot drift.
+## New cultivators (canh-gioi.md rule 12): each season the world replaces that season's dead, back
+## up to world_cultivators and never below world_cultivators_min. Tied to the target, not to the
+## population, so it cannot drift. [param cultivators] counts those alive after the season's deaths.
 func _intake(rng: RandomNumberGenerator, cultivators: int) -> void:
-	for i in maxi(int(_gd.world_gen().people.world_cultivators) - cultivators, 0):
+	var people: Dictionary = _gd.world_gen().people
+	for i in maxi(maxi(int(people.world_cultivators), int(people.world_cultivators_min)) - cultivators, 0):
 		new_cultivator(rng)
 
 

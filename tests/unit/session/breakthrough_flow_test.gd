@@ -272,3 +272,43 @@ func test_a_save_round_trip_keeps_the_step_state_ac56() -> void:
 	assert_eq(back.unsealed, [3], "clusters")
 	assert_eq(back.main_tech, c.main_tech, "main slot")
 	assert_eq(back.techniques.keys(), c.techniques.keys(), "known techniques")
+
+
+func test_the_bare_preview_shows_the_suppressed_chance_and_the_attempts_left_ac70() -> void:
+	var s := _session()
+	_gate(s, 2)
+	s.player.tam_ma = 30.0
+	s.player.bare_attempts = 1
+	_pill(s, 2)
+	var r: Dictionary = s.breakthrough()
+	assert_true(r.get("needs_confirm", false), "preview first")
+	assert_true(str(r.lines[0]).contains("0.118%"), "0.0037 x 0.32: %s" % str(r.lines[0]))
+	assert_true(str(r.lines[0]).contains("2 of 3"), "attempts left: %s" % str(r.lines[0]))
+
+
+func test_with_bare_attempts_used_up_a_held_pill_gets_no_confirmation_ac40a() -> void:
+	var s := _session()
+	_gate(s, 2)
+	s.player.tam_ma = 30.0
+	s.player.bare_attempts = 3
+	_pill(s, 2)
+	var r: Dictionary = s.breakthrough()
+	assert_false(r.get("needs_confirm", false), "nothing to confirm")
+	assert_true(str(r.lines[0]).contains("used up"), "says why: %s" % str(r.lines[0]))
+
+
+func test_the_advisor_counts_brews_by_the_counting_rule_ac29() -> void:
+	# A single root entering Nascent Soul at 520 climbs until about 976, so the second brew's
+	# attempt would start after the lifespan cap: B = 1, though two recipes ripen in time.
+	var s := _session({"kim": 50})
+	var c: Character = s.player
+	c.realm_index = 3
+	c.level = Ladder.band(s.gd, 3)[0]
+	c.level_peak = c.level
+	c.stage = 0
+	c.tu_vi = 0.0
+	c.age = 520.0
+	var home: Dictionary = s.db.get_record("places", c.location_id)
+	home["density"] = float(home.get("density", 1.0)) * 187.5 / float(Advisor.progress(s).rate)
+	assert_near(float(Advisor.progress(s).rate), 187.5, 0.01, "the Formulas A rate for this root")
+	assert_eq(int(Advisor.brew_plan(s).b), 1, "B")

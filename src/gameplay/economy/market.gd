@@ -29,6 +29,25 @@ static func owner_of(place_id: String) -> String:
 	return "market:" + place_id
 
 
+## Each breakthrough recipe's main herb: the ingredient with the most herb-years (qty x min_age).
+## Random stock never holds these (canh-gioi.md Formulas D, decision 2026-11-05).
+static func breakthrough_main_herbs(gd: GameData) -> Array:
+	var out: Array = []
+	for r in gd.recipes():
+		if r.effect.type != "breakthrough":
+			continue
+		var main: String = ""
+		var most: float = -1.0
+		for ing in r.ingredients:
+			var years: float = float(ing.qty) * float(ing.min_age)
+			if years > most:
+				most = years
+				main = str(ing.herb)
+		if not out.has(main):
+			out.append(main)
+	return out
+
+
 ## Regenerates stock if the place has a market and the stock is older than the restock period.
 func ensure_stock(rng: RandomNumberGenerator, place_id: String, year: int, realm_index: int, root: LinhCan = null) -> void:
 	var place: Dictionary = _db.get_record("places", place_id)
@@ -42,8 +61,11 @@ func ensure_stock(rng: RandomNumberGenerator, place_id: String, year: int, realm
 			_db.remove("items", old.id)
 	var owner: String = owner_of(place_id)
 	var tier: int = clampi(realm_index, 0, _gd.realms().size() - 1)
-	for i in int(cfg.stock_herbs):
-		var h: Dictionary = _items.random_herb(rng, int(cfg.stock_herb_rarity_max), [0.0, float(cfg.aged_herb_max_years)])
+	var barred: Array = breakthrough_main_herbs(_gd)
+	var herbs: Array = _gd.herbs().filter(func(t): return int(t.rarity) <= int(cfg.stock_herb_rarity_max) and not barred.has(t.id))
+	for i in int(cfg.stock_herbs) if not herbs.is_empty() else 0:
+		var t: Dictionary = RngUtils.weighted_pick(rng, herbs.map(func(x): return {"id": x.id, "weight": 1.0 / float(x.rarity)}))
+		var h: Dictionary = _items.herb(t.id, RngUtils.range_f(rng, [0.0, float(cfg.aged_herb_max_years)]))
 		h["owner_id"] = owner
 		_db.add("items", h)
 	for i in int(cfg.stock_artifacts):

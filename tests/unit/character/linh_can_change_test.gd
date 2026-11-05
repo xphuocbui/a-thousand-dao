@@ -155,6 +155,7 @@ func test_accepted_changes_write_one_record_each_ac45() -> void:
 	var s := _session()
 	var before: int = s.db.count("events")
 	var t: Dictionary = s.items.treasure("linh_can_qua")
+	assert_false(t.has("element"), "the fruit holds no element until it is used")
 	t["owner_id"] = s.player.id
 	var tid: String = s.db.add("items", t)
 	var missing: Array = s.gd.element_cycle().filter(func(e): return not s.player.linh_can.has(e))

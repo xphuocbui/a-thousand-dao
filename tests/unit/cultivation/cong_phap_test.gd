@@ -85,6 +85,12 @@ func test_harmony_is_directional_and_worst_wins() -> void:
 	assert_eq(CongPhap.harmony(gd, ["moc"], []), 1.0, "no main method")
 
 
+func test_light_main_counts_as_fire_for_harmony() -> void:
+	var gd := game_data()
+	assert_eq(CongPhap.harmony(gd, ["tho"], ["quang"]), 1.15, "AC-CP-22: Fire generates Earth")
+	assert_eq(CongPhap.harmony(gd, ["kim"], ["quang"]), 0.6, "AC-CP-22: Fire overcomes Metal")
+
+
 func test_bonus_matches_the_worked_example() -> void:
 	var gd := game_data()
 	var c := TestFixtures.character({"moc": 70, "thuy": 50})
@@ -165,6 +171,35 @@ func test_slots_refuse_wrong_kinds_and_duplicates() -> void:
 	assert_true(CongPhap.set_slot(c, gd, "aux", 0, "s").ok, "art fits")
 	assert_false(CongPhap.set_slot(c, gd, "aux", 1, "s").ok, "same technique twice")
 	assert_false(CongPhap.set_slot(c, gd, "second", 0, "m").ok, "no capability #6")
+
+
+func test_moving_an_inert_second_method_to_main_empties_the_second_slot() -> void:
+	var gd := game_data()
+	var c := _in_realm(TestFixtures.character({"hoa": 86, "moc": 40}), 1)
+	c.grant_capability(6)
+	var e := _give(c, "x", _def(0, "main", ["hoa"], [{"stat": "attack_pct", "value": 10.0}]), 5)
+	assert_true(CongPhap.set_slot(c, gd, "second", 0, "x").ok, "into the #6 slot")
+	assert_true(CongPhap.set_slot(c, gd, "main", 0, "x").ok, "AC-CP-30: moved to the main slot")
+	assert_eq(c.main_tech, "x", "now the main method")
+	assert_eq(c.second_tech, "", "rule 6: not in two slots")
+	assert_eq(CongPhap.slotted(c), ["x"], "slotted once")
+	assert_eq(CongPhap.bonus_lines(c, gd, 60.0).size(), 1, "one bonus line")
+	assert_near(CongPhap.speed_factor(c, gd).mult, CongPhap.tech_one(c, gd, e), 1e-6, "no second speed term")
+	CongPhap.season_tick(c, gd, 45.0, true)
+	assert_near(float(e.mastery), 1.45, 1e-6, "one season's mastery")
+
+
+func test_a_second_method_cannot_replace_a_usable_main_method_while_in_its_slot() -> void:
+	var gd := game_data()
+	var c := _in_realm(TestFixtures.character({"hoa": 86, "moc": 40}), 1)
+	c.grant_capability(6)
+	_give(c, "x", _def(0, "main", ["hoa"]), 6)
+	_give(c, "y", _def(0, "main", ["moc"]), 6)
+	c.main_tech = "y"
+	c.second_tech = "x"
+	assert_false(CongPhap.set_slot(c, gd, "main", 0, "x").ok, "rule 6: same technique in two slots")
+	assert_eq(c.main_tech, "y", "main unchanged")
+	assert_eq(c.second_tech, "x", "second unchanged")
 
 
 func test_commons_stay_in_their_tiers_and_authored_fill_the_rest() -> void:

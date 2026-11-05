@@ -50,7 +50,6 @@
     "dan_doc_natural_decay": 1.0,
     "tam_ma_natural_decay": 0.25,
     "injury_recovery_frac_per_season": 0.25,
-    "vitality_floor": 0.05,
     "resist_factor_min": 0.1,
     "resist_factor_max": 2.0,
     "cleanse_potency_floor": 0.25,

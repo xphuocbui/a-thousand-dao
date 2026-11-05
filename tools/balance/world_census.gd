@@ -1,9 +1,10 @@
 extends SceneTree
-## Generates a world and ticks it forward, printing the headcount by realm and the time taken.
-## Measures the world-size targets in canh-gioi.md (Formulas C2, AC-CG-69).
+## Generates a world and ticks it forward, printing the headcount by realm, the time taken and,
+## at the end, each gate's arrivals after the burn-in years. Measures the world targets in
+## canh-gioi.md (Formulas C2, AC-CG-69).
 ##
 ##   Godot_console.exe --headless --path . -s res://tools/balance/world_census.gd -- \
-##       [--seed 101] [--size 5000] [--years 2000] [--every 500]
+##       [--seed 101] [--size 5000] [--years 2000] [--every 500] [--burn 500]
 
 
 func _init() -> void:
@@ -31,15 +32,46 @@ func _init() -> void:
 		quit(0)
 		return
 	var seasons: int = int(gd.cultivation_rules().seasons_per_year)
+	var burn: int = int(_arg(args, "--burn", "500"))
+	var gates: int = gd.realms().size() - 1
+	var seen: Dictionary = {}
+	var stats: Dictionary = {"arrivals": _zeros(gates), "fated": _zeros(gates), "p": _zeros(gates)}
 	t0 = Time.get_ticks_msec()
 	for y in range(1, years + 1):
 		for s in seasons:
 			ticker.tick(rng, y, s)
+			_note_fates(gd, db, seen, stats, y > burn)
 		if y % every == 0:
 			var ms: float = float(Time.get_ticks_msec() - t0) / float(y * seasons)
 			print("%.1f ms per season" % ms)
 			_census(gd, db, y)
+	for g in gates:
+		var n: float = maxf(float(stats.arrivals[g]), 1.0)
+		print("ARRIVAL gate %d: %d arrivals, fated share %.4f, mean p_step %.4f" % [g, int(stats.arrivals[g]), float(stats.fated[g]) / n, float(stats.p[g]) / n])
 	quit(0)
+
+
+func _zeros(n: int) -> Array:
+	var out: Array = []
+	out.resize(n)
+	out.fill(0.0)
+	return out
+
+
+## Counts this tick's fate rolls. A record holds its latest roll, so a realm not seen for that
+## person is a new arrival at that gate. p_step is read at the gate: the crossing may be done.
+func _note_fates(gd: GameData, db: WorldDB, seen: Dictionary, stats: Dictionary, counting: bool) -> void:
+	for p in db.all("people"):
+		var realm: int = int(p.get("bt_fate", {}).get("realm", -1)) if p.alive else -1
+		if realm < 0 or int(seen.get(p.id, -1)) == realm:
+			continue
+		seen[p.id] = realm
+		if counting:
+			var at_gate: Dictionary = p.duplicate()
+			at_gate["realm_index"] = realm
+			stats.arrivals[realm] += 1.0
+			stats.fated[realm] += 1.0 if bool(p.bt_fate.ok) else 0.0
+			stats.p[realm] += ProgressionEdges.npc_step_chance(at_gate, gd).total
 
 
 ## Prints "EDGE score count" for [param n] new cultivators, in steps of 0.01: the input for

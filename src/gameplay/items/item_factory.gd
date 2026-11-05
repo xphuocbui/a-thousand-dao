@@ -219,13 +219,11 @@ func material(material_id: String, qty: int) -> Dictionary:
 	return {"kind": "material", "template": material_id, "name": m.get("name", material_id), "element": m.get("element", ""), "qty": maxi(qty, 1), "owner_id": "", "value": int(m.get("base_value", 1))}
 
 
-## A treasure item; [param element] is the root a Linh Căn Quả grows ("" = any).
-func treasure(treasure_id: String, element: String = "") -> Dictionary:
+## A treasure item. A Linh Căn Quả holds no element: the player picks one at use (linh-can.md
+## rule 13).
+func treasure(treasure_id: String) -> Dictionary:
 	var t: Dictionary = _gd.treasure(treasure_id)
-	var nm: String = str(t.get("name", treasure_id))
-	if element != "":
-		nm += " (%s)" % _gd.element_name(element)
-	return {"kind": "treasure", "template": treasure_id, "name": nm, "element": element, "qty": 1, "owner_id": "", "value": int(t.get("base_value", 1))}
+	return {"kind": "treasure", "template": treasure_id, "name": str(t.get("name", treasure_id)), "qty": 1, "owner_id": "", "value": int(t.get("base_value", 1))}
 
 
 ## A stack of talismans (crafting_talismans.json).

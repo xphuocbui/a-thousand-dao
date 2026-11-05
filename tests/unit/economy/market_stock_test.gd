@@ -38,3 +38,28 @@ func test_buy_moves_item_and_charges_price() -> void:
 	assert_true(r.ok, r.message)
 	assert_eq(c.linh_thach, 10000 - price, "charged")
 	assert_eq(db.get_record("items", it.id).owner_id, c.id, "owned")
+
+
+func test_the_market_never_stocks_a_breakthrough_main_herb_ac71() -> void:
+	# Regression (design review 2026-11-05): ripe ginseng and Kim Tủy Quả bypassed Formulas D.
+	var gd := game_data()
+	var db := WorldDB.new()
+	var m := Market.new(gd, db, ItemFactory.new(gd))
+	var barred: Array = ["hoang_tinh_sam", "kim_tuy_qua", "anh_tam_lien", "hoa_than_qua"]
+	var companions: int = 0
+	for seed_v in 120:
+		var pid: String = db.add("places", {"name": "Thử Thành", "market": true})
+		m.ensure_stock(rng(seed_v), pid, 300, 0)
+		for it in m.stock(pid):
+			if it.kind != "herb":
+				continue
+			assert_false(barred.has(it.template), "%s is a main herb" % it.template)
+			if it.template == "hoa_linh_chi":
+				companions += 1
+	assert_true(companions > 0, "companion herbs are still sold")
+
+
+func test_main_herbs_are_derived_from_the_breakthrough_recipes_ac71() -> void:
+	var main: Array = Market.breakthrough_main_herbs(game_data())
+	main.sort()
+	assert_eq(main, ["anh_tam_lien", "hoa_than_qua", "hoang_tinh_sam", "kim_tuy_qua"], "one per recipe, no companions")

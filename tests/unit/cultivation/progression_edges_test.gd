@@ -64,6 +64,39 @@ func test_linh_can_thuan_tinh_raises_every_root_at_birth() -> void:
 		assert_eq(int(c.linh_can.elements[e]), mini(int(before[e]) + 8, 100), "%s purer" % e)
 
 
+## Rolls NPCs on a fixed seed until one is blessed with [param perk_id]: {npc, raw} or {}.
+func _blessed_npc(perk_id: String) -> Dictionary:
+	var gd := game_data()
+	var r := rng(77)
+	for i in 100000:
+		var c := Character.new()
+		c.linh_can = LinhCan.roll(gd, r)
+		var raw: Dictionary = c.linh_can.elements.duplicate()
+		ProgressionEdges.assign_npc_edges(c, gd, r)
+		if c.perks.has(perk_id):
+			return {"npc": c, "raw": raw}
+	return {}
+
+
+func test_a_blessed_npc_gets_the_perks_birth_purity_ac46() -> void:
+	var gd := game_data()
+	var found: Dictionary = _blessed_npc("linh_can_thuan_tinh")
+	assert_false(found.is_empty(), "the seed blesses an NPC with the purity perk")
+	var c: Character = found.npc
+	for e in found.raw.keys():
+		assert_eq(int(c.linh_can.elements[e]), mini(int(found.raw[e]) + 8, 100), "%s purer" % e)
+	for id in c.linh_can.variants.keys():
+		if gd.variant(id).origin != "innate":
+			assert_eq(int(c.linh_can.variants[id]), c.linh_can.derived_purity(gd, id), "%s recomputed" % id)
+	assert_eq(c.perks.count("linh_can_thuan_tinh"), 1, "the perk is held once")
+
+
+func test_a_blessing_with_no_birth_effect_leaves_the_root_alone() -> void:
+	var found: Dictionary = _blessed_npc("dao_cot")
+	assert_false(found.is_empty(), "the seed blesses an NPC with a plain perk")
+	assert_eq(found.npc.linh_can.elements, found.raw, "root unchanged")
+
+
 func test_bat_diet_dao_tam_keeps_tu_vi_on_a_failed_breakthrough() -> void:
 	var s := _session(true, "bat_diet_dao_tam")
 	_to_bottleneck(s)
@@ -100,7 +133,7 @@ func test_co_duyen_needs_the_edge_and_a_binh_canh_and_comes_once_per_realm() -> 
 	assert_eq(ids.call(s).size(), 0, "not before the bình cảnh")
 	_to_bottleneck(s)
 	assert_true(ids.call(s).size() > 0, "eligible at the bình cảnh")
-	s.co_duyen_used[0] = int(s.gd.file("character_edges").player.co_duyen_per_realm)
+	s.co_duyen_used[0] = ProgressionEdges.co_duyen_limit(s.gd, 0)
 	assert_eq(ids.call(s).size(), 0, "not after this realm's cơ duyên")
 	var plain := _session(false)
 	_to_bottleneck(plain)

@@ -132,8 +132,10 @@ static func breakthrough_odds(s: GameSession) -> Dictionary:
 	return {"chance": b.total, "pill": pill, "used": ["Phá Cảnh Phù"] if talisman else [], "breakdown": b, "condition": cond}
 
 
-## Formulas D: the brews that can count in this realm step, from the first brew's ripening and
-## the bar: {b, years_first, p_brew}. Packing is first-fit-decreasing over the plots.
+## Formulas D: the brews that count from now, by the counting rule: {b, years_first, p_brew}. The
+## first attempt waits for the full bar and each later one for the refill plus the attempt's
+## season; a brew counts if its attempt starts at least one season before the cap. Plots count as
+## empty (B_remaining from the plot state is not built). Packing is greedy over the plots.
 static func brew_plan(s: GameSession) -> Dictionary:
 	var c: Character = s.player
 	var gd: GameData = s.gd
@@ -147,20 +149,34 @@ static func brew_plan(s: GameSession) -> Dictionary:
 	if recipe.is_empty() or h <= 0.0:
 		return {"b": 0, "years_first": INF, "p_brew": p_brew}
 	var cap: float = CultivationRules.lifespan(c, gd, sh).total
-	var refill: float = 0.3 * Ladder.bar_cost(gd, c.realm_index) / maxf(float(progress(s).rate), 1.0) / float(gd.cultivation_rules().seasons_per_year)
+	var season: float = 1.0 / float(gd.cultivation_rules().seasons_per_year)
+	var rate: float = maxf(float(progress(s).rate), 1.0)
+	var climb: float = _seasons_to_full_bar(c, gd, rate) * season
+	var refill: float = float(gd.breakthrough_rules().failure_tu_vi_loss_pct) * Ladder.bar_cost(gd, c.realm_index) / _rate_at_stage(c, gd, rate, Ladder.GREAT_PERFECTION) * season
+	var first: float = _pack_capacity(recipe, 1, plots) / h
 	var b: int = 0
-	var last: float = c.age
-	var first: float = 0.0
-	for k in range(1, 9):
-		var t: float = _pack_capacity(recipe, k, plots) / h
-		if k == 1:
-			first = t
-		var at: float = maxf(c.age + t, last + (refill if k > 1 else 0.0))
-		if at > cap - 0.25:
-			break
-		b = k
-		last = at
+	var last: float = c.age + maxf(first, climb)
+	while last <= cap - season:
+		b += 1
+		last = maxf(c.age + _pack_capacity(recipe, b + 1, plots) / h, last + refill + season)
 	return {"b": b, "years_first": first, "p_brew": p_brew}
+
+
+## [param rate], the rate now, moved to another stage of the realm by the root curve.
+static func _rate_at_stage(c: Character, gd: GameData, rate: float, stage: int) -> float:
+	var groups: Array = gd.realm(c.realm_index).stage_curve_groups
+	var row: Dictionary = gd.attributes().element_count_curve.get(str(c.linh_can.n_eff(gd)), {})
+	return rate * float(row.get(groups[clampi(stage, 0, groups.size() - 1)], 1.0)) / maxf(CultivationRules.curve_factor(c, gd), 0.01)
+
+
+## Seasons until the bottleneck bar is full, stage by stage from the rate now.
+static func _seasons_to_full_bar(c: Character, gd: GameData, rate: float) -> float:
+	var held: float = c.tu_vi
+	var seasons: float = 0.0
+	for level in range(c.level, Ladder.band(gd, c.realm_index)[1]):
+		seasons += maxf(Ladder.level_cost(gd, level) - held, 0.0) / _rate_at_stage(c, gd, rate, Ladder.stage_of_level(gd, level))
+		held = 0.0
+	return seasons + maxf(Ladder.bar_cost(gd, c.realm_index) - held, 0.0) / _rate_at_stage(c, gd, rate, Ladder.GREAT_PERFECTION)
 
 
 ## The plant plan (Formulas D): the herb the next free plot should grow. Recipes are filled in
@@ -432,7 +448,7 @@ static func ingredient_status(s: GameSession, c: Character, sh: StatSheet, ing: 
 			return {"text": "%s: this market sells one aged %.0fy for %d LT" % [label, float(o.age), price], "command": "buy %s" % o.id if c.linh_thach >= price else "",
 				"action": "Buy %s %.0fy (%d LT)" % [herb.get("name", ing.herb), float(o.age), price], "ready": false, "price": price}
 	var est: int = market_price_estimate(s, str(ing.herb))
-	return {"text": "%s: no seeds sold; markets sometimes have one (~%d LT), or find one exploring" % [label, est], "command": "", "action": "", "ready": false, "price": est}
+	return {"text": "%s: no seeds sold; find one exploring" % label, "command": "", "action": "", "ready": false, "price": est}
 
 
 ## Typical market price of a herb that seeds cannot provide (a mid-aged one).

@@ -92,3 +92,38 @@ func test_an_archetype_never_changes_a_root() -> void:
 				kept += 1
 	assert_near(float(singles) / float(n), 0.45, 0.05, "single roots stay at the birth rate")
 	assert_near(float(kept) / float(without_kim), 0.2, 0.05, "most switch, some keep it")
+
+
+func _tick_season(db: WorldDB, seed_v: int) -> void:
+	var gd := game_data()
+	WorldTicker.new(gd, db, BuildGenerator.new(gd, TestFixtures.tree(), db)).tick(rng(seed_v), 1, 0)
+
+
+func _age_out(db: WorldDB, count: int) -> void:
+	for p in db.find("people", func(x): return x.alive and not x.get("is_beast", false)).slice(0, count):
+		p["age"] = 100000.0
+
+
+func test_the_world_is_back_at_its_size_the_season_its_dead_die_ac69() -> void:
+	var people: Dictionary = game_data().world_gen().people
+	var size_was: int = int(people.world_cultivators)
+	people.world_cultivators = 200
+	var db := _world(21)
+	_age_out(db, 10)
+	_tick_season(db, 22)
+	people.world_cultivators = size_was
+	assert_eq(_alive(db), 200, "replaced in the same season")
+
+
+func test_the_intake_refills_to_the_minimum_over_a_smaller_size() -> void:
+	var people: Dictionary = game_data().world_gen().people
+	var size_was: int = int(people.world_cultivators)
+	var floor_was: int = int(people.world_cultivators_min)
+	people.world_cultivators = 100
+	people.world_cultivators_min = 200
+	var db := _world(23)
+	_age_out(db, 10)
+	_tick_season(db, 24)
+	people.world_cultivators = size_was
+	people.world_cultivators_min = floor_was
+	assert_eq(_alive(db), 200, "the minimum holds after world generation too")

@@ -3,7 +3,7 @@
   "_doc": "Kinh Mạch Đồ. design/gdd/kinh-mach-do.md Parameter keys. Values are W (weighted value); value = W / stat_weights[stat], floored to the stat's grid. Sealed cluster content is theme-pool filler until the authored pass (Open Question 6).",
   "name": "Kinh Mạch Đồ",
   "seed": 20261102,
-  "tree_size_target": 1475,
+  "tree_size_target": 1300,
   "radials_per_sector": 3,
   "ring_anchor_depths": [
     5,
@@ -86,7 +86,13 @@
   "tree_breakthrough_cap": 8,
   "cluster_stat_caps": {
     "cultivation_speed_pct": 4,
-    "breakthrough_chance": 0.5
+    "breakthrough_chance": 0.5,
+    "ngo_tinh": 1,
+    "khi_van": 1,
+    "alchemy_success": 3,
+    "density_bonus": 0.04,
+    "dan_doc_decay": 0.8,
+    "field_plots": 1
   },
   "cap_gamma": 0.5,
   "stat_weights": {
@@ -433,7 +439,7 @@
         "mods": [
           {
             "stat": "khi_huyet_pct",
-            "value": 40
+            "value": 42
           },
           {
             "stat": "attack_pct",
@@ -463,7 +469,7 @@
         "mods": [
           {
             "stat": "cultivation_speed_pct",
-            "value": 20
+            "value": 23
           },
           {
             "stat": "tam_ma_resist_pct",

@@ -38,7 +38,7 @@ qa-sandbox/
 docs/consistency-failures.md
 
 # === Build Output ===
-build/
+/build/
 builds/
 bin/
 # ...but not an addon's own scripts: gdUnit4's test runner lives in
@@ -76,8 +76,8 @@ export_presets.cfg
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
-[Bb]uild/
-[Bb]uilds/
+/[Bb]uild/
+/[Bb]uilds/
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
 *.csproj

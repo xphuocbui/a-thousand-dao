@@ -17,6 +17,12 @@ static func purity_gain(value: float, potency: float) -> int:
 	return maxi(1, int(roundf(value * potency)))
 
 
+## Talent pill gain, Character Stats Formulas D: max(1, round(value x potency)), the same rule
+## as purity pills. The base talent clamp to 100 is applied by the caller.
+static func talent_gain(value: float, potency: float) -> int:
+	return maxi(1, int(roundf(value * potency)))
+
+
 ## Eats one pill from a stack. Returns {ok, message, tu_vi, changes}.
 static func consume(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, item_id: String) -> Dictionary:
 	var item: Dictionary = db.get_record("items", item_id)
@@ -64,7 +70,7 @@ static func consume(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, i
 			c.vitality = minf(c.vitality + float(fx.value) / 100.0 * m, 1.0)
 			msg = "khí huyết now %d%%" % int(c.vitality * 100.0)
 		"stat":
-			c.thien_phu[fx.stat] = clampi(c.base_stat(fx.stat) + int(roundf(float(fx.value) * m)), 1, 100)
+			c.thien_phu[fx.stat] = clampi(c.base_stat(fx.stat) + talent_gain(float(fx.value), m), 1, 100)
 			msg = "%s now %d" % [fx.stat, c.base_stat(fx.stat)]
 		"lifespan":
 			c.lifespan_bonus += float(fx.value) * m

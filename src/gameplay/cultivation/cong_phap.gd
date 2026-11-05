@@ -66,8 +66,10 @@ static func slotted(c: Character) -> Array:
 
 
 ## Puts a known technique into a slot, or empties it with key "". [param slot] is "main",
-## "second" or "aux" with [param index]. Returns {ok, reason}.
+## "second" or "aux" with [param index]. A #6 method moved to an empty main slot leaves the #6
+## slot empty (rule 6). Returns {ok, reason}.
 static func set_slot(c: Character, gd: GameData, slot: String, index: int, key: String) -> Dictionary:
+	var moving_up: bool = false
 	if key != "":
 		var e: Dictionary = c.techniques.get(key, {})
 		if e.is_empty():
@@ -77,11 +79,14 @@ static func set_slot(c: Character, gd: GameData, slot: String, index: int, key: 
 		var is_main: bool = str(e.def.tech_kind) == "main"
 		if (slot == "aux" and is_main) or (slot != "aux" and not is_main):
 			return {"ok": false, "reason": "%s does not fit that slot." % e.def.name}
-		if slotted(c).has(key) and not _in_slot(c, slot, index, key):
+		moving_up = slot == "main" and c.second_tech == key and main_entry(c).is_empty()
+		if _held(c, key) and not _in_slot(c, slot, index, key) and not moving_up:
 			return {"ok": false, "reason": "%s is already in a slot." % e.def.name}
 	match slot:
 		"main":
 			c.main_tech = key
+			if moving_up:
+				c.second_tech = ""
 		"second":
 			if not c.has_capability(int(gd.cong_phap_file().second_main_capability)):
 				return {"ok": false, "reason": "You have no second main slot."}
@@ -93,6 +98,11 @@ static func set_slot(c: Character, gd: GameData, slot: String, index: int, key: 
 		_:
 			return {"ok": false, "reason": "Unknown slot %s." % slot}
 	return {"ok": true, "reason": ""}
+
+
+## True if the technique sits in any slot, including an inert #6 slot.
+static func _held(c: Character, key: String) -> bool:
+	return c.main_tech == key or c.second_tech == key or c.aux_tech.has(key)
 
 
 static func _in_slot(c: Character, slot: String, index: int, key: String) -> bool:

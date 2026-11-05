@@ -135,3 +135,65 @@ func test_saves_clamp_state_and_default_capabilities() -> void:
 	assert_eq(c.dan_doc, 100.0, "clamped high")
 	assert_eq(c.tam_ma, 0.0, "clamped low")
 	assert_eq(c.capabilities, [], "empty set")
+
+
+func test_talent_gain_rounds_with_a_floor_of_one_ac06() -> void:
+	assert_eq(PillEffects.talent_gain(5.0, 1.5), 8, "round(7.5)")
+	assert_eq(PillEffects.talent_gain(2.0, 0.75), 2, "round(1.5)")
+	assert_eq(PillEffects.talent_gain(2.0, 0.48), 1, "floor of one")
+	assert_eq(PillEffects.talent_gain(2.0, 0.0), 1, "zero potency")
+
+
+func test_a_talent_pill_at_full_toxicity_still_gives_one_and_spends_a_use() -> void:
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := _c(50)
+	c.dan_doc = 100.0
+	var id: String = db.add("items", {"owner_id": c.id, "kind": "pill", "template": "huyet_khi_dan", "name": "Huyết Khí Đan", "quality": 0, "qty": 1})
+	var r: Dictionary = PillEffects.consume(c, gd, db, _sheet(c), id)
+	assert_true(bool(r.ok), "taken")
+	assert_eq(c.base_stat("can_cot"), 51, "minimum +1")
+	assert_eq(int(c.pill_uses.get("huyet_khi_dan", 0)), 1, "one use spent")
+
+
+func test_a_talent_pill_gain_stops_at_one_hundred_ac06() -> void:
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := _c(99)
+	var id: String = db.add("items", {"owner_id": c.id, "kind": "pill", "template": "huyet_khi_dan", "name": "Huyết Khí Đan", "quality": 0, "qty": 1})
+	PillEffects.consume(c, gd, db, _sheet(c), id)
+	assert_eq(c.base_stat("can_cot"), 100, "clamped")
+
+
+func test_vitality_floor_has_one_copy_ac36() -> void:
+	var gd := game_data()
+	assert_false(gd.attributes().derived.has("vitality_floor"), "no copy in derived")
+	assert_near(float(gd.breakthrough_rules().vitality_floor), 0.05, 1e-9, "owned by Realms")
+
+
+func test_capability_two_adds_its_divine_sense_line_ac55() -> void:
+	var gd := game_data()
+	var c := TestFixtures.character({"hoa": 50}, 45, 2, 0)
+	assert_near(CharacterRules.than_thuc(c, gd, _sheet(c)).total, 450.0, 1e-6, "without #2")
+	c.grant_capability(2)
+	assert_near(CharacterRules.than_thuc(c, gd, _sheet(c)).total, 540.0, 1e-6, "with #2")
+
+
+func test_lifespan_pct_sources_stay_inside_the_bound_ac56() -> void:
+	var gd := game_data()
+	var total: float = 0.0
+	var sources: Array = []
+	for p in gd.file("character_edges").perks:
+		for fx in p.effects:
+			if str(fx.stat) == "lifespan_pct":
+				total += float(fx.value)
+				sources.append(str(p.id))
+	var keystones: Dictionary = gd.file("meridian_tree").keystones
+	for e in keystones.keys():
+		for ks in keystones[e]:
+			for m in ks.mods:
+				if str(m.stat) == "lifespan_pct":
+					total += float(m.value)
+					sources.append(str(ks.name))
+	assert_eq(sources.size(), 2, "the two named sources")
+	assert_true(total <= 45.0, "bound +45")

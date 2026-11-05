@@ -59,7 +59,7 @@ func plant_seed(c: Character, sheet: StatSheet, herb_id: String) -> Dictionary:
 	if t.is_empty():
 		return {"ok": false, "message": "Unknown herb '%s'." % herb_id}
 	if not seed_catalog(c.realm_index).has(t):
-		return {"ok": false, "message": "%s seeds are too rare to buy; find or buy a living plant and transplant it." % t.name}
+		return {"ok": false, "message": "%s seeds are too rare to buy; find a living plant and transplant it." % t.name}
 	var check: Dictionary = _can_work(c, sheet)
 	if not check.ok:
 		return check
