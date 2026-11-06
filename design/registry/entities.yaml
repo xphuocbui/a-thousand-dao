@@ -54,7 +54,7 @@
 #   in any other shape is reported as unsupported layout, with its number.
 
 version: 1
-last_updated: "2026-11-04"
+last_updated: "2026-11-06"
 
 # ─── ENTITIES ────────────────────────────────────────────────────────────────
 # Named game-world objects: enemies, NPCs, characters, factions, bosses.
@@ -204,6 +204,7 @@ formulas:
     referenced_by:
       - design/gdd/character-stats.md
       - design/gdd/canh-gioi.md
+      - design/gdd/combat.md
     variables:
       - talent
       - per_point
@@ -466,6 +467,7 @@ formulas:
     referenced_by:
       - design/gdd/cong-phap.md
       - design/gdd/character-stats.md
+      - design/gdd/combat.md
     variables:
       - power_mult
       - power_layer_floor
@@ -474,7 +476,7 @@ formulas:
       - no_tech_power
     output_range: [0.5, 2.2]
     expression: "power_mult[tier] * (0.6 + 0.4*(k-1)/(layers-1)) for the main method; no_tech_power 0.5 with no usable main method"
-    notes: "Multiplies Character Stats spiritual power. Combat reads it only with a usable main method; with none there is no combat technique line, and no_tech_power applies to spiritual power only. power_mult 1.0/1.3/1.7/2.2 is separate from speed_mult."
+    notes: "Multiplies Character Stats spiritual power. Reaches Combat only through spiritual power, which sizes the qi pool (design/gdd/combat.md Formulas A); no_tech_power applies to spiritual power only. power_mult 1.0/1.3/1.7/2.2 is separate from speed_mult."
     added: 2026-11-04
     revised: ""
   - name: lifespan_cap
@@ -525,6 +527,184 @@ formulas:
     expression: "derived: min(1, f_v * prod(purity_e/100)); innate: flat innate_chance; derived purity = round(0.8 * geomean(current required purities)), recomputed; innate purity drawn once from the birth distribution"
     notes: "Rolls once at first eligibility; innate at birth only. Mutation Awakening (Meridian Map #24) re-rolls unowned, non-declined derived variants, at most 2 passes per life. 12.14% of births hold a variant; about 12.4-13.5% of lives with Awakening under the current gate odds (estimate)."
     added: 2026-11-04
+    revised: ""
+  - name: fight_unit
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    variables:
+      - power_base
+      - fight_unit_exponent
+    output_range: [6.31, 251.19]
+    expression: "U_r = power_base[r] ^ fight_unit_exponent"
+    notes: "Damage and pools both scale with U, so fight power rises about x10 per realm once W growth is counted."
+    added: 2026-11-06
+    revised: ""
+  - name: combat_pool_max
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    variables:
+      - stat_k
+      - ref_k
+      - health_rounds
+      - qi_rounds
+      - U_r
+      - boss_pool_mult
+      - v
+    output_range: "health 25 to 32,152; linh luc 41 to 52,247, before boss_pool_mult"
+    expression: "n_k = clamp(stat_k/ref_k[r], 0.25, 8); health_max = health_rounds*U_r*n_body*boss_pool_mult; qi_max = qi_rounds*U_r*n_qi*boss_pool_mult; health_start = health_max*max(v, 0.4)"
+    notes: "Only health ends a fight. Divine sense is not a pool."
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: combat_layer_total
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    variables:
+      - x_i
+      - layer_caps
+    output_range: [0.1, 350]
+    expression: "x1_eff soft past 200 at slope 0.5; L1 = 1+min(x1_eff,400)/100; L_i = 1+min(x_i,cap_i)/100; M = L1*L2*L3*L4*L5"
+    notes: "W fills only L1."
+    added: 2026-11-06
+    revised: ""
+  - name: combat_hit_damage
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    variables:
+      - U
+      - stage
+      - c_art
+      - s_j
+      - M
+      - crit
+      - supp
+      - m_kind
+    output_range: "[1, unbounded]"
+    expression: "base = U*stage*c_art; part_j = base*s_j*M(T_j)*crit; D_j = part_j*supp; dealt_j = max(1, leak_j*(1 - m*guard_share_kind))"
+    notes: "Order: evade, conversions, layers, crit, suppression, ward, body guard, floor. Soul attacks skip it."
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: combat_mitigation
+    status: deprecated
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    variables:
+      - guard_base_k
+      - a_k
+      - n_k
+      - defense_pct
+      - shred
+    output_range: [0, 0.818]
+    expression: "g_k = min(guard_cap, (guard_base_k + a_k + 0.10*(n_k-1))*(1+defense_pct/100)*(1-shred)); m_k = guard_max_mit*g_k/(g_k+guard_half)"
+    notes: "Retired 2026-11-06: the user replaced the three pools with one health bar and wards."
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: realm_suppression
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    variables:
+      - g
+      - s_g
+      - pierce_pct
+    output_range: [0.25, 1]
+    expression: "supp(g,P) = 1 - s_g*(1-P); P = min(pierce_cap, sum pierce_pct/100)"
+    notes: "Applies to hits, ticks, free hits, companions and soul attacks from the lower side."
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: rating_clash
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    variables:
+      - Off
+      - pass
+      - drain
+      - f
+      - health
+      - qi
+      - net_spend
+      - pi_s
+      - kappa
+    output_range: [0.02, 0.98]
+    expression: "T0 from t_w = qi/(D*(1-pass)*drain + net_spend) and t_h = health/(D*pass*f); T = T0/(1 + pi_s*T0); R = T(B to A)/T(A to B); P(A) = clamp(1/(1+R^-kappa) + fortune term, 0.02, 0.98)"
+    notes: "Wars and great battles only; individual NPC duels run the full fight."
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: display_power
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    variables:
+      - B_p
+      - F
+      - F_unbuilt
+    output_range: "[0, unbounded]"
+    expression: "B_p*sqrt(F/F_unbuilt); F = Off*ehp"
+    notes: "Replaces the stored chien luc total wherever one number is shown or stored."
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: ward_block
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    variables:
+      - pass_kind
+      - pass_tag
+      - ws
+      - drain_kind
+      - we
+      - D
+      - pool_qi
+    output_range: "pass 0.05 to 1; drain 0.15 and up"
+    expression: "pass = max(pass_min, clamp(pass_kind + sum pass_tag, pass_min, 1)/(1 + ws/100)); drain = max(drain_min, drain_kind/(1 + we/100)); blocked = min(D*(1-pass), pool_qi/drain); qi_loss = blocked*drain; leak = D - blocked"
+    notes: "The default drain model. A ward record may name another cost_model (per hit, per round). defense_pct is ward strength."
+    added: 2026-11-06
+    revised: ""
+  - name: body_guard
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    variables:
+      - a_b
+      - t_b
+      - n_body
+      - body_guard_pct
+      - shred
+    output_range: [0.063, 0.857]
+    expression: "g_b = min(guard_cap, (guard_base + a_b + t_b + 0.15*(n_body-1))*(1+body_guard_pct/100)*(1-shred)); m = guard_max_mit*g_b/(g_b+guard_half)"
+    notes: "Works with no linh luc. Qi hits meet it at guard_share_qi."
+    added: 2026-11-06
+    revised: ""
+  - name: soul_attack
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    variables:
+      - divine_sense_att
+      - divine_sense_def
+      - soul_res_pct
+      - soul_pct
+      - x_soul
+      - supp
+    output_range: [0, 0.30]
+    expression: "rho = divine_sense_att/(divine_sense_def*(1+soul_res_pct/100)); pct = 0 if rho < rho_min, else min(soul_pct*(1+x_soul/100)*rho^soul_beta*supp, soul_cap); takes pct of maximum health and of maximum linh luc, before boss_pool_mult"
+    notes: "Ignores wards and body guard. Values are guesses until techniques exist (Combat Open Question 16)."
+    added: 2026-11-06
     revised: ""
 
 # Example:
@@ -762,6 +942,7 @@ constants:
     referenced_by:
       - design/gdd/canh-gioi.md
       - design/gdd/character-stats.md
+      - design/gdd/combat.md
     value: 0.15
     unit: multiplier per small breakthrough
     notes: "User decision; derived ceiling 0.24."
@@ -1282,6 +1463,7 @@ constants:
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
+      - design/gdd/combat.md
     value: "attack/defense/linh_luc_pct 1.0, khi_huyet_pct 1.2, than_thuc/artifact_power_pct 1.3, tam_ma_resist/stealth 1.5, dan_doc_resist 1.6, cultivation_speed_pct 2.2, herb_growth 0.9, mission_income 0.7, alchemy_success 2.7, breakthrough_chance 5, khi_van/ngo_tinh 5, refining_success 2.0, formation_power 1.0, dan_doc_decay 8, density_bonus 140, field_plots 20 (2026-11-04, cross-GDD review 04g F11; no tree acupoint can hold a plot at launch values), lifespan_years 300/L_r"
     unit: W per displayed unit
     notes: "Shared by the fill validator, NPC Builds and Character Stats; guesses until the bot confirms."
@@ -1525,6 +1707,263 @@ constants:
     unit: W, unscaled (purity factor 1.0)
     notes: "Scales by 0.5 + purity/100 for the variant. Qi Refining power accepted by user decision 2026-11-04: about +25 % at mean innate purity; those lives are left out of AC-KMD-07. No sector carries breakthrough_chance. Guesses until AC-KMD-88 and AC-KMD-89 run."
     added: 2026-11-04
+    revised: ""
+  - name: fight_unit_exponent
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.4
+    unit: exponent
+    notes: "Fitted by simulation, not by the balance harness."
+    added: 2026-11-06
+    revised: ""
+  - name: pool_rounds
+    status: deprecated
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 26
+    unit: fight units
+    notes: "Retired 2026-11-06: the user replaced the three pools with one health bar and wards."
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: round_limit
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 40
+    unit: rounds
+    notes: "Round 40 is played."
+    added: 2026-11-06
+    revised: ""
+  - name: layer_caps
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: "400 / 300 / 250 / 150 / 100"
+    unit: percentage points
+    notes: "L1 to L5."
+    added: 2026-11-06
+    revised: ""
+  - name: guard_base
+    notes: "Was body 0.5, qi 0.3, soul 0.3 before the ward rework of 2026-11-06."
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.15
+    unit: units of power_base x stage
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: guard_max_mit
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.9
+    unit: fraction
+    added: 2026-11-06
+    revised: ""
+  - name: guard_half
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 2
+    unit: guard
+    added: 2026-11-06
+    revised: ""
+  - name: guard_cap
+    notes: "Was 20 before the ward rework of 2026-11-06."
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 40
+    unit: guard
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: realm_suppression_table
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: "0 / 0.10 / 0.25 / 0.50 / 0.75"
+    unit: fraction by realm gap
+    added: 2026-11-06
+    revised: ""
+  - name: pierce_cap
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.75
+    unit: fraction
+    added: 2026-11-06
+    revised: ""
+  - name: reserve_floor
+    status: deprecated
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.2
+    unit: fraction of max linh luc
+    notes: "Retired 2026-11-06: the user replaced the three pools with one health bar and wards."
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: regen_cap
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.08
+    unit: fraction per round
+    added: 2026-11-06
+    revised: ""
+  - name: rating_kappa
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 14
+    unit: exponent
+    notes: "Fitted to a one-pool simulation."
+    added: 2026-11-06
+    revised: ""
+  - name: kappa_mass
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 4
+    unit: exponent
+    notes: "Guess."
+    added: 2026-11-06
+    revised: ""
+  - name: creature_mult
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 1.1
+    unit: multiplier
+    notes: "Replaces beast.power_mult."
+    added: 2026-11-06
+    revised: ""
+  - name: health_rounds
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 16
+    unit: fight units
+    notes: "Safe range 12-22."
+    added: 2026-11-06
+    revised: ""
+  - name: qi_rounds
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 26
+    unit: fight units
+    notes: "Safe range 18-36."
+    added: 2026-11-06
+    revised: ""
+  - name: default_ward_pass
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.7
+    unit: fraction
+    added: 2026-11-06
+    revised: ""
+  - name: default_ward_drain
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 2
+    unit: linh luc per blocked point
+    added: 2026-11-06
+    revised: ""
+  - name: ward_gear_scale
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.3
+    unit: ward points per artifact defence
+    added: 2026-11-06
+    revised: ""
+  - name: ward_cap
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 400
+    unit: points
+    added: 2026-11-06
+    revised: ""
+  - name: pass_min
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.05
+    unit: fraction
+    added: 2026-11-06
+    revised: ""
+  - name: drain_min
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.15
+    unit: linh luc per blocked point
+    added: 2026-11-06
+    revised: ""
+  - name: guard_share_qi
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.75
+    unit: fraction
+    added: 2026-11-06
+    revised: ""
+  - name: soul_beta
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 2
+    unit: exponent
+    notes: "Guess."
+    added: 2026-11-06
+    revised: ""
+  - name: rho_min
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.25
+    unit: ratio
+    added: 2026-11-06
+    revised: ""
+  - name: soul_cap
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.3
+    unit: fraction of maximum
+    notes: "Guess."
+    added: 2026-11-06
     revised: ""
 # Example:
 #

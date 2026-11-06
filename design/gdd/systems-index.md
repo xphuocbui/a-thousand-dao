@@ -2,7 +2,7 @@
 
 > **Status**: Approved (system list, dependencies and priority tiers approved by the user, 2026-11-03)
 > **Created**: 2026-11-03
-> **Last Updated**: 2026-11-05
+> **Last Updated**: 2026-11-06
 > **Source Concept**: design/gdd/game-concept.md
 
 ---
@@ -73,11 +73,11 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 18 | Talismans (Phù Lục) | Economy | Alpha | Implemented | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | Item DB, Character Stats |
 | 19 | Spirit Beasts & Spirit Insects (Linh Thú & Linh Trùng) | Economy | Alpha | Implemented (spirit beasts only) | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | World DB, Character Stats, Time & Turn |
 | 20 | Market & Spirit Stone (Linh Thạch) Economy (inferred) | Economy | MVP | Implemented | — | Item DB, Character Stats, Realms, World Gen |
-| 21 | Combat | Gameplay | MVP | Implemented (power duel only). **A full combat system is needed** (user decision 2026-11-05): the power ratio cannot host skills, and The Way's arts wait on it | — | Character Stats, Realms, Cultivation Techniques, Meridian Map, Artifact Refining, Formations, Talismans, Spirit Beasts |
+| 21 | Combat | Gameplay | MVP | Designed (2026-11-06, pending review; one health bar, linh lực wards, body guard, soul attacks; only the power duel is built, and the new fight is not) | design/gdd/combat.md | Character Stats, Realms, Cultivation Techniques, Meridian Map, Artifact Refining, Formations, Talismans, Spirit Beasts |
 | 22 | Heavenly Tribulation (Thiên Kiếp) | Gameplay | MVP | Not Started | — | Combat, Realms, Event Engine |
 | 23 | Event Engine: templates, budgets, validator, resolver | Gameplay | MVP | Implemented | — | World DB, Character Stats, Item DB, NPC Builds, Alchemy, Talismans, Spirit Beasts, Combat |
 | 24 | NPC Build Generation (inferred) | Gameplay | MVP | Implemented | — | Character Stats, Cultivation Techniques, Meridian Map, Item DB, Edges (NPC half) |
-| 25 | Travel & Map (inferred) | Gameplay | MVP | Implemented | — | World Gen, Time & Turn |
+| 25 | Travel & Map (inferred) | Gameplay | MVP | Implemented (thin: named regions and a graph of places). **An open world map is needed** (user decision 2026-11-06). See System Briefs: World Map | — | World Gen, Time & Turn |
 | 26 | Sects & Missions (inferred) | Gameplay | MVP | Implemented (thin) | — | World Gen, Character Stats, Market |
 | 27 | World Generation & History | Narrative | MVP | Implemented | — | World DB, NPC Builds, Item DB, Config, Sim Core |
 | 28 | Living World Tick | Narrative | Vertical Slice | Implemented (abstract) | — | World DB, Realms, NPC Builds, Edges (NPC half), Time & Turn |
@@ -291,7 +291,7 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | System | Risk Type | Risk Description | Mitigation |
 |--------|-----------|-----------------|------------|
 | Event Engine, LLM Game Master | Technical | Pillar 2 rests on them. The real DeepSeek path is untested; the narration number check only catches digits; structured-output reliability is unproven | Run the real model early (key pending); extend the check to numbers written in words; keep template fallback |
-| Combat, Heavenly Tribulation (Thiên Kiếp) | Design | The duel is a power ratio only, and a full combat system is needed (user decision 2026-11-05; The Way's arts wait on it); there is no tribulation; the concept's open question (how assets combine, how fighting beyond one's realm [vượt cấp] works) is unanswered | Answer it in the Combat GDD; prototype with the balance harness |
+| Combat, Heavenly Tribulation (Thiên Kiếp) | Design | The duel is a power ratio only, and a full combat system is needed (user decision 2026-11-05; The Way's arts wait on it); there is no tribulation; the concept's open question (how assets combine, how fighting beyond one's realm [vượt cấp] works) is unanswered | Answered in design/gdd/combat.md (2026-11-06); its numbers come from a simplified simulation, so confirm them with the balance harness |
 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh), Progression Edges | Design | Baseline per-step odds measured 42–46% / 27–35% against a 30% target while the edge sits at 71–79% / 53–74% against 70%; single levers move both together | Decide a baseline-only lever or a larger sample (96+ lives per arm) in the Realms & Bottlenecks GDD; log in design/quick-specs/progression-and-edges.md |
 | Market & Spirit Stone (Linh Thạch) Economy, crafts | Design | Degenerate-strategy risk across five crafts; nothing past Core Formation (Kết Đan) is worth buying yet | Headless sims per spiritual root (linh căn) tier; add sinks when later realms are designed |
 | Content volume | Scope | Concept targets about 60 spirit herbs (linh thảo), 40 recipes, 40 magic treasures (pháp bảo), 30 talismans (phù lục); the build has 8 herbs and 10 recipes | Content pass per tier; do not widen systems before the MVP loop is validated |
@@ -308,14 +308,94 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | Total systems identified | 39 |
 | Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (beasts only), 21 (duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin) |
 | Systems not started | 6: 12, 22, 31, 34, 37, 38 (plus spirit insects [linh trùng], inside 19) |
-| GDDs started | 6 (11 The Way [Đạo], approved 2026-11-06; 10 Meridian Map [Kinh Mạch Đồ] and 9 Cultivation Techniques [Công Pháp], reopened 2026-11-04 by the Spiritual Roots redesign; 7 Character Stats, in review after the cross-GDD review 04f revisions; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], needs revision after the 2026-11-05 review, fixes applied; 6 Spiritual Roots [Linh Căn], redesigned 2026-11-04, pending review) |
+| GDDs started | 7 (21 Combat, designed 2026-11-06, pending review; 11 The Way [Đạo], approved 2026-11-06; 10 Meridian Map [Kinh Mạch Đồ] and 9 Cultivation Techniques [Công Pháp], reopened 2026-11-04 by the Spiritual Roots redesign; 7 Character Stats, in review after the cross-GDD review 04f revisions; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], needs revision after the 2026-11-05 review, fixes applied; 6 Spiritual Roots [Linh Căn], redesigned 2026-11-04, pending review) |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
 | Design docs reviewed | 5, each independently on 2026-11-05 (reports in design/gdd/reviews/) |
 | Design docs approved | 0; 6, 7, 8, 9 and 10 in review after the 2026-11-05 reviews, with a clean cross-GDD pass (CONCERNS, no blockers) |
-| MVP systems designed | 5 / 25 |
+| MVP systems designed | 6 / 25 |
 | Vertical Slice systems designed | 0 / 8 |
 
 ---
+
+## System Briefs
+
+Recorded 2026-11-06 at the user's request, so the intent is not lost. Combat is now designed in
+design/gdd/combat.md; the World Map is not. **User intent** is binding on the eventual GDD. **Ideas to explore** are starting points,
+not decisions: `/design-system` puts each one to the user.
+
+### Combat (#21)
+
+**User intent:** a combat system that is very build-heavy, and complex enough that the player
+feels a build makes a difference, much like Path of Exile. With the correct build, scaling can
+go very high.
+
+**Ideas to explore:**
+- **Scaling layers.** Bonuses add within a layer and multiply across layers, so a build that
+  works several layers far outscales one that stacks a single number. Big numbers then come from
+  how a build is assembled, not from a stat race.
+- **Every system is a build slot.** Root, technique, Meridian Map, Daos, artifacts, talismans,
+  formations, spirit beasts and pills all feed one rule set through shared tags.
+- **Tagged arts.** An art carries tags (element, sword, soul, poison) and a build's modifiers key
+  off them. Techniques and Dao nodes change how an art behaves, not only how hard it hits.
+- **Conversion and triggers.** Fire converted to Lava by a Dao, or "when X happens, do Y", give
+  builds their signature combos.
+- **Several kinds of threat.** Body, qi and soul attacks, damage over time, curses and layered
+  defences, with enemies that punish one-note builds, so a build must answer more than damage.
+- **Spiritual power (linh lực) as the fight's economy.** Long fights drain it, so sustain is a
+  build choice too.
+- **Preparation counts.** Formations laid, talismans drawn, poison applied and ground chosen
+  before a fight, in the spirit of the game's "build with the system" core.
+- **Fighting above your realm (vượt cấp)** is the payoff a great build earns, against realm
+  suppression.
+- **Every hit explains itself** with a Breakdown, so a player can see why a build won or lost.
+
+**Must be solved in the design:**
+- The Meridian Map and the Way price everything in W, which is additive (1 W = +1 % attack).
+  Multiplying layers break that pricing, so the W scale, `dao_premium` and capability tiers need
+  a decision.
+- NPCs need a cheap abstract form: 5,000 cultivators cannot run full fights each season. The
+  player's and the NPCs' power must stay comparable.
+- Fights stay deterministic from the seed, and readable in the Debug Terminal.
+- Heavenly Tribulation (#22) depends on Combat, so Combat comes first.
+
+### World Map (#25, with World Generation #27)
+
+**User intent:** generate an open world map that players travel across. There are hidden places
+that players can find clues for. Distance between places is reflected in the game: NPCs
+travelling, sects, kingdoms, culture, economy, environment and more. Each location has stats,
+much like a Dwarf Fortress map. Some places are good for planting certain herbs and plants, or
+good for other specific things.
+
+**Ideas to explore:**
+- **Layered generation.** Seeded elevation, rainfall, temperature and drainage give biomes and
+  rivers. A cultivation layer sits on top: spiritual qi density (linh khí), five-element
+  affinity, dragon veins (long mạch) and miasma.
+- **A location's stat block:** qi density, element affinity, soil, climate, danger, resources,
+  population, ruler, culture and trade access.
+- **Places that matter to a build.** A Fire root cultivates faster near a volcano, a Water herb
+  thrives in a wet valley, some herbs grow in one kind of place only, and where a character sets
+  a cave dwelling (động phủ) or field is a real decision. Fighting on Fire-rich ground could
+  favour Fire arts.
+- **Distance as a cost.** Travel time depends on terrain and route: road, river, flight by realm,
+  or teleport arrays (truyền tống trận) that sects control.
+- **News and goods travel too.** Rumours reach far towns late. Prices differ by distance from
+  the source, so trade routes pay. A sect's reach fades with distance, and geography shapes
+  borders and cultures.
+- **Hidden places:** secret realms (bí cảnh), ruins and dead cultivators' cave dwellings, placed
+  by the world's history, so a famous dead NPC's cave can really be there.
+- **Clues narrow the search.** A rumour names a region, a jade slip (ngọc giản) a mountain, a torn
+  map a valley. Clues can be bought, found or false, and the player's own map only shows what
+  they have seen.
+- **The map changes.** Over-harvested veins thin out, wars move borders, great battles scar the
+  land, and secret realms open on cycles.
+
+**Must be solved in the design:**
+- The living world must stay cheap: a tick for 5,000 cultivators on a large map, and the save
+  size that map needs.
+- How much simulation is per region and how much per location.
+- How a map reads in a text terminal, and later in the Game UI.
+- The move from today's region-and-place graph, and what that does to Market, Sects, Spirit
+  Fields, Events and the balance bots that rely on it.
 
 ## Next Steps
 
@@ -324,7 +404,8 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 - [ ] Run `/design-review` on each completed GDD (first: `design/gdd/kinh-mach-do.md`, in a fresh session)
 - [x] Carry the level ladder (great and small breakthrough bonuses, stat rises at every breakthrough) from the Meridian Map (Kinh Mạch Đồ) GDD into the Realms & Bottlenecks GDD (done; the ladder is now 110 levels, 2026-11-05)
 - [ ] Design the unbuilt MVP system, Heavenly Tribulation (Thiên Kiếp), with `/design-system thien-kiep`
-- [ ] Design a full combat system (Combat, #21): the built duel is a power ratio and cannot host skills. The Way's arts, and any future active technique, depend on it
+- [ ] Design a full combat system (Combat, #21): build-heavy, with very high scaling for the right build (System Briefs: Combat). The built duel is a power ratio and cannot host skills. The Way's arts, Heavenly Tribulation and any future active technique depend on it
+- [ ] Design the open world map (Travel & Map #25, with World Generation #27): generated terrain, location stats, real distance, hidden places and clues (System Briefs: World Map)
 - [x] Design the Way (Đạo) with `/design-system dao` (done 2026-11-05, approved 2026-11-06: design/gdd/dao.md; its catalogue of trees is a content pass, and its arts wait on a full combat system)
 - [ ] Update `design/gdd/game-concept.md` to include the Meridian Map, Progression Edges and the Debug Terminal
 - [ ] Reconcile `project.yaml` stage with `/project-stage-detect`

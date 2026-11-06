@@ -241,7 +241,7 @@ here but not built yet.
     | Group | Keys (unit) |
     |---|---|
     | Cultivation | `cultivation_speed_pct`, `cultivation_speed_per_element_pct` (pct, × the root's base element count), `density_bonus` (flat qi density), `breakthrough_chance` (pct, pill attempts only) |
-    | Combat | `attack_pct`, `defense_pct`, `khi_huyet_pct`, `linh_luc_pct`, `than_thuc_pct`, `artifact_power_pct` (pct); artifact-local: `artifact_attack_pct`, `artifact_defense_pct`, `element_affinity_pct`, `than_thuc_cost_pct` (pct, applied by Combat only); `single_artifact` (flag) |
+    | Combat | `attack_pct`, `defense_pct` (ward strength: Combat Formulas D), `khi_huyet_pct`, `linh_luc_pct`, `than_thuc_pct`, `artifact_power_pct` (pct); artifact-local: `artifact_attack_pct`, `artifact_defense_pct`, `element_affinity_pct`, `than_thuc_cost_pct` (pct, applied by Combat only); `single_artifact` (flag); fight rolls and sustain (added by the Combat GDD 2026-11-06): `crit_chance_pct`, `crit_damage_pct`, `evade_pct`, `accuracy_pct`, `pierce_pct`, `art_cost_pct`, `linh_luc_regen_pct`, `status_resist_pct`, `ward_efficiency_pct`, `body_guard_pct`, `soul_res_pct` (pct) |
     | Toxicity and heart demon | `tam_ma_resist_pct`, `dan_doc_resist_pct`, `pill_effect_pct` (pct); `dan_doc_decay` (flat per season); `dan_doc_no_penalty`, `safe_failure` (flag); `qi_deviation_pct` (pct: the qi deviation chance is × (1 + total ÷ 100); +100 doubles it) |
     | Lifespan | `lifespan_years` (years), `lifespan_pct` (pct) |
     | Crafts and economy | `alchemy_success`, `refining_success`, `formation_power_pct`, `herb_growth_pct`, `mission_income_pct` (pct); `alchemy_yield` (flat pills); `field_plots` (flat, integer) |
@@ -585,7 +585,7 @@ the listed systems consume them.
 |---|---|
 | Reward ceiling = `0.75 + 0.005 · eff(khi_van)` (× the event budget's spirit stone and cultivation base caps) | Event Engine |
 | Check chance = `clamp(0.5 + (stat − difficulty) · 0.01 + (eff(khi_van) − 50) · 0.002 [+ stealth · 0.01 when evading], 0.05, 0.95)`. The fortune term is omitted when the checked stat is fortune | Event Engine |
-| Duel win chance gains `(fortune_A − fortune_B) · 0.001`, clamped 0.02–0.98 | Combat |
+| Every fight roll that is not 0 or 1 (crit, evade, status, trigger, escape) gains `(fortune_self − fortune_other) · 0.001`, added before the roll's own cap. A rating clash gains `(fortune_A − fortune_B) · 0.001`, clamped 0.02–0.98 (Combat Formulas I, K) | Combat |
 | Alchemy crit chance = `eff(khi_van) · 0.0015` | Alchemy |
 | `charm = (eff(mi_luc) − 50) · 0.004`; buy = ⌈value × 1.5 × (1 − charm)⌉; sell = max(1, ⌊value × 0.6 × (1 + charm)⌋). Buy rounds up and sell rounds down, so rounding never favours the player in a loop | Market |
 | NPC attitude: this GDD publishes `eff(mi_luc) − 50`; the scale belongs to NPC Interaction (not built) | NPC Interaction |

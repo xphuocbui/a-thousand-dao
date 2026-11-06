@@ -83,7 +83,8 @@ which technique you commit your seasons to. The decision has two sides:
      bonuses and abilities, never speed.
    - **Body technique** (luyện thể): an auxiliary art that names no element. It
      scales with Physique (căn cốt) instead of purity (Formulas D). This is the
-     route for a cultivator whose root fits no art they have found.
+     route for a cultivator whose root fits no art they have found. In a fight it
+     also feeds body guard, the defence that needs no spiritual power (Combat rule 23).
 3. **Tiers.** Yellow, Profound, Earth and Heaven (Hoàng, Huyền, Địa, Thiên), ranks
    0–3. The tier sets:
    - the speed and power scale;
@@ -198,11 +199,11 @@ which technique you commit your seasons to. The decision has two sides:
     and its `unlock_layer` is mastered.
     - Unslotting hides the ability; slotting the technique again restores it.
     - This GDD owns which abilities a technique carries and when they unlock.
-      Combat owns what each ability does (provisional: Combat has no GDD).
-14. **Combat.** Combat reads `tech_power` and the unlocked abilities. The technique
-    line of the power breakdown (`cong_phap_share` 0.2, as built) belongs to Combat. It
-    exists only with a usable main method: with none there is no technique line, and
-    `no_tech_power` applies to spiritual power only (as built).
+      Combat owns what each ability does (design/gdd/combat.md).
+14. **Combat.** Combat reads the unlocked abilities. `tech_power` reaches it only through
+    spiritual power, which sizes the qi pool (Combat Formulas A), so there is no separate
+    technique line. With no usable main method no ability is listed, and `no_tech_power`
+    applies to spiritual power only.
 
 **Hooks for other systems**
 
@@ -289,7 +290,7 @@ every transition. Losing the manual item never unlearns a technique.
 | Meridian Map | in / out | in: capability #6 (second main slot). Out: the elements a main method names (rule 15's interim rule; `seal_clusters` later) and main-slot season counts | Meridian Map (the rule); this GDD (the record and `cong_phap_seasons`) |
 | Time & Turn | in | whether the season was spent cultivating (full or idle mastery rate) | Time & Turn |
 | Item DB | in / out | manuals as items pointing at templates; generated commons stored as records | Item DB (storage); this GDD (the record schema) |
-| Combat | out | `tech_power`; the unlocked divine abilities | this GDD (which and when); Combat (effects; provisional) |
+| Combat | out | the unlocked divine abilities; `tech_power` through spiritual power | this GDD (which and when); Combat (effects) |
 | Market | out | manuals for sale, priced by tier (`value`) | Market |
 | Event Engine / LLM GM | out | catalogue ids and generated commons that events may grant, within budget | Event Engine (budgets); this GDD (what may be granted) |
 | NPC Build Generation | out | the same templates, slots and layer rules for NPCs | NPC Build Generation |
@@ -497,7 +498,7 @@ measures depth relative to the realm.
 | p_floor (`power_layer_floor`) | float | 0.6 (guess; safe 0.4–0.8) | data file | Share of the power at layer 1 |
 | k, layers | int | as in A | calculated, data file | Mastered layer; ladder length |
 | no_tech_power | float | 0.5 (guess) | data file | Spiritual power factor with no main method (as built it was 1.0) |
-| tech_power | float | 0.5–2.2 | calculated | Read by Character Stats (spiritual power) and, with a main method, Combat (rule 14) |
+| tech_power | float | 0.5–2.2 | calculated | Read by Character Stats (spiritual power), which sizes Combat's qi pool (rule 14) |
 
 **Output Range:** 0.5 (no main method) to 2.2 (a Heaven technique at great
 completion). A Yellow technique at layer 1 gives 0.6. The Character Stats range
@@ -769,7 +770,7 @@ reviews and three cross-GDD reviews have checked it, but no specialist pass has.
 | 8 | Realms & Bottlenecks | `tech`, the speed factor in the cultivation rate (Formulas A) |
 | 7 | Character Stats | Technique bonuses through the provider interface; `tech_power` for spiritual power |
 | 10 | Meridian Map | The elements a main method names (rule 15's interim rule; `seal_clusters` later), main-slot cultivating-season counts, `seal_seasons` (its `cong_phap_seasons`) |
-| 21 | Combat | `tech_power`; the unlocked divine abilities (provisional: no Combat GDD) |
+| 21 | Combat | The unlocked divine abilities; `tech_power` through spiritual power |
 | 20 | Market | Manuals for sale; commons with root bias; prices from Formulas E; the rule 18 reserved copy and its fallback stock |
 | 23, 29 | Event Engine, LLM GM | The catalogue and the commons an event may grant; validation of technique effects |
 | 24 | NPC Build Generation | Templates, slots and layer rules for NPCs |
@@ -1256,10 +1257,10 @@ applied above).
   - An Earth fixture unseals on the 48th, not the 47th.
   - A cluster's minimum realm still applies.
   - Without capability #6, slotting a second main method is refused.
-- **AC-CP-39** [Integration] Combat (provisional: no Combat GDD).
-  - The technique line of the power breakdown is base × `cong_phap_share` 0.2 ×
-    `tech_power`: base × 0.302909 for an Earth method at k 9. With no main method there
-    is no technique line (rule 14).
+- **AC-CP-39** [Integration] Combat.
+  - The compiled combat profile has no technique line, and `tech_power` reaches it only
+    through spiritual power. With no main method at Qi Refining the qi pool is 82.02
+    (rule 14; Combat AC-CB-60).
   - The ability list Combat reads equals AC-CP-09's unlocked list at each step.
 - **AC-CP-40** [Integration] Market.
   - For every presence value 1–150 and every price in 26–35 and 170–230, plus 1,500
