@@ -1,6 +1,6 @@
 # Combat
 
-> **Status**: Reworked 2026-11-06 to a timeline of seconds with no rounds (user decision); not re-reviewed. Simulated numbers predate the timeline and are provisional. Earlier: fourth design-review fixes, cooldown timers and hit order, escape step, one health bar and wards
+> **Status**: Reworked 2026-11-06 to a timeline of seconds with no rounds (user decision); seventh review fixes applied the same day (ward pass clamp, defeat check judged after all of an instant's damage, a draw on equal overkill, guards read after the pulse), not re-reviewed; ninth-pass fixes applied the same day (wake-up events, ward expiry tie), not re-reviewed. Simulated numbers predate the timeline and are provisional. Earlier: fourth design-review fixes, cooldown timers and hit order, escape step, one health bar and wards
 > **Build status**: On hold (user decision 2026-11-06). The full fight is not built until items, techniques, abilities and passives exist. Until then fights keep using today's power duel (`CombatPower`, `combat_rules.json`) unchanged, so the Character Stats and Cultivation Techniques edits that cite this GDD describe the target, not the running game.
 > **Author**: user + agents
 > **Last Updated**: 2026-11-06
@@ -72,8 +72,8 @@ author's reading and wait for confirmation (see Open Questions).
    `compile` replaces today's `CombatPower.compute`, and every stored use of its total moves to
    `display_power` or the profile (Formulas K).
 3. **One health bar.** Khí huyết is the only bar that ends a fight. It starts at its maximum × `max(v, 0.4)`,
-   where v is the vitality fraction. At 0 the side is **Down** with a mortal wound, dying unless the winner
-   spares it. Linh lực starts full. Combat reports the knockout; the caller decides what it costs
+   where v is the vitality fraction. At 0 the side is **Down** with a mortal wound; whether it dies or is
+   spared rests on the caller (rule 14). Linh lực starts full. Combat reports the knockout; the caller decides what it costs
    (rule 14). The thần thức that equipped artifacts occupy (Artifact Refining) stays a separate loadout
    limit and does not lower the thần thức a side fights with (user decision 2026-11-06).
 4. **Three threat kinds, and how each gets through.** Every attack has a kind. **Body** and **qi** attacks
@@ -97,7 +97,7 @@ author's reading and wait for confirmation (see Open Questions).
    as well, so both tag families' modifiers apply to it. Conversions run in a fixed order and a tag
    cannot be converted back in the same hit.
 7. **Damage over time is a status.** An over-time effect has a kind, tags, a strength, a duration in
-   seconds and a stacking rule (refresh, stack to a cap, or the stronger wins). It ticks at
+   pulses and a stacking rule (refresh, stack to a cap, or the stronger wins). It ticks at
    every pulse (rule 10) inside the ward, so only body guard reduces it, and it is an ordinary line in the log.
 8. **Curses are statuses that change rules, not pools.** A curse can lower a defence, lock one
    layer, raise an art's cost, block regeneration or block a tag. It has a duration and a source and
@@ -109,43 +109,70 @@ author's reading and wait for confirmation (see Open Questions).
    conversion toggle). Triggers resolve in a fixed order, a trigger caused by a trigger resolves at
    most to `trigger_depth`, and the per-pulse trigger count is capped, so no build can loop forever.
 10. **The timeline.** A fight runs in simulated seconds from t = 0 up to `time_limit`, with no rounds (user
-    decision 2026-11-06). Times are true seconds, and no real clock is involved (rule 21). The engine always
-    resolves the next scheduled event: an art firing, a basic attack, a companion hit, a pulse or an escape
-    resolving. Both sides share one clock.
+    decision 2026-11-06). Times are whole milliseconds, never floats, so two events tie only in the same millisecond, and no real clock is involved (rule 21). An art's effective cooldown rounds to the nearest millisecond (half up), and its timer restarts as the firing time plus that value. Every other time key (`pulse_interval`, `basic_cooldown`, `escape_channel`, `soul_lockout`, `ward_art_duration`, `trig_ward_seconds`, `time_limit`) is authored in seconds and rounded the same way at load. The engine always
+    resolves the next scheduled event: an art firing, a basic attack, a companion hit, a pulse, an escape
+    resolving or a **wake-up** (below). Both sides share one clock.
+    - **Wake-ups (review fix 2026-11-06).** Some things stop an art that is otherwise ready, and each ending is a
+      scheduled event, so a waiting art fires in the instant its blocker ends, not at whatever event comes next: a
+      `soul_lockout` ending (rule 24); the fight time reaching a time guard's threshold (rule 13); an escape
+      channel ending (already the escape event). A wake-up joins the instant at its millisecond and adds nothing but
+      the chance for waiting arts to fire, in the art-cost step. The expiry of a ward (a ward art's
+      `ward_art_duration`, a trigger ward's `trig_ward_seconds`) is also a scheduled time, but it fires nothing: a ward
+      **stays up through the whole millisecond it expires in** (user decision 2026-11-06), so hits in that instant
+      are blocked and the ward is down from the next millisecond.
     - **Start.** Linh lực is full and autocast wards are up. Every art's timer starts at its full effective
       cooldown (rule 13), so nothing fires at t = 0. The basic attack and the companion first act at
-      `basic_cooldown`, and the first pulse is at `pulse_interval`.
-    - **Pulse.** Every `pulse_interval`: pulse triggers fire, over-time statuses tick, status and curse
+      `basic_cooldown`, and the first pulse is at `pulse_interval`. A per-pulse ward pays its first upkeep at t = 0 (rule 22).
+    - **Pulse.** Every `pulse_interval`: pulse triggers fire (counted in the window that is ending, so nothing they do counts toward the next), over-time statuses tick, status and curse
       durations fall, sides that are not Down regenerate linh lực, per-pulse wards pay their upkeep, and the
       per-pulse limits reset (`trig_cap`, the trigger budget, `dot_pulse_cap`). A status or curse applied
-      between pulses first counts at the next one. If a tick empties health, the defeat check runs at once and
-      a Down side takes no further action.
-    - **Firing.** An art fires the moment its timer has ended, its guard is true and its cost can be paid, all
-      read live. Its cost is paid then and its timer restarts (rule 13).
+      between pulses first counts at the next one. A tick may take health to 0 or below, but nothing ends the
+      fight until the instant's defeat check (see Same instant).
+    - **Firing.** An art fires the moment its timer has ended, its guard is true and its cost can be paid. The
+      **guard is read once the instant's pulse has resolved and before any art cost is paid** (user decision
+      2026-11-06), so a tick that opens the instant can switch it and a hit landing later in the same instant
+      cannot; **affordability is read live**, as each slot pays in slot order, so a later
+      slot sees what an earlier slot paid. Its cost is paid then and its timer restarts (rule 13).
     - **Hit.** A hit lands at once, against the defender's live linh lực, its parts in conversion order.
-      Triggers it sets off resolve right after it, in the fixed order of rule 9. A Down side's triggers do not
-      fire.
+      Triggers it sets off resolve right after it, in the fixed order of rule 9. A side whose health has fallen
+      to 0 or below keeps acting until the instant ends (see Same instant).
     - **Same instant.** Events at exactly the same time form one **instant**, resolved in this order: the
       pulse; both sides' art costs, in slot order; the **requesting side's** hits; the other side's hits;
       escapes. The requesting side is the one the Event Engine names as opening the fight, the player's side
       when the player did, else side A. A side's hits in an instant follow the **hit order**: arts in slot
-      order, then the basic attack, then the companion. Both hit lists land in full even if a side goes Down
-      during the instant, so neither side gains by being first and a double knockout stays possible. Random
-      draws follow the same order (Formulas I).
+      order, then the basic attack, then the companion. **All of an instant's damage is calculated before anyone
+      is judged** (user decision 2026-11-06): health may fall to 0 or below during the instant, and the pulse's
+      ticks, both hit lists and the triggers they set off all resolve in full. Only the defeat check decides who is
+      Down, so neither side gains by being first and a double knockout stays possible. Random draws follow the
+      same order (Formulas I).
+    - **Follow-up instants (user decision 2026-11-06).** Guards are read at the start of an instant (see Firing), so a
+      hit can make a waiting art eligible only after the fact (an escape art guarded on own health below 30 %, a
+      refund that makes an art affordable). If the fight is not over after an instant's defeat check, every art
+      that is ready, whose guard is now true and whose cost can now be paid fires in a **follow-up instant at the
+      same t**, with the same order (art costs, the requesting side's hits, the other side's hits, escapes) and no
+      pulse. Follow-ups repeat until no art can fire. Each firing restarts that art's timer, so each art fires at
+      most once per timer and the loop ends. A follow-up is not a new event: it does not move the clock, and its
+      draws continue the same order (Formulas I).
     - **Escape.** An escape art pays its cost when it fires and starts a channel of `escape_channel` seconds,
-      during which hits keep landing. When the channel ends, a side that is not Down rolls its escape chance
-      (Formulas I). A success makes that side **Fled**, and the fight ends there: if the other side is Down in
-      that instant, the fleeing side wins by knockout; if both fled, the fight ends in flight with no winner;
-      otherwise it ends in flight with no winner and the fleeing side is the one that left (the caller treats
-      it as the failure branch for the side that needed the win). A failed escape ends nothing and the fight
+      during which hits keep landing. A side has **one channel open at a time** (user decision 2026-11-06): while it
+      is open no escape art of that side fires, and a ready one waits. When the channel ends, a side with health above 0 rolls its escape chance
+      (Formulas I). A success makes that side **Fled**, and the fight ends there: if the other side's health is 0
+      or below at that point, the fleeing side wins by knockout. Otherwise the fight ends in flight with no winner,
+      whether one side fled or both did, and the result names the side or sides that left (the caller treats it as
+      the failure branch for the side that needed the win). A failed escape ends nothing and the fight
       goes on.
-    - **Defeat check.** After every instant. If one side has no health, the fight ends. If both have none,
-      the side with the larger overkill loses, where overkill is the damage past zero as a share of maximum
-      health. If equal, the side with more linh lực as a share of its maximum at the start of the instant
-      wins. If still equal, a 50/50 draw decides, which fortune does not shift. The winner of a double
-      knockout is left at 1 health and is not Down.
+    - **Defeat check.** After every instant, once all of its damage is in. A side with no health is **Down**,
+      and its health is set to 0. If one side is Down, the fight ends. If both are, the side with the larger overkill
+      **share** loses (overkill as a share of that side's own `health_max`, Formulas C, so a bigger pool is not
+      punished for a bigger absolute number), and the other wins and is left at 1 health, not Down. If the two
+      shares differ by less than `overkill_epsilon` (1e-9, so a last-digit float difference cannot break a mirror),
+      the fight ends in a **draw** (user decision 2026-11-06): no winner, both sides left at 1 health with
+      `wound: grave` and neither `mortal`. The result carries a `wound` value per side: `none`, `grave` (a draw's
+      survivors) or `mortal` (a Down side). The caller decides what a grave wound costs (rule 14). No random draw
+      decides it and fortune does not enter.
     - **Time limit.** Events at exactly `time_limit` resolve. If no side is Down after them, the fight is a
-      **stalemate** and each side keeps what it has left (rule 14).
+      **stalemate** and each side keeps what it has left (rule 14). An escape roll that would fall after
+      `time_limit` never happens: its channel is cut off and does not change the stalemate.
 
     No stat decides who acts first. A side's pace comes from the arts it slots and from art speed
     (rule 13), which is bounded, so no single stat can dominate the order of a fight.
@@ -186,7 +213,7 @@ author's reading and wait for confirmation (see Open Questions).
     other percentage keys, and each point is worth less than the last. It applies to arts only. The **basic attack** is a
     free art on its own timer of `basic_cooldown` and **always runs**, whatever else fires (user decision
     2026-11-06). A **guard** is an optional single condition on an art record, from a fixed vocabulary:
-    own or enemy health or linh lực below or above a share, a status on either side, or the fight time. An
+    own or enemy health or linh lực below or above a share, a status on either side, or the fight time. Comparisons are inclusive: "below" means at or below and "above" means at or above, so a time guard "above 10 s" is true from t = 10.000. An
     art with no guard fires whenever ready. Talismans and the escape art carry a guard by authoring (for
     example own health below 30 %), or they would fire as soon as their first cooldown ends. The **slot order**
     is the player's one ordering tool and the NPC generator's output: it settles the order inside an instant,
@@ -195,18 +222,17 @@ author's reading and wait for confirmation (see Open Questions).
     a fight ends by flight if the escape art succeeds (a seeded chance against the pursuer's tags and
     realm), with the result recorded as such.
 14. **A fight ends with a result, never with a consequence.** The result is: the winning side, how
-    it ended (knockout, stalemate or flight), the fight time, each side's health and linh lực at the end, the
+    it ended (knockout, draw, stalemate or flight), the fight time, each side's health, linh lực and `wound` (`none`, `grave` or `mortal`) at the end, the
     resources spent (talismans, linh lực), the deciding layer (the layer with the highest
-    damage-weighted total over the winner's hits; ties take the lower number; a soul win, a stalemate or a flight
+    damage-weighted total over the winner's hits; ties take the lower number; a soul win, a draw, a stalemate or a flight
     has no deciding layer and the result says so), and the full log. Combat itself
     changes nothing outside the fight. The caller applies consequences: it decrements spent stock, Character Stats takes the
     vitality loss (Formulas A), the Event Engine decides death, mercy or capture and offers taming of a beaten
-    creature, Realms receives the defeat for capability #9, and the World Database records the
+    creature, Realms receives a knockout of a cultivator for capability #9 (a flight, a draw, a stalemate or a creature never counts, and mercy does not undo it; user decision 2026-11-06), and the World Database records the
     event. **Death rests on the caller:** Combat only says a side was mortally wounded.
 15. **All randomness is explicit and seeded.** One random stream per fight, seeded from the world
     seed and the fight id, is drawn from in a fixed order. Randomness enters only through explicit
-    `chance` fields (a critical hit, an evade, a status chance, a trigger chance, an escape) and the
-    tiebreak draw. A build whose chances are all 0 or 100 per cent is fully deterministic, and
+    `chance` fields (a critical hit, an evade, a status chance, a trigger chance, an escape). A build whose chances are all 0 or 100 per cent is fully deterministic, and
     the design aims at that: chance is a flavour of a build, not the base of the outcome. Hits
     have no base damage spread (user decision 2026-11-06). Fortune (khí vận) shifts every chance
     roll that is not already 0 or 100 per cent (Formulas I).
@@ -251,8 +277,8 @@ author's reading and wait for confirmation (see Open Questions).
     any ward: **ward strength** blocks more and **ward efficiency** costs less.
     A ward is an **autocast** by default: it needs no slot firing, is up from t = 0, and stays up while its
     cost can be paid. A spell may instead be slotted as an art with its own cooldown and guard, and is then up
-    for `ward_art_duration` each time that art fires. The player can switch a ward off for a fight, to save linh lực for arts.
-    One ward is up at a time. A **drain** ward is up whenever its linh lực is above 0 and pays per blocked
+    for `ward_art_duration` each time that art fires; between firings the ward slot's spell stands, or the default ward when that slot is empty. The player can switch a ward off for a fight, to save linh lực for arts.
+    One ward is up at a time: a firing ward art, else the ward slot's spell, else the default. A **drain** ward is up whenever its linh lực is above 0 and pays per blocked
     point; a per-hit or per-pulse ward is up only if it can pay its fixed cost (Formulas D). A per-pulse
     ward pays its upkeep at t = 0 and at each pulse, and a per-hit ward pays for each hit, from the same live
     pool that art costs come out of. With little
@@ -288,7 +314,7 @@ A fight has these states; a combatant has the sub-states under it.
 | Combatant state | Entered when | Leaves when |
 |---|---|---|
 | Fighting | The fight starts | Health is empty, or its escape succeeds |
-| Down: mortal wound | Health is empty | The caller finishes or spares it |
+| Down: mortal wound | Health is empty at an instant's defeat check | The caller finishes or spares it |
 | Fled | Its escape art succeeds | The fight ends |
 
 A Down side acts no more. A ward is not a state: at any moment it is up if it was cast and paid for.
@@ -301,7 +327,7 @@ this GDD expects, to be matched when those systems are designed.
 
 | System | Direction | What flows | Owner of the interface |
 |---|---|---|---|
-| Character Stats (#7) | in / out | In: vitality, spiritual power and divine sense, `attack_pct`, `defense_pct` (as ward strength), `khi_huyet_pct`, `linh_luc_pct`, `than_thuc_pct`, `artifact_power_pct`, the artifact-local keys, `single_artifact`, resistance keys, the realm term of power, the vitality factor floor. Out: vitality loss after a fight, `+2` heart demon on a kill with capability #9 | Character Stats (keys, units); Combat (what each key does in the fight) |
+| Character Stats (#7) | in / out | In: vitality, spiritual power and divine sense, `attack_pct`, `defense_pct` (as ward strength), `khi_huyet_pct`, `linh_luc_pct`, `than_thuc_pct`, `artifact_power_pct`, the artifact-local keys, `single_artifact`, resistance keys, the realm term of power, the vitality factor floor. Out: vitality loss after a fight, `+2` heart demon on a cultivator knockout with capability #9 | Character Stats (keys, units); Combat (what each key does in the fight) |
 | Realms & Bottlenecks (#8) | in / out | In: realm, stage multiplier, the realm gap `g`. Out: defeats for capability #9, and the result for a tribulation | Realms |
 | Cultivation Techniques (#9) | in | `tech_power` (through spiritual power), the unlocked divine abilities with their unlock layer, and `t_b` from body techniques (**provisional**) | Cultivation Techniques (which and when); Combat (what they do) |
 | Meridian Map (#10) | in | Only the stat modifiers, through Character Stats. Combat hosts no capability behaviour: each capability has one host, and an effect such as #1 or #3 reaches Combat only as the artifact values its host supplies. For #9, Combat only reports the defeat | Meridian Map |
@@ -378,7 +404,7 @@ and it starts at 43.9.
 
 The cooldown formula is defined as:
 
-`cd_eff = max(cooldown_min, cooldown / (1 + art_speed_pct / 100))`
+`cd_eff = round_ms(max(cooldown_min, cooldown / (1 + art_speed_pct / 100)))`, where `round_ms` rounds to the nearest millisecond, half up (rule 10)
 
 **Variables:**
 
@@ -396,7 +422,7 @@ The cooldown formula is defined as:
 
 **Output Range:** `cd_eff` runs from `cooldown_min` to the authored cooldown. Dividing never reaches 0 on its own, so the floor is the only hard stop.
 
-**Example:** cooldown 10 s at +100 %: 10 / 2 = **5 s**. Sources of +100 % and +50 % add to +150 %: 10 / 2.5 = **4 s**. Cooldown 1 s at +300 % would be 0.25 s and stops at **0.5 s**.
+**Example:** cooldown 10 s at +100 %: 10 / 2 = **5 s**. Sources of +100 % and +50 % add to +150 %: 10 / 2.5 = **4 s**. Cooldown 1 s at +300 % would be 0.25 s and stops at **0.5 s**. Cooldown 10 s at +200 % is 3.333 s, so **3,333 ms**: firings at 3.333, 6.666 and 9.999 s, and the third is a separate instant from the 10 s pulse.
 
 The slot_count formula is defined as:
 
@@ -409,7 +435,7 @@ The slot_count formula is defined as:
 
 **Why slots grow slowly.** Power already rises about ×10 per realm, so slots add one per realm and mostly add
 choice. Art costs are a share of `qi_max`, so a bigger pool buys no extra casts: arts at `cost_share` 0.15 on 3 s
-cooldowns empty the pool in about 8 s with 3 slots filled, 4 s with 5 and 3 s with 7, leaving nothing for the ward.
+cooldowns fire nothing before 3 s, and the first volley then costs 0.45, 0.75 and 1.05 of the pool for 3, 5 and 7 slots. Seven slots empty it at 3 s, five at the second volley (6 s) and three by the third (9 s), leaving nothing for the ward.
 
 **Output Range:** 3 and up, with no cap on earned slots.
 
@@ -465,13 +491,13 @@ the timeline: the FX-T mirror (one 1 s art plus the basic attack) ends at 8 s (A
 
 The hit_damage formula is defined as:
 
-`base = U_att · stage_att · c_art` ; `part_j = base · s_j · M(T_j) · crit` ; `D_j = part_j · supp` ; `dealt_j = max(1, leak_j · (1 − m · guard_share_kind))` ; `overkill = max(0, dealt_total − health_before) / health_max`
+`base = U_att · stage_att · c_art` ; `part_j = base · s_j · M(T_j) · crit` ; `D_j = part_j · supp` ; `dealt_j = max(1, leak_j · (1 − m · guard_share_kind))` ; `overkill = max(0, damage_in_instant − health_at_instant_start) / health_max`, where `damage_in_instant` is everything that removed health from that side in the instant (ticks, hits and trigger hits, after ward and body guard) and health is not floored until the defeat check
 
 **Variables:**
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| c_art | float | basic 1.0; arts 1.2–5 | data file (`basic_coef`, art record) | Art coefficient. Lint: `c_art ≤ basic_coef · (1 + art_coef_per_cost · cost_share) + art_coef_per_cooldown · (cooldown − 1)`, on the authored cooldown in seconds |
+| c_art | float | basic 1.0; arts 1.2–12 (user decision 2026-11-06: widened to the lint, which allows 11.25 at cost 0.25 and 30 s) | data file (`basic_coef`, art record) | Art coefficient. Lint: `c_art ≤ basic_coef · (1 + art_coef_per_cost · cost_share) + art_coef_per_cooldown · (cooldown − 1)`, on the authored cooldown in seconds |
 | art_coef_per_cost, art_coef_per_cooldown | float | 12, 0.25 | data file | Art power is paid for in linh lực and cooldown |
 | s_j | float | 0–1, Σ = 1 | calculated | Share of the hit in conversion part j |
 | T_j | tag set | — | calculated | A converted part keeps its old tags and gains the new (rule 6) |
@@ -498,7 +524,7 @@ On a ×1.7 crit the warded hit deals **27.0**. Conversion: base 100, Fire +30 %,
 
 The ward formula is defined as:
 
-`pass_raw = clamp(pass_kind + Σ pass_tag, pass_min, 1)` ; `pass = max(pass_min, pass_raw / (1 + ws/100))` ; `drain = max(drain_min, drain_kind / (1 + we/100))` ; `blocked = min(D · (1 − pass), pool_qi / drain)` ; `qi_loss = blocked · drain` ; `leak = D − blocked` ; `ws = min(ward_cap, defense_pct + Σ ward_strength + 100 · ward_gear_scale · a_w)` ; `we = min(ward_cap, ward_efficiency_pct + 100 · ward_gear_scale · a_w)`
+`pass_raw = clamp(pass_kind + Σ pass_tag, pass_min, 1)` ; `pass = clamp(pass_raw / (1 + ws/100), pass_min, 1)` ; `drain = max(drain_min, drain_kind / (1 + we/100))` ; `blocked = min(D · (1 − pass), pool_qi / drain)` ; `qi_loss = blocked · drain` ; `leak = D − blocked` ; `ws = clamp(defense_pct + Σ ward_strength + 100 · ward_gear_scale · a_w, ward_floor, ward_cap)` ; `we = clamp(ward_efficiency_pct + 100 · ward_gear_scale · a_w, 0, ward_cap)`
 
 This is the default **drain** model. A ward record may name another `cost_model`: **per hit** pays
 `hit_cost_share · (1 − we/(100 + we)) · qi_max` for each hit and blocks `D · (1 − pass)` if it can pay, whatever
@@ -513,7 +539,8 @@ blocks nothing for that hit, or until the next pulse. Further models are added b
 | pass_kind, drain_kind | float | spell pass 0.2–0.55, drain 0.6–1.5 | data file (ward record) | Per kind. A common ward is pass 0.54 body and 0.36 qi, drain 1.0 body and 1.5 qi, so body hits leak more and qi hits burn more linh lực |
 | default_ward_pass, default_ward_drain | float | 0.70, 2.0 | data file | The ward anyone has; every warding spell beats it |
 | pass_tag | float | −0.25 to +0.25 | data file (ward record) | Element or form resistance; a Fire ward may be −0.2 on Fire and +0.1 on Water |
-| ws, we | float | 0–400 | calculated | Ward strength and efficiency |
+| ws, we | float | ws −90 to 400; we 0 to 400 | calculated | Ward strength and efficiency. A negative `ws` weakens the ward (at −90 the pass share is ×10 before the clamp to 1), and the floor keeps `1 + ws/100` above 0 (user decision 2026-11-06) |
+| ward_floor | float | −90 | data file | Lower bound on `ws` |
 | defense_pct | float | ≥ −100 | calculated (Character Stats) | Now means ward strength, so tree nodes keep their W price |
 | ward_efficiency_pct | float | ≥ 0 | calculated (new key, 1 W per point is a guess) | Costs less |
 | a_w | float | ≥ 0 | calculated | Artifact defence without the body tag / (B_p · stage_mult) |
@@ -614,7 +641,7 @@ The status_tick formula is defined as:
 |---|---|---|---|---|
 | c_tick | float | 0.15–0.5 per stack | data file (status record) | Lint: `c_tick · duration ≤ 1.2 · c_art` of an equal-cost art |
 | stacks, stack_cap | int | 1–5; 5 | calculated; data file | Stacks on the target |
-| duration | int | 2–6 | data file (status record) | Seconds, one tick per pulse |
+| duration | int | 2–6 | data file (status record) | Pulses, one tick per pulse (1 s each at the default `pulse_interval`) |
 | dot_pool_cap | float | 0.05 | data file | One tick is never above 5 % of maximum health |
 | dot_pulse_cap | float | 0.08 | data file | All health ticks on one target at one pulse add up to at most 8 % of maximum health; ticks apply in status order and the excess is clipped and logged "dot cap". A qi burn has its own cap below |
 | curse_slots | int | 3 | data file | Most curses on one target |
@@ -624,10 +651,11 @@ Ticks work inside the ward: it does not block them, and body guard applies. A **
 instead, capped at 5 % of `qi_max`. A duration counts ticks and falls at each tick, so duration 3 ticks three
 times. A tick uses the source's values from when it was applied.
 
-Curse bounds: body guard shred ≤ 0.5 (shreds add), ward pass raised at most ×1.5, drain raised at most +50 %, art
-cost raise ≤ +50 %, one layer locked for ≤ 2 s (it counts as 1.0), a tag blocked for ≤ 3 s (arts
-carrying it cannot fire, and modifiers needing it do not apply), regeneration blocked or not, duration ≤ 5. A
-curse past `curse_slots` replaces the one with the least duration left.
+Curse bounds, each a data key: `curse_shred_max` 0.5 (shreds add), `curse_pass_raise_max` ×1.5 on ward pass,
+`curse_drain_raise_max` +50 % on drain, `curse_cost_raise_max` +50 % on art cost, `curse_layer_lock_max` 2 pulses
+(a locked layer counts as 1.0), `curse_tag_block_max` 3 pulses (arts carrying the tag cannot fire, and modifiers
+needing it do not apply), `curse_duration_max` 5 pulses; regeneration is blocked or not. A curse past
+`curse_slots` replaces the one with the least duration left. Curse durations are counted in pulses, like statuses.
 
 **Output Range:** a tick is at least 1 and at most `dot_pool_cap` of maximum health, and one pulse's ticks on one
 target total at most `dot_pulse_cap` of it (the floor of 1 still applies to the first tick).
@@ -653,6 +681,8 @@ The trigger_budget formula is defined as:
 | trig_ward_strength, trig_ward_seconds | float | 50, 2 s (guesses) | data file | A ward trigger adds this to ws for this long |
 
 A refund trigger returns at most the fired art's cost, which is now also defence.
+
+A trigger's free hit can be evaded (an evaded one deals nothing and sets off nothing) and cannot crit, like a companion hit. Its evade draw comes right after the draws of the hit that set it off, in trigger order (Formulas I).
 
 **Output Range:** triggers add at most +50 % of the direct damage since the last pulse, or 0.25 · U · stage when that is
 larger. Overflow is clipped and logged as "trigger budget".
@@ -712,11 +742,11 @@ The chance_roll formulas are defined as:
 | khi_van_per_point | float | 0.001 | data file (kept from `duel`) | **User decision 2026-11-06:** fortune shifts every crit, evade, status, trigger and escape roll |
 
 A chance of exactly 0 or 1 is not shifted and takes no draw, so a build with no chance effects stays
-deterministic. Draws run in one fixed order within each instant: the pulse's draws; the requesting side's
-hits in hit order (per hit: evade, crit, status, then that hit's trigger draws); the other side's hits the same
-way; then escape rolls, requesting side first. Separate instants simply draw in time order. Times are compared
-exactly, so two events a hair apart are two instants. If both sides escape in one instant, the fight ends in
-flight with no winner. If the other side goes Down in that instant, the fight ends as a win, not a flight.
+deterministic. Draws run in one fixed order within each instant (a follow-up instant continues the order, rule 10): the pulse's draws; the requesting side's
+hits in hit order (per hit: evade, crit, status, then that hit's trigger draws, each free hit drawing its own evade); the other side's hits the same
+way; then escape rolls, requesting side first. Separate instants simply draw in time order. Times are whole
+milliseconds (rule 10), so only events in the same millisecond share an instant, and events one millisecond apart are two instants. If both sides escape in one instant, the fight ends in
+flight with no winner. If the other side's health is 0 or below at that point, the fight ends as a win, not a flight.
 
 **Output Range:** evade 0–0.40; escape 0.05–0.95.
 
@@ -763,7 +793,7 @@ The power_score formula is defined as:
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | uptime_a | float | 0–1 | calculated | Share of its ready moments in which art a can actually fire (guard true, cost payable) |
-| c_art_a, cd_eff_a | float | 1–5; ≥ 0.5 s | calculated | Each damage art's coefficient and effective cooldown (Formulas A2), so any number of arts sum into one rate |
+| c_art_a, cd_eff_a | float | 1.2–12; ≥ 0.5 s | calculated | Each damage art's coefficient and effective cooldown (Formulas A2), so any number of arts sum into one rate |
 | net_spend | float | any | calculated | Own art cost per second minus regeneration per second |
 | f | float | 0–1 | calculated | `1 − m · guard_share_kind`, share-weighted over kinds |
 | D_late | float | ≥ 0 | calculated | The attacker's D on the basic attack alone (`basic_coef / basic_cooldown`) if its own linh lực runs out first |
@@ -808,14 +838,14 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 
 **Ending a fight**
 
-- **If both sides lose all health in the same instant:** rule 10's defeat check decides the winner.
-- **If a tick empties health:** the defeat check runs at once and a Down side takes no further
-  action. If both sides go Down from ticks, the defeat check's tiebreak applies.
+- **If both sides lose all health in the same instant:** rule 10's defeat check decides: the larger overkill share (of own `health_max`) loses, and overkill shares within `overkill_epsilon` of each other are a draw with both left at 1 health and `wound: grave`.
+- **If a tick empties health:** the side keeps acting until the instant ends, and the defeat check runs
+  after the instant's damage is all in. If both sides are emptied, the overkill comparison and the draw of rule 10 apply.
 - **If the fight reaches `time_limit`:** it is a stalemate with no winner. Each side keeps what it has
   left, and the caller applies any health loss as usual.
 - **If neither side can hurt the other:** the damage floor of at least 1 per part still applies, so
   health falls until a side is Down or `time_limit` is reached.
-- **If a lethal hit lands during an escape channel:** damage applies first. A side that is Down when its
+- **If a lethal hit lands during an escape channel:** damage applies first. A side whose health is 0 or below when its
   channel ends does not flee, because an escape cannot dodge the blow that ends the fight.
 - **If a side is taken from full health to 0 by one hit:** a health guard never had a moment to be true, so
   its escape art does not fire. This is intended: a far stronger enemy can kill outright.
@@ -849,7 +879,7 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 - **If an art's guard stays false for a long time:** it stays ready and fires the moment the guard is true; its next cooldown counts from that firing.
 - **If art speed would take an art below `cooldown_min`:** it stops at `cooldown_min`.
 - **If a loadout holds more arts than `slot_count`:** `compile` keeps the earliest slots and the rest do not enter the fight; the preparation screen warns first.
-- **If two events differ by a tiny amount of time:** they are two instants, resolved in time order. Only exact ties share an instant.
+- **If two events differ by even one millisecond:** they are two instants, resolved in time order. Only events in the same millisecond share an instant.
 - **If a character has no usable main method:** it has no divine abilities and fights with its other
   arts and the basic attack.
 - **If a slotted talisman has no stock left:** it is skipped.
@@ -898,6 +928,7 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 | Character Stats (#7) | Hard | Pool stats, stat keys, resistances, vitality | GDD in review. 11 new stat keys, the fortune line and the `defense_pct` meaning added 2026-11-06; `art_speed_pct` still to add (Open Question 21) |
 | Realms (#8) | Hard | Realm, `stage_mult`, `power_base`, gap `g` | GDD in review |
 | Cultivation Techniques (#9) | Hard | `tech_power`, unlocked divine abilities | GDD in review. Its Open Question 3 is answered here once abilities are authored |
+| Time & Turn (#4) | Soft | A fight takes no seasons; preparation time belongs to the preparing system | Built, no GDD |
 | Sim Core (#2), Config (#1) | Hard | Seeded stream, `Breakdown`, `combat_rules.json` | Built, no GDD |
 | Meridian Map (#10) | Soft | Stat keys through Character Stats only | GDD in review |
 | The Way (#39) | Soft | Passive modifiers; art nodes after this GDD is approved | GDD approved. Art pricing is open (its Open Question 3) |
@@ -939,10 +970,10 @@ elsewhere, such as `power_base` and `attack_pct` prices, stay in their own GDDs.
 | `basic_coef`, `art_coef_per_cost`, `art_coef_per_cooldown` | Art power against its cost |
 | `l1_soft_start`, `l1_soft_slope`, `layer_caps` | How far a build can scale |
 | `crit_chance_cap`, `crit_mult_cap`, `evade_cap` | How swingy fights are |
-| `default_ward_pass`, `default_ward_drain`, `ward_gear_scale`, `ward_cap` | How much wards block and cost |
+| `default_ward_pass`, `default_ward_drain`, `ward_gear_scale`, `ward_cap`, `ward_floor` | How much wards block and cost |
 | `guard_base`, `guard_pool_slope`, `guard_max_mit`, `guard_half`, `guard_cap`, `guard_share_kind` | The thể tu's strength and weakness |
 | `regen_base`, `regen_cap` | Sustain |
-| `stack_cap`, `dot_pool_cap`, `dot_pulse_cap`, `curse_slots` | Status strength |
+| `stack_cap`, `dot_pool_cap`, `dot_pulse_cap`, `curse_slots`, `curse_shred_max`, `curse_pass_raise_max`, `curse_drain_raise_max`, `curse_cost_raise_max`, `curse_layer_lock_max`, `curse_tag_block_max`, `curse_duration_max` | Status and curse strength |
 | `pool_n_min`, `pool_n_max`, `duel.injured_power_floor` | Bounds on absurd stacks; the vitality floor |
 | `crit_base`, `crit_mult_base`, `evade_realm_step`, `escape_realm_step`, `escape_lock_penalty`, `khi_van_per_point` | Chance rolls and fortune |
 | `pass_min`, `drain_min`, `hit_cost_share`, `upkeep_share` | Ward floors and the other cost models |
@@ -951,6 +982,7 @@ elsewhere, such as `power_base` and `attack_pct` prices, stay in their own GDDs.
 | `trigger_depth`, `trig_cap`, `trig_budget` | Combo strength |
 | `suppression`, `pierce_cap` | Crossing realms |
 | `soul_beta`, `rho_min`, `soul_cap` | How dangerous a soul gap is |
+| `overkill_epsilon` (1e-9) | When a double knockout counts as a draw |
 | `rating_kappa`, `kappa_mass`, `mass_width`, `mass_reserve_weight` | Mass battle outcomes |
 | `boss_pool_mult` (per enemy) | Boss toughness |
 
@@ -1018,7 +1050,7 @@ lực use (Guidance, #35; the threshold is a guess).
 | Formulas I | character-stats.md (the fortune table) | Fortune line | Edited 2026-11-06: fortune now shifts chance rolls |
 | Formulas C, D, E, E2, F, H, I | character-stats.md stat keys | 11 new keys, `defense_pct` as ward strength | Added 2026-11-06 |
 | Rule 20, Formulas A, H | canh-gioi.md | `power_base`, `stage_mult`, the realm ladder | Read only |
-| Rule 14 | canh-gioi.md rule 16; character-stats.md | Capability #9: defeat reported, +2 heart demon | See Open Question 12 |
+| Rule 14 | canh-gioi.md rule 16; character-stats.md | Capability #9: defeat reported, +2 heart demon | Closed 2026-11-06 (Open Question 12): knockout only; both GDDs still say "defeat" and "kill" |
 | Rule 13, Formulas A, D | cong-phap.md rules 13–14, Formulas C | Divine abilities, `tech_power`, body techniques (`t_b`), the technique line | `cong_phap_share` line removed; cong-phap.md rule 14 and AC-CP-39 edited 2026-11-06 |
 | Formulas B | kinh-mach-do.md Formulas A and A2; registry `stat_power_weights` | 1 W = +1 %; about 106 W to 1,172 W by realm end | W stays additive |
 | Rule 13, Formulas B | dao.md rule on arts, Open Question 3 | Art format, `dao_premium` | Arts remain on hold until this GDD is approved |
@@ -1049,12 +1081,12 @@ steps. Tolerance is ±0.01 unless stated.
 
 **Fight shell and determinism**
 
-- **AC-CB-01** [Logic] Rules 1, 15. Given FX-C against FX-C with one seed, when the fight runs twice in one process and once more after 50 unrelated fights, then the results and serialized logs are byte-identical on that platform (float times, so identity across platforms is not promised; Open Question 15). Given 20 different seeds, at least two logs differ. Given a draw spy on one instant, then draws occur in the order of Formulas I: the pulse's draws, the requesting side's hits (evade, crit, status, triggers per hit), the other side's hits, escape rolls; swapping which side requested swaps the two hit groups.
+- **AC-CB-01** [Logic] Rules 1, 15. Given FX-C against FX-C with one seed, when the fight runs twice in one process and once more after 50 unrelated fights, then the results and serialized logs are byte-identical on that platform (damage values are floats, so identity across platforms is not promised; Open Question 15). Given 20 different seeds, at least two logs differ. Given a draw spy on one instant, then draws occur in the order of Formulas I: the pulse's draws, the requesting side's hits (evade, crit, status, triggers per hit), the other side's hits, escape rolls; swapping which side requested swaps the two hit groups.
 - **AC-CB-02** [Logic] Rule 15. Given a world seed and fight id, when the fight stream is built twice, then its first 10 draws match, and a different fight id gives different draws. Given any outer `RandomNumberGenerator`, when a fight runs, then that generator's state is unchanged.
-- **AC-CB-03** [Logic] Rule 15. Given two builds whose chance fields are all 0 or 1, when they fight under 100 seeds without reaching the tiebreak, then all logs are identical except the seed field. Given the same hit at two times with the same state, then its damage is equal.
+- **AC-CB-03** [Logic] Rule 15. Given two builds whose chance fields are all 0 or 1, when they fight under 100 seeds, then all logs are identical except the seed field. Given the same hit at two times with the same state, then its damage is equal.
 - **AC-CB-04** [Logic] Formulas I, fortune. Given a roll spy: evade 0.22 with a +30 lead rolls at 0.25; evade 0.40 with a +99 lead stays at `evade_cap`; escape stops at 0.95 and 0.05; crit stops at `crit_chance_cap`. Given chance 0 and chance 1 with leads of ±99 over 1,000 seeds, then neither is shifted, neither takes a draw, the chance-0 effect never fires and the chance-1 effect always fires.
 - **AC-CB-05** [Logic] Rules 2, 21. Given the fight engine source, when scanned, then it has no `Time.`, `OS.`, `Node`, `get_tree` or autoload reference. Given a character, when `compile` runs twice, then the profiles are equal and the serialized character is unchanged. The fight runs under `--headless` with no scene tree.
-- **AC-CB-06** [Logic] Rules 1, 14. Given a character and world DB fixture, when a fight runs, then both serialize unchanged and the world clock has not moved. The call returns synchronously. The result holds the winning side, how it ended (knockout, stalemate or flight), the fight time, each side's end health and linh lực, resources spent, the deciding layer and the log.
+- **AC-CB-06** [Logic] Rules 1, 14. Given a character and world DB fixture, when a fight runs, then both serialize unchanged and the world clock has not moved. The call returns synchronously. The result holds the winning side, how it ended (knockout, draw, stalemate or flight), the fight time, each side's end health and linh lực, resources spent, the deciding layer and the log.
 
 **Profile and pools**
 
@@ -1064,7 +1096,7 @@ steps. Tolerance is ±0.01 unless stated.
 - **AC-CB-10** [Logic] Rule 3, Formulas A. Given FX-T, v 0.7 starts health at 76.91, v 0.3 at 43.95, v 1.0 at 109.87; linh lực starts full. Given a fight ending with health at 50 % and v 0.7, then `v_after` is 0.5; ending at 90 %, it stays 0.7.
 - **AC-CB-11** [Logic] Rules 3, 4. Given a body, a qi and a soul attack, when each lands, then the body and qi attacks meet the ward and then body guard, and the soul attack meets neither. Given health at 0, then the side is Down: mortal wound and acts no more. Given linh lực at 0 and health above 0, then the fight goes on.
 - **AC-CB-12** [Logic] Formulas D, ward. Given FX-T and D 41.30: a body hit blocks 24.25, drains 18.54, leaks 17.05 and deals 15.89; a qi hit drains 34.33 and deals 10.79; a body hit with 10 linh lực left blocks 13.08 and deals 26.30, and the pool ends at 0.
-- **AC-CB-13** [Logic] Formulas D, bounds. pass never falls below 0.05 and drain never below 0.15. ws and we stop at 400. Given g_b 40 or higher, then m is 0.8571. Given a thể tu fixture of g_b 10.35, then m is 0.754. Given `body_guard_pct` −100, then g_b and m are 0.
+- **AC-CB-13** [Logic] Formulas D, bounds. pass never falls below 0.05 and drain never below 0.15. ws and we stop at 400. Given `defense_pct` −100 or −500, then ws is −90, pass is `pass_raw` ÷ 0.1 clamped to 1, and there is no division by zero or negative pass; we never goes below 0. Given g_b 40 or higher, then m is 0.8571. Given a thể tu fixture of g_b 10.35, then m is 0.754. Given `body_guard_pct` −100, then g_b and m are 0.
 
 **Layers and hits**
 
@@ -1077,28 +1109,28 @@ steps. Tolerance is ±0.01 unless stated.
 - **AC-CB-20** [Logic] Edge cases. Conversions totalling 120 % scale to 100 %. Converting to a tag the part has does nothing. A third conversion is ignored and logged. A tag is not converted back in the same hit.
 - **AC-CB-21** [Logic] Formulas C. Given FX-T's art against FX-T, then base is 12.62, D 41.30 and dealt 15.89. With the ward off, 38.50. With g 2 and P 0.5, dealt is 13.91.
 - **AC-CB-22** [Logic] Formulas C, crit. A ×1.7 crit on AC-CB-21 deals 27.02. Summed chance 0.7 stops at 0.5. Summed multiplier 3.4 stops at 3.0. A two-part hit takes one crit draw. A build with no crit bonus never crits.
-- **AC-CB-23** [Logic] Formulas C, floor and overkill. Given an attacker with M 0.1 against FX-U, then a part deals at least 1, and a two-part hit at least 1 per part. Given health_before 10, dealt 30, health_max 100, then health stops at 0 and overkill is 0.20.
+- **AC-CB-23** [Logic] Formulas C, floor and overkill. Given an attacker with M 0.1 against FX-U, then a part deals at least 1, and a two-part hit at least 1 per part. Given health_before 10, dealt 30, health_max 100, then overkill is 0.20, health may read −20 until the instant's defeat check, and is 0 after it.
 
 **Timeline**
 
-- **AC-CB-24** [Logic] Rule 10. Given an event spy, then an instant logs in order: the pulse (triggers, ticks, durations, regeneration, upkeep, limit reset), both sides' art costs in slot order, the requesting side's hits in hit order with their triggers, the other side's hits, escapes, defeat check. Given a successful escape, then no later event follows it, and the result is a flight (or a knockout win for the escaper if the other side is Down).
+- **AC-CB-24** [Logic] Rule 10. Given an event spy, then an instant logs in order: the pulse (triggers, ticks, durations, regeneration, upkeep, limit reset), both sides' art costs in slot order, the requesting side's hits in hit order with their triggers, the other side's hits, escapes, defeat check. Given a successful escape, then no later event follows it, and the result is a flight (or a knockout win for the escaper if the other side is Down). Given a follow-up instant, then only arts fire in it (no pulse, and no basic attack or companion hit, since none is due).
 - **AC-CB-25** [Logic] Rule 10. Given a drain that lands before B's art is due and leaves it unaffordable, then the art waits ready and fires the moment it can pay. Given a drain and B's art in the same instant, then B's cost is paid first and the art fires. Given two sides that would each knock out the other in one instant, then both hits land. Given chance-free fixtures with A and B swapped, then the winner and pools mirror. Given a side's art cost and an incoming hit in one instant, then the costs are paid first, in slot order, and the ward uses what remains.
-- **AC-CB-26** [Logic] Rule 10, defeat check. Given both sides at 0 health: overkill 0.30 against 0.10 means the 0.10 side wins; equal overkill with A's linh lực share 0.6 and B's 0.4 at the start of the instant means A wins; all equal means the draw decides, the same seed gives the same winner, and over 1,000 seeds each side wins 45–55 %. The winner stands at 1 health.
-- **AC-CB-27** [Logic] Rule 22. Given an autocast ward, then it is up from t = 0 with no art firing. Given a ward switched off, then no ward cost is paid, no hit is blocked, and body guard still applies. Given a slotted ward art, then it is up only for `ward_art_duration` after each firing.
-- **AC-CB-28** [Logic] Rule 10, pulse. Given a tick that empties health, then the defeat check runs at once and that side takes no later action. Given ticks that down both sides, then AC-CB-26's chain applies. Given a status applied between pulses, then it first ticks at the next pulse.
+- **AC-CB-26** [Logic] Rule 10, defeat check. Given both sides at 0 health after an instant's damage: overkill 0.30 against 0.10 means the 0.10 side wins and stands at 1 health; overkill shares within `overkill_epsilon` are a draw with no winner, both sides at 1 health with `wound: grave` and neither `mortal`, whatever their linh lực shares, and the same result under every seed with no random draw taken. Given unequal pools with 40 against 30 absolute overkill on `health_max` 400 and 100, then the 100-pool side (0.30) loses and the 400-pool side (0.10) wins. Given a side whose health reaches 0 partway through an instant, then its remaining hits and their triggers in that instant still land. Overkill counts ticks, hits and trigger hits in the instant against health at the instant's start.
+- **AC-CB-27** [Logic] Rule 22. Given an autocast ward, then it is up from t = 0 with no art firing. Given a ward switched off, then no ward cost is paid, no hit is blocked, and body guard still applies. Given a slotted ward art, then it is up only for `ward_art_duration` after each firing; between firings the ward slot's spell, or the default ward if that slot is empty, is up, unless the ward is switched off. Given a hit landing in the same millisecond a ward art's duration ends (or a trigger ward's `trig_ward_seconds` ends), then the hit is still blocked by it, and a hit one millisecond later is not.
+- **AC-CB-28** [Logic] Rule 10, pulse. Given a tick that empties health, then that side still acts in the same instant and the defeat check runs after the instant, and that side is then Down and the fight ends (it is never left at 0 or below with the fight going on). Given ticks that down both sides, then AC-CB-26's chain applies. Given a status applied between pulses, then it first ticks at the next pulse.
 - **AC-CB-29** [Logic] `time_limit`. Given two attackers dealing 1 damage a second with health 41, then hits land at t = 1 to 40 and the fight is a stalemate with 1 left on each side. Given one side starting at 39.37, then it empties at t = 40 and that is a defeat.
-- **AC-CB-30** [Logic] Formulas B. Given FX-U against FX-U, then the fight ends at t = 25 through the draw. Given FX-T against FX-T, then the art fires at t = 1, 2 and 3, the basic attack fires every second, and the fight ends at t = 8 through the draw, with linh lực under 20 from t = 3.
+- **AC-CB-30** [Logic] Formulas B. Given FX-U against FX-U, then the fight ends at t = 25 as a draw (equal overkill). Given FX-T against FX-T, then the art fires at t = 1, 2 and 3, the basic attack fires every second, and the fight ends at t = 8 as a draw, with linh lực under 20 from t = 3.
 - **AC-CB-31** [Logic] Rules 11, 23. Given a side that spends all its linh lực in an instant, then its drain ward blocks nothing against that instant's hits. Given regeneration of 3.45 at the next pulse, then the ward blocks at most what 3.45 can pay. Given no linh lực, then no linh lực art fires, the basic attack still fires, and an art with `body_cost_share` still fires and cannot take health below 1.
 
 **Arts and linh lực**
 
-- **AC-CB-32** [Logic] Rule 13, Formulas A2. Given three slotted arts with cooldowns 1, 1 and 3 s, all affordable, then nothing fires at t = 0, the first two fire at t = 1 in slot order, and the 3 s art fires at t = 3 and next at t = 6. Given linh lực for only one at t = 1, then the first slot fires and the other stays ready and fires when it can pay. An art whose guard is false stays ready, fires the moment the guard is true, and its next cooldown counts from that firing. The basic attack fires at every `basic_cooldown` whatever else fires. Cooldown 10 s at `art_speed_pct` 100 gives 5 s, sources of 100 and 50 give 4 s, and 1 s at 300 stops at 0.5 s. Art speed leaves `basic_cooldown` unchanged. A guard outside the fixed vocabulary is rejected at load.
+- **AC-CB-32** [Logic] Rule 13, Formulas A2. Given three slotted arts with cooldowns 1, 1 and 3 s, all affordable, then nothing fires at t = 0, the first two fire at t = 1 in slot order, and the 3 s art fires at t = 3 and next at t = 6. Given linh lực for only one at t = 1, then the first slot fires and the other stays ready and fires when it can pay. An art whose guard is false stays ready, fires the moment the guard is true, and its next cooldown counts from that firing. Given an escape art guarded on own health below 30 % and a hit at t = 5 that takes health from 40 % to 20 %, then the art fires in a follow-up instant at t = 5 (cost paid, then hits, no pulse), not at the next event, and fires once. Given the same guard and health already at 20 % at the start of the instant, then it fires in that instant, before that instant's hits. Given a tick in the instant's pulse that takes health from 40 % to 20 %, then the guard reads true and the art fires in that same instant, before that instant's hits. Given two ready arts and linh lực for one, then the second slot sees the pool after the first paid. Given an escape channel open, then no second escape art of that side fires until it ends. The basic attack fires at every `basic_cooldown` whatever else fires. Cooldown 10 s at `art_speed_pct` 100 gives 5 s, sources of 100 and 50 give 4 s, and 1 s at 300 stops at 0.5 s. Art speed leaves `basic_cooldown` unchanged. Cooldown 10 s at `art_speed_pct` 200 is 3,333 ms: firings at 3.333, 6.666 and 9.999 s, and the 9.999 s firing is a separate instant from the 10 s pulse. A guard outside the fixed vocabulary is rejected at load.
 - **AC-CB-76** [Logic] Rule 10, hit order. Given a side firing two arts, the basic attack and a companion in one instant against a defender with a drain ward and linh lực for one block, then the first slot's hit meets the ward, the second meets an empty one, and the basic attack and the companion land after them in that order; swapping the slot order swaps which is blocked. Given the same inputs twice, then the log order is identical. A side that goes Down in an instant still lands its whole hit list for that instant.
 - **AC-CB-77** [Logic] Rule 13, Formulas A2. Given no bonus sources, then `slot_count` is 3 / 4 / 5 / 6 / 7 by realm. Given Core Formation with one source, then 6; given Qi Refining with three, then 6, with no cap on sources. A talisman, the escape art and a slotted ward art each take a slot; the basic attack and an autocast ward do not. Given more arts than slots, then only the earliest slots enter the fight.
 - **AC-CB-33** [Logic] Rule 13, edge cases. Given a talisman with stock 1, then it fires once and is skipped afterwards. Given no usable main method, then the character fights with its other arts and the basic attack, a body-kind hit at coefficient 1.0.
 - **AC-CB-34** [Logic] Formulas E. Given cost_share 0.15 at `qi_max` 172.74, then the cost is 25.91 and regeneration 3.45, and with nothing incoming a 1 s art fires 7 times in a row. Given pool exactly equal to the cost, the art fires. Regeneration never passes 8 %, and the pool never exceeds its maximum.
 - **AC-CB-35** [Logic] Rule 11, edge cases. Given a regeneration curse, linh lực does not rise until it ends. Given a soul attack that empties linh lực, the ward then blocks nothing. No rule stops a side spending to 0.
-- **AC-CB-36** [Logic] Formulas I, escape. Given e_art 0.55, one realm below a locking pursuer, then p is 0.30. A failed escape pays its cost and cooldown. The roll comes `escape_channel` after the art fires, and hits landing in the channel apply. A success gives Fled and a flight result. A side Down when its channel ends does not flee. If both escape in one instant, the fight ends in flight with no winner. If the other side goes Down in that instant, it is a win.
+- **AC-CB-36** [Logic] Formulas I, escape. Given e_art 0.55, one realm below a locking pursuer, then p is 0.30. A failed escape pays its cost and cooldown. The roll comes `escape_channel` after the art fires, and hits landing in the channel apply. A success gives Fled and a flight result. A side whose health is 0 or below when its channel ends does not flee. If both escape in one instant, the fight ends in flight with no winner. If the other side's health is 0 or below at that point, it is a win. A channel whose roll would fall after `time_limit` never rolls, and the fight is a stalemate.
 - **AC-CB-37** [Logic] Formulas I, evade. Evade 0.25, accuracy 0.05, defender one realm up gives 0.22. Evade 0.60 stops at 0.40. Evade below accuracy gives 0. At evade 0.40, soul hits and ticks are never evaded over 1,000 rolls. An evaded hit deals nothing and fires no on-hit trigger.
 
 **Statuses**
@@ -1110,14 +1142,14 @@ steps. Tolerance is ±0.01 unless stated.
 
 **Triggers**
 
-- **AC-CB-42** [Logic] Formulas G. Given c_trig 0.5 against FX-T, then a free hit deals 3.61 through the ward. Given six free hits and direct damage 15.89, then trigger damage is clipped to 7.95 and the log says "trigger budget". Given direct damage 0, then the budget is 1.58. Given two art hits of 10 and 5.89 health removed and a tick of 4, then `direct_damage_this_pulse` is 15.89 (ticks and trigger hits excluded), and it resets at the next pulse. A ward trigger adds `trig_ward_strength` to ws for `trig_ward_seconds`.
+- **AC-CB-42** [Logic] Formulas G. Given c_trig 0.5 against FX-T, then a free hit deals 3.61 through the ward. Given six free hits and direct damage 15.89, then trigger damage is clipped to 7.95 and the log says "trigger budget". Given direct damage 0, then the budget is 1.58. Given two art hits of 10 and 5.89 health removed and a tick of 4, then `direct_damage_this_pulse` is 15.89 (ticks and trigger hits excluded), and it resets at the next pulse. A ward trigger adds `trig_ward_strength` to ws for `trig_ward_seconds`. A free hit never crits, and an evaded one deals nothing and fires no trigger.
 - **AC-CB-43** [Logic] Rule 9, Formulas G. Given a trigger loop A to B to A, then the fight terminates and no id fires twice in a chain. A chain stops at depth 2, counting the first trigger as 1. The seventh firing between two pulses is dropped and logged. Each event in rule 9 fires its fixture trigger. A refund returns at most the art's cost.
 
 **Realm and companions**
 
 - **AC-CB-44** [Logic] Formulas H, rule 20. supp(0, 0) is 1, supp(1, 0) 0.90, supp(2, 0.5) 0.875, supp(3, 0) 0.50, supp(4, 0) 0.25. `pierce_pct` 90 stops at P 0.75. An actor above its target has g 0 and supp 1.
 - **AC-CB-45** [Logic] Rule 19, Formulas J. Given share 40 at Qi Refining against FX-T, then c_comp is 0.4 and the hit deals 3.18. Share 500 caps c_comp at 1.0. The companion hits once per `basic_cooldown` for no linh lực, cannot crit or be targeted, can be evaded, and stops when its owner is Down.
-- **AC-CB-46** [Logic] Rule 18, Formulas A, J. An FX-U creature has health 111.05, linh lực 180.45 and base damage ×1.1. A creature with no realm uses its stated equivalent for g. Given n 8 and `boss_pool_mult` 10 at Qi Refining, then health is 8,076.3 and linh lực 13,123.9 (±0.5). A top-end build needs at least 4 seconds against a boss.
+- **AC-CB-46** [Logic] Rule 18, Formulas A, J. An FX-U creature has health 111.05, linh lực 180.45 and base damage ×1.1. A creature with no realm uses its stated equivalent for g. Given n 8 and `boss_pool_mult` 10 at Qi Refining, then health is 8,076.3 and linh lực 13,123.9 (±0.5). (The 4-second boss check needs a top-end build and lives in AC-CB-54.)
 
 **Preparation**
 
@@ -1134,13 +1166,13 @@ steps. Tolerance is ±0.01 unless stated.
 **Balance Harness**
 
 - **AC-CB-53** [Integration, Bot: Balance Harness] Formulas H. Given top-end at pierce 0.5 against typical, with the Formulas B anchors at stage 1.00, at least 200 runs per cell: g 1 wins at least 95 % from each of four starting realms; g 2 wins 40–75 % from each of three; g 3 wins at most 2 % at P 0.5 and 0.75; a typical build wins at most 2 % one realm up. Run once with no soul arts, and report a second run with them (Open Question 16). Provisional: these targets were simulated in rounds and must be re-run on the timeline (Open Question 20). Output goes to `production/qa/evidence/balance/[date]-combat-realm-crossing.md`.
-- **AC-CB-54** [Integration, Bot: Balance Harness] Formulas A, B. With the rotation stated in the run header: typical mirrors last 7–9 s (provisional, from the FX-T spot check; Open Question 20), top-end mirrors end at their first or second instant with a damage art, an unbuilt mirror ends inside `time_limit`, and F rises ×7 to ×14 per realm for typical builds (target about ×10). Given a boss with its `boss_pool_mult`, a top-end build needs at least 4 seconds.
+- **AC-CB-54** [Integration, Bot: Balance Harness] Formulas A, B. With the rotation stated in the run header: typical mirrors last 6–9 s (provisional: the FX-T spot check gives 8 s and the old round simulation 6.5–7.6 s; Open Question 20), top-end mirrors end at their first or second instant with a damage art, an unbuilt mirror ends inside `time_limit`, and F rises ×7 to ×14 per realm for typical builds (target about ×10). Given a boss with its `boss_pool_mult`, a top-end build needs at least 4 seconds.
 - **AC-CB-55** [Integration, Bot: Balance Harness] Rule 20. Given equal W, an all-attack build (L2–L5 at 1.0) one realm up wins at most 2 %, and a top-end multi-layer build wins at least 95 %.
 
 **Data**
 
 - **AC-CB-56** [Config] Parameter keys. `combat_rules.json` is valid JSON and holds every Formulas `data file` key. These are gone: `power.base_offense_share`, `power.base_defense_share`, `power.cong_phap_share`, `power.khi_huyet_weight`, `power.linh_luc_weight`, `duel.ratio_exponent`, `duel.rounds`. These stay: `duel.injured_power_floor`, `duel.khi_van_per_point`, `duel.min_win_chance`, `duel.max_win_chance`. `beast.power_mult` is `creature_mult`.
-- **AC-CB-57** [Config] Data lint. c_art at cost_share 0.15, cooldown 1 s: 2.80 passes, 2.81 fails. At 0.25, cooldown 5 s: 5.00 passes. A cooldown below `cooldown_min` fails. An L2 modifier of 4 or 51 points fails. c_tick · duration above 1.2 · c_art fails. c_trig 0.81 fails. chance · c_trig: 0.625 × 0.8 passes, 0.7 × 0.8 fails. An unknown tag is rejected at load. A modifier with no layer, or with two, fails.
+- **AC-CB-57** [Config] Data lint. c_art at cost_share 0.15, cooldown 1 s: 2.80 passes, 2.81 fails. At 0.25, cooldown 5 s: 5.00 passes. A cooldown below `cooldown_min` or above 30 s fails. At cost 0.25 and 30 s, 11.25 passes and 11.26 fails; at cost 0.04 and 0.5 s, 1.355 passes and 1.36 fails. An L2 modifier of 4 or 51 points fails. c_tick · duration above 1.2 · c_art fails. c_trig 0.81 fails. chance · c_trig: 0.625 × 0.8 passes, 0.7 × 0.8 fails. An unknown tag is rejected at load. A modifier with no layer, or with two, fails.
 - **AC-CB-58** [Config] Knob invariant. At `time_limit` 40, `health_units` 26 passes and 27 fails for an unbuilt mirror under the default ward.
 
 **Cross-system integration**
@@ -1148,8 +1180,8 @@ steps. Tolerance is ±0.01 unless stated.
 - **AC-CB-59** [Integration] Character Stats. Given a real sheet with `attack_pct` +26.5, `defense_pct` +16, `khi_huyet_pct` +30, `linh_luc_pct` +20, then compile's pools equal Formulas A applied to `CharacterRules.khi_huyet_max` and `.linh_luc`, x1 is 26.5, and `defense_pct` reaches ws and not body guard. An artifact over thần thức capacity adds nothing. The 11 new keys appear in the sheet and its labels.
 - **AC-CB-60** [Integration] Cultivation Techniques. Given AC-CP-09's fixture, then the abilities in the profile equal its unlocked list at each step. With no main method at Qi Refining, spiritual power is 50, n_qi 0.5, the qi pool 82.02, and no ability is listed. AC-CP-39 is rewritten first.
 - **AC-CB-61** [Integration] The Way. Given a Way node worth +10 `attack_pct`, then x1 rises by 10 and L2–L5 are unchanged. Given a fixture art node in the rule 13 format, then the Way's lint accepts it. (On hold with the arts.)
-- **AC-CB-62** [Integration] Event Engine request. Given a combat choice carrying enemy, situation and ground tags, when resolved, then a win takes the success branch, and a loss, a stalemate and a flight take the failure branch, and the check line shows how it ended and the fight time.
-- **AC-CB-63** [Integration] Consequences stay with the caller. Given each ending, then vitality loss applies once, by the caller. The caller decides mercy. Capability #9 applies per Open Question 12. Taming is offered only by the Event Engine after a won creature fight. A notable fight writes one World DB record. The fight engine imports no writer of these.
+- **AC-CB-62** [Integration] Event Engine request. Given a combat choice carrying enemy, situation and ground tags, when resolved, then a win takes the success branch, and a loss, a draw, a stalemate and a flight take the failure branch, and the check line shows how it ended and the fight time.
+- **AC-CB-63** [Integration] Consequences stay with the caller. Given each ending, then vitality loss applies once, by the caller. The caller decides mercy. Capability #9 applies on a cultivator knockout only: not on a flight, a draw, a stalemate, a creature, or after mercy is chosen. Taming is offered only by the Event Engine after a won creature fight. A notable fight writes one World DB record. The fight engine imports no writer of these.
 - **AC-CB-64** [Integration] Duel callers migrated. `CombatPower.duel` has no callers and `ratio_exponent` is read nowhere, covering `event_resolver.gd`, `world_ticker.gd` and `advisor.gd`. Stored `power` uses (`build_generator.gd`, `state_snapshot.gd`, `world_generator.gd`, `BeastKeeper.power_shares`) read `display_power`. `tools/run-tests.sh` exits 0.
 - **AC-CB-65** [Integration, Bot: `world_census.gd`] Living World. Given a headless run of 40 years, then every NPC duel winner comes from a full fight result, a stalemate writes no winner, a sect war resolves through the rating clash, there is no SCRIPT ERROR, and two runs on one world seed give identical news.
 
@@ -1170,7 +1202,7 @@ Results go to `production/qa/evidence/balance/[date]-combat-performance.md`.
 - **AC-CB-72** [Logic] Rule 22, cost models. Given a per-hit ward with pass 0.5 and `hit_cost_share` 0.05, then a hit of 10 and a hit of 1,000 cost the same linh lực and each blocks half. Given a per-pulse ward, then it pays at t = 0 and at each pulse and blocks with no drain. Given a ward that cannot pay, then it blocks nothing for that hit or until the next pulse, and is tried again then. Given a new `cost_model` not in Formulas D, then it is rejected at load.
 - **AC-CB-73** [Logic] Rule 22, ward stats. Given FX-T with ws raised by 10, then pass falls and drain is unchanged, so more is blocked and more linh lực drains per hit. Given we raised by 10, then drain falls and pass is unchanged. Given a default ward and a warding spell in the slot, then only the spell is up. The lint rejects a spell with pass above 0.55 or drain above 1.5.
 - **AC-CB-74** [Logic] Rule 23. Given no linh lực, then at least 93 % of a body hit lands on FX-T and at most 25 % on a thể tu fixture with m 0.754. A qi hit on that fixture lands at 43.4 % (`guard_share_kind` 0.75).
-- **AC-CB-75** [Logic] Rule 24, Formulas E2. Given `soul_pct` 0.05 and equal souls, then a soul attack takes 5 % of maximum health and of maximum linh lực. Rho 2 takes 20 %, rho 3 stops at 30 %, rho 0.5 takes 1.25 %, rho 0.2 takes 0. Wards, body guard, evade and crit do not apply. It has the art's own cost and cooldown, and first fires one cooldown into the fight. Given `boss_pool_mult` 8, then a 30 % hit takes 3.75 %. `soul_res_pct` 100 halves rho. Given a side with two ready soul arts, then the first in slot order fires and the second stays ready until `soul_lockout` ends.
+- **AC-CB-75** [Logic] Rule 24, Formulas E2. Given `soul_pct` 0.05 and equal souls, then a soul attack takes 5 % of maximum health and of maximum linh lực. Rho 2 takes 20 %, rho 3 stops at 30 %, rho 0.5 takes 1.25 %, rho 0.2 takes 0. Wards, body guard, evade and crit do not apply. It has the art's own cost and cooldown, and first fires one cooldown into the fight. Given `boss_pool_mult` 8, then a 30 % hit takes 3.75 %. `soul_res_pct` 100 halves rho. Given a side with two ready soul arts, then the first in slot order fires and the second stays ready and fires at the millisecond `soul_lockout` ends (a wake-up event, not the next unrelated event). Given an art guarded on fight time above 10 s, then it fires at t = 10.000 with no other event due.
 
 ## Open Questions
 
@@ -1187,10 +1219,10 @@ Results go to `production/qa/evidence/balance/[date]-combat-performance.md`.
 | 9 | **Closed 2026-11-06:** `slots_by_realm` 3 / 4 / 5 / 6 / 7 plus uncapped earned slots (Formulas A2, user decision). The values are provisional until Open Question 20 measures them | — | — |
 | 10 | **Closed 2026-11-06 for the built bases:** `body` is an authored role tag on the artifact base (item-database.md rule 6, Formulas E); Giáp is body and Thuẫn is ward. New bases are authored the same way | — | — |
 | 11 | How rare are NPC duels? The Living World needs a budget per season. Wars also become more decided than today's duel odds; check `kappa_mass` against that | world-builder, Living World | Living World |
-| 12 | Capability #9 says "defeating a cultivator" in Realms and "a combat kill" in Character Stats. Which outcome counts, given mercy? | systems-designer | Rule 14 |
+| 12 | **Closed 2026-11-06:** a knockout of a cultivator side counts (rule 14, user decision). Realms says "defeating" and Character Stats says "a combat kill", so both should be reworded to "knockout" | — | — |
 | 13 | The divine ability catalogue: what each ability does (Cultivation Techniques Open Question 3) | game-designer | Content pass |
 | 14 | Two design intents have no measured target yet: a sustain build should beat a burst build at equal W in long fights (rule 11), and chance effects should rarely change a winner (rule 15). Set the numbers after the first harness run. Also check whether bots over-stack health: 10 W on it adds about 5 % fight length against 2 % for a ward stat | systems-designer | Rules 11, 15 |
-| 15 | The fight log's format and float precision (byte-identical logs depend on them, and fight times are floats, so identity across platforms is not promised), and the terminal command that starts a test fight | gameplay-programmer | AC-CB-01, AC-CB-68 |
+| 15 | The fight log's format and float precision (byte-identical logs depend on them, and damage values are floats, so identity across platforms is not promised (fight times are whole milliseconds, rule 10)), and the terminal command that starts a test fight | gameplay-programmer | AC-CB-01, AC-CB-68 |
 | 16 | Soul attack balance waits on real techniques (user decision 2026-11-06). `soul_pct`, `soul_beta` and `soul_cap` are guesses, none of the simulated targets include soul arts, and a higher realm's soul attacks may hurt realm crossing. Rule on which layers a soul build can use once content exists | user, systems-designer | Formulas E2, H |
 | 17 | A top thể tu beats a top-end ward build about 75 % of the time at the same realm and rarely crosses two realms. Measure with real builds, then decide (user decision 2026-11-06). The Way's soul-resist nodes and `t_b` values are also unset | systems-designer | Formulas D, H |
 | 18 | The ward spell catalogue, including wards with other cost models, and hand-cast wards | game-designer | Content pass |
@@ -1198,3 +1230,4 @@ Results go to `production/qa/evidence/balance/[date]-combat-performance.md`.
 | 20 | **Rounds were removed for a timeline of seconds (user decision 2026-11-06, rule 10).** Formulas K now sums any number of arts, but the anchors in Formulas B, the win rates in Formulas H and the mirror lengths came from a round simulation with one action a round and no always-running basic attack. Only AC-CB-30's two mirrors have been checked on the timeline. Re-simulate all of it on real multi-art builds, including `slots_by_realm` and hit rates at high slot counts near `cooldown_min` | systems-designer, Balance Harness | Approval of the numbers |
 | 21 | Art speed: add `art_speed_pct` to Character Stats and set its W price and its sources. It raises hit rate and spending together, so it needs pricing against the art lint | systems-designer | Character Stats, content authoring |
 | 22 | Sources of `bonus_slots`. The user plans skill tree nodes that scale slots and similar values, but only after the tree is reworked once all systems are implemented (user decision 2026-11-06). Until then no source is authored and every build has its base slots. Candidate modifiers: design/quick-specs/tree-modifier-catalogue.md | user, systems-designer | Tree rework, content authoring |
+| 23 | What does `wound: grave` (a draw's survivors) cost? Combat only reports it (rule 14). Character Stats needs a vitality or injury rule for it, and the Event Engine a branch | user, Character Stats, Event Engine | Rule 14, caller consequences |

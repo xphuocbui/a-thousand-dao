@@ -671,7 +671,7 @@ formulas:
       - D
       - pool_qi
     output_range: "pass 0.05 to 1; drain 0.15 and up"
-    expression: "pass = max(pass_min, clamp(pass_kind + sum pass_tag, pass_min, 1)/(1 + ws/100)); drain = max(drain_min, drain_kind/(1 + we/100)); blocked = min(D*(1-pass), pool_qi/drain); qi_loss = blocked*drain; leak = D - blocked"
+    expression: "pass_raw = clamp(pass_kind + sum pass_tag, pass_min, 1); pass = clamp(pass_raw/(1 + ws/100), pass_min, 1); drain = max(drain_min, drain_kind/(1 + we/100)); blocked = min(D*(1-pass), pool_qi/drain); qi_loss = blocked*drain; leak = D - blocked"
     notes: "The default drain model. A ward record may name another cost_model (per hit, per pulse). defense_pct is ward strength."
     added: 2026-11-06
     revised: ""
@@ -1879,7 +1879,7 @@ constants:
       - design/gdd/combat.md
     value: 0.5
     unit: seconds
-    notes: "Floor on cd_eff = cooldown / (1 + art_speed_pct/100). +100 halves a cooldown; sources add."
+    notes: "Floor on cd_eff = round_ms(max(cooldown_min, cooldown / (1 + art_speed_pct/100))), rounded to the nearest millisecond, half up. +100 halves a cooldown; sources add."
     added: 2026-11-06
     revised: ""
   - name: escape_channel
@@ -1919,7 +1919,37 @@ constants:
       - design/gdd/combat.md
     value: 1
     unit: seconds
-    notes: "Guess. How long a slotted ward art stays up after firing."
+    notes: "Guess. How long a slotted ward art stays up after firing. A ward stays up through the whole millisecond it expires in (user decision 2026-11-06)."
+    added: 2026-11-06
+    revised: ""
+  - name: overkill_epsilon
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 1e-9
+    unit: share of own health_max
+    notes: "Overkill shares closer than this are a draw in the defeat check (rule 10), so a last-digit float difference cannot break a mirror."
+    added: 2026-11-06
+    revised: ""
+  - name: trig_ward_seconds
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 2
+    unit: seconds
+    notes: "Guess. How long a ward trigger adds trig_ward_strength to ws. The ward stays up through the whole millisecond it expires in."
+    added: 2026-11-06
+    revised: ""
+  - name: trig_ward_strength
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 50
+    unit: ward strength points
+    notes: "Guess. Added to ws for trig_ward_seconds by a ward trigger."
     added: 2026-11-06
     revised: ""
   - name: layer_caps
@@ -1996,6 +2026,16 @@ constants:
     value: 0.08
     unit: fraction of max health per pulse
     notes: "Total of all health ticks on one target at one pulse. One tick stays under dot_pool_cap 0.05."
+    added: 2026-11-06
+    revised: ""
+  - name: curse_bounds
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: "shred 0.5; pass x1.5; drain +50%; cost +50%; layer lock 2 pulses; tag block 3 pulses; duration 5 pulses"
+    unit: mixed (fractions and pulses)
+    notes: "Named data keys curse_shred_max, curse_pass_raise_max, curse_drain_raise_max, curse_cost_raise_max, curse_layer_lock_max, curse_tag_block_max, curse_duration_max. Durations count pulses, like statuses (design-review fix, 2026-11-06)."
     added: 2026-11-06
     revised: ""
   - name: reserve_floor
@@ -2101,6 +2141,16 @@ constants:
       - design/gdd/combat.md
     value: 400
     unit: points
+    added: 2026-11-06
+    revised: ""
+  - name: ward_floor
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: -90
+    unit: points
+    notes: "Lower bound on ward strength ws, so 1 + ws/100 stays above 0 (design-review fix, user decision 2026-11-06)."
     added: 2026-11-06
     revised: ""
   - name: pass_min
