@@ -706,6 +706,102 @@ formulas:
     notes: "Ignores wards and body guard. Values are guesses until techniques exist (Combat Open Question 16)."
     added: 2026-11-06
     revised: ""
+  - name: item_rarity
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    variables:
+      - kind_rank
+      - kind_offset
+    output_range: [1, 6]
+    expression: "rarity = kind_rank + kind_offset[kind], clamped by lint to 1..rarity_max; pill band = 1 + edges strictly below price"
+    notes: "Offsets: herb 0, material 1, artifact 1, technique 2, pill 1, talisman 1, treasure 0."
+    added: 2026-11-06
+    revised: ""
+  - name: herb_potency
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    variables:
+      - age
+      - mature_years
+      - per_doubling
+      - max_potency
+    output_range: [0.1, 5]
+    expression: "clamp(1 + per_doubling*log2(max(age,0.01)/mature_years), 0.1, max_potency)"
+    notes: "Built."
+    added: 2026-11-06
+    revised: ""
+  - name: herb_value
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    variables:
+      - base_value
+      - herb_potency
+    output_range: "1 upward"
+    expression: "max(1, round(base_value*herb_potency))"
+    notes: "Built."
+    added: 2026-11-06
+    revised: ""
+  - name: pill_value
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    variables:
+      - price
+      - quality
+    output_range: [12, 100000]
+    expression: "int(price*(1 + 0.5*quality))"
+    notes: "Built; truncates."
+    added: 2026-11-06
+    revised: ""
+  - name: artifact_power
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    variables:
+      - grade
+      - tier
+      - base
+    output_range: "see item-database.md Formulas D"
+    expression: "scale = power_mult*power_scale; attack = base.attack*scale; defense = base.defense*scale; value = int(base_value*value_mult*value_scale); than_thuc_cost = base*than_thuc_mult"
+    notes: "Built."
+    added: 2026-11-06
+    revised: ""
+  - name: default_role
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    variables:
+      - attack
+      - defense
+      - weapon_min
+      - ward_max
+    output_range: "weapon, ward, body, utility"
+    expression: "a = attack/(attack+defense); weapon if a >= weapon_min, ward if a <= ward_max, else utility; authored roles replace this; body is only authored"
+    notes: "Read by Combat Formulas D."
+    added: 2026-11-06
+    revised: ""
+  - name: realm_rarity_cap_by_kind
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    variables:
+      - realm_rarity_cap
+      - kind_offset
+    output_range: [1, 5]
+    expression: "cap[kind] = realm_rarity_cap[realm] - kind_offset[kind]"
+    notes: "Reproduces every built per-realm cap; AC-ID-07."
+    added: 2026-11-06
+    revised: ""
 
 # Example:
 #
@@ -1963,6 +2059,94 @@ constants:
     value: 0.3
     unit: fraction of maximum
     notes: "Guess."
+    added: 2026-11-06
+    revised: ""
+  - name: rarity_max
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    value: 6
+    unit: rank
+    notes: "Top of the ladder."
+    added: 2026-11-06
+    revised: ""
+  - name: realm_rarity_cap
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    value: "3 / 4 / 5 / 5 / 5"
+    unit: rank by realm
+    notes: "Not built yet; replaces four per-realm keys."
+    added: 2026-11-06
+    revised: ""
+  - name: default_rarity_offset
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    value: -1
+    unit: rank
+    added: 2026-11-06
+    revised: ""
+  - name: pill_band_edges
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    value: "20, 150, 1500, 8000, 60000"
+    unit: spirit stones
+    added: 2026-11-06
+    revised: ""
+  - name: weapon_min
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    value: 0.7
+    unit: attack share
+    notes: "Guess."
+    added: 2026-11-06
+    revised: ""
+  - name: ward_max
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    value: 0.3
+    unit: attack share
+    notes: "Guess."
+    added: 2026-11-06
+    revised: ""
+  - name: potency_per_doubling
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    value: 0.5
+    unit: potency
+    notes: "Built as per_doubling."
+    added: 2026-11-06
+    revised: ""
+  - name: max_potency
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    value: 5
+    unit: potency
+    notes: "Built."
+    added: 2026-11-06
+    revised: ""
+  - name: equip_max_slots
+    status: active
+    source: design/gdd/item-database.md
+    referenced_by:
+      - design/gdd/item-database.md
+    value: 6
+    unit: pieces
+    notes: "Built as equip.max_slots."
     added: 2026-11-06
     revised: ""
 # Example:

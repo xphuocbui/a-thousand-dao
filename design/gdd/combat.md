@@ -1074,7 +1074,7 @@ Results go to `production/qa/evidence/balance/[date]-combat-performance.md`.
 | 7 | With near-deterministic fights, should preparation show a predicted result? It helps planning and may remove tension. The Advisor's odds preview (`advisor.gd`) needs this answer, since it reads today's duel | user | UI Requirements, Guidance |
 | 8 | Fights with more than one cultivator per side are not supported. Are sequences of duels enough, or does a party fight need rules? | user | Event Engine, Sects |
 | 9 | `slot_count` per realm has no value yet (rule 13) | systems-designer | Formulas, NPC Builds |
-| 10 | Artifacts need a way to mark defence as body-tagged (Formulas D feeds it to body guard, not the ward). Who authors that tag? | systems-designer, Artifact Refining | Formulas D |
+| 10 | **Closed 2026-11-06 for the built bases:** `body` is an authored role tag on the artifact base (item-database.md rule 6, Formulas E); Giáp is body and Thuẫn is ward. New bases are authored the same way | — | — |
 | 11 | How rare are NPC duels? The Living World needs a budget per season. Wars also become more decided than today's duel odds; check `kappa_mass` against that | world-builder, Living World | Living World |
 | 12 | Capability #9 says "defeating a cultivator" in Realms and "a combat kill" in Character Stats. Which outcome counts, given mercy? | systems-designer | Rule 14 |
 | 13 | The divine ability catalogue: what each ability does (Cultivation Techniques Open Question 3) | game-designer | Content pass |

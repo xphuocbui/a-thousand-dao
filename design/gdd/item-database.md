@@ -1,6 +1,6 @@
 # Item Database & Generation
 
-> **Status**: In Design
+> **Status**: Designed (pending review)
 > **Author**: user + agents
 > **Last Updated**: 2026-11-06
 > **Last Verified**: 2026-11-06
@@ -20,7 +20,7 @@ Combat's full fight is waiting on.
 
 The Item Database is the one record of everything a cultivator can hold, find, trade, craft, wear or use
 up: herbs (linh thảo), pills (đan dược), artifacts (pháp khí, pháp bảo), technique manuals (công pháp),
-materials, talismans (phù lục), treasures, and later key items such as the Meridian Seal (Mạch Ấn). It
+materials, talismans (phù lục), treasures, and key items such as the Meridian Seal (Mạch Ấn). It
 decides what an item *is* (its record and its categories), how new items are *made* (generated within
 budgets the engine sets), how an item is *valued*, and what happens when it is *used, equipped, consumed or
 traded*. Every other economy system, the crafts, the Market, events and the Way read items through it and
@@ -52,8 +52,8 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
 1. **An item is a record in the World Database `items` table.** Every record has an `id`, a `kind`, a
    `name`, an `owner_id` and the fields its kind adds (herb: `age`, `plot`; pill: `quality`; artifact: `base`,
    `grade`, `tier`, `affixes`; and so on). Its categories, tags and rarity are read from its kind and
-   template, not stored on it. The record is canonical: whatever it says is the item. Nothing outside
-   the table holds item state.
+   template, not stored on it. The record is canonical: whatever it says is the item. Two facts about
+   an item sit on the character instead: the equipped list and nurtured years.
 2. **Templates are data; records are instances.** Authored content (herbs, recipes, treasures, the
    technique catalogue, talismans) lives in `items_*.json` and the crafting files, and a record points to
    its template by `template`. **Generated** items (artifacts and common manuals) roll their numbers
@@ -78,8 +78,7 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
    An item's categories come from its kind and template, and a template may add one. A new category is an
    engine change; a new item or tag is data.
 4. **The action decides what an item does.** Each category grants actions: a consumable can be *used*,
-   an equippable *equipped* and *unequipped*, a crafting item *put in* a craft, and an item of the other
-   category *studied* (a manual) or *turned in* (a key). Every item can also be *held*, *sold* and
+   an equippable *equipped* and *unequipped*, a crafting item *put in* a craft, and a manual *studied*. Every item can also be *held*, *sold* and
    *given*, unless it is bound (rule 13). The player picks the action, so a herb that is crafting and also
    edible (none is yet) is never ambiguous. An **automatic caller** (the Advisor, a bot, an NPC, an auto-use talisman)
    must name the action it wants, and **an item with more than one category is never used up
@@ -91,8 +90,9 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
 6. **Equippable items declare a role by tags** (user decision 2026-11-06): **weapon**, **ward**,
    **body** and **utility**, and a base may carry several. Weapon, ward and utility default from a base's attack
    and defence (Formulas E); **body** is always authored, because numbers cannot tell a shield from
-   armour. Combat reads the roles: ward items feed the ward, body items feed body
-   guard, weapons feed offence (Combat Formulas B and D). The Item Database adds no slots by role.
+   armour. Combat reads them: a body piece's defence feeds body guard, and every other
+   piece's defence feeds the ward, whatever its role (Combat Formulas D). Attack feeds offence on any piece.
+   The Item Database adds no slots by role.
 7. **Rarity is one shared ladder; each kind keeps its own detail** (user decision 2026-11-06). Every item
    has a rarity rank from 1 to `rarity_max`. Event budgets are keyed by one rarity cap per realm (Formulas F). Value caps
    (`pill_price_max`, `herb_age_max`, `linh_thach_max`) and the treasure whitelist stay as they are. A kind's own state stays on the kind: herb age, pill quality,
@@ -115,28 +115,33 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     removed.
 11. **Equipping.** Equipping is a flexible set limited by thần thức (user decision 2026-11-06). A character
     may equip up to `equip.max_slots` pieces (more with Meridian Map capability #2). Each piece costs
-    thần thức to control, and a piece the character cannot control adds nothing but stays equipped.
+    thần thức to control, and a piece the character cannot control adds nothing but stays equipped. Pieces are
+    counted in equip order, and a piece that does not fit is skipped, so a cheaper later piece still counts.
     Equipping needs an owned equippable item. Combat and Character Stats decide what a piece adds; the
     Item Database decides whether it is held, worn and counted.
 12. **Using a consumable.** The system that owns an item's effect applies it (pills through Alchemy and
     Character Stats, talismans through Combat, treasures through their effect, a seal through the Meridian
-    Map), then the Item Database reduces the stack by 1. A use that is refused leaves the item untouched,
+    Map), then the Item Database reduces the stack by 1. A Meridian capability may
+    keep a talisman. Some consumables are spent by their system rather than by hand: a talisman at the
+    moment it fires, a breakthrough pill at an attempt. A use that is refused leaves the item untouched,
     as a Linh Căn Quả refused at full purity is kept. An effect that has a choice or a risk shows its
-    preview first. **A removal that would end a life needs a preview** (Realms rule 14): before an
-    equipped item is unequipped, given or sold, the Item Database asks Character Stats for the resulting
-    lifespan cap and shows it, and the player confirms.
+    preview first. **A removal that would end a life needs a preview** (Realms rule 14): before the player
+    unequips, gives or sells an equipped item, the Item Database asks Character Stats for the resulting
+    lifespan cap. If that would end the life it shows the cap and the player confirms; otherwise no
+    preview appears.
 13. **Protected items (assumption).** An item may carry the flag **bound** (it cannot be sold or given:
     a Meridian Seal is bound to its cluster) or **reserved** (NPCs never buy, take or learn from it and
-    no Market restock removes it: Cultivation Techniques rule 18, the guaranteed next-tier manual). `bound` is authored on the template and
-    `reserved` is set by the system that creates the record, as it is today. Neither stops a player
+    no Market restock removes it: Cultivation Techniques rule 18, the guaranteed next-tier manual). `bound` is authored on the template and copied
+    to the record, and `reserved` is set by the system that creates the record, as it is today. A bound
+    item can still be found, looted or stolen; only selling and giving are refused. Neither stops a player
     using the item.
 14. **Ownership.** An item has exactly one owner at any time: a person, a place (a lost item waiting to
-    be found) or no one. Transfers (buying, selling, giving, looting, finding, theft) change the single
+    be found), a Market (stock) or no one. Transfers (buying, selling, giving, looting, finding, theft) change the single
     `owner_id` and are logged as events. An item whose owner no longer exists is a data error, caught
     when the world is saved.
 15. **Time moves state only through its owning system.** The Item Database never changes a record on its
-    own. A herb's age is advanced on the season tick by the Spirit Herb system and a nurtured treasure's
-    years by Character Stats; the Item Database holds the field and keeps it valid.
+    own. A herb's age is advanced on the season tick by the Spirit Herb system, and a nurtured treasure's
+    years are held and advanced on the character.
 16. **Items an LLM event invents are bounded.** An event may ask for an item of a kind, a rarity and an
     element. The engine picks the numbers inside the budget in `events_budgets.json` (a treasure must also be on the
     realm's whitelist), creates and registers the record, and only then lets the narration name it. The narration never changes a record
@@ -148,8 +153,8 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     loot, world history, the starting kit) and leave by use, sale, destruction or loss. Frequencies belong
     to those systems; the Item Database exposes counts by kind, category and rarity so the Balance
     Harness can watch inflation.
-19. **Data is linted at load.** A template without a category, a tag not defined in data, a rarity outside
-    1 to `rarity_max` and an equippable base with no role are all rejected, so none reaches a record. Defined
+19. **Data is linted at load.** An unknown kind, a tag not defined in data, a rarity outside
+    1 to `rarity_max` and an empty `roles` list are all rejected, so none reaches a record. Defined
     tags live in a new `items_tags.json`, which also holds the existing recipe `effect.tag` strings.
 
 ### States and Transitions
@@ -165,8 +170,8 @@ An item record has these states. A stack with `qty` 0 never exists; it is remove
 | Lost | Its owner is a place (dropped, abandoned, an owner died) | A character finds it |
 | Consumed | A consumable is used up, or a craft takes an ingredient | The record is removed |
 
-Held, Equipped and Lost items are all transferable unless bound. A bound item can still be used, but
-not sold or given.
+Bound items can be used, found, looted and stolen, but not sold or given. An item in Market stock is Held by the
+Market. Consumed also covers sale to no one, destruction and a dead herb: the record is removed.
 
 ### Interactions with Other Systems
 
@@ -191,6 +196,30 @@ World have no GDD yet (quick specs at most). Rows marked **provisional** hold th
 | Debug Terminal (#36), Game UI (#37) | out | `describe`, category and tag data, previews | the presentation system |
 | Balance Harness (#33) | out | Counts by kind, category and rarity | Balance Harness |
 
+### Build Gaps
+
+This GDD states the target. These rules read as design but are not in the code yet, beyond what Formulas marks **change**. The
+acceptance criteria that fail today are listed so the build scope is visible.
+
+| Rule | What the code does today | Criteria |
+|---|---|---|
+| 1 | Herb records store `rarity`; artifacts, pills, manuals and talismans have none | 01 |
+| 2 | Authored manuals copy `value`, `bonuses` and `layers` onto the record | 25 |
+| 3, 4, 5 | No categories, actions or tags exist; `use_item` takes no action, and bots call it bare | 02, 03, 04, 37, 38, 39, 40 |
+| 8, 16 | Herb and material clamps are silent, and budgets live only in the event validator, so direct factory callers bypass them | 16 |
+| 10 | `EventResolver` never merges, so event materials and talismans make new records; **buying the last talisman does not merge** (`market.gd`, likely bug) | 31, 32 |
+| 11 | **A piece the wearer cannot control still applies its affixes** (`stat_sheet.gd`, likely bug). Combat power never checks the slot cap | 42, 43 |
+| 12 | `unequip` has no confirm step; `Market.sell` refuses an equipped item instead of unequipping | 44, 45, 46, 47 |
+| 14 | Market trades and `give_item` log no event; no owner check runs at save; nothing moves a dead owner's items | 50, 51, 52 |
+| 15 | Nothing changes here; listed because the nurture years and equipped list sit on the character | — |
+| 17 | `describe` shows no category, rarity or value, and items have no Breakdown | 56, 57 |
+| 18 | No counts or item measures exist in `tools/balance/` | 58, 71 to 74, 76, 77 |
+| Tuning | The quality step 0.5, the name limit 40, the potency floor 0.1 and the age floor 0.01 are hardcoded | — |
+| UI | No inventory, detail or equip screens match this GDD | 78 to 83 |
+
+Migration: removing stored `value` and herb `rarity` and adding `bound` needs a save `version` bump (today 3) and a migration of
+version 3 records (`bound` set from the template, `value` dropped). Combat's AC-ID-70 is on hold with the full fight.
+
 ## Formulas
 
 Everything below documents the built game unless marked **change**. The built numbers were calibrated by bot
@@ -211,7 +240,7 @@ The rarity formula is defined as:
 | rarity_max | int | 6 | data file (**change**: new `items_rarity.json`) | Top of the ladder; herbs already reach 6 |
 | kind_rank | int | herb rarity 1–6, material rarity 1–4, artifact grade 0–4, technique tier 0–3, pill band 1–5, talisman `material_rarity` 1–3, treasure rarity 4–5 | data file | The kind's own rank, unchanged |
 | kind_offset | int | herb 0, material 1, artifact 1, technique 2, pill 1, talisman 1, treasure 0 | data file (**change**) | Aligns each kind onto the ladder |
-| pill band | int | 1–5 | calculated | 1 + the number of `pill_band_edges` [20, 150, 1,500, 8,000, 60,000] strictly below the recipe's price |
+| pill band | int | 1–5 | calculated | 1 + the number of `pill_band_edges` [20, 150, 1,500, 8,000, 60,000] strictly below the recipe's price. A recipe above the top edge would be rank 7, and the load lint rejects it until the ladder grows |
 
 **Output Range:** an integer from 1 to 6. No built number changes. Pill quality is state, not rarity.
 
@@ -289,12 +318,12 @@ The artifact formulas are defined as:
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| grade | int | 0–4 | data file or caller | Phàm to Cực phẩm; rolled by weights 40 / 30 / 18 / 9 / 3, clamped to the cap |
+| grade | int | 0–4 | data file or caller | Phàm to Cực phẩm; rolled by weights 40 / 30 / 18 / 9 / 3 among the grades at or under the cap, so a cap renormalises the odds |
 | power_mult, value_mult | float | 1 / 1.3 / 1.7 / 2.2 / 3; 1 / 2 / 4 / 9 / 20 | data file | Per grade |
 | affix count | int | 0 / 1 / 2 / 3 / 4 | data file | Per grade |
 | tier | int | 0–4 | caller | The realm the item is made for |
 | power_scale, value_scale | float | 1 / 10 / 100 / 1,000 / 10,000; 1 / 8 / 60 / 400 / 3,000 | data file | Per tier |
-| than_thuc_mult | float | 1 / 3 / 10 / 30 / 100 | data file (`cultivation_realms.json`) | Per realm |
+| than_thuc_mult | float | 1 / 3 / 10 / 30 / 100 | data file (`cultivation_realms.json`) | Per realm. An affix's cost change is clamped to ×0.1–2.0 when worn, as built |
 | element_chance | float | 0.6 | data file | Chance an artifact has an element |
 
 **Affix roll.** For each affix slot, one affix is picked by weight from the 9 in the pool without replacement. An
@@ -359,10 +388,11 @@ The realm_rarity_cap formula is defined as (**change**: replaces four per-realm 
 
 **Output Range:** every derived cap equals today's value. These stay as they are: `pill_price_max` (a price cap, because the
 ladder is too coarse above Core Formation), `herb_age_max`, `linh_thach_max`, the `treasures` whitelist (it overrides the
-rarity cap: Linh Căn Quả is rank 5 and allowed from Foundation Establishment) and the Market's stock keys.
+rarity cap: Linh Căn Quả is rank 5 and allowed from Foundation Establishment) and the Market's stock keys. Where the
+Market reads `material_rarity_max` today, it reads the derived material cap. Pills, talismans and treasures have no rarity cap.
 
 **Known gap (user decision 2026-11-06: leave and measure).** The rarity cap bounds an artifact's power, not its value. At
-the cap, one artifact is worth 1.25× to 6× the realm's `linh_thach_max`, and selling returns 60 % of that, so artifacts
+the cap, one artifact is worth 0.75× to 6× the realm's `linh_thach_max`, depending on its base, and selling returns 60 % of that, so artifacts
 are the real wealth tap. Formulas H watches it.
 
 **Example:** at Foundation Establishment, an artifact's grade cap is 4 − 1 = **3**, and the default grade is 3 − 1 = **2**.
@@ -381,12 +411,12 @@ The stack_value formula is defined as:
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| kind | string | pill, material, talisman, treasure | record | Kinds that stack |
+| kind | string | pill, material, talisman | record | Kinds that stack; treasures stay instances, as built, because their effects remove the whole record |
 | quality | int | 0–3 | record | Pills only |
-| bound, reserved | bool | — | record | **Change:** part of the key, so a bound seal never merges with a free one |
+| bound, reserved | bool | — | record | **Change:** part of the key, so a bound stack never merges with a free one |
 | qty | int | ≥ 1 | record | Units |
 
-**Output Range:** herbs, artifacts and manuals are instances and never merge. A pill's unit value truncates before it is multiplied.
+**Output Range:** herbs, artifacts, manuals and treasures are instances and never merge. A pill's unit value truncates before it is multiplied.
 
 **Example:** three Hồi Xuân Đan at quality 1: 3 × 27 = **81**.
 
@@ -408,6 +438,7 @@ All thresholds are proposals with no source; set them after the first run.
 
 **Records and data**
 
+- **If an artifact's base is removed from data:** it is treated as a missing template, keeping its rolled numbers.
 - **If a template fails the load lint:** the game does not start in development, and the failing template is named.
 - **If a saved record points at a template that no longer exists:** the record is kept, shows its stored name with value 1, and can only be held or sold. The loader logs it.
 - **If a template's numbers change in data:** template-read values follow on the next load, and rolled values on existing records stay as they are (rule 2).
@@ -415,8 +446,8 @@ All thresholds are proposals with no source; set them after the first run.
 
 **Generation**
 
-- **If a request is above its budget:** it is clamped to the cap and the clamp is logged. It is never refused, so an event always gets an item.
-- **If no template fits a rarity and element:** the element filter is dropped first (as built), then the lowest rarity is used.
+- **If a request is above its budget:** a rarity, grade, tier or age is clamped to the cap and the clamp is logged, so the event still gets an item. A treasure off the whitelist, an over-budget pill or an unknown template is dropped with a warning.
+- **If no template fits a rarity and element:** the element filter is dropped first (as built), then the lowest rarity is used. A manual tier with no template falls to the top common tier.
 - **If a flavour name is over 40 characters:** it is cut to 40.
 - **If an element-bound affix is rolled on an item with no element:** that slot is skipped, and the item has one affix fewer (as built).
 - **If a treasure is above the rarity cap but in the realm's whitelist:** the whitelist wins.
@@ -470,7 +501,7 @@ All thresholds are proposals with no source; set them after the first run.
 | Combat (#21) | Hard for the full fight | Role tags, attack, defence, consumable arts | GDD designed, build on hold; today's duel reads artifacts directly |
 | Event Engine (#23), LLM GM (#29) | Hard | Budgeted item requests | Built, no GDD |
 | NPC Builds (#24), World Generation (#27), Living World (#28) | Hard | Items for NPCs and history | Built, no GDD |
-| Save/Load (#5) | Hard | Whole records; a `schema_version` bump for the new fields | Built, no GDD |
+| Save/Load (#5) | Hard | Whole records; a save `version` bump and migration for the new fields | Built, no GDD |
 | Guidance (#35), Debug Terminal (#36), Game UI (#37), Balance Harness (#33) | Soft | `describe`, previews, counts | Terminal and Guidance built |
 
 **Bidirectional check.** Character Stats, Realms, Cultivation Techniques, the Meridian Map and Combat list this system. No
@@ -541,19 +572,169 @@ All of these work in the Debug Terminal first, with numbered menus as elsewhere.
 
 ## Acceptance Criteria
 
-[To be designed]
+Drafted by qa-lead, then updated by the main session for the rulings applied after its report. Formulas H thresholds are
+unmeasured proposals. Build Gaps (below Detailed Design) says which criteria describe work not built yet.
+
+Evidence: Logic tests under `tests/unit/items/`, Integration tests under `tests/integration/items/`, Balance Harness output
+under `production/qa/evidence/balance/`, terminal evidence under `production/qa/evidence/debug-terminal/`.
+
+**Fixtures.** Tolerance is ±0.01 unless stated. Rolled samples use a fixed list of seeds.
+
+- **FX-D:** shipped `assets/data`, unmodified.
+- **FX-O:** an overlay copy of the data with the named values changed, loaded through `GameData`.
+- **FX-M:** test-only template `fx_edible_herb`, a herb with categories crafting and consumable and a heal effect.
+- **FX-N:** a character with Mị lực 50, so buying is exactly ×1.5 and selling exactly ×0.6.
+- **FX-E:** thần thức capacity 100, no capabilities, equipped in order A (cost 60), B (cost 60, one `khi_van` +5 affix), C (cost 20), each with attack 10.
+- **FX-L:** a test-only artifact with a `lifespan_years` +5 affix, equipped by a character whose age is the cap without it + 1, with no other lifespan bonus.
+
+**Records, categories and tags**
+
+- **AC-ID-01** [Logic] Rule 1. Given one record of each kind in a fresh World Database, then each has `id`, `kind`, `name` and `owner_id` plus its kind's fields, and none stores `categories`, `tags` or `rarity`.
+- **AC-ID-02** [Logic] Rule 3. Given FX-D, then herb and material are [crafting]; pill, talisman and Linh Căn Quả are [consumable]; artifact is [equippable]; manual is [other]; Mạch Ấn is [consumable, other]. Given FX-M, `fx_edible_herb` is [crafting, consumable].
+- **AC-ID-03** [Logic] Rule 4. Given each category, then consumable gives use; equippable gives equip and unequip; crafting gives put in; other gives study on a manual. Every unbound item also lists hold, sell and give.
+- **AC-ID-04** [Logic] Rule 5. Given two FX-O templates identical except for an extra defined tag, then value, categories and actions are equal.
+
+**Ladder and budgets**
+
+- **AC-ID-05** [Logic] Formulas A. Given FX-D, then every rarity is an integer from 1 to 6 and matches the Formulas A table for herbs, materials, artifact grades, manual tiers, pills, talismans (2 Hỏa Cầu, Kim Cương; 3 Thần Hành; 4 Phá Cảnh) and treasures (4 Mạch Ấn; 5 Linh Căn Quả).
+- **AC-ID-06** [Logic] Formulas A. Price 20 gives band 1; 21 gives 2; 150 gives 2; 151 gives 3; 400 gives 3 (rarity 4); 40,000 gives 5 (rarity 6). Given price 60,001 in FX-O, rarity would be 7 and the load lint rejects the recipe.
+- **AC-ID-07** [Logic] Formulas F; cited by Tuning Knobs. Given `realm_rarity_cap` 3 / 4 / 5 / 5 / 5 and offsets herb 0, material 1, artifact 1, technique 2, then all 20 caps equal today's `events_budgets.json`: `herb_rarity_max` 3 / 4 / 5 / 5 / 5, `material_rarity_max` 2 / 3 / 4 / 4 / 4, `artifact_grade_max` 2 / 3 / 4 / 4 / 4, `cong_phap_tier_max` 1 / 2 / 3 / 3 / 3. The test holds these as a golden table, and until the change lands also asserts the table equals the file.
+- **AC-ID-08** [Logic] Formulas F. Given `default_rarity_offset` −1, the default artifact grade is 1 / 2 / 3 / 3 / 3 and the default technique tier 0 / 1 / 2 / 2 / 2.
+- **AC-ID-09** [Config] Rule 7, Formulas F. Given FX-D, these are unchanged: `pill_price_max` 150 / 1,500 / 8,000 / 60,000 / 400,000; `herb_age_max` 40 / 120 / 400 / 1,000 / 3,000; `linh_thach_max` 80 / 600 / 5,000 / 40,000 / 300,000; `treasures` empty at Qi Refining and [linh_can_qua] at the other four realms.
+
+**Generation**
+
+- **AC-ID-10** [Logic] Rule 8. Given a fresh generator with seed S and the same inputs, when an artifact, a common manual, a random herb and a random material are each generated twice, then the records are deep-equal before `db.add`, and the generator's state afterward is equal. Over 20 seeds, at least two artifacts differ.
+- **AC-ID-11** [Integration] Rule 8. Given an event asking for an artifact with `attack` 99,999 and `value` 99,999, then the record's attack and value are the Formulas D results.
+- **AC-ID-12** [Logic] Formulas D. Given a fixed base and element `kim`: Phi Kiếm tier 1 grade 2 is attack 510, value 640, thần thức 60, 2 affixes; Phi Kiếm tier 0 grade 0 is 30, 20, 20, 0 affixes; Phi Kiếm tier 4 grade 4 is 900,000, 1,200,000, 2,000, 4 affixes; Ấn tier 0 grade 1 is attack 52, defense 6.5, value 50, thần thức 30, 1 affix; Giáp tier 2 grade 3 is defense 6,600, value 9,720, thần thức 50, 3 affixes.
+- **AC-ID-13** [Logic] Formulas D, affixes. Given 1,000 seeds at grade 4 with element `kim`, each artifact has 4 affixes with distinct ids, each value in range and a multiple of 0.1. Given element `none`, `nguyen_to` never appears and the count is 3 exactly when it was the rolled slot. Attack, defense and value equal the no-affix result.
+- **AC-ID-14** [Logic] Formulas D, rolls. Over 100,000 seeds, `roll_grade` with cap 4 gives 40 / 30 / 18 / 9 / 3 % (±1 point). With cap 2, shares are 45.5 / 34.1 / 20.5 % (±1 point). An artifact rolling its own element has one 60 % of the time (±1 point).
+- **AC-ID-15** [Logic] Rule 8. A flavour name of 41 characters is cut to 40. A name of 40 is unchanged. Each composed Vietnamese character counts as 1.
+- **AC-ID-16** [Integration] Edge Cases. Given a herb request at rarity 9 at Qi Refining, the herb's rarity is at most 3 and one clamp line is logged; the same for material rarity, artifact grade and manual tier. Given an element with no template at the rarity, the element filter is dropped and an item is returned. Given rarity 0, a rank-1 template is returned.
+- **AC-ID-17** [Integration] Rule 16, Edge Cases. Given a Linh Căn Quả request at Foundation Establishment (rank 5, cap 4), it is granted. Given the same at Qi Refining, or a Mạch Ấn at any realm, no treasure is created and a warning is logged.
+- **AC-ID-18** [Integration] Rule 16. Given a resolving event with an item reward, when the narration is built, the record is already in the `items` table, and after narration it is deep-equal to its state before.
+
+**Values**
+
+- **AC-ID-19** [Logic] Formulas B. Hoàng Tinh Sâm at age 5 is 0.5, value 10; age 10 is 1.0, 20; age 20 is 1.5, 30; age 40 is 2.0, 40. Age 2,560 and age 100,000 are 5.0, value 100. Kim Tủy Quả at age 42 is 0.8742, value 131. At age 0, Ngưng Khí Thảo is 0.1, value 1, and Hóa Thần Quả is 0.1, value 300.
+- **AC-ID-20** [Logic] Formulas C. Hồi Xuân Đan at quality 0 is 18, at 1 is 27, at 3 is 45. Hóa Thần Đan at 3 is 100,000. An FX-O recipe at price 15, quality 1, is 22.
+- **AC-ID-21** [Logic] Formulas C, lint. Given FX-D, margins (±0.01) are Tụ Khí 2.40, Thanh Độc 2.67, Hồi Xuân 1.80, Hoàng Long 2.06, Tĩnh Tâm 0.85, Trúc Cơ 1.68, Huyết Khí 1.07, Ngưng Nguyên 3.95, Tẩy Tủy 7.14, Diên Thọ 3.64, Hóa Anh 1.33, Hóa Thần 1.30. Exactly one warning names `tinh_tam_dan`, and the game still loads. The lint tests the unrounded margin: an FX-O recipe at 0.99 warns and loads, and at exactly 1.00 it does not warn.
+- **AC-ID-22** [Logic] Rule 9. Every item in FX-D has a value of at least 1. Tinh Thiết is 15, Linh Căn Quả 4,000, Mạch Ấn 800, Hỏa Cầu Phù 12, Phá Cảnh Phù 300. Given FX-N, a quality-1 Hồi Xuân Đan (27) buys at 41 and sells at 16, and a 640 artifact buys at 960 and sells at 384.
+- **AC-ID-23** [Logic] Rule 2, Edge Cases. Given a saved Phi Kiếm (attack 510, value 640) and a generated manual, when reloaded under FX-O with base attack, multipliers, scales and manual pricing changed, both records and their `value_of` are unchanged.
+- **AC-ID-24** [Logic] Rule 2. Given FX-O with Hoàng Tinh Sâm `base_value` 30, an age-40 herb is worth 60. With `mature_years` 20 as well, potency 1.5 and value 45. With Hồi Xuân Đan `price` 20, quality 1 is worth 30.
+- **AC-ID-25** [Logic] Rule 2 change. Given FX-O with Tinh Thiết 20, Linh Căn Quả 5,000 and Hỏa Cầu Phù 14, existing records are worth those values and none stores a `value` key.
+
+**Roles**
+
+- **AC-ID-26** [Logic] Formulas E. Given FX-D, Phi Kiếm, Ấn, Phiến and Châm are weapon; Kỳ is utility; Chuông and Thuẫn are ward. Boundary fixtures: 70/30 is weapon, 30/70 is ward, 69/31 and 31/69 are utility. A base of 0/0 is utility with no division error.
+- **AC-ID-27** [Logic] Rule 6. Given FX-D, Hồ Lô is [weapon, utility] and Giáp is [body], although Thuẫn and Giáp both have `a` 0.00. No role is ever computed as body. Given six weapon-role artifacts, all six equip.
+
+**Stacks**
+
+- **AC-ID-28** [Logic] Formulas G. Given two stacks of qty 2 and 3 with equal keys, one record remains with qty 5, for pill, material and talisman. Given a difference in any one key field, two records remain.
+- **AC-ID-29** [Logic] Formulas G. Given two herbs of equal template and age, two identical artifacts, two identical manuals or two Mạch Ấn with one owner, they stay separate records.
+- **AC-ID-30** [Logic] Rule 10, Formulas G. Given a stack of qty 1, when used or sold, the record is gone. No record with qty 0 or below exists after any step. Three quality-1 Hồi Xuân Đan have stack value 81. Three FX-O pills at price 15, quality 1, have stack value 66.
+- **AC-ID-31** [Logic] Edge Cases. Given FX-N and a stack of 3 in stock, when one is bought, stock is 2 and the buyer has 1 with every field kept, merged into a matching stack if one exists. Buying the last unit also merges, for pill, material and talisman alike. Selling 1 of 3 leaves 2.
+- **AC-ID-32** [Integration] Rule 10. Given a character holding a stack, when the same key arrives by event reward, craft, explore or purchase, its qty rises and no second record appears.
+
+**Using**
+
+- **AC-ID-33** [Logic] Rule 12. Given FX-N with vitality 0.20, no toxicity and 3 quality-0 Hồi Xuân Đan, when one is used, vitality is 0.70, qty is 2 and toxicity rose.
+- **AC-ID-34** [Logic] Rule 12. Each of these returns `ok` false with the record, character and generator unchanged: a 4th Huyết Khí Đan, a 3rd Diên Thọ Đan, Tẩy Tủy Đan with every root at full purity, Linh Căn Quả with all five elements at 100, Trúc Cơ Đan by `use`, and Mạch Ấn with no cluster to open.
+- **AC-ID-35** [Logic] Edge Cases. Given a stub effect that starts and then reports failure, qty is unchanged.
+- **AC-ID-36** [Logic] Rule 12. Given Linh Căn Quả and a missing element, when used with no element, the result has `needs_element`, the options and preview lines, and the fruit is kept. With a valid element, the fruit is consumed.
+- **AC-ID-37** [Logic] Rule 4, Edge Cases. Given an automatic caller naming no action, the call is refused, one log line names the caller and item, and nothing changes.
+- **AC-ID-38** [Logic] Rule 4. Given FX-M and Mạch Ấn: an automatic caller naming no action, or another action, consumes nothing; naming use for a different record of the same template consumes nothing on this record; naming use for this exact record reduces it by 1; a player picking use reduces it by 1.
+- **AC-ID-39** [Logic] Edge Cases. Given `fx_edible_herb` taken by a craft, it is consumed and the character's vitality, toxicity and pill-use count are unchanged.
+- **AC-ID-40** [Integration] Rule 4. Given a 100-year autoplay run, every automatic use names its action, no refusal is logged, and no multi-category item is consumed unnamed.
+
+**Equipping**
+
+- **AC-ID-41** [Logic] Rule 11. With no capability, 6 artifacts equip and the 7th is refused. With capability #2, 7 equip and the 8th is refused. An unowned item, a non-artifact and an already equipped item are refused.
+- **AC-ID-42** [Logic] Rule 11. Given FX-E, A, B and C stay equipped, B is reported as overflow with a warning, and thần thức spent is 80 of 100. B adds no attack, defense or `khi_van`. When A is unequipped, B adds its attack and +5 `khi_van`.
+- **AC-ID-43** [Logic] Edge Cases. Given FX-E at capacity 200, when capacity drops to 100, no piece is unequipped and AC-ID-42 holds. Given 7 pieces with capability #2 removed by fixture, all 7 stay equipped, the 7th adds nothing, and it adds again once a piece is unequipped.
+- **AC-ID-44** [Logic] Edge Cases. Given an equipped item sold or given by the player, it leaves the equipped list before the transfer. Given a theft, the same with no preview.
+
+**Removal preview**
+
+- **AC-ID-45** [Logic] Rule 12. Given FX-L, when the piece is unequipped unconfirmed, the result has `needs_confirm`, a line naming the new cap and the age, and nothing changes. When confirmed, the piece is unequipped and the character dies at once.
+- **AC-ID-46** [Logic] Rule 12. Given FX-L, selling or giving the piece behaves as AC-ID-45. A theft ends the life with no preview. A removal that leaves the cap above the age shows no preview.
+- **AC-ID-47** [Logic] Rule 12. Given FX-L, when the preview runs, the character, world database and generator state are unchanged.
+
+**Flags**
+
+- **AC-ID-48** [Logic] Rule 13. Given a bound Mạch Ấn, sell and give are refused and spirit stones and the record are unchanged. Use still consumes it. Every record of a template with `bound` is bound, and the flag survives save and load.
+- **AC-ID-49** [Integration] Rule 13. Given a reserved manual in Market stock, after 5 yearly restocks it is still there. The player can buy it and learn from it. An NPC buy, take or learn attempt is refused.
+
+**Ownership, time and states**
+
+- **AC-ID-50** [Logic] Rule 14. Given a buy, sale, gift, loot, find and theft, each record has exactly one `owner_id` after it, and each logs one event naming the item and both sides.
+- **AC-ID-51** [Logic] Rule 14, Edge Cases. Given items owned by a person, a place, a Market and no one, none is flagged at save. Given an owner id that exists nowhere, the save reports it and the item stays with no owner.
+- **AC-ID-52** [Integration] Edge Cases. Given a character who dies holding items, the caller moves them to a valid owner, and an invalid owner is rejected. Given a bound item, its owner becomes the place of death and it stays bound, and a character can find it there.
+- **AC-ID-53** [Logic] Edge Cases. Given a planted herb, `owner_id` is the planter, `plot` is 0 or above, and selling it is refused until harvest.
+- **AC-ID-54** [Logic] Rule 15. Given one record of each kind and the Spirit Herb tick stubbed out, after 40 seasons all records are deep-equal. With the tick on, only herb `age` changes.
+- **AC-ID-55** [Logic] States. Created goes to Held on gaining an owner; Held goes to Equipped, Planted, Lost and Consumed; Equipped goes to Held on unequip; Lost goes to Held on being found; a Consumed record is gone. Illegal moves are refused.
+
+**Explaining and counting**
+
+- **AC-ID-56** [Logic] Rule 17. Given one item of each kind, `describe` returns one line naming its categories, rarity and value.
+- **AC-ID-57** [Logic] Rule 17. Given Kim Tủy Quả at age 42, a quality-1 Hồi Xuân Đan and the AC-ID-12 Phi Kiếm, a Breakdown exists for potency (0.874), value (27) and attack (510), and its lines match the shown total.
+- **AC-ID-58** [Logic] Rule 18. Given 3 herbs, 2 artifacts and 1 Mạch Ấn, counts by kind sum to 6 records, and Mạch Ấn is counted under both consumable and other.
+
+**Load lint**
+
+- **AC-ID-59** [Logic] Rule 19, Edge Cases. Given an FX-O template with each fault in turn (unknown kind, undefined tag, rarity 0, rarity 7, empty `roles`), when the game loads in development, it does not start and the error names the template and the fault.
+- **AC-ID-60** [Config] Rule 19. Given FX-D, the lint gives 0 errors and the one AC-ID-21 warning. `items_tags.json` holds `truc_co_dan`, `ngung_nguyen_dan`, `hoa_anh_dan` and `hoa_than_dan`.
+- **AC-ID-61** [Logic] Edge Cases. Given a saved record whose template or base is gone, it is kept, shows its stored name, has value 1, offers only hold and sell, and one log line names it.
+
+**Cross-system**
+
+- **AC-ID-62** [Integration] Character Stats. Given a Hộ Thân +10 affix, when equipped `khi_huyet_pct` rises by 10, and when unequipped it returns. Given a quality-0 Diên Thọ Đan at no toxicity, the lifespan bonus rises by 15.0.
+- **AC-ID-63** [Integration] Realms. Each breakthrough pill's `effect.tag` equals the `entry_requirement.item_tag` of the realm it enters. Given a pill attempt with a held pill and Phá Cảnh Phù, one of each is consumed whether it passes or fails. A refused attempt consumes neither.
+- **AC-ID-64** [Integration] Techniques. Given an owned manual, when learned, the record stays. Given a new world, the rule 18 reserved copies exist. Given the source lost at season N, the same technique is in a starting-province Market at season N + 1 at its normal price, and the World Database records the move.
+- **AC-ID-65** [Integration] Meridian Map. Given a Mạch Ấn and an available item-sealed cluster, when used, the cluster opens and the seal is consumed.
+- **AC-ID-66** [Integration] Market. Given FX-O with `value_of` stubbed to 100 and FX-N, the buy price is 150 and the sell price 60. A bound item is refused at sale.
+- **AC-ID-67** [Integration] Event Engine. Given the keys replaced by `realm_rarity_cap`, the event validator, Market stock and explore loot use the AC-ID-07 caps for each realm. A seeded 100-year run gives identical item records before and after the change.
+- **AC-ID-68** [Integration] Save/Load. Given a save with every kind, `bound`, `reserved`, `qty`, affixes, `plot` and `lost`, a round trip is deep-equal and the save `version` is above 3. A version 3 save loads with records migrated.
+- **AC-ID-69** [Integration] Combat, today's duel. Given one seeded build, chiến lực and duel results are identical before and after role tags land.
+- **AC-ID-70** [Integration] Combat, on hold. Given grade-0, tier-0 Thuẫn and Giáp at B_p 100, stage 1.00, `a_w` is 0.35, `a_b` is 0.30 and the gear adds 10.5 to `ws` and `we`. Adding Kỳ makes `a_w` 0.50. A piece tagged ward and body feeds `a_b` only.
+
+**Balance Harness (bot measures, on a 5,000-cultivator world over a fixed seed set)**
+
+- **AC-ID-71** [Integration] Records. The world total is at most 200,000 and no cultivator holds more than 200 records.
+- **AC-ID-72** [Integration] Wealth. Per realm, `Σ value_of · qty / Σ linh thạch` drifts by no more than 2× over 100 years.
+- **AC-ID-73** [Integration] Flow. Value created against removed, per kind, stays at or below 1.5 over 50 years.
+- **AC-ID-74** [Integration] Rarity. At most 5 % of records are rank 5 or 6.
+- **AC-ID-75** [Integration] Market herbs. Random stock never holds Hoàng Tinh Sâm, Kim Tủy Quả, Anh Tâm Liên or Hóa Thần Quả.
+- **AC-ID-76** [Integration] Margin. No recipe outside the shipped list is below 1. Tĩnh Tâm Đan at 0.85 is the accepted baseline.
+- **AC-ID-77** [Integration] Control. At most 25 % of equipped artifacts are ones their owner cannot control.
+
+**UI (Debug Terminal first; transcript or screenshot in `production/qa/evidence/debug-terminal/`)**
+
+- **AC-ID-78** [UI] Inventory. Given a character holding every kind, a retained transcript shows items grouped by category, with Mạch Ấn under both of its categories, each with rarity and value. Filtering by category, tag and rarity each narrows the list.
+- **AC-ID-79** [UI] Item detail. A retained transcript shows the `describe` line, categories, tags, rarity, value and any Breakdown, with a numbered action for each granted action. A bound item shows that it cannot be traded.
+- **AC-ID-80** [UI] Equip panel. Given FX-E, a retained screenshot shows the pieces, slots used and cap, thần thức 80 of 100 and each role. FX-L's unequip shows the preview.
+- **AC-ID-81** [UI] Use preview. Given Linh Căn Quả, the transcript shows the effect and choice. Backing out leaves every record unchanged.
+- **AC-ID-82** [UI] Visual requirements. With colour switched off, every rarity still reads as a word (Open Question 13).
+- **AC-ID-83** [UI] Game Feel. Given Hoàng Tinh Sâm at age 40, the transcript shows age 40, value 40, and at the next doubling age 80, potency 2.5, value 50.
 
 ## Open Questions
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
 | 1 | Confirm the bound and reserved flags (rule 13) and the rule 12 removal preview, both added from other GDDs' needs | user | Rules 12, 13 |
-| 2 | Artifact value runs 1.25× to 6× the realm's stone cap. Left as built (user decision 2026-11-06); revisit after the first wealth measure | economy-designer, Balance Harness | Formulas F, H |
+| 2 | Artifact value runs 0.75× to 6× the realm's stone cap. Left as built (user decision 2026-11-06); revisit after the first wealth measure | economy-designer, Balance Harness | Formulas F, H |
 | 3 | Where do Mạch Ấn keys come from, and how many does a life find (Meridian Map Open Question 13)? | user | Rule 13 |
 | 4 | Should any herb have an edible effect? Rule 4 allows it, and no herb has one in data yet | user | Content pass |
 | 5 | Item records at world scale: should ordinary items of dead NPCs be removed, and when? The measure in Formulas H has no data behind it yet | world-builder, Living World | Rule 18 |
 | 6 | Herb rarity means scarcity and artifact grade means power, yet they share one ladder. The ladder fits today only because the caps align; a retune of one kind may need an exception | economy-designer | Formulas A, F |
 | 7 | Which pill effects are timed (Character Stats rule 12 lists them), and where is the timer held? | systems-designer | Rule 12 |
+| 11 | The action interface: its signature, how a call is known to be automatic, and which log a refusal goes to. It may need an ADR | gameplay-programmer | Rule 4, AC-ID-37, 38, 40 |
+| 12 | What counts as a "risk" that needs a use preview (rule 12), since every pill adds toxicity | game-designer | Rule 12 |
+| 13 | The six rarity rank names, and which rank is announced on finding an item | writer, game-designer | AC-ID-82, Game Feel |
+| 14 | What Formulas H means by drift and unrestricted recipes, whether windows roll, and whether NPCs count | economy-designer | AC-ID-71 to 77 |
+| 15 | A reserved manual keeps its flag after purchase; if the player sells it, nothing reissues it. Should it? | systems-designer | Cultivation Techniques rule 18 |
+| 16 | Mạch Ấn opens the nearest sealed cluster in code, while rule 13 calls it bound to its cluster (Meridian Map Open Question 19) | systems-designer | Rule 13 |
 | 8 | Ward, body and utility roles beyond the 9 built bases, and new equippables Combat needs | game-designer | Content pass, Combat |
 | 9 | All Formulas H thresholds, `weapon_min` and `ward_max` are guesses | economy-designer | Formulas E, H |
 | 10 | **To do (user 2026-11-06):** add more items to the game, authored by hand rather than generated. Today there are 10 herbs, 12 recipes, 8 materials, 9 artifact bases, 4 talismans and 2 treasures | user, game-designer | Content pass, Combat |
