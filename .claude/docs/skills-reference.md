@@ -21,6 +21,7 @@
 | `/map-systems` | Decompose game concept into systems, map dependencies, prioritize design order |
 | `/design-system` | Guided, section-by-section GDD authoring for a single game system |
 | `/quick-design` | Lightweight design spec for small changes — tuning, tweaks, minor additions |
+| `/design-build` | Turn a game or lore concept into a full build: Công Pháp, arts, items, modifiers, with creative directions to choose from |
 | `/review-all-gdds` | Cross-GDD consistency and game design holism review across all design docs |
 | `/propagate-design-change` | When a GDD is revised, find affected ADRs and produce an impact report |
 

@@ -379,6 +379,17 @@ skills:
     priority: low
     category: utility
 
+  - name: design-build
+    spec: ""
+    last_static: ""
+    last_static_result: ""
+    last_spec: ""
+    last_spec_result: ""
+    last_category: ""
+    last_category_result: ""
+    priority: low
+    category: authoring
+
   - name: quick-design
     spec: studio-tests/skills/authoring/quick-design.md
     last_static: ""
