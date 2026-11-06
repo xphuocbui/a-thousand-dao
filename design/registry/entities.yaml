@@ -557,7 +557,7 @@ formulas:
       - boss_pool_mult
       - v
     output_range: "health 25 to 32,152; linh luc 41 to 52,247, before boss_pool_mult"
-    expression: "n_k = clamp(stat_k/ref_k[r], 0.25, 8); health_max = health_units*U_r*n_body*boss_pool_mult; qi_max = qi_units*U_r*n_qi*boss_pool_mult; health_start = health_max*max(v, 0.4)"
+    expression: "n_k = clamp(stat_k/ref_k[r], 0.25, 8); health_max = health_units*U_r*n_body*boss_pool_mult; qi_max = qi_units*U_r*n_qi*boss_pool_mult; health_start = health_max*max(v, 0.4), or health_max*start_health_share; qi_start = qi_max, or qi_max*start_qi_share, when a request carries starting shares"
     notes: "Only health ends a fight. Divine sense is not a pool."
     added: 2026-11-06
     revised: 2026-11-06
@@ -818,6 +818,83 @@ formulas:
     output_range: [0.78, 1.525]
     expression: "1 + (ngo_tinh_eff - strength_comp_mean) / strength_comp_divisor; body techniques use 1 + (comp_strength - 1) * strength_comp_body_share"
     notes: "Multiplies tech_power and every technique bonus (Cultivation Techniques Formulas C, D, F); body techniques take a share, 0.89 to 1.2625. Not the comp factor, which is never below 1. User decision 2026-11-06."
+    added: 2026-11-06
+    revised: ""
+  - name: tribulation_wave_pool
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    variables:
+      - pool_ramp
+      - k
+      - boss_pool_mult
+      - m_cap
+    output_range: [1, 10]
+    expression: "w_k = pool_ramp^(k-1); m_eff = min(m_cap, boss_pool_mult*w_k)"
+    notes: "The ramp is on pools only; m_eff is sent to Combat as boss_pool_mult."
+    added: 2026-11-06
+    revised: ""
+  - name: tribulation_carry_over
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    variables:
+      - health_end
+      - health_max
+      - qi_end
+      - qi_max
+      - rest_pulses
+      - regen_base
+      - regen_bonus
+      - regen_cap
+    output_range: "h above 0 to 1; q 0 to 1"
+    expression: "h_next = health_end/health_max; q_next = min(qi_max, qi_end + rest_pulses*qi_max*min(regen_base+regen_bonus, regen_cap))/qi_max"
+    notes: "Later waves start from these shares with no vitality floor. Needs Combat to accept starting shares (thien-kiep.md Open Question 1)."
+    added: 2026-11-06
+    revised: ""
+  - name: tribulation_survival_chance
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    variables:
+      - Pr_D
+      - P_win_k
+      - N
+      - p_t_ref
+    output_range: "p_t 0 to 1; roll_target 0.20 to 1"
+    expression: "p_t = sum over draws of Pr(D)*prod_k P(win_k | state_k); measured p_t_hat = survived/N; roll_target = 0.20/max(p_t_ref, 0.20)"
+    notes: "Measured by the Balance Harness. Answers canh-gioi.md Open Question 2 once measured."
+    added: 2026-11-06
+    revised: ""
+  - name: tribulation_wave_loss
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    variables:
+      - F_boss
+      - F_player
+      - w_k
+    output_range: ">= 0"
+    expression: "r_b = F_boss/F_player; loss_k = r_b*w_k; a sum above 1 means the run fails"
+    notes: "Estimate for authors; ignores linh luc returned by the rest."
+    added: 2026-11-06
+    revised: ""
+  - name: tempered_buff
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    variables:
+      - amount_key
+      - W_key
+      - tempered_buff_w
+    output_range: [0, 120]
+    expression: "sum(amount_key*W_key) <= tempered_buff_w"
+    notes: "Budget of the lasting buff a survivor gains. W prices from stat_power_weights."
     added: 2026-11-06
     revised: ""
 
@@ -1847,6 +1924,7 @@ constants:
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
+      - design/gdd/thien-kiep.md
     value: 40
     unit: seconds
     notes: "Replaces round_limit (rounds removed 2026-11-06). Events at exactly 40 s resolve."
@@ -2053,6 +2131,7 @@ constants:
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
+      - design/gdd/thien-kiep.md
     value: 0.08
     unit: fraction per pulse
     added: 2026-11-06
@@ -2326,6 +2405,96 @@ constants:
     value: 0.5
     unit: share of comp_strength's effect
     notes: "Guess. User decision 2026-11-06: body techniques scale less with comprehension."
+    added: 2026-11-06
+    revised: ""
+  - name: wave_count
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: 3
+    unit: waves
+    notes: "Guess. Range 1 to 5; the lint bounds it through bm_max*pool_ramp^(wave_count-1) <= 10."
+    added: 2026-11-06
+    revised: ""
+  - name: pool_ramp
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: 1.5
+    unit: multiplier per wave
+    notes: "Guess. Growth of a boss pool per wave."
+    added: 2026-11-06
+    revised: ""
+  - name: bm_max
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: 1.5
+    unit: multiplier
+    notes: "Guess. Ceiling on a boss record boss_pool_mult; at or below pool_ramp so a later wave is never weaker."
+    added: 2026-11-06
+    revised: ""
+  - name: rest_pulses
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: 8
+    unit: pulses
+    notes: "Guess. Linh luc regeneration between waves; at most 12."
+    added: 2026-11-06
+    revised: ""
+  - name: tempered_buff_w
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: 60
+    unit: W
+    notes: "Guess. About 5 % of a full tree at Deity Transformation."
+    added: 2026-11-06
+    revised: ""
+  - name: p_t_targets
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: "edge 0.90 / baseline 0.50"
+    unit: share of lives
+    notes: "User decision 2026-11-06. Tolerances edge 0.03, baseline 0.05 (guesses)."
+    added: 2026-11-06
+    revised: ""
+  - name: tribulation_power_band
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: "0.10 / 0.35"
+    unit: r_b against the baseline reference
+    notes: "Guess. Corrected from 0.05-0.15x a typical DT enemy, which made a typical build always die."
+    added: 2026-11-06
+    revised: ""
+  - name: soul_share_max
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: 0.5
+    unit: share of boss offence
+    notes: "Guess."
+    added: 2026-11-06
+    revised: ""
+  - name: kind_share_max
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: 0.5
+    unit: share of pool weight
+    notes: "Guess. Applies once a pool reaches pool_target 6."
     added: 2026-11-06
     revised: ""
 # Example:

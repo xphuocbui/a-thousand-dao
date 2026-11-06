@@ -62,7 +62,7 @@ author's reading and wait for confirmation (see Open Questions).
 
 1. **A fight is two sides and a seeded timeline.** A side is one combatant (a cultivator or a
    creature) plus its attached companions (rule 19). A fight is resolved from its inputs alone: the
-   two compiled profiles (rule 2), the preparation (rule 12), the ground tags and one seed. The same
+   two compiled profiles (rule 2), the preparation (rule 12), the ground tags, any starting shares (rule 3) and one seed. The same
    inputs always give the same result and the same log. Nothing is saved mid-fight; a fight is
    atomic.
 2. **Every combatant compiles to a combat profile.** `compile(character or creature, preparation)`
@@ -73,7 +73,9 @@ author's reading and wait for confirmation (see Open Questions).
    `display_power` or the profile (Formulas K).
 3. **One health bar.** Khí huyết is the only bar that ends a fight. It starts at its maximum × `max(v, 0.4)`,
    where v is the vitality fraction. At 0 the side is **Down** with a mortal wound; whether it dies or is
-   spared rests on the caller (rule 14). Linh lực starts full. Combat reports the knockout; the caller decides what it costs
+   spared rests on the caller (rule 14). Linh lực starts full. A fight request may instead carry **starting shares** for
+   health and linh lực (user decision 2026-11-06, for Heavenly Tribulation's waves): each pool then starts at that share of its
+   maximum exactly, with no vitality floor. Combat reports the knockout; the caller decides what it costs
    (rule 14). The thần thức that equipped artifacts occupy (Artifact Refining) stays a separate loadout
    limit and does not lower the thần thức a side fights with (user decision 2026-11-06).
 4. **Three threat kinds, and how each gets through.** Every attack has a kind. **Body** and **qi** attacks
@@ -120,7 +122,7 @@ author's reading and wait for confirmation (see Open Questions).
       `ward_art_duration`, a trigger ward's `trig_ward_seconds`) is also a scheduled time, but it fires nothing: a ward
       **stays up through the whole millisecond it expires in** (user decision 2026-11-06), so hits in that instant
       are blocked and the ward is down from the next millisecond.
-    - **Start.** Linh lực is full and autocast wards are up. Every art's timer starts at its full effective
+    - **Start.** Linh lực is at its start (rule 3) and autocast wards are up. Every art's timer starts at its full effective
       cooldown (rule 13), so nothing fires at t = 0. The basic attack and the companion first act at
       `basic_cooldown`, and the first pulse is at `pulse_interval`. A per-pulse ward pays its first upkeep at t = 0 (rule 22).
     - **Pulse.** Every `pulse_interval`: pulse triggers fire (counted in the window that is ending, so nothing they do counts toward the next), over-time statuses tick, status and curse
@@ -253,8 +255,8 @@ author's reading and wait for confirmation (see Open Questions).
     Each realm tier has at least one enemy that attacks with each threat kind, one with a ward that
     resists each kind and one that drains linh lực hard, so a one-note build meets something it cannot answer. A top-end build
     may end an ordinary fight with its first volley or two; that is its payoff (user decision 2026-11-06).
-    Bosses and tribulations carry a `boss_pool_mult`, set so that a top-end build
-    needs at least 4 seconds against them.
+    Bosses and tribulation bosses carry a `boss_pool_mult`. An ordinary boss is set so that a top-end build
+    needs at least 4 seconds against it; a tribulation boss is exempt, because it must stay beatable by a typical build (user decision 2026-11-06, thien-kiep.md Formulas C).
 19. **Companions.** A spirit beast attached to a side adds the power share it already has
     (Spirit Beasts) as one more attack source every `basic_cooldown`, with its own tags and a simple fixed art.
     A companion cannot be targeted in this version, and cannot be removed from the fight except by its
@@ -341,7 +343,7 @@ this GDD expects, to be matched when those systems are designed.
 | Event Engine (#23) | in / out | In: a fight request with the enemy, the situation (foreseen, ambush, blind) and the ground tags. Out: the result | Event Engine (requests, consequences); Combat (the result) |
 | NPC Builds (#24) | in | An NPC's compiled profile, art list, slot order and guards | NPC Builds |
 | Living World Tick (#28) | in | Mass battles via the rating profile. It must keep NPC-against-NPC duels rare | Living World; Combat (rating profile) |
-| Heavenly Tribulation (#22) | out | The fight engine and its result, with a tribulation as an enemy profile (the system after this one) | Heavenly Tribulation |
+| Heavenly Tribulation (#22) | in / out | In: starting shares for each wave after the first. Out: the fight engine and its result, with a tribulation boss as an enemy profile | Heavenly Tribulation |
 | Time & Turn (#4) | in | A fight takes no seasons itself; the time of preparation is the preparing system's | the preparing system |
 | World Database (#3) | out | The event record of a notable fight | World DB |
 | Balance Harness (#33) | out | A headless fight run and the rating-profile clash | Balance Harness |
@@ -365,7 +367,7 @@ The fight_unit formula is defined as:
 
 The pool_max formula is defined as:
 
-`n_k = clamp(stat_k / ref_k[r], pool_n_min, pool_n_max)` ; `health_max = health_units · U_r · n_body · boss_pool_mult` ; `qi_max = qi_units · U_r · n_qi · boss_pool_mult` ; `health_start = health_max · max(v, v_c)` ; `ehp = min(health_max / (pass · f), health_max / f + qi_max / drain)`
+`n_k = clamp(stat_k / ref_k[r], pool_n_min, pool_n_max)` ; `health_max = health_units · U_r · n_body · boss_pool_mult` ; `qi_max = qi_units · U_r · n_qi · boss_pool_mult` ; `health_start = health_max · max(v, v_c)`, or `health_max · start_health_share` when the request carries shares ; `qi_start = qi_max`, or `qi_max · start_qi_share` likewise ; `ehp = min(health_max / (pass · f), health_max / f + qi_max / drain)`
 
 **Variables:**
 
@@ -382,6 +384,7 @@ The pool_max formula is defined as:
 | qi_units | float | 18–36, default 26 | data file | Linh lực in fight units |
 | boss_pool_mult | float | 1–10, default 1 | data file (enemy profile) | Bosses and tribulations only; applied after `pool_n_max`, to both pools (rule 18) |
 | v, v_c | float | 0.05–1; 0.4 | calculated; data file (`duel.injured_power_floor`) | Vitality fraction and its floor |
+| start_health_share, start_qi_share | float | above 0 to 1; 0 to 1 | fight request (optional) | Starting shares (rule 3). Both or neither are sent |
 | pass, drain, f | float | see D | calculated | Ward pass share, drain rate, and what gets through body guard |
 | ehp | float | ≥ 0 | calculated | Effective health before art spending and regeneration: health alone if it dies with the ward still up, otherwise health plus what the linh lực can block |
 
@@ -855,6 +858,8 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 
 - **If a pool stat is 0 or very low:** `n_k` stops at `pool_n_min`, so both pools have a size.
 - **If vitality is below `v_c`:** health starts at `v_c` of its maximum (Formulas A).
+- **If a request carries starting shares:** they replace the vitality start and the full linh lực, and the floor does not apply. A health share of 0 or below, a share above 1, or only one of the two is rejected at the request.
+- **If a per-pulse ward cannot pay its first upkeep from a low starting share:** it is down until a pulse it can pay, like any ward that cannot pay.
 - **If a side spends all its linh lực on arts in an instant:** its ward blocks nothing against that instant's
   hits, because its own cost is paid first.
 - **If a hit needs more blocking than the linh lực can pay:** it blocks what the pool allows, the pool
@@ -1094,6 +1099,7 @@ steps. Tolerance is ±0.01 unless stated.
 - **AC-CB-08** [Logic] Formulas A. Given `power_base` at the defaults, then U is 6.31 / 15.85 / 39.81 / 100.00 / 251.19.
 - **AC-CB-09** [Logic] Formulas A. Given FX-T's stats, then health is 109.87 and linh lực 172.74. Given stat 0, then n is 0.25, health 25.24 and linh lực 41.01. Given Deity Transformation at n ≥ 8, then health is 32,152.1 and linh lực 52,247.2 (±0.5).
 - **AC-CB-10** [Logic] Rule 3, Formulas A. Given FX-T, v 0.7 starts health at 76.91, v 0.3 at 43.95, v 1.0 at 109.87; linh lực starts full. Given a fight ending with health at 50 % and v 0.7, then `v_after` is 0.5; ending at 90 %, it stays 0.7.
+- **AC-CB-78** [Logic] Rule 3, Formulas A. Given FX-T at v 0.7 and starting shares 0.25 and 0.5, then health starts at 27.47 and linh lực at 86.37, below the vitality floor with no floor applied. Given no shares, then the start is unchanged (AC-CB-10). Given a health share of 0, a share above 1, or only one share, then the request is rejected.
 - **AC-CB-11** [Logic] Rules 3, 4. Given a body, a qi and a soul attack, when each lands, then the body and qi attacks meet the ward and then body guard, and the soul attack meets neither. Given health at 0, then the side is Down: mortal wound and acts no more. Given linh lực at 0 and health above 0, then the fight goes on.
 - **AC-CB-12** [Logic] Formulas D, ward. Given FX-T and D 41.30: a body hit blocks 24.25, drains 18.54, leaks 17.05 and deals 15.89; a qi hit drains 34.33 and deals 10.79; a body hit with 10 linh lực left blocks 13.08 and deals 26.30, and the pool ends at 0.
 - **AC-CB-13** [Logic] Formulas D, bounds. pass never falls below 0.05 and drain never below 0.15. ws and we stop at 400. Given `defense_pct` −100 or −500, then ws is −90, pass is `pass_raw` ÷ 0.1 clamped to 1, and there is no division by zero or negative pass; we never goes below 0. Given g_b 40 or higher, then m is 0.8571. Given a thể tu fixture of g_b 10.35, then m is 0.754. Given `body_guard_pct` −100, then g_b and m are 0.
@@ -1166,7 +1172,7 @@ steps. Tolerance is ±0.01 unless stated.
 **Balance Harness**
 
 - **AC-CB-53** [Integration, Bot: Balance Harness] Formulas H. Given top-end at pierce 0.5 against typical, with the Formulas B anchors at stage 1.00, at least 200 runs per cell: g 1 wins at least 95 % from each of four starting realms; g 2 wins 40–75 % from each of three; g 3 wins at most 2 % at P 0.5 and 0.75; a typical build wins at most 2 % one realm up. Run once with no soul arts, and report a second run with them (Open Question 16). Provisional: these targets were simulated in rounds and must be re-run on the timeline (Open Question 20). Output goes to `production/qa/evidence/balance/[date]-combat-realm-crossing.md`.
-- **AC-CB-54** [Integration, Bot: Balance Harness] Formulas A, B. With the rotation stated in the run header: typical mirrors last 6–9 s (provisional: the FX-T spot check gives 8 s and the old round simulation 6.5–7.6 s; Open Question 20), top-end mirrors end at their first or second instant with a damage art, an unbuilt mirror ends inside `time_limit`, and F rises ×7 to ×14 per realm for typical builds (target about ×10). Given a boss with its `boss_pool_mult`, a top-end build needs at least 4 seconds.
+- **AC-CB-54** [Integration, Bot: Balance Harness] Formulas A, B. With the rotation stated in the run header: typical mirrors last 6–9 s (provisional: the FX-T spot check gives 8 s and the old round simulation 6.5–7.6 s; Open Question 20), top-end mirrors end at their first or second instant with a damage art, an unbuilt mirror ends inside `time_limit`, and F rises ×7 to ×14 per realm for typical builds (target about ×10). Given an ordinary boss with its `boss_pool_mult`, a top-end build needs at least 4 seconds (tribulation bosses are exempt, rule 18).
 - **AC-CB-55** [Integration, Bot: Balance Harness] Rule 20. Given equal W, an all-attack build (L2–L5 at 1.0) one realm up wins at most 2 %, and a top-end multi-layer build wins at least 95 %.
 
 **Data**

@@ -74,7 +74,7 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 19 | Spirit Beasts & Spirit Insects (Linh Thú & Linh Trùng) | Economy | Alpha | Implemented (spirit beasts only) | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | World DB, Character Stats, Time & Turn |
 | 20 | Market & Spirit Stone (Linh Thạch) Economy (inferred) | Economy | MVP | Implemented | — | Item DB, Character Stats, Realms, World Gen |
 | 21 | Combat | Gameplay | MVP | Approved for rules, numbers provisional (design-review 2026-11-06 ninth pass, lean: no blockers, 8 recommended, items 1-5 applied in session; earlier history: fourth pass, lean: NEEDS REVISION, fixes applied; reworked the same day to a timeline of seconds with no rounds; fifth pass 2026-11-06, lean: NEEDS REVISION, 2 blockers fixed in session (follow-up instants, `ward_floor`), 8 recommended open, simulated numbers provisional, awaiting re-review; sixth pass 2026-11-06, lean: NEEDS REVISION, 1 blocker (guard timing) fixed in session, awaiting re-review; seventh pass 2026-11-06, lean: NEEDS REVISION, 2 blockers (ward pass clamp, defeat check timing) and 2 recommended fixed in session, awaiting re-review; eighth pass 2026-11-06, lean: NEEDS REVISION, 2 blockers (overkill basis wording, stale registry `ward_block`) and 5 recommended fixed in session, not re-reviewed, see design/gdd/reviews/combat-review-log.md; designed with one health bar, linh lực wards, body guard, soul attacks). **Build on hold** (user decision 2026-11-06) until items, techniques, abilities and passives exist; today's power duel stays in use until then | design/gdd/combat.md | Character Stats, Realms, Cultivation Techniques, Meridian Map, Artifact Refining, Formations, Talismans, Spirit Beasts |
-| 22 | Heavenly Tribulation (Thiên Kiếp) | Gameplay | MVP | Not Started | — | Combat, Realms, Event Engine |
+| 22 | Heavenly Tribulation (Thiên Kiếp) | Gameplay | MVP | Designed (2026-11-06, pending review; three boss waves from a random pool; numbers are guesses; needs Combat starting shares; build on hold with the full fight) | design/gdd/thien-kiep.md | Combat, Realms, Event Engine |
 | 23 | Event Engine: templates, budgets, validator, resolver | Gameplay | MVP | Implemented | — | World DB, Character Stats, Item DB, NPC Builds, Alchemy, Talismans, Spirit Beasts, Combat |
 | 24 | NPC Build Generation (inferred) | Gameplay | MVP | Implemented | — | Character Stats, Cultivation Techniques, Meridian Map, Item DB, Edges (NPC half) |
 | 25 | Travel & Map (inferred) | Gameplay | MVP | Implemented (thin: named regions and a graph of places). **An open world map is needed** (user decision 2026-11-06). See System Briefs: World Map | — | World Gen, Time & Turn |
@@ -307,12 +307,12 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 |--------|-------|
 | Total systems identified | 39 |
 | Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (beasts only), 21 (duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin) |
-| Systems not started | 6: 12, 22, 31, 34, 37, 38 (plus spirit insects [linh trùng], inside 19) |
-| GDDs started | 8 (13 Item Database and 21 Combat, designed 2026-11-06, pending review; 11 The Way [Đạo], approved 2026-11-06; 10 Meridian Map [Kinh Mạch Đồ] and 9 Cultivation Techniques [Công Pháp], reopened 2026-11-04 by the Spiritual Roots redesign; 7 Character Stats, in review after the cross-GDD review 04f revisions; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], needs revision after the 2026-11-05 review, fixes applied; 6 Spiritual Roots [Linh Căn], redesigned 2026-11-04, pending review) |
+| Systems not started | 6: 12, 22 (designed, not built), 31, 34, 37, 38 (plus spirit insects [linh trùng], inside 19) |
+| GDDs started | 9 (22 Heavenly Tribulation, designed 2026-11-06, pending review; 13 Item Database and 21 Combat, since approved; 11 The Way [Đạo], approved 2026-11-06; 10 Meridian Map [Kinh Mạch Đồ] and 9 Cultivation Techniques [Công Pháp], reopened 2026-11-04 by the Spiritual Roots redesign; 7 Character Stats, in review after the cross-GDD review 04f revisions; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], needs revision after the 2026-11-05 review, fixes applied; 6 Spiritual Roots [Linh Căn], redesigned 2026-11-04, pending review) |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
 | Design docs reviewed | 5, each independently on 2026-11-05 (reports in design/gdd/reviews/) |
 | Design docs approved | 0; 6, 7, 8, 9 and 10 in review after the 2026-11-05 reviews, with a clean cross-GDD pass (CONCERNS, no blockers) |
-| MVP systems designed | 7 / 25 |
+| MVP systems designed | 8 / 25 |
 | Vertical Slice systems designed | 0 / 8 |
 
 ---
@@ -403,7 +403,7 @@ good for other specific things.
 - [ ] Reverse-document the MVP Foundation and Core systems in design order (`/reverse-document design src/gameplay/<area>`), starting with 1 to 3, then Spiritual Roots (Linh Căn), Character Stats and Realms & Bottlenecks (Cảnh Giới & Bình Cảnh)
 - [ ] Run `/design-review` on each completed GDD (first: `design/gdd/kinh-mach-do.md`, in a fresh session)
 - [x] Carry the level ladder (great and small breakthrough bonuses, stat rises at every breakthrough) from the Meridian Map (Kinh Mạch Đồ) GDD into the Realms & Bottlenecks GDD (done; the ladder is now 110 levels, 2026-11-05)
-- [ ] Design the unbuilt MVP system, Heavenly Tribulation (Thiên Kiếp), with `/design-system thien-kiep`
+- [x] Design the unbuilt MVP system, Heavenly Tribulation (Thiên Kiếp), with `/design-system thien-kiep` (done 2026-11-06: design/gdd/thien-kiep.md, pending review)
 - [ ] Add more items to the game, authored by hand rather than generated (user 2026-11-06; Item Database Open Question 10)
 - [ ] Design a full combat system (Combat, #21): build-heavy, with very high scaling for the right build (System Briefs: Combat). The built duel is a power ratio and cannot host skills. The Way's arts, Heavenly Tribulation and any future active technique depend on it
 - [ ] Design the open world map (Travel & Map #25, with World Generation #27): generated terrain, location stats, real distance, hidden places and clues (System Briefs: World Map)
