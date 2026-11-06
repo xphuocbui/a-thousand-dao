@@ -73,7 +73,7 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 18 | Talismans (Phù Lục) | Economy | Alpha | Implemented | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | Item DB, Character Stats |
 | 19 | Spirit Beasts & Spirit Insects (Linh Thú & Linh Trùng) | Economy | Alpha | Implemented (spirit beasts only) | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | World DB, Character Stats, Time & Turn |
 | 20 | Market & Spirit Stone (Linh Thạch) Economy (inferred) | Economy | MVP | Implemented | — | Item DB, Character Stats, Realms, World Gen |
-| 21 | Combat | Gameplay | MVP | Designed (2026-11-06, pending review; one health bar, linh lực wards, body guard, soul attacks; only the power duel is built, and the new fight is not) | design/gdd/combat.md | Character Stats, Realms, Cultivation Techniques, Meridian Map, Artifact Refining, Formations, Talismans, Spirit Beasts |
+| 21 | Combat | Gameplay | MVP | Designed (2026-11-06, pending review; one health bar, linh lực wards, body guard, soul attacks). **Build on hold** (user decision 2026-11-06) until items, techniques, abilities and passives exist; today's power duel stays in use until then | design/gdd/combat.md | Character Stats, Realms, Cultivation Techniques, Meridian Map, Artifact Refining, Formations, Talismans, Spirit Beasts |
 | 22 | Heavenly Tribulation (Thiên Kiếp) | Gameplay | MVP | Not Started | — | Combat, Realms, Event Engine |
 | 23 | Event Engine: templates, budgets, validator, resolver | Gameplay | MVP | Implemented | — | World DB, Character Stats, Item DB, NPC Builds, Alchemy, Talismans, Spirit Beasts, Combat |
 | 24 | NPC Build Generation (inferred) | Gameplay | MVP | Implemented | — | Character Stats, Cultivation Techniques, Meridian Map, Item DB, Edges (NPC half) |
@@ -404,6 +404,7 @@ good for other specific things.
 - [ ] Run `/design-review` on each completed GDD (first: `design/gdd/kinh-mach-do.md`, in a fresh session)
 - [x] Carry the level ladder (great and small breakthrough bonuses, stat rises at every breakthrough) from the Meridian Map (Kinh Mạch Đồ) GDD into the Realms & Bottlenecks GDD (done; the ladder is now 110 levels, 2026-11-05)
 - [ ] Design the unbuilt MVP system, Heavenly Tribulation (Thiên Kiếp), with `/design-system thien-kiep`
+- [ ] Add more items to the game, authored by hand rather than generated (user 2026-11-06; Item Database Open Question 10)
 - [ ] Design a full combat system (Combat, #21): build-heavy, with very high scaling for the right build (System Briefs: Combat). The built duel is a power ratio and cannot host skills. The Way's arts, Heavenly Tribulation and any future active technique depend on it
 - [ ] Design the open world map (Travel & Map #25, with World Generation #27): generated terrain, location stats, real distance, hidden places and clues (System Briefs: World Map)
 - [x] Design the Way (Đạo) with `/design-system dao` (done 2026-11-05, approved 2026-11-06: design/gdd/dao.md; its catalogue of trees is a content pass, and its arts wait on a full combat system)

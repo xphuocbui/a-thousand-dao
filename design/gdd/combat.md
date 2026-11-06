@@ -1,6 +1,7 @@
 # Combat
 
 > **Status**: Designed (pending review; reworked 2026-11-06 to one health bar and wards)
+> **Build status**: On hold (user decision 2026-11-06). The full fight is not built until items, techniques, abilities and passives exist. Until then fights keep using today's power duel (`CombatPower`, `combat_rules.json`) unchanged, so the Character Stats and Cultivation Techniques edits that cite this GDD describe the target, not the running game.
 > **Author**: user + agents
 > **Last Updated**: 2026-11-06
 > **Last Verified**: 2026-11-06
@@ -1082,3 +1083,4 @@ Results go to `production/qa/evidence/balance/[date]-combat-performance.md`.
 | 16 | Soul attack balance waits on real techniques (user decision 2026-11-06). `soul_pct`, `soul_beta` and `soul_cap` are guesses, none of the simulated targets include soul arts, and a higher realm's soul attacks may hurt realm crossing. Rule on which layers a soul build can use once content exists | user, systems-designer | Formulas E2, H |
 | 17 | A top thể tu beats a top-end ward build about 75 % of the time at the same realm and rarely crosses two realms. Measure with real builds, then decide (user decision 2026-11-06). The Way's soul-resist nodes and `t_b` values are also unset | systems-designer | Formulas D, H |
 | 18 | The ward spell catalogue, including wards with other cost models, and hand-cast wards | game-designer | Content pass |
+| 19 | **Closed 2026-11-06:** today's power duel resolves fights while the full fight is on hold (user decision) | — | — |
