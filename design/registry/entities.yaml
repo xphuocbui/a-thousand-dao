@@ -1970,6 +1970,16 @@ constants:
     unit: fraction
     added: 2026-11-06
     revised: ""
+  - name: dot_pulse_cap
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.08
+    unit: fraction of max health per pulse
+    notes: "Total of all health ticks on one target at one pulse. One tick stays under dot_pool_cap 0.05."
+    added: 2026-11-06
+    revised: ""
   - name: reserve_floor
     status: deprecated
     source: design/gdd/combat.md
@@ -1988,16 +1998,6 @@ constants:
     value: 0.08
     unit: fraction per pulse
     added: 2026-11-06
-  - name: dot_pulse_cap
-    status: active
-    source: design/gdd/combat.md
-    referenced_by:
-      - design/gdd/combat.md
-    value: 0.08
-    unit: fraction of max health per pulse
-    notes: "Total of all health ticks on one target at one pulse. One tick stays under dot_pool_cap 0.05."
-    added: 2026-11-06
-    revised: ""
     revised: ""
   - name: rating_kappa
     status: active
@@ -2112,7 +2112,7 @@ constants:
     unit: fraction by threat kind
     notes: "Value is the qi share. Body is 1.0 (Combat Formulas D)."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-06
   - name: soul_beta
     status: active
     source: design/gdd/combat.md
@@ -2131,7 +2131,7 @@ constants:
     value: 0.25
     unit: ratio
     added: 2026-11-06
-    revised: 2026-11-06
+    revised: ""
   - name: soul_cap
     status: active
     source: design/gdd/combat.md
