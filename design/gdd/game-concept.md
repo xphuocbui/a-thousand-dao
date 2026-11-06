@@ -200,7 +200,7 @@ Scale 1–100 with grade bands: **Lower (Hạ)** 1–30 · **Middle (Trung)** 31
 | Stat | Meaning | Drives |
 |---|---|---|
 | **Spiritual root** (linh căn) | Purity (độ tinh khiết) per element (Metal · Wood · Water · Fire · Earth, i.e. Kim · Mộc · Thủy · Hỏa · Thổ; 0 = absent) + variant roots (biến dị linh căn), each with its own purity | Element count and its curve; cultivation speed with matching cultivation techniques (công pháp); craft affinity |
-| **Comprehension** (ngộ tính) | How fast you understand | Learning cultivation techniques, enlightenment (đốn ngộ), discovering recipes and variant roots, breaking bottlenecks (bình cảnh) |
+| **Comprehension** (ngộ tính) | How fast you understand | Learning cultivation techniques and how strong they are, enlightenment (đốn ngộ), discovering recipes and variant roots, breaking bottlenecks (bình cảnh) |
 | **Physique** (căn cốt) | Body foundation | Vitality (khí huyết), pill toxicity (đan độc) resistance, body-cultivation techniques |
 | **Soul strength** (thần hồn) | Base of spiritual sense | Divine sense (thần thức): magic treasure (pháp bảo) control count, swarm size, formation (trận pháp) complexity, detection |
 | **Fortune** (khí vận) | Luck | Lucky encounters (kỳ ngộ), rare finds, crafting crits, and the ceiling of LLM-invented reward budgets |

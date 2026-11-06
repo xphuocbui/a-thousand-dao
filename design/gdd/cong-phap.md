@@ -3,7 +3,7 @@
 > **Status**: In Review (2026-11-05: independent review findings applied; cross-GDD review CONCERNS, no blockers). See `reviews/cong-phap-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-05
+> **Last Updated**: 2026-11-06
 > **Last Verified**: 2026-11-05
 > **Implements Pillar**: Pillar 3 (Power Is Built, Not Given); touches Pillar 1 (Your Dao, Your Name) and Pillar 4 (Every Season Counts)
 
@@ -134,7 +134,8 @@ which technique you commit your seasons to. The decision has two sides:
 
 7. **Mastery per season.** Each slotted technique below great completion gains
    mastery each season (Formulas B).
-   - The gain scales with effective Comprehension (ngộ tính).
+   - The gain scales with effective Comprehension (ngộ tính). Comprehension also multiplies what a technique
+     gives (rules 11 and 12).
    - The full rate applies in seasons spent cultivating (Time & Turn), and
      `mastery_idle_frac` of it (0.5) in other seasons.
    - When stored mastery reaches the next layer's cost, the layer is mastered, and
@@ -170,12 +171,15 @@ which technique you commit your seasons to. The decision has two sides:
     bonuses and abilities are unaffected. In practice this forces a change of main
     method at each tier's ceiling.
 11. **Technique power.** The main method gives `tech_power` (Formulas C), which
-    Character Stats multiplies into spiritual power (linh lực). With no main method,
-    `tech_power` is `no_tech_power` (0.5). The #6 second main gives no technique
-    power.
+    Character Stats multiplies into spiritual power (linh lực). Effective Comprehension
+    multiplies it (Formulas F), but a main method never gives less than `no_tech_power`.
+    With no main method, `tech_power` is `no_tech_power` (0.5) whatever the Comprehension.
+    The #6 second main gives no technique power.
 12. **Bonuses.** Every slotted, usable technique adds its bonuses through the
     Character Stats provider interface, with one source line per technique.
     - A bonus scales with the mastered layer (Formulas D).
+    - Effective Comprehension multiplies every bonus. Body techniques take half the
+      effect, in both directions (Formulas F).
     - `herb_growth_pct`, `alchemy_success` and `lifespan_years` count toward Character
       Stats' character-wide bonus ceilings (its Formulas I), shared with the tree,
       items and pills (user decision 2026-11-04, cross-GDD review G1).
@@ -286,7 +290,7 @@ every transition. Losing the manual item never unlearns a technique.
 |---|---|---|---|
 | Spiritual Roots | in | the purity of each named element and variant; root changes that make a technique usable | Spiritual Roots |
 | Realms & Bottlenecks | in / out | in: the current realm, for layer gates and the tier cap. Out: `tech`, the speed factor in the cultivation rate (Realms Formulas I); slot changes that Realms rule 14's lifespan confirmation covers | this GDD (the factor); Realms (the rate) |
-| Character Stats | in / out | in: effective Comprehension (mastery) and Physique (body techniques). Out: technique bonuses through the provider interface, and `tech_power` for spiritual power | this GDD (values); Character Stats (the interface) |
+| Character Stats | in / out | in: effective Comprehension (mastery, technique strength) and Physique (body techniques). Out: technique bonuses through the provider interface, and `tech_power` for spiritual power | this GDD (values); Character Stats (the interface) |
 | Meridian Map | in / out | in: capability #6 (second main slot). Out: the elements a main method names (rule 15's interim rule; `seal_clusters` later) and main-slot season counts | Meridian Map (the rule); this GDD (the record and `cong_phap_seasons`) |
 | Time & Turn | in | whether the season was spent cultivating (full or idle mastery rate) | Time & Turn |
 | Item DB | in / out | manuals as items pointing at templates; generated commons stored as records | Item DB (storage); this GDD (the record schema) |
@@ -485,7 +489,7 @@ Bought after the cultivator reaches DT, the same layer costs 76.23 × 0.25 = **1
 
 The tech_power formula is defined as:
 
-`tech_power = power_mult[tier] · (p_floor + (1 − p_floor) · (k − 1) / (layers − 1))` (a main method in the main slot)
+`tech_power = max(no_tech_power, power_mult[tier] · (p_floor + (1 − p_floor) · (k − 1) / (layers − 1)) · comp_strength)` (a main method in the main slot)
 `tech_power = no_tech_power` (no usable main method)
 
 Power measures how far into its own ladder the technique is; speed (Formulas A)
@@ -497,15 +501,18 @@ measures depth relative to the realm.
 | power_mult | float | 1.0 / 1.3 / 1.7 / 2.2 (as built) | data file | Tier power scale |
 | p_floor (`power_layer_floor`) | float | 0.6 (guess; safe 0.4–0.8) | data file | Share of the power at layer 1 |
 | k, layers | int | as in A | calculated, data file | Mastered layer; ladder length |
-| no_tech_power | float | 0.5 (guess) | data file | Spiritual power factor with no main method (as built it was 1.0) |
-| tech_power | float | 0.5–2.2 | calculated | Read by Character Stats (spiritual power), which sizes Combat's qi pool (rule 14) |
+| no_tech_power | float | 0.5 (guess) | data file | Spiritual power factor with no main method (as built it was 1.0); also the floor under a main method |
+| comp_strength | float | 0.78–1.525 | calculated (Formulas F) | Effective Comprehension's multiplier |
+| tech_power | float | 0.5–3.355 | calculated | Read by Character Stats (spiritual power), which sizes Combat's qi pool (rule 14) |
 
-**Output Range:** 0.5 (no main method) to 2.2 (a Heaven technique at great
-completion). A Yellow technique at layer 1 gives 0.6. The Character Stats range
-"about 0.5–2.0" becomes 0.5–2.2 (cross-GDD edit, user decision).
+**Output Range:** 0.5 (no main method) to 3.355 (a Heaven technique at great
+completion, Comprehension 150). At Comprehension 45 a Heaven technique tops out at 2.2
+and a Yellow technique at layer 1 gives 0.6. The floor binds a Yellow layer 1 below
+Comprehension 12, where the product would be under 0.5, so learning a method never
+lowers spiritual power. Character Stats' range is 0.5–3.355 (cross-GDD edit, user decision).
 
-**Example:** an Earth technique at layer 9 of 12 gives 0.6 + 0.4 × 8/11 = 0.8909, so
-tech_power = 1.7 × 0.8909 = **1.51**. A Heaven technique found in QR, at layer 3,
+**Example** (Comprehension 45, so `comp_strength` is 1): an Earth technique at layer 9 of 12
+gives 0.6 + 0.4 × 8/11 = 0.8909, so tech_power = 1.7 × 0.8909 = **1.51**. A Heaven technique found in QR, at layer 3,
 gives 2.2 × (0.6 + 0.4 × 2/14) = **1.45**, against 0.76 for a Yellow technique at
 layer 3.
 
@@ -513,7 +520,7 @@ layer 3.
 
 The technique_bonus formula is defined as:
 
-`v = v_full · B(k) · F · H`, where `B(k) = b_floor + (1 − b_floor) · (k − 1) / (layers − 1)` and:
+`v = v_full · B(k) · F · H · comp_strength`, where `B(k) = b_floor + (1 − b_floor) · (k − 1) / (layers − 1)` and:
 - `F = 0.5 + avg_purity(names) / 100` for a main method or a secret art;
 - `F = min(F_cap, 0.5 + physique / 100)` for a body technique;
 - `H` = the harmony factor (rule 12) for an auxiliary art; 1.0 for the main method.
@@ -539,15 +546,18 @@ is Wood–Earth, Earth–Water, Water–Fire, Fire–Metal and Metal–Wood.
 | physique | float | 1–150 | calculated (Character Stats) | Effective Physique (căn cốt) |
 | F_cap (`body_factor_cap`) | float | 1.5 (guess; safe 1.2–1.5) | data file | Cap on the body-technique factor |
 | H (`harmony`) | float | 0.60 / 1.00 / 1.15 | data file | Harmony multiplier |
-| v | float | 0 to about 1.73 × v_full | calculated | Bonus delivered; one provider line per technique |
+| comp_strength | float | 0.78–1.525 (body techniques 0.89–1.2625) | calculated (Formulas F) | Effective Comprehension's multiplier; a body technique uses `body_comp_strength` |
+| v | float | 0 to about 2.63 × v_full | calculated | Bonus delivered; one provider line per technique |
 
 **Output Range:**
 - F is 0.58–1.5 in the purity form and 0.51–1.5 in the Physique form; H is 0.60–1.15.
-- So v runs from 0.3 × 0.58 × 0.6 ≈ 0.10 × v_full (layer 1, low purity, overcoming)
-  up to 1.5 × 1.15 ≈ 1.73 × v_full (great completion, purity 100, generated by the
-  main method).
+- So v runs from 0.3 × 0.58 × 0.6 × 0.78 ≈ 0.08 × v_full (layer 1, low purity, overcoming,
+  Comprehension 1) up to 1.5 × 1.15 × 1.525 ≈ 2.63 × v_full (great completion, purity 100,
+  generated by the main method, Comprehension 150).
+- The bonus budget and Character Stats' ceilings are unchanged: the budget reads `v_full`,
+  and a ceiling still caps what `v` delivers.
 
-**Example:**
+**Example** (Comprehension 45, so `comp_strength` is 1):
 - **A Profound secret art** with attack_pct 12, at layer 6 of 9, average purity 70.
   The main method is Water, and the art is Wood (Water generates Wood):
   - B = 0.3 + 0.7 × 5/8 = 0.7375, F = 1.2 and H = 1.15;
@@ -612,6 +622,34 @@ bands.
 - **Root bias.** For a Fire-only root, a 1-element player offer is Fire with chance
   0.6 + 0.4 × 1/5 = **0.68**, instead of 0.20 unbiased.
 
+### F. Comprehension strength
+
+The comp_strength formula is defined as:
+
+`comp_strength = 1 + (ngo_tinh_eff − strength_comp_mean) ÷ strength_comp_divisor`
+`body_comp_strength = 1 + (comp_strength − 1) · strength_comp_body_share`
+
+Effective Comprehension (ngộ tính) multiplies `tech_power` (Formulas C) and every bonus (Formulas D): how well the
+cultivator understands a technique decides how much of it they can use. At the average roll a technique gives what it
+says; below that it gives less. A body technique rests on the body more than on understanding, so its bonuses use
+`body_comp_strength`, the same effect at a share. User decisions 2026-11-06. This is not Character Stats' `comp`, which is never below 1.
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| ngo_tinh_eff | float | 1–150 | calculated (Character Stats Formulas B) | Effective Comprehension |
+| strength_comp_mean | float | 45 | data file | The Comprehension where a technique gives its written value; the talent roll's mean |
+| strength_comp_divisor | float | 200 (guess; safe 100–400) | data file | Points of Comprehension per +1.0 |
+| strength_comp_body_share | float | 0.5 (guess; safe 0–1) | data file | The share of the effect a body technique takes |
+| comp_strength | float | 0.78–1.525 | calculated | The multiplier for main methods and secret arts |
+| body_comp_strength | float | 0.89–1.2625 | calculated | The multiplier for body techniques |
+
+**Output Range:** `comp_strength` is 0.78 at Comprehension 1, 1.00 at 45, 1.275 at 100 and 1.525 at the clamp of 150.
+`body_comp_strength` is 0.89, 1.00, 1.1375 and 1.2625 at the same points.
+
+**Example:** an Earth technique at layer 9 of 12 has 1.5145 before this factor. At Comprehension 100,
+`tech_power` = 1.5145 × 1.275 = **1.93**; at 20 it is 1.5145 × 0.875 = **1.33**.
+
 ### Parameter keys
 
 **`items_cong_phap.json`, per tier:**
@@ -633,6 +671,7 @@ bands.
   `second_main_mastery` 1.0, `trio_cost` [60, 84, 118, 165, 231], `layer_weights`
   [0.25, 0.33, 0.42], `catchup_mult` 0.25;
 - power and bonuses: `power_layer_floor` 0.6, `no_tech_power` 0.5,
+  `strength_comp_mean` 45, `strength_comp_divisor` 200, `strength_comp_body_share` 0.5 (new),
   `bonus_layer_floor` 0.3, `body_factor_cap` 1.5, `bonus_single_cap` 1.5 (new),
   `harmony` {`main_generates` 1.15,
   `neutral` 1.00, `overcoming` 0.60};
@@ -650,6 +689,15 @@ bands.
 
 This section was drafted without `systems-designer` (lean mode). Two lean design
 reviews and three cross-GDD reviews have checked it, but no specialist pass has.
+
+**Comprehension**
+- **If Comprehension is so low that a method's power falls under `no_tech_power`:** the power is
+  `no_tech_power`, so a method is never worse than none.
+- **If effective Comprehension changes (a perk, a tree node, an event):** power and bonuses follow at the next
+  sheet build. Layers and mastery do not change.
+- **If a technique or artifact ever gives Comprehension:** no pool row or affix does today. Bonuses read Comprehension
+  before technique and artifact bonuses are added, so a technique cannot multiply itself; `tech_power` reads the
+  finished total. Decide this before authoring one.
 
 **Slots and usability**
 - **If the main slot is empty but auxiliary arts are slotted:** cultivation is crude
@@ -823,9 +871,12 @@ All keys are in `items_cong_phap.json` unless noted.
 | `catchup_mult` | 0.25 | 0.1–0.5 | The cost of a fresh technique's lower-realm layers, and so the switch cost at each tier ceiling (27 / 60 / 114 seasons at the defaults) |
 | `second_main_mult` | 0.5 | value from Meridian Map #6 | #6's speed; additive, up to +50 % (Open Question 2) |
 | `second_main_mastery` | 1.0 | 0.5–1.0 | Whether the #6 slot doubles as a mastery route for the next method |
-| `power_mult` | 1.0 / 1.3 / 1.7 / 2.2 | Heaven ≤ 2.2 (the Character Stats range) | Spiritual power and combat by tier |
+| `power_mult` | 1.0 / 1.3 / 1.7 / 2.2 | Heaven ≤ 2.2 before `comp_strength` (the Character Stats range is 2.2 × 1.525) | Spiritual power and combat by tier |
 | `power_layer_floor` | 0.6 | 0.4–0.8 | How much a found high-tier technique is worth before it is mastered |
 | `no_tech_power` | 0.5 | 0.4–0.8 | Spiritual power with no main method |
+| `strength_comp_mean` | 45 | *derived*: the talent roll's mean | The Comprehension that gives a technique's written value. Moves with the talent roll, or the average character gains or loses strength |
+| `strength_comp_divisor` | 200 | 100–400 (guess) | How much Comprehension strengthens techniques: ×1.275 at 100 (200); ×1.55 at 100 (100) |
+| `strength_comp_body_share` | 0.5 | 0–1 (guess) | How much Comprehension matters to body techniques: 0 leaves them to Physique alone, 1 treats them like any technique |
 | `bonus_layer_floor` | 0.3 | 0.2–0.5 | Bonus value at layer 1 |
 | `bonus_budget` | 1.0 / 2.0 / 3.0 / 4.0 | ±25 % (guess); generated commons must stay inside it (a Profound secret art at pool maxima uses 2.0) | The total bonus a tier of technique may carry; the validator rejects a template over it |
 | `bonus_single_cap` | 1.5 | 1.2–2.0 (guess) | The largest single bonus, in pool maxima |
@@ -1361,6 +1412,14 @@ tail shares and cannot show the strongest-purity gain that `g` divides out. The
     `climb_total` (user decision 2026-11-04, cross-GDD review N6). The Realms
     baseline breakthrough targets (AC-CG-30/31) are then re-run.
 
+**Comprehension strength** (`cong_phap_test.gd`)
+
+- **AC-CP-51** [Logic] Formulas F. `comp_strength` is 0.78 / 1.00 / 1.275 / 1.525 at Comprehension 1 / 45 / 100 / 150.
+- **AC-CP-52** [Logic] Formulas C. An Earth method at layer 9 of 12 gives its AC-CP-21 power × 1.275 at Comprehension 100 and × 0.78 at 1.
+- **AC-CP-53** [Logic] Rule 11. With no main method `tech_power` is 0.5 at Comprehension 150. A Yellow layer 1 at Comprehension 1 is 0.5, not 0.468.
+- **AC-CP-54** [Logic] Rule 12. Against their Comprehension 45 values, a main method and a secret art give × 1.275 at Comprehension 100 and × 0.78 at 1; a body technique gives × 1.1375 and × 0.89.
+- **AC-CP-55** [Integration] Raising effective Comprehension from 45 to 100 raises the sheet's bonus and duel offense, and spiritual power carries the full 1.275 (after any `linh_luc_pct` change).
+
 **Not testable here, by design:**
 - Lowering a realm: no rule does it.
 - The 75 %-cultivating ×1.14 guess: bot only, once Time & Turn exists.
@@ -1385,3 +1444,4 @@ tail shares and cannot show the strongest-purity gain that `g` divides out. The
 | 11 | Techniques naming a relocated mutation (Spiritual Roots rule 16) are re-pointed when the Way (Đạo) is designed. Until then such a template would fail the `names` validation; no shipped template names one | game-designer, the Way | Rule 17 catalogue |
 | 12 | Rule 15's interim sector rule stands in for authored `seal_clusters`. Authoring them means the code reads the field and commons stop opening seals. Until then the starting technique opens the technique-sealed clusters of its element, and the Meridian Map's rule 7 ("lists this cluster") reads narrower than the build | game-designer, content, Meridian Map | Rule 15, rule 17 |
 | 13 | Rules with no built path yet: <ul><li>the load-time validator (Edge Cases, AC-CP-34): nothing in `src/` reads `bonus_budget` or `bonus_single_cap`;</li><li>emptying the #6 slot when capability #6 is lost, and rule 8's guard for the #6 slot;</li><li>the unfixed tier roll (Formulas E, AC-CP-25): every caller fixes the tier, the market uses the realm index as the tier, and the tier `weight` values are unread.</li></ul> | implementation story | Edge Cases, AC-CP-25, AC-CP-34 |
+| 14 | Comprehension strength (Formulas F) lifts `tech_power` past the 2.2 that Combat's ward fit used. Re-fit Combat's anchors with it when the fight is built | systems-designer, user | Formulas F, Combat Formulas A |

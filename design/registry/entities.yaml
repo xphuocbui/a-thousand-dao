@@ -213,7 +213,7 @@ formulas:
       - pct
     output_range: [0, unbounded]
     expression: "divine_sense = eff(than_hon)*1.0*than_thuc_mult*stage_mult*(1+pct); vitality_max = eff(can_cot)*10*khi_huyet_mult*stage_mult*(1+pct); spiritual_power = linh_luc_base*stage_mult*tech_power*(1+pct) [+0.20*vitality_max with #4]; combat_realm_term = power_base*stage_mult"
-    notes: "Realm bases unchanged (Realms OQ7); smallest great-breakthrough jump x2.07. Unbounded above: tech_power (up to 2.2, Cultivation Techniques Formulas C) and pct bonuses scale it."
+    notes: "Realm bases unchanged (Realms OQ7); smallest great-breakthrough jump x2.07. Unbounded above: tech_power (up to 3.355, Cultivation Techniques Formulas C) and pct bonuses scale it."
     # was: tech_power (up to about 2.0); changed by design/gdd/cong-phap.md
     added: 2026-11-04
     revised: 2026-11-04
@@ -474,8 +474,10 @@ formulas:
       - k
       - layers
       - no_tech_power
-    output_range: [0.5, 2.2]
-    expression: "power_mult[tier] * (0.6 + 0.4*(k-1)/(layers-1)) for the main method; no_tech_power 0.5 with no usable main method"
+      - comp_strength
+    output_range: [0.5, 3.355]
+    expression: "max(no_tech_power, power_mult[tier] * (0.6 + 0.4*(k-1)/(layers-1)) * comp_strength) for the main method; no_tech_power 0.5 with no usable main method"
+    # was: output_range [0.5, 2.2], no comp_strength; changed by user decision 2026-11-06
     notes: "Multiplies Character Stats spiritual power. Reaches Combat only through spiritual power, which sizes the qi pool (design/gdd/combat.md Formulas A); no_tech_power applies to spiritual power only. power_mult 1.0/1.3/1.7/2.2 is separate from speed_mult."
     added: 2026-11-04
     revised: 2026-11-06
@@ -800,6 +802,22 @@ formulas:
     output_range: [1, 5]
     expression: "cap[kind] = realm_rarity_cap[realm] - kind_offset[kind]"
     notes: "Reproduces every built per-realm cap; AC-ID-07."
+    added: 2026-11-06
+    revised: ""
+  - name: comp_strength
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+      - design/gdd/character-stats.md
+    variables:
+      - ngo_tinh_eff
+      - strength_comp_mean
+      - strength_comp_divisor
+      - strength_comp_body_share
+    output_range: [0.78, 1.525]
+    expression: "1 + (ngo_tinh_eff - strength_comp_mean) / strength_comp_divisor; body techniques use 1 + (comp_strength - 1) * strength_comp_body_share"
+    notes: "Multiplies tech_power and every technique bonus (Cultivation Techniques Formulas C, D, F); body techniques take a share, 0.89 to 1.2625. Not the comp factor, which is never below 1. User decision 2026-11-06."
     added: 2026-11-06
     revised: ""
 
@@ -2228,6 +2246,36 @@ constants:
     value: 6
     unit: pieces
     notes: "Built as equip.max_slots."
+    added: 2026-11-06
+    revised: ""
+  - name: strength_comp_mean
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+    value: 45
+    unit: comprehension points
+    notes: "Where comp_strength is 1; follows the talent roll mean."
+    added: 2026-11-06
+    revised: ""
+  - name: strength_comp_divisor
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+    value: 200
+    unit: comprehension points per +1.0
+    notes: "Guess."
+    added: 2026-11-06
+    revised: ""
+  - name: strength_comp_body_share
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+    value: 0.5
+    unit: share of comp_strength's effect
+    notes: "Guess. User decision 2026-11-06: body techniques scale less with comprehension."
     added: 2026-11-06
     revised: ""
 # Example:

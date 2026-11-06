@@ -3,7 +3,7 @@
 > **Status**: In Review (2026-11-05: independent review findings applied; cross-GDD review CONCERNS, no blockers). See `reviews/character-stats-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-05
+> **Last Updated**: 2026-11-06
 > **Last Verified**: 2026-11-05
 > **Implements Pillar**: Pillar 2 (Every Number Is Bounded and Visible), Pillar 3 (Power Is Built, Not Given); touches Pillar 1 (Your Dao, Your Name)
 
@@ -67,7 +67,7 @@ here but not built yet.
 
    | Talent | Key | Drives |
    |---|---|---|
-   | Comprehension (ngộ tính) | `ngo_tinh` | Cultivation speed, learning techniques, enlightenment (đốn ngộ), recipes, pill-attempt breakthrough chance |
+   | Comprehension (ngộ tính) | `ngo_tinh` | Cultivation speed, learning techniques, technique strength, enlightenment (đốn ngộ), recipes, pill-attempt breakthrough chance |
    | Physique (căn cốt) | `can_cot` | Maximum vitality, body cultivation |
    | Soul strength (thần hồn) | `than_hon` | Divine sense: magic treasure control, detection, formation complexity |
    | Fortune (khí vận) | `khi_van` | Lucky encounters (kỳ ngộ), rare finds, crafting crits, the ceiling of LLM-invented rewards |
@@ -399,7 +399,7 @@ The derived_values formulas are defined as:
 | B_ll | float | 100 / 800 / 6,000 / 50,000 / 400,000 | data file (`linh_luc_base`) | Spiritual power base |
 | B_p | float | 100 / 1,000 / 10,000 / 100,000 / 1,000,000 | data file (`power_base`) | Combat power base |
 | stage_mult | float | 1.00–1.45 | calculated (Realms & Bottlenecks, Formulas B) | Small-breakthrough multiplier |
-| tech_power | float | 0.5–2.2 | calculated (Cultivation Techniques, Formulas C: tier `power_mult` × layer depth; 0.5 with no main method) | Cultivation technique power |
+| tech_power | float | 0.5–3.355 | calculated (Cultivation Techniques, Formulas C: tier `power_mult` × layer depth × comprehension strength, never under 0.5; 0.5 with no main method) | Cultivation technique power |
 | [#4], c4 | bool, float | 0/1, 0.20 | calculated, data file (`linh_luc_conversion`) | Capability #4; added after the pct step, so `linh_luc_pct` does not multiply it |
 
 **Output Range:** all ≥ 0; maximum vitality ≥ 1. Displayed values round half away from
@@ -673,7 +673,8 @@ The comprehension_factor formula is defined as:
 `comp = 1 + ngo_tinh_eff ÷ ngo_tinh_divisor`
 
 Realms & Bottlenecks multiplies `comp` into the cultivation rate (its Formulas I).
-Cultivation Techniques' mastery reads effective comprehension directly, not `comp`.
+Cultivation Techniques' mastery and its `comp_strength` (its Formulas F, which can fall below 1) read effective
+comprehension directly, not `comp`.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
