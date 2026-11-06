@@ -46,18 +46,20 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: MeridianTree) -
 	if tree != null:
 		for m in tree.collect_mods(c, gd):
 			sheet.add_mod(m.source, m.stat, m.value, KIND_TREE)
-	if db != null:
-		for item_id in c.equipped:
-			var art: Dictionary = db.get_record("items", item_id)
-			for affix in art.get("affixes", []):
-				if not ARTIFACT_LOCAL_STATS.has(str(affix.stat)):
-					sheet.add_mod("Pháp bảo: %s" % art.get("name", "?"), str(affix.stat), float(affix.value))
 	ProgressionEdges.add_perk_mods(c, gd, sheet)
 	Formations.add_mods(c, gd, sheet)
 	# Physique may be raised by anything above, so body techniques come after it.
 	for line in CongPhap.bonus_lines(c, gd, sheet.effective("can_cot", c)):
 		sheet.add_mod(line.source, line.stat, line.value)
 	sheet._add_capability_mods(c)
+	# Last, because control is limited by thần thức, which everything above can raise. No affix
+	# touches thần thức, so reading it here is not circular (item-database.md rule 11).
+	if db != null:
+		for item_id in CombatPower.controlled(c, gd, db, sheet).used:
+			var art: Dictionary = db.get_record("items", item_id)
+			for affix in art.get("affixes", []):
+				if not ARTIFACT_LOCAL_STATS.has(str(affix.stat)):
+					sheet.add_mod("Pháp bảo: %s" % art.get("name", "?"), str(affix.stat), float(affix.value))
 	return sheet
 
 

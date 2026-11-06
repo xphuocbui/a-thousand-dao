@@ -207,8 +207,8 @@ acceptance criteria that fail today are listed so the build scope is visible.
 | 2 | Authored manuals copy `value`, `bonuses` and `layers` onto the record | 25 |
 | 3, 4, 5 | No categories, actions or tags exist; `use_item` takes no action, and bots call it bare | 02, 03, 04, 37, 38, 39, 40 |
 | 8, 16 | Herb and material clamps are silent, and budgets live only in the event validator, so direct factory callers bypass them | 16 |
-| 10 | `EventResolver` never merges, so event materials and talismans make new records; **buying the last talisman does not merge** (`market.gd`, likely bug) | 31, 32 |
-| 11 | **A piece the wearer cannot control still applies its affixes** (`stat_sheet.gd`, likely bug). Combat power never checks the slot cap | 42, 43 |
+| 10 | `EventResolver` never merges, so event materials and talismans make new records | 32 |
+| 11 | Combat power never checks the slot cap | 43 |
 | 12 | `unequip` has no confirm step; `Market.sell` refuses an equipped item instead of unequipping | 44, 45, 46, 47 |
 | 14 | Market trades and `give_item` log no event; no owner check runs at save; nothing moves a dead owner's items | 50, 51, 52 |
 | 15 | Nothing changes here; listed because the nurture years and equipped list sit on the character | — |

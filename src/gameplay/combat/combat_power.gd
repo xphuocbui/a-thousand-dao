@@ -32,25 +32,16 @@ static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -
 		offense.add("Công pháp %s" % main.def.name, base * float(cfg.cong_phap_share) * CongPhap.tech_power(c, gd))
 
 	# Artifacts, limited by thần thức capacity and the single-artifact keystone.
-	var capacity: float = CharacterRules.than_thuc(c, gd, sheet).total
-	var used: Array = []
-	var overflow: Array = []
-	var spent: float = 0.0
+	var control: Dictionary = controlled(c, gd, db, sheet)
+	var capacity: float = control.capacity
+	var used: Array = control.used
+	var overflow: Array = control.overflow
+	var spent: float = control.spent
 	var single: bool = sheet.has_flag("single_artifact")
 	var art_cfg: Dictionary = gd.artifacts_file()
-	for item_id in c.equipped:
-		var art: Dictionary = db.get_record("items", item_id) if db != null else {}
-		if art.is_empty():
-			continue
-		var cost: float = float(art.than_thuc_cost) * clampf(1.0 + _affix(art, "than_thuc_cost_pct") / 100.0, 0.1, 2.0)
+	for item_id in used:
+		var art: Dictionary = db.get_record("items", item_id)
 		var nurtured: bool = c.has_capability(3) and item_id == c.equipped[0]
-		if nurtured:
-			cost = 0.0
-		if spent + cost > capacity or (single and not used.is_empty()):
-			overflow.append(item_id)
-			continue
-		spent += cost
-		used.append(item_id)
 		var mult: float = 1.0 + sheet.total("artifact_power_pct") / 100.0
 		if art.element != "" and c.linh_can.has(art.element):
 			mult += (float(art_cfg.element_match_bonus_pct) + _affix(art, "element_affinity_pct")) / 100.0
@@ -91,6 +82,31 @@ static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -
 	lines.append_array(total.lines())
 	lines.append("Thần thức used %.0f / %.0f%s" % [spent, capacity, ("  (not enough for: %s)" % ", ".join(overflow)) if not overflow.is_empty() else ""])
 	return {"total": total.total, "offense": offense.total, "defense": defense.total, "lines": lines, "used_artifacts": used, "overflow": overflow, "than_thuc_used": spent, "than_thuc_capacity": capacity}
+
+
+## Splits the equipped pieces into those the wearer controls and those it cannot, in equip
+## order: a piece that does not fit is skipped, so a cheaper later piece still counts
+## (item-database.md rule 11). [param sheet] needs only what thần thức reads, so StatSheet
+## calls this before it adds affixes. Returns {used, overflow, spent, capacity}.
+static func controlled(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -> Dictionary:
+	var capacity: float = CharacterRules.than_thuc(c, gd, sheet).total
+	var used: Array = []
+	var overflow: Array = []
+	var spent: float = 0.0
+	var single: bool = sheet.has_flag("single_artifact")
+	for item_id in c.equipped:
+		var art: Dictionary = db.get_record("items", item_id) if db != null else {}
+		if art.is_empty():
+			continue
+		var cost: float = float(art.than_thuc_cost) * clampf(1.0 + _affix(art, "than_thuc_cost_pct") / 100.0, 0.1, 2.0)
+		if c.has_capability(3) and item_id == c.equipped[0]:
+			cost = 0.0
+		if spent + cost > capacity or (single and not used.is_empty()):
+			overflow.append(item_id)
+			continue
+		spent += cost
+		used.append(item_id)
+	return {"used": used, "overflow": overflow, "spent": spent, "capacity": capacity}
 
 
 ## Resolves a duel. Win chance = A^k / (A^k + B^k) + (Khí vận A - Khí vận B) x k2, clamped.

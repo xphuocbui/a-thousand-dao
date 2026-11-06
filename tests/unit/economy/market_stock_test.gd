@@ -22,6 +22,28 @@ func test_luyen_khi_market_sells_no_late_game_pills() -> void:
 				assert_true(float(r.price) <= cap, "%s price %d over cap %d" % [r.name, int(r.price), int(cap)])
 
 
+func test_buying_the_last_talisman_merges_into_the_owned_stack_ac_id_31() -> void:
+	var gd := game_data()
+	var db := WorldDB.new()
+	var items := ItemFactory.new(gd)
+	var m := Market.new(gd, db, items)
+	var c := TestFixtures.character({"hoa": 50})
+	c.id = "p1"
+	c.linh_thach = 10000
+	var pid: String = db.add("places", {"name": "Thử Thành", "market": true})
+	var own: Dictionary = items.talisman("hoa_cau", 1)
+	own["owner_id"] = c.id
+	var own_id: String = db.add("items", own)
+	var stock: Dictionary = items.talisman("hoa_cau", 1)
+	stock["owner_id"] = Market.owner_of(pid)
+	var stock_id: String = db.add("items", stock)
+	var r: Dictionary = m.buy(c, StatSheet.build(c, gd, db, null), pid, stock_id)
+	assert_true(r.ok, "bought")
+	assert_eq(r.item_id, own_id, "merged into the owned stack")
+	assert_eq(int(db.get_record("items", own_id).qty), 2, "one stack of two")
+	assert_eq(db.items_of(c.id).size(), 1, "no second record")
+
+
 func test_buy_moves_item_and_charges_price() -> void:
 	var gd := game_data()
 	var db := WorldDB.new()
