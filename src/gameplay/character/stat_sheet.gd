@@ -48,8 +48,8 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: MeridianTree) -
 			sheet.add_mod(m.source, m.stat, m.value, KIND_TREE)
 	ProgressionEdges.add_perk_mods(c, gd, sheet)
 	Formations.add_mods(c, gd, sheet)
-	# Physique may be raised by anything above, so body techniques come after it.
-	for line in CongPhap.bonus_lines(c, gd, sheet.effective("can_cot", c)):
+	# Physique and comprehension may be raised by anything above, so techniques come after them.
+	for line in CongPhap.bonus_lines(c, gd, sheet.effective("can_cot", c), sheet.effective("ngo_tinh", c)):
 		sheet.add_mod(line.source, line.stat, line.value)
 	sheet._add_capability_mods(c)
 	# Last, because control is limited by thần thức, which everything above can raise. No affix

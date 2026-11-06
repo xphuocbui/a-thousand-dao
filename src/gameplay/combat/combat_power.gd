@@ -29,7 +29,7 @@ static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -
 
 	var main: Dictionary = CongPhap.main_entry(c)
 	if not main.is_empty():
-		offense.add("Công pháp %s" % main.def.name, base * float(cfg.cong_phap_share) * CongPhap.tech_power(c, gd))
+		offense.add("Công pháp %s" % main.def.name, base * float(cfg.cong_phap_share) * CongPhap.tech_power(c, gd, sheet.effective("ngo_tinh", c)))
 
 	# Artifacts, limited by thần thức capacity and the single-artifact keystone.
 	var control: Dictionary = controlled(c, gd, db, sheet)

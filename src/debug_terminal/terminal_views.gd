@@ -494,7 +494,8 @@ static func techniques(s: GameSession, io: TerminalIO) -> Array:
 		lines.append("  %2d %-24s %-6s layer %d/%d  %s %s%s" % [row, e.def.name, e.def.tech_kind, int(e.layer), int(e.def.layers), prog, slot, usable])
 		row += 1
 	var f: Dictionary = CongPhap.speed_factor(c, gd)
-	lines.append("  Speed factor x%.2f: %s · technique power %.2f" % [f.mult, f.label, CongPhap.tech_power(c, gd)])
+	var ngo: float = s.sheet().effective("ngo_tinh", c)
+	lines.append("  Speed factor x%.2f: %s · technique power %.2f (Ngộ tính %d)" % [f.mult, f.label, CongPhap.tech_power(c, gd, ngo), int(ngo)])
 	return lines
 
 

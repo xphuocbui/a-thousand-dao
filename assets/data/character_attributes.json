@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "thien_phu": [
-    {"id": "ngo_tinh", "name": "Ngộ tính", "desc": "Comprehension: learning công pháp, đốn ngộ, discovering recipes, breaking bình cảnh"},
+    {"id": "ngo_tinh", "name": "Ngộ tính", "desc": "Comprehension: learning công pháp and how strong it is, đốn ngộ, discovering recipes, breaking bình cảnh"},
     {"id": "can_cot", "name": "Căn cốt", "desc": "Physique: khí huyết, đan độc resistance, body cultivation"},
     {"id": "than_hon", "name": "Thần hồn", "desc": "Soul strength: base of thần thức (artifact control, detection)"},
     {"id": "khi_van", "name": "Khí vận", "desc": "Fortune: kỳ ngộ, rare finds, crafting crits, ceiling of LLM-invented rewards"},

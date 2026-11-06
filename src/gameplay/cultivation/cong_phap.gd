@@ -15,6 +15,7 @@ extends RefCounted
 ## var r: Dictionary = CongPhap.set_slot(c, gd, "main", 0, manual.tech_id)
 ## var f: Dictionary = CongPhap.speed_factor(c, gd)     # {mult, label}
 ## CongPhap.season_tick(c, gd, sheet.effective("ngo_tinh", c), true)
+## var power: float = CongPhap.tech_power(c, gd, sheet.effective("ngo_tinh", c))
 ## [/codeblock]
 
 
@@ -183,15 +184,30 @@ static func speed_factor(c: Character, gd: GameData) -> Dictionary:
 	return {"mult": mult, "label": label}
 
 
-## Formulas C: tech_power, read by spiritual power and Combat.
-static func tech_power(c: Character, gd: GameData) -> float:
+## Formulas F: how well the cultivator understands a technique. 1.0 at average comprehension,
+## below 1 under it. [param comp] is effective ngộ tính.
+static func comp_strength(gd: GameData, comp: float) -> float:
+	var cfg: Dictionary = gd.cong_phap_file()
+	return 1.0 + (comp - float(cfg.strength_comp_mean)) / float(cfg.strength_comp_divisor)
+
+
+## Formulas F: comp_strength for a body technique, which rests on the body more than on
+## understanding, so it takes only a share of the effect, in both directions.
+static func body_comp_strength(gd: GameData, comp: float) -> float:
+	return 1.0 + (comp_strength(gd, comp) - 1.0) * float(gd.cong_phap_file().strength_comp_body_share)
+
+
+## Formulas C: tech_power, read by spiritual power and Combat. [param comp] is effective ngộ
+## tính. A method never gives less than having none.
+static func tech_power(c: Character, gd: GameData, comp: float) -> float:
 	var cfg: Dictionary = gd.cong_phap_file()
 	var e: Dictionary = main_entry(c)
 	if e.is_empty():
 		return float(cfg.no_tech_power)
 	var p_floor: float = float(cfg.power_layer_floor)
 	var depth: float = float(int(e.layer) - 1) / float(int(e.def.layers) - 1)
-	return float(tier_of(gd, e.def).power_mult) * (p_floor + (1.0 - p_floor) * depth)
+	var power: float = float(tier_of(gd, e.def).power_mult) * (p_floor + (1.0 - p_floor) * depth)
+	return maxf(float(cfg.no_tech_power), power * comp_strength(gd, comp))
 
 
 ## The base elements a name counts as for harmony: itself, a derived variant's required
@@ -223,9 +239,12 @@ static func harmony(gd: GameData, art_names: Array, main_names: Array) -> float:
 
 
 ## Formulas D: every slotted usable technique's bonuses, as {source, stat, value}.
-## [param physique] is effective căn cốt for body techniques.
-static func bonus_lines(c: Character, gd: GameData, physique: float) -> Array:
+## [param physique] is effective căn cốt for body techniques; [param comp] is effective ngộ
+## tính, which scales every kind of technique, body techniques less (Formulas F).
+static func bonus_lines(c: Character, gd: GameData, physique: float, comp: float) -> Array:
 	var cfg: Dictionary = gd.cong_phap_file()
+	var art_strength: float = comp_strength(gd, comp)
+	var body_strength: float = body_comp_strength(gd, comp)
 	var out: Array = []
 	var main: Dictionary = main_entry(c)
 	var main_names: Array = main.def.get("names", []) if not main.is_empty() else []
@@ -242,7 +261,7 @@ static func bonus_lines(c: Character, gd: GameData, physique: float) -> Array:
 		if str(def.tech_kind) == "secret":
 			h = harmony(gd, def.get("names", []), main_names)
 		for bonus in def.get("bonuses", []):
-			out.append({"source": "Công pháp: %s" % def.name, "stat": str(bonus.stat), "value": float(bonus.value) * b * f * h})
+			out.append({"source": "Công pháp: %s" % def.name, "stat": str(bonus.stat), "value": float(bonus.value) * b * f * h * (body_strength if is_body else art_strength)})
 	return out
 
 

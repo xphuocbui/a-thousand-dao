@@ -42,7 +42,11 @@ static func linh_luc(c: Character, gd: GameData, sheet: StatSheet) -> Breakdown:
 	var b := Breakdown.new("Linh lực")
 	b.base("%s base" % gd.realm(c.realm_index).name, float(gd.realm(c.realm_index).linh_luc_base))
 	b.mul("Stage", Ladder.stage_mult(gd, c.stage))
-	b.mul("Technique power", CongPhap.tech_power(c, gd))
+	var ngo: float = sheet.effective("ngo_tinh", c)
+	var label: String = "Technique power"
+	if not CongPhap.main_entry(c).is_empty():
+		label += " (Ngộ tính %d: x%.3f)" % [int(ngo), CongPhap.comp_strength(gd, ngo)]
+	b.mul(label, CongPhap.tech_power(c, gd, ngo))
 	b.mul("linh_luc_pct", sheet.mult("linh_luc_pct"))
 	if c.has_capability(4):
 		b.add("Huyết Ngự Linh", float(gd.attributes().derived.linh_luc_conversion) * khi_huyet_max(c, gd, sheet).total)

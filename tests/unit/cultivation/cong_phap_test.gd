@@ -2,6 +2,9 @@ extends DaoTestSuite
 ## Cultivation Techniques (design/gdd/cong-phap.md): speed, mastery, power, harmony, slots.
 
 
+const MEAN := 45.0  # comprehension where comp_strength is 1 (Formulas F)
+
+
 func _def(tier: int, kind: String, names: Array, bonuses: Array = []) -> Dictionary:
 	var layers: Array = [6, 9, 12, 15]
 	return {"tech_id": "t", "name": "T", "tier": tier, "tech_kind": kind, "names": names, "layers": layers[tier], "bonuses": bonuses, "abilities": [], "seal_clusters": [], "origin": "authored"}
@@ -61,7 +64,7 @@ func test_no_main_method_is_crude_with_low_power() -> void:
 	var gd := game_data()
 	var c := TestFixtures.character({"hoa": 60})
 	assert_near(CongPhap.speed_factor(c, gd).mult, 0.18, 1e-6, "0.3 x 0.6")
-	assert_eq(CongPhap.tech_power(c, gd), 0.5, "no_tech_power")
+	assert_eq(CongPhap.tech_power(c, gd, MEAN), 0.5, "no_tech_power")
 
 
 func test_power_tracks_depth_in_the_technique() -> void:
@@ -69,7 +72,7 @@ func test_power_tracks_depth_in_the_technique() -> void:
 	var c := TestFixtures.character({"hoa": 60})
 	_give(c, "a", _def(2, "main", ["hoa"]), 9)
 	c.main_tech = "a"
-	assert_near(CongPhap.tech_power(c, gd), 1.7 * (0.6 + 0.4 * 8.0 / 11.0), 1e-6, "layer 9 of 12: 1.51")
+	assert_near(CongPhap.tech_power(c, gd, MEAN), 1.7 * (0.6 + 0.4 * 8.0 / 11.0), 1e-6, "layer 9 of 12: 1.51")
 
 
 func test_harmony_is_directional_and_worst_wins() -> void:
@@ -98,12 +101,13 @@ func test_bonus_matches_the_worked_example() -> void:
 	_give(c, "main", _def(0, "main", ["thuy"]), 1)
 	c.main_tech = "main"
 	c.aux_tech = ["art", ""]
-	var lines: Array = CongPhap.bonus_lines(c, gd, 50.0)
+	var lines: Array = CongPhap.bonus_lines(c, gd, 50.0, MEAN)
 	var v: float = 0.0
 	for l in lines:
 		if l.stat == "attack_pct":
 			v = l.value
 	assert_near(v, 12.0 * 0.7375 * 1.2 * 1.15, 1e-6, "12.2 %")
+	c.thien_phu["ngo_tinh"] = int(MEAN)
 	assert_eq(StatSheet.build(c, gd, null, null).total("attack_pct"), 12.2, "stored on the grid")
 
 
@@ -112,8 +116,8 @@ func test_body_technique_scales_with_physique() -> void:
 	var c := TestFixtures.character({"hoa": 50})
 	_give(c, "b", _def(1, "body", [], [{"stat": "defense_pct", "value": 10.0}]), 9)
 	c.aux_tech = ["b", ""]
-	assert_near(CongPhap.bonus_lines(c, gd, 60.0)[0].value, 10.0 * 1.1, 1e-6, "F = 1.1")
-	assert_near(CongPhap.bonus_lines(c, gd, 150.0)[0].value, 10.0 * 1.5, 1e-6, "F capped")
+	assert_near(CongPhap.bonus_lines(c, gd, 60.0, MEAN)[0].value, 10.0 * 1.1, 1e-6, "F = 1.1")
+	assert_near(CongPhap.bonus_lines(c, gd, 150.0, MEAN)[0].value, 10.0 * 1.5, 1e-6, "F capped")
 
 
 func test_layer_cost_uses_the_catchup_price_below_the_realm() -> void:
@@ -183,7 +187,7 @@ func test_moving_an_inert_second_method_to_main_empties_the_second_slot() -> voi
 	assert_eq(c.main_tech, "x", "now the main method")
 	assert_eq(c.second_tech, "", "rule 6: not in two slots")
 	assert_eq(CongPhap.slotted(c), ["x"], "slotted once")
-	assert_eq(CongPhap.bonus_lines(c, gd, 60.0).size(), 1, "one bonus line")
+	assert_eq(CongPhap.bonus_lines(c, gd, 60.0, MEAN).size(), 1, "one bonus line")
 	assert_near(CongPhap.speed_factor(c, gd).mult, CongPhap.tech_one(c, gd, e), 1e-6, "no second speed term")
 	CongPhap.season_tick(c, gd, 45.0, true)
 	assert_near(float(e.mastery), 1.45, 1e-6, "one season's mastery")
@@ -229,3 +233,68 @@ func test_every_authored_template_fits_its_tier() -> void:
 			budget += size
 		assert_true(budget <= float(tier.bonus_budget), "%s budget %.2f" % [t.id, budget])
 		assert_eq(t.names.is_empty(), t.tech_kind == "body", "%s names" % t.id)
+
+
+func test_comp_strength_is_centred_on_the_average_ac_cp_51() -> void:
+	var gd := game_data()
+	assert_near(CongPhap.comp_strength(gd, 1.0), 0.78, 1e-6, "lowest")
+	assert_near(CongPhap.comp_strength(gd, MEAN), 1.0, 1e-6, "average changes nothing")
+	assert_near(CongPhap.comp_strength(gd, 100.0), 1.275, 1e-6, "high")
+	assert_near(CongPhap.comp_strength(gd, 150.0), 1.525, 1e-6, "clamp")
+
+
+func test_comprehension_multiplies_technique_power_ac_cp_52() -> void:
+	var gd := game_data()
+	var c := TestFixtures.character({"hoa": 60})
+	_give(c, "a", _def(2, "main", ["hoa"]), 9)
+	c.main_tech = "a"
+	var base: float = 1.7 * (0.6 + 0.4 * 8.0 / 11.0)
+	assert_near(CongPhap.tech_power(c, gd, 100.0), base * 1.275, 1e-6, "Earth layer 9 at 100")
+	assert_near(CongPhap.tech_power(c, gd, 1.0), base * 0.78, 1e-6, "Earth layer 9 at 1")
+
+
+func test_a_method_never_gives_less_power_than_no_method_ac_cp_53() -> void:
+	var gd := game_data()
+	var c := TestFixtures.character({"hoa": 60})
+	assert_eq(CongPhap.tech_power(c, gd, 150.0), 0.5, "no method ignores comprehension")
+	_give(c, "a", _def(0, "main", ["hoa"]), 1)
+	c.main_tech = "a"
+	assert_eq(CongPhap.tech_power(c, gd, 1.0), 0.5, "0.468 floored to no_tech_power")
+
+
+func test_comprehension_multiplies_every_kind_of_bonus_ac_cp_54() -> void:
+	var gd := game_data()
+	var c := TestFixtures.character({"moc": 70, "thuy": 50})
+	_give(c, "art", _def(1, "secret", ["moc"], [{"stat": "attack_pct", "value": 12.0}]), 6)
+	_give(c, "b", _def(1, "body", [], [{"stat": "defense_pct", "value": 10.0}]), 9)
+	_give(c, "main", _def(0, "main", ["thuy"], [{"stat": "linh_luc_pct", "value": 8.0}]), 6)
+	c.main_tech = "main"
+	c.aux_tech = ["art", "b"]
+	var at_mean: Array = CongPhap.bonus_lines(c, gd, 150.0, MEAN)
+	var at_100: Array = CongPhap.bonus_lines(c, gd, 150.0, 100.0)
+	assert_eq(at_mean.size(), 3, "main, secret and body")
+	var at_1: Array = CongPhap.bonus_lines(c, gd, 150.0, 1.0)
+	for i in at_mean.size():
+		var body: bool = at_mean[i].stat == "defense_pct"
+		assert_near(at_100[i].value, at_mean[i].value * (1.1375 if body else 1.275), 1e-6, "high: %s" % at_mean[i].stat)
+		assert_near(at_1[i].value, at_mean[i].value * (0.89 if body else 0.78), 1e-6, "low: %s" % at_mean[i].stat)
+
+
+func test_the_sheet_and_power_read_effective_comprehension_ac_cp_55() -> void:
+	var gd := game_data()
+	var c := TestFixtures.character({"hoa": 60})
+	_give(c, "a", _def(2, "main", ["hoa"], [{"stat": "attack_pct", "value": 10.0}]), 12)
+	c.main_tech = "a"
+	c.thien_phu["ngo_tinh"] = int(MEAN)
+	var mean_sheet: StatSheet = StatSheet.build(c, gd, null, null)
+	var mean_qi: float = CharacterRules.linh_luc(c, gd, mean_sheet).total
+	var mean_attack: float = mean_sheet.total("attack_pct")
+	var mean_power: float = CombatPower.compute(c, gd, null, mean_sheet).offense
+	c.thien_phu["ngo_tinh"] = 100
+	var high_sheet: StatSheet = StatSheet.build(c, gd, null, null)
+	assert_true(high_sheet.total("attack_pct") > mean_attack, "bonus rises")
+	assert_true(CombatPower.compute(c, gd, null, high_sheet).offense > mean_power, "duel offense rises")
+	var qi: Breakdown = CharacterRules.linh_luc(c, gd, high_sheet)
+	var ratio: float = qi.total / mean_qi
+	var pct_ratio: float = high_sheet.mult("linh_luc_pct") / mean_sheet.mult("linh_luc_pct")
+	assert_near(ratio, 1.275 * pct_ratio, 1e-6, "linh luc carries the whole factor")
