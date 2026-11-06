@@ -16,6 +16,11 @@ Combat's full fight is waiting on.
 
 > **Quick reference** — Layer: `Core` · Priority: `MVP` · Key deps: `Config, Sim Core, World DB`
 
+## Player Fantasy
+
+A build becomes physical: you find a manual, age a herb for years, refine an artifact, and every number on it is one
+step away. A rare find reads as luck you can use, waiting reads as saving, and nothing in the pack is mysterious. See Game Feel.
+
 ## Overview
 
 The Item Database is the one record of everything a cultivator can hold, find, trade, craft, wear or use
@@ -82,7 +87,11 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
    *given*, unless it is bound (rule 13). The player picks the action, so a herb that is crafting and also
    edible (none is yet) is never ambiguous. An **automatic caller** (the Advisor, a bot, an NPC, an auto-use talisman)
    must name the action it wants, and **an item with more than one category is never used up
-   automatically** unless the caller named the consumable action for that very item.
+   automatically** unless the caller named the consumable action for that very item. Every call passes the item, the
+   action and a **caller** (`player` or `auto`) (user decision 2026-11-06). A call with caller `auto` and no action is
+   refused and logged as one line in the world event log, naming the caller and the item. Only the behaviour is fixed
+   here; the signature is settled in an ADR (Open Question 11). A **planted** herb can be neither sold nor given until it is
+   harvested.
 5. **Tags carry what categories do not.** A tag is a data string with no behaviour of its own: element,
    role (rule 6), effect (poison, cleanse, ward, key), source. Systems read tags; the Item Database only
    stores them and checks them at load, rejecting any tag that is not defined in data. A tag never
@@ -124,19 +133,24 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     Map), then the Item Database reduces the stack by 1. A Meridian capability may
     keep a talisman. Some consumables are spent by their system rather than by hand: a talisman at the
     moment it fires, a breakthrough pill at an attempt. A use that is refused leaves the item untouched,
-    as a Linh Căn Quả refused at full purity is kept. An effect that has a choice or a risk shows its
-    preview first. **A removal that would end a life needs a preview** (Realms rule 14): before the player
+    as a Linh Căn Quả refused at full purity is kept. **A use shows its preview first only when it needs a choice
+    or cannot be undone** (user decision 2026-11-06): the player must pick something (the Linh Căn Quả element), or the
+    effect is permanent or can end the life (a breakthrough attempt, a removal under the rule below). Toxicity is never a
+    trigger: Character Stats clamps it at 100 and it only weakens later pills, so it is recoverable; it shows in the result. **A removal that would end a life needs a preview** (Realms rule 14): before the player
     unequips, gives or sells an equipped item, the Item Database asks Character Stats for the resulting
     lifespan cap. If that would end the life it shows the cap and the player confirms; otherwise no
     preview appears.
-13. **Protected items (assumption).** An item may carry the flag **bound** (it cannot be sold or given:
-    a Meridian Seal is bound to its cluster) or **reserved** (NPCs never buy, take or learn from it and
+13. **Protected items** (confirmed with rule 12 by the user, 2026-11-06). An item may carry the flag **bound** (it cannot be sold or given:
+    a Meridian Seal is bound to its holder, and opens the nearest sealed cluster) or **reserved** (NPCs never buy, take or learn from it and
     no Market restock removes it: Cultivation Techniques rule 18, the guaranteed next-tier manual). `bound` is authored on the template and copied
     to the record, and `reserved` is set by the system that creates the record, as it is today. A bound
     item can still be found, looted or stolen; only selling and giving are refused. Neither stops a player
     using the item.
 14. **Ownership.** An item has exactly one owner at any time: a person, a place (a lost item waiting to
-    be found), a Market (stock) or no one. Transfers (buying, selling, giving, looting, finding, theft) change the single
+    be found), a Market (stock) or no one. **When an owner dies** (user decision 2026-11-06), their unbound items go to the
+    killer if there is one, otherwise they become Lost at the place of death; their bound items become Lost there. The system that
+    resolves the death (Combat, the Event Engine or the Living World) names the killer and calls the Item Database's
+    transfer; the Item Database moves nothing by itself (rule 15). Transfers (buying, selling, giving, looting, finding, theft) change the single
     `owner_id` and are logged as events. An item whose owner no longer exists is a data error, caught
     when the world is saved.
 15. **Time moves state only through its owning system.** The Item Database never changes a record on its
@@ -167,7 +181,7 @@ An item record has these states. A stack with `qty` 0 never exists; it is remove
 | Held | An owner holds it | It is equipped, used, transferred or lost |
 | Equipped | An equippable item is in the owner's equipped list | It is unequipped, transferred or the owner dies |
 | Planted | A herb is put in a field plot | It is harvested or dies |
-| Lost | Its owner is a place (dropped, abandoned, an owner died) | A character finds it |
+| Lost | Its owner is a place (dropped, abandoned; an owner died with no killer, or the item was bound) | A character finds it |
 | Consumed | A consumable is used up, or a craft takes an ingredient | The record is removed |
 
 Bound items can be used, found, looted and stolen, but not sold or given. An item in Market stock is Held by the
@@ -363,7 +377,7 @@ The default_role formula is defined as:
 | Thuẫn | 0 / 35 | 0.00 | ward |
 | Giáp | 0 / 30 | 0.00 | body (authored) |
 
-**Example:** Chuông: 10 / 35 = 0.29, at or under 0.30, so **ward**.
+**Example:** Chuông: attack 10, defence 25, so a = 10 / (10 + 25) = 0.29, at or under 0.30, so **ward**.
 
 ### F. Budgets
 
@@ -472,7 +486,7 @@ All thresholds are proposals with no source; set them after the first run.
 
 **Ownership**
 
-- **If a character dies holding items:** the caller moves them; the Item Database only requires a valid new owner.
+- **If a character dies holding items:** unbound items go to the killer, or become Lost at the place of death when there is none (a natural death); the resolving system makes the call (rule 14), and the Item Database requires a valid new owner and rejects any other.
 - **If a bound item's owner dies:** it becomes Lost at that place and stays bound.
 - **If a reserved item's source is lost:** Cultivation Techniques rule 18 reissues it through the Market.
 - **If a herb is planted:** it stays owned by the planter, and its plot is on the record.
@@ -504,7 +518,9 @@ All thresholds are proposals with no source; set them after the first run.
 | Save/Load (#5) | Hard | Whole records; a save `version` bump and migration for the new fields | Built, no GDD |
 | Guidance (#35), Debug Terminal (#36), Game UI (#37), Balance Harness (#33) | Soft | `describe`, previews, counts | Terminal and Guidance built |
 
-**Bidirectional check.** Character Stats, Realms, Cultivation Techniques, the Meridian Map and Combat list this system. No
+**Bidirectional check.** Character Stats, Realms, Cultivation Techniques and the Meridian Map list this system. Combat names it
+only in Open Question 10, so a Dependencies row for Item DB (#13) is added to `combat.md` with this revision. The systems index
+row for #13 gains Character Stats as a soft dependency (the rule 12 read). No
 circular dependency is added: crafts and effects act through their own systems, and this system never calls them back
 except for the rule 12 preview, which is a read.
 
@@ -549,7 +565,7 @@ The terminal shows rarity through a colour and always through a word as well, so
 | Inventory | Items grouped by category, an item appearing under each of its categories, with rarity and value | Filter by category, tag and rarity; pick an action |
 | Item detail | `describe` line, categories, tags, rarity, value and any Breakdown (rule 17) | Each action its categories grant, with bound items showing that they cannot be traded |
 | Equip panel | Equipped pieces, slots used and the cap, thần thức used and available, roles | Equip and unequip, with the rule 12 preview on a removal that would end a life |
-| Use preview | The effect, its risk or choice | Confirm or back out |
+| Use preview | The effect and the choice or irreversible result that needs it | Confirm or back out |
 
 All of these work in the Debug Terminal first, with numbered menus as elsewhere.
 
@@ -670,7 +686,7 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 
 - **AC-ID-50** [Logic] Rule 14. Given a buy, sale, gift, loot, find and theft, each record has exactly one `owner_id` after it, and each logs one event naming the item and both sides.
 - **AC-ID-51** [Logic] Rule 14, Edge Cases. Given items owned by a person, a place, a Market and no one, none is flagged at save. Given an owner id that exists nowhere, the save reports it and the item stays with no owner.
-- **AC-ID-52** [Integration] Edge Cases. Given a character who dies holding items, the caller moves them to a valid owner, and an invalid owner is rejected. Given a bound item, its owner becomes the place of death and it stays bound, and a character can find it there.
+- **AC-ID-52** [Integration] Edge Cases. Given a character who dies holding unbound items, they go to the named killer, or are Lost at the place of death when there is none, and an invalid owner is rejected. Given a bound item, its owner becomes the place of death and it stays bound, and a character can find it there.
 - **AC-ID-53** [Logic] Edge Cases. Given a planted herb, `owner_id` is the planter, `plot` is 0 or above, and selling it is refused until harvest.
 - **AC-ID-54** [Logic] Rule 15. Given one record of each kind and the Spirit Herb tick stubbed out, after 40 seasons all records are deep-equal. With the tick on, only herb `age` changes.
 - **AC-ID-55** [Logic] States. Created goes to Held on gaining an owner; Held goes to Equipped, Planted, Lost and Consumed; Equipped goes to Held on unequip; Lost goes to Held on being found; a Consumed record is gone. Illegal moves are refused.
@@ -701,6 +717,8 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 
 **Balance Harness (bot measures, on a 5,000-cultivator world over a fixed seed set)**
 
+*AC-ID-72, 73 and 76 stay deferred, not gating, until Open Question 14 defines drift, "value created" and "unrestricted"; AC-ID-82 until Open Question 13 names the ranks.*
+
 - **AC-ID-71** [Integration] Records. The world total is at most 200,000 and no cultivator holds more than 200 records.
 - **AC-ID-72** [Integration] Wealth. Per realm, `Σ value_of · qty / Σ linh thạch` drifts by no more than 2× over 100 years.
 - **AC-ID-73** [Integration] Flow. Value created against removed, per kind, stays at or below 1.5 over 50 years.
@@ -716,25 +734,26 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 - **AC-ID-80** [UI] Equip panel. Given FX-E, a retained screenshot shows the pieces, slots used and cap, thần thức 80 of 100 and each role. FX-L's unequip shows the preview.
 - **AC-ID-81** [UI] Use preview. Given Linh Căn Quả, the transcript shows the effect and choice. Backing out leaves every record unchanged.
 - **AC-ID-82** [UI] Visual requirements. With colour switched off, every rarity still reads as a word (Open Question 13).
+- **AC-ID-84** [Logic] Rule 12. Given a breakthrough pill attempt, the result has `needs_confirm` and a preview before anything is consumed, and backing out leaves the pill, talisman and character unchanged. Given a quality-0 Hồi Xuân Đan at toxicity 95, using it shows no preview and toxicity is clamped at 100.
 - **AC-ID-83** [UI] Game Feel. Given Hoàng Tinh Sâm at age 40, the transcript shows age 40, value 40, and at the next doubling age 80, potency 2.5, value 50.
 
 ## Open Questions
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
-| 1 | Confirm the bound and reserved flags (rule 13) and the rule 12 removal preview, both added from other GDDs' needs | user | Rules 12, 13 |
+| 1 | ~~Confirm the bound and reserved flags (rule 13) and the rule 12 removal preview~~ **Closed 2026-11-06** (design review: user confirmed both) | user | — |
 | 2 | Artifact value runs 0.75× to 6× the realm's stone cap. Left as built (user decision 2026-11-06); revisit after the first wealth measure | economy-designer, Balance Harness | Formulas F, H |
 | 3 | Where do Mạch Ấn keys come from, and how many does a life find (Meridian Map Open Question 13)? | user | Rule 13 |
 | 4 | Should any herb have an edible effect? Rule 4 allows it, and no herb has one in data yet | user | Content pass |
 | 5 | Item records at world scale: should ordinary items of dead NPCs be removed, and when? The measure in Formulas H has no data behind it yet | world-builder, Living World | Rule 18 |
 | 6 | Herb rarity means scarcity and artifact grade means power, yet they share one ladder. The ladder fits today only because the caps align; a retune of one kind may need an exception | economy-designer | Formulas A, F |
 | 7 | Which pill effects are timed (Character Stats rule 12 lists them), and where is the timer held? | systems-designer | Rule 12 |
-| 11 | The action interface: its signature, how a call is known to be automatic, and which log a refusal goes to. It may need an ADR | gameplay-programmer | Rule 4, AC-ID-37, 38, 40 |
-| 12 | What counts as a "risk" that needs a use preview (rule 12), since every pill adds toxicity | game-designer | Rule 12 |
+| 11 | The action interface's exact signature. **Behaviour closed 2026-11-06:** a `caller` argument (`player` / `auto`), refusals logged to the world event log. The signature may need an ADR | gameplay-programmer | Implementation only |
+| 12 | ~~What counts as a "risk"~~ **Closed 2026-11-06:** a preview shows only for a choice or an irreversible effect (rule 12) | — | — |
 | 13 | The six rarity rank names, and which rank is announced on finding an item | writer, game-designer | AC-ID-82, Game Feel |
 | 14 | What Formulas H means by drift and unrestricted recipes, whether windows roll, and whether NPCs count | economy-designer | AC-ID-71 to 77 |
 | 15 | A reserved manual keeps its flag after purchase; if the player sells it, nothing reissues it. Should it? | systems-designer | Cultivation Techniques rule 18 |
-| 16 | Mạch Ấn opens the nearest sealed cluster in code, while rule 13 calls it bound to its cluster (Meridian Map Open Question 19) | systems-designer | Rule 13 |
+| 16 | ~~Mạch Ấn bound to its cluster~~ **Closed 2026-11-06:** bound to its holder; it opens the nearest sealed cluster, as built. Meridian Map Open Question 19 should say the same | — | — |
 | 8 | Ward, body and utility roles beyond the 9 built bases, and new equippables Combat needs | game-designer | Content pass, Combat |
 | 9 | All Formulas H thresholds, `weapon_min` and `ward_max` are guesses | economy-designer | Formulas E, H |
 | 10 | **To do (user 2026-11-06):** add more items to the game, authored by hand rather than generated. Today there are 10 herbs, 12 recipes, 8 materials, 9 artifact bases, 4 talismans and 2 treasures | user, game-designer | Content pass, Combat |

@@ -478,7 +478,7 @@ formulas:
     expression: "power_mult[tier] * (0.6 + 0.4*(k-1)/(layers-1)) for the main method; no_tech_power 0.5 with no usable main method"
     notes: "Multiplies Character Stats spiritual power. Reaches Combat only through spiritual power, which sizes the qi pool (design/gdd/combat.md Formulas A); no_tech_power applies to spiritual power only. power_mult 1.0/1.3/1.7/2.2 is separate from speed_mult."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-06
   - name: lifespan_cap
     status: active
     source: design/gdd/canh-gioi.md
@@ -549,13 +549,13 @@ formulas:
     variables:
       - stat_k
       - ref_k
-      - health_rounds
-      - qi_rounds
+      - health_units
+      - qi_units
       - U_r
       - boss_pool_mult
       - v
     output_range: "health 25 to 32,152; linh luc 41 to 52,247, before boss_pool_mult"
-    expression: "n_k = clamp(stat_k/ref_k[r], 0.25, 8); health_max = health_rounds*U_r*n_body*boss_pool_mult; qi_max = qi_rounds*U_r*n_qi*boss_pool_mult; health_start = health_max*max(v, 0.4)"
+    expression: "n_k = clamp(stat_k/ref_k[r], 0.25, 8); health_max = health_units*U_r*n_body*boss_pool_mult; qi_max = qi_units*U_r*n_qi*boss_pool_mult; health_start = health_max*max(v, 0.4)"
     notes: "Only health ends a fight. Divine sense is not a pool."
     added: 2026-11-06
     revised: 2026-11-06
@@ -670,7 +670,7 @@ formulas:
       - pool_qi
     output_range: "pass 0.05 to 1; drain 0.15 and up"
     expression: "pass = max(pass_min, clamp(pass_kind + sum pass_tag, pass_min, 1)/(1 + ws/100)); drain = max(drain_min, drain_kind/(1 + we/100)); blocked = min(D*(1-pass), pool_qi/drain); qi_loss = blocked*drain; leak = D - blocked"
-    notes: "The default drain model. A ward record may name another cost_model (per hit, per round). defense_pct is ward strength."
+    notes: "The default drain model. A ward record may name another cost_model (per hit, per pulse). defense_pct is ward strength."
     added: 2026-11-06
     revised: ""
   - name: body_guard
@@ -686,7 +686,7 @@ formulas:
       - shred
     output_range: [0.063, 0.857]
     expression: "g_b = min(guard_cap, (guard_base + a_b + t_b + 0.15*(n_body-1))*(1+body_guard_pct/100)*(1-shred)); m = guard_max_mit*g_b/(g_b+guard_half)"
-    notes: "Works with no linh luc. Qi hits meet it at guard_share_qi."
+    notes: "Works with no linh luc. Qi hits meet it at guard_share_kind."
     added: 2026-11-06
     revised: ""
   - name: soul_attack
@@ -1824,14 +1824,84 @@ constants:
     notes: "Retired 2026-11-06: the user replaced the three pools with one health bar and wards."
     added: 2026-11-06
     revised: 2026-11-06
-  - name: round_limit
+  - name: time_limit
     status: active
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 40
-    unit: rounds
-    notes: "Round 40 is played."
+    unit: seconds
+    notes: "Replaces round_limit (rounds removed 2026-11-06). Events at exactly 40 s resolve."
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: pulse_interval
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 1
+    unit: seconds
+    notes: "Beat of regeneration, ticks, durations and per-pulse limits."
+    added: 2026-11-06
+    revised: ""
+  - name: basic_cooldown
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 1
+    unit: seconds
+    notes: "Basic attack and companion timer. Art speed does not touch it."
+    added: 2026-11-06
+    revised: ""
+  - name: cooldown_min
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.5
+    unit: seconds
+    notes: "Floor on cd_eff = cooldown / (1 + art_speed_pct/100). +100 halves a cooldown; sources add."
+    added: 2026-11-06
+    revised: ""
+  - name: escape_channel
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 1
+    unit: seconds
+    notes: "Guess."
+    added: 2026-11-06
+    revised: ""
+  - name: soul_lockout
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 1
+    unit: seconds
+    notes: "Guess. Interim limit until technique content exists."
+    added: 2026-11-06
+    revised: ""
+  - name: slots_by_realm
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: "3 / 4 / 5 / 6 / 7"
+    unit: art slots by realm
+    notes: "Provisional. One pool: arts, talismans, escape and slotted wards all take a slot; the basic attack and autocast ward do not."
+    added: 2026-11-06
+    revised: ""
+  - name: ward_art_duration
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 1
+    unit: seconds
+    notes: "Guess. How long a slotted ward art stays up after firing."
     added: 2026-11-06
     revised: ""
   - name: layer_caps
@@ -1916,8 +1986,18 @@ constants:
     referenced_by:
       - design/gdd/combat.md
     value: 0.08
-    unit: fraction per round
+    unit: fraction per pulse
     added: 2026-11-06
+  - name: dot_pulse_cap
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.08
+    unit: fraction of max health per pulse
+    notes: "Total of all health ticks on one target at one pulse. One tick stays under dot_pool_cap 0.05."
+    added: 2026-11-06
+    revised: ""
     revised: ""
   - name: rating_kappa
     status: active
@@ -1949,17 +2029,17 @@ constants:
     notes: "Replaces beast.power_mult."
     added: 2026-11-06
     revised: ""
-  - name: health_rounds
+  - name: health_units
     status: active
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 16
     unit: fight units
-    notes: "Safe range 12-22."
+    notes: "Safe range 12-26; 26 is the unbuilt-mirror limit at time_limit 40 s (Combat AC-CB-58)."
     added: 2026-11-06
-    revised: ""
-  - name: qi_rounds
+    revised: 2026-11-06
+  - name: qi_units
     status: active
     source: design/gdd/combat.md
     referenced_by:
@@ -2023,13 +2103,14 @@ constants:
     unit: linh luc per blocked point
     added: 2026-11-06
     revised: ""
-  - name: guard_share_qi
+  - name: guard_share_kind
     status: active
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 0.75
-    unit: fraction
+    unit: fraction by threat kind
+    notes: "Value is the qi share. Body is 1.0 (Combat Formulas D)."
     added: 2026-11-06
     revised: ""
   - name: soul_beta
@@ -2050,7 +2131,7 @@ constants:
     value: 0.25
     unit: ratio
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-06
   - name: soul_cap
     status: active
     source: design/gdd/combat.md
