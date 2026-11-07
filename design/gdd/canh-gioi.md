@@ -1354,6 +1354,7 @@ written, it must list Realms & Bottlenecks in its own Dependencies section.
 | 6 | Spiritual Roots (Linh Căn) | The `breakthrough_succeeded` event, for Mutation Awakening (its rule 10). Spiritual Roots is also upstream (the curve); the event breaks the cycle, since neither system calls the other |
 | 21 | Combat | The combat power realm term (realm base × stage multiplier); it reports defeats for capability #9 |
 | 22 | Heavenly Tribulation | The hand-off after a successful Deity Transformation roll |
+| 31 | Quests | The realm band that sets a quest budget; a time estimate for a `reach` stage (provisional, not exposed yet; `design/gdd/quests.md` rule 5) |
 | 24 / 28 | NPC Build Generation, Living World Tick | NPC realm, stage and level; the fate roll; the intake |
 | 27 | World Generation & History | The world size and starting realm shares that the headcount targets need |
 | 9 | Cultivation Techniques | The realm, for the technique tier cap |

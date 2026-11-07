@@ -513,6 +513,7 @@ All thresholds are proposals with no source; set them after the first run.
 | Artifact Refining (#16), Formations (#17), Talismans (#18), Spirit Beasts (#19) | Hard | Crafted items, ingredients, roles | Quick specs only |
 | Market (#20) | Hard | Value, flags, stock generation | Built, no GDD |
 | Combat (#21) | Hard for the full fight | Role tags, attack, defence, consumable arts | GDD designed, build on hold; today's duel reads artifacts directly |
+| Quests (#31) | Hard | Prices and rarity bounds for quest rewards; item classes for `deliver` and `craft` stages | GDD designed (`design/gdd/quests.md`), in review |
 | Event Engine (#23), LLM GM (#29) | Hard | Budgeted item requests | Built, no GDD |
 | NPC Builds (#24), World Generation (#27), Living World (#28) | Hard | Items for NPCs and history | Built, no GDD |
 | Save/Load (#5) | Hard | Whole records; a save `version` bump and migration for the new fields | Built, no GDD |

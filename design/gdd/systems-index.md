@@ -83,7 +83,7 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 28 | Living World Tick | Narrative | Vertical Slice | Implemented (abstract) | — | World DB, Realms, NPC Builds, Edges (NPC half), Time & Turn |
 | 29 | LLM Game Master: events, narration, epitaph, provider config | Narrative | MVP | Implemented (mock-tested only) | — | Event Engine, World DB, Config |
 | 30 | NPC Interaction & Dialogue | Narrative | Vertical Slice | Implemented (thin) | — | World DB, LLM GM, Time & Turn |
-| 31 | Quests | Narrative | Vertical Slice | In Review (design-review third re-review 2026-11-07, lean: 3 blocking in rules 15–18, revised same day and awaiting re-review; numbers are guesses; contracts with Event Engine, LLM GM and Dialogue provisional) | design/gdd/quests.md | Event Engine, LLM GM, Dialogue, World DB |
+| 31 | Quests | Narrative | Vertical Slice | Approved (design-review 2026-11-08, lean, sixth pass: no blockers, 8 recommendations open; numbers are guesses; contracts with Event Engine, LLM GM and Dialogue provisional) | design/gdd/quests.md | Event Engine, LLM GM, Dialogue, World DB |
 | 32 | Achievements (Thành Tựu) | Meta | Vertical Slice | Implemented | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | Character Stats, Realms, World DB, Save/Load |
 | 33 | Balance Simulation Harness | Meta | MVP | Implemented | — | Time & Turn, Character Stats, Realms, Event Engine, Market, Edges |
 | 34 | Localization & Hán-Việt Glossary | Meta | Alpha | Not Started | — | LLM GM, Event Engine, Guidance, Game UI, Config |

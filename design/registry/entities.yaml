@@ -54,7 +54,7 @@
 #   in any other shape is reported as unsupported layout, with its number.
 
 version: 1
-last_updated: "2026-11-06"
+last_updated: "2026-11-07"
 
 # ─── ENTITIES ────────────────────────────────────────────────────────────────
 # Named game-world objects: enemies, NPCs, characters, factions, bosses.
@@ -896,6 +896,85 @@ formulas:
     expression: "sum(amount_key*W_key) <= tempered_buff_w"
     notes: "Budget of the lasting buff a survivor gains. W prices from stat_power_weights."
     added: 2026-11-06
+    revised: ""
+  - name: quest_budget
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    variables:
+      - quest_reward_mult
+      - I_r
+      - S_plan
+      - cap_mult
+      - E_r
+      - stage_reward_share
+      - quest_cash_share
+    output_range: "1.25*I_r to 3*E_r"
+    expression: "B = floor(min(quest_reward_mult*I_r*S_plan, cap_mult*E_r)); stage_pay_i = floor(stage_reward_share*B*s_i/S_plan); final_pay = B - sum(stage_pay_i); cash <= floor(quest_cash_share*B)"
+    notes: "B is a ceiling. I_r from session_actions.json, E_r is linh_thach_max in events_budgets.json."
+    added: 2026-11-06
+    revised: 2026-11-06  # was: 1.5*I_r to 2*E_r before four tiers
+  - name: fight_ratio
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    variables:
+      - F_opp
+      - F_player
+    output_range: "0.02 to 0.20 / 0.35 / 0.60 / 0.80 by tier"
+    expression: "r = F_opp/F_player"
+    notes: "F from Combat Formulas K. About the share of effective health the fight costs (Heavenly Tribulation Formulas C); not a win chance."
+    added: 2026-11-06
+    revised: 2026-11-06  # was: 0.02 to 0.35 ordinary; 0.02 to 0.60 major
+  - name: quest_deadline
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    variables:
+      - w_i
+      - travel_seasons
+      - slack
+      - deadline_max
+    output_range: "3-12 Errand; 3-20 Ordinary; 6-32 Major; 8-40 Legendary"
+    expression: "deadline = min(ceil((sum(w_i)+travel_seasons)*(1+slack)), deadline_max)"
+    notes: "Seasons, counted in season ends from acceptance."
+    added: 2026-11-06
+    revised: 2026-11-06  # was: 3 to 20 ordinary; 6 to 32 major
+  - name: quest_gain_cap
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    variables:
+      - amount_key
+      - W_key
+      - tree_points
+      - tree_point_w
+      - quest_boon_w
+      - quest_gain_cap_w
+      - quest_gain_total_w
+    output_range: [0, 8]
+    expression: "gain_w = sum(amount_key*W_key) + tree_points*tree_point_w; gain_w <= min(quest_boon_w, quest_gain_cap_w - quest_gain_total_w)"
+    notes: "Applied at the offer and again at payment. W prices from stat_power_weights; tree_point_w is the Meridian Map target 2.07."
+    added: 2026-11-06
+    revised: ""
+  - name: quest_reaction
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    variables:
+      - severity_e
+      - adversary_attitude_max
+      - d_root
+      - tie_share
+    output_range: "attitude -100 to 100"
+    expression: "d_adversary = -min(sum(severity_e), adversary_attitude_max); d_tie = trunc(d_root*tie_share)"
+    notes: "Each NPC's attitude to the player; NPC-to-NPC relationships are not tracked. Ties are master, disciples and sect head."
+    added: 2026-11-07
     revised: ""
 
 # Example:
@@ -2452,6 +2531,8 @@ constants:
     source: design/gdd/thien-kiep.md
     referenced_by:
       - design/gdd/thien-kiep.md
+      - design/gdd/quests.md
+      - design/gdd/character-stats.md
     value: 60
     unit: W
     notes: "Guess. About 5 % of a full tree at Deity Transformation."
@@ -2496,6 +2577,269 @@ constants:
     unit: share of pool weight
     notes: "Guess. Applies once a pool reaches pool_target 6."
     added: 2026-11-06
+    revised: ""
+  - name: quest_reward_mult
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: "Errand 1.25 / Ordinary 1.5 / Major 2.0 / Legendary 2.5"
+    unit: I_r per season
+    notes: "Guess."
+    added: 2026-11-06
+    revised: 2026-11-06  # was: ordinary 1.5 / major 2.0
+  - name: quest_cap_mult
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: "Errand 0.5 / Ordinary 1.0 / Major 2.0 / Legendary 3.0"
+    unit: E_r
+    notes: "Guess. cap_mult in quests.md Formulas A."
+    added: 2026-11-06
+    revised: 2026-11-06  # was: ordinary 1.0 / major 2.0
+  - name: stage_reward_share
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 0.3
+    unit: share of B
+    notes: "Guess. Range 0.2 to 0.4."
+    added: 2026-11-06
+    revised: ""
+  - name: quest_cash_share
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 0.2
+    unit: share of B
+    notes: "User decision 2026-11-06. Selling everything gives about 1.02 I_r per season."
+    added: 2026-11-06
+    revised: ""
+  - name: quest_fight_ratio_max
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: "Errand 0.20 / Ordinary 0.35 / Major 0.60 / Legendary 0.80"
+    unit: r
+    notes: "User decision 2026-11-06; values are guesses until Combat is measured."
+    added: 2026-11-06
+    revised: 2026-11-06  # was: ordinary 0.35 / major 0.60
+  - name: active_cap
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 3
+    unit: quests
+    notes: "Guess."
+    added: 2026-11-06
+    revised: ""
+  - name: major_share
+    status: deprecated
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 0.08
+    unit: chance per person or sect offer
+    notes: "Replaced by quest_tier_share on 2026-11-06."
+    added: 2026-11-06
+    revised: 2026-11-06
+  - name: quest_boon_w
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+      - design/gdd/character-stats.md
+    value: 8
+    unit: W
+    notes: "Guess. Most W in one lasting gain."
+    added: 2026-11-06
+    revised: ""
+  - name: quest_gain_cap_w
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+      - design/gdd/character-stats.md
+    value: 48
+    unit: W
+    notes: "Guess. Lifetime W from quests, about 4 % of a full tree at Deity Transformation."
+    added: 2026-11-06
+    revised: ""
+  - name: quest_tier_share
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: "Errand 0.45 / Ordinary 0.45 / Major 0.08 / Legendary 0.02"
+    unit: chance per person or sect offer
+    notes: "Guess. tier_share in quests.md. Boards offer Errand and Ordinary only."
+    added: 2026-11-06
+    revised: ""
+  - name: legendary_rarity_bonus
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 1
+    unit: rarity ranks above realm_rarity_cap
+    notes: "User decision 2026-11-06. One above-cap item per Legendary quest; no limit per life. Exception to realm_rarity_cap."
+    added: 2026-11-06
+    revised: ""
+  - name: legendary_min_realm
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: "Core Formation"
+    unit: realm
+    notes: "User decision 2026-11-06."
+    added: 2026-11-06
+    revised: ""
+  - name: tie_share
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: "master or disciple 0.5 / sect head 0.25"
+    unit: share of the root change
+    notes: "Guess."
+    added: 2026-11-07
+    revised: ""
+  - name: world_effect_severity
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: "wealth 5 / standing 5 / injury 10 / rank 15 / death 30"
+    unit: attitude
+    notes: "Guess."
+    added: 2026-11-07
+    revised: 2026-11-07  # was: wealth 5 / injury 10 / rank 15 / death 30
+  - name: world_standing_max
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 10
+    unit: sect_standing per effect
+    notes: "Guess. sect_standing is a new sect field from -100 to 100; nothing reads it yet."
+    added: 2026-11-07
+    revised: ""
+  - name: world_effects_max
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: "Errand 1 / Ordinary 1 / Major 3 / Legendary 3"
+    unit: outcomes entries per ending
+    notes: "Guess. Major raised to 3 by design-review 2026-11-07: rule 15 needs one offerer-side gain, so 2 left no room for two adversary losses."
+    added: 2026-11-07
+    revised: 2026-11-07  # was: Major 2
+  - name: world_wealth_share
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 0.5
+    unit: share of B per wealth entry
+    notes: "Guess. Range 0 to 1. The offerer_ties split is one entry."
+    added: 2026-11-07
+    revised: ""
+  - name: world_injury_max
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 0.4
+    unit: share of NPC vitality per injury entry
+    notes: "Guess. Range 0 to 1."
+    added: 2026-11-07
+    revised: ""
+  - name: adversary_attitude_max
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 30
+    unit: attitude per quest
+    notes: "Guess. Most an adversary can fall from one quest (quest_reaction)."
+    added: 2026-11-07
+    revised: ""
+  - name: quest_final_effects_max
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 6
+    unit: reward effects on the final stage
+    notes: "Guess. Exception to max_effects_per_outcome 3. Every reward line counts; a multi-key quest_boon is one; outcomes entries do not."
+    added: 2026-11-07
+    revised: ""
+  - name: stage_hold
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 4
+    unit: seasons per defeat stage
+    notes: "Guess. Range 0 to 8. Held seasons move the deadline later, past deadline_max."
+    added: 2026-11-07
+    revised: ""
+  - name: quest_tu_vi_share
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 0.5
+    unit: share of the realm tu_vi_pct_max per quest
+    notes: "Keeps quests from being a cultivation source."
+    added: 2026-11-07
+    revised: ""
+  - name: fail_relationship
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: "Failed -15 / Lapsed -8"
+    unit: relationship with a person offerer
+    notes: "Guess. Never moves a person below hostile_threshold + 1 (-29)."
+    added: 2026-11-07
+    revised: ""
+  - name: orphan_reward_share
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: 0.5
+    unit: share of unpaid reward
+    notes: "Guess. Range 0 to 1. Scaled by s'/S' (quests.md rule 10)."
+    added: 2026-11-07
+    revised: ""
+  - name: quest_tree_point_cap
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+      - design/gdd/kinh-mach-do.md
+    value: 3
+    unit: meridian tree points per life
+    notes: "Guess. Tree points from quests; also bounded by quest_gain_cap_w."
+    added: 2026-11-07
+    revised: ""
+  - name: sect_standing
+    status: active
+    source: design/gdd/quests.md
+    referenced_by:
+      - design/gdd/quests.md
+    value: "-100 to 100, starts at 0"
+    unit: sect standing
+    notes: "New World DB sect field, provisional. Nothing reads it yet (quests.md Open Question 10)."
+    added: 2026-11-07
     revised: ""
 # Example:
 #
