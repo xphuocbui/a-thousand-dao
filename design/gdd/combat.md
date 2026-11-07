@@ -946,7 +946,8 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 
 | System | Type | Interface | State |
 |---|---|---|---|
-| Heavenly Tribulation (#22) | Hard | The fight engine, a tribulation as an enemy profile | Not designed; waits on this GDD |
+| Heavenly Tribulation (#22) | Hard | The fight engine, a tribulation as an enemy profile | GDD approved for rules (design/gdd/thien-kiep.md); build on hold with the full fight |
+| Quests (#31) | Soft | A `defeat` stage opens a fight and reads the result; fight power F for the fight ratio | GDD designed (`design/gdd/quests.md`), in review; `defeat` waits on the full fight |
 | Event Engine (#23) | Hard | Fight request, result | Built, no GDD; today's `duel` callers move to the result |
 | NPC Builds (#24) | Hard | Compiled profile, slot order and guards | Built, no GDD |
 | Living World Tick (#28) | Hard | Rating clash; keeps NPC duels rare | Built, no GDD |
@@ -1217,7 +1218,7 @@ Results go to `production/qa/evidence/balance/[date]-combat-performance.md`.
 | 1 | **Closed 2026-11-06:** the user replaced the three pools with one health bar and wards, so the reserve floor is gone | — | — |
 | 2 | **Closed 2026-11-06:** the user confirmed that the thần thức artifacts occupy does not lower the thần thức a side fights with (rule 3) | — | — |
 | 3 | **Closed 2026-11-06:** the user confirmed that companions cannot be targeted in this version (rule 19) | — | — |
-| 4 | How much of the enemy's profile does the player see while preparing? The working default is all of it (Pillar 2), but no rule states this yet, and scouting by divine sense is an alternative | user | UI Requirements, rule 12 |
+| 4 | How much of the enemy's profile does the player see while preparing? The working default is all of it (Pillar 2), but no rule states this yet, and scouting by divine sense is an alternative. Tribulation pools already use the working default, showing the whole profile (Heavenly Tribulation rule 5, user decision 2026-11-06); other fights stay open | user | UI Requirements, rule 12 |
 | 5 | What do L2–L5 sources cost in W terms? A specialist suggestion is about 25 W per +10 points of "more", untested. The Way's art tier credit needs the same answer | systems-designer | The Way's arts, content authoring |
 | 6 | Measure real typical and top-end builds in the Balance Harness, then re-fit Formulas B and H. All anchors are targets from a one-pool simulation. Top-end against two realms up from Qi Refining is 54 %, inside the 40–75 % target but sensitive (17–76 % at top-end damage ±20 %, Formulas H) | systems-designer, Balance Harness | Approval of the numbers |
 | 7 | With near-deterministic fights, should preparation show a predicted result? It helps planning and may remove tension. The Advisor's odds preview (`advisor.gd`) needs this answer, since it reads today's duel | user | UI Requirements, Guidance |

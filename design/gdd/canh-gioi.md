@@ -345,7 +345,7 @@ interfaces are provisional.
 | Progression Edges | in | perks, talismans and fortuitous encounters as attempt bonuses; the NPC edge score e | Progression Edges (the edges); this GDD (where they plug in) |
 | Event Engine | out / in | out: the bottleneck flag (raises event chance and unlocks protagonist-only templates), realm-keyed budgets; in: events that grant cultivation base | Event Engine |
 | Combat | out | the realm term of combat power, defeats reported for #9 | Combat |
-| Heavenly Tribulation (Thiên Kiếp, not started) | out | hand-off after a successful Deity Transformation roll (rule 7) | Heavenly Tribulation GDD |
+| Heavenly Tribulation (Thiên Kiếp, designed; build on hold) | out | hand-off after a successful Deity Transformation roll (rule 7) | Heavenly Tribulation GDD |
 | Travel & Map | in | the place's spiritual qi density (spirit veins) for the Core Formation condition | Travel & Map |
 | Formations (Trận Pháp) | in | a gathering formation's density bonus, which counts toward the Core Formation condition | Formations |
 | Event Engine (insight) | in | the Deity Transformation breakthrough insight, granted by an enlightenment event | Event Engine (the event); this GDD (the condition) |

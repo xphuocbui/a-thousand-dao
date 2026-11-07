@@ -1734,6 +1734,8 @@ constants:
     referenced_by:
       - design/gdd/kinh-mach-do.md
       - design/gdd/combat.md
+      - design/gdd/quests.md
+      - design/gdd/thien-kiep.md
     value: "attack/defense/linh_luc_pct 1.0, khi_huyet_pct 1.2, than_thuc/artifact_power_pct 1.3, tam_ma_resist/stealth 1.5, dan_doc_resist 1.6, cultivation_speed_pct 2.2, herb_growth 0.9, mission_income 0.7, alchemy_success 2.7, breakthrough_chance 5, khi_van/ngo_tinh 5, refining_success 2.0, formation_power 1.0, dan_doc_decay 8, density_bonus 140, field_plots 20 (2026-11-04, cross-GDD review 04g F11; no tree acupoint can hold a plot at launch values), lifespan_years 300/L_r"
     unit: W per displayed unit
     notes: "Shared by the fill validator, NPC Builds and Character Stats; guesses until the bot confirms."
@@ -2576,6 +2578,36 @@ constants:
     value: 0.5
     unit: share of pool weight
     notes: "Guess. Applies once a pool reaches pool_target 6."
+    added: 2026-11-06
+    revised: ""
+  - name: pool_target
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: 6
+    unit: bosses per step
+    notes: "Guess. Authoring target; kind_share_max applies once a pool reaches it."
+    added: 2026-11-06
+    revised: ""
+  - name: stall_share
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: 0.75
+    unit: share of time_limit
+    notes: "Guess. The baseline reference must kill a boss at the last wave's pool within 0.75 * time_limit (30 s)."
+    added: 2026-11-06
+    revised: ""
+  - name: tribulation_enabled
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: false
+    unit: flag
+    notes: "False until the full fight is built; while false no tribulation runs and the roll's success stands (Realms fallback)."
     added: 2026-11-06
     revised: ""
   - name: quest_reward_mult

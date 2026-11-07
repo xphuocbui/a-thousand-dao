@@ -513,6 +513,7 @@ All thresholds are proposals with no source; set them after the first run.
 | Artifact Refining (#16), Formations (#17), Talismans (#18), Spirit Beasts (#19) | Hard | Crafted items, ingredients, roles | Quick specs only |
 | Market (#20) | Hard | Value, flags, stock generation | Built, no GDD |
 | Combat (#21) | Hard for the full fight | Role tags, attack, defence, consumable arts | GDD designed, build on hold; today's duel reads artifacts directly |
+| Heavenly Tribulation (#22) | Soft | Consumable stock used in the waves; the rarity and value bounds that a boss `reward` must pass at lint, and the chosen reward item | GDD designed (`design/gdd/thien-kiep.md` rule 9, Formulas D); build on hold |
 | Quests (#31) | Hard | Prices and rarity bounds for quest rewards; item classes for `deliver` and `craft` stages | GDD designed (`design/gdd/quests.md`), in review |
 | Event Engine (#23), LLM GM (#29) | Hard | Budgeted item requests | Built, no GDD |
 | NPC Builds (#24), World Generation (#27), Living World (#28) | Hard | Items for NPCs and history | Built, no GDD |

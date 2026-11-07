@@ -852,6 +852,7 @@ below.
 | 11 | Progression Edges | Destiny perk modifiers and flags | No player edge |
 | 17 | Formations | Formation modifiers | No formation bonuses |
 | 14 | Spirit Herbs & Spirit Fields | Spirit Fields mastery `herb_growth_pct` (curve owned there) | No mastery growth bonus |
+| 22 | Heavenly Tribulation | The `tribulation_tempered` line: a lasting modifier source granted once, on surviving the Deity Transformation tribulation, using existing stat keys within `tempered_buff_w` (`design/gdd/thien-kiep.md` rule 9, Formulas E) | No tempered buff |
 | 31 | Quests | The `quest_boon` line: a lasting modifier source granted on a major quest, using existing stat keys within `quest_boon_w` and a lifetime `quest_gain_cap_w` (`design/gdd/quests.md` rule 11, Formulas D) | No quest gains |
 
 **Downstream:**

@@ -1,6 +1,6 @@
 # Heavenly Tribulation (Thiên Kiếp)
 
-> **Status**: Designed (pending review)
+> **Status**: Approved for rules (lean design re-review 2026-11-06); numbers provisional until the Balance Harness measures `p_t` (Open Question 2)
 > **Author**: user + agents
 > **Last Updated**: 2026-11-06
 > **Last Verified**: 2026-11-06
@@ -56,7 +56,7 @@ Named values are defined in Formulas and live in `tribulation_rules.json` (rules
    tribulation form one unit: nothing is saved between them.
 3. **Bosses come from a pool.** Each record in `tribulation_bosses.json` is an enemy profile in Combat's sense
    (rule 18) plus the steps it serves, a draw `weight`, a `main_kind` (body, qi or soul: the kind with the largest
-   share of its offence), a stated `equiv_realm` for suppression and a `reward` (rule 9). A boss is not a
+   share of its offence) and a `reward` (rule 9). It has no realm field: suppression always uses the step's destination realm (rule 6). A boss is not a
    cultivator and not a creature that can be tamed. The pool is content added later by data, with no new rule.
 4. **The draw.** At the hand-off one seeded stream draws `wave_count` distinct bosses from the pool for that step,
    weighted, without replacement, and fixes the whole list. A boss is revealed when its wave begins. The stream's
@@ -66,17 +66,17 @@ Named values are defined in Formulas and live in `tribulation_rules.json` (rules
 5. **Preparation comes before the attempt.** The situation is Foreseen (Combat rule 12): everything can be
    prepared, and the setup is fixed when the player confirms the attempt, which is the commitment. The compiled
    profile, ward, slot order and prepared items serve every wave, and nothing can be changed between waves. While
-   preparing, the player sees the pool for the step (each boss's name, tags and threat kinds) but not the draw
-   **(assumption)**. The ground tags are those of the place of the attempt plus the tag `tribulation`, so a place
+   preparing, the player sees the pool for the step: each boss's full profile, as Combat's preparation shows an
+   enemy, and its draw `weight`, but not the draw (user decision 2026-11-06). The ground tags are those of the place of the attempt plus the tag `tribulation`, so a place
    with a vein or a laid formation counts.
 6. **The player fights as the realm being left.** The profile compiles at the pre-breakthrough realm and stage.
-   The boss's realm for the gap `g` is its `equiv_realm`, by default the destination realm, so the player is
-   usually one realm below and suppression applies, with pierce reducing it (Combat rule 20).
+   The boss's realm for the gap `g` is always the step's destination realm, so the player is
+   one realm below and suppression applies, with pierce reducing it (Combat rule 20).
 7. **What carries between waves.** Health carries exactly, with no floor and no healing. Linh lực carries and then
    recovers `rest_pulses` pulses of regeneration, up to its maximum (Formulas B). Talisman and consumable stock
    carries: what a wave used is gone. Everything else starts fresh in each wave: statuses, curses, art timers
    (every art on its full cooldown, Combat rule 10), triggers, wards and escape channels. Pill effects taken in
-   preparation last through the whole tribulation **(assumption)**. Each later wave sends Combat its starting
+   preparation last through the whole tribulation (user decision 2026-11-06). Each later wave sends Combat its starting
    shares for health and linh lực (Combat rule 3).
 8. **Only a knockout win clears a wave.** The player must win the wave's fight by knockout. Every other ending
    fails the tribulation: the player Down, a draw, a stalemate at `time_limit`, or a flight (an escape art that
@@ -132,7 +132,7 @@ GDD expects.
 | Combat (#21) | out / in | Out: one fight request per wave (the compiled profile, the boss profile, situation Foreseen, the player as requesting side, ground tags, a fight id, starting health and linh lực shares). In: the result of the fight | Combat (fight engine and result); this GDD (waves, carry-over) |
 | Realms & Bottlenecks (#8) | in / out | In: the hand-off after a successful roll on a listed step. Out: survival or death. The survival chance feeds the Deity Transformation roll target `0.20 ÷ max(p_t_ref, 0.20)` | Realms (steps, roll, level change); this GDD (`p_t`, outcome) |
 | Character Stats (#7) | out | The `tribulation_tempered` sheet line after survival | Character Stats (keys); this GDD (the buff) |
-| Item Database (#13), Talismans (#18), Alchemy (#15) | in / out | In: stock used in the waves; pill timed effects (**provisional**). Out: the chosen reward item | the preparing system; Item Database (reward bounds) |
+| Item Database (#13), Talismans (#18), Alchemy (#15) | in / out | In: stock used in the waves; pill timed effects, which hold for every wave whatever duration Alchemy later defines (**provisional**). Out: the chosen reward item | the preparing system; Item Database (reward bounds) |
 | Formations (#17), Travel & Map (#25) | in | The place's ground tags and any laid formation (**provisional**) | Formations; Travel & Map |
 | Event Engine (#23) | out | The result as an event for the news and the death or survival record | Event Engine |
 | World Database (#3) | out | The event record of the tribulation | World DB |
@@ -146,7 +146,8 @@ All values are guesses until the Balance Harness runs real tribulations. Combat'
 (Combat Open Questions 6 and 20), and the full fight is on hold, so nothing here has been simulated.
 
 **Reference builds.** "Edge" means the Combat Formulas B top-end anchors and "baseline" means the typical anchors,
-both at the end of Nascent Soul. With the suppression of g = 1 and assumed attack rates, top-end has Off about
+both at the end of Nascent Soul. Combat's anchor table gives ehp in fight units (94 typical and 315 top-end), and
+`U_r` is 100 at Nascent Soul, so the figures below (9,400 and 31,500) are those units times 100. With the suppression of g = 1 and assumed attack rates, top-end has Off about
 90,000 per second and ehp 31,500, and typical has Off about 1,500 and ehp 9,400. Fight power F = Off × ehp is
 about 2.8e9 and 1.41e7, so the two differ by about 200×.
 
@@ -264,7 +265,7 @@ The data lint checks every record in `tribulation_bosses.json`. Each of the valu
 | Kill time | The baseline reference kills the boss at the last wave's `m_eff` within 0.75 · `time_limit` (`stall_share`, 30 s), by the Combat Formulas K estimate, so no boss forces a stalemate |
 | Soul share | At most `soul_share_max` 0.5 of the boss's offence is soul |
 | Arts | 2 to 5 arts, each passing Combat's art lint, and no escape art: a boss's flight would end a wave with no knockout |
-| Realm | `equiv_realm` is the step's destination realm |
+| Realm | A boss record has no `equiv_realm` key (rule 6): a record that carries one is rejected |
 | Weight | `weight` above 0 |
 | Coverage | Rule 12; `main_kind` matches the boss's largest offence share; and once the pool reaches `pool_target` 6, no `main_kind` holds above `kind_share_max` 0.5 of a step's pool weight |
 | Reward | Every boss has a `reward` that passes the Item Database's bounds |
@@ -329,7 +330,7 @@ The tempered_buff formula is defined as:
 
 - **Stacking pure defence:** a stalemate is death (rule 8).
 - **Healing between waves:** health carries exactly and the rest touches only linh lực.
-- **Reloading to learn the draw:** a changed setup draws again, so a death teaches nothing about the next try. The cost, accepted by the user, is that a small setup change re-rolls the draw for free after a reload.
+- **Reloading to learn the draw:** a changed setup draws again, so a death teaches nothing about the next try. The cost, accepted by the user (design review 2026-11-06), is that a small setup change re-rolls the draw for free after a reload. Reloading to before the attempt is allowed, as with any save: the death is final for an ironman save, and this system adds no lock of its own.
 - **Maximum sustain:** bounded by `regen_cap` and the limit on `rest_pulses`.
 
 ## Dependencies
@@ -340,11 +341,12 @@ The tempered_buff formula is defined as:
 |---|---|---|---|
 | Combat (#21) | Hard | The fight engine, enemy profiles, starting shares, the result | Approved for rules; build on hold |
 | Realms & Bottlenecks (#8) | Hard | Hand-off, level change, `breakthrough_succeeded`, Dead | GDD in review; lists this system |
-| Character Stats (#7) | Hard | The `tribulation_tempered` line; `stat_power_weights` | GDD in review; does not list the buff yet |
+| Character Stats (#7) | Hard | The `tribulation_tempered` modifier source (a sheet line, using existing stat keys); `stat_power_weights` | GDD in review; lists this system as a modifier source |
 | Sim Core (#2), Config (#1) | Hard | Seeded stream, `tribulation_rules.json`, `tribulation_bosses.json` | Built, no GDD |
-| Item Database (#13) | Soft | Consumable stock; reward bounds | GDD complete; does not list the reward yet |
+| Item Database (#13) | Soft | Consumable stock; reward bounds | GDD approved; lists this system as a downstream reader of its bounds |
 | Talismans (#18), Alchemy (#15), Formations (#17) | Soft | Prepared items | Quick spec or no GDD; **provisional** |
 | Travel & Map (#25) | Soft | The place's ground tags | Built, no GDD; **provisional** |
+| Quests (#31) | Soft | None at runtime. The reward content pass waits on it (Open Question 9) | GDD in review |
 
 **Downstream (these need this system).**
 
@@ -359,6 +361,24 @@ The tempered_buff formula is defined as:
 
 **Bidirectional check.** Realms and Combat already list this system. The systems index names the Event Engine as a
 dependency: it is a soft, downstream one here, because Combat lets this system open fights directly.
+
+## Tuning Knobs
+
+All live in `tribulation_rules.json` unless stated, and are guesses until the Balance Harness runs (Open Question 2).
+
+| Knob | Safe range | Default | Affects |
+|---|---|---|---|
+| `wave_count` | 1–5 (the ramp lint bounds it) | 3 | Run length and lethality; each wave multiplies the chance of a draw that beats the build |
+| `pool_ramp` | 1.0–2.0 (not below `bm_max`) | 1.5 | How much harder later waves are; mostly sets the baseline survival chance |
+| `bm_max` | 1.0–`pool_ramp` | 1.5 | How far one boss can stand apart from the ramp |
+| `rest_pulses` | 0–12 | 8 | Linh lực recovered between waves; the reward for sustain builds |
+| `band_min`, `band_max` | 0.05–0.50 (min below max) | 0.10, 0.35 | Boss power against a baseline build; sets the baseline target |
+| `stall_share` | 0.5–0.9 | 0.75 | How long a baseline build may take to kill a boss, as a share of `time_limit` |
+| `soul_share_max` | 0.2–0.7 | 0.5 | How much of a boss's offence may be soul, which most builds cannot ward |
+| `kind_share_max`, `pool_target` | 0.34–0.7; 3–12 | 0.5; 6 | How varied a pool must be, so no build type dominates the draw |
+| `tempered_buff_w` | 0–120 | 60 | Size of the survivor's lasting buff |
+| `tribulation_enabled` | true or false | false until the full fight is built | Whether any tribulation runs |
+| `p_t_edge`, `p_t_base` and tolerances | edge 0.8–0.95; baseline 0.3–0.7 | 0.90; 0.50 | The measurement targets, not a rule |
 
 ## Visual/Audio Requirements
 
@@ -382,7 +402,7 @@ The tribulation is read, not played, so feel means dread and release.
 
 | Screen or element | Must show | Must allow |
 |---|---|---|
-| Attempt confirmation | The pill roll's chance, a tribulation warning, `wave_count`, the pool (names, tags, threat kinds), the player's setup, a warning for a slotted escape art | Prepare, confirm or back out |
+| Attempt confirmation | The pill roll's chance, a tribulation warning, `wave_count`, the pool (each boss's full profile and draw weight), the player's setup, a warning for a slotted escape art | Prepare, confirm or back out |
 | Wave header | Wave number, the revealed boss, starting health and linh lực | Continue |
 | Fight log | As Combat's fight log | Open a hit's Breakdown |
 | Result | Survived or died, each wave's boss, ending, time, health and linh lực left, deciding layer; on survival, the buff and the rewards on offer | Choose one reward; continue |
@@ -403,7 +423,7 @@ All of these work in the Debug Terminal first, with numbered menus as elsewhere.
 | Rule 6 | combat.md rule 20, Formulas H | Gap `g`, suppression, pierce | Read only |
 | Rule 5 | combat.md rule 12 | Foreseen preparation | Read only |
 | Rule 9 | canh-gioi.md rule 9 | Vitality full on success | Read only; a survivor takes no vitality loss |
-| Rule 9, Formulas E | character-stats.md; registry `stat_power_weights` | The buff's sheet line and W prices | The new key is not in Character Stats yet |
+| Rule 9, Formulas E | character-stats.md; registry `stat_power_weights` | The buff's sheet line and W prices | `tribulation_tempered` is a modifier source in Character Stats' Dependencies, not a new stat key |
 | Rule 9 | item-database.md | Reward bounds | To be matched |
 
 ## Acceptance Criteria
@@ -416,7 +436,7 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 
 - **FX-R:** `wave_count` 3, `pool_ramp` 1.5, `bm_max` 1.5, `m_cap` 10, `rest_pulses` 8, `regen_base` 0.02, `regen_cap` 0.08, `time_limit` 40, band 0.10–0.35, `stall_share` 0.75, `soul_share_max` 0.5, `kind_share_max` 0.5, `pool_target` 6, `tempered_buff_w` 60, `tribulation_enabled` true.
 - **FX-P:** Nascent Soul great perfection, `health_max` 1,600, `qi_max` 2,600, v 1.0, `regen_bonus` 0, Off 1,500, ehp 9,400 (also the lint baseline).
-- **FX-B:** boss, Off 400, ehp 8,000, `boss_pool_mult` 1.0, 2 arts, soul share 0.25, `equiv_realm` Deity Transformation, a fixture `reward`.
+- **FX-B:** boss, Off 400, ehp 8,000, `boss_pool_mult` 1.0, 2 arts, soul share 0.25, a fixture `reward`.
 - **FX-POOL:** six FX-B: B1, B2 (`main_kind` body), Q1, Q2 (qi), S1, S2 (soul), weights 2, 1, 2, 1, 2, 1, each with its own `reward` and its offence shares set to match.
 - **FX-STUB:** injected fight function; records requests, returns scripted results (default: player knockout win).
 
@@ -443,8 +463,8 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 - **AC-TK-13** Rule 4. Given 1,000 seeds, then every list holds 3 distinct bosses.
 - **AC-TK-14** Rule 4. Given 10,000 seeds, then wave 1 is a given weight-2 boss 0.2222 and weight-1 boss 0.1111 of the time (±0.02).
 - **AC-TK-15** Rule 4. Given those seeds, then a weight-2 boss is in 0.6262 of lists, a weight-1 boss in 0.3738 (±0.02).
-- **AC-TK-16** Edge. Given 20 seasons, other keys equal, then at least two lists differ.
-- **AC-TK-17** Rules 4, 11. Given the same setup twice, then the lists are identical. Given 20 setups that each differ by one slot, then at least two lists differ.
+- **AC-TK-16** Edge. Given 20 consecutive seasons, other keys equal, then the lists include at least 5 distinct lists.
+- **AC-TK-17** Rules 4, 11. Given the same setup twice, then the lists are identical. Given 20 setups that each differ by one slot, then at least 5 distinct lists appear.
 - **AC-TK-18** Rule 4. Given a run, when wave 1 begins, then the log names no later boss.
 - **AC-TK-19** Rule 11. Given one tribulation id, when waves 1–3 run, then the fight seeds differ.
 - **AC-TK-20** Rule 11. Given an outer generator, when a run completes, then its state is unchanged.
@@ -465,7 +485,7 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 - **AC-TK-29** Edge. Given 0, then q is 0.16; at `rest_pulses` 0, q is 0.
 - **AC-TK-30** Edge. Given 300 and a regeneration curse active at wave end, then q is 0.27538.
 - **AC-TK-31** Rule 7. Given 3 talismans and wave 1 spending 2, then stock is 1.
-- **AC-TK-32** Rule 7, Open Question 5. Given a prepared pill, then all 3 requests carry its effect.
+- **AC-TK-32** Rule 7. Given a prepared pill, then all 3 requests carry its effect.
 - **AC-TK-33** [Integration] Edge. Given v 0.3, then wave 1 starts at 640 health; wave 1 ending at 500, wave 2 starts at 500.
 - **AC-TK-34** [Integration] Rule 7. Given a status and curse at wave end, then neither is present next wave.
 - **AC-TK-35** [Integration] Rule 7. Given wave 2 at t = 0, then every art timer is at full cooldown.
@@ -507,7 +527,7 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 - **AC-TK-62** C. Given `p_t_ref` 0.90, 0.84, 0.10, 1.0, then `roll_target` is 0.22222, 0.23810, 1.0, 0.20.
 - **AC-TK-63** C. Given FX-B against FX-P, then `r_b` is 0.22695 and `loss_k` 0.22695, 0.34043, 0.51064.
 - **AC-TK-64** C. Given those, then the sum 1.07801 reads as failing; equal bosses at 0.21 sum 0.9975, not failing.
-- **AC-TK-65** [Integration, Bot: Balance Harness] C. Given FX-STUB losing only to S1, N 4,000, then `p_t_hat` is 0.37381 (±0.03).
+- **AC-TK-65** [Integration, Bot: Balance Harness] C. Given FX-STUB losing only to S1, N 4,000, then `p_t_hat` is 0.37381 (±0.005; the exact value is 1 − 0.62619 from the draw odds of AC-TK-15, so the tolerance is sampling noise on the fixed seed list only).
 - **AC-TK-66** [Bot: Balance Harness] C. Given 3,600 of 4,000 survived, then `p_t_hat` is 0.90, standard error 0.00474, with failures split by ending, wave, boss kind.
 - **AC-TK-67** [Integration, Bot: Balance Harness] **Provisional**, OQ1, Open Questions 2, 3. Given the real pool, then edge mean is 0.90 ±0.03, baseline 0.50 ±0.05, each edge build at least 0.80.
 
@@ -519,7 +539,7 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 - **AC-TK-71** Kill time. Off 200, ehp 20,000 passes (30.0 s); 20,100 is rejected (30.15 s).
 - **AC-TK-72** Soul share. 0.50 passes; 0.51 is rejected.
 - **AC-TK-73** Arts. 2, 5 pass; 1, 6, one art failing Combat's art lint, or an escape art are rejected.
-- **AC-TK-74** Realm. `equiv_realm` Nascent Soul is rejected.
+- **AC-TK-74** Realm. A boss record carrying an `equiv_realm` key, with any value, is rejected; one without it passes.
 - **AC-TK-75** Weight. 0 is rejected.
 - **AC-TK-76** Rule 12. An empty pool, 3 bosses at `wave_count` 4, or removing S1 and S2 is rejected.
 - **AC-TK-77** Coverage. B1 weight 5 (body 0.50) passes; weight 6 (0.538) is rejected; weight 6 with Q2 removed (five bosses, below `pool_target`) passes. A `main_kind` that is not the boss's largest offence share is rejected.
@@ -528,7 +548,7 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 
 **Terminal** [UI]. Screenshots retained in `production/qa/evidence/debug-terminal/`.
 
-- **AC-TK-80** Rule 5, Open Question 4. Given the confirmation screen, then it shows chance, warning, `wave_count`, pool names, tags, threat kinds and setup, but no draw.
+- **AC-TK-80** Rule 5. Given the confirmation screen, then it shows chance, warning, `wave_count`, each pool boss's full profile and draw weight, and setup, but no draw.
 - **AC-TK-81** Rule 8. Given a slotted escape art, then the confirmation warns of it.
 - **AC-TK-82** Given a run, then each header shows wave number, boss, starting health and linh lực.
 - **AC-TK-83** Rule 9. Given survival, then the result screen shows the buff and the reward choice.
@@ -538,11 +558,11 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 | # | Question | Owner | Blocks |
 |---|---|---|---|
 | 1 | **Closed 2026-11-06:** Combat rule 3 and Formulas A now accept starting shares for health and linh lực with no floor (AC-CB-78) | — | — |
-| 2 | Measure `p_t` with real builds, then re-fit `wave_count`, `pool_ramp`, `rest_pulses` and the power band. Depends on Combat Open Questions 6 and 20 | systems-designer, Balance Harness | Approval of the numbers; Realms Open Question 2 |
+| 2 | Measure `p_t` with real builds, then re-fit `wave_count`, `pool_ramp`, `rest_pulses` and the power band. Depends on Combat Open Questions 6 and 20. The rules can be approved first, as Combat's were, and this run then approves the numbers; AC-TK-67 stays provisional until it does (user decision 2026-11-06) | systems-designer, Balance Harness | Approval of the numbers; Realms Open Question 2 |
 | 3 | Boss content: the pool, 6 or more bosses for the first step, each with a threat identity | game-designer | Content pass |
-| 4 | Should the player see only the pool, or more? Rule 5 is an assumption, and it must agree with Combat Open Question 4 | user | Rule 5, UI Requirements |
-| 5 | Do pill effects last through all waves (rule 7, assumption)? Alchemy has no GDD yet | user, Alchemy | Rule 7 |
+| 4 | **Closed 2026-11-06:** the player sees every pool boss's full profile and draw weight, but not the draw (rule 5). This follows Combat Open Question 4's working default | — | — |
+| 5 | **Closed 2026-11-06:** pill effects taken in preparation last through all waves (rule 7). Alchemy must honour this when its GDD is written | — | — |
 | 6 | The concept says Dao heart (đạo tâm) resists heart demons at tribulations. Should a boss be able to use the character's heart demon or Dao heart, such as a heart demon wave? Nothing here uses them yet | user | Content pass |
 | 7 | Lightning tribulations for other realms (user, 2026-11-06): which steps, and how they change those gates' targets | user | `tribulation_steps` |
 | 8 | Realms' NPC fate at the last gate (`base_g` 0.032, `max_g` 0.20) is calibrated to include the tribulation. Confirm it still matches once `p_t` is measured | systems-designer | Realms Formulas C2 |
-| 9 | The form of the survivor's reward (rule 9, assumption): a lasting buff plus a choice of one boss reward. What are the buff's keys and the rewards themselves? | user, game-designer | Content pass |
+| 9 | The form of the survivor's reward (rule 9, assumption): a lasting buff plus a choice of one boss reward. What are the buff's keys and the rewards themselves? This pass waits on more items, rewards for other systems, and Quests and Missions (user decision 2026-11-06) | user, game-designer | Content pass |
