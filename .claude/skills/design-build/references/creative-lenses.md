@@ -1,8 +1,8 @@
 # Creative Lenses
 
 The easy answer to any seed is its most literal one: a fire build is more fire damage. These lenses
-force a different angle. Use a different lens for each of the six directions, and pick the ones that
-pull hardest against the seed.
+force a different angle. Use a different lens for each direction, and pick the ones that pull hardest
+against the seed. For the rule-by-rule prompts that produce modifiers, see `modifier-forge.md`.
 
 ## Mechanical lenses
 
@@ -22,6 +22,12 @@ pull hardest against the seed.
 - **Fight with a cost outside the fight.** Lifespan, heart demon, vitality, karma with a sect, a
   debt owed. The price arrives seasons later.
 - **Borrow strength.** A beast, an artifact that does the fighting, a formation, an enemy's own force.
+- **Pick the neglected channel.** Everyone thinks of art hits. What about the basic attack, ticks, ward
+  drain, the companion or a soul strike?
+- **Stack the useless stat.** Find what no build wants: unused thần thức, pill toxicity, a failed
+  breakthrough. Make it the whole point.
+- **Spend the overflow.** Go to where a cap clips and ask what the clipped amount could become.
+- **Change what winning is.** Not their health at 0. Their linh lực at 0, a stalemate, a mutual knockout.
 
 ## Lore lenses
 
@@ -58,7 +64,7 @@ to stacked superlatives (Supreme Ultimate Heavenly Demon).
 ## Things to avoid
 
 - A list of bonuses with one theme word on each.
-- Six directions that differ only by element.
+- Directions that differ only by element.
 - Three arts that do the same thing at different sizes.
 - A build with no real weakness.
 - Lore that restates the mechanics.

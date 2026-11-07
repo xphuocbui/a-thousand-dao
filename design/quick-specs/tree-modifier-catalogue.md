@@ -208,6 +208,40 @@ Big power with a real cost outside the fight, so the choice carries into the res
 | Burning Lifespan (Nhiên Thọ) | Once per fight, a large surge of power when health is low | Years of lifespan |
 | Glass Meridians (Lưu Ly Kinh Mạch) | Large art speed bonus | Less health and body guard |
 
+## Forged by builds
+
+Added by the `design-build` skill. Who uses each piece is in `design/builds/content-ledger.md`. All are ○, and sizes are first guesses from the pilot builds.
+
+### Modifiers
+
+| Modifier | Form | Effect | Layer |
+|---|---|---|---|
+| Spillover (Dật Độc) | Overflow | Tick damage a cap clips burns the target's linh lực, within the qi burn cap | none |
+| Bare Vessel (Lộ Đỉnh) | Conditional | More hit damage while the enemy has under 5 % linh lực | L5 |
+| Rot Deepens (Thi Độc Thâm) | More | More tick damage with the poison tag | L2 |
+| Corpse-Wax Coating (Thi Lạp) | More | Prepared tick damage | L4 |
+| On the Beat (Hợp Tiết) | Conditional | More damage on an art that fires in the same millisecond as a pulse | L5 |
+| Sustained Note (Dư Âm) | Per | More art damage per second of the fight, up to a cap | L2 |
+| Tolled Seal (Chung Ấn) | More | More damage on arts with the seal form | L2 |
+| Ringing Ground (Hưởng Địa) | More | Prepared art damage from a formation | L4 |
+
+### Enablers
+
+An enabler opens a channel, a rule or a resource, and closes something in exchange. It lives on a named artifact, technique, keystone or Đạo.
+
+| Name | Kind | Opens | Closes |
+|---|---|---|---|
+| Grave-Silk Shroud (Liệm Thi Y) | New channel | A permanent tick from t = 0 with no slot | 25 % of maximum linh lực reserved |
+
+### Cluster ideas
+
+For the tree rework. Sealed clusters a player can plan a life around. Details are in each build's sheet.
+
+| Name | Theme | Holds |
+|---|---|---|
+| Sick Meridians (Bệnh Mạch) | Way of Alchemy | Tick stack, Bare Vessel |
+| Measured Breath (Điều Tức) | Heart State | Art speed, regeneration, On the Beat |
+
 ## To settle in the rework
 
 - **Pricing.** Combat rule 5 says W fills only layer L1. Node modifiers such as "+2 % sword damage" are tagged "increased" bonuses, which L1 accepts, so W can price them. "More" bonuses in L2 to L5 and most keystones are priced separately (Combat Open Question 5).

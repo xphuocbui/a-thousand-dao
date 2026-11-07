@@ -380,7 +380,7 @@ skills:
     category: utility
 
   - name: design-build
-    spec: ""
+    spec: studio-tests/skills/authoring/design-build.md
     last_static: ""
     last_static_result: ""
     last_spec: ""
