@@ -1,0 +1,38 @@
+{
+  "slug": "the-transplant",
+  "name": "The Transplant",
+  "han_viet": "Di Căn Lộ",
+  "pitch": "A root cut from a corpse pays for your arts out of its own purity, so every fight costs you years and only another person's root buys them back, and each donor makes the next decade worse.",
+  "channel": "art",
+  "enabler": "Grafted Root",
+  "enabler_kind": "Resource swap",
+  "identity_piece": "The Root Pays",
+  "identity_id": "grafted_root",
+  "power": "strong",
+  "defining_realm": "nguyen_anh",
+  "fit": {"fits_today": 6, "needs_key": 9, "needs_rule": 3},
+  "reused": ["Held at Table", "Wood damage (catalogue)"],
+  "new": [
+    {"type": "root", "name": "Grafted Root", "han_viet": "Di Thực Căn", "fit": "Needs rule",
+     "effect": "Grafted origin. A root cut from a donor of an element you lack, dead 3 days at most: purity round(0.9 x donor), operation chance 0.4 + donor / 200. Per purity point: pays 1 % of the cost of arts naming it, +0.5 L2 on them. Falls 6 + donors fed each decade; dies below 10; no sector of its own, reads the element's. Cost: rule 14 gone, +3 heart demon per donor."},
+    {"type": "modifier", "name": "The Root Pays", "han_viet": "Căn Phó", "form": "Trade", "channel": "art", "layer": "none", "fit": "Needs rule",
+     "effect": "The root pays its purity share of an art's cost, out of purity, at 2 purity per full share of cost.", "second_home": "any build wanting a second payer for one element"},
+    {"type": "modifier", "name": "Foreign Edge", "han_viet": "Dị Phong", "form": "Per", "channel": "art", "layer": "L2", "fit": "Needs key",
+     "effect": "+0.5 L2 points per purity point on arts naming the graft.", "second_home": "any root with a named element"},
+    {"type": "modifier", "name": "Cold Graft", "han_viet": "Hàn Tiếp", "form": "Trade", "channel": "art", "layer": "none", "fit": "Needs key",
+     "effect": "Below purity 40, each art naming the graft costs 0.1 % of maximum health per point under 40.", "second_home": "any decaying enabler"},
+    {"type": "concept", "name": "Rejection", "han_viet": "Bài Dị", "fit": "Needs rule",
+     "effect": "Purity of a graft falls by 6 + donors fed each decade. Feeding a same-element donor gives +round(0.25 x donor purity). The need doubles about every 85 years."},
+    {"type": "art", "name": "Grafted Branch", "han_viet": "Tiếp Chi", "fit": "Needs key", "effect": "Body, Wood. c_art 4.00, cost 0.25, 1 s."},
+    {"type": "art", "name": "Through the Heartwood", "han_viet": "Xuyên Tâm", "fit": "Needs key", "effect": "Qi, Wood. c_art 4.00, cost 0.25, 1 s."},
+    {"type": "art", "name": "Stripped Bark", "han_viet": "Bác Bì", "fit": "Needs key", "effect": "Body, Wood. c_art 4.00, cost 0.25, 1 s."},
+    {"type": "technique", "name": "Scion Method", "han_viet": "Tiếp Mộc Quyết", "fit": "Needs key", "effect": "Main, Địa giai, names Wood. Holds the three arts."},
+    {"type": "artifact", "name": "Root-Cutter's Knife", "han_viet": "Cát Căn Đao", "fit": "Needs key", "effect": "Weapon, L3 +30. Required for the operation."},
+    {"type": "pill", "name": "Suppressing Pill", "han_viet": "Ức Dị Đan", "fit": "Needs key", "effect": "For one decade rejection is 2 lower and body_guard_pct 15 lower, with toxicity."}
+  ],
+  "questions": [
+    "Rule 14 says purity never falls. Is one rare exception acceptable, given it is the only root that loses an element?",
+    "Purity has nothing to do with realm, so the best donor is often a young disciple. Is the game willing to carry that, and how plainly?",
+    "A graft pays cost from purity with no lint: the art lint sees the full cost and never sees who paid. Should a second payer be priced?"
+  ]
+}

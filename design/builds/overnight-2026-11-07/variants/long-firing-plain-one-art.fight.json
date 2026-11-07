@@ -1,0 +1,71 @@
+{
+ "name": "long-firing",
+ "realm": 2,
+ "layers": [
+  120.4,
+  0,
+  40.0,
+  20,
+  0
+ ],
+ "n_body": 1.6336,
+ "n_qi": 1.4564,
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.1,
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "ws": 47.85,
+  "we": 47.85
+ },
+ "divine_sense": 1.0,
+ "arts": [
+  {
+   "id": "falling_lintel",
+   "kind": "body",
+   "c_art": 2.71,
+   "cost_share": 0.08,
+   "cooldown": 4
+  },
+  {
+   "id": "settling_wall",
+   "kind": "body",
+   "c_art": 2.96,
+   "cost_share": 0.08,
+   "cooldown": 5
+  }
+ ],
+ "guard": {
+  "a_b": 0.0,
+  "t_b": 2,
+  "body_guard_pct": 0
+ },
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   }
+  ]
+ }
+}

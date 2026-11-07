@@ -1,0 +1,130 @@
+{
+ "name": "clever-harm",
+ "realm": "truc_co",
+ "ngo_tinh": 45,
+ "rules": [
+  "first_on_list",
+  "the_paper",
+  "fortune",
+  "per_cap"
+ ],
+ "fortune": true,
+ "khi_van": 10,
+ "n_body": 1.436,
+ "n_qi": 1.262,
+ "layers": [
+  0,
+  0,
+  40,
+  20,
+  0
+ ],
+ "regen_bonus_pct": 1.05,
+ "paper": {
+  "clear_reading": true,
+  "model_answer": true,
+  "commentary": true,
+  "already_read": true
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 56.4,
+  "we": 20.9
+ },
+ "guard": {
+  "a_b": 1,
+  "t_b": 1,
+  "body_guard_pct": 15.7
+ },
+ "conditional_mods": [
+  {
+   "id": "Single Grudge",
+   "layer": 2,
+   "per": "enemy_curses",
+   "points_per": 12,
+   "cap": 12,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "break_topic",
+   "kind": "qi",
+   "c_art": 1.45,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    18,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "set_question",
+   "kind": "qi",
+   "c_art": 0,
+   "cost_share": 0.04,
+   "cooldown": 2,
+   "curse": {
+    "question": true,
+    "duration": 3
+   }
+  },
+  {
+   "id": "receive_topic",
+   "kind": "qi",
+   "c_art": 1.95,
+   "cost_share": 0.05,
+   "cooldown": 2.5,
+   "x": [
+    0,
+    18,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "long_essay",
+   "kind": "qi",
+   "c_art": 2.7,
+   "cost_share": 0.1,
+   "cooldown": 3
+  }
+ ],
+ "first_on_list": {
+  "comprehension": 45
+ },
+ "enemy_overrides": {
+  "boss_pool_mult": 2,
+  "ward": {
+   "ws": 200,
+   "we": 200
+  },
+  "guard": {
+   "a_b": 3,
+   "body_guard_pct": 40
+  },
+  "arts": [
+   {
+    "id": "slow_blow",
+    "kind": "body",
+    "c_art": 2.0,
+    "cost_share": 0.04,
+    "cooldown": 4
+   }
+  ]
+ }
+}

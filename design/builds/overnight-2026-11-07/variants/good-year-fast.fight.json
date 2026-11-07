@@ -1,0 +1,116 @@
+{
+ "name": "good-year",
+ "realm": "hoa_than",
+ "rules": [
+  "sown_field",
+  "surplus",
+  "rich_soil",
+  "breath_lead"
+ ],
+ "sown_field": {
+  "plots": [
+   {
+    "herb": "ngung_khi_thao",
+    "age": 256,
+    "n": 12
+   }
+  ],
+  "c_crop": 0.04,
+  "kind": "body",
+  "reserve_per_plot": 0.01,
+  "x": [
+   24,
+   84,
+   0,
+   0,
+   0
+  ]
+ },
+ "surplus": {
+  "share": 0.5,
+  "cap": 0.05
+ },
+ "rich_soil": {
+  "above": 0.5,
+  "bonus": 0.02
+ },
+ "n_body": 3.6,
+ "n_qi": 2.5,
+ "layers": [
+  120,
+  0,
+  60,
+  30,
+  0
+ ],
+ "regen_bonus_pct": 3,
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.1,
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "ws": 200,
+  "we": 120
+ },
+ "guard": {
+  "a_b": 2,
+  "t_b": 1,
+  "body_guard_pct": 40
+ },
+ "basic": {
+  "c": 0,
+  "kind": "body"
+ },
+ "conditional_mods": [
+  {
+   "id": "Longer Breath",
+   "layer": 5,
+   "points": 50,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "breath_lead": true,
+    "by": 0.1
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "scythe_day",
+   "kind": "qi",
+   "c_art": 2.9,
+   "cost_share": 0.12,
+   "cooldown": 3,
+   "guard": {
+    "who": "enemy",
+    "pool": "health",
+    "below": 0.5
+   }
+  }
+ ],
+ "unmodelled": [
+  "Plots spent in a fight, What They Had Left and every herb's age belong to the life around the fight. The fight reads the file's ages.",
+  "Capability #14 is assumed. Without it the field stays at home, which is the sown_field removal run."
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "flurry_a",
+    "kind": "body",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   },
+   {
+    "id": "flurry_b",
+    "kind": "qi",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   }
+  ]
+ }
+}

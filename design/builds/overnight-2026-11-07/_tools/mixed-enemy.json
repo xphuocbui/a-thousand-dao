@@ -1,0 +1,9 @@
+{
+  "_doc": "A standard enemy that conserves linh lực, unlike the typical and top_end fixtures, whose single art spends 15 % of the pool a second. Used as enemy_overrides on the typical preset. All three arts are inside the art lint. A campaign tool, not a Combat fixture.",
+  "arts": [
+    {"id": "jab", "kind": "body", "c_art": 1.4, "cost_share": 0.05, "cooldown": 1},
+    {"id": "strike", "kind": "qi", "c_art": 2.2, "cost_share": 0.08, "cooldown": 3},
+    {"id": "heavy", "kind": "body", "c_art": 3.6, "cost_share": 0.12, "cooldown": 6,
+     "guard": {"who": "own", "pool": "qi", "above": 0.3}}
+  ]
+}

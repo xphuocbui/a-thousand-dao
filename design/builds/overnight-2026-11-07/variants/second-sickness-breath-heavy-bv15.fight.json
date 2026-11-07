@@ -1,0 +1,157 @@
+{
+ "name": "second-sickness",
+ "realm": "truc_co",
+ "stage": 1.0,
+ "n_body": 1.32,
+ "n_qi": 1.6,
+ "layers": [
+  10,
+  0,
+  20,
+  0,
+  0
+ ],
+ "art_speed_pct": 0,
+ "regen_bonus_pct": 0.3,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.42,
+   "qi": 0.28
+  },
+  "drain": {
+   "body": 0.72,
+   "qi": 1.08
+  },
+  "ws": 126.2,
+  "we": 150
+ },
+ "guard": {
+  "a_b": 0.5,
+  "t_b": 0,
+  "body_guard_pct": 8
+ },
+ "basic": {
+  "c": 1.0,
+  "kind": "body",
+  "x": [
+   16,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "arts": [
+  {
+   "id": "thin_dose",
+   "kind": "qi",
+   "c_art": 0.8,
+   "cost_share": 0.0392,
+   "cooldown": 1.9,
+   "applies": [
+    {
+     "id": "poison",
+     "kind": "body",
+     "c_tick": 0.15,
+     "duration": 4,
+     "stacks": 1,
+     "chance": 0.59,
+     "x": [
+      38.5,
+      31,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "wasting_thirst",
+   "kind": "qi",
+   "c_art": 0.8,
+   "cost_share": 0.0392,
+   "cooldown": 1.9,
+   "applies": [
+    {
+     "id": "thirst",
+     "kind": "qi_burn",
+     "c_tick": 0.15,
+     "duration": 4,
+     "stacks": 1,
+     "chance": 0.59,
+     "x": [
+      38.5,
+      31,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "conditional_mods": [
+  {
+   "id": "Dry Sea",
+   "layer": 1,
+   "points": 17.5,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 15,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Wasting",
+   "layer": 2,
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.2,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  }
+ ],
+ "unmodelled": [
+  "Status chance runs as an expected value, so stacks are fractions; the enemy status_resist_pct is not read by the calculator",
+  "Status duration is rounded to the nearest whole pulse by hand before it is written here"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "great",
+    "kind": "qi",
+    "c_art": 4.5,
+    "cost_share": 0.2,
+    "cooldown": 4
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 3.0,
+    "cost_share": 0.12,
+    "cooldown": 3
+   }
+  ]
+ }
+}

@@ -1,0 +1,239 @@
+{
+ "name": "evergreen-second-way-cd1",
+ "realm": "hoa_than",
+ "stage": 1.0,
+ "n_body": 3.1003155,
+ "n_qi": 2.5700328,
+ "layers": [
+  176,
+  0,
+  40,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 84.1,
+  "we": 106.5
+ },
+ "art_speed_pct": 0,
+ "art_cost_pct": 9,
+ "regen_bonus_pct": 3.9,
+ "accuracy_pct": 0,
+ "conditional_mods": [
+  {
+   "id": "Element damage",
+   "layer": 1,
+   "points": 24,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Wasting",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.2
+  },
+  {
+   "id": "Deep Breath",
+   "layer": 2,
+   "points": 11.8,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Steady Breath",
+   "layer": 5,
+   "points": 16.0,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Running Low",
+   "layer": 5,
+   "points": 10.0,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "below": 0.5
+   }
+  },
+  {
+   "id": "Late Hour",
+   "layer": 5,
+   "points": 12,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "time_above": 10
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "a0",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    39.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48
+  },
+  {
+   "id": "a1",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    39.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48
+  },
+  {
+   "id": "a2",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    39.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48
+  },
+  {
+   "id": "a3",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    39.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48
+  },
+  {
+   "id": "a4",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    39.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48
+  },
+  {
+   "id": "a5",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    39.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48
+  },
+  {
+   "id": "a6",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    39.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48
+  }
+ ],
+ "unmodelled": [
+  "Second-way control for plain-vs-exotic.md. W at the Map's prices: acupoint 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Meridian Map rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
+  "Stress test: every 0.5 s art moved to 1 s, c_art 1.48."
+ ],
+ "enemy_overrides": {
+  "ward": {
+   "model": "per_pulse",
+   "upkeep_share": 0.1
+  },
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

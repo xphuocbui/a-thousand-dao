@@ -1,0 +1,119 @@
+{
+ "slug": "stand-in",
+ "name": "The Stand-In",
+ "han_viet": "Thế Thân Lộ",
+ "pitch": "You are only well while someone else is sick: wait until every curse you own is home, retch them all into the enemy in one hit, and for three pulses their arts land on themselves.",
+ "channel": "art, with curses as the engine",
+ "enabler": "Moved Sickness",
+ "enabler_kind": "Rule removal",
+ "identity_piece": "Moved Sickness",
+ "identity_id": "moved_sickness",
+ "power": "strong",
+ "defining_realm": "ket_dan",
+ "fit": {
+  "fits_today": 3,
+  "needs_key": 9,
+  "needs_rule": 5
+ },
+ "reused": [
+  "Fever",
+  "Forgotten Face",
+  "Rush Order",
+  "Stilled Hand"
+ ],
+ "new": [
+  {
+   "type": "enabler",
+   "name": "Moved Sickness",
+   "han_viet": "Di Bệnh",
+   "fit": "Needs rule",
+   "effect": "Curses from your own life have no duration on you. An art with the cleanse tag sends them to the target; when one ends, is cleansed or is pushed out it comes home. You can never clear them yourself."
+  },
+  {
+   "type": "modifier",
+   "name": "Turned Hand",
+   "han_viet": "Phản Thủ",
+   "form": "Rule swap",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "A curse: a bearer's hit art still pays and lands on its owner at half strength, through their own ward, at most 25 % of their maximum health. The basic attack is not touched.",
+   "second_home": "any curse build, any mirror for the strong"
+  },
+  {
+   "type": "modifier",
+   "name": "Virulence",
+   "han_viet": "Bệnh Thế",
+   "form": "Per",
+   "channel": "art",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+40 points to arts per curse on you, or per curse an art held as it fired.",
+   "second_home": "any curse build, cursed on purpose"
+  },
+  {
+   "type": "modifier",
+   "name": "Relapse",
+   "han_viet": "Tái Phát",
+   "form": "Trigger",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "Each affliction that comes home refunds 2 % of maximum linh lực.",
+   "second_home": "any curse that returns or is recast"
+  },
+  {
+   "type": "art",
+   "name": "Purge",
+   "han_viet": "Thổ Uế",
+   "fit": "Needs rule",
+   "effect": "Qi hit, c_art 2.2, cost 0.12 with Rush Order, 2 s, guard holding all your afflictions. Moves every curse and status on you, then hits."
+  },
+  {
+   "type": "art",
+   "name": "Bile",
+   "han_viet": "Đảm Trấp",
+   "fit": "Needs key",
+   "effect": "Qi hit, c_art 2.2, cost 0.08, 3 s, guard no curse on you."
+  },
+  {
+   "type": "art",
+   "name": "Phlegm",
+   "han_viet": "Thổ Đàm",
+   "fit": "Needs key",
+   "effect": "Body hit, c_art 1.85, cost 0.05, 2 s, guard no curse on you."
+  },
+  {
+   "type": "technique",
+   "name": "Sickness-Moving Sutra",
+   "han_viet": "Di Bệnh Kinh",
+   "fit": "Needs key",
+   "effect": "Main, Địa giai, Wood and Fire. Carries Moved Sickness, Purge, Bile, Phlegm, seals Hundred Ills."
+  },
+  {
+   "type": "cluster",
+   "name": "Hundred Ills",
+   "han_viet": "Bách Bệnh",
+   "fit": "Needs key",
+   "effect": "Curses and bad states, Wood, outer, sealed by a technique, size 9. Notable Virulence."
+  },
+  {
+   "type": "artifact",
+   "name": "The Gilded Spittoon",
+   "han_viet": "Kim Thóa Hồ",
+   "fit": "Needs key",
+   "effect": "A hồ lô, named. L3 and Relapse."
+  },
+  {
+   "type": "concept",
+   "name": "Chronic affliction",
+   "han_viet": "Cố Tật",
+   "fit": "Needs rule",
+   "effect": "A curse owned by a character, compiled from a real state, with no duration on its owner. Combat rule 8, Formulas F, Character Stats."
+  }
+ ],
+ "questions": [
+  "Formulas F's tag block names arts carrying the tag, and rule 6 makes hit, body and qi tags. Is one curse on hit meant to silence every hit art for 3 pulses? That is in the rules today.",
+  "Rule 13 says the basic attack always runs, and its tags include hit. This sheet reads that as immune. Is it?"
+ ]
+}

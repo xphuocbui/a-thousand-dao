@@ -1,0 +1,136 @@
+{
+ "name": "long-firing",
+ "realm": 2,
+ "layers": [
+  0,
+  0,
+  146.4,
+  20,
+  0
+ ],
+ "n_body": 1.7286,
+ "n_qi": 1.4564,
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.1,
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "ws": 22.35,
+  "we": 22.35
+ },
+ "divine_sense": 1.0,
+ "arts": [
+  {
+   "id": "falling_lintel",
+   "kind": "body",
+   "c_art": 2.71,
+   "cost_share": 0.08,
+   "cooldown": 4
+  },
+  {
+   "id": "settling_wall",
+   "kind": "body",
+   "c_art": 2.96,
+   "cost_share": 0.08,
+   "cooldown": 5
+  }
+ ],
+ "guard": {
+  "a_b": 0.986,
+  "t_b": 0,
+  "body_guard_pct": 11.6
+ },
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Earth damage",
+   "layer": 1,
+   "points": 30,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Body damage",
+   "layer": 1,
+   "points": 17.5,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Settled Weight",
+   "layer": 2,
+   "points": 24,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Load-Bearing",
+   "layer": 2,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Worn Slope",
+   "layer": 2,
+   "points": 0,
+   "per": "own_health_missing_pct",
+   "points_per": 0.18,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Damage below half health",
+   "layer": 1,
+   "points": 4,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "below": 0.5
+   }
+  }
+ ],
+ "enemy_overrides": {
+  "boss_pool_mult": 2,
+  "ward": {
+   "ws": 200,
+   "we": 200
+  },
+  "guard": {
+   "a_b": 3,
+   "body_guard_pct": 40
+  },
+  "arts": [
+   {
+    "id": "slow_blow",
+    "kind": "body",
+    "c_art": 2.0,
+    "cost_share": 0.04,
+    "cooldown": 4
+   }
+  ]
+ }
+}

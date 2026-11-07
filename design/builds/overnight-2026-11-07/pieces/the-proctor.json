@@ -1,0 +1,34 @@
+{
+ "slug": "the-proctor",
+ "name": "The Proctor",
+ "han_viet": "Giám Thí Đạo",
+ "pitch": "One fee for every answer, whatever its length: the Forum Build's whole volley buys six fees, and then it has no pool and no fist.",
+ "channel": "art",
+ "enabler": "none",
+ "enabler_kind": "none",
+ "identity_piece": "Standing Verdict",
+ "identity_id": "ward",
+ "power": "ordinary",
+ "defining_realm": "nguyen_anh",
+ "fit": {
+  "fits_today": 7,
+  "needs_key": 10,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Standing Verdict",
+  "Plain Speech Method",
+  "Standing Word",
+  "Level Gaze",
+  "Closing Sentence",
+  "Plain Reproach",
+  "Marked Target",
+  "Single Grudge",
+  "Set Jaw",
+  "Packed Clay Method"
+ ],
+ "new": [],
+ "questions": [
+  "One ward record undoes Forum Build's whole lint break. Should the ward model be priced?"
+ ]
+}

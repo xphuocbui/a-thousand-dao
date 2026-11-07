@@ -1,0 +1,170 @@
+{
+ "name": "fierce-fire",
+ "realm": "ket_dan",
+ "stage": 1.0,
+ "n_body": 1.63,
+ "n_qi": 1.5126,
+ "layers": [
+  112,
+  0,
+  0,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.232,
+  "mult": 1.73
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 48,
+  "we": 48
+ },
+ "art_speed_pct": 10,
+ "art_cost_pct": 9,
+ "conditional_mods": [
+  {
+   "id": "Fire damage",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Red Heart",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Open Door",
+   "layer": 1,
+   "points": 15,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Thin Ward",
+   "layer": 2,
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.1,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "red_bellows",
+   "kind": "qi",
+   "c_art": 3.18,
+   "cost_share": 0.14,
+   "cooldown": 3,
+   "x": [
+    0,
+    12,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "white_coal",
+   "kind": "qi",
+   "c_art": 3.18,
+   "cost_share": 0.14,
+   "cooldown": 3,
+   "x": [
+    0,
+    12,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "furnace_mouth",
+   "kind": "qi",
+   "c_art": 3.18,
+   "cost_share": 0.14,
+   "cooldown": 3,
+   "x": [
+    0,
+    12,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "last_cinder",
+   "kind": "qi",
+   "c_art": 1.6,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "x": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "unmodelled": [
+  "Crit chance and crit damage rows lift the basic attack too, because the calculator holds one crit for a side. The basic is not Fire, so this flatters the fight slightly.",
+  "Thần thức, fortune and heart demon are not used. Divine sense is left at 1.0 on both sides."
+ ],
+ "enemy_overrides": {
+  "boss_pool_mult": 2,
+  "ward": {
+   "ws": 200,
+   "we": 200
+  },
+  "guard": {
+   "a_b": 3,
+   "body_guard_pct": 40
+  },
+  "arts": [
+   {
+    "id": "slow_blow",
+    "kind": "body",
+    "c_art": 2.0,
+    "cost_share": 0.04,
+    "cooldown": 4
+   }
+  ]
+ }
+}

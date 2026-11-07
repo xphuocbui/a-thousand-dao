@@ -1,0 +1,198 @@
+{
+ "name": "brush-fee",
+ "rules": [
+  "rubbing",
+  "brush_fee"
+ ],
+ "brush_fee": true,
+ "realm": "ket_dan",
+ "n_body": 1.559,
+ "n_qi": 1.224,
+ "layers": [
+  156,
+  0,
+  110,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.1,
+  "mult": 1.5
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 75,
+  "we": 64
+ },
+ "guard": {
+  "body_guard_pct": 10
+ },
+ "conditional_mods": [
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Full Sea",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.8
+   }
+  },
+  {
+   "id": "Practised Stroke",
+   "layer": 2,
+   "per": "copied_firings",
+   "points_per": 8,
+   "cap": 64,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "first_impression",
+   "kind": "body",
+   "rubbing": true,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    20,
+    50,
+    0,
+    30,
+    0
+   ],
+   "guard": {
+    "copies_enemy": true,
+    "who": "enemy",
+    "pool": "qi",
+    "above": 2
+   }
+  },
+  {
+   "id": "reversed_proof",
+   "kind": "body",
+   "rubbing": true,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    20,
+    50,
+    0,
+    30,
+    0
+   ],
+   "guard": {
+    "copies_enemy": true,
+    "who": "enemy",
+    "pool": "qi",
+    "above": 2
+   },
+   "copy_swap": true
+  },
+  {
+   "id": "bleeding_ink",
+   "kind": "body",
+   "rubbing": true,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    20,
+    50,
+    0,
+    30,
+    0
+   ],
+   "guard": {
+    "copies_enemy": true,
+    "who": "enemy",
+    "pool": "qi",
+    "above": 2
+   },
+   "copy_c": 0.5,
+   "copy_fee": 2,
+   "curse": {
+    "cost_raise": 0.5,
+    "duration": 2
+   }
+  },
+  {
+   "id": "fair_copy",
+   "kind": "body",
+   "rubbing": true,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    20,
+    50,
+    0,
+    30,
+    0
+   ],
+   "guard": {
+    "copies_enemy": true,
+    "who": "enemy",
+    "pool": "qi",
+    "above": 2
+   }
+  },
+  {
+   "id": "blank_slip",
+   "kind": "body",
+   "rubbing": true,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    20,
+    50,
+    0,
+    30,
+    0
+   ],
+   "guard": {
+    "copies_enemy": true,
+    "who": "enemy",
+    "pool": "qi",
+    "above": 2
+   },
+   "stock": 2
+  }
+ ],
+ "unmodelled": [
+  "A Rubbing has no c_art of its own, so the art lint has nothing to read: a copy has no lint (Needs rule in the sheet)",
+  "Fair Copy's carried statuses and curses: no reference enemy's art carries one, so nothing here would show them",
+  "Patronage and Kept Rubbing are not in this file: see variants/brush-fee-*.fight.json",
+  "enemy_divine_sense is 1 here, so the reading gate passes at every gap. variants/brush-fee-unread.fight.json closes it"
+ ],
+ "enemy_overrides": {
+  "arts": []
+ },
+ "variant_of": "sheets/brush-fee.fight.json",
+ "variant_note": "An enemy who fires no art"
+}

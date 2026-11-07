@@ -1,0 +1,368 @@
+{
+ "name": "evergreen-duel-grindstone",
+ "realm": "hoa_than",
+ "stage": 1.0,
+ "n_body": 3.1004,
+ "art_cost_pct": 9,
+ "layers": [
+  176,
+  0,
+  40,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "n_qi": 2.738,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 84.1,
+  "we": 114.5
+ },
+ "regen_bonus_pct": 2.9,
+ "conditional_mods": [
+  {
+   "id": "Wood damage",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Green Heart",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Living Wood",
+   "layer": 2,
+   "points": 6,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Living Wood (notable)",
+   "layer": 2,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Sustained Note",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "art"
+   ],
+   "per": "fight_seconds",
+   "points_per": 0.6
+  },
+  {
+   "id": "Sustained Note (notable)",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "art"
+   ],
+   "per": "fight_seconds",
+   "points_per": 1.0
+  },
+  {
+   "id": "Sap Rise",
+   "layer": 2,
+   "points": 11.6,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Steady Thread",
+   "layer": 5,
+   "points": 8,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Steady Thread (notable)",
+   "layer": 5,
+   "points": 12,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Late Leaf",
+   "layer": 5,
+   "points": 12,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "time_above": 4
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "new_shoot",
+   "kind": "body",
+   "c_art": 1.4,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "long_root",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 3,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "old_bough",
+   "kind": "body",
+   "c_art": 3.6,
+   "cost_share": 0.12,
+   "cooldown": 6,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.3
+   }
+  }
+ ],
+ "enemy": "typical",
+ "unmodelled": [
+  "Thần thức, fortune and heart demon are not read. Divine sense stays at 1.0 on both sides. The ward kit is the typical's."
+ ],
+ "enemy_overrides": {
+  "name": "grindstone",
+  "n_body": 2.8649,
+  "n_qi": 2.1752,
+  "layers": [
+   293,
+   0,
+   114.4,
+   0,
+   0
+  ],
+  "crit": {
+   "chance": 0.212,
+   "mult": 1.83
+  },
+  "basic": {
+   "c": 0.9647,
+   "kind": "body"
+  },
+  "ward": {
+   "model": "drain",
+   "pass": {
+    "body": 0.54,
+    "qi": 0.36
+   },
+   "drain": {
+    "body": 1.0,
+    "qi": 1.5
+   },
+   "ws": 70.3,
+   "we": 70.3
+  },
+  "conditional_mods": [
+   {
+    "id": "Metal damage",
+    "layer": 1,
+    "points": 6,
+    "channels": [
+     "art"
+    ]
+   },
+   {
+    "id": "Bright Steel",
+    "layer": 1,
+    "points": 12,
+    "channels": [
+     "art"
+    ]
+   },
+   {
+    "id": "Ore Vein",
+    "layer": 2,
+    "points": 5,
+    "channels": [
+     "art"
+    ]
+   },
+   {
+    "id": "Weapon attack",
+    "layer": 3,
+    "points": 5.1,
+    "channels": [
+     "art",
+     "basic"
+    ]
+   },
+   {
+    "id": "Good Steel",
+    "layer": 3,
+    "points": 11.4,
+    "channels": [
+     "art",
+     "basic"
+    ]
+   },
+   {
+    "id": "Artifact power",
+    "layer": 3,
+    "points": 3.5,
+    "channels": [
+     "art",
+     "basic"
+    ]
+   },
+   {
+    "id": "Steady Thread",
+    "layer": 5,
+    "points": 4,
+    "channels": [
+     "art"
+    ],
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.5
+    }
+   },
+   {
+    "id": "Steady Thread (notable)",
+    "layer": 5,
+    "points": 12,
+    "channels": [
+     "art"
+    ],
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.5
+    }
+   },
+   {
+    "id": "Honed Edge",
+    "layer": 2,
+    "points": 4,
+    "channels": [
+     "art"
+    ]
+   },
+   {
+    "id": "Thinning Ward",
+    "layer": 1,
+    "points": 6,
+    "channels": [
+     "art"
+    ],
+    "guard": {
+     "who": "enemy",
+     "pool": "qi",
+     "below": 0.5
+    }
+   }
+  ],
+  "arts": [
+   {
+    "id": "plain_cut",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1,
+    "x": [
+     0,
+     20,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "long_draw",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3,
+    "x": [
+     0,
+     20,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "full_cleave",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "x": [
+     0,
+     20,
+     0,
+     0,
+     0
+    ],
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ],
+  "triggers": []
+ }
+}

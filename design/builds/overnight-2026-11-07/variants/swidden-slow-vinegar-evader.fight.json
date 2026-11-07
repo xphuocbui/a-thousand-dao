@@ -1,0 +1,187 @@
+{
+ "name": "swidden",
+ "realm": "nguyen_anh",
+ "stage": 1.0,
+ "n_body": 2.04,
+ "n_qi": 1.813,
+ "layers": [
+  185,
+  0,
+  0,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_hit",
+  "hit_cost_share": 0.04,
+  "pass": {
+   "body": 0.34,
+   "qi": 0.24
+  },
+  "ws": 62,
+  "we": 65.6
+ },
+ "art_speed_pct": 1,
+ "art_cost_pct": 9,
+ "conditional_mods": [
+  {
+   "id": "Fire damage",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art",
+    "tick"
+   ]
+  },
+  {
+   "id": "Red Heart",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art",
+    "tick"
+   ]
+  },
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Keeping Heat",
+   "layer": 5,
+   "points": 17.5,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "enemy",
+    "status": "burning_a"
+   }
+  },
+  {
+   "id": "Stoked",
+   "layer": 2,
+   "per": "enemy_status_stacks",
+   "points_per": 3,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "smoulder",
+   "kind": "body",
+   "c_art": 1.25,
+   "cost_share": 0.05,
+   "cooldown": 2,
+   "x": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "applies": [
+    {
+     "id": "burning_a",
+     "kind": "body",
+     "c_tick": 0.15,
+     "duration": 3.54,
+     "stacks": 1,
+     "chance": 0.69,
+     "x": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bed_of_coals",
+   "kind": "body",
+   "c_art": 1.25,
+   "cost_share": 0.05,
+   "cooldown": 2,
+   "x": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "applies": [
+    {
+     "id": "burning_b",
+     "kind": "body",
+     "c_tick": 0.15,
+     "duration": 3.54,
+     "stacks": 1,
+     "chance": 0.69,
+     "x": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "last_cinder",
+   "kind": "body",
+   "c_art": 1.6,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "x": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "enemy": "typical",
+ "unmodelled": [
+  "Crit chance and crit damage rows lift the basic attack too, because the calculator holds one crit for a side. The basic is not Fire, so this flatters the fight slightly.",
+  "Thần thức, fortune and heart demon are not used. Divine sense is left at 1.0 on both sides."
+ ],
+ "enemy_overrides": {
+  "evade_pct": 35,
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   }
+  ]
+ }
+}

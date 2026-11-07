@@ -1,0 +1,30 @@
+{
+ "slug": "under-the-eaves",
+ "name": "Under the Eaves",
+ "han_viet": "Thiềm Hạ Đạo",
+ "pitch": "Count to four under a good roof: the rain has spent itself, and seven lamps land at once.",
+ "channel": "art",
+ "enabler": "none",
+ "enabler_kind": "none",
+ "identity_piece": "Standing Verdict",
+ "identity_id": "ward",
+ "power": "strong",
+ "defining_realm": "hoa_than",
+ "fit": {
+  "fits_today": 5,
+  "needs_key": 3,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Standing Verdict",
+  "First Lamp to Seventh Lamp",
+  "Low Flame Method",
+  "Ward strength",
+  "Ward efficiency",
+  "Maximum health"
+ ],
+ "new": [],
+ "questions": [
+  "Seven slots make the cheap kit spend half its pool a second. Is a bigger slot count meant to be that kit's weakness?"
+ ]
+}

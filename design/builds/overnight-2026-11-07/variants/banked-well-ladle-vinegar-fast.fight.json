@@ -1,0 +1,146 @@
+{
+ "name": "banked-well",
+ "realm": 4,
+ "layers": [
+  0,
+  0,
+  40,
+  20,
+  0
+ ],
+ "n_body": 2.6163,
+ "n_qi": 2.3797,
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_hit",
+  "hit_cost_share": 0.04,
+  "pass": {
+   "body": 0.34,
+   "qi": 0.24
+  },
+  "ws": 112.1,
+  "we": 112.1
+ },
+ "divine_sense": 1.0,
+ "arts": [
+  {
+   "id": "first_ladle",
+   "kind": "qi",
+   "c_art": 1.6,
+   "cost_share": 0.04,
+   "cooldown": 1.5
+  },
+  {
+   "id": "second_ladle",
+   "kind": "qi",
+   "c_art": 1.6,
+   "cost_share": 0.04,
+   "cooldown": 1.5
+  }
+ ],
+ "regen_bonus_pct": 3.2,
+ "art_cost_pct": 12,
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Water damage",
+   "layer": 1,
+   "points": 52,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Qi damage",
+   "layer": 1,
+   "points": 25.0,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Unbroken Surface",
+   "layer": 5,
+   "points": 36,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.05
+   }
+  },
+  {
+   "id": "Held Water",
+   "layer": 2,
+   "points": 36.0,
+   "channels": [
+    "art"
+   ],
+   "per": "own_qi_missing_pct",
+   "points_per": -0.36
+  },
+  {
+   "id": "Spring Head",
+   "layer": 2,
+   "points": 20.8,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Thin Stream",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Wasting",
+   "layer": 2,
+   "points": 0,
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.2,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  }
+ ],
+ "unmodelled": [
+  "Ward strength against Fire or Earth is not run: the calculator has no element on a hit",
+  "Fortune and thought are not read",
+  "Held Water is written as points 36 with points_per -0.36 on own_qi_missing_pct, which is the same as +0.36 per 1 % of linh luc held"
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "flurry_a",
+    "kind": "body",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   },
+   {
+    "id": "flurry_b",
+    "kind": "qi",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   }
+  ]
+ }
+}

@@ -1,0 +1,220 @@
+{
+ "name": "the-proctor",
+ "realm": "ket_dan",
+ "n_body": 1.6,
+ "n_qi": 1.3,
+ "layers": [
+  90,
+  0,
+  40,
+  20,
+  0
+ ],
+ "regen_bonus_pct": 2,
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.3,
+   "qi": 0.2
+  },
+  "hit_cost_share": 0.05,
+  "ws": 150,
+  "we": 50
+ },
+ "guard": {
+  "a_b": 2.8,
+  "t_b": 2,
+  "body_guard_pct": 40
+ },
+ "conditional_mods": [
+  {
+   "id": "Plain Speech",
+   "layer": 2,
+   "points": 10,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Marked Target",
+   "layer": 1,
+   "per": "enemy_curses",
+   "points_per": 3,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Single Grudge",
+   "layer": 2,
+   "per": "enemy_curses",
+   "points_per": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Set Jaw",
+   "layer": 2,
+   "per": "enemy_curses",
+   "points_per": 6,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "standing_word",
+   "kind": "qi",
+   "c_art": 2.0,
+   "cost_share": 0.0776,
+   "cooldown": 3.486,
+   "curse": {
+    "cost_raise": 0.418,
+    "drain_raise": 0.418,
+    "block_regen": true,
+    "duration": 4
+   }
+  },
+  {
+   "id": "level_gaze",
+   "kind": "qi",
+   "c_art": 1.9,
+   "cost_share": 0.04,
+   "cooldown": 3
+  },
+  {
+   "id": "closing_sentence",
+   "kind": "qi",
+   "c_art": 2.47,
+   "cost_share": 0.06,
+   "cooldown": 4
+  },
+  {
+   "id": "plain_reproach",
+   "kind": "body",
+   "c_art": 1.9,
+   "cost_share": 0.04,
+   "cooldown": 3
+  }
+ ],
+ "unmodelled": [
+  "Standing Word's numbers are One Long Word's road at its full walk, carried up a realm unchanged",
+  "a_b 2.8 and t_b 2 as The Dug Stone: first guesses"
+ ],
+ "rules": [
+  "stone_payment",
+  "priced_above_sea",
+  "rush_order",
+  "purse_weight",
+  "exact_change"
+ ],
+ "enemy_overrides": {
+  "name": "full-price",
+  "stone_payment": {
+   "purse": 80000,
+   "R": 5000,
+   "rate": 2,
+   "premium_share": 0.02
+  },
+  "purse_weight": 30,
+  "exact_change_max": 0.5,
+  "realm": "ket_dan",
+  "n_body": 1.6,
+  "n_qi": 1.0,
+  "layers": [
+   160,
+   0,
+   40,
+   0,
+   0
+  ],
+  "crit": {
+   "chance": 0.0,
+   "mult": 1.5
+  },
+  "art_cost_pct": 25,
+  "pierce_pct": 15,
+  "ward": {
+   "model": "per_pulse",
+   "upkeep_share": 0,
+   "pass": {
+    "body": 0.4,
+    "qi": 0.3
+   },
+   "ws": 65,
+   "we": 65
+  },
+  "guard": {
+   "body_guard_pct": 20
+  },
+  "conditional_mods": [
+   {
+    "id": "Full Sea",
+    "layer": 5,
+    "points": 60,
+    "channels": [
+     "art",
+     "basic"
+    ],
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.8
+    }
+   }
+  ],
+  "arts": [
+   {
+    "id": "earnest_money",
+    "kind": "qi",
+    "c_art": 4.0,
+    "cost_share": 0.25,
+    "cooldown": 1,
+    "x": [
+     20,
+     36,
+     0,
+     20,
+     0
+    ]
+   },
+   {
+    "id": "buyout",
+    "kind": "body",
+    "c_art": 13.0,
+    "cost_share": 1.0,
+    "cooldown": 1,
+    "x": [
+     20,
+     55,
+     0,
+     20,
+     0
+    ],
+    "guard": {
+     "who": "own",
+     "pool": "health",
+     "below": 0.75
+    }
+   },
+   {
+    "id": "ruinous_offer",
+    "kind": "body",
+    "c_art": 25.0,
+    "cost_share": 2.0,
+    "cooldown": 1,
+    "rush": true,
+    "x": [
+     20,
+     80,
+     0,
+     20,
+     0
+    ]
+   }
+  ],
+  "divine_sense": 1.0
+ }
+}

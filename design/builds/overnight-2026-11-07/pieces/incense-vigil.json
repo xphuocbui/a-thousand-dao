@@ -1,0 +1,176 @@
+{
+  "slug": "incense-vigil",
+  "name": "The Incense Vigil",
+  "han_viet": "Hương Thủ Đạo",
+  "pitch": "Switch your ward off, let every blow become a slow wound, stand forty seconds against a god and win by law, then pay for it in decades of your life.",
+  "channel": "none: wins at time_limit",
+  "enabler": "Incense Vow",
+  "enabler_kind": "Victory change",
+  "identity_piece": "Slow Wound",
+  "identity_id": "slow_wound",
+  "power": "strong",
+  "defining_realm": "ket_dan",
+  "fit": {
+    "fits_today": 6,
+    "needs_key": 8,
+    "needs_rule": 6
+  },
+  "reused": [
+    "Iron Marrow",
+    "Unyielding Breath",
+    "Measured Breath"
+  ],
+  "new": [
+    {
+      "type": "enabler",
+      "name": "Incense Vow",
+      "han_viet": "Hương Thệ",
+      "form": "Rule swap",
+      "channel": "none",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A stalemate is a win when the other side opened the fight. Closes: your hits deal nothing, and you cannot start a fight.",
+      "second_home": "a healer who wins by keeping a fight going; sect gate guardians"
+    },
+    {
+      "type": "modifier",
+      "name": "Slow Wound",
+      "han_viet": "Hoãn Thương",
+      "form": "Rule swap",
+      "channel": "incoming",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Hit damage past ward and guard enters a ledger. The ledger pays at most dot_pool_cap of maximum health a pulse, after ticks, on its own cap.",
+      "second_home": "any tick clock that must outlive its own clock, as a partial share"
+    },
+    {
+      "type": "modifier",
+      "name": "Still Sea",
+      "han_viet": "Tĩnh Hải",
+      "form": "Per",
+      "channel": "incoming",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "The Slow Wound cap falls by 0.55 x your linh lực share.",
+      "second_home": "any Slow Wound user"
+    },
+    {
+      "type": "modifier",
+      "name": "Years Owed",
+      "han_viet": "Thọ Trái",
+      "form": "Overflow",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "At the fight's end each 100 % of maximum health left in the ledger costs 1 % of the realm's base lifespan.",
+      "second_home": "anything else a cap clips and a life could pay for"
+    },
+    {
+      "type": "modifier",
+      "name": "Fair Measure",
+      "han_viet": "Công Lượng",
+      "form": "Increased",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "25 % fewer years owed.",
+      "second_home": "any Years Owed user"
+    },
+    {
+      "type": "modifier",
+      "name": "Short Stick",
+      "han_viet": "Đoản Hương",
+      "form": "Cap shift",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Foreseen fights only: time_limit falls by half.",
+      "second_home": "any burst build hunting Late Bloom or a tick clock"
+    },
+    {
+      "type": "modifier",
+      "name": "Turned Blade",
+      "han_viet": "Đảo Phong",
+      "form": "Borrow",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "With no hit to deal, half your L1 and L3 points add to body_guard_pct.",
+      "second_home": "any support with no attacks"
+    },
+    {
+      "type": "root",
+      "name": "Amber",
+      "han_viet": "Hổ Phách",
+      "fit": "Needs key",
+      "effect": "Convergence of Wood and Earth. Per purity: +0.45 body_guard_pct, -0.10 cultivation_speed_pct. 11.5 W at purity 50, 23 W at 100."
+    },
+    {
+      "type": "technique",
+      "name": "Standing Stele Sutra",
+      "han_viet": "Lập Bi Kinh",
+      "fit": "Needs key",
+      "effect": "Main, Địa giai, Earth and Wood. Carries Slow Wound, Years Owed and the three curses."
+    },
+    {
+      "type": "art",
+      "name": "Stale Incense",
+      "han_viet": "Trần Hương",
+      "fit": "Needs key",
+      "effect": "Curse, cost 0.04, 3 s: enemy art costs +50 % for 5 pulses."
+    },
+    {
+      "type": "art",
+      "name": "Closed Gate",
+      "han_viet": "Bế Môn",
+      "fit": "Needs key",
+      "effect": "Curse, cost 0.04, 3 s: blocks enemy regeneration for 5 pulses."
+    },
+    {
+      "type": "art",
+      "name": "Stilled Hand",
+      "han_viet": "Định Thủ",
+      "fit": "Needs key",
+      "effect": "Curse, cost 0.04, 3 s: locks one enemy layer for 2 pulses."
+    },
+    {
+      "type": "formation",
+      "name": "Short Stick Incense",
+      "han_viet": "Đoản Hương Trụ",
+      "fit": "Needs rule",
+      "effect": "The prepared item that carries Short Stick. Foreseen fights only."
+    },
+    {
+      "type": "cluster",
+      "name": "Unmoved Body",
+      "han_viet": "Bất Động Thân",
+      "fit": "Needs key",
+      "effect": "Body refinement, Earth, outer, sealed by a technique, size 10. Notables Still Sea and Iron Marrow."
+    },
+    {
+      "type": "dao",
+      "name": "Way of Keeping",
+      "han_viet": "Thủ Đạo",
+      "fit": "Needs key",
+      "effect": "Requirement Earth at purity 40 and a body technique. Branches The Gate, The Held Breath, The Long Count. Keystone Incense Vow."
+    },
+    {
+      "type": "concept",
+      "name": "Deferred damage",
+      "han_viet": "",
+      "fit": "Needs rule",
+      "effect": "A ledger of hit damage paid at the pulse on its own cap. Combat rules 4, 14, Formulas C, F."
+    },
+    {
+      "type": "concept",
+      "name": "Winning by standing",
+      "han_viet": "",
+      "fit": "Needs rule",
+      "effect": "A stalemate can be a win for the side that did not open the fight. Combat rule 14, Edge Cases, AC-CB-62."
+    }
+  ],
+  "questions": [
+    "Combat lists stalling to time_limit as a degenerate strategy. Is a stall that costs decades and cannot start a fight acceptable, or should it live on NPC guardians only?",
+    "Does the Slow Wound ledger carry between Heavenly Tribulation waves?"
+  ]
+}

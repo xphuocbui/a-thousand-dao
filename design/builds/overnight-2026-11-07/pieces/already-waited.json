@@ -1,0 +1,153 @@
+{
+  "slug": "already-waited",
+  "name": "The Already-Waited",
+  "han_viet": "Dĩ Đãi Đạo",
+  "pitch": "You did all your waiting as a child at a ferry landing: your heart demon pays a long art's cooldown and it fires now, and afterwards you go back and stand one season for every second you refused.",
+  "channel": "art",
+  "enabler": "Already Waited",
+  "enabler_kind": "Rule removal",
+  "identity_piece": "Already Waited",
+  "identity_id": "already_waited",
+  "power": "strong",
+  "defining_realm": "nguyen_anh",
+  "fit": {
+    "fits_today": 3,
+    "needs_key": 10,
+    "needs_rule": 7
+  },
+  "reused": [
+    "Heavy Hand",
+    "Heart Demon's Blade",
+    "Hearth Ash Talisman",
+    "In Step"
+  ],
+  "new": [
+    {
+      "type": "enabler",
+      "name": "Already Waited",
+      "han_viet": "Dĩ Đãi",
+      "form": "Rule swap",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "At each pulse heart demon pays one art's timer, the next in slot order, at 1 per second left; it fires this instant at its normal linh lực cost. Closes your seasons: see The Owed Wait.",
+      "second_home": "any build that must have one slow art early"
+    },
+    {
+      "type": "modifier",
+      "name": "Both Hands",
+      "han_viet": "Song Thủ",
+      "form": "Cap shift",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "While heart demon stands above 50 as a pulse begins, the pool pays two arts that pulse.",
+      "second_home": "signature"
+    },
+    {
+      "type": "modifier",
+      "name": "Cornered",
+      "han_viet": "Khốn Đấu",
+      "form": "Conditional",
+      "channel": "art, basic, companion",
+      "layer": "L5",
+      "fit": "Needs key",
+      "effect": "+50 points while your health share is below the enemy's.",
+      "second_home": "any comeback build; used by The Herd-Child"
+    },
+    {
+      "type": "modifier",
+      "name": "Every Blow",
+      "han_viet": "Mỗi Kích",
+      "form": "Trigger",
+      "channel": "incoming",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "+0.3 heart demon per 1 % of maximum health lost to a hit, kept after the fight.",
+      "second_home": "any capability #25 or Heart Demon's Blade build"
+    },
+    {
+      "type": "modifier",
+      "name": "The Owed Wait",
+      "han_viet": "Trái Đãi",
+      "form": "Trade",
+      "channel": "none",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "One season at the landing owed per heart demon spent. Each season paid returns 1 heart demon with decay off; each left unpaid costs 1 Dao heart.",
+      "second_home": "any power paid in seasons, such as an oath or a sentence"
+    },
+    {
+      "type": "modifier",
+      "name": "Landing Ground",
+      "han_viet": "Độ Khẩu Địa",
+      "form": "More",
+      "channel": "any",
+      "layer": "L4",
+      "fit": "Needs key",
+      "effect": "+40 points on a place where you owe seasons. A ground tag, so a blind fight keeps it.",
+      "second_home": "a hermit of a single place"
+    },
+    {
+      "type": "art",
+      "name": "Wait Here",
+      "han_viet": "Tại Thử Đãi",
+      "fit": "Needs rule",
+      "effect": "Qi hit, c_art 2.7, cost 0.04, 6 s. The enemy's art nearest to firing is pushed back 3 s."
+    },
+    {
+      "type": "art",
+      "name": "Rope Burn",
+      "han_viet": "Lãm Ngân",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 3.7, cost 0.04, 10 s."
+    },
+    {
+      "type": "art",
+      "name": "Third Winter",
+      "han_viet": "Đệ Tam Đông",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 3.3, cost 0.05, 8 s."
+    },
+    {
+      "type": "art",
+      "name": "Lantern Left",
+      "han_viet": "Lưu Đăng",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 4.4, cost 0.06, 12 s."
+    },
+    {
+      "type": "art",
+      "name": "The Last Ferry",
+      "han_viet": "Mạt Độ",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 6.3, cost 0.05, 20 s, guard enemy health below 40 %."
+    },
+    {
+      "type": "technique",
+      "name": "Ferry-Rope Sutra",
+      "han_viet": "Độ Lãm Kinh",
+      "fit": "Needs key",
+      "effect": "Main, Địa giai, Water. linh_luc_pct 20, khi_huyet_pct 15, attack_pct 15. Five arts, seals Cold Landing."
+    },
+    {
+      "type": "cluster",
+      "name": "Cold Landing",
+      "han_viet": "Lãnh Độ",
+      "fit": "Needs key",
+      "effect": "Sealed, Heart State, Water, outer, size 10. Notables Every Blow, then Both Hands with Already Waited as its capability."
+    },
+    {
+      "type": "concept",
+      "name": "Heart demon in a fight",
+      "han_viet": "Tâm Ma Lâm Trận",
+      "fit": "Needs rule",
+      "effect": "A fight can spend and raise heart demon, reported to Character Stats like vitality loss. Combat rules 2 and 14, Character Stats rule 8."
+    }
+  ],
+  "questions": [
+    "A heart demon of 85 is a character the game expects to be in danger. Is a build that holds one on purpose wanted?",
+    "Should a quest offer the return of the one who left? It would end the build, and it may be the best story in it.",
+    "One season per point means a fair fight costs about 7.5 years. On a 1,000-year life is that the right price?"
+  ]
+}

@@ -1,0 +1,157 @@
+{
+ "name": "forum-build",
+ "realm": "nguyen_anh",
+ "stage": 1.0,
+ "n_body": 2.9,
+ "n_qi": 2.5,
+ "layers": [
+  150,
+  0,
+  40,
+  200,
+  0
+ ],
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.42,
+   "qi": 0.28
+  },
+  "drain": {
+   "body": 0.72,
+   "qi": 1.08
+  },
+  "ws": 100,
+  "we": 100
+ },
+ "guard": {
+  "a_b": 2.5,
+  "t_b": 1.0,
+  "body_guard_pct": 35
+ },
+ "rules": [
+  "lint_watch",
+  "laid_ground",
+  "title_deed",
+  "already_waited",
+  "demon_scale",
+  "withheld_hand"
+ ],
+ "lint_watch": {
+  "fix": "gated"
+ },
+ "laid_formation": true,
+ "situation": "foreseen",
+ "standing": true,
+ "ground_law": {
+  "name": "Level Ground",
+  "caps": {
+   "2": 40,
+   "3": 40,
+   "5": 10
+  },
+  "foreign_l4": 20
+ },
+ "standing_water": true,
+ "old_bund": 1.0,
+ "deep_bund": 0.01,
+ "field_walls": 120,
+ "title_deed": {
+  "min_cooldown": 6
+ },
+ "waited": {
+  "pool": 85,
+  "rate": 1.0,
+  "cap": 100,
+  "blow_refill": 0.3,
+  "both_hands": 50
+ },
+ "withheld_hand": true,
+ "arts": [
+  {
+   "id": "wait_here",
+   "kind": "qi",
+   "c_art": 2.7,
+   "cost_share": 0.04,
+   "cooldown": 6,
+   "delay_enemy": 3
+  },
+  {
+   "id": "rope_burn",
+   "kind": "body",
+   "c_art": 3.7,
+   "cost_share": 0.04,
+   "cooldown": 10
+  },
+  {
+   "id": "third_winter",
+   "kind": "qi",
+   "c_art": 3.3,
+   "cost_share": 0.05,
+   "cooldown": 8
+  },
+  {
+   "id": "lantern_left",
+   "kind": "body",
+   "c_art": 4.4,
+   "cost_share": 0.06,
+   "cooldown": 12
+  },
+  {
+   "id": "last_ferry",
+   "kind": "body",
+   "c_art": 6.3,
+   "cost_share": 0.05,
+   "cooldown": 20,
+   "guard": {
+    "who": "enemy",
+    "pool": "health",
+    "below": 0.4
+   }
+  },
+  {
+   "id": "last_word",
+   "kind": "body",
+   "c_art": 13.75,
+   "cost_share": 0.25,
+   "cooldown": 40
+  }
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ },
+ "unmodelled": [
+  "The Owed Wait: seasons owed, Dao heart lost and the refill are outside the fight. `demon spent` is seasons owed",
+  "Old Bund reads the formation's age, not the holder's: the deed's price, upkeep and Untended Field are outside the fight",
+  "The 40 s cooldown of Last Word is above the 30 s range of Formulas A2 (Needs rule, carried from The Fortieth Breath)",
+  "Stats are Level Ground's Nascent profile (variants/level-ground-nascent.fight.json) with the bund at 200 years; heart demon 85 is Already-Waited's"
+ ]
+}

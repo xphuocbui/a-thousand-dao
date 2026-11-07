@@ -1,0 +1,137 @@
+{
+  "slug": "great-tonic",
+  "name": "The Great Tonic",
+  "han_viet": "Đại Bổ Đạo",
+  "pitch": "A physician who never strikes back: your own blows are forced into your meridians until you burst, and the empty cannot take tonic.",
+  "channel": "rupture (new), then art hit",
+  "enabler": "Feeding-Back Ward",
+  "enabler_kind": "New channel",
+  "identity_piece": "Feeding-Back Ward",
+  "identity_id": "feeding_back_ward",
+  "power": "strong",
+  "defining_realm": "ket_dan",
+  "fit": {
+    "fits_today": 5,
+    "needs_key": 7,
+    "needs_rule": 7
+  },
+  "reused": [
+    "Bare Vessel"
+  ],
+  "new": [
+    {
+      "type": "enabler",
+      "name": "Feeding-Back Ward",
+      "han_viet": "Phản Bộ Hộ",
+      "fit": "Needs rule",
+      "effect": "A per-hit ward that also returns blocked damage to the attacker's linh lực, 1.0 per point; past their maximum it becomes Surfeit."
+    },
+    {
+      "type": "modifier",
+      "name": "Strong Decoction",
+      "han_viet": "Nùng Thang",
+      "form": "More",
+      "channel": "rupture",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "+0.3 to the share a ward returns.",
+      "second_home": "any Surfeit build"
+    },
+    {
+      "type": "modifier",
+      "name": "Fine Needling",
+      "han_viet": "Tinh Châm",
+      "form": "More",
+      "channel": "art",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+20 points to arts with the needle form.",
+      "second_home": "any cham artifact build"
+    },
+    {
+      "type": "modifier",
+      "name": "Pill-Fed",
+      "han_viet": "Đan Dưỡng",
+      "form": "Per",
+      "channel": "rupture",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "+1 % return per point of the attacker's pill toxicity, up to +30 %.",
+      "second_home": "a poisoner who works on toxicity"
+    },
+    {
+      "type": "modifier",
+      "name": "Deep Abscess",
+      "han_viet": "Thâm Ung",
+      "form": "Overflow",
+      "channel": "rupture",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Surfeit the cap clips adds to the next Lancing, up to +15 % of health.",
+      "second_home": "any Surfeit build"
+    },
+    {
+      "type": "modifier",
+      "name": "Self-Cure",
+      "han_viet": "Tự Y",
+      "form": "Trigger",
+      "channel": "rupture",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "When a target ruptures, regain 10 % of maximum health.",
+      "second_home": "a healer build"
+    },
+    {
+      "type": "technique",
+      "name": "Hundred Vessels Canon",
+      "han_viet": "Bách Mạch Tư Dưỡng Kinh",
+      "fit": "Needs key",
+      "effect": "Main, Địa giai, Wood and Water. A dosing manual that treats only what travels the channels, so it has no answer to poison or the soul."
+    },
+    {
+      "type": "art",
+      "name": "Lancing",
+      "han_viet": "Khai Ung",
+      "fit": "Needs rule",
+      "effect": "With Surfeit above 60 %: target loses 25 % of maximum health per 100 % of Surfeit, past ward, guard and evade; its pool and Surfeit go to 0."
+    },
+    {
+      "type": "art",
+      "name": "Tonic Needle",
+      "han_viet": "Bổ Châm",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 1.45, cost 0.04, 1 s."
+    },
+    {
+      "type": "art",
+      "name": "Long Needle",
+      "han_viet": "Trường Châm",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 2.2, cost 0.08, 2 s."
+    },
+    {
+      "type": "cluster",
+      "name": "Swollen Channels",
+      "han_viet": "Ứ Mạch",
+      "fit": "Needs key",
+      "effect": "Sealed, Water, size 8. Wards and how force moves through them. Notable: Strong Decoction."
+    },
+    {
+      "type": "dao_branch",
+      "name": "Life, Tonic branch",
+      "han_viet": "Bổ Chi",
+      "fit": "Needs key",
+      "effect": "Health and regeneration lines, Pill-Fed, keystone Deep Abscess, and an art node for Lancing."
+    },
+    {
+      "type": "concept",
+      "name": "Surfeit",
+      "han_viet": "Ứ Khí",
+      "fit": "Needs rule",
+      "effect": "Linh lực forced into a full pool, held as a share of qi_max up to 100 %. A forced gain is at most the pool the target holds, so the empty cannot take tonic."
+    }
+  ],
+  "questions": [
+    "Is giving an enemy linh lực as a threat a direction for wards in general, or one sect's secret?"
+  ]
+}

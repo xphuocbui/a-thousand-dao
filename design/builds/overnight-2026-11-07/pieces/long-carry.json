@@ -1,0 +1,114 @@
+{
+  "slug": "long-carry",
+  "name": "The Long Carry",
+  "han_viet": "Trường Đảm Đạo",
+  "pitch": "Let the blows land on your body and keep your breath: whoever has more linh lực left hits half as hard again, and the whole sect is taught to be that person by the second second.",
+  "channel": "art",
+  "enabler": null,
+  "enabler_kind": null,
+  "identity_piece": "Longer Breath",
+  "identity_id": "Longer Breath",
+  "power": "ordinary",
+  "defining_realm": "truc_co",
+  "fit": {
+    "fits_today": 4,
+    "needs_key": 13,
+    "needs_rule": 0
+  },
+  "reused": [
+    "Sustained Note",
+    "Iron-Sand Hand Bath"
+  ],
+  "new": [
+    {
+      "type": "modifier",
+      "name": "Longer Breath",
+      "han_viet": "Trường Tức",
+      "form": "Conditional",
+      "channel": "art, basic",
+      "layer": "L5",
+      "fit": "Needs key",
+      "effect": "+50 points to hits while your linh lực share is more than 10 points above the enemy's. Two grades: a lead of 10 here, a lead of 0 in The Deepest Well; one lead would change fights.",
+      "second_home": "any ward-breaker or drainer; used by The Deepest Well"
+    },
+    {
+      "type": "modifier",
+      "name": "Thrift",
+      "han_viet": "Tiết Dụng",
+      "form": "Redirect",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "A quarter of your ward efficiency also counts as art_cost_pct, inside its 50 % limit.",
+      "second_home": "any per-hit ward build, any cheap art build; used by The Deepest Well"
+    },
+    {
+      "type": "technique",
+      "name": "First Load Method",
+      "han_viet": "Sơ Đảm Công",
+      "fit": "Needs key",
+      "effect": "Body, Hoàng giai, 6 layers, no element. Volume I of the ladder: Even Step, Shifted Pole, Longer Breath, Sustained Note."
+    },
+    {
+      "type": "technique",
+      "name": "Two Baskets Method",
+      "han_viet": "Song Lam Công",
+      "fit": "Needs key",
+      "effect": "Body, Huyền giai, 9 layers, no element. Volume II: Home Road, Thrift, Setting Down, Over the Ridge; re-lists Volume I's arts at layer 7."
+    },
+    {
+      "type": "technique",
+      "name": "Long Slope Scripture",
+      "han_viet": "Trường Pha Kinh",
+      "fit": "Needs key",
+      "effect": "Body, Địa giai, 12 layers, no element. Volume III: Second Wind; handover at layer 10. Not run."
+    },
+    {
+      "type": "technique",
+      "name": "Ten Thousand Steps Scripture",
+      "han_viet": "Vạn Bộ Kinh",
+      "fit": "Needs key",
+      "effect": "Body, Thiên giai, 15 layers, no element. Volume IV: Hill Road; handover at layer 13. Not run."
+    },
+    {
+      "type": "art",
+      "name": "Even Step",
+      "han_viet": "Bình Bộ",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 1.48, cost 0.04, 1 s."
+    },
+    {
+      "type": "art",
+      "name": "Shifted Pole",
+      "han_viet": "Hoán Kiên",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 2.2, cost 0.08, 2 s."
+    },
+    {
+      "type": "art",
+      "name": "Setting Down",
+      "han_viet": "Phóng Đảm",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 2.9, cost 0.12, 3 s."
+    },
+    {
+      "type": "art",
+      "name": "Home Road",
+      "han_viet": "Quy Lộ",
+      "fit": "Needs key",
+      "effect": "The escape art, cost 0.06, 1 s, guarded on own health below 50 %."
+    },
+    {
+      "type": "art",
+      "name": "Over the Ridge",
+      "han_viet": "Việt Lĩnh",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 3.4, cost 0.14, 4 s."
+    }
+  ],
+  "questions": [
+    "Should raising a drain ward's strength be able to lose a fight on its own? Moving 48 points from we to ws turns a win into a loss with the enemy on 53 %.",
+    "Do two body techniques add their t_b? The two-basket ladder assumes they do.",
+    "Should the ladder's last layer teach instead of fight? That would be this build's one rule ask, so it is left out."
+  ]
+}

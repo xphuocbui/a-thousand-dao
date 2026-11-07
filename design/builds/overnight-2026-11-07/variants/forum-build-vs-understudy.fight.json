@@ -1,0 +1,248 @@
+{
+ "name": "forum-build",
+ "realm": "nguyen_anh",
+ "stage": 1.0,
+ "n_body": 2.9,
+ "n_qi": 2.5,
+ "layers": [
+  150,
+  0,
+  40,
+  200,
+  0
+ ],
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.42,
+   "qi": 0.28
+  },
+  "drain": {
+   "body": 0.72,
+   "qi": 1.08
+  },
+  "ws": 100,
+  "we": 100
+ },
+ "guard": {
+  "a_b": 2.5,
+  "t_b": 1.0,
+  "body_guard_pct": 35
+ },
+ "rules": [
+  "realm_sense",
+  "catching_hand",
+  "understudy",
+  "cue",
+  "breath_lead",
+  "lint_watch",
+  "laid_ground",
+  "title_deed",
+  "already_waited",
+  "demon_scale",
+  "withheld_hand"
+ ],
+ "lint_watch": {
+  "fix": "none"
+ },
+ "laid_formation": true,
+ "situation": "foreseen",
+ "standing": true,
+ "ground_law": {
+  "name": "Level Ground",
+  "caps": {
+   "2": 40,
+   "3": 40,
+   "5": 10
+  },
+  "foreign_l4": 20
+ },
+ "standing_water": true,
+ "old_bund": 1.0,
+ "deep_bund": 0.01,
+ "field_walls": 120,
+ "title_deed": {
+  "min_cooldown": 6
+ },
+ "waited": {
+  "pool": 85,
+  "rate": 1.0,
+  "cap": 100,
+  "blow_refill": 0.3,
+  "both_hands": 50
+ },
+ "withheld_hand": true,
+ "arts": [
+  {
+   "id": "wait_here",
+   "kind": "qi",
+   "c_art": 2.7,
+   "cost_share": 0.04,
+   "cooldown": 6,
+   "delay_enemy": 3
+  },
+  {
+   "id": "rope_burn",
+   "kind": "body",
+   "c_art": 3.7,
+   "cost_share": 0.04,
+   "cooldown": 10
+  },
+  {
+   "id": "third_winter",
+   "kind": "qi",
+   "c_art": 3.3,
+   "cost_share": 0.05,
+   "cooldown": 8
+  },
+  {
+   "id": "lantern_left",
+   "kind": "body",
+   "c_art": 4.4,
+   "cost_share": 0.06,
+   "cooldown": 12
+  },
+  {
+   "id": "last_ferry",
+   "kind": "body",
+   "c_art": 6.3,
+   "cost_share": 0.05,
+   "cooldown": 20,
+   "guard": {
+    "who": "enemy",
+    "pool": "health",
+    "below": 0.4
+   }
+  },
+  {
+   "id": "last_word",
+   "kind": "body",
+   "c_art": 13.75,
+   "cost_share": 0.25,
+   "cooldown": 40
+  }
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "name": "understudy",
+  "realm": "nguyen_anh",
+  "stage": 1.0,
+  "n_body": 1.6,
+  "n_qi": 2.0,
+  "layers": [
+   180,
+   0,
+   20,
+   30,
+   0
+  ],
+  "evade_pct": 55,
+  "ward": {
+   "model": "drain",
+   "pass": {
+    "body": 0.54,
+    "qi": 0.36
+   },
+   "drain": {
+    "body": 1.0,
+    "qi": 1.5
+   },
+   "ws": 50,
+   "we": 50
+  },
+  "guard": {
+   "body_guard_pct": 10
+  },
+  "divine_sense": 117,
+  "understudy": {
+   "start": 2.0,
+   "bank": 4.0,
+   "read_soul": true
+  },
+  "returned_force": 0.5,
+  "conditional_mods": [
+   {
+    "id": "Encore",
+    "layer": 2,
+    "per": "curtain_hits",
+    "points_per": 10,
+    "cap": 100,
+    "channels": [
+     "art",
+     "basic"
+    ]
+   },
+   {
+    "id": "Longer Breath",
+    "layer": 5,
+    "points": 50,
+    "channels": [
+     "art",
+     "basic"
+    ],
+    "guard": {
+     "breath_lead": true,
+     "by": 0.1
+    }
+   }
+  ],
+  "arts": [
+   {
+    "id": "costume_change",
+    "cost_share": 0.06,
+    "cooldown": 1,
+    "curtain": 1.0
+   },
+   {
+    "id": "painted_screen",
+    "cost_share": 0.08,
+    "cooldown": 2,
+    "curtain": 1.0
+   },
+   {
+    "id": "curtain_call",
+    "kind": "qi",
+    "c_art": 1.6,
+    "cost_share": 0.05,
+    "cooldown": 1,
+    "guard": {
+     "cued": true
+    }
+   },
+   {
+    "id": "aside",
+    "kind": "qi",
+    "c_art": 2.4,
+    "cost_share": 0.08,
+    "cooldown": 3,
+    "guard": {
+     "cued": true
+    }
+   },
+   {
+    "id": "last_act",
+    "kind": "qi",
+    "c_art": 5.15,
+    "cost_share": 0.12,
+    "cooldown": 12
+   }
+  ],
+  "sense_base": 117,
+  "crit": {
+   "chance": 0,
+   "mult": 1.5
+  }
+ },
+ "unmodelled": [
+  "The Owed Wait: seasons owed, Dao heart lost and the refill are outside the fight. `demon spent` is seasons owed",
+  "Old Bund reads the formation's age, not the holder's: the deed's price, upkeep and Untended Field are outside the fight",
+  "The 40 s cooldown of Last Word is above the 30 s range of Formulas A2 (Needs rule, carried from The Fortieth Breath)",
+  "Stats are Level Ground's Nascent profile (variants/level-ground-nascent.fight.json) with the bund at 200 years; heart demon 85 is Already-Waited's",
+  "The enemy is the whole Understudy at Nascent Soul. The requesting side's hits resolve first, so its t = 1 volley meets the Curtain before a mask fires"
+ ],
+ "realm_sense": {
+  "typical": 57,
+  "top_end": 85
+ },
+ "divine_sense": 57
+}

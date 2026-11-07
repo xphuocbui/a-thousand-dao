@@ -1,0 +1,59 @@
+{
+  "slug": "forum-build",
+  "name": "The Forum Build",
+  "han_viet": "Vũ Tệ Quyết",
+  "pitch": "Six arts that pass the lint fire at the first pulse without waiting, because you bought a 200-year field: a Nascent Soul kills a Deity at t = 1 for no seasons at all.",
+  "channel": "art (formation tag by deed)",
+  "enabler": "Title Deed",
+  "enabler_kind": "Rule removal",
+  "identity_piece": "Title Deed",
+  "identity_id": "title_deed",
+  "power": "top-end",
+  "defining_realm": "nguyen_anh",
+  "fit": {
+    "fits_today": 3,
+    "needs_key": 8,
+    "needs_rule": 13
+  },
+  "reused": [
+    "Old Bund",
+    "Deep Bund",
+    "Standing Water",
+    "Field Walls",
+    "Level Ground",
+    "Taken Ground",
+    "Ground Law",
+    "Already Waited",
+    "Both Hands",
+    "Every Blow",
+    "The Owed Wait",
+    "Withheld Hand",
+    "Untended Field",
+    "Wait Here",
+    "Rope Burn",
+    "Third Winter",
+    "Lantern Left",
+    "The Last Ferry",
+    "Last Word",
+    "Still Water"
+  ],
+  "new": [
+    {
+      "type": "modifier",
+      "name": "Title Deed",
+      "han_viet": "Địa Khế",
+      "form": "Borrow",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "While a formation you hold title to stands, your arts with an authored cooldown of 6 s or more count as carrying the formation source tag. Sold with the formation.",
+      "second_home": "any sect elder on a home array; any long art on old ground"
+    }
+  ],
+  "questions": [
+    "The lint is a check on a record: this volley fires 43.1 against 11.9 sold and reads within. Adopt 'a wait is paid, never deleted', with Standing Water as a pool? It changes none of the three parent builds.",
+    "Making a Flat base count against the lint is the obvious fix and the worst: it kills Level Ground and Fortieth Breath and this build still beats a Deity. Rule it out?",
+    "Should a one-realm-up win stay possible at 63 seasons a fight, or should the 'served' repair end it, at a cost to Already-Waited?",
+    "Should Old Bund read the holder's years, not the formation's?"
+  ]
+}

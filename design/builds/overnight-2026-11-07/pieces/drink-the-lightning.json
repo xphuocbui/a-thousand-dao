@@ -1,0 +1,42 @@
+{
+  "slug": "drink-the-lightning",
+  "name": "Drink the Lightning",
+  "han_viet": "Ẩm Lôi Quyết",
+  "pitch": "A monk who loses every duel drives a rod into the peak, the sky stops charging for its strikes, and they walk in on 40 % health and come out on 97 %.",
+  "channel": "survival: Fed ward and Still Water, with cheap arts",
+  "enabler": "Lightning Rod",
+  "enabler_kind": "Rule removal",
+  "identity_piece": "Lightning Rod",
+  "identity_id": "thu_loi",
+  "power": "ordinary",
+  "defining_realm": "nguyen_anh",
+  "fit": {"fits_today": 5, "needs_key": 10, "needs_rule": 5},
+  "reused": ["Still Water", "Child Steals the Mother", "Mother-and-Child Ward", "Ground Law", "Known Ground"],
+  "new": [
+    {"type": "enabler", "name": "Lightning Rod", "han_viet": "Thu Lôi", "form": "Rule swap", "channel": "any", "layer": "none", "fit": "Needs rule",
+     "effect": "A Ground Law: on ground tagged tribulation, every art hit by the other side carries Thunder and no other element, counted as Fire for the cycle. Closes: nothing anywhere else.",
+     "second_home": "any boss arena, any gate that names the element of its ground"},
+    {"type": "modifier", "name": "Gorged", "han_viet": "Bão Lôi", "form": "Per", "channel": "art, basic", "layer": "L2", "fit": "Needs key",
+     "effect": "+1 point to arts and basic attacks per 1 % of maximum health restored this fight, to +100.",
+     "second_home": "any healer that fights, any Still Water build"},
+    {"type": "technique", "name": "Refectory Rule", "han_viet": "Trai Đường Quy", "fit": "Needs key",
+     "effect": "Main, Địa giai, Earth. linh_luc_pct 20, defense_pct 15, khi_huyet_pct 7. Four courses, Gorged and Still Water. Stops at Nascent Soul."},
+    {"type": "art", "name": "First Course", "han_viet": "Sơ Thiện", "fit": "Needs key", "effect": "Body hit, c_art 1.99, cost 0.02, 4 s."},
+    {"type": "art", "name": "Second Course", "han_viet": "Thứ Thiện", "fit": "Needs key", "effect": "Qi hit, c_art 2.99, cost 0.02, 8 s."},
+    {"type": "art", "name": "Third Course", "han_viet": "Tam Thiện", "fit": "Needs key", "effect": "Body hit, c_art 3.99, cost 0.02, 12 s."},
+    {"type": "art", "name": "Last Course", "han_viet": "Mạt Thiện", "fit": "Needs key", "effect": "Qi hit, c_art 5.99, cost 0.02, 20 s."},
+    {"type": "art", "name": "Rinse the Mouth", "han_viet": "Thấu Khẩu", "fit": "Needs key", "effect": "No hit, cost 0.02, 2 s: removes two statuses and every curse on you."},
+    {"type": "formation", "name": "Lightning Rod Array", "han_viet": "Thu Lôi Trận", "fit": "Needs key", "effect": "Carries the Lightning Rod law. Needs the ground tag tribulation."},
+    {"type": "concept", "name": "A Ground Law may set an element", "han_viet": "", "fit": "Needs rule",
+     "effect": "A tag every art hit on the ground carries, replacing its own. Combat rules 6 and 12; Thien-kiep rule 5. Serves Kept Hearth at home and any element gate."},
+    {"type": "concept", "name": "First tribulation pool", "han_viet": "Kiếp Trì", "fit": "Needs key",
+     "effect": "Seven boss sketches inside Formulas D: Iron Thunder, Thousand Needles, White Silence, Sour Cloud, Dry Wind, Held Breath, and Closed Mouth, the boss that tests this build. Typical 0.500, top-end 1.000 on the first six."}
+  ],
+  "questions": [
+    "Is healing inside a wave intended? Rule 7 only forbids it between waves.",
+    "Does a Ground Law bind a tribulation boss? Level Ground itself is harmless there, since a boss's L2 to L5 are empty.",
+    "A build with no damage stat survives 0.942 of draws: is that rule 8's problem or the pool's job?",
+    "Should Formulas D lint a boss's Off and ehp apart? Pools in one r_b band give Fed very different values.",
+    "Does an unpaid Slow Wound ledger carry between waves?"
+  ]
+}

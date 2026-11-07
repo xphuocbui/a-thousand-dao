@@ -1,0 +1,37 @@
+{
+ "slug": "the-puppeteer",
+ "name": "The Puppeteer",
+ "han_viet": "Khiên Ti",
+ "pitch": "A monk who cannot walk kneels at an altar while a wooden novice, a clay guardian and their teacher's lacquered body take turns being the one in the fight.",
+ "channel": "companion",
+ "enabler": "Borne Body",
+ "enabler_kind": "Slot bender",
+ "identity_piece": "Borne Body",
+ "identity_id": "borne_body",
+ "power": "strong",
+ "defining_realm": "nguyen_anh",
+ "fit": {"fits_today": 4, "needs_key": 16, "needs_rule": 1},
+ "reused": ["Drilled Ranks", "Whetstone Ash", "Flown artifact damage", "Full Trough", "In Step", "Companion damage", "Beast damage", "Companion attack speed", "Ward strength", "Ward efficiency", "Maximum linh lực"],
+ "new": [
+  {"type": "enabler", "name": "Borne Body", "han_viet": "Tá Thể", "form": "Rule swap", "channel": "any", "layer": "none", "fit": "Needs rule",
+   "effect": "The side's health, n_body and guard are the first puppet's in slot order, its blow is the companion channel, and when it falls the next walks on at full health, leaving statuses and curses behind. Closes the operator's own body and an art slot a puppet.", "second_home": "any golem, any possessed relic"},
+  {"type": "acupoint", "name": "Vow Renewed", "han_viet": "Trùng Thệ", "form": "Conditional", "channel": "companion", "layer": "L5", "fit": "Needs key",
+   "effect": "+4 points to companion hits once a body has fallen.", "second_home": "any beast that outlives a keeper, any queue"},
+  {"type": "notable", "name": "Vow Renewed", "han_viet": "Trùng Thệ", "form": "Conditional", "channel": "companion", "layer": "L5", "fit": "Needs key",
+   "effect": "+25 points to companion hits once a body has fallen.", "second_home": "any beast that outlives a keeper, any queue"},
+  {"type": "beast", "name": "Wooden Novice", "han_viet": "Mộc Sa Di", "fit": "Needs key", "effect": "Puppet. n_body 0.7, t_b 0.8, a body blow at c 0.6. Carved in a winter, sent first."},
+  {"type": "beast", "name": "Clay Guardian", "han_viet": "Nê Hộ Pháp", "fit": "Needs key", "effect": "Puppet. n_body 1.2, t_b 3.0, +20 % guard, a body blow at c 0.7, store 15 %. Cannot leave its door."},
+  {"type": "beast", "name": "Lacquered Abbot", "han_viet": "Tất Thân Trụ Trì", "fit": "Needs key", "effect": "Puppet. n_body 1.0, t_b 1.5, +20 % guard, a qi blow at c 1.0, store 15 %. Wounds are mended by hand over a winter."},
+  {"type": "artifact", "name": "Puppet Frame", "han_viet": "Khôi Giá", "fit": "Needs key", "effect": "New artifact base: attack 20, defence 0, thần thức 30. Holds a puppet's beast entry."},
+  {"type": "art", "name": "Morning Bell", "han_viet": "Thần Chung", "fit": "Needs key", "effect": "Qi, c_art 1.0, cost 0.04, 1.25 s."},
+  {"type": "art", "name": "Binding Sutra", "han_viet": "Phược Kinh", "fit": "Needs key", "effect": "Qi, c_art 1.0, cost 0.05, 2.5 s. Curse: shred 0.25 for 3 pulses."},
+  {"type": "art", "name": "Evening Drum", "han_viet": "Mộ Cổ", "fit": "Needs key", "effect": "Body, c_art 2.6, cost 0.08, 3.75 s."},
+  {"type": "technique", "name": "Lamp-and-Thread Sutra", "han_viet": "Đăng Ti Kinh", "fit": "Needs rule", "effect": "Main, Địa giai, Wood, linh_luc_pct 20, than_thuc_pct 15. Carries Borne Body."},
+  {"type": "concept", "name": "Puppet", "han_viet": "Khôi Lỗi", "fit": "Needs rule", "effect": "One record that is an artifact and a beast, so both tag families apply. Combat rule 19, Item Database rule 6."}
+ ],
+ "questions": [
+  "Should one record really read both tag families? It is the engine and the likeliest thing to rule out.",
+  "Does a body keep its wounds between fights? The slot order choice needs it.",
+  "Is a puppet poisoned, and can one be above its operator's realm?"
+ ]
+}

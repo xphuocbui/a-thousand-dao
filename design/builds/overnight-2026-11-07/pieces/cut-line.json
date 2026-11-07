@@ -1,0 +1,146 @@
+{
+  "slug": "cut-line",
+  "name": "The Cut Line",
+  "han_viet": "Đoạn Tuyến Đạo",
+  "pitch": "Four of the weakest soul arts in the game, a third of a second apart: every bit of thần thức past the cap shortens the lockout, so a top-end elder who spent nothing on soul is dead before moving.",
+  "channel": "soul",
+  "enabler": "none",
+  "enabler_kind": "none",
+  "identity_piece": "Running Line",
+  "identity_id": "running_line",
+  "power": "top-end",
+  "defining_realm": "nguyen_anh",
+  "fit": {
+    "fits_today": 3,
+    "needs_key": 12,
+    "needs_rule": 2
+  },
+  "reused": [],
+  "new": [
+    {
+      "type": "modifier",
+      "name": "Running Line",
+      "han_viet": "Phóng Tuyến",
+      "form": "Overflow",
+      "channel": "soul",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "The share soul_cap clips shortens the lockout to soul_lockout x soul_cap / raw share, at least 0.1 s.",
+      "second_home": "any soul art, such as an elder culling below their realm"
+    },
+    {
+      "type": "modifier",
+      "name": "Light Hand",
+      "han_viet": "Khinh Thủ",
+      "form": "Per",
+      "channel": "soul",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "+2 than_thuc_pct per point of heart demon under 30.",
+      "second_home": "any calm or joyful build wanting thần thức"
+    },
+    {
+      "type": "modifier",
+      "name": "Unseen Hand",
+      "han_viet": "Ám Thủ",
+      "form": "Conditional",
+      "channel": "soul",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "+60 x_soul while at full health.",
+      "second_home": "any alpha strike, keyed to its own tag"
+    },
+    {
+      "type": "modifier",
+      "name": "Slackened Soul",
+      "han_viet": "Tùng Hồn",
+      "form": "Trigger",
+      "channel": "soul",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "A curse: the defender's thần thức reads 25 % lower against your soul arts for 2 pulses, stacking to 50 %.",
+      "second_home": "any curse build carrying one soul art"
+    },
+    {
+      "type": "modifier",
+      "name": "Open Sky",
+      "han_viet": "Không Thiên",
+      "form": "Borrow",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "Each 1 % of thần thức left free adds 0.6 ward strength.",
+      "second_home": "any build with few artifacts"
+    },
+    {
+      "type": "keystone",
+      "name": "Along the Thread",
+      "han_viet": "Duyên Tuyến",
+      "form": "Rule swap",
+      "channel": "soul",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "On your soul arts, thần thức the defender has bound to artifacts counts at half. You may equip nothing that costs thần thức. Each kill by a soul art adds +3 heart demon.",
+      "second_home": "any hunter of artifact users"
+    },
+    {
+      "type": "cluster",
+      "name": "Paper Sky",
+      "han_viet": "Chỉ Thiên Mạch",
+      "fit": "Needs key",
+      "effect": "Divine Sense theme, Metal, outer, sealed by technique, size 8. Notables Light Hand and Unseen Hand; keystone Along the Thread as the capability."
+    },
+    {
+      "type": "technique",
+      "name": "Paper Kite Manual",
+      "han_viet": "Chỉ Diên Phổ",
+      "fit": "Needs key",
+      "effect": "Main, Địa giai, Metal. Carries Running Line and four soul arts, seals Paper Sky."
+    },
+    {
+      "type": "art",
+      "name": "Test Tug",
+      "han_viet": "Thí Tuyến",
+      "channel": "soul",
+      "fit": "Needs key",
+      "effect": "Soul art, soul_pct 0.03, cost 0.05, cooldown 0.5 s. Applies Slackened Soul."
+    },
+    {
+      "type": "art",
+      "name": "Paper Cut",
+      "han_viet": "Chỉ Thương",
+      "channel": "soul",
+      "fit": "Needs key",
+      "effect": "Soul art, soul_pct 0.03, cost 0.05, cooldown 0.5 s."
+    },
+    {
+      "type": "art",
+      "name": "Glass Line",
+      "han_viet": "Lưu Ly Tuyến",
+      "channel": "soul",
+      "fit": "Needs key",
+      "effect": "Soul art, soul_pct 0.05, cost 0.09, cooldown 0.5 s."
+    },
+    {
+      "type": "art",
+      "name": "Running Cut",
+      "han_viet": "Tẩu Cát",
+      "channel": "soul",
+      "fit": "Needs key",
+      "effect": "Soul art, soul_pct 0.05, cost 0.09, cooldown 0.5 s."
+    },
+    {
+      "type": "concept",
+      "name": "Kite Season",
+      "han_viet": "Diên Tiết",
+      "fit": "Needs key",
+      "effect": "A season action: -2 heart demon, no cultivation."
+    }
+  ],
+  "questions": [
+    "Soul arts have no lint. Should Formulas C price soul_pct?",
+    "fight_calc gives one divine_sense to every gap. Should the matrix scale it by M_ts?",
+    "Thần thức at 1.3 W per 1 % gives rho 7 to 14 at the same realm. Is soul priced too low, or its defence too dear (Open Question 16)?",
+    "The kill flips at enemy sense +51 %, soul resistance 51, or art speed +41 (sheet, Where the Kill Flips). Should reference enemies carry a soul profile?"
+  ]
+}

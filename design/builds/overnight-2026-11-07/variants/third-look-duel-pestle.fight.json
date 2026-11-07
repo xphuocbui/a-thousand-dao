@@ -1,0 +1,228 @@
+{
+ "name": "third-look",
+ "realm": 3,
+ "layers": [
+  0,
+  0,
+  40,
+  20,
+  0
+ ],
+ "n_body": 2.1627,
+ "n_qi": 1.7273,
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 62.5,
+  "we": 85.7
+ },
+ "arts": [
+  {
+   "id": "the_look",
+   "kind": "soul",
+   "soul_pct": 0.0924,
+   "cost_share": 0.126,
+   "cooldown": 1
+  }
+ ],
+ "conditional_mods": [
+  {
+   "id": "Soul attack damage",
+   "layer": 1,
+   "points": 45.0,
+   "channels": [
+    "soul"
+   ]
+  },
+  {
+   "id": "Empty Room",
+   "layer": 1,
+   "points": 0,
+   "channels": [
+    "soul"
+   ],
+   "per": "empty_slots",
+   "points_per": 4.5
+  },
+  {
+   "id": "Clear Head",
+   "layer": 1,
+   "points": 22.5,
+   "channels": [
+    "soul"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.3
+   }
+  },
+  {
+   "id": "Failing Lamp",
+   "layer": 1,
+   "points": 0,
+   "channels": [
+    "soul"
+   ],
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.2
+  }
+ ],
+ "divine_sense": 91.8,
+ "realm_sense": {
+  "typical": 61.3,
+  "top_end": 83.0
+ },
+ "rules": [
+  "realm_sense",
+  "soul_x"
+ ],
+ "enemy": "typical",
+ "art_cost_pct": 10,
+ "regen_bonus_pct": 1.6,
+ "enemy_overrides": {
+  "layers": [
+   0,
+   0,
+   40,
+   20,
+   0
+  ],
+  "n_body": 2.3077,
+  "n_qi": 1.7273,
+  "crit": {
+   "chance": 0.232,
+   "mult": 1.845
+  },
+  "ward": {
+   "model": "drain",
+   "pass": {
+    "body": 0.54,
+    "qi": 0.36
+   },
+   "drain": {
+    "body": 1.0,
+    "qi": 1.5
+   },
+   "ws": 62.5,
+   "we": 62.5
+  },
+  "guard": {
+   "a_b": 0,
+   "t_b": 2,
+   "body_guard_pct": 4.8
+  },
+  "arts": [
+   {
+    "id": "pounding_stroke",
+    "kind": "body",
+    "c_art": 1.6,
+    "cost_share": 0,
+    "body_cost_share": 0.025,
+    "cooldown": 1
+   },
+   {
+    "id": "lifted_pestle",
+    "kind": "body",
+    "c_art": 2.46,
+    "cost_share": 0,
+    "body_cost_share": 0.04,
+    "cooldown": 3
+   }
+  ],
+  "conditional_mods": [
+   {
+    "id": "Method",
+    "layer": 2,
+    "points": 40,
+    "channels": [
+     "art",
+     "basic"
+    ]
+   },
+   {
+    "id": "Body damage",
+    "layer": 1,
+    "points": 38.0,
+    "channels": [
+     "art",
+     "basic"
+    ]
+   },
+   {
+    "id": "Art damage",
+    "layer": 1,
+    "points": 29.0,
+    "channels": [
+     "art"
+    ]
+   },
+   {
+    "id": "Basic attack damage",
+    "layer": 1,
+    "points": 48,
+    "channels": [
+     "basic"
+    ]
+   },
+   {
+    "id": "Blood Stroke",
+    "layer": 2,
+    "points": 18,
+    "channels": [
+     "art"
+    ]
+   },
+   {
+    "id": "Thinning Ward",
+    "layer": 1,
+    "points": 6,
+    "channels": [
+     "art"
+    ],
+    "guard": {
+     "who": "enemy",
+     "pool": "qi",
+     "below": 0.5
+    }
+   },
+   {
+    "id": "Mass Behind the Blow",
+    "layer": 2,
+    "points": 19.49,
+    "channels": [
+     "art",
+     "basic"
+    ]
+   },
+   {
+    "id": "Reopened",
+    "layer": 5,
+    "points": 0,
+    "channels": [
+     "art",
+     "basic"
+    ],
+    "per": "own_health_missing_pct",
+    "points_per": 0.9
+   }
+  ],
+  "sense_base": 61.3
+ },
+ "unmodelled": [
+  "Soul arts have no lint, so The Look's cost of 0.126 follows The Cut Line's ratio of about 1.8 cost per soul_pct",
+  "Soul resistance, Realm pierce, Status resistance, Artifact than thuc cost and a shorter soul_lockout sit beside the road and are not run",
+  "Own sense is than_hon x (1 + road pct + row pct). Fortune is not read"
+ ]
+}

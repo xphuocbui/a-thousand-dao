@@ -1,0 +1,143 @@
+{
+  "slug": "given-years",
+  "name": "The Given Years",
+  "han_viet": "Tặng Thọ Đạo",
+  "pitch": "Name a day and someone you love: every year after it goes to them, and until it comes, blows take seasons instead of health, and each season lost makes you hit harder.",
+  "channel": "art hit, health paid in seasons",
+  "enabler": "The Set Day",
+  "enabler_kind": "Scaling bridge",
+  "identity_piece": "Paid in Seasons",
+  "identity_id": "lit_wick",
+  "power": "strong",
+  "defining_realm": "nguyen_anh",
+  "fit": {
+    "fits_today": 3,
+    "needs_key": 10,
+    "needs_rule": 4
+  },
+  "reused": [
+    "Hearth Ash Talisman"
+  ],
+  "new": [
+    {
+      "type": "keystone",
+      "name": "The Set Day",
+      "han_viet": "Định Nhật",
+      "form": "Trade",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Once a life, name a kin and a day at most ten years off. Your age jumps to that distance from your cap, theirs falls by half the years given, never below 16. Your cap can never rise again.",
+      "second_home": "any life-ending vow, such as a sect's last defender"
+    },
+    {
+      "type": "modifier",
+      "name": "Paid in Seasons",
+      "han_viet": "Quý Thường",
+      "form": "Rule swap",
+      "channel": "incoming",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Health you lose is restored at the defeat check and burns 1 season per 20 % of maximum health. At 0 seasons you are Down, having acted in that instant.",
+      "second_home": "a guardian bound to a fixed term"
+    },
+    {
+      "type": "modifier",
+      "name": "Lit Wick",
+      "han_viet": "Tàn Đăng",
+      "form": "Trade",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Each pulse of a fight burns a season, whether or not you are struck.",
+      "second_home": "any build priced in time"
+    },
+    {
+      "type": "modifier",
+      "name": "Short Wick",
+      "han_viet": "Đoản Đăng",
+      "form": "Per",
+      "channel": "art, basic",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+5 points for each season of lifespan under 40.",
+      "second_home": "any old cultivator, any Last Radiance life"
+    },
+    {
+      "type": "modifier",
+      "name": "Given Years",
+      "han_viet": "Tặng Niên",
+      "form": "Per",
+      "channel": "art, basic",
+      "layer": "L4",
+      "fit": "Needs key",
+      "effect": "+2 points per 1 % of your realm's lifespan given away, while the person named lives, in any fight. Two grades: this one on art and basic; The Herd-Child holds a companion grade, +1.5 per 1 % on L2, to +45. One size would change fights.",
+      "second_home": "any build with a sworn sacrifice; any bond that can take years, such as capability #3's treasure; used by The Herd-Child"
+    },
+    {
+      "type": "modifier",
+      "name": "Nothing to Lose",
+      "han_viet": "Vô Sở Thất",
+      "form": "Per",
+      "channel": "art, basic",
+      "layer": "L5",
+      "fit": "Needs key",
+      "effect": "+10 points for each doubling of the enemy's years left over your own, to +100.",
+      "second_home": "any elder facing the young"
+    },
+    {
+      "type": "cluster",
+      "name": "Evening Table",
+      "han_viet": "Vãn Thực Mạch",
+      "fit": "Needs key",
+      "effect": "Longevity theme, Earth, outer, sealed by event: sit a last season with someone whose lifespan is ending. Size 8. Notables Short Wick and Nothing to Lose; keystone The Set Day as the capability."
+    },
+    {
+      "type": "technique",
+      "name": "Keeping-House Sutra",
+      "han_viet": "Trì Gia Kinh",
+      "fit": "Needs key",
+      "effect": "Main, Địa giai, Fire and Earth. Four household arts, all paid in linh lực."
+    },
+    {
+      "type": "art",
+      "name": "Threshing Flail",
+      "han_viet": "Đả Cốc",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 1.6, cost 0.05, 1 s."
+    },
+    {
+      "type": "art",
+      "name": "Banked Coals",
+      "han_viet": "Tàng Thán",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 2.4, cost 0.08, 3 s."
+    },
+    {
+      "type": "art",
+      "name": "Splitting Maul",
+      "han_viet": "Phách Sài",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 2.4, cost 0.10, 2 s."
+    },
+    {
+      "type": "art",
+      "name": "Last Harvest",
+      "han_viet": "Mạt Thu",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 4.2, cost 0.25, 2 s, guarded on own seasons 14 or fewer."
+    },
+    {
+      "type": "concept",
+      "name": "Kin tie",
+      "han_viet": "Thân Duyên",
+      "fit": "Needs rule",
+      "effect": "A named person bound by marriage, blood or adoption, beside Quests' master and disciple ties."
+    }
+  ],
+  "questions": [
+    "Do you want a family system at all, and how thin can it be? The Kin tie is the smallest version.",
+    "'You won and you died' is this build's natural ending. Should a result type say so?",
+    "May a gift of age go below a floor of 16, and is 0.5 the right rate?"
+  ]
+}

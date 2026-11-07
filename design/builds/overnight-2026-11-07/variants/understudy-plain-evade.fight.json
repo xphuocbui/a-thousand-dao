@@ -1,0 +1,95 @@
+{
+ "name": "understudy",
+ "realm": "ket_dan",
+ "stage": 1.0,
+ "n_body": 1.3,
+ "n_qi": 1.6,
+ "layers": [
+  100,
+  0,
+  20,
+  30,
+  0
+ ],
+ "evade_pct": 40,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 30,
+  "we": 30
+ },
+ "guard": {
+  "body_guard_pct": 10
+ },
+ "rules": [
+  "realm_sense",
+  "catching_hand",
+  "cue",
+  "breath_lead"
+ ],
+ "realm_sense": {
+  "typical": 57,
+  "top_end": 85
+ },
+ "divine_sense": 117,
+ "arts": [
+  {
+   "id": "curtain_call",
+   "kind": "qi",
+   "c_art": 1.6,
+   "cost_share": 0.05,
+   "cooldown": 1
+  },
+  {
+   "id": "aside",
+   "kind": "qi",
+   "c_art": 2.4,
+   "cost_share": 0.08,
+   "cooldown": 3
+  }
+ ],
+ "enemy": "typical",
+ "unmodelled": [
+  "The price of a hit that lands on the double outside the fight: the Understudy's lines, in Progression",
+  "Dao heart, which game-concept.md says resists illusions, has no key in a fight profile; accuracy and thần thức stand in for being seen through",
+  "Own divine_sense 117 is than_hon 60 x stage 1.3 x (1 + 50 %), Character Stats Formulas C before M_ts. Enemy sense_base 57 and 85 come from realm_sense, copied from The Cut Line, and are first guesses that the anchors do not state",
+  "Evade is not an expected value here: no chance field is left, so this fight is deterministic and the calculator is exact for it"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

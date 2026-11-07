@@ -1,0 +1,181 @@
+{
+ "name": "swidden",
+ "realm": "hoa_than",
+ "stage": 1.0,
+ "n_body": 3.1788,
+ "art_cost_pct": 9,
+ "layers": [
+  176,
+  0,
+  40,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "art_speed_pct": 10,
+ "n_qi": 2.57,
+ "ward": {
+  "model": "per_hit",
+  "hit_cost_share": 0.04,
+  "pass": {
+   "body": 0.34,
+   "qi": 0.24
+  },
+  "ws": 84.1,
+  "we": 106.5
+ },
+ "regen_bonus_pct": 1.9,
+ "conditional_mods": [
+  {
+   "id": "Wood damage",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Green Heart",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Stoked",
+   "layer": 2,
+   "points": 0,
+   "per": "enemy_status_stacks",
+   "points_per": 3,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "new_shoot",
+   "kind": "body",
+   "c_art": 1.0,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ],
+   "applies": [
+    {
+     "id": "new_shoot_thorn",
+     "kind": "body",
+     "c_tick": 0.15,
+     "duration": 3,
+     "stacks": 1,
+     "chance": 0.69,
+     "x": [
+      8,
+      12,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "long_root",
+   "kind": "qi",
+   "c_art": 1.7,
+   "cost_share": 0.08,
+   "cooldown": 3,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ],
+   "applies": [
+    {
+     "id": "long_root_thorn",
+     "kind": "body",
+     "c_tick": 0.15,
+     "duration": 3,
+     "stacks": 1,
+     "chance": 0.69,
+     "x": [
+      8,
+      12,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "old_bough",
+   "kind": "body",
+   "c_art": 3.0,
+   "cost_share": 0.12,
+   "cooldown": 6,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.3
+   },
+   "applies": [
+    {
+     "id": "old_bough_thorn",
+     "kind": "body",
+     "c_tick": 0.15,
+     "duration": 3,
+     "stacks": 1,
+     "chance": 0.69,
+     "x": [
+      8,
+      12,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "enemy": "typical",
+ "unmodelled": [
+  "Thần thức, fortune and heart demon are not read. Divine sense stays at 1.0 on both sides. The ward kit is the typical's."
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "flurry_a",
+    "kind": "body",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   },
+   {
+    "id": "flurry_b",
+    "kind": "qi",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   }
+  ]
+ }
+}

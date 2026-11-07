@@ -1,0 +1,31 @@
+{
+ "slug": "wet-cloth",
+ "name": "The Wet Cloth",
+ "han_viet": "Thấp Cân Đạo",
+ "pitch": "One fee a hit: the needle school's speed buys it nothing but a bill.",
+ "channel": "art",
+ "enabler": "none",
+ "enabler_kind": "none",
+ "identity_piece": "Vinegar Cloth",
+ "identity_id": "ward",
+ "power": "ordinary",
+ "defining_realm": "luyen_khi",
+ "fit": {
+  "fits_today": 4,
+  "needs_key": 4,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Vinegar Cloth",
+  "Cold Bucket",
+  "Dry Click",
+  "Art damage",
+  "Ward strength",
+  "Ward efficiency",
+  "Maximum health"
+ ],
+ "new": [],
+ "questions": [
+  "The kit line in the same cloth beats this file with 3 % of its bar left. Is that close enough to call even?"
+ ]
+}

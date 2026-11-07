@@ -1,0 +1,34 @@
+{
+ "slug": "third-tug",
+ "name": "The Third Tug",
+ "han_viet": "Đệ Tam Khiên",
+ "pitch": "Let the soul assassin tug twice: it empties your pool, wakes your best row, and there is no third tug.",
+ "channel": "art",
+ "enabler": "none",
+ "enabler_kind": "none",
+ "identity_piece": "Sword art speed",
+ "identity_id": "art_speed_pct",
+ "power": "strong",
+ "defining_realm": "nguyen_anh",
+ "fit": {
+  "fits_today": 6,
+  "needs_key": 10,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Sword art speed",
+  "Sword damage",
+  "Short Edge",
+  "Many Forms",
+  "Spent Breath",
+  "Full Title",
+  "Daily Lesson Canon",
+  "Morning Thrust",
+  "Rising Cut",
+  "Falling Cut"
+ ],
+ "new": [],
+ "questions": [
+  "Cut Line's soul hit taking linh lực is what wakes Spent Breath. Is that drain meant to help the victim's low-pool rows?"
+ ]
+}

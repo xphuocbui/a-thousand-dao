@@ -1,0 +1,117 @@
+{
+ "name": "wet-cloth",
+ "realm": "luyen_khi",
+ "stage": 1.0,
+ "n_body": 1.3937,
+ "n_qi": 1.0494,
+ "layers": [
+  0,
+  0,
+  114.4,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.34,
+   "qi": 0.24
+  },
+  "hit_cost_share": 0.04,
+  "ws": 35.8,
+  "we": 34.2
+ },
+ "guard": {
+  "body_guard_pct": 0
+ },
+ "enemy": "typical",
+ "art_speed_pct": 0,
+ "art_cost_pct": 0,
+ "regen_bonus_pct": 0.15,
+ "evade_pct": 0,
+ "accuracy_pct": 0,
+ "conditional_mods": [
+  {
+   "id": "Art damage",
+   "layer": 1,
+   "points": 12.0,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "cold_bucket_a",
+   "kind": "body",
+   "c_art": 1.6,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "cold_bucket_b",
+   "kind": "body",
+   "c_art": 1.6,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "dry_click",
+   "kind": "qi",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "walk": {
+  "Ward strength": {
+   "acupoints": 9,
+   "notables": 1
+  },
+  "Maximum health": {
+   "acupoints": 9,
+   "notables": 3
+  },
+  "Art damage": {
+   "acupoints": 8,
+   "notables": 0
+  },
+  "Ward efficiency": {
+   "acupoints": 1,
+   "notables": 2
+  },
+  "Linh luc regeneration": {
+   "acupoints": 1,
+   "notables": 0
+  }
+ },
+ "outside_walk": {},
+ "unmodelled": [
+  "W at the Map's prices: 28 acupoints, 6 notables, 81.6 W, the counts Thin Shavings walks. The four needles and mail shirt kept (L3 114.4, gear ws and we 17). Rows read at full size. Arts unchanged from their sheets. Thần thức, fortune and heart demon are not read."
+ ]
+}

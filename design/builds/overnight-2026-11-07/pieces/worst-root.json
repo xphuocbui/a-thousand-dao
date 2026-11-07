@@ -1,0 +1,37 @@
+{
+  "slug": "worst-root",
+  "name": "The Worst Root",
+  "han_viet": "Độn Căn Lộ",
+  "pitch": "Your root is so poor that wards cannot notice your hits, so you keep every strike under a line and refuse every cure, because twenty more points of damage would lose you the fight.",
+  "channel": "art",
+  "enabler": "Dull Root",
+  "enabler_kind": "Rule removal",
+  "identity_piece": "Unfelt",
+  "identity_id": "turbid_root",
+  "power": "strong",
+  "defining_realm": "hoa_than",
+  "fit": {"fits_today": 7, "needs_key": 5, "needs_rule": 3},
+  "reused": ["Thrift"],
+  "new": [
+    {"type": "root", "name": "Dull Root", "han_viet": "Độn Căn", "fit": "Needs rule",
+     "effect": "Derived, reads its parents upside down. Needs n_base 3 or more, every element below 50; chance 1. Purity round(100 - 2 x mean purity), 1 to 80. Per element held: one part per hit. Per purity point: the line rises 0.05 % of the target's maximum health, attack_pct -0.5. Own sector as rule 12. Marrow-Cleansing Pills lower it."},
+    {"type": "modifier", "name": "Even Streams", "han_viet": "Phân Lưu", "form": "Conversion", "channel": "any", "layer": "none", "fit": "Needs rule",
+     "effect": "An art hit or basic attack splits into one equal part per base element held, each with that tag.", "second_home": "any many-element build"},
+    {"type": "modifier", "name": "Unfelt", "han_viet": "Bất Giác", "form": "Rule swap", "channel": "any", "layer": "none", "fit": "Needs rule",
+     "effect": "A part under the line, before the ward, skips the ward. At or over it, the ward works as usual.", "second_home": "any build of very small hits"},
+    {"type": "modifier", "name": "Dull Hand", "han_viet": "Độn Thủ", "form": "Trade", "channel": "any", "layer": "L1", "fit": "Needs key",
+     "effect": "attack_pct -0.5 per purity point of the root.", "second_home": "signature"},
+    {"type": "acupoint", "name": "Split Hit Damage", "han_viet": "Phân Kích Thương", "form": "Increased", "channel": "any", "layer": "L1", "fit": "Needs key",
+     "effect": "Small +2, notable +12, on hits with three or more parts.", "second_home": "any Conversion build"},
+    {"type": "notable", "name": "Many Streams", "han_viet": "Đa Lưu", "form": "More", "channel": "art", "layer": "L2", "fit": "Needs key",
+     "effect": "+20 to arts that split.", "second_home": "The Kept Hearth, any Conversion build"},
+    {"type": "art", "name": "The Seven Beads", "han_viet": "Thất Châu", "fit": "Needs key",
+     "effect": "Seven arts: Mộc, Hỏa, Thổ, Kim, Thủy Châu, Niệm Châu, Hồi Hướng. c_art 1.48, cost 0.04, 1 s."},
+    {"type": "technique", "name": "Five Dregs Sutra", "han_viet": "Ngũ Trọc Kinh", "fit": "Needs key", "effect": "Main, Thiên giai, names only the Dull Root, so it runs at the root's purity."}
+  ],
+  "questions": [
+    "Wards are the game's main defence. Is a size test before the ward acceptable, or should ward-skipping stay with ticks and soul?",
+    "A plain root with this stack still beats an ordinary mixed Deity. Is failing that swap acceptable when the plain character could never reach Deity?",
+    "The root forms by chance 1 in 2.174 % of births and lifts the 12.14 % variant rate. Should it be rarer, or be exempt from that target?"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "_doc": "Standard enemy panel, each applied as enemy_overrides on the typical preset at the build's own realm. A campaign tool, not a Combat fixture. All arts are inside the art lint. The panel exists because one test enemy hid that half of the plain lines lose to a per-pulse ward.",
+  "Mixed": {"arts": [
+    {"id": "jab", "kind": "body", "c_art": 1.4, "cost_share": 0.05, "cooldown": 1},
+    {"id": "strike", "kind": "qi", "c_art": 2.2, "cost_share": 0.08, "cooldown": 3},
+    {"id": "heavy", "kind": "body", "c_art": 3.6, "cost_share": 0.12, "cooldown": 6,
+     "guard": {"who": "own", "pool": "qi", "above": 0.3}}]},
+  "Pulse": {"ward": {"model": "per_pulse", "upkeep_share": 0.10}, "arts": [
+    {"id": "jab", "kind": "body", "c_art": 1.4, "cost_share": 0.05, "cooldown": 1},
+    {"id": "strike", "kind": "qi", "c_art": 2.2, "cost_share": 0.08, "cooldown": 3},
+    {"id": "heavy", "kind": "body", "c_art": 3.6, "cost_share": 0.12, "cooldown": 6,
+     "guard": {"who": "own", "pool": "qi", "above": 0.3}}]},
+  "Wall": {"boss_pool_mult": 2, "ward": {"ws": 200, "we": 200}, "guard": {"a_b": 3, "body_guard_pct": 40}, "arts": [
+    {"id": "slow_blow", "kind": "body", "c_art": 2.0, "cost_share": 0.04, "cooldown": 4}]},
+  "Evader": {"evade_pct": 35, "arts": [
+    {"id": "jab", "kind": "body", "c_art": 1.4, "cost_share": 0.05, "cooldown": 1},
+    {"id": "strike", "kind": "qi", "c_art": 2.2, "cost_share": 0.08, "cooldown": 3}]},
+  "Fast": {"arts": [
+    {"id": "flurry_a", "kind": "body", "c_art": 1.5, "cost_share": 0.06, "cooldown": 0.5},
+    {"id": "flurry_b", "kind": "qi", "c_art": 1.5, "cost_share": 0.06, "cooldown": 0.5}]}
+}

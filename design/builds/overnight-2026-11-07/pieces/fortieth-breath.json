@@ -1,0 +1,145 @@
+{
+  "slug": "fortieth-breath",
+  "name": "The Fortieth Breath",
+  "han_viet": "Tứ Thập Tức",
+  "pitch": "A headsman who never raises a hand: every blow they do not throw is added to one cut at the last instant of the fight.",
+  "channel": "art",
+  "enabler": "Withheld Hand",
+  "enabler_kind": "Rule removal",
+  "identity_piece": "Withheld Hand",
+  "identity_id": "withheld_hand",
+  "power": "strong",
+  "defining_realm": "ket_dan",
+  "fit": {
+    "fits_today": 4,
+    "needs_key": 10,
+    "needs_rule": 6
+  },
+  "reused": [
+    "Bare Vessel",
+    "Sustained Note"
+  ],
+  "new": [
+    {
+      "type": "keystone",
+      "name": "Withheld Hand",
+      "han_viet": "Thu Thủ",
+      "form": "Rule swap",
+      "channel": "art, basic",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Your basic attack does not fire. Each time it would, +1.0 c_art to your longest-cooldown art until that art fires.",
+      "second_home": "any fist-refusing or one-art build"
+    },
+    {
+      "type": "modifier",
+      "name": "Bare Rack",
+      "han_viet": "Không Giá",
+      "form": "Per",
+      "channel": "art",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+15 points per empty art slot, on arts.",
+      "second_home": "any few-art build, Empty Hand builds"
+    },
+    {
+      "type": "modifier",
+      "name": "Whetstone Water",
+      "han_viet": "Ma Thạch Thủy",
+      "form": "More",
+      "channel": "art",
+      "layer": "L4",
+      "fit": "Needs key",
+      "effect": "+40 points to Sword arts, a coating applied in preparation.",
+      "second_home": "any Sword build"
+    },
+    {
+      "type": "modifier",
+      "name": "Measured Stroke",
+      "han_viet": "Định Trảm",
+      "form": "Trade",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Arts with an authored cooldown of 20 s or more cannot be evaded and cannot crit.",
+      "second_home": "any very slow art"
+    },
+    {
+      "type": "modifier",
+      "name": "Final Clause",
+      "han_viet": "Mạt Khoản",
+      "form": "Trigger",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Once a fight, if you would go Down, your longest-cooldown art fires in that instant with what it holds.",
+      "second_home": "any build that plans a double knockout"
+    },
+    {
+      "type": "modifier",
+      "name": "Still Water",
+      "han_viet": "Tĩnh Thủy",
+      "form": "Overflow",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Regeneration clipped by a full pool restores health, at half its amount.",
+      "second_home": "any Full Sea build"
+    },
+    {
+      "type": "modifier",
+      "name": "Cut Short",
+      "han_viet": "Đoản Án",
+      "form": "Trade",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "+1 heart demon after the fight per whole second art speed removed from the art's reading.",
+      "second_home": "signature"
+    },
+    {
+      "type": "art",
+      "name": "Last Word",
+      "han_viet": "Mạt Tự",
+      "channel": "art",
+      "fit": "Needs rule",
+      "effect": "One hit, c_art 13.75 plus withheld, cost 0.25, cooldown 40 s, firing at 40.000 at the time limit."
+    },
+    {
+      "type": "ward",
+      "name": "Standing Verdict",
+      "han_viet": "Án Định Hộ",
+      "channel": "any",
+      "fit": "Needs key",
+      "effect": "Per-hit ward, pass 0.30 body and 0.20 qi, hit_cost_share 0.05.",
+      "second_home": "any build that fears big hits"
+    },
+    {
+      "type": "technique",
+      "name": "Forty-Breath Sentence",
+      "han_viet": "Tứ Thập Tức Án Kinh",
+      "fit": "Needs key",
+      "effect": "Main, Thiên giai, Metal. Grants Last Word, Measured Stroke and Final Clause, and seals Standing Post."
+    },
+    {
+      "type": "technique",
+      "name": "Block-Stone Method",
+      "han_viet": "Châm Thạch Công",
+      "fit": "Needs key",
+      "effect": "Body, Thiên giai. t_b 3 and Still Water."
+    },
+    {
+      "type": "cluster",
+      "name": "Standing Post",
+      "han_viet": "Trạm Trang",
+      "fit": "Needs key",
+      "effect": "Theme body refinement, Metal, outer, sealed by a technique, size 10, notables Bare Rack and Withheld Hand as the capability."
+    }
+  ],
+  "questions": [
+    "Should any keystone be able to switch off the always-on basic attack (Combat rule 13)?",
+    "Is a per-hit ward meant to beat a drain ward this badly? The same stats on a common ward die at 31 s to an equal enemy; on Standing Verdict linh lực stays above 90 %.",
+    "Is winning a double knockout through Final Clause acceptable, given that NPCs cannot choose to avoid the killing blow?",
+    "Should the art cooldown range in Formulas A2 reach 40 s?"
+  ]
+}

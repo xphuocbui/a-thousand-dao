@@ -1,0 +1,237 @@
+{
+ "name": "evergreen-kit-only",
+ "realm": "hoa_than",
+ "stage": 1.0,
+ "n_body": 3.1004,
+ "art_cost_pct": 9,
+ "layers": [
+  176,
+  0,
+  40,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "n_qi": 2.738,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 84.1,
+  "we": 114.5
+ },
+ "regen_bonus_pct": 2.9,
+ "conditional_mods": [
+  {
+   "id": "Wood damage",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Green Heart",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Living Wood",
+   "layer": 2,
+   "points": 6,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Living Wood (notable)",
+   "layer": 2,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Sustained Note",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "art"
+   ],
+   "per": "fight_seconds",
+   "points_per": 0.6
+  },
+  {
+   "id": "Sustained Note (notable)",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "art"
+   ],
+   "per": "fight_seconds",
+   "points_per": 1.0
+  },
+  {
+   "id": "Sap Rise",
+   "layer": 2,
+   "points": 11.6,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Steady Thread",
+   "layer": 5,
+   "points": 8,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Steady Thread (notable)",
+   "layer": 5,
+   "points": 12,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Late Leaf",
+   "layer": 5,
+   "points": 12,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "time_above": 4
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "quick_1",
+   "kind": "qi",
+   "c_art": 1.355,
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "quick_2",
+   "kind": "qi",
+   "c_art": 1.355,
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "quick_3",
+   "kind": "qi",
+   "c_art": 1.355,
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "quick_4",
+   "kind": "qi",
+   "c_art": 1.355,
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "quick_5",
+   "kind": "qi",
+   "c_art": 1.355,
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "quick_6",
+   "kind": "qi",
+   "c_art": 1.355,
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "quick_7",
+   "kind": "qi",
+   "c_art": 1.355,
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "enemy": "typical",
+ "unmodelled": [
+  "Second-way control for plain-vs-exotic.md. W at the Map's prices: acupoint 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Meridian Map rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
+  "The first line's rows with the second line's arts."
+ ]
+}

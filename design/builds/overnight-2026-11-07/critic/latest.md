@@ -1,0 +1,78 @@
+# Critic: Waves 4 and 5
+
+Basis: the 14 named sheets in full, The Mortal's head and The Heir's head (both landed while I worked, not yet in the index), 3 Đạo in full and the other 4 by keystone and takers, ledger recounted from `pieces/`, catalogue, dao.md rules 1 to 12, Meridian Map rules 1 and 21, 12 new plug-ins.
+**Biggest finding:** the rows are good and the numbers are honest, but the eight paths win one fight. Give the mixed enemy a per-pulse ward and half of them lose. That is the next wave's first job.
+
+## 1. Verification
+
+- **44 quoted results re-run on 15 sheets, 0 mismatches.** Long Firing 5, Transplant 5, Evergreen 4, One Ladle 4, Thirteenth Summer 4, Grindstone, Worst Root, Pill Glutton, Puppeteer and Held Door 3 each, Fierce Fire and Second Sickness 2, Daily Lesson, One Long Word and The Mortal 1. **The Heir's chain is not verified:** its plug-in is read, its 23 variants are not run.
+- **Plug-ins: no cheating.** Read in full: `grafted_root`, `turbid_root`, `buried_years`, `dose_timeline`, `borne_body`, `twin_ward`, `in_step`, `widening_wound`, `gorged`, `mortal_body`, `soul_x`, `the_line`. Each acts only for a side that asks. The file sets `buried_years` to the sheet's 0.2, not the plug-in's 0.5 default, and the graft's 2 purity a share. `the_line` prints `dread_curse`, which nothing sets: cosmetic.
+- **One false check.** Long Firing's Validity PASS is wrong: Stone Ward's `upkeep_share` is 0.125 and Combat's range is 0 to 0.10 (the Formulas D table). It costs the build, not helps it: at 0.10 the same 8 s on 15 %, pool 37 % not 23 %. Fix the number.
+- **Two stale lines.** Evergreen's text says regeneration 5.9 %, Sap Rise +15.6 and L2 53.6. Its rows and every fight file give 4.9 %, +11.6 and 49.6, so the results stand and the text does not. Fierce Fire, Metal and Wood say "any purity, nothing reads it". Their rows sit in a sector, and Map rule 21 scales them by 0.5 + purity / 100. Water and Earth state purity 50. Pick one.
+- **Disclosed, but easy to misread in the morning.** Ladle's and Evergreen's WWW in the index is one Deity enemy plus suppression. Puppeteer's "on 90 %" is the Guardian's bar with the Novice already dead. Daily Lesson's NO EFFECT is a stand-in id, and the brief says `null`.
+- **Probes** are one-key edits to saved files, in my own scratch, not in `variants/`. "Per-pulse enemy" is `enemy_overrides.ward = {model per_pulse, upkeep_share 0.125}`, keeping their ws and we. "Stone Ward" is the same on your own ward. A sheet that quotes one must save its own file.
+
+## 2. Do the Plain Stacks work as a tree?
+
+**Verdict: as rows, yes. As a map, half. As fights, no.**
+
+- **Plain? Mostly.** 232 rows, 0 rule asks, 60 Fits today, 172 Needs key, and the form spread I asked for: Increased 139, Conditional 40, Per 24, More 21. Wave 3 had 3 Increased. This is the backbone the user wanted.
+- **Disguised bespoke, three kinds.** Thresholds read off the sheet's own arts: Long Flight 2 s, Full Bellows 2.5 s, Settled Weight and One Thought 3 s, Thin Stream 5 %. Unbroken Surface (above 5 % linh lực) is never false in Ladle's home fight, so it is a free +36 L5 in a Conditional's coat. And the kit: "no enabler" is untrue of Long Firing (`common-ward` dies at 6 s), and Daily Lesson's swords and Grindstone's needles carry L3 117 and 114, more than the road. `plain-attack-mixed` wins Daily Lesson's fight at the same time on the same health.
+- **One template?** The trunks are, and should be: +2/+12, −1/−6, +1/+6 is the catalogue's "any one tag" row, and retagging Steady Thread and Stoked is correct. The forks differ in kit. **What is one template is the fight:** in 6 of 8 sheets the signature moment is the enemy's pool reading 0, and six rows pay for it (below).
+- **The proof.** All 16 lines, mixed enemy on a per-pulse ward. 14 won before and **7 now lose:** Fierce Fire (3 s, enemy on 56 %), Long (7 s, 13 %), Light (7 s, 12 %), Soaking (6 s, 39 %), Cold (5 s, 10 %), Crown (6 s, 27 %), Ore (6 s, 4 %). Flown, Held and Point do not care. Kiln holds, Edge holds on 4 %, and at the legal 0.10 Edge loses too. Blood (10 s on 36 %) and Breath (9.5 s on 42 %) get **better**. So one enemy makes the paths feel different, and nobody was shown it.
+- **Rival lines.** Real: Sword (the best table on any sheet), Curse, Earth, Fire. Half: Poison (Breath wins 2, Blood 1, and the reason is Bare Vessel at +25), Water (Cold's only job is the fast killer, and Soaking on a Stone Ward beats that too). Weak: Metal (Point is 4 rows rented from Curse, and the Edge's own crit rows move nothing: `deep-bite` 21 %, `hairs-breadth` 21 %), Wood (Bramble wins only the Mountain, an enemy with no arts).
+- **Sizes.** Catalogue sizes held, at 2.2 to 2.6 W a node everywhere. Outliers: Bare Vessel, +25 and +30 where the paths' other Conditional notables are +10 to +15. Wasting +0.2 and Thin Ward +0.05 a point, where Held Water, Follow Through and Worn Slope, reading the same kind of bar, are +0.12 and +0.02. Sap Rise +4 against Spring Head +3, on different bases. **The lengths do not compare:** 30, 34, 55, 75 and 110 nodes at five realms. Water gets 110 and Wood 75 at the same Deity. And no path pays road tax: 430 of 772 visible acupoints are generic road, leaving about 68 cluster acupoints a sector. A real 30-node walk holds 10 or more nodes of nothing. For the rework, but say so.
+- **One row, not several.** Same effect, two names: Deep Drink and Spring Vein, Slow to Lift and Long Memory, Between Breaths and Hurrying Word (each pair inside one path, as is Full Trunk taken twice), Old Bark and Tough Grain, Catching Flame and Catching Thorn, Burnt Hands and Tempered, Marked Target and Nibbling Word. Same idea: Bare Vessel, Open Door, Thin Ward, Thinning Ward, Wasting and Unbroken Sentence are one "their pool is low" family (Bạc Hộ names two of them). Spring Head and Sap Rise. Ore Vein and Load-Bearing. Deep Coals and Deep Thorn. One heavy line (3 s) and one quick line (under 2 s) replace all the thresholds.
+- **Would a player find a mix?** Yes, and here is the structure nobody noticed. Water and Earth forked at their sector borders, and every other rival line already points the same way. Each border has one natural theme, and the near-duplicates live on it:
+
+**Wood and Fire:** Bramble, Slow Fire; stacks and ticks (Kindling, Stoked). **Fire and Earth:** Fierce Fire, Kiln; heavy arts (Full Bellows, Settled Weight). **Earth and Metal:** Ore, Grindstone's trunk; gear (Weapon attack, Ore Vein, Load-Bearing). **Metal and Water:** Edge, Cold; crit (Hair's Breadth, Hàn Mang, Cold Dew). **Water and Wood:** Soaking, Crown; income (Spring Head, Sap Rise). The Map already gives each border 2 bridge and 3 gap clusters. Sword, Poison and Curse are form paths that cross the wheel. This is the shape for the rework.
+
+**The best hybrid nobody built: The Banked Well (Đê Tỉnh).** Water's Soaking Line on Earth's Stone Ward, the two elements the wheel says fight, joined by a ward record and not by the tree. The Ladle's sheet says only the ward spends more than comes in, and Stone Ward makes that one leak a fixed line. One key changed, no node moved. Mixed: same 4.5 s on 50 %, pool 70 % not 28 %. **Both of its stated counters flip:** fast killer, dead with the enemy on 15 %, becomes a win at 4.5 s on 21 %; deep pool, dead on 20 %, becomes 7.5 s on 5 %. Evader 7.5 s becomes 6 s. Ward efficiency now cuts upkeep and Held Water stays full. At the legal 0.10 upkeep is 4.7 % a pulse against 5.2 % income, which Held Door says means the ward can never fall. Add Crown's regeneration rows and Sustained Note has a fight with no end. Its counter is the same ward: 7 s, enemy on 35 %.
+
+## 3. Tired, do not repeat
+
+**Fixed, thanks:** the smug chronicle is gone, and I asked for sincerity. "The numbers changed the design" is nearly gone. The counted rule is merged.
+
+- **The new formula is the humble frightened tradesperson who goes back to the chore.** Afraid, shaking or terrified in 7 of 14 legends, "still" in 7, a morning routine in 4, hills in 5, a kiln in 3, "sorry" in 2. Hòa lights the kiln, Cựu Minh climbs down to the well, Thanh goes back to the terrace, Tịnh Căn lights the lamp, Bùi Cẩn checks the doors. One or two were moving. Six is a mould. Next wave: someone joyful, someone proud, someone wrong who never learns.
+- **Eight different walls.** The Wall, Wall, Deep, Ward wall, Bulwark, Wall, Wall, Mountain: eight sizes, so no fork compares with another. Stop inventing them.
+- **The remove-five test has done its job, and I am retiring it.** Second Sickness says its base stats were scanned to pass, and One Long Word that it is "deliberately close". The test rewards marginal fights. A plain path is proved by a panel of enemies now.
+- **Bare Vessel, 11 users.** None without a saved removal run. Crit rows on any road until someone shows one mattering. The enemy's own kit, renamed, as a build's arts: twice was a good control, a third is a dodge.
+- **Standing rules kept:** one modifier from another sheet used unplanned and proved; one enemy with a single cheap art; one foreseen fight away from home; remove pairs together.
+
+## 4. Missing
+
+- **Ledger:** modifier 170, art 148, acupoint 116, notable 116, technique 47, concept 30, cluster 24, enabler 20, Đạo 11, artifact 10, pill 10, keystone 8, ward 7, root 6, formation 6, beast 4, branch 4, **talisman 3.** 44 builds merged, 46 sheets. Since wave 3: +232 plain rows, +51 arts, +15 techniques, +7 pills, +4 wards, +3 roots, +3 beasts. Wave 3's 0 notables is fixed.
+- **Thinnest:** talisman 3, none new tonight. Real beasts 1, since three of the 4 are puppets. Formation 6. Roots are 3 engines and 3 stat bundles. The new three are the night's best answer to "hell even linh can".
+- **Modifiers:** 86 of 170 still need a rule. The Heir adds 15 asks (5 new) and The Mortal 7 (3 new). Layers on plain rows: L3 7, L4 1. Nothing plain on escape, talismans, formations or soul.
+- **Seeds untouched:** past life (68, The Heir is near it), healing (70), scholar (71, the tree exists but no sheet), fields (66). No proud, joyful or wicked lead.
+- **Đạo: 12 trees at node level, 0 sketches, and the 7 new ones were never fought.** Each says so, which is right. Against dao.md: rule 1 breaks (asked). Rule 3 holds art nodes on hold: Chance 3, Examination 2, Illusion 2, Poison 1, Keeping 1, all marked, none shippable. Rule 5: Chance's fortune is not a legal requirement, and Examination's "any technique" is barely one, so it enters almost every glimpse offer. Rule 12: Poison threw out pierce as "a line any Đạo could hold", then kept `art_speed_pct`, and Herd opens on it too, where it reads as nothing to do with herding. `linh_luc_regen_pct` sits in 3 trees, `khi_huyet_pct` and `body_guard_pct` in 3. Overheat in two trees is flagged and open. Lint: 65 to 68 % of the W is tier credit, so a pass there is close to a guess.
+- **Is the two-keystone choice worth asking for? Yes, but tonight's evidence is thin.** It was my order. It is the best writing in the trees: Slip or Fixed Number, First on the List or Peach and Plum, the animal stays or was always stock. The ask is one sentence, rule 8 already forbids refunds, NPCs are untouched, and every lint passes both ways. But **0 of 7 second keystones has run a fight,** Lodged Poison has no taker, and most takers are judgements. Ask it once for all seven, and prove two first. The user should also hear the cheap alternative: a rim keystone needs no rule, and is simply not exclusive.
+
+## 5. Best 3 since wave 3, and weakest 2
+
+1. **The Thirteenth Summer.** A root that changes a rule, as ordered, and the first build to obey Forum Build's sentence: `paid 576 s`, `owed 0 s`. The sheet's best line is a child asking whether anyone fed the dog. Nobody would have thought of it, and a spade is the counter.
+2. **The Worst Root.** "Add 20 points of damage and they lose." A pill offered out of pity is a threat, a foreseen fight is worse than a blind one, and it keeps its own failed swap test in the sheet.
+3. **The Transplant.** The clock table is the campaign's best page: one root eats every Wood root in the world by year 770. Purity 75 wins on 79 %, purity 30 dies, and nothing else changed.
+
+Honourable mentions: Held Door's rule 22 report, the most useful table of the wave, and Daily Lesson, the model for every Plain path. The Mortal's "they are 58 when the time runs out" is lovely.
+
+- **Weakest, Grindstone.** The needles do the work, the Edge has no job, and the Point is the Curse path in a Metal coat. Its best idea is a question: four needles beat all armour per point of sense.
+- **Weakest, Evergreen.** "The health bar lies" is true of six paths, not one. Its fork is a fight it invented, three of its notables are other rows renamed, and two are taken twice. Keep the regeneration trunk for the Water and Wood border.
+
+## 6. New rule discoveries (for the user; none is a reason to shave a build)
+
+1. **The ward model is the largest unpriced number in the game.** On your own side Stone Ward helps 6 of 7 paths, even at 0.125. On the enemy it ends half of them. Nothing prices the model. Every `vs mixed` column tonight tested drain wards only.
+2. **Regeneration above upkeep makes a ward permanent,** and only a regen-blocking curse ends it. Reachable with plain rows.
+3. **The cheapest art is the best art.** Ladle, Daily Lesson and Evergreen each ask it: cost 0.04 at a short cooldown beats every slow kit, because first firing equals cooldown.
+4. **An empty L1 is the best first buy in the game,** and the 200 soft cap is the only thing forcing variety (Fire, Earth, Wood each ask). If that cap moves, every road's reason to spread goes.
+5. **Crit at catalogue size is a trap row.** Soft in Fire, Sword and Metal. `damage-only-mixed` beats the walked road. A player will find that.
+6. **The Five Phases barely touch a fight.** Only through `pass_tag`, and element on a hit is unmodelled, so about ten overcoming and ward-against rows are unrun. Is Metal meant to beat Wood at all?
+7. **The lint family has a third member.** Forum Build (a wait deleted), Held Door (a duration deleted), Thirteenth Summer (past A2's 30 s and 12, paid by design). One sentence: a lint reads what actually runs.
+8. **Small rulings wanted.** How a percentage rounds on whole-pulse durations (three sheets; +14 % buys a whole pulse, and most duration rows do nothing). Is "no linh lực" Bare Vessel's 5 %? Does a curse recast refresh or stack? The Dull Root would be the commonest variant, against Formulas D's 12.14 %.
+
+## 7. Orders for the next wave
+
+1. **The panel first (top priority).** Orchestrator: add four standard enemies to `_tools/`: the mixed enemy on a per-pulse ward at 0.10, one Wall, one Evader, one Fast. Run all 16 Plain lines through them into one table for the morning, and give each losing main line a second way to win, plain rows only.
+2. **Three hybrids across the borders, one agent each:** The Banked Well (above); Curse crossed with Poison's Breath, to break a per-pulse ward by starving what pays it; Wood's Bramble with Slow Fire, two sicknesses that truly feed each other. Each must beat the panel, and prove what neither parent can.
+3. **Hunters, plain rows and existing wards only:** one build each to kill Cut Line, Full Price and The Banked Well, with a named line of play, at their own realm. Someone proud or joyful, and nobody frightened.
+4. **One librarian, then the thin stuff:** fold the Section 2 duplicates into a single wheel page with the five borders, and fix Bare Vessel, Stone Ward's 0.125 and the purity line. Then one talisman build with 5 or more talismans, and prove First on the List and Lodged Poison in a fight, so the keystone ask has evidence.

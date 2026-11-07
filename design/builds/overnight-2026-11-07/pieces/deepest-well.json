@@ -1,0 +1,171 @@
+{
+  "slug": "deepest-well",
+  "name": "The Deepest Well",
+  "han_viet": "Thâm Tỉnh Đạo",
+  "pitch": "Everything their ward pays runs down into your pool, and the moment your pool crosses your line you tip all of it back at them: wait for a fuller bucket against the wrong enemy and you die holding it.",
+  "channel": "ward drain",
+  "enabler": "Water Table",
+  "enabler_kind": "Loop opener",
+  "identity_piece": "Water Table",
+  "identity_id": "water_table",
+  "power": "strong",
+  "defining_realm": "truc_co",
+  "fit": {
+    "fits_today": 5,
+    "needs_key": 12,
+    "needs_rule": 5
+  },
+  "reused": [
+    "Rush Order",
+    "Bulk Order",
+    "Longer Breath",
+    "Thrift"
+  ],
+  "new": [
+    {
+      "type": "enabler",
+      "name": "Water Table",
+      "han_viet": "Thủy Mạch",
+      "form": "Trigger",
+      "channel": "ward drain",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Of the linh lực a target's ward pays for your hit, you gain 0.36, up to your maximum. Closes: your linh lực does not regenerate in a fight.",
+      "second_home": "any leech or linh lực thief"
+    },
+    {
+      "type": "modifier",
+      "name": "Head of Water",
+      "han_viet": "Thủy Đầu",
+      "form": "Rule swap",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "An art may pay everything above a keep line it names; its coefficient is the art lint's value for what it paid.",
+      "second_home": "any one-blow burst build"
+    },
+    {
+      "type": "modifier",
+      "name": "Long Rope",
+      "han_viet": "Trường Sách",
+      "form": "More",
+      "channel": "art",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+40 points to arts with the rope form.",
+      "second_home": "any chain or whip build"
+    },
+    {
+      "type": "modifier",
+      "name": "Rich Seam",
+      "han_viet": "Phú Mạch",
+      "form": "Per",
+      "channel": "art",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+0.5 points to arts per 1 % the target's maximum linh lực exceeds yours, up to +60.",
+      "second_home": "any realm-crosser, any boss hunter"
+    },
+    {
+      "type": "modifier",
+      "name": "Bored Shaft",
+      "han_viet": "Toản Tỉnh",
+      "form": "More",
+      "channel": "any",
+      "layer": "L4",
+      "fit": "Needs key",
+      "effect": "Foreseen fights: +25 points to all hits and +0.10 to Water Table, from a shaft sunk at the place of the fight.",
+      "second_home": "any fighter who picks the ground"
+    },
+    {
+      "type": "modifier",
+      "name": "Sweet Ward",
+      "han_viet": "Cam Hộ",
+      "form": "Trade",
+      "channel": "ward drain",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A curse may strengthen a ward: pass_raise -0.4, so it blocks more and pays for it.",
+      "second_home": "a support who wards an ally"
+    },
+    {
+      "type": "modifier",
+      "name": "Scraping the Well",
+      "han_viet": "Quát Tỉnh",
+      "form": "Overflow",
+      "channel": "ward drain",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "When a drain ward's pool cannot pay what a hit asks, the unpaid linh lực lands on health, past body guard.",
+      "second_home": "any ward-breaker"
+    },
+    {
+      "type": "root",
+      "name": "Salt",
+      "han_viet": "Diêm",
+      "fit": "Needs key",
+      "effect": "Transmutation of Earth. Per purity: +0.20 ward_draw_pct, +0.15 ward_efficiency_pct, -0.10 tam_ma_resist_pct. 15 W at purity 50, 30 W at 100."
+    },
+    {
+      "type": "technique",
+      "name": "Deep Bore Sutra",
+      "han_viet": "Thâm Toản Kinh",
+      "fit": "Needs key",
+      "effect": "Main, Địa giai, Earth and Water. Carries Water Table, Scraping the Well, Head of Water, five arts, and seals Dry Courses."
+    },
+    {
+      "type": "art",
+      "name": "Salted Well",
+      "han_viet": "Diêm Tỉnh",
+      "fit": "Needs rule",
+      "effect": "Curse, cost 0.09, 2 s, Rush Order: 3 pulses of drain raise +50 % and pass_raise -0.4."
+    },
+    {
+      "type": "art",
+      "name": "Lowered Bucket",
+      "han_viet": "Cấp Thủy",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 1.6, cost 0.05, 1 s."
+    },
+    {
+      "type": "art",
+      "name": "Cold Bucket",
+      "han_viet": "Hàn Tuyền",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 1.6, cost 0.05, 1 s."
+    },
+    {
+      "type": "art",
+      "name": "The Whole Bucket",
+      "han_viet": "Khuynh Tỉnh",
+      "fit": "Needs rule",
+      "effect": "Qi hit, pays all above its keep line, 2 s, guarded on own linh lực above your line. c_art is the lint value of what it paid."
+    },
+    {
+      "type": "art",
+      "name": "Drawn Rope",
+      "han_viet": "Khiên Sách",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 2.46, cost 0.08, 3 s."
+    },
+    {
+      "type": "formation",
+      "name": "Bored Shaft Array",
+      "han_viet": "Toản Tỉnh Trận",
+      "fit": "Needs key",
+      "effect": "Foreseen only. Carries Bored Shaft. Ruins the ground for ten seasons."
+    },
+    {
+      "type": "cluster",
+      "name": "Dry Courses",
+      "han_viet": "Can Mạch",
+      "fit": "Needs key",
+      "effect": "Linh lực and wards, Earth, outer, sealed by a technique, size 9. Notables Thrift, Rich Seam, Longer Breath."
+    }
+  ],
+  "questions": [
+    "Should a guard line be a number a player tunes, or a few set choices?",
+    "Should a curse ever be allowed to make a ward stronger?",
+    "A drain ward's resisted hit costs it more linh lực than an unresisted one, so strength can run a ward dry. Is that intended?"
+  ]
+}

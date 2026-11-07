@@ -1,0 +1,188 @@
+{
+ "name": "kept-hearth",
+ "realm": "nguyen_anh",
+ "n_body": 2.4,
+ "n_qi": 2.2,
+ "layers": [
+  160,
+  0,
+  80,
+  30,
+  0
+ ],
+ "art_cost_pct": 10,
+ "regen_bonus_pct": 1,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 70,
+  "we": 70
+ },
+ "guard": {
+  "body_guard_pct": 30
+ },
+ "rules": [
+  "element_tags",
+  "turning_phase"
+ ],
+ "assumed_enemy_element": "hoa",
+ "ward_phase": "kim",
+ "fed": {
+  "pass_tag": -0.25,
+  "refund": 0.5,
+  "clipped_heals": 0.5
+ },
+ "turning_phase": {
+  "pre_read": true
+ },
+ "conv": [
+  1.0,
+  1.0
+ ],
+ "ring_flat": 0.2,
+ "tag_mods": [
+  {
+   "id": "Carried Tags",
+   "layer": 2,
+   "per_tag": 15
+  }
+ ],
+ "arts": [
+  {
+   "id": "set_a_place",
+   "kind": "qi",
+   "element": "moc",
+   "chain": [
+    "hoa",
+    "tho"
+   ],
+   "c_art": 2.2,
+   "cost_share": 0.1,
+   "cooldown": 1,
+   "x": [
+    0,
+    75,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "bank_the_fire",
+   "kind": "body",
+   "element": "moc",
+   "chain": [
+    "hoa",
+    "tho"
+   ],
+   "c_art": 2.45,
+   "cost_share": 0.1,
+   "cooldown": 2,
+   "x": [
+    0,
+    75,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "turn_the_pillow",
+   "kind": "qi",
+   "element": "moc",
+   "chain": [
+    "hoa",
+    "tho"
+   ],
+   "c_art": 2.8,
+   "cost_share": 0.11,
+   "cooldown": 3,
+   "x": [
+    0,
+    75,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "turn_down_the_lamp",
+   "kind": "qi",
+   "element": "moc",
+   "chain": [
+    "hoa",
+    "tho"
+   ],
+   "c_art": 5.25,
+   "cost_share": 0.25,
+   "cooldown": 6,
+   "x": [
+    0,
+    75,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "hearth_ash",
+   "kind": "qi",
+   "c_art": 0,
+   "cost_share": 0,
+   "cooldown": 1,
+   "stock": 1,
+   "refund_qi_share": 0.15,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "below": 0.45
+   }
+  }
+ ],
+ "unmodelled": [
+  "assumed_enemy_element names the element of an enemy file that has none: the reference enemies carry no tags, so Fire is assumed unless the file says otherwise",
+  "The file's authored chain Wood, Fire, Earth and ward phase Metal are what the build runs before it has read anything, and all it has with turning_phase removed",
+  "One Ring (Redirect) is folded into layers[0]: one bought element line counted for all five",
+  "Ring's Weakest is 45 of the 75 in each art's x: lowest purity 30 at 1.5 points each. It reads the root at compile time",
+  "Slot 6, the escape art Cold Road, is not in the file: the calculator has no escape",
+  "Insult (the Turned Ring's node) reads a negative pass_tag on the chain's middle tag. No reference ward has one, so it is untested",
+  "The harmony cost (x0.60) on auxiliary arts acts on technique bonuses outside the fight"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,124 @@
+{
+ "slug": "welcome-bath",
+ "name": "The Welcome Bath",
+ "han_viet": "Tẩy Trần Đạo",
+ "pitch": "A Qi Refining bath attendant washes your layers off and wears them: she beats the top-end in 2 seconds and takes 4 to beat an ordinary person.",
+ "channel": "art",
+ "enabler": "Wash the Dust",
+ "enabler_kind": "New channel",
+ "identity_piece": "Washing",
+ "identity_id": "washing",
+ "power": "legend against the rich, ordinary against the poor",
+ "defining_realm": "luyen_khi",
+ "fit": {
+  "fits_today": 6,
+  "needs_key": 5,
+  "needs_rule": 4
+ },
+ "reused": [
+  "Vinegar Cloth",
+  "Accuracy",
+  "Damage",
+  "Maximum health",
+  "Maximum linh lực",
+  "Ward strength",
+  "Ward efficiency"
+ ],
+ "new": [
+  {
+   "type": "enabler",
+   "name": "Wash the Dust",
+   "han_viet": "Tẩy Trần",
+   "fit": "Needs rule",
+   "effect": "A cleanse aimed at the target. Closes your own L2 to L5."
+  },
+  {
+   "type": "modifier",
+   "name": "Washing",
+   "han_viet": "Tẩy",
+   "form": "Rule swap",
+   "channel": "art",
+   "layer": "L2-L5",
+   "fit": "Needs rule",
+   "effect": "An art with the wash tag zeroes the target's largest of L2 to L5 for the fight, and you add 50 % of it to the same layer. L1 never washes.",
+   "second_home": "any thief"
+  },
+  {
+   "type": "modifier",
+   "name": "Towel Only",
+   "han_viet": "Đơn Cân",
+   "form": "Trade",
+   "channel": "any",
+   "layer": "L2-L5",
+   "fit": "Needs rule",
+   "effect": "Your own L2 to L5 count for nothing.",
+   "second_home": "any build that lives on borrowed layers"
+  },
+  {
+   "type": "modifier",
+   "name": "Both Hands",
+   "han_viet": "Song Thủ",
+   "form": "Timing",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "The first firing of a fight takes two layers.",
+   "second_home": "any wash, any first firing"
+  },
+  {
+   "type": "notable",
+   "name": "Good Fit",
+   "han_viet": "Vừa Người",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+10 % of washed points kept.",
+   "second_home": "any thief"
+  },
+  {
+   "type": "modifier",
+   "name": "Down to the Skin",
+   "han_viet": "Thoát Y",
+   "form": "Overflow",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "With no layer left, a wash takes 40 ward strength and efficiency, and you keep your share.",
+   "second_home": "any ward breaker"
+  },
+  {
+   "type": "technique",
+   "name": "Attendant's Manual",
+   "han_viet": "Dục Sự Pháp",
+   "fit": "Needs key",
+   "effect": "Main, tier 1, names Water, no bonuses, gives three arts."
+  },
+  {
+   "type": "art",
+   "name": "Hot Towel",
+   "han_viet": "Nhiệt Cân",
+   "fit": "Needs key",
+   "effect": "Qi, c_art 2.2, cost 0.08, 2 s."
+  },
+  {
+   "type": "art",
+   "name": "Bathwater",
+   "han_viet": "Dục Thủy",
+   "fit": "Needs key",
+   "effect": "Body, c_art 3.1, cost 0.12, 4 s."
+  },
+  {
+   "type": "art",
+   "name": "Wash the Dust",
+   "han_viet": "Tẩy Trần",
+   "fit": "Needs rule",
+   "effect": "Body, cleanse, wash, c_art 1.3, cost 0.04, 0.5 s."
+  }
+ ],
+ "questions": [
+  "Rule 2 gives this to NPCs. A generated attendant strips a player's whole stack. Should status resistance or a realm gap bound the share?",
+  "The top-end anchors sit in L2 to L5, so one wash art inverts the ladder. Is a build meant to be a hard counter to being rich?",
+  "Who opens a fight decided this build until Both Hands. Is rule 10's requesting side meant to matter that much?"
+ ]
+}

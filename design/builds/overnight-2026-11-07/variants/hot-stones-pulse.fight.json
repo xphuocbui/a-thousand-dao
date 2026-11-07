@@ -1,0 +1,173 @@
+{
+ "name": "hot-stones",
+ "realm": "ket_dan",
+ "stage": 1.0,
+ "layers": [
+  0,
+  0,
+  40,
+  20,
+  0
+ ],
+ "n_body": 1.749,
+ "n_qi": 1.4564,
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.1,
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "ws": 47.85,
+  "we": 47.85
+ },
+ "guard": {
+  "a_b": 0,
+  "t_b": 2,
+  "body_guard_pct": 0
+ },
+ "regen_bonus_pct": 1.6,
+ "first_firing_pct": 14,
+ "divine_sense": 1.0,
+ "arts": [
+  {
+   "id": "lamp_1",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  },
+  {
+   "id": "lamp_2",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  },
+  {
+   "id": "lamp_3",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  },
+  {
+   "id": "lamp_4",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  },
+  {
+   "id": "lamp_5",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  }
+ ],
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Fire damage",
+   "layer": 1,
+   "points": 30,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Full Bellows",
+   "layer": 2,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "ring_mods": [
+  {
+   "id": "Earth damage",
+   "layer": 1,
+   "points": 42,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Settled Weight",
+   "layer": 2,
+   "points": 16,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Unbroken Glaze",
+   "layer": 5,
+   "points": 44,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "above": 0.25
+   }
+  }
+ ],
+ "rules": [
+  "first_firing",
+  "ring_step"
+ ],
+ "unmodelled": [
+  "Ring Step is written as ring_mods: the Earth rows reach the lamps only through it, and a whole-hit conversion keeps both tag families, so no parts are needed",
+  "Ward strength against one element is not run: the calculator has no element on a hit",
+  "Fortune and thought are not read"
+ ],
+ "enemy_overrides": {
+  "ward": {
+   "model": "per_pulse",
+   "upkeep_share": 0.1
+  },
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

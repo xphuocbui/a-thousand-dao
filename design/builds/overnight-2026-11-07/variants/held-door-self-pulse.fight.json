@@ -1,0 +1,177 @@
+{
+ "name": "held-door",
+ "realm": "luyen_khi",
+ "stage": 1.0,
+ "n_body": 1.08,
+ "n_qi": 1.4,
+ "layers": [
+  0,
+  0,
+  15,
+  0,
+  0
+ ],
+ "regen_bonus_pct": 1.0,
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.34,
+   "qi": 0.24
+  },
+  "hit_cost_share": 0.04,
+  "ws": 50,
+  "we": 50
+ },
+ "guard": {
+  "a_b": 0.2,
+  "t_b": 0,
+  "body_guard_pct": 10
+ },
+ "basic": {
+  "c": 1.0,
+  "kind": "body"
+ },
+ "rules": [
+  "twin_ward",
+  "widening_wound"
+ ],
+ "widening_wound": {
+  "share": 0.5,
+  "max": 0.15
+ },
+ "twin_ward": {
+  "place": "self",
+  "ward": {
+   "model": "per_pulse",
+   "pass": {
+    "body": 0.55,
+    "qi": 0.55
+   },
+   "upkeep_share": 0.03
+  },
+  "half": "block"
+ },
+ "arts": [
+  {
+   "id": "sweat",
+   "kind": "qi",
+   "c_art": 0.6,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.6
+   },
+   "applies": [
+    {
+     "id": "sweat",
+     "kind": "body",
+     "c_tick": 0.5,
+     "duration": 2,
+     "stacks": 1,
+     "chance": 1.0,
+     "x": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chill",
+   "kind": "qi",
+   "c_art": 0.6,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.6
+   },
+   "applies": [
+    {
+     "id": "chill",
+     "kind": "qi",
+     "c_tick": 0.5,
+     "duration": 2,
+     "stacks": 1,
+     "chance": 1.0,
+     "x": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "flux",
+   "kind": "qi",
+   "c_art": 0.6,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.6
+   },
+   "applies": [
+    {
+     "id": "flux",
+     "kind": "body",
+     "c_tick": 0.5,
+     "duration": 2,
+     "stacks": 1,
+     "chance": 1.0,
+     "x": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "unmodelled": [
+  "The room's rule that an enemy escape channel cannot complete is not exercised: this enemy never flees",
+  "Formulas K's rating profile reads one ward; how Twin Wards rates in a mass battle is not modelled"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

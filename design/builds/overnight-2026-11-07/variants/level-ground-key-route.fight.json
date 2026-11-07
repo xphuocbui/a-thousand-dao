@@ -1,0 +1,116 @@
+{
+ "name": "level-ground",
+ "realm": "hoa_than",
+ "stage": 1.0,
+ "n_body": 3.34177,
+ "n_qi": 3.0,
+ "layers": [
+  209,
+  40,
+  40,
+  255,
+  0
+ ],
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.42,
+   "qi": 0.28
+  },
+  "drain": {
+   "body": 0.72,
+   "qi": 1.08
+  },
+  "ws": 120,
+  "we": 120
+ },
+ "guard": {
+  "a_b": 3.0,
+  "t_b": 1.0,
+  "body_guard_pct": 40
+ },
+ "rules": [
+  "laid_ground"
+ ],
+ "laid_formation": true,
+ "situation": "foreseen",
+ "standing": true,
+ "ground_law": {
+  "name": "Level Ground",
+  "caps": {
+   "2": 40,
+   "3": 40,
+   "5": 10
+  },
+  "foreign_l4": 20
+ },
+ "standing_water": true,
+ "old_bund": 1.0,
+ "deep_bund": 0.01,
+ "field_walls": 150,
+ "arts": [
+  {
+   "id": "headrace",
+   "kind": "body",
+   "c_art": 1.75,
+   "cost_share": 0.03,
+   "cooldown": 3,
+   "laid": true
+  },
+  {
+   "id": "rising_water",
+   "kind": "qi",
+   "c_art": 2.45,
+   "cost_share": 0.08,
+   "cooldown": 3,
+   "laid": true
+  },
+  {
+   "id": "furrow",
+   "kind": "qi",
+   "c_art": 1.75,
+   "cost_share": 0.03,
+   "cooldown": 3,
+   "laid": true
+  },
+  {
+   "id": "ditch",
+   "kind": "body",
+   "c_art": 1.75,
+   "cost_share": 0.03,
+   "cooldown": 3,
+   "laid": true
+  },
+  {
+   "id": "seep",
+   "kind": "qi",
+   "c_art": 1.75,
+   "cost_share": 0.03,
+   "cooldown": 3,
+   "laid": true
+  },
+  {
+   "id": "hoe_stroke",
+   "kind": "body",
+   "c_art": 2.45,
+   "cost_share": 0.08,
+   "cooldown": 3
+  },
+  {
+   "id": "walk_home",
+   "cost_share": 0.1,
+   "cooldown": 5,
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "below": 0.3
+   }
+  }
+ ],
+ "enemy": "top_end",
+ "unmodelled": [
+  "walk_home is an escape art: it pays its cost here and never rolls",
+  "Upkeep, the years a law takes to lay, and Untended Field are outside the fight",
+  "Deity Transformation is the last realm: matrix rows with gap 1 and 2 meet the same realm with suppression added, so only gap 0 means anything"
+ ]
+}

@@ -1,0 +1,231 @@
+{
+ "name": "full-price",
+ "rules": [
+  "stone_payment",
+  "priced_above_sea",
+  "rush_order",
+  "purse_weight",
+  "exact_change",
+  "basic_split",
+  "catching_hand",
+  "per_cap"
+ ],
+ "stone_payment": {
+  "purse": 80000,
+  "R": 5000,
+  "rate": 2,
+  "premium_share": 0.02
+ },
+ "purse_weight": 30,
+ "exact_change_max": 0.5,
+ "realm": "ket_dan",
+ "n_body": 1.6,
+ "n_qi": 1.0,
+ "layers": [
+  160,
+  0,
+  40,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.0,
+  "mult": 1.5
+ },
+ "art_cost_pct": 25,
+ "pierce_pct": 15,
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0,
+  "pass": {
+   "body": 0.4,
+   "qi": 0.3
+  },
+  "ws": 65,
+  "we": 65
+ },
+ "guard": {
+  "body_guard_pct": 20
+ },
+ "conditional_mods": [
+  {
+   "id": "Full Sea",
+   "layer": 5,
+   "points": 60,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.8
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "earnest_money",
+   "kind": "qi",
+   "c_art": 4.0,
+   "cost_share": 0.25,
+   "cooldown": 1,
+   "x": [
+    20,
+    36,
+    0,
+    20,
+    0
+   ]
+  },
+  {
+   "id": "buyout",
+   "kind": "body",
+   "c_art": 13.0,
+   "cost_share": 1.0,
+   "cooldown": 1,
+   "x": [
+    20,
+    55,
+    0,
+    20,
+    0
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "below": 0.75
+   }
+  },
+  {
+   "id": "ruinous_offer",
+   "kind": "body",
+   "c_art": 25.0,
+   "cost_share": 2.0,
+   "cooldown": 1,
+   "rush": true,
+   "x": [
+    20,
+    80,
+    0,
+    20,
+    0
+   ]
+  }
+ ],
+ "unmodelled": [
+  "Evade is an expected value here. In the game a 40 % evader misses the contract outright 4 times in 10, and the money is still spent",
+  "Collected Debt and the purse between fights are outside one fight: the sheet's purse sequence is three variant files",
+  "Each art's cost_share is its stone share: stone_payment moves it off linh luc, so the lint reads the real share"
+ ],
+ "enemy_overrides": {
+  "name": "receiving-hand",
+  "realm": "ket_dan",
+  "n_body": 1.75,
+  "n_qi": 1.4,
+  "layers": [
+   134,
+   0,
+   60,
+   0,
+   0
+  ],
+  "crit": {
+   "chance": 0.0,
+   "mult": 1.5
+  },
+  "regen_bonus_pct": 2,
+  "pierce_pct": 15,
+  "ward": {
+   "model": "drain",
+   "pass": {
+    "body": 0.54,
+    "qi": 0.36
+   },
+   "drain": {
+    "body": 1.0,
+    "qi": 1.5
+   },
+   "ws": 65,
+   "we": 65
+  },
+  "guard": {
+   "t_b": 2.0,
+   "body_guard_pct": 60
+  },
+  "basic": {
+   "c": 1.3,
+   "kind": "body",
+   "x": [
+    40,
+    0,
+    0,
+    25,
+    0
+   ]
+  },
+  "conditional_mods": [
+   {
+    "id": "Empty Hand",
+    "layer": 2,
+    "per": "empty_slots",
+    "points_per": 35,
+    "channels": [
+     "basic"
+    ]
+   },
+   {
+    "id": "On the Beat",
+    "layer": 5,
+    "points": 70,
+    "channels": [
+     "art",
+     "basic"
+    ],
+    "guard": {
+     "on_beat": true
+    }
+   },
+   {
+    "id": "Bare Vessel",
+    "layer": 5,
+    "points": 30,
+    "channels": [
+     "art",
+     "basic"
+    ],
+    "guard": {
+     "who": "enemy",
+     "pool": "qi",
+     "below": 0.05
+    }
+   },
+   {
+    "id": "Sustained Note",
+    "layer": 2,
+    "per": "fight_seconds",
+    "points_per": 15,
+    "channels": [
+     "art",
+     "basic"
+    ],
+    "cap": 90
+   }
+  ],
+  "arts": [],
+  "catch_per_empty_slot": 1,
+  "returned_force": 0.5,
+  "basic_parts": [
+   {
+    "share": 0.5,
+    "kind": "body"
+   },
+   {
+    "share": 0.5,
+    "kind": "qi"
+   }
+  ]
+ },
+ "variant_of": "sheets/full-price.fight.json",
+ "variant_note": "A duel: run with no --matrix. The enemy is the whole Receiving Hand file"
+}

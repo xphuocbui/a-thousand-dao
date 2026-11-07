@@ -1,0 +1,127 @@
+{
+ "slug": "indigo-drop",
+ "name": "The Indigo Drop",
+ "han_viet": "Nhất Tích Lam",
+ "pitch": "One art, one firing, multiplier 1.00: a drop of perfect purity spreads through their sea until everything they throw lands on them.",
+ "channel": "enemy's own arts",
+ "enabler": "One Drop",
+ "enabler_kind": "New channel",
+ "identity_piece": "One Drop",
+ "identity_id": "one_drop",
+ "power": "strong",
+ "defining_realm": "ket_dan",
+ "fit": {
+  "fits_today": 5,
+  "needs_key": 7,
+  "needs_rule": 5
+ },
+ "reused": [
+  "Standing Verdict",
+  "Merged self-hit rule (Phản Thủ Luật)",
+  "Maximum health",
+  "Ward strength",
+  "Ward efficiency",
+  "Maximum linh lực",
+  "Regeneration"
+ ],
+ "new": [
+  {
+   "type": "keystone",
+   "name": "One Drop",
+   "han_viet": "Nhất Tích",
+   "fit": "Needs rule",
+   "effect": "Your first hit leaves 1 % colour. Each pulse colour x (1 + (clean purity - their highest purity) / 50 x spread). That share of their art hits resolves on them, and that share of their ward stops neither you nor them."
+  },
+  {
+   "type": "modifier",
+   "name": "The Clear Line",
+   "han_viet": "Thanh Tuyến",
+   "form": "Trade",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "Clean purity is purity -4 per stain: each artifact, pill in effect, art naming another element, or second Way.",
+   "second_home": "any ascetic path"
+  },
+  {
+   "type": "modifier",
+   "name": "Clean Hands",
+   "han_viet": "Tịnh Thủ",
+   "form": "Per",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+0.5 % starting colour per empty art slot.",
+   "second_home": "any build with empty slots"
+  },
+  {
+   "type": "notable",
+   "name": "Steeped",
+   "han_viet": "Tẩm Lâu",
+   "form": "Increased",
+   "channel": "status",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+6 % spread on spreading statuses.",
+   "second_home": "any spreading status"
+  },
+  {
+   "type": "acupoint",
+   "name": "Spread",
+   "han_viet": "Thấm",
+   "form": "Increased",
+   "channel": "status",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+1 % spread on spreading statuses.",
+   "second_home": "any spreading status"
+  },
+  {
+   "type": "modifier",
+   "name": "Bluer Than the Plant",
+   "han_viet": "Thanh Ư Lam",
+   "form": "Overflow",
+   "channel": "basic",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "At 100 % colour their basic attack turns too.",
+   "second_home": "The Lucky Fool, any self-hit door"
+  },
+  {
+   "type": "modifier",
+   "name": "Mordant",
+   "han_viet": "Môi Nhiễm",
+   "form": "Trade",
+   "channel": "status",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "A cleanse leaves half of the colour.",
+   "second_home": "any status that fears a cleanse"
+  },
+  {
+   "type": "cluster",
+   "name": "The Clear Vat",
+   "han_viet": "Thanh Hang",
+   "fit": "Needs key",
+   "effect": "Wood sector, sealed by technique, eleven nodes: six Spread acupoints, Steeped, Clean Hands, Mordant, Bluer Than the Plant, One Drop at the far end."
+  },
+  {
+   "type": "technique",
+   "name": "Clear Vat Canon",
+   "han_viet": "Thanh Hang Kinh",
+   "fit": "Needs key",
+   "effect": "Main, names only Wood, no bonuses, seals The Clear Vat, gives Falling Drop."
+  },
+  {
+   "type": "art",
+   "name": "Falling Drop",
+   "han_viet": "Nhất Tích",
+   "fit": "Needs key",
+   "effect": "Qi, Wood, c_art 1.3, cost 0.04, 0.5 s, guarded on the target holding no colour."
+  }
+ ],
+ "questions": [
+  "Purity 100 buys little against ordinary roots and everything against roots of 85 or more. Is purity meant to be a duel between the few, rather than a stat for everyone?",
+  "Enemies always fire when ready. Should an NPC stop casting once its own arts turn on it? The whole build rests on that."
+ ]
+}

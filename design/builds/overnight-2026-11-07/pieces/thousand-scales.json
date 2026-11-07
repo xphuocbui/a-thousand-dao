@@ -1,0 +1,126 @@
+{
+  "slug": "thousand-scales",
+  "name": "The Thousand Scales",
+  "han_viet": "Thiên Lân Đạo",
+  "pitch": "Your bare fist keeps four wounds open for free, every cap they hit widens the cap, and if they kill you in the first second they still lose two-thirds of their health walking away.",
+  "channel": "tick",
+  "enabler": null,
+  "enabler_kind": "none",
+  "identity_piece": "Widening Wound",
+  "identity_id": "widening_wound",
+  "power": "strong",
+  "defining_realm": "truc_co",
+  "fit": {
+    "fits_today": 3,
+    "needs_key": 9,
+    "needs_rule": 3
+  },
+  "reused": [
+    "Spillover",
+    "Damage over time"
+  ],
+  "new": [
+    {
+      "type": "modifier",
+      "name": "Widening Wound",
+      "han_viet": "Khoát Thương",
+      "form": "Overflow",
+      "channel": "tick",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Half of what dot_pulse_cap clips at a pulse adds to that cap on this target for the rest of the fight, never past distinct statuses x dot_pool_cap.",
+      "second_home": "any poison build"
+    },
+    {
+      "type": "modifier",
+      "name": "Parting Cut",
+      "han_viet": "Biệt Đao",
+      "form": "Trigger",
+      "channel": "tick",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "When you go Down, your statuses run out before the result is final; you do nothing and the winner may cleanse.",
+      "second_home": "any poison NPC, any assassin hired to die"
+    },
+    {
+      "type": "modifier",
+      "name": "Unspent Rage",
+      "han_viet": "Dư Nộ",
+      "form": "Overflow",
+      "channel": "tick",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "After a fight in which dot_pulse_cap clipped, +1 heart demon.",
+      "second_home": "anything else a cap clips and a life could pay for"
+    },
+    {
+      "type": "modifier",
+      "name": "Kept Grudge",
+      "han_viet": "Tàng Hận",
+      "form": "Per",
+      "channel": "tick",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+1 point on over-time tags per point of heart demon.",
+      "second_home": "any heart-demon build"
+    },
+    {
+      "type": "modifier",
+      "name": "Thin Bleed",
+      "han_viet": "Tế Huyết",
+      "form": "Trigger",
+      "channel": "tick",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "On hit, apply a wound named for the piece that carries it: c_tick 0.2, 4 pulses, stacks to 5. Wounds from different pieces are different statuses. Held four times here: Bleed, Brine, Gall and Sinew.",
+      "second_home": "any blade, Water, poison or thể tu build"
+    },
+    {
+      "type": "technique",
+      "name": "Scale-Knife Method",
+      "han_viet": "Quát Lân Đao Pháp",
+      "fit": "Needs key",
+      "effect": "Main, Huyền giai, Metal and Water. Scaling Stroke in three forms and Rub Salt, seals Open Seams, stops at Core Formation."
+    },
+    {
+      "type": "art",
+      "name": "Scaling Stroke",
+      "han_viet": "Quát Lân Thức",
+      "fit": "Needs key",
+      "effect": "One art in three forms, each slotted on its own: body and metal, qi and metal, qi and water. c_art 0.5, cost 0.02, 1 s. Each form applies its own wound (Scale, Seam, Gill), c_tick 0.15, 4 pulses."
+    },
+    {
+      "type": "art",
+      "name": "Rub Salt",
+      "han_viet": "Sát Diêm",
+      "fit": "Needs key",
+      "effect": "Curse, cost 0.03, 3 s: shred 0.3 for 3 pulses."
+    },
+    {
+      "type": "artifact",
+      "name": "Gutter's Knife",
+      "han_viet": "Khai Đỗ Đao",
+      "fit": "Needs key",
+      "effect": "cham base with the Thin Bleed affix, which a generated knife could roll."
+    },
+    {
+      "type": "cluster",
+      "name": "Open Seams",
+      "han_viet": "Khai Phùng Mạch",
+      "fit": "Needs key",
+      "effect": "Theme statuses, Water, outer, sealed by a technique, size 10. Notables Thin Bleed (Gall) and Kept Grudge, capability Widening Wound."
+    },
+    {
+      "type": "dao_branch",
+      "name": "Destruction, Wrath branch",
+      "han_viet": "Hủy Diệt, Nộ Chi",
+      "fit": "Needs key",
+      "effect": "Thin Bleed (Sinew), Spillover, Unspent Rage, ending in Parting Cut."
+    }
+  ],
+  "questions": [
+    "The status lint reads c_tick x duration against an equal-cost art. A status from a trigger has no such art. Should it have a lint of its own?",
+    "Should a Down cultivator's wounds outlive them, or is that one rule too many for rule 14?",
+    "Unspent Rage breaks 'kills add no heart demon' on purpose, for one build. Is that exception acceptable?"
+  ]
+}

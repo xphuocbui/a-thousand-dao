@@ -1,0 +1,238 @@
+{
+ "name": "second-answer",
+ "realm": "luyen_khi",
+ "stage": 1.0,
+ "n_body": 1.128,
+ "n_qi": 1.062,
+ "layers": [
+  0,
+  0,
+  114.4,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.34,
+   "qi": 0.24
+  },
+  "hit_cost_share": 0.04,
+  "ws": 35.8,
+  "we": 35.4
+ },
+ "guard": {
+  "body_guard_pct": 0
+ },
+ "enemy": "typical",
+ "art_speed_pct": 0,
+ "art_cost_pct": 0,
+ "regen_bonus_pct": 3.75,
+ "evade_pct": 0.8,
+ "accuracy_pct": 0,
+ "conditional_mods": [
+  {
+   "id": "Damage while above 50 % health",
+   "layer": 1,
+   "points": 6,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Steady Breath",
+   "layer": 5,
+   "points": 3.0,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "click0",
+   "kind": "qi",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "click1",
+   "kind": "qi",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "click2",
+   "kind": "qi",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "walk": {
+  "Steady Breath": {
+   "acupoints": 2,
+   "notables": 0
+  },
+  "Damage while above 50 % health": {
+   "acupoints": 3,
+   "notables": 0
+  },
+  "Ward strength": {
+   "acupoints": 9,
+   "notables": 1
+  },
+  "Ward efficiency": {
+   "acupoints": 2,
+   "notables": 2
+  },
+  "Maximum health": {
+   "acupoints": 4,
+   "notables": 0
+  },
+  "Maximum linh luc": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Linh luc regeneration": {
+   "acupoints": 5,
+   "notables": 3
+  },
+  "Evade": {
+   "acupoints": 2,
+   "notables": 0
+  }
+ },
+ "outside_walk": {},
+ "unmodelled": [
+  "The answer to the kit answer: a 1 s art on cloth. Same W, same node counts. Search, not proof."
+ ],
+ "enemy_overrides": {
+  "name": "kit-answer",
+  "realm": "luyen_khi",
+  "stage": 1.0,
+  "n_body": 1.2527,
+  "n_qi": 1.0494,
+  "layers": [
+   0,
+   0,
+   114.4,
+   0,
+   0
+  ],
+  "crit": {
+   "chance": 0.15,
+   "mult": 1.7
+  },
+  "ward": {
+   "model": "per_hit",
+   "pass": {
+    "body": 0.34,
+    "qi": 0.24
+   },
+   "hit_cost_share": 0.04,
+   "ws": 29.0,
+   "we": 25.0
+  },
+  "guard": {
+   "body_guard_pct": 0
+  },
+  "art_speed_pct": 0,
+  "art_cost_pct": 0,
+  "regen_bonus_pct": 4.2,
+  "evade_pct": 0,
+  "accuracy_pct": 0,
+  "conditional_mods": [
+   {
+    "id": "Art damage",
+    "layer": 1,
+    "points": 11.5,
+    "channels": [
+     "art"
+    ]
+   }
+  ],
+  "arts": [
+   {
+    "id": "a0",
+    "kind": "qi",
+    "c_art": 1.355,
+    "cost_share": 0.04,
+    "cooldown": 0.5,
+    "x": [
+     0,
+     20,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a1",
+    "kind": "qi",
+    "c_art": 1.355,
+    "cost_share": 0.04,
+    "cooldown": 0.5,
+    "x": [
+     0,
+     20,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a2",
+    "kind": "qi",
+    "c_art": 1.355,
+    "cost_share": 0.04,
+    "cooldown": 0.5,
+    "x": [
+     0,
+     20,
+     0,
+     0,
+     0
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,106 @@
+{
+ "name": "welcome-bath",
+ "realm": "truc_co",
+ "stage": 1.0,
+ "n_body": 1.6,
+ "n_qi": 1.15,
+ "layers": [
+  40,
+  0,
+  0,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.05,
+  "mult": 1.5
+ },
+ "accuracy_pct": 12,
+ "ward": {
+  "model": "per_hit",
+  "hit_cost_share": 0.04,
+  "pass": {
+   "body": 0.34,
+   "qi": 0.24
+  },
+  "ws": 45,
+  "we": 45
+ },
+ "washing": {
+  "keep": 0.6,
+  "skin": 40,
+  "both_hands": true
+ },
+ "arts": [
+  {
+   "id": "tay_tran",
+   "kind": "body",
+   "c_art": 1.3,
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "wash": true,
+   "cleanse": 1
+  },
+  {
+   "id": "nhiet_can",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 2
+  },
+  {
+   "id": "duc_thuy",
+   "kind": "body",
+   "c_art": 3.1,
+   "cost_share": 0.12,
+   "cooldown": 4
+  },
+  {
+   "id": "bo_ket",
+   "kind": "qi",
+   "c_art": 2.45,
+   "cost_share": 0.08,
+   "cooldown": 3
+  }
+ ],
+ "rules": [
+  "washing",
+  "cleanse_art"
+ ],
+ "unmodelled": [
+  "A wash that meets evade is an expected share of the layer",
+  "Conditional points are not washed, and the panel enemies have none",
+  "What the washed do afterwards: costs outside the fight"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ },
+ "enemy": "top_end"
+}

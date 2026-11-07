@@ -1,0 +1,157 @@
+{
+ "name": "long-drought",
+ "realm": "truc_co",
+ "stage": 1.0,
+ "n_body": 1.32,
+ "n_qi": 1.6,
+ "layers": [
+  10,
+  0,
+  20,
+  0,
+  0
+ ],
+ "art_speed_pct": 0,
+ "regen_bonus_pct": 0.3,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.42,
+   "qi": 0.28
+  },
+  "drain": {
+   "body": 0.72,
+   "qi": 1.08
+  },
+  "ws": 126.2,
+  "we": 150
+ },
+ "guard": {
+  "a_b": 0.5,
+  "t_b": 0,
+  "body_guard_pct": 8
+ },
+ "basic": {
+  "c": 1.0,
+  "kind": "body",
+  "x": [
+   16,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "arts": [
+  {
+   "id": "wasting_thirst",
+   "kind": "qi",
+   "c_art": 0.8,
+   "cost_share": 0.04,
+   "cooldown": 1.9,
+   "applies": [
+    {
+     "id": "thirst",
+     "kind": "qi_burn",
+     "c_tick": 0.15,
+     "duration": 4,
+     "stacks": 1,
+     "chance": 0.59,
+     "x": [
+      38.5,
+      31,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "standing_word",
+   "kind": "qi",
+   "c_art": 2.0,
+   "cost_share": 0.08,
+   "cooldown": 3.8,
+   "curse": {
+    "cost_raise": 0.34,
+    "drain_raise": 0.34,
+    "block_regen": true,
+    "duration": 4
+   }
+  },
+  {
+   "id": "level_gaze",
+   "kind": "qi",
+   "c_art": 1.9,
+   "cost_share": 0.04,
+   "cooldown": 3
+  }
+ ],
+ "conditional_mods": [
+  {
+   "id": "Wasting",
+   "layer": 2,
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.2,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Dry Sea",
+   "layer": 1,
+   "points": 17.5,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Unbroken Sentence",
+   "layer": 5,
+   "points": 10,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.5
+   }
+  }
+ ],
+ "unmodelled": [
+  "Status chance runs as an expected value, so stacks are fractions; enemy status_resist_pct is not read",
+  "Curse duration 3 becomes 4: Slow to Lift and one Lingering Word give +17.5 %, 3.525, which rounds to 4 by the rule in the One Long Word sheet. Compiled into the art record",
+  "Curses land at 100 %; a cleanse is run only in the cleanser variant",
+  "Held Acres (+21 on both statuses) is carried by a garden, as in The Second Sickness",
+  "Plain Speech Method's +10 L2, +20 % linh luc and +15 % health are not added: pools and ward are The Second Sickness's base, so if anything the fight is understated"
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "evade_pct": 35,
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   }
+  ]
+ }
+}

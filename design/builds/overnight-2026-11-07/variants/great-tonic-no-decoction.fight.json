@@ -1,0 +1,107 @@
+{
+ "name": "great-tonic",
+ "rules": [
+  "feeding_back_ward",
+  "rupture"
+ ],
+ "ward_return": 1.0,
+ "surfeit_cap": 1.0,
+ "realm": "ket_dan",
+ "n_body": 2.2,
+ "n_qi": 1.6,
+ "layers": [
+  100,
+  0,
+  60,
+  0,
+  0
+ ],
+ "art_speed_pct": 30,
+ "art_cost_pct": 20,
+ "regen_bonus_pct": 3,
+ "pierce_pct": 15,
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.3,
+   "qi": 0.25
+  },
+  "hit_cost_share": 0.04,
+  "ws": 180,
+  "we": 100
+ },
+ "guard": {
+  "a_b": 3,
+  "t_b": 2,
+  "body_guard_pct": 40
+ },
+ "conditional_mods": [
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 80,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "lancing",
+   "kind": "qi",
+   "c_art": 0,
+   "cost_share": 0.12,
+   "cooldown": 1,
+   "rupture_share": 0.25,
+   "rupture_cap": 0.25,
+   "rupture_heal": 0.1,
+   "deep_share": 0.15,
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "above": 2,
+    "surfeit_above": 0.6
+   }
+  },
+  {
+   "id": "tonic_needle",
+   "kind": "qi",
+   "c_art": 1.45,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "long_needle",
+   "kind": "body",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 2,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "unmodelled": [
+  "Pill-Fed: no reference enemy has pill toxicity, and Combat has none on its profile today",
+  "Lancing has no c_art, so the lint has nothing to read"
+ ],
+ "variant_of": "sheets/great-tonic.fight.json",
+ "variant_note": "No Strong Decoction: the ward returns 1.0"
+}

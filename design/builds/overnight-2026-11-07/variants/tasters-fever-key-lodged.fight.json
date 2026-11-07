@@ -1,0 +1,187 @@
+{
+ "name": "tasters-fever",
+ "realm": "ket_dan",
+ "n_body": 2.6,
+ "n_qi": 2.4,
+ "layers": [
+  134,
+  0,
+  90,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "art_speed_pct": 0,
+ "pierce_pct": 30,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.42,
+   "qi": 0.28
+  },
+  "drain": {
+   "body": 0.72,
+   "qi": 1.08
+  },
+  "ws": 150,
+  "we": 150
+ },
+ "guard": {
+  "a_b": 3.0,
+  "t_b": 1.0,
+  "body_guard_pct": 40
+ },
+ "conditional_mods": [
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 80,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "first_taste",
+   "kind": "qi",
+   "c_art": 1.0,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    0,
+    120,
+    0,
+    0,
+    0
+   ],
+   "applies": [
+    {
+     "id": "bile",
+     "kind": "body",
+     "c_tick": 0.3,
+     "duration": 4,
+     "stacks": 1,
+     "x": [
+      0,
+      120,
+      0,
+      20,
+      0
+     ]
+    }
+   ],
+   "guard": {
+    "time_above": 0,
+    "tithe": true
+   }
+  },
+  {
+   "id": "spat_bile",
+   "kind": "body",
+   "c_art": 1.0,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    0,
+    120,
+    0,
+    0,
+    0
+   ],
+   "guard": {
+    "time_above": 0,
+    "tithe": true
+   }
+  },
+  {
+   "id": "second_cup",
+   "kind": "body",
+   "c_art": 1.0,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    0,
+    120,
+    0,
+    0,
+    0
+   ],
+   "guard": {
+    "time_above": 0,
+    "tithe": true
+   }
+  }
+ ],
+ "unmodelled": [
+  "Fever and Bitter Measure read dan doc at compile, so they are fixed numbers here: dan doc 80 gives art_speed_pct 120 and +120 L2 on the poison tag. art_speed_pct has no other source in this file",
+  "Corpse-Wax Coating is the pilot's +100 L4 at pill potency 0.2 (dan doc 80), so +20, on Bile only",
+  "The dan doc spent, the clean window after a fight and Bitter Pearl are caller effects outside the fight",
+  "Inured Flesh: status resistance from dan doc. The reference enemies carry no statuses, so it does nothing here"
+ ],
+ "rules": [
+  "bitter_tithe",
+  "speed_overflow",
+  "lodged_poison"
+ ],
+ "bitter_tithe": {
+  "magazine": 80,
+  "cost": 2
+ },
+ "speed_overflow": {
+  "cap": 30,
+  "layer": 5,
+  "channels": [
+   "art"
+  ]
+ },
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ },
+ "lodged_poison": {
+  "ticks": [
+   "bile"
+  ],
+  "arts": [
+   "first_taste",
+   "spat_bile",
+   "second_cup"
+  ]
+ }
+}

@@ -1,0 +1,139 @@
+{
+ "name": "long-firing",
+ "realm": 2,
+ "layers": [
+  0,
+  0,
+  40.0,
+  20,
+  0
+ ],
+ "n_body": 1.7286,
+ "n_qi": 1.4564,
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.1,
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "ws": 49.05,
+  "we": 60.65
+ },
+ "divine_sense": 1.0,
+ "arts": [
+  {
+   "id": "falling_lintel",
+   "kind": "body",
+   "c_art": 2.71,
+   "cost_share": 0.08,
+   "cooldown": 4
+  },
+  {
+   "id": "settling_wall",
+   "kind": "body",
+   "c_art": 2.96,
+   "cost_share": 0.08,
+   "cooldown": 5
+  }
+ ],
+ "guard": {
+  "a_b": 0.0,
+  "t_b": 2,
+  "body_guard_pct": 11.6
+ },
+ "regen_bonus_pct": 0.15,
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Earth damage",
+   "layer": 1,
+   "points": 30,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Body damage",
+   "layer": 1,
+   "points": 17.5,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Settled Weight",
+   "layer": 2,
+   "points": 24,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Damage above half health",
+   "layer": 1,
+   "points": 4,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Unbroken Glaze",
+   "layer": 5,
+   "points": 40,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "above": 0.25
+   }
+  },
+  {
+   "id": "Fired Clay",
+   "layer": 2,
+   "points": 3.48,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Thinning Ward",
+   "layer": 1,
+   "points": 4,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.5
+   }
+  }
+ ],
+ "unmodelled": [
+  "Thought is not spent in the fight; the Ore kit is costed in the sheet",
+  "Body guard against qi hits and ward strength against one element are not run",
+  "Fortune is not read"
+ ],
+ "enemy": "typical"
+}

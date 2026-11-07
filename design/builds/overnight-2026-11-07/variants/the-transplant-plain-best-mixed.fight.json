@@ -1,0 +1,131 @@
+{
+ "name": "the-transplant",
+ "realm": "nguyen_anh",
+ "n_body": 1.92,
+ "n_qi": 2.48,
+ "layers": [
+  110,
+  0,
+  30,
+  0,
+  0
+ ],
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 173,
+  "we": 99
+ },
+ "guard": {
+  "body_guard_pct": 37
+ },
+ "held_at_table": 0.2,
+ "arts": [
+  {
+   "id": "t0",
+   "element": "moc",
+   "kind": "body",
+   "c_art": 1.96,
+   "cost_share": 0.08,
+   "cooldown": 1,
+   "x": [
+    75,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "t1",
+   "element": "moc",
+   "kind": "qi",
+   "c_art": 1.96,
+   "cost_share": 0.08,
+   "cooldown": 1,
+   "x": [
+    75,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "t2",
+   "element": "moc",
+   "kind": "body",
+   "c_art": 1.96,
+   "cost_share": 0.08,
+   "cooldown": 1,
+   "x": [
+    75,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "t3",
+   "element": "moc",
+   "kind": "qi",
+   "c_art": 1.96,
+   "cost_share": 0.08,
+   "cooldown": 1,
+   "x": [
+    75,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "rules": [
+  "escape",
+  "not_yet_full"
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ },
+ "unmodelled": [
+  "Rejection, feeding and heart demon run between fights. The clock variant prints the arithmetic; the fight reads purity once, at compile",
+  "Purity spent in a fight is read by the next fight, not this one. The cost of a firing stays as it was at compile"
+ ]
+}

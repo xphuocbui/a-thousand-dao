@@ -1,0 +1,120 @@
+{
+ "slug": "held-door",
+ "name": "The Held Door",
+ "han_viet": "Trì Môn",
+ "pitch": "A terrified nurse puts a second ward around the enemy instead of themself, and inside it the fever never breaks, for as long as they can bear to hold the door.",
+ "channel": "tick",
+ "enabler": "Twin Wards",
+ "enabler_kind": "Rule removal",
+ "identity_piece": "Sealed Room",
+ "identity_id": "twin_ward",
+ "power": "ordinary",
+ "defining_realm": "luyen_khi",
+ "fit": {
+  "fits_today": 5,
+  "needs_key": 7,
+  "needs_rule": 3
+ },
+ "reused": [
+  "Twin Wards",
+  "Widening Wound",
+  "Maximum linh lực",
+  "Regeneration",
+  "Ward strength",
+  "Ward efficiency",
+  "Body guard"
+ ],
+ "new": [
+  {
+   "type": "ward",
+   "name": "Sealed Room",
+   "han_viet": "Cách Ly Hộ",
+   "form": "Rule swap",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "Per-pulse ward, pass 0.55, upkeep_share 0.03, around the enemy. Hits leaving them and hits going in both meet it, and only its holder pays. Carries Nothing Leaves.",
+   "second_home": "a healer who wards an ally, a jailer sect"
+  },
+  {
+   "type": "ward",
+   "name": "Vinegar Cloth",
+   "han_viet": "Thố Cân Hộ",
+   "form": "Rule swap",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "Per-hit ward, pass 0.34 body and 0.24 qi, hit_cost_share 0.04.",
+   "second_home": "any build that counts its pool"
+  },
+  {
+   "type": "ward",
+   "name": "Soiled Gown",
+   "han_viet": "Ô Y Hộ",
+   "form": "Rule swap",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "Drain ward, pass 0.55 body and 0.45 qi, drain 1.2 and 1.5, cheap and thin, made to go over another.",
+   "second_home": "any Twin Wards build"
+  },
+  {
+   "type": "modifier",
+   "name": "Nothing Leaves",
+   "han_viet": "Bất Xuất",
+   "form": "Rule swap",
+   "channel": "tick",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "While the ward stands, your statuses on the enemy lose no duration and the enemy does not regenerate. If it cannot be paid it falls for the fight and those statuses end.",
+   "second_home": "any curse build, any holding formation"
+  },
+  {
+   "type": "art",
+   "name": "Sweat",
+   "han_viet": "Hãn Chứng",
+   "fit": "Needs key",
+   "effect": "Qi, c_art 0.6, cost 0.05, 1 s, own linh lực 60 % or above. Body tick, c_tick 0.5, 2 pulses, poison tag."
+  },
+  {
+   "type": "art",
+   "name": "Chill",
+   "han_viet": "Hàn Chứng",
+   "fit": "Needs key",
+   "effect": "As Sweat. Qi tick."
+  },
+  {
+   "type": "art",
+   "name": "Flux",
+   "han_viet": "Tả Chứng",
+   "fit": "Needs key",
+   "effect": "As Sweat. Body tick, no poison tag."
+  },
+  {
+   "type": "art",
+   "name": "Ague",
+   "han_viet": "Ngược Chứng",
+   "fit": "Needs key",
+   "effect": "As Sweat. Qi tick. Foundation Establishment."
+  },
+  {
+   "type": "technique",
+   "name": "Night-Sitter's Method",
+   "han_viet": "Thủ Dạ Quyết",
+   "fit": "Needs key",
+   "effect": "Main, Hoàng giai, Wood, no bonuses. Carries the three sicknesses."
+  },
+  {
+   "type": "concept",
+   "name": "A ward on the other person",
+   "han_viet": "Cách Ly",
+   "fit": "Needs rule",
+   "effect": "A ward may stand around the enemy, paid only by its holder. Rule 22."
+  }
+ ],
+ "questions": [
+  "Should pass_min be read on a pair of wards, and should curses apply once to the pair?",
+  "Should a lint on c_tick x duration count the duration that actually runs?",
+  "Should a Sealed Room stop an escape?"
+ ]
+}

@@ -1,0 +1,267 @@
+{
+ "slug": "second-sickness",
+ "name": "The Second Sickness",
+ "han_viet": "Kiêm Bệnh",
+ "pitch": "Thirty plain nodes and two thin doses: one sickness stops at 5 % a pulse, so you choose where the second goes, into the blood or into the breath, and then you stand there and outlast them.",
+ "channel": "tick",
+ "enabler": null,
+ "enabler_kind": null,
+ "identity_piece": "Bone Steam",
+ "identity_id": "bone_steam",
+ "power": "ordinary",
+ "defining_realm": "truc_co",
+ "fit": {
+  "fits_today": 6,
+  "needs_key": 17,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Held Acres",
+  "Bare Vessel",
+  "Corpse-Wax Coating",
+  "Sick Meridians"
+ ],
+ "new": [
+  {
+   "type": "acupoint",
+   "name": "Poison damage",
+   "han_viet": "Độc Thương",
+   "form": "Increased",
+   "channel": "tick",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+2.5 small, +15 notable, on the poison tag. Catalogue row.",
+   "second_home": "any poison build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Damage over time",
+   "han_viet": "Trì Thương",
+   "form": "Increased",
+   "channel": "tick, burn",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+2 small, +12 notable, on every over-time status. Catalogue row.",
+   "second_home": "any burn or bleed build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Status chance",
+   "han_viet": "Trúng Suất",
+   "form": "Increased",
+   "channel": "tick",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+1 small, +6 notable, to a status chance. Catalogue row.",
+   "second_home": "any curse or status build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Status duration",
+   "han_viet": "Trì Cửu",
+   "form": "Increased",
+   "channel": "tick",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+2 % small, +12 % notable, rounded to the nearest pulse. Catalogue row.",
+   "second_home": "any status build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Poison art cost",
+   "han_viet": "Tiết Dược",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "-1 % small, -6 % notable, on poison-tag arts. Catalogue tag row.",
+   "second_home": "any poison build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Poison art speed",
+   "han_viet": "Tốc Dược",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+1 % small, +6 % notable, on poison-tag arts. Catalogue tag row.",
+   "second_home": "any poison build"
+  },
+  {
+   "type": "notable",
+   "name": "Long Simmer",
+   "han_viet": "Cửu Tiên",
+   "form": "More",
+   "channel": "tick, burn",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+10 points on over-time statuses with an authored duration of 4 or more.",
+   "second_home": "any slow status build"
+  },
+  {
+   "type": "notable",
+   "name": "Complication",
+   "han_viet": "Biến Chứng",
+   "form": "Conditional",
+   "channel": "tick",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+12 points on an over-time status applied to a target already carrying another. Read at application, so slot order matters.",
+   "second_home": "any two-status build"
+  },
+  {
+   "type": "notable",
+   "name": "Sick Body",
+   "han_viet": "Bệnh Thể",
+   "form": "Per",
+   "channel": "art, basic",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+2 points to hits per status stack on the enemy.",
+   "second_home": "any bleed or stacking build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Body guard",
+   "han_viet": "Hộ Thể",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+1.2 small, +8 notable. Catalogue row, body_guard_pct.",
+   "second_home": "any tick build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Maximum health",
+   "han_viet": "Khí Huyết",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+1 small, +6.5 notable. Catalogue row, khi_huyet_pct.",
+   "second_home": "any build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Ward strength",
+   "han_viet": "Hộ Lực",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+1.2 small, +8 notable. Catalogue row, defense_pct.",
+   "second_home": "any build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Ward efficiency",
+   "han_viet": "Hộ Hiệu",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+1.2 small, +8 notable. Catalogue row, ward_efficiency_pct.",
+   "second_home": "any build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Maximum linh lực",
+   "han_viet": "Linh Hải",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+1.2 small, +8 notable. Catalogue row, linh_luc_pct.",
+   "second_home": "any build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Regeneration",
+   "han_viet": "Hồi Khí",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+0.15 small, +1 notable. Catalogue row, linh_luc_regen_pct.",
+   "second_home": "any build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Burn damage",
+   "han_viet": "Thiêu Khí",
+   "form": "Increased",
+   "channel": "qi burn",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+2.5 small, +15 notable, on qi burn statuses.",
+   "second_home": "any starving build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Basic attack damage",
+   "han_viet": "Bình Kích",
+   "form": "Increased",
+   "channel": "basic",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+2 small, +12 notable. Catalogue row.",
+   "second_home": "any martial build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Damage to an enemy with no linh lực",
+   "han_viet": "Khô Hải",
+   "form": "Conditional",
+   "channel": "art, basic",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+2.5 small, +15 notable, on hits while the enemy is below 5 % linh lực. Catalogue row.",
+   "second_home": "any ward-breaker"
+  },
+  {
+   "type": "notable",
+   "name": "Wasting",
+   "han_viet": "Hao Tổn",
+   "form": "Per",
+   "channel": "art, basic",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+0.2 points to hits per 1 % of the enemy linh lực missing.",
+   "second_home": "any drainer"
+  },
+  {
+   "type": "art",
+   "name": "Thin Dose",
+   "han_viet": "Bạc Tễ",
+   "fit": "Needs key",
+   "effect": "Qi hit, c_art 0.8, cost 0.04, 1.9 s. Applies Poison: body tick, c_tick 0.15, 4 pulses, 50 % a stack."
+  },
+  {
+   "type": "art",
+   "name": "Bone Steam",
+   "han_viet": "Cốt Chưng",
+   "fit": "Needs key",
+   "effect": "Qi hit, c_art 0.8, cost 0.04, 1.9 s. Applies a qi tick with no poison tag, c_tick 0.15, 4 pulses, 50 % a stack."
+  },
+  {
+   "type": "art",
+   "name": "Wasting Thirst",
+   "han_viet": "Tiêu Khát",
+   "fit": "Needs key",
+   "effect": "Qi hit, c_art 0.8, cost 0.04, 1.9 s. Applies a qi burn, c_tick 0.15, 4 pulses, 50 % a stack."
+  },
+  {
+   "type": "technique",
+   "name": "Two-Column Materia",
+   "han_viet": "Lưỡng Lan Bản Thảo",
+   "fit": "Needs key",
+   "effect": "Ordinary tier 2 secret technique with no bonuses. Carries the three arts."
+  }
+ ],
+ "questions": [
+  "Into the Breath beats Into the Blood on most saved fights. Is that a fair price for needing the enemy to have a pool, and should Bare Vessel on a notable be +15 anyway, since that changes no result but one lost fight's bar?",
+  "Should a percentage on a whole-number status duration round to the nearest pulse?"
+ ]
+}

@@ -1,0 +1,146 @@
+{
+ "name": "grindstone-second-way-cd1",
+ "realm": "luyen_khi",
+ "stage": 1.0,
+ "n_body": 1.1496760000000001,
+ "n_qi": 1.0494,
+ "layers": [
+  0,
+  0,
+  114.4,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 19.4,
+  "we": 17
+ },
+ "art_speed_pct": 0,
+ "art_cost_pct": 4,
+ "regen_bonus_pct": 0,
+ "accuracy_pct": 0,
+ "conditional_mods": [
+  {
+   "id": "Element damage",
+   "layer": 1,
+   "points": 36,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Art damage",
+   "layer": 1,
+   "points": 10.0,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Steady Breath",
+   "layer": 5,
+   "points": 10.0,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Damage while above 50 % health",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "above": 0.5
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "a0",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    10.0,
+    36.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48
+  },
+  {
+   "id": "a1",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    10.0,
+    36.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48
+  },
+  {
+   "id": "a2",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    10.0,
+    36.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48
+  }
+ ],
+ "unmodelled": [
+  "Second-way control for plain-vs-exotic.md. W at the Map's prices: acupoint 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Meridian Map rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
+  "Stress test: every 0.5 s art moved to 1 s, c_art 1.48."
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "flurry_a",
+    "kind": "body",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   },
+   {
+    "id": "flurry_b",
+    "kind": "qi",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   }
+  ]
+ }
+}

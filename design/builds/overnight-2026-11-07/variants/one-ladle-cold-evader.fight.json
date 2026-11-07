@@ -1,0 +1,144 @@
+{
+ "name": "one-ladle",
+ "realm": 4,
+ "layers": [
+  0,
+  0,
+  40,
+  20,
+  0
+ ],
+ "n_body": 2.6163,
+ "n_qi": 2.2517,
+ "crit": {
+  "chance": 0.446,
+  "mult": 2.08
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 101.7,
+  "we": 99.3
+ },
+ "divine_sense": 1.0,
+ "arts": [
+  {
+   "id": "cold_needle",
+   "kind": "body",
+   "c_art": 1.84,
+   "cost_share": 0.06,
+   "cooldown": 1.5
+  },
+  {
+   "id": "cold_rain",
+   "kind": "body",
+   "c_art": 1.84,
+   "cost_share": 0.06,
+   "cooldown": 1.5
+  },
+  {
+   "id": "cold_draught",
+   "kind": "body",
+   "c_art": 1.84,
+   "cost_share": 0.06,
+   "cooldown": 1.5
+  }
+ ],
+ "regen_bonus_pct": 1.6,
+ "art_cost_pct": 10,
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Water damage",
+   "layer": 1,
+   "points": 52,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Body damage",
+   "layer": 1,
+   "points": 25.0,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Unbroken Surface",
+   "layer": 5,
+   "points": 36,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.05
+   }
+  },
+  {
+   "id": "Cold Edge",
+   "layer": 2,
+   "points": 64,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "triggers": [
+  {
+   "id": "Linh luc regained on a crit",
+   "source": "art",
+   "chance": 0.446,
+   "refund_qi_share": 0.01
+  }
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ],
+  "evade_pct": 30
+ }
+}

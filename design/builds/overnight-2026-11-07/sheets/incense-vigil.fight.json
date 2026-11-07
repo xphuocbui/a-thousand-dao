@@ -1,0 +1,68 @@
+{
+ "name": "incense-vigil",
+ "rules": [
+  "slow_wound",
+  "still_sea",
+  "incense_vow",
+  "unyielding_breath"
+ ],
+ "slow_wound_share": 1.0,
+ "still_sea": 0.55,
+ "lifespan_base": 500,
+ "incense_vow": true,
+ "unyielding_breath": true,
+ "realm": "ket_dan",
+ "n_body": 3.0,
+ "n_qi": 2.4,
+ "layers": [
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "regen_bonus_pct": 3,
+ "art_cost_pct": 10,
+ "ward": {
+  "model": "off"
+ },
+ "guard": {
+  "a_b": 3.0,
+  "t_b": 3.0,
+  "body_guard_pct": 172
+ },
+ "basic": {
+  "c": 0,
+  "kind": "body"
+ },
+ "arts": [
+  {
+   "id": "stale_incense",
+   "kind": "qi",
+   "c_art": 0,
+   "cost_share": 0.04,
+   "cooldown": 3,
+   "curse": {
+    "cost_raise": 0.5,
+    "duration": 5
+   }
+  },
+  {
+   "id": "closed_gate",
+   "kind": "qi",
+   "c_art": 0,
+   "cost_share": 0.04,
+   "cooldown": 3,
+   "curse": {
+    "block_regen": true,
+    "duration": 5
+   }
+  }
+ ],
+ "unmodelled": [
+  "The Incense Vow's check of who opened the fight: the calculator's build is always the requesting side, so the vow line is conditional",
+  "Years Owed is a caller effect after the fight. slow_wound prints it from lifespan_base, before Fair Measure",
+  "Iron Marrow has no size in the catalogue yet, so it is not in any run",
+  "Stilled Hand and the Short Stick are in variants, not in this file: see variants/incense-vigil-*.fight.json"
+ ]
+}

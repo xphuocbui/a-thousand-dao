@@ -1,0 +1,151 @@
+{
+  "slug": "tasters-fever",
+  "name": "The Taster's Fever",
+  "han_viet": "Thí Độc Đạo",
+  "pitch": "Keep your body two-thirds poison because the fever makes you fast, then pour it all into someone, because no pill will ever clean you again.",
+  "channel": "art",
+  "enabler": "Bitter Tithe",
+  "enabler_kind": "Resource swap",
+  "identity_piece": "Fever",
+  "identity_id": "art_speed_pct",
+  "power": "strong",
+  "defining_realm": "ket_dan",
+  "fit": {
+    "fits_today": 5,
+    "needs_key": 10,
+    "needs_rule": 3
+  },
+  "reused": [
+    "Bare Vessel",
+    "Corpse-Wax Coating",
+    "Sick Meridians"
+  ],
+  "new": [
+    {
+      "type": "enabler",
+      "name": "Bitter Tithe",
+      "han_viet": "Khổ Thuế",
+      "form": "Rule swap",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Poison-tag arts cost đan độc, not linh lực, and what is spent stays gone. Closes: cleansing pills no longer work on you.",
+      "second_home": "any life-stat art"
+    },
+    {
+      "type": "modifier",
+      "name": "Fever",
+      "han_viet": "Độc Nhiệt",
+      "form": "Per",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "+1.5 art_speed_pct per point of đan độc at compile.",
+      "second_home": "Pill Glutton, any toxicity build"
+    },
+    {
+      "type": "modifier",
+      "name": "Bitter Measure",
+      "han_viet": "Khổ Lượng",
+      "form": "Per",
+      "channel": "art, tick",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+1.5 points per đan độc on the poison tag.",
+      "second_home": "any toxicity build"
+    },
+    {
+      "type": "modifier",
+      "name": "Overheat",
+      "han_viet": "Quá Nhiệt",
+      "form": "Overflow",
+      "channel": "art, flight",
+      "layer": "L5",
+      "fit": "Needs rule",
+      "effect": "Art speed that cooldown_min clips becomes L5 points, 1 for 1, up to +30.",
+      "second_home": "any art-speed build; used by The Remnant Host"
+    },
+    {
+      "type": "modifier",
+      "name": "Bitter Pearl",
+      "han_viet": "Khổ Châu",
+      "form": "Overflow",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Each 10 toxicity the clamp at 100 clips adds a grain for life, to 20. A grain counts as 1 đan độc for Per modifiers.",
+      "second_home": "any life-stat build"
+    },
+    {
+      "type": "modifier",
+      "name": "Inured Flesh",
+      "han_viet": "Quán Độc",
+      "form": "Per",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "+0.3 status_resist_pct per đan độc.",
+      "second_home": "any toxicity build"
+    },
+    {
+      "type": "root",
+      "name": "Cinnabar",
+      "han_viet": "Chu Sa",
+      "fit": "Needs key",
+      "effect": "Convergence of Fire and Water. Per purity: +0.60 pill_effect_pct, -0.20 dan_doc_resist_pct. 14 W at purity 50, 28 W at 100."
+    },
+    {
+      "type": "technique",
+      "name": "Taster's Canon",
+      "han_viet": "Thí Độc Điển",
+      "fit": "Needs key",
+      "effect": "Main, Địa giai, Fire and Water. Carries Bitter Tithe and the three arts."
+    },
+    {
+      "type": "art",
+      "name": "First Taste",
+      "han_viet": "Sơ Thí",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 1.0, 1 s, 2 đan độc. Applies Bile, c_tick 0.3 for 4 pulses."
+    },
+    {
+      "type": "art",
+      "name": "Spat Bile",
+      "han_viet": "Thổ Đảm",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 1.0, 1 s, 2 đan độc."
+    },
+    {
+      "type": "art",
+      "name": "Second Cup",
+      "han_viet": "Đệ Nhị Bôi",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 1.0, 1 s, 2 đan độc."
+    },
+    {
+      "type": "pill",
+      "name": "Dregs",
+      "han_viet": "Đan Tra",
+      "fit": "Needs key",
+      "effect": "What a failed brew leaves. Toxicity 20, no effect, a few stones."
+    },
+    {
+      "type": "dao",
+      "name": "Poison",
+      "han_viet": "Độc",
+      "fit": "Needs key",
+      "effect": "Requirement Fire and Water at purity 30, or Cinnabar. Branches The Tongue, The Fever, The Dregs. Keystone Fever."
+    },
+    {
+      "type": "concept",
+      "name": "Art costs in a life stat",
+      "han_viet": "",
+      "fit": "Needs rule",
+      "effect": "An art may name a cost_resource other than linh lực or health. Combat rules 13 and 14, Formulas E; Character Stats rule 7."
+    }
+  ],
+  "questions": [
+    "Bitter Tithe undercuts Combat Open Question 21, which links art speed to spending. Is that a hole you want open, or should art speed skip arts paid this way?",
+    "Cinnabar and Amber both follow a pattern the catalogue may only imply: pair convergences are overcoming pairs. Is that a rule you want?"
+  ]
+}

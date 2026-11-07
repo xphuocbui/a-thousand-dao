@@ -1,0 +1,348 @@
+{
+ "name": "fierce-fire-second-way-plus144",
+ "realm": "nguyen_anh",
+ "stage": 1.0,
+ "n_body": 2.4582,
+ "n_qi": 1.73,
+ "layers": [
+  185,
+  0,
+  0,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.8
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.5302,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 62,
+  "we": 62
+ },
+ "conditional_mods": [
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Element damage",
+   "layer": 1,
+   "points": 14,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Wasting",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.29000000000000004
+  },
+  {
+   "id": "Quickened",
+   "layer": 2,
+   "points": 0.1,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Deep Breath",
+   "layer": 2,
+   "points": 18.2,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Steady Breath",
+   "layer": 5,
+   "points": 11.5,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Running Low",
+   "layer": 5,
+   "points": 11.5,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "below": 0.5
+   }
+  },
+  {
+   "id": "Thinning Ward",
+   "layer": 1,
+   "points": 2,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.5
+   }
+  },
+  {
+   "id": "Damage while above 50 % health",
+   "layer": 1,
+   "points": 16,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "above": 0.5
+   }
+  }
+ ],
+ "art_speed_pct": 1.0,
+ "art_cost_pct": 32.0,
+ "regen_bonus_pct": 5.0,
+ "accuracy_pct": 0,
+ "arts": [
+  {
+   "id": "a0",
+   "kind": "qi",
+   "cost_share": 0.05,
+   "cooldown": 0.5,
+   "x": [
+    20.0,
+    16.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.475,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.4
+   }
+  },
+  {
+   "id": "a1",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    20.0,
+    16.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  },
+  {
+   "id": "a2",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    20.0,
+    16.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  },
+  {
+   "id": "a3",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    20.0,
+    16.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.2
+   }
+  },
+  {
+   "id": "a4",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    20.0,
+    16.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.48
+  },
+  {
+   "id": "a5",
+   "kind": "qi",
+   "cost_share": 0.1,
+   "cooldown": 0.5,
+   "x": [
+    20.0,
+    16.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 2.075,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.8
+   }
+  }
+ ],
+ "walk": {
+  "Fire damage, Red Heart": {
+   "acupoints": 1,
+   "notables": 1
+  },
+  "Qi damage": {
+   "acupoints": 0,
+   "notables": 2
+  },
+  "Fire art cost, Dry Wood": {
+   "acupoints": 1,
+   "notables": 4
+  },
+  "Art cost": {
+   "acupoints": 2,
+   "notables": 2
+  },
+  "Art speed": {
+   "acupoints": 2,
+   "notables": 0
+  },
+  "Linh luc regeneration": {
+   "acupoints": 0,
+   "notables": 5
+  },
+  "Maximum health": {
+   "acupoints": 1,
+   "notables": 3
+  },
+  "Ward strength against body hits": {
+   "acupoints": 2,
+   "notables": 0
+  },
+  "Crit damage": {
+   "acupoints": 0,
+   "notables": 1
+  },
+  "Short Art": {
+   "acupoints": 4,
+   "notables": 1
+  },
+  "Wasting": {
+   "acupoints": 3,
+   "notables": 1
+  },
+  "Quickened": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Deep Breath": {
+   "acupoints": 2,
+   "notables": 1
+  },
+  "Steady Breath": {
+   "acupoints": 1,
+   "notables": 1
+  },
+  "Running Low": {
+   "acupoints": 1,
+   "notables": 1
+  },
+  "Thinning Ward": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Damage while above 50 % health": {
+   "acupoints": 2,
+   "notables": 1
+  }
+ },
+ "unmodelled": [
+  "Second-way control for plain-vs-exotic.md. W at the Map's prices: acupoint 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Meridian Map rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
+  "18 extra notables, +144 W, for an equal-W comparison, not a same-W line."
+ ],
+ "enemy_overrides": {
+  "ward": {
+   "model": "per_pulse",
+   "upkeep_share": 0.1
+  },
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

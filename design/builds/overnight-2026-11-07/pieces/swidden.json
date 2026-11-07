@@ -1,0 +1,56 @@
+{
+ "slug": "swidden",
+ "name": "The Swidden Road",
+ "han_viet": "Hỏa Canh Lộ",
+ "pitch": "Sow thorn on the first beat and light it on the second: the fire is born hotter for the thorn, and every hit grows with both.",
+ "channel": "tick",
+ "enabler": null,
+ "enabler_kind": null,
+ "identity_piece": "New Shoot's Thorn",
+ "identity_id": "new_shoot",
+ "power": "ordinary",
+ "defining_realm": "hoa_than",
+ "fit": {
+  "fits_today": 4,
+  "needs_key": 16,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Vinegar Cloth",
+  "Evergreen Canon",
+  "New Shoot",
+  "Smoulder",
+  "Bed of Coals",
+  "Kindling",
+  "Complication",
+  "Stoked",
+  "Sick Body",
+  "Deep Thorn",
+  "Deep Coals",
+  "Wood damage",
+  "Fire damage",
+  "Damage over time",
+  "Status chance",
+  "Catching Thorn",
+  "Catching Flame",
+  "Deep Drink",
+  "Spring Vein",
+  "Thin Leaf",
+  "Old Bark",
+  "Ward efficiency",
+  "Ward strength"
+ ],
+ "new": [
+  {
+   "type": "technique",
+   "name": "Ash Almanac",
+   "han_viet": "Hôi Lịch",
+   "fit": "Needs key",
+   "effect": "Secret, tier 2, Fire, no bonuses. Holds Smoulder and Bed of Coals, with their Burning as a qi tick."
+  }
+ ],
+ "questions": [
+  "A status's rows are read once, at birth, so Thorn can feed the fires but the fires cannot feed Thorn's tick. Should they be read on each refresh? It would be this build's first rule ask.",
+  "Fire alone kills the Wall too, 6 s slower, with no Wood art. Is a crossing that buys time and not the kill worth a road?"
+ ]
+}

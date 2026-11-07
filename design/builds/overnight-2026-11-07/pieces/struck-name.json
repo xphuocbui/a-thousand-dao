@@ -1,0 +1,142 @@
+{
+  "slug": "struck-name",
+  "name": "The Struck Name",
+  "han_viet": "Tước Danh Đạo",
+  "pitch": "Each second you scrape the name off the enemy's arts, their tag modifiers stop working, and you wear what you took: the bigger the specialist, the faster they die.",
+  "channel": "art",
+  "enabler": "Struck Name",
+  "enabler_kind": "Rule removal",
+  "identity_piece": "Borrowed Name",
+  "identity_id": "borrowed_name",
+  "power": "strong",
+  "defining_realm": "ket_dan",
+  "fit": {
+    "fits_today": 4,
+    "needs_key": 9,
+    "needs_rule": 6
+  },
+  "reused": [
+    "Bare Vessel"
+  ],
+  "new": [
+    {
+      "type": "keystone",
+      "name": "Struck Name",
+      "han_viet": "Tước Danh",
+      "fit": "Needs rule",
+      "effect": "Capability on a sealed cluster. Art records may carry no tags: a bare hit meets any ward on default pass and drain. Closes crit, all tag-keyed modifiers, talismans and escape. Presence −20 for life."
+    },
+    {
+      "type": "modifier",
+      "name": "Unnamed",
+      "han_viet": "Vô Danh Ấn",
+      "form": "Rule swap",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A curse: the enemy's hits count as having no element or form tags, so their L2 stops for 2 pulses. It carries no tag, so no cleanse matches it.",
+      "second_home": "any curse build"
+    },
+    {
+      "type": "modifier",
+      "name": "Borrowed Name",
+      "han_viet": "Mạo Danh",
+      "form": "Borrow",
+      "channel": "art",
+      "layer": "L2",
+      "fit": "Needs rule",
+      "effect": "While the enemy is Unnamed, your art hits gain 75 % of the L2 it lost.",
+      "second_home": "any curse build"
+    },
+    {
+      "type": "modifier",
+      "name": "Unwritten Margin",
+      "han_viet": "Bạch Biên",
+      "form": "Per",
+      "channel": "art",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+12 for each tag family a hit lacks; +72 on a bare hit.",
+      "second_home": "any half-stripped art"
+    },
+    {
+      "type": "modifier",
+      "name": "Forgotten Face",
+      "han_viet": "Vô Diện",
+      "form": "Per",
+      "channel": "art",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+2 per point of presence under 45, up to +60.",
+      "second_home": "any low-presence rogue"
+    },
+    {
+      "type": "cluster",
+      "name": "Struck Register",
+      "han_viet": "Tước Bạ Mạch",
+      "fit": "Needs key",
+      "effect": "Heart State theme, Water, outer, sealed by technique, size 12. Notables: Borrowed Name with Bare Vessel's line, then Struck Name as the capability."
+    },
+    {
+      "type": "technique",
+      "name": "Scraped Register Sutra",
+      "han_viet": "Tước Bạ Kinh",
+      "fit": "Needs key",
+      "effect": "Main, Địa giai, Water. Four arts, seals Struck Register."
+    },
+    {
+      "type": "art",
+      "name": "Strike the Name",
+      "han_viet": "Tước Danh Thức",
+      "fit": "Needs rule",
+      "effect": "No hit. Applies Unnamed for 2 pulses. Cost 0.05, cooldown 1.3 s."
+    },
+    {
+      "type": "art",
+      "name": "Unwritten Line",
+      "han_viet": "Vô Tự Hoạch",
+      "fit": "Needs key",
+      "effect": "A bare hit, c_art 2.2, cost 0.08, cooldown 2 s."
+    },
+    {
+      "type": "art",
+      "name": "Worn Name",
+      "han_viet": "Phi Danh",
+      "fit": "Needs key",
+      "effect": "A bare hit, c_art 2.9, cost 0.12, cooldown 3 s, guarded on the enemy having Unnamed."
+    },
+    {
+      "type": "art",
+      "name": "Empty Tablet",
+      "han_viet": "Không Bài",
+      "fit": "Needs key",
+      "effect": "A bare hit, c_art 2.9, paid 0.06 of health, cooldown 3 s, guarded on enemy linh lực below 5 %."
+    },
+    {
+      "type": "dao",
+      "name": "Way of the Unnamed",
+      "han_viet": "Vô Danh Đạo",
+      "fit": "Needs key",
+      "effect": "No requirement. theme_stats art_cost_pct, status_resist_pct, tam_ma_resist_pct, stealth. Branches Unsaid, Unseen, Unbound. 20 nodes."
+    },
+    {
+      "type": "keystone",
+      "name": "Ten Thousand Names",
+      "han_viet": "Vạn Danh",
+      "fit": "Needs rule",
+      "effect": "Đạo keystone. A bare hit counts as carrying every tag for your own modifiers and none for the enemy's."
+    },
+    {
+      "type": "concept",
+      "name": "Bare hit",
+      "han_viet": "Vô Danh Kích",
+      "fit": "Needs rule",
+      "effect": "A hit with no kind and no tags. Combat rule 4, Formulas C and D."
+    }
+  ],
+  "questions": [
+    "Should a curse be able to block a whole tag family? Rule 8 allows blocking a tag, and this build needs the wider version.",
+    "Is it right that a plain fighter with no L2 beats this build while a stronger specialist loses to it?",
+    "A bare hit needs a fallback in Formulas D. Default ward terms are the first guess: is that the reading you want?"
+  ]
+}

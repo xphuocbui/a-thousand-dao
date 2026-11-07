@@ -1,0 +1,207 @@
+{
+ "name": "the-puppeteer",
+ "realm": "nguyen_anh",
+ "stage": 1.0,
+ "n_body": 0.6,
+ "n_qi": 1.8,
+ "layers": [
+  100,
+  0,
+  60,
+  0,
+  0
+ ],
+ "bonus_slots": -3,
+ "companion_speed_pct": 60,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 120,
+  "we": 120
+ },
+ "guard": {
+  "a_b": 0,
+  "t_b": 0,
+  "body_guard_pct": 0
+ },
+ "rules": [
+  "borne_body",
+  "in_step"
+ ],
+ "borne_body": {
+  "operator": {
+   "n_body": 0.6,
+   "present": false
+  },
+  "bodies": [
+   {
+    "id": "wooden_novice",
+    "n_body": 0.7,
+    "guard": {
+     "a_b": 0,
+     "t_b": 0.8,
+     "body_guard_pct": 0
+    },
+    "hit": {
+     "c": 0.6,
+     "kind": "body",
+     "x": [
+      60,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   },
+   {
+    "id": "clay_guardian",
+    "n_body": 1.2,
+    "guard": {
+     "a_b": 0,
+     "t_b": 3.0,
+     "body_guard_pct": 20
+    },
+    "hit": {
+     "c": 0.7,
+     "kind": "body",
+     "x": [
+      60,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "store_qi": 0.15
+   },
+   {
+    "id": "lacquered_abbot",
+    "n_body": 1.0,
+    "guard": {
+     "a_b": 0,
+     "t_b": 1.5,
+     "body_guard_pct": 20
+    },
+    "hit": {
+     "c": 1.0,
+     "kind": "qi",
+     "x": [
+      60,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "store_qi": 0.15
+   }
+  ]
+ },
+ "conditional_mods": [
+  {
+   "id": "Drilled Ranks",
+   "layer": 2,
+   "points": 50,
+   "channels": [
+    "companion"
+   ]
+  },
+  {
+   "id": "Whetstone Ash",
+   "layer": 4,
+   "points": 60,
+   "channels": [
+    "companion"
+   ]
+  },
+  {
+   "id": "Full Trough",
+   "layer": 4,
+   "points": 40,
+   "channels": [
+    "companion"
+   ]
+  },
+  {
+   "id": "In Step",
+   "layer": 5,
+   "points": 50,
+   "channels": [
+    "companion"
+   ],
+   "guard": {
+    "in_step": true
+   }
+  },
+  {
+   "id": "Vow Renewed",
+   "layer": 5,
+   "points": 25,
+   "channels": [
+    "companion"
+   ],
+   "guard": {
+    "bodies_fallen": 1
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "morning_bell",
+   "kind": "qi",
+   "c_art": 1.0,
+   "cost_share": 0.04,
+   "cooldown": 1.25
+  },
+  {
+   "id": "binding_sutra",
+   "kind": "qi",
+   "c_art": 1.0,
+   "cost_share": 0.05,
+   "cooldown": 2.5,
+   "curse": {
+    "shred": 0.25,
+    "duration": 3
+   }
+  },
+  {
+   "id": "evening_bell",
+   "kind": "body",
+   "c_art": 2.6,
+   "cost_share": 0.08,
+   "cooldown": 3.75
+  }
+ ],
+ "unmodelled": [
+  "Wounds a body carries home and what repair costs: Lacquer years and refining are outside the fight",
+  "Loyalty and feed: Full Trough is entered at its +40 ceiling, assumed fed at four times what is due",
+  "The operator's linh luc and ward reach the puppet in full at this range; no thread distance is simulated"
+ ],
+ "enemy_divine_sense": 3.0,
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "needle",
+    "kind": "qi",
+    "soul_pct": 0.05,
+    "cost_share": 0.02,
+    "cooldown": 1
+   }
+  ]
+ }
+}

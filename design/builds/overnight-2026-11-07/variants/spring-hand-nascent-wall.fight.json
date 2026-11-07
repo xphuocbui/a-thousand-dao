@@ -1,0 +1,246 @@
+{
+ "name": "spring-hand",
+ "realm": "nguyen_anh",
+ "stage": 1.0,
+ "n_body": 2.9,
+ "n_qi": 1.0,
+ "layers": [
+  0,
+  0,
+  60,
+  0,
+  0
+ ],
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.1,
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "ws": 80,
+  "we": 90
+ },
+ "guard": {
+  "a_b": 0,
+  "t_b": 0,
+  "body_guard_pct": 20
+ },
+ "art_speed_pct": 15,
+ "rules": [
+  "paid_in_advance",
+  "paper_sleeve",
+  "per_cap"
+ ],
+ "paid_in_advance": true,
+ "unburnt": {
+  "keep": 0.45,
+  "ride": true
+ },
+ "conditional_mods": [
+  {
+   "id": "Talisman damage",
+   "layer": 1,
+   "points": 90,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Signed Paper",
+   "layer": 2,
+   "points": 27,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Warm Hand",
+   "layer": 2,
+   "per": "papers_fired",
+   "points_per": 2,
+   "cap": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Talisman power",
+   "layer": 4,
+   "points": 52,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Sized Paper",
+   "layer": 4,
+   "points": 30,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Steady Thread",
+   "layer": 5,
+   "points": 36,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Full Sea",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.8
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "cracker",
+   "talisman": true,
+   "stock": 10,
+   "kind": "body",
+   "c_art": 1.4,
+   "cost_share": 0.05,
+   "cooldown": 0.5,
+   "guard": {
+    "who": "enemy",
+    "pool": "health",
+    "above": 0.3
+   }
+  },
+  {
+   "id": "red_envelope",
+   "talisman": true,
+   "stock": 4,
+   "kind": "body",
+   "c_art": 4.5,
+   "cost_share": 0.25,
+   "cooldown": 3,
+   "guard": {
+    "who": "enemy",
+    "pool": "health",
+    "below": 0.8
+   }
+  },
+  {
+   "id": "closing_notice",
+   "talisman": true,
+   "stock": 2,
+   "kind": "qi",
+   "c_art": 1.0,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "curse": {
+    "cost_raise": 0.5,
+    "duration": 3
+   },
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "torn_couplet",
+   "talisman": true,
+   "stock": 4,
+   "kind": "qi",
+   "c_art": 1.6,
+   "cost_share": 0.05,
+   "cooldown": 3,
+   "curse": {
+    "pass_raise": 0.5,
+    "duration": 3
+   },
+   "guard": {
+    "who": "enemy",
+    "pool": "health",
+    "above": 0.3
+   }
+  },
+  {
+   "id": "slow_match",
+   "talisman": true,
+   "stock": 5,
+   "kind": "qi",
+   "c_art": 1.3,
+   "cost_share": 0.05,
+   "cooldown": 2,
+   "applies": [
+    {
+     "id": "slow_match",
+     "kind": "body",
+     "c_tick": 0.5,
+     "duration": 4,
+     "stacks": 1,
+     "x": [
+      90,
+      27,
+      0,
+      82,
+      0
+     ]
+    }
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "health",
+    "above": 0.2
+   }
+  },
+  {
+   "id": "hearth_ash",
+   "talisman": true,
+   "stock": 2,
+   "cost_share": 0,
+   "cooldown": 2,
+   "refund_qi_share": 0.15,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "below": 0.45
+   }
+  }
+ ],
+ "unmodelled": [
+  "Drawing the paper: seasons, ink and materials are outside the fight. The paper line in the output is the bill",
+  "Capability #13 and Let It Ride run as expected values, as crit does, so the paper line is an average, not one night at the table",
+  "Signed Paper is fixed at talisman skill 7, +3 a level",
+  "Hearth Ash is the sixth slot, reused from The Turned-Away. Stock 27 at Nascent Soul"
+ ],
+ "enemy_overrides": {
+  "boss_pool_mult": 2,
+  "ward": {
+   "ws": 200,
+   "we": 200
+  },
+  "guard": {
+   "a_b": 3,
+   "body_guard_pct": 40
+  },
+  "arts": [
+   {
+    "id": "slow_blow",
+    "kind": "body",
+    "c_art": 2.0,
+    "cost_share": 0.04,
+    "cooldown": 4
+   }
+  ]
+ }
+}

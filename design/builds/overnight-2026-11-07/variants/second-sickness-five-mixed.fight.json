@@ -1,0 +1,143 @@
+{
+ "name": "second-sickness",
+ "realm": "truc_co",
+ "stage": 1.0,
+ "n_body": 1.3,
+ "n_qi": 1.6,
+ "layers": [
+  10,
+  0,
+  20,
+  0,
+  0
+ ],
+ "art_speed_pct": 0,
+ "regen_bonus_pct": 0.3,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.42,
+   "qi": 0.28
+  },
+  "drain": {
+   "body": 0.72,
+   "qi": 1.08
+  },
+  "ws": 134.2,
+  "we": 152.4
+ },
+ "guard": {
+  "a_b": 0.5,
+  "t_b": 0,
+  "body_guard_pct": 16.0
+ },
+ "basic": {
+  "c": 1.0,
+  "kind": "body",
+  "x": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "arts": [
+  {
+   "id": "thin_dose",
+   "kind": "qi",
+   "c_art": 0.8,
+   "cost_share": 0.0392,
+   "cooldown": 1.9,
+   "applies": [
+    {
+     "id": "poison",
+     "kind": "body",
+     "c_tick": 0.15,
+     "duration": 5,
+     "stacks": 1,
+     "chance": 0.5,
+     "x": [
+      16,
+      31,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bone_steam",
+   "kind": "qi",
+   "c_art": 0.8,
+   "cost_share": 0.0392,
+   "cooldown": 1.9,
+   "applies": [
+    {
+     "id": "bone_steam_heat",
+     "kind": "qi",
+     "c_tick": 0.15,
+     "duration": 5,
+     "stacks": 1,
+     "chance": 0.5,
+     "x": [
+      16,
+      31,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  }
+ ],
+ "conditional_mods": [
+  {
+   "id": "Complication",
+   "layer": 2,
+   "points": 12,
+   "channels": [
+    "tick"
+   ],
+   "guard": {
+    "who": "enemy",
+    "status": "poison"
+   }
+  }
+ ],
+ "unmodelled": [
+  "Status chance runs as an expected value, so stacks are fractions; the enemy status_resist_pct is not read by the calculator",
+  "Status duration is rounded to the nearest whole pulse by hand before it is written here"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

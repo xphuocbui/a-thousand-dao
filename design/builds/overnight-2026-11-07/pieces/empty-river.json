@@ -1,0 +1,126 @@
+{
+ "slug": "empty-river",
+ "name": "The Empty River",
+ "han_viet": "Không Giang Đạo",
+ "pitch": "A hermit lives in a painting that sects buy and stamp: walk in and each brushstroke makes you smaller until you are a dot on a far path.",
+ "channel": "art",
+ "enabler": "Empty River",
+ "enabler_kind": "Resource swap",
+ "identity_piece": "Far Distance and the Blank",
+ "identity_id": "far_distance",
+ "power": "strong at home, nothing elsewhere",
+ "defining_realm": "hoa_than",
+ "fit": {
+  "fits_today": 5,
+  "needs_key": 7,
+  "needs_rule": 4
+ },
+ "reused": [
+  "One Ladle Rule",
+  "Damage",
+  "Maximum health",
+  "Maximum linh lực",
+  "Ward strength",
+  "Ward efficiency"
+ ],
+ "new": [
+  {
+   "type": "artifact",
+   "name": "Empty River",
+   "han_viet": "Không Giang Đồ",
+   "fit": "Needs rule",
+   "effect": "A named scroll that is the ground: no slot, no thần thức. Paper 100, fading 5 Blank a season. Reached only by being painted in."
+  },
+  {
+   "type": "keystone",
+   "name": "Far Distance",
+   "han_viet": "Viễn Cảnh",
+   "fit": "Needs rule",
+   "effect": "An art with the ink tag makes the target smaller by 1 % per point of ink, to 20 %. Size scales fight unit, health and linh lực. Way of Space."
+  },
+  {
+   "type": "modifier",
+   "name": "The Blank",
+   "han_viet": "Lưu Bạch",
+   "form": "Rule swap",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "Ink arts are paid in paper at 100 points per share of cost, never in linh lực, and it does not return in a fight.",
+   "second_home": "any finite prepared resource"
+  },
+  {
+   "type": "modifier",
+   "name": "Collector's Seal",
+   "han_viet": "Tàng Ấn",
+   "form": "Trade",
+   "channel": "any",
+   "layer": "L2, L4",
+   "fit": "Needs rule",
+   "effect": "Each seal takes Blank and adds points to one layer for every hit inside.",
+   "second_home": "any owned ground"
+  },
+  {
+   "type": "notable",
+   "name": "Deep Perspective",
+   "han_viet": "Thâm Viễn",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+0.1 % smaller per point of ink.",
+   "second_home": "any ink art"
+  },
+  {
+   "type": "modifier",
+   "name": "Signed and Dated",
+   "han_viet": "Lạc Khoản Niên",
+   "form": "Per",
+   "channel": "art",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+1 L2 on the Signature per point of Blank painted.",
+   "second_home": "any finishing art that reads a spent pool"
+  },
+  {
+   "type": "dao_branch",
+   "name": "The Far Bank",
+   "han_viet": "Viễn Ngạn",
+   "fit": "Needs key",
+   "effect": "Way of Space (Không Gian Đạo), a catalogue seed with no tree. Water at purity 40. Branches The Near Bank, The Middle Reach, The Far Bank. Keystone Far Distance. Only this branch's signature nodes are written."
+  },
+  {
+   "type": "art",
+   "name": "Splashed Ink",
+   "han_viet": "Bát Mặc",
+   "fit": "Needs key",
+   "effect": "Qi, ink, c_art 4.0, 25 Blank, 1 s."
+  },
+  {
+   "type": "art",
+   "name": "Dry Brush",
+   "han_viet": "Can Bút",
+   "fit": "Needs key",
+   "effect": "Body, ink, c_art 2.35, 5 Blank, 4 s."
+  },
+  {
+   "type": "art",
+   "name": "Signature",
+   "han_viet": "Lạc Khoản",
+   "fit": "Needs key",
+   "effect": "Qi, c_art 2.1, cost 0.05, 3 s, guarded on 9 Blank or fewer."
+  },
+  {
+   "type": "concept",
+   "name": "Size",
+   "han_viet": "Tỉ Lệ",
+   "fit": "Needs rule",
+   "effect": "A fight value on a side that scales its fight unit and both pools, bounded at 20 %."
+  }
+ ],
+ "questions": [
+  "Is Size too strong a rule to sit on a keystone, and should a loser carry it for a season after the fight?",
+  "A forgery at half shrink wins every run because a hermit spends the whole tree on fighting. Should someone with no outside life get that W?",
+  "The biggest stroke always wins, as the cheapest art does on the common ward. Is that the same lint question?"
+ ]
+}

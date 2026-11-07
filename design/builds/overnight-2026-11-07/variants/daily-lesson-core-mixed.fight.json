@@ -1,0 +1,188 @@
+{
+ "name": "daily-lesson",
+ "realm": "ket_dan",
+ "n_body": 1.6336,
+ "n_qi": 1.4564,
+ "layers": [
+  0,
+  0,
+  117.0,
+  20,
+  0
+ ],
+ "crit": {
+  "chance": 0.282,
+  "mult": 1.7
+ },
+ "basic": {
+  "c": 0.9228,
+  "kind": "body"
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 22.4,
+  "we": 22.4
+ },
+ "conditional_mods": [
+  {
+   "id": "Full Title",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Sword damage (acupoints)",
+   "layer": 1,
+   "points": 36,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Sword damage (notable)",
+   "layer": 1,
+   "points": 24,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Flying sword attack (acupoints)",
+   "layer": 3,
+   "points": 11.7,
+   "channels": [
+    "art",
+    "basic",
+    "trigger"
+   ]
+  },
+  {
+   "id": "Flying sword attack (notable)",
+   "layer": 3,
+   "points": 28.08,
+   "channels": [
+    "art",
+    "basic",
+    "trigger"
+   ]
+  },
+  {
+   "id": "Long Flight (acupoints)",
+   "layer": 2,
+   "points": 10,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Long Flight (notable)",
+   "layer": 2,
+   "points": 24,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Steady Thread (acupoints)",
+   "layer": 5,
+   "points": 14,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Steady Thread (notable)",
+   "layer": 5,
+   "points": 24,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Many Threads (acupoints)",
+   "layer": 2,
+   "points": 15,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "let_fly_first",
+   "kind": "body",
+   "c_art": 2.33,
+   "cost_share": 0.09,
+   "cooldown": 2
+  },
+  {
+   "id": "let_fly_second",
+   "kind": "body",
+   "c_art": 2.33,
+   "cost_share": 0.09,
+   "cooldown": 2
+  },
+  {
+   "id": "let_fly_third",
+   "kind": "body",
+   "c_art": 2.33,
+   "cost_share": 0.09,
+   "cooldown": 2
+  }
+ ],
+ "enemy": "typical",
+ "unmodelled": [
+  "The basic attack has no sword tag, so its c is lowered to take out the sword-only crit chance the calculator would otherwise give it",
+  "Thought (than thuc) is not spent in the fight; the kit is costed in the sheet"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

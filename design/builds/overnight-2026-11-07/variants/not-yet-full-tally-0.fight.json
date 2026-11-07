@@ -1,0 +1,173 @@
+{
+ "name": "not-yet-full",
+ "realm": "ket_dan",
+ "stage": 1.0,
+ "rules": [
+  "rush_order",
+  "escape",
+  "not_yet_full"
+ ],
+ "eaten": {
+  "tally": 0,
+  "power": 0
+ },
+ "bite": {
+  "share": 0.1,
+  "floor": 0.25
+ },
+ "held_at_table": 0.2,
+ "n_body": 1.3,
+ "n_qi": 1.3,
+ "layers": [
+  240,
+  80,
+  110,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.2,
+  "mult": 1.8
+ },
+ "art_speed_pct": 40,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 90,
+  "we": 70
+ },
+ "guard": {
+  "a_b": 1,
+  "t_b": 1,
+  "body_guard_pct": 20
+ },
+ "conditional_mods": [
+  {
+   "id": "varied_diet",
+   "layer": 2,
+   "points": 60,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "still_warm",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "first_taste",
+   "layer": 5,
+   "points": 50,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "above": 0.6
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "honey_glaze",
+   "kind": "qi",
+   "c_art": 1.0,
+   "cost_share": 0.05,
+   "cooldown": 0.85,
+   "curse": {
+    "pass_raise": -0.4,
+    "duration": 3
+   }
+  },
+  {
+   "id": "first_cut",
+   "kind": "body",
+   "c_art": 2.95,
+   "cost_share": 0.15,
+   "cooldown": 4,
+   "rush": true
+  },
+  {
+   "id": "carve",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 2
+  },
+  {
+   "id": "tucked_napkin",
+   "kind": "body",
+   "c_art": 1.0,
+   "cost_share": 0.03,
+   "cooldown": 2,
+   "tags": [
+    "lock"
+   ],
+   "curse": {
+    "cost_raise": 0.5,
+    "duration": 3
+   }
+  },
+  {
+   "id": "second_helping",
+   "kind": "body",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 2,
+   "guard": {
+    "who": "enemy",
+    "pool": "health",
+    "below": 0.5
+   }
+  }
+ ],
+ "unmodelled": [
+  "Rush Order's +50 % is paid every firing here, by a higher cost_share, not on the first only",
+  "Spoiled Palate, Years at Table, Between Courses and the Reckoning ladder are life rules, outside a fight",
+  "Sweet Ward's negative pass_raise runs on the calculator's own curse code, with no new floor"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

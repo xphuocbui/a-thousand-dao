@@ -1,0 +1,122 @@
+{
+ "slug": "the-heir",
+ "name": "The Heir",
+ "han_viet": "Thừa Tự Đạo",
+ "pitch": "Your last years buy one debt with your life, and whoever you raised inherits the rest: the Book, the name everyone fears, and one dead face for every head before them, until a child at the end owes nothing.",
+ "channel": "art hit, with Slow Wound under Paid in Seasons in each head's last fight",
+ "enabler": "The Named Heir",
+ "enabler_kind": "Rule removal",
+ "identity_piece": "The Named Heir (the estate)",
+ "identity_id": "estate",
+ "power": "strong",
+ "defining_realm": "truc_co",
+ "fit": {
+  "fits_today": 6,
+  "needs_key": 6,
+  "needs_rule": 15
+ },
+ "reused": [
+  "The Set Day",
+  "The Creditors' Book",
+  "Promissory Paper",
+  "Slow Wound",
+  "Years Owed",
+  "Skipped Bill",
+  "Dies Later",
+  "Thirty-Six Exits",
+  "Thần Hành Phù",
+  "Eaten Power",
+  "Clean Kill",
+  "Spoiled Palate",
+  "Held at Table",
+  "Sweet Ward",
+  "Bottomless Sutra",
+  "The Reckoning",
+  "Paid in Seasons",
+  "Lit Wick",
+  "Short Wick",
+  "Given Years",
+  "Nothing to Lose",
+  "Family Seal",
+  "Evening Table",
+  "Thrift",
+  "Iron-Sand Hand Bath",
+  "Kin tie",
+  "Maximum health",
+  "Maximum linh lực",
+  "Ward strength",
+  "Ward efficiency",
+  "Body guard"
+ ],
+ "new": [
+  {
+   "type": "enabler",
+   "name": "The Named Heir",
+   "han_viet": "Lập Tự",
+   "form": "Rule swap",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "A rider on The Set Day: name a disciple, and at death continue as them in the same world, with the Book, the tally and one mask per dead head. Closes your tree, your realm and your player edge.",
+   "second_home": "any sect succession"
+  },
+  {
+   "type": "modifier",
+   "name": "Grave Goods",
+   "han_viet": "Tùy Táng",
+   "form": "Trade",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "At a handover, half of Eaten Power goes into the ground with the head. With a life eating E, handover power closes on E.",
+   "second_home": "any inherited power, any sect treasure that weakens on passing"
+  },
+  {
+   "type": "modifier",
+   "name": "Lien",
+   "han_viet": "Thế Chấp",
+   "form": "Trade",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "Each living entry in your Book reserves 5 % of maximum linh lực, to 30 %.",
+   "second_home": "any debtor, any oath that holds power in escrow"
+  },
+  {
+   "type": "modifier",
+   "name": "Ancestor's Face",
+   "han_viet": "Tổ Diện",
+   "form": "Trigger",
+   "channel": "incoming",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "One mask per dead head. Each fight, each stops one hit sized 8 % of your health or more, whole, with nothing drained.",
+   "second_home": "any house relic"
+  },
+  {
+   "type": "modifier",
+   "name": "The Name Arrives First",
+   "han_viet": "Danh Tiên Chí",
+   "form": "Conditional",
+   "channel": "enemy",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "An enemy your tally frightens (5, 20, 50, 200, 1,000 for Qi Refining to Deity) carries an exit that stays shut until a blow of theirs falls on a mask, then opens at once.",
+   "second_home": "any infamous NPC, any sect with a bad name"
+  },
+  {
+   "type": "concept",
+   "name": "Succession",
+   "han_viet": "Kế Tự",
+   "fit": "Needs rule",
+   "effect": "A mode of Codex & Karmic Carryover (#12): with a Named Heir alive at your death, the next life continues as them in this world. Passes Book, tally, half of Eaten Power, masks, stones and heirlooms. Heart demon, tree and the player's edge stay behind, and the heir crosses gates on their NPC edge score.",
+   "second_home": "The Given Years' Long Table, a Herd-Child's beast left to a grandchild"
+  }
+ ],
+ "questions": [
+  "Does the player's edge follow the player or the first body? This sheet says it stays behind, and an heir reads their NPC edge score.",
+  "A new life is a new world in the game concept. Is one exception for Succession acceptable?",
+  "Heart demon does not pass, which reopens the Nascent gate The Not-Yet-Full closes. Each entry counts +1. Is that the right leak?",
+  "Masks stop any blow for free, the critic's first finding again. A death pays for each here. Is that a price?"
+ ]
+}

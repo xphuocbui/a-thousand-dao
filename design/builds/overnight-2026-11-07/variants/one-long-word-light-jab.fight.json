@@ -1,0 +1,160 @@
+{
+ "name": "one-long-word-light-jab",
+ "realm": "truc_co",
+ "n_body": 1.45,
+ "n_qi": 1.55,
+ "layers": [
+  39,
+  10,
+  30,
+  20,
+  0
+ ],
+ "crit": {
+  "chance": 0.05,
+  "mult": 1.5
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 70,
+  "we": 70
+ },
+ "guard": {
+  "body_guard_pct": 10
+ },
+ "arts": [
+  {
+   "id": "small_complaint",
+   "kind": "qi",
+   "c_art": 1.4,
+   "cost_share": 0.0388,
+   "cooldown": 2.174,
+   "curse": {
+    "pass_raise": 0.301,
+    "duration": 2
+   }
+  },
+  {
+   "id": "thin_skin",
+   "kind": "body",
+   "c_art": 1.4,
+   "cost_share": 0.0388,
+   "cooldown": 2.174,
+   "curse": {
+    "shred": 0.301,
+    "duration": 2
+   }
+  },
+  {
+   "id": "grudging_hand",
+   "kind": "qi",
+   "c_art": 1.4,
+   "cost_share": 0.0388,
+   "cooldown": 2.174,
+   "curse": {
+    "cost_raise": 0.251,
+    "duration": 2
+   }
+  },
+  {
+   "id": "closing_sentence",
+   "kind": "qi",
+   "c_art": 2.47,
+   "cost_share": 0.06,
+   "cooldown": 4
+  }
+ ],
+ "conditional_mods": [
+  {
+   "id": "Marked Target",
+   "layer": 1,
+   "per": "enemy_curses",
+   "points_per": 3,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 5.0,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Thinning Ward",
+   "layer": 1,
+   "points": 4,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.5
+   }
+  },
+  {
+   "id": "Many Small Ills",
+   "layer": 2,
+   "per": "enemy_curses",
+   "points_per": 5,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Crowded Sky",
+   "layer": 5,
+   "per": "enemy_curses",
+   "points_per": 3,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Nibbling Word",
+   "layer": 2,
+   "per": "enemy_curses",
+   "points_per": 2,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "unmodelled": [
+  "No plug-in. Every node is compiled into this file: duration, strength, curse speed and curse cost change the art record, damage rows are conditional_mods. Variants remove a whole row and recompile",
+  "curse_duration_pct rounds to the nearest whole pulse at compile, inside curse_duration_max 5. curse_effect_pct scales raise keys inside Combat's bounds; block_regen is on or off, so strength never touches it",
+  "Single Grudge and Set Jaw read 'exactly one curse on the target'. They are written as per enemy_curses, which is the same thing while one art lays one curse",
+  "Recast while the curse still stands would count as two records in the calculator. Rule 7 gives statuses a stacking rule and the curse here should refresh. In the main fight the cooldown is 3.486 s and the second firing lands at 6.972 s, 0.028 s before the first curse ends, and no art hit falls in that gap",
+  "Enemy sense and fortune: the fixtures have none and nothing here reads them",
+  "Status resist and cleanse on the enemy: not run. Curses land at 100 %"
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   }
+  ]
+ }
+}

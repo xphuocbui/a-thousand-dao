@@ -1,0 +1,76 @@
+{
+ "name": "the-mortal",
+ "realm": "luyen_khi",
+ "stage": 1.0,
+ "enemy": "typical",
+ "rules": [
+  "pratfall",
+  "mortal_body",
+  "lit_wick"
+ ],
+ "mortal": {
+  "power": 10,
+  "plain_blow": 8
+ },
+ "pratfall": {
+  "base": 1.0,
+  "roll": "expected",
+  "pot": true,
+  "clip": 0.25,
+  "once_per_art": true
+ },
+ "wick": {
+  "seasons": 216,
+  "health_per_season": 0.05,
+  "pulse_burn": 1,
+  "points_per": 0,
+  "layer": 2,
+  "channels": [
+   "art",
+   "basic"
+  ]
+ },
+ "callus": {
+  "after": 80,
+  "a_b": 1.0
+ },
+ "n_body": 1.065,
+ "guard": {
+  "a_b": 0,
+  "t_b": 0,
+  "body_guard_pct": 8
+ },
+ "ward": {
+  "model": "off"
+ },
+ "basic": {
+  "c": 1.0,
+  "kind": "body"
+ },
+ "arts": [],
+ "unmodelled": [
+  "The calculator has no realm under Qi Refining: the file says luyen_khi and mortal_body replaces the size. --gap reads from Qi Refining",
+  "The gift itself, the bond's ten-year window and who is left to bury whom are outside the fight",
+  "Seasons left at 0 are read as Down, though the person's own old age would still be there"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "rot_art",
+    "kind": "body",
+    "c_art": 0,
+    "cost_share": 0.05,
+    "cooldown": 1,
+    "applies": [
+     {
+      "id": "rot",
+      "kind": "body",
+      "c_tick": 0.5,
+      "duration": 4,
+      "stacks": 1
+     }
+    ]
+   }
+  ]
+ }
+}

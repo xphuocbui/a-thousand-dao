@@ -1,0 +1,146 @@
+{
+ "name": "long-firing",
+ "realm": "truc_co",
+ "layers": [
+  0,
+  0,
+  134.9,
+  20,
+  0
+ ],
+ "n_body": 1.3274,
+ "n_qi": 1.19,
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.1,
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "ws": 12.4,
+  "we": 12.4
+ },
+ "divine_sense": 1.0,
+ "arts": [
+  {
+   "id": "falling_lintel",
+   "kind": "body",
+   "c_art": 2.71,
+   "cost_share": 0.08,
+   "cooldown": 4
+  },
+  {
+   "id": "settling_wall",
+   "kind": "body",
+   "c_art": 2.96,
+   "cost_share": 0.08,
+   "cooldown": 5
+  }
+ ],
+ "guard": {
+  "a_b": 0.986,
+  "t_b": 0,
+  "body_guard_pct": 11.6
+ },
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Earth damage",
+   "layer": 1,
+   "points": 16.9,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Body damage",
+   "layer": 1,
+   "points": 9.9,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Settled Weight",
+   "layer": 2,
+   "points": 13.5,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Load-Bearing",
+   "layer": 2,
+   "points": 6.8,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Worn Slope",
+   "layer": 2,
+   "points": 0.0,
+   "per": "own_health_missing_pct",
+   "points_per": 0.101,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Damage below half health",
+   "layer": 1,
+   "points": 2.3,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "below": 0.5
+   }
+  }
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

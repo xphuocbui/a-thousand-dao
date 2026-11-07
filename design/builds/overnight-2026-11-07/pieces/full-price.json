@@ -1,0 +1,160 @@
+{
+  "slug": "full-price",
+  "name": "The Full Price",
+  "han_viet": "Túc Giá Đạo",
+  "pitch": "Pay your arts in spirit stones and no pool limits them: half a second in, before anyone can act, you buy a top-end cultivator's death for 45,000 stones, if a purse that size can ever be carried.",
+  "channel": "art",
+  "enabler": "Seal of Full Payment",
+  "enabler_kind": "Resource swap",
+  "identity_piece": "Priced Above the Sea",
+  "identity_id": "priced_above_sea",
+  "power": "legend",
+  "defining_realm": "ket_dan",
+  "fit": {
+    "fits_today": 5,
+    "needs_key": 10,
+    "needs_rule": 7
+  },
+  "reused": [
+    "Tolled Seal",
+    "Ringing Ground"
+  ],
+  "new": [
+    {
+      "type": "modifier",
+      "name": "Priced Above the Sea",
+      "han_viet": "Giá Siêu Hải",
+      "form": "Rule swap",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A stone-paid art may have cost_share above 1, and the art lint applies unchanged.",
+      "second_home": "any resource-swap build, such as blood-paid arts"
+    },
+    {
+      "type": "modifier",
+      "name": "Rush Order",
+      "han_viet": "Cản Đơn",
+      "form": "Timing",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "+50 % price: the art's first firing comes at half its effective cooldown.",
+      "second_home": "any alpha strike, First Move builds"
+    },
+    {
+      "type": "modifier",
+      "name": "Bulk Order",
+      "han_viet": "Phê Lượng",
+      "form": "Per",
+      "channel": "art",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+25 points to an art per full share of its cost.",
+      "second_home": "any costly art, Heavy Hand builds"
+    },
+    {
+      "type": "modifier",
+      "name": "Purse Weight",
+      "han_viet": "Trọng Nang",
+      "form": "Borrow",
+      "channel": "any",
+      "layer": "L3",
+      "fit": "Needs key",
+      "effect": "+30 points per doubling of carried stones above the realm's linh_thach_max, read at the start of a fight, within the L3 cap.",
+      "second_home": "any build with idle wealth"
+    },
+    {
+      "type": "modifier",
+      "name": "Exact Change",
+      "han_viet": "Trảo Tiền",
+      "form": "Overflow",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Overkill on a winning hit refunds that share of its price, up to half.",
+      "second_home": "any priced art, refunding blood or stock"
+    },
+    {
+      "type": "modifier",
+      "name": "Collected Debt",
+      "han_viet": "Thu Trái",
+      "form": "Trigger",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "On a knockout, take 10 % of the loser's carried stones.",
+      "second_home": "any bandit or hunter NPC"
+    },
+    {
+      "type": "enabler",
+      "name": "Seal of Full Payment",
+      "han_viet": "Túc Phó Ấn",
+      "fit": "Needs rule",
+      "effect": "Named artifact, an base. Arts and the ward may be paid in spirit stones; linh lực pays for nothing; carried stones show on your profile; a winner who takes you takes the seal."
+    },
+    {
+      "type": "technique",
+      "name": "Weights and Measures Sutra",
+      "han_viet": "Cân Lượng Kinh",
+      "fit": "Needs key",
+      "effect": "Main, Thiên giai, Metal. Abilities Earnest Money, Buyout, Ruinous Offer; lists Counting Beads."
+    },
+    {
+      "type": "art",
+      "name": "Earnest Money",
+      "han_viet": "Định Kim",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 4.0, share 0.25, cooldown 1 s."
+    },
+    {
+      "type": "art",
+      "name": "Buyout",
+      "han_viet": "Mãi Đoạn",
+      "fit": "Needs rule",
+      "effect": "Body hit, c_art 13, share 1, cooldown 1 s, guard own health below 75 %, so it fires in a follow-up instant."
+    },
+    {
+      "type": "art",
+      "name": "Ruinous Offer",
+      "han_viet": "Khuynh Gia Giá",
+      "fit": "Needs rule",
+      "effect": "Body hit, c_art 25, share 2, rushed to t = 0.5."
+    },
+    {
+      "type": "ward",
+      "name": "Indemnity Ward",
+      "han_viet": "Bồi Thường Hộ",
+      "fit": "Needs rule",
+      "effect": "A per-pulse ward whose premium is paid in stones, so linh lực is never touched."
+    },
+    {
+      "type": "cluster",
+      "name": "Counting Beads",
+      "han_viet": "Toán Châu",
+      "fit": "Needs key",
+      "effect": "Sealed, theme the Market economy, Metal, size 7: art cost, Metal damage, Full Sea."
+    },
+    {
+      "type": "dao",
+      "name": "Way of Trade",
+      "han_viet": "Thương Đạo",
+      "fit": "Needs key",
+      "effect": "Requires Metal at purity 40. Branches The Scale, The Road, The Ledger; keystone Priced Above the Sea."
+    },
+    {
+      "type": "concept",
+      "name": "Debt",
+      "han_viet": "Nợ",
+      "fit": "Needs rule",
+      "effect": "Spirit stones may fall below 0 through On Credit, with interest, heart demon and a collector. Also serves a creditor build and a build borrowing from its future."
+    }
+  ],
+  "questions": [
+    "A Core cultivator kills a same-realm top-end for about 10,000 to 45,000 stones. Is stone_rate 2 the right order of magnitude?",
+    "Should a build be able to act before t = 1 at all? Rush Order is the sharpest rule-bend here.",
+    "Rule 18 wants a top-end build to need 4 s against an ordinary boss. This shot ends a x4 typical boss at 0.5 s. Acceptable at this price?",
+    "Is debt a system you want?",
+    "Can a Core cultivator ever hold 80,000 stones, 16 times the ceiling on one event reward? If not, what purse is real, and does legend survive it?"
+  ]
+}

@@ -1,0 +1,154 @@
+{
+ "name": "drink-the-lightning",
+ "realm": "nguyen_anh",
+ "n_body": 1.4,
+ "n_qi": 2.4,
+ "layers": [
+  20,
+  0,
+  20,
+  50,
+  0
+ ],
+ "regen_bonus_pct": 6,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 100,
+  "we": 60
+ },
+ "guard": {
+  "body_guard_pct": 30
+ },
+ "ward_phase": "tho",
+ "fed": {
+  "pass_tag": -0.25,
+  "refund": 0.5,
+  "clipped_heals": 0.5
+ },
+ "still_water_share": 0.5,
+ "thu_loi": {
+  "element": "hoa",
+  "needs_tag": "tribulation"
+ },
+ "ground_tags": [
+  "home",
+  "tribulation"
+ ],
+ "rules": [
+  "element_tags",
+  "thu_loi",
+  "still_water",
+  "gorged"
+ ],
+ "conditional_mods": [
+  {
+   "id": "Gorged",
+   "layer": 2,
+   "per": "health_restored_pct",
+   "points_per": 1.0,
+   "cap": 100,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "first_course",
+   "kind": "body",
+   "c_art": 1.99,
+   "cost_share": 0.02,
+   "cooldown": 4
+  },
+  {
+   "id": "second_course",
+   "kind": "qi",
+   "c_art": 2.99,
+   "cost_share": 0.02,
+   "cooldown": 8
+  },
+  {
+   "id": "third_course",
+   "kind": "body",
+   "c_art": 3.99,
+   "cost_share": 0.02,
+   "cooldown": 12
+  },
+  {
+   "id": "last_course",
+   "kind": "qi",
+   "c_art": 5.99,
+   "cost_share": 0.02,
+   "cooldown": 20
+  }
+ ],
+ "unmodelled": [
+  "Fights are the calculator's expected values. Nothing here rolls: the build carries no chance field.",
+  "Known Ground reads ground tags: L4 is 50 here (home, tribulation) and 0 on open ground, where the law is also down. The main file stands on tribulation ground against a plain enemy only so that an identity run can show the law; the open-ground variants are the life outside it.",
+  "Bosses have no element, realm or thần thức in any GDD: each boss's element, its fight unit (realm nguyen_anh in the file) and White Silence's divine_sense 1.6 are authored guesses. Under the law the element is replaced."
+ ],
+ "start_health": 1.0,
+ "start_qi": 1.0,
+ "enemy_overrides": {
+  "realm": "nguyen_anh",
+  "crit": {
+   "chance": 0.0,
+   "mult": 1.5
+  },
+  "layers": [
+   180,
+   0,
+   0,
+   0,
+   0
+  ],
+  "n_body": 1.0,
+  "n_qi": 0.8,
+  "ward": {
+   "model": "drain",
+   "pass": {
+    "body": 0.54,
+    "qi": 0.36
+   },
+   "drain": {
+    "body": 1.0,
+    "qi": 1.5
+   },
+   "ws": 30,
+   "we": 30
+  },
+  "guard": {
+   "a_b": 0,
+   "t_b": 0,
+   "body_guard_pct": 0
+  },
+  "boss_pool_mult": 1.25,
+  "name": "Iron Thunder",
+  "element": "kim",
+  "arts": [
+   {
+    "id": "first_stroke",
+    "kind": "body",
+    "c_art": 1.5,
+    "cost_share": 0.04,
+    "cooldown": 2
+   },
+   {
+    "id": "anvil_stroke",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6
+   }
+  ]
+ }
+}

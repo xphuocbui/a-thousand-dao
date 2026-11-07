@@ -1,0 +1,246 @@
+{
+ "name": "full-price",
+ "rules": [
+  "stone_payment",
+  "priced_above_sea",
+  "rush_order",
+  "purse_weight",
+  "exact_change"
+ ],
+ "stone_payment": {
+  "purse": 80000,
+  "R": 5000,
+  "rate": 2,
+  "premium_share": 0.02
+ },
+ "purse_weight": 30,
+ "exact_change_max": 0.5,
+ "realm": "ket_dan",
+ "n_body": 1.6,
+ "n_qi": 1.0,
+ "layers": [
+  160,
+  0,
+  40,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.0,
+  "mult": 1.5
+ },
+ "art_cost_pct": 25,
+ "pierce_pct": 15,
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0,
+  "pass": {
+   "body": 0.4,
+   "qi": 0.3
+  },
+  "ws": 65,
+  "we": 65
+ },
+ "guard": {
+  "body_guard_pct": 20
+ },
+ "conditional_mods": [
+  {
+   "id": "Full Sea",
+   "layer": 5,
+   "points": 60,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.8
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "earnest_money",
+   "kind": "qi",
+   "c_art": 4.0,
+   "cost_share": 0.25,
+   "cooldown": 1,
+   "x": [
+    20,
+    36,
+    0,
+    20,
+    0
+   ]
+  },
+  {
+   "id": "buyout",
+   "kind": "body",
+   "c_art": 13.0,
+   "cost_share": 1.0,
+   "cooldown": 1,
+   "x": [
+    20,
+    55,
+    0,
+    20,
+    0
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "below": 0.75
+   }
+  },
+  {
+   "id": "ruinous_offer",
+   "kind": "body",
+   "c_art": 25.0,
+   "cost_share": 2.0,
+   "cooldown": 1,
+   "rush": true,
+   "x": [
+    20,
+    80,
+    0,
+    20,
+    0
+   ]
+  }
+ ],
+ "unmodelled": [
+  "Evade is an expected value here. In the game a 40 % evader misses the contract outright 4 times in 10, and the money is still spent",
+  "Collected Debt and the purse between fights are outside one fight: the sheet's purse sequence is three variant files",
+  "Each art's cost_share is its stone share: stone_payment moves it off linh luc, so the lint reads the real share"
+ ],
+ "enemy_overrides": {
+  "name": "burial-shroud",
+  "realm": "ket_dan",
+  "n_body": 2.6,
+  "n_qi": 2.4,
+  "reserve_share": 0.25,
+  "layers": [
+   134,
+   0,
+   90,
+   0,
+   0
+  ],
+  "regen_bonus_pct": 3,
+  "pierce_pct": 30,
+  "ward": {
+   "model": "drain",
+   "pass": {
+    "body": 0.42,
+    "qi": 0.28
+   },
+   "drain": {
+    "body": 0.72,
+    "qi": 1.08
+   },
+   "ws": 150,
+   "we": 150
+  },
+  "guard": {
+   "a_b": 3.0,
+   "t_b": 1.0,
+   "body_guard_pct": 40
+  },
+  "aura": [
+   {
+    "id": "grave_rot",
+    "kind": "body",
+    "c_tick": 0.35,
+    "stacks": 1,
+    "x": [
+     60,
+     180,
+     0,
+     100,
+     0
+    ]
+   }
+  ],
+  "tick_overflow_qi": 1.0,
+  "conditional_mods": [
+   {
+    "id": "Bare Vessel",
+    "layer": 5,
+    "points": 80,
+    "channels": [
+     "art",
+     "basic"
+    ],
+    "guard": {
+     "who": "enemy",
+     "pool": "qi",
+     "below": 0.05
+    }
+   }
+  ],
+  "arts": [
+   {
+    "id": "bier_hush",
+    "kind": "qi",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 3,
+    "curse": {
+     "block_regen": true,
+     "duration": 3
+    }
+   },
+   {
+    "id": "grave_wind",
+    "kind": "qi",
+    "c_art": 1.2,
+    "cost_share": 0.05,
+    "cooldown": 2,
+    "applies": [
+     {
+      "id": "wither",
+      "kind": "qi",
+      "c_tick": 0.3,
+      "duration": 4,
+      "stacks": 1,
+      "x": [
+       60,
+       180,
+       0,
+       100,
+       0
+      ]
+     }
+    ]
+   },
+   {
+    "id": "closing_the_lid",
+    "kind": "body",
+    "c_art": 3.2,
+    "cost_share": 0,
+    "body_cost_share": 0.05,
+    "cooldown": 5,
+    "x": [
+     0,
+     60,
+     0,
+     0,
+     0
+    ],
+    "guard": {
+     "who": "enemy",
+     "pool": "qi",
+     "below": 0.05
+    }
+   }
+  ],
+  "crit": {
+   "chance": 0.0,
+   "mult": 1.5
+  }
+ },
+ "variant_of": "sheets/full-price.fight.json",
+ "variant_note": "A duel: run with no --matrix. The enemy is the whole Burial Shroud file"
+}

@@ -1,0 +1,171 @@
+{
+ "name": "guide-hound-five-ward",
+ "realm": 3,
+ "layers": [
+  0,
+  0,
+  40,
+  20,
+  0
+ ],
+ "n_body": 2.0377,
+ "n_qi": 1.7273,
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 62.45,
+  "we": 62.45
+ },
+ "divine_sense": 1.0,
+ "arts": [],
+ "companion": {
+  "c_comp": 1.0,
+  "kind": "qi"
+ },
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "companion"
+   ]
+  },
+  {
+   "id": "Companion damage",
+   "layer": 1,
+   "points": 40,
+   "channels": [
+    "companion"
+   ]
+  },
+  {
+   "id": "Beast damage",
+   "layer": 1,
+   "points": 36,
+   "channels": [
+    "companion"
+   ]
+  },
+  {
+   "id": "Qi damage",
+   "layer": 1,
+   "points": 13.0,
+   "channels": [
+    "companion"
+   ]
+  },
+  {
+   "id": "Above Half",
+   "layer": 1,
+   "points": 16,
+   "channels": [
+    "companion",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Wasting",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "companion",
+    "basic"
+   ],
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.2
+  },
+  {
+   "id": "Long Loyalty",
+   "layer": 2,
+   "points": 12.5,
+   "channels": [
+    "companion"
+   ]
+  },
+  {
+   "id": "Grown Together",
+   "layer": 2,
+   "points": 10.0,
+   "channels": [
+    "companion"
+   ]
+  },
+  {
+   "id": "Still Hand",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "companion"
+   ],
+   "per": "empty_slots",
+   "points_per": 3.2
+  },
+  {
+   "id": "Full Trough",
+   "layer": 4,
+   "points": 40,
+   "channels": [
+    "companion"
+   ]
+  }
+ ],
+ "companion_speed_pct": 38.0,
+ "rules": [
+  "companion_speed"
+ ],
+ "unmodelled": [
+  "Fortune and thought are not read",
+  "Element on a hit is not run",
+  "Full Trough is +40, a feed bill four times what is due. Feed and loyalty are costs outside the fight",
+  "Long Loyalty is read at compile, at loyalty 100",
+  "Companion accuracy does not exist, so an evader is met at full chance"
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

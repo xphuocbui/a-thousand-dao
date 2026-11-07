@@ -1,0 +1,51 @@
+{
+ "name": "held-door",
+ "realm": "luyen_khi",
+ "stage": 1.0,
+ "n_body": 1.08,
+ "n_qi": 1.4,
+ "layers": [
+  0,
+  0,
+  15,
+  0,
+  0
+ ],
+ "regen_bonus_pct": 1.0,
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.34,
+   "qi": 0.24
+  },
+  "hit_cost_share": 0.04,
+  "ws": 400,
+  "we": 50
+ },
+ "guard": {
+  "a_b": 0.2,
+  "t_b": 0,
+  "body_guard_pct": 10
+ },
+ "basic": {
+  "c": 0
+ },
+ "rules": [],
+ "arts": [],
+ "unmodelled": [
+  "The room's rule that an enemy escape channel cannot complete is not exercised: this enemy never flees",
+  "Formulas K's rating profile reads one ward; how Twin Wards rates in a mass battle is not modelled"
+ ],
+ "conditional_mods": [],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6
+   }
+  ]
+ }
+}

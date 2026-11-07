@@ -1,0 +1,42 @@
+{
+ "slug": "banked-well",
+ "name": "The Banked Well",
+ "han_viet": "Đê Tỉnh",
+ "pitch": "Every well in the world is Earth overcoming Water: line your sea with a Stone Ward, sell the pool you no longer need, and spend all of it on four arts.",
+ "channel": "art",
+ "enabler": "Stone Ward",
+ "enabler_kind": "Ward model",
+ "identity_piece": "Stone Ward",
+ "identity_id": "ward",
+ "power": "strong",
+ "defining_realm": "hoa_than",
+ "fit": {
+  "fits_today": 3,
+  "needs_key": 13,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Stone Ward",
+  "One Ladle Rule",
+  "First Ladle",
+  "Second Ladle",
+  "Cold Needle",
+  "Water damage",
+  "Qi damage",
+  "Thin Stream",
+  "Held Water",
+  "Spring Head",
+  "Wasting",
+  "Unbroken Surface",
+  "Regeneration",
+  "Ward strength",
+  "Ward efficiency",
+  "Water art cost"
+ ],
+ "new": [],
+ "questions": [
+  "Vinegar Cloth's pass of 0.34 lets The One Ladle win 5 of 5 by itself, and the same per-hit model at the common pass loses Pulse and Wall. Should per-hit wards carry the common pass?",
+  "Maximum linh lực does exactly nothing on a Stone Ward, because every cost is a share. Is that intended?",
+  "Stone Ward's ledger row says 0.125; Combat's range stops at 0.10. This sheet uses 0.10."
+ ]
+}

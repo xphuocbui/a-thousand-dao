@@ -1,0 +1,279 @@
+{
+ "name": "the-proctor",
+ "realm": "nguyen_anh",
+ "n_body": 2.0,
+ "n_qi": 1.5,
+ "layers": [
+  150,
+  0,
+  40,
+  20,
+  0
+ ],
+ "regen_bonus_pct": 2,
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.3,
+   "qi": 0.2
+  },
+  "hit_cost_share": 0.05,
+  "ws": 220,
+  "we": 80
+ },
+ "guard": {
+  "a_b": 2.8,
+  "t_b": 2,
+  "body_guard_pct": 40
+ },
+ "conditional_mods": [
+  {
+   "id": "Plain Speech",
+   "layer": 2,
+   "points": 10,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Marked Target",
+   "layer": 1,
+   "per": "enemy_curses",
+   "points_per": 3,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Single Grudge",
+   "layer": 2,
+   "per": "enemy_curses",
+   "points_per": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Set Jaw",
+   "layer": 2,
+   "per": "enemy_curses",
+   "points_per": 6,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "standing_word",
+   "kind": "qi",
+   "c_art": 2.0,
+   "cost_share": 0.0776,
+   "cooldown": 3.486,
+   "curse": {
+    "cost_raise": 0.418,
+    "drain_raise": 0.418,
+    "block_regen": true,
+    "duration": 4
+   }
+  },
+  {
+   "id": "level_gaze",
+   "kind": "qi",
+   "c_art": 1.9,
+   "cost_share": 0.04,
+   "cooldown": 3
+  },
+  {
+   "id": "closing_sentence",
+   "kind": "qi",
+   "c_art": 2.47,
+   "cost_share": 0.06,
+   "cooldown": 4
+  },
+  {
+   "id": "plain_reproach",
+   "kind": "body",
+   "c_art": 1.9,
+   "cost_share": 0.04,
+   "cooldown": 3
+  }
+ ],
+ "unmodelled": [
+  "Standing Word's numbers are One Long Word's road at its full walk, carried up a realm unchanged",
+  "a_b 2.8 and t_b 2 as The Dug Stone: first guesses"
+ ],
+ "rules": [
+  "already_waited",
+  "demon_scale",
+  "cornered",
+  "in_step"
+ ],
+ "enemy_overrides": {
+  "name": "already-waited",
+  "realm": "nguyen_anh",
+  "n_body": 1.5,
+  "n_qi": 1.4,
+  "layers": [
+   230,
+   0,
+   60,
+   0,
+   0
+  ],
+  "crit": {
+   "chance": 0.1,
+   "mult": 1.6
+  },
+  "regen_bonus_pct": 1,
+  "ward": {
+   "model": "drain",
+   "pass": {
+    "body": 0.54,
+    "qi": 0.36
+   },
+   "drain": {
+    "body": 1.0,
+    "qi": 1.5
+   },
+   "ws": 70,
+   "we": 70
+  },
+  "guard": {
+   "t_b": 0.5,
+   "body_guard_pct": 30
+  },
+  "waited": {
+   "pool": 85,
+   "rate": 1.0,
+   "cap": 100,
+   "blow_refill": 0.3,
+   "both_hands": 50
+  },
+  "conditional_mods": [
+   {
+    "id": "Cornered",
+    "layer": 5,
+    "points": 50,
+    "channels": [
+     "art",
+     "basic"
+    ],
+    "guard": {
+     "cornered": true
+    }
+   },
+   {
+    "id": "In Step",
+    "layer": 5,
+    "points": 50,
+    "channels": [
+     "art"
+    ],
+    "guard": {
+     "in_step": true
+    }
+   },
+   {
+    "id": "Heart Demon's Blade",
+    "layer": 2,
+    "per": "demon_pool",
+    "points_per": 0.6,
+    "channels": [
+     "art"
+    ]
+   }
+  ],
+  "arts": [
+   {
+    "id": "wait_here",
+    "kind": "qi",
+    "c_art": 2.7,
+    "cost_share": 0.04,
+    "cooldown": 6,
+    "delay_enemy": 3,
+    "x": [
+     0,
+     20,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "rope_burn",
+    "kind": "body",
+    "c_art": 3.7,
+    "cost_share": 0.04,
+    "cooldown": 10,
+    "x": [
+     0,
+     20,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "third_winter",
+    "kind": "qi",
+    "c_art": 3.3,
+    "cost_share": 0.05,
+    "cooldown": 8,
+    "x": [
+     0,
+     20,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "lantern_left",
+    "kind": "body",
+    "c_art": 4.4,
+    "cost_share": 0.06,
+    "cooldown": 12,
+    "x": [
+     0,
+     20,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "last_ferry",
+    "kind": "body",
+    "c_art": 6.3,
+    "cost_share": 0.05,
+    "cooldown": 20,
+    "x": [
+     0,
+     20,
+     0,
+     0,
+     0
+    ],
+    "guard": {
+     "who": "enemy",
+     "pool": "health",
+     "below": 0.4
+    }
+   },
+   {
+    "id": "hearth_ash",
+    "cost_share": 0,
+    "cooldown": 2,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "below": 0.45
+    },
+    "refund_qi_share": 0.15,
+    "stock": 2
+   }
+  ],
+  "divine_sense": 1.0
+ }
+}

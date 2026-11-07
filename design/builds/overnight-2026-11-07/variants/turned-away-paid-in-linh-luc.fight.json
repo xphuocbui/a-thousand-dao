@@ -1,0 +1,95 @@
+{
+ "name": "turned-away",
+ "realm": "ket_dan",
+ "stage": 1.65,
+ "n_body": 1.5,
+ "n_qi": 1.6,
+ "start_health": 0.6,
+ "layers": [
+  169,
+  0,
+  90,
+  30,
+  0
+ ],
+ "art_speed_pct": 20,
+ "regen_bonus_pct": 2,
+ "pierce_pct": 20,
+ "soul_res_pct": 32,
+ "ward": {
+  "model": "off"
+ },
+ "guard": {
+  "body_guard_pct": 10
+ },
+ "conditional_mods": [
+  {
+   "id": "Reopened",
+   "layer": 5,
+   "per": "own_health_missing_pct",
+   "points_per": 0.6,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "hairline",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 2
+  },
+  {
+   "id": "second_firing",
+   "kind": "body",
+   "c_art": 2.9,
+   "cost_share": 0.12,
+   "cooldown": 3
+  },
+  {
+   "id": "gate_opens_inward",
+   "kind": "qi",
+   "c_art": 4.1,
+   "cost_share": 0.16,
+   "cooldown": 6
+  }
+ ],
+ "unmodelled": [
+  "Variant: the same arts paid in linh lực at twice the health share",
+  "Gate Scars, Cracked Perfection, Known Gate and Numb Soul are compile-time: 4 scars give stage 1.65, pierce 20, soul resistance 32",
+  "Raw Scar sits in layers L4 and start_health 0.6 because the model fight comes the season after a failure. variants/turned-away-cold.fight.json loses both",
+  "After the fight: a scar opened stays raw for 8 seasons. A caller rule",
+  "Refusals are not statuses, so a cleanse has nothing to take. Untested: the reference enemies carry no cleanse"
+ ],
+ "rules": [
+  "turned_away"
+ ],
+ "scar_floor": 4,
+ "scar_floor_share": 0.05,
+ "scar_cost_share": 0.15,
+ "refused_force": {
+  "layer": 2,
+  "points_per": 15,
+  "channels": [
+   "art",
+   "basic"
+  ]
+ }
+}

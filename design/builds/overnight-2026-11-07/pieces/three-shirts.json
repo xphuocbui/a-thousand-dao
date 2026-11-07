@@ -1,0 +1,23 @@
+{
+ "slug": "three-shirts",
+ "name": "The Three Shirts",
+ "han_viet": "Tam Giáp Lộ",
+ "pitch": "Wear three mail shirts and carry three needles: six pieces fill the count, and every grade up the same road hits harder.",
+ "channel": "art",
+ "enabler": null,
+ "enabler_kind": null,
+ "identity_piece": "Ore Vein",
+ "identity_id": "Ore Vein",
+ "power": "ordinary",
+ "defining_realm": "truc_co",
+ "fit": {"fits_today": 7, "needs_key": 9, "needs_rule": 0},
+ "reused": ["Weapon attack", "Good Steel", "Ore Vein", "Load-Bearing", "Armour defence", "Metal damage", "Bright Steel", "Body damage", "Steady Thread", "Honed Edge", "Ward efficiency", "Regeneration", "Plain Cut", "Seam Thrust", "Long Draw", "Falling Lintel", "Packed Clay Method", "Stone Ward"],
+ "new": [
+  {"type": "technique", "name": "Baggage Sutra", "han_viet": "Hành Trang Kinh", "fit": "Needs key",
+   "effect": "Main, Huyền giai, Earth and Metal, no bonuses, +40 L2 on Earth and Metal arts. Lists Plain Cut, Seam Thrust, Long Draw and Falling Lintel."}
+ ],
+ "questions": [
+  "Item Database rule 11 lets a cultivator wear three mail shirts. Is that meant? It is this build's whole Hạ phẩm edge.",
+  "Ore Vein and Load-Bearing are due to fold. Should the folded row keep both tags, so one purchase reads every art here?"
+ ]
+}

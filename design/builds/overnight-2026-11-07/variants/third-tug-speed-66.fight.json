@@ -1,0 +1,236 @@
+{
+ "name": "third-tug",
+ "realm": "nguyen_anh",
+ "n_body": 2.0,
+ "n_qi": 1.6,
+ "layers": [
+  290,
+  0,
+  117,
+  20,
+  0
+ ],
+ "art_speed_pct": 66,
+ "regen_bonus_pct": 1,
+ "divine_sense": 57,
+ "sense_base": 57,
+ "thought": {
+  "held": 100,
+  "used": 75
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 60,
+  "we": 60
+ },
+ "conditional_mods": [
+  {
+   "id": "Full Title",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Sword damage (acupoints)",
+   "layer": 1,
+   "points": 20,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Sword damage (notable)",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Short Edge (acupoints)",
+   "layer": 2,
+   "points": 8,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Short Edge (notable)",
+   "layer": 2,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Many Forms (acupoints)",
+   "layer": 2,
+   "points": 6,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Spent Breath (acupoints)",
+   "layer": 5,
+   "points": 4,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "below": 0.5
+   }
+  },
+  {
+   "id": "Spent Breath (notable)",
+   "layer": 5,
+   "points": 12,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "below": 0.5
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "morning_thrust",
+   "kind": "body",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1
+  },
+  {
+   "id": "rising_cut",
+   "kind": "body",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1
+  },
+  {
+   "id": "falling_cut",
+   "kind": "body",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1
+  }
+ ],
+ "unmodelled": [
+  "Thần thức 57 is the reference typical in Cut Line's own file: this build spends nothing on soul. 75 % bound is Cut Line's assumption, and past soul_cap it changes nothing here"
+ ],
+ "rules": [
+  "realm_sense",
+  "soul_line"
+ ],
+ "enemy_overrides": {
+  "name": "cut-line",
+  "realm": "nguyen_anh",
+  "stage": 1.45,
+  "n_body": 1.25,
+  "n_qi": 2.0,
+  "layers": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "regen_bonus_pct": 2,
+  "x_soul": 30,
+  "sense_sheet": {
+   "than_hon": 60,
+   "stage": 1.45,
+   "than_thuc_pct": 277
+  },
+  "light_hand": {
+   "heart_demon": 10,
+   "under": 30,
+   "points_per": 2
+  },
+  "ward": {
+   "model": "drain",
+   "pass": {
+    "body": 0.54,
+    "qi": 0.36
+   },
+   "drain": {
+    "body": 1.0,
+    "qi": 1.5
+   },
+   "ws": 70,
+   "we": 70
+  },
+  "open_sky": {
+   "ws_per_pct": 0.6,
+   "free_pct": 100
+  },
+  "along_the_thread": {
+   "bound_share": 0.5,
+   "assumed_used": 0.75
+  },
+  "running_line": {
+   "floor": 0.1
+  },
+  "unseen_hand": 60,
+  "sense_shred_max": 0.5,
+  "arts": [
+   {
+    "id": "test_tug",
+    "kind": "soul",
+    "soul_pct": 0.03,
+    "cost_share": 0.05,
+    "cooldown": 0.5,
+    "curse": {
+     "sense_shred": 0.25,
+     "duration": 2
+    }
+   },
+   {
+    "id": "paper_cut",
+    "kind": "soul",
+    "soul_pct": 0.03,
+    "cost_share": 0.05,
+    "cooldown": 0.5
+   },
+   {
+    "id": "glass_line",
+    "kind": "soul",
+    "soul_pct": 0.05,
+    "cost_share": 0.09,
+    "cooldown": 0.5
+   },
+   {
+    "id": "running_cut",
+    "kind": "soul",
+    "soul_pct": 0.05,
+    "cost_share": 0.09,
+    "cooldown": 0.5
+   }
+  ],
+  "thought": {
+   "held": 100,
+   "used": 0
+  },
+  "crit": {
+   "chance": 0,
+   "mult": 1.5
+  },
+  "divine_sense": 1.0,
+  "guard": {}
+ }
+}

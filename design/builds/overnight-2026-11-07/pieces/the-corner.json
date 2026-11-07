@@ -1,0 +1,117 @@
+{
+ "slug": "the-corner",
+ "name": "The Corner",
+ "han_viet": "Lũng Đoạn Quyết",
+ "pitch": "Burn their linh lực, and when the pool is empty the bill comes out of their body: their bar stands still for four seconds and then falls off a cliff, and in your own city they arrive already hungry.",
+ "channel": "qi burn",
+ "enabler": null,
+ "enabler_kind": "none",
+ "identity_piece": "Requisition",
+ "identity_id": "requisition",
+ "power": "strong",
+ "defining_realm": "truc_co",
+ "fit": {
+  "fits_today": 3,
+  "needs_key": 13,
+  "needs_rule": 5
+ },
+ "reused": [
+  "Spillover",
+  "Scraping the Well",
+  "Longer Breath",
+  "Thrift",
+  "Rush Order",
+  "Closed Gate"
+ ],
+ "new": [
+  {
+   "type": "modifier",
+   "name": "Requisition",
+   "han_viet": "Trưng Thu",
+   "form": "Redirect",
+   "channel": "qi burn",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "Linh lực burn counts as drain a ward asked for: whatever reads drain also reads your burn.",
+   "second_home": "any drain build, such as Water Table's"
+  },
+  {
+   "type": "modifier",
+   "name": "Held Acres",
+   "han_viet": "Tích Điền",
+   "form": "Per",
+   "channel": "tick, burn",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+7 points on over-time statuses per spirit field plot you work (n_plots, 1 to 12).",
+   "second_home": "any Spirit Farming poisoner"
+  },
+  {
+   "type": "art",
+   "name": "Short Measure",
+   "han_viet": "Đoản Đấu",
+   "fit": "Needs key",
+   "effect": "Burn, cost 0.06 with Rush Order, 2 s: c_tick 0.4, 5 pulses."
+  },
+  {
+   "type": "art",
+   "name": "Bad Year",
+   "han_viet": "Hoang Niên",
+   "fit": "Needs key",
+   "effect": "Burn, cost 0.06 with Rush Order, 2 s: c_tick 0.4, 5 pulses."
+  },
+  {
+   "type": "art",
+   "name": "Spoiled Stores",
+   "han_viet": "Hủ Thương",
+   "fit": "Needs key",
+   "effect": "Body tick, cost 0.05, 2 s: c_tick 0.44, 5 pulses, there to clip and spill."
+  },
+  {
+   "type": "art",
+   "name": "Rent Day",
+   "han_viet": "Thu Tô",
+   "fit": "Needs key",
+   "effect": "Qi hit, c_art 2.2, cost 0.08, 2 s, guard enemy linh lực at or below 20 %."
+  },
+  {
+   "type": "art",
+   "name": "Thin Gruel",
+   "han_viet": "Bạc Chúc",
+   "fit": "Needs key",
+   "effect": "Burn, cost 0.05, 2 s: c_tick 0.44, 5 pulses."
+  },
+  {
+   "type": "technique",
+   "name": "Severed Wheat Sutra",
+   "han_viet": "Đoạn Mạch Kinh",
+   "fit": "Needs key",
+   "effect": "Main, Địa giai, Earth and Metal. Carries the arts, re-lists Closed Gate, seals Hungry Courses."
+  },
+  {
+   "type": "cluster",
+   "name": "Hungry Courses",
+   "han_viet": "Cơ Mạch",
+   "fit": "Needs key",
+   "effect": "Linh lực and starving it, Earth, outer, sealed by a technique, size 10. Notables Held Acres and Thrift, capability Requisition."
+  },
+  {
+   "type": "artifact",
+   "name": "Granary Seal",
+   "han_viet": "Thương Ấn",
+   "fit": "Needs key",
+   "effect": "An ấn, generated, with authored flavour. L3."
+  },
+  {
+   "type": "concept",
+   "name": "Cornered Market",
+   "han_viet": "Lũng Đoạn Thị",
+   "fit": "Needs rule",
+   "effect": "A caller may lower a resident's starting linh lực share before a foreseen fight at a place you hold: 1 - n_plots / 16, never below 0.25. Combat rules 3 and 12, Event Engine."
+  }
+ ],
+ "questions": [
+  "Is the 5 % qi burn cap per status or per pulse? Formulas F and AC-CB-38 can be read either way, and it changes every burn build.",
+  "May anything but Tribulation set a starting share? One lowered share turned a loss on 83 % into a win."
+ ]
+}

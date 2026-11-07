@@ -1,0 +1,42 @@
+{
+ "slug": "long-drought",
+ "name": "The Long Drought",
+ "han_viet": "Trường Hạn",
+ "pitch": "One sentence shuts their income, two thin doses take the pool, and a ward that paid for itself from a deep spring simply stops.",
+ "channel": "qi burn",
+ "enabler": null,
+ "enabler_kind": null,
+ "identity_piece": "Standing Word",
+ "identity_id": "standing_word",
+ "power": "ordinary",
+ "defining_realm": "truc_co",
+ "fit": {
+  "fits_today": 3,
+  "needs_key": 15,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Standing Word",
+  "Thin Dose",
+  "Wasting Thirst",
+  "Level Gaze",
+  "Plain Speech Method",
+  "Burn damage",
+  "Poison damage",
+  "Damage over time",
+  "Status chance",
+  "Long Simmer",
+  "Basic attack damage",
+  "Wasting",
+  "Damage to an enemy with no linh lực",
+  "Unbroken Sentence",
+  "Slow to Lift",
+  "Lingering Word",
+  "Held Acres"
+ ],
+ "new": [],
+ "questions": [
+  "+17.5 % curse duration rounds 3 pulses up to 4, and that one rounding decides the Evader and the spring fight. Is that intended?",
+  "One Long Word on Breath's ward wins the Evader and Fast faster than this hybrid. The ward kit is worth more than the crossing there: is that the intended size of a ward kit?"
+ ]
+}

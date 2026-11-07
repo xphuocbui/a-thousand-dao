@@ -1,0 +1,130 @@
+{
+  "slug": "remnant-host",
+  "name": "The Remnant Host",
+  "han_viet": "Tàn Binh Đạo",
+  "pitch": "Six scavenged needles fly for free, and every bit of thần thức you leave unused makes them faster, until they land twice in the first second, the second volley in the instant an elder first strikes.",
+  "channel": "flight (new)",
+  "enabler": "Recall Banner",
+  "enabler_kind": "New channel",
+  "identity_piece": "Spare Mind",
+  "identity_id": "spare_mind",
+  "power": "top-end",
+  "defining_realm": "ket_dan",
+  "fit": {
+    "fits_today": 6,
+    "needs_key": 9,
+    "needs_rule": 4
+  },
+  "reused": [
+    "Bare Vessel",
+    "Overheat"
+  ],
+  "new": [
+    {
+      "type": "enabler",
+      "name": "Recall Banner",
+      "han_viet": "Thu Binh Kỳ",
+      "fit": "Needs rule",
+      "effect": "Named artifact, ky base. Lifts equip.max_slots; each piece flies on its own timer for no slot and no linh lực. Closes all artifact defence, removes thần thức in flight from soul defence, and a soul hit grounds everything for soul_lockout."
+    },
+    {
+      "type": "modifier",
+      "name": "Spare Mind",
+      "han_viet": "Dư Thần",
+      "form": "Per",
+      "channel": "flight",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "+3 % flight speed per 1 % of thần thức left free.",
+      "second_home": "any artifact-active build"
+    },
+    {
+      "type": "modifier",
+      "name": "Flown artifact damage",
+      "han_viet": "",
+      "form": "Increased",
+      "channel": "flight",
+      "layer": "L1",
+      "fit": "Needs key",
+      "effect": "Increased damage on hits with the artifact source tag.",
+      "second_home": "any flying sword build"
+    },
+    {
+      "type": "modifier",
+      "name": "Drilled Ranks",
+      "han_viet": "Thao Binh",
+      "form": "More",
+      "channel": "flight",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+50 to hits with the artifact source tag.",
+      "second_home": "any flying sword build"
+    },
+    {
+      "type": "modifier",
+      "name": "Idle Hands",
+      "han_viet": "Nhàn Thủ",
+      "form": "Per",
+      "channel": "flight",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+10 to hits with the artifact source tag per empty art slot.",
+      "second_home": "any no-art build"
+    },
+    {
+      "type": "modifier",
+      "name": "Whetstone Ash",
+      "han_viet": "Ma Thạch Hôi",
+      "form": "More",
+      "channel": "flight",
+      "layer": "L4",
+      "fit": "Needs key",
+      "effect": "+60 to hits with the artifact source tag, prepared before the fight.",
+      "second_home": "any flying sword build"
+    },
+    {
+      "type": "modifier",
+      "name": "Standard Planted",
+      "han_viet": "Thụ Kỳ",
+      "form": "Trigger",
+      "channel": "flight",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A ky strike applies a curse: ward pass +30 % for 3 pulses.",
+      "second_home": "any banner set"
+    },
+    {
+      "type": "technique",
+      "name": "Roll-Call Method",
+      "han_viet": "Điểm Binh Quyết",
+      "fit": "Needs key",
+      "effect": "Main, Địa giai, Metal. No arts. Carries Drilled Ranks and seals Many Threads."
+    },
+    {
+      "type": "cluster",
+      "name": "Many Threads",
+      "han_viet": "Thiên Ti Mạch",
+      "fit": "Needs key",
+      "effect": "Divine Sense theme, Metal, outer, sealed by technique, size 10. Notables: Bare Vessel, then Spare Mind as its capability."
+    },
+    {
+      "type": "dao_branch",
+      "name": "Array, Host branch",
+      "han_viet": "Trận Đạo, Binh Mạch",
+      "fit": "Needs key",
+      "effect": "A branch of the Array Đạo holding Idle Hands and Overheat."
+    },
+    {
+      "type": "concept",
+      "name": "Flight",
+      "han_viet": "Ngự Bảo",
+      "fit": "Needs rule",
+      "effect": "Damage from each equipped piece on its own timer, outside the art slots. Combat rules 3 and 13, Item Database rule 11."
+    }
+  ],
+  "questions": [
+    "Should flight stay on one banner, or become a general artifact rule with a technique or Đạo gate?",
+    "The 0.5 s floor is a cliff: two volleys fit in the first second. Is a build that lands on it by exact sizing what you want?",
+    "The build reaches top-end offence with generated Trung phẩm needles. The timer constant, 20 s, is the dial if that is too cheap."
+  ]
+}

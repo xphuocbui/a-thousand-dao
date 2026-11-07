@@ -1,0 +1,192 @@
+{
+  "slug": "brush-fee",
+  "name": "The Brush Fee",
+  "han_viet": "Nhuận Bút",
+  "pitch": "They fire one art, you copy it five times, and all five copies are billed to them before the first hit lands.",
+  "channel": "art (copied)",
+  "enabler": "Stele-Rubbing Scripture",
+  "enabler_kind": "Slot bender",
+  "identity_piece": "Brush Fee",
+  "identity_id": "brush_fee",
+  "power": "strong",
+  "defining_realm": "ket_dan",
+  "fit": {
+    "fits_today": 3,
+    "needs_key": 10,
+    "needs_rule": 5
+  },
+  "reused": [
+    "Bare Vessel"
+  ],
+  "new": [
+    {
+      "type": "enabler",
+      "name": "Stele-Rubbing Scripture",
+      "han_viet": "Thác Bi Kinh",
+      "form": "Slot bender",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Secret art, Thiên giai, Water. Grants Rubbings, arts that take c_art, kind and tags from the enemy art fired that instant. Those slots hold nothing of your own.",
+      "second_home": "any mimic"
+    },
+    {
+      "type": "keystone",
+      "name": "Brush Fee",
+      "han_viet": "Nhuận Bút",
+      "form": "Rule swap",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "The cost of a copied art is charged to the original's caster, who pays what they have.",
+      "second_home": "any mimic"
+    },
+    {
+      "type": "modifier",
+      "name": "Copied Art Damage",
+      "han_viet": "Sao Pháp Thương",
+      "form": "Increased",
+      "channel": "art",
+      "layer": "L1",
+      "fit": "Needs key",
+      "effect": "+20 to arts with the copied tag.",
+      "second_home": "any talisman thief"
+    },
+    {
+      "type": "modifier",
+      "name": "Practised Stroke",
+      "han_viet": "Thuần Bút",
+      "form": "Per",
+      "channel": "art",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+8 points per firing of the original this fight, to +64.",
+      "second_home": "any repeating art, Late Bloom builds"
+    },
+    {
+      "type": "modifier",
+      "name": "Dark Ink",
+      "han_viet": "Nùng Mặc",
+      "form": "More",
+      "channel": "art",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+50 points from Way of Ink art nodes on copied arts.",
+      "second_home": "any talisman thief"
+    },
+    {
+      "type": "modifier",
+      "name": "Sized Paper",
+      "han_viet": "Phàn Chỉ",
+      "form": "More",
+      "channel": "art",
+      "layer": "L4",
+      "fit": "Needs key",
+      "effect": "+30 points to copied and talisman hits, from treated paper prepared before the fight.",
+      "second_home": "any talisman build"
+    },
+    {
+      "type": "modifier",
+      "name": "Deep Reading",
+      "han_viet": "Tế Độc",
+      "form": "Cap shift",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "rho_min is 0.15 for your Rubbings.",
+      "second_home": "any soul build, as a read on soul arts"
+    },
+    {
+      "type": "modifier",
+      "name": "Usurious Ink",
+      "han_viet": "Cao Lợi Mặc",
+      "form": "Trigger",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "When a fee is charged at double, curse: +50 % art cost for 2 pulses.",
+      "second_home": "any starving build"
+    },
+    {
+      "type": "modifier",
+      "name": "Patronage",
+      "han_viet": "Bảo Trợ",
+      "form": "Trade",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "When the enemy cannot afford a ready art, you pay its cost, while your pool is above that cost.",
+      "second_home": "any build that forces the enemy to act"
+    },
+    {
+      "type": "modifier",
+      "name": "Kept Rubbing",
+      "han_viet": "Tàng Bản",
+      "form": "Borrow",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A Rubbing keeps its last copy between fights and fires it on a 3 s timer at your own cost until it copies something new.",
+      "second_home": "any loadout that reads the last fight"
+    },
+    {
+      "type": "art",
+      "name": "First Impression",
+      "han_viet": "Sơ Thác",
+      "channel": "art",
+      "fit": "Needs rule",
+      "effect": "Rubbing: the hit alone, fee ×1."
+    },
+    {
+      "type": "art",
+      "name": "Reversed Proof",
+      "han_viet": "Phản Ấn",
+      "channel": "art",
+      "fit": "Needs rule",
+      "effect": "Rubbing: kind swapped between body and qi, fee ×1."
+    },
+    {
+      "type": "art",
+      "name": "Bleeding Ink",
+      "han_viet": "Thẩm Mặc",
+      "channel": "art",
+      "fit": "Needs rule",
+      "effect": "Rubbing: half coefficient, fee ×2, carries Usurious Ink."
+    },
+    {
+      "type": "art",
+      "name": "Fair Copy",
+      "han_viet": "Thiện Bản",
+      "channel": "art",
+      "fit": "Needs rule",
+      "effect": "Rubbing from a Way of Ink art node: also carries the original's status and curse."
+    },
+    {
+      "type": "talisman",
+      "name": "Blank Slip",
+      "han_viet": "Bạch Thiếp",
+      "channel": "art",
+      "fit": "Needs key",
+      "effect": "A Rubbing any cultivator can slot, stock 2."
+    },
+    {
+      "type": "dao",
+      "name": "Way of Ink",
+      "han_viet": "Mặc Đạo",
+      "fit": "Needs key",
+      "effect": "Requires a secret technique. theme_stats than_thuc_pct, ngo_tinh, tam_ma_resist_pct. Branches Rubbing, Ledger, Archive. Keystone Brush Fee. 20 nodes."
+    },
+    {
+      "type": "concept",
+      "name": "Mimic art",
+      "han_viet": "Mô Pháp",
+      "fit": "Needs rule",
+      "effect": "An art record with no content that takes its coefficient, kind and tags from the enemy art fired that instant, plus a source tag, copied. Combat rules 6, 10, 13."
+    }
+  ],
+  "questions": [
+    "Should a copy be able to exceed what the copier could learn, given that a copied art has no lint of its own?",
+    "Is it acceptable that a top-end build's toughness can be billed away? A Core Formation copy volley takes one to a double knockout it only wins on overkill.",
+    "Patronage as written never pays: a x8 boss's art costs more than your whole pool, so patronage_paid is 0 and the fight is the plain loss at 13 s. Should its cost be measured in your pool, or should it be cut?"
+  ]
+}

@@ -1,0 +1,276 @@
+{
+ "name": "fierce-fire-second-way-plus96",
+ "realm": "nguyen_anh",
+ "stage": 1.0,
+ "n_body": 2.499,
+ "n_qi": 1.73,
+ "layers": [
+  185,
+  0,
+  0,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.715
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.3567
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 62,
+  "we": 62
+ },
+ "conditional_mods": [
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Element damage",
+   "layer": 1,
+   "points": 14,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Art damage",
+   "layer": 1,
+   "points": 1.5,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Wasting",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.32
+  },
+  {
+   "id": "Deep Breath",
+   "layer": 2,
+   "points": 20.15,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Running Low",
+   "layer": 5,
+   "points": 10.0,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "below": 0.5
+   }
+  }
+ ],
+ "guard": {
+  "body_guard_pct": 1.2
+ },
+ "art_speed_pct": 0,
+ "art_cost_pct": 29.0,
+ "regen_bonus_pct": 5.75,
+ "accuracy_pct": 0,
+ "arts": [
+  {
+   "id": "a0",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    13.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  },
+  {
+   "id": "a1",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    13.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.2
+   }
+  },
+  {
+   "id": "a2",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    13.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  },
+  {
+   "id": "a3",
+   "kind": "qi",
+   "cost_share": 0.05,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    13.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.475,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.3
+   }
+  },
+  {
+   "id": "a4",
+   "kind": "qi",
+   "cost_share": 0.05,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    13.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.475
+  }
+ ],
+ "walk": {
+  "Fire damage, Red Heart": {
+   "acupoints": 1,
+   "notables": 1
+  },
+  "Art damage": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Fire art cost, Dry Wood": {
+   "acupoints": 1,
+   "notables": 4
+  },
+  "Art cost": {
+   "acupoints": 2,
+   "notables": 1
+  },
+  "Linh luc regeneration": {
+   "acupoints": 5,
+   "notables": 5
+  },
+  "Maximum health": {
+   "acupoints": 3,
+   "notables": 3
+  },
+  "Ward strength against qi hits": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Body guard": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Crit damage": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Short Art": {
+   "acupoints": 2,
+   "notables": 1
+  },
+  "Wasting": {
+   "acupoints": 4,
+   "notables": 1
+  },
+  "Deep Breath": {
+   "acupoints": 2,
+   "notables": 1
+  },
+  "Running Low": {
+   "acupoints": 0,
+   "notables": 1
+  }
+ },
+ "unmodelled": [
+  "Second-way control for plain-vs-exotic.md. W at the Map's prices: acupoint 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Meridian Map rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
+  "12 extra notables, +96 W, for an equal-W comparison, not a same-W line."
+ ],
+ "enemy_overrides": {
+  "ward": {
+   "model": "per_pulse",
+   "upkeep_share": 0.1
+  },
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

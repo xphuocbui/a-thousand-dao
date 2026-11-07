@@ -1,0 +1,157 @@
+{
+ "name": "three-shirts",
+ "realm": "truc_co",
+ "stage": 1.0,
+ "layers": [
+  0,
+  0,
+  110.7,
+  20,
+  0
+ ],
+ "n_body": 1.2774,
+ "n_qi": 1.19,
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "regen_bonus_pct": 0.15,
+ "divine_sense": 1.0,
+ "guard": {
+  "a_b": 1.223,
+  "t_b": 2,
+  "body_guard_pct": 0
+ },
+ "arts": [
+  {
+   "id": "plain_cut",
+   "kind": "body",
+   "c_art": 1.4,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "x": [
+    34.5,
+    42,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "seam_thrust",
+   "kind": "body",
+   "c_art": 1.8,
+   "cost_share": 0.06,
+   "cooldown": 2,
+   "curse": {
+    "pass_raise": 0.4,
+    "duration": 2
+   },
+   "x": [
+    34.5,
+    42,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "long_draw",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 3,
+   "x": [
+    20,
+    42,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "falling_lintel",
+   "kind": "body",
+   "c_art": 2.71,
+   "cost_share": 0.08,
+   "cooldown": 4,
+   "x": [
+    14.5,
+    16,
+    0,
+    0,
+    -12
+   ]
+  }
+ ],
+ "conditional_mods": [
+  {
+   "id": "Body damage",
+   "layer": 1,
+   "points": 14.5,
+   "channels": [
+    "basic"
+   ]
+  },
+  {
+   "id": "Ore Vein",
+   "layer": 2,
+   "points": 54,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Steady Thread",
+   "layer": 5,
+   "points": 12,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  }
+ ],
+ "unmodelled": [
+  "Weapon attack and Artifact power multiply as built: L3 = sum of weapon attack x (1 + Weapon attack) x (1 + Artifact power), Formulas B and D",
+  "Thought is costed in the sheet, not spent in the fight",
+  "Fortune is not read",
+  "Crit rows are none, so nothing is flattered"
+ ],
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.1,
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "ws": 12.4,
+  "we": 13.6
+ },
+ "enemy_overrides": {
+  "evade_pct": 35,
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   }
+  ],
+  "ward": {
+   "model": "per_pulse",
+   "upkeep_share": 0.1
+  }
+ }
+}

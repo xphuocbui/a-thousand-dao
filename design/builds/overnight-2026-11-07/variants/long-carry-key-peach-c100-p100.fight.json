@@ -1,0 +1,164 @@
+{
+ "name": "long-carry",
+ "realm": "ket_dan",
+ "n_body": 1.31672,
+ "n_qi": 1.35,
+ "layers": [
+  54,
+  0,
+  35,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.05,
+  "mult": 1.5
+ },
+ "regen_bonus_pct": 1,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 33,
+  "we": 90
+ },
+ "guard": {
+  "t_b": 1.2
+ },
+ "rules": [
+  "breath_lead",
+  "ward_thrift",
+  "per_cap"
+ ],
+ "ward_thrift": 0.25,
+ "basic": {
+  "c": 1.0,
+  "kind": "body",
+  "x": [
+   0,
+   0,
+   0,
+   25,
+   0
+  ]
+ },
+ "conditional_mods": [
+  {
+   "id": "Longer Breath",
+   "layer": 5,
+   "points": 50,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "breath_lead": true,
+    "by": 0.1
+   }
+  },
+  {
+   "id": "Sustained Note",
+   "layer": 2,
+   "per": "fight_seconds",
+   "points_per": 6,
+   "cap": 30,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Clear Reading",
+   "layer": 2,
+   "points": 60.0,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Peach and Plum",
+   "layer": 4,
+   "points": 5.0,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "even_step",
+   "kind": "qi",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1
+  },
+  {
+   "id": "shifted_pole",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 2
+  },
+  {
+   "id": "setting_down",
+   "kind": "body",
+   "c_art": 2.9,
+   "cost_share": 0.12,
+   "cooldown": 3,
+   "x": [
+    0,
+    0,
+    0,
+    25,
+    0
+   ]
+  },
+  {
+   "id": "over_the_ridge",
+   "kind": "qi",
+   "c_art": 3.4,
+   "cost_share": 0.14,
+   "cooldown": 4
+  }
+ ],
+ "unmodelled": [
+  "Home Road, the escape art in the fourth slot: the calculator has no flight, so every loss here is shown as a death",
+  "The rating profile for mass battles is not run"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

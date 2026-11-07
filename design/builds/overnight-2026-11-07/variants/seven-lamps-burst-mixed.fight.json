@@ -1,0 +1,105 @@
+{
+ "name": "seven-lamps-burst-mixed",
+ "realm": 4,
+ "layers": [
+  502.8,
+  0,
+  40,
+  20,
+  0
+ ],
+ "n_body": 2.6163,
+ "n_qi": 2.0997,
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 84.1,
+  "we": 84.1
+ },
+ "divine_sense": 1.0,
+ "arts": [
+  {
+   "id": "burst_1",
+   "kind": "body",
+   "c_art": 4.0,
+   "cost_share": 0.25,
+   "cooldown": 1
+  },
+  {
+   "id": "burst_2",
+   "kind": "body",
+   "c_art": 4.0,
+   "cost_share": 0.25,
+   "cooldown": 1
+  },
+  {
+   "id": "burst_3",
+   "kind": "body",
+   "c_art": 4.0,
+   "cost_share": 0.25,
+   "cooldown": 1
+  },
+  {
+   "id": "burst_4",
+   "kind": "body",
+   "c_art": 4.0,
+   "cost_share": 0.25,
+   "cooldown": 1
+  }
+ ],
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "unmodelled": [
+  "The burst twin: the same W as plain attack_pct, four arts at the lint's ceiling at 25 % and 1 s, the common drain ward"
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

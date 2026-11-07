@@ -1,0 +1,148 @@
+{
+ "name": "given-years",
+ "realm": "nguyen_anh",
+ "stage": 1.45,
+ "n_body": 1.55,
+ "n_qi": 1.7,
+ "layers": [
+  220,
+  0,
+  60,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.1,
+  "mult": 1.7
+ },
+ "regen_bonus_pct": 2,
+ "soul_res_pct": 0,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 75,
+  "we": 75
+ },
+ "wick": {
+  "seasons": 14,
+  "health_per_season": 0.2,
+  "pulse_burn": 1,
+  "points_per": 5,
+  "layer": 2,
+  "channels": [
+   "art",
+   "basic"
+  ]
+ },
+ "given_years": {
+  "share_pct": 8,
+  "points_per": 2,
+  "layer": 4,
+  "channels": [
+   "art",
+   "basic"
+  ]
+ },
+ "nothing_to_lose": {
+  "points_per": 10,
+  "layer": 5,
+  "cap": 100,
+  "enemy_share": 0.5,
+  "channels": [
+   "art",
+   "basic"
+  ]
+ },
+ "arts": [
+  {
+   "id": "threshing_flail",
+   "kind": "body",
+   "c_art": 1.6,
+   "cost_share": 0.05,
+   "cooldown": 1
+  },
+  {
+   "id": "banked_coals",
+   "kind": "qi",
+   "c_art": 2.4,
+   "cost_share": 0.08,
+   "cooldown": 3
+  },
+  {
+   "id": "splitting_maul",
+   "kind": "body",
+   "c_art": 2.4,
+   "cost_share": 0.1,
+   "cooldown": 2
+  },
+  {
+   "id": "last_harvest",
+   "kind": "qi",
+   "c_art": 4.2,
+   "cost_share": 0.25,
+   "cooldown": 2,
+   "guard": {
+    "time_above": 0,
+    "wick_below": 14
+   }
+  },
+  {
+   "id": "hearth_ash",
+   "kind": "qi",
+   "cost_share": 0,
+   "cooldown": 1,
+   "stock": 2,
+   "refund_qi_share": 0.15,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "below": 0.45
+   }
+  }
+ ],
+ "rules": [
+  "lit_wick"
+ ],
+ "unmodelled": [
+  "The gift itself: your age up, the bonded person's age down, the fixed cap and the refused gate are outside the fight. The variants early and late stand in for when the Day was set",
+  "Given Years falls to 0 if the bonded person dies: a life event. The variant bereaved runs it",
+  "A win on the instant the wick ends is still the end of the life: the calculator reports the win, and the sheet says so"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

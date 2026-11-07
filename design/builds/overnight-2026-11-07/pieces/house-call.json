@@ -1,0 +1,40 @@
+{
+ "slug": "house-call",
+ "name": "The House Call",
+ "han_viet": "Xuất Chẩn Đạo",
+ "pitch": "You heal your enemy, laughing, because every wound you close on them makes your next needle hurt more: their bar climbs back to 100 % while you get dangerous, and then the two bars cross.",
+ "channel": "art, basic",
+ "enabler": "Both Sides",
+ "enabler_kind": "Rule removal",
+ "identity_piece": "Joy of the Work",
+ "identity_id": "joy_weight",
+ "power": "ordinary",
+ "defining_realm": "nguyen_anh",
+ "fit": {"fits_today": 6, "needs_key": 11, "needs_rule": 2},
+ "reused": ["Gorged", "Spring Head", "Stone Ward"],
+ "new": [
+  {"type": "enabler", "name": "Both Sides", "han_viet": "Song Phương Thệ", "form": "Rule swap", "channel": "heal", "layer": "none", "fit": "Needs rule",
+   "effect": "Arts may restore a share of maximum health. Closes: the same share goes to the other side, and a heal cannot be aimed."},
+  {"type": "modifier", "name": "Joy of the Work", "han_viet": "Lạc Nghiệp", "form": "Redirect", "channel": "heal", "layer": "none", "fit": "Needs key",
+   "effect": "Health you restore to the other side counts 3 times as health you restored, for anything that reads it.", "second_home": "any build reading health restored, such as Drink the Lightning"},
+  {"type": "notable", "name": "Healing", "han_viet": "Trị Liệu", "form": "Increased", "channel": "heal", "layer": "none", "fit": "Needs key",
+   "effect": "+12 % to heal shares. Catalogue's any-tag row.", "second_home": "any healing art"},
+  {"type": "acupoint", "name": "Healing", "han_viet": "Trị Liệu", "form": "Increased", "channel": "heal", "layer": "none", "fit": "Needs key",
+   "effect": "+2 % to heal shares. Catalogue's any-tag row.", "second_home": "any healing art"},
+  {"type": "acupoint", "name": "Healing art speed", "han_viet": "Trị Liệu Tốc", "form": "Increased", "channel": "heal", "layer": "none", "fit": "Needs key",
+   "effect": "+1 % speed on healing arts. Notable +6 %.", "second_home": "any healing art"},
+  {"type": "acupoint", "name": "Healing art cost", "han_viet": "Trị Liệu Phí", "form": "Increased", "channel": "heal", "layer": "none", "fit": "Needs key",
+   "effect": "-1 % cost on healing arts. Notable -6 %.", "second_home": "any healing art"},
+  {"type": "notable", "name": "Grateful Patients", "han_viet": "Cảm Ân", "form": "Per", "channel": "any", "layer": "L4", "fit": "Needs key",
+   "effect": "+1 point per 5 living people you have fought and left alive, to +20.", "second_home": "any spared-enemy build"},
+  {"type": "art", "name": "Mend", "han_viet": "Bổ Thủ", "fit": "Needs rule", "effect": "No hit, cost 0.04, 2 s, heal_share 0.08, guarded on enemy health below 92 %."},
+  {"type": "art", "name": "Silver Needle", "han_viet": "Ngân Châm", "fit": "Needs key", "effect": "Qi hit, Water, c_art 1.45, cost 0.04, 1 s."},
+  {"type": "art", "name": "Long Needle", "han_viet": "Trường Châm", "fit": "Needs key", "effect": "Qi hit, Water, c_art 2.1, cost 0.03, 4 s."},
+  {"type": "technique", "name": "Warm Hands Method", "han_viet": "Ôn Thủ Pháp", "fit": "Needs key", "effect": "Main, Địa giai, Water. khi_huyet_pct 15, linh_luc_pct 20. Unlocks the three arts."},
+  {"type": "concept", "name": "Healing inside a fight", "han_viet": "Trận Trung Trị Liệu", "fit": "Needs rule", "effect": "A heal effect on an art, with a first lint of heal_share at most 2 x cost_share, and one sentence in Thien-kiep rule 7: health restored inside a wave carries."}
+ ],
+ "questions": [
+  "Is healing inside a wave wanted at all? If yes, is an oath that heals both sides the right price?",
+  "Should healing rows have a W price? They use catalogue sizes, unpriced."
+ ]
+}

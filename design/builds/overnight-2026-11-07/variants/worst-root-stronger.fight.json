@@ -1,0 +1,188 @@
+{
+ "name": "worst-root",
+ "realm": "hoa_than",
+ "n_body": 1.948,
+ "n_qi": 1.856,
+ "layers": [
+  170,
+  0,
+  30,
+  0,
+  0
+ ],
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 225,
+  "we": 126
+ },
+ "guard": {
+  "body_guard_pct": 86
+ },
+ "regen_bonus_pct": 6,
+ "ward_thrift": 0.25,
+ "arts": [
+  {
+   "id": "moc_chau",
+   "kind": "qi",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    40,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "hoa_chau",
+   "kind": "body",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    40,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "tho_chau",
+   "kind": "qi",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    40,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "kim_chau",
+   "kind": "body",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    40,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "thuy_chau",
+   "kind": "qi",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    40,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "niem_chau",
+   "kind": "body",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    40,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "hoi_huong",
+   "kind": "qi",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    40,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "rules": [
+  "turbid_root",
+  "ward_thrift"
+ ],
+ "turbid": {
+  "purity": 60,
+  "parts": 5
+ },
+ "enemy": "typical",
+ "unmodelled": [
+  "Cultivation, the sector scale and the years spent getting here: the tree totals assume 0.7 of each realm's W at element purity 20, plus the root's sector gain of 35 W",
+  "Each part carries one element tag: a target's element ward terms are not read"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ],
+  "n_body": 6,
+  "n_qi": 3.62,
+  "ward": {
+   "ws": 267,
+   "we": 237,
+   "pass": {
+    "body": 0.42,
+    "qi": 0.28
+   },
+   "drain": {
+    "body": 0.72,
+    "qi": 1.08
+   }
+  }
+ }
+}

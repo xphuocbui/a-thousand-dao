@@ -1,0 +1,32 @@
+{
+ "slug": "long-answer",
+ "name": "The Long Answer",
+ "han_viet": "Trường Đáp Đạo",
+ "pitch": "The school's old slow arts, on a ward that charges by the second, beat the fast line that replaced them.",
+ "channel": "art",
+ "enabler": "none",
+ "enabler_kind": "none",
+ "identity_piece": "Stone Ward",
+ "identity_id": "ward",
+ "power": "ordinary",
+ "defining_realm": "truc_co",
+ "fit": {
+  "fits_today": 4,
+  "needs_key": 6,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Stone Ward",
+  "Level Gaze",
+  "Plain Reproach",
+  "Closing Sentence",
+  "Standing Word",
+  "Plain Speech Method",
+  "Ward strength",
+  "Maximum health"
+ ],
+ "new": [],
+ "questions": [
+  "A kit that spends all its W on damage beats this file at 3 s, and a 1 s art beats that kit. Is this the cycle you want?"
+ ]
+}

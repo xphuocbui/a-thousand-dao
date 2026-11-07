@@ -1,0 +1,291 @@
+{
+ "slug": "grindstone",
+ "name": "The Grindstone Road",
+ "han_viet": "Ma Thạch Lộ",
+ "pitch": "A Qi Refining knife-grinder with the enemy's own three arts and four cheap needles: seventeen ordinary rows, and no single one of them is the win.",
+ "channel": "art",
+ "enabler": "none",
+ "enabler_kind": "none",
+ "identity_piece": "None by design: the stack itself. The new test replaces the identity test.",
+ "identity_id": null,
+ "power": "ordinary",
+ "defining_realm": "luyen_khi",
+ "fit": {
+  "fits_today": 12,
+  "needs_key": 13,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Crit damage",
+  "Maximum linh lực",
+  "Maximum health",
+  "Steady Thread",
+  "Thinning Ward",
+  "Sharpened Word",
+  "Full Weight",
+  "Set Jaw",
+  "Single Grudge"
+ ],
+ "new": [
+  {
+   "type": "acupoint",
+   "name": "Metal damage",
+   "han_viet": "Kim Thương",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+2 % Metal damage. Catalogue row.",
+   "second_home": "any Metal build"
+  },
+  {
+   "type": "notable",
+   "name": "Bright Steel",
+   "han_viet": "Minh Cương",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+12 % Metal damage. Catalogue row.",
+   "second_home": "any Metal build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Crit chance",
+   "han_viet": "Bạo Suất",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+0.4 % crit chance. Catalogue row, crit_chance_pct.",
+   "second_home": "every crit build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Weapon attack",
+   "han_viet": "Binh Lực",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "L3",
+   "fit": "Fits today",
+   "effect": "+1.5 % attack on weapon-role artifacts. Catalogue row, artifact_attack_pct.",
+   "second_home": "any build carrying weapons"
+  },
+  {
+   "type": "notable",
+   "name": "Good Steel",
+   "han_viet": "Hảo Cương",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "L3",
+   "fit": "Fits today",
+   "effect": "+10 % attack on weapon-role artifacts. Catalogue row.",
+   "second_home": "any build carrying weapons"
+  },
+  {
+   "type": "acupoint",
+   "name": "Artifact power",
+   "han_viet": "Khí Uy",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "L3",
+   "fit": "Fits today",
+   "effect": "+0.9 % artifact power. Catalogue row, artifact_power_pct.",
+   "second_home": "any artifact build"
+  },
+  {
+   "type": "notable",
+   "name": "Tough Grain",
+   "han_viet": "Kiên Văn",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+6.5 % maximum health. Catalogue row.",
+   "second_home": "every build"
+  },
+  {
+   "type": "notable",
+   "name": "Deep Bite",
+   "han_viet": "Thâm Thực",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+10 % crit damage. Catalogue row.",
+   "second_home": "every crit build"
+  },
+  {
+   "type": "notable",
+   "name": "Hair's Breadth",
+   "han_viet": "Phân Hào",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+5 % crit chance with Metal. The Sword row with its tag swapped.",
+   "second_home": "any Metal hit build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Honed Edge",
+   "han_viet": "Ma Lợi",
+   "form": "More",
+   "channel": "art",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+2 points to Metal arts.",
+   "second_home": "any Metal build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Accuracy",
+   "han_viet": "Chuẩn Xác",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+0.5 % accuracy. Catalogue row.",
+   "second_home": "any build facing evaders"
+  },
+  {
+   "type": "notable",
+   "name": "True Line",
+   "han_viet": "Chân Tuyến",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+3 % accuracy. Catalogue row.",
+   "second_home": "any build facing evaders"
+  },
+  {
+   "type": "acupoint",
+   "name": "Realm pierce",
+   "han_viet": "Xuyên Cảnh",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+0.5 % pierce. Catalogue row.",
+   "second_home": "any build fighting two or more realms up"
+  },
+  {
+   "type": "notable",
+   "name": "Long Needle",
+   "han_viet": "Trường Châm",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+3 % pierce. Catalogue row.",
+   "second_home": "any build fighting two or more realms up"
+  },
+  {
+   "type": "notable",
+   "name": "Cold Dew",
+   "han_viet": "Hàn Lộ",
+   "form": "Trigger",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+0.6 % of maximum linh lực regained on a crit. Catalogue row. Metal generates Water.",
+   "second_home": "any fast crit build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Ore Vein",
+   "han_viet": "Khoáng Mạch",
+   "form": "Per",
+   "channel": "art",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+1 point to Metal arts per artifact equipped, 6 at most. Earth generates Metal.",
+   "second_home": "any many-artifact Metal build"
+  },
+  {
+   "type": "notable",
+   "name": "Felling Stroke",
+   "han_viet": "Phạt Mộc",
+   "form": "Conditional",
+   "channel": "art",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+12 % Metal damage against an enemy whose ward carries Wood. Metal overcomes Wood.",
+   "second_home": "any Metal build hunting Wood sects"
+  },
+  {
+   "type": "notable",
+   "name": "Tempered",
+   "han_viet": "Tôi Hỏa",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+12 % ward strength against Fire. Catalogue row. Fire overcomes Metal.",
+   "second_home": "any Metal build fighting Fire sects"
+  },
+  {
+   "type": "acupoint",
+   "name": "Armour defence",
+   "han_viet": "Giáp Hậu",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+1.5 % defence on armour. Catalogue row.",
+   "second_home": "any ward-gear build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Artifact thần thức cost",
+   "han_viet": "Khinh Khí",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "-0.8 % thần thức cost of artifacts. Catalogue row.",
+   "second_home": "any many-artifact build"
+  },
+  {
+   "type": "technique",
+   "name": "Grindstone Primer",
+   "han_viet": "Ma Thạch Thiên",
+   "fit": "Needs key",
+   "effect": "Main, Huyền giai, Metal. Passive: +20 points to Metal arts. Four arts."
+  },
+  {
+   "type": "art",
+   "name": "Plain Cut",
+   "han_viet": "Bình Trảm",
+   "fit": "Needs key",
+   "effect": "Body hit, Metal, c_art 1.4, cost 0.05, 1 s. The mixed enemy's jab."
+  },
+  {
+   "type": "art",
+   "name": "Long Draw",
+   "han_viet": "Trường Tha",
+   "fit": "Needs key",
+   "effect": "Qi hit, Metal, c_art 2.2, cost 0.08, 3 s. The mixed enemy's strike."
+  },
+  {
+   "type": "art",
+   "name": "Full Cleave",
+   "han_viet": "Toàn Phách",
+   "fit": "Needs key",
+   "effect": "Body hit, Metal, c_art 3.6, cost 0.12, 6 s, while own linh lực is 30 % or above. The mixed enemy's heavy."
+  },
+  {
+   "type": "art",
+   "name": "Seam Thrust",
+   "han_viet": "Tầm Phùng Thích",
+   "fit": "Needs key",
+   "effect": "Point line only. Body hit, c_art 1.8, cost 0.06, 2 s, with a curse: pass_raise 0.40 for 2 pulses."
+  }
+ ],
+ "questions": [
+  "At catalogue sizes a notable of Realm pierce adds 0.3 points of a hit one realm up. Is pierce meant to matter only at three or more realms?",
+  "Four Hạ phẩm needles cost 40 of 45 thần thức and give L3 114 against the typical's 40. Is attack per thần thức meant to be this far from defence per thần thức?",
+  "The Five Phases have no effect on a fight except through pass_tag. Should a road's overcoming rows exist before that is settled?"
+ ]
+}

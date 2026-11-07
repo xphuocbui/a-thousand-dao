@@ -1,0 +1,23 @@
+{
+ "slug": "blade-dew",
+ "name": "The Dew on the Blade",
+ "han_viet": "Phong Lộ Đạo",
+ "pitch": "Crit is a bad damage row and a good income row: buy the whole border and it pays for every slot, past the regeneration cap.",
+ "channel": "art",
+ "enabler": null,
+ "enabler_kind": null,
+ "identity_piece": "Cold Dew",
+ "identity_id": "Cold Dew",
+ "power": "strong",
+ "defining_realm": "nguyen_anh",
+ "fit": {"fits_today": 3, "needs_key": 13, "needs_rule": 0},
+ "reused": ["Crit chance with Water", "Cold Dew", "Linh lực regained on a crit", "Crit damage", "Water damage", "Thin Stream", "Short Art", "Spring Head", "Wasting", "Unbroken Surface", "Regeneration", "Water art cost", "Body damage", "Ring Step", "One Ladle Rule", "First Ladle", "Second Ladle", "Cold Needle", "Plain Cut", "Long Draw", "Stone Ward"],
+ "new": [
+  {"type": "technique", "name": "Whetstone Dew Page", "han_viet": "Lộ Ma Thiên", "fit": "Needs key",
+   "effect": "Secret, tier 1, Metal and Water, no bonuses. Holds Plain Cut and Long Draw, and carries one Ring Step: all of a Metal hit to Water."}
+ ],
+ "questions": [
+  "Is income past regen_cap meant to exist? Cold Dew is a plain catalogue row and the whole of this escape.",
+  "Crit pays only after about 16 nodes, and a row-at-a-time walker never reaches it. Should the tree say so, or is finding it the game?"
+ ]
+}

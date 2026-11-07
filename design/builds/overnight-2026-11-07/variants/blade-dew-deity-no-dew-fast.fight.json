@@ -1,0 +1,225 @@
+{
+ "name": "blade-dew",
+ "realm": "hoa_than",
+ "layers": [
+  0,
+  0,
+  40,
+  20,
+  0
+ ],
+ "n_body": 2.7733,
+ "n_qi": 2.0997,
+ "crit": {
+  "chance": 0.446,
+  "mult": 2.28
+ },
+ "basic": {
+  "c": 0.7588,
+  "kind": "body"
+ },
+ "art_cost_pct": 5,
+ "regen_bonus_pct": 5.8,
+ "art_speed_pct": 2,
+ "accuracy_pct": 0,
+ "guard": {
+  "a_b": 0,
+  "t_b": 0,
+  "body_guard_pct": 0.0
+ },
+ "arts": [
+  {
+   "id": "first_ladle",
+   "kind": "qi",
+   "c_art": 1.6,
+   "cost_share": 0.04,
+   "cooldown": 1.5,
+   "x": [
+    52.0,
+    69.0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "second_ladle",
+   "kind": "qi",
+   "c_art": 1.6,
+   "cost_share": 0.04,
+   "cooldown": 1.5,
+   "x": [
+    52.0,
+    69.0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "cold_needle",
+   "kind": "body",
+   "c_art": 1.84,
+   "cost_share": 0.06,
+   "cooldown": 1.5,
+   "x": [
+    52.0,
+    69.0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "cold_rain",
+   "kind": "body",
+   "c_art": 1.84,
+   "cost_share": 0.06,
+   "cooldown": 1.5,
+   "x": [
+    52.0,
+    69.0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "cold_draught",
+   "kind": "body",
+   "c_art": 1.84,
+   "cost_share": 0.06,
+   "cooldown": 1.5,
+   "x": [
+    52.0,
+    69.0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "plain_cut",
+   "kind": "body",
+   "c_art": 1.4,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "x": [
+    52.0,
+    69.0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "long_draw",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 3,
+   "x": [
+    52.0,
+    40,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "conditional_mods": [
+  {
+   "id": "Unbroken Surface",
+   "layer": 5,
+   "points": 36,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.05
+   }
+  },
+  {
+   "id": "Wasting",
+   "layer": 2,
+   "points": 0,
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.2,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Steady Thread",
+   "layer": 5,
+   "points": 2,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Held Water",
+   "layer": 2,
+   "points": 0,
+   "per": "own_qi_missing_pct",
+   "points_per": 0.0,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Spring Head",
+   "layer": 2,
+   "points": 31.2,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "triggers": [],
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.1,
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "ws": 86.5,
+  "we": 84.1
+ },
+ "stage": 1.0,
+ "divine_sense": 1.0,
+ "unmodelled": [
+  "Crit is an expected value here. In play a fight this short swings on rolls, and the calculator cannot show that",
+  "Han Mang is tag-scoped, so basic.c is lowered to take back what the calculator's one crit would give the fist",
+  "Cold Dew is a trigger, so trig_cap limits it per pulse. Its chance is the crit chance, cut on the Evader by the hits that never land",
+  "Ring Step on Plain Cut and Long Draw: a whole-hit conversion, so their Water rows sit in x with the others",
+  "Ward strength against one element, fortune and thought are not read"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "flurry_a",
+    "kind": "body",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   },
+   {
+    "id": "flurry_b",
+    "kind": "qi",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   }
+  ]
+ }
+}

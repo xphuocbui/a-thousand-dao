@@ -1,0 +1,208 @@
+{
+ "name": "full-price",
+ "rules": [
+  "stone_payment",
+  "priced_above_sea",
+  "rush_order",
+  "purse_weight",
+  "exact_change"
+ ],
+ "stone_payment": {
+  "purse": 80000,
+  "R": 5000,
+  "rate": 2,
+  "premium_share": 0.02
+ },
+ "purse_weight": 30,
+ "exact_change_max": 0.5,
+ "realm": "ket_dan",
+ "n_body": 1.6,
+ "n_qi": 1.0,
+ "layers": [
+  160,
+  0,
+  40,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.0,
+  "mult": 1.5
+ },
+ "art_cost_pct": 25,
+ "pierce_pct": 15,
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0,
+  "pass": {
+   "body": 0.4,
+   "qi": 0.3
+  },
+  "ws": 65,
+  "we": 65
+ },
+ "guard": {
+  "body_guard_pct": 20
+ },
+ "conditional_mods": [
+  {
+   "id": "Full Sea",
+   "layer": 5,
+   "points": 60,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.8
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "earnest_money",
+   "kind": "qi",
+   "c_art": 4.0,
+   "cost_share": 0.25,
+   "cooldown": 1,
+   "x": [
+    20,
+    36,
+    0,
+    20,
+    0
+   ]
+  },
+  {
+   "id": "buyout",
+   "kind": "body",
+   "c_art": 13.0,
+   "cost_share": 1.0,
+   "cooldown": 1,
+   "x": [
+    20,
+    55,
+    0,
+    20,
+    0
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "below": 0.75
+   }
+  },
+  {
+   "id": "ruinous_offer",
+   "kind": "body",
+   "c_art": 25.0,
+   "cost_share": 2.0,
+   "cooldown": 1,
+   "rush": true,
+   "x": [
+    20,
+    80,
+    0,
+    20,
+    0
+   ]
+  }
+ ],
+ "unmodelled": [
+  "Evade is an expected value here. In the game a 40 % evader misses the contract outright 4 times in 10, and the money is still spent",
+  "Collected Debt and the purse between fights are outside one fight: the sheet's purse sequence is three variant files",
+  "Each art's cost_share is its stone share: stone_payment moves it off linh luc, so the lint reads the real share"
+ ],
+ "enemy_overrides": {
+  "name": "dug-stone",
+  "realm": "ket_dan",
+  "n_body": 2.0,
+  "n_qi": 1.2,
+  "layers": [
+   72,
+   0,
+   146,
+   20,
+   0
+  ],
+  "ward": {
+   "model": "per_hit",
+   "pass": {
+    "body": 0.3,
+    "qi": 0.2
+   },
+   "hit_cost_share": 0.05,
+   "ws": 150,
+   "we": 0
+  },
+  "guard": {
+   "a_b": 2.8,
+   "t_b": 2,
+   "body_guard_pct": 32
+  },
+  "conditional_mods": [
+   {
+    "id": "Method",
+    "layer": 2,
+    "points": 40,
+    "channels": [
+     "art"
+    ]
+   },
+   {
+    "id": "Earth damage",
+    "layer": 1,
+    "points": 30,
+    "channels": [
+     "art"
+    ]
+   },
+   {
+    "id": "Body damage",
+    "layer": 1,
+    "points": 17.5,
+    "channels": [
+     "art",
+     "basic"
+    ]
+   },
+   {
+    "id": "Load-Bearing",
+    "layer": 2,
+    "points": 36,
+    "channels": [
+     "art"
+    ]
+   }
+  ],
+  "arts": [
+   {
+    "id": "whole_seam",
+    "kind": "body",
+    "c_art": 11.2,
+    "cost_share": 0.85,
+    "cooldown": 1
+   },
+   {
+    "id": "falling_lintel",
+    "kind": "body",
+    "c_art": 2.71,
+    "cost_share": 0.08,
+    "cooldown": 4
+   },
+   {
+    "id": "settling_wall",
+    "kind": "body",
+    "c_art": 2.96,
+    "cost_share": 0.08,
+    "cooldown": 5
+   }
+  ],
+  "crit": {
+   "chance": 0,
+   "mult": 1.5
+  }
+ }
+}

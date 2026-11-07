@@ -1,0 +1,109 @@
+{
+ "name": "best-plan",
+ "realm": "luyen_khi",
+ "stage": 1.0,
+ "enemy": "typical",
+ "rules": [
+  "realm_sense",
+  "slow_wound",
+  "escape",
+  "best_plan"
+ ],
+ "lifespan_base": 120,
+ "years_left": 80,
+ "skipped_bill": true,
+ "cold_feet": true,
+ "beneath_notice": 0.05,
+ "terror": 0.15,
+ "folded_corner": true,
+ "full_sleeve": {
+  "per_doubling": 0.02,
+  "base": 4,
+  "carried": 32
+ },
+ "escape_bonus": 0.07,
+ "n_body": 1.1,
+ "n_qi": 1.2,
+ "ward": {
+  "model": "default"
+ },
+ "basic": {
+  "c": 1.0,
+  "kind": "body"
+ },
+ "arts": [
+  {
+   "id": "promissory_paper",
+   "cost_share": 0,
+   "cooldown": 0.5,
+   "stock": 1,
+   "sets_slow_wound": 1.0,
+   "guard": {
+    "time_above": 0
+   }
+  },
+  {
+   "id": "than_hanh_phu",
+   "cost_share": 0,
+   "cooldown": 1,
+   "stock": 6,
+   "escape": {
+    "e_art": 0.5
+   },
+   "guard": {
+    "time_above": 0
+   }
+  },
+  {
+   "id": "goat_in_passing",
+   "cost_share": 0.02,
+   "cooldown": 0.5,
+   "lift": true
+  }
+ ],
+ "unmodelled": [
+  "what a lift takes: the fight counts lifts, the caller moves the goods",
+  "the Creditors' Book after the fight: Dies Later, the estate share and the heart demon",
+  "which side opens the fight: an ambusher's hit at 0.5 s would land before Promissory Paper"
+ ],
+ "realm_sense": {
+  "typical": 1.0,
+  "top_end": 1.0
+ },
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   },
+   {
+    "id": "soul_needle",
+    "soul_pct": 0.15,
+    "cost_share": 0.05,
+    "cooldown": 0.5
+   }
+  ]
+ }
+}

@@ -1,0 +1,165 @@
+{
+ "name": "tasters-fever",
+ "realm": "nguyen_anh",
+ "n_body": 2.6,
+ "n_qi": 2.4,
+ "layers": [
+  222,
+  0,
+  149,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "art_speed_pct": 127.5,
+ "pierce_pct": 30,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.42,
+   "qi": 0.28
+  },
+  "drain": {
+   "body": 0.72,
+   "qi": 1.08
+  },
+  "ws": 150,
+  "we": 150
+ },
+ "guard": {
+  "a_b": 3.0,
+  "t_b": 1.0,
+  "body_guard_pct": 40
+ },
+ "conditional_mods": [
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 80,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "first_taste",
+   "kind": "qi",
+   "c_art": 1.0,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    0,
+    127.5,
+    0,
+    0,
+    0
+   ],
+   "applies": [
+    {
+     "id": "bile",
+     "kind": "body",
+     "c_tick": 0.3,
+     "duration": 4,
+     "stacks": 1,
+     "x": [
+      0,
+      127.5,
+      0,
+      20,
+      0
+     ]
+    }
+   ],
+   "guard": {
+    "time_above": 0,
+    "tithe": true
+   }
+  },
+  {
+   "id": "spat_bile",
+   "kind": "body",
+   "c_art": 1.0,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    0,
+    127.5,
+    0,
+    0,
+    0
+   ],
+   "guard": {
+    "time_above": 0,
+    "tithe": true
+   }
+  },
+  {
+   "id": "second_cup",
+   "kind": "body",
+   "c_art": 1.0,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    0,
+    127.5,
+    0,
+    0,
+    0
+   ],
+   "guard": {
+    "time_above": 0,
+    "tithe": true
+   }
+  },
+  {
+   "id": "fourth_art",
+   "kind": "body",
+   "c_art": 1.0,
+   "cost_share": 0,
+   "cooldown": 1,
+   "x": [
+    0,
+    127.5,
+    0,
+    0,
+    0
+   ],
+   "guard": {
+    "time_above": 0,
+    "tithe": true
+   }
+  }
+ ],
+ "unmodelled": [
+  "Variant: Nascent Soul, dan doc 85, 4 arts. L1 and L3 scale from the Core Formation file by tree W (248, 447, 739, 1172), L3 at most 250, and nothing else changes: a first guess, since wave 1 kept no input",
+  "Fever and Bitter Measure read dan doc at compile, so they are fixed numbers here: dan doc 80 gives art_speed_pct 120 and +120 L2 on the poison tag. art_speed_pct has no other source in this file",
+  "Corpse-Wax Coating is the pilot's +100 L4 at pill potency 0.2 (dan doc 80), so +20, on Bile only",
+  "The dan doc spent, the clean window after a fight and Bitter Pearl are caller effects outside the fight",
+  "Inured Flesh: status resistance from dan doc. The reference enemies carry no statuses, so it does nothing here"
+ ],
+ "rules": [
+  "bitter_tithe",
+  "speed_overflow"
+ ],
+ "bitter_tithe": {
+  "magazine": 80,
+  "cost": 2
+ },
+ "speed_overflow": {
+  "cap": 30,
+  "layer": 5,
+  "channels": [
+   "art"
+  ]
+ }
+}

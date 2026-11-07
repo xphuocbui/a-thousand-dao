@@ -1,0 +1,29 @@
+{
+ "slug": "clever-harm",
+ "name": "The Clever Harm",
+ "han_viet": "Thông Họa Đạo",
+ "pitch": "Comprehension 100 replaces every point of attack you will ever buy, so a Foundation prodigy spends the lot on a body, and the only price is that bridges fall on them for the rest of their life.",
+ "channel": "art",
+ "enabler": "First on the List",
+ "enabler_kind": "Scaling bridge",
+ "identity_piece": "First on the List",
+ "identity_id": "first_on_list",
+ "power": "strong",
+ "defining_realm": "truc_co",
+ "fit": {"fits_today": 6, "needs_key": 12, "needs_rule": 2},
+ "reused": ["First on the List", "Clear Reading", "Well-Thumbed", "Commentary", "Model Answer", "Set Question", "Long Essay", "Clever Harm", "Single Grudge"],
+ "new": [
+  {"type": "modifier", "name": "Already Read", "han_viet": "Dĩ Duyệt", "form": "Conditional", "channel": "incoming", "layer": "none", "fit": "Needs rule",
+   "effect": "A hit from an art that has fired before this fight is cut by half your comprehension lead, as a percentage, to 30 %.", "second_home": "any build reading a talent against the enemy"},
+  {"type": "notable", "name": "Past Papers", "han_viet": "Cựu Đề", "form": "Per", "channel": "any", "layer": "L4", "fit": "Needs key",
+   "effect": "In a foreseen fight, +1 point per 2 points of comprehension lead, to +30.", "second_home": "any build that studies a target"},
+  {"type": "art", "name": "Break the Topic", "han_viet": "Phá Đề", "fit": "Needs key", "effect": "Qi hit, c_art 1.45, cost 0.04, 1 s."},
+  {"type": "art", "name": "Receive the Topic", "han_viet": "Thừa Đề", "fit": "Needs key", "effect": "Qi hit, c_art 1.95, cost 0.05, 2.5 s."},
+  {"type": "technique", "name": "Eight-Legged Method", "han_viet": "Bát Cổ Công", "fit": "Needs key", "effect": "Main, Huyền giai, Metal. linh_luc_pct 12, tam_ma_resist_pct 10. Unlocks the two topic arts."},
+  {"type": "cluster", "name": "Examination Cells", "han_viet": "Hào Xá Mạch", "fit": "Needs key", "effect": "Theme comprehension and study, no element, inner, sealed by a technique, size 6. Notables Past Papers, Already Read."}
+ ],
+ "questions": [
+  "First on the List is priced 34 W in the lint, and in the fight it is about 200 W handed back at every realm, so it is overtaken only in speed, at the last two realms. Is that wanted?",
+  "Should a Foundation character reach a keystone at all? Rule 8 allows it at 27 points."
+ ]
+}

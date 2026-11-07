@@ -1,0 +1,107 @@
+{
+ "name": "thirteenth-summer",
+ "realm": "luyen_khi",
+ "n_body": 1.1,
+ "n_qi": 1.1,
+ "layers": [
+  60,
+  0,
+  40,
+  0,
+  0
+ ],
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 30,
+  "we": 30
+ },
+ "arts": [
+  {
+   "id": "bao_tho",
+   "kind": "body",
+   "c_art": 2.8,
+   "cost_share": 0.15,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    20,
+    0
+   ]
+  },
+  {
+   "id": "kho_minh",
+   "kind": "qi",
+   "c_art": 2.8,
+   "cost_share": 0.15,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    20,
+    0
+   ]
+  },
+  {
+   "id": "truong_minh",
+   "kind": "qi",
+   "c_art": 2.8,
+   "cost_share": 0.15,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    20,
+    0
+   ]
+  }
+ ],
+ "rules": [],
+ "enemy": "typical",
+ "unmodelled": [
+  "Accuracy 40 stands in for Measured Stroke, as in The Fortieth Breath: it also helps the two small arts",
+  "The years in the ground, the mound, the brood and who is left when you wake: costs outside the fight"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ],
+  "evade_pct": 25
+ }
+}

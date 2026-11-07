@@ -1,0 +1,294 @@
+{
+ "slug": "evergreen",
+ "name": "The Evergreen Road",
+ "han_viet": "Trường Thanh Lộ",
+ "pitch": "For five seconds a Deity cultivator loses on health and wins on linh lực, with the enemy's own three arts, then the enemy's pool is gone and the fight ends in one second.",
+ "channel": "art",
+ "enabler": "none",
+ "enabler_kind": "none",
+ "identity_piece": "None by design: the stack itself. The new test replaces the identity test.",
+ "identity_id": null,
+ "power": "ordinary",
+ "defining_realm": "hoa_than",
+ "fit": {
+  "fits_today": 6,
+  "needs_key": 19,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Maximum health",
+  "Maximum linh lực",
+  "Ward efficiency",
+  "Sustained Note",
+  "Steady Thread",
+  "Status chance",
+  "Damage over time",
+  "Stoked"
+ ],
+ "new": [
+  {
+   "type": "acupoint",
+   "name": "Wood damage",
+   "han_viet": "Mộc Thương",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+2 % Wood damage. Catalogue row.",
+   "second_home": "any Wood build"
+  },
+  {
+   "type": "notable",
+   "name": "Green Heart",
+   "han_viet": "Thanh Tâm",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+12 % Wood damage. Catalogue row.",
+   "second_home": "any Wood build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Linh lực regeneration",
+   "han_viet": "Hồi Khí",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+0.15 % of maximum per second. Catalogue row.",
+   "second_home": "every long fight"
+  },
+  {
+   "type": "notable",
+   "name": "Deep Drink",
+   "han_viet": "Thâm Ẩm",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+1 % of maximum per second. Catalogue row.",
+   "second_home": "every long fight"
+  },
+  {
+   "type": "notable",
+   "name": "Spring Vein",
+   "han_viet": "Tuyền Mạch",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+1 % of maximum per second. Catalogue row. Water generates Wood.",
+   "second_home": "every long fight"
+  },
+  {
+   "type": "acupoint",
+   "name": "Wood art cost",
+   "han_viet": "Mộc Pháp Phí",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "-1 % cost of Wood arts. Catalogue row, any one tag.",
+   "second_home": "any Wood build"
+  },
+  {
+   "type": "notable",
+   "name": "Thin Leaf",
+   "han_viet": "Bạc Diệp",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "-6 % cost of Wood arts. Catalogue row.",
+   "second_home": "any Wood build"
+  },
+  {
+   "type": "notable",
+   "name": "Old Bark",
+   "han_viet": "Lão Bì",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+6.5 % maximum health. Catalogue row.",
+   "second_home": "every build"
+  },
+  {
+   "type": "notable",
+   "name": "Full Trunk",
+   "han_viet": "Mãn Thân",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+8 % maximum linh lực. Catalogue row.",
+   "second_home": "every build"
+  },
+  {
+   "type": "notable",
+   "name": "Slow Sap",
+   "han_viet": "Hoãn Dịch",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Fits today",
+   "effect": "+8 % ward efficiency. Catalogue row.",
+   "second_home": "any long fight"
+  },
+  {
+   "type": "notable",
+   "name": "Sap Rise",
+   "han_viet": "Dịch Thăng",
+   "form": "Per",
+   "channel": "art",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+4 points to Wood arts per 1 % of linh lực regeneration bonus, read at compile, 24 at most by regen_cap.",
+   "second_home": "any regeneration build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Living Wood",
+   "han_viet": "Hoạt Mộc",
+   "form": "More",
+   "channel": "art",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+2 points to Wood arts.",
+   "second_home": "any Wood build"
+  },
+  {
+   "type": "notable",
+   "name": "Living Wood (notable)",
+   "han_viet": "Hoạt Mộc",
+   "form": "More",
+   "channel": "art",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+12 points to Wood arts.",
+   "second_home": "any Wood build"
+  },
+  {
+   "type": "notable",
+   "name": "Late Leaf",
+   "han_viet": "Vãn Diệp",
+   "form": "Conditional",
+   "channel": "art",
+   "layer": "L5",
+   "fit": "Needs key",
+   "effect": "+12 points to Wood arts after the fourth second.",
+   "second_home": "any slow build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Wood art speed",
+   "han_viet": "Mộc Pháp Tốc",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+1 % speed on Wood arts. Catalogue row, any one tag.",
+   "second_home": "any Wood build"
+  },
+  {
+   "type": "notable",
+   "name": "Quick Shoot",
+   "han_viet": "Tấn Manh",
+   "form": "Increased",
+   "channel": "art",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+6 % speed on Wood arts. Catalogue row.",
+   "second_home": "any Wood build"
+  },
+  {
+   "type": "notable",
+   "name": "Catching Thorn",
+   "han_viet": "Câu Thích",
+   "form": "Increased",
+   "channel": "tick",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+6 % status chance. Catalogue row.",
+   "second_home": "any status build"
+  },
+  {
+   "type": "notable",
+   "name": "Deep Thorn",
+   "han_viet": "Thâm Thích",
+   "form": "More",
+   "channel": "tick",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+12 points to Wood over-time statuses.",
+   "second_home": "any Wood status build"
+  },
+  {
+   "type": "notable",
+   "name": "Kindling",
+   "han_viet": "Dẫn Nhiên",
+   "form": "Conditional",
+   "channel": "art",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+12 % Fire damage while the enemy carries a Wood status. Wood generates Fire.",
+   "second_home": "any Wood and Fire build"
+  },
+  {
+   "type": "notable",
+   "name": "Cracked Stone",
+   "han_viet": "Liệt Thạch",
+   "form": "Conditional",
+   "channel": "art",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+12 % Wood damage against an enemy whose ward carries Earth. Wood overcomes Earth.",
+   "second_home": "any Wood build hunting Earth sects"
+  },
+  {
+   "type": "notable",
+   "name": "Green Wall",
+   "han_viet": "Thanh Bích",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+12 % ward strength against Metal. Catalogue row. Metal overcomes Wood.",
+   "second_home": "any Wood build fighting Metal sects"
+  },
+  {
+   "type": "technique",
+   "name": "Evergreen Canon",
+   "han_viet": "Trường Thanh Kinh",
+   "fit": "Needs key",
+   "effect": "Main, Thiên giai, Wood. Passive: +20 points to Wood arts. Three arts, and Thorn on a second form of each for the Bramble."
+  },
+  {
+   "type": "art",
+   "name": "New Shoot",
+   "han_viet": "Tân Manh",
+   "fit": "Needs key",
+   "effect": "Body hit, Wood, c_art 1.4, cost 0.05, 1 s. The mixed enemy's jab."
+  },
+  {
+   "type": "art",
+   "name": "Long Root",
+   "han_viet": "Trường Căn",
+   "fit": "Needs key",
+   "effect": "Qi hit, Wood, c_art 2.2, cost 0.08, 3 s. The mixed enemy's strike."
+  },
+  {
+   "type": "art",
+   "name": "Old Bough",
+   "han_viet": "Lão Chi",
+   "fit": "Needs key",
+   "effect": "Body hit, Wood, c_art 3.6, cost 0.12, 6 s, while own linh lực is 30 % or above. The mixed enemy's heavy."
+  }
+ ],
+ "questions": [
+  "Fast arts still beat slow ones at the art lint, so this sheet gives both roads the enemy's own three arts. Is a slow Wood kit meant to be a real option?",
+  "No rule heals health in a fight, so regeneration on this road is linh lực only. Is that the intended meaning of Wood?",
+  "An enemy with five times the pool and a ward of 300 falls to ticks in 23 s and beats hits in 32 s. Is Wood's answer to Earth meant to be ticks?"
+ ]
+}

@@ -1,0 +1,208 @@
+{
+ "name": "remnant-host",
+ "realm": 2,
+ "n_body": 2.4,
+ "n_qi": 2.2,
+ "layers": [
+  134,
+  0,
+  250,
+  0,
+  0
+ ],
+ "bonus_slots": 2,
+ "divine_sense": 1.6,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 45,
+  "we": 45
+ },
+ "guard": {
+  "body_guard_pct": 20
+ },
+ "arts": [
+  {
+   "id": "recall_banner",
+   "kind": "qi",
+   "c_art": 0.255,
+   "cost_share": 0,
+   "cooldown": 3.077,
+   "x": [
+    60,
+    50,
+    0,
+    60,
+    0
+   ],
+   "curse": {
+    "pass_raise": 0.3,
+    "duration": 3
+   },
+   "flight": true
+  },
+  {
+   "id": "cham_1",
+   "kind": "body",
+   "c_art": 0.449,
+   "cost_share": 0,
+   "cooldown": 1.231,
+   "x": [
+    60,
+    50,
+    0,
+    60,
+    0
+   ],
+   "flight": true
+  },
+  {
+   "id": "cham_2",
+   "kind": "body",
+   "c_art": 0.449,
+   "cost_share": 0,
+   "cooldown": 1.231,
+   "x": [
+    60,
+    50,
+    0,
+    60,
+    0
+   ],
+   "flight": true
+  },
+  {
+   "id": "cham_3",
+   "kind": "body",
+   "c_art": 0.449,
+   "cost_share": 0,
+   "cooldown": 1.231,
+   "x": [
+    60,
+    50,
+    0,
+    60,
+    0
+   ],
+   "flight": true
+  },
+  {
+   "id": "cham_4",
+   "kind": "body",
+   "c_art": 0.449,
+   "cost_share": 0,
+   "cooldown": 1.231,
+   "x": [
+    60,
+    50,
+    0,
+    60,
+    0
+   ],
+   "flight": true
+  },
+  {
+   "id": "cham_5",
+   "kind": "body",
+   "c_art": 0.449,
+   "cost_share": 0,
+   "cooldown": 1.231,
+   "x": [
+    60,
+    50,
+    0,
+    60,
+    0
+   ],
+   "flight": true
+  },
+  {
+   "id": "cham_6",
+   "kind": "body",
+   "c_art": 0.449,
+   "cost_share": 0,
+   "cooldown": 1.231,
+   "x": [
+    60,
+    50,
+    0,
+    60,
+    0
+   ],
+   "flight": true
+  }
+ ],
+ "conditional_mods": [
+  {
+   "id": "Idle Hands",
+   "layer": 2,
+   "per": "empty_slots",
+   "points_per": 10,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Full Sea",
+   "layer": 5,
+   "points": 40,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.8
+   }
+  },
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 80,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  }
+ ],
+ "unmodelled": [
+  "Variant: 1,300 thần thức held, 6 needles: timers and free share follow",
+  "Flight hits are art records with flight: true so the calculator can time them, cost 0, one record per piece. bonus_slots only silences the slot count; the flight plug-in keeps them out of empty_slots. No crit block, so they cannot crit",
+  "Authored cooldowns are the weight timer, 20 s x cost / thần thức held",
+  "Artifact defence is switched off by the Recall Banner; ws and we hold tree values only, and no gear",
+  "L3 is 295 raw and clipped to 250; the base of each hit keeps its full attack",
+  "The ward ring of a chuong or thuan is not in this loadout, so it is untested",
+  "divine_sense 1.6 is the value held. The flight plug-in defends on the free share of it"
+ ],
+ "rules": [
+  "flight",
+  "spare_mind",
+  "speed_overflow"
+ ],
+ "thought": {
+  "held": 1300,
+  "used": 680
+ },
+ "spare_mind": 3,
+ "flight_cut": true,
+ "speed_overflow": {
+  "layer": 5,
+  "channels": [
+   "art"
+  ],
+  "cap": 30
+ }
+}

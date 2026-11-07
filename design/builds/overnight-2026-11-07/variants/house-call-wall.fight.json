@@ -1,0 +1,111 @@
+{
+ "name": "house-call",
+ "realm": "nguyen_anh",
+ "rules": [
+  "gorged",
+  "both_sides",
+  "per_cap"
+ ],
+ "both_sides": true,
+ "heal_pct": 30,
+ "joy_weight": 3,
+ "n_body": 2.8,
+ "n_qi": 1.6,
+ "layers": [
+  60,
+  0,
+  0,
+  20,
+  0
+ ],
+ "regen_bonus_pct": 5,
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.1,
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "ws": 100,
+  "we": 80
+ },
+ "guard": {
+  "a_b": 1,
+  "t_b": 1,
+  "body_guard_pct": 25
+ },
+ "conditional_mods": [
+  {
+   "id": "Gorged",
+   "layer": 2,
+   "per": "health_restored_pct",
+   "points_per": 1.0,
+   "cap": 100,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Spring Head",
+   "layer": 2,
+   "points": 21,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "mend",
+   "kind": "qi",
+   "c_art": 0,
+   "cost_share": 0.04,
+   "cooldown": 2,
+   "heal_share": 0.08,
+   "guard": {
+    "who": "enemy",
+    "pool": "health",
+    "below": 0.92
+   }
+  },
+  {
+   "id": "silver_needle",
+   "kind": "qi",
+   "c_art": 1.45,
+   "cost_share": 0.04,
+   "cooldown": 1
+  },
+  {
+   "id": "long_needle",
+   "kind": "qi",
+   "c_art": 2.1,
+   "cost_share": 0.03,
+   "cooldown": 4
+  }
+ ],
+ "unmodelled": [
+  "Spring Head reads Water-tagged arts: its +21 is 7 % regeneration x 3, written as fixed points on the two needles.",
+  "The patient book and every life-side row are off the fight."
+ ],
+ "enemy_overrides": {
+  "boss_pool_mult": 2,
+  "ward": {
+   "ws": 200,
+   "we": 200
+  },
+  "guard": {
+   "a_b": 3,
+   "body_guard_pct": 40
+  },
+  "arts": [
+   {
+    "id": "slow_blow",
+    "kind": "body",
+    "c_art": 2.0,
+    "cost_share": 0.04,
+    "cooldown": 4
+   }
+  ]
+ }
+}

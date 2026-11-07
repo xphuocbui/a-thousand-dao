@@ -1,0 +1,107 @@
+{
+ "name": "top_end",
+ "realm": 0,
+ "layers": [
+  47.7,
+  300,
+  250,
+  150,
+  100
+ ],
+ "n_body": 1.4626589329318338,
+ "n_qi": 1.3419562178521043,
+ "crit": {
+  "chance": 0.5,
+  "mult": 2.0
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.42,
+   "qi": 0.28
+  },
+  "drain": {
+   "body": 0.72,
+   "qi": 1.08
+  },
+  "ws": 160.6,
+  "we": 157.95
+ },
+ "divine_sense": 1.0,
+ "arts": [
+  {
+   "id": "fixture_art",
+   "kind": "body",
+   "c_art": 2.0,
+   "cost_share": 0.15,
+   "cooldown": 1
+  }
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "name": "welcome-bath",
+  "realm": "luyen_khi",
+  "stage": 1.0,
+  "n_body": 1.33,
+  "n_qi": 1.08,
+  "layers": [
+   16,
+   0,
+   0,
+   0,
+   0
+  ],
+  "crit": {
+   "chance": 0.05,
+   "mult": 1.5
+  },
+  "accuracy_pct": 3,
+  "ward": {
+   "model": "per_hit",
+   "hit_cost_share": 0.04,
+   "pass": {
+    "body": 0.34,
+    "qi": 0.24
+   },
+   "ws": 30,
+   "we": 30
+  },
+  "washing": {
+   "keep": 0.6,
+   "skin": 40,
+   "both_hands": false
+  },
+  "arts": [
+   {
+    "id": "tay_tran",
+    "kind": "body",
+    "c_art": 1.3,
+    "cost_share": 0.04,
+    "cooldown": 0.5,
+    "wash": true,
+    "cleanse": 1
+   },
+   {
+    "id": "nhiet_can",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 2
+   },
+   {
+    "id": "duc_thuy",
+    "kind": "body",
+    "c_art": 3.1,
+    "cost_share": 0.12,
+    "cooldown": 4
+   }
+  ]
+ },
+ "rules": [
+  "washing",
+  "cleanse_art"
+ ],
+ "unmodelled": [
+  "Swap: the top-end is side A here and resolves first in each instant, and the attendant is the override"
+ ]
+}

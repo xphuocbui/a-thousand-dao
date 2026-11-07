@@ -1,0 +1,221 @@
+{
+  "slug": "level-ground",
+  "name": "The Level Ground",
+  "han_viet": "Bình Địa Đạo",
+  "pitch": "On your terraces a law caps every layer at the ordinary for everyone, and two centuries of bunds push your laid arts to twice what the art lint allows, so the realm's finest arrives as one more farmer and drowns in small channels.",
+  "channel": "art (formation source)",
+  "enabler": "Ground Law",
+  "enabler_kind": "Rule removal",
+  "identity_piece": "Level Ground",
+  "identity_id": "ground_law",
+  "power": "top-end",
+  "defining_realm": "hoa_than",
+  "fit": {
+    "fits_today": 2,
+    "needs_key": 13,
+    "needs_rule": 8
+  },
+  "reused": [],
+  "new": [
+    {
+      "type": "modifier",
+      "name": "Level Ground",
+      "han_viet": "Bình Địa",
+      "form": "Cap shift",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A Ground Law: on this ground L2, L3 and L5 count at most 40, 40 and 10, for both sides.",
+      "second_home": "any sect's gate, any boss arena"
+    },
+    {
+      "type": "modifier",
+      "name": "Deep Mud",
+      "han_viet": "Thâm Nê",
+      "form": "Cap shift",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A Ground Law: cooldown_min is 3 s on this ground, for both sides.",
+      "second_home": "any gate guarding against rushers"
+    },
+    {
+      "type": "modifier",
+      "name": "Dry Season",
+      "han_viet": "Hạn Quý",
+      "form": "Cap shift",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A Ground Law: regen_base is 0 on this ground, for both sides.",
+      "second_home": "NPC grounds, dead places in secret realms"
+    },
+    {
+      "type": "modifier",
+      "name": "Taken Ground",
+      "han_viet": "Chiếm Địa",
+      "form": "Rule swap",
+      "channel": "any",
+      "layer": "L4",
+      "fit": "Needs rule",
+      "effect": "A ground holds one formation: the other side's L4 counts at most 20.",
+      "second_home": "any home-ground defender"
+    },
+    {
+      "type": "modifier",
+      "name": "Old Bund",
+      "han_viet": "Cựu Đê",
+      "form": "Flat base",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "+0.05 to the coefficient of arts with the formation source tag per 10 years the formation has stood, to +1.0.",
+      "second_home": "any standing formation, any sect's home array"
+    },
+    {
+      "type": "modifier",
+      "name": "Standing Water",
+      "han_viet": "Tích Thủy",
+      "form": "Timing",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A formation's timer runs from the day it was laid: its arts first fire at the first pulse.",
+      "second_home": "any talisman or trap source"
+    },
+    {
+      "type": "modifier",
+      "name": "Deep Bund",
+      "han_viet": "Thâm Đê",
+      "form": "Overflow",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "L4 points past the cap add +0.01 each to formation arts' coefficient.",
+      "second_home": "any preparation build"
+    },
+    {
+      "type": "modifier",
+      "name": "Field Walls",
+      "han_viet": "Điền Thành",
+      "form": "Redirect",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "While your formation stands, formation_power_pct also counts as ward strength and efficiency.",
+      "second_home": "any formation user"
+    },
+    {
+      "type": "modifier",
+      "name": "Known Ground",
+      "han_viet": "Thục Địa",
+      "form": "Per",
+      "channel": "any",
+      "layer": "L4",
+      "fit": "Needs key",
+      "effect": "+25 points per ground tag at a place where you have lived a full cycle of seasons.",
+      "second_home": "any hermit, Spirit Farming builds"
+    },
+    {
+      "type": "modifier",
+      "name": "Untended Field",
+      "han_viet": "Hoang Điền",
+      "form": "Trade",
+      "channel": "none",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "Leave the ground for 5 years, or miss upkeep, and Old Bund resets to 0.",
+      "second_home": "any bound hermit"
+    },
+    {
+      "type": "enabler",
+      "name": "Ground Law",
+      "han_viet": "Địa Luật",
+      "fit": "Needs rule",
+      "effect": "A laid formation carries one law moving listed Combat keys for one fight, for both sides. Closes: nothing in a blind fight, and the years reset if you leave."
+    },
+    {
+      "type": "concept",
+      "name": "Ground Law",
+      "han_viet": "Địa Luật",
+      "fit": "Needs rule",
+      "effect": "Combat rule 12 and a list of movable keys in Formations. Serves gate arrays, boss arenas, secret realms and tribulation preparation."
+    },
+    {
+      "type": "formation",
+      "name": "Thousand-Furrow Killing Array",
+      "han_viet": "Thiên Lũng Sát Trận",
+      "fit": "Needs rule",
+      "effect": "An offensive formation: L4 12 points a level, and the source of the arts with the formation tag."
+    },
+    {
+      "type": "formation",
+      "name": "Level Ground Array",
+      "han_viet": "Bình Địa Trận",
+      "fit": "Needs key",
+      "effect": "Carries the Level Ground law."
+    },
+    {
+      "type": "pill",
+      "name": "New Rice Wine",
+      "han_viet": "Tân Mễ Tửu",
+      "fit": "Needs key",
+      "effect": "+30 L4, foreseen only, brewed from your own field."
+    },
+    {
+      "type": "technique",
+      "name": "Paddy Keeper's Canon",
+      "han_viet": "Thủ Điền Kinh",
+      "fit": "Needs key",
+      "effect": "Main, Thiên giai, Earth and Water. Ditch in four forms and Rising Water, all laid, seals Bund and Channel."
+    },
+    {
+      "type": "art",
+      "name": "Rising Water",
+      "han_viet": "Thăng Thủy",
+      "fit": "Needs key",
+      "effect": "Qi hit, formation source, c_art 2.45, cost 0.08, 3 s. Dead without the array."
+    },
+    {
+      "type": "art",
+      "name": "Ditch",
+      "han_viet": "Điền Câu",
+      "fit": "Needs key",
+      "effect": "One art in four forms, each slotted on its own: body or qi, water or earth. Formation source, c_art 1.75, cost 0.03, 3 s. Dead without the array."
+    },
+    {
+      "type": "art",
+      "name": "Hoe Stroke",
+      "han_viet": "Sừ Kích",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 2.45, cost 0.08, 3 s. The one art that works in a blind fight."
+    },
+    {
+      "type": "art",
+      "name": "Walk Home",
+      "han_viet": "Quy Gia",
+      "fit": "Needs key",
+      "effect": "Escape art, cost 0.10, 5 s, guarded on own health below 30 %."
+    },
+    {
+      "type": "cluster",
+      "name": "Bund and Channel",
+      "han_viet": "Điền Thủy Mạch",
+      "fit": "Needs key",
+      "effect": "Theme formations and land, Earth, outer, sealed by a technique, size 10. Notables Known Ground and Deep Bund, capability Field Walls."
+    },
+    {
+      "type": "dao_branch",
+      "name": "Array, Field branch",
+      "han_viet": "Trận Đạo, Điền Mạch",
+      "fit": "Needs key",
+      "effect": "Old Bund, Standing Water, Untended Field and Hoe Stroke, ending in Ground Law."
+    }
+  ],
+  "questions": [
+    "Rule 12 says a blind fight holds only the loadout, so a standing formation is down even at home. Is that the intent?",
+    "Does a Flat base count against the art lint? Old Bund is worth far more on a cheap art, which turned the great sluice into five small channels. The answer decides this build: the Bunds are half its engine.",
+    "Heavenly Tribulation rule 5 counts a laid formation. Does a Ground Law bind a tribulation boss?",
+    "Open Question 4 matters most here: this build is only as good as what it can see before the fight."
+  ]
+}

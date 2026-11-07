@@ -1,0 +1,427 @@
+{
+ "name": "under-the-eaves",
+ "realm": "hoa_than",
+ "stage": 1.0,
+ "n_body": 3.2965,
+ "n_qi": 2.9312,
+ "layers": [
+  139,
+  0,
+  40,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 90.1,
+  "we": 107.9
+ },
+ "guard": {
+  "body_guard_pct": 2
+ },
+ "enemy": "typical",
+ "art_speed_pct": 0,
+ "art_cost_pct": 0,
+ "regen_bonus_pct": 0,
+ "evade_pct": 2.8,
+ "accuracy_pct": 0,
+ "conditional_mods": [
+  {
+   "id": "Art damage",
+   "layer": 1,
+   "points": 22.0,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Damage while above 50 % health",
+   "layer": 1,
+   "points": 16,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Steady Breath",
+   "layer": 5,
+   "points": 13.0,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "a0",
+   "kind": "qi",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1,
+   "x": [
+    0,
+    110.5,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "a1",
+   "kind": "qi",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1,
+   "x": [
+    0,
+    110.5,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "a2",
+   "kind": "qi",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1,
+   "x": [
+    0,
+    110.5,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "a3",
+   "kind": "qi",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1,
+   "x": [
+    0,
+    110.5,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "a4",
+   "kind": "qi",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1,
+   "x": [
+    0,
+    110.5,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "a5",
+   "kind": "qi",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1,
+   "x": [
+    0,
+    110.5,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "a6",
+   "kind": "qi",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1,
+   "x": [
+    0,
+    110.5,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "walk": {
+  "Art damage": {
+   "acupoints": 8,
+   "notables": 1
+  },
+  "Short Art": {
+   "acupoints": 7,
+   "notables": 8
+  },
+  "Steady Breath": {
+   "acupoints": 2,
+   "notables": 1
+  },
+  "Maximum health": {
+   "acupoints": 13,
+   "notables": 2
+  },
+  "Maximum linh luc": {
+   "acupoints": 13,
+   "notables": 1
+  },
+  "Ward strength": {
+   "acupoints": 5,
+   "notables": 0
+  },
+  "Ward efficiency": {
+   "acupoints": 4,
+   "notables": 0
+  },
+  "Damage while above 50 % health": {
+   "acupoints": 2,
+   "notables": 1
+  },
+  "Evade": {
+   "acupoints": 7,
+   "notables": 0
+  }
+ },
+ "outside_walk": {
+  "atk": 139,
+  "ws": 0,
+  "we": 19,
+  "hp": 0,
+  "qi": 16,
+  "bg": 2
+ },
+ "unmodelled": [
+  "Common ward kept. Best line a scratch search found: cooldown 1 s or more. Search, not proof."
+ ],
+ "enemy_overrides": {
+  "name": "evergreen-second-way",
+  "realm": "hoa_than",
+  "stage": 1.0,
+  "n_body": 3.1003155,
+  "n_qi": 2.5700328,
+  "layers": [
+   176,
+   0,
+   40,
+   0,
+   0
+  ],
+  "crit": {
+   "chance": 0.15,
+   "mult": 1.7
+  },
+  "ward": {
+   "model": "drain",
+   "pass": {
+    "body": 0.54,
+    "qi": 0.36
+   },
+   "drain": {
+    "body": 1.0,
+    "qi": 1.5
+   },
+   "ws": 84.1,
+   "we": 106.5
+  },
+  "art_speed_pct": 0,
+  "art_cost_pct": 9,
+  "regen_bonus_pct": 3.9,
+  "accuracy_pct": 0,
+  "conditional_mods": [
+   {
+    "id": "Element damage",
+    "layer": 1,
+    "points": 24,
+    "channels": [
+     "art"
+    ]
+   },
+   {
+    "id": "Wasting",
+    "layer": 2,
+    "points": 0,
+    "channels": [
+     "art",
+     "basic"
+    ],
+    "per": "enemy_qi_missing_pct",
+    "points_per": 0.2
+   },
+   {
+    "id": "Deep Breath",
+    "layer": 2,
+    "points": 11.8,
+    "channels": [
+     "art"
+    ]
+   },
+   {
+    "id": "Steady Breath",
+    "layer": 5,
+    "points": 16.0,
+    "channels": [
+     "art"
+    ],
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.5
+    }
+   },
+   {
+    "id": "Running Low",
+    "layer": 5,
+    "points": 10.0,
+    "channels": [
+     "art"
+    ],
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "below": 0.5
+    }
+   },
+   {
+    "id": "Late Hour",
+    "layer": 5,
+    "points": 12,
+    "channels": [
+     "art"
+    ],
+    "guard": {
+     "time_above": 10
+    }
+   }
+  ],
+  "arts": [
+   {
+    "id": "a0",
+    "kind": "qi",
+    "cost_share": 0.04,
+    "cooldown": 0.5,
+    "x": [
+     0,
+     39.0,
+     0,
+     0,
+     0
+    ],
+    "c_art": 1.355
+   },
+   {
+    "id": "a1",
+    "kind": "qi",
+    "cost_share": 0.04,
+    "cooldown": 0.5,
+    "x": [
+     0,
+     39.0,
+     0,
+     0,
+     0
+    ],
+    "c_art": 1.355
+   },
+   {
+    "id": "a2",
+    "kind": "qi",
+    "cost_share": 0.04,
+    "cooldown": 0.5,
+    "x": [
+     0,
+     39.0,
+     0,
+     0,
+     0
+    ],
+    "c_art": 1.355
+   },
+   {
+    "id": "a3",
+    "kind": "qi",
+    "cost_share": 0.04,
+    "cooldown": 0.5,
+    "x": [
+     0,
+     39.0,
+     0,
+     0,
+     0
+    ],
+    "c_art": 1.355
+   },
+   {
+    "id": "a4",
+    "kind": "qi",
+    "cost_share": 0.04,
+    "cooldown": 0.5,
+    "x": [
+     0,
+     39.0,
+     0,
+     0,
+     0
+    ],
+    "c_art": 1.355
+   },
+   {
+    "id": "a5",
+    "kind": "qi",
+    "cost_share": 0.04,
+    "cooldown": 0.5,
+    "x": [
+     0,
+     39.0,
+     0,
+     0,
+     0
+    ],
+    "c_art": 1.355
+   },
+   {
+    "id": "a6",
+    "kind": "qi",
+    "cost_share": 0.04,
+    "cooldown": 0.5,
+    "x": [
+     0,
+     39.0,
+     0,
+     0,
+     0
+    ],
+    "c_art": 1.355
+   }
+  ]
+ }
+}

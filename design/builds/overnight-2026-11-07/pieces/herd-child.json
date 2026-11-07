@@ -1,0 +1,186 @@
+{
+  "slug": "herd-child",
+  "name": "The Herd-Child",
+  "han_viet": "Mục Đồng Đạo",
+  "pitch": "The family's old plough buffalo outranks you by a realm: you play the flute, it does the killing, and when you fall it stands over you and pays for it with what is left of its life.",
+  "channel": "companion",
+  "enabler": null,
+  "enabler_kind": null,
+  "identity_piece": "Stands Over You",
+  "identity_id": "stands_over",
+  "power": "strong",
+  "defining_realm": "truc_co",
+  "fit": {
+    "fits_today": 3,
+    "needs_key": 14,
+    "needs_rule": 7
+  },
+  "reused": [
+    "Bonded Spirit",
+    "Companion damage",
+    "Hearth Ash Talisman",
+    "Cornered",
+    "Given Years"
+  ],
+  "new": [
+    {
+      "type": "modifier",
+      "name": "Fights as Itself",
+      "han_viet": "Tự Chiến",
+      "form": "Rule swap",
+      "channel": "companion",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A companion hits with its own realm's fight unit, stage and suppression gap, not its owner's. c_comp_cap and the owner's M stay.",
+      "second_home": "any elder's inherited beast; NPC sect guardians"
+    },
+    {
+      "type": "modifier",
+      "name": "Stands Over You",
+      "han_viet": "Hộ Chủ",
+      "form": "Rule swap",
+      "channel": "companion",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "When you go Down, your companion stays on its own health and guard with no ward, and the fight goes on until it falls. Needs loyalty 60 or more.",
+      "second_home": "any companion; beasts guarding a sect's fallen"
+    },
+    {
+      "type": "modifier",
+      "name": "Broad Back",
+      "han_viet": "Khoan Bối",
+      "form": "Overflow",
+      "channel": "incoming",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Each 1.0 of c_comp the cap clips moves 10 % of each hit on your health to the beast, to 40 %, against its guard. Overkill is not moved. If its wounds reach its health it dies.",
+      "second_home": "capability #17 holders, whose beast clips too"
+    },
+    {
+      "type": "modifier",
+      "name": "Carried Note",
+      "han_viet": "Đới Âm",
+      "form": "Redirect",
+      "channel": "companion",
+      "layer": "L2",
+      "fit": "Needs rule",
+      "effect": "Tag modifiers on an art you fired this instant also apply to your companion's hit in that instant.",
+      "second_home": "any art build that keeps a beast"
+    },
+    {
+      "type": "modifier",
+      "name": "In Step",
+      "han_viet": "Đồng Bộ",
+      "form": "Conditional",
+      "channel": "companion, art",
+      "layer": "L5",
+      "fit": "Needs key",
+      "effect": "+50 points to a hit landing after one of your arts in the same instant.",
+      "second_home": "any volley; used by The Already-Waited"
+    },
+    {
+      "type": "modifier",
+      "name": "Full Trough",
+      "han_viet": "Mãn Tào",
+      "form": "Per",
+      "channel": "companion",
+      "layer": "L4",
+      "fit": "Needs key",
+      "effect": "+20 points to companion hits per doubling of the year's feed above what is due, to +40. A blind fight keeps it.",
+      "second_home": "any beast keeper"
+    },
+    {
+      "type": "modifier",
+      "name": "Reed Song",
+      "han_viet": "Lô Ca",
+      "form": "More",
+      "channel": "art",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+60 points to arts with the song form.",
+      "second_home": "any bell or song art"
+    },
+    {
+      "type": "beast",
+      "name": "The Old Plough Buffalo",
+      "han_viet": "Lão Canh Ngưu",
+      "fit": "Needs key",
+      "effect": "Earth, beast form, a realm above its owner. Fixed art Long Furrow, a body hit. In the Stand: n_body 2.0, t_b 2.0, body_guard_pct 60, no ward."
+    },
+    {
+      "type": "technique",
+      "name": "Plough-Song Method",
+      "han_viet": "Canh Ca Quyết",
+      "fit": "Needs key",
+      "effect": "Main, Hoàng giai, Earth. lifespan_years 15. A rhythm for walking behind an animal. Seals Old Yoke."
+    },
+    {
+      "type": "art",
+      "name": "Calling Note",
+      "han_viet": "Hô Thanh",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 1.2, cost 0.03, 1 s, song form."
+    },
+    {
+      "type": "art",
+      "name": "Rain Song",
+      "han_viet": "Vũ Ca",
+      "fit": "Needs key",
+      "effect": "Curse, +50 % ward drain for 3 pulses, cost 0.05, 2 s."
+    },
+    {
+      "type": "art",
+      "name": "Low Song",
+      "han_viet": "Đê Ca",
+      "fit": "Needs key",
+      "effect": "Curse, -30 % body guard for 3 pulses, cost 0.05, 2 s."
+    },
+    {
+      "type": "art",
+      "name": "Furrow Song",
+      "han_viet": "Lũng Ca",
+      "fit": "Needs key",
+      "effect": "Curse, ward pass x1.5 for 3 pulses, cost 0.05, 2 s."
+    },
+    {
+      "type": "art",
+      "name": "Home Call",
+      "han_viet": "Hồi Thôn Khúc",
+      "fit": "Needs key",
+      "effect": "Escape, cost 0.10, 3 s, guard own health below 30 %. Unmodelled."
+    },
+    {
+      "type": "artifact",
+      "name": "Neck Bell",
+      "han_viet": "Cảnh Linh",
+      "fit": "Fits today",
+      "effect": "A generated Chuông the family already owned."
+    },
+    {
+      "type": "cluster",
+      "name": "Old Yoke",
+      "han_viet": "Cổ Ách",
+      "fit": "Needs key",
+      "effect": "Sealed, Beast Taming, Earth, outer, size 10. Notables In Step, then Broad Back with Fights as Itself as its capability."
+    },
+    {
+      "type": "dao",
+      "name": "Way of the Herd",
+      "han_viet": "Mục Đạo",
+      "fit": "Needs key",
+      "effect": "Earth at purity 30. theme_stats khi_huyet_pct, linh_luc_regen_pct, art_speed_pct, body_guard_pct. Branches The Rope, The Song, The Field. Keystone Stands Over You. 20 nodes, no art nodes."
+    },
+    {
+      "type": "concept",
+      "name": "Shared Years",
+      "han_viet": "Cộng Thọ",
+      "fit": "Needs rule",
+      "effect": "A beast has a lifespan by its realm, and its owner may give it years of their own. Each 1 % of health it loses in a fight costs it 1 year."
+    }
+  ],
+  "questions": [
+    "Combat rule 19 and Open Question 3 closed targeting of companions on 2026-11-06. Stands Over You and Broad Back ask to reopen it for this keystone alone. Is that allowed?",
+    "Should an owned beast be able to outrun its owner by a realm at all? The world tick seems to allow it.",
+    "Is permanent beast death acceptable as a cost the player can lose to a single top-end blow?"
+  ]
+}

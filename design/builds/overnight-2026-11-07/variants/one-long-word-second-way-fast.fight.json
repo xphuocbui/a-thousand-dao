@@ -1,0 +1,182 @@
+{
+ "name": "one-long-word-second-way",
+ "realm": "truc_co",
+ "stage": 1.0,
+ "n_body": 1.59,
+ "n_qi": 1.55,
+ "layers": [
+  97,
+  10,
+  30,
+  20,
+  0
+ ],
+ "crit": {
+  "chance": 0.05,
+  "mult": 1.5
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 38,
+  "we": 38
+ },
+ "guard": {
+  "body_guard_pct": 10
+ },
+ "art_speed_pct": 0,
+ "art_cost_pct": 1.0,
+ "regen_bonus_pct": 3.2,
+ "accuracy_pct": 0,
+ "conditional_mods": [
+  {
+   "id": "Wasting",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.26
+  },
+  {
+   "id": "Deep Breath",
+   "layer": 2,
+   "points": 10.4,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Damage while above 50 % health",
+   "layer": 1,
+   "points": 16,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "above": 0.5
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "standing_word",
+   "kind": "qi",
+   "c_art": 2.0,
+   "cost_share": 0.08,
+   "cooldown": 3.8,
+   "curse": {
+    "cost_raise": 0.34,
+    "drain_raise": 0.34,
+    "block_regen": true,
+    "duration": 3
+   }
+  },
+  {
+   "id": "a0",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    16.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  },
+  {
+   "id": "a1",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    16.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  },
+  {
+   "id": "a2",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    16.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  }
+ ],
+ "walk": {
+  "Art cost": {
+   "acupoints": 2,
+   "notables": 0
+  },
+  "Linh luc regeneration": {
+   "acupoints": 8,
+   "notables": 2
+  },
+  "Maximum health": {
+   "acupoints": 6,
+   "notables": 0
+  },
+  "Short Art": {
+   "acupoints": 4,
+   "notables": 1
+  },
+  "Wasting": {
+   "acupoints": 2,
+   "notables": 1
+  },
+  "Deep Breath": {
+   "acupoints": 0,
+   "notables": 1
+  },
+  "Damage while above 50 % health": {
+   "acupoints": 2,
+   "notables": 1
+  }
+ },
+ "unmodelled": [
+  "Second-way control for plain-vs-exotic.md. W at the Map's prices: acupoint 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Meridian Map rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
+  "Standing Word kept at its unrowed values: strength 0.34, 3 pulses, 3.8 s, cost 0.08. The curse road is dropped. 92 W moved off the ward (ws and we 84 to 38) into L1 (5 to 97), W for W."
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "flurry_a",
+    "kind": "body",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   },
+   {
+    "id": "flurry_b",
+    "kind": "qi",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   }
+  ]
+ }
+}

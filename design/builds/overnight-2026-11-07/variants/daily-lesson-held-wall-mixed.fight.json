@@ -1,0 +1,171 @@
+{
+ "name": "daily-lesson",
+ "realm": "truc_co",
+ "n_body": 1.2774,
+ "n_qi": 1.19,
+ "layers": [
+  0,
+  0,
+  40.0,
+  20,
+  0
+ ],
+ "crit": {
+  "chance": 0.216,
+  "mult": 1.7
+ },
+ "basic": {
+  "c": 0.9599,
+  "kind": "body"
+ },
+ "art_speed_pct": 9,
+ "art_cost_pct": 2,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 37.9,
+  "we": 37.9
+ },
+ "conditional_mods": [
+  {
+   "id": "Full Title",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Sword damage (acupoints)",
+   "layer": 1,
+   "points": 20,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Sword damage (notable)",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Short Edge (acupoints)",
+   "layer": 2,
+   "points": 8,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Short Edge (notable)",
+   "layer": 2,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Spent Breath (acupoints)",
+   "layer": 5,
+   "points": 4,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "below": 0.5
+   }
+  },
+  {
+   "id": "Spent Breath (notable)",
+   "layer": 5,
+   "points": 12,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "below": 0.5
+   }
+  },
+  {
+   "id": "Many Forms (acupoints)",
+   "layer": 2,
+   "points": 6,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "morning_thrust",
+   "kind": "body",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1
+  },
+  {
+   "id": "rising_cut",
+   "kind": "body",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1
+  },
+  {
+   "id": "falling_cut",
+   "kind": "body",
+   "c_art": 1.72,
+   "cost_share": 0.06,
+   "cooldown": 1
+  }
+ ],
+ "enemy": "typical",
+ "unmodelled": [
+  "The basic attack has no sword tag, so its c is lowered to take out the sword-only crit chance the calculator would otherwise give it",
+  "Thought (than thuc) is not spent in the fight; the kit is costed in the sheet"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ],
+  "n_body": 3.1935
+ }
+}

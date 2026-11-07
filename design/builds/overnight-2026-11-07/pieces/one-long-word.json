@@ -1,0 +1,292 @@
+{
+ "slug": "one-long-word",
+ "name": "The One Long Word",
+ "han_viet": "Nhất Ngôn Chú",
+ "pitch": "Thirty plain nodes on one curse: say it once, keep it standing, and the enemy cannot pay for its next art by the sixth second.",
+ "channel": "art",
+ "enabler": "none",
+ "enabler_kind": "none",
+ "identity_piece": "Standing Word",
+ "identity_id": "standing_word",
+ "power": "ordinary",
+ "defining_realm": "truc_co",
+ "fit": {
+  "fits_today": 0,
+  "needs_key": 27,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Bare Vessel"
+ ],
+ "new": [
+  {
+   "type": "acupoint",
+   "name": "Lingering Word",
+   "han_viet": "Dư Ngôn",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+2.5 % curse duration, rounded to the nearest pulse, inside curse_duration_max.",
+   "second_home": "any curse build"
+  },
+  {
+   "type": "notable",
+   "name": "Slow to Lift",
+   "han_viet": "Nan Giải",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+15 % curse duration.",
+   "second_home": "any curse build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Sharpened Word",
+   "han_viet": "Lợi Ngôn",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+2 % curse strength, inside Combat's curse bounds.",
+   "second_home": "any curse build"
+  },
+  {
+   "type": "notable",
+   "name": "Full Weight",
+   "han_viet": "Toàn Trọng",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+12 % curse strength, inside Combat's curse bounds.",
+   "second_home": "any curse build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Quick Tongue",
+   "han_viet": "Tấn Thiệt",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+1 % curse art speed.",
+   "second_home": "any curse build"
+  },
+  {
+   "type": "notable",
+   "name": "Between Breaths",
+   "han_viet": "Tức Gian",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+6 % curse art speed.",
+   "second_home": "any curse build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Thrifty Word",
+   "han_viet": "Tiết Ngôn",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "-1 % curse art cost.",
+   "second_home": "any curse build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Marked Target",
+   "han_viet": "Tiêu Ký",
+   "form": "Per",
+   "channel": "art",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+1 art damage per curse on the target.",
+   "second_home": "any curse build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Thinning Ward",
+   "han_viet": "Bạc Hộ",
+   "form": "Conditional",
+   "channel": "art",
+   "layer": "L1",
+   "fit": "Needs key",
+   "effect": "+2 art damage while the enemy has under 50 % linh lực.",
+   "second_home": "any starver, Deepest Well"
+  },
+  {
+   "type": "notable",
+   "name": "Single Grudge",
+   "han_viet": "Độc Oán",
+   "form": "More",
+   "channel": "art",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+12 art damage while the target bears exactly one curse.",
+   "second_home": "any one-curse build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Set Jaw",
+   "han_viet": "Giảo Nha",
+   "form": "More",
+   "channel": "art",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+2 art damage while the target bears exactly one curse.",
+   "second_home": "any one-curse build"
+  },
+  {
+   "type": "acupoint",
+   "name": "One Thought",
+   "han_viet": "Nhất Niệm",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+2.5 % strength of a curse on an art with a cooldown of 3 s or more.",
+   "second_home": "any slow curse art"
+  },
+  {
+   "type": "notable",
+   "name": "Long Memory",
+   "han_viet": "Trường Ký",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+15 % curse duration.",
+   "second_home": "any curse build"
+  },
+  {
+   "type": "notable",
+   "name": "Unbroken Sentence",
+   "han_viet": "Bất Đoạn",
+   "form": "Conditional",
+   "channel": "art",
+   "layer": "L5",
+   "fit": "Needs key",
+   "effect": "+10 art damage while the enemy has under 50 % linh lực.",
+   "second_home": "any starver"
+  },
+  {
+   "type": "notable",
+   "name": "Many Small Ills",
+   "han_viet": "Bách Tiểu Tật",
+   "form": "Per",
+   "channel": "art",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+5 art damage per curse on the target.",
+   "second_home": "Stand-In, any three-curse build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Nibbling Word",
+   "han_viet": "Thực Ngôn",
+   "form": "Per",
+   "channel": "art",
+   "layer": "L2",
+   "fit": "Needs key",
+   "effect": "+1 art damage per curse on the target.",
+   "second_home": "any three-curse build"
+  },
+  {
+   "type": "notable",
+   "name": "Crowded Sky",
+   "han_viet": "Mãn Thiên",
+   "form": "Per",
+   "channel": "art",
+   "layer": "L5",
+   "fit": "Needs key",
+   "effect": "+3 art damage per curse on the target.",
+   "second_home": "any hit-and-curse build"
+  },
+  {
+   "type": "acupoint",
+   "name": "Small Word",
+   "han_viet": "Tiểu Ngôn",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+2.5 % strength of a curse on an art costing 5 % or less.",
+   "second_home": "any cheap curse art"
+  },
+  {
+   "type": "notable",
+   "name": "Hurrying Word",
+   "han_viet": "Cấp Ngôn",
+   "form": "Increased",
+   "channel": "any",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "+6 % curse art speed.",
+   "second_home": "any curse build"
+  },
+  {
+   "type": "art",
+   "name": "Standing Word",
+   "han_viet": "Trụ Ngôn",
+   "fit": "Needs key",
+   "effect": "Qi hit, c_art 2.0, cost 0.08, 3.8 s. Curse for 3 pulses: art cost +34 %, ward drain +34 %, regeneration blocked."
+  },
+  {
+   "type": "art",
+   "name": "Plain Reproach",
+   "han_viet": "Trực Trách",
+   "fit": "Needs key",
+   "effect": "Body hit, c_art 1.9, cost 0.04, 3 s."
+  },
+  {
+   "type": "art",
+   "name": "Level Gaze",
+   "han_viet": "Bình Thị",
+   "fit": "Needs key",
+   "effect": "Qi hit, c_art 1.9, cost 0.04, 3 s."
+  },
+  {
+   "type": "art",
+   "name": "Closing Sentence",
+   "han_viet": "Kết Ngữ",
+   "fit": "Needs key",
+   "effect": "Qi hit, c_art 2.47, cost 0.06, 4 s."
+  },
+  {
+   "type": "art",
+   "name": "Small Complaint",
+   "han_viet": "Tiểu Oán",
+   "fit": "Needs key",
+   "effect": "Qi hit, c_art 1.4, cost 0.04, 2.5 s. Curse for 2 pulses: ward pass +24 %."
+  },
+  {
+   "type": "art",
+   "name": "Thin Skin",
+   "han_viet": "Bạc Bì",
+   "fit": "Needs key",
+   "effect": "Body hit, c_art 1.4, cost 0.04, 2.5 s. Curse for 2 pulses: shred 0.24."
+  },
+  {
+   "type": "art",
+   "name": "Grudging Hand",
+   "han_viet": "Lận Thủ",
+   "fit": "Needs key",
+   "effect": "Qi hit, c_art 1.4, cost 0.04, 2.5 s. Curse for 2 pulses: art cost +20 %."
+  },
+  {
+   "type": "technique",
+   "name": "Plain Speech Method",
+   "han_viet": "Trực Ngôn Công",
+   "fit": "Needs key",
+   "effect": "Main, Huyền giai. Linh lực +20, health +15, +10 L2 on the method's arts. Carries the seven arts."
+  }
+ ],
+ "questions": [
+  "Does a curse recast on itself refresh or stack? Rule 7 offers both, and duration nodes depend on the answer.",
+  "A strong cost curse can keep the enemy's linh lực in its ward by stopping an art. Is that intended?"
+ ]
+}

@@ -1,0 +1,87 @@
+{
+ "name": "welcome-bath",
+ "realm": "luyen_khi",
+ "stage": 1.0,
+ "n_body": 1.33,
+ "n_qi": 1.08,
+ "layers": [
+  16,
+  0,
+  0,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.05,
+  "mult": 1.5
+ },
+ "accuracy_pct": 3,
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.1,
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "ws": 30,
+  "we": 30
+ },
+ "washing": {
+  "keep": 0.6,
+  "skin": 40,
+  "both_hands": true
+ },
+ "arts": [
+  {
+   "id": "tay_tran",
+   "kind": "body",
+   "c_art": 1.3,
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "wash": true,
+   "cleanse": 1
+  },
+  {
+   "id": "nhiet_can",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 2
+  },
+  {
+   "id": "duc_thuy",
+   "kind": "body",
+   "c_art": 3.1,
+   "cost_share": 0.12,
+   "cooldown": 4
+  }
+ ],
+ "rules": [
+  "washing",
+  "cleanse_art"
+ ],
+ "unmodelled": [
+  "A wash that meets evade is an expected share of the layer",
+  "Conditional points are not washed, and the panel enemies have none",
+  "What the washed do afterwards: costs outside the fight"
+ ],
+ "enemy_overrides": {
+  "evade_pct": 35,
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   }
+  ]
+ }
+}

@@ -1,0 +1,141 @@
+{
+ "name": "struck-name",
+ "realm": "nguyen_anh",
+ "n_body": 2.6,
+ "n_qi": 2.4,
+ "layers": [
+  331,
+  0,
+  248,
+  0,
+  0
+ ],
+ "art_speed_pct": 30,
+ "regen_bonus_pct": 3,
+ "art_cost_pct": 10,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 80,
+  "we": 80
+ },
+ "guard": {
+  "body_guard_pct": 30,
+  "a_b": 1.0
+ },
+ "conditional_mods": [
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 80,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "strike_the_name",
+   "kind": "qi",
+   "c_art": 0,
+   "cost_share": 0.05,
+   "cooldown": 1.3,
+   "x": [
+    0,
+    202,
+    0,
+    0,
+    0
+   ],
+   "applies": [
+    {
+     "id": "unnamed",
+     "kind": "qi_burn",
+     "c_tick": 0,
+     "duration": 2,
+     "stacks": 1
+    }
+   ]
+  },
+  {
+   "id": "unwritten_line",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 2,
+   "x": [
+    0,
+    202,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "worn_name",
+   "kind": "qi",
+   "c_art": 2.9,
+   "cost_share": 0.12,
+   "cooldown": 3,
+   "x": [
+    0,
+    202,
+    0,
+    0,
+    0
+   ],
+   "guard": {
+    "who": "enemy",
+    "status": "unnamed"
+   }
+  },
+  {
+   "id": "empty_tablet",
+   "kind": "qi",
+   "c_art": 2.9,
+   "cost_share": 0.0,
+   "body_cost_share": 0.06,
+   "cooldown": 3,
+   "x": [
+    0,
+    202,
+    0,
+    0,
+    0
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  }
+ ],
+ "unmodelled": [
+  "Variant: Nascent Soul with Ten Thousand Names: +90 L2 from auxiliary techniques on every art",
+  "Arts are written as qi. The bare_hit plug-in strips the kind, so a ward reads them on default terms and body guard at the qi share",
+  "Unnamed is a zero-strength status so its timing is exact and arts can guard on it. The unnamed plug-in stops the enemy's L2 while it holds",
+  "Forgotten Face, 40 points, and Unwritten Margin, 72 points, are folded into the x of each art. Forgotten Face reads mi_luc at compile time",
+  "Unnamed cannot be cleansed or resisted because nothing can name it. The reference enemies carry no cleanse, so this is untested",
+  "The price outside the fight: mi_luc -20, and no sect keeps a record of this character. A caller rule"
+ ],
+ "rules": [
+  "bare_hit",
+  "unnamed"
+ ],
+ "bare_hit": true,
+ "unnamed_status": "unnamed",
+ "borrowed_name": 0.75
+}

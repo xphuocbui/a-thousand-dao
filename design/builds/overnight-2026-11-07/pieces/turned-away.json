@@ -1,0 +1,167 @@
+{
+  "slug": "turned-away",
+  "name": "The Turned-Away",
+  "han_viet": "Cự Quan Đạo",
+  "pitch": "Every gate in their life has refused them, and so does the last one: each failed breakthrough is one more time they fail to die.",
+  "channel": "art hit, from a health floor",
+  "enabler": "The Copyist's Error",
+  "enabler_kind": "Rule removal",
+  "identity_piece": "Turned Away",
+  "identity_id": "turned_away",
+  "power": "strong",
+  "defining_realm": "ket_dan",
+  "fit": {
+    "fits_today": 6,
+    "needs_key": 10,
+    "needs_rule": 5
+  },
+  "reused": [
+    "Bare Vessel"
+  ],
+  "new": [
+    {
+      "type": "enabler",
+      "name": "The Copyist's Error",
+      "han_viet": "Sao Ngộ",
+      "fit": "Needs rule",
+      "effect": "While the Spent Kiln Sutra is main, every great breakthrough attempt fails with no roll, needs no pill and ignores bare_attempt_cap; each failure leaves a Gate Scar."
+    },
+    {
+      "type": "modifier",
+      "name": "Turned Away",
+      "han_viet": "Bế Môn",
+      "form": "Rule swap",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "At the defeat check, a side at 0 health with an unopened Gate Scar and 15 % of maximum linh lực pays it, opens one scar and stands at 5 % health. One per instant.",
+      "second_home": "any build with stored floors"
+    },
+    {
+      "type": "modifier",
+      "name": "Cracked Perfection",
+      "han_viet": "Liệt Viên Mãn",
+      "form": "Per",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "+0.05 to stage_mult on damage per Gate Scar, past great perfection.",
+      "second_home": "any cultivator stuck at a gate"
+    },
+    {
+      "type": "modifier",
+      "name": "Refused Force",
+      "han_viet": "Cự Lực",
+      "form": "Per",
+      "channel": "art, basic",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+15 points to hits per health floor held this fight.",
+      "second_home": "any build with a floor, such as Unyielding Breath"
+    },
+    {
+      "type": "modifier",
+      "name": "Raw Scar",
+      "han_viet": "Tân Ngân",
+      "form": "Trade",
+      "channel": "any",
+      "layer": "L4",
+      "fit": "Needs rule",
+      "effect": "+30 points to hits for 4 seasons after a failed great breakthrough, in any situation, even a blind fight.",
+      "second_home": "anyone who fails on purpose before a duel"
+    },
+    {
+      "type": "modifier",
+      "name": "Reopened",
+      "han_viet": "Tái Liệt",
+      "form": "Per",
+      "channel": "art, basic",
+      "layer": "L5",
+      "fit": "Needs key",
+      "effect": "+0.6 points to hits per 1 % of health missing.",
+      "second_home": "any low-health build"
+    },
+    {
+      "type": "modifier",
+      "name": "Known Gate",
+      "han_viet": "Thức Quan",
+      "form": "Per",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "+5 pierce per Gate Scar.",
+      "second_home": "vượt cấp builds"
+    },
+    {
+      "type": "modifier",
+      "name": "Numb Soul",
+      "han_viet": "Ma Hồn",
+      "form": "Per",
+      "channel": "soul",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "+8 soul_res_pct per Gate Scar.",
+      "second_home": "any soul-exposed build"
+    },
+    {
+      "type": "technique",
+      "name": "Spent Kiln Sutra",
+      "han_viet": "Phế Diêu Kinh",
+      "fit": "Needs rule",
+      "effect": "Main, Địa giai, Fire and Earth. A firing manual with one reversed line, which is why nobody under it has ever passed a gate. Carries The Copyist's Error and Turned Away."
+    },
+    {
+      "type": "art",
+      "name": "Hairline",
+      "han_viet": "Liệt Văn",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 2.2, health 0.04, 2 s."
+    },
+    {
+      "type": "art",
+      "name": "Second Firing",
+      "han_viet": "Tái Thiêu",
+      "fit": "Needs key",
+      "effect": "Body hit, c_art 2.9, health 0.06, 3 s."
+    },
+    {
+      "type": "art",
+      "name": "The Gate Opens Inward",
+      "han_viet": "Môn Nội Khai",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 4.1, health 0.08, 6 s. Timed to land in the last instant four scars buy."
+    },
+    {
+      "type": "talisman",
+      "name": "Hearth Ash Talisman",
+      "han_viet": "Lô Hôi Phù",
+      "fit": "Needs key",
+      "effect": "Refunds 15 % of maximum linh lực while under 45 %."
+    },
+    {
+      "type": "cluster",
+      "name": "Waster Heap",
+      "han_viet": "Phế Đôi",
+      "fit": "Needs key",
+      "effect": "Sealed, Earth, size 8. Wounds and vitality. Sealed by a technique or three failed great breakthroughs. Notable: Reopened."
+    },
+    {
+      "type": "dao",
+      "name": "Way of the Threshold",
+      "han_viet": "Hạm Đạo",
+      "fit": "Needs key",
+      "effect": "Fire and Earth at purity 25. Branches Knock, Crack, Refusal. Keystone Cracked Perfection."
+    },
+    {
+      "type": "concept",
+      "name": "Gate Scar",
+      "han_viet": "Quan Ngân",
+      "fit": "Needs rule",
+      "effect": "A saved count of failed great breakthroughs for every character, reset by a success. Does nothing without a piece that reads it."
+    }
+  ],
+  "questions": [
+    "The difficulty targets mean most lives stall at a gate. Should a stalled life have a real second path?",
+    "Turned Away runs through a campaign plug-in that hooks the defeat check. Should the calculator gain a health-floor rule?"
+  ]
+}

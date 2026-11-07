@@ -1,0 +1,112 @@
+{
+ "name": "empty-river",
+ "realm": "hoa_than",
+ "stage": 1.0,
+ "n_body": 3.9,
+ "n_qi": 2.5,
+ "layers": [
+  200,
+  0,
+  0,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.05,
+  "mult": 1.5
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 180,
+  "we": 180
+ },
+ "divine_sense": 1.0,
+ "scroll": {
+  "blank": 100,
+  "shrink": 0.012,
+  "floor": 0.2,
+  "signed": {
+   "art": "lac_khoan",
+   "per": 1.0
+  },
+  "seals": [
+   {
+    "name": "An elder's seal",
+    "takes": 8,
+    "layer": 4,
+    "points": 30
+   },
+   {
+    "name": "A minister's colophon",
+    "takes": 12,
+    "layer": 2,
+    "points": 40
+   }
+  ]
+ },
+ "arts": [
+  {
+   "id": "bat_mac",
+   "kind": "qi",
+   "c_art": 4.0,
+   "cost_share": 0.25,
+   "cooldown": 1,
+   "stroke": true
+  },
+  {
+   "id": "can_but",
+   "kind": "body",
+   "c_art": 2.35,
+   "cost_share": 0.05,
+   "cooldown": 4,
+   "stroke": true
+  },
+  {
+   "id": "lac_khoan",
+   "kind": "qi",
+   "c_art": 2.1,
+   "cost_share": 0.05,
+   "cooldown": 3,
+   "guard": {
+    "blank_out": 9,
+    "who": "enemy",
+    "pool": "qi",
+    "above": 2
+   }
+  }
+ ],
+ "rules": [
+  "far_distance"
+ ],
+ "unmodelled": [
+  "Blank fading between fights, the owners, the figures on the road: outside the fight",
+  "The 1,172 W is the whole tree spent on the fight, because the hermit has no life outside it"
+ ],
+ "enemy_overrides": {
+  "evade_pct": 35,
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   }
+  ]
+ }
+}

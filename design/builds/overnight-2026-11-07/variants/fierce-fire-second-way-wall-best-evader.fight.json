@@ -1,0 +1,276 @@
+{
+ "name": "fierce-fire-second-way-wall-best",
+ "realm": "nguyen_anh",
+ "stage": 1.0,
+ "n_body": 2.3256,
+ "n_qi": 2.18672,
+ "layers": [
+  83.4,
+  0,
+  0,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 62,
+  "we": 71.2
+ },
+ "conditional_mods": [
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  }
+ ],
+ "art_speed_pct": 6,
+ "art_cost_pct": 20.0,
+ "regen_bonus_pct": 3.3,
+ "accuracy_pct": 0,
+ "arts": [
+  {
+   "id": "a0",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1.5,
+   "x": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 0.355,
+   "applies": [
+    {
+     "id": "st0",
+     "kind": "body",
+     "c_tick": 0.5,
+     "duration": 3,
+     "stacks": 1,
+     "chance": 0.78,
+     "x": [
+      36,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "a1",
+   "kind": "body",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    1.5,
+    0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 0.104,
+   "applies": [
+    {
+     "id": "st1",
+     "kind": "body",
+     "c_tick": 0.5,
+     "duration": 3,
+     "stacks": 1,
+     "chance": 0.78,
+     "x": [
+      36,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.4
+   }
+  },
+  {
+   "id": "a2",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 0.229,
+   "applies": [
+    {
+     "id": "st2",
+     "kind": "body",
+     "c_tick": 0.5,
+     "duration": 3,
+     "stacks": 1,
+     "chance": 0.78,
+     "x": [
+      36,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.2
+   }
+  },
+  {
+   "id": "a3",
+   "kind": "body",
+   "cost_share": 0.14,
+   "cooldown": 6,
+   "x": [
+    1.5,
+    0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 3.554,
+   "applies": [
+    {
+     "id": "st3",
+     "kind": "body",
+     "c_tick": 0.15,
+     "duration": 3,
+     "stacks": 1,
+     "chance": 0.78,
+     "x": [
+      36,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  }
+ ],
+ "basic": {
+  "c": 1.0,
+  "kind": "body",
+  "x": [
+   15.5,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "walk": {
+  "Damage": {
+   "acupoints": 2,
+   "notables": 2
+  },
+  "Body damage": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Basic attack damage": {
+   "acupoints": 1,
+   "notables": 1
+  },
+  "Fire art cost, Dry Wood": {
+   "acupoints": 2,
+   "notables": 2
+  },
+  "Art cost": {
+   "acupoints": 0,
+   "notables": 2
+  },
+  "Fire art speed": {
+   "acupoints": 0,
+   "notables": 1
+  },
+  "Linh luc regeneration": {
+   "acupoints": 2,
+   "notables": 3
+  },
+  "Maximum health": {
+   "acupoints": 1,
+   "notables": 2
+  },
+  "Maximum linh luc": {
+   "acupoints": 2,
+   "notables": 3
+  },
+  "Ward efficiency": {
+   "acupoints": 1,
+   "notables": 1
+  },
+  "Damage over time": {
+   "acupoints": 6,
+   "notables": 2
+  },
+  "Status chance": {
+   "acupoints": 6,
+   "notables": 2
+  }
+ },
+ "unmodelled": [
+  "Second-way control for plain-vs-exotic.md. W at the Map's prices: acupoint 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Meridian Map rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
+  "The best Wall-only line a search found at 261.8 W on the common ward: 120 W moved from L1 into 15 notables. It gives up the other four enemies."
+ ],
+ "enemy_overrides": {
+  "evade_pct": 35,
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   }
+  ]
+ }
+}

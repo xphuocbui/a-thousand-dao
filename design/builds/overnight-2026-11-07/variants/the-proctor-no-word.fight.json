@@ -1,0 +1,218 @@
+{
+ "name": "the-proctor",
+ "realm": "nguyen_anh",
+ "n_body": 2.0,
+ "n_qi": 1.5,
+ "layers": [
+  150,
+  0,
+  40,
+  20,
+  0
+ ],
+ "regen_bonus_pct": 2,
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.3,
+   "qi": 0.2
+  },
+  "hit_cost_share": 0.05,
+  "ws": 220,
+  "we": 80
+ },
+ "guard": {
+  "a_b": 2.8,
+  "t_b": 2,
+  "body_guard_pct": 40
+ },
+ "conditional_mods": [
+  {
+   "id": "Plain Speech",
+   "layer": 2,
+   "points": 10,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Marked Target",
+   "layer": 1,
+   "per": "enemy_curses",
+   "points_per": 3,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Single Grudge",
+   "layer": 2,
+   "per": "enemy_curses",
+   "points_per": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Set Jaw",
+   "layer": 2,
+   "per": "enemy_curses",
+   "points_per": 6,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "level_gaze",
+   "kind": "qi",
+   "c_art": 1.9,
+   "cost_share": 0.04,
+   "cooldown": 3
+  },
+  {
+   "id": "closing_sentence",
+   "kind": "qi",
+   "c_art": 2.47,
+   "cost_share": 0.06,
+   "cooldown": 4
+  },
+  {
+   "id": "plain_reproach",
+   "kind": "body",
+   "c_art": 1.9,
+   "cost_share": 0.04,
+   "cooldown": 3
+  }
+ ],
+ "unmodelled": [
+  "Standing Word's numbers are One Long Word's road at its full walk, carried up a realm unchanged",
+  "a_b 2.8 and t_b 2 as The Dug Stone: first guesses"
+ ],
+ "rules": [
+  "lint_watch",
+  "laid_ground",
+  "title_deed",
+  "already_waited",
+  "demon_scale",
+  "withheld_hand"
+ ],
+ "enemy_overrides": {
+  "name": "forum-build",
+  "realm": "nguyen_anh",
+  "stage": 1.0,
+  "n_body": 2.9,
+  "n_qi": 2.5,
+  "layers": [
+   150,
+   0,
+   40,
+   200,
+   0
+  ],
+  "ward": {
+   "model": "drain",
+   "pass": {
+    "body": 0.42,
+    "qi": 0.28
+   },
+   "drain": {
+    "body": 0.72,
+    "qi": 1.08
+   },
+   "ws": 100,
+   "we": 100
+  },
+  "guard": {
+   "a_b": 2.5,
+   "t_b": 1.0,
+   "body_guard_pct": 35
+  },
+  "lint_watch": {
+   "fix": "none"
+  },
+  "laid_formation": true,
+  "situation": "foreseen",
+  "standing": true,
+  "ground_law": {
+   "name": "Level Ground",
+   "caps": {
+    "2": 40,
+    "3": 40,
+    "5": 10
+   },
+   "foreign_l4": 20
+  },
+  "standing_water": true,
+  "old_bund": 1.0,
+  "deep_bund": 0.01,
+  "field_walls": 120,
+  "title_deed": {
+   "min_cooldown": 6
+  },
+  "waited": {
+   "pool": 85,
+   "rate": 1.0,
+   "cap": 100,
+   "blow_refill": 0.3,
+   "both_hands": 50
+  },
+  "withheld_hand": true,
+  "arts": [
+   {
+    "id": "wait_here",
+    "kind": "qi",
+    "c_art": 2.7,
+    "cost_share": 0.04,
+    "cooldown": 6,
+    "delay_enemy": 3
+   },
+   {
+    "id": "rope_burn",
+    "kind": "body",
+    "c_art": 3.7,
+    "cost_share": 0.04,
+    "cooldown": 10
+   },
+   {
+    "id": "third_winter",
+    "kind": "qi",
+    "c_art": 3.3,
+    "cost_share": 0.05,
+    "cooldown": 8
+   },
+   {
+    "id": "lantern_left",
+    "kind": "body",
+    "c_art": 4.4,
+    "cost_share": 0.06,
+    "cooldown": 12
+   },
+   {
+    "id": "last_ferry",
+    "kind": "body",
+    "c_art": 6.3,
+    "cost_share": 0.05,
+    "cooldown": 20,
+    "guard": {
+     "who": "enemy",
+     "pool": "health",
+     "below": 0.4
+    }
+   },
+   {
+    "id": "last_word",
+    "kind": "body",
+    "c_art": 13.75,
+    "cost_share": 0.25,
+    "cooldown": 40
+   }
+  ],
+  "crit": {
+   "chance": 0,
+   "mult": 1.5
+  },
+  "divine_sense": 1.0
+ }
+}

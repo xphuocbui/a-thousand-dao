@@ -1,0 +1,104 @@
+{
+ "slug": "the-mortal",
+ "name": "The Mortal",
+ "han_viet": "Phàm Thân Lộ",
+ "pitch": "You woke sixteen because someone who loved you gave up their life, then a hunter came for you because of it, and every blow takes back a year of what they gave.",
+ "channel": "none: the first firing of each enemy art turns on its owner",
+ "enabler": "The Received Years",
+ "enabler_kind": "Resource swap",
+ "identity_piece": "The Received Years",
+ "identity_id": "wick",
+ "power": "none",
+ "defining_realm": "below luyen_khi",
+ "fit": {
+  "fits_today": 2,
+  "needs_key": 2,
+  "needs_rule": 7
+ },
+ "reused": [
+  "Turned Hand",
+  "Slip of the Hand",
+  "Paid in Seasons",
+  "Lit Wick",
+  "The Set Day",
+  "Kin tie",
+  "Stamped Iron",
+  "Body guard",
+  "Maximum health"
+ ],
+ "new": [
+  {
+   "type": "enabler",
+   "name": "The Received Years",
+   "han_viet": "Thụ Niên",
+   "form": "Resource swap",
+   "channel": "incoming",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "The person named on a Set Day, while the giver lives: the years received become a wick that blows and terror burn, and an art's first firing at them turns. Closes any cultivation.",
+   "second_home": "any build's bonded person, any hostage event"
+  },
+  {
+   "type": "modifier",
+   "name": "Plain Blow",
+   "han_viet": "Phàm Kích",
+   "form": "Rule swap",
+   "channel": "incoming",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "A single hit on a side with no linh lực at all removes at most 8 health before body guard. Ticks and soul are not limited.",
+   "second_home": "any levy row, The Ant General's ranks, a mortal-bodied puppet"
+  },
+  {
+   "type": "modifier",
+   "name": "Callus Returns",
+   "han_viet": "Kiển Hoàn",
+   "form": "Conditional",
+   "channel": "incoming",
+   "layer": "none",
+   "fit": "Needs key",
+   "effect": "After 80 seasons have gone from a wick, +1 body guard base for the fight.",
+   "second_home": "any build whose age is moved back"
+  },
+  {
+   "type": "modifier",
+   "name": "Measure Taken",
+   "han_viet": "Lượng Thủ",
+   "form": "Trade",
+   "channel": "enemy's art",
+   "layer": "none",
+   "fit": "Needs rule",
+   "effect": "An art that has turned never turns twice in that fight. Its owner has corrected their aim.",
+   "second_home": "any once-only reflection"
+  },
+  {
+   "type": "concept",
+   "name": "Mortal Body",
+   "han_viet": "Phàm Thân",
+   "fit": "Needs rule",
+   "effect": "A side the caller creates for one fight: no linh lực, no ward, no arts, a power term below Qi Refining (power 10 as a first guess). Carries Plain Blow. Combat rule 23, Realms.",
+   "second_home": "mortal-bodied puppets, a hostage event, Levy rows"
+  },
+  {
+   "type": "concept",
+   "name": "Merged self-hit rule",
+   "han_viet": "Phản Thủ Luật",
+   "fit": "Needs rule",
+   "effect": "One rule replaces Slip of the Hand's and Turned Hand's copies: a turned art pays, and its hit resolves on its owner at the same size and M, through their own ward and guard, with no suppression, at most 25 % of their maximum health. Basic attacks, companions, ticks and arts with no hit never turn. Three doors decide when: the fortune roll, the curse, The Received Years.",
+   "second_home": "The Lucky Fool, The Stand-In, Way of Chance"
+  },
+  {
+   "type": "artifact",
+   "name": "Stamped Jack",
+   "han_viet": "Ấn Giáp",
+   "fit": "Needs key",
+   "effect": "A mass-made coat that costs no thần thức, by Stamped Iron's rule. Carries the Maximum health and Body guard notables.",
+   "second_home": "any levy"
+  }
+ ],
+ "questions": [
+  "Is 25 % the right clip for the merged self-hit? Slip's 30 % falls to it.",
+  "Should a mortal be a side at all? Realms says mortals are not simulated. This asks only for one the caller creates.",
+  "A stalemate here ends a beating by the clock. Why the hunter leaves is left to the caller. Is that acceptable?"
+ ]
+}

@@ -1,0 +1,171 @@
+{
+  "slug": "understudy",
+  "name": "The Understudy",
+  "han_viet": "Thế Thân Hí",
+  "pitch": "Forty per cent of what they throw lands on a double, you buy the rest one mask a second, and every blow that hits nothing comes back as a slap: a top-end spends seven seconds killing silk and never touches you.",
+  "channel": "basic, and cued arts, from misses",
+  "enabler": "The Understudy",
+  "enabler_kind": "Rule removal",
+  "identity_piece": "The Understudy",
+  "identity_id": "understudy",
+  "power": "top-end",
+  "defining_realm": "ket_dan",
+  "fit": {
+    "fits_today": 4,
+    "needs_key": 8,
+    "needs_rule": 5
+  },
+  "reused": [
+    "Returned Force",
+    "Longer Breath"
+  ],
+  "new": [
+    {
+      "type": "enabler",
+      "name": "The Understudy",
+      "han_viet": "Thế Thân",
+      "form": "Rule swap",
+      "channel": "incoming",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Evade is never rolled. Each body or qi hit fills the Curtain by p_evade times min(1, your thần thức / theirs); at 1 or more it pays 1 and the hit lands on the double: nothing dealt, nothing drained, no on-hit trigger, their cost stays paid. Holds 2. Closes all but one light artifact and any ward gear.",
+      "second_home": "any evade build"
+    },
+    {
+      "type": "modifier",
+      "name": "Cue",
+      "han_viet": "Nhập Tràng",
+      "form": "Timing",
+      "channel": "art",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A guard: true in an instant when a hit landed on the double. The art fires in the follow-up instant.",
+      "second_home": "any riposte build"
+    },
+    {
+      "type": "modifier",
+      "name": "Encore",
+      "han_viet": "Tái Diễn",
+      "form": "Per",
+      "channel": "art, basic",
+      "layer": "L2",
+      "fit": "Needs key",
+      "effect": "+10 points per hit evaded this fight, to +100.",
+      "second_home": "any evade build, rolled or not"
+    },
+    {
+      "type": "modifier",
+      "name": "Full House",
+      "han_viet": "Mãn Tọa",
+      "form": "More",
+      "channel": "any",
+      "layer": "L4",
+      "fit": "Needs key",
+      "effect": "On ground with the stage tag: +30 points, and the Curtain holds 4.",
+      "second_home": "any arena or court build"
+    },
+    {
+      "type": "modifier",
+      "name": "Dress Rehearsal",
+      "han_viet": "Diễn Tập",
+      "form": "Timing",
+      "channel": "incoming",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "In a foreseen fight the Curtain starts at 2.",
+      "second_home": "any charge or stock build"
+    },
+    {
+      "type": "modifier",
+      "name": "Seen Through",
+      "han_viet": "Thức Phá",
+      "form": "Trade",
+      "channel": "incoming",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "An attacker whose accuracy reaches your evade sees through the double: the Curtain neither fills nor pays for them.",
+      "second_home": "any evade build"
+    },
+    {
+      "type": "modifier",
+      "name": "The Credit",
+      "han_viet": "Đầu Bài",
+      "form": "Trade",
+      "channel": "none",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A knockout won with the Curtain up is credited to the role: it feeds no tally of cultivators defeated, and the world records the double.",
+      "second_home": "any disguise build"
+    },
+    {
+      "type": "art",
+      "name": "Costume Change",
+      "han_viet": "Cải Trang",
+      "fit": "Needs rule",
+      "effect": "No hit. Adds 1 to the Curtain, times the thần thức ratio. Cost 0.06, cooldown 1 s."
+    },
+    {
+      "type": "art",
+      "name": "Painted Screen",
+      "han_viet": "Họa Bình",
+      "fit": "Needs rule",
+      "effect": "No hit. Adds 1 to the Curtain, times the thần thức ratio. Cost 0.08, cooldown 2 s."
+    },
+    {
+      "type": "art",
+      "name": "Curtain Call",
+      "han_viet": "Tạ Mạc",
+      "fit": "Needs rule",
+      "effect": "Qi hit, c_art 1.6, cost 0.05, 1 s, guard Cue."
+    },
+    {
+      "type": "art",
+      "name": "Aside",
+      "han_viet": "Bàng Bạch",
+      "fit": "Needs rule",
+      "effect": "Qi hit, c_art 2.4, cost 0.08, 3 s, guard Cue."
+    },
+    {
+      "type": "art",
+      "name": "Last Act",
+      "han_viet": "Chung Mạc",
+      "fit": "Needs key",
+      "effect": "Qi hit, c_art 5.15, cost 0.12, 12 s."
+    },
+    {
+      "type": "technique",
+      "name": "Hundred-Mask Libretto",
+      "han_viet": "Bách Diện Hí Bản",
+      "fit": "Needs key",
+      "effect": "Main, Địa giai, Water. linh_luc_pct 20, than_thuc_pct 15. Unlocks the five arts."
+    },
+    {
+      "type": "cluster",
+      "name": "Green Room",
+      "han_viet": "Hậu Đài",
+      "fit": "Needs key",
+      "effect": "Water, outer, sealed by a technique, size 10. Notables Returned Force and a second for Longer Breath's condition. Capability: a Cue guard on any art."
+    },
+    {
+      "type": "dao",
+      "name": "Illusion",
+      "han_viet": "Huyễn Đạo",
+      "fit": "Needs key",
+      "effect": "Water at purity 30. theme_stats evade_pct, than_thuc_pct, linh_luc_regen_pct, mi_luc. Branches The Mask, The Script, The House. Keystone The Understudy. 20 nodes. A tree for the catalogue entry that has none."
+    },
+    {
+      "type": "concept",
+      "name": "The Curtain",
+      "han_viet": "Mạc",
+      "fit": "Needs rule",
+      "effect": "A keystone may replace one chance roll with a counter that fills at the roll's chance, so a build can rest on it without breaking rule 15."
+    }
+  ],
+  "questions": [
+    "A Core build beats its own top-end untouched, for its whole pool. Is that wanted, or should a mask cost more?",
+    "Is a miss that is bought rather than rolled still inside what evade_cap means?",
+    "Should Dao heart be the key that sees through illusions in a fight?",
+    "Rule 10 gives the opener first hit, and that alone decides the Understudy against the Forum Build. Should a side be able to choose to open?",
+    "Does Measured Stroke's 'cannot be evaded' beat the double? Its text and its file disagree."
+  ]
+}

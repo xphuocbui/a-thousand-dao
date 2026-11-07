@@ -1,0 +1,106 @@
+{
+ "name": "cut-line",
+ "realm": "nguyen_anh",
+ "stage": 1.45,
+ "n_body": 1.25,
+ "n_qi": 2.0,
+ "layers": [
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "regen_bonus_pct": 2,
+ "x_soul": 30,
+ "sense_sheet": {
+  "than_hon": 60,
+  "stage": 1.45,
+  "than_thuc_pct": 277
+ },
+ "light_hand": {
+  "heart_demon": 10,
+  "under": 30,
+  "points_per": 2
+ },
+ "realm_sense": {
+  "typical": 57,
+  "top_end": 85
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 70,
+  "we": 70
+ },
+ "open_sky": {
+  "ws_per_pct": 0.6,
+  "free_pct": 100
+ },
+ "along_the_thread": {
+  "bound_share": 0.5,
+  "assumed_used": 0.75
+ },
+ "running_line": {
+  "floor": 0.1
+ },
+ "unseen_hand": 60,
+ "sense_shred_max": 0.5,
+ "arts": [
+  {
+   "id": "test_tug",
+   "kind": "soul",
+   "soul_pct": 0.03,
+   "cost_share": 0.05,
+   "cooldown": 0.5,
+   "curse": {
+    "sense_shred": 0.25,
+    "duration": 2
+   }
+  },
+  {
+   "id": "paper_cut",
+   "kind": "soul",
+   "soul_pct": 0.03,
+   "cost_share": 0.05,
+   "cooldown": 0.5
+  },
+  {
+   "id": "glass_line",
+   "kind": "soul",
+   "soul_pct": 0.05,
+   "cost_share": 0.09,
+   "cooldown": 0.5
+  },
+  {
+   "id": "running_cut",
+   "kind": "soul",
+   "soul_pct": 0.05,
+   "cost_share": 0.09,
+   "cooldown": 0.5
+  }
+ ],
+ "rules": [
+  "realm_sense",
+  "soul_line"
+ ],
+ "unmodelled": [
+  "Heart demon +3 per cultivator killed along a line, and Light Hand's fall, are outside the fight. The file reads heart demon 10",
+  "The reference enemies state no artifacts: Along the Thread assumes 75 % of their thần thức is bound. A shaped enemy may state its own"
+ ],
+ "thought": {
+  "held": 100,
+  "used": 0
+ },
+ "enemy": "top_end",
+ "enemy_overrides": {
+  "sense_base": 128
+ }
+}

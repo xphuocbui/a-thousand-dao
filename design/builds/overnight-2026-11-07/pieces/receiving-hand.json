@@ -1,0 +1,119 @@
+{
+  "slug": "receiving-hand",
+  "name": "The Receiving Hand",
+  "han_viet": "Tiếp Sinh Đạo",
+  "pitch": "Keep every art slot empty: each one catches an enemy art whole, they still pay for it, and when your hands are full they have no ward and you have a fist.",
+  "channel": "basic",
+  "enabler": "Vow of the Open Hand",
+  "enabler_kind": "Slot bender",
+  "identity_piece": "Catching Hand",
+  "identity_id": "catching_hand",
+  "power": "strong",
+  "defining_realm": "ket_dan",
+  "fit": {
+    "fits_today": 6,
+    "needs_key": 12,
+    "needs_rule": 4
+  },
+  "reused": [
+    "On the Beat",
+    "Sustained Note",
+    "Bare Vessel"
+  ],
+  "new": [
+    {
+      "type": "modifier",
+      "name": "Catching Hand",
+      "han_viet": "Tiếp Thủ",
+      "form": "Trigger",
+      "channel": "any",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "Each empty art slot catches one enemy art hit per fight: the art fires and pays, and its hit deals nothing and drains nothing.",
+      "second_home": "any art build that leaves one slot open against an opening strike"
+    },
+    {
+      "type": "modifier",
+      "name": "Returned Force",
+      "han_viet": "Hoàn Lực",
+      "form": "Borrow",
+      "channel": "basic",
+      "layer": "none",
+      "fit": "Needs rule",
+      "effect": "A caught art adds half its c_art to your next basic attack's coefficient.",
+      "second_home": "any build holding one catch"
+    },
+    {
+      "type": "modifier",
+      "name": "Ten Thousand Strikes",
+      "han_viet": "Vạn Kích",
+      "form": "Flat base",
+      "channel": "basic",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "+0.1 to the basic attack's coefficient per power of ten of basic attacks landed this life, up to +0.7.",
+      "second_home": "any Elemental Fist build"
+    },
+    {
+      "type": "modifier",
+      "name": "Hollow Palm",
+      "han_viet": "Không Chưởng",
+      "form": "Conversion",
+      "channel": "basic",
+      "layer": "none",
+      "fit": "Needs key",
+      "effect": "50 % of a basic attack becomes qi, keeping its body tags.",
+      "second_home": "any body build short of ward-breaking"
+    },
+    {
+      "type": "modifier",
+      "name": "Iron-Sand Hand Bath",
+      "han_viet": "Thiết Sa Dục Thủ",
+      "form": "More",
+      "channel": "basic, art",
+      "layer": "L4",
+      "fit": "Needs key",
+      "effect": "+25 points to body hits, prepared before the fight.",
+      "second_home": "any thể tu"
+    },
+    {
+      "type": "enabler",
+      "name": "Vow of the Open Hand",
+      "han_viet": "Khai Thủ Thệ",
+      "fit": "Needs rule",
+      "effect": "Catching Hand holds one catch per empty slot and Empty Hand counts every empty slot; any slot that holds an art after the Vow is stained for life and never counts as empty again."
+    },
+    {
+      "type": "technique",
+      "name": "Waiting Hands Method",
+      "han_viet": "Đãi Thủ Pháp",
+      "fit": "Needs key",
+      "effect": "Body technique, Thiên giai, with no arts in it by design; lists Callus Road."
+    },
+    {
+      "type": "artifact",
+      "name": "Knuckle Wraps",
+      "han_viet": "Triền Thủ",
+      "fit": "Needs key",
+      "effect": "New weapon base: attack 20, defence 10, thần thức 10."
+    },
+    {
+      "type": "cluster",
+      "name": "Callus Road",
+      "han_viet": "Kiển Lộ",
+      "fit": "Needs key",
+      "effect": "Sealed, theme body cultivation, Earth, size 7: Basic attack damage, body guard, Ten Thousand Strikes."
+    },
+    {
+      "type": "dao",
+      "name": "Way of the Bare Hand",
+      "han_viet": "Xích Thủ Đạo",
+      "fit": "Needs key",
+      "effect": "Requires a body technique, no element. Branches Receiving, Striking, Waiting; keystone Vow of the Open Hand. Holds no art nodes."
+    }
+  ],
+  "questions": [
+    "Rule 13 tags the basic attack art. Should art modifiers reach it? If yes, On the Beat is always true for every basic attack in the game. If no, this build still wins one realm up, at 6 s on 24 %.",
+    "Is a stained slot too cold, or the right kind of cold?"
+  ]
+}

@@ -1,0 +1,148 @@
+{
+ "name": "stand-in",
+ "realm": "ket_dan",
+ "stage": 1.0,
+ "n_body": 2.2,
+ "n_qi": 2.2,
+ "layers": [
+  120,
+  0,
+  60,
+  0,
+  0
+ ],
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 60,
+  "we": 240
+ },
+ "guard": {
+  "t_b": 1.0,
+  "body_guard_pct": 30
+ },
+ "rules": [
+  "contagion",
+  "well_rules",
+  "layer_lock"
+ ],
+ "moved_sickness": true,
+ "fever": 90,
+ "afflictions": [
+  {
+   "id": "old_shame",
+   "duration": 3,
+   "turned": {
+    "kinds": [
+     "body",
+     "qi"
+    ],
+    "share": 0.5,
+    "cap": 0.25
+   }
+  },
+  {
+   "id": "stilled_hand",
+   "duration": 2,
+   "layer_lock": true
+  }
+ ],
+ "relapse_refund": 0.02,
+ "conditional_mods": [
+  {
+   "id": "Virulence",
+   "layer": 2,
+   "per": "own_curses",
+   "points_per": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Forgotten Face",
+   "layer": 2,
+   "points": 60,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "purge",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.12,
+   "cooldown": 2,
+   "rush": true,
+   "moves_afflictions": 3
+  },
+  {
+   "id": "bile",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 3,
+   "guard": {
+    "clean": true
+   }
+  },
+  {
+   "id": "phlegm",
+   "kind": "body",
+   "c_art": 1.85,
+   "cost_share": 0.05,
+   "cooldown": 2,
+   "guard": {
+    "clean": true
+   }
+  }
+ ],
+ "enemy": "typical",
+ "unmodelled": [
+  "Fever at home is +90 art speed from đan độc 60. Presence 15 gives Forgotten Face its +60. Old Shame needs presence at 30 or less, Stilled Hand a Gate Scar: these are compile reads, shown as fixed values",
+  "Rush Order's +50 % price is written into Purge's cost_share 0.12, on an authored 0.08 that sets its lint",
+  "well_rules is loaded only for Rush Order",
+  "Enemy element and sense: the reference enemies have none and sense 1.0. No art here reads element. Only the soul variant sets sense",
+  "Slots 4 and 5 stay open at Core Formation: a talisman or an escape art goes there, and neither is run",
+  "Status chance is 100 %, and a move ignores status_resist_pct: the move is first a cleanse of the mover. That is a first guess",
+  "The cost of đan độc, presence and a failed breakthrough act outside the fight"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

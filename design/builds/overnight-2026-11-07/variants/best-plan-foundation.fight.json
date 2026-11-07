@@ -1,0 +1,82 @@
+{
+ "name": "best-plan",
+ "realm": "truc_co",
+ "stage": 1.0,
+ "enemy": "top_end",
+ "rules": [
+  "slow_wound",
+  "escape",
+  "best_plan"
+ ],
+ "lifespan_base": 200,
+ "years_left": 120,
+ "skipped_bill": true,
+ "cold_feet": true,
+ "beneath_notice": 0.05,
+ "terror": 0.15,
+ "folded_corner": true,
+ "full_sleeve": {
+  "per_doubling": 0.02,
+  "base": 4,
+  "carried": 64
+ },
+ "escape_bonus": 0.13,
+ "n_body": 1.1,
+ "n_qi": 1.2,
+ "ward": {
+  "model": "default"
+ },
+ "basic": {
+  "c": 1.0,
+  "kind": "body"
+ },
+ "arts": [
+  {
+   "id": "promissory_paper",
+   "cost_share": 0,
+   "cooldown": 0.5,
+   "stock": 1,
+   "sets_slow_wound": 1.0,
+   "guard": {
+    "time_above": 0
+   }
+  },
+  {
+   "id": "than_hanh_phu",
+   "cost_share": 0,
+   "cooldown": 1,
+   "stock": 6,
+   "escape": {
+    "e_art": 0.5
+   },
+   "guard": {
+    "time_above": 0
+   }
+  },
+  {
+   "id": "goat_in_passing",
+   "cost_share": 0.02,
+   "cooldown": 0.5,
+   "lift": true
+  },
+  {
+   "id": "not_yet_used",
+   "cost_share": 0,
+   "cooldown": 1,
+   "stock": 1,
+   "escape": {
+    "e_art": 0.7
+   },
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "below": 0.3
+   }
+  }
+ ],
+ "unmodelled": [
+  "what a lift takes: the fight counts lifts, the caller moves the goods",
+  "the Creditors' Book after the fight: Dies Later, the estate share and the heart demon",
+  "which side opens the fight: an ambusher's hit at 0.5 s would land before Promissory Paper"
+ ]
+}

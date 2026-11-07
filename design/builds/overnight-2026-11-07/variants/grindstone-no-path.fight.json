@@ -1,0 +1,121 @@
+{
+ "name": "grindstone-no-path",
+ "realm": "luyen_khi",
+ "stage": 1.0,
+ "n_body": 1.0846,
+ "n_qi": 1.0494,
+ "layers": [
+  26.5,
+  0,
+  114.4,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "basic": {
+  "c": 1.0,
+  "kind": "body"
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 17.0,
+  "we": 17.0
+ },
+ "triggers": [],
+ "conditional_mods": [],
+ "arts": [
+  {
+   "id": "plain_cut",
+   "kind": "body",
+   "c_art": 1.4,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "long_draw",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 3,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "full_cleave",
+   "kind": "body",
+   "c_art": 3.6,
+   "cost_share": 0.12,
+   "cooldown": 6,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.3
+   }
+  }
+ ],
+ "enemy": "typical",
+ "unmodelled": [
+  "Crit rows on the Metal tag do not reach the basic attack, so basic.c is lowered to take out what the calculator's one crit would give it.",
+  "Thần thức is costed on the sheet: 4 needles and 1 mail shirt, 45 of 45. Fortune and heart demon are not read. Divine sense stays at 1.0 on both sides."
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,298 @@
+{
+ "name": "fierce-fire-second-way-cloth",
+ "realm": "nguyen_anh",
+ "stage": 1.0,
+ "n_body": 2.3868,
+ "n_qi": 1.73,
+ "layers": [
+  185,
+  0,
+  0,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.3193,
+   "qi": 0.24
+  },
+  "ws": 62,
+  "we": 62,
+  "hit_cost_share": 0.04
+ },
+ "conditional_mods": [
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Element damage",
+   "layer": 1,
+   "points": 2,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Wasting",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.32
+  },
+  {
+   "id": "Steady Breath",
+   "layer": 5,
+   "points": 4.5,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Damage to an enemy with no linh luc",
+   "layer": 1,
+   "points": 2.5,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Damage while above 50 % health",
+   "layer": 1,
+   "points": 2,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "health",
+    "above": 0.5
+   }
+  }
+ ],
+ "art_speed_pct": 0.5,
+ "art_cost_pct": 0,
+ "regen_bonus_pct": 3.15,
+ "accuracy_pct": 0,
+ "arts": [
+  {
+   "id": "a0",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1.5,
+   "x": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 0.355,
+   "applies": [
+    {
+     "id": "st0",
+     "kind": "body",
+     "c_tick": 0.5,
+     "duration": 3,
+     "stacks": 1,
+     "chance": 0.6,
+     "x": [
+      2,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "a1",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 3,
+   "x": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.98,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.3
+   }
+  },
+  {
+   "id": "a2",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 0.229,
+   "applies": [
+    {
+     "id": "st2",
+     "kind": "body",
+     "c_tick": 0.5,
+     "duration": 3,
+     "stacks": 1,
+     "chance": 0.6,
+     "x": [
+      2,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.2
+   }
+  },
+  {
+   "id": "a3",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "a4",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 2,
+   "x": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.73,
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.4
+   }
+  }
+ ],
+ "walk": {
+  "Fire damage, Red Heart": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Art speed": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Linh luc regeneration": {
+   "acupoints": 1,
+   "notables": 3
+  },
+  "Maximum health": {
+   "acupoints": 4,
+   "notables": 2
+  },
+  "Ward strength against body hits": {
+   "acupoints": 7,
+   "notables": 0
+  },
+  "Wasting": {
+   "acupoints": 4,
+   "notables": 1
+  },
+  "Steady Breath": {
+   "acupoints": 3,
+   "notables": 0
+  },
+  "Damage to an enemy with no linh luc": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Damage while above 50 % health": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Damage over time": {
+   "acupoints": 1,
+   "notables": 0
+  }
+ },
+ "unmodelled": [
+  "Second-way control for plain-vs-exotic.md. W at the Map's prices: acupoint 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Meridian Map rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
+  "Not rows only: Vinegar Cloth from The Held Door replaces the common ward. Same 76.8 W."
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "flurry_a",
+    "kind": "body",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   },
+   {
+    "id": "flurry_b",
+    "kind": "qi",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   }
+  ]
+ }
+}

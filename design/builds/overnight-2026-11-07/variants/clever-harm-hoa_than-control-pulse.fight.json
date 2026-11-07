@@ -1,0 +1,141 @@
+{
+ "name": "clever-harm",
+ "realm": "hoa_than",
+ "ngo_tinh": 101.8,
+ "rules": [
+  "first_on_list",
+  "the_paper",
+  "fortune",
+  "per_cap"
+ ],
+ "fortune": true,
+ "khi_van": 10,
+ "n_body": 3.212,
+ "n_qi": 2.328,
+ "layers": [
+  293.0,
+  0,
+  40,
+  20,
+  0
+ ],
+ "regen_bonus_pct": 5.31,
+ "paper": {
+  "clear_reading": true,
+  "model_answer": true,
+  "commentary": true,
+  "already_read": true
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 184.3,
+  "we": 106.2
+ },
+ "guard": {
+  "a_b": 1,
+  "t_b": 1,
+  "body_guard_pct": 79.7
+ },
+ "conditional_mods": [
+  {
+   "id": "Single Grudge",
+   "layer": 2,
+   "per": "enemy_curses",
+   "points_per": 12,
+   "cap": 12,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "break_topic",
+   "kind": "qi",
+   "c_art": 1.45,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    18,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "set_question",
+   "kind": "qi",
+   "c_art": 0,
+   "cost_share": 0.04,
+   "cooldown": 2,
+   "curse": {
+    "question": true,
+    "duration": 3
+   }
+  },
+  {
+   "id": "receive_topic",
+   "kind": "qi",
+   "c_art": 1.95,
+   "cost_share": 0.05,
+   "cooldown": 2.5,
+   "x": [
+    0,
+    18,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "long_essay",
+   "kind": "qi",
+   "c_art": 2.7,
+   "cost_share": 0.1,
+   "cooldown": 3
+  }
+ ],
+ "enemy_overrides": {
+  "ward": {
+   "model": "per_pulse",
+   "upkeep_share": 0.1
+  },
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

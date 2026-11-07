@@ -1,0 +1,39 @@
+{
+  "slug": "thirteenth-summer",
+  "name": "The Thirteenth Summer",
+  "han_viet": "Thập Tam Hạ",
+  "pitch": "You are awake one year in thirteen, and the twelve you spend in the ground pay the cooldown on one art, so a Qi Refining child climbs out, kills a Core elder in half a second, and goes back down without finding out how it ended.",
+  "channel": "art",
+  "enabler": "Cicada Root",
+  "enabler_kind": "Rule removal",
+  "identity_piece": "Paid in the Ground",
+  "identity_id": "buried_years",
+  "power": "legend",
+  "defining_realm": "luyen_khi",
+  "fit": {"fits_today": 3, "needs_key": 8, "needs_rule": 3},
+  "reused": ["Measured Stroke"],
+  "new": [
+    {"type": "root", "name": "Cicada Root", "han_viet": "Thiền Căn", "fit": "Needs rule",
+     "effect": "Innate, no parents, innate_chance 0.001. Per purity point: one buried season pays 0.2 s of one art's authored cooldown. Buried 12 years in 13, ageing at a quarter speed, a sleeping body with no arts or ward. Own sector as rule 12. Counts toward n_eff. Cost: nearly a whole life."},
+    {"type": "modifier", "name": "Paid in the Ground", "han_viet": "Địa Thường", "form": "Timing", "channel": "art", "layer": "none", "fit": "Needs rule",
+     "effect": "One art's timer runs while you are buried, never below cooldown_min, and the seconds paid are reported.", "second_home": "any long seclusion rule, if the user wants one"},
+    {"type": "concept", "name": "Brood Year", "han_viet": "Thiền Niên", "fit": "Needs rule",
+     "effect": "One year in thirteen, world-wide, every holder wakes for four seasons. Sleeping through a waking keeps paying, up to 3 cycles."},
+    {"type": "art", "name": "The Long Note", "han_viet": "Trường Minh", "fit": "Needs rule",
+     "effect": "Qi, song. c_art 145.23, cost 0.04, authored cooldown 576 s at purity 60 and one waking."},
+    {"type": "art", "name": "Scrabble", "han_viet": "Bào Thổ", "fit": "Needs key", "effect": "Body. c_art 1.48, cost 0.04, 1 s."},
+    {"type": "art", "name": "Dry Click", "han_viet": "Khô Minh", "fit": "Needs key", "effect": "Qi. c_art 1.48, cost 0.04, 1 s."},
+    {"type": "acupoint", "name": "Slow Art Damage", "han_viet": "Hoãn Pháp Thương", "form": "Increased", "channel": "art", "layer": "L1", "fit": "Needs key",
+     "effect": "Small +3, notable +15, on arts with an authored cooldown of 10 s or more.", "second_home": "The Fortieth Breath, any long-cooldown art"},
+    {"type": "notable", "name": "Heavy Note", "han_viet": "Trọng Âm", "form": "More", "channel": "art", "layer": "L2", "fit": "Needs key",
+     "effect": "+20 to arts with an authored cooldown of 20 s or more.", "second_home": "The Fortieth Breath, Forum Build"},
+    {"type": "pill", "name": "Slough Powder", "han_viet": "Thiền Thoái Tán", "fit": "Needs key", "effect": "L4 +40 to your next art, ground from your own last husk. One a waking."},
+    {"type": "formation", "name": "Hidden Pit", "han_viet": "Ẩn Huyệt", "fit": "Needs key", "effect": "Hides a burial. Twelve years of upkeep, paid by someone awake."},
+    {"type": "technique", "name": "Under the Roots Method", "han_viet": "Căn Hạ Quyết", "fit": "Needs key", "effect": "Main, Hoàng giai, names only the Cicada Root. Holds the three arts."}
+  ],
+  "questions": [
+    "Forum Build's sentence was a wait is paid, never deleted. Is a wait paid in years of a life the price the user had in mind, and what should a season buy?",
+    "A forced twelve-year skip removes most of a life from play. Is that a fantasy or a chore, and does it need a choice at each burial?",
+    "About five holders wake together each Brood Year. Should NPC holders be allowed to spend a note, given a world of about 27 Nascent Souls?"
+  ]
+}

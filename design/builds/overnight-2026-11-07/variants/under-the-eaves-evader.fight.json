@@ -1,0 +1,182 @@
+{
+ "name": "under-the-eaves",
+ "realm": "hoa_than",
+ "stage": 1.0,
+ "n_body": 6.2922,
+ "n_qi": 2.0997,
+ "layers": [
+  122,
+  0,
+  40,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.3,
+   "qi": 0.2
+  },
+  "hit_cost_share": 0.05,
+  "ws": 108.1,
+  "we": 92.1
+ },
+ "guard": {
+  "body_guard_pct": 0
+ },
+ "enemy": "typical",
+ "art_speed_pct": 0,
+ "art_cost_pct": 0,
+ "regen_bonus_pct": 4.6,
+ "evade_pct": 0,
+ "accuracy_pct": 0,
+ "conditional_mods": [],
+ "arts": [
+  {
+   "id": "lamp_1",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "lamp_2",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "lamp_3",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "lamp_4",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "lamp_5",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "lamp_6",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "lamp_7",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "walk": {
+  "Ward strength": {
+   "acupoints": 20,
+   "notables": 0
+  },
+  "Maximum health": {
+   "acupoints": 37,
+   "notables": 9
+  },
+  "Linh luc regeneration": {
+   "acupoints": 4,
+   "notables": 4
+  },
+  "Ward efficiency": {
+   "acupoints": 0,
+   "notables": 1
+  }
+ },
+ "outside_walk": {
+  "atk": 122,
+  "hp": 54
+ },
+ "unmodelled": [
+  "W: 61 acupoints, 14 notables, 185.2 W, plus 176 W of attack and health outside the walk (attack 122, health +45 % at 1.2 W a point): Pine Rain's 361.2 W. Method bonus read as Evergreen's L2 20, not the +40 Low Flame gives Fire arts, so nothing outside W changes and the result understates the lamps. Gear as Evergreen (L3 40, ws and we 84.1). Thần thức, fortune and heart demon are not read."
+ ],
+ "enemy_overrides": {
+  "evade_pct": 35,
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   }
+  ]
+ }
+}

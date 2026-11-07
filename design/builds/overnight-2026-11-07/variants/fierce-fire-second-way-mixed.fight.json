@@ -1,0 +1,235 @@
+{
+ "name": "fierce-fire-second-way",
+ "realm": "nguyen_anh",
+ "stage": 1.0,
+ "n_body": 2.1726,
+ "n_qi": 1.73,
+ "layers": [
+  185,
+  0,
+  0,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 62,
+  "we": 62
+ },
+ "conditional_mods": [
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Element damage",
+   "layer": 1,
+   "points": 24,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Steady Breath",
+   "layer": 5,
+   "points": 19.0,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Running Low",
+   "layer": 5,
+   "points": 13.0,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "below": 0.5
+   }
+  }
+ ],
+ "art_speed_pct": 1,
+ "art_cost_pct": 9,
+ "regen_bonus_pct": 0,
+ "accuracy_pct": 0,
+ "arts": [
+  {
+   "id": "a0",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    19.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  },
+  {
+   "id": "a1",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    19.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  },
+  {
+   "id": "a2",
+   "kind": "qi",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    19.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  },
+  {
+   "id": "a3",
+   "kind": "body",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    19.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  },
+  {
+   "id": "a4",
+   "kind": "body",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    19.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  },
+  {
+   "id": "a5",
+   "kind": "body",
+   "cost_share": 0.04,
+   "cooldown": 0.5,
+   "x": [
+    0,
+    19.0,
+    0,
+    0,
+    0
+   ],
+   "c_art": 1.355
+  }
+ ],
+ "walk": {
+  "Fire damage, Red Heart": {
+   "acupoints": 6,
+   "notables": 1
+  },
+  "Fire art cost, Dry Wood": {
+   "acupoints": 3,
+   "notables": 1
+  },
+  "Fire art speed": {
+   "acupoints": 1,
+   "notables": 0
+  },
+  "Short Art": {
+   "acupoints": 6,
+   "notables": 1
+  },
+  "Steady Breath": {
+   "acupoints": 6,
+   "notables": 1
+  },
+  "Running Low": {
+   "acupoints": 2,
+   "notables": 1
+  },
+  "Maximum health": {
+   "acupoints": 0,
+   "notables": 1
+  }
+ },
+ "unmodelled": [
+  "Second-way control for plain-vs-exotic.md. W at the Map's prices: acupoint 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Meridian Map rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
+  "Trunk nodes 1 to 12 kept, Bare Vessel technique kept, common ward kept. Six cheap arts replace the volley."
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

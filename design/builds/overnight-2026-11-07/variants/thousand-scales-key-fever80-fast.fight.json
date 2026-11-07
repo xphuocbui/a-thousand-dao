@@ -1,0 +1,232 @@
+{
+ "name": "thousand-scales",
+ "realm": "truc_co",
+ "stage": 1.0,
+ "n_body": 2.2,
+ "n_qi": 2.0,
+ "layers": [
+  100.0,
+  0,
+  40,
+  0,
+  0
+ ],
+ "pierce_pct": 15,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.42,
+   "qi": 0.28
+  },
+  "drain": {
+   "body": 0.72,
+   "qi": 1.08
+  },
+  "ws": 147,
+  "we": 141
+ },
+ "guard": {
+  "a_b": 2.0,
+  "t_b": 1.0,
+  "body_guard_pct": 30
+ },
+ "rules": [
+  "widening_wound",
+  "parting_cut",
+  "cleanse_art"
+ ],
+ "tick_overflow_qi": 1.0,
+ "widening_wound": {
+  "share": 0.5,
+  "max": 0.27
+ },
+ "parting_cut": true,
+ "conditional_mods": [
+  {
+   "id": "Kept Grudge",
+   "layer": 2,
+   "points": 80,
+   "channels": [
+    "tick"
+   ]
+  }
+ ],
+ "triggers": [
+  {
+   "id": "Thin Bleed (Bleed)",
+   "source": "any",
+   "status": {
+    "id": "bleed",
+    "kind": "body",
+    "c_tick": 0.2,
+    "duration": 4,
+    "stacks": 1,
+    "x": [
+     61.5,
+     40,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "Thin Bleed (Brine)",
+   "source": "any",
+   "status": {
+    "id": "brine",
+    "kind": "body",
+    "c_tick": 0.2,
+    "duration": 4,
+    "stacks": 1,
+    "x": [
+     61.5,
+     40,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "Thin Bleed (Gall)",
+   "source": "any",
+   "status": {
+    "id": "gall",
+    "kind": "body",
+    "c_tick": 0.2,
+    "duration": 4,
+    "stacks": 1,
+    "x": [
+     61.5,
+     40,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "Thin Bleed (Sinew)",
+   "source": "any",
+   "status": {
+    "id": "sinew",
+    "kind": "body",
+    "c_tick": 0.2,
+    "duration": 4,
+    "stacks": 1,
+    "x": [
+     61.5,
+     40,
+     0,
+     0,
+     0
+    ]
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "scaling_stroke",
+   "kind": "body",
+   "c_art": 0.5,
+   "cost_share": 0.02,
+   "cooldown": 1,
+   "applies": [
+    {
+     "id": "scale",
+     "kind": "qi",
+     "c_tick": 0.15,
+     "duration": 4,
+     "stacks": 1,
+     "x": [
+      61.5,
+      40,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seam_stroke",
+   "kind": "qi",
+   "c_art": 0.5,
+   "cost_share": 0.02,
+   "cooldown": 1,
+   "applies": [
+    {
+     "id": "seam",
+     "kind": "qi",
+     "c_tick": 0.15,
+     "duration": 4,
+     "stacks": 1,
+     "x": [
+      61.5,
+      40,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gill_stroke",
+   "kind": "qi",
+   "c_art": 0.5,
+   "cost_share": 0.02,
+   "cooldown": 1,
+   "applies": [
+    {
+     "id": "gill",
+     "kind": "qi",
+     "c_tick": 0.15,
+     "duration": 4,
+     "stacks": 1,
+     "x": [
+      61.5,
+      40,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rub_salt",
+   "cost_share": 0.03,
+   "cooldown": 3,
+   "curse": {
+    "shred": 0.3,
+    "duration": 3
+   }
+  }
+ ],
+ "unmodelled": [
+  "Unspent Rage: the heart demon each fight adds is a caller effect after the fight",
+  "Heart demon is read at compile: tam ma 80 gives Kept Grudge +80 on over-time tags, and capability #25 adds tam ma / 2 to attack_pct above 50, already in layers L1",
+  "Status chance is 100 %, so enemy status_resist_pct is not tested here"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "flurry_a",
+    "kind": "body",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   },
+   {
+    "id": "flurry_b",
+    "kind": "qi",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   }
+  ]
+ },
+ "art_speed_pct": 123.0
+}

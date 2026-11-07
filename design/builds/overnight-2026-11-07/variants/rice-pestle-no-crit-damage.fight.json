@@ -1,0 +1,166 @@
+{
+ "name": "rice-pestle",
+ "realm": 4,
+ "layers": [
+  0,
+  0,
+  40,
+  20,
+  0
+ ],
+ "n_body": 3.1763,
+ "n_qi": 2.0997,
+ "crit": {
+  "chance": 0.248,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 84.1,
+  "we": 84.1
+ },
+ "guard": {
+  "a_b": 0,
+  "t_b": 2,
+  "body_guard_pct": 15.2
+ },
+ "arts": [
+  {
+   "id": "pounding_stroke",
+   "kind": "body",
+   "c_art": 1.6,
+   "cost_share": 0,
+   "body_cost_share": 0.025,
+   "cooldown": 1
+  },
+  {
+   "id": "lifted_pestle",
+   "kind": "body",
+   "c_art": 2.46,
+   "cost_share": 0,
+   "body_cost_share": 0.04,
+   "cooldown": 3
+  }
+ ],
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Body damage",
+   "layer": 1,
+   "points": 57.0,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Art damage",
+   "layer": 1,
+   "points": 45.0,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Basic attack damage",
+   "layer": 1,
+   "points": 68,
+   "channels": [
+    "basic"
+   ]
+  },
+  {
+   "id": "Blood Stroke",
+   "layer": 2,
+   "points": 22,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Thinning Ward",
+   "layer": 1,
+   "points": 6,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.5
+   }
+  },
+  {
+   "id": "Mass Behind the Blow",
+   "layer": 2,
+   "points": 61.44,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Reopened",
+   "layer": 5,
+   "points": 0,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "per": "own_health_missing_pct",
+   "points_per": 1.0
+  }
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ },
+ "unmodelled": [
+  "Crit rows also lift the basic attack, because the calculator holds one crit for a side",
+  "Basic attack speed, Body guard against qi hits, Evade and Curse duration on you sit beside the road and are not run",
+  "Blood Stroke and Art damage read the arts only, and Basic attack damage only the basic attack, through channels"
+ ]
+}

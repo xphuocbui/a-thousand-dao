@@ -1,0 +1,45 @@
+{
+ "slug": "dug-stone",
+ "name": "The Dug Stone",
+ "han_viet": "Quật Thạch Đạo",
+ "pitch": "Take the 45,000-stone stamp on a per-hit ward for one small fee, then spend 85 % of your pool on one swing before the second contract.",
+ "channel": "art",
+ "enabler": "none",
+ "enabler_kind": "none",
+ "identity_piece": "Whole Seam",
+ "identity_id": "whole_seam",
+ "power": "ordinary",
+ "defining_realm": "ket_dan",
+ "fit": {
+  "fits_today": 7,
+  "needs_key": 9,
+  "needs_rule": 0
+ },
+ "reused": [
+  "Standing Verdict",
+  "Earth damage",
+  "Body damage",
+  "Load-Bearing",
+  "Weapon attack",
+  "Armour defence",
+  "Long Firing Method",
+  "Packed Clay Method",
+  "Falling Lintel",
+  "Settling Wall",
+  "First firing comes sooner"
+ ],
+ "new": [
+  {
+   "type": "art",
+   "name": "Whole Seam",
+   "han_viet": "Toàn Mạch",
+   "fit": "Needs key",
+   "effect": "Body hit, Earth, c_art 11.2, cost 0.85, 1 s, on the lint's line. Fires once in any fight, because it waits for the pool.",
+   "second_home": "any per-hit ward build, any one-blow finisher"
+  }
+ ],
+ "questions": [
+  "First firing comes sooner states no floor. Does it stop at cooldown_min?",
+  "Any art at cost 0.85 is legal, and a per-hit ward takes away the reason not to buy one. Intended?"
+ ]
+}

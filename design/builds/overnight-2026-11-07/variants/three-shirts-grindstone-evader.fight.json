@@ -1,0 +1,208 @@
+{
+ "name": "grindstone",
+ "realm": "truc_co",
+ "stage": 1.0,
+ "n_body": 1.38,
+ "n_qi": 1.2328,
+ "layers": [
+  0,
+  0,
+  114.4,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.212,
+  "mult": 1.83
+ },
+ "basic": {
+  "c": 0.9647,
+  "kind": "body"
+ },
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 24.1,
+  "we": 24.1
+ },
+ "triggers": [],
+ "conditional_mods": [
+  {
+   "id": "Metal damage",
+   "layer": 1,
+   "points": 6,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Bright Steel",
+   "layer": 1,
+   "points": 12,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Ore Vein",
+   "layer": 2,
+   "points": 5,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Weapon attack",
+   "layer": 3,
+   "points": 5.1,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Good Steel",
+   "layer": 3,
+   "points": 11.4,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Artifact power",
+   "layer": 3,
+   "points": 3.5,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Steady Thread",
+   "layer": 5,
+   "points": 4,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Steady Thread (notable)",
+   "layer": 5,
+   "points": 12,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  },
+  {
+   "id": "Honed Edge",
+   "layer": 2,
+   "points": 4,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Thinning Ward",
+   "layer": 1,
+   "points": 6,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.5
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "plain_cut",
+   "kind": "body",
+   "c_art": 1.4,
+   "cost_share": 0.05,
+   "cooldown": 1,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "long_draw",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 3,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "full_cleave",
+   "kind": "body",
+   "c_art": 3.6,
+   "cost_share": 0.12,
+   "cooldown": 6,
+   "x": [
+    0,
+    20,
+    0,
+    0,
+    0
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.3
+   }
+  }
+ ],
+ "unmodelled": [
+  "Crit rows on the Metal tag do not reach the basic attack, so basic.c is lowered to take out what the calculator's one crit would give it.",
+  "Thần thức is costed on the sheet: 4 needles and 1 mail shirt, 45 of 45. Fortune and heart demon are not read. Divine sense stays at 1.0 on both sides."
+ ],
+ "enemy_overrides": {
+  "evade_pct": 35,
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   }
+  ]
+ }
+}

@@ -1,0 +1,196 @@
+{
+ "name": "herd-child",
+ "realm": "truc_co",
+ "n_body": 1.2,
+ "n_qi": 1.2,
+ "layers": [
+  70,
+  0,
+  50,
+  0,
+  0
+ ],
+ "art_speed_pct": 25,
+ "regen_bonus_pct": 1,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 40,
+  "we": 40
+ },
+ "guard": {
+  "body_guard_pct": 20
+ },
+ "basic": {
+  "c": 1.0,
+  "kind": "body"
+ },
+ "companion": {
+  "c_comp": 1.0,
+  "kind": "body",
+  "realm": "ket_dan",
+  "x": [
+   20,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "bonded_spirit": true,
+ "carried_note": true,
+ "broad_back": {
+  "c_raw": 5.0,
+  "share_per": 0.1,
+  "cap": 0.4
+ },
+ "stand": {
+  "n_body": 2.0,
+  "guard": {
+   "t_b": 2.0,
+   "body_guard_pct": 60
+  }
+ },
+ "conditional_mods": [
+  {
+   "id": "In Step",
+   "layer": 5,
+   "points": 50,
+   "channels": [
+    "companion"
+   ],
+   "guard": {
+    "in_step": true
+   }
+  },
+  {
+   "id": "Cornered",
+   "layer": 5,
+   "points": 50,
+   "channels": [
+    "companion"
+   ],
+   "guard": {
+    "cornered": true
+   }
+  },
+  {
+   "id": "Given Years",
+   "layer": 2,
+   "points": 30,
+   "channels": [
+    "companion"
+   ]
+  },
+  {
+   "id": "Full Trough",
+   "layer": 4,
+   "points": 20,
+   "channels": [
+    "companion"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "calling_note",
+   "kind": "qi",
+   "c_art": 1.2,
+   "cost_share": 0.03,
+   "cooldown": 1,
+   "x": [
+    0,
+    60,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "rain_song",
+   "kind": "qi",
+   "c_art": 0,
+   "cost_share": 0.05,
+   "cooldown": 3,
+   "curse": {
+    "drain_raise": 0.5,
+    "duration": 3
+   }
+  },
+  {
+   "id": "low_song",
+   "kind": "qi",
+   "c_art": 0,
+   "cost_share": 0.05,
+   "cooldown": 3,
+   "curse": {
+    "shred": 0.3,
+    "duration": 3
+   }
+  },
+  {
+   "id": "furrow_song",
+   "kind": "qi",
+   "c_art": 0,
+   "cost_share": 0.05,
+   "cooldown": 3,
+   "curse": {
+    "pass_raise": 0.5,
+    "duration": 3
+   }
+  }
+ ],
+ "unmodelled": [
+  "Shared Years, feed, loyalty and the wounds' cost in years are outside the fight",
+  "Given Years and Full Trough are flat points here, read at compile from a 20 % gift and a doubled feed",
+  "Stands Over You needs loyalty at 60 or more; the file assumes it",
+  "Carried Note reads the art's x; only Calling Note carries one",
+  "Home Call, the fourth slot, is an escape art. The calculator has no escape, so the slot is left out of this file"
+ ],
+ "rules": [
+  "fights_as_itself",
+  "bonded_spirit",
+  "in_step",
+  "carried_note",
+  "cornered",
+  "broad_back",
+  "stands_over"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

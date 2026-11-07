@@ -1,0 +1,34 @@
+{
+ "slug": "good-year",
+ "name": "The Good Year",
+ "han_viet": "Phong Niên Đạo",
+ "pitch": "Sow twelve two-stone weeds in your guest and sit down: the live herb curve makes a 256-year weed stronger than any fruit in the game, and everyone from the Evader to the Wall is dead on the tenth second, unless they brought a cleanse.",
+ "channel": "tick",
+ "enabler": "Sown Field",
+ "enabler_kind": "New channel",
+ "identity_piece": "Sown Field",
+ "identity_id": "sown_field",
+ "power": "strong",
+ "defining_realm": "hoa_than",
+ "fit": {"fits_today": 7, "needs_key": 10, "needs_rule": 3},
+ "reused": ["Held Acres", "Stone Ward", "New Rice Wine", "Longer Breath", "Damage over time"],
+ "new": [
+  {"type": "enabler", "name": "Sown Field", "han_viet": "Hoạt Lũng", "form": "Rule swap", "channel": "tick", "layer": "none", "fit": "Needs rule",
+   "effect": "At t = 0 each plot you sow is a permanent tick on the enemy, c_tick 0.04 x the herb's potency. Closes: your basic attack, 1 % of linh lực per plot for the fight, and the plot, whose herb dies."},
+  {"type": "modifier", "name": "Surplus", "han_viet": "Dư Thu", "form": "Overflow", "channel": "tick", "layer": "none", "fit": "Needs rule",
+   "effect": "Tick damage the caps clip comes home as linh lực at half its amount, at most 5 % of maximum a pulse.", "second_home": "any tick build past the cap, such as The Second Sickness"},
+  {"type": "modifier", "name": "Rich Soil", "han_viet": "Phì Thổ", "form": "Cap shift", "channel": "tick", "layer": "none", "fit": "Needs rule",
+   "effect": "+2 points to both tick caps while the target's linh lực is 50 % or more.", "second_home": "any tick build, against wards and deep pools"},
+  {"type": "modifier", "name": "What They Had Left", "han_viet": "Dư Niên", "form": "Trigger", "channel": "none", "layer": "none", "fit": "Needs key",
+   "effect": "A cultivator you kill and plough in adds the years they had left to one plot.", "second_home": "any build that eats people, such as The Not-Yet-Full"},
+  {"type": "acupoint", "name": "Field plots", "han_viet": "Điền Số", "form": "Increased", "channel": "none", "layer": "none", "fit": "Fits today",
+   "effect": "+1 field_plots. The key exists, and the tree gives none today.", "second_home": "any farmer"},
+  {"type": "art", "name": "Scythe Day", "han_viet": "Khai Liêm", "fit": "Needs key", "effect": "Qi hit, Wood, c_art 2.9, cost 0.12, 3 s, guarded on enemy health below 50 %."},
+  {"type": "technique", "name": "Furrow Scripture", "han_viet": "Lũng Điền Kinh", "fit": "Needs key", "effect": "Main, Thiên giai, Wood and Earth. herb_growth_pct 10, khi_huyet_pct 15, linh_luc_pct 20. Unlocks Sown Field and Scythe Day."},
+  {"type": "cluster", "name": "Furrow Line", "han_viet": "Lũng Mạch", "fit": "Needs key", "effect": "Theme spirit fields, Earth, outer, sealed by the Furrow Scripture, size 10. Notables Held Acres, Surplus, Rich Soil. Capability #14."}
+ ],
+ "questions": [
+  "Is the potency curve meant to do this? A 2-stone seed reaches full strength in 256 years and a 1,200-stone fruit needs 25,600, and Alchemy reads the same curve.",
+  "Should a cleanse clear a field? Here it does, and it decides the build."
+ ]
+}

@@ -1,0 +1,164 @@
+{
+ "name": "loud-sword",
+ "realm": "ket_dan",
+ "n_body": 1.8,
+ "n_qi": 1.5,
+ "layers": [
+  150,
+  0,
+  100,
+  0,
+  0
+ ],
+ "crit": {
+  "chance": 0.1,
+  "mult": 2.0
+ },
+ "evade_pct": 5,
+ "regen_bonus_pct": 1,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 65,
+  "we": 65
+ },
+ "guard": {
+  "body_guard_pct": 20
+ },
+ "rules": [
+  "stage_face",
+  "per_cap",
+  "in_step"
+ ],
+ "presence": {
+  "start": 120,
+  "line": 45,
+  "crit_per": 0.4,
+  "evade_per": 0.5,
+  "mult_per": 1.0,
+  "lost_per_pct": 1.5
+ },
+ "called_blow": {
+  "crit_start": 0.15,
+  "evade_start": 0.85
+ },
+ "the_answer": 0.5,
+ "conditional_mods": [
+  {
+   "id": "Shown Face",
+   "layer": 2,
+   "per": "presence_above",
+   "points_per": 2,
+   "cap": 60,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Forgotten Face",
+   "layer": 2,
+   "per": "presence_under",
+   "points_per": 2,
+   "cap": 60,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "In Step",
+   "layer": 5,
+   "points": 50,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "in_step": true
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "ten_thousand_geese",
+   "kind": "qi",
+   "c_art": 1.48,
+   "cost_share": 0.04,
+   "cooldown": 1,
+   "x": [
+    0,
+    40,
+    0,
+    40,
+    0
+   ]
+  },
+  {
+   "id": "moon_envies_my_sleeve",
+   "kind": "qi",
+   "c_art": 2.2,
+   "cost_share": 0.08,
+   "cooldown": 2,
+   "x": [
+    0,
+    40,
+    0,
+    40,
+    0
+   ]
+  },
+  {
+   "id": "one_glance",
+   "kind": "body",
+   "c_art": 2.94,
+   "cost_share": 0.12,
+   "cooldown": 3,
+   "x": [
+    0,
+    40,
+    0,
+    40,
+    0
+   ]
+  }
+ ],
+ "unmodelled": [
+  "Crowd and arena effects outside the fight: prices, attitude, the purse, who comes looking for you"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ]
+ }
+}

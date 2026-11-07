@@ -1,0 +1,23 @@
+{
+ "slug": "hot-stones",
+ "name": "The Five Hot Stones",
+ "han_viet": "Ngũ Nhiệt Thạch",
+ "pitch": "Turn five cheap heavy Fire arts to Earth with one Ring Step, so each reads both roads, and drop them all in one instant.",
+ "channel": "art",
+ "enabler": "Ring Step",
+ "enabler_kind": "Conversion",
+ "identity_piece": "Ring Step",
+ "identity_id": "ring_step",
+ "power": "strong",
+ "defining_realm": "ket_dan",
+ "fit": {"fits_today": 2, "needs_key": 12, "needs_rule": 0},
+ "reused": ["Ring Step", "Low Flame Method", "First Lamp to Seventh Lamp", "Packed Clay Method", "Stone Ward", "Full Bellows", "Settled Weight", "Unbroken Glaze", "Fire damage", "Red Heart", "Earth damage", "First firing comes sooner", "Maximum health", "Regeneration"],
+ "new": [
+  {"type": "technique", "name": "Bath-Keeper's Note", "han_viet": "Dục Đường Ký", "fit": "Needs key",
+   "effect": "Secret, tier 1, Fire and Earth, no bonuses, no arts. Carries one Ring Step: all of a Fire hit to Earth."}
+ ],
+ "questions": [
+  "Ring Step at 100 % lets any art read two element roads. Should conversion be the Map's standard bridge, sold by bridge clusters?",
+  "Mixed, Evader and Fast die in one instant at Core. Is an all-slots volley meant to one-shot a peer at 3.4 s?"
+ ]
+}

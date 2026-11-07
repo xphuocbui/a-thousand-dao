@@ -1,0 +1,107 @@
+{
+ "name": "dug-stone",
+ "realm": "ket_dan",
+ "n_body": 2.0,
+ "n_qi": 1.2,
+ "layers": [
+  72,
+  0,
+  146,
+  20,
+  0
+ ],
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.3,
+   "qi": 0.2
+  },
+  "hit_cost_share": 0.05,
+  "ws": 150,
+  "we": 0
+ },
+ "guard": {
+  "a_b": 2.8,
+  "t_b": 2,
+  "body_guard_pct": 32
+ },
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Earth damage",
+   "layer": 1,
+   "points": 30,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Body damage",
+   "layer": 1,
+   "points": 17.5,
+   "channels": [
+    "art",
+    "basic"
+   ]
+  },
+  {
+   "id": "Load-Bearing",
+   "layer": 2,
+   "points": 36,
+   "channels": [
+    "art"
+   ]
+  }
+ ],
+ "arts": [
+  {
+   "id": "whole_seam",
+   "kind": "body",
+   "c_art": 11.2,
+   "cost_share": 0.85,
+   "cooldown": 1
+  },
+  {
+   "id": "falling_lintel",
+   "kind": "body",
+   "c_art": 2.71,
+   "cost_share": 0.08,
+   "cooldown": 4
+  },
+  {
+   "id": "settling_wall",
+   "kind": "body",
+   "c_art": 2.96,
+   "cost_share": 0.08,
+   "cooldown": 5
+  }
+ ],
+ "unmodelled": [
+  "a_b 2.8 is a Thượng phẩm giap and a Hạ phẩm thuan under Armour defence, scaled from Long Firing's Ore Line, a first guess"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "flurry_a",
+    "kind": "body",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   },
+   {
+    "id": "flurry_b",
+    "kind": "qi",
+    "c_art": 1.5,
+    "cost_share": 0.06,
+    "cooldown": 0.5
+   }
+  ]
+ }
+}

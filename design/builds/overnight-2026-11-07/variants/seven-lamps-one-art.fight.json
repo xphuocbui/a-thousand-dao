@@ -1,0 +1,186 @@
+{
+ "name": "seven-lamps-one-art",
+ "realm": 4,
+ "layers": [
+  0,
+  0,
+  40,
+  20,
+  0
+ ],
+ "n_body": 3.7544,
+ "n_qi": 2.0997,
+ "crit": {
+  "chance": 0.15,
+  "mult": 1.7
+ },
+ "ward": {
+  "model": "per_pulse",
+  "upkeep_share": 0.10,
+  "pass": {
+   "body": 0.3595,
+   "qi": 0.36
+  },
+  "ws": 168.9,
+  "we": 112.9
+ },
+ "divine_sense": 1.0,
+ "arts": [
+  {
+   "id": "lamp_1",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  },
+  {
+   "id": "lamp_2",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  },
+  {
+   "id": "lamp_3",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  },
+  {
+   "id": "lamp_4",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  },
+  {
+   "id": "lamp_5",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  },
+  {
+   "id": "lamp_6",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  },
+  {
+   "id": "lamp_7",
+   "kind": "qi",
+   "c_art": 2.23,
+   "cost_share": 0.04,
+   "cooldown": 4
+  }
+ ],
+ "regen_bonus_pct": 6,
+ "art_cost_pct": 6.0,
+ "conditional_mods": [
+  {
+   "id": "Method",
+   "layer": 2,
+   "points": 40,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Art damage",
+   "layer": 1,
+   "points": 36.0,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "No linh luc",
+   "layer": 1,
+   "points": 25.0,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Wasting",
+   "layer": 2,
+   "points": 0,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "per": "enemy_qi_missing_pct",
+   "points_per": 0.2
+  },
+  {
+   "id": "Deep Breath",
+   "layer": 2,
+   "points": 16.0,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Patient Art",
+   "layer": 2,
+   "points": 13.0,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Late Hour",
+   "layer": 5,
+   "points": 28,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "time_above": 10
+   }
+  },
+  {
+   "id": "Steady Breath",
+   "layer": 5,
+   "points": 14.5,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.5
+   }
+  }
+ ],
+ "guard": {
+  "body_guard_pct": 56.0
+ },
+ "unmodelled": [
+  "Fortune and thought are not read",
+  "Element on a hit is not run",
+  "Ward strength against body hits is written by lowering pass.body from 0.54, the same arithmetic as raising ws for body hits only",
+  "Spared Breath is written into regen_bonus_pct and Deep Breath into flat points, both read at compile"
+ ],
+ "enemy": "typical",
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   }
+  ],
+  "boss_pool_mult": 5
+ }
+}

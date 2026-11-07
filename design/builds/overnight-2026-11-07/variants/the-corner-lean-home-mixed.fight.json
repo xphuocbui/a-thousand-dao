@@ -1,0 +1,178 @@
+{
+ "name": "the-corner",
+ "realm": "truc_co",
+ "stage": 1.0,
+ "n_body": 1.8,
+ "n_qi": 1.8,
+ "layers": [
+  40,
+  0,
+  60,
+  0,
+  0
+ ],
+ "regen_bonus_pct": 1,
+ "ward": {
+  "model": "drain",
+  "pass": {
+   "body": 0.54,
+   "qi": 0.36
+  },
+  "drain": {
+   "body": 1.0,
+   "qi": 1.5
+  },
+  "ws": 60,
+  "we": 200
+ },
+ "guard": {
+  "a_b": 1.0,
+  "t_b": 1.0,
+  "body_guard_pct": 30
+ },
+ "rules": [
+  "well_rules",
+  "requisition",
+  "breath_lead",
+  "ward_thrift"
+ ],
+ "requisition": true,
+ "scrape_share": 1.0,
+ "tick_overflow_qi": 1.0,
+ "ward_thrift": 0.25,
+ "conditional_mods": [
+  {
+   "id": "Longer Breath",
+   "layer": 5,
+   "points": 50,
+   "channels": [
+    "art",
+    "basic"
+   ],
+   "guard": {
+    "breath_lead": true,
+    "by": 0.1
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "short_measure",
+   "c_art": 0,
+   "cost_share": 0.06,
+   "cooldown": 2,
+   "rush": true,
+   "applies": [
+    {
+     "id": "short_measure",
+     "kind": "qi_burn",
+     "c_tick": 0.4,
+     "duration": 5,
+     "stacks": 1,
+     "x": [
+      24,
+      84,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bad_year",
+   "c_art": 0,
+   "cost_share": 0.06,
+   "cooldown": 2,
+   "rush": true,
+   "applies": [
+    {
+     "id": "bad_year",
+     "kind": "qi_burn",
+     "c_tick": 0.4,
+     "duration": 5,
+     "stacks": 1,
+     "x": [
+      24,
+      84,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "spoiled_stores",
+   "kind": "body",
+   "c_art": 0,
+   "cost_share": 0.05,
+   "cooldown": 2,
+   "applies": [
+    {
+     "id": "spoilage",
+     "kind": "body",
+     "c_tick": 0.44,
+     "duration": 5,
+     "stacks": 1,
+     "x": [
+      24,
+      84,
+      0,
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "closed_gate",
+   "c_art": 0,
+   "cost_share": 0.04,
+   "cooldown": 3,
+   "curse": {
+    "block_regen": true,
+    "duration": 5
+   }
+  }
+ ],
+ "enemy": "typical",
+ "unmodelled": [
+  "Held Acres is the +84 in L2 of each status x, at 12 plots. Damage over time is the +24 in L1 of the same x. Neither reaches hits",
+  "Rush Order's +50 % price is written into cost_share 0.06 on the two burn arts",
+  "Thrift reads 60 points from ward efficiency 240 and is held at the 50 % limit",
+  "Cornered Market acts before the fight, so it appears only as start_qi in enemy_overrides in the home variants. Its seasons, stones and the city's reaction are caller rules",
+  "Enemy element and sense: the reference enemies have none and sense 1.0, and no art here reads either"
+ ],
+ "enemy_overrides": {
+  "arts": [
+   {
+    "id": "jab",
+    "kind": "body",
+    "c_art": 1.4,
+    "cost_share": 0.05,
+    "cooldown": 1
+   },
+   {
+    "id": "strike",
+    "kind": "qi",
+    "c_art": 2.2,
+    "cost_share": 0.08,
+    "cooldown": 3
+   },
+   {
+    "id": "heavy",
+    "kind": "body",
+    "c_art": 3.6,
+    "cost_share": 0.12,
+    "cooldown": 6,
+    "guard": {
+     "who": "own",
+     "pool": "qi",
+     "above": 0.3
+    }
+   }
+  ],
+  "start_qi": 0.25
+ }
+}

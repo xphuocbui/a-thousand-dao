@@ -1,0 +1,37 @@
+{
+ "slug": "spring-hand",
+ "name": "The Spring Hand",
+ "han_viet": "Xuân Thủ",
+ "pitch": "Twenty sheets you already paid for, more than one in three of which comes back and fires again, so a bandit costs you two seasons at the desk and a wall costs you five.",
+ "channel": "art",
+ "enabler": "Paid in Advance",
+ "enabler_kind": "Resource swap",
+ "identity_piece": "Endless Talismans with Let It Ride",
+ "identity_id": "unburnt",
+ "power": "strong",
+ "defining_realm": "ket_dan",
+ "fit": {"fits_today": 1, "needs_key": 14, "needs_rule": 3},
+ "reused": ["Stone Ward", "Sized Paper", "Full Sea", "Steady Thread", "Hearth Ash Talisman", "Endless Talismans (capability #13)", "Talisman power (catalogue)"],
+ "new": [
+  {"type": "enabler", "name": "Paid in Advance", "han_viet": "Tiên Phó", "form": "Rule swap", "channel": "art", "layer": "none", "fit": "Needs rule", "effect": "A talisman keeps its authored cost for the art lint and pays no linh lực when fired. Closes every art but talismans.", "second_home": "any talisman build"},
+  {"type": "technique", "name": "Spring Couplet Method", "han_viet": "Xuân Liên Quyết", "fit": "Needs rule", "effect": "Main, Địa, Fire. Carries Paid in Advance, slots hold paper only, seals Red Paper Street."},
+  {"type": "talisman", "name": "New Year Cracker", "han_viet": "Bạo Trúc Phù", "fit": "Needs key", "effect": "Body hit, c_art 1.4, ink 0.05, 0.5 s, stock 8, guarded on enemy health above 30 %."},
+  {"type": "talisman", "name": "Red Envelope", "han_viet": "Hồng Bao Phù", "fit": "Needs key", "effect": "Body hit, c_art 4.5, ink 0.25, 3 s, stock 3, guarded on enemy health below 80 %."},
+  {"type": "talisman", "name": "Closing-Day Notice", "han_viet": "Bế Thị Phù", "fit": "Needs key", "effect": "Qi hit, c_art 1.0, ink 0.05, 1 s, stock 2, curse +50 % art cost for 3 pulses, guarded on enemy linh lực above 50 %."},
+  {"type": "talisman", "name": "Torn Couplet", "han_viet": "Phá Liên Phù", "fit": "Needs key", "effect": "Qi hit, c_art 1.6, ink 0.05, 3 s, stock 3, curse pass ×1.5 for 3 pulses, guarded on enemy health above 30 %."},
+  {"type": "talisman", "name": "Slow Match", "han_viet": "Hoãn Hỏa Phù", "fit": "Needs key", "effect": "Qi hit, c_art 1.3, ink 0.05, 2 s, stock 4, then a tick, c_tick 0.5, 4 pulses, guarded on enemy health above 20 %."},
+  {"type": "acupoint", "name": "Talisman damage", "han_viet": "Phù Thương", "form": "Increased", "channel": "art", "layer": "L1", "fit": "Needs key", "effect": "+2 to hits with the talisman tag. Notable +12. The catalogue's one-tag row.", "second_home": "any talisman user"},
+  {"type": "acupoint", "name": "Talisman art speed", "han_viet": "Phù Tốc", "form": "Increased", "channel": "art", "layer": "none", "fit": "Needs key", "effect": "+1 % talisman art speed. Notable +6 %. The catalogue's one-tag row.", "second_home": "any talisman user"},
+  {"type": "acupoint", "name": "Good Paper", "han_viet": "Thượng Chỉ", "form": "Increased", "channel": "art", "layer": "none", "fit": "Needs key", "effect": "+1 % to the chance a used talisman is not consumed, to 60 % at most. Notable +6 %.", "second_home": "any capability #13 holder"},
+  {"type": "acupoint", "name": "Steady Brush", "han_viet": "Ổn Bút", "form": "Increased", "channel": "none", "layer": "none", "fit": "Needs key", "effect": "+1 % talisman draw success. Notable +6 %. Outside the fight.", "second_home": "any talisman crafter"},
+  {"type": "acupoint", "name": "Warm Hand", "han_viet": "Thủ Nhiệt", "form": "Per", "channel": "art", "layer": "L2", "fit": "Needs key", "effect": "+0.25 per talisman fired this fight, to +40 with the notable's +1.", "second_home": "any burst of cheap arts"},
+  {"type": "notable", "name": "Signed Paper", "han_viet": "Lạc Khoản", "form": "Per", "channel": "art", "layer": "L2", "fit": "Needs key", "effect": "+3 to talismans you drew yourself per talisman skill level.", "second_home": "any crafter who fights with their own work"},
+  {"type": "notable", "name": "Let It Ride", "han_viet": "Thừa Hứng", "form": "Trigger", "channel": "art", "layer": "none", "fit": "Needs rule", "effect": "A talisman that was not consumed fires once more in the same instant. That firing cannot come back.", "second_home": "any stock art"},
+  {"type": "cluster", "name": "Red Paper Street", "han_viet": "Hồng Chỉ Phố", "fit": "Needs key", "effect": "Theme Way of Talismans, Fire, outer, sealed by a technique, size 9. Notables Signed Paper, Let It Ride, capability #13."}
+ ],
+ "questions": [
+  "Does a talisman cost linh lực when it fires? Combat does not say, and crafting_talismans.json still spends talismans at the start of a fight rather than as arts.",
+  "No rule limits stock in a slot, only seasons at the desk. Is that enough?",
+  "At ink share 0.25 the art lint gives c_art 4.5 for no linh lực. Should stock have its own term in a talisman lint?"
+ ]
+}

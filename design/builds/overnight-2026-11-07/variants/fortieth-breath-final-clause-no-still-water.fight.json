@@ -1,0 +1,110 @@
+{
+ "name": "fortieth-breath",
+ "rules": [
+  "withheld_hand",
+  "per_cap",
+  "final_clause"
+ ],
+ "withheld_hand": true,
+ "realm": "ket_dan",
+ "n_body": 2.49,
+ "n_qi": 1.15,
+ "layers": [
+  0,
+  0,
+  60,
+  0,
+  0
+ ],
+ "art_speed_pct": 0,
+ "regen_bonus_pct": 6,
+ "accuracy_pct": 40,
+ "ward": {
+  "model": "per_hit",
+  "pass": {
+   "body": 0.3,
+   "qi": 0.2
+  },
+  "hit_cost_share": 0.05,
+  "ws": 112,
+  "we": 45
+ },
+ "guard": {
+  "a_b": 5,
+  "t_b": 3,
+  "body_guard_pct": 20
+ },
+ "conditional_mods": [
+  {
+   "id": "Sustained Note",
+   "layer": 2,
+   "per": "fight_seconds",
+   "points_per": 15,
+   "cap": 90,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Bare Rack",
+   "layer": 2,
+   "per": "empty_slots",
+   "points_per": 15,
+   "channels": [
+    "art"
+   ]
+  },
+  {
+   "id": "Bare Vessel",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "enemy",
+    "pool": "qi",
+    "below": 0.05
+   }
+  },
+  {
+   "id": "Full Sea",
+   "layer": 5,
+   "points": 30,
+   "channels": [
+    "art"
+   ],
+   "guard": {
+    "who": "own",
+    "pool": "qi",
+    "above": 0.8
+   }
+  }
+ ],
+ "arts": [
+  {
+   "id": "last_word",
+   "kind": "body",
+   "c_art": 13.75,
+   "cost_share": 0.25,
+   "cooldown": 40,
+   "x": [
+    12,
+    0,
+    0,
+    40,
+    0
+   ]
+  }
+ ],
+ "unmodelled": [
+  "Final Clause is not in this file, because it comes at Nascent Soul: see variants/fortieth-breath-final-clause.fight.json",
+  "Measured Stroke is accuracy_pct 40, equal to evade_cap, so no evade can touch the cut. The build has no crit to lose",
+  "Cut Short (heart demon for a shortened reading) is outside the fight",
+  "The 40 s cooldown is above the 30 s range of Formulas A2 (Needs rule)",
+  "Escape is not simulated"
+ ],
+ "final_clause": true,
+ "variant_of": "sheets/fortieth-breath.fight.json",
+ "variant_note": "Final Clause and no Still Water"
+}
