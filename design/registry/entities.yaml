@@ -356,6 +356,8 @@ formulas:
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
+      - design/gdd/canh-gioi.md
+      - design/gdd/dao.md
     variables:
       - L
       - pts_birth
@@ -1244,6 +1246,8 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
+      - design/gdd/kinh-mach-do.md
     value: [1, 1, 0.32, 0.20]
     unit: multiplier on pill and bare chance
     notes: "Heavenly suppression (thiên đạo áp chế) at QR->FE, FE->CF, CF->NS, NS->DT. Sized for the player's edge mean of 0.70 / 0.70 / 0.30 / 0.20. Scratch model; AC-CG-31 sets the final value."
@@ -1297,6 +1301,7 @@ constants:
     referenced_by:
       - design/gdd/canh-gioi.md
       - design/gdd/kinh-mach-do.md
+      - design/gdd/dao.md
     value: 10
     unit: percentage points
     notes: "Character-wide ceiling on the summed per-attempt extras (pill quality, comprehension, Dao heart, the tree breakthrough_chance, a Dao node's breakthrough_chance, the Chaos variant's line, item and event bonuses); destiny perks, the talisman and failure insight are outside it; the tree is also under tree_breakthrough_cap 8 pp. Sized so a fully built life without an edge stays at or below 0.55. User decision 2026-11-04 (cross-GDD review 04g F14; answers Realms Open Question 13)."
@@ -1402,6 +1407,7 @@ constants:
     source: design/gdd/dao.md
     referenced_by:
       - design/gdd/dao.md
+      - design/gdd/combat.md
     value: 2
     unit: multiple of what the same points buy on the map
     notes: "User decision 2026-11-06, so a Dao feels special."
@@ -1554,6 +1560,7 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
     value: 90
     unit: heart demon
     notes: "A qi deviation that hits at this heart demon or more kills; no deviation hit means no death."
@@ -1564,6 +1571,7 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
     value: 2.0
     unit: divisor on Dao heart
     notes: "Deviation chance = max(0, heart demon - Dao heart / divisor) %."
@@ -1606,6 +1614,7 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
     value: 20
     unit: heart demon
     notes: "Nascent Soul condition (at most)."
@@ -1723,6 +1732,7 @@ constants:
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
+      - design/gdd/linh-can.md
     value: 50
     unit: W
     notes: "Weakest keystone positive side; rule keystones with no F weight pass by list (AC-KMD-06); no cluster huyệt may exceed it (21 W unshrunk, about 25.8 W shrunk)."
@@ -1874,6 +1884,7 @@ constants:
     referenced_by:
       - design/gdd/cong-phap.md
       - design/gdd/canh-gioi.md
+      - design/gdd/linh-can.md
     value: [1.00, 1.22, 1.33, 1.41, 1.46]
     unit: divisor on tech_norm, by base element count 1-5
     notes: "Expected strongest purity of an n-element root / 50 (61.2 / 66.8 / 70.4 / 73.1 vs 50.1). Five elements in QR use count_gain_qr_5 1.27 (tail about 6% over the QR half-lifespan ceiling, AC-CP-47). Replaces the climb_total plan (cross-GDD review N6, user decision 2026-11-04). Recompute if purity_mean or purity_sd moves."
