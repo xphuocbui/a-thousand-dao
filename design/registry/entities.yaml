@@ -1240,6 +1240,48 @@ formulas:
     notes: "Exchange rate for more points (L2, L4) when W must buy them (LLM GM, quests, NPC builds). Sources otherwise budget more in points. Answers Combat Open Question 5. Formulas D."
     added: 2026-11-07
     revised: ""
+  - name: counted_chance
+    status: active
+    source: design/gdd/effects.md
+    referenced_by:
+      - design/gdd/effects.md
+    variables:
+      - p
+      - meter
+      - counted_start
+    output_range: floor(counted_start + sum p) events over n opportunities
+    expression: "meter += p at each would-be roll; if meter >= 1: event, meter -= 1; held as per-mille integers"
+    notes: "Keystone-only (Effects rule 12). No seeded draw; fortune does not shift it. Formulas A."
+    added: 2026-11-08
+    revised: ""
+  - name: standing_status
+    status: active
+    source: design/gdd/effects.md
+    referenced_by:
+      - design/gdd/effects.md
+    variables:
+      - standing_cost
+      - qi_max_caster
+    output_range: lasts while the caster pays
+    expression: "upkeep = standing_cost*qi_max_caster per pulse, paid before the status ticks; unpaid or caster Down: ends without ticking"
+    notes: "A status with no duration needs a standing cost and a cleanse (Effects rule 9; overnight decision 11). Formulas B."
+    added: 2026-11-08
+    revised: ""
+  - name: down_step
+    status: active
+    source: design/gdd/effects.md
+    referenced_by:
+      - design/gdd/effects.md
+      - design/gdd/combat.md
+      - design/gdd/combat-defence.md
+    variables:
+      - refusal
+      - last_act
+      - follow_up_check
+    output_range: always ends
+    expression: "(1) first unspent refusal in slot order sets health 1, Spent; (2) else last acts once; (3) follow-up check, no second refusal for the side that acted; (4) wounds reported"
+    notes: "Each refusal once per fight, at most one per Down (Effects rule 11; overnight decision 5). Formulas C."
+    added: 2026-11-08
     revised: ""
 constants:
   - name: root_count_weights
@@ -3377,6 +3419,28 @@ constants:
     unit: multiplier, universal to pinpoint
     notes: "Narrower modifiers buy more per W. User decision 2026-11-07: five tiers."
     added: 2026-11-07
+    revised: ""
+  - name: curse_heal_taken_max
+    status: active
+    source: design/gdd/effects.md
+    referenced_by:
+      - design/gdd/effects.md
+      - design/gdd/combat.md
+    value: 0.5
+    unit: share of healing taken
+    notes: "Most a curse can lower healing taken (Withering). New Combat Formulas F bound, pending the Combat revision."
+    added: 2026-11-08
+    revised: ""
+  - name: curse_soul_shred_max
+    status: active
+    source: design/gdd/effects.md
+    referenced_by:
+      - design/gdd/effects.md
+      - design/gdd/combat.md
+    value: 0.3
+    unit: soul resistance points
+    notes: "Most curses can lower soul resistance (Slackened Soul). New Combat Formulas F bound, pending the Combat revision."
+    added: 2026-11-08
     revised: ""
 # Example:
 #
