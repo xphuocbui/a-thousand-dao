@@ -1190,6 +1190,56 @@ formulas:
     notes: "At most 2 conversions per hit, fixed order (art, then Effects, then modifiers); never to or from Soul; never back to a type in hist."
     added: 2026-11-07
     revised: ""
+  - name: modifier_value
+    status: active
+    source: design/gdd/modifiers.md
+    referenced_by:
+      - design/gdd/modifiers.md
+      - design/gdd/combat-defence.md
+    variables:
+      - B
+      - breadth_mult
+      - price
+      - u
+      - d
+    output_range: 0 to about 215 units
+    expression: "value = d*floor(B*breadth_mult/(price*u) + 1e-6)*u"
+    notes: "Turns a source's W budget into a plain modifier. Zero units means the stat cannot be carried; never raised to one unit. Formulas C."
+    added: 2026-11-07
+    revised: ""
+  - name: breadth_mult
+    status: active
+    source: design/gdd/modifiers.md
+    referenced_by:
+      - design/gdd/modifiers.md
+      - design/gdd/combat-defence.md
+    variables:
+      - S
+      - I
+      - tier
+      - m
+    output_range: [1.0, 2.5]
+    expression: "m[tier(S + I)]; tier(empty) = universal; two tags: min(pinpoint, tier(narrower) + [tier(other) >= family])"
+    notes: "Five tiers: universal, broad (physical, force, hit, art), family (other damage types, elements, forms), narrow, pinpoint. Formulas B."
+    added: 2026-11-07
+    revised: ""
+  - name: more_price
+    status: active
+    source: design/gdd/modifiers.md
+    referenced_by:
+      - design/gdd/modifiers.md
+      - design/gdd/combat-defence.md
+    variables:
+      - i
+      - r
+      - L1_typ
+      - sigma
+      - L_i_typ
+    output_range: 0.90 to 5.78 W per point
+    expression: "more_price(i, r) = L1_typ(r)/(sigma(r)*L_i_typ(r)); sigma = 1 below the L1 knee, 0.5 past it; no trade at or above cap_i"
+    notes: "Exchange rate for more points (L2, L4) when W must buy them (LLM GM, quests, NPC builds). Sources otherwise budget more in points. Answers Combat Open Question 5. Formulas D."
+    added: 2026-11-07
+    revised: ""
     revised: ""
 constants:
   - name: root_count_weights
@@ -1921,8 +1971,11 @@ constants:
     revised: ""
   - name: stat_power_weights
     status: active
-    source: design/gdd/kinh-mach-do.md
+    # Owner moved 2026-11-07 from design/gdd/kinh-mach-do.md (Formulas F) to modifiers.md (Formulas A), which
+    # now owns one W price per modifiable stat (user decision 2026-11-07). kinh-mach-do.md stays a reader.
+    source: design/gdd/modifiers.md
     referenced_by:
+      - design/gdd/modifiers.md
       - design/gdd/kinh-mach-do.md
       - design/gdd/combat.md
       - design/gdd/quests.md
@@ -1931,7 +1984,7 @@ constants:
     unit: W per displayed unit
     notes: "Shared by the fill validator, NPC Builds and Character Stats; guesses until the bot confirms."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-07
   - name: hidden_cluster_count
     status: active
     source: design/gdd/kinh-mach-do.md
@@ -3293,6 +3346,36 @@ constants:
     value: 0.02
     unit: share of a hit
     notes: "Floor on the leak share in the ehp formula, so ehp stays finite when block exceeds the hit."
+    added: 2026-11-07
+    revised: ""
+  - name: grade_small
+    status: active
+    source: design/gdd/modifiers.md
+    referenced_by:
+      - design/gdd/modifiers.md
+    value: 1.2
+    unit: W
+    notes: "Reference budget of one acupoint at premium 1 (Formulas E)."
+    added: 2026-11-07
+    revised: ""
+  - name: grade_notable
+    status: active
+    source: design/gdd/modifiers.md
+    referenced_by:
+      - design/gdd/modifiers.md
+    value: 8
+    unit: W
+    notes: "Reference budget of one tree notable at premium 1 (Formulas E)."
+    added: 2026-11-07
+    revised: ""
+  - name: breadth_multipliers
+    status: active
+    source: design/gdd/modifiers.md
+    referenced_by:
+      - design/gdd/modifiers.md
+    value: "1.0 / 1.25 / 1.5 / 2.0 / 2.5"
+    unit: multiplier, universal to pinpoint
+    notes: "Narrower modifiers buy more per W. User decision 2026-11-07: five tiers."
     added: 2026-11-07
     revised: ""
 # Example:
