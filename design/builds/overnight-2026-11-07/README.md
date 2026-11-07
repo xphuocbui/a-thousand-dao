@@ -1,5 +1,7 @@
 # Overnight Build Campaign: Start Here
 
+> **To be re-evaluated and filtered (user decision 2026-11-07).** This campaign went builds-first. Its builds and content are not adopted: they will be filtered against the Modifier System, the redesigned Meridian Map and the Đạo catalogue once those exist, and reused as test cases. Its Đạo trees are not adopted. The rule findings in `decisions.md` stand on their own. See `design/gdd/systems-index.md`, "Build design order".
+>
 > **Status**: Proposals only. Nothing here is implemented or in game data, and no GDD, registry, catalogue or data file was changed by this campaign. Not committed.
 > **Last updated**: 2026-11-07 morning, after the campaign ended. 69 builds. Counts: see `index.md`.
 

@@ -1,5 +1,9 @@
 # Meridian Map (Kinh Mạch Đồ)
 
+> **Redesign planned (user decision 2026-11-07).** This tree will be redesigned after the Modifier
+> System (systems index #40), especially its current shape: the generic meridian roads, theme-pool
+> clusters and sector layout. The rules below stay the reference until then. The wheel proposal of
+> 2026-11-07 (`design/builds/overnight-2026-11-07/wheel.md`) is not adopted.
 > **Status**: In Review (2026-11-05: independent review findings applied; cross-GDD review CONCERNS, no blockers). See `reviews/kinh-mach-do-review-log.md`.
 > map density revision by user direction, rule 21: generic roads, smaller clusters, clusters in the border gaps, region
 > capacity, the drawing rules; independent review fixes applied the same day, see Known gaps in the build; awaiting a
@@ -2115,6 +2119,7 @@ as the bidirectional-dependency rule requires.
 | 36 | Debug Terminal             | The text map and the open commands                                                                                                                                                                      |
 | 37 | Game UI                    | The visual map (later)                                                                                                                                                                                  |
 | 12 | Codex & Karmic Carryover   | Records discovered clusters, conditions and capabilities across lives (Silhouette mode benefits most)                                                                                                   |
+| 31 | Quests                     | `stat_power_weights` and `w̄_target` to price a lasting gain; tree points paid by a major quest (`design/gdd/quests.md` Formulas D) |
 
 **Capability hosts.** Each implements the behaviour behind its capabilities. Hosts do
 **not** call the Meridian Map:
