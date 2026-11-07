@@ -659,6 +659,8 @@ formulas:
     notes: "Replaces the stored chien luc total wherever one number is shown or stored."
     added: 2026-11-06
     revised: 2026-11-06
+  # Superseded by design/gdd/combat-defence.md (2026-11-07): ward_payment, defence_resistance. Kept active until
+  # the Combat revision (systems-index #43) replaces combat.md rule 22 and Formulas D, then set to deprecated.
   - name: ward_block
     status: active
     source: design/gdd/combat.md
@@ -1010,6 +1012,165 @@ formulas:
 #
 # Required fields: name, status, source, referenced_by, value, unit, added
 
+  - name: defence_resistance
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+      - design/gdd/combat-damage-types.md
+    variables:
+      - R_gen
+      - R_kind
+      - R_elem
+      - pen_part
+      - resist_floor
+      - cap_part
+      - resist_cap
+      - resist_cap_max
+      - cap_raise
+      - ws
+    output_range: [-0.5, 0.9]
+    expression: "r_j = clamp(R_all + R_type(j) - pen_j, resist_floor, cap_j); cap_j = min(resist_cap_max, resist_cap + sum cap_raise scoped all or to type(j)); R_x = R_x_other + sum_w r_w_x*(1 + ws/100)"
+    notes: "All resistance plus the part's final damage type (combat-damage-types.md). Elements never enter resistance. Was general + kind + element (2026-11-07, same day)."
+    added: 2026-11-07
+    revised: 2026-11-07
+  - name: defence_shield
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+      - design/gdd/combat-damage-types.md
+    variables:
+      - sigma
+      - qi_max
+      - ws
+      - we
+      - shield_recharge
+      - recharge_delay
+      - shield_total_cap
+      - health_max
+    output_range: 0 to 1.0 x health_max per side
+    expression: "ward: S_w = sigma*qi_max*(1+ws/100), recharge after recharge_delay; body: S_body = health_max*min(body_shield_cap, sum sigma_b), never self-refills; sigma_b_gear = body_gear_shield*a_b; ward shields <= shield_total_cap*health_max"
+    notes: "Ward shields and body shields are one shield concept; body armour is a shield. What passes a shield is data (ward: Soul + ticks; body: Soul + Chaos). Restoring a body shield counts as healing."
+    added: 2026-11-07
+    revised: 2026-11-07
+  - name: ward_payment
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    variables:
+      - we
+      - rho
+      - res_eff
+      - u
+      - upkeep_growth
+      - phi
+      - drain_base
+      - ws
+      - R_pos
+      - kappa
+      - qi_max
+    output_range: >= 0; reserved <= 0.9 x qi_max
+    expression: "reserved = rho*(1 - min(res_eff,50)/100)/(1 + we/200); upkeep_n = u*qi_max*(1+upkeep_growth)^n/(1+we/100); fee = phi*qi_max/(1+we/100); drain rate = drain_base/((1+ws/100)(1+we/100)); cast = kappa*qi_max/(1+we/100)"
+    notes: "Five payment models. Total payment never rises with ws (flat drain bill). Formulas C."
+    added: 2026-11-07
+    revised: ""
+  - name: ward_slots
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    variables:
+      - ward_slots_by_realm
+      - divine_sense
+      - ward_slot_sense_step
+      - ds_ref
+      - bonus_ward_slots
+    output_range: 1 to 5 plus bonuses
+    expression: "ward_slots = ward_slots_by_realm[r] + min(2, floor(divine_sense/(ward_slot_sense_step*ds_ref[r]))) + sum bonus_ward_slots"
+    notes: "Free slots for wards only. Formulas D."
+    added: 2026-11-07
+    revised: ""
+  - name: combat_healing
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    variables:
+      - healing_pct
+      - taken_pct
+      - heal_decay_floor
+      - heal_decay_end
+      - c_heal
+      - heal_pulse_cap
+      - heal_lint_ratio
+      - hregen_cap
+    output_range: 0 to 0.04 x health_max per pulse window
+    expression: "heal = base*(1+healing_pct/100)*(1+taken_pct/100)*d(t); d(t) = max(floor, 1 - (1-floor)*t/end); sum per pulse window <= heal_pulse_cap*health_max; c_heal <= 0.3 x art lint"
+    notes: "No healing on Down sides or with no_heal (every Tribulation wave). Healing never raises vitality. Formulas E."
+    added: 2026-11-07
+    revised: ""
+  - name: ward_price_check
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    variables:
+      - V_w
+      - C_w
+      - epsilon_0
+      - beta_w
+      - alpha_m
+      - reserve_weight
+      - I
+      - T_ref
+    output_range: pass/fail
+    expression: "V_w <= epsilon_0*beta_w*alpha_m*C_w at ws = we = 0 over the standard stream (one hit of I per second) for T_ref 8 s"
+    notes: "The ward counterpart of the art lint. Formulas F."
+    added: 2026-11-07
+    revised: ""
+  - name: defence_ehp
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+      - design/gdd/combat-damage-types.md
+    variables:
+      - Q_use
+      - b
+      - r_all
+      - r_fix
+      - f
+      - H
+      - S_std
+    output_range: >= H
+    expression: "x = Q_use/b; lambda_s = max(lambda_min, 1 - r_s - B_s/D_ref); P = H + S_std + S_body (minus shields the type passes); ehp = P/lambda_all if x*lambda_all >= P else x + (P - x*lambda_all)/lambda_fix"
+    notes: "Replaces Combat Formulas A ehp once the Combat revision (#43) lands. Typical QR 297.8 (was 298.1 with body guard); thể tu 570.4 Physical / 368.5 Force / 221.3 Chaos."
+    added: 2026-11-07
+    revised: 2026-11-07
+  - name: defence_block
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+      - design/gdd/combat-damage-types.md
+    variables:
+      - block_unit
+      - stage
+      - flesh_block
+      - n_body
+      - gear_block
+      - a_w
+      - a_b
+      - b_src
+      - b_w
+      - ws
+    output_range: 0 to the hit's after-resistance total
+    expression: "B_hit = block_unit[r]*stage*(flesh_block*n_body + gear_block*(min(a_w,1) + a_b) + sum b_src + sum_w b_w*(1+ws/100)); k_j = a_j*min(1, B_hit/sum a_i)"
+    notes: "Flat block, once per hit, split by after-resistance size, never on ticks or Soul. A hit loses exactly min(B_hit, sum a_j)."
+    added: 2026-11-07
+    revised: ""
 constants:
   - name: root_count_weights
     status: active
@@ -2882,6 +3043,236 @@ constants:
     value: "-100 to 100, starts at 0"
     unit: sect standing
     notes: "New World DB sect field, provisional. Nothing reads it yet (quests.md Open Question 10)."
+    added: 2026-11-07
+    revised: ""
+  - name: resist_cap
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 0.75
+    unit: resistance share
+    notes: "Default cap on one part's resistance; rare modifiers raise it."
+    added: 2026-11-07
+    revised: ""
+  - name: resist_cap_max
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 0.9
+    unit: resistance share
+    notes: "Hard cap; no raise passes it."
+    added: 2026-11-07
+    revised: ""
+  - name: resist_floor
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: -0.5
+    unit: resistance share
+    notes: "Lowest resistance; a part then takes 1.5 x."
+    added: 2026-11-07
+    revised: ""
+  - name: default_resist
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 0.3
+    unit: resistance share
+    notes: "The default ward's general resistance; equals the old default ward (pass 0.70). Not scaled by ws or we."
+    added: 2026-11-07
+    revised: ""
+  - name: default_drain
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 2.0
+    unit: linh luc per point prevented
+    notes: "The default ward's drain rate; not scaled by ws or we."
+    added: 2026-11-07
+    revised: ""
+  - name: heal_pulse_cap
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 0.04
+    unit: fraction of max health per pulse window
+    notes: "Below dot_pool_cap 0.05 and dot_pulse_cap 0.08, so ticks can outpace healing."
+    added: 2026-11-07
+    revised: ""
+  - name: heal_decay_end
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 15
+    unit: seconds
+    notes: "Healing decays linearly from full at t = 0 to heal_decay_floor at this time."
+    added: 2026-11-07
+    revised: ""
+  - name: heal_decay_floor
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 0.1
+    unit: multiplier
+    notes: "Lowest healing factor; 0.25 would allow a stall."
+    added: 2026-11-07
+    revised: ""
+  - name: ward_slots_by_realm
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: "1 / 1 / 2 / 2 / 3"
+    unit: free ward slots, Qi Refining to Deity Transformation
+    notes: "User decision 2026-11-07."
+    added: 2026-11-07
+    revised: ""
+  - name: ward_slot_sense_step
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 1.75
+    unit: multiple of the realm's reference than thuc
+    notes: "+1 ward slot at 1.75 x, +2 at 3.5 x (at most +2)."
+    added: 2026-11-07
+    revised: ""
+  - name: shield_total_cap
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 1.0
+    unit: fraction of max health
+    notes: "The most shield one side can hold."
+    added: 2026-11-07
+    revised: ""
+  - name: recharge_delay
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 2.0
+    unit: seconds
+    notes: "Standing shields recharge after this long with no soak. User decision 2026-11-07."
+    added: 2026-11-07
+    revised: ""
+  - name: reserve_cap
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 0.9
+    unit: fraction of max linh luc
+    notes: "Total reservation, on effective shares after efficiency."
+    added: 2026-11-07
+    revised: ""
+  - name: reserve_weight
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 1.5
+    unit: price-check weight
+    notes: "Each reserved point counts 1.5 paid points in the ward price check (stronger auras, user decision 2026-11-07)."
+    added: 2026-11-07
+    revised: ""
+  - name: upkeep_growth
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 0.15
+    unit: growth per pulse
+    notes: "Upkeep wards grow heavier each pulse they are held, so regeneration cannot keep one up to 40 s."
+    added: 2026-11-07
+    revised: ""
+  - name: ward_epsilon_0
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 0.61
+    unit: prevented points per linh luc
+    notes: "Anchored to the Common Ward (1 / 1.64); the ward price check's base rate."
+    added: 2026-11-07
+    revised: ""
+  - name: block_unit
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: "0.0631 / 0.2031 / 0.6672 / 2.254 / 6.883"
+    unit: block points per rating, Qi Refining to Deity Transformation
+    notes: "U_r * M_typ[r] / (100 * M_typ[QR]), times stage."
+    added: 2026-11-07
+    revised: ""
+  - name: flesh_block
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 4.4
+    unit: block rating per n_body
+    notes: "Calibrated so the unbuilt mirror stays 24.3 s."
+    added: 2026-11-07
+    revised: ""
+  - name: gear_block
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 12
+    unit: block rating per unit of artifact defence a
+    notes: "Ward gear counts up to a = 1; body gear in full."
+    added: 2026-11-07
+    revised: ""
+  - name: body_gear_shield
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 0.6
+    unit: body shield share of health_max per unit of a_b
+    notes: "Body gear gives mainly shield, 0.648 W per defence point like ward gear (user decision 2026-11-07). Top-end body gear 1.0 x B_p."
+    added: 2026-11-07
+    revised: ""
+  - name: body_shield_cap
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 1.0
+    unit: fraction of max health
+    notes: "The body shield bar; ward shields have their own shield_total_cap 1.0."
+    added: 2026-11-07
+    revised: ""
+  - name: ward_block_max
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 100
+    unit: block rating
+    notes: "Largest block payload one ward may carry."
+    added: 2026-11-07
+    revised: ""
+  - name: defence_lambda_min
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 0.02
+    unit: share of a hit
+    notes: "Floor on the leak share in the ehp formula, so ehp stays finite when block exceeds the hit."
     added: 2026-11-07
     revised: ""
 # Example:
