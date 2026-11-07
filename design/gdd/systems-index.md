@@ -2,7 +2,7 @@
 
 > **Status**: Approved (system list, dependencies and priority tiers approved by the user, 2026-11-03)
 > **Created**: 2026-11-03
-> **Last Updated**: 2026-11-07 (Modifier System added as #40; Meridian Map redesign planned; build design order)
+> **Last Updated**: 2026-11-08 (#21a, #21b, #40 and #41 designed, pending review; next: four fresh-session design reviews, then the Combat revision #43. Earlier 2026-11-07: Modifier System added as #40, now in design and paused; Combat Defence & Healing #21a (in design) and Combat Damage Types #21b added as sub-systems of Combat; Effects System added as #41; Meridian Map redesign planned; build design order)
 > **Source Concept**: design/gdd/game-concept.md
 
 ---
@@ -97,7 +97,7 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 40 | Modifier System (added by request 2026-11-07; the base every build piece draws from; plain numbers on a stat only, user decision 2026-11-07) | Gameplay | MVP | **Designed** 2026-11-07 (finished after #21a and #21b; Stat List and catalogue rebuilt for them), pending an independent `/design-review` in a fresh session | design/gdd/modifiers.md | Combat (damage layers L1–L5 and their caps, channels, ward models), Character Stats; read by: Meridian Map, The Way (Đạo), Cultivation Techniques, Item DB, Artifact Refining, Formations, Talismans, Spirit Beasts |
 | 41 | Effects System (added by request 2026-11-07): every build piece with a rule in it (conditions, scaling, triggers, conversion, overflow, rule changes, keystones, enablers), each granting Modifier System modifiers as its payload | Gameplay | MVP | **Designed** 2026-11-08 (hand-designed, unpriced; 16 statuses, 44 starter Effects), pending an independent `/design-review` in a fresh session | design/gdd/effects.md | Modifier System (#40), Combat (#21, #21a), Character Stats; read by: Meridian Map, The Way, Cultivation Techniques, Item DB, Formations, Talismans, Spirit Beasts |
 
-**Build design order (user decision 2026-11-07).** Builds are the game: a concept with modifiers stacked on it, sometimes opened by an enabler. Content is designed from the shared pieces up, and builds come last as tests: (1) the Modifier System (#40), the shared vocabulary of modifiers by layer and channel; (2) The Way (Đạo) as broad Ways, each with three branches drawn mostly from that vocabulary; (3) Cultivation Techniques (Công Pháp); (4) items and enablers; (5) builds, which check that a fantasy can be made from existing pieces and add a new piece only when a second build would use it too. The overnight build campaign of 2026-11-07 (`design/builds/overnight-2026-11-07/`, 69 builds) went builds-first: its builds and content are **proposals to be re-evaluated and filtered** against the new pieces, not adopted content. Its rule findings (`decisions.md`) stand on their own.
+**Build design order (user decision 2026-11-07).** Builds are the game: a concept with modifiers stacked on it, sometimes opened by an enabler. Content is designed from the shared pieces up, and builds come last as tests. **Before step 1 is finished (user decision 2026-11-07):** Combat Defence & Healing (#21a) and Combat Damage Types (#21b) are designed first as sub-systems of Combat (files prefixed `combat-`, flat in `design/gdd/` for now. **User decision 2026-11-07:** the combat GDDs move into `design/gdd/combat/` later, once more combat docs exist. Before the move, the skills and hooks that read `design/gdd/*.md` without subfolders (about 28 sites) must be made to read subfolders, and the 46 files that cite `combat.md` updated, so no review silently skips a combat GDD), then the Modifier System is resumed, then the Effects System (#41), then one Combat revision that folds in #21a and the Modifier and Effects contracts. The steps: (1) the Modifier System (#40), the shared vocabulary of modifiers by layer and channel; (2) The Way (Đạo) as broad Ways, each with three branches drawn mostly from that vocabulary; (3) Cultivation Techniques (Công Pháp); (4) items and enablers; (5) builds, which check that a fantasy can be made from existing pieces and add a new piece only when a second build would use it too. The overnight build campaign of 2026-11-07 (`design/builds/overnight-2026-11-07/`, 69 builds) went builds-first: its builds and content are **proposals to be re-evaluated and filtered** against the new pieces, not adopted content. Its rule findings (`decisions.md`) stand on their own.
 
 **Implementation note (2026-11-05).** Systems 6-10 are now built in the debug terminal from their GDDs (uncommitted on feature/debug-terminal). The Meridian Map GDD was revised to match by rule 21 (generic roads, smaller clusters, border gap clusters, region capacity, drawing rules), so it is back In Review. Results: `production/qa/evidence/balance/2026-11-05-gdd-bot-run.txt`.
 
@@ -223,7 +223,7 @@ Balance Harness, Game UI, Debug Terminal, Achievements, Codex.
 ## Recommended Design Order
 
 Built systems: `/reverse-document design src/gameplay/<area>`, then `/design-review`.
-Unbuilt systems (22, 31, 12, 37, 34, 38, 39, 40): `/design-system`. Effort: S = 1 session, M = 2–3, L = 4+.
+Unbuilt systems (22, 31, 12, 37, 34, 38, 39, 40, 21a, 21b, 41): `/design-system`. Effort: S = 1 session, M = 2–3, L = 4+.
 
 | Order | System | Priority | Layer | Agent(s) | Est. Effort |
 |-------|--------|----------|-------|----------|-------------|
@@ -266,7 +266,11 @@ Unbuilt systems (22, 31, 12, 37, 34, 38, 39, 40): `/design-system`. Effort: S = 
 | 37 | Spirit Beasts & Spirit Insects (Linh Thú & Linh Trùng) | Alpha | Feature | systems-designer | L |
 | 38 | Localization & Hán-Việt Glossary | Alpha | Polish | localization-lead | M |
 | 39 | Audio | Full Vision | Polish | audio-director | M |
-| 40 | Modifier System (**next**, 2026-11-07; then the Meridian Map redesign, the Đạo catalogue, Cultivation Techniques, items) | MVP | Feature | systems-designer | M |
+| 40 | Combat Defence & Healing (#21a, sub-system of Combat; designed 2026-11-07, pending review) | MVP | Feature | game-designer, systems-designer | M |
+| 40b | Combat Damage Types (#21b, sub-system of Combat; designed 2026-11-07, pending review) | MVP | Feature | game-designer, systems-designer | M |
+| 41 | Modifier System (#40; designed 2026-11-07, pending review) | MVP | Feature | systems-designer | M |
+| 42 | Effects System (#41; designed 2026-11-08, pending review) | MVP | Feature | game-designer, systems-designer | L |
+| 43 | Combat revision (folds in #21a, #40, #41); then the Meridian Map redesign, the Đạo catalogue, Cultivation Techniques, items | MVP | Feature | systems-designer | M |
 
 ---
 
@@ -316,7 +320,7 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | Total systems identified | 39 |
 | Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (beasts only), 21 (duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin) |
 | Systems not started | 6: 12, 22 (designed, not built), 31 (designed, not built), 34, 37, 38 (plus spirit insects [linh trùng], inside 19) |
-| GDDs started | 10 (31 Quests, designed 2026-11-06, pending review; 22 Heavenly Tribulation, approved for rules 2026-11-06; 13 Item Database and 21 Combat, since approved; 11 The Way [Đạo], approved 2026-11-06; 10 Meridian Map [Kinh Mạch Đồ] and 9 Cultivation Techniques [Công Pháp], reopened 2026-11-04 by the Spiritual Roots redesign; 7 Character Stats, in review after the cross-GDD review 04f revisions; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], needs revision after the 2026-11-05 review, fixes applied; 6 Spiritual Roots [Linh Căn], redesigned 2026-11-04, pending review) |
+| GDDs started | 14 (41 Effects System, designed 2026-11-08, pending review; 21b Combat Damage Types, designed 2026-11-07, pending review; 21a Combat Defence & Healing, designed 2026-11-07, pending review; 40 Modifier System, designed 2026-11-07, pending review; 31 Quests, designed 2026-11-06, pending review; 22 Heavenly Tribulation, approved for rules 2026-11-06; 13 Item Database and 21 Combat, since approved; 11 The Way [Đạo], approved 2026-11-06; 10 Meridian Map [Kinh Mạch Đồ] and 9 Cultivation Techniques [Công Pháp], reopened 2026-11-04 by the Spiritual Roots redesign; 7 Character Stats, in review after the cross-GDD review 04f revisions; 8 Realms & Bottlenecks [Cảnh Giới & Bình Cảnh], needs revision after the 2026-11-05 review, fixes applied; 6 Spiritual Roots [Linh Căn], redesigned 2026-11-04, pending review) |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
 | Design docs reviewed | 5, each independently on 2026-11-05 (reports in design/gdd/reviews/) |
 | Design docs approved | 0; 6, 7, 8, 9 and 10 in review after the 2026-11-05 reviews, with a clean cross-GDD pass (CONCERNS, no blockers) |
