@@ -679,6 +679,8 @@ formulas:
     notes: "The default drain model. A ward record may name another cost_model (per hit, per pulse). defense_pct is ward strength."
     added: 2026-11-06
     revised: ""
+  # Superseded by design/gdd/combat-defence.md (2026-11-07): body guard is retired, replaced by block (defence_block)
+  # and body shields (defence_shield). Kept active until the Combat revision (#43), then set to deprecated.
   - name: body_guard
     status: active
     source: design/gdd/combat.md
@@ -1170,6 +1172,24 @@ formulas:
     expression: "B_hit = block_unit[r]*stage*(flesh_block*n_body + gear_block*(min(a_w,1) + a_b) + sum b_src + sum_w b_w*(1+ws/100)); k_j = a_j*min(1, B_hit/sum a_i)"
     notes: "Flat block, once per hit, split by after-resistance size, never on ticks or Soul. A hit loses exactly min(B_hit, sum a_j)."
     added: 2026-11-07
+    revised: ""
+  - name: damage_parts
+    status: active
+    source: design/gdd/combat-damage-types.md
+    referenced_by:
+      - design/gdd/combat-damage-types.md
+      - design/gdd/combat-defence.md
+    variables:
+      - s_j
+      - type_j
+      - c_k
+      - hist_j
+      - M
+    output_range: shares sum to 1; at most 4 x authored parts
+    expression: "conversion X->Y share c_k spawns s_j*c_k of type Y with hist + {X}; part_j = base*s_j*M(tags + hist_j + type_j)*crit; resistance and block read type_j only"
+    notes: "At most 2 conversions per hit, fixed order (art, then Effects, then modifiers); never to or from Soul; never back to a type in hist."
+    added: 2026-11-07
+    revised: ""
     revised: ""
 constants:
   - name: root_count_weights
