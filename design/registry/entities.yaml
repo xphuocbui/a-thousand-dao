@@ -662,7 +662,7 @@ formulas:
   # Superseded by design/gdd/combat-defence.md (2026-11-07): ward_payment, defence_resistance. Kept active until
   # the Combat revision (systems-index #43) replaces combat.md rule 22 and Formulas D, then set to deprecated.
   - name: ward_block
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
@@ -676,13 +676,13 @@ formulas:
       - pool_qi
     output_range: "pass 0.05 to 1; drain 0.15 and up"
     expression: "pass_raw = clamp(pass_kind + sum pass_tag, pass_min, 1); pass = clamp(pass_raw/(1 + ws/100), pass_min, 1); drain = max(drain_min, drain_kind/(1 + we/100)); blocked = min(D*(1-pass), pool_qi/drain); qi_loss = blocked*drain; leak = D - blocked"
-    notes: "The default drain model. A ward record may name another cost_model (per hit, per pulse). defense_pct is ward strength."
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): Replaced by Combat Defence & Healing (resistance, block, shields and the five payments; Formulas A-C). The default drain model. A ward record may name another cost_model (per hit, per pulse). defense_pct is ward strength."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   # Superseded by design/gdd/combat-defence.md (2026-11-07): body guard is retired, replaced by block (defence_block)
   # and body shields (defence_shield). Kept active until the Combat revision (#43), then set to deprecated.
   - name: body_guard
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
@@ -694,9 +694,9 @@ formulas:
       - shred
     output_range: [0.063, 0.857]
     expression: "g_b = min(guard_cap, (guard_base + a_b + t_b + 0.15*(n_body-1))*(1+body_guard_pct/100)*(1-shred)); m = guard_max_mit*g_b/(g_b+guard_half)"
-    notes: "Works with no linh luc. Qi hits meet it at guard_share_kind."
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): Body guard is retired; the body defends with block, body shields and resistance (Combat Defence & Healing rule 12). Works with no linh luc. Qi hits meet it at guard_share_kind."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   - name: soul_attack
     status: active
     source: design/gdd/combat.md
@@ -2361,15 +2361,15 @@ constants:
     added: 2026-11-06
     revised: ""
   - name: ward_art_duration
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 1
     unit: seconds
-    notes: "Guess. How long a slotted ward art stays up after firing. A ward stays up through the whole millisecond it expires in (user decision 2026-11-06)."
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): A cast ward's duration is on its own record (Combat Defence & Healing rule 7). Guess. How long a slotted ward art stays up after firing. A ward stays up through the whole millisecond it expires in (user decision 2026-11-06)."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   - name: overkill_epsilon
     status: active
     source: design/gdd/combat.md
@@ -2381,25 +2381,25 @@ constants:
     added: 2026-11-06
     revised: ""
   - name: trig_ward_seconds
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 2
     unit: seconds
-    notes: "Guess. How long a ward trigger adds trig_ward_strength to ws. The ward stays up through the whole millisecond it expires in."
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): Retired by Combat revision D9: a trigger uses the Effects System's ward action, with the duration on the Effect record. Guess. How long a ward trigger adds trig_ward_strength to ws. The ward stays up through the whole millisecond it expires in."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   - name: trig_ward_strength
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 50
     unit: ward strength points
-    notes: "Guess. Added to ws for trig_ward_seconds by a ward trigger."
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): Retired by Combat revision D9: a trigger uses the Effects System's ward action, with the duration on the Effect record. Guess. Added to ws for trig_ward_seconds by a ward trigger."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   - name: layer_caps
     status: active
     source: design/gdd/combat.md
@@ -2411,43 +2411,45 @@ constants:
     added: 2026-11-06
     revised: ""
   - name: guard_base
-    notes: "Was body 0.5, qi 0.3, soul 0.3 before the ward rework of 2026-11-06."
-    status: active
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): Body guard is retired; the body defends with block, body shields and resistance (Combat Defence & Healing rule 12). Was body 0.5, qi 0.3, soul 0.3 before the ward rework of 2026-11-06."
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 0.15
     unit: units of power_base x stage
     added: 2026-11-06
-    revised: 2026-11-06
+    revised: 2026-11-08
   - name: guard_max_mit
-    status: active
+    status: deprecated
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): Body guard is retired; the body defends with block, body shields and resistance (Combat Defence & Healing rule 12)."
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 0.9
     unit: fraction
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   - name: guard_half
-    status: active
+    status: deprecated
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): Body guard is retired; the body defends with block, body shields and resistance (Combat Defence & Healing rule 12)."
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 2
     unit: guard
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   - name: guard_cap
-    notes: "Was 20 before the ward rework of 2026-11-06."
-    status: active
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): Body guard is retired; the body defends with block, body shields and resistance (Combat Defence & Healing rule 12). Was 20 before the ward rework of 2026-11-06."
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 40
     unit: guard
     added: 2026-11-06
-    revised: 2026-11-06
+    revised: 2026-11-08
   - name: realm_suppression_table
     status: active
     source: design/gdd/combat.md
@@ -2597,23 +2599,25 @@ constants:
     added: 2026-11-06
     revised: ""
   - name: default_ward_pass
-    status: active
+    status: deprecated
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): Replaced by default_resist 0.30 (Combat Defence & Healing rule 11)."
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 0.7
     unit: fraction
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   - name: default_ward_drain
-    status: active
+    status: deprecated
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): Replaced by default_drain 2.0 (Combat Defence & Healing rule 11)."
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 2
     unit: linh luc per blocked point
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   - name: ward_gear_scale
     status: active
     source: design/gdd/combat-defence.md
@@ -2649,33 +2653,35 @@ constants:
     added: 2026-11-06
     revised: ""
   - name: pass_min
-    status: active
+    status: deprecated
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): The ward pass and drain model is retired (Combat Defence & Healing)."
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 0.05
     unit: fraction
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   - name: drain_min
-    status: active
+    status: deprecated
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): The ward pass and drain model is retired (Combat Defence & Healing)."
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 0.15
     unit: linh luc per blocked point
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   - name: guard_share_kind
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 0.75
     unit: fraction by threat kind
-    notes: "Value is the qi share. Body is 1.0 (Combat Formulas D)."
+    notes: "DEPRECATED 2026-11-08 (Combat revision #43): Body guard is retired; the body defends with block, body shields and resistance (Combat Defence & Healing rule 12). Value is the qi share. Body is 1.0 (Combat Formulas D)."
     added: 2026-11-06
-    revised: 2026-11-06
+    revised: 2026-11-08
   - name: soul_beta
     status: active
     source: design/gdd/combat.md

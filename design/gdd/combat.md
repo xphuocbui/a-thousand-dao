@@ -724,7 +724,7 @@ A Chaos tick at c_tick 0.3 and 5 stacks would be 5.80, capped to **5.49** (0.05 
 
 The trigger_budget formula is defined as:
 
-`free_hit = U · stage · c_trig · L1..L4(tags) · supp`, then the ward and body guard as any hit ; `Σ trigger_damage ≤ trig_budget · max(direct_damage_this_pulse, 0.5 · U · stage)`, both counted since the last pulse
+`free_hit = U · stage · c_trig · L1..L4(tags) · supp`, then the defence path as any hit (Combat Defence & Healing rule 1) ; `Σ trigger_damage ≤ trig_budget · max(direct_damage_this_pulse, 0.5 · U · stage)`, both counted since the last pulse
 
 **Variables:**
 
@@ -734,17 +734,21 @@ The trigger_budget formula is defined as:
 | trigger_depth | int | 2 | data file | Chain depth, the first trigger being 1; one trigger id never fires twice in a chain |
 | trig_cap | int | 6 per side | data file | Firings between two pulses |
 | trig_budget | float | 0.5 | data file | Trigger damage is at most half of the direct damage since the last pulse |
-| direct_damage_this_pulse | float | ≥ 0 | calculated | Per side: the health that side's own hits (arts, basic attack, companion) have removed from the defender since the last pulse, after ward and body guard, including the hit that set the trigger off. Ticks and trigger hits are excluded |
-| trig_ward_strength, trig_ward_seconds | float | 50, 2 s (guesses) | data file | A ward trigger adds this to ws for this long |
+| direct_damage_this_pulse | float | ≥ 0 | calculated | Per side: the health that side's own hits (arts, basic attack, companion) have removed from the defender since the last pulse, after the defence path, including the hit that set the trigger off. Ticks and trigger hits are excluded |
 
-A refund trigger returns at most the fired art's cost, which is now also defence.
+A refund trigger returns at most the fired art's cost, which drain, per-hit and upkeep wards can then spend.
+Trigger records and their actions are the Effects System's (rules 6, 7); a trigger that changes a ward uses its
+"raise or lower a ward" action, with the duration on the Effect record (Combat revision D9). Combat keeps the
+free-hit formula, the chain depth, `trig_cap` and the budget.
 
 A trigger's free hit can be evaded (an evaded one deals nothing and sets off nothing) and cannot crit, like a companion hit. Its evade draw comes right after the draws of the hit that set it off, in trigger order (Formulas I).
 
 **Output Range:** triggers add at most +50 % of the direct damage since the last pulse, or 0.25 · U · stage when that is
 larger. Overflow is clipped and logged as "trigger budget".
 
-**Example:** typical, c_trig 0.5, through the body ward: **3.6**. Six of them make 21.7, clipped to 0.5 × 15.9 = **7.9**.
+**Example:** typical, c_trig 0.5, against FX-T with the Common Ward: free hit D 6.31 × 0.5 × 2.975 = 9.39, and
+9.39 × 0.346 − 0.946 = **2.30** dealt. Six of them make 13.81, clipped to 0.5 × 13.34 = **6.67** (one art hit's
+13.34 is the direct damage since the last pulse).
 
 ### H. Realm suppression
 
@@ -758,7 +762,7 @@ The suppression formula is defined as:
 |---|---|---|---|---|
 | g | int | 0–4 | calculated (Realms) | Major realms the actor is below its target; no bonus for being higher |
 | s_g | float | 0 / 0.10 / 0.25 / 0.50 / 0.75 | data file (`suppression`) | Reduction by gap |
-| pierce_pct | float | ≥ 0 (percentage points) | calculated (new key) | Modifiers with the pierce tag |
+| pierce_pct | float | ≥ 0 (percentage points) | Modifier System (`pierce_pct`) | Realm pierce. One value per hit, so it takes no damage-type scope (Modifier System rule 8) |
 | pierce_cap | float | 0.75 | data file | Pierce ceiling |
 
 **Output Range:** `supp` runs 0.25–1.
@@ -790,16 +794,16 @@ The chance_roll formulas are defined as:
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| evade, accuracy | float | 0–1 | calculated (new keys `evade_pct`, `accuracy_pct`, ÷ 100) | Evade applies to body and qi hits only, never soul hits or ticks |
+| evade, accuracy | float | 0–1 | Modifier System (`evade_pct`, `accuracy_pct`, ÷ 100); evade payloads on wards | Evade applies to every hit except Soul, and never to ticks (Combat Defence & Healing rules 6, 13). Accuracy is one value per hit and takes no damage-type scope |
 | evade_cap, evade_realm_step | float | 0.40, 0.02 | data file | Bounds |
 | e_art | float | 0.40–0.70 | data file (art record) | Escape art base |
 | escape_realm_step, escape_lock_penalty | float | 0.10, 0.15 | data file | Realm and lock terms |
-| escape_bonus | float | 0–0.3 | calculated | Modifiers with the escape tag |
+| escape_bonus | float | 0–0.3 | Modifier System (`escape_pct`) | The escape sum |
 | lock | int | 0 or 1 | calculated | The pursuer has a lock tag |
 | khi_van_per_point | float | 0.001 | data file (kept from `duel`) | **User decision 2026-11-06:** fortune shifts every crit, evade, status, trigger and escape roll |
 
 A chance of exactly 0 or 1 is not shifted and takes no draw, so a build with no chance effects stays
-deterministic. Draws run in one fixed order within each instant (a follow-up instant continues the order, rule 10): the pulse's draws; the requesting side's
+deterministic. A counted chance (a keystone, Effects System rule 12) takes no draw either. Draws run in one fixed order within each instant (a follow-up instant continues the order, rule 10): the pulse's draws; the requesting side's
 hits in hit order (per hit: evade, crit, status, then that hit's trigger draws, each free hit drawing its own evade); the other side's hits the same
 way; then escape rolls, requesting side first. Separate instants simply draw in time order. Times are whole
 milliseconds (rule 10), so only events in the same millisecond share an instant, and events one millisecond apart are two instants. If both sides escape in one instant, the fight ends in
@@ -814,7 +818,7 @@ adds 0.03 to it, so **0.25**. Escape art 0.55, one realm below a locking pursuer
 
 The companion_hit formula is defined as:
 
-`c_comp = min(c_comp_cap, share / (B_p · stage_mult))` ; `companion_hit = U_owner · stage_owner · c_comp · M(companion tags) · supp`, then the ward and body guard as any hit
+`c_comp = min(c_comp_cap, share / (B_p · stage_mult))` ; `companion_hit = U_owner · stage_owner · c_comp · M(companion tags) · supp`, then the defence path as any hit
 
 **Variables:**
 
@@ -824,26 +828,29 @@ The companion_hit formula is defined as:
 | c_comp_cap | float | 1.0 (guess) | data file | A companion never out-hits a basic attack before layers |
 | creature_mult | float | 1.1 | data file (replaces `beast.power_mult`) | A creature enemy has `base` and pools × 1.1, applied with `boss_pool_mult` |
 
-A companion hit takes the kind of its art, can be evaded, cannot crit, has a floor of 1 and counts as
-direct damage.
+A companion hit takes the damage type of its art (authored, Combat Damage Types rule 1), can be evaded, cannot
+crit, deals at least 1 when anything reaches health, and counts as direct damage.
 
 **Output Range:** `c_comp` runs 0–1. A companion hits once per `basic_cooldown` for no linh lực (rule 19).
 
-**Example:** share 40 at Qi Refining, stage 1.00: c_comp = 0.4, so D = 6.31 × 0.4 × 3.27 = 8.26, which deals **3.2** through the typical ward.
+**Example:** share 40 at Qi Refining, stage 1.00: c_comp = 0.4, so D = 6.31 × 0.4 × 3.27 = 8.25, which deals 8.25 × 0.346 − 0.946 = **1.91** against FX-T with the
+Common Ward.
 
 ### K. Rating profile and power score
 
 The rating_clash formula is defined as:
 
-`Off = U · stage · c_rate · M · crit_EV` per second, with `crit_EV = 1 + chance · (crit_mult − 1)` and `c_rate = basic_coef / basic_cooldown + Σ_a (c_art_a · uptime_a / cd_eff_a)` ; `D = Off · (1 − p_evade) · supp` ; `t_w = qi / (D · (1 − pass) · drain + net_spend)` ; `t_h = health / (D · pass · f)` ; `T0 = t_h if t_h ≤ t_w, else t_w + (health − t_w · D · pass · f) / (D_late · f)` ; `T = T0 / (1 + pi_s · T0)` ; `R = T_(B→A) / T_(A→B)` ; `P(A wins) = clamp(1 / (1 + R^(−κ)) + (eff(khi_van_A) − eff(khi_van_B)) · khi_van_per_point, 0.02, 0.98)`
+`Off = U · stage · c_rate · M · crit_EV` per second, with `crit_EV = 1 + chance · (crit_mult − 1)` and `c_rate = basic_coef / basic_cooldown + Σ_a (c_art_a · uptime_a / cd_eff_a)` ; `D = Off · (1 − p_evade) · supp` ; `t_w = Q_use / (D · b + n_hits · fee + upkeep_avg(T0) + net_spend)` ; `t_h = (S / λ_all + (H + heal(T0)) / λ_all) / D` ; `T0 = t_h if t_h ≤ t_w, else t_w + (S + H + heal(T0) − t_w · D · λ_all) / (D_late · λ_fix)`, with one fixed-point pass for the decaying heal (Combat Defence & Healing Formulas G) ; `T = T0 / (1 + pi_s · T0)` ; `R = T_(B→A) / T_(A→B)` ; `P(A wins) = clamp(1 / (1 + R^(−κ)) + (eff(khi_van_A) − eff(khi_van_B)) · khi_van_per_point, 0.02, 0.98)`
 
 For a force: `N_eff = min(N, mass_width) + mass_reserve_weight · max(0, N − mass_width)`. Members are ranked by
 `display_power`, and a force's Off, health and linh lực are its weighted member means × N_eff, with weighted means of
-pass, drain and f, so numbers count squared in R. A force's realm for `g` and its fortune are its leader's.
+b, λ_all and λ_fix, so numbers count squared in R. In a clash, each side's b, λ and counted shields use the
+attacker's own damage-type mix (Combat revision D7). A force's realm for `g` and its fortune are its leader's.
 
 The power_score formula is defined as:
 
-`display_power = B_p · sqrt(F / F_unbuilt)`, where `F = Off · ehp`.
+`display_power = B_p · sqrt(F / F_unbuilt)`, where `F = Off · ehp`, and ehp is Combat Defence & Healing Formulas G
+against a fixed `reference_type_mix` fitted by the balance harness (Combat revision D7), leaving out healing.
 
 **Variables:**
 
@@ -852,7 +859,13 @@ The power_score formula is defined as:
 | uptime_a | float | 0–1 | calculated | Share of its ready moments in which art a can actually fire (guard true, cost payable) |
 | c_art_a, cd_eff_a | float | 1.2–12; ≥ 0.5 s | calculated | Each damage art's coefficient and effective cooldown (Formulas A2), so any number of arts sum into one rate |
 | net_spend | float | any | calculated | Own art cost per second minus regeneration per second |
-| f | float | 0–1 | calculated | `1 − m · guard_share_kind`, share-weighted over kinds |
+| Q_use | float | ≥ 0 | Combat Defence & Healing rule 10 | Usable linh lực, `qi_max · (1 − Σ reserved)` |
+| b | float | ≥ 0 | Combat Defence & Healing Formulas C, G | Linh lực the defender's drain wards pay per incoming point |
+| n_hits, fee | float | ≥ 0 | Combat Defence & Healing Formulas C | The attacker's hits per second, and the defender's per-hit ward fees |
+| upkeep_avg(T0) | float | ≥ 0 | Combat Defence & Healing Formulas C | The defender's mean upkeep per second over the fight |
+| λ_all, λ_fix | float | 0.02–1.5 | Combat Defence & Healing Formulas G | Share of a hit that reaches health with every ward up; with only reserved wards, body defence and other sources. Uses the attacker's mean hit size D̄ |
+| S, H | float | ≥ 0 | Combat Defence & Healing Formulas B, G | Standing ward shields and body shield that the attacker's types do not pass; starting health |
+| heal(T0) | float | ≥ 0 | Combat Defence & Healing Formulas E | Healing over the fight, decayed and capped |
 | D_late | float | ≥ 0 | calculated | The attacker's D on the basic attack alone (`basic_coef / basic_cooldown`) if its own linh lực runs out first |
 | pi_s | float | 0–0.3 | calculated | Soul attack rate: Σ `pct / cd_eff`, at most `soul_cap / soul_lockout` |
 | κ | float | 12–16, default 14 | data file (`rating_kappa`) | One-on-one steepness: a 10 % edge wins about 79 %, a 20 % edge about 93 % |
@@ -860,7 +873,8 @@ The power_score formula is defined as:
 | mass_width, mass_reserve_weight | int, float | 12, 0.25 | data file | The first 12 members count fully, the rest at a quarter |
 | F_unbuilt | float | — | calculated | F of an unbuilt stage-1.00 character of that realm |
 
-If the denominator of `t_w` is 0 or less, the ward never runs out and `T0 = t_h`.
+If the denominator of `t_w` is 0 or less (only reserved wards and body defence), the wards never run out and
+`T0 = t_h`.
 
 `display_power` replaces today's chiến lực total wherever one number is shown or stored: screens, NPC
 records and beast power shares. An unbuilt character shows about B_p. Rating profiles are cached and
@@ -868,26 +882,38 @@ rebuilt only when a build changes.
 
 **Output Range:** P is 0.02–0.98. One roll decides a clash.
 
-**Example:** a typical Qi Refining mirror: Off 36.51, pass 0.344, drain 0.956, f 0.932, health 109.9, linh lực 172.7,
-net spend 6.91. t_w 5.80, t_h 9.39, T0 **7.77** s, against 7.6 in the old round simulation (inputs provisional). Forces of 40 against 20 identical members:
+**Example:** a typical Qi Refining mirror: Off 36.51, the Common Ward (b = 0.959 × 0.654 = 0.627), λ_all
+0.346 − 0.946 / 36.51 = 0.320, health 109.87, linh lực 172.74, net spend 6.91, no shields and no healing.
+t_w = 172.74 / (36.51 × 0.627 + 6.91) = **5.80** s; health-only t_h = 109.87 / 0.320 / 36.51 = **9.40** s. The wards
+fall first, with 67.75 health lost and 42.12 left; then only the basic attack runs (D_late 22.80) against flesh
+block (λ_fix 0.974), so 42.12 / 22.21 = 1.90 s more, and T0 = **7.69** s. Combat Defence & Healing's calibration
+expects a mirror of about 7.7 s; the old round simulation gave 7.6 (inputs provisional). Forces of 40 against 20 identical members:
 N_eff 19 against 14, R = 1.84, κ 4, P = **92 %**.
 
 **Agreement test.** Pairs come from the harness's build generator, each side with at least one chance
 effect, because a chance-free pair gives the same result under every seed. Over 200 seeds per pair, for
 pairs with R of 0.5–2.0, the mean |P_rating − P_full| ≤ 0.10, and for R outside 0.9–1.1 no pair is off by
-more than 0.20. Outside 0.5–2.0 the two pick the same winner in at least 97 % of pairs. The point where a
-ward runs out makes this harder near R = 1.
+more than 0.20. Outside 0.5–2.0 the two pick the same winner in at least 97 % of pairs. The point where the
+wards run out makes this harder near R = 1.
 
 ### Parameter keys
 
-New in `combat_rules.json`: every `data file` value above. New stat keys for Character Stats, all in
-percentage points: `crit_chance_pct`, `crit_damage_pct`, `evade_pct`, `accuracy_pct`, `pierce_pct`,
-`art_cost_pct`, `linh_luc_regen_pct`, `status_resist_pct`, `ward_efficiency_pct`, `body_guard_pct`,
-`soul_res_pct`. `art_speed_pct` is also new (Formulas A2), and it is not yet in Character Stats (Open Question 21). `defense_pct` now means ward strength.
+New in `combat_rules.json`: every `data file` value above. Defence keys (`default_resist`, `default_drain`,
+`resist_cap`, `resist_cap_max`, `resist_floor`, `heal_pulse_cap`, `ward_gear_scale`, `ward_cap`, `ward_floor` and the
+rest) live in its `defence` section and are owned by Combat Defence & Healing (Combat revision D18). New stat keys
+for Character Stats, all in percentage points unless noted, with W prices in the Modifier System's Stat List:
+`crit_chance_pct`, `crit_damage_pct`, `evade_pct`, `accuracy_pct`, `pierce_pct`, `art_speed_pct`, `art_cost_pct`,
+`linh_luc_regen_pct`, `status_resist_pct`, `ward_efficiency_pct`, `soul_res_pct`, `x_soul`, `escape_pct`,
+`resist_pct`, `resist_cap_pct`, `resist_pen_pct`, `block_rating` (flat), `body_shield_pct`, `health_regen_pct`,
+`healing_pct`, `healing_taken_pct`, `reserve_eff_pct`, `convert_pct`, `damage_more` (layer points), `bonus_slots` and
+`bonus_ward_slots` (flat). `defense_pct` now means ward strength.
 
 **Removed from `combat_rules.json`:** `power.base_offense_share`, `power.base_defense_share`,
 `power.cong_phap_share` (tech_power acts through linh lực, and arts come from techniques),
-`power.khi_huyet_weight`, `power.linh_luc_weight`, `duel.ratio_exponent`, `duel.rounds`. Kept:
+`power.khi_huyet_weight`, `power.linh_luc_weight`, `duel.ratio_exponent`, `duel.rounds`; and, with the Combat revision (#43): `default_ward_pass`,
+`default_ward_drain`, `pass_min`, `drain_min`, `guard_base`, `guard_pool_slope`, `guard_cap`, `guard_max_mit`,
+`guard_half`, `guard_share_kind`, `body_guard_pct`, `ward_art_duration`, `curse_pass_raise_max`,
+`trig_ward_strength` and `trig_ward_seconds`; `hit_cost_share` and `upkeep_share` move onto ward records. Kept:
 `duel.injured_power_floor`, `duel.khi_van_per_point`, `duel.min_win_chance`, `duel.max_win_chance` (the
 last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 
@@ -895,13 +921,19 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 
 **Ending a fight**
 
-- **If both sides lose all health in the same instant:** rule 10's defeat check decides: the larger overkill share (of own `health_max`) loses, and overkill shares within `overkill_epsilon` of each other are a draw with both left at 1 health and `wound: grave`.
+- **If both sides lose all health in the same instant:** each first runs the Down step (Effects System rule 11),
+  the requesting side first; a last act's damage still adds to its target's overkill. Then rule 10's defeat check
+  decides: the larger overkill share (of own `health_max`) loses, and overkill shares within `overkill_epsilon` of each other are a draw with both left at 1 health and `wound: grave`.
 - **If a tick empties health:** the side keeps acting until the instant ends, and the defeat check runs
   after the instant's damage is all in. If both sides are emptied, the overkill comparison and the draw of rule 10 apply.
 - **If the fight reaches `time_limit`:** it is a stalemate with no winner. Each side keeps what it has
   left, and the caller applies any health loss as usual.
-- **If neither side can hurt the other:** the damage floor of at least 1 per part still applies, so
-  health falls until a side is Down or `time_limit` is reached.
+- **If neither side can hurt the other:** block can take every part to 0 (Combat Defence & Healing rule 12), so
+  the fight may run to `time_limit` and be a stalemate. Otherwise a part that reaches health deals at least 1.
+- **If a side would be Down but holds an unspent refusal:** it is set to 1 health and fights on (Effects System
+  rule 11). If both sides are saved, both stand at 1 and the fight goes on.
+- **If a heal and lethal damage land in the same instant:** the heal counts, and only the defeat check decides
+  (Combat Defence & Healing Edge Cases).
 - **If a lethal hit lands during an escape channel:** damage applies first. A side whose health is 0 or below when its
   channel ends does not flee, because an escape cannot dodge the blow that ends the fight.
 - **If a side is taken from full health to 0 by one hit:** a health guard never had a moment to be true, so
@@ -913,21 +945,25 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 - **If a pool stat is 0 or very low:** `n_k` stops at `pool_n_min`, so both pools have a size.
 - **If vitality is below `v_c`:** health starts at `v_c` of its maximum (Formulas A).
 - **If a request carries starting shares:** they replace the vitality start and the full linh lực, and the floor does not apply. A health share of 0 or below, a share above 1, or only one of the two is rejected at the request.
-- **If a per-pulse ward cannot pay its first upkeep from a low starting share:** it is down until a pulse it can pay, like any ward that cannot pay.
-- **If a side spends all its linh lực on arts in an instant:** its ward blocks nothing against that instant's
-  hits, because its own cost is paid first.
-- **If a hit needs more blocking than the linh lực can pay:** it blocks what the pool allows, the pool
-  reaches 0 and the rest leaks.
-- **If linh lực is 0:** each pulse's regeneration still arrives, so a
-  drain ward blocks only that small amount until it is gone.
-- **If a per-hit or per-pulse ward cannot pay:** it blocks nothing for that hit or until the next pulse, and it is
-  tried again then.
-- **If the player switches the ward off:** no ward cost is paid and only body guard stands. The ward
-  stays off for the whole fight unless a slotted ward art fires.
-- **If regeneration is blocked by a curse:** linh lực does not rise until the curse ends.
+- **If an upkeep ward cannot pay its first fee from a low starting share:** it is down until a pulse it can pay, like any ward that cannot pay.
+- **If a side spends all its linh lực on arts in an instant:** its drain, per-hit, upkeep and default wards cover
+  nothing against that instant's hits, because its own cost is paid first; reserved wards, cast wards already up and
+  body defence still stand.
+- **If a drain bill is larger than the live pool:** each drain ward pays the same fraction of its own bill, and the
+  unpaid share of the prevented damage rejoins the part (Combat Defence & Healing rule 8, Formulas C).
+- **If linh lực is 0:** each pulse's regeneration still arrives, so drain wards can pay only that small amount
+  until it is gone.
+- **If a per-hit or upkeep ward cannot pay:** it is Down for that hit or until the next pulse, and it is tried
+  again then.
+- **If the player switches standing wards off:** they take no payment, the default ward covers any part no other
+  ward covers, and body defence still stands. They stay off for the whole fight; a cast ward in an art slot still
+  fires.
+- **If a side carries No Ward:** it has no default ward and cannot slot wards (rule 22's flags).
+- **If regeneration is blocked by a curse:** linh lực and health do not rise until the curse ends.
 - **If `attack_pct` goes below −90 from penalties:** L1 stops at 0.1, so a hit is never negative.
 - **If a soul attack is below `rho_min`:** it deals nothing, but its cost and cooldown are paid.
-- **If a soul attack drains linh lực to 0:** the ward has nothing to block with, as with any other loss.
+- **If a soul attack drains linh lực to 0:** drain, per-hit, upkeep and default wards are down, as with any other
+  loss; reserved wards stay up.
 - **If a creature has no `divine_sense`:** its profile must state one; the data lint rejects a profile
   without it.
 
@@ -944,11 +980,16 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 - **If a slotted talisman has no stock left:** it is skipped.
 - **If an art's tag or a modifier's tag is unknown:** the data lint rejects it at load, and it never
   reaches a fight.
-- **If conversions on a hit total over 100 %:** shares are scaled down to 100 %. A conversion to the
-  tag a part already has does nothing. A third conversion on a hit is ignored, and the log says so.
+- **If conversions on a hit total over 100 %, repeat a type in a part's history, exceed 2 or touch Soul:** Combat
+  Damage Types' Edge Cases decide (scaled per part in one step; a conversion back into the history moves nothing;
+  a third is ignored and logged; to or from Soul is ignored and not counted).
+- **If old content carries `body` or `qi` kind tags:** it loads as Physical and Force, with a warning (Combat
+  Damage Types rule 10).
+- **If an art declares no damage type:** compile rejects it (Combat Damage Types rule 1).
 - **If triggers exceed `trigger_depth`, `trig_cap` or `trig_budget`:** the excess is dropped or clipped
   and logged, in the fixed order of rule 9.
-- **If two statuses with "the stronger wins" have equal strength:** the one already on the target stays.
+- **If two statuses with "the stronger wins" have equal strength:** the one already on the target stays. The status
+  catalogue and its stacking rules (refresh, stack to a cap, the stronger wins, or none) are the Effects System's.
 
 **Preparation and setup**
 
