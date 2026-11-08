@@ -1,8 +1,8 @@
 # Combat Defence & Healing (Phòng Ngự & Trị Thương)
 
-> **Status**: Designed 2026-11-07 (revised the same day for Combat Damage Types, #21b: resistance per damage type, flat block, body shields; body guard retired), pending an independent `/design-review` in a fresh session
+> **Status**: Designed 2026-11-07 (revised the same day for Combat Damage Types, #21b: resistance per damage type, flat block, body shields; body guard retired). Design review 2026-11-08 (lean, overnight, four passes): Needs Revision, see `reviews/combat-defence-review-log.md`
 > **Author**: user + agents
-> **Last Updated**: 2026-11-07
+> **Last Updated**: 2026-11-08
 > **Last Verified**: 2026-11-07
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Your Dao, Your Name (1)
 > **Parent system**: Combat (#21, `design/gdd/combat.md`). This is sub-system #21a. It owns the whole defence path (evade, resistance, block, wards and body shields, health, soul and status defence) and healing in a fight. Combat keeps offence, the timeline, triggers and results, and is revised afterwards to point here (systems-index design order, user decision 2026-11-07).
@@ -13,7 +13,7 @@
 Combat Defence & Healing, a sub-system of Combat, decides what a blow does after it is struck:
 evade, then resistance by damage type, then a flat block, then shields from wards and the body, then
 health. Wards are spells in free ward slots that grow with realm and thần thức. They layer, carry
-resistance, block, shield, status or soul payloads, and are paid by reservation, upkeep, per hit, drain or cast. Healing works in ordinary
+resistance, block, shield, evade, status or soul payloads, and are paid by reservation, upkeep, per hit, drain or cast. Healing works in ordinary
 fights, capped per pulse and fading over time, so builds are tested on more than damage.
 
 > **Quick reference** — Layer: `Feature` · Priority: `MVP` · Key deps: `Combat, Character Stats, Modifier System`
@@ -34,8 +34,8 @@ fades as the fight goes on.
 
 The centre of the system is the **ward** (hộ thể). A ward is a spell that sits in a slot. Every
 cultivator gets free ward slots, which grow with realm and with thần thức, and every slotted ward is up at
-once, so defences can be layered. A ward is what it carries (resistance, block, a shield, status or soul
-defence) and how it is paid:
+once, so defences can be layered. A ward is what it carries (resistance, block, a shield, evade, status or
+soul defence) and how it is paid:
 - **reserved**, out of maximum linh lực;
 - **upkeep**, which grows heavier the longer it is held;
 - **per hit**;
@@ -93,7 +93,7 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
    resistance (Combat Damage Types rule 2).
 
    - **Cap:** 75 % by default (`resist_cap`). Rare modifiers raise it for one damage type or for all, up to a
-     hard 90 % (`resist_cap_max`) (user decision 2026-11-07). No sum of resistances makes a tag harmless.
+     hard 90 % (`resist_cap_max`) (user decision 2026-11-07). No sum of resistances makes a damage type harmless.
    - **Floor:** curses and penalties can push resistance below 0, down to −50 % (`resist_floor`). A part
      then takes up to 1.5 times its damage.
 
@@ -132,7 +132,7 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
    | **Block** | Adds a flat block to every hit (rule 12) |
    | **Status** | Adds status resistance, and may carry cleanse tags that a cleanse reads (Combat rule 8) |
    | **Soul** | Adds soul resistance, and may hold a soul shield that soaks a share of each soul hit's losses |
-   | **Shield** | A shield bar of its own size, which soaks damage after resistance (rule 9) |
+   | **Shield** | A shield bar of its own size, which soaks damage after resistance and block (rule 9) |
    | **Evade** | Adds evade (rule 13) |
 
    - **Ward strength** scales the ward's own payload numbers: `× (1 + ws / 100)`, so it raises resistance,
@@ -166,7 +166,9 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
 
    All payments come from the live linh lực pool that art costs use, except reserved, which comes off the
    top. A ward whose payment fails is **down** until it can pay again. Shields are not paid by drain:
-   their bar is their budget.
+   their bar is their budget. Drain also cannot pay evade, status or soul payloads, which have no clean
+   "damage prevented" (user decision 2026-11-08). A drain-paid block payload is billed on the block points
+   it actually took (Formulas C).
 
 9. **Shields soak, in order.** A shield is a pool that soaks damage before health. Ward shields and the
    body's shields are one concept (user decision 2026-11-07: body armour is a shield too). Shields meet a
@@ -185,8 +187,11 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
    - A **body shield** never refills on its own. Only an Effect restores it, such as a hardening art or a
      pill (user decision 2026-11-07).
    - Soul hits meet only soul shields.
-   - A side's shields together hold at most `shield_total_cap` × its maximum health (Formulas B), so
-     layered shields behind capped resistance stay bounded.
+   - Shields have no total cap (user decision 2026-11-08: "let's make it uncapped"). Ward shields are
+     bounded by their own sizes (σ ≤ 0.50 of `qi_max` each), the number of ward slots and their W price.
+     The body shield is bounded by its W-priced sources, and it never refills on its own. `shield_total_cap`
+     and `body_shield_cap` stay as data knobs, **off by default**, so the harness can restore a cap if
+     shields stall fights (Formulas B, AC-CD-59).
 
 **Reservation**
 
@@ -224,7 +229,8 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
       never from ticks. Block answers many small hits, which proportional resistance cannot;
     - **resistance** (rule 2).
 
-    Each piece's sizes are set when that piece is designed, inside the price check (rule 20). Block from all
+    Each piece's sizes are set when that piece is designed, inside its W price (Modifier System Formulas A–C; this GDD's Formulas H lists them),
+    not the ward price check. Block from all
     sources adds. A part reduced to 0 by block deals nothing, but a part that gets past block and reaches
     health deals at least 1. Body guard (`body_guard_pct`, Combat rule 23 and Formulas D) is retired. A thể
     tu is now a build that stacked body shields, block and Physical resistance, and its weakness is Chaos,
@@ -293,10 +299,11 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
 | Off | Switched off before the fight | The player chose it | Never in this fight |
 | Up | Its payloads apply | Standing: t = 0 with payment met. Cast: its spell fires | Payment fails, duration ends, or shield broken |
 | Down (unpaid) | Payloads do not apply | Upkeep, per-hit or drain payment cannot be met | The next payment it can meet |
-| Broken | A shield ward at 0 shield; its non-shield payloads stay up if paid | Its shield reaches 0 | Recharge begins after `recharge_delay` (standing) or its spell fires (cast) |
+| Broken | A shield ward at 0 shield; its non-shield payloads stay up if paid, and it counts as Up for the default-ward fallback (rule 11) | Its shield reaches 0 | Recharge begins after `recharge_delay` (standing) or its spell fires (cast) |
 | Expired | A cast ward whose duration ended | Duration ends (it stays up through that millisecond) | Its spell fires again |
 
-The default ward is Up whenever no other ward of the side is Up and linh lực is above 0.
+The default ward is Up for a hit part whenever no other ward of the side is Up for that part and linh lực
+is above 0 (rule 11).
 
 **A side's health:** Standing → Down at the defeat check (Combat rule 10). Healing applies only while
 Standing, and never to a Down side.
@@ -305,11 +312,11 @@ Standing, and never to a Down side.
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
-| Combat (#21) | in / out | In: each hit part after offence (kind, final element, tags, damage), ticks, soul hits, fight time, pulses, the `no_heal` flag. Out: what reached health and linh lực, ward and shield states, heals, Breakdown lines | Combat (timeline, offence, results); this GDD (the defence path, wards, healing) |
+| Combat (#21) | in / out | In: each hit part after offence (final damage type, elements, tags, damage), ticks, soul hits, fight time, pulses, the `no_heal` flag. Out: what reached health and linh lực, ward and shield states, heals, Breakdown lines | Combat (timeline, offence, results); this GDD (the defence path, wards, healing) |
 | Character Stats (#7) | in | Maximum health and linh lực, thần thức and its realm reference, căn cốt, the defence stat sums | Character Stats |
-| Modifier System (#40) | in | Resistance (all and per damage type), resistance cap, penetration, block rating, body shield, ward strength and efficiency, reservation efficiency, ward slots, healing, healing taken, health regeneration, body guard, evade, soul and status resistance | Modifier System (stats and prices); this GDD (what they do) |
+| Modifier System (#40) | in | Resistance (all and per damage type), resistance cap, penetration, block rating, body shield, ward strength and efficiency, reservation efficiency, ward slots, healing, healing taken, health regeneration, evade, soul and status resistance | Modifier System (stats and prices); this GDD (what they do) |
 | Effects System (#41) | in | Lifesteal and triggered heals, other reservations, curses that lower healing taken or resistance | Effects System |
-| Cultivation Techniques (#9), The Way (#39) | in | Ward spells and heal arts as technique and Way content; resistance and guard modifiers | each system |
+| Cultivation Techniques (#9), The Way (#39) | in | Ward spells and heal arts as technique and Way content; resistance and block modifiers | each system |
 | Item DB (#13), Artifact Refining (#16) | in | Ward-role artifacts, resistance affixes, body gear | Item DB |
 | Talismans (#18), Formations (#17), Alchemy (#15) | in | Cast wards from talismans, formation wards and ground resistance, healing pills (provisional) | each system |
 | Heavenly Tribulation (#22) | in | `no_heal` on every wave; resistance as its defence against tribulation lightning | Heavenly Tribulation |
@@ -325,14 +332,14 @@ Standing, and never to a Down side.
 > - guard payloads stay flat guard and evade (since revised: body guard is retired, so ward payloads grant block and evade instead).
 >
 > Adopted as recommended, not objected to: the default ward 0.30 / 2.0 is not scaled by ward strength or
-> efficiency; `shield_total_cap`; half-weight efficiency on reservation; reservation efficiency capped at
+> efficiency; `shield_total_cap` (since removed: shields are uncapped, user decision 2026-11-08); half-weight efficiency on reservation; reservation efficiency capped at
 > 50. Every number is a guess or a derivation from Combat's Qi Refining typical anchor (health 109.9, linh
 > lực 172.7, incoming 36.5 per second, D 41.3, ws = we = 30.8) until the balance harness confirms it.
 
 **Revision 2026-11-07 (Combat Damage Types, #21b):** resistance is all + the part's final damage type; flat
 block replaces body guard; body shields join ward shields. `systems-designer` re-derived A, A2, B, G, H and I.
 User choices: base block from flesh + armour with ward gear capped; split block by size after resistance;
-separate shield caps; Iron Shirt stacking accepted; body gear gives mainly shield (0.60 per a_b, top-end
+separate shield caps (since removed: shields uncapped 2026-11-08); Iron Shirt stacking accepted; body gear gives mainly shield (0.60 per a_b, top-end
 1.0 × B_p); restoring a body shield counts as healing; Force resistance is broad; type-scoped penetration
 matches the final type.
 
@@ -428,7 +435,7 @@ Typical block takes 7.5 / 8.8 / 10.9 / 12.2 / 13.3 % of the standard hit after r
 retired body guard's 6.8–12 %. The Foundation Establishment to Deity Transformation n_body values are
 estimates until the harness measures them.
 
-**Block against the cheap 0.5 s kit.** The fast art is c 1.2, cost 0.04, D 24.8 (13.8 linh lực per second);
+**Block against the cheap 0.5 s kit.** The fast art is c 1.2, cost 0.04, D 24.75 (13.8 linh lực per second);
 the slow art is c 3.3, 3 s, cost 0.15, D 68.1.
 
 | Defender | Fast hit dealt | Slow hit dealt | Damage per linh lực, fast / slow |
@@ -437,7 +444,7 @@ the slow art is c 3.3, 3 s, cost 0.15, D 68.1.
 | Thể tu (r 0.60 on Physical, B 5.57) | 4.33 (−56 %) | 21.67 (−20 %) | 0.63 / 0.84 |
 | Typical + Iron Shirt (B 5.9) | 2.67 (−69 %) | 17.7 | 0.39 / 0.68 |
 
-The fast kit edges a typical defender (×1.27) and loses to block builds (×0.66 to ×0.75). Block makes it a
+The fast kit edges a typical defender (×1.27) and loses to block builds (×0.57 to ×0.75). Block makes it a
 counter-build matchup rather than a universal answer, which closes the gap the first draft left open (Open
 Questions 3).
 
@@ -448,7 +455,7 @@ dealt.
 
 The shield formula is defined as:
 
-ward shield `S_w = σ · qi_max · (1 + ws/100)`, recharging at `shield_recharge · S_w · (1 + we/100)` per second once `recharge_delay` passes with no soak ; body shield `S_body = health_max · min(body_shield_cap, Σ σ_b)`, never recharging on its own ; `σ_b,gear = body_gear_shield · a_b` ; order: ward shields (ward slots, then art slots), then the body shield ; `Σ S_w ≤ shield_total_cap · health_max` ; for a cast shield, `σ ≤ shield_per_cost · β · κ`
+ward shield `S_w = σ · qi_max · (1 + ws/100)`, recharging at `shield_recharge · S_w · (1 + we/100)` per second once `recharge_delay` passes with no soak ; body shield `S_body = health_max · Σ σ_b`, never recharging on its own ; `σ_b,gear = body_gear_shield · a_b` ; order: ward shields (ward slots, then art slots), then the body shield ; optional caps, off by default: `Σ S_w ≤ shield_total_cap · health_max` and `S_body ≤ body_shield_cap · health_max`, clipping maximum sizes at compile, later slots first ; for a cast shield, `σ ≤ shield_per_cost · β · κ`
 
 **Variables:**
 
@@ -462,18 +469,21 @@ ward shield `S_w = σ · qi_max · (1 + ws/100)`, recharging at `shield_recharge
 | β | float | 1.0–2.5 | Modifier System Formulas B | The ward's breadth multiplier |
 | shield_per_cost | float | 0.76 | price check (1.25 · ε_0) | Cast shields are sized against their cost |
 | shield_recharge, recharge_delay | float | 0.25 per second, 2.0 s | data file | Ward shields only (user decision 2026-11-07: 2 s) |
-| shield_total_cap | float | 1.0 | data file | Ward shields together, as a share of `health_max` |
-| body_shield_cap | float | 1.0 | data file | The body shield, as a share of `health_max` |
+| shield_total_cap | float or none | none (off); 1.0 if restored | data file | Optional cap on ward shields together, as a share of `health_max` (user decision 2026-11-08: uncapped) |
+| body_shield_cap | float or none | none (off); 1.0 if restored | data file | Optional cap on the body shield, as a share of `health_max` |
 
-**Output Range:** a side holds at most 2 × health_max of shields: 1 × in ward shields, 1 × in its body shield.
+**Output Range:** no total cap. Each ward shield is at most 0.50 · qi_max · (1 + ws/100), one per ward or art
+slot holding a shield ward. The body shield is health_max · Σ σ_b: 0.90 × for the thể tu at Qi Refining, 1.5 ×
+at a_b 2.0 with Iron Body tier 3.
 
 - **One body-shield bar.** All body sources share the default pass list (Soul and Chaos pass), so they form one
   bar. A source that authors a different pass list gets a bar of its own.
 - **Body shields grow with health.** They are a share of `health_max`, so căn cốt and health % raise them.
 - **Restoring a body shield is healing** (user decision 2026-11-07). An Effect that restores it counts toward
   `heal_pulse_cap`, takes healing decay, and is 0 under `no_heal`.
-- **The body-shield cap binds** once σ_b would pass 1.0: at a_b ≥ 1.17 with Iron Body tier 3, or a_b ≥ 0.84 with
-  tier 5. Past that, body gear adds only block. The harness checks this (Open Questions).
+- **No body-shield cap** (user decision 2026-11-08). Past σ_b 1.0 (a_b ≥ 1.17 with Iron Body tier 3, or a_b ≥
+  0.84 with tier 5), body gear keeps adding shield as well as block. The harness checks that no shield build
+  stalls a fight to `time_limit` (AC-CD-59); if one does, the first fix is to restore a cap knob.
 
 **Example:** Mountain Screen gives **61.0**. The thể tu's body shield is 0.90 × 121.15 = **109.0**.
 
@@ -485,7 +495,7 @@ The ward_payment formulas are defined as:
 reserved `= ρ · (1 − min(res_eff, res_eff_cap)/100) / (1 + we/200)` of qi_max ;
 upkeep at pulse n `= u · qi_max · pay_mult · (1 + upkeep_growth)^n` (n = 0 at t = 0, counted from the ward's first Up, never reset) ;
 per-hit fee `= φ · qi_max · pay_mult` per hit or tick met ;
-drain: `rate_w = drain_base / ((1 + ws/100)(1 + we/100))`, `prevented_w = D · r_eff · r_w / R_pos`, `bill = min(pool, rate_w · prevented_w)` ;
+drain: `rate_w = drain_base / ((1 + ws/100)(1 + we/100))` ; resistance payload `prevented_w = D · max(0, r_eff) · r_w / R_pos`, and 0 when R_pos = 0 ; block payload `prevented_w = blk_w` ; `bill = min(pool, rate_w · prevented_w)` ; drain is invalid for evade, status and soul payloads (the price check rejects them) ;
 cast `= κ · qi_max · pay_mult` at each firing
 
 **Variables:**
@@ -500,11 +510,13 @@ cast `= κ · qi_max · pay_mult` at each firing
 | drain_base | float | ≥ 1 / (ε_0 · β) | ward record | Price-checked drain rate |
 | r_eff | float | −0.5–0.9 | calculated (A) | The part's final resistance |
 | r_w | float | ≥ 0 | calculated (A) | This ward's scaled payload on the part's tags |
-| R_pos | float | > 0 | calculated | Sum of the part's positive resistance terms before penetration. Billing is split by share and does not depend on ward order (user decision 2026-11-07: bill only what is prevented) |
+| blk_w | float | ≥ 0 | calculated (A2) | The block points this ward's payload actually took from the hit, after the split by part size. Block a hit did not need is not billed (user decision 2026-11-08) |
+| R_pos | float | ≥ 0 | calculated | Sum of the part's positive resistance terms before penetration. Billing is split by share and does not depend on ward order (user decision 2026-11-07: bill only what is prevented) |
 | κ | float | 0.04–0.25 | ward record | Cast cost share |
 
-**Output Range:** every payment is ≥ 0, reserved is at most 0.9 · qi_max, and a drain bill never
-exceeds the live pool; the shortfall leaks through.
+**Output Range:** every payment is ≥ 0 (a floored or negative r_eff bills 0, and so does a part with no
+positive resistance), reserved is at most 0.9 · qi_max, and a drain bill never exceeds the live pool; the
+shortfall leaks through.
 
 **Why the bill stays flat.** Below the cap and with no penetration, r_eff = R_pos, so
 prevented_w = D · r_w0 · (1 + ws/100). The bill is then D · r_w0 · drain_base / (1 + we/100), with no
@@ -576,7 +588,8 @@ resistance multiplies what a heal is worth, so the ratio is set at 0.3. That mak
 about one pulse cap.
 
 **Stall check.** A pure healer at the cap, facing an unbuilt attacker (3.8 % of health per second), dies at
-**37.6 s**, inside 40 s. With a floor of 0.25 it would last 41 s, which is a stall.
+**37.6 s**, inside 40 s. With a floor of 0.25 it would last about 43.8 s (continuous model; the harness
+confirms both figures with discrete pulses, AC-CD-45), which is a stall.
 
 **Example:** a heal art at cost 0.15 and cooldown 3 s:
 - The lint gives 3.3, so c_heal ≤ 0.99, which heals 6.25 (5.7 % of health).
@@ -644,7 +657,8 @@ The ehp formula is defined as:
 the healing ratio, one point healed is now worth 1 / λ = 3.12 incoming points (was 3.10).
 
 **The thể tu at Qi Refining:** block 88.3 rating (flesh 5.3 + gear 12 + Iron Body tier 3 30 + 41 from W), so
-B 5.57; body shield 109.0 (σ_b 0.90 = technique 0.30 + gear 0.60); Physical resistance 0.30; health 121.15,
+B 5.57; body shield 109.0 (σ_b 0.90 = technique 0.30 + gear 0.60); Physical resistance 0.30 (Iron Body tier 3
+0.20 + Black Iron Armour's Physical affix 0.10); health 121.15,
 linh lực 164.1, the default ward only.
 
 | ehp against | Old (body guard m 0.754) | Now |
@@ -694,7 +708,7 @@ linh lực 164.1, the default ward only.
 
 ### I. W prices for the new defence stats
 
-These belong in the Modifier System's Stat List and price table when it resumes (Open Questions). **D**
+These belong in the Modifier System's Stat List and price table, which was rebuilt for this GDD on 2026-11-07; Open Question 1 checks them against it. **D**
 marks a derived price, **G** a guess.
 
 | Stat | Key | W per unit | | Basis |
@@ -747,7 +761,7 @@ marks a derived price, **G** a guess.
 - **If a ward sits in an ordinary art slot**: it counts toward `slot_count` (Combat Formulas A2) and gives up
   that art.
 - **If a side has more ward slots than wards**: the empty slots do nothing, and the default ward is up only
-  when no ward is.
+  for a part that no other ward is Up for (rule 11).
 - **If the reservations together would pass 90 %**: the ward that would pass it cannot be slotted. Compile
   names it.
 - **If reservation leaves less usable linh lực than an art's cost**: that art can never fire in this fight,
@@ -760,15 +774,16 @@ marks a derived price, **G** a guess.
   the next hit.
 - **If a body shield is damaged**: it stays damaged unless an Effect restores it. A restore is healing: it
   shares `heal_pulse_cap` and decay, and is 0 under `no_heal`.
-- **If the body shield sources would pass `body_shield_cap`**: the bar is clipped to 1.0 × health_max, and
-  further body gear adds only block.
+- **If the body shield sources pass 1.0 × health_max**: nothing is clipped, because shields are uncapped
+  (user decision 2026-11-08). If the `body_shield_cap` knob is set, the bar is clipped to it at compile.
 - **If a shield soaks part of a hit**: its `recharge_delay` restarts from that millisecond, whether the shield
   is broken or not.
-- **If shields would pass `shield_total_cap`**: later shields in slot order are clipped to fit.
-- **If a tick arrives**: it passes ward shields and meets the body shield, unless its type passes that too
+- **If the `shield_total_cap` knob is set and ward shields would pass it**: the maximum sizes are clipped at
+  compile, later slots first, so a refiring cast shield never exceeds its clipped maximum. Off by default.
+- **If a tick arrives**: by default it passes ward shields and meets the body shield (rule 9), unless its type passes that too
   (a poison is Chaos). Ticks never meet block. **If a soul hit arrives**: only soul shields meet it.
-- **If the side is a boss**: `qi_max` and `health_max` already include `boss_pool_mult`, so shield sizes and
-  caps scale with it.
+- **If the side is a boss**: `qi_max` and `health_max` already include `boss_pool_mult`, so shield sizes (and
+  any cap knob that is set) scale with it.
 
 **Healing**
 - **If a heal lands on a side at full health**: nothing is restored, and only health actually restored counts
@@ -795,10 +810,10 @@ marks a derived price, **G** a guess.
 |---|---|---|---|---|
 | Combat (#21) | Hard, parent | Timeline, pulses, instants, offence (layers, crit, suppression), tags and conversion, the defeat check, results, the art lint, the evade formula | GDD approved for rules | Not yet: the Combat revision (#43) replaces rule 4's path, rule 22, rule 23's body guard and all of Formulas D, removes `ward_art_duration` from A2, and updates Formulas A's ehp and Formulas K |
 | Character Stats (#7) | Hard | Maximum health and linh lực, thần thức and `ds_ref`, căn cốt, the stat sheet sums | In review | Not yet: add the new defence keys to Parameter keys |
-| Modifier System (#40) | Hard | The defence and healing stats, their W prices, breadth, scope matching | In design, paused | Partly: its Stat List names healing and reservation efficiency. The new stats (Formulas I) are added when it resumes |
-| Combat Damage Types (#21b) | Hard | The kinds, elements and variants that resistance is keyed on | Not started | Will |
-| Effects System (#41) | Soft | Lifesteal, triggered heals, other reservations, curses on resistance and healing taken | Not started | Will |
-| Heavenly Tribulation (#22) | Soft | Sets `no_heal` on every wave; tribulation lightning carries Thunder | Approved for rules | Not yet: its rule 7 should cite `no_heal` |
+| Modifier System (#40) | Hard | The defence and healing stats, their W prices, breadth, scope matching | Designed 2026-11-07; Needs Revision (design review 2026-11-08) | Yes: its Stat List carries the defence stats and its Cross-References cite rules 2–4, 6, 9–12 and Formulas A–E, I |
+| Combat Damage Types (#21b) | Hard | The damage types that resistance is keyed on, conversion, and what passes each shield | Designed 2026-11-07; Needs Revision (design review 2026-11-08) | Yes: rules 4, 5 and 7 and its Cross-References |
+| Effects System (#41) | Soft | Lifesteal, triggered heals, other reservations, curses on resistance and healing taken | Designed 2026-11-08; Needs Revision (design review 2026-11-08) | Yes: rule 6 (restores and reservation) and its Cross-References |
+| Heavenly Tribulation (#22) | Soft | Sets `no_heal` on every wave; tribulation lightning is Lightning | Approved for rules | Not yet: its rule 7 should cite `no_heal` |
 | Cultivation Techniques (#9), The Way (#39) | Soft | Ward spells and heal arts as content | In review; approved | Not yet |
 | Item DB (#13), Artifact Refining (#16) | Soft | Ward-role artifacts, resistance affixes, body gear | Approved; built | Not yet |
 | Talismans (#18), Formations (#17), Alchemy (#15) | Soft | Cast wards from talismans, formation wards, healing pills | Implemented, quick specs | Not yet |
@@ -828,7 +843,7 @@ or died (Pillar 2). Every defence event has a distinct cue.
 
 - **The ward should feel like a choice.** Before a fight, picking three wards for three slots should
   read like slotting arts: which threats will I meet, and what can I afford? The pre-fight preview
-  shows the expected cut per threat kind.
+  shows the expected cut per damage type.
 - **Breaking a shield is a moment.** A shield that breaks is a beat in the fight log. A build that times its
   burst past a shield should feel it land.
 - **Healing should feel urgent, not endless.** Early heals are strong. Late heals visibly fade, so a healer
@@ -880,6 +895,31 @@ or died (Pillar 2). Every defence event has a distinct cue.
 | Formulas G | combat.md Formulas A, K | ehp, `t_w`, `t_h` | Replaced (ehp); proposed for K |
 | Formulas B, I | item-database.md (artifact defence a_w, a_b) | Body gear mapping 0.60 σ_b and 12 block per a_b; top-end body gear 1.0 × B_p | Proposed change to Item DB |
 
+## Tuning Knobs
+
+All live in the data file. Added 2026-11-08 from the formula tables; no value changed. The safe ranges are
+design estimates until the balance harness confirms them.
+
+| Knob | Default | Safe range | What it tunes | Source |
+|---|---|---|---|---|
+| `resist_cap`, `resist_cap_max` | 0.75, 0.90 | 0.70–0.80; 0.85–0.90 | How much of a hit resistance can stop; the cap raise's ceiling | A, rule 3 |
+| `resist_floor` | −0.50 | −0.75 to −0.25 | The most a hit can be amplified (1.5 × at default) | A |
+| `default_resist`, `default_drain` | 0.30, 2.0 | 0.25–0.35; 1.8–2.2 | The free default ward; matches the old one | A, rule 11 |
+| `block_unit[r]` | 0.0631 / 0.2031 / 0.6672 / 2.254 / 6.883 | derived; rederive if Combat's U or M changes | Block's share of a typical hit at every realm | A2 |
+| `flesh_block`, `gear_block` | 4.4; 12 per a | 3.5–5.5; 10–14 | Unbuilt block; gear block | A2 |
+| `body_gear_shield` | 0.60 per a_b | 0.50–0.70 | Body gear's shield (price parity with ward gear) | B |
+| `shield_recharge`, `recharge_delay` | 0.25 / s, 2.0 s | 0.15–0.35; 1.5–3.0 | How fast standing ward shields come back | B |
+| `shield_total_cap`, `body_shield_cap` | none (off) | none, or 1.0–2.0 | Optional shield caps, the fix if AC-CD-59 finds a stall | B |
+| `upkeep_growth` | 0.15 | 0.10–0.20 | How fast upkeep wards tire (AC-CD-43) | C |
+| `reserve_cap`, `res_eff_cap` | 0.9; 50 | 0.8–0.9; 40–60 | Most linh lực reservable; reservation efficiency's ceiling | C, rule 10 |
+| `reserve_weight` | 1.5 | 1.25–1.75 | Aura strength per reserved point (price check) | F |
+| `ε_0`, `shield_per_cost` | 0.61, 0.76 | anchored; move only with the Common Ward | Ward price check's yardstick | F |
+| `ward_slots_by_realm`, `ward_slot_sense_step` | 1/1/2/2/3; 1.75 | as set; 1.5–2.0 | Free ward slots, and the thần thức bonus | D |
+| `heal_pulse_cap` | 0.04 | 0.03–0.045 (below `dot_pool_cap` 0.05) | Most healing per pulse window | E |
+| `heal_decay_end`, `heal_decay_floor` | 15 s, 0.10 | 12–20 s; 0.05–0.15 (0.25 stalls, AC-CD-45) | How fast healing fades in a fight | E |
+| `heal_lint_ratio` | 0.3 | 0.25–0.40 | Heal art strength against the damage lint | E |
+| `λ_min` | 0.02 | 0.01–0.05 | Keeps ehp finite | G |
+
 ## Acceptance Criteria
 
 > Drafted by `qa-lead` 2026-11-07. Every fixture value was recomputed from the formulas, and the two
@@ -891,7 +931,7 @@ or died (Pillar 2). Every defence event has a distinct cue.
 - **FX-U** is Combat's unbuilt fixture, with block rating 4.4 (0.278 points).
 - **Thể tu fixture:** Formulas G's Qi Refining thể tu: block 88.3 (5.57 points), body shield 109.0, R_all 0.30
   (default ward) and R_Physical 0.30 (so Physical 0.60, Fire and Chaos 0.30), health 121.15, linh lực 164.1.
-- **Common Ward:** general r 0.50, drain 1.64.
+- **Common Ward:** all r 0.50, drain 1.64.
 - **FX-H:** FX-U carrying one heal art at the heal lint's maximum and no damage arts.
 - **Tolerance:** ±0.1 unless a criterion says otherwise.
 - **Test locations:** [Logic] tests go in `tests/unit/combat_defence/`, [Integration] tests in
@@ -941,7 +981,7 @@ or died (Pillar 2). Every defence event has a distinct cue.
 
 - **AC-CD-28** [Logic] Formulas B. **GIVEN** Mountain Screen σ 0.27 on FX-T, **THEN** shield_max is 61.0. **WHEN** 2.0 s pass with no soak, **THEN** it recharges at 19.9 per second. **AT** 1.999 s, **THEN** it has not started. **GIVEN** a partial soak at 1.5 s, **THEN** the delay restarts.
 - **AC-CD-29** [Logic] Rule 9. **GIVEN** FX-T with a ward-slot shield of 20 and an art-slot shield of 30, **WHEN** a part of 45 after resistance lands, **THEN** block takes 0.946, the ward-slot shield is Broken, the art-slot shield holds 5.95, and 0 reaches the body shield or health.
-- **AC-CD-30** [Logic] Formulas B. **GIVEN** Mountain Screen at ws 400 on FX-T (raw 233.2), **THEN** the side's ward shields are capped at 109.87, and later slots are clipped first. **GIVEN** σ_b 1.3, **THEN** the body shield is clipped to 1.0 × health_max. **GIVEN** body gear a_b 1.0, **THEN** it gives σ_b 0.60 and block 12; a_b 2.0 plus Iron Body tier 3 gives σ_b 1.5, clipped to 1.0.
+- **AC-CD-30** [Logic] Formulas B. **GIVEN** Mountain Screen at ws 400 on FX-T (raw 233.2), **THEN** the ward shield is 233.2 (shields are uncapped). **GIVEN** σ_b 1.3, **THEN** the body shield is 1.3 × health_max. **GIVEN** body gear a_b 1.0, **THEN** it gives σ_b 0.60 and block 12; a_b 2.0 plus Iron Body tier 3 gives σ_b 1.5, not clipped. **GIVEN** the `shield_total_cap` knob set to 1.0, **THEN** the same ward shields are capped at 109.87 at compile, later slots clipped first, and a refiring cast shield never exceeds its clipped maximum.
 - **AC-CD-31** [Logic] Rule 9. **GIVEN** a Broken cast shield, **THEN** it never recharges by time, only by firing again.
 
 **Default ward (Rule 11)**
@@ -971,15 +1011,6 @@ or died (Pillar 2). Every defence event has a distinct cue.
 - **AC-CD-45** [Harness] No stall. **GIVEN** FX-H at the heal cap against FX-U, **THEN** it is Down at 37.6 s (±1.0), before `time_limit`.
 - **AC-CD-46** [Harness] Calibration. **GIVEN** the FX-T mirror at Qi Refining, **THEN** it lasts 7.7 s (±10 %). **GIVEN** the FX-U mirror, **THEN** 24.3 s (±10 %). **GIVEN** the other realms' typical mirrors, **THEN** each is within 10 % of 7.2 / 7.4 / 7.0 / 7.0 s (block is estimated to lengthen them by 1–2 %).
 
-**Block and body shields (added with the revision)**
-
-- **AC-CD-53** [Logic] Formulas A2. **GIVEN** parts of D 30 Physical (r 0) and D 30 Fire (r 0.90) against block 8 points, **THEN** block takes 7.27 and 0.73 and 25.0 is dealt. **FOR** any split of a hit, **THEN** the hit loses exactly min(B_hit, Σ a_j).
-- **AC-CD-54** [Logic] Formulas A2. **GIVEN** the block_unit table, **THEN** one rating point is 0.0631 / 0.2031 / 0.6672 / 2.254 / 6.883 points by realm, times stage. **GIVEN** FX-T, **THEN** its rating is 15.0 (flesh 4.8 + armour 10.2) and its block 0.946. **GIVEN** FX-U, **THEN** 4.4 and 0.278.
-- **AC-CD-55** [Logic] Rule 9. **GIVEN** a body shield damaged to half, **WHEN** 30 s pass with no Effect, **THEN** it is still at half. **GIVEN** a standing ward shield damaged the same way, **THEN** it recharges after 2 s.
-- **AC-CD-56** [Logic] Rule 9. **GIVEN** a Chaos hit on the thể tu fixture, **THEN** its after-block amount passes the body shield and reaches health. **GIVEN** a body shield authored as not passed by Chaos, **THEN** it soaks the Chaos hit.
-- **AC-CD-57** [Config/Data] Formulas B, I. **GIVEN** ward gear and body gear at a ≤ 1, **THEN** each prices at 0.648 W per defence point (±0.01).
-- **AC-CD-58** [Harness] Formulas A2. **GIVEN** the fast 0.5 s kit and the slow 3 s kit at equal budget, **THEN** the fast kit's damage per linh lực is within 10 % of 1.27 × the slow kit's against a typical defender, and below the slow kit's against the thể tu and against typical + Iron Shirt.
-
 **Determinism and Breakdown**
 
 - **AC-CD-47** [Logic] Determinism. **GIVEN** two sides with layered wards, shields, heals and one seed, **WHEN** the fight runs twice, **THEN** the logs are byte-identical.
@@ -992,6 +1023,18 @@ or died (Pillar 2). Every defence event has a distinct cue.
 - **AC-CD-51** [Integration] Rules 14, 21. **GIVEN** every reference NPC and creature profile at each realm, **THEN** each has thần thức > 0 and a soul resistance value. **GIVEN** a two-ward NPC, **THEN** it compiles by the same rules and its Breakdown names its wards.
 - **AC-CD-52** [Integration] Modifier System. **GIVEN** `resist_pct` (all and type-scoped), `resist_pen_pct`, `block_rating`, `body_shield_pct`, ward strength, ward efficiency and `healing_pct` modifiers in a build, **THEN** the compiled profile's sums match the Modifier System's totals.
 
+**Block and body shields (added with the revision)**
+
+- **AC-CD-53** [Logic] Formulas A2. **GIVEN** parts of D 30 Physical (r 0) and D 30 Fire (r 0.90) against block 8 points, **THEN** block takes 7.27 and 0.73 and 25.0 is dealt. **FOR** any split of a hit, **THEN** the hit loses exactly min(B_hit, Σ a_j).
+- **AC-CD-54** [Logic] Formulas A2. **GIVEN** the block_unit table, **THEN** one rating point is 0.0631 / 0.2031 / 0.6672 / 2.254 / 6.883 points by realm, times stage. **GIVEN** FX-T, **THEN** its rating is 15.0 (flesh 4.8 + armour 10.2) and its block 0.946. **GIVEN** FX-U, **THEN** 4.4 and 0.278.
+- **AC-CD-55** [Logic] Rule 9. **GIVEN** a body shield damaged to half, **WHEN** 30 s pass with no Effect, **THEN** it is still at half. **GIVEN** a standing ward shield damaged the same way, **THEN** it recharges after 2 s.
+- **AC-CD-56** [Logic] Rule 9. **GIVEN** a Chaos hit on the thể tu fixture, **THEN** its after-block amount passes the body shield and reaches health. **GIVEN** a body shield authored as not passed by Chaos, **THEN** it soaks the Chaos hit.
+- **AC-CD-57** [Config/Data] Formulas B, I. **GIVEN** ward gear and body gear at a ≤ 1, **THEN** each prices at 0.648 W per defence point (±0.01).
+- **AC-CD-58** [Harness] Formulas A2. **GIVEN** the fast 0.5 s kit and the slow 3 s kit at equal budget, **THEN** the fast kit's damage per linh lực is within 10 % of 1.27 × the slow kit's against a typical defender, and below the slow kit's against the thể tu and against typical + Iron Shirt.
+
+- **AC-CD-59** [Harness] No shield stall (shields uncapped, user decision 2026-11-08). **GIVEN** the largest legal shield kit at each realm (Mountain Screen and Thousand-Layer Cloud at ws 400 and we 400, plus body gear at a_b 2.0 and Iron Body tier 5) against FX-U, **THEN** it is Down before `time_limit`. If it is not, restore a cap knob (`shield_total_cap` or `body_shield_cap`) and record the value.
+- **AC-CD-60** [Logic] Formulas C, drain. **GIVEN** a drain-paid resistance ward on a part with r_eff −0.2, **THEN** its bill is 0. **GIVEN** a part with no positive resistance (R_pos 0), **THEN** the bill is 0 and nothing divides by 0. **GIVEN** a drain-paid block payload of 8 points on a hit whose parts total 5, **THEN** it bills `rate_w` × 5. **GIVEN** a drain-paid evade, status or soul ward, **THEN** compile rejects it.
+
 **Remaining gaps** (from `qa-lead`, not yet resolved; see Open Questions):
 - AC-CD-51 checks presence only. Exact soul defence values by realm need a table (Open Question 12).
 - AC-CD-43's figure at we 400 is a model estimate and needs the harness to confirm it (Open Question 11).
@@ -1000,7 +1043,7 @@ or died (Pillar 2). Every defence event has a distinct cue.
 
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
-| 1 | Add the new defence stats (Formulas I) to the Modifier System's Stat List and price table, and check its existing defence rows: ward strength now scales payloads and ward efficiency lowers payments | user + systems-designer | When the Modifier System resumes |
+| 1 | Check modifiers.md's defence rows and prices against Formulas I (the keys are already in its Stat List): ward strength scales payloads and ward efficiency lowers payments | systems-designer | With the Modifier System's re-review |
 | 2 | The Combat revision (#43) must replace Combat rule 4's path, rule 22, the ward half of Formulas D, `ward_art_duration` (A2), Formulas A's ehp and Formulas K's `t_w` and `t_h`, and rewrite the ward ACs | user + systems-designer | Combat revision |
 | 3 | The cheap 0.5 s art kit: flat block now makes it a counter-build matchup (Formulas A2). Confirm with the harness (AC-CD-58) before deciding whether the art lint still needs the curved check (overnight decision 3) | systems-designer | Balance harness |
 | 4 | The reserved wards in the catalogue (†) were scaled ×1.5 by hand for `reserve_weight` 1.5. Rerun the price check on them once the lint tool exists | systems-designer | Before ward content ships |
@@ -1009,8 +1052,8 @@ or died (Pillar 2). Every defence event has a distinct cue.
 | 7 | Healing and healing taken W prices (0.5) are guesses with no heal-build anchor | systems-designer | First healer reference build |
 | 8 | The price check values status and soul payloads coarsely (0.008 · I · T per W). Refine once soul and status reference builds exist | systems-designer | Balance harness |
 | 9 | Shields rarely recharge in a duel at a 2 s delay. Confirm with the harness that shield builds still get picked | systems-designer | Balance harness |
-| 10 | Register the new cross-system entities (resist_cap, resist_floor, default_resist and default_drain, heal_pulse_cap, ward_slot_sense_step, ε_0, the ward price check) and retire the registry's `ward_block` | user | After review |
-| 11 | Harness checks: layered shields behind capped resistance (flag ehp above 3 × top-end); stacked reservation; capped resistance plus healing against the realm's typical attacker; a thể tu healer; per-hit wards against tick builds; over-cap from two drain wards against penetration builds; ward strength's value per extra ward; whether reserved wards are still picked; an upkeep ward at we 400 falls before 40 s (AC-CD-43); the body-shield cap binding body gear; block against top-end-sized hits (the thể tu falls to 446 there); the FE–DT n_body and block anchors; ticks now skipping block (about +7 % against typical) | systems-designer | Balance harness |
-| 13 | Item DB must adopt the body-gear mapping (0.60 σ_b and 12 block per a_b, top-end body gear 1.0 × B_p) and the block from ward gear capped at a = 1 | user | Item DB revision |
-| 14 | Register the revision's new entities: `block_unit`, `flesh_block`, `gear_block`, `body_gear_shield`, `body_shield_cap`, `ward_block_max`, `λ_min`; update the resistance and ehp formula entries; retire body guard | user | With this revision |
+| 10 | Closed 2026-11-08: the registry holds these entities. What remains (retire `ward_block`) moved to row 14 | — | Closed |
+| 11 | Harness checks: layered shields behind capped resistance (flag ehp above 3 × top-end); stacked reservation; capped resistance plus healing against the realm's typical attacker; a thể tu healer; per-hit wards against tick builds; over-cap from two drain wards against penetration builds; ward strength's value per extra ward; whether reserved wards are still picked; an upkeep ward at we 400 falls before 40 s (AC-CD-43); no shield build stalling a fight now that shields are uncapped (AC-CD-59); block against top-end-sized hits (the thể tu falls to 446 there); the FE–DT n_body and block anchors; ticks now skipping block (about +7 % against typical) | systems-designer | Balance harness |
 | 12 | Rule 14 gives every profile a soul defence, but no table of thần thức and soul resistance by realm exists for reference enemies and NPCs. Add one, so AC-CD-51 can check exact values | systems-designer | Before NPC Builds use it |
+| 13 | Item DB must adopt the body-gear mapping (0.60 σ_b and 12 block per a_b, top-end body gear 1.0 × B_p) and the block from ward gear capped at a = 1 | user | Item DB revision |
+| 14 | Closed 2026-11-08 except one step: retire the registry's `ward_block` and `body_guard_pct` once Combat #43 lands | user | Combat revision (#43) |

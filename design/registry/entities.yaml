@@ -1049,13 +1049,13 @@ formulas:
       - we
       - shield_recharge
       - recharge_delay
-      - shield_total_cap
       - health_max
-    output_range: 0 to 1.0 x health_max per side
-    expression: "ward: S_w = sigma*qi_max*(1+ws/100), recharge after recharge_delay; body: S_body = health_max*min(body_shield_cap, sum sigma_b), never self-refills; sigma_b_gear = body_gear_shield*a_b; ward shields <= shield_total_cap*health_max"
-    notes: "Ward shields and body shields are one shield concept; body armour is a shield. What passes a shield is data (ward: Soul + ticks; body: Soul + Chaos). Restoring a body shield counts as healing."
+      - sigma_b
+    output_range: "uncapped: each ward shield <= 0.50 x qi_max x (1 + ws/100); body shield = health_max x sum sigma_b"
+    expression: "ward: S_w = sigma*qi_max*(1+ws/100), recharge after recharge_delay; body: S_body = health_max*sum sigma_b, never self-refills; sigma_b_gear = body_gear_shield*a_b; optional caps off by default (shield_total_cap, body_shield_cap), clipping maximum sizes at compile, later slots first"
+    notes: "Ward shields and body shields are one shield concept; body armour is a shield. What passes a shield is data (ward: Soul + ticks; body: Soul + Chaos). Restoring a body shield counts as healing. Shields uncapped by user decision 2026-11-08; AC-CD-59 checks for stalls."
     added: 2026-11-07
-    revised: 2026-11-07
+    revised: 2026-11-08
   - name: ward_payment
     status: active
     source: design/gdd/combat-defence.md
@@ -1074,10 +1074,10 @@ formulas:
       - kappa
       - qi_max
     output_range: >= 0; reserved <= 0.9 x qi_max
-    expression: "reserved = rho*(1 - min(res_eff,50)/100)/(1 + we/200); upkeep_n = u*qi_max*(1+upkeep_growth)^n/(1+we/100); fee = phi*qi_max/(1+we/100); drain rate = drain_base/((1+ws/100)(1+we/100)); cast = kappa*qi_max/(1+we/100)"
-    notes: "Five payment models. Total payment never rises with ws (flat drain bill). Formulas C."
+    expression: "reserved = rho*(1 - min(res_eff,50)/100)/(1 + we/200); upkeep_n = u*qi_max*(1+upkeep_growth)^n/(1+we/100); fee = phi*qi_max/(1+we/100); drain rate = drain_base/((1+ws/100)(1+we/100)); drain prevented = D*max(0,r_eff)*r_w/R_pos (0 if R_pos = 0) for resistance, block points taken for block; drain invalid for evade, status, soul; cast = kappa*qi_max/(1+we/100)"
+    notes: "Five payment models. Total payment never rises with ws (flat drain bill). Formulas C. Drain billing completed by user decision 2026-11-08."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-08
   - name: ward_slots
     status: active
     source: design/gdd/combat-defence.md
@@ -3265,11 +3265,11 @@ constants:
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
-    value: 1.0
+    value: none
     unit: fraction of max health
-    notes: "The most shield one side can hold."
+    notes: "Optional cap on a side's ward shields, OFF by default (shields uncapped, user decision 2026-11-08). Restore at 1.0 if the harness finds a shield stall (AC-CD-59)."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-08
   - name: recharge_delay
     status: active
     source: design/gdd/combat-defence.md
@@ -3365,11 +3365,11 @@ constants:
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
-    value: 1.0
+    value: none
     unit: fraction of max health
-    notes: "The body shield bar; ward shields have their own shield_total_cap 1.0."
+    notes: "Optional cap on the body shield, OFF by default (shields uncapped, user decision 2026-11-08). Restore at 1.0 if the harness finds a shield stall (AC-CD-59)."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-08
   - name: ward_block_max
     status: active
     source: design/gdd/combat-defence.md
