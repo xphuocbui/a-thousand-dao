@@ -559,10 +559,10 @@ formulas:
       - boss_pool_mult
       - v
     output_range: "health 25 to 32,152; linh luc 41 to 52,247, before boss_pool_mult"
-    expression: "n_k = clamp(stat_k/ref_k[r], 0.25, 8); health_max = health_units*U_r*n_body*boss_pool_mult; qi_max = qi_units*U_r*n_qi*boss_pool_mult; health_start = health_max*max(v, 0.4), or health_max*start_health_share; qi_start = qi_max, or qi_max*start_qi_share, when a request carries starting shares"
-    notes: "Only health ends a fight. Divine sense is not a pool."
+    expression: "n_k = clamp(stat_k/ref_k[r], 0.25, 8); health_max = health_units*U_r*n_body*boss_pool_mult; qi_max = qi_units*U_r*n_qi*boss_pool_mult; health_start = health_max*max(v, 0.4), or health_max*start_health_share; qi_use = qi_max*(1 - sum reserved); qi_start = qi_use, or qi_use*start_qi_share, when a request carries starting shares"
+    notes: "Only health ends a fight. Divine sense is not a pool. Linh luc starts at the usable maximum (Combat revision D6, 2026-11-08)."
     added: 2026-11-06
-    revised: 2026-11-06
+    revised: 2026-11-08
   - name: combat_layer_total
     status: active
     source: design/gdd/combat.md
@@ -589,12 +589,11 @@ formulas:
       - M
       - crit
       - supp
-      - m_kind
-    output_range: "[1, unbounded]"
-    expression: "base = U*stage*c_art; part_j = base*s_j*M(T_j)*crit; D_j = part_j*supp; dealt_j = max(1, leak_j*(1 - m*guard_share_kind))"
-    notes: "Order: evade, conversions, layers, crit, suppression, ward, body guard, floor. Soul attacks skip it."
+    output_range: "0 if block or shields take all of a part, otherwise [1, unbounded]"
+    expression: "base = U*stage*c_art; part_j = base*s_j*M(T_j)*crit; D_j = part_j*supp; D_j then meets the defence path (Combat Defence & Healing Formulas A, A2, B); dealt_j = 0 if nothing reaches health, else max(1, h_j)"
+    notes: "Order: evade, conversions (Combat Damage Types), layers, crit, suppression, then the defence path. Soul attacks skip it. Restated by the Combat revision #43 (2026-11-08)."
     added: 2026-11-06
-    revised: 2026-11-06
+    revised: 2026-11-08
   - name: combat_mitigation
     status: deprecated
     source: design/gdd/combat.md
@@ -632,19 +631,20 @@ formulas:
       - design/gdd/combat.md
     variables:
       - Off
-      - pass
-      - drain
-      - f
-      - health
-      - qi
+      - Q_use
+      - b
+      - lambda_all
+      - lambda_fix
+      - S
+      - H
       - net_spend
       - pi_s
       - kappa
     output_range: [0.02, 0.98]
-    expression: "T0 from t_w = qi/(D*(1-pass)*drain + net_spend) and t_h = health/(D*pass*f); T = T0/(1 + pi_s*T0); R = T(B to A)/T(A to B); P(A) = clamp(1/(1+R^-kappa) + fortune term, 0.02, 0.98)"
-    notes: "Wars and great battles only; individual NPC duels run the full fight."
+    expression: "t_w = Q_use/(D*b + n_hits*fee + upkeep_avg + net_spend); t_h = (S/lambda_all + (H + heal)/lambda_all)/D; T0 = t_h if t_h <= t_w, else t_w + (S + H + heal - t_w*D*lambda_all)/(D_late*lambda_fix); T = T0/(1 + pi_s*T0); R = T(B to A)/T(A to B); P(A) = clamp(1/(1+R^-kappa) + fortune term, 0.02, 0.98)"
+    notes: "Wars and great battles only; individual NPC duels run the full fight. Defence terms from Combat Defence & Healing Formulas C, E, G; the attacker's damage-type mix in a clash, reference_type_mix for display_power (D7). Typical Qi Refining mirror T0 7.95 s. Restated by the Combat revision #43 (2026-11-08)."
     added: 2026-11-06
-    revised: 2026-11-06
+    revised: 2026-11-08
   - name: display_power
     status: active
     source: design/gdd/combat.md
@@ -680,7 +680,7 @@ formulas:
     added: 2026-11-06
     revised: 2026-11-08
   # Superseded by design/gdd/combat-defence.md (2026-11-07): body guard is retired, replaced by block (defence_block)
-  # and body shields (defence_shield). Kept active until the Combat revision (#43), then set to deprecated.
+  # and body shields (defence_shield). Deprecated by the Combat revision (#43, 2026-11-08).
   - name: body_guard
     status: deprecated
     source: design/gdd/combat.md
@@ -2357,7 +2357,7 @@ constants:
       - design/gdd/combat.md
     value: "3 / 4 / 5 / 6 / 7"
     unit: art slots by realm
-    notes: "Provisional. One pool: arts, talismans, escape and slotted wards all take a slot; the basic attack and autocast ward do not."
+    notes: "Provisional. One pool: arts, talismans, escape and slotted wards all take a slot; the basic attack and wards in ward slots do not."
     added: 2026-11-06
     revised: ""
   - name: ward_art_duration
@@ -3483,6 +3483,27 @@ constants:
     value: 0.5
     unit: share of healing taken
     notes: "Most a curse can lower healing taken (Withering). New Combat Formulas F bound, pending the Combat revision."
+    added: 2026-11-08
+    revised: ""
+  - name: reference_type_mix
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/combat-defence.md
+    value: "to be fitted by the balance harness (Combat Open Question 24)"
+    unit: share of each damage type, summing to 1
+    notes: "The damage-type mix display_power's ehp is read against (Combat Formulas K, revision D7, 2026-11-08). A clash uses the attacker's own mix instead."
+    added: 2026-11-08
+    revised: ""
+  - name: advisor_min_ehp_ratio
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 1.25
+    unit: multiple of health_max
+    notes: "The Advisor warns when a build's Physical ehp at 0 linh luc is below this times health_max (Combat UI Requirements, revision D16, 2026-11-08)."
     added: 2026-11-08
     revised: ""
   - name: curse_soul_shred_max

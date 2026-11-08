@@ -170,7 +170,7 @@ system. An Effect grants modifiers from this catalogue as its payload.
    | effect | pierce, lock, poison, cleanse, escape, bleed, seal (cleanse tags, Combat revision D17) | Combat rule 6 |
    | derived art tags | basic, quick, slow, cheap, costly | proposed to Combat (rule 10) |
    | artifact role | weapon, ward_gear, body_gear, utility | Item DB (Combat's role tags; Item DB renamed `ward`/`body`, D2 done 2026-11-08) |
-   | foe | cultivator, creature (Pending until Combat stamps them; `demonic` and `tribulation` held) | Combat rules 2, 18 (variety 2026-11-08) |
+   | foe | cultivator, creature (Pending: Combat stamps them on profiles only when content needs them, Combat rule 6, user decision CB-08; `demonic` and `tribulation` held) | Combat rules 2, 18 (variety 2026-11-08) |
    | activity | secluded, travelling (Pending) | Time & Turn, Realms (variety 2026-11-08) |
    | status | one tag per status in the Effects Status Catalogue's Tags column: ticks burn, poison (the effect tag `poison`, shared), corpse_rot, bleed, frostbite, shock, qi_disruption; curses sundered, exposed, sealed_meridian, silence, stagnation, heavy_breath, leaking_ward, withering, slackened_soul | Effects System Status Catalogue (re-review MD 4) |
    | heal source | body_shield (a restore of the body shield) | Combat Defence & Healing |

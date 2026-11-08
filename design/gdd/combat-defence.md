@@ -1092,7 +1092,7 @@ design estimates until the balance harness confirms them.
 - **AC-CD-43** [Logic] Upkeep cannot last forever. **GIVEN** an upkeep ward with u 0.01, linh lực regeneration at Combat's `regen_cap` 0.08 (not `hregen_cap`, which is health regeneration) and no arts, **THEN** the ward is Down before 40 s, at about 25–27 s at we 0 and at about 36 s at we 400.
 - **AC-CD-44** [Logic] Ward order. **GIVEN** the Common Ward and the Fire-Shunning Veil in either slot order and no shields, **THEN** damage dealt, each ward's bill and the total bill are identical across 50 seeds.
 - **AC-CD-45** [Harness] No stall. **GIVEN** FX-H at the heal cap against FX-U, **THEN** it is Down at 37.6 s (±1.0), before `time_limit`.
-- **AC-CD-46** [Harness] Calibration. **GIVEN** the FX-T mirror at Qi Refining, **THEN** it lasts 7.7 s (±10 %). **GIVEN** the FX-U mirror, **THEN** 24.3 s (±10 %). **GIVEN** the other realms' typical mirrors, **THEN** each is within 10 % of 7.2 / 7.4 / 7.0 / 7.0 s (block is estimated to lengthen them by 1–2 %).
+- **AC-CD-46** [Harness] Calibration. **GIVEN** the typical rotation at Qi Refining (Combat Formulas K), **THEN** its T0 is within 7.7 s ±10 % (7.95). The FX-T fixture mirror, which spends its arts up front, ends at exactly 6.000 s and the FX-U mirror at 25.000 s, both draws (Combat AC-CB-30, worked by hand; user decision CB-01, 2026-11-08). **GIVEN** the other realms' typical mirrors, **THEN** each is within 10 % of 7.2 / 7.4 / 7.0 / 7.0 s (block is estimated to lengthen them by 1–2 %).
 
 **Determinism and Breakdown**
 
