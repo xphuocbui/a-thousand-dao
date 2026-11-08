@@ -1,22 +1,22 @@
 # Combat
 
-> **Status**: Reworked 2026-11-06 to a timeline of seconds with no rounds (user decision); seventh review fixes applied the same day (ward pass clamp, defeat check judged after all of an instant's damage, a draw on equal overkill, guards read after the pulse), not re-reviewed; ninth-pass fixes applied the same day (wake-up events, ward expiry tie), not re-reviewed. Simulated numbers predate the timeline and are provisional. Earlier: fourth design-review fixes, cooldown timers and hit order, escape step, one health bar and wards
+> **Status**: Revised 2026-11-08 for the Combat revision (#43): the defence path, wards, shields and healing move to Combat Defence & Healing (#21a); damage types and conversion to Combat Damage Types (#21b); modifier records, operations and scopes to the Modifier System (#40); statuses, curses and the Down step to the Effects System (#41). This GDD keeps the fight frame: the timeline, offence, the defeat check, results and the rating. Earlier: reworked 2026-11-06 to a timeline of seconds with no rounds (user decision); seventh review fixes applied the same day (ward pass clamp, defeat check judged after all of an instant's damage, a draw on equal overkill, guards read after the pulse), not re-reviewed; ninth-pass fixes applied the same day (wake-up events, ward expiry tie), not re-reviewed. Simulated numbers predate the timeline and are provisional. Earlier: fourth design-review fixes, cooldown timers and hit order, escape step, one health bar and wards
 > **Build status**: On hold (user decision 2026-11-06). The full fight is not built until items, techniques, abilities and passives exist. Until then fights keep using today's power duel (`CombatPower`, `combat_rules.json`) unchanged, so the Character Stats and Cultivation Techniques edits that cite this GDD describe the target, not the running game.
 > **Author**: user + agents
-> **Last Updated**: 2026-11-06
+> **Last Updated**: 2026-11-08
 > **Last Verified**: 2026-11-06
 > **Implements Pillar**: Power Is Built, Not Given (3); Your Dao, Your Name (1); Every Number Is Bounded and Visible (2)
 
 ## Summary
 
 Combat tests a cultivator's whole build: the player prepares, then the engine resolves a seeded
-fight on a timeline of seconds and explains every hit. Khí huyết is the one health bar, linh lực pays for arts and wards off damage,
-and thần thức strikes past wards for a share of both. Bonuses add inside a layer and multiply
+fight on a timeline of seconds and explains every hit. Khí huyết is the one health bar, linh lực pays for arts and for the wards that cut damage,
+and thần thức strikes past every defence except the soul's own, for a share of both pools. Bonuses add inside a layer and multiply
 across layers, so an assembled build far outscales a single stacked stat and can win one realm up, or
 about half the time two realms up. It replaces today's power-ratio duel, hosts the Way's arts and
 Heavenly Tribulation, and collapses to a rating only for wars and great battles.
 
-> **Quick reference** — Layer: `Feature` · Priority: `MVP` · Key deps: `Character Stats, Realms, Cultivation Techniques, Meridian Map, Artifact Refining, Formations, Talismans, Spirit Beasts`
+> **Quick reference** — Layer: `Feature` · Priority: `MVP` · Key deps: `Combat Defence & Healing, Combat Damage Types, Modifier System, Effects System, Character Stats, Realms, Cultivation Techniques, Meridian Map, Artifact Refining, Formations, Talismans, Spirit Beasts`
 
 ## Overview
 
@@ -38,12 +38,13 @@ the same day:
   is assembled, not from a stat race (Pillar 3). Meridian Map and Way W stay additive and keep
   buying the inside of one layer; the other layers are priced separately.
 - **Tags, conversion and triggers.** Arts, techniques and Way nodes carry tags (element, sword,
-  soul, poison), and modifiers key off them. A Dao can convert one tag to another (Fire to Lava),
+  soul, poison), and modifiers key off them. A Dao can convert one damage type to another (Physical to Fire; Combat Damage Types rule 6),
   and "when X happens, do Y" triggers give builds their signature combos (Pillar 1).
-- **Several kinds of threat.** Body and qi attacks, soul strikes, damage over time, curses and
-  layered defences mean a one-note build gets punished and must answer more than damage.
+- **Eight damage types.** Physical, Force, Fire, Cold, Lightning, Light, Chaos and Soul, plus damage over
+  time and curses, so a one-note build gets punished and must answer more than damage (Combat Damage Types).
 - **Spiritual power (linh lực) as mana and as defence, and preparation.** Linh lực pays for arts and
-  powers the ward that blocks most damage, so every art cast is defence spent. A cultivator out of
+  for the wards, which stack: their resistance, block and shields add together and cut most of the damage a
+  side takes (Combat Defence & Healing). So every art cast is defence spent. A cultivator out of
   linh lực who is not a body cultivator (thể tu) is little more than a mortal. What is set up before
   the fight (Pillar 4: time and resources spent beforehand) counts as much as what happens in it.
 
@@ -62,72 +63,105 @@ author's reading and wait for confirmation (see Open Questions).
 
 1. **A fight is two sides and a seeded timeline.** A side is one combatant (a cultivator or a
    creature) plus its attached companions (rule 19). A fight is resolved from its inputs alone: the
-   two compiled profiles (rule 2), the preparation (rule 12), the ground tags, any starting shares (rule 3) and one seed. The same
+   two compiled profiles (rule 2), the preparation (rule 12), the ground tags, any starting shares (rule 3), the request's `no_heal` flag (Combat Defence & Healing rule 19; Heavenly Tribulation sets it on every wave) and one seed. The same
    inputs always give the same result and the same log. Nothing is saved mid-fight; a fight is
    atomic.
 2. **Every combatant compiles to a combat profile.** `compile(character or creature, preparation)`
-   is a pure function that returns the health and linh lực maxima, thần thức, the ward, the body guard,
-   the layered modifiers, the art loadout, the triggers and the tag set. The full fight and the mass-battle
+   is a pure function that returns the health and linh lực maxima and the reserved share, thần thức, the wards and ward slots,
+   resistances by damage type, block, shields, healing stats, soul and status defence (Combat Defence & Healing),
+   the layered modifiers, the art loadout with its derived tags, the triggers and Effects, and the tag set. The full fight and the mass-battle
    form (rule 17) both read the profile, so the player's power and an NPC's stay comparable.
    `compile` replaces today's `CombatPower.compute`, and every stored use of its total moves to
    `display_power` or the profile (Formulas K).
 3. **One health bar.** Khí huyết is the only bar that ends a fight. It starts at its maximum × `max(v, 0.4)`,
    where v is the vitality fraction. At 0 the side is **Down** with a mortal wound; whether it dies or is
-   spared rests on the caller (rule 14). Linh lực starts full. A fight request may instead carry **starting shares** for
-   health and linh lực (user decision 2026-11-06, for Heavenly Tribulation's waves): each pool then starts at that share of its
-   maximum exactly, with no vitality floor. Combat reports the knockout; the caller decides what it costs
+   spared rests on the caller (rule 14). Linh lực starts at its usable maximum, `qi_max · (1 − Σ reserved)` (Combat
+   Defence & Healing rule 10). A fight request may instead carry **starting shares** for health and linh lực (user
+   decision 2026-11-06, for Heavenly Tribulation's waves): health then starts at that share of `health_max` and linh lực
+   at that share of the usable maximum (Combat revision D6, 2026-11-08), with no vitality floor. Health may rise
+   during a fight through healing (Combat Defence & Healing rules 16–19), never above `health_max`; vitality never
+   rises. Combat reports the knockout; the caller decides what it costs
    (rule 14). The thần thức that equipped artifacts occupy (Artifact Refining) stays a separate loadout
    limit and does not lower the thần thức a side fights with (user decision 2026-11-06).
-4. **Three threat kinds, and how each gets through.** Every attack has a kind. **Body** and **qi** attacks
-   meet the ward (rule 22), and what passes meets the body guard (rule 23), before reaching health.
-   **Soul** attacks skip both (rule 24). Damage over time (rule 7) and curses (rule 8) are statuses that
-   carry a kind too.
+4. **Damage types, and the defence path.** Every part of every hit and every tick has one of eight damage types
+   (Combat Damage Types rule 1). After offence (rule 5, Formulas C and H), a hit part meets Combat Defence &
+   Healing's defence path: evade, then resistance, then block, then shields, then health (that GDD's rule 1). A
+   tick on health meets resistance and the shields it does not pass, never evade or block. A tick on linh lực (Qi
+   Disruption) meets resistance and comes off linh lực, passing every shield. A soul hit meets only soul
+   resistance and soul wards (rule 24). Curses carry no damage type and deal no damage (rule 8).
 5. **Layers add inside and multiply across.** Every modifier belongs to exactly one layer, fixed by
    its authoring and never chosen in play. Within a layer the bonuses add; across layers the layer
    totals multiply. The layer list is small and fixed in data. **W stays additive:** the Meridian
    Map's and the Way's `attack_pct`-style bonuses keep their W price and fill the first
    (increased) layer exactly as they do today. The other layers are filled by sources priced
    separately: tagged art modifiers, equipment and companions, preparation and ground, and
-   conversion and trigger effects. A hit's damage is `base × Π layers`, and each layer appears as a
-   line in the Breakdown (rule 16). Soul attacks are the exception (rule 24).
-6. **Tags decide what a modifier touches.** Every art, hit, status, modifier and piece of ground has
-   a tag set: element (the five elements and the eight variants), form (sword, palm, seal, beast,
-   formation), kind (body, qi, soul), mode (hit, over time, curse, ward), source (art,
-   artifact, talisman, formation, companion) and effect (pierce, lock, poison, cleanse, escape). A modifier applies to a hit when its required tags are
-   all in the hit's tags. **Conversion** turns a share of a hit's element or kind tags into another
-   (Fire to Lava, body to qi) before layers are summed; the converted share keeps the original tags
-   as well, so both tag families' modifiers apply to it. Conversions run in a fixed order and a tag
-   cannot be converted back in the same hit.
-7. **Damage over time is a status.** An over-time effect has a kind, tags, a strength, a duration in
-   pulses and a stacking rule (refresh, stack to a cap, or the stronger wins). It ticks at
-   every pulse (rule 10) inside the ward, so only body guard reduces it, and it is an ordinary line in the log.
-8. **Curses are statuses that change rules, not pools.** A curse can lower a defence, lock one
-   layer, raise an art's cost, block regeneration or block a tag. It has a duration and a source and
+   Effects (conditions, triggers, conversions with a rule). A hit's damage is `base × Π layers`, and each layer
+   appears as a line in the Breakdown (rule 16). Soul attacks are the exception (rule 24). Modifier records,
+   operations (flat, increased, more), scopes and W prices are the Modifier System's (its rules 1–8, 12). `more`
+   fills L2 and L4 and is budgeted in layer points (Modifier System Formulas D). L3 comes from gear only. L5 is
+   granted only as an Effect's payload (Modifier System rule 6; Effects System).
+6. **Tags decide what a modifier touches.** Every art, hit, status, modifier and piece of ground has a tag set:
+   - **element**: the five elements and the root variants; art tags only, never defence;
+   - **form**: sword, palm, seal, beast, formation;
+   - **damage type**: physical, force, fire, cold, lightning, light, chaos, soul (owned by Combat Damage Types);
+   - **mode**: hit, over_time, curse, ward;
+   - **source**: art, artifact, talisman, formation, companion;
+   - **effect**: pierce, lock, poison, cleanse, escape, bleed, seal (cleanse tags stay here, Combat revision D17);
+   - **derived art tags**: basic, quick, slow, cheap, costly, which compile assigns from an art's authored
+     cooldown and cost (Combat revision D5; thresholds in Modifier System rule 10).
+
+   The status family (one tag per status) is the Effects System's, and the full vocabulary is Modifier System
+   rule 9. A modifier applies to a hit part when its scope tags are all in that part's tags.
+
+   **Conversion** turns a share of a part's damage type into another (Physical → Fire). It comes from an art, an
+   Effect with a condition, or the ordinary modifier `convert_pct`. There are at most 2 per hit, in the steps art,
+   then Effects, then modifiers. Element tags never convert, nothing converts to or from Soul, and a type cannot
+   convert back in the same hit. A converted part keeps its earlier types as tags for offence modifiers;
+   resistance, penetration and block read its final type only. The full rules (order inside a step, one
+   conversion per `convert_pct` key, per-part scaling, parts at share 0) are Combat Damage Types rule 6 and
+   Formulas A.
+7. **Damage over time is a status.** An over-time status has a damage type, tags, a strength, a duration in
+   pulses and a stacking rule (Effects System rule 9, which owns the status catalogue). It ticks at every pulse
+   and meets the resistance of its type; the attacker's penetration counts, read when the status is applied
+   (Combat revision D11). It passes ward shields by default but meets the body shield unless it is Chaos (Combat
+   Defence & Healing rules 1, 9; Combat Damage Types rule 7). It never meets evade or block. The at-least-1
+   floor applies only to what reaches health. A qi burn status (Qi Disruption) ticks linh lực instead. A
+   standing status has no duration and is bounded by its caster's upkeep (Effects Formulas B). Combat keeps the
+   tick formula and the tick caps (Formulas F). Each tick is an ordinary line in the log.
+8. **Curses are statuses that change rules, not pools.** A curse can lower resistance, soul resistance or
+   healing taken, lock one layer, raise an art's cost or a drain ward's bill, block linh lực and health
+   regeneration, or block a tag (Formulas F). Curse units are percentage points: Slackened Soul is −15 pp per
+   stack, at most −30 pp, and soul resistance never goes below 0 (Combat revision D12). The curse catalogue is
+   the Effects System's. It has a duration and a source and
    can be cleansed by an art or a talisman with a matching cleanse tag. A curse never
    reduces health or linh lực by itself.
 9. **Triggers: "when X, do Y".** A trigger is an event (on hit, on being hit, on a pool below
    a threshold, on a pulse, on a status applied, on an art fired) plus a condition, a limit
-   (per pulse, per fight, or a cooldown) and an effect (a free hit, a status, a refund, a ward, a
-   conversion toggle). Triggers resolve in a fixed order, a trigger caused by a trigger resolves at
+   (per pulse, per fight, or a cooldown) and an action from the Effects System's closed action list (its rule 6).
+   Trigger records are Effects; Combat keeps the event list, the fixed order and the limits below. Triggers resolve in a fixed order, a trigger caused by a trigger resolves at
    most to `trigger_depth`, and the per-pulse trigger count is capped, so no build can loop forever.
 10. **The timeline.** A fight runs in simulated seconds from t = 0 up to `time_limit`, with no rounds (user
-    decision 2026-11-06). Times are whole milliseconds, never floats, so two events tie only in the same millisecond, and no real clock is involved (rule 21). An art's effective cooldown rounds to the nearest millisecond (half up), and its timer restarts as the firing time plus that value. Every other time key (`pulse_interval`, `basic_cooldown`, `escape_channel`, `soul_lockout`, `ward_art_duration`, `trig_ward_seconds`, `time_limit`) is authored in seconds and rounded the same way at load. The engine always
+    decision 2026-11-06). Times are whole milliseconds, never floats, so two events tie only in the same millisecond, and no real clock is involved (rule 21). An art's effective cooldown rounds to the nearest millisecond (half up), and its timer restarts as the firing time plus that value. Every other time key (`pulse_interval`, `basic_cooldown`, `escape_channel`, `soul_lockout`, `recharge_delay`, `heal_decay_end`, `time_limit`) is authored in seconds and rounded the same way at load. The engine always
     resolves the next scheduled event: an art firing, a basic attack, a companion hit, a pulse, an escape
     resolving or a **wake-up** (below). Both sides share one clock.
     - **Wake-ups (review fix 2026-11-06).** Some things stop an art that is otherwise ready, and each ending is a
       scheduled event, so a waiting art fires in the instant its blocker ends, not at whatever event comes next: a
       `soul_lockout` ending (rule 24); the fight time reaching a time guard's threshold (rule 13); an escape
       channel ending (already the escape event). A wake-up joins the instant at its millisecond and adds nothing but
-      the chance for waiting arts to fire, in the art-cost step. The expiry of a ward (a ward art's
-      `ward_art_duration`, a trigger ward's `trig_ward_seconds`) is also a scheduled time, but it fires nothing: a ward
-      **stays up through the whole millisecond it expires in** (user decision 2026-11-06), so hits in that instant
-      are blocked and the ward is down from the next millisecond.
-    - **Start.** Linh lực is at its start (rule 3) and autocast wards are up. Every art's timer starts at its full effective
+      the chance for waiting arts to fire, in the art-cost step. The expiry of a cast ward (its
+      authored duration, Combat Defence & Healing rule 7) or of an Effect's timed ward change (Combat revision D9)
+      is also a scheduled time, but it fires nothing: a ward **stays up through the whole millisecond it expires
+      in** (user decision 2026-11-06), so hits in that instant meet it, and it is Expired from the next
+      millisecond. A trigger's own cooldown ending is a wake-up (Effects System, States).
+    - **Start.** Linh lực is at its start (rule 3); reservations are taken and standing wards are Up; cast wards
+      are Waiting until their first firing (Combat Defence & Healing rules 7, 10). Every art's timer starts at its full effective
       cooldown (rule 13), so nothing fires at t = 0. The basic attack and the companion first act at
-      `basic_cooldown`, and the first pulse is at `pulse_interval`. A per-pulse ward pays its first upkeep at t = 0 (rule 22).
-    - **Pulse.** Every `pulse_interval`: pulse triggers fire (counted in the window that is ending, so nothing they do counts toward the next), over-time statuses tick, status and curse
-      durations fall, sides that are not Down regenerate linh lực, per-pulse wards pay their upkeep, and the
-      per-pulse limits reset (`trig_cap`, the trigger budget, `dot_pulse_cap`). A status or curse applied
+      `basic_cooldown`, and the first pulse is at `pulse_interval`. An upkeep ward pays its first fee at t = 0 (Combat Defence & Healing rule 8).
+    - **Pulse.** Every `pulse_interval`: pulse triggers fire (counted in the window that is ending, so nothing they do counts toward the
+      next); standing statuses take their caster's upkeep before they tick (Effects Formulas B); over-time statuses
+      tick; status and curse durations fall; sides that are not Down regenerate linh lực and health (health inside
+      the heal cap, Combat Defence & Healing rule 17); upkeep wards pay their growing fee; and the per-pulse limits
+      reset (`trig_cap`, the trigger budget, `dot_pulse_cap`, the `heal_pulse_cap` window). A status or curse applied
       between pulses first counts at the next one. A tick may take health to 0 or below, but nothing ends the
       fight until the instant's defeat check (see Same instant).
     - **Firing.** An art fires the moment its timer has ended, its guard is true and its cost can be paid. The
@@ -136,6 +170,7 @@ author's reading and wait for confirmation (see Open Questions).
       cannot; **affordability is read live**, as each slot pays in slot order, so a later
       slot sees what an earlier slot paid. Its cost is paid then and its timer restarts (rule 13).
     - **Hit.** A hit lands at once, against the defender's live linh lực, its parts in conversion order.
+      Each part then meets the defence path (Combat Defence & Healing rule 1).
       Triggers it sets off resolve right after it, in the fixed order of rule 9. A side whose health has fallen
       to 0 or below keeps acting until the instant ends (see Same instant).
     - **Same instant.** Events at exactly the same time form one **instant**, resolved in this order: the
@@ -163,7 +198,10 @@ author's reading and wait for confirmation (see Open Questions).
       whether one side fled or both did, and the result names the side or sides that left (the caller treats it as
       the failure branch for the side that needed the win). A failed escape ends nothing and the fight
       goes on.
-    - **Defeat check.** After every instant, once all of its damage is in. A side with no health is **Down**,
+    - **Defeat check.** After every instant, once all of its damage is in. A side with no health first runs the
+      Down step (Effects System rule 11, Formulas C): a refusal may set it to 1, and its last acts resolve once,
+      entering a follow-up check at the same t. A last act's damage counts toward its target's overkill for the
+      instant, whether or not the target is already Down. Only a side still at 0 or below after that is **Down**,
       and its health is set to 0. If one side is Down, the fight ends. If both are, the side with the larger overkill
       **share** loses (overkill as a share of that side's own `health_max`, Formulas C, so a bigger pool is not
       punished for a bigger absolute number), and the other wins and is left at 1 health, not Down. If the two
@@ -177,34 +215,39 @@ author's reading and wait for confirmation (see Open Questions).
       `time_limit` never happens: its channel is cut off and does not change the stalemate.
 
     No stat decides who acts first. A side's pace comes from the arts it slots and from art speed
-    (rule 13), which is bounded, so no single stat can dominate the order of a fight.
+    (rule 13), which is bounded, so no single stat can dominate the order of a fight. Shield recharge is computed
+    when a shield is read and schedules no event of its own (Combat revision D19; Combat Defence & Healing rule 9).
 11. **Linh lực is mana and defence.** Arts cost linh lực, the pool regenerates at a small rate each pulse
-    (sustain builds raise it), and blocked damage drains it (rule 22). Nothing reserves it: a side may
-    spend it all, and every point spent on arts is a point its ward no longer has. With no affordable
+    (sustain builds raise it), and wards pay from it in five ways: reserved, upkeep, per hit, drain and cast
+    (Combat Defence & Healing rules 8, 10). A reserved ward holds a share off the top for the whole fight, which
+    leaves fewer casts. Every point spent on arts is a point that drain, per-hit and upkeep wards no longer have. With no affordable
     art a side still has the basic attack, which always runs. A long fight favours the build that brought sustain, and a burst
-    build must win before its own spending drops its guard.
+    build must win before its own spending drops its guard. Healing decays over the fight (Combat Defence &
+    Healing rule 18), so a sustain build must still win, not just outlast.
 12. **Preparation counts.** Before a fight the player may prepare, within what the situation allows.
     The Event Engine tells Combat which kind of situation the fight is:
 
     | Situation | What can be prepared |
     |---|---|
-    | **Foreseen** (a challenge, a hunt, a planned raid, a tribulation) | Everything: a formation laid on the ground, talismans slotted, a poison or coating applied, pills taken, the ward chosen, the slot order set, the ground chosen where there is a choice |
+    | **Foreseen** (a challenge, a hunt, a planned raid, a tribulation) | Everything: a formation laid on the ground, talismans slotted, a poison or coating applied, pills taken, wards placed in ward slots and art slots and standing wards switched on or off, the slot order set, the ground chosen where there is a choice |
     | **Ambush** (an event fight with little warning) | What is carried and what a standing formation already holds: talismans, pills with a ready dose, the slot order |
-    | **Blind** (a sudden attack) | Only the loadout, including its ward and any talisman already slotted, and the saved slot order |
+    | **Blind** (a sudden attack) | Only the loadout, including its wards and any talisman already slotted, and the saved slot order |
 
     Each prepared item adds modifiers to a layer, costs the time, goods and upkeep its own system
     sets, and appears in the fight's opening Breakdown. Combat does not price preparation: Artifact
     Refining, Formations, Talismans and the Alchemy pills each own their cost, and Combat owns
     only what the prepared item does inside the fight.
-13. **Arts, cooldown timers and slot order.** An **art** has an id, tags, a kind, a linh lực cost, a cooldown in
-    seconds and an effect. The sources are: the divine abilities (thần thông) that the main and
+13. **Arts, cooldown timers and slot order.** An **art** has an id, tags, damage parts with their types (Combat
+    Damage Types rule 1), a linh lực cost, a cooldown in seconds, an effect and optionally a heal payload under the
+    heal lint (Combat Defence & Healing Formulas E). The sources are: the divine abilities (thần thông) that the main and
     auxiliary techniques unlock (Cultivation Techniques owns when they unlock, Combat owns what they
     do), the Way's art nodes (**on hold** until this GDD is approved; the art format here is
     the one the Way's data lint will accept), an artifact's active effect, and the always-available
-    basic attack (body kind, tags body, hit and art, no cost). A combatant's **loadout** has `slot_count` art slots (Formulas A2), a
-    ward slot (rule 22) and the basic attack. The art slots are one pool: a divine ability, a Way art, an artifact's
-    active effect, a talisman, the escape art and a slotted ward art each take one, so carrying an escape costs a
-    damage art. The basic attack and an autocast ward take none. **Every art runs on its own cooldown timer**
+    basic attack (Physical, tags physical, hit, art and basic, no cost). A combatant's **loadout** has `slot_count` art slots (Formulas A2), its
+    free ward slots (Combat Defence & Healing rule 5 and Formulas D) and the basic attack. The art slots are one pool: a divine ability, a Way art, an artifact's
+    active effect, a talisman, the escape art and a ward placed in an art slot each take one, so carrying an escape costs a
+    damage art. The basic attack and wards in ward slots take none. Every slotted ward is up at once, so a side can layer
+    wards (Combat Defence & Healing rule 5). **Every art runs on its own cooldown timer**
     (user decision 2026-11-06, in the manner of an auto-battler's item cooldowns). Every art starts on its
     full effective cooldown, so its first firing comes one cooldown into the fight (user decision 2026-11-06).
     When its timer ends, an art whose **guard** (below) is true and whose cost the side can pay **fires on its
@@ -212,7 +255,8 @@ author's reading and wait for confirmation (see Open Questions).
     cooldown counts from that firing. There is no choice in the fight: the choices are which arts are slotted,
     in what order, and each art's guard. **Art speed** divides a cooldown: +100 % art speed halves it, +300 % quarters it, and
     a cooldown never falls below `cooldown_min` (user decision 2026-11-06, Formulas A2). Bonuses add together like
-    other percentage keys, and each point is worth less than the last. It applies to arts only. The **basic attack** is a
+    other percentage keys, and each point is worth less than the last. It applies to arts only. Compile gives each art its derived tags (rule 6) from its authored cooldown and cost
+    share; art speed and cost reduction do not change them (Combat revision D5). The **basic attack** is a
     free art on its own timer of `basic_cooldown` and **always runs**, whatever else fires (user decision
     2026-11-06). A **guard** is an optional single condition on an art record, from a fixed vocabulary:
     own or enemy health or linh lực below or above a share, a status on either side, or the fight time. Comparisons are inclusive: "below" means at or below and "above" means at or above, so a time guard "above 10 s" is true from t = 10.000. An
@@ -227,7 +271,9 @@ author's reading and wait for confirmation (see Open Questions).
     it ended (knockout, draw, stalemate or flight), the fight time, each side's health, linh lực and `wound` (`none`, `grave` or `mortal`) at the end, the
     resources spent (talismans, linh lực), the deciding layer (the layer with the highest
     damage-weighted total over the winner's hits; ties take the lower number; a soul win, a draw, a stalemate or a flight
-    has no deciding layer and the result says so), and the full log. Combat itself
+    has no deciding layer and the result says so), the costs and gains that outlive the fight (heart demon,
+    lifespan, toxicity and the rest) and wounds that run on, which the caller applies (Effects System rules 10,
+    11), and the full log. Combat itself
     changes nothing outside the fight. The caller applies consequences: it decrements spent stock, Character Stats takes the
     vitality loss (Formulas A), the Event Engine decides death, mercy or capture and offers taming of a beaten
     creature, Realms receives a knockout of a cultivator for capability #9 (a flight, a draw, a stalemate or a creature never counts, and mercy does not undo it; user decision 2026-11-06), and the World Database records the
@@ -237,14 +283,19 @@ author's reading and wait for confirmation (see Open Questions).
     `chance` fields (a critical hit, an evade, a status chance, a trigger chance, an escape). A build whose chances are all 0 or 100 per cent is fully deterministic, and
     the design aims at that: chance is a flavour of a build, not the base of the outcome. Hits
     have no base damage spread (user decision 2026-11-06). Fortune (khí vận) shifts every chance
-    roll that is not already 0 or 100 per cent (Formulas I).
-16. **Every hit explains itself.** Each hit logs its actor, art, tags, kind, the Breakdown of every
-    layer (the bonuses inside each layer and the layer total), what the ward blocked and drained, the body guard, and health and
-    linh lực before and after. The terminal shows a one-line summary per pulse by default and the
+    roll that is not already 0 or 100 per cent (Formulas I). A keystone may turn one chance into a counted
+    chance, which uses no draw and is not shifted by fortune (Effects System rule 12, Formulas A).
+16. **Every hit explains itself.** Each hit logs its actor, art, tags, each part's damage type and
+    history, the Breakdown of every layer (the bonuses inside each layer and the layer total), then the defence path
+    as Combat Defence & Healing lists it (evade, resistance with its cap, block, each ward shield, the body shield,
+    health, and each ward's payment), heals with their decay and cap, the Effects that fired, and health and linh
+    lực before and after. The terminal shows a one-line summary per pulse by default and the
     full Breakdown on request; the log is data and the Game UI reads the same structure.
 17. **Mass battles use the rating profile.** Great battles and wars (a sect war, a besieged city) do
-    not run as fights. Each force compiles to a **rating profile** (offence, defence and sustain per
-    threat kind, over the force's members under a size rule) and the clash is
+    not run as fights. Each force compiles to a **rating profile** (offence by damage-type mix,
+    defence by Combat Defence & Healing Formulas G, and sustain, over the force's members under a size rule; in a
+    clash each side's effective health uses the attacker's own damage-type mix, and `display_power` uses a fixed
+    `reference_type_mix` fitted by the balance harness, Combat revision D7) and the clash is
     a closed-form comparison plus one seeded roll. Individual NPC duels do not collapse: they run
     the full fight of rules 1 to 16, and the Living World keeps them rare (Interactions). The
     rating profile is derived from the same compiled profile, and its win rate must agree with
@@ -252,54 +303,57 @@ author's reading and wait for confirmation (see Open Questions).
 18. **Enemies are profiles.** A creature, a monster and an NPC all use the profile of rule 2. An
     enemy's character comes from its modifiers, art list, slot order and guards: a body-crusher, a
     soul-piercer, a poisoner, an armoured beast. Content authors add enemies by data, with no new rule.
-    Each realm tier has at least one enemy that attacks with each threat kind, one with a ward that
-    resists each kind and one that drains linh lực hard, so a one-note build meets something it cannot answer. A top-end build
+    Each realm tier has at least one enemy that deals each damage-type group (Physical/Force;
+    Fire/Cold/Lightning/Light; Chaos; Soul), one with high resistance to each group, one that drains linh lực hard
+    and one that heals (Combat revision D8). Every enemy profile lists its damage types, its wards and a soul
+    defence (Combat Damage Types Open Question 5; Combat Defence & Healing rule 14), so a one-note build meets something it cannot answer. A top-end build
     may end an ordinary fight with its first volley or two; that is its payoff (user decision 2026-11-06).
     Bosses and tribulation bosses carry a `boss_pool_mult`. An ordinary boss is set so that a top-end build
     needs at least 4 seconds against it; a tribulation boss is exempt, because it must stay beatable by a typical build (user decision 2026-11-06, thien-kiep.md Formulas C).
 19. **Companions.** A spirit beast attached to a side adds the power share it already has
-    (Spirit Beasts) as one more attack source every `basic_cooldown`, with its own tags and a simple fixed art.
+    (Spirit Beasts) as one more attack source every `basic_cooldown`, with its own tags and a simple fixed art whose damage type is
+    authored, like every damaging art (Combat Damage Types rule 1).
     A companion cannot be targeted in this version, and cannot be removed from the fight except by its
     owner's defeat (user decision 2026-11-06).
 20. **Fighting above one's realm (vượt cấp) is paid for by the build.** A side whose realm is lower
     than its enemy's by `g` major realms has the damage it deals reduced by a suppression
-    factor that grows with `g`, on top of the gap in fight power (damage × effective health) of about ×10
+    factor that grows with `g`, on top of the gap in fight power (damage × effective health, Combat Defence & Healing Formulas G) of about ×10
     per realm: ×6.3 from the fight unit and the rest from the W a higher realm holds (Formulas A). A modifier with
     the **pierce** tag reduces the suppression by its own share. A build that has stacked several
     layers can overcome the gap, a build with a single stat cannot.
 21. **Fights are readable and testable.** The fight engine is a pure function of its inputs with
     no clock, no engine nodes and no global state; the Balance Harness runs it headlessly and the Debug
     Terminal prints its log.
-22. **Warding spells.** A ward is resistance-based blocking. Every cultivator has a default ward from
-    linh lực itself, and a **warding spell** in the loadout's ward slot replaces it. The spell sets how much
-    of a hit gets through, by threat kind and by tag, and what it costs. **The default cost model is
-    drain:** each blocked point takes linh lực, so more block means more drain. A spell may define another
-    model, such as a fixed mana cost per hit for a fixed share blocked whatever the hit's size, or a cost
-    per pulse. New models are data, so wards stay a place for creative builds. Two build stats act on
-    any ward: **ward strength** blocks more and **ward efficiency** costs less.
-    A ward is an **autocast** by default: it needs no slot firing, is up from t = 0, and stays up while its
-    cost can be paid. A spell may instead be slotted as an art with its own cooldown and guard, and is then up
-    for `ward_art_duration` each time that art fires; between firings the ward slot's spell stands, or the default ward when that slot is empty. The player can switch a ward off for a fight, to save linh lực for arts.
-    One ward is up at a time: a firing ward art, else the ward slot's spell, else the default. A **drain** ward is up whenever its linh lực is above 0 and pays per blocked
-    point; a per-hit or per-pulse ward is up only if it can pay its fixed cost (Formulas D). A per-pulse
-    ward pays its upkeep at t = 0 and at each pulse, and a per-hit ward pays for each hit, from the same live
-    pool that art costs come out of. With little
-    linh lực a drain ward simply blocks little, and with none it blocks nothing, so no separate "fallen"
-    state exists. The default ward applies its one pass and drain to every kind, with no tag terms.
-23. **Body guard, and being a mortal.** Body guard is a mitigation anyone can build from physique
-    (căn cốt), body techniques (luyện thể) and body items, and it works with no linh lực. A body cultivator
-    (thể tu) is simply a build that stacked it. Damage that gets past the ward then meets the body guard.
-    A side with no linh lực has no ward and cannot pay for arts. Unless it built body guard or a
-    gimmick that replaces the ward, every hit lands nearly in full. Arts may be authored to cost health
-    instead, so a body build can still act.
+22. **Wards.** Wards are spells. They sit in free ward slots or in art slots, every slotted ward is up at once,
+    and each carries payloads (resistance, block, shield, status, soul, evade) and one of five payments
+    (reserved, upkeep, per hit, drain, cast). The default ward is the fallback for any hit part that no other ward
+    covers. Ward strength and ward efficiency scale every ward (Combat Defence & Healing Formulas A0). Combat
+    Defence & Healing owns all of this (rules 5–11, Formulas A0–D, F, H). Combat keeps three things:
+    - a cast ward fires on the timeline like an art (rule 13);
+    - a ward stays up through the millisecond it expires in (rule 10);
+    - compile takes reservations at t = 0.
+
+    A side flagged `cannot_slot_wards` cannot slot any ward, soul wards included. One flagged `no_default_ward`
+    has no default ward. Compile reads both flags, and the No Ward keystone (Effects System) sets them (Combat
+    Defence & Healing rule 5).
+23. **Body defence, and being a mortal.** Body guard is retired. The body defends with block, body shields and
+    resistance from căn cốt, body techniques (luyện thể) and body gear, and none of it needs linh lực (Combat
+    Defence & Healing rule 12). A body cultivator (thể tu) is a build that stacked them, and its weakness is Chaos,
+    which passes body shields. A side with no linh lực has no default ward and no drain, per-hit or upkeep ward,
+    and cannot pay for arts. Unless it built block, body shields, resistance from other sources or a reserved
+    ward, every hit lands nearly in full. Arts may be authored to cost health instead, so a body build can still
+    act (Formulas E; the Effects System's pay-in-health action can also put the side Down, Combat revision D14).
 24. **Thần thức attacks.** A soul attack is an ordinary art of the soul kind: it has a cost and a cooldown
     like any other, and fires whenever its timer and guard allow, but a side's soul arts share a
     **`soul_lockout`**: after one fires, no other soul art of that side fires until the lockout ends, and
-    ready ones wait (an interim limit until the technique content exists, Open Question 16). It ignores wards and body guard and takes
+    ready ones wait (an interim limit until the technique content exists, Open Question 16). A soul hit is all
+    Soul; a hit that mixes Soul with other types is rejected at compile (Combat Damage Types rule 1). It ignores
+    every defence except soul resistance and soul wards, and takes
     a share of maximum linh lực and of maximum health at once. The share rises steeply with the attacker's
     thần thức over the defender's, so it is only dangerous across a big gap in power and small between
-    equals. It is rarely a main attack unless a build is made for it. The reliable defences are the
-    defender's own thần thức and the Way; other sources are rare. Its balance waits on the technique
+    equals. It is rarely a main attack unless a build is made for it. The defences are the defender's
+    thần thức, soul resistance (from the Way, rare items and soul wards; it raises the defender's side of rho) and
+    soul shields, which soak a share of each loss from their own bar (Combat Defence & Healing rule 14, Formulas B). Its balance waits on the technique
     content (Open Question 16).
 
 ### States and Transitions
@@ -316,10 +370,12 @@ A fight has these states; a combatant has the sub-states under it.
 | Combatant state | Entered when | Leaves when |
 |---|---|---|
 | Fighting | The fight starts | Health is empty, or its escape succeeds |
-| Down: mortal wound | Health is empty at an instant's defeat check | The caller finishes or spares it |
+| Down: mortal wound | Health is still empty after the Down step at an instant's defeat check (Effects System rule 11) | The caller finishes or spares it |
 | Fled | Its escape art succeeds | The fight ends |
 
-A Down side acts no more. A ward is not a state: at any moment it is up if it was cast and paid for.
+A Down side acts no more. Ward states (Off, Waiting, Up, Down, Broken, Expired) are Combat Defence & Healing's, and
+the default ward is Up for any hit part no other ward covers. Effect states (Idle, Active, Fired, On cooldown, Spent)
+are the Effects System's.
 
 ### Interactions with Other Systems
 
