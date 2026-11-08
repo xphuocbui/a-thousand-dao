@@ -1,0 +1,177 @@
+<title>__TITLE__</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the region plate on the left, checks and legend on the right; the region is turned so its start points down and the rim is at the top. */
+:root{
+  --bg:#eef0ee; --panel:#ffffff; --plate:#f6f5f0; --fg:#1b2026; --muted:#5c6670; --line:#d6dad6; --road:#a2aab2; --path:#d4501e; --good:#2e8b57; --warn:#c7801a; --bad:#c0392b;
+  --f-display:"Marcellus","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#101417;--panel:#171c21;--plate:#0c1013;--fg:#e4e7ea;--muted:#97a1ab;--line:#28313a;--road:#56616b;--path:#ff7a45;--good:#4cc38a;--warn:#f0a840;--bad:#ef6b5c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101417;--panel:#171c21;--plate:#0c1013;--fg:#e4e7ea;--muted:#97a1ab;--line:#28313a;--road:#56616b;--path:#ff7a45;--good:#4cc38a;--warn:#f0a840;--bad:#ef6b5c;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--f-body);margin:0}
+.wrap{max-width:1280px;margin:0 auto;padding-block:26px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:20px}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:400 clamp(28px,4.6vw,42px)/1.08 var(--f-display);margin:6px 0;text-wrap:balance}
+h2{font:400 21px/1.2 var(--f-display);margin:0 0 8px}
+.lede{max-width:72ch;color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:920px){.grid{grid-template-columns:minmax(0,1fr)}}
+.plate{background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+select,button{font:13px var(--f-body);padding:6px 8px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:4px}
+.stage{position:relative;height:clamp(460px,78vh,860px);background:var(--plate);touch-action:none}
+canvas{display:block;width:100%;height:100%;cursor:grab}
+.tip{position:absolute;pointer-events:none;max-width:320px;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:8px 10px;font-size:12.5px;line-height:1.45;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.tip ul{margin:4px 0 0;padding-left:16px}
+.tip .meta{color:var(--muted)}
+.tip .cost{font:500 12px var(--f-mono);color:var(--path)}
+.side{display:grid;gap:20px;min-width:0}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 12px var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+td.n{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font:600 11px var(--f-mono);padding:2px 6px;border-radius:9px;color:#fff}
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:5px 12px;font-size:13px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.note{font-size:13px;color:var(--muted);margin:0}
+ul.plain{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+:focus-visible{outline:2px solid var(--path);outline-offset:2px}
+.big header,.big .side,.big .bar{display:none}.big .grid{grid-template-columns:minmax(0,1fr)}.big .stage{height:calc(100vh - 60px)}.big .wrap{max-width:none;padding:4px}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Meridian Map rework · hand-drawn pilot region</div>
+  <h1 id="h1"></h1>
+  <p class="lede">Metal's land, drawn by hand on the original map's layout: roads run out from the start like spokes and around the tree like rings, and the clusters sit in the spaces between them. Nothing is generated. The start opens into a twin-hub web, as every PoE 2 start does. Each band then holds a group of clusters that reach each other: a three-lane bridge, a wheel and a gourd; a crown, a four-leaf lattice and a shared zigzag; then a sword tomb, a summit and an anvil; and past a fourth ring, a blade pinwheel, a furnace square, two peaks and the Metal apex. Small clusters are PoE 2's figures rather than crescents: kites, L and V bends, zigzags, crosses, a star, hearts, hourglasses, eyes, a sword, an arrow, a hexagon and a cash coin; roads have fewer nodes, and most road nodes carry two or three clusters, one of them big; clusters grow toward the rim. Roads join every cluster at its nearest node. The start is at the bottom and the rim at the top. Hover any node for what it gives and how many points it costs.</p>
+</header>
+<div class="grid">
+  <section class="plate" aria-label="Region viewer">
+    <div class="bar">
+      <label for="mode">Show</label>
+      <select id="mode"><option value="theme" selected>Themes</option><option value="dist">Points from the start</option><option value="kind">Node kinds</option></select>
+      <button id="fit" type="button">Fit view</button>
+      <span id="count" style="margin-left:auto;font-family:var(--f-mono)"></span>
+    </div>
+    <div class="stage" id="stage"><canvas id="cv" aria-label="Region map. Drag to pan, scroll or pinch to zoom."></canvas><div class="tip" id="tip" hidden></div></div>
+  </section>
+  <div class="side">
+    <section><h2>Checks against the study's targets</h2><div class="tablebox"><table id="checks"></table></div></section>
+    <section><h2>Themes</h2><div class="legend" id="legend"></div></section>
+    <section><h2>Open points</h2><ul class="plain" id="open"></ul></section>
+  </div>
+</div>
+</div>
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(()=>{
+const D=JSON.parse(document.getElementById('data').textContent);
+document.getElementById('h1').textContent=D.title;
+const COL={sword:'#d0453a',refining:'#d98a2b',metal:'#8c9bb0',body:'#66788c',health:'#c23b5c',linh:'#3f7fd6',sense:'#8a5cc9',ward:'#2f9e8f',crit:'#d9a520',lifespan:'#4f9e5b',heart:'#c96aa8',insight:'#4fb3c6',keystone:'#e04e6a'};
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d'),stage=document.getElementById('stage'),tip=document.getElementById('tip'),modeSel=document.getElementById('mode');
+let css={};const readCss=()=>{const s=getComputedStyle(document.documentElement);for(const k of['plate','fg','muted','line','road','path','panel','good','warn','bad'])css[k]=s.getPropertyValue('--'+k).trim();};readCss();
+matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{readCss();draw();});
+new MutationObserver(()=>{readCss();draw();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+// turn the region so its start points down (outward = up)
+const rot=(D.start_deg)*Math.PI/180;
+const tf=(x,y)=>{const r=Math.hypot(x,y),a=Math.atan2(x,-y)-rot;return [r*Math.sin(a),-r*Math.cos(a)];};
+const N=D.nodes.map(n=>{const [x,y]=tf(n.x,n.y);return {...n,X:x,Y:y};});
+const E=D.edges.map(e=>({...e,c:e.arc?tf(e.arc[0],e.arc[1]):null,q:e.ctrl?tf(e.ctrl[0],e.ctrl[1]):null}));
+const CL=D.clusters.map(c=>({...c,C:c.centre?tf(c.centre[0],c.centre[1]):null}));
+const dist=D.dist,par=D.par;
+let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const n of N){x0=Math.min(x0,n.X);y0=Math.min(y0,n.Y);x1=Math.max(x1,n.X);y1=Math.max(y1,n.Y);}
+let W=0,H=0,dpr=1,view={s:1,tx:0,ty:0},hover=-1;
+function resize(){const b=stage.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);W=b.width;H=b.height;cv.width=W*dpr;cv.height=H*dpr;}
+const HB=new URLSearchParams(location.hash.slice(1));if(HB.has('big')){document.documentElement.classList.add('big');}
+function fit(){let a=x0,b=y0,c=x1,d=y1;if(HB.has('box')){[a,b,c,d]=HB.get('box').split(',').map(Number);}const pad=28,s=Math.min((W-2*pad)/(c-a),(H-2*pad)/(d-b));view={s,tx:W/2-s*(a+c)/2,ty:H/2-s*(b+d)/2};}
+function ramp(d){if(d==null)return css.line;const t=Math.min(1,d/40),st=[[0,[43,95,174]],[.35,[27,138,128]],[.65,[176,125,18]],[1,[179,48,74]]];for(let k=1;k<st.length;k++)if(t<=st[k][0]){const [a,ca]=st[k-1],[b,cb]=st[k],u=(t-a)/(b-a);return `rgb(${ca.map((c,j)=>Math.round(c+(cb[j]-c)*u)).join(',')})`;}return 'rgb(179,48,74)';}
+function col(n){const m=modeSel.value;
+  if(m==='dist')return n.kind==='exit'?css.muted:ramp(dist[n.id]);
+  if(m==='kind')return {start:css.fg,travel:'#2b5fae',small:'#8c97a2',notable:'#d9a520',keystone:'#e04e6a',exit:css.muted}[n.kind];
+  if(n.kind==='travel')return css.road;if(n.kind==='start')return css.fg;if(n.kind==='exit')return css.muted;return COL[n.theme]||css.muted;}
+function rad(n){return {start:2.6,travel:.78,small:.62,notable:1.15,keystone:1.7,exit:.7}[n.kind];}
+function draw(){
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle=css.plate;ctx.fillRect(0,0,W,H);
+  const {s,tx,ty}=view;ctx.setTransform(dpr*s,0,0,dpr*s,dpr*tx,dpr*ty);const u=1/s;
+  // rim guide
+  ctx.strokeStyle=css.line;ctx.lineWidth=u;ctx.setLineDash([4*u,4*u]);ctx.beginPath();ctx.arc(0,0,D.rim||60,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
+  if(D.half_angle){ctx.beginPath();for(const sg of[-1,1]){const h=sg*D.half_angle*Math.PI/180;ctx.moveTo(14*Math.sin(h),-14*Math.cos(h));ctx.lineTo((D.rim||60)*Math.sin(h),-(D.rim||60)*Math.cos(h));}ctx.setLineDash([4*u,4*u]);ctx.stroke();ctx.setLineDash([]);}
+  for(const e of E){const a=N[e.a],b=N[e.b];ctx.strokeStyle=e.long?css.muted:(modeSel.value==='dist'?ramp(Math.max(dist[a.id]??99,dist[b.id]??99)):(a.kind==='travel'||a.kind==='start')&&(b.kind==='travel'||b.kind==='start')?css.road:(COL[(a.theme in COL)?a.theme:b.theme]||css.road));
+    ctx.globalAlpha=modeSel.value==='theme'?.75:.6;ctx.lineWidth=(a.kind==='travel'||a.kind==='start')&&(b.kind==='travel'||b.kind==='start')?u*2.6:u*1.6;
+    if(e.long)ctx.setLineDash([6*u,4*u]);ctx.beginPath();
+    if(e.c){const c=e.c,r=Math.hypot(a.X-c[0],a.Y-c[1]),ta=Math.atan2(a.Y-c[1],a.X-c[0]),tb=Math.atan2(b.Y-c[1],b.X-c[0]);let d=tb-ta;while(d>Math.PI)d-=2*Math.PI;while(d<-Math.PI)d+=2*Math.PI;ctx.arc(c[0],c[1],r,ta,tb,d<0);}
+    else if(e.q){ctx.moveTo(a.X,a.Y);ctx.quadraticCurveTo(e.q[0],e.q[1],b.X,b.Y);}
+    else{ctx.moveTo(a.X,a.Y);ctx.lineTo(b.X,b.Y);}ctx.stroke();ctx.setLineDash([]);}
+  // empty cluster centres: where a future cluster mastery (Tinh Thông) would sit
+  ctx.strokeStyle=css.line;ctx.lineWidth=u*1.2;for(const c of CL){if(!c.C)continue;ctx.beginPath();ctx.arc(c.C[0],c.C[1],0.16,0,Math.PI*2);ctx.stroke();}
+  ctx.globalAlpha=1;
+  if(hover>=0&&dist[hover]>0){ctx.strokeStyle=css.path;ctx.lineWidth=u*3.4;ctx.beginPath();let v=hover;ctx.moveTo(N[v].X,N[v].Y);while(par[v]!=null){v=par[v];ctx.lineTo(N[v].X,N[v].Y);}ctx.stroke();}
+  const px=Math.max(2.2,Math.min(9,s*0.42));
+  for(const n of N){const r=px*rad(n)*u;ctx.fillStyle=col(n);ctx.beginPath();
+    if(n.kind==='travel'){ctx.rect(n.X-r,n.Y-r,2*r,2*r);}else if(n.kind==='exit'){ctx.moveTo(n.X,n.Y-r*1.4);ctx.lineTo(n.X+r*1.2,n.Y+r);ctx.lineTo(n.X-r*1.2,n.Y+r);ctx.closePath();}else ctx.arc(n.X,n.Y,r,0,Math.PI*2);ctx.fill();
+    if(n.kind==='keystone'||n.kind==='start'||n.kind==='notable'){ctx.strokeStyle=css.plate;ctx.lineWidth=u*1.4;ctx.stroke();}
+    if(n.counterpart){ctx.strokeStyle='#c99400';ctx.lineWidth=u*1.5;ctx.beginPath();ctx.arc(n.X,n.Y,r+2.2*u,0,Math.PI*2);ctx.stroke();}}
+  if(D.labels){ctx.fillStyle=css.fg;ctx.font=`${10*u}px sans-serif`;for(const n of N)if(n.label)ctx.fillText(n.label,n.X+0.25,n.Y-0.2);}
+  if(hover>=0){const n=N[hover];ctx.strokeStyle=css.fg;ctx.lineWidth=u*2;ctx.beginPath();ctx.arc(n.X,n.Y,px*3*u,0,Math.PI*2);ctx.stroke();}
+}
+const lab=t=>(D.themes[t]||{}).label||t;
+function pick(x,y){const wx=(x-view.tx)/view.s,wy=(y-view.ty)/view.s,lim=(11/view.s)**2;let best=-1,bd=lim;for(const n of N){const d=(n.X-wx)**2+(n.Y-wy)**2;if(d<bd){bd=d;best=n.id;}}return best;}
+function showTip(i,x,y){if(i<0){tip.hidden=true;return;}const n=N[i];
+  const kind={start:'Start',travel:'Travel node',small:'Small node',notable:'Notable',keystone:'Keystone',exit:'Leads elsewhere'}[n.kind];
+  let h=`<b>${n.name||kind}</b> <span class="meta">· ${kind}${['small','notable','keystone'].includes(n.kind)?' · '+lab(n.theme):''}</span>`;
+  if(n.mods&&n.mods.length)h+=`<ul>${n.mods.map(m=>`<li>${m}</li>`).join('')}</ul>`;
+  if(n.counterpart)h+=`<div class="meta" style="margin-top:4px">Thunder counterpart: ${n.counterpart.join('; ')}</div>`;
+  const d=dist[i];if(n.kind!=='exit')h+=`<div class="cost">${d==null?'not reachable':d===0?'the start':d+' points from the start'}</div>`;
+  tip.innerHTML=h;tip.hidden=false;const r=stage.getBoundingClientRect();let lx=x+14,ly=y+14;const tw=tip.offsetWidth,th=tip.offsetHeight;if(lx+tw>r.width-8)lx=x-tw-14;if(ly+th>r.height-8)ly=y-th-14;tip.style.left=Math.max(8,lx)+'px';tip.style.top=Math.max(8,ly)+'px';}
+const pts=new Map();let down=null,moved=false,pinch=null;
+cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);pts.set(e.pointerId,[e.offsetX,e.offsetY]);down=[e.offsetX,e.offsetY];moved=false;if(pts.size===2){const [a,b]=[...pts.values()];pinch={d:Math.hypot(a[0]-b[0],a[1]-b[1]),s:view.s,tx:view.tx,ty:view.ty,c:[(a[0]+b[0])/2,(a[1]+b[1])/2]};}});
+cv.addEventListener('pointermove',e=>{const x=e.offsetX,y=e.offsetY;if(pts.has(e.pointerId)){const p=pts.get(e.pointerId);pts.set(e.pointerId,[x,y]);
+  if(pts.size===2&&pinch){const [a,b]=[...pts.values()],k=Math.hypot(a[0]-b[0],a[1]-b[1])/pinch.d;view.s=pinch.s*k;view.tx=pinch.c[0]-(pinch.c[0]-pinch.tx)*k;view.ty=pinch.c[1]-(pinch.c[1]-pinch.ty)*k;moved=true;draw();return;}
+  if(Math.hypot(x-down[0],y-down[1])>4)moved=true;if(moved){view.tx+=x-p[0];view.ty+=y-p[1];tip.hidden=true;draw();return;}}
+  const i=pick(x,y);if(i!==hover){hover=i;draw();}showTip(i,x,y);});
+cv.addEventListener('pointerup',e=>{pts.delete(e.pointerId);if(pts.size<2)pinch=null;if(!moved){const i=pick(e.offsetX,e.offsetY);hover=i;draw();showTip(i,e.offsetX,e.offsetY);}});
+cv.addEventListener('pointerleave',()=>{if(!pts.size){hover=-1;tip.hidden=true;draw();}});
+cv.addEventListener('wheel',e=>{e.preventDefault();const k=Math.exp(-e.deltaY*0.0015),x=e.offsetX,y=e.offsetY;view.tx=x-(x-view.tx)*k;view.ty=y-(y-view.ty)*k;view.s*=k;tip.hidden=true;draw();},{passive:false});
+modeSel.addEventListener('change',draw);document.getElementById('fit').addEventListener('click',()=>{fit();draw();});
+new ResizeObserver(()=>{resize();fit();draw();}).observe(stage);
+// checks
+const M=D.metrics;const pill=(ok,t)=>`<span class="sw" style="background:${ok===true?'var(--good)':ok===false?'var(--bad)':'var(--muted)'}"></span><span class="note">${t}</span>`;
+const nearestKey=Math.min(...Object.values(M.keystone_points));
+const rows=[
+ ['Nodes',`${M.nodes} in ${M.clusters} clusters`,M.nodes>=580,'about 600 for one element'],
+ ['Roads join a cluster at its nearest node',`${Math.round(100*M.entry_nearest_share)} %`,M.entry_nearest_share>=0.9,'PoE 2: 79 % nearest, 93 % nearest two'],
+ ['Road nodes carrying 2+ clusters',`${Math.round(100*M.travel_multi_share)} %`,M.travel_multi_share>=0.5,'PoE: 75 %'],
+ ['Cluster size, inner / middle / outer (median)',`${M.size_by_band.inner.median} / ${M.size_by_band.middle.median} / ${M.size_by_band.outer.median}`,M.size_by_band.outer.median>=5,'PoE 2: 4 / 5 / 5, outer 34 % with 7+'],
+ ['Travel nodes with a cluster',`${Math.round(100*M.travel_with_cluster_share)} %`,M.travel_with_cluster_share>=0.88,'PoE 1: 88 %'],
+ ['Clusters with 2+ notables',`${Object.entries(M.notables_per_cluster).filter(([k])=>+k>=2).reduce((a,[,v])=>a+v,0)} of ${M.clusters}`,null,'PoE 2: 29 %'],
+ ['Small nodes before a notable',(()=>{const b=M.smalls_before_notable,g=k=>b[k]||0,t=Object.values(b).reduce((x,y)=>x+y,0);return `2–3: ${g(2)+g(3)} of ${t} · 0–1: ${g(0)+g(1)}`;})(),null,'PoE 2: mostly 2–3; hubs 0'],
+ ['Start web within 9 points',`${M.start_web_9.nodes} nodes, ${M.start_web_9.notables} notables`,null,'PoE 2: about 130 nodes, 17 notables'],
+ ['Loops',`${M.loops}`,null,'PoE: about 16 per 100 nodes'],
+ ['Nearest keystone',`${nearestKey} points`,nearestKey<=10,'PoE: 6–13'],
+ ['Keystones (points)',Object.values(M.keystone_points).join(' · '),true,'dead-end tips'],
+ ['First notable',`${M.first_notable} points`,M.first_notable<=5,'PoE: 5'],
+ ['Notables within 10 / 20 points',`${M.notables_within['10']} / ${M.notables_within['20']}`,null,'per land, not per tree'],
+ ['Farthest node',`${M.farthest} points`,null,'the rim'],
+ ['Crossings · nodes too close · links grazing a node',`${M.crossings} · ${M.too_close_count} · ${M.grazing}`,M.crossings+M.too_close_count+M.grazing===0,'target 0'],
+];
+document.getElementById('checks').innerHTML='<thead><tr><th>Check</th><th>Pilot</th><th>PoE / target</th></tr></thead><tbody>'+rows.map(([a,b,ok,t])=>`<tr><td>${a}</td><td class="n">${b}</td><td>${pill(ok===null?'warn':ok,t)}</td></tr>`).join('')+'</tbody>';
+document.getElementById('count').textContent=`${M.nodes} nodes · ${M.clusters} clusters`;
+const kinds={identity:'identity district',element:'Metal element',universal:'universal (scattered)',keystone:'keystone'};
+document.getElementById('legend').innerHTML=Object.entries(M.themes).sort((a,b)=>b[1]-a[1]).map(([t,c])=>`<span><i class="sw" style="background:${COL[t]}"></i>${lab(t)} <span class="note">· ${c} · ${kinds[D.themes[t].kind]||''}</span></span>`).join('')+`<span><i class="sw" style="background:transparent;border:2px solid #c99400"></i>has a Thunder counterpart</span>`;
+document.getElementById('open').innerHTML=[
+ 'Four road nodes at the land\u2019s edges carry no cluster (PoE leaves 12 % bare). A few second figures did not fit where the land is tight.',
+ 'The start web is still half the size of a PoE 2 start web (74 nodes within 9 points against about 130).',
+ 'Roads give +0.4 root bone (căn cốt) per node, as PoE\'s travel nodes give attributes. This is a proposal: which attribute should each element\'s roads carry?',
+ 'Notables reuse a small bank of names per theme, so some repeat; values come from the Modifier System prices (notable 8 W, small 1.2 W).',
+ 'Keystones are the existing starter keystones (Called Blow, No Ward, Heart Demon\'s Blade) as placeholders until Metal gets its own.',
+ 'Cluster mastery (Tinh Thông) is not drawn yet; the empty circles mark where one would sit.',
+].map(x=>`<li>${x}</li>`).join('');
+resize();fit();draw();
+})();
+</script>

@@ -1,0 +1,379 @@
+<title>Passive Tree Survey</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a surveyor's sheet. One large map plate on top, the measured findings below in a reading column, the comparison table full width. */
+:root{
+  --bg:#eef1f3; --panel:#ffffff; --plate:#f7f8f6; --fg:#17202a; --muted:#5a6672; --line:#d5dbe0;
+  --accent:#2b5fae; --notable:#b07d12; --keystone:#b3304a; --jewel:#1b8a80; --start:#2b5fae;
+  --small:#8c97a2; --travel:#b9c2ca; --edge:#c3cbd2; --dim:#dde2e6; --path:#d4501e;
+  --f-display:"Marcellus","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1319; --panel:#151c24; --plate:#0a0f14; --fg:#e3e8ed; --muted:#93a0ad; --line:#26313c;
+  --accent:#7aa7ec; --notable:#e0b04a; --keystone:#ef6b82; --jewel:#4cc7ba; --start:#7aa7ec;
+  --small:#6d7a87; --travel:#3d4954; --edge:#2d3944; --dim:#1c252e; --path:#ff7a45; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1319; --panel:#151c24; --plate:#0a0f14; --fg:#e3e8ed; --muted:#93a0ad; --line:#26313c;
+  --accent:#7aa7ec; --notable:#e0b04a; --keystone:#ef6b82; --jewel:#4cc7ba; --start:#7aa7ec;
+  --small:#6d7a87; --travel:#3d4954; --edge:#2d3944; --dim:#1c252e; --path:#ff7a45; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--f-body);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
+header{display:grid;gap:8px}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:400 clamp(30px,5vw,46px)/1.05 var(--f-display);margin:0;text-wrap:balance}
+h2{font:400 26px/1.15 var(--f-display);margin:0;text-wrap:balance}
+h3{font:600 15px/1.3 var(--f-body);margin:0}
+.lede{max-width:68ch;color:var(--muted);margin:0}
+.plate{background:var(--panel);border:1px solid var(--line);border-radius:6px;display:grid;grid-template-rows:auto 1fr auto;overflow:hidden}
+.bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab{font:500 13px/1 var(--f-body);padding:9px 12px;border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:4px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--fg);color:var(--panel);border-color:var(--fg)}
+.ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+select,button.plain{font:13px var(--f-body);padding:7px 8px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:4px}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.stage{position:relative;height:clamp(420px,70vh,820px);background:var(--plate);touch-action:none}
+canvas{display:block;width:100%;height:100%;cursor:grab}
+canvas.drag{cursor:grabbing}
+.tip{position:absolute;pointer-events:none;max-width:300px;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:8px 10px;font-size:12.5px;line-height:1.4;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.tip b{font-weight:600}
+.tip .cost{font:500 12px var(--f-mono);color:var(--path)}
+.tip ul{margin:4px 0 0;padding-left:16px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;padding:9px 12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);align-items:center}
+.sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.ramp{display:inline-block;width:140px;height:8px;border-radius:2px;vertical-align:-1px;margin:0 6px}
+.status{margin-left:auto;font:12px var(--f-mono);color:var(--muted)}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+@media (max-width:860px){.cols{grid-template-columns:minmax(0,1fr)}.status{margin-left:0}}
+.findings{display:grid;gap:18px}
+.finding{display:grid;gap:4px}
+.finding p{margin:0;max-width:68ch}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.group-label{font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding-top:6px;border-top:1px solid var(--line)}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 12px var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+td.n{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.flag{color:var(--keystone);font-weight:600}
+.spark{display:block}
+.differs{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--keystone);border-radius:6px;padding:16px 18px;display:grid;gap:10px}
+.differs ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.source{font-size:12.5px;color:var(--muted);max-width:90ch}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Meridian Map rework · reference study · 2026-11-08</div>
+  <h1>Passive Tree Survey</h1>
+  <p class="lede">The Path of Exile 1 and Path of Exile 2 passive trees, redrawn from their published data, beside today's Kinh Mạch Đồ. Pick a start, then hover any node to see the shortest path to it and what it costs in points. Click a node to measure from there instead.</p>
+</header>
+
+<section class="plate" aria-label="Tree viewer">
+  <div class="bar">
+    <div class="tabs" role="tablist" aria-label="Tree">
+      <button class="tab" role="tab" id="tab-poe1" data-tree="poe1" aria-selected="true">PoE 1 (3.x)</button>
+      <button class="tab" role="tab" id="tab-poe2" data-tree="poe2" aria-selected="false">PoE 2 (0.5)</button>
+      <button class="tab" role="tab" id="tab-ours" data-tree="ours" aria-selected="false">Kinh Mạch Đồ today</button>
+    </div>
+    <div class="ctl">
+      <label for="mode">Show</label>
+      <select id="mode">
+        <option value="types">Node types</option>
+        <option value="dist" selected>Points from the start</option>
+        <option value="hubs">Crossroads and dead ends</option>
+        <option value="theme">Where a theme sits</option>
+      </select>
+      <label for="theme" id="theme-l" hidden>Theme</label>
+      <select id="theme" hidden></select>
+      <label for="start">Start</label>
+      <select id="start"></select>
+      <button class="plain" id="fit" type="button">Fit view</button>
+    </div>
+  </div>
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-label="Passive tree map. Drag to pan, scroll or pinch to zoom."></canvas>
+    <div class="tip" id="tip" hidden></div>
+  </div>
+  <div class="legend" id="legend"></div>
+</section>
+
+<section class="cols">
+  <div class="findings">
+    <h2>What makes the PoE trees work</h2>
+
+    <div class="group-label">Shape</div>
+    <div class="finding"><h3>A ring of starts around a hub, each in its own colour</h3>
+      <p>PoE 1 puts six class starts on a ring at a third of the radius, 60° apart, with the Scion in the centre. PoE 2 pulls its six shared starts in to a tight inner ring (about a tenth of the radius). Each start owns a region (strength, dexterity, intelligence and their blends), and the space between two neighbours is a hybrid zone: about <span class="num">61–67 %</span> of all nodes are within 3 points of being closer to a second start.</p></div>
+    <div class="finding"><h3>Full, round, and richer toward the rim</h3>
+      <p>Both trees are as wide as they are tall and fill <span class="num">63–71 %</span> of the plate, with no empty bands. Density grows outward: the inner 40 % of the radius holds about a tenth of the nodes, and most notables and keystones sit in the outer half (keystones average <span class="num">0.68</span> of the radius).</p></div>
+    <div class="finding"><h3>Geometric clusters on orbits, drawn as arcs</h3>
+      <p>Every node sits on one of a few concentric orbits around its cluster's centre, so clusters come in a small set of recognisable forms: wheels you pass through, half-rings, short spokes. <span class="num">61 %</span> of PoE 1's edges are arcs along those orbits, which gives it the round, hand-drawn look. PoE 2 uses more straight spokes and stars (<span class="num">29 %</span> arcs).</p></div>
+    <div class="finding"><h3>Hand-shaped, never symmetric</h3>
+      <p>Rotating either tree by 60° lines up only <span class="num">35–39 %</span> of nodes, and a left-right mirror about half. Each region was drawn for its own themes, so every side of the map reads differently, even though density is even around the circle.</p></div>
+
+    <div class="group-label">Connection</div>
+    <div class="finding"><h3>Highways and pockets</h3>
+      <p>About <span class="num">60–65 %</span> of nodes are plain links in a line (two neighbours), and they form long travel roads between crossroads of 5 to 9 roads (starts, jewel sockets, wheel centres). Notables live in pockets off those roads: <span class="num">79 %</span> of PoE 1's notable clusters (64 % in PoE 2) have a single way in, and cost only <span class="num">2.7</span> (PoE 2: <span class="num">3.4</span>) small nodes each.</p></div>
+    <div class="finding"><h3>Keystones are always a deliberate trip</h3>
+      <p>Every keystone in both trees is a dead-end tip with one link. You never pass through one on the way somewhere else, so taking it is always a choice.</p></div>
+    <div class="finding"><h3>Loops give alternate routes</h3>
+      <p>Both trees carry about <span class="num">16</span> independent loops per 100 nodes, mostly wheels that you enter at one point and leave at another. A path can collect a cluster's value on its way through instead of backtracking.</p></div>
+    <div class="finding"><h3>Travel is never worthless</h3>
+      <p>PoE 1's travel nodes give +10 to an attribute, and PoE 2's let you pick +5 to any attribute. Roads pay for requirements, so the cost of a long trip is softened rather than dead.</p></div>
+
+    <div class="group-label">Pathing</div>
+    <div class="finding"><h3>Small diameter, huge breadth</h3>
+      <p>From any start, the farthest node is only <span class="num">30–33</span> points away in PoE 1 (<span class="num">38–42</span> in PoE 2), yet a finished build allocates only about 3–6 % of the tree. You can reach anything; the choice is which few percent to take and which roads to share between goals.</p></div>
+    <div class="finding"><h3>Payoff arrives early and keeps coming</h3>
+      <p>The nearest keystone is <span class="num">6–8</span> points from a PoE 1 start (<span class="num">9–13</span> in PoE 2), and 34–61 notables sit within 10 points. Inside a cluster, notables are 2–3 steps apart, and clusters are 4–7 steps apart, so a planned path hits a payoff every few points.</p></div>
+    <div class="finding"><h3>Neighbours are close, the far side is a commitment</h3>
+      <p>Adjacent starts are <span class="num">12</span> points apart and opposite ones <span class="num">26–30</span>. Borrowing a neighbour's region is cheap; crossing the map is a build-defining spend.</p></div>
+  </div>
+
+  <div class="findings">
+    <h2>What PoE 2 changed</h2>
+    <div class="finding"><p>Twelve classes share six starts, set much closer to the centre, and the ascendancy sits in the middle. The tree is twice as big (<span class="num">4,115</span> nodes, <span class="num">984</span> notables) but has fewer keystones (<span class="num">33</span>), and they sit further out. Notables come in tight groups of 2–3, then a longer gap (the spacing has peaks at 2–3 and at 6–7 steps). More pockets are dead ends (<span class="num">559</span> tips against PoE 1's 77), and plain travel nodes are mostly the pick-an-attribute kind.</p></div>
+
+    <div class="differs">
+      <h2>Where today's Kinh Mạch Đồ differs</h2>
+      <ul>
+        <li><b>An empty middle band.</b> Only about <span class="num">2 %</span> of our nodes sit between half and 85 % of the radius, so the rim clusters float. The map fills <span class="num">27 %</span> of its plate, against PoE's 63–71 %.</li>
+        <li><b>Thin payoff.</b> A notable cluster carries <span class="num">5.8</span> small nodes per pocket, against 2.7–3.4, and 85 of 193 notables are 8 or more steps from the next one.</li>
+        <li><b>No real crossroads.</b> Our biggest junction has 4 roads (the centre has 6). PoE's hubs have up to 9.</li>
+        <li><b>The first keystone is far.</b> Apart from the centre keystone, the nearest one is <span class="num">22</span> points away, against 6–13.</li>
+        <li><b>Some keystones sit on the path.</b> 6 of our 19 keystones have two links, so a build can walk through one.</li>
+        <li><b>Blob clusters, not orbit forms.</b> Our builder grows each cluster as a blob. Its curves are smoothing, not orbits, so clusters lack PoE's recognisable wheel and arc shapes.</li>
+        <li><b>One start.</b> Everyone begins in Đan Điền. You've already chosen to let the root pick the start, which moves us toward PoE's start ring.</li>
+      </ul>
+      <p class="source">Same in spirit: about 15 loops per 100 nodes, mostly single-entrance pockets (83 %), and a round outline.</p>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom:8px">Where the nodes sit, centre to rim</h3>
+      <div id="radial"></div>
+    </div>
+  </div>
+</section>
+
+<section class="cols">
+  <div class="findings">
+    <h2>Clusters: what they hold and where they sit</h2>
+    <div class="group-label">Two kinds of theme</div>
+    <div class="finding"><h3>Universal themes are scattered on purpose</h3>
+      <p>Life, crit, mana, auras and attributes appear in 9–12 of 12 directions, and the nearest one is <span class="num">4–11</span> points from <em>every</em> start. PoE 2's crit has 48 clusters in all 12 directions, 5–10 points from every start. Every build needs these, so every start gets them nearby. Choose "Where a theme sits" above, then crit or life, to see it.</p></div>
+    <div class="finding"><h3>Identity themes are concentrated</h3>
+      <p>Minions, traps and mines, warcries, flasks, evasion and armour sit in 2–6 directions, owned by 2–5 starts, and can be <span class="num">17–22</span> points from the others. They make a start feel like itself, and taking them far from home is a real detour.</p></div>
+    <div class="finding"><h3>Scattered themes rarely sit next to themselves</h3>
+      <p>A crit cluster's nearest neighbour is almost never another crit cluster (17 % in PoE 1), and the same holds for spell, curse and elemental. Concentrated themes run in districts (evasion 81 %, weapons 70 %, minions 65 %). The commonest neighbours pair offence with defence: crit next to life is PoE 2's most common pair.</p></div>
+    <div class="group-label">Shape and flow</div>
+    <div class="finding"><h3>Every crossroads is a small menu</h3>
+      <p>In PoE 1, <span class="num">397</span> of 422 notable pockets hang directly off a crossroads, and a crossroads usually holds <span class="num">3–5</span> pockets of different themes (89 % mixed). You stand on a cheap travel node and choose which door to take.</p></div>
+    <div class="finding"><h3>Mostly one notable at the end of a short spoke</h3>
+      <p>86 % of PoE 1's clusters (72 % of PoE 2's) hold one notable. About two-thirds are straight spokes and one-third are wheels, and 79 % have a single way in. The small nodes leading in carry the cluster's theme 66–71 % of the time, so the walk builds toward the payoff.</p></div>
+    <div class="finding"><h3>Packed tight</h3>
+      <p>Neighbouring clusters are almost always <span class="num">2</span> points apart. Leaving one pocket puts you two steps from the next, so the tree reads as one fabric instead of islands.</p></div>
+    <div class="group-label">Masteries (PoE 1)</div>
+    <div class="finding"><h3>A mastery turns repeated themes into choices</h3>
+      <p>315 of PoE 1's 422 notable clusters have a mastery at their centre, named for the theme (Life ×14, Mana ×12, Critical ×7). It opens once you hold a notable in that cluster, and you pick one of its effects (277 offer six). Each effect can be taken only once, so the second Life cluster offers a different Life choice. That is what makes repeating a theme around the tree worth it.</p></div>
+  </div>
+  <div class="findings">
+    <div class="differs">
+      <h2>What this could mean for Kinh Mạch Đồ</h2>
+      <ul>
+        <li><b>Our scatter is mechanical.</b> Each of our 14 themes is copied about once per element sector (5 copies, 5 directions), whatever the theme. Universal and identity themes are spread the same way, and no theme forms a district (same-theme neighbours 9 %).</li>
+        <li><b>Split our themes in two.</b> Universal: health (Khí Huyết), linh lực, thần thức, ward (Hộ Thể), and a crit-like offence theme. Identity: sword intent (Kiếm Ý), beasts (Ngự Thú), formations (Trận Đạo), talismans (Phù Đạo), alchemy (Đan Đạo), refining (Luyện Khí), fields (Linh Điền). Scatter the first group widely and unevenly, and give the second group districts near the root that fits it.</li>
+        <li><b>Menus at crossroads.</b> Hang 3–5 short pockets of different themes on each road junction, about 2 points apart, so every fork is a choice.</li>
+        <li><b>Pair offence with defence.</b> Put a defensive pocket next to most offensive ones, so any route can stay balanced.</li>
+        <li><b>Cluster mastery (Tinh Thông), later.</b> One mastery per themed cluster, opened by a notable in it, offering a few choices that can each be taken once. It fits the Effects tiers (minor), and it makes repeated universal themes worth taking.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="margin-bottom:8px">How spread out each theme is</h3>
+      <div class="tablebox"><table id="themetab"></table></div>
+      <p class="source">Spread 1.0 means the theme's clusters sit as far apart as clusters in general; lower means grouped. Access is the points from the closest and the farthest start to the theme's nearest cluster. PoE 1's themes come from its mastery names; PoE 2's come from the stat text, so they are approximate.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 style="margin-bottom:12px">Measured side by side</h2>
+  <div class="tablebox"><table id="cmp"></table></div>
+</section>
+
+<p class="source">Data: Grinding Gear Games' public PoE 1 tree export (grindinggear/skilltree-export) and the PoE 2 0.5 tree from the Path of Building community. Redrawn for study only, without the games' art. Ascendancies, cluster jewels, Bloodline and other side nodes are left out, and PoE 1 masteries are shown but not counted as path nodes. "Points" means nodes on the shortest path, ignoring level and quest rules. Our tree is today's generator output (seed 20261102). Its sealed clusters connect through gates that the drawn graph doesn't include, so a few of our pockets show as unreachable.</p>
+</div>
+
+<script id="trees" type="application/json">__TREES__</script>
+<script id="metrics" type="application/json">__METRICS__</script>
+<script id="themes" type="application/json">__THEMES__</script>
+<script id="tmetrics" type="application/json">__TMETRICS__</script>
+<script>
+(()=>{
+const TREES=JSON.parse(document.getElementById('trees').textContent);
+const MET=JSON.parse(document.getElementById('metrics').textContent);
+const TH=JSON.parse(document.getElementById('themes').textContent),TM=JSON.parse(document.getElementById('tmetrics').textContent);
+const themeSel=document.getElementById('theme'),themeL=document.getElementById('theme-l');
+const T_SMALL=0,T_ATTR=1,T_NOT=2,T_KEY=3,T_JEWEL=4,T_MAST=5,T_START=6;
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d'),stage=document.getElementById('stage'),tip=document.getElementById('tip');
+const modeSel=document.getElementById('mode'),startSel=document.getElementById('start'),legend=document.getElementById('legend');
+let css={};const readCss=()=>{const s=getComputedStyle(document.documentElement);for(const k of['plate','fg','muted','accent','notable','keystone','jewel','start','small','travel','edge','dim','path','panel','line'])css[k]=s.getPropertyValue('--'+k).trim();};
+readCss();
+const mq=matchMedia('(prefers-color-scheme: dark)');mq.addEventListener?.('change',()=>{readCss();draw();});
+new MutationObserver(()=>{readCss();draw();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+// prepare trees
+const P={};
+for(const key of Object.keys(TREES)){
+  const t=TREES[key],N=t.n.length,adj=Array.from({length:N},()=>[]);
+  for(const e of t.e){adj[e[0]].push(e[1]);adj[e[1]].push(e[0]);}
+  let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const p of t.n){x0=Math.min(x0,p[0]);y0=Math.min(y0,p[1]);x1=Math.max(x1,p[0]);y1=Math.max(y1,p[1]);}
+  const starts=[];t.n.forEach((p,i)=>{if(p[2]===T_START)starts.push(i);});
+  const cl=new Int32Array(N).fill(-1);(TH[key]?.clusters||[]).forEach((c,ci)=>c.forEach(i=>{cl[i]=ci;}));
+  P[key]={...t,N,adj,bbox:[x0,y0,x1,y1],starts,deg:adj.map(a=>a.length),cl,th:TH[key]};
+}
+let cur='poe1',view={s:1,tx:0,ty:0},src=null,dist=null,par=null,hover=-1,W=0,H=0,dpr=1;
+const label=i=>{const nm=P[cur].names[i];return nm?nm[0]:null;};
+function bfs(s){const t=P[cur],d=new Int32Array(t.N).fill(-1),p=new Int32Array(t.N).fill(-1);d[s]=0;const q=[s];for(let h=0;h<q.length;h++){const u=q[h];for(const v of t.adj[u])if(d[v]<0&&t.n[v][2]!==T_MAST){d[v]=d[u]+1;p[v]=u;q.push(v);}}dist=d;par=p;}
+function setSource(i){src=i;bfs(i);}
+function fit(){const [x0,y0,x1,y1]=P[cur].bbox,pad=24;const s=Math.min((W-2*pad)/(x1-x0),(H-2*pad)/(y1-y0));view={s,tx:W/2-s*(x0+x1)/2,ty:H/2-s*(y0+y1)/2};}
+function resize(){const r=stage.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;}
+function rampColor(d){ // 0 near, 40+ far
+  if(d<0)return css.dim;const t=Math.min(1,d/40);
+  const stops=[[0,[43,95,174]],[.35,[27,138,128]],[.65,[176,125,18]],[1,[179,48,74]]];
+  for(let k=1;k<stops.length;k++){if(t<=stops[k][0]){const [a,ca]=stops[k-1],[b,cb]=stops[k],u=(t-a)/(b-a);return `rgb(${ca.map((c,j)=>Math.round(c+(cb[j]-c)*u)).join(',')})`;}}
+  return 'rgb(179,48,74)';}
+function nodeColor(i){const t=P[cur],ty=t.n[i][2],m=modeSel.value;
+  if(m==='dist'){if(ty===T_MAST)return css.dim;return rampColor(dist?dist[i]:-1);}
+  if(m==='theme'){const c=t.cl[i];if(c<0)return ty===T_START?css.start:css.dim;return t.th.theme[c]===themeSel.value?css.path:css.travel;}
+  if(m==='hubs'){const d=t.deg[i];if(ty===T_KEY)return css.keystone;if(d>=5)return css.accent;if(d===1)return css.notable;if(d===2)return css.travel;return css.small;}
+  return [css.small,css.travel,css.notable,css.keystone,css.jewel,css.dim,css.start][ty];}
+function nodeR(i){const ty=P[cur].n[i][2];return [1,0.85,1.7,2.6,1.8,1.2,3.2][ty];}
+function draw(){
+  const t=P[cur],{s,tx,ty}=view;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle=css.plate;ctx.fillRect(0,0,W,H);
+  ctx.setTransform(dpr*s,0,0,dpr*s,dpr*tx,dpr*ty);
+  const base=Math.max(0.6,Math.min(2.2,1.1/(s*60)));const unit=1/s; // px→world
+  ctx.lineWidth=Math.max(1*unit,Math.min(30,unit*1.3));ctx.lineCap='round';
+  const m=modeSel.value;
+  // edges
+  for(const e of t.e){const a=t.n[e[0]],b=t.n[e[1]];
+    let col=css.edge;
+    if(m==='dist'&&dist){const d=Math.max(dist[e[0]],dist[e[1]]);col=d<0?css.dim:rampColor(d);ctx.globalAlpha=.55;} else ctx.globalAlpha=1;
+    ctx.strokeStyle=col;ctx.beginPath();
+    if(e[2]===1){const c=t.gc[e[0]],r=Math.hypot(a[0]-c[0],a[1]-c[1]);const ta=Math.atan2(a[1]-c[1],a[0]-c[0]),tb=Math.atan2(b[1]-c[1],b[0]-c[0]);let d=tb-ta;while(d>Math.PI)d-=2*Math.PI;while(d<-Math.PI)d+=2*Math.PI;ctx.arc(c[0],c[1],r,ta,tb,d<0);}
+    else if(e[2]===2){ctx.moveTo(a[0],a[1]);ctx.quadraticCurveTo(e[3],e[4],b[0],b[1]);}
+    else{ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);}
+    ctx.stroke();}
+  ctx.globalAlpha=1;
+  // path to hover
+  if(par&&hover>=0&&dist[hover]>0){ctx.strokeStyle=css.path;ctx.lineWidth=unit*3.2;ctx.beginPath();let v=hover;ctx.moveTo(t.n[v][0],t.n[v][1]);while(par[v]>=0){v=par[v];ctx.lineTo(t.n[v][0],t.n[v][1]);}ctx.stroke();}
+  // nodes
+  const px=Math.max(1.6,Math.min(7,s*55));
+  for(let i=0;i<t.N;i++){const p=t.n[i];ctx.fillStyle=nodeColor(i);const r=px*nodeR(i)*unit;ctx.beginPath();if(p[2]===T_MAST){ctx.rect(p[0]-r,p[1]-r,2*r,2*r);}else ctx.arc(p[0],p[1],r,0,Math.PI*2);ctx.fill();
+    if(p[2]===T_KEY||p[2]===T_START){ctx.strokeStyle=css.fg;ctx.lineWidth=unit*1.2;ctx.stroke();}}
+  if(src!=null){const p=t.n[src];ctx.strokeStyle=css.path;ctx.lineWidth=unit*2.4;ctx.beginPath();ctx.arc(p[0],p[1],px*4.5*unit,0,Math.PI*2);ctx.stroke();}
+  if(hover>=0){const p=t.n[hover];ctx.strokeStyle=css.fg;ctx.lineWidth=unit*2;ctx.beginPath();ctx.arc(p[0],p[1],px*3*unit,0,Math.PI*2);ctx.stroke();}
+}
+function setLegend(){const m=modeSel.value;let h='';
+  if(m==='types')h=`<span><i class="sw" style="background:${css.start}"></i>start</span><span><i class="sw" style="background:${css.keystone}"></i>keystone</span><span><i class="sw" style="background:${css.notable}"></i>notable</span><span><i class="sw" style="background:${css.jewel}"></i>jewel socket</span><span><i class="sw" style="background:${css.small}"></i>small</span><span><i class="sw" style="background:${css.travel}"></i>travel (attribute or road)</span>`;
+  else if(m==='dist')h=`<span>Points from the start: 0<i class="ramp" style="background:linear-gradient(90deg,rgb(43,95,174),rgb(27,138,128),rgb(176,125,18),rgb(179,48,74))"></i>40+</span><span><i class="sw" style="background:${css.path}"></i>shortest path to the hovered node</span>`;
+  else if(m==='theme'){const k=TM[cur].themes[themeSel.value];h=`<span><i class="sw" style="background:${css.path}"></i>${themeSel.value} clusters</span><span><i class="sw" style="background:${css.travel}"></i>other notable clusters</span>`+(k?`<span>${k.clusters} clusters · ${k.sectors_of_12} of 12 directions · ${k.points_from_start_min_max[0]}–${k.points_from_start_min_max[1]} points from the nearest start</span>`:'');}
+  else h=`<span><i class="sw" style="background:${css.accent}"></i>crossroads (5+ links)</span><span><i class="sw" style="background:${css.travel}"></i>road (2 links)</span><span><i class="sw" style="background:${css.small}"></i>junction (3–4)</span><span><i class="sw" style="background:${css.notable}"></i>dead-end tip</span><span><i class="sw" style="background:${css.keystone}"></i>keystone</span>`;
+  const t=P[cur];h+=`<span class="status">${t.N.toLocaleString()} nodes · ${t.e.length.toLocaleString()} links</span>`;legend.innerHTML=h;}
+function fillThemes(){const tm=TM[cur].themes;const list=Object.keys(tm).sort((a,b)=>tm[b].clusters-tm[a].clusters);const prev=themeSel.value;themeSel.innerHTML=list.map(x=>`<option value="${x}">${x} (${tm[x].clusters})</option>`).join('');const want=list.includes(prev)?prev:(list.includes('crit')?'crit':list[0]);themeSel.value=want;}
+function syncMode(){const on=modeSel.value==='theme';themeSel.hidden=!on;themeL.hidden=!on;}
+function fillStarts(){const t=P[cur];startSel.innerHTML=t.starts.map(i=>`<option value="${i}">${label(i)||'Start'}</option>`).join('');setSource(t.starts[0]);}
+function selectTree(k){cur=k;document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.tree===k));hover=-1;tip.hidden=true;fillStarts();fillThemes();syncMode();fit();setLegend();draw();try{localStorage.setItem('pts-tree',k);}catch(e){}}
+// interaction
+function toWorld(x,y){return[(x-view.tx)/view.s,(y-view.ty)/view.s];}
+function pick(x,y){const t=P[cur],[wx,wy]=toWorld(x,y),lim=(10/view.s)**2;let best=-1,bd=lim;for(let i=0;i<t.N;i++){const p=t.n[i],d=(p[0]-wx)**2+(p[1]-wy)**2;if(d<bd){bd=d;best=i;}}return best;}
+function showTip(i,x,y){if(i<0){tip.hidden=true;return;}const t=P[cur],ty=t.n[i][2],nm=t.names[i];
+  const kind=['Small node','Travel node','Notable','Keystone','Jewel socket','Mastery','Start'][ty];
+  let h=`<b>${nm&&nm[0]?nm[0]:kind}</b>${nm&&nm[0]?` <span style="color:var(--muted)">· ${kind}</span>`:''}`;
+  if(nm&&nm[1]&&nm[1].length)h+=`<ul>${nm[1].filter(Boolean).slice(0,4).map(s=>`<li>${String(s).replace(/</g,'&lt;')}</li>`).join('')}</ul>`;
+  const c=t.cl[i];if(c>=0){const th=t.th;h+=`<div style="color:var(--muted)">Cluster: ${th.theme[c]} · ${th.form[c]} · ${th.exits[c]} way${th.exits[c]===1?'':'s'} in${th.mastery[c]?' · '+th.mastery[c]+' mastery':''}</div>`;}
+  const d=dist?dist[i]:-1;h+=`<div class="cost">${d<0?'not reachable by plain links':d===0?'the selected start':d+' points from '+(label(src)||'the selected node')} · ${t.deg[i]} link${t.deg[i]===1?'':'s'}</div>`;
+  tip.innerHTML=h;tip.hidden=false;const r=stage.getBoundingClientRect();let lx=x+14,ly=y+14;const tw=tip.offsetWidth,th=tip.offsetHeight;if(lx+tw>r.width-8)lx=x-tw-14;if(ly+th>r.height-8)ly=y-th-14;tip.style.left=Math.max(8,lx)+'px';tip.style.top=Math.max(8,ly)+'px';}
+const pts=new Map();let downAt=null,moved=false,pinch=null;
+cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);pts.set(e.pointerId,[e.offsetX,e.offsetY]);downAt=[e.offsetX,e.offsetY];moved=false;if(pts.size===2){const [a,b]=[...pts.values()];pinch={d:Math.hypot(a[0]-b[0],a[1]-b[1]),s:view.s,tx:view.tx,ty:view.ty,c:[(a[0]+b[0])/2,(a[1]+b[1])/2]};}cv.classList.add('drag');});
+cv.addEventListener('pointermove',e=>{const x=e.offsetX,y=e.offsetY;
+  if(pts.has(e.pointerId)){const prev=pts.get(e.pointerId);pts.set(e.pointerId,[x,y]);
+    if(pts.size===2&&pinch){const [a,b]=[...pts.values()],d=Math.hypot(a[0]-b[0],a[1]-b[1]),k=d/pinch.d;const c=pinch.c;view.s=pinch.s*k;view.tx=c[0]-(c[0]-pinch.tx)*k;view.ty=c[1]-(c[1]-pinch.ty)*k;moved=true;draw();return;}
+    if(Math.hypot(x-downAt[0],y-downAt[1])>4)moved=true;if(moved){view.tx+=x-prev[0];view.ty+=y-prev[1];tip.hidden=true;draw();return;}}
+  const i=pick(x,y);if(i!==hover){hover=i;draw();}showTip(i,x,y);});
+cv.addEventListener('pointerup',e=>{pts.delete(e.pointerId);if(pts.size<2)pinch=null;cv.classList.remove('drag');if(!moved){const i=pick(e.offsetX,e.offsetY);if(i>=0&&P[cur].n[i][2]!==T_MAST){setSource(i);const opt=[...startSel.options].find(o=>+o.value===i);startSel.value=opt?i:'';draw();showTip(i,e.offsetX,e.offsetY);}}});
+cv.addEventListener('pointerleave',()=>{if(!pts.size){hover=-1;tip.hidden=true;draw();}});
+cv.addEventListener('wheel',e=>{e.preventDefault();const k=Math.exp(-e.deltaY*0.0015);const x=e.offsetX,y=e.offsetY;view.tx=x-(x-view.tx)*k;view.ty=y-(y-view.ty)*k;view.s*=k;tip.hidden=true;draw();},{passive:false});
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>selectTree(b.dataset.tree)));
+modeSel.addEventListener('change',()=>{syncMode();setLegend();draw();});
+themeSel.addEventListener('change',()=>{setLegend();draw();});
+startSel.addEventListener('change',()=>{if(startSel.value!=='')setSource(+startSel.value);draw();});
+document.getElementById('fit').addEventListener('click',()=>{fit();draw();});
+new ResizeObserver(()=>{resize();fit();draw();}).observe(stage);
+
+// radial sparkbars
+const names={poe1:'PoE 1',poe2:'PoE 2',ours:'Kinh Mạch Đồ'};
+(function(){const box=document.getElementById('radial');let h='';
+  for(const k of ['poe1','poe2','ours']){const r=MET[k].shape.radial_density_all,mx=Math.max(...r),tot=r.reduce((a,b)=>a+b,0);
+    const bw=22,gap=4,hh=46,w=r.length*(bw+gap);
+    h+=`<div style="display:grid;grid-template-columns:110px minmax(0,1fr);align-items:end;gap:10px;margin-bottom:10px"><div style="font-size:13px">${names[k]}</div><div style="overflow-x:auto"><svg class="spark" width="${w}" height="${hh+14}" viewBox="0 0 ${w} ${hh+14}" role="img" aria-label="${names[k]} node share by radius band">`;
+    r.forEach((v,i)=>{const bh=Math.max(1,v/mx*hh);h+=`<rect x="${i*(bw+gap)}" y="${hh-bh}" width="${bw}" height="${bh}" fill="var(--accent)" opacity="${k==='ours'?0.85:0.7}"><title>${(i*10)}–${(i+1)*10} % of radius: ${Math.round(100*v/tot)} % of nodes</title></rect>`;});
+    h+=`<text x="0" y="${hh+12}" font-size="10" fill="var(--muted)" font-family="var(--f-mono)">centre</text><text x="${w}" y="${hh+12}" font-size="10" fill="var(--muted)" text-anchor="end" font-family="var(--f-mono)">rim</text></svg></div></div>`;}
+  box.innerHTML=h;})();
+
+// comparison table
+(function(){const a=MET.poe1,b=MET.poe2,c=MET.ours;const per=(m,f)=>Object.values(m.per_start).map(f);
+  const rng=arr=>{const lo=Math.min(...arr),hi=Math.max(...arr);return lo===hi?`${lo}`:`${lo}–${hi}`;};
+  const share=(m,r)=>{const tot=m.types.notable;return rng(per(m,s=>Math.round(100*s.notables_within[r]/tot)))+' %';};
+  const deg2=m=>Math.round(100*(m.degree_hist['2']||0)/m.nodes_total)+' %';
+  const maxdeg=m=>Math.max(...Object.keys(m.degree_hist).map(Number));
+  const ss=m=>{const v=Object.values(m.start_to_start).filter(x=>x!=null);return v.length?`${Math.min(...v)} / ${Math.max(...v)}`:'—';};
+  const near=m=>rng(per(m,s=>s.nearest_keystones.find(x=>x>1)??s.nearest_keystones[0]));
+  const single=m=>{const h=m.notable_group_exits_hist,t=Object.values(h).reduce((x,y)=>x+y,0);return Math.round(100*(h['1']||0)/t)+' %';};
+  const loops=m=>(100*m.cyclomatic/m.nodes_total).toFixed(0);
+  const rows=[
+    ['Allocatable nodes',m=>m.nodes_total.toLocaleString()],
+    ['Notables / keystones / jewel sockets',m=>`${m.types.notable||0} / ${m.types.keystone||0} / ${m.types.jewel||0}`],
+    ['Travel nodes (attribute or road)',m=>(m.types.attribute||0).toLocaleString()],
+    ['Starts',m=>m.starts],
+    ['Start distance, neighbour / opposite',ss],
+    ['Nearest keystone from a start',near,'ours: the centre keystone at 1 point is left out'],
+    ['Notables within 10 points',m=>rng(per(m,s=>s.notables_within['10']))],
+    ['Share of notables within 20 points',m=>share(m,'20')],
+    ['Farthest node from a start',m=>rng(per(m,s=>s.farthest))],
+    ['Nodes with exactly 2 links (roads)',deg2],
+    ['Most links on one node',maxdeg],
+    ['Dead-end tips',m=>(m.degree_hist['1']||0).toLocaleString()],
+    ['Independent loops per 100 nodes',loops],
+    ['Notable clusters with one way in',single],
+    ['Small nodes per notable cluster',m=>m.small_per_notable_group_mean],
+    ['Keystones that are dead ends',m=>`${m.keystone_degree_hist['1']||0} of ${m.types.keystone}`],
+    ['Keystone distance from centre (share of radius)',m=>m.keystone_radius_share_mean],
+    ['Plate filled (40 × 40 grid)',m=>Math.round(100*m.shape.grid_fill_40x40)+' %'],
+    ['Links drawn as orbit arcs',m=>Math.round(100*m.shape.arc_edge_share)+' %','ours: the builder curves 63 % of links, but not on orbits'],
+    ['Match after a 60° turn',m=>Math.round(100*m.shape.rotational_match['60'])+' %'],
+    ['Cluster forms: wheels / lines / stars',m=>{const f=m.shape.cluster_forms_ge4;return `${f.loop||0} / ${f['line/arc']||0} / ${f.star||0}`;}],
+  ];
+  let h='<thead><tr><th>Measure</th><th>PoE 1</th><th>PoE 2</th><th>Kinh Mạch Đồ today</th></tr></thead><tbody>';
+  for(const [lab,f,note] of rows)h+=`<tr><td>${lab}${note?`<div style="font-size:12px;color:var(--muted)">${note}</div>`:''}</td><td class="n">${f(a)}</td><td class="n">${f(b)}</td><td class="n">${f(c)}</td></tr>`;
+  document.getElementById('cmp').innerHTML=h+'</tbody>';})();
+
+(function(){const want=['life','crit','mana','attributes','aura/reservation','energy shield','armour','evasion','minion','trap/mine','warcry','lightning'];
+  let h='<thead><tr><th>Theme</th><th>PoE 1 clusters</th><th>Spread</th><th>Directions</th><th>Access</th><th>PoE 2 clusters</th><th>Spread</th><th>Directions</th><th>Access</th></tr></thead><tbody>';
+  const cell=v=>v?`<td class="n">${v.clusters}</td><td class="n">${v.dispersion.toFixed(2)}</td><td class="n">${v.sectors_of_12} / 12</td><td class="n">${v.points_from_start_min_max[0]}–${v.points_from_start_min_max[1]}</td>`:'<td class="n">—</td><td></td><td></td><td></td>';
+  for(const w of want)h+=`<tr><td>${w}</td>${cell(TM.poe1.themes[w])}${cell(TM.poe2.themes[w])}</tr>`;
+  document.getElementById('themetab').innerHTML=h+'</tbody>';})();
+
+let first='poe1';try{first=localStorage.getItem('pts-tree')||'poe1';}catch(e){}
+if(!P[first])first='poe1';
+resize();selectTree(first);
+})();
+</script>
