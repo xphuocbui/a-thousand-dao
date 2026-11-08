@@ -1,11 +1,11 @@
 # Combat Damage Types (Loại Sát Thương)
 
-> **Status**: Designed 2026-11-07, pending an independent `/design-review` in a fresh session
+> **Status**: Designed 2026-11-07. Design review 2026-11-08 (lean, overnight, four passes): Needs Revision, see `reviews/combat-damage-types-review-log.md`
 > **Author**: user + agents
-> **Last Updated**: 2026-11-07
+> **Last Updated**: 2026-11-08 (overnight design-review safe fixes, passes 1–4; see `reviews/combat-damage-types-review-log.md`)
 > **Last Verified**: 2026-11-07
 > **Implements Pillar**: Your Dao, Your Name (1); Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2)
-> **Parent system**: Combat (#21, `design/gdd/combat.md`). This is sub-system #21b. It owns what a blow *is*: its kind, its element, its mode, how conversion changes it, and how elements meet in a fight. Combat Defence & Healing (#21a, `design/gdd/combat-defence.md`) owns what the blow meets.
+> **Parent system**: Combat (#21, `design/gdd/combat.md`). This is sub-system #21b. It owns what a blow *is*: its damage type, how conversion changes it, and the rule that elements give no bonus in a fight (element tags belong to Combat rule 6 and Spiritual Roots). Combat Defence & Healing (#21a, `design/gdd/combat-defence.md`) owns what the blow meets.
 
 ## Summary
 
@@ -65,6 +65,9 @@ would have to mean both a crushing wave and a freezing mist.
    - Every part of a hit has exactly one type.
    - A hit may be authored with several parts (for example 60 % Physical and 40 % Fire), or gain parts by
      conversion (rule 6).
+   - **A hit is either all Soul or has no Soul part** (user decision 2026-11-08). Soul uses its own damage
+     formula and defence path (rule 4), so compile rejects a hit that mixes Soul with another type. An art that
+     wants both deals two hits.
    - Every tick has one type: a burn is Fire, a poison Chaos, a bleed Physical, frostbite Cold. No status deals
      Soul damage.
    - The Breakdown names the type of every part.
@@ -110,17 +113,23 @@ would have to mean both a crushing wave and a freezing mist.
 
 5. **Resistance is one value per damage type**, plus **all resistance**, which applies to every type except
    Soul. Soul keeps its own soul resistance (Combat Formulas E2). The cap, floor and penetration rules are
-   those of Combat Defence & Healing rule 3. Chaos resistance should come from rarer sources than the
+   those of Combat Defence & Healing rules 3 and 4. Chaos resistance should come from rarer sources than the
    others, so that Chaos stays the threat that resistance stacking answers last. That is a content guideline
    for the Modifier System and item design, not a cap.
 
 6. **Conversion changes a part's type.** An art, Effect or modifier may convert a share of a hit's parts from
    one type to another (Physical → Fire, Force → Lightning). The limits:
    - **At most 2 conversions per hit.** Each conversion counts, including two from one type in the same step.
-     They apply in a fixed order: the art's own conversions, then Effects, then modifiers, each in the order
-     its source lists them. A type cannot be converted back in the same hit (Combat rule 6).
+     A conversion that moves nothing (no part of its source type is left, or its target is already in every
+     part's history) does not count, matching the Soul rule below.
+   - **Steps.** A step is one source tier: the art's own conversions, then Effects, then modifiers. Every
+     conversion from one type in one step reads that type's share **at the start of the step** (user decision
+     2026-11-08), and if they sum above 100 % they are scaled down to 100 %. Later steps read what earlier steps
+     left. A type cannot be converted back in the same hit (Combat rule 6).
+   - **Conversion never changes a status tick's type.** A status keeps its record's type; changing that takes
+     an Effect (Effects System).
    - **A converted part keeps its earlier types as tags** for offence modifiers, so "+Physical" and "+Fire"
-     modifiers both reach a Physical-to-Fire part. Resistance and block read only its **final type**.
+     modifiers both reach a Physical-to-Fire part. Resistance, penetration and block read only its **final type**.
    - **Element tags never convert.** They belong to the art, not the part.
    - **Nothing converts to or from Soul**, because Soul uses a different damage formula. Such a conversion is
      ignored, logged, and does not count toward the 2.
@@ -135,7 +144,7 @@ would have to mean both a crushing wave and a freezing mist.
    Any shield may author a different list.
 
 8. **No element cycle in fights** (user decision 2026-11-07). The generating and overcoming relations
-   (Spiritual Roots rule 3) give no damage bonus or penalty in combat; defence is resistance-based only.
+   (Spiritual Roots rule 1) give no damage bonus or penalty in combat; defence is resistance-based only.
    Effects (#41) may still use element relations, for example a keystone that rewards arts fired in
    generating order.
 
@@ -161,7 +170,7 @@ defence is applied (rule 6).
 | Combat Defence & Healing (#21a) | out | Each part's final type, read by resistance, block and shields; tick types | Combat Defence & Healing |
 | Modifier System (#40) | out | Damage-type scopes and element scopes for damage, resistance and penetration | Modifier System |
 | Spiritual Roots (#6) | in | The element and variant tags | Spiritual Roots |
-| Cultivation Techniques (#9), The Way (#39), Item DB (#13) | out | Each art's damage parts and element tags | each system |
+| Cultivation Techniques (#9), The Way (#39), Item DB (#13), Talismans (#18) | out | Each art's damage parts and element tags | each system |
 | Effects System (#41) | out | Conversions and element-relation Effects | Effects System |
 | Heavenly Tribulation (#22) | out | Tribulation lightning deals Lightning | Heavenly Tribulation |
 
@@ -174,7 +183,7 @@ defence is applied (rule 6).
 
 The damage_parts formula is defined as:
 
-`conversion k (X → Y, share c_k)`: for every part j with type X and Y ∉ hist_j, spawn a part with `s = s_j · c_k`, type Y, `hist = hist_j ∪ {X}`, and set `s_j ← s_j · (1 − c_k)` ; the c_k of one source type in one step sum to at most 1, scaled down if over ; `part_j = base · s_j · M(tags ∪ hist_j ∪ {type_j}) · crit` ; resistance and block read `type_j` only
+`conversion k (X → Y, share c_k)`: for every part j with type X and Y ∉ hist_j, spawn a part with `s = s_j · c_k`, type Y, `hist = hist_j ∪ {X}`, and set `s_j ← s_j · (1 − c_k)` ; a step is one source tier (art, then Effects, then modifiers) ; every c_k of one source type in one step reads s_j at the start of the step, and they sum to at most 1, scaled down if over ; `part_j = base · s_j · M(tags ∪ hist_j ∪ {type_j}) · crit` ; resistance and block read `type_j` only
 
 **Variables:**
 
@@ -189,7 +198,7 @@ The damage_parts formula is defined as:
 | M(·) | float | 0.1–350 | Combat Formulas B | Layers summed over modifiers whose scope is in the part's tags, history and type |
 | crit | float | 1 or `crit_mult` | Combat Formulas C | One roll per hit |
 
-**Output Range:** shares always sum to 1, and a hit has at most 4 × its authored parts (2 conversions).
+**Output Range:** shares always sum to 1, and a hit has at most 3 × its authored parts (2 conversions; each spawns at most one part per existing part of its source type).
 
 **Example:**
 - Base 100, all Physical, with +30 % Physical, +40 % Fire and +20 % Lightning modifiers. Physical → Fire 40 %,
@@ -198,7 +207,7 @@ The damage_parts formula is defined as:
 - **Against a thể tu** (Combat Defence & Healing's thể tu fixture: Physical resistance 0.60, Fire and Chaos
   0.30, block 5.57, body shield 109.0): an authored hit of D 41.3, 60 % Physical and 40 % Fire. After
   resistance the parts are 9.91 and 11.56. Block takes 2.57 and 3.00, and the body shield soaks the remaining
-  15.90, so **0** reaches health. The same hit with Chaos instead of Fire: the Chaos part of **8.56** after block
+  15.91, so **0** reaches health. The same hit with Chaos instead of Fire: the Chaos part of **8.56** after block
   passes the body shield and reaches health, and the Physical 7.34 goes into the body shield.
 
 ## Edge Cases
@@ -208,7 +217,10 @@ The damage_parts formula is defined as:
 - **If conversions from one type in one step sum above 100 %**: they are scaled down to sum to 100 %.
 - **If a conversion targets a type already in a part's history**: it does not apply to that part, so nothing
   converts back.
-- **If a third conversion applies**: it is ignored and logged with its source. A hit takes at most 2.
+- **If a third conversion applies**: it is ignored and logged with its source. A hit takes at most 2. A
+  conversion that moved nothing is not counted, so a later one may still apply.
+- **If a hit is authored or modified to mix Soul with another type**: compile rejects it and names the record.
+- **If a conversion meets a status tick**: it does not apply. Ticks keep their record's type.
 - **If a conversion would turn a part into Soul, or a Soul part into another type**: it is ignored. Soul uses
   Combat Formulas E2.
 - **If an element-scoped modifier meets a part whose damage type differs** ("+12 % damage on Fire-element arts"
@@ -224,11 +236,11 @@ The damage_parts formula is defined as:
 | System | Kind | What this system needs | Status | Lists this system? |
 |---|---|---|---|---|
 | Combat (#21) | Hard, parent | Hits, layers, crit, conversion order, the tag families | Approved for rules | Not yet: the Combat revision (#43) replaces the kind family with damage types and rewrites the conversion examples |
-| Combat Defence & Healing (#21a) | Hard | Resistance, block and shields read each part's final type | In revision | Yes |
+| Combat Defence & Healing (#21a) | Hard | Resistance, block and shields read each part's final type | Needs revision | Yes |
 | Spiritual Roots (#6) | Soft | Element and variant tags | In review | Not yet |
-| Modifier System (#40) | Soft | Damage-type and element scopes | Unfinished, paused | Not yet: listed in its resume banner |
-| Effects System (#41) | Soft | Conversions; element-relation Effects | Not started | Will |
-| Cultivation Techniques (#9), The Way (#39), Item DB (#13), Talismans (#18) | Soft | Damage types on every art and status record | In review; approved; implemented | Not yet |
+| Modifier System (#40) | Soft | Damage-type and element scopes | Needs revision | Yes |
+| Effects System (#41) | Soft | Conversions; element-relation Effects | Needs revision | Yes |
+| Cultivation Techniques (#9), The Way (#39), Item DB (#13), Talismans (#18) | Soft | Damage types on every art and status record | In review; approved; approved; implemented | Not yet |
 | Heavenly Tribulation (#22) | Soft | Tribulation lightning deals Lightning | Approved for rules | Not yet |
 
 ## Visual/Audio Requirements
@@ -276,12 +288,23 @@ colour and the element is a small tag beside it.
 |---|---|---|---|
 | Rule 1 | combat.md rules 4, 7 | Kinds and ticks | Replaced (kinds become types) |
 | Rules 2, 9 | combat.md rule 6 | Tag families | Replaced (kind family); read (others) |
-| Rule 3 | linh-can.md rules 3, 9–12; `character_elements.json` | Elements and variants | Read |
+| Rule 3 | linh-can.md rules 1, 9–12; `character_elements.json` | Elements and variants | Read |
 | Rule 4 | combat-defence.md rules 1, 9, 12 | The defence path, shields, block | Read |
 | Rule 5 | combat-defence.md rule 3 | Resistance cap 0.75 (raisable to 0.90), floor −0.50 | Read |
 | Rule 6, Formulas A | combat.md rule 6, Formulas C | Conversion order, at most 2 per hit, `part_j`, the Lava example | Read; example rewritten |
-| Rule 8 | linh-can.md rule 3 | Generating and overcoming relations | Not used in combat (user decision) |
+| Rule 8 | linh-can.md rule 1 | Generating and overcoming relations | Not used in combat (user decision) |
 | Rule 1 | combat.md Formulas E2 | Soul attacks | Read, unchanged |
+
+## Tuning Knobs
+
+Added 2026-11-08; no value changed. Safe ranges are design estimates.
+
+| Knob | Default | Safe range | What it tunes | Source |
+|---|---|---|---|---|
+| Conversions per hit | 2 | 1–3 (3 grows parts to 4 × and the Breakdown gets hard to read) | How deep conversion builds can chain | Rule 6, Formulas A |
+| Conversion step order | art, Effects, modifiers | fixed | Which source converts first | Rule 6 |
+| Type colours and icons | Visual/Audio table | any, if the 8 stay distinct for colour-blind players | Reading threats at a glance | Visual/Audio |
+| Chaos resistance rarity | rare sources only | content rule | How late Chaos is answered | Rule 5, Modifier System rule 13 |
 
 ## Acceptance Criteria
 
@@ -304,16 +327,18 @@ colour and the element is a small tag beside it.
 - **AC-DT-12** [Config/Data] Rule 9. **GIVEN** the tag registry, **THEN** it has a damage-type family of exactly the 8 types and no `kind` family; the element family lists the 5 elements and the root variants; form, mode, source and effect are unchanged.
 - **AC-DT-13** [Logic] Rule 10. **GIVEN** legacy arts tagged `body`, `qi` and `soul`, **WHEN** they load, **THEN** they become Physical, Force and Soul, with a migration warning for each `body` and `qi` art. **GIVEN** a `body` art whose author set Cold, **THEN** it stays Cold.
 - **AC-DT-14** [Logic] Formulas A. **GIVEN** base 100, all Physical, with +30 % Physical, +40 % Fire and +20 % Lightning, **WHEN** Physical → Fire 40 % then Fire → Lightning 50 % apply, **THEN** the parts are 0.6, 0.2 and 0.2 and the total is 150. **WHEN** only Physical → Fire 40 % applies, **THEN** the total is 146.
-- **AC-DT-15** [Logic] Formulas A. **FOR** each case in a fixed conversion table, **THEN** the part shares sum to 1 and the part count is at most 4 × the authored parts.
+- **AC-DT-15** [Logic] Formulas A. **FOR** each case in a fixed conversion table, **THEN** the part shares sum to 1 and the part count is at most 3 × the authored parts.
 - **AC-DT-16** [Logic] Formulas A. **GIVEN** Physical → Fire 70 % and Physical → Cold 50 % in one step, **THEN** they are scaled to 0.583 and 0.417, the Physical share left is 0, and both count toward the 2.
 - **AC-DT-17** [Logic] Formulas A. **GIVEN** Physical → Fire 40 % then Fire → Physical 50 %, **THEN** the parts stay 0.6 Physical and 0.4 Fire. **GIVEN** Physical → Soul or Soul → Fire, **THEN** it is ignored, logged and not counted, and the shares do not change.
 - **AC-DT-18** [Logic] Formulas A. **GIVEN** a Physical → Fire part, **THEN** "+Physical" and "+Fire" offence modifiers both apply to it, and resistance reads only Fire.
-- **AC-DT-19** [Integration] Formulas A. **GIVEN** the thể tu fixture and a hit of D 41.3, 60 % Physical and 40 % Fire, **THEN** after resistance the parts are 9.91 and 11.56, block takes 2.57 and 3.00, the body shield soaks 15.90, and 0 reaches health. **GIVEN** the same hit with Chaos instead of Fire, **THEN** 8.56 reaches health and the body shield soaks 7.34.
+- **AC-DT-19** [Integration] Formulas A. **GIVEN** the thể tu fixture and a hit of D 41.3, 60 % Physical and 40 % Fire, **THEN** after resistance the parts are 9.91 and 11.56, block takes 2.57 and 3.00, the body shield soaks 15.91, and 0 reaches health. **GIVEN** the same hit with Chaos instead of Fire, **THEN** 8.56 reaches health and the body shield soaks 7.34.
 - **AC-DT-20** [Logic] Edge Cases. **GIVEN** a damaging art or a damaging status with no declared type, **WHEN** compiled, **THEN** compile rejects it and names the record.
 - **AC-DT-21** [Logic] Edge Cases. **GIVEN** three conversions on one hit, **THEN** only the first two in the fixed order apply, and the third is logged as ignored with its source.
-- **AC-DT-22** [UI] Visual/Audio. **GIVEN** a hit with all 8 types in the Debug Terminal Breakdown, **THEN** each part's number is shown in its table colour (nearest 256-colour code), with the element tag beside it in its element colour; a screenshot is kept in `production/qa/evidence/`.
+- **AC-DT-22** [UI] Visual/Audio. **GIVEN** two hits in the Debug Terminal Breakdown, one with the 7 non-Soul types and one Soul hit (a hit cannot mix Soul, rule 1), **THEN** each part's number is shown in its table colour (nearest 256-colour code), with the element tag beside it in its element colour; a screenshot is kept in `production/qa/evidence/`.
 - **AC-DT-23** [UI] UI Requirements. **GIVEN** a Physical → Fire → Lightning part, **THEN** its Breakdown line shows its final type and its history ("Lightning ← Fire ← Physical"); a screenshot is kept.
 - **AC-DT-24** [Config/Data] Rule 1. **GIVEN** every art and status record in data, **WHEN** the data scan runs, **THEN** it reports how many records it scanned and finds 0 damaging records without a damage type.
+- **AC-DT-25** [Logic] Rule 1. **GIVEN** an art authored 60 % Physical and 40 % Soul, **WHEN** compiled, **THEN** compile rejects it and names the record. **GIVEN** a Soul art and a Physical art, **THEN** both compile.
+- **AC-DT-26** [Logic] Rule 6. **GIVEN** a Fire-only hit with an Effect converting Physical → Cold 50 %, **THEN** nothing moves, it is not counted, and a later modifier conversion still applies. **GIVEN** a Burn tick and a Physical → Fire modifier conversion, **THEN** the tick stays Fire and unchanged.
 
 ## Open Questions
 
@@ -321,6 +346,6 @@ colour and the element is a small tag beside it.
 |---|---|---|---|
 | 1 | "Chaos" (the damage type, Hán-Việt Tà) shares its English name with the Chaos root (Hỗn Độn linh căn). Keep both names, or rename one | user | Before content is authored |
 | 2 | The Combat revision (#43) replaces Combat rule 6's kind family with damage types, rewrites rule 4 and the conversion examples, and migrates `body` and `qi` content to Physical and Force | user + systems-designer | Combat revision |
-| 3 | Chaos resistance should come only from rare sources (rule 5). The Modifier System and Item DB need a content rule that enforces it | systems-designer | When the Modifier System resumes |
-| 4 | Which statuses exist per type (burn, poison, bleed, frostbite, and possibly shock and radiance) is a status catalogue question for the Effects System | user | Effects System (#41) |
+| 3 | Chaos resistance should come only from rare sources (rule 5). The Modifier System marks it rare (2026-11-08); Item DB still needs a content rule that enforces it | systems-designer | Item DB revision |
+| 4 | Mostly answered by the Effects System's Status Catalogue: Burn (Fire), Poison and Corpse Rot (Chaos), Bleed (Physical), Frostbite (Cold), Shock (Lightning), Qi Disruption (Force). Left open: whether Light gets a tick | user | When Light content is authored |
 | 5 | Every enemy profile should list its damage types, so foreseen fights let the player prepare resistance (Game Feel). NPC Builds and the Event Engine need to expose them | systems-designer | NPC Builds revision |

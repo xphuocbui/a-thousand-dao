@@ -1021,9 +1021,8 @@ formulas:
       - design/gdd/combat-defence.md
       - design/gdd/combat-damage-types.md
     variables:
-      - R_gen
-      - R_kind
-      - R_elem
+      - R_all
+      - R_type
       - pen_part
       - resist_floor
       - cap_part
@@ -1033,9 +1032,9 @@ formulas:
       - ws
     output_range: [-0.5, 0.9]
     expression: "r_j = clamp(R_all + R_type(j) - pen_j, resist_floor, cap_j); cap_j = min(resist_cap_max, resist_cap + sum cap_raise scoped all or to type(j)); R_x = R_x_other + sum_w r_w_x*(1 + ws/100)"
-    notes: "All resistance plus the part's final damage type (combat-damage-types.md). Elements never enter resistance. Was general + kind + element (2026-11-07, same day)."
+    notes: "All resistance plus the part's final damage type (combat-damage-types.md). Elements never enter resistance. Was general + kind + element (2026-11-07, same day); variables list updated 2026-11-08."
     added: 2026-11-07
-    revised: 2026-11-07
+    revised: 2026-11-08
   - name: defence_shield
     status: active
     source: design/gdd/combat-defence.md
@@ -1185,11 +1184,11 @@ formulas:
       - c_k
       - hist_j
       - M
-    output_range: shares sum to 1; at most 4 x authored parts
-    expression: "conversion X->Y share c_k spawns s_j*c_k of type Y with hist + {X}; part_j = base*s_j*M(tags + hist_j + type_j)*crit; resistance and block read type_j only"
-    notes: "At most 2 conversions per hit, fixed order (art, then Effects, then modifiers); never to or from Soul; never back to a type in hist."
+    output_range: shares sum to 1; at most 3 x authored parts
+    expression: "a step is one source tier (art, Effects, modifiers); every c_k from one type in one step reads s_j at the step's start, scaled down if over 1; conversion X->Y share c_k spawns s_j*c_k of type Y with hist + {X}; part_j = base*s_j*M(tags + hist_j + type_j)*crit; resistance and block read type_j only"
+    notes: "At most 2 conversions per hit (one that moves nothing is not counted), fixed order (art, then Effects, then modifiers); never to or from Soul; never back to a type in hist; never changes a status tick's type. A hit is all Soul or has no Soul part (user decision 2026-11-08)."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-08
   - name: modifier_value
     status: active
     source: design/gdd/modifiers.md
