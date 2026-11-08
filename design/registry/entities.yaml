@@ -1178,6 +1178,8 @@ formulas:
     referenced_by:
       - design/gdd/combat-damage-types.md
       - design/gdd/combat-defence.md
+      - design/gdd/modifiers.md
+      - design/gdd/effects.md
     variables:
       - s_j
       - type_j
@@ -1185,8 +1187,8 @@ formulas:
       - hist_j
       - M
     output_range: shares sum to 1; at most 3 x authored parts
-    expression: "a step is one source tier (art, Effects, modifiers); every c_k from one type in one step reads s_j at the step's start, scaled down if over 1; conversion X->Y share c_k spawns s_j*c_k of type Y with hist + {X}; part_j = base*s_j*M(tags + hist_j + type_j)*crit; resistance and block read type_j only"
-    notes: "At most 2 conversions per hit (one that moves nothing is not counted), fixed order (art, then Effects, then modifiers); never to or from Soul; never back to a type in hist; never changes a status tick's type. A hit is all Soul or has no Soul part (user decision 2026-11-08)."
+    expression: "a step is one source tier (art, Effects, modifiers); every c_k from one type in one step reads s_j at the step's start, scaled down if over 1; conversion X->Y share c_k spawns s_j*c_k of type Y with hist + {X}; at the step's end s_j <- s_j*(1 - sum c_k over that step's conversions that apply to j); a part at share 0 is removed; part_j = base*s_j*M(tags + hist_j + type_j)*crit; resistance and block read type_j only"
+    notes: "At most 2 conversions per hit (one that moves nothing is not counted), fixed order (art, then Effects, then modifiers); never to or from Soul; never back to a type in hist; never changes a status tick's type. A hit is all Soul or has no Soul part (user decision 2026-11-08). Inside a step: compile order (slotted hosts, then unslotted, record id, listing order), the limit of 2 before scaling. Never to its own type. Modifier tier = convert_pct, one conversion per from -> to key, keys in type order (user decisions 2026-11-08 and 2026-11-08b DT-01, DT-02)."
     added: 2026-11-07
     revised: 2026-11-08
   - name: modifier_value

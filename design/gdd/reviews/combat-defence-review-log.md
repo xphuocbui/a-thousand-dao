@@ -243,3 +243,17 @@ Reviewed-Content-Hash: design/gdd/effects.md 1a4a6f1d16dda2da7b6408f4fad1e8f2e46
 Reviewed-Content-Hash: design/gdd/thien-kiep.md 48cf4978cc8de61a69ef33edc82e66d0c1b2ee58
 Reviewed-Content-Hash: design/gdd/character-stats.md 9a1732061df85886a4bfa92f3119d502fd8c1743
 Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc
+
+## Review — 2026-11-08b (second re-review, fresh session) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard · Reviewed at: commit 9400de1 (no content receipts: the document changed the same day)
+Scope signal: L
+Specialists: none (lean mode)
+Blocking items: 2 | Recommended: 7 | Nits: 7 (15 safe, 1 decision)
+Summary: The 23 answers from the first re-review were applied correctly, apart from two slips: Formulas A0 capped `a_w` at 1 for ws and we (Combat Formulas D never did), and the cast cost still counted firings inside the up time `T`. Full report: `rereview-2026-11-08b/combat-defence.md`.
+Prior verdict resolved: Yes (the first re-review's 5 blockers are closed)
+Findings:
+- [BLOCKING] CD-01 Formulas A0: `min(a_w, 1)` on ws and we cuts top-end ward gear from +150 to +30. Fixed: the cap is on gear block only.
+- [BLOCKING] CD-02 Formulas F: the cast cost used `T` (up time). Fixed: `T_up` for the payloads, `floor(T_ref / cooldown)` for the cost; AC-CD-69 added.
+- [RECOMMENDED] CD-04 (decision) A drain ward makes a linh lực tick cost more (13.0 against 10). User decision 2026-11-08b: keep it and document it as a known weakness; AC-CD-68 added.
+- [RECOMMENDED] CD-03, CD-05 to CD-09 and nits CD-10 to CD-16: all applied (the qi-tick path row, drain billed in two steps, AC fixes, AC-CD-66 and AC-CD-67, the Combat #43 list).
+Applied: 2026-11-08, all 16 findings. Next: a fresh re-review.

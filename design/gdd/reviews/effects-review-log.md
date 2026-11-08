@@ -176,3 +176,19 @@ Reviewed-Content-Hash: design/gdd/combat.md 1bb3c01f55e9047849d0eb7d565c94695474
 Reviewed-Content-Hash: design/gdd/combat-defence.md df399caecd2077ce49634e2a0660af1b1623b26a
 Reviewed-Content-Hash: design/gdd/combat-damage-types.md abcf4805891aba5fe1d9a44a0b164d162cc7cb21
 Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc
+
+## Review — 2026-11-08b (second re-review, fresh session) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard · Reviewed at: commit 9400de1 (no content receipts: the document changed the same day)
+Scope signal: L
+Specialists: none (lean mode)
+Blocking items: 3 | Recommended: 7 | Nits: 6 (12 safe, 4 decisions)
+Summary: Nearly all 24 answers were applied correctly and the three old blockers are closed. The conversion-modifier decision had not reached this GDD. Full report: `rereview-2026-11-08b/effects.md`.
+Prior verdict resolved: Yes (the first re-review's 3 blockers are closed)
+Findings:
+- [BLOCKING] EF-01 (decision) Flame-Tempered Edge, Thunder Palm and Rot Seeps In are plain scoped conversions. User decision 2026-11-08b: they move to `convert_pct` modifiers; 43 starter Effects remain; AC-EF-58 added.
+- [BLOCKING] EF-02 The closing-rule action did not cover every starter's close. Fixed: the action covers lowering a cap, scaling a named cost or pool and a shared floor.
+- [BLOCKING] EF-03 AC-EF-50 used a `c_comp_cap` of 0.35. Fixed to Combat Formulas J's 1.0 on `c_comp`.
+- [RECOMMENDED] EF-05 (decision) Last acts in a double knockout. User decision: a last act's damage always counts toward its target's overkill.
+- [RECOMMENDED] EF-06 (decision) The 5 % qi burn cap. User decision: one pool per target per pulse; Combat #43 restates Formulas F.
+- [RECOMMENDED] EF-04, EF-07 to EF-10 and nits EF-11 to EF-16: all applied (AC-EF-56 and AC-EF-57 added; the effect-kind tag family is in modifiers.md rule 9).
+Applied: 2026-11-08, all 16 findings. Next: a fresh re-review.

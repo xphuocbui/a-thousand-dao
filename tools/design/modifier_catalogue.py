@@ -113,7 +113,7 @@ stat(DEF, "Evade (`evade_pct`)", 1.5, 0.1, " pp", status="Designed")
 stat(DEF, "Soul resistance (`soul_res_pct`)", 0.6, 0.1, " pp", status="Designed")
 stat(DEF, "Status resistance (`status_resist_pct`)", 0.4, 0.1, " pp", status="Designed", scopes=[
     ("—", [], 1), ("against mode: over_time or curse", ["curse"], 2), ("against effect: poison", ["poison"], 1),
-    ("against status: burn, bleed, frostbite, qi_disruption (Pending)", ["<status>"], 4)])
+    ("against status: burn, bleed, frostbite, qi_disruption", ["<status>"], 4)])
 stat(DEF, "Status duration on you (`status_duration_taken_pct`)", 0.3, 0.1, " %", d=-1, status="Pending", scopes=[
     ("— (all statuses)", [], 1), ("mode: over_time or curse", ["curse"], 2)])
 

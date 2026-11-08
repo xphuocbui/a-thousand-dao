@@ -244,3 +244,18 @@ Reviewed-Content-Hash: design/gdd/linh-can.md ecd0d4f0318e99185b0048dfad44e0f48c
 Reviewed-Content-Hash: design/gdd/modifiers.md 1c088bc23c1bf8767f0d0309f106d034133b7732
 Reviewed-Content-Hash: design/gdd/effects.md 1a4a6f1d16dda2da7b6408f4fad1e8f2e46d8cc3
 Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc
+
+## Review — 2026-11-08b (second re-review, fresh session) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard · Reviewed at: commit 9400de1 (no content receipts: the document changed the same day)
+Scope signal: M
+Specialists: none (lean mode)
+Blocking items: 1 | Recommended: 9 | Nits: 4 (10 safe, 4 decisions)
+Summary: The first re-review's answers (conversion modifiers, Primordial Chaos, the qi-tick path, the order inside a step) were applied correctly and the arithmetic holds. Allowing `convert_pct` left open how a summed modifier counts toward the limit of 2. Full report: `rereview-2026-11-08b/combat-damage-types.md`.
+Prior verdict resolved: Yes (the first re-review's 3 blockers are closed)
+Findings:
+- [BLOCKING] DT-01 (decision) How conversion modifiers count. User decision 2026-11-08b: one conversion per from → to key, `c_k` = the sum / 100, keys in rule 1's type order; AC-DT-32 added.
+- [RECOMMENDED] DT-02 (decision) Slot order for hosts with no slot. User decision: slotted hosts first, then technique, Way, tree; then record id; then listing order.
+- [RECOMMENDED] DT-07 (decision) Three plain conversions in effects.md are modifiers. User decision: they move to scoped `convert_pct`.
+- [RECOMMENDED] DT-10 (decision) `convert_pct` grid. User decision: whole pp (Character Stats updated).
+- [RECOMMENDED] DT-03 to DT-06, DT-08, DT-09 and nits DT-11 to DT-14: all applied (registry `damage_parts` updated).
+Applied: 2026-11-08, all 14 findings. Next: a fresh re-review.

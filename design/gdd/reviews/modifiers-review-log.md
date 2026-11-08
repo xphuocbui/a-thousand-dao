@@ -158,3 +158,17 @@ Reviewed-Content-Hash: tools/design/modifier_catalogue.py 40261d1a738f5d0972f8a9
 Reviewed-Content-Hash: design/gdd/combat-defence.md df399caecd2077ce49634e2a0660af1b1623b26a
 Reviewed-Content-Hash: design/gdd/combat-damage-types.md abcf4805891aba5fe1d9a44a0b164d162cc7cb21
 Reviewed-Content-Hash: design/gdd/combat.md 1bb3c01f55e9047849d0eb7d565c94695474adba
+
+## Review — 2026-11-08b (second re-review, fresh session) — Verdict: APPROVED
+Review mode: lean · Workflow: standard · Reviewed at: commit 9400de1 (no content receipts: the document changed the same day)
+Scope signal: L
+Specialists: none (lean mode)
+Blocking items: 0 | Recommended: 9 | Nits: 7 (13 safe, 3 decisions)
+Summary: Both carried blockers are closed and `convert_pct` is in as an ordinary modifier. The catalogue matched the generator exactly (266 modifiers). Full report: `rereview-2026-11-08b/modifiers.md`.
+Prior verdict resolved: Yes
+Findings:
+- [RECOMMENDED] MD-04 (decision) Damage-type scopes on accuracy and realm pierce. User decision 2026-11-08b: forbidden; both are whole-hit stats.
+- [RECOMMENDED] MD-08 (decision) Lifespan in years at small, Qi Refining, loses 16.7 %. User decision: a fourth known lint exception.
+- [RECOMMENDED] MD-09 (decision) The three plain conversion Effects. User decision: moved to `convert_pct` (effects.md).
+- [RECOMMENDED] MD-01 to MD-03, MD-05 to MD-07 and nits MD-10 to MD-16: all applied. The status-scoped resistance row is now Designed (generator label changed; regenerated, still 266). The effect-kind tag family was added to rule 9 (Effects re-review EF-15).
+Applied: 2026-11-08, all 16 findings.
