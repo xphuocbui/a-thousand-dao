@@ -2,7 +2,7 @@
 
 > **Status**: Designed 2026-11-08; `/design-review` 2026-11-08 overnight (lean, passes 1–4): NEEDS REVISION; revised 2026-11-08 with the user's answers; daytime re-review 2026-11-08 (lean, three passes): NEEDS REVISION, see `reviews/effects-review-log.md`; revised the same day with the user's answers to all 24 items (more reads and actions; the qi-tick path; last acts resolve requesting side first and win only on overkill). Second re-review 2026-11-08b: NEEDS REVISION; its fixes and the user's answers applied the same day (`reviews/rereview-2026-11-08b/effects.md`)
 > **Author**: user + agents
-> **Last Updated**: 2026-11-08 (re-review answers applied; see `reviews/rereview-2026-11-08-decisions.md`)
+> **Last Updated**: 2026-11-08 (second re-review 2026-11-08b applied; see `reviews/rereview-2026-11-08b/effects.md`)
 > **Last Verified**: 2026-11-08
 > **Implements Pillar**: Your Dao, Your Name (1); Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2)
 > **Scope**: Every build piece with a rule in it: conditions, scaling, triggers, conditional conversion, overflow, rule changes, keystones and enablers. An Effect usually grants Modifier System modifiers (`design/gdd/modifiers.md`) as its payload (user decision 2026-11-07). Plain numbers on a stat are Modifiers, not Effects; so is a plain conversion share (`convert_pct`, user decision 2026-11-08).
@@ -138,7 +138,7 @@ different.
    | Waive an art's cost: the art fires without the cost in the pool, and nothing is paid (re-review EF 6) | Combat rule 9 |
    | Burn linh lực: take linh lực off the target, inside the 5 % qi burn cap. The cap is one pool: all linh lực burns on one target in one pulse (Qi Disruption ticks and Spillover) total at most 5 % of `qi_max`; the excess is clipped and logged "qi burn cap" (user decision 2026-11-08b, EF-06; Combat #43 restates Formulas F) (re-review EF 2) | this GDD; Combat Formulas F |
    | Enforce a closing rule at compile: the `closes` of a keystone or enabler, applied for the whole fight (or, for a life Effect, while it holds). It may forbid (a ward, a slot kind, a companion, regeneration), set Combat Defence & Healing's `cannot_slot_wards` and `no_default_ward` flags, lower an owner's cap (Called Blow's crit cap), scale a named cost or pool (Formation Within a Formation's upkeep, Glass Meridians' body shields), or set a shared floor (Blood Casting with Withering) (re-review EF 2; 2026-11-08b EF-02) | the rule's owner |
-   | Convert a share of a hit, under a condition (a plain share is `convert_pct`) | Combat Damage Types rule 6 |
+   | Convert a share of a hit, under a condition (a plain share is `convert_pct`; none in the starter set yet) | Combat Damage Types rule 6 |
    | Reserve linh lực | Combat Defence & Healing rule 10 |
    | Raise or lower a ward, or change its payload while a condition holds | Combat Defence & Healing rules 5–9 |
    | Move a timer: shorten your own, or delay the enemy's | Combat rule 13. An art's next firing is never sooner than `cooldown_min` after its last |
@@ -257,7 +257,10 @@ different.
 
 14. **Keystones and enablers state what they close.** Their `closes` field is part of the rule and shows in the
     tooltip: "You can never use a ward" is read by the player before "+large body shield". A keystone or enabler
-    without a real closing cost is rejected in review.
+    without a real closing cost is rejected in review. A cost in `closes` that is a plain number on a Stat List stat is
+    granted as a payload modifier at compile, using that stat's allowed operation: Unyielding Breath `khi_huyet_pct`
+    −15, Glass Meridians `khi_huyet_pct` −25, Heart Demon's Blade `qi_deviation_pct` +100. A close that is a report
+    uses rule 10, and every other close uses the closing-rule action.
 
 15. **NPCs and the LLM Game Master.** NPC Builds may use any Effect whose record marks it `npc: true`, under the
     same rules. The LLM Game Master never creates an Effect and, while Effects are unpriced, never grants one;
@@ -278,7 +281,7 @@ different.
 | Bleed (Xuất Huyết) | Physical | 0.20 per stack | 4 | Stacks to 5; each stack keeps its own timer | bleed, cleanse | bleed, over_time, physical | Body shields soak it; block never does |
 | Frostbite (Đống Thương) | Cold | 0.20 per stack | 4 | Stacks to 3; a new stack refreshes all | cold, cleanse | frostbite, over_time, cold | Three stacks is the threshold Cold Effects read |
 | Shock (Lôi Chấn) | Lightning | 0.50 | 2 | Refresh only | lightning, cleanse | shock, over_time, lightning | A short, sharp spike |
-| Qi Disruption (Loạn Khí) | Force (qi burn) | 0.30 per stack | 3 | Stacks to 3 | force, cleanse | qi_disruption, over_time, force | Ticks linh lực, not health, at most 5 % of `qi_max` a pulse, shared with every other burn on the target (rule 6). Its path is Force resistance → linh lực, passing every shield (user decision 2026-11-08, re-review EF 3 with Combat Damage Types rule 4) |
+| Qi Disruption (Loạn Khí) | Force (qi burn) | 0.30 per stack | 3 | Stacks to 3 | force, cleanse | qi_disruption, over_time, force | Ticks linh lực, not health, at most 5 % of `qi_max` a pulse, shared with every other burn on the target (rule 6). Its path is all + Force resistance → linh lực, passing every shield (user decision 2026-11-08, re-review EF 3 with Combat Damage Types rule 4) |
 | Corpse Rot (Thi Độc) — **standing** | Chaos | 0.15, one stack | none | None (a recast does nothing while it runs) | poison, cleanse | corpse_rot, over_time, chaos, poison | Never ends on its own. Its caster pays 2 % of their maximum linh lực every pulse (Formulas B); it ends the pulse that goes unpaid, or on a cleanse. Counts inside both tick caps; never merges with Poison |
 
 Light has no tick (its status is Exposed) and Soul never ticks (Combat Damage Types rule 1).
@@ -361,6 +364,7 @@ DT-07, MD-09). Flame-Tempered Edge (40 % Physical → Fire, [sword]), Thunder Pa
 and Rot Seeps In (25 % Physical → Chaos, [moc]) moved out of this list: their hosts grant scoped `convert_pct`
 at catalogue grades (+15 pp on a notable), and a build reaches 40–50 % by stacking sources inside the 2 per hit.
 Only conversions with a condition (Field Walls) stay Effects.
+Stacked conversion into Chaos is watched in the balance pass; Chaos passes body shields (user decision 2026-11-08c, re-review EF-05, option A).
 
 **Rule change**
 
@@ -377,11 +381,11 @@ Only conversions with a condition (Field Walls) stay Effects.
 | Name | Rule | Reads | Payload / action | Limits | Closes | Hosts | Build families | From |
 |---|---|---|---|---|---|---|---|---|
 | Called Blow (Báo Chiêu) | Your crit chance is counted on a visible meter, not rolled. | The chance about to be rolled, live (at each would-be roll) | Counted chance (rule 12); enforce a closing rule | One chance | Crit chance cap 0.50 → 0.35 | MM, Way capstone | Crit, sword, deterministic | Called Blow |
-| Unyielding Breath (Bất Khuất) | Once a fight, a blow that would put you Down leaves you at 1 health. | Down step 1 (event) | Refusal | Once per fight | Maximum health −15 % | MM | Body, escape window, dark path | Unyielding Breath |
+| Unyielding Breath (Bất Khuất) | Once a fight, a blow that would put you Down leaves you at 1 health. | Down step 1 (event) | Refusal | Once per fight | Maximum health −15 % (`khi_huyet_pct` −15) | MM | Body, escape window, dark path | Unyielding Breath |
 | Burning Lifespan (Nhiên Thọ) | Once a fight, when your health first falls to 30 % or below, you burn years for 5 s of fury. | Own health, live | L5 +40 on all hits and `art_speed_pct` +30, for 5 s | Once per fight | When it fires, the result reports 2 % of your realm's base lifespan in years lost, win or lose (rule 10) | MM, Tech (ma đạo) | Dark path, sword, body comeback | Burning Lifespan |
 | No Ward (Vô Hộ) | You can never use a ward, and your body hardens instead. | Hits reaching your health (events) | `body_shield_pct` +25; after each pulse in which no hit reached your health, the body shield regains 2 % of maximum health; enforces `cannot_slot_wards` and `no_default_ward` (Combat Defence & Healing rule 5) | — (shields are uncapped, Combat Defence & Healing rule 9) | No ward of any kind, including the default ward and soul wards | MM | Thể tu, Physical sword | No Ward |
-| Glass Meridians (Lưu Ly Kinh Mạch) | Your arts run far faster, on a fragile body. | — | `art_speed_pct` +40; enforce a closing rule | `cooldown_min` | Maximum health −25 %; your body shields hold half | MM | Tempo, crit, element caster | Glass Meridians |
-| Heart Demon's Blade (Tâm Ma Nhập Đao) | Your hits deal more for every point of heart demon above 30. | Heart demon, compile | L5 +1 per point | Cap +40 | Qi deviation chance × 2; every fight you win reports +1 heart demon | MM | Dark path, sword, soul | Capability #25 |
+| Glass Meridians (Lưu Ly Kinh Mạch) | Your arts run far faster, on a fragile body. | — | `art_speed_pct` +40; enforce a closing rule | `cooldown_min` | Maximum health −25 % (`khi_huyet_pct` −25); your body shields hold half | MM | Tempo, crit, element caster | Glass Meridians |
+| Heart Demon's Blade (Tâm Ma Nhập Đao) | Your hits deal more for every point of heart demon above 30. | Heart demon, compile | L5 +1 per point | Cap +40 | Qi deviation chance × 2 (`qi_deviation_pct` +100); every fight you win reports +1 heart demon | MM | Dark path, sword, soul | Capability #25 |
 | Beast Soul Union (Thú Hồn Hợp Thể) | Your strongest companion's power share counts double. | Strongest companion's share, compile | Companion share × 2; enforce a closing rule | `c_comp_cap` | −1 art slot; only one companion fights with you | MM, Beast | Companion, martial basic attack | Capability #17 |
 
 **Enablers**
@@ -406,7 +410,7 @@ Only conversions with a condition (Field Walls) stay Effects.
 **Domain and tags** (re-review EF 14, before data entry). Every fight Effect above has domain `combat`; Soul Leaves the
 Body and Great Essence-Draining Art have `cultivation`; Strange Pill Reborn and Formation Within a Formation have
 `crafting`. Each record's tags are its kind (`conditional`, `scaling`, `trigger`, `conversion`, `overflow`,
-`rule_change`, `keystone`, `enabler`), plus the stat-family and scope tags of its payload modifiers (Modifier System
+`rule_change`, `status`, `keystone`, `enabler`), plus the stat-family and scope tags of its payload modifiers (Modifier System
 rule 9), plus the status tags of any status it applies. Data entry writes them out; the smoke check's lint
 (AC-EF-45) checks they match this rule.
 
@@ -414,8 +418,8 @@ rule 9), plus the status tags of any status it applies. Data entry writes them o
 (about 12, such as #2, #3, #6, #8, #10, #12, #14, #16, #18, #20, #21, #24) are **rule-change Effects**, not
 keystones; #9 and #11 above are re-expressed already. The ones with a real cost stay keystones. Their place in the tree is decided at the tree rework.
 
-**Inventory filter, in short.** About 55 inventory rows were kept, most merged into the Effects above. The rest:
-- about 25 are plain numbers (they belong in the Modifier System);
+**Inventory filter, in short.** About 52 inventory rows were kept, most merged into the Effects above. The rest:
+- about 28 are plain numbers (including the three scoped conversions; they belong in the Modifier System);
 - about 30 are dead under the new damage and defence model (body guard, the qi kind, the element cycle, ward
   pass or phase, one ward at a time, Lava);
 - about 130 need a subsystem invented for one overnight build;
@@ -449,7 +453,7 @@ keystones; #9 and #11 above are re-expressed already. The ones with a real cost 
 | Modifier System (#40) | in | Catalogue modifiers used as payloads; tag vocabulary | Modifier System |
 | Combat (#21) | in / out | Events, instants, guards, the trigger order and budget, the defeat check, results. Out: free hits, refunds, timer moves, Down refusals, Breakdown lines, reported life costs | Combat (timeline, limits); this GDD (the Effects) |
 | Combat Defence & Healing (#21a) | out | Heals and restores, reservations, ward changes | Combat Defence & Healing (rules); this GDD (sources) |
-| Combat Damage Types (#21b) | out | Conversion Effect records; statuses' damage types | Combat Damage Types (the conversion rules and steps); this GDD (the records) |
+| Combat Damage Types (#21b) | out | Conditional conversion Effect records (none yet); statuses' damage types | Combat Damage Types (the conversion rules and steps); this GDD (the records) |
 | Character Stats (#7), Realms (#8) | in / out | Readable sheet values at compile. Out: reported heart demon, lifespan years, seasons, toxicity, spirit stones, root purity, cultivation base and stage (applied by the caller; rule 10) | Character Stats; Realms |
 | Meridian Map (#10), The Way (#39), Cultivation Techniques (#9) | out | Keystones, Way nodes and capstones, technique and art Effects | each host |
 | Item DB (#13), Talismans (#18), Formations (#17), Alchemy (#15), Spirit Beasts (#19) | out | Named items' Effects, talisman statuses, ground Effects, pill Effects, beast Effects | each host |
@@ -514,7 +518,7 @@ The down_step order is defined as:
 |---|---|---|---|---|
 | refusal | Effect | once per fight | Effect record | "Refuses Down"; health is set to exactly 1 |
 | last act | Effect | once per fight | Effect record | Resolves at Down; its damage is ordinary damage |
-| follow-up check | step | — | Combat rule 10 | Uses Combat's overkill and draw rules. A Down side keeps its overkill, so a last act wins only if the enemy's overkill share is larger (user decision 2026-11-08) |
+| follow-up check | step | — | Combat rule 10 | Uses Combat's overkill and draw rules. A Down side keeps its overkill. A last act's damage is added to its target's `damage_in_instant` (Combat Formulas C) whether or not that target is already Down, so a last act wins only if the enemy's overkill share ends larger than its own, and shares within `overkill_epsilon` are a draw (user decisions 2026-11-08 and 2026-11-08b, EF-05) |
 
 **Output Range:** at most one refusal per side per Down, each refusal Effect once per fight, and one round of
 last acts per Down, so the step always ends.
@@ -533,8 +537,10 @@ and A is Down.
 - **If an Effect reads a quantity not on the readable list, or uses an action not on the action list**: it is
   rejected until the engine addition is made (rules 5–6).
 - **If an Effect grants an unconditional plain number not in the modifier catalogue**: rejected (rule 3).
+- **If an Effect's only payload is an unconditional, tag-scoped conversion share**: it is flagged as a `convert_pct`
+  modifier, not an Effect (rule 3; AC-EF-58).
 - **If a keystone or enabler has an empty or token `closes`**: rejected (rule 14).
-- **If an Effect has no tier, or a keystone or enabler is tiered `minor` or `major`**: rejected (rule 4).
+- **If an Effect other than a status has no tier, or a keystone or enabler is tiered `minor` or `major`**: rejected (rule 4).
 - **If a host slot receives an Effect of a tier the host does not allow there**: rejected; the host GDD's slot
   table decides.
 - **If two keystones a host marks as rivals are both taken**: the second cannot be taken.
@@ -567,6 +573,8 @@ and A is Down.
 - **If both sides refuse Down in the same instant**: both are at 1 health and the fight goes on.
 - **If a last act's damage downs the other side**: the follow-up check uses Combat's overkill and draw rules, and
   each side keeps its overkill: the last act wins only if the enemy's overkill share is larger.
+- **If a last act hits a side that is already Down**: its damage adds to that side's overkill for the instant, so it
+  can swing a double knockout (rule 11). Equal shares within `overkill_epsilon` are a draw.
 - **If Final Clause, Rime Lock or Soul Wound find two arts tied**: the earlier slot is picked (rule 7).
 - **If a status with stacking "none" is recast while it runs**: nothing happens (rule 9).
 - **If a status is applied with no hit** (a talisman, the ground, a trigger) and its rule reads "the applying hit":
@@ -582,7 +590,7 @@ and A is Down.
 
 | System | Kind | What this system needs | Status | Lists this system? |
 |---|---|---|---|---|
-| Modifier System (#40) | Hard | Catalogue modifiers as payloads; tags | Needs revision | Yes |
+| Modifier System (#40) | Hard | Catalogue modifiers as payloads; tags | Approved (2026-11-08b) | Yes |
 | Combat (#21) | Hard | Instants, guards, trigger order and budget, curse bounds, tick formulas, the defeat check, results | Approved for rules | Partly: rule 9 defines triggers; the Combat revision (#43) cites this GDD for statuses and the Down step |
 | Combat Defence & Healing (#21a) | Hard | Heal and restore rules, reservation, wards | Needs revision | Yes |
 | Combat Damage Types (#21b) | Hard | Damage types of statuses; conversion | Needs revision | Yes |
@@ -652,6 +660,7 @@ not prices. Safe ranges are design estimates.
 | Reapply lockout (Sealed Meridian, Silence) | 2 pulses | 1–3 | How often a lock can be kept up | Status Catalogue |
 | Starter limits (per pulse, per fight, cooldowns, caps) | each record | set by eye per Effect | Each Effect's size until the balance pass | Starter Effects |
 | Tier allowances per host | each host GDD | each host GDD | How many Effects a build holds | Rule 4 |
+| `qi_burn_cap` | 5 % of the target's `qi_max` per pulse, one pool for all burns | 3–10 % | How much linh lực one pulse can burn | Rule 6; Combat Formulas F |
 
 ## Acceptance Criteria
 
@@ -693,12 +702,12 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-23** [Logic] Silence. **GIVEN** a Silence naming `ward`, `basic` or `escape`, **THEN** it is rejected. **WHEN** a Silence is reapplied within 2 pulses of ending, **THEN** it fails and is logged.
 - **AC-EF-24** [Logic] Sundered and Exposed. **GIVEN** 3 Sundered stacks (−0.45) and Exposed (−0.10), **THEN** the shred is 0.50. **GIVEN** base resistance −0.20, **THEN** the result is −0.50 (`resist_floor`), never lower.
 - **AC-EF-25** [Logic] Corpse Rot. **GIVEN** the loaded catalogue, **THEN** Corpse Rot is the only status with no duration. **GIVEN** Corpse Rot and Poison on one target, **THEN** they never merge, and both count inside `dot_pool_cap` and `dot_pulse_cap`.
-- **AC-EF-26** [Logic] Qi Disruption. **GIVEN** 3 stacks whose ticks would pass 5 % of the target's `qi_max`, **THEN** linh lực loses exactly 5 % of `qi_max` that pulse and health loses nothing. **GIVEN** Force resistance 0.20 and full ward and body shields, **THEN** each tick is cut by 0.20 and both shields are unchanged.
+- **AC-EF-26** [Logic] Qi Disruption. **GIVEN** 3 stacks whose ticks would pass 5 % of the target's `qi_max`, **THEN** linh lực loses exactly 5 % of `qi_max` that pulse and health loses nothing. **GIVEN** Force resistance 0.20, `no_default_ward`, and full ward and body shields, **THEN** each tick is cut by 0.20 and both shields are unchanged.
 
 **Life costs, Down and counted chance (rules 10–12, Formulas A and C)**
 
 - **AC-EF-27** [Integration] Rule 10. **GIVEN** Heart Demon's Blade with heart demon 50 before the fight, **THEN** the payload is L5 +20. **WHEN** the side wins, **THEN** the result reports +1 heart demon while the sheet still reads 50, and it reads 51 only after the caller applies the result. **GIVEN** a kill with no Effect that adds heart demon, **THEN** none is reported.
-- **AC-EF-28** [Logic] Formulas C. **GIVEN** side A at −12 after an instant, holding Unyielding Breath and Final Clause, **THEN** A is set to 1 and Unyielding Breath is Spent. **WHEN** A later falls to −3, **THEN** no refusal fires, Final Clause fires A's longest-cooldown art at no cost, its damage enters a follow-up check using Combat's overkill and draw rules, and A is Down without a second refusal. **GIVEN** A Down with overkill share 0.20 and B standing at 4 with `health_max` 100, **WHEN** A's last act deals 44, **THEN** B's share is 0.40 and A wins; **WHEN** it deals 14, B's share is 0.10 and B wins; **WHEN** B's share equals A's to within `overkill_epsilon`, it is a draw. **GIVEN** both sides Down in one instant with B the requesting side, **THEN** B's step resolves first, and A's last act still adds to B's overkill share (EF-05): B at −10 (share 0.10) hit by a last act of 20 ends at share 0.30, against A's 0.20, so A wins.
+- **AC-EF-28** [Logic] Formulas C. **GIVEN** side A at −12 after an instant, holding Unyielding Breath and Final Clause, **THEN** A is set to 1 and Unyielding Breath is Spent. **WHEN** A later falls to −3, **THEN** no refusal fires, Final Clause fires A's longest-cooldown art at no cost, its damage enters a follow-up check using Combat's overkill and draw rules, and A is Down without a second refusal. **GIVEN** A Down with overkill share 0.20 and B standing at 4 with `health_max` 100, **WHEN** A's last act deals 44, **THEN** B's share is 0.40 and A wins; **WHEN** it deals 14, B's share is 0.10 and B wins; **WHEN** the last act deals 24, B's share is 0.20, equal to A's within `overkill_epsilon`, so it is a draw. **GIVEN** both sides Down in one instant, `health_max` 100 on each, B the requesting side with no last act, A at overkill share 0.20 and B at −10 (share 0.10), **THEN** B's step resolves first, and A's last act of 20 adds to B's overkill: B's share is 0.30 against A's 0.20, so A wins.
 - **AC-EF-29** [Logic] Rule 11. **GIVEN** two refusals ready on one side, **THEN** only the first in slot order fires at that Down, and the second saves the side at a later Down. **GIVEN** both sides going Down in one instant, each holding a refusal, **THEN** both are at 1 and the fight continues. **GIVEN** a last act that puts side B Down, **THEN** B may use its own unspent refusal.
 - **AC-EF-30** [Logic] Formulas A. **GIVEN** Called Blow with crit chance 0.30 (300 per mille) and the meter at 0, **WHEN** 10 hits land, **THEN** hits 4, 7 and 10 crit (exactly 3), the meter reads 0 after hit 10, and no seeded draw is consumed.
 - **AC-EF-31** [Logic] Rule 12. **GIVEN** counted chance on an Effect that is not a keystone, or one keystone counting two chances, **THEN** the record is rejected. **GIVEN** Called Blow and Echo together, **THEN** crits are counted and Echo still rolls.
@@ -725,17 +734,21 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-49** [Logic] Water Table (ward payment event; restore linh lực). **GIVEN** the enemy's drain wards paying 20 against your hits and your pool 5 below your usable maximum, **THEN** you regain 5 (not 6), it is not healing, and your linh lực never regenerates.
 - **AC-EF-50** [Logic] Beast Soul Union (multiply a share). **GIVEN** a strongest companion whose `share / (B_p · stage_mult)` is 0.40, **THEN** its `c_comp` is 0.80. **GIVEN** 0.60, **THEN** 1.20 is clipped to 1.0 (`c_comp_cap`, Combat Formulas J) and the Breakdown names the cap.
 - **AC-EF-51** [Logic] Formation Within a Formation (raise a cap). **GIVEN** a formation maximum of level 5, **THEN** level 7 may be laid, and its upkeep for levels 6 and 7 is doubled.
-- **AC-EF-52** [Logic] Strange Pill Reborn (change a life output). **GIVEN** a failed brew and a seeded life stream, **THEN** over seeds 1–10,000 the share that yields a lesser pill is between 0.29 and 0.31, the same seed always gives the same result, and a fight's stream is untouched.
+- **AC-EF-52** [Logic] Strange Pill Reborn (change a life output). **GIVEN** a failed brew and a seeded life stream, **THEN** over seeds 1–10,000 the share that yields a lesser pill is between 0.28 and 0.32, the same seed always gives the same result, and a fight's stream is untouched.
 - **AC-EF-53** [Logic] Talisman Sleeve (add a slot). **GIVEN** a talisman with a guard, **THEN** it takes no art slot; a second such talisman does.
 - **AC-EF-54** [Logic] Measured Stroke (skip a roll; an art's authored record). **GIVEN** an art with an authored cooldown of 20 s, **THEN** no evade or crit roll is drawn and the seeded stream does not advance; at 19.9 s, both rolls happen.
 - **AC-EF-55** [Logic] First Move (waive a cost). **GIVEN** a pool of 5 and a first art costing 25, **THEN** it fires, the pool stays 5, and drain wards see no dip.
 - **AC-EF-56** [Integration] Soul Leaves the Body (death in an event; change a life output). **GIVEN** an event that would kill the character, **THEN** they survive at 5 % vitality, the result reports one stage lost, and a second death in the same realm kills.
 - **AC-EF-57** [Integration] Great Essence-Draining Art (stage read before the fight; rule 10). **GIVEN** a stage whose span is S cultivation base (*test fixture*), **WHEN** the side knocks out a cultivator, **THEN** the result reports +0.05 · S base and +2 heart demon, the sheet is unchanged until the caller applies it, and a creature knockout reports nothing.
 - **AC-EF-58** [Logic] Rule 3 (re-review EF-01). **GIVEN** an Effect record whose only payload is an unconditional, tag-scoped conversion share, **WHEN** the lint runs, **THEN** it is flagged as a `convert_pct` modifier, not an Effect.
+- **AC-EF-59** [Logic] Paid in Advance (forbid a slot kind). **GIVEN** Paid in Advance and a loadout with a sword art in a slot, **WHEN** compiled, **THEN** it is rejected and names the art; a loadout of talismans, wards and the escape art compiles.
+- **AC-EF-60** [Logic] Blood Casting with Withering (shared floor). **GIVEN** Blood Casting (−50 % healing taken) and Withering (−50 %) on one side and a heal of 100, **THEN** 50 is received, not 0 and not 25, and the Breakdown names the floor.
+- **AC-EF-61** [Logic] Glass Meridians (scale a pool). **GIVEN** a body shield pool of 200 before the keystone, **THEN** it is 100 with it, and maximum health is 25 % lower.
+- **AC-EF-62** [Logic] Beast Soul Union (forbid a companion). **GIVEN** two companions in the loadout, **WHEN** compiled, **THEN** it is rejected and names the second.
 
 **Data and UI**
 
-- **AC-EF-45** [Config/Data] **GIVEN** the shipped Effect and status data, **WHEN** the smoke check's lint runs, **THEN** every Effect has all rule-1 fields with `price: unpriced` and a valid `tier`, every keystone and enabler has a non-empty `closes`, every tick has a damage type and every curse a rule; it reports how many records it checked, and any failure names the record.
+- **AC-EF-45** [Config/Data] **GIVEN** the shipped Effect and status data, **WHEN** the smoke check's lint runs, **THEN** every Effect other than a status has all rule-1 fields with `price: unpriced` and a valid `tier` (statuses carry none), every Effect's `domain` and `tags` match the Domain and tags rule and use only tags in the shared vocabulary (Modifier System rule 9), every keystone and enabler has a non-empty `closes`, every tick has a damage type and every curse a rule; it reports how many records it checked, and any failure names the record.
 - **AC-EF-46** [UI] **GIVEN** the tooltips for No Ward and for Seal of Full Payment, **THEN** `closes` appears above the payload; one screenshot each is kept in `production/qa/evidence/`.
 - **AC-EF-47** [UI] **GIVEN** a fight with Called Blow, **THEN** the HUD meter is visible, fills on each hit and flashes on payout; screenshots before and at a payout are kept in `production/qa/evidence/`.
 
@@ -753,3 +766,4 @@ not prices. Safe ranges are design estimates.
 | 8 | Register this GDD's entities: the status catalogue's new curse bounds, `counted_chance`, `standing_status` and the Down step. **Done:** all are in `design/registry/entities.yaml` (checked 2026-11-08); `counted_chance`'s output range is corrected to `floor(counted_start / 1000 + Σ p)` (re-review EF 17) | user | Done |
 | 9 | Two ways to pay in health, kept on purpose (re-review EF 15): Blood Casting can put you Down, while Combat's `body_cost_share` never takes health below 1. Record the difference in the Combat revision (#43) | user + systems-designer | Combat revision (#43) |
 | 10 | Talismans, Formations, Alchemy, Spirit Beasts, the Event Engine and NPC Builds have no GDD of their own; their back-references to this GDD are added in each host's sweep (re-review EF 19) | systems-designer | Host sweeps |
+| 11 | **Balance-pass watch item (EF-05, accepted 2026-11-08c).** Stacked Physical → Chaos `convert_pct` has no cap below 100 %. About 7 notables at +15 pp turn all Physical into Chaos, which passes body shields. Accepted as a slightly OP build. Measure it in the Open Question 1 pass; fix only if it breaks the macro targets | user + systems-designer | Balance pass |

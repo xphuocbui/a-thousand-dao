@@ -1073,7 +1073,7 @@ formulas:
       - kappa
       - qi_max
     output_range: >= 0; reserved <= 0.9 x qi_max
-    expression: "reserved = rho*(1 - min(res_eff,50)/100)/(1 + we/200); upkeep_n = u*qi_max*(1+upkeep_growth)^n/(1+we/100); fee = phi*qi_max/(1+we/100); drain rate = drain_base/((1+ws/100)(1+we/100)); drain prevented = D*max(0,r_eff)*r_w/R_pos (0 if R_pos = 0) for resistance, block points taken for block; drain invalid for evade, status, soul; cast = kappa*qi_max/(1+we/100)"
+    expression: "reserved = rho*(1 - min(res_eff,50)/100)/(1 + we/200); upkeep_n = u*qi_max*(1+upkeep_growth)^n/(1+we/100); fee = phi*qi_max/(1+we/100); drain rate = drain_base/((1+ws/100)(1+we/100)); drain prevented = D*max(0,r_eff)*r_w/R_pos (0 if R_pos = 0) for resistance, block points the hit lost times this ward's share of B_hit for block (resistance bills settle before block, block bills after; a tick on linh lực bills like any part); drain invalid for evade, status, soul; cast = kappa*qi_max/(1+we/100)"
     notes: "Five payment models. Total payment never rises with ws (flat drain bill). Formulas C. Drain billing completed by user decision 2026-11-08."
     added: 2026-11-07
     revised: 2026-11-08
@@ -1127,10 +1127,10 @@ formulas:
       - I
       - T_ref
     output_range: pass/fail
-    expression: "V_w <= epsilon_0*beta_w*alpha_m*C_w at ws = we = 0 over the standard stream (one hit of I per second) for T_ref 8 s"
+    expression: "V_w <= epsilon_0*beta_w*alpha_m*C_w at ws = we = 0 over the standard stream (one hit of I per second) for T_ref 8 s; cast wards: resistance, block and evade use T_up = floor(T_ref / cooldown) x duration, and C = kappa*Q*floor(T_ref / cooldown)"
     notes: "The ward counterpart of the art lint. Formulas F."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-08
   - name: defence_ehp
     status: active
     source: design/gdd/combat-defence.md
@@ -1188,7 +1188,7 @@ formulas:
       - M
     output_range: shares sum to 1; at most 3 x authored parts
     expression: "a step is one source tier (art, Effects, modifiers); every c_k from one type in one step reads s_j at the step's start, scaled down if over 1; conversion X->Y share c_k spawns s_j*c_k of type Y with hist + {X}; at the step's end s_j <- s_j*(1 - sum c_k over that step's conversions that apply to j); a part at share 0 is removed; part_j = base*s_j*M(tags + hist_j + type_j)*crit; resistance and block read type_j only"
-    notes: "At most 2 conversions per hit (one that moves nothing is not counted), fixed order (art, then Effects, then modifiers); never to or from Soul; never back to a type in hist; never changes a status tick's type. A hit is all Soul or has no Soul part (user decision 2026-11-08). Inside a step: compile order (slotted hosts, then unslotted, record id, listing order), the limit of 2 before scaling. Never to its own type. Modifier tier = convert_pct, one conversion per from -> to key, keys in type order (user decisions 2026-11-08 and 2026-11-08b DT-01, DT-02)."
+    notes: "At most 2 conversions per hit (one that moves nothing is not counted), fixed order (art, then Effects, then modifiers); never to or from Soul; never back to a type in hist; never changes a status tick's type. A hit is all Soul or has no Soul part (user decision 2026-11-08). Inside a step: compile order (slotted hosts, then unslotted, record id, listing order), the limit of 2 before scaling. Never to its own type. Modifier tier = convert_pct, one conversion per from -> to key, keys in type order (user decisions 2026-11-08 and 2026-11-08b DT-01, DT-02). A conversion that moves nothing is judged at the step's start and skipped. Conversions kept in earlier steps count toward the 2 (user decision 2026-11-08b, DT-03)."
     added: 2026-11-07
     revised: 2026-11-08
   - name: modifier_value

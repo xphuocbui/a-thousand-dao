@@ -259,3 +259,37 @@ Findings:
 - [RECOMMENDED] DT-10 (decision) `convert_pct` grid. User decision: whole pp (Character Stats updated).
 - [RECOMMENDED] DT-03 to DT-06, DT-08, DT-09 and nits DT-11 to DT-14: all applied (registry `damage_parts` updated).
 Applied: 2026-11-08, all 14 findings. Next: a fresh re-review.
+
+## Applied 2026-11-08 (round 3 fixes)
+
+Source: `reviews/rereview-2026-11-08c/` (combat-damage-types.md, combat-defence.md, effects.md).
+
+- **Applied (this GDD):** DT-03 (100 pp clip, AC-DT-32), DT-05 (Dependencies rows), DT-06 (rule 4 row "all + Force resistance"; AC-DT-30 adds 0.10 + 0.20 = 0.30 case), DT-07 (Edge Cases reflow), DT-08 (header lines), DT-10 (`c_k` cell shortened, "Conversion order" list added), DT-12 (AC-DT-27 and AC-DT-32 detail). Also Combat Defence report DT-01: rule 4 row, and AC-DT-30 fixture uses `no_default_ward`, so 0.20 holds. Merged with DT-06.
+- **Skipped, DECISION (open for the user):** DT-01 (host order), DT-04 (per-part scaling).
+- **Skipped, fix lands in a file I do not own:** DT-02 and DT-09 (combat-defence.md), DT-11 (entities.yaml), Effects EF-12 and the Combat Defence report's EF-01 (effects.md).
+- **Not mine, DECISION:** Effects EF-05 (Chaos conversion stacking).
+
+User decisions 2026-11-08c applied: DT-01, DT-04
+
+## Review — 2026-11-08c pass 1 (headless, autonomous) — Verdict: APPROVED
+Review mode: lean · Workflow: standard
+Scope signal: M
+Specialists: none (lean mode)
+Blocking items: 0 | Recommended: 1 | Nits: 3 (4 safe fixes applied, 0 decisions)
+Summary: Round 3 edits are consistent and every number recomputes. Four wording and AC-detail fixes applied. The registry `damage_parts` entry is stale against rule 6 (not my file). Full report: `rereview-2026-11-08c/pass1-combat-damage-types.md`.
+Prior verdict resolved: Yes
+Findings:
+- [RECOMMENDED] AC-DT-15: "fixed conversion table" undefined; named the cases.
+- [NIT] Rule 6: modifier step is the exception to host order; stated.
+- [NIT] Edge Cases: scaling is per part; stated.
+- [NIT] Header: round 3 added.
+- [NOTE] entities.yaml `damage_parts` stale (parent session).
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md d6c9766e39edbe5e55b75fc16409df9e35dc0c87
+Reviewed-Content-Hash: design/registry/entities.yaml 48bbe72491b4b946bf142f04a796faa379c15d9c
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/combat-defence.md 7912ae692c328d769066437c0c7ce8212a8c2a7d
+Reviewed-Content-Hash: design/gdd/combat.md 1bb3c01f55e9047849d0eb7d565c94695474adba
+Reviewed-Content-Hash: design/gdd/linh-can.md ecd0d4f0318e99185b0048dfad44e0f48ca56987
+Reviewed-Content-Hash: design/gdd/modifiers.md e0830493051ab814876c309da6a76af47b1c84c3
+Reviewed-Content-Hash: design/gdd/effects.md 8a08cd8e9bd8d26e3a9c9599541a71bfb6a6c801
+Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc

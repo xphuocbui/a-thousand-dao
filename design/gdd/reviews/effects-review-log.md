@@ -192,3 +192,15 @@ Findings:
 - [RECOMMENDED] EF-06 (decision) The 5 % qi burn cap. User decision: one pool per target per pulse; Combat #43 restates Formulas F.
 - [RECOMMENDED] EF-04, EF-07 to EF-10 and nits EF-11 to EF-16: all applied (AC-EF-56 and AC-EF-57 added; the effect-kind tag family is in modifiers.md rule 9).
 Applied: 2026-11-08, all 16 findings. Next: a fresh re-review.
+
+## Applied 2026-11-08 (round 3 fixes)
+
+Source: `reviews/rereview-2026-11-08c/effects.md` and `combat-defence.md` (its EF-01).
+
+Applied (14): EF-01 (Formulas C row and the new Edge Case), EF-02 (AC-EF-28 made self-contained, draw case 24 added), EF-03 (AC-EF-59 to 62), EF-04 (rule 14 text and the three Payload cells), EF-06 (AC-EF-52 band 0.28 to 0.32), EF-07 (Modifier System cell now Approved), EF-08 (AC-EF-45 lint scope and rule 4 Edge Case), EF-09 (`status` added to the kind tags), EF-10 (`qi_burn_cap` Tuning Knobs row; the registry entry is for the registry owner), EF-11 (Last Updated line), EF-12 (all four leftovers). From the Combat Defence report: its EF-01 (Qi Disruption row now "all + Force resistance"; AC-EF-26 fixture adds `no_default_ward`).
+
+Skipped (1): EF-05 (Chaos conversion stacking) is tagged DECISION and stays open for the user.
+
+No fix landed in `modifiers.md`, so its log is unchanged.
+
+User decisions 2026-11-08c applied: EF-05 (option A: Chaos conversion stacking accepted, line added under the conversion note, Open Question 11 added as a balance-pass watch item).

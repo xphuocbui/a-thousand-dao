@@ -1,8 +1,8 @@
 # Combat Damage Types (Loại Sát Thương)
 
-> **Status**: Designed 2026-11-07. Design review 2026-11-08 (lean, overnight, four passes): Needs Revision; revised the same day with the user's answers (no mixed Soul hits; same-step conversions read the step's start). Re-review 2026-11-08 (lean, three passes): Needs Revision, see `reviews/combat-damage-types-review-log.md`; revised the same day with the user's answers to all 19 items (conversion modifiers allowed; the qi-tick path; order inside a step; "Primordial Chaos" for the root)
+> **Status**: Designed 2026-11-07. Design review 2026-11-08 (lean, overnight, four passes): Needs Revision; revised the same day with the user's answers (no mixed Soul hits; same-step conversions read the step's start). Re-review 2026-11-08 (lean, three passes): Needs Revision, see `reviews/combat-damage-types-review-log.md`; revised the same day with the user's answers to all 19 items (conversion modifiers allowed; the qi-tick path; order inside a step; "Primordial Chaos" for the root). Second re-review 2026-11-08b (fresh session): all 14 findings applied (modifier step, host order, scoped conversions as modifiers, whole-pp grid); see `reviews/rereview-2026-11-08b/combat-damage-types.md`. Third re-review 2026-11-08c: findings applied, with the user's answers to DT-01 (host order) and DT-04 (per-part scaling); a fourth pass is in `reviews/rereview-2026-11-08c/pass1-combat-damage-types.md`
 > **Author**: user + agents
-> **Last Updated**: 2026-11-08 (re-review answers applied; see `reviews/rereview-2026-11-08-decisions.md`)
+> **Last Updated**: 2026-11-08 (third re-review and pass 1 applied; see the review log)
 > **Last Verified**: 2026-11-08
 > **Implements Pillar**: Your Dao, Your Name (1); Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2)
 > **Parent system**: Combat (#21, `design/gdd/combat.md`). This is sub-system #21b. It owns what a blow *is*: its damage type, how conversion changes it, and the rule that elements give no bonus in a fight (element tags belong to Combat rule 6 and Spiritual Roots). Combat Defence & Healing (#21a, `design/gdd/combat-defence.md`) owns what the blow meets.
@@ -110,7 +110,7 @@ would have to mean both a crushing wave and a freezing mist.
    | Physical, Force, Fire, Cold, Lightning, Light hit | evade → resistance → block → shields → health |
    | Chaos hit | the same, but passes body shields by default (rule 7) |
    | Any tick on health | resistance → shields that do not let it pass → health. Never evade, never block |
-   | A tick on linh lực (Qi Disruption) | Force resistance → linh lực, passing every shield (user decision 2026-11-08, re-review DT 3). Never evade, never block |
+   | A tick on linh lực (Qi Disruption) | all + Force resistance (rule 5; Combat Defence rule 3) → linh lực, passing every shield (user decision 2026-11-08, re-review DT 3). Never evade, never block |
    | Soul hit | soul resistance and soul wards only, then a share of health and linh lực (Combat Formulas E2) |
 
    - Evade applies to every hit except Soul.
@@ -134,18 +134,22 @@ would have to mean both a crushing wave and a freezing mist.
      history of every part of its source type) does not count, matching the Soul rule below.
    - **Steps.** A step is one source tier: the art's own conversions, then Effects, then modifiers. Every
      conversion from one type in one step reads that type's share **at the start of the step** (user decision
-     2026-11-08), and if they sum above 100 % they are scaled down to 100 %. Later steps read what earlier steps
+     2026-11-08), and if the ones that apply to a part sum above 100 %, they are scaled down to 100 % for that part
+     (user decision 2026-11-08c, DT-04). Later steps read what earlier steps
      left. A type cannot be converted back in the same hit (Combat rule 6).
-   - **Order inside a step** (re-review DT 1). Conversions in one step are taken in a stable compile order: slot
-     order for hosts in a slot (art slots, then artifact slots), then hosts with no slot (technique, Way, tree);
-     then record id; then the order the conversions are listed within one record (user decision 2026-11-08b,
+   - **Order inside a step** (re-review DT 1). The modifier step is the one exception: it sums by key and uses the
+     key order below, not host order. In the art and Effects steps, conversions are taken in a stable compile order: hosts
+     in a slot first (art slots in slot order, then equipped pieces in equip order, Item Database rule 11, then
+     talismans in slot order), then every other host in the order of Effects rule 13's list (user decision
+     2026-11-08c, DT-01); then record id; then the order the conversions are listed within one record (user decision 2026-11-08b,
      DT-02). The limit of 2 is applied first, in that order. A conversion that moves nothing, judged on the
      shares at the step's start, is skipped and does not count. Conversions kept in earlier steps count toward
      the 2. Only the conversions kept are then scaled to 100 % if they exceed it.
    - **The modifier step** (user decision 2026-11-08b, DT-01). All `convert_pct` records of one from → to key
      that match the hit add up (Modifier System rules 4, 8). Each key with a sum above 0 is one conversion, with
      `c_k` = the sum / 100. Keys are taken by from type, then by to type, in rule 1's fixed order. A key whose
-     sum is 0 or less is no conversion and does not count.
+     sum is 0 or less is no conversion and does not count. A key whose sum is above 100 pp counts as 100 pp, and
+     the Breakdown shows the clip.
    - **A part at share 0 is removed** at the end of its step (re-review DT 15), so it spawns nothing, counts for
      nothing and deals nothing.
    - **A conversion from a type to itself** is rejected at compile.
@@ -217,11 +221,17 @@ The damage_parts formula is defined as:
 | base | float | ≥ 0 | Combat Formulas C (`U_att · stage_att · c_art`) | The hit before layers |
 | s_j | float | 0–1, Σ = 1 | art record (authored split), then conversion | Share of the hit in part j |
 | type_j | enum | the eight types | art record; conversion | The part's final damage type |
-| c_k | float | 0–1 | art, Effect or modifier (`convert_pct`) | Conversion share. At most 2 conversions per hit, in step order and then compile order (slot order, then unslotted hosts, record id, listing order; in the modifier step, one conversion per `convert_pct` key, by from type and then to type in rule 1's order), the limit applied before scaling; a key whose `convert_pct` sum is 0 or less is no conversion and does not count; never to or from Soul or to its own type; never back to a type already in hist_j. A part left at share 0 is removed at the end of its step |
+| c_k | float | 0–1 | art, Effect or modifier (`convert_pct`) | Conversion share. Which conversions apply, in what order, and how many, is Core Rule 6 (see "Conversion order" below) |
 | hist_j | tag set | ⊆ the eight types | calculated | Earlier types of the part, kept as tags for offence modifiers |
 | tags | tag set | — | art record | The art's element, form, mode, source and effect tags (Combat rule 6) |
 | M(·) | float | 0.1–350 | Combat Formulas B | Layers summed over modifiers whose scope is in the part's tags, history and type |
 | crit | float | 1 or `crit_mult` | Combat Formulas C | One roll per hit |
+
+**Conversion order** (a restatement of Core Rule 6, no new content):
+1. At most 2 conversions per hit, taken in step order (art, Effects, modifiers), then compile order (art slots in slot order, equipped pieces in equip order, talismans in slot order, then every other host in Effects rule 13's list order, then record id, then listing order). Scaling is per part: the kept conversions that apply to a part are summed and scaled if over 100 %, for that part. The limit is applied before scaling.
+2. In the modifier step, one conversion per `convert_pct` key, by from type and then to type in rule 1's order. A key whose sum is 0 or less is no conversion and does not count; a sum above 100 pp counts as 100 pp.
+3. Never to or from Soul, never to its own type, never back to a type already in hist_j.
+4. A part left at share 0 is removed at the end of its step.
 
 **Output Range:** shares always sum to 1, and a hit has at most 3 × its authored parts (2 conversions; each spawns at most one part per existing part of its source type).
 
@@ -239,7 +249,8 @@ The damage_parts formula is defined as:
 
 - **If an art has no authored split**: it is one part of its declared type. **If it declares no type**: compile
   rejects it. Every damaging art names a type.
-- **If conversions from one type in one step sum above 100 %**: they are scaled down to sum to 100 %.
+- **If conversions from one type in one step sum above 100 % for a part**: they are scaled down to sum to
+  100 % for that part. Another part of the same type, whose history blocks one of them, is scaled on its own.
 - **If a conversion targets a type already in a part's history**: it does not apply to that part, so nothing
   converts back.
 - **If a third conversion applies**: it is ignored and logged with its source. A hit takes at most 2. A
@@ -262,8 +273,7 @@ The damage_parts formula is defined as:
 - **If a conversion leaves a part at share 0**: the part is removed at the end of the step; a later conversion
   from that type moves nothing and does not count, and nothing is dealt from it.
 - **If three conversions meet one step**: the first two in compile order that move something are kept, less any
-  already kept in earlier steps, then scaled if they exceed
-  100 %; the third is logged as ignored.
+  already kept in earlier steps, then scaled if they exceed 100 %; the third is logged as ignored.
 
 ## Dependencies
 
@@ -272,8 +282,8 @@ The damage_parts formula is defined as:
 | Combat (#21) | Hard, parent | Hits, layers, crit, the tag families | Approved for rules | Not yet: the Combat revision (#43) replaces the kind family with damage types and rewrites the conversion examples |
 | Combat Defence & Healing (#21a) | Hard | Resistance, block and shields read each part's final type | Needs revision | Yes |
 | Spiritual Roots (#6) | Soft | Element and variant tags | In review | Not yet |
-| Modifier System (#40) | Soft | Damage-type and element scopes | Needs revision | Yes |
-| Effects System (#41) | Soft | Conversion records; element-relation Effects (none yet) | Needs revision | Yes |
+| Modifier System (#40) | Soft | Damage-type and element scopes; the `convert_pct` row | Needs revision | Yes |
+| Effects System (#41) | Soft | Conditional conversion records; element-relation Effects (none yet) | Needs revision | Yes |
 | Cultivation Techniques (#9), The Way (#39), Item DB (#13), Talismans (#18) | Soft | Damage types on every art and status record | In review; approved; approved; implemented | Not yet |
 | Heavenly Tribulation (#22) | Soft | Tribulation lightning deals Lightning | Approved for rules | Not yet |
 
@@ -363,7 +373,7 @@ Added 2026-11-08; no value changed. Safe ranges are design estimates.
 - **AC-DT-12** [Config/Data] Rule 9. **GIVEN** the tag registry, **THEN** it has a damage-type family of exactly the 8 types and no `kind` family; the element family lists the 5 elements and the root variants; form, mode, source and effect are unchanged.
 - **AC-DT-13** [Logic] Rule 10. **GIVEN** legacy arts tagged `body`, `qi` and `soul`, **WHEN** they load, **THEN** they become Physical, Force and Soul, with a migration warning for each `body` and `qi` art. **GIVEN** a `body` art whose author set Cold, **THEN** it stays Cold.
 - **AC-DT-14** [Logic] Formulas A. **GIVEN** base 100, all Physical, with +30 % Physical, +40 % Fire and +20 % Lightning, **WHEN** Physical → Fire 40 % then, in a later step, Fire → Lightning 50 % apply, **THEN** the parts are 0.6, 0.2 and 0.2 and the total is 150. **WHEN** only Physical → Fire 40 % applies, **THEN** the total is 146.
-- **AC-DT-15** [Logic] Formulas A. **FOR** each case in a fixed conversion table, **THEN** the part shares sum to 1 and the part count is at most 3 × the authored parts.
+- **AC-DT-15** [Logic] Formulas A. **FOR** each conversion case in AC-DT-14, 16, 17, 27, 28, 29, 31 and 32 (knob at its default 2), **THEN** the part shares sum to 1 and the part count is at most 3 × the authored parts.
 - **AC-DT-16** [Logic] Formulas A. **GIVEN** Physical → Fire 70 % and Physical → Cold 50 % in one step, **THEN** they are scaled to 0.583 and 0.417, the Physical share left is 0, and both count toward the 2.
 - **AC-DT-17** [Logic] Formulas A. **GIVEN** Physical → Fire 40 % then Fire → Physical 50 %, **THEN** the parts stay 0.6 Physical and 0.4 Fire. **GIVEN** Physical → Soul or Soul → Fire, **THEN** it is ignored, logged and not counted, and the shares do not change.
 - **AC-DT-18** [Logic] Formulas A. **GIVEN** a Physical → Fire part, **THEN** "+Physical" and "+Fire" offence modifiers both apply to it, and resistance reads only Fire.
@@ -375,12 +385,13 @@ Added 2026-11-08; no value changed. Safe ranges are design estimates.
 - **AC-DT-24** [Config/Data] Rule 1. **GIVEN** every art, status and free-hit record in data, **WHEN** the data scan runs, **THEN** it reports how many records it scanned and finds 0 damaging records without a damage type (a free hit may copy its source art's parts instead).
 - **AC-DT-25** [Logic] Rule 1. **GIVEN** an art authored 60 % Physical and 40 % Soul, **WHEN** compiled, **THEN** compile rejects it and names the record. **GIVEN** a Soul art and a Physical art, **THEN** both compile.
 - **AC-DT-26** [Logic] Rule 6. **GIVEN** a Fire-only hit with an Effect converting Physical → Cold 50 %, **THEN** nothing moves, it is not counted, and a later modifier conversion still applies. **GIVEN** a Burn tick and a Physical → Fire modifier conversion, **THEN** the tick stays Fire and unchanged.
-- **AC-DT-27** [Logic] Rule 6 (order inside a step). **GIVEN** three Effect conversions in one step from Physical, in slots 1, 2 and 3 (to Fire 70 %, to Cold 50 %, to Lightning 30 %), **THEN** only slots 1 and 2 are kept, they are scaled to 0.583 and 0.417, and slot 3 is logged as ignored. **GIVEN** two conversions in the same slot, **THEN** the lower record id comes first. **GIVEN** one art record listing Physical → Fire and then Physical → Cold, **THEN** Physical → Fire comes first. **GIVEN** an Effect conversion on an artifact slot and one on a technique, **THEN** the artifact's comes first (slotted hosts before unslotted, DT-02). **GIVEN** a Fire → Lightning conversion that moves nothing first in the step, then Physical → Fire and Physical → Cold, **THEN** both Physical conversions are kept (DT-03).
+- **AC-DT-27** [Logic] Rule 6 (order inside a step). **GIVEN** three Effect conversions in one step from Physical, in slots 1, 2 and 3 (to Fire 70 %, to Cold 50 %, to Lightning 30 %), **THEN** only slots 1 and 2 are kept, they are scaled to 0.583 and 0.417, and slot 3 is logged as ignored. **GIVEN** two conversions in the same slot, **THEN** the lower record id comes first. **GIVEN** one art record listing Physical → Fire and then Physical → Cold, **THEN** Physical → Fire comes first. **GIVEN** an Effect conversion on an equipped piece and one on a technique, **THEN** the piece's comes first (slotted hosts before unslotted, DT-02). **GIVEN** a conversion Effect on a formation and one on a Way node, **THEN** the Way node's comes first (Effects rule 13's order, DT-01 of 2026-11-08c). **GIVEN** an all-Physical hit and, in one step, Fire → Lightning (it moves nothing), then Physical → Fire 40 % and Physical → Cold 30 %, **THEN** both Physical conversions are kept, and the parts are Physical 0.30, Fire 0.40 and Cold 0.30 (DT-03).
 - **AC-DT-28** [Logic] Rule 6 (same-step chain). **GIVEN** Physical → Fire 40 % and Fire → Lightning 50 % in the same step on an all-Physical hit, **THEN** Fire's share at the step's start is 0, so the second moves nothing and is not counted; the parts are 0.6 Physical and 0.4 Fire. **GIVEN** the same two with Fire → Lightning in the next step, **THEN** the parts are 0.6, 0.2 and 0.2.
 - **AC-DT-29** [Logic] Rule 6 (a part at share 0). **GIVEN** Physical → Fire 100 % in the art's step and a Physical → Cold 50 % modifier conversion, **THEN** the Physical part is removed at the end of the first step, the modifier conversion moves nothing and is not counted, and the hit deals nothing as Physical (Combat Formulas C's at-least-1 floor does not apply to a removed part).
-- **AC-DT-30** [Integration] Rule 4 (qi tick). **GIVEN** Qi Disruption ticking on a defender with Force resistance 0.20, a full ward shield and a full body shield, **THEN** the tick is reduced by 0.20, both shields are unchanged, and the rest comes off linh lực, capped at 5 % of `qi_max` a pulse (Effects Status Catalogue).
+- **AC-DT-30** [Integration] Rule 4 (qi tick). **GIVEN** Qi Disruption ticking on a defender with `no_default_ward`, a full ward shield and a full body shield, **WHEN** Force resistance is 0.20, **THEN** the tick is reduced by 0.20; **GIVEN** all resistance 0.10 and Force resistance 0.20, **THEN** the tick is reduced by 0.30 (under the 0.75 cap). In both cases, both shields are unchanged, and the rest comes off linh lực, capped at 5 % of `qi_max` a pulse (Effects Status Catalogue).
 - **AC-DT-31** [Logic] Rule 6. **GIVEN** a conversion from Fire to Fire, **WHEN** compiled, **THEN** compile rejects it and names the record. **GIVEN** a Physical → Lightning 20 pp `convert_pct` on an item, on a tree notable and on a Way node, **THEN** each compiles, and on an all-Physical hit each gives parts of 0.8 Physical and 0.2 Lightning, applied in the modifier step.
-- **AC-DT-32** [Logic] Rule 6 (the modifier step; user decision 2026-11-08b, DT-01). **GIVEN** two items that each give `convert_pct` Physical → Fire +15 pp, and one that gives Force → Lightning +20 pp, on a hit of 0.5 Physical and 0.5 Force, **THEN** the modifier step holds 2 conversions (Physical → Fire 0.30 first, then Force → Lightning 0.20), both count toward the 2, and the parts are 0.35 Physical, 0.15 Fire, 0.40 Force and 0.10 Lightning. **GIVEN** a penalty that brings a key's sum to −5 pp, **THEN** that key is no conversion and does not count.
+- **AC-DT-32** [Logic] Rule 6 (the modifier step; user decision 2026-11-08b, DT-01). **GIVEN** two items that each give `convert_pct` Physical → Fire +15 pp, and one that gives Force → Lightning +20 pp, on a hit of 0.5 Physical and 0.5 Force, **THEN** the modifier step holds 2 conversions (Physical → Fire 0.30 first, then Force → Lightning 0.20), both count toward the 2, and the parts are 0.35 Physical, 0.15 Fire, 0.40 Force and 0.10 Lightning. **GIVEN** two records on `convert_pct` Physical → Fire, +10 pp and −15 pp (sum −5 pp), **THEN** that key is no conversion, does not count toward the 2, and the Physical part is unchanged. **GIVEN** a key whose sum is 120 pp, **THEN** `c_k` is 1.0 and the Breakdown shows the clip.
+- **AC-DT-33** [Logic] Rule 6 (scaling per part; user decision 2026-11-08c, DT-04). **GIVEN** the knob at 3, an art of 50 % Force and 50 % Physical with Force → Physical 100 % in the art step (part A is Physical 0.5 with no history, part B is Physical 0.5 with history {Force}), then in the Effects step Physical → Force 70 % (applies to A only) and Physical → Cold 50 % (applies to both), **THEN** B sees only the Cold 50 %, sum 0.5, no scaling, and B's Cold share is 0.25 and its Physical share is 0.25.
 
 ## Open Questions
 

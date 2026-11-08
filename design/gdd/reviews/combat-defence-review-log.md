@@ -257,3 +257,34 @@ Findings:
 - [RECOMMENDED] CD-04 (decision) A drain ward makes a linh lực tick cost more (13.0 against 10). User decision 2026-11-08b: keep it and document it as a known weakness; AC-CD-68 added.
 - [RECOMMENDED] CD-03, CD-05 to CD-09 and nits CD-10 to CD-16: all applied (the qi-tick path row, drain billed in two steps, AC fixes, AC-CD-66 and AC-CD-67, the Combat #43 list).
 Applied: 2026-11-08, all 16 findings. Next: a fresh re-review.
+
+## Applied 2026-11-08 (round 3 fixes)
+Source: `rereview-2026-11-08c/` (combat-defence.md, combat-damage-types.md, effects.md). Unattended run; no commit.
+Applied to `combat-defence.md`: CD-01 (drain split is one `pay_frac` over the wards billed together; rule 8, Formulas C, AC-CD-22 worked 15 / 20 / 10 = 10 and 5), CD-02 (qi-tick table row indented; same as DT-09), CD-03 (header lines), CD-04 (AC-CD-68 fixture, "bill first, then the tick lands", Edge Cases pointer), CD-05 (cast firing convention in the `V_w` row), DT-02 (rule 9: a tick on linh lực passes every shield).
+Applied to `entities.yaml`: CD-06 (`ward_payment`, `ward_price_check`; `revised: 2026-11-08`), DT-11 (`damage_parts` notes).
+Skipped, fix lands in a file this run does not own: DT-01 and EF-01 of the Defence report, and the Damage Types and Effects findings (DT-03 to DT-08, DT-10, DT-12, EF-01 to EF-04, EF-06 to EF-09, EF-11, EF-12). DT-09 duplicates CD-02 (applied once).
+Skipped, not safe to do blind: EF-10 (new `qi_burn_cap` registry constant; Combat Formulas F owns the number and was not re-checked here).
+Not applied, DECISION (open for the user): Damage Types DT-01 (host order), DT-04 (per-part scaling), Effects EF-05 (Chaos conversion stacking).
+
+## Review — 2026-11-08c pass 1 (fresh session) — Verdict: APPROVED
+Review mode: lean · Workflow: standard · Reviewed at: working tree after the round-3 fixes (uncommitted)
+Scope signal: L
+Specialists: none (lean mode)
+Blocking items: 0 | Recommended: 0 | Nits: 4 (4 safe, 0 decision)
+Summary: Round 3's Defence fixes are all in and correct. All ward ratios, block, shield, payment, healing and ehp figures recompute. Four wording nits were applied. Full report: `rereview-2026-11-08c/pass1-combat-defence.md`.
+Prior verdict resolved: Yes (round 3's recommended items are closed)
+Findings:
+- [NIT] Header: did not record round 3. Applied.
+- [NIT] Formulas C: `pay_frac` undefined when the billed sum is 0. Applied (1 when the sum is 0).
+- [NIT] AC-CD-04: "resistance 0" tick needs `no_default_ward`. Applied.
+- [NIT] AC-CD-43: `regen_cap` named as linh lực regeneration, not `hregen_cap`. Applied.
+Reviewed-Content-Hash: design/gdd/combat-defence.md a5c5733f2387ea36e542c95ad24629d72284914c
+Reviewed-Content-Hash: design/registry/entities.yaml 48bbe72491b4b946bf142f04a796faa379c15d9c
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/combat.md 1bb3c01f55e9047849d0eb7d565c94695474adba
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md d6c9766e39edbe5e55b75fc16409df9e35dc0c87
+Reviewed-Content-Hash: design/gdd/modifiers.md e0830493051ab814876c309da6a76af47b1c84c3
+Reviewed-Content-Hash: design/gdd/effects.md 8a08cd8e9bd8d26e3a9c9599541a71bfb6a6c801
+Reviewed-Content-Hash: design/gdd/thien-kiep.md 48cf4978cc8de61a69ef33edc82e66d0c1b2ee58
+Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc
+Reviewed-Content-Hash: design/gdd/character-stats.md 27472baa013800bfd1910fdede1a3e253e4d4342
