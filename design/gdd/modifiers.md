@@ -1,8 +1,8 @@
 # Modifier System
 
-> **Status**: Designed 2026-11-07, pending an independent `/design-review` in a fresh session. Resumed after Combat Defence & Healing (#21a) and Combat Damage Types (#21b); the Stat List, price table and General Catalogue were rebuilt for them (damage-type scopes, resistance, block, body shield, healing stats, penetration; body guard retired).
+> **Status**: Designed 2026-11-07; `/design-review` 2026-11-08 (lean, passes 1–4): NEEDS REVISION, see `reviews/modifiers-review-log.md`. Resumed after Combat Defence & Healing (#21a) and Combat Damage Types (#21b); the Stat List, price table and General Catalogue were rebuilt for them (damage-type scopes, resistance, block, body shield, healing stats, penetration; body guard retired).
 > **Author**: user + agents
-> **Last Updated**: 2026-11-07
+> **Last Updated**: 2026-11-08
 > **Last Verified**: 2026-11-07
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Your Dao, Your Name (1)
 > **Scope**: Modifiers only, meaning plain numbers on a stat ("+X" or "X % increased / more"), optionally narrowed by tags. Effects (conditions, scaling, triggers, conversion, keystones, enablers) are a separate system with their own GDD (user decision 2026-11-07).
@@ -74,18 +74,19 @@ system. An Effect grants modifiers from this catalogue as its payload.
 
 4. **Flat** adds the value to the stat in its own unit: +1 art slot, +5 ngộ tính, +10 years of lifespan,
    +0.5 percentage points of crit chance. A stat that is already a chance or a share (crit chance, evade,
-   regeneration as a share of maximum per second) takes flat modifiers in percentage points.
+   regeneration as a share of maximum per second or per pulse, as the Stat List says) takes flat modifiers in
+   percentage points.
 
 5. **Increased** adds percentage points to the stat's one increased sum. That sum multiplies the stat
    once: `stat = (base + Σ flat) · max(0, 1 + Σ increased / 100)`. This is today's `_pct` key behaviour
    (Character Stats Formulas I), unchanged. For damage, the increased sum *is* Combat's layer L1.
 
 6. **More** exists only for damage. It adds points to Combat layer **L2** (arts, techniques, Way art
-   nodes) or **L4** (preparation and ground: formations, talismans, pills, coatings). **L5** (cap 100) is
-   granted only as an Effect's payload (Effects System, user decision 2026-11-07), never by a plain modifier. Combat Formulas B
-   multiplies the layers, so `more` stacks multiplicatively against `increased`. L3 is computed from gear
-   and L5 belongs to Effects, so no plain modifier writes to either; an Effect's payload may write L5. Every other stat has no "more", which
-   keeps one multiplier per stat.
+   nodes) or **L4** (preparation and ground: formations, talismans, pills, coatings). Combat Formulas B
+   multiplies the layers, so `more` stacks multiplicatively against `increased`. L3 is computed from gear,
+   so no modifier writes to it. **L5** (cap 100) is granted only as an Effect's payload (Effects System,
+   user decision 2026-11-07), never by a plain modifier. Every other stat has no "more", which keeps one
+   multiplier per stat.
 
 7. **Caps and ceilings belong to the stat's owner.** Combat's layer caps (400/300/250/150/100 and the L1
    knee), the crit, evade and escape caps, and Character Stats' ceilings (`breakthrough_chance`,
@@ -100,14 +101,25 @@ system. An Effect grants modifiers from this catalogue as its payload.
    - **outgoing hit**: damage, crit, pierce, accuracy and resistance penetration match the hit part's tags:
      its damage type and earlier types (Combat Damage Types rule 6) and the art's element, form, mode and
      source tags.
+   - **outgoing soul hit** and **basic attack**: an outgoing hit narrowed by its implied tag (rule 11), so
+     soul attack damage matches as [soul] plus the soul art's tags, and basic attack speed as [basic].
    - **art**: art speed and art cost match the art's tags.
+   - **heal**: healing matches the tags of the art that heals (a Wood-element heal art matches [moc]).
+   - **reservation**: reservation efficiency matches the tags of the ward or art that reserves.
+   - **outgoing status**: status duration and status stack cap match the status's own tags (its damage type,
+     mode and effect tags, Effects System Status Catalogue), so a [fire] scope reaches Burn.
    - **incoming hit**: resistance matches the incoming part's **final damage type** only, so "+12 % Fire
      resistance" defends against Fire parts (Combat Defence & Healing rule 3).
    - **status**: status resistance matches the incoming status.
    - **ward**: ward strength and ward efficiency are unscoped; they scale every ward's payloads and payments
      (Combat Defence & Healing rule 6).
    - **artifact**: artifact stats match the artifact's role tags (`weapon`, `ward_gear`, `body_gear`, `utility`).
-   - **none**: sheet stats such as maximum health, cultivation speed or ngộ tính cannot be scoped.
+   - **foe** (Pending, variety 2026-11-08): an outgoing hit also matches the **defender's** foe tag, and resistance
+     the **attacker's**. Combat stamps one foe tag on each fight profile at compile (rule 9's foe family), so
+     this is a fixed tag match, like a damage type, never a condition.
+   - **cultivation season** (Pending, variety 2026-11-08): cultivation speed matches the season's activity tag
+     (`secluded` for closed-door cultivation, bế quan; `travelling`), which Time & Turn stamps on each season.
+   - **none**: sheet stats such as maximum health or ngộ tính cannot be scoped.
 
    A scope holds at most **two** tags, drawn from the damage type family and Combat's families (element,
    form, mode, source, effect) and the derived art tags (rule 10). There is one stat per idea, never one key per tag:
@@ -139,7 +151,9 @@ system. An Effect grants modifiers from this catalogue as its payload.
    | source | art, artifact, talisman, formation, companion | Combat rule 6 |
    | effect | pierce, lock, poison, cleanse, escape | Combat rule 6 |
    | derived art tags | basic, quick, slow, cheap, costly | proposed to Combat (rule 10) |
-   | artifact role | weapon, ward_gear, body_gear, utility | Item DB (Combat's role tags) |
+   | artifact role | weapon, ward_gear, body_gear, utility | Item DB (Combat's role tags; Item DB renames `ward`/`body`, combat revision D2) |
+| foe | cultivator, creature (Pending until Combat stamps them; `demonic` and `tribulation` held) | Combat rules 2, 18 (variety 2026-11-08) |
+| activity | secluded, travelling (Pending) | Time & Turn, Realms (variety 2026-11-08) |
    | stat family | damage, crit, accuracy, speed, cost, linh_luc, than_thuc, health, ward, resistance, block, shield, healing, evade, soul, status, gear, preparation, companion, escape, fortune, realm, cultivation, lifespan, heart_demon, toxicity, crafting, economy, travel, attribute, slots | this GDD |
    | domain | combat, cultivation, crafting, travel, social | this GDD |
 
@@ -162,9 +176,9 @@ system. An Effect grants modifiers from this catalogue as its payload.
     | Tier | Scope |
     |---|---|
     | universal | empty |
-    | broad | damage type `physical` or `force`, mode `hit`, or source `art` |
-    | family | damage type `fire`, `cold`, `lightning`, `light` or `chaos`; one base element; form; other mode or source; derived art tag |
-    | narrow | one variant element or effect tag; or two family tags |
+    | broad | damage type `physical` or `force`, mode `hit`, source `art`, or foe `cultivator` |
+    | family | damage type `fire`, `cold`, `lightning`, `light` or `chaos`; one base element; form; other mode or source; derived art tag; foe `creature`; an activity tag |
+    | narrow | one variant element or effect tag; one status tag; or two family tags |
     | pinpoint | two tags, one narrow and the other family or narrower |
 
     - **Two tags:** a second tag that is only broad adds nothing, so [art, sword] is family.
@@ -188,8 +202,10 @@ system. An Effect grants modifiers from this catalogue as its payload.
     Game Master, quests and NPC Builds. The Meridian Map never grants `more`.
 
 13. **Rare modifiers appear only where the budget can pay for them** (user decision 2026-11-07). A rare
-    modifier raises a count that has no cap of its own: art slots, artifact slots, beast slots, talisman
-    stock, status stack cap, field plots and pills per brew. It costs 10–25 W, more than a notable holds.
+    modifier raises a count that has no cap of its own: art slots, artifact slots, ward slots, beast slots,
+    talisman stock, status stack cap, field plots and pills per brew. A few stats are also **rare by their
+    row** in the Stat List, because they would break a limit if common: the resistance cap raise and Chaos
+    resistance (Combat Damage Types rule 5). A rare count costs 10–30 W, more than a notable holds.
     It may appear only on a source whose own budget covers its price: a keystone, a named item, a quest
     reward or a Way capstone. It never appears on an acupoint, a tree notable or a rolled affix. Validation
     reads the **source record's kind** (acupoint, notable, affix, keystone, named item, quest reward,
@@ -236,24 +252,30 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Basic attack speed | — | I | basic attack | higher | 0.4 | Combat A2 (`basic_cooldown` is fixed today) | Pending |
 | Status duration | — | I | outgoing status | higher | 0.6 | Combat F (duration is fixed per status) | Pending |
 | Status stack cap | — | F, rare | outgoing status | higher | 10 | Combat F (`stack_cap` 5) | Pending |
+| Damage against a foe | `attack_pct` scoped [cultivator] or [creature] | I | outgoing hit (defender's foe tag) | higher | 1.0 | Combat rules 2, 18: foe tags on profiles (variety 2026-11-08) | Pending |
 
 **Combat: defence**
 
 | Stat | Key | Ops | Target | Better | W | Owner | Status |
 |---|---|---|---|---|---|---|---|
 | Resistance, all | `resist_pct` (no scope) | F (pp) | incoming hit | higher | 1.25 | Combat Defence & Healing A | Designed |
-| Resistance, one damage type | `resist_pct` (scoped by type) | F (pp) | incoming hit (final type) | higher | 1.0 Physical/Force; 0.83 others (per pp effective) | Combat Defence & Healing A. Chaos only from rare sources | Designed |
+| Resistance, one damage type | `resist_pct` (scoped by type) | F (pp) | incoming hit (final type) | higher | 1.25 stored (one price in `modifier_prices`); effective 1.0 Physical/Force, 0.83 others after breadth | Combat Defence & Healing A. Chaos resistance is rare (rule 13) | Designed |
+| Resistance against a foe | `resist_pct` scoped [cultivator] or [creature], may pair with a type | F (pp) | incoming hit (attacker's foe tag) | higher | 1.25 stored | Combat Defence & Healing rule 3 and foe tags (variety 2026-11-08) | Pending |
 | Resistance cap | `resist_cap_pct` | F (pp), rare | incoming hit | higher | 5 | Combat Defence & Healing A (to 90 %) | Designed |
 | Block | `block_rating` | F (rating, grid 1) | none | higher | 0.4 | Combat Defence & Healing A2 | Designed |
-| Body shield | `body_shield_pct` | F (pp of health_max) | none | higher | 1.0 | Combat Defence & Healing B | Designed |
+| Block against one damage type | `block_rating` scoped by type (not Chaos) | F (rating) | incoming hit part (final type) | higher | 0.4 | Combat Defence & Healing A2: a typed rating blocks only matching parts, after the shared pool (variety 2026-11-08) | Pending |
+| Body shield | `body_shield_pct` | F (pp of health_max); I (Pending) | none | higher | 1.0 (F); 0.6 / % (I) | Combat Defence & Healing B; the I op multiplies the summed body shield (variety 2026-11-08) | Designed (F); Pending (I) |
+| Shield recharge delay | `recharge_delay_pct` | I | ward | lower | 0.6 | Combat Defence & Healing B (`recharge_delay` 2.0 s) (variety 2026-11-08) | Pending |
+| Cast ward duration | `cast_ward_duration_pct` | I | ward | higher | 0.5 | Combat Defence & Healing rule 7; a cast ward's duration stays below its cooldown (variety 2026-11-08) | Pending |
 | Ward strength | `defense_pct` | I | ward | higher | 1.0 | Combat Defence & Healing rule 6 (scales ward payloads) | Live |
 | Ward efficiency | `ward_efficiency_pct` | I | ward | higher | 1.0 | Combat Defence & Healing rule 6 (lowers ward payments) | Designed |
 | Maximum health (khí huyết) | `khi_huyet_pct` | I | none | higher | 1.2 | Character Stats C | Live |
 | Evade | `evade_pct` | F (pp) | none | higher | 1.5 | Combat I | Designed |
 | Soul resistance | `soul_res_pct` | F (pp) | none | higher | 0.6 | Combat E2 | Designed |
-| Status resistance | `status_resist_pct` | F (pp) | incoming status | higher | 0.4 | Combat F | Designed |
+| Status resistance | `status_resist_pct` | F (pp) | incoming status | higher | 0.4 | Combat F. Scopes by one status (burn, bleed, frostbite, qi_burn) wait on status tags (variety 2026-11-08) | Designed |
+| Status duration on you | `status_duration_taken_pct` | I | incoming status | lower | 0.3 | Combat F (`duration`, `curse_duration_max`); the answer to statuses that always land (variety 2026-11-08) | Pending |
 | Health regeneration | `health_regen_pct` | F (pp of maximum per pulse, cap 2) | none | higher | 3.0 | Combat Defence & Healing E | Designed |
-| Healing | `healing_pct` | I | heal (its tags) | higher | 0.5 | Combat Defence & Healing E | Designed |
+| Healing | `healing_pct` | I | heal (its tags) | higher | 0.5 | Combat Defence & Healing E. A [body_shield] scope on restores waits on that tag (variety 2026-11-08) | Designed |
 | Healing taken | `healing_taken_pct` | I | none | higher | 0.5 | Combat Defence & Healing E | Designed |
 | Ward slots | `bonus_ward_slots` | F, rare | none | higher | 30 | Combat Defence & Healing D | Designed |
 | ~~Body guard~~ | `body_guard_pct` | — | — | — | retired | Replaced by block and body shield (Combat Defence & Healing rule 12) | Retired |
@@ -272,8 +294,8 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Stat | Key | Ops | Target | Better | W | Owner | Status |
 |---|---|---|---|---|---|---|---|
 | Artifact power | `artifact_power_pct` | I | artifact | higher | 1.3 | Item DB / Artifact Refining | Live |
-| Artifact attack | `artifact_attack_pct` | I | artifact (weapon) | higher | 0.6 | Item DB | Live |
-| Artifact defence | `artifact_defense_pct` | I | artifact (ward, body) | higher | 0.6 | Item DB | Live |
+| Artifact attack | `artifact_attack_pct` | I | artifact (`weapon`) | higher | 0.6 | Item DB | Live |
+| Artifact defence | `artifact_defense_pct` | I | artifact (`ward_gear`, `body_gear`) | higher | 0.6 | Item DB | Live |
 | Element affinity | `element_affinity_pct` | I | artifact | higher | 1.3 | Item DB | Live |
 | Artifact thần thức cost | `than_thuc_cost_pct` | I | artifact | lower | 0.8 | Item DB | Live |
 | Art slots | `bonus_slots` | F, rare | none | higher | 20 | Combat A2 | Designed |
@@ -290,6 +312,8 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Talisman stock | — | F, rare | none | higher | 10 | Talismans | Pending |
 | Companion power share | — | F (pp) | none | higher | 0.4 | Spirit Beasts / Combat J | Pending |
 | Beast slots | — | F, rare | none | higher | 15 | Spirit Beasts (capability #16 today) | Pending |
+| Formation upkeep | `formation_upkeep_pct` | I | none | lower | 0.15 | Formations (`upkeep_lt_per_level`) (variety 2026-11-08) | Pending |
+| Talisman ink cost | `talisman_ink_pct` | I | none | lower | 0.15 | Talismans (`ink_lt`) (variety 2026-11-08) | Pending |
 
 **Escape and fortune**
 
@@ -303,7 +327,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 
 | Stat | Key | Ops | Target | Better | W | Owner | Status |
 |---|---|---|---|---|---|---|---|
-| Cultivation speed (tu luyện) | `cultivation_speed_pct` | I | none | higher | 2.2 | Realms / Character Stats | Live |
+| Cultivation speed (tu luyện) | `cultivation_speed_pct` | I | none; cultivation season (Pending) | higher | 2.2 | Realms / Character Stats. Scoped by activity, [secluded] or [travelling], once seasons carry the tag (variety 2026-11-08) | Live (unscoped) |
 | Breakthrough chance | `breakthrough_chance` | F (pp) | none | higher | 5 | Realms (tree cap 8 pp) | Live |
 | Lifespan (thọ nguyên), years | `lifespan_years` | F (years) | none | higher | 300 / L_r per year | Realms rule 14 | Live |
 | Lifespan, share | `lifespan_pct` | I | none | higher | 3.0 | Realms rule 14 | Live |
@@ -326,6 +350,10 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Taming chance | — | F (pp) | none | higher | 1.0 | Spirit Beasts | Pending |
 | Mission income | `mission_income_pct` | I | none | higher | 0.7 | Sects | Live |
 | Travel speed | `travel_speed_pct` | I | none | higher | 0.3 | Travel | Live |
+| Pill quality chance | `pill_quality_chance` | F (pp) | none | higher | 1.0 | Alchemy; Item DB `quality` 0–3 (one grade up, never past 3) (variety 2026-11-08) | Pending |
+| Artifact grade chance | `refine_grade_chance` | F (pp) | none | higher | 1.5 | Artifact Refining; shifts the grade roll one step up (variety 2026-11-08) | Pending |
+| Buy price | `buy_price_pct` | I | none | lower | 0.3 | Market (#20) (variety 2026-11-08) | Pending |
+| Sell price | `sell_price_pct` | I | none | higher | 0.3 | Market (#20). Guard: the sell price never reaches the buy price (variety 2026-11-08) | Pending |
 
 **Attributes (thiên phú)**: flat points on the effective talent (Character Stats Formulas B).
 
@@ -371,6 +399,7 @@ The rows were chosen to pass four tests:
 
 The inventory (`design/quick-specs/modifier-inventory.md`) was the reference. Its rule-pieces are Effects
 and are not here.
+
 **Combat: offence**
 
 | Modifier | Scope | Tier | Small (1.2 W) | Notable (8 W) | Status | Count |
@@ -387,6 +416,8 @@ and are not here.
 | Damage, increased (`attack_pct`) | derived: basic, quick, slow (Pending) | family | +1.8 % | +12.0 % | Pending | 3 |
 | Damage, increased (`attack_pct`) | one variant element | narrow | +2.4 % | +16.0 % | Designed | 8 |
 | Damage, increased (`attack_pct`) | effect: poison | narrow | +2.4 % | +16.0 % | Designed | 1 |
+| Damage, increased (`attack_pct`) | foe: cultivator (Pending) | broad | +1.5 % | +10.0 % | Pending | 1 |
+| Damage, increased (`attack_pct`) | foe: creature (Pending) | family | +1.8 % | +12.0 % | Pending | 1 |
 | Damage, increased (`attack_pct`) | two tags, e.g. [over_time, hoa], [sword, kim] | narrow | +2.4 % | +16.0 % | Designed | — |
 | Crit chance (`crit_chance_pct`) | — | universal | +1.2 pp | +8.0 pp | Designed | 1 |
 | Crit chance (`crit_chance_pct`) | source: art | broad | +1.5 pp | +10.0 pp | Designed | 1 |
@@ -433,21 +464,33 @@ and are not here.
 |---|---|---|---|---|---|---|
 | Resistance (`resist_pct`) | — (all resistance) | universal | +0.9 pp | +6.4 pp | Designed | 1 |
 | Resistance (`resist_pct`) | against type: physical or force | broad | +1.2 pp | +8.0 pp | Designed | 2 |
-| Resistance (`resist_pct`) | against type: fire, cold, lightning, light, chaos | family | +1.4 pp | +9.6 pp | Designed | 5 |
+| Resistance (`resist_pct`) | against type: fire, cold, lightning, light | family | +1.4 pp | +9.6 pp | Designed | 4 |
+| Resistance (`resist_pct`) | against type: chaos (rare, rule 13: never on acupoints, notables or rolled affixes) | family | +1.4 pp | +9.6 pp | Designed | 1 |
+| Resistance (`resist_pct`) | against foe: cultivator (Pending) | broad | +1.2 pp | +8.0 pp | Pending | 1 |
+| Resistance (`resist_pct`) | against foe: creature (Pending) | family | +1.4 pp | +9.6 pp | Pending | 1 |
 | Resistance (`resist_pct`) | against type + one family tag, e.g. [fire, over_time] | narrow | +1.9 pp | +12.8 pp | Designed | — |
 | Block (`block_rating`) | — | universal | +3 rating | +20 rating | Designed | 1 |
+| Block (`block_rating`) | against type: physical or force (Pending) | broad | +3 rating | +25 rating | Pending | 2 |
+| Block (`block_rating`) | against type: fire, cold, lightning, light (Pending) | family | +4 rating | +30 rating | Pending | 4 |
 | Body shield (`body_shield_pct`) | — | universal | +1.2 pp of health | +8.0 pp of health | Designed | 1 |
+| Body shield, increased (`body_shield_pct`, I) | — | universal | +2.0 % | +13.3 % | Pending | 1 |
+| Shield recharge delay (`recharge_delay_pct`) | — (implied shield) | family | -3.0 % | -20.0 % | Pending | 1 |
+| Cast ward duration (`cast_ward_duration_pct`) | — (implied ward) | family | +3.6 % | +24.0 % | Pending | 1 |
 | Ward strength (`defense_pct`) | — | universal | +1.2 % | +8.0 % | Live | 1 |
 | Ward efficiency (`ward_efficiency_pct`) | — | universal | +1.2 % | +8.0 % | Designed | 1 |
 | Maximum health (`khi_huyet_pct`) | — | universal | +1.0 % | +6.6 % | Live | 1 |
 | Health regeneration (`health_regen_pct`) | — | universal | +0.40 pp/pulse | +2.66 pp/pulse | Designed | 1 |
 | Healing (`healing_pct`) | — | universal | +2.4 % | +16.0 % | Designed | 1 |
+| Healing (`healing_pct`) | restores: body_shield (Pending) | narrow | +4.8 % | +32.0 % | Pending | 1 |
 | Healing taken (`healing_taken_pct`) | — | universal | +2.4 % | +16.0 % | Designed | 1 |
 | Evade (`evade_pct`) | — | universal | +0.8 pp | +5.3 pp | Designed | 1 |
 | Soul resistance (`soul_res_pct`) | — | universal | +2.0 pp | +13.3 pp | Designed | 1 |
 | Status resistance (`status_resist_pct`) | — | universal | +3.0 pp | +20.0 pp | Designed | 1 |
 | Status resistance (`status_resist_pct`) | against mode: over_time or curse | family | +4.5 pp | +30.0 pp | Designed | 2 |
 | Status resistance (`status_resist_pct`) | against effect: poison | narrow | +6.0 pp | +40.0 pp | Designed | 1 |
+| Status resistance (`status_resist_pct`) | against status: burn, bleed, frostbite, qi_burn (Pending) | narrow | +6.0 pp | +40.0 pp | Pending | 4 |
+| Status duration on you (`status_duration_taken_pct`) | — (all statuses) | universal | -4.0 % | -26.6 % | Pending | 1 |
+| Status duration on you (`status_duration_taken_pct`) | mode: over_time or curse | family | -6.0 % | -40.0 % | Pending | 2 |
 
 **Resources**
 
@@ -477,6 +520,8 @@ and are not here.
 | Pill effect (`pill_effect_pct`) | — | universal | +1.2 % | +8.0 % | Live | 1 |
 | Talisman power | — | universal | +1.7 % | +11.4 % | Pending | 1 |
 | Talisman keep chance | — | universal | +4.0 pp | +26.6 pp | Pending | 1 |
+| Formation upkeep (`formation_upkeep_pct`) | — | universal | -8.0 % | -53.3 % | Pending | 1 |
+| Talisman ink cost (`talisman_ink_pct`) | — | universal | -8.0 % | -53.3 % | Pending | 1 |
 | Companion power share | — | universal | +3.0 pp | +20.0 pp | Pending | 1 |
 
 **Escape and fortune**
@@ -492,6 +537,7 @@ and are not here.
 | Modifier | Scope | Tier | Small (1.2 W) | Notable (8 W) | Status | Count |
 |---|---|---|---|---|---|---|
 | Cultivation speed (`cultivation_speed_pct`) | — | universal | +0.5 % | +3.6 % | Live | 1 |
+| Cultivation speed (`cultivation_speed_pct`) | activity: secluded or travelling (Pending) | family | +0.8 % | +5.4 % | Pending | 2 |
 | Breakthrough chance (`breakthrough_chance`) | — | universal | +0.2 pp | +1.6 pp | Live | 1 |
 | Lifespan, share (`lifespan_pct`) | — | universal | +0.4 % | +2.6 % | Live | 1 |
 | Heart demon resistance (`tam_ma_resist_pct`) | — | universal | +0.8 % | +5.3 % | Live | 1 |
@@ -511,6 +557,10 @@ and are not here.
 | Herb growth (`herb_growth_pct`) | — | universal | +1.3 % | +8.8 % | Live | 1 |
 | Mission income (`mission_income_pct`) | — | universal | +1.7 % | +11.4 % | Live | 1 |
 | Travel speed (`travel_speed_pct`) | — | universal | +4.0 % | +26.6 % | Live | 1 |
+| Pill quality chance (`pill_quality_chance`) | — | universal | +1.2 pp | +8.0 pp | Pending | 1 |
+| Artifact grade chance (`refine_grade_chance`) | — | universal | +0.8 pp | +5.3 pp | Pending | 1 |
+| Buy price (`buy_price_pct`) | — | universal | -4.0 % | -26.6 % | Pending | 1 |
+| Sell price (`sell_price_pct`) | — | universal | +4.0 % | +26.6 % | Pending | 1 |
 
 **Attributes (thiên phú)**
 
@@ -523,7 +573,7 @@ and are not here.
 | Dao heart (`dao_tam`) | — | universal | +0.40 | +2.66 | Live | 1 |
 | Presence (`mi_luc`) | — | universal | +1.20 | +8.00 | Live | 1 |
 
-Concrete modifiers listed: 195 (two-tag rows not counted).
+Concrete modifiers listed: 224 (two-tag rows not counted).
 
 Two sizes need care. A notable of health regeneration (+2.66 pp per pulse) is above the stat's own 2 pp cap
 (Combat Defence & Healing Formulas E), so a source should carry it at small size or as part of a larger piece.
@@ -537,11 +587,14 @@ have no grade sizes here.
 | Damage, more L2 (`damage_more`) | arts and their tags: damage type, element, form, art | techniques, arts, Way art nodes | 5–50 per piece; a build's typical L2 is +40, the cap 300 | Designed |
 | Damage, more L4 (`damage_more`) | preparation: formation, talisman, pill coating, ground tags | formations, talismans, pills, coatings | a build's typical L4 is +20, the cap 150 | Designed |
 
-**Rare.** One unit each, only on sources whose budget covers the price (rule 13).
+**Rare.** Counts come one unit each; rare-by-row stats are sized by Formulas C from the source's budget. Only on sources whose budget covers the price (rule 13).
 
 | Modifier | Unit | W | Allowed sources | Status |
 |---|---|---|---|---|
 | Art slots (`bonus_slots`) | +1 slot | 20 | keystones, named items, quest rewards, Way capstones | Designed |
+| Ward slots (`bonus_ward_slots`) | +1 slot | 30 | same | Designed |
+| Resistance cap raise (`resist_cap_pct`) | per pp (to 90 %) | 5 / pp | same | Designed |
+| Chaos resistance (`resist_pct` [chaos]) | per pp | 1.25 / pp stored (0.83 effective) | same, and Chaos-themed named items | Designed |
 | Artifact slots | +1 slot | 25 | same | Pending |
 | Beast slots | +1 beast kept | 15 | same | Pending |
 | Talisman stock | +1 use | 10 | same, and named talisman sleeves | Pending |
@@ -576,14 +629,16 @@ an artifact equipped, a pill in effect, a formation laid, an Effect's condition 
 | Progression Edges (#11), Spiritual Roots (#6) | out | Perk and root bonuses as catalogue modifiers | each system |
 | Quests (#31), LLM Game Master | out | W prices to size rewards; catalogue-only grants (rule 16) | Quests; LLM GM (budgets) |
 | NPC Builds | out | The same catalogue and prices (rule 15) | NPC Builds |
-| Effects (new, separate GDD) | out | Effects grant catalogue modifiers as payloads; the flag and scaling keys move there | Effects |
+| Effects System (#41) | out | Effects grant catalogue modifiers as payloads; the flag and scaling keys move there | Effects |
+| Combat Defence & Healing (#21a) | out | Resistance, penetration, block, body shield, ward strength and efficiency, reservation, healing and ward-slot modifiers; scope matching on incoming parts' final type | Combat Defence & Healing (formulas); this system (records, prices) |
+| Combat Damage Types (#21b) | in | The damage-type tag family, history tags on converted parts, element tags as art tags | Combat Damage Types |
 | Debug Terminal, Game UI (#37) | out | Breakdown lines and tag filters | Game UI |
 
 ## Formulas
 
 > `systems-designer` consulted 2026-11-07 for prices, breadth, the `more` exchange rate and grades.
 > The user chose five breadth tiers, points plus an exchange rate for `more`, rare stats on big-budget
-> sources only, and reservation kept as Pending. Every price marked G is a guess until
+> sources only, and reservation kept (now Designed, Combat Defence & Healing rule 10). Every price marked G is a guess until
 > `tools/balance/autoplay.gd` measures it.
 
 **Anchor.** Prices are marginal values at Combat's Qi Refining typical anchor (Combat Formulas B). There,
@@ -614,7 +669,7 @@ formula; **G** marks a guess.
 | Ward efficiency | 1.0 | G | Combat's guess kept; an effective-health proxy gives 1.17× health's value (Combat Open Question 14) |
 | Maximum health | 1.2 | — | Meridian Map table |
 | Body guard | retired | — | Replaced by block and the body shield (Combat Defence & Healing) |
-| Resistance, all / Physical, Force / other types | 1.25 / 1.0 / 0.83 per pp effective | D | Combat Defence & Healing Formulas I |
+| Resistance, all and by type | 1.25 / pp, one stored price; the effective prices after breadth are 1.0 (Physical, Force: 1.25 / 1.25) and 0.83 (other types: 1.25 / 1.5). Formulas C applies breadth once, to the stored price | D | Combat Defence & Healing Formulas I (user decision 2026-11-08) |
 | Resistance cap raise; penetration | 5 / pp, rare; 3.0 / pp | D | Combat Defence & Healing Formulas I |
 | Block rating | 0.4 / point | D | 0.41 to a thể tu, 0.22 to a typical side |
 | Body shield | 1.0 / pp of health_max | D/G | Pegged to health; Chaos passes it and it never refills |
@@ -697,13 +752,13 @@ The modifier_value formula is defined as:
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| B | float | 0 to about 60 W | source GDD | The W budget spent on this modifier |
+| B | float | 0 to about 60 W (a notable is 8 W; rare sources up to 60) | source GDD | The W budget spent on this modifier |
 | breadth_mult | float | 1.0–2.5 | Formulas B | Breadth premium |
 | price | float | 0.3–140 W per unit | Formulas A | W per displayed unit |
 | u | float | 0.01 / 0.1 / 1 | Character Stats Formulas I | The stat's precision grid |
 | d | int | +1 or −1 | Stat List "Better" | −1 for lower-is-better stats (art cost, qi deviation) |
 
-**Output Range:** 0 to about 215 units (25.8 W on a 0.3 W stat at ×2.5). If the floor gives 0 units, the
+**Output Range:** about 215 units in the tree (25.8 W on a 0.3 W stat at ×2.5), and up to 500 at the 60 W top of B. If the floor gives 0 units, the
 stat cannot be carried at that budget: the source picks another stat, and the value is never raised to
 one unit. A penalty is authored as a value and is worth |value| · price / breadth_mult W, with no floor.
 
@@ -718,7 +773,7 @@ one unit. A penalty is authored as a value and is worth |value| · price / bread
 
 The more_price formula is defined as:
 
-`more_price(i, r) = L1_typ(r) / (σ(r) · L_i_typ(r))`, where `σ = 1` if `x1_typ(r) ≤ l1_soft_start`, else
+`more_price(i, r) = L1_typ(r) / (σ(r) · L_i_typ)`, where `σ = 1` if `x1_typ(r) ≤ l1_soft_start`, else
 `l1_soft_slope`. No trade is allowed when `x_i_typ` is at or above `cap_i`.
 
 **Variables:**
@@ -820,8 +875,8 @@ Questions).
 | System | Kind | What this system needs | Status | Lists this system? |
 |---|---|---|---|---|
 | Combat (#21) | Hard | Layers L1–L5 and caps, tag families, crit, evade, escape, soul formulas | Approved for rules | Partly: its Formulas B names W pricing; the Combat revision (#43) cites this GDD for operations and scope |
-| Combat Defence & Healing (#21a) | Hard | What the defence stats do; their prices (Formulas I) | Designed | Yes |
-| Combat Damage Types (#21b) | Hard | The damage-type family that scopes damage, penetration and resistance | Designed | Yes |
+| Combat Defence & Healing (#21a) | Hard | What the defence stats do; their prices (Formulas I) | Needs revision | Yes |
+| Combat Damage Types (#21b) | Hard | The damage-type family that scopes damage, penetration and resistance | Needs revision | Yes |
 | Character Stats (#7) | Hard | The sheet sums, precision grid, ceilings, the provider interface | In review | Not yet: its Parameter keys need the new stats |
 | Meridian Map (#10) | Soft (reads this) | Catalogue, prices, breadth; owns its own budgets and mix. The W weight table moves here from its Formulas F | Redesign planned | Not yet: its Formulas F should point here |
 | The Way (#39), Cultivation Techniques (#9) | Soft (read this) | Catalogue modifiers, including `more` L2 | Approved; in review | Not yet |
@@ -829,7 +884,7 @@ Questions).
 | Alchemy (#15), Formations (#17), Talismans (#18), Spirit Beasts (#19) | Soft (read this) | Preparation stats and `more` L4; Pending stats need their keys | Implemented, quick specs | Not yet |
 | Progression Edges (#11), Spiritual Roots (#6) | Soft (read this) | Perk and root bonuses as catalogue modifiers | Implemented; in review | Not yet |
 | Quests (#31), LLM Game Master | Soft (read this) | W prices; catalogue-only grants | Designed; implemented | Partly: Quests cites `stat_power_weights` |
-| Effects System (#41) | Soft (reads this) | Effects grant catalogue modifiers; the four flag and scaling keys move there | Not started | Will |
+| Effects System (#41) | Soft (reads this) | Effects grant catalogue modifiers; the four flag and scaling keys move there | Needs revision | Yes |
 | NPC Builds | Soft (reads this) | The same catalogue and prices | Implemented | Not yet |
 
 ## Visual/Audio Requirements
@@ -877,6 +932,22 @@ more are written differently so a reader can tell them apart at a glance: "+12 %
 | Formulas D | combat.md Formulas B anchors | Typical L2 1.4, L4 1.2, L1 by realm | Read; answers Combat Open Question 5 |
 | Formulas E | kinh-mach-do.md Formulas A–D | Acupoint 1.2 W, notable 8 W, premium P, w̄_target 2.07 | Read |
 | Stat List | `character_stat_labels.json`, `meridian_capabilities.json` | Live keys and capabilities | Read |
+| Rules 1, 6, 15 | effects.md rules 1, 3, 15 | The Modifier / Effect split; L5 only as an Effect payload; Effects grant catalogue modifiers | Read; shared boundary |
+
+## Tuning Knobs
+
+Added 2026-11-08; no value changed. Safe ranges are design estimates until the balance harness measures
+them. Changing a price, tier multiplier or grade means regenerating the General Catalogue (AC-MD-27).
+
+| Knob | Default | Safe range | What it tunes | Source |
+|---|---|---|---|---|
+| Reference grades | small 1.2 W, notable 8 W | owned by the Meridian Map (Formulas E) | Catalogue sizes; every source's budget scale | Rule 12, Formulas E |
+| Breadth multipliers | 1.0 / 1.25 / 1.5 / 2.0 / 2.5 | keep the order; the top tier at most 3.0 | How much bigger narrow modifiers are | Rule 11, Formulas B |
+| Tags per scope | 2 | 1–2 (3 makes pinpoint the norm) | How narrow a plain modifier can get | Rule 8 |
+| Stat prices (`modifier_prices`) | the Formulas A table | ±30 % per stat, then harness | Which stats are good value | Formulas A |
+| Rare price range | 10–30 W | above the notable's 8 W | Where slot and cap stats may appear | Rule 13 |
+| Derived art tag thresholds | quick < 2 s, slow ≥ 6 s, cheap ≤ 5 %, costly ≥ 20 % | quick 1.5–2.5 s; slow 5–8 s; cheap 4–6 %; costly 18–25 % | Which arts the derived scopes reach | Rule 10 (Combat to adopt) |
+| `more` exchange rate inputs | Combat's L1/L2/L4 anchors, `l1_soft_start` 200, `l1_soft_slope` 0.5 | Combat's | W per `more` point when W must buy points | Formulas D |
 
 ## Acceptance Criteria
 
@@ -928,7 +999,7 @@ more are written differently so a reader can tell them apart at a glance: "+12 %
 
 **Data and UI**
 
-- **AC-MD-27** [Config/Data] General Catalogue. **WHEN** `python -I tools/design/modifier_catalogue.py` runs, **THEN** its output matches the General Catalogue tables in this GDD exactly (line endings normalized), including `Concrete modifiers listed: 195`.
+- **AC-MD-27** [Config/Data] General Catalogue. **WHEN** `python -I tools/design/modifier_catalogue.py` runs, **THEN** its output matches the General Catalogue tables in this GDD exactly (line endings normalized), including `Concrete modifiers listed: 224`.
 - **AC-MD-28** [Config/Data] Stat List. **GIVEN** every key under `labels` in `assets/data/character_stat_labels.json`, **THEN** each appears as a key in the Stat List (any status) or in "Keys that move to Effects".
 - **AC-MD-29** [UI] Rule 14, UI Requirements. **GIVEN** a Debug Terminal view of a node holding `+12 % Fire damage`, `−6.6 % art cost`, `+20 block` and `+15 more art damage (L2)`, **THEN** each is one line in the shape sign, number, unit, stat, scope; a screenshot is kept in `production/qa/evidence/`.
 - **AC-MD-30** [UI] Rule 9, UI Requirements. **GIVEN** the AC-MD-15 node, **WHEN** the Debug Terminal filters by `health` and then by `ward`, **THEN** the node is listed under both; **WHEN** a `fire` filter is applied to the Breakdown, **THEN** only Fire-scoped lines show; a screenshot is kept in `production/qa/evidence/`.
@@ -942,6 +1013,6 @@ more are written differently so a reader can tell them apart at a glance: "+12 %
 | 3 | The Meridian Map's Formulas F must point to this GDD's price table, and Character Stats' Parameter keys must list the new stats | user | Meridian Map redesign; Character Stats revision |
 | 4 | Pending stats need keys from their owners: basic attack speed, status duration and stack cap (Combat); talisman power, keep chance, stock and drawing (Talismans); companion power share, beast slots, taming (Spirit Beasts); artifact slots (Item DB) | user | Each owner's GDD |
 | 5 | Sizes to watch: a notable of health regeneration (2.66 pp) passes its 2 pp cap; a notable of crit chance is 8 pp; art speed and crit are cheap late (question 1) | systems-designer | Balance harness |
-| 6 | Chaos resistance must come only from rare sources (Combat Damage Types rule 5). Decide how the catalogue enforces it: a rare flag on Chaos-scoped resistance, or a source rule | user | Before content is authored |
+| 6 | Closed 2026-11-08: Chaos resistance is rare by its row (rule 13, Rare table) | — | Closed |
 | 7 | Overnight content: filter the 192 special modifiers and 210 plain rows in `modifier-inventory.md` against this catalogue, keeping only what passes the four tests; the rest are Effects or dropped | user + game-designer | Effects System design |
-| 8 | Register this GDD's entities (`modifier_value`, `breadth_mult`, `more_price`, the grades, the price table as the new owner of `stat_power_weights`) | user | After review |
+| 8 | Mostly done (the formulas and grades are registered). Left: register the full price table in `stat_power_weights`, with `resist_pct` at its one stored price 1.25 | user | After re-review |
