@@ -2520,11 +2520,12 @@ constants:
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
-    value: "shred 0.5; pass x1.5; drain +50%; cost +50%; layer lock 2 pulses; tag block 3 pulses; duration 5 pulses"
-    unit: mixed (fractions and pulses)
-    notes: "Named data keys curse_shred_max, curse_pass_raise_max, curse_drain_raise_max, curse_cost_raise_max, curse_layer_lock_max, curse_tag_block_max, curse_duration_max. Durations count pulses, like statuses (design-review fix, 2026-11-06)."
+      - design/gdd/effects.md
+    value: "shred 0.5 (resistance, floor -0.50); drain +50% (drain wards); cost +50%; heal taken -50% (one floor); soul shred 30 pp (floor 0); reapply lockout 2 pulses; layer lock 2 pulses; tag block 3 pulses; duration 5 pulses"
+    unit: mixed (fractions, percentage points and pulses)
+    notes: "Named data keys curse_shred_max, curse_drain_raise_max, curse_cost_raise_max, curse_heal_taken_max, curse_soul_shred_max, curse_reapply_lockout, curse_layer_lock_max, curse_tag_block_max, curse_duration_max. curse_pass_raise_max retired (no ward pass). Restated by the Combat revision #43 (2026-11-08). Durations count pulses, like statuses (design-review fix, 2026-11-06)."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-08
   - name: reserve_floor
     status: deprecated
     source: design/gdd/combat.md
@@ -3484,11 +3485,11 @@ constants:
     referenced_by:
       - design/gdd/effects.md
       - design/gdd/combat.md
-    value: 0.3
-    unit: soul resistance points
-    notes: "Most curses can lower soul resistance (Slackened Soul). New Combat Formulas F bound, pending the Combat revision."
+    value: 30
+    unit: percentage points of soul resistance
+    notes: "Most curses can lower soul resistance (Slackened Soul, -15 pp per stack); soul resistance never goes below 0. Restated in Combat Formulas F by the Combat revision #43 (D12, 2026-11-08)."
     added: 2026-11-08
-    revised: ""
+    revised: 2026-11-08
 # Example:
 #
 # constants:

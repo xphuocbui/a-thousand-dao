@@ -302,7 +302,7 @@ duration to read. They are bound instead by the tick caps, their standing cost (
 | Heavy Breath (Trọng Tức) | Art cost raise | +25 % per stack | 4 | Stacks to 2 (+50 %, `curse_cost_raise_max`) | curse, cleanse | heavy_breath, curse | — |
 | Leaking Ward (Lậu Hộ) | Drain wards bill more | +50 % (`curse_drain_raise_max`) | 3 | Refresh | curse, ward, cleanse | leaking_ward, curse, ward | Drain wards only |
 | Withering (Khô Héo) | Healing taken down | −50 % (`curse_heal_taken_max`, new) | 4 | Refresh | curse, cleanse | withering, curse | The healer's answer |
-| Slackened Soul (Tùng Hồn) | Soul resistance down | −0.15 per stack (`curse_soul_shred_max` 0.30, new) | 2 | Stacks to 2 | curse, soul, cleanse | slackened_soul, curse, soul | — |
+| Slackened Soul (Tùng Hồn) | Soul resistance down | −15 pp per stack (`curse_soul_shred_max` 30 pp; never below 0, Combat revision D12) | 2 | Stacks to 2 | curse, soul, cleanse | slackened_soul, curse, soul | — |
 
 ### Starter Effects
 
@@ -656,7 +656,7 @@ not prices. Safe ranges are design estimates.
 | `standing_cost` | per status, 0.01–0.10 (Corpse Rot 0.02) | 0.01–0.10 | What a standing status costs its caster each pulse | Formulas B |
 | `counted_start` | 0 per mille | 0–999 | Where a counted chance's meter starts | Formulas A |
 | Status strengths, durations, stack caps | Status Catalogue | Combat Formulas F's bounds | How hard ticks and curses hit | Status Catalogue |
-| Curse bounds (`curse_shred_max`, `curse_cost_raise_max`, `curse_drain_raise_max`, `curse_heal_taken_max`, `curse_soul_shred_max`) | 0.5, +50 %, +50 %, −50 %, 0.30 | Combat Formulas F | The most a stack of curses can do | Status Catalogue |
+| Curse bounds (`curse_shred_max`, `curse_cost_raise_max`, `curse_drain_raise_max`, `curse_heal_taken_max`, `curse_soul_shred_max`) | 0.5, +50 %, +50 %, −50 %, 30 pp | Combat Formulas F | The most a stack of curses can do | Status Catalogue |
 | Reapply lockout (Sealed Meridian, Silence) | 2 pulses | 1–3 | How often a lock can be kept up | Status Catalogue |
 | Starter limits (per pulse, per fight, cooldowns, caps) | each record | set by eye per Effect | Each Effect's size until the balance pass | Starter Effects |
 | Tier allowances per host | each host GDD | each host GDD | How many Effects a build holds | Rule 4 |
@@ -757,7 +757,7 @@ not prices. Safe ranges are design estimates.
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
 | 1 | **How Effects get priced** (plan agreed 2026-11-08). Not by formula: an Effect's value depends on the build. At the end of the project, once the fight engine and content exist: (a) run reference builds against reference enemies with and without each Effect in `tools/balance/` (autoplay bot, NPC cohort, the overnight fight calculator), deterministic and logged; (b) convert the change in time-to-kill and survival to W, using +1 % increased damage as the yardstick; (c) take the value to the builds that want the Effect, not an average across all builds; (d) fix only outliers that break the macro targets (player edge about 0.70; one realm up wins, two realms up about half the time, never three). Until then tiers bound builds, designers size by eye, and the LLM Game Master grants no Effect | user + systems-designer | Balance pass |
-| 2 | Combat Formulas F's curse bounds need restating for the new defence: add `curse_heal_taken_max` 0.5, `curse_soul_shred_max` 0.30 and a reapply lockout; restate `curse_shred_max` as resistance points across Sundered and Exposed; retire or remap `curse_pass_raise_max` (no ward pass any more) | user + systems-designer | Combat revision (#43) |
+| 2 | ~~Combat Formulas F's curse bounds need restating for the new defence: add `curse_heal_taken_max` 0.5, `curse_soul_shred_max` 0.30 and a reapply lockout; restate `curse_shred_max` as resistance points across Sundered and Exposed; retire or remap `curse_pass_raise_max` (no ward pass any more)~~ **Done 2026-11-08:** restated in Combat Formulas F by the Combat revision (#43): `curse_heal_taken_max` 0.50, `curse_soul_shred_max` 30 pp, `curse_reapply_lockout` 2 pulses, `curse_shred_max` on resistance, `curse_pass_raise_max` retired | user + systems-designer | Combat revision (#43) |
 | 3 | Closed 2026-11-08: Combat Defence & Healing rule 5 now defines `cannot_slot_wards` and `no_default_ward` (re-review EF 16, CD 11) | — | Closed |
 | 4 | Which of the 25 live capabilities close nothing (about 12) and become rule changes, and where each sits in the redesigned tree | user | Meridian Map redesign |
 | 5 | About 30 inventory Effects are deferred, not rejected (Five Phases Cycle, Sheathed Blade, Against the Heavens, Home Ground, Standing Array, Seeing Eye, Soul Pressure, Mirror Ward, Spirit Severing, Focused Mind, Empty Hand, One Root, Heaven's Favour and others). Revisit at the tree rework and as Combat keys arrive | game-designer | Meridian Map redesign |

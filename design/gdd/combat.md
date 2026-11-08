@@ -415,6 +415,13 @@ direction, not final odds. Keys live in `combat_rules.json`.
 do not include the always-running basic attack or the first-fire delay, so every simulated figure below is
 provisional until re-run (Open Question 20). Worked examples of one hit are unaffected.
 
+**Owned elsewhere (Combat revision #43, 2026-11-08).** The defence path's formulas are Combat Defence &
+Healing's (Formulas A0–I: ward strength, resistance, block, shields, payments, ward slots, healing, the ward
+price check, effective health), damage parts and conversion are Combat Damage Types' (Formulas A), modifier
+values and prices are the Modifier System's (Formulas A–E), and the Down step and standing statuses are the
+Effects System's (Formulas B, C). This section keeps offence, time, linh lực, soul attacks, ticks, triggers,
+suppression, evade and escape, companions and the rating.
+
 ### A. Fight unit, health and linh lực
 
 The fight_unit formula is defined as:
@@ -423,7 +430,7 @@ The fight_unit formula is defined as:
 
 The pool_max formula is defined as:
 
-`n_k = clamp(stat_k / ref_k[r], pool_n_min, pool_n_max)` ; `health_max = health_units · U_r · n_body · boss_pool_mult` ; `qi_max = qi_units · U_r · n_qi · boss_pool_mult` ; `health_start = health_max · max(v, v_c)`, or `health_max · start_health_share` when the request carries shares ; `qi_start = qi_max`, or `qi_max · start_qi_share` likewise ; `ehp = min(health_max / (pass · f), health_max / f + qi_max / drain)`
+`n_k = clamp(stat_k / ref_k[r], pool_n_min, pool_n_max)` ; `health_max = health_units · U_r · n_body · boss_pool_mult` ; `qi_max = qi_units · U_r · n_qi · boss_pool_mult` ; `health_start = health_max · max(v, v_c)`, or `health_max · start_health_share` when the request carries shares ; `qi_use = qi_max · (1 − Σ reserved)` ; `qi_start = qi_use`, or `qi_use · start_qi_share` likewise (Combat revision D6) ; `ehp` is Combat Defence & Healing Formulas G
 
 **Variables:**
 
@@ -436,15 +443,16 @@ The pool_max formula is defined as:
 | ref_k[r] | float | body 450 / 1,800 / 6,750 / 22,500 / 67,500; qi 100 / 800 / 6,000 / 50,000 / 400,000 | calculated from Character Stats data | The stat of a talent-45, stage-1.00, no-bonus character |
 | n_k | float | 0.25–8 | calculated | Relative pool size |
 | pool_n_min, pool_n_max | float | 0.25, 8 | data file | Bounds on absurd stacks |
-| health_units | float | 12–26, default 16; 26 is the unbuilt-mirror limit of AC-CB-58 | data file | Health in fight units; smaller than linh lực, so most staying power sits in the ward |
+| health_units | float | 12–26, default 16; 26 is the unbuilt-mirror limit of AC-CB-58 (to re-check with flesh block, Combat Defence & Healing rule 12) | data file | Health in fight units; smaller than linh lực, so most staying power sits in wards and shields |
 | qi_units | float | 18–36, default 26 | data file | Linh lực in fight units |
 | boss_pool_mult | float | 1–10, default 1 | data file (enemy profile) | Bosses and tribulations only; applied after `pool_n_max`, to both pools (rule 18) |
 | v, v_c | float | 0.05–1; 0.4 | calculated; data file (`duel.injured_power_floor`) | Vitality fraction and its floor |
 | start_health_share, start_qi_share | float | above 0 to 1; 0 to 1 | fight request (optional) | Starting shares (rule 3). Both or neither are sent |
-| pass, drain, f | float | see D | calculated | Ward pass share, drain rate, and what gets through body guard |
-| ehp | float | ≥ 0 | calculated | Effective health before art spending and regeneration: health alone if it dies with the ward still up, otherwise health plus what the linh lực can block |
+| Σ reserved, qi_use | float | 0–0.9; ≥ 0 | Combat Defence & Healing rule 10 | Reserved share and the usable maximum linh lực starts at |
+| ehp | float | ≥ 0 | Combat Defence & Healing Formulas G | Effective health by damage type, before art spending and regeneration. Typical Qi Refining **297.8** (was 298) |
 
-`time_limit` is 40 s. After a fight, `v_after = min(v, health_end / health_max)`, so a fight never heals.
+`time_limit` is 40 s. After a fight, `v_after = min(v, health_end / health_max)`, so vitality never rises, even
+when healing restored health during the fight (Combat Defence & Healing rule 19).
 The caller applies Character Stats' floor rules.
 
 **Why not the full base.** Fight power F is damage × ehp. If both scaled with B_p, F would rise ×100 per
@@ -453,7 +461,7 @@ and technique power a higher realm holds lift it to about ×10, the concept's "r
 major realm".
 
 **Output Range:** health runs from 25 to about 32,150 and linh lực from 41 to about 52,250, before
-`boss_pool_mult`. Only health ends a fight.
+`boss_pool_mult`. Linh lực starts at most at its usable maximum. Only health ends a fight.
 
 **Example:** typical at Qi Refining, n_body 1.0883, n_qi 1.053: health = 16 × 6.31 × 1.0883 = **109.9**;
 linh lực = 26 × 6.31 × 1.053 = **172.7**. At v = 0.7 health starts at 76.9. At v = 0.3 the floor applies
@@ -470,14 +478,13 @@ The cooldown formula is defined as:
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | cooldown | float | 0.5–30 s | data file (art record) | The art's authored cooldown |
-| art_speed_pct | float | ≥ 0 (percentage points) | calculated (new key) | How much faster arts cycle, summed over sources. +100 means twice as fast, so half the cooldown (user decision 2026-11-06) |
+| art_speed_pct | float | ≥ 0 (percentage points) | Modifier System (`art_speed_pct`, 0.6 W) | How much faster arts cycle, summed over sources. +100 means twice as fast, so half the cooldown (user decision 2026-11-06) |
 | cooldown_min | float | 0.5 s | data file | Floor on any art's cooldown, so the rate of hits stays bounded |
 | basic_cooldown | float | 1 s | data file | The basic attack's and the companion's timer. Art speed does not touch it |
 | pulse_interval | float | 1 s | data file | Beat of regeneration, ticks, durations and per-pulse limits |
 | time_limit | float | 40 s | data file | Stalemate time |
 | escape_channel | float | 1 s (guess) | data file | Delay between an escape art firing and its roll |
 | soul_lockout | float | 1 s (guess) | data file | Minimum gap between a side's soul arts |
-| ward_art_duration | float | 1 s (guess) | data file | How long a slotted ward art stays up after firing |
 
 **Output Range:** `cd_eff` runs from `cooldown_min` to the authored cooldown. Dividing never reaches 0 on its own, so the floor is the only hard stop.
 
@@ -490,11 +497,11 @@ The slot_count formula is defined as:
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | slots_by_realm | int | 3 / 4 / 5 / 6 / 7 | data file | Base art slots, Qi Refining to Deity Transformation. Provisional until the harness measures them |
-| bonus_slots | int | ≥ 0 | calculated | Slots earned through the build. There is no cap (user decision 2026-11-06): the total is limited only by the sources authored. None are authored yet (Open Question 22) |
+| bonus_slots | int | ≥ 0 | Modifier System (`bonus_slots`, 20 W, rare) | Slots earned through the build. There is no cap (user decision 2026-11-06): the total is limited only by the sources authored. Ward slots are separate (Combat Defence & Healing Formulas D) |
 
 **Why slots grow slowly.** Power already rises about ×10 per realm, so slots add one per realm and mostly add
 choice. Art costs are a share of `qi_max`, so a bigger pool buys no extra casts: arts at `cost_share` 0.15 on 3 s
-cooldowns fire nothing before 3 s, and the first volley then costs 0.45, 0.75 and 1.05 of the pool for 3, 5 and 7 slots. Seven slots empty it at 3 s, five at the second volley (6 s) and three by the third (9 s), leaving nothing for the ward.
+cooldowns fire nothing before 3 s, and the first volley then costs 0.45, 0.75 and 1.05 of the pool for 3, 5 and 7 slots. Seven slots empty it at 3 s, five at the second volley (6 s) and three by the third (9 s), leaving nothing for drain, per-hit or upkeep wards. A reserved ward is paid before the fight, so it does not compete with arts.
 
 **Output Range:** 3 and up, with no cap on earned slots.
 
@@ -517,30 +524,41 @@ The layer_total formula is defined as:
 
 | # | Layer | Filled by |
 |---|---|---|
-| L1 | Increased | `attack_pct` from Character Stats (Meridian Map and Way W, 1 W = +1), and "increased" tags. **W fills only this layer** |
-| L2 | Art "more" | Tag-keyed modifiers on techniques, arts and Way art nodes, authored at 5–50 points each |
+| L1 | Increased | The increased sum of damage modifiers: `attack_pct` and its scoped rows (Modifier System rule 5; Meridian Map and Way W, 1 W = +1). **W fills only this layer** |
+| L2 | Art "more" | `damage_more` points on techniques, arts and Way art nodes (Modifier System rule 6, Formulas D); typical +40, up to the cap |
 | L3 | Gear | `100 · Σ artifact attack / (B_p · stage_mult)`, with each artifact's attack after `artifact_power_pct` and its other multipliers, as built |
-| L4 | Preparation and ground | Formations, talismans, pills, coatings, ground tags (rule 12). When blind, x4 holds ground tags only |
-| L5 | Trigger and conversion | "While" and "after" effects, applied only while active |
+| L4 | Preparation and ground | `damage_more` on L4 from formations, talismans, pills, coatings and ground tags (rule 12); typical +20. When blind, x4 holds ground tags only |
+| L5 | Effects | `damage_more` on L5, granted only as an Effect's payload (Modifier System rule 6), applied only while active |
 
 **Output Range:** anchors per realm, all at stage 1.00. These are targets until real builds are measured.
 W shares are attack / ward strength / ward efficiency / linh lực / health.
 
 - **Typical:** 25 / 5 / 5 / 5 / 10 %, L2–L5 at 1.4, 1.4, 1.2, 1.1, artifact defence 0.85 × B_p, mean art
-  coefficient 1.6 at 15 % crits of ×1.7, ward pass 0.45 and drain 1.25 (means of kinds).
+  coefficient 1.6 at 15 % crits of ×1.7; the Common Ward (all resistance 0.50, drain 1.64), so r 0.654 at ws 30.8,
+  plus block rating 15.0 (Combat Defence & Healing Formulas A, A2).
 - **Top-end:** 45 / 10 / 7.5 / 7.5 / 20 %, L2–L5 at 4.0, 3.5, 2.5, 2.0, artifact defence 5 × B_p, 50 % crits
-  of ×2, ward pass 0.35 and drain 0.9.
-- **Thể tu:** attack 45 %, body guard 25 %, health 20 %, body gear 5 × B_p, body technique 3, default ward.
+  of ×2; resistance at its cap, r 0.75 at Qi Refining, rising to 0.90 with cap raises by Deity Transformation
+  (Combat Defence & Healing Formulas A).
+- **Thể tu:** Combat Defence & Healing's Formulas G fixture: block 88.3 rating (flesh 5.3, gear 12, Iron Body Art
+  tier 3 30, W 41), body shield 0.90 (technique 0.30, gear 0.60), Physical resistance 0.30 (Iron Body tier 3 0.20,
+  Black Iron Armour's Physical affix 0.10), body gear 1.0 × B_p, the default ward only. Its W shares need a harness
+  re-fit (Open Question 6).
 
 | Realm (end) | Tree W | Typical M | Typical ehp (U) | Typical mirror, s (old sim) | Top-end M | Top-end ehp (U) | Top-end mirror, s (old sim) |
 |---|---|---|---|---|---|---|---|
-| Qi Refining | 106 | 3.27 | 47 | 7.6 | 103 | 125 | 1 |
-| Foundation Establishment | 248 | 4.19 | 56 | 6.7 | 148 | 163 | 1 |
-| Core Formation | 447 | 5.48 | 73 | 6.7 | 210 | 217 | 1 |
-| Nascent Soul | 739 | 7.37 | 94 | 6.5 | 256 | 315 | 1 |
-| Deity Transformation | 1,172 | 8.96 | 127 | 7.0 | 325 | 460 | 1 |
+| Qi Refining | 106 | 3.27 | 47 | 7.6 | 103 | re-derive | 1 |
+| Foundation Establishment | 248 | 4.19 | re-derive | 6.7 | 148 | re-derive | 1 |
+| Core Formation | 447 | 5.48 | re-derive | 6.7 | 210 | re-derive | 1 |
+| Nascent Soul | 739 | 7.37 | re-derive | 6.5 | 256 | re-derive | 1 |
+| Deity Transformation | 1,172 | 8.96 | re-derive | 7.0 | 325 | re-derive | 1 |
 
-An unbuilt mirror (M = 1, basic attack only, default ward) lasts about 25 s, inside `time_limit`.
+Typical ehp at Qi Refining is Combat Defence & Healing Formulas G's 297.8 / 6.31 = 47.2 U. Defence calibrated
+Qi Refining only, so the other ehp cells are re-derived from its Formulas G by the balance harness (the old
+values 56 / 73 / 94 / 127 and 125 / 163 / 217 / 315 / 460 assumed the retired ward and body guard). Open
+Question 20 still applies to the mirror columns.
+
+An unbuilt mirror (M = 1, basic attack only, default ward) lasted about 25 s, inside `time_limit`, under the old
+ward; flesh block shortens hits further, so AC-CB-58 re-checks it.
 Mirror columns come from the old round simulation with no soul arts, statuses or triggers. One spot check on
 the timeline: the FX-T mirror (one 1 s art plus the basic attack) ends at 8 s (AC-CB-30).
 
@@ -550,7 +568,7 @@ the timeline: the FX-T mirror (one 1 s art plus the basic attack) ends at 8 s (A
 
 The hit_damage formula is defined as:
 
-`base = U_att · stage_att · c_art` ; `part_j = base · s_j · M(T_j) · crit` ; `D_j = part_j · supp` ; `dealt_j = max(1, leak_j · (1 − m · guard_share_kind))` ; `overkill = max(0, damage_in_instant − health_at_instant_start) / health_max`, where `damage_in_instant` is everything that removed health from that side in the instant (ticks, hits and trigger hits, after ward and body guard) and health is not floored until the defeat check
+`base = U_att · stage_att · c_art` ; `part_j = base · s_j · M(T_j) · crit` ; `D_j = part_j · supp` ; `D_j` then meets the defence path: resistance `a_j` (Combat Defence & Healing Formulas A), its share `k_j` of block (A2), shields (B), and `dealt_j = 0` if nothing reaches health, else `max(1, h_j)` ; `overkill = max(0, damage_in_instant − health_at_instant_start) / health_max`, where `damage_in_instant` is everything that removed health from that side in the instant (ticks, hits, trigger hits and last acts, after the defence path) and health is not floored until the defeat check
 
 **Variables:**
 
@@ -558,84 +576,42 @@ The hit_damage formula is defined as:
 |---|---|---|---|---|
 | c_art | float | basic 1.0; arts 1.2–12 (user decision 2026-11-06: widened to the lint, which allows 11.25 at cost 0.25 and 30 s) | data file (`basic_coef`, art record) | Art coefficient. Lint: `c_art ≤ basic_coef · (1 + art_coef_per_cost · cost_share) + art_coef_per_cooldown · (cooldown − 1)`, on the authored cooldown in seconds |
 | art_coef_per_cost, art_coef_per_cooldown | float | 12, 0.25 | data file | Art power is paid for in linh lực and cooldown |
-| s_j | float | 0–1, Σ = 1 | calculated | Share of the hit in conversion part j |
-| T_j | tag set | — | calculated | A converted part keeps its old tags and gains the new (rule 6) |
+| s_j | float | 0–1, Σ = 1 | Combat Damage Types Formulas A | Share of the hit in part j |
+| T_j | tag set | — | calculated | The art's tags, plus part j's damage type and its earlier types (Combat Damage Types rule 6) |
 | crit | float | 1 or `crit_mult` | calculated | Rolled once per hit. Chance = `clamp(crit_base + Σ crit_chance_pct/100, 0, crit_chance_cap)`; `crit_mult = min(crit_mult_base + Σ crit_damage_pct/100, crit_mult_cap)` |
 | crit_base, crit_chance_cap | float | 0, 0.5 | data file | Base chance is 0, so a build with no crit is deterministic (rule 15) |
 | crit_mult_base, crit_mult_cap | float | 1.5, 3.0 | data file | Crit multiplier |
 | supp | float | 0.25–1 | calculated (H) | Realm suppression |
-| leak_j | float | ≥ 0 | calculated (D) | What the ward lets through |
-| m, guard_share_kind | float | 0–0.86; body 1.0, qi 0.75 | calculated (D); data file | Body guard |
 
 Order: the evade roll (an evaded hit deals nothing, drains nothing and fires no on-hit trigger), conversions
-(at most 2 per hit, fixed order; the kind follows the part's final tag), layers per part, one crit roll,
-suppression, the ward, body guard, floor. Within an instant each side pays its art costs first; hits then
+(at most 2 per hit, in Combat Damage Types' order; the part's final damage type decides its defence), layers
+per part, one crit roll, suppression, then the defence path (Combat Defence & Healing rule 1). Within an instant each side pays its art costs first; hits then
 apply one at a time against live linh lực. Soul attacks skip all of this (Formulas E2).
 
-**Output Range:** at least 1 per part. Unbounded above except through `M` ≤ 350 and crit ≤ 3.
+**Output Range:** 0 if block or shields take all of a part, otherwise at least 1. Unbounded above except through
+`M` ≤ 350 and crit ≤ 3.
 
-**Example:** Qi Refining, stage 1.00, c_art 2.0, typical M 3.27: base 12.62, D **41.3**. Against the
-Formulas D ward the body hit deals **15.9** and drains 18.5 linh lực; with the ward off it deals **38.5**.
-On a ×1.7 crit the warded hit deals **27.0**. Conversion: base 100, Fire +30 %, Lava +40 %, 40 % converted:
-0.6 × 1.3 + 0.4 × 1.7 = 1.46, so **146** against 130.
+**Example:** Qi Refining, stage 1.00, c_art 2.0, typical M 3.27: base 12.62, D **41.30**. An all-Physical hit
+on FX-T (the Common Ward, r 0.654; block 0.946): after resistance 41.30 × 0.346 = 14.29; after block **13.34**
+dealt; the drain bill is 0.959 × 27.01 = **25.89** linh lực. With every ward switched off, the default ward (all
+0.30) covers it: 41.30 × 0.70 − 0.946 = **27.96**. With no linh lực, no ward is up: 41.30 − 0.946 = **40.35**. On a
+×1.7 crit with the Common Ward: 70.21 × 0.346 − 0.946 = **23.35**. Conversion: base 100, Physical +30 %, Fire
++40 %, 40 % Physical → Fire: 0.6 × 1.3 + 0.4 × 1.7 = 1.46, so **146** against 130 (Combat Damage Types Formulas A).
 
-### D. Ward and body guard
+### D. Wards and body defence (moved)
 
-The ward formula is defined as:
+These formulas moved to Combat Defence & Healing in the Combat revision (#43, 2026-11-08):
+- ward strength, ward efficiency and artifact defence (`ws`, `we`, `a_w`, `a_b`, `ward_gear_scale` 0.30,
+  `ward_cap` 400, `ward_floor` −90): its Formulas A0;
+- resistance by damage type: A; block: A2; shields: B; the five payments: C; ward slots: D; healing: E; the
+  ward price check: F; effective health: G; the starter wards: H.
 
-`pass_raw = clamp(pass_kind + Σ pass_tag, pass_min, 1)` ; `pass = clamp(pass_raw / (1 + ws/100), pass_min, 1)` ; `drain = max(drain_min, drain_kind / (1 + we/100))` ; `blocked = min(D · (1 − pass), pool_qi / drain)` ; `qi_loss = blocked · drain` ; `leak = D − blocked` ; `ws = clamp(defense_pct + Σ ward_strength + 100 · ward_gear_scale · a_w, ward_floor, ward_cap)` ; `we = clamp(ward_efficiency_pct + 100 · ward_gear_scale · a_w, 0, ward_cap)`
-
-This is the default **drain** model. A ward record may name another `cost_model`: **per hit** pays
-`hit_cost_share · (1 − we/(100 + we)) · qi_max` for each hit and blocks `D · (1 − pass)` if it can pay, whatever
-D is; **per pulse** pays `upkeep_share`, reduced the same way, at t = 0 and at each pulse. A ward that cannot pay
-blocks nothing for that hit, or until the next pulse. Further models are added by data and a matching rule here.
-
-**Variables:**
-
-| Variable | Type | Range | Source | Description |
-|---|---|---|---|---|
-| D | float | ≥ 1 | calculated (C) | The part after layers, crit and suppression |
-| pass_kind, drain_kind | float | spell pass 0.2–0.55, drain 0.6–1.5 | data file (ward record) | Per kind. A common ward is pass 0.54 body and 0.36 qi, drain 1.0 body and 1.5 qi, so body hits leak more and qi hits burn more linh lực |
-| default_ward_pass, default_ward_drain | float | 0.70, 2.0 | data file | The ward anyone has; every warding spell beats it |
-| pass_tag | float | −0.25 to +0.25 | data file (ward record) | Element or form resistance; a Fire ward may be −0.2 on Fire and +0.1 on Water |
-| ws, we | float | ws −90 to 400; we 0 to 400 | calculated | Ward strength and efficiency. A negative `ws` weakens the ward (at −90 the pass share is ×10 before the clamp to 1), and the floor keeps `1 + ws/100` above 0 (user decision 2026-11-06) |
-| ward_floor | float | −90 | data file | Lower bound on `ws` |
-| defense_pct | float | ≥ −100 | calculated (Character Stats) | Now means ward strength, so tree nodes keep their W price |
-| ward_efficiency_pct | float | ≥ 0 | calculated (new key, 1 W per point is a guess) | Costs less |
-| a_w | float | ≥ 0 | calculated | Artifact defence without the body tag / (B_p · stage_mult) |
-| ward_gear_scale | float | 0.30 | data file | Artifact defence 0.85 × B_p gives +25.5 to both ws and we |
-| pass_min, drain_min | float | 0.05, 0.15 | data file | A ward never blocks everything or runs free |
-| ward_cap | float | 400 | data file | Cap on ws and we |
-| hit_cost_share, upkeep_share | float | 0–0.10 | data file (ward record) | Costs of the other models |
-
-The body_guard formula is defined as:
-
-`g_b = min(guard_cap, (guard_base + a_b + t_b + guard_pool_slope · (n_body − 1)) · (1 + body_guard_pct/100) · (1 − shred))` ; `m = guard_max_mit · g_b / (g_b + guard_half)`
-
-**Variables:**
-
-| Variable | Type | Range | Source | Description |
-|---|---|---|---|---|
-| guard_base | float | 0.15 | data file | Anyone's flesh |
-| a_b | float | ≥ 0 | calculated | Defence of body-tagged items / (B_p · stage_mult). An artifact feeds a_w or a_b, never both |
-| t_b | float | 0–5 | calculated (body technique records) | Luyện thể techniques |
-| guard_pool_slope | float | 0.15 | data file | Physique's share, through n_body |
-| body_guard_pct | float | ≥ −100 | calculated (new key, 1 W per point is a guess) | The W lever |
-| shred | float | 0–0.5 | calculated | Curse reduction |
-| guard_cap | float | 40 | data file | Ceiling on guard |
-| guard_max_mit, guard_half | float | 0.90, 2.0 | data file | Mitigation approaches 0.90 and never reaches 1 |
-| guard_share_kind | float | body 1.0, qi 0.75 | data file | Qi partly gets past flesh, the thể tu's weakness |
-
-**Output Range:** pass 0.05–1, drain 0.15 and up, and `qi_loss` never exceeds the pool; the excess leaks. m runs
-0.063 to 0.857.
-
-**Being a mortal, in numbers.** With no ward, 94 % of a hit lands on an unbuilt character, 93 to 88 % on a
-typical one, and 25 to 15 % of a body hit on a thể tu, from Qi Refining to Deity Transformation.
-
-**Example:** typical at Qi Refining, ws = we = 30.8, common ward, D 41.3. Body: pass 0.413, drain 0.765, blocked
-24.25, linh lực lost **18.5**, leak 17.05, and m 0.068 leaves **15.9**. Qi: pass 0.275, drain 1.147, blocked
-29.9, linh lực lost **34.3**, **10.8** dealt. A body hit with 10 linh lực left: blocked 13.1, **26.3** dealt.
-A thể tu at Qi Refining: (0.15 + 8 + 0.03) × 1.265 = 10.35, so m = **0.754**.
+Body guard is retired; the body defends with block, body shields and resistance (that GDD's rule 12).
+**Retired keys:** `pass_kind`, `drain_kind`, `pass_tag`, `pass_min`, `drain_min`, `default_ward_pass` and
+`default_ward_drain` (replaced by `default_resist` 0.30 and `default_drain` 2.0), `hit_cost_share`,
+`upkeep_share` (now on each ward record), `guard_base`, `guard_pool_slope`, `guard_cap`, `guard_max_mit`,
+`guard_half`, `guard_share_kind`, `body_guard_pct`, `trig_ward_strength`, `trig_ward_seconds` (Combat revision
+D9) and `ward_art_duration`.
 
 ### E. Linh lực
 
@@ -653,13 +629,16 @@ The art_cost formula is defined as:
 | regen_base | float | 0.02 | data file | Regeneration per pulse |
 | regen_bonus | float | 0–0.06 | calculated (new key `linh_luc_regen_pct`) | Sustain bonus |
 | regen_cap | float | 0.08 | data file | Regeneration ceiling |
-| body_cost_share | float | 0.02–0.08 | data file (art record, optional) | An art paid in health; the art lint counts it as 2 × `cost_share`. It is not damage and cannot take health below 1 |
+| body_cost_share | float | 0.02–0.08 | data file (art record, optional) | An art paid in health; the art lint counts it as 2 × `cost_share`. It is not damage and cannot take health below 1. An Effect's health payment is different: it can put the side Down (Effects System rule 6; Combat revision D14) |
 
-**Output Range:** linh lực runs 0 to `qi_max`. A side may spend itself to 0.
+**Output Range:** linh lực runs 0 to the usable maximum, `qi_max · (1 − Σ reserved)`. Art costs and regeneration
+stay shares of the full `qi_max` (Combat Defence & Healing rule 10). A side may spend itself to 0. Health
+regeneration and heals are Combat Defence & Healing's Formulas E.
 
 **Example:** typical at Qi Refining, `cost_share` 0.15 costs 25.9 and regeneration is 3.45. With nothing incoming a 1 s art
 fires **7 times** in a row. In an FX-T mirror with the ward on, it fires at **1, 2 and 3 s**, the basic attack
-runs throughout, and the ward is nearly empty from 3 s.
+runs throughout, and drain wards have almost nothing left to bill from 3 s (to re-check with the harness,
+AC-CB-30).
 
 ### E2. Soul attacks
 
@@ -675,11 +654,13 @@ The soul_attack formula is defined as:
 | x_soul | float | ≥ 0 | calculated | Soul-tagged modifiers, so a soul build has something to stack |
 | soul_beta | float | 2 (1.5–3) | data file | Steepness: a big gap is frightening and parity is small |
 | rho_min | float | 0.25 | data file | Below this the attack cannot touch the soul |
-| soul_res_pct | float | 0–100 | calculated (new key) | Way nodes and rare items |
+| soul_res_pct | float | 0–100 | Modifier System (`soul_res_pct`); soul wards | Way nodes, rare items and soul-ward payloads (scaled by ws). Lowered by Slackened Soul, −15 pp per stack, never below 0 (Combat revision D12) |
 | soul_cap | float | 0.30 | data file | Most one hit can take |
 | supp | float | 0.25–1 | calculated (H) | Suppression applies, and pierce works on it |
 
-Wards, body guard, evade and crit do not apply. Cost and cooldown are the art's own. Percent is taken on the pools
+Only soul resistance and soul wards apply. After `pct` sets the losses, a soul shield takes its share of each loss
+off its own bar until the bar is empty (Combat Defence & Healing rule 14, Formulas B). Evade, crit, damage-type
+resistance, block and every other shield do not apply. Cost and cooldown are the art's own. Percent is taken on the pools
 before `boss_pool_mult`, so a ×8 boss loses at most 3.75 % a hit.
 
 **Output Range:** 0 to 0.30 of each pool per hit.
@@ -692,7 +673,7 @@ half takes **1.25 %**; a fifth takes **0**.
 
 The status_tick formula is defined as:
 
-`tick = clamp(U_src · stage_src · c_tick · stacks · L1..L4(tags) · supp · (1 − m · guard_share_kind), 1, dot_pool_cap · health_max)` ; `p_status = chance` when chance is 0 or 1, otherwise `clamp(chance · (1 − resist), 0.05, 0.95)`
+`tick = min(U_src · stage_src · c_tick · stacks · L1..L4(tags) · supp · (1 − r_eff), dot_pool_cap · health_max)`, where `r_eff` is the target's resistance for the status's damage type less the source's penetration, both read when the status is applied (Combat Defence & Healing Formulas A; Combat revision D11) ; the tick then meets the shields it does not pass, and what reaches health is at least 1 ; `p_status = chance` when chance is 0 or 1, otherwise `clamp(chance · (1 − resist), 0.05, 0.95)`
 
 **Variables:**
 
@@ -700,27 +681,44 @@ The status_tick formula is defined as:
 |---|---|---|---|---|
 | c_tick | float | 0.15–0.5 per stack | data file (status record) | Lint: `c_tick · duration ≤ 1.2 · c_art` of an equal-cost art |
 | stacks, stack_cap | int | 1–5; 5 | calculated; data file | Stacks on the target |
-| duration | int | 2–6 | data file (status record) | Pulses, one tick per pulse (1 s each at the default `pulse_interval`) |
+| duration | int | 2–6, or none for a standing status | data file (status record) | Pulses, one tick per pulse (1 s each at the default `pulse_interval`). A standing status is bounded by its caster's upkeep instead (Effects System Formulas B) |
 | dot_pool_cap | float | 0.05 | data file | One tick is never above 5 % of maximum health |
 | dot_pulse_cap | float | 0.08 | data file | All health ticks on one target at one pulse add up to at most 8 % of maximum health; ticks apply in status order and the excess is clipped and logged "dot cap". A qi burn has its own cap below |
 | curse_slots | int | 3 | data file | Most curses on one target |
-| resist | float | 0–0.9 | calculated (new key `status_resist_pct`) | Target's resistance to statuses |
+| resist | float | 0–0.9 | Modifier System (`status_resist_pct`) | Target's resistance to statuses. Status payloads on wards add to it (Combat Defence & Healing rule 15). It sets the chance to avoid a status; a tick's damage is cut by damage-type resistance, not by this |
 
-Ticks work inside the ward: it does not block them, and body guard applies. A **qi burn** status ticks linh lực
-instead, capped at 5 % of `qi_max`. A duration counts ticks and falls at each tick, so duration 3 ticks three
+The status catalogue is the Effects System's (rule 9). A tick on health meets resistance and the shields it does
+not pass: by default it passes ward shields and meets the body shield unless it is Chaos (Combat Defence & Healing
+rules 1, 9). It never meets evade or block. A **qi burn** status (Qi Disruption) ticks linh lực instead: all + Force
+resistance, passing every shield, and all linh lực burns on one target in one pulse share one cap of 5 % of
+`qi_max`, the excess clipped and logged "qi burn cap" (Effects System rule 6). Drain wards bill a qi tick like any
+part, so a drain ward can make it cost more than no ward (a known weakness, Combat Defence & Healing Formulas C). A duration counts ticks and falls at each tick, so duration 3 ticks three
 times. A tick uses the source's values from when it was applied.
 
-Curse bounds, each a data key: `curse_shred_max` 0.5 (shreds add), `curse_pass_raise_max` ×1.5 on ward pass,
-`curse_drain_raise_max` +50 % on drain, `curse_cost_raise_max` +50 % on art cost, `curse_layer_lock_max` 2 pulses
-(a locked layer counts as 1.0), `curse_tag_block_max` 3 pulses (arts carrying the tag cannot fire, and modifiers
-needing it do not apply), `curse_duration_max` 5 pulses; regeneration is blocked or not. A curse past
-`curse_slots` replaces the one with the least duration left. Curse durations are counted in pulses, like statuses.
+Curse bounds, each a data key (restated for the new defence, Combat revision D12; Effects System Open Question 2):
 
-**Output Range:** a tick is at least 1 and at most `dot_pool_cap` of maximum health, and one pulse's ticks on one
-target total at most `dot_pulse_cap` of it (the floor of 1 still applies to the first tick).
+| Key | Value | Meaning | Change |
+|---|---|---|---|
+| `curse_shred_max` | 0.50 | Resistance taken off by Sundered and Exposed together, never below `resist_floor` −0.50 | Restated (was body guard shred) |
+| `curse_pass_raise_max` | — | — | **Retired**: there is no ward pass now |
+| `curse_drain_raise_max` | +50 % | Drain wards bill more (Leaking Ward) | Kept, drain wards only |
+| `curse_cost_raise_max` | +50 % | Art cost raise | Kept |
+| `curse_heal_taken_max` | 0.50 | Healing taken down (Withering). One floor of −50 % across all sources, Blood Casting included | **New** |
+| `curse_soul_shred_max` | 30 pp | Soul resistance down (Slackened Soul, −15 pp per stack); soul resistance never goes below 0 | **New** (D12) |
+| `curse_reapply_lockout` | 2 pulses | Sealed Meridian and Silence cannot be put back on a target for 2 pulses after they end | **New** |
+| `curse_layer_lock_max`, `curse_tag_block_max`, `curse_duration_max` | 2, 3, 5 pulses | A locked layer counts as 1.0; a blocked tag stops arts carrying it and modifiers needing it. Silence may not name `ward`, `basic` or `escape` | Kept, one note added |
+| regeneration block | on or off | Stops linh lực **and** health regeneration (Stagnation) | Widened |
 
-**Example:** poison, c_tick 0.3, 3 stacks, L1 × L2 = 1.77, typical target: 6.31 × 0.3 × 3 × 1.77 × 0.932 = 9.4, capped
-to **5.5 per pulse** on 109.9 health.
+A curse past `curse_slots` replaces the one with the least duration left. Curse durations are counted in pulses,
+like statuses.
+
+**Output Range:** a tick is at most `dot_pool_cap` of maximum health, and one pulse's ticks on one target total at
+most `dot_pulse_cap` of it. What reaches health is at least 1 when anything does (the floor applies to the first
+tick).
+
+**Example:** Poison (Chaos, c_tick 0.15, 5 stacks), L1 × L2 = 1.265 × 1.4 = 1.771, on FX-T (the Common Ward's all
+resistance 0.654 covers Chaos; Chaos passes the body shield): 6.31 × 0.15 × 5 × 1.771 × 0.346 = **2.90** per pulse.
+A Chaos tick at c_tick 0.3 and 5 stacks would be 5.80, capped to **5.49** (0.05 × 109.87, FX-T's health in Combat Defence & Healing).
 
 ### G. Triggers
 
