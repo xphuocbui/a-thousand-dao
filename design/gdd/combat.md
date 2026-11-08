@@ -343,7 +343,7 @@ author's reading and wait for confirmation (see Open Questions).
     and cannot pay for arts. Unless it built block, body shields, resistance from other sources or a reserved
     ward, every hit lands nearly in full. Arts may be authored to cost health instead, so a body build can still
     act (Formulas E; the Effects System's pay-in-health action can also put the side Down, Combat revision D14).
-24. **Thần thức attacks.** A soul attack is an ordinary art of the soul kind: it has a cost and a cooldown
+24. **Thần thức attacks.** A soul attack is an ordinary art whose hit is all Soul: it has a cost and a cooldown
     like any other, and fires whenever its timer and guard allow, but a side's soul arts share a
     **`soul_lockout`**: after one fires, no other soul art of that side fires until the lockout ends, and
     ready ones wait (an interim limit until the technique content exists, Open Question 16). A soul hit is all
@@ -385,21 +385,25 @@ this GDD expects, to be matched when those systems are designed.
 
 | System | Direction | What flows | Owner of the interface |
 |---|---|---|---|
-| Character Stats (#7) | in / out | In: vitality, spiritual power and divine sense, `attack_pct`, `defense_pct` (as ward strength), `khi_huyet_pct`, `linh_luc_pct`, `than_thuc_pct`, `artifact_power_pct`, the artifact-local keys, `single_artifact`, resistance keys, the realm term of power, the vitality factor floor. Out: vitality loss after a fight, `+2` heart demon on a cultivator knockout with capability #9 | Character Stats (keys, units); Combat (what each key does in the fight) |
+| Combat Defence & Healing (#21a) | in / out | In: the defence path, wards and their payments, resistance, block, shields, healing, ward slots, soul and status defence, effective health (its Formulas G, for Formulas K). Out: the timeline, hit parts after offence, art slots for cast wards, the defeat check | Combat Defence & Healing (defence and healing); Combat (the timeline and offence) |
+| Combat Damage Types (#21b) | in | The eight damage types, the conversion rules and steps, which damage types pass which shields | Combat Damage Types |
+| Modifier System (#40) | in | Modifier records, operations (flat, increased, more), scopes, W prices and the Stat List keys Combat reads | Modifier System (records, prices); Combat (what each layer does) |
+| Effects System (#41) | in / out | In: the status catalogue, trigger Effects and their actions, the Down step, counted chance, reported life costs. Out: events, readable quantities, the timeline and the defeat check | Effects System (records, the Down step); Combat (events, the timeline) |
+| Character Stats (#7) | in / out | In: vitality, spiritual power and divine sense, `attack_pct`, `defense_pct` (ward strength, which scales ward payloads), `khi_huyet_pct`, `linh_luc_pct`, `than_thuc_pct`, `artifact_power_pct`, the artifact-local keys, `single_artifact`, the defence and offence keys of Parameter keys, the realm term of power, the vitality factor floor. Out: vitality loss after a fight, `+2` heart demon on a cultivator knockout with capability #9, and the life costs Effects report (applied by the caller) | Character Stats (keys, units); Combat (what each key does in the fight) |
 | Realms & Bottlenecks (#8) | in / out | In: realm, stage multiplier, the realm gap `g`. Out: defeats for capability #9, and the result for a tribulation | Realms |
-| Cultivation Techniques (#9) | in | `tech_power` (through spiritual power), the unlocked divine abilities with their unlock layer, and `t_b` from body techniques (**provisional**) | Cultivation Techniques (which and when); Combat (what they do) |
+| Cultivation Techniques (#9) | in | `tech_power` (through spiritual power), the unlocked divine abilities with their unlock layer, and body techniques' block, body shield and resistance (Combat Defence & Healing rule 12, Formulas H) | Cultivation Techniques (which and when); Combat (what they do) |
 | Meridian Map (#10) | in | Only the stat modifiers, through Character Stats. Combat hosts no capability behaviour: each capability has one host, and an effect such as #1 or #3 reaches Combat only as the artifact values its host supplies. For #9, Combat only reports the defeat | Meridian Map |
 | The Way (#39) | in | Passive modifiers through Character Stats; art nodes once this GDD fixes the art format (**provisional**; arts stay on hold until it is approved) | The Way; Combat (art format) |
-| Item Database (#13) | in | Equipped pieces with their role tags (weapon, ward, body, utility), attack, defence and affixes; the equipped set limited by thần thức; consumable arts' items (item-database.md rules 6, 11) | Item Database (what an item is, its roles and whether it counts); Combat (what a piece adds) |
-| Artifact Refining (#16) | in | Equipped artifacts: attack, defense (ward, or body guard if body-tagged), affixes, thần thức cost, an optional active effect (**provisional**) | Artifact Refining; Combat (how they act) |
+| Item Database (#13) | in | Equipped pieces with their role tags (weapon, ward_gear, body_gear, utility; D2), attack, defence and affixes; the equipped set limited by thần thức; consumable arts' items (item-database.md rules 6, 11) | Item Database (what an item is, its roles and whether it counts); Combat (what a piece adds) |
+| Artifact Refining (#16) | in | Equipped artifacts: attack; defence (ward gear feeds ws, we and block up to a = 1; body gear gives 12 block and 0.60 body shield per a_b, Combat Defence & Healing Formulas A0, A2, B); affixes, thần thức cost, an optional active effect (**provisional**) | Artifact Refining; Combat (how they act) |
 | Formations (#17) | in | A laid formation's modifiers, upkeep and ground tags (**provisional**) | Formations |
 | Talismans (#18) | in | Consumable arts and their tags (**provisional**) | Talismans |
 | Spirit Beasts (#19) | in / out | In: the companion power share and fixed art. Out: a beaten creature offered for taming (the Event Engine hook) (**provisional**) | Spirit Beasts |
 | Alchemy (#15) | in | Pills with timed buff or cleanse effects taken in preparation | Alchemy |
-| Event Engine (#23) | in / out | In: a fight request with the enemy, the situation (foreseen, ambush, blind) and the ground tags. Out: the result | Event Engine (requests, consequences); Combat (the result) |
+| Event Engine (#23) | in / out | In: a fight request with the enemy, the situation (foreseen, ambush, blind), the ground tags and an optional `no_heal`. Out: the result, with the life costs and wounds that run on for the caller to apply | Event Engine (requests, consequences); Combat (the result) |
 | NPC Builds (#24) | in | An NPC's compiled profile, art list, slot order and guards | NPC Builds |
 | Living World Tick (#28) | in | Mass battles via the rating profile. It must keep NPC-against-NPC duels rare | Living World; Combat (rating profile) |
-| Heavenly Tribulation (#22) | in / out | In: starting shares for each wave after the first. Out: the fight engine and its result, with a tribulation boss as an enemy profile | Heavenly Tribulation |
+| Heavenly Tribulation (#22) | in / out | In: starting shares for each wave after the first, and `no_heal` on every wave. Out: the fight engine and its result, with a tribulation boss as an enemy profile | Heavenly Tribulation |
 | Time & Turn (#4) | in | A fight takes no seasons itself; the time of preparation is the preparing system's | the preparing system |
 | World Database (#3) | out | The event record of a notable fight | World DB |
 | Balance Harness (#33) | out | A headless fight run and the rating-profile clash | Balance Harness |
@@ -1025,7 +1029,11 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 
 | System | Type | Interface | State |
 |---|---|---|---|
-| Character Stats (#7) | Hard | Pool stats, stat keys, resistances, vitality | GDD in review. 11 new stat keys, the fortune line and the `defense_pct` meaning added 2026-11-06; `art_speed_pct` still to add (Open Question 21) |
+| Combat Defence & Healing (#21a) | Hard | The defence path, wards, shields, block, healing and effective health; owns old rule 22, rule 23 and Formulas D | GDD approved 2026-11-08; lists Combat |
+| Combat Damage Types (#21b) | Hard | Damage types and conversion | GDD approved 2026-11-08; lists Combat |
+| Modifier System (#40) | Hard | Modifier operations, scope, W prices, the Stat List | GDD approved 2026-11-08; lists Combat |
+| Effects System (#41) | Hard | The status catalogue, trigger Effects, the Down step, counted chance, reported costs | GDD approved 2026-11-08; lists Combat |
+| Character Stats (#7) | Hard | Pool stats, stat keys, resistances, vitality | GDD in review. 11 stat keys, the fortune line and the `defense_pct` meaning added 2026-11-06; the new defence and offence keys of Parameter keys are still to add (consistency C14) |
 | Realms (#8) | Hard | Realm, `stage_mult`, `power_base`, gap `g` | GDD in review |
 | Cultivation Techniques (#9) | Hard | `tech_power`, unlocked divine abilities | GDD in review. Its Open Question 3 is answered here once abilities are authored |
 | Time & Turn (#4) | Soft | A fight takes no seasons; preparation time belongs to the preparing system | Built, no GDD |
@@ -1033,7 +1041,7 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 | Meridian Map (#10) | Soft | Stat keys through Character Stats only | GDD in review |
 | The Way (#39) | Soft | Passive modifiers; art nodes after this GDD is approved | GDD approved. Art pricing is open (its Open Question 3) |
 | Item Database (#13) | Soft | Equipped pieces with role tags, attack, defence and affixes; consumable arts' items | GDD complete (item-database.md rules 6, 11); lists Combat |
-| Artifact Refining (#16) | Soft | Equipped artifacts, defence by kind, active effects | Quick spec only; **provisional** |
+| Artifact Refining (#16) | Soft | Equipped artifacts, ward-gear and body-gear defence, active effects | Quick spec only; **provisional** |
 | Formations (#17), Talismans (#18), Alchemy (#15) | Soft | Prepared modifiers, consumable arts, timed pills | Quick spec or no GDD; **provisional** |
 | Spirit Beasts (#19) | Soft | Power share, companion art | Quick spec only; **provisional** |
 
@@ -1051,7 +1059,8 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 | World DB (#3) | Soft | Notable fight record | Built, no GDD |
 
 **Bidirectional check.** Character Stats, Realms, Cultivation Techniques, the Meridian Map and the Way
-already list Combat. No circular dependency is added:
+already list Combat, and so do the four sub-systems (Combat Defence & Healing, Combat Damage Types, the Modifier
+System and the Effects System); Combat lists them above. No circular dependency is added:
 the assets expose read-only contributions, and hooks such as taming stay with the Event Engine
 (systems index, circular dependency 2).
 
@@ -1065,20 +1074,18 @@ elsewhere, such as `power_base` and `attack_pct` prices, stay in their own GDDs.
 | Knobs | What they affect |
 |---|---|
 | `fight_unit_exponent` | The gap between realms |
-| `health_units`, `qi_units`, `time_limit` | Fight length, and how much staying power sits in the ward |
-| `pulse_interval`, `basic_cooldown`, `cooldown_min`, `escape_channel`, `soul_lockout`, `ward_art_duration` | The pace of a fight |
+| `health_units`, `qi_units`, `time_limit` | Fight length, and how much staying power sits in wards and shields |
+| `pulse_interval`, `basic_cooldown`, `cooldown_min`, `escape_channel`, `soul_lockout` | The pace of a fight |
 | `slots_by_realm` | How many arts a build carries, and so its burst and linh lực burn |
 | `basic_coef`, `art_coef_per_cost`, `art_coef_per_cooldown` | Art power against its cost |
 | `l1_soft_start`, `l1_soft_slope`, `layer_caps` | How far a build can scale |
 | `crit_chance_cap`, `crit_mult_cap`, `evade_cap` | How swingy fights are |
-| `default_ward_pass`, `default_ward_drain`, `ward_gear_scale`, `ward_cap`, `ward_floor` | How much wards block and cost |
-| `guard_base`, `guard_pool_slope`, `guard_max_mit`, `guard_half`, `guard_cap`, `guard_share_kind` | The thể tu's strength and weakness |
+| Defence knobs (`default_resist`, `default_drain`, `ward_gear_scale`, `ward_cap`, `ward_floor`, resistance caps, block, shields, healing) | Combat Defence & Healing's Tuning Knobs: how much wards, the body and healing hold |
 | `regen_base`, `regen_cap` | Sustain |
-| `stack_cap`, `dot_pool_cap`, `dot_pulse_cap`, `curse_slots`, `curse_shred_max`, `curse_pass_raise_max`, `curse_drain_raise_max`, `curse_cost_raise_max`, `curse_layer_lock_max`, `curse_tag_block_max`, `curse_duration_max` | Status and curse strength |
+| `stack_cap`, `dot_pool_cap`, `dot_pulse_cap`, `curse_slots`, `curse_shred_max`, `curse_drain_raise_max`, `curse_cost_raise_max`, `curse_heal_taken_max`, `curse_soul_shred_max`, `curse_reapply_lockout`, `curse_layer_lock_max`, `curse_tag_block_max`, `curse_duration_max` | Status and curse strength |
 | `pool_n_min`, `pool_n_max`, `duel.injured_power_floor` | Bounds on absurd stacks; the vitality floor |
 | `crit_base`, `crit_mult_base`, `evade_realm_step`, `escape_realm_step`, `escape_lock_penalty`, `khi_van_per_point` | Chance rolls and fortune |
-| `pass_min`, `drain_min`, `hit_cost_share`, `upkeep_share` | Ward floors and the other cost models |
-| `trig_ward_strength`, `trig_ward_seconds`, `c_trig` cap, `c_comp_cap`, `creature_mult` | Triggers, companions and creatures |
+| `c_trig` cap, `c_comp_cap`, `creature_mult` | Triggers, companions and creatures |
 | `soul_pct` (per art), `rating` clamp `duel.min_win_chance`, `duel.max_win_chance` | Soul art size; rating clash bounds |
 | `trigger_depth`, `trig_cap`, `trig_budget` | Combo strength |
 | `suppression`, `pierce_cap` | Crossing realms |
@@ -1099,14 +1106,15 @@ elsewhere, such as `power_base` and `attack_pct` prices, stay in their own GDDs.
 Today's surface is the Debug Terminal, so these are the terminal's needs plus intent for the Game UI
 (#37), to be settled there. Art and audio assets are deferred with those systems.
 
-- **Terminal.** Each threat kind has its own colour on its damage lines, and each line also names the kind,
-  so nothing depends on colour alone. Critical hits, linh lực running out and a fight's end are marked
+- **Terminal.** Each damage type uses its colour from Combat Damage Types (Visual/Audio), and each line also names
+  the type, so nothing depends on colour alone. Critical hits, linh lực running out and a fight's end are marked
   in the log.
 - **Game UI intent.** A fight plays as an ink scroll that unrolls moment by moment, with health and linh lực in
   the print layer and never in the brushwork (art pillar "Numbers in print"). Art tags map to
   glyphs (art pillar "Glyphs, not paintings"), so a new art needs no hand-painted asset.
-- **Events that need a visual and a sound later:** hit by kind, ward block, critical hit, status applied,
-  trigger fired, conversion, linh lực spent out, escape, fight end.
+- **Events that need a visual and a sound later:** hit by damage type, resistance cut, block, shield soak and
+  break, heal and heal cap, Down refused, critical hit, status applied, trigger fired, conversion, linh lực spent
+  out, escape, fight end. Combat Defence & Healing's own cue table covers the defence events.
 
 ## Game Feel
 
@@ -1128,15 +1136,15 @@ build work.**
 
 | Screen or element | Must show | Must allow |
 |---|---|---|
-| Preparation | The situation (foreseen, ambush, blind), the enemy's profile as far as Open Question 4 allows, the player's health, linh lực, ward, body guard and loadout, and what each prepared item adds | Slot arts, choose the ward and switch it on or off, set the slot order and each art's guard, use prepared items, confirm |
+| Preparation | The situation (foreseen, ambush, blind), the enemy's profile as far as Open Question 4 allows, the player's health, linh lực, ward slots and their wards, the resistance panel, block and shields (Combat Defence & Healing UI Requirements), the loadout, and what each prepared item adds | Slot arts, fill ward slots and art slots with wards, switch standing wards off, set the slot order and each art's guard, use prepared items, confirm |
 | Slot order editor | Slots in order, each art's cooldown, cost and guard, and which arts are ready now | Reorder slots; set an art's guard from the fixed vocabulary |
-| Fight log | One line per pulse: actions, damage by kind, what the ward blocked, health and linh lực after | Open a hit's full Breakdown; switch between summary and full log |
+| Fight log | One line per pulse: actions, damage by type, resistance, block, shield soaks, heals, health and linh lực after | Open a hit's full Breakdown; switch between summary and full log |
 | Result | Winner, how it ended, the fight time, resources spent, the deciding layer | Continue to the caller's consequences |
-| Character sheet | `display_power`, health, linh lực, ward strength and efficiency, body guard, thần thức, layer totals | Open the breakdown |
+| Character sheet | `display_power`, health, linh lực, ward strength and efficiency, resistances by type, block, body shield, ward slots, thần thức, layer totals | Open the breakdown |
 
 All of these work in the Debug Terminal first, with numbered menus as elsewhere. The Advisor should warn
-when a build would be left with no ward and under 0.2 body guard mitigation after a typical fight's linh
-lực use (Guidance, #35; the threshold is a guess).
+when a build's Physical effective health at 0 linh lực is below 1.25 × `health_max` (Combat Defence & Healing
+Formulas G with x = 0; Guidance, #35; the threshold is a data knob, Combat revision D16).
 
 > **📌 UX Flag — Combat:** this system has UI requirements. In Pre-Production, run `/ux-design` for the
 > preparation screen, slot order editor and fight log before writing epics. Stories that touch
@@ -1149,13 +1157,17 @@ lực use (Guidance, #35; the threshold is a guess).
 | Rule 3, Formulas A, E2 | character-stats.md Formulas C | `vitality_max`, `spiritual_power`, `divine_sense`, vitality floor 0.4 | Read only |
 | Formulas B | character-stats.md | Additive pct stacking, `attack_pct`; low-vitality and heart-demon modifiers | Read only |
 | Formulas I | character-stats.md (the fortune table) | Fortune line | Edited 2026-11-06: fortune now shifts chance rolls |
-| Formulas C, D, E, E2, F, H, I | character-stats.md stat keys | 11 new keys, `defense_pct` as ward strength | Added 2026-11-06 |
+| Formulas C, E, E2, F, H, I; Parameter keys | character-stats.md stat keys | 11 keys added 2026-11-06, `defense_pct` as ward strength; the defence and offence keys of Parameter keys | Partly added; the rest is consistency C14 |
 | Rule 20, Formulas A, H | canh-gioi.md | `power_base`, `stage_mult`, the realm ladder | Read only |
 | Rule 14 | canh-gioi.md rule 16; character-stats.md | Capability #9: defeat reported, +2 heart demon | Closed 2026-11-06 (Open Question 12): knockout only; both GDDs still say "defeat" and "kill" |
-| Rule 13, Formulas A, D | cong-phap.md rules 13–14, Formulas C | Divine abilities, `tech_power`, body techniques (`t_b`), the technique line | `cong_phap_share` line removed; cong-phap.md rule 14 and AC-CP-39 edited 2026-11-06 |
+| Rule 13, Formulas A, D | cong-phap.md rules 13–14, Formulas C | Divine abilities, `tech_power`, body techniques (block, body shield and resistance, combat-defence.md rule 12), the technique line | `cong_phap_share` line removed; cong-phap.md rule 14 and AC-CP-39 edited 2026-11-06 |
 | Formulas B | kinh-mach-do.md Formulas A and A2; registry `stat_power_weights` | 1 W = +1 %; about 106 W to 1,172 W by realm end | W stays additive |
 | Rule 13, Formulas B | dao.md rule on arts, Open Question 3 | Art format, `dao_premium` | Arts remain on hold until this GDD is approved |
-| Interactions, rule 12 | item-database.md rules 6, 11, Formulas E | Role tags (body, ward), equipped set, consumable arts | Read only |
+| Interactions, rule 12 | item-database.md rules 6, 11, Formulas E | Role tags (weapon, ward_gear, body_gear, utility; D2 applied 2026-11-08), equipped set, consumable arts | Read only |
+| Rules 4, 22, 23; Formulas A, C, D, F, G, J, K | combat-defence.md | The defence path, wards, body defence, healing, effective health | Replaced old rules 22–23 and Formulas D (Combat revision #43) |
+| Rules 6, 7; Formulas C | combat-damage-types.md | Damage types, conversion, which types pass shields | Replaced the kind family |
+| Rule 5; Formulas B; Parameter keys | modifiers.md | Operations, scope, W prices, `damage_more` layer points, the Stat List | Read |
+| Rules 7–10, 14, 15; Formulas F, I | effects.md | Status catalogue, trigger Effects, the Down step, counted chance, reported costs | Read; the status catalogue moved there |
 | Formulas J | design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | Beast power share | Provisional |
 | Rule 12 | design/quick-specs/luyen-khi-and-tran-phap.md | Formation and artifact inputs | Provisional |
 
@@ -1314,22 +1326,24 @@ Results go to `production/qa/evidence/balance/[date]-combat-performance.md`.
 | 2 | **Closed 2026-11-06:** the user confirmed that the thần thức artifacts occupy does not lower the thần thức a side fights with (rule 3) | — | — |
 | 3 | **Closed 2026-11-06:** the user confirmed that companions cannot be targeted in this version (rule 19) | — | — |
 | 4 | How much of the enemy's profile does the player see while preparing? The working default is all of it (Pillar 2), but no rule states this yet, and scouting by divine sense is an alternative. Tribulation pools already use the working default, showing the whole profile (Heavenly Tribulation rule 5, user decision 2026-11-06); other fights stay open | user | UI Requirements, rule 12 |
-| 5 | What do L2–L5 sources cost in W terms? A specialist suggestion is about 25 W per +10 points of "more", untested. The Way's art tier credit needs the same answer | systems-designer | The Way's arts, content authoring |
+| 5 | **Closed 2026-11-08 (Combat revision #43):** the Modifier System's Formulas D prices `more` in layer points and gives the exchange rate to W; L5 is granted only by Effects. The Way's art tier credit reads the same rate | — | — |
 | 6 | Measure real typical and top-end builds in the Balance Harness, then re-fit Formulas B and H. All anchors are targets from a one-pool simulation. Top-end against two realms up from Qi Refining is 54 %, inside the 40–75 % target but sensitive (17–76 % at top-end damage ±20 %, Formulas H) | systems-designer, Balance Harness | Approval of the numbers |
 | 7 | With near-deterministic fights, should preparation show a predicted result? It helps planning and may remove tension. The Advisor's odds preview (`advisor.gd`) needs this answer, since it reads today's duel | user | UI Requirements, Guidance |
 | 8 | Fights with more than one cultivator per side are not supported. Are sequences of duels enough, or does a party fight need rules? | user | Event Engine, Sects |
 | 9 | **Closed 2026-11-06:** `slots_by_realm` 3 / 4 / 5 / 6 / 7 plus uncapped earned slots (Formulas A2, user decision). The values are provisional until Open Question 20 measures them | — | — |
-| 10 | **Closed 2026-11-06 for the built bases:** `body` is an authored role tag on the artifact base (item-database.md rule 6, Formulas E); Giáp is body and Thuẫn is ward. New bases are authored the same way | — | — |
+| 10 | **Closed 2026-11-06 for the built bases:** `body_gear` is an authored role tag on the artifact base (item-database.md rule 6, Formulas E); Giáp is body_gear and Thuẫn is ward_gear (renamed from `body` and `ward` by D2, 2026-11-08). New bases are authored the same way | — | — |
 | 11 | How rare are NPC duels? The Living World needs a budget per season. Wars also become more decided than today's duel odds; check `kappa_mass` against that | world-builder, Living World | Living World |
 | 12 | **Closed 2026-11-06:** a knockout of a cultivator side counts (rule 14, user decision). Realms says "defeating" and Character Stats says "a combat kill", so both should be reworded to "knockout" | — | — |
 | 13 | The divine ability catalogue: what each ability does (Cultivation Techniques Open Question 3) | game-designer | Content pass |
-| 14 | Two design intents have no measured target yet: a sustain build should beat a burst build at equal W in long fights (rule 11), and chance effects should rarely change a winner (rule 15). Set the numbers after the first harness run. Also check whether bots over-stack health: 10 W on it adds about 5 % fight length against 2 % for a ward stat | systems-designer | Rules 11, 15 |
+| 14 | Two design intents have no measured target yet: a sustain build should beat a burst build at equal W in long fights (rule 11), and chance effects should rarely change a winner (rule 15). Set the numbers after the first harness run. Also check whether bots over-stack health: 10 W on it adds about 5 % fight length against 2 % for ward strength | systems-designer | Rules 11, 15 |
 | 15 | The fight log's format and float precision (byte-identical logs depend on them, and damage values are floats, so identity across platforms is not promised (fight times are whole milliseconds, rule 10)), and the terminal command that starts a test fight | gameplay-programmer | AC-CB-01, AC-CB-68 |
-| 16 | Soul attack balance waits on real techniques (user decision 2026-11-06). `soul_pct`, `soul_beta` and `soul_cap` are guesses, none of the simulated targets include soul arts, and a higher realm's soul attacks may hurt realm crossing. Rule on which layers a soul build can use once content exists | user, systems-designer | Formulas E2, H |
-| 17 | A top thể tu beats a top-end ward build about 75 % of the time at the same realm and rarely crosses two realms. Measure with real builds, then decide (user decision 2026-11-06). The Way's soul-resist nodes and `t_b` values are also unset | systems-designer | Formulas D, H |
-| 18 | The ward spell catalogue, including wards with other cost models, and hand-cast wards | game-designer | Content pass |
+| 16 | Soul attack balance waits on real techniques (user decision 2026-11-06). `soul_pct`, `soul_beta` and `soul_cap` are guesses, none of the simulated targets include soul arts, and a higher realm's soul attacks may hurt realm crossing. Rule on which layers a soul build can use once content exists. The soul numbers must now also cover soul wards, soul shields (Combat Defence & Healing rule 14) and Slackened Soul (−15 pp per stack) | user, systems-designer | Formulas E2, H |
+| 17 | A top thể tu beat a top-end ward build about 75 % of the time at the same realm under the old body guard. Restated for the new defence: block, body shield and Physical resistance against layered wards, with Chaos as the thể tu's weakness. `t_b` is gone; Iron Body Art tiers stand in for it (Combat Defence & Healing Formulas H). Measure with real builds, then decide (user decision 2026-11-06). The Way's soul-resist nodes are also unset | systems-designer | Formulas H; Combat Defence & Healing Formulas G |
+| 18 | The full ward catalogue for the content pass, including hand-cast wards. A starter catalogue of 12 wards exists (Combat Defence & Healing Formulas H) | game-designer | Content pass |
 | 19 | **Closed 2026-11-06:** today's power duel resolves fights while the full fight is on hold (user decision) | — | — |
 | 20 | **Rounds were removed for a timeline of seconds (user decision 2026-11-06, rule 10).** Formulas K now sums any number of arts, but the anchors in Formulas B, the win rates in Formulas H and the mirror lengths came from a round simulation with one action a round and no always-running basic attack. Only AC-CB-30's two mirrors have been checked on the timeline. Re-simulate all of it on real multi-art builds, including `slots_by_realm` and hit rates at high slot counts near `cooldown_min` | systems-designer, Balance Harness | Approval of the numbers |
-| 21 | Art speed: add `art_speed_pct` to Character Stats and set its W price and its sources. It raises hit rate and spending together, so it needs pricing against the art lint | systems-designer | Character Stats, content authoring |
-| 22 | Sources of `bonus_slots`. The user plans skill tree nodes that scale slots and similar values, but only after the tree is reworked once all systems are implemented (user decision 2026-11-06). Until then no source is authored and every build has its base slots. Candidate modifiers: design/quick-specs/tree-modifier-catalogue.md | user, systems-designer | Tree rework, content authoring |
+| 21 | Art speed: the Modifier System prices `art_speed_pct` (0.6 W). Still to do: add it to Character Stats' Parameter keys (consistency C14) and author its sources, checking it against the art lint, since it raises hit rate and spending together | systems-designer | Character Stats, content authoring |
+| 22 | Sources of `bonus_slots` (priced by the Modifier System at 20 W, rare). The user plans skill tree nodes that scale slots and similar values, but only after the tree is reworked once all systems are implemented (user decision 2026-11-06). Until then no source is authored and every build has its base slots. Candidate modifiers: design/quick-specs/tree-modifier-catalogue.md | user, systems-designer | Tree rework, content authoring |
 | 23 | What does `wound: grave` (a draw's survivors) cost? Combat only reports it (rule 14). Character Stats needs a vitality or injury rule for it, and the Event Engine a branch | user, Character Stats, Event Engine | Rule 14, caller consequences |
+| 24 | The `reference_type_mix` values for `display_power` (Combat revision D7): the balance harness fits them, per realm if needed | systems-designer, Balance Harness | Formulas K |
+| 25 | Re-run the timeline fixtures under the new defence path: the FX-T mirror (AC-CB-30), the `health_units` limit with flesh block (AC-CB-58) and Formulas K's T0 (AC-CB-49), and re-derive the ehp cells of Formulas B outside Qi Refining | Balance Harness | Acceptance Criteria, Formulas B |
