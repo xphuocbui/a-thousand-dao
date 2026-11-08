@@ -429,6 +429,14 @@ remaining GDD is written, it must list the Way in its own Dependencies section.
 Meridian Map owns the total (its Formulas A); the Way keeps its own count of points spent, and
 the map's unspent figure is the total minus both counts. Neither system calls the other each turn.
 
+**Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
+systems split out of Combat depend on each other as follows.
+
+- **Modifier System (#40):** Way nodes carry catalogue modifiers at its W prices, including `more` on L2.
+- **Effects System (#41):** Way nodes and capstones host Effects (conditions, triggers, keystones).
+- **Combat Damage Types (#21b):** a Way art node declares its damage parts and types.
+- **Combat Defence & Healing (#21a):** ward spells and heal arts may be Way content.
+
 ## Tuning Knobs
 
 All live in `dao.json` (Formulas D1–D3). Safe ranges are guesses until the bot run (Open

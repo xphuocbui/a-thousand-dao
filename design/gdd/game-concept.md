@@ -153,7 +153,7 @@ sector of its own. They arise in three ways.
 
 | Origin | Variants |
 |---|---|
-| Convergence (Hội Tụ): specific owned elements meet | Thunder (Lôi) from Fire + Metal; Darkness (Ám) from Earth + Water; Chaos (Hỗn Độn) from all five |
+| Convergence (Hội Tụ): specific owned elements meet | Thunder (Lôi) from Fire + Metal; Darkness (Ám) from Earth + Water; Primordial Chaos (Hỗn Độn) from all five |
 | Transmutation (Chuyển Hóa): one element runs pure | Light (Quang) from Fire; Ice (Băng) from Water |
 | Innate (Thiên Sinh): simply born with it | Wind (Phong); Blood (Huyết); Void (Hư Không), only on roots of two elements or fewer |
 

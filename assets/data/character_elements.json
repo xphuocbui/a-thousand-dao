@@ -25,7 +25,7 @@
     {"id": "hu_khong", "name": "Hư Không", "name_en": "Void", "origin": "innate", "requires": [], "desc": "Secret realms and fortunate encounters find you."},
     {"id": "loi", "name": "Lôi", "name_en": "Thunder", "origin": "convergence", "requires": ["hoa", "kim"], "desc": "Offense: Fire and Metal strike as one."},
     {"id": "am", "name": "Ám", "name_en": "Darkness", "origin": "convergence", "requires": ["tho", "thuy"], "desc": "Stealth and ambush: Earth and Water hide you."},
-    {"id": "hon_don", "name": "Hỗn Độn", "name_en": "Chaos", "origin": "convergence", "requires": ["moc", "hoa", "tho", "kim", "thuy"], "desc": "Cultivation and breakthrough: all five return to one."},
+    {"id": "hon_don", "name": "Hỗn Độn", "name_en": "Primordial Chaos", "origin": "convergence", "requires": ["moc", "hoa", "tho", "kim", "thuy"], "desc": "Cultivation and breakthrough: all five return to one."},
     {"id": "quang", "name": "Quang", "name_en": "Light", "origin": "transmutation", "requires": ["hoa"], "desc": "Heart-demon ward: Fire purified to Light."},
     {"id": "bang", "name": "Băng", "name_en": "Ice", "origin": "transmutation", "requires": ["thuy"], "desc": "Pill-toxicity resistance: Water purified to Ice."}
   ],

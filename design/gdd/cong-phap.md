@@ -850,6 +850,14 @@ Character Stats, Realms and the Meridian Map. Index row 9 already carries the
 dependencies (Spiritual Roots, Realms, Character Stats, Item DB; soft Time & Turn and
 Meridian Map).
 
+**Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
+systems split out of Combat depend on each other as follows.
+
+- **Combat Defence & Healing (#21a):** body techniques (luyện thể) grant block, body shield and resistance (its rule 12, Formulas H: Iron Body Art tiers); ward spells and heal arts are technique content.
+- **Combat Damage Types (#21b):** every art a technique unlocks declares its damage parts and types.
+- **Modifier System (#40):** technique modifiers come from its catalogue, including `more` on L2.
+- **Effects System (#41):** technique and art Effects are its records.
+
 ## Tuning Knobs
 
 All keys are in `items_cong_phap.json` unless noted.

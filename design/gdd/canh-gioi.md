@@ -487,7 +487,7 @@ attempts made earlier in the realm step, #23's extra roll included (rule 10).
 | k_n·ngo | float | 0–0.075 | data file | Comprehension (ngộ tính), 0.0005 per point; pill attempts only |
 | k_d·dao | float | 0–0.025 | data file | Dao heart (đạo tâm), 0.00025 per point; pill attempts only |
 | q_tree | float | 0–0.08 | calculated (Meridian Map) | The tree's breakthrough chance, capped by the Meridian Map's `tree_breakthrough_cap` (8 pp) and then counted under X_q |
-| q_event | float | 0+ | calculated | Item and event bonuses (fortuitous encounters), the Chaos root variant's `breakthrough_chance` (Spiritual Roots Formulas E) and any Dao node's `breakthrough_chance` (`dao.md` rule 4), counted under X_q |
+| q_event | float | 0+ | calculated | Item and event bonuses (fortuitous encounters), the Primordial Chaos root variant's `breakthrough_chance` (Spiritual Roots Formulas E) and any Dao node's `breakthrough_chance` (`dao.md` rule 4), counted under X_q |
 | X_q | float | 0.10 | data file (`breakthrough.q_extras_ceiling_pp`, 10) | Character-wide ceiling on the summed q extras (**new** 2026-11-04, cross-GDD review 04g, F14). Sized in the entry-age model so a fully built life with no edge stays at or below about 0.55 per gate (Formulas E) |
 | q_destiny | float | 0–0.30 | calculated | Destiny-perk (thiên mệnh) bonuses, e.g. Đạo Cốt +0.12. Outside X_q: they are the edge |
 | ι_j | float | 0–0.04 | calculated (rule 10) | Failure insight on the step's pill attempt after j failed ones. Outside X_q; bounded by its own cap |
@@ -1378,6 +1378,13 @@ written, it must list Realms & Bottlenecks in its own Dependencies section.
 Time & Turn, Spiritual Roots, Character Stats, Item DB; soft: Cultivation Techniques,
 Spirit Herbs, Alchemy, Formations, Travel & Map, Event Engine, Progression Edges). The
 built game runs the 110-level ladder.
+
+**Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
+systems split out of Combat depend on each other as follows.
+
+- **Effects System (#41):** reads the realm and stage; reports cultivation base gained and a lost stage (Great Essence-Draining Art, Soul Leaves the Body), which the caller applies through this GDD.
+- **Modifier System (#40):** prices `breakthrough_chance`, `cultivation_speed_pct` and lifespan in W, with realm drift; owns the Stat List rows for them.
+- **Combat Defence & Healing (#21a):** free ward slots grow by realm (1 / 1 / 2 / 2 / 3, its Formulas D).
 
 ## Tuning Knobs
 

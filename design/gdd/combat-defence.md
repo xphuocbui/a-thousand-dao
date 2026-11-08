@@ -28,7 +28,10 @@ follows one path:
 4. **shields** soak what is left: ward shields first, then the body's own shields;
 5. what remains reaches **health** (khí huyết).
 
-Ticks meet resistance and the shields that do not let them pass. Soul hits meet only soul resistance and soul wards. Health may rise
+Ticks meet resistance and the shields that do not let them pass. Soul hits meet only soul resistance and soul wards.
+A tick's resistance is that of its damage type, less the source's penetration; both are read when the status is
+applied, so a later change does not rewrite it. What reaches health from a tick is at least 1 when anything does
+(Combat revision D11, 2026-11-08). Health may rise
 again during a fight through regeneration, heal arts and Effects, but healing is capped every pulse and
 fades as the fight goes on.
 
@@ -880,7 +883,9 @@ marks a derived price, **G** a guess.
 | Modifier System (#40) | Hard | The defence and healing stats, their W prices, breadth, scope matching | Designed 2026-11-07; Needs Revision (design review 2026-11-08) | Yes: its Stat List carries the defence stats, its rule 7 leaves the caps here, and its Cross-References cite rules 2–4, 6, 7, 9–12 and Formulas A–E, I |
 | Combat Damage Types (#21b) | Hard | The damage types that resistance is keyed on, conversion, and what passes each shield | Designed 2026-11-07; Needs Revision (design review 2026-11-08) | Yes: rules 4, 5 and 7 and its Cross-References |
 | Effects System (#41) | Soft | Lifesteal, triggered heals, other reservations, curses on resistance and healing taken | Designed 2026-11-08; Needs Revision (design review 2026-11-08) | Yes: rule 6 (restores and reservation) and its Cross-References |
-| Heavenly Tribulation (#22) | Soft | Sets `no_heal` on every wave; tribulation lightning is Lightning | Approved for rules | Not yet: its rule 7 should cite `no_heal` |
+| Heavenly Tribulation (#22) | Soft | Sets `no_heal` on every wave; tribulation lightning is Lightning | Approved for rules | Yes (Dependencies note, Combat revision #43; its rule 7 should still cite `no_heal`) |
+| Realms (#8) | Soft | The realm, for free ward slots by realm (Formulas D) | In review | Yes (Dependencies note, Combat revision #43) |
+| Quests (#31) | Soft | Reads effective health (Formulas G) through Combat's fight power F | In review | Yes (Dependencies note, Combat revision #43) |
 | Cultivation Techniques (#9), The Way (#39) | Soft | Ward spells and heal arts as content | In review; approved | Not yet |
 | Item DB (#13), Artifact Refining (#16) | Soft | Ward_gear-role artifacts, resistance affixes, body gear | Approved; built | Not yet |
 | Talismans (#18), Formations (#17), Alchemy (#15) | Soft | Cast wards from talismans, formation wards, healing pills | Implemented, quick specs | Not yet |
@@ -1039,7 +1044,7 @@ design estimates until the balance harness confirms them.
 
 - **AC-CD-14** [Logic] Formulas D. **GIVEN** Qi Refining with thần thức 81.6 (step 78.75), **THEN** there are 2 ward slots. **GIVEN** 78.74, **THEN** 1. **GIVEN** 157.5, **THEN** 3. **GIVEN** 400, **THEN** still 3. **GIVEN** Deity Transformation at 3.5 × ds_ref plus one `bonus_ward_slots`, **THEN** 6.
 - **AC-CD-15** [Logic] Rule 5. **GIVEN** three wards in two ward slots and one art slot, **THEN** all three payloads apply at once, the art slot holds no art, and `slot_count` counts the ward.
-- **AC-CD-16** [Logic] Rule 6. **GIVEN** a ward with r_w 0.40, shield σ 0.20 and block 60 at ws 50, **THEN** it gives 0.60 resistance, a shield of 0.30 × qi_max and 90 block rating, and its non-drain payment equals its payment at ws 0. **GIVEN** ws 500, **THEN** ws is treated as 400.
+- **AC-CD-16** [Logic] Rule 6. **GIVEN** a ward with r_w 0.40, shield σ 0.20 and block 60 at ws 50, **THEN** it gives 0.60 resistance, a shield of 0.30 × qi_max and 90 block rating, and its non-drain payment equals its payment at ws 0. **GIVEN** ws 500, **THEN** ws is treated as 400. **GIVEN** `defense_pct` −500, **THEN** ws is −90 (`ward_floor`) and `1 + ws/100` is 0.10 (Formulas A0; moved from Combat AC-CB-13).
 - **AC-CD-17** [Logic] Rule 7. **GIVEN** a cast ward with cooldown 4 s and duration 3 s, **THEN** it is Waiting until its first firing, Up from each firing through the whole millisecond at firing + 3 s, and Expired until the next firing. **GIVEN** its shield breaks while Up, **THEN** its other payloads stay up until the duration ends. **GIVEN** a refire while it is Up, **THEN** its duration restarts, its shield refills to its maximum, and only one copy exists.
 - **AC-CD-18** [Logic] Rule 7. **GIVEN** a standing ward switched Off before the fight, **THEN** it is never Up and takes no payment, and the default ward covers each part for which no other ward is Up.
 
@@ -1121,6 +1126,8 @@ design estimates until the balance harness confirms them.
 - **AC-CD-67** [Logic] Rule 9 (re-review CD 6). **GIVEN** Thousand-Layer Cloud on FX-T, **THEN** its shield is 45.2 at t 0. **GIVEN** its upkeep fails while the shield holds 20, **THEN** while it is Down the shield soaks nothing and is still 20 five seconds later.
 - **AC-CD-68** [Logic] Formulas C, drain on a linh lực tick (user decision 2026-11-08b CD-04: kept as a known weakness). **GIVEN** FX-T at full linh lực (the 5 % cap is 8.64, so it does not bind: 7.0 < 8.64) and a Qi Disruption tick of 10 against the default ward only (all r 0.30, drain 2.0), **THEN** 7.0 comes off linh lực, the default ward bills 6.0, and linh lực falls by 13.0 in total.
 - **AC-CD-69** [Logic] Formulas F, cast wards (re-review 2026-11-08b CD-02). **GIVEN** Black Tortoise Shell and Golden Light Shield at Qi Refining typical, **THEN** their cast costs count firings inside `T_ref` (25.9 and 41.5), and their ratios are 0.930 and 0.750, under limits 0.953 and 0.763.
+- **AC-CD-70** [Logic] Rule 8 (moved from Combat AC-CB-72). **GIVEN** a ward record whose payment is not one of the five models (reserved, upkeep, per hit, drain, cast), **WHEN** data loads, **THEN** it is rejected and the error names the record and the field.
+- **AC-CD-71** [Logic] Rule 1, ticks (Combat revision D11). **GIVEN** a Burn applied by a source with Fire penetration 0.20 to a target with Fire resistance 0.50, **WHEN** the source's penetration later rises to 0.40, **THEN** every tick of that Burn still uses resistance 0.30. **GIVEN** a tick whose share after resistance and shields is 0.4, **THEN** health loses 1; **GIVEN** a tick fully soaked by a shield, **THEN** health loses 0.
 
 **Remaining gaps** (from `qa-lead`, not yet resolved; see Open Questions):
 - AC-CD-51 checks presence only. Exact soul defence values by realm need a table (Open Question 12).

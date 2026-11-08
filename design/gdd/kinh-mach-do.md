@@ -412,7 +412,7 @@ are in Formulas.
       | Origin | Variant | Where | Entry depth |
             |---|---|---|---|
       | Innate (Thiên Sinh) | Wind (Phong), Blood (Huyết), Void (Hư Không) | A spur off an inner radial, near the dantian | 3, 4, 5 |
-      | Convergence (Hội Tụ) | Chaos (Hỗn Độn) | A spur off the K1 ring | 7 |
+      | Convergence (Hội Tụ) | Primordial Chaos (Hỗn Độn) | A spur off the K1 ring | 7 |
       | Transmutation (Chuyển Hóa) | Light (Quang), Ice (Băng) | A spur off the element's own sector (Fire, Water) | 8 |
       | Convergence (Hội Tụ) | Thunder (Lôi), Darkness (Ám) | A chord across the wheel joining the two elements' sectors (Fire–Metal, Earth–Water), with an entry on each side | 9–13 |
 
@@ -1400,7 +1400,7 @@ allowed). No sector acupoint has degree 4. Edges per sector: a spur has 7 + 1 + 
 | Wind (Phong)                 | 3                         | 3–10  | 6–9   | 8–12  | 11–15 (15)    | 3       | 32      |
 | Blood (Huyết)                | 4                         | 4–11  | 7–10  | 9–13  | 12–16 (16)    | 4       | 33      |
 | Void (Hư Không)              | 5                         | 5–12  | 8–11  | 10–14 | 13–17 (17)    | 5       | 34      |
-| Chaos (Hỗn Độn)              | 7                         | 7–14  | 10–13 | 12–16 | 15–19 (19)    | 7       | 36      |
+| Primordial Chaos (Hỗn Độn)   | 7                         | 7–14  | 10–13 | 12–16 | 15–19 (19)    | 7       | 36      |
 | Light (Quang), Ice (Băng)    | 8                         | 8–15  | 11–14 | 13–17 | 16–20 (20)    | 8       | 37      |
 | Thunder (Lôi), Darkness (Ám) | 9–13, one value per chord | 9–16  | 11–18 | 11–19 | 13–21 (17–21) | 9–13    | 38–42   |
 
@@ -2162,6 +2162,12 @@ The hosts, each capability owned by exactly one (all 25 appear once):
 - No new cycle: Event Engine, Item DB, Cultivation Techniques and LLM GM don't depend on
   the Meridian Map, and capability hosts depend on the character's capability set, not
   on this system. NPC Builds already depends on it in one direction only.
+
+**Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
+systems split out of Combat depend on each other as follows.
+
+- **Modifier System (#40):** tree node values come from its catalogue, prices and breadth (Formulas C); the W weight table moved there from this GDD's Formulas F. This GDD keeps its own budgets and mix.
+- **Effects System (#41):** keystones are Effects; the 25 live capabilities moved there as Effects. Their place in the tree is set at the tree rework.
 
 ## Tuning Knobs
 

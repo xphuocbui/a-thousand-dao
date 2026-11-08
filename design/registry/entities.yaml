@@ -711,7 +711,7 @@ formulas:
       - supp
     output_range: [0, 0.30]
     expression: "rho = divine_sense_att/(divine_sense_def*(1+soul_res_pct/100)); pct = 0 if rho < rho_min, else min(soul_pct*(1+x_soul/100)*rho^soul_beta*supp, soul_cap); takes pct of maximum health and of maximum linh luc, before boss_pool_mult"
-    notes: "Ignores wards and body guard. Values are guesses until techniques exist (Combat Open Question 16)."
+    notes: "Meets only soul resistance and soul wards (soul shields soak a share of each loss, Combat Defence & Healing rule 14); evade, crit, damage-type resistance and block do not apply (Combat revision #43, 2026-11-08). Values are guesses until techniques exist (Combat Open Question 16)."
     added: 2026-11-06
     revised: ""
   - name: item_rarity

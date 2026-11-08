@@ -181,7 +181,7 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    | Thunder (Lôi) | Offense | `attack_pct` |
    | Blood (Huyết) | Vitality | `khi_huyet_pct` |
    | Void (Hư Không) | Secret realms and fortunate encounters | `co_duyen_pct` |
-   | Chaos (Hỗn Độn) | Cultivation and breakthrough | `cultivation_speed_pct` and `breakthrough_chance` |
+   | Primordial Chaos (Hỗn Độn) | Cultivation and breakthrough | `cultivation_speed_pct` and `breakthrough_chance` |
 
    Each owned variant adds its lines to the stat sheet with the source
    "Biến dị: <data name>", for example "Biến dị: Quang". Variant roles stay inside
@@ -209,7 +209,7 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    | Void (Hư Không) | Innate | `n_base` ≤ `void_max_elements` (2), at birth |
    | Thunder (Lôi) | Convergence (Hội Tụ) | owns Fire and Metal |
    | Darkness (Ám) | Convergence | owns Earth and Water |
-   | Chaos (Hỗn Độn) | Convergence | owns all five base elements |
+   | Primordial Chaos (Hỗn Độn) | Convergence | owns all five base elements |
    | Light (Quang) | Transmutation (Chuyển Hóa) | owns Fire |
    | Ice (Băng) | Transmutation | owns Water |
 
@@ -661,7 +661,7 @@ linear in purity, `power_W(100) ≈ 2 · power_W(50)`.
 | Thunder (Lôi) | `attack_pct` | 1.0 | 0.30 | 15.0 | 30.0 | 15.0 | 30.0 | yes |
 | Blood (Huyết) | `khi_huyet_pct` | 1.2 | 0.25 | 12.5 | 25.0 | 15.0 | 30.0 | yes |
 | Void (Hư Không) | `co_duyen_pct` | 0.3 *guess* | 1.00 | 50.0 | 100.0 | 15.0 | 30.0 | yes |
-| Chaos (Hỗn Độn) | `cultivation_speed_pct` | 2.2 | 0.13 | 6.5 | 13.0 | 14.3 | 28.6 | |
+| Primordial Chaos (Hỗn Độn) | `cultivation_speed_pct` | 2.2 | 0.13 | 6.5 | 13.0 | 14.3 | 28.6 | |
 | | `breakthrough_chance` | 5 | 0.06 | 3.0 pp | 6.0 pp | 15.0 | 30.0 | |
 | | **Chaos total** | | | | | **29.3** | **58.6** | **yes (apex band)** |
 
@@ -954,6 +954,12 @@ Cultivation Techniques each list this system. All four were aligned to the redes
 2026-11-04. Realms was revised on 2026-11-05 (110 levels, harder last two gates): the curve
 contract is unchanged, and Awakening's reach in Formulas D3 now follows its odds. The Meridian Map now defines the variant sectors (its rule 20, Formulas H2–H4
 and G9; its Open Question 15 is answered), and the Way's row is in the systems index.
+
+**Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
+systems split out of Combat depend on each other as follows.
+
+- **Combat Damage Types (#21b):** reads the element and variant tags. Elements are art tags only and never enter defence, and the generating and overcoming relations give no damage bonus in fights (its rules 3, 8). The convergence root is named **Primordial Chaos (Hỗn Độn)** in player text, so it is never confused with the Chaos damage type (Tà; its Open Question 1).
+- **Modifier System (#40):** root bonuses are catalogue modifiers; element scopes (`kim`, `moc`, `thuy`, `hoa`, `tho`) are its element family.
 
 ## Tuning Knobs
 

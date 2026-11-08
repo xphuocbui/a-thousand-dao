@@ -180,18 +180,18 @@ system. An Effect grants modifiers from this catalogue as its payload.
 
 A tag listed in two families is one tag; its tier is the same in both.
 
-10. **Derived art tags** let a modifier key off what an art is like without a condition. These are a
-    proposal to Combat, which would own them and assign them when an art is compiled. The thresholds are
+10. **Derived art tags** let a modifier key off what an art is like without a condition. Combat adopted them
+    (Combat revision D5, 2026-11-08): Combat owns them and assigns them when an art is compiled. The thresholds are
     provisional.
-    - `basic`: the basic attack.
+    - `basic`: the basic attack, which carries only `basic`, never `quick` or `cheap` (Combat revision C4).
     - `quick`: authored cooldown under 2 s.
     - `slow`: authored cooldown of 6 s or more.
     - `cheap`: cost share of 5 % or less.
     - `costly`: cost share of 20 % or more.
 
-    Until Combat adopts them, modifiers scoped by them are accepted, marked **Pending**, and add nothing.
-    This differs from a Pending *stat* (Stat List), which still needs a key or rule from its owner and cannot be
-    authored at all.
+    Modifiers scoped by them now apply. (Before Combat adopted them they were accepted, marked **Pending**, and
+    added nothing. A Pending *stat* in the Stat List is different: it still needs a key or rule from its owner and
+    cannot be authored at all.)
 
 **Breadth and size**
 
@@ -263,7 +263,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 - *Live*: in game data today.
 - *Designed*: the key is defined in a GDD but not built.
 - *Pending*: needs a key or rule from the named owner before modifiers on it may be authored; until then
-  validation rejects them. (Pending derived-tag *scopes* are different: rule 10.)
+  validation rejects them.
 
 **Combat: offence**: domain `combat`. Families: damage (damage, damage against a foe, damage conversion), crit (crit chance and damage), accuracy (accuracy, realm pierce), resistance (penetration), soul (soul attack damage), speed (art and basic attack speed), cost (art cost), status (status duration, stack cap).
 
@@ -444,7 +444,7 @@ and are not here.
 | Damage, increased (`attack_pct`) | form: sword, palm, seal, beast, formation | family | +1.8 % | +12.0 % | Designed | 5 |
 | Damage, increased (`attack_pct`) | source: artifact, talisman, formation, companion | family | +1.8 % | +12.0 % | Designed | 4 |
 | Damage, increased (`attack_pct`) | mode: over_time (ticks) | family | +1.8 % | +12.0 % | Designed | 1 |
-| Damage, increased (`attack_pct`) | derived: basic, quick, slow (Pending) | family | +1.8 % | +12.0 % | Pending | 3 |
+| Damage, increased (`attack_pct`) | derived: basic, quick, slow | family | +1.8 % | +12.0 % | Designed | 3 |
 | Damage, increased (`attack_pct`) | one variant element | narrow | +2.4 % | +16.0 % | Designed | 8 |
 | Damage, increased (`attack_pct`) | effect: poison | narrow | +2.4 % | +16.0 % | Designed | 1 |
 | Damage, increased (`attack_pct`) | foe: cultivator (Pending) | broad | +1.5 % | +10.0 % | Pending | 1 |
@@ -456,7 +456,7 @@ and are not here.
 | Crit chance (`crit_chance_pct`) | type: fire, cold, lightning, light, chaos | family | +1.8 pp | +12.0 pp | Designed | 5 |
 | Crit chance (`crit_chance_pct`) | element (art tag) | family | +1.8 pp | +12.0 pp | Designed | 5 |
 | Crit chance (`crit_chance_pct`) | form | family | +1.8 pp | +12.0 pp | Designed | 5 |
-| Crit chance (`crit_chance_pct`) | derived: basic, quick, slow (Pending) | family | +1.8 pp | +12.0 pp | Pending | 3 |
+| Crit chance (`crit_chance_pct`) | derived: basic, quick, slow | family | +1.8 pp | +12.0 pp | Designed | 3 |
 | Crit damage (`crit_damage_pct`) | — | universal | +4.0 pp | +26.6 pp | Designed | 1 |
 | Crit damage (`crit_damage_pct`) | source: art | broad | +5.0 pp | +33.3 pp | Designed | 1 |
 | Crit damage (`crit_damage_pct`) | element | family | +6.0 pp | +40.0 pp | Designed | 5 |
@@ -476,13 +476,13 @@ and are not here.
 | Art speed (`art_speed_pct`) | form | family | +3.0 % | +20.0 % | Designed | 5 |
 | Art speed (`art_speed_pct`) | mode: curse | family | +3.0 % | +20.0 % | Designed | 1 |
 | Art speed (`art_speed_pct`) | source: talisman | family | +3.0 % | +20.0 % | Designed | 1 |
-| Art speed (`art_speed_pct`) | derived: quick, slow (Pending) | family | +3.0 % | +20.0 % | Pending | 2 |
+| Art speed (`art_speed_pct`) | derived: quick, slow | family | +3.0 % | +20.0 % | Designed | 2 |
 | Art cost (`art_cost_pct`) | — | universal | -1.0 % | -6.6 % | Designed | 1 |
 | Art cost (`art_cost_pct`) | type: physical or force | broad | -1.2 % | -8.3 % | Designed | 2 |
 | Art cost (`art_cost_pct`) | element | family | -1.5 % | -10.0 % | Designed | 5 |
 | Art cost (`art_cost_pct`) | form | family | -1.5 % | -10.0 % | Designed | 5 |
 | Art cost (`art_cost_pct`) | mode: curse | family | -1.5 % | -10.0 % | Designed | 1 |
-| Art cost (`art_cost_pct`) | derived: slow, costly (Pending) | family | -1.5 % | -10.0 % | Pending | 2 |
+| Art cost (`art_cost_pct`) | derived: slow, costly | family | -1.5 % | -10.0 % | Designed | 2 |
 | Art cost (`art_cost_pct`) | effect: poison | narrow | -2.0 % | -13.3 % | Designed | 1 |
 | Basic attack speed | — (implied basic) | family | +4.5 % | +30.0 % | Pending | 1 |
 | Damage conversion (`convert_pct`, from → to type) | — (implied family; one per from → to pair of the 7 non-Soul types, 7 × 6) | family | +2 pp | +15 pp | Designed | 42 |
@@ -911,8 +911,8 @@ measures the drift first, and no deflator is applied until it has.
   largest part is Physical; a Fire-scoped art speed modifier does count, because an authored part is Fire.
 - **If a damage-type scope and an element scope both name "Fire"**: they are different modifiers. "+12 % Fire
   damage" reads the part's damage type; "+12 % damage on Fire-element arts" reads the art's element tag.
-- **If a derived art tag is not yet adopted by Combat**: modifiers scoped by it are accepted, marked Pending,
-  and do nothing (rule 10). A modifier on a Pending *stat* is rejected instead.
+- **If a modifier names a derived art tag**: it applies, since Combat adopted them (rule 10; Combat revision D5).
+  A modifier on a Pending *stat* is rejected.
 
 **Sources and the world**
 - **If a source is removed** (a node unallocated, an artifact unequipped, a pill wearing off, an Effect's
@@ -1028,7 +1028,7 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 - **AC-MD-10** [Logic] Rule 8 targets. **GIVEN** a Physical → Fire part, **THEN** +12 % Fire resistance (on the defender) and +12 % Physical damage (on the attacker) both apply. **GIVEN** a Fire → Physical part, **THEN** +12 % Fire resistance does not apply: resistance reads the final type, offence reads the type history. **GIVEN** +10 % healing scoped [moc], **THEN** it applies to a Wood-element heal art and not to a Fire one. **GIVEN** reservation efficiency scoped [ward], **THEN** it reaches a reserving ward and not a reserving art. **GIVEN** status duration scoped [fire], **THEN** it reaches Burn and not Poison. **GIVEN** basic attack speed, **THEN** it reaches only the basic attack ([basic]). **GIVEN** soul attack damage scoped [hoa], **THEN** it reaches a Fire-element soul art.
 - **AC-MD-11** [Logic] Edge Cases. **GIVEN** a Fire-element art with one Physical part of 100, **WHEN** "+12 % Fire damage" (damage-type scope) applies, **THEN** the part stays 100. **WHEN** "+12 % damage, scope element hoa" applies, **THEN** it is 112.
 - **AC-MD-12** [Logic] Rule 8 validation. **GIVEN** a scope of three tags, the unknown tag `lava`, damage scoped [soul], resistance scoped [hoa], `defense_pct` scoped [fire], `khi_huyet_pct` scoped [sword], accuracy or pierce scoped by a damage type, or `convert_pct` scoped [fire], **THEN** each is rejected.
-- **AC-MD-13** [Logic] Rule 10. **GIVEN** +12 % damage scoped [quick] while derived tags are Pending, **THEN** it is accepted, adds 0 to every hit and reads Pending. **GIVEN** the tags are adopted, **THEN** a cooldown of 1.99 s is `quick` and 2.0 s is not, 6.0 s is `slow`, a cost share of 0.05 is `cheap` and 0.20 is `costly`. **GIVEN** a modifier on a stat whose Stat List status is Pending, **THEN** it is rejected.
+- **AC-MD-13** [Logic] Rule 10. **GIVEN** +12 % damage scoped [quick], **THEN** it applies to a quick art (the tags were adopted by the Combat revision D5) and not to the basic attack, which carries only `basic`. **THEN** a cooldown of 1.99 s is `quick` and 2.0 s is not, 6.0 s is `slow`, a cost share of 0.05 is `cheap` and 0.20 is `costly`. **GIVEN** a modifier on a stat whose Stat List status is Pending, **THEN** it is rejected.
 
 **Tags**
 
@@ -1066,7 +1066,7 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
 | 1 | Realm drift: one W of L1 is worth about 5.5 × less at Deity Transformation, so own-multiplier stats (crit, evade, art speed, soul, `more`) grow cheap. The bot measures it before any deflator (user decision 2026-11-08) | systems-designer | Balance harness |
-| 2 | Derived art tags (basic, quick, slow, cheap, costly) need Combat to adopt them; until then those scopes are Pending | user | Combat revision (#43) |
+| 2 | ~~Derived art tags need Combat to adopt them~~ **Closed 2026-11-08:** the Combat revision (#43) adopted `basic`, `quick`, `slow`, `cheap` and `costly` (D5); the basic attack carries only `basic` (C4) | — | Closed |
 | 3 | The Meridian Map's Formulas F must point to this GDD's price table, and Character Stats' Parameter keys must list the new stats (with the 0.01 grid for both regeneration stats). The other reader GDDs' back-references are added in the Combat revision (#43) and Meridian Map sweeps (re-review MD 9) | user | Meridian Map redesign; Character Stats revision; #43 |
 | 4 | Pending stats need keys from their owners: basic attack speed, status duration and stack cap (Combat); talisman power, keep chance, stock and drawing (Talismans); companion power share, beast slots, taming (Spirit Beasts); artifact slots (Item DB). From the 2026-11-08 variety rows: status duration on you and foe tags (Combat); typed block, the body shield I op, recharge delay and cast ward duration (Combat Defence & Healing); formation upkeep (Formations); talisman ink (Talismans); pill quality (Alchemy); artifact grade (Artifact Refining); buy and sell price (Market); activity tags (Time & Turn, Realms); the [body_shield] scope (Combat Defence & Healing). A lower-is-better row also needs its owner's floor (rule 7) | user | Each owner's GDD |
 | 5 | Sizes to watch: a notable of health regeneration (2.66 pp) passes its 2 pp cap; a notable of crit chance is 8 pp; art speed and crit are cheap late (question 1) | systems-designer | Balance harness |

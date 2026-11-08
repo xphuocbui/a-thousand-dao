@@ -738,7 +738,7 @@ The trigger_budget formula is defined as:
 |---|---|---|---|---|
 | c_trig | float | ≤ 0.8 | data file | Free-hit coefficient; a chance trigger needs `chance · c_trig ≤ 0.5` |
 | trigger_depth | int | 2 | data file | Chain depth, the first trigger being 1; one trigger id never fires twice in a chain |
-| trig_cap | int | 6 per side | data file | Firings between two pulses |
+| trig_cap | int | 6 per side | data file | Firings between two pulses; a firing past it is dropped and logged "trigger cap" |
 | trig_budget | float | 0.5 | data file | Trigger damage is at most half of the direct damage since the last pulse |
 | direct_damage_this_pulse | float | ≥ 0 | calculated | Per side: the health that side's own hits (arts, basic attack, companion) have removed from the defender since the last pulse, after the defence path, including the hit that set the trigger off. Ticks and trigger hits are excluded |
 

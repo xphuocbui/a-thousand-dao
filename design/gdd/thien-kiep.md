@@ -362,6 +362,13 @@ The tempered_buff formula is defined as:
 **Bidirectional check.** Realms and Combat already list this system. The systems index names the Event Engine as a
 dependency: it is a soft, downstream one here, because Combat lets this system open fights directly.
 
+**Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
+systems split out of Combat depend on each other as follows.
+
+- **Combat Defence & Healing (#21a):** every wave sets `no_heal`; soul and status defence apply as in any fight.
+- **Combat Damage Types (#21b):** tribulation lightning deals Lightning, so Lightning resistance is the answer.
+- **Effects System (#41):** refusals and last acts run at Down as in any fight (the Down step).
+
 ## Tuning Knobs
 
 All live in `tribulation_rules.json` unless stated, and are guesses until the Balance Harness runs (Open Question 2).

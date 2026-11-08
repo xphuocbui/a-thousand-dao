@@ -873,6 +873,13 @@ Character Stats:
   those calls behind the provider interface is an implementation change (becomes an
   ADR).
 
+**Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
+systems split out of Combat depend on each other as follows.
+
+- **Modifier System (#40):** reads the sheet sums, the precision grid, the ceilings and the provider interface; its Stat List names the keys this GDD must add (the defence and offence keys of Combat's Parameter keys, consistency C14).
+- **Combat Defence & Healing (#21a):** reads maximum health and linh lực, thần thức and `ds_ref`, and căn cốt (body defence).
+- **Effects System (#41):** reads sheet values at compile; the caller applies the life costs Effects report (heart demon, lifespan, toxicity, purity) through this GDD's rules.
+
 ## Tuning Knobs
 
 Ranges marked *derived* follow from another constraint in this GDD or an approved one.

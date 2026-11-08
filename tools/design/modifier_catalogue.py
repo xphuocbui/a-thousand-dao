@@ -66,12 +66,12 @@ stat(OFF, "Damage, increased (`attack_pct`)", 1.0, 0.1, " %", scopes=[
     ("—", [], 1), ("type: physical or force", ["physical"], 2), ("mode: hit", ["hit"], 1), ("source: art", ["art"], 1),
     ("type: " + TYPES, ["<type>"], 5), ("element (art tag): " + ELEMENTS, ["<element>"], 5), ("form: " + FORMS, ["<form>"], 5),
     ("source: " + SOURCES, ["artifact"], 4), ("mode: over_time (ticks)", ["over_time"], 1),
-    ("derived: basic, quick, slow (Pending)", ["basic"], 3), ("one variant element", ["<variant>"], 8),
+    ("derived: basic, quick, slow", ["basic"], 3), ("one variant element", ["<variant>"], 8),
     ("effect: poison", ["poison"], 1), ("foe: cultivator (Pending)", ["cultivator"], 1), ("foe: creature (Pending)", ["creature"], 1),
     ("two tags, e.g. [over_time, hoa], [sword, kim]", ["<element>", "<form>"], 0)])
 stat(OFF, "Crit chance (`crit_chance_pct`)", 1.0, 0.1, " pp", status="Designed", scopes=[
     ("—", [], 1), ("source: art", ["art"], 1), ("type: physical or force", ["physical"], 2), ("type: " + TYPES, ["<type>"], 5), ("element (art tag)", ["<element>"], 5),
-    ("form", ["<form>"], 5), ("derived: basic, quick, slow (Pending)", ["basic"], 3)])
+    ("form", ["<form>"], 5), ("derived: basic, quick, slow", ["basic"], 3)])
 stat(OFF, "Crit damage (`crit_damage_pct`)", 0.3, 0.1, " pp", status="Designed", scopes=[
     ("—", [], 1), ("source: art", ["art"], 1), ("element", ["<element>"], 5), ("form", ["<form>"], 5)])
 stat(OFF, "Accuracy (`accuracy_pct`)", 0.5, 0.1, " pp", status="Designed")
@@ -82,10 +82,10 @@ stat(OFF, "Soul attack damage (`x_soul`)", 1.0, 0.1, " %", implied="soul", statu
     ("— (implied soul)", [], 1), ("element (art tag)", ["<element>"], 5)])
 stat(OFF, "Art speed (`art_speed_pct`)", 0.6, 0.1, " %", status="Designed", scopes=[
     ("—", [], 1), ("type: physical or force", ["physical"], 2), ("element", ["<element>"], 5), ("form", ["<form>"], 5),
-    ("mode: curse", ["curse"], 1), ("source: talisman", ["talisman"], 1), ("derived: quick, slow (Pending)", ["quick"], 2)])
+    ("mode: curse", ["curse"], 1), ("source: talisman", ["talisman"], 1), ("derived: quick, slow", ["quick"], 2)])
 stat(OFF, "Art cost (`art_cost_pct`)", 1.2, 0.1, " %", d=-1, status="Designed", scopes=[
     ("—", [], 1), ("type: physical or force", ["physical"], 2), ("element", ["<element>"], 5), ("form", ["<form>"], 5),
-    ("mode: curse", ["curse"], 1), ("derived: slow, costly (Pending)", ["slow"], 2), ("effect: poison", ["poison"], 1)])
+    ("mode: curse", ["curse"], 1), ("derived: slow, costly", ["slow"], 2), ("effect: poison", ["poison"], 1)])
 stat(OFF, "Basic attack speed", 0.4, 0.1, " %", implied="basic", status="Pending", scopes=[("— (implied basic)", [], 1)])
 stat(OFF, "Damage conversion (`convert_pct`, from → to type)", 0.8, 1, " pp", implied="<type>", status="Designed", scopes=[
     ("— (implied family; one per from → to pair of the 7 non-Soul types, 7 × 6)", [], 42)])

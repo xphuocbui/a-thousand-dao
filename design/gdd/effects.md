@@ -593,6 +593,7 @@ and A is Down.
 | Modifier System (#40) | Hard | Catalogue modifiers as payloads; tags | Approved (2026-11-08b) | Yes |
 | Combat (#21) | Hard | Instants, guards, trigger order and budget, curse bounds, tick formulas, the defeat check, results | Approved for rules | Partly: rule 9 defines triggers; the Combat revision (#43) cites this GDD for statuses and the Down step |
 | Combat Defence & Healing (#21a) | Hard | Heal and restore rules, reservation, wards | Needs revision | Yes |
+| Heavenly Tribulation (#22) | Soft | Its waves run the Down step (refusals and last acts) like any fight | Approved for rules | Yes (Dependencies note, Combat revision #43) |
 | Combat Damage Types (#21b) | Hard | Damage types of statuses; conversion | Needs revision | Yes |
 | Character Stats (#7), Realms (#8) | Soft | Readable sheet values; applying reported life costs | In review | Not yet |
 | Meridian Map (#10) | Soft (host) | Keystones; its 25 live capabilities move here as Effects | Redesign planned | Not yet |
@@ -682,8 +683,8 @@ not prices. Safe ranges are design estimates.
 
 **Engine limits (rule 7) and timing (rule 8)**
 
-- **AC-EF-09** [Logic] **GIVEN** a chain event → trigger → trigger → trigger, **THEN** the third-level trigger does not fire and is logged. **GIVEN** 8 eligible firings for one side between two pulses, **THEN** 6 fire and 2 are logged "trigger budget".
-- **AC-EF-10** [Logic] (*test fixture*: these numbers come from the retired body-ward model and are restated in the Combat revision #43.) **GIVEN** six free hits of 3.6 (21.7) against 15.9 direct damage since the last pulse, **THEN** 7.9 is applied and "trigger budget" is logged (Combat Formulas G).
+- **AC-EF-09** [Logic] **GIVEN** a chain event → trigger → trigger → trigger, **THEN** the third-level trigger does not fire and is logged. **GIVEN** 8 eligible firings for one side between two pulses, **THEN** 6 fire and 2 are dropped and logged "trigger cap" (`trig_cap`; "trigger budget" is the damage clip of AC-EF-10, Combat Formulas G).
+- **AC-EF-10** [Logic] Combat Formulas G (restated by the Combat revision #43). **GIVEN** six free hits of 2.30 (13.81 in total) against FX-T with the Common Ward, and 13.34 direct damage since the last pulse, **THEN** 6.67 (0.5 × 13.34) is applied and "trigger budget" is logged.
 - **AC-EF-11** [Logic] **GIVEN** Echo with its chance forced to 1 (*test fixture*), **WHEN** an art hits, **THEN** exactly one free hit follows, and it does not fire Echo again in that chain.
 - **AC-EF-12** [Integration] **GIVEN** Effect modifiers raising the crit sum to 0.62, **THEN** Combat applies 0.50, and the Breakdown names the Effect and the crit cap.
 - **AC-EF-13** [Logic] **GIVEN** a fixed seed, **WHEN** the same fight runs twice, **THEN** the logs are byte-identical. **GIVEN** a chance of exactly 0 or 1, **THEN** the seeded stream does not advance.

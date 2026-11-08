@@ -622,6 +622,12 @@ its master **−15** and its sect head **−7**.
 **Bidirectional check.** Character Stats, Meridian Map, Item Database, Realms, Combat and Heavenly Tribulation list this system (added
 2026-11-06 and 2026-11-07). The other upstream systems have no GDD to list it in.
 
+**Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
+systems split out of Combat depend on each other as follows.
+
+- **Modifier System (#40):** quest rewards that grant modifiers use its W prices and catalogue only.
+- **Combat Defence & Healing (#21a):** fight power F for the fight ratio uses its effective health (Formulas G, through Combat Formulas K).
+
 ## Visual/Audio Requirements
 
 `art-director` not consulted (Lean mode). Review manually before production. Today's surface is the Debug Terminal;

@@ -527,6 +527,14 @@ row for #13 gains Character Stats as a soft dependency (the rule 12 read). No
 circular dependency is added: crafts and effects act through their own systems, and this system never calls them back
 except for the rule 12 preview, which is a read.
 
+**Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
+systems split out of Combat depend on each other as follows.
+
+- **Combat Defence & Healing (#21a):** ward_gear defence feeds ward strength, ward efficiency and gear block (up to a = 1); body_gear gives block and body shield (its Formulas A0, A2, B); resistance affixes.
+- **Modifier System (#40):** affixes are catalogue modifiers; rare modifiers sit on named items only.
+- **Effects System (#41):** named items host Effects (enablers, keystones, statuses).
+- **Combat Damage Types (#21b):** an item's active art declares its damage types.
+
 ## Tuning Knobs
 
 These values must live in data and never in code. Defaults are in Formulas. Safe ranges are left out on purpose, as in
