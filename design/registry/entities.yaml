@@ -1145,9 +1145,9 @@ formulas:
       - f
       - H
       - S_std
-    output_range: >= H
-    expression: "x = Q_use/b; lambda_s = max(lambda_min, 1 - r_s - B_s/D_ref); P = H + S_std + S_body (minus shields the type passes); ehp = P/lambda_all if x*lambda_all >= P else x + (P - x*lambda_all)/lambda_fix"
-    notes: "Replaces Combat Formulas A ehp once the Combat revision (#43) lands. Typical QR 297.8 (was 298.1 with body guard); thể tu 570.4 Physical / 368.5 Force / 221.3 Chaos."
+    output_range: "P/1.5 (resistance at the floor, no block) to 50 x P"
+    expression: "x = Q_use/b (wards never fall when b = 0, then ehp = P/lambda_all); lambda_s = max(lambda_min, 1 - r_s - B_s/D_ref); P = H + S_std + S_body (minus shields the type passes); ehp = P/lambda_all if x*lambda_all >= P else x + (P - x*lambda_all)/lambda_fix"
+    notes: "Replaces Combat Formulas A ehp once the Combat revision (#43) lands. Typical QR 297.8 (was 298.1 with body guard); thể tu 570.4 Physical / 368.5 Force / 221.3 Chaos. Range and b = 0 case fixed 2026-11-08 (re-review CD 7, CD 13)."
     added: 2026-11-07
     revised: 2026-11-07
   - name: defence_block
@@ -1201,11 +1201,11 @@ formulas:
       - price
       - u
       - d
-    output_range: 0 to about 215 units
+    output_range: "0 to about 215 units in the tree (25.8 W on a 0.3 W stat at x2.5); up to 500 at the 60 W top of B"
     expression: "value = d*floor(B*breadth_mult/(price*u) + 1e-6)*u"
-    notes: "Turns a source's W budget into a plain modifier. Zero units means the stat cannot be carried; never raised to one unit. Formulas C."
+    notes: "Turns a source's W budget into a plain modifier. Zero units means the stat cannot be carried; never raised to one unit. Effect payloads are exempt (Modifier System rule 12). Formulas C."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-08
   - name: breadth_mult
     status: active
     source: design/gdd/modifiers.md
@@ -1248,11 +1248,11 @@ formulas:
       - p
       - meter
       - counted_start
-    output_range: floor(counted_start + sum p) events over n opportunities
+    output_range: floor(counted_start/1000 + sum p) events over n opportunities
     expression: "meter += p at each would-be roll; if meter >= 1: event, meter -= 1; held as per-mille integers"
-    notes: "Keystone-only (Effects rule 12). No seeded draw; fortune does not shift it. Formulas A."
+    notes: "Keystone-only (Effects rule 12). No seeded draw; fortune does not shift it. p rounds to the nearest thousandth, half up. Formulas A. Range fixed 2026-11-08 (re-review EF 17)."
     added: 2026-11-08
-    revised: ""
+    revised: 2026-11-08
   - name: standing_status
     status: active
     source: design/gdd/effects.md
@@ -1475,7 +1475,8 @@ constants:
     referenced_by:
       - design/gdd/character-stats.md
       - design/gdd/kinh-mach-do.md
-    value: "0.1: pct keys, stealth, lifespan_years; 0.01: the six talent keys, dan_doc_decay, density_bonus; 1: field_plots, alchemy_yield, flags"
+      - design/gdd/modifiers.md
+    value: "0.1: pct keys, stealth, lifespan_years; 0.01: the six talent keys, dan_doc_decay, density_bonus, health_regen_pct, linh_luc_regen_pct; 1: field_plots, alchemy_yield, block_rating, convert_pct, flags"
     unit: units
     notes: "Authored values rounded to grid (off-grid fails validation); computed values floored with 1e-6 tolerance."
     added: 2026-11-04
@@ -2021,11 +2022,11 @@ constants:
       - design/gdd/combat.md
       - design/gdd/quests.md
       - design/gdd/thien-kiep.md
-    value: "attack/defense/linh_luc_pct 1.0, khi_huyet_pct 1.2, than_thuc/artifact_power_pct 1.3, tam_ma_resist/stealth 1.5, dan_doc_resist 1.6, cultivation_speed_pct 2.2, herb_growth 0.9, mission_income 0.7, alchemy_success 2.7, breakthrough_chance 5, khi_van/ngo_tinh 5, refining_success 2.0, formation_power 1.0, dan_doc_decay 8, density_bonus 140, field_plots 20 (2026-11-04, cross-GDD review 04g F11; no tree acupoint can hold a plot at launch values), lifespan_years 300/L_r"
+    value: "Keyed by stat key and operation (re-review MD 6). attack_pct I 1.0 (damage_more M in points, Formulas D); crit_chance_pct 1.0; crit_damage_pct 0.3; accuracy_pct 0.5; pierce_pct 1.0; resist_pen_pct 3.0; x_soul 1.0; art_speed_pct 0.6; art_cost_pct 1.2; convert_pct 0.8 (G); basic attack speed 0.4 (Pending); status duration 0.6 (Pending); status stack cap 10 rare (Pending); resist_pct 1.25 (one stored price; effective 1.0 Physical/Force, 0.83 others); resist_cap_pct 5 rare; block_rating 0.4; body_shield_pct F 1.0, I 0.6 (Pending); recharge_delay_pct 0.6; cast_ward_duration_pct 0.5; defense_pct 1.0; ward_efficiency_pct 1.0; khi_huyet_pct 1.2; evade_pct 1.5; soul_res_pct 0.6; status_resist_pct 0.4; status_duration_taken_pct 0.3; health_regen_pct 3.0; healing_pct 0.5; healing_taken_pct 0.5; bonus_ward_slots 30 rare; linh_luc_pct 1.0; linh_luc_regen_pct 8; than_thuc_pct 1.3; reserve_eff_pct 0.8; artifact_power_pct 1.3; artifact_attack_pct 0.6; artifact_defense_pct 0.6; element_affinity_pct 1.3; than_thuc_cost_pct 0.8; bonus_slots 20 rare; artifact slots 25 rare (Pending); formation_power_pct 1.0; pill_effect_pct 1.0; talisman power 0.7, keep chance 0.3, stock 10 rare, drawing 2.0 (Pending); companion share 0.4, beast slots 15 rare, taming 1.0 (Pending); formation_upkeep_pct 0.15; talisman_ink_pct 0.15; escape_pct 1.0; stealth 1.5; co_duyen_pct 0.3; cultivation_speed_pct 2.2; breakthrough_chance 5; lifespan_years 300/L_r; lifespan_pct 3.0; tam_ma_resist_pct 1.5; qi_deviation_pct 1.0; dan_doc_resist_pct 1.6; dan_doc_decay 8; density_bonus 140; alchemy_success 2.7; alchemy_yield 20 rare; refining_success 2.0; herb_growth_pct 0.9; field_plots 20 rare (no tree acupoint can hold a plot at launch values); mission_income_pct 0.7; travel_speed_pct 0.3; pill_quality_chance 1.0; refine_grade_chance 1.5; buy_price_pct 0.3; sell_price_pct 0.3; ngo_tinh 5; khi_van 5; can_cot 3.0; than_hon 3.0; dao_tam 3.0; mi_luc 1.0"
     unit: W per displayed unit
-    notes: "Shared by the fill validator, NPC Builds and Character Stats; guesses until the bot confirms."
+    notes: "Shared by the fill validator, NPC Builds and Character Stats; guesses (G in Formulas A) until the bot confirms. Full table registered 2026-11-08 (re-review MD 13)."
     added: 2026-11-03
-    revised: 2026-11-07
+    revised: 2026-11-08
   - name: hidden_cluster_count
     status: active
     source: design/gdd/kinh-mach-do.md
@@ -2473,6 +2474,45 @@ constants:
     notes: "Total of all health ticks on one target at one pulse. One tick stays under dot_pool_cap 0.05."
     added: 2026-11-06
     revised: ""
+  - name: soul_shield
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    variables:
+      - sigma_soul
+      - s_soul
+      - qi_max
+      - ws
+      - L_h
+      - L_q
+    output_range: "each soul-hit loss falls by at most s_soul (<= 0.75), while the bar lasts"
+    expression: "S_soul = sigma_soul*qi_max*(1 + ws/100); after Combat E2's pct: soak_x = min(S_soul_left, s_soul*L_x) for x = health then linh luc; L_x -= soak_x; s_soul <= soul_shield_share_max"
+    notes: "Ward strength scales the bar, never the share. Soul-Guarding Lamp: s_soul 0.50, sigma_soul 0.10 (guess). User decision 2026-11-08 (re-review CD 1)."
+    added: 2026-11-08
+    revised: ""
+  - name: soul_shield_share_max
+    status: active
+    source: design/gdd/combat-defence.md
+    referenced_by:
+      - design/gdd/combat-defence.md
+    value: 0.75
+    unit: share of each soul-hit loss
+    notes: "Keeps every soul hit landing in part. Safe range 0.50-0.90."
+    added: 2026-11-08
+    revised: ""
+  - name: dot_pool_cap
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/combat-defence.md
+      - design/gdd/effects.md
+    value: 0.05
+    unit: fraction of max health per tick
+    notes: "One tick's ceiling (Combat Formulas F). heal_pulse_cap 0.04 sits below it. Registered 2026-11-08 (re-review CD 13)."
+    added: 2026-11-08
+    revised: ""
   - name: curse_bounds
     status: active
     source: design/gdd/combat.md
@@ -2573,8 +2613,10 @@ constants:
     revised: ""
   - name: ward_gear_scale
     status: active
-    source: design/gdd/combat.md
+    source: design/gdd/combat-defence.md
+    # Moved from combat.md Formulas D to combat-defence.md Formulas A0 (re-review CD 2, 2026-11-08); Combat keeps a stub after #43.
     referenced_by:
+      - design/gdd/combat-defence.md
       - design/gdd/combat.md
     value: 0.3
     unit: ward points per artifact defence
@@ -2582,8 +2624,10 @@ constants:
     revised: ""
   - name: ward_cap
     status: active
-    source: design/gdd/combat.md
+    source: design/gdd/combat-defence.md
+    # Moved from combat.md Formulas D to combat-defence.md Formulas A0 (re-review CD 2, 2026-11-08); Combat keeps a stub after #43.
     referenced_by:
+      - design/gdd/combat-defence.md
       - design/gdd/combat.md
     value: 400
     unit: points
@@ -2591,8 +2635,10 @@ constants:
     revised: ""
   - name: ward_floor
     status: active
-    source: design/gdd/combat.md
+    source: design/gdd/combat-defence.md
+    # Moved from combat.md Formulas D to combat-defence.md Formulas A0 (re-review CD 2, 2026-11-08); Combat keeps a stub after #43.
     referenced_by:
+      - design/gdd/combat-defence.md
       - design/gdd/combat.md
     value: -90
     unit: points
@@ -3196,7 +3242,7 @@ constants:
       - design/gdd/combat-defence.md
     value: 0.3
     unit: resistance share
-    notes: "The default ward's general resistance; equals the old default ward (pass 0.70). Not scaled by ws or we."
+    notes: "The default ward's all resistance (every type except Soul); equals the old default ward (pass 0.70). Not scaled by ws or we. Re-review CD 13 (2026-11-08)."
     added: 2026-11-07
     revised: ""
   - name: default_drain

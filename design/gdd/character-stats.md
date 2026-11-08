@@ -235,7 +235,9 @@ here but not built yet.
 
     Precision follows the Meridian Map's Formulas F: 0.1 for `pct` keys, `stealth` and
     `lifespan_years`; 0.01 for the six talent keys (`ngo_tinh`, `can_cot`,
-    `than_hon`, `khi_van`, `dao_tam`, `mi_luc`), `dan_doc_decay` and `density_bonus`; 1 for `field_plots`, `alchemy_yield` and flags. **`field_plots` is
+    `than_hon`, `khi_van`, `dao_tam`, `mi_luc`), `dan_doc_decay`, `density_bonus`, and the two regeneration keys
+    `health_regen_pct` and `linh_luc_regen_pct` (Modifier System re-review MD 16, 2026-11-08); 1 for `field_plots`,
+    `alchemy_yield` and flags. **`field_plots` is
     an integer.**
 
     | Group | Keys (unit) |

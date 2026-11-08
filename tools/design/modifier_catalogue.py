@@ -87,6 +87,8 @@ stat(OFF, "Art cost (`art_cost_pct`)", 1.2, 0.1, " %", d=-1, status="Designed", 
     ("—", [], 1), ("type: physical or force", ["physical"], 2), ("element", ["<element>"], 5), ("form", ["<form>"], 5),
     ("mode: curse", ["curse"], 1), ("derived: slow, costly (Pending)", ["slow"], 2), ("effect: poison", ["poison"], 1)])
 stat(OFF, "Basic attack speed", 0.4, 0.1, " %", implied="basic", status="Pending", scopes=[("— (implied basic)", [], 1)])
+stat(OFF, "Damage conversion (`convert_pct`, from → to type)", 0.8, 1, " pp", implied="<type>", status="Designed", scopes=[
+    ("— (implied family; one per from → to pair of the 7 non-Soul types, 7 × 6)", [], 42)])
 stat(OFF, "Status duration", 0.6, 0.1, " %", implied="over_time", status="Pending", scopes=[
     ("— (implied over_time)", [], 1), ("mode: curse", ["curse"], 1), ("effect: poison", ["poison"], 1)])
 
@@ -94,7 +96,7 @@ DEF = "Combat: defence"
 stat(DEF, "Resistance (`resist_pct`)", 1.25, 0.1, " pp", status="Designed", scopes=[
     ("— (all resistance)", [], 1), ("against type: physical or force", ["physical"], 2),
     ("against type: fire, cold, lightning, light", ["<type>"], 4), ("against type: chaos (rare, rule 13: never on acupoints, notables or rolled affixes)", ["chaos"], 1),
-    ("against foe: cultivator (Pending)", ["cultivator"], 1), ("against foe: creature (Pending)", ["creature"], 1), ("against type + one family tag, e.g. [fire, over_time]", ["<type>", "over_time"], 0)])
+    ("against foe: cultivator (Pending)", ["cultivator"], 1), ("against foe: creature (Pending)", ["creature"], 1)])
 stat(DEF, "Block (`block_rating`)", 0.4, 1, " rating", status="Designed", scopes=[
     ("—", [], 1), ("against type: physical or force (Pending)", ["physical"], 2), ("against type: fire, cold, lightning, light (Pending)", ["<type>"], 4)])
 stat(DEF, "Body shield (`body_shield_pct`)", 1.0, 0.1, " pp of health", status="Designed")
@@ -111,7 +113,7 @@ stat(DEF, "Evade (`evade_pct`)", 1.5, 0.1, " pp", status="Designed")
 stat(DEF, "Soul resistance (`soul_res_pct`)", 0.6, 0.1, " pp", status="Designed")
 stat(DEF, "Status resistance (`status_resist_pct`)", 0.4, 0.1, " pp", status="Designed", scopes=[
     ("—", [], 1), ("against mode: over_time or curse", ["curse"], 2), ("against effect: poison", ["poison"], 1),
-    ("against status: burn, bleed, frostbite, qi_burn (Pending)", ["<status>"], 4)])
+    ("against status: burn, bleed, frostbite, qi_disruption (Pending)", ["<status>"], 4)])
 stat(DEF, "Status duration on you (`status_duration_taken_pct`)", 0.3, 0.1, " %", d=-1, status="Pending", scopes=[
     ("— (all statuses)", [], 1), ("mode: over_time or curse", ["curse"], 2)])
 

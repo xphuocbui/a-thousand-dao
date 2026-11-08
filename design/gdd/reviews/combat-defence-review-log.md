@@ -123,3 +123,123 @@ Reviewed-Content-Hash: design/gdd/modifiers.md 20ff37b70820cf176aa8afd907f61c173
 Reviewed-Content-Hash: design/gdd/effects.md 380b5401e2e4a4654cd4f2e5629faa4d2d14be85
 Reviewed-Content-Hash: design/gdd/thien-kiep.md 48cf4978cc8de61a69ef33edc82e66d0c1b2ee58
 Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc
+
+## Review — 2026-11-08 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 4 | Recommended: 13
+Summary: Daytime re-review after the user's answers; a full fresh review, not a carried verdict. Both overnight blockers are resolved: the registry's `defence_shield` now describes uncapped shields, and Formulas C, rule 8, AC-CD-60 and the registry's `ward_payment` agree on drain billing. Four new blockers: the soul shield has no formula (and ward strength can scale it past 100 %), `ws`, `we`, `a_w` and `a_b` lose their definition if Combat Formulas D is deleted as rule 1 says, the new drain billing does not cover shared block or a short pool's order, and AC-CD-59 cannot pass as written because its FX-U attacker is fully blocked by the kit under test. All worked numbers were recomputed by hand (a scratch script could not run unattended, because its permission prompt had no one to answer it); 7 small mismatches were fixed.
+Prior verdict resolved: Yes (both prior blockers resolved; the fourth new blocker's kit and the third's billing come from those fixes)
+Findings:
+- [BLOCKING] Rules 6, 9, 14 / Formulas H: the soul shield has no formula. Rule 9 calls a shield a pool, while rule 6 and Soul-Guarding Lamp give a share; rule 6 scales it by ws, so 50 % reaches 100 % at ws 100 and 250 % at ws 400. Combat rule 24 and E2 also say soul hits ignore every ward.
+- [BLOCKING] Rule 1 / Dependencies / OQ 2 / Formulas A, A2, B: rule 1 and Dependencies replace "all of Combat Formulas D", OQ 2 says "the ward half". Formulas A gives ws's source as `defense_pct` only, but ws 30.8 needs D's gear term; `we`, `ward_floor`, `a_w` and `a_b` are defined only in D.
+- [BLOCKING] Formulas C / rule 8: `blk_w` has no attribution when block comes from several sources (flesh, gear, wards), and no rule says whether a short pool's leak happens before block and shields or what a short pool does to a drain-paid block. AC-CD-22 and AC-CD-60 test neither.
+- [BLOCKING] AC-CD-59: against FX-U the kit cannot fall. FX-U's basic hit is 6.31, and the kit's block is about 4.95 rating-derived points (flesh 4.4 + a_b 2.0 gear 24 + tier 5 50) before Physical resistance, so every hit deals 0. Restoring a cap knob cannot fix this, though the AC names that as the remedy. Slow hitters are also untested: at we 400, Mountain Screen recharges 291 per second after its delay.
+- [RECOMMENDED] Rule 8 / States / Edge Cases: the cast row "Its duration lasts, or its shield holds" and the Edge Case "until its duration ends or its shield breaks" conflict with States (non-shield payloads stay up on a broken shield).
+- [RECOMMENDED] Rules 7–9: unstated whether a standing shield starts full, and what an unpaid upkeep ward's shield does while Down (keeps its value, soaks, recharges).
+- [RECOMMENDED] Formulas G: `x = Q_use / b` divides by 0 for reserved-only sides (b = 0).
+- [RECOMMENDED] Rule 11: a status-only or soul-only ward switches off the default ward's 0.30 against every other hit, a likely trap with Clear Heart Ward, Soul-Guarding Lamp and Iron Shirt.
+- [RECOMMENDED] Formulas B: a_b's range is "0–1.0 at top end", but Output Range, AC-CD-30 and AC-CD-59 use a_b 2.0.
+- [RECOMMENDED] Formulas A2: `a_w` reads "ward-role" defence, while Combat D, Item DB and the 0.85 anchor count all non-body defence (consistency N1).
+- [RECOMMENDED] Rules 5, 11: effects.md Open Question 3 and AC-EF-40 wait on two No Ward flags ("cannot slot wards", "no default ward") this GDD does not have.
+- [RECOMMENDED] Formulas A, A2, B: modifiers.md Pending rows cite this GDD for typed block, foe-scoped resistance and a body shield I op; no rule here defines them yet.
+- [RECOMMENDED] Registry: `defence_ehp` output range ">= H" contradicts the floor (P / 1.5), `default_resist`'s note still says "general resistance", and `dot_pool_cap` is unregistered. Out of scope for this pass.
+- [RECOMMENDED] Tuning Knobs: `ward_resist_max`, σ max, `ward_block_max`, `ward_cap`, `hregen_cap`, α_m and `T_ref` are missing.
+- [RECOMMENDED] Cross-References: no row for effects.md or Modifier System rule 13, though rules 5, 10 and 16 cite them.
+- [RECOMMENDED] Dependencies: back-references are still missing in the planned #43 sweep's GDDs. Carried.
+- [RECOMMENDED] Formulas E: the "continuous model" note covers both figures, but 37.6 s recomputes to 37.4 s continuous. Confirm through AC-CD-45.
+- [ADVISORY] Player Fantasy section absent (advisory at `standard`; Game Feel covers it).
+Safe fixes applied after this review (re-review pass 1): 11; see `rereview-2026-11-08-decisions.md`. The hash below is the content after those fixes.
+Reviewed-Content-Hash: design/gdd/combat-defence.md da752666e06252aa2820e7c2eeba06b43f561af3
+Reviewed-Content-Hash: design/registry/entities.yaml 8a5e49fd2189be5cd8723a1a3c8808f8f72ce67a
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/combat.md 1bb3c01f55e9047849d0eb7d565c94695474adba
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md 4d296d462001e758228e3a892bc6e77188e6c352
+Reviewed-Content-Hash: design/gdd/modifiers.md 4e716c015150db487659925dd70c5dfa4f196613
+Reviewed-Content-Hash: design/gdd/effects.md 675919fd8277f2b82b09c81014e8ecce480cfbce
+Reviewed-Content-Hash: design/gdd/thien-kiep.md 48cf4978cc8de61a69ef33edc82e66d0c1b2ee58
+Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc
+
+## Review — 2026-11-08 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 4 | Recommended: 14
+Summary: Daytime re-review, pass 2. The freshness check found this GDD, the registry and the skill unchanged since pass 1; only combat-damage-types.md, modifiers.md and effects.md had changed (their own pass 1 safe fixes). Their diffs moved no value or rule this GDD depends on, so pass 1's verdict stands and its four blockers carry over. The whole GDD was also re-read and its worked numbers recomputed by hand (an inline script again needed a permission prompt no one could answer); that found 7 safe fixes and one new cross-document recommendation. Not recomputed, because they need realm or harness data: AC-CD-46's other-realm mirrors, the "446 against top-end hits" figure, and the other realms' typical-block shares.
+Prior verdict resolved: No (the blockers need user decisions; only safe fixes applied)
+Findings:
+- [BLOCKING] Rules 6, 9, 14 / Formulas H: the soul shield has no formula, and ws can scale its share past 100 %. Carried.
+- [BLOCKING] Rule 1 / Dependencies / OQ 2 / Formulas A, A2, B: `ws`, `we`, `a_w` and `a_b` lose their definition if all of Combat Formulas D is removed. Carried.
+- [BLOCKING] Formulas C / rule 8: drain billing for shared block and a short pool is undefined. Carried.
+- [BLOCKING] AC-CD-59: the kit fully blocks FX-U, so the criterion cannot pass, and a shield cap cannot fix it. Carried.
+- [RECOMMENDED] Rule 8 / States / Edge Cases: wording on a cast ward with a broken shield conflicts. States' Up row ("or shield broken") is part of the same conflict. Carried, extended.
+- [RECOMMENDED] Rules 7–9: a standing shield's start value and an unpaid ward's shield behaviour are unstated. Carried.
+- [RECOMMENDED] Formulas G: `x = Q_use / b` divides by 0 for reserved-only sides. Carried.
+- [RECOMMENDED] Rule 11: a status-only or soul-only ward switches off the default ward. Carried.
+- [RECOMMENDED] Formulas B: a_b's range against the a_b 2.0 cases. Carried.
+- [RECOMMENDED] Formulas A2: `a_w` "ward-role" against all non-body defence. Carried.
+- [RECOMMENDED] Rules 5, 11: effects.md OQ 3 and AC-EF-40 wait on two No Ward flags. Carried.
+- [RECOMMENDED] Formulas A, A2, B / rule 7: modifiers.md Pending rows cite this GDD for rules it does not define. Carried, extended (modifiers.md OQ 4 also names recharge delay, cast ward duration and the [body_shield] scope, and its row says a cast ward's duration stays below its cooldown, a limit this GDD does not state).
+- [RECOMMENDED] Registry: `defence_ehp` range, `default_resist` note, `dot_pool_cap` unregistered. Carried; out of scope for this pass.
+- [RECOMMENDED] Tuning Knobs: seven values missing. Carried.
+- [RECOMMENDED] Cross-References: no row for effects.md or Modifier System rule 13. Carried.
+- [RECOMMENDED] Dependencies: back-references missing in the #43 sweep's GDDs. Carried.
+- [RECOMMENDED] Formulas E: the "continuous model" label on 37.6 s. Carried.
+- [RECOMMENDED] Formulas B, I / modifiers.md: modifiers.md's artifact defence row says "about 0.35 on body gear", which looks stale against the raised body-gear mapping and the 0.648 parity here (AC-CD-57). New; the owner is modifiers.md.
+- [ADVISORY] Player Fantasy section absent (advisory at `standard`; Game Feel covers it).
+Safe fixes applied after this review (re-review pass 2): 7; see `rereview-2026-11-08-decisions.md`. The hash below is the content after those fixes.
+Reviewed-Content-Hash: design/gdd/combat-defence.md e4325d2daf244efd0e86973067b480177d2c412e
+Reviewed-Content-Hash: design/registry/entities.yaml 8a5e49fd2189be5cd8723a1a3c8808f8f72ce67a
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/combat.md 1bb3c01f55e9047849d0eb7d565c94695474adba
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md d5a09b75ed4ddb6bd15ccb5988e5a6edcbb9c5af
+Reviewed-Content-Hash: design/gdd/modifiers.md 83069a628589d674abcd5fa8162f183cd948b2be
+Reviewed-Content-Hash: design/gdd/effects.md d0c1c3d6a61d4dfe7c34dbdbb9b977ae941ebe6d
+Reviewed-Content-Hash: design/gdd/thien-kiep.md 48cf4978cc8de61a69ef33edc82e66d0c1b2ee58
+Reviewed-Content-Hash: design/gdd/character-stats.md 9a1732061df85886a4bfa92f3119d502fd8c1743
+Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc
+
+## Review — 2026-11-08 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 5 | Recommended: 18
+Summary: Daytime re-review, pass 3. The freshness check found this GDD, the registry and the skill unchanged since pass 2; only combat-damage-types.md, modifiers.md and effects.md had changed (their own pass 2 safe fixes), and none moved a value or rule this GDD depends on. The GDD was re-read in full and its numbers recomputed by hand (a scratch script again needed a permission prompt no one could answer). That reading found one new blocker: Formulas F's V for a cast resistance ward uses the whole T, under which Black Tortoise Shell scores 3.72 and fails, while the catalogue's 0.930 uses its 2 s up time, so AC-CD-41 cannot pass as written. It also found 4 new recommendations and 3 safe fixes. Not recomputed, because they need realm or harness data: AC-CD-46's other-realm mirrors, the "446 against top-end hits" figure, and the other realms' typical-block shares. The stall and upkeep timings were not re-derived this pass.
+Prior verdict resolved: No (the blockers need user decisions; only safe fixes applied)
+Findings:
+- [BLOCKING] Rules 6, 9, 14 / Formulas H: the soul shield has no formula, and ws can scale its share past 100 %. Carried.
+- [BLOCKING] Rule 1 / Dependencies / OQ 2 / Formulas A, A2, B: `ws`, `we`, `a_w` and `a_b` lose their definition if all of Combat Formulas D is removed. Carried.
+- [BLOCKING] Formulas C / rule 8: drain billing for shared block and a short pool is undefined. Carried.
+- [BLOCKING] AC-CD-59: the kit fully blocks FX-U, so the criterion cannot pass, and a shield cap cannot fix it. Carried.
+- [BLOCKING] Formulas F / H / AC-CD-41: V for cast wards with resistance, block or evade payloads uses the full T, so Black Tortoise Shell computes V 96.4 against C 25.9 (3.72, fail) while the catalogue lists 0.930, which needs r · I · 2 s. New.
+- [RECOMMENDED] Rule 8 / States / Edge Cases: wording on a cast ward with a broken shield conflicts. Carried.
+- [RECOMMENDED] Rules 7–9: a standing shield's start value and an unpaid ward's shield behaviour are unstated. Carried.
+- [RECOMMENDED] Formulas G: `x = Q_use / b` divides by 0 for reserved-only sides. Carried.
+- [RECOMMENDED] Rule 11: a status-only or soul-only ward switches off the default ward. Carried.
+- [RECOMMENDED] Formulas B: a_b's range against the a_b 2.0 cases. Carried.
+- [RECOMMENDED] Formulas A2: `a_w` "ward-role" against all non-body defence. Carried.
+- [RECOMMENDED] Rules 5, 11: effects.md OQ 3 and AC-EF-40 wait on two No Ward flags. Carried.
+- [RECOMMENDED] Formulas A, A2, B / rule 7: modifiers.md Pending rows cite this GDD for rules it does not define. Carried.
+- [RECOMMENDED] Registry: `defence_ehp` range, `default_resist` note, `dot_pool_cap` unregistered. Carried; out of scope for this pass.
+- [RECOMMENDED] Tuning Knobs: seven values missing. Carried.
+- [RECOMMENDED] Cross-References: no row for effects.md or Modifier System rule 13. Carried.
+- [RECOMMENDED] Dependencies: back-references missing in the #43 sweep's GDDs. Carried.
+- [RECOMMENDED] Formulas E: the "continuous model" label on 37.6 s. Carried.
+- [RECOMMENDED] Formulas B, I / modifiers.md: artifact defence "about 0.35 on body gear" looks stale. Carried; the owner is modifiers.md.
+- [RECOMMENDED] Edge Cases (Compile) / rule 3 / Interactions: "every defence sum is compiled once" conflicts with curses that lower resistance mid-fight and effects.md's "raise or lower a ward ... while a condition holds" action. New.
+- [RECOMMENDED] Rule 19 / Edge Cases: "the defeat check is final" does not mention Effects' Down step, whose refusal sets health to 1, and nothing says whether a refusal counts as healing under `no_heal` or the heal cap. The registry's `down_step` lists this GDD as a reference, but it never mentions it. New.
+- [RECOMMENDED] Rule 7 / States / AC-CD-17 / Formulas F: between firings a cast ward is "down" in rule 7, AC-CD-17 and Formulas F, but "Expired" in States, and States has no state before a cast ward's first firing. New.
+- [RECOMMENDED] Formulas I: the `[fire, over_time]` resistance row has no rule behind it; rule 3 and modifiers.md's incoming-hit scope match resistance on the final damage type only. New.
+- [ADVISORY] Player Fantasy section absent (advisory at `standard`; Game Feel covers it).
+Safe fixes applied after this review (re-review pass 3): 3; see `rereview-2026-11-08-decisions.md`. The hash below is the content after those fixes.
+Reviewed-Content-Hash: design/gdd/combat-defence.md df399caecd2077ce49634e2a0660af1b1623b26a
+Reviewed-Content-Hash: design/registry/entities.yaml 8a5e49fd2189be5cd8723a1a3c8808f8f72ce67a
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/combat.md 1bb3c01f55e9047849d0eb7d565c94695474adba
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md e9ff439387a6274e53c8244d31d9e2164f8209be
+Reviewed-Content-Hash: design/gdd/modifiers.md 1c088bc23c1bf8767f0d0309f106d034133b7732
+Reviewed-Content-Hash: design/gdd/effects.md 1a4a6f1d16dda2da7b6408f4fad1e8f2e46d8cc3
+Reviewed-Content-Hash: design/gdd/thien-kiep.md 48cf4978cc8de61a69ef33edc82e66d0c1b2ee58
+Reviewed-Content-Hash: design/gdd/character-stats.md 9a1732061df85886a4bfa92f3119d502fd8c1743
+Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc

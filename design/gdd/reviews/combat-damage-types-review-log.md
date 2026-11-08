@@ -122,3 +122,125 @@ Reviewed-Content-Hash: design/gdd/combat.md 1bb3c01f55e9047849d0eb7d565c94695474
 Reviewed-Content-Hash: design/gdd/linh-can.md ecd0d4f0318e99185b0048dfad44e0f48ca56987
 Reviewed-Content-Hash: design/gdd/modifiers.md 20ff37b70820cf176aa8afd907f61c1732c33093
 Reviewed-Content-Hash: design/gdd/effects.md 380b5401e2e4a4654cd4f2e5629faa4d2d14be85
+
+## Review — 2026-11-08 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: M
+Specialists: none (lean mode; unattended daytime re-review, pass 1, full fresh review)
+Blocking items: 3 | Recommended: 11
+Summary: Both overnight blockers are resolved: mixed Soul hits are rejected (rule 1, Edge Cases, AC-DT-22, AC-DT-25) and same-step conversions read the step's start (rule 6, AC-DT-16, registry `damage_parts`). All worked examples and AC numbers were recomputed and hold (150, 146, 9.91, 11.56, 2.57/3.00, 15.91, 8.56, 7.34, 0.583/0.417), and the registry values agree. The fresh pass found three new blockers an implementer would have to guess or that collide with another decision: which conversions win inside one step, a modifier conversion tier the Modifier System says cannot exist, and a tick path that does not fit Qi Disruption.
+Prior verdict resolved: Yes (both overnight blockers). Earlier recommendations also closed: zero-move counting, ticks not converted, penetration wording, registry `defence_resistance`, OQ 4 narrowed, 3 × bound, Tuning Knobs table. Still open: index row 21b's dependency cell, back-references, Player Fantasy (advisory).
+Findings:
+- [BLOCKING] Core Rule 6 / Formulas A / AC-DT-21: the fixed order names tiers only, so with three conversions inside one tier nothing says which two apply, or whether scaling runs before or after the limit.
+- [BLOCKING] Core Rule 6 / Formulas A / Tuning Knobs / AC-DT-26: modifiers are a conversion tier, but modifiers.md (Scope, "Left out on purpose") and the Modifier vs Effect decision make every conversion an Effect, so the tier has no source and AC-DT-26's modifier conversion cannot be built.
+- [BLOCKING] Core Rule 4 / Core Rule 7: "Any tick" ends in shields and health, but Qi Disruption (Force, effects.md) ticks linh lực and not health; whether resistance and shields apply to it is undefined.
+- [RECOMMENDED] Core Rule 1: Chaos's typical sources list "curses' damage", but Combat rule 8 and Defence rule 1 say curses never deal damage.
+- [RECOMMENDED] Core Rule 6 / Edge Cases: penetration "reads only the final type", but Defence rule 4 and the Modifier System allow penetration scoped by any tag, such as an element.
+- [RECOMMENDED] Visual/Audio / AC-DT-22: Lightning (#FFE14D) and Light (#F5C542) both round to 256-colour code 221, and they are near-identical hues, against the Tuning Knobs' "8 stay distinct".
+- [RECOMMENDED] Edge Cases / AC-DT-20 / AC-DT-24: only arts and statuses must name a type; Effect free hits (Echo "same tags", Shattering Ward "Free Force hit") have no rule for their parts or conversions.
+- [RECOMMENDED] Interactions: the Effects row disagrees with effects.md on direction and owner, and Combat is still named owner of conversion order although rule 6 now defines the steps.
+- [RECOMMENDED] Acceptance Criteria: no criterion covers a same-step chain (Physical → Fire with Fire → Lightning moves no new Fire to Lightning) or a later step reading what an earlier step left.
+- [RECOMMENDED] Cross-References: no rows for modifiers.md (rule 13; scopes) or effects.md (rule 6 action; statuses), though rules 2, 5, 6, 8 and Tuning Knobs cite them.
+- [RECOMMENDED] Open Question 4: effects.md already says Light has no tick, so the remainder can close.
+- [RECOMMENDED] Open Question 1: "Chaos" naming is due "before content is authored", but Chaos content already exists in effects.md and modifiers.md.
+- [RECOMMENDED] systems-index row 21b: the dependency cell still says "resistance by kind and element" (only the status cell was in scope).
+- [RECOMMENDED] Dependencies: combat.md, linh-can.md, cong-phap.md, thien-kiep.md and item-database.md do not list this system yet (carried).
+- [NICE-TO-HAVE] Core Rule 5: "rarer sources" against "rare sources only" in Tuning Knobs and OQ 3.
+- [ADVISORY] Player Fantasy: absent (advisory at standard); Game Feel covers most of it.
+Safe fixes applied (re-review pass 1, 9): header status, Last Updated and Last Verified; rule 6 zero-move wording (source-type parts' history, per Formulas A); Formulas A same-step update (Σ c_k at the step's end, per rule 6 and AC-DT-16); Formulas A example and AC-DT-14 name the later step their numbers need; States conversion timing (after evade, before resistance); Cross-References rows for rules 4, 5 and 1/4.
+Autonomous decisions: full re-review (target changed); revise-now → [B], design choices deferred to the user; systems-index kept at Needs Revision with this outcome in the status cell; review log appended; next step: user answers the blockers in `rereview-2026-11-08-decisions.md`, then a fresh-session re-review.
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md d5a09b75ed4ddb6bd15ccb5988e5a6edcbb9c5af
+Reviewed-Content-Hash: design/registry/entities.yaml 8a5e49fd2189be5cd8723a1a3c8808f8f72ce67a
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/combat-defence.md da752666e06252aa2820e7c2eeba06b43f561af3
+Reviewed-Content-Hash: design/gdd/combat.md 1bb3c01f55e9047849d0eb7d565c94695474adba
+Reviewed-Content-Hash: design/gdd/linh-can.md ecd0d4f0318e99185b0048dfad44e0f48ca56987
+Reviewed-Content-Hash: design/gdd/modifiers.md 4e716c015150db487659925dd70c5dfa4f196613
+Reviewed-Content-Hash: design/gdd/effects.md 675919fd8277f2b82b09c81014e8ecce480cfbce
+Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc
+
+## Review — 2026-11-08 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: M
+Specialists: none (lean mode; unattended daytime re-review, pass 2)
+Blocking items: 3 | Recommended: 14
+Summary: The freshness check found this GDD, the registry and the skill byte-identical to pass 1; only combat-defence.md, modifiers.md and effects.md had changed. The skill's path is a cross-document re-check, and the GDD was also re-read in full and its numbers recomputed by hand. No cross-document conflict appeared: the thể tu fixture, defence rules 1, 3, 4, 9 and 13, the shield defaults, the resistance cap and floor and the status types all agree. All three blockers need user decisions, so they stand. The re-read added three recommended findings and no blocker.
+Prior verdict resolved: No (the three pass 1 blockers need user decisions; re-checked against the current sibling text and still open).
+Findings:
+- [BLOCKING] Core Rule 6 / AC-DT-21: order inside one step, and whether scaling runs before or after the limit of 2, are undefined (open from pass 1).
+- [BLOCKING] Core Rule 6 / Formulas A / Tuning Knobs / AC-DT-26: the modifier conversion tier has no source, because modifiers.md still says a conversion share is an Effect (open from pass 1).
+- [BLOCKING] Core Rules 4, 7: "Any tick" ends in shields and health, but Qi Disruption ticks linh lực, not health (open from pass 1).
+- [RECOMMENDED] Core Rule 1: Chaos's sources list "curses' damage" against Combat rule 8 and Defence rule 1 (open).
+- [RECOMMENDED] Core Rule 6 / Edge Cases: penetration "reads only the final type" against Defence rule 4's tag scopes; Defence Formulas A already words it "a type scope matches the final type only" (open).
+- [RECOMMENDED] Visual/Audio / AC-DT-22: Lightning and Light both round to 256-colour code 221 (open).
+- [RECOMMENDED] Edge Cases / AC-DT-20 / AC-DT-24: Effect free hits have no rule for their parts or conversions (open).
+- [RECOMMENDED] Interactions: the Effects row disagrees with effects.md on direction and owner, and Combat is still named owner of conversion order (open).
+- [RECOMMENDED] Acceptance Criteria: no case for a same-step chain or for a later step reading what an earlier step left (open).
+- [RECOMMENDED] Cross-References: no rows for modifiers.md or effects.md (open).
+- [RECOMMENDED] Open Question 4: effects.md already says Light has no tick (open).
+- [RECOMMENDED] Open Question 1: "Chaos" naming is due, and Chaos content exists (open).
+- [RECOMMENDED] systems-index row 21b: the dependency cell still says "resistance by kind and element" (open).
+- [RECOMMENDED] Dependencies: combat.md, linh-can.md, cong-phap.md, thien-kiep.md and item-database.md do not list this system yet (open).
+- [RECOMMENDED] Core Rule 6 / Formulas A (new): a 100 % conversion leaves a part at share 0. Nothing says whether it survives, so "no part of its source type is left" and the at-least-1 floor (Combat Formulas C; Defence rule 1) can each read two ways.
+- [RECOMMENDED] Core Rule 6 (new): "changing that takes an Effect" points at an action effects.md's action table does not list.
+- [RECOMMENDED] Core Rule 1 (new): effects.md's Sundered breaks ties by "Combat Damage Types' order", but this GDD never declares rule 1's table a fixed order.
+- [NICE-TO-HAVE] Formulas A (new): a conversion from a type to itself passes the `Y ∉ hist_j` test and would spawn a part of the same type.
+- [NICE-TO-HAVE] Edge Cases (new): "authored or modified to mix Soul ... compile rejects" cannot catch a change made at the hit; no such Effect exists today.
+- [NICE-TO-HAVE] Core Rule 5: "rarer sources" against "rare sources only" in Tuning Knobs and OQ 3 (carried).
+- [ADVISORY] Player Fantasy: absent (advisory at standard); Game Feel covers most of it.
+Safe fixes applied (re-review pass 2, 2): header status now reads "two passes"; the Cross-References defence row now also cites this GDD's rule 7 and Formulas A, and Defence Formulas A2, which the Formulas note names.
+Checks: all worked examples and AC numbers recomputed by hand and they hold. Registry search covered the combat, defence and modifier entry names and their values, 20 lines, no conflict; a search over all 278 names needed a permission no one could answer, and the entries left out cover other systems (cultivation, economy, quests).
+Autonomous decisions: freshness path "only stamped cross-documents CHANGED" → cross-document re-check plus a full re-read; revise-now → [B], design choices deferred to the user; systems-index kept at Needs Revision with this pass noted in the status cell; review log appended; next step: user answers the blockers in `rereview-2026-11-08-decisions.md`, then a fresh-session re-review.
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md e9ff439387a6274e53c8244d31d9e2164f8209be
+Reviewed-Content-Hash: design/registry/entities.yaml 8a5e49fd2189be5cd8723a1a3c8808f8f72ce67a
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/combat-defence.md e4325d2daf244efd0e86973067b480177d2c412e
+Reviewed-Content-Hash: design/gdd/combat.md 1bb3c01f55e9047849d0eb7d565c94695474adba
+Reviewed-Content-Hash: design/gdd/linh-can.md ecd0d4f0318e99185b0048dfad44e0f48ca56987
+Reviewed-Content-Hash: design/gdd/modifiers.md 83069a628589d674abcd5fa8162f183cd948b2be
+Reviewed-Content-Hash: design/gdd/effects.md d0c1c3d6a61d4dfe7c34dbdbb9b977ae941ebe6d
+Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc
+
+## Review — 2026-11-08 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: M
+Specialists: none (lean mode; unattended daytime re-review, pass 3)
+Blocking items: 3 | Recommended: 16
+Summary: The freshness check found this GDD, the registry and the skill byte-identical to pass 2; only combat-defence.md, modifiers.md and effects.md had changed (their own pass 2 and 3 safe fixes). The skill's path is a cross-document re-check, and the GDD was also re-read in full and its numbers recomputed by hand. No conflict with a recorded value appeared, and no new blocker. All three blockers need user decisions, so they stand. The re-read added two recommended findings.
+Prior verdict resolved: No (the three pass 1 blockers need user decisions; re-checked against the current sibling text and still open).
+Findings:
+- [BLOCKING] Core Rule 6 / AC-DT-21: order inside one step, and whether scaling runs before or after the limit of 2, are undefined (open from pass 1).
+- [BLOCKING] Core Rule 6 / Formulas A / Tuning Knobs / AC-DT-26: the modifier conversion tier has no source, because modifiers.md still says a conversion share is an Effect (open from pass 1).
+- [BLOCKING] Core Rules 4, 7: "Any tick" ends in shields and health, but Qi Disruption ticks linh lực, not health (open from pass 1).
+- [RECOMMENDED] Core Rule 1: Chaos's sources list "curses' damage" against Combat rule 8 and Defence rule 1 (open).
+- [RECOMMENDED] Core Rule 6 / Edge Cases: penetration "reads only the final type" against Defence rule 4's tag scopes (open).
+- [RECOMMENDED] Visual/Audio / AC-DT-22: Lightning and Light both round to 256-colour code 221 (open).
+- [RECOMMENDED] Edge Cases / AC-DT-20 / AC-DT-24: Effect free hits have no rule for their parts or conversions (open).
+- [RECOMMENDED] Interactions: the Effects row disagrees with effects.md on direction and owner, and Combat is still named owner of conversion order (open).
+- [RECOMMENDED] Acceptance Criteria: no case for a same-step chain or for a later step reading what an earlier step left (open).
+- [RECOMMENDED] Cross-References: no rows for modifiers.md or effects.md (open).
+- [RECOMMENDED] Open Question 4: effects.md already says Light has no tick (open).
+- [RECOMMENDED] Open Question 1: "Chaos" naming is due, and Chaos content exists (open).
+- [RECOMMENDED] systems-index row 21b: the dependency cell still says "resistance by kind and element" (open).
+- [RECOMMENDED] Dependencies: combat.md, linh-can.md, cong-phap.md, thien-kiep.md and item-database.md do not list this system yet (open).
+- [RECOMMENDED] Core Rule 6 / Formulas A: whether a part at share 0 survives a 100 % conversion is undefined (open from pass 2).
+- [RECOMMENDED] Core Rule 6: "changing that takes an Effect" points at an action effects.md's action table does not list (open from pass 2).
+- [RECOMMENDED] Core Rule 1: effects.md's Sundered breaks ties by "Combat Damage Types' order", but this GDD never declares rule 1's table a fixed order (open from pass 2).
+- [RECOMMENDED] Core Rule 4 (new): "Block is taken once per hit, split across its parts by size" does not fit the Pending typed-block row in modifiers.md, where a typed rating blocks only matching parts after the shared pool.
+- [RECOMMENDED] Core Rule 8 / Interactions / Dependencies (new): these name element-relation Effects, but effects.md has none, and rule 5's closed read list has no element-relation read.
+- [NICE-TO-HAVE] Formulas A: a conversion from a type to itself passes the `Y ∉ hist_j` test (carried).
+- [NICE-TO-HAVE] Edge Cases: "authored or modified to mix Soul ... compile rejects" cannot catch a change made at the hit; no such Effect exists today (carried).
+- [NICE-TO-HAVE] Core Rule 5: "rarer sources" against "rare sources only" in Tuning Knobs and OQ 3 (carried).
+- [ADVISORY] Player Fantasy: absent (advisory at standard); Game Feel covers most of it.
+Safe fixes applied (re-review pass 3, 1): header status now reads "three passes".
+Checks: all worked examples and AC numbers recomputed by hand and they hold; every rule number in Cross-References was checked against its file and points at the right rule; Dependencies' status cells match the systems index. Registry search covered the 37 entry names in the combat, defence, soul, curse, element and conversion domains, by term, not all 278: a search built from every name was refused by a permission check no one could answer. The entries left out cover other systems. No conflict.
+Autonomous decisions: freshness path "only stamped cross-documents CHANGED" → cross-document re-check plus a full re-read; revise-now → [B], design choices deferred to the user; systems-index kept at Needs Revision with this pass noted in the status cell; review log appended; next step: user answers the blockers in `rereview-2026-11-08-decisions.md`, then a fresh-session re-review.
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md abcf4805891aba5fe1d9a44a0b164d162cc7cb21
+Reviewed-Content-Hash: design/registry/entities.yaml 8a5e49fd2189be5cd8723a1a3c8808f8f72ce67a
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/combat-defence.md df399caecd2077ce49634e2a0660af1b1623b26a
+Reviewed-Content-Hash: design/gdd/combat.md 1bb3c01f55e9047849d0eb7d565c94695474adba
+Reviewed-Content-Hash: design/gdd/linh-can.md ecd0d4f0318e99185b0048dfad44e0f48ca56987
+Reviewed-Content-Hash: design/gdd/modifiers.md 1c088bc23c1bf8767f0d0309f106d034133b7732
+Reviewed-Content-Hash: design/gdd/effects.md 1a4a6f1d16dda2da7b6408f4fad1e8f2e46d8cc3
+Reviewed-Content-Hash: design/gdd/game-concept.md 0430e49dd96dd3f455d70f249ec1f6c7f76823bc
