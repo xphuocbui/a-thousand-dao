@@ -793,7 +793,7 @@ formulas:
       - weapon_min
       - ward_max
     output_range: "weapon, ward, body, utility"
-    expression: "a = attack/(attack+defense); weapon if a >= weapon_min, ward if a <= ward_max, else utility; authored roles replace this; body is only authored"
+    expression: "a = attack/(attack+defense); weapon if a >= weapon_min, ward_gear if a <= ward_max, else utility; authored roles replace this; body_gear is only authored"
     notes: "Read by Combat Formulas D."
     added: 2026-11-06
     revised: ""

@@ -341,7 +341,7 @@ Standing, and never to a Down side.
 | Modifier System (#40) | in | Resistance (all and per damage type), resistance cap, penetration, block rating, body shield, ward strength and efficiency, reservation efficiency, ward slots, healing, healing taken, health regeneration, evade, soul and status resistance | Modifier System (stats and prices); this GDD (what they do) |
 | Effects System (#41) | in | Lifesteal and triggered heals, other reservations, curses that lower healing taken or resistance | Effects System |
 | Cultivation Techniques (#9), The Way (#39) | in | Ward spells and heal arts as technique and Way content; resistance and block modifiers | each system |
-| Item DB (#13), Artifact Refining (#16) | in | Ward-role artifacts, resistance affixes, body gear | Item DB |
+| Item DB (#13), Artifact Refining (#16) | in | Ward_gear-role artifacts, resistance affixes, body gear | Item DB |
 | Talismans (#18), Formations (#17), Alchemy (#15) | in | Cast wards from talismans, formation wards and ground resistance, healing pills (provisional) | each system |
 | Heavenly Tribulation (#22) | in | `no_heal` on every wave; resistance as its defence against tribulation lightning | Heavenly Tribulation |
 | NPC Builds | in | The same profile rules (rule 21) | NPC Builds |
@@ -378,7 +378,7 @@ Physical (570 against 575), stays weaker against Force (368.5) and is weakest ag
 Moved here from Combat Formulas D (re-review CD 2; the Combat revision #43 leaves a stub there). The values
 are unchanged.
 
-`ws = clamp(defense_pct + Σ ward_strength + 100 · ward_gear_scale · a_w, ward_floor, ward_cap)` ; `we = clamp(ward_efficiency_pct + 100 · ward_gear_scale · a_w, 0, ward_cap)` ; `a_w = Σ (defence of artifacts without the body tag) / (B_p · stage_mult)` ; `a_b = Σ (defence of body-tagged artifacts) / (B_p · stage_mult)`
+`ws = clamp(defense_pct + Σ ward_strength + 100 · ward_gear_scale · a_w, ward_floor, ward_cap)` ; `we = clamp(ward_efficiency_pct + 100 · ward_gear_scale · a_w, 0, ward_cap)` ; `a_w = Σ (defence of artifacts without the body_gear tag) / (B_p · stage_mult)` ; `a_b = Σ (defence of body_gear-tagged artifacts) / (B_p · stage_mult)`
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
@@ -386,8 +386,8 @@ are unchanged.
 | ward_strength | float | any | modifiers and Effects naming ward strength | Added flat |
 | ward_efficiency_pct | float | ≥ 0 | Modifier System | Lowers payments, speeds recharge |
 | ward_gear_scale | float | 0.30 | data file | Artifact defence 0.85 × B_p gives +25.5 to both ws and we |
-| a_w | float | ≥ 0 | Item DB | **All non-body artifact defence** (re-review CD 10; the role-tag rename is draft D2). Counts in full for ws and we; counts up to 1 for gear block only (Formulas A2, Open Question 13; re-review 2026-11-08b CD-01) |
-| a_b | float | 0–1.0 per piece at top end | Item DB | Body-tagged artifact defence. One top-end body piece gives 1.0; a_b sums every body-tagged piece, so 2.0 means two top-end pieces (re-review CD 9) |
+| a_w | float | ≥ 0 | Item DB | **All non-body artifact defence** (re-review CD 10; the role-tag rename of `ward`/`body` to `ward_gear`/`body_gear` is done, D2, 2026-11-08). Counts in full for ws and we; counts up to 1 for gear block only (Formulas A2, Open Question 13; re-review 2026-11-08b CD-01) |
+| a_b | float | 0–1.0 per piece at top end | Item DB | body_gear-tagged artifact defence. One top-end body piece gives 1.0; a_b sums every body_gear-tagged piece, so 2.0 means two top-end pieces (re-review CD 9) |
 | ward_floor, ward_cap | float | −90, 400 | data file | ws stays above −90 so `1 + ws/100` stays positive; both stats cap at 400 |
 
 **Anchor:** Combat's typical fixture FX-T sets ws = we = 30.8. With a_w 0.85 the gear term gives 25.5 of that,
@@ -450,7 +450,7 @@ The block formula is defined as:
 | flesh_block | float | 4.4 | data file | Flesh's rating per n_body, calibrated to the unbuilt mirror |
 | n_body | float | 0.25–8 | Combat Formulas A | Căn cốt and health % raise it |
 | gear_block | float | 12 per unit of a | data file | Ward gear counts up to a = 1; body gear counts in full (Formulas B) |
-| a_w, a_b | float | ≥ 0 | Formulas A0 | All non-body artifact defence; body-tagged artifact defence |
+| a_w, a_b | float | ≥ 0 | Formulas A0 | All non-body_gear artifact defence; body_gear-tagged artifact defence |
 | b_src | float | ≥ 0 | body techniques; `block_rating` modifiers | Block rating from other sources |
 | b_w | float | 0–100 (`ward_block_max`) | ward record | A ward's block payload, scaled by ws |
 | a_j | float | ≥ 0 | A | Each part after resistance |
@@ -508,7 +508,7 @@ ward shield `S_w = σ · qi_max · (1 + ws/100)`, recharging at `shield_recharge
 | σ | float | 0–0.50 | ward record | Ward shield size as a share of the full `qi_max` |
 | σ_b | float | ≥ 0 | body techniques, body gear, `body_shield_pct` | Body shield as a share of `health_max`. Not scaled by ws |
 | body_gear_shield | float | 0.60 per unit of a_b | data file | Body gear's shield (user decision 2026-11-07: body gear gives mainly shield, worth the same W per defence point as ward gear, 0.648) |
-| a_b | float | 0–1.0 per piece at top end | Formulas A0 | Body-tagged artifact defence / (B_p · stage_mult). Top-end body gear is 1.0 × B_p, against 5 × B_p for ward gear; 2.0 is two top-end pieces |
+| a_b | float | 0–1.0 per piece at top end | Formulas A0 | body_gear-tagged artifact defence / (B_p · stage_mult). Top-end body gear is 1.0 × B_p, against 5 × B_p for ward gear; 2.0 is two top-end pieces |
 | κ | float | 0.04–0.25 | ward record | Cast cost share |
 | β | float | 1.0–2.5 | Modifier System Formulas B | The ward's breadth multiplier |
 | shield_per_cost | float | 0.76 | price check (1.25 · ε_0) | Cast shields are sized against their cost |
@@ -764,7 +764,7 @@ linh lực 164.1, the default ward only.
 | Piece | Grants | Value |
 |---|---|---|
 | Iron Body Art (Thiết Thân Công), tier t of 1–5 | per tier: block +10, σ_b +0.10, Physical resistance +6.7 pp. Tier 3: 30 / 0.30 / 0.20 | about 20.7 W per tier |
-| Black Iron Armour (Ô Thiết Giáp), body-tagged artifact | at a_b 1.0 (top end): block 12, σ_b 0.60; may carry a Physical-resistance affix | about 65 W, the same as ward gear at a 1.0 |
+| Black Iron Armour (Ô Thiết Giáp), body_gear-tagged artifact | at a_b 1.0 (top end): block 12, σ_b 0.60; may carry a Physical-resistance affix | about 65 W, the same as ward gear at a 1.0 |
 | Căn cốt, per talent point | +2.22 % health, and so +2.22 % on the body shield; +0.1 block rating; no shield of its own | about 4.6 W to a thể tu, against its 3.0 price |
 
 ### I. W prices for the new defence stats
@@ -882,7 +882,7 @@ marks a derived price, **G** a guess.
 | Effects System (#41) | Soft | Lifesteal, triggered heals, other reservations, curses on resistance and healing taken | Designed 2026-11-08; Needs Revision (design review 2026-11-08) | Yes: rule 6 (restores and reservation) and its Cross-References |
 | Heavenly Tribulation (#22) | Soft | Sets `no_heal` on every wave; tribulation lightning is Lightning | Approved for rules | Not yet: its rule 7 should cite `no_heal` |
 | Cultivation Techniques (#9), The Way (#39) | Soft | Ward spells and heal arts as content | In review; approved | Not yet |
-| Item DB (#13), Artifact Refining (#16) | Soft | Ward-role artifacts, resistance affixes, body gear | Approved; built | Not yet |
+| Item DB (#13), Artifact Refining (#16) | Soft | Ward_gear-role artifacts, resistance affixes, body gear | Approved; built | Not yet |
 | Talismans (#18), Formations (#17), Alchemy (#15) | Soft | Cast wards from talismans, formation wards, healing pills | Implemented, quick specs | Not yet |
 | NPC Builds | Soft | The same profile rules, including a soul defence by realm (rule 14) | Implemented | Not yet |
 | Game UI (#37), Debug Terminal | Soft | Bars, ward states, Breakdown lines | Not started; built | Not yet |

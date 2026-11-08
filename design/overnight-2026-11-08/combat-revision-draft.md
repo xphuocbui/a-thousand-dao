@@ -37,6 +37,29 @@ modifiers.md, **Effects** = effects.md. "rule 4" with no file name means combat.
 
 ### During #43
 
+> **Decided 2026-11-08 (evening, user), after the triage in `combat-revision-triage.md`.** D2 is applied in
+> Item DB, Defence, Modifiers and the registry (6 combat.md sites remain for #43, listed at the end of the triage).
+> Settled by the approved GDDs: D10 (effects.md rule 11), D13 (standing statuses exempt), D14 (both ways to pay in
+> health kept). Answered, all as recommended:
+> - **D5** adopt `basic`, `quick`, `slow`, `cheap`, `costly` with the thresholds in modifiers.md rule 10.
+> - **D6** `start_qi_share` applies to the usable maximum `qi_max · (1 − Σ reserved)`.
+> - **D7** a clash uses each attacker's own damage-type mix for ehp; `display_power` uses a fixed
+>   `reference_type_mix` fitted by the harness.
+> - **D8** four coverage groups: Physical/Force; Fire/Cold/Lightning/Light; Chaos; Soul.
+> - **D9** retire `trig_ward_strength` and `trig_ward_seconds`; a trigger uses Effects' "raise or lower a ward"
+>   action with its duration on the Effect record.
+> - **D11** resistance penetration applies to ticks, snapshotted when the status is applied; the at-least-1 floor
+>   applies only to what reaches health.
+> - **D12** Slackened Soul is −15 pp per stack, at most −30 pp, and soul resistance never goes below 0.
+> - **D15** Combat's duplicate ward and body-guard ACs become pointers; Combat keeps path order, the timeline and
+>   same-millisecond expiry.
+> - **D16** the Advisor warns when Physical ehp at 0 linh lực is below 1.25 × `health_max`, the threshold a data knob.
+> - **D17** cleanse tags stay in the effect family; the status family holds one tag per status.
+> - **D18** the defence keys go in a `defence` section of `combat_rules.json`.
+> - **D19** shield recharge is computed when read; it schedules no timeline event.
+> Also settled for #43's rule 6 (round 3 reviews, all option A): conversion host order, per-part scaling, stacked
+> Chaos conversion accepted.
+
 | # | Decision | Recommended | Blocks items |
 |---|---|---|---|
 | D5 | **Adopt the derived art tags** `basic`, `quick` (cooldown under 2 s), `slow` (6 s or more), `cheap` (cost share 5 % or less) and `costly` (20 % or more)? (Modifiers OQ 2, rule 10) | Adopt them as proposed. Combat assigns them at compile, from **authored** cooldown and cost, so art speed and cost cuts never change them | 8, 16 |

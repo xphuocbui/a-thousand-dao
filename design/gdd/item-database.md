@@ -1,6 +1,6 @@
 # Item Database & Generation
 
-> **Status**: Designed (pending review)
+> **Status**: Designed (pending review). D2 applied 2026-11-08: the role tags `ward` and `body` are now `ward_gear` and `body_gear`.
 > **Author**: user + agents
 > **Last Updated**: 2026-11-06
 > **Last Verified**: 2026-11-06
@@ -96,10 +96,11 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
    role (rule 6), effect (poison, cleanse, ward, key), source. Systems read tags; the Item Database only
    stores them and checks them at load, rejecting any tag that is not defined in data. A tag never
    changes what an item is, only what reads it.
-6. **Equippable items declare a role by tags** (user decision 2026-11-06): **weapon**, **ward**,
-   **body** and **utility**, and a base may carry several. Weapon, ward and utility default from a base's attack
-   and defence (Formulas E); **body** is always authored, because numbers cannot tell a shield from
-   armour. Combat reads them: a body piece's defence feeds body guard, and every other
+6. **Equippable items declare a role by tags** (user decision 2026-11-06): **weapon**, **ward_gear**,
+   **body_gear** and **utility**, and a base may carry several (D2, 2026-11-08: `ward` and `body` were renamed so the
+   role tag never clashes with the mode tag `ward`). Weapon, ward_gear and utility default from a base's attack
+   and defence (Formulas E); **body_gear** is always authored, because numbers cannot tell a shield from
+   armour. Combat reads them: a body_gear piece's defence feeds body guard, and every other
    piece's defence feeds the ward, whatever its role (Combat Formulas D). Attack feeds offence on any piece.
    The Item Database adds no slots by role.
 7. **Rarity is one shared ladder; each kind keeps its own detail** (user decision 2026-11-06). Every item
@@ -353,7 +354,7 @@ and Combat.
 
 The default_role formula is defined as:
 
-`a = attack / (attack + defense)` ; role = **weapon** if `a ≥ weapon_min`, **ward** if `a ≤ ward_max`, otherwise **utility**. An authored `roles` list on the base replaces this. **Body** is only ever authored.
+`a = attack / (attack + defense)` ; role = **weapon** if `a ≥ weapon_min`, **ward_gear** if `a ≤ ward_max`, otherwise **utility**. An authored `roles` list on the base replaces this. **body_gear** is only ever authored.
 
 **Variables:**
 
@@ -361,7 +362,7 @@ The default_role formula is defined as:
 |---|---|---|---|---|
 | attack, defense | float | ≥ 0 | data file | The base's values, before grade and tier |
 | weapon_min, ward_max | float | 0.70, 0.30 | data file (**change**) | Thresholds; guesses |
-| roles | list | weapon, ward, body, utility | data file (**change**) | Authored override |
+| roles | list | weapon, ward_gear, body_gear, utility | data file (**change**) | Authored override |
 
 **Output Range:** one or more roles. A base with no attack and no defence is utility.
 
@@ -373,11 +374,11 @@ The default_role formula is defined as:
 | Châm | 22 / 0 | 1.00 | weapon |
 | Hồ Lô | 25 / 10 | 0.71 | weapon, utility (authored) |
 | Kỳ | 15 / 15 | 0.50 | utility |
-| Chuông | 10 / 25 | 0.29 | ward |
-| Thuẫn | 0 / 35 | 0.00 | ward |
-| Giáp | 0 / 30 | 0.00 | body (authored) |
+| Chuông | 10 / 25 | 0.29 | ward_gear |
+| Thuẫn | 0 / 35 | 0.00 | ward_gear |
+| Giáp | 0 / 30 | 0.00 | body_gear (authored) |
 
-**Example:** Chuông: attack 10, defence 25, so a = 10 / (10 + 25) = 0.29, at or under 0.30, so **ward**.
+**Example:** Chuông: attack 10, defence 25, so a = 10 / (10 + 25) = 0.29, at or under 0.30, so **ward_gear**.
 
 ### F. Budgets
 
@@ -584,7 +585,7 @@ All of these work in the Debug Terminal first, with numbered menus as elsewhere.
 | Rule 2, Formulas A | cong-phap.md rules 2, 17, Formulas E | Manuals, tiers, price | Not redefined here |
 | Rules 3, 13 | kinh-mach-do.md rule 7, Open Question 13 | The Mạch Ấn key | This GDD owns the item; sources stay open |
 | Formulas C, F | canh-gioi.md Formulas D, E | Breakthrough recipes, herb `min_age` | Calibrated; never changed here |
-| Rule 6, Formulas E | combat.md Formulas D, Open Question 10 | Body-tagged defence feeds body guard, the rest the ward | Answers Combat Open Question 10 for the built bases |
+| Rule 6, Formulas E | combat.md Formulas D, Open Question 10 | body_gear-tagged defence feeds body guard, the rest the ward | Answers Combat Open Question 10 for the built bases |
 | Rule 11 | kinh-mach-do.md capability #2 | Extra equip slots | Read only |
 | Formulas D | character-stats.md | Affix stat keys | Read only |
 
@@ -645,7 +646,7 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 **Roles**
 
 - **AC-ID-26** [Logic] Formulas E. Given FX-D, Phi Kiếm, Ấn, Phiến and Châm are weapon; Kỳ is utility; Chuông and Thuẫn are ward. Boundary fixtures: 70/30 is weapon, 30/70 is ward, 69/31 and 31/69 are utility. A base of 0/0 is utility with no division error.
-- **AC-ID-27** [Logic] Rule 6. Given FX-D, Hồ Lô is [weapon, utility] and Giáp is [body], although Thuẫn and Giáp both have `a` 0.00. No role is ever computed as body. Given six weapon-role artifacts, all six equip.
+- **AC-ID-27** [Logic] Rule 6. Given FX-D, Hồ Lô is [weapon, utility] and Giáp is [body_gear], although Thuẫn and Giáp both have `a` 0.00. No role is ever computed as body_gear. Given six weapon-role artifacts, all six equip.
 
 **Stacks**
 
@@ -756,6 +757,6 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 | 14 | What Formulas H means by drift and unrestricted recipes, whether windows roll, and whether NPCs count | economy-designer | AC-ID-71 to 77 |
 | 15 | A reserved manual keeps its flag after purchase; if the player sells it, nothing reissues it. Should it? | systems-designer | Cultivation Techniques rule 18 |
 | 16 | ~~Mạch Ấn bound to its cluster~~ **Closed 2026-11-06:** bound to its holder; it opens the nearest sealed cluster, as built. Meridian Map Open Question 19 should say the same | — | — |
-| 8 | Ward, body and utility roles beyond the 9 built bases, and new equippables Combat needs | game-designer | Content pass, Combat |
+| 8 | Ward_gear, body_gear and utility roles beyond the 9 built bases, and new equippables Combat needs | game-designer | Content pass, Combat |
 | 9 | All Formulas H thresholds, `weapon_min` and `ward_max` are guesses | economy-designer | Formulas E, H |
 | 10 | **To do (user 2026-11-06):** add more items to the game, authored by hand rather than generated. Today there are 10 herbs, 12 recipes, 8 materials, 9 artifact bases, 4 talismans and 2 treasures | user, game-designer | Content pass, Combat |
