@@ -24,10 +24,24 @@ rad, circ, place, walk = _pens.rad, _pens.circ, _pens.place, _pens.walk
 arcp, lolli, fork, diam, leaf, span = _pens.arcp, _pens.lolli, _pens.fork, _pens.diam, _pens.leaf, _pens.span
 pict, dress, out_angle, nearest, toward, place_in = _pens.pict, _pens.dress, _pens.out_angle, _pens.nearest, _pens.toward, _pens.place_in
 
-TITLE = "Metal Land Pilot"
+_sc = importlib.util.spec_from_file_location("common", os.path.join(os.path.dirname(os.path.abspath(__file__)), "common.py"))
+common = importlib.util.module_from_spec(_sc)
+_sc.loader.exec_module(common)
+_sl = importlib.util.spec_from_file_location("landkit", os.path.join(os.path.dirname(os.path.abspath(__file__)), "landkit.py"))
+landkit = importlib.util.module_from_spec(_sl)
+_sl.loader.exec_module(landkit)
+landkit.use(_pens, common)
+
+TITLE = "Metal Land (Kim)"
+START_KEY = "metal"
+ROAD_KINDS = common.ROAD_KINDS
 START_NAME = "Metal start (Kim)"
 AXIS, HALF_ANGLE, RIM = 144, 23, 76
+ROAD_JITTER = 0.0     # the approved pilot keeps its even road spacing
+HALO_EXTRA = 0        # and its hidden band as drawn
+NAME_ROTATE = False   # and its names
 MIN_SPACING = 0.6
+RIM_WAVE = []   # bays in the rim (judge round 6: vary the overhang)
 ROAD_MOD = [("can_cot", "", 1.0)]   # proposal: Metal's roads give root bone, as PoE's travel nodes give attributes
 ROADS = {}                          # named road-node lists, kept for the dressing pass
 
@@ -40,8 +54,8 @@ def build(T):
     jl, jr = T.junction(P(17, -20)), T.junction(P(17, 20))
     ringL = T.road([S, jl], step=2.8)
     ringR = T.road([S, jr], step=2.8)
-    T.exit(jl, P(17, -25.5), "Ring road to the Earth start", "12–15 points to the Earth start.")
-    T.exit(jr, P(17, 25.5), "Ring road to the Water start", "12–15 points to the Water start.")
+    T.exit(jl, P(17, -25.5), "Ring road to the Earth start", "12–15 points to the Earth start.", port="r0-")
+    T.exit(jr, P(17, 25.5), "Ring road to the Water start", "12–15 points to the Water start.", port="r0+")
 
     # ---- the Gate of Metal: PoE 2's twin-hub start web --------------------------------------------------------
     T.cluster("Gate of Metal", "twin-hub web", mastery=(0, 23.7))
@@ -82,8 +96,8 @@ def build(T):
     forgeRd = T.road([hubR, jfg, JR1], step=4.0)
     centreRd = T.road([ntop, JC1], step=2.4)
     ring1 = T.road([JW1, JL1, JC1, JR1, JE1], step=4.5)
-    T.exit(JW1, P(30.5, -25), "To the Earth–Metal blend zone", "Earth and Metal themes mix beyond here.")
-    T.exit(JE1, P(30.5, 25), "To the Metal–Water blend zone", "Metal and Water themes mix beyond here.")
+    T.exit(JW1, P(30.5, -25), "To the Earth–Metal blend zone", "Earth and Metal themes mix beyond here.", port="r1-")
+    T.exit(JE1, P(30.5, 25), "To the Metal–Water blend zone", "Metal and Water themes mix beyond here.", port="r1+")
 
     # ---- band 1 (r 31-44): Sword Bridge, Metal Wheel, Furnace Gourd -------------------------------------------
     JW2, JM2L, JC2, JM2R, JE2 = (T.junction(P(44.5, a)) for a in (-21, -13, 0, 8, 21))
@@ -146,8 +160,8 @@ def build(T):
     wSp = T.road([JW1, JW2], step=4.7)
     eSp = T.road([JE1, JE2], step=4.7)
     ring2 = T.road([JW2, JM2L, JC2, JM2R, JE2], step=4.7)
-    T.exit(JW2, P(44.5, -25), "To the Earth–Metal blend zone", "Earth and Metal themes mix beyond here.")
-    T.exit(JE2, P(44.5, 25), "To the Metal–Water blend zone", "Metal and Water themes mix beyond here.")
+    T.exit(JW2, P(44.5, -25), "To the Earth–Metal blend zone", "Earth and Metal themes mix beyond here.", port="r2-")
+    T.exit(JE2, P(44.5, 25), "To the Metal–Water blend zone", "Metal and Water themes mix beyond here.", port="r2+")
     T.attach(nearest(T, wSp[1:-1], lane_out[2]), lane_out)     # the edge road touches the bridge's outer lane
     eg = nearest(T, eSp[1:-1], lower[7])
     T.cluster("Gourd east link", "connector")
@@ -233,8 +247,8 @@ def build(T):
     # ---- band 3 (r 58-67): the rim -----------------------------------------------------------------------------
     cTop = T.road([lat_top, JC3], step=3.9)
     ring3 = T.road([JW3, JN3, JC3, JS3, JE3], step=5.0)
-    T.exit(JW3, P(58.5, -25), "To the Earth–Metal blend zone", "Earth and Metal themes mix beyond here.")
-    T.exit(JE3, P(58.5, 25), "To the Metal–Water blend zone", "Metal and Water themes mix beyond here.")
+    T.exit(JW3, P(58.5, -25), "To the Earth–Metal blend zone", "Earth and Metal themes mix beyond here.", port="r3-")
+    T.exit(JE3, P(58.5, 25), "To the Metal–Water blend zone", "Metal and Water themes mix beyond here.", port="r3+")
     gI = (-10.3, 54.6)
     T.cluster("Iron Body ring", "ring", mastery=gI)
     ia = [36 * j for j in range(10)]
@@ -280,6 +294,10 @@ def build(T):
     apex = T.node((0, 63.45), "N", "metal", name="Metal Bones (Kim Cốt)")
     T.link(upL, apex); T.link(upR, apex)
     T.end()
+    # the summit bypass (open point 2, 2026-11-08 night): a short road on the summit's Water side
+    bp = [T.junction((2.75, 61.2)), T.junction((3.0, 64.7)), T.junction((2.0, 67.9))]
+    T.road([JC3] + bp, step=4.0)
+    ROADS["bypass"] = bp
     T.cluster("Forge Anvil", "rectangle")
     angs_ = (12.3, 14.0, 15.7, 17.4, 19.1)   # set in from the Water edge, leaving room for the edge highway
     inner = [T.node(P(61.0, a_), "s", "refining") for a_ in angs_]
@@ -302,11 +320,12 @@ def build(T):
     ws3 = T.road([JW3, Jx, JW4], step=4.5)
     T.attach(Jx, dome_)
     cTop2 = T.road([apex, JC4], step=3.3)
+    T.link(ROADS["bypass"][-1], JC4, kind="highway")
     eTop = T.road([JE3, JE4], step=4.2)     # the Water-edge highway: the anvil can be skipped
     T.attach(nearest(T, eTop[1:-1], outer[4]), outer)
     ring4 = T.road([JW4, JN4, JC4, JS4, JE4], step=5.0)
-    T.exit(JW4, P(70, -24.5), "To the Earth–Metal blend zone", "Earth and Metal themes mix beyond here.")
-    T.exit(JE4, P(72, 26), "Lightning road to Thunder", "A long road of few nodes, 12–15 points to the Thunder island (provisional).", long=True)
+    T.exit(JW4, P(70, -24.5), "To the Earth–Metal blend zone", "Earth and Metal themes mix beyond here.", port="r4-")
+    T.exit(JE4, P(72, 26), "Ring road on to the lightning road", "Ring 4 meets the lightning road from Thunder in the Metal–Water blend zone.", port="r4+")
     T.cluster("Blade Pinwheel", "pinwheel", mastery=(-7.6, 65.4))
     hub = T.node((-7.6, 65.4), "s", "sword")
     arms = []
@@ -334,6 +353,8 @@ def build(T):
     ROADS.update(ringL=ringL, ringR=ringR, swordRd=swordRd, forgeRd=forgeRd, centreRd=centreRd, ring1=ring1, wSp=wSp, eSp=eSp,
                  ring2=ring2, cU=cU, ws2=ws2, es2=es2, cTop=cTop, ring3=ring3, ws3=ws3, cTop2=cTop2, eTop=eTop, ring4=ring4)
     dressing(T)
+    landkit.dress_roads(T, ROADS["bypass"], {"left": "sword", "right": "refining", "elem": "metal", "elem2": "body"})
+    landkit.halo(T, HALO)
 
 
 def dressing(T):
@@ -502,12 +523,12 @@ def dressing(T):
     fill((-6.0, 54.0), [("bowtie", "crit", 0.7, ["Heavy Blow (Trọng Kích)"], None), ("kite", "crit", 0.7, ["Heavy Blow (Trọng Kích)"], None)])
 
 KEYSTONES = {
-    "CALLED": {"name": "Called Blow (Báo Chiêu)", "rule": "Your crit chance is counted on a visible meter, not rolled.", "closes": "Crit chance cap 0.50 → 0.35"},
-    "NOWARD": {"name": "No Ward (Vô Hộ)", "rule": "You can never use a ward, and your body hardens instead: +25 pp body shield, regaining 2 % of health after each pulse in which no hit reached your health.", "closes": "No ward of any kind, including the default ward and soul wards"},
-    "HDB": {"name": "Heart Demon's Blade (Tâm Ma Nhập Đao)", "rule": "Your hits deal more for every point of heart demon above 30 (L5 +1 each, up to +40).", "closes": "Qi deviation chance × 2; every fight you win reports +1 heart demon"},
+    "CALLED": {"name": "Called Blow (Báo Chiêu) [effects.md]", "rule": "Your crit chance is counted on a visible meter, not rolled.", "closes": "Crit chance cap 0.50 → 0.35"},
+    "NOWARD": {"name": "No Ward (Vô Hộ) [effects.md]", "rule": "You can never use a ward, and your body hardens instead: +25 pp body shield, regaining 2 % of health after each pulse in which no hit reached your health.", "closes": "No ward of any kind, including the default ward and soul wards"},
+    "HDB": {"name": "Heart Demon's Blade (Tâm Ma Nhập Đao) [effects.md]", "rule": "Your hits deal more for every point of heart demon above 30 (L5 +1 each, up to +40).", "closes": "Qi deviation chance × 2; every fight you win reports +1 heart demon"},
 }
 
-THEMES = {
+_METAL_THEMES = {
     "start": {"label": "Start", "kind": "start", "small_name": "", "small": [], "notables": []},
     "road": {"label": "Travel node", "kind": "road", "small_name": "", "small": [], "notables": []},
     "exit": {"label": "Leads elsewhere", "kind": "exit", "small_name": "", "small": [], "notables": []},
@@ -570,3 +591,18 @@ THEMES = {
                 "notables": [("Sudden Insight (Đốn Ngộ)", [("ngo_tinh", "", .6), ("breakthrough_chance", "", .4)]),
                              ("Reading the Dao (Quan Đạo)", [("ngo_tinh", "", .5), ("cultivation_speed_pct", "", .5)])]},
 }
+
+THEMES = {**common.THEMES, **_METAL_THEMES}
+
+# the hidden band beyond Metal's rim: sealed clusters (authored) and open ones (written by the story); Kinh Mạch Đồ
+# rules 6-13. Angle off the axis, kind, theme, condition, name, figure.
+HALO = [
+    (-19, "sealed", "Artifact Refining", "item: a Meridian Seal", "Sealed: Ancestral Forge (Tổ Lô)", "drum"),
+    (-15.3, "open", "Sword intent", "story moment", "Open: Sword Grave Echo (Kiếm Trủng Dư Âm)", "lens"),
+    (-1, "sealed", "Divine Sense", "cultivation technique", "Sealed: Heaven-Piercing Gaze (Xuyên Thiên Nhãn)", "eye"),
+    (9.5, "sealed", "Longevity", "event", "Sealed: Golden Crane Rest (Kim Hạc Tê)", "gourd2"),
+    (13.2, "open", "Artifact Refining", "story moment", "Open: Wandering Smith (Du Tượng)", "concentric"),
+    (21, "sealed", "Heart State", "item: a Meridian Seal", "Sealed: Iron Heart Vow (Thiết Tâm Thệ)", "pagoda"),
+
+    (-8.5, 'sealed', 'Sword intent', 'event', 'Sealed: Sword Tomb of the Ancients (Cổ Kiếm Trủng)', 'theta'),
+]

@@ -18,6 +18,11 @@ the blend zones, Wind and the Thunder island.
 | `tools/design/meridian_rework/holes.py` | The empty-space map. Run `python -I tools/design/meridian_rework/holes.py <out_dir>/<land>.json <out.html> 2.0`. |
 | `tools/design/meridian_rework/region_viewer.html` | The viewer template. Add `#big&box=x0,y0,x1,y1` to the page URL to zoom for a screenshot; build with `--labels` to show node ids. |
 | `tools/design/meridian_rework/regions/<land>.py` | One spec per land. It defines `build(T)` and `dressing(T)`, plus the land's themes and keystones. |
+| `tools/design/meridian_rework/kit.py` | (2026-11-09) The drawing kit shared by every region: `Tree`, the fit check, ports and edge ports, and `check()` for one region or the whole tree. |
+| `tools/design/meridian_rework/build_tree.py` | (2026-11-09) Builds every region into one tree, joins the ports and checks the whole tree. It writes `tree.json` and `tree.html` (from `tree_viewer.html`). Run `python -I tools/design/meridian_rework/build_tree.py <out_dir>`. Set `KMD_LIGHT=1` for the lighter variant. |
+| `tools/design/meridian_rework/regions/common.py`, `landkit.py`, `figs.py` | (2026-11-09) Shared geometry, themes and talent roads; the land toolkit (start web, road skeleton, dressing and hole-fill rules, hidden band, quiet fields); 27 themed figures. |
+| `tools/design/meridian_rework/judge/judge.sh` | (2026-11-09) Blind comparison with PoE 1 and PoE 2: it renders all three trees in one neutral style and asks a fresh `claude -p` session to judge. Rotate the letters; a single Sonnet verdict is position-biased. |
+| Region options (2026-11-09) | Set in a region spec: `ROAD_JITTER` (travel nodes shift along their roads; 0 keeps even steps), `ARC_TOUCH_OK` (a stem may touch its own road's arc), `HALO_EXTRA` and `HALO_AVOID` (small hidden clusters added in the band's widest gaps, kept off island bridges), `NAME_ROTATE` (each region starts each notable name bank at its own place). Metal sets all of them off, so the pilot builds as approved. The rules learned from the judges (caps, no twins, gold districts, keystone clearances) live in `landkit.py`; `design/research/meridian-tree-overnight.md` lists them with their reasons. |
 
 **Coordinates.**
 - A land is drawn in (u, v): v runs outward along the land's axis and u runs across it.
@@ -124,6 +129,9 @@ on a link, or crosses one.
 | Figures shrunk until they read as blobs | the dense figures have minimum sizes in `pens.DENSE` |
 
 ## Open for the whole tree
+
+> **Provisional answers (2026-11-09, overnight):** each point below is answered, provisionally, in
+> `design/research/meridian-tree-overnight.md`, which also holds the whole-tree build and the PoE comparison.
 
 - **Budget:** the Metal land holds about 825 nodes against the 600 planned per element. Either the 5,000-node total
   grows, or the other lands are drawn a little lighter.

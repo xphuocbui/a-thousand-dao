@@ -225,6 +225,7 @@ PICT["window"] = (_w, "ssssssNsN",
 _sp = _ring_pts(0, 1.3, 1.3, [180 + 60 * j for j in range(6)])
 PICT["spoked"] = (_sp + [(0, 1.3)], "sssNss" + "N", _ring_edges(0, 6, (0, 1.3)) + [(3, 6)])
 ASYM = {"L", "stairs", "zig"}
+MASTERY_KINDS = {"coin", "heart", "hex", "eye", "hourglass", "totem", "kite", "lollipop", "wheel", "theta", "concentric", "spoked", "window"}
 DENSE = {"window": 0.88, "snowflake": 0.88, "theta": 0.82, "concentric": 0.85, "lens": 0.82, "coin": 0.85, "star": 0.8, "bowtie": 0.75, "spoked": 0.75, "eye": 0.7}
 
 
@@ -275,7 +276,7 @@ def pict(T, at, ang, kind, theme, names=None, k=1.0, mirror=False, roles=None, t
         else:
             T.link(ids[e[0]], ids[e[1]])
     cx = sum(T.pt(i)[0] for i in ids) / len(ids); cy = sum(T.pt(i)[1] for i in ids) / len(ids)
-    T.clusters[T.cur]["mastery"] = (cx, cy) if kind in ("coin", "heart", "hex", "eye", "hourglass", "totem", "kite", "lollipop", "wheel", "theta", "concentric", "spoked", "window") else None
+    T.clusters[T.cur]["mastery"] = (cx, cy) if kind in MASTERY_KINDS else None
     T.end()
     chain_ = [at] + stem_ids + [ids[0]]
     for x, y in zip(chain_, chain_[1:]):
@@ -323,10 +324,11 @@ def nearest(T, ids, target):
     return min(ids, key=lambda i: math.dist(T.pt(i), p))
 
 
-def place_in(T, centre, kind, theme, k=1.0, names=None, ang=0.0, themes=None, name=None, to=None, max_reach=5.5):
+def place_in(T, centre, kind, theme, k=1.0, names=None, ang=0.0, themes=None, name=None, to=None, max_reach=5.5, roles=None):
     """Draw a figure centred in an open space and join it to the nearest road node (or, failing that, the nearest
     node of another cluster) by its own nearest node, through a short stem when the gap is long."""
     pts, rl, es = PICT[kind]
+    rl = roles or rl
     k = max(k, DENSE.get(kind, 0.0))
     cx0 = sum(x for x, _ in pts) / len(pts); cy0 = sum(y for _, y in pts) / len(pts)
     best = None
@@ -344,7 +346,8 @@ def place_in(T, centre, kind, theme, k=1.0, names=None, ang=0.0, themes=None, na
                     continue
                 # the join: nearest road node first, then any other cluster's node
                 cands = to if to is not None else [i for i, n in enumerate(T.nodes) if n["kind"] in ("travel", "start")]
-                cands2 = [i for i, n in enumerate(T.nodes) if n["kind"] in ("small",) and n.get("cluster") is not None]
+                cands2 = [i for i, n in enumerate(T.nodes) if n["kind"] in ("small",) and n.get("cluster") is not None
+                          and bool(n.get("hidden")) == bool(T.clusters and getattr(T, "placing_hidden", False))]
                 for pool in (cands, cands2):
                     opts = sorted(((math.dist(T.pt(t), P_[j]), t, j) for t in pool for j in range(len(P_))), key=lambda z: z[0])
                     for dist_, t, j in opts[:40]:
@@ -354,7 +357,7 @@ def place_in(T, centre, kind, theme, k=1.0, names=None, ang=0.0, themes=None, na
                         if any(math.dist(T.pt(t), P_[m]) < dist_ - 1e-6 for m in range(len(P_))):
                             continue
                         ct = T.nodes[t].get("cluster")
-                        if ct is not None and any(math.dist(T.pt(m), P_[j]) * 1.15 < dist_ for m in T.clusters[ct]["nodes"]):
+                        if ct is not None and any(math.dist(T.pt(m), P_[j]) < dist_ - 1e-6 for m in T.clusters[ct]["nodes"]):
                             continue        # joining another cluster: it too must be joined at its nearest node
                         n_stem = max(0, int(dist_ / 1.25) - 1) if dist_ > 2.2 else 0
                         S_ = [(T.pt(t)[0] + (P_[j][0] - T.pt(t)[0]) * (q + 1) / (n_stem + 1),
@@ -392,3 +395,17 @@ def place_in(T, centre, kind, theme, k=1.0, names=None, ang=0.0, themes=None, na
     for x, y in zip(chain_, chain_[1:]):
         T.link(x, y)
     return stem_ids + ids
+
+
+# the whole-tree figures (regions/figs.py) join the library
+def _install_figs():
+    import importlib.util as _u
+    import os as _os
+    _s = _u.spec_from_file_location("figs", _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "figs.py"))
+    _m = _u.module_from_spec(_s)
+    _s.loader.exec_module(_m)
+    _m.install(__import__(__name__) if False else _THIS)
+
+
+_THIS = __import__("types").SimpleNamespace(PICT=PICT, ASYM=ASYM, DENSE=DENSE, MASTERY_KINDS=MASTERY_KINDS)
+_install_figs()
