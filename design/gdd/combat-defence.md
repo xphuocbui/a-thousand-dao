@@ -3,7 +3,7 @@
 > **Status**: Revised 2026-11-10 after the combat review (`reviews/combat-review-2026-11-10/`, three headless rounds): resistance in points with no cap or floor, no per-ward resistance maximum, no ward strength or efficiency ceiling, shield wards and Clear Heart Ward re-priced, art costs read the start maximum, Ice on art-slot wards only, Water's gain usable, full heal refund (user decisions). Before that: the Combat economy revision #44 (2026-11-09, `design/research/economy-revision-44-decisions.md`), designed 2026-11-07, reviews 2026-11-08 to 08c; the full history is in `reviews/combat-defence-review-log.md` and the review folders
 > **Author**: user + agents
 > **Last Updated**: 2026-11-10 (third review round and its decisions: shield and Clear Heart re-price, no ward strength ceiling, start-maximum art costs)
-> **Last Verified**: 2026-11-10 (confirming review, `reviews/combat-review-2026-11-10/round2/`; its leftovers applied)
+> **Last Verified**: 2026-11-10 (fourth confirming review: **approved**, `reviews/combat-review-2026-11-10/round4/`; its notes applied)
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Your Dao, Your Name (1)
 > **Parent system**: Combat (#21, `design/gdd/combat.md`). This is sub-system #21a. It owns the whole defence path (evade, resistance, block, wards and body shields, health, soul and status defence) and healing in a fight. Combat keeps offence, the timeline, triggers and results, and is revised afterwards to point here (systems-index design order, user decision 2026-11-07).
 > **Scope decisions (user, 2026-11-07)**: all of defence; healing allowed in ordinary fights (since #44 with no cap per pulse and no decay; fatigue ends stalls), none inside Heavenly Tribulation waves for now; the ward is redesigned (Combat Formulas D and rule 22 are replaced); ward models may reserve linh lực.
@@ -585,7 +585,7 @@ cast `= κ · qi_max · pay_mult` at each firing
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| we | float | 0–400 | Formulas A0 (`ward_efficiency_pct` plus the gear term) | Ward efficiency. Counts half on reservation |
+| we | float | ≥ 0 (no ceiling since 2026-11-10) | Formulas A0 (`ward_efficiency_pct` plus the gear term) | Ward efficiency. Counts half on reservation |
 | ρ | float | 0.05–0.90 | ward record | Reserved share; all reservations together are capped by `reserve_cap` 0.9 |
 | res_eff, res_eff_cap | float | 0–50; 50 | Modifier System (`reserve_eff_pct`); data file | Reservation efficiency, capped so the reservation stack stays bounded |
 | φ | float | 0.02–0.20 | ward record | Per-hit fee share |
@@ -666,8 +666,8 @@ The healing formulas are defined as:
 pool takes about 5.5 times the damage. A heal that costs linh lực makes a healer run dry sooner, so in the #44
 simulator (`tools/design/combat_sim/sim.py`) a healer lost every fight to a typical build at any heal size. With
 heal arts refunding their cost and heals scaled to health, a ratio of 1.4 gives a healer with the same budget
-about 38 % against a typical build (it trades damage for healing), and a healer mirror ends by fatigue at about
-70 s.
+about 40 % against a typical build (8 of 20 in the simulator, 2026-11-10; it trades damage for healing), and a
+healer mirror ends by fatigue at about 66 s.
 
 **Stall check.** Combat's fatigue (Combat rule 10, Formulas A2) ends every fight; a healer mirror falls by about
 65 s (flat n² fatigue since 2026-11-10; AC-CD-45).
@@ -833,6 +833,9 @@ marks a derived price, **G** a guess.
   for penetration to work against.
 - **If resistance is very high**: there is no cap; 900 points stop 90 %, 1,900 stop 95 %, and each point adds less.
 - **If resistance falls below 0**: the part is amplified by `(1 + |R| / 100)`, with no limit (Sundered and Exposed can do this).
+- **If soul resistance falls below 0** (Slackened Soul): it has no floor, and below 0 it amplifies the soul hit
+  through `rho` (Combat Formulas E2; user decision 2026-11-10). Soul resistance is counted in pp and read like
+  points: ÷ (1 + x/100) above 0, × (1 + |x|/100) below.
 - **If a part was converted**: only its final damage type counts for resistance, block and penetration;
   earlier types count for offence modifiers only (Combat Damage Types rule 6). Elements never enter
   resistance.
@@ -852,7 +855,8 @@ marks a derived price, **G** a guess.
 - **If the same ward id is slotted twice**: rejected at compile. A ward is slotted at most once per side.
 - **If a ward sits in an ordinary art slot**: it counts toward `slot_count` (Combat Formulas A2) and gives up
   that art. It is an art for cost changes: Ice stacks and other art-cost raises reach its cast cost; a ward in a
-  ward slot keeps its own payment (user decision 2026-11-10).
+  ward slot keeps its own payment (user decision 2026-11-10). Only a cast is an art's cost, so a reserved, per-hit
+  or drain payment is unchanged by Ice wherever the ward sits.
 - **If a side has more ward slots than wards**: the empty slots do nothing, and the default ward is up only
   for a part that no other ward is Up for (rule 11).
 - **If the reservations together would pass 90 %**: the ward that would pass it cannot be slotted. Compile
@@ -1105,7 +1109,7 @@ design estimates until the balance harness confirms them.
 
 - **AC-CD-33** Retired (#44 item C1): healing has no decay. A record or key carrying `heal_decay_end` or `heal_decay_floor` is rejected at load.
 - **AC-CD-34** [Logic] Formulas E. **GIVEN** FX-T at 200 health and a heal art of cost 0.075, cooldown 3 s and c_heal 4.62, **THEN** it heals 116.6 and refunds 12.96 linh lực, the same at t 0, t 10 and t 50 (no decay). c_heal 4.63 fails the lint. **GIVEN** a body-shield restore of 50 at t 10, **THEN** it applies 50 and refunds nothing.
-- **AC-CD-35** [Logic] Heal lint. **GIVEN** cost 0.15 and cooldown 3 s, **THEN** c_heal 0.99 passes and 1.00 fails.
+- **AC-CD-35** [Logic] Heal lint. **GIVEN** cost 0.15 and cooldown 3 s, **THEN** the art lint is 1.0 × (1 + 24 × 0.15) + 0.25 × 2 = 5.1, so c_heal 7.14 (1.4 × 5.1) passes and 7.15 fails.
 - **AC-CD-36** [Logic] Rules 17, 18 retired (#44). **GIVEN** FX-T at 100 health and two heals of 150 in one pulse window, **THEN** 150 and then 150 apply (health 400), and nothing is logged "heal cap". **GIVEN** a third heal of 150, **THEN** health stops at 439.48 and the overheal is lost. **GIVEN** `hregen_bonus` 0.03, **THEN** regeneration restores 3 % of health_max a pulse, at any fight time.
 - **AC-CD-37** [Logic] Rule 16. **GIVEN** healing_pct 100 and taken_pct −50, **THEN** the heal equals its base (×2 × 0.5, no decay). **GIVEN** taken_pct −100, **THEN** the heal is 0. **GIVEN** `leech_health_pct` 10 under `no_heal`, **THEN** leech restores 0.
 - **AC-CD-38** [Logic] Rule 19. **GIVEN** a lethal hit and a 4.0 heal in the same instant, leaving 2.0 health, **THEN** the side is Standing. **GIVEN** a Down side, **THEN** no heal applies.

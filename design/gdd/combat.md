@@ -4,7 +4,7 @@
 > **Build status**: On hold (user decision 2026-11-06). The full fight is not built until items, techniques, abilities and passives exist. Until then fights keep using today's power duel (`CombatPower`, `combat_rules.json`) unchanged, so the Character Stats and Cultivation Techniques edits that cite this GDD describe the target, not the running game.
 > **Author**: user + agents
 > **Last Updated**: 2026-11-10 (third review round: tick formula in points, heal-versus-fatigue note, start-maximum art costs, `ward_cap` retired). Earlier: 2026-11-10 (review sweep `reviews/combat-review-2026-11-10/combat.md`: flat n² fatigue, `time_limit` and stalemate retired, soul resistance without a floor, no tick floor (user decisions); stale ACs re-based; resistance in points throughout). Earlier: 2026-11-10 (#44 follow-ups: resistance in points, regeneration curve, re-review fixes)
-> **Last Verified**: 2026-11-10 (confirming review, `reviews/combat-review-2026-11-10/round2/`; its leftovers applied)
+> **Last Verified**: 2026-11-10 (fourth confirming review, `reviews/combat-review-2026-11-10/round4/`; its fixes applied)
 > **Implements Pillar**: Power Is Built, Not Given (3); Your Dao, Your Name (1); Every Number Is Bounded and Visible (2)
 
 ## Summary
@@ -135,7 +135,8 @@ author's reading and wait for confirmation (see Open Questions).
 8. **Curses are statuses that change rules, not pools.** A curse can lower resistance, soul resistance or
    healing taken, lock one layer, raise an art's cost or a drain ward's bill, dampen linh lực and health
    regeneration (Modifier System rule 6a), or block a tag (Formulas F). Curse units are percentage points: Slackened Soul is −15 pp per
-   stack, at most −30 pp, and soul resistance never goes below 0 (Combat revision D12). The curse catalogue is
+   stack, 2 stacks so −30 pp (Combat revision D12), and soul resistance has no floor: below 0 it amplifies soul
+   hits (Formulas E2; user decision 2026-11-10). The curse catalogue is
    the Effects System's. It has a duration and a source and
    can be cleansed by an art or a talisman with a matching cleanse tag. A curse never
    reduces health or linh lực by itself.
@@ -225,7 +226,8 @@ author's reading and wait for confirmation (see Open Questions).
       decides it and fortune does not enter.
     - **Fatigue (#44 item A3; flat since 2026-11-10).** From `fatigue_start` (60 s), every pulse takes from **both**
       sides a **flat** amount, `fatigue_units` × U_r × n², where n counts fatigue pulses (1 at 60 s, 2 at 61 s …)
-      and U_r is the side's own realm fight unit: 3.16, 12.6, 28.4, 50.5 … at Qi Refining (Formulas A2). It does
+      and U_r is the side's own realm fight unit (6.31 at Qi Refining, so the first pulses take 3.16, 12.6, 28.4,
+      50.5 …; Formulas A2). It does
       not depend on the side's health, so a build that bought health keeps that toughness (user decision 2026-11-10:
       a share of health punished high-health builds). Fatigue is not damage of any type and not a status: it passes
       wards, shields, resistance and block, no Effect or modifier changes it, fortune does not touch it, and it
@@ -693,8 +695,10 @@ The art_cost formula is defined as:
 | regen_k | float | 0.08 | data file | Diminishing returns on the bonus, a log curve with no ceiling (user decision 2026-11-10, "no caps"; replaced `bonus / (1 + bonus / k)`, which levelled off at +8 pp): +6 pp of bonus counts as +4.48 pp, +30 pp as +12.47 pp, +100 pp as +20.82 pp |
 | body_cost_share | float | 0.01–0.04 (halved with `cost_share`) | data file (art record, optional) | An art paid in health; the art lint counts it as 2 × `cost_share`. It is not damage and cannot take health below 1. An Effect's health payment is different: it can put the side Down (Effects System rule 6; Combat revision D14) |
 
-**Output Range:** linh lực runs 0 to the usable maximum, `qi_max · (1 − Σ reserved)`. Art costs and regeneration
-stay shares of the full `qi_max` (Combat Defence & Healing rule 10). A side may spend itself to 0. Health
+**Output Range:** linh lực runs 0 to the usable maximum, `qi_max · (1 − Σ reserved)`. Art costs read the full `qi_max`
+at the fight's start; regeneration and the pool's ceiling follow the live maximum, and every point Water stacks add
+is usable (Combat Defence & Healing rule 10, AC-CD-74). A heal art refunds what it paid when it restores any health,
+and Ice raises an art-slot ward's cast cost but no ward-slot payment (Combat Defence & Healing rule 16, Edge Cases). A side may spend itself to 0. Health
 regeneration and heals are Combat Defence & Healing's Formulas E.
 
 **Example:** typical at Qi Refining, `cost_share` 0.075 costs 12.96 and regeneration is 6.05. With nothing incoming a 1 s art
@@ -744,7 +748,7 @@ The status_tick formula is defined as:
 | stacks, stack_cap | int | 1–5; 5 | calculated; data file | Stacks on the target |
 | duration | int | 2–6, or none for a standing status | data file (status record) | Pulses, one tick per pulse (1 s each at the default `pulse_interval`). A standing status is bounded by its caster's standing fee instead (Effects System Formulas B) |
 | curse_slots | int | 3 | data file | Most curses on one target |
-| resist | float | 0–0.9 | Modifier System (`status_resist_pct`) | Target's resistance to statuses. Status payloads on wards add to it (Combat Defence & Healing rule 15). It sets the chance to avoid a status; a tick's damage is cut by damage-type resistance, not by this |
+| resist | float | ≥ 0, no cap (user decision 2026-11-10; the apply-chance clamp of 5–95 % is the only bound, so every status stays possible) | Modifier System (`status_resist_pct`) | Target's resistance to statuses. Status payloads on wards add to it (Combat Defence & Healing rule 15). It sets the chance to avoid a status; a tick's damage is cut by damage-type resistance, not by this |
 
 The status catalogue is the Effects System's (rule 9). A tick on health meets resistance and the shields it does
 not pass: by default it passes ward shields and meets the body shield unless it is Chaos (Combat Defence & Healing
@@ -1352,7 +1356,7 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 
 **Rating profile**
 
-- **AC-CB-49** [Logic] Formulas K (#44). **GIVEN** the typical rotation (art uptime 0.3, so c_rate 1.6 and Off 36.51), the Common Ward (b 0.1567), λ_all 0.1566, λ_fix 0.974, health 439.48, linh lực 172.74, net spend −2.16, no shields and no healing, **THEN** t_w is 48.5, t_h 76.9, health left when the wards fall 162.3, D_late 22.82 and T0 55.8 (±0.1), below `t_fat` 73. **GIVEN** a `t_w` denominator of 0 or less (only reserved wards and body defence), **THEN** T0 is t_h. R 0.5 clamps P to 0.02 and R 2 to 0.98. At κ 14, R 1.1 gives 0.792 and R 1.2 gives 0.928. A +30 fortune lead adds 0.03.
+- **AC-CB-49** [Logic] Formulas K (#44). **GIVEN** the typical rotation (art uptime 0.3, so c_rate 1.6 and Off 36.51), the Common Ward (b 0.1567), λ_all 0.1566, λ_fix 0.974, health 439.48, linh lực 172.74, net spend −2.16, no shields and no healing, **THEN** t_w is 48.5, t_h 76.9, health left when the wards fall 162.3, D_late 22.82 and T0 55.8 (±0.1), below `t_fat` 66. **GIVEN** a `t_w` denominator of 0 or less (only reserved wards and body defence), **THEN** T0 is t_h. R 0.5 clamps P to 0.02 and R 2 to 0.98. At κ 14, R 1.1 gives 0.792 and R 1.2 gives 0.928. A +30 fortune lead adds 0.03.
 - **AC-CB-50** [Logic] Formulas K, forces. N 40 gives N_eff 19, N 20 gives 14, N 12 gives 12, N 13 gives 12.25. Forces of 40 against 20 identical members give R 1.84 and P 0.920 at κ 4. One clash takes one draw, and the same seed gives the same outcome.
 - **AC-CB-51** [Logic] Formulas K, power score (D7). An unbuilt stage-1.00 character shows `display_power` equal to B_p. A build with 4 × F_unbuilt shows 2 × B_p. c_rate with basic 1.0 at 1 s and one art of 2.0 at 4 s with uptime 1 is 1.5. Two such arts give 2.0. **GIVEN** the thể tu fixture as defender in a clash, **THEN** its b, λ and counted shields use the attacker's damage-type mix: against an all-Chaos attacker its body shield counts 0, against an all-Physical attacker it counts 109.0. **GIVEN** one build compiled twice with different `reference_type_mix` data, **THEN** `display_power` changes; **GIVEN** different opponents, **THEN** it does not. `display_power`'s ehp leaves out healing.
 - **AC-CB-52** [Integration, Bot: Balance Harness] Agreement test. Formulas K sums any number of arts through `c_rate`, so multi-art pairs are included. **GIVEN** at least 100 sampled pairs from the harness's build generator, each side holding a chance effect, at 200 seeds each: for R 0.5–2.0, mean |P_rating − P_full| ≤ 0.10, and for R outside 0.9–1.1 no pair is off by more than 0.20. Outside 0.5–2.0 the two pick the same winner in at least 97 % of pairs. Output goes to `production/qa/evidence/balance/[date]-combat-agreement.md`.
