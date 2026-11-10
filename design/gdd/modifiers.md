@@ -2,8 +2,8 @@
 
 > **Status**: Revised 2026-11-09 for the Combat economy revision (#44), part 4 (applied overnight; **accepted by the user 2026-11-10**): the B3 exception (gain on hit, crit and kill, and leech are plain modifiers), paying art costs with health, increased regeneration, element stack modifiers, sustain stats re-priced from the #44 simulator, derived tag thresholds halved with art costs. Earlier: designed 2026-11-07; `/design-review` 2026-11-08 (lean, passes 1–4): NEEDS REVISION. Revised 2026-11-08 with the user's answers; fresh re-review the same day (three passes): NEEDS REVISION, see `reviews/modifiers-review-log.md`. Resumed after Combat Defence & Healing (#21a) and Combat Damage Types (#21b); the Stat List, price table and General Catalogue were rebuilt for them (damage-type scopes, resistance, block, body shield, healing stats, penetration; body guard retired); revised again 2026-11-08 with the user's answers to all re-review items (type scopes on whole-hit and whole-art stats; the [type + family] resistance row removed; conversion modifiers allowed as an ordinary stat, `convert_pct`). Second re-review 2026-11-08b: APPROVED; its fixes applied the same day (`reviews/rereview-2026-11-08b/modifiers.md`)
 > **Author**: user + agents
-> **Last Updated**: 2026-11-09 (#44 part 4)
-> **Last Verified**: 2026-11-08
+> **Last Updated**: 2026-11-10 (#44 part 4 accepted; dampened op `D`; resistance in points; re-review fixes)
+> **Last Verified**: 2026-11-10 (confirming re-review)
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Your Dao, Your Name (1)
 > **Scope**: Modifiers only, meaning plain numbers on a stat ("+X" or "X % increased / more"), optionally narrowed by tags. Effects (conditions, scaling, triggers, conditional conversion, keystones, enablers) are a separate system with their own GDD (user decision 2026-11-07). A plain conversion share is a modifier (`convert_pct`, user decision 2026-11-08).
 > **Reference only**: `design/quick-specs/modifier-inventory.md`. This GDD is designed from scratch, and inventory entries are adopted only where they pass this design's rules.
@@ -138,7 +138,7 @@ system. An Effect grants modifiers from this catalogue as its payload.
    - **reservation**: reservation efficiency matches the tags of the ward or art that reserves.
    - **outgoing status**: status duration and status stack cap match the status's own tags (its status tag, damage
      type, mode and effect tags, Effects System Status Catalogue), so a [fire] scope reaches Burn.
-   - **incoming hit**: resistance and the resistance cap raise (`resist_cap_pct`) match the incoming part's
+   - **incoming hit**: resistance (in points; the cap raise is retired) match the incoming part's
      **final damage type** only, so "+12 % Fire resistance" defends against Fire parts (Combat Defence & Healing
      rule 3; re-review MD 18). Breadth applies as usual through Formulas C.
    - **status**: status resistance and status duration on you match the incoming status.
@@ -246,7 +246,7 @@ A tag listed in two families is one tag; its tier is the same in both.
 13. **Rare modifiers appear only where the budget can pay for them** (user decision 2026-11-07). A rare
     modifier raises a count that has no cap of its own: art slots, artifact slots, ward slots, beast slots,
     talisman stock, status stack cap, field plots and pills per brew. A few stats are also **rare by their
-    row** in the Stat List, because they would break a limit if common: the resistance cap raise and Chaos
+    row** in the Stat List, because they would break a limit if common: and Chaos
     resistance (Combat Damage Types rule 5). A rare count costs 10–30 W, more than a notable holds.
     It may appear only on a source whose own budget covers its price: a keystone, a named item, a quest
     reward or a Way capstone. An Effect's payload may carry one only when the Effect's host is on this list. It never appears on an acupoint, a tree notable or a rolled affix. Validation
@@ -298,7 +298,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Damage conversion | `convert_pct`, keyed from → to type (never Soul, never to itself) | F (pp of the from type's share; grid 1) | conversion (rule 8) | higher | 0.8 (G) | Combat Damage Types rule 6: the modifier step, after the art's own and Effects; counts toward the 2 per hit (user decision 2026-11-08) | Designed |
 | Damage against a foe | `attack_pct` scoped [cultivator] or [creature] | I | outgoing hit (defender's foe tag) | higher | 1.0 | Combat rules 2, 18: foe tags on profiles (variety 2026-11-08) | Pending |
 
-**Combat: defence**: domain `combat`. Families: resistance (resistance, cap, foe resistance), block, shield (body shield, recharge delay), ward (ward strength, efficiency, slots, cast duration), health (maximum health, regeneration), healing (healing, healing taken), evade, soul (soul resistance), status (status resistance, duration on you).
+**Combat: defence**: domain `combat`. Families: resistance (resistance, foe resistance), block, shield (body shield, recharge delay), ward (ward strength, efficiency, slots, cast duration), health (maximum health, regeneration), healing (healing, healing taken), evade, soul (soul resistance), status (status resistance, duration on you).
 
 | Stat | Key | Ops | Target | Better | W | Owner | Status |
 |---|---|---|---|---|---|---|---|
@@ -954,6 +954,8 @@ measures the drift first, and no deflator is applied until it has.
 - **If a stat's sum passes its owner's cap** (Combat's layer caps, crit 0.5, evade 0.40, pierce 0.75, art cost reduction 50 %; resistance, both
   regenerations and Character Stats' craft bonuses have no cap since 2026-11-10, using points, curves or dampening): the owner clips it, and the Breakdown names the cap.
   This system never caps.
+- **If a dampened sum is negative** (a source that undoes dampening): the sum is floored at 0, so dampening never
+  multiplies a stat up; with no increased modifier the stat is simply divided.
 - **If a single modifier is larger than its stat's cap** (a notable of crit chance above `crit_chance_cap`): it is
   legal but wasteful. A source GDD should size it below the cap. (Health regeneration has no cap since #44.)
 - **If a rare modifier appears on an acupoint, a tree notable or a rolled affix**: validation rejects it
@@ -1101,7 +1103,7 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 - **AC-MD-20** [Logic] Formulas D. **GIVEN** more_price rounded to 2 decimals, **THEN** L2 is 0.90 / 1.16 / 1.51 / 2.03 / 4.95 and L4 is 1.05 / 1.35 / 1.76 / 2.37 / 5.78 from Qi Refining to Deity Transformation. **GIVEN** +20 L2 at Core Formation, **THEN** it is worth 30.3 W (unrounded rate). **GIVEN** 8 W at Qi Refining, **THEN** it buys 8.8 L2 points. **GIVEN** a fixture with x_i_typ ≥ cap_i, **THEN** the trade is refused and 0 points are granted.
 - **AC-MD-21** [Config/Data] Formulas A, E. **GIVEN** the data, **THEN** the grades are small = 1.2 and notable = 8, and every (key, operation) pair in the Stat List has exactly one `modifier_prices` entry equal to Formulas A (`body_shield_pct` has two: F 0.51 and I 0.6). **GIVEN** regeneration at small, **THEN** the rounding lint flags it on a 0.1 grid (a 33 % loss) and passes it on 0.01.
 - **AC-MD-22** [Logic] Rule 12. **GIVEN** a Meridian Map acupoint or notable carrying `more`, **THEN** it is rejected.
-- **AC-MD-23** [Logic] Rule 13. **GIVEN** +1 `bonus_slots` on a source of kind acupoint, notable or affix, **THEN** it is rejected. **GIVEN** the same on a keystone, a named item, a quest reward or a Way capstone, **THEN** it is accepted. **GIVEN** Chaos resistance or a resistance cap raise on a tree notable, **THEN** it is rejected (rare by its row). **GIVEN** a rare modifier in an Effect's payload whose host is a keystone, **THEN** it is accepted; on an Effect hosted by a notable, rejected.
+- **AC-MD-23** [Logic] Rule 13. **GIVEN** +1 `bonus_slots` on a source of kind acupoint, notable or affix, **THEN** it is rejected. **GIVEN** the same on a keystone, a named item, a quest reward or a Way capstone, **THEN** it is accepted. **GIVEN** Chaos resistance on a tree notable, **THEN** it is rejected (rare by its row). **GIVEN** a rare modifier in an Effect's payload whose host is a keystone, **THEN** it is accepted; on an Effect hosted by a notable, rejected.
 
 **Display and the world**
 
@@ -1113,6 +1115,9 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 
 - **AC-MD-27** [Config/Data] General Catalogue. **WHEN** `python -I tools/design/modifier_catalogue.py` runs, **THEN** its output matches the General Catalogue tables in this GDD exactly (line endings normalized), including `Concrete modifiers listed: 342`.
 - **AC-MD-33** [Logic] Rule 1, the sustain exception (#44). **GIVEN** `linh_luc_on_hit_pct` +0.19 pp on a side with `qi_max` 172.74, **THEN** each hit it lands restores 0.33 linh lực, clipped at the usable maximum (the excess is overflow). **GIVEN** `leech_health_pct` 10 and a hit dealing 50, **THEN** 5 health is restored as healing (0 under `no_heal`). **GIVEN** a record with a trigger, condition or count on any other key, **THEN** it is rejected as an Effect.
+- **AC-MD-34** [Logic] Rule 6a, dampened. **GIVEN** a stat of 10 with dampened sums of 100 and 200, **THEN** it is 5 and 3.33; **GIVEN** flat +2 and increased +50 with dampened 100, **THEN** (10 + 2) × 1.5 ÷ 2 = 9; **GIVEN** linh lực regeneration with a +6 pp bonus and 100 dampened, **THEN** the curve's 7.98 % is divided to 3.99 %; **GIVEN** a `D` record on a stat whose Ops do not list D, **THEN** it is rejected.
+- **AC-MD-35** [Logic] Art costs shifted to health. **GIVEN** `art_cost_health_pct` 100 and an art cost of 20, **THEN** linh lực pays 10 and health 10; at 300, 5 and 15; **GIVEN** health of 8 for a 10 health share, **THEN** the art does not fire (never below 1 health).
+- **AC-MD-36** [Logic] Stack modifiers. **GIVEN** `stack_effect_pct` +20 scoped [hoa, buff], **THEN** Fire buff stacks are ×1.2 and Fire debuff stacks unchanged; **GIVEN** `stack_duration_pct` +50 on a 6 s Burn batch, **THEN** it lasts 9 s; **GIVEN** `stack_grant` +1 on a grant of 2, **THEN** 3 stacks are granted, priced 10 W.
 - **AC-MD-28** [Config/Data] Stat List. **GIVEN** every key under `labels` in `assets/data/character_stat_labels.json`, **THEN** each appears as a key in the Stat List (any status) or in "Keys that move to Effects".
 - **AC-MD-29** [UI] Rule 14, UI Requirements. **GIVEN** a Debug Terminal view of a node holding `+12 % Fire damage`, `−6.6 % art cost`, `+20 block` and `+15 more art damage (L2)`, **THEN** each is one line in the shape sign, number, unit, stat, scope; a screenshot is kept in `production/qa/evidence/`.
 - **AC-MD-30** [UI] Rule 9, UI Requirements. **GIVEN** the AC-MD-15 node, **WHEN** the Debug Terminal filters by `health` and then by `ward`, **THEN** the node is listed under both; **WHEN** a `fire` filter is applied to the Breakdown, **THEN** only Fire-scoped lines show; a screenshot is kept in `production/qa/evidence/`.

@@ -3,8 +3,8 @@
 > **Status**: Revised 2026-11-09 for the Combat economy revision (#44), part 1 (fight length, fatigue, linh lực costs and regeneration, no tick caps; decisions in `design/research/economy-revision-44-decisions.md`; part 2 re-derived the ward-dependent numbers the same day). Earlier: revised 2026-11-08 for the Combat revision (#43): the defence path, wards, shields and healing move to Combat Defence & Healing (#21a); damage types and conversion to Combat Damage Types (#21b); modifier records, operations and scopes to the Modifier System (#40); statuses, curses and the Down step to the Effects System (#41). This GDD keeps the fight frame: the timeline, offence, the defeat check, results and the rating. Earlier: reworked 2026-11-06 to a timeline of seconds with no rounds (user decision); seventh review fixes applied the same day (ward pass clamp, since retired; defeat check judged after all of an instant's damage, a draw on equal overkill, guards read after the pulse), not re-reviewed; ninth-pass fixes applied the same day (wake-up events, ward expiry tie), not re-reviewed. Simulated numbers predate the timeline and are provisional. Earlier: fourth design-review fixes, cooldown timers and hit order, escape step, one health bar and wards
 > **Build status**: On hold (user decision 2026-11-06). The full fight is not built until items, techniques, abilities and passives exist. Until then fights keep using today's power duel (`CombatPower`, `combat_rules.json`) unchanged, so the Character Stats and Cultivation Techniques edits that cite this GDD describe the target, not the running game.
 > **Author**: user + agents
-> **Last Updated**: 2026-11-09
-> **Last Verified**: 2026-11-08
+> **Last Updated**: 2026-11-10 (#44 follow-ups: resistance in points, regeneration curve, re-review fixes)
+> **Last Verified**: 2026-11-10 (confirming re-review, `reviews/rereview-2026-11-10/round2/`)
 > **Implements Pillar**: Power Is Built, Not Given (3); Your Dao, Your Name (1); Every Number Is Bounded and Visible (2)
 
 ## Summary
@@ -128,7 +128,8 @@ author's reading and wait for confirmation (see Open Questions).
    Defence & Healing rules 1, 9; Combat Damage Types rule 7). It never meets evade or block. The at-least-1
    floor applies only to what reaches health. A qi burn status (Qi Disruption) ticks linh lực instead. A
    standing status has no duration and is bounded by the standing fee its caster pays (Effects Formulas B). Combat
-   keeps the tick formula (Formulas F). Ticks have no cap, on health or on linh lực (user decision 2026-11-09,
+   keeps the tick formula (Formulas F). **Element stacks** (a buff on yourself, a debuff on the foe, per element) are the
+   Effects System's (rule 9a): their batch timers fall at each pulse, and a cleansing ward removes its share then. Ticks have no cap, on health or on linh lực (user decision 2026-11-09,
    #44 item C3): resistance and cleansing answer them. Each tick is an ordinary line in the log.
 8. **Curses are statuses that change rules, not pools.** A curse can lower resistance, soul resistance or
    healing taken, lock one layer, raise an art's cost or a drain ward's bill, dampen linh lực and health
@@ -574,14 +575,14 @@ The layer_total formula is defined as:
 W shares are attack / ward strength / ward efficiency / linh lực / health.
 
 - **Typical:** 25 / 5 / 5 / 5 / 10 %, L2–L5 at 1.4, 1.4, 1.2, 1.1, artifact defence 0.85 × B_p, mean art
-  coefficient 1.6 at 15 % crits of ×1.7; the Common Ward (all resistance 0.625, drain 0.328 since #44), so r 0.8175 at ws 30.8,
+  coefficient 1.6 at 15 % crits of ×1.7; the Common Ward (all 342.5 resistance points, drain 0.328), so 448 points at ws 30.8 (stops 81.75 %),
   plus block rating 15.0 (Combat Defence & Healing Formulas A, A2).
 - **Top-end:** 45 / 10 / 7.5 / 7.5 / 20 %, L2–L5 at 4.0, 3.5, 2.5, 2.0, artifact defence 5 × B_p, 50 % crits
-  of ×2; resistance at its cap, r 0.75 at Qi Refining, rising to 0.90 with cap raises by Deity Transformation
+  of ×2; resistance about 900 points (stops 90 %) at Qi Refining, rising to about 1,900 (95 %) by Deity Transformation, no cap
   (Combat Defence & Healing Formulas A).
 - **Thể tu:** Combat Defence & Healing's Formulas G fixture: block 88.3 rating (flesh 5.3, gear 12, Iron Body Art
-  tier 3 30, W 41), body shield 0.90 (technique 0.30, gear 0.60), Physical resistance 0.30 (Iron Body tier 3 0.20,
-  Black Iron Armour's Physical affix 0.10), body gear 1.0 × B_p, the default ward only. Its W shares need a harness
+  tier 3 30, W 41), body shield 0.90 (technique 0.30, gear 0.60), Physical resistance 36.1 points (Iron Body tier 3 25,
+  Black Iron Armour's Physical affix 11.1), body gear 1.0 × B_p, the default ward only. Its W shares need a harness
   re-fit (Open Question 6).
 
 | Realm (end) | Tree W | Typical M | Typical ehp (U) | Typical mirror, s (old sim) | Top-end M | Top-end ehp (U) | Top-end mirror, s (old sim) |
@@ -943,12 +944,12 @@ wards run out makes this harder near R = 1.
 ### Parameter keys
 
 New in `combat_rules.json`: every `data file` value above. Defence keys (`default_resist`, `default_drain`,
-`resist_cap`, `resist_cap_max`, `resist_floor`, `ward_gear_scale`, `ward_cap`, `ward_floor` and the
+`ward_gear_scale`, `ward_cap`, `ward_floor` and the
 rest) live in its `defence` section and are owned by Combat Defence & Healing (Combat revision D18). New stat keys
 for Character Stats, all in percentage points unless noted, with W prices in the Modifier System's Stat List:
 `crit_chance_pct`, `crit_damage_pct`, `evade_pct`, `accuracy_pct`, `pierce_pct`, `art_speed_pct`, `art_cost_pct`,
 `linh_luc_regen_pct`, `status_resist_pct`, `ward_efficiency_pct`, `soul_res_pct`, `x_soul`, `escape_pct`,
-`resist_pct`, `resist_cap_pct`, `resist_pen_pct`, `block_rating` (flat), `body_shield_pct`, `health_regen_pct`,
+`resist_pct` (points), `resist_pen_pct` (points), `block_rating` (flat), `body_shield_pct`, `health_regen_pct`,
 `healing_pct`, `healing_taken_pct`, `reserve_eff_pct`, `convert_pct`, `damage_more` (layer points), `bonus_slots` and
 `bonus_ward_slots` (flat). `defense_pct` now means ward strength. New data keys from the revision:
 `reference_type_mix` (Formulas K), `advisor_min_ehp_ratio` 1.25 (UI Requirements), `curse_heal_taken_max`,
@@ -1129,7 +1130,7 @@ elsewhere, such as `power_base` and `attack_pct` prices, stay in their own GDDs.
 | `crit_chance_cap`, `crit_mult_cap`, `evade_cap` | How swingy fights are |
 | Defence knobs (`default_resist`, `default_drain`, `ward_gear_scale`, `ward_cap`, `ward_floor`, resistance caps, block, shields, healing) | Combat Defence & Healing's Tuning Knobs: how much wards, the body and healing hold |
 | `regen_base`, `regen_k` | Sustain |
-| `stack_cap`, `curse_slots`, `curse_shred_max`, `curse_drain_raise_max`, `curse_cost_raise_max`, `curse_heal_taken_max`, `curse_soul_shred_max`, `curse_reapply_lockout`, `curse_layer_lock_max`, `curse_tag_block_max`, `curse_duration_max` | Status and curse strength |
+| `stack_cap`, `curse_slots`, `curse_drain_raise_max`, `curse_cost_raise_max`, `curse_heal_taken_max`, `curse_soul_shred_max`, `curse_reapply_lockout`, `curse_layer_lock_max`, `curse_tag_block_max`, `curse_duration_max` | Status and curse strength |
 | `pool_n_min`, `pool_n_max`, `duel.injured_power_floor` | Bounds on absurd stacks; the vitality floor |
 | `crit_base`, `crit_mult_base`, `evade_realm_step`, `escape_realm_step`, `escape_lock_penalty`, `khi_van_per_point` | Chance rolls and fortune |
 | `c_trig` cap, `c_comp_cap`, `creature_mult` | Triggers, companions and creatures |

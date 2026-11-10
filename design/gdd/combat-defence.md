@@ -3,7 +3,7 @@
 > **Status**: Revised 2026-11-10: resistance is counted in points (damage ÷ (1 + R/100)) with no cap or floor, and free ward slots are 1/1/2/3/4 (user decisions). Revised 2026-11-09 for the Combat economy revision (#44), part 2: ward resistance ×1.25, resistance cap 0.90 and ceiling 0.95, drain ×0.2, upkeep wards removed, healing with no cap and no decay, heal arts scaled to health and refunding their cost, the price check at 45 s (decisions in `design/research/economy-revision-44-decisions.md`). Earlier: designed 2026-11-07 (revised the same day for Combat Damage Types, #21b: resistance per damage type, flat block, body shields; body guard retired). Design review 2026-11-08 (lean, overnight, four passes): Needs Revision; revised the same day with the user's answers (shields uncapped, drain billing completed). Re-review 2026-11-08 (lean, three passes): Needs Revision, see `reviews/combat-defence-review-log.md`; revised the same day with the user's answers to all 23 items (soul shield formula; ward-strength terms moved here; drain billing for shared block and a short pool; a Down refusal is not healing); second re-review 2026-11-08b: Needs Revision, all 16 findings applied (A0 gear terms, cast-ward T_up, drain billed in two steps, qi-tick path, AC-CD-66 to 69; CD-04 kept as a known weakness); third round 2026-11-08c: Needs Revision (minor), its Defence fixes applied (one `pay_frac` for a short drain pool, qi-tick row indent, AC-CD-68 fixture, cast firing convention, rule 9 qi-tick line); pass 1 of the next review applied four wording fixes (`reviews/rereview-2026-11-08c/pass1-combat-defence.md`)
 > **Author**: user + agents
 > **Last Updated**: 2026-11-10 (resistance in points with no cap or floor; ward slots 1/1/2/3/4). Earlier: 2026-11-09 (#44 part 2). Earlier: 2026-11-08 (third round and review pass 1 applied, `reviews/rereview-2026-11-08c/pass1-combat-defence.md`)
-> **Last Verified**: 2026-11-08
+> **Last Verified**: 2026-11-10 (confirming re-review)
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Your Dao, Your Name (1)
 > **Parent system**: Combat (#21, `design/gdd/combat.md`). This is sub-system #21a. It owns the whole defence path (evade, resistance, block, wards and body shields, health, soul and status defence) and healing in a fight. Combat keeps offence, the timeline, triggers and results, and is revised afterwards to point here (systems-index design order, user decision 2026-11-07).
 > **Scope decisions (user, 2026-11-07)**: all of defence; healing allowed in ordinary fights (since #44 with no cap per pulse and no decay; fatigue ends stalls), none inside Heavenly Tribulation waves for now; the ward is redesigned (Combat Formulas D and rule 22 are replaced); ward models may reserve linh lực.
@@ -108,7 +108,7 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
    - **Negative resistance amplifies:** below 0, a part is multiplied by `(1 + |R| / 100)`, with no limit.
 
 4. **Resistance penetration is the offence answer.** The offence stat resistance penetration (scoped by
-   damage type, or by any tag like a damage modifier) lowers the defender's resistance for that part before the cap is
+   damage type, or by any tag like a damage modifier) lowers the defender's resistance points for that part (there is no cap since 2026-11-10); it is
    applied, down to the floor. Realm pierce stays a separate stat that acts on suppression (Combat
    Formulas H). Penetration is added to the Modifier System's Stat List.
 
@@ -717,7 +717,7 @@ The ehp formula is defined as:
 | H | float | ≥ 1 | Combat Formulas A | Health at the start |
 | Q_use | float | ≥ 0 | qi_max · (1 − Σ reserved) | Usable linh lực |
 | b | float | ≥ 0 | C: Σ drain rate_w · r_w + per-hit φQ / D_ref, plus `rate_w · B_w / D_ref` for drain-paid block payloads | Linh lực paid per incoming point |
-| r_all, r_fix | float | −0.5–0.9 | A | Resistance with every ward up; with only reserved wards and other sources |
+| r_all, r_fix | float | share stopped, R / (100 + R): 0 up to (never) 1; negative R amplifies | A | Resistance with every ward up; with only reserved wards and other sources |
 | B_all, B_fix | float | ≥ 0 | A2 | All block; body block plus reserved-ward block |
 | D_ref | float | I · 1 s | the standard stream | In Combat Formulas K, use the attacker's mean hit size D̄ |
 | λ_min | float | 0.02 | data file | Keeps ehp finite when block exceeds the hit |
@@ -809,8 +809,8 @@ marks a derived price, **G** a guess.
 > `systems-designer` not consulted for this section — Lean mode. Review manually before production.
 
 **Resistance**
-- **If a part's resistance sum is above its cap**: it is capped. Penetration is subtracted first, so over-cap
-  resistance absorbs penetration before the cap binds (Formulas A).
+- **If penetration is larger than resistance**: R goes below 0 and the part is amplified (Formulas A); there is no cap
+  for penetration to work against.
 - **If resistance falls below −50 %** (curses, penalties, penetration): it is held at the floor, and the part
   takes at most 1.5 × its damage.
 - **If resistance is very high**: there is no cap; 900 points stop 90 %, 1,900 stop 95 %, and each point adds less.
@@ -946,7 +946,7 @@ or died (Pillar 2). Every defence event has a distinct cue.
 - **Resistance panel** (sheet and pre-fight preview): all resistance and each damage type's resistance with their
   caps, block rating and points,
   the share from wards against other sources, and over-cap amounts.
-- **Breakdown line per hit:** evade → resistance (all + type, and the cap) → block → each ward shield → the
+- **Breakdown line per hit:** evade → resistance (all + type, in points) → block → each ward shield → the
   body shield → health,
   plus the drain or fee paid.
 - **Heal lines:** amount, healing and healing taken, and the linh lực a heal art refunds.
@@ -990,7 +990,7 @@ design estimates until the balance harness confirms them.
 | Knob | Default | Safe range | What it tunes | Source |
 |---|---|---|---|---|
 | ~~`resist_cap`, `resist_cap_max`, `resist_floor`~~ | retired 2026-11-10 | — | Resistance is counted in points with no cap or floor | A, rule 3 |
-| `default_resist`, `default_drain` | 0.375, 0.40 | 0.30–0.45; 0.30–0.50 | The free default ward (#44: ×1.25 and ×0.2) | A, rule 11 |
+| `default_resist`, `default_drain` | 60 points, 0.40 | 40–90 points; 0.30–0.50 | The free default ward (stops 37.5 % at 60 points) | A, rule 11 |
 | `block_unit[r]` | 0.0631 / 0.2031 / 0.6672 / 2.254 / 6.883 | derived; rederive if Combat's U or M changes | Block's share of a typical hit at every realm | A2 |
 | `flesh_block`, `gear_block` | 4.4; 12 per a | 3.5–5.5; 10–14 | Unbuilt block; gear block | A2 |
 | `body_gear_shield` | 0.60 per a_b | 0.50–0.70 | Body gear's shield (price parity with ward gear) | B |
@@ -1020,7 +1020,8 @@ design estimates until the balance harness confirms them.
   (0.946 points), no body shield, U 6.31, stage 1.00.
 - **FX-U** is Combat's unbuilt fixture, with block rating 4.4 (0.278 points).
 - **Thể tu fixture:** Formulas G's Qi Refining thể tu: block 88.3 (5.57 points), body shield 436.1, R_all 0.375
-  (default ward) and R_Physical 0.30 (so Physical 0.675, Fire and Chaos 0.375), health 484.6, linh lực 164.1.
+  (default ward, 60 points) and R_Physical 36.1 points (so Physical 96.1 points, stopping 49 %; Fire and Chaos 60, stopping
+  37.5 %), health 484.6, linh lực 164.1.
 - **Common Ward:** all 342.5 points, drain 0.328.
 - **FX-H:** FX-U carrying one heal art at the heal lint's maximum and no damage arts.
 - **Tolerance:** ±0.1 unless a criterion says otherwise.
@@ -1045,7 +1046,7 @@ design estimates until the balance harness confirms them.
 - **AC-CD-10** [Logic] Rule 3. Retired 2026-11-10 with the cap: a record carrying `resist_cap_pct` is rejected at load. **GIVEN** R 100, 448 and 900, **THEN** the share stopped is 50 %, 81.75 % and 90 %.
 - **AC-CD-11** [Logic] Rule 3. **GIVEN** a Physical → Fire part, **THEN** it uses R_all + R_Fire only. **GIVEN** a Physical part from a Fire-element art, **THEN** it uses R_all + R_Physical, and the Breakdown shows type Physical and element Fire.
 - **AC-CD-12** [Logic] Rule 2. **GIVEN** `resist_pct` +15 scoped Fire from an item, the tree and the Way, **THEN** R_Fire rises by 0.45. **WHEN** ws is 100, **THEN** those terms are unscaled and only ward payloads double.
-- **AC-CD-13** [Logic] Rule 4. **GIVEN** `resist_pen_pct` 30 scoped Fire, **THEN** a Fire part's r falls by 0.30 before the cap, a Cold part's r is unchanged, and suppression is unchanged. **GIVEN** Physical-scoped penetration on a Physical → Fire part, **THEN** nothing changes; Fire-scoped penetration lowers its Fire resistance.
+- **AC-CD-13** [Logic] Rule 4. **GIVEN** `resist_pen_pct` 30 scoped Fire, **THEN** a Fire part's R falls by 30 points (from 448 to 418, so 19.3 % gets through instead of 18.25 %), a Cold part's r is unchanged, and suppression is unchanged. **GIVEN** Physical-scoped penetration on a Physical → Fire part, **THEN** nothing changes; Fire-scoped penetration lowers its Fire resistance.
 
 **Wards, slots and activation (Rules 5–7, Formulas D)**
 

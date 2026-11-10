@@ -2300,6 +2300,18 @@ constants:
     notes: "Stalemate time. Fatigue from fatigue_start (60 s) ends almost every fight first (Combat rule 10, #44)."
     added: 2026-11-06
     revised: 2026-11-09
+  - name: element_stacks
+    status: active
+    source: design/gdd/effects.md
+    referenced_by:
+      - design/gdd/effects.md
+      - design/gdd/linh-can.md
+      - design/gdd/combat.md
+    value: "per stack (rule 9a): Fire +1.2 % damage / Burn c_tick 0.019; Water +0.5 % max linh luc, +0.025 pp regen; Earth Physical damage taken 1.1 % dampened / -1.2 pp accuracy; Metal +1.2 % Physical damage / +1.8 % Physical taken; Wood +0.1 pp health regen / Poison c_tick 0.019; Ice +3.9 % art cost; Thunder +0.7 pp accuracy, +0.35 pp crit / +1.2 pp crit chance and +5 % crit damage taken; Wind +7.5 % art speed / -1.2 pp evade"
+    unit: per stack
+    notes: "Equal-value fit 2026-11-10 (equalfit.py). Lint charge w_kind buff 0.010, debuff 0.015 per stack-second, no two-sided discount, charge cap 0.6, whole-fight batch 60 s; cleanse_share 0.25; batch removed below 0.05 stacks; stack power x (1 + 0.002 x purity)."
+    added: 2026-11-10
+    revised: ""
   - name: fatigue_start
     status: active
     source: design/gdd/combat.md
@@ -2541,7 +2553,6 @@ constants:
     referenced_by:
       - design/gdd/combat.md
       - design/gdd/combat-defence.md
-      - design/gdd/effects.md
     value: 0.05
     unit: fraction of max health per tick
     notes: "Removed by #44 item C3: ticks have no cap."

@@ -3,7 +3,7 @@
 > **Status**: Revised 2026-11-09 for the Combat economy revision (#44), part 3: element stacks (rule 9a, Formulas D), Burn and Poison become Fire's and Wood's debuffs, Frostbite and Shock retire, no tick or burn caps, overflow readable (decisions in `design/research/economy-revision-44-decisions.md`). Earlier: designed 2026-11-08; `/design-review` 2026-11-08 overnight (lean, passes 1–4): NEEDS REVISION; revised 2026-11-08 with the user's answers; daytime re-review 2026-11-08 (lean, three passes): NEEDS REVISION, see `reviews/effects-review-log.md`; revised the same day with the user's answers to all 24 items (more reads and actions; the qi-tick path; last acts resolve requesting side first and win only on overkill). Second re-review 2026-11-08b: NEEDS REVISION; its fixes and the user's answers applied the same day (`reviews/rereview-2026-11-08b/effects.md`)
 > **Author**: user + agents
 > **Last Updated**: 2026-11-10 (re-review fixes: tick-cap text, Shock AC, stack lint horizon and rounding, cleansing ward owner, Spiritual Roots dependency). Earlier: 2026-11-09 (#44 part 3). Earlier: 2026-11-08 (second re-review 2026-11-08b applied; see `reviews/rereview-2026-11-08b/effects.md`)
-> **Last Verified**: 2026-11-08
+> **Last Verified**: 2026-11-10 (confirming re-review)
 > **Implements Pillar**: Your Dao, Your Name (1); Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2)
 > **Scope**: Every build piece with a rule in it: conditions, scaling, triggers, conditional conversion, overflow, rule changes, keystones and enablers. An Effect usually grants Modifier System modifiers (`design/gdd/modifiers.md`) as its payload (user decision 2026-11-07). Plain numbers on a stat are Modifiers, not Effects; so is a plain conversion share (`convert_pct`, user decision 2026-11-08).
 > **Reference only**: Part 2 of `design/quick-specs/modifier-inventory.md` (361 effect candidates, mostly from the overnight run). This GDD is designed from scratch and adopts only what passes its rules.
@@ -738,6 +738,7 @@ not prices. Safe ranges are design estimates.
 | Starter limits (per pulse, per fight, cooldowns, caps) | each record | set by eye per Effect | Each Effect's size until the balance pass | Starter Effects |
 | Tier allowances per host | each host GDD | each host GDD | How many Effects a build holds | Rule 4 |
 | Element stack values | rule 9a's table | ±50 % each | How much a stack does | Rule 9a, Formulas D |
+| Batch removal threshold; whole-fight charge horizon | 0.05 stacks; 60 s | 0.01–0.1; 45–75 s | When a thinned batch disappears; how a "for the fight" grant is priced | Formulas D |
 | `cleanse_share` | 0.25 per pulse | 0.25–0.5 | How fast a cleansing ward clears debuff piles | Formulas D |
 | Stack weights `w_kind` | buff 0.010, debuff 0.015 per stack-second | 0.008–0.012; 0.012–0.018 | What arts pay for granting stacks; refit rule 9a's numbers (`equalfit.py`) when these change | Formulas D |
 | Charge cap | 0.6 | 0.5–0.7 | The least damage an art that grants stacks keeps (the two-sided factor was removed 2026-11-10) | Formulas D |
@@ -831,7 +832,7 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-66** [Logic] Rule 9a, element tag. **GIVEN** a Metal-tagged art whose Physical is converted to Fire, granting stacks, **THEN** it grants Metal stacks, not Fire. **GIVEN** a record granting Chaos, Light or Darkness stacks, **THEN** load rejects it.
 - **AC-EF-67** [Logic] Rule 9a, debuff ticks. **GIVEN** a Burn batch applied while the applier has +40 % Fire damage, **WHEN** the applier's bonus later drops, **THEN** that batch still ticks with +40 %; a later batch uses the new value.
 - **AC-EF-68** [Logic] Formulas D, cleansing ward. **GIVEN** `cleanse_share` 0.25 and a Burn batch of 8, **THEN** it is 6, 4.5 and 3.375 after three pulses; a batch below 0.05 stacks is removed. **GIVEN** a cleanse art removing 5 stacks against batches of 3 (older) and 4, **THEN** the older is gone and the newer holds 2. **GIVEN** an element-wide cleanse, **THEN** every debuff batch of that element is removed and other elements stay.
-- **AC-EF-69** [Config/Data] Formulas D, lint. **GIVEN** a Fire art with cost 0.075, cooldown 4 s, 1 buff stack for 10 s and 2 Burn stacks for 6 s per hit, **THEN** its charge is 0.28 and c_art 2.55 passes, 2.56 fails. **GIVEN** an art whose charge would exceed 0.6, **THEN** the charge is 0.6. **GIVEN** an art granting no stacks, **THEN** its charge is 0.
+- **AC-EF-69** [Config/Data] Formulas D, lint. **GIVEN** a Fire art with cost 0.075, cooldown 4 s, 1 buff stack for 10 s and 2 Burn stacks for 6 s per hit, **THEN** its charge is 0.28 and c_art 2.55 passes, 2.56 fails (the lint rounds 2.556 down to 0.01). **GIVEN** an art whose charge would exceed 0.6, **THEN** the charge is 0.6. **GIVEN** an art granting no stacks, **THEN** its charge is 0.
 - **AC-EF-70** [Logic] Rule 5, overflow. **GIVEN** a full pool and regeneration of 6.05, **THEN** the overflow event carries 6.05 and Still Water restores 3.02 health with no cap. **GIVEN** a pool 2 short of full, **THEN** overflow is 4.05.
 
 **Data and UI**
