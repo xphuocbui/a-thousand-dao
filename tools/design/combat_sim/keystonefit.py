@@ -5,8 +5,7 @@ target = (mirror side-A rate) + 0.15: a keystone should make its build clearly b
 import sys, copy
 sys.path.insert(0, '.')
 import sim
-W = {"fire": (0.010, 0.020), "water": (0.022, 0), "earth": (0.004, 0.016), "metal": (0.010, 0.008),
-     "wood": (0.008, 0.020), "ice": (0, 0.006), "thunder": (0.012, 0.006), "wind": (0.004, 0.010)}
+W = {el: (0.010 if el != "ice" else 0, 0.015 if el != "water" else 0) for el in ["fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind"]}  # equal-value weights (2026-11-10)
 def wr(a, b, seeds=24):
     res = [sim.fight(a, b, seed=s) for s in range(seeds)]
     return (sum(r["win"] == "A" for r in res) + 0.5 * sum(r["win"] in ("draw", "time") for r in res)) / seeds

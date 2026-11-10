@@ -209,14 +209,18 @@ different.
 
     | Element | Buff, per stack | Debuff, per stack |
     |---|---|---|
-    | Fire (Hỏa) | +1 % damage dealt | **Burn**: Fire damage each pulse, `c_tick` 0.03 per stack (Status Catalogue) |
-    | Water (Thủy) | +1 % maximum linh lực, +0.05 pp linh lực regeneration | — (Ice carries the pair's debuff) |
-    | Earth (Thổ) | +1 % Physical resistance | −1 pp accuracy |
-    | Metal (Kim) | +1 % Physical damage dealt | +1 % Physical damage taken |
-    | Wood (Mộc) | +0.05 pp health regeneration | **Poison**: Chaos damage each pulse, `c_tick` 0.03 per stack (Status Catalogue) |
-    | Ice (Băng) | — (Water carries the pair's buff) | +1 % art cost |
-    | Thunder (Lôi) | +1 pp accuracy, +0.5 pp crit chance | +0.5 pp crit chance and +2 % crit damage taken |
-    | Wind (Phong) | +1 % art speed | −1 pp evade |
+    | Fire (Hỏa) | +1.2 % damage dealt | **Burn**: Fire damage each pulse, `c_tick` 0.019 per stack (Status Catalogue) |
+    | Water (Thủy) | +0.5 % maximum linh lực, +0.025 pp linh lực regeneration | — (Ice carries the pair's debuff) |
+    | Earth (Thổ) | +8 pp Physical resistance (meets the resistance cap after a few stacks; to become dampen-shaped) | −1.2 pp accuracy |
+    | Metal (Kim) | +1.2 % Physical damage dealt | +1.8 % Physical damage taken |
+    | Wood (Mộc) | +0.1 pp health regeneration | **Poison**: Chaos damage each pulse, `c_tick` 0.019 per stack (Status Catalogue) |
+    | Ice (Băng) | — (Water carries the pair's buff) | +3.9 % art cost |
+    | Thunder (Lôi) | +0.7 pp accuracy, +0.35 pp crit chance | +1.2 pp crit chance and +5 % crit damage taken |
+    | Wind (Phong) | +7.5 % art speed (meets `cooldown_min` after a few stacks; to become dampen-shaped) | −1.2 pp evade |
+
+    **Equal value** (user decision 2026-11-10): every element's buff is worth about the same, and every debuff about
+    the same, against the typical foe; the numbers above were fitted to that (Formulas D). Matchups still differ on
+    purpose: Earth resists Physical only, accuracy and evade stacks need a foe with evade, Ice hurts costly kits most.
 
     - **Two separate tracks.** A side may carry buff stacks, debuff stacks, both or neither. Chaos (Hỗn Độn), Light
       (Quang) and Darkness (Ám) have no stacks; Void and Blood are archived (Spiritual Roots).
@@ -310,14 +314,14 @@ different.
 > Drafted by `game-designer` 2026-11-07; inserted as drafted (user decision). Bounds are Combat Formulas F:
 > `c_tick` 0.15–0.5 per stack, duration 2–6 pulses, stack cap 5, the lint `c_tick · duration ≤ 1.2 · c_art`,
 > at most 3 curses of at most 5 pulses. Since #44 (2026-11-09) ticks have no cap per tick or per pulse, and Burn and
-> Poison are element debuffs (rule 9a): batches with no stack cap, `c_tick` 0.03 per stack, priced by Formulas D.
+> Poison are element debuffs (rule 9a): batches with no stack cap, `c_tick` 0.019 per stack, priced by Formulas D.
 
 **Ticks**
 
 | Status | Damage type | Strength | Duration | Stacking | Cleanse tags | Tags | Rule |
 |---|---|---|---|---|---|---|---|
-| Burn (Thiêu Đốt) — **Fire's debuff** | Fire | c_tick 0.03 per stack | per batch, set by its source | Element stack batches (rule 9a): no cap, no merging | fire, cleanse | burn, over_time, fire | Burns each pulse and wears down body shields (Fire does not pass them). Was a single status with c_tick 0.35 where the stronger Burn won (#44) |
-| Poison (Trúng Độc) — **Wood's debuff** | Chaos | c_tick 0.03 per stack | per batch, set by its source | Element stack batches (rule 9a): no cap, no merging | poison, cleanse | poison, over_time, chaos | Passes every shield by default; only Chaos and all resistance cut it. Was 0.15 per stack to 5 (#44) |
+| Burn (Thiêu Đốt) — **Fire's debuff** | Fire | c_tick 0.019 per stack | per batch, set by its source | Element stack batches (rule 9a): no cap, no merging | fire, cleanse | burn, over_time, fire | Burns each pulse and wears down body shields (Fire does not pass them). Was a single status with c_tick 0.35 where the stronger Burn won (#44) |
+| Poison (Trúng Độc) — **Wood's debuff** | Chaos | c_tick 0.019 per stack | per batch, set by its source | Element stack batches (rule 9a): no cap, no merging | poison, cleanse | poison, over_time, chaos | Passes every shield by default; only Chaos and all resistance cut it. Was 0.15 per stack to 5 (#44) |
 | Bleed (Xuất Huyết) | Physical | 0.20 per stack | 4 | Stacks to 5; each stack keeps its own timer | bleed, cleanse | bleed, over_time, physical | Body shields soak it; block never does |
 | ~~Frostbite (Đống Thương)~~ | Cold | — | — | — | — | — | **Retired (#44):** Ice's debuff is the art-cost rise (rule 9a); Rime Lock reads Ice stacks |
 | ~~Shock (Lôi Chấn)~~ | Lightning | — | — | — | — | — | **Retired (#44):** Thunder's debuff is crit exposure (rule 9a) |
@@ -570,26 +574,26 @@ and A is Down.
 
 The element stack formulas are defined as:
 
-`count(side, element, kind) = Σ live batches` ; buff and debuff effects are `per_stack · count` (rule 9a's table) ; a cleansing ward removes `cleanse_share · stacks` from every debuff batch on its side each pulse ; an art that grants stacks lints at `c_art ≤ lint · (1 − charge)`, where `charge = Σ w_el,kind · stacks · seconds` per firing, × 0.75 when it grants both buff and debuff stacks, with `charge ≤ 0.6`
+`count(side, element, kind) = Σ live batches` ; buff and debuff effects are `per_stack · count` (rule 9a's table) ; a cleansing ward removes `cleanse_share · stacks` from every debuff batch on its side each pulse ; an art that grants stacks lints at `c_art ≤ lint · (1 − charge)`, where `charge = Σ w_kind · stacks · seconds` per firing, × 0.75 when it grants both buff and debuff stacks, with `charge ≤ 0.6`
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | per_stack | float | rule 9a | data file (`element_stacks`) | One stack's effect |
 | cleanse_share | float | 0.25 (0.25–0.5) | ward record | Share of each debuff batch a cleansing ward removes per pulse |
-| w_el,kind | float | buff / debuff per stack-second: Fire 0.010 / 0.020, Water 0.022 / —, Earth 0.004 / 0.016, Metal 0.010 / 0.008, Wood 0.008 / 0.020, Ice — / 0.006, Thunder 0.012 / 0.006, Wind 0.004 / 0.010 | data file, fitted by the #44 simulator (`tools/design/combat_sim/stackfit.py`) | What one stack held for one second is worth, as a share of the art's damage |
+| w_kind | float | buff 0.010, debuff 0.015 per stack-second, the same for every element (user decision 2026-11-10: equal-value stacks) | data file | What one stack held for one second is worth, as a share of the art's damage. The per-stack numbers of rule 9a were fitted so every element meets these (`tools/design/combat_sim/equalfit.py`) |
 | lint | float | Combat Formulas C | Combat | The art's damage limit before the charge |
 
 **Output Range:** counts from 0 with no cap; a debuff batch under a cleansing ward falls by `cleanse_share` each
 pulse; the charge runs from 0 to 0.6, so an art that grants stacks keeps at least 40 % of its damage.
 
-**Why these weights.** Each was measured alone in the simulator: a typical kit granting 1 buff stack for 10 s per
-firing, or 2 debuff stacks for 6 s per hit, had its damage scaled until it broke even with the typical build (the
-foe at 10 % evade, so accuracy and evade stacks act). Earth's and Wind's debuffs and Thunder's buff depend on the
-foe having evade, so their weights rise against evasive builds. A kit granting both sides is worth less than the
-sum (Fire: 25 % measured against a 34 % sum), hence the 0.75.
+**Why these weights.** Every element's per-stack numbers were fitted so that a typical kit granting 1 buff stack for
+10 s per firing breaks even with the typical build when it pays a 0.010 charge per stack-second, and a kit granting 2
+debuff stacks for 6 s per hit breaks even at 0.015 (the foe at 10 % evade, so accuracy and evade stacks act). Debuffs
+are worth more per stack-second because they can be cleansed. A kit granting both sides is worth less than the sum
+(Fire: 25 % measured against a 34 % sum), hence the 0.75.
 
 **Example:** a Fire art (cost 0.075, cooldown 4 s, lint 3.55) granting 1 buff stack for 10 s and 2 Burn stacks for
-6 s per hit: charge = 0.75 × (0.010 × 10 + 0.020 × 12) = **0.255**, so c_art ≤ 3.55 × 0.745 = **2.64**. A cleansing ward
+6 s per hit: charge = 0.75 × (0.010 × 10 + 0.015 × 12) = **0.21**, so c_art ≤ 3.55 × 0.79 = **2.80**. A cleansing ward
 at 0.25 takes a batch of 8 Burn stacks to 6, then 4.5, then 3.4.
 
 ## Edge Cases
@@ -732,7 +736,7 @@ not prices. Safe ranges are design estimates.
 | Tier allowances per host | each host GDD | each host GDD | How many Effects a build holds | Rule 4 |
 | Element stack values | rule 9a's table | ±50 % each | How much a stack does | Rule 9a, Formulas D |
 | `cleanse_share` | 0.25 per pulse | 0.25–0.5 | How fast a cleansing ward clears debuff piles | Formulas D |
-| Stack weights `w_el,kind` | Formulas D | refit when stack values change | What arts pay for granting stacks | Formulas D |
+| Stack weights `w_kind` | buff 0.010, debuff 0.015 per stack-second | 0.008–0.012; 0.012–0.018 | What arts pay for granting stacks; refit rule 9a's numbers (`equalfit.py`) when these change | Formulas D |
 | Combined-grant factor, charge cap | 0.75; 0.6 | 0.6–0.9; 0.5–0.7 | Price of arts granting both sides; the least damage such an art keeps | Formulas D |
 
 ## Acceptance Criteria
@@ -818,13 +822,13 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-60** [Logic] Blood Casting with Withering (shared floor). **GIVEN** Blood Casting (−50 % healing taken) and Withering (−50 %) on one side and a heal of 100, **THEN** 50 is received, not 0 and not 25, and the Breakdown names the floor.
 - **AC-EF-61** [Logic] Glass Meridians (scale a pool). **GIVEN** a body shield pool of 200 before the keystone, **THEN** it is 100 with it, and maximum health is 25 % lower.
 - **AC-EF-62** [Logic] Beast Soul Union (forbid a companion). **GIVEN** two companions in the loadout, **WHEN** compiled, **THEN** it is rejected and names the second.
-- **AC-EF-63** [Logic] Rule 9a, batches. **GIVEN** an art granting 1 Fire buff stack for 10 s fired at t 1, 3 and 5, **THEN** the count is 1, 2, 3 at t 5 and falls to 0 at t 15, and Fire damage dealt is +3 % at t 6.
-- **AC-EF-64** [Logic] Rule 9a, no cap. **GIVEN** 250 Water buff stacks, **THEN** maximum linh lực is +250 % and the regeneration bonus +12.5 pp before Combat's diminishing returns; nothing is clipped. **GIVEN** 120 Thunder buff stacks on a side with crit chance 0.1, **THEN** crit chance stops at `crit_chance_cap`.
-- **AC-EF-65** [Logic] Rule 9a, Ice past the curse cap. **GIVEN** Heavy Breath at +50 % and 30 Ice stacks on a side, **THEN** its art costs are ×1.5 × 1.30, and the log names both.
+- **AC-EF-63** [Logic] Rule 9a, batches. **GIVEN** an art granting 1 Fire buff stack for 10 s fired at t 1, 3 and 5, **THEN** the count is 1, 2, 3 at t 5 and falls to 0 at t 15, and Fire damage dealt is +3.6 % at t 6.
+- **AC-EF-64** [Logic] Rule 9a, no cap. **GIVEN** 250 Water buff stacks, **THEN** maximum linh lực is +125 % and the regeneration bonus +6.25 pp before Combat's diminishing returns; nothing is clipped. **GIVEN** 120 Thunder buff stacks on a side with crit chance 0.1, **THEN** crit chance stops at `crit_chance_cap`.
+- **AC-EF-65** [Logic] Rule 9a, Ice past the curse cap. **GIVEN** Heavy Breath at +50 % and 30 Ice stacks on a side, **THEN** its art costs are ×1.5 × 2.17, and the log names both.
 - **AC-EF-66** [Logic] Rule 9a, element tag. **GIVEN** a Metal-tagged art whose Physical is converted to Fire, granting stacks, **THEN** it grants Metal stacks, not Fire. **GIVEN** a record granting Chaos, Light or Darkness stacks, **THEN** load rejects it.
 - **AC-EF-67** [Logic] Rule 9a, debuff ticks. **GIVEN** a Burn batch applied while the applier has +40 % Fire damage, **WHEN** the applier's bonus later drops, **THEN** that batch still ticks with +40 %; a later batch uses the new value.
 - **AC-EF-68** [Logic] Formulas D, cleansing ward. **GIVEN** `cleanse_share` 0.25 and a Burn batch of 8, **THEN** it is 6, 4.5 and 3.375 after three pulses; a batch below 0.05 stacks is removed. **GIVEN** a cleanse art removing 5 stacks against batches of 3 (older) and 4, **THEN** the older is gone and the newer holds 2. **GIVEN** an element-wide cleanse, **THEN** every debuff batch of that element is removed and other elements stay.
-- **AC-EF-69** [Config/Data] Formulas D, lint. **GIVEN** a Fire art with cost 0.075, cooldown 4 s, 1 buff stack for 10 s and 2 Burn stacks for 6 s per hit, **THEN** its charge is 0.255 and c_art 2.64 passes, 2.65 fails. **GIVEN** an art whose charge would exceed 0.6, **THEN** the charge is 0.6. **GIVEN** an art granting no stacks, **THEN** its charge is 0.
+- **AC-EF-69** [Config/Data] Formulas D, lint. **GIVEN** a Fire art with cost 0.075, cooldown 4 s, 1 buff stack for 10 s and 2 Burn stacks for 6 s per hit, **THEN** its charge is 0.21 and c_art 2.80 passes, 2.81 fails. **GIVEN** an art whose charge would exceed 0.6, **THEN** the charge is 0.6. **GIVEN** an art granting no stacks, **THEN** its charge is 0.
 - **AC-EF-70** [Logic] Rule 5, overflow. **GIVEN** a full pool and regeneration of 6.05, **THEN** the overflow event carries 6.05 and Still Water restores 3.02 health with no cap. **GIVEN** a pool 2 short of full, **THEN** overflow is 4.05.
 
 **Data and UI**

@@ -42,23 +42,23 @@ SUPP = [0.0, 0.10, 0.25, 0.50, 0.75]
 BLOCK_UNIT = [0.0631, 0.2031, 0.6672, 2.254, 6.883]
 
 # element stack table (D2), per stack
-BUFF = {
-    "fire": {"dmg": 0.01},
-    "water": {"qi_max": 0.01, "regen": 0.0005},
-    "earth": {"res_phys": 0.01},
-    "metal": {"dmg_phys": 0.01},
-    "wood": {"hregen": 0.0005},
-    "thunder": {"acc": 0.01, "crit": 0.005},
-    "wind": {"speed": 0.01},
+BUFF = {  # equal-value numbers (2026-11-10, equalfit.py)
+    "fire": {"dmg": 0.012},
+    "water": {"qi_max": 0.005, "regen": 0.00025},
+    "earth": {"res_phys": 0.08},
+    "metal": {"dmg_phys": 0.012},
+    "wood": {"hregen": 0.001},
+    "thunder": {"acc": 0.007, "crit": 0.0035},
+    "wind": {"speed": 0.075},
 }
 DEBUFF = {
-    "fire": {"burn": 0.03},
-    "earth": {"acc_down": 0.01},
-    "metal": {"phys_taken": 0.01},
-    "wood": {"poison": 0.03},
-    "ice": {"cost_up": 0.01},
-    "thunder": {"crit_taken": 0.005, "critdmg_taken": 0.02},
-    "wind": {"evade_down": 0.01},
+    "fire": {"burn": 0.019},
+    "earth": {"acc_down": 0.012},
+    "metal": {"phys_taken": 0.018},
+    "wood": {"poison": 0.019},
+    "ice": {"cost_up": 0.039},
+    "thunder": {"crit_taken": 0.012, "critdmg_taken": 0.05},
+    "wind": {"evade_down": 0.012},
 }
 
 

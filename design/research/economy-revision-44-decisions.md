@@ -436,3 +436,9 @@ element's debuff about the same, buffs and debuffs treated separately**. Plan (C
 - Also update: the builds README stack table, AC-EF-69's example, `keystonefit.py`, and re-fit the keystone numbers.
 - Matchup differences stay on purpose (Earth resists Physical only; Wind/Thunder need a foe with evade; Ice
   favours expensive-art foes).
+- **Equal-value stacks APPLIED 2026-11-10** (`tools/design/combat_sim/equalfit.py`): per-stack numbers re-fitted so
+  every buff is worth 1.0 % and every debuff 1.5 % of art damage per stack-second against the typical foe; Formulas
+  D now uses one buff weight (0.010) and one debuff weight (0.015); Burn and Poison `c_tick` 0.019. Earth's buff (+8 pp
+  Physical resistance) and Wind's (+7.5 % art speed) came out large because their stats meet a cap or floor; under the
+  no-caps strategy they should become dampen-shaped (open item). Keystone starting numbers in the build notes predate
+  this re-fit.

@@ -36,16 +36,18 @@ Each build has:
 - **Element stacks** (Effects rule 9a): every element has a buff on you and a debuff on the foe, uncapped,
   answered by cleansing:
 
+  Numbers re-fitted 2026-11-10 so every buff, and every debuff, is worth about the same (Effects rule 9a).
+
   | Element | Buff (on you) | Debuff (on the foe) |
   |---|---|---|
-  | Fire | +1 % damage | Burn: Fire ticks, the applier's damage |
-  | Water | +1 % max linh lực, +0.05 pp linh lực regen | — |
-  | Earth | +1 % Physical resistance | −1 pp accuracy |
-  | Metal | +1 % Physical damage | +1 % Physical damage taken |
-  | Wood | +0.05 pp health regen | Poison: Chaos ticks, passes shields |
-  | Ice | — | +1 % art cost |
-  | Thunder | +1 pp accuracy, +0.5 pp crit | +0.5 pp crit chance and +2 % crit damage taken |
-  | Wind | +1 % art speed | −1 pp evade |
+  | Fire | +1.2 % damage | Burn: Fire ticks, the applier's damage |
+  | Water | +0.5 % max linh lực, +0.025 pp linh lực regen | — |
+  | Earth | +8 pp Physical resistance | −1.2 pp accuracy |
+  | Metal | +1.2 % Physical damage | +1.8 % Physical damage taken |
+  | Wood | +0.1 pp health regen | Poison: Chaos ticks, passes shields |
+  | Ice | — | +3.9 % art cost |
+  | Thunder | +0.7 pp accuracy, +0.35 pp crit | +1.2 pp crit chance and +5 % crit damage taken |
+  | Wind | +7.5 % art speed | −1.2 pp evade |
 
 - **Each element's tree will hold a keystone that generates linh lực** (user, 2026-11-09). Builds below name the
   one they would take.
