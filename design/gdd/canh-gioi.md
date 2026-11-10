@@ -788,7 +788,7 @@ and 04f).
 - **A fully built life.** With every q extra at its maximum as well, the q-extras ceiling
   (Formulas C) holds it to 0.52 / 0.54 / 0.55 / 0.54 (uncapped it was 0.76–0.81).
 - **Fields are a build, outside the ceiling target** (user decision 2026-11-04).
-  `field_plots` is outside Character Stats' ceilings, bounded only by `max_plots` 12,
+  `field_plots` is outside Character Stats' curves and, since 2026-11-10, unbounded (`max_plots` removed; Character Stats Open Question on recalibration),
   and `bonus_ceiling_target` covers lives without extra plots. A field build can beat
   it, by design: on top of the ceiling run, +1 plot gives 0.52 / 0.55 / 0.55 / 0.54 and
   +2 give 0.61–0.63. At 12 plots the run gives 0.78–0.88, and a life with 12 plots and
@@ -1907,7 +1907,7 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   tolerance by user decision 2026-11-04), and the transcript shows the clamp lines.
   Field builds are outside the ceiling target by design (user
   decisions 2026-11-04; +1 plot gives 0.52–0.55, `max_plots` 12 gives 0.78–0.88). If a
-  gate is over, lower the Character Stats `bonus_ceilings`, not the recipes or
+  gate is over, lower the Character Stats `bonus_curves` scales (ceilings became curves 2026-11-10), not the recipes or
   `pill_chance`. **Run order:** this run uses the `pill_chance` that AC-CG-30 set; run
   AC-CG-30 first, then this one.
 - **AC-CG-61** [Logic] Rule 14, lifespan cap.

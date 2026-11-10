@@ -30,3 +30,4 @@ Decided by the user on 2026-11-10; the GDD changes are still to draft (Spiritual
 - **Pricing:** a point of purity is worth 0.2 % more stack power; the simulator (`tools/design/combat_sim/`) can price
   it against a stack build.
 - **Applied 2026-11-10:** linh-can.md rule 8a, Formulas H, capped reads, edge cases, AC-LC-52/53, OQ 14; effects.md rule 9a line; kinh-mach-do.md road redraw rule.
+- **No-caps for element roles (user, 2026-11-10):** Character Stats rule 14 ceilings became curves `k · ln(1 + Σ⁺/k)` (herb growth k 10, lifespan k 15 % of base), `alchemy_success` dampens the brew failure chance, `max_plots` removed; Realms calibration re-run flagged (Character Stats Open Question). Not done: regen's `bonus/(1+bonus/k)` (levels off at +8 pp) could switch to the same log curve if the user wants.

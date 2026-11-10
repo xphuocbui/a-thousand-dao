@@ -191,16 +191,18 @@ here but not built yet.
     joins (pill quality, comprehension, Dao heart, the tree's share, the Chaos variant's line, event bonuses; destiny
     perks excluded) also meet Realms & Bottlenecks' q-extras ceiling in its Formulas C,
     which Realms owns and sets; this GDD does not define its value.
-    - **Character-wide bonus ceilings** (user decision 2026-11-04, cross-GDD review G1).
-      Three totals are capped across every rule 12 source, because they feed
+    - **Character-wide bonus curves** (user decision 2026-11-10, "no caps", replacing the 2026-11-04 ceilings). Three
+      totals slow down instead of stopping (Formulas I): herb growth and the lifespan bonus follow `k · ln(1 + Σ⁺ / k)`
+      with k the old ceiling, and `alchemy_success` dampens the brew's failure chance. They were capped, because they feed
       breakthrough odds through pill supply (Realms Formulas D): `herb_growth_pct` at 10,
-      `alchemy_success` at 3 (cross-GDD review 04f; were 40 and 8) and the lifespan bonus at 15 % of the realm's base lifespan (Formulas I). The
+      `alchemy_success` at 3 (cross-GDD review 04f; were 40 and 8) and the lifespan bonus at 15 % of the realm's base lifespan; the
+      curves keep small bonuses close to those numbers and let large stacks keep paying a little (Realms' calibration to re-check). The
       lifespan bonus is lifespan pill years plus every `lifespan_years` modifier. An
       equipped treasure's lifespan is its `lifespan_years` modifier and is counted once,
       inside that sum; there is no separate treasure term.
     - **Penalties apply after the cap** (user decision 2026-11-04, fourth-pass review).
-      The ceiling clamps only the sum of the positive modifiers; the negative ones are
-      added afterwards: total = min(Σ positive, ceiling) + Σ negative. Each modifier is
+      The curve bends only the sum of the positive modifiers; the negative ones are
+      added afterwards: total = curve(Σ positive) + Σ negative. Each modifier is
       sorted by its own sign, so a source with a bonus and a penalty on the same key
       feeds both sums. Bonus above the ceiling therefore never absorbs a penalty: a +60 source with a
       −20 penalty gives 10 − 20 = −10, not min(40, 10) = 10.
@@ -213,7 +215,7 @@ here but not built yet.
       whatever its source. So the root terms (Wood's herb growth and
       Earth's plots, Formulas G; Fire's brew success, +0.25 pp per purity point, in
       Realms Formulas D and owned by Alchemy) are not capped. Nor are `field_plots`
-      (bounded by `max_plots`; a deliberate build lever: extra plots can beat the
+      (no upper bound since 2026-11-10, `max_plots` removed; a deliberate build lever: extra plots can beat the
       breakthrough odds, and Realms' targets assume none (user decision 2026-11-04)) or
       `lifespan_pct` (bounded below). Alchemy's own brew-success terms are not sheet
       modifiers, so they are not capped either: Đan Đạo level (+6 pp per level, up to 54 pp
@@ -545,7 +547,7 @@ The element_multipliers formulas are defined as:
 
 `mission_income = (1 + k_m · purity_metal) · max(0, 1 + mission_income_pct/100)`
 
-`plots = clamp(base_plots + ⌊k_f · purity_earth⌋ + total(field_plots), 1, max_plots)`
+`plots = max(1, base_plots + ⌊k_f · purity_earth⌋ + total(field_plots))` (no upper bound since 2026-11-10)
 
 Toxicity decay is in D. `total(field_plots)` is the stat sheet's `field_plots` total.
 Herb growth and mission income multiply; field plots and toxicity decay add (rule 11).
@@ -556,15 +558,14 @@ Herb growth and mission income multiply; field plots and toxicity decay add (rul
 | purity_* | float | 0 (absent), 10–100 at birth, uncapped after rare raises (Spiritual Roots rule 8a) | calculated (Spiritual Roots) | Element purity, read in full with no cap (user decision 2026-11-10) |
 | k_h, k_m | float | 0.008, 0.008 | data file (`herb_growth_pct_per_purity`, `mission_income_pct_per_purity`, stored as 0.8 %) | Per purity point |
 | k_f | float | 0.04 | data file (`field_plots_per_purity`) | Plots per Earth purity point |
-| base_plots, max_plots | int | 3, 12 | data file | |
-| herb_growth_pct | float | at most the ceiling, 10 (rule 14); negative allowed | calculated (stat sheet total after Formulas I) | Herb growth bonus, ceilinged with penalties added after the cap (rule 14); the factor `max(0, 1 + herb_growth_pct/100)` floors at 0 |
+| base_plots | int | 3 | data file | `max_plots` 12 removed 2026-11-10 (no caps) |
+| herb_growth_pct | float | after the rule 14 curve (scale 10), no ceiling; negative allowed | calculated (stat sheet total after Formulas I) | Herb growth bonus, ceilinged with penalties added after the cap (rule 14); the factor `max(0, 1 + herb_growth_pct/100)` floors at 0 |
 | mission_income_pct | float | no ceiling (not a rule 14 key), negative allowed | calculated (stat sheet total after Formulas I) | Mission income bonus; the factor floors at 0 |
 | total(field_plots) | int | any; the result is clamped | calculated (stat sheet) | Extra plots |
 
-**Output Range:** the purity term is 1.0–1.8 at birth purities, and keeps rising past purity 100 (no cap). Herb growth is 0 up to 1.8 × (1 + ceiling/100) = 1.98
-(Wood 100 at the ceiling of 10); it reaches 0 when `herb_growth_pct` is −100 or below. Mission
+**Output Range:** the purity term is 1.0–1.8 at birth purities, and keeps rising past purity 100 (no cap). Herb growth is 0 and up, with no upper bound (the bonus follows rule 14's curve); it reaches 0 when `herb_growth_pct` is −100 or below. Mission
 income is ≥ 0, with no upper bound set here because `mission_income_pct` has no ceiling.
-Field plots 1–12.
+Field plots 1 and up, with no upper bound.
 
 **Variant roles.** Each owned variant adds its `variant_effects` lines to the sheet, with the
 source "Biến dị: <data name>":
@@ -576,7 +577,7 @@ current purity. Spiritual Roots Formulas E owns the coefficients and prices. Non
 eight variants' keys is under a rule 14 ceiling. For example, Thunder at purity 47 gives
 `attack_pct` +14.1.
 
-**Example:** Wood 60 with `herb_growth_pct` +10 (the ceiling) → 1.48 × 1.1 = **1.628**.
+**Example:** Wood 60 with `herb_growth_pct` +10 (curved to +6.9) → 1.48 × 1.069 = **1.582**.
 Earth 60 with
 `field_plots` +3 → 3 + 2 + 3 = **8** plots.
 
@@ -613,12 +614,12 @@ The stacking formulas are defined as:
 
 `total(k) = Σ v_i` ; for `breakthrough_chance`: `total = min(Σ_tree v_i, cap_tree) + Σ_other v_i`
 
-for `herb_growth_pct` and `alchemy_success`: `total = min(Σ⁺ v_i, ceiling(k)) + Σ⁻ v_i`
+for `herb_growth_pct`: `total = k · ln(1 + Σ⁺ v_i / k) + Σ⁻ v_i`, k = 10 ; for `alchemy_success`: `fail' = fail ÷ (1 + total / 100)`, total = Σ v_i, applied to the brew's failure chance (Alchemy and Realms Formulas D), so success approaches 100 % and never reaches it
 
-lifespan bonus: `B_life = min(pill_years + Σ⁺ lifespan_years, f_life · L_realm) + Σ⁻ lifespan_years`
+lifespan bonus: `B_life = k_life · ln(1 + (pill_years + Σ⁺ lifespan_years) / k_life) + Σ⁻ lifespan_years`, with `k_life = f_life · L_realm`
 
 `Σ⁺` sums the modifiers with v_i > 0 and `Σ⁻` those with v_i < 0, so penalties apply
-after the cap (rule 14, user decision 2026-11-04). An equipped treasure's lifespan is its
+after the curve (rule 14; curves replaced the caps 2026-11-10). An equipped treasure's lifespan is its
 `lifespan_years` modifier, counted once inside `Σ⁺ lifespan_years`; there is no separate
 treasure term.
 
@@ -629,8 +630,8 @@ treasure term.
 |----------|------|-------|--------|-------------|
 | v_i | int (precision units) | per key | calculated | One modifier, quantized once when it enters the sheet |
 | cap_tree | float | 8 pp | data file (`tree_breakthrough_cap`, owned by the Meridian Map) | Cap on the tree's share |
-| ceiling(k) | float | `herb_growth_pct` 10, `alchemy_success` 3 pp (04f; were 40 and 8) | data file (`bonus_ceilings`) | Character-wide ceiling on the positive modifiers of every source, craft mastery's sheet modifiers included (rule 12; Alchemy's level term is not one, rule 14); penalties are added after it (rule 14) |
-| f_life | float | 0.15 (guess) | data file (`bonus_ceilings.lifespan_frac`) | Lifespan bonus ceiling as a share of the realm's base lifespan |
+| k | float | `herb_growth_pct` 10 (curve scale; was a ceiling) | data file (`bonus_curves`) | Curve scale on the positive modifiers of every source; `alchemy_success` now dampens failure instead (no k), craft mastery's sheet modifiers included (rule 12; Alchemy's level term is not one, rule 14); penalties are added after it (rule 14) |
+| f_life | float | 0.15 (guess) | data file (`bonus_curves.lifespan_frac`) | Scale of the lifespan bonus curve as a share of the realm's base lifespan (was a ceiling) |
 | L_realm | int | 120 / 200 / 500 / 1,000 / 2,000 | data file (Realms & Bottlenecks) | The realm's base lifespan |
 | pill_years | float | ≥ 0 | stored on the character (Item DB lifespan pills) | Lifespan years from pills taken; the raw sum is kept (Edge Cases) |
 | Σ⁺, Σ⁻ | float | Σ⁺ ≥ 0, Σ⁻ ≤ 0 | calculated | Sums of a key's positive and negative modifiers, each modifier sorted by its own sign |
@@ -664,11 +665,12 @@ are ordinary entries in the sum.
 
 **Example:** heart demon 54.25 → #25 adds 27.125 → stored **27.1**. Tree modifiers of
 5.0 and 4.5 pp on `breakthrough_chance` → min(9.5, 8) = 8, plus a +12 perk (not capped) =
-**20**. Two secret arts with `herb_growth_pct` 25 each plus a tree +6 → min(56, 10) =
-**10**. A +60 with a −20 penalty → min(60, 10) − 20 = **−10**, so herb growth takes × 0.9;
-a +5 with the −20 → 5 − 20 = **−15**. `alchemy_success` +2, +2 and +3 → min(7, 3) = **3**.
+**20**. Two secret arts with `herb_growth_pct` 25 each plus a tree +6 → 10 · ln(6.6) =
+**18.9**. A +60 with a −20 penalty → 10 · ln(7) − 20 = **−0.5**, so herb growth takes × 0.995;
+a +5 with the −20 → 4.05 − 20 = **−15.9**. `alchemy_success` +2, +2 and +3 → 7, so a 50 % failure chance becomes
+50 / 1.07 = **46.7 %**.
 In QR (base lifespan 120), two arts with `lifespan_years` 15 →
-min(30, 18) = **18** years; add a `lifespan_years` −5 penalty → 18 − 5 = **13**.
+18 · ln(1 + 30 / 18) = **17.7** years; add a `lifespan_years` −5 penalty → **12.7**.
 
 ### J. Comprehension factor
 
@@ -708,8 +710,8 @@ cross-GDD review N5: the factor was built but had no formula in any GDD.)
   - `linh_luc_conversion` 0.20 (#4);
   - `effective_talent_min` 1, `effective_talent_max` 150;
   - `heart_demon_strength` {threshold 50, divisor 2, deviation_pct 100} for #25.
-- `bonus_ceilings` {`herb_growth_pct` 10, `alchemy_success` 3, `lifespan_frac` 0.15}. Each
-  ceiling clamps the positive modifiers only; penalties are added after it (rule 14).
+- `bonus_curves` {`herb_growth_pct` 10, `lifespan_frac` 0.15} (were `bonus_ceilings`, which also held `alchemy_success` 3;
+  2026-11-10). Each curve bends the positive modifiers only; penalties are added after it (rule 14).
 
 **`character_elements.json`** (owned by Spiritual Roots): `variants` and `variant_effects` (per
 variant a list of {`stat`, `per_purity`}), read by Formulas G's variant role lines. The
@@ -909,13 +911,13 @@ Ranges marked *derived* follow from another constraint in this GDD or an approve
 | `injury_recovery_frac_per_season` | 0.25 | 0.15–0.4 | How long injuries last |
 | `failure_khi_huyet_loss_frac` | 0.4 | 0.2–0.5 | Injury from a failed breakthrough |
 | `herb_growth_pct_per_purity`, `mission_income_pct_per_purity` | 0.8 % | 0.4–1.0 % | Wood's and Metal's value |
-| `field_plots_per_purity`, `max_plots` | 0.04, 12 | *derived*: `max_plots` ≥ 3 + 4 + the tree's plots | Land |
+| `field_plots_per_purity` | 0.04 | `max_plots` removed 2026-11-10 (no caps) | Land |
 | Fortune reward ceiling | 0.75 + 0.005 × fortune | base 0.6–0.9 | LLM reward size |
 | Fortune in checks, duels | 0.002, 0.001 per point | 0–0.004, 0–0.002 | Luck against skill |
 | `mi_luc_price_per_point` | 0.004 | 0.002–0.004; *derived*: ≤ 0.4286 ÷ (effective talent clamp − 50), which is 0.00429 at clamp 150, or buy-sell loops profit | Prices |
 | Precision grid | 0.1 / 0.01 / 1 | fixed (Meridian Map, Formulas F) | Stacking |
 | `ngo_tinh_divisor` | 200 | 150–300 | How much comprehension speeds cultivation: ×1.225 at 45 (200), ×1.30 at 45 (150). Moving it moves every realm's years (Realms years table) |
-| `bonus_ceilings` | `herb_growth_pct` 10, `alchemy_success` 3, `lifespan_frac` 0.15 (04f; were 40 and 8) | 5–10, 2–3, 0.10–0.15: at most the current values until the bot run (AC-CG-60) confirms headroom; *derived*: the derived limit is Realms' `bonus_ceiling_target`: with `gate_factor` set to 1, each gate's birth-mix mean S at all ceilings, best plot play and one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which owns the computed figures. The target covers lives without extra plots; those are builds outside the target, per Realms AC-CG-60. Penalties apply after the cap (rule 14) | How far a dedicated alchemy build can push breakthrough odds and lifespan |
+| `bonus_curves` (was `bonus_ceilings`) | `herb_growth_pct` 10, `lifespan_frac` 0.15 as curve scales; `alchemy_success` now dampens failure (2026-11-10) | 5–10, 2–3, 0.10–0.15: at most the current values until the bot run (AC-CG-60) confirms headroom; *derived*: the derived limit is Realms' `bonus_ceiling_target`: with `gate_factor` set to 1, each gate's birth-mix mean S at all ceilings, best plot play and one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which owns the computed figures. The target covers lives without extra plots; those are builds outside the target, per Realms AC-CG-60. Penalties apply after the cap (rule 14) | How far a dedicated alchemy build can push breakthrough odds and lifespan |
 
 ## Visual/Audio Requirements
 
@@ -1282,3 +1284,4 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
 | 5 | The talents' unbuilt roles: soul strength's formation complexity and detection | the respective systems | Rule 1 |
 | 6 | Specified here, not built yet: the provider interface for modifier sources; a talent pill's gain preview (AC-CS-06); the Advisor's per-pill warnings and the Nascent Soul heart demon warning (AC-CS-50; only the general toxicity and heart demon warnings exist); the vitality band names and heart demon bands on the sheet (AC-CS-49); load-time rejection of unknown stat keys and off-grid authored values (AC-CS-34, AC-CS-35); capability #9's +2 heart demon; Spirit Fields mastery's `herb_growth_pct` and timed consumables as sheet sources (AC-CS-30); automated tests for most ACs (`tests/unit/character/` covers few, and none carry AC ids) | implementation story | Building this GDD |
 | 7 | ~~`lifespan_pct` is outside the lifespan ceiling; who may grant it?~~ **Answered 2026-11-05 (user decision):** the perk `tho_nguyen` (+20) and the Wood keystone (+25) are accepted, bound +45 in total (rule 14). Still open: any other source (a Way, a treasure) needs a price and must fit the bound, since it multiplies the whole cap and feeds pill supply through the growing years W; and no bot run has measured these two against the gate targets (AC-CG-60 does not include them) | user, Realms & Bottlenecks | Any new `lifespan_pct` source |
+| 8 | **Realms calibration after the no-caps change (2026-11-10).** The rule 14 ceilings became curves, `alchemy_success` dampens failure and `max_plots` is gone. Realms' gate odds assumed the ceilings and 12 plots at most (12 plots already gave 0.78–0.88 against the 0.30 target): re-run its calibration and, if a gate drifts, tune the curve scales, not caps | user, systems-designer | Realms & Bottlenecks |
