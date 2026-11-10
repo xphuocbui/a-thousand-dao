@@ -142,3 +142,35 @@ Per the project terminology memory, some English-only terms (for example "sector
 
 ## Not checked (limits of this lean review)
 Formulas H–H4 and the topology generator (Formulas, about 1,300 lines) and AC-KMD-60–95 were read only for the parts that touch the changed dependencies; I did not re-derive their arithmetic. Capability #4 and the other ids not in effects.md were not compared line by line. No specialist agents were used (lean mode).
+
+---
+
+## User answers (2026-11-10, parent session)
+
+- **D1:** adopt the hand-drawn tree, **lean build** (about 6,300 visible), as the map this GDD specifies; rewrite rule 1 and Formulas C/G/H from the kit's output; remove the old generator and the sealed/open hidden clusters (scrapped by the user 2026-11-09; công pháp and item trees move to a separate tab, design/research/side-trees-thoughts.md).
+- **D2:** element-land roads grant that element's purity only, about **0.5 per road node** (priced about 0.1–0.2 W), bot-tuned so purity above 100 stays rare; blend roads half of each neighbour; hub roads generic.
+- **D3:** Blood and Void sectors stay in the data, **locked and uncounted** (six live variant sectors).
+- **D4:** **effects.md owns** capability rule text and closing costs; this GDD keeps placement, the capability-set contract and the mapping file; #1, #4, #17, #25 brought in line.
+- **D5:** the tree may pay the #44 keys at modifiers.md prices, **except `leech_health_pct` and `bonus_ward_slots`**.
+- **D6:** `tree_breakthrough_cap` becomes a **curve** (diminishing return), like the other bonus keys.
+- **Shadow Shrine (Ám Từ):** keep it.
+- **Variants:** follow the drawing: variant roots get their own starts and lands (Wind, Ice, Light, Darkness, Thunder; Chaos at the hub), open to everyone; the old variant sectors (rule 20, Formulas H2–H4) are retired; Blood and Void stay archived.
+- **Starts:** the player picks any start whose element or variant the root holds; NPCs take their strongest element's.
+- **Ids:** the drawn tree starts a fresh id baseline (append-only from then on); saves on the old tree get their points refunded once.
+
+## Applied (2026-11-10, parent session, section by section with the user)
+
+- KMD-01, KMD-02 (D1, D2, D3): the GDD now specifies the drawn lean tree (rule 1, Formulas B and H measured on it:
+  7,115 visible acupoints, 11 starts, 40 keystones, 811 clusters, all drawing checks pass); roads grant purity
+  (`road_purity` 0.5, `purity_price` 0.3); hidden clusters and variant sectors retired (rules 6–15, 20; Formulas C, D,
+  G, H2–H4, topology generator); variant starts and lands; player picks a start; fresh id baseline with a one-time
+  refund (rule 19).
+- KMD-03 (D4): rule 16–17 point at `effects.md`; `cap_realm_min` Core Formation replaces the sealed-cluster gate.
+- KMD-04 (D5): Formulas F reads `modifier_prices`; #44 keys allowed except leech and ward slots.
+- D6: `tree_breakthrough_k` curve replaces the 8 pp clamp (Formulas F, AC-KMD-59).
+- NPC allocator: live greedy with a cached frontier (user decision), AC-KMD-54 budget.
+- ACs: 34 kept or new (AC-KMD-96 to 101 added), 67 retired and listed; Open Questions 20–22 added.
+- Registry: road_purity, purity_price, tree_breakthrough_k, cap_realm_min added; visible_huyet_count 7115; 9 entries
+  deprecated. Kit: build_tree.py drops the hidden band unless `--keep-hidden`.
+- Left for other GDDs' turns: canh-gioi, character-stats and linh-can still cite `tree_breakthrough_cap` and variant
+  sectors.

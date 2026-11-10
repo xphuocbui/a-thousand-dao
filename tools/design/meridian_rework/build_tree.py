@@ -1,7 +1,7 @@
 """Build the whole Kinh Mạch Đồ from its hand-drawn regions, join them, check the tree and write data + a viewer page.
 
 Usage (from the repo root):
-  python -I tools/design/meridian_rework/build_tree.py <out_dir> [--only r1,r2] [--no-geometry]
+  python -I tools/design/meridian_rework/build_tree.py <out_dir> [--only r1,r2] [--no-geometry] [--keep-hidden]
 
 Each region (regions/<name>.py) is drawn in its own frame with kit.Tree, exactly as build_region.py draws one land.
 This script turns every region into world coordinates (x right, y down, angle 0 at the top, clockwise), joins the
@@ -106,6 +106,22 @@ def main():
         elif (a, pa) in ports or (b, pb) in ports:
             missing.append(f"{a}.{pa} <-> {b}.{pb}: only {'first' if (a, pa) in ports else 'second'} side drawn")
     loose = [f"{r}.{p}" for (r, p) in ports if (r, p) not in used]
+    # ---- hidden clusters are scrapped (user decision 2026-11-09; Meridian Map GDD rules 6-15 retired, 2026-11-10):
+    # the regions still draw the hidden band, so drop it here unless --keep-hidden asks for the old drawing --------
+    if "--keep-hidden" not in sys.argv:
+        live = [n for n in nodes if not n.get("hidden")]
+        nid = {n["id"]: i for i, n in enumerate(live)}
+        live_cl = [c for c in clusters if not c.get("hidden")]
+        cid = {c["id"]: i for i, c in enumerate(live_cl)}
+        for n in live:
+            n["id"] = nid[n["id"]]
+            if n.get("cluster") is not None:
+                n["cluster"] = cid.get(n["cluster"])
+        edges = [dict(e, a=nid[e["a"]], b=nid[e["b"]]) for e in edges if e["a"] in nid and e["b"] in nid]
+        for c in live_cl:
+            c["id"] = cid[c["id"]]
+            c["nodes"] = [nid[i] for i in c["nodes"] if i in nid]
+        nodes, clusters = live, live_cl
     metrics, report, per_start = kit.check(nodes, edges, clusters, 0.6, xy=("x", "y"), geometry=geometry)
     metrics["regions"] = {m["name"]: m["nodes"] for m in regions_meta}
     report["ports_missing"] = missing

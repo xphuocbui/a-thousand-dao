@@ -118,7 +118,7 @@ before you are waiting in it.
    gate odds are calibrated without them, and re-running that calibration is the price of
    adding one. Any breakthrough chance a stat line gives counts under the q-extras ceiling
    (`q_extras_ceiling_pp`, 10 pp) and nowhere else: it is a separate q-extras source, not the
-   Meridian Map tree's contribution, so the tree's 8 pp cap (`tree_breakthrough_cap`) neither
+   Meridian Map tree's contribution, so the tree's own curve (`tree_breakthrough_k`, Meridian Map Formulas F) neither
    limits it nor is raised by it (user decision 2026-11-06). Realms & Bottlenecks lists the Way
    among the q extras. **Effects** that change breakthrough or heart-demon odds (a riskier breakthrough for a
    reward, rerolled odds, heart demon gain or decay) may go beyond that ceiling (user decision 2026-11-10, review
@@ -883,11 +883,12 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
   `power_mult`. An NPC with no Dao is called with `points_total` and a multiplier of 1.000.
 - **AC-DAO-17** [Logic] With E empty the glimpse is skipped and the realm's allowance is kept; a
   declined offer uses the allowance and leaves every offered Dao in E.
-- **AC-DAO-18** [Integration] A Dao Effect and a Meridian Map keystone that give the same
-  breakthrough chance both apply. The Dao's share counts only under the 10 pp q-extras ceiling:
-  with the tree at its 8 pp cap and a Dao line of 4 pp, the extras clamp at 10 pp and the sheet
-  shows the clamp line. With the Dao line at 4 pp and the tree at 12 pp offered, the tree
-  counts 8 pp and the Dao 4 pp (12 pp, clamped to 10 pp).
+- **AC-DAO-18** [Integration] A Dao stat line and a Meridian Map acupoint that give breakthrough chance both apply.
+  The Dao line's share counts only under the 10 pp q-extras ceiling (a Dao Effect on breakthrough odds may exceed
+  it, rule 4 and AC-DAO-29):
+  with the tree's curve giving 8 pp (Meridian Map Formulas F) and a Dao line of 4 pp, the extras clamp at 10 pp
+  and the sheet shows the clamp line. With the tree's curve at 5.5 pp and a Dao line of 4 pp, the extras are 9.5 pp
+  and nothing is clamped.
 - **AC-DAO-19** [Logic] A node removed by a data change is refunded, and a node that needed it
   stays bought.
 - **AC-DAO-20** [Config/Data, human sign-off] A content review of the shipped catalogue: for each Dao, shown its

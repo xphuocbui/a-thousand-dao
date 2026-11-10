@@ -394,7 +394,8 @@ formulas:
     added: 2026-11-03
     revised: 2026-11-05
   - name: npc_unseal_chance
-    status: active
+    # 2026-11-10 (Meridian Map major revision): hidden clusters scrapped (rules 6-15 retired).
+    status: deprecated
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
@@ -409,9 +410,10 @@ formulas:
     expression: "a = a_max[r] * (base_step + min(e,1)*(max_step-base_step)) / max_step; p = 1 - (1-a)^(1/M_r)"
     notes: "Per eligible sealed cluster, rolled at NPC generation. Shares the NPC edge curve (0.30/0.70) with Progression Edges."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-10
   - name: cluster_fill_budget
-    status: active
+    # 2026-11-10 (Meridian Map major revision): the LLM fill and the fill budget are retired with the hidden clusters.
+    status: deprecated
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
@@ -428,7 +430,7 @@ formulas:
     expression: "B = P * ((n-k)*S0 + (k-c)*N0 + c*f_tier*N0)"
     notes: "Budget in W for an LLM-filled or authored cluster; the LLM Game Master fill validator enforces it. Unshrunk. A cluster shrunk by region capacity uses P_shrunk = P(d, n)*n_rolled/n."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-10
   - name: technique_speed_factor
     status: active
     source: design/gdd/cong-phap.md
@@ -1582,7 +1584,7 @@ constants:
       - design/gdd/dao.md
     value: 10
     unit: percentage points
-    notes: "Character-wide ceiling on the summed per-attempt extras (pill quality, comprehension, Dao heart, the tree breakthrough_chance, a Dao node's breakthrough_chance, the Chaos variant's line, item and event bonuses); destiny perks, the talisman and failure insight are outside it; the tree is also under tree_breakthrough_cap 8 pp. Sized so a fully built life without an edge stays at or below 0.55. User decision 2026-11-04 (cross-GDD review 04g F14; answers Realms Open Question 13)."
+    notes: "Character-wide ceiling on the summed per-attempt extras (pill quality, comprehension, Dao heart, the tree breakthrough_chance, a Dao node's breakthrough_chance, the Chaos variant's line, item and event bonuses); destiny perks, the talisman and failure insight are outside it; the tree's share follows its own curve (tree_breakthrough_k 8 pp, since 2026-11-10). Sized so a fully built life without an edge stays at or below 0.55. User decision 2026-11-04 (cross-GDD review 04g F14; answers Realms Open Question 13)."
     added: 2026-11-04
     revised: ""
   - name: breakthrough_bare_chance
@@ -2104,7 +2106,8 @@ constants:
     added: 2026-11-03
     revised: 2026-11-08
   - name: hidden_cluster_count
-    status: active
+    # 2026-11-10 (Meridian Map major revision): hidden clusters scrapped (user decision 2026-11-09).
+    status: deprecated
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
@@ -2112,7 +2115,7 @@ constants:
     unit: clusters
     notes: "Launch release; 48 sealed and 27 open on the launch seed, sizes N(8, 2) clamped 3-12."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-10
   - name: capability_count
     status: active
     source: design/gdd/kinh-mach-do.md
@@ -2123,8 +2126,51 @@ constants:
     notes: "Authored catalogue; sealed outer clusters with n >= 7 only."
     added: 2026-11-03
     revised: ""
-  - name: npc_cluster_holder_max_share
+  - name: road_purity
     status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+      - design/gdd/linh-can.md
+    value: 0.5
+    unit: purity per element-land road node
+    notes: "An element land's road node grants only that element's purity; blend roads half of each neighbour's; hub roads general stats (rule 4). A guess, bot-tuned (AC-KMD-101)."
+    added: 2026-11-10
+    revised: ""
+  - name: purity_price
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: 0.3
+    unit: W per purity point
+    notes: "Value of one purity point for the map lint (Formulas A2): a road node is 0.15 W. A guess."
+    added: 2026-11-10
+    revised: ""
+  - name: tree_breakthrough_k
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+      - design/gdd/canh-gioi.md
+    value: 8
+    unit: percentage points
+    notes: "Scale of the curve bt_tree = k ln(1 + sum/k) on the tree's summed breakthrough_chance (Formulas F); replaces tree_breakthrough_chance_cap (user decision 2026-11-10). Still under Realms' q-extras ceiling."
+    added: 2026-11-10
+    revised: ""
+  - name: cap_realm_min
+    status: active
+    source: design/gdd/kinh-mach-do.md
+    referenced_by:
+      - design/gdd/kinh-mach-do.md
+    value: "Core Formation"
+    unit: realm
+    notes: "A capability notable cannot be opened below this realm (rule 16); replaces the sealed-cluster size gate."
+    added: 2026-11-10
+    revised: ""
+  - name: npc_cluster_holder_max_share
+    # 2026-11-10 (Meridian Map major revision): NPC unsealing retired with the hidden clusters.
+    status: deprecated
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
@@ -2133,9 +2179,10 @@ constants:
     unit: share of NPCs per realm
     notes: "Target ceiling for NPCs holding any hidden cluster."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-10
   - name: huyet_value_highway
-    status: active
+    # 2026-11-10 (Meridian Map major revision): roads grant purity now: road_purity x purity_price replaces H0.
+    status: deprecated
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
@@ -2143,19 +2190,21 @@ constants:
     unit: W
     notes: "H0, the value of a kinh lộ (highway) huyệt, hội included; generic road_stats, exact on every root (rule 21); the 5 gates keep their element's lead stat and scale by purity; never breakthrough_chance."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-10
   - name: visible_huyet_count
     status: active
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
-    value: 772
+    # was: 772 (generated map) before 2026-11-10; the drawn lean build.
+    value: 7115
     unit: huyệt
     notes: "Visible tree at launch: 430 kinh lộ (85 hội), 65 visible clusters with 330 huyệt (75 notables), 11 keystones, Đan Điền."
     added: 2026-11-03
-    revised: 2026-11-05
+    revised: 2026-11-10
   - name: tree_size_target
-    status: active
+    # 2026-11-10 (Meridian Map major revision): the map is the drawn lean build; see visible_huyet_count.
+    status: deprecated
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
@@ -2163,9 +2212,10 @@ constants:
     unit: huyệt
     notes: "772 visible plus about 525 hidden at launch; the rim is append-only (rule 19)."
     added: 2026-11-03
-    revised: 2026-11-05
+    revised: 2026-11-10
   - name: tree_breakthrough_chance_cap
-    status: active
+    # 2026-11-10 (Meridian Map major revision): the tree's breakthrough share is a curve; see tree_breakthrough_k.
+    status: deprecated
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
@@ -2173,7 +2223,7 @@ constants:
     unit: percentage points
     notes: "Ceiling on the summed breakthrough_chance of all Kinh Mạch huyệt in a life (player and NPC). Guess until the bot run confirms it; the visible tree alone must stay at or under 4."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-10
   - name: tech_norm
     status: active
     source: design/gdd/cong-phap.md
@@ -2322,7 +2372,8 @@ constants:
     added: 2026-11-04
     revised: ""
   - name: variant_sector_size
-    status: active
+    # 2026-11-10 (Meridian Map major revision): variant sectors retired; variant roots have starts and lands (rule 20).
+    status: deprecated
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
@@ -2331,9 +2382,10 @@ constants:
     unit: acupoints per variant sector
     notes: "8 roads and clusters of 4, 9 and 9, with 5 notables (1 apex). 8 sectors: 240 acupoints, 268 edges, 10 host links, outside the base map totals (tree_size_target). Locked and undrawn until the root owns the variant (Meridian Map rule 20)."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-10
   - name: variant_sector_value
-    status: active
+    # 2026-11-10 (Meridian Map major revision): variant sectors retired (rule 20).
+    status: deprecated
     source: design/gdd/kinh-mach-do.md
     referenced_by:
       - design/gdd/kinh-mach-do.md
@@ -2342,7 +2394,7 @@ constants:
     unit: W, unscaled (purity factor 1.0)
     notes: "Scales by 0.5 + purity/100 for the variant. Qi Refining power accepted by user decision 2026-11-04: about +25 % at mean innate purity; those lives are left out of AC-KMD-07. No sector carries breakthrough_chance. Guesses until AC-KMD-88 and AC-KMD-89 run."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-10
   - name: fight_unit_exponent
     status: active
     source: design/gdd/combat.md
