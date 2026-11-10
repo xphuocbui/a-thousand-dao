@@ -88,7 +88,8 @@ class Build:
     acc: float = 0.0
     n_body: float = 1.0883
     n_qi: float = 1.053
-    ward_r: float = 0.654     # Common Ward, all resistance after ws
+    ward_r: float = 0.654     # legacy share (pre-points); unused since 2026-11-10
+    ward_pts: float = 448.0   # resistance points (Common Ward 342.5 x ws 1.308)
     drain: float = 0.959      # bill per prevented point
     block: float = 15.0       # block rating
     regen_bonus: float = 0.0  # linh lu.c regen pp (as share)
@@ -180,8 +181,10 @@ def supp(att, dfn):
 
 
 def resist(dfn, dtype):
-    r = dfn.b.ward_r * K["ward_mult"] + (dfn.bsum("res_phys") if dtype == "phys" else 0.0)
-    return min(r, K["resist_cap"])
+    """Share stopped by resistance in points (2026-11-10): R / (100 + R), no cap. The typical Common Ward is
+    448 points at Qi Refining (stops 81.75 %); ward_mult scales it as ward strength does."""
+    R = dfn.b.ward_pts * K["ward_mult"] / 1.25
+    return R / (100 + R) if R >= 0 else -(-R) / 100
 
 
 def hit(att, dfn, c, dtype, rng, t, log, art=None):

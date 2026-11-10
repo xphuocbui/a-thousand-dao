@@ -856,7 +856,7 @@ formulas:
       - regen_bonus
       - regen_cap
     output_range: "h above 0 to 1; q 0 to 1"
-    expression: "h_next = health_end/health_max; q_next = min(qi_max, qi_end + rest_pulses*qi_max*min(regen_base+regen_bonus, regen_cap))/qi_max"
+    expression: "h_next = health_end/health_max; q_next = min(qi_max, qi_end + rest_pulses*qi_max*(regen_base + regen_k*ln(1 + regen_bonus/regen_k)))/qi_max (2026-11-10)"
     notes: "Later waves start from these shares with no vitality floor. Needs Combat to accept starting shares (thien-kiep.md Open Question 1)."
     added: 2026-11-06
     revised: ""
@@ -1031,7 +1031,7 @@ formulas:
       - cap_raise
       - ws
     output_range: [-0.5, 0.9]
-    expression: "r_j = clamp(R_all + R_type(j) - pen_j, resist_floor, cap_j); cap_j = min(resist_cap_max, resist_cap + sum cap_raise scoped all or to type(j)); R_x = R_x_other + sum_w r_w_x*(1 + ws/100)"
+    expression: "R_j = R_all + R_type(j) - pen_j (points, no cap or floor); a_j = D_j*100/(100+R_j) if R_j >= 0, else D_j*(1 - R_j/100); R_x = R_x,other + sum_w R_w,x*(1 + ws/100) (2026-11-10)"
     notes: "All resistance plus the part's final damage type (combat-damage-types.md). Elements never enter resistance. Was general + kind + element (2026-11-07, same day); variables list updated 2026-11-08."
     added: 2026-11-07
     revised: 2026-11-08
@@ -1073,7 +1073,7 @@ formulas:
       - kappa
       - qi_max
     output_range: >= 0; reserved <= 0.9 x qi_max
-    expression: "reserved = rho*(1 - min(res_eff,50)/100)/(1 + we/200); upkeep_n = u*qi_max*(1+upkeep_growth)^n/(1+we/100); fee = phi*qi_max/(1+we/100); drain rate = drain_base/((1+ws/100)(1+we/100)); drain prevented = D*max(0,r_eff)*r_w/R_pos (0 if R_pos = 0) for resistance, block points the hit lost times this ward's share of B_hit for block (resistance bills settle before block, block bills after; a tick on linh lực bills like any part); drain invalid for evade, status, soul; cast = kappa*qi_max/(1+we/100)"
+    expression: "reserved = rho*(1 - min(res_eff,50)/100)/(1 + we/200); fee = phi*qi_max/(1+we/100); drain rate_w = drain_base/((1+ws/100)(1+we/100)); cast = kappa*qi_max/(1+we/100) (upkeep wards removed, #44)"
     notes: "Five payment models. Total payment never rises with ws (flat drain bill). Formulas C. Drain billing completed by user decision 2026-11-08."
     added: 2026-11-07
     revised: 2026-11-08
@@ -1108,7 +1108,7 @@ formulas:
       - heal_lint_ratio
       - hregen_cap
     output_range: 0 to 0.04 x health_max per pulse window
-    expression: "heal = base*(1+healing_pct/100)*(1+taken_pct/100)*d(t); d(t) = max(floor, 1 - (1-floor)*t/end); sum per pulse window <= heal_pulse_cap*health_max; c_heal <= 0.3 x art lint"
+    expression: "heal = base*(1+healing_pct/100)*(1+taken_pct/100), no decay and no cap (#44); heal art base = U*stage*c_heal*(health_units/16), refunding the linh luc paid when it heals"
     notes: "No healing on Down sides or with no_heal (every Tribulation wave). Healing never raises vitality. Formulas E."
     added: 2026-11-07
     revised: ""
@@ -1127,7 +1127,7 @@ formulas:
       - I
       - T_ref
     output_range: pass/fail
-    expression: "V_w <= epsilon_0*beta_w*alpha_m*C_w at ws = we = 0 over the standard stream (one hit of I per second) for T_ref 8 s; cast wards: resistance, block and evade use T_up = floor(T_ref / cooldown) x duration, and C = kappa*Q*floor(T_ref / cooldown)"
+    expression: "V_w <= epsilon_0*beta_w*alpha_m*C_w at ws = we = 0 over the standard stream (one hit of I per second) for T_ref 45 s; resistance value s*I*T with s = R/(100+R) (#44, 2026-11-10)"
     notes: "The ward counterpart of the art lint. Formulas F."
     added: 2026-11-07
     revised: 2026-11-08
