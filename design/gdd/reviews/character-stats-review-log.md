@@ -225,3 +225,34 @@ Reviewed-Content-Hash: design/gdd/dao.md a16e45d5d5c107c6acb4dd2a508c8f0f7815aad
 Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d
 Reviewed-Content-Hash: design/gdd/systems-index.md 0c622ddc1431192f45cc3ed7a9842b795bbbd013
 Reviewed-Content-Hash: design/glossary.md 0b3cf7dcb934aeb999bbc996c5eb80d200bd0ac1
+
+## Review — 2026-11-10 (confirming re-review) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 1 | Recommended: 4
+Summary: The answers and fixes of the earlier 2026-11-10 review are present and the recomputed numbers hold. The tree's 8 pp clamp is still stated in Formulas I and one Edge Case against rule 14's curve, and a few listed fixes (Tuning Knobs row, alchemy floor in the formula, AC-CS-28's 1.5826) are not applied. Report: reviews/character-stats-rereview-2026-11-10.md.
+Prior verdict resolved: Yes, except as listed
+Findings:
+- [BLOCKING] Formulas I / Edge Cases: tree breakthrough_chance still a min() clamp, contradicts the curve in rule 14
+- [RECOMMENDED] Tuning Knobs: bonus_curves row still has ceiling wording and the 2-3 range
+- [RECOMMENDED] Formulas I: alchemy_success formula lacks the floor at 0
+- [RECOMMENDED] Rule 9 / Formulas F: fight-loss vitality line missing
+- [RECOMMENDED] AC-CS-28: Wood 60 +10 is 1.5826, not 1.582, at 1e-6
+- [MINOR] leftover ceiling words, points-unit grid, AC-19 wording, purity-150 coverage, field_plots row, header
+Reviewed-Content-Hash: design/gdd/character-stats.md 5e365f68fb3fbe54cf8eb0935fb9a6be461055e0
+Reviewed-Content-Hash: design/registry/entities.yaml e39b9de2e2ec2a87abf7165ff67417d06385d5bc
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 4d3a98fb4eb2f588d26095ed91c8e6e2457b20e8
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md d229603fe4fae7df7ceae1dac3c5b98a67f156b2
+Reviewed-Content-Hash: design/gdd/linh-can.md 1de5075a08701c52dc4ec238fdcd106c8de56e57
+Reviewed-Content-Hash: design/gdd/cong-phap.md eebee87a8b02af50a2a516427e20594814e983bc
+Reviewed-Content-Hash: design/gdd/modifiers.md af999b8be75e7b06c29806ee2f57cfca85d3cf9a
+Reviewed-Content-Hash: design/gdd/effects.md cea9de5c3da6afad036851ee9a9e6e6da2624e1f
+Reviewed-Content-Hash: design/gdd/dao.md 43e23bfbdc06222d4b7dba2fe9d281f714d04304
+Reviewed-Content-Hash: design/gdd/combat.md 82808aa10ffa17d0e7d2c4d4939c1899c509aa28
+Reviewed-Content-Hash: design/gdd/combat-defence.md e5d35f785122c2e04b4f74e03564e6482c01d980
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md f465de9486301d5733e3c86fbabae830a0b94a8c
+Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d
+Reviewed-Content-Hash: design/gdd/systems-index.md 49e72f85b34236f531111fa88d9ece7d3e4d2161
+Reviewed-Content-Hash: design/glossary.md 0b3cf7dcb934aeb999bbc996c5eb80d200bd0ac1

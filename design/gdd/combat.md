@@ -598,7 +598,8 @@ W shares are attack / ward strength / ward efficiency / linh lực / health.
 - **Thể tu:** Combat Defence & Healing's Formulas G fixture: block 88.3 rating (flesh 5.3, gear 12, Iron Body Art
   tier 3 30, W 41), body shield 0.90 (technique 0.30, gear 0.60), Physical resistance 36.1 points (Iron Body tier 3 25,
   Black Iron Armour's Physical affix 11.1), body gear 1.0 × B_p, the default ward only. Its W shares need a harness
-  re-fit (Open Question 6).
+  re-fit (Open Question 6). Iron Body tier 3 is reachable from Core Formation only (Cultivation Techniques rule 2), so this Qi Refining
+  profile is a formula fixture; the re-fit moves the example to Core Formation (user decision 2026-11-10).
 
 | Realm (end) | Tree W | Typical M | Typical ehp (U) | Typical mirror, s (old sim, superseded) | Top-end M | Top-end ehp (U) | Top-end mirror, s (old sim, superseded) |
 |---|---|---|---|---|---|---|---|
@@ -1232,7 +1233,7 @@ Defence & Healing Formulas G with x = 0; Guidance, #35; a data knob, Combat revi
 | Rule 14 | canh-gioi.md rule 16; character-stats.md | Capability #9: defeat reported, +2 heart demon | Closed 2026-11-06 (Open Question 12): knockout only; both GDDs still say "defeat" and "kill" |
 | Rule 13, Formulas A, D | cong-phap.md rules 13–14, Formulas C | Divine abilities, `tech_power`, body techniques (block, body shield and resistance, combat-defence.md rule 12), the technique line | `cong_phap_share` line removed; cong-phap.md rule 14 and AC-CP-39 edited 2026-11-06 |
 | Formulas B | kinh-mach-do.md Formulas A and A2; registry `stat_power_weights` | 1 W = +1 %; about 106 W to 1,172 W by realm end | W stays additive |
-| Rule 13, Formulas B | dao.md rule on arts, Open Question 3 | Art format, `dao_premium` | Arts remain on hold until this GDD is approved |
+| Rule 13, Formulas B | dao.md rules 3 and 10 | Art format, `dao_premium` | Arts are rare on Daos (at most 20 % hold one); most come from cultivation techniques |
 | Interactions, rule 12 | item-database.md rules 6, 11, Formulas E | Role tags (weapon, ward_gear, body_gear, utility; D2 applied 2026-11-08), equipped set, consumable arts | Read only |
 | Rules 4, 22, 23; Formulas A, C, D, F, G, J, K | combat-defence.md | The defence path, wards, body defence, healing, effective health | Replaced old rules 22–23 and Formulas D (Combat revision #43) |
 | Rules 6, 7; Formulas C | combat-damage-types.md | Damage types, conversion, which types pass shields | Replaced the kind family |

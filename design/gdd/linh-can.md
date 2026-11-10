@@ -1,6 +1,6 @@
 # Spiritual Roots (Linh Căn)
 
-> **Status**: In Review (2026-11-05: independent review findings applied; cross-GDD review CONCERNS, no blockers). See `reviews/linh-can-review-log.md`.
+> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, answered and fixed the same day; confirming re-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day, see `reviews/linh-can-rereview-2026-11-10.md`). See `reviews/linh-can-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-10 (design-review 2026-11-10 answers applied; see `reviews/linh-can-review-2026-11-10.md`)
@@ -25,9 +25,9 @@ of six variant roots in play (Light, Darkness, Ice, Wind, Thunder, Chaos; Void a
   fruits, never
   loses anything, and is the run's first reveal and a long-term build goal.
 
-The old higher-order mutations moved to a new system, the Way (Đạo).
+The old higher-order mutations moved to the Way (Đạo, `dao.md`), where they are Ways and facets.
 
-> **Quick reference** — Layer: `Core` · Priority: `MVP` · Key deps: `Config, Sim Core; soft: Realms & Bottlenecks, Character Stats`
+> **Quick reference** — Layer: `Core` · Priority: `MVP` · Key deps: `Config, Sim Core; soft: Realms & Bottlenecks, Character Stats, Effects System, Modifier System`
 
 ## Overview
 
@@ -35,7 +35,7 @@ The spiritual root (linh căn) is the talent a cultivator is born with. It has t
 
 - **Base elements.** The five elements (ngũ hành): Metal (Kim), Wood (Mộc), Water (Thủy),
   Fire (Hỏa) and Earth (Thổ). A root owns one to five of them, each with a purity from 10
-  to 100.
+  to 100 at birth; rare sources raise it past 100 (rule 8a).
 - **Variant roots (biến dị linh căn).** Eight rarer roots: Light (Quang), Darkness (Ám),
   Ice (Băng), Wind (Phong), Thunder (Lôi), Void (Hư Không), Blood (Huyết) and Chaos (Hỗn
   Độn). A variant is not built from other variants. It arises in one of three ways: a
@@ -59,9 +59,8 @@ it is both the hand you are dealt and a long-term build goal.
 
 **What this system no longer holds.** The older second-, third- and fourth-order
 mutations (Sword, Pill Fire, Spirit Farming, Space, Time and the rest) are not part of the
-root. They move to a separate system, the Way (Đạo), which has many more possibilities and
-is designed on its own. This GDD defines only the contract it expects from that system
-(see Dependencies).
+root. They moved to a separate system, the Way (Đạo, `dao.md`), which has many more possibilities; the
+relocated mutations are its Ways and facets (see Dependencies).
 
 The system exists because it is the first and strongest source of Pillar 1 (Your Dao,
 Your Name). Two lives with different roots play differently from the first season. A
@@ -76,9 +75,9 @@ is a sprinter: fast now, with a long way to go. A five-element root is a long ga
 are slow and fragile in Qi Refining, then you pull away from everyone who started fast.
 
 A variant root is a gift you did not earn, and each kind feels different to get. Thunder
-is what happens when Fire and Metal in you meet. Ice is your Water running pure. Wind,
-Wind simply arrives, and the rarest of them make a life you will retell. A
-variant also opens a place on the Meridian Map that nobody without it can even see.
+is what happens when Fire and Metal in you meet. Ice is your Water running pure. Wind
+simply arrives, and the rarest of them make a life you will retell. A
+variant also gives you a start on the Meridian Map and makes its land yours.
 
 Nothing is ever taken from the root, so every change is a step forward in a build you
 chose to pursue.
@@ -98,8 +97,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    - **Overcoming pairs** (tương khắc): Metal–Wood, Wood–Earth, Earth–Water, Water–Fire,
      Fire–Metal. They give no speed. The two pair convergences form from an overcoming
      pair (Thunder from Fire–Metal, Darkness from Earth–Water).
-   - An owned element has an integer purity of 10–100 (`purity_min`–100); an absent
-     element has purity 0. A derived variant's purity (rule 10) can fall below 10: its
+   - An owned element has an integer purity of 10–100 at birth (`purity_min`–100; rare sources raise it past 100,
+     rule 8a); an absent element has purity 0 unless a rare source raised it. A derived variant's purity (rule 10) can fall below 10: its
      floor is 8 (all required elements at 10), and a clamp to 1 stays only as a guard.
 2. **Birth.**
    - **Fated birth (Thiên Định):**
@@ -192,13 +191,15 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    ceiling. The earlier holder-raised ceilings belonged to craft mutations that moved to the Way and are gone
    from this system.
 8. **Purity as a scale.**
-   - **Meridian Map:** a land's acupoints scale by 0.5 + purity ÷ 100 for the land's element or variant, or 0.25 at
-     purity 0; blend zones average their two lands; roads are exact and grant purity (Meridian Map rule 4). Variant
+   - **Meridian Map:** a land's acupoints scale by 0.5 + purity ÷ 100 for an owned element or variant, and by
+     0.25 + purity ÷ 100 for one the root does not own (0.25 at purity 0; user decision 2026-11-10, Meridian re-review
+     D-R2, so two road nodes do not double a land); blend zones average their two lands; roads are exact and grant purity (Meridian Map rule 4). Variant
      roots have their own lands (Meridian Map rule 20; rule 12).
    - **Cultivation techniques:** a technique's speed scales by the average purity of the
-     elements and variants it names ÷ 100. A technique naming something at purity 0
-     cannot be used at its speed (Cultivation Techniques owns the fallback); road purity in an unowned element counts
-     (rule 8a).
+     elements and variants it names ÷ 100. A technique may name an element or variant the root
+     does not own once rare sources (rule 8a) have raised its purity to `tech_foreign_purity_min` (10, Cultivation
+     Techniques rule 8; user decision 2026-11-10, re-review D-1); below that it cannot be used (Cultivation Techniques
+     owns the fallback).
    - **No cap:** both uses above read the full purity, past 100 too (user decisions 2026-11-10: no caps; technique
      speed uncapped, review D6). Cultivation Techniques' purity ranges and tier ceilings widen with it, and Realms &
      Bottlenecks' calibration is re-run (its recalibration question). Purity past 100 comes only from rare sources
@@ -217,8 +218,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
       13). Intended, not yet defined: rare items and Đạo nodes (Open Question 14). Every source is small, so high
       purity is hard to gather. Innate variants (Wind) gain purity this way too (user decision 2026-11-10, review D4).
     - **Elements and variants the root does not own** can gain purity from those sources, starting at 0. That purity
-      counts everywhere a purity is read (stacks, land scaling, element and variant roles, techniques that name it)
-      except the root's own counts: it does not make the root own the element, so it changes no `n_base`, pair
+      counts everywhere a purity is read (stacks, land scaling at the unowned rate of rule 8, element and variant
+      roles, and techniques that name it once it reaches `tech_foreign_purity_min` 10) except the root's own counts: it does not make the root own the element, so it changes no `n_base`, pair
       bonus, speed curve row or variant eligibility (user decision 2026-11-10, review D2).
 
 **Variant roots (biến dị linh căn)**
@@ -283,7 +284,7 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
     - It counts as an owned id for techniques, crafts and recipes that name it, and its
       current purity (rule 10) is used there.
     - It does **not** count as a base element: it forms no generating pair, is not
-      counted in the tier or `n_base`, and does not scale an element sector. An innate
+      counted in the tier or `n_base`, and does not scale an element land. An innate
       variant counts once toward `n_eff` (rule 3).
 12. **Variant lands (Meridian Map contract, revised 2026-11-10).** The Meridian Map gives the variant roots their own
     starts and lands (Wind's land, Ice's start in Water's land, the Light, Darkness and Thunder islands, the Primordial
@@ -300,7 +301,7 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
       pill, or one taken when every owned element is at least 100, is refused and kept. Derived
       variants' purities are recomputed; no variant rolls.
     - **Linh Căn Quả** (Spiritual Root Fruit; rare by design): adds a missing element
-      at purity 20–35. The player picks which one when the fruit is used, so the fruit holds
+      at purity 20–35, or at its road purity if that is higher (max of the two; nothing is lost, rule 14). The player picks which one when the fruit is used, so the fruit holds
       no element until then (user decision 2026-11-05). An NPC's fruit takes a missing
       element uniformly at random (not reachable yet, rule 15). If all five are owned it adds +8 to the weakest
       instead (ties in cycle order), past 100 too (rule 8a); it is never refused. It is
@@ -337,7 +338,7 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
 - choose the root in a Fated life;
 - remove an element or a variant;
 - raise purity above 100, except through the rare sources of rule 8a;
-- make a variant count as a base element (pairs, tier, element sectors);
+- make a variant count as a base element (pairs, tier, element lands);
 - pick a variant the root does not qualify for in a Self-made life.
 
 ### States and Transitions
@@ -365,7 +366,7 @@ All four are saved.
 | Meridian Map | out / in | out: purity per element (acupoint scaling), `n_base` (the center keystone needs all five), the owned variants with purities (which variant starts the root may pick and how variant lands scale; the purity the roads grant comes back in). In: whether capability #24 (Mutation Awakening) is held, read from the character's capability set; the Meridian Map never calls this system | Meridian Map (the scaling rule, the capability, the variant sectors' geometry); Character Stats (the capability set); this GDD (the roll, rule 10) |
 | Cultivation Techniques | out | purity of the elements and variants a technique names; `n_base` for the technique count gain | Cultivation Techniques |
 | Crafts (Alchemy, Spirit Fields, Artifact Refining, Formations) | out | element purities for their roles. Craft mutations no longer exist here | each craft |
-| The Way (Đạo) | out | the root as read-only prerequisites (elements, purities, variants). The Way owns the relocated mutations (rule 16) | the Way (`dao.md`, approved; requirements at `dao_req_purity_min`) |
+| The Way (Đạo) | out | the root as read-only prerequisites (elements, purities, variants). The Way owns the relocated mutations (rule 16) | the Way (`dao.md`, in review; requirements at `dao_req_purity_min`) |
 | Item DB, Event Engine | in | Tẩy Tủy Đan and Linh Căn Quả effects (budgeted by events) | Item DB, Event Engine |
 | World Database | out | root changes and variants formed | World Database |
 | NPC Builds, World Generation | in / out | NPC roots rolled by the same rules; the owned elements, for the archetype fit (rule 15) | NPC Builds |
@@ -550,10 +551,10 @@ One `cultivation_speed_pct` modifier is added per pair, with source "Tương sin
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | req(v) | set | 1, 2 or 5 base elements | data file (variant `requires`) | Thunder {Fire, Metal}; Darkness {Earth, Water}; Chaos all five; Light {Fire}; Ice {Water} |
-| purity_e | int | 10–100 | calculated | The element's **current** purity at the roll |
+| purity_e | int | 10 and up (10–100 at birth; rare sources raise it past 100, rule 8a) | calculated | The element's **current** purity at the roll |
 | convergence_factor | float | 0.6 | data file | Pair convergence factor |
 | transmutation_factor | float | 0.12 | data file | Transmutation factor |
-| chaos_factor | float | 5 | data file | Five-parent factor; the `min(1, …)` clamp matters only for this variant |
+| chaos_factor | float | 5 | data file | Five-parent factor; the `min(1, …)` clamp binds for Primordial Chaos at birth, and for any variant on road-raised purities |
 | innate_chance | float | Wind 0.025, Blood 0.015, Void 0.005 | data file | Flat chance, rolled at birth only |
 | void_max_elements | int | 2 | data file | Void is eligible only when `n_base` ≤ this at birth |
 | chance_v | float | 0–1 | calculated | The roll succeeds when `u < chance_v` |
@@ -593,14 +594,14 @@ Chaos 5 × 0.0520 = **26.0 %**.
 
 **D2. Purity.** The variant_purity formulas are defined as:
 
-`purity_v = clamp(round(variant_purity_factor · (Π_{e ∈ req(v)} purity_e)^(1/m)), 1, 100)` for derived variants, recomputed whenever a required element's purity changes ; `purity_v = clamp(round(N(μ, σ)), p_min, p_max)` for innate variants, drawn once and fixed
+`purity_v = max(1, round(variant_purity_factor · (Π_{e ∈ req(v)} purity_e)^(1/m)))` for derived variants (no upper clamp; rule 10), recomputed whenever a required element's purity changes ; `purity_v = clamp(round(N(μ, σ)), p_min, p_max)` for innate variants, drawn once and fixed
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | variant_purity_factor | float | 0.8 | data file | Discount on the geometric mean |
 | m | int | 1, 2 or 5 | calculated | Number of required elements |
-| purity_e | int | 10–100 | calculated | Current element purity |
+| purity_e | int | 10 and up (uncapped, rule 8a) | calculated | Current element purity |
 | purity_v | int | derived 8 and up; innate 10 and up | calculated | The variant's purity: base (parents or birth draw) plus road purity (rule 8a) |
 
 **Output Range:**
@@ -725,7 +726,7 @@ The root_change formulas are defined as:
 
 `gain = max(1, round(tay_tuy_value · potency))` ; `purity' = min(100, purity + gain)`, and refused when every owned element is at least 100 (Tẩy Tủy Đan, not a rare source, on the weakest owned **base** element, no roll, then derived variants' purity recomputed by D2)
 
-`purity_new ~ U{20..35}` for an added element (Linh Căn Quả), followed by the derived rolls of D1 for variants that **became eligible**, or `purity + raise` (no cap since 2026-11-10, rule 8a) on the weakest element when all five are owned (no roll; derived purities recomputed)
+`purity_new = max(purity_road, U{20..35})` for an added element (Linh Căn Quả; `purity_road` is 0 unless rare sources raised it, rule 8a), followed by the derived rolls of D1 for variants that **became eligible**, or `purity + raise` (no cap since 2026-11-10, rule 8a) on the weakest element when all five are owned (no roll; derived purities recomputed)
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -769,8 +770,8 @@ generating cycle.
 ### G. Purity as a scale (owned elsewhere)
 
 Restated for reference (each reads the full purity, with no cap; user decision 2026-11-10):
-- **The Meridian Map** owns acupoint scaling (roads are exact and grant purity): `0.5 + purity / 100` for a land's
-  element or variant (0.25 at purity 0), and blend zones average their two lands.
+- **The Meridian Map** owns acupoint scaling (roads are exact and grant purity): `0.5 + purity / 100` for an owned
+  element or variant and `0.25 + purity / 100` for one the root does not own (0.25 at purity 0), and blend zones average their two lands.
 - **Cultivation Techniques** owns the technique factor: the average purity of the elements
   and variants it names ÷ 100, about 0.5 for a typical root.
 - **Character Stats** owns the element and variant role formulas (Formulas G). Formulas E
@@ -858,7 +859,7 @@ production.
 - **If purity passes 100 through rare sources:** every use reads the full value: stacks (Formulas H), technique
   speed, the Meridian Map's land scaling and the element roles (Character Stats Formulas G).
 - **If an element the root does not own gains purity:** that purity counts everywhere a purity is read (stacks, land
-  scaling, roles, techniques naming it); the root still does not own it (rule 8a), so `n_base`, pairs, the curve
+  scaling at 0.25 + purity ÷ 100, roles, and techniques naming it from purity 10); the root still does not own it (rule 8a), so `n_base`, pairs, the curve
   row and variant eligibility are unchanged.
 - **If a Linh Căn Quả adds an element that roads already raised:** the element's purity becomes max(its road
   purity, the 20–35 draw), and from then the root owns it.
@@ -932,12 +933,12 @@ production.
 
 **Use by other systems**
 
-- **If a technique names a variant at purity 0** (neither owned nor raised by its land's roads): the technique cannot run at its
-  speed. Cultivation Techniques owns the fallback (as built, ×0.3 of the strongest
+- **If a technique names an element or variant the root does not own at purity below 10** (`tech_foreign_purity_min`):
+  the technique cannot run at its speed. Cultivation Techniques owns the fallback (as built, ×0.3 of the strongest
   purity).
 - **If a technique, recipe or item names a relocated mutation (rule 16):** this system
-  reports it as not owned. Until the Way is designed and the reference is re-pointed, the
-  content is unusable, and the data pass must flag it (Cross-References).
+  reports it as not owned. The Way (`dao.md`) now holds the relocated mutations as its Ways and facets; any content
+  still naming one is unusable until the data pass re-points it (Cross-References).
 - **If a mortal NPC has no root:** it does not cultivate and is outside this system. A
   cultivator always has at least one element.
 
@@ -1029,24 +1030,24 @@ systems split out of Combat depend on each other as follows.
 | `purity_sd` | 20 | 15–25 | The share of purity ≥ 85 per element: 1.1 % at 15, 4.2 % at 20, 8.4 % at 25 |
 | `purity_min` | 10 | 5–20 | The lowest element purity; the derived-variant floor (0.8 × this) |
 | `pair_bonus_pct` | 3 | 1–4.5; *derived* ceiling 4.5 (5 pairs under the 50 W keystone floor) | The pair bonus; at 2 four- and five-element roots tie, at 4+ five pulls ahead |
-| `stack_purity_factor` | 0.002 | 0.001–0.004 | How much purity strengthens element stacks | Formulas H |
-| `pair_share` | 0.5 | 0.25–0.75 | How much Water and Ice power each other's stacks | Formulas H |
+| `stack_purity_factor` | 0.002 | 0.001–0.004 | How much purity strengthens element stacks (Formulas H) |
+| `pair_share` | 0.5 | 0.25–0.75 | How much Water and Ice power each other's stacks (Formulas H) |
 | `n_cap` | 5 | 5 only, unless a sixth curve row is added (which reopens Realms' years table) | How far innate variants can push `n_eff` |
 | `convergence_factor` | 0.6 | 0.4–0.8 | Thunder and Darkness, about 1.3–2.6 % of births each |
 | `transmutation_factor` | 0.12 | 0.08–0.16 | Light and Ice, about 1.5–3.0 % of births each |
 | `chaos_factor` | 5 | 2–8 | Chaos: about 6–25 % of five-element roots (0.09–0.38 % of births); the `min(1, …)` clamp binds sooner as it rises |
 | `innate_chance` | Wind 0.025, Blood 0.015, Void 0.005 | each 0–0.04; keep their sum ≤ 0.06 so that at most about 6 % of lives move up a curve row | Innate rarity and the share of lives whose `n_eff` exceeds `n_base` |
 | `void_max_elements` | 2 | 1–3; at 5 Void is unconditional | Void's niche as a sparse-root gift |
-| `variant_purity_factor` | 0.8 | 0.6–1.0; at 1.0 a derived variant can reach purity 100 and the 30 W ceiling | Derived variant purity, hence its role strength and sector scale |
+| `variant_purity_factor` | 0.8 | 0.6–1.0; at 1.0 a derived variant can reach purity 100 and the 30 W ceiling at birth purities (past them, Open Question 15) | Derived variant purity, hence its role strength and land scale |
 | `variant_effects` | Formulas E table | any value keeping each variant inside its band (common 10–30 W, Chaos 20–60 W) at purity 50 and 100 | Each variant's role strength |
-| `variant_power_band`, `variant_power_band_apex` | 10–30 W; 20–60 W | the apex ceiling should stay above the weakest keystone (50 W, registry `keystone_min_power`) only at purity 100, which a derived Chaos cannot reach (max 80, 46.9 W) | How strong a variant may be |
+| `variant_power_band`, `variant_power_band_apex` | 10–30 W; 20–60 W | the apex ceiling should stay above the weakest keystone (50 W, registry `keystone_min_power`) only at purity 100, which a derived Chaos cannot reach at birth purities (max 80, 46.9 W; past them, Open Question 15) | How strong a variant may be |
 | `element_count_curve` | Formulas B | any change must keep the parity points | Pacing by `n_eff` |
 | `awakening_max_passes` | 2 | structural (only CF→NS and NS→DT can fire it) | Mutation Awakening's reach |
 | Tẩy Tủy Đan, Linh Căn Quả values | 6 × 3 per life; 20–35 or +8 | owned by Item DB | Root growth over a life |
 | `archetype_keep_chance` | 0.2 (*guess*) | 0–1; owned by NPC Builds | How many NPCs stay in an archetype their root does not fit (rule 15) |
 
 **Interactions.** Raising `variant_purity_factor` raises every derived variant's power and
-sector scale at once; retune `variant_effects` in the same pass. Raising any
+land scale at once; retune `variant_effects` in the same pass. Raising any
 `innate_chance` also raises the share of lives on a higher curve row, which moves Realms
 & Bottlenecks' tier pacing; check it with the Realms bot run (Open Question 1).
 
@@ -1055,8 +1056,8 @@ sector scale at once; retune `variant_effects` in the same pass. Raising any
 Deferred to the Game UI GDD (system 37). Intent: each element and each variant has its
 colour (the data already holds an ANSI colour per element; variants need one each in the
 data pass); a variant shows its origin (the elements it converged or transmuted from, or
-"innate"); a variant forming is a celebrated moment, and its Meridian sector revealing
-itself is part of that moment.
+"innate"); a variant forming is a celebrated moment, and its Meridian land brightening to its
+full scale is part of that moment.
 
 ## Game Feel
 
@@ -1078,8 +1079,8 @@ These apply to the Debug Terminal now and to the Game UI later.
 - **Variants.** Each owned variant's origin, requirement and role lines (via `explain`; not
   built yet, Open Question 12). Variants that rolled and failed, or were declined, are not
   shown as available.
-- **Meridian Map.** An unowned variant's sector is not drawn and not hinted; the map shows
-  only owned variants' sectors.
+- **Meridian Map.** The map shows every land, owned or not; an unowned element's or variant's land shows its
+  lower scale (0.25 + purity ÷ 100).
 - **Root changes.** Before a Linh Căn Quả is used, the screen lists each missing element
   to pick from, and for each one the new tier, the new `n_eff`, the speed before and after,
   the pair bonus and the derived variants it would make eligible. The added purity is still
@@ -1280,7 +1281,8 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - mission income "Kim purity 40" +32 %;
   - pill-toxicity decay "Thủy purity 60" +3.0.
 
-  Adding Wind or Thunder changes none of these. An absent element contributes 0.
+  Adding Wind or Thunder changes none of these. An element with no purity (not owned and not raised by a rare
+  source) contributes 0; one with road purity contributes by that purity (AC-LC-53).
 - **AC-LC-27** [Logic · BLOCKING] Formula E, with hard-coded fixture weights (W per displayed unit):
 
   | Variant | Key | Per purity | W per unit | Value p50 / p100 | W p50 / p100 |
@@ -1338,18 +1340,19 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 
 **Meridian Map and techniques**
 
-- **AC-LC-33** [Integration · BLOCKING] Rule 12.
-  - While a variant is unowned, its sector is not drawn, a spend into it is refused, and the reported map size excludes it.
-  - A root with Wind at birth has the Wind sector visible at once, and a spend into it is accepted with the entry's host open.
-  - Thunder forming mid-life, through Awakening or a Linh Căn Quả, makes its sector visible at once and spendable with a host open, and refunds nothing.
-  - With every host closed, the sector is visible and a spend into it is refused until the player walks to a host (Meridian Map AC-KMD-71).
-  - Across every later root change and a save/load, the sector stays visible.
-  - An NPC owning a variant can spend in that sector.
+- **AC-LC-33** [Integration · BLOCKING] Rule 12, variant lands (Meridian Map rule 20).
+  - Every variant land is drawn and walkable for every root; nothing is hidden or refused for not owning the variant.
+  - Its acupoints scale by 0.5 + purity ÷ 100 when the variant is owned, and by 0.25 + purity ÷ 100 when it is not
+    (0.25 at purity 0).
+  - A root holding a variant at birth may pick that variant's start; a variant forming mid-life (Awakening or a
+    Linh Căn Quả) changes its land's scale and not the character's start, and refunds nothing.
+  - An NPC owning a variant may take its start (its strongest purity, Meridian Map rule 3).
+  - Across every later root change and a save/load, nothing about the land's visibility changes.
 - **AC-LC-34** [Integration · BLOCKING] Formula G and rule 8, with {Wood 40, Fire 86} and {Fire 86, Metal 40} + Thunder 47, Wind 62.
-  - Sector scale: Thunder 0.97, then 1.01 after a pill lifts it to 51; Wind 1.12, unchanged by the pill.
+  - Land scale: Thunder 0.97, then 1.01 after a pill lifts it to 51; Wind 1.12, unchanged by the pill.
   - A technique naming Fire and Thunder runs at 0.665, then 0.685 after the pill.
   - On {Wood 40, Fire 86}: Wood land 0.9, Fire 1.36, Earth at purity 0 0.25, Wood–Fire blend zone 1.13, and a Wood–Fire technique runs at 0.63.
-  - Owning Thunder does not change the Fire or Metal sector scale.
+  - Owning Thunder does not change the Fire or Metal land scale.
 - **AC-LC-35** [Integration · BLOCKING] Center keystone reads `n_base`. It is refused on four elements + Wind (`n_eff` 5) and on {Fire, Metal} + Wind, Blood, Void, and allowed on all five base elements.
 - **AC-LC-36** [Integration · BLOCKING] Rule 3, `count_gain` reads `n_base`. A Dual root + Wind and a Dual root + Thunder read the same `count_gain` as a plain Dual root, and a Triple root reads its own value.
 
@@ -1418,13 +1421,15 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - {Fire 86, Water 60} + Wind 62: the root line (birth line) reads "Dual root: Fire [Hỏa] 86, Water [Thủy] 60 + Wind [Phong] 62 (counts as 3)". The sheet's root block shows curve row 3 and Wind 62 with origin innate.
   - {Fire 86, Metal 40} + Thunder 47: the root line reads "Dual root: Fire [Hỏa] 86, Metal [Kim] 40 + Thunder [Lôi] 47" with no "counts as" text. The sheet's root block shows Thunder 47 with origin convergence.
   - A variant that failed its roll does not appear on either screen.
-- **AC-LC-54** [Logic · BLOCKING] Formulas H. **GIVEN** Fire purity 86, **THEN** Fire stack power is 1.172; **GIVEN** 40 more from roads (126), **THEN** 1.252, and the root's technique speed and sector scaling read 126 too. **GIVEN** Water 70 and Ice 40, **THEN** Ice's stack power is 1.15 and Water's 1.18.
-- **AC-LC-53** [Logic · BLOCKING] Rule 8a. **GIVEN** a {Fire} root that gains 30 Metal purity from Metal land's roads, **THEN** Metal stacks have power 1.06, Metal-land acupoints scale by 0.80 (not 0.25), Metal's element role reads 30, `n_base` stays 1, no pair bonus is added, and no variant rolls.
-- **AC-LC-55** [Logic · BLOCKING] Debuff purity. **GIVEN** a player with Fire 120 applying Burn to a beast with no `stack_purity`, **THEN** the Burn stacks have power 1.24; **GIVEN** the beast applies its own Fire debuff to the player, **THEN** its stacks have power 1.0.
-- **AC-LC-56** [Logic · BLOCKING] Rare sources. A Wind 50 root that opens 10 Wind-land road nodes has Wind 55 (Meridian Map `road_purity` 0.5); a Thunder variant built on Fire 160 and Metal 140 has purity round(0.8 × √22400) = 120.
   - **Provisional** (not built, Open Question 12): `explain` for Thunder shows its origin, its requirement (Fire and Metal), purity 47 and +14.1 attack with source "Biến dị: Lôi".
   - `explain rate` shows the curve row read (3 for the first fixture). **Provisional** (not built, Open Question 12): it also shows each pair source.
   - The Linh Căn Quả preview on the first fixture in FE early stage lists each missing element, and Metal shows Dual → Triple, the factor 0.9 → 0.75 and the added +3 % pair.
+- **AC-LC-53** [Logic · BLOCKING] Rule 8a. **GIVEN** a {Fire} root that gains 30 Metal purity from Metal land's roads, **THEN** Metal stacks have power 1.06, Metal-land acupoints scale by 0.55 (0.25 + 0.30, the unowned rate; not 0.80), Metal's element role reads 30, `n_base` stays 1, no pair bonus is added, and no variant rolls. A Metal technique is
+  usable (30 ≥ `tech_foreign_purity_min` 10) at speed 0.30; at Metal 8 it is not.
+- **AC-LC-54** [Logic · BLOCKING] Formulas H. **GIVEN** Fire purity 86, **THEN** Fire stack power is 1.172; **GIVEN** 40 more from roads (126), **THEN** 1.252, and the root's technique speed and sector scaling read 126 too. **GIVEN** Water 70 and Ice 40, **THEN** Ice's stack power is 1.15 and Water's 1.18.
+- **AC-LC-55** [Logic · BLOCKING] Debuff purity. **GIVEN** a player with Fire 120 applying Burn to a beast with no `stack_purity`, **THEN** the Burn stacks have power 1.24; **GIVEN** the beast applies its own Fire debuff to the player, **THEN** its stacks have power 1.0.
+- **AC-LC-56** [Logic · BLOCKING] Rare sources. A Wind 50 root that opens 10 Wind-land road nodes has Wind 55 (Meridian Map `road_purity` 0.5); a Thunder variant built on Fire 160 and Metal 140 has purity round(0.8 × √22400) = 120.
+- **AC-LC-57** [Logic · BLOCKING] Rule 13, fruit onto a road-raised element. **GIVEN** a {Fire} root with Metal at road purity 40 and a Linh Căn Quả that picks Metal and draws 28, **THEN** Metal becomes owned at 40 (one purity draw, no loss); with road purity 15 and the same draw, Metal is owned at 28.
 
 **Not testable here, by design:**
 - Total lives holding a variant (about 12.4–13.5 %) depends on E_p, an unsourced estimate that needs a bot run (Open Question 1).
@@ -1439,7 +1444,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 | 1 | Awakening frequency and pacing. Formulas D3 puts Awakening at about 0.176 passes per life with every life holding #24 (about 13.2–13.5 % of lives with a variant); a bot run must supply the real figure. The same run checks the tight timing spots (single roots at NS and DT, five-element roots in QR) and the share of lives that innate variants move up a curve row (4.3 %) | Realms & Bottlenecks calibration, systems-designer | Formulas B, D3 |
 | 2 | `travel_speed_pct` (Wind) and `co_duyen_pct` (Void) have no Meridian Map weight; Formulas E prices both at 0.3 W per point, a guess. Void's purity-100 value (+100 %) matches the Cơ duyên edge's `co_duyen_pct` +100, which also carries `khi_van` 15. What Void's `co_duyen_pct` actually does, and what "secret realms" means, is undefined in any GDD; deferred by the user 2026-11-05 | Meridian Map, systems-designer | Formulas E |
 | 3 | Meridian Map capability #24 (Mutation Awakening) still needs a price. It now affects only five derived variants: Light on Fire 86 goes from 10.3 % to 27.9 % over its two possible passes | Meridian Map | Capability pricing |
-| 4 | ~~The variant sectors (rule 12) are a contract only~~ **Closed 2026-11-04:** Meridian Map rule 20 and its Formulas H2–H4 define geometry, size, attachment and pricing | — | — |
+| 4 | ~~The variant sectors (rule 12) are a contract only~~ **Closed 2026-11-04; superseded 2026-11-10:** the sectors are retired; Meridian Map rule 20 draws variant lands open to everyone | — | — |
 | 5 | A five-element root's early power. Before the redesign it started with about 109 W (keystone, pair bonus, mean mutations) against the Meridian Map's ~106 W end-of-QR target (cross-review D2). Recompute with the variant prices (a five-element root averages more derived variants: 16 % Chaos, 15 % each convergence, 6 % each transmutation) and the variant sectors (Meridian Map Formulas H3: 88.5 W at purity 50) | Meridian Map, game-designer | Player Fantasy, Formulas C |
 | 6 | Linh Căn Quả is rare by design and has no per-life counter, yet one fruit can add a curve row and make Chaos or a convergence eligible. Its frequency is owned by the Event Engine budgets (`events_budgets.json` `treasures`): set a target frequency there | Item DB, Event Engine | Rule 13 |
 | 7 | ~~RNG stream for the rolls after birth~~ **Closed 2026-11-05:** as built, a player's fruit and Mutation Awakening draw from the session's one seeded RNG, in call order, and its state is saved with the game (Formulas F) | — | — |

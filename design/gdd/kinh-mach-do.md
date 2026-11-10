@@ -1,6 +1,6 @@
 # Meridian Map (Kinh Mạch Đồ)
 
-> **Status**: Major revision in progress (design-review 2026-11-10: MAJOR REVISION NEEDED; the user's answers are in
+> **Status**: In Review (design-review 2026-11-10: MAJOR REVISION NEEDED, rewritten to the drawn tree the same day; confirming re-review 2026-11-10 NEEDS REVISION, answered and fixed the same day, see `reviews/kinh-mach-do-rereview-2026-11-10.md`). The drawn map is a **shape placeholder** (user, 2026-11-10): rules final, layout and content to change.
 > `reviews/kinh-mach-do-review-2026-11-10.md`, and the rewrite goes section by section with the user). The map is now
 > the hand-drawn tree, lean build (`design/research/meridian-tree-overnight.md`, drawn with
 > `tools/design/meridian_rework/`); hidden clusters are scrapped (user decision 2026-11-09: cultivation-technique
@@ -23,7 +23,7 @@
 The Meridian Map (Kinh Mạch Đồ) is the game's PoE-style passive tree.
 
 - **The map.** One hand-drawn map of about 7,100 visible acupoints (huyệt): five element lands (Metal, Wood, Water,
-  Fire, Earth) with five blend zones between them, the Taiji hub at the centre, Wind's land and the Ice start inside
+  Fire, Earth) with five blend zones between them, the Taiji hub (Thái Cực) at the centre, Wind's land and the Ice start inside
   the rim, and the Light, Darkness and Thunder islands and the Shadow Shrine outside it, all joined by roads. It is
   identical in every life and append-only from a fresh id baseline (user decision 2026-11-10).
 - **Starts.** 11 starts. The player starts at any start whose element or variant the root holds; an NPC takes its
@@ -160,7 +160,8 @@ are named parameters; their values and ranges are in Formulas.
 4. **Bonuses.** Each open acupoint adds its modifiers to the character's stat sheet under the source "Kinh Mạch:
    <name> #<id>". Values are priced by the Modifier System (Formulas F reads `modifier_prices`).
    - **Land acupoints** (small, notable, cluster) are multiplied by 0.5 + purity/100 for their land's element, or by
-     0.25 at purity 0 (purity a road granted counts, even in an element the root does not own; Spiritual Roots rule 8a); a blend-zone acupoint uses the average of its two lands' multipliers; a variant land's
+     0.25 at purity 0; for an element or variant the root does not own the multiplier is 0.25 + purity ÷ 100, so purity
+     a road granted there counts without a cliff (user decision 2026-11-10, re-review D-R2; Spiritual Roots rule 8a); a blend-zone acupoint uses the average of its two lands' multipliers; a variant land's
      (rule 20) uses that variant's purity the same way. Keystones and the hub are exact.
    - **Roads.** An element land's road nodes grant only that element's purity, about `road_purity` (0.5) each, exact
      (Spiritual Roots rule 8a: purity is proficiency and has no cap); a blend zone's grant half of each neighbour's;
@@ -173,7 +174,8 @@ are named parameters; their values and ranges are in Formulas.
      curve, `k · ln(1 + Σ / k)` with `k` = `tree_breakthrough_k` (Formulas F), not a clamp (user decision 2026-11-10);
      the sheet shows the curve line. It remains a q-extras source under Realms' ceiling.
 5. **NPCs** spend their points greedily under the same rules: every reachable acupoint is
-   scored by its kind and boosted if it lies in a sector favoured by the NPC's archetype,
+   scored by its kind (road nodes by the purity they grant, a `tree_kind_scores` entry `road`) and boosted if it lies
+   in a land favoured by the NPC's archetype,
    with a small random term, until the points run out. The weights are
    `tree_kind_scores` and `tree_focus_weight` in `world_generation.json`. An NPC may open a capability notable
    under rule 16's realm minimum. The allocator's budget on a map of 7,000+ acupoints is in Formulas
@@ -196,42 +198,43 @@ are named parameters; their values and ranges are in Formulas.
 **Capabilities**
 
 16. **A capability** is a rule change, not a stat: it lets the character do something the rules otherwise forbid.
-    Its rule text, numbers and closing cost live in `effects.md` (the Keystones and Life tables re-express all 25;
-    user decision 2026-11-10). This GDD owns the placement: which notable or keystone holds which capability, in
+    Its rule text, numbers and closing cost move to `effects.md` (user decision 2026-11-10). Six have records there
+    (#5, #9, #11, #15, #17, #25); until the others do, their one-line rule from the 2026-11-05 catalogue stands here,
+    marked provisional (user decision 2026-11-10, re-review D-R1), and #22 and #23 keep their numbers in Formulas E2. This GDD owns the placement: which notable or keystone holds which capability, in
     `meridian_capabilities.json`, and the capability-set contract (Character Stats stores the set). A capability
     notable carries a realm minimum of Core Formation (`cap_realm_min`), so none can affect the first two
     breakthroughs; this replaces the old sealed-cluster size gate. Opening it grants the capability for the rest of
     the life. Placements are part of the content pass.
-17. **The launch catalogue** (25 entries; each row's rule and closing cost is its `effects.md` record, and #1, #4,
-    #17 and #25 follow `effects.md` where the two texts differed):
+17. **The launch catalogue** (25 entries; a row with an `effects.md` record follows it, and #1, #4, #17 and #25 follow
+    `effects.md` where the two texts differed; the rest are provisional one-liners until their records exist):
 
     | # | Capability | System touched | Rule and closing cost |
     |---|---|---|---|
-    | 1 | Twin Arms in Harmony (Song Khí Hợp Bích) | Magic treasures, Combat | effects.md record |
-    | 2 | Divided Divine Sense (Thần Thức Phân Hóa) | Magic treasures, Character Stats | effects.md record |
-    | 3 | Treasure Nurtured Within (Dưỡng Bảo Nội Thể) | Magic treasures | effects.md record |
-    | 4 | Blood Commands Spirit (Huyết Ngự Linh) | Character Stats, Combat | effects.md record |
-    | 5 | Soul Leaves the Body (Linh Hồn Xuất Khiếu) | Event Engine, Realms | effects.md record |
-    | 6 | Twin Technique Cultivation (Song Tu Công Pháp) | Cultivation Techniques (Công Pháp) | effects.md record |
-    | 7 | Embryonic Breath (Thai Tức Quy Nguyên) | Time & Turn (aging) | effects.md record |
-    | 8 | Dao in Dreams (Mộng Trung Ngộ Đạo) | Cultivation, Travel | effects.md record |
-    | 9 | Great Essence-Draining Art (Hấp Tinh Đại Pháp) | Realms, Character Stats (heart demon) | effects.md record |
-    | 10 | Divided Furnace Flame (Đan Hỏa Phân Lô) | Alchemy (Luyện Đan) | effects.md record |
-    | 11 | Strange Pill Reborn (Dị Đan Hóa Sinh) | Alchemy | effects.md record |
-    | 12 | Hundred Herbs Kept Alive (Bách Thảo Tàng Linh) | Herbs | effects.md record |
-    | 13 | Endless Talismans (Phù Lục Bất Tận) | Talismans (Phù Lục) | effects.md record |
-    | 14 | Portable Cave Abode (Động Phủ Tùy Thân) | Formations (Trận Pháp), Spirit Fields | effects.md record |
-    | 15 | Formation Within a Formation (Trận Trung Trận) | Formations | effects.md record |
-    | 16 | Ten Thousand Beasts, One Heart (Vạn Thú Đồng Tâm) | Spirit Beasts (Linh Thú) | effects.md record |
-    | 17 | Beast Soul Union (Thú Hồn Hợp Thể) | Spirit Beasts, Combat | effects.md record |
-    | 18 | Reading Heaven's Secrets (Thiên Cơ Diễn Toán) | Event Engine | effects.md record |
-    | 19 | Child of Fortune (Khí Vận Chi Tử) | Event Engine | effects.md record |
-    | 20 | Concealed Breath (Liễm Tức Ẩn Thân) | Event Engine, NPCs | effects.md record |
-    | 21 | Blink Mark (Thuấn Di Ấn) | Travel | effects.md record |
-    | 22 | Last Radiance (Hồi Quang Phản Chiếu) | Realms | effects.md record |
-    | 23 | Burning Life to Break Through (Thiêu Thọ Phá Cảnh) | Realms | effects.md record |
-    | 24 | Mutation Awakening (Biến Dị Khai Mở) | Spiritual Root | effects.md record |
-    | 25 | Heart Demon Turned to Strength (Tâm Ma Hóa Lực) | Heart Demon, Combat | effects.md record |
+    | 1 | Twin Arms in Harmony (Song Khí Hợp Bích) | Magic treasures, Combat | **Provisional:** Two magic treasures (pháp bảo) of the same kind work as a pair: both at full power, +15% attack for the pair; closing cost set at the content pass |
+    | 2 | Divided Divine Sense (Thần Thức Phân Hóa) | Magic treasures, Character Stats | **Provisional:** `artifact_slots` +1 and +20% divine sense; closing cost set at the content pass |
+    | 3 | Treasure Nurtured Within (Dưỡng Bảo Nội Thể) | Magic treasures | **Provisional:** One chosen magic treasure costs no divine sense and grows +1% per year carried, up to +50%; closing cost set at the content pass |
+    | 4 | Blood Commands Spirit (Huyết Ngự Linh) | Character Stats, Combat | **Provisional:** 20% of vitality counts as spiritual power; below 30% vitality, −20% in combat; closing cost set at the content pass |
+    | 5 | Soul Leaves the Body (Linh Hồn Xuất Khiếu) | Event Engine, Realms | effects.md record (one-liner: Once per realm, survive a death in an event at 5% vitality, losing one stage) |
+    | 6 | Twin Technique Cultivation (Song Tu Công Pháp) | Cultivation Techniques (Công Pháp) | **Provisional:** Cultivate a second cultivation technique at 50% speed with its full bonuses; closing cost set at the content pass |
+    | 7 | Embryonic Breath (Thai Tức Quy Nguyên) | Time & Turn (aging) | **Provisional:** Age at three-quarters speed during closed-door cultivation (bế quan); closing cost set at the content pass |
+    | 8 | Dao in Dreams (Mộng Trung Ngộ Đạo) | Cultivation, Travel | **Provisional:** Seasons spent travelling also cultivate, at 50% rate; closing cost set at the content pass |
+    | 9 | Great Essence-Draining Art (Hấp Tinh Đại Pháp) | Realms, Character Stats (heart demon) | effects.md record (one-liner: Defeating a cultivator gives cultivation base (tu vi) worth 5% of the current stage; heart demon (tâm ma) +2 each time) |
+    | 10 | Divided Furnace Flame (Đan Hỏa Phân Lô) | Alchemy (Luyện Đan) | **Provisional:** Brew two recipes in one season; closing cost set at the content pass |
+    | 11 | Strange Pill Reborn (Dị Đan Hóa Sinh) | Alchemy | effects.md record (one-liner: A failed brew has a 30% chance of a random mutated pill within budget instead of ash) |
+    | 12 | Hundred Herbs Kept Alive (Bách Thảo Tàng Linh) | Herbs | **Provisional:** Harvested herbs keep aging in the bag at half speed; closing cost set at the content pass |
+    | 13 | Endless Talismans (Phù Lục Bất Tận) | Talismans (Phù Lục) | **Provisional:** 30% chance a used talisman is not consumed; closing cost set at the content pass |
+    | 14 | Portable Cave Abode (Động Phủ Tùy Thân) | Formations (Trận Pháp), Spirit Fields | **Provisional:** Formations and spirit fields work wherever the character is; the field can be tended anywhere; closing cost set at the content pass |
+    | 15 | Formation Within a Formation (Trận Trung Trận) | Formations | effects.md record (one-liner: Formations may exceed their maximum by 2 levels; upkeep for those levels ×2) |
+    | 16 | Ten Thousand Beasts, One Heart (Vạn Thú Đồng Tâm) | Spirit Beasts (Linh Thú) | **Provisional:** +2 spirit beasts (linh thú) kept; loyalty never drops below 30; closing cost set at the content pass |
+    | 17 | Beast Soul Union (Thú Hồn Hợp Thể) | Spirit Beasts, Combat | effects.md record (one-liner: The strongest spirit beast adds its full combat power (chiến lực) instead of half) |
+    | 18 | Reading Heaven's Secrets (Thiên Cơ Diễn Toán) | Event Engine | **Provisional:** See every choice's success and failure outcomes before choosing; closing cost set at the content pass |
+    | 19 | Child of Fortune (Khí Vận Chi Tử) | Event Engine | **Provisional:** Once per realm, reroll a failed event check; closing cost set at the content pass |
+    | 20 | Concealed Breath (Liễm Tức Ẩn Thân) | Event Engine, NPCs | **Provisional:** Others see the character two stages lower; hostile events −30% frequency; closing cost set at the content pass |
+    | 21 | Blink Mark (Thuấn Di Ấn) | Travel | **Provisional:** Once a year, travel instantly to any visited place; closing cost set at the content pass |
+    | 22 | Last Radiance (Hồi Quang Phản Chiếu) | Realms | **Provisional:** With under 5 years of lifespan left, the breakthrough chance of a pill attempt is up to ×2 (capped by Formulas E2); closing cost set at the content pass |
+    | 23 | Burning Life to Break Through (Thiêu Thọ Phá Cảnh) | Realms | **Provisional:** After a failed pill attempt, burn 10 years of lifespan (5% of the realm's lifespan if more; the years are added to age, Realms rule 18) to retry at once; closing cost set at the content pass |
+    | 24 | Mutation Awakening (Biến Dị Khai Mở) | Spiritual Root | **Provisional:** Each completed realm breakthrough gives one more roll to every unowned, non-declined derived variant root (biến dị) whose requirement is met (Spiritual Roots rule 10; pricing open, see its Open Question 3); closing cost set at the content pass |
+    | 25 | Heart Demon Turned to Strength (Tâm Ma Hóa Lực) | Heart Demon, Combat | effects.md record (one-liner: Heart demon above 50 adds attack (+heart demon ÷ 2 %); backlash chance ×2) |
 
     #14 sits between the Formations and Spirit Fields districts (Earth and Wood), where it reads as both.
 
@@ -385,7 +388,8 @@ The value_scale formula is defined as:
 | w̄_map | float | 2.15 W | calculated | Mean W per acupoint over the visible map; a data lint (AC-KMD-06), not a power target |
 | Keystone | float | ≥ 50 W | data file | A keystone's positive side; its rule and closing cost are its `effects.md` record |
 
-**Output Range:** w̄_map is 2.15 W at the defaults (2.07 W was the generated map's per-point target). A life's tree
+**Output Range:** w̄_map is 2.15 W at the defaults, a data lint held within ±5 % of `w_target` (2.07 W), the per-point
+target the Way and Quests price against (user decision 2026-11-10, re-review D-R3; this GDD owns it). A life's tree
 power is set by the route it walks, not the map's mix: the route share of road nodes, small acupoints and notables
 is re-measured by the bot on the drawn map (AC-KMD-07; the generated map's figure was 95–116 W at Qi Refining's
 end). Hub roads give general stats at S0.
@@ -553,7 +557,7 @@ only to state the carry exactly (the guard assumes F_0 = 1) |
   the bot allocates it sits inside the targets; a maxed tree is
   Realms & Bottlenecks Open Question 13. The capabilities add at most 0.10 on top.
   Realms & Bottlenecks must treat the tree's share as part of the calibration, not an extra.
-  The bot takes no `field_plots` acupoint (Formulas F, plot price).
+  The bot takes no `field_plots` acupoint.
 
 **Example:** S = 0.70, q = 0.25, ι_23 = 0 (clamps do not bind):
 
@@ -641,7 +645,7 @@ The map's size is what the kit draws; the lean build is the shipped map (user de
 | Region | Visible acupoints (lean build, 2026-11-10) |
 |---|---|
 | Earth, Water, Wood, Metal, Fire | 980, 902, 848, 838, 811 |
-| Blend zones (Earth–Metal, Wood–Water, Fire–Earth, Water–Fire, Metal–Water) | 401, 398, 382, 377, 348 |
+| Blend zones (Earth–Metal, Wood–Water, Fire–Earth, Wood–Fire, Metal–Water) | 401, 398, 382, 377, 348 |
 | Darkness, Light, Thunder islands (with the Shadow Shrine) | 282, 230, 217 |
 | Taiji hub | 101 |
 | **All** | **7,115** (11 starts, 616 road nodes, 5,364 small, 1,084 notables, 40 keystones; 811 clusters) |
@@ -687,11 +691,9 @@ fill keys, `variant_sector_size` and the H2–H4 keys.
 - **If road purity takes an element past 100:** nothing stops it (Spiritual Roots rule 8a: no cap); the purity
   multiplier keeps rising (0.5 + purity/100), and so does the element's stack power. `road_purity` is tuned so
   this stays rare (rule 4).
-- **If a character walks the roads of an element its root lacks:** the roads still grant that element's purity, which
-  powers its stacks only; it adds no base element (Spiritual Roots rule 8a).
-
-**Starts**
-
+- **If a character walks the roads of an element its root lacks:** the roads still grant that element's purity. It
+  powers that element's stacks, scales its land at the unowned rate 0.25 + purity ÷ 100 (rule 4), and lets a technique
+  name the element from purity 10 (Cultivation Techniques rule 8); it adds no base element (Spiritual Roots rule 8a).
 - **If a root holds several elements or variants:** the player picks one start at birth (rule 3); the others are
   reachable over the map like any acupoint. The start is never changed later.
 - **If the root gains a variant after birth:** its start does not become a second start; the variant's land is
@@ -773,7 +775,7 @@ list the Meridian Map (Kinh Mạch Đồ) in its own Dependencies section.
 | 33 | Balance Simulation Harness | Re-measures route power (A2) and the calibration runs on the drawn map |
 | 35 / 36 / 37 | Guidance Layer, Debug Terminal, Game UI | The drawn map, the start choice, route previews, purity gained from roads |
 | 12 | Codex & Karmic Carryover | Records capabilities found across lives |
-| 31 | Quests | `stat_power_weights` (via the Modifier System) and `w̄_target` to price a lasting gain; tree points paid by a major quest (`quests.md` Formulas D) |
+| 31 | Quests | `stat_power_weights` (via the Modifier System) and `w_target` (2.07 W, Formulas A2) to price a lasting gain; tree points paid by a major quest (`quests.md` Formulas D) |
 | 39 | The Way (Đạo) | The shared point pool (two-way) |
 
 **Capability hosts.** Each implements the behaviour behind its capabilities, from the `effects.md` record. Hosts do
@@ -896,7 +898,7 @@ Drafted with qa-lead.
 - Evidence for the debug terminal is a captured transcript in `production/qa/evidence/`,
   not a screen capture.
 - **[Bot]** items are judged on the printed output of `tools/balance/autoplay.gd` or `tools/balance/npc_cohort.gd`.
-  AC-KMD-07, -50 and -89's successors are pending until the bot runs on the drawn map.
+  AC-KMD-07, -50 and -101 are pending until the bot runs on the drawn map.
 - Rewritten 2026-11-10 for the drawn map (major revision). Retired ids are listed at the end and never reused.
 
 **Points (rule 2, Formulas A)**
@@ -959,6 +961,8 @@ Drafted with qa-lead.
       value, the one with the lower ids. The preview shows the same route.
 - **AC-KMD-15** [Logic] Rule 4.
     - Purity 60 gives ×1.10, purity 100 gives ×1.50, purity 140 gives ×1.90, and an absent element gives ×0.25.
+    - An element the root does not own, raised to purity 1.0 by two road nodes, gives ×0.26 (not ×0.51); at purity 25,
+      ×0.50; at 30, ×0.55.
     - A blend-zone acupoint between Wood 60 and an absent Fire gives ×0.675.
     - A Wind-land acupoint for a root with Wind 50 gives ×1.00; without Wind, ×0.25.
     - Keystones and the hub are ×1.0. The modifier source is exactly `Kinh Mạch: <name> #<id>`.
@@ -970,7 +974,7 @@ Drafted with qa-lead.
 - **AC-KMD-18** [Logic] Rule 5, with a fixed seed.
     - NPC allocation is identical on repeat runs and every open is legal.
     - Points spent = min(points, reachable acupoints).
-    - A Fire-archetype NPC opens more Fire acupoints than acupoints of any other sector.
+    - A Fire-archetype NPC opens more Fire acupoints than acupoints of any other land.
 - **AC-KMD-96** [Logic] The start (rule 3).
     - Root {Fire 70, Water 40}: the offered starts are Fire and Water; picking Fire owns the Fire start at no cost.
     - Root {Water 60} with Ice 50: Water and Ice are offered; Light is not.
@@ -996,7 +1000,8 @@ Drafted with qa-lead.
 - **AC-KMD-40** [Logic] Formula E with N0 = 8: T1 gives 4.0 W, T2 2.0 W and T3 0 W before the purity multiplier;
   a capability notable's authored power is ≤ f_tier·N0.
 - **AC-KMD-41** [Config/Data] The catalogue.
-    - 25 entries with unique ids, each with an `effects.md` record; every tier is T1, T2 or T3 (the launch
+    - 25 entries with unique ids; #5, #9, #11, #15, #17 and #25 each have an `effects.md` record, and every other
+      entry has its provisional one-line rule in rule 17 (a record replaces it when written); every tier is T1, T2 or T3 (the launch
       assignment is provisional, compared with a golden list changed in the same commit as any re-tiering).
     - Each capability sits on exactly one notable or keystone in `meridian_capabilities.json`, and that acupoint
       carries `cap_realm_min`. Incompatibility lists are symmetric.
@@ -1059,7 +1064,7 @@ Drafted with qa-lead.
   values.
     - `npc_cohort.gd`: as Realms & Bottlenecks AC-CG-54.
     - `autoplay.gd`: as Realms & Bottlenecks AC-CG-30 and AC-CG-31.
-    - In both runs the bot takes no `field_plots` acupoint (Formulas F, plot price): fields
+    - In both runs the bot takes no `field_plots` acupoint: fields
       are a build outside these targets.
 - **AC-KMD-101** [Integration, Bot: `autoplay.gd`, ≥ 60 lives = 20 seeds × 3 origins] Road purity balance. The
   share of lives with any element above 100 purity at Deity Transformation great perfection is reported; above
@@ -1113,7 +1118,7 @@ Drafted with qa-lead.
 | 5 | Capability tiers by measurement (only 5 of 25 have a provisional tier) and the list of incompatible pairs | systems-designer + bot | Formulas E; rule 18 |
 | 6 | ~~Content plan for sealed clusters~~ **Retired 2026-11-10** with the hidden clusters; the keystones' content moves to Open Question 20 | — | — |
 | 7 | ~~Is φ_r a dead parameter?~~ **Retired 2026-11-10** with the fill budget | — | — |
-| 8 | Recalibrate breakthrough targets and NPC cohorts on the drawn map (Formulas A, A2; AC-KMD-07, -50), together with Realms & Bottlenecks' recalibration after the bonus curves and the Way's breakthrough Effects | Balance harness | Implementation sign-off |
+| 8 | Recalibrate breakthrough targets and NPC cohorts on the drawn map (Formulas A, A2; AC-KMD-07, -50, -101, with NPC road purity included), and bound the joint NPC uplift from the tree's road purity and keystones with the Way's (`dao.md` Open Question 5) inside the NPC targets, together with Realms & Bottlenecks' recalibration after the bonus curves and the Way's breakthrough Effects | Balance harness | Implementation sign-off |
 | 9 | ~~#14 placement across two clusters~~ **Resolved 2026-11-10:** it sits between the Formations and Spirit Fields districts (rule 17) | — | — |
 | 10 | ~~The centre keystone's place~~ **Retired 2026-11-10:** the hub is the Taiji with the Chaos start (rule 1) | — | — |
 | 11 | Cap on event point grants per realm (the Event Engine's budget file should set it) | Event Engine GDD | Rule 2 |

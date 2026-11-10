@@ -58,14 +58,14 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 3 | World Database | Core | MVP | Implemented | — | — |
 | 4 | Time & Turn Structure | Core | MVP | Implemented | — | Config |
 | 5 | Save/Load (inferred) | Persistence | MVP | Implemented | — | World DB, Time & Turn |
-| 6 | Spiritual Roots (Linh Căn) (incl. changing spiritual roots) | Progression | MVP | In Review: design-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day; confirming re-review running. History: the GDD header and its review log. | design/gdd/linh-can.md | Config, Sim Core; soft: Realms (breakthrough event, stage group), Character Stats (capability set) |
-| 7 | Character Stats (innate talent [thiên phú], derived, craft mastery [đạo nghệ]) | Progression | MVP | In Review: design-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day; confirming re-review running. History: the GDD header and its review log. | design/gdd/character-stats.md | Spiritual Roots, Sim Core, Config; soft (via the provider interface): Realms, Meridian Map, Cultivation Techniques, Item DB, Progression Edges, Formations, Spirit Herbs & Spirit Fields |
-| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Progression | MVP | In Review: design-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day; the gate calibration must be re-run (its Open Question 23); confirming re-review running. History: the GDD header and its review log. | design/gdd/canh-gioi.md | Config, Sim Core, Time & Turn, Spiritual Roots, Character Stats, Item DB; soft: Cultivation Techniques, Spirit Herbs, Alchemy, Formations, Travel & Map, Event Engine, Progression Edges |
-| 9 | Cultivation Techniques (Công Pháp) | Progression | MVP | In Review: design-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day; confirming re-review running. History: the GDD header and its review log. | design/gdd/cong-phap.md | Spiritual Roots, Realms, Character Stats, Item DB; soft: Time & Turn, Meridian Map |
-| 10 | Meridian Map (Kinh Mạch Đồ) (added by request) | Progression | MVP | In Review: **major revision 2026-11-10** to the hand-drawn tree (rules final; the drawn map is a **shape placeholder**, user 2026-11-10; content pass and bot calibration open); confirming re-review running. History: the GDD header and its review log. | design/gdd/kinh-mach-do.md | Spiritual Roots, Character Stats, Realms, Config, Sim Core; soft: Event Engine, Item DB, Cultivation Techniques, LLM GM, World DB, Edges |
+| 6 | Spiritual Roots (Linh Căn) (incl. changing spiritual roots) | Progression | MVP | In Review: design-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day; confirming re-review 2026-11-10 (NEEDS REVISION, small) answered and fixed the same day; next: a clean re-review for approval. History: the GDD header and its review log. | design/gdd/linh-can.md | Config, Sim Core; soft: Realms (breakthrough event, stage group), Character Stats (capability set) |
+| 7 | Character Stats (innate talent [thiên phú], derived, craft mastery [đạo nghệ]) | Progression | MVP | In Review: design-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day; confirming re-review 2026-11-10 (NEEDS REVISION, small) answered and fixed the same day; next: a clean re-review for approval. History: the GDD header and its review log. | design/gdd/character-stats.md | Spiritual Roots, Sim Core, Config; soft (via the provider interface): Realms, Meridian Map, Cultivation Techniques, Item DB, Progression Edges, Formations, Spirit Herbs & Spirit Fields |
+| 8 | Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) | Progression | MVP | In Review: design-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day; the gate calibration must be re-run (its Open Question 23); confirming re-review 2026-11-10 (NEEDS REVISION, small) answered and fixed the same day; next: a clean re-review for approval. History: the GDD header and its review log. | design/gdd/canh-gioi.md | Config, Sim Core, Time & Turn, Spiritual Roots, Character Stats, Item DB; soft: Cultivation Techniques, Spirit Herbs, Alchemy, Formations, Travel & Map, Event Engine, Progression Edges |
+| 9 | Cultivation Techniques (Công Pháp) | Progression | MVP | In Review: design-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day; confirming re-review 2026-11-10 (NEEDS REVISION, small) answered and fixed the same day; next: a clean re-review for approval. History: the GDD header and its review log. | design/gdd/cong-phap.md | Spiritual Roots, Realms, Character Stats, Item DB; soft: Time & Turn, Meridian Map |
+| 10 | Meridian Map (Kinh Mạch Đồ) (added by request) | Progression | MVP | In Review: **major revision 2026-11-10** to the hand-drawn tree (rules final; the drawn map is a **shape placeholder**, user 2026-11-10; content pass and bot calibration open); confirming re-review 2026-11-10 (NEEDS REVISION, small) answered and fixed the same day; next: a clean re-review for approval. History: the GDD header and its review log. | design/gdd/kinh-mach-do.md | Spiritual Roots, Character Stats, Realms, Config, Sim Core; soft: Event Engine, Item DB, Cultivation Techniques, LLM GM, World DB, Edges |
 | 11 | Progression Edges: destiny perk (thiên mệnh), fortuitous encounters (cơ duyên), NPC edges (added by request) | Progression | MVP | Implemented | quick spec: design/quick-specs/progression-and-edges.md | Character Stats, Realms, Event Engine (player half) |
 | 12 | Codex & Karmic Carryover | Progression | Vertical Slice | Not Started | — | Item DB, Alchemy, Spiritual Roots, Save/Load |
-| 13 | Item Database & Generation (inferred) | Economy | MVP | In Review: design-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day (named items, `artifact_slots`, damage type, reward bounds, Mạch Ấn retired); confirming re-review running. Built, with the gaps in its Build Gaps section. History: the GDD header and its review log. | design/gdd/item-database.md | Config, Sim Core, World DB; soft: Character Stats (lifespan-cap preview) |
+| 13 | Item Database & Generation (inferred) | Economy | MVP | In Review: design-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day (named items, `artifact_slots`, damage type, reward bounds, Mạch Ấn retired); confirming re-review 2026-11-10 (NEEDS REVISION, small) answered and fixed the same day; next: a clean re-review for approval. Built, with the gaps in its Build Gaps section. History: the GDD header and its review log. | design/gdd/item-database.md | Config, Sim Core, World DB; soft: Character Stats (lifespan-cap preview) |
 | 14 | Spirit Herbs & Spirit Fields (Linh Thảo & Linh Điền) | Economy | MVP | Implemented | — | Item DB, Character Stats, Time & Turn |
 | 15 | Alchemy (Luyện Đan) | Economy | MVP | Implemented | — | Spirit Herbs, Item DB, Character Stats |
 | 16 | Artifact Refining (Luyện Khí) | Economy | Vertical Slice | Implemented | quick spec: design/quick-specs/luyen-khi-and-tran-phap.md | Item DB, Character Stats |
@@ -93,9 +93,10 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 36 | Debug Terminal (added by request) | UI | MVP | Implemented | docs/debug-terminal.md (run guide, not a GDD) | Guidance, Save/Load, LLM GM |
 | 37 | Game UI: Godot, 2D ink-wash | UI | Vertical Slice | Not Started | — | Guidance, Save/Load |
 | 38 | Audio | Audio | Full Vision | Not Started | — | Game UI, Event Engine |
-| 39 | The Way (Đạo) (added by request; holds the mutations moved out of the root) | Progression | Alpha (provisional) | In Review: graph Ways, 94-Way Catalogue (short Hán-Việt names with poetic titles), Sword pilot drawn; design-review 2026-11-10 answered and fixed; confirming re-review running. Not built. History: the GDD header and its review log. | design/gdd/dao.md | Spiritual Roots; contract provisional (Spiritual Roots Open Question 9); Meridian Map (shared skill points); Combat (arts only, on hold: needs a full combat system); soft: Cultivation Techniques (techniques naming relocated mutations, its Open Question 11), Realms (any ceiling raise or root factor re-runs the breakthrough calibration) |
+| 39 | The Way (Đạo) (added by request; holds the mutations moved out of the root) | Progression | Alpha (provisional) | In Review: graph Ways, 94-Way Catalogue (short Hán-Việt names with poetic titles), Sword pilot drawn; design-review 2026-11-10 answered and fixed; confirming re-review 2026-11-10 (NEEDS REVISION, small) answered and fixed the same day; next: a clean re-review for approval. Not built. History: the GDD header and its review log. | design/gdd/dao.md | Spiritual Roots; contract provisional (Spiritual Roots Open Question 9); Meridian Map (shared skill points); Combat (arts only, on hold: needs a full combat system); soft: Cultivation Techniques (techniques naming relocated mutations, its Open Question 11), Realms (any ceiling raise or root factor re-runs the breakthrough calibration) |
 | 40 | Modifier System (added by request 2026-11-07; the base every build piece draws from; plain numbers on a stat only, user decision 2026-11-07) | Gameplay | MVP | **Approved** (2026-11-08b; #44 parts 4–5 accepted 2026-11-10; re-review 2026-11-10 fixes applied). Not built. History: the GDD header and its review log. | design/gdd/modifiers.md | Combat (damage layers L1–L5 and their caps, channels, ward models), Character Stats; read by: Meridian Map, The Way (Đạo), Cultivation Techniques, Item DB, Artifact Refining, Formations, Talismans, Spirit Beasts |
 | 41 | Effects System (added by request 2026-11-07): every build piece with a rule in it (conditions, scaling, triggers, conditional conversion, overflow, rule changes, keystones, enablers), each granting Modifier System modifiers as its payload | Gameplay | MVP | **Approved** (2026-11-08c; #44 part 3 and equal-value element stacks 2026-11-10; re-review 2026-11-10 fixes applied). Not built. History: the GDD header and its review log. | design/gdd/effects.md | Modifier System (#40), Combat (#21, #21a), Character Stats; read by: Meridian Map, The Way, Cultivation Techniques, Item DB, Formations, Talismans, Spirit Beasts |
+| 42 | NPC Traits (added by request 2026-11-10; personality traits in the manner of grand-strategy character games) | Narrative | Alpha (provisional; later) | Not Started. See System Briefs: NPC Traits | — | NPC Builds, Living World Tick, Event Engine, Character Stats, Modifier System, NPC Interaction & Dialogue, LLM GM |
 
 **Build design order (user decision 2026-11-07).** Builds are the game: a concept with modifiers stacked on it, sometimes opened by an enabler. Content is designed from the shared pieces up, and builds come last as tests. **Before step 1 is finished (user decision 2026-11-07):** Combat Defence & Healing (#21a) and Combat Damage Types (#21b) are designed first as sub-systems of Combat (files prefixed `combat-`, flat in `design/gdd/` for now. **User decision 2026-11-07:** the combat GDDs move into `design/gdd/combat/` later, once more combat docs exist. Before the move, the skills and hooks that read `design/gdd/*.md` without subfolders (about 28 sites) must be made to read subfolders, and the 46 files that cite `combat.md` updated, so no review silently skips a combat GDD), then the Modifier System is resumed, then the Effects System (#41), then one Combat revision that folds in #21a and the Modifier and Effects contracts. The steps: (1) the Modifier System (#40), the shared vocabulary of modifiers by layer and channel; (2) The Way (Đạo) as broad Ways, each with three branches drawn mostly from that vocabulary; (3) Cultivation Techniques (Công Pháp); (4) items and enablers; (5) builds, which check that a fantasy can be made from existing pieces and add a new piece only when a second build would use it too. The overnight build campaign of 2026-11-07 (`design/builds/overnight-2026-11-07/`, 69 builds) went builds-first: its builds and content are **proposals to be re-evaluated and filtered** against the new pieces, not adopted content. Its rule findings (`decisions.md`) stand on their own.
 
@@ -318,12 +319,12 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 
 | Metric | Count (2026-11-10) |
 |--------|-------|
-| Systems identified | 43 (41 numbered, plus Combat's sub-systems #21a and #21b) |
+| Systems identified | 44 (42 numbered, plus Combat's sub-systems #21a and #21b) |
 | Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (beasts only), 21 (old duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin). The built game predates this week's design (old Meridian map, ceilings, variant sectors, hidden clusters) |
 | Systems not built | 10: 12, 21a, 21b, 22, 31, 34, 37, 38, 40, 41 (plus spirit insects inside 19; #39 the Way) |
 | GDDs | 15: 6, 7, 8, 9, 10, 13, 21, 21a, 21b, 22, 31, 39, 40, 41, and the Way's catalogue inside 39 |
 | GDDs approved | 7: 21, 21a, 21b, 40, 41 (approved), 22 and 31 (approved for rules; numbers provisional) |
-| GDDs in review | 7: 6, 7, 8, 9, 10, 13, 39 (fixes applied 2026-11-10; confirming re-reviews running) |
+| GDDs in review | 7: 6, 7, 8, 9, 10, 13, 39 (review and confirming re-review fixes applied 2026-11-10) |
 | Built MVP systems without a GDD | 17: 1, 2, 3, 4, 5, 11, 14, 15, 20, 23, 24, 25, 26, 27, 29, 33, 36 |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
 | MVP systems designed | 13 / 27 (25 MVP plus #21a, #21b, #40, #41 counted) |
@@ -411,6 +412,27 @@ good for other specific things.
 - The move from today's region-and-place graph, and what that does to Market, Sects, Spirit
   Fields, Events and the balance bots that rely on it.
 
+### NPC Traits (#42)
+
+Recorded 2026-11-10 at the user's request, to be designed later.
+
+**User intent:** a trait system for NPCs, similar in spirit to the trait systems of grand-strategy character games
+(personality, lifestyle and congenital traits). Traits decide how an NPC acts around events (what it chooses, whom it
+helps or betrays, what it risks) and somewhat affect its stats. The goal is a world that feels more realistic and
+lively. Not urgent: it can come after the world map and sects.
+
+**Ideas to explore (not decisions):**
+- Trait kinds: personality (greedy, cautious, ambitious, righteous, ruthless), lifestyle (alchemist, swordsman,
+  recluse), congenital or fate-given (heaven-favoured, ill-starred), and traits gained from events (scarred, vengeful).
+- Stat effects as plain modifiers through the Modifier System (a trait is one more modifier source on the Character
+  Stats sheet); behaviour effects as weights on event choices and Living World Tick actions.
+- Opposed traits (cautious vs reckless) and how NPCs regard others with shared or opposed traits (attitude in NPC
+  Interaction & Dialogue, sect loyalty).
+- Whether the player has traits too, or only NPCs; whether the LLM Game Master reads traits for narration.
+- Cost: traits per NPC across 5,000 cultivators must stay cheap in the season tick and the save.
+
+---
+
 ## Next Steps
 
 Done: the systems enumeration (2026-11-03); the level ladder into Realms (2026-11-05); Heavenly Tribulation designed
@@ -418,7 +440,8 @@ Done: the systems enumeration (2026-11-03); the level ladder into Realms (2026-1
 designed and its catalogue started (2026-11-10); the Meridian Map redrawn by hand and its GDD rewritten (2026-11-10);
 design reviews of the progression GDDs with fixes (2026-11-10).
 
-- [ ] Confirming re-reviews of 6, 7, 8, 9, 10, 13 and 39, and their fixes (running 2026-11-10)
+- [x] Confirming re-reviews of 6, 7, 8, 9, 10, 13 and 39, and their fixes (2026-11-10)
+- [ ] A last clean re-review of those seven for approval
 - [ ] `/consistency-check`, then a split `/review-all-gdds` (progression, combat, economy and content, then a cross-part pass)
 - [ ] Library track (user's design order: modifiers, Đạo, công pháp, items, builds): the Đạo catalogue (93 of 94 Ways to draw;
       the Sword Effects into effects.md), the công pháp catalogue (bonuses to W budgets), hand-authored items, then builds as tests
@@ -426,6 +449,7 @@ design reviews of the progression GDDs with fixes (2026-11-10).
       công pháp and items (`design/research/side-trees-thoughts.md`)
 - [ ] Design the open world map (Travel & Map #25, with World Generation #27) and a real sect system (Sects & Missions #26,
       with sect tiers)
+- [ ] Later: design NPC Traits (#42, System Briefs), after the world map and sects
 - [ ] Reverse-document the 17 built MVP systems without a GDD (`/reverse-document`), Foundation first (1–5)
 - [ ] Balance Harness: the calibration bot run on the new curves and the drawn map (Realms Open Question 23, Meridian
       AC-KMD-07, -50, -101), after the library is fuller

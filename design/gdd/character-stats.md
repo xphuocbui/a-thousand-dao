@@ -1,9 +1,9 @@
 # Character Stats
 
-> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 4 blocking; answers and fixes applied the same day, see `reviews/character-stats-review-2026-11-10.md`; re-review pending).
+> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 4 blocking; answers and fixes applied the same day, see `reviews/character-stats-review-2026-11-10.md`; confirming re-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day, see `reviews/character-stats-rereview-2026-11-10.md`).
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-06; 2026-11-09 (#44 part 5: stat keys; accepted 2026-11-10)
+> **Last Updated**: 2026-11-10 (re-review fixes); 2026-11-09 (#44 part 5: stat keys; accepted 2026-11-10)
 > **Last Verified**: 2026-11-10
 > **Implements Pillar**: Pillar 2 (Every Number Is Bounded and Visible), Pillar 3 (Power Is Built, Not Given); touches Pillar 1 (Your Dao, Your Name)
 
@@ -128,8 +128,9 @@ here but not built yet.
      Calming pills and events can lower it further.
    - **Effects:** see the thresholds table under States and Transitions.
 9. **Vitality.**
-   - **Losses:** failed breakthroughs (40 % of maximum), mission wounds and event effects.
-   - **The floor:** a failed breakthrough or a mission wound stops at 5 %
+   - **Losses:** failed breakthroughs (40 % of maximum), mission wounds, event effects, and a fight's end
+     vitality, which Combat writes.
+   - **The floor:** a failed breakthrough, a mission wound or a fight stops at 5 %
      (`vitality_floor`). A vitality-loss event effect has no floor.
    - **Fatal event:** a vitality-loss event effect that brings vitality to 0 or below is a
      fatal event, and the character dies. Capability #5 can survive it (the Meridian Map's
@@ -247,8 +248,8 @@ here but not built yet.
     - `points`: resistance and penetration counted in points (`resist_pct`, `resist_pen_pct`: damage ÷ (1 + R/100),
       no cap; Combat Defence & Healing rule 3), so 1 point is not 1 pp; and layer points for `damage_more`.
 
-    Precision follows the Meridian Map's Formulas F: 0.1 for `pct` keys, `stealth` and
-    `lifespan_years`; 0.01 for the six talent keys (`ngo_tinh`, `can_cot`,
+    Precision follows the Meridian Map's Formulas F: 0.1 for `pct` keys, `points` keys (`resist_pct`,
+    `resist_pen_pct`, `damage_more`), `stealth` and `lifespan_years`; 0.01 for the six talent keys (`ngo_tinh`, `can_cot`,
     `than_hon`, `khi_van`, `dao_tam`, `mi_luc`), `dan_doc_decay`, `density_bonus`, and the two regeneration keys
     `health_regen_pct` and `linh_luc_regen_pct` (Modifier System re-review MD 16, 2026-11-08); 0.001 for the three
     linh lực-on-event keys (#44); 1 for `stack_grant`, `field_plots`,
@@ -343,7 +344,7 @@ provisional.
 | Combat | out / in | out: attack, defense, the four derived values, artifact-local keys; in: vitality loss | Combat |
 | Event Engine | in / out | in: heart demon, talent and vitality effects inside budget; out: fortune (reward ceiling), heart demon thresholds (event eligibility) | Event Engine |
 | Market, NPC Interaction | out | presence (prices, attitude) | Market, NPC Interaction |
-| Crafts (Alchemy, Artifact Refining, Talismans, Spirit Fields, Beast Taming) | out / in | out: craft mastery levels, element multipliers, craft stat keys; in: modifiers a craft grants from its mastery level (Spirit Fields: `herb_growth_pct`, under the rule 14 ceiling) | each craft |
+| Crafts (Alchemy, Artifact Refining, Talismans, Spirit Fields, Beast Taming) | out / in | out: craft mastery levels, element multipliers, craft stat keys; in: modifiers a craft grants from its mastery level (Spirit Fields: `herb_growth_pct`, through the rule 14 curve) | each craft |
 | Guidance Layer, Debug Terminal, Game UI | out | the sheet, `explain` breakdowns, grades, thresholds | Guidance Layer |
 | Save/Load | out | talents, state values, craft mastery, the capability set, the lifespan bonus from pills (`pill_years`), per-life use counts of every pill with `max_uses` | Save/Load |
 
@@ -537,7 +538,7 @@ deviation **and** heart demon ≥ 90.
 
 The vitality formulas are defined as:
 
-`v' = max(v_floor, v − loss)` for a failed breakthrough or a mission wound ; `v' = v − loss`, fatal at `v' ≤ 0`, for an event effect ; `v' = min(1, v + r_v)` each season ; `attack_pct −20 while v < 0.30` (capability #4)
+`v' = max(v_floor, v − loss)` for a failed breakthrough or a mission wound ; `v' = max(v_floor, v_end)` after a fight (Combat writes `v_end`) ; `v' = v − loss`, fatal at `v' ≤ 0`, for an event effect ; `v' = min(1, v + r_v)` each season ; `attack_pct −20 while v < 0.30` (capability #4)
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -549,7 +550,7 @@ The vitality formulas are defined as:
 | v_c | float | 0.4 | data file (`duel.injured_power_floor`) | Combat's floor on the vitality factor |
 
 **Output Range:** above 0, up to 1.0 while alive; 0 or below is a fatal event. A great
-breakthrough sets v = 1. Combat reads vitality as × max(v, v_c). Vitality is compared in integer tenths of a percent, round(v × 1000) half away from
+breakthrough sets v = 1. Combat starts a fight's health at max(v, `v_c`) of its maximum. Vitality is compared in integer tenths of a percent, round(v × 1000) half away from
 zero, so 0.05 + 0.25 lands exactly on 300.
 
 **Example:** a failure takes vitality from 1.0 to 0.6, then 0.85, then 1.0. A qi
@@ -578,7 +579,7 @@ Herb growth and mission income multiply; field plots and toxicity decay add (rul
 | base_plots | int | 3 | data file | `max_plots` 12 removed 2026-11-10 (no caps) |
 | herb_growth_pct | float | after the rule 14 curve (scale 10); negative allowed | calculated (stat sheet total after Formulas I) | Herb growth bonus, curved, with penalties added after the curve (rule 14); the factor `max(0, 1 + herb_growth_pct/100)` floors at 0 |
 | mission_income_pct | float | no ceiling (not a rule 14 key), negative allowed | calculated (stat sheet total after Formulas I) | Mission income bonus; the factor floors at 0 |
-| total(field_plots) | int | any; the result is clamped | calculated (stat sheet) | Extra plots |
+| total(field_plots) | int | any; the result is floored at 1 | calculated (stat sheet) | Extra plots |
 
 **Output Range:** the purity term is 1.0–1.8 at birth purities, and keeps rising past purity 100 (no cap). Herb growth is 0 and up, with no upper bound (the bonus follows rule 14's curve); it reaches 0 when `herb_growth_pct` is −100 or below. Mission
 income is ≥ 0, with no upper bound set here because `mission_income_pct` has no ceiling.
@@ -591,10 +592,10 @@ source "Biến dị: <data name>":
 
 The floor is taken in integer arithmetic on hundredths, and the value follows the variant's
 current purity. Spiritual Roots Formulas E owns the coefficients and prices. None of the
-eight variants' keys is under a rule 14 ceiling. For example, Thunder at purity 47 gives
+eight variants' keys is on a rule 14 curve. For example, Thunder at purity 47 gives
 `attack_pct` +14.1.
 
-**Example:** Wood 60 with `herb_growth_pct` +10 (curved to +6.9) → 1.48 × 1.069 = **1.582**.
+**Example:** Wood 60 with `herb_growth_pct` +10 (curved to +6.9) → 1.48 × 1.0693 = **1.583**.
 Earth 60 with
 `field_plots` +3 → 3 + 2 + 3 = **8** plots.
 
@@ -629,9 +630,9 @@ charm 0.08, so buying costs ×1.38 and selling pays ×0.648.
 
 The stacking formulas are defined as:
 
-`total(k) = Σ v_i` ; for `breakthrough_chance`: `total = min(Σ_tree v_i, cap_tree) + Σ_other v_i`
+`total(k) = Σ v_i` ; for `breakthrough_chance`: `total = k_tree · ln(1 + Σ_tree v_i / k_tree) + Σ_other v_i`, k_tree = 8 pp (no clamp)
 
-for `herb_growth_pct`: `total = k · ln(1 + Σ⁺ v_i / k) + Σ⁻ v_i`, k = 10 ; for `alchemy_success`: `fail' = fail ÷ (1 + total / 100)`, total = Σ v_i, applied to the brew's failure chance (Alchemy and Realms Formulas D), so success approaches 100 % and never reaches it
+for `herb_growth_pct`: `total = k · ln(1 + Σ⁺ v_i / k) + Σ⁻ v_i`, k = 10 ; for `alchemy_success`: `fail' = fail ÷ (1 + max(0, total) / 100)`, total = Σ v_i, applied to the brew's failure chance (Alchemy and Realms Formulas D), so success approaches 100 % and never reaches it
 
 lifespan bonus: `B_life = k_life · ln(1 + (pill_years + Σ⁺ lifespan_years) / k_life) + Σ⁻ lifespan_years`, with `k_life = f_life · L_realm`
 
@@ -827,8 +828,8 @@ display names come from `character_attributes.json` (rule 15).
   cap falls below the realm's base lifespan. A player change that would put the cap at
   or below the age needs Realms rule 14's confirmation first.
 - **If a capability is granted twice:** the set ignores the duplicate.
-- **If the tree's `breakthrough_chance` modifiers exceed 8 pp:** only the tree's share is
-  clamped, and other sources add on top.
+- **If the tree's `breakthrough_chance` modifiers are large:** the tree's share keeps rising on its curve
+  (8 pp → 5.5, 16 pp → 8.8); other sources add on top, and the sum still meets Realms' q-extras ceiling.
 - **If a flag key's sources sum to 0 or less** (a penalty cancelling a grant): the flag
   is off.
 - **If a computed modifier is not on the precision grid:** it is floored when it enters
@@ -900,7 +901,7 @@ Character Stats:
 **Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
 systems split out of Combat depend on each other as follows.
 
-- **Modifier System (#40):** reads the sheet sums, the precision grid, the ceilings and the provider interface; its Stat List names the keys this GDD must add (the defence and offence keys of Combat's Parameter keys, consistency C14).
+- **Modifier System (#40):** reads the sheet sums, the precision grid, the curve scales and the provider interface; its Stat List names the keys this GDD must add (the defence and offence keys of Combat's Parameter keys, consistency C14).
 - **Combat Defence & Healing (#21a):** reads maximum health and linh lực, thần thức and `ds_ref`, and căn cốt (body defence).
 - **Effects System (#41):** reads sheet values at compile; the caller applies the life costs Effects report (heart demon, lifespan, toxicity, purity) through this GDD's rules.
 
@@ -932,13 +933,13 @@ Ranges marked *derived* follow from another constraint in this GDD or an approve
 | `injury_recovery_frac_per_season` | 0.25 | 0.15–0.4 | How long injuries last |
 | `failure_khi_huyet_loss_frac` | 0.4 | 0.2–0.5 | Injury from a failed breakthrough |
 | `herb_growth_pct_per_purity`, `mission_income_pct_per_purity` | 0.8 % | 0.4–1.0 % | Wood's and Metal's value |
-| `field_plots_per_purity` | 0.04 | `max_plots` removed 2026-11-10 (no caps) | Land |
+| `field_plots_per_purity` | 0.04 | 0.02–0.06 (a guess) | Land; `max_plots` removed 2026-11-10 (no caps) |
 | Fortune reward ceiling | 0.75 + 0.005 × fortune | base 0.6–0.9 | LLM reward size |
 | Fortune in checks, duels | 0.002, 0.001 per point | 0–0.004, 0–0.002 | Luck against skill |
 | `mi_luc_price_per_point` | 0.004 | 0.002–0.004; *derived*: ≤ 0.4286 ÷ (effective talent clamp − 50), which is 0.00429 at clamp 150, or buy-sell loops profit | Prices |
 | Precision grid | 0.1 / 0.01 / 1 | fixed (Meridian Map, Formulas F) | Stacking |
 | `ngo_tinh_divisor` | 200 | 150–300 | How much comprehension speeds cultivation: ×1.225 at 45 (200), ×1.30 at 45 (150). Moving it moves every realm's years (Realms years table) |
-| `bonus_curves` (was `bonus_ceilings`) | `herb_growth_pct` 10, `lifespan_frac` 0.15 as curve scales; `alchemy_success` now dampens failure (2026-11-10) | 5–10, 2–3, 0.10–0.15: at most the current values until the bot run (AC-CG-60) confirms headroom; *derived*: the derived limit is Realms' `bonus_ceiling_target`: with `gate_factor` set to 1, each gate's birth-mix mean S at all ceilings, best plot play and one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which owns the computed figures. The target covers lives without extra plots; those are builds outside the target, per Realms AC-CG-60. Penalties apply after the cap (rule 14) | How far a dedicated alchemy build can push breakthrough odds and lifespan |
+| `bonus_curves` (was `bonus_ceilings`) | `herb_growth_pct` 10, `lifespan_frac` 0.15 as curve scales; `alchemy_success` now dampens failure (2026-11-10) | `herb_growth_pct` k 5–10 and `lifespan_frac` 0.10–0.15, at most the current values until the bot run (AC-CG-60) confirms headroom; *derived*: the derived limit is Realms' `bonus_ceiling_target`: with `gate_factor` set to 1, each gate's birth-mix mean S at the reference stack through the curves, best plot play and one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which owns the computed figures. The target covers lives without extra plots; those are builds outside the target, per Realms AC-CG-60. Penalties apply after the curve (rule 14) | How far a dedicated alchemy build can push breakthrough odds and lifespan |
 
 ## Visual/Audio Requirements
 
@@ -957,7 +958,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 - **The sheet.** It shows the six talents with base value, effective value and grade; the
   state values with their ranges; the four derived values; and the craft mastery levels.
 - **`explain <stat>`.** It prints every source of any stat or derived value, every clamp
-  line and the tree's capped share.
+  line and the tree's curved share.
 - **Thresholds.** Heart demon shows its bands (20, 50, 90) and the current qi deviation
   chance. Toxicity shows its cultivation and pill penalties. Vitality shows its band.
 - **Warnings** (Advisor):
@@ -975,7 +976,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `design/gdd/thien-kiep.md`, `quests.md` | `tribulation_tempered` and `quest_boon` modifiers |
 | `design/gdd/game-concept.md` | Character Stats (three layers, draft formulas), birth modes, Pillars 2 and 3 |
 | `design/gdd/canh-gioi.md` | Stage multiplier (Formulas B), heart demon gain and decay, the Nascent Soul condition, qi deviation (rule 10, which must read `qi_deviation_pct`); Realms Formulas D (pill supply reads `herb_growth_pct`, `alchemy_success` and h); `bonus_ceiling_target` (AC-CG-60); this GDD answers its Open Questions 6 and 7 |
-| `design/gdd/kinh-mach-do.md` | Acupoint modifiers, stat weights and precision (Formulas F), capabilities #4 and #25, the tree cap |
+| `design/gdd/kinh-mach-do.md` | Acupoint modifiers, stat weights and precision (Formulas F), capabilities #4 and #25, the tree's breakthrough curve (`tree_breakthrough_k`) |
 | `design/gdd/linh-can.md` | Element purities, base element count, root variant role lines and the generating-pair `cultivation_speed_pct` modifiers that enter the sheet |
 | `design/gdd/cong-phap.md` | Technique bonuses through the provider interface, `tech_power` (Formulas C), and the slot-dependent lifespan years that Realms rule 14's confirmation covers |
 | `design/glossary.md` | Terms |
@@ -1086,7 +1087,7 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   - heart demon +12.0, vitality 1.0 → 0.6;
   - with `safe_failure`, heart demon +6.0;
   - a knockout without #9 leaves heart demon unchanged, and with #9 adds +2.0 before
-    resistance (provisional until Combat exists; not blocking).
+    resistance (provisional until the Combat build story lands; not blocking).
 - **AC-CS-20** [Logic] Formula F, in tenths of a percent:
   - a failure: 1000 → 600 → 850 → 1000;
   - a deviation: 50 → 300 → 550 → 800 → 1000;
@@ -1123,11 +1124,13 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
 - **AC-CS-27** [Logic] An NPC and the player with identical inputs get identical derived
   values and qi deviation chance.
 - **AC-CS-28** [Logic] Formula G.
-  - Wood 60 with `herb_growth_pct` +10 → curve 6.93 → 1.48 × 1.0693 = 1.582; Metal 50 → 1.4.
+  - Wood 60 with `herb_growth_pct` +10 → curve 6.93 → 1.48 × 1.069315 = 1.5826 (±1e-4); Metal 50 → 1.4.
   - Wood 60 with `herb_growth_pct` sources summing to +40 → curve 16.09, with a curve line (40 → 16.1) → 1.718.
   - Earth 60 with +3 → 8 plots.
   - Earth 100 with +7 → 14 (no upper bound); Earth 0 with −5 → 1.
   - Wood 150 → 1 + 0.008 × 150 = 2.2 before the bonus (purity past 100, Spiritual Roots rule 8a).
+  - Metal 150 → mission income 1 + 0.008 × 150 = 2.2 before the bonus; Earth 150 → 3 + ⌊0.04 × 150⌋ = 9 plots;
+    Water 150 → pill-toxicity decay +7.5 (0.05 per purity point, as Water 60 gives +3.0).
   - `herb_growth_pct` −150 → 0.
   - Plots are an integer.
 
@@ -1233,8 +1236,8 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   - presence by its label;
   - state values with their ranges, the four derived values and craft mastery.
 - **AC-CS-48** [UI] `explain`.
-  - `explain breakthrough_chance` shows two Meridian Map lines, the 9.5 → 8 clamp, the
-    perk +12 and a total of 20.
+  - `explain breakthrough_chance` shows two Meridian Map lines, the curve line 9.5 → 6.26, the
+    perk +12 and a total of 18.26.
   - `explain mi_luc` at 5 − 10 shows the clamp to 1.
 - **AC-CS-49** [UI] Thresholds.
   - Heart demon 54 shows the 20 / 50 / 90 bands and 39 % (78 % with #25).

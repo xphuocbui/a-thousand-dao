@@ -97,3 +97,38 @@ Reviewed-Content-Hash: design/gdd/dao.md a16e45d5d5c107c6acb4dd2a508c8f0f7815aad
 Reviewed-Content-Hash: design/gdd/quests.md 7df798f2e4bc297bf49d7d85fc6e28b2f7d400f2
 Reviewed-Content-Hash: design/gdd/thien-kiep.md 7bffc541c0b9f2a643150498f203dbb24d892813
 Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d
+
+## Review — 2026-11-10 (confirming re-review) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 0 | Recommended: 9
+Summary: All three earlier blockers and answers D1-D7 are present and re-derived correctly (FX-L cap 124.41, AC-ID-62 10.91, AC-ID-70). The fixes left stale text: a pre-D2 slot cap in Edge Cases and Tuning Knobs, "capability #2" and `artifact_slots` that no neighbour defines, and the retired Mạch Ấn still in FX-D criteria. Report: reviews/item-database-rereview-2026-11-10.md.
+Prior verdict resolved: Yes (ID-01 to ID-03 fixed)
+Findings:
+- [RECOMMENDED] Rule 11: capability #2 no longer exists as a slot source
+- [RECOMMENDED] Rule 11: artifact_slots is not defined in Character Stats or Modifiers
+- [RECOMMENDED] Edge Cases / Tuning Knobs: still say equip.max_slots only
+- [RECOMMENDED] AC-ID-02/05/22, rule 12: retired Mạch Ấn still asserted
+- [RECOMMENDED] Dependencies: no rows for Modifier, Effects, Combat Defence, Damage Types, the Way
+- [RECOMMENDED] Formulas F: Legendary exception wording ambiguous
+- [RECOMMENDED] Formulas D / rule 19: affix pool not specified
+- [RECOMMENDED] Open Questions 7 and 14 carried open
+- [RECOMMENDED] damage_type: no AC, no migration note
+Reviewed-Content-Hash: design/gdd/item-database.md e2cbf6a1a3c0b0fb03f8ccc91c72a5dd1ce2ad58
+Reviewed-Content-Hash: design/registry/entities.yaml e39b9de2e2ec2a87abf7165ff67417d06385d5bc
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/character-stats.md 5e365f68fb3fbe54cf8eb0935fb9a6be461055e0
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 4d3a98fb4eb2f588d26095ed91c8e6e2457b20e8
+Reviewed-Content-Hash: design/gdd/cong-phap.md eebee87a8b02af50a2a516427e20594814e983bc
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md d229603fe4fae7df7ceae1dac3c5b98a67f156b2
+Reviewed-Content-Hash: design/gdd/combat.md 82808aa10ffa17d0e7d2c4d4939c1899c509aa28
+Reviewed-Content-Hash: design/gdd/combat-defence.md e5d35f785122c2e04b4f74e03564e6482c01d980
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md f465de9486301d5733e3c86fbabae830a0b94a8c
+Reviewed-Content-Hash: design/gdd/modifiers.md af999b8be75e7b06c29806ee2f57cfca85d3cf9a
+Reviewed-Content-Hash: design/gdd/effects.md cea9de5c3da6afad036851ee9a9e6e6da2624e1f
+Reviewed-Content-Hash: design/gdd/linh-can.md 1de5075a08701c52dc4ec238fdcd106c8de56e57
+Reviewed-Content-Hash: design/gdd/dao.md 43e23bfbdc06222d4b7dba2fe9d281f714d04304
+Reviewed-Content-Hash: design/gdd/quests.md df3978acd491043ff60eaf54122c419b7076bf19
+Reviewed-Content-Hash: design/gdd/thien-kiep.md 9658b64a90c33ca9bc5a7c73c0fa4025fdb44f3f
+Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d

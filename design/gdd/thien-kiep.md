@@ -354,6 +354,7 @@ The tempered_buff formula is defined as:
 |---|---|---|---|
 | Realms & Bottlenecks (#8) | Hard | Survival or death; `p_t` for the roll target | Open Question 2 there waits on the measurement |
 | Event Engine (#23) | Soft | The event for the news and records | Built, no GDD |
+| The Way (#39) | Soft | Lôi, Kiếp and Nghịch Đạo facets act on the tribulation; breakthrough and heart-demon Effects carry bot fixtures | In review (`dao.md`) |
 | World Database (#3) | Soft | The tribulation record | Built, no GDD |
 | LLM Game Master (#29) | Soft | Result and summaries for narration and the epitaph | Built, no GDD |
 | Balance Harness (#33) | Hard | Headless tribulation runs | Built, no GDD |

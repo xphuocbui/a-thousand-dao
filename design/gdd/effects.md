@@ -235,7 +235,7 @@ different.
       never to the damage type, so a converted hit builds the stacks of the art's element.
     - **Purity powers stacks:** every stack's effect is multiplied by `(1 + stack_purity_factor × P)` (0.002), P the
       purity in that element of the **applier** for a debuff (read when the batch is applied) and of the **holder**
-      for a buff, uncapped, with Water and Ice sharing half; enemies, beasts and tribulations use `stack_purity` 0
+      for a buff, uncapped, with Water and Ice sharing half; enemies, beasts and tribulations use `stack_purity` 0 (an NPC cultivator uses its root)
       unless their record sets one (Spiritual Roots rule 8a, Formulas H; review decision 2026-11-10).
     - **Debuff ticks are the applier's damage.** Burn and Poison use the applier's values from when each batch was
       applied (Combat Formulas F), so the applier's damage increases count.

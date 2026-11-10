@@ -1,6 +1,6 @@
 # The Way (Đạo)
 
-> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 1 blocking; findings and user answers applied the same day, see `reviews/dao-review-2026-11-10.md`; re-review pending)
+> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 1 blocking; findings and user answers applied the same day, see `reviews/dao-review-2026-11-10.md`; re-review: confirming re-review 2026-11-10 (NEEDS REVISION) answered and fixed the same day, see `reviews/dao-rereview-2026-11-10.md`)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-10 (graph Ways, Effects and arts, consolidated catalogue: revision in progress, needs a fresh /design-review)
 > **Last Verified**: 2026-11-10
@@ -94,7 +94,9 @@ before you are waiting in it.
      lists the Way. It is unpriced, like every Effect, and the facet slot table (rule 10) bounds how many
      a Dao holds. Capstones and `major` Effects belong to one Dao; a `minor` Effect may come from a shared pool
      that several Ways host (user decision 2026-11-10, review D-04). The Effect record names the Daos that host it
-     (`host_dao`, a list; Effects System rule 1). This replaces the earlier passive ability with its own W credit and `npc_effect`.
+     (`host_dao`, a list; Effects System rule 1). A character holds a shared `minor` once: buying it through a second
+     Dao is refused and names the Dao it came from, as for a rival (re-review D-R03). At most `dao_shared_minor_max`
+     (4) of a Dao's `minor` slots hold shared Effects (re-review D-R04). This replaces the earlier passive ability with its own W credit and `npc_effect`.
    - **Art (rare):** an art in Combat's format (Combat rule 13), its damage parts typed (Combat Damage Types
      rule 1) and its `more` sized in layer points (Modifier System rule 12). The hold on arts is lifted
      now that Combat is designed, but **arts come from cultivation techniques (công pháp), not from the Way**
@@ -107,8 +109,9 @@ before you are waiting in it.
      System rule 13: a Way capstone is a listed host) and stat lines. A character may hold several
      capstones of one Dao. Two whose rules contradict are marked rival in the data (Effects System rule 13),
      and only one of a rival pair can be bought.
-4. **No cap raises and no root factors.** A Dao may not raise a cap that Character Stats still keeps (the q-extras
-   ceiling, the crit caps) or multiply the whole cultivation rate, lifespan or breakthrough chance. Lifespan, herb
+4. **No cap raises and no root factors.** A Dao's **stat lines** may not raise a cap that Character Stats still keeps
+   (the q-extras ceiling, the crit caps) or multiply the whole cultivation rate, lifespan or breakthrough chance;
+   breakthrough and heart-demon Effects are the one exception, below (re-review D-R01). Lifespan, herb
    growth and alchemy now follow diminishing-return curves with no clamp (Character Stats rule 14, revised
    2026-11-10), so a Dao's lines on them add through the curve like any other source. A stat line is an
    additive modifier and is not a multiplier, but cultivation speed has no ceiling, so one Dao's
@@ -201,7 +204,8 @@ before you are waiting in it.
     - **Stat lines** use only the Dao's `theme_stats`, a list in its data. There is no filler:
       a line any Dao could hold belongs on the Meridian Map instead.
     - **Capstones and `major` Effects** belong to one Dao: no such id appears in two Daos' graphs. `minor`
-      Effects may be shared from a common pool (rule 3).
+      Effects may be shared from a common pool (rule 3), at most `dao_shared_minor_max` (4) per Dao, so the
+      name-hidden test (AC-DAO-20) still holds.
     - **Each facet** is a named face of the theme, and should open its own build direction (the
       library rule: a Dao hosts many builds, never one). The **capstones** are the Dao's signatures,
       each an effect a build is named for, usually each closer to a different facet.
@@ -211,7 +215,8 @@ before you are waiting in it.
       Dao's strength is Effects, and its stat lines use its uncapped theme keys.
 
 **What the player cannot do:** buy a node in a Dao it has not glimpsed; buy a node not joined to one
-already bought (or to the start); refund a node; make a node raise a cap or multiply a whole rate.
+already bought (or to the start); refund a node; make a stat line raise a cap or multiply a whole rate (breakthrough
+and heart-demon Effects excepted, rule 4).
 
 ### States and Transitions
 
@@ -253,8 +258,8 @@ Heavenly Tribulation and Quests have GDDs. Every other interface is provisional.
 | Event Engine | in | the `dao_glimpse` effect, which grants access to a Dao | Event Engine (provisional; no GDD) |
 | Combat (and Damage Types, Defence & Healing) | out | art nodes in Combat rule 13's format; Effects that act in fights | Combat (art format); this GDD (which arts a Dao holds) |
 | Modifier System, Effects System | in | the stat-line catalogue and W prices; the Effect record, tiers and host rules | Modifier System; Effects System |
-| NPC Builds, Living World Tick | out / in | an NPC's Dao roll at Core Formation, and its simplified `npc_effect` | NPC Builds |
-| World Database | out | a glimpse and a Keystoned Dao are recorded as events; an NPC's Dao is recorded as a fact on its record (Pillar 5) | World Database |
+| NPC Builds, Living World Tick | out / in | an NPC's Dao roll at Core Formation, and its `power_mult` (Formulas D3) | NPC Builds |
+| World Database | out | a glimpse and each capstone bought are recorded as events; an NPC's Dao is recorded as a fact on its record (Pillar 5) | World Database |
 | Save/Load | out | per character: the Daos glimpsed and the nodes bought; per NPC: its Dao id | Save/Load |
 | Guidance Layer, Debug Terminal, Game UI | out | the Dao list, each graph with costs, what is buyable and what is unaffordable, the glimpse notice, and the unused-glimpse heads-up | Guidance Layer |
 
@@ -406,7 +411,7 @@ Heavenly Tribulation and Quests have GDDs. Every other interface is provisional.
 | 89 | **Vô Vi Đạo** · *Vô Vi Nhi Trị* (Rule by Not Acting) | — | Bất Động Thủ (Not Striking: power while idle) · Tự Nhiên (Let It Happen: wards and ticks do the work) · Thuận (Yielding: counters) · Thủ Nhu (Keeping Soft: damage taken softened) · Vô Vi Tâm (the Non-Acting Heart) | It wins without moving |
 | 90 | **Si Đạo** · *Si* (Obsession) | — | Nhất Niệm (One Thought: one tag, very deep) · Si Mê (Infatuation: stacking focus) · Quên Mình (Self-Forgetting: other stats ignored) · Điên (Madness: heart demon as fuel) · Tuyệt Kỹ (the Peerless Art) | Master of one thing, nothing else |
 | 91 | **Hận Đạo** · *Hận Hải Nan Điền* (A Sea of Hatred No One Can Fill) | — | Kẻ Thù (the Nemesis: a sworn enemy from the World Database) · Báo Thù (Vengeance: power against those who wronged you) · Ghi Hận (Grudges: marked foes) · Huyết Thệ (Blood Oath) · Hận Ý (Hatred as qi) | The world remembers, and so do you |
-| 92 | **Cô Đạo** · *Thiên Sát Cô Tinh* (the Lone Star of Calamity) | — | Độc Hành (Walking Alone: no companions) · Vô Môn Phái (No Sect) · Cô Tinh (the Lone Star: more power per missing ally) · ◇ Khắc Thân (Bringing Misfortune: allies weaken, you rise) · Lạnh (Coldness: heart demon) | Alone under heaven |
+| 92 | **Cô Đạo** · *Thiên Sát Cô Tinh* (the Lone Star of Calamity) | — | Độc Hành (Walking Alone: no companions) · Vô Môn Phái (No Sect) · Cô Tinh (the Lone Star: more power the fewer companions travel with you) · ◇ Khắc Thân (Bringing Misfortune: allies weaken, you rise) · Lạnh (Coldness: heart demon) | Alone under heaven |
 | 93 | **Vực Đạo** · *Lĩnh Vực* (Domain) | — | Triển Vực (Unfolding: a domain opens mid-fight) · Vực Quy (Domain Rules: rewrites fight rules inside it) · Vực Áp (Domain Pressure: enemy slowed) · Vực Hộ (Domain Ward) · Vực Thần (Domain Lord: your own ground everywhere) | Within my domain, I decide |
 | 94 | **Thần Đạo** · *Hương Hỏa Thành Thần* (A God Made of Incense Smoke) | — | ◇ Tín Đồ (Followers: faith from the world) · Hương Hỏa (Incense: faith as power) · Miếu (Shrines: home ground) · Thần Uy (Divine Majesty: fear, aura) · Hiển Linh (Manifestation: answering prayers, events) | Worshipped, therefore mighty |
 
@@ -457,14 +462,17 @@ nodes as on the Meridian Map, Effects and arts bounded by slots, consistency N4)
 2. **each stat node:** a small or road node is `(1 ± t) · W_small` and a stat notable is `(1 ± t) · W_notable`, with
    `t` = `dao_node_tol` 0.2, so no node is a trap or a jackpot. Capstones' stat lines, if any, are not held to a band;
 3. **the mean:** the W per point over the Dao's priced nodes is at least `0.9 · m · w̄` (3.73 W), so the premium
-   holds for the graph as a whole;
+   holds for the graph as a whole. This implies a floor of about 10 % stat notables among priced nodes
+   (2.4(1 − f) + 16f ≥ 3.73 gives f ≥ 0.098; the Sword pilot has 15 of 136, 11 %), so a Dao heavy in Effect
+   notables must still carry stat notables (re-review D-R11);
 4. **the slot table** (rule 10): Effects and arts sit only on notables; per facet at most 1 `major` Effect and
    2 `minor` Effects (an art's rider counts as one); per Dao at most 1 art, or 2 if the Catalogue names the Dao as
    an exception; across the catalogue at most `dao_art_share_max` of Daos hold an art and at most
    `dao_two_art_max` hold two; road nodes are stat lines only; each capstone is exactly one Effect of tier
    `keystone` or `enabler` and at most one rare modifier, and rival pairs are marked both ways; across the whole
    catalogue, two capstones whose `closes` contradicts the other's payload are marked rival even in different
-   Daos (review D-09); capstones and `major` Effects are unique to one Dao, `minor` Effects may be shared;
+   Daos (review D-09); capstones and `major` Effects are unique to one Dao, `minor` Effects may be shared, at most
+   `dao_shared_minor_max` (4) of them per Dao;
 5. **the rate cap.** One Dao's `cultivation_speed_pct` lines sum to at most `dao_rate_cap_pct` (10 %), worth
    10 × 2.2 = 22 W (rule 4). This is the only per-key limit. The 2026-11-06 key-headroom lint (a ceiling times the
    key's price on `alchemy_success`, `herb_growth_pct` and lifespan) is dropped (user decision 2026-11-10, review
@@ -602,8 +610,11 @@ power_mult = (209 + 138) ÷ 209 = **1.660**, +24.8 %.
   through the curve like every other source, and before the buy the Advisor shows its marginal gain. On a key that
   still clamps (the q-extras ceiling, crit caps) it is clamped and the sheet shows the clamp line.
 - **If a Dao's Effect does the same thing as a Meridian Map keystone or another host's Effect:** both
-  apply and stack, unless the Effect's own `limits` say otherwise (Effects System). A Dao's Effects have
-  their own ids (rule 12).
+  apply and stack, unless the Effect's own `limits` say otherwise (Effects System). A Dao's capstones and
+  `major` Effects have their own ids (rule 12).
+- **If a character already holds a shared `minor` through one Dao and tries to buy it in another:** the buy is
+  refused and the screen names the Dao it is held through (rule 3). The node stays buyable for the path's sake only
+  if it also carries a stat line; otherwise it is a dead end the Advisor marks.
 - **If a node is not joined to anything bought:** the buy is refused and the screen shows the nearest
   bought node it could be reached from.
 - **If the character has points but no glimpsed Dao:** the points go to the Meridian Map as
@@ -620,7 +631,7 @@ power_mult = (209 + 138) ÷ 209 = **1.660**, +24.8 %.
   checked only at buy time, so nothing already bought is lost or locked.
 - **If a data change adds nodes to a Dao the character has Mastered:** nothing is taken away.
   The Dao reads as Keystoned again (states are derived; the keystone stays bought), the new nodes are buyable,
-  and the keystone's World Database event is not written a second time.
+  and no capstone's World Database event is written a second time.
 - **If a glimpsed Dao is deleted from the catalogue:** its bought nodes are refunded as unspent
   points (the same single refund case), and it leaves the Dao list. A save that refers to it
   loads without error. The catalogue lint still has to hold `dao_open_min` after the deletion.
@@ -672,8 +683,8 @@ it must list the Way in its own Dependencies section.
 | 9 | Cultivation Techniques | A technique's kind and tier, as a requirement | A Dao can only require roots |
 | 8 | Realms & Bottlenecks | The realm, for the glimpse allowance; the gate odds Daos must not break | No glimpse allowance by realm |
 | 21 | Combat | The art format (rule 13) and the fight art nodes act in | No art nodes ship |
-| 22 | Heavenly Tribulation (Thiên Kiếp) | The tribulation that Lôi, Kiếp and Nghịch Đạo act on | Those facets have nothing to act on |
-| 31 | Quests | Quests and standing for Hiệp Đạo's Du Hiệp and Bồ Đề Đạo's Thiện Hạnh | Those facets read nothing |
+| 22 | Heavenly Tribulation (Thiên Kiếp) | The tribulation that Lôi, Kiếp and Nghịch Đạo act on (it lists the Way) | Those facets have nothing to act on |
+| 31 | Quests | Quests and standing for Hiệp Đạo's Du Hiệp and Bồ Đề Đạo's Thiện Hạnh (it lists the Way) | Those facets read nothing |
 | 13 | Item Database | Artifact slots and refining for Kim Đạo and Kỹ Đạo | Those facets fall back to stat lines |
 | 24 / 28 | NPC Build Generation, Living World Tick | The NPC roll at Core Formation | Only the player holds Daos |
 | 11 Progression Edges (design order #10) | A birth or sect edge that grants an early glimpse (Open Question 6) | The glimpse allowance stays at `dao_glimpses_per_realm` |
@@ -714,6 +725,7 @@ Question 4, 5).
 | `dao_node_count`, `dao_full_points` | 150, 149 | 110–170, 109–169 at cost 1 | How much of a life's points a Dao takes (4 Mastered Daos ≈ 600 of 566, so a life masters one or two), and the authoring load |
 | `dao_capstone_depth` | 10 | 8–16 | How deep the signatures sit: points before a Dao names the build |
 | `dao_keystone_count` | 5 | 2–6 | How many signatures a Dao offers, and so how many builds it names |
+| `dao_shared_minor_max` | 4 | 2–6 | How many of a Dao's `minor` slots may hold shared-pool Effects (rule 3, re-review D-R04). Higher makes Daos blur together |
 | `dao_rate_cap_pct` | 10 | 5–15 | Most cultivation speed one Dao may give (Formulas D1 part 5). Higher lets a Dao speed the climb and could shift the gate calibration |
 | `dao_node_tol` | 0.2 | 0.1–0.3 | How far one stat node may sit from W_small or W_notable. Wider lets a node be a jackpot or a trap (replaces `dao_branch_tol`, `dao_route_floor` and `dao_ability_credit`, retired 2026-11-10) |
 | `dao_req_purity_min` | 30 | 20–50 | Least purity of a required element at the glimpse (rule 5; review D-12) |
@@ -755,7 +767,7 @@ Specified for the Debug Terminal now and the Game UI later.
   nodes, as the Meridian Map viewer does) and must stay responsive at that size (review D-17).
 - **The unused-glimpse heads-up:** from Foundation Establishment, while the realm's glimpse is
   unused, the Advisor says so, shows the character's unspent points, and notes that a Dao graph
-  is 110–170 points and its first capstone at least 10. It is information only and never forces or blocks a spend.
+  is 110–170 nodes (109–169 points) and its first capstone at least 10. It is information only and never forces or blocks a spend.
 - **The shared pool:** the unspent count is the same figure the Meridian Map shows.
 
 ## Cross-References
@@ -799,12 +811,14 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 - **AC-DAO-21** [Config/Data] At least `dao_open_min` Daos have no root or technique
   requirement, and `dao_open_min ≥ dao_offer_size + 4·dao_glimpses_per_realm − 1` holds. The
   lint also fails when a deletion drops the open count below the invariant.
-- **AC-DAO-22** [Config/Data] No node carries a ceiling raise or a root factor, and none multiplies a
-  whole cultivation rate, lifespan or breakthrough chance (rule 4). Every art node passes Combat's art
+- **AC-DAO-22** [Config/Data] No stat line carries a ceiling raise or a root factor, and none multiplies a
+  whole cultivation rate, lifespan or breakthrough chance (rule 4). Effects on breakthrough or heart-demon odds are
+  the exception (rule 4, AC-DAO-29): a fixture Kiếp Hiểm Phá passes this criterion. Every art node passes Combat's art
   record validation (Combat rule 13) and its damage parts are typed.
 - **AC-DAO-23** [Config/Data] Every stat line uses only its Dao's `theme_stats`. No capstone or `major` Effect id
   appears in two Daos; a `minor` Effect may, and lists every hosting Dao in `host_dao` (a fixture `minor` shared by
-  two Daos passes; a shared `major` fails).
+  two Daos passes; a shared `major` fails). A Dao with five shared `minor` Effects fails (`dao_shared_minor_max` 4).
+  A character holding a shared `minor` through one Dao is refused it in a second Dao (rule 3).
 - **AC-DAO-02** [Logic] Formulas D1: every node costs 1 point, whether a small node, a notable, an Effect, an
   art or a capstone; the start is free; W_small is 2.4 W and W_notable 16 W.
 - **AC-DAO-03** [Logic] The Formulas D1 example (the Sword pilot) has 158 nodes and costs 157 points to master
@@ -908,7 +922,7 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 | 2 | The catalogue (in progress 2026-11-10): the consolidated roster, then a graph of about 150 nodes for each Way (Sword pilot v2 approved 2026-11-10), each from its theme (rule 12), with each Way's requirement and `theme_stats`. Pilot: Sword. Graphs live in `tools/design/meridian_rework/regions/dao_<slug>.py` | game-designer, user | Content pass |
 | 3 | **Closed 2026-11-10:** Combat is designed; arts follow Combat rule 13 and are bounded by its art rules and the slot table, so they need no W credit | — | — |
 | 4 | The slot table, `dao_node_tol` 0.2, `dao_capstone_depth` 10 and `dao_keystone_count` 5 are guesses (several capstones in one life may stack strongly: the harness checks a Dao with all its non-rival capstones), and Effects and arts are unpriced. `dao_premium` 2 already puts a Mastered Dao's stat lines above what its points buy on the map (the Sword pilot: about 530 W against the 325 W its points buy on the map, Formulas D1), and the Effects, capstones and rare art come on top. Measure a life with one, two and four Daos against combat and NPC power with the balance harness once the pilot and a few Ways exist | systems-designer | A content pass and a bot run |
-| 5 | `npc_dao_chance` and `npc_dao_share` are guesses, and so is the assumption behind `power_mult` (map power close to linear in points). A bot run must confirm that a Dao-holding NPC ends up about 11–25 % above a Dao-less NPC of its level, check the combined NPC uplift with cluster holders (Meridian Map AC-KMD-49), and re-run the world census, since stronger NPCs may change who dies | NPC Builds, bot run | AC-DAO-11, 12 |
+| 5 | `npc_dao_chance` and `npc_dao_share` are guesses, and so is the assumption behind `power_mult` (map power close to linear in points). A bot run must confirm that a Dao-holding NPC ends up about 25 % above a Dao-less NPC of its level (16 % if only the stat lines count: 1 + 0.63 × 0.25), check the joint NPC uplift with the Meridian Map's road purity and keystones (Meridian Map Open Question 8), and re-run the world census, since stronger NPCs may change who dies | NPC Builds, bot run | AC-DAO-11, 12 |
 | 6 | May a perk or a sect grant an early glimpse (a birth edge)? It would touch Progression Edges | game-designer | The edge |
 | 7 | Do Dao trees sit on the Meridian Map screen or on their own? | ux-designer | The UI |
 | 8 | **Closed 2026-11-10:** Combat is designed, so the Way ships with arts and Effects; its tier in the index stays Alpha (provisional) | — | — |

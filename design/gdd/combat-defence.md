@@ -752,7 +752,7 @@ ehp = **1,376.2** (pre-#44 297.8). One point healed is worth 1 / λ = 6.39 incom
 **The thể tu at Qi Refining:** block 88.3 rating (flesh 5.3 + gear 12 + Iron Body tier 3 30 + 41 from W), so
 B 5.57; body shield 436.1 (σ_b 0.90 = technique 0.30 + gear 0.60); Physical resistance 36.1 points (Iron Body tier 3
 25 points + Black Iron Armour's Physical affix 11.1 points); health 484.6 (#44: ×4),
-linh lực 164.1, the default ward only (all 60 points, drain 0.40).
+linh lực 164.1, the default ward only (all 60 points, drain 0.40). (**Reachability, 2026-11-10:** Iron Body tier 3 needs a Profound body technique at great completion, Core Formation at the earliest (Cultivation Techniques rule 2, `iron_tier`); at Qi Refining a body technique reaches tier 1. This fixture stays as a formula test, not a reachable build; the worked example moves to Core Formation with the harness re-fit of the thể tu's W shares, user decision 2026-11-10, techniques re-review D-3.)
 
 | ehp against | Pre-#44 | Now (#44) |
 |---|---|---|
@@ -1047,7 +1047,7 @@ design estimates until the balance harness confirms them.
 - **FX-U** is Combat's unbuilt fixture, with block rating 4.4 (0.278 points).
 - **Thể tu fixture:** Formulas G's Qi Refining thể tu: block 88.3 (5.57 points), body shield 436.1, R_all 60 points
   (default ward, stopping 37.5 %) and R_Physical 36.1 points (so Physical 96.1 points, stopping 49 %; Fire and Chaos 60, stopping
-  37.5 %), health 484.6, linh lực 164.1.
+  37.5 %), health 484.6, linh lực 164.1. A formula fixture: tier 3 is not reachable at Qi Refining (Formulas G note).
 - **Common Ward:** all 342.5 points, drain 0.328.
 - **FX-H:** FX-U carrying one heal art at the heal lint's maximum and no damage arts.
 - **Tolerance:** ±0.1 unless a criterion says otherwise.

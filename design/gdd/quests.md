@@ -617,6 +617,7 @@ its master **−15** and its sect head **−7**.
 |---|---|---|---|
 | Debug Terminal (#36), Game UI (#37) | Soft | Journal, offer, stage, ending | Terminal built, Game UI not started |
 | Balance Harness (#33) | Soft | Headless quest runs and the value check | Built, no GDD |
+| The Way (#39) | Soft | Quests and standing that Hiệp Đạo's Du Hiệp and Bồ Đề Đạo's Thiện Hạnh read; prices Dao nodes against the same `w_target` | In review (`dao.md`) |
 | Heavenly Tribulation (#22) | Soft | None at runtime. Its reward content pass waits on this GDD (its Open Question 9) | Approved for rules |
 
 **Bidirectional check.** Character Stats, Meridian Map, Item Database, Realms, Combat and Heavenly Tribulation list this system (added

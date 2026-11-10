@@ -120,3 +120,35 @@ Reviewed-Content-Hash: design/gdd/effects.md 7527907f89207a65be65e0e1582ab16d0f4
 Reviewed-Content-Hash: design/gdd/dao.md a16e45d5d5c107c6acb4dd2a508c8f0f7815aada
 Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d
 Reviewed-Content-Hash: design/glossary.md 0b3cf7dcb934aeb999bbc996c5eb80d200bd0ac1
+
+## Review — 2026-11-10 (confirming re-review) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none
+Blocking items: 2 | Recommended: 4
+Summary: Answers D1 to D4 and fixes CP-01 to CP-14 are mostly present and the numbers re-derive. Two items still block: purity in an unowned element can never be read under the usability rule, and the body-technique layer-to-tier mapping is undefined. Full report: reviews/cong-phap-rereview-2026-11-10.md.
+Prior verdict resolved: Partly (CP-01 and CP-02 applied; new gaps found)
+Findings:
+- [BLOCKING] Rules 8 and 9: purity in an unowned element counts, but a technique naming it is unusable
+- [BLOCKING] Rule 2 / AC-CP-23: body-defence layer-to-tier mapping undefined
+- [RECOMMENDED] Combat Defence Qi Refining thể tu example unreachable under D2
+- [RECOMMENDED] AC-CP-39, 36, 34 miss the Combat hand-off and the new fields
+- [RECOMMENDED] Interactions and Dependencies tables omit Combat sub-systems, Modifiers, Effects
+- [RECOMMENDED] `more` and `effects` rules around the new template fields missing
+Reviewed-Content-Hash: design/gdd/cong-phap.md eebee87a8b02af50a2a516427e20594814e983bc
+Reviewed-Content-Hash: design/registry/entities.yaml e39b9de2e2ec2a87abf7165ff67417d06385d5bc
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/linh-can.md 1de5075a08701c52dc4ec238fdcd106c8de56e57
+Reviewed-Content-Hash: design/gdd/character-stats.md 5e365f68fb3fbe54cf8eb0935fb9a6be461055e0
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 4d3a98fb4eb2f588d26095ed91c8e6e2457b20e8
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md d229603fe4fae7df7ceae1dac3c5b98a67f156b2
+Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d
+Reviewed-Content-Hash: design/glossary.md 0b3cf7dcb934aeb999bbc996c5eb80d200bd0ac1
+Reviewed-Content-Hash: design/gdd/systems-index.md 49e72f85b34236f531111fa88d9ece7d3e4d2161
+Reviewed-Content-Hash: design/gdd/combat.md 82808aa10ffa17d0e7d2c4d4939c1899c509aa28
+Reviewed-Content-Hash: design/gdd/combat-defence.md e5d35f785122c2e04b4f74e03564e6482c01d980
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md f465de9486301d5733e3c86fbabae830a0b94a8c
+Reviewed-Content-Hash: design/gdd/modifiers.md af999b8be75e7b06c29806ee2f57cfca85d3cf9a
+Reviewed-Content-Hash: design/gdd/effects.md cea9de5c3da6afad036851ee9a9e6e6da2624e1f
+Reviewed-Content-Hash: design/gdd/dao.md 43e23bfbdc06222d4b7dba2fe9d281f714d04304
+Reviewed-Content-Hash: design/gdd/item-database.md e2cbf6a1a3c0b0fb03f8ccc91c72a5dd1ce2ad58

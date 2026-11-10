@@ -434,3 +434,28 @@ Reviewed-Content-Hash: design/gdd/dao.md a16e45d5d5c107c6acb4dd2a508c8f0f7815aad
 Reviewed-Content-Hash: design/gdd/combat.md dd287950cbad5094bdbe0e74852c90de9241f61a
 Reviewed-Content-Hash: design/gdd/effects.md 7527907f89207a65be65e0e1582ab16d0f4c82f6
 Reviewed-Content-Hash: design/gdd/modifiers.md 3f29eaaa9182b127e2f067e4921d84de403a4c3b
+
+## Review — 2026-11-10 (confirming re-review) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none
+Blocking items: 1 | Recommended: 4
+Summary: The 2026-11-10 answers and fixes are present and the lifespan-curve and p_brew arithmetic re-derives. One acceptance criterion (the p_brew 0.895 example) still uses the old additive `alchemy_success`, and a few clamp/ceiling descriptions are stale. Full report: reviews/canh-gioi-rereview-2026-11-10.md.
+Prior verdict resolved: Mostly (CG-01 to CG-14 applied; CG-11 partial)
+Findings:
+- [BLOCKING] Formulas D acceptance: p_brew example 0.895 should be 0.869 under the dampened formula
+- [RECOMMENDED] AC-CG-68 / Formulas C output range: q_min now applies before f
+- [RECOMMENDED] Builds table heading: still defines the ceiling run by the old ceilings
+- [RECOMMENDED] Open Question 21: answered but still listed open
+- [RECOMMENDED] Registry lifespan_cap notes: still say "ceilinged bonus"
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 4d3a98fb4eb2f588d26095ed91c8e6e2457b20e8
+Reviewed-Content-Hash: design/registry/entities.yaml e39b9de2e2ec2a87abf7165ff67417d06385d5bc
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/character-stats.md 5e365f68fb3fbe54cf8eb0935fb9a6be461055e0
+Reviewed-Content-Hash: design/gdd/linh-can.md 1de5075a08701c52dc4ec238fdcd106c8de56e57
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md d229603fe4fae7df7ceae1dac3c5b98a67f156b2
+Reviewed-Content-Hash: design/gdd/dao.md 43e23bfbdc06222d4b7dba2fe9d281f714d04304
+Reviewed-Content-Hash: design/gdd/cong-phap.md eebee87a8b02af50a2a516427e20594814e983bc
+Reviewed-Content-Hash: design/gdd/effects.md cea9de5c3da6afad036851ee9a9e6e6da2624e1f
+Reviewed-Content-Hash: design/gdd/modifiers.md af999b8be75e7b06c29806ee2f57cfca85d3cf9a
+Reviewed-Content-Hash: design/gdd/combat.md 82808aa10ffa17d0e7d2c4d4939c1899c509aa28

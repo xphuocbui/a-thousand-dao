@@ -288,7 +288,7 @@ formulas:
       - q_pill
       - S_bare
     output_range: [0, 1]
-    expression: "S = P_C * (1 - F) + S_bare; F = sum over x of C(B,x) p_brew^x (1-p_brew)^(B-x) prod_{j<G+x}(1 - q_j); q_j = min(q_max, q + f*min(j*iota_pp, iota_cap) + f*tau*[j = 0 and the step's talisman is used]); B = brews whose herbs fit the plots and whose attempt can start before the lifespan cap (Realms Formulas D); W = lifespan cap at entry - age at entry; n_plots = clamp(3 + floor(0.04*purity_earth) + field_plots, 1, 12); h = (1 + 0.008*purity_wood) * max(0, 1 + herb_growth_pct/100); p_brew = clamp(1 - (1 - p_brew0 - 0.0025 purity_fire) / (1 + max(0, alchemy_success)/100), 0.05, 0.95)"
+    expression: "S = P_C * (1 - F) + S_bare; F = sum over x of C(B,x) p_brew^x (1-p_brew)^(B-x) prod_{j<G+x}(1 - q_j); q_j = min(q_max, q + f*min(j*iota_pp, iota_cap) + f*tau*[j = 0 and the step's talisman is used]); B = brews whose herbs fit the plots and whose attempt can start before the lifespan cap (Realms Formulas D); W = lifespan cap at entry - age at entry; n_plots = max(1, 3 + floor(0.04*purity_earth) + field_plots) (no upper bound since 2026-11-10); h = (1 + 0.008*purity_wood) * max(0, 1 + herb_growth_pct/100); p_brew = clamp(1 - (1 - p_brew0 - 0.0025 purity_fire) / (1 + max(0, alchemy_success)/100), 0.05, 0.95)"
     notes: "Before gate_factor. Live targets: player edge 0.70/0.70/0.30/0.20; baseline 0.30 at the first two gates. Targets 0.30 baseline and 0.70 with the player edge are means over the birth mix (45/32/15/6.5/1.5 % elements), user decision 2026-11-04. Since cross-GDD reviews 04f/04g: discrete brews, W from an entry-age model, plots at best play with no extra field_plots, attempts in order with rising q from failure insight (+2 pp per failed pill attempt in the step, cap 4), q extras under a 10 pp ceiling, one talisman per realm step at 5 pp on a held pill. Means 0.299 / 0.302 / 0.298 / 0.301 from a fixed-seed scratch model, not a bot run. Fine lever pill_chance; coarse lever the recipe."
     added: 2026-11-03
     revised: 2026-11-10
@@ -335,7 +335,7 @@ formulas:
       - dao_full_points
     output_range: [1.0, 1.667]
     expression: "P_npc = min(dao_full_points, floor(npc_dao_share * points_total(level))); map_points = points_total - P_npc; power_mult = (map_points + dao_premium * P_npc) / map_points"
-    notes: "An NPC's simplified Dao effect on combat power; rolls once per realm from Core Formation until the first success (one Dao per NPC). P_npc is deducted from the Meridian Map allocation, and those points earn the player's dao_premium (user decision 2026-11-06), about 11-25 % over a Dao-less NPC of the level; assumes map power near linear in points, a bot run must confirm."
+    notes: "An NPC's simplified Dao effect on combat power; rolls once per realm from Core Formation until the first success (one Dao per NPC). P_npc is deducted from the Meridian Map allocation, and those points earn the player's dao_premium (user decision 2026-11-06), about 25 % over a Dao-less NPC of the level (16 % from the stat lines alone); assumes map power near linear in points, a bot run must confirm."
     added: 2026-11-05
     revised: 2026-11-06
     # was: power_mult = points_total / map_points, output_range [1.0, 1.334] (before user decision 2026-11-06)
@@ -502,11 +502,11 @@ formulas:
       - L_realm
       - bonus_curves
       - lifespan_pct
-    # a negative lifespan bonus (penalties apply after the cap, Character Stats rule 14) can put the cap below L_realm; lifespan_pct is assumed >= 0; lifespan_pct sources: perk tho_nguyen +20 and Wood keystone Vạn Cổ Trường Thanh +25, bound +45 in total (Character Stats rule 14).
+    # a negative lifespan bonus (penalties apply after the curve, Character Stats rule 14) can put the cap below L_realm; lifespan_pct is assumed >= 0; lifespan_pct sources: perk tho_nguyen +20 and Wood keystone Vạn Cổ Trường Thanh +25, bound +45 in total (Character Stats rule 14).
     output_range: [0, unbounded]
     # 2026-11-10: the bonus is a curve, not min(…, lifespan_frac x L_realm).
     expression: "cap = (L_realm + B_life) x (1 + lifespan_pct / 100); B_life = k ln(1 + (pill_years + sum_pos(lifespan_years)) / k) + sum_neg(lifespan_years), k = lifespan_frac x L_realm (bonus_curves)"
-    notes: "Realms rule 14 owns it; Character Stats supplies the ceilinged bonus (its rule 14, Formulas I). A slot, equipment or main-method change that would put the cap at or below the age needs confirmation. Every lifespan_years modifier counts under the ceiling (W10, 2026-11-04)."
+    notes: "Realms rule 14 owns it; Character Stats supplies the curved bonus (its rule 14, Formulas I). A slot, equipment or main-method change that would put the cap at or below the age needs confirmation. Every lifespan_years modifier counts through the curve (W10, 2026-11-04; curve 2026-11-10)."
     added: 2026-11-04
     revised: 2026-11-10
   - name: effective_element_count
@@ -1508,7 +1508,7 @@ constants:
       - design/gdd/kinh-mach-do.md
       - design/gdd/modifiers.md
     # was: no 0.001 keys and no stack_grant before 2026-11-10 (character-stats review CS-03).
-    value: "0.1: pct keys, stealth, lifespan_years; 0.01: the six talent keys, dan_doc_decay, density_bonus, health_regen_pct, linh_luc_regen_pct; 0.001: linh_luc_on_hit_pct, linh_luc_on_crit_pct, linh_luc_on_kill_pct; 1: stack_grant, field_plots, alchemy_yield, block_rating, convert_pct, flags"
+    value: "0.1: pct keys, points keys (resist_pct, resist_pen_pct, damage_more), stealth, lifespan_years; 0.01: the six talent keys, dan_doc_decay, density_bonus, health_regen_pct, linh_luc_regen_pct; 0.001: linh_luc_on_hit_pct, linh_luc_on_crit_pct, linh_luc_on_kill_pct; 1: stack_grant, field_plots, alchemy_yield, block_rating, convert_pct, flags"
     unit: units
     notes: "Authored values rounded to grid (off-grid fails validation); computed values floored with 1e-6 tolerance."
     added: 2026-11-04
@@ -1741,7 +1741,7 @@ constants:
       - design/gdd/dao.md
     value: 2.07
     unit: W per point
-    notes: "Target mean W per skill point on the Meridian Map (its Formulas A2: 7.55 / 3.64). The Way prices a Dao node against it (dao_node_value). Registered by design-review 2026-11-06."
+    notes: "Target mean W per skill point, owned by the Meridian Map (Formulas A2); the drawn map's w_map 2.15 is a lint within +/-5 % of it (re-review D-R3, user 2026-11-10). The Way prices a Dao node against it (dao_node_value) and Quests price a lasting gain with it. Registered by design-review 2026-11-06."
     added: 2026-11-06
     revised: ""
   - name: dao_branch_tol
@@ -1773,7 +1773,7 @@ constants:
       - design/gdd/dao.md
     value: 0.2
     unit: share of the target node value
-    notes: "Each stat-line node's W must sit within (1 +/- t) of V-bar (Formulas D1 part 2). A guess (2026-11-10)."
+    notes: "Each small or road node must sit within (1 +/- t) of W_small and each stat notable within (1 +/- t) of W_notable (Formulas D1 part 2). A guess (2026-11-10)."
     added: 2026-11-10
     revised: ""
   - name: dao_capstone_depth
@@ -1816,6 +1816,28 @@ constants:
     value: 2
     unit: Daos in the catalogue
     notes: "Most Daos that may hold two arts, each named as an exception in the Catalogue (rule 10, Formulas D1 part 4). Registered by review D-14 (2026-11-10)."
+    added: 2026-11-10
+    revised: ""
+  - name: tech_foreign_purity_min
+    status: active
+    source: design/gdd/cong-phap.md
+    referenced_by:
+      - design/gdd/cong-phap.md
+      - design/gdd/linh-can.md
+    value: 10
+    unit: purity
+    notes: "A technique may name an element or variant the root does not own once rare sources (Meridian roads, a Linh Can Qua) raise its purity to this (rule 8; user decision 2026-11-10, re-review D-1). The birth minimum purity_min."
+    added: 2026-11-10
+    revised: ""
+  - name: dao_shared_minor_max
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+      - design/gdd/effects.md
+    value: 4
+    unit: minor slots per Dao
+    notes: "Most of a Dao's minor Effect slots that may hold shared-pool Effects (rule 3, Formulas D1 part 4); a character holds a shared minor once, a second buy is refused (re-review D-R03, D-R04, user 2026-11-10)."
     added: 2026-11-10
     revised: ""
   - name: dao_req_purity_min
@@ -2111,7 +2133,7 @@ constants:
       - design/gdd/linh-can.md
     value: 50
     unit: W
-    notes: "Weakest keystone positive side; rule keystones with no F weight pass by list (AC-KMD-06); no cluster huyệt may exceed it (21 W unshrunk, about 25.8 W shrunk)."
+    notes: "Weakest keystone positive side; rule keystones with no F weight pass by list (AC-KMD-06); no acupoint in a cluster may exceed it."
     added: 2026-11-03
     revised: ""
   - name: stat_power_weights
@@ -2148,7 +2170,7 @@ constants:
       - design/gdd/kinh-mach-do.md
     value: 25
     unit: capabilities
-    notes: "Authored catalogue; sealed outer clusters with n >= 7 only."
+    notes: "Authored catalogue (Meridian Map rule 17); each sits on a notable or keystone with cap_realm_min Core Formation. Six have effects.md records; the rest are provisional one-liners (re-review D-R1, 2026-11-10). The sealed-cluster placement is retired."
     added: 2026-11-03
     revised: ""
   - name: road_purity
@@ -2224,7 +2246,7 @@ constants:
     # was: 772 (generated map) before 2026-11-10; the drawn lean build.
     value: 7115
     unit: huyệt
-    notes: "Visible tree at launch: 430 kinh lộ (85 hội), 65 visible clusters with 330 huyệt (75 notables), 11 keystones, Đan Điền."
+    notes: "The drawn lean tree (a shape placeholder, user 2026-11-10): 7,115 visible acupoints, 11 starts, 40 keystones, 811 clusters; no hidden clusters. Re-measure when the layout changes."
     added: 2026-11-03
     revised: 2026-11-10
   - name: tree_size_target
@@ -2284,7 +2306,8 @@ constants:
     added: 2026-11-04
     revised: ""
   - name: cong_phap_seal_seasons
-    status: active
+    status: deprecated
+    # 2026-11-10: retired with Cultivation Techniques rule 15 (the Meridian Map's sealed clusters were scrapped, user 2026-11-09).
     source: design/gdd/cong-phap.md
     referenced_by:
       - design/gdd/cong-phap.md
@@ -2293,7 +2316,7 @@ constants:
     unit: seasons (Yellow, Profound, Earth, Heaven)
     notes: "The Meridian Map's cong_phap_seasons; key seal_seasons. Counts only cultivating seasons with the technique in the main slot. Interim (Cultivation Techniques rule 15, Open Question 12): seal_clusters is unread; any main method lists the technique-sealed clusters of sectors it names, and those clusters share the technique's one count."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-10
   - name: second_main_mult
     status: active
     source: design/gdd/kinh-mach-do.md

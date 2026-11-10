@@ -323,3 +323,33 @@ Reviewed-Content-Hash: design/gdd/canh-gioi.md e905183a564a46d236b23cfb5758ef5ca
 Reviewed-Content-Hash: design/gdd/combat-damage-types.md 7681b928f3faf011c67d6db8fe18f50b2904b502
 Reviewed-Content-Hash: design/gdd/systems-index.md 0c622ddc1431192f45cc3ed7a9842b795bbbd013
 Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d
+
+## Review — 2026-11-10 (confirming re-review) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none
+Blocking items: 2 | Recommended: 5
+Summary: Confirming re-review of the fixes applied after the earlier 2026-11-10 review. All six answers and the new numbers are present and recompute. Two testable statements still describe retired rules (Formulas D2 clamps variant purity at 100; AC-LC-33 and a UI line still specify hidden variant sectors). Full report: design/gdd/reviews/linh-can-rereview-2026-11-10.md.
+Prior verdict resolved: Yes (the three blockers are fixed; LC-09 and LC-15 only partly)
+Findings:
+- [BLOCKING] Formulas D2: derived variant purity still clamped to 100, against rule 10 and AC-LC-56
+- [BLOCKING] AC-LC-33 and UI Requirements: unowned variant sectors hidden, against rule 12 and Meridian Map rule 20
+- [RECOMMENDED] AC-LC-51 bullets still under AC-LC-56; AC order
+- [RECOMMENDED] D1 clamp sentence and 10-100 ranges not updated for purity past 100
+- [RECOMMENDED] AC-LC-26 "absent element contributes 0" against D2
+- [RECOMMENDED] Fruit onto a road-raised element: Edge Case only, no rule or AC
+- [RECOMMENDED] Prose still calls the Way undesigned
+Reviewed-Content-Hash: design/gdd/linh-can.md 1de5075a08701c52dc4ec238fdcd106c8de56e57
+Reviewed-Content-Hash: design/registry/entities.yaml e39b9de2e2ec2a87abf7165ff67417d06385d5bc
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/effects.md cea9de5c3da6afad036851ee9a9e6e6da2624e1f
+Reviewed-Content-Hash: design/gdd/character-stats.md 5e365f68fb3fbe54cf8eb0935fb9a6be461055e0
+Reviewed-Content-Hash: design/gdd/dao.md 43e23bfbdc06222d4b7dba2fe9d281f714d04304
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md d229603fe4fae7df7ceae1dac3c5b98a67f156b2
+Reviewed-Content-Hash: design/gdd/cong-phap.md eebee87a8b02af50a2a516427e20594814e983bc
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 4d3a98fb4eb2f588d26095ed91c8e6e2457b20e8
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md f465de9486301d5733e3c86fbabae830a0b94a8c
+Reviewed-Content-Hash: design/gdd/item-database.md e2cbf6a1a3c0b0fb03f8ccc91c72a5dd1ce2ad58
+Reviewed-Content-Hash: design/gdd/modifiers.md af999b8be75e7b06c29806ee2f57cfca85d3cf9a
+Reviewed-Content-Hash: design/gdd/systems-index.md 4c0969df2f860ee954d2a0bfb86b6fc53ee965e9
+Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d

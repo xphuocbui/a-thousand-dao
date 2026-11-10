@@ -272,3 +272,33 @@ Reviewed-Content-Hash: design/gdd/modifiers.md 3f29eaaa9182b127e2f067e4921d84de4
 Reviewed-Content-Hash: design/gdd/combat.md dd287950cbad5094bdbe0e74852c90de9241f61a
 Reviewed-Content-Hash: design/gdd/systems-index.md 0c622ddc1431192f45cc3ed7a9842b795bbbd013
 Reviewed-Content-Hash: design/research/meridian-tree-overnight.md d2a83e2a51d443779a3419be6a4eecde551b0f1d
+
+## Review — 2026-11-10 (confirming re-review) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none (lean)
+Blocking items: 1 | Recommended: 5
+Summary: The D1–D6 answers and fixes are applied and the arithmetic re-derives. The capability catalogue points to effects.md records that exist for only 6 of 25; three user questions remain (capability text home, absent-element road purity, who owns the per-point W target). Full report: reviews/kinh-mach-do-rereview-2026-11-10.md.
+Prior verdict resolved: Yes (MAJOR REVISION NEEDED of 2026-11-10 resolved; one new blocking gap)
+Findings:
+- [BLOCKING] Rule 17 / AC-KMD-41: 19 capabilities have no effects.md record and no rule text anywhere
+- [RECOMMENDED] Edge Cases / rule 4: absent-element road purity wording vs linh-can, 0.25 to 0.51 cliff
+- [RECOMMENDED] A2 / Dependencies row 31: nobody owns the per-point W target (w_target 2.07 vs lint 2.15)
+- [RECOMMENDED] Rule 5 / Open Question 8: no road-purity allocator weight, no joint NPC uplift with the Way
+- [RECOMMENDED] Registry notes stale (visible_huyet_count, capability_count, keystone_min_power, w_target)
+- [RECOMMENDED] cong-phap, character-stats, linh-can, effects still cite retired Meridian rules
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md d229603fe4fae7df7ceae1dac3c5b98a67f156b2
+Reviewed-Content-Hash: design/registry/entities.yaml e39b9de2e2ec2a87abf7165ff67417d06385d5bc
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d
+Reviewed-Content-Hash: design/gdd/systems-index.md 49e72f85b34236f531111fa88d9ece7d3e4d2161
+Reviewed-Content-Hash: design/quick-specs/progression-and-edges.md fce4fb7b780be15f0f014d125f2233836dc99196
+Reviewed-Content-Hash: design/gdd/linh-can.md 1de5075a08701c52dc4ec238fdcd106c8de56e57
+Reviewed-Content-Hash: design/gdd/character-stats.md 5e365f68fb3fbe54cf8eb0935fb9a6be461055e0
+Reviewed-Content-Hash: design/gdd/canh-gioi.md 4d3a98fb4eb2f588d26095ed91c8e6e2457b20e8
+Reviewed-Content-Hash: design/gdd/cong-phap.md eebee87a8b02af50a2a516427e20594814e983bc
+Reviewed-Content-Hash: design/gdd/dao.md 43e23bfbdc06222d4b7dba2fe9d281f714d04304
+Reviewed-Content-Hash: design/gdd/effects.md cea9de5c3da6afad036851ee9a9e6e6da2624e1f
+Reviewed-Content-Hash: design/gdd/modifiers.md af999b8be75e7b06c29806ee2f57cfca85d3cf9a
+Reviewed-Content-Hash: design/gdd/combat.md 82808aa10ffa17d0e7d2c4d4939c1899c509aa28
+Reviewed-Content-Hash: design/research/meridian-tree-overnight.md d2a83e2a51d443779a3419be6a4eecde551b0f1d
