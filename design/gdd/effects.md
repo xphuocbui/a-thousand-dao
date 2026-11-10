@@ -211,7 +211,7 @@ different.
     |---|---|---|
     | Fire (Hỏa) | +1.2 % damage dealt | **Burn**: Fire damage each pulse, `c_tick` 0.019 per stack (Status Catalogue) |
     | Water (Thủy) | +0.5 % maximum linh lực, +0.025 pp linh lực regeneration | — (Ice carries the pair's debuff) |
-    | Earth (Thổ) | +8 pp Physical resistance (meets the resistance cap after a few stacks; to become dampen-shaped) | −1.2 pp accuracy |
+    | Earth (Thổ) | Physical damage taken **1.1 % dampened** (Modifier System rule 6a; no cap) | −1.2 pp accuracy |
     | Metal (Kim) | +1.2 % Physical damage dealt | +1.8 % Physical damage taken |
     | Wood (Mộc) | +0.1 pp health regeneration | **Poison**: Chaos damage each pulse, `c_tick` 0.019 per stack (Status Catalogue) |
     | Ice (Băng) | — (Water carries the pair's buff) | +3.9 % art cost |

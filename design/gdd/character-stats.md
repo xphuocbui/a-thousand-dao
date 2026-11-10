@@ -3,7 +3,7 @@
 > **Status**: In Review (2026-11-05: independent review findings applied; cross-GDD review CONCERNS, no blockers). See `reviews/character-stats-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-06; 2026-11-09 (#44 part 5: stat keys, provisional)
+> **Last Updated**: 2026-11-06; 2026-11-09 (#44 part 5: stat keys; accepted 2026-11-10)
 > **Last Verified**: 2026-11-05
 > **Implements Pillar**: Pillar 2 (Every Number Is Bounded and Visible), Pillar 3 (Power Is Built, Not Given); touches Pillar 1 (Your Dao, Your Name)
 

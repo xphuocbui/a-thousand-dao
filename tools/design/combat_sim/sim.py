@@ -45,7 +45,7 @@ BLOCK_UNIT = [0.0631, 0.2031, 0.6672, 2.254, 6.883]
 BUFF = {  # equal-value numbers (2026-11-10, equalfit.py)
     "fire": {"dmg": 0.012},
     "water": {"qi_max": 0.005, "regen": 0.00025},
-    "earth": {"res_phys": 0.08},
+    "earth": {"phys_dampen": 0.011},  # Physical damage taken 1.1 % dampened per stack (2026-11-10)
     "metal": {"dmg_phys": 0.012},
     "wood": {"hregen": 0.001},
     "thunder": {"acc": 0.007, "crit": 0.0035},
@@ -182,6 +182,8 @@ def hit(att, dfn, c, dtype, rng, t, log, art=None):
     crit = (att.b.crit_mult + dfn.dsum("critdmg_taken")) if is_crit else 1.0
     more = 1 + att.bsum("dmg") + (att.bsum("dmg_phys") + dfn.dsum("phys_taken") if dtype == "phys" else 0)
     D = att.U * c * att.b.M * crit * more * supp(att, dfn)
+    if dtype == "phys" and dfn.bsum("phys_dampen"):
+        D /= 1 + dfn.bsum("phys_dampen")
     if not is_crit and att.b.k_noncrit_pen:
         D *= 1 - att.b.k_noncrit_pen
     if art is not None and art.element == "fire" and att.b.k_fire_pen:

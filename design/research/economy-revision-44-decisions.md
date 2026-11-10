@@ -442,3 +442,7 @@ element's debuff about the same, buffs and debuffs treated separately**. Plan (C
   Physical resistance) and Wind's (+7.5 % art speed) came out large because their stats meet a cap or floor; under the
   no-caps strategy they should become dampen-shaped (open item). Keystone starting numbers in the build notes predate
   this re-fit.
+- **Earth's buff dampen-shaped (user, 2026-11-10):** Physical damage taken **1.1 % dampened per stack** (fitted to the
+  1.0 % buff value), replacing +8 pp Physical resistance. **Wind's 0.5 s cooldown floor is kept** (a pacing floor, not
+  a reduction cap; Overheat turns the excess into damage).
+- **R5 (user, 2026-11-10): Parts 4 and 5 accepted as applied.** Their "provisional" marks are removed.

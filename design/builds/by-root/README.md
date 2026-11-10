@@ -42,7 +42,7 @@ Each build has:
   |---|---|---|
   | Fire | +1.2 % damage | Burn: Fire ticks, the applier's damage |
   | Water | +0.5 % max linh lực, +0.025 pp linh lực regen | — |
-  | Earth | +8 pp Physical resistance | −1.2 pp accuracy |
+  | Earth | Physical damage taken 1.1 % dampened | −1.2 pp accuracy |
   | Metal | +1.2 % Physical damage | +1.8 % Physical damage taken |
   | Wood | +0.1 pp health regen | Poison: Chaos ticks, passes shields |
   | Ice | — | +3.9 % art cost |
