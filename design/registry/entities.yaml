@@ -3247,35 +3247,35 @@ constants:
     added: 2026-11-07
     revised: ""
   - name: resist_cap
-    status: active
+    status: deprecated
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
     value: 0.9  # was 0.75 (Combat economy revision #44, 2026-11-09)
     unit: resistance share
-    notes: "Default cap on one part's resistance; rare modifiers raise it. Raised with the stronger wards (#44)."
+    notes: "Retired 2026-11-10: resistance is counted in points, damage / (1 + R/100), with no cap or floor (Combat Defence & Healing rule 3)."
     added: 2026-11-07
-    revised: 2026-11-09
+    revised: 2026-11-10
   - name: resist_cap_max
-    status: active
+    status: deprecated
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
     value: 0.95  # was 0.9 (Combat economy revision #44, 2026-11-09)
     unit: resistance share
-    notes: "Hard cap; no raise passes it (#44 item F2)."
+    notes: "Retired 2026-11-10: resistance is counted in points, damage / (1 + R/100), with no cap or floor (Combat Defence & Healing rule 3)."
     added: 2026-11-07
-    revised: 2026-11-09
+    revised: 2026-11-10
   - name: resist_floor
-    status: active
+    status: deprecated
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
     value: -0.5
     unit: resistance share
-    notes: "Lowest resistance; a part then takes 1.5 x."
+    notes: "Retired 2026-11-10: resistance is counted in points, damage / (1 + R/100), with no cap or floor (Combat Defence & Healing rule 3)."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-10
   - name: default_resist
     status: active
     source: design/gdd/combat-defence.md
@@ -3331,7 +3331,7 @@ constants:
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
-    value: "1 / 1 / 2 / 2 / 3"
+    value: "1 / 1 / 2 / 3 / 4"  # was 1/1/2/2/3 (2026-11-10)
     unit: free ward slots, Qi Refining to Deity Transformation
     notes: "User decision 2026-11-07."
     added: 2026-11-07

@@ -55,3 +55,9 @@ Four headless Sonnet reviews (read-only), reports beside this file: `combat.md`,
     cleanse ward payload, Clear Heart Ward), Q8 (body pieces re-priced down: Iron Body ≈ 15.8 W a tier, Black Iron
     Armour ≈ 35 W, AC-CD-57 parity dropped), and its mechanical list.
   - **combat.md** and **modifiers.md** mechanical lists (stale examples and ACs), and the **registry**.
+- **Q1 done (2026-11-10):** resistance in points, `damage ÷ (1 + R/100)`, negative R amplifies, no cap or floor; the
+  Common Ward is 342.5 points (typical 81.75 % at Qi Refining), other wards keep their ws-0 stop share
+  (R = 100 r / (1 − r)), so their prices stand; free ward slots 1/1/2/3/4; `resist_pct` 0.04 W and `resist_pen_pct`
+  0.1 W per point; Sundered −150 and Exposed −100 points; `resist_cap_pct`, `curse_shred_max` and the cap keys
+  retired; catalogue regenerated; registry updated. Not done: the thể tu ehp numbers (Formulas G, AC-CD-42) and the
+  simulator, which still uses stop shares (equivalent at typical).

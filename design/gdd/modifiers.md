@@ -288,7 +288,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Crit damage | `crit_damage_pct` | F (pp of multiplier) | whole hit (rule 8) | higher | 0.3 | Combat C | Designed |
 | Accuracy | `accuracy_pct` | F (pp) | whole hit (rule 8; no damage-type scope) | higher | 0.5 | Combat I | Designed |
 | Realm pierce | `pierce_pct` | F (pp) | whole hit (rule 8; no damage-type scope) | higher | 1.0 | Combat H | Designed |
-| Resistance penetration | `resist_pen_pct` | F (pp) | outgoing hit (type scope matches the final type) | higher | 3.0 | Combat Defence & Healing rule 4 | Designed |
+| Resistance penetration | `resist_pen_pct` | F (points) | outgoing hit (type scope matches the final type) | higher | 0.1 per point (2026-11-10) | Combat Defence & Healing rule 4 | Designed |
 | Soul attack damage | `x_soul` | I | outgoing soul hit | higher | 1.0 | Combat E2 | Designed |
 | Art speed | `art_speed_pct` | I | art | higher | 0.6 | Combat A2 | Designed |
 | Art cost | `art_cost_pct` | I | art | lower | 0.6 (was 1.2; #44) | Combat E | Designed |
@@ -302,10 +302,10 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 
 | Stat | Key | Ops | Target | Better | W | Owner | Status |
 |---|---|---|---|---|---|---|---|
-| Resistance, all | `resist_pct` (no scope) | F (pp) | incoming hit | higher | 1.25 | Combat Defence & Healing A | Designed |
-| Resistance, one damage type | `resist_pct` (scoped by type) | F (pp) | incoming hit (final type) | higher | 1.25 stored (one price in `modifier_prices`); effective 1.0 Physical/Force, 0.83 others after breadth | Combat Defence & Healing A. Chaos resistance is rare (rule 13) | Designed |
-| Resistance against a foe | `resist_pct` scoped [cultivator] or [creature], may pair with a type | F (pp) | incoming hit (attacker's foe tag) | higher | 1.25 stored | Combat Defence & Healing rule 3 and foe tags (variety 2026-11-08) | Pending |
-| Resistance cap | `resist_cap_pct` | F (pp), rare | incoming hit | higher | 5 | Combat Defence & Healing A (to 95 %, #44) | Designed |
+| Resistance, all | `resist_pct` (no scope) | F (points; no cap, Combat Defence & Healing rule 3) | incoming hit | higher | 0.04 per point (2026-11-10) | Combat Defence & Healing A | Designed |
+| Resistance, one damage type | `resist_pct` (scoped by type) | F (points) | incoming hit (final type) | higher | 0.04 stored (one price in `modifier_prices`); effective 1.0 Physical/Force, 0.83 others after breadth | Combat Defence & Healing A. Chaos resistance is rare (rule 13) | Designed |
+| Resistance against a foe | `resist_pct` scoped [cultivator] or [creature], may pair with a type | F (points) | incoming hit (attacker's foe tag) | higher | 1.25 stored | Combat Defence & Healing rule 3 and foe tags (variety 2026-11-08) | Pending |
+| ~~Resistance cap~~ | `resist_cap_pct` | retired 2026-11-10 | — | — | — | Resistance has no cap (Combat Defence & Healing rule 3) | Retired |
 | Block | `block_rating` | F (rating, grid 1) | none | higher | 0.4 | Combat Defence & Healing A2 | Designed |
 | Block against one damage type | `block_rating` scoped by type (not Chaos) | F (rating) | incoming hit part (final type) | higher | 0.4 | Combat Defence & Healing A2: a typed rating blocks only matching parts, after the shared pool (variety 2026-11-08) | Pending |
 | Body shield | `body_shield_pct` | F (pp of health_max); I (Pending) | none | higher | 0.51 (F, pegged to health 0.6 × 0.85; was 1.0); 0.6 / % (I) | Combat Defence & Healing B; the I op multiplies the summed body shield (variety 2026-11-08) | Designed (F); Pending (I) |
@@ -494,10 +494,10 @@ and are not here.
 | Accuracy (`accuracy_pct`) | — | universal | +2.4 pp | +16.0 pp | Designed | 1 |
 | Realm pierce (`pierce_pct`) | — | universal | +1.2 pp | +8.0 pp | Designed | 1 |
 | Realm pierce (`pierce_pct`) | source: art | broad | +1.5 pp | +10.0 pp | Designed | 1 |
-| Resistance penetration (`resist_pen_pct`) | — | universal | +0.4 pp | +2.6 pp | Designed | 1 |
-| Resistance penetration (`resist_pen_pct`) | type: physical or force | broad | +0.5 pp | +3.3 pp | Designed | 2 |
-| Resistance penetration (`resist_pen_pct`) | type: fire, cold, lightning, light, chaos | family | +0.6 pp | +4.0 pp | Designed | 5 |
-| Resistance penetration (`resist_pen_pct`) | element (art tag) | family | +0.6 pp | +4.0 pp | Designed | 5 |
+| Resistance penetration (`resist_pen_pct`) | — | universal | +12 pts | +80 pts | Designed | 1 |
+| Resistance penetration (`resist_pen_pct`) | type: physical or force | broad | +15 pts | +100 pts | Designed | 2 |
+| Resistance penetration (`resist_pen_pct`) | type: fire, cold, lightning, light, chaos | family | +18 pts | +120 pts | Designed | 5 |
+| Resistance penetration (`resist_pen_pct`) | element (art tag) | family | +18 pts | +120 pts | Designed | 5 |
 | Soul attack damage (`x_soul`) | — (implied soul) | broad | +1.5 % | +10.0 % | Designed | 1 |
 | Soul attack damage (`x_soul`) | element (art tag) | family | +1.8 % | +12.0 % | Designed | 5 |
 | Art speed (`art_speed_pct`) | — | universal | +2.0 % | +13.3 % | Designed | 1 |
@@ -524,12 +524,12 @@ and are not here.
 
 | Modifier | Scope | Tier | Small (1.2 W) | Notable (8 W) | Status | Count |
 |---|---|---|---|---|---|---|
-| Resistance (`resist_pct`) | — (all resistance) | universal | +0.9 pp | +6.4 pp | Designed | 1 |
-| Resistance (`resist_pct`) | against type: physical or force | broad | +1.2 pp | +8.0 pp | Designed | 2 |
-| Resistance (`resist_pct`) | against type: fire, cold, lightning, light | family | +1.4 pp | +9.6 pp | Designed | 4 |
-| Resistance (`resist_pct`) | against type: chaos (rare, rule 13: never on acupoints, notables or rolled affixes) | family | +1.4 pp | +9.6 pp | Designed | 1 |
-| Resistance (`resist_pct`) | against foe: cultivator (Pending) | broad | +1.2 pp | +8.0 pp | Pending | 1 |
-| Resistance (`resist_pct`) | against foe: creature (Pending) | family | +1.4 pp | +9.6 pp | Pending | 1 |
+| Resistance (`resist_pct`) | — (all resistance) | universal | +30 pts | +200 pts | Designed | 1 |
+| Resistance (`resist_pct`) | against type: physical or force | broad | +37 pts | +250 pts | Designed | 2 |
+| Resistance (`resist_pct`) | against type: fire, cold, lightning, light | family | +45 pts | +300 pts | Designed | 4 |
+| Resistance (`resist_pct`) | against type: chaos (rare, rule 13: never on acupoints, notables or rolled affixes) | family | +45 pts | +300 pts | Designed | 1 |
+| Resistance (`resist_pct`) | against foe: cultivator (Pending) | broad | +37 pts | +250 pts | Pending | 1 |
+| Resistance (`resist_pct`) | against foe: creature (Pending) | family | +45 pts | +300 pts | Pending | 1 |
 | Block (`block_rating`) | — | universal | +3 rating | +20 rating | Designed | 1 |
 | Block (`block_rating`) | against type: physical or force (Pending) | broad | +3 rating | +25 rating | Pending | 2 |
 | Block (`block_rating`) | against type: fire, cold, lightning, light (Pending) | family | +4 rating | +30 rating | Pending | 4 |
@@ -674,7 +674,7 @@ have no grade sizes here.
 |---|---|---|---|---|
 | Art slots (`bonus_slots`) | +1 slot | 20 | keystones, named items, quest rewards, Way capstones | Designed |
 | Ward slots (`bonus_ward_slots`) | +1 slot | 30 | same | Designed |
-| Resistance cap raise (`resist_cap_pct`) | per pp (to 95 %) | 5 / pp | same | Designed |
+| ~~Resistance cap raise (`resist_cap_pct`)~~ | — | retired 2026-11-10 | — | Retired |
 | Chaos resistance (`resist_pct` [chaos]) | per pp | 1.25 / pp stored (0.83 effective) | same, and Chaos-themed named items | Designed |
 | Artifact slots | +1 slot | 25 | same | Pending |
 | Beast slots | +1 beast kept | 15 | same | Pending |
@@ -755,8 +755,8 @@ formula; **G** marks a guess.
 | Ward efficiency | 1.0 | G | Combat's guess kept; an effective-health proxy gives 1.17× health's value (Combat Open Question 14) |
 | Maximum health | 0.6 (was 1.2) | D/G | User decision 2026-11-10: fight value about 0.21 (#44 simulator) plus value outside fights (vitality carried between fights, injuries, events) |
 | Body guard | retired | — | Replaced by block and the body shield (Combat Defence & Healing) |
-| Resistance, all and by type | 1.25 / pp, one stored price; the effective prices after breadth are 1.0 (Physical, Force: 1.25 / 1.25) and 0.83 (other types: 1.25 / 1.5). Formulas C applies breadth once, to the stored price | D | Combat Defence & Healing Formulas I (user decision 2026-11-08) |
-| Resistance cap raise; penetration | 5 / pp, rare; 3.0 / pp | D | Combat Defence & Healing Formulas I |
+| Resistance, all and by type | 0.04 / point (2026-11-10, points; was 1.25 / pp), one stored price; the effective prices after breadth are 1.0 (Physical, Force: 1.25 / 1.25) and 0.83 (other types: 1.25 / 1.5). Formulas C applies breadth once, to the stored price | D | Combat Defence & Healing Formulas I (user decision 2026-11-08) |
+| Penetration (cap raise retired) | 0.1 / point (was 3.0 / pp) | D | Combat Defence & Healing Formulas I |
 | Block rating | 0.4 / rating point | D | 0.41 to a thể tu, 0.22 to a typical side |
 | Body shield | 1.0 / pp of health_max | D/G | Pegged to health; Chaos passes it and it never refills |
 | Body shield, increased | 0.6 | G | Variety guess, 2026-11-08 (Pending) |

@@ -76,7 +76,7 @@ stat(OFF, "Crit damage (`crit_damage_pct`)", 0.3, 0.1, " pp", status="Designed",
     ("—", [], 1), ("source: art", ["art"], 1), ("element", ["<element>"], 5), ("form", ["<form>"], 5)])
 stat(OFF, "Accuracy (`accuracy_pct`)", 0.5, 0.1, " pp", status="Designed")
 stat(OFF, "Realm pierce (`pierce_pct`)", 1.0, 0.1, " pp", status="Designed", scopes=[("—", [], 1), ("source: art", ["art"], 1)])
-stat(OFF, "Resistance penetration (`resist_pen_pct`)", 3.0, 0.1, " pp", status="Designed", scopes=[
+stat(OFF, "Resistance penetration (`resist_pen_pct`)", 0.1, 1, " pts", status="Designed", scopes=[
     ("—", [], 1), ("type: physical or force", ["physical"], 2), ("type: " + TYPES, ["<type>"], 5), ("element (art tag)", ["<element>"], 5)])
 stat(OFF, "Soul attack damage (`x_soul`)", 1.0, 0.1, " %", implied="soul", status="Designed", scopes=[
     ("— (implied soul)", [], 1), ("element (art tag)", ["<element>"], 5)])
@@ -93,7 +93,7 @@ stat(OFF, "Status duration", 0.6, 0.1, " %", implied="over_time", status="Pendin
     ("— (implied over_time)", [], 1), ("mode: curse", ["curse"], 1), ("effect: poison", ["poison"], 1)])
 
 DEF = "Combat: defence"
-stat(DEF, "Resistance (`resist_pct`)", 1.25, 0.1, " pp", status="Designed", scopes=[
+stat(DEF, "Resistance (`resist_pct`)", 0.04, 1, " pts", status="Designed", scopes=[
     ("— (all resistance)", [], 1), ("against type: physical or force", ["physical"], 2),
     ("against type: fire, cold, lightning, light", ["<type>"], 4), ("against type: chaos (rare, rule 13: never on acupoints, notables or rolled affixes)", ["chaos"], 1),
     ("against foe: cultivator (Pending)", ["cultivator"], 1), ("against foe: creature (Pending)", ["creature"], 1)])

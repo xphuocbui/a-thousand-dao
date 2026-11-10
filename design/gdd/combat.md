@@ -741,7 +741,7 @@ Curse bounds, each a data key (restated for the new defence, Combat revision D12
 
 | Key | Value | Meaning | Change |
 |---|---|---|---|
-| `curse_shred_max` | 0.50 | Resistance taken off by Sundered and Exposed together, never below `resist_floor` −0.50 | Restated (was body guard shred) |
+| ~~`curse_shred_max`~~ | retired 2026-11-10 | Resistance is in points with no floor; Sundered −150 and Exposed −100 points may push it below 0, which amplifies | Retired |
 | `curse_pass_raise_max` | — | — | **Retired**: there is no ward pass now |
 | `curse_drain_raise_max` | +50 % | Drain wards bill more (Leaking Ward) | Kept, drain wards only |
 | `curse_cost_raise_max` | +50 % | Art cost raise | Kept |
