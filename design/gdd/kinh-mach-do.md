@@ -1053,7 +1053,7 @@ reference. All weights are guesses until checked by the bot.
 | Stat                                  | w                  | Stat                | w   |
 |---------------------------------------|--------------------|---------------------|-----|
 | attack_pct, defense_pct, linh_luc_pct | 1.0                | alchemy_success     | 2.7 |
-| khi_huyet_pct                         | 1.2                | breakthrough_chance | 5   |
+| khi_huyet_pct                         | 0.6 (was 1.2)      | breakthrough_chance | 5   |
 | than_thuc_pct, artifact_power_pct     | 1.3                | khi_van, ngo_tinh   | 5   |
 | tam_ma_resist_pct, stealth            | 1.5                | refining_success    | 2.0 |
 | dan_doc_resist_pct                    | 1.6                | formation_power_pct | 1.0 |

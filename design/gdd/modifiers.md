@@ -308,12 +308,12 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Resistance cap | `resist_cap_pct` | F (pp), rare | incoming hit | higher | 5 | Combat Defence & Healing A (to 95 %, #44) | Designed |
 | Block | `block_rating` | F (rating, grid 1) | none | higher | 0.4 | Combat Defence & Healing A2 | Designed |
 | Block against one damage type | `block_rating` scoped by type (not Chaos) | F (rating) | incoming hit part (final type) | higher | 0.4 | Combat Defence & Healing A2: a typed rating blocks only matching parts, after the shared pool (variety 2026-11-08) | Pending |
-| Body shield | `body_shield_pct` | F (pp of health_max); I (Pending) | none | higher | 1.0 (F); 0.6 / % (I) | Combat Defence & Healing B; the I op multiplies the summed body shield (variety 2026-11-08) | Designed (F); Pending (I) |
+| Body shield | `body_shield_pct` | F (pp of health_max); I (Pending) | none | higher | 0.51 (F, pegged to health 0.6 × 0.85; was 1.0); 0.6 / % (I) | Combat Defence & Healing B; the I op multiplies the summed body shield (variety 2026-11-08) | Designed (F); Pending (I) |
 | Shield recharge delay | `recharge_delay_pct` | I | ward | lower | 0.6 | Combat Defence & Healing B (`recharge_delay` 2.0 s) (variety 2026-11-08) | Pending |
 | Cast ward duration | `cast_ward_duration_pct` | I | ward | higher | 0.5 | Combat Defence & Healing rule 7; a cast ward's duration stays below its cooldown (variety 2026-11-08) | Pending |
 | Ward strength | `defense_pct` | I | ward | higher | 1.0 | Combat Defence & Healing rule 6 (scales ward payloads) | Live |
 | Ward efficiency | `ward_efficiency_pct` | I | ward | higher | 1.0 | Combat Defence & Healing rule 6 (lowers ward payments) | Designed |
-| Maximum health (khí huyết) | `khi_huyet_pct` | I | none | higher | 1.2 | Character Stats C | Live |
+| Maximum health (khí huyết) | `khi_huyet_pct` | I | none | higher | 0.6 (was 1.2; user decision 2026-11-10) | Character Stats C | Live |
 | Evade | `evade_pct` | F (pp) | none | higher | 1.5 | Combat I | Designed |
 | Soul resistance | `soul_res_pct` | F (pp) | none | higher | 0.6 | Combat E2 | Designed |
 | Status resistance | `status_resist_pct` | F (pp) | incoming status | higher | 0.4 | Combat F. Scopes by one status read the status tags (Effects Status Catalogue; re-review MD 4) | Designed |
@@ -533,13 +533,13 @@ and are not here.
 | Block (`block_rating`) | — | universal | +3 rating | +20 rating | Designed | 1 |
 | Block (`block_rating`) | against type: physical or force (Pending) | broad | +3 rating | +25 rating | Pending | 2 |
 | Block (`block_rating`) | against type: fire, cold, lightning, light (Pending) | family | +4 rating | +30 rating | Pending | 4 |
-| Body shield (`body_shield_pct`) | — | universal | +1.2 pp of health | +8.0 pp of health | Designed | 1 |
+| Body shield (`body_shield_pct`) | — | universal | +2.3 pp of health | +15.6 pp of health | Designed | 1 |
 | Body shield, increased (`body_shield_pct`, I) | — | universal | +2.0 % | +13.3 % | Pending | 1 |
 | Shield recharge delay (`recharge_delay_pct`) | — (implied shield) | family | -3.0 % | -20.0 % | Pending | 1 |
 | Cast ward duration (`cast_ward_duration_pct`) | — (implied ward) | family | +3.6 % | +24.0 % | Pending | 1 |
 | Ward strength (`defense_pct`) | — | universal | +1.2 % | +8.0 % | Live | 1 |
 | Ward efficiency (`ward_efficiency_pct`) | — | universal | +1.2 % | +8.0 % | Designed | 1 |
-| Maximum health (`khi_huyet_pct`) | — | universal | +1.0 % | +6.6 % | Live | 1 |
+| Maximum health (`khi_huyet_pct`) | — | universal | +2.0 % | +13.3 % | Live | 1 |
 | Health regeneration (`health_regen_pct`) | — | universal | +0.12 pp/pulse | +0.80 pp/pulse | Designed | 1 |
 | Health regeneration, increased (`health_regen_inc_pct`) | — | universal | +4.0 % | +26.6 % | Designed | 1 |
 | Health leech (`leech_health_pct`) | — | universal | +5.7 % of damage dealt | +38.0 % of damage dealt | Designed | 1 |
@@ -753,7 +753,7 @@ formula; **G** marks a guess.
 | Damage conversion | 0.8 / pp | G | A point of conversion moves a point of damage to a type the build has more modifiers for; worth less than a point of damage on its own. Implied family |
 | Ward strength | 1.0 | — | Meridian Map table |
 | Ward efficiency | 1.0 | G | Combat's guess kept; an effective-health proxy gives 1.17× health's value (Combat Open Question 14) |
-| Maximum health | 1.2 | — | Meridian Map table |
+| Maximum health | 0.6 (was 1.2) | D/G | User decision 2026-11-10: fight value about 0.21 (#44 simulator) plus value outside fights (vitality carried between fights, injuries, events) |
 | Body guard | retired | — | Replaced by block and the body shield (Combat Defence & Healing) |
 | Resistance, all and by type | 1.25 / pp, one stored price; the effective prices after breadth are 1.0 (Physical, Force: 1.25 / 1.25) and 0.83 (other types: 1.25 / 1.5). Formulas C applies breadth once, to the stored price | D | Combat Defence & Healing Formulas I (user decision 2026-11-08) |
 | Resistance cap raise; penetration | 5 / pp, rare; 3.0 / pp | D | Combat Defence & Healing Formulas I |
@@ -1133,4 +1133,4 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 | 6 | Closed 2026-11-08: Chaos resistance is rare by its row (rule 13, Rare table) | — | Closed |
 | 7 | Overnight content: filter the 192 special modifiers and 210 plain rows in `modifier-inventory.md` against this catalogue, keeping only what passes the four tests; the rest are Effects or dropped | user + game-designer | Effects System design |
 | 8 | ~~Register the full price table~~ **Closed 2026-11-08:** the full price table is in the registry's `stat_power_weights` (the GDD's `modifier_prices`), keyed by key and operation (re-review MD 13) | — | Closed |
-| 9 | **Health is cheap after #44** (2026-11-09 simulator, `pricefit2.py`): with ×4 health and wards paid in linh lực, 10 W of maximum health is about +49 % (0.21 W / %, against its 1.2 price), while maximum linh lực stays near 1.0 and all resistance near 1.25. Re-pricing `khi_huyet_pct` touches Character Stats, Realms and the Meridian Map, so it is left at 1.2 for the user to decide; thể tu and health builds need a look | user, systems-designer | User decision |
+| 9 | ~~Health is cheap after #44~~ **Closed 2026-11-10:** `khi_huyet_pct` lowered to 0.6 W per % (user), body shield to 0.51 | — | — |

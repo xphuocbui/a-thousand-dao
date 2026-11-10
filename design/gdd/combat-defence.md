@@ -783,7 +783,7 @@ marks a derived price, **G** a guess.
 | Resistance cap raise | `resist_cap_pct` | 5 / pp, rare | D | At the cap, +1 pp cuts the leak by 4 %, about +4.2 % ehp |
 | Resistance penetration | `resist_pen_pct`, scoped by type or tag | 3.0 / pp | D | 3.6 against a typical warded defender, 1.4 against the default ward |
 | Block | `block_rating` | 0.4 / rating point | D | 0.41 to a thể tu, 0.22 to a typical side. Universal; grid 1 |
-| Body shield | `body_shield_pct` (pp of health_max) | 1.0 / pp | D/G | Pegged to health's 1.2 × 0.85 (Chaos passes it and it never refills) |
+| Body shield | `body_shield_pct` (pp of health_max) | 0.51 / pp | D/G | Pegged to health's 0.6 × 0.85 (was 1.2 × 0.85 = 1.0; health re-priced 2026-11-10). Chaos passes it and it never refills |
 | Health regeneration | `health_regen_pct` | 3.0 / pp per pulse (to re-price) | D/G | The 8 s, decaying basis is retired with #44; re-priced in part 4 against 45 s fights with no decay |
 | Healing | `healing_pct` | 0.5 / % | G | No heal-build anchor exists yet |
 | Healing taken | `healing_taken_pct` | 0.5 / % | G | Also counters curses |
