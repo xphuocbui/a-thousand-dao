@@ -476,7 +476,7 @@ The pool_max formula is defined as:
 | v, v_c | float | 0.05–1; 0.4 | calculated; data file (`duel.injured_power_floor`) | Vitality fraction and its floor |
 | start_health_share, start_qi_share | float | above 0 to 1; 0 to 1 | fight request (optional) | Starting shares (rule 3). Both or neither are sent |
 | Σ reserved, qi_use | float | 0–0.9; ≥ 0 | Combat Defence & Healing rule 10 | Reserved share and the usable maximum linh lực starts at |
-| ehp | float | ≥ 0 | Combat Defence & Healing Formulas G | Effective health by damage type, before art spending and regeneration. Typical Qi Refining **297.8** (was 298) |
+| ehp | float | ≥ 0 | Combat Defence & Healing Formulas G | Effective health by damage type, before art spending and regeneration. Typical Qi Refining **1,376.2** (#44; was 297.8) |
 
 `time_limit` is 120 s, and fatigue from 60 s ends almost every fight first (rule 10). After a fight, `v_after = min(v, health_end / health_max)`, so vitality never rises, even
 when healing restored health during the fight (Combat Defence & Healing rule 19).
@@ -592,7 +592,7 @@ W shares are attack / ward strength / ward efficiency / linh lực / health.
 | Nascent Soul | 739 | 7.37 | re-derive | 6.5 | 256 | re-derive | 1 |
 | Deity Transformation | 1,172 | 8.96 | re-derive | 7.0 | 325 | re-derive | 1 |
 
-Typical ehp at Qi Refining is Combat Defence & Healing Formulas G's 297.8 / 6.31 = 47.2 U. Defence calibrated
+Typical ehp at Qi Refining is Combat Defence & Healing Formulas G's 1,376.2 / 6.31 = 218 U (#44; was 297.8, 47.2 U). Defence calibrated
 Qi Refining only, so the other ehp cells are re-derived from its Formulas G by the balance harness (the old
 values 56 / 73 / 94 / 127 and 125 / 163 / 217 / 315 / 460 assumed the retired ward and body guard). Open
 Question 20 still applies to the mirror columns.
@@ -757,8 +757,10 @@ like statuses.
 **Output Range:** a tick has no upper bound (`dot_pool_cap` and `dot_pulse_cap` removed, #44 item C3). What reaches
 health is at least 1 when anything does (the floor applies to the first tick).
 
-**Example:** Poison (Chaos, c_tick 0.15, 5 stacks), L1 × L2 = 1.265 × 1.4 = 1.771, on FX-T (the Common Ward's all
-resistance 0.8175 covers Chaos; Chaos passes the body shield): 6.31 × 0.15 × 5 × 1.771 × 0.1825 = **1.53** per pulse.
+**Example:** Poison (Wood's debuff, Chaos, c_tick 0.019 per stack, 5 stacks), L1 × L2 = 1.265 × 1.4 = 1.771, on FX-T
+(the Common Ward's 448 points stop 81.75 % of Chaos; Chaos passes the body shield): 6.31 × 0.019 × 5 × 1.771 × 0.1825 =
+**0.19** per pulse, so the floor of 1 applies. (Burn and Poison are element stacks priced by Effects Formulas D, exempt
+from the `c_tick` range above.)
 A Chaos tick at c_tick 0.3 and 5 stacks is **3.06**, with no cap.
 
 ### G. Triggers
@@ -957,7 +959,7 @@ for Character Stats, all in percentage points unless noted, with W prices in the
 `power.khi_huyet_weight`, `power.linh_luc_weight`, `duel.ratio_exponent`, `duel.rounds`; and, with the Combat revision (#43): `default_ward_pass`,
 `default_ward_drain`, `pass_min`, `drain_min`, `guard_base`, `guard_pool_slope`, `guard_cap`, `guard_max_mit`,
 `guard_half`, `guard_share_kind`, `body_guard_pct`, `ward_art_duration`, `curse_pass_raise_max`,
-`trig_ward_strength` and `trig_ward_seconds`; `hit_cost_share` and `upkeep_share` move onto ward records. Kept:
+`trig_ward_strength` and `trig_ward_seconds`; `hit_cost_share` moves onto ward records, and `upkeep_share` is gone with upkeep wards (#44). Kept:
 `duel.injured_power_floor`, `duel.khi_van_per_point`, `duel.min_win_chance`, `duel.max_win_chance` (the
 last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 
@@ -1171,7 +1173,7 @@ build work.**
 
 - **Before the fight:** preparing is the tense part. The player should finish it knowing what their
   plan is and what could beat it.
-- **During the fight:** a typical fight of about 6 to 8 seconds reads in under a minute at the default log level.
+- **During the fight:** a typical fight of 30–60 seconds (#44) reads in a few minutes at the default log level; the per-pulse summary keeps it scannable.
   One line per pulse; the player can open any hit's Breakdown.
 - **After the fight:** the result names the deciding factor: when linh lực ran out and which layer did
   the most. A loss must point at something the player can change.

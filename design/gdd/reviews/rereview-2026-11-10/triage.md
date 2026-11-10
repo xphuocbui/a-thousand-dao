@@ -61,3 +61,4 @@ Four headless Sonnet reviews (read-only), reports beside this file: `combat.md`,
   0.1 W per point; Sundered −150 and Exposed −100 points; `resist_cap_pct`, `curse_shred_max` and the cap keys
   retired; catalogue regenerated; registry updated. Not done: the thể tu ehp numbers (Formulas G, AC-CD-42) and the
   simulator, which still uses stop shares (equivalent at typical).
+- **Sweep done (2026-11-10):** combat-defence Q2–Q5, Q8 and fixtures (303ebf4); combat.md ehp 1,376.2 / 218 U, Poison example at 0.019, Game Feel 30–60 s, `upkeep_share` gone; modifiers.md stale caps, examples, retired tags, AC-MD-07/17/21, body shield 0.51. Left: the simulator in points (equivalent at typical); Effects/combat registry formula text; a confirming re-review.

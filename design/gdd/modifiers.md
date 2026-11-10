@@ -107,7 +107,7 @@ system. An Effect grants modifiers from this catalogue as its payload.
 7. **Caps and ceilings belong to the stat's owner.** A lower-is-better stat (formation upkeep, talisman ink, status
    duration on you, buy price, shield recharge delay and the like) may not leave Pending until its owner names a
    floor, because two or three notables would otherwise make the cost free (re-review MD 5). Combat's layer caps (400/300/250/150/100 and the L1
-   knee), the crit, evade, escape, pierce, resistance, health and linh lực regeneration caps, art cost reduction's 0.5 and
+   knee), the crit, evade, escape and pierce caps (resistance and regeneration are uncapped since 2026-11-10), art cost reduction's 0.5 and
    reservation efficiency's 50, and Character Stats' ceilings (`breakthrough_chance`,
    `herb_growth_pct`, `alchemy_success`, lifespan) all apply after the modifiers are summed. A clipped sum
    shows the clip in the Breakdown. This system never caps a stat itself.
@@ -186,7 +186,7 @@ system. An Effect grants modifiers from this catalogue as its payload.
    | artifact role | weapon, ward_gear, body_gear, utility | Item DB (Combat's role tags; Item DB renamed `ward`/`body`, D2 done 2026-11-08) |
    | foe | cultivator, creature (Pending: Combat stamps them on profiles only when content needs them, Combat rule 6, user decision CB-08; `demonic` and `tribulation` held) | Combat rules 2, 18 (variety 2026-11-08) |
    | activity | secluded, travelling (Pending) | Time & Turn, Realms (variety 2026-11-08) |
-   | status | one tag per status in the Effects Status Catalogue's Tags column: ticks burn, poison (the effect tag `poison`, shared), corpse_rot, bleed, frostbite, shock, qi_disruption; curses sundered, exposed, sealed_meridian, silence, stagnation, heavy_breath, leaking_ward, withering, slackened_soul | Effects System Status Catalogue (re-review MD 4) |
+   | status | one tag per status in the Effects Status Catalogue's Tags column: ticks burn, poison (the effect tag `poison`, shared), corpse_rot, bleed, qi_disruption (frostbite and shock retired with #44); curses sundered, exposed, sealed_meridian, silence, stagnation, heavy_breath, leaking_ward, withering, slackened_soul | Effects System Status Catalogue (re-review MD 4) |
    | heal source | body_shield (a restore of the body shield) | Combat Defence & Healing |
    | effect kind | conditional, scaling, trigger, conversion, overflow, rule_change, status, keystone, enabler (on Effect records only; never a scope) | Effects System rule 2 (re-review 2026-11-08b EF-15) |
    | stat family | damage, crit, accuracy, speed, cost, linh_luc, than_thuc, health, ward, resistance, block, shield, healing, evade, soul, status, gear, preparation, companion, escape, fortune, realm, cultivation, lifespan, heart_demon, toxicity, crafting, economy, travel, attribute, slots | this GDD |
@@ -656,9 +656,8 @@ and are not here.
 
 Concrete modifiers listed: 342 (two-tag rows not counted).
 
-Two sizes need care. A notable of health regeneration (+2.66 pp per pulse) is above the stat's own 2 pp cap
-(Combat Defence & Healing Formulas E), so a source should carry it at small size or as part of a larger piece.
-A notable of crit chance (+8 pp) is a sixth of the 50 % cap. Both are listed in Open Questions.
+One size needs care: a notable of crit chance (+8 pp) is a sixth of the 50 % cap. (Health regeneration has had no
+cap since #44.) Both are listed in Open Questions.
 
 **Damage, more (L2 and L4).** These are budgeted in layer points by their sources, not in W (rule 12), so they
 have no grade sizes here.
@@ -758,7 +757,7 @@ formula; **G** marks a guess.
 | Resistance, all and by type | 0.04 / point (2026-11-10, points; was 1.25 / pp), one stored price; the effective prices after breadth are 1.0 (Physical, Force: 1.25 / 1.25) and 0.83 (other types: 1.25 / 1.5). Formulas C applies breadth once, to the stored price | D | Combat Defence & Healing Formulas I (user decision 2026-11-08) |
 | Penetration (cap raise retired) | 0.1 / point (was 3.0 / pp) | D | Combat Defence & Healing Formulas I |
 | Block rating | 0.4 / rating point | D | 0.41 to a thể tu, 0.22 to a typical side |
-| Body shield | 1.0 / pp of health_max | D/G | Pegged to health; Chaos passes it and it never refills |
+| Body shield | 0.51 / pp of health_max (2026-11-10) | D/G | Pegged to health at 0.85 × 0.6; Chaos passes it and it never refills |
 | Body shield, increased | 0.6 | G | Variety guess, 2026-11-08 (Pending) |
 | Shield recharge delay | 0.6 / % reduced | G | Variety guess, 2026-11-08 (Pending) |
 | Cast ward duration | 0.5 | G | Variety guess, 2026-11-08 (Pending) |
@@ -869,8 +868,8 @@ one unit. A penalty is authored as a value and is worth |value| · price / bread
 **Example:**
 - A notable (8 W) of universal crit chance: 8 · 1.0 / 1.0 = **+8.0 pp**.
 - A small (1.2 W) of Fire damage: 1.2 · 1.5 / 1.0 = **+1.8 %**.
-- A notable of art cost: 8 / 1.2 = 6.67, floored to **−6.6 %**.
-- A small of regeneration on the 0.01 grid: 1.2 / 8 = **+0.15 pp/s**. On the 0.1 grid it would floor to
+- A notable of art cost: 8 / 0.6 = 13.3, floored to **−13.3 %** (#44 price 0.6).
+- A small of regeneration on the 0.01 grid: 1.2 / 22.8 = **+0.05 pp/s** (#44 price 22.8). On the 0.1 grid it would floor to
   0.1 and lose a third.
 
 ### D. The `more` exchange rate
@@ -922,7 +921,7 @@ carried at that grade; lifespan in years at small, Qi Refining, loses 16.7 % (0.
 2026-11-08b, MD-08).
 
 **Example:** at the two reference grades, universal damage is +1.2 % / +8 %, Fire damage +1.8 % / +12 %,
-crit chance +1.2 / +8 pp, art speed +2.0 % / +13.3 %, and maximum health +1.0 % / +6.6 %.
+crit chance +1.2 / +8 pp, art speed +2.0 % / +13.3 %, and maximum health +2.0 % / +13.3 % (0.6 W since 2026-11-10).
 
 ### Realm drift
 
@@ -952,9 +951,8 @@ measures the drift first, and no deflator is applied until it has.
   that budget; the source picks another stat, and the value is never raised to one unit (Formulas C).
 - **If a modifier is negative**: it uses the same record. Penalties apply after ceilings (Character Stats
   rule 14), and the Breakdown shows them as penalties in the stat's better direction.
-- **If a stat's sum passes its owner's cap** (Combat's layer caps, crit 0.5, evade 0.40, resistance 0.75,
-  health regeneration 2 pp, pierce 0.75, linh lực regeneration 8 pp, art cost reduction 50 %, Character Stats'
-  ceilings): the owner clips it, and the Breakdown names the cap.
+- **If a stat's sum passes its owner's cap** (Combat's layer caps, crit 0.5, evade 0.40, pierce 0.75, art cost reduction 50 %; resistance, both
+  regenerations and Character Stats' craft bonuses have no cap since 2026-11-10, using points, curves or dampening): the owner clips it, and the Breakdown names the cap.
   This system never caps.
 - **If a single modifier is larger than its stat's cap** (a notable of crit chance above `crit_chance_cap`): it is
   legal but wasteful. A source GDD should size it below the cap. (Health regeneration has no cap since #44.)
@@ -1078,7 +1076,7 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 - **AC-MD-04** [Logic] Rule 4. **GIVEN** base crit chance 0.15 and flat +0.5 `crit_chance_pct`, **THEN** crit chance is 0.155. **GIVEN** flat +10 `lifespan_years`, **THEN** lifespan rises by exactly 10 years.
 - **AC-MD-05** [Logic] Rule 5. **GIVEN** base 100, flats +20 and −5, and increased +30 and +20, **THEN** the stat is 115 · 1.5 = 172.5. **GIVEN** Σ increased = −150, **THEN** the stat is 0, never negative. **GIVEN** `attack_pct` modifiers, **THEN** their increased sum equals the L1 value Combat reads.
 - **AC-MD-06** [Logic] Rule 6. **GIVEN** base hit 100, increased +50, `more` L2 +40 and `more` L4 +20, with the other layers at 1, **THEN** damage is 100 · 1.5 · 1.4 · 1.2 = 252. **GIVEN** `more` on `khi_huyet_pct`, `more` with layer L3 or no layer, or `more` L5 on a source that is not an Effect, **THEN** validation rejects it.
-- **AC-MD-07** [Integration] Rule 7. **GIVEN** a crit-chance sum of 62 pp, **THEN** this system outputs 62 pp, Combat applies 50 pp, and the Breakdown names the crit cap. **GIVEN** a resistance sum of 0.95, **THEN** 0.75 is applied and the cap is named.
+- **AC-MD-07** [Integration] Rule 7. **GIVEN** a crit-chance sum of 62 pp, **THEN** this system outputs 62 pp, Combat applies 50 pp, and the Breakdown names the crit cap. **GIVEN** a resistance sum of 900 points, **THEN** all 900 apply (no cap since 2026-11-10) and the part is divided by 10.
 - **AC-MD-08** [Logic] Edge Cases. **GIVEN** a notable of crit chance that would take a side past `crit_chance_cap`, **THEN** validation accepts it and the owner clips it. **GIVEN** a notable of health regeneration (+0.81 pp at 9.9 W), **THEN** nothing clips it (#44).
 
 **Scope**
@@ -1097,11 +1095,11 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 **Breadth and pricing**
 
 - **AC-MD-16** [Logic] Rule 11, Formulas B. **GIVEN** these scopes, **THEN** breadth_mult is: ∅ 1.0; [physical] 1.25; [hoa] 1.5; [physical, hoa] 1.5; [art, sword] 1.5; [sword, hoa] 2.0; [poison, hoa] 2.5; `x_soul` unscoped 1.25 (implied [soul]). **FOR** any input, **THEN** it never exceeds 2.5.
-- **AC-MD-17** [Logic] Formulas C. **GIVEN** a notable (8 W) of universal crit chance, **THEN** it gives +8.0 pp. **GIVEN** a small (1.2 W) of damage scoped type `fire` or element `hoa`, **THEN** +1.8 %. **GIVEN** a notable of art cost, **THEN** −6.6 % (6.67 floored). **GIVEN** a small of `linh_luc_regen_pct` on the 0.01 grid, **THEN** +0.15 pp/s.
+- **AC-MD-17** [Logic] Formulas C. **GIVEN** a notable (8 W) of universal crit chance, **THEN** it gives +8.0 pp. **GIVEN** a small (1.2 W) of damage scoped type `fire` or element `hoa`, **THEN** +1.8 %. **GIVEN** a notable of art cost, **THEN** −13.3 %. **GIVEN** a small of `linh_luc_regen_pct` on the 0.01 grid, **THEN** +0.05 pp/s.
 - **AC-MD-18** [Logic] Formulas C floor. **GIVEN** B 1.2 on `density_bonus` (140 W, u 0.01), **THEN** the conversion returns 0 units and the grant is rejected, never raised to 0.01. **GIVEN** B 8 at price 1.0, **THEN** the value is exactly 8.0 (the 1e-6 epsilon holds).
 - **AC-MD-19** [Logic] Formulas C penalty. **GIVEN** −5 % universal art speed, **THEN** it is worth 5 · 0.6 / 1.0 = 3.0 W, with no floor.
 - **AC-MD-20** [Logic] Formulas D. **GIVEN** more_price rounded to 2 decimals, **THEN** L2 is 0.90 / 1.16 / 1.51 / 2.03 / 4.95 and L4 is 1.05 / 1.35 / 1.76 / 2.37 / 5.78 from Qi Refining to Deity Transformation. **GIVEN** +20 L2 at Core Formation, **THEN** it is worth 30.3 W (unrounded rate). **GIVEN** 8 W at Qi Refining, **THEN** it buys 8.8 L2 points. **GIVEN** a fixture with x_i_typ ≥ cap_i, **THEN** the trade is refused and 0 points are granted.
-- **AC-MD-21** [Config/Data] Formulas A, E. **GIVEN** the data, **THEN** the grades are small = 1.2 and notable = 8, and every (key, operation) pair in the Stat List has exactly one `modifier_prices` entry equal to Formulas A (`body_shield_pct` has two: F 1.0 and I 0.6). **GIVEN** regeneration at small, **THEN** the rounding lint flags it on a 0.1 grid (a 33 % loss) and passes it on 0.01.
+- **AC-MD-21** [Config/Data] Formulas A, E. **GIVEN** the data, **THEN** the grades are small = 1.2 and notable = 8, and every (key, operation) pair in the Stat List has exactly one `modifier_prices` entry equal to Formulas A (`body_shield_pct` has two: F 0.51 and I 0.6). **GIVEN** regeneration at small, **THEN** the rounding lint flags it on a 0.1 grid (a 33 % loss) and passes it on 0.01.
 - **AC-MD-22** [Logic] Rule 12. **GIVEN** a Meridian Map acupoint or notable carrying `more`, **THEN** it is rejected.
 - **AC-MD-23** [Logic] Rule 13. **GIVEN** +1 `bonus_slots` on a source of kind acupoint, notable or affix, **THEN** it is rejected. **GIVEN** the same on a keystone, a named item, a quest reward or a Way capstone, **THEN** it is accepted. **GIVEN** Chaos resistance or a resistance cap raise on a tree notable, **THEN** it is rejected (rare by its row). **GIVEN** a rare modifier in an Effect's payload whose host is a keystone, **THEN** it is accepted; on an Effect hosted by a notable, rejected.
 
@@ -1129,7 +1127,7 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 | 2 | ~~Derived art tags need Combat to adopt them~~ **Closed 2026-11-08:** the Combat revision (#43) adopted `basic`, `quick`, `slow`, `cheap` and `costly` (D5); the basic attack carries only `basic` (C4) | — | Closed |
 | 3 | The Meridian Map's Formulas F must point to this GDD's price table, and Character Stats' Parameter keys must list the new stats (with the 0.01 grid for both regeneration stats). The other reader GDDs' back-references are added in the Combat revision (#43) and Meridian Map sweeps (re-review MD 9) | user | Meridian Map redesign; Character Stats revision; #43 |
 | 4 | Pending stats need keys from their owners: basic attack speed, status duration and stack cap (Combat); talisman power, keep chance, stock and drawing (Talismans); companion power share, beast slots, taming (Spirit Beasts); artifact slots (Item DB). From the 2026-11-08 variety rows: status duration on you and foe tags (Combat); typed block, the body shield I op, recharge delay and cast ward duration (Combat Defence & Healing); formation upkeep (Formations); talisman ink (Talismans); pill quality (Alchemy); artifact grade (Artifact Refining); buy and sell price (Market); activity tags (Time & Turn, Realms); the [body_shield] scope (Combat Defence & Healing). A lower-is-better row also needs its owner's floor (rule 7) | user | Each owner's GDD |
-| 5 | Sizes to watch: a notable of health regeneration (2.66 pp) passes its 2 pp cap; a notable of crit chance is 8 pp; art speed and crit are cheap late (question 1) | systems-designer | Balance harness |
+| 5 | Sizes to watch (health regeneration has no cap since #44): a notable of crit chance is 8 pp; art speed and crit are cheap late (question 1) | systems-designer | Balance harness |
 | 6 | Closed 2026-11-08: Chaos resistance is rare by its row (rule 13, Rare table) | — | Closed |
 | 7 | Overnight content: filter the 192 special modifiers and 210 plain rows in `modifier-inventory.md` against this catalogue, keeping only what passes the four tests; the rest are Effects or dropped | user + game-designer | Effects System design |
 | 8 | ~~Register the full price table~~ **Closed 2026-11-08:** the full price table is in the registry's `stat_power_weights` (the GDD's `modifier_prices`), keyed by key and operation (re-review MD 13) | — | Closed |
