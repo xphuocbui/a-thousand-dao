@@ -122,3 +122,22 @@ curse that keeps it at 0 decides the fight. Before #44 this mattered little (8 s
 - Names of the New pieces are proposals; Hán-Việt was checked by eye only.
 - Đạo requirements for the Đạo named here are not in data yet (`dao.json` does not exist); the builds use each Đạo's
   natural parents from Spiritual Roots rule 16.
+
+## 9. Keystone numbers after equal-value stacks (2026-11-10)
+
+Re-fit with `keystonefit.py` after the per-stack numbers were equalised (target: win 15 points above an even mirror).
+These replace the table in § 1:
+
+| Keystone | Starting number | Kit win rate without it |
+|---|---|---|
+| Storm Battery (Thunder) | **0.7 %** of maximum linh lực per crit | 21 % |
+| Embers Feed the Hearth (Fire) | **12 %** of each Burn tick's damage | 19 % |
+| Breath Between Blows (Wind) | **0.9 %** of maximum linh lực per art | 0 % (its closing cost bans arts over 6 s) |
+| Frost Tithe (Ice) | **9 %** of the extra cost your Ice stacks add | 46 % |
+| Edge Returns the Breath (Metal), Root Drinks the Rot (Wood), The Stone Remembers (Earth) | about 0 needed | 77 %, 56 %, 54 % |
+| The Spring Never Fails (Water) | no measurable effect | 21 % with or without it |
+
+**What it shows:** kits that grant **both** a buff and a debuff (Metal, Wood, Earth) now win without any keystone,
+because Formulas D still discounts two-sided kits by 0.75, a factor measured before the stacks were equalised. With
+equal-value stacks that discount looks too generous: re-measure it (likely back toward 1.0) before trusting the
+keystone numbers. Water's keystone needs a new effect (§ 1).
