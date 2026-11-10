@@ -1,10 +1,10 @@
 # Cultivation Techniques (Công Pháp)
 
-> **Status**: In Review (2026-11-05: independent review findings applied; cross-GDD review CONCERNS, no blockers). See `reviews/cong-phap-review-log.md`.
+> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 2 blocking; answers and fixes applied the same day, see `reviews/cong-phap-review-2026-11-10.md`; re-review pending).
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-06
-> **Last Verified**: 2026-11-05
+> **Last Updated**: 2026-11-10
+> **Last Verified**: 2026-11-10
 > **Implements Pillar**: Pillar 3 (Power Is Built, Not Given); touches Pillar 1 (Your Dao, Your Name) and Pillar 4 (Every Season Counts)
 
 ## Summary
@@ -72,7 +72,13 @@ which technique you commit your seasons to. The decision has two sides:
      technique);
    - `layers`: the layer count, set by the tier (rule 5);
    - `bonuses`: stat modifiers, each with a value at full mastery (Formulas D);
-   - `abilities`: divine abilities (thần thông), each `{ability_id, unlock_layer}`;
+   - `abilities`: divine abilities (thần thông), each `{ability_id, unlock_layer}`; `ability_id` points at a Combat art
+     record (Combat rule 13: id, tags, typed damage parts, linh lực cost, cooldown, effect), which Combat owns;
+   - `effects`: Effect ids the technique hosts (Effects System rule 13; a technique may be an enabler), and `tags`
+     (the union of its modifiers' tags, Modifier System rule 9). `bonuses` stay priced by `bonus_pool` and
+     `bonus_budget` for now; they move to the Modifier System's W budgets when the catalogue is authored (user
+     decision 2026-11-10, review D4);
+   - `body_defence` (body techniques only): the Combat Iron Body tier it reaches (rule 2);
    - `seal_clusters`: Meridian Map sealed clusters it lists; empty and unread for now
      (the interim rule in rule 15);
    - `origin`: `authored` or `generated` (rule 17).
@@ -83,8 +89,13 @@ which technique you commit your seasons to. The decision has two sides:
      bonuses and abilities, never speed.
    - **Body technique** (luyện thể): an auxiliary art that names no element. It
      scales with Physique (căn cốt) instead of purity (Formulas D). This is the
-     route for a cultivator whose root fits no art they have found. In a fight it
-     also feeds body guard, the defence that needs no spiritual power (Combat rule 23).
+     route for a cultivator whose root fits no art they have found. In a fight it gives the body's defence (block,
+     body shield and Physical resistance; Combat rule 23, Combat Defence & Healing rule 12) at **fixed sizes per
+     tier** (user decision 2026-11-10, review D2): a body technique of tier t (0–3) reaches Combat's Iron Body tier
+     t + 2 at great completion, its tier 1 at its first layer and each further tier at an even share of its layers.
+     Each Combat tier adds block +10, body shield σ_b +0.10 and Physical resistance +8.3 points (Combat Defence &
+     Healing Formulas H), so a Profound body technique at great completion gives 30 / 0.30 / 25 points. These lines are
+     outside `F`, `B(k)` and `comp_strength`, and outside `bonus_pool` and the budget.
 3. **Tiers.** Yellow, Profound, Earth and Heaven (Hoàng, Huyền, Địa, Thiên), ranks
    0–3. The tier sets:
    - the speed and power scale;
@@ -162,7 +173,10 @@ which technique you commit your seasons to. The decision has two sides:
 9. **Speed.** Only the main method (and the #6 second main) gives speed. Its factor
    comes from:
    - the tier scale;
-   - the average purity of the named ids (the Spiritual Roots contract, rule 8 there);
+   - the average purity of the named ids (the Spiritual Roots contract, rule 8 there), read in full, past 100 too
+     (user decision 2026-11-10, Spiritual Roots review D6). Purity a road granted in an element the root does not own
+     counts here too (Spiritual Roots rule 8a, review D2); a named id at purity 0 makes the technique unusable at its
+     speed. The ranges in Formulas A and D widen with it, and Realms re-checks its years table (its Open Question 23);
    - the mastered layer (Formulas A).
 
    This factor is the `tech` term of the Realms cultivation rate.
@@ -181,8 +195,8 @@ which technique you commit your seasons to. The decision has two sides:
     - Effective Comprehension multiplies every bonus. Body techniques take half the
       effect, in both directions (Formulas F).
     - `herb_growth_pct`, `alchemy_success` and `lifespan_years` count toward Character
-      Stats' character-wide bonus ceilings (its Formulas I), shared with the tree,
-      items and pills (user decision 2026-11-04, cross-GDD review G1).
+      Stats' character-wide bonus curves and the alchemy dampen (its rule 14 and Formulas I, 2026-11-10), shared with
+      the tree, items and pills, with diminishing returns instead of a stop.
     - Because bonuses count only while slotted, a slot or main-method change that would
       lower the lifespan cap to the character's age or below needs the player's
       confirmation, and a confirmed change kills (Realms rule 14; user decision
@@ -195,12 +209,14 @@ which technique you commit your seasons to. The decision has two sides:
       - **either overcomes the other** (tương khắc): ×0.60.
     - Harmony is checked between each base element the art names and each element
       the main method names (a derived variant counts as its required elements; an innate
-      variant has none and is neutral). The worst
-      relation applies.
+      variant and Primordial Chaos are neutral). With one or two (art element, main element) pairs the worst relation
+      applies; with three or more pairs H is the **average** of their factors (user decision 2026-11-10, review D3), so
+      wide arts and convergence mains are not always 0.60. Archived Blood and Void cannot be named by new templates.
     - Body techniques, and any art while the main slot is empty, are always
       neutral.
 13. **Divine abilities.** An ability is **unlocked** while its technique is slotted
-    and its `unlock_layer` is mastered.
+    and its `unlock_layer` is mastered. Unlocking makes its Combat art eligible for the loadout's art slots (one pool
+    of `slot_count`, Combat rule 13); it is usable only once slotted.
     - Unslotting hides the ability; slotting the technique again restores it.
     - This GDD owns which abilities a technique carries and when they unlock.
       Combat owns what each ability does (design/gdd/combat.md).
@@ -361,12 +377,12 @@ element, or several elements, still gives less, as before.
 | S[tier] (`speed_mult`) | float | 1.00 / 1.15 / 1.30 / 1.45 (guess; edge per tier 1.10–1.25) | data file | Tier speed scale (**changed** from 1.0 / 1.3 / 1.7 / 2.2; power is now separate, Formulas C) |
 | κ (`tech_norm`) | float | 2.0 (derived: 1 ÷ typical match 0.5; safe 1.8–2.2) | data file | Normaliser |
 | g (`count_gain`) | float | 1.00 / 1.22 / 1.33 / 1.41 / 1.46 by base element count; 1.27 for five elements in QR (derived; see above) | data file | Element-count gain divided out of κ |
-| match | float | 0.08–1.00 (0.08: a derived variant at its purity floor of 8) | calculated (Spiritual Roots) | Average purity of the named ids ÷ 100 |
+| match | float | 0.08 and up (0.08: a derived variant at its purity floor of 8; above 1.0 past purity 100) | calculated (Spiritual Roots) | Average purity of the named ids ÷ 100, uncapped |
 | beyond_realm_mult | float | 0.25 | data file (value from Realms rule 13) | Tier cap |
 | f2 (`second_main_mult`) | float | 0.5 | data file (value from Meridian Map #6) | Second main method's speed share |
 | no_cong_phap_mult | float | 0.3 (as built) | data file | Crude cultivation multiplier |
-| strongest_purity | int | 10–100 | calculated (Spiritual Roots) | Highest base-element purity |
-| tech | float | 0.03–2.9 for the main slot; up to about 4.3 with #6 | calculated | The `tech` term of Realms Formulas I |
+| strongest_purity | int | 10 and up | calculated (Spiritual Roots) | Highest base-element purity (uncapped) |
+| tech | float | 0.03 and up: 2.9 for the main slot at purity 100, 4.35 with #6; higher past purity 100 | calculated | The `tech` term of Realms Formulas I |
 
 **Output Range:**
 - The main slot runs from 0.03 (crude at strongest purity 10, or the crude floor) to
@@ -525,8 +541,9 @@ The technique_bonus formula is defined as:
 - `F = min(F_cap, 0.5 + physique / 100)` for a body technique;
 - `H` = the harmony factor (rule 12) for an auxiliary art; 1.0 for the main method.
 
-H is the worst relation over every pair (art element, main element), with a
-derived variant counted as its required elements and an innate variant neutral. The generating cycle is Wood → Fire → Earth
+H is the worst relation over the pairs (art element, main element) when there are one or two pairs, and their
+average when there are three or more (review D3), with a derived variant counted as its required elements and an
+innate variant or Primordial Chaos neutral. The generating cycle is Wood → Fire → Earth
 → Metal → Water → Wood (`character_elements.json` `cycle`). The overcoming relation
 is Wood–Earth, Earth–Water, Water–Fire, Fire–Metal and Metal–Wood.
 
@@ -542,20 +559,21 @@ is Wood–Earth, Earth–Water, Water–Fire, Fire–Metal and Metal–Wood.
 |----------|------|-------|--------|-------------|
 | v_full | float | per bonus (`bonus_pool` min–max, or authored) | data file | Value at great completion, before F and H |
 | b_floor (`bonus_layer_floor`) | float | 0.3 (guess; safe 0.2–0.5) | data file | Share of the bonus at layer 1 |
-| avg_purity | float | 8–100 | calculated (Spiritual Roots) | As in A, but in the Meridian Map's 0.5 + purity ÷ 100 form |
+| avg_purity | float | 8 and up (uncapped) | calculated (Spiritual Roots) | As in A, but in the Meridian Map's 0.5 + purity ÷ 100 form |
 | physique | float | 1–150 | calculated (Character Stats) | Effective Physique (căn cốt) |
 | F_cap (`body_factor_cap`) | float | 1.5 (guess; safe 1.2–1.5) | data file | Cap on the body-technique factor |
-| H (`harmony`) | float | 0.60 / 1.00 / 1.15 | data file | Harmony multiplier |
+| H (`harmony`) | float | 0.60–1.15 (one of 0.60 / 1.00 / 1.15, or an average of them) | data file | Harmony multiplier |
 | comp_strength | float | 0.78–1.525 (body techniques 0.89–1.2625) | calculated (Formulas F) | Effective Comprehension's multiplier; a body technique uses `body_comp_strength` |
-| v | float | 0 to about 2.63 × v_full | calculated | Bonus delivered; one provider line per technique |
+| v | float | 0 to about 2.63 × v_full at purity 100; more past it | calculated | Bonus delivered; one provider line per technique |
 
 **Output Range:**
-- F is 0.58–1.5 in the purity form and 0.51–1.5 in the Physique form; H is 0.60–1.15.
+- F is 0.58 and up in the purity form (1.5 at purity 100, 2.0 at 150; uncapped) and 0.51–1.5 in the Physique form;
+  H is 0.60–1.15.
 - So v runs from 0.3 × 0.58 × 0.6 × 0.78 ≈ 0.08 × v_full (layer 1, low purity, overcoming,
   Comprehension 1) up to 1.5 × 1.15 × 1.525 ≈ 2.63 × v_full (great completion, purity 100,
   generated by the main method, Comprehension 150).
-- The bonus budget and Character Stats' ceilings are unchanged: the budget reads `v_full`,
-  and a ceiling still caps what `v` delivers.
+- The bonus budget reads `v_full`, so it is unchanged; past purity 100 `v` keeps rising, and for herb growth,
+  alchemy and lifespan Character Stats' curves give diminishing returns on what `v` delivers.
 
 **Example** (Comprehension 45, so `comp_strength` is 1):
 - **A Profound secret art** with attack_pct 12, at layer 6 of 9, average purity 70.
@@ -687,8 +705,7 @@ says; below that it gives less. A body technique rests on the body more than on 
 
 ## Edge Cases
 
-This section was drafted without `systems-designer` (lean mode). Two lean design
-reviews and three cross-GDD reviews have checked it, but no specialist pass has.
+This section was drafted without `systems-designer` (lean mode). Several design and cross-GDD reviews have checked it, but no specialist pass has.
 
 **Comprehension**
 - **If Comprehension is so low that a method's power falls under `no_tech_power`:** the power is
@@ -743,7 +760,11 @@ reviews and three cross-GDD reviews have checked it, but no specialist pass has.
 - **If an auxiliary art is beyond its tier's max realm:** nothing changes. The tier
   cap applies to main-method speed only.
 - **If an art names two elements, one harmonious and one overcoming against the main
-  method:** the worst relation applies, so H = 0.60.
+  method:** the worst relation applies (two pairs), so H = 0.60.
+- **If an art and its main make three or more pairs** (a two-element art under a Thunder or Darkness main): H is
+  the average of the pairs' factors; [Wood, Water] under a Thunder main is (1.00 + 0.60 + 0.60 + 1.15) ÷ 4 = 0.84.
+- **If the main method or an art is Primordial Chaos:** it is neutral (H 1.00), like an innate variant.
+- **If purity passes 100:** speed, power and bonuses read it in full (rule 9).
 - **If a 1-element root receives a 2-element player offer:** both draws are biased
   towards root elements not yet drawn. If the first lands on the root's element, the
   second is uniform over the other four, because none is left to bias towards. If
@@ -845,7 +866,9 @@ reviews and three cross-GDD reviews have checked it, but no specialist pass has.
   Character Stats (the capability-host rule), and the seal counts are state the
   Meridian Map reads.
 
-**Bidirectionality.** All four related GDDs list this system: Spiritual Roots,
+**Combat sub-systems, Modifiers and Effects as rows.** Combat Defence & Healing (#21a: body techniques' fixed defence sizes, rule 2), Combat Damage Types (#21b: each ability's art declares typed damage parts), the Modifier System (#40: keys, tags, `more` on L2, future W budgets) and the Effects System (#41: techniques host Effects and may be enablers) are dependencies in both directions; each of those GDDs lists this one.
+
+**Bidirectionality.** The related GDDs list this system: Spiritual Roots,
 Character Stats, Realms and the Meridian Map. Index row 9 already carries the
 dependencies (Spiritual Roots, Realms, Character Stats, Item DB; soft Time & Turn and
 Meridian Map).
@@ -949,7 +972,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `design/gdd/game-concept.md` | Cultivation techniques (core mechanic 4), the ~40 content target, onboarding (one technique at start) |
 | `design/gdd/linh-can.md` | Rule 8 (the purity scale of named ids, a locked contract); the fallback that rule leaves to this GDD is rule 8 here |
 | `design/gdd/canh-gioi.md` | Formulas I (the `tech` term), rule 13 (the ×0.25 tier cap), rule 14 (the lifespan confirmation for slot changes), the years-per-realm table that Formulas A calibrates against |
-| `design/gdd/character-stats.md` | The provider interface, spiritual power (`tech_power`, range edited to 0.5–2.2), effective Comprehension and Physique, the precision and tolerance rules, Market rounding |
+| `design/gdd/character-stats.md` | The provider interface, spiritual power (`tech_power`, range 0.5–3.355), effective Comprehension and Physique, the precision and tolerance rules, Market rounding |
 | `design/gdd/kinh-mach-do.md` | Rule 7 (technique seals; `cong_phap_seasons` fixed here; cultivating seasons only), capability #6 |
 | `design/glossary.md` | Tier, kind and element names |
 | `assets/data/items_cong_phap.json`, `cultivation_realms.json`, `character_elements.json` | The data this GDD's keys change or read |
@@ -1132,7 +1155,8 @@ applied above).
     `tech_power` and bonuses.
   - A Heaven method at purity 100 at QR, k 3, gives 2.9. Adding a second Heaven
     method in the #6 slot gives 4.35.
-  - Over every tier × realm × k × purity in {10, 50, 100}, `tech` ≥ 0.
+  - Over every tier × realm × k × purity in {10, 50, 100, 150}, `tech` ≥ 0; at purity 150 a Heaven method at QR, k 3,
+    gives more than 2.9 (no cap).
 - **AC-CP-18a** [Logic] The element-count gain `g`, with live `count_gain`.
   - A Yellow [Water] method at QR, k 3, on roots whose strongest element is Water 50
     and that hold 1 / 2 / 3 / 4 / 5 base elements gives `tech` 1.0 / 0.8197 / 0.7519
@@ -1170,7 +1194,9 @@ applied above).
   - All 25 ordered (main, art) element pairs match the table: 5 where the main
     generates the art (tương sinh) at 1.15; 10 at 1.00 (the art generates the main, or
     the same element); 10 overcoming pairs (tương khắc) at 0.60.
-  - An art naming [Wood, Fire] under a Water main: 0.60 (the worst relation).
+  - An art naming [Wood, Fire] under a Water main: 0.60 (two pairs, the worst relation).
+  - An art naming [Wood, Water] under a Thunder main: 0.84 (four pairs, averaged).
+  - Any art under a Primordial Chaos main, or a Chaos art under any main: 1.00 (neutral).
   - An art naming Light under a Water main: 0.60 (a derived variant counts as its required elements).
   - An art naming Wind under a Water main: no harmony penalty (an innate variant is neutral).
   - A Light main against an Earth art: 1.15 (Light counts as Fire, and Fire generates Earth).
@@ -1185,6 +1211,9 @@ applied above).
   - A body technique with `v_full` 10 at great completion gives 11.0 at Physique 60,
     15.0 at Physique 150 (the cap) and 5.1 at Physique 1.
   - A Yellow [Fire] main with `v_full` 10 at k 6 of 6, root R: 13.6.
+  - Body defence (rule 2): a Profound body technique at great completion gives block 30, σ_b 0.30 and Physical
+    resistance 25 points at any Physique and Comprehension (Combat tier 3, as Combat AC-CB-60 expects); at its first
+    layer, Combat tier 1 (10 / 0.10 / 8.3); a Heaven one at great completion, tier 5 (50 / 0.50 / 41.5).
 - **AC-CP-24** [Logic] Formulas E, price.
   - A Profound main method with `linh_luc_pct` 15 (pool 5–20): q̄ 0.6667, price
     **210** (integer).
@@ -1441,7 +1470,7 @@ tail shares and cannot show the strongest-purity gain that `g` divides out. The
 |---|---|---|---|
 | 1 | Confirm the hand-computed Formulas A check (mean tech₀.₅ 0.91–0.98 per realm) and the Formulas B pacing with a bot run, and re-run Realms AC-CG-33 and AC-CG-33a with the new factor. User decisions 2026-11-04: keep κ 2.0; the strongest-element starter's speed-up for multi-element roots is divided out per element count by `count_gain` (cross-GDD review N6, replacing the earlier `climb_total` plan, which could not fit its safe range); five elements in QR use 1.27, not 1.46, to keep the QR tail at about 6 %. The bot confirms `count_gain` (AC-CP-48); pill supply stays the breakthrough lever. The hand model puts NS and DT over AC-CP-48's ±10 % band for 3 and 4 elements, so that run must decide whether the band or the expectation moves | Realms & Bottlenecks calibration (bot) | Formulas A and B sign-off |
 | 2 | #6 Twin Technique Cultivation is additive, up to +50 % speed, which can shorten realm years by about a third. Check it against its Meridian Map price; the alternative `max(main, 0.5 × second)` would make it nearly worthless | Meridian Map, systems-designer | Capability pricing |
-| 3 | What each divine ability does | Combat GDD | Rule 13 effects |
+| 3 | What each divine ability does: owned by Combat (its art records, Combat Open Question 13) | Combat GDD | Rule 13 effects |
 | 4 | Author the catalogue: about 40 templates, with an MVP handful per kind (main method, secret art, body technique), including variant techniques, heirlooms and the rule 18 par methods for each element. Also give every template a source: `kim_cang_the`, `long_tuong_cong`, `phong_hanh_quyet` and `am_anh_bi_thuat` cannot be obtained in play, because Profound rolls are always generated and callers ask only for main methods and secret arts, so rule 2's body-technique route does not exist yet | content (writer, systems-designer) | Rule 17, rule 18 |
 | 5 | About 8 % of one-element lives (purity 21 or less) and about 6 % of five-element lives (purity 53 or less) breach the 60-year QR ceiling. The median holds. A match floor would close the tail, but it would change the Spiritual Roots rule 8 contract | game-designer, Spiritual Roots | Pillar 4 tail |
 | 6 | Rule 18 guarantees base-element par methods only. Should a variant root also get a guaranteed variant technique path, or is a switch back to a base element its intended cost? | game-designer | Rule 18 |
@@ -1452,4 +1481,4 @@ tail shares and cannot show the strongest-purity gain that `g` divides out. The
 | 11 | Techniques naming a relocated mutation (Spiritual Roots rule 16) are re-pointed when the Way (Đạo) is designed. Until then such a template would fail the `names` validation; no shipped template names one | game-designer, the Way | Rule 17 catalogue |
 | 12 | Rule 15's interim sector rule stands in for authored `seal_clusters`. Authoring them means the code reads the field and commons stop opening seals. Until then the starting technique opens the technique-sealed clusters of its element, and the Meridian Map's rule 7 ("lists this cluster") reads narrower than the build | game-designer, content, Meridian Map | Rule 15, rule 17 |
 | 13 | Rules with no built path yet: <ul><li>the load-time validator (Edge Cases, AC-CP-34): nothing in `src/` reads `bonus_budget` or `bonus_single_cap`;</li><li>emptying the #6 slot when capability #6 is lost, and rule 8's guard for the #6 slot;</li><li>the unfixed tier roll (Formulas E, AC-CP-25): every caller fixes the tier, the market uses the realm index as the tier, and the tier `weight` values are unread.</li></ul> | implementation story | Edge Cases, AC-CP-25, AC-CP-34 |
-| 14 | Comprehension strength (Formulas F) lifts `tech_power` past the 2.2 that Combat's ward fit used. Re-fit Combat's anchors with it when the fight is built | systems-designer, user | Formulas F, Combat Formulas A |
+| 14 | Comprehension strength (Formulas F) lifts `tech_power` up to 3.355, and uncapped purity lifts it further; Combat's qi pool (Combat Formulas A) is sized from spiritual power, so re-check its anchors when the fight is built (the old ward fit is retired) | systems-designer, user | Formulas F, Combat Formulas A |

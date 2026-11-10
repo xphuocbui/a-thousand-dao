@@ -113,3 +113,19 @@ Registry values: all entries owned by this GDD match (see above). One registry e
 - Formulas A to F arithmetic, the pacing tables, the price band and the root-bias probabilities (68.0 %, 28.0 %, 90.4 %).
 - Harmony table counts (5 / 10 / 10 of 25 ordered pairs) against the generating cycle and the five overcoming pairs.
 - Meridian Map rule 7 and `cong_phap_seasons` (24 / 24 / 48 / 48); capability #6 text; Realms Formulas I `tech` term and rule 14's confirmation; Character Stats `tech_power`, spiritual power and Comprehension (`comp` against `comp_strength`); Combat AC-CB-60's qi pool of 82.02 from spiritual power 50; the Way's rule 5 requirement on a technique's kind and tier.
+
+---
+
+## User answers and applied fixes (2026-11-10, parent session)
+
+- **D1:** purity is read **uncapped** (decided with Spiritual Roots D6); the ranges widen, Realms re-checks (its OQ 23).
+- **D2:** body techniques give **fixed sizes per tier**: tier t reaches Combat Iron Body tier t + 2 at great
+  completion, tier 1 at the first layer, the rest at even shares of the layers; outside F, B(k), comp_strength and
+  the bonus budget.
+- **D3:** harmony averages the pairs when there are three or more; Primordial Chaos is neutral.
+- **D4:** not yet: `bonus_pool` stays interim; `effects`, `tags` and the art-record pointer are added to the template
+  now.
+- Applied: CP-01 (rule 9, Formulas A and D ranges, AC-CP-18, unowned purity counts), CP-02 (rule 2, `body_defence`,
+  AC-CP-23), CP-03 (curves), CP-04 (template fields), CP-05 (rule 12, Edge Cases, AC-CP-22, Blood/Void not nameable),
+  CP-06 (rule 1 and 13 art records and slots), CP-07 (Dependencies paragraph), CP-09, CP-10, CP-11 (registry note),
+  CP-12, CP-13, CP-14. Spiritual Roots rule 8 and its edge case follow (purity 0, not "lacks").

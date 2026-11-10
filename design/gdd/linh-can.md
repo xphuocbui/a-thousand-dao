@@ -196,8 +196,9 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
      purity 0; blend zones average their two lands; roads are exact and grant purity (Meridian Map rule 4). Variant
      roots have their own lands (Meridian Map rule 20; rule 12).
    - **Cultivation techniques:** a technique's speed scales by the average purity of the
-     elements and variants it names ÷ 100. A technique naming something the root lacks
-     cannot be used at its speed (Cultivation Techniques owns the fallback).
+     elements and variants it names ÷ 100. A technique naming something at purity 0
+     cannot be used at its speed (Cultivation Techniques owns the fallback); road purity in an unowned element counts
+     (rule 8a).
    - **No cap:** both uses above read the full purity, past 100 too (user decisions 2026-11-10: no caps; technique
      speed uncapped, review D6). Cultivation Techniques' purity ranges and tier ceilings widen with it, and Realms &
      Bottlenecks' calibration is re-run (its recalibration question). Purity past 100 comes only from rare sources
@@ -931,7 +932,7 @@ production.
 
 **Use by other systems**
 
-- **If a technique names a variant the root lacks:** the technique cannot run at its
+- **If a technique names a variant at purity 0** (neither owned nor raised by its land's roads): the technique cannot run at its
   speed. Cultivation Techniques owns the fallback (as built, ×0.3 of the strongest
   purity).
 - **If a technique, recipe or item names a relocated mutation (rule 16):** this system

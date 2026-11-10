@@ -449,12 +449,13 @@ formulas:
       - beyond_realm_mult
       - second_main_mult
       - no_cong_phap_mult
+    # 2026-11-10: purity is read uncapped (Spiritual Roots D6); 4.35 is the figure at purity 100 with #6.
     output_range: [0.03, 4.35]
     # 2026-11-04 (cross-GDD review N6, N10): was "tech_one = tech_norm * ...; tech = tech_one(main) + 0.5*tech_one(second, #6 only)" with no count_gain and no crude floor.
     expression: "tech_one = (tech_norm / count_gain[n_base, QR 5-element 1.27]) * (S[tier]/S[par(r)] if r <= max_realm else 1) * avg_purity(names)/100 * max(floor, 1 - penalty*max(0, min(3r, layers) - k)) * (0.25 if r > max_realm else 1); tech = max(tech_one(main), crude) + 0.5*tech_one(second, #6 only); crude = 0.3 * strongest_purity/100 (also the whole value with no usable main method)"
-    notes: "The tech term of Realms Formulas I. A par-tier technique naming the root's strongest element, at average match for its element count and every allowed layer mastered, gives 1.0 in every realm; count_gain divides out the strongest-element gain (user decision 2026-11-04)."
+    notes: "The tech term of Realms Formulas I. A par-tier technique naming the root's strongest element, at average match for its element count and every allowed layer mastered, gives 1.0 in every realm; count_gain divides out the strongest-element gain (user decision 2026-11-04). Above purity 100 the factor keeps rising (no cap since 2026-11-10); the range is the purity-100 reference."
     added: 2026-11-04
-    revised: 2026-11-04
+    revised: 2026-11-10
   - name: talent_gain
     status: active
     source: design/gdd/character-stats.md
