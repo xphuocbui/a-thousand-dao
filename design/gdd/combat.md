@@ -263,8 +263,8 @@ author's reading and wait for confirmation (see Open Questions).
     Damage Types rule 1), a linh lực cost, a cooldown in seconds, an effect and optionally a heal payload under the
     heal lint (Combat Defence & Healing Formulas E). The sources are: the divine abilities (thần thông) that the main and
     auxiliary techniques unlock (Cultivation Techniques owns when they unlock, Combat owns what they
-    do), the Way's art nodes (**on hold** until this GDD is approved; the art format here is
-    the one the Way's data lint will accept), an artifact's active effect, and the always-available
+    do), the Way's art nodes (rare: arts usually come from techniques; the art format here is
+    the one the Way's data lint accepts, dao.md rule 3), an artifact's active effect, and the always-available
     basic attack (Physical, tags physical, hit, art and basic, no cost). A combatant's **loadout** has `slot_count` art slots (Formulas A2), its
     free ward slots (Combat Defence & Healing rule 5 and Formulas D) and the basic attack. The art slots are one pool: a divine ability, a Way art, an artifact's
     active effect, a talisman, the escape art and a ward placed in an art slot each take one, so carrying an escape costs a
@@ -417,7 +417,7 @@ this GDD expects, to be matched when those systems are designed.
 | Realms & Bottlenecks (#8) | in / out | In: realm, stage multiplier, the realm gap `g`. Out: defeats for capability #9, and the result for a tribulation | Realms |
 | Cultivation Techniques (#9) | in | `tech_power` (through spiritual power), the unlocked divine abilities with their unlock layer, and body techniques' block, body shield and resistance (Combat Defence & Healing rule 12, Formulas H) | Cultivation Techniques (which and when); Combat (what they do) |
 | Meridian Map (#10) | in | Only the stat modifiers, through Character Stats. Combat hosts no capability behaviour: each capability has one host, and an effect such as #1 or #3 reaches Combat only as the artifact values its host supplies. For #9, Combat only reports the defeat | Meridian Map |
-| The Way (#39) | in | Passive modifiers through Character Stats; art nodes once this GDD fixes the art format (**provisional**; arts stay on hold until it is approved) | The Way; Combat (art format) |
+| The Way (#39) | in | Stat lines through Character Stats; Effects on notables; rare art nodes in rule 13's format (dao.md rules 3 and 10) | The Way; Combat (art format) |
 | Item Database (#13) | in | Equipped pieces with their role tags (weapon, ward_gear, body_gear, utility; D2), attack, defence and affixes; the equipped set limited by thần thức; consumable arts' items (item-database.md rules 6, 11) | Item Database (what an item is, its roles and whether it counts); Combat (what a piece adds) |
 | Artifact Refining (#16) | in | Equipped artifacts: attack; defence (ward gear feeds ws, we and block up to a = 1; body gear gives 12 block and 0.60 body shield per a_b, Combat Defence & Healing Formulas A0, A2, B); affixes, thần thức cost, an optional active effect (**provisional**) | Artifact Refining; Combat (how they act) |
 | Formations (#17) | in | A laid formation's modifiers, upkeep and ground tags (**provisional**) | Formations |
@@ -1087,7 +1087,7 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 | Time & Turn (#4) | Soft | A fight takes no seasons; preparation time belongs to the preparing system | Built, no GDD |
 | Sim Core (#2), Config (#1) | Hard | Seeded stream, `Breakdown`, `combat_rules.json` | Built, no GDD |
 | Meridian Map (#10) | Soft | Stat keys through Character Stats only | GDD in review |
-| The Way (#39) | Soft | Passive modifiers; art nodes after this GDD is approved | GDD approved. Art pricing is open (its Open Question 3) |
+| The Way (#39) | Soft | Stat lines, Effects and rare art nodes | GDD in review (2026-11-10). Arts need no W price: the Way's slot table bounds them (dao.md Open Question 3, closed) |
 | Item Database (#13) | Soft | Equipped pieces with role tags, attack, defence and affixes; consumable arts' items | GDD complete (item-database.md rules 6, 11); lists Combat |
 | Artifact Refining (#16) | Soft | Equipped artifacts, ward-gear and body-gear defence, active effects | Quick spec only; **provisional** |
 | Formations (#17), Talismans (#18), Alchemy (#15) | Soft | Prepared modifiers, consumable arts, timed pills | Quick spec or no GDD; **provisional** |
@@ -1422,3 +1422,4 @@ Results go to `production/qa/evidence/balance/[date]-combat-performance.md`.
 | 24 | The `reference_type_mix` values for `display_power` (Combat revision D7): the balance harness fits them, per realm if needed | systems-designer, Balance Harness | Formulas K |
 | 25 | Measure the FX-T mirror's end time under the new defence path (AC-CB-30) and the rating's agreement with the full fight (AC-CB-52, AC-CD-46); re-derive the ehp cells of Formulas B outside Qi Refining. The FX-U mirror and Formulas K's T0 are worked by hand; #44 part 2 re-derives them under the new wards | Balance Harness | Acceptance Criteria, Formulas B |
 | 26 | ~~Planned revision (systems-index #44): a sustain-first economy~~ **Decided 2026-11-09:** every item answered in `design/research/economy-revision-44-decisions.md` (fights of 30–60 s, fatigue from 60 s, health ×4 with ward resistance ×1.4, halved costs, regeneration 3.5 % with diminishing returns, no healing decay, no upkeep wards, no heal or tick caps, element stacks). Part 1 applied here; parts 2–5 apply it to Combat Defence & Healing, the Effects System, the Modifier System and Character Stats | — | — |
+| 27 | **Future extension (recorded 2026-11-10, Way review D-03):** fights with allies, a party, mounts, disciples, troops, a taunt or world followers. Combat is one fighter plus attached companions today. The Way's facets that need them are archived (dao.md Catalogue, marked ◇): Vũ Đạo's Hội, Thú Đạo's Tọa Kỵ, Hiếu Đạo's Gia Tộc, Sư Đạo's Đệ Tử, Hoàng Đạo's Thần Dân, Thủ Đạo's Hộ Vệ and Khiêu Khích, Thần Đạo's Tín Đồ, Mị Đạo's Ngưỡng Mộ, Cô Đạo's Khắc Thân, and all of Binh Đạo (mass battle) | user, game-designer | Those facets and Binh Đạo |

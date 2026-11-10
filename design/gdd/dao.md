@@ -1,9 +1,9 @@
 # The Way (Đạo)
 
-> **Status**: Approved (design-review 2026-11-06, fifth pass, lean: no blockers)
+> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 1 blocking; findings and user answers applied the same day, see `reviews/dao-review-2026-11-10.md`; re-review pending)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-10 (graph Ways, Effects and arts, consolidated catalogue: revision in progress, needs a fresh /design-review)
-> **Last Verified**: 2026-11-06
+> **Last Verified**: 2026-11-10
 > **Implements Pillar**: Pillar 1 (Your Dao, Your Name), Pillar 3 (Power Is Built, Not Given), Pillar 4 (Every Season Counts); touches Pillar 5 (A World That Remembers)
 
 ## Summary
@@ -38,6 +38,19 @@ and two lives with the same Dao can diverge by facet. It serves Pillar 3, since 
 built by choosing nodes, and Pillar 4, since the points come from levels and breakthroughs,
 which cost seasons. It also gives the 22 mutations moved out of the root (Spiritual Roots rule 16) a
 home, consolidated into broad Ways with new Daos beside them, each hosting several builds.
+
+## Player Fantasy
+
+A Way is not given. One season, in a waterfall's noise or a dying master's last words, the character glimpses
+something larger than a technique: the turning of the four seasons, the loneliness of a sword, the patience of an
+old man fishing a cold river. Three Ways show themselves and one is taken. From then on the player owns a map of
+that idea, a constellation of small truths with a few great ones at its edges, and every point spent there feels
+like understanding, not bookkeeping: a node is worth twice its weight on the Meridian Map because it means more.
+
+Two lives with the same root and the same technique stop being the same person once their Ways differ, and two
+lives on the same Way part again at its capstones. The name a build earns (One Sword, Winter Never Ends, the Lone
+Angler) is the name the world remembers: a Sword master is a fact the World Database keeps, and NPCs who walked a Way
+before you are waiting in it.
 
 ## Detailed Design
 
@@ -79,7 +92,9 @@ home, consolidated into broad Ways with new Daos beside them, each hosting sever
      nodes are always stat lines; a notable is a stat line, an Effect or (rarely) an art.
    - **Effect:** one Effect record (Effects System rule 1) of tier `minor` or `major`, whose `hosts`
      lists the Way. It is unpriced, like every Effect, and the facet slot table (rule 10) bounds how many
-     a Dao holds. This replaces the earlier passive ability with its own W credit and `npc_effect`.
+     a Dao holds. Capstones and `major` Effects belong to one Dao; a `minor` Effect may come from a shared pool
+     that several Ways host (user decision 2026-11-10, review D-04). The Effect record names the Daos that host it
+     (`host_dao`, a list; Effects System rule 1). This replaces the earlier passive ability with its own W credit and `npc_effect`.
    - **Art (rare):** an art in Combat's format (Combat rule 13), its damage parts typed (Combat Damage Types
      rule 1) and its `more` sized in layer points (Modifier System rule 12). The hold on arts is lifted
      now that Combat is designed, but **arts come from cultivation techniques (công pháp), not from the Way**
@@ -92,19 +107,26 @@ home, consolidated into broad Ways with new Daos beside them, each hosting sever
      System rule 13: a Way capstone is a listed host) and stat lines. A character may hold several
      capstones of one Dao. Two whose rules contradict are marked rival in the data (Effects System rule 13),
      and only one of a rival pair can be bought.
-4. **No ceiling raises and no root factors.** A Dao may not raise a Character Stats ceiling or
-   multiply the whole cultivation rate, lifespan or breakthrough chance. A stat line is an
+4. **No cap raises and no root factors.** A Dao may not raise a cap that Character Stats still keeps (the q-extras
+   ceiling, the crit caps) or multiply the whole cultivation rate, lifespan or breakthrough chance. Lifespan, herb
+   growth and alchemy now follow diminishing-return curves with no clamp (Character Stats rule 14, revised
+   2026-11-10), so a Dao's lines on them add through the curve like any other source. A stat line is an
    additive modifier and is not a multiplier, but cultivation speed has no ceiling, so one Dao's
    `cultivation_speed_pct` lines are held to `dao_rate_cap_pct` (10 %) by the lint (Formulas D1
-   part 4; user decision 2026-11-06). Realms & Bottlenecks'
+   part 5; user decision 2026-11-06). The cap is per Dao, so four Daos may give +40 %; AC-DAO-10 checks the gates
+   with the most Daos a life can hold (review D-11). Realms & Bottlenecks'
    gate odds are calibrated without them, and re-running that calibration is the price of
-   adding one. Any breakthrough chance a node gives counts under the q-extras ceiling
+   adding one. Any breakthrough chance a stat line gives counts under the q-extras ceiling
    (`q_extras_ceiling_pp`, 10 pp) and nowhere else: it is a separate q-extras source, not the
    Meridian Map tree's contribution, so the tree's 8 pp cap (`tree_breakthrough_cap`) neither
    limits it nor is raised by it (user decision 2026-11-06). Realms & Bottlenecks lists the Way
-   among the q extras.
+   among the q extras. **Effects** that change breakthrough or heart-demon odds (a riskier breakthrough for a
+   reward, rerolled odds, heart demon gain or decay) may go beyond that ceiling (user decision 2026-11-10, review
+   D-05): each such Effect carries a bot fixture (AC-DAO-29), and the Realms calibration is re-run with them
+   (Realms & Bottlenecks' recalibration open question).
 5. **Requirement.** A Dao names what it needs from the root and technique: elements at a
-   minimum purity, a variant, or a technique kind. The old mutation's parents are the natural
+   minimum purity of `dao_req_purity_min` (30; user decision 2026-11-10, review D-12), a variant, or a technique
+   kind. The old mutation's parents are the natural
    start (Lava: Fire and Earth). The requirement is checked at the glimpse (rule 6), not again.
 
 **Gaining a Dao**
@@ -178,17 +200,18 @@ home, consolidated into broad Ways with new Daos beside them, each hosting sever
     blades and cutting, a craft Dao's is the furnace and the field, Time's is years and ageing.
     - **Stat lines** use only the Dao's `theme_stats`, a list in its data. There is no filler:
       a line any Dao could hold belongs on the Meridian Map instead.
-    - **Effects** belong to one Dao: no Effect id appears in two Daos' graphs.
+    - **Capstones and `major` Effects** belong to one Dao: no such id appears in two Daos' graphs. `minor`
+      Effects may be shared from a common pool (rule 3).
     - **Each facet** is a named face of the theme, and should open its own build direction (the
       library rule: a Dao hosts many builds, never one). The **capstones** are the Dao's signatures,
       each an effect a build is named for, usually each closer to a different facet.
     - **The shape** reads as the Dao too (rule 1).
-    - **Theme comes before combat value.** A craft Dao needs no attack line. Its ceilinged craft keys
-      (`alchemy_success`, `herb_growth_pct`) carry only their headroom (D1 part 4), so most of a craft
+    - **Theme comes before combat value.** A craft Dao needs no attack line. Its craft keys
+      (`alchemy_success`, `herb_growth_pct`, lifespan) add through Character Stats' curves, so most of a craft
       Dao's strength is Effects, and its stat lines use its uncapped theme keys.
 
 **What the player cannot do:** buy a node in a Dao it has not glimpsed; buy a node not joined to one
-already bought (or to the start); refund a node; make a node raise a ceiling or multiply a whole rate.
+already bought (or to the start); refund a node; make a node raise a cap or multiply a whole rate.
 
 ### States and Transitions
 
@@ -216,8 +239,9 @@ its roll (rule 11) and has no per-node state.
 
 ### Interactions with Other Systems
 
-Only Spiritual Roots (`linh-can.md`), Character Stats, Cultivation Techniques, Realms &
-Bottlenecks and the Meridian Map have GDDs. Every other interface is provisional.
+Spiritual Roots, Character Stats, Cultivation Techniques, Realms & Bottlenecks, the Meridian Map, the Item
+Database, Combat (with Combat Damage Types and Combat Defence & Healing), the Modifier System, the Effects System,
+Heavenly Tribulation and Quests have GDDs. Every other interface is provisional.
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
@@ -244,27 +268,27 @@ Bottlenecks and the Meridian Map have GDDs. Every other interface is provisional
 > title (hiệu), shown under the name, e.g. **Điếu Đạo** · *Hàn Giang Độc Điếu*. Each Way is a facet list and a capstone idea, not yet a
 > graph. Graphs are drawn one Way at a time as Meridian kit regions,
 > `tools/design/meridian_rework/regions/dao_<slug>.py`; the first is Kiếm Đạo (the pilot, approved 2026-11-10).
-> Requirements are first guesses and use the root's element purity (Spiritual Roots rule 8a); "—" means none,
+> Requirements are first guesses and use the root's element purity (Spiritual Roots), at least `dao_req_purity_min` (30); "—" means none,
 > and those Ways count toward `dao_open_min`. A † marks a Way or facet that holds a seed moved out of the root.
 
 **Heaven and Earth** (the great patterns)
 
 | # | Way | Needs | Five facets | Capstone idea |
 |---|---|---|---|---|
-| 1 | Âm Dương Đạo (Yin and Yang) † | — | Âm (Yin: Cold, darkness)† · Dương (Yang: Fire, Light)† · Thái Cực (Taiji: balance, swapping)† · Ngày Đêm (Day and Night: alternating) · Giao Hòa (Union: paired stacks) | The two fish turn |
-| 2 | Thái Dương Đạo (the Great Sun) | Fire | Bình Minh (Sunrise: opening burst) · Chính Ngọ (Noon: peak mid-fight) · Liệt Nhật (Scorching Sun: Fire on Light) · Nhật Miện (Corona: aura) · Hoàng Hôn (Sunset: a last blaze) | A sun that never sets |
-| 3 | Thái Âm Đạo (the Great Moon) | — | Nguyệt Tướng (Phases: power that cycles) · Nguyệt Quang (Moonlight: Cold on Light) · Triều Tịch (Tides, with Water) · Dạ Hoa (Night Bloom) · Kính Nguyệt (Borrowed Light) | The full moon every night |
-| 4 | Ngũ Hành Đạo (the Five Phases) | three or more base elements | Tương Sinh (the generating cycle) · Tương Khắc (the overcoming cycle) · Quân Bình (Balance) · Luân Chuyển (Rotation) · Hòa Hợp (Harmony: pair bonus) | All five turn as one |
-| 5 | Tứ Thời Đạo (the Four Seasons) | — | Xuân (Spring: growth, healing) · Hạ (Summer: fire, burst) · Thu (Autumn: killing qi, harvest) · Đông (Winter: cold, rest) · Luân Niên (the Turning Year) | Always the right season |
+| 1 | **Âm Dương Đạo** · *Lưỡng Nghi* (Yin and Yang; the Two Forms) † | — | Âm (Yin: Cold, darkness)† · Dương (Yang: Fire, Light)† · Thái Cực (Taiji: balance, swapping)† · Ngày Đêm (Day and Night: alternating) · Giao Hòa (Union: paired stacks) | The two fish turn |
+| 2 | **Thái Dương Đạo** · *Kim Ô* (the Great Sun; the Golden Crow) | Fire | Bình Minh (Sunrise: opening burst) · Chính Ngọ (Noon: peak mid-fight) · Liệt Nhật (Scorching Sun: Fire on Light) · Nhật Miện (Corona: aura) · Hoàng Hôn (Sunset: a last blaze) | A sun that never sets |
+| 3 | **Thái Âm Đạo** · *Quảng Hàn* (the Great Moon; the Moon Palace) | — | Nguyệt Tướng (Phases: power that cycles) · Nguyệt Quang (Moonlight: Cold on Light) · Triều Tịch (Tides, with Water) · Dạ Hoa (Night Bloom) · Kính Nguyệt (Borrowed Light) | The full moon every night |
+| 4 | **Ngũ Hành Đạo** · *Ngũ Hành Luân Chuyển* (the Five Phases; the Five Turning) | three or more base elements | Tương Sinh (the generating cycle) · Tương Khắc (the overcoming cycle) · Quân Bình (Balance) · Luân Chuyển (Rotation) · Hòa Hợp (Harmony: pair bonus) | All five turn as one |
+| 5 | **Tứ Thời Đạo** · *Xuân Hạ Thu Đông* (the Four Seasons; Spring, Summer, Autumn, Winter) | — | Xuân (Spring: growth, healing) · Hạ (Summer: fire, burst) · Thu (Autumn: killing qi, harvest) · Đông (Winter: cold, rest) · Luân Niên (the Turning Year) | Always the right season |
 | 6 | **Phong Nguyệt Đạo** · *Phong Hoa Tuyết Nguyệt* (Wind, Flowers, Snow, Moon) | — | Phong (Wind: speed) · Hoa (Flowers: grace, healing) · Tuyết (Snow: Cold, calm) · Nguyệt (Moon: Light) · Tứ Cảnh (the four beauties at once) | Beauty is the blade |
-| 7 | Hỗn Độn Đạo (Primordial Chaos) | the Primordial Chaos root | Hỗn Độn (Chaos damage) · Vô Hình (Unformed: any element) · Xâm Thực (Erosion: resistance down) · Tiên Thiên (Before Heaven: insight) · Hỗn Hợp (Mixing: element stacks combined) | All five, none of them |
-| 8 | Vô Cực Đạo (the Limitless) | — | Vô Hình (Formless) · Vô Hạn (Unbounded growth) · Quy Nhất (Return to One) · Hư Vô (Emptiness) · Sơ Thủy (the First Breath) | Before Taiji, beyond limit |
+| 7 | **Hỗn Độn Đạo** · *Hồng Mông* (Primordial Chaos; the Primal Haze) | the Primordial Chaos root | Hỗn Độn (Chaos damage) · Vô Hình (Unformed: any element) · Xâm Thực (Erosion: resistance down) · Tiên Thiên (Before Heaven: insight) · Hỗn Hợp (Mixing: element stacks combined) | All five, none of them |
+| 8 | **Vô Cực Đạo** · *Vô Cực Sinh Thái Cực* (the Limitless; the Limitless Gives Birth to Taiji) | — | Vô Tướng (Formless) · Vô Hạn (Unbounded growth) · Quy Nhất (Return to One) · Hư Vô (Emptiness) · Sơ Thủy (the First Breath) | Before Taiji, beyond limit |
 | 9 | **Tinh Đạo** · *Tinh Hà* (River of Stars) | — | Tinh Trận (Star Arrays) · Tinh Quang (Starlight: Light) · Thiên Lý (Distance: travel, range) · Bắc Đẩu (the Dipper: guidance, fate) · Lưu Tinh (Falling Stars: bursts) | The sky is your array |
 | 10 | **Thời Đạo** · *Quang Âm* (Passing Light: Time) † | — | Lão Hóa (Ageing: herbs)† · Tốc (Haste: art speed) · Ngưng (Stillness: enemy timers) · Năm Tháng (Years: lifespan) · Hồi Quang (Rewind: restore) | The fight runs on your clock |
-| 11 | Càn Khôn Đạo (Heaven and Earth in a Sleeve: Space) † | — | Thuấn Bộ (Step: escape, evade) · Tụ Lý (the Sleeve: inventory) · Liệt Không (Rift: Force damage) · Súc Địa (Folding the Earth: travel) · Phong Tỏa (Sealed Place: stops escape) | Here and there at once |
+| 11 | **Càn Khôn Đạo** · *Tụ Lý Càn Khôn* (Heaven and Earth in a Sleeve: Space; a World in a Sleeve) † | — | Thuấn Bộ (Step: escape, evade) · Tụ Lý (the Sleeve: inventory) · Liệt Không (Rift: Force damage) · Súc Địa (Folding the Earth: travel) · Phong Tỏa (Sealed Place: stops escape) | Here and there at once |
 | 12 | **Mệnh Đạo** · *Thiên Cơ* (Heaven's Secret: Fortune) † | — | Tinh Tượng (Star Signs)† · Khí Vận (Fortune, cơ duyên) · Bói Toán (Divination: see events) · Định Mệnh (Destiny: counted chance) · Hung Tinh (Ill Star: curse luck) | The heavens bend |
-| 13 | Động Tĩnh Đạo (Motion and Stillness) | — | Động (Motion: speed, attack) · Tĩnh (Stillness: defence, regeneration) · Chuyển Thế (Switching stances) · Tĩnh Cực Sinh Động (stillness bursting into motion) · Bất Động (Unmoving) | Two stances, one master |
-| 14 | Hư Thực Đạo (Empty and Full) | — | Hư Chiêu (Feints) · Thực Kích (True Strikes) · Hư Ảnh (False images: evade) · Ẩn Thực (Hidden strength) · Hư Thực Tương Sinh (the empty becomes full) | Which blow was real? |
+| 13 | **Động Tĩnh Đạo** · *Tĩnh Như Xử Nữ, Động Như Thoát Thố* (Motion and Stillness; Still as a Maiden, Swift as a Fleeing Hare) | — | Động (Motion: speed, attack) · Tĩnh (Stillness: defence, regeneration) · Chuyển Thế (Switching stances) · Tĩnh Cực Sinh Động (stillness bursting into motion) · Bất Động (Unmoving) | Two stances, one master |
+| 14 | **Hư Thực Đạo** · *Hư Hư Thực Thực* (Empty and Full; Empty and Full, Full and Empty) | — | Hư Chiêu (Feints) · Thực Kích (True Strikes) · Hư Ảnh (False images: evade) · Ẩn Thực (Hidden strength) · Hư Thực Tương Sinh (the empty becomes full) | Which blow was real? |
 
 **Elements and nature**
 
@@ -280,7 +304,7 @@ Bottlenecks and the Meridian Map have GDDs. Every other interface is provisional
 | 22 | **Băng Đạo** · *Băng Tâm* (Ice Heart) | Ice | Sương Giá (Frost: Cold damage) · Băng Thể (Ice Body: shields) · Đông Kết (Freezing: slowed timers) · Băng Xuyên (Glacier: layered wards) · Tuyết Rơi (Snowfall: stealth, calm) | The world stops |
 | 23 | **Vụ Đạo** · *Yên Vũ* (Misty Rain) † | Water | Màn Sương (Veil: evade, stealth)† · Hàn Vụ (Cold Mist: Ice debuff) · Mây (Clouds: travel, escape) · Sương Mai (Dew: regeneration) · Chìm (Drowning: linh lực burn) | Unseen until too late |
 | 24 | **Ngọc Đạo** · *Ngọc Thanh* (Jade Purity) | Earth | Ngọc Thể (Jade Body: body shield) · Thuần Khiết (Purity: status resistance) · Khúc Xạ (Refraction: split hits) · Ngọc Giản (Jade Slips: insight) · Điêu Khắc (Carving: artifacts) | Flawless |
-| 25 | **Quang Đạo** · *Quang Minh* (Radiance) | — | Quang (Radiance: Light damage) · Tịnh (Purity: cleanse) · Bình Minh Kiếm (Dawn: opening burst) · Hào Quang (Halo: wards) · Phán Xét (Judgement: against demons and curses) | Nothing hides |
+| 25 | **Quang Đạo** · *Quang Minh* (Radiance) | — | Quang (Radiance: Light damage) · Tịnh (Purity: cleanse) · Thự Quang (First Light: opening burst) · Hào Quang (Halo: wards) · Phán Xét (Judgement: against demons and curses) | Nothing hides |
 | 26 | **Ám Đạo** · *Dạ Hành* (Night Walker) | — | Bóng Tối (Darkness: blind, accuracy down) · Ẩn (Hiding: stealth, ambush) · Thích Khách (the Assassin: first strike, crit) · Đêm Sâu (Deep Night: stronger later) · Ảnh Bộ (Shade Step: escape) | Strike from nowhere |
 
 **Life, death and the soul**
@@ -288,10 +312,10 @@ Bottlenecks and the Meridian Map have GDDs. Every other interface is provisional
 | # | Way | Needs | Five facets | Capstone idea |
 |---|---|---|---|---|
 | 27 | **Sinh Tử Đạo** · *Sinh Diệt* (Arising and Passing) † | — | Sinh (Life: regeneration, healing)† · Diệt (Death: curses, withering)† · Ranh Giới (the Threshold: the Down step) · Thi Khí (Corpse Qi: drain, Corpse Rot) · Trường Sinh (Longevity) | Crossing the line both ways |
-| 28 | Luân Hồi Đạo (the Wheel of Rebirth) † | — | Bánh Xe (the Wheel: cycling stacks) · Tiền Kiếp (Past Lives: insight) · Tái Sinh (Rebirth: survive a Down) · Vãng Sinh (Passage: soul) · Lục Đạo (the Six Paths: shifting forms) | Death is a door |
-| 29 | Nhân Quả Đạo (Cause and Effect) | — | Nghiệp (Karma: delayed payback) · Nợ (Debts: owed and called) · Báo Ứng (Retribution: retaliation) · Duyên (Affinity: bonds) · Đoạn Nhân Quả (Cutting karma: cleanse) | Every blow comes home |
-| 30 | Bỉ Ngạn Đạo (The Other Shore) | — | Bỉ Ngạn Hoa (the Spider Lily) · Độ (Crossing: escape, survival) · Vong Xuyên (River of Forgetting: curses) · Giác Ngộ (Enlightenment) · Hồng Hoa (Red Petals: bursts on a Down) | Death and awakening, one shore |
-| 31 | Hoàng Tuyền Đạo (the Yellow Springs) | — | Cửu Tuyền (the Nine Springs: depth) · Di Ngôn (Last Words: last acts) · Dẫn Hồn (Leading Souls) · Hoàn Dương (Return to the Living) · Âm Thủy (Dark Water: Cold, Chaos) | One foot already below |
+| 28 | **Luân Hồi Đạo** · *Lục Đạo Luân Hồi* (the Wheel of Rebirth; the Six Paths) † | — | Bánh Xe (the Wheel: cycling stacks) · Tiền Kiếp (Past Lives: insight) · Tái Sinh (Rebirth: survive a Down) · Vãng Sinh (Passage: soul) · Lục Đạo (the Six Paths: shifting forms) | Death is a door |
+| 29 | **Nhân Quả Đạo** · *Gieo Nhân Gặt Quả* (Cause and Effect; Sow the Cause, Reap the Fruit) | — | Nghiệp (Karma: delayed payback) · Nợ (Debts: owed and called) · Báo Ứng (Retribution: retaliation) · Duyên (Affinity: bonds) · Đoạn Nhân Quả (Cutting karma: cleanse) | Every blow comes home |
+| 30 | **Bỉ Ngạn Đạo** · *Bỉ Ngạn Hoa Khai* (The Other Shore; the Far-Shore Flower Blooms) | — | Bỉ Ngạn Hoa (the Spider Lily) · Độ (Crossing: escape, survival) · Vong Xuyên (River of Forgetting: curses) · Giác Ngộ (Enlightenment) · Hồng Hoa (Red Petals: bursts on a Down) | Death and awakening, one shore |
+| 31 | **Hoàng Tuyền Đạo** · *Hoàng Tuyền Lộ* (the Yellow Springs; the Road to the Yellow Springs) | — | Cửu Tuyền (the Nine Springs: depth) · Di Ngôn (Last Words: last acts) · Dẫn Hồn (Leading Souls) · Hoàn Dương (Return to the Living) · Âm Thủy (Dark Water: Cold, Chaos) | One foot already below |
 | 32 | **Quỷ Đạo** · *U Minh* (the Netherworld) | — | Quỷ Bộc (Ghost Servants) · Nhập Xác (Possession) · Oán Hồn (Haunting: curses after death) · Quỷ Hỏa (Ghost Fire: Soul damage) · Quỷ Môn (the Ghost Gate) | The dead fight for you |
 | 33 | **Cốt Đạo** · *Bạch Cốt* (White Bones) | — | Cốt Giáp (Bone Armour) · Cốt Thương (Bone Spear: Physical) · Tủy (Marrow: regeneration) · Cốt Nô (Bone Servants) · Sọ Hộ (Skull Ward: soul) | Strength from the inside out |
 | 34 | **Hồn Đạo** · *Nguyên Thần* (the Primordial Spirit: Soul) † | — | Thần Thức (Divine Sense) · Hồn Kích (Soul Strike) · Hồn Hộ (Soul Ward) · Linh Bộc (Spirit Servants) · Khôi Lỗi (Puppetry) | The body is a vessel |
@@ -304,31 +328,31 @@ Bottlenecks and the Meridian Map have GDDs. Every other interface is provisional
 | # | Way | Needs | Five facets | Capstone idea |
 |---|---|---|---|---|
 | 38 | **Tình Đạo** · *Thất Tình* (the Seven Feelings) | — | Hỷ (Joy) · Nộ (Anger: damage when hurt) · Ai (Sorrow: curses) · Ái (Love: bonds, companions) · Cụ (Fear: the enemy loses nerve) | Every feeling, mastered |
-| 39 | Vô Tình Đạo (the Heartless Way) | — | Đoạn Tình (Cutting Ties: heart demon immunity) · Lạnh Lùng (Cold Heart: steady power) · Thái Thượng (Above Feeling: insight) · Cô Độc (Alone: no companions, more power) · Như Đá (Like Stone: statuses) | Heaven has no heart |
+| 39 | **Vô Tình Đạo** · *Thái Thượng Vong Tình* (the Heartless Way; the Highest Forget Feeling) | — | Đoạn Tình (Cutting Ties: heart demon immunity) · Lạnh Lùng (Cold Heart: steady power) · Thái Thượng (Above Feeling: insight) · Cô Độc (Alone: no companions, more power) · Như Đá (Like Stone: statuses) | Heaven has no heart |
 | 40 | **Tâm Đạo** · *Vấn Tâm* (Questioning the Heart) | — | Tâm Ma (Heart Demons: faced and turned) · Đạo Tâm (the Dao Heart) · Tự Vấn (Self-Questioning: insight) · Kiên Định (Resolve) · Minh Ngộ (Clarity) | No demon left inside |
 | 41 | **Thiền Đạo** · *Minh Tâm* (the Bright Heart: Zen) | — | Tĩnh Tọa (Stillness: seclusion cultivation) · Không (Emptiness: resistance, calm) · Thệ Nguyện (Vows: power from self-restriction) · Kim Cương (Diamond Body) · Đốn Ngộ (Sudden Insight) | The mind does not move |
-| 42 | Bồ Đề Đạo (Bodhi: Merit) | — | Từ Bi (Compassion: healing others) · Nghiệp Thuẫn (Karma Shield: wards) · Thiện Hạnh (Good Deeds: quests, standing) · Trừ Ma (Exorcism) · Kim Thân (the Golden Body) | Merit outweighs heaven |
+| 42 | **Bồ Đề Đạo** · *Bồ Đề Bản Vô Thụ* (Bodhi: Merit; Bodhi Was Never a Tree) | — | Từ Bi (Compassion: healing others) · Nghiệp Thuẫn (Karma Shield: wards) · Thiện Hạnh (Good Deeds: quests, standing) · Trừ Ma (Exorcism) · Kim Thân (the Golden Body) | Merit outweighs heaven |
 | 43 | **Ma Đạo** · *Thiên Ma* (the Heavenly Demon) | — | Ma Lực (Heart Demon Power) · Huyết Tế (Blood Sacrifice) · Ma Hóa (Corruption: Chaos) · Cấm Thuật (Forbidden Arts) · Ma Thân (Demon Body) | Embrace the demon |
 | 44 | **Sát Đạo** · *Tu La* (the Asura Way) | — | Sát Ý (Killing Intent: fear, damage) · Chiến Liên (Battle Streak) · Đao Phủ (the Executioner: low-health enemies) · Huyết Hải Tu La (with the Sea of Blood) · Lãnh Huyết (Cold Blood: heart demon control) | A thousand deaths behind you |
-| 45 | Hồng Trần Đạo (Red Dust) | — | Thế Gian (the Mortal World: standing, prices) · Duyên Phận (Bonds) · Thất Khổ (the Sorrows: insight from loss) · Phàm Tâm (a Mortal Heart: heart demon) · Hồng Trần Luyện Tâm (tempered by the world) | Cultivated among mortals |
+| 45 | **Hồng Trần Đạo** · *Vạn Trượng Hồng Trần* (Red Dust; Ten Thousand Fathoms of Red Dust) | — | Thế Gian (the Mortal World: standing, prices) · Duyên Phận (Bonds) · Thất Khổ (the Sorrows: insight from loss) · Phàm Tâm (a Mortal Heart: heart demon) · Hồng Trần Luyện Tâm (tempered by the world) | Cultivated among mortals |
 | 46 | **Mộng Đạo** · *Hồ Điệp Mộng* (the Butterfly Dream) | — | Mộng (Dream: rest, insight) · Hồ Điệp (the Butterfly: evade) · Thực Mộng (Dream into Real: swap) · Mộng Cảnh (Dreamscape: ground) · Tỉnh (Waking: cleanse) | Which one is dreaming? |
 | 47 | **Huyễn Đạo** · *Kính Hoa Thủy Nguyệt* (Flowers in a Mirror, Moon in Water: Illusion) † | — | Ảo Ảnh (Mirage: evade) · Gương (the Mirror: reflect) · Tâm Ma Ảo (Heart Demons both ways) · Bụi Trần (Dust: the proposed Dust Đạo) · Thủy Nguyệt (the Moon in Water: false targets) | The enemy fights a dream |
-| 48 | **Mị Đạo** · *Khuynh Thành* (City-Toppling Beauty: Charm) | — | Mị Lực (Allure) · Thuyết Phục (Persuasion: prices, standing) · Mê Hoặc (Enthral: the enemy hesitates) · Hồ Hỏa (Fox Fire) · Ngưỡng Mộ (Admirers: followers) | No one will strike you |
-| 49 | Nhẫn Đạo (Forbearance) | — | Kiên Nhẫn (Patience: stronger the longer the fight) · Chịu Đựng (Bear It: damage taken to power) · Ý Chí (Iron Will) · Tử Thủ (Last Stand) · Âm Ỉ (Slow Burn: regeneration) | Whoever lasts, wins |
-| 50 | Tiêu Dao Đạo (Free Wandering) | — | Vô Môn (No Sect) · Vân Hạc (Clouds and Cranes: travel) · Kỳ Ngộ (Chance Meetings) · Tự Tại (a Carefree Heart) · Thoát (Escape) | Bound by nothing |
+| 48 | **Mị Đạo** · *Khuynh Thành* (City-Toppling Beauty: Charm) | — | Mị Lực (Allure) · Thuyết Phục (Persuasion: prices, standing) · Mê Hoặc (Enthral: the enemy hesitates) · Hồ Hỏa (Fox Fire) · ◇ Ngưỡng Mộ (Admirers: followers) | No one will strike you |
+| 49 | **Nhẫn Đạo** · *Nhẫn Nhất Thời, Phong Bình Lãng Tĩnh* (Forbearance; Endure a Moment, and Wind and Waves Fall Still) | — | Kiên Nhẫn (Patience: stronger the longer the fight) · Chịu Đựng (Bear It: damage taken to power) · Ý Chí (Iron Will) · Tử Thủ (Last Stand) · Âm Ỉ (Slow Burn: regeneration) | Whoever lasts, wins |
+| 50 | **Tiêu Dao Đạo** · *Tiêu Dao Du* (Free Wandering; Free and Easy Wandering) | — | Vô Môn (No Sect) · Vân Hạc (Clouds and Cranes: travel) · Kỳ Ngộ (Chance Meetings) · Tự Tại (a Carefree Heart) · Thoát (Escape) | Bound by nothing |
 | 51 | **Hoa Đạo** · *Lạc Hoa* (Falling Petals) | — | Hữu Ý (Petals with intent: grace) · Lưu Thủy Vô Tình (Water without intent: indifference) · Hoa Vũ (Petal Rain: many hits) · Tàn Hoa (Fading: decaying bursts) · Hương Tàn (Lingering Scent: after-effects) | Beautiful because it falls |
 
 **Arms**
 
 | # | Way | Needs | Five facets | Capstone idea |
 |---|---|---|---|---|
-| 52 | Kiếm Đạo (the Sword) † | — | Kiếm Ý (Sword Intent: crit, pierce) · Phi Kiếm (Flying Swords) · Kiếm Thể (Edge Body: Physical thể tu) · Hàn Phong (Cold Edge) · Kiếm Tâm (Sword Heart: thần thức) | Drawn: Nhất Kiếm, Vạn Kiếm Quy Tông, Báo Chiêu, Đông Bất Tận, Tâm Bất Động, Thân Tức Kiếm |
+| 52 | **Kiếm Đạo** · *Kiếm Tâm Thông Minh* (the Sword; a Sword Heart, Clear and Bright) † | — | Kiếm Ý (Sword Intent: crit, pierce) · Phi Kiếm (Flying Swords) · Kiếm Thể (Edge Body: Physical thể tu) · Hàn Phong (Cold Edge) · Kiếm Tâm (Sword Heart: thần thức) | Drawn: Nhất Kiếm, Vạn Kiếm Quy Tông, Báo Chiêu, Đông Bất Tận, Tâm Bất Động, Thân Tức Kiếm |
 | 53 | **Đao Đạo** · *Cuồng Đao* (the Mad Saber) | — (needs a `saber` form tag) | Trọng Đao (Heavy Saber) · Hoành Tảo (Sweeping Cut) · Đao Ý (Saber Intent) · Huyết Đao (Blood Saber) · Hồi Đao (Return Stroke: counters) | One cut splits the sky |
 | 54 | **Thương Đạo** · *Phá Quân* (the Army-Breaker: Spear) | — (needs a `spear` form tag) | Xuyên Thấu (Piercing) · Trường Thương (Reach: first strike) · Xung Phong (Charge) · Thương Trận (Spear Wall: counters) · Long Thương (Dragon Spear: combos) | The point goes through |
 | 55 | **Xạ Đạo** · *Xạ Nhật* (Shooting the Suns: Bow) | — (needs a `bow` form tag) | Viễn Xạ (Long Shot) · Tiễn Vũ (Rain of Arrows) · Ưng Nhãn (Hawk's Eye: crit, accuracy) · Linh Tiễn (Spirit Arrows) · Truy Tung (Tracking: hunts, creatures; from Hunting) | Never a miss |
 | 56 | **Chưởng Đạo** · *Thiên Thủ* (a Thousand Hands: Palm) | — | Trọng Chưởng (Heavy Palm: Force) · Chưởng Phong (Palm Wind) · Nội Kình (Inner Strike: through wards) · Hỏa Chưởng (Burning Palm) · Thiên Chưởng (a Thousand Palms: many hits) | One palm, a mountain falls |
 | 57 | **Ấn Đạo** · *Pháp Ấn* (Dharma Seals) | — | Ấn Liên (Seal Chains: combos) · Phược Ấn (Binding Seals) · Thiên Ấn (Heaven Seals: big slow arts) · Khoái Ấn (Quick Seals) · Hộ Ấn (Seal Wards) | A seal for every answer |
-| 58 | **Vũ Đạo** · *Nghê Thường* (the Rainbow Robe: Dance) | — | Tiết Tấu (Rhythm: art timing) · Xoay (Spin: several targets) · Uyển Chuyển (Grace: evade) · Kiếm Vũ (Sword Dance) · Hội (Festival: allies' power) | The fight is a dance |
+| 58 | **Vũ Đạo** · *Nghê Thường* (the Rainbow Robe: Dance) | — | Tiết Tấu (Rhythm: art timing) · Xoay (Spin: several targets) · Uyển Chuyển (Grace: evade) · Kiếm Vũ (Sword Dance) · ◇ Hội (Festival: allies' power) | The fight is a dance |
 | 59 | **Diệt Đạo** · *Tịch Diệt* (Silent Extinction: Destruction) † | — | Hủy Hoại (Ruin: more damage)† · Phá Giáp (Shatter: resistance shred) · Diệt Tuyệt (Annihilation: Chaos) · Sụp Đổ (Collapse: overkill) · Tai Kiếp (Calamity: self-cost) | Nothing is left standing |
 | 60 | **Phệ Đạo** · *Thôn Thiên* (Swallowing Heaven) | — | Thôn (Swallow: drain linh lực) · Hóa (Digest: gains from kills) · Đói (Hunger: stacking need) · Nuốt Đan (Consume Pills: toxicity into power) · Hắc Khẩu (the Maw: soul drain) | Everything is food |
 | 61 | **Trấn Đạo** · *Trấn Thiên* (Suppressing Heaven: Sealing) | — | Phong Thuật (Seal Arts: silence) · Khóa Khí (Seal Qi) · Trấn Thú (Seal Beasts) · Lao Ngục (Prison: stop escape) · Tự Phong (Self-Seal: stored power) | Nothing moves without leave |
@@ -342,8 +366,8 @@ Bottlenecks and the Meridian Map have GDDs. Every other interface is provisional
 | 64 | **Đan Đạo** · *Cửu Chuyển* (the Nine Turnings: Pill) † | Wood or Fire | Đan Lô (the Furnace) · Linh Điền (Spirit Fields)† · Hàn Đan (Cold Pill) · Linh Thiện (Spirit Food: buffs; from Cuisine) · Y Đạo (Medicine: healing) | Every pill is perfect |
 | 65 | **Trận Đạo** · *Phong Thủy* (Wind and Water: Geomancy) † | — | Trận Pháp (Arrays)† · Linh Mạch (Spirit Veins) · Phù Lục (Talismans) · Hộ Trận (Ward Arrays) · Động Phủ (the Cave Dwelling: home ground) | A formation within the body |
 | 66 | **Họa Đạo** · *Thi Họa* (Poetry and Painting) | — | Mặc Thú (Ink Beasts: summons) · Sơn Thủy (Landscape: ground) · Chân Dung (Portrait: copies) · Bút Pháp (Brushstroke: combos) · Thi Quyển (the Living Scroll: stored arts) | What is drawn becomes real |
-| 67 | **Cầm Đạo** · *Thiên Lại* (the Pipes of Heaven: Music) | — | Cầm (the Zither: Force, soul) · Cổ (the Drum: allies, companions) · Tiêu (the Flute: calm) · Cộng Hưởng (Resonance: stacking hits) · Vô Thanh (Silence: stops enemy arts) | The song decides the fight |
-| 68 | Kỳ Đạo (the Way of Go) | — | Tiên Tri (Foresight: guards, slot order) · Bố Cục (the Opening: art order) · Hư Chiêu Kỳ (Feints, counters) · Khí Tử (Sacrifice: give up to gain) · Tàn Cục (Endgame: late-fight power) | Every move was planned |
+| 67 | **Cầm Đạo** · *Thiên Lại* (the Pipes of Heaven: Music) | — | Cầm (the Zither: Force, soul) · Chiến Cổ (the War Drum: companions) · Tiêu (the Flute: calm) · Cộng Hưởng (Resonance: stacking hits) · Vô Thanh (Silence: stops enemy arts) | The song decides the fight |
+| 68 | **Kỳ Đạo** · *Nhất Cục Thiên Hạ* (the Way of Go; the World in One Game) | — | Tiên Tri (Foresight: guards, slot order) · Bố Cục (the Opening: art order) · Hư Chiêu Kỳ (Feints, counters) · Khí Tử (Sacrifice: give up to gain) · Tàn Cục (Endgame: late-fight power) | Every move was planned |
 | 69 | **Tửu Đạo** · *Túy Tiên* (the Drunken Immortal) | — | Túy Quyền (Drunken Fist: erratic evade) · Ủ Rượu (Brewing: spirit wine) · Hỏa Tửu (Fire Wine) · Cuồng Hoan (Revelry: heart demon down) · Say Mèm (Hangover: cost for power) | Drunk is enlightened |
 | 70 | **Ti Đạo** · *Hồng Tuyến* (the Red Thread) | — | Sợi Duyên (Fate Threads) · Trói (Binding: slowing) · Mạng Nhện (the Web: traps) · Dây Rối (Puppet Strings) · Thiên Y (Silk Armour) | Every thread leads to you |
 | 71 | **Điếu Đạo** · *Hàn Giang Độc Điếu* (Lone Angler on the Cold River) | — | Chờ (Patience: waiting gains) · Mồi (the Lure: draw enemies, events) · Phúc Thủy (Fortune of the Water) · Câu Móc (Line and Hook: pull, stop escape) · Hồ Lặng (the Calm Lake: heart demon) | The fish comes to the hook |
@@ -353,7 +377,7 @@ Bottlenecks and the Meridian Map have GDDs. Every other interface is provisional
 
 | # | Way | Needs | Five facets | Capstone idea |
 |---|---|---|---|---|
-| 73 | **Thú Đạo** · *Bách Thú* (a Hundred Beasts) | — | Khế Ước (Bond: loyalty, companion share) · Bầy (the Pack) · Thú Thể (Beast Body: borrowed traits) · Tọa Kỵ (Mounts) · Săn (the Hunt: creatures, materials; from Hunting) | One heart in many bodies |
+| 73 | **Thú Đạo** · *Bách Thú* (a Hundred Beasts) | — | Linh Khế (Spirit Bond: loyalty, companion share) · Bầy (the Pack) · Thú Thể (Beast Body: borrowed traits) · ◇ Tọa Kỵ (Mounts) · Săn (the Hunt: creatures, materials; from Hunting) | One heart in many bodies |
 | 74 | **Long Đạo** · *Chân Long* (the True Dragon) | — | Long Huyết (Dragon Blood: vitality) · Long Lân (Scales: shields) · Long Ngâm (the Roar: fear, silence) · Long Tàng (the Hoard: treasures) · Hô Vũ (Rain-Calling: Water, Lightning) | The dragon wakes |
 | 75 | **Hóa Đạo** · *Vạn Hóa* (Ten Thousand Changes) | — | Thú Hình (Beast Forms) · Cự Hình (Giant Form) · Tiểu Hình (Small Form: evade, stealth) · Nguyên Tố Hình (Elemental Form) · Biến Hóa (switching forms mid-fight) | Any shape, any answer |
 | 76 | **Phân Thân Đạo** · *Nhất Khí Hóa Tam* (One Breath, Three Bodies) | — | Phân Thân (Split Self: a clone fights) · Kính Ảnh (Mirror Images: evade) · Hóa Thân (an Avatar Body) · Đồng Tâm (Shared Mind: thần thức) · Thiên Thủ Phân Thân (Many Hands: art slots, rare) | There are three of you |
@@ -362,14 +386,14 @@ Bottlenecks and the Meridian Map have GDDs. Every other interface is provisional
 
 | # | Way | Needs | Five facets | Capstone idea |
 |---|---|---|---|---|
-| 77 | Hiếu Đạo (Filial Piety) | — | Tổ Tiên (Ancestors) · Gia Tộc (Family) · Trung Môn (Sect Loyalty) · Truyền Thừa (Inheritance) · Báo Ân (Repaying Kindness) | The lineage fights beside you |
+| 77 | **Hiếu Đạo** · *Ẩm Thủy Tư Nguyên* (Filial Piety; Drinking Water, Remember the Source) | — | Tổ Tiên (Ancestors) · ◇ Gia Tộc (Family) · Trung Môn (Sect Loyalty) · Truyền Thừa (Inheritance) · Báo Ân (Repaying Kindness) | ◇ The lineage fights beside you (archived; a lineage-blessing capstone instead) |
 | 78 | **Nho Đạo** · *Hạo Nhiên* (Vast Righteousness) | — | Chính Khí (Righteous Qi) · Thư Pháp (Calligraphy: written arts) · Lễ (Rites: order, buffs) · Học (Learning: comprehension) · Ngôn Linh (Words of Power: silence, command) | The pen cuts deeper |
 | 79 | **Thệ Đạo** · *Thiên Thệ* (Oath to Heaven) | — | Tự Thệ (Self-Oaths: closed options for power) · Khế Ước (Contracts) · Thiên Chứng (Heaven as Witness) · Kết Nghĩa (Sworn Bonds) · Nợ Ân (Debts) | A word is law |
-| 80 | **Sư Đạo** · *Truyền Đăng* (Passing the Lamp) | — | Đệ Tử (Disciples who fight) · Giảng Đạo (Teaching: insight) · Đạo Thống (the Lineage of Arts) · Chỉ Điểm (Guidance: others' breakthroughs) · Di Sản (Legacy) | The student surpasses you |
+| 80 | **Sư Đạo** · *Truyền Đăng* (Passing the Lamp) | — | ◇ Đệ Tử (Disciples who fight) · Giảng Đạo (Teaching: insight) · Đạo Thống (the Lineage of Arts) · Chỉ Điểm (Guidance: others' breakthroughs) · Di Sản (Legacy) | The student surpasses you |
 | 81 | **Hiệp Đạo** · *Hiệp Cốt* (Bones of a Hero) | — | Chính Nghĩa (Justice) · Phù Nhược (Protecting the Weak) · Du Hiệp (Wandering Hero: quests) · Quyết Đấu (the Duel) · Danh Tiếng (Reputation) | Righteousness answers |
-| 82 | **Hoàng Đạo** · *Nhân Hoàng* (Emperor of Men) | — | Uy Nghiêm (Authority: aura, fear) · Thần Dân (Followers) · Thánh Chỉ (Decrees) · Cống Phẩm (Tribute) · Long Ỷ (the Throne: home ground) | All under heaven |
-| 83 | **Binh Đạo** · *Thiên Quân Vạn Mã* (a Thousand Troops, Ten Thousand Horses) | — | Binh Sĩ (Troops: mass battle) · Chiến Trận (Battle Formations) · Thống Soái (Generalship) · Công Thành (Siege) · Lương Thảo (Supply) | The army is one body |
-| 84 | **Thủ Đạo** · *Thủ Hộ* (the Keeper) | — | Thuẫn Tường (Shield Wall) · Hộ Vệ (Protector: allies) · Khiêu Khích (Taunt) · Canh Giữ (Vigil: late-fight defence) · Bất Khuất (Unbroken) | Nothing passes you |
+| 82 | **Hoàng Đạo** · *Nhân Hoàng* (Emperor of Men) | — | Uy Nghiêm (Authority: aura, fear) · ◇ Thần Dân (Followers) · Thánh Chỉ (Decrees) · Cống Phẩm (Tribute) · Long Ỷ (the Throne: home ground) | All under heaven |
+| 83 | ◇ **Binh Đạo** (archived whole: mass battle) · *Thiên Quân Vạn Mã* (a Thousand Troops, Ten Thousand Horses) | — | Binh Sĩ (Troops: mass battle) · Chiến Trận (Battle Formations) · Thống Soái (Generalship) · Công Thành (Siege) · Lương Thảo (Supply) | The army is one body |
+| 84 | **Thủ Đạo** · *Thủ Hộ* (the Keeper) | — | Thuẫn Tường (Shield Wall) · ◇ Hộ Vệ (Protector: allies) · ◇ Khiêu Khích (Taunt) · Canh Giữ (Vigil: late-fight defence) · Bất Khuất (Unbroken) | Nothing passes you |
 
 **Ways that change the rules** (user request 2026-11-10: "any other cool đạo concepts"; the rule-changers chosen)
 
@@ -382,9 +406,9 @@ Bottlenecks and the Meridian Map have GDDs. Every other interface is provisional
 | 89 | **Vô Vi Đạo** · *Vô Vi Nhi Trị* (Rule by Not Acting) | — | Bất Động Thủ (Not Striking: power while idle) · Tự Nhiên (Let It Happen: wards and ticks do the work) · Thuận (Yielding: counters) · Thủ Nhu (Keeping Soft: damage taken softened) · Vô Vi Tâm (the Non-Acting Heart) | It wins without moving |
 | 90 | **Si Đạo** · *Si* (Obsession) | — | Nhất Niệm (One Thought: one tag, very deep) · Si Mê (Infatuation: stacking focus) · Quên Mình (Self-Forgetting: other stats ignored) · Điên (Madness: heart demon as fuel) · Tuyệt Kỹ (the Peerless Art) | Master of one thing, nothing else |
 | 91 | **Hận Đạo** · *Hận Hải Nan Điền* (A Sea of Hatred No One Can Fill) | — | Kẻ Thù (the Nemesis: a sworn enemy from the World Database) · Báo Thù (Vengeance: power against those who wronged you) · Ghi Hận (Grudges: marked foes) · Huyết Thệ (Blood Oath) · Hận Ý (Hatred as qi) | The world remembers, and so do you |
-| 92 | **Cô Đạo** · *Thiên Sát Cô Tinh* (the Lone Star of Calamity) | — | Độc Hành (Walking Alone: no companions) · Vô Môn Phái (No Sect) · Cô Tinh (the Lone Star: more power per missing ally) · Khắc Thân (Bringing Misfortune: allies weaken, you rise) · Lạnh (Coldness: heart demon) | Alone under heaven |
+| 92 | **Cô Đạo** · *Thiên Sát Cô Tinh* (the Lone Star of Calamity) | — | Độc Hành (Walking Alone: no companions) · Vô Môn Phái (No Sect) · Cô Tinh (the Lone Star: more power per missing ally) · ◇ Khắc Thân (Bringing Misfortune: allies weaken, you rise) · Lạnh (Coldness: heart demon) | Alone under heaven |
 | 93 | **Vực Đạo** · *Lĩnh Vực* (Domain) | — | Triển Vực (Unfolding: a domain opens mid-fight) · Vực Quy (Domain Rules: rewrites fight rules inside it) · Vực Áp (Domain Pressure: enemy slowed) · Vực Hộ (Domain Ward) · Vực Thần (Domain Lord: your own ground everywhere) | Within my domain, I decide |
-| 94 | **Thần Đạo** · *Hương Hỏa Thành Thần* (A God Made of Incense Smoke) | — | Tín Đồ (Followers: faith from the world) · Hương Hỏa (Incense: faith as power) · Miếu (Shrines: home ground) · Thần Uy (Divine Majesty: fear, aura) · Hiển Linh (Manifestation: answering prayers, events) | Worshipped, therefore mighty |
+| 94 | **Thần Đạo** · *Hương Hỏa Thành Thần* (A God Made of Incense Smoke) | — | ◇ Tín Đồ (Followers: faith from the world) · Hương Hỏa (Incense: faith as power) · Miếu (Shrines: home ground) · Thần Uy (Divine Majesty: fear, aura) · Hiển Linh (Manifestation: answering prayers, events) | Worshipped, therefore mighty |
 
 **Seed mapping.** Lava, Pill Fire → Hỏa Đạo; Gravity → Thổ Đạo; Life, Death → Sinh Tử Đạo; Poison → Độc Đạo;
 Mist → Vụ Đạo; Sword → Kiếm Đạo; Heavenly Thunder → Lôi Đạo; Destruction → Diệt Đạo; Spirit Farming → Đan Đạo;
@@ -396,13 +420,20 @@ Talisman and Cold Pill Daos from the root build catalogue are facets (Huyễn Đ
 Ôn Dịch), Hunting (→ Thú Đạo's Săn and Xạ Đạo's Truy Tung), Cuisine (→ Đan Đạo's Linh Thiện). Emotion split into
 Tình Đạo and Vô Tình.
 
+**Archived for future extensions (◇; user decision 2026-11-10, review D-03).** Combat is one fighter plus attached
+companions; it has no allies, party, mounts, disciples, troops, taunt or world followers, and Effects System rule 5
+has nothing to read them. The facets marked ◇ wait for that extension and are recorded in Combat's future plans
+(combat.md Open Question 27). A Way with a ◇ facet is drawn with a replacement facet chosen when it is drawn; Binh
+Đạo (#83) is archived whole, since four of its five facets are mass battle. Thần Đạo's Hương Hỏa also leans on
+followers and should be reshaped onto shrines and ground when drawn.
+
 **Open (roster):**
 - Đao Đạo, Thương Đạo and Xạ Đạo need new form tags beside sword, palm, seal, beast and formation (Combat rule 6,
   Modifier System rule 9).
 - Overlaps to keep apart while drawing: Huyết Đạo, Sát Đạo and Diệt Đạo; Thể Đạo, Cốt Đạo, Thổ Đạo and
   Kim Đạo's Thối Thể; Quang Đạo, Bồ Đề, Thái Dương and Âm Dương's Dương; Vụ Đạo, Băng Đạo, Thái Âm and Âm
   Dương's Âm; Sinh Tử Đạo, Hoàng Tuyền, Bỉ Ngạn, Quỷ Đạo and Luân Hồi; Tâm Đạo, Thiền Đạo and Tình Đạo; Nhân Quả and
-  Luân Hồi; Động Tĩnh and Hư Thực with Kỳ Đạo; Nghịch Đạo with Nhẫn Đạo; Vô Vi Đạo with Thiền Đạo; Cô Đạo with Vô Tình (its Cô Độc facet); Đại Đạo with Kiếm Đạo's One Sword; Vực Đạo with Trận Đạo's Động Phủ; Kiếp Đạo with Lôi Đạo's tribulation facet; Long Đạo with Thú Đạo and Hóa Đạo; Phân Thân Đạo with Huyễn Đạo; Ti Đạo with Kỹ Đạo's puppets; Vũ Đạo with Phong Đạo. Each graph keeps its facets
+  Luân Hồi; Động Tĩnh and Hư Thực with Kỳ Đạo; Nghịch Đạo with Nhẫn Đạo; Vô Vi Đạo with Thiền Đạo; Cô Đạo with Vô Tình (its Cô Độc facet); Đại Đạo with Kiếm Đạo's One Sword; Vực Đạo with Trận Đạo's Động Phủ; Kiếp Đạo with Lôi Đạo's tribulation facet; Long Đạo with Thú Đạo and Hóa Đạo; Phân Thân Đạo with Huyễn Đạo; Ti Đạo with Kỹ Đạo's puppets; Vũ Đạo with Phong Đạo; Thái Âm's Triều Tịch with Thủy Đạo's Triều; Thái Dương's Bình Minh with Quang Đạo's Thự Quang (both opening bursts); Hỏa Đạo's Đan Hỏa with Đan Đạo's Đan Lô (review D-15). Each graph keeps its facets
   distinct from its neighbours' (rule 12).
 
 ## Formulas
@@ -431,24 +462,19 @@ nodes as on the Meridian Map, Effects and arts bounded by slots, consistency N4)
    2 `minor` Effects (an art's rider counts as one); per Dao at most 1 art, or 2 if the Catalogue names the Dao as
    an exception; across the catalogue at most `dao_art_share_max` of Daos hold an art and at most
    `dao_two_art_max` hold two; road nodes are stat lines only; each capstone is exactly one Effect of tier
-   `keystone` or `enabler` and at most one rare modifier, and rival pairs are marked both ways;
-5. **key headroom.** For each stat key k, the W a Dao's stat lines put on k is at most the key's
-   headroom H(k), so a node is never priced for a line the stat sheet will clamp (added by
-   design-review 2026-11-06, third pass; user decision on the rate cap):
-   - a key under a Character Stats rule 14 ceiling: H = ceiling × the key's price.
-     `alchemy_success` is 3 pp × 2.7 = 8.1 W, `herb_growth_pct` is 10 × 0.9 = 9 W, and
-     `lifespan_years` likewise;
-   - `cultivation_speed_pct`, which has no ceiling: H = `dao_rate_cap_pct` × 2.2 = 22 W, so one
-     Dao gives at most +10 % cultivation speed (rule 4);
-   - every other key: no headroom limit.
-   A craft Dao therefore cannot be built from ceilinged keys alone. Its strength above the
-   headroom comes from Effects and uncapped theme keys. Time's herb ageing routes through
-   `herb_growth_pct` (its old root factor is deprecated), so it counts under the same headroom.
+   `keystone` or `enabler` and at most one rare modifier, and rival pairs are marked both ways; across the whole
+   catalogue, two capstones whose `closes` contradicts the other's payload are marked rival even in different
+   Daos (review D-09); capstones and `major` Effects are unique to one Dao, `minor` Effects may be shared;
+5. **the rate cap.** One Dao's `cultivation_speed_pct` lines sum to at most `dao_rate_cap_pct` (10 %), worth
+   10 × 2.2 = 22 W (rule 4). This is the only per-key limit. The 2026-11-06 key-headroom lint (a ceiling times the
+   key's price on `alchemy_success`, `herb_growth_pct` and lifespan) is dropped (user decision 2026-11-10, review
+   D-01): Character Stats rule 14 turned those ceilings into diminishing-return curves with no clamp, so the curves
+   keep stacking in check and AC-DAO-10 guards the gates.
 
 The cost is flat, so strong and weak nodes cost the same, as on the Meridian Map. Stat nodes carry the premium
 node by node; Effects and the rare art carry no W (Effects System rule 4) and are held by the slot table. The
-ceilings are character-wide, so several Daos on one key still share them; the Advisor's clamp warning
-(Edge Cases) covers that.
+curves are character-wide, so several Daos on one key share their diminishing return; the Advisor shows the
+marginal gain before a buy (Edge Cases).
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -469,7 +495,9 @@ ceilings are character-wide, so several Daos on one key still share them; the Ad
 the bands move with the knobs. A default Mastered Dao costs about 149 points, a little over a quarter of a life's
 566. With the Sword pilot's mix (121 small or road nodes, 15 stat notables) its stat lines are worth about
 121 × 2.4 + 15 × 16 = 530 W against the 325 W its 157 points buy on the map, plus its 15 Effects and its capstones.
-Four Mastered Daos would need about 600 points, more than a life holds, so a life masters one or two and goes
+Over all of its points the pilot's stat lines are 530 ÷ 157 = 3.38 W per point,
+1.63 × the map: its 15 Effect notables and 6 capstones (21 points) carry no W, and they are the unpriced rest of the
+×2 premium (review D-02). Four Mastered Daos would need about 600 points, more than a life holds, so a life masters one or two and goes
 part-way into the rest. Open Question 4 measures the whole with the balance harness.
 
 **Example:** the Sword pilot (`tools/design/meridian_rework/regions/dao_sword.py`, approved 2026-11-10):
@@ -487,7 +515,7 @@ The dao_offer formula is defined as:
 
 A character is given `dao_glimpses_per_realm` glimpses in each realm from `dao_glimpse_realm_min`
 (Foundation Establishment); the glimpse happens when an event resolves it (the Event Engine
-owns the rate). The shuffle is a Fisher–Yates over E in catalogue order, one uniform draw per
+owns the rate). The shuffle is a Fisher–Yates over E in stable `dao.json` id order (never the display number, so inserting or renumbering a Way changes no seeded offer; review D-16), one uniform draw per
 swap, so the offer is reproducible from the seed. Exactly: with k = min(`dao_offer_size`, |E|), for i = 0 … k−1
 take j = i + randint(|E| − i) and swap entries i and j; the offer is entries 0 … k−1. That is k
 draws (two for |E| = 2, even though the last has one outcome), from the seeded stream named
@@ -535,19 +563,22 @@ must confirm (Open Question 5).
 | map_points | int | 121–425 | calculated | Points the Meridian Map allocator gets |
 
 **Output Range:** `power_mult` 1.00 (no Dao) to about 1.67. Below the cap it is a plateau
-of 1.652–1.667 (161 points: 1.661; 179: 1.652; 216, 240 and 304: 1.667; 566: 1.664). With a 149-point Dao
+of 1.660–1.667 at the Meridian Map's stage totals (161 points, Core Formation early: 1.661; 216, Core Formation
+great perfection: 1.667; 278, Nascent Soul early: 1.660; 458, Deity Transformation early: 1.663; 566: 1.664). With a 149-point Dao
 (revised 2026-11-10) the cap would bind only from 596 points, past a life's 566, so it never binds.
 The ratio `P_npc ÷ points_total` never exceeds `npc_dao_share`, so `power_mult` never exceeds
 1 + 2 × 0.25 ÷ 0.75 = 1.667.
 `power_mult` acts on the smaller map allocation, so the gain over an NPC of the same level with
 no Dao is `(points_total + (dao_premium − 1) · P_npc) ÷ points_total`: about +25 % at every level,
 +24.9 % at 566 points. `npc_dao_power_max` is retired. The NPC model prices only the points; a Dao's
-unpriced Effects (and rare art) are not in it, so the harness check (Open Question 5) covers them too.
+unpriced Effects (and rare art) are not in it, so the harness check (Open Question 5) covers them too. The NPC's
+full 2.0 × assumes the Effects and capstones make up the 0.37 × that the stat lines leave (D1 Output Range; user
+decision 2026-11-10, review D-02).
 
 **Example:** a Core Formation NPC at level 41 has 161 points, so P_npc = min(149, ⌊40.25⌋) = 40,
 map_points = 121 and power_mult = (121 + 80) ÷ 121 = **1.661**, about +25 % over a Dao-less NPC
-of that level. A Nascent Soul NPC with 304 points has P_npc = ⌊76.0⌋ = 76, map_points = 228 and
-power_mult = (228 + 152) ÷ 228 = **1.667**, +25 %.
+of that level. A Nascent Soul NPC at its first level has 278 points, so P_npc = ⌊69.5⌋ = 69, map_points = 209 and
+power_mult = (209 + 138) ÷ 209 = **1.660**, +24.8 %.
 
 ## Edge Cases
 
@@ -567,9 +598,9 @@ power_mult = (228 + 152) ÷ 228 = **1.667**, +25 %.
 
 - **If a node costs more than the character's unspent points:** the buy is refused and the
   shortfall is shown. A glimpsed Dao is always visible, with every cost.
-- **If a node's stat line would sit above a Character Stats ceiling:** it is clamped, and the
-  sheet shows the clamp line, as for every other source. Before the buy, the Advisor warns that
-  the line will not count, as it does for a lifespan pill.
+- **If a node's stat line is on a curve key** (lifespan, herb growth, alchemy; Character Stats rule 14): it adds
+  through the curve like every other source, and before the buy the Advisor shows its marginal gain. On a key that
+  still clamps (the q-extras ceiling, crit caps) it is clamped and the sheet shows the clamp line.
 - **If a Dao's Effect does the same thing as a Meridian Map keystone or another host's Effect:** both
   apply and stack, unless the Effect's own `limits` say otherwise (Effects System). A Dao's Effects have
   their own ids (rule 12).
@@ -616,9 +647,10 @@ power_mult = (228 + 152) ÷ 228 = **1.667**, +25 %.
 
 ## Dependencies
 
-Spiritual Roots (`linh-can.md`), Character Stats, Cultivation Techniques, Realms &
-Bottlenecks and the Meridian Map have GDDs. Every other interface is provisional. When each
-remaining GDD is written, it must list the Way in its own Dependencies section.
+Spiritual Roots, Character Stats, Cultivation Techniques, Realms & Bottlenecks, the Meridian Map, the Item
+Database, Combat (with its Damage Types and Defence & Healing sub-systems), the Modifier System, the Effects System,
+Heavenly Tribulation and Quests have GDDs. Every other interface is provisional. When each remaining GDD is written,
+it must list the Way in its own Dependencies section.
 
 **Upstream: this system cannot work without them (hard)**
 
@@ -640,6 +672,9 @@ remaining GDD is written, it must list the Way in its own Dependencies section.
 | 9 | Cultivation Techniques | A technique's kind and tier, as a requirement | A Dao can only require roots |
 | 8 | Realms & Bottlenecks | The realm, for the glimpse allowance; the gate odds Daos must not break | No glimpse allowance by realm |
 | 21 | Combat | The art format (rule 13) and the fight art nodes act in | No art nodes ship |
+| 22 | Heavenly Tribulation (Thiên Kiếp) | The tribulation that Lôi, Kiếp and Nghịch Đạo act on | Those facets have nothing to act on |
+| 31 | Quests | Quests and standing for Hiệp Đạo's Du Hiệp and Bồ Đề Đạo's Thiện Hạnh | Those facets read nothing |
+| 13 | Item Database | Artifact slots and refining for Kim Đạo and Kỹ Đạo | Those facets fall back to stat lines |
 | 24 / 28 | NPC Build Generation, Living World Tick | The NPC roll at Core Formation | Only the player holds Daos |
 | 11 Progression Edges (design order #10) | A birth or sect edge that grants an early glimpse (Open Question 6) | The glimpse allowance stays at `dao_glimpses_per_realm` |
 
@@ -679,8 +714,10 @@ Question 4, 5).
 | `dao_node_count`, `dao_full_points` | 150, 149 | 110–170, 109–169 at cost 1 | How much of a life's points a Dao takes (4 Mastered Daos ≈ 600 of 566, so a life masters one or two), and the authoring load |
 | `dao_capstone_depth` | 10 | 8–16 | How deep the signatures sit: points before a Dao names the build |
 | `dao_keystone_count` | 5 | 2–6 | How many signatures a Dao offers, and so how many builds it names |
-| `dao_rate_cap_pct` | 10 | 5–15 | Most cultivation speed one Dao may give (Formulas D1 part 4). Higher lets a Dao speed the climb and could shift the gate calibration |
-| `dao_node_tol` | 0.2 | 0.1–0.3 | How far one stat node may sit from V̄. Wider lets a node be a jackpot or a trap (replaces `dao_branch_tol`, `dao_route_floor` and `dao_ability_credit`, retired 2026-11-10) |
+| `dao_rate_cap_pct` | 10 | 5–15 | Most cultivation speed one Dao may give (Formulas D1 part 5). Higher lets a Dao speed the climb and could shift the gate calibration |
+| `dao_node_tol` | 0.2 | 0.1–0.3 | How far one stat node may sit from W_small or W_notable. Wider lets a node be a jackpot or a trap (replaces `dao_branch_tol`, `dao_route_floor` and `dao_ability_credit`, retired 2026-11-10) |
+| `dao_req_purity_min` | 30 | 20–50 | Least purity of a required element at the glimpse (rule 5; review D-12) |
+| Data size | 94 Ways × about 150 nodes ≈ 14,000 nodes in `dao.json` | load once at start; a save stores bought node ids per Dao | Load time and save size (review D-17) |
 | Facet slot table | 1 major, 2 minor per facet | ±1 per kind, by the harness | How rule-heavy a Dao is against its stat lines (rule 10) |
 | `dao_art_share_max`, `dao_two_art_max` | 0.2, 2 | 0–0.3; 0–3 | How often a Dao carries an art instead of leaving arts to techniques (user decision 2026-11-10: rare) |
 | `dao_glimpses_per_realm` | 1 | 1 (2 only if `dao_open_min` ≥ offer + 7, so at offer 3 and not at offer 4, which needs 11 against a ceiling of 10) | Daos per life (4 at 1) |
@@ -698,7 +735,7 @@ are designed.
 ## Game Feel
 
 Not specified at this tier. Intent for later work:
-- **A glimpse** is a moment: three Daos offered, one chosen, and a graph to look at whose shape is the Dao.
+- **A glimpse** is a moment: `dao_offer_size` Daos offered, one chosen, and a graph to look at whose shape is the Dao.
 - **A node** feels like a real purchase: clearly better than the same node on the map.
 - **A facet's far end** pays off: its `major` Effect changes how the build plays.
 - **A capstone** is the payoff that names the build; a Dao offers several, so two lives in one Dao can be named differently.
@@ -712,7 +749,10 @@ Specified for the Debug Terminal now and the Game UI later.
   capstone) and what it gives, which nodes are buyable now (joined to a bought node), the flat cost,
   and the shortfall when the character cannot afford one. Facets are named on the drawing.
 - **The offer** lists `dao_offer_size` Daos (three at the default) with their requirements and a one-line description.
-- **The Advisor** warns before a buy when a stat line would sit above a ceiling.
+- **The Advisor** shows a stat line's marginal gain before a buy on a curve key, and warns when it would sit above a
+  cap.
+- **Drawing a graph:** the Debug Terminal lists nodes by facet; the Game UI draws the authored layout (about 150
+  nodes, as the Meridian Map viewer does) and must stay responsive at that size (review D-17).
 - **The unused-glimpse heads-up:** from Foundation Establishment, while the realm's glimpse is
   unused, the Advisor says so, shows the character's unspent points, and notes that a Dao graph
   is 110–170 points and its first capstone at least 10. It is information only and never forces or blocks a spend.
@@ -726,7 +766,7 @@ Specified for the Debug Terminal now and the Game UI later.
 | `design/gdd/cong-phap.md` | Open Question 11 closes: no shipped template names a relocated mutation |
 | `design/gdd/kinh-mach-do.md` | List the Way in Dependencies: its unspent points subtract the Way's spent count |
 | `design/gdd/character-stats.md` | A Dao is a new modifier source on the stat sheet |
-| `design/gdd/canh-gioi.md` | The gate calibration holds because Daos add no ceiling raise (rule 4); a Dao's breakthrough chance is a q-extras source under the 10 pp ceiling only (added 2026-11-06) |
+| `design/gdd/canh-gioi.md` | The gate calibration holds because Daos add no cap raise (rule 4); a Dao stat line's breakthrough chance is a q-extras source under the 10 pp ceiling, while Effects on breakthrough and heart-demon odds may exceed it and need the recalibration (2026-11-10, review D-05) (added 2026-11-06) |
 | `design/gdd/systems-index.md` | Row 39 and the design order |
 | `design/registry/entities.yaml` | The keys and formulas above |
 
@@ -749,9 +789,11 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
   Effects, or 3 `minor` (an art's rider counting as one) fails; a Dao with 2 arts not named as an exception, or
   any Dao with 3, fails; a catalogue where more than 20 % of Daos hold an art, or 3 Daos hold two, fails; a small or road node
   holding an Effect fails; a capstone with no Effect, two Effects, an Effect of tier `major`, or two rare
-  modifiers fails; a rival mark on one capstone of a pair but not the other fails. Every Effect a Dao holds lists the Way in its `hosts` (Effects System rule 13).
-- **AC-DAO-26** [Config/Data] Key headroom (Formulas D1 part 4). A fixture Dao with 12
-  `alchemy_success` lines of 8 W fails the lint (8.1 W is the headroom); a fixture Dao whose
+  modifiers fails; a rival mark on one capstone of a pair but not the other fails; a fixture pair in two different
+  Daos whose `closes` and payload contradict (One Sword's single sword art against a capstone that needs several)
+  fails until both are marked rival. Every Effect a Dao holds lists the Way in its `hosts` (Effects System rule 13).
+- **AC-DAO-26** [Config/Data] Rate cap (Formulas D1 part 5). A fixture Dao with 12 `alchemy_success` lines passes
+  (the key-headroom check was dropped 2026-11-10); a fixture Dao whose
   `cultivation_speed_pct` lines sum to 11 % fails at the default `dao_rate_cap_pct` 10 and passes
   at exactly 10 %. A fixture Dao with the same lines on an uncapped key passes.
 - **AC-DAO-21** [Config/Data] At least `dao_open_min` Daos have no root or technique
@@ -760,8 +802,9 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 - **AC-DAO-22** [Config/Data] No node carries a ceiling raise or a root factor, and none multiplies a
   whole cultivation rate, lifespan or breakthrough chance (rule 4). Every art node passes Combat's art
   record validation (Combat rule 13) and its damage parts are typed.
-- **AC-DAO-23** [Config/Data] Every stat line uses only its Dao's `theme_stats`, and no Effect id
-  appears in two Daos.
+- **AC-DAO-23** [Config/Data] Every stat line uses only its Dao's `theme_stats`. No capstone or `major` Effect id
+  appears in two Daos; a `minor` Effect may, and lists every hosting Dao in `host_dao` (a fixture `minor` shared by
+  two Daos passes; a shared `major` fails).
 - **AC-DAO-02** [Logic] Formulas D1: every node costs 1 point, whether a small node, a notable, an Effect, an
   art or a capstone; the start is free; W_small is 2.4 W and W_notable 16 W.
 - **AC-DAO-03** [Logic] The Formulas D1 example (the Sword pilot) has 158 nodes and costs 157 points to master
@@ -775,7 +818,7 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 - **AC-DAO-05** [Logic] A Qi Refining character is given no glimpse. From Foundation
   Establishment, each realm allows one; a second `dao_glimpse` in the same realm is refused, and
   an unused allowance does not carry into the next realm.
-- **AC-DAO-06** [Logic] A Dao whose requirement the root does not meet is never offered. A
+- **AC-DAO-06** [Logic] A Dao whose requirement the root does not meet is never offered; a Fire Way is offered at Fire purity 30 and not at 29 (`dao_req_purity_min`). A
   glimpsed Dao stays after a technique change.
 
 **Buying**
@@ -786,25 +829,30 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
   refunded.
 - **AC-DAO-08** [Integration] A character with 200 points who masters a 149-point Dao has 51
   left, and the Meridian Map allocation sees 51. The map refuses a 52nd acupoint.
-- **AC-DAO-09** [Logic] A stat line above a Character Stats ceiling is clamped and the sheet
-  shows the clamp line.
+- **AC-DAO-09** [Logic] A Dao's breakthrough-chance line above the q-extras ceiling is clamped and the sheet shows
+  the clamp line. A Dao's herb-growth line adds through Character Stats' curve (no clamp line).
 - **AC-DAO-10** [Integration, Bot: `autoplay.gd`] `autoplay.gd --edge on --perk dao_cot --dao <id>` (the Đạo Cốt perk is
   AC-CG-31's fixture, not a Dao). The `--dao` flag is a test hook: it grants the glimpse of
-  `<id>` on entering Foundation Establishment, bypassing the Event Engine, and buys that graph in
-  node-id order (each node joined to one already bought) until Mastered. The three stat-line-only test Daos are fixtures in the test data:
-  one whose lines are all cultivation speed, one all alchemy and brewing success, and one all
-  Dao heart and comprehension, each at the top of the stat-node lint (13.7 W mean, every node a stat line) so they
-  are the worst case for rule 10. They are test data and deliberately exempt from the
-  key-headroom part of the lint (AC-DAO-26): they check the gate calibration beyond what
-  shipped data can reach. For each, the Realms gate runs stay inside AC-CG-31's
-  windows, so no Dao has moved the gate calibration.
+  `<id>` on entering Foundation Establishment, bypassing the Event Engine, and buys nodes of that graph in
+  node-id order (each joined to one already bought) as the points allow; the graph is Mastered only from Core
+  Formation on. The three stat-line-only test Daos are fixtures in the test data: one whose lines are all
+  cultivation speed (held to the rate cap), one all alchemy and brewing success, and one all Dao heart and
+  comprehension, each at the top of the bands (121 small nodes at 2.88 W and 36 stat notables at 19.2 W, about
+  6.6 W per point) so they are the worst case for rule 10. They check the gate calibration beyond what shipped
+  data can reach. At each gate (Foundation Establishment to Core Formation, Core Formation to Nascent Soul, Nascent
+  Soul to Deity Transformation) the Realms gate runs stay inside AC-CG-31's windows. The run is repeated with four
+  such Daos (a glimpse in every realm from Foundation Establishment), so the per-Dao rate cap summed over Daos has
+  not moved the gate calibration either (review D-11, D-13).
+- **AC-DAO-29** [Integration, Bot: `autoplay.gd`] Each Effect that changes breakthrough or heart-demon odds (rule 4)
+  has a bot fixture; the Realms gate runs with it are recorded for the Realms recalibration, and the Effect may push
+  the odds past the q-extras ceiling (user decision 2026-11-10, review D-05).
 
 **NPCs**
 
-- **AC-DAO-11** [Logic] Formulas D3 at `dao_full_points` 149: a Core Formation NPC at level 41 has
-  P_npc 40, map_points 121 and power_mult 1.661 (±0.001). At 304 points P_npc 76, map_points 228 and
-  power_mult 1.667. At 216 points P_npc 54, map_points 162 and power_mult 1.667; at 566 points P_npc 141,
-  map_points 425 and power_mult 1.664 (the cap never binds). An NPC with no Dao has power_mult 1.000.
+- **AC-DAO-11** [Logic] Formulas D3 at `dao_full_points` 149, on the Meridian Map's stage totals: 161 points
+  (Core Formation early) gives P_npc 40, map_points 121, power_mult 1.661; 216 (Core Formation great perfection)
+  P_npc 54, 162, 1.667; 278 (Nascent Soul early) P_npc 69, 209, 1.660; 458 (Deity Transformation early) P_npc 114,
+  344, 1.663; 566 P_npc 141, 425, 1.664 (each ±0.001; the cap never binds). An NPC with no Dao has power_mult 1.000.
 - **AC-DAO-12** [Logic] Over 16,000 NPC rolls at `npc_dao_chance` 0.5, 50 % ± 1.6 pp succeed. An
   NPC generated at Core Formation rolls once, for its current realm only. An NPC that has a Dao
   makes no further roll in later realms and still holds exactly that one Dao. With test data
@@ -823,8 +871,8 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 
 - **AC-DAO-15** [UI] A retained screenshot or transcript shows, each as its own item: the Dao
   list with unknown / glimpsed / keystoned / mastered states, a graph with every cost and the
-  unaffordable nodes marked with their shortfall and the buyable nodes marked, the three-Dao offer with requirements and
-  one-line descriptions, the Advisor's ceiling warning before a buy, and the unused-glimpse
+  unaffordable nodes marked with their shortfall and the buyable nodes marked, the offer of `dao_offer_size` Daos with their requirements and
+  one-line descriptions, the Advisor's marginal-gain note before a buy, and the unused-glimpse
   heads-up with the unspent count (at Foundation Establishment with the glimpse unused, and
   absent once it is used).
 
@@ -834,7 +882,7 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
   called with `map_points`, not `points_total`, and the resulting combat power is multiplied by
   `power_mult`. An NPC with no Dao is called with `points_total` and a multiplier of 1.000.
 - **AC-DAO-17** [Logic] With E empty the glimpse is skipped and the realm's allowance is kept; a
-  declined offer uses the allowance and leaves all three Daos in E.
+  declined offer uses the allowance and leaves every offered Dao in E.
 - **AC-DAO-18** [Integration] A Dao Effect and a Meridian Map keystone that give the same
   breakthrough chance both apply. The Dao's share counts only under the 10 pp q-extras ceiling:
   with the tree at its 8 pp cap and a Dao line of 4 pp, the extras clamp at 10 pp and the sheet
@@ -858,7 +906,7 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 | 1 | The `dao_glimpse` contract: which events grant it, how often (the rate), and what the validator checks. The Event Engine is already implemented, so read its code before settling the contract. The rate also decides how often the unused-glimpse heads-up fires | Event Engine | Any Dao in play |
 | 2 | The catalogue (in progress 2026-11-10): the consolidated roster, then a graph of about 150 nodes for each Way (Sword pilot v2 approved 2026-11-10), each from its theme (rule 12), with each Way's requirement and `theme_stats`. Pilot: Sword. Graphs live in `tools/design/meridian_rework/regions/dao_<slug>.py` | game-designer, user | Content pass |
 | 3 | **Closed 2026-11-10:** Combat is designed; arts follow Combat rule 13 and are bounded by its art rules and the slot table, so they need no W credit | — | — |
-| 4 | The slot table, `dao_node_tol` 0.2, `dao_capstone_depth` 10 and `dao_keystone_count` 5 are guesses (several capstones in one life may stack strongly: the harness checks a Dao with all its non-rival capstones), and Effects and arts are unpriced. `dao_premium` 2 already puts a Mastered Dao's stat lines above what its points buy on the map (about 323 W against 279 W at the most Effect-heavy slot table, Formulas D1), and the Effects, capstones and rare art come on top. Measure a life with one, two and four Daos against combat and NPC power with the balance harness once the pilot and a few Ways exist | systems-designer | A content pass and a bot run |
+| 4 | The slot table, `dao_node_tol` 0.2, `dao_capstone_depth` 10 and `dao_keystone_count` 5 are guesses (several capstones in one life may stack strongly: the harness checks a Dao with all its non-rival capstones), and Effects and arts are unpriced. `dao_premium` 2 already puts a Mastered Dao's stat lines above what its points buy on the map (the Sword pilot: about 530 W against the 325 W its points buy on the map, Formulas D1), and the Effects, capstones and rare art come on top. Measure a life with one, two and four Daos against combat and NPC power with the balance harness once the pilot and a few Ways exist | systems-designer | A content pass and a bot run |
 | 5 | `npc_dao_chance` and `npc_dao_share` are guesses, and so is the assumption behind `power_mult` (map power close to linear in points). A bot run must confirm that a Dao-holding NPC ends up about 11–25 % above a Dao-less NPC of its level, check the combined NPC uplift with cluster holders (Meridian Map AC-KMD-49), and re-run the world census, since stronger NPCs may change who dies | NPC Builds, bot run | AC-DAO-11, 12 |
 | 6 | May a perk or a sect grant an early glimpse (a birth edge)? It would touch Progression Edges | game-designer | The edge |
 | 7 | Do Dao trees sit on the Meridian Map screen or on their own? | ux-designer | The UI |

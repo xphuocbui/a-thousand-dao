@@ -107,3 +107,39 @@ Reviewed-Content-Hash: design/gdd/cong-phap.md 3208073198959665fb0efc24c66532fb4
 Reviewed-Content-Hash: design/gdd/canh-gioi.md 794d7b9a67b2a8fe8c18feb0848b55d25e07904c
 Reviewed-Content-Hash: design/gdd/character-stats.md 8215f27f8abd2f984675f96d69ddceb554dc8464
 Reviewed-Content-Hash: design/gdd/game-concept.md 101b72ed58c6e165c881f3027e65e0cc8ed8f043
+
+## Review — 2026-11-10 (sixth pass, graph-Ways rewrite) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 1 | Recommended: 12
+Summary: A full read of the 2026-11-10 rewrite found the D1-D3 arithmetic, the registry values and the Sword pilot data consistent. The one blocker is that the key-headroom lint still models Character Stats ceilings that rule 14 replaced with curves on the same day. Recommended items cover the NPC premium against the pilot's measured value, Catalogue facets that need allies and troops Combat lacks, Effect uniqueness at scale, breakthrough-touching Effects, and the D3 point totals. Full report: design/gdd/reviews/dao-review-2026-11-10.md (report-only; no GDD edited).
+Prior verdict resolved: First review of the rewritten design (the 2026-11-06 fifth-pass approval predates it)
+Findings:
+- [BLOCKING] Formulas D1 part 5 / rules 4, 10, 12 / AC-DAO-09, AC-DAO-26: headroom lint and clamp tests built on removed ceilings (D-01)
+- [RECOMMENDED] D1/D3: NPC premium 2.0x vs pilot stat value 1.63x (D-02)
+- [RECOMMENDED] Catalogue: facets need allies, mounts, troops, disciples (D-03)
+- [RECOMMENDED] Rule 12: Effect uniqueness vs about 1,900 Effects and consumed starters (D-04)
+- [RECOMMENDED] Rule 4 / AC-DAO-10, 22: breakthrough and heart-demon Effects uncovered (D-05)
+- [RECOMMENDED] D3 / AC-DAO-11: totals 179, 240, 304 not on the Meridian Map table (D-06)
+- [RECOMMENDED] Catalogue: Stars seed mapping vs Tinh Đạo (D-07)
+- [RECOMMENDED] Dependencies: Thiên Kiếp, Quests, Item Database missing (D-08)
+- [RECOMMENDED] Rule 3 / AC-DAO-28: enabler and cross-Dao rivalry (D-09)
+- [RECOMMENDED] Player Fantasy absent (D-10)
+- [RECOMMENDED] Rule 4: cultivation speed cap per Dao only (D-11)
+- [RECOMMENDED] Rule 5: no purity threshold (D-12)
+- [RECOMMENDED] AC-DAO-10: procedure cannot run as written (D-13)
+- [MINOR] 4 judgement items and 10 mechanical fixes (D-14 to D-27)
+Files changed in this session: design/gdd/reviews/dao-review-2026-11-10.md and this log only.
+Reviewed-Content-Hash: design/gdd/dao.md c2951336024a0cd8817dd5cdcd695522c93ac57e
+Reviewed-Content-Hash: design/registry/entities.yaml f2ad99700589a66dd1722e04802f3b3e58f1dd66
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md b92f9946089a4d7e2d58062b33d1a328f2cda751
+Reviewed-Content-Hash: design/gdd/linh-can.md bc26ba79399663c249c2488bf79f97487b1598c3
+Reviewed-Content-Hash: design/gdd/cong-phap.md 747c3aa1bab3b24cbb70f4803581b3622a42c44d
+Reviewed-Content-Hash: design/gdd/canh-gioi.md e905183a564a46d236b23cfb5758ef5cac358ff8
+Reviewed-Content-Hash: design/gdd/character-stats.md a909d5d7a93bb21705a6c1cebcbc71db34062651
+Reviewed-Content-Hash: design/gdd/effects.md fd3ef44e00d66b19d2e9d5824835f9a8e848861f
+Reviewed-Content-Hash: design/gdd/modifiers.md 3f29eaaa9182b127e2f067e4921d84de403a4c3b
+Reviewed-Content-Hash: design/gdd/combat.md b09a57de902251f6dc1c9b07f4f3767c1a211414
+Reviewed-Content-Hash: design/gdd/systems-index.md 0c622ddc1431192f45cc3ed7a9842b795bbbd013

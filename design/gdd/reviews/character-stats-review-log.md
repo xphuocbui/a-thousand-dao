@@ -189,3 +189,39 @@ Reviewed-Content-Hash: design/gdd/canh-gioi.md bab602ac6aefc7a4e8589f7078e93f285
 Reviewed-Content-Hash: design/gdd/cong-phap.md cfa220cbdfb71a405667dba257fcb71cb92f7298
 Reviewed-Content-Hash: design/gdd/kinh-mach-do.md a9ddc4cd7fdba22c937c6afa9bb916ad1a2827db
 Reviewed-Content-Hash: design/gdd/linh-can.md f88b04a3e103bc0e817ff0ef33948dd9e7d14227
+
+## Review — 2026-11-10 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean; report-only, unattended, no files edited)
+Blocking items: 4 | Recommended: 6 | Minor: 4 | User decisions: 4
+Summary: The arithmetic still reproduces (about 70 values recomputed). The 2026-11-10 "no caps" change reached rule 14 and Formulas G and I but not Edge Cases, the ACs, Tuning Knobs, the Formulas I output range, the registry or Realms, and rule 15's key list no longer matches the Modifier System's Stat List. Full report: reviews/character-stats-review-2026-11-10.md.
+Prior verdict resolved: Partly (2026-11-05 fixes stand; new drift from the 2026-11-09/10 revisions)
+Findings:
+- [BLOCKING] CS-01 Edge Cases, AC-CS-28/52/54/56, Formulas I output range, Tuning Knobs: ceiling semantics and numbers contradict the curves
+- [BLOCKING] CS-02 Formulas I: alchemy_success dampen divides by zero at total <= -100; Modifier System floors a dampened sum at 0 and lists the key as F
+- [BLOCKING] CS-03 Registry: bonus_ceilings, lifespan_cap, bonus_ceiling_target, stat_precision_grid and the tree cap key name conflict with the GDD
+- [BLOCKING] CS-04 Rule 15: resist_cap_pct retired, seven Stat List keys missing, no "points" unit
+- [RECOMMENDED] CS-05 Rule 12 source kinds, Interactions table and Cross-References miss the Way, tribulation, quests, Modifier System, Effects, Combat sub-GDDs
+- [RECOMMENDED] CS-06 Realms still has ceilings, the 12-plot clamp and additive p_brew
+- [RECOMMENDED] CS-07 "kill/defeat" vs Combat's knockout; no fight-loss vitality rule; Open Question 2 stale
+- [RECOMMENDED] CS-08 No AC for purity above 100; field_plots row stale
+- [RECOMMENDED] CS-09 Curve outputs vs the precision grid and the held-back lifespan case
+- [RECOMMENDED] CS-10 Meridian Map redraw: capability ids and the lifespan_pct keystone unverified
+- [MINOR] CS-11 header status/dates; CS-12 AC label and tolerance slips; CS-13 wording sweep; CS-14 Player Fantasy absent (advisory)
+Reviewed-Content-Hash: design/gdd/character-stats.md a909d5d7a93bb21705a6c1cebcbc71db34062651
+Reviewed-Content-Hash: design/registry/entities.yaml fb908ecd77913491aedb1b35089f77a6390a59ba
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/canh-gioi.md e905183a564a46d236b23cfb5758ef5cac358ff8
+Reviewed-Content-Hash: design/gdd/linh-can.md bc26ba79399663c249c2488bf79f97487b1598c3
+Reviewed-Content-Hash: design/gdd/cong-phap.md 747c3aa1bab3b24cbb70f4803581b3622a42c44d
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md b92f9946089a4d7e2d58062b33d1a328f2cda751
+Reviewed-Content-Hash: design/gdd/modifiers.md 3f29eaaa9182b127e2f067e4921d84de403a4c3b
+Reviewed-Content-Hash: design/gdd/combat.md dd287950cbad5094bdbe0e74852c90de9241f61a
+Reviewed-Content-Hash: design/gdd/combat-defence.md 939cb75414034b37ab04468ef72a7fbb61419f7f
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md 2a7884cd8be1c91b74aef27d6b254baae48235e3
+Reviewed-Content-Hash: design/gdd/effects.md 7527907f89207a65be65e0e1582ab16d0f4c82f6
+Reviewed-Content-Hash: design/gdd/dao.md a16e45d5d5c107c6acb4dd2a508c8f0f7815aada
+Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d
+Reviewed-Content-Hash: design/gdd/systems-index.md 0c622ddc1431192f45cc3ed7a9842b795bbbd013
+Reviewed-Content-Hash: design/glossary.md 0b3cf7dcb934aeb999bbc996c5eb80d200bd0ac1

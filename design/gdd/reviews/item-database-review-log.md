@@ -57,3 +57,43 @@ Reviewed-Content-Hash: design/gdd/cong-phap.md b8cae5370082854ad69412572d4e3b84c
 Reviewed-Content-Hash: design/gdd/kinh-mach-do.md 83b03b9cc2641b59073b2163fa10f007a3278a57
 Reviewed-Content-Hash: design/gdd/combat.md 22fbc87e3673fe79e6494ffb4c92e824c48f2cfe
 Reviewed-Content-Hash: design/gdd/game-concept.md 101b72ed58c6e165c881f3027e65e0cc8ed8f043
+
+## Review — 2026-11-10 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 3 | Recommended: 10
+Summary: Report-only re-review after the Combat economy revision (#44) and neighbouring changes; see item-database-review-2026-11-10.md. The core math is sound, but rule 6 describes the retired body guard, named items and Effect hosts have no rule, and the lifespan and Linh Căn Quả criteria contradict Character Stats and Linh Căn. No edits were made to the GDD.
+Prior verdict resolved: Yes (prior APPROVED, new cross-document drift)
+Findings:
+- [BLOCKING] Rule 6 / Cross-References: body guard retired; Combat Defence mapping (a_w, a_b, block) not adopted
+- [BLOCKING] Detailed Design: no rule for named items, Effect hosts, rare modifiers or active effects
+- [BLOCKING] AC-ID-62 and FX-L: flat lifespan bonus assumed; Character Stats Formulas I is now a log curve
+- [RECOMMENDED] Rule 12 / AC-ID-34: Linh Căn Quả at full purity (linh-can no-cap rule)
+- [RECOMMENDED] Formulas F: reward bounds and the Legendary above-cap exception
+- [RECOMMENDED] Rule 11: artifact slots modifier and Way slots
+- [RECOMMENDED] Formulas D: affix pool vs Modifier catalogue, resistance affixes, rare and Chaos lint
+- [RECOMMENDED] Formulas D/E: artifact damage type
+- [RECOMMENDED] Interactions/Dependencies: rows for #21a, #21b, #39, #40, #41
+- [RECOMMENDED] Rule 13 / kinh-mach-do rule 7: seal binding wording and Pending path
+- [RECOMMENDED] Open Question 7: timed pill effects
+- [RECOMMENDED] Formulas H: OQ 14 and no performance target
+- [RECOMMENDED] Registry name drift and default_role output_range
+- [MINOR] AC-ID-70, AC-ID-26 tag names; stale header; ordering; systems-index status
+Reviewed-Content-Hash: design/gdd/item-database.md 8fad2f8a1910a2da4c6818b25815df8498cd69db
+Reviewed-Content-Hash: design/registry/entities.yaml fb908ecd77913491aedb1b35089f77a6390a59ba
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/character-stats.md a909d5d7a93bb21705a6c1cebcbc71db34062651
+Reviewed-Content-Hash: design/gdd/canh-gioi.md e905183a564a46d236b23cfb5758ef5cac358ff8
+Reviewed-Content-Hash: design/gdd/cong-phap.md 747c3aa1bab3b24cbb70f4803581b3622a42c44d
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md b92f9946089a4d7e2d58062b33d1a328f2cda751
+Reviewed-Content-Hash: design/gdd/combat.md dd287950cbad5094bdbe0e74852c90de9241f61a
+Reviewed-Content-Hash: design/gdd/combat-defence.md 939cb75414034b37ab04468ef72a7fbb61419f7f
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md 2a7884cd8be1c91b74aef27d6b254baae48235e3
+Reviewed-Content-Hash: design/gdd/modifiers.md 3f29eaaa9182b127e2f067e4921d84de403a4c3b
+Reviewed-Content-Hash: design/gdd/effects.md 7527907f89207a65be65e0e1582ab16d0f4c82f6
+Reviewed-Content-Hash: design/gdd/linh-can.md bc26ba79399663c249c2488bf79f97487b1598c3
+Reviewed-Content-Hash: design/gdd/dao.md a16e45d5d5c107c6acb4dd2a508c8f0f7815aada
+Reviewed-Content-Hash: design/gdd/quests.md 7df798f2e4bc297bf49d7d85fc6e28b2f7d400f2
+Reviewed-Content-Hash: design/gdd/thien-kiep.md 7bffc541c0b9f2a643150498f203dbb24d892813
+Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d

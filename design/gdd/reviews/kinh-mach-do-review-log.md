@@ -240,3 +240,35 @@ Reviewed-Content-Hash: design/gdd/canh-gioi.md bab602ac6aefc7a4e8589f7078e93f285
 Reviewed-Content-Hash: design/gdd/character-stats.md 55d9ae80692694927176c65f7603cb63f1cab407
 Reviewed-Content-Hash: design/gdd/cong-phap.md cfa220cbdfb71a405667dba257fcb71cb92f7298
 Reviewed-Content-Hash: design/gdd/linh-can.md f88b04a3e103bc0e817ff0ef33948dd9e7d14227
+
+## Review — 2026-11-10 — Verdict: MAJOR REVISION NEEDED
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none
+Blocking items: 3 | Recommended: 9
+Summary: Report-only review after the Combat #44, purity-stack, ceiling-curve and hand-drawn tree changes. The GDD still specifies the old 1,300-acupoint map with generic exact roads, while rule 1 already carries the 2026-11-10 redraw decision (roads pay purity), which contradicts rules 4 and 21 and the registry. Capability ownership conflicts with effects.md. Full report: kinh-mach-do-review-2026-11-10.md. No GDD edited.
+Prior verdict resolved: No (the 2026-11-05 fixes were never re-reviewed; items partly applied)
+Findings:
+- [BLOCKING] Rule 1 road row vs rules 4/21, `road_stats`, registry, linh-can 8a (KMD-01)
+- [BLOCKING] Whole spec targets the old map; hand-drawn tree is 6,300–8,700 acupoints (KMD-02)
+- [BLOCKING] Capability ownership and text (#25, #17) diverge from effects.md (KMD-03)
+- [RECOMMENDED] Stat weights owned by modifiers.md; #44 keys missing from fill stats (KMD-04)
+- [RECOMMENDED] Ceiling wording stale after the log curves (KMD-05)
+- [RECOMMENDED] Purity above 100 and road-purity loop undefined (KMD-06)
+- [RECOMMENDED] Blood and Void archived, counts and the 4.3 % figure stale (KMD-07)
+- [RECOMMENDED] NPC allocation and combined uplift with the Way (KMD-08)
+- [RECOMMENDED] Dependencies preamble, row 39, missing Modifier/Effects/Combat rows (KMD-09, KMD-10)
+- [RECOMMENDED] Drawing rules point at the old viewer (KMD-11)
+- [RECOMMENDED] Known gaps table is the 2026-11-05 build (KMD-12)
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md b92f9946089a4d7e2d58062b33d1a328f2cda751
+Reviewed-Content-Hash: design/registry/entities.yaml fb908ecd77913491aedb1b35089f77a6390a59ba
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/linh-can.md bc26ba79399663c249c2488bf79f97487b1598c3
+Reviewed-Content-Hash: design/gdd/character-stats.md a909d5d7a93bb21705a6c1cebcbc71db34062651
+Reviewed-Content-Hash: design/gdd/canh-gioi.md e905183a564a46d236b23cfb5758ef5cac358ff8
+Reviewed-Content-Hash: design/gdd/dao.md a16e45d5d5c107c6acb4dd2a508c8f0f7815aada
+Reviewed-Content-Hash: design/gdd/effects.md 7527907f89207a65be65e0e1582ab16d0f4c82f6
+Reviewed-Content-Hash: design/gdd/modifiers.md 3f29eaaa9182b127e2f067e4921d84de403a4c3b
+Reviewed-Content-Hash: design/gdd/combat.md dd287950cbad5094bdbe0e74852c90de9241f61a
+Reviewed-Content-Hash: design/gdd/systems-index.md 0c622ddc1431192f45cc3ed7a9842b795bbbd013
+Reviewed-Content-Hash: design/research/meridian-tree-overnight.md d2a83e2a51d443779a3419be6a4eecde551b0f1d

@@ -59,6 +59,7 @@ different.
    | `closes` | Keystones and enablers only: what it forbids or costs |
    | `domain`, `tags` | Classification tags from the shared vocabulary (Modifier System rule 9), plus its kind |
    | `hosts` | Which sources may carry it (rule 13). `affix` (a rolled affix) is a host value; enablers may never list it |
+   | `host_dao` | Way Effects only: the Daos whose graphs hold it. One Dao for a capstone or a `major`; a `minor` from the shared pool may list several (dao.md rule 3, user decision 2026-11-10) |
    | `npc` | `true` if NPC Builds may use it (rule 15) |
    | `tier` | `minor`, `major`, `keystone` or `enabler` (rule 4): a rough size set by eye, so hosts can bound how much a build holds |
    | `price` | `unpriced` until the end-of-game balance pass (user decision 2026-11-07) |
@@ -91,7 +92,7 @@ different.
    | Tier | Meaning | Typical host slot |
    |---|---|---|
    | `minor` | A small edge that helps a build it fits | a Way node, a technique's lesser art, an item affix line on a named item |
-   | `major` | Changes how a build plays or what it is good at | a Way branch node, a technique's main art, a named artifact |
+   | `major` | Changes how a build plays or what it is good at | a Way notable at a facet's far end, a technique's main art, a named artifact |
    | `keystone` | A strong rule paid for by what it closes (rule 14) | a tree keystone, a Way capstone |
    | `enabler` | The piece a build is built on, opening and closing something (rule 14) | a named artifact, a technique, a Way capstone |
 
@@ -289,7 +290,7 @@ different.
     - the Meridian Map (keystones; its 25 live capabilities are re-expressed in this catalogue: those with a
       real closing cost as keystones, the rest as rule changes or another kind, user decision 2026-11-07;
       re-review EF 8);
-    - the Way (Đạo): nodes, branches and capstones;
+    - the Way (Đạo): notables and capstones in its graph (dao.md rule 3);
     - cultivation techniques and their arts;
     - items: named artifacts, treasures, talismans, pills;
     - formations and ground;
@@ -297,7 +298,7 @@ different.
     - progression edges and spiritual roots;
     - statuses (on the target).
 
-    A keystone is exclusive with any keystone its host marks as rival. An enabler is a named piece (an
+    A keystone or enabler is exclusive with any keystone or enabler its host marks as rival (enablers added 2026-11-10 for Way capstones, dao.md review D-09). An enabler is a named piece (an
     artifact, a technique, a keystone or a Way capstone), never a rolled affix.
 
 14. **Keystones and enablers state what they close.** Their `closes` field is part of the rule and shows in the

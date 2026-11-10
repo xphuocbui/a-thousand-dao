@@ -88,3 +88,35 @@ Reviewed-Content-Hash: design/gdd/canh-gioi.md bab602ac6aefc7a4e8589f7078e93f285
 Reviewed-Content-Hash: design/gdd/character-stats.md 55d9ae80692694927176c65f7603cb63f1cab407
 Reviewed-Content-Hash: design/gdd/kinh-mach-do.md a9ddc4cd7fdba22c937c6afa9bb916ad1a2827db
 Reviewed-Content-Hash: design/gdd/linh-can.md f88b04a3e103bc0e817ff0ef33948dd9e7d14227
+
+## Review — 2026-11-10 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none
+Blocking items: 2 | Recommended: 5
+Summary: Report-only review against the Combat economy revision (#44), uncapped purity, curved bonus ceilings and the revised Modifier, Effects and Combat sub-GDDs. The arithmetic of Formulas A–F and the registry values hold; two cross-GDD contradictions need user decisions (purity past 100; body technique sizes against Combat Defence). Full report: reviews/cong-phap-review-2026-11-10.md. Nothing was edited.
+Prior verdict resolved: Yes (the 2026-11-05 findings were fixed and hold)
+Findings:
+- [BLOCKING] Formulas A, D: purity is uncapped (Linh Căn rule 8) but match, F, crude and ranges assume at most 100 (CP-01)
+- [BLOCKING] Rules 2, 12, Formulas D: body techniques cannot yield Combat Defence's Iron Body sizes (tiers 1–5 vs 0–3; layer, Physique and Comprehension scaling; no pool rows) (CP-02)
+- [RECOMMENDED] Rule 12, Formulas D: "ceilings" are now curves (CP-03)
+- [RECOMMENDED] Rule 1, Formulas D: no Modifier System budget link, no Effects host field, tags or `more` hook (CP-04)
+- [RECOMMENDED] Rule 12 harmony: Chaos and wide arts always 0.60 (CP-05)
+- [RECOMMENDED] Rules 1, 13: ability record too thin for Combat's art record and art slot pool (CP-06)
+- [RECOMMENDED] Dependencies, Interactions: no rows for #21a, #21b, #40, #41 (CP-07)
+- [MINOR] 7 items: states table exits, header dates, OQ 14, registry range 4.35, stale 2.2 range, review count, body guard wording (CP-08 to CP-14)
+Reviewed-Content-Hash: design/gdd/cong-phap.md 747c3aa1bab3b24cbb70f4803581b3622a42c44d
+Reviewed-Content-Hash: design/registry/entities.yaml fb908ecd77913491aedb1b35089f77a6390a59ba
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/linh-can.md bc26ba79399663c249c2488bf79f97487b1598c3
+Reviewed-Content-Hash: design/gdd/canh-gioi.md e905183a564a46d236b23cfb5758ef5cac358ff8
+Reviewed-Content-Hash: design/gdd/character-stats.md a909d5d7a93bb21705a6c1cebcbc71db34062651
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md b92f9946089a4d7e2d58062b33d1a328f2cda751
+Reviewed-Content-Hash: design/gdd/combat.md dd287950cbad5094bdbe0e74852c90de9241f61a
+Reviewed-Content-Hash: design/gdd/combat-defence.md 939cb75414034b37ab04468ef72a7fbb61419f7f
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md 2a7884cd8be1c91b74aef27d6b254baae48235e3
+Reviewed-Content-Hash: design/gdd/modifiers.md 3f29eaaa9182b127e2f067e4921d84de403a4c3b
+Reviewed-Content-Hash: design/gdd/effects.md 7527907f89207a65be65e0e1582ab16d0f4c82f6
+Reviewed-Content-Hash: design/gdd/dao.md a16e45d5d5c107c6acb4dd2a508c8f0f7815aada
+Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d
+Reviewed-Content-Hash: design/glossary.md 0b3cf7dcb934aeb999bbc996c5eb80d200bd0ac1

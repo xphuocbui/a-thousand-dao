@@ -404,3 +404,33 @@ Reviewed-Content-Hash: design/gdd/character-stats.md 55d9ae80692694927176c65f760
 Reviewed-Content-Hash: design/gdd/cong-phap.md cfa220cbdfb71a405667dba257fcb71cb92f7298
 Reviewed-Content-Hash: design/gdd/kinh-mach-do.md a9ddc4cd7fdba22c937c6afa9bb916ad1a2827db
 Reviewed-Content-Hash: design/gdd/linh-can.md f88b04a3e103bc0e817ff0ef33948dd9e7d14227
+
+## Review — 2026-11-10 (report only, ahead of the no-caps revision) — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none (lean)
+Blocking items: 5 | Recommended: 5
+Summary: Structure and arithmetic reproduce, but the pill-supply model still describes the 2026-11-04 ceilings. Character Stats' curves, the new alchemy_success dampening, uncapped purity and plots, and the Way's Effects were not carried through, and the calibration was not re-run. Full report: reviews/canh-gioi-review-2026-11-10.md. No file was edited.
+Prior verdict resolved: Yes (the 2026-11-05 fixes held; nothing new found there)
+Findings:
+- [BLOCKING] Rule 14: lifespan ceiling text vs Character Stats curve
+- [BLOCKING] Formulas D: p_brew adds alchemy_success points; it now dampens failure
+- [BLOCKING] Formulas D: n_plots clamp 12 and purity 10-100 vs no caps
+- [BLOCKING] AC-CG-61 / AC-CG-60: expected values assume ceilings
+- [BLOCKING] Calibration figures stale; no recalibration open question
+- [RECOMMENDED] Rule 10 / Formulas F: heart demon resistance not applied
+- [RECOMMENDED] Rule 8 / Formulas C: Way Effects outside the q-extras ceiling
+- [RECOMMENDED] Formulas C vs E: where gate_factor and the clamp apply
+- [RECOMMENDED] Formulas D / Parameter keys: numbers derived at the old ceiling of 10
+- [RECOMMENDED] Registry: bonus_ceilings and realm_step_success expression stale
+- [MINOR] Seven mechanical items (knockout wording, Combat and Spiritual Roots rows, header, line 334, tree check, Player Fantasy, history clutter)
+Reviewed-Content-Hash: design/gdd/canh-gioi.md e905183a564a46d236b23cfb5758ef5cac358ff8
+Reviewed-Content-Hash: design/registry/entities.yaml fb908ecd77913491aedb1b35089f77a6390a59ba
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/character-stats.md a909d5d7a93bb21705a6c1cebcbc71db34062651
+Reviewed-Content-Hash: design/gdd/linh-can.md bc26ba79399663c249c2488bf79f97487b1598c3
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md b92f9946089a4d7e2d58062b33d1a328f2cda751
+Reviewed-Content-Hash: design/gdd/dao.md a16e45d5d5c107c6acb4dd2a508c8f0f7815aada
+Reviewed-Content-Hash: design/gdd/combat.md dd287950cbad5094bdbe0e74852c90de9241f61a
+Reviewed-Content-Hash: design/gdd/effects.md 7527907f89207a65be65e0e1582ab16d0f4c82f6
+Reviewed-Content-Hash: design/gdd/modifiers.md 3f29eaaa9182b127e2f067e4921d84de403a4c3b

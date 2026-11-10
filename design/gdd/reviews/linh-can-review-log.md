@@ -297,3 +297,29 @@ Reviewed-Content-Hash: design/gdd/canh-gioi.md bab602ac6aefc7a4e8589f7078e93f285
 Reviewed-Content-Hash: design/gdd/character-stats.md 55d9ae80692694927176c65f7603cb63f1cab407
 Reviewed-Content-Hash: design/gdd/cong-phap.md cfa220cbdfb71a405667dba257fcb71cb92f7298
 Reviewed-Content-Hash: design/gdd/kinh-mach-do.md a9ddc4cd7fdba22c937c6afa9bb916ad1a2827db
+
+## Review — 2026-11-10 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none
+Blocking items: 3 | Recommended: 11
+Summary: Report-only re-review against the #44 revisions. The core maths holds. The purity-powers-stacks rule and the Void/Blood archive were patched onto rules written for a capped, eight-variant world, leaving contradictory statements. Full report: design/gdd/reviews/linh-can-review-2026-11-10.md.
+Prior verdict resolved: Yes (the 2026-11-05 blockers are fixed)
+Findings:
+- [BLOCKING] Rules 8, 13, Formulas F, D2, AC-LC-44: purity cap both removed and kept
+- [BLOCKING] Rule 9 vs Formulas A, D1, registry: Void and Blood "archived, innate_chance 0" but live everywhere else
+- [BLOCKING] Formulas H: whose purity powers a debuff stack, and a foe's purity, unspecified
+- [RECOMMENDED] The Way still described as undesigned (LC-04); Đạo nodes and rare items undefined as sources (LC-05); unowned-element purity rules contradict (LC-06); rule 7 stale ceilings (LC-07); technique speed vs Cultivation Techniques ranges (LC-08); AC-LC-52 duplicate and orphaned bullets (LC-09); stack keys not in registry or AC-LC-19 (LC-10); dependency rows missing (LC-11); pre-archive rates (LC-12); variant purity sources (LC-13); missing edge cases (LC-14)
+Resolution: none yet; the user applies fixes in another session.
+Reviewed-Content-Hash: design/gdd/linh-can.md bc26ba79399663c249c2488bf79f97487b1598c3
+Reviewed-Content-Hash: design/registry/entities.yaml f2ad99700589a66dd1722e04802f3b3e58f1dd66
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/effects.md fd3ef44e00d66b19d2e9d5824835f9a8e848861f
+Reviewed-Content-Hash: design/gdd/character-stats.md a909d5d7a93bb21705a6c1cebcbc71db34062651
+Reviewed-Content-Hash: design/gdd/dao.md c2951336024a0cd8817dd5cdcd695522c93ac57e
+Reviewed-Content-Hash: design/gdd/kinh-mach-do.md b92f9946089a4d7e2d58062b33d1a328f2cda751
+Reviewed-Content-Hash: design/gdd/cong-phap.md 747c3aa1bab3b24cbb70f4803581b3622a42c44d
+Reviewed-Content-Hash: design/gdd/canh-gioi.md e905183a564a46d236b23cfb5758ef5cac358ff8
+Reviewed-Content-Hash: design/gdd/combat-damage-types.md 7681b928f3faf011c67d6db8fe18f50b2904b502
+Reviewed-Content-Hash: design/gdd/systems-index.md 0c622ddc1431192f45cc3ed7a9842b795bbbd013
+Reviewed-Content-Hash: design/gdd/game-concept.md 88eba239210164e778fac6959cb6ee24da039f6d

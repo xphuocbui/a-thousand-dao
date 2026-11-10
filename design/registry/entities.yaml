@@ -304,10 +304,10 @@ formulas:
       - w_target
       - grade_small
       - grade_notable
-    # 2026-11-10: lint rewritten for graph Ways (40-50 nodes; per stat-node band; slot table; capstone depth). Was: 19-22 nodes, branch and keystone-route means.
+    # 2026-11-10: lint rewritten for graph Ways (110-170 nodes, cost 1; per stat-node band; slot table; capstone depth). Was: 19-22 nodes, branch and keystone-route means.
     output_range: [1.92, 19.2]
-    expression: "W_small = dao_premium * dao_node_cost * grade_small (2.4 W), W_notable = dao_premium * dao_node_cost * grade_notable (16 W); lint: 110-170 nodes, connected, no crossings, capstones >= dao_capstone_depth points; each small/road node and stat notable within dao_node_tol (20 %) of its budget; W per point >= 0.9 * premium * w_target; slot table per facet (<=1 major, <=2 minor Effects on notables); 2-6 capstones; key headroom"
-    notes: "Every node costs a flat 3 points; w_target is the Meridian Map's 2.07 W per point (the GDD writes it w-bar). A Dao node beats the acupoints it replaces by design (user decision 2026-11-06). Branch and route lint added by design-review 2026-11-06; key-headroom lint added by the third pass the same day. output_range is at the defaults (cost 3, premium 2); the bands scale with the knobs."
+    expression: "W_small = dao_premium * dao_node_cost * grade_small (2.4 W), W_notable = dao_premium * dao_node_cost * grade_notable (16 W); lint: 110-170 nodes, connected, no crossings, capstones >= dao_capstone_depth points; each small/road node and stat notable within dao_node_tol (20 %) of its budget; W per point >= 0.9 * premium * w_target; slot table per facet (<=1 major, <=2 minor Effects on notables); 2-6 capstones; cultivation_speed_pct <= dao_rate_cap_pct per Dao (the key-headroom check was dropped 2026-11-10, review D-01)"
+    notes: "Every node costs a flat 1 point (the start is free); w_target is the Meridian Map's 2.07 W per point. Stat nodes carry the x2 premium node by node; Effects and capstones are unpriced (the Sword pilot measures 3.38 W per point over all points, 1.63x the map). output_range spans the small and notable bands at the defaults (cost 1, premium 2)."
     added: 2026-11-05
     revised: 2026-11-06
   - name: dao_offer
@@ -1781,6 +1781,27 @@ constants:
     notes: "Most Daos hold no art: arts come from cultivation techniques (user decision 2026-11-10). At most this share of Daos hold one art; dao_two_art_max (2) Daos may hold two, as named exceptions."
     added: 2026-11-10
     revised: ""
+  - name: dao_two_art_max
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+    value: 2
+    unit: Daos in the catalogue
+    notes: "Most Daos that may hold two arts, each named as an exception in the Catalogue (rule 10, Formulas D1 part 4). Registered by review D-14 (2026-11-10)."
+    added: 2026-11-10
+    revised: ""
+  - name: dao_req_purity_min
+    status: active
+    source: design/gdd/dao.md
+    referenced_by:
+      - design/gdd/dao.md
+      - design/gdd/linh-can.md
+    value: 30
+    unit: purity
+    notes: "Least purity of a required element when a Dao is glimpsed (rule 5); safe range 20-50. User decision 2026-11-10 (review D-12)."
+    added: 2026-11-10
+    revised: ""
   - name: dao_rate_cap_pct
     status: active
     source: design/gdd/dao.md
@@ -1788,7 +1809,7 @@ constants:
       - design/gdd/dao.md
     value: 10
     unit: percent cultivation speed per Dao
-    notes: "Most cultivation_speed_pct one Dao's lines may sum to (lint, Formulas D1 part 4). cultivation_speed_pct has no Character Stats ceiling. A guess; user decision 2026-11-06 (design-review third pass)."
+    notes: "Most cultivation_speed_pct one Dao's lines may sum to (lint, Formulas D1 part 5). cultivation_speed_pct has no Character Stats ceiling. A guess; user decision 2026-11-06 (design-review third pass)."
     added: 2026-11-06
     revised: ""
   - name: dao_ability_credit
