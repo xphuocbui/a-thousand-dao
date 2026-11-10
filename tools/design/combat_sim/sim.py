@@ -25,7 +25,8 @@ K = dict(
     dt=0.01,               # simulation step, s
     time_limit=120.0,      # A1
     fatigue_start=60.0,    # A3
-    fatigue_step=0.01,     # share of max health at the first fatigue pulse, +this each further pulse
+    fatigue_units=0.5,     # flat fatigue: fatigue_units x U x n^fatigue_pow per pulse (2026-11-10)
+    fatigue_pow=2.0,
     health_mult=4.0,       # A4: x4 (user, 2026-11-09), with much stronger wards
     ward_mult=1.25,        # A4: multiplies every ward's resistance payload (ward strength)
     resist_cap=0.90,       # resistance cap (today 0.75, max 0.90 with raises)
@@ -265,7 +266,7 @@ def pulse(s, o, t, log):
                 s.qi = 0.0
             else:
                 s.qi -= bill
-            dmg = max(1.0, tick - prevented)
+            dmg = tick - prevented  # ticks have no floor of 1 (2026-11-10)
             s.hp -= dmg
             src.dealt += dmg
             if el == "fire" and src.b.k_burn:
@@ -295,7 +296,7 @@ def pulse(s, o, t, log):
     # fatigue
     if t >= K["fatigue_start"] - 1e-9:
         k = round(t - K["fatigue_start"])
-        f = s.hp_max * K["fatigue_step"] * (1 + k)
+        f = s.U * K["fatigue_units"] * (1 + k) ** K["fatigue_pow"]
         s.hp -= f
         s.fat += f
     # expire stacks

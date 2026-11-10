@@ -79,7 +79,7 @@ Named values are defined in Formulas and live in `tribulation_rules.json` (rules
    preparation last through the whole tribulation (user decision 2026-11-06). Each later wave sends Combat its starting
    shares for health and linh lực (Combat rule 3).
 8. **Only a knockout win clears a wave.** The player must win the wave's fight by knockout. Every other ending
-   fails the tribulation: the player Down, a draw, a stalemate at `time_limit`, or a flight (an escape art that
+   fails the tribulation: the player Down, a draw, or a flight (an escape art that
    succeeds also fails it, so a slotted escape art is a wasted slot, and preparation warns of it).
 9. **Surviving.** When every wave is cleared, the character has survived. This system reports survival to Realms,
    which moves the character to the early stage of the next realm with vitality full and fires
@@ -120,7 +120,7 @@ Named values are defined in Formulas and live in `tribulation_rules.json` (rules
 |---|---|---|
 | Wave k to Wave k+1 | Player knockout win, k below `wave_count` | Carry-over of rule 7 |
 | Wave k to Survived | Player knockout win, k equal to `wave_count` | Realms: next realm, `breakthrough_succeeded`; the buff and the reward choice |
-| Wave k to Failed | Down, draw, stalemate or flight | Realms: Dead, cause `tribulation` |
+| Wave k to Failed | Down, draw or flight | Realms: Dead, cause `tribulation` |
 
 ### Interactions with Other Systems
 
@@ -262,7 +262,7 @@ The data lint checks every record in `tribulation_bosses.json`. Each of the valu
 | Multiplier | `1 ≤ boss_pool_mult ≤ bm_max`, and `bm_max ≤ pool_ramp` |
 | Ramp | `pool_ramp ≥ 1`, and `bm_max · pool_ramp ^ (wave_count − 1) ≤ m_cap` |
 | Power band | r_b against the baseline reference is within `band_min` 0.10 and `band_max` 0.35 |
-| Kill time | The baseline reference kills the boss at the last wave's `m_eff` within 0.5 · `time_limit` (`stall_share`, 60 s, before Combat's fatigue starts; #44), by the Combat Formulas K estimate, so no boss forces a stalemate |
+| Kill time | The baseline reference kills the boss at the last wave's `m_eff` within `stall_time` (60 s, before Combat's fatigue starts; #44; was 0.5 · `time_limit`, retired 2026-11-10), by the Combat Formulas K estimate, so no boss forces the player into fatigue |
 | Soul share | At most `soul_share_max` 0.5 of the boss's offence is soul |
 | Arts | 2 to 5 arts, each passing Combat's art lint, and no escape art: a boss's flight would end a wave with no knockout |
 | Realm | A boss record has no `equiv_realm` key (rule 6): a record that carries one is rejected |
@@ -296,7 +296,7 @@ The tempered_buff formula is defined as:
 
 - **If the player wins a double knockout on overkill (Combat rule 10):** it is a knockout win. The wave is cleared and the player carries 1 health.
 - **If a wave ends in a draw:** the tribulation fails and the character dies. A draw's `wound: grave` never reaches a caller here.
-- **If a wave reaches `time_limit`:** it is a stalemate and the character dies, even with most of its health left. A build that cannot kill cannot cross.
+- **If a wave runs past 60 s:** Combat's flat fatigue (Combat rule 10) grows as n² for both sides, and the boss's larger pool outlasts the player's, so the player falls and the character dies, even with most of its health left at 60 s. A build that cannot kill cannot cross (there is no time limit or stalemate since 2026-11-10).
 - **If an escape art succeeds:** the flight fails the tribulation and the character dies. The exception is Combat's own rule: if the boss's health is 0 or below at that point, it is a knockout win and the wave is cleared.
 - **If the last wave is won with 1 health:** the character survives and comes out at full vitality with the buff, like any survivor.
 
@@ -328,7 +328,7 @@ The tempered_buff formula is defined as:
 
 **Degenerate strategies watched for**
 
-- **Stacking pure defence:** a stalemate is death (rule 8).
+- **Stacking pure defence:** fatigue ends the wave with the player Down, which is death (rule 8).
 - **Healing between waves:** health carries exactly and the rest touches only linh lực.
 - **Reloading to learn the draw:** a changed setup draws again, so a death teaches nothing about the next try. The cost, accepted by the user (design review 2026-11-06), is that a small setup change re-rolls the draw for free after a reload. Reloading to before the attempt is allowed, as with any save: the death is final for an ironman save, and this system adds no lock of its own.
 - **Maximum sustain:** bounded by regeneration's diminishing returns (`regen_k`) and the limit on `rest_pulses`.
@@ -380,7 +380,7 @@ All live in `tribulation_rules.json` unless stated, and are guesses until the Ba
 | `bm_max` | 1.0–`pool_ramp` | 1.5 | How far one boss can stand apart from the ramp |
 | `rest_pulses` | 0–12 | 8 | Linh lực recovered between waves; the reward for sustain builds |
 | `band_min`, `band_max` | 0.05–0.50 (min below max) | 0.10, 0.35 | Boss power against a baseline build; sets the baseline target |
-| `stall_share` | 0.4–0.6 | 0.5 (#44: 60 s, before fatigue) | How long a baseline build may take to kill a boss, as a share of `time_limit` |
+| `stall_time` | 50–60 s | 60 s (#44, before fatigue; was `stall_share` 0.5 of the retired `time_limit`) | How long a baseline build may take to kill a boss |
 | `soul_share_max` | 0.2–0.7 | 0.5 | How much of a boss's offence may be soul, which most builds cannot ward |
 | `kind_share_max`, `pool_target` | 0.34–0.7; 3–12 | 0.5; 6 | How varied a pool must be, so no build type dominates the draw |
 | `tempered_buff_w` | 0–120 | 60 | Size of the survivor's lasting buff |
@@ -441,7 +441,7 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 
 **Fixtures.** Used throughout unless stated; full precision, tolerance ±0.0001.
 
-- **FX-R:** `wave_count` 3, `pool_ramp` 1.5, `bm_max` 1.5, `m_cap` 10, `rest_pulses` 8, `regen_base` 0.035, `regen_k` 0.08, `time_limit` 120, band 0.10–0.35, `stall_share` 0.5, `soul_share_max` 0.5, `kind_share_max` 0.5, `pool_target` 6, `tempered_buff_w` 60, `tribulation_enabled` true.
+- **FX-R:** `wave_count` 3, `pool_ramp` 1.5, `bm_max` 1.5, `m_cap` 10, `rest_pulses` 8, `regen_base` 0.035, `regen_k` 0.08, band 0.10–0.35, `stall_time` 60, `soul_share_max` 0.5, `kind_share_max` 0.5, `pool_target` 6, `tempered_buff_w` 60, `tribulation_enabled` true.
 - **FX-P:** Nascent Soul great perfection, `health_max` 1,600, `qi_max` 2,600, v 1.0, `regen_bonus` 0, Off 1,500, ehp 9,400 (also the lint baseline).
 - **FX-B:** boss, Off 400, ehp 8,000, `boss_pool_mult` 1.0, 2 arts, soul share 0.25, a fixture `reward`.
 - **FX-POOL:** six FX-B: B1, B2 (`main_kind` body), Q1, Q2 (qi), S1, S2 (soul), weights 2, 1, 2, 1, 2, 1, each with its own `reward` and its offence shares set to match.
@@ -503,7 +503,7 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 
 - **AC-TK-38** Rule 8. Given player Down, then the run is Failed and no wave 3 request is sent.
 - **AC-TK-39** Edge. Given a draw at 1 health, `wound: grave`, then Failed.
-- **AC-TK-40** Edge. Given a wave still running at 73 s with both sides falling to fatigue together (a draw), then Failed; given a stalemate at 120 s, then Failed.
+- **AC-TK-40** Edge. Given a wave still running at 66 s with both sides falling to fatigue together (a draw), then Failed; given a boss pool larger than the player's at 60 s and no damage dealt after, then the player falls to fatigue first and the tribulation is Failed.
 - **AC-TK-41** Edge. Given the player Fled with boss health above 0, then Failed.
 - **AC-TK-42** Edge. Given the player Fled, boss health 0, Combat reporting a knockout win, then the wave clears.
 - **AC-TK-43** Edge, OQ1. Given a double-knockout win at 1 health, then the wave clears and next h is 0.000625.

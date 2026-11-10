@@ -1,10 +1,10 @@
 # Combat
 
-> **Status**: Revised 2026-11-09 for the Combat economy revision (#44), part 1 (fight length, fatigue, linh lực costs and regeneration, no tick caps; decisions in `design/research/economy-revision-44-decisions.md`; part 2 re-derived the ward-dependent numbers the same day). Earlier: revised 2026-11-08 for the Combat revision (#43): the defence path, wards, shields and healing move to Combat Defence & Healing (#21a); damage types and conversion to Combat Damage Types (#21b); modifier records, operations and scopes to the Modifier System (#40); statuses, curses and the Down step to the Effects System (#41). This GDD keeps the fight frame: the timeline, offence, the defeat check, results and the rating. Earlier: reworked 2026-11-06 to a timeline of seconds with no rounds (user decision); seventh review fixes applied the same day (ward pass clamp, since retired; defeat check judged after all of an instant's damage, a draw on equal overkill, guards read after the pulse), not re-reviewed; ninth-pass fixes applied the same day (wake-up events, ward expiry tie), not re-reviewed. Simulated numbers predate the timeline and are provisional. Earlier: fourth design-review fixes, cooldown timers and hit order, escape step, one health bar and wards
+> **Status**: Revised 2026-11-10 after the combat review: fatigue is a flat amount growing with n² (not a share of health), `time_limit` and the stalemate are retired, soul resistance may go below 0, ticks have no floor of 1 (user decisions). Revised 2026-11-09 for the Combat economy revision (#44), part 1 (fight length, fatigue, linh lực costs and regeneration, no tick caps; decisions in `design/research/economy-revision-44-decisions.md`; part 2 re-derived the ward-dependent numbers the same day). Earlier: revised 2026-11-08 for the Combat revision (#43): the defence path, wards, shields and healing move to Combat Defence & Healing (#21a); damage types and conversion to Combat Damage Types (#21b); modifier records, operations and scopes to the Modifier System (#40); statuses, curses and the Down step to the Effects System (#41). This GDD keeps the fight frame: the timeline, offence, the defeat check, results and the rating. Earlier: reworked 2026-11-06 to a timeline of seconds with no rounds (user decision); seventh review fixes applied the same day (ward pass clamp, since retired; defeat check judged after all of an instant's damage, a draw on equal overkill, guards read after the pulse), not re-reviewed; ninth-pass fixes applied the same day (wake-up events, ward expiry tie), not re-reviewed. Simulated numbers predate the timeline and are provisional. Earlier: fourth design-review fixes, cooldown timers and hit order, escape step, one health bar and wards
 > **Build status**: On hold (user decision 2026-11-06). The full fight is not built until items, techniques, abilities and passives exist. Until then fights keep using today's power duel (`CombatPower`, `combat_rules.json`) unchanged, so the Character Stats and Cultivation Techniques edits that cite this GDD describe the target, not the running game.
 > **Author**: user + agents
-> **Last Updated**: 2026-11-10 (#44 follow-ups: resistance in points, regeneration curve, re-review fixes)
-> **Last Verified**: 2026-11-10 (confirming re-review, `reviews/rereview-2026-11-10/round2/`)
+> **Last Updated**: 2026-11-10 (review sweep `reviews/combat-review-2026-11-10/combat.md`: flat n² fatigue, `time_limit` and stalemate retired, soul resistance without a floor, no tick floor (user decisions); stale ACs re-based; resistance in points throughout). Earlier: 2026-11-10 (#44 follow-ups: resistance in points, regeneration curve, re-review fixes)
+> **Last Verified**: 2026-11-10 (confirming review, `reviews/combat-review-2026-11-10/round2/`; its leftovers applied)
 > **Implements Pillar**: Power Is Built, Not Given (3); Your Dao, Your Name (1); Every Number Is Bounded and Visible (2)
 
 ## Summary
@@ -85,7 +85,8 @@ author's reading and wait for confirmation (see Open Questions).
    limit and does not lower the thần thức a side fights with (user decision 2026-11-06).
 4. **Damage types, and the defence path.** Every part of every hit and every tick has one of eight damage types
    (Combat Damage Types rule 1). After offence (rule 5, Formulas C and H), a hit part meets Combat Defence &
-   Healing's defence path: evade, then resistance, then block, then shields, then health (that GDD's rule 1). A
+   Healing's defence path: evade, then resistance, then block, then shields, then health (that GDD's rule 1).
+   Element stacks that change damage taken act on the part before resistance (that GDD's rule 1). A
    tick on health meets resistance and the shields it does not pass, never evade or block. A tick on linh lực (Qi
    Disruption) meets resistance and comes off linh lực, passing every shield. A soul hit meets only soul
    resistance and soul wards (rule 24). Curses carry no damage type and deal no damage (rule 8).
@@ -125,8 +126,8 @@ author's reading and wait for confirmation (see Open Questions).
    pulses and a stacking rule (Effects System rule 9, which owns the status catalogue). It ticks at every pulse
    and meets the resistance of its type; the attacker's penetration counts, read when the status is applied
    (Combat revision D11). It passes ward shields by default but meets the body shield unless it is Chaos (Combat
-   Defence & Healing rules 1, 9; Combat Damage Types rule 7). It never meets evade or block. The at-least-1
-   floor applies only to what reaches health. A qi burn status (Qi Disruption) ticks linh lực instead. A
+   Defence & Healing rules 1, 9; Combat Damage Types rule 7). It never meets evade or block. A tick deals exactly
+   what reaches health, with no floor of 1 (user decision 2026-11-10; a hit keeps its floor). A qi burn status (Qi Disruption) ticks linh lực instead. A
    standing status has no duration and is bounded by the standing fee its caster pays (Effects Formulas B). Combat
    keeps the tick formula (Formulas F). **Element stacks** (a buff on yourself, a debuff on the foe, per element) are the
    Effects System's (rule 9a): their batch timers fall at each pulse, and a cleansing ward removes its share then. Ticks have no cap, on health or on linh lực (user decision 2026-11-09,
@@ -152,8 +153,8 @@ author's reading and wait for confirmation (see Open Questions).
      Combat Damage Types rule 6), then by record id. A trigger set off by a trigger resolves right after the one
      that set it off, at most to `trigger_depth`, and the per-pulse trigger count is capped, so no build can loop
      forever.
-10. **The timeline.** A fight runs in simulated seconds from t = 0 up to `time_limit`, with no rounds (user
-    decision 2026-11-06). Times are whole milliseconds, never floats, so two events tie only in the same millisecond, and no real clock is involved (rule 21). An art's effective cooldown rounds to the nearest millisecond (half up), and its timer restarts as the firing time plus that value. Every other time key (`pulse_interval`, `basic_cooldown`, `escape_channel`, `soul_lockout`, `recharge_delay`, `fatigue_start`, `time_limit`) is authored in seconds and rounded the same way at load. The engine always
+10. **The timeline.** A fight runs in simulated seconds from t = 0 until one side is Down, a draw or a flight (fatigue guarantees it; no time limit since 2026-11-10), with no rounds (user
+    decision 2026-11-06). Times are whole milliseconds, never floats, so two events tie only in the same millisecond, and no real clock is involved (rule 21). An art's effective cooldown rounds to the nearest millisecond (half up), and its timer restarts as the firing time plus that value. Every other time key (`pulse_interval`, `basic_cooldown`, `escape_channel`, `soul_lockout`, `recharge_delay`, `fatigue_start`) is authored in seconds and rounded the same way at load. The engine always
     resolves the next scheduled event: an art firing, a basic attack, a companion hit, a pulse, an escape
     resolving or a **wake-up** (below). Both sides share one clock.
     - **Wake-ups (review fix 2026-11-06).** Some things stop an art that is otherwise ready, and each ending is a
@@ -222,17 +223,20 @@ author's reading and wait for confirmation (see Open Questions).
       `wound: grave` and neither `mortal`. The result carries a `wound` value per side: `none`, `grave` (a draw's
       survivors) or `mortal` (a Down side). The caller decides what a grave wound costs (rule 14). No random draw
       decides it and fortune does not enter.
-    - **Fatigue (new, #44 item A3).** From `fatigue_start` (60 s), every pulse takes from **both** sides a share
-      of their own `health_max` that grows by `fatigue_step` (1 %) each pulse: 1 % at 60 s, 2 % at 61 s, 3 % at
-      62 s, and so on (Formulas A2). Fatigue is not damage of any type and not a status: it passes wards, shields,
-      resistance and block, no Effect or modifier changes it, fortune does not touch it, and it cannot be cleansed.
-      It is logged as its own line. It can take a side to 0, and the instant's Down step and defeat check apply as
-      usual, so a refusal can still save a side once. A side at full health falls to fatigue alone at 73 s, so
-      almost every fight ends well inside `time_limit`. Fatigue keeps long, sustain-heavy fights from stalling now
-      that healing neither fades nor is capped.
-    - **Time limit.** Events at exactly `time_limit` resolve. If no side is Down after them, the fight is a
-      **stalemate** and each side keeps what it has left (rule 14). An escape roll that would fall after
-      `time_limit` never happens: its channel is cut off and does not change the stalemate.
+    - **Fatigue (#44 item A3; flat since 2026-11-10).** From `fatigue_start` (60 s), every pulse takes from **both**
+      sides a **flat** amount, `fatigue_units` × U_r × n², where n counts fatigue pulses (1 at 60 s, 2 at 61 s …)
+      and U_r is the side's own realm fight unit: 3.16, 12.6, 28.4, 50.5 … at Qi Refining (Formulas A2). It does
+      not depend on the side's health, so a build that bought health keeps that toughness (user decision 2026-11-10:
+      a share of health punished high-health builds). Fatigue is not damage of any type and not a status: it passes
+      wards, shields, resistance and block, no Effect or modifier changes it, fortune does not touch it, and it
+      cannot be cleansed. It is logged as its own line. It can take a side to 0, and the instant's Down step and
+      defeat check apply as usual, so a refusal can still save a side once. A typical side at full health falls to
+      fatigue alone at 66 s, the thể tu (484.6 health) at 67 s, and the largest legal pool (n 8, `boss_pool_mult`
+      10) at 90 s. Fatigue keeps long, sustain-heavy fights from stalling now that healing neither fades nor is
+      capped, and a big-pool boss outlasts its challenger in overtime, so a build that cannot kill it loses.
+    - **No time limit** (user decision 2026-11-10). Fatigue grows without bound, so every fight ends in a knockout,
+      a draw or a flight; `time_limit` and the stalemate are retired. A fight still running at 120 s is a bug the
+      Balance Harness flags (AC-CB-29).
 
     No stat decides who acts first. A side's pace comes from the arts it slots and from art speed
     (rule 13), which is bounded, so no single stat can dominate the order of a fight. Shield recharge is computed
@@ -291,15 +295,15 @@ author's reading and wait for confirmation (see Open Questions).
     a fight ends by flight if the escape art succeeds (a seeded chance against the pursuer's tags and
     realm), with the result recorded as such.
 14. **A fight ends with a result, never with a consequence.** The result is: the winning side, how
-    it ended (knockout, draw, stalemate or flight), the fight time, each side's health, linh lực and `wound` (`none`, `grave` or `mortal`) at the end, the
+    it ended (knockout, draw or flight), the fight time, each side's health, linh lực and `wound` (`none`, `grave` or `mortal`) at the end, the
     resources spent (talismans, linh lực), the deciding layer (the layer with the highest
-    damage-weighted total over the winner's hits; ties take the lower number; a soul win, a draw, a stalemate or a flight
+    damage-weighted total over the winner's hits; ties take the lower number; a soul win, a draw or a flight
     has no deciding layer and the result says so), the costs and gains that outlive the fight (heart demon,
     lifespan, toxicity and the rest) and wounds that run on, which the caller applies (Effects System rules 10,
     11), and the full log. Combat itself
     changes nothing outside the fight. The caller applies consequences: it decrements spent stock, Character Stats takes the
     vitality loss (Formulas A), the Event Engine decides death, mercy or capture and offers taming of a beaten
-    creature, Realms receives a knockout of a cultivator for capability #9 (a flight, a draw, a stalemate or a creature never counts, and mercy does not undo it; user decision 2026-11-06), and the World Database records the
+    creature, Realms receives a knockout of a cultivator for capability #9 (a flight, a draw or a creature never counts, and mercy does not undo it; user decision 2026-11-06), and the World Database records the
     event. **Death rests on the caller:** Combat only says a side was mortally wounded.
 15. **All randomness is explicit and seeded.** One random stream per fight, seeded from the world
     seed and the fight id, is drawn from in a fixed order. Randomness enters only through explicit
@@ -310,7 +314,7 @@ author's reading and wait for confirmation (see Open Questions).
     chance, which uses no draw and is not shifted by fortune (Effects System rule 12, Formulas A).
 16. **Every hit explains itself.** Each hit logs its actor, art, tags, each part's damage type and
     history, the Breakdown of every layer (the bonuses inside each layer and the layer total), then the defence path
-    as Combat Defence & Healing lists it (evade, resistance with its cap, block, each ward shield, the body shield,
+    as Combat Defence & Healing lists it (evade, resistance in points and the share it stops, block, each ward shield, the body shield,
     health, and each ward's payment), heals, fatigue, the Effects that fired, and health and linh
     lực before and after. The terminal shows a one-line summary per pulse by default and the
     full Breakdown on request; the log is data and the Game UI reads the same structure.
@@ -327,8 +331,8 @@ author's reading and wait for confirmation (see Open Questions).
     enemy's character comes from its modifiers, art list, slot order and guards: a body-crusher, a
     soul-piercer, a poisoner, an armoured beast. Content authors add enemies by data, with no new rule.
     Each realm tier has at least one enemy that deals each damage-type group (Physical/Force;
-    Fire/Cold/Lightning/Light; Chaos; Soul), one with high resistance to each group (at least 0.60 against it with
-    its wards up), one that drains linh lực hard (it carries Qi Disruption or a soul art) and one that heals (a heal
+    Fire/Cold/Lightning/Light; Chaos; Soul), one with high resistance to each group (at least 150 points against it,
+    stopping 60 %, with its wards up), one that drains linh lực hard (it carries Qi Disruption or a soul art) and one that heals (a heal
     art or heal Effect) (Combat revision D8; thresholds user decision C3, 2026-11-08). Every enemy profile lists its damage types, its wards and a soul
     defence (Combat Damage Types Open Question 5; Combat Defence & Healing rule 14), so a one-note build meets something it cannot answer. A top-end build
     may end an ordinary fight with its first volley or two; that is its payoff (user decision 2026-11-06).
@@ -388,7 +392,7 @@ A fight has these states; a combatant has the sub-states under it.
 |---|---|---|
 | Requested | The Event Engine, Tribulation or the player opens a fight | The situation (rule 12) is known |
 | Preparing | The situation allows preparation | The player confirms the setup (or the situation allows none), and the profiles compile |
-| Running (the timeline of rule 10) | The profiles have compiled | The defeat check ends the fight, `time_limit` is reached, or an escape art succeeds |
+| Running (the timeline of rule 10) | The profiles have compiled | The defeat check ends the fight (fatigue makes sure it does) or an escape art succeeds |
 | Resolved | An end is reached | The caller reads the result; the fight is then discarded |
 
 | Combatant state | Entered when | Leaves when |
@@ -479,7 +483,7 @@ The pool_max formula is defined as:
 | Σ reserved, qi_use | float | 0–0.9; ≥ 0 | Combat Defence & Healing rule 10 | Reserved share and the usable maximum linh lực starts at |
 | ehp | float | ≥ 0 | Combat Defence & Healing Formulas G | Effective health by damage type, before art spending and regeneration. Typical Qi Refining **1,376.2** (#44; was 297.8) |
 
-`time_limit` is 120 s, and fatigue from 60 s ends almost every fight first (rule 10). After a fight, `v_after = min(v, health_end / health_max)`, so vitality never rises, even
+There is no time limit: fatigue from 60 s ends every fight (rule 10). After a fight, `v_after = min(v, health_end / health_max)`, so vitality never rises, even
 when healing restored health during the fight (Combat Defence & Healing rule 19).
 The caller applies Character Stats' floor rules.
 
@@ -510,9 +514,11 @@ The cooldown formula is defined as:
 | cooldown_min | float | 0.5 s | data file | Floor on any art's cooldown, so the rate of hits stays bounded |
 | basic_cooldown | float | 1 s | data file | The basic attack's and the companion's timer. Art speed does not touch it |
 | pulse_interval | float | 1 s | data file | Beat of regeneration, ticks, durations and per-pulse limits |
-| time_limit | float | 120 s (was 40 s; #44 item A1) | data file | Stalemate time; fatigue ends almost every fight before it |
+| ~~time_limit~~ | — | retired 2026-11-10 | — | Fatigue grows without bound, so no fight needs a limit; no stalemate |
 | fatigue_start | float | 60 s | data file | First fatigue pulse (#44 item A3) |
-| fatigue_step | float | 0.01 | data file | Fatigue's share of `health_max` at its first pulse, and its growth each further pulse |
+| ~~fatigue_step~~ | — | retired 2026-11-10 | — | Replaced by the flat `fatigue_units` (fatigue no longer reads `health_max`) |
+| fatigue_units | float | 0.5 (0.25–1.0) | data file | Fatigue's first pulse in fight units: 0.5 × U_r (3.16 at Qi Refining) |
+| fatigue_pow | float | 2 (2–3) | data file | Growth: the n-th fatigue pulse takes `fatigue_units` × U_r × n^`fatigue_pow`. 2.5 or 3 if fights run long |
 | escape_channel | float | 1 s (guess) | data file | Delay between an escape art firing and its roll |
 | soul_lockout | float | 1 s (guess) | data file | Minimum gap between a side's soul arts |
 
@@ -520,14 +526,17 @@ The cooldown formula is defined as:
 
 The fatigue formula is defined as:
 
-`fatigue(t) = fatigue_step · (1 + (t − fatigue_start) / pulse_interval) · health_max` at each pulse with t ≥ `fatigue_start`, and 0 before it
+`fatigue(t) = fatigue_units · U_r · n^fatigue_pow`, with `n = 1 + (t − fatigue_start) / pulse_interval`, at each pulse with t ≥ `fatigue_start`, and 0 before it. U_r is the side's own realm fight unit (Formulas A), never scaled by `boss_pool_mult` or the side's health
 
-**Output Range:** 1 %, 2 %, 3 % … of `health_max` at 60, 61, 62 s. The running total reaches 100 % at the 14th
-fatigue pulse (1 + 2 + … + 14 = 105 %), so a side at full health with nothing else touching it falls at **73 s**.
-Typical same-realm fights end at 30–60 s (#44 item A1) and never meet it; a healer mirror ends by fatigue at about
-65 s (`tools/design/combat_sim/sim.py`).
+**Output Range:** at Qi Refining 3.16, 12.6, 28.4, 50.5, 78.9, 113.6, 154.6 … at 60, 61, 62 … s, with no upper
+bound. The running total after N pulses is `fatigue_units · U_r · N(N + 1)(2N + 1) / 6`: 441.7 after 7 pulses, so a
+typical side (439.48) at full health with nothing else touching it falls at **66 s**, the thể tu (484.6) at 67 s, and
+the largest legal pool (`health_units` 64, n 8, `boss_pool_mult` 10: 32,305) at **90 s**. Typical same-realm fights
+end at 30–60 s (#44 item A1) and never meet it; a healer mirror ends by fatigue by about 65 s
+(`tools/design/combat_sim/sim.py`, 2026-11-10).
 
-**Example:** health_max 439.5 at t = 65: 0.01 × 6 × 439.5 = **26.4** taken from each side.
+**Example:** Qi Refining (U 6.31) at t = 65, so n = 6: 0.5 × 6.31 × 36 = **113.6** taken from each side, whatever its
+health.
 
 **Example:** cooldown 10 s at +100 %: 10 / 2 = **5 s**. Sources of +100 % and +50 % add to +150 %: 10 / 2.5 = **4 s**. Cooldown 1 s at +300 % would be 0.25 s and stops at **0.5 s**. Cooldown 10 s at +200 % is 3.333 s, so **3,333 ms**: firings at 3.333, 6.666 and 9.999 s, and the third is a separate instant from the 10 s pulse.
 
@@ -585,7 +594,7 @@ W shares are attack / ward strength / ward efficiency / linh lực / health.
   Black Iron Armour's Physical affix 11.1), body gear 1.0 × B_p, the default ward only. Its W shares need a harness
   re-fit (Open Question 6).
 
-| Realm (end) | Tree W | Typical M | Typical ehp (U) | Typical mirror, s (old sim) | Top-end M | Top-end ehp (U) | Top-end mirror, s (old sim) |
+| Realm (end) | Tree W | Typical M | Typical ehp (U) | Typical mirror, s (old sim, superseded) | Top-end M | Top-end ehp (U) | Top-end mirror, s (old sim, superseded) |
 |---|---|---|---|---|---|---|---|
 | Qi Refining | 106 | 3.27 | 218 (#44; was 47) | 7.6 (#44: 30–60 s) | 103 | re-derive | 1 |
 | Foundation Establishment | 248 | 4.19 | re-derive | 6.7 | 148 | re-derive | 1 |
@@ -598,12 +607,15 @@ Qi Refining only, so the other ehp cells are re-derived from its Formulas G by t
 values 56 / 73 / 94 / 127 and 125 / 163 / 217 / 315 / 460 assumed the retired ward and body guard). Open
 Question 20 still applies to the mirror columns.
 
-**#44 note:** the mirror columns and the spot checks below predate the Combat economy revision. Under #44 the
-FX-T mirror ends at 34.000 s (linh lực dry at 10 s) and the FX-U mirror at 68.000 s by fatigue, both draws
-(AC-CB-30); the simulator (`tools/design/combat_sim/sim.py`) gives a three-art typical mirror of about 36 s, and
-Formulas K's rotation 55.8 s. The harness re-derives the realm columns.
+**#44 note:** the mirror columns and the spot checks below predate the Combat economy revision and are
+superseded. **The canonical typical mirror is the simulator's** (`tools/design/combat_sim/sim.py`, three arts, 20
+seeds, 2026-11-10): about **37 s** (36.7), linh lực dry at about 16 s. The other figures measure other things: the
+hand-worked FX-T mirror ends at 34.000 s because its one art fires every second while affordable (dry at 10 s); the
+FX-U mirror ends at 64.000 s by fatigue (AC-CB-30), both draws; Formulas K's 55.8 s is the rating model's averaged
+rotation (art uptime 0.3) and is compared with the full fight only through win chances (AC-CB-52), never through
+length. The harness re-derives the realm columns.
 
-An unbuilt mirror (M = 1, basic attack only, default ward) lasted about 25 s, inside `time_limit`, under the old
+An unbuilt mirror (M = 1, basic attack only, default ward) lasted about 25 s, inside the old time limit, under the old
 ward; with the default ward and flesh block an FX-U mirror is a draw at exactly 25.000 s (AC-CB-30).
 Mirror columns come from the old round simulation with no soul arts, statuses or triggers. One spot check on
 the timeline: the FX-T mirror (one 1 s art plus the basic attack) ends at exactly 6.000 s, a draw (AC-CB-30); it
@@ -615,7 +627,7 @@ spends its arts up front, so it is shorter than Formulas K's averaged typical ro
 
 The hit_damage formula is defined as:
 
-`base = U_att · stage_att · c_art` ; `part_j = base · s_j · M(T_j) · crit` ; `D_j = part_j · supp` ; `D_j` then meets the defence path: resistance `a_j` (Combat Defence & Healing Formulas A), its share `k_j` of block (A2), shields (B), and `dealt_j = 0` if nothing reaches health, else `max(1, h_j)` ; `overkill = max(0, damage_in_instant − health_at_instant_start) / health_max`, where `damage_in_instant` is everything that removed health from that side in the instant (ticks, hits, trigger hits and last acts, after the defence path) and health is not floored until the defeat check
+`base = U_att · stage_att · c_art` ; `part_j = base · s_j · M(T_j) · crit` ; `D_j = part_j · supp` ; `D_j` then meets the defence path: resistance `a_j = D_j ÷ (1 + R_j / 100)` with R_j in points, or `D_j · (1 + |R_j| / 100)` below 0 (Combat Defence & Healing Formulas A), its share `k_j` of block (A2), shields (B), and `dealt_j = 0` if nothing reaches health, else `max(1, h_j)` for a hit (ticks have no floor, Formulas F) ; `overkill = max(0, damage_in_instant − health_at_instant_start) / health_max`, where `damage_in_instant` is everything that removed health from that side in the instant (ticks, hits, trigger hits and last acts, after the defence path) and health is not floored until the defeat check
 
 **Variables:**
 
@@ -639,9 +651,9 @@ apply one at a time against live linh lực. Soul attacks skip all of this (Form
 `M` ≤ 350 and crit ≤ 3.
 
 **Example:** Qi Refining, stage 1.00, c_art 2.0, typical M 3.27: base 12.62, D **41.30**. An all-Physical hit
-on FX-T (the Common Ward, r 0.8175; block 0.946): after resistance 41.30 × 0.1825 = 7.54; after block **6.59**
+on FX-T (the Common Ward, 448 points, stopping 81.75 %; block 0.946): after resistance 41.30 × 0.1825 = 7.54; after block **6.59**
 dealt; the drain bill is 0.1917 × 33.76 = **6.47** linh lực. With every ward switched off, the default ward (all
-0.375) covers it: 41.30 × 0.625 − 0.946 = **24.87**. With no linh lực, no ward is up: 41.30 − 0.946 = **40.35**. On a
+60 points, stopping 37.5 %) covers it: 41.30 × 0.625 − 0.946 = **24.87**. With no linh lực, no ward is up: 41.30 − 0.946 = **40.35**. On a
 ×1.7 crit with the Common Ward: 70.21 × 0.1825 − 0.946 = **11.87**. Conversion: base 100, Physical +30 %, Fire
 +40 %, 40 % Physical → Fire: 0.6 × 1.3 + 0.4 × 1.7 = 1.46, so **146** against 130 (Combat Damage Types Formulas A).
 
@@ -690,7 +702,7 @@ fires **24 times** in a row, then about every other second on regeneration. A re
 
 The soul_attack formula is defined as:
 
-`rho = divine_sense_att / (divine_sense_def · (1 + soul_res_pct/100))` ; `pct = 0 if rho < rho_min, else min(soul_pct · (1 + x_soul/100) · rho^soul_beta · supp, soul_cap)` ; `health_loss = pct · health_max / boss_pool_mult` ; `qi_loss = pct · qi_max / boss_pool_mult`
+`rho = divine_sense_att / (divine_sense_def · (1 + soul_res_pct/100))` when `soul_res_pct` ≥ 0, and `rho = divine_sense_att · (1 + |soul_res_pct|/100) / divine_sense_def` below 0 (no floor, user decision 2026-11-10) ; `pct = 0 if rho < rho_min, else min(soul_pct · (1 + x_soul/100) · rho^soul_beta · supp, soul_cap)` ; `health_loss = pct · health_max / boss_pool_mult` ; `qi_loss = pct · qi_max / boss_pool_mult`
 
 **Variables:**
 
@@ -700,7 +712,7 @@ The soul_attack formula is defined as:
 | x_soul | float | ≥ 0 | calculated | Soul-tagged modifiers, so a soul build has something to stack |
 | soul_beta | float | 2 (1.5–3) | data file | Steepness: a big gap is frightening and parity is small |
 | rho_min | float | 0.25 | data file | Below this the attack cannot touch the soul |
-| soul_res_pct | float | 0–100 | Modifier System (`soul_res_pct`); soul wards | Way nodes, rare items and soul-ward payloads (scaled by ws). Lowered by Slackened Soul, −15 pp per stack, never below 0 (Combat revision D12) |
+| soul_res_pct | float | any; below 0 amplifies | Modifier System (`soul_res_pct`); soul wards | Way nodes, rare items and soul-ward payloads (scaled by ws). Lowered by Slackened Soul, −15 pp per stack (Combat revision D12), with no floor since 2026-11-10, like resistance |
 | soul_cap | float | 0.30 | data file | Most one hit can take |
 | supp | float | 0.25–1 | calculated (H) | Suppression applies, and pierce works on it |
 
@@ -719,7 +731,7 @@ half takes **1.25 %**; a fifth takes **0**.
 
 The status_tick formula is defined as:
 
-`tick = U_src · stage_src · c_tick · stacks · L1..L4(tags) · supp · (1 − r_eff)`, with no cap (#44 item C3), where `r_eff` is the target's resistance for the status's damage type less the source's penetration, both read when the status is applied (Combat Defence & Healing Formulas A; Combat revision D11) ; the tick then meets the shields it does not pass, and what reaches health is at least 1 ; `p_status = chance` when chance is 0 or 1, otherwise `clamp(chance · (1 − resist), 0.05, 0.95)`
+`tick = U_src · stage_src · c_tick · stacks · L1..L4(tags) · supp · (1 − r_eff)`, with no cap (#44 item C3), where `r_eff` is the share stopped (`r_j` of Combat Defence & Healing Formulas A) by the target's resistance points for the status's damage type less the source's penetration points, both read when the status is applied (Combat revision D11) ; the tick then meets the shields it does not pass, and what reaches health is dealt exactly, with no floor of 1 (user decision 2026-11-10) ; `p_status = chance` when chance is 0 or 1, otherwise `clamp(chance · (1 − resist), 0.05, 0.95)`
 
 **Variables:**
 
@@ -747,7 +759,7 @@ Curse bounds, each a data key (restated for the new defence, Combat revision D12
 | `curse_drain_raise_max` | +50 % | Drain wards bill more (Leaking Ward) | Kept, drain wards only |
 | `curse_cost_raise_max` | +50 % | Art cost raise | Kept |
 | `curse_heal_taken_max` | 0.50 | Healing taken down (Withering). One floor of −50 % across all sources, Blood Casting included | **New** |
-| `curse_soul_shred_max` | 30 pp | Soul resistance down (Slackened Soul, −15 pp per stack); soul resistance never goes below 0 | **New** (D12) |
+| ~~`curse_soul_shred_max`~~ | retired 2026-11-10 | Soul resistance has no floor, like resistance; Slackened Soul (−15 pp per stack, 2 stacks) may push it below 0, which amplifies | Retired |
 | `curse_reapply_lockout` | 2 pulses | Sealed Meridian and Silence cannot be put back on a target for 2 pulses after they end | **New** |
 | `curse_layer_lock_max`, `curse_tag_block_max`, `curse_duration_max` | 2, 3, 5 pulses | A locked layer counts as 1.0; a blocked tag stops arts carrying it and modifiers needing it. Silence may not name `ward`, `basic` or `escape` | Kept, one note added |
 | regeneration dampen | 1 % per Stagnation stack, no cap | Divides linh lực **and** health regeneration by (1 + D / 100) (Stagnation) | Changed 2026-11-10: was a full block |
@@ -755,12 +767,12 @@ Curse bounds, each a data key (restated for the new defence, Combat revision D12
 A curse past `curse_slots` replaces the one with the least duration left. Curse durations are counted in pulses,
 like statuses.
 
-**Output Range:** a tick has no upper bound (`dot_pool_cap` and `dot_pulse_cap` removed, #44 item C3). What reaches
-health is at least 1 when anything does (the floor applies to the first tick).
+**Output Range:** a tick has no upper bound (`dot_pool_cap` and `dot_pulse_cap` removed, #44 item C3) and no floor:
+what reaches health is dealt exactly, so element stacks scale as priced (user decision 2026-11-10).
 
 **Example:** Poison (Wood's debuff, Chaos, c_tick 0.019 per stack, 5 stacks), L1 × L2 = 1.265 × 1.4 = 1.771, on FX-T
 (the Common Ward's 448 points stop 81.75 % of Chaos; Chaos passes the body shield): 6.31 × 0.019 × 5 × 1.771 × 0.1825 =
-**0.19** per pulse, so the floor of 1 applies. (Burn and Poison are element stacks priced by Effects Formulas D, exempt
+**0.19** per pulse, dealt exactly (ticks have no floor of 1). (Burn and Poison are element stacks priced by Effects Formulas D, exempt
 from the `c_tick` range above.)
 A Chaos tick at c_tick 0.3 and 5 stacks is **3.06**, with no cap.
 
@@ -884,7 +896,7 @@ Common Ward.
 
 The rating_clash formula is defined as:
 
-`Off = U · stage · c_rate · M · crit_EV` per second, with `crit_EV = 1 + chance · (crit_mult − 1)` and `c_rate = basic_coef / basic_cooldown + Σ_a (c_art_a · uptime_a / cd_eff_a)` ; `D = Off · (1 − p_evade) · supp` ; `t_w = Q_use / (D · b + n_hits · fee + net_spend)` ; `t_h = (S / λ_all + (H + heal(T0)) / λ_all) / D` ; `T0 = t_h if t_h ≤ t_w, else t_w + (S + H + heal(T0) − t_w · D · λ_all) / (D_late · λ_fix)`, then `T0 = min(T0, t_fat)`, where `t_fat` is the time fatigue alone empties the health left at `fatigue_start` (73 s from full health; Formulas A2) ; `T = T0 / (1 + pi_s · T0)` ; `R = T_(B→A) / T_(A→B)` ; `P(A wins) = clamp(1 / (1 + R^(−κ)) + (eff(khi_van_A) − eff(khi_van_B)) · khi_van_per_point, 0.02, 0.98)`
+`Off = U · stage · c_rate · M · crit_EV` per second, with `crit_EV = 1 + chance · (crit_mult − 1)` and `c_rate = basic_coef / basic_cooldown + Σ_a (c_art_a · uptime_a / cd_eff_a)` ; `D = Off · (1 − p_evade) · supp` ; `t_w = Q_use / (D · b + n_hits · fee + net_spend)` ; `t_h = (S / λ_all + (H + heal(T0)) / λ_all) / D` ; `T0 = t_h if t_h ≤ t_w, else t_w + (S + H + heal(T0) − t_w · D · λ_all) / (D_late · λ_fix)`, then `T0 = min(T0, t_fat)`, where `t_fat` is the time fatigue alone empties the health left at `fatigue_start`: 59 s plus the smallest N with `fatigue_units · U_r · N(N + 1)(2N + 1) / 6` ≥ that health (66 s from full health; Formulas A2) ; `T = T0 / (1 + pi_s · T0)` ; `R = T_(B→A) / T_(A→B)` ; `P(A wins) = clamp(1 / (1 + R^(−κ)) + (eff(khi_van_A) − eff(khi_van_B)) · khi_van_per_point, 0.02, 0.98)`
 
 For a force: `N_eff = min(N, mass_width) + mass_reserve_weight · max(0, N − mass_width)`. Members are ranked by
 `display_power`, and a force's Off, health and linh lực are its weighted member means × N_eff, with weighted means of
@@ -932,7 +944,7 @@ c_rate = 1.0 + 2.0 × 0.3 = 1.6 and Off = 6.31 × 3.273 × 1.6 × 1.105 = 36.51;
 0.1566, health 439.48, linh lực 172.74, no shields and no healing: t_w = 172.74 / (36.51 × 0.1567 − 2.16) =
 **48.5** s; health-only t_h = 439.48 / 0.1566 / 36.51 = **76.9** s. The wards fall first, with 277.2 health lost
 and 162.3 left; then only the basic attack runs (D_late 22.82) against flesh block (λ_fix 0.974), so 162.3 /
-22.23 = 7.3 s more, and T0 = **55.8** s, before fatigue's 73 s (`t_fat`). Forces of 40 against 20 identical members:
+22.23 = 7.3 s more, and T0 = **55.8** s, before fatigue's 66 s (`t_fat`). Forces of 40 against 20 identical members:
 N_eff 19 against 14, R = 1.84, κ 4, P = **92 %**.
 
 **Agreement test.** Pairs come from the harness's build generator, each side with at least one chance
@@ -952,8 +964,8 @@ for Character Stats, all in percentage points unless noted, with W prices in the
 `resist_pct` (points), `resist_pen_pct` (points), `block_rating` (flat), `body_shield_pct`, `health_regen_pct`,
 `healing_pct`, `healing_taken_pct`, `reserve_eff_pct`, `convert_pct`, `damage_more` (layer points), `bonus_slots` and
 `bonus_ward_slots` (flat). `defense_pct` now means ward strength. New data keys from the revision:
-`reference_type_mix` (Formulas K), `advisor_min_ehp_ratio` 1.25 (UI Requirements), `curse_heal_taken_max`,
-`curse_soul_shred_max` and `curse_reapply_lockout` (Formulas F). From the Combat economy revision (#44): `fatigue_start`, `fatigue_step` and `regen_k` are new; `regen_cap`, `dot_pool_cap`, `dot_pulse_cap` and the Effects System's `qi_burn_cap` are removed.
+`reference_type_mix` (Formulas K), `advisor_min_ehp_ratio` 1.25 (UI Requirements), `curse_heal_taken_max`
+and `curse_reapply_lockout` (Formulas F). From the Combat economy revision (#44): `fatigue_start` and `regen_k` are new, and since 2026-11-10 `fatigue_units` and `fatigue_pow` (`fatigue_step`, `time_limit` and `curse_soul_shred_max` retired); `regen_cap`, `dot_pool_cap`, `dot_pulse_cap` and the Effects System's `qi_burn_cap` are removed.
 
 **Removed from `combat_rules.json`:** `power.base_offense_share`, `power.base_defense_share`,
 `power.cong_phap_share` (tech_power acts through linh lực, and arts come from techniques),
@@ -973,12 +985,11 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
   decides: the larger overkill share (of own `health_max`) loses, and overkill shares within `overkill_epsilon` of each other are a draw with both left at 1 health and `wound: grave`.
 - **If a tick empties health:** the side keeps acting until the instant ends, and the defeat check runs
   after the instant's damage is all in. If both sides are emptied, the overkill comparison and the draw of rule 10 apply.
-- **If the fight reaches `time_limit`:** it is a stalemate with no winner. Each side keeps what it has
-  left, and the caller applies any health loss as usual. With fatigue this needs healing or refusals that outlast
-  fatigue's growth past 60 s.
+- **If healing or refusals keep a side up past 60 s:** fatigue grows as n² with no bound, so it ends the fight
+  anyway; there is no time limit and no stalemate (retired 2026-11-10).
 - **If neither side can hurt the other:** block can take every part to 0 (Combat Defence & Healing rule 12), so
-  fatigue ends it: from full health both sides fall at 73 s with equal overkill shares, a draw. Otherwise a part
-  that reaches health deals at least 1.
+  fatigue ends it: from full health both sides fall at 66 s with equal overkill shares, a draw. Otherwise a hit part
+  that reaches health deals at least 1 (a tick deals its exact amount).
 - **If fatigue takes both sides to 0 in one pulse:** the defeat check compares overkill shares as usual; equal
   shares are a draw with both at 1 health and `wound: grave`.
 - **If a side holding a refusal falls to fatigue:** the Down step runs as for any other loss, so the refusal sets
@@ -1065,8 +1076,8 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 
 **Degenerate strategies watched for**
 
-- **Stalling to `time_limit` with pure defence:** a stalemate gives no win. The Event Engine treats a
-  stalemate or a flight as the failure branch for the side that needed the win.
+- **Stalling with pure defence:** fatigue ends it with a draw at best, and a draw gives no win. The Event Engine
+  treats a draw or a flight as the failure branch for the side that needed the win.
 - **Reloading to re-roll a fight:** blocked by the fixed seed unless the setup changes, and then only
   a build's own chance effects can move.
 - **Chaining triggers for unbounded damage:** blocked by the three trigger limits (Formulas G).
@@ -1122,15 +1133,15 @@ elsewhere, such as `power_base` and `attack_pct` prices, stay in their own GDDs.
 | Knobs | What they affect |
 |---|---|
 | `fight_unit_exponent` | The gap between realms |
-| `health_units`, `qi_units`, `time_limit`, `fatigue_start`, `fatigue_step` | Fight length, how much staying power sits in wards and shields, and when fatigue ends a fight |
+| `health_units`, `qi_units`, `fatigue_start`, `fatigue_units`, `fatigue_pow` | Fight length, how much staying power sits in wards and shields, and when fatigue ends a fight |
 | `pulse_interval`, `basic_cooldown`, `cooldown_min`, `escape_channel`, `soul_lockout` | The pace of a fight |
 | `slots_by_realm` | How many arts a build carries, and so its burst and linh lực burn |
 | `basic_coef`, `art_coef_per_cost`, `art_coef_per_cooldown` | Art power against its cost |
 | `l1_soft_start`, `l1_soft_slope`, `layer_caps` | How far a build can scale |
 | `crit_chance_cap`, `crit_mult_cap`, `evade_cap` | How swingy fights are |
-| Defence knobs (`default_resist`, `default_drain`, `ward_gear_scale`, `ward_cap`, `ward_floor`, resistance caps, block, shields, healing) | Combat Defence & Healing's Tuning Knobs: how much wards, the body and healing hold |
+| Defence knobs (`default_resist`, `default_drain`, `ward_gear_scale`, `ward_cap`, `ward_floor`, block, shields, healing) | Combat Defence & Healing's Tuning Knobs: how much wards, the body and healing hold |
 | `regen_base`, `regen_k` | Sustain |
-| `stack_cap`, `curse_slots`, `curse_drain_raise_max`, `curse_cost_raise_max`, `curse_heal_taken_max`, `curse_soul_shred_max`, `curse_reapply_lockout`, `curse_layer_lock_max`, `curse_tag_block_max`, `curse_duration_max` | Status and curse strength |
+| `stack_cap`, `curse_slots`, `curse_drain_raise_max`, `curse_cost_raise_max`, `curse_heal_taken_max`, `curse_reapply_lockout`, `curse_layer_lock_max`, `curse_tag_block_max`, `curse_duration_max` | Status and curse strength |
 | `pool_n_min`, `pool_n_max`, `duel.injured_power_floor` | Bounds on absurd stacks; the vitality floor |
 | `crit_base`, `crit_mult_base`, `evade_realm_step`, `escape_realm_step`, `escape_lock_penalty`, `khi_van_per_point` | Chance rolls and fortune |
 | `c_trig` cap, `c_comp_cap`, `creature_mult` | Triggers, companions and creatures |
@@ -1148,8 +1159,8 @@ elsewhere, such as `power_base` and `attack_pct` prices, stay in their own GDDs.
 
 - `fight_unit_exponent`, `layer_caps`, `suppression`, `health_units` and `qi_units` jointly set the
   realm-crossing targets (Formulas H). Change one and re-run all the checks.
-- `fatigue_start` and `fatigue_step` must end a fight from full health well inside `time_limit` (73 s at the
-  defaults), and must start after the 30–60 s band typical fights end in.
+- `fatigue_start`, `fatigue_units` and `fatigue_pow` must start after the 30–60 s band typical fights end in and
+  end a typical fight from full health by about 70 s (66 s at the defaults); the largest legal pool falls by 90 s.
 - After a change to the tree's W totals, re-measure the anchors in Formulas B.
 
 ## Visual/Audio Requirements
@@ -1243,13 +1254,13 @@ keeps its ID so numbering never shifts.
 steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (±0.1 in Combat Defence & Healing).
 
 - **FX-T (typical Qi Refining):** B_p 100, stage 1.00, U 6.30957. Layer points 26.5 / 40 / 40 / 20 / 10, so M
-  3.27281. n_body 1.08833, n_qi 1.053, so health 439.48 and linh lực 172.74. The Common Ward (all resistance 0.50,
-  drain 0.328 since #44; was 0.50 and 1.64) in a ward slot, ws = we = 30.8, so r 0.8175 and a drain rate of 0.19172 per point prevented. Block
+  3.27281. n_body 1.08833, n_qi 1.053, so health 439.48 and linh lực 172.74. The Common Ward (all 342.5 points,
+  drain 0.328 since #44; was a 0.50 share and 1.64) in a ward slot, ws = we = 30.8, so 448 points (stops 81.75 %) and a drain rate of 0.19172 per point prevented. Block
   rating 15.0 (flesh 4.79 + armour 10.2), so 0.946 points. No reservation, no ward shield, no body shield. One
   Physical art: c_art 2.0, cost_share 0.075, cooldown 1 s, plus the basic attack (Physical). No chance fields.
   These match Combat Defence & Healing's FX-T (AC-CD-54).
 - **FX-U (unbuilt Qi Refining):** talent 45, stage 1.00, no bonuses, technique power 1.0, basic attack only, the
-  default ward (all resistance 0.375, drain 0.40, not scaled by ws or we). Health 403.81, linh lực 164.05, block
+  default ward (all 60 points, stopping 37.5 %, drain 0.40, not scaled by ws or we). Health 403.81, linh lực 164.05, block
   rating 4.4 (0.278 points).
 - **FX-C (chance fixture):** FX-T plus crit chance 0.30 at ×2.0, evade 0.20, one status at chance 0.50, one
   trigger at chance 0.50, and an escape art.
@@ -1264,7 +1275,7 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 - **AC-CB-03** [Logic] Rule 15. **GIVEN** two builds whose chance fields are all 0 or 1, **WHEN** they fight under 100 seeds, **THEN** all logs are identical except the seed field. **GIVEN** the same hit at two times with the same state, **THEN** its damage is equal.
 - **AC-CB-04** [Logic] Formulas I, fortune. **GIVEN** a roll spy: evade 0.22 with a +30 lead rolls at 0.25; evade 0.40 with a +99 lead stays at `evade_cap`; escape stops at 0.95 and 0.05; crit stops at `crit_chance_cap`. **GIVEN** chance 0 and chance 1 with leads of ±99 over 1,000 seeds, **THEN** neither is shifted, neither takes a draw, the chance-0 effect never fires and the chance-1 effect always fires.
 - **AC-CB-05** [Logic] Rules 2, 21. **GIVEN** the fight engine source, **WHEN** scanned, **THEN** it has no `Time.`, `OS.`, `Node`, `get_tree` or autoload reference. **GIVEN** a character, **WHEN** `compile` runs twice, **THEN** the profiles are equal and the serialized character is unchanged. The fight runs under `--headless` with no scene tree.
-- **AC-CB-06** [Logic] Rules 1, 14. **GIVEN** a character and world DB fixture, **WHEN** a fight runs, **THEN** both serialize unchanged and the world clock has not moved. The call returns synchronously. The result holds the winning side, how it ended (knockout, draw, stalemate or flight), the fight time, each side's end health, linh lực and `wound` (`none`, `grave` or `mortal`), resources spent, the deciding layer, the reported costs and gains that outlive the fight, and the log. **GIVEN** two layers with equal damage-weighted totals over the winner's hits, **THEN** the lower-numbered layer is the deciding layer. **GIVEN** a soul win, a draw, a stalemate or a flight, **THEN** the result has no deciding layer and says so.
+- **AC-CB-06** [Logic] Rules 1, 14. **GIVEN** a character and world DB fixture, **WHEN** a fight runs, **THEN** both serialize unchanged and the world clock has not moved. The call returns synchronously. The result holds the winning side, how it ended (knockout, draw or flight), the fight time, each side's end health, linh lực and `wound` (`none`, `grave` or `mortal`), resources spent, the deciding layer, the reported costs and gains that outlive the fight, and the log. **GIVEN** two layers with equal damage-weighted totals over the winner's hits, **THEN** the lower-numbered layer is the deciding layer. **GIVEN** a soul win, a draw or a flight, **THEN** the result has no deciding layer and says so.
 
 **Profile and pools**
 
@@ -1272,10 +1283,10 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 - **AC-CB-08** [Logic] Formulas A. **GIVEN** `power_base` at the defaults, **THEN** U is 6.31 / 15.85 / 39.81 / 100.00 / 251.19.
 - **AC-CB-09** [Logic] Formulas A. **GIVEN** FX-T's stats, **THEN** health is 439.48 and linh lực 172.74. **GIVEN** stat 0, **THEN** n is 0.25, health 100.95 and linh lực 41.01. **GIVEN** Deity Transformation at n ≥ 8, **THEN** health is 128,608.3 and linh lực 52,247.2 (±0.5).
 - **AC-CB-10** [Logic] Rule 3, Formulas A. **GIVEN** FX-T, **THEN** v 0.7 starts health at 307.64, v 0.3 at 175.79 (the 0.4 floor), v 1.0 at 439.48, and linh lực starts at its usable maximum, 172.74. **GIVEN** FX-T with Still Lake reserving 0.4333, **THEN** linh lực starts at 97.90. **GIVEN** a fight ending with health at 50 % and v 0.7, **THEN** `v_after` is 0.5; ending at 90 %, it stays 0.7.
-- **AC-CB-78** [Logic] Rule 3, Formulas A (D6). **GIVEN** FX-T at v 0.7 and starting shares 0.25 and 0.5, **THEN** health starts at 27.47 and linh lực at 86.37, below the vitality floor with no floor applied. **GIVEN** the same shares on FX-T with Still Lake reserving 0.4333, **THEN** linh lực starts at 48.95 (0.5 of the usable 97.90), not 86.37. **GIVEN** no shares, **THEN** the start is unchanged (AC-CB-10). **GIVEN** a linh lực share of 0, **THEN** it is accepted and linh lực starts at 0. **GIVEN** a health share of 0, a share above 1, or only one share, **THEN** the request is rejected.
+- **AC-CB-78** [Logic] Rule 3, Formulas A (D6). **GIVEN** FX-T at v 0.7 and starting shares 0.25 and 0.5, **THEN** health starts at 109.87 and linh lực at 86.37, below the vitality floor with no floor applied. **GIVEN** the same shares on FX-T with Still Lake reserving 0.4333, **THEN** linh lực starts at 48.95 (0.5 of the usable 97.90), not 86.37. **GIVEN** no shares, **THEN** the start is unchanged (AC-CB-10). **GIVEN** a linh lực share of 0, **THEN** it is accepted and linh lực starts at 0. **GIVEN** a health share of 0, a share above 1, or only one share, **THEN** the request is rejected.
 - **AC-CB-11** [Logic] Rules 3, 4. **GIVEN** a Physical hit, a Poison tick, a Qi Disruption tick and a soul hit, **WHEN** each resolves, **THEN** the hit meets evade, resistance, block, shields and health in that order; the Poison tick meets resistance and the shields it does not pass, never evade or block; the Qi Disruption tick meets resistance and comes off linh lực, passing every shield; and the soul hit meets only soul resistance and soul wards (numbers: AC-CD-01, 02, 03). **GIVEN** a curse, **THEN** it carries no damage type and changes no pool. **GIVEN** health at 0 after the instant and no refusal, **THEN** the side is Down with a mortal wound and acts no more. **GIVEN** linh lực at 0 and health above 0, **THEN** the fight goes on.
 - **AC-CB-12** Pointer (D15). The drain ward's numbers on FX-T (7.54 through resistance, bill 6.47, 6.59 dealt, the short-pool leak) are tested by AC-CD-22; the default ward's by AC-CD-32.
-- **AC-CB-13** Pointer (D15). Resistance floor and caps: AC-CD-09, AC-CD-10. Ward strength cap: AC-CD-16. Drain bill across ws −90 to 400: AC-CD-24. Body guard is retired.
+- **AC-CB-13** Pointer (D15). Resistance in points with no cap or floor: AC-CD-09 (negative R amplifies), AC-CD-10 (share stopped; a cap raise is rejected). Ward strength cap: AC-CD-16. Drain bill across ws −90 to 400: AC-CD-24. Body guard is retired.
 
 **Layers and hits**
 
@@ -1297,8 +1308,8 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 - **AC-CB-26** [Logic] Rule 10, defeat check. **GIVEN** both sides at 0 health after an instant's damage, with no refusal or last act on either side: overkill 0.30 against 0.10 means the 0.10 side wins and stands at 1 health; overkill shares within `overkill_epsilon` are a draw with no winner, both sides at 1 health with `wound: grave` and neither `mortal`, whatever their linh lực shares, and the same result under every seed with no random draw taken. **GIVEN** unequal pools with 40 against 30 absolute overkill on `health_max` 400 and 100, **THEN** the 100-pool side (0.30) loses and the 400-pool side (0.10) wins. **GIVEN** a side whose health reaches 0 partway through an instant, **THEN** its remaining hits and their triggers in that instant still land. Overkill counts ticks, hits, trigger hits and last acts in the instant against health at the instant's start.
 - **AC-CB-27** [Logic] Rules 10, 22 (D9, D19). **GIVEN** FX-T with Still Lake and a drain ward, **THEN** at t = 0 the reservation is taken before any event, and both wards are Up with no art firing and no payment made. **GIVEN** a cast ward in an art slot with cooldown 4 s and duration 3 s, **THEN** it fires at t = 4.000 like any art, paying in the art-cost step in its slot order. **GIVEN** a hit at t = 7.000, the millisecond its duration ends, **THEN** the hit meets the ward; a hit at t = 7.001 does not. **GIVEN** an Effect's timed ward change ending at a millisecond, **THEN** the same rule holds. **GIVEN** either expiry, **THEN** it fires nothing: no art fires and no pool changes because of it. **GIVEN** a standing ward shield partly soaked, **THEN** no recharge event is scheduled, and the shield read at the next event has AC-CD-28's recharge for the time passed. Ward states and switching off: AC-CD-17, AC-CD-18.
 - **AC-CB-28** [Logic] Rule 10, pulse. **GIVEN** a tick that empties health, **THEN** that side still acts in the same instant, the Down step and defeat check run after the instant, and with no refusal that side is Down and the fight ends (it is never left at 0 or below with the fight going on). **GIVEN** ticks that down both sides, **THEN** AC-CB-26's chain applies. **GIVEN** a status applied between pulses, **THEN** it first ticks at the next pulse.
-- **AC-CB-29** [Logic] `time_limit`. **GIVEN** `fatigue_start` set above `time_limit` 120 and two attackers dealing 1 damage a second with health 121, **THEN** hits land at t = 1 to 120 and the fight is a stalemate with 1 left on each side. **GIVEN** one side starting at 119.37, **THEN** it empties at t = 120 and that is a defeat.
-- **AC-CB-30** [Logic] Formulas B, E (#44, worked by hand). **GIVEN** FX-U against FX-U, **THEN** each basic hit deals 3.666 (6.31 × 0.625 − 0.278) and bills 0.947 linh lực against 5.74 regenerated, so the default ward never falls; health is 400.15, 396.48, 392.82 … after t = 1, 2, 3, fatigue joins from t = 60, and the fight ends at t = 68.000 as a draw (equal overkill). **GIVEN** FX-T against FX-T, **THEN** the art (12.96) fires every second while affordable, linh lực first falls below 1 at t = 10, and from then the drain bills take only what regeneration pays, so part of each prevented share leaks; health after t = 1 to 4 is 430.07, 420.65, 411.24, 401.83 (±0.02), and the fight ends at t = 34.000 as a draw. Formulas K's averaged rotation gives 55.8 s (AC-CB-49).
+- **AC-CB-29** [Logic, Harness] No time limit (user decision 2026-11-10). **GIVEN** the result enum, **THEN** it holds knockout, draw and flight only, and a record or caller naming `stalemate` or `time_limit` is rejected at load. **GIVEN** a side with the largest legal pool (n 8, `boss_pool_mult` 10, health 32,305 at Qi Refining) that nothing else harms, **THEN** fatigue empties it at t = 90. **GIVEN** any harness fight still running at t = 120, **THEN** the harness reports it as a bug (a reporting threshold, not a game rule: the fight itself has no limit).
+- **AC-CB-30** [Logic] Formulas B, E (#44, worked by hand). **GIVEN** FX-U against FX-U, **THEN** each basic hit deals 3.666 (6.31 × 0.625 − 0.278) and bills 0.947 linh lực against 5.74 regenerated, so the default ward never falls; health is 400.15, 396.48, 392.82 … after t = 1, 2, 3, fatigue joins from t = 60, and the fight ends at t = 64.000 as a draw (equal overkill; flat n² fatigue). **GIVEN** FX-T against FX-T, **THEN** the art (12.96) fires every second while affordable, linh lực first falls below 1 at t = 10, and from then the drain bills take only what regeneration pays, so part of each prevented share leaks; health after t = 1 to 4 is 430.07, 420.65, 411.24, 401.83 (±0.02), and the fight ends at t = 34.000 as a draw. Formulas K's averaged rotation gives 55.8 s (AC-CB-49).
 - **AC-CB-31** [Logic] Rules 11, 23 (D14). **GIVEN** FX-T that spends all its linh lực in an instant, **THEN** its drain, per-hit and default wards cover nothing against that instant's hits, and reserved wards, cast wards already Up and body defence still stand. **GIVEN** regeneration of 6.05 at the next pulse and a hit of D 41.30, **THEN** the Common Ward's bill of 6.47 is paid at 0.934, the pool ends at 0 and 8.82 is dealt. **GIVEN** no linh lực, **THEN** no linh lực art fires, the basic attack still fires, and an art with `body_cost_share` still fires and cannot take health below 1. An Effect's health payment can put the side Down (AC-EF-07).
 
 **Arts and linh lực**
@@ -1309,16 +1320,16 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 - **AC-CB-33** [Logic] Rule 13, edge cases. **GIVEN** a talisman with stock 1, **THEN** it fires once and is skipped afterwards. **GIVEN** no usable main method, **THEN** the character fights with its other arts and the basic attack: Physical, tags physical, hit, art and basic, coefficient 1.0, no cost.
 - **AC-CB-34** [Logic] Formulas E. **GIVEN** cost_share 0.075 at `qi_max` 172.74, **THEN** the cost is 12.96 and regeneration 6.05, and with nothing incoming a 1 s art fires 24 times in a row. **GIVEN** Still Lake reserving 0.4333, **THEN** the cost and regeneration are unchanged and the art fires 13 times in a row. **GIVEN** pool exactly equal to the cost, **THEN** the art fires. **GIVEN** a regeneration bonus of +6 pp, +30 pp and +100 pp, **THEN** regeneration is 7.98 %, 15.97 % and 24.32 % of `qi_max` a pulse (`regen_k` 0.08, log curve), and keeps rising with more bonus. The pool never exceeds its usable maximum.
 - **AC-CB-35** [Logic] Rule 11, edge cases. **GIVEN** 100 Stagnation stacks and regeneration of 6.05 linh lực and 4.0 health a pulse, **THEN** 3.03 and 2.0 are restored; at 200 stacks 2.02 and 1.33; at any count regeneration stays above 0. **GIVEN** a soul attack that empties linh lực, **THEN** drain, per-hit and default wards are down and reserved wards stay up. No rule stops a side spending to 0.
-- **AC-CB-36** [Logic] Formulas I, escape. **GIVEN** e_art 0.55, one realm below a locking pursuer, **THEN** p is 0.30. A failed escape pays its cost and cooldown. The roll comes `escape_channel` after the art fires, and hits landing in the channel apply. A success gives Fled and a flight result. A side whose health is 0 or below when its channel ends does not flee. If both escape in one instant, the fight ends in flight with no winner. If the other side's health is 0 or below at that point, it is a win. A channel whose roll would fall after `time_limit` never rolls, and the fight is a stalemate.
+- **AC-CB-36** [Logic] Formulas I, escape. **GIVEN** e_art 0.55, one realm below a locking pursuer, **THEN** p is 0.30. A failed escape pays its cost and cooldown. The roll comes `escape_channel` after the art fires, and hits landing in the channel apply. A success gives Fled and a flight result. A side whose health is 0 or below when its channel ends does not flee. If both escape in one instant, the fight ends in flight with no winner. If the other side's health is 0 or below at that point, it is a win. A channel still open when the fight ends (a knockout or a draw) never rolls.
 - **AC-CB-37** [Logic] Formulas I, evade. Evade 0.25, accuracy 0.05, defender one realm up gives 0.22. Evade 0.60 stops at 0.40. Evade below accuracy gives 0. At evade 0.40, soul hits and ticks are never evaded over 1,000 rolls. An evaded hit deals nothing and fires no on-hit trigger.
 
 **Statuses**
 
 - **AC-CB-38** [Logic] Rule 7, Formulas F. **GIVEN** a Chaos tick at c_tick 0.3, 5 stacks, L1..L4 1.771, on FX-T, **THEN** the tick after resistance is 3.06, with no cap. **GIVEN** a Qi Disruption tick on FX-T, **THEN** it takes linh lực with no cap. **GIVEN** three statuses that tick 5.5 each, **THEN** the pulse takes 16.5 and nothing is clipped or logged "dot cap". Which shields a tick meets: AC-CD-02.
 - **AC-CB-39** [Logic] Formulas F. **GIVEN** a duration-3 status, **THEN** it ticks three times, the first at the next pulse after it is applied. Stacking (refresh, stack to a cap, the stronger wins) is tested by AC-EF-19, AC-EF-20 and AC-EF-21.
-- **AC-CB-40** [Logic] Rule 8, Formulas F (D12, D13). Shred by Sundered and Exposed (at most 0.50, never below −0.50): AC-EF-24. Healing taken (one floor of −50 %): AC-EF-60. **GIVEN** Leaking Ward raising drain by 80 % on FX-T's Common Ward, **THEN** a D 41.30 hit bills 38.84 (+50 %), not 46.60. **GIVEN** Slackened Soul at its 2-stack cap, **THEN** soul resistance falls by 30 pp. **GIVEN** a test record with the stack cap raised to 3, **THEN** it still falls by 30 pp, not 45 (`curse_soul_shred_max`). **GIVEN** soul resistance 20 and 2 stacks, **THEN** it is 0, not −10. **GIVEN** Sealed Meridian ended at pulse 4, **THEN** it cannot be reapplied at pulses 5 and 6 and can be at pulse 7. **GIVEN** L2 locked on FX-T, **THEN** M is 2.3377. No curse lowers health or linh lực. A matching cleanse removes it; a non-matching one does not. A fourth curse replaces the one with the least duration left. A cost raise of +50 % makes FX-T's art cost 38.87.
+- **AC-CB-40** [Logic] Rule 8, Formulas F (D12, D13). Shred by Sundered (−150 points a stack) and Exposed (−100 points), with no floor: AC-EF-24. Healing taken (one floor of −50 %): AC-EF-60. **GIVEN** Leaking Ward raising drain by 80 % on FX-T's Common Ward, **THEN** a D 41.30 hit bills 9.71 (6.47 × 1.5, +50 %), not 11.65. **GIVEN** Slackened Soul at its 2-stack cap, **THEN** soul resistance falls by 30 pp. **GIVEN** a test record with the stack cap raised to 3, **THEN** it falls by 45 pp (`curse_soul_shred_max` is retired). **GIVEN** soul resistance 20 and 2 stacks, **THEN** it is −10, and an equal soul's `rho` is 1.10 (no floor). **GIVEN** Sealed Meridian ended at pulse 4, **THEN** it cannot be reapplied at pulses 5 and 6 and can be at pulse 7. **GIVEN** L2 locked on FX-T, **THEN** M is 2.3377. No curse lowers health or linh lực. A matching cleanse removes it; a non-matching one does not. A fourth curse replaces the one with the least duration left. A cost raise of +50 % makes FX-T's art cost 19.44 (12.96 × 1.5).
 - **AC-CB-41** [Logic] Formulas F. Chance 0.8 with resist 0.5 gives 0.40. Chance 0.02 gives 0.05. Chance 1.0 stays 1.0 and chance 0 stays 0, whatever the resist.
-- **AC-CB-80** [Logic] Rule 7, Formulas F (D11). **GIVEN** Poison (Chaos, c_tick 0.15, 5 stacks, L1..L4 1.771, supp 1) on FX-T, **THEN** each tick deals 1.53 and the Common Ward bills 1.31 for it. **GIVEN** the source has Chaos penetration 0.10 when it applies the status, **THEN** r_eff is 0.7175, each tick deals 2.37 and the bill is 1.15. **WHEN** the source's penetration or the target's Chaos resistance changes after the status is applied, **THEN** the running status still deals 2.37; a status applied after the change uses the new values. **GIVEN** a Fire tick that a full body shield soaks entirely, **THEN** 0 reaches health and no floor of 1 applies. **GIVEN** a tick of which 0.40 reaches health, **THEN** 1 is dealt.
+- **AC-CB-80** [Logic] Rule 7, Formulas F (D11). **GIVEN** a Chaos test status (*test fixture*: c_tick 0.15, 5 stacks, L1..L4 1.771, supp 1) on FX-T, **THEN** each tick deals 1.53 and the Common Ward bills 1.31 for it. **GIVEN** the source has Chaos penetration 100 points when it applies the status, **THEN** R is 348 (stops 77.68 %), each tick deals 1.87 and the bill is 1.25. **WHEN** the source's penetration or the target's Chaos resistance changes after the status is applied, **THEN** the running status still deals 1.87; a status applied after the change uses the new values. **GIVEN** a Fire tick that a full body shield soaks entirely, **THEN** 0 reaches health. **GIVEN** a tick of which 0.40 reaches health, **THEN** 0.40 is dealt (no floor for ticks).
 
 **Triggers**
 
@@ -1328,8 +1339,8 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 **Realm and companions**
 
 - **AC-CB-44** [Logic] Formulas H, rule 20. supp(0, 0) is 1, supp(1, 0) 0.90, supp(2, 0.5) 0.875, supp(3, 0) 0.50, supp(4, 0) 0.25. `pierce_pct` 90 stops at P 0.75. An actor above its target has g 0 and supp 1.
-- **AC-CB-45** [Logic] Rule 19, Formulas J. **GIVEN** share 40 at Qi Refining against FX-T, **THEN** c_comp is 0.4, D is 8.26 and the hit deals 1.91. Share 500 caps c_comp at 1.0. The companion hits once per `basic_cooldown` for no linh lực with its authored damage type, cannot crit or be targeted, can be evaded, and stops when its owner is Down.
-- **AC-CB-46** [Logic] Rule 18, Formulas A, J. An FX-U creature has health 111.05, linh lực 180.45 and base damage ×1.1. A creature with no realm uses its stated equivalent for g. **GIVEN** n 8 and `boss_pool_mult` 10 at Qi Refining, **THEN** health is 8,076.3 and linh lực 13,123.9 (±0.5). (The 4-second boss check needs a top-end build and lives in AC-CB-54.)
+- **AC-CB-45** [Logic] Rule 19, Formulas J. **GIVEN** share 40 at Qi Refining against FX-T, **THEN** c_comp is 0.4, D is 8.26 and the hit deals 1.00 (8.26 × 0.1825 − 0.946 = 0.56, raised to the hit floor of 1; Formulas J). Share 500 caps c_comp at 1.0. The companion hits once per `basic_cooldown` for no linh lực with its authored damage type, cannot crit or be targeted, can be evaded, and stops when its owner is Down.
+- **AC-CB-46** [Logic] Rule 18, Formulas A, J. An FX-U creature has health 111.05, linh lực 180.45 and base damage ×1.1. A creature with no realm uses its stated equivalent for g. **GIVEN** n 8 and `boss_pool_mult` 10 at Qi Refining, **THEN** health is 32,305.2 and linh lực 13,123.9 (±0.5). (The 4-second boss check needs a top-end build and lives in AC-CB-54.)
 
 **Preparation**
 
@@ -1346,26 +1357,26 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 **Balance Harness**
 
 - **AC-CB-53** [Integration, Bot: Balance Harness] Formulas H. **GIVEN** top-end at pierce 0.5 against typical, with the Formulas B anchors at stage 1.00, at least 200 runs per cell: g 1 wins at least 95 % from each of four starting realms; g 2 wins 40–75 % from each of three; g 3 wins at most 2 % at P 0.5 and 0.75; a typical build wins at most 2 % one realm up. Run once with no soul arts, and report a second run with them (Open Question 16). Provisional: these targets were simulated in rounds and must be re-run on the timeline (Open Question 20). Output goes to `production/qa/evidence/balance/[date]-combat-realm-crossing.md`.
-- **AC-CB-54** [Integration, Bot: Balance Harness] Formulas A, B. With the rotation stated in the run header: typical mirrors last 30–60 s (#44 item A1; the #44 simulator gives about 42 s at Qi Refining with linh lực dry at 15–20 s), a sustain build with the same budget does not run dry before 30 s, top-end mirrors end well before typical ones, an unbuilt mirror ends by fatigue inside `time_limit`, a one-realm gap ends inside 12 s, and F rises ×7 to ×14 per realm for typical builds (target about ×10). **GIVEN** an ordinary boss with its `boss_pool_mult`, **THEN** a top-end build needs at least 4 seconds (tribulation bosses are exempt, rule 18).
+- **AC-CB-54** [Integration, Bot: Balance Harness] Formulas A, B. With the rotation stated in the run header: typical mirrors last 30–60 s (#44 item A1; the simulator gives about 37 s at Qi Refining with linh lực dry at about 16 s, 2026-11-10), a sustain build with the same budget does not run dry before 30 s, top-end mirrors end well before typical ones, an unbuilt mirror ends by fatigue by about 65 s, a one-realm gap ends inside 12 s, and F rises ×7 to ×14 per realm for typical builds (target about ×10). **GIVEN** an ordinary boss with its `boss_pool_mult`, **THEN** a top-end build needs at least 4 seconds (tribulation bosses are exempt, rule 18).
 - **AC-CB-55** [Integration, Bot: Balance Harness] Rule 20. **GIVEN** equal W, **THEN** an all-attack build (L2–L5 at 1.0) one realm up wins at most 2 %, and a top-end multi-layer build wins at least 95 %.
 
 **Data**
 
-- **AC-CB-56** [Config/Data] Parameter keys (D18). `combat_rules.json` is valid JSON and holds every Formulas `data file` key, with the defence keys in its `defence` section. These are gone: `power.base_offense_share`, `power.base_defense_share`, `power.cong_phap_share`, `power.khi_huyet_weight`, `power.linh_luc_weight`, `duel.ratio_exponent`, `duel.rounds`, `default_ward_pass`, `default_ward_drain`, `pass_min`, `drain_min`, `guard_base`, `guard_pool_slope`, `guard_cap`, `guard_max_mit`, `guard_half`, `guard_share_kind`, `body_guard_pct`, `ward_art_duration`, `curse_pass_raise_max`, `trig_ward_strength`, `trig_ward_seconds`, `hit_cost_share` and `upkeep_share` (the last two live on ward records). These stay: `duel.injured_power_floor`, `duel.khi_van_per_point`, `duel.min_win_chance`, `duel.max_win_chance`. `beast.power_mult` is `creature_mult`. The new curse bounds are present: `curse_heal_taken_max` 0.50, `curse_soul_shred_max` 30, `curse_reapply_lockout` 2.
+- **AC-CB-56** [Config/Data] Parameter keys (D18). `combat_rules.json` is valid JSON and holds every Formulas `data file` key, with the defence keys in its `defence` section. These are gone: `power.base_offense_share`, `power.base_defense_share`, `power.cong_phap_share`, `power.khi_huyet_weight`, `power.linh_luc_weight`, `duel.ratio_exponent`, `duel.rounds`, `default_ward_pass`, `default_ward_drain`, `pass_min`, `drain_min`, `guard_base`, `guard_pool_slope`, `guard_cap`, `guard_max_mit`, `guard_half`, `guard_share_kind`, `body_guard_pct`, `ward_art_duration`, `curse_pass_raise_max`, `trig_ward_strength`, `trig_ward_seconds`, `hit_cost_share` and `upkeep_share` (the last two live on ward records). These stay: `duel.injured_power_floor`, `duel.khi_van_per_point`, `duel.min_win_chance`, `duel.max_win_chance`. `beast.power_mult` is `creature_mult`. The new curse bounds are present: `curse_heal_taken_max` 0.50, `curse_reapply_lockout` 2. Also gone since 2026-11-10: `time_limit`, `fatigue_step`, `curse_soul_shred_max` and `resist_cap`; present: `fatigue_units` 0.5, `fatigue_pow` 2.
 - **AC-CB-57** [Config/Data] Data lint. c_art at cost_share 0.075, cooldown 1 s: 2.80 passes, 2.81 fails (`art_coef_per_cost` 24). At 0.125, cooldown 5 s: 5.00 passes. A cooldown below `cooldown_min` or above 12 s fails, and so does a `cost_share` above 0.125. At cost 0.125 and 12 s, 6.75 passes and 6.76 fails; at cost 0.02 and 0.5 s, 1.355 passes and 1.36 fails. An art with `body_cost_share` 0.025 and no linh lực cost, cooldown 1 s, lints as cost 0.05: 2.20 passes, 2.21 fails. An L2 `damage_more` of 4 or 51 points fails (Modifier System Stat List, 5–50 per piece). c_tick · duration above 1.2 · c_art fails. A standing status (no duration, such as Corpse Rot) is exempt from that check; instead a standing status at `c_tick` 0.15 passes and at 0.16 fails. c_trig 0.81 fails. chance · c_trig: 0.625 × 0.8 passes, 0.7 × 0.8 fails. An unknown tag is rejected at load. A `more` with no layer or with L3: AC-MD-06.
-- **AC-CB-58** [Logic] Knob invariant (user decision C1, 2026-11-08). Fatigue (#44 item A3, replacing the `health_units` limit). **GIVEN** two sides at full health that cannot hurt each other (block takes every part), **THEN** fatigue takes 1 %, 2 %, 3 % … of `health_max` at t = 60, 61, 62 …, both sides reach 0 at t = 73.000 with equal overkill shares (0.05), and the fight is a draw with both at 1 health and `wound: grave`. **GIVEN** one side at 50 % health at t = 60, **THEN** it falls at t = 69 (1 + … + 10 = 55 %). **GIVEN** fatigue on a side with every ward up, a body shield and resistance 0.90, **THEN** the full fatigue share is taken. **GIVEN** a refusal held, **THEN** the side is set to 1 health once and falls at the next fatigue pulse. Fatigue is logged on its own line and fires no hit, crit or status trigger.
+- **AC-CB-58** [Logic] Knob invariant (user decision C1, 2026-11-08). Fatigue (#44 item A3; flat n² since 2026-11-10). **GIVEN** two FX-T sides at full health that cannot hurt each other (block takes every part), **THEN** fatigue takes 3.16, 12.62, 28.39 … at t = 60, 61, 62 …, both sides reach 0 at t = 66.000 with equal overkill shares (0.005), and the fight is a draw with both at 1 health and `wound: grave`. **GIVEN** one side at 50 % health at t = 60, **THEN** it falls at t = 65. **GIVEN** a side with twice FX-T's health, **THEN** each fatigue pulse is the same amount as FX-T's. **GIVEN** fatigue on a side with every ward up, a body shield and resistance 900 points, **THEN** the full amount is taken. **GIVEN** a refusal held, **THEN** the side is set to 1 health once and falls at the next fatigue pulse. Fatigue is logged on its own line and fires no hit, crit or status trigger.
 - **AC-CB-83** [Config/Data] Rule 6 (D17). **GIVEN** the tag registry, **THEN** the effect family holds pierce, lock, poison, cleanse, escape, bleed and seal; Bleed's cleanse tag is `bleed`, and Sealed Meridian's and Silence's is `seal`, and all three statuses load with no unknown-tag error. The status family (one tag per status) is the Effects System's.
-- **AC-CB-84** [Config/Data] Rule 18 (D8). **GIVEN** the enemy profile data, **WHEN** the data scan runs, **THEN** it reports how many profiles it scanned per realm tier, and each tier has at least one enemy dealing each group (Physical/Force; Fire/Cold/Lightning/Light; Chaos; Soul), at least one whose resistance against each non-Soul group is at least 0.60 with its wards up (rule 18, user decision C3), at least one carrying Qi Disruption or a soul art, and at least one with a heal art or heal Effect; and every profile lists its damage types, its wards and a soul defence.
+- **AC-CB-84** [Config/Data] Rule 18 (D8). **GIVEN** the enemy profile data, **WHEN** the data scan runs, **THEN** it reports how many profiles it scanned per realm tier, and each tier has at least one enemy dealing each group (Physical/Force; Fire/Cold/Lightning/Light; Chaos; Soul), at least one whose resistance against each non-Soul group is at least 150 points (stopping 60 %) with its wards up (rule 18, user decision C3), at least one carrying Qi Disruption or a soul art, and at least one with a heal art or heal Effect; and every profile lists its damage types, its wards and a soul defence.
 
 **Cross-system integration**
 
 - **AC-CB-59** [Integration] Character Stats. **GIVEN** a real sheet with `attack_pct` +26.5, `defense_pct` +16, `khi_huyet_pct` +30, `linh_luc_pct` +20, **THEN** compile's pools equal Formulas A applied to `CharacterRules.khi_huyet_max` and `.linh_luc`, x1 is 26.5, and `defense_pct` reaches ws and scales only ward payloads (flesh block, gear block and non-ward resistance are unchanged). An artifact over thần thức capacity adds nothing. The new keys of Parameter keys appear in the sheet and its labels.
-- **AC-CB-60** [Integration] Cultivation Techniques. **GIVEN** AC-CP-09's fixture, **THEN** the abilities in the profile equal its unlocked list at each step. With no main method at Qi Refining, spiritual power is 50, n_qi 0.5, the qi pool 82.02, and no ability is listed. **GIVEN** Iron Body Art at tier 3, **THEN** the profile gains block rating 30, body shield σ_b 0.30 and Physical resistance 0.20, none of it scaled by ws. AC-CP-39 is rewritten first.
+- **AC-CB-60** [Integration] Cultivation Techniques. **GIVEN** AC-CP-09's fixture, **THEN** the abilities in the profile equal its unlocked list at each step. With no main method at Qi Refining, spiritual power is 50, n_qi 0.5, the qi pool 82.02, and no ability is listed. **GIVEN** Iron Body Art at tier 3, **THEN** the profile gains block rating 30, body shield σ_b 0.30 and Physical resistance 25 points, none of it scaled by ws. AC-CP-39 is rewritten first.
 - **AC-CB-61** [Integration] The Way. **GIVEN** a Way node worth +10 `attack_pct`, **THEN** x1 rises by 10 and L2–L5 are unchanged. **GIVEN** a fixture art node in the rule 13 format, **THEN** the Way's lint accepts it. (On hold with the arts.)
-- **AC-CB-62** [Integration] Event Engine request. **GIVEN** a combat choice carrying enemy, situation and ground tags, **WHEN** resolved, **THEN** a win takes the success branch, and a loss, a draw, a stalemate and a flight take the failure branch, and the check line shows how it ended and the fight time.
-- **AC-CB-63** [Integration] Consequences stay with the caller. **GIVEN** each ending, **THEN** vitality loss applies once, by the caller. The caller decides mercy. Capability #9 applies on a cultivator knockout only: not on a flight, a draw, a stalemate, a creature, or after mercy is chosen. Taming is offered only by the Event Engine after a won creature fight. A notable fight writes one World DB record. The fight engine imports no writer of these.
+- **AC-CB-62** [Integration] Event Engine request. **GIVEN** a combat choice carrying enemy, situation and ground tags, **WHEN** resolved, **THEN** a win takes the success branch, and a loss, a draw and a flight take the failure branch, and the check line shows how it ended and the fight time.
+- **AC-CB-63** [Integration] Consequences stay with the caller. **GIVEN** each ending, **THEN** vitality loss applies once, by the caller. The caller decides mercy. Capability #9 applies on a cultivator knockout only: not on a flight, a draw, a creature, or after mercy is chosen. Taming is offered only by the Event Engine after a won creature fight. A notable fight writes one World DB record. The fight engine imports no writer of these.
 - **AC-CB-64** [Integration] Duel callers migrated. `CombatPower.duel` has no callers and `ratio_exponent` is read nowhere, covering `event_resolver.gd`, `world_ticker.gd` and `advisor.gd`. Stored `power` uses (`build_generator.gd`, `state_snapshot.gd`, `world_generator.gd`, `BeastKeeper.power_shares`) read `display_power`. `tools/run-tests.sh` exits 0.
-- **AC-CB-65** [Integration, Bot: `world_census.gd`] Living World. **GIVEN** a headless run of 40 years, **THEN** every NPC duel winner comes from a full fight result, a stalemate writes no winner, a sect war resolves through the rating clash, there is no SCRIPT ERROR, and two runs on one world seed give identical news.
+- **AC-CB-65** [Integration, Bot: `world_census.gd`] Living World. **GIVEN** a headless run of 40 years, **THEN** every NPC duel winner comes from a full fight result, a draw writes no winner, a sect war resolves through the rating clash, there is no SCRIPT ERROR, and two runs on one world seed give identical news.
 
 **Performance (proposed budgets, not measured)**
 
@@ -1383,7 +1394,7 @@ Results go to `production/qa/evidence/balance/[date]-combat-performance.md`.
 - **AC-CB-71** [UI] Result and sheet (D16). The result screen shows the winner, how it ended, the fight time, resources spent and the deciding layer. The sheet shows `display_power`, health, linh lực, ward strength and efficiency, resistance by type, block, body shield, ward slots, thần thức and layer totals. **GIVEN** FX-T (Physical ehp at 0 linh lực 1.03 × `health_max`), **THEN** the Advisor warning of UI Requirements fires; **GIVEN** the thể tu fixture (3.47 ×), **THEN** it does not. Retained transcript plus one screenshot per screen.
 - **AC-CB-72** Pointer (D15). Payment models: per hit AC-CD-21, a per-hit ward that cannot pay AC-CD-32. Upkeep wards were removed (#44 item C2).
 - **AC-CB-73** Pointer (D15). Ward strength and efficiency effects: AC-CD-16, AC-CD-24. Ward payload limits: AC-CD-41. The default ward beside other wards: AC-CD-18, AC-CD-63.
-- **AC-CB-74** [Logic] Rule 23. **GIVEN** no linh lực, **THEN** a Physical hit of D 41.30 on FX-T deals 40.35 (97.7 %), with no default ward. **GIVEN** the thể tu fixture at no linh lực, **THEN** a Physical hit of D 41.30 loses 12.39 to resistance and 5.57 to block, the body shield falls by 23.34 and 0 reaches health; a Chaos hit of D 41.30 meets no resistance, loses 5.57 to block, passes the body shield and deals 35.73 (86.5 %).
+- **AC-CB-74** [Logic] Rule 23. **GIVEN** no linh lực, **THEN** a Physical hit of D 41.30 on FX-T deals 40.35 (97.7 %), with no default ward. **GIVEN** the thể tu fixture at no linh lực (no default ward, so Physical R 36.1 points), **THEN** a Physical hit of D 41.30 loses 10.95 to resistance and 5.57 to block, the body shield falls by 24.78 and 0 reaches health; a Chaos hit of D 41.30 meets no resistance, loses 5.57 to block, passes the body shield and deals 35.73 (86.5 %).
 - **AC-CB-75** [Logic] Rule 24, Formulas E2. **GIVEN** `soul_pct` 0.05 and equal souls, **THEN** a soul attack takes 5 % of maximum health and of maximum linh lực. Rho 2 takes 20 %, rho 3 stops at 30 %, rho 0.5 takes 1.25 %, rho 0.2 takes 0. Only soul resistance and soul wards apply (AC-CD-03); evade, crit, damage-type resistance, block and every other shield do not. **GIVEN** a reserved share, **THEN** the linh lực loss comes off the usable pool (AC-CD-26). A soul shield's share: AC-CD-62. It has the art's own cost and cooldown, and first fires one cooldown into the fight. **GIVEN** `boss_pool_mult` 8, **THEN** a 30 % hit takes 3.75 %. `soul_res_pct` 100 halves rho. **GIVEN** a side with two ready soul arts, **THEN** the first in slot order fires and the second stays ready and fires at the millisecond `soul_lockout` ends (a wake-up event, not the next unrelated event). **GIVEN** an art guarded on fight time above 10 s, **THEN** it fires at t = 10.000 with no other event due.
 
 **Added in the Combat revision (#43)**
@@ -1420,6 +1431,6 @@ Results go to `production/qa/evidence/balance/[date]-combat-performance.md`.
 | 22 | Sources of `bonus_slots` (priced by the Modifier System at 20 W, rare). The user plans skill tree nodes that scale slots and similar values, but only after the tree is reworked once all systems are implemented (user decision 2026-11-06). Until then no source is authored and every build has its base slots. Candidate modifiers: design/quick-specs/tree-modifier-catalogue.md | user, systems-designer | Tree rework, content authoring |
 | 23 | What does `wound: grave` (a draw's survivors) cost? Combat only reports it (rule 14). Character Stats needs a vitality or injury rule for it, and the Event Engine a branch | user, Character Stats, Event Engine | Rule 14, caller consequences |
 | 24 | The `reference_type_mix` values for `display_power` (Combat revision D7): the balance harness fits them, per realm if needed | systems-designer, Balance Harness | Formulas K |
-| 25 | Measure the FX-T mirror's end time under the new defence path (AC-CB-30) and the rating's agreement with the full fight (AC-CB-52, AC-CD-46); re-derive the ehp cells of Formulas B outside Qi Refining. The FX-U mirror and Formulas K's T0 are worked by hand; #44 part 2 re-derives them under the new wards | Balance Harness | Acceptance Criteria, Formulas B |
+| 25 | Re-derive the ehp and mirror cells of Formulas B outside Qi Refining, and run the rating's agreement test with the full fight (AC-CB-52, AC-CD-46). Done 2026-11-10: the FX-T and FX-U mirrors are worked by hand (AC-CB-30), the canonical typical mirror is the simulator's 36.7 s, and #44 part 2 re-derived K's T0 | Balance Harness | Acceptance Criteria, Formulas B |
 | 26 | ~~Planned revision (systems-index #44): a sustain-first economy~~ **Decided 2026-11-09:** every item answered in `design/research/economy-revision-44-decisions.md` (fights of 30–60 s, fatigue from 60 s, health ×4 with ward resistance ×1.4, halved costs, regeneration 3.5 % with diminishing returns, no healing decay, no upkeep wards, no heal or tick caps, element stacks). Part 1 applied here; parts 2–5 apply it to Combat Defence & Healing, the Effects System, the Modifier System and Character Stats | — | — |
 | 27 | **Future extension (recorded 2026-11-10, Way review D-03):** fights with allies, a party, mounts, disciples, troops, a taunt or world followers. Combat is one fighter plus attached companions today. The Way's facets that need them are archived (dao.md Catalogue, marked ◇): Vũ Đạo's Hội, Thú Đạo's Tọa Kỵ, Hiếu Đạo's Gia Tộc, Sư Đạo's Đệ Tử, Hoàng Đạo's Thần Dân, Thủ Đạo's Hộ Vệ and Khiêu Khích, Thần Đạo's Tín Đồ, Mị Đạo's Ngưỡng Mộ, Cô Đạo's Khắc Thân, and all of Binh Đạo (mass battle) | user, game-designer | Those facets and Binh Đạo |

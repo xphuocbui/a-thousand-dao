@@ -99,7 +99,7 @@ author's reading and wait for confirmation (Open Questions).
      that costs a season. The validator rejects a `reach` already met at the offer, or one the player cannot meet
      inside its window at their current rate (Realms' estimate, **provisional**).
    - **A `defeat` stage is bounded by the fight ratio** (Formulas B), checked at the offer and again when the stage
-     begins. Only a player Down fails the stage. A draw, a stalemate or a flight leaves it open for a later season.
+     begins. Only a player Down fails the stage. A draw or a flight leaves it open for a later season.
 
    **A stage's target can be lost (user decision 2026-11-06, design-review re-review).** A stage that names a person (a
    `visit` meeting, a `defeat` opponent, a `deliver` recipient) has a **target**. The target is lost when that person
@@ -544,7 +544,7 @@ its master **−15** and its sect head **−7**.
 - **If one season's action could serve two quests:** it counts for one, chosen by the player. A `visit` or `reach` needs no action and completes every quest it satisfies.
 - **If a `deliver` stage names a class of item:** it can never fail for lack of goods, only lapse. Only a named, unique item can be lost for good (rule 10).
 - **If the player is not in a sect at a `mission` stage:** bounty work counts, and it also pays no income.
-- **If a `defeat` fight ends in a draw, stalemate or flight:** the stage stays open for a later season, and the deadline keeps running.
+- **If a `defeat` fight ends in a draw or flight:** the stage stays open for a later season, and the deadline keeps running.
 - **If the player is Down in a `defeat` and lives:** the quest fails, and Combat decides what the defeat costs.
 - **If a stage's target dies (not by the player, party or sect):** rule 5's `if_target_lost` decides: `orphan` (the default), `skip` or `drop`. A plan that omits the clause gets `orphan`; an unknown value or `skip` on the last stage fails validation.
 - **If a stage's target is killed by the player, their party or their sect:** the quest is Failed, whatever the clause says, unless the stage is a `defeat` whose plan allows a kill.
@@ -739,7 +739,7 @@ Evidence: `tests/unit/quests/`, `tests/integration/quests/`, `production/qa/evid
 - **AC-QS-33** Floor at the offer: 705 (0.02) passes; 704 (0.019972) is rejected. If growth gives r 0.01 at stage start, the stage stays valid.
 - **AC-QS-34** Given r 0.40 at stage start, falling to 0.30 after 2 seasons, then the stage opens and the deadline moves 2 later.
 - **AC-QS-35** Given r 0.40 through 4 held seasons, then the fight opens and season 5 counts against the deadline.
-- **AC-QS-36** Edge. A draw, stalemate or flight leaves the stage open and the deadline running.
+- **AC-QS-36** Edge. A draw or flight leaves the stage open and the deadline running.
 - **AC-QS-37** Edge. A knockout win completes the stage. Player Down and alive: Failed, −15.
 
 **Formula C and time** [Logic]

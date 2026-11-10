@@ -1324,6 +1324,28 @@ constants:
     notes: "Derived ceiling 4.5 (5 pairs under the 50 W keystone floor)."
     added: 2026-11-04
     revised: ""
+  - name: stack_purity_factor
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/effects.md
+    value: 0.002
+    unit: stack power per purity point
+    notes: "stack_power = 1 + factor x P; P is the applier's purity for a debuff, the holder's for a buff; foes default stack_purity 0 (Formulas H; review 2026-11-10)."
+    added: 2026-11-10
+    revised: ""
+  - name: pair_share
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/effects.md
+    value: 0.5
+    unit: share of the partner's purity
+    notes: "Water and Ice each add this share of the other's purity to their own for stacks (Formulas H)."
+    added: 2026-11-10
+    revised: ""
   - name: bien_di_factors
     # 2026-11-04 (Spiritual Roots redesign): was chance 0.5 / 0.25/(o-1), purity 0.8; replaced by variant_factors.
     status: deprecated
@@ -2416,16 +2438,17 @@ constants:
     added: 2026-11-06
     revised: 2026-11-06
   - name: time_limit
-    status: active
+    # 2026-11-10 (combat review, user decision): retired with the stalemate; flat n^2 fatigue ends every fight.
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
       - design/gdd/thien-kiep.md
     value: 120  # was 40 (Combat economy revision #44, 2026-11-09)
     unit: seconds
-    notes: "Stalemate time. Fatigue from fatigue_start (60 s) ends almost every fight first (Combat rule 10, #44)."
+    notes: "Retired 2026-11-10: no time limit and no stalemate; a fight still running at 120 s is a harness bug (AC-CB-29)."
     added: 2026-11-06
-    revised: 2026-11-09
+    revised: 2026-11-10
   - name: element_stacks
     status: active
     source: design/gdd/effects.md
@@ -2445,18 +2468,40 @@ constants:
       - design/gdd/combat.md
     value: 60
     unit: seconds
-    notes: "First fatigue pulse; both sides lose fatigue_step x n of health_max each pulse after (Combat rule 10, Formulas A2; #44 item A3)."
+    notes: "First fatigue pulse; both sides lose fatigue_units x U_r x n^fatigue_pow each pulse after, a flat amount (Combat rule 10, Formulas A2; #44 item A3; flat since 2026-11-10)."
     added: 2026-11-09
-    revised: ""
+    revised: 2026-11-10
   - name: fatigue_step
-    status: active
+    # 2026-11-10 (combat review, user decision): a share of health punished high-health builds; replaced by fatigue_units.
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 0.01
     unit: fraction of health_max, growing by this each pulse
-    notes: "A side at full health falls to fatigue alone at 73 s."
+    notes: "Retired 2026-11-10; see fatigue_units and fatigue_pow."
     added: 2026-11-09
+    revised: 2026-11-10
+  - name: fatigue_units
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/thien-kiep.md
+    value: 0.5
+    unit: fight units (U_r) at the first fatigue pulse
+    notes: "Flat fatigue: the n-th pulse takes fatigue_units x U_r x n^fatigue_pow from each side, whatever its health (3.16 at Qi Refining). Typical side at full health falls at 66 s; the largest legal pool (n 8, boss_pool_mult 10) at 90 s. Safe range 0.25-1.0."
+    added: 2026-11-10
+    revised: ""
+  - name: fatigue_pow
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 2
+    unit: exponent
+    notes: "Growth of fatigue per pulse (n^2). User decision 2026-11-10: 2.5 or 3 if fights run long. Safe range 2-3."
+    added: 2026-11-10
     revised: ""
   - name: regen_k
     status: active
@@ -2690,9 +2735,9 @@ constants:
     referenced_by:
       - design/gdd/combat.md
       - design/gdd/effects.md
-    value: "shred 0.5 (resistance, floor -0.50); drain +50% (drain wards); cost +50%; heal taken -50% (one floor); soul shred 30 pp (floor 0); reapply lockout 2 pulses; layer lock 2 pulses; tag block 3 pulses; duration 5 pulses"
+    value: "drain +50% (drain wards); cost +50%; heal taken -50% (one floor); reapply lockout 2 pulses; layer lock 2 pulses; tag block 3 pulses; duration 5 pulses (shred and soul shred bounds retired 2026-11-10: resistance and soul resistance have no floor)"
     unit: mixed (fractions, percentage points and pulses)
-    notes: "Named data keys curse_shred_max, curse_drain_raise_max, curse_cost_raise_max, curse_heal_taken_max, curse_soul_shred_max, curse_reapply_lockout, curse_layer_lock_max, curse_tag_block_max, curse_duration_max. curse_pass_raise_max retired (no ward pass). Restated by the Combat revision #43 (2026-11-08). Durations count pulses, like statuses (design-review fix, 2026-11-06)."
+    notes: "Named data keys curse_drain_raise_max, curse_cost_raise_max, curse_heal_taken_max, curse_reapply_lockout, curse_layer_lock_max, curse_tag_block_max, curse_duration_max. curse_pass_raise_max retired (no ward pass); curse_shred_max and curse_soul_shred_max retired 2026-11-10. Restated by the Combat revision #43 (2026-11-08). Durations count pulses, like statuses (design-review fix, 2026-11-06)."
     added: 2026-11-06
     revised: 2026-11-08
   - name: reserve_floor
@@ -3101,16 +3146,27 @@ constants:
     added: 2026-11-06
     revised: ""
   - name: stall_share
-    status: active
+    # 2026-11-10 (combat review): retired with time_limit; replaced by stall_time.
+    status: deprecated
     source: design/gdd/thien-kiep.md
     referenced_by:
       - design/gdd/thien-kiep.md
     # was: 0.75 (30 s at time_limit 40) before 2026-11-10; thien-kiep #44 pass set 0.5.
     value: 0.5
     unit: share of time_limit
-    notes: "The baseline reference must kill a boss at the last wave's pool within 0.5 * time_limit (60 s, before Combat's fatigue starts; #44)."
+    notes: "Retired 2026-11-10 with time_limit; see stall_time."
     added: 2026-11-06
     revised: 2026-11-10
+  - name: stall_time
+    status: active
+    source: design/gdd/thien-kiep.md
+    referenced_by:
+      - design/gdd/thien-kiep.md
+    value: 60
+    unit: seconds
+    notes: "The baseline reference must kill a boss at the last wave's pool within 60 s, before Combat's fatigue starts (#44). Safe range 50-60 s."
+    added: 2026-11-10
+    revised: ""
   - name: tribulation_enabled
     status: active
     source: design/gdd/thien-kiep.md
@@ -3679,16 +3735,16 @@ constants:
     added: 2026-11-08
     revised: ""
   - name: curse_soul_shred_max
-    status: active
+    status: deprecated
     source: design/gdd/effects.md
     referenced_by:
       - design/gdd/effects.md
       - design/gdd/combat.md
     value: 30
     unit: percentage points of soul resistance
-    notes: "Most curses can lower soul resistance (Slackened Soul, -15 pp per stack); soul resistance never goes below 0. Restated in Combat Formulas F by the Combat revision #43 (D12, 2026-11-08)."
+    notes: "Retired 2026-11-10 (user decision): soul resistance has no floor, like resistance; Slackened Soul (-15 pp per stack, 2 stacks) may push it below 0, which amplifies (Combat Formulas E2)."
     added: 2026-11-08
-    revised: 2026-11-08
+    revised: 2026-11-10
 # Example:
 #
 # constants:

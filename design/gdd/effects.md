@@ -232,8 +232,10 @@ different.
       Curse caps do not apply to stacks, so Ice stacks raise art cost past Heavy Breath's +50 %.
     - **Which element.** A stack belongs to its source's element tag (Kim, Mộc, Thủy, Hỏa, Thổ, Băng, Lôi, Phong),
       never to the damage type, so a converted hit builds the stacks of the art's element.
-    - **Purity powers stacks:** every stack's effect is multiplied by `(1 + 0.002 × P)`, P the owner's purity in
-      that element, uncapped, with Water and Ice sharing half (Spiritual Roots rule 8a, Formulas H).
+    - **Purity powers stacks:** every stack's effect is multiplied by `(1 + stack_purity_factor × P)` (0.002), P the
+      purity in that element of the **applier** for a debuff (read when the batch is applied) and of the **holder**
+      for a buff, uncapped, with Water and Ice sharing half; enemies, beasts and tribulations use `stack_purity` 0
+      unless their record sets one (Spiritual Roots rule 8a, Formulas H; review decision 2026-11-10).
     - **Debuff ticks are the applier's damage.** Burn and Poison use the applier's values from when each batch was
       applied (Combat Formulas F), so the applier's damage increases count.
     - **Cleansing is the answer to a pile** (user decision). A **cleansing ward** removes a share of every debuff
@@ -328,7 +330,7 @@ different.
 | Bleed (Xuất Huyết) | Physical | 0.20 per stack | 4 | Stacks to 5; each stack keeps its own timer | bleed, cleanse | bleed, over_time, physical | Body shields soak it; block never does |
 | ~~Frostbite (Đống Thương)~~ | Cold | — | — | — | — | — | **Retired (#44):** Ice's debuff is the art-cost rise (rule 9a); Rime Lock reads Ice stacks |
 | ~~Shock (Lôi Chấn)~~ | Lightning | — | — | — | — | — | **Retired (#44):** Thunder's debuff is crit exposure (rule 9a) |
-| Qi Disruption (Loạn Khí) | Force (qi burn) | 0.30 per stack | 3 | Stacks to 3 | force, cleanse | qi_disruption, over_time, force | Ticks linh lực, not health, at most 5 % of `qi_max` a pulse, shared with every other burn on the target (rule 6). Its path is all + Force resistance → linh lực, passing every shield (user decision 2026-11-08, re-review EF 3 with Combat Damage Types rule 4) |
+| Qi Disruption (Loạn Khí) | Force (qi burn) | 0.30 per stack | 3 | Stacks to 3 | force, cleanse | qi_disruption, over_time, force | Ticks linh lực, not health, with no cap per pulse (`qi_burn_cap` removed, user decision 2026-11-09, #44; rule 6). Its path is all + Force resistance → linh lực, passing every shield (user decision 2026-11-08, re-review EF 3 with Combat Damage Types rule 4) |
 | Corpse Rot (Thi Độc) — **standing** | Chaos | 0.15, one stack | none | None (a recast does nothing while it runs) | poison, cleanse | corpse_rot, over_time, chaos, poison | Never ends on its own. Its caster pays 2 % of their maximum linh lực every pulse (Formulas B); it ends the pulse that goes unpaid, or on a cleanse. Never merges with Poison |
 
 Light has no tick (its status is Exposed) and Soul never ticks (Combat Damage Types rule 1).
@@ -348,7 +350,7 @@ duration to read. They are bound instead by their standing cost (Formulas B) and
 | Heavy Breath (Trọng Tức) | Art cost raise | +25 % per stack | 4 | Stacks to 2 (+50 %, `curse_cost_raise_max`) | curse, cleanse | heavy_breath, curse | — |
 | Leaking Ward (Lậu Hộ) | Drain wards bill more | +50 % (`curse_drain_raise_max`) | 3 | Refresh | curse, ward, cleanse | leaking_ward, curse, ward | Drain wards only |
 | Withering (Khô Héo) | Healing taken down | −50 % (`curse_heal_taken_max`, new) | 4 | Refresh | curse, cleanse | withering, curse | The healer's answer |
-| Slackened Soul (Tùng Hồn) | Soul resistance down | −15 pp per stack (`curse_soul_shred_max` 30 pp; never below 0, Combat revision D12) | 2 | Stacks to 2 | curse, soul, cleanse | slackened_soul, curse, soul | — |
+| Slackened Soul (Tùng Hồn) | Soul resistance down | −15 pp per stack (Combat revision D12); no floor since 2026-11-10, so below 0 it amplifies soul hits (Combat Formulas E2) | 2 | Stacks to 2 | curse, soul, cleanse | slackened_soul, curse, soul | — |
 
 ### Starter Effects
 
@@ -634,7 +636,7 @@ at 0.25 takes a batch of 8 Burn stacks to 6, then 4.5, then 3.4.
 - **If a status is cleansed by a matching tag**: it ends at once and its remaining ticks are lost.
 - **If a recast meets a status of the same id**: it refreshes the duration, unless the record says it stacks, the
   stronger wins, or none (then nothing happens).
-- **If a curse would pass its Combat bound** (`curse_shred_max`, `curse_cost_raise_max` and the rest): it is
+- **If a curse would pass its Combat bound** (`curse_cost_raise_max`, `curse_drain_raise_max` and the rest): it is
   clipped to the bound.
 
 **Life costs and Down**
@@ -734,7 +736,7 @@ not prices. Safe ranges are design estimates.
 | `standing_cost` | per status, 0.01–0.10 (Corpse Rot 0.02) | 0.01–0.10 | What a standing status costs its caster each pulse | Formulas B |
 | `counted_start` | 0 per mille | 0–999 | Where a counted chance's meter starts | Formulas A |
 | Status strengths, durations, stack caps | Status Catalogue | Combat Formulas F's bounds | How hard ticks and curses hit | Status Catalogue |
-| Curse bounds (`curse_shred_max`, `curse_cost_raise_max`, `curse_drain_raise_max`, `curse_heal_taken_max`, `curse_soul_shred_max`) | 0.5, +50 %, +50 %, −50 %, 30 pp | Combat Formulas F | The most a stack of curses can do | Status Catalogue |
+| Curse bounds (`curse_cost_raise_max`, `curse_drain_raise_max`, `curse_heal_taken_max`; `curse_shred_max` and `curse_soul_shred_max` retired 2026-11-10) | +50 %, +50 %, −50 % | Combat Formulas F | The most a stack of curses can do | Status Catalogue |
 | Reapply lockout (Sealed Meridian, Silence) | 2 pulses | 1–3 | How often a lock can be kept up | Status Catalogue |
 | Starter limits (per pulse, per fight, cooldowns, caps) | each record | set by eye per Effect | Each Effect's size until the balance pass | Starter Effects |
 | Tier allowances per host | each host GDD | each host GDD | How many Effects a build holds | Rule 4 |
@@ -782,9 +784,9 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-21** [Logic] Bleed. **GIVEN** stacks applied at pulse 0 and pulse 2, **THEN** the first expires after pulse 4 and the second ticks until pulse 6.
 - **AC-EF-22** [Logic] Rime Lock (#44). **GIVEN** Rime Lock and a target with 9 of your Ice stacks, **WHEN** a 10th lands, **THEN** its art with the least time left is delayed by 1 s, at most once per 4 pulses per target. **GIVEN** a status record named Frostbite or Shock, **THEN** load rejects it as retired.
 - **AC-EF-23** [Logic] Silence. **GIVEN** a Silence naming `ward`, `basic` or `escape`, **THEN** it is rejected. **WHEN** a Silence is reapplied within 2 pulses of ending, **THEN** it fails and is logged.
-- **AC-EF-24** [Logic] Sundered and Exposed. **GIVEN** 3 Sundered stacks (−0.45) and Exposed (−0.10), **THEN** the shred is 0.50. **GIVEN** base resistance −0.20, **THEN** the result is −0.50 (`resist_floor`), never lower.
+- **AC-EF-24** [Logic] Sundered and Exposed. **GIVEN** 3 Sundered stacks (−450 points) and Exposed (−100 points) on a part with R 448, **THEN** R is −102 and the part is multiplied by 2.02 (no shred cap, no floor; Combat Defence & Healing rule 3). **GIVEN** 2 Slackened Soul stacks on soul resistance 20, **THEN** it is −10 (no floor).
 - **AC-EF-25** [Logic] Corpse Rot. **GIVEN** the loaded catalogue, **THEN** Corpse Rot is the only status with no duration. **GIVEN** Corpse Rot and Poison on one target, **THEN** they never merge, and neither is capped per tick or per pulse.
-- **AC-EF-26** [Logic] Qi Disruption. **GIVEN** 3 stacks whose ticks would pass 5 % of the target's `qi_max`, **THEN** linh lực loses exactly 5 % of `qi_max` that pulse and health loses nothing. **GIVEN** Force resistance 0.20, `no_default_ward`, and full ward and body shields, **THEN** each tick is cut by 0.20 and both shields are unchanged.
+- **AC-EF-26** [Logic] Qi Disruption. **GIVEN** 3 stacks whose ticks pass 5 % of the target's `qi_max`, **THEN** linh lực loses the full amount (no cap since #44) and health loses nothing. **GIVEN** Force resistance 20 points, `no_default_ward`, and full ward and body shields, **THEN** each tick is divided by 1.20 and both shields are unchanged.
 
 **Life costs, Down and counted chance (rules 10–12, Formulas A and C)**
 
