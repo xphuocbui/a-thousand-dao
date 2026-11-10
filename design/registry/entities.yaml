@@ -1505,11 +1505,12 @@ constants:
       - design/gdd/character-stats.md
       - design/gdd/kinh-mach-do.md
       - design/gdd/modifiers.md
-    value: "0.1: pct keys, stealth, lifespan_years; 0.01: the six talent keys, dan_doc_decay, density_bonus, health_regen_pct, linh_luc_regen_pct; 1: field_plots, alchemy_yield, block_rating, convert_pct, flags"
+    # was: no 0.001 keys and no stack_grant before 2026-11-10 (character-stats review CS-03).
+    value: "0.1: pct keys, stealth, lifespan_years; 0.01: the six talent keys, dan_doc_decay, density_bonus, health_regen_pct, linh_luc_regen_pct; 0.001: linh_luc_on_hit_pct, linh_luc_on_crit_pct, linh_luc_on_kill_pct; 1: stack_grant, field_plots, alchemy_yield, block_rating, convert_pct, flags"
     unit: units
     notes: "Authored values rounded to grid (off-grid fails validation); computed values floored with 1e-6 tolerance."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-10
   - name: stage_power_step
     status: active
     source: design/gdd/canh-gioi.md
@@ -2326,7 +2327,8 @@ constants:
     added: 2026-11-04
     revised: ""
   - name: bonus_ceilings
-    status: active
+    # 2026-11-10 (Character Stats rule 14, no caps): the ceilings became curves; see bonus_curves.
+    status: deprecated
     source: design/gdd/character-stats.md
     referenced_by:
       - design/gdd/character-stats.md
@@ -2338,7 +2340,21 @@ constants:
     unit: pct / percentage points / share of the realm's base lifespan
     notes: "Character-wide ceilings over every Character Stats rule 12 source (techniques, tree, items and consumables, pills, destiny perks, root variants and generating pairs, formations, craft mastery). Penalties apply after the cap: total = min(sum of positive modifiers, ceiling) + sum of negative modifiers. The lifespan bonus is lifespan pill years plus every lifespan_years modifier (an equipped treasure's counted once), capped the same way; a negative bonus is allowed and can lower the cap below the base. Root terms, field_plots and lifespan_pct are not capped. Lowered 2026-11-04 (cross-GDD review 04f; were 40 / 8); safe range at most the current values until AC-CG-60 confirms headroom. The computed ceiling run belongs to Realms bonus_ceiling_target and AC-CG-60. Holder raises were removed with the Spiritual Roots redesign (2026-11-04)."
     added: 2026-11-04
-    revised: 2026-11-04
+    revised: 2026-11-10
+  - name: bonus_curves
+    status: active
+    source: design/gdd/character-stats.md
+    referenced_by:
+      - design/gdd/character-stats.md
+      - design/gdd/canh-gioi.md
+      - design/gdd/cong-phap.md
+      - design/gdd/kinh-mach-do.md
+      - design/gdd/linh-can.md
+    value: {herb_growth_pct: 10, lifespan_frac: 0.15}
+    unit: curve scale (pct) / share of the realm's base lifespan
+    notes: "total = k ln(1 + sum of positive modifiers / k) + sum of negatives (rule 14, Formulas I; user decision 2026-11-10, replacing bonus_ceilings). k for lifespan = lifespan_frac x the realm's base lifespan. alchemy_success is not a curve: it dampens failure (fail / (1 + total/100), total floored at 0). Realms calibrates first, then only the scales are retuned."
+    added: 2026-11-10
+    revised: ""
   - name: bonus_ceiling_target
     status: active
     source: design/gdd/canh-gioi.md
@@ -2844,7 +2860,8 @@ constants:
     added: 2026-11-06
     revised: ""
   - name: ward_cap
-    status: active
+    # 2026-11-10 (combat review, user decision): retired; ward strength and efficiency have no ceiling.
+    status: deprecated
     source: design/gdd/combat-defence.md
     # Moved from combat.md Formulas D to combat-defence.md Formulas A0 (re-review CD 2, 2026-11-08); Combat keeps a stub after #43.
     referenced_by:

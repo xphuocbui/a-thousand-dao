@@ -401,7 +401,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 
 | Stat | Key | Ops | Target | Better | W | Owner | Status |
 |---|---|---|---|---|---|---|---|
-| Alchemy success (luyện đan) | `alchemy_success` | F (pp) | none | higher | 2.7 | Alchemy | Live |
+| Alchemy success (luyện đan) | `alchemy_success` | D (dampens the brew's failure chance: fail ÷ (1 + total/100), total floored at 0; Character Stats rule 14, 2026-11-10) | none | higher | 2.7 | Alchemy | Live |
 | Pills per brew | `alchemy_yield` | F, rare | none | higher | 20 | Alchemy | Live |
 | Refining success (luyện khí) | `refining_success` | F (pp) | none | higher | 2.0 | Artifact Refining | Live |
 | Herb growth | `herb_growth_pct` | I | none | higher | 0.9 | Spirit Herbs | Live |

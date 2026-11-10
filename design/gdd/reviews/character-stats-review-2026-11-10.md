@@ -154,3 +154,20 @@ Replacement values above were recomputed in this review; recompute them once mor
 Searched the whole GDD for the entries it owns or references: `effective_talent`, `derived_values`, `qi_deviation_chance`, `presence_price`, `talent_roll`, `talent_grade_bands`, `resist_factor_clamp`, `cleanse_potency_floor`, `linh_luc_conversion`, `dan_doc_divisors`, `mi_luc_price_per_point`, `khi_van_reward_ceiling`, `stat_precision_grid`, `stage_power_step`, `failure_tam_ma_gain`, `failure_khi_huyet_loss_frac`, `lifespan_pct_bound`, `ngo_tinh_divisor`, `bonus_ceilings`, `bonus_ceiling_target`, `lifespan_cap`, `tree_breakthrough_chance_cap`, `vitality_floor`, `tam_ma_natural_decay`.
 - Values that match: 45 / 16, 30 / 60 / 85 / 99 / 100, 0.1–2.0, 0.25, 0.20, 200 / 100, 0.004, 0.75 + 0.005, 0.15, 15, 0.40, 45, 200, 0.45, 8.
 - Conflicts: `bonus_ceilings` (ceilings, not curves), the `lifespan_cap` expression, the `bonus_ceiling_target` notes, `stat_precision_grid` (missing keys), and the tree cap key name. All in CS-03.
+
+---
+
+## User answers and applied fixes (2026-11-10, parent session)
+
+- **D1:** keep the 0.1–2.0 resistance-factor clamp. **D2:** keep the 1–150 effective-talent clamp. **D3:** a negative
+  `alchemy_success` total floors at 0 (dampened op; `modifiers.md` row now `D`). **D4:** Realms calibrates first;
+  this GDD then retunes only the curve scales.
+- Applied: CS-01 (curve wording throughout; Edge Cases, AC-CS-28/52/54/56 recomputed; Formulas I output range and
+  `B_life`), CS-02 (floor at 0, boundary edge case and AC bullet), CS-03 (registry: `bonus_ceilings` deprecated,
+  `bonus_curves` added, `stat_precision_grid` +0.001 keys and `stack_grant`; the tree cap is now `tree_breakthrough_k`;
+  `lifespan_cap` and `bonus_ceiling_target` are Realms' and are fixed in its turn), CS-04 (rule 15: `points` unit,
+  seven keys added, `resist_cap_pct` retired, Pending keys reserved), CS-05 (twelve source kinds; stack power is a
+  root term; Interactions and Cross-References rows), CS-06 (Realms checklist under Open Question 8), CS-07
+  (knockout wording; vitality floor after a fight; Open Question 2 closed), CS-08 (Wood 150 example; plots
+  unbounded), CS-09 (curve outputs are floats, 1e-6), CS-10 (the tree's curve replaces the 8 pp clamp), CS-11, CS-12
+  (AC-CS-51 label, 1e-6, AC-CS-30's waiting stories).
