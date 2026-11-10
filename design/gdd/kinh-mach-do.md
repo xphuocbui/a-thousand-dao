@@ -6,6 +6,11 @@
 > `tools/design/meridian_rework/`); hidden clusters are scrapped (user decision 2026-11-09: cultivation-technique
 > and item trees move to a separate tab); capability rule text lives in `effects.md`. Sections not yet rewritten
 > still describe the old generated map and say so. Earlier history: `reviews/kinh-mach-do-review-log.md`.
+> **The map is a shape placeholder** (user, 2026-11-10): the drawn tree's layout, regions, sizes and distances stand in
+> for the real map and will change further, as will its content. The rules here (points, opening, purity scaling,
+> roads granting purity, capabilities, starts, the drawing checks) are the design; the measured numbers (7,115
+> acupoints, region sizes, distances in Formulas B and H) describe today's placeholder and are re-measured whenever the
+> map changes.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-10
@@ -28,8 +33,9 @@ The Meridian Map (Kinh Mạch Đồ) is the game's PoE-style passive tree.
 - **Value.** Every acupoint's value scales with the root's purity in its element. An element land's roads also grant
   that element's purity (about 0.5 per node); blend roads half of each neighbour's; hub roads give general stats.
 - **Capabilities.** The map places 25 rule changes (capabilities) in its clusters; their rules live in `effects.md`.
-- **Content is placeholder.** The layout is final; names, modifiers and keystones are filled in one later content
-  pass, which gives every element land a keystone that generates linh lực.
+- **The map is a placeholder.** Both the shape (layout, regions, sizes) and the content (names, modifiers,
+  keystones) are placeholders and will change (user, 2026-11-10); a later content pass also gives every element land
+  a keystone that generates linh lực.
 - **Not here.** Cultivation techniques and items get their own small trees in a separate tab.
 - **Bounds.** Every number is bounded and recorded. NPCs build on the same tree under the same rules.
 
@@ -102,9 +108,10 @@ are named parameters; their values and ranges are in Formulas.
      links on one acupoint.
    - **Distances:** neighbouring element starts are 12 points apart, opposite ones about 24; the Chaos start is
      15–16 from every element start; the far rim is about 50 points out, the islands farther.
-   - **Content is placeholder.** Names, modifiers, keystones and capability placements drawn today are placeholders
-   filled in one content pass (user decision 2026-11-09), which also gives every element land a keystone that
-   generates linh lực.
+   - **Shape and content are placeholders.** The drawn layout is a shape placeholder that will change further (user,
+     2026-11-10), and its names, modifiers, keystones and capability placements are filled in one content pass (user
+     decision 2026-11-09), which also gives every element land a keystone that generates linh lực. The counts and
+     distances above are measured on today's placeholder.
    - **Not on this map:** sealed and open hidden clusters are retired (rules 6–15). Cultivation-technique and item
      trees are separate small trees in their own tab, spending the same points
      (`design/research/side-trees-thoughts.md`).
@@ -257,7 +264,7 @@ are named parameters; their values and ranges are in Formulas.
 
 **Drawing rules**
 
-21. **The map is drawn to the authoring guide.** `design/research/meridian-land-authoring.md` (targets, dos and
+21. **The map is drawn to the authoring guide** (whatever shape it takes next). `design/research/meridian-land-authoring.md` (targets, dos and
     don'ts) and the kit's rules in `regions/landkit.py` (caps on repeated figures, no twins, gold at the ends of
     branches, districts, quiet fields, keystone clearings) are the drawing rules. Every build reports the guide's
     measures (cluster joins, clusters per road node, cluster sizes by band, notables, keystone distances, open space)
@@ -1114,7 +1121,7 @@ Drafted with qa-lead.
 | 13 | ~~Meridian Seal keys~~ **Retired 2026-11-10** with the hidden clusters | — | — |
 | 14 | ~~A tree-wide lifespan ceiling~~ **Resolved 2026-11-10:** lifespan follows Character Stats' curve, shared by every source | — | — |
 | 15–19 | ~~Variant sectors, their drawing and build; the generator's G5–G9; the unseal flow~~ **Retired 2026-11-10** (rules 6–15, 20) | — | — |
-| 20 | **The content pass:** names, modifiers and keystones for the whole map; every element land's linh-lực keystone; the 25 capability placements; the start-cradle keystones that crowd the centre (overnight notes, Still open) | user + game-designer | Content release 1 |
+| 20 | **The map's final shape and the content pass** (the current drawing is a shape placeholder, user 2026-11-10): the redrawn shape; names, modifiers and keystones for the whole map; every element land's linh-lực keystone; the 25 capability placements; the start-cradle keystones that crowd the centre (overnight notes, Still open) | user + game-designer | Content release 1 |
 | 21 | `road_purity`, `purity_price` and `tree_breakthrough_k` are guesses; AC-KMD-101 tunes `road_purity` | systems-designer + bot | Rule 4; Formulas A2, F |
 | 22 | ~~Should island roads grant their variant's purity?~~ **Resolved 2026-11-10:** yes, a variant land's roads grant its variant's purity like an element land's (rule 4; Spiritual Roots review D4) | — | — |
 
