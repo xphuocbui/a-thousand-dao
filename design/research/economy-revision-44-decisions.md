@@ -391,3 +391,18 @@ recommendations. Each is marked provisional in its GDD header; review and change
 - The registry formula expressions for Formulas A, C, E and the price check still show pre-#44 text.
 - Code: nothing is built for #44 (the full fight is on hold).
 - A fresh `/design-review` of combat.md, combat-defence.md, effects.md and modifiers.md.
+
+## Rulings after the build catalogue (user, 2026-11-10) — NOT YET APPLIED
+
+From `design/builds/by-root/notes.md`. Apply these in the next session:
+- **R1 Stagnation:** yes, change it to **halve** linh lực and health regeneration instead of stopping it, and give it
+  the 2-pulse reapply lockout (effects.md Status Catalogue, Stagnation row; combat.md Formulas F curse table and
+  "regeneration block" row; AC-CB-35 and any AC that says regeneration stops).
+- **R2 Paying art costs with health:** **no cap** ("there will be builds which do not rely on linh lực"). Keep
+  `art_cost_health_pct` uncapped; still re-price it with the simulator (now a 0.5 W guess). Update builds notes.md § 2.
+- **R3 Maximum health:** **lower the price** of `khi_huyet_pct` (modifiers.md Open Question 9; the simulator gives
+  about 0.21 W per %). Touches modifiers.md Stat List and price table, the generated catalogue, Character Stats and
+  the Meridian Map's pricing table; close modifiers.md Open Question 9.
+- **R4 Stack prices:** ok. Water's buff charge falls for long batches (or is capped); Metal's weights rise about
+  30 % (effects.md Formulas D, its AC-EF-69 example, and `tools/design/combat_sim/keystonefit.py` weights).
+- **R5 Parts 4–5 review:** the user reviews the section "Parts 4 and 5" above and answers keep or change per bullet.
