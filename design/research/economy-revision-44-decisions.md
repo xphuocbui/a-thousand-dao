@@ -451,3 +451,4 @@ element's debuff about the same, buffs and debuffs treated separately**. Plan (C
   add with no discount (example and AC-EF-69: charge 0.28, c_art ≤ 2.55). **Water's keystone** (build catalogue): +0.025
   pp regeneration per Water stack, outside diminishing returns.
 - **2026-11-10 (user: do 1, 3, 5):** linh lực regeneration is now a log curve `regen_k · ln(1 + bonus / regen_k)` with no ceiling (combat.md Formulas E and AC-CB-34, thien-kiep.md and AC-TK-27, registry); the simulator models it and the purity multiplier on stacks (Spiritual Roots Formulas H); keystone numbers re-fit (build notes § 10). The linh lực regeneration price (22.8 W) was measured under the old curve and should be re-priced.
+- linh luc regen re-priced under the log curve: 23.8 W/pp measured vs 22.8, within noise; price kept.
