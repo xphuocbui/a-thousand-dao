@@ -270,8 +270,8 @@ A tag listed in two families is one tag; its tier is the same in both.
 #### Stat List
 
 Every stat a modifier can touch. Each table's heading gives its **domain** and the **family tags** of its stats,
-which rule 9 derives (re-review MD 17). **Ops**: F flat, I increased, M more. **Target** is what scope matches
-(rule 8); "none" means the stat cannot be scoped. **W** is the price per displayed unit (per percentage point for pp stats, per point of reduction for
+which rule 9 derives (re-review MD 17). **Ops**: F flat, I increased, M more, D dampened (rule 6a; 2026-11-10). They compose as `(base + Σ F) · (1 + Σ I / 100) ÷ (1 + Σ D / 100)`; on linh lực regeneration the dampen divides the final value, after the regeneration curve. **Target** is what scope matches
+(rule 8); "none" means the stat cannot be scoped, except the pool, hit-event and stack stats below, whose targets are "the pool" (scoped by the art or element that feeds it), "own hit" (the hit's tags) and "the element's stacks" (scoped by element plus a `buff` or `debuff` tag), added by the 2026-11-10 re-review. **W** is the price per displayed unit (per percentage point for pp stats, per point of reduction for
 lower-is-better stats). Values from the Meridian Map's Formulas F weight table move here unchanged (user
 decision 2026-11-07); the rest come from Formulas A, which marks each as derived or a guess. **Status**:
 - *Live*: in game data today.
@@ -318,7 +318,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Soul resistance | `soul_res_pct` | F (pp) | none | higher | 0.6 | Combat E2 | Designed |
 | Status resistance | `status_resist_pct` | F (pp) | incoming status | higher | 0.4 | Combat F. Scopes by one status read the status tags (Effects Status Catalogue; re-review MD 4) | Designed |
 | Status duration on you | `status_duration_taken_pct` | I | incoming status | lower | 0.3 | Combat F (`duration`, `curse_duration_max`); the answer to statuses that always land (variety 2026-11-08) | Pending |
-| Health regeneration | `health_regen_pct` | F (pp of maximum per pulse, no cap since #44; grid 0.01) | none | higher | 9.9 (was 3.0; #44) | Combat Defence & Healing E | Designed |
+| Health regeneration | `health_regen_pct` | F, D (pp of maximum per pulse, no cap since #44; grid 0.01) | none | higher | 9.9 (was 3.0; #44) | Combat Defence & Healing E | Designed |
 | Health regeneration, increased | `health_regen_inc_pct` | I | none | higher | 0.3 (G) | Combat Defence & Healing E (#44 item B5) | Designed |
 | Health leech | `leech_health_pct` | F (% of damage dealt) | own hit | higher | 0.21 | Combat Defence & Healing E; the sustain exception (rule 1, #44) | Designed |
 | Healing | `healing_pct` | I | heal (its tags) | higher | 0.5 | Combat Defence & Healing E. A [body_shield] scope on restores waits on that tag (variety 2026-11-08) | Designed |
@@ -331,7 +331,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Stat | Key | Ops | Target | Better | W | Owner | Status |
 |---|---|---|---|---|---|---|---|
 | Maximum linh lực | `linh_luc_pct` | I | none | higher | 1.0 | Character Stats C | Live |
-| Linh lực regeneration | `linh_luc_regen_pct` | F (pp of maximum per pulse (1 s); grid 0.01; diminishing returns, Combat E) | none | higher | 22.8 (was 8; #44) | Combat E | Designed |
+| Linh lực regeneration | `linh_luc_regen_pct` | F, D (pp of maximum per pulse (1 s); grid 0.01; log curve, Combat E) | none | higher | 22.8 (was 8; #44) | Combat E | Designed |
 | Linh lực regeneration, increased | `linh_luc_regen_inc_pct` | I | none | higher | 0.8 | Combat E (#44 item B5): multiplies `regen_base` and the bonus | Designed |
 | Linh lực on hit | `linh_luc_on_hit_pct` | F (pp of maximum per hit landed; grid 0.001) | own hit | higher | 42 | Combat E; the sustain exception (rule 1, #44 item B3) | Designed |
 | Linh lực on crit | `linh_luc_on_crit_pct` | F (pp of maximum per crit) | own crit | higher | 6.3 (G) | As above | Designed |
@@ -347,7 +347,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 |---|---|---|---|---|---|---|---|
 | Stack effect | `stack_effect_pct` | I | the element's stacks | higher | 0.5 (G) | Effects System rule 9a | Designed |
 | Stack duration | `stack_duration_pct` | I | the element's stack batches | higher | 0.4 (G) | Effects System rule 9a | Designed |
-| Stacks per grant | `stack_grant` | F, rare | each grant of the element's stacks | higher | 8 per stack (G) | Effects System rule 9a | Designed |
+| Stacks per grant | `stack_grant` | F, rare | each grant of the element's stacks | higher | 10 per stack (G; raised to the rare floor, 2026-11-10) | Effects System rule 9a | Designed |
 
 **Gear and loadout**: domain `combat`. Families: gear (artifact power, attack, defence, element affinity, thần thức cost), slots (art and artifact slots).
 
@@ -674,7 +674,7 @@ have no grade sizes here.
 |---|---|---|---|---|
 | Art slots (`bonus_slots`) | +1 slot | 20 | keystones, named items, quest rewards, Way capstones | Designed |
 | Ward slots (`bonus_ward_slots`) | +1 slot | 30 | same | Designed |
-| Resistance cap raise (`resist_cap_pct`) | per pp (to 90 %) | 5 / pp | same | Designed |
+| Resistance cap raise (`resist_cap_pct`) | per pp (to 95 %) | 5 / pp | same | Designed |
 | Chaos resistance (`resist_pct` [chaos]) | per pp | 1.25 / pp stored (0.83 effective) | same, and Chaos-themed named items | Designed |
 | Artifact slots | +1 slot | 25 | same | Pending |
 | Beast slots | +1 beast kept | 15 | same | Pending |
@@ -780,7 +780,7 @@ formula; **G** marks a guess.
 | Linh lực on kill | 0.5 / pp per kill | G | A duel has one kill, at its end |
 | Linh lực leech | 1.44 / % of damage | D | #44 simulator: 10 W buys about 6.9 % |
 | Art costs shifted to health | 0.35 / pp | D | #44 simulator: 10 W buys about 28.5 pp where the curve is near-linear; the dampen shape makes each further point shift less |
-| Stack effect, stack duration, stacks per grant | 0.5 / %, 0.4 / %, 8 / stack | G | Against Effects Formulas D's weights; refit with the harness |
+| Stack effect, stack duration, stacks per grant | 0.5 / %, 0.4 / %, 10 / stack | G | Against Effects Formulas D's weights; refit with the harness |
 | Reservation efficiency | 0.8 / % (counts to 50) | D | At a 50 % total reservation (Combat Defence & Healing Formulas I) |
 | Thần thức | 1.3 | — | Meridian Map table |
 | Artifact power | 1.3 | — | Meridian Map table |

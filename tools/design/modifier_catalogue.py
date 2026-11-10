@@ -134,7 +134,7 @@ stat(RES, "Reservation efficiency (`reserve_eff_pct`)", 0.8, 0.1, " %", status="
 STK = "Element stacks"
 stat(STK, "Stack effect (`stack_effect_pct`)", 0.5, 0.1, " %", implied="<element>", status="Designed", scopes=[("— (implied element; buff or debuff)", [], 16)])
 stat(STK, "Stack duration (`stack_duration_pct`)", 0.4, 0.1, " %", implied="<element>", status="Designed", scopes=[("— (implied element; buff or debuff)", [], 16)])
-stat(STK, "Stacks per grant (`stack_grant`)", 8.0, 1, " stack", implied="<element>", status="Designed", scopes=[("— (implied element; rare)", [], 16)])
+stat(STK, "Stacks per grant (`stack_grant`)", 10.0, 1, " stack", implied="<element>", status="Designed", scopes=[("— (implied element; rare)", [], 16)])
 
 GEAR = "Gear"
 stat(GEAR, "Artifact power (`artifact_power_pct`)", 1.3, 0.1, " %", scopes=[("—", [], 1), ("role", ["<role>"], 4)])

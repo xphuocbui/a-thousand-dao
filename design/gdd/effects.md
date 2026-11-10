@@ -2,7 +2,7 @@
 
 > **Status**: Revised 2026-11-09 for the Combat economy revision (#44), part 3: element stacks (rule 9a, Formulas D), Burn and Poison become Fire's and Wood's debuffs, Frostbite and Shock retire, no tick or burn caps, overflow readable (decisions in `design/research/economy-revision-44-decisions.md`). Earlier: designed 2026-11-08; `/design-review` 2026-11-08 overnight (lean, passes 1–4): NEEDS REVISION; revised 2026-11-08 with the user's answers; daytime re-review 2026-11-08 (lean, three passes): NEEDS REVISION, see `reviews/effects-review-log.md`; revised the same day with the user's answers to all 24 items (more reads and actions; the qi-tick path; last acts resolve requesting side first and win only on overkill). Second re-review 2026-11-08b: NEEDS REVISION; its fixes and the user's answers applied the same day (`reviews/rereview-2026-11-08b/effects.md`)
 > **Author**: user + agents
-> **Last Updated**: 2026-11-09 (#44 part 3). Earlier: 2026-11-08 (second re-review 2026-11-08b applied; see `reviews/rereview-2026-11-08b/effects.md`)
+> **Last Updated**: 2026-11-10 (re-review fixes: tick-cap text, Shock AC, stack lint horizon and rounding, cleansing ward owner, Spiritual Roots dependency). Earlier: 2026-11-09 (#44 part 3). Earlier: 2026-11-08 (second re-review 2026-11-08b applied; see `reviews/rereview-2026-11-08b/effects.md`)
 > **Last Verified**: 2026-11-08
 > **Implements Pillar**: Your Dao, Your Name (1); Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2)
 > **Scope**: Every build piece with a rule in it: conditions, scaling, triggers, conditional conversion, overflow, rule changes, keystones and enablers. An Effect usually grants Modifier System modifiers (`design/gdd/modifiers.md`) as its payload (user decision 2026-11-07). Plain numbers on a stat are Modifiers, not Effects; so is a plain conversion share (`convert_pct`, user decision 2026-11-08).
@@ -169,8 +169,8 @@ different.
    - **Triggers:** Combat rule 9 and Formulas G: a fixed resolution order, chain depth 2, at most 6 firings per
      side between pulses, and trigger damage inside Formulas G's trigger budget (floor included; Combat owns
      the numbers). A trigger never fires itself twice in one chain.
-   - **Caps** stay with their owners: layer caps, crit, evade and resistance caps, the heal and tick caps, the
-     reservation cap. An Effect's modifiers are clipped like any others.
+   - **Caps** stay with their owners: layer caps, crit, evade and resistance caps, the
+     reservation cap (the heal and tick caps were removed by #44). An Effect's modifiers are clipped like any others.
    - **Determinism:** every chance uses the fight's seeded stream (Combat rule 15). A chance of 0 or 1 draws
      nothing.
    - **Readability:** every Effect that applies, fires or is clipped writes a Breakdown line with its name and
@@ -316,7 +316,7 @@ different.
 > Drafted by `game-designer` 2026-11-07; inserted as drafted (user decision). Bounds are Combat Formulas F:
 > `c_tick` 0.15–0.5 per stack, duration 2–6 pulses, stack cap 5, the lint `c_tick · duration ≤ 1.2 · c_art`,
 > at most 3 curses of at most 5 pulses. Since #44 (2026-11-09) ticks have no cap per tick or per pulse, and Burn and
-> Poison are element debuffs (rule 9a): batches with no stack cap, `c_tick` 0.019 per stack, priced by Formulas D.
+> Poison are element debuffs, **exempt** from the `c_tick` range, the stack cap and the duration lint above (Formulas D's charge prices them instead; rule 9a): batches with no stack cap, `c_tick` 0.019 per stack, priced by Formulas D.
 
 **Ticks**
 
@@ -328,7 +328,7 @@ different.
 | ~~Frostbite (Đống Thương)~~ | Cold | — | — | — | — | — | **Retired (#44):** Ice's debuff is the art-cost rise (rule 9a); Rime Lock reads Ice stacks |
 | ~~Shock (Lôi Chấn)~~ | Lightning | — | — | — | — | — | **Retired (#44):** Thunder's debuff is crit exposure (rule 9a) |
 | Qi Disruption (Loạn Khí) | Force (qi burn) | 0.30 per stack | 3 | Stacks to 3 | force, cleanse | qi_disruption, over_time, force | Ticks linh lực, not health, at most 5 % of `qi_max` a pulse, shared with every other burn on the target (rule 6). Its path is all + Force resistance → linh lực, passing every shield (user decision 2026-11-08, re-review EF 3 with Combat Damage Types rule 4) |
-| Corpse Rot (Thi Độc) — **standing** | Chaos | 0.15, one stack | none | None (a recast does nothing while it runs) | poison, cleanse | corpse_rot, over_time, chaos, poison | Never ends on its own. Its caster pays 2 % of their maximum linh lực every pulse (Formulas B); it ends the pulse that goes unpaid, or on a cleanse. Counts inside both tick caps; never merges with Poison |
+| Corpse Rot (Thi Độc) — **standing** | Chaos | 0.15, one stack | none | None (a recast does nothing while it runs) | poison, cleanse | corpse_rot, over_time, chaos, poison | Never ends on its own. Its caster pays 2 % of their maximum linh lực every pulse (Formulas B); it ends the pulse that goes unpaid, or on a cleanse. Never merges with Poison |
 
 Light has no tick (its status is Exposed) and Soul never ticks (Combat Damage Types rule 1).
 
@@ -548,8 +548,8 @@ The standing_status formula is defined as:
 
 **Output Range:** the status lasts while the caster pays; a cleanse with a matching tag ends it at once.
 
-**Example:** a standing poison with `standing_cost` 0.03 on a caster with 172.7 linh lực costs **5.2** per pulse,
-against the 6.05 per pulse a typical caster regenerates since #44, so regeneration pays it with 0.85 to spare.
+**Example:** Corpse Rot (`standing_cost` 0.02) on a caster with 172.7 linh lực costs **3.45** per pulse, against the
+6.05 per pulse a typical caster regenerates since #44, so regeneration pays it with 2.6 to spare.
 
 ### C. The Down step
 
@@ -576,7 +576,7 @@ and A is Down.
 
 The element stack formulas are defined as:
 
-`count(side, element, kind) = Σ live batches` ; buff and debuff effects are `per_stack · count` (rule 9a's table) ; a cleansing ward removes `cleanse_share · stacks` from every debuff batch on its side each pulse ; an art that grants stacks lints at `c_art ≤ lint · (1 − charge)`, where `charge = Σ w_kind · stacks · seconds` per firing, buff and debuff charges simply add (the two-sided discount was removed 2026-11-10: re-measured at 1.00), with `charge ≤ 0.6`
+`count(side, element, kind) = Σ live batches` ; buff and debuff effects are `per_stack · count` (rule 9a's table) ; a cleansing ward removes `cleanse_share · stacks` from every debuff batch on its side each pulse ; an art that grants stacks lints at `c_art ≤ lint · (1 − charge)`, where `charge = Σ w_kind · stacks · seconds` per firing, buff and debuff charges simply add (the two-sided discount was removed 2026-11-10: re-measured at 1.00), with `charge ≤ 0.6`. A batch "for the fight" is charged as **60 s** (the fatigue start); the lint compares the capped coefficient **rounded down to 0.01**; a batch below **0.05** stacks is removed (user decisions 2026-11-10, re-review)
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
@@ -667,7 +667,8 @@ at 0.25 takes a batch of 8 Burn stacks to 6, then 4.5, then 3.4.
 |---|---|---|---|---|
 | Modifier System (#40) | Hard | Catalogue modifiers as payloads; tags | Approved (2026-11-08b) | Yes |
 | Combat (#21) | Hard | Instants, guards, trigger order and budget, curse bounds, tick formulas, the defeat check, results | Approved for rules | Partly: rule 9 defines triggers; the Combat revision (#43) cites this GDD for statuses and the Down step |
-| Combat Defence & Healing (#21a) | Hard | Heal and restore rules, reservation, wards | Needs revision | Yes |
+| Combat Defence & Healing (#21a) | Hard | Heal and restore rules, reservation, wards, the cleansing ward payload (`cleanse_share`) | Needs revision | Yes |
+| Spiritual Roots (#6) | Hard | Purity's stack power (rule 8a, Formulas H) for rule 9a | In Review | Yes (rule 8a) |
 | Heavenly Tribulation (#22) | Soft | Its waves run the Down step (refusals and last acts) like any fight | Approved for rules | Yes (Dependencies note, Combat revision #43) |
 | Combat Damage Types (#21b) | Hard | Damage types of statuses; conversion | Needs revision | Yes |
 | Character Stats (#7), Realms (#8) | Soft | Readable sheet values; applying reported life costs | In review | Not yet |
@@ -717,7 +718,7 @@ at 0.25 takes a batch of 8 Burn stacks to 6, then 4.5, then 3.4.
 | Rules 5–8, 11; Formulas B | combat.md rules 6, 9, 10, 13, 15, 16; Formulas A, A2, C, G, I, J | Tags, triggers, instants, guards, the defeat check, timers, seeded draws, Breakdown, maximum linh lực, slots, rolls, trigger budget, companion share | Read |
 | Rules 6, 11; Formulas | combat-defence.md rules 5–10, 16–19 (rule 19: a refusal is not healing); Formulas E | Wards, reservation, heals and restores | Read |
 | Rules 6, 9; Status Catalogue | combat-damage-types.md rules 1, 4, 6, 7 | Damage types, how a tick meets the defence path, conversion, what passes a shield | Read |
-| Rule 9 | combat.md rules 7–8, Formulas F | Statuses, curses, tick caps, curse bounds | Read; the status catalogue moves here |
+| Rule 9 | combat.md rules 7–8, Formulas F | Statuses, curses, tick formula, curse bounds | Read; the status catalogue moves here |
 | Rules 9–12 | overnight `decisions.md` decisions 4, 5, 9, 11 | Life costs, Down, counted chance, standing statuses | Adopted (user decisions 2026-11-07) |
 | Rule 10 | combat.md rule 14 | A fight ends with a result, never a consequence | Read |
 | Rule 13 | `meridian_capabilities.json` | The 25 live capabilities | Become keystones (those with a real closing cost) or rule-change Effects in this catalogue |
@@ -771,7 +772,7 @@ not prices. Safe ranges are design estimates.
 
 **Statuses (rule 9, Formulas B, catalogue)**
 
-- **AC-EF-16** [Logic] Rule 9. **GIVEN** a status missing its damage type (tick) or rule (curse), or missing duration, stacking, cleanse tags or tags, or a status with a number but no strength, **THEN** it is rejected. **GIVEN** Sealed Meridian, Silence or Stagnation with no strength, **THEN** each is accepted. **GIVEN** Sealed Meridian recast while it runs, **THEN** nothing happens. **GIVEN** Shock recast, **THEN** its duration refreshes and it does not stack.
+- **AC-EF-16** [Logic] Rule 9. **GIVEN** a status missing its damage type (tick) or rule (curse), or missing duration, stacking, cleanse tags or tags, or a status with a number but no strength, **THEN** it is rejected. **GIVEN** Sealed Meridian, Silence or Stagnation with no strength, **THEN** each is accepted. **GIVEN** Sealed Meridian recast while it runs, **THEN** nothing happens. **GIVEN** Exposed recast, **THEN** its duration refreshes and it does not stack.
 - **AC-EF-17** [Logic] Rule 9. **GIVEN** a status with no duration that lacks a `standing_cost` or a cleanse tag, **THEN** it is rejected.
 - **AC-EF-18** [Logic] Formulas B. **GIVEN** a standing status with `standing_cost` 0.03 (*test fixture*) on a caster with `qi_max` 172.7, **THEN** upkeep is 5.181 per pulse (shown 5.2), paid before it ticks. **WHEN** the caster cannot pay, or is Down, **THEN** it ends that pulse without ticking. **WHEN** a matching cleanse lands, **THEN** it ends at once and its remaining ticks are lost.
 - **AC-EF-19** [Logic] Burn (Fire's debuff, #44). **GIVEN** a batch of 2 Burn stacks for 6 s and a second batch of 3 for 4 s on one target, **THEN** the count is 5, the first batch's timer is not refreshed, the count is 2 after 4 s and 0 after 6 s, and each tick uses its own batch's applier values.
