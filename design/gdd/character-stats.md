@@ -553,7 +553,7 @@ Herb growth and mission income multiply; field plots and toxicity decay add (rul
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| purity_* | float | 0 (absent), 10–100 | calculated (Spiritual Roots) | Element purity |
+| purity_* | float | 0 (absent), 10–100 at birth, uncapped after rare raises (Spiritual Roots rule 8a) | calculated (Spiritual Roots) | Element purity, read in full with no cap (user decision 2026-11-10) |
 | k_h, k_m | float | 0.008, 0.008 | data file (`herb_growth_pct_per_purity`, `mission_income_pct_per_purity`, stored as 0.8 %) | Per purity point |
 | k_f | float | 0.04 | data file (`field_plots_per_purity`) | Plots per Earth purity point |
 | base_plots, max_plots | int | 3, 12 | data file | |
@@ -561,7 +561,7 @@ Herb growth and mission income multiply; field plots and toxicity decay add (rul
 | mission_income_pct | float | no ceiling (not a rule 14 key), negative allowed | calculated (stat sheet total after Formulas I) | Mission income bonus; the factor floors at 0 |
 | total(field_plots) | int | any; the result is clamped | calculated (stat sheet) | Extra plots |
 
-**Output Range:** the purity term is 1.0–1.8. Herb growth is 0 up to 1.8 × (1 + ceiling/100) = 1.98
+**Output Range:** the purity term is 1.0–1.8 at birth purities, and keeps rising past purity 100 (no cap). Herb growth is 0 up to 1.8 × (1 + ceiling/100) = 1.98
 (Wood 100 at the ceiling of 10); it reaches 0 when `herb_growth_pct` is −100 or below. Mission
 income is ≥ 0, with no upper bound set here because `mission_income_pct` has no ceiling.
 Field plots 1–12.

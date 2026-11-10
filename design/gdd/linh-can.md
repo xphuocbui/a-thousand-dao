@@ -198,7 +198,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    - **Cultivation techniques:** a technique's speed scales by the average purity of the
      elements and variants it names ÷ 100. A technique naming something the root lacks
      cannot be used at its speed (Cultivation Techniques owns the fallback).
-   - **Read capped at 100:** both uses above read purity at most 100, so purity past 100 changes neither (2026-11-10).
+   - **No cap:** both uses above read the full purity, past 100 too (user decision 2026-11-10: no caps); purity past 100
+     comes only from rare sources (rule 8a).
 
 8a. **Purity powers element stacks** (user decisions 2026-11-10). An element's buff and debuff stacks (Effects
     System rule 9a) are multiplied by `(1 + stack_purity_factor × P)`, a "more" multiplier of their own (Formulas H):
@@ -761,7 +762,7 @@ generating cycle.
 
 ### G. Purity as a scale (owned elsewhere)
 
-Restated for reference (each reads purity **capped at 100**, rule 8; only Formulas H reads it uncapped):
+Restated for reference (each reads the full purity, with no cap; user decision 2026-11-10):
 - **The Meridian Map** owns acupoint scaling (meridian roads are exact and do not scale): `0.5 + purity / 100` for an element sector
   (0.25 if the element is absent, so 0.6–1.5), and bridges average their two sectors. A
   **variant sector** scales by `0.5 + purity / 100` for its variant. It is hidden and
@@ -850,8 +851,8 @@ production.
 
 **Birth**
 
-- **If purity passes 100 through rare sources:** stacks read the full value (Formulas H); technique speed and the
-  Meridian Map's sector scaling read it capped at 100 (rule 8).
+- **If purity passes 100 through rare sources:** every use reads the full value: stacks (Formulas H), technique
+  speed, the Meridian Map's sector scaling and the element roles (Character Stats Formulas G).
 - **If an element the root does not own gains purity:** its stacks grow stronger; the root still does not own it
   (rule 8a), so `n_base`, pairs and variant eligibility are unchanged.
 - **If a root holds both Water and Ice:** each adds half of the other's purity to its own for stacks (Formulas H).
@@ -1402,7 +1403,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 **UI**
 
 - **AC-LC-51** [UI · BLOCKING] Root line and `explain`. Evidence is a retained screenshot plus transcript in `production/qa/evidence/debug-terminal/`.
-- **AC-LC-52** [Logic · BLOCKING] Formulas H. **GIVEN** Fire purity 86, **THEN** Fire stack power is 1.172; **GIVEN** 40 more from roads (126), **THEN** 1.252, and the root's technique speed and sector scaling read 100. **GIVEN** Water 70 and Ice 40, **THEN** Ice's stack power is 1.15 and Water's 1.18.
+- **AC-LC-52** [Logic · BLOCKING] Formulas H. **GIVEN** Fire purity 86, **THEN** Fire stack power is 1.172; **GIVEN** 40 more from roads (126), **THEN** 1.252, and the root's technique speed and sector scaling read 126 too. **GIVEN** Water 70 and Ice 40, **THEN** Ice's stack power is 1.15 and Water's 1.18.
 - **AC-LC-53** [Logic · BLOCKING] Rule 8a. **GIVEN** a {Fire} root that gains 30 Metal purity from Metal land's roads, **THEN** Metal stacks have power 1.06, `n_base` stays 1, no pair bonus is added, and no variant rolls.
   - {Fire 86, Water 60} + Wind 62: the root line (birth line) reads "Dual root: Fire [Hỏa] 86, Water [Thủy] 60 + Wind [Phong] 62 (counts as 3)". The sheet's root block shows curve row 3 and Wind 62 with origin innate.
   - {Fire 86, Metal 40} + Thunder 47: the root line reads "Dual root: Fire [Hỏa] 86, Metal [Kim] 40 + Thunder [Lôi] 47" with no "counts as" text. The sheet's root block shows Thunder 47 with origin convergence.
