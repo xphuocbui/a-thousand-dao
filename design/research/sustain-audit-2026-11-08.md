@@ -65,3 +65,44 @@ such as damage that scales on remaining linh lực, or overflow linh lực turne
   - the heal cap (`heal_pulse_cap` 0.04) and heal decay;
   - the ward price check's 8 s reference fight (`T_ref`).
 - These set how fast linh lực runs dry today (3–6 s in a typical mirror).
+
+## Element stacks (user decisions 2026-11-09, part of #44)
+
+The stack-buff system set aside on 2026-11-08 comes back as **element stacks**, drafted inside revision #44. Each
+element has a **buff** (on yourself) and a **debuff** (on a foe), counted in stacks. The two tracks are separate: a
+character can carry buff stacks, debuff stacks, both or neither. Chaos (Hỗn Độn), Light (Quang) and Darkness (Ám)
+have no stacks.
+
+| Element | Buff, per stack | Debuff, per stack |
+|---|---|---|
+| Fire (Hỏa) | +1 % damage dealt | Burn: Fire damage per second. The source is whoever applied it, so their damage increases apply |
+| Water (Thủy) | +maximum linh lực and +linh lực regeneration | — (Ice carries it) |
+| Earth (Thổ) | +Physical resistance | −accuracy |
+| Metal (Kim) | +Physical damage dealt | +Physical damage taken |
+| Wood (Mộc) | +health regeneration | Poison: damage per second |
+| Ice (Băng) | — (Water carries it) | +1 % art cost |
+| Thunder (Lôi) | +accuracy and +critical chance | +critical chance and +critical damage taken |
+| Wind (Phong) | +art speed | −evade (user picked this over −art speed) |
+
+Numbers other than the 1 % rows are still to set.
+
+**Rules decided:**
+1. **Gain and loss come from the source.** The art, Effect or item that grants stacks says how many and for how long;
+   there is no default stack timer.
+2. **No cap on stacks.** The answer to a big stack is cleansing: debuff-cleansing wards and Effects.
+3. **Water and Ice share one pair:** Water holds the buff, Ice the debuff.
+4. **Void (Hư Không) and Blood (Huyết)** have no stacks. They are still variant roots in Spiritual Roots
+   (`linh-can.md`); whether they are being removed is open.
+
+**To settle while drafting #44:**
+- **Existing statuses.** Burn (Fire), Poison (Chaos) and Frostbite and Shock (Effects System Status Catalogue)
+  overlap the debuffs. Proposal: Burn becomes Fire's debuff, Poison becomes Wood's (keeping the Chaos damage type, so
+  it still passes shields), and Frostbite and Shock retire.
+- **Caps that still bound uncapped stacks.** The tick caps (one pulse's ticks ≤ 8 % of maximum health), `regen_cap`
+  (8 % of the pool per pulse, which limits the Water and Wood buffs), `cost_red` (−50 %), the Heavy Breath curse's
+  `curse_cost_raise_max` (+50 %, which Ice's uncapped +1 % per stack overlaps), and crit chance stopping at 100 %.
+  Each needs a ruling: keep, raise, or exempt element stacks.
+- **Cleansing.** Cleanse tags exist on every status; cleansing wards and Effects that remove element debuff stacks
+  (all, some, or one element) need authoring.
+- **Pricing.** "Per stack" is a rule, so stack-granting pieces are Effects, while "+X % buff strength per stack" or
+  "+stacks gained" could be plain modifiers.

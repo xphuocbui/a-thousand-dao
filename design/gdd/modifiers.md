@@ -1,8 +1,8 @@
 # Modifier System
 
-> **Status**: Designed 2026-11-07; `/design-review` 2026-11-08 (lean, passes 1–4): NEEDS REVISION. Revised 2026-11-08 with the user's answers; fresh re-review the same day (three passes): NEEDS REVISION, see `reviews/modifiers-review-log.md`. Resumed after Combat Defence & Healing (#21a) and Combat Damage Types (#21b); the Stat List, price table and General Catalogue were rebuilt for them (damage-type scopes, resistance, block, body shield, healing stats, penetration; body guard retired); revised again 2026-11-08 with the user's answers to all re-review items (type scopes on whole-hit and whole-art stats; the [type + family] resistance row removed; conversion modifiers allowed as an ordinary stat, `convert_pct`). Second re-review 2026-11-08b: APPROVED; its fixes applied the same day (`reviews/rereview-2026-11-08b/modifiers.md`)
+> **Status**: Revised 2026-11-09 for the Combat economy revision (#44), part 4 (**applied overnight without the user's draft approval; provisional, for review**): the B3 exception (gain on hit, crit and kill, and leech are plain modifiers), paying art costs with health, increased regeneration, element stack modifiers, sustain stats re-priced from the #44 simulator, derived tag thresholds halved with art costs. Earlier: designed 2026-11-07; `/design-review` 2026-11-08 (lean, passes 1–4): NEEDS REVISION. Revised 2026-11-08 with the user's answers; fresh re-review the same day (three passes): NEEDS REVISION, see `reviews/modifiers-review-log.md`. Resumed after Combat Defence & Healing (#21a) and Combat Damage Types (#21b); the Stat List, price table and General Catalogue were rebuilt for them (damage-type scopes, resistance, block, body shield, healing stats, penetration; body guard retired); revised again 2026-11-08 with the user's answers to all re-review items (type scopes on whole-hit and whole-art stats; the [type + family] resistance row removed; conversion modifiers allowed as an ordinary stat, `convert_pct`). Second re-review 2026-11-08b: APPROVED; its fixes applied the same day (`reviews/rereview-2026-11-08b/modifiers.md`)
 > **Author**: user + agents
-> **Last Updated**: 2026-11-08
+> **Last Updated**: 2026-11-09 (#44 part 4)
 > **Last Verified**: 2026-11-08
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Your Dao, Your Name (1)
 > **Scope**: Modifiers only, meaning plain numbers on a stat ("+X" or "X % increased / more"), optionally narrowed by tags. Effects (conditions, scaling, triggers, conditional conversion, keystones, enablers) are a separate system with their own GDD (user decision 2026-11-07). A plain conversion share is a modifier (`convert_pct`, user decision 2026-11-08).
@@ -62,6 +62,12 @@ system. An Effect grants modifiers from this catalogue as its payload.
    A piece that needs any of those is an Effect, and the Effect grants this modifier as its payload (user
    decision 2026-11-07). "+12 % sword damage while linh lực is above 50 %" is a conditional Effect whose
    payload is the modifier "+12 % damage, scope [sword]".
+
+   **Two named exceptions** (user decisions): **conversion** (`convert_pct`, 2026-11-08), and **sustain on an
+   event** (2026-11-09, Combat economy revision #44 item B3): `linh_luc_on_hit_pct`, `linh_luc_on_crit_pct`,
+   `linh_luc_on_kill_pct`, `leech_linh_luc_pct` and `leech_health_pct` are plain priced modifiers although they
+   act on an event, so sustain can be cheap and common. Only these keys are excepted; every other event-driven
+   piece is still an Effect.
 
 2. **A modifier lasts exactly as long as its source.** A tree node, an equipped artifact, a learned
    technique, a laid formation, a pill in effect or an Effect whose condition holds is the source. This
@@ -186,8 +192,8 @@ A tag listed in two families is one tag; its tier is the same in both.
     - `basic`: the basic attack, which carries only `basic`, never `quick` or `cheap` (Combat revision C4).
     - `quick`: authored cooldown under 2 s.
     - `slow`: authored cooldown of 6 s or more.
-    - `cheap`: cost share of 5 % or less.
-    - `costly`: cost share of 20 % or more.
+    - `cheap`: cost share of 2.5 % or less (halved with art costs, #44).
+    - `costly`: cost share of 10 % or more (halved with art costs, #44).
 
     Modifiers scoped by them now apply. (Before Combat adopted them they were accepted, marked **Pending**, and
     added nothing. A Pending *stat* in the Stat List is different: it still needs a key or rule from its owner and
@@ -277,7 +283,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Resistance penetration | `resist_pen_pct` | F (pp) | outgoing hit (type scope matches the final type) | higher | 3.0 | Combat Defence & Healing rule 4 | Designed |
 | Soul attack damage | `x_soul` | I | outgoing soul hit | higher | 1.0 | Combat E2 | Designed |
 | Art speed | `art_speed_pct` | I | art | higher | 0.6 | Combat A2 | Designed |
-| Art cost | `art_cost_pct` | I | art | lower | 1.2 | Combat E | Designed |
+| Art cost | `art_cost_pct` | I | art | lower | 0.6 (was 1.2; #44) | Combat E | Designed |
 | Basic attack speed | — | I | basic attack | higher | 0.4 | Combat A2 (`basic_cooldown` is fixed today) | Pending |
 | Status duration | — | I | outgoing status | higher | 0.6 | Combat F (duration is fixed per status) | Pending |
 | Status stack cap | — | F, rare | outgoing status | higher | 10 | Combat F (`stack_cap` 5) | Pending |
@@ -291,7 +297,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Resistance, all | `resist_pct` (no scope) | F (pp) | incoming hit | higher | 1.25 | Combat Defence & Healing A | Designed |
 | Resistance, one damage type | `resist_pct` (scoped by type) | F (pp) | incoming hit (final type) | higher | 1.25 stored (one price in `modifier_prices`); effective 1.0 Physical/Force, 0.83 others after breadth | Combat Defence & Healing A. Chaos resistance is rare (rule 13) | Designed |
 | Resistance against a foe | `resist_pct` scoped [cultivator] or [creature], may pair with a type | F (pp) | incoming hit (attacker's foe tag) | higher | 1.25 stored | Combat Defence & Healing rule 3 and foe tags (variety 2026-11-08) | Pending |
-| Resistance cap | `resist_cap_pct` | F (pp), rare | incoming hit | higher | 5 | Combat Defence & Healing A (to 90 %) | Designed |
+| Resistance cap | `resist_cap_pct` | F (pp), rare | incoming hit | higher | 5 | Combat Defence & Healing A (to 95 %, #44) | Designed |
 | Block | `block_rating` | F (rating, grid 1) | none | higher | 0.4 | Combat Defence & Healing A2 | Designed |
 | Block against one damage type | `block_rating` scoped by type (not Chaos) | F (rating) | incoming hit part (final type) | higher | 0.4 | Combat Defence & Healing A2: a typed rating blocks only matching parts, after the shared pool (variety 2026-11-08) | Pending |
 | Body shield | `body_shield_pct` | F (pp of health_max); I (Pending) | none | higher | 1.0 (F); 0.6 / % (I) | Combat Defence & Healing B; the I op multiplies the summed body shield (variety 2026-11-08) | Designed (F); Pending (I) |
@@ -304,7 +310,9 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Soul resistance | `soul_res_pct` | F (pp) | none | higher | 0.6 | Combat E2 | Designed |
 | Status resistance | `status_resist_pct` | F (pp) | incoming status | higher | 0.4 | Combat F. Scopes by one status read the status tags (Effects Status Catalogue; re-review MD 4) | Designed |
 | Status duration on you | `status_duration_taken_pct` | I | incoming status | lower | 0.3 | Combat F (`duration`, `curse_duration_max`); the answer to statuses that always land (variety 2026-11-08) | Pending |
-| Health regeneration | `health_regen_pct` | F (pp of maximum per pulse, cap 2; grid 0.01) | none | higher | 3.0 | Combat Defence & Healing E | Designed |
+| Health regeneration | `health_regen_pct` | F (pp of maximum per pulse, no cap since #44; grid 0.01) | none | higher | 9.9 (was 3.0; #44) | Combat Defence & Healing E | Designed |
+| Health regeneration, increased | `health_regen_inc_pct` | I | none | higher | 0.3 (G) | Combat Defence & Healing E (#44 item B5) | Designed |
+| Health leech | `leech_health_pct` | F (% of damage dealt) | own hit | higher | 0.21 | Combat Defence & Healing E; the sustain exception (rule 1, #44) | Designed |
 | Healing | `healing_pct` | I | heal (its tags) | higher | 0.5 | Combat Defence & Healing E. A [body_shield] scope on restores waits on that tag (variety 2026-11-08) | Designed |
 | Healing taken | `healing_taken_pct` | I | none | higher | 0.5 | Combat Defence & Healing E | Designed |
 | Ward slots | `bonus_ward_slots` | F, rare | none | higher | 30 | Combat Defence & Healing D | Designed |
@@ -315,9 +323,23 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Stat | Key | Ops | Target | Better | W | Owner | Status |
 |---|---|---|---|---|---|---|---|
 | Maximum linh lực | `linh_luc_pct` | I | none | higher | 1.0 | Character Stats C | Live |
-| Linh lực regeneration | `linh_luc_regen_pct` | F (pp of maximum per pulse (1 s); grid 0.01) | none | higher | 8 | Combat E | Designed |
+| Linh lực regeneration | `linh_luc_regen_pct` | F (pp of maximum per pulse (1 s); grid 0.01; diminishing returns, Combat E) | none | higher | 22.8 (was 8; #44) | Combat E | Designed |
+| Linh lực regeneration, increased | `linh_luc_regen_inc_pct` | I | none | higher | 0.8 | Combat E (#44 item B5): multiplies `regen_base` and the bonus | Designed |
+| Linh lực on hit | `linh_luc_on_hit_pct` | F (pp of maximum per hit landed; grid 0.001) | own hit | higher | 42 | Combat E; the sustain exception (rule 1, #44 item B3) | Designed |
+| Linh lực on crit | `linh_luc_on_crit_pct` | F (pp of maximum per crit) | own crit | higher | 6.3 (G) | As above | Designed |
+| Linh lực on kill | `linh_luc_on_kill_pct` | F (pp of maximum per kill) | own kill | higher | 0.5 (G) | As above; worth little in a duel | Designed |
+| Linh lực leech | `leech_linh_luc_pct` | F (% of damage dealt) | own hit | higher | 1.44 | As above | Designed |
+| Art cost paid with health | `art_cost_health_pct` | F (% of each art cost) | art | higher | 0.5 (G) | Combat E (#44 item B4); never takes health below 1 | Designed |
 | Thần thức | `than_thuc_pct` | I | none | higher | 1.3 | Character Stats C | Live |
 | Linh lực reservation efficiency | `reserve_eff_pct` | I (counts to 50) | reservation | higher | 0.8 | Combat Defence & Healing rule 10. Kept by user decision 2026-11-07, overriding overnight `decisions.md` decision 12 (reservation as a pure cost) | Designed |
+
+**Element stacks** (#44, Effects System rule 9a): domain `combat`. Family: stacks, scoped by element and by buff or debuff.
+
+| Stat | Key | Ops | Target | Better | W | Owner | Status |
+|---|---|---|---|---|---|---|---|
+| Stack effect | `stack_effect_pct` | I | the element's stacks | higher | 0.5 (G) | Effects System rule 9a | Designed |
+| Stack duration | `stack_duration_pct` | I | the element's stack batches | higher | 0.4 (G) | Effects System rule 9a | Designed |
+| Stacks per grant | `stack_grant` | F, rare | each grant of the element's stacks | higher | 8 per stack (G) | Effects System rule 9a | Designed |
 
 **Gear and loadout**: domain `combat`. Families: gear (artifact power, attack, defence, element affinity, thần thức cost), slots (art and artifact slots).
 
@@ -477,13 +499,13 @@ and are not here.
 | Art speed (`art_speed_pct`) | mode: curse | family | +3.0 % | +20.0 % | Designed | 1 |
 | Art speed (`art_speed_pct`) | source: talisman | family | +3.0 % | +20.0 % | Designed | 1 |
 | Art speed (`art_speed_pct`) | derived: quick, slow | family | +3.0 % | +20.0 % | Designed | 2 |
-| Art cost (`art_cost_pct`) | — | universal | -1.0 % | -6.6 % | Designed | 1 |
-| Art cost (`art_cost_pct`) | type: physical or force | broad | -1.2 % | -8.3 % | Designed | 2 |
-| Art cost (`art_cost_pct`) | element | family | -1.5 % | -10.0 % | Designed | 5 |
-| Art cost (`art_cost_pct`) | form | family | -1.5 % | -10.0 % | Designed | 5 |
-| Art cost (`art_cost_pct`) | mode: curse | family | -1.5 % | -10.0 % | Designed | 1 |
-| Art cost (`art_cost_pct`) | derived: slow, costly | family | -1.5 % | -10.0 % | Designed | 2 |
-| Art cost (`art_cost_pct`) | effect: poison | narrow | -2.0 % | -13.3 % | Designed | 1 |
+| Art cost (`art_cost_pct`) | — | universal | -2.0 % | -13.3 % | Designed | 1 |
+| Art cost (`art_cost_pct`) | type: physical or force | broad | -2.5 % | -16.6 % | Designed | 2 |
+| Art cost (`art_cost_pct`) | element | family | -3.0 % | -20.0 % | Designed | 5 |
+| Art cost (`art_cost_pct`) | form | family | -3.0 % | -20.0 % | Designed | 5 |
+| Art cost (`art_cost_pct`) | mode: curse | family | -3.0 % | -20.0 % | Designed | 1 |
+| Art cost (`art_cost_pct`) | derived: slow, costly | family | -3.0 % | -20.0 % | Designed | 2 |
+| Art cost (`art_cost_pct`) | effect: poison | narrow | -4.0 % | -26.6 % | Designed | 1 |
 | Basic attack speed | — (implied basic) | family | +4.5 % | +30.0 % | Pending | 1 |
 | Damage conversion (`convert_pct`, from → to type) | — (implied family; one per from → to pair of the 7 non-Soul types, 7 × 6) | family | +2 pp | +15 pp | Designed | 42 |
 | Status duration | — (implied over_time) | family | +3.0 % | +20.0 % | Pending | 1 |
@@ -510,7 +532,9 @@ and are not here.
 | Ward strength (`defense_pct`) | — | universal | +1.2 % | +8.0 % | Live | 1 |
 | Ward efficiency (`ward_efficiency_pct`) | — | universal | +1.2 % | +8.0 % | Designed | 1 |
 | Maximum health (`khi_huyet_pct`) | — | universal | +1.0 % | +6.6 % | Live | 1 |
-| Health regeneration (`health_regen_pct`) | — | universal | +0.40 pp/pulse | +2.66 pp/pulse | Designed | 1 |
+| Health regeneration (`health_regen_pct`) | — | universal | +0.12 pp/pulse | +0.80 pp/pulse | Designed | 1 |
+| Health regeneration, increased (`health_regen_inc_pct`) | — | universal | +4.0 % | +26.6 % | Designed | 1 |
+| Health leech (`leech_health_pct`) | — | universal | +5.7 % of damage dealt | +38.0 % of damage dealt | Designed | 1 |
 | Healing (`healing_pct`) | — | universal | +2.4 % | +16.0 % | Designed | 1 |
 | Healing (`healing_pct`) | restores: body_shield (Pending) | narrow | +4.8 % | +32.0 % | Pending | 1 |
 | Healing taken (`healing_taken_pct`) | — | universal | +2.4 % | +16.0 % | Designed | 1 |
@@ -519,7 +543,7 @@ and are not here.
 | Status resistance (`status_resist_pct`) | — | universal | +3.0 pp | +20.0 pp | Designed | 1 |
 | Status resistance (`status_resist_pct`) | against mode: over_time or curse | family | +4.5 pp | +30.0 pp | Designed | 2 |
 | Status resistance (`status_resist_pct`) | against effect: poison | narrow | +6.0 pp | +40.0 pp | Designed | 1 |
-| Status resistance (`status_resist_pct`) | against status: burn, bleed, frostbite, qi_disruption | narrow | +6.0 pp | +40.0 pp | Designed | 4 |
+| Status resistance (`status_resist_pct`) | against status: burn, bleed, poison, qi_disruption | narrow | +6.0 pp | +40.0 pp | Designed | 4 |
 | Status duration on you (`status_duration_taken_pct`) | — (all statuses) | universal | -4.0 % | -26.6 % | Pending | 1 |
 | Status duration on you (`status_duration_taken_pct`) | mode: over_time or curse | family | -6.0 % | -40.0 % | Pending | 2 |
 
@@ -528,9 +552,27 @@ and are not here.
 | Modifier | Scope | Tier | Small (1.2 W) | Notable (8 W) | Status | Count |
 |---|---|---|---|---|---|---|
 | Maximum linh lực (`linh_luc_pct`) | — | universal | +1.2 % | +8.0 % | Live | 1 |
-| Linh lực regeneration (`linh_luc_regen_pct`) | — | universal | +0.15 pp/s | +1.00 pp/s | Designed | 1 |
+| Linh lực regeneration (`linh_luc_regen_pct`) | — | universal | +0.05 pp/s | +0.35 pp/s | Designed | 1 |
+| Linh lực regeneration, increased (`linh_luc_regen_inc_pct`) | — | universal | +1.5 % | +10.0 % | Designed | 1 |
+| Linh lực regeneration, increased (`linh_luc_regen_inc_pct`) | element | family | +2.2 % | +15.0 % | Designed | 5 |
+| Linh lực on hit (`linh_luc_on_hit_pct`) | — | universal | +0.03 pp of max per hit | +0.19 pp of max per hit | Designed | 1 |
+| Linh lực on hit (`linh_luc_on_hit_pct`) | element | family | +0.04 pp of max per hit | +0.29 pp of max per hit | Designed | 5 |
+| Linh lực on hit (`linh_luc_on_hit_pct`) | form | family | +0.04 pp of max per hit | +0.29 pp of max per hit | Designed | 5 |
+| Linh lực on crit (`linh_luc_on_crit_pct`) | — | universal | +0.19 pp of max per crit | +1.26 pp of max per crit | Designed | 1 |
+| Linh lực on kill (`linh_luc_on_kill_pct`) | — | universal | +2.4 pp of max per kill | +16.0 pp of max per kill | Designed | 1 |
+| Linh lực leech (`leech_linh_luc_pct`) | — | universal | +0.8 % of damage dealt | +5.5 % of damage dealt | Designed | 1 |
+| Linh lực leech (`leech_linh_luc_pct`) | element | family | +1.2 % of damage dealt | +8.3 % of damage dealt | Designed | 5 |
+| Art cost paid with health (`art_cost_health_pct`) | — | universal | +2.4 % | +16.0 % | Designed | 1 |
 | Thần thức (`than_thuc_pct`) | — | universal | +0.9 % | +6.1 % | Live | 1 |
 | Reservation efficiency (`reserve_eff_pct`) | — | universal | +1.5 % | +10.0 % | Designed | 1 |
+
+**Element stacks**
+
+| Modifier | Scope | Tier | Small (1.2 W) | Notable (8 W) | Status | Count |
+|---|---|---|---|---|---|---|
+| Stack effect (`stack_effect_pct`) | — (implied element; buff or debuff) | family | +3.6 % | +24.0 % | Designed | 16 |
+| Stack duration (`stack_duration_pct`) | — (implied element; buff or debuff) | family | +4.5 % | +30.0 % | Designed | 16 |
+| Stacks per grant (`stack_grant`) | — (implied element; rare) | family | — | +1 stack | Designed | 16 |
 
 **Gear**
 
@@ -604,7 +646,7 @@ and are not here.
 | Dao heart (`dao_tam`) | — | universal | +0.40 | +2.66 | Live | 1 |
 | Presence (`mi_luc`) | — | universal | +1.20 | +8.00 | Live | 1 |
 
-Concrete modifiers listed: 266 (two-tag rows not counted).
+Concrete modifiers listed: 342 (two-tag rows not counted).
 
 Two sizes need care. A notable of health regeneration (+2.66 pp per pulse) is above the stat's own 2 pp cap
 (Combat Defence & Healing Formulas E), so a source should carry it at small size or as part of a larger piece.
@@ -696,7 +738,7 @@ formula; **G** marks a guess.
 | Realm pierce | 1.0 / pp | D | 0.14 / 0.42 / 1.26 at gap 1 / 2 / 3; priced near gap 3 to protect the "never three realms up" target |
 | Soul attack damage | 1.0 | D | Its own sum: 1.265 × the soul share of damage. Implied [soul] |
 | Art speed | 0.6 | D | 0.85 when linh lực is not the limit (arts are about 2/3 of damage), near 0 when it is |
-| Art cost | 1.2 / pp reduced | D | Mean slope of ln(1/(1 − r)) over 0–50 % on the arts' 2/3 share (log damage, as in the Anchor) |
+| Art cost | 0.6 / pp reduced (was 1.2) | D | #44 simulator (`tools/design/combat_sim/pricefit.py`): 10 W buys about 16.6 % at halved art costs. Was the mean slope of ln(1/(1 − r)) on the arts' 2/3 share |
 | Basic attack speed | 0.4 | D | The basic attack is about 0.35 of the hit rate, own multiplier, no cost. Implied [basic] |
 | Status duration | 0.6 | G | Own multiplier on tick count for a status build. Implied [over_time] |
 | Status stack cap | 10 / stack, rare | G | 5 → 6 stacks is +20 %, under the pool caps |
@@ -713,7 +755,9 @@ formula; **G** marks a guess.
 | Shield recharge delay | 0.6 / % reduced | G | Variety guess, 2026-11-08 (Pending) |
 | Cast ward duration | 0.5 | G | Variety guess, 2026-11-08 (Pending) |
 | Status duration on you | 0.3 / % reduced | G | Variety guess, 2026-11-08 (Pending) |
-| Health regeneration | 3.0 / pp per pulse | D/G | Combat Defence & Healing Formulas I |
+| Health regeneration | 9.9 / pp per pulse (was 3.0) | D | #44 simulator: 10 W buys about 1.0 pp, with no decay or cap |
+| Health regeneration, increased | 0.3 / % | G | No innate health regeneration, so it scales only the bonus |
+| Health leech | 0.21 / % of damage | D | #44 simulator: 10 W buys about 48 %; health is the cheap pool when wards are paid in linh lực |
 | Healing taken | 0.5 / % | G | |
 | Ward slots | 30 / slot, rare | D/G | |
 | Evade | 1.5 / pp | D | 0.01 / (1 − p): 1.26 at 0, 2.11 at the 0.40 cap |
@@ -721,7 +765,14 @@ formula; **G** marks a guess.
 | Status resistance | 0.4 / pp | D/G | Applies only to chance statuses; chance-1 statuses ignore it |
 | Healing | 0.5 / % | G | No heal-build anchor yet (Combat Defence & Healing Formulas I) |
 | Maximum linh lực | 1.0 | — | Meridian Map table |
-| Linh lực regeneration | 8 / pp | D | +1 pp/s over a typical 8 s fight is about +8 % of the pool. Uses the 0.01 grid |
+| Linh lực regeneration | 22.8 / pp (was 8) | D | #44 simulator: 10 W buys about 0.44 pp/s in a 30–60 s fight. Uses the 0.01 grid |
+| Linh lực regeneration, increased | 0.8 / % | D | 1 % of the 3.5 % base is 0.035 pp, at 22.8 |
+| Linh lực on hit | 42 / pp of max per hit | D | #44 simulator: 10 W buys about 0.24 pp per hit at about 2 hits a second |
+| Linh lực on crit | 6.3 / pp per crit | G | On hit × a 15 % crit rate |
+| Linh lực on kill | 0.5 / pp per kill | G | A duel has one kill, at its end |
+| Linh lực leech | 1.44 / % of damage | D | #44 simulator: 10 W buys about 6.9 % |
+| Art cost paid with health | 0.5 / % | G | Close to cost reduction (0.6), less the health it spends |
+| Stack effect, stack duration, stacks per grant | 0.5 / %, 0.4 / %, 8 / stack | G | Against Effects Formulas D's weights; refit with the harness |
 | Reservation efficiency | 0.8 / % (counts to 50) | D | At a 50 % total reservation (Combat Defence & Healing Formulas I) |
 | Thần thức | 1.3 | — | Meridian Map table |
 | Artifact power | 1.3 | — | Meridian Map table |
@@ -897,8 +948,8 @@ measures the drift first, and no deflator is applied until it has.
   health regeneration 2 pp, pierce 0.75, linh lực regeneration 8 pp, art cost reduction 50 %, Character Stats'
   ceilings): the owner clips it, and the Breakdown names the cap.
   This system never caps.
-- **If a single modifier is larger than its stat's cap** (a notable of health regeneration is 2.66 pp against
-  a 2 pp cap): it is legal but wasteful. A source GDD should size it below the cap.
+- **If a single modifier is larger than its stat's cap** (a notable of crit chance above `crit_chance_cap`): it is
+  legal but wasteful. A source GDD should size it below the cap. (Health regeneration has no cap since #44.)
 - **If a rare modifier appears on an acupoint, a tree notable or a rolled affix**: validation rejects it
   (rule 13).
 
@@ -1000,7 +1051,7 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 | Tags per scope | 2 | 1–2 (3 makes pinpoint the norm) | How narrow a plain modifier can get | Rule 8 |
 | Stat prices (`modifier_prices`) | the Formulas A table | ±30 % per stat, then harness | Which stats are good value | Formulas A |
 | Rare price range | 10–30 W | above the notable's 8 W | Where slot and cap stats may appear | Rule 13 |
-| Derived art tag thresholds | quick < 2 s, slow ≥ 6 s, cheap ≤ 5 %, costly ≥ 20 % | quick 1.5–2.5 s; slow 5–8 s; cheap 4–6 %; costly 18–25 % | Which arts the derived scopes reach | Rule 10 (Combat to adopt) |
+| Derived art tag thresholds | quick < 2 s, slow ≥ 6 s, cheap ≤ 2.5 %, costly ≥ 10 % (#44) | quick 1.5–2.5 s; slow 5–8 s; cheap 2–3 %; costly 9–12.5 % | Which arts the derived scopes reach | Rule 10 (Combat to adopt) |
 | `more` exchange rate inputs | Combat's L1/L2/L4 anchors, `l1_soft_start` 200, `l1_soft_slope` 0.5 | Combat's | W per `more` point when W must buy points | Formulas D |
 | `rounding_lint_threshold` | 15 % | 10–20 % | When a stat and grade pair is flagged for losing value to rounding | Formulas E |
 
@@ -1020,7 +1071,7 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 - **AC-MD-05** [Logic] Rule 5. **GIVEN** base 100, flats +20 and −5, and increased +30 and +20, **THEN** the stat is 115 · 1.5 = 172.5. **GIVEN** Σ increased = −150, **THEN** the stat is 0, never negative. **GIVEN** `attack_pct` modifiers, **THEN** their increased sum equals the L1 value Combat reads.
 - **AC-MD-06** [Logic] Rule 6. **GIVEN** base hit 100, increased +50, `more` L2 +40 and `more` L4 +20, with the other layers at 1, **THEN** damage is 100 · 1.5 · 1.4 · 1.2 = 252. **GIVEN** `more` on `khi_huyet_pct`, `more` with layer L3 or no layer, or `more` L5 on a source that is not an Effect, **THEN** validation rejects it.
 - **AC-MD-07** [Integration] Rule 7. **GIVEN** a crit-chance sum of 62 pp, **THEN** this system outputs 62 pp, Combat applies 50 pp, and the Breakdown names the crit cap. **GIVEN** a resistance sum of 0.95, **THEN** 0.75 is applied and the cap is named.
-- **AC-MD-08** [Logic] Edge Cases. **GIVEN** one notable of health regeneration (+2.66 pp against the 2 pp cap), **THEN** validation accepts it and the owner clips it to 2 pp.
+- **AC-MD-08** [Logic] Edge Cases. **GIVEN** a notable of crit chance that would take a side past `crit_chance_cap`, **THEN** validation accepts it and the owner clips it. **GIVEN** a notable of health regeneration (+0.81 pp at 9.9 W), **THEN** nothing clips it (#44).
 
 **Scope**
 
@@ -1028,7 +1079,7 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 - **AC-MD-10** [Logic] Rule 8 targets. **GIVEN** a Physical → Fire part, **THEN** +12 % Fire resistance (on the defender) and +12 % Physical damage (on the attacker) both apply. **GIVEN** a Fire → Physical part, **THEN** +12 % Fire resistance does not apply: resistance reads the final type, offence reads the type history. **GIVEN** +10 % healing scoped [moc], **THEN** it applies to a Wood-element heal art and not to a Fire one. **GIVEN** reservation efficiency scoped [ward], **THEN** it reaches a reserving ward and not a reserving art. **GIVEN** status duration scoped [fire], **THEN** it reaches Burn and not Poison. **GIVEN** basic attack speed, **THEN** it reaches only the basic attack ([basic]). **GIVEN** soul attack damage scoped [hoa], **THEN** it reaches a Fire-element soul art.
 - **AC-MD-11** [Logic] Edge Cases. **GIVEN** a Fire-element art with one Physical part of 100, **WHEN** "+12 % Fire damage" (damage-type scope) applies, **THEN** the part stays 100. **WHEN** "+12 % damage, scope element hoa" applies, **THEN** it is 112.
 - **AC-MD-12** [Logic] Rule 8 validation. **GIVEN** a scope of three tags, the unknown tag `lava`, damage scoped [soul], resistance scoped [hoa], `defense_pct` scoped [fire], `khi_huyet_pct` scoped [sword], accuracy or pierce scoped by a damage type, or `convert_pct` scoped [fire], **THEN** each is rejected.
-- **AC-MD-13** [Logic] Rule 10. **GIVEN** +12 % damage scoped [quick], **THEN** it applies to a quick art (the tags were adopted by the Combat revision D5) and not to the basic attack, which carries only `basic`. **THEN** a cooldown of 1.99 s is `quick` and 2.0 s is not, 6.0 s is `slow`, a cost share of 0.05 is `cheap` and 0.20 is `costly`. **GIVEN** a modifier on a stat whose Stat List status is Pending, **THEN** it is rejected.
+- **AC-MD-13** [Logic] Rule 10. **GIVEN** +12 % damage scoped [quick], **THEN** it applies to a quick art (the tags were adopted by the Combat revision D5) and not to the basic attack, which carries only `basic`. **THEN** a cooldown of 1.99 s is `quick` and 2.0 s is not, 6.0 s is `slow`, a cost share of 0.025 is `cheap` and 0.10 is `costly` (#44). **GIVEN** a modifier on a stat whose Stat List status is Pending, **THEN** it is rejected.
 
 **Tags**
 
@@ -1054,7 +1105,8 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 
 **Data and UI**
 
-- **AC-MD-27** [Config/Data] General Catalogue. **WHEN** `python -I tools/design/modifier_catalogue.py` runs, **THEN** its output matches the General Catalogue tables in this GDD exactly (line endings normalized), including `Concrete modifiers listed: 266`.
+- **AC-MD-27** [Config/Data] General Catalogue. **WHEN** `python -I tools/design/modifier_catalogue.py` runs, **THEN** its output matches the General Catalogue tables in this GDD exactly (line endings normalized), including `Concrete modifiers listed: 342`.
+- **AC-MD-33** [Logic] Rule 1, the sustain exception (#44). **GIVEN** `linh_luc_on_hit_pct` +0.19 pp on a side with `qi_max` 172.74, **THEN** each hit it lands restores 0.33 linh lực, clipped at the usable maximum (the excess is overflow). **GIVEN** `leech_health_pct` 10 and a hit dealing 50, **THEN** 5 health is restored as healing (0 under `no_heal`). **GIVEN** a record with a trigger, condition or count on any other key, **THEN** it is rejected as an Effect.
 - **AC-MD-28** [Config/Data] Stat List. **GIVEN** every key under `labels` in `assets/data/character_stat_labels.json`, **THEN** each appears as a key in the Stat List (any status) or in "Keys that move to Effects".
 - **AC-MD-29** [UI] Rule 14, UI Requirements. **GIVEN** a Debug Terminal view of a node holding `+12 % Fire damage`, `−6.6 % art cost`, `+20 block` and `+15 more art damage (L2)`, **THEN** each is one line in the shape sign, number, unit, stat, scope; a screenshot is kept in `production/qa/evidence/`.
 - **AC-MD-30** [UI] Rule 9, UI Requirements. **GIVEN** the AC-MD-15 node, **WHEN** the Debug Terminal filters by `health` and then by `ward`, **THEN** the node is listed under both; **WHEN** a `fire` filter is applied to the Breakdown, **THEN** only Fire-scoped lines show; a screenshot is kept in `production/qa/evidence/`.
@@ -1073,3 +1125,4 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 | 6 | Closed 2026-11-08: Chaos resistance is rare by its row (rule 13, Rare table) | — | Closed |
 | 7 | Overnight content: filter the 192 special modifiers and 210 plain rows in `modifier-inventory.md` against this catalogue, keeping only what passes the four tests; the rest are Effects or dropped | user + game-designer | Effects System design |
 | 8 | ~~Register the full price table~~ **Closed 2026-11-08:** the full price table is in the registry's `stat_power_weights` (the GDD's `modifier_prices`), keyed by key and operation (re-review MD 13) | — | Closed |
+| 9 | **Health is cheap after #44** (2026-11-09 simulator, `pricefit2.py`): with ×4 health and wards paid in linh lực, 10 W of maximum health is about +49 % (0.21 W / %, against its 1.2 price), while maximum linh lực stays near 1.0 and all resistance near 1.25. Re-pricing `khi_huyet_pct` touches Character Stats, Realms and the Meridian Map, so it is left at 1.2 for the user to decide; thể tu and health builds need a look | user, systems-designer | User decision |

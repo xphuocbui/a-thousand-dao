@@ -2295,11 +2295,41 @@ constants:
     referenced_by:
       - design/gdd/combat.md
       - design/gdd/thien-kiep.md
-    value: 40
+    value: 120  # was 40 (Combat economy revision #44, 2026-11-09)
     unit: seconds
-    notes: "Replaces round_limit (rounds removed 2026-11-06). Events at exactly 40 s resolve."
+    notes: "Stalemate time. Fatigue from fatigue_start (60 s) ends almost every fight first (Combat rule 10, #44)."
     added: 2026-11-06
-    revised: 2026-11-06
+    revised: 2026-11-09
+  - name: fatigue_start
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 60
+    unit: seconds
+    notes: "First fatigue pulse; both sides lose fatigue_step x n of health_max each pulse after (Combat rule 10, Formulas A2; #44 item A3)."
+    added: 2026-11-09
+    revised: ""
+  - name: fatigue_step
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.01
+    unit: fraction of health_max, growing by this each pulse
+    notes: "A side at full health falls to fatigue alone at 73 s."
+    added: 2026-11-09
+    revised: ""
+  - name: regen_k
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+    value: 0.08
+    unit: fraction per pulse
+    notes: "Diminishing returns on the linh luc regeneration bonus: bonus/(1+bonus/regen_k); replaces regen_cap (#44 item B2)."
+    added: 2026-11-09
+    revised: ""
   - name: pulse_interval
     status: active
     source: design/gdd/combat.md
@@ -2469,15 +2499,15 @@ constants:
     added: 2026-11-06
     revised: ""
   - name: dot_pulse_cap
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
     value: 0.08
     unit: fraction of max health per pulse
-    notes: "Total of all health ticks on one target at one pulse. One tick stays under dot_pool_cap 0.05."
+    notes: "Removed by #44 item C3: ticks have no cap."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-09
   - name: soul_shield
     status: active
     source: design/gdd/combat-defence.md
@@ -2506,7 +2536,7 @@ constants:
     added: 2026-11-08
     revised: ""
   - name: dot_pool_cap
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
@@ -2514,9 +2544,9 @@ constants:
       - design/gdd/effects.md
     value: 0.05
     unit: fraction of max health per tick
-    notes: "One tick's ceiling (Combat Formulas F). heal_pulse_cap 0.04 sits below it. Registered 2026-11-08 (re-review CD 13)."
+    notes: "Removed by #44 item C3: ticks have no cap."
     added: 2026-11-08
-    revised: ""
+    revised: 2026-11-09
   - name: curse_bounds
     status: active
     source: design/gdd/combat.md
@@ -2539,7 +2569,7 @@ constants:
     added: 2026-11-06
     revised: 2026-11-06
   - name: regen_cap
-    status: active
+    status: deprecated
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
@@ -2547,7 +2577,9 @@ constants:
     value: 0.08
     unit: fraction per pulse
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-09
+    notes: "Replaced by regen_k diminishing returns (#44 item B2)."
+
   - name: rating_kappa
     status: active
     source: design/gdd/combat.md
@@ -2583,11 +2615,11 @@ constants:
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
-    value: 16
+    value: 64  # was 16 (Combat economy revision #44, 2026-11-09)
     unit: fight units
-    notes: "Safe range 12-26; 26 is the unbuilt-mirror limit at time_limit 40 s (Combat AC-CB-58)."
+    notes: "x4 with #44 item A4 (safe range 48-104); fatigue replaced the unbuilt-mirror limit (AC-CB-58)."
     added: 2026-11-06
-    revised: 2026-11-06
+    revised: 2026-11-09
   - name: qi_units
     status: active
     source: design/gdd/combat.md
@@ -3219,21 +3251,21 @@ constants:
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
-    value: 0.75
+    value: 0.9  # was 0.75 (Combat economy revision #44, 2026-11-09)
     unit: resistance share
-    notes: "Default cap on one part's resistance; rare modifiers raise it."
+    notes: "Default cap on one part's resistance; rare modifiers raise it. Raised with the stronger wards (#44)."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-09
   - name: resist_cap_max
     status: active
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
-    value: 0.9
+    value: 0.95  # was 0.9 (Combat economy revision #44, 2026-11-09)
     unit: resistance share
-    notes: "Hard cap; no raise passes it."
+    notes: "Hard cap; no raise passes it (#44 item F2)."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-09
   - name: resist_floor
     status: active
     source: design/gdd/combat-defence.md
@@ -3265,35 +3297,35 @@ constants:
     added: 2026-11-07
     revised: ""
   - name: heal_pulse_cap
-    status: active
+    status: deprecated
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
     value: 0.04
     unit: fraction of max health per pulse window
-    notes: "Below dot_pool_cap 0.05 and dot_pulse_cap 0.08, so ticks can outpace healing."
+    notes: "Removed by #44 item C3: healing has no cap."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-09
   - name: heal_decay_end
-    status: active
+    status: deprecated
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
     value: 15
     unit: seconds
-    notes: "Healing decays linearly from full at t = 0 to heal_decay_floor at this time."
+    notes: "Removed by #44 item C1: healing does not decay."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-09
   - name: heal_decay_floor
-    status: active
+    status: deprecated
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
     value: 0.1
     unit: multiplier
-    notes: "Lowest healing factor; 0.25 would allow a stall."
+    notes: "Removed by #44 item C1: healing does not decay."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-09
   - name: ward_slots_by_realm
     status: active
     source: design/gdd/combat-defence.md
@@ -3355,15 +3387,15 @@ constants:
     added: 2026-11-07
     revised: ""
   - name: upkeep_growth
-    status: active
+    status: deprecated
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
     value: 0.15
     unit: growth per pulse
-    notes: "Upkeep wards grow heavier each pulse they are held, so regeneration cannot keep one up to 40 s."
+    notes: "Removed with upkeep wards (#44 item C2)."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-09
   - name: ward_epsilon_0
     status: active
     source: design/gdd/combat-defence.md

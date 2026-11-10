@@ -1,8 +1,8 @@
 # Effects System (Hiệu Ứng)
 
-> **Status**: Designed 2026-11-08; `/design-review` 2026-11-08 overnight (lean, passes 1–4): NEEDS REVISION; revised 2026-11-08 with the user's answers; daytime re-review 2026-11-08 (lean, three passes): NEEDS REVISION, see `reviews/effects-review-log.md`; revised the same day with the user's answers to all 24 items (more reads and actions; the qi-tick path; last acts resolve requesting side first and win only on overkill). Second re-review 2026-11-08b: NEEDS REVISION; its fixes and the user's answers applied the same day (`reviews/rereview-2026-11-08b/effects.md`)
+> **Status**: Revised 2026-11-09 for the Combat economy revision (#44), part 3: element stacks (rule 9a, Formulas D), Burn and Poison become Fire's and Wood's debuffs, Frostbite and Shock retire, no tick or burn caps, overflow readable (decisions in `design/research/economy-revision-44-decisions.md`). Earlier: designed 2026-11-08; `/design-review` 2026-11-08 overnight (lean, passes 1–4): NEEDS REVISION; revised 2026-11-08 with the user's answers; daytime re-review 2026-11-08 (lean, three passes): NEEDS REVISION, see `reviews/effects-review-log.md`; revised the same day with the user's answers to all 24 items (more reads and actions; the qi-tick path; last acts resolve requesting side first and win only on overkill). Second re-review 2026-11-08b: NEEDS REVISION; its fixes and the user's answers applied the same day (`reviews/rereview-2026-11-08b/effects.md`)
 > **Author**: user + agents
-> **Last Updated**: 2026-11-08 (second re-review 2026-11-08b applied; see `reviews/rereview-2026-11-08b/effects.md`)
+> **Last Updated**: 2026-11-09 (#44 part 3). Earlier: 2026-11-08 (second re-review 2026-11-08b applied; see `reviews/rereview-2026-11-08b/effects.md`)
 > **Last Verified**: 2026-11-08
 > **Implements Pillar**: Your Dao, Your Name (1); Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2)
 > **Scope**: Every build piece with a rule in it: conditions, scaling, triggers, conditional conversion, overflow, rule changes, keystones and enablers. An Effect usually grants Modifier System modifiers (`design/gdd/modifiers.md`) as its payload (user decision 2026-11-07). Plain numbers on a stat are Modifiers, not Effects; so is a plain conversion share (`convert_pct`, user decision 2026-11-08).
@@ -112,9 +112,14 @@ different.
    - **added with the starter catalogue** (user decision 2026-11-07): health restored to the side this fight; the
      number of distinct statuses of the side's own on the target; the event "a shield breaks";
    - **added with the review** (user decision 2026-11-08): **a named cap's clipped amount** (an event, one per
-     named cap: the regeneration cap, `dot_pulse_cap`, `cooldown_min` and the others an Effect names);
+     named cap: `cooldown_min`, a layer cap and the others an Effect names; the regeneration and tick caps are gone
+     with #44);
      **ward payments made against your hits** (an event: the linh lực the enemy's wards pay when your hit
      meets them); **a status's stack count on the target** (live);
+   - **added with the Combat economy revision** (#44, 2026-11-09): **element stack counts** on either side, by
+     element and by buff or debuff (live); **overflow**, the linh lực regeneration and gain lost to a full pool
+     (an event each pulse it happens; it replaces "regeneration clip"); **the share of linh lực remaining** is
+     already readable as own linh lực;
    - **added with the re-review** (user decision 2026-11-08, re-review EF 1): sheet reads at compile: **your main
      root's element**, **your formation's level**, **your cultivation base and stage**, **an art's authored
      record** (cooldown, cost, parts); events: **the Down step** (step 1 and step 2), **a failed brew**, **a death in
@@ -136,7 +141,9 @@ different.
    | Restore health, linh lực or a body shield | Combat Defence & Healing rules 16–19. Restores of health and body shields count as healing; a linh lực restore does not, and is clipped at the usable maximum (Combat Defence & Healing rule 10; re-review EF 20) |
    | Refund an art's cost, up to that cost | Combat rule 9 |
    | Waive an art's cost: the art fires without the cost in the pool, and nothing is paid (re-review EF 6) | Combat rule 9 |
-   | Burn linh lực: take linh lực off the target, inside the 5 % qi burn cap. The cap is one pool: all linh lực burns on one target in one pulse (Qi Disruption ticks and Spillover) total at most 5 % of `qi_max`; the excess is clipped and logged "qi burn cap" (user decision 2026-11-08b, EF-06; Combat #43 restates Formulas F) (re-review EF 2) | this GDD; Combat Formulas F |
+   | Burn linh lực: take linh lực off the target, with no cap (`qi_burn_cap` removed, user decision 2026-11-09, #44) | this GDD; Combat Formulas F |
+   | Grant element stacks: a number of buff stacks of an element to its owner, or debuff stacks to the target, for a duration or for the fight (rule 9a) | this GDD |
+   | Cleanse element stacks: a number of debuff stacks, oldest first; a share of every debuff batch; or every debuff stack of one element (rule 9a) | this GDD |
    | Enforce a closing rule at compile: the `closes` of a keystone or enabler, applied for the whole fight (or, for a life Effect, while it holds). It may forbid (a ward, a slot kind, a companion, regeneration), set Combat Defence & Healing's `cannot_slot_wards` and `no_default_ward` flags, lower an owner's cap (Called Blow's crit cap), scale a named cost or pool (Formation Within a Formation's upkeep, Glass Meridians' body shields), or set a shared floor (Blood Casting with Withering) (re-review EF 2; 2026-11-08b EF-02) | the rule's owner |
    | Convert a share of a hit, under a condition (a plain share is `convert_pct`; none in the starter set yet) | Combat Damage Types rule 6 |
    | Reserve linh lực | Combat Defence & Healing rule 10 |
@@ -195,8 +202,40 @@ different.
      type for a tick, and any effect tag (`poison`). Modifier scopes read these (Modifier System rule 8).
 
    **A status may have no duration** (user decision 2026-11-07; overnight decision 11) only if its caster pays a
-   standing cost every pulse while it runs and a cleanse can clear it. It stays inside the tick caps, and it
-   ends if the caster cannot pay.
+   standing cost every pulse while it runs and a cleanse can clear it. It ends if the caster cannot pay.
+
+9a. **Element stacks** (user decisions 2026-11-09, Combat economy revision #44). Each element has a **buff**, held
+    by its owner, and a **debuff**, placed on a foe, counted in stacks:
+
+    | Element | Buff, per stack | Debuff, per stack |
+    |---|---|---|
+    | Fire (Hỏa) | +1 % damage dealt | **Burn**: Fire damage each pulse, `c_tick` 0.03 per stack (Status Catalogue) |
+    | Water (Thủy) | +1 % maximum linh lực, +0.05 pp linh lực regeneration | — (Ice carries the pair's debuff) |
+    | Earth (Thổ) | +1 % Physical resistance | −1 pp accuracy |
+    | Metal (Kim) | +1 % Physical damage dealt | +1 % Physical damage taken |
+    | Wood (Mộc) | +0.05 pp health regeneration | **Poison**: Chaos damage each pulse, `c_tick` 0.03 per stack (Status Catalogue) |
+    | Ice (Băng) | — (Water carries the pair's buff) | +1 % art cost |
+    | Thunder (Lôi) | +1 pp accuracy, +0.5 pp crit chance | +0.5 pp crit chance and +2 % crit damage taken |
+    | Wind (Phong) | +1 % art speed | −1 pp evade |
+
+    - **Two separate tracks.** A side may carry buff stacks, debuff stacks, both or neither. Chaos (Hỗn Độn), Light
+      (Quang) and Darkness (Ám) have no stacks; Void and Blood are archived (Spiritual Roots).
+    - **Batches.** Each grant is a batch with its own timer: the source (an art record, an Effect, an item) says how
+      many stacks and for how long, or "for the fight". Batches never merge or refresh one another. A side's count
+      for an element is the sum of its live batches.
+    - **No cap** on stacks (user decision). Global caps still hold: crit chance, the resistance cap, the evade cap.
+      Curse caps do not apply to stacks, so Ice stacks raise art cost past Heavy Breath's +50 %.
+    - **Which element.** A stack belongs to its source's element tag (Kim, Mộc, Thủy, Hỏa, Thổ, Băng, Lôi, Phong),
+      never to the damage type, so a converted hit builds the stacks of the art's element.
+    - **Debuff ticks are the applier's damage.** Burn and Poison use the applier's values from when each batch was
+      applied (Combat Formulas F), so the applier's damage increases count.
+    - **Cleansing is the answer to a pile** (user decision). A **cleansing ward** removes a share of every debuff
+      batch on its side each pulse (`cleanse_share`, Formulas D). A cleanse art or Effect removes a number of debuff
+      stacks, oldest first; rare ones remove every debuff stack of one element.
+    - **Arts pay for the stacks they grant** in the art lint (Formulas D). Effects stay unpriced (rule 4).
+    - **Enemies, beasts and tribulations** use the same rules; a tribulation may forbid cleansing in its own rules.
+    - **Linh lực for every element** comes from keystones in each element's tree, not from stacks (user decision
+      2026-11-09; Meridian Map content pass).
 
 **The hard cases**
 
@@ -211,7 +250,7 @@ different.
     1. **Refusals.** Each side's Effects that refuse Down (for example "once a fight, a killing blow leaves you
        at 1 health") are checked in that side's slot order, and the first unspent one saves it: health is set to
        1 and that Effect is Spent. Each refusal works once per fight, and at most one fires per Down, so a side
-       holding two refusals can survive two separate Downs. A side saved by one is not Down. A refusal is not healing: it works under `no_heal` and takes no decay or cap
+       holding two refusals can survive two separate Downs. A side saved by one is not Down. A refusal is not healing: it works under `no_heal`
        (Combat Defence & Healing rule 19).
     2. **Last acts.** For a side still Down, its Effects that act at Down (a final art, a parting curse) resolve
        once, then the side is Down. Their damage enters a follow-up check. The side making the last act cannot
@@ -270,25 +309,25 @@ different.
 
 > Drafted by `game-designer` 2026-11-07; inserted as drafted (user decision). Bounds are Combat Formulas F:
 > `c_tick` 0.15–0.5 per stack, duration 2–6 pulses, stack cap 5, the lint `c_tick · duration ≤ 1.2 · c_art`,
-> one tick ≤ 5 % and one pulse's ticks ≤ 8 % of maximum health, at most 3 curses of at most 5 pulses.
+> at most 3 curses of at most 5 pulses. Since #44 (2026-11-09) ticks have no cap per tick or per pulse, and Burn and
+> Poison are element debuffs (rule 9a): batches with no stack cap, `c_tick` 0.03 per stack, priced by Formulas D.
 
 **Ticks**
 
 | Status | Damage type | Strength | Duration | Stacking | Cleanse tags | Tags | Rule |
 |---|---|---|---|---|---|---|---|
-| Burn (Thiêu Đốt) | Fire | c_tick 0.35 | 3 | The stronger Burn wins, judged by tick damage after modifiers; an equal recast refreshes the duration; a weaker one does nothing | fire, cleanse | burn, over_time, fire | Burns each pulse and wears down body shields (Fire does not pass them) |
-| Poison (Trúng Độc) | Chaos | 0.15 per stack | 5 | Stacks to 5; a new stack refreshes all | poison, cleanse | poison, over_time, chaos | Passes every shield by default; only Chaos and all resistance cut it |
+| Burn (Thiêu Đốt) — **Fire's debuff** | Fire | c_tick 0.03 per stack | per batch, set by its source | Element stack batches (rule 9a): no cap, no merging | fire, cleanse | burn, over_time, fire | Burns each pulse and wears down body shields (Fire does not pass them). Was a single status with c_tick 0.35 where the stronger Burn won (#44) |
+| Poison (Trúng Độc) — **Wood's debuff** | Chaos | c_tick 0.03 per stack | per batch, set by its source | Element stack batches (rule 9a): no cap, no merging | poison, cleanse | poison, over_time, chaos | Passes every shield by default; only Chaos and all resistance cut it. Was 0.15 per stack to 5 (#44) |
 | Bleed (Xuất Huyết) | Physical | 0.20 per stack | 4 | Stacks to 5; each stack keeps its own timer | bleed, cleanse | bleed, over_time, physical | Body shields soak it; block never does |
-| Frostbite (Đống Thương) | Cold | 0.20 per stack | 4 | Stacks to 3; a new stack refreshes all | cold, cleanse | frostbite, over_time, cold | Three stacks is the threshold Cold Effects read |
-| Shock (Lôi Chấn) | Lightning | 0.50 | 2 | Refresh only | lightning, cleanse | shock, over_time, lightning | A short, sharp spike |
+| ~~Frostbite (Đống Thương)~~ | Cold | — | — | — | — | — | **Retired (#44):** Ice's debuff is the art-cost rise (rule 9a); Rime Lock reads Ice stacks |
+| ~~Shock (Lôi Chấn)~~ | Lightning | — | — | — | — | — | **Retired (#44):** Thunder's debuff is crit exposure (rule 9a) |
 | Qi Disruption (Loạn Khí) | Force (qi burn) | 0.30 per stack | 3 | Stacks to 3 | force, cleanse | qi_disruption, over_time, force | Ticks linh lực, not health, at most 5 % of `qi_max` a pulse, shared with every other burn on the target (rule 6). Its path is all + Force resistance → linh lực, passing every shield (user decision 2026-11-08, re-review EF 3 with Combat Damage Types rule 4) |
 | Corpse Rot (Thi Độc) — **standing** | Chaos | 0.15, one stack | none | None (a recast does nothing while it runs) | poison, cleanse | corpse_rot, over_time, chaos, poison | Never ends on its own. Its caster pays 2 % of their maximum linh lực every pulse (Formulas B); it ends the pulse that goes unpaid, or on a cleanse. Counts inside both tick caps; never merges with Poison |
 
 Light has no tick (its status is Exposed) and Soul never ticks (Combat Damage Types rule 1).
 
 **Standing statuses skip the duration lint** (user decision 2026-11-08), since `c_tick · duration` has no
-duration to read. They are bound instead by the tick caps, their standing cost (Formulas B) and
-`c_tick ≤ 0.15`.
+duration to read. They are bound instead by their standing cost (Formulas B) and `c_tick ≤ 0.15`.
 
 **Curses**
 
@@ -323,7 +362,7 @@ duration to read. They are bound instead by the tick caps, their standing cost (
 |---|---|---|---|---|---|---|---|---|
 | Steady Breath (Bình Tức) | While your linh lực is at 50 % or above, arts in this piece's scope deal more. | Own linh lực, instant start | L5 +12, scope set by the host (e.g. sword) | — | — | Way, Tech, Item | Sword, ward caster, cheap arts | Steady Thread, Steady Breath |
 | Spent Breath (Khí Tận) | While your linh lực is at 30 % or below, arts in this piece's scope deal more. | Own linh lực, instant start | L5 +12, scoped | — | — | Way, Tech, Item | Burnout, dark path, Force | Spent Breath, Running Low |
-| Kindled Wound (Trì Nhiệt) | Your Fire parts deal more to a target bearing your Burn. | Statuses on the target, instant start | L5 +15, scope [fire] | — | — | Way, Tech, Item | Fire arts, Fire-converted sword, status | Heat Held, Keeping Heat |
+| Kindled Wound (Trì Nhiệt) | Your Fire parts deal more to a target bearing your Burn (your Fire debuff stacks). | Element stack counts on the target, instant start | L5 +15, scope [fire] | — | — | Way, Tech, Item | Fire arts, Fire-converted sword, status | Heat Held, Keeping Heat |
 | Pack Hunt (Quần Liệp) | Your companion's hits deal more to a target bearing any of your statuses. | Statuses on the target, instant start | L5 +15, scope [companion] | — | — | Beast, Way, Item | Companion, poison, curse | new |
 | Beneath Notice (Bất Túc Đạo) | Against an enemy of a higher realm, your escape is likelier. | Realm gap, instant start | `escape_pct` +15 (inside `escape_bonus` 0.3) | — | — | MM, Way, Item | Escape, low-realm survivor, fortune | Beneath Notice |
 
@@ -344,10 +383,10 @@ duration to read. They are bound instead by the tick caps, their standing cost (
 | Echo (Hồi Âm) | When one of your arts lands a hit, it has a 25 % chance to strike again for free. | Hit event | Free hit, c_trig 0.5, same tags (chance × c_trig 0.125) | Once per firing; trigger budget | — | Way, Tech, Item | Element arts, sword, talisman | Echo |
 | Opening Cut (Khai Huyết) | When a Physical hit of yours crits, it applies one Bleed stack. | Crit event, the hit's type (event) | Apply Bleed | 1 per hit | — | Way, Tech, Item | Sword, crit, fist | Thin Bleed |
 | Shattering Ward (Toái Hộ) | When one of your shields breaks, it bursts against the enemy. | Shield breaks (event) | Free Force hit, c_trig 0.6 | 1 per pulse, 3 per fight | — | Way, Tech, Item | Ward shield, body shield (thể tu) | Shattering Ward |
-| Blood Drinker (Ẩm Huyết) | When your hit removes enemy health, you restore 6 % of what it dealt. | Hit event | Restore health (healing) | Direct hits only, never ticks or trigger hits; heal cap and decay; 0 under `no_heal` | — | Tech, Item, Way | Sword, body, dark path, beast | new |
+| Blood Drinker (Ẩm Huyết) | When your hit removes enemy health, you restore 6 % of what it dealt. | Hit event | Restore health (healing) | Direct hits only, never ticks or trigger hits; 0 under `no_heal` | — | Tech, Item, Way | Sword, body, dark path, beast | new |
 | Iron Skin Renewed (Thiết Bì Phục) | When you fire an art with a Physical part, your body shield regains 2 % of maximum health. | Firing event | Restore body shield (healing) | 1 per pulse | — | Tech (luyện thể), Item | Thể tu, Physical sword | new |
 | Soul Wound (Thương Hồn) | When your soul art lands, the enemy's next ready art is delayed by 0.5 s. | Soul hit event | Move the enemy's timer | Once per `soul_lockout` | — | Way, Tech | Soul, control, ward stall | Soul Wound |
-| Rime Lock (Sương Tỏa) | When your Frostbite reaches 3 stacks on a target, that target's art with the least time left is delayed by 1 s. | Status applied (event), stack count (live) | Move the enemy's timer | Once per 4 pulses per target | — | Way, Tech, Item | Cold, control, ticker | new |
+| Rime Lock (Sương Tỏa) | When your Ice stacks on a target reach 10, that target's art with the least time left is delayed by 1 s. | Element stack counts on the target (live), a stack applied (event) | Move the enemy's timer | Once per 4 pulses per target | — | Way, Tech, Item | Cold, control, ticker | new (#44: was 3 Frostbite stacks) |
 | Final Clause (Mạt Khoản) | Once a fight, as you go Down, your longest-cooldown art fires at no cost. | Down step 2 (event); an art's authored record (cooldown), compile | Fire the art with its cost waived (a last act); "longest" means the authored cooldown, and a tie goes to the earlier slot | Once per fight; its damage enters the follow-up check | — | Tech, Item | Dark path, burst Fire, sword | Final Clause |
 
 **Conversion and overflow**
@@ -355,8 +394,8 @@ duration to read. They are bound instead by the tick caps, their standing cost (
 | Name | Kind | Rule | Reads | Payload / action | Limits | Hosts | Build families | From |
 |---|---|---|---|---|---|---|---|---|
 | Field Walls (Điền Thành) | Conversion | If your formation is prepared, half of your formation power also counts as ward strength. | Preparation, compile (fixed for the fight; re-review EF 23) | `defense_pct` = 0.5 × `formation_power_pct` | Nothing in blind fights | Form, Way | Formation, ward | Field Walls |
-| Spillover (Dật Độc) | Overflow | Tick damage the pulse cap clips burns the target's linh lực instead. | `dot_pulse_cap` clip (event) | Burn linh lực by the clipped amount, with no second resistance step (re-review EF 3) | Inside the 5 % qi burn cap, one pool per target per pulse (rule 6) | Way, Tech, Item | Poison, status, anti-ward | Spillover |
-| Still Water (Tĩnh Thủy) | Overflow | Linh lực regeneration lost to a full pool restores health at half that amount. | Regeneration clip (event) | Restore health (healing) | Heal cap and decay | MM, Way | Ward caster, healer, cheap arts | Still Water |
+| Spillover (Dật Độc) | Overflow | Your ticks also burn the target's linh lực, 25 % of the damage each deals after resistance. | A tick dealt (event) | Burn linh lực, with no second resistance step (re-review EF 3) | None (no burn cap since #44) | Way, Tech, Item | Poison, status, anti-ward | Spillover (#44: was the tick cap's clipped amount) |
+| Still Water (Tĩnh Thủy) | Overflow | Linh lực lost to a full pool restores health at half that amount. | Overflow (event) | Restore health (healing) | — (no heal cap or decay since #44) | MM, Way | Ward caster, healer, cheap arts | Still Water |
 | Overheat (Quá Nhiệt) | Overflow | Art speed that `cooldown_min` clips on an art becomes extra damage for that art, point for point. | Art speed (compile), the art's cooldown | L5 on that art | Cap +30 | Way, MM | Tempo, quick arts, crit | Overheat |
 
 Plain scoped conversions are `convert_pct` modifiers, not Effects (user decision 2026-11-08b, re-review EF-01,
@@ -492,7 +531,7 @@ and the meter falls to 0.2; hit 7 reaches 1.1 and crits. Over 10 hits there are 
 
 The standing_status formula is defined as:
 
-`upkeep_n = standing_cost · qi_max_caster` paid by the caster at every pulse while the status runs, before the status ticks ; if the caster cannot pay, or is Down, the status ends at that pulse without ticking ; the status's ticks stay inside `dot_pool_cap` and `dot_pulse_cap`
+`upkeep_n = standing_cost · qi_max_caster` paid by the caster at every pulse while the status runs, before the status ticks ; if the caster cannot pay, or is Down, the status ends at that pulse without ticking
 
 **Variables:**
 
@@ -504,7 +543,7 @@ The standing_status formula is defined as:
 **Output Range:** the status lasts while the caster pays; a cleanse with a matching tag ends it at once.
 
 **Example:** a standing poison with `standing_cost` 0.03 on a caster with 172.7 linh lực costs **5.2** per pulse,
-against the 3.45 per pulse a typical caster regenerates, so it slowly drains them.
+against the 6.05 per pulse a typical caster regenerates since #44, so regeneration pays it with 0.85 to spare.
 
 ### C. The Down step
 
@@ -526,6 +565,32 @@ last acts per Down, so the step always ends.
 **Example:** side A is at −12 after an instant. Its Unyielding Breath refuses Down, so A is at 1 and the keystone
 is Spent. Next instant A falls to −3. No refusal is left, so A's Parting Curse (a last act) applies its curse to B,
 and A is Down.
+
+### D. Element stacks (#44)
+
+The element stack formulas are defined as:
+
+`count(side, element, kind) = Σ live batches` ; buff and debuff effects are `per_stack · count` (rule 9a's table) ; a cleansing ward removes `cleanse_share · stacks` from every debuff batch on its side each pulse ; an art that grants stacks lints at `c_art ≤ lint · (1 − charge)`, where `charge = Σ w_el,kind · stacks · seconds` per firing, × 0.75 when it grants both buff and debuff stacks, with `charge ≤ 0.6`
+
+| Variable | Type | Range | Source | Description |
+|---|---|---|---|---|
+| per_stack | float | rule 9a | data file (`element_stacks`) | One stack's effect |
+| cleanse_share | float | 0.25 (0.25–0.5) | ward record | Share of each debuff batch a cleansing ward removes per pulse |
+| w_el,kind | float | buff / debuff per stack-second: Fire 0.010 / 0.020, Water 0.022 / —, Earth 0.004 / 0.016, Metal 0.010 / 0.008, Wood 0.008 / 0.020, Ice — / 0.006, Thunder 0.012 / 0.006, Wind 0.004 / 0.010 | data file, fitted by the #44 simulator (`tools/design/combat_sim/stackfit.py`) | What one stack held for one second is worth, as a share of the art's damage |
+| lint | float | Combat Formulas C | Combat | The art's damage limit before the charge |
+
+**Output Range:** counts from 0 with no cap; a debuff batch under a cleansing ward falls by `cleanse_share` each
+pulse; the charge runs from 0 to 0.6, so an art that grants stacks keeps at least 40 % of its damage.
+
+**Why these weights.** Each was measured alone in the simulator: a typical kit granting 1 buff stack for 10 s per
+firing, or 2 debuff stacks for 6 s per hit, had its damage scaled until it broke even with the typical build (the
+foe at 10 % evade, so accuracy and evade stacks act). Earth's and Wind's debuffs and Thunder's buff depend on the
+foe having evade, so their weights rise against evasive builds. A kit granting both sides is worth less than the
+sum (Fire: 25 % measured against a 34 % sum), hence the 0.75.
+
+**Example:** a Fire art (cost 0.075, cooldown 4 s, lint 3.55) granting 1 buff stack for 10 s and 2 Burn stacks for
+6 s per hit: charge = 0.75 × (0.010 × 10 + 0.020 × 12) = **0.255**, so c_art ≤ 3.55 × 0.745 = **2.64**. A cleansing ward
+at 0.25 takes a batch of 8 Burn stacks to 6, then 4.5, then 3.4.
 
 ## Edge Cases
 
@@ -579,8 +644,12 @@ and A is Down.
 - **If a status with stacking "none" is recast while it runs**: nothing happens (rule 9).
 - **If a status is applied with no hit** (a talisman, the ground, a trigger) and its rule reads "the applying hit":
   the applying record names the type; Sundered on an all-Soul hit is not applied.
-- **If an Effect restores linh lực**: it is not healing, takes no healing decay, ignores `heal_pulse_cap`, and is
-  clipped at the usable maximum (rule 6).
+- **If an Effect restores linh lực**: it is not healing, and it is clipped at the usable maximum (rule 6); what is
+  lost to a full pool is overflow (rule 5).
+- **If a side holds no element stacks and an Effect reads them**: the count is 0.
+- **If a cleansing ward and new stacks land in one pulse**: stacks applied between pulses first count at the next
+  pulse (Combat rule 10), so the ward removes its share from the batches present at the pulse, before new ones.
+- **If Ice stacks would raise art cost past `curse_cost_raise_max`**: they do; that cap binds curses only (rule 9a).
 
 **NPCs and the LLM Game Master**
 - **If an NPC build picks an Effect without `npc: true`**: NPC Builds skips it.
@@ -661,7 +730,10 @@ not prices. Safe ranges are design estimates.
 | Reapply lockout (Sealed Meridian, Silence) | 2 pulses | 1–3 | How often a lock can be kept up | Status Catalogue |
 | Starter limits (per pulse, per fight, cooldowns, caps) | each record | set by eye per Effect | Each Effect's size until the balance pass | Starter Effects |
 | Tier allowances per host | each host GDD | each host GDD | How many Effects a build holds | Rule 4 |
-| `qi_burn_cap` | 5 % of the target's `qi_max` per pulse, one pool for all burns | 3–10 % | How much linh lực one pulse can burn | Rule 6; Combat Formulas F |
+| Element stack values | rule 9a's table | ±50 % each | How much a stack does | Rule 9a, Formulas D |
+| `cleanse_share` | 0.25 per pulse | 0.25–0.5 | How fast a cleansing ward clears debuff piles | Formulas D |
+| Stack weights `w_el,kind` | Formulas D | refit when stack values change | What arts pay for granting stacks | Formulas D |
+| Combined-grant factor, charge cap | 0.75; 0.6 | 0.6–0.9; 0.5–0.7 | Price of arts granting both sides; the least damage such an art keeps | Formulas D |
 
 ## Acceptance Criteria
 
@@ -678,7 +750,7 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-04** [Logic] Rule 4. **GIVEN** a record with `price` other than `unpriced`, or with a W, weight or budget field, **THEN** it is rejected. **AND** a search of Effect data and the Effects code finds no W value and no price-check call. **GIVEN** a keystone tiered `minor`, or a `major` Effect placed in a host slot that allows only `minor`, **THEN** it is rejected.
 - **AC-EF-05** [Logic] Rule 5. **GIVEN** a read not on the readable list, or a read with no read time, **THEN** the record is rejected. **GIVEN** Gorged (live), **WHEN** 5 % of maximum health is restored partway through an instant, **THEN** the next hit in that instant gets L5 +5.
 - **AC-EF-06** [Logic] Rule 6. **GIVEN** a record using an action not on the action list, **THEN** it is rejected until the action is added.
-- **AC-EF-07** [Integration] Rule 6, paying in health. **GIVEN** Blood Casting, linh lực 10 and an art cost of 25, **WHEN** the art fires, **THEN** linh lực goes to 0 and health drops by exactly 15, with no resistance, ward or shield applied, and nothing counts it as damage or healing (Blood Drinker, Gorged and `heal_pulse_cap` are untouched). **WHEN** that takes health to 0 or below, **THEN** the Down step runs, and a ready refusal may save the side.
+- **AC-EF-07** [Integration] Rule 6, paying in health. **GIVEN** Blood Casting, linh lực 10 and an art cost of 25, **WHEN** the art fires, **THEN** linh lực goes to 0 and health drops by exactly 15, with no resistance, ward or shield applied, and nothing counts it as damage or healing (Blood Drinker and Gorged are untouched). **WHEN** that takes health to 0 or below, **THEN** the Down step runs, and a ready refusal may save the side.
 - **AC-EF-08** [Integration] Rule 6, delaying an enemy timer. **GIVEN** Soul Wound, **WHEN** a soul art lands, **THEN** the enemy's next ready art is delayed by 0.5 s; a second soul hit inside `soul_lockout` delays nothing.
 
 **Engine limits (rule 7) and timing (rule 8)**
@@ -696,13 +768,13 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-16** [Logic] Rule 9. **GIVEN** a status missing its damage type (tick) or rule (curse), or missing duration, stacking, cleanse tags or tags, or a status with a number but no strength, **THEN** it is rejected. **GIVEN** Sealed Meridian, Silence or Stagnation with no strength, **THEN** each is accepted. **GIVEN** Sealed Meridian recast while it runs, **THEN** nothing happens. **GIVEN** Shock recast, **THEN** its duration refreshes and it does not stack.
 - **AC-EF-17** [Logic] Rule 9. **GIVEN** a status with no duration that lacks a `standing_cost` or a cleanse tag, **THEN** it is rejected.
 - **AC-EF-18** [Logic] Formulas B. **GIVEN** a standing status with `standing_cost` 0.03 (*test fixture*) on a caster with `qi_max` 172.7, **THEN** upkeep is 5.181 per pulse (shown 5.2), paid before it ticks. **WHEN** the caster cannot pay, or is Down, **THEN** it ends that pulse without ticking. **WHEN** a matching cleanse lands, **THEN** it ends at once and its remaining ticks are lost.
-- **AC-EF-19** [Logic] Burn. **GIVEN** a Burn running, **WHEN** a Burn with higher tick damage after modifiers is applied, **THEN** it replaces the first. **WHEN** an equal Burn is recast, **THEN** only the duration refreshes, back to 3. **WHEN** a weaker one is applied, **THEN** nothing changes.
-- **AC-EF-20** [Logic] Poison. **GIVEN** 5 stacks, **WHEN** a 6th is applied, **THEN** there are still 5, all with 5 pulses left.
+- **AC-EF-19** [Logic] Burn (Fire's debuff, #44). **GIVEN** a batch of 2 Burn stacks for 6 s and a second batch of 3 for 4 s on one target, **THEN** the count is 5, the first batch's timer is not refreshed, the count is 2 after 4 s and 0 after 6 s, and each tick uses its own batch's applier values.
+- **AC-EF-20** [Logic] Poison (Wood's debuff, #44). **GIVEN** 40 Poison stacks in several batches, **THEN** all 40 count (no cap), each tick is Chaos, and it passes ward and body shields.
 - **AC-EF-21** [Logic] Bleed. **GIVEN** stacks applied at pulse 0 and pulse 2, **THEN** the first expires after pulse 4 and the second ticks until pulse 6.
-- **AC-EF-22** [Logic] Frostbite. **GIVEN** a 4th stack, **THEN** the count stays at 3. **GIVEN** Rime Lock, **WHEN** the 3rd stack lands, **THEN** the art with the least time left is delayed by 1 s, at most once per 4 pulses per target.
+- **AC-EF-22** [Logic] Rime Lock (#44). **GIVEN** Rime Lock and a target with 9 of your Ice stacks, **WHEN** a 10th lands, **THEN** its art with the least time left is delayed by 1 s, at most once per 4 pulses per target. **GIVEN** a status record named Frostbite or Shock, **THEN** load rejects it as retired.
 - **AC-EF-23** [Logic] Silence. **GIVEN** a Silence naming `ward`, `basic` or `escape`, **THEN** it is rejected. **WHEN** a Silence is reapplied within 2 pulses of ending, **THEN** it fails and is logged.
 - **AC-EF-24** [Logic] Sundered and Exposed. **GIVEN** 3 Sundered stacks (−0.45) and Exposed (−0.10), **THEN** the shred is 0.50. **GIVEN** base resistance −0.20, **THEN** the result is −0.50 (`resist_floor`), never lower.
-- **AC-EF-25** [Logic] Corpse Rot. **GIVEN** the loaded catalogue, **THEN** Corpse Rot is the only status with no duration. **GIVEN** Corpse Rot and Poison on one target, **THEN** they never merge, and both count inside `dot_pool_cap` and `dot_pulse_cap`.
+- **AC-EF-25** [Logic] Corpse Rot. **GIVEN** the loaded catalogue, **THEN** Corpse Rot is the only status with no duration. **GIVEN** Corpse Rot and Poison on one target, **THEN** they never merge, and neither is capped per tick or per pulse.
 - **AC-EF-26** [Logic] Qi Disruption. **GIVEN** 3 stacks whose ticks would pass 5 % of the target's `qi_max`, **THEN** linh lực loses exactly 5 % of `qi_max` that pulse and health loses nothing. **GIVEN** Force resistance 0.20, `no_default_ward`, and full ward and body shields, **THEN** each tick is cut by 0.20 and both shields are unchanged.
 
 **Life costs, Down and counted chance (rules 10–12, Formulas A and C)**
@@ -723,15 +795,15 @@ not prices. Safe ranges are design estimates.
 
 - **AC-EF-35** [Logic] Flowing Water. **GIVEN** 4 crits in one pulse, **THEN** timers move 3 times and the 4th is logged as clipped. **GIVEN** an art whose next firing would come sooner than `cooldown_min` after its last, **THEN** the move stops at `cooldown_min`.
 - **AC-EF-36** [Logic] Echo. **WHEN** validated, **THEN** chance × `c_trig` = 0.125 and it is accepted; a *test fixture* with 0.8 × 0.8 = 0.64 is rejected.
-- **AC-EF-37** [Logic] Blood Drinker. **GIVEN** a direct hit removing 200 health, **THEN** 12 is restored before decay and caps; ticks and trigger hits restore 0; every case restores 0 under `no_heal`.
-- **AC-EF-38** [Logic] Iron Skin Renewed. **GIVEN** `health_max` 1,000 with 30 already healed this pulse (cap 40), **WHEN** it fires at t = 0 (no decay), **THEN** the body shield regains 10, not 20.
+- **AC-EF-37** [Logic] Blood Drinker. **GIVEN** a direct hit removing 200 health, **THEN** 12 is restored (no decay or cap since #44); ticks and trigger hits restore 0; every case restores 0 under `no_heal`.
+- **AC-EF-38** [Logic] Iron Skin Renewed (#44). **GIVEN** `health_max` 1,000 with 30 already healed this pulse, **WHEN** it fires at t = 40, **THEN** the body shield regains its full 20 (no heal cap, no decay); under `no_heal` it regains 0.
 - **AC-EF-39** [Integration] Burning Lifespan. **GIVEN** a realm base lifespan L (*test fixture*), **WHEN** it fires, **THEN** the result reports 0.02 · L years lost on a win and on a loss alike, and age does not change during the fight.
 - **AC-EF-40** [Integration] No Ward. The two flags now exist (Combat Defence & Healing rule 5, re-review CD 11). **GIVEN** No Ward, **THEN** there is no default ward, ward and soul-ward arts cannot be slotted, and `body_shield_pct` is +25.
 - **AC-EF-41** [Logic] Called Blow. **GIVEN** a crit sum of 0.50 and a fortune modifier, **THEN** the counted p is 0.35, and adding or removing fortune leaves it unchanged.
 - **AC-EF-42** [Logic] Elemental Fist. **GIVEN** a Fire root, **THEN** the basic attack takes Fire-element-scoped damage modifiers, and its resistance is still Physical: a defender with Fire resistance 0.5 and Physical 0 takes unreduced damage.
 - **AC-EF-43** [Integration] Seal of Full Payment. **GIVEN** 1,000 carried stones, **THEN** linh lực pays for nothing and stones spent are reported, not deducted mid-fight; a knockout reports a 100-stone loss to the winner; NPC Builds never picks it.
 - **AC-EF-44** [Logic] L5 payloads. **GIVEN** a `damage_more` L5 modifier on a source that is not an Effect, **THEN** it is rejected (Modifier System rule 6); Kindled Wound's L5 +15 is accepted.
-- **AC-EF-48** [Logic] Spillover (cap clip event; burn linh lực). **GIVEN** ticks clipped by `dot_pulse_cap` by 6, **THEN** the target loses 6 linh lực with no second resistance step, inside the 5 % qi burn cap. **GIVEN** `qi_max` 200 (cap 10 a pulse), a Qi Disruption tick of 7 and a Spillover burn of 6 in the same pulse, **THEN** 10 comes off in total, 3 is clipped, and the log says "qi burn cap".
+- **AC-EF-48** [Logic] Spillover (#44). **GIVEN** a tick of 12 after resistance, **THEN** the target also loses 3 linh lực, with no second resistance step and no burn cap. **GIVEN** a Qi Disruption tick of 7 and Spillover burns of 6 in one pulse, **THEN** 13 comes off and nothing is clipped.
 - **AC-EF-49** [Logic] Water Table (ward payment event; restore linh lực). **GIVEN** the enemy's drain wards paying 20 against your hits and your pool 5 below your usable maximum, **THEN** you regain 5 (not 6), it is not healing, and your linh lực never regenerates.
 - **AC-EF-50** [Logic] Beast Soul Union (multiply a share). **GIVEN** a strongest companion whose `share / (B_p · stage_mult)` is 0.40, **THEN** its `c_comp` is 0.80. **GIVEN** 0.60, **THEN** 1.20 is clipped to 1.0 (`c_comp_cap`, Combat Formulas J) and the Breakdown names the cap.
 - **AC-EF-51** [Logic] Formation Within a Formation (raise a cap). **GIVEN** a formation maximum of level 5, **THEN** level 7 may be laid, and its upkeep for levels 6 and 7 is doubled.
@@ -746,6 +818,14 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-60** [Logic] Blood Casting with Withering (shared floor). **GIVEN** Blood Casting (−50 % healing taken) and Withering (−50 %) on one side and a heal of 100, **THEN** 50 is received, not 0 and not 25, and the Breakdown names the floor.
 - **AC-EF-61** [Logic] Glass Meridians (scale a pool). **GIVEN** a body shield pool of 200 before the keystone, **THEN** it is 100 with it, and maximum health is 25 % lower.
 - **AC-EF-62** [Logic] Beast Soul Union (forbid a companion). **GIVEN** two companions in the loadout, **WHEN** compiled, **THEN** it is rejected and names the second.
+- **AC-EF-63** [Logic] Rule 9a, batches. **GIVEN** an art granting 1 Fire buff stack for 10 s fired at t 1, 3 and 5, **THEN** the count is 1, 2, 3 at t 5 and falls to 0 at t 15, and Fire damage dealt is +3 % at t 6.
+- **AC-EF-64** [Logic] Rule 9a, no cap. **GIVEN** 250 Water buff stacks, **THEN** maximum linh lực is +250 % and the regeneration bonus +12.5 pp before Combat's diminishing returns; nothing is clipped. **GIVEN** 120 Thunder buff stacks on a side with crit chance 0.1, **THEN** crit chance stops at `crit_chance_cap`.
+- **AC-EF-65** [Logic] Rule 9a, Ice past the curse cap. **GIVEN** Heavy Breath at +50 % and 30 Ice stacks on a side, **THEN** its art costs are ×1.5 × 1.30, and the log names both.
+- **AC-EF-66** [Logic] Rule 9a, element tag. **GIVEN** a Metal-tagged art whose Physical is converted to Fire, granting stacks, **THEN** it grants Metal stacks, not Fire. **GIVEN** a record granting Chaos, Light or Darkness stacks, **THEN** load rejects it.
+- **AC-EF-67** [Logic] Rule 9a, debuff ticks. **GIVEN** a Burn batch applied while the applier has +40 % Fire damage, **WHEN** the applier's bonus later drops, **THEN** that batch still ticks with +40 %; a later batch uses the new value.
+- **AC-EF-68** [Logic] Formulas D, cleansing ward. **GIVEN** `cleanse_share` 0.25 and a Burn batch of 8, **THEN** it is 6, 4.5 and 3.375 after three pulses; a batch below 0.05 stacks is removed. **GIVEN** a cleanse art removing 5 stacks against batches of 3 (older) and 4, **THEN** the older is gone and the newer holds 2. **GIVEN** an element-wide cleanse, **THEN** every debuff batch of that element is removed and other elements stay.
+- **AC-EF-69** [Config/Data] Formulas D, lint. **GIVEN** a Fire art with cost 0.075, cooldown 4 s, 1 buff stack for 10 s and 2 Burn stacks for 6 s per hit, **THEN** its charge is 0.255 and c_art 2.64 passes, 2.65 fails. **GIVEN** an art whose charge would exceed 0.6, **THEN** the charge is 0.6. **GIVEN** an art granting no stacks, **THEN** its charge is 0.
+- **AC-EF-70** [Logic] Rule 5, overflow. **GIVEN** a full pool and regeneration of 6.05, **THEN** the overflow event carries 6.05 and Still Water restores 3.02 health with no cap. **GIVEN** a pool 2 short of full, **THEN** overflow is 4.05.
 
 **Data and UI**
 

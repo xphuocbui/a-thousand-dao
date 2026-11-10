@@ -83,7 +83,7 @@ stat(OFF, "Soul attack damage (`x_soul`)", 1.0, 0.1, " %", implied="soul", statu
 stat(OFF, "Art speed (`art_speed_pct`)", 0.6, 0.1, " %", status="Designed", scopes=[
     ("—", [], 1), ("type: physical or force", ["physical"], 2), ("element", ["<element>"], 5), ("form", ["<form>"], 5),
     ("mode: curse", ["curse"], 1), ("source: talisman", ["talisman"], 1), ("derived: quick, slow", ["quick"], 2)])
-stat(OFF, "Art cost (`art_cost_pct`)", 1.2, 0.1, " %", d=-1, status="Designed", scopes=[
+stat(OFF, "Art cost (`art_cost_pct`)", 0.6, 0.1, " %", d=-1, status="Designed", scopes=[
     ("—", [], 1), ("type: physical or force", ["physical"], 2), ("element", ["<element>"], 5), ("form", ["<form>"], 5),
     ("mode: curse", ["curse"], 1), ("derived: slow, costly", ["slow"], 2), ("effect: poison", ["poison"], 1)])
 stat(OFF, "Basic attack speed", 0.4, 0.1, " %", implied="basic", status="Pending", scopes=[("— (implied basic)", [], 1)])
@@ -106,22 +106,35 @@ stat(DEF, "Cast ward duration (`cast_ward_duration_pct`)", 0.5, 0.1, " %", impli
 stat(DEF, "Ward strength (`defense_pct`)", 1.0, 0.1, " %")
 stat(DEF, "Ward efficiency (`ward_efficiency_pct`)", 1.0, 0.1, " %", status="Designed")
 stat(DEF, "Maximum health (`khi_huyet_pct`)", 1.2, 0.1, " %")
-stat(DEF, "Health regeneration (`health_regen_pct`)", 3.0, 0.01, " pp/pulse", status="Designed")
+stat(DEF, "Health regeneration (`health_regen_pct`)", 9.9, 0.01, " pp/pulse", status="Designed")
+stat(DEF, "Health regeneration, increased (`health_regen_inc_pct`)", 0.3, 0.1, " %", status="Designed")
+stat(DEF, "Health leech (`leech_health_pct`)", 0.21, 0.1, " % of damage dealt", status="Designed")
 stat(DEF, "Healing (`healing_pct`)", 0.5, 0.1, " %", status="Designed", scopes=[("—", [], 1), ("restores: body_shield (Pending)", ["body_shield"], 1)])
 stat(DEF, "Healing taken (`healing_taken_pct`)", 0.5, 0.1, " %", status="Designed")
 stat(DEF, "Evade (`evade_pct`)", 1.5, 0.1, " pp", status="Designed")
 stat(DEF, "Soul resistance (`soul_res_pct`)", 0.6, 0.1, " pp", status="Designed")
 stat(DEF, "Status resistance (`status_resist_pct`)", 0.4, 0.1, " pp", status="Designed", scopes=[
     ("—", [], 1), ("against mode: over_time or curse", ["curse"], 2), ("against effect: poison", ["poison"], 1),
-    ("against status: burn, bleed, frostbite, qi_disruption", ["<status>"], 4)])
+    ("against status: burn, bleed, poison, qi_disruption", ["<status>"], 4)])
 stat(DEF, "Status duration on you (`status_duration_taken_pct`)", 0.3, 0.1, " %", d=-1, status="Pending", scopes=[
     ("— (all statuses)", [], 1), ("mode: over_time or curse", ["curse"], 2)])
 
 RES = "Resources"
 stat(RES, "Maximum linh lực (`linh_luc_pct`)", 1.0, 0.1, " %")
-stat(RES, "Linh lực regeneration (`linh_luc_regen_pct`)", 8.0, 0.01, " pp/s", status="Designed")
+stat(RES, "Linh lực regeneration (`linh_luc_regen_pct`)", 22.8, 0.01, " pp/s", status="Designed")
+stat(RES, "Linh lực regeneration, increased (`linh_luc_regen_inc_pct`)", 0.8, 0.1, " %", status="Designed", scopes=[("—", [], 1), ("element", ["<element>"], 5)])
+stat(RES, "Linh lực on hit (`linh_luc_on_hit_pct`)", 42.0, 0.001, " pp of max per hit", status="Designed", scopes=[("—", [], 1), ("element", ["<element>"], 5), ("form", ["<form>"], 5)])
+stat(RES, "Linh lực on crit (`linh_luc_on_crit_pct`)", 6.3, 0.01, " pp of max per crit", status="Designed")
+stat(RES, "Linh lực on kill (`linh_luc_on_kill_pct`)", 0.5, 0.1, " pp of max per kill", status="Designed")
+stat(RES, "Linh lực leech (`leech_linh_luc_pct`)", 1.44, 0.1, " % of damage dealt", status="Designed", scopes=[("—", [], 1), ("element", ["<element>"], 5)])
+stat(RES, "Art cost paid with health (`art_cost_health_pct`)", 0.5, 0.1, " %", status="Designed")
 stat(RES, "Thần thức (`than_thuc_pct`)", 1.3, 0.1, " %")
 stat(RES, "Reservation efficiency (`reserve_eff_pct`)", 0.8, 0.1, " %", status="Designed")
+
+STK = "Element stacks"
+stat(STK, "Stack effect (`stack_effect_pct`)", 0.5, 0.1, " %", implied="<element>", status="Designed", scopes=[("— (implied element; buff or debuff)", [], 16)])
+stat(STK, "Stack duration (`stack_duration_pct`)", 0.4, 0.1, " %", implied="<element>", status="Designed", scopes=[("— (implied element; buff or debuff)", [], 16)])
+stat(STK, "Stacks per grant (`stack_grant`)", 8.0, 1, " stack", implied="<element>", status="Designed", scopes=[("— (implied element; rare)", [], 16)])
 
 GEAR = "Gear"
 stat(GEAR, "Artifact power (`artifact_power_pct`)", 1.3, 0.1, " %", scopes=[("—", [], 1), ("role", ["<role>"], 4)])
