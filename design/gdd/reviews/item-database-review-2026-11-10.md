@@ -100,3 +100,20 @@ Registry `potency_per_doubling` vs GDD `per_doubling`, and `equip_max_slots` vs 
 - **D5 (ID-08)** Artifact damage type: Recommended: each base carries a `damage_type` (default Physical), and an artifact's element stays a tag. Alternative: weapons have no type and only arts and statuses carry damage types.
 - **D6 (ID-07)** Chaos resistance: Recommended: lint rejects it in the affix pool; it is allowed on named items only. Alternative: allow it as a very low-weight affix.
 - **D7 (ID-17)** Index status: Recommended: set #13 to Needs Revision until ID-01 to ID-03 are applied. Alternative: leave Approved with a note.
+
+---
+
+## User answers and applied fixes (2026-11-10, parent session)
+
+- **D1:** named items are authored `named` templates listing `effects` and `modifiers` (rule 20).
+- **D2:** slots = `equip.max_slots` + `artifact_slots` (a Character Stats key fed by capability #2, Kim Đạo, keystones).
+- **D3:** a Linh Căn Quả is never refused (+8 past 100), as Spiritual Roots decided.
+- **D4:** the Legendary exception is named in Formulas F's reward bounds, passed by the lint.
+- **D5:** each base carries a `damage_type` (default Physical).
+- **D6:** Chaos resistance on named items only; the lint keeps it out of the rolled pool.
+- **D7:** the index row moves to In Review after these fixes.
+- Applied: ID-01 (rule 6, cross-reference row, bidirectional check), ID-02 (rule 20, AC-ID-85), ID-03 (FX-L at Qi
+  Refining: cap 124.41 with the piece; AC-ID-62 10.91), ID-04, ID-05 (reward bounds, AC-ID-86), ID-06, ID-07 (rule 19
+  lint), ID-08, ID-09 (Interactions rows), ID-13 (registry `default_role`, name aliases), ID-14, ID-15, ID-16, ID-17.
+  Left open: ID-10 (the seal contract retired with the Meridian Map's hidden clusters: Mạch Ấn has nothing to open
+  now; a follow-up decides whether the item kind is retired), ID-11 (timed pills' owner), ID-12, ID-18 (ordering).

@@ -799,11 +799,11 @@ formulas:
       - defense
       - weapon_min
       - ward_max
-    output_range: "weapon, ward, body, utility"
+    output_range: "weapon, ward_gear, body_gear, utility"
     expression: "a = attack/(attack+defense); weapon if a >= weapon_min, ward_gear if a <= ward_max, else utility; authored roles replace this; body_gear is only authored"
     notes: "Read by Combat Formulas D."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-10
   - name: realm_rarity_cap_by_kind
     status: active
     source: design/gdd/item-database.md
@@ -3009,9 +3009,9 @@ constants:
       - design/gdd/item-database.md
     value: 0.5
     unit: potency
-    notes: "Built as per_doubling."
+    notes: "Built as per_doubling. GDD key name: per_doubling."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-10
   - name: max_potency
     status: active
     source: design/gdd/item-database.md
@@ -3029,9 +3029,9 @@ constants:
       - design/gdd/item-database.md
     value: 6
     unit: pieces
-    notes: "Built as equip.max_slots."
+    notes: "Built as equip.max_slots. GDD key name: equip.max_slots (plus the artifact_slots stat, rule 11)."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-10
   - name: strength_comp_mean
     status: active
     source: design/gdd/cong-phap.md
