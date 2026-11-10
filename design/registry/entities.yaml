@@ -288,10 +288,10 @@ formulas:
       - q_pill
       - S_bare
     output_range: [0, 1]
-    expression: "S = P_C * (1 - F) + S_bare; F = sum over x of C(B,x) p_brew^x (1-p_brew)^(B-x) prod_{j<G+x}(1 - q_j); q_j = min(q_max, q + f*min(j*iota_pp, iota_cap) + f*tau*[j = 0 and the step's talisman is used]); B = brews whose herbs fit the plots and whose attempt can start before the lifespan cap (Realms Formulas D); W = lifespan cap at entry - age at entry; n_plots = clamp(3 + floor(0.04*purity_earth) + field_plots, 1, 12); h = (1 + 0.008*purity_wood) * max(0, 1 + herb_growth_pct/100); p_brew = clamp(p_brew0 + 0.0025*purity_fire + alchemy_success/100, 0.05, 0.95)"
+    expression: "S = P_C * (1 - F) + S_bare; F = sum over x of C(B,x) p_brew^x (1-p_brew)^(B-x) prod_{j<G+x}(1 - q_j); q_j = min(q_max, q + f*min(j*iota_pp, iota_cap) + f*tau*[j = 0 and the step's talisman is used]); B = brews whose herbs fit the plots and whose attempt can start before the lifespan cap (Realms Formulas D); W = lifespan cap at entry - age at entry; n_plots = clamp(3 + floor(0.04*purity_earth) + field_plots, 1, 12); h = (1 + 0.008*purity_wood) * max(0, 1 + herb_growth_pct/100); p_brew = clamp(1 - (1 - p_brew0 - 0.0025 purity_fire) / (1 + max(0, alchemy_success)/100), 0.05, 0.95)"
     notes: "Before gate_factor. Live targets: player edge 0.70/0.70/0.30/0.20; baseline 0.30 at the first two gates. Targets 0.30 baseline and 0.70 with the player edge are means over the birth mix (45/32/15/6.5/1.5 % elements), user decision 2026-11-04. Since cross-GDD reviews 04f/04g: discrete brews, W from an entry-age model, plots at best play with no extra field_plots, attempts in order with rising q from failure insight (+2 pp per failed pill attempt in the step, cap 4), q extras under a 10 pp ceiling, one talisman per realm step at 5 pp on a held pill. Means 0.299 / 0.302 / 0.298 / 0.301 from a fixed-seed scratch model, not a bot run. Fine lever pill_chance; coarse lever the recipe."
     added: 2026-11-03
-    revised: 2026-11-05
+    revised: 2026-11-10
     # was: h = (1 + 0.008*purity_wood) * (1 + herb_age_root_pct/100) * max(0, 1 + herb_growth_pct/100), herb_age_root_pct 25 for a Time mutation holder else 0 (root term, not capped); before 2026-11-05. Time moved to the Way (Spiritual Roots redesign); Realms Formulas D dropped the factor.
   - name: dao_node_value
     status: active
@@ -499,14 +499,15 @@ formulas:
       - design/gdd/kinh-mach-do.md
     variables:
       - L_realm
-      - bonus_ceilings
+      - bonus_curves
       - lifespan_pct
     # a negative lifespan bonus (penalties apply after the cap, Character Stats rule 14) can put the cap below L_realm; lifespan_pct is assumed >= 0; lifespan_pct sources: perk tho_nguyen +20 and Wood keystone Vạn Cổ Trường Thanh +25, bound +45 in total (Character Stats rule 14).
     output_range: [0, unbounded]
-    expression: "(L_realm + min(pill_years + sum_pos(lifespan_years), lifespan_frac * L_realm) + sum_neg(lifespan_years)) * (1 + lifespan_pct/100), floored at 0; an equipped treasure's lifespan is its own lifespan_years modifier, counted once; death by old age at age >= cap"
+    # 2026-11-10: the bonus is a curve, not min(…, lifespan_frac x L_realm).
+    expression: "cap = (L_realm + B_life) x (1 + lifespan_pct / 100); B_life = k ln(1 + (pill_years + sum_pos(lifespan_years)) / k) + sum_neg(lifespan_years), k = lifespan_frac x L_realm (bonus_curves)"
     notes: "Realms rule 14 owns it; Character Stats supplies the ceilinged bonus (its rule 14, Formulas I). A slot, equipment or main-method change that would put the cap at or below the age needs confirmation. Every lifespan_years modifier counts under the ceiling (W10, 2026-11-04)."
     added: 2026-11-04
-    revised: 2026-11-04
+    revised: 2026-11-10
   - name: effective_element_count
     status: active
     source: design/gdd/linh-can.md
@@ -2363,9 +2364,9 @@ constants:
       - design/gdd/character-stats.md
     value: 0.45
     unit: great-breakthrough success S per gate, no edge
-    notes: "Calibration target, not a data key: a life with every bonus_ceilings stat at its ceiling, plots at best play with field_plots 0 and the realm step's one talisman reaches at most this S (AC-CG-60). The 0.30 / 0.70 targets are calibrated at best plot play on the bot's typical loadout (Realms Formulas D). Scope (2026-11-04, cross-GDD review 04g C5/F15): lives without extra field_plots, a build outside the target (root factors and holder raises left with the Spiritual Roots redesign, 2026-11-04). With failure insight the ceiling run is 0.437 / 0.459 / 0.450 / 0.447, accepted within AC-CG-60's measured <= 0.48 (user decision 2026-11-04). A fully built life without an edge reaches 0.52-0.55 and edge plus full build 0.83-0.86 under the q-extras ceiling."
+    notes: "Calibration target, not a data key: a life with the reference bonus stack through Character Stats' curves (herb growth +40, alchemy +8, lifespan years 0.3 x the base lifespan), plots at best play with field_plots 0, birth purities and the realm step's one talisman reaches at most this S (AC-CG-60, measured <= 0.48). Figures are provisional until Realms Open Question 23 re-runs the calibration (2026-11-10)."
     added: 2026-11-04
-    revised: 2026-11-04
+    revised: 2026-11-10
 
   - name: variant_factors
     status: active

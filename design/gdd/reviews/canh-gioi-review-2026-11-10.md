@@ -160,3 +160,20 @@ XL (rough; producer should verify before sprint planning). Five hard dependencie
 - I did not read `game-concept.md` or the narrative files this run.
 - Cross-document facts come from Character Stats, Spiritual Roots, the Meridian Map, the Way, Combat, Effects, Modifiers and the registry as they stand today.
 - The simulation scripts and the entry-age model were not run, so the odds tables stay unverified (CG-05).
+
+---
+
+## User answers and applied fixes (2026-11-10, parent session)
+
+- **D1:** keep the 0.30 / 0.70 targets; tune Character Stats' curve scales until AC-CG-60 ≤ 0.48.
+- **D2:** purity past 100 and unbounded plots are build levers outside the target, reported in a builds table.
+- **D3:** the Way's Effects on breakthrough odds sit outside X_q (q_way), under the 0.95 clamp (same as `dao.md` D-05).
+- **D4:** heart-demon resistance multiplies the failure gain; figures are at resistance 0; edge case for factor > 1.33.
+- **D5:** clamp before f (`q_pill = f · clamp(…)`); Formulas E's q is the suppressed value.
+- **Open Question 21:** Nascent Soul leads the great sects, Core Formation may lead lesser sects; sect tiers come with
+  the Sects system later; `leader_realm_min` stays Core Formation.
+- Applied: CG-01 (lifespan curve in rules 9, 14, Edge Cases, UI, AC-CG-61/62/63), CG-02 (dampened p_brew), CG-03
+  (n_plots unbounded, purity ranges), CG-04 (AC-CG-60 reference stack, curve lines; AC-CG-61 recomputed), CG-05 (Open
+  Question 23; pre-curve figures marked provisional), CG-06, CG-07, CG-08, CG-09, CG-10, CG-11 (partly: Combat and Way
+  rows), CG-12, CG-13, CG-14 (registry `lifespan_cap`, `bonus_ceiling_target`, `realm_step_success`); the tree share is
+  the Meridian Map's curve.

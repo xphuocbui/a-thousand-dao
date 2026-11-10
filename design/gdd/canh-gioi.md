@@ -1,10 +1,10 @@
 # Realms & Bottlenecks (Cảnh Giới & Bình Cảnh)
 
-> **Status**: In Review (2026-11-05: independent review findings applied; cross-GDD review CONCERNS, no blockers). Not built yet: the plant plan (B and S before sowing, the manual-layout warning), B_remaining from the plot state, the full breakdown before an attempt, and the per-stage print. See `reviews/canh-gioi-review-log.md`.
+> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 5 blocking; answers and fixes applied the same day, see `reviews/canh-gioi-review-2026-11-10.md`; the gate calibration must be re-run, Open Question 23). Not built yet: the plant plan (B and S before sowing, the manual-layout warning), B_remaining from the plot state, the full breakdown before an attempt, and the per-stage print. See `reviews/canh-gioi-review-log.md`.
 > **Creative Director Review (CD-GDD-ALIGN)**: skipped (Lean mode)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-05
-> **Last Verified**: 2026-11-04
+> **Last Updated**: 2026-11-10
+> **Last Verified**: 2026-11-10
 > **Implements Pillar**: Pillar 3 (Power Is Built, Not Given), Pillar 4 (Every Season Counts); touches Pillar 2 (Every Number Is Bounded and Visible)
 
 ## Summary
@@ -56,8 +56,9 @@ The system exists because it is the game's spine and its clock (Pillars 3 and 4)
 earned by climbing, and lifespan (thọ nguyên) turns the climb into a plan instead of a
 grind. The odds are tuned so that most lives stall at a bottleneck (about 3 in 10 cross
 the first two at baseline, about 7 in 10 with the player's edge, and far fewer the last
-two), which is what makes each realm crossed a story. Nascent Soul cultivators are the top
-sect leaders, known across the lands. Deity Transformation cultivators are effectively
+two), which is what makes each realm crossed a story. Nascent Soul cultivators lead the great
+sects and are known across the lands; Core Formation cultivators may lead lesser sects (sect tiers come with the
+Sects system later; `leader_realm_min` stays Core Formation, user decision 2026-11-10). Deity Transformation cultivators are effectively
 gods, no longer counted as human and above ordinary affairs. Every number it produces is visible as a breakdown (Pillar 2).
 
 ## Detailed Design
@@ -137,19 +138,20 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
    - **Pill attempt** (the pill is held and the condition is met): the entry pill's
      chance, plus:
      - the **q extras**: pill quality, comprehension, Dao heart, the tree's breakthrough
-       chance (capped by the Meridian Map's `tree_breakthrough_cap`, 8 pp, which limits
-       the tree's own contribution only), a Dao node's breakthrough chance (the Way,
-       `dao.md` rule 4: counted here only, outside the tree's 8 pp cap) and item and event
+       chance (after the Meridian Map's curve, `tree_breakthrough_k` 8 pp, Formulas F there, which shapes
+       the tree's own contribution only), a Dao stat line's breakthrough chance (the Way,
+       `dao.md` rule 4: counted here, outside the tree's curve) and item and event
        bonuses (fortuitous encounters [cơ duyên]). Their sum is capped character-wide at
        `q_extras_ceiling_pp` (10 pp; Formulas C; user decision 2026-11-04, cross-GDD
        review 04g, F14);
      - outside that ceiling: destiny-perk (thiên mệnh) bonuses such as Đạo Cốt, the
-       step's failure insight (rule 10) and a breakthrough talisman, each bounded on its
-       own.
+       step's failure insight (rule 10), a breakthrough talisman, each bounded on its
+       own, and the Way's Effects that change breakthrough odds (`dao.md` rule 4, user decision 2026-11-10, review
+       D3), each with a bot fixture (AC-DAO-29); all still under the 0.95 clamp.
 
      At the last two gates, heavenly suppression (thiên đạo áp chế, `gate_factor`)
-     multiplies that whole total, and the breakdown shows it as its own line (Formulas C).
-     The result is clamped to 1%–95%. The attempt burns the best matching pill and the
+     multiplies that whole total after it is clamped to 1%–95% (user decision 2026-11-10, review D5), and the
+     breakdown shows it as its own line (Formulas C). The attempt burns the best matching pill and the
      talisman, whether it succeeds or not.
    - **Bare attempt** (no pill, or the condition is unmet): the realm's bare chance only,
      times the gate's heavenly suppression. No talent, tree, talisman, failure insight or event bonus applies, and no pill is
@@ -179,8 +181,8 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
      failure insight (rule 18).
 9. **Success.** The character enters the early stage of the next realm: level +1, bar 0,
    vitality full, stats at the next realm's bases, lifespan cap (thọ nguyên) raised to the
-   new realm's (rule 14; the lifespan bonus ceiling rises with it, so clamped bonus counts
-   again), and the realm's `great_breakthrough_bonus` paid in full. Nothing is paid in
+   new realm's (rule 14; the lifespan bonus is re-curved with the new realm's larger scale, so the
+   same years count for more), and the realm's `great_breakthrough_bonus` paid in full. Nothing is paid in
    advance at great perfection, so the whole sum lands on the success.
    - **The `breakthrough_succeeded` event** fires once per success, for the player only
      (user decision 2026-11-04). NPC stage advances and fate rolls (rule 12) emit
@@ -188,7 +190,8 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
    - For the Deity Transformation step the event fires when the Heavenly Tribulation
      resolves in survival. Until that system exists, it fires on roll success.
 10. **Failure.** The bar loses 30 % of its content (`failure_tu_vi_loss_pct`), the
-    character gains heart demon (tâm ma, `failure_tam_ma_gain`) and loses 40 % of maximum
+    character gains heart demon (tâm ma, `failure_tam_ma_gain` × the character's heart-demon resistance factor,
+    Character Stats rule 8; user decision 2026-11-10, review D4) and loses 40 % of maximum
     vitality (`failure_khi_huyet_loss_frac`, floor 5 %). The heart demon gain lands first;
     then a qi deviation (tẩu hỏa nhập ma) rolls with chance max(0, heart demon − Dao heart
     ÷ `tam_ma_backlash_divisor`) % × (1 + `qi_deviation_pct` ÷ 100), using the new value. Heart demon is a decimal number.
@@ -253,16 +256,14 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
     item gating, and price tiers. The level matters for points and the stage multiplier
     only.
 14. **Lifespan.** The cap is (the realm's base lifespan + the lifespan bonus) × (1 +
-    lifespan_pct ÷ 100). The lifespan bonus is Character Stats' ceilinged total (its rule
-    14 and Formulas I): lifespan pill years plus every `lifespan_years` (including an
-    equipped treasure's, counted once), at most 15 % of the realm's base lifespan. A
-    negative bonus is allowed and can put the cap below the base. At age ≥ cap the character dies of old age.
-    (Changed 2026-11-04, cross-GDD review B1: the built formula has no ceiling.)
-    - **Clamped bonus is kept** (user decision 2026-11-04). The ceiling is applied to the
-      stored total each season, against the current realm. Bonus above the ceiling counts
-      again when a great breakthrough raises it. Before the player uses a lifespan pill
-      or treasure whose years would all sit above the ceiling, the Advisor warns that
-      they will not count until a later realm.
+    lifespan_pct ÷ 100). The lifespan bonus is Character Stats' curved total (its rule
+    14 and Formulas I, 2026-11-10): `B_life = k_life · ln(1 + (pill_years + Σ⁺) / k_life) + Σ⁻`, with
+    `k_life` = `lifespan_frac` (0.15) × the realm's base lifespan; pill years plus every `lifespan_years` (including
+    an equipped treasure's, counted once). A negative bonus is allowed and can put the cap below the base. At age ≥
+    cap the character dies of old age.
+    - **The raw sum is kept** and re-curved each season against the current realm, so a great breakthrough makes the
+      same years count for more. Before the player uses a lifespan pill or treasure, the Advisor shows what it adds
+      at the current stack ("this pill adds 2.1 years").
     - **A change that would end the life needs confirmation** (user decision 2026-11-04,
       cross-GDD review NG4). Technique and treasure lifespan counts only while slotted or
       equipped (Cultivation Techniques rule 12). If a slot, equipment or main-method
@@ -276,7 +277,7 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
 
 **Capability hooks hosted here** (catalogue in the Meridian Map GDD)
 
-16. **#9 Great Essence-Draining Art (Hấp Tinh Đại Pháp):** defeating a cultivator adds
+16. **#9 Great Essence-Draining Art (Hấp Tinh Đại Pháp):** knocking out a cultivator adds
     cultivation base equal to 5 % of the total cost of the current stage. Combat reports
     the defeat, and the heart demon +2 goes through Character Stats.
 17. **#22 Last Radiance (Hồi Quang Phản Chiếu):** with under 5 years of lifespan left, one
@@ -330,9 +331,9 @@ Small breakthroughs are events inside Climbing, not states.
 
 ### Interactions with Other Systems
 
-Character Stats (`character-stats.md`), Spiritual Roots (`linh-can.md`), Cultivation
-Techniques (`cong-phap.md`) and the Meridian Map have GDDs. Time & Turn, Item DB and the other systems below have none yet, so their
-interfaces are provisional.
+Character Stats, Spiritual Roots, Cultivation Techniques, the Meridian Map, the Item Database, the Way, Combat (with
+its sub-systems), the Modifier and Effects Systems, Heavenly Tribulation and Quests have GDDs. Time & Turn and the
+other systems below have none yet, so their interfaces are provisional.
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
@@ -344,7 +345,7 @@ interfaces are provisional.
 | Cultivation Techniques (Công Pháp) | in / out | in: technique speed in the rate; out: the realm for the tier cap | Cultivation Techniques |
 | Progression Edges | in | perks, talismans and fortuitous encounters as attempt bonuses; the NPC edge score e | Progression Edges (the edges); this GDD (where they plug in) |
 | Event Engine | out / in | out: the bottleneck flag (raises event chance and unlocks protagonist-only templates), realm-keyed budgets; in: events that grant cultivation base | Event Engine |
-| Combat | out | the realm term of combat power, defeats reported for #9 | Combat |
+| Combat | in / out | out: the realm term of combat power (realm base × stage multiplier) and the realm gap `g`; in: knockouts reported for #9 and the result of a tribulation | Combat |
 | Heavenly Tribulation (Thiên Kiếp, designed; build on hold) | out | hand-off after a successful Deity Transformation roll (rule 7) | Heavenly Tribulation GDD |
 | Travel & Map | in | the place's spiritual qi density (spirit veins) for the Core Formation condition | Travel & Map |
 | Formations (Trận Pháp) | in | a gathering formation's density bonus, which counts toward the Core Formation condition | Formations |
@@ -472,7 +473,7 @@ is 100,000, a ×6.9 jump.
 
 The attempt_chance formula is defined as:
 
-`q_pill = clamp(f · (p_pill + min(k_q·rank + k_n·ngo + k_d·dao + q_tree + q_event, X_q) + q_destiny + ι_j + τ·[talisman]), q_min, q_max)` ; `ι_j = min(j · ι_pp, ι_cap)` ; `q_bare = f · p_bare`
+`q_pill = f · clamp(p_pill + min(k_q·rank + k_n·ngo + k_d·dao + q_tree + q_event, X_q) + q_destiny + q_way + ι_j + τ·[talisman], q_min, q_max)` ; `ι_j = min(j · ι_pp, ι_cap)` ; `q_bare = f · p_bare`
 
 A pill attempt needs the pill to be held and the realm condition met (rule 7). Every
 other attempt is bare: it uses p_bare alone and burns nothing. j counts the failed pill
@@ -486,7 +487,8 @@ attempts made earlier in the realm step, #23's extra roll included (rule 10).
 | k_q·rank | float | 0–0.075 | data file | Pill quality, 0.015 per grade |
 | k_n·ngo | float | 0–0.075 | data file | Comprehension (ngộ tính), 0.0005 per point; pill attempts only |
 | k_d·dao | float | 0–0.025 | data file | Dao heart (đạo tâm), 0.00025 per point; pill attempts only |
-| q_tree | float | 0–0.08 | calculated (Meridian Map) | The tree's breakthrough chance, capped by the Meridian Map's `tree_breakthrough_cap` (8 pp) and then counted under X_q |
+| q_tree | float | 0+ (0.0555 at 8 pp of lines, 0.0879 at 16) | calculated (Meridian Map) | The tree's breakthrough chance after the Meridian Map's curve (`tree_breakthrough_k` 8 pp), then counted under X_q |
+| q_way | float | 0+ | calculated (the Way) | Breakthrough odds from the Way's Effects (`dao.md` rule 4), outside X_q (review D3); each has a bot fixture |
 | q_event | float | 0+ | calculated | Item and event bonuses (fortuitous encounters), the Primordial Chaos root variant's `breakthrough_chance` (Spiritual Roots Formulas E) and any Dao node's `breakthrough_chance` (`dao.md` rule 4), counted under X_q |
 | X_q | float | 0.10 | data file (`breakthrough.q_extras_ceiling_pp`, 10) | Character-wide ceiling on the summed q extras (**new** 2026-11-04, cross-GDD review 04g, F14). Sized in the entry-age model so a fully built life with no edge stays at or below about 0.55 per gate (Formulas E) |
 | q_destiny | float | 0–0.30 | calculated | Destiny-perk (thiên mệnh) bonuses, e.g. Đạo Cốt +0.12. Outside X_q: they are the edge |
@@ -587,7 +589,7 @@ The pill_supply formula is defined as:
 
 `B = the number of brews k = 1, 2, … that count` ; brew k counts if `A_k ≤ cap − 0.25`, where `A_1 = max(e + T_1, e + Y_climb)` and `A_k = max(e + T_k, A_(k−1) + r)` ; `T_k = C_k / h` ; `C_k = min { c : the herbs of k recipes fit in n_plots plots of c herb-years each }`
 
-`W = cap − e` ; `n_plots = clamp(3 + ⌊0.04 · purity_earth⌋ + field_plots, 1, 12)` ; `h = (1 + 0.008 · purity_wood) · max(0, 1 + herb_growth_pct / 100)` ; `p_brew = clamp(p_brew0 + 0.0025 · purity_fire + alchemy_success / 100, 0.05, 0.95)`
+`W = cap − e` ; `n_plots = max(1, 3 + ⌊0.04 · purity_earth⌋ + field_plots)` ; `h = (1 + 0.008 · purity_wood) · max(0, 1 + herb_growth_pct / 100)` ; `p_brew = clamp(1 − (1 − p_brew0 − 0.0025 · purity_fire) / (1 + max(0, alchemy_success) / 100), 0.05, 0.95)`
 
 **Pills are whole** (changed 2026-11-04, cross-GDD review 04f, B2). A herb ripens only at
 its `min_age`, and a pill needs every herb of its recipe. So supply is a count of brews per
@@ -640,12 +642,12 @@ The spiritual root enters through all three terms (added 2026-11-04, cross-GDD r
 | Y_climb | float | years | calculated (Spiritual Roots Formulas B) | Years to clear the realm, including the first bar fill and each tier's expected pair bonus (the years table in Formulas A leaves that bonus out, so its 3- and 5-element rows are longer), by `n_eff`: QR 25 / 33 / 36 / 43 / 50, FE 64 / 52 / 48 / 57 / 69, CF 187 / 71 / 58 / 55 / 79, NS 456 / 128 / 97 / 84 / 66 |
 | r | float | years | calculated (Formulas A) | Gap between attempts: the refill time (7.4 / 12.6 / 14.5 / 23.4 seasons for a 3-element root, scaled by the root's Y_climb ÷ the 3-element Y_climb; guess) plus the attempt's season |
 | C_k, T_k | int, float | herb-years, years | calculated | Plot capacity that holds k recipes, and the year after entry it is reached |
-| n_plots | int | 1–12 | calculated (Character Stats, Formulas G) | Spirit field plots: base 3, +1 per 25 Earth purity, plus `field_plots` |
+| n_plots | int | 1 and up (no upper bound since 2026-11-10) | calculated (Character Stats, Formulas G) | Spirit field plots: base 3, +1 per 25 Earth purity, plus `field_plots` |
 | h | float | 0 or above (0 when `herb_growth_pct` ≤ −100) | calculated (Character Stats, Formulas G) | Herb growth factor from Wood purity and `herb_growth_pct`. At h = 0 no herb ripens: T_k = ∞ and B = 0 |
 | p_brew0 | float | 0.05–0.95 | calculated (Alchemy) | Brew success without Fire: about 0.65 for the FE pill, 0.64 for the CF pill, 0.65 for the NS and DT pills (guess) |
 | p_brew | float | 0.05–0.95 | calculated (Alchemy) | Brew success with Fire purity and `alchemy_success` |
-| herb_growth_pct, alchemy_success | float | at most 10, at most 3 pp; negative totals allowed (h floors at 0) | calculated (Character Stats, rule 14 ceilings) | Character-wide totals from every Character Stats rule 12 source. Penalties apply after the cap: total = min(Σ positive, ceiling) + Σ negative. `alchemy_success` adds percentage points to brew success (user decision 2026-11-04) |
-| purity_earth, purity_wood, purity_fire | int | 0, 10–100 | calculated (Spiritual Roots) | 0 when the element is absent |
+| herb_growth_pct, alchemy_success | float | herb growth after its curve (10 · ln(1 + Σ⁺/10) + Σ⁻; h floors at 0); `alchemy_success` a dampener, floored at 0 | calculated (Character Stats, rule 14 curves) | Character-wide totals from every Character Stats rule 12 source. `alchemy_success` divides the brew's failure chance by (1 + total/100) (Character Stats rule 14, 2026-11-10): at p_brew0 0.65, +3 gives 0.66 |
+| purity_earth, purity_wood, purity_fire | int | 0, 10 and up (uncapped after rare raises) | calculated (Spiritual Roots) | 0 when the element is absent |
 | recipe | list | (min_age, qty) per herb | data file (Item DB) | FE pill: 2 ginseng at 40 + 1 companion at 10. CF pill: 2 Kim Tủy Quả at 42 + 1 Xích Huyết Đằng at 18. NS pill: 4 at 60 + 1 at 10 (new recipe, guess). DT pill: 4 at 100 + 1 at 80 (new recipe, guess). **Change** 2026-11-04 (after cross-GDD review 04g, F2: the NS and DT herbs shortened toward the 3-element climbs and doubled in number; the eighth pass had 2 × 130 + 40 and 2 × 230 + 80, and 04f 2 × 50 + 20, 2 × 100 + 40 and 2 × 200 + 80) |
 | Y | float | plot-years | calculated | Σ qty · min_age: 90 / 102 / 250 / 480. A summary of a recipe's size only; B is the rule |
 | M_market | float | 0+ | calculated (Market) | Pills bought; about 0 at baseline (a pill is stocked about 1 restock in 10 and costs 11–15 years of missions). A bought pill enters Formulas E like a gift pill. The market adds no brews: it never stocks a main herb (below) |
@@ -766,47 +768,38 @@ technique mastery stall.
 - **Diên Thọ Đan.** The bot does not grow the lifespan pill at gates, so it never takes
   plots from the breakthrough recipe (Open Question 14).
 
-**Calibration loadout and bonus ceilings** (user decisions 2026-11-04, cross-GDD reviews G1
-and 04f).
-- **The hand values carry no bonuses.** The 0.30 / 0.70 targets are hand-calibrated at
-  best plot play with no bonuses, and Formulas E's table gives those values.
-- **The bot sets the final value.** It plays the typical loadout: Cultivation Techniques'
-  AC-CP-46 policy, plus two auxiliary arts drawn as par-tier Market commons (`root_bias`
-  0.6) with their rolled bonuses, plus the tree as the bot allocates it, taking no plot
-  node (cross-GDD review 04g, F11). AC-CG-30 sets the final `pill_chance` on that loadout.
-- **The ceilings were lowered.** Character Stats caps three totals character-wide (its
-  rule 14 and Formulas I): `herb_growth_pct` at 10 and `alchemy_success` at 3 (**change**
-  04f, was 40 and 8), and the lifespan bonus at 15 % of the realm's base lifespan.
-- **What the ceilings achieve.** A life at all three ceilings that also uses the realm
-  step's talisman (τ 0.05), at best plot play, with typical q extras and no edge, reaches
-  **0.44 / 0.46 / 0.45 / 0.45** at the four gates in the entry-age model (recomputed after
-  04g with failure insight; was 0.43 / 0.44 / 0.42 / 0.43). The lifespan bonus raises
-  every cap, and that life's own earlier crossings raise W further. That is at
-  `bonus_ceiling_target` 0.45, with FE→CF 0.009 over it, and is accepted inside
-  AC-CG-60's ≤ 0.48 tolerance (user decision 2026-11-04); without the talisman it is
-  0.40 / 0.42 / 0.41 / 0.41. Building into alchemy pays, up to a bound the player can see.
-- **A fully built life.** With every q extra at its maximum as well, the q-extras ceiling
-  (Formulas C) holds it to 0.52 / 0.54 / 0.55 / 0.54 (uncapped it was 0.76–0.81).
-- **Fields are a build, outside the ceiling target** (user decision 2026-11-04).
-  `field_plots` is outside Character Stats' curves and, since 2026-11-10, unbounded (`max_plots` removed; Character Stats Open Question on recalibration),
-  and `bonus_ceiling_target` covers lives without extra plots. A field build can beat
-  it, by design: on top of the ceiling run, +1 plot gives 0.52 / 0.55 / 0.55 / 0.54 and
-  +2 give 0.61–0.63. At 12 plots the run gives 0.78–0.88, and a life with 12 plots and
-  no other bonus 0.62–0.75. AC-CG-60 runs at `field_plots` 0 (Open Question 13, answered
-  for fields), and the bot's calibration runs (AC-CG-30, AC-CG-60) take no plot node from
-  the tree (cross-GDD review 04g, F11).
-- **Variant roots.** AC-CG-60 runs with Mutation Awakening off. No variant grants a ceiling
-  key or a root factor, so variants do not move these ceilings; Chaos's
-  `breakthrough_chance` joins the q extras (Formulas C). The craft-mutation holders and
-  Time's root factor left with the Spiritual Roots redesign (2026-11-04). If the Way (Đạo)
-  brings a ceiling raise or root factor back, it must re-run this calibration.
+**Calibration loadout and bonus curves** (user decisions 2026-11-04, cross-GDD reviews G1 and 04f; curves 2026-11-10).
+- **The hand values carry no bonuses.** The 0.30 / 0.70 targets are hand-calibrated at best plot play with no
+  bonuses, and Formulas E's table gives those values.
+- **The bot sets the final value.** It plays the typical loadout: Cultivation Techniques' AC-CP-46 policy, plus two
+  auxiliary arts drawn as par-tier Market commons (`root_bias` 0.6) with their rolled bonuses, plus the tree as the
+  bot allocates it, taking no plot node (cross-GDD review 04g, F11). AC-CG-30 sets the final `pill_chance` on that
+  loadout.
+- **The ceilings became curves** (Character Stats rule 14 and Formulas I, 2026-11-10): herb growth and the lifespan
+  bonus follow `k · ln(1 + Σ⁺/k)` (k 10 and 0.15 × the base lifespan), and `alchemy_success` dampens the brew's
+  failure chance. Realms calibrates against the curves first; Character Stats then retunes only the curve scales
+  (user decisions 2026-11-10, reviews D1 and Character Stats D4): the 0.30 / 0.70 targets stay, and the scales are
+  tuned until AC-CG-60's stacked-bonus run is ≤ 0.48.
+- **What the old ceilings achieved (provisional, pre-curves; Open Question 23).** A life at all three old ceilings
+  with the realm step's talisman, at best plot play, typical q extras and no edge reached 0.44 / 0.46 / 0.45 / 0.45 in
+  the entry-age model; with every q extra at its maximum the q-extras ceiling held it to 0.52 / 0.54 / 0.55 / 0.54.
+  Every figure here is re-derived when Open Question 23 runs.
+- **Build levers, outside the target** (user decisions 2026-11-04 for fields; 2026-11-10, review D2, for purity past
+  100). `field_plots` is unbounded since 2026-11-10 and purity past 100 raises the Wood, Earth and Fire root terms;
+  both are deliberate build levers. `bonus_ceiling_target` covers lives without extra plots or raised purity, a
+  builds table reports their gate odds (pre-curves: +1 plot 0.52–0.55, +2 plots 0.61–0.63), and they stay bounded by
+  W, the attempt timing and the 0.95 clamp. AC-CG-60 runs at `field_plots` 0 and birth purities, and the bot's
+  calibration runs take no plot node from the tree.
+- **Variant roots and the Way.** AC-CG-60 runs with Mutation Awakening off. Chaos's `breakthrough_chance` joins the q
+  extras (Formulas C). The Way's breakthrough Effects sit outside X_q (q_way) and are measured by their bot fixtures
+  (AC-DAO-29); this calibration is re-run with them (Open Question 23).
 
 **The Core Formation herb.**
 - Kim Tủy Quả (rarity 4) becomes plantable from Foundation Establishment on, so the CF
   pill is a planned, decades-long project.
 - The Diên Thọ Đan lifespan pill also needs one Kim Tủy Quả, so it competes for the same
   FE plots (cross-GDD review 04f, C6).
-- A lifespan pill raises W and so can add a brew. The lifespan ceiling bounds that, but
+- A lifespan pill raises W and so can add a brew. The lifespan curve slows that, but
   the bot does not plan it (Open Question 14).
 
 **What the player can do about growth** (user decisions 2026-11-04). The herb growth
@@ -819,7 +812,7 @@ factor h gathers:
   modifier. Its curve belongs to Spirit Herbs & Spirit Fields (system 14, no GDD yet;
   Open Question 12).
 
-**Growth pays in steps.** Everything except the root term (Wood's purity) shares Character Stats' `herb_growth_pct` ceiling of 10. A plot ripens one more herb only when ⌊h · W⌋ crosses the next sum of
+**Growth pays in steps.** Everything except the root term (Wood's purity) shares Character Stats' `herb_growth_pct` curve (scale 10). A plot ripens one more herb only when ⌊h · W⌋ crosses the next sum of
 herb ages, so between steps extra growth is worth nothing. The Advisor names the next step
 ("+4 % herb growth: one more brew"). Pricing growth by steps rather than linearly is open
 (cross-GDD review 04f, F7; Open Question 15).
@@ -870,6 +863,7 @@ without it 0.187 / 0.193 / 0.152 / 0.157).
 - **NPC odds are set directly, not by the player's formula** (user decision 2026-11-05).
   They are the world's pyramid, and NPCs do not brew pills. The player always has an edge,
   so the no-edge player exists only in bot runs.
+- **q in Formulas E is the suppressed first-attempt chance** (f × the clamped Formulas C sum, review D5); with f = 1, as in the tables, it equals the unsuppressed value.
 - **Every other figure in Formulas D and E is before heavenly suppression.** They calibrate
   `pill_chance`, the recipes and the gift pills to 0.30 / 0.70 at f = 1, and f then scales
   the last two gates. After f, the edge's mean is 0.31 and 0.20: 0.27 / 0.32 / 0.36 / 0.41 /
@@ -936,7 +930,7 @@ about 0.85, which is what the q-extras ceiling was sized for (Formulas C; cross-
   - A tree that maximises its 8 pp: about +0.08 (0.30 → 0.37–0.39); the q-extras ceiling
     clips it on a typical life (Formulas C; it was +0.12 before the ceiling).
   - **Extra plots, as a build** (user decision 2026-11-04): `field_plots` from Tổ Truyền Linh Điền and other perks, items or Spirit Fields add
-    brews (the tree gives none at its launch values). The targets assume none; 12 plots
+    brews (the tree gives none at its launch values). The targets assume none; many plots
     and no other bonus give 0.62–0.75 (Formulas D).
   - **Everything at once, no edge:** 0.52–0.55 (the builds table above).
 - **The levers.**
@@ -959,7 +953,7 @@ about 0.85, which is what the q-extras ceiling was sized for (Formulas C; cross-
 - **What the edge contributes.** Each perk pays through q, B, G or P_C:
   - Đạo Cốt: +0.12 on q, outside the q-extras ceiling, which more than doubles it.
   - Tổ Truyền Linh Điền: +1 plot and faster herbs, so a root-free life at QR→FE goes from
-    3 to 4 brews. Its +40 % herb growth clamps to the ceiling of 10; at 40 it would give 6.
+    3 to 4 brews. Its +40 % herb growth curves to 10 · ln 5 = 16.1 (pre-curve figures here are provisional, Open Question 23).
   - The starting talismans: two, and only one is usable per realm step, so the second
     carries over to FE→CF, where it lifts the edge's mean to about 0.72 (accepted, 2026-11-05).
   - Gift pills: G.
@@ -999,7 +993,7 @@ The heart_demon_per_failure formula is defined as:
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| h_f | float | 15 | data file (`breakthrough.failure_tam_ma_gain`) | Heart demon (tâm ma) per failure (was 10) |
+| h_f | float | 15 × the resistance factor (0.1–2.0; 15 at resistance 0) | data file (`breakthrough.failure_tam_ma_gain`) and Character Stats rule 8 | Heart demon (tâm ma) per failure (was 10). Every figure below is at resistance 0 (review D4) |
 | d | float | 0.25 per season | data file (`tam_ma_natural_decay`, `character_attributes.json`) | Natural decay (was 0.5) |
 | T_r | float | 7.4 / 12.6 / 14.5 / 23.4 seasons | calculated (A) | Time to refill the bar after a failure |
 | n_90 | int | 7–10 | calculated | Back-to-back failures before death by qi deviation becomes possible |
@@ -1134,8 +1128,8 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
 
 **`cultivation_realms.json`, ladder constants owned here (the Meridian Map reads them):**
 - `bare_attempt_cap` 3 (bare attempts per realm step).
-- Read from the Meridian Map: `tree_breakthrough_cap` 8 pp (the cap on the tree's share of
-  `breakthrough_chance`).
+- Read from the Meridian Map: `tree_breakthrough_k` 8 pp (the curve scale on the tree's share of
+  `breakthrough_chance`, Meridian Map Formulas F; replaced the 8 pp cap 2026-11-10).
 - `great_breakthrough_bonus` 30 / 40 / 61 / 100 (Foundation Establishment, Core Formation, Nascent Soul, Deity Transformation; paid in full on success, rule 9). With the entry level's own point, the jumps are +31 / +41 / +62 / +101.
 - `small_breakthrough_bonus`, per realm, for the middle stage, late stage and great perfection: QR 13 / 13 / 14, FE 3 / 3 / 3, CF 5 / 5 / 6, NS 20 / 20 / 20, DT 33 / 33 / 33 (**new** 2026-11-05; replaces `pct_trung`, `pct_hau` and `pct_dai`). Sized so the points at great perfection stay 51 / 120 / 216 / 357 / 566, the totals the Meridian Map's acupoint values are built on (its Formulas A2). FE and CF pay little here because their many levels carry those realms' points.
 
@@ -1159,7 +1153,7 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
     10, and 4 at 100 plus 1 at 80 (**change** after 04g, F2: the eighth pass had 2 at
     130 plus 1 at 40 and 2 at 230 plus 1 at 80; guesses; each meets the brew guarantee);
   - fortuitous encounter weights favouring pills and herbs already at age;
-  - `to_truyen_linh_dien`'s `herb_growth_pct` 40 counts under the ceiling of 10; a data
+  - `to_truyen_linh_dien`'s `herb_growth_pct` 40 counts through the curve (16.1); a data
     pass may trim it.
 
 ## Edge Cases
@@ -1233,8 +1227,11 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
   (rule 14). Declining changes nothing; confirming kills at once, before cultivation.
   A change that lowers the cap but leaves it above the age needs no confirmation; the
   preview still shows the new cap.
-- **If lifespan bonus sits above the ceiling at a great breakthrough:** the new realm's
-  ceiling applies from the success, so the clamped years count again (rule 14).
+- **If heart-demon resistance is weak (factor above 1.33) at the Nascent Soul gate:** one failure gives more than
+  20 heart demon, so the Nascent Soul condition (heart demon ≤ `nascent_tam_ma_max`) fails until it decays; the
+  Advisor names the wait in seasons before the attempt (rule 10; review D4).
+- **If a great breakthrough raises the base lifespan:** the raw lifespan sum is re-curved with the new realm's
+  scale from the success, so the same years count for more (rule 14).
 - **If lifespan bonus is lost without a player choice** (a lifespan treasure destroyed or
   stolen, a slotted art made unusable by Cultivation Techniques rule 8): no confirmation
   is possible. The cap is recomputed at the next season start. If it is at or below the
@@ -1352,13 +1349,13 @@ written, it must list Realms & Bottlenecks in its own Dependencies section.
 |---|---|---|
 | 10 | Meridian Map | The highest level reached (rule 4) and the `breakthrough_succeeded` event; the ladder constants; S_guard for its guard (E2). Rule 8 consumes Formulas E2's q_desp with τ_a (#22 on a talisman attempt); E2's q includes the step's failure insight, and its q_retry subtracts the insight #23's failed roll would add (Formulas H) |
 | 6 | Spiritual Roots (Linh Căn) | The `breakthrough_succeeded` event, for Mutation Awakening (its rule 10). Spiritual Roots is also upstream (the curve); the event breaks the cycle, since neither system calls the other |
-| 21 | Combat | The combat power realm term (realm base × stage multiplier); it reports defeats for capability #9 |
+| 21 | Combat | The combat power realm term (realm base × stage multiplier) and the realm gap; it reports knockouts for capability #9 and the result of a tribulation |
 | 22 | Heavenly Tribulation | The hand-off after a successful Deity Transformation roll |
 | 31 | Quests | The realm band that sets a quest budget; a time estimate for a `reach` stage (provisional, not exposed yet; `design/gdd/quests.md` rule 5) |
 | 24 / 28 | NPC Build Generation, Living World Tick | NPC realm, stage and level; the fate roll; the intake |
 | 27 | World Generation & History | The world size and starting realm shares that the headcount targets need |
 | 9 | Cultivation Techniques | The realm, for the technique tier cap |
-| 39 | The Way (Đạo) | The realm, for the one glimpse a realm from Foundation Establishment (`dao.md` rule 6). The Way adds no ceiling raise or root factor (rule 4); if one is ever added this calibration must be re-run |
+| 39 | The Way (Đạo) | The realm, for the one glimpse a realm from Foundation Establishment (`dao.md` rule 6). The Way adds no cap raise or root factor (rule 4); its stat lines' breakthrough chance counts under X_q, and its Effects on breakthrough and heart-demon odds sit outside it (q_way) and re-run this calibration (Open Question 23) |
 | 20 | Market | Realm price tiers, breakthrough pill stock, and the recipes' main herbs, which it leaves out of random stock (Formulas D) |
 | 23 | Event Engine | The bottleneck flag (event chance, protagonist-only templates) and realm-keyed budgets |
 | 32 | Achievements (Thành Tựu) | Realms reached |
@@ -1474,9 +1471,9 @@ These apply to the Debug Terminal now and to the Game UI later.
     Turn's "retreat until ripe" (Open Question 18);
   - what one more plot would add (B and S with +1 plot), so a field build is readable
     before it is chosen (Formulas D, fields as a build);
-  - a lifespan pill or treasure whose years would all sit above the ceiling (rule 14).
-- **Lifespan.** The lifespan line shows base, bonus (with a clamp line when above the
-  ceiling, and the years held back), lifespan_pct and the cap. A change that would
+  - what a lifespan pill or treasure adds at the current stack (rule 14).
+- **Lifespan.** The lifespan line shows base, bonus (with the curve line: raw sum → curved bonus), lifespan_pct and
+  the cap. A change that would
   end the life shows the confirmation of rule 14.
 
 ## Cross-References
@@ -1898,30 +1895,28 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - the Advisor's years-to-bottleneck against years left;
   - the Advisor's warning before a cultivation pill at a full bar.
 - **AC-CG-60** [Bot] Formulas D, bonus ceilings. `autoplay.gd --edge off`, ≥ 330
-  lives per gate from the gate fixture at baseline entry ages, roots by the birth mix with Mutation Awakening off, with auxiliary arts, items and pills chosen to push `herb_growth_pct`,
-  `alchemy_success` and the lifespan bonus to their Character Stats ceilings (10 / 3 /
-  15 %), plots at best play, `field_plots` 0 with no plot node from the tree (F11),
+  lives per gate from the gate fixture at baseline entry ages, roots by the birth mix with Mutation Awakening off, with auxiliary arts, items and pills chosen to stack `herb_growth_pct` +40,
+  `alchemy_success` +8 and lifespan bonus years of 0.3 × the base lifespan (the reference stack, raw points through
+  Character Stats' curves), plots at best play, `field_plots` 0 with no plot node from the tree (F11),
   failure insight on, #22 and #23 off, and the realm step's one talisman (5 pp) used.
   With `gate_factor` set to 1, each gate's mean crossing rate is ≤ 0.48 (`bonus_ceiling_target` 0.45 + 0.03;
-  entry-age model values 0.44 / 0.46 / 0.45 / 0.45, Formulas D, accepted inside this
-  tolerance by user decision 2026-11-04), and the transcript shows the clamp lines.
+  pre-curve entry-age model values 0.44 / 0.46 / 0.45 / 0.45, provisional), and the transcript shows the curve
+  lines.
   Field builds are outside the ceiling target by design (user
-  decisions 2026-11-04; +1 plot gives 0.52–0.55, `max_plots` 12 gives 0.78–0.88). If a
+  decisions 2026-11-04 and 2026-11-10; pre-curve +1 plot gave 0.52–0.55). If a
   gate is over, lower the Character Stats `bonus_curves` scales (ceilings became curves 2026-11-10), not the recipes or
   `pill_chance`. **Run order:** this run uses the `pill_chance` that AC-CG-30 set; run
   AC-CG-30 first, then this one.
 - **AC-CG-61** [Logic] Rule 14, lifespan cap.
-  - QR (base 120), pill 10, two `lifespan_years` 15, `lifespan_pct` 0: bonus min(40, 18)
-    = 18, cap 138, with a clamp line showing 22 years held back.
-  - The same character at FE (base 200) after a forced success: bonus min(40, 30) = 30,
-    cap 230.
-  - FE, bonus 25, `lifespan_pct` +10: cap (200 + 25) × 1.10 = 247.5.
-  - Age 137.75 at the QR cap of 138 is alive; at 138 the character dies of old age.
-  - #23 adds burn_cost to age: QR, raw bonus 40 (18 counted), age 100, cap 138; burning
-    10 gives age 110 with the cap still 138, so 28 years remain. The held-back years do
-    not absorb the burn.
-- **AC-CG-62** [Logic] Rule 14, confirmation. QR, age 130, cap 135 (bonus 15 from one
-  slotted art):
+  - QR (base 120, k 18), pill 10, two `lifespan_years` 15, `lifespan_pct` 0: bonus 18 · ln(1 + 40 / 18) = 21.06,
+    cap 141.06 (±0.01), with a curve line (40 → 21.06).
+  - The same character at FE (base 200, k 30) after a forced success: bonus 30 · ln(1 + 40 / 30) = 25.42, cap 225.42.
+  - FE, raw bonus 25, `lifespan_pct` +10: bonus 18.18, cap (200 + 18.18) × 1.10 = 240.0.
+  - Age 141.05 at the QR cap of 141.06 is alive; at 141.06 the character dies of old age.
+  - #23 adds burn_cost to age: QR, raw bonus 40 (21.06 counted), age 100, cap 141.06; burning 10 gives age 110 with
+    the cap still 141.06, so 31.06 years remain.
+- **AC-CG-62** [Logic] Rule 14, confirmation. QR, age 130, cap 130.91 (raw bonus 15 from one
+  slotted art, curved to 10.91):
   - unslotting the art shows a preview naming cap 120 and death, and asks to confirm;
   - declining → the art stays slotted, no season passes, no RNG is drawn;
   - confirming → the character dies of old age before the season's cultivation, and the
@@ -1929,9 +1924,8 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - at age 110 the same unslot needs no confirmation and shows cap 120;
   - a main-method switch that lowers an art's harmony and so its `lifespan_years` takes
     the same path, and so does unequipping a treasure.
-- **AC-CG-63** [UI] Transcripts show the lifespan line with a clamp, the Advisor warning
-  before a lifespan pill whose years would all sit above the ceiling, and the rule 14
-  confirmation.
+- **AC-CG-63** [UI] Transcripts show the lifespan line with its curve line, the Advisor's note of what a lifespan
+  pill adds at the current stack, and the rule 14 confirmation.
 
 **Failure insight, q-extras ceiling and plant plan** (added after cross-GDD review 04g)
 
@@ -2007,7 +2001,7 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 | 9 | The data already holds `pill_chance`, failure insight, the q-extras ceiling, `pha_canh` 5, `per_realm_step` and all four recipes. It now also holds the level bands, `level_cap`, `bottleneck_bar`, `gate_factor`, the two breakthrough bonus keys and `npc.gate_steps`; the game moved to them on 2026-11-05 | Item DB, implementation story | Data consistency |
 | 10 | The Deity Transformation baseline P_C: how often a baseline life gets an enlightenment event that grants the insight, and the matching event rate (needed to verify AC-CG-31) | Event Engine, calibration (bot) | Formulas E for Deity Transformation |
 | 11 | Duplicate keys with Character Stats: `vitality_floor` (here `breakthrough.vitality_floor`, there `derived.vitality_floor`) and `tam_ma_natural_decay` (listed in both Parameter keys). This GDD owns the values; Character Stats should read them and drop its copies, and its AC-CS-36 / AC-CG-58 then agree | Character Stats | Data consistency |
-| 12 | Herb growth from knowledge and affinity: the curve by which Spirit Fields craft mastery adds `herb_growth_pct` (counted under Character Stats' ceiling of 10), and whether a root holding a herb's own element (Metal for Kim Tủy Quả) should also speed that herb, beyond Wood's general term. An own-element term would be a root term, so it would bypass the ceiling; it must still stay inside `bonus_ceiling_target` (AC-CG-60) | Spirit Herbs & Spirit Fields, user | Formulas D growth term |
+| 12 | Herb growth from knowledge and affinity: the curve by which Spirit Fields craft mastery adds `herb_growth_pct` (counted through Character Stats' curve, scale 10), and whether a root holding a herb's own element (Metal for Kim Tủy Quả) should also speed that herb, beyond Wood's general term. An own-element term would be a root term, so it would bypass the ceiling; it must still stay inside `bonus_ceiling_target` (AC-CG-60) | Spirit Herbs & Spirit Fields, user | Formulas D growth term |
 | 13 | ~~The q extras at low base odds (cross-GDD review 04f): pill quality, comprehension, Dao heart and the tree (up to 0.075 / 0.075 / 0.025 / 0.08) carry far more weight at a low baseline q. Should AC-CG-60 include them, and should their per-point values or the `tree_breakthrough_cap` shrink?~~ **Answered 2026-11-04 (user decision, cross-GDD review 04g, F14):** a character-wide `q_extras_ceiling_pp` of 10 caps their sum (Formulas C). A fully built life with no edge reaches 0.52–0.55 per gate (0.76–0.81 uncapped), and edge plus full build 0.83–0.86 (0.94–0.96 uncapped). Đạo Cốt and other destiny perks, the talisman and failure insight are outside it. **`field_plots`** was answered earlier the same day: fields are a build (user decision; Formulas D, AC-CG-60), and the tree gives no plots at its launch values | — | — |
 | 14 | Diên Thọ Đan shares Kim Tủy Quả with the CF pill (cross-GDD review 04f, C6), so both compete for FE plots, and a lifespan pill raises W and so can add a brew. The bot does not grow it at gates for now (Formulas D). Should the bot plan it, and should the lifespan pill take a different herb? | Item DB, economy-designer | AC-CG-30 bot policy |
 | 15 | Growth pays in steps under discrete brews (cross-GDD review 04f, F7), but the Meridian Map prices `herb_growth_pct` (0.9 W per %), `field_plots` (10 W) and lifespan linearly. Should those prices follow the steps? Under the q-extras ceiling (04g, F14), the tree's `breakthrough_chance` also stops paying past about 5.75 pp on a typical life (the other extras are 4.25 pp of the 10), so its price may need to follow the ceiling too | Meridian Map, user | Meridian Map Formulas F prices |
@@ -2018,3 +2012,4 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 | 20 | ~~Core Formation pile-up~~ **Answered 2026-11-05 (user decision):** NPC odds of 1 in 8 / 12 / 15 / 20 settle Core Formation at about 4 % of cultivators | — | — |
 | 21 | The world of 5,000 simulated cultivators (never fewer than 3,000) is built: world generation places them from the settled realm shares, and the season tick runs at about 60–90 ms. Still open: the Overview's top sect leaders are Nascent Soul, but `leader_realm_min` is Core Formation | World Generation, Living World Tick | Sect leaders' realm |
 | 22 | `gate_factor` 0.32 / 0.20 comes from a scratch model; AC-CG-31 sets its final value. `npc.gate_steps` is solved from the game's own edge scores and checked by AC-CG-69 | Balance Simulation Harness | The late-gate targets |
+| 23 | **Re-run the gate calibration under the 2026-11-10 changes:** the entry-age model and AC-CG-30 / AC-CG-60 with Character Stats' curves (herb growth, lifespan) and dampened alchemy, uncapped purity and plots as build levers, the Meridian Map's curved tree share and drawn map, and the Way's breakthrough Effects (q_way). Every "provisional, pre-curves" figure in Formulas D and E is replaced from it; Character Stats then retunes only the curve scales | systems-designer, Balance Harness | `bonus_ceiling_target` figures; implementation sign-off |
