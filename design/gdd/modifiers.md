@@ -33,7 +33,7 @@ The player never operates the system directly. They meet it on every node, item 
 read, and in every Breakdown that explains a number. Without it, each system invents its own keys and
 sizes, the same bonus is priced differently in two places, and builds cannot be compared (Pillar 2).
 
-This system owns the modifier record, the three operations and how they stack, scope matching, the tag
+This system owns the modifier record, the four operations and how they stack, scope matching, the tag
 vocabulary and its families, breadth, the list of modifiable stats with their W prices, and the general
 catalogue. What a stat *does* stays with the GDD that owns it (Combat for damage layers and caps,
 Character Stats for the sheet and its ceilings). Anything with a rule in it (a condition, scaling, a
@@ -50,7 +50,7 @@ system. An Effect grants modifiers from this catalogue as its payload.
 
 1. **A modifier is a plain number on one stat.** Its record holds:
    - `stat`: an id from the Stat List below; unknown stats fail data validation.
-   - `op`: `flat`, `increased` or `more`, which must be one the stat allows.
+   - `op`: `flat`, `increased`, `more` or `dampened`, which must be one the stat allows.
    - `value`: a number on the stat's precision grid (Character Stats Formulas I). Off-grid values fail validation.
    - `layer`: only for `more`, either `L2` or `L4`; `L5` only in an Effect's payload (rule 6).
    - `scope`: a set of required tags, possibly empty.
@@ -95,6 +95,14 @@ system. An Effect grants modifiers from this catalogue as its payload.
    so no modifier writes to it. **L5** (cap 100) is granted only as an Effect's payload (Effects System,
    user decision 2026-11-07), never by a plain modifier. Every other stat has no "more", which keeps one
    multiplier per stat.
+
+6a. **Dampened** (user decision 2026-11-10: "don't cap anything") adds percentage points to the stat's one
+    dampened sum, and the stat is **divided** by it: `stat = value ÷ (1 + Σ dampened / 100)`. 100 % dampened halves
+    the stat, 200 % leaves a third, and no amount reaches 0, so a dampened stat needs no cap. It is the same shape as
+    art speed on cooldowns (Combat Formulas A2). Player text: "X % dampened" (never "reduced", which is the
+    straight-line negative of increased). **Strategy for caps:** a "reduce X" that would otherwise need a cap or
+    could reach 0 is written as dampened instead. First use: Stagnation (Effects System Status Catalogue), which
+    dampens linh lực and health regeneration; both regeneration stats accept the `D` op.
 
 7. **Caps and ceilings belong to the stat's owner.** A lower-is-better stat (formation upkeep, talisman ink, status
    duration on you, buy price, shield recharge delay and the like) may not leave Pending until its owner names a

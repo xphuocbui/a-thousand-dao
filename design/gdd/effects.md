@@ -193,7 +193,7 @@ different.
    Formulas F). Each status record states:
    - its **damage type** if it ticks (Combat Damage Types rule 1) or the rule it changes if it is a curse;
    - its **strength** (`c_tick` for a tick, or the curse's number), only where the status has a number: a lock or a
-     block such as Sealed Meridian, Silence or Stagnation has none (re-review EF 4); its **duration** in pulses; and
+     block such as Sealed Meridian or Silence has none (re-review EF 4); its **duration** in pulses; and
      its **stacking**: refresh, stack to a cap, the stronger wins, or **none**, where a recast does nothing while it
      runs (re-review EF 12). A recast refreshes unless the record says otherwise;
    - its **cleanse tags**;
@@ -337,7 +337,7 @@ duration to read. They are bound instead by their standing cost (Formulas B) and
 | Exposed (Hiển Hình) | All resistance down | −0.10 | 3 | Refresh | curse, light, cleanse | exposed, curse, light | Light's status: the target is laid bare |
 | Sealed Meridian (Phong Mạch) | Layer lock: one named layer, L2 to L5, counts as 1.0 | — | 2 | None | curse, seal, cleanse | sealed_meridian, curse | Cannot be reapplied to that target for 2 pulses after it ends |
 | Silence (Cấm Ngôn) | Tag block: arts with the named tag cannot fire, and modifiers needing it do not apply | — | 3 | None | curse, seal, cleanse | silence, curse | May not name `ward`, `basic` or `escape`; the same 2-pulse reapply lockout |
-| Stagnation (Trệ Khí) | Regeneration block: linh lực and health regeneration stop | — | 3 | Refresh | curse, cleanse | stagnation, curse | Pairs with drain and Force builds |
+| Stagnation (Trệ Khí) | Regeneration dampened: linh lực **and** health regeneration are divided by (1 + D / 100), D = 1 per stack (Modifier System rule 6a) | 1 % dampened per stack | 3 | Stacks with no cap; a new stack refreshes all | curse, cleanse | stagnation, curse | Pairs with drain and Force builds. 100 stacks halve regeneration, 200 leave a third; it never stops it (user decision 2026-11-10, replacing the full block that starved linh lực after #44) |
 | Heavy Breath (Trọng Tức) | Art cost raise | +25 % per stack | 4 | Stacks to 2 (+50 %, `curse_cost_raise_max`) | curse, cleanse | heavy_breath, curse | — |
 | Leaking Ward (Lậu Hộ) | Drain wards bill more | +50 % (`curse_drain_raise_max`) | 3 | Refresh | curse, ward, cleanse | leaking_ward, curse, ward | Drain wards only |
 | Withering (Khô Héo) | Healing taken down | −50 % (`curse_heal_taken_max`, new) | 4 | Refresh | curse, cleanse | withering, curse | The healer's answer |

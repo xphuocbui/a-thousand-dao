@@ -131,8 +131,8 @@ author's reading and wait for confirmation (see Open Questions).
    keeps the tick formula (Formulas F). Ticks have no cap, on health or on linh lực (user decision 2026-11-09,
    #44 item C3): resistance and cleansing answer them. Each tick is an ordinary line in the log.
 8. **Curses are statuses that change rules, not pools.** A curse can lower resistance, soul resistance or
-   healing taken, lock one layer, raise an art's cost or a drain ward's bill, block linh lực and health
-   regeneration, or block a tag (Formulas F). Curse units are percentage points: Slackened Soul is −15 pp per
+   healing taken, lock one layer, raise an art's cost or a drain ward's bill, dampen linh lực and health
+   regeneration (Modifier System rule 6a), or block a tag (Formulas F). Curse units are percentage points: Slackened Soul is −15 pp per
    stack, at most −30 pp, and soul resistance never goes below 0 (Combat revision D12). The curse catalogue is
    the Effects System's. It has a duration and a source and
    can be cleansed by an art or a talisman with a matching cleanse tag. A curse never
@@ -749,7 +749,7 @@ Curse bounds, each a data key (restated for the new defence, Combat revision D12
 | `curse_soul_shred_max` | 30 pp | Soul resistance down (Slackened Soul, −15 pp per stack); soul resistance never goes below 0 | **New** (D12) |
 | `curse_reapply_lockout` | 2 pulses | Sealed Meridian and Silence cannot be put back on a target for 2 pulses after they end | **New** |
 | `curse_layer_lock_max`, `curse_tag_block_max`, `curse_duration_max` | 2, 3, 5 pulses | A locked layer counts as 1.0; a blocked tag stops arts carrying it and modifiers needing it. Silence may not name `ward`, `basic` or `escape` | Kept, one note added |
-| regeneration block | on or off | Stops linh lực **and** health regeneration (Stagnation) | Widened |
+| regeneration dampen | 1 % per Stagnation stack, no cap | Divides linh lực **and** health regeneration by (1 + D / 100) (Stagnation) | Changed 2026-11-10: was a full block |
 
 A curse past `curse_slots` replaces the one with the least duration left. Curse durations are counted in pulses,
 like statuses.
@@ -1007,7 +1007,8 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
   ward covers, and body defence still stands. They stay off for the whole fight; a cast ward in an art slot still
   fires.
 - **If a side carries No Ward:** it has no default ward and cannot slot wards (rule 22's flags).
-- **If regeneration is blocked by a curse:** linh lực and health do not rise until the curse ends.
+- **If regeneration is dampened by a curse:** linh lực and health still rise, divided by (1 + D / 100), until the curse
+  ends; no number of stacks stops regeneration.
 - **If `attack_pct` goes below −90 from penalties:** L1 stops at 0.1, so a hit is never negative.
 - **If a soul attack is below `rho_min`:** it deals nothing, but its cost and cooldown are paid.
 - **If a soul attack drains linh lực to 0:** drain, per-hit and default wards are down, as with any other
@@ -1303,7 +1304,7 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 - **AC-CB-77** [Logic] Rule 13, Formulas A2. **GIVEN** no bonus sources, **THEN** `slot_count` is 3 / 4 / 5 / 6 / 7 by realm. **GIVEN** Core Formation with one source, **THEN** 6; **GIVEN** Qi Refining with three, **THEN** 6, with no cap on sources. A talisman, the escape art and a ward in an art slot each take a slot; the basic attack and wards in ward slots do not. **GIVEN** more arts than slots, **THEN** only the earliest slots enter the fight.
 - **AC-CB-33** [Logic] Rule 13, edge cases. **GIVEN** a talisman with stock 1, **THEN** it fires once and is skipped afterwards. **GIVEN** no usable main method, **THEN** the character fights with its other arts and the basic attack: Physical, tags physical, hit, art and basic, coefficient 1.0, no cost.
 - **AC-CB-34** [Logic] Formulas E. **GIVEN** cost_share 0.075 at `qi_max` 172.74, **THEN** the cost is 12.96 and regeneration 6.05, and with nothing incoming a 1 s art fires 24 times in a row. **GIVEN** Still Lake reserving 0.4333, **THEN** the cost and regeneration are unchanged and the art fires 13 times in a row. **GIVEN** pool exactly equal to the cost, **THEN** the art fires. **GIVEN** a regeneration bonus of +6 pp, +30 pp and +100 pp, **THEN** regeneration is 6.93 %, 9.82 % and 10.91 % of `qi_max` a pulse (`regen_k` 0.08), and it never reaches 11.5 %. The pool never exceeds its usable maximum.
-- **AC-CB-35** [Logic] Rule 11, edge cases. **GIVEN** Stagnation, **THEN** neither linh lực nor health rises until it ends. **GIVEN** a soul attack that empties linh lực, **THEN** drain, per-hit and default wards are down and reserved wards stay up. No rule stops a side spending to 0.
+- **AC-CB-35** [Logic] Rule 11, edge cases. **GIVEN** 100 Stagnation stacks and regeneration of 6.05 linh lực and 4.0 health a pulse, **THEN** 3.03 and 2.0 are restored; at 200 stacks 2.02 and 1.33; at any count regeneration stays above 0. **GIVEN** a soul attack that empties linh lực, **THEN** drain, per-hit and default wards are down and reserved wards stay up. No rule stops a side spending to 0.
 - **AC-CB-36** [Logic] Formulas I, escape. **GIVEN** e_art 0.55, one realm below a locking pursuer, **THEN** p is 0.30. A failed escape pays its cost and cooldown. The roll comes `escape_channel` after the art fires, and hits landing in the channel apply. A success gives Fled and a flight result. A side whose health is 0 or below when its channel ends does not flee. If both escape in one instant, the fight ends in flight with no winner. If the other side's health is 0 or below at that point, it is a win. A channel whose roll would fall after `time_limit` never rolls, and the fight is a stalemate.
 - **AC-CB-37** [Logic] Formulas I, evade. Evade 0.25, accuracy 0.05, defender one realm up gives 0.22. Evade 0.60 stops at 0.40. Evade below accuracy gives 0. At evade 0.40, soul hits and ticks are never evaded over 1,000 rolls. An evaded hit deals nothing and fires no on-hit trigger.
 

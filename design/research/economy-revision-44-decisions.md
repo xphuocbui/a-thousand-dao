@@ -406,3 +406,15 @@ From `design/builds/by-root/notes.md`. Apply these in the next session:
 - **R4 Stack prices:** ok. Water's buff charge falls for long batches (or is capped); Metal's weights rise about
   30 % (effects.md Formulas D, its AC-EF-69 example, and `tools/design/combat_sim/keystonefit.py` weights).
 - **R5 Parts 4–5 review:** the user reviews the section "Parts 4 and 5" above and answers keep or change per bullet.
+
+### R1 revised and the cap strategy (user, 2026-11-10)
+
+- **No caps; use a dampen shape instead.** Stagnation becomes stacks of **1 % dampened regeneration per stack**,
+  uncapped: `final = base ÷ (1 + D / 100)`, D the summed dampen (100 % halves, 200 % leaves a third). Open: health
+  regeneration only (as the user said) or both pools (recommended).
+- **Future strategy for caps (user):** any "reduce X" that today stops at a cap or could reach 0 becomes a
+  **dampened** modifier: a fourth Modifier System operation `D`, summed like increased, applied as a divisor. Same
+  shape as art speed on cooldowns (Combat A2). Later candidates: Withering, Heavy Breath, the −50 % art cost
+  reduction cap, the Sundered/Exposed shred cap.
+- **Applied 2026-11-10:** Stagnation dampens **both** pools (user: "both please"): effects.md Status Catalogue,
+  combat.md rule 8, Formulas F curse table, edge case, AC-CB-35; modifiers.md rule 6a defines `dampened`.
