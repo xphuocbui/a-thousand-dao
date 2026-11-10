@@ -29,3 +29,4 @@ Decided by the user on 2026-11-10; the GDD changes are still to draft (Spiritual
 - **Sources:** the map's roads (5), plus rare pills, treasures or Đạo nodes; none common.
 - **Pricing:** a point of purity is worth 0.2 % more stack power; the simulator (`tools/design/combat_sim/`) can price
   it against a stack build.
+- **Applied 2026-11-10:** linh-can.md rule 8a, Formulas H, capped reads, edge cases, AC-LC-52/53, OQ 14; effects.md rule 9a line; kinh-mach-do.md road redraw rule.

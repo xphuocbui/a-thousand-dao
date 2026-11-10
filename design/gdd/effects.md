@@ -231,6 +231,8 @@ different.
       Curse caps do not apply to stacks, so Ice stacks raise art cost past Heavy Breath's +50 %.
     - **Which element.** A stack belongs to its source's element tag (Kim, Mộc, Thủy, Hỏa, Thổ, Băng, Lôi, Phong),
       never to the damage type, so a converted hit builds the stacks of the art's element.
+    - **Purity powers stacks:** every stack's effect is multiplied by `(1 + 0.002 × P)`, P the owner's purity in
+      that element, uncapped, with Water and Ice sharing half (Spiritual Roots rule 8a, Formulas H).
     - **Debuff ticks are the applier's damage.** Burn and Poison use the applier's values from when each batch was
       applied (Combat Formulas F), so the applier's damage increases count.
     - **Cleansing is the answer to a pile** (user decision). A **cleansing ward** removes a share of every debuff
