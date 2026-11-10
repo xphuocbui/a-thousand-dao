@@ -173,7 +173,8 @@ different.
    - **Caps** stay with their owners: layer caps, crit, evade and resistance caps, the
      reservation cap (the heal and tick caps were removed by #44). An Effect's modifiers are clipped like any others.
    - **Determinism:** every chance uses the fight's seeded stream (Combat rule 15). A chance of 0 or 1 draws
-     nothing.
+     nothing; for a status that is its apply chance after status resistance, so a guaranteed status against
+     any status resistance takes a draw (Combat Formulas F, user decision 2026-11-10).
    - **Readability:** every Effect that applies, fires or is clipped writes a Breakdown line with its name and
      what it did (Combat rule 16).
    - **Ties go to slot order** (re-review EF 11): when an Effect picks "the longest cooldown", "the least time left"

@@ -1,9 +1,9 @@
 # Combat Defence & Healing (Phòng Ngự & Trị Thương)
 
-> **Status**: Revised 2026-11-10 after the combat review (`reviews/combat-review-2026-11-10/`, three headless rounds): resistance in points with no cap or floor, no per-ward resistance maximum, no ward strength or efficiency ceiling, shield wards and Clear Heart Ward re-priced, art costs read the start maximum, Ice on art-slot wards only, Water's gain usable, full heal refund (user decisions). Before that: the Combat economy revision #44 (2026-11-09, `design/research/economy-revision-44-decisions.md`), designed 2026-11-07, reviews 2026-11-08 to 08c; the full history is in `reviews/combat-defence-review-log.md` and the review folders
+> **Status**: **Approved 2026-11-10** (combat review, `reviews/combat-review-2026-11-10/`, five headless rounds; round 4 and 5 approved). Revised the same day: resistance in points with no cap or floor, no per-ward resistance maximum, no ward strength or efficiency ceiling, shield wards and Clear Heart Ward re-priced, art costs read the start maximum, Ice on art-slot wards only, Water's gain usable, full heal refund (user decisions). Before that: the Combat economy revision #44 (2026-11-09, `design/research/economy-revision-44-decisions.md`), designed 2026-11-07, reviews 2026-11-08 to 08c; the full history is in `reviews/combat-defence-review-log.md` and the review folders
 > **Author**: user + agents
 > **Last Updated**: 2026-11-10 (third review round and its decisions: shield and Clear Heart re-price, no ward strength ceiling, start-maximum art costs)
-> **Last Verified**: 2026-11-10 (fourth confirming review: **approved**, `reviews/combat-review-2026-11-10/round4/`; its notes applied)
+> **Last Verified**: 2026-11-10 (fifth confirming review: **approved**, `reviews/combat-review-2026-11-10/round5/`; its notes applied)
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Your Dao, Your Name (1)
 > **Parent system**: Combat (#21, `design/gdd/combat.md`). This is sub-system #21a. It owns the whole defence path (evade, resistance, block, wards and body shields, health, soul and status defence) and healing in a fight. Combat keeps offence, the timeline, triggers and results, and is revised afterwards to point here (systems-index design order, user decision 2026-11-07).
 > **Scope decisions (user, 2026-11-07)**: all of defence; healing allowed in ordinary fights (since #44 with no cap per pulse and no decay; fatigue ends stalls), none inside Heavenly Tribulation waves for now; the ward is redesigned (Combat Formulas D and rule 22 are replaced); ward models may reserve linh lực.
@@ -667,10 +667,10 @@ pool takes about 5.5 times the damage. A heal that costs linh lực makes a heal
 simulator (`tools/design/combat_sim/sim.py`) a healer lost every fight to a typical build at any heal size. With
 heal arts refunding their cost and heals scaled to health, a ratio of 1.4 gives a healer with the same budget
 about 40 % against a typical build (8 of 20 in the simulator, 2026-11-10; it trades damage for healing), and a
-healer mirror ends by fatigue at about 66 s.
+healer mirror ends by fatigue at about 66 s (65.8 s).
 
 **Stall check.** Combat's fatigue (Combat rule 10, Formulas A2) ends every fight; a healer mirror falls by about
-65 s (flat n² fatigue since 2026-11-10; AC-CD-45).
+66 s (65.8 s in the simulator; flat n² fatigue since 2026-11-10; AC-CD-45).
 
 **Example:** a heal art at cost 0.075 and cooldown 3 s:
 - The lint gives 3.3, so c_heal ≤ 4.62, which heals 6.31 × 4.62 × 4 = **116.6** (26.5 % of FX-T's health), at
@@ -773,7 +773,7 @@ linh lực 164.1, the default ward only (all 60 points, drain 0.40).
 
 **Wards.** Values are at Qi Refining with ws = we = 0. **Check** is the price-check ratio against its limit, at `T_ref`
 45 s and ε_0 3.05 (#44: resistance payloads ×1.25, drain ×0.2; reserved, per-hit and cast resistance wards re-priced
-to keep their pre-#44 margins; shield wards kept at their old payments, Open Question 18).
+to keep their pre-#44 margins; shield wards and Clear Heart Ward re-priced 2026-11-10, Formulas F).
 
 | Ward | Payload | Payment, activation | Check | Wanted by |
 |---|---|---|---|---|
@@ -1045,8 +1045,8 @@ design estimates until the balance harness confirms them.
 - **FX-T** is Combat's typical fixture: health 439.48, linh lực 172.74, ws = we = 30.8, block rating 15.0
   (0.946 points), no body shield, U 6.31, stage 1.00.
 - **FX-U** is Combat's unbuilt fixture, with block rating 4.4 (0.278 points).
-- **Thể tu fixture:** Formulas G's Qi Refining thể tu: block 88.3 (5.57 points), body shield 436.1, R_all 0.375
-  (default ward, 60 points) and R_Physical 36.1 points (so Physical 96.1 points, stopping 49 %; Fire and Chaos 60, stopping
+- **Thể tu fixture:** Formulas G's Qi Refining thể tu: block 88.3 (5.57 points), body shield 436.1, R_all 60 points
+  (default ward, stopping 37.5 %) and R_Physical 36.1 points (so Physical 96.1 points, stopping 49 %; Fire and Chaos 60, stopping
   37.5 %), health 484.6, linh lực 164.1.
 - **Common Ward:** all 342.5 points, drain 0.328.
 - **FX-H:** FX-U carrying one heal art at the heal lint's maximum and no damage arts.
@@ -1060,7 +1060,7 @@ design estimates until the balance harness confirms them.
 - **AC-CD-01** [Logic] Rule 1. **GIVEN** a Physical hit part on FX-T with a ward shield, a body shield and the Common Ward, **WHEN** it resolves, **THEN** its Breakdown lists evade → resistance → block → ward shields → body shield → health in that order, and nothing reaches health while a shield it meets still holds.
 - **AC-CD-02** [Logic] Rule 1. **GIVEN** an over-time tick on a side with a full ward shield and a full body shield, **WHEN** it resolves, **THEN** no evade roll and no block are logged and the ward shield is unchanged. **GIVEN** a Fire tick, **THEN** the body shield soaks it. **GIVEN** a poison (Chaos) tick, **THEN** it passes the body shield.
 - **AC-CD-03** [Logic] Rules 1, 14. **GIVEN** a soul hit on a side with all resistance 300 points, a full ward shield, block 5.6 and a full body shield of 436.1, **WHEN** it resolves, **THEN** only soul resistance and soul wards change the result, and the ward shield, block and body shield are untouched.
-- **AC-CD-04** [Logic] Rules 1, 15. **GIVEN** a curse with chance 1.0 against status resistance 0.375 (status resistance stays a share of the chance, not points), **WHEN** it resolves, **THEN** its apply chance is 0.625 and health is unchanged either way. **GIVEN** a tick of 10 with status resistance 0.9, resistance 0 (the side is flagged `no_default_ward`, since the default ward would add 60 points) and no shields, **THEN** 10 reaches health.
+- **AC-CD-04** [Logic] Rules 1, 15. **GIVEN** a curse with chance 1.0 against status resistance 0.375 (status resistance stays a share of the chance, not points, and counts against guaranteed statuses too, user decision 2026-11-10), **WHEN** it resolves, **THEN** its apply chance is 0.625 and health is unchanged either way. **GIVEN** a tick of 10 with status resistance 0.9, resistance 0 (the side is flagged `no_default_ward`, since the default ward would add 60 points) and no shields, **THEN** 10 reaches health.
 - **AC-CD-05** [Logic] Rule 1. **GIVEN** an evaded hit, **THEN** no resistance, block, shield, per-hit fee, drain bill or health loss is logged. **GIVEN** a part of D 1.2 at R 900 points (stops 90 %) and block 0, **THEN** 1 reaches health (the hit floor; 0.12 before it). **GIVEN** the same part on FX-T, **THEN** block takes it to 0 and it deals 0, logged "blocked".
 - **AC-CD-06** [Logic] Rule 12. **GIVEN** FX-T at linh lực 0 with no ward up, **WHEN** a Physical hit of D 41.3 lands, **THEN** block still applies and 40.35 is dealt. **GIVEN** a body shield of σ_b 0.30 (131.8), **THEN** the shield takes the 40.35 and 0 is dealt, leaving 91.5.
 - **AC-CD-07** [Logic] Rule 13. **GIVEN** evade 0.30 plus an evade payload of +9 pp and a +30 fortune lead, **WHEN** the roll is inspected, **THEN** it is clamped at 0.40, and ticks and soul hits never roll evade.
@@ -1125,7 +1125,7 @@ design estimates until the balance harness confirms them.
 
 - **AC-CD-43** Retired (#44 item C2): upkeep wards were removed. A ward record with payment `upkeep` is rejected at load (AC-CD-70).
 - **AC-CD-44** [Logic] Ward order. **GIVEN** the Common Ward and the Fire-Shunning Veil in either slot order and no shields, **THEN** damage dealt, each ward's bill and the total bill are identical across 50 seeds.
-- **AC-CD-45** [Harness] No stall (#44). **GIVEN** a healer mirror (heal arts at `heal_lint_ratio` 1.4, refunding their cost), **THEN** the fight ends by fatigue by about 65 s (flat n² fatigue, Combat Formulas A2) and always before 80 s. **GIVEN** a healer against a typical build with the same budget, **THEN** the healer wins 25–50 % of seeds (simulator 2026-11-10, healer at the heal lint with the refund: 8 of 20, 40 %). **GIVEN** the largest legal heal stack against flat n² fatigue, **THEN** it still falls by 80 s.
+- **AC-CD-45** [Harness] No stall (#44). **GIVEN** a healer mirror (heal arts at `heal_lint_ratio` 1.4, refunding their cost), **THEN** the fight ends by fatigue by about 66 s (65.8 s in the simulator; flat n² fatigue, Combat Formulas A2) and always before 80 s. **GIVEN** a healer against a typical build with the same budget, **THEN** the healer wins 25–50 % of seeds (simulator 2026-11-10, healer at the heal lint with the refund: 8 of 20, 40 %). **GIVEN** the largest legal heal stack against flat n² fatigue, **THEN** it still falls by 80 s.
 - **AC-CD-46** [Harness] Calibration. **GIVEN** the typical rotation at Qi Refining (Combat Formulas K), **THEN** its T0 is 55.8 s (±1). The FX-T fixture mirror ends at exactly 34.000 s with linh lực dry at 10 s, and the FX-U mirror at 64.000 s by flat n² fatigue, both draws (Combat AC-CB-30, worked by hand). **GIVEN** the other realms' typical mirrors, **THEN** each lasts 30–60 s (#44 item A1).
 
 **Determinism and Breakdown**
