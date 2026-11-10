@@ -71,6 +71,10 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
    | Tick on linh lực (Qi Disruption) | resistance (all + Force, rule 3) → linh lực, passing every shield. Never evade, never block (Combat Damage Types rule 4) |
    | Soul hit | soul resistance and soul wards → its share of health and linh lực (Combat Formulas E2). Skips everything else |
    | Curse | status resistance (its chance) → applied or not. Curses never deal damage (Combat rule 8) |
+   | Fatigue (Combat rule 10) | straight to health: no evade, resistance, block or shield, no Effect changes it; the Down step applies |
+
+   Element stacks that change damage taken (Earth's dampened Physical damage, Metal's and Thunder's debuffs) act on the
+   part **before resistance**, like the attacker's layers (user decision 2026-11-10, re-review Q2).
 
    - Evade is one roll per hit, before anything else (Combat Formulas I, unchanged): an evaded hit deals
      nothing.
@@ -142,6 +146,7 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
    | **Resistance** | Adds its resistance modifiers (all, or by damage type) to the side's sums (rule 2) |
    | **Block** | Adds a flat block to every hit (rule 12) |
    | **Status** | Adds status resistance, and may carry cleanse tags that a cleanse reads (Combat rule 8) |
+   | **Cleanse** | Each pulse removes `cleanse_share` (0.25 by default, 0.25–0.5) of every debuff batch on its side, oldest batches first when rounding (Effects System rule 9a, Formulas D; owned here, re-review Q5) |
    | **Soul** | Adds soul resistance, and may hold a soul shield that soaks a share of each soul hit's losses from its own bar (rule 14, Formulas B) |
    | **Shield** | A shield bar of its own size, which soaks damage after resistance and block (rule 9) |
    | **Evade** | Adds evade (rule 13) |
@@ -233,7 +238,7 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
     only; or a shield the part does not pass, full or broken), such as a status-only or soul-only ward
     (Clear Heart Ward or Soul-Guarding Lamp), does not count as Up for it, so it never costs the side
     its default protection (re-review CD 8). A side flagged `no_default_ward` (rule 5) has none.
-    The default ward is: an all resistance of 0.30 (`default_resist`) paid by drain at 2.0 (`default_drain`),
+    The default ward is: an all resistance of 60 points (`default_resist`, stopping 37.5 %) paid by drain at 0.40 (`default_drain`),
     exactly the old default ward's protection. Ward strength and efficiency do not apply to it: it is a
     floor, not a build piece. It needs no slot. A side with no linh lực has no default ward. Unless it built
     resistance from other sources, block, body shields or a reserved ward, every hit then lands nearly in
@@ -280,9 +285,11 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
 
     Every heal is multiplied by the healer's healing stat and by the receiver's healing taken (which a
     curse may lower). Nothing else limits it: there is no cap per pulse and no decay over the fight (user
-    decision 2026-11-09, #44 items C1, C3). A heal art's size scales with `health_units`, and it **refunds its
-    own linh lực cost** when it lands (#44 part 2), because with wards paid in linh lực a heal that drains the
-    pool would only hasten the fall (Formulas E).
+    decision 2026-11-09, #44 items C1, C3). A heal art's size scales with `health_units`, and it **refunds the
+    linh lực actually paid for it, only when it restores health** (#44 part 2; refined 2026-11-10, re-review Q4: no
+    refund at full health or under `no_heal`), because with wards paid in linh lực a heal that drains the pool would
+    only hasten the fall (Formulas E). **Leech** (`leech_health_pct`, a plain modifier) is healing too: it takes
+    `healing_pct` and healing taken, and is 0 under `no_heal`.
 
 17. **Retired (#44): the heal cap.** Healing has no cap per pulse (user decision 2026-11-09, item C3). Health
     never rises above its maximum, and overheal is lost.
@@ -657,7 +664,7 @@ about 38 % against a typical build (it trades damage for healing), and a healer 
 **Example:** a heal art at cost 0.075 and cooldown 3 s:
 - The lint gives 3.3, so c_heal ≤ 4.62, which heals 6.31 × 4.62 × 4 = **116.6** (26.5 % of FX-T's health), at
   any time in the fight.
-- It refunds its cost, **12.96** linh lực, when it lands.
+- It refunds the **12.96** linh lực paid, when it restores health.
 
 ### F. Ward price check
 
@@ -670,7 +677,7 @@ The ward_price formula is defined as:
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | V_w | float | ≥ 0 | calculated | Health points prevented by the payloads. **Resistance:** s · I · T, with s = R / (100 + R) the ward's stop share at ws 0, assuming every part matches its scope. **Shield:** σQ once if standing, min(σQ, I · duration) per firing if cast. **Block:** min(B_w, I) · T. **Evade:** e · I · T. **T** is `T_ref` for a standing ward. For a cast ward, resistance, block and evade use its up time inside `T_ref` instead: `T_up = floor(T_ref / cooldown) × duration`, so r · I · T_up, min(B_w, I) · T_up and e · I · T_up (re-review CD 19, 2026-11-08b CD-02; Black Tortoise Shell: 0.4125 × 36.5 × 18 s = 271.0, ratio 1.162). A cast ward's first firing is at t = cooldown (combat.md line 126), so firings in `T_ref` number `floor(T_ref / cooldown)`. A cast shield's V is that count times its per-firing value. A firing exactly at `T_ref` counts in both V and C. A block payload paid per hit balances itself, since both are sensitive to hit count in opposite directions. **Status and soul:** 0.008 · I · T per W of their stat price |
-| C_w | float | > 0 | calculated | Linh lực paid. **Reserved:** ρQ · `reserve_weight`. **Per hit:** 45 · φQ (one hit a second over `T_ref`). **Drain:** drain_base · V. **Cast:** κQ · floor(T_ref / cooldown) |
+| C_w | float | > 0 | calculated | Linh lực paid. **Reserved:** ρQ · `reserve_weight`. **Per hit:** `T_ref` · φQ (one hit a second). **Drain:** drain_base · V. **Cast:** κQ · floor(T_ref / cooldown) |
 | reserve_weight | float | 1.5 | data file | User decision 2026-11-07: stronger auras. Each reserved point counts 1.5 paid points, since it is held all fight |
 | ε_0 | float | 3.05 (was 0.61) | data file, anchored to the Common Ward (1 / 0.328) | Prevented points per linh lực point; ×5 with the drain cut (#44) |
 | β_w | float | 1.0 / 1.25 / 1.5 / 2.0 / 2.5 | Modifier System Formulas B | Narrower scopes buy more |
@@ -723,13 +730,13 @@ The ehp formula is defined as:
 ehp = **1,376.2** (pre-#44 297.8). One point healed is worth 1 / λ = 6.39 incoming points while the ward holds.
 
 **The thể tu at Qi Refining:** block 88.3 rating (flesh 5.3 + gear 12 + Iron Body tier 3 30 + 41 from W), so
-B 5.57; body shield 436.1 (σ_b 0.90 = technique 0.30 + gear 0.60); Physical resistance 0.30 (Iron Body tier 3
-0.20 + Black Iron Armour's Physical affix 0.10); health 484.6 (#44: ×4),
-linh lực 164.1, the default ward only (all 0.375, drain 0.40).
+B 5.57; body shield 436.1 (σ_b 0.90 = technique 0.30 + gear 0.60); Physical resistance 36.1 points (Iron Body tier 3
+25 points + Black Iron Armour's Physical affix 11.1 points); health 484.6 (#44: ×4),
+linh lực 164.1, the default ward only (all 60 points, drain 0.40).
 
 | ehp against | Pre-#44 | Now (#44) |
 |---|---|---|
-| Physical | 570.4 | **2,431.5** |
+| Physical | 570.4 | **2,098.8** (points, 2026-11-10) |
 | Force | 368.5 | **1,570.7** |
 | Chaos (passes the body shield) | 221.3 | **1,025.8** |
 | Physical, top-end-sized hits | 446 | re-derive with the harness (block is small against big hits) |
@@ -761,7 +768,7 @@ to keep their pre-#44 margins; shield wards kept at their old payments, Open Que
 | Thousand-Layer Cloud (Thiên Tầng Vân) | shield σ 0.20 | reserved 0.20, standing (was upkeep) | 0.667 / 3.050 | Layered-shield builds |
 | Golden Light Shield (Kim Quang Thuẫn) | shield σ 0.09 | cast 0.12, cooldown 4 s, up 3 s | 0.750 / 3.813 | Art-speed builds, talisman users |
 | Black Tortoise Shell (Huyền Quy Giáp) | Physical 70.2 points | cast 0.15, cooldown 5 s, up 2 s | 1.162 / 4.766 | Builds facing sword and fist cultivators |
-| Clear Heart Ward (Thanh Tâm Chú) | status +37.5 pp, cleanse [poison] | reserved 0.23 | † | Anti-curse, anti-poison |
+| Clear Heart Ward (Thanh Tâm Chú) | status +37.5 pp, cleanse 0.25 of every debuff batch per pulse | reserved 0.23 | † | Anti-curse, anti-poison |
 | Soul-Guarding Lamp (Hộ Hồn Đăng) | soul res +22.5 pp; optional soul shield, s_soul 0.50 on a bar of σ_soul 0.10 (G) | reserved 0.20 | † | Anyone facing soul builds |
 | Iron Shirt (Thiết Bố Sam) | block 60 (3.79 at QR), evade +12 pp | reserved 0.47 | 3.019 / 3.050 | Thể tu and light-body hybrids; block adds linearly, so a thể tu gains about +60 % block (user decision 2026-11-07: accepted) |
 
@@ -771,9 +778,9 @@ to keep their pre-#44 margins; shield wards kept at their old payments, Open Que
 
 | Piece | Grants | Value |
 |---|---|---|
-| Iron Body Art (Thiết Thân Công), tier t of 1–5 | per tier: block +10, σ_b +0.10, Physical resistance +6.7 pp. Tier 3: 30 / 0.30 / 0.20 | about 20.7 W per tier |
-| Black Iron Armour (Ô Thiết Giáp), body_gear-tagged artifact | at a_b 1.0 (top end): block 12, σ_b 0.60; may carry a Physical-resistance affix | about 65 W, the same as ward gear at a 1.0 |
-| Căn cốt, per talent point | +2.22 % health, and so +2.22 % on the body shield; +0.1 block rating; no shield of its own | about 4.6 W to a thể tu, against its 3.0 price |
+| Iron Body Art (Thiết Thân Công), tier t of 1–5 | per tier: block +10, σ_b +0.10, Physical resistance +8.3 points. Tier 3: 30 / 0.30 / 25 points | about 9.4 W per tier (2026-11-10: health and body shield re-priced, resistance in points) |
+| Black Iron Armour (Ô Thiết Giáp), body_gear-tagged artifact | at a_b 1.0 (top end): block 12, σ_b 0.60; may carry a Physical-resistance affix | about 35 W (2026-11-10; parity with ward gear dropped, re-review Q8) |
+| Căn cốt, per talent point | +2.22 % health, and so +2.22 % on the body shield; +0.1 block rating; no shield of its own | about 2.4 W to a thể tu, against its 3.0 price |
 
 ### I. W prices for the new defence stats
 
@@ -789,7 +796,7 @@ marks a derived price, **G** a guess.
 | Resistance penetration | `resist_pen_pct`, scoped by type or tag | 0.1 / point | D | 3.6 against a typical warded defender, 1.4 against the default ward |
 | Block | `block_rating` | 0.4 / rating point | D | 0.41 to a thể tu, 0.22 to a typical side. Universal; grid 1 |
 | Body shield | `body_shield_pct` (pp of health_max) | 0.51 / pp | D/G | Pegged to health's 0.6 × 0.85 (was 1.2 × 0.85 = 1.0; health re-priced 2026-11-10). Chaos passes it and it never refills |
-| Health regeneration | `health_regen_pct` | 3.0 / pp per pulse (to re-price) | D/G | The 8 s, decaying basis is retired with #44; re-priced in part 4 against 45 s fights with no decay |
+| Health regeneration | `health_regen_pct` | 9.9 / pp per pulse | D | #44 simulator, 45 s fights, no decay (Modifier System) |
 | Healing | `healing_pct` | 0.5 / % | G | No heal-build anchor exists yet |
 | Healing taken | `healing_taken_pct` | 0.5 / % | G | Also counters curses |
 | Ward slots | `bonus_ward_slots` | 30 / slot, rare | D/G | A first ward is about +77 % ehp over the default; a second about +25–35 % |
@@ -854,7 +861,10 @@ marks a derived price, **G** a guess.
   any cap knob that is set) scale with it.
 
 **Healing**
-- **If a heal lands on a side at full health**: nothing is restored. A heal art still refunds its cost.
+- **If a heal lands on a side at full health**: nothing is restored, and a heal art refunds nothing.
+- **If Water stacks change maximum linh lực mid-fight** (re-review Q3): the pool's maximum, and so its regeneration and
+  cap, change live; reservations and ward shield sizes stay as compiled at the start; a pool above a falling maximum
+  is clipped to it.
 - **If heals in one pulse window are large**: they all apply in the order they occur; there is no cap (#44).
 - **If a heal and lethal damage land in the same instant**: all of the instant's events resolve, heals
   included, before the defeat check (Combat rule 10). A heal can keep a side standing only if it lands
@@ -920,7 +930,7 @@ or died (Pillar 2). Every defence event has a distinct cue.
   shows the expected cut per damage type.
 - **Breaking a shield is a moment.** A shield that breaks is a beat in the fight log. A build that times its
   burst past a shield should feel it land.
-- **Healing should feel urgent, not endless.** Early heals are strong. Late heals visibly fade, so a healer
+- **Healing should feel urgent, not endless.** Early heals are strong. Heals keep full strength; fatigue from 60 s is what presses a healer, so a healer
   feels pressure to finish the fight rather than outlast it.
 - **Reservation should feel like a trade.** The linh lực bar shows the reserved share as a locked segment,
   so the player sees what an aura costs in casts.
@@ -1011,7 +1021,7 @@ design estimates until the balance harness confirms them.
 - **FX-U** is Combat's unbuilt fixture, with block rating 4.4 (0.278 points).
 - **Thể tu fixture:** Formulas G's Qi Refining thể tu: block 88.3 (5.57 points), body shield 436.1, R_all 0.375
   (default ward) and R_Physical 0.30 (so Physical 0.675, Fire and Chaos 0.375), health 484.6, linh lực 164.1.
-- **Common Ward:** all r 0.50, drain 1.64.
+- **Common Ward:** all 342.5 points, drain 0.328.
 - **FX-H:** FX-U carrying one heal art at the heal lint's maximum and no damage arts.
 - **Tolerance:** ±0.1 unless a criterion says otherwise.
 - **Test locations:** [Logic] tests go in `tests/unit/combat_defence/`, [Integration] tests in
@@ -1025,7 +1035,7 @@ design estimates until the balance harness confirms them.
 - **AC-CD-03** [Logic] Rules 1, 14. **GIVEN** a soul hit on a side with all resistance 0.75, a full ward shield, block 5.6 and a full body shield of 436.1, **WHEN** it resolves, **THEN** only soul resistance and soul wards change the result, and the ward shield, block and body shield are untouched.
 - **AC-CD-04** [Logic] Rules 1, 15. **GIVEN** a curse with chance 1.0 against status resistance 0.375, **WHEN** it resolves, **THEN** its apply chance is 0.625 and health is unchanged either way. **GIVEN** a tick of 10 with status resistance 0.9, resistance 0 (the side is flagged `no_default_ward`, since the default ward would add 0.30) and no shields, **THEN** 10 reaches health.
 - **AC-CD-05** [Logic] Rule 1. **GIVEN** an evaded hit, **THEN** no resistance, block, shield, per-hit fee, drain bill or health loss is logged. **GIVEN** a part of D 1.2 at r 0.90 and block 0, **THEN** 1 reaches health. **GIVEN** the same part on FX-T, **THEN** block takes it to 0 and it deals 0, logged "blocked".
-- **AC-CD-06** [Logic] Rule 12. **GIVEN** FX-T at linh lực 0 with no ward up, **WHEN** a Physical hit of D 41.3 lands, **THEN** block still applies and 40.35 is dealt. **GIVEN** a body shield of σ_b 0.30 (33.0), **THEN** 7.39 is dealt.
+- **AC-CD-06** [Logic] Rule 12. **GIVEN** FX-T at linh lực 0 with no ward up, **WHEN** a Physical hit of D 41.3 lands, **THEN** block still applies and 40.35 is dealt. **GIVEN** a body shield of σ_b 0.30 (131.8), **THEN** the shield takes the 40.35 and 0 is dealt, leaving 91.5.
 - **AC-CD-07** [Logic] Rule 13. **GIVEN** evade 0.30 plus an evade payload of +9 pp and a +30 fortune lead, **WHEN** the roll is inspected, **THEN** it is clamped at 0.40, and ticks and soul hits never roll evade.
 
 **Resistance (Rules 2–4, Formulas A)**
@@ -1047,13 +1057,13 @@ design estimates until the balance harness confirms them.
 
 **Payments and reservation (Rules 8, 10, Formulas C)**
 
-- **AC-CD-19** [Logic] Reserved. **GIVEN** Still Lake ρ 0.50 on FX-T, **THEN** the reserved share is 0.4333 and usable linh lực is 97.9. **GIVEN** res_eff 80 and we 400, **THEN** the share is 0.0833.
+- **AC-CD-19** [Logic] Reserved. **GIVEN** Still Lake ρ 0.71 on FX-T, **THEN** the reserved share is 0.6153 and usable linh lực is 66.4. **GIVEN** res_eff 80 and we 400, **THEN** the share is 0.1183.
 - **AC-CD-20** Retired (#44 item C2): upkeep wards were removed; Surging Tide is now per hit (Formulas H).
-- **AC-CD-21** [Logic] Per hit. **GIVEN** Golden Bell φ 0.14 on FX-T, **THEN** it costs 18.49 per hit, one fee covering all of the hit's parts. **GIVEN** a pool of 10, **THEN** that hit gets no Golden Bell resistance, and the next hit it can afford does.
+- **AC-CD-21** [Logic] Per hit. **GIVEN** Golden Bell φ 0.035 on FX-T, **THEN** it costs 4.62 per hit, one fee covering all of the hit's parts. **GIVEN** a pool of 4, **THEN** that hit gets no Golden Bell resistance, and the next hit it can afford does.
 - **AC-CD-22** [Logic] Drain. **GIVEN** FX-T with the Common Ward and D 41.3, **THEN** 7.54 gets through resistance, the bill is 6.47, and 6.59 is dealt after block (7.54 − 0.946). **GIVEN** a pool of 5, **THEN** 5 is billed and the unpaid share of the prevented damage leaks. **GIVEN** two drain wards with a pool short of their total bill, **THEN** each pays the same fraction of its bill (pool 15, bills 20 and 10: 10 and 5), and the same share of the total prevented damage leaks.
 - **AC-CD-23** [Logic] Cast. **GIVEN** Golden Light Shield κ 0.12 at we 0, **THEN** each firing costs 20.73, and its shield fills to 15.55 at ws 0.
 - **AC-CD-24** [Logic] Regression: strength can lose a fight. **GIVEN** the Common Ward at we 30.8 and D 41.3, **FOR** ws in {−90, −50, 0, 30.8, 50, 100, 200, 400}, **THEN** the drain bill is 6.47 for every ws up to the cap and strictly falls once the cap binds. **FOR** each of the four models, **THEN** total payment at a higher ws is never greater than at a lower one.
-- **AC-CD-25** [Logic] Rule 10. **GIVEN** two reserved wards of 0.50 each at we 0 and res_eff 0, **WHEN** compiled, **THEN** the second is rejected with its id named. **GIVEN** 0.50 + 0.35 and an art of cost_share 0.20, **THEN** compile warns that the art is unaffordable (34.5 > 25.9).
+- **AC-CD-25** [Logic] Rule 10. **GIVEN** two reserved wards of 0.71 each at we 0 and res_eff 0, **WHEN** compiled, **THEN** the second is rejected with its id named. **GIVEN** 0.71 + 0.19 and an art of cost_share 0.125, **THEN** compile warns that the art is unaffordable (21.6 > 17.3).
 - **AC-CD-26** [Logic] Rule 10. **GIVEN** a reserved share of 0.4333, **THEN** an art of cost_share 0.15 still costs 25.9, and a soul hit's linh lực loss lowers only the usable pool.
 - **AC-CD-27** [Logic] Edge Cases. **GIVEN** the same ward id slotted twice, **WHEN** compiled, **THEN** it is rejected with the id named.
 
@@ -1066,15 +1076,15 @@ design estimates until the balance harness confirms them.
 
 **Default ward (Rule 11)**
 
-- **AC-CD-32** [Logic] Rule 11. **GIVEN** FX-U with no wards and D 41.3, **THEN** r is 0.30, 28.91 gets through resistance, 28.6 is dealt after block, and the bill is 24.8, unchanged at ws 400 and we 400. **GIVEN** linh lực 0, **THEN** r is 0 and 41.0 is dealt. **GIVEN** a per-hit ward that cannot pay for a hit, **THEN** the default ward applies to that hit.
+- **AC-CD-32** [Logic] Rule 11. **GIVEN** FX-U with no wards and D 41.3, **THEN** R is 60 points, 25.81 gets through resistance, 25.53 is dealt after block, and the bill is 6.19, unchanged at ws 400 and we 400. **GIVEN** linh lực 0, **THEN** r is 0 and 41.0 is dealt. **GIVEN** a per-hit ward that cannot pay for a hit, **THEN** the default ward applies to that hit.
 
 **Healing (Rules 16–19, Formulas E)**
 
-- **AC-CD-33** [Logic] Formulas E. **GIVEN** d(t), **THEN** d(0) = 1.00, d(7.5) = 0.55, d(15) = 0.10 and d(30) = 0.10.
+- **AC-CD-33** Retired (#44 item C1): healing has no decay. A record or key carrying `heal_decay_end` or `heal_decay_floor` is rejected at load.
 - **AC-CD-34** [Logic] Formulas E. **GIVEN** FX-T at 200 health and a heal art of cost 0.075, cooldown 3 s and c_heal 4.62, **THEN** it heals 116.6 and refunds 12.96 linh lực, the same at t 0, t 10 and t 50 (no decay). c_heal 4.63 fails the lint. **GIVEN** a body-shield restore of 50 at t 10, **THEN** it applies 50 and refunds nothing.
 - **AC-CD-35** [Logic] Heal lint. **GIVEN** cost 0.15 and cooldown 3 s, **THEN** c_heal 0.99 passes and 1.00 fails.
 - **AC-CD-36** [Logic] Rules 17, 18 retired (#44). **GIVEN** FX-T at 100 health and two heals of 150 in one pulse window, **THEN** 150 and then 150 apply (health 400), and nothing is logged "heal cap". **GIVEN** a third heal of 150, **THEN** health stops at 439.48 and the overheal is lost. **GIVEN** `hregen_bonus` 0.03, **THEN** regeneration restores 3 % of health_max a pulse, at any fight time.
-- **AC-CD-37** [Logic] Rule 16. **GIVEN** healing_pct 100 and taken_pct −50, **THEN** the heal equals base × d(t). **GIVEN** taken_pct −100, **THEN** the heal is 0.
+- **AC-CD-37** [Logic] Rule 16. **GIVEN** healing_pct 100 and taken_pct −50, **THEN** the heal equals its base (×2 × 0.5, no decay). **GIVEN** taken_pct −100, **THEN** the heal is 0. **GIVEN** `leech_health_pct` 10 under `no_heal`, **THEN** leech restores 0.
 - **AC-CD-38** [Logic] Rule 19. **GIVEN** a lethal hit and a 4.0 heal in the same instant, leaving 2.0 health, **THEN** the side is Standing. **GIVEN** a Down side, **THEN** no heal applies.
 - **AC-CD-39** [Logic] Rule 19. **GIVEN** `no_heal`, **THEN** every heal and every body-shield restore is 0, and the log says "no healing here". **GIVEN** v 0.7 and an end health of 90 %, **THEN** `v_after` is 0.7. **AT** an end health of 50 %, **THEN** it is 0.5.
 
@@ -1082,7 +1092,7 @@ design estimates until the balance harness confirms them.
 
 - **AC-CD-40** [Logic] Formulas F. **GIVEN** Golden Bell, **THEN** V is 821.2, C is 272.1, the ratio is 3.019 and it passes. **GIVEN** φ 0.034, **THEN** the ratio is 3.107 and it fails.
 - **AC-CD-41** [Config/Data] Formulas H. **GIVEN** the ward catalogue file, **THEN** every ward without † passes at its listed ratio (±0.005), including Iron Shirt at 3.019; every † ward is flagged "recheck"; no ward's payment is upkeep; and no ward exceeds `ward_resist_max` 0.75, σ 0.50 or `ward_block_max` 100.
-- **AC-CD-42** [Logic] Formulas G. **GIVEN** typical FX-T, **THEN** x is 1,102.2 and ehp is 1,376.2 (±0.5). **GIVEN** the thể tu fixture, **THEN** ehp is 2,431.5 against Physical, 1,570.7 against Force and 1,025.8 against Chaos (±1.0). **GIVEN** block above the hit, **THEN** λ stays at least 0.02 and ehp is finite.
+- **AC-CD-42** [Logic] Formulas G. **GIVEN** typical FX-T, **THEN** x is 1,102.2 and ehp is 1,376.2 (±0.5). **GIVEN** the thể tu fixture, **THEN** ehp is 2,098.8 against Physical, 1,570.7 against Force and 1,025.8 against Chaos (±1.0). **GIVEN** block above the hit, **THEN** λ stays at least 0.02 and ehp is finite.
 
 **Regressions from the overnight faults**
 
@@ -1109,7 +1119,7 @@ design estimates until the balance harness confirms them.
 - **AC-CD-54** [Logic] Formulas A2. **GIVEN** the block_unit table, **THEN** one rating point is 0.0631 / 0.2031 / 0.6672 / 2.254 / 6.883 points by realm, times stage. **GIVEN** FX-T, **THEN** its rating is 15.0 (flesh 4.8 + armour 10.2) and its block 0.946. **GIVEN** FX-U, **THEN** 4.4 and 0.278.
 - **AC-CD-55** [Logic] Rule 9. **GIVEN** a body shield damaged to half, **WHEN** 30 s pass with no Effect, **THEN** it is still at half. **GIVEN** a standing ward shield damaged the same way, **THEN** it recharges after 2 s.
 - **AC-CD-56** [Logic] Rule 9. **GIVEN** a Chaos hit on the thể tu fixture, **THEN** its after-block amount passes the body shield and reaches health. **GIVEN** a body shield authored as not passed by Chaos, **THEN** it soaks the Chaos hit.
-- **AC-CD-57** [Config/Data] Formulas B, I. **GIVEN** ward gear and body gear at a ≤ 1, **THEN** each prices at 0.648 W per defence point (±0.01).
+- **AC-CD-57** [Config/Data] Formulas B, I (2026-11-10). **GIVEN** body gear at a_b 1.0, **THEN** it prices at about 35 W (block 4.8 + shield 30.6); parity with ward gear is no longer required (re-review Q8).
 - **AC-CD-58** [Harness] Formulas A2. **GIVEN** the fast 0.5 s kit and the slow 3 s kit at equal budget, **THEN** the fast kit's damage per linh lực is within 10 % of 1.26 × the slow kit's against a typical defender, and below the slow kit's against the thể tu and against typical + Iron Shirt.
 
 - **AC-CD-59** [Harness] No shield stall (shields uncapped, user decision 2026-11-08; attackers per re-review CD 4). **GIVEN** the largest legal shield kit at each realm (Mountain Screen and Thousand-Layer Cloud at ws 400 and we 400, plus body gear at a_b 2.0 and Iron Body tier 5) **AGAINST** the realm's typical attacker (FX-T offence) **AND** a slow-hitter variant: FX-T with only Formulas A2's slow art (c 3.3, 3 s cooldown, D 68.1 at Qi Refining, scaled per realm) and no basic attack, **THEN** it is Down before `time_limit` against both (fatigue passes shields, so this holds by rule), and its end time against the typical attacker is recorded; past 60 s, the first fix is a cap knob (`shield_total_cap` or `body_shield_cap`); raising `recharge_delay` or lowering `shield_recharge` is also allowed. Record the value chosen.
