@@ -673,7 +673,7 @@ are ordinary entries in the sum.
 **Rounding rule:** quantize at storage, by flooring, once.
 - Modifiers are stored as integer units of their key's precision (0.1, 0.01 or 1), so sums
   are exact and tests are reproducible.
-- Authored values (data, the tree, sealed clusters) must already sit on their key's grid.
+- Authored values (data, the tree) must already sit on their key's grid.
   An off-grid authored value fails data validation. A valid one is stored as
   round(x × units), which survives floating-point error: 0.29 × 100 = 28.999… is stored
   as 29.
