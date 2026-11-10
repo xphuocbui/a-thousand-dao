@@ -3,7 +3,7 @@
 > **Status**: Revised 2026-11-10 after the combat review: fatigue is a flat amount growing with n² (not a share of health), `time_limit` and the stalemate are retired, soul resistance may go below 0, ticks have no floor of 1 (user decisions). Revised 2026-11-09 for the Combat economy revision (#44), part 1 (fight length, fatigue, linh lực costs and regeneration, no tick caps; decisions in `design/research/economy-revision-44-decisions.md`; part 2 re-derived the ward-dependent numbers the same day). Earlier: revised 2026-11-08 for the Combat revision (#43): the defence path, wards, shields and healing move to Combat Defence & Healing (#21a); damage types and conversion to Combat Damage Types (#21b); modifier records, operations and scopes to the Modifier System (#40); statuses, curses and the Down step to the Effects System (#41). This GDD keeps the fight frame: the timeline, offence, the defeat check, results and the rating. Earlier: reworked 2026-11-06 to a timeline of seconds with no rounds (user decision); seventh review fixes applied the same day (ward pass clamp, since retired; defeat check judged after all of an instant's damage, a draw on equal overkill, guards read after the pulse), not re-reviewed; ninth-pass fixes applied the same day (wake-up events, ward expiry tie), not re-reviewed. Simulated numbers predate the timeline and are provisional. Earlier: fourth design-review fixes, cooldown timers and hit order, escape step, one health bar and wards
 > **Build status**: On hold (user decision 2026-11-06). The full fight is not built until items, techniques, abilities and passives exist. Until then fights keep using today's power duel (`CombatPower`, `combat_rules.json`) unchanged, so the Character Stats and Cultivation Techniques edits that cite this GDD describe the target, not the running game.
 > **Author**: user + agents
-> **Last Updated**: 2026-11-10 (review sweep `reviews/combat-review-2026-11-10/combat.md`: flat n² fatigue, `time_limit` and stalemate retired, soul resistance without a floor, no tick floor (user decisions); stale ACs re-based; resistance in points throughout). Earlier: 2026-11-10 (#44 follow-ups: resistance in points, regeneration curve, re-review fixes)
+> **Last Updated**: 2026-11-10 (third review round: tick formula in points, heal-versus-fatigue note, start-maximum art costs, `ward_cap` retired). Earlier: 2026-11-10 (review sweep `reviews/combat-review-2026-11-10/combat.md`: flat n² fatigue, `time_limit` and stalemate retired, soul resistance without a floor, no tick floor (user decisions); stale ACs re-based; resistance in points throughout). Earlier: 2026-11-10 (#44 follow-ups: resistance in points, regeneration curve, re-review fixes)
 > **Last Verified**: 2026-11-10 (confirming review, `reviews/combat-review-2026-11-10/round2/`; its leftovers applied)
 > **Implements Pillar**: Power Is Built, Not Given (3); Your Dao, Your Name (1); Every Number Is Bounded and Visible (2)
 
@@ -233,7 +233,10 @@ author's reading and wait for confirmation (see Open Questions).
       defeat check apply as usual, so a refusal can still save a side once. A typical side at full health falls to
       fatigue alone at 66 s, the thể tu (484.6 health) at 67 s, and the largest legal pool (n 8, `boss_pool_mult`
       10) at 90 s. Fatigue keeps long, sustain-heavy fights from stalling now that healing neither fades nor is
-      capped, and a big-pool boss outlasts its challenger in overtime, so a build that cannot kill it loses.
+      capped, and a big-pool boss outlasts its challenger in overtime, so a build that cannot kill it loses. Healing
+      cannot hold it off for long: a heal art is bounded by the heal lint and its cooldown, while fatigue grows
+      without bound (113.6 a pulse at 65 s, 381.8 at 70 s at Qi Refining); the harness checks the largest legal heal
+      stack (Combat Defence & Healing AC-CD-45, Open Question 11).
     - **No time limit** (user decision 2026-11-10). Fatigue grows without bound, so every fight ends in a knockout,
       a draw or a flight; `time_limit` and the stalemate are retired. A fight still running at 120 s is a bug the
       Balance Harness flags (AC-CB-29).
@@ -661,7 +664,7 @@ dealt; the drain bill is 0.1917 × 33.76 = **6.47** linh lực. With every ward 
 
 These formulas moved to Combat Defence & Healing in the Combat revision (#43, 2026-11-08):
 - ward strength, ward efficiency and artifact defence (`ws`, `we`, `a_w`, `a_b`, `ward_gear_scale` 0.30,
-  `ward_cap` 400, `ward_floor` −90): its Formulas A0;
+  `ward_floor` −90; `ward_cap` retired 2026-11-10): its Formulas A0;
 - resistance by damage type: A; block: A2; shields: B; the five payments: C; ward slots: D; healing: E; the
   ward price check: F; effective health: G; the starter wards: H.
 
@@ -676,7 +679,7 @@ D9) and `ward_art_duration`.
 
 The art_cost formula is defined as:
 
-`cost = cost_share · (1 − cost_red) · (1 + cost_raise) · qi_max` ; `affordable if pool_qi ≥ cost − 1e-6` ; `regen = qi_max · (regen_base + regen_k · ln(1 + regen_bonus / regen_k))` per pulse ; `body_cost = body_cost_share · health_max` ; with `art_cost_health_pct` X: linh lực pays `cost ÷ (1 + X / 100)` and health pays the rest, point for point, never below 1 health (user decision 2026-11-10)
+`cost = cost_share · (1 − cost_red) · (1 + cost_raise) · qi_max`, with `qi_max` read at the fight's start (a live change from Water stacks does not move costs; user decision 2026-11-10) ; `affordable if pool_qi ≥ cost − 1e-6` ; `regen = qi_max · (regen_base + regen_k · ln(1 + regen_bonus / regen_k))` per pulse ; `body_cost = body_cost_share · health_max` ; with `art_cost_health_pct` X: linh lực pays `cost ÷ (1 + X / 100)` and health pays the rest, point for point, never below 1 health (user decision 2026-11-10)
 
 **Variables:**
 
@@ -731,7 +734,7 @@ half takes **1.25 %**; a fifth takes **0**.
 
 The status_tick formula is defined as:
 
-`tick = U_src · stage_src · c_tick · stacks · L1..L4(tags) · supp · (1 − r_eff)`, with no cap (#44 item C3), where `r_eff` is the share stopped (`r_j` of Combat Defence & Healing Formulas A) by the target's resistance points for the status's damage type less the source's penetration points, both read when the status is applied (Combat revision D11) ; the tick then meets the shields it does not pass, and what reaches health is dealt exactly, with no floor of 1 (user decision 2026-11-10) ; `p_status = chance` when chance is 0 or 1, otherwise `clamp(chance · (1 − resist), 0.05, 0.95)`
+`raw = U_src · stage_src · c_tick · stacks · L1..L4(tags) · supp` ; `tick = raw ÷ (1 + R_eff / 100)` when R_eff ≥ 0 and `raw · (1 + |R_eff| / 100)` below 0, with no cap (#44 item C3), where `R_eff` is the target's resistance points for the status's damage type less the source's penetration points, both read when the status is applied (Combat Defence & Healing Formulas A; Combat revision D11) ; the tick then meets the shields it does not pass, and what reaches health is dealt exactly, with no floor of 1 (user decision 2026-11-10) ; `p_status = chance` when chance is 0 or 1, otherwise `clamp(chance · (1 − resist), 0.05, 0.95)`
 
 **Variables:**
 
@@ -956,7 +959,7 @@ wards run out makes this harder near R = 1.
 ### Parameter keys
 
 New in `combat_rules.json`: every `data file` value above. Defence keys (`default_resist`, `default_drain`,
-`ward_gear_scale`, `ward_cap`, `ward_floor` and the
+`ward_gear_scale`, `ward_floor` and the
 rest) live in its `defence` section and are owned by Combat Defence & Healing (Combat revision D18). New stat keys
 for Character Stats, all in percentage points unless noted, with W prices in the Modifier System's Stat List:
 `crit_chance_pct`, `crit_damage_pct`, `evade_pct`, `accuracy_pct`, `pierce_pct`, `art_speed_pct`, `art_cost_pct`,
@@ -1139,7 +1142,7 @@ elsewhere, such as `power_base` and `attack_pct` prices, stay in their own GDDs.
 | `basic_coef`, `art_coef_per_cost`, `art_coef_per_cooldown` | Art power against its cost |
 | `l1_soft_start`, `l1_soft_slope`, `layer_caps` | How far a build can scale |
 | `crit_chance_cap`, `crit_mult_cap`, `evade_cap` | How swingy fights are |
-| Defence knobs (`default_resist`, `default_drain`, `ward_gear_scale`, `ward_cap`, `ward_floor`, block, shields, healing) | Combat Defence & Healing's Tuning Knobs: how much wards, the body and healing hold |
+| Defence knobs (`default_resist`, `default_drain`, `ward_gear_scale`, `ward_floor`, block, shields, healing) | Combat Defence & Healing's Tuning Knobs: how much wards, the body and healing hold |
 | `regen_base`, `regen_k` | Sustain |
 | `stack_cap`, `curse_slots`, `curse_drain_raise_max`, `curse_cost_raise_max`, `curse_heal_taken_max`, `curse_reapply_lockout`, `curse_layer_lock_max`, `curse_tag_block_max`, `curse_duration_max` | Status and curse strength |
 | `pool_n_min`, `pool_n_max`, `duel.injured_power_floor` | Bounds on absurd stacks; the vitality floor |
@@ -1286,7 +1289,7 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 - **AC-CB-78** [Logic] Rule 3, Formulas A (D6). **GIVEN** FX-T at v 0.7 and starting shares 0.25 and 0.5, **THEN** health starts at 109.87 and linh lực at 86.37, below the vitality floor with no floor applied. **GIVEN** the same shares on FX-T with Still Lake reserving 0.4333, **THEN** linh lực starts at 48.95 (0.5 of the usable 97.90), not 86.37. **GIVEN** no shares, **THEN** the start is unchanged (AC-CB-10). **GIVEN** a linh lực share of 0, **THEN** it is accepted and linh lực starts at 0. **GIVEN** a health share of 0, a share above 1, or only one share, **THEN** the request is rejected.
 - **AC-CB-11** [Logic] Rules 3, 4. **GIVEN** a Physical hit, a Poison tick, a Qi Disruption tick and a soul hit, **WHEN** each resolves, **THEN** the hit meets evade, resistance, block, shields and health in that order; the Poison tick meets resistance and the shields it does not pass, never evade or block; the Qi Disruption tick meets resistance and comes off linh lực, passing every shield; and the soul hit meets only soul resistance and soul wards (numbers: AC-CD-01, 02, 03). **GIVEN** a curse, **THEN** it carries no damage type and changes no pool. **GIVEN** health at 0 after the instant and no refusal, **THEN** the side is Down with a mortal wound and acts no more. **GIVEN** linh lực at 0 and health above 0, **THEN** the fight goes on.
 - **AC-CB-12** Pointer (D15). The drain ward's numbers on FX-T (7.54 through resistance, bill 6.47, 6.59 dealt, the short-pool leak) are tested by AC-CD-22; the default ward's by AC-CD-32.
-- **AC-CB-13** Pointer (D15). Resistance in points with no cap or floor: AC-CD-09 (negative R amplifies), AC-CD-10 (share stopped; a cap raise is rejected). Ward strength cap: AC-CD-16. Drain bill across ws −90 to 400: AC-CD-24. Body guard is retired.
+- **AC-CB-13** Pointer (D15). Resistance in points with no cap or floor: AC-CD-09 (negative R amplifies), AC-CD-10 (share stopped; `resist_cap_pct` rejected at load). Ward strength floor, no ceiling: AC-CD-16. Drain bill across ws −90 to 400: AC-CD-24. Body guard is retired.
 
 **Layers and hits**
 

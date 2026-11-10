@@ -338,7 +338,10 @@ def act(s, o, t, rng, log):
                 if s.debuffs[0][1] <= 0:
                     s.debuffs.pop(0)
         if a.heal:
+            got0 = s.healed
             heal(s, s.U * a.heal * K["health_mult"])   # heal base scales with health_units (P2-2)
+            if s.healed > got0:   # refund what was paid when any health is restored (Combat Defence rule 16, 2026-11-10)
+                s.qi = min(s.qi_max(), s.qi + qi_part)
         if a.qi_restore:
             s.qi = min(s.qi_max(), s.qi + a.qi_restore * s.qi_max())
         if a.c:
@@ -406,7 +409,8 @@ def builds():
     T = Build("typical", arts=kit())
     S = Build("sustain", arts=kit(), M=M0, regen_bonus=0.015, cost_red=0.12)          # 12 W + 14.4 W
     Bu = Build("burst", arts=kit(cost=0.20))                                            # bigger, costlier arts
-    H = Build("healer", arts=[Art("mend", 0, 0.10, 3.0, heal=1.0)] + kit(), M=M0, healing=0.25, hregen=0.0)  # heal in slot 1
+    c_heal = 1.4 * (1.0 * (1 + 12 * 0.10) + 0.25 * (3.0 - 1))   # heal lint: heal_lint_ratio x the art lint (Combat Defence Formulas E)
+    H = Build("healer", arts=[Art("mend", 0, 0.10, 3.0, heal=c_heal)] + kit(), M=M0, healing=0.25, hregen=0.0)  # heal in slot 1
     F = Build("fire stacks", arts=kit(element="fire", dtype="elem", buff=(1, 10), debuff=(2, 6)))
     W = Build("water/wood", arts=kit(element="water", buff=(1, 15))[:2] + [Art("sap", 2.0, 0.08, 3, "wood", "elem", (1, 15), (1, 6))])
     I = Build("ice lock", arts=kit(element="ice", dtype="elem", debuff=(3, 8)))
