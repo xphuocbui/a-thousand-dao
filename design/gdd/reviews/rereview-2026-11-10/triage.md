@@ -34,3 +34,24 @@ Four headless Sonnet reviews (read-only), reports beside this file: `combat.md`,
   table "to 95 %"; Formulas A body shield 0.51; Formulas C and E examples; rule 9's frostbite and shock tags; AC-MD-07,
   08, 17, 21; new ACs for dampened, shifted costs and the new keys; header.
 - **Registry:** `dot_pool_cap` referenced_by; register the element-stack numbers; formula text for Formulas A, C, E.
+
+## User answers (2026-11-10)
+
+**All eight as recommended.** Apply Q1–Q8 with the mechanical fixes.
+
+## Progress (2026-11-10)
+
+- **Done (commit 49c60ac):** effects.md items and Q5 (owner noted), Q6, Q7; modifiers.md legend, `D` op, compose rule,
+  scope targets, `stack_grant` 10 W, "to 95 %", catalogue regenerated.
+- **Remaining:**
+  - **Q1 (largest):** resistance becomes dampen-shaped, `damage ÷ (1 + R/100)` with R in points, no cap. A typical ward must
+    still stop about 82 % at Qi Refining (R ≈ 455 points), so every resistance number changes: Combat Defence & Healing rule
+    3, Formulas A (anchors, example, cap and ceiling keys retired), the ward catalogue and price check, Formulas G (ehp),
+    penetration (points off R), curses that shred resistance (Sundered, Exposed: now dampen-shaped too), Earth's dampen
+    stack (adds to R?), the Modifier System's `resist_pct` / `resist_cap_pct` rows and prices, `combat.md` examples, the
+    simulator, and the registry. Do it as its own pass with the simulator to keep the typical mirror near 36–45 s.
+  - **combat-defence.md:** Q2 (stack damage-taken effects apply before resistance), Q3 (Water's live maximum; reservations
+    and shields stay as compiled), Q4 (heal refund = linh lực actually paid, only when health is restored), Q5 (the
+    cleanse ward payload, Clear Heart Ward), Q8 (body pieces re-priced down: Iron Body ≈ 15.8 W a tier, Black Iron
+    Armour ≈ 35 W, AC-CD-57 parity dropped), and its mechanical list.
+  - **combat.md** and **modifiers.md** mechanical lists (stale examples and ACs), and the **registry**.
