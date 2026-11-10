@@ -1253,8 +1253,9 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
   rating 4.4 (0.278 points).
 - **FX-C (chance fixture):** FX-T plus crit chance 0.30 at ×2.0, evade 0.20, one status at chance 0.50, one
   trigger at chance 0.50, and an escape art.
-- **Thể tu fixture:** Combat Defence & Healing's (Formulas G): block rating 88.3 (5.57 points), body shield 109.0,
-  Physical resistance 0.30 from body sources plus the default ward's all 0.30, health 121.15, linh lực 164.1.
+- **Thể tu fixture:** Combat Defence & Healing's (Formulas G): block rating 88.3 (5.57 points), body shield 436.1,
+  Physical resistance 36.1 points from body sources plus the default ward's all 60 points (Physical 96.1 points),
+  health 484.6, linh lực 164.1.
 
 **Fight shell and determinism**
 

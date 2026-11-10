@@ -2979,11 +2979,12 @@ constants:
     source: design/gdd/thien-kiep.md
     referenced_by:
       - design/gdd/thien-kiep.md
-    value: 0.75
+    # was: 0.75 (30 s at time_limit 40) before 2026-11-10; thien-kiep #44 pass set 0.5.
+    value: 0.5
     unit: share of time_limit
-    notes: "Guess. The baseline reference must kill a boss at the last wave's pool within 0.75 * time_limit (30 s)."
+    notes: "The baseline reference must kill a boss at the last wave's pool within 0.5 * time_limit (60 s, before Combat's fatigue starts; #44)."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-10
   - name: tribulation_enabled
     status: active
     source: design/gdd/thien-kiep.md
@@ -3292,21 +3293,23 @@ constants:
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
-    value: 0.3
-    unit: resistance share
-    notes: "The default ward's all resistance (every type except Soul); equals the old default ward (pass 0.70). Not scaled by ws or we. Re-review CD 13 (2026-11-08)."
+    # was: 0.3 (resistance share) before 2026-11-10; resistance moved to points (re-review Q1).
+    value: 60
+    unit: resistance points
+    notes: "The default ward's all resistance (every type except Soul), stopping 37.5 %. Not scaled by ws or we. Re-review CD 13 (2026-11-08); points since Q1 (2026-11-10)."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-10
   - name: default_drain
     status: active
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
-    value: 2.0
+    # was: 2.0 before 2026-11-10; #44 Part 2 drain x0.2.
+    value: 0.40
     unit: linh luc per point prevented
     notes: "The default ward's drain rate; not scaled by ws or we."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-10
   - name: heal_pulse_cap
     status: deprecated
     source: design/gdd/combat-defence.md

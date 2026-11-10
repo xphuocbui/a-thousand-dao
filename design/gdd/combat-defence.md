@@ -560,7 +560,7 @@ A soul shield is a ward shield passed by everything except Soul hits; it recharg
 shield. Soul-Guarding Lamp's shield is s_soul 0.50 with a bar of σ_soul 0.10 (G: a guess until the price check
 covers soul payloads, Open Question 8).
 
-**Example:** Mountain Screen gives **61.0**. The thể tu's body shield is 0.90 × 121.15 = **109.0**.
+**Example:** Mountain Screen gives **61.0**. The thể tu's body shield is 0.90 × 484.6 = **436.1**.
 
 ### C. Payments
 
