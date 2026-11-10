@@ -5,11 +5,11 @@ stack adds +1 % maximum linh lực and +0.05 pp linh lực regeneration. After #
 element**. Craft role: pill toxicity fades faster. Công pháp: Dark Water Earth Scripture (Huyền Thủy Địa Quyết),
 Dark Water Heaven Canon (Huyền Thủy Thiên Kinh). A pure Water root can transmute into Ice (variant).
 
-**Water's linh lực keystone (New, every Water build):** **The Spring Never Fails (Tuyền Bất Kiệt)**: the
-regeneration your Water stacks give ignores diminishing returns (the simulator says this adds little; a stronger
-form such as "+0.1 pp regeneration per Water stack, outside diminishing returns" is proposed in `notes.md`). How to create: Meridian Map keystone in the Water
-land; a rule change on Combat Formulas E for the Water-stack share of `regen_bonus`; closing cost "your maximum
-linh lực from other sources is halved".
+**Water's linh lực keystone (New, every Water build):** **The Spring Never Fails (Tuyền Bất Kiệt)**: each Water
+stack you hold adds +0.025 pp linh lực regeneration, outside diminishing returns (fitted 2026-11-10, `notes.md` § 9).
+How to create: Meridian Map keystone in the Water land; an Effect reading your Water stack count, payload a flat
+regeneration share that Combat Formulas E adds after the diminishing-returns step; closing cost "your maximum linh
+lực from other sources is halved".
 
 ---
 

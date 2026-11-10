@@ -574,7 +574,7 @@ and A is Down.
 
 The element stack formulas are defined as:
 
-`count(side, element, kind) = Σ live batches` ; buff and debuff effects are `per_stack · count` (rule 9a's table) ; a cleansing ward removes `cleanse_share · stacks` from every debuff batch on its side each pulse ; an art that grants stacks lints at `c_art ≤ lint · (1 − charge)`, where `charge = Σ w_kind · stacks · seconds` per firing, × 0.75 when it grants both buff and debuff stacks, with `charge ≤ 0.6`
+`count(side, element, kind) = Σ live batches` ; buff and debuff effects are `per_stack · count` (rule 9a's table) ; a cleansing ward removes `cleanse_share · stacks` from every debuff batch on its side each pulse ; an art that grants stacks lints at `c_art ≤ lint · (1 − charge)`, where `charge = Σ w_kind · stacks · seconds` per firing, buff and debuff charges simply add (the two-sided discount was removed 2026-11-10: re-measured at 1.00), with `charge ≤ 0.6`
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
@@ -589,11 +589,11 @@ pulse; the charge runs from 0 to 0.6, so an art that grants stacks keeps at leas
 **Why these weights.** Every element's per-stack numbers were fitted so that a typical kit granting 1 buff stack for
 10 s per firing breaks even with the typical build when it pays a 0.010 charge per stack-second, and a kit granting 2
 debuff stacks for 6 s per hit breaks even at 0.015 (the foe at 10 % evade, so accuracy and evade stacks act). Debuffs
-are worth more per stack-second because they can be cleansed. A kit granting both sides is worth less than the sum
-(Fire: 25 % measured against a 34 % sum), hence the 0.75.
+are worth more per stack-second because they can be cleansed. A kit granting both sides is worth the sum of the two
+(re-measured after equalising: factor 1.00 on average, `twosidefit.py`), so the charges add with no discount.
 
 **Example:** a Fire art (cost 0.075, cooldown 4 s, lint 3.55) granting 1 buff stack for 10 s and 2 Burn stacks for
-6 s per hit: charge = 0.75 × (0.010 × 10 + 0.015 × 12) = **0.21**, so c_art ≤ 3.55 × 0.79 = **2.80**. A cleansing ward
+6 s per hit: charge = 0.010 × 10 + 0.015 × 12 = **0.28**, so c_art ≤ 3.55 × 0.72 = **2.55**. A cleansing ward
 at 0.25 takes a batch of 8 Burn stacks to 6, then 4.5, then 3.4.
 
 ## Edge Cases
@@ -737,7 +737,7 @@ not prices. Safe ranges are design estimates.
 | Element stack values | rule 9a's table | ±50 % each | How much a stack does | Rule 9a, Formulas D |
 | `cleanse_share` | 0.25 per pulse | 0.25–0.5 | How fast a cleansing ward clears debuff piles | Formulas D |
 | Stack weights `w_kind` | buff 0.010, debuff 0.015 per stack-second | 0.008–0.012; 0.012–0.018 | What arts pay for granting stacks; refit rule 9a's numbers (`equalfit.py`) when these change | Formulas D |
-| Combined-grant factor, charge cap | 0.75; 0.6 | 0.6–0.9; 0.5–0.7 | Price of arts granting both sides; the least damage such an art keeps | Formulas D |
+| Charge cap | 0.6 | 0.5–0.7 | The least damage an art that grants stacks keeps (the two-sided factor was removed 2026-11-10) | Formulas D |
 
 ## Acceptance Criteria
 
@@ -828,7 +828,7 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-66** [Logic] Rule 9a, element tag. **GIVEN** a Metal-tagged art whose Physical is converted to Fire, granting stacks, **THEN** it grants Metal stacks, not Fire. **GIVEN** a record granting Chaos, Light or Darkness stacks, **THEN** load rejects it.
 - **AC-EF-67** [Logic] Rule 9a, debuff ticks. **GIVEN** a Burn batch applied while the applier has +40 % Fire damage, **WHEN** the applier's bonus later drops, **THEN** that batch still ticks with +40 %; a later batch uses the new value.
 - **AC-EF-68** [Logic] Formulas D, cleansing ward. **GIVEN** `cleanse_share` 0.25 and a Burn batch of 8, **THEN** it is 6, 4.5 and 3.375 after three pulses; a batch below 0.05 stacks is removed. **GIVEN** a cleanse art removing 5 stacks against batches of 3 (older) and 4, **THEN** the older is gone and the newer holds 2. **GIVEN** an element-wide cleanse, **THEN** every debuff batch of that element is removed and other elements stay.
-- **AC-EF-69** [Config/Data] Formulas D, lint. **GIVEN** a Fire art with cost 0.075, cooldown 4 s, 1 buff stack for 10 s and 2 Burn stacks for 6 s per hit, **THEN** its charge is 0.21 and c_art 2.80 passes, 2.81 fails. **GIVEN** an art whose charge would exceed 0.6, **THEN** the charge is 0.6. **GIVEN** an art granting no stacks, **THEN** its charge is 0.
+- **AC-EF-69** [Config/Data] Formulas D, lint. **GIVEN** a Fire art with cost 0.075, cooldown 4 s, 1 buff stack for 10 s and 2 Burn stacks for 6 s per hit, **THEN** its charge is 0.28 and c_art 2.55 passes, 2.56 fails. **GIVEN** an art whose charge would exceed 0.6, **THEN** the charge is 0.6. **GIVEN** an art granting no stacks, **THEN** its charge is 0.
 - **AC-EF-70** [Logic] Rule 5, overflow. **GIVEN** a full pool and regeneration of 6.05, **THEN** the overflow event carries 6.05 and Still Water restores 3.02 health with no cap. **GIVEN** a pool 2 short of full, **THEN** overflow is 4.05.
 
 **Data and UI**

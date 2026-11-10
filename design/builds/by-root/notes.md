@@ -141,3 +141,8 @@ These replace the table in § 1:
 because Formulas D still discounts two-sided kits by 0.75, a factor measured before the stacks were equalised. With
 equal-value stacks that discount looks too generous: re-measure it (likely back toward 1.0) before trusting the
 keystone numbers. Water's keystone needs a new effect (§ 1).
+
+**Update (2026-11-10, `twosidefit.py`):** the two-sided factor re-measured at **1.00** on average (Wind 0.76 to Fire and
+Wood 1.11), so Formulas D's 0.75 discount was removed: buff and debuff charges simply add. The keystone numbers above
+were fitted with the discount and will come out somewhat higher without it. **The Spring Never Fails** is now **+0.025 pp
+linh lực regeneration per Water stack, outside diminishing returns**.

@@ -111,6 +111,7 @@ class Build:
     k_poison_leech: float = 0.0  # Root Drinks the Rot: share of damage to a poisoned foe returned as linh luc
     k_prevented: float = 0.0  # The Stone Remembers: share of damage prevented (resistance and block) returned
     k_water_nodr: bool = False  # The Spring Never Fails: Water-stack regeneration skips diminishing returns
+    k_water_pp: float = 0.0   # The Spring Never Fails (2026-11-10): + this share of qi_max regen per Water stack, outside diminishing returns
     k_art: float = 0.0        # Breath Between Blows: share of qi_max per art fired
     k_frost: float = 0.0      # Frost Tithe: share of the foe's extra art cost (from your Ice stacks) you gain
     curse_wither: bool = False  # your hits apply Withering (healing taken -50 %) for 4 pulses
@@ -154,11 +155,12 @@ class Side:
 
     def regen(self):
         k = K["regen_k"]
+        extra = self.b.k_water_pp * self.count(self.buffs, "water") * self.qi_max()
         if self.b.k_water_nodr:
             other = self.b.regen_bonus
-            return self.qi_max() * (K["regen_base"] + other / (1 + other / k) + self.bsum("regen"))
+            return extra + self.qi_max() * (K["regen_base"] + other / (1 + other / k) + self.bsum("regen"))
         bonus = self.b.regen_bonus + self.bsum("regen")
-        return self.qi_max() * (K["regen_base"] + bonus / (1 + bonus / k))
+        return extra + self.qi_max() * (K["regen_base"] + bonus / (1 + bonus / k))
 
 
 def supp(att, dfn):

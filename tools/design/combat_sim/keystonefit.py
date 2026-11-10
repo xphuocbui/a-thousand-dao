@@ -14,7 +14,6 @@ def stack_kit(el, dtype, buff=(1, 10), debuff=(2, 6), drop_slow=False):
     buff = buff if wb else ()
     debuff = debuff if wd else ()
     charge = (wb * buff[0] * buff[1] if buff else 0) + (wd * debuff[0] * debuff[1] if debuff else 0)
-    if buff and debuff: charge *= 0.75
     arts = sim.kit(element=el, dtype=dtype, buff=buff, debuff=debuff)
     if drop_slow: arts = [a for a in arts if a.cd <= 6]
     for a in arts: a.c *= (1 - min(charge, 0.6))
