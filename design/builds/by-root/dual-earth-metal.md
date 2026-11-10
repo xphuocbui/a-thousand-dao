@@ -13,7 +13,7 @@ Breath (Metal, New).
 
 ## 1. The Iron Mountain (Thiết Sơn)
 
-**Concept.** A thể tu who cannot be cut: Physical resistance from Earth stacks, block from body gear, and the
+**Concept.** A thể tu who cannot be cut: Physical damage dampened by Earth stacks, block from body gear, and the
 Stone Remembers turning every blocked blow into linh lực.
 
 **How it fights.** Against Physical attackers the ward almost pays for itself. Fists (Physical) pile Metal debuff

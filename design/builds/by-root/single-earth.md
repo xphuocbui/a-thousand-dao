@@ -1,6 +1,6 @@
 # Single root: Earth (Thổ)
 
-**What Earth brings.** Physical damage. Buff: +1 % Physical resistance per stack. Debuff: −1 pp accuracy on the
+**What Earth brings.** Physical damage. Buff: Physical damage taken dampened per stack. Debuff: −1 pp accuracy on the
 foe, so the foe misses more against anyone with evade. Craft role: spirit field plots; formation upkeep is lower.
 Công pháp: Deep Earth Earth Scripture (Hậu Thổ Địa Quyết), Deep Earth Heaven Canon (Hậu Thổ Thiên Kinh), and the
 body art Dragon-Elephant (Long Tượng Công). Formation: Mountain Guard Array (Hộ Sơn Trận).
@@ -17,7 +17,7 @@ closing cost "your evade is 0".
 **Concept.** The more they hit the mountain, the more the mountain has to spend. A fortress whose ward is fed by
 the blows it stops.
 
-**How it fights.** Earth buff stacks raise Physical resistance; the keystone turns prevented damage into linh lực,
+**How it fights.** Earth buff stacks dampen Physical damage taken; the keystone turns prevented damage into linh lực,
 so the ward pays itself against Physical attackers. It wins by attrition at 40–55 s.
 
 **Stacks.**

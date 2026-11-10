@@ -2,7 +2,7 @@
 
 > **Status**: Approved for rules (lean design re-review 2026-11-06); numbers provisional until the Balance Harness measures `p_t` (Open Question 2)
 > **Author**: user + agents
-> **Last Updated**: 2026-11-06
+> **Last Updated**: 2026-11-06; 2026-11-10 (#44 follow-up: regeneration, health ×4, time limit and fatigue)
 > **Last Verified**: 2026-11-06
 > **Build status**: On hold with the full fight (Combat). Until `tribulation_enabled` is true, no tribulation runs and Realms' fallback stands: the roll's success stands
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2)
@@ -183,16 +183,16 @@ cap is never reached in play, and `wave_count` 6 at the defaults fails it (11.4)
 
 The carry_over formula is defined as:
 
-`h_next = health_end / health_max` ; `q_next = min(qi_max, qi_end + rest_pulses · qi_max · min(regen_base + regen_bonus, regen_cap)) / qi_max`
+`h_next = health_end / health_max` ; `q_next = min(qi_max, qi_end + rest_pulses · qi_max · (regen_base + regen_bonus / (1 + regen_bonus / regen_k))) / qi_max` (Combat Formulas E since #44: diminishing returns, no cap)
 
 **Variables:**
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | health_end, qi_end | float | health above 0; linh lực ≥ 0 | calculated (Combat result) | The player's pools when the wave ended |
-| health_max, qi_max | float | about 1,600 and 2,600 at typical Nascent Soul | calculated (Combat Formulas A) | Unchanged across waves |
+| health_max, qi_max | float | about 6,400 (×4 since #44) and 2,600 at typical Nascent Soul | calculated (Combat Formulas A) | Unchanged across waves |
 | rest_pulses | int | 0–12, default 8 (guess) | data file | Pulses of linh lực regeneration between waves |
-| regen_base, regen_bonus, regen_cap | float | 0.02; 0–0.06; 0.08 | Combat Formulas E | Regeneration per pulse |
+| regen_base, regen_bonus, regen_k | float | 0.035; ≥ 0; 0.08 | Combat Formulas E | Regeneration per pulse, with diminishing returns on the bonus (#44) |
 | h_next, q_next | float | above 0 to 1; 0 to 1 | calculated | Starting shares sent to Combat for the next wave |
 
 Wave 1 starts by Combat's ordinary rule, with its vitality floor. Later waves start from these shares exactly, with
@@ -262,7 +262,7 @@ The data lint checks every record in `tribulation_bosses.json`. Each of the valu
 | Multiplier | `1 ≤ boss_pool_mult ≤ bm_max`, and `bm_max ≤ pool_ramp` |
 | Ramp | `pool_ramp ≥ 1`, and `bm_max · pool_ramp ^ (wave_count − 1) ≤ m_cap` |
 | Power band | r_b against the baseline reference is within `band_min` 0.10 and `band_max` 0.35 |
-| Kill time | The baseline reference kills the boss at the last wave's `m_eff` within 0.75 · `time_limit` (`stall_share`, 30 s), by the Combat Formulas K estimate, so no boss forces a stalemate |
+| Kill time | The baseline reference kills the boss at the last wave's `m_eff` within 0.5 · `time_limit` (`stall_share`, 60 s, before Combat's fatigue starts; #44), by the Combat Formulas K estimate, so no boss forces a stalemate |
 | Soul share | At most `soul_share_max` 0.5 of the boss's offence is soul |
 | Arts | 2 to 5 arts, each passing Combat's art lint, and no escape art: a boss's flight would end a wave with no knockout |
 | Realm | A boss record has no `equiv_realm` key (rule 6): a record that carries one is rejected |
@@ -331,7 +331,7 @@ The tempered_buff formula is defined as:
 - **Stacking pure defence:** a stalemate is death (rule 8).
 - **Healing between waves:** health carries exactly and the rest touches only linh lực.
 - **Reloading to learn the draw:** a changed setup draws again, so a death teaches nothing about the next try. The cost, accepted by the user (design review 2026-11-06), is that a small setup change re-rolls the draw for free after a reload. Reloading to before the attempt is allowed, as with any save: the death is final for an ironman save, and this system adds no lock of its own.
-- **Maximum sustain:** bounded by `regen_cap` and the limit on `rest_pulses`.
+- **Maximum sustain:** bounded by regeneration's diminishing returns (`regen_k`) and the limit on `rest_pulses`.
 
 ## Dependencies
 
@@ -380,7 +380,7 @@ All live in `tribulation_rules.json` unless stated, and are guesses until the Ba
 | `bm_max` | 1.0–`pool_ramp` | 1.5 | How far one boss can stand apart from the ramp |
 | `rest_pulses` | 0–12 | 8 | Linh lực recovered between waves; the reward for sustain builds |
 | `band_min`, `band_max` | 0.05–0.50 (min below max) | 0.10, 0.35 | Boss power against a baseline build; sets the baseline target |
-| `stall_share` | 0.5–0.9 | 0.75 | How long a baseline build may take to kill a boss, as a share of `time_limit` |
+| `stall_share` | 0.4–0.6 | 0.5 (#44: 60 s, before fatigue) | How long a baseline build may take to kill a boss, as a share of `time_limit` |
 | `soul_share_max` | 0.2–0.7 | 0.5 | How much of a boss's offence may be soul, which most builds cannot ward |
 | `kind_share_max`, `pool_target` | 0.34–0.7; 3–12 | 0.5; 6 | How varied a pool must be, so no build type dominates the draw |
 | `tempered_buff_w` | 0–120 | 60 | Size of the survivor's lasting buff |
@@ -441,7 +441,7 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 
 **Fixtures.** Used throughout unless stated; full precision, tolerance ±0.0001.
 
-- **FX-R:** `wave_count` 3, `pool_ramp` 1.5, `bm_max` 1.5, `m_cap` 10, `rest_pulses` 8, `regen_base` 0.02, `regen_cap` 0.08, `time_limit` 40, band 0.10–0.35, `stall_share` 0.75, `soul_share_max` 0.5, `kind_share_max` 0.5, `pool_target` 6, `tempered_buff_w` 60, `tribulation_enabled` true.
+- **FX-R:** `wave_count` 3, `pool_ramp` 1.5, `bm_max` 1.5, `m_cap` 10, `rest_pulses` 8, `regen_base` 0.035, `regen_k` 0.08, `time_limit` 120, band 0.10–0.35, `stall_share` 0.5, `soul_share_max` 0.5, `kind_share_max` 0.5, `pool_target` 6, `tempered_buff_w` 60, `tribulation_enabled` true.
 - **FX-P:** Nascent Soul great perfection, `health_max` 1,600, `qi_max` 2,600, v 1.0, `regen_bonus` 0, Off 1,500, ehp 9,400 (also the lint baseline).
 - **FX-B:** boss, Off 400, ehp 8,000, `boss_pool_mult` 1.0, 2 arts, soul share 0.25, a fixture `reward`.
 - **FX-POOL:** six FX-B: B1, B2 (`main_kind` body), Q1, Q2 (qi), S1, S2 (soul), weights 2, 1, 2, 1, 2, 1, each with its own `reward` and its offence shares set to match.
@@ -485,9 +485,9 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 
 **Carry-over** (all OQ1) [Logic]. Integration ACs here use real Combat. When the next wave is requested:
 
-- **AC-TK-25** Rule 7. Given a wave ending at 700 health, then h is 0.4375.
-- **AC-TK-26** Formulas B. Given 300 linh lực at wave end, then q is 0.27538.
-- **AC-TK-27** Formulas B. Given 300 and `regen_bonus` 0.06 or 0.10, then q is 0.75538 (`regen_cap`).
+- **AC-TK-25** Rule 7. Given a wave ending at 2,800 health (health_max 6,400), then h is 0.4375.
+- **AC-TK-26** Formulas B. Given 300 linh lực at wave end, then q is 0.39538 (8 pulses at 3.5 %).
+- **AC-TK-27** Formulas B. Given 300 and `regen_bonus` 0.06, then q is 0.66967; given 0.10, q is 0.75094 (diminishing returns, `regen_k` 0.08).
 - **AC-TK-28** Formulas B. Given 2,400, then q is 1.0.
 - **AC-TK-29** Edge. Given 0, then q is 0.16; at `rest_pulses` 0, q is 0.
 - **AC-TK-30** Edge. Given 300 and a regeneration curse active at wave end, then q is 0.27538.
@@ -503,7 +503,7 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 
 - **AC-TK-38** Rule 8. Given player Down, then the run is Failed and no wave 3 request is sent.
 - **AC-TK-39** Edge. Given a draw at 1 health, `wound: grave`, then Failed.
-- **AC-TK-40** Edge. Given a stalemate at 40 s with 1,500 health, then Failed.
+- **AC-TK-40** Edge. Given a wave still running at 73 s with both sides falling to fatigue together (a draw), then Failed; given a stalemate at 120 s, then Failed.
 - **AC-TK-41** Edge. Given the player Fled with boss health above 0, then Failed.
 - **AC-TK-42** Edge. Given the player Fled, boss health 0, Combat reporting a knockout win, then the wave clears.
 - **AC-TK-43** Edge, OQ1. Given a double-knockout win at 1 health, then the wave clears and next h is 0.000625.

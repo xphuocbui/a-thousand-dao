@@ -446,3 +446,4 @@ element's debuff about the same, buffs and debuffs treated separately**. Plan (C
   1.0 % buff value), replacing +8 pp Physical resistance. **Wind's 0.5 s cooldown floor is kept** (a pacing floor, not
   a reduction cap; Overheat turns the excess into damage).
 - **R5 (user, 2026-11-10): Parts 4 and 5 accepted as applied.** Their "provisional" marks are removed.
+- **thien-kiep.md follow-up applied 2026-11-10:** rest formula uses the #44 regeneration (diminishing returns, base 3.5 %), health ×4 in examples, `stall_share` 0.75 → **0.5** (60 s, before fatigue; Claude's choice), FX-R and AC-TK-25/26/27/40 updated.

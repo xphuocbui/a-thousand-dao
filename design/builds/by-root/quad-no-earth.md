@@ -1,7 +1,7 @@
 # Quad root without Earth: Wood, Fire, Metal, Water (Mộc, Hỏa, Kim, Thủy)
 
 **What the root brings.** Three generating pairs (Metal → Water → Wood → Fire, +9 %); Fire with Metal can converge
-into Thunder. Mana, regeneration and damage buffs; Poison, Burn and Metal debuffs. No Earth: no resistance buff, so
+into Thunder. Mana, regeneration and damage buffs; Poison, Burn and Metal debuffs. No Earth: no Physical dampening buff, so
 this root is fragile and fierce.
 
 ---

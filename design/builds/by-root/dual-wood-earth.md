@@ -1,7 +1,7 @@
 # Dual root: Wood and Earth (Mộc, Thổ)
 
 **What the pair brings.** An overcoming pair (Wood breaks Earth): no speed bonus, but a strong story of roots
-cracking stone. Wood's health regeneration and Poison; Earth's Physical resistance and accuracy debuff. Crafts: the
+cracking stone. Wood's health regeneration and Poison; Earth's Physical dampening and accuracy debuff. Crafts: the
 farmer's root, herbs and fields together. Linh lực keystones: Root Drinks the Rot (Wood, New), The Stone Remembers
 (Earth, New).
 

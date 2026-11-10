@@ -33,7 +33,7 @@ arts burn the foe.
 
 **Concept.** A thể tu of baked mud: Earth resistance, Water to soften blows, Fire to harden the shell when hit.
 
-**How it fights.** Each Fire art fired restores body shield; Earth buff stacks resist Physical; Water stacks keep
+**How it fights.** Each Fire art fired restores body shield; Earth buff stacks dampen Physical damage; Water stacks keep
 the pool for the ward.
 
 **Stacks.**
