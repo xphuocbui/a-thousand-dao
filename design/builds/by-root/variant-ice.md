@@ -4,8 +4,8 @@
 buff): each stack makes the foe's arts cost +1 %, with no cap and past Heavy Breath's curse cap. Role: pill-toxicity
 resistance. After #44, when linh lực is life, Ice attacks the foe's life directly.
 
-**Ice's linh lực keystone (New, every Ice build):** **Frost Tithe (Sương Thuế)**: you gain linh lực equal to the
-extra cost your Ice stacks make the foe pay (about 100 %, starting number, `notes.md`). How to create: Meridian Map keystone in the Water land's Ice reach; an
+**Ice's linh lực keystone (New, every Ice build):** **Frost Tithe (Sương Thuế)**: you gain 9 % of the
+extra cost your Ice stacks make the foe pay as linh lực (starting number, `notes.md` § 9). How to create: Meridian Map keystone in the Water land's Ice reach; an
 Effect on the foe's art-cost event (readable: the extra cost from your stacks), action "restore linh lực".
 
 ---

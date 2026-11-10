@@ -2327,7 +2327,7 @@ constants:
       - design/gdd/combat.md
     value: 0.08
     unit: fraction per pulse
-    notes: "Diminishing returns on the linh luc regeneration bonus: bonus/(1+bonus/regen_k); replaces regen_cap (#44 item B2)."
+    notes: "Scale of the log curve on the linh luc regeneration bonus: regen_k * ln(1 + bonus/regen_k), no ceiling (2026-11-10; was bonus/(1+bonus/regen_k)); replaces regen_cap (#44 item B2)."
     added: 2026-11-09
     revised: ""
   - name: pulse_interval

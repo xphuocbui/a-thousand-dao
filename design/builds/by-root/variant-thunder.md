@@ -6,7 +6,7 @@ damage. Công pháp: Thunder Emperor True Canon (Lôi Đế Chân Kinh). Đạo:
 island on the map starts here.
 
 **Thunder's linh lực keystone (New, every Thunder build):** **Storm Battery (Lôi Trì)**: every crit restores
-1.9 % of maximum linh lực (starting number, `notes.md`). How to create: Meridian Map keystone on the Thunder island; an Effect on the crit event
+1.9 % of maximum linh lực (starting number, `notes.md` § 9). How to create: Meridian Map keystone on the Thunder island; an Effect on the crit event
 (any type), payload `linh_luc_on_crit_pct`; closing cost "your non-crit hits deal 10 % less".
 
 ---

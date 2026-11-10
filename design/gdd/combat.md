@@ -663,7 +663,7 @@ D9) and `ward_art_duration`.
 
 The art_cost formula is defined as:
 
-`cost = cost_share · (1 − cost_red) · (1 + cost_raise) · qi_max` ; `affordable if pool_qi ≥ cost − 1e-6` ; `regen = qi_max · (regen_base + regen_bonus / (1 + regen_bonus / regen_k))` per pulse ; `body_cost = body_cost_share · health_max` ; with `art_cost_health_pct` X: linh lực pays `cost ÷ (1 + X / 100)` and health pays the rest, point for point, never below 1 health (user decision 2026-11-10)
+`cost = cost_share · (1 − cost_red) · (1 + cost_raise) · qi_max` ; `affordable if pool_qi ≥ cost − 1e-6` ; `regen = qi_max · (regen_base + regen_k · ln(1 + regen_bonus / regen_k))` per pulse ; `body_cost = body_cost_share · health_max` ; with `art_cost_health_pct` X: linh lực pays `cost ÷ (1 + X / 100)` and health pays the rest, point for point, never below 1 health (user decision 2026-11-10)
 
 **Variables:**
 
@@ -674,7 +674,7 @@ The art_cost formula is defined as:
 | cost_raise | float | 0–0.5 | calculated | Curse raise |
 | regen_base | float | 0.035 (was 0.02; #44 item B1) | data file | Regeneration per pulse |
 | regen_bonus | float | ≥ 0 | calculated (key `linh_luc_regen_pct`, plus Water stacks) | Sustain bonus, before diminishing returns |
-| regen_k | float | 0.08 | data file | Diminishing returns on the bonus (replaces `regen_cap`, #44 item B2): +6 pp of bonus counts as +3.43 pp, +30 pp as +6.32 pp; the bonus never counts past +8 pp, so no source is ever wasted and nothing runs away |
+| regen_k | float | 0.08 | data file | Diminishing returns on the bonus, a log curve with no ceiling (user decision 2026-11-10, "no caps"; replaced `bonus / (1 + bonus / k)`, which levelled off at +8 pp): +6 pp of bonus counts as +4.48 pp, +30 pp as +12.47 pp, +100 pp as +20.82 pp |
 | body_cost_share | float | 0.01–0.04 (halved with `cost_share`) | data file (art record, optional) | An art paid in health; the art lint counts it as 2 × `cost_share`. It is not damage and cannot take health below 1. An Effect's health payment is different: it can put the side Down (Effects System rule 6; Combat revision D14) |
 
 **Output Range:** linh lực runs 0 to the usable maximum, `qi_max · (1 − Σ reserved)`. Art costs and regeneration
@@ -683,7 +683,7 @@ regeneration and heals are Combat Defence & Healing's Formulas E.
 
 **Example:** typical at Qi Refining, `cost_share` 0.075 costs 12.96 and regeneration is 6.05. With nothing incoming a 1 s art
 fires **24 times** in a row, then about every other second on regeneration. A regeneration bonus of +6 pp gives
-6.93 % a pulse, 11.97. Under #44 the FX-T mirror runs dry at 10 s and ends at 34 s (AC-CB-30).
+7.98 % a pulse, 13.78. Under #44 the FX-T mirror runs dry at 10 s and ends at 34 s (AC-CB-30).
 
 ### E2. Soul attacks
 
@@ -1303,7 +1303,7 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 - **AC-CB-76** [Logic] Rule 10, hit order. **GIVEN** a side firing two arts, the basic attack and a companion in one instant against FX-T with linh lực for one full drain bill, **THEN** the first slot's hit is billed in full, the second is billed what remains and its unpaid share leaks (Combat Defence & Healing Formulas C), and the basic attack and the companion land after them in that order; swapping the slot order swaps which hit is billed in full. **GIVEN** the same inputs twice, **THEN** the log order is identical. A side that goes Down in an instant still lands its whole hit list for that instant.
 - **AC-CB-77** [Logic] Rule 13, Formulas A2. **GIVEN** no bonus sources, **THEN** `slot_count` is 3 / 4 / 5 / 6 / 7 by realm. **GIVEN** Core Formation with one source, **THEN** 6; **GIVEN** Qi Refining with three, **THEN** 6, with no cap on sources. A talisman, the escape art and a ward in an art slot each take a slot; the basic attack and wards in ward slots do not. **GIVEN** more arts than slots, **THEN** only the earliest slots enter the fight.
 - **AC-CB-33** [Logic] Rule 13, edge cases. **GIVEN** a talisman with stock 1, **THEN** it fires once and is skipped afterwards. **GIVEN** no usable main method, **THEN** the character fights with its other arts and the basic attack: Physical, tags physical, hit, art and basic, coefficient 1.0, no cost.
-- **AC-CB-34** [Logic] Formulas E. **GIVEN** cost_share 0.075 at `qi_max` 172.74, **THEN** the cost is 12.96 and regeneration 6.05, and with nothing incoming a 1 s art fires 24 times in a row. **GIVEN** Still Lake reserving 0.4333, **THEN** the cost and regeneration are unchanged and the art fires 13 times in a row. **GIVEN** pool exactly equal to the cost, **THEN** the art fires. **GIVEN** a regeneration bonus of +6 pp, +30 pp and +100 pp, **THEN** regeneration is 6.93 %, 9.82 % and 10.91 % of `qi_max` a pulse (`regen_k` 0.08), and it never reaches 11.5 %. The pool never exceeds its usable maximum.
+- **AC-CB-34** [Logic] Formulas E. **GIVEN** cost_share 0.075 at `qi_max` 172.74, **THEN** the cost is 12.96 and regeneration 6.05, and with nothing incoming a 1 s art fires 24 times in a row. **GIVEN** Still Lake reserving 0.4333, **THEN** the cost and regeneration are unchanged and the art fires 13 times in a row. **GIVEN** pool exactly equal to the cost, **THEN** the art fires. **GIVEN** a regeneration bonus of +6 pp, +30 pp and +100 pp, **THEN** regeneration is 7.98 %, 15.97 % and 24.32 % of `qi_max` a pulse (`regen_k` 0.08, log curve), and keeps rising with more bonus. The pool never exceeds its usable maximum.
 - **AC-CB-35** [Logic] Rule 11, edge cases. **GIVEN** 100 Stagnation stacks and regeneration of 6.05 linh lực and 4.0 health a pulse, **THEN** 3.03 and 2.0 are restored; at 200 stacks 2.02 and 1.33; at any count regeneration stays above 0. **GIVEN** a soul attack that empties linh lực, **THEN** drain, per-hit and default wards are down and reserved wards stay up. No rule stops a side spending to 0.
 - **AC-CB-36** [Logic] Formulas I, escape. **GIVEN** e_art 0.55, one realm below a locking pursuer, **THEN** p is 0.30. A failed escape pays its cost and cooldown. The roll comes `escape_channel` after the art fires, and hits landing in the channel apply. A success gives Fled and a flight result. A side whose health is 0 or below when its channel ends does not flee. If both escape in one instant, the fight ends in flight with no winner. If the other side's health is 0 or below at that point, it is a win. A channel whose roll would fall after `time_limit` never rolls, and the fight is a stalemate.
 - **AC-CB-37** [Logic] Formulas I, evade. Evade 0.25, accuracy 0.05, defender one realm up gives 0.22. Evade 0.60 stops at 0.40. Evade below accuracy gives 0. At evade 0.40, soul hits and ticks are never evaded over 1,000 rolls. An evaded hit deals nothing and fires no on-hit trigger.

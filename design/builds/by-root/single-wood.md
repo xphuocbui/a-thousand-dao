@@ -5,8 +5,8 @@ regeneration; its debuff is **Poison**, Chaos ticks that pass every shield. Craf
 Green Wood Earth Scripture (Thanh Mộc Địa Quyết), Green Wood Heaven Canon (Thanh Mộc Thiên Kinh). Formation: Green
 Wood Array (Thanh Mộc Trận).
 
-**Wood's linh lực keystone (New, every Wood build):** **Root Drinks the Rot (Căn Ẩm Hủ)**: 1.8 % of the damage
-you deal to a target bearing your Poison returns as linh lực (starting number, `notes.md`). How to create: Meridian Map keystone in the Wood land; an Effect
+**Wood's linh lực keystone (New, every Wood build):** **Root Drinks the Rot (Căn Ẩm Hủ)**: 3.7 % of the damage
+you deal to a target bearing your Poison returns as linh lực (starting number, `notes.md` § 9). How to create: Meridian Map keystone in the Wood land; an Effect
 (reads the target's Wood debuff count) whose payload is `leech_linh_luc_pct` scoped to poisoned targets; closing cost "your leech is 0
 against an unpoisoned target".
 

@@ -117,6 +117,7 @@ class Build:
     curse_wither: bool = False  # your hits apply Withering (healing taken -50 %) for 4 pulses
     curse_stagnate: bool = False  # your hits apply Stagnation (no regeneration) for 3 pulses
     arts: list = field(default_factory=list)
+    purity: dict = field(default_factory=dict)  # element -> purity; stacks x (1 + 0.002 P), Water/Ice share half (Spiritual Roots rule 8a)
 
 
 class Side:
@@ -145,10 +146,10 @@ class Side:
         return sum(x[1] for x in lst if x[0] == el)
 
     def bsum(self, key):
-        return sum(BUFF.get(x[0], {}).get(key, 0.0) * x[1] for x in self.buffs)
+        return sum(BUFF.get(x[0], {}).get(key, 0.0) * x[1] * stack_power(self.b, x[0]) for x in self.buffs)
 
     def dsum(self, key):
-        return sum(DEBUFF.get(x[0], {}).get(key, 0.0) * x[1] for x in self.debuffs)
+        return sum(DEBUFF.get(x[0], {}).get(key, 0.0) * x[1] * stack_power(x[3].b, x[0]) for x in self.debuffs)
 
     def qi_max(self):
         return self.qi_base * (1 + self.bsum("qi_max"))
@@ -158,9 +159,19 @@ class Side:
         extra = self.b.k_water_pp * self.count(self.buffs, "water") * self.qi_max()
         if self.b.k_water_nodr:
             other = self.b.regen_bonus
-            return extra + self.qi_max() * (K["regen_base"] + other / (1 + other / k) + self.bsum("regen"))
+            return extra + self.qi_max() * (K["regen_base"] + k * math.log(1 + other / k) + self.bsum("regen"))
         bonus = self.b.regen_bonus + self.bsum("regen")
-        return extra + self.qi_max() * (K["regen_base"] + bonus / (1 + bonus / k))
+        return extra + self.qi_max() * (K["regen_base"] + k * math.log(1 + bonus / k))  # log curve, no cap (2026-11-10)
+
+
+def stack_power(build, el):
+    """Spiritual Roots Formulas H: 1 + 0.002 * P, Water and Ice adding half of each other's purity."""
+    p = build.purity.get(el, 0.0)
+    if el == "water":
+        p += 0.5 * build.purity.get("ice", 0.0)
+    elif el == "ice":
+        p += 0.5 * build.purity.get("water", 0.0)
+    return 1 + 0.002 * p
 
 
 def supp(att, dfn):
@@ -242,7 +253,7 @@ def pulse(s, o, t, log):
         c = d.get("burn", 0.0) + d.get("poison", 0.0)
         if c:
             more = 1 + src.bsum("dmg")
-            tick = src.U * c * n * src.b.M * more * supp(src, s)
+            tick = src.U * c * n * src.b.M * more * supp(src, s) * stack_power(src.b, el)
             r = resist(s, "elem") if s.qi > 0 else 0.0
             prevented = tick * r
             bill = prevented * s.b.drain * K["drain_scale"]

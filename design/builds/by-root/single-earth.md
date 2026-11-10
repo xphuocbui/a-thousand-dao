@@ -5,8 +5,8 @@ foe, so the foe misses more against anyone with evade. Craft role: spirit field 
 Công pháp: Deep Earth Earth Scripture (Hậu Thổ Địa Quyết), Deep Earth Heaven Canon (Hậu Thổ Thiên Kinh), and the
 body art Dragon-Elephant (Long Tượng Công). Formation: Mountain Guard Array (Hộ Sơn Trận).
 
-**Earth's linh lực keystone (New, every Earth build):** **The Stone Remembers (Thạch Ký)**: 1.1 % of the damage
-your block and resistance prevent returns as linh lực (starting number, `notes.md`). How to create: Meridian Map keystone in the Earth land; an
+**Earth's linh lực keystone (New, every Earth build):** **The Stone Remembers (Thạch Ký)**: 0.9 % of the damage
+your block and resistance prevent returns as linh lực (starting number, `notes.md` § 9). How to create: Meridian Map keystone in the Earth land; an
 Effect on the "damage prevented" read (new readable: prevented points per hit), action "restore linh lực";
 closing cost "your evade is 0".
 

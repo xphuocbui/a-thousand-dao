@@ -183,7 +183,7 @@ cap is never reached in play, and `wave_count` 6 at the defaults fails it (11.4)
 
 The carry_over formula is defined as:
 
-`h_next = health_end / health_max` ; `q_next = min(qi_max, qi_end + rest_pulses · qi_max · (regen_base + regen_bonus / (1 + regen_bonus / regen_k))) / qi_max` (Combat Formulas E since #44: diminishing returns, no cap)
+`h_next = health_end / health_max` ; `q_next = min(qi_max, qi_end + rest_pulses · qi_max · (regen_base + regen_k · ln(1 + regen_bonus / regen_k))) / qi_max` (Combat Formulas E: a log curve, no cap)
 
 **Variables:**
 
@@ -487,7 +487,7 @@ Evidence: `tests/unit/tribulation/`, `tests/integration/tribulation/`, `producti
 
 - **AC-TK-25** Rule 7. Given a wave ending at 2,800 health (health_max 6,400), then h is 0.4375.
 - **AC-TK-26** Formulas B. Given 300 linh lực at wave end, then q is 0.39538 (8 pulses at 3.5 %).
-- **AC-TK-27** Formulas B. Given 300 and `regen_bonus` 0.06, then q is 0.66967; given 0.10, q is 0.75094 (diminishing returns, `regen_k` 0.08).
+- **AC-TK-27** Formulas B. Given 300 and `regen_bonus` 0.06, then q is 0.75354; given 0.10, q is 0.91438 (log curve, `regen_k` 0.08).
 - **AC-TK-28** Formulas B. Given 2,400, then q is 1.0.
 - **AC-TK-29** Edge. Given 0, then q is 0.16; at `rest_pulses` 0, q is 0.
 - **AC-TK-30** Edge. Given 300 and a regeneration curse active at wave end, then q is 0.27538.

@@ -7,8 +7,7 @@ sharpest Metal there is. Công pháp: Canh Kim Earth Scripture (Canh Kim Địa 
 Thiên Kinh), and the body art Diamond Body (Kim Cang Thể).
 
 **Metal's linh lực keystone (New, every Metal build):** **Edge Returns the Breath (Phong Hồi Khí)**: each crit
-with a Physical hit restores about 0.5 % of maximum linh lực (the simulator says the Metal kit barely needs it;
-`notes.md`). How to create: a keystone in the Metal land of the
+with a Physical hit restores 0.8 % of maximum linh lực (starting number, `notes.md` § 9). How to create: a keystone in the Metal land of the
 Meridian Map; an Effect (trigger on crit) whose payload is `linh_luc_on_crit_pct`, closing cost "your
 non-Physical hits cannot crit".
 

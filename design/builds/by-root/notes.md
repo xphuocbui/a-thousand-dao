@@ -146,3 +146,22 @@ keystone numbers. Water's keystone needs a new effect (§ 1).
 Wood 1.11), so Formulas D's 0.75 discount was removed: buff and debuff charges simply add. The keystone numbers above
 were fitted with the discount and will come out somewhat higher without it. **The Spring Never Fails** is now **+0.025 pp
 linh lực regeneration per Water stack, outside diminishing returns**.
+
+## 10. Keystone numbers, current (2026-11-10)
+
+Re-fit after removing the two-sided discount and switching linh lực regeneration to the log curve, at purity 0
+(`keystonefit.py`). These replace § 1's and § 9's tables:
+
+| Keystone | Starting number |
+|---|---|
+| Edge Returns the Breath (Metal) | **0.8 %** of maximum linh lực per Physical crit |
+| Storm Battery (Thunder) | **1.9 %** per crit (non-crit hits −10 %) |
+| Embers Feed the Hearth (Fire) | **25 %** of each Burn tick's damage (direct Fire −15 %) |
+| Root Drinks the Rot (Wood) | **3.7 %** of damage to a poisoned foe |
+| The Stone Remembers (Earth) | **0.9 %** of damage stopped |
+| Breath Between Blows (Wind) | **1.2 %** per art fired (no art over 6 s) |
+| Frost Tithe (Ice) | **9 %** of the extra cost your Ice stacks add |
+| The Spring Never Fails (Water) | **+0.025 pp** regeneration per Water stack, outside the curve |
+
+Purity now multiplies stacks in the simulator too: a priced Fire kit wins 33 % at purity 0, 42 % at 50, 46 % at 100
+and 58 % at 200 against the typical build, so real roots (purity 50 on average) sit a little above these fits.

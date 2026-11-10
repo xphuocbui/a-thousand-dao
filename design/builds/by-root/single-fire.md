@@ -6,7 +6,7 @@ Crimson Flame Earth Scripture (Xích Diễm Địa Quyết), Crimson Flame Heave
 Fireball (Hỏa Cầu Phù). A Fire root can transmute into Light (variant).
 
 **Fire's linh lực keystone (New, every Fire build):** **Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô)**: each Burn
-tick you deal restores linh lực equal to 15 % of its damage (starting number, `notes.md`). How to create: Meridian Map keystone in the Fire
+tick you deal restores linh lực equal to 25 % of its damage (starting number, `notes.md` § 9). How to create: Meridian Map keystone in the Fire
 land; an Effect on the tick event, action "restore linh lực"; closing cost "your direct Fire hits deal 15 %
 less".
 

@@ -5,7 +5,7 @@ stacks: −1 pp evade on the foe. Role: travel speed. Công pháp: Wind Walk Art
 on the map sits between Water and Wood, and the Thunder island joins it.
 
 **Wind's linh lực keystone (New, every Wind build):** **Breath Between Blows (Gian Tức)**: each art you fire
-restores 0.8 % of maximum linh lực (starting number, `notes.md`). How to create: Meridian Map keystone in the Wind land; an Effect on the
+restores 1.2 % of maximum linh lực (starting number, `notes.md` § 9). How to create: Meridian Map keystone in the Wind land; an Effect on the
 art-fired event, action "restore linh lực"; closing cost "your arts with an authored cooldown above 6 s cannot be
 slotted".
 
