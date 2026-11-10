@@ -46,8 +46,8 @@
   - **Major: The Forest Fights (Rừng Chiến).** Your companion's hits apply 2 Poison stacks and grant you 1 Wood
     buff stack.
   - Minor: Home Grove (Rừng Nhà). On forest ground your Wood buff stacks are 50 % stronger.
-  - Minor: Shared Root (Cộng Căn). Your companion heals for 20 % of your health regeneration each pulse.
-    `Needs rule` (companions have no health today; it lowers its own damage taken instead: L4 −).
+  - Minor: Shared Root (Cộng Căn). Your companion's power share rises by 1 % per 10 Wood buff stacks you hold
+    (cap +10 %, inside `c_comp_cap`).
 
 ### 4. Rễ (Roots)
 - **Small:** `leech_health_pct` +0.3 · `attack_pct` poison +1.5
