@@ -148,14 +148,14 @@ Refining and Foundation Establishment through its crafts, caution and engine.
 
 ### Variant roots (biến dị linh căn)
 
-Eight rarer roots sit beside the five elements, and each has a role and a hidden Meridian Map
+Eight rarer roots (six in play: Void and Blood are archived) sit beside the five elements, and each has a role and a hidden Meridian Map
 sector of its own. They arise in three ways.
 
 | Origin | Variants |
 |---|---|
 | Convergence (Hội Tụ): specific owned elements meet | Thunder (Lôi) from Fire + Metal; Darkness (Ám) from Earth + Water; Primordial Chaos (Hỗn Độn) from all five |
 | Transmutation (Chuyển Hóa): one element runs pure | Light (Quang) from Fire; Ice (Băng) from Water |
-| Innate (Thiên Sinh): simply born with it | Wind (Phong); Blood (Huyết); Void (Hư Không), only on roots of two elements or fewer |
+| Innate (Thiên Sinh): simply born with it | Wind (Phong). Blood (Huyết) and Void (Hư Không) are archived (2026-11-09) |
 
 An innate variant counts as an extra element for the speed curve; the others do not. The
 rules are in `design/gdd/linh-can.md`. The older higher-order mutations (Sword, Pill Fire,

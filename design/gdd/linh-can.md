@@ -6,12 +6,13 @@
 > **Last Updated**: 2026-11-05
 > **Last Verified**: 2026-11-05
 > **Implements Pillar**: Pillar 1 (Your Dao, Your Name); touches Pillar 3 (Power Is Built, Not Given) and Pillar 4 (Every Season Counts)
+> **Archived 2026-11-09 (user): Void (Hư Không) and Blood (Huyết).** Both variant roots are out of the game for now. They no longer roll at birth, cannot be picked in Self-made, and get no element stacks (Combat economy revision #44). Their rules, rows, worked examples and acceptance criteria stay below, marked or unchanged, so they can return. **Not yet applied in code:** the build still rolls them (`innate_chance` huyet 0.015, hu_khong 0.005) and about 20 acceptance criteria (AC-LC-04 to AC-LC-51, among them 05, 11, 28 and 42) still test them; switching them off moves the innate share from 4.34 % to 2.5 % and needs those criteria and Realms' calibration rechecked (Open Question 13).
 
 ## Summary
 
 The spiritual root is the talent a cultivator is born with: one to five base elements
 (Metal, Wood, Water, Fire, Earth) with purities of 10–100, plus, in about 1 life in 8, one
-of eight variant roots (Light, Darkness, Ice, Wind, Thunder, Void, Blood, Chaos).
+of six variant roots in play (Light, Darkness, Ice, Wind, Thunder, Chaos; Void and Blood are archived).
 - **Variants** arise by convergence of owned elements, transmutation of one element, or
   innately at birth. Each has a purity-scaled role and its own hidden Meridian Map sector.
   Innate ones count as an extra element for the speed curve.
@@ -179,8 +180,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    | Ice (Băng) | Pill-toxicity resistance | `dan_doc_resist_pct` |
    | Wind (Phong) | Travel | `travel_speed_pct` |
    | Thunder (Lôi) | Offense | `attack_pct` |
-   | Blood (Huyết) | Vitality | `khi_huyet_pct` |
-   | Void (Hư Không) | Secret realms and fortunate encounters | `co_duyen_pct` |
+   | Blood (Huyết) — **archived** | Vitality | `khi_huyet_pct` |
+   | Void (Hư Không) — **archived** | Secret realms and fortunate encounters | `co_duyen_pct` |
    | Primordial Chaos (Hỗn Độn) | Cultivation and breakthrough | `cultivation_speed_pct` and `breakthrough_chance` |
 
    Each owned variant adds its lines to the stat sheet with the source
@@ -205,13 +206,17 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    | Variant | Origin | Requirement |
    |---|---|---|
    | Wind (Phong) | Innate (Thiên Sinh) | none |
-   | Blood (Huyết) | Innate | none |
-   | Void (Hư Không) | Innate | `n_base` ≤ `void_max_elements` (2), at birth |
+   | Blood (Huyết) — **archived** | Innate | none |
+   | Void (Hư Không) — **archived** | Innate | `n_base` ≤ `void_max_elements` (2), at birth |
    | Thunder (Lôi) | Convergence (Hội Tụ) | owns Fire and Metal |
    | Darkness (Ám) | Convergence | owns Earth and Water |
    | Primordial Chaos (Hỗn Độn) | Convergence | owns all five base elements |
    | Light (Quang) | Transmutation (Chuyển Hóa) | owns Fire |
    | Ice (Băng) | Transmutation | owns Water |
+
+   **Archived (2026-11-09):** Blood and Void keep their catalogue places and roll order, but their
+   `innate_chance` is 0 and Self-made rejects them, so no new life holds them. A save that already holds one
+   keeps it.
 
    - **Convergence** and **transmutation** are *derived*: the variant is formed from
      elements the root owns. A transmutation keeps its element; nothing is replaced.
@@ -1383,3 +1388,4 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 | 10 | ~~Implementation changes: `bien_di` → `variants` + `variant_effects`; the three origin kinds and chance keys; `n_eff` wherever a count is looked up; innate draws in the birth order; the declined mark in the rolled set; removing the relocated mutations and their dead keys (`herb_age_root_pct`, holder-raised ceilings)~~ **Built 2026-11-05** | — | — |
 | 11 | ~~The built fruit picks a random element at grant~~ **Closed 2026-11-05:** the build picks at use (`treasure_effects.gd`), and the item holds no element | — | — |
 | 12 | UI Requirements not built in the Debug Terminal: `explain` for a variant id (origin, requirement, purity, role lines); each pair source in `explain rate` (it shows one summed line); where parity comes; the Tẩy Tủy Đan preview. AC-LC-51's two provisional bullets wait on the first two | implementation story | AC-LC-51 |
+| 13 | Void and Blood are archived (user, 2026-11-09). To apply in code: set `innate_chance` huyet and hu_khong to 0 and reject them in Self-made; update the about 20 acceptance criteria that name them (AC-LC-04 to AC-LC-51) and their tests (scripted births, the 4.34 % innate share, Void picks); recheck Realms' calibration, which assumed about 4.3 % of lives move up a curve row. Decide whether the Meridian Map keeps their variant sectors | game-designer, gameplay-programmer | Code pass |

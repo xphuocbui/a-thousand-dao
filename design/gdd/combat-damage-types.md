@@ -96,7 +96,7 @@ would have to mean both a crushing wave and a freezing mist.
    | Thunder (Lôi), Ice (Băng), Light (Quang) | Lightning, Cold, Light |
    | Wind (Phong) | Force or Physical, depending on the art |
    | Darkness (Ám) | Chaos |
-   | Blood, Void, Primordial Chaos roots (Huyết, Hư Không, Hỗn Độn) | No type of their own; their arts use whatever is authored |
+   | Blood and Void (archived 2026-11-09), Primordial Chaos roots (Huyết, Hư Không, Hỗn Độn) | No type of their own; their arts use whatever is authored |
 
    **Naming** (user decision 2026-11-08, re-review DT 12): the damage type is **Chaos (Tà)**. The spiritual root
    is called **Primordial Chaos (Hỗn Độn)** in player text, so the two never share a name.

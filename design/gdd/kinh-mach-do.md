@@ -411,7 +411,7 @@ are in Formulas.
 
       | Origin | Variant | Where | Entry depth |
             |---|---|---|---|
-      | Innate (Thiên Sinh) | Wind (Phong), Blood (Huyết), Void (Hư Không) | A spur off an inner radial, near the dantian | 3, 4, 5 |
+      | Innate (Thiên Sinh) | Wind (Phong); Blood (Huyết) and Void (Hư Không), archived 2026-11-09 (Spiritual Roots), their sectors stay locked | A spur off an inner radial, near the dantian | 3, 4, 5 |
       | Convergence (Hội Tụ) | Primordial Chaos (Hỗn Độn) | A spur off the K1 ring | 7 |
       | Transmutation (Chuyển Hóa) | Light (Quang), Ice (Băng) | A spur off the element's own sector (Fire, Water) | 8 |
       | Convergence (Hội Tụ) | Thunder (Lôi), Darkness (Ám) | A chord across the wheel joining the two elements' sectors (Fire–Metal, Earth–Water), with an entry on each side | 9–13 |
