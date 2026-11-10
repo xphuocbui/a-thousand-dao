@@ -420,3 +420,19 @@ From `design/builds/by-root/notes.md`. Apply these in the next session:
   combat.md rule 8, Formulas F curse table, edge case, AC-CB-35; modifiers.md rule 6a defines `dampened`.
 - **R2 applied 2026-11-10:** `art_cost_health_pct` is "art costs X % shifted to health", dampen-shaped (linh lực pays cost ÷ (1 + X/100)), no cap, 0.35 W per point (simulator); Combat Formulas E and modifiers.md Stat List, price table and catalogue updated.
 - **R3 applied 2026-11-10:** `khi_huyet_pct` 1.2 → **0.6** W per %, body shield 1.0 → **0.51** (pegged 0.85 × health); modifiers.md (Stat List, price table, catalogue, Open Question 9 closed), kinh-mach-do.md price table, combat-defence.md Formulas I, registry weights.
+
+### R4 replaced: equal-value element stacks (user, 2026-11-10) — NOT YET APPLIED
+
+The user rejected per-element price fixes and asked that **every element's buff be worth about the same, and every
+element's debuff about the same, buffs and debuffs treated separately**. Plan (Claude's recommended targets):
+- Buff target **1.0 %** of art damage per stack-second; debuff target **1.5 %** (debuffs can be cleansed).
+- Scale each element's per-stack numbers (effects.md rule 9a table) to hit the targets against the typical foe, fitted
+  with `tools/design/combat_sim/stackfit.py` (rewrite it to search the per-stack effect, not the art damage).
+  First guesses from the 2026-11-09 fit: Fire buff keep, debuff ×0.75; Water buff ×0.45; Earth buff ×2.5, debuff keep;
+  Metal buff keep, debuff ×1.9; Wood buff ×1.25, debuff ×0.75; Ice debuff ×2.5; Thunder buff ×0.83, debuff ×2.5;
+  Wind buff ×2.5, debuff ×1.5.
+- Then Formulas D uses **one buff weight (0.010) and one debuff weight (0.015)** for every element; the per-element
+  weight table, the Water duration shape and the Metal +30 % idea are dropped.
+- Also update: the builds README stack table, AC-EF-69's example, `keystonefit.py`, and re-fit the keystone numbers.
+- Matchup differences stay on purpose (Earth resists Physical only; Wind/Thunder need a foe with evade; Ice
+  favours expensive-art foes).
