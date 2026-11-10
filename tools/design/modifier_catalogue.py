@@ -127,7 +127,7 @@ stat(RES, "Linh lực on hit (`linh_luc_on_hit_pct`)", 42.0, 0.001, " pp of max 
 stat(RES, "Linh lực on crit (`linh_luc_on_crit_pct`)", 6.3, 0.01, " pp of max per crit", status="Designed")
 stat(RES, "Linh lực on kill (`linh_luc_on_kill_pct`)", 0.5, 0.1, " pp of max per kill", status="Designed")
 stat(RES, "Linh lực leech (`leech_linh_luc_pct`)", 1.44, 0.1, " % of damage dealt", status="Designed", scopes=[("—", [], 1), ("element", ["<element>"], 5)])
-stat(RES, "Art cost paid with health (`art_cost_health_pct`)", 0.5, 0.1, " %", status="Designed")
+stat(RES, "Art costs shifted to health (`art_cost_health_pct`)", 0.35, 0.1, " pp", status="Designed")
 stat(RES, "Thần thức (`than_thuc_pct`)", 1.3, 0.1, " %")
 stat(RES, "Reservation efficiency (`reserve_eff_pct`)", 0.8, 0.1, " %", status="Designed")
 

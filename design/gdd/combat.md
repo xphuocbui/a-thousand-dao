@@ -663,7 +663,7 @@ D9) and `ward_art_duration`.
 
 The art_cost formula is defined as:
 
-`cost = cost_share · (1 − cost_red) · (1 + cost_raise) · qi_max` ; `affordable if pool_qi ≥ cost − 1e-6` ; `regen = qi_max · (regen_base + regen_bonus / (1 + regen_bonus / regen_k))` per pulse ; `body_cost = body_cost_share · health_max`
+`cost = cost_share · (1 − cost_red) · (1 + cost_raise) · qi_max` ; `affordable if pool_qi ≥ cost − 1e-6` ; `regen = qi_max · (regen_base + regen_bonus / (1 + regen_bonus / regen_k))` per pulse ; `body_cost = body_cost_share · health_max` ; with `art_cost_health_pct` X: linh lực pays `cost ÷ (1 + X / 100)` and health pays the rest, point for point, never below 1 health (user decision 2026-11-10)
 
 **Variables:**
 

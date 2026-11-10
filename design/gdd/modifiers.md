@@ -337,7 +337,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Linh lực on crit | `linh_luc_on_crit_pct` | F (pp of maximum per crit) | own crit | higher | 6.3 (G) | As above | Designed |
 | Linh lực on kill | `linh_luc_on_kill_pct` | F (pp of maximum per kill) | own kill | higher | 0.5 (G) | As above; worth little in a duel | Designed |
 | Linh lực leech | `leech_linh_luc_pct` | F (% of damage dealt) | own hit | higher | 1.44 | As above | Designed |
-| Art cost paid with health | `art_cost_health_pct` | F (% of each art cost) | art | higher | 0.5 (G) | Combat E (#44 item B4); never takes health below 1 | Designed |
+| Art costs shifted to health | `art_cost_health_pct` | F (pp, dampen-shaped: rule 6a) | art | higher | 0.35 | Combat E: linh lực pays `cost ÷ (1 + X/100)`, health pays the rest point for point; never takes health below 1 (#44 item B4; user decision 2026-11-10, no cap) | Designed |
 | Thần thức | `than_thuc_pct` | I | none | higher | 1.3 | Character Stats C | Live |
 | Linh lực reservation efficiency | `reserve_eff_pct` | I (counts to 50) | reservation | higher | 0.8 | Combat Defence & Healing rule 10. Kept by user decision 2026-11-07, overriding overnight `decisions.md` decision 12 (reservation as a pure cost) | Designed |
 
@@ -570,7 +570,7 @@ and are not here.
 | Linh lực on kill (`linh_luc_on_kill_pct`) | — | universal | +2.4 pp of max per kill | +16.0 pp of max per kill | Designed | 1 |
 | Linh lực leech (`leech_linh_luc_pct`) | — | universal | +0.8 % of damage dealt | +5.5 % of damage dealt | Designed | 1 |
 | Linh lực leech (`leech_linh_luc_pct`) | element | family | +1.2 % of damage dealt | +8.3 % of damage dealt | Designed | 5 |
-| Art cost paid with health (`art_cost_health_pct`) | — | universal | +2.4 % | +16.0 % | Designed | 1 |
+| Art costs shifted to health (`art_cost_health_pct`) | — | universal | +3.4 pp | +22.8 pp | Designed | 1 |
 | Thần thức (`than_thuc_pct`) | — | universal | +0.9 % | +6.1 % | Live | 1 |
 | Reservation efficiency (`reserve_eff_pct`) | — | universal | +1.5 % | +10.0 % | Designed | 1 |
 
@@ -779,7 +779,7 @@ formula; **G** marks a guess.
 | Linh lực on crit | 6.3 / pp per crit | G | On hit × a 15 % crit rate |
 | Linh lực on kill | 0.5 / pp per kill | G | A duel has one kill, at its end |
 | Linh lực leech | 1.44 / % of damage | D | #44 simulator: 10 W buys about 6.9 % |
-| Art cost paid with health | 0.5 / % | G | Close to cost reduction (0.6), less the health it spends |
+| Art costs shifted to health | 0.35 / pp | D | #44 simulator: 10 W buys about 28.5 pp where the curve is near-linear; the dampen shape makes each further point shift less |
 | Stack effect, stack duration, stacks per grant | 0.5 / %, 0.4 / %, 8 / stack | G | Against Effects Formulas D's weights; refit with the harness |
 | Reservation efficiency | 0.8 / % (counts to 50) | D | At a 50 % total reservation (Combat Defence & Healing Formulas I) |
 | Thần thức | 1.3 | — | Meridian Map table |

@@ -418,3 +418,4 @@ From `design/builds/by-root/notes.md`. Apply these in the next session:
   reduction cap, the Sundered/Exposed shred cap.
 - **Applied 2026-11-10:** Stagnation dampens **both** pools (user: "both please"): effects.md Status Catalogue,
   combat.md rule 8, Formulas F curse table, edge case, AC-CB-35; modifiers.md rule 6a defines `dampened`.
+- **R2 applied 2026-11-10:** `art_cost_health_pct` is "art costs X % shifted to health", dampen-shaped (linh lực pays cost ÷ (1 + X/100)), no cap, 0.35 W per point (simulator); Combat Formulas E and modifiers.md Stat List, price table and catalogue updated.

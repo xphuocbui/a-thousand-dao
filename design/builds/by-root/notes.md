@@ -54,11 +54,11 @@ Ancient Banyan, the Iron Tree, the Ironwood Golem) are this pattern in different
   costs in health (the same share of health as of linh lực) beats the typical build in **24 of 24** seeds, and
   ends the fight in 23 s instead of 36 s. Paying **all** of its costs in health loses every seed: health runs out at
   about 19 s. So the pattern is very strong in the middle and limits itself at the extreme. Blood Casting and
-  `art_cost_health_pct` need a real price, and probably a cap on the share (for example 50 %).
+  `art_cost_health_pct` needed a real price: now 0.35 W per point, dampen-shaped, no cap (ruled 2026-11-10).
 - **Counters, checked in the simulator:** Withering does **not** counter health-paid costs, because paying in health
   is not healing; it only hurts the builds that also regenerate or heal. Stagnation (no regeneration) beats them, but
   Stagnation beats everything (§ 7). So a build that pays half its costs in health has almost no counter today:
-  cap the share (for example 50 %) and price it with the simulator. Several builds below list Withering as their
+  **ruled 2026-11-10: no cap; the stat is now dampen-shaped ("art costs X % shifted to health": linh lực pays cost ÷ (1 + X/100)), priced 0.35 W per point.** Several builds below list Withering as their
   weakness; for the pure health-payers that is wrong.
 
 ## 3. Rules and readables the builds keep asking for
