@@ -1119,6 +1119,7 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 |---|---|---|---|
 | Heavenly Tribulation (#22) | Hard | The fight engine, a tribulation as an enemy profile | GDD approved for rules (design/gdd/thien-kiep.md); build on hold with the full fight |
 | Quests (#31) | Soft | A `defeat` stage opens a fight and reads the result; fight power F for the fight ratio | GDD designed (`design/gdd/quests.md`), in review; `defeat` waits on the full fight |
+| Travel & Map (#25) | Soft | Travel encounters open fights; a flier arrives with a drained linh lực pool (its Formulas D, E) | GDD designed (`design/gdd/travel-map.md`), pending review |
 | Event Engine (#23) | Hard | Fight request, result | Built, no GDD; today's `duel` callers move to the result |
 | NPC Builds (#24) | Hard | Compiled profile, slot order and guards | Built, no GDD |
 | Living World Tick (#28) | Hard | Rating clash; keeps NPC duels rare | Built, no GDD |

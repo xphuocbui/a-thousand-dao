@@ -1291,6 +1291,114 @@ formulas:
     notes: "Each refusal once per fight, at most one per Down (Effects rule 11; overnight decision 5). Formulas C."
     added: 2026-11-08
     revised: ""
+  - name: land_match
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+      - design/gdd/canh-gioi.md
+      - design/gdd/linh-can.md
+    variables:
+      - p_e
+      - u_e
+      - s_e
+      - mu_e
+      - match_gain
+    output_range: [0.8, 1.3]
+    expression: "M4 = clamp(1 + k * sum_e q_e * (s_e/100 - mu_e), 0.8, 1.3); q_e = u_e * p_e / 100; u_e 1 owned, 0.5 rare-source only; mu_e = world mean share over places"
+    notes: "Element match of a root to the land (Travel & Map Formulas A); averages x1.0 over the world for every root; multiplies the cultivation rate."
+    added: 2026-11-10
+    revised: ""
+  - name: stacked_density
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+      - design/gdd/canh-gioi.md
+    variables:
+      - D4
+      - layer_density_adds
+      - density_bonus
+    output_range: [0.3, 3.0]
+    expression: "D = min(density_cap, D4 + min(c3, dD3) + min(c2p, dD2p) + min(c2u, dD2u) + min(c1p, dD1p) + min(c1u, dD1u) + density_bonus); caps 1.0 / 0.1 / 0.5 / 0.1 / 0.75 (+0.30 with capability 15); settled homes capped at 1.8"
+    notes: "Travel & Map Formulas B. What the cultivation rate and the Core Formation check read."
+    added: 2026-11-10
+    revised: ""
+  - name: stacked_match
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+      - design/gdd/canh-gioi.md
+    variables:
+      - M4
+      - layer_share_pushes
+    output_range: [0.8, 1.6]
+    expression: "M = clamp(M4 + sum_{i in 3,2,1} min(m_i, k * sum_t q_t * min(cs_i, ds_i_t) / 100), 0.8, 1.6); m_i 0.3 / 0.15 / 0.15; settled homes capped at 1.3"
+    notes: "Travel & Map Formulas B."
+    added: 2026-11-10
+    revised: ""
+  - name: trip_time
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+      - design/gdd/quests.md
+    variables:
+      - c_t
+      - v_mode
+      - travel_speed_pct
+    output_range: [0, unbounded]
+    expression: "T = sum_tiles c_t / (v_mode * max(0.25, 1 + tsp/100)); speeds road 12, wilderness 4, river 18/10, sea 20, flight FE 30 CF 45 NS 65 DT 90 tiles a season"
+    notes: "Travel & Map Formulas D; in seasons; the leftover share of the last season cultivates at the destination."
+    added: 2026-11-10
+    revised: ""
+  - name: herb_fit
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+    variables:
+      - f_e
+      - f_T
+      - f_R
+      - f_D
+    output_range: [0, 1]
+    expression: "fit = f_e * f_T * f_R * f_D; growth = 1.2 * fit when fit >= 0.2, else unplantable"
+    notes: "Travel & Map Formulas G; read by Spirit Herbs & Fields (no GDD yet)."
+    added: 2026-11-10
+    revised: ""
+  - name: map_production
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+    variables:
+      - base_output
+      - R_f
+      - W_f
+      - D_f
+      - S_f
+      - G_f
+    output_range: [0, "2 x base_output"]
+    expression: "production = round(base_output * min(R_f * W_f * D_f * S_f * G_f, 2.0)); round half up with 1e-6 tolerance"
+    notes: "Travel & Map Formulas H; summed per region and territory into the seasonal production contract read by Regional Economy & Trade (#43). D_f = 1 until #43 exists."
+    added: 2026-11-10
+    revised: ""
+  - name: teleport_fee
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+    variables:
+      - linh_thach_max
+      - d
+      - owner_mult
+    output_range: ["0.05 x linh_thach_max", "0.30 x linh_thach_max x owner_mult"]
+    expression: "fee = round(linh_thach_max[realm] * min(0.05 + 0.002 * d, 0.30) * owner_mult)"
+    notes: "Travel & Map Formulas K; owner_mult set by Sects (#26)."
+    added: 2026-11-10
+    revised: ""
 constants:
   - name: root_count_weights
     status: active
@@ -2002,11 +2110,12 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
+      - design/gdd/travel-map.md
     value: 1.4
     unit: spiritual qi density
-    notes: "Core Formation condition: place density plus density_bonus."
+    notes: "Core Formation condition: the stacked density (Travel & Map rule 27; Tụ Linh Trận counts once as a layer 1 work, density_bonus is tree and items only). About 18 % of places reach it (cf_place_share_target)."
     added: 2026-11-03
-    revised: ""
+    revised: 2026-11-10
   - name: nascent_tam_ma_max
     status: active
     source: design/gdd/canh-gioi.md
@@ -3812,3 +3921,88 @@ constants:
 #     unit: slots
 #     added: 2026-03-26
 #     revised: ""
+  - name: match_land_bounds
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+      - design/gdd/canh-gioi.md
+    value: [0.8, 1.3]
+    unit: cultivation rate multiplier
+    notes: "match_land_min / match_land_max (Travel & Map Formulas A)."
+    added: 2026-11-10
+    revised: ""
+  - name: match_stack_max
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+      - design/gdd/canh-gioi.md
+    value: 1.6
+    unit: cultivation rate multiplier
+    notes: "Overall match cap through all four layers (Travel & Map rule 27)."
+    added: 2026-11-10
+    revised: ""
+  - name: density_cap
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+      - design/gdd/canh-gioi.md
+    value: 3.0
+    unit: spiritual qi density
+    notes: "Overall stacked density cap (Travel & Map Formulas B)."
+    added: 2026-11-10
+    revised: ""
+  - name: density_cap_l2_perm
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+      - design/gdd/canh-gioi.md
+    value: 0.1
+    unit: spiritual qi density
+    notes: "Permanent shared works per place; bounds world enrichment: places at Core Formation density rise from 18 % to at most 28 %."
+    added: 2026-11-10
+    revised: ""
+  - name: cf_place_share_target
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+      - design/gdd/canh-gioi.md
+    value: 0.18
+    unit: share of places at density >= core_density_min
+    notes: "Generation target 15-21 % (user decision 2026-11-10: keep 18 %); 27-45 places at 150-250 places."
+    added: 2026-11-10
+    revised: ""
+  - name: npc_settled_share
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+    value: 0.85
+    unit: share of NPCs
+    notes: "NPCs living in settlements and sect grounds (user decision 2026-11-10); the rest pick top spots for their root (npc_wild_pick_top by realm 0.25/0.15/0.08/0.04/0.02)."
+    added: 2026-11-10
+    revised: ""
+  - name: settled_home_caps
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+    value: [1.8, 1.3]
+    unit: density, match
+    notes: "A rented or bought home in a settlement or sect ground never beats an own base (3.0, x1.6) or a blessed land (Travel & Map rule 34)."
+    added: 2026-11-10
+    revised: ""
+  - name: abode_cost_frac
+    status: active
+    source: design/gdd/travel-map.md
+    referenced_by:
+      - design/gdd/travel-map.md
+    value: 0.05
+    unit: share of linh_thach_max
+    notes: "Opening a cave abode costs this share of the realm budget and one season (rule 8; user decision 2026-11-10)."
+    added: 2026-11-10
+    revised: ""

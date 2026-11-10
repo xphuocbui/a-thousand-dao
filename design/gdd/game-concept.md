@@ -356,7 +356,7 @@ Stories grow from recorded facts — people, places, items and history in the wo
 - **NOT reflex or action combat**: outcomes come from what you built, not hand speed — it would compromise *Every Number Is Bounded and Visible*.
 - **NOT an unbounded LLM**: the LLM never creates numbers outside a budget, changes game rules, or alters a recorded value — it would compromise *Every Number Is Bounded and Visible*.
 - **NOT fixed classes**: the spiritual root shapes a build but never locks it — locking would compromise *Your Dao, Your Name*.
-- **NOT a granular world simulation (Dwarf Fortress or CK scale)**: history is generated at world creation, and the living world ticks once per season with abstract faction and NPC actions — no per-tick body, economy or pathing simulation. Anything deeper would break first-game scope — compromising *Power Is Built, Not Given* and *Every Season Counts*.
+- **NOT a granular world simulation (Dwarf Fortress or CK scale)**: the geography and history are generated once at world creation, and the land stays fixed (only rare scars change it). The living world ticks once per season with abstract steps per region or per place: faction and NPC actions, mine output, a region's supply. There is no per-tick body, per-item, per-NPC trade, per-tile or pathing simulation (clarified 2026-11-10 with Travel & Map). Anything deeper would break first-game scope — compromising *Power Is Built, Not Given* and *Every Season Counts*.
 - **NOT the novel's IP**: we take the cultivation-economy *systems and genre conventions* of Phàm Nhân Tu Tiên, never its characters, places, sects, plot or signature items — originality protects *Your Dao, Your Name* and the project itself.
 
 ---

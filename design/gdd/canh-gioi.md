@@ -128,7 +128,7 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
    | Breakthrough into | Condition, checked at the attempt | What it asks of the player |
    |---|---|---|
    | Foundation Establishment | none: the pill alone | learn the loop: grow herbs, brew, attempt |
-   | Core Formation | local spiritual qi density at least `core_density_min`: a spirit vein (linh mạch) place, or the character's own gathering formation, whose density bonus counts | travel to a vein, or build and maintain a formation |
+   | Core Formation | local spiritual qi density at least `core_density_min`, read as the stacked density (Travel & Map rule 27): a spirit vein (linh mạch) place, a blessed land, a sect seat, or the character's own works such as a gathering formation | travel to a vein, or build and maintain a formation |
    | Nascent Soul | heart demon at most `nascent_tam_ma_max` | keep heart demon low across a whole realm: avoid failed attempts, purge it, build Dao heart (đạo tâm) |
    | Deity Transformation | holds this realm's breakthrough insight, granted by an enlightenment (đốn ngộ) event and kept once gained; a successful roll then faces the Heavenly Tribulation (Thiên Kiếp) | comprehension and story; survive the tribulation |
 
@@ -347,7 +347,7 @@ other systems below have none yet, so their interfaces are provisional.
 | Event Engine | out / in | out: the bottleneck flag (raises event chance and unlocks protagonist-only templates), realm-keyed budgets; in: events that grant cultivation base | Event Engine |
 | Combat | in / out | out: the realm term of combat power (realm base × stage multiplier) and the realm gap `g`; in: knockouts reported for #9 and the result of a tribulation | Combat |
 | Heavenly Tribulation (Thiên Kiếp, designed; build on hold) | out | hand-off after a successful Deity Transformation roll (rule 7) | Heavenly Tribulation GDD |
-| Travel & Map | in | the place's spiritual qi density (spirit veins) for the Core Formation condition | Travel & Map |
+| Travel & Map | in | the stacked density and element match (its rule 27, Formulas A and B) for the cultivation rate and the Core Formation condition; the leftover share of a travel season (its Open Question 3) | Travel & Map |
 | Formations (Trận Pháp) | in | a gathering formation's density bonus, which counts toward the Core Formation condition | Formations |
 | Event Engine (insight) | in | the Deity Transformation breakthrough insight, granted by an enlightenment event | Event Engine (the event); this GDD (the condition) |
 | Living World Tick / NPC Builds | out / in | NPC realm and stage, fate roll, seasonal intake | Living World Tick |
@@ -1018,7 +1018,7 @@ The heart_demon_per_failure formula is defined as:
 
 | Condition | Key | Value | Why |
 |---|---|---|---|
-| CF: local spiritual qi | `core_density_min` | 1.4 (user decision) | Place density plus `density_bonus`, the same sum the cultivation rate uses. About 18 % of places qualify, 2–4 per world (guess): mountains 20 %, valleys 40 %, islands 20 %, every secret domain (bí cảnh), no lakes or towns. A gathering formation (Tụ Linh Trận, +0.15 per level, home only) reaches it at level 3 from a home at 1.0, or level 4 in a town. At 1.3, 28 % of places would qualify; at 1.5 only 9.5 %, mostly secret domains |
+| CF: local spiritual qi | `core_density_min` | 1.4 (user decision) | The stacked density (Travel & Map rule 27), the same value the cultivation rate uses. About 18 % of places qualify (Travel & Map `cf_place_share_target`), 27–45 at 150–250 places: mountains 20 %, valleys 40 %, islands 20 %, every secret domain (bí cảnh), no lakes or towns. A gathering formation (Tụ Linh Trận, +0.15 per level, home only) reaches it at level 3 from a home at 1.0, or level 4 in a town. At 1.3, 28 % of places would qualify; at 1.5 only 9.5 %, mostly secret domains |
 | NS: heart demon | `nascent_tam_ma_max` | 20 (user decision) | One failure (+15) still allows the next attempt. Two quick failures (about 30) force a 10-year wait or a calming pill (Tĩnh Tâm Đan, −25). Kills add no heart demon (Character Stats), so it tests failed breakthroughs, events and capability #9 across the realm |
 | DT: insight | `condition.type` "insight" | kept once gained (user decision) | One enlightenment event unlocks every later attempt in that realm step, so supply (B) is not limited by insights |
 
@@ -1340,7 +1340,7 @@ written, it must list Realms & Bottlenecks in its own Dependencies section.
 | 9 | Cultivation Techniques (Công Pháp) | Technique speed in the rate | Crude cultivation at ×0.3 of the strongest purity (as built) |
 | 14 / 15 | Spirit Herbs & Spirit Fields, Alchemy | Pill supply: herb ages, plots, brew success | Pills only from the market and gifts |
 | 17 | Formations (Trận Pháp) | A gathering formation's density bonus for the Core Formation condition | Only spirit vein places meet it |
-| 25 | Travel & Map | Place density (spirit veins) | Only a home formation meets it |
+| 25 | Travel & Map | Stacked density and element match (`design/gdd/travel-map.md`) | Only a home formation meets it |
 | 23 | Event Engine | The Deity Transformation insight (an enlightenment event) and cultivation-base grants | The Deity Transformation condition can't be met |
 | 11 | Progression Edges | Perk and talisman bonuses and gift pills (through the stat sheet and items); the NPC edge score e | No player edge; NPCs at the base odds |
 

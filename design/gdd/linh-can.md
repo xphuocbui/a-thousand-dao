@@ -369,6 +369,7 @@ All four are saved.
 | The Way (Đạo) | out | the root as read-only prerequisites (elements, purities, variants). The Way owns the relocated mutations (rule 16) | the Way (`dao.md`, in review; requirements at `dao_req_purity_min`) |
 | Item DB, Event Engine | in | Tẩy Tủy Đan and Linh Căn Quả effects (budgeted by events) | Item DB, Event Engine |
 | World Database | out | root changes and variants formed | World Database |
+| Travel & Map | out | purities, owned and road-raised, for the element match of a root to the land (its Formulas A; unowned purity at half weight) | Travel & Map |
 | NPC Builds, World Generation | in / out | NPC roots rolled by the same rules; the owned elements, for the archetype fit (rule 15) | NPC Builds |
 | Progression Edges | in / out | in: the birth perk's `birth.purity_all`, raising purity after the birth rolls (rule 2), for the player and a blessed NPC. Out: purities and the variant count, for the NPC edge score | Progression Edges |
 | Market, Combat, Achievements | out | the root as read-only input: stock bias (Market), artifact element match (Combat), `n_base` and the variant count (Achievements) | each system |

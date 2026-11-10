@@ -79,9 +79,9 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 22 | Heavenly Tribulation (Thiên Kiếp) | Gameplay | MVP | Approved for rules (2026-11-06; #44 pass 2026-11-10); numbers provisional until the Balance Harness measures `p_t`. Not built. History: the GDD header and its review log. | design/gdd/thien-kiep.md | Combat, Realms, Event Engine |
 | 23 | Event Engine: templates, budgets, validator, resolver | Gameplay | MVP | Implemented | — | World DB, Character Stats, Item DB, NPC Builds, Alchemy, Talismans, Spirit Beasts, Combat |
 | 24 | NPC Build Generation (inferred) | Gameplay | MVP | Implemented | — | Character Stats, Cultivation Techniques, Meridian Map, Item DB, Edges (NPC half) |
-| 25 | Travel & Map (inferred) | Gameplay | MVP | Implemented (thin: named regions and a graph of places). **An open world map is needed** (user decision 2026-11-06). See System Briefs: World Map | — | World Gen, Time & Turn |
+| 25 | Travel & Map (with the geography half of #27) | Gameplay | MVP | **Designed** 2026-11-10 (pending review): generated tile world, 20 biomes, element match, four land layers, travel, clues and secrets, resource sites, production contract, developed cities and graded homes. Built only as the old place graph. History: the GDD header | design/gdd/travel-map.md | World Gen, World DB, Time & Turn, Spiritual Roots, Character Stats |
 | 26 | Sects & Missions (inferred) | Gameplay | MVP | Implemented (thin) | — | World Gen, Character Stats, Market |
-| 27 | World Generation & History | Narrative | MVP | Implemented | — | World DB, NPC Builds, Item DB, Config, Sim Core |
+| 27 | World Generation & History | Narrative | MVP | Implemented; its geography half is designed in Travel & Map (2026-11-10); people, sects and history still have no GDD | — | World DB, NPC Builds, Item DB, Config, Sim Core |
 | 28 | Living World Tick | Narrative | Vertical Slice | Implemented (abstract) | — | World DB, Realms, NPC Builds, Edges (NPC half), Time & Turn |
 | 29 | LLM Game Master: events, narration, epitaph, provider config | Narrative | MVP | Implemented (mock-tested only) | — | Event Engine, World DB, Config |
 | 30 | NPC Interaction & Dialogue | Narrative | Vertical Slice | Implemented (thin) | — | World DB, LLM GM, Time & Turn |
@@ -91,12 +91,13 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 34 | Localization & Hán-Việt Glossary | Meta | Alpha | Not Started | — | LLM GM, Event Engine, Guidance, Game UI, Config |
 | 35 | Guidance Layer: Advisor, change line, tutorial role (inferred) | UI | Vertical Slice | Implemented | — | Realms, Spirit Herbs, Alchemy, Event Engine, Market, Travel, Sects, Edges, Meridian Map |
 | 36 | Debug Terminal (added by request) | UI | MVP | Implemented | docs/debug-terminal.md (run guide, not a GDD) | Guidance, Save/Load, LLM GM |
-| 37 | Game UI: Godot, 2D ink-wash | UI | Vertical Slice | Not Started | — | Guidance, Save/Load |
+| 37 | Game UI: Godot, 2D; art style open (candidates 2026-11-10: pixel/tile, painted parchment map, ink-wash; the art bible decides) | UI | Vertical Slice | Not Started | — | Guidance, Save/Load |
 | 38 | Audio | Audio | Full Vision | Not Started | — | Game UI, Event Engine |
 | 39 | The Way (Đạo) (added by request; holds the mutations moved out of the root) | Progression | Alpha (provisional) | In Review: graph Ways, 94-Way Catalogue (short Hán-Việt names with poetic titles), Sword pilot drawn; design-review 2026-11-10 answered and fixed; confirming re-review 2026-11-10 (NEEDS REVISION, small) answered and fixed the same day; next: a clean re-review for approval. Not built. History: the GDD header and its review log. | design/gdd/dao.md | Spiritual Roots; contract provisional (Spiritual Roots Open Question 9); Meridian Map (shared skill points); Combat (arts only, on hold: needs a full combat system); soft: Cultivation Techniques (techniques naming relocated mutations, its Open Question 11), Realms (any ceiling raise or root factor re-runs the breakthrough calibration) |
 | 40 | Modifier System (added by request 2026-11-07; the base every build piece draws from; plain numbers on a stat only, user decision 2026-11-07) | Gameplay | MVP | **Approved** (2026-11-08b; #44 parts 4–5 accepted 2026-11-10; re-review 2026-11-10 fixes applied). Not built. History: the GDD header and its review log. | design/gdd/modifiers.md | Combat (damage layers L1–L5 and their caps, channels, ward models), Character Stats; read by: Meridian Map, The Way (Đạo), Cultivation Techniques, Item DB, Artifact Refining, Formations, Talismans, Spirit Beasts |
 | 41 | Effects System (added by request 2026-11-07): every build piece with a rule in it (conditions, scaling, triggers, conditional conversion, overflow, rule changes, keystones, enablers), each granting Modifier System modifiers as its payload | Gameplay | MVP | **Approved** (2026-11-08c; #44 part 3 and equal-value element stacks 2026-11-10; re-review 2026-11-10 fixes applied). Not built. History: the GDD header and its review log. | design/gdd/effects.md | Modifier System (#40), Combat (#21, #21a), Character Stats; read by: Meridian Map, The Way, Cultivation Techniques, Item DB, Formations, Talismans, Spirit Beasts |
 | 42 | NPC Traits (added by request 2026-11-10; personality traits in the manner of grand-strategy character games) | Narrative | Alpha (provisional; later) | Not Started. See System Briefs: NPC Traits | — | NPC Builds, Living World Tick, Event Engine, Character Stats, Modifier System, NPC Interaction & Dialogue, LLM GM |
+| 43 | Regional Economy & Trade (added by request 2026-11-10; split out of Travel & Map) | Economy | MVP (provisional) | Not Started. Turns Travel & Map's production contract (its rule 25) into market stock, prices and the seasonal flow of goods between linked markets; reworks Market (#20); designed after the map, before Sects | — | Travel & Map, Market, Item DB, Time & Turn, Sects & Missions |
 
 **Build design order (user decision 2026-11-07).** Builds are the game: a concept with modifiers stacked on it, sometimes opened by an enabler. Content is designed from the shared pieces up, and builds come last as tests. **Before step 1 is finished (user decision 2026-11-07):** Combat Defence & Healing (#21a) and Combat Damage Types (#21b) are designed first as sub-systems of Combat (files prefixed `combat-`, flat in `design/gdd/` for now. **User decision 2026-11-07:** the combat GDDs move into `design/gdd/combat/` later, once more combat docs exist. Before the move, the skills and hooks that read `design/gdd/*.md` without subfolders (about 28 sites) must be made to read subfolders, and the 46 files that cite `combat.md` updated, so no review silently skips a combat GDD), then the Modifier System is resumed, then the Effects System (#41), then one Combat revision that folds in #21a and the Modifier and Effects contracts. The steps: (1) the Modifier System (#40), the shared vocabulary of modifiers by layer and channel; (2) The Way (Đạo) as broad Ways, each with three branches drawn mostly from that vocabulary; (3) Cultivation Techniques (Công Pháp); (4) items and enablers; (5) builds, which check that a fantasy can be made from existing pieces and add a new piece only when a second build would use it too. The overnight build campaign of 2026-11-07 (`design/builds/overnight-2026-11-07/`, 69 builds) went builds-first: its builds and content are **proposals to be re-evaluated and filtered** against the new pieces, not adopted content. Its rule findings (`decisions.md`) stand on their own.
 
@@ -319,15 +320,15 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 
 | Metric | Count (2026-11-10) |
 |--------|-------|
-| Systems identified | 44 (42 numbered, plus Combat's sub-systems #21a and #21b) |
+| Systems identified | 45 (43 numbered, plus Combat's sub-systems #21a and #21b) |
 | Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (beasts only), 21 (old duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin). The built game predates this week's design (old Meridian map, ceilings, variant sectors, hidden clusters) |
 | Systems not built | 10: 12, 21a, 21b, 22, 31, 34, 37, 38, 40, 41 (plus spirit insects inside 19; #39 the Way) |
-| GDDs | 15: 6, 7, 8, 9, 10, 13, 21, 21a, 21b, 22, 31, 39, 40, 41, and the Way's catalogue inside 39 |
+| GDDs | 16: 6, 7, 8, 9, 10, 13, 21, 21a, 21b, 22, 25, 31, 39, 40, 41, and the Way's catalogue inside 39 |
 | GDDs approved | 7: 21, 21a, 21b, 40, 41 (approved), 22 and 31 (approved for rules; numbers provisional) |
-| GDDs in review | 7: 6, 7, 8, 9, 10, 13, 39 (review and confirming re-review fixes applied 2026-11-10) |
-| Built MVP systems without a GDD | 17: 1, 2, 3, 4, 5, 11, 14, 15, 20, 23, 24, 25, 26, 27, 29, 33, 36 |
+| GDDs in review | 7: 6, 7, 8, 9, 10, 13, 39 (review and confirming re-review fixes applied 2026-11-10); 25 designed, pending review |
+| Built MVP systems without a GDD | 16: 1, 2, 3, 4, 5, 11, 14, 15, 20, 23, 24, 26, 27 (people and history), 29, 33, 36 |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
-| MVP systems designed | 13 / 27 (25 MVP plus #21a, #21b, #40, #41 counted) |
+| MVP systems designed | 14 / 28 (26 MVP plus #21a, #21b, #40, #41 counted; #43 added) |
 | Vertical Slice systems designed | 1 / 8 (31) |
 
 ---
@@ -447,7 +448,7 @@ design reviews of the progression GDDs with fixes (2026-11-10).
       the Sword Effects into effects.md), the công pháp catalogue (bonuses to W budgets), hand-authored items, then builds as tests
 - [ ] The Meridian Map's real shape and its content pass (every element land's linh-lực keystone); the side-tree tab for
       công pháp and items (`design/research/side-trees-thoughts.md`)
-- [ ] Design the open world map (Travel & Map #25, with World Generation #27) and a real sect system (Sects & Missions #26,
+- [ ] Design the open world map (Travel & Map #25, with World Generation #27; in design 2026-11-10), then Regional Economy & Trade (#43), then a real sect system (Sects & Missions #26,
       with sect tiers)
 - [ ] Later: design NPC Traits (#42, System Briefs), after the world map and sects
 - [ ] Reverse-document the 17 built MVP systems without a GDD (`/reverse-document`), Foundation first (1–5)

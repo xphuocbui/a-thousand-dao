@@ -570,6 +570,7 @@ All thresholds are proposals with no source; set them after the first run.
 | The Way (#39) | Soft | `artifact_slots` and refining for Kim Đạo and Kỹ Đạo facets | In review |
 | Heavenly Tribulation (#22) | Soft | Consumable stock used in the waves; the rarity and value bounds that a boss `reward` must pass at lint, and the chosen reward item | GDD designed (`design/gdd/thien-kiep.md` rule 9, Formulas D); build on hold |
 | Quests (#31) | Hard | Prices and rarity bounds for quest rewards; item classes for `deliver` and `craft` stages | GDD designed (`design/gdd/quests.md`), in review |
+| Travel & Map (#25) | Soft | Maps, jade slips and told secrets as clue items; resources mapped to materials and herbs; `linh_thach_max` for the teleport fee and abode cost | GDD designed (`design/gdd/travel-map.md`), pending review |
 | Event Engine (#23), LLM GM (#29) | Hard | Budgeted item requests | Built, no GDD |
 | NPC Builds (#24), World Generation (#27), Living World (#28) | Hard | Items for NPCs and history | Built, no GDD |
 | Save/Load (#5) | Hard | Whole records; a save `version` bump and migration for the new fields | Built, no GDD |
