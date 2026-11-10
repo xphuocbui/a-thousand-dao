@@ -236,69 +236,174 @@ Bottlenecks and the Meridian Map have GDDs. Every other interface is provisional
 
 ### Catalogue (provisional)
 
-> **Status: roster draft, 2026-11-10** (user decisions: consolidate the seeds into broad Ways, then add
-> "lots more"). Each Way is a facet list and a capstone idea, not yet a graph. Graphs are authored one
-> Way at a time as Meridian kit regions, `tools/design/meridian_rework/regions/dao_<slug>.py`; the first is Sword (the pilot, approved 2026-11-10). Requirements are first guesses
-> and use the root's element purity (Spiritual Roots rule 8a); "none" Ways count toward `dao_open_min`.
-> A facet marked † holds a seed moved out of the root.
+> **Status: roster draft, 2026-11-10.** User decisions: consolidate the seeds into broad Ways; double the list;
+> then a romantic pass ("the Đạo should be a bit more romantic … like Thái Dương, Thái Âm, Ngũ Hành, Tứ Thời"):
+> poetic names drawn from classical images, a Way's player-facing name is **Hán-Việt first** with the English as
+> its gloss, and four mundane Ways folded into others. Then a short-name pass ("something sounds cool alone on its
+> own, like Đao Đạo and Xạ Đạo"): every Way is named by a short **X Đạo**, and the poetic phrase is kept as its
+> title (hiệu), shown under the name, e.g. **Điếu Đạo** · *Hàn Giang Độc Điếu*. Each Way is a facet list and a capstone idea, not yet a
+> graph. Graphs are drawn one Way at a time as Meridian kit regions,
+> `tools/design/meridian_rework/regions/dao_<slug>.py`; the first is Kiếm Đạo (the pilot, approved 2026-11-10).
+> Requirements are first guesses and use the root's element purity (Spiritual Roots rule 8a); "—" means none,
+> and those Ways count toward `dao_open_min`. A † marks a Way or facet that holds a seed moved out of the root.
 
-**From the seeds**
+**Heaven and Earth** (the great patterns)
 
-| # | Way | Requirement | Five facets | Capstone idea |
+| # | Way | Needs | Five facets | Capstone idea |
 |---|---|---|---|---|
-| 1 | Sword (Kiếm Đạo) | none | Sword Intent (crit, pierce) · Flying Swords (sword arts) · Edge Body (Physical) · Cold Edge (Cold) · Sword Heart (thần thức, focus) | One sword, one strike: everything into the first art |
-| 2 | Metal (Kim Đạo) | Metal | Refined Metal† · Tempered Body (block, body shield) · Forge (artifact power) · Armoury (artifact slots, thần thức cost) · Metal Edge (Metal stacks) | The gear is the body |
-| 3 | Life and Death (Sinh Tử Đạo) | none | Life† (regeneration, healing) · Death† (curses, withering) · Threshold (the Down step, last acts) · Corpse Qi (drain, Corpse Rot) · Longevity (lifespan) | Crossing the line both ways |
-| 4 | Reincarnation (Luân Hồi Đạo) | none | The Wheel (cycling stacks) · Karma (retaliation) · Past Lives (insight, enlightenment) · Rebirth (survive a Down) · Passage (soul) | Death is a door |
-| 5 | Yin and Yang (Âm Dương Đạo) | none | Yin† (Cold, darkness) · Yang† (Fire, Light) · Taiji† (balance, swapping) · Day and Night (alternating) · Union (paired stacks) | The two fish turn |
-| 6 | Thunder (Lôi Đạo) | Thunder | Heavenly Thunder† (tribulation) · Lightning (crit, speed) · Thunder Body · Storm (with Wind) · Purging (cleanse, demon-slaying) | Carry your own tribulation |
-| 7 | Mist (Vụ Đạo) | Water | Veil (evade, stealth) · Cold Mist (Ice debuff) · Clouds (travel, escape) · Dew (regeneration) · Drowning (linh lực burn) | Unseen until too late |
-| 8 | Illusion (Huyễn Đạo) | none | Mirage (evade) · Dream (Dao in Dreams) · Heart Demons (tâm ma both ways) · Mirror (reflect) · Dust (the proposed Dust Đạo) | The enemy fights a dream |
-| 9 | Poison (Độc Đạo) | Wood | Venom (Poison stacks) · Pill Toxin (đan độc) · Gu (poison beasts) · Corruption (Chaos) · Antidote (cleanse) | Your blood is poison |
-| 10 | Flame (Hỏa Đạo) | Fire | True Flame (Burn) · Lava† (Fire with Earth) · Pill Fire† (furnace heat) · Ash (after the Burn) · Phoenix (rise again) | The furnace never cools |
-| 11 | Destruction (Hủy Diệt Đạo) | none | Ruin† (more damage) · Shatter (resistance shred) · Annihilation (Chaos) · Collapse (overkill) · Calamity (self-cost) | Nothing is left standing |
-| 12 | Mountain (Sơn Đạo) | Earth | Gravity† · Mountain Body (block) · Earthquake (stagger) · Dust Wall (Earth stacks) · Deep Roots (standing still) | Immovable |
-| 13 | Space (Không Gian Đạo) | none | Step (escape, evade) · Pocket (inventory) · Rift (Force damage) · Distance (travel) · Seal of Place (stops escape) | Here and there at once |
-| 14 | Time (Thời Gian Đạo) | none | Ageing (herbs) · Haste (art speed) · Stillness (enemy timers) · Years (lifespan) · Rewind (restore) | The fight runs on your clock |
-| 15 | Heavenly Fortune (Thiên Vận Đạo) | none | Stars† (Light, star arrays) · Fortune (khí vận, cơ duyên) · Divination (see events) · Destiny (counted chance) · Ill Luck (curse luck) | The heavens bend |
-| 16 | Geomancy (Phong Thủy Đạo) | none | Array† (formations) · Spirit Veins (qi density) · Talismans (the proposed Talisman Đạo) · Ward Arrays · Dwelling (home ground) | A formation within the body |
-| 17 | Pill (Đan Đạo) | Wood or Fire | Furnace (alchemy) · Spirit Farming† · Cold Pill (the proposed Cold Pill Đạo) · Tea (Trà: calm, heart demon) · Medicine (healing) | Every pill is perfect |
-| 18 | Soul (Hồn Đạo) | none | Divine Sense · Soul Strike · Soul Ward · Spirit Servants · Puppetry | The body is a vessel |
+| 1 | Âm Dương Đạo (Yin and Yang) † | — | Âm (Yin: Cold, darkness)† · Dương (Yang: Fire, Light)† · Thái Cực (Taiji: balance, swapping)† · Ngày Đêm (Day and Night: alternating) · Giao Hòa (Union: paired stacks) | The two fish turn |
+| 2 | Thái Dương Đạo (the Great Sun) | Fire | Bình Minh (Sunrise: opening burst) · Chính Ngọ (Noon: peak mid-fight) · Liệt Nhật (Scorching Sun: Fire on Light) · Nhật Miện (Corona: aura) · Hoàng Hôn (Sunset: a last blaze) | A sun that never sets |
+| 3 | Thái Âm Đạo (the Great Moon) | — | Nguyệt Tướng (Phases: power that cycles) · Nguyệt Quang (Moonlight: Cold on Light) · Triều Tịch (Tides, with Water) · Dạ Hoa (Night Bloom) · Kính Nguyệt (Borrowed Light) | The full moon every night |
+| 4 | Ngũ Hành Đạo (the Five Phases) | three or more base elements | Tương Sinh (the generating cycle) · Tương Khắc (the overcoming cycle) · Quân Bình (Balance) · Luân Chuyển (Rotation) · Hòa Hợp (Harmony: pair bonus) | All five turn as one |
+| 5 | Tứ Thời Đạo (the Four Seasons) | — | Xuân (Spring: growth, healing) · Hạ (Summer: fire, burst) · Thu (Autumn: killing qi, harvest) · Đông (Winter: cold, rest) · Luân Niên (the Turning Year) | Always the right season |
+| 6 | **Phong Nguyệt Đạo** · *Phong Hoa Tuyết Nguyệt* (Wind, Flowers, Snow, Moon) | — | Phong (Wind: speed) · Hoa (Flowers: grace, healing) · Tuyết (Snow: Cold, calm) · Nguyệt (Moon: Light) · Tứ Cảnh (the four beauties at once) | Beauty is the blade |
+| 7 | Hỗn Độn Đạo (Primordial Chaos) | the Primordial Chaos root | Hỗn Độn (Chaos damage) · Vô Hình (Unformed: any element) · Xâm Thực (Erosion: resistance down) · Tiên Thiên (Before Heaven: insight) · Hỗn Hợp (Mixing: element stacks combined) | All five, none of them |
+| 8 | Vô Cực Đạo (the Limitless) | — | Vô Hình (Formless) · Vô Hạn (Unbounded growth) · Quy Nhất (Return to One) · Hư Vô (Emptiness) · Sơ Thủy (the First Breath) | Before Taiji, beyond limit |
+| 9 | **Tinh Đạo** · *Tinh Hà* (River of Stars) | — | Tinh Trận (Star Arrays) · Tinh Quang (Starlight: Light) · Thiên Lý (Distance: travel, range) · Bắc Đẩu (the Dipper: guidance, fate) · Lưu Tinh (Falling Stars: bursts) | The sky is your array |
+| 10 | **Thời Đạo** · *Quang Âm* (Passing Light: Time) † | — | Lão Hóa (Ageing: herbs)† · Tốc (Haste: art speed) · Ngưng (Stillness: enemy timers) · Năm Tháng (Years: lifespan) · Hồi Quang (Rewind: restore) | The fight runs on your clock |
+| 11 | Càn Khôn Đạo (Heaven and Earth in a Sleeve: Space) † | — | Thuấn Bộ (Step: escape, evade) · Tụ Lý (the Sleeve: inventory) · Liệt Không (Rift: Force damage) · Súc Địa (Folding the Earth: travel) · Phong Tỏa (Sealed Place: stops escape) | Here and there at once |
+| 12 | **Mệnh Đạo** · *Thiên Cơ* (Heaven's Secret: Fortune) † | — | Tinh Tượng (Star Signs)† · Khí Vận (Fortune, cơ duyên) · Bói Toán (Divination: see events) · Định Mệnh (Destiny: counted chance) · Hung Tinh (Ill Star: curse luck) | The heavens bend |
+| 13 | Động Tĩnh Đạo (Motion and Stillness) | — | Động (Motion: speed, attack) · Tĩnh (Stillness: defence, regeneration) · Chuyển Thế (Switching stances) · Tĩnh Cực Sinh Động (stillness bursting into motion) · Bất Động (Unmoving) | Two stances, one master |
+| 14 | Hư Thực Đạo (Empty and Full) | — | Hư Chiêu (Feints) · Thực Kích (True Strikes) · Hư Ảnh (False images: evade) · Ẩn Thực (Hidden strength) · Hư Thực Tương Sinh (the empty becomes full) | Which blow was real? |
 
-**New broad Ways** (user request 2026-11-10: Beast Taming, Wind, Craft, Filial Piety, "lots more")
+**Elements and nature**
 
-| # | Way | Requirement | Five facets | Capstone idea |
+| # | Way | Needs | Five facets | Capstone idea |
 |---|---|---|---|---|
-| 19 | Beast Taming (Ngự Thú Đạo) | none | Bond (loyalty, companion share) · Pack (more beasts) · Beast Body (borrowed traits) · Mounts (travel, escape) · Feeding (beast growth) | One heart in many bodies |
-| 20 | Wind (Phong Đạo) | Wind | Gale (art speed) · Drift (evade, Wind stacks) · Blade Wind (Physical cuts) · Tempest (with Thunder) · Wanderer (travel) | Never in one place |
-| 21 | Craft (Kỹ Đạo) | none | Refining (artifacts) · Talisman Brush · Puppets · Formation Making · Appraisal (item quality, prices) | Everything carried is self-made |
-| 22 | Filial Piety (Hiếu Đạo) | none | Ancestors (lineage blessings) · Family (kin, gia tộc) · Sect Loyalty (contribution, standing) · Inheritance (legacy, techniques) · Gratitude (repaid debts) | The lineage fights beside you |
-| 23 | Ice (Băng Đạo) | Ice | Frost (Cold damage) · Ice Body (shields) · Freezing (slowed timers) · Glacier (layered wards) · Snowfall (stealth, calm) | The world stops |
-| 24 | Light (Quang Minh Đạo) | none | Radiance (Light damage) · Purity (cleanse, status resistance) · Dawn (opening burst) · Halo (wards) · Judgement (against demons and curses) | Nothing hides |
-| 25 | Shadow (Ám Đạo) | none | Darkness (blind, accuracy down) · Hiding (stealth, ambush) · Assassin (first strike, crit) · Night (stronger later in fights) · Shade Step (escape) | Strike from nowhere |
-| 26 | Blood (Huyết Đạo) | none | Blood Price (health-paid costs) · Bleeding (ticks) · Blood Shield · Vitality (max health) · Kin Blood (bloodline) | Life is the only currency |
-| 27 | Body (Luyện Thể Đạo) | none | Bronze Skin (block) · Iron Bones (body shield) · Jade Marrow (regeneration) · Giant (vitality, căn cốt) · Unarmed (basic attack) | Flesh beats treasure |
-| 28 | Sound (Âm Luật Đạo) | none | Zither (Force, soul damage) · Drum (allies, companions) · Flute (calm, heart demon) · Resonance (stacking hits) · Silence (stops enemy arts) | The song decides the fight |
-| 29 | Strategy (Kỳ Đạo) | none | Foresight (guards, slot order) · Formation of Arts (art order bonuses) · Feint (evade, counters) · Sacrifice (give up to gain) · Endgame (late-fight power) | Every move was planned |
-| 30 | Wine (Tửu Đạo) | none | Drunken Fist (erratic evade) · Brewing (spirit wine) · Fire Wine (Fire damage) · Revelry (heart demon down) · Hangover (cost for power) | Drunk is enlightened |
-| 31 | Emotion (Tình Đạo) | none | Joy · Anger (damage when hurt) · Sorrow (curses) · Love (bonds, companions) · Fear (enemy loses nerve) | The seven feelings, mastered |
-| 32 | Merit (Công Đức Đạo) | none | Compassion (healing others) · Karma Shield (wards) · Good Deeds (quests, standing) · Exorcism (against demons) · Golden Body (Light-touched body) | Merit outweighs heaven |
-| 33 | Slaughter (Sát Lục Đạo) | none | Killing Intent (fear, damage) · Battle Streak (kills across fights) · Executioner (low-health enemies) · Blood Sea (with Blood) · Calm Butcher (heart demon control) | A thousand deaths behind you |
-| 34 | Devouring (Thôn Phệ Đạo) | none | Swallow (drain linh lực) · Digest (gains from kills) · Hunger (stacking need) · Consume Pills (toxicity into power) · Maw (soul drain) | Everything is food |
-| 35 | Sealing (Phong Ấn Đạo) | none | Seal Arts (silence) · Seal Qi (linh lực lock) · Seal Beasts · Prison (stop escape) · Self-Seal (stored power) | Nothing moves without leave |
-| 36 | Wealth (Tài Đạo) | none | Spirit Stones (pay arts in stones) · Trade (prices) · Treasure Sense (finds, cơ duyên) · Hired Help · Golden Armour (stones as shield) | Money is qi |
-| 37 | Primordial Chaos (Hỗn Độn Đạo) | the Primordial Chaos root | Chaos (Chaos damage) · Unformed (any element) · Erosion (resistance down) · Before Heaven (insight) · Mixing (element stacks combined) | All five, none of them |
+| 15 | **Kim Đạo** · *Bách Luyện* (Hundred Temperings: Metal) † | Metal | Tinh Kim (Refined Metal)† · Thối Thể (Tempered Body: block, body shield) · Lò Rèn (the Forge: artifact power) · Binh Khố (the Armoury: artifact slots) · Kim Phong (Metal Edge: Metal stacks) | The gear is the body |
+| 16 | **Mộc Đạo** · *Khô Vinh* (Wither and Bloom: Wood) | Wood | Sinh Trưởng (Growth: stacks that grow) · Gai (Thorns: retaliation) · Rừng (the Forest: ground, companions) · Rễ (Roots: drain) · Khai Hoa (Blossom: bursts after growth) | The forest outlives everything |
+| 17 | **Thủy Đạo** · *Nhược Thủy* (Like Water) | Water | Lưu (Flow: art chains) · Triều (Tides: rising and falling) · Uyên (the Depths: linh lực) · Vũ (Rain: healing over time) · Giang Hà (Rivers: travel) | Water wears down the mountain |
+| 18 | **Hỏa Đạo** · *Phần Thiên* (Burning Heaven: Fire) † | Fire | Chân Hỏa (True Flame: Burn) · Dung Nham (Lava, with Earth)† · Đan Hỏa (Pill Fire: furnace heat)† · Tro Tàn (Ash: after the Burn) · Niết Bàn (the Phoenix Rises) | The furnace never cools |
+| 19 | **Thổ Đạo** · *Bất Động Sơn* (Unmoving Mountain: Earth) † | Earth | Trọng Lực (Gravity)† · Sơn Thể (Mountain Body: block) · Địa Chấn (Earthquake: stagger) · Trần Bích (Dust Wall: Earth stacks) · Bàn Căn (Deep Roots: standing still) | Immovable |
+| 20 | **Lôi Đạo** · *Cửu Thiên Lôi* (Thunder of the Nine Heavens) † | Thunder | Thiên Lôi (Heavenly Thunder: tribulation)† · Thiểm Điện (Lightning: crit, speed) · Lôi Thể (Thunder Body) · Phong Bạo (Storm, with Wind) · Tịnh Hóa (Purging: cleanse, demon-slaying) | Carry your own tribulation |
+| 21 | **Phong Đạo** · *Thanh Phong* (Clear Breeze: Wind) | Wind | Cuồng Phong (Gale: art speed) · Phiêu (Drift: evade, Wind stacks) · Phong Nhận (Wind Blades: Physical cuts) · Bão Táp (Tempest, with Thunder) · Lãng Du (Wanderer: travel) | Never in one place |
+| 22 | **Băng Đạo** · *Băng Tâm* (Ice Heart) | Ice | Sương Giá (Frost: Cold damage) · Băng Thể (Ice Body: shields) · Đông Kết (Freezing: slowed timers) · Băng Xuyên (Glacier: layered wards) · Tuyết Rơi (Snowfall: stealth, calm) | The world stops |
+| 23 | **Vụ Đạo** · *Yên Vũ* (Misty Rain) † | Water | Màn Sương (Veil: evade, stealth)† · Hàn Vụ (Cold Mist: Ice debuff) · Mây (Clouds: travel, escape) · Sương Mai (Dew: regeneration) · Chìm (Drowning: linh lực burn) | Unseen until too late |
+| 24 | **Ngọc Đạo** · *Ngọc Thanh* (Jade Purity) | Earth | Ngọc Thể (Jade Body: body shield) · Thuần Khiết (Purity: status resistance) · Khúc Xạ (Refraction: split hits) · Ngọc Giản (Jade Slips: insight) · Điêu Khắc (Carving: artifacts) | Flawless |
+| 25 | **Quang Đạo** · *Quang Minh* (Radiance) | — | Quang (Radiance: Light damage) · Tịnh (Purity: cleanse) · Bình Minh Kiếm (Dawn: opening burst) · Hào Quang (Halo: wards) · Phán Xét (Judgement: against demons and curses) | Nothing hides |
+| 26 | **Ám Đạo** · *Dạ Hành* (Night Walker) | — | Bóng Tối (Darkness: blind, accuracy down) · Ẩn (Hiding: stealth, ambush) · Thích Khách (the Assassin: first strike, crit) · Đêm Sâu (Deep Night: stronger later) · Ảnh Bộ (Shade Step: escape) | Strike from nowhere |
 
-**Seed mapping.** Lava → Flame; Gravity → Mountain; Life, Death → Life and Death; Poison → Poison; Mist →
-Mist; Sword → Sword; Heavenly Thunder → Thunder; Destruction → Destruction; Pill Fire → Flame; Spirit
-Farming → Pill; Refined Metal → Metal; Array → Geomancy; Soul → Soul; Illusion → Illusion; Stars →
-Heavenly Fortune; Space → Space; Yin, Yang, Taiji → Yin and Yang; Reincarnation → Reincarnation; Time →
-Time. The proposed Dust, Talisman and Cold Pill Daos from the root build catalogue are facets (Illusion,
-Geomancy, Pill).
+**Life, death and the soul**
 
-**Open (roster):** overlaps to watch while authoring: Blood, Slaughter and Destruction; Body, Metal's
-Tempered Body and Mountain; Light, Merit and Yin and Yang's Yang; Mist, Ice and Yin. Each graph must keep its
-facets distinct from those of its neighbours (rule 12).
+| # | Way | Needs | Five facets | Capstone idea |
+|---|---|---|---|---|
+| 27 | **Sinh Tử Đạo** · *Sinh Diệt* (Arising and Passing) † | — | Sinh (Life: regeneration, healing)† · Diệt (Death: curses, withering)† · Ranh Giới (the Threshold: the Down step) · Thi Khí (Corpse Qi: drain, Corpse Rot) · Trường Sinh (Longevity) | Crossing the line both ways |
+| 28 | Luân Hồi Đạo (the Wheel of Rebirth) † | — | Bánh Xe (the Wheel: cycling stacks) · Tiền Kiếp (Past Lives: insight) · Tái Sinh (Rebirth: survive a Down) · Vãng Sinh (Passage: soul) · Lục Đạo (the Six Paths: shifting forms) | Death is a door |
+| 29 | Nhân Quả Đạo (Cause and Effect) | — | Nghiệp (Karma: delayed payback) · Nợ (Debts: owed and called) · Báo Ứng (Retribution: retaliation) · Duyên (Affinity: bonds) · Đoạn Nhân Quả (Cutting karma: cleanse) | Every blow comes home |
+| 30 | Bỉ Ngạn Đạo (The Other Shore) | — | Bỉ Ngạn Hoa (the Spider Lily) · Độ (Crossing: escape, survival) · Vong Xuyên (River of Forgetting: curses) · Giác Ngộ (Enlightenment) · Hồng Hoa (Red Petals: bursts on a Down) | Death and awakening, one shore |
+| 31 | Hoàng Tuyền Đạo (the Yellow Springs) | — | Cửu Tuyền (the Nine Springs: depth) · Di Ngôn (Last Words: last acts) · Dẫn Hồn (Leading Souls) · Hoàn Dương (Return to the Living) · Âm Thủy (Dark Water: Cold, Chaos) | One foot already below |
+| 32 | **Quỷ Đạo** · *U Minh* (the Netherworld) | — | Quỷ Bộc (Ghost Servants) · Nhập Xác (Possession) · Oán Hồn (Haunting: curses after death) · Quỷ Hỏa (Ghost Fire: Soul damage) · Quỷ Môn (the Ghost Gate) | The dead fight for you |
+| 33 | **Cốt Đạo** · *Bạch Cốt* (White Bones) | — | Cốt Giáp (Bone Armour) · Cốt Thương (Bone Spear: Physical) · Tủy (Marrow: regeneration) · Cốt Nô (Bone Servants) · Sọ Hộ (Skull Ward: soul) | Strength from the inside out |
+| 34 | **Hồn Đạo** · *Nguyên Thần* (the Primordial Spirit: Soul) † | — | Thần Thức (Divine Sense) · Hồn Kích (Soul Strike) · Hồn Hộ (Soul Ward) · Linh Bộc (Spirit Servants) · Khôi Lỗi (Puppetry) | The body is a vessel |
+| 35 | **Huyết Đạo** · *Huyết Hải* (Sea of Blood) | — | Huyết Giá (Blood Price: health-paid costs) · Xuất Huyết (Bleeding) · Huyết Thuẫn (Blood Shield) · Sinh Lực (Vitality) · Huyết Mạch (Bloodline) | Life is the only currency |
+| 36 | **Thể Đạo** · *Bất Diệt Thể* (the Undying Body) | — | Đồng Bì (Bronze Skin: block) · Thiết Cốt (Iron Bones: body shield) · Ngọc Tủy (Jade Marrow: regeneration) · Cự Nhân (the Giant: vitality, căn cốt) · Không Thủ (Bare Hands: basic attack) | Flesh beats treasure |
+| 37 | **Liên Đạo** · *Thanh Liên* (Blue Lotus) | — | Xuất Bùn (Out of the Mud: rise after a fall) · Tịnh Thủy (Pure Water: cleanse) · Liên Đài (the Lotus Throne: wards) · Liên Tử (Lotus Seeds: regeneration) · Hương Liên (Lotus Scent: calm) | Untouched by the mud |
+
+**The heart**
+
+| # | Way | Needs | Five facets | Capstone idea |
+|---|---|---|---|---|
+| 38 | **Tình Đạo** · *Thất Tình* (the Seven Feelings) | — | Hỷ (Joy) · Nộ (Anger: damage when hurt) · Ai (Sorrow: curses) · Ái (Love: bonds, companions) · Cụ (Fear: the enemy loses nerve) | Every feeling, mastered |
+| 39 | Vô Tình Đạo (the Heartless Way) | — | Đoạn Tình (Cutting Ties: heart demon immunity) · Lạnh Lùng (Cold Heart: steady power) · Thái Thượng (Above Feeling: insight) · Cô Độc (Alone: no companions, more power) · Như Đá (Like Stone: statuses) | Heaven has no heart |
+| 40 | **Tâm Đạo** · *Vấn Tâm* (Questioning the Heart) | — | Tâm Ma (Heart Demons: faced and turned) · Đạo Tâm (the Dao Heart) · Tự Vấn (Self-Questioning: insight) · Kiên Định (Resolve) · Minh Ngộ (Clarity) | No demon left inside |
+| 41 | **Thiền Đạo** · *Minh Tâm* (the Bright Heart: Zen) | — | Tĩnh Tọa (Stillness: seclusion cultivation) · Không (Emptiness: resistance, calm) · Thệ Nguyện (Vows: power from self-restriction) · Kim Cương (Diamond Body) · Đốn Ngộ (Sudden Insight) | The mind does not move |
+| 42 | Bồ Đề Đạo (Bodhi: Merit) | — | Từ Bi (Compassion: healing others) · Nghiệp Thuẫn (Karma Shield: wards) · Thiện Hạnh (Good Deeds: quests, standing) · Trừ Ma (Exorcism) · Kim Thân (the Golden Body) | Merit outweighs heaven |
+| 43 | **Ma Đạo** · *Thiên Ma* (the Heavenly Demon) | — | Ma Lực (Heart Demon Power) · Huyết Tế (Blood Sacrifice) · Ma Hóa (Corruption: Chaos) · Cấm Thuật (Forbidden Arts) · Ma Thân (Demon Body) | Embrace the demon |
+| 44 | **Sát Đạo** · *Tu La* (the Asura Way) | — | Sát Ý (Killing Intent: fear, damage) · Chiến Liên (Battle Streak) · Đao Phủ (the Executioner: low-health enemies) · Huyết Hải Tu La (with the Sea of Blood) · Lãnh Huyết (Cold Blood: heart demon control) | A thousand deaths behind you |
+| 45 | Hồng Trần Đạo (Red Dust) | — | Thế Gian (the Mortal World: standing, prices) · Duyên Phận (Bonds) · Thất Khổ (the Sorrows: insight from loss) · Phàm Tâm (a Mortal Heart: heart demon) · Hồng Trần Luyện Tâm (tempered by the world) | Cultivated among mortals |
+| 46 | **Mộng Đạo** · *Hồ Điệp Mộng* (the Butterfly Dream) | — | Mộng (Dream: rest, insight) · Hồ Điệp (the Butterfly: evade) · Thực Mộng (Dream into Real: swap) · Mộng Cảnh (Dreamscape: ground) · Tỉnh (Waking: cleanse) | Which one is dreaming? |
+| 47 | **Huyễn Đạo** · *Kính Hoa Thủy Nguyệt* (Flowers in a Mirror, Moon in Water: Illusion) † | — | Ảo Ảnh (Mirage: evade) · Gương (the Mirror: reflect) · Tâm Ma Ảo (Heart Demons both ways) · Bụi Trần (Dust: the proposed Dust Đạo) · Thủy Nguyệt (the Moon in Water: false targets) | The enemy fights a dream |
+| 48 | **Mị Đạo** · *Khuynh Thành* (City-Toppling Beauty: Charm) | — | Mị Lực (Allure) · Thuyết Phục (Persuasion: prices, standing) · Mê Hoặc (Enthral: the enemy hesitates) · Hồ Hỏa (Fox Fire) · Ngưỡng Mộ (Admirers: followers) | No one will strike you |
+| 49 | Nhẫn Đạo (Forbearance) | — | Kiên Nhẫn (Patience: stronger the longer the fight) · Chịu Đựng (Bear It: damage taken to power) · Ý Chí (Iron Will) · Tử Thủ (Last Stand) · Âm Ỉ (Slow Burn: regeneration) | Whoever lasts, wins |
+| 50 | Tiêu Dao Đạo (Free Wandering) | — | Vô Môn (No Sect) · Vân Hạc (Clouds and Cranes: travel) · Kỳ Ngộ (Chance Meetings) · Tự Tại (a Carefree Heart) · Thoát (Escape) | Bound by nothing |
+| 51 | **Hoa Đạo** · *Lạc Hoa* (Falling Petals) | — | Hữu Ý (Petals with intent: grace) · Lưu Thủy Vô Tình (Water without intent: indifference) · Hoa Vũ (Petal Rain: many hits) · Tàn Hoa (Fading: decaying bursts) · Hương Tàn (Lingering Scent: after-effects) | Beautiful because it falls |
+
+**Arms**
+
+| # | Way | Needs | Five facets | Capstone idea |
+|---|---|---|---|---|
+| 52 | Kiếm Đạo (the Sword) † | — | Kiếm Ý (Sword Intent: crit, pierce) · Phi Kiếm (Flying Swords) · Kiếm Thể (Edge Body: Physical thể tu) · Hàn Phong (Cold Edge) · Kiếm Tâm (Sword Heart: thần thức) | Drawn: Nhất Kiếm, Vạn Kiếm Quy Tông, Báo Chiêu, Đông Bất Tận, Tâm Bất Động, Thân Tức Kiếm |
+| 53 | **Đao Đạo** · *Cuồng Đao* (the Mad Saber) | — (needs a `saber` form tag) | Trọng Đao (Heavy Saber) · Hoành Tảo (Sweeping Cut) · Đao Ý (Saber Intent) · Huyết Đao (Blood Saber) · Hồi Đao (Return Stroke: counters) | One cut splits the sky |
+| 54 | **Thương Đạo** · *Phá Quân* (the Army-Breaker: Spear) | — (needs a `spear` form tag) | Xuyên Thấu (Piercing) · Trường Thương (Reach: first strike) · Xung Phong (Charge) · Thương Trận (Spear Wall: counters) · Long Thương (Dragon Spear: combos) | The point goes through |
+| 55 | **Xạ Đạo** · *Xạ Nhật* (Shooting the Suns: Bow) | — (needs a `bow` form tag) | Viễn Xạ (Long Shot) · Tiễn Vũ (Rain of Arrows) · Ưng Nhãn (Hawk's Eye: crit, accuracy) · Linh Tiễn (Spirit Arrows) · Truy Tung (Tracking: hunts, creatures; from Hunting) | Never a miss |
+| 56 | **Chưởng Đạo** · *Thiên Thủ* (a Thousand Hands: Palm) | — | Trọng Chưởng (Heavy Palm: Force) · Chưởng Phong (Palm Wind) · Nội Kình (Inner Strike: through wards) · Hỏa Chưởng (Burning Palm) · Thiên Chưởng (a Thousand Palms: many hits) | One palm, a mountain falls |
+| 57 | **Ấn Đạo** · *Pháp Ấn* (Dharma Seals) | — | Ấn Liên (Seal Chains: combos) · Phược Ấn (Binding Seals) · Thiên Ấn (Heaven Seals: big slow arts) · Khoái Ấn (Quick Seals) · Hộ Ấn (Seal Wards) | A seal for every answer |
+| 58 | **Vũ Đạo** · *Nghê Thường* (the Rainbow Robe: Dance) | — | Tiết Tấu (Rhythm: art timing) · Xoay (Spin: several targets) · Uyển Chuyển (Grace: evade) · Kiếm Vũ (Sword Dance) · Hội (Festival: allies' power) | The fight is a dance |
+| 59 | **Diệt Đạo** · *Tịch Diệt* (Silent Extinction: Destruction) † | — | Hủy Hoại (Ruin: more damage)† · Phá Giáp (Shatter: resistance shred) · Diệt Tuyệt (Annihilation: Chaos) · Sụp Đổ (Collapse: overkill) · Tai Kiếp (Calamity: self-cost) | Nothing is left standing |
+| 60 | **Phệ Đạo** · *Thôn Thiên* (Swallowing Heaven) | — | Thôn (Swallow: drain linh lực) · Hóa (Digest: gains from kills) · Đói (Hunger: stacking need) · Nuốt Đan (Consume Pills: toxicity into power) · Hắc Khẩu (the Maw: soul drain) | Everything is food |
+| 61 | **Trấn Đạo** · *Trấn Thiên* (Suppressing Heaven: Sealing) | — | Phong Thuật (Seal Arts: silence) · Khóa Khí (Seal Qi) · Trấn Thú (Seal Beasts) · Lao Ngục (Prison: stop escape) · Tự Phong (Self-Seal: stored power) | Nothing moves without leave |
+| 62 | **Độc Đạo** · *Vạn Độc* (Ten Thousand Poisons) † | Wood | Nọc (Venom: Poison stacks)† · Đan Độc (Pill Toxin) · Cổ (Gu: poison beasts) · Ôn Dịch (Plague: statuses spread; from Plague) · Giải Độc (Antidote: cleanse) | Your blood is poison |
+
+**Arts and crafts**
+
+| # | Way | Needs | Five facets | Capstone idea |
+|---|---|---|---|---|
+| 63 | **Kỹ Đạo** · *Thiên Công* (Heaven's Craftsmanship) | — | Luyện Khí (Refining: artifacts) · Họa Phù (the Talisman Brush) · Khôi Lỗi Thuật (Puppets) · Chế Trận (Formation Making) · Giám Bảo (Appraisal: quality; spirit stones as payment, from Wealth) | Everything carried is self-made |
+| 64 | **Đan Đạo** · *Cửu Chuyển* (the Nine Turnings: Pill) † | Wood or Fire | Đan Lô (the Furnace) · Linh Điền (Spirit Fields)† · Hàn Đan (Cold Pill) · Linh Thiện (Spirit Food: buffs; from Cuisine) · Y Đạo (Medicine: healing) | Every pill is perfect |
+| 65 | **Trận Đạo** · *Phong Thủy* (Wind and Water: Geomancy) † | — | Trận Pháp (Arrays)† · Linh Mạch (Spirit Veins) · Phù Lục (Talismans) · Hộ Trận (Ward Arrays) · Động Phủ (the Cave Dwelling: home ground) | A formation within the body |
+| 66 | **Họa Đạo** · *Thi Họa* (Poetry and Painting) | — | Mặc Thú (Ink Beasts: summons) · Sơn Thủy (Landscape: ground) · Chân Dung (Portrait: copies) · Bút Pháp (Brushstroke: combos) · Thi Quyển (the Living Scroll: stored arts) | What is drawn becomes real |
+| 67 | **Cầm Đạo** · *Thiên Lại* (the Pipes of Heaven: Music) | — | Cầm (the Zither: Force, soul) · Cổ (the Drum: allies, companions) · Tiêu (the Flute: calm) · Cộng Hưởng (Resonance: stacking hits) · Vô Thanh (Silence: stops enemy arts) | The song decides the fight |
+| 68 | Kỳ Đạo (the Way of Go) | — | Tiên Tri (Foresight: guards, slot order) · Bố Cục (the Opening: art order) · Hư Chiêu Kỳ (Feints, counters) · Khí Tử (Sacrifice: give up to gain) · Tàn Cục (Endgame: late-fight power) | Every move was planned |
+| 69 | **Tửu Đạo** · *Túy Tiên* (the Drunken Immortal) | — | Túy Quyền (Drunken Fist: erratic evade) · Ủ Rượu (Brewing: spirit wine) · Hỏa Tửu (Fire Wine) · Cuồng Hoan (Revelry: heart demon down) · Say Mèm (Hangover: cost for power) | Drunk is enlightened |
+| 70 | **Ti Đạo** · *Hồng Tuyến* (the Red Thread) | — | Sợi Duyên (Fate Threads) · Trói (Binding: slowing) · Mạng Nhện (the Web: traps) · Dây Rối (Puppet Strings) · Thiên Y (Silk Armour) | Every thread leads to you |
+| 71 | **Điếu Đạo** · *Hàn Giang Độc Điếu* (Lone Angler on the Cold River) | — | Chờ (Patience: waiting gains) · Mồi (the Lure: draw enemies, events) · Phúc Thủy (Fortune of the Water) · Câu Móc (Line and Hook: pull, stop escape) · Hồ Lặng (the Calm Lake: heart demon) | The fish comes to the hook |
+| 72 | **Thâu Đạo** · *Diệu Thủ* (the Wondrous Hand) | — | Trộm Bảo (Steal Treasures) · Trộm Khí (Steal Qi) · Trộm Thuật (Steal Arts) · Khoái Thủ (Quick Hands) · Biến Mất (Vanish) | Whatever they have is yours |
+
+**Beasts and changes**
+
+| # | Way | Needs | Five facets | Capstone idea |
+|---|---|---|---|---|
+| 73 | **Thú Đạo** · *Bách Thú* (a Hundred Beasts) | — | Khế Ước (Bond: loyalty, companion share) · Bầy (the Pack) · Thú Thể (Beast Body: borrowed traits) · Tọa Kỵ (Mounts) · Săn (the Hunt: creatures, materials; from Hunting) | One heart in many bodies |
+| 74 | **Long Đạo** · *Chân Long* (the True Dragon) | — | Long Huyết (Dragon Blood: vitality) · Long Lân (Scales: shields) · Long Ngâm (the Roar: fear, silence) · Long Tàng (the Hoard: treasures) · Hô Vũ (Rain-Calling: Water, Lightning) | The dragon wakes |
+| 75 | **Hóa Đạo** · *Vạn Hóa* (Ten Thousand Changes) | — | Thú Hình (Beast Forms) · Cự Hình (Giant Form) · Tiểu Hình (Small Form: evade, stealth) · Nguyên Tố Hình (Elemental Form) · Biến Hóa (switching forms mid-fight) | Any shape, any answer |
+| 76 | **Phân Thân Đạo** · *Nhất Khí Hóa Tam* (One Breath, Three Bodies) | — | Phân Thân (Split Self: a clone fights) · Kính Ảnh (Mirror Images: evade) · Hóa Thân (an Avatar Body) · Đồng Tâm (Shared Mind: thần thức) · Thiên Thủ Phân Thân (Many Hands: art slots, rare) | There are three of you |
+
+**People and the world**
+
+| # | Way | Needs | Five facets | Capstone idea |
+|---|---|---|---|---|
+| 77 | Hiếu Đạo (Filial Piety) | — | Tổ Tiên (Ancestors) · Gia Tộc (Family) · Trung Môn (Sect Loyalty) · Truyền Thừa (Inheritance) · Báo Ân (Repaying Kindness) | The lineage fights beside you |
+| 78 | **Nho Đạo** · *Hạo Nhiên* (Vast Righteousness) | — | Chính Khí (Righteous Qi) · Thư Pháp (Calligraphy: written arts) · Lễ (Rites: order, buffs) · Học (Learning: comprehension) · Ngôn Linh (Words of Power: silence, command) | The pen cuts deeper |
+| 79 | **Thệ Đạo** · *Thiên Thệ* (Oath to Heaven) | — | Tự Thệ (Self-Oaths: closed options for power) · Khế Ước (Contracts) · Thiên Chứng (Heaven as Witness) · Kết Nghĩa (Sworn Bonds) · Nợ Ân (Debts) | A word is law |
+| 80 | **Sư Đạo** · *Truyền Đăng* (Passing the Lamp) | — | Đệ Tử (Disciples who fight) · Giảng Đạo (Teaching: insight) · Đạo Thống (the Lineage of Arts) · Chỉ Điểm (Guidance: others' breakthroughs) · Di Sản (Legacy) | The student surpasses you |
+| 81 | **Hiệp Đạo** · *Hiệp Cốt* (Bones of a Hero) | — | Chính Nghĩa (Justice) · Phù Nhược (Protecting the Weak) · Du Hiệp (Wandering Hero: quests) · Quyết Đấu (the Duel) · Danh Tiếng (Reputation) | Righteousness answers |
+| 82 | **Hoàng Đạo** · *Nhân Hoàng* (Emperor of Men) | — | Uy Nghiêm (Authority: aura, fear) · Thần Dân (Followers) · Thánh Chỉ (Decrees) · Cống Phẩm (Tribute) · Long Ỷ (the Throne: home ground) | All under heaven |
+| 83 | **Binh Đạo** · *Thiên Quân Vạn Mã* (a Thousand Troops, Ten Thousand Horses) | — | Binh Sĩ (Troops: mass battle) · Chiến Trận (Battle Formations) · Thống Soái (Generalship) · Công Thành (Siege) · Lương Thảo (Supply) | The army is one body |
+| 84 | **Thủ Đạo** · *Thủ Hộ* (the Keeper) | — | Thuẫn Tường (Shield Wall) · Hộ Vệ (Protector: allies) · Khiêu Khích (Taunt) · Canh Giữ (Vigil: late-fight defence) · Bất Khuất (Unbroken) | Nothing passes you |
+
+**Ways that change the rules** (user request 2026-11-10: "any other cool đạo concepts"; the rule-changers chosen)
+
+| # | Way | Needs | Five facets | Capstone idea |
+|---|---|---|---|---|
+| 85 | **Nghịch Đạo** · *Nghịch Thiên Cải Mệnh* (Defy Heaven, Change Fate) | — | Nghịch Cảnh (Against the Odds: stronger when behind on health) · Vượt Cấp (Fighting Upward: against higher realms) · Nghịch Kiếp (Defying Tribulation) · Bất Phục (Unyielding: survive a Down) · Cải Mệnh (Rewriting Fate: rerolled odds) | The weaker you are, the harder you strike |
+| 86 | **Thiên Đạo** · *Thiên Đạo Vô Thân* (Heaven Has No Favourites) | — | Thiên Quy (Heaven's Rules: limits on the enemy) · Công Bằng (Impartial: both sides capped alike) · Thiên Phạt (Heaven's Punishment: against rule-breakers, demons) · Pháp Tắc (Laws: rule-change Effects) · Thay Trời (Acting for Heaven) | You are the law in this fight |
+| 87 | **Kiếp Đạo** · *Độ Kiếp* (Crossing the Calamity) | — | Tự Chuốc (Courting Disaster: self-imposed trials) · Hiểm Phá (Risky Breakthroughs) · Kiếp Hậu (After the Calamity: gains from surviving) · Kiếp Khí (Calamity Qi: tribulation as fuel) · Vạn Kiếp (Ten Thousand Trials: stacks per survival) | Every calamity makes you stronger |
+| 88 | **Đại Đạo** · *Đại Đạo Chí Giản* (The Great Way Is Simple) | — | Giản (Simplicity: power per empty slot) · Nhất (The One: one art, one ward) · Bỏ (Letting Go: fewer pieces, stronger ones) · Quy Chân (Return to the True) · Vô Chiêu (No Forms: the basic attack grows) | Less is everything |
+| 89 | **Vô Vi Đạo** · *Vô Vi Nhi Trị* (Rule by Not Acting) | — | Bất Động Thủ (Not Striking: power while idle) · Tự Nhiên (Let It Happen: wards and ticks do the work) · Thuận (Yielding: counters) · Thủ Nhu (Keeping Soft: damage taken softened) · Vô Vi Tâm (the Non-Acting Heart) | It wins without moving |
+| 90 | **Si Đạo** · *Si* (Obsession) | — | Nhất Niệm (One Thought: one tag, very deep) · Si Mê (Infatuation: stacking focus) · Quên Mình (Self-Forgetting: other stats ignored) · Điên (Madness: heart demon as fuel) · Tuyệt Kỹ (the Peerless Art) | Master of one thing, nothing else |
+| 91 | **Hận Đạo** · *Hận Hải Nan Điền* (A Sea of Hatred No One Can Fill) | — | Kẻ Thù (the Nemesis: a sworn enemy from the World Database) · Báo Thù (Vengeance: power against those who wronged you) · Ghi Hận (Grudges: marked foes) · Huyết Thệ (Blood Oath) · Hận Ý (Hatred as qi) | The world remembers, and so do you |
+| 92 | **Cô Đạo** · *Thiên Sát Cô Tinh* (the Lone Star of Calamity) | — | Độc Hành (Walking Alone: no companions) · Vô Môn Phái (No Sect) · Cô Tinh (the Lone Star: more power per missing ally) · Khắc Thân (Bringing Misfortune: allies weaken, you rise) · Lạnh (Coldness: heart demon) | Alone under heaven |
+| 93 | **Vực Đạo** · *Lĩnh Vực* (Domain) | — | Triển Vực (Unfolding: a domain opens mid-fight) · Vực Quy (Domain Rules: rewrites fight rules inside it) · Vực Áp (Domain Pressure: enemy slowed) · Vực Hộ (Domain Ward) · Vực Thần (Domain Lord: your own ground everywhere) | Within my domain, I decide |
+| 94 | **Thần Đạo** · *Hương Hỏa Thành Thần* (A God Made of Incense Smoke) | — | Tín Đồ (Followers: faith from the world) · Hương Hỏa (Incense: faith as power) · Miếu (Shrines: home ground) · Thần Uy (Divine Majesty: fear, aura) · Hiển Linh (Manifestation: answering prayers, events) | Worshipped, therefore mighty |
+
+**Seed mapping.** Lava, Pill Fire → Hỏa Đạo; Gravity → Thổ Đạo; Life, Death → Sinh Tử Đạo; Poison → Độc Đạo;
+Mist → Vụ Đạo; Sword → Kiếm Đạo; Heavenly Thunder → Lôi Đạo; Destruction → Diệt Đạo; Spirit Farming → Đan Đạo;
+Refined Metal → Kim Đạo; Array → Trận Đạo; Soul → Hồn Đạo; Illusion → Huyễn Đạo; Stars → Mệnh Đạo;
+Space → Càn Khôn; Yin, Yang, Taiji → Âm Dương; Reincarnation → Luân Hồi; Time → Thời Đạo. The proposed Dust,
+Talisman and Cold Pill Daos from the root build catalogue are facets (Huyễn Đạo, Trận Đạo, Đan Đạo).
+
+**Folded in the romantic pass:** Wealth (spirit stones as payment → Kỹ Đạo's Giám Bảo), Plague (→ Độc Đạo's
+Ôn Dịch), Hunting (→ Thú Đạo's Săn and Xạ Đạo's Truy Tung), Cuisine (→ Đan Đạo's Linh Thiện). Emotion split into
+Tình Đạo and Vô Tình.
+
+**Open (roster):**
+- Đao Đạo, Thương Đạo and Xạ Đạo need new form tags beside sword, palm, seal, beast and formation (Combat rule 6,
+  Modifier System rule 9).
+- Overlaps to keep apart while drawing: Huyết Đạo, Sát Đạo and Diệt Đạo; Thể Đạo, Cốt Đạo, Thổ Đạo and
+  Kim Đạo's Thối Thể; Quang Đạo, Bồ Đề, Thái Dương and Âm Dương's Dương; Vụ Đạo, Băng Đạo, Thái Âm and Âm
+  Dương's Âm; Sinh Tử Đạo, Hoàng Tuyền, Bỉ Ngạn, Quỷ Đạo and Luân Hồi; Tâm Đạo, Thiền Đạo and Tình Đạo; Nhân Quả and
+  Luân Hồi; Động Tĩnh and Hư Thực with Kỳ Đạo; Nghịch Đạo with Nhẫn Đạo; Vô Vi Đạo with Thiền Đạo; Cô Đạo with Vô Tình (its Cô Độc facet); Đại Đạo with Kiếm Đạo's One Sword; Vực Đạo with Trận Đạo's Động Phủ; Kiếp Đạo with Lôi Đạo's tribulation facet; Long Đạo with Thú Đạo and Hóa Đạo; Phân Thân Đạo with Huyễn Đạo; Ti Đạo with Kỹ Đạo's puppets; Vũ Đạo with Phong Đạo. Each graph keeps its facets
+  distinct from its neighbours' (rule 12).
 
 ## Formulas
 

@@ -22,7 +22,7 @@ def _load(n):
 
 pens = _load("pens")
 
-TITLE = "Sword Way (Kiếm Đạo)"
+TITLE = "Kiếm Đạo (the Sword)"
 START_NAME = "Glimpse of the Sword (Kiến Kiếm)"
 AXIS = 0
 RIM = 16.2
