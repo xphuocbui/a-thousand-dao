@@ -1,0 +1,96 @@
+# 22 · Băng Đạo · *Băng Tâm* (Ice Heart)
+
+> Overnight draft 2026-11-11. Proposal. **Needs:** Ice (variant) ≥ 30.
+> **Theme stats:** `attack_pct` (cold), `stack_effect_pct` (ice), `stack_duration_pct` (ice), `resist_pen_pct`
+> (cold), `defense_pct`, `ward_efficiency_pct`, `body_shield_pct`, `resist_pct` (cold), `tam_ma_resist_pct`,
+> `status_duration_pct` (curse).
+> **Road:** `stack_effect_pct` ice +1.5.
+
+## Build directions
+
+1. **The Cost Lock.** Ice debuff stacks raise the foe's art costs with no cap; pile them and the foe stops casting,
+   then its ward starves. The art-heavy foe's nightmare, useless against a bare-fist build.
+2. **The Glacier.** Layered wards of ice: every ward you slot adds a shield and the shields refresh from your
+   Ice stacks on the foe (Băng Xuyên). A ward tank that wins by cost attrition.
+3. **Frozen Clock.** Timer control: Ice stacks past a threshold slow the foe's art timers (Đông Kết).
+4. **Cold Shatter.** Pile, then consume stacks for burst (the Sword Way's Shatter has a cousin here that works on
+   any Cold art).
+
+## Facets
+
+### 1. Sương Giá (Frost)
+- **Small:** `attack_pct` cold +1.5 · `resist_pen_pct` cold +0.6
+- **Stat notables:** Hoarfrost (Sương Muối): cold ×2 · Biting Cold (Rét Cắt): cold penetration ×2 · Frost Flower
+  (Hoa Băng): cold +1, ice stack effect +1 · Black Ice (Băng Đen): cold crit damage +2
+- **Effects:**
+  - **Major: Shatter (Băng Toái).** Every 6 s, your next Cold hit on a target bearing 25+ Ice stacks consumes 15
+    and deals more (L5 +3 per stack consumed, +45).
+  - Minor: Frostbite (Đống Thương). Your Cold hits apply 1 Ice stack per 2 % of the target's max health they deal
+    (cap 5). *(starter)*
+  - Minor: Brittle (Giòn). A target bearing 15+ Ice stacks takes more Physical damage (L5 +10 to your Physical
+    hits on it).
+
+### 2. Băng Thể (Ice Body)
+- **Small:** `body_shield_pct` +1 · `resist_pct` cold +1.5
+- **Stat notables:** Ice Skin (Da Băng): body shield ×2 · Winter Blood (Huyết Đông): cold resistance ×2 · Glass
+  Bones (Cốt Pha Lê): body shield +1, max health +1 · Numb (Tê): status resist +2
+- **Effects:**
+  - **Major: Ice Armour (Băng Giáp).** At each pulse, your body shield regains 0.1 % of your max health per Ice
+    stack on the foe (cap 3 % a pulse).
+  - Minor: Cold Retort (Hàn Phản). When a hit breaks your body shield, apply 6 Ice stacks to the attacker for 8
+    pulses.
+  - Minor: Chilled Blood (Huyết Lạnh). Burn on you is 25 % weaker. *(starter)*
+
+### 3. Đông Kết (Freezing)
+- **Small:** `stack_duration_pct` ice +2 · `stack_effect_pct` ice +1
+- **Stat notables:** Deep Freeze (Đóng Băng Sâu): ice duration ×2 · Ice Lock (Khóa Băng): ice stack effect ×2 ·
+  Slow Thaw (Tan Chậm): ice duration +1, cold +1 · Rime (Băng Sương): ice effect +1, defense +1
+- **Effects:**
+  - **Major: Frozen Clock (Đông Kết).** A target bearing 30+ Ice stacks has its art timers run 20 % slower
+    (40 % at 60+). `Needs rule` (shared with Thổ's Earthquake: Effects that act on foe timers).
+  - Minor: Lingering Chill (Hàn Lưu). Your Ice batches last 2 pulses longer. *(starter)*
+  - Minor: Frozen Breath (Tức Đông). When the foe's art waits because it cannot pay, apply 5 Ice stacks for 8
+    pulses (once per 2 s).
+
+### 4. Băng Xuyên (Glacier)
+- **Small:** `defense_pct` +1.2 · `ward_efficiency_pct` +1.2
+- **Stat notables:** Ice Shelf (Thềm Băng): ward efficiency ×2 · Layered Ice (Băng Tầng): defense ×2 · Crevasse
+  (Khe Băng): defense +1, cold resist +1 · Ancient Ice (Băng Cổ): ward efficiency +1, ice effect +1
+- **Effects:**
+  - **Major: Glacier (Băng Xuyên).** Each ward you have slotted gains a shield equal to 2 % of max linh lực,
+    restored every 6 s; while the foe has 20+ Ice stacks, it restores every 3 s.
+  - Minor: Cold Bill (Hàn Phí). When a foe's hit is fully stopped by your ward, apply 2 Ice stacks to it for 6
+    pulses.
+  - Minor: Slow Melt (Tan Chậm Rãi). Your cast wards last 25 % longer.
+
+### 5. Tuyết Rơi (Snowfall)
+- **Small:** `tam_ma_resist_pct` +1 · `escape_pct` +1
+- **Stat notables:** Quiet Snow (Tuyết Lặng): heart-demon resist ×2 · White-Out (Trắng Xóa): escape ×2 · Calm
+  Heart (Tâm Lặng): heart-demon resist +1, status resist +1 · Snow Cover (Tuyết Phủ): evade +1, escape +1
+- **Effects:**
+  - **Major: Ice Heart (Băng Tâm).** You are immune to Fear-type and heart-demon Effects in fights, and the foe's
+    heart-demon-based Effects do nothing against you. Your Cold hits on a foe who has hit you crit with +10 pp
+    chance.
+  - Minor: White Silence (Tuyết Câm). The foe's first art each fight costs 50 % more. *(starter)*
+  - Minor: Footprints Filled (Dấu Chân Lấp). Your escape art cannot be pursued: the pursuer's tags do not lower its
+    chance.
+
+## Capstones
+
+| Capstone | Kind | Rule | Closes | Near |
+|---|---|---|---|---|
+| **The World Stops (Thiên Địa Đóng Băng)** | keystone | At 80+ Ice stacks on a target, its arts cannot fire for 2 s (once per 15 s), and its timers then resume | Your arts deal 30 % less hit damage (L2 −30) | Đông Kết |
+| **Heart of Ice (Hàn Tâm)** | keystone | Your Ice batches never expire while the target is below 50 % linh lực | You gain no Water buff stacks | Sương Giá |
+| **Eternal Glacier (Vĩnh Băng)** | keystone | Your ward shields do not break: past 0 they keep stopping 25 % of what they stopped, until the ward is replaced | Your linh lực regeneration is 0 | Băng Xuyên |
+| **Absolute Zero (Tuyệt Đối Linh Độ)** | enabler | Your Ice stacks also raise every ward payment of the foe (drain, per hit, reserved) by 1 % per 10 stacks, so ward-tanks and bare-fist builds feel the cold too | You cannot apply Burn | Đông Kết, Băng Xuyên |
+
+## New pieces
+
+- Frozen Clock, The World Stops: `Needs rule` (Effects acting on foe timers; Combat rule 13).
+- Absolute Zero: Ice stacks on ward-slot payments, `Needs rule` (Effects 9a: Ice never touches ward-slot payments).
+- Eternal Glacier: `Needs rule` (Combat Defence shields).
+
+## Kept apart from
+
+Vụ (Mist's cold debuff is accuracy-flavoured); Thái Âm (moonlight: Cold on Light); Thủy (Water's buff side). Băng
+Đạo is **the cost lock, the frozen clock and the glacier ward**.
