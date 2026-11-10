@@ -153,11 +153,12 @@ are named parameters; their values and ranges are in Formulas.
 4. **Bonuses.** Each open acupoint adds its modifiers to the character's stat sheet under the source "Kinh Mạch:
    <name> #<id>". Values are priced by the Modifier System (Formulas F reads `modifier_prices`).
    - **Land acupoints** (small, notable, cluster) are multiplied by 0.5 + purity/100 for their land's element, or by
-     0.25 if the root lacks it; a blend-zone acupoint uses the average of its two lands' multipliers; a variant land's
+     0.25 at purity 0 (purity a road granted counts, even in an element the root does not own; Spiritual Roots rule 8a); a blend-zone acupoint uses the average of its two lands' multipliers; a variant land's
      (rule 20) uses that variant's purity the same way. Keystones and the hub are exact.
    - **Roads.** An element land's road nodes grant only that element's purity, about `road_purity` (0.5) each, exact
      (Spiritual Roots rule 8a: purity is proficiency and has no cap); a blend zone's grant half of each neighbour's;
-     the hub's dantian roads give general stats; island roads give general stats until the content pass. The amount
+     a variant land's roads (Wind's land, the islands) grant that variant's purity the same way (user decision
+     2026-11-10, Spiritual Roots review D4); the hub's dantian roads give general stats. The amount
      is bot-tuned so purity above 100 stays rare (user decisions 2026-11-10).
    - **Keys.** Any key in the Modifier System's Stat List may appear except `leech_health_pct` and
      `bonus_ward_slots`, the rare sustain exception (user decision 2026-11-10); rare modifiers only on keystones.
@@ -250,7 +251,7 @@ are named parameters; their values and ranges are in Formulas.
 20. **Variant roots have their own starts and lands** (user decision 2026-11-10, replacing the variant sectors of
     2026-11-04). Wind has its land, Ice its start inside Water's land, Light, Darkness and Thunder their islands, and
     Primordial Chaos the hub. They are open to everyone, like the element lands; a variant land's acupoints scale by
-    0.5 + purity/100 for that variant, or 0.25 if the root lacks it. A variant start can be picked only by a root
+    0.5 + purity/100 for that variant, or 0.25 at purity 0. A variant start can be picked only by a root
     holding the variant (rule 3). Blood and Void, archived as roots (Spiritual Roots, 2026-11-09), have no land; their
     old sector data stays locked and is not counted in the map size or the calibration.
 
@@ -380,7 +381,7 @@ The value_scale formula is defined as:
 **Output Range:** w̄_map is 2.15 W at the defaults (2.07 W was the generated map's per-point target). A life's tree
 power is set by the route it walks, not the map's mix: the route share of road nodes, small acupoints and notables
 is re-measured by the bot on the drawn map (AC-KMD-07; the generated map's figure was 95–116 W at Qi Refining's
-end). Hub roads and island roads give general stats at S0 until the content pass.
+end). Hub roads give general stats at S0.
 
 **Example:** (616 × 0.15 + 5,364 × 1.2 + 1,084 × 8) / 7,064 = (92 + 6,437 + 8,672) / 7,064 = **2.152 W**. A typical
 small acupoint is +1.2% attack (or +0.5% cultivation speed); a notable +8% attack; a Fire road node +0.5 Fire purity.
@@ -1115,7 +1116,7 @@ Drafted with qa-lead.
 | 15–19 | ~~Variant sectors, their drawing and build; the generator's G5–G9; the unseal flow~~ **Retired 2026-11-10** (rules 6–15, 20) | — | — |
 | 20 | **The content pass:** names, modifiers and keystones for the whole map; every element land's linh-lực keystone; the 25 capability placements; the start-cradle keystones that crowd the centre (overnight notes, Still open) | user + game-designer | Content release 1 |
 | 21 | `road_purity`, `purity_price` and `tree_breakthrough_k` are guesses; AC-KMD-101 tunes `road_purity` | systems-designer + bot | Rule 4; Formulas A2, F |
-| 22 | Island roads give general stats until the content pass: should the Light, Darkness and Thunder bridges grant their variant's purity like an element land's roads? (Spiritual Roots' review recommends variant purity come only from the birth draw or the parents) | user | Rule 4 |
+| 22 | ~~Should island roads grant their variant's purity?~~ **Resolved 2026-11-10:** yes, a variant land's roads grant its variant's purity like an element land's (rule 4; Spiritual Roots review D4) | — | — |
 
 ### Known gaps in the build
 

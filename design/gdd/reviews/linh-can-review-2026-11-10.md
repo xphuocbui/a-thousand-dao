@@ -143,3 +143,24 @@ The 2026-11-05 NEEDS REVISION blockers (NPC archetype adds elements; birth perk 
 - Combat economy revision #44 changed nothing else this GDD owns.
 
 RESULT: verdict=NEEDS REVISION blocking=3 recommended=11 minor=5 decisions=6
+
+---
+
+## User answers and applied fixes (2026-11-10, parent session)
+
+- **D6:** technique speed reads purity **uncapped** (also answers Cultivation Techniques D1); its ranges and tier
+  ceilings widen in its own revision, and Realms re-calibrates.
+- **D1:** a derived variant **follows its parents past 100** (no upper clamp); variant bands re-price later (OQ 15).
+- **D2:** purity in an unowned element **counts everywhere except the root's own counts** (n_base, pairs, curve row,
+  variant eligibility).
+- **D3:** a debuff uses the **applier's** purity, a buff the holder's; foes default `stack_purity` 0 (effects.md
+  rule 9a reworded).
+- **D4:** **yes**: a variant land's roads grant that variant's purity, innate ones included (Meridian Map rule 4,
+  its OQ 22 resolved).
+- **D5:** Void and Blood: a labelled target block in rule 9 now; numbers regenerate at the code pass.
+- Applied: LC-01 (pill capped at 100 and refused only when all owned are ≥ 100; Linh Căn Quả never refused, +8 past
+  100; AC-LC-39/43/44), LC-02, LC-03, LC-04 (the Way designed; OQ 9 closed), LC-05 (defined vs intended sources),
+  LC-06 via D2, LC-07, LC-08 via D6, LC-09 (AC-LC-52 duplicate renumbered to AC-LC-54; UI bullets under AC-LC-51;
+  AC-LC-55/56 added), LC-10 (registry `stack_purity_factor`, `pair_share`; AC-LC-19), LC-11, LC-13 via D4, LC-14 (new
+  edge cases), LC-15, LC-16; rule 12 and every "variant sector" passage now describe variant lands. LC-12, LC-17, LC-19
+  wait for the code pass (D5).
