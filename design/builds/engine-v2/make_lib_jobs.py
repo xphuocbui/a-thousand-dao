@@ -31,9 +31,8 @@ def job(bid, guide, fights):
     prompt = (
         "Rebuild the build `%s` from the art library and the technique catalogue, then fight it on combat engine v2 "
         "(run through fight.py).\n\n" % bid +
-        "Read, and nothing else: the guide %s; the old fight files %s (Glob them); the section '## Fight input' of "
-        ".claude/skills/design-build/references/content-formats.md (Grep '^## ' to find it; read from it to '## The "
-        "fight in brief'); design/arts/INDEX.md (every technique, signature art and common art on one line). For one "
+        "Read, and nothing else: the guide %s; the old fight files %s (Glob them); the build-file format "
+        "tools/design/combat_sim/FIGHT-INPUT.md; design/arts/INDEX.md (every technique, signature art and common art on one line). For one "
         "library art's full mechanic, Grep its id in design/arts/family-*.md.\n\n" % (guide, fights) +
         "Rules:\n"
         "1. Keep the build's concept, realm, root (`purity`), layers, crit, ward, body, keystones, curses and every "
@@ -55,7 +54,7 @@ def job(bid, guide, fights):
         "5. Never tune a number. Never edit the library, the catalogue or the old files.\n\n"
         "Write %s for the build's defining realm, and %s/%s.<realm>.fight.json for each other realm the old build had "
         "a fight file for (same choices, the arts the realm unlocks).\n\n" % (main, fdir, bid) +
-        "Run `python .claude/skills/design-build/scripts/fight.py %s --matrix`, then the same with "
+        "Run `python tools/design/combat_sim/fight.py %s --matrix`, then the same with "
         "`--without tech:<the main technique id>`, then with `--without <the build's identity piece>` (an art id or "
         "an effect id). Run each other realm file once without --matrix.\n\n" % main +
         "Write %s: the build's name and concept in one line; a table | Old piece | Library piece | Technique "
@@ -64,7 +63,7 @@ def job(bid, guide, fights):
         "UNMODELLED lines, one each with why; one paragraph of observations: fight length against the 30-60 s band "
         "at the same realm, whether the guide's claims still hold, NEVER_FIRED arts.\n"
         "End your final message with: LIB-DONE %s" % (md, md))
-    allowed = ",".join(["Read", "Glob", "Grep", "Bash(python .claude/skills/design-build/scripts/fight.py *)",
+    allowed = ",".join(["Read", "Glob", "Grep", "Bash(python tools/design/combat_sim/fight.py *)",
                         "Write(%s/%s.fight.json)" % (fdir, bid), "Write(%s/%s.*.fight.json)" % (fdir, bid),
                         "Edit(%s/%s.fight.json)" % (fdir, bid), "Edit(%s/%s.*.fight.json)" % (fdir, bid),
                         "Write(%s)" % md, "Edit(%s)" % md])

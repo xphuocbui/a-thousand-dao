@@ -1,5 +1,5 @@
 """migrate_fight_v1.py: converts a build fight file written for the retired fight_calc.py (format v1, before
-#44 and the ward and body layers) to the format .claude/skills/design-build/scripts/fight.py reads.
+#44 and the ward and body layers) to the format tools/design/combat_sim/fight.py reads.
 
 What carries over mechanically: realm, layers, crit, pools, art speed and cost, evade, accuracy, each art's
 coefficient, cooldown, cost and per-art layer points. Everything else (curses, guards, applied statuses, soul

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""fight.py: runs a design-build build on the canonical combat simulator.
+"""fight.py: runs a build file on the canonical combat engine (moved here from the design-build skill 2026-11-11).
 
 EMITS OBSERVATIONS, NOT A VERDICT (CLAUDE.md, "Helpers in .claude/scripts/").
 It prints what happened in the fights, which caps clipped and what it could not model. Whether that is

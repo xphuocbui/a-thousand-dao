@@ -13,7 +13,7 @@ import os
 import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-sys.path.insert(0, os.path.join(ROOT, ".claude", "skills", "design-build", "scripts"))
+sys.path.insert(0, os.path.join(ROOT, "tools", "design", "combat_sim"))
 _argv, sys.argv = sys.argv, sys.argv[:1]
 import fight  # noqa: E402
 import engine  # noqa: E402
