@@ -1,7 +1,7 @@
 # 30 · Bỉ Ngạn Đạo · *Bỉ Ngạn Hoa Khai* (The Other Shore; the Far-Shore Flower Blooms)
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
-> **Theme stats:** `attack_pct` (fire, chaos, soul), `escape_pct`, `status_duration_pct` (curse), `comprehension`,
+> **Theme stats:** `attack_pct` (fire, chaos, soul), `escape_pct`, `status_duration_pct` (curse), `ngo_tinh` (comprehension),
 > `soul_res_pct`, `tam_ma_resist_pct`, `khi_huyet_pct`.
 > **Road:** `soul_res_pct` +1.
 
@@ -51,7 +51,7 @@
   - Minor: Meng's Soup (Canh Quên). The first curse each fight you place lasts 2 pulses longer. *(starter)*
 
 ### 4. Giác Ngộ (Enlightenment)
-- **Small:** `comprehension` +1 · `tam_ma_resist_pct` +1
+- **Small:** `ngo_tinh` (comprehension) +1 · `tam_ma_resist_pct` +1
 - **Stat notables:** Clear Shore (Bờ Trong): comprehension ×2 · Still Mind (Tâm Tĩnh): heart-demon resist ×2 ·
   Lotus Thought (Niệm Sen): comprehension +1, soul resist +1 · Far-Seeing (Nhìn Xa): thần thức +2
 - **Effects:**

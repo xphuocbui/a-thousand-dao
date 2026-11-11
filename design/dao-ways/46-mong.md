@@ -1,7 +1,7 @@
 # 46 · Mộng Đạo · *Hồ Điệp Mộng* (the Butterfly Dream)
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
-> **Theme stats:** `evade_pct`, `comprehension`, `tam_ma_resist_pct`, `status_resist_pct`, `formation_power_pct`, `soul_res_pct`,
+> **Theme stats:** `evade_pct`, `ngo_tinh` (comprehension), `tam_ma_resist_pct`, `status_resist_pct`, `formation_power_pct`, `soul_res_pct`,
 > `health_regen_pct`.
 > **Road:** `soul_res_pct` +1.
 
@@ -20,7 +20,7 @@ when you wake, and damage you deal is kept at half. The Way builds around that w
 ## Facets
 
 ### 1. Mộng (Dream)
-- **Small:** `comprehension` +1 · `tam_ma_resist_pct` +1
+- **Small:** `ngo_tinh` (comprehension) +1 · `tam_ma_resist_pct` +1
 - **Stat notables:** Deep Sleep (Ngủ Say): comprehension ×2 · Sweet Dreams (Giấc Êm): heart-demon resist ×2 · Lucid (Mộng
   Tỉnh): comprehension +1, heart-demon resist +1 · Pillow Stone (Gối Đá): regen +0.1
 - **Effects:**

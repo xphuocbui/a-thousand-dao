@@ -1,7 +1,7 @@
 # 39 · Vô Tình Đạo · *Thái Thượng Vong Tình* (the Heartless Way; the Highest Forget Feeling)
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
-> **Theme stats:** `tam_ma_resist_pct`, `status_resist_pct`, `attack_pct`, `crit_chance_pct`, `comprehension`,
+> **Theme stats:** `tam_ma_resist_pct`, `status_resist_pct`, `attack_pct`, `crit_chance_pct`, `ngo_tinh` (comprehension),
 > `defense_pct`, `soul_res_pct`.
 > **Road:** `tam_ma_resist_pct` +1.
 
@@ -37,7 +37,7 @@
   - Minor: No Peaks (Không Đỉnh). The foe's conditional bonuses against you (execute, low-health, after-crit) are halved.
 
 ### 3. Thái Thượng (Above Feeling)
-- **Small:** `comprehension` +1 · `cultivation_speed_pct` +0.4 (capped)
+- **Small:** `ngo_tinh` (comprehension) +1 · `cultivation_speed_pct` +0.4 (capped)
 - **Stat notables:** High Seat (Ngôi Cao): comprehension ×2 · Detached Mind (Tâm Xa): cultivation speed +1 · Clear View
   (Nhìn Thấu): comprehension +1, soul resist +1 · Cold Insight (Ngộ Lạnh): thần thức +2
 - **Effects:**

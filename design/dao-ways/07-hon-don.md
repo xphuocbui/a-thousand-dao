@@ -2,7 +2,7 @@
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** the Primordial Chaos root.
 > **Theme stats:** `attack_pct` (chaos), `resist_pen_pct` (chaos, all), `element_affinity_pct`, `stack_effect_pct` (all),
-> `comprehension`, `cultivation_speed_pct` (capped), `resist_pct` (chaos).
+> `ngo_tinh` (comprehension), `cultivation_speed_pct` (capped), `resist_pct` (chaos).
 > **Road:** `attack_pct` chaos +2.
 
 ## Build directions
@@ -48,7 +48,7 @@
   - Minor: Crumbling Ward (Hộ Vỡ Vụn). A target eroded by 30+ points has its ward efficiency −10 %.
 
 ### 4. Tiên Thiên (Before Heaven)
-- **Small:** `comprehension` +1 · `cultivation_speed_pct` +0.4 (counts toward the 10 % per-Dao cap)
+- **Small:** `ngo_tinh` (comprehension) +1 · `cultivation_speed_pct` +0.4 (counts toward the 10 % per-Dao cap)
 - **Stat notables:** Primal Insight (Ngộ Sơ): comprehension ×2 · Unborn Mind (Tâm Chưa Sinh): thần thức +2 · Seed of
   Heaven (Mầm Trời): comprehension +1, cultivation speed +0.5 · Prenatal Qi (Tiên Thiên Khí): max linh lực +2
 - **Effects:**

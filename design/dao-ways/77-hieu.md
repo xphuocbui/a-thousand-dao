@@ -2,7 +2,7 @@
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none. The ◇ Gia Tộc (Family) facet is archived; replaced here by
 > **Gia Phong (House Rules)**. The capstone is a lineage blessing, not a lineage that fights (dao.md).
-> **Theme stats:** `khi_huyet_pct`, `comprehension`, `tam_ma_resist_pct`, renown, `co_duyen_pct`, `status_resist_pct`.
+> **Theme stats:** `khi_huyet_pct`, `ngo_tinh` (comprehension), `tam_ma_resist_pct`, renown, `co_duyen_pct`, `status_resist_pct`.
 > **Road:** `tam_ma_resist_pct` +1.
 
 ## Build directions
@@ -27,7 +27,7 @@
     (outside fights: events). `Needs key`.
 
 ### 2. Gia Phong (House Rules) — replaces ◇ Gia Tộc
-- **Small:** `status_resist_pct` +1 · `comprehension` +1
+- **Small:** `status_resist_pct` +1 · `ngo_tinh` (comprehension) +1
 - **Stat notables:** Family Teaching (Gia Giáo): comprehension ×2 · Upright House (Nhà Nề Nếp): status resist ×2 · Good
   Upbringing (Có Giáo Dục): comprehension +1, status resist +1 · Family Craft (Nghề Nhà): crafting success +2
 - **Effects:**
@@ -47,7 +47,7 @@
   - Minor: Sect Shelter (Môn Che Chở). Hostile NPCs who know your sect attack you 20 % less often.
 
 ### 4. Truyền Thừa (Inheritance)
-- **Small:** `comprehension` +1 · `co_duyen_pct` +1
+- **Small:** `ngo_tinh` (comprehension) +1 · `co_duyen_pct` +1
 - **Stat notables:** Master's Legacy (Di Sản Thầy): comprehension ×2 · Inheritance Luck (Duyên Truyền Thừa): fortune ×2 ·
   Old Manual (Bí Kíp Cũ): comprehension +1, fortune +1 · Handed Down (Được Truyền): technique mastery +2
 - **Effects:**

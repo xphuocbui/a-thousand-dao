@@ -2,7 +2,7 @@
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
 > **Theme stats:** `cultivation_speed_pct` (capped), `tam_ma_resist_pct`, `status_resist_pct`, `body_shield_pct`,
-> `resist_pct` (all), `defense_pct`, `comprehension`.
+> `resist_pct` (all), `defense_pct`, `ngo_tinh` (comprehension).
 > **Road:** `status_resist_pct` +1.
 
 ## Build directions
@@ -58,7 +58,7 @@
   - Minor: Diamond Mind (Tâm Kim Cương). While your body shield is up, curses on you last 1 pulse less.
 
 ### 5. Đốn Ngộ (Sudden Insight)
-- **Small:** `comprehension` +1 · `than_thuc_pct` +0.5
+- **Small:** `ngo_tinh` (comprehension) +1 · `than_thuc_pct` +0.5
 - **Stat notables:** Flash of Truth (Chớp Chân Lý): comprehension ×2 · Open Eye (Mắt Mở): thần thức ×2 · Koan (Công Án):
   comprehension +1, thần thức +1 · Awakening (Giác): soul resist +2
 - **Effects:**

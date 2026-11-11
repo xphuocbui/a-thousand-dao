@@ -1,7 +1,7 @@
 # 40 · Tâm Đạo · *Vấn Tâm* (Questioning the Heart)
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
-> **Theme stats:** `tam_ma_resist_pct`, `comprehension`, `soul_res_pct`, `than_thuc_pct`, `status_resist_pct`,
+> **Theme stats:** `tam_ma_resist_pct`, `ngo_tinh` (comprehension), `soul_res_pct`, `than_thuc_pct`, `status_resist_pct`,
 > `cultivation_speed_pct` (capped), `qi_deviation_pct` (lower).
 > **Road:** `tam_ma_resist_pct` +1.
 
@@ -40,7 +40,7 @@ The breakthrough Way. Tâm turns the **heart demon system** from a tax into a ga
   - Minor: Heart Ward (Hộ Tâm). In fights, while your Dao Heart is 50+, fear and charm Effects on you are refused.
 
 ### 3. Tự Vấn (Self-Questioning)
-- **Small:** `comprehension` +1 · `than_thuc_pct` +0.5
+- **Small:** `ngo_tinh` (comprehension) +1 · `than_thuc_pct` +0.5
 - **Stat notables:** Ask Again (Hỏi Lại): comprehension ×2 · Look Within (Nhìn Vào): thần thức ×2 · Doubt and Answer
   (Nghi Và Đáp): comprehension +1, thần thức +1 · Honest Mirror (Gương Thật): soul resist +2
 - **Effects:**
@@ -61,7 +61,7 @@ The breakthrough Way. Tâm turns the **heart demon system** from a tax into a ga
   - Minor: Resolve Rewarded (Kiên Định Được Thưởng). Fights won while under 3+ curses give +1 Dao Heart.
 
 ### 5. Minh Ngộ (Clarity)
-- **Small:** `comprehension` +1 · `cultivation_speed_pct` +0.4
+- **Small:** `ngo_tinh` (comprehension) +1 · `cultivation_speed_pct` +0.4
 - **Stat notables:** Clear Light (Ánh Trong): comprehension ×2 · Awakened Mind (Tâm Thức Tỉnh): cultivation speed +1 ·
   Lucid (Minh Mẫn): comprehension +1, soul resist +1 · Insight's Edge (Lưỡi Ngộ): thần thức +2
 - **Effects:**

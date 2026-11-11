@@ -2,7 +2,7 @@
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** Earth ≥ 30.
 > **Theme stats:** `body_shield_pct`, `status_resist_pct`, `soul_res_pct`, `element_affinity_pct`, `artifact_power_pct`,
-> `than_thuc_cost_pct`, `attack_pct` (light, earth), `comprehension` (cultivation curve), `cultivation_speed_pct`
+> `than_thuc_cost_pct`, `attack_pct` (light, earth), `ngo_tinh` (comprehension) (cultivation curve), `cultivation_speed_pct`
 > (capped by `dao_rate_cap_pct`).
 > **Road:** `status_resist_pct` +1.
 
@@ -51,7 +51,7 @@
   - Minor: Through Jade (Xuyên Ngọc). Your split hits ignore 10 resistance points. *(starter)*
 
 ### 4. Ngọc Giản (Jade Slips)
-- **Small:** `comprehension` +1 · `soul_res_pct` +1
+- **Small:** `ngo_tinh` (comprehension) +1 · `soul_res_pct` +1
 - **Stat notables:** Library of Slips (Kho Giản): comprehension ×2 · Copied Insight (Chép Ngộ): comprehension +1,
   cultivation speed +1 · Engraved Memory (Khắc Nhớ): soul resistance ×2 · Seal of Record (Ấn Ghi): thần thức +2
 - **Effects:**

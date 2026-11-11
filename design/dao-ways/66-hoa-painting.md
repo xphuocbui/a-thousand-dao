@@ -2,7 +2,7 @@
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
 > **Theme stats:** companion damage (ink), `formation_power_pct`, `attack_pct` (ink: chaos/cold), `art_speed_pct`,
-> `than_thuc_pct`, `art_cost_pct`, `comprehension`.
+> `than_thuc_pct`, `art_cost_pct`, `ngo_tinh` (comprehension).
 > **Road:** `than_thuc_pct` +0.9.
 
 ## Build directions
@@ -62,7 +62,7 @@
   - Minor: Signature (Chữ Ký). The finishing stroke applies Sundered.
 
 ### 5. Thi Quyển (the Living Scroll)
-- **Small:** `comprehension` +1 · `than_thuc_pct` +0.5
+- **Small:** `ngo_tinh` (comprehension) +1 · `than_thuc_pct` +0.5
 - **Stat notables:** Long Scroll (Cuộn Dài): comprehension ×2 · Poem in Ink (Thơ Mực): thần thức ×2 · Rhyme (Vần):
   comprehension +1, thần thức +1 · Verse Seal (Ấn Thơ): art cost −2
 - **Effects:**

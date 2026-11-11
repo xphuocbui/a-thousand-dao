@@ -1,9 +1,9 @@
 # 78 · Nho Đạo · *Hạo Nhiên* (Vast Righteousness)
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
-> **Theme stats:** `attack_pct` (light, force), `comprehension`, `status_duration_pct` (curse), `defense_pct`, `soul_res_pct`,
+> **Theme stats:** `attack_pct` (light, force), `ngo_tinh` (comprehension), `status_duration_pct` (curse), `defense_pct`, `soul_res_pct`,
 > `tam_ma_resist_pct`.
-> **Road:** `comprehension` +1.
+> **Road:** `ngo_tinh` (comprehension) +1.
 
 ## Build directions
 
@@ -49,7 +49,7 @@
   - Minor: Order in Chaos (Trật Tự Giữa Hỗn Loạn). In ambush fights, curses on you last 1 pulse less.
 
 ### 4. Học (Learning)
-- **Small:** `comprehension` +1 · `tam_ma_resist_pct` +1
+- **Small:** `ngo_tinh` (comprehension) +1 · `tam_ma_resist_pct` +1
 - **Stat notables:** Ten Thousand Books (Vạn Quyển Sách): comprehension ×2 · Calm Study (Học Lặng): heart-demon resist ×2 ·
   Scholar's Lamp (Đèn Sách): comprehension +1, heart-demon resist +1 · Library (Thư Viện): thần thức +2
 - **Effects:**

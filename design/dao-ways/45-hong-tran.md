@@ -1,7 +1,7 @@
 # 45 · Hồng Trần Đạo · *Vạn Trượng Hồng Trần* (Red Dust; Ten Thousand Fathoms of Red Dust)
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
-> **Theme stats:** `sell_price_pct`, `buy_price_pct`, `mission_income_pct`, renown, `co_duyen_pct`, `comprehension`,
+> **Theme stats:** `sell_price_pct`, `buy_price_pct`, `mission_income_pct`, renown, `co_duyen_pct`, `ngo_tinh` (comprehension),
 > `tam_ma_resist_pct`, `khi_huyet_pct`.
 > **Road:** `co_duyen_pct` +1.
 
@@ -39,7 +39,7 @@ The Way of living among mortals. Almost all of it is life-around-the-fight; the 
   - Minor: Help from Friends (Bạn Giúp). Once a season, a bonded NPC gives an item or a rumour (event).
 
 ### 3. Thất Khổ (the Sorrows)
-- **Small:** `comprehension` +1 · `tam_ma_resist_pct` +1
+- **Small:** `ngo_tinh` (comprehension) +1 · `tam_ma_resist_pct` +1
 - **Stat notables:** Lessons of Loss (Bài Học Mất Mát): comprehension ×2 · Endured (Đã Chịu): heart-demon resist ×2 ·
   Wisdom of Grief (Khôn Từ Đau): comprehension +1, heart-demon resist +1 · Old Scars (Sẹo Cũ): max health +2
 - **Effects:**
@@ -59,7 +59,7 @@ The Way of living among mortals. Almost all of it is life-around-the-fight; the 
   - Minor: Ordinary Clothes (Áo Thường Dân). Hostile cultivators find you 20 % less often in towns.
 
 ### 5. Hồng Trần Luyện Tâm (Tempered by the World)
-- **Small:** `comprehension` +1 · `attack_pct` +1
+- **Small:** `ngo_tinh` (comprehension) +1 · `attack_pct` +1
 - **Stat notables:** World-Wise (Từng Trải): comprehension ×2 · Street Fighter (Võ Phố): attack ×2 · Seen It All (Đã Thấy
   Hết): comprehension +1, attack +1 · Dust on the Robe (Bụi Trên Áo): status resist +2
 - **Effects:**

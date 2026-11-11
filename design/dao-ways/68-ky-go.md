@@ -1,7 +1,7 @@
 # 68 · Kỳ Đạo · *Nhất Cục Thiên Hạ* (the Way of Go; the World in One Game)
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
-> **Theme stats:** `art_speed_pct`, `art_cost_pct`, `attack_pct`, `defense_pct`, `than_thuc_pct`, `comprehension`.
+> **Theme stats:** `art_speed_pct`, `art_cost_pct`, `attack_pct`, `defense_pct`, `than_thuc_pct`, `ngo_tinh` (comprehension).
 > **Road:** `than_thuc_pct` +0.9.
 
 ## Build directions

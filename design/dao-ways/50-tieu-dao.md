@@ -2,7 +2,7 @@
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
 > **Theme stats:** `travel_speed_pct`, `escape_pct`, `co_duyen_pct`, `evade_pct`, `tam_ma_resist_pct`, `art_speed_pct`,
-> `comprehension`.
+> `ngo_tinh` (comprehension).
 > **Road:** `travel_speed_pct` +2.
 
 ## Build directions
@@ -19,7 +19,7 @@ roaming as fortune and options.
 ## Facets
 
 ### 1. Vô Môn (No Sect)
-- **Small:** `comprehension` +1 · `buy_price_pct` −1
+- **Small:** `ngo_tinh` (comprehension) +1 · `buy_price_pct` −1
 - **Stat notables:** Open Door (Cửa Mở): comprehension ×2 · Any Market (Chợ Nào Cũng Được): buy price ×2 · Learn
   Anywhere (Học Mọi Nơi): comprehension +1, buy price −1 · Nobody's Man (Người Của Không Ai): fortune +2
 - **Effects:**
@@ -39,7 +39,7 @@ roaming as fortune and options.
   - Minor: Crane Stance (Thế Hạc). In fights, +3 pp evade while above 80 % health.
 
 ### 3. Kỳ Ngộ (Chance Meetings)
-- **Small:** `co_duyen_pct` +1 · `comprehension` +0.5
+- **Small:** `co_duyen_pct` +1 · `ngo_tinh` (comprehension) +0.5
 - **Stat notables:** Lucky Road (Đường May): fortune ×2 · Odd Encounter (Gặp Lạ): fortune +1, comprehension +1 · Hidden
   Cave (Động Ẩn): fortune +2 · Old Hermit's Gift (Quà Ẩn Sĩ): comprehension +2
 - **Effects:**

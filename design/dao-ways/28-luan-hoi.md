@@ -1,7 +1,7 @@
 # 28 · Luân Hồi Đạo · *Lục Đạo Luân Hồi* (the Wheel of Rebirth; the Six Paths)
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none. Holds the seed Reincarnation (†).
-> **Theme stats:** `attack_pct`, `khi_huyet_pct`, `comprehension`, `soul_res_pct`, `than_thuc_pct`, `stack_duration_pct`,
+> **Theme stats:** `attack_pct`, `khi_huyet_pct`, `ngo_tinh` (comprehension), `soul_res_pct`, `than_thuc_pct`, `stack_duration_pct`,
 > `healing_pct`.
 > **Road:** `soul_res_pct` +1.
 
@@ -30,7 +30,7 @@
   - Minor: Hold the Path (Giữ Đạo). Once per fight, when you crit, the current Path holds for one extra turn.
 
 ### 2. Tiền Kiếp (Past Lives)
-- **Small:** `comprehension` +1 · `than_thuc_pct` +0.9
+- **Small:** `ngo_tinh` (comprehension) +1 · `than_thuc_pct` +0.9
 - **Stat notables:** Old Memory (Ký Ức Xưa): comprehension ×2 · Many Faces (Nhiều Mặt): thần thức ×2 · Remembered
   Art (Chiêu Nhớ): comprehension +1, thần thức +1 · Deja Vu (Quen Thuộc): soul resist +2
 - **Effects:**

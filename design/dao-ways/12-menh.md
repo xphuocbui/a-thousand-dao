@@ -1,7 +1,7 @@
 # 12 · Mệnh Đạo · *Thiên Cơ* (Heaven's Secret: Fortune)
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none. Holds the seed Stars (†, as Star Signs).
-> **Theme stats:** `co_duyen_pct`, fortune (khí vận), `crit_chance_pct`, `evade_pct`, `escape_pct`, `status_resist_pct`,
+> **Theme stats:** `co_duyen_pct`, `khi_van` (fortune), `crit_chance_pct`, `evade_pct`, `escape_pct`, `status_resist_pct`,
 > `status_chance_pct` (Needs key).
 > **Road:** fortune +1.
 

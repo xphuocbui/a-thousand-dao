@@ -2,7 +2,7 @@
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
 > **Theme stats:** `attack_pct`, `khi_huyet_pct`, `linh_luc_pct`, `stack_duration_pct`, `defense_pct`, `art_cost_pct`,
-> `comprehension`.
+> `ngo_tinh` (comprehension).
 > **Road:** `attack_pct` +1.2.
 
 ## Build directions
