@@ -1,0 +1,93 @@
+[
+{"id": "capacitor-palm", "name": "Capacitor Palm (Tụ Lôi Chưởng)", "element": "thunder", "role": "damage", "tier": "authored",
+ "tags": ["lightning", "palm", "heavy"], "c_art": 2.4, "cost_share": 0.05, "cooldown": 5, "kind": "elem",
+ "counters": [{"id": "charge"}],
+ "effects": [
+  {"id": "palm-gather", "on": "hit_landed", "filter": {"tags": ["lightning"], "kind": "art"}, "do": [{"counter": {"id": "charge", "add": 1}}]},
+  {"id": "palm-discharge", "on": "art_fired", "filter": {"art_id": "capacitor-palm"}, "if": [{"read": "own.counter.charge", "op": ">=", "value": 1}],
+   "scale": {"read": "own.counter.charge", "per": 1},
+   "do": [{"free_hit": {"c": 0.22, "dtype": "lightning"}}, {"counter": {"id": "charge", "set": 0}}]}
+ ],
+ "rule": "Every Lightning art that lands stores 1 Charge, with no cap. Firing the Palm releases every Charge as a 0.22-coefficient lightning strike and empties the store.",
+ "hooks": ["charges", "lightning art count", "art speed", "trigger damage", "crit", "free hits"],
+ "sources": ["thunder-debt", "winnings"]},
+
+{"id": "stormcloud-familiar", "name": "Stormcloud Familiar (Lôi Vân Linh)", "element": "thunder", "role": "summon", "tier": "authored",
+ "tags": ["lightning", "summon", "cloud"], "c_art": 1.5, "cost_share": 0.06, "cooldown": 10, "kind": "elem",
+ "effects": [
+  {"id": "cloud-raise", "on": "art_fired", "filter": {"art_id": "stormcloud-familiar"}, "do": [{"summon": {"c": 0.55, "dtype": "lightning", "cd": 2, "for": 9}}]},
+  {"id": "cloud-mark", "on": "crit", "filter": {"kind": "companion"}, "limit": {"per_pulse": 2}, "do": [{"stacks": {"el": "thunder", "n": 1, "for": 6, "side": "foe"}}]}
+ ],
+ "rule": "Calls a small storm cloud that strikes for 0.55 coefficient every 2 s for 9 s. Each crit the cloud lands lays 1 Thunder debuff stack on the foe, up to 2 a pulse.",
+ "hooks": ["companion speed", "companion damage", "crit", "thunder stacks", "art cooldown", "summon count"],
+ "sources": ["thunder-needle"]},
+
+{"id": "overload-form", "name": "Overload Form (Quá Tải Thể)", "element": "thunder", "role": "utility", "tier": "authored",
+ "tags": ["lightning", "form", "stance"], "c_art": 1.2, "cost_share": 0.03, "cooldown": 6, "kind": "elem",
+ "states": [{"id": "overload", "mods": {"art_speed": 35, "crit": 20, "evade": -25}, "suppress": []}],
+ "effects": [
+  {"id": "overload-toggle", "on": "art_fired", "filter": {"art_id": "overload-form"}, "do": [{"state": {"set": "overload", "toggle": true}}]},
+  {"id": "overload-feed", "on": "crit", "if": [{"read": "own.state.overload", "op": "==", "value": 1}], "limit": {"per_pulse": 3},
+   "do": [{"stacks": {"el": "thunder", "n": 1, "for": 6, "side": "own"}}, {"self_hit": {"c": 0.1, "dtype": "lightning"}}]},
+  {"id": "overload-burnout", "on": "pulse", "if": [{"read": "own.state.overload", "op": "==", "value": 1}, {"read": "own.qi_share", "op": "<=", "value": 0.15}],
+   "do": [{"state": {"set": null}}]}
+ ],
+ "rule": "Firing it toggles Overload: +35 % art speed and +20 crit chance but -25 evade, and each crit gives you 1 Thunder buff stack and costs you a small lightning backlash. It ends when you toggle it again or your linh lực falls to 15 %.",
+ "hooks": ["crit", "art speed", "thunder buff stacks", "lightning resistance", "low linh lực", "evade"],
+ "sources": ["house-takes-all"]},
+
+{"id": "chain-arc", "name": "Chain Arc (Liên Hoàn Lôi)", "element": "thunder", "role": "damage", "tier": "authored",
+ "tags": ["lightning", "chain", "quick"], "c_art": 0.9, "cost_share": 0.04, "cooldown": 3, "kind": "elem",
+ "split": [0.5, 0.5, 0.5, 0.5, 0.5],
+ "effects": [
+  {"id": "arc-ramp", "on": "crit", "filter": {"tags": ["chain"]}, "do": [{"mod": {"crit": 6, "for": 3, "stack": true}}]}
+ ],
+ "rule": "Strikes five times in a row, each hit rolling its own crit. Every crit raises your crit chance by 6 for 3 s, stacking, so a lucky start snowballs through the chain.",
+ "hooks": ["crit", "crit chance", "per-hit effects", "split hits", "quick arts", "on-hit stacks"],
+ "sources": ["forked-light", "forking-verdict"]},
+
+{"id": "answering-peal", "name": "Answering Peal (Hồi Lôi)", "element": "thunder", "role": "damage", "tier": "authored",
+ "tags": ["lightning", "peal", "echo"], "c_art": 1.8, "cost_share": 0.03, "cooldown": 3, "kind": "elem",
+ "counters": [{"id": "peal", "each_for": 8}],
+ "effects": [
+  {"id": "peal-count", "on": "crit", "do": [{"counter": {"id": "peal", "add": 1}}]},
+  {"id": "peal-answer", "on": "crit", "if": [{"read": "own.counter.peal", "op": ">=", "value": 3}], "limit": {"per_pulse": 2},
+   "do": [{"fire_art": {"which": "last", "share": 0.6}}, {"counter": {"id": "peal", "set": 0}}]}
+ ],
+ "rule": "Each crit adds a Peal that lasts 8 s. At 3 Peals the next crit fires your last art again at 60 % and clears them.",
+ "hooks": ["crit", "last art", "art coefficient", "crit chance", "trigger damage", "echo count"],
+ "sources": ["rolling-thunder"]},
+
+{"id": "thunderclap-bind", "name": "Thunderclap Bind (Lôi Phược)", "element": "thunder", "role": "control", "tier": "authored",
+ "tags": ["lightning", "seal", "curse"], "c_art": 1.8, "cost_share": 0.04, "cooldown": 5, "kind": "elem",
+ "statuses": [{"id": "slowed_time", "stacks": 2, "dur": 3}],
+ "effects": [
+  {"id": "clap-delay", "on": "crit", "if": [{"read": "foe.status.slowed_time", "op": ">=", "value": 1}], "limit": {"per_pulse": 2},
+   "do": [{"timer": {"side": "foe", "which": "longest", "by": 0.6}}]}
+ ],
+ "rule": "A hit that applies Slowed Time x2. While the foe is slowed, each crit pushes its longest art cooldown back 0.6 s, up to 2 a pulse.",
+ "hooks": ["crit", "Slowed Time", "curse duration", "timer delay", "art speed", "foe cooldown"],
+ "sources": ["thunder-needle"]},
+
+{"id": "tribulation-seal", "name": "Tribulation Seal (Kiếp Lôi Ấn)", "element": "thunder", "role": "stacks", "tier": "authored",
+ "tags": ["lightning", "seal", "tribulation"], "c_art": 1.6, "cost_share": 0.04, "cooldown": 6, "kind": "elem",
+ "debuff": [4, 8],
+ "effects": [
+  {"id": "tribulation-rain", "on": "pulse", "if": [{"read": "foe.debuff.thunder", "op": ">=", "value": 8}],
+   "scale": {"read": "foe.debuff.thunder", "per": 4},
+   "do": [{"free_hit": {"c": 0.18, "dtype": "lightning"}}]}
+ ],
+ "rule": "Lays 4 Thunder debuff stacks for 8 s. Every pulse the foe carries 8 or more Thunder stacks, heaven strikes it for 0.18 coefficient per 4 stacks, with no limit.",
+ "hooks": ["thunder stacks", "stack duration", "crit", "pulse count", "trigger damage", "other stack sources"],
+ "sources": ["far-flash", "cloud-splitting-bolt", "thread-lightning-brand"]},
+
+{"id": "storm-bank", "name": "Storm Bank (Tích Lôi Ngân)", "element": "thunder", "role": "damage", "tier": "authored",
+ "tags": ["lightning", "bolt", "charges"], "c_art": 2.2, "cost_share": 0.03, "cooldown": 8, "kind": "elem",
+ "charges": 3, "hp_cost": 0.03,
+ "effects": [
+  {"id": "bank-ramp", "on": "art_fired", "filter": {"art_id": "storm-bank"}, "do": [{"mod": {"dmg_more": 25, "for": 3, "stack": true}}]}
+ ],
+ "rule": "Holds 3 bolts that can be fired back to back, each costing linh lực and 3 % of your health; all return after the cooldown. Each bolt fired raises all your damage by 25 % for 3 s, stacking.",
+ "hooks": ["charges", "health cost", "art speed", "damage more", "low health", "healing"],
+ "sources": ["rolling-peal", "ice-breaking-peal"]}
+]

@@ -219,6 +219,13 @@ looks like a strong build.
   **More actions:** `cleanse` with `status` or `curses: n`; `state` (`set`, `toggle`); `summon` (`c`, `dtype`, `cd`,
   `for`); `fire_art` (`which`: last or an art id, `share`): an echo. Guards and `if` take `{"any": [conditions]}`.
   Events carry `art_id` (filter on it), and `heal_restored` carries the healing art's id, tags and cost.
+- **Engine-building arts** (2026-11-11): `group` (the technique carrying it), `steps` (a multi-step art:
+  `[{"unlock": conditions, "pay": actions, "c_mult" or "c_art", overrides}]`; each firing tries the next step, fires it
+  if its unlock holds (paying `pay`, e.g. a `consume`), else falls back to step 1; the last step resets the chain),
+  `empower` (`[{"if": conditions, "pay": actions, "c_mult", "add_statuses", overrides}]` applied at firing). New events
+  `step_unlocked`, `empowered`. New readables: `own.fired_within.<s>.<all|tag|group|art>.<value>` (distinct arts fired
+  within s seconds; "this pulse" is 1), `own.since.<art id>` (seconds since it last fired), `own.step.<art id>`.
+  A step or empower above the art lint must be gated; the lint reports its multiple as `engine_payoff`.
 - **New art fields:** `tags`, `guards` (conditions, all must hold), `statuses` (`[{"id", "stacks"}]` on hit),
   `split` (sub-hit shares), `soul_pct` (a soul art), `soul_part` (≤ 0.30), `bypass`, `pool` (`qi`, `tam_ma`,
   `than_thuc`).

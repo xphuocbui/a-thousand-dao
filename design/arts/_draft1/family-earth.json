@@ -1,0 +1,52 @@
+[
+{"id": "strata-hammer", "name": "Strata Hammer (Tầng Nham Chùy)", "element": "earth", "role": "damage", "tier": "authored", "tags": ["earth", "hammer", "heavy", "strata"], "kind": "phys", "c_art": 3.8, "cost_share": 0.08, "cooldown": 7,
+ "counters": [{"id": "strata"}],
+ "effects": [
+  {"id": "strata-lay", "on": "art_fired", "filter": {"element": "earth"}, "do": [{"counter": {"id": "strata", "add": 1}}]},
+  {"id": "strata-cash", "on": "hit_landed", "filter": {"tags": ["strata"]}, "scale": {"read": "own.counter.strata", "per": 4},
+   "do": [{"free_hit": {"c": 1.2, "dtype": "phys"}}, {"counter": {"id": "strata", "add": -4}}]}],
+ "rule": "Every Earth art you fire lays a Stratum (no cap). Each time this hammer lands it spends every 4 Strata for a free Physical hit of 1.2, as many as you hold.",
+ "hooks": ["Earth art count", "art speed", "heavy hits", "free-hit damage", "counters"], "sources": ["mountain-press-seal", "stake-driving-seal"]},
+{"id": "mountain-stance", "name": "Mountain Stance (Trấn Sơn Thế)", "element": "earth", "role": "ward", "tier": "authored", "tags": ["earth", "stance", "mountain"], "kind": "elem", "c_art": 0.0, "cost_share": 0.03, "cooldown": 4,
+ "states": [{"id": "mountain", "mods": {"dampen_taken": 10, "basic_speed": -40, "art_speed": -15}, "suppress": [], "start": false}],
+ "effects": [
+  {"id": "mountain-toggle", "on": "art_fired", "filter": {"tags": ["mountain"]}, "do": [{"state": {"set": "mountain", "toggle": true}}]},
+  {"id": "mountain-take", "on": "was_hit", "if": [{"read": "own.state.mountain", "op": ">=", "value": 1}], "limit": {"per_pulse": 2},
+   "do": [{"stacks": {"el": "earth", "n": 1, "for": 12, "side": "own"}}]},
+  {"id": "mountain-answer", "on": "was_hit", "if": [{"read": "own.state.mountain", "op": ">=", "value": 1}], "limit": {"cooldown": 3},
+   "do": [{"free_hit": {"c": 0.6, "dtype": "phys"}}]}],
+ "rule": "Toggles a stance: you strike and cast slower and take less damage, and every hit you take adds an Earth stack for 12 s and is answered by a free Physical hit of 0.6 (once every 3 s). Firing it again leaves the stance.",
+ "hooks": ["dampen taken", "Earth stacks", "block", "thorns-style free hits", "health regeneration"], "sources": ["stone-rebuke"]},
+{"id": "quarry-offering", "name": "Quarry Offering (Thạch Tế)", "element": "earth", "role": "stacks", "tier": "authored", "tags": ["earth", "heavy", "offering"], "kind": "elem", "c_art": 2.4, "cost_share": 0.04, "cooldown": 6, "hp_cost": 0.07,
+ "effects": [
+  {"id": "offering-stone", "on": "art_fired", "filter": {"tags": ["offering"]}, "do": [{"stacks": {"el": "earth", "n": 8, "for": 15, "side": "own"}}]},
+  {"id": "offering-weight", "on": "always", "scale": {"read": "own.buff.earth", "per": 5}, "do": [{"mod": {"dmg_more": 3, "tags": ["earth"]}}]}],
+ "rule": "Costs 7 % of your health as well as its linh lực, and grants 8 Earth buff stacks for 15 s. Every 5 Earth buff stacks you hold makes your Earth hits deal 3 % more, with no cap.",
+ "hooks": ["health cost", "Earth buff stacks", "healing", "dmg_more", "leech"], "sources": ["bedrock-breath"]},
+{"id": "sinking-weight", "name": "Sinking Weight (Trầm Trọng Ấn)", "element": "earth", "role": "control", "tier": "authored", "tags": ["earth", "seal", "weight"], "kind": "elem", "c_art": 2.6, "cost_share": 0.06, "cooldown": 6, "debuff": [3, 6],
+ "effects": [
+  {"id": "sinking-spend", "on": "hit_landed", "filter": {"tags": ["weight"]},
+   "do": [{"consume": {"el": "earth", "side": "foe", "n": 9, "per": 3, "then": [{"status": {"id": "slowed_time", "stacks": 1, "dur": 3}}]}}]}],
+ "rule": "An Earth hit that lays 3 Earth debuff stacks, then spends up to 9 Earth debuff stacks on the foe, 3 at a time, each batch laying a Slowed Time. The more you pile on first, the longer the foe's clock crawls.",
+ "hooks": ["Earth debuff stacks", "Slowed Time", "art speed", "timer delay", "accuracy loss"], "sources": []},
+{"id": "stone-warden-call", "name": "Stone Warden Call (Thạch Vệ Triệu)", "element": "earth", "role": "summon", "tier": "authored", "tags": ["earth", "summon", "cairn"], "kind": "elem", "c_art": 0.0, "cost_share": 0.06, "cooldown": 10,
+ "effects": [
+  {"id": "warden-raise", "on": "art_fired", "filter": {"tags": ["cairn"]}, "do": [{"summon": {"c": 0.7, "dtype": "phys", "cd": 3, "for": 14}}]},
+  {"id": "warden-weight", "on": "always", "scale": {"read": "own.buff.earth", "per": 3}, "do": [{"mod": {"companion_speed": 8}}]}],
+ "rule": "Raises a stone warden for 14 s that strikes for 0.7 Physical every 3 s. Every 3 Earth buff stacks you hold make it strike 8 % faster.",
+ "hooks": ["companion speed", "Earth buff stacks", "summon duration", "companion damage", "block"], "sources": []},
+{"id": "aftershock-slam", "name": "Aftershock Slam (Dư Chấn Kích)", "element": "earth", "role": "damage", "tier": "authored", "tags": ["earth", "slam", "heavy", "quake"], "kind": "elem", "c_art": 2.9, "cost_share": 0.05, "cooldown": 5,
+ "counters": [{"id": "quake"}],
+ "effects": [
+  {"id": "quake-count", "on": "art_fired", "filter": {"tags": ["heavy"]}, "do": [{"counter": {"id": "quake", "add": 1}}]},
+  {"id": "quake-echo", "on": "art_fired", "filter": {"tags": ["heavy"]}, "scale": {"read": "own.counter.quake", "per": 3},
+   "do": [{"fire_art": {"which": "last", "share": 0.5}}, {"counter": {"id": "quake", "add": -3}}]}],
+ "rule": "Every heavy art you fire, this one included, counts a tremor. Each third tremor repeats your last art at half strength.",
+ "hooks": ["heavy tag", "art speed", "echo damage", "counters", "cooldown reduction"], "sources": []},
+{"id": "bastion-reprisal", "name": "Bastion Reprisal (Bích Lũy Báo)", "element": "earth", "role": "ward", "tier": "authored", "tags": ["earth", "ward", "bulwark"], "kind": "elem", "c_art": 0.0, "cost_share": 0.06, "cooldown": 9,
+ "effects": [
+  {"id": "bastion-raise", "on": "art_fired", "filter": {"tags": ["bulwark"]}, "do": [{"shield": {"body": 0.12}}]},
+  {"id": "bastion-burst", "on": "shield_broken", "do": [{"free_hit": {"c": 2.5, "dtype": "phys"}}, {"stacks": {"el": "earth", "n": 6, "for": 8, "side": "foe"}}]}],
+ "rule": "Raises a body shield of 12 % of your health. Whenever a body shield of yours breaks it bursts into a free Physical hit of 2.5 and lays 6 Earth debuff stacks for 8 s.",
+ "hooks": ["body shield size", "shield regeneration", "Earth debuff stacks", "free-hit damage", "cooldown reduction"], "sources": ["iron-mountain-shield", "stone-skin-seal"]}
+]

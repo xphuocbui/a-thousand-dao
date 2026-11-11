@@ -1,0 +1,66 @@
+[
+{"id": "swelling-tide-palm", "name": "Swelling Tide Palm (Doanh Triều Chưởng)", "element": "water", "role": "damage", "tier": "authored", "tags": ["palm", "water", "heavy"], "c_art": 2.3, "cost_share": 0.05, "cooldown": 4, "kind": "elem",
+ "counters": [{"id": "tide"}],
+ "effects": [
+  {"id": "tide-swell", "on": "art_fired", "filter": {"element": "water"}, "do": [{"counter": {"id": "tide", "add": 1}}]},
+  {"id": "tide-break", "on": "art_fired", "filter": {"art_id": "swelling-tide-palm"}, "if": [{"read": "own.counter.tide", "op": ">=", "value": 5}],
+   "scale": {"read": "own.counter.tide", "per": 1},
+   "do": [{"free_hit": {"c": 0.5, "dtype": "elem"}}, {"gain_qi": {"share": 0.012}}, {"counter": {"id": "tide", "set": 0}}]}
+ ],
+ "rule": "Every Water art you fire adds a Tide, with no cap. Firing this palm with 5 or more Tide breaks them all at once: one wave per Tide, each a free Water hit that returns a little linh lực, and your Tide falls to 0.",
+ "hooks": ["water arts fired", "art speed", "tide gained from other sources", "trigger damage", "crit", "linh lực return"], "sources": ["gap: Water build-up and cash-in"]},
+
+{"id": "marrow-to-dew", "name": "Marrow to Dew (Tủy Hóa Lộ)", "element": "water", "role": "utility", "tier": "authored", "tags": ["water", "breath", "costly"], "c_art": 0.0, "cost_share": 0.02, "cooldown": 6, "kind": "elem", "hp_cost": 0.05, "qi_restore": 0.2, "buff": [2, 10],
+ "effects": [{"id": "dew-return", "on": "heal_restored", "limit": {"per_pulse": 1}, "do": [{"gain_qi": {"share": 0.015}}]}],
+ "rule": "Pay 5 % of your health, not linh lực, to restore 20 % of your linh lực and gain 2 Water stacks for 10 s. Every time you are healed afterwards, you also regain 1.5 % linh lực (once a pulse).",
+ "hooks": ["health cost reduction", "healing received", "health regeneration", "low health", "max health", "leech", "water stacks"], "sources": ["ebb-and-flow"]},
+
+{"id": "deep-lake-stance", "name": "Deep Lake Stance (Thâm Hồ Thế)", "element": "water", "role": "utility", "tier": "authored", "tags": ["water", "stance", "form"], "c_art": 0.0, "cost_share": 0.03, "cooldown": 3, "kind": "elem",
+ "states": [{"id": "deep-lake", "mods": {"regen": 0.02, "hregen": 0.006, "healing": 30, "dmg_more": -0.3}}],
+ "effects": [
+  {"id": "lake-toggle", "on": "art_fired", "filter": {"art_id": "deep-lake-stance"}, "do": [{"state": {"set": "deep-lake", "toggle": true}}]},
+  {"id": "lake-deepens", "on": "pulse", "if": [{"read": "own.state.deep-lake", "op": ">=", "value": 1}], "do": [{"stacks": {"el": "water", "n": 1, "for": 8, "side": "own"}}]}
+ ],
+ "rule": "Firing it enters or leaves the Deep Lake: while in it you regenerate linh lực and health faster, are healed 30 % more and gain a Water stack every pulse, but your damage is 30 % lower. Firing it again leaves the stance.",
+ "hooks": ["water stacks", "regeneration", "healing", "damage that ignores the penalty (trigger, companion)", "stance switching", "max linh lực"], "sources": ["ebb-and-flow", "gap: Water form"]},
+
+{"id": "gathering-wave", "name": "Gathering Wave (Tụ Ba)", "element": "water", "role": "utility", "tier": "authored", "tags": ["water", "wave", "quick"], "c_art": 0.0, "cost_share": 0.04, "cooldown": 5, "kind": "elem",
+ "effects": [{"id": "wave-bank", "on": "art_fired", "filter": {"art_id": "gathering-wave"}, "held": {"until": "hit_landed", "cap": 4},
+   "do": [{"free_hit": {"c": 1.1, "dtype": "elem"}}, {"heal": {"share": 0.02}}]}],
+ "rule": "Banks a wave, up to 4 at a time. Your next art or basic hit that lands releases every banked wave as free Water hits and heals you 2 % per wave.",
+ "hooks": ["art speed", "hit count", "crit", "trigger damage", "healing", "banked-wave cap"], "sources": ["gap: Water held payload"]},
+
+{"id": "seep-through-palm", "name": "Seep-Through Palm (Thấm Cốt Chưởng)", "element": "water", "role": "damage", "tier": "authored", "tags": ["palm", "water"], "c_art": 1.9, "cost_share": 0.04, "cooldown": 3, "kind": "elem", "convert": {"to": "phys", "share": 0.5},
+ "effects": [{"id": "seep-flow", "on": "hit_landed", "filter": {"art_id": "seep-through-palm"}, "limit": {"per_pulse": 1}, "do": [{"timer": {"side": "own", "which": "others", "by": -0.4}}]}],
+ "rule": "Half of this strike is Physical and half stays Water, so it meets both the foe's body and ward defences. Each hit speeds your other arts toward ready by 0.4 s (once a pulse).",
+ "hooks": ["physical damage", "water damage", "conversion", "art speed", "cooldown reduction", "foe with one thick defence"], "sources": ["gap: Water conversion"]},
+
+{"id": "backwash-seal", "name": "Backwash Seal (Hồi Lưu Ấn)", "element": "water", "role": "damage", "tier": "authored", "tags": ["seal", "water", "quick"], "c_art": 1.4, "cost_share": 0.03, "cooldown": 2, "kind": "elem",
+ "counters": [{"id": "backwash", "cap": 3}],
+ "effects": [
+  {"id": "backwash-count", "on": "art_fired", "filter": {"element": "water"}, "do": [{"counter": {"id": "backwash", "add": 1}}]},
+  {"id": "backwash-echo", "on": "art_fired", "if": [{"read": "own.counter.backwash", "op": ">=", "value": 3}],
+   "do": [{"fire_art": {"which": "last", "share": 0.5}}, {"gain_qi": {"share": 0.02}}, {"counter": {"id": "backwash", "set": 0}}]}
+ ],
+ "rule": "Every 3rd Water art you fire is followed by a backwash: the same art strikes again at half power and returns 2 % of your linh lực.",
+ "hooks": ["water arts fired", "art speed", "heavy arts to echo", "echo power", "crit", "linh lực return"], "sources": ["gap: Water echo"]},
+
+{"id": "drag-of-the-deep", "name": "Drag of the Deep (Thâm Uyên Kéo)", "element": "water", "role": "curse", "tier": "authored", "tags": ["water", "curse", "slow"], "c_art": 1.8, "cost_share": 0.04, "cooldown": 5, "kind": "elem",
+ "statuses": [{"id": "slowed_time", "stacks": 1, "dur": 3}],
+ "effects": [
+  {"id": "drag-delay", "on": "hit_landed", "filter": {"art_id": "drag-of-the-deep"}, "do": [{"timer": {"side": "foe", "which": "longest", "by": 1.0}}]},
+  {"id": "drag-pull", "on": "hit_landed", "filter": {"art_id": "drag-of-the-deep"}, "scale": {"read": "foe.status.slowed_time", "per": 1},
+   "do": [{"gain_qi": {"share": 0.008}}]}
+ ],
+ "rule": "Hits, adds a stack of Slowed Time and delays the foe's slowest-ready art by 1 s. The more Slowed Time the foe carries, the more linh lực flows back to you.",
+ "hooks": ["slowed time stacks", "timer delay", "art speed", "foe cooldown", "linh lực return", "curse duration"], "sources": ["gap: Water delay"]},
+
+{"id": "brimming-cup", "name": "Brimming Cup (Doanh Bôi)", "element": "water", "role": "ward", "tier": "authored", "tags": ["water", "ward", "cup"], "c_art": 0.0, "cost_share": 0.04, "cooldown": 6, "kind": "elem", "qi_restore": 0.1, "buff": [2, 10],
+ "effects": [
+  {"id": "cup-shield", "on": "art_fired", "filter": {"art_id": "brimming-cup"}, "do": [{"shield": {"body": 0.1}}]},
+  {"id": "cup-spill", "on": "overflow", "limit": {"cooldown": 1.5}, "do": [{"free_hit": {"c": 0.7, "dtype": "elem"}}]},
+  {"id": "cup-shatter", "on": "shield_broken", "do": [{"free_hit": {"c": 1.2, "dtype": "elem"}}, {"heal": {"share": 0.03}}]}
+ ],
+ "rule": "Restores 10 % linh lực, raises a body shield of 10 % of your health and gives 2 Water stacks for 10 s. Linh lực that would overflow spills out as a free Water hit, and a shield that breaks bursts into another hit and heals you 3 %.",
+ "hooks": ["overflow", "body shield size", "shield breaks", "linh lực regeneration", "max linh lực", "water stacks"], "sources": ["water-curtain"]}
+]

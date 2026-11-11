@@ -36,7 +36,7 @@ TIERS = {"common", "authored"}
 FIELDS = {"id", "name", "element", "role", "tier", "tags", "c_art", "cost_share", "cooldown", "kind", "buff",
           "debuff", "c_heal", "qi_restore", "cleanse", "statuses", "split", "soul_pct", "soul_part", "bypass", "pool",
           "guards", "effects", "counters", "rule", "sources", "notes", "convert", "hp_cost", "charges", "states",
-          "x", "hooks"}
+          "x", "hooks", "group", "steps", "empower", "power"}
 
 
 def charge(a):
@@ -52,6 +52,9 @@ def charge(a):
             dur = max(1, min(5, st.get("dur", d.get("dur") or 1)))
             c += (CURSE_HEAVY if st["id"] in HEAVY else CURSE_RULE) * dur
     return c
+
+
+notes_out = []
 
 
 def lint(arts, src):
@@ -82,6 +85,17 @@ def lint(arts, src):
         c = a.get("c_art", 0.0) * sum(a.get("split") or [1.0])
         if c > limit + 1e-6:
             out.append("LINT_OVER\t%s\t%s: c_art %.2f (x split) over %.2f (lint %.2f, charge %.2f)" % (src, aid, c, limit, lint_c, ch))
+        # steps and empowers: a payoff above the lint must be gated (unlock / if); it is reported, never capped
+        for kind, lst, gate in (("step", a.get("steps", []), "unlock"), ("empower", a.get("empower", []), "if")):
+            for j, st in enumerate(lst):
+                sc = st.get("c_art", a.get("c_art", 0.0)) * st.get("c_mult", 1.0) * sum(st.get("split") or a.get("split") or [1.0])
+                if sc > limit + 1e-6:
+                    if st.get(gate):
+                        notes_out.append("engine_payoff\t%s\t%s %s %d: x%.2f of the lint, gated" % (src, aid, kind, j + 1, sc / max(1e-9, limit)))
+                    else:
+                        out.append("UNGATED\t%s\t%s %s %d: above the lint with no %s condition" % (src, aid, kind, j + 1, gate))
+        if a.get("power") == "engine" and not (a.get("steps") or a.get("empower") or a.get("effects")):
+            out.append("SCHEMA\t%s\t%s: power 'engine' but no steps, empower or effects" % (src, aid))
         if a.get("c_heal", 0) > HEAL_RATIO * lint_c + 1e-6:
             out.append("HEAL_OVER\t%s\t%s: c_heal %.2f over %.2f" % (src, aid, a["c_heal"], HEAL_RATIO * lint_c))
         sp = a.get("soul_pct", 0)
@@ -94,7 +108,8 @@ def lint(arts, src):
                              a.get("qi_restore", 0.0), int(a.get("cleanse", 0)), 1.0, tuple(a.get("tags", ())),
                              list(a.get("guards", [])), list(a.get("statuses", [])), list(a.get("split", [])),
                              a.get("soul_pct", 0.0), a.get("soul_part", 0.0), a.get("bypass", 0.0), a.get("pool", "qi"),
-                             dict(a.get("convert", {})), a.get("hp_cost", 0.0), int(a.get("charges", 1)))
+                             dict(a.get("convert", {})), a.get("hp_cost", 0.0), int(a.get("charges", 1)),
+                             a.get("group", ""), list(a.get("steps", [])), list(a.get("empower", [])))
             if art.element not in engine.ELEMENTS:
                 raise engine.EngineError("element %r" % art.element)
             b = engine.Build("lint", arts=[art], effects=list(a.get("effects", [])), counters=list(a.get("counters", [])),
@@ -129,6 +144,10 @@ def main():
     findings += ["DUPLICATE\t(all)\t%s in %d files" % (k, v) for k, v in ids.items() if v > 1]
     for line in findings:
         print(line)
+    for line in notes_out:
+        print(line)
+    eng = sum(1 for a in allarts if a.get("power") == "engine")
+    print("coverage\tpower\tengine %d, standalone %d" % (eng, len(allarts) - eng))
     def counts(key):
         c = {}
         for a in allarts:

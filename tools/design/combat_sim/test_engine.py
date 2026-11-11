@@ -288,6 +288,56 @@ def t_cleanse_curses():
     check("cleanse 2 curses", len(A.statuses) == 1)
 
 
+def t_multistep():
+    # step 2 needs 3 fire debuff stacks on the foe and consumes them; step 3 needs a Fire art fired within 2 s
+    art = E.Art("three-forms", 1.0, 0.02, 2.0, element="fire", tags=("palm",), group="red-sun", steps=[
+        {"unlock": [{"read": "foe.debuff.fire", "op": ">=", "value": 3}],
+         "pay": [{"consume": {"el": "fire", "side": "foe", "n": 3}}], "c_mult": 2.0},
+        {"unlock": [{"read": "own.fired_within.2.group.red-sun", "op": ">=", "value": 1}], "c_mult": 4.0}])
+    f, A, B = setup(a=dummy(arts=[art]), b=dummy(ward_pts=0, block=0))
+    f.rng.random = lambda: 0.99
+    unit = E.U[0] * A.b.M
+    dealt = []
+    for t, stacks in ((2000, 0), (4000, 3), (6000, 0), (8000, 0)):
+        f.t = t
+        if stacks:
+            B.debuffs.append(["fire", stacks, 99000, A])
+        A.ready[0] = t
+        A.basic_ready = 10 ** 9
+        hp0 = B.hp
+        f.act(A)
+        dealt.append(round((hp0 - B.hp) / unit, 3))
+    check("multi-step: 1 (no stacks) -> 2 (consumes 3) -> 3 (group fired) -> back to 1",
+          dealt == [1.0, 2.0, 4.0, 1.0] and B.count(B.debuffs, "fire") == 0, str(dealt))
+
+
+def t_empower():
+    art = E.Art("dry-strike", 1.0, 0.02, 2.0, empower=[{"if": [{"read": "foe.qi_share", "op": "<=", "value": 0.1}],
+                                                       "c_mult": 3.0}])
+    f, A, B = setup(a=dummy(arts=[art]), b=dummy(ward_pts=0, block=0))
+    f.rng.random = lambda: 0.99
+    unit = E.U[0] * A.b.M
+    out = []
+    for qi in (1.0, 0.05):
+        B.qi = qi * B.qi_max()
+        f.t = A.ready[0] = 2000 * (len(out) + 1)
+        A.basic_ready = 10 ** 9
+        hp0 = B.hp
+        f.act(A)
+        out.append(round((hp0 - B.hp) / unit, 3))
+    check("empower: x3 when the foe's linh luc is dry", out == [1.0, 3.0], str(out))
+
+
+def t_since():
+    f, A, B = setup(a=dummy(arts=[E.Art("a1", 0.5, 0.02, 2.0)]))
+    never = f.read(A, "own.since.a1")
+    f.t = A.ready[0]
+    A.basic_ready = 10 ** 9
+    f.act(A)
+    f.t += 1500
+    check("since.<art>: never, then 1.5 s", never >= 1e8 and abs(f.read(A, "own.since.a1") - 1.5) < 1e-9)
+
+
 def main():
     for name, fn in sorted(globals().items()):
         if name.startswith("t_"):

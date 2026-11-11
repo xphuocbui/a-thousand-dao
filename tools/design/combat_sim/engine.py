@@ -69,7 +69,7 @@ STATUS = {
     "slowed_time": dict(kind="curse", dur=3, cap=5, slow=1.0, refresh_all=True),
 }
 
-EVENTS = {"always", "fight_start", "art_fired", "hit_landed", "crit", "evaded", "was_hit", "was_evaded", "hit_stopped",
+EVENTS = {"always", "fight_start", "art_fired", "step_unlocked", "empowered", "hit_landed", "crit", "evaded", "was_hit", "was_evaded", "hit_stopped",
           "pulse", "tick_dealt", "heal_restored", "shield_broken", "status_applied", "overflow", "cleansed", "down",
           "kill", "soul_hit"}
 MOD_KEYS = {"L1", "L2", "L3", "L4", "L5", "crit", "crit_mult", "evade", "acc", "art_speed", "basic_speed",
@@ -115,6 +115,9 @@ class Art:
     convert: dict = field(default_factory=dict)  # {"to": dtype, "share": x}: a share of the hit becomes another type
     hp_cost: float = 0.0                         # share of health_max paid on firing, besides linh luc [Effects 6]
     charges: int = 1                             # firings stored; spent ones come back together after the cooldown
+    group: str = ""                              # the technique (cong phap) that carries it, for cross-art conditions
+    steps: list = field(default_factory=list)    # multi-step art: [{"unlock": conds, "pay": actions, overrides...}]
+    empower: list = field(default_factory=list)  # [{"if": conds, "pay": actions, "c_mult", overrides...}]
 
 
 @dataclass
@@ -241,6 +244,8 @@ class Side:
         self.summons = []                           # [c, dtype, cd_ms, next_ms, until_ms]
         self.last_art = None
         self.cur_ev = None
+        self.step = [0] * len(b.arts)               # multi-step arts: the step the next firing tries
+        self.fire_log = []                          # [t_ms, art_id, tags, group]
         self.basic_ready = 0
         self.comp_ready = []
         self.soul_ready = 0
@@ -355,6 +360,27 @@ class Fight:
             return x.tam_ma
         if k.startswith("state."):
             return 1.0 if x.state == k[6:] else 0.0
+        if k.startswith("fired_within."):   # fired_within.<seconds>.<all|tag|group|art>[.<value>]: distinct arts
+            parts = k.split(".")
+            win = ms(float(parts[1]))
+            what = parts[2]
+            val = ".".join(parts[3:])
+            seen = set()
+            for t0, aid, tags, grp in x.fire_log:
+                if self.t - t0 <= win and (what == "all" or (what == "tag" and val in tags)
+                                           or (what == "group" and grp == val) or (what == "art" and aid == val)):
+                    seen.add(aid)
+            return float(len(seen))
+        if k.startswith("since."):           # seconds since an art last fired (1e9 if never)
+            aid = k[6:]
+            last = [t0 for t0, a, _, _ in x.fire_log if a == aid]
+            return (self.t - last[-1]) / 1000 if last else 1e9
+        if k.startswith("step."):            # the step index a multi-step art will try next
+            aid = k[5:]
+            for i, a in enumerate(x.b.arts):
+                if a.name == aid:
+                    return float(x.step[i])
+            return 0.0
         raise EngineError("unknown readable %r" % key)
 
     def holds(self, s, conds, ev=None):
@@ -594,6 +620,7 @@ class Fight:
                 continue
             if not self.pay(s, a):
                 continue
+            a = self.shape(s, i, a)
             cd = max(K["cooldown_min"], a.cd / speed) * self.slow(s)
             s.charges[i] -= 1
             if s.charges[i] > 0:
@@ -603,6 +630,8 @@ class Fight:
                 s.charges[i] = a.charges
             s.fired[i] += 1
             s.first[i] = False
+            s.fire_log.append([self.t, b.arts[i].name, a.tags, a.group])
+            s.fire_log = [x for x in s.fire_log if self.t - x[0] <= 30000]
             if a.soul_pct or a.soul_part:
                 s.soul_ready = self.t + ms(K["soul_lockout"])
             if a.buff:
@@ -644,6 +673,32 @@ class Fight:
                 self.hit(s, o, comp["c"], comp.get("dtype", "phys"), None, kind="companion")
                 cd = comp.get("cd", K["basic_cooldown"]) / (1 + self.mod(s, "companion_speed") / 100)
                 s.comp_ready[j] += ms(max(K["cooldown_min"], cd))
+
+    def shape(self, s, i, a):
+        """A multi-step art fires as its next step when that step's unlock holds (paying its `pay`), else as step 1;
+        then any empower whose `if` holds adds its payload (paying its `pay`). Returns the art as it fires."""
+        import copy
+        fired = a
+        if a.steps:
+            nxt = s.step[i] + 1
+            if nxt <= len(a.steps) and self.holds(s, a.steps[nxt - 1].get("unlock")):
+                st = a.steps[nxt - 1]
+                fired = override(a, st)
+                if st.get("pay"):
+                    self.do(s, {"id": a.name + "-step", "on": "art_fired"}, st["pay"], 1.0, {"art_id": a.name})
+                s.step[i] = nxt if nxt < len(a.steps) else 0
+                self.fire_event(s, "step_unlocked", {"art_id": a.name, "step": nxt})
+            else:
+                s.step[i] = 0
+        for em in a.empower:
+            if self.holds(s, em.get("if")):
+                if fired is a:
+                    fired = copy.copy(a)
+                if em.get("pay"):
+                    self.do(s, {"id": a.name + "-empower", "on": "art_fired"}, em["pay"], 1.0, {"art_id": a.name})
+                fired = override(fired, em)
+                self.fire_event(s, "empowered", {"art_id": a.name})
+        return fired
 
     def pay(self, s, a):
         b = s.b
@@ -1197,6 +1252,25 @@ def match(filt, ctx):
             if ctx.get(k) != v:
                 return False
     return True
+
+
+OVERRIDE = {"c_art": "c", "statuses": "statuses", "buff": "buff", "debuff": "debuff", "split": "split",
+            "convert": "convert", "bypass": "bypass", "c_heal": "heal", "qi_restore": "qi_restore", "cleanse": "cleanse",
+            "soul_part": "soul_part", "dtype": "dtype", "kind": "dtype", "tags": "tags"}
+
+
+def override(a, spec):
+    """A copy of art `a` with a step's or an empower's fields applied; `c_mult` multiplies the coefficient."""
+    import copy
+    b = copy.copy(a)
+    for k, v in spec.items():
+        if k in OVERRIDE:
+            setattr(b, OVERRIDE[k], tuple(v) if k in ("buff", "debuff", "tags") else v)
+    if "c_mult" in spec:
+        b.c = b.c * spec["c_mult"]
+    if "add_statuses" in spec:
+        b.statuses = list(b.statuses) + list(spec["add_statuses"])
+    return b
 
 
 def validate(b):

@@ -166,7 +166,7 @@ WARD_KEYS = {"model", "payload", "drain_base", "ws_base", "we", "layers", "block
 BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
             "qi_restore", "cleanse", "x", "_comment", "tags", "guards", "statuses", "split", "soul_pct",
-            "soul_part", "bypass", "pool", "convert", "hp_cost", "charges"}
+            "soul_part", "bypass", "pool", "convert", "hp_cost", "charges", "group", "steps", "empower"}
 CLEANSE_KEYS = {"per_pulse", "fee_share", "share"}
 KEYSTONES = {f for f in sim.Build.__dataclass_fields__ if f.startswith("k_")}
 CURSES = {"withering": "curse_wither", "stagnation": "curse_stagnate"}
@@ -329,6 +329,9 @@ def to_build(d, r, notes, who):
         ea.convert = dict(a.get("convert", {}))
         ea.hp_cost = a.get("hp_cost", 0.0)
         ea.charges = int(a.get("charges", 1))
+        ea.group = a.get("group", "")
+        ea.steps = list(a.get("steps", []))
+        ea.empower = list(a.get("empower", []))
         if ea.soul_pct:
             ea.c = 0.0
     eb.effects = eb.effects + list(d.get("effects", []))

@@ -1,0 +1,55 @@
+[
+{"id": "whetstone-pass", "name": "Whetstone Pass (Mài Phong Chưởng)", "element": "metal", "role": "damage", "tier": "authored", "tags": ["metal", "sword", "quick", "whet"], "c_art": 1.5, "cost_share": 0.02, "cooldown": 1.5, "kind": "phys",
+ "counters": [{"id": "temper", "each_for": 10}],
+ "effects": [
+  {"id": "whet-temper-count", "on": "art_fired", "filter": {"tags": ["metal"]}, "do": [{"counter": {"id": "temper", "add": 1}}]},
+  {"id": "whet-temper-edge", "on": "always", "scale": {"read": "own.counter.temper", "per": 1}, "do": [{"mod": {"crit": 1, "tags": ["metal"]}}]}
+ ],
+ "rule": "Every Metal art you fire adds a Temper that lasts 10 s, and each Temper gives your Metal arts +1 crit chance, with no cap. The faster you swing, the sharper the edge.",
+ "hooks": ["art speed", "crit", "temper count", "quick arts", "cooldown reduction"], "sources": []},
+{"id": "shatter-edge-cleave", "name": "Shatter-Edge Cleave (Toái Nhận Trảm)", "element": "metal", "role": "damage", "tier": "authored", "tags": ["metal", "sword", "heavy", "cleave"], "c_art": 4.6, "cost_share": 0.09, "cooldown": 8, "kind": "phys",
+ "effects": [
+  {"id": "shatter-cash-in", "on": "art_fired", "filter": {"art_id": "shatter-edge-cleave"}, "do": [{"consume": {"el": "metal", "side": "foe", "per": 2, "then": [{"free_hit": {"c": 0.7, "dtype": "phys"}}]}}]}
+ ],
+ "rule": "A heavy Physical hit that breaks every Metal debuff stack on the foe, and each 2 stacks broken strike again for 0.7 coefficient. Lay the stacks first, then cash them in.",
+ "hooks": ["metal debuff stacks", "trigger damage", "stack duration", "art speed on stack-layers", "crit"], "sources": []},
+{"id": "iron-hide-stance", "name": "Iron Hide Stance (Thiết Bì Thế)", "element": "metal", "role": "ward", "tier": "authored", "tags": ["metal", "stance", "palm"], "c_art": 1.2, "cost_share": 0.04, "cooldown": 6, "kind": "phys",
+ "states": [{"id": "iron-hide", "mods": {"resist": 60, "block": 20, "art_speed": -20}, "suppress": ["shatter-edge-cleave"], "start": false}],
+ "effects": [
+  {"id": "iron-hide-toggle", "on": "art_fired", "filter": {"art_id": "iron-hide-stance"}, "do": [{"state": {"set": "iron-hide", "toggle": true}}]},
+  {"id": "iron-hide-temper", "on": "was_hit", "if": [{"read": "own.state.iron-hide", "op": "==", "value": 1}], "limit": {"per_pulse": 2}, "do": [{"stacks": {"el": "metal", "n": 1, "for": 8, "side": "own"}}]}
+ ],
+ "rule": "Firing it enters or leaves the Iron Hide stance: +60 resistance and +20 block, but your art speed drops 20 % and Shatter-Edge Cleave is suppressed. While in it, each hit you take gives you a Metal buff stack (+1.2 % Physical damage dealt) for 8 s.",
+ "hooks": ["resistance", "block", "hits taken", "metal buff stacks", "buff duration", "stance uptime"], "sources": ["thorn-chorus"]},
+{"id": "blood-quench-blade", "name": "Blood-Quench Blade (Huyết Thối Nhận)", "element": "metal", "role": "damage", "tier": "authored", "tags": ["metal", "sword", "quench"], "c_art": 1.6, "cost_share": 0.04, "cooldown": 4, "kind": "phys", "hp_cost": 0.06, "buff": [5, 8],
+ "effects": [
+  {"id": "quench-repay", "on": "crit", "filter": {"tags": ["quench"]}, "limit": {"per_pulse": 3}, "do": [{"heal": {"share": 0.02}}]}
+ ],
+ "rule": "Costs 6 % of your health as well as linh lực, and gives you 5 Metal buff stacks (+1.2 % Physical damage dealt each) for 8 s. Each crit of this art heals you 2 % of your health, so a keen edge repays the blood.",
+ "hooks": ["crit", "healing", "health cost reduction", "metal buff stacks", "low health", "art speed"], "sources": []},
+{"id": "needle-rain", "name": "Needle Rain (Châm Vũ)", "element": "metal", "role": "damage", "tier": "authored", "tags": ["metal", "needle", "split"], "c_art": 2.6, "cost_share": 0.05, "cooldown": 5, "kind": "phys", "split": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2], "statuses": [{"id": "bleed", "stacks": 1, "dur": 4}],
+ "effects": [
+  {"id": "needle-crit-mark", "on": "crit", "filter": {"tags": ["needle"]}, "limit": {"per_pulse": 6}, "do": [{"stacks": {"el": "metal", "n": 1, "for": 8, "side": "foe"}}]}
+ ],
+ "rule": "Throws 6 needles, each a sixth of the hit that rolls its own crit and lays Bleed. Each crit needle also lays a Metal debuff stack (+1.8 % Physical damage taken) for 8 s.",
+ "hooks": ["crit", "on-hit effects", "bleed", "metal debuff stacks", "split count", "bypass"], "sources": []},
+{"id": "sundering-wedge", "name": "Sundering Wedge (Liệt Thạch Tiết)", "element": "metal", "role": "curse", "tier": "authored", "tags": ["metal", "seal", "curse", "wedge"], "c_art": 1.6, "cost_share": 0.04, "cooldown": 4, "kind": "phys", "statuses": [{"id": "sundered", "stacks": 1, "dur": 4}],
+ "effects": [
+  {"id": "wedge-crack", "on": "art_fired", "filter": {"art_id": "sundering-wedge"}, "if": [{"read": "foe.status.sundered", "op": ">=", "value": 3}], "limit": {"cooldown": 6}, "do": [{"status": {"id": "exposed", "stacks": 1, "dur": 3, "side": "foe"}}]}
+ ],
+ "rule": "A Physical hit that lays Sundered (-150 resistance points a stack, up to 3). Fired into a foe already at 3 Sundered, it cracks them open with Exposed for 3 pulses, once every 6 s.",
+ "hooks": ["curse duration", "status application", "art speed", "foe resistance", "distinct statuses", "crit"], "sources": ["writ-of-reckoning"]},
+{"id": "flying-blade-retinue", "name": "Flying Blade Retinue (Phi Nhận Trận)", "element": "metal", "role": "summon", "tier": "authored", "tags": ["metal", "sword", "summon"], "c_art": 1.0, "cost_share": 0.06, "cooldown": 6, "kind": "phys",
+ "effects": [
+  {"id": "retinue-summon", "on": "art_fired", "filter": {"art_id": "flying-blade-retinue"}, "do": [{"summon": {"c": 0.45, "dtype": "phys", "cd": 2, "for": 12}}]},
+  {"id": "retinue-notch", "on": "hit_landed", "filter": {"kind": "companion"}, "limit": {"per_pulse": 3}, "do": [{"stacks": {"el": "metal", "n": 1, "for": 6, "side": "foe"}}]}
+ ],
+ "rule": "Sends a flying sword that strikes every 2 s for 12 s; each firing adds another, with no cap on how many fly. Every blade hit lays a Metal debuff stack on the foe for 6 s.",
+ "hooks": ["companion speed", "summon count", "art speed", "metal debuff stacks", "cooldown reduction", "duration"], "sources": []},
+{"id": "sheathed-edge", "name": "Sheathed Edge (Nhập Sao Nhận)", "element": "metal", "role": "damage", "tier": "authored", "tags": ["metal", "sword", "held"], "c_art": 2.0, "cost_share": 0.03, "cooldown": 3, "kind": "phys",
+ "effects": [
+  {"id": "sheathed-bank", "on": "crit", "held": {"until": "art_fired", "cap": 4}, "do": [{"free_hit": {"c": 0.8, "dtype": "phys"}}]}
+ ],
+ "rule": "Every crit you land banks a keen strike, up to 4. Your next art fired releases them all as free Physical hits of 0.8 coefficient each.",
+ "hooks": ["crit", "trigger damage", "banked cap", "art speed", "quick arts"], "sources": []}
+]
