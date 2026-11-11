@@ -46,7 +46,7 @@
 - **Effects:**
   - **Major: A Thousand Cuts (Thiên Đao Vạn Quả).** Your quick-tagged Wind arts apply 1 Bleed stack and 1 Wind
     debuff stack for 4 pulses per hit; Bleed from them may stack to 8 instead of 5.
-  - Minor: Wind Shear (Phong Tiễn). Your Physical hits against a target with 0 % or less evade deal more (L5 +12).
+  - Minor: Wind Shear (Phong Tiễn). Your Physical hits deal more to a foe that has evaded you this fight (L5 +12).
   - Minor: Cutting Air (Không Khí Cắt). Your basic attack applies 1 Wind debuff stack for 4 pulses. *(starter)*
 
 ### 4. Bão Táp (Tempest, with Thunder)
@@ -75,9 +75,9 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Never in One Place (Lưu Phong)** | keystone | Your evade cap is 10 pp higher | Your max health is 30 % lower | Phiêu |
-| **The Wind Has No Floor (Phong Vô Để)** | keystone | Your `cooldown_min` is 20 % lower | Your arts cost 40 % more | Cuồng Phong |
-| **Ten Thousand Blades (Vạn Nhận)** | keystone | Your quick arts hit twice at 55 % damage each | Your slow arts cannot be slotted | Phong Nhận |
+| **Never in One Place (Lưu Phong)** | keystone | Your evade cap is 10 pp higher (a cap shift, `Needs rule`; R14) | Your max health is 30 % lower | Phiêu |
+| **The Wind Has No Floor (Phong Vô Để)** | keystone | Your `cooldown_min` is 20 % lower (a cap shift, `Needs rule`; R14). Rival of Over the Limit: the two cannot both be held | Your arts cost 40 % more | Cuồng Phong |
+| **Ten Thousand Blades (Vạn Nhận)** | keystone | Your quick arts hit twice at 50 % each (one firing for lockouts and trigger limits; `Needs rule`: hit splitting) | Your slow arts cannot be slotted | Phong Nhận |
 | **Clear Breeze (Thanh Phong)** | keystone | Your Wind buff stacks never expire while you have evaded in the last 4 s | You cannot slot a ward with a block payload | Phiêu, Bão Táp |
 
 ## New pieces

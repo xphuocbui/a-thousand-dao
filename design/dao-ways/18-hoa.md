@@ -24,8 +24,7 @@
 - **Stat notables:** White Flame (Bạch Diễm): fire stack effect ×2 · Long Burn (Cháy Lâu): fire stack duration
   +2 ×2 · Hungry Fire (Lửa Đói): over-time damage ×2 · Cutting Heat (Nhiệt Xuyên): fire penetration +1, fire +1
 - **Effects:**
-  - **Major: Wildfire (Liệu Nguyên).** When a Burn batch of yours expires on a target, it reapplies itself at
-    half its stacks (once per batch).
+  - **Major: Wildfire (Liệu Nguyên).** At each pulse, each of your Burn batches that expired that pulse on a target is reapplied at half its stacks for its original duration. A reapplied batch never reapplies again.
   - Minor: Catch (Bén Lửa). Your Fire hits apply 1 extra Burn stack per 10 stacks already on the target (cap +5).
   - Minor: Kindling (Mồi Lửa). Your first Fire art each fight applies double Burn. *(starter)*
 
@@ -36,7 +35,7 @@
 - **Effects:**
   - **Major: Molten Strike (Dung Kích).** Your Physical hits convert 40 % to Fire and apply Burn equal to 1 stack
     per 2 % of the hit's damage as a share of the target's max health. `Fits today` (conversion + apply).
-  - Minor: Slag (Xỉ Nóng). A target bearing 20+ of your Burn stacks has −15 block rating per 10 stacks.
+  - Minor: Slag (Xỉ Nóng). Your hits on a target bearing 20+ of your Burn stacks ignore 15 of its block per 10 stacks.
   - Minor: Earth Heat (Địa Nhiệt). With an Earth root ≥ 30, your Earth buff stacks also grant +0.6 % Fire damage
     each.
 
@@ -66,8 +65,7 @@
 - **Stat notables:** Phoenix Feather (Lông Phượng): max health ×2 · Red Down (Lông Đỏ): fire +1, max health +1 ·
   Warm Blood (Máu Ấm): health regen +0.1 · Rising Heat (Nhiệt Dâng): fire stack effect +1, fire +1
 - **Effects:**
-  - **Major: Rise from the Ashes (Dục Hỏa Trùng Sinh).** Once a fight, at the Down step's refusal, you refuse:
-    return at 30 % health and gain Fire buff stacks equal to the Burn stacks on the foe (cap 50).
+  - **Major: Rise from the Ashes (Dục Hỏa Trùng Sinh).** Once a fight, at the Down step's refusal, refuse it (health 1, Effects rule 11); then heal 30 % of max health (a heal; `no_heal` blocks it) and gain Fire buff stacks for the fight equal to the Burn on the foe (cap 50).
   - Minor: Burn Bright (Cháy Rực). While below 35 % health, your Fire buff stacks are 100 % stronger.
   - Minor: Embers in the Chest (Than Trong Ngực). When you fall below 50 % health, gain 15 Fire buff stacks for
     10 pulses (once per fight). *(starter)*
@@ -78,9 +76,9 @@
 |---|---|---|---|---|
 | **The Furnace Never Cools (Lò Bất Lãnh)** | keystone | Your Fire buff batches do not expire while you have fired a Fire art in the last 3 s | Your Fire arts cost 25 % more | Chân Hỏa |
 | **Burning Heaven (Phần Thiên)** | keystone | Burn ticks you deal also count as Fire hits for "on hit" Effects (at most 1 per pulse per target) | Your direct Fire hits deal 30 % less (L2 −30) | Tro Tàn |
-| **Lava Body (Dung Thân)** | enabler | Your basic attack becomes a Fire-and-Physical hit that applies 3 Burn stacks | You cannot slot a Water or Ice art | Dung Nham |
-| **Nine Furnaces (Cửu Lô)** | keystone | Pills in a fight (ambush or foreseen) take no art slot: up to 3 fire at their guard | Toxicity from fight pills is not reduced by anything | Đan Hỏa |
-| **Nirvana (Niết Bàn)** | keystone | Rise from the Ashes may fire twice per fight, the second at 15 % health | Your max health is 20 % lower | Niết Bàn |
+| **Lava Body (Dung Thân)** | enabler | Your basic attack becomes a Fire-and-Physical hit that applies 3 Burn stacks for 6 pulses | You cannot slot a Water or Ice art or a ward with a Cold payload | Dung Nham |
+| **Nine Furnaces (Cửu Lô)** | keystone | Up to 3 combat pills may be carried into any fight and fire at a guard you set, taking no art slot (`Needs rule`: R4, pills in fights) | Fight pills give 50 % more toxicity | Đan Hỏa |
+| **Nirvana (Niết Bàn)** | keystone | Rise from the Ashes may fire twice per fight, the second healing 15 % (`Needs rule`: R5, a second refusal) | Your max health is 20 % lower | Niết Bàn |
 
 ## New pieces
 

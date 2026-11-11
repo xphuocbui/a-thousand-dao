@@ -26,3 +26,19 @@ became conditional. Jinx no longer duplicates Star's Shelter.
 - Three timed-window majors (Âm Dương, Thái Dương, Thái Âm) still share a shape. Kept for now: each reads a
   different clock (day and night, the hours, the phases). Revisit when drawn.
 - Flowers on the Crit: heal kept as a share of max health, not of damage dealt.
+
+## Batch 15–26
+
+**Fixed:** Down refusals set health to 1 and heal separately (Hỏa, Ngọc); the second refusal (Nirvana) flagged R5.
+Drowned is a Force tick with one batch per pulse; The Sea Swallows has a fixed duration. Vụ's veil is only an
+accuracy loss; Ám's opener is a time window (first 8 s) because "until hit" was empty. Six "stacks never expire"
+capstones are differentiated: Kim caps at 30, Mộc decays 1 a pulse (and rivals Blossom), Thổ keeps it but caps
+Earth dampening at 60 %. Free closes fixed (Immovable, Gravity Well, Lord of Shadows, Lava Body, Nine Furnaces);
+Heaven's Mirror keeps Exposed. Cash-in pieces point at the new R19; non-events rewritten (R20); foe-stat changes
+became owner modifiers or statuses (R21). Cap shifts labelled `Needs rule` (R14); Nine Heavens is now "crit over
+the cap becomes crit damage". Carry the Tribulation's cap is reachable and the self-hit is flagged. Blossom heal
+capped at 25 %. Plain-number minors given conditions. Ten Thousand Blades is 50 + 50 %. Wind Has No Floor rivals
+Over the Limit. Judgement works against foes that do not curse. Mark for Death's kill rider moved to crits.
+
+**Deferred:** theme-stats headers (as batch 01–14); Phong and Lôi dual-root facets (kept: they are the dual-root
+bridge, single-root players have four other facets); Thổ/Băng timer roles both stay until R1 is decided.

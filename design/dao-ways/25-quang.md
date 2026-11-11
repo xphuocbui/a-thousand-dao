@@ -23,7 +23,7 @@
 - **Effects:**
   - **Major: Laid Bare (Hiển Lộ).** Your Light hits apply Exposed; if the target is already Exposed by you, extend
     it by 1 pulse instead (to at most 6 pulses).
-  - Minor: Lingering Light (Dư Quang). Exposed you apply lasts 1 pulse longer. *(starter)*
+  - Minor: Lingering Light (Dư Quang). Exposed you apply to a target that is already Exposed lasts 1 pulse longer. *(starter)*
   - Minor: Sunlit (Tắm Nắng). Your non-Light hits deal more to an Exposed target (L5 +10).
 
 ### 2. Tịnh (Purity)
@@ -43,8 +43,8 @@
 - **Effects:**
   - **Major: First Light (Thự Quang).** For the first 6 s of a fight, every hit you land applies Exposed, and the
     foe cannot evade.
-  - Minor: Lit Path (Đường Sáng). Your first art each fight fires 1 s sooner. *(starter)*
-  - Minor: Day Breaks (Bình Minh Lên). Your crits in the first 10 s apply 2 Thunder debuff stacks for 4 pulses.
+  - Minor: Lit Path (Đường Sáng). Your first Light art each fight fires 1 s sooner. *(starter)*
+  - Minor: Day Breaks (Bình Minh Lên). Your crits in the first 10 s apply Exposed for 1 pulse.
 
 ### 4. Hào Quang (Halo)
 - **Small:** `defense_pct` +1.2 · `soul_res_pct` +1
@@ -62,8 +62,7 @@
 - **Stat notables:** Verdict (Phán Quyết): light ×2 · Long Sentence (Án Dài): Exposed duration ×2 · Witness
   (Chứng Nhân): soul resistance +1, light +1 · Gavel (Búa Phán): light crit damage +2
 - **Effects:**
-  - **Major: Judgement (Phán Xét).** Your hits deal more to a foe that has placed a curse on you this fight (L5
-    +25), and each curse it places on you extends your Exposed on it by 1 pulse.
+  - **Major: Judgement (Phán Xét).** Your hits deal more for each curse you have cleansed from yourself this fight (L5 +6 each, cap +30), and L5 +25 more against a foe that has placed a curse on you.
   - Minor: Sin Revealed (Tội Hiện). Your Light hits deal more to a foe carrying Corpse Rot, Chaos statuses or a
     demonic tag (L5 +15). *Shared minor* (with Lôi's Smite the Unclean, Bồ Đề).
   - Minor: No Hiding (Không Trốn). Foes cannot escape from you while Exposed. *(starter)*
@@ -73,9 +72,9 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **Nothing Hides (Vô Sở Độn Hình)** | keystone | Exposed from you has no refresh limit: it can be re-applied while running, its duration adding up to 10 pulses | Your hits deal no damage to a target that is not Exposed for the first 3 s (you need to light it first) | Quang |
-| **Radiance (Quang Minh)** | keystone | Your Light hits ignore evade and ward shields' first 10 % | Your arts cannot be Light and another element at once (no Light conversion) | Quang, Thự Quang |
+| **Radiance (Quang Minh)** | keystone | Your Light hits cannot be evaded, and 10 % of each ward shield's value is skipped by them (`Needs rule`: R2) | Your arts cannot be Light and another element at once (no Light conversion) | Quang, Thự Quang |
 | **The Sun Within (Nội Nhật)** | keystone | Your Halo stops Chaos and Soul at 80 % | Your hits deal 25 % less (L2 −25) | Hào Quang |
-| **Heaven's Mirror (Thiên Kính)** | keystone | Each curse a foe places on you is also placed on it | You cannot place curses yourself | Phán Xét |
+| **Heaven's Mirror (Thiên Kính)** | keystone | Each curse a foe places on you is also placed on it | You cannot place curses other than Exposed | Phán Xét |
 
 ## New pieces
 

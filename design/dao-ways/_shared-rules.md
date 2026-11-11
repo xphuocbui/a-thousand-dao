@@ -198,6 +198,32 @@ Effects rule 7 puts all trigger damage inside Formulas G's budget. The drafts th
 capstone) either move inside it or become a `Needs rule` for a one-off burst exemption. **Recommended:** inside,
 except Hoa's capstone, which declares a petal channel and is flagged `Needs rule`.
 
+## R19. Consuming stacks: the "cash in" action (added after review)
+
+**Asked by:** Kim (Metal Rings True), Hỏa (Harvest the Ash), Băng (Shatter), Mộc (Blossom), Thổ (Mountain Falls),
+Quang (Dispel), Kiếm's pilot (Shatter, Toái Băng), and the build *two-clocks*' staged pieces. **7+ Ways.** The
+"pile up, then cash in" loop is the most common build engine in the drafts, and the review found it has no action:
+Effects rule 6 can only cleanse your own debuffs.
+
+**Proposal.** `consume(element, side, n)`: removes up to n stacks of an element from a side, oldest batch first, and
+reports the count to the same Effect's payload. One Breakdown line. **Recommended: yes.** It is the cheapest rule
+that unlocks the most builds.
+
+## R20. New trigger events (added after review)
+
+The drafts trigger on things Effects rule 5 does not list: **a heal restored** (After Rain, Seed Fall, Hoa's
+Scent), **a hit fully stopped by wards** (Find the Gap, Cold Bill, Thủ's Guarded Counter, Huyễn's Mirror), **a
+batch expired**, **a time window starting** (Riptide, phases). **Proposal:** add the first two as events. Rewrite
+the others as pulse checks or time conditionals. Batch 15–26 already did this for Wildfire, Riptide, Frozen
+Breath and After Rain.
+
+## R21. Effects that change the foe's stats directly (added after review)
+
+Effects give modifiers to their owner. The foe changes only through statuses (at most 3 curses of at most 5
+pulses). Drafts that lowered the foe's block, accuracy or art speed directly were rewritten to an owner modifier
+("your hits ignore 15 block") or a named status. **Recommended:** keep the rule. It keeps the curse limit
+meaningful.
+
 ## How to use this
 
 Say yes, no or later to each R. A "yes" becomes a rule in the owning GDD (Combat, Combat Defence, Effects,

@@ -23,7 +23,7 @@
 - **Stat notables:** Hoarfrost (Sương Muối): cold ×2 · Biting Cold (Rét Cắt): cold penetration ×2 · Frost Flower
   (Hoa Băng): cold +1, ice stack effect +1 · Black Ice (Băng Đen): cold crit damage +2
 - **Effects:**
-  - **Major: Shatter (Băng Toái).** Every 6 s, your next Cold hit on a target bearing 25+ Ice stacks consumes 15
+  - **Major: Shatter (Băng Toái).** (Consumes stacks: R19.) Every 6 s, your next Cold hit on a target bearing 25+ Ice stacks consumes 15
     and deals more (L5 +3 per stack consumed, +45).
   - Minor: Frostbite (Đống Thương). Your Cold hits apply 1 Ice stack per 2 % of the target's max health they deal
     (cap 5). *(starter)*
@@ -48,9 +48,8 @@
 - **Effects:**
   - **Major: Frozen Clock (Đông Kết).** A target bearing 30+ Ice stacks has its art timers run 20 % slower
     (40 % at 60+). `Needs rule` (shared with Thổ's Earthquake: Effects that act on foe timers).
-  - Minor: Lingering Chill (Hàn Lưu). Your Ice batches last 2 pulses longer. *(starter)*
-  - Minor: Frozen Breath (Tức Đông). When the foe's art waits because it cannot pay, apply 5 Ice stacks for 8
-    pulses (once per 2 s).
+  - Minor: Lingering Chill (Hàn Lưu). Your Ice batches applied to a target already bearing 20+ last 2 pulses longer. *(starter)*
+  - Minor: Frozen Breath (Tức Đông). Each pulse in which the foe's linh lực is below its cheapest ready art's cost, apply 5 Ice stacks for 8 pulses.
 
 ### 4. Băng Xuyên (Glacier)
 - **Small:** `defense_pct` +1.2 · `ward_efficiency_pct` +1.2
@@ -59,8 +58,7 @@
 - **Effects:**
   - **Major: Glacier (Băng Xuyên).** Each ward you have slotted gains a shield equal to 2 % of max linh lực,
     restored every 6 s; while the foe has 20+ Ice stacks, it restores every 3 s.
-  - Minor: Cold Bill (Hàn Phí). When a foe's hit is fully stopped by your ward, apply 2 Ice stacks to it for 6
-    pulses.
+  - Minor: Cold Bill (Hàn Phí). When a foe's hit deals no damage to your health (all stopped by your wards), apply 2 Ice stacks to it for 6 pulses (`Needs rule` R20).
   - Minor: Slow Melt (Tan Chậm Rãi). Your cast wards last 25 % longer.
 
 ### 5. Tuyết Rơi (Snowfall)
@@ -68,10 +66,8 @@
 - **Stat notables:** Quiet Snow (Tuyết Lặng): heart-demon resist ×2 · White-Out (Trắng Xóa): escape ×2 · Calm
   Heart (Tâm Lặng): heart-demon resist +1, status resist +1 · Snow Cover (Tuyết Phủ): evade +1, escape +1
 - **Effects:**
-  - **Major: Ice Heart (Băng Tâm).** You are immune to Fear-type and heart-demon Effects in fights, and the foe's
-    heart-demon-based Effects do nothing against you. Your Cold hits on a foe who has hit you crit with +10 pp
-    chance.
-  - Minor: White Silence (Tuyết Câm). The foe's first art each fight costs 50 % more. *(starter)*
+  - **Major: Ice Heart (Băng Tâm).** You are immune to Silence and Sealed Meridian, and heart demon gained from fights is halved. Your Cold hits on a foe who has hit you crit with +10 pp chance.
+  - Minor: White Silence (Tuyết Câm). Your first hit each fight applies 10 Ice stacks for 8 pulses. *(starter)*
   - Minor: Footprints Filled (Dấu Chân Lấp). Your escape art cannot be pursued: the pursuer's tags do not lower its
     chance.
 

@@ -25,7 +25,7 @@
 - **Effects:**
   - **Major: Flow On (Lưu Chuyển).** When one of your arts fires, the art in the next slot has its timer cut by
     15 % of its effective cooldown (at most once per art per second).
-  - Minor: Find the Gap (Tìm Khe). When your art is fully stopped by a ward, refund 50 % of its cost.
+  - Minor: Find the Gap (Tìm Khe). When your art hit deals no damage to health (all stopped by wards), refund 50 % of its cost (`Needs rule` R20: that result as an event).
   - Minor: Water Takes the Shape (Tùy Hình). Your first art each fight fires at half its cooldown. *(starter)*
     *Shared minor* (with Phong, Thời).
 
@@ -37,7 +37,7 @@
   - **Major: The Tide Turns (Triều Cường).** Your power runs on a 12 s wave from t = 0: for the first 6 s of each
     wave your hits deal more (L5 +30) and for the next 6 s you regenerate double linh lực.
   - Minor: High Water (Nước Lớn). While you hold 20+ Water buff stacks, your ward efficiency is +15 %.
-  - Minor: Riptide (Xoáy Nước). When your crest begins, gain 6 Water buff stacks for 12 pulses.
+  - Minor: Riptide (Xoáy Nước). At the first instant of each crest (0 s, 12 s, 24 s…; t = 6.000 belongs to the ebb), gain 6 Water buff stacks for 12 pulses.
 
 ### 3. Uyên (the Depths)
 - **Small:** `linh_luc_pct` +1.2 · `ward_efficiency_pct` +1.2
@@ -46,8 +46,7 @@
 - **Effects:**
   - **Major: The Deep Answers (Uyên Ứng).** Your hits deal more by how full your linh lực is (L5 +1 per 2 % of the
     share above 50 %, so +25 at full).
-  - Minor: Overflow Shield (Tràn Thuẫn). Regeneration you lose at a full pool becomes a ward shield (up to 10 %
-    of max linh lực). *(starter)*
+  - Minor: Overflow Shield (Tràn Thuẫn). Regeneration you lose at a full pool becomes a body shield (up to 10 % of max linh lực, as health points). *(starter)*
   - Minor: Weight of Water (Trọng Thủy). Your drain ward bills 10 % less while your pool is above 70 %.
 
 ### 4. Vũ (Rain)
@@ -58,15 +57,14 @@
   - **Major: Monsoon (Mùa Mưa).** Each Water buff stack you hold also gives +0.05 pp health regeneration.
   - Minor: Rain Curtain (Màn Mưa). When you are hit for more than 10 % of max health, gain 8 Water buff stacks
     for 8 pulses. *(starter)*
-  - Minor: After Rain (Sau Mưa). Your heals over 5 % of max health also cleanse 2 debuff stacks.
+  - Minor: After Rain (Sau Mưa). Each pulse in which your heals restored 5 %+ of max health, cleanse 2 debuff stacks.
 
 ### 5. Giang Hà (Rivers)
 - **Small:** `travel_speed_pct` +2 · `linh_luc_regen_pct` +0.075
 - **Stat notables:** River Road (Đường Sông): travel ×2 · Ferryman (Lái Đò): travel +1, escape +1 · Delta (Châu
   Thổ): regen +0.1, max linh lực +1 · Ten Thousand Streams (Vạn Dòng): water attack ×2
 - **Effects:**
-  - **Major: All Rivers Reach the Sea (Bách Xuyên Quy Hải).** Each art you slot of a different element gives your
-    Water arts +6 L2 (cap +30). The multi-element caster's Water core.
+  - **Major: All Rivers Reach the Sea (Bách Xuyên Quy Hải).** Each art you slot of a different element gives your Water arts +4 L2 (cap +20). The multi-element caster's Water core.
   - Minor: Downstream (Thuận Dòng). Escape art chance +15 % on water or river ground.
   - Minor: Wetland (Đầm Lầy). On water ground, your Water buff stacks are 50 % stronger.
 
@@ -74,7 +72,7 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Water Wears the Mountain (Thủy Tích Thạch Xuyên)** | keystone | Each hit you land on a ward makes that ward bill 3 % more for the fight (stacks per hit, no cap) | Your hits deal 25 % less damage (L2 −25) | Lưu |
+| **Water Wears the Mountain (Thủy Tích Thạch Xuyên)** | keystone | Each hit you land on a drain or per-hit ward makes that ward bill 3 % more for the fight (cap +100 %) | Your hits deal 25 % less damage (L2 −25) | Lưu |
 | **Bottomless (Vô Đáy)** | keystone | Your art costs are paid from a pool 50 % larger than your maximum (an overdraw), and you start each fight at full overdraw | Your linh lực regeneration is halved | Uyên |
 | **Like Water (Nhược Thủy)** | keystone | Your damage type adapts: each hit's largest part converts to the type the foe resists least (one conversion) | Your crits deal no extra damage | Triều |
 | **The Sea Is Patient (Hải Nhẫn)** | keystone | After 30 s of fight, your Water buff stacks count double | Before 30 s, your arts cost 30 % more | Vũ |

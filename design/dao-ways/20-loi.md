@@ -24,9 +24,7 @@
   lightning ×2 · Scarred by Heaven (Sẹo Trời): max health +1, lightning resistance +1 · Heaven's Anger (Thiên Nộ):
   lightning crit damage +2
 - **Effects:**
-  - **Major: Carry the Tribulation (Thân Mang Kiếp).** Every 10 s, a bolt strikes you for 4 % of max health as
-    Lightning; when it does, your next Lightning art deals more (L5 +3 per 1 % of max health it actually took
-    after resistance, cap +45). High resistance makes it cheaper and weaker: pick your spot.
+  - **Major: Carry the Tribulation (Thân Mang Kiếp).** Every 10 s, a bolt strikes you for 4 % of max health as Lightning (it meets your resistance; `Needs rule`: a self-hit action). Your next Lightning art deals more by what it took after resistance (L5 +10 per 1 % of max health, cap +40). High resistance makes it cheaper and weaker: pick your spot.
   - Minor: Tribulation Scar (Kiếp Ấn). After surviving a heavenly tribulation, +1 % lightning damage per
     tribulation survived this life (cap +10 %). Life-around-the-fight.
   - Minor: Ground the Bolt (Tiếp Địa Lôi). Lightning damage that reaches you grants 2 Thunder buff stacks for 6
@@ -39,8 +37,7 @@
 - **Effects:**
   - **Major: Chain Lightning (Liên Hoàn Lôi).** When your Lightning art crits, its next firing comes 25 % of its
     cooldown sooner.
-  - Minor: Storm Battery (Lôi Trì). Each crit restores 0.6 % of max linh lực. *Shared minor* (the map keystone's
-    weaker Way form). *(starter)*
+  - Minor: Storm Battery (Lôi Trì). While you hold 10+ Thunder buff stacks, each crit restores 0.6 % of max linh lực. *(starter)*
   - Minor: Overcharge (Quá Tải). Crits past the crit chance cap: each 1 pp of crit chance above the cap gives L5
     +1 to Lightning hits (cap +20).
 
@@ -82,8 +79,8 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Carry Your Own Tribulation (Tự Độ Kiếp)** | keystone | Carry the Tribulation strikes every 5 s, and its art bonus has no cap | You cannot gain Lightning resistance from wards | Thiên Lôi |
-| **Nine Heavens (Cửu Thiên)** | keystone | Your crit chance cap is 5 pp higher | Your non-crit hits deal 20 % less (L2 −20) | Thiểm Điện |
+| **Carry Your Own Tribulation (Tự Độ Kiếp)** | keystone | The bolt strikes every 5 s for 6 % | You cannot gain Lightning resistance from wards | Thiên Lôi |
+| **Nine Heavens (Cửu Thiên)** | keystone | Crit chance above the cap converts to crit damage (1 pp to +3 %) | Your non-crit hits deal 20 % less (L2 −20) | Thiểm Điện |
 | **Thunder God's Body (Lôi Thần Thể)** | enabler | Your basic attack counts as a Lightning art for art speed (it can be sped up, floor `cooldown_min`) | You can slot at most 2 arts | Lôi Thể |
 | **Heaven's Verdict (Thiên Phán)** | keystone | Heaven Purges removes 3 a pulse, and each removal deals 1 % of the target's max health as Lightning to the foe that applied it (a trigger) | You cannot apply any curse | Tịnh Hóa |
 

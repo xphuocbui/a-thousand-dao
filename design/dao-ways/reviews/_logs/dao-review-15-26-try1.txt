@@ -1,0 +1,23 @@
+The review is written, with 38 findings in the table (under the 40-row limit). I only checked the file by row count; I did not re-read it after the edits. I read all twelve drafts and the rule sections you named, and changed none of the drafts.
+
+The five patterns that matter most:
+
+- **Triggers on events that don't exist:** a heal, a wave phase starting, a batch expiring, an art "waiting", a tick, a ward "fully stopping" a hit.
+- **Actions outside the closed list, not flagged:**
+  - consuming or stripping stacks;
+  - a self-hit (Lôi);
+  - raising caps (Lôi, Phong, Kim);
+  - refusals that return at 30 % health or fire twice (Hỏa, Ngọc);
+  - a duration-less Drowned status (Vụ).
+- **Overlaps and free costs:**
+  - six Ways have a "stacks never expire" capstone;
+  - Thổ and Băng both control the foe's art timers;
+  - Vụ and Ám both re-arm an opening window;
+  - several capstone costs the build never pays, such as Thổ's Immovable (no evade).
+- **Ám's "until a foe's hit lands" window is almost empty,** because nothing fires at t = 0.
+- **Theme-stat gaps:** many stat notables use keys missing from their Way's Theme stats, in about eleven of the twelve files.
+
+REVIEW-DONE design/dao-ways/reviews/batch-15-26.md
+
+[stderr]
+Permission allow rule (--allowed-tools): Write(design/dao-ways/reviews/batch-15-26.md) is not matched by file permission checks — only Edit(path) rules are. Use Edit(design/dao-ways/reviews/batch-15-26.md) instead (Edit rules cover all file-editing tools).

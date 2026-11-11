@@ -46,39 +46,34 @@
   - **Major: The Forest Fights (Rừng Chiến).** Your companion's hits apply 2 Poison stacks and grant you 1 Wood
     buff stack.
   - Minor: Home Grove (Rừng Nhà). On forest ground your Wood buff stacks are 50 % stronger.
-  - Minor: Shared Root (Cộng Căn). Your companion's power share rises by 1 % per 10 Wood buff stacks you hold
-    (cap +10 %, inside `c_comp_cap`).
+  - Minor: Shared Root (Cộng Căn). Your companion's hits deal +1 % per 10 Wood buff stacks you hold (cap +10 %).
 
 ### 4. Rễ (Roots)
 - **Small:** `leech_health_pct` +0.3 · `attack_pct` poison +1.5
 - **Stat notables:** Taproot (Rễ Cái): leech ×2 · Drinking Roots (Rễ Hút): leech +0.5, poison +1 · Deep Draw
   (Hút Sâu): poison attack ×2 · Root Web (Lưới Rễ): poison +1, regeneration increased +1
 - **Effects:**
-  - **Major: Root Drinks the Rot (Căn Ẩm Hủ).** Each Poison tick you deal heals you for 15 % of its damage.
-    (Reuses the by-root keystone name; here it heals health, the linh lực version stays a map keystone.)
-  - Minor: Strangle (Siết). A target bearing 15+ of your Poison stacks regenerates 30 % less (a Stagnation-like
-    dampen, not a curse slot).
-  - Minor: Sink In (Ăn Sâu). Your Poison batches last 1 pulse longer. *(starter)*
+  - **Major: Root Drinks the Rot (Căn Ẩm Hủ).** Each pulse, heal 15 % of the Poison damage your batches dealt to the foe's health that pulse. (The by-root keystone's name; that one restores linh lực and stays a map keystone.)
+  - Minor: Strangle (Siết). When a target reaches 15 of your Poison stacks, apply 10 Stagnation stacks (once per 3 s).
+  - Minor: Sink In (Ăn Sâu). Your Poison batches applied to a target already bearing 10+ of your Poison stacks last 1 pulse longer. *(starter)*
 
 ### 5. Khai Hoa (Blossom)
 - **Small:** `healing_pct` +1.5 · `stack_effect_pct` wood +1
 - **Stat notables:** Full Bloom (Mãn Khai): healing ×2 · Petal Count (Đếm Cánh): wood stack effect ×2 · Heavy
   Flower (Hoa Nặng): healing +1, max health +1 · Pollen (Phấn Hoa): poison +1, healing +1
 - **Effects:**
-  - **Major: Blossom (Khai Hoa).** Once every 12 s, when you hold 30+ Wood buff stacks, consume them all: heal
-    1 % of maximum health per stack and apply that many Poison stacks to the foe.
-  - Minor: Seed Fall (Hạt Rơi). When a Blossom (or any heal of yours above 10 % of max health) resolves, gain 5
-    Wood buff stacks for the fight.
+  - **Major: Blossom (Khai Hoa).** Once every 12 s, when you hold 30+ Wood buff stacks, consume them all (shared rule R19): heal 1 % of max health per stack (cap 25 %) and apply that many Poison stacks to the foe for 6 pulses.
+  - Minor: Seed Fall (Hạt Rơi). When Blossom fires, gain 5 Wood buff stacks for the fight.
   - Minor: Wither Before Bloom (Khô Trước Vinh). While below 40 % health, your Wood buff stacks are 100 % stronger.
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **The Forest Outlives Everything (Rừng Trường Tồn)** | keystone | Your Wood buff stacks never expire during a fight | You can never hold more than 60 Wood buff stacks | Sinh Trưởng |
+| **The Forest Outlives Everything (Rừng Trường Tồn)** | keystone | Your Wood buff batches do not expire: they lose 1 stack a pulse instead | Blossom cannot be bought (rival) | Sinh Trưởng |
 | **Wither and Bloom (Khô Vinh Luân)** | keystone | Every 10 s your Wood stacks switch side: your Wood buff count is applied to the foe as Poison, and the Poison on the foe returns as your buff stacks | Your arts deal 30 % less hit damage (L2 −30) | Khai Hoa |
 | **Ironbark (Thiết Mộc)** | keystone | Your health regeneration also restores your body shield at the same rate | Your ward strength is halved | Gai |
-| **Green Blood (Lục Huyết)** | enabler | Your arts may be paid in health at 1.5× their cost, and health regeneration counts as linh lực regeneration for Ice-stack cost raises | You cannot use pills in a fight | Rễ |
+| **Green Blood (Lục Huyết)** | enabler | Your arts may be paid in health at 1.5× their cost, and your health regeneration also restores linh lực at 50 % of its rate | You cannot use pills in a fight | Rễ |
 
 ## New pieces
 

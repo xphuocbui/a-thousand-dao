@@ -26,8 +26,7 @@
 - **Effects:**
   - **Major: Hundredfold Refined (Bách Luyện Tinh).** Each Metal buff stack you hold gives your Physical hits
     1 point of Physical resistance penetration (no cap of its own).
-  - Minor: Purge the Dross (Khử Tạp). Hits whose parts are all Physical, with nothing converted, deal more
-    (L5 +12). *(starter)*
+  - Minor: Purge the Dross (Khử Tạp). Hits whose parts are all Physical after conversion deal more (L5 +12). *(starter)*
   - Minor: Tempered Again (Tái Luyện). When a crit lands on you, gain 2 Metal buff stacks for 6 pulses.
 
 ### 2. Thối Thể (Tempered Body)
@@ -69,20 +68,20 @@
   +2 ×2 · Shearing (Cắt Kim): metal attack +1, physical crit damage +1 · Whetted (Mài Bén): metal stack effect +1,
   physical attack +1
 - **Effects:**
-  - **Major: Metal Rings True (Kim Minh).** When your Metal debuff on a target reaches 20 stacks, your next
+  - **Major: Metal Rings True (Kim Minh).** (Consumes stacks: shared rule R19.) When your Metal debuff on a target reaches 20 stacks, your next
     Physical hit consumes 10 of them and deals more (L5 +4 per stack consumed, so +40).
   - Minor: Edge Bites (Phong Phệ). Your Physical crits apply 2 Metal debuff stacks for 4 pulses.
-  - Minor: Sharpened by Use (Việt Dụng Việt Lợi). Your Metal buff stacks last 2 pulses longer. *(starter)*
+  - Minor: Sharpened by Use (Việt Dụng Việt Lợi). While you hold 20+ Metal buff stacks, your Physical crits apply 1 Metal debuff stack for 4 pulses. *(starter)*
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **The Gear Is the Body (Khí Tức Thân)** | keystone | Your artifacts' defence ratings also count as block rating, and your armour's artifact power adds to body shield strength | You cannot slot a ward in a free ward slot (wards in art slots only) | Thối Thể, Lò Rèn |
-| **Hundred Temperings (Bách Luyện Thành Cương)** | keystone | Your Metal buff stacks never expire during a fight | You gain at most 1 Metal buff stack per second | Kim Phong |
-| **Sole Edge (Độc Phong)** | keystone | Every non-Soul part of your hits is converted to Physical (counts as one of the 2 conversions) | You cannot apply Burn or Poison | Tinh Kim |
+| **Hundred Temperings (Bách Luyện Thành Cương)** | keystone | Your Metal buff stacks never expire during a fight | You can never hold more than 30 Metal buff stacks | Kim Phong |
+| **Sole Edge (Độc Phong)** | keystone | The two largest non-Soul parts of your hits convert to Physical (one conversion each; the limit of 2 holds) | You cannot apply Burn or Poison | Tinh Kim |
 | **Living Arsenal (Vạn Binh Thân)** | enabler | +1 artifact equipped beyond `equip.max_slots` | Your artifacts cost 30 % more thần thức | Binh Khố |
-| **Unbreaking (Bất Chiết)** | keystone | Your Physical resistance may exceed the resistance cap by 10 points | You take 20 % more Chaos damage (rust) | Thối Thể |
+| **Unbreaking (Bất Chiết)** | keystone | Your Physical resistance may exceed the resistance cap by 10 points (a cap shift, `Needs rule`; R14) | You take 20 % more Chaos damage (rust) | Thối Thể |
 
 ## New pieces
 

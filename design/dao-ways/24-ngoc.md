@@ -57,7 +57,7 @@
 - **Effects:**
   - **Major: Record the Way (Ghi Đạo).** When you buy a capstone in any Dao, you gain 2 free skill points
     (once per Dao). `Needs rule` (points economy, Meridian Map Formulas A).
-  - Minor: Read Twice (Đọc Hai Lần). Technique mastery from study is 15 % faster.
+  - Minor: Read Twice (Đọc Hai Lần). Technique mastery from study is 15 % faster while your heart demon is below 20.
   - Minor: Slip for the Road (Giản Đi Đường). A jade slip you carry can store one art seen in a fight this
     season, usable once as a talisman. `Needs rule`.
 
@@ -68,17 +68,17 @@
 - **Effects:**
   - **Major: Jade Vessel (Ngọc Khí).** Jade-material artifacts you equip give +1 element purity each to their
     element for stack effects (cap +15). `Needs key` (artifact material tag).
-  - Minor: Smooth Grain (Thớ Mịn). Your artifacts' actives cost 20 % less linh lực.
-  - Minor: Talisman of Jade (Ngọc Phù). Your talismans have +1 stock. *(starter)*
+  - Minor: Smooth Grain (Thớ Mịn). Jade-material artifacts' actives cost 20 % less linh lực.
+  - Minor: Talisman of Jade (Ngọc Phù). Talismans you drew on jade slips have +1 stock. *(starter)*
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **Flawless (Hoàn Mỹ)** | keystone | You are immune to curses while above 70 % health | Your max health is 15 % lower | Thuần Khiết |
-| **Jade Purity (Ngọc Thanh)** | keystone | Your element stacks use purity ×1.5 in the stack purity factor | You may hold buff stacks of one element only | Thuần Khiết |
+| **Jade Purity (Ngọc Thanh)** | keystone | Your element stacks of your second-highest element use your highest purity | You may hold buff stacks of two elements only | Thuần Khiết |
 | **The Thousand-Facet Gem (Thiên Diện Ngọc)** | keystone | Refract splits into 5 hits of 22 % each | Your crits deal 30 % less extra damage | Khúc Xạ |
-| **Better Broken Jade (Ninh Vi Ngọc Toái)** | keystone | At the Down step you shatter: deal 20 % of your max health as Light to the foe and refuse the Down once if it kills | You cannot escape | Ngọc Thể |
+| **Better Broken Jade (Ninh Vi Ngọc Toái)** | keystone | Once a fight, at the Down step's refusal, refuse it (health 1) and shatter: deal 20 % of your max health as Light to the foe (a trigger) | You cannot escape | Ngọc Thể |
 
 ## New pieces
 
