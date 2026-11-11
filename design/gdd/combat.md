@@ -226,7 +226,7 @@ author's reading and wait for confirmation (see Open Questions).
       survivors) or `mortal` (a Down side). The caller decides what a grave wound costs (rule 14). No random draw
       decides it and fortune does not enter.
     - **Fatigue (#44 item A3; flat since 2026-11-10).** From `fatigue_start` (60 s), every pulse takes from **both**
-      sides a **flat** amount, `fatigue_units` × U_r × n², where n counts fatigue pulses (1 at 60 s, 2 at 61 s …)
+      sides a **flat** amount, `fatigue_units` × U_r × d_r × n² (d_r the realm defence factor, Formulas A), where n counts fatigue pulses (1 at 60 s, 2 at 61 s …)
       and U_r is the side's own realm fight unit (6.31 at Qi Refining, so the first pulses take 3.16, 12.6, 28.4,
       50.5 …; Formulas A2). It does
       not depend on the side's health, so a build that bought health keeps that toughness (user decision 2026-11-10:
@@ -504,7 +504,7 @@ The fight_unit formula is defined as:
 
 The pool_max formula is defined as:
 
-`n_k = clamp(stat_k / ref_k[r], pool_n_min, pool_n_max)` ; `health_max = health_units · U_r · n_body · boss_pool_mult` ; `qi_max = qi_units · U_r · n_qi · boss_pool_mult` ; `health_start = health_max · max(v, v_c)`, or `health_max · start_health_share` when the request carries shares ; `qi_use = qi_max · (1 − Σ reserved)` ; `qi_start = qi_use`, or `qi_use · start_qi_share` likewise (Combat revision D6) ; `ehp` is Combat Defence & Healing Formulas G
+`n_k = clamp(stat_k / ref_k[r], pool_n_min, pool_n_max)` ; `health_max = health_units · U_r · d_r · n_body · boss_pool_mult` ; `qi_max = qi_units · U_r · n_qi · boss_pool_mult` ; `health_start = health_max · max(v, v_c)`, or `health_max · start_health_share` when the request carries shares ; `qi_use = qi_max · (1 − Σ reserved)` ; `qi_start = qi_use`, or `qi_use · start_qi_share` likewise (Combat revision D6) ; `ehp` is Combat Defence & Healing Formulas G
 
 **Variables:**
 
@@ -513,6 +513,7 @@ The pool_max formula is defined as:
 | B_p[r] | float | 100 / 1,000 / 10,000 / 100,000 / 1,000,000 | data file (`power_base`, Character Stats) | Realm power base |
 | fight_unit_exponent | float | 0.35–0.5, default 0.4 | data file | Sets the realm gap |
 | U_r | float | 6.31 / 15.85 / 39.81 / 100 / 251.19 | calculated | Fight unit of realm r |
+| d_r | float | 1 / 1.28 / 1.67 / 2.25 / 2.74 | calculated: `M_typ(r) / M_typ(QR)`, the typical M of Formulas B (3.273 / 4.19 / 5.48 / 7.37 / 8.96) | **Realm defence factor** (user decision 2026-11-11, "defence keeps pace"): health, fatigue (A2) and the drain bill (Combat Defence & Healing Formulas C) keep pace with the offence a realm's typical M adds, so same-realm fights hold the 30–60 s band at every realm instead of shrinking (typical mirror 36 → 15 s, top-end mirror 38 → 15 s before it). Linh lực is not scaled |
 | stat_k | float | ≥ 0 | calculated (Character Stats Formulas C) | vitality_max and spiritual_power; each already holds stage_mult, talent and pct keys. Divine sense is read raw for soul attacks and is not a pool |
 | ref_k[r] | float | body 450 / 1,800 / 6,750 / 22,500 / 67,500; qi 100 / 800 / 6,000 / 50,000 / 400,000 | calculated from Character Stats data | The stat of a talent-45, stage-1.00, no-bonus character |
 | n_k | float | 0.25–8 | calculated | Relative pool size |
@@ -578,7 +579,7 @@ The other timers (build-run suggestion 6, 2026-11-11) are defined as:
 
 The fatigue formula is defined as:
 
-`fatigue(t) = fatigue_units · U_r · n^fatigue_pow`, with `n = 1 + (t − fatigue_start) / pulse_interval`, at each pulse with t ≥ `fatigue_start`, and 0 before it. U_r is the side's own realm fight unit (Formulas A), never scaled by `boss_pool_mult` or the side's health
+`fatigue(t) = fatigue_units · U_r · d_r · n^fatigue_pow` (d_r: Formulas A, 1 at Qi Refining), with `n = 1 + (t − fatigue_start) / pulse_interval`, at each pulse with t ≥ `fatigue_start`, and 0 before it. U_r is the side's own realm fight unit (Formulas A), never scaled by `boss_pool_mult` or the side's health
 
 **Output Range:** at Qi Refining 3.16, 12.6, 28.4, 50.5, 78.9, 113.6, 154.6 … at 60, 61, 62 … s, with no upper
 bound. The running total after N pulses is `fatigue_units · U_r · N(N + 1)(2N + 1) / 6`: 441.7 after 7 pulses, so a
@@ -670,6 +671,9 @@ Question 20 still applies to the mirror columns.
 **Top-end mirror (2026-11-11).** With the ward layers at their caps the top-end mirror lasts about **35 s** at Qi
 Refining (35.2 s, `tools/design/combat_sim/sim.py`, 20 seeds), against 2.0 s with the old wards, and a top-end build
 still beats a typical side at 2.0 s, its first volley (rule 18). The top-end columns above are superseded by this.
+With the realm defence factor d_r (Formulas A, 2026-11-11) it holds at every realm: top-end mirror 38 / 35 / 32 / 34 /
+35 s and typical mirror 36 / 38 / 45 / 53 / 61 s from Qi Refining to Deity Transformation (combat engine v2,
+`tools/design/combat_sim/engine.py`, 10 seeds); without it both fell to about 15 s at Deity Transformation.
 
 **#44 note:** the mirror columns and the spot checks below predate the Combat economy revision and are
 superseded. **The canonical typical mirror is the simulator's** (`tools/design/combat_sim/sim.py`, three arts, 20
@@ -1440,7 +1444,7 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 **Balance Harness**
 
 - **AC-CB-53** [Integration, Bot: Balance Harness] Formulas H. **GIVEN** top-end at pierce 0.5 against typical, with the Formulas B anchors at stage 1.00, at least 200 runs per cell: g 1 wins at least 95 % from each of four starting realms; g 2 wins 40–75 % from each of three; g 3 wins at most 2 % at P 0.5 and 0.75; a typical build wins at most 2 % one realm up. Run once with no soul arts, and report a second run with them (Open Question 16). Provisional: these targets were simulated in rounds and must be re-run on the timeline (Open Question 20). Output goes to `production/qa/evidence/balance/[date]-combat-realm-crossing.md`.
-- **AC-CB-54** [Integration, Bot: Balance Harness] Formulas A, B. With the rotation stated in the run header: typical mirrors last 30–60 s (#44 item A1; the simulator gives about 37 s at Qi Refining with linh lực dry at about 16 s, 2026-11-10), a sustain build with the same budget does not run dry before 30 s, top-end mirrors end well before typical ones, an unbuilt mirror ends by fatigue by about 65 s, a one-realm gap ends inside 12 s, and F rises ×7 to ×14 per realm for typical builds (target about ×10). **GIVEN** an ordinary boss with its `boss_pool_mult`, **THEN** a top-end build needs at least 4 seconds (tribulation bosses are exempt, rule 18).
+- **AC-CB-54** [Integration, Bot: Balance Harness] Formulas A, B. With the rotation stated in the run header: typical mirrors last 30–60 s **at every realm** (#44 item A1; the simulator gives about 37 s at Qi Refining with linh lực dry at about 16 s, 2026-11-10; with the realm defence factor d_r, engine v2 gives 36 / 38 / 45 / 53 / 61 s from Qi Refining to Deity Transformation, 2026-11-11), top-end mirrors last 30–60 s at every realm (38 / 35 / 32 / 34 / 35 s; replaces "top-end mirrors end well before typical ones", retired by the ward layers), a sustain build with the same budget does not run dry before 30 s, an unbuilt mirror ends by fatigue by about 65 s, a one-realm gap ends inside 12 s, and F rises ×7 to ×14 per realm for typical builds (target about ×10). **GIVEN** an ordinary boss with its `boss_pool_mult`, **THEN** a top-end build needs at least 4 seconds (tribulation bosses are exempt, rule 18).
 - **AC-CB-55** [Integration, Bot: Balance Harness] Rule 20. **GIVEN** equal W, **THEN** an all-attack build (L2–L5 at 1.0) one realm up wins at most 2 %, and a top-end multi-layer build wins at least 95 %.
 
 **Data**

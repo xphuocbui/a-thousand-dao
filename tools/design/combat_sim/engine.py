@@ -31,6 +31,9 @@ from dataclasses import dataclass, field
 # ------------------------------------------------------------------ constants (same numbers as sim.py K)
 K = dict(
     fatigue_start=60.0, fatigue_units=0.5, fatigue_pow=2.0, time_limit=300.0,
+    # realm defence factor d_r = typical M(r) / typical M(QR): health, the drain bill and fatigue keep pace with
+    # typical offence (Combat Formulas A, Combat Defence C; user decision 2026-11-11, "defence keeps pace")
+    realm_def=(1.0, 4.19 / 3.273, 5.48 / 3.273, 7.37 / 3.273, 8.96 / 3.273), fatigue_by_realm=True,
     health_mult=4.0, regen_base=0.035, regen_k=0.08, cost_scale=0.5, drain_scale=0.2,
     crit_cap=1.0, evade_cap=0.4, cooldown_min=0.5, basic_cooldown=1.0, pulse=1.0,
     trig_cap=6, trig_depth=2, trig_budget=0.5, avoid_budget=2, curse_slots=3, curse_duration_max=5,
@@ -216,7 +219,8 @@ class Side:
     def __init__(self, b: Build, label):
         self.b, self.label = b, label
         self.U = U[b.realm]
-        self.hp_max = 16 * self.U * b.n_body * K["health_mult"]
+        self.g = K["realm_def"][b.realm]
+        self.hp_max = 16 * self.U * b.n_body * K["health_mult"] * self.g
         self.qi_base = 26 * self.U * b.n_qi
         self.hp, self.qi = self.hp_max, self.qi_base
         self.body_bar = b.body_shield * self.hp_max
@@ -566,7 +570,7 @@ class Fight:
         # fatigue
         if self.t >= ms(K["fatigue_start"]):
             n = round((self.t - ms(K["fatigue_start"])) / 1000)
-            f = s.U * K["fatigue_units"] * (1 + n) ** K["fatigue_pow"]
+            f = s.U * K["fatigue_units"] * (1 + n) ** K["fatigue_pow"] * (s.g if K["fatigue_by_realm"] else 1.0)
             s.hp -= f
             s.fat += f
         # durations
@@ -824,7 +828,7 @@ class Fight:
         else:
             prevented = -D * abs(R) / 100   # negative: amplified
             bill_share = 0.0
-        bill = bill_share * dfn.b.drain * K["drain_scale"] / dfn.b.ward_layer
+        bill = bill_share * dfn.b.drain * K["drain_scale"] / dfn.b.ward_layer / dfn.g
         bill *= (1 + (att.b.ward_bill_pct + self.mod(att, "ward_bill")) / 100) * (1 + dfn.st("leaking_ward") * STATUS["leaking_ward"]["bill_up"])
         if bill > 0:
             if bill > dfn.qi:
