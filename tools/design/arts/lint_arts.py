@@ -35,7 +35,8 @@ ROLES = {"damage", "stacks", "curse", "heal", "ward", "soul", "utility", "contro
 TIERS = {"common", "authored"}
 FIELDS = {"id", "name", "element", "role", "tier", "tags", "c_art", "cost_share", "cooldown", "kind", "buff",
           "debuff", "c_heal", "qi_restore", "cleanse", "statuses", "split", "soul_pct", "soul_part", "bypass", "pool",
-          "guards", "effects", "counters", "rule", "sources", "notes"}
+          "guards", "effects", "counters", "rule", "sources", "notes", "convert", "hp_cost", "charges", "states",
+          "x", "hooks"}
 
 
 def charge(a):
@@ -92,10 +93,12 @@ def lint(arts, src):
                              tuple(a.get("buff", ())), tuple(a.get("debuff", ())), a.get("c_heal", 0.0),
                              a.get("qi_restore", 0.0), int(a.get("cleanse", 0)), 1.0, tuple(a.get("tags", ())),
                              list(a.get("guards", [])), list(a.get("statuses", [])), list(a.get("split", [])),
-                             a.get("soul_pct", 0.0), a.get("soul_part", 0.0), a.get("bypass", 0.0), a.get("pool", "qi"))
+                             a.get("soul_pct", 0.0), a.get("soul_part", 0.0), a.get("bypass", 0.0), a.get("pool", "qi"),
+                             dict(a.get("convert", {})), a.get("hp_cost", 0.0), int(a.get("charges", 1)))
             if art.element not in engine.ELEMENTS:
                 raise engine.EngineError("element %r" % art.element)
-            b = engine.Build("lint", arts=[art], effects=list(a.get("effects", [])), counters=list(a.get("counters", [])))
+            b = engine.Build("lint", arts=[art], effects=list(a.get("effects", [])), counters=list(a.get("counters", [])),
+                             states=list(a.get("states", [])))
             engine.validate(b)
             for st in a.get("statuses", []):
                 if st.get("id") not in engine.STATUS:

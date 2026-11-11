@@ -77,7 +77,8 @@ MOD_KEYS = {"L1", "L2", "L3", "L4", "L5", "crit", "crit_mult", "evade", "acc", "
             "resist", "block", "dampen_taken", "timer_resist", "bypass", "ward_bill", "basic_coef", "soul_res",
             "x_soul", "dmg_more", "companion_speed", "tick_block"}
 ACTIONS = {"mod", "gain_qi", "heal", "free_hit", "stacks", "status", "cleanse", "timer", "refund", "counter",
-           "strip", "consume", "refuse_down", "last_act", "shield", "bank", "self_hit", "store_damage"}
+           "strip", "consume", "refuse_down", "last_act", "shield", "bank", "self_hit", "store_damage", "state",
+           "summon", "fire_art"}
 
 
 class EngineError(Exception):
@@ -111,6 +112,9 @@ class Art:
     soul_part: float = 0.0                       # an added Soul part share [R11]
     bypass: float = 0.0                          # bypass_share on this art's hits [R2]
     pool: str = "qi"                             # qi | tam_ma | than_thuc [R12]
+    convert: dict = field(default_factory=dict)  # {"to": dtype, "share": x}: a share of the hit becomes another type
+    hp_cost: float = 0.0                         # share of health_max paid on firing, besides linh luc [Effects 6]
+    charges: int = 1                             # firings stored; spent ones come back together after the cooldown
 
 
 @dataclass
@@ -174,6 +178,7 @@ class Build:
     refusals: int = 1
     boss: bool = False
     tags: tuple = ()
+    states: list = field(default_factory=list)     # forms and stances [R29]: {"id", "mods", "suppress", "start"}
 
 
 def from_sim(b):
@@ -230,6 +235,12 @@ class Side:
         self.first = [True] * len(b.arts)
         self.removed = [False] * len(b.arts)
         self.delays = []                            # ms times of delays received (falloff)
+        self.charges = [a.charges for a in b.arts]
+        self.state = next((x["id"] for x in b.states if x.get("start")), None)
+        self.state_def = {x["id"]: x for x in b.states}
+        self.summons = []                           # [c, dtype, cd_ms, next_ms, until_ms]
+        self.last_art = None
+        self.cur_ev = None
         self.basic_ready = 0
         self.comp_ready = []
         self.soul_ready = 0
@@ -342,10 +353,16 @@ class Fight:
             return 1.0 if x.b.boss else 0.0
         if k == "tam_ma":
             return x.tam_ma
+        if k.startswith("state."):
+            return 1.0 if x.state == k[6:] else 0.0
         raise EngineError("unknown readable %r" % key)
 
     def holds(self, s, conds, ev=None):
         for c in conds or []:
+            if "any" in c:
+                if not any(self.holds(s, [x], ev) for x in c["any"]):
+                    return False
+                continue
             v = self.read(s, c["read"], ev)
             op, val = c.get("op", ">="), c.get("value", 0)
             ok = {"<=": v <= val, ">=": v >= val, "<": v < val, ">": v > val, "==": v == val}.get(op)
@@ -383,6 +400,9 @@ class Fight:
             k, v, until, filt = m[:4]
             if k == key and until > self.t and match(filt, ctx):
                 tot += v
+        st_def = s.state_def.get(s.state)
+        if st_def and key in st_def.get("mods", {}):
+            tot += st_def["mods"][key]
         for e, acts, n in s.banked:
             for a in acts:
                 m = a.get("mod")
@@ -562,8 +582,9 @@ class Fight:
         o = s.foe
         b = s.b
         speed = 1 + s.bsum("speed") + (b.art_speed_pct + self.mod(s, "art_speed")) / 100
+        sup = set(s.state_def.get(s.state, {}).get("suppress", []))
         for i, a in enumerate(b.arts):
-            if s.removed[i] or self.t < s.ready[i]:
+            if s.removed[i] or self.t < s.ready[i] or a.name in sup:
                 continue
             if a.tags and s.st("silence") and s.statuses["silence"].get("tag") in a.tags:
                 continue
@@ -574,7 +595,12 @@ class Fight:
             if not self.pay(s, a):
                 continue
             cd = max(K["cooldown_min"], a.cd / speed) * self.slow(s)
-            s.ready[i] = self.t + ms(cd)
+            s.charges[i] -= 1
+            if s.charges[i] > 0:
+                s.ready[i] = self.t + ms(K["cooldown_min"])
+            else:
+                s.ready[i] = self.t + ms(cd)
+                s.charges[i] = a.charges
             s.fired[i] += 1
             s.first[i] = False
             if a.soul_pct or a.soul_part:
@@ -590,7 +616,10 @@ class Fight:
                     s.qi = min(s.qi_max(), s.qi + s.last_cost)
             if a.qi_restore:
                 s.qi = min(s.qi_max(), s.qi + a.qi_restore * s.qi_max())
-            ev = {"art": a, "slot": i, "cost": s.last_cost, "tags": a.tags, "element": a.element, "dtype": a.dtype}
+            ev = {"art": a, "art_id": a.name, "slot": i, "cost": s.last_cost, "tags": a.tags, "element": a.element,
+                  "dtype": a.dtype, "kind": "art"}
+            s.cur_ev = ev
+            s.last_art = i
             self.fire_event(s, "art_fired", ev)
             if a.soul_pct:
                 self.soul_hit(s, o, a)
@@ -599,10 +628,17 @@ class Fight:
                 for sh in shares:
                     self.hit(s, o, a.c * sh, a.dtype, a, kind="art")
             self.spend_banked(s, "art_fired", ev)
+            s.cur_ev = None
         while self.t >= s.basic_ready:
             c = 1.0 + b.basic_coef_add + self.mod(s, "basic_coef")
             self.hit(s, o, c, "phys", None, kind="basic")
             s.basic_ready += ms(self.basic_cd(s) * self.slow(s))
+        for sm in list(s.summons):
+            while self.t >= sm[3] and sm[3] < sm[4]:
+                self.hit(s, o, sm[0], sm[1], None, kind="companion")
+                sm[3] += sm[2]
+            if self.t >= sm[4]:
+                s.summons.remove(sm)
         for j, comp in enumerate(b.companions):
             while self.t >= s.comp_ready[j]:
                 self.hit(s, o, comp["c"], comp.get("dtype", "phys"), None, kind="companion")
@@ -628,12 +664,14 @@ class Fight:
             s.ts_spent += share
             s.last_cost = 0.0
             return True
+        if a.hp_cost and s.hp - a.hp_cost * s.hp_max < 1:
+            return False
         qi_part = cost * (1 - b.hp_pay)
         hp_part = cost * b.hp_pay * (s.hp_max / s.qi_base)
         if s.qi + 1e-6 < qi_part or (hp_part and s.hp - hp_part < 1):
             return False
         s.qi -= qi_part
-        s.hp -= hp_part
+        s.hp -= hp_part + a.hp_cost * s.hp_max
         s.spent += qi_part
         s.last_cost = qi_part
         return True
@@ -641,7 +679,8 @@ class Fight:
     # ---------------------------------------------------------- hits
     def hit(self, att, dfn, c, dtype, art, kind="art", trig=False):
         """One hit through the defence path. Returns the health removed."""
-        ctx = {"dtype": dtype, "element": art.element if art else "", "tags": art.tags if art else (kind,), "kind": kind}
+        ctx = {"dtype": dtype, "element": art.element if art else "", "tags": art.tags if art else (kind,), "kind": kind,
+               "art_id": art.name if art else kind}
         # avoid [R6]
         if not trig and dfn.decoys > 0 and dfn.avoided < K["avoid_budget"]:
             dfn.decoys -= 1
@@ -671,7 +710,13 @@ class Fight:
         if art is not None and art.soul_part:
             soul_D = D * art.soul_part
             D -= soul_D
-        dealt = self.defend(att, dfn, D, dtype, art, ctx, is_tick=False)
+        conv = art.convert if art is not None else None
+        if conv and conv.get("share"):
+            cD = D * conv["share"]
+            dealt = self.defend(att, dfn, D - cD, dtype, art, ctx, is_tick=False)
+            dealt += self.defend(att, dfn, cD, conv["to"], art, dict(ctx, dtype=conv["to"]), is_tick=False)
+        else:
+            dealt = self.defend(att, dfn, D, dtype, art, ctx, is_tick=False)
         if soul_D:
             sr = dfn.b.soul_res + self.mod(dfn, "soul_res") + dfn.st("slackened_soul") * STATUS["slackened_soul"]["soul_res"]
             sd = soul_D / (1 + sr / 100) if sr >= 0 else soul_D * (1 + abs(sr) / 100)
@@ -813,7 +858,7 @@ class Fight:
         if got > 0:
             s.hp += got
             s.healed += got
-            self.fire_event(s, "heal_restored", {"amount": got})
+            self.fire_event(s, "heal_restored", dict(s.cur_ev or {}, amount=got))
 
     # ---------------------------------------------------------- stacks and statuses
     def add_stacks(self, src, target, el, n, dur, buff):
@@ -991,7 +1036,36 @@ class Fight:
                 spec["stacks"] = spec.get("stacks", 1) * n
                 self.apply_status(s, o if arg.get("side", "foe") == "foe" else s, spec)
             elif verb == "cleanse":
-                self.cleanse(s, int(arg.get("n", 1) * n), arg.get("el"))
+                if arg.get("status") or arg.get("curses"):
+                    gone = [k for k in list(s.statuses) if k == arg.get("status")
+                            or (arg.get("curses") and STATUS.get(k, {}).get("kind") == "curse")]
+                    if arg.get("curses"):
+                        gone = gone[:int(arg["curses"] * n)]
+                    for k in gone:
+                        del s.statuses[k]
+                    if gone:
+                        self.fire_event(o, "cleansed", {"amount": len(gone)})
+                else:
+                    self.cleanse(s, int(arg.get("n", 1) * n), arg.get("el"))
+            elif verb == "state":
+                if arg.get("set") is not None and arg["set"] not in s.state_def:
+                    raise EngineError("state %r is not defined" % arg["set"])
+                s.state = None if (arg.get("toggle") and s.state == arg.get("set")) else arg.get("set")
+            elif verb == "summon":
+                cd = ms(max(K["cooldown_min"], arg.get("cd", K["basic_cooldown"])))
+                s.summons.append([arg.get("c", 0.5) * n, arg.get("dtype", "phys"), cd, self.t + cd,
+                                  self.t + ms(arg.get("for", 10))])
+            elif verb == "fire_art":
+                if self.depth > K["trig_depth"]:
+                    continue
+                which = arg.get("which", "last")
+                idx = s.last_art if which == "last" else next(
+                    (i for i, x in enumerate(s.b.arts) if x.name == which), None)
+                if idx is None:
+                    continue
+                art = s.b.arts[idx]
+                if art.c and not art.soul_pct:
+                    self.hit(s, o, art.c * arg.get("share", 1.0) * n, art.dtype, art, kind="art")
             elif verb == "timer":
                 tgt = s if arg.get("side", "own") == "own" else o
                 by = arg["by"] * n
@@ -1119,7 +1193,7 @@ def match(filt, ctx):
         if k == "tags":
             if not set(v) & set(ctx.get("tags", ())):
                 return False
-        elif k in ("dtype", "element", "kind", "status"):
+        elif k in ("dtype", "element", "kind", "status", "art_id"):
             if ctx.get(k) != v:
                 return False
     return True
@@ -1143,7 +1217,13 @@ def validate(b):
                 bad = [k for k in arg if k not in MOD_KEYS and k not in ("for", "dtype", "element", "tags", "kind", "stack")]
                 if bad:
                     raise EngineError("%s: Effect %s: mod keys %s are not in the engine" % (b.name, e["id"], bad))
+    for st in b.states:
+        bad = [k for k in st.get("mods", {}) if k not in MOD_KEYS]
+        if bad:
+            raise EngineError("%s: state %s: mod keys %s are not in the engine" % (b.name, st.get("id"), bad))
     for a in b.arts:
+        if a.convert and a.convert.get("to") not in DTYPES:
+            raise EngineError("%s: art %s: convert to %r" % (b.name, a.name, a.convert.get("to")))
         if a.dtype not in DTYPES:
             raise EngineError("%s: art %s: dtype %r" % (b.name, a.name, a.dtype))
         if a.soul_part > 0.30 + 1e-9:

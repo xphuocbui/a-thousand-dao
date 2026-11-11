@@ -212,6 +212,13 @@ looks like a strong build.
   `[{"size": share of qi_max, "stops": {dtype: share}, "pieces", "standing", "floor"}]`), `basic_speed_pct`,
   `opening_haste_pct`, `basic_coef_add`, `timer_resist_pct`, `ward_bill_pct`, `refusals`, `divine_sense`,
   `soul_res_pct`, `x_soul`, `tam_ma`, `resist` (typed points), `boss`.
+- **More art fields** (2026-11-11): `convert` (`{"to": dtype, "share"}`: that share meets the other type's
+  defence), `hp_cost` (share of health paid on firing), `charges` (stored firings; a spent one refires after
+  `cooldown_min`, all return after the cooldown). **Build field** `states`: forms and stances
+  `[{"id", "mods", "suppress": [art ids], "start"}]`, switched by the `state` action, read as `own.state.<id>`.
+  **More actions:** `cleanse` with `status` or `curses: n`; `state` (`set`, `toggle`); `summon` (`c`, `dtype`, `cd`,
+  `for`); `fire_art` (`which`: last or an art id, `share`): an echo. Guards and `if` take `{"any": [conditions]}`.
+  Events carry `art_id` (filter on it), and `heal_restored` carries the healing art's id, tags and cost.
 - **New art fields:** `tags`, `guards` (conditions, all must hold), `statuses` (`[{"id", "stacks"}]` on hit),
   `split` (sub-hit shares), `soul_pct` (a soul art), `soul_part` (≤ 0.30), `bypass`, `pool` (`qi`, `tam_ma`,
   `than_thuc`).

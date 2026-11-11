@@ -161,12 +161,12 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "keystones", "curses", "purity", "bonus_slots", "arts", "enemy", "enemy_overrides", "unmodelled",
             "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct",
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
-            "x_soul", "tam_ma", "resist", "boss", "tags"}
+            "x_soul", "tam_ma", "resist", "boss", "tags", "states"}
 WARD_KEYS = {"model", "payload", "drain_base", "ws_base", "we", "layers", "block"}
 BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
             "qi_restore", "cleanse", "x", "_comment", "tags", "guards", "statuses", "split", "soul_pct",
-            "soul_part", "bypass", "pool"}
+            "soul_part", "bypass", "pool", "convert", "hp_cost", "charges"}
 CLEANSE_KEYS = {"per_pulse", "fee_share", "share"}
 KEYSTONES = {f for f in sim.Build.__dataclass_fields__ if f.startswith("k_")}
 CURSES = {"withering": "curse_wither", "stagnation": "curse_stagnate"}
@@ -326,6 +326,9 @@ def to_build(d, r, notes, who):
         ea.soul_part = a.get("soul_part", 0.0)
         ea.bypass = a.get("bypass", 0.0)
         ea.pool = a.get("pool", "qi")
+        ea.convert = dict(a.get("convert", {}))
+        ea.hp_cost = a.get("hp_cost", 0.0)
+        ea.charges = int(a.get("charges", 1))
         if ea.soul_pct:
             ea.c = 0.0
     eb.effects = eb.effects + list(d.get("effects", []))
@@ -340,6 +343,7 @@ def to_build(d, r, notes, who):
             setattr(eb, field, d[key])
     eb.resist = dict(d.get("resist", {}))
     eb.tags = tuple(d.get("tags", ()))
+    eb.states = list(d.get("states", []))
     try:
         engine.validate(eb)
     except engine.EngineError as e:

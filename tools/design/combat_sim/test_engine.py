@@ -212,6 +212,82 @@ def t_split():           # R23
     check("R23 split hit: 3 sub-hits (plus the basic attack)", n.count("hit_landed") >= 3, str(n.count("hit_landed")))
 
 
+def t_convert():         # art conversion: each part meets its own type's resistance
+    f, A, B = setup(b=dummy(ward_pts=0, block=0, resist={"fire": 100}))
+    f.rng.random = lambda: 0.99
+    art = E.Art("spark", c=2.0, convert={"to": "fire", "share": 0.4})
+    hp0 = B.hp
+    f.hit(A, B, 2.0, "phys", art)
+    D = E.U[0] * 2.0 * A.b.M
+    check("art convert: 60 % Physical full, 40 % Fire at /2", abs((hp0 - B.hp) - (D * 0.6 + D * 0.4 / 2)) < 1e-6)
+
+
+def t_hp_cost():
+    f, A, B = setup(a=dummy(arts=[E.Art("blood", 1.0, 0.04, 3.0, hp_cost=0.1)]))
+    f.t = A.ready[0]
+    hp0 = A.hp
+    f.act(A)
+    check("art paid in health: 10 % of health_max", abs((hp0 - A.hp) - 0.1 * A.hp_max) < 1e-6)
+
+
+def t_charges():
+    f, A, B = setup(a=dummy(arts=[E.Art("twin", 1.0, 0.02, 4.0, charges=2)]))
+    f.t = A.ready[0]
+    f.act(A)
+    second = A.ready[0] - f.t
+    f.t = A.ready[0]
+    f.act(A)
+    check("charges: second firing after cooldown_min, then the full cooldown",
+          second == 500 and A.ready[0] - f.t == 4000 and A.fired[0] == 2, "%d %d" % (second, A.ready[0] - f.t))
+
+
+def t_states():          # R29
+    st = [{"id": "storm", "mods": {"art_speed": 50}, "suppress": ["slow"]}]
+    f, A, B = setup(a=dummy(states=st, arts=[E.Art("slow", 1.0, 0.02, 4.0)]))
+    e = {"id": "s", "on": "always", "do": []}
+    f.do(A, e, [{"state": {"set": "storm"}}], 1.0, {})
+    f.t = A.ready[0]
+    f.act(A)
+    check("states: mods apply, suppressed art does not fire, state readable",
+          f.mod(A, "art_speed") == 50 and A.fired[0] == 0 and f.read(A, "own.state.storm") == 1.0)
+
+
+def t_summon_echo():
+    f, A, B = setup(a=dummy(arts=[E.Art("pal", 1.0, 0.02, 4.0)]), b=dummy(ward_pts=0, block=0))
+    f.rng.random = lambda: 0.99
+    e = {"id": "s", "on": "always", "do": []}
+    f.do(A, e, [{"summon": {"c": 0.5, "cd": 1.0, "for": 3}}], 1.0, {})
+    hp0 = B.hp
+    for t in (1000, 2000, 3000, 4000):
+        f.t = t
+        A.basic_ready = 10 ** 9
+        A.ready[0] = 10 ** 9
+        f.act(A)
+    hits = round((hp0 - B.hp) / (E.U[0] * 0.5 * A.b.M), 3)
+    A.last_art = 0
+    hp1 = B.hp
+    f.do(A, e, [{"fire_art": {"which": "last", "share": 0.5}}], 1.0, {})
+    check("summon hits for its duration; fire_art echoes the last art",
+          hits == 2.0 and abs((hp1 - B.hp) - E.U[0] * 0.5 * A.b.M) < 1e-6, "summon hits %s" % hits)
+
+
+def t_or_guard():
+    f, A, B = setup()
+    g = [{"any": [{"read": "own.hp_share", "op": "<=", "value": 0.5}, {"read": "time", "op": ">=", "value": 10}]}]
+    a = f.holds(A, g)
+    f.t = 10000
+    check("OR-guard: false, then true when one branch holds", (not a) and f.holds(A, g))
+
+
+def t_cleanse_curses():
+    f, A, B = setup()
+    for sid in ("sundered", "exposed", "withering"):
+        f.apply_status(B, A, {"id": sid})
+    e = {"id": "c", "on": "always", "do": []}
+    f.do(A, e, [{"cleanse": {"curses": 2}}], 1.0, {})
+    check("cleanse 2 curses", len(A.statuses) == 1)
+
+
 def main():
     for name, fn in sorted(globals().items()):
         if name.startswith("t_"):
