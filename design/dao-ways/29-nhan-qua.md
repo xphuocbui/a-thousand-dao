@@ -24,8 +24,8 @@
   (Nhân Chờ): attack +1, max health +1 · Ripened (Chín Muồi): attack +2
 - **Effects:**
   - **Major: Karma (Nghiệp).** 20 % of the damage your hits deal is also recorded as Karma on the foe. Every 8 s,
-    the Karma is dealt to the foe's health as one Chaos part that skips ward shields, and resets.
-    `Needs key` (Karma counter) + `Needs rule` (bypass).
+    the Karma is dealt to the foe's health as one Chaos part with `bypass_share` 50 % (the cap: that half skips ward shields only, Combat Defence rule 9, R2), and resets.
+    Karma is a self-counter, tag `growing` (Effects rule 8, R7); it resets at each payout.
   - Minor: Ripening (Chín). Karma paid out after 20 s of fight is 30 % larger. *(starter)*
   - Minor: Compounding (Lãi Mẹ Đẻ Lãi Con). Each Karma payout is larger by 10 % per payout before it this fight (linear: ×1.1, ×1.2, ×1.3…, cap ×1.5).
 
@@ -72,15 +72,15 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Every Blow Comes Home (Nhân Quả Tuần Hoàn)** | keystone | Karma records 40 % and pays out every 5 s. A payout is a Chaos part that skips ward shields only; it cannot be evaded or crit and does not count as direct damage for `trig_budget` | Your hits deal 15 % less directly (L2 −15) | Nghiệp |
+| **Every Blow Comes Home (Nhân Quả Tuần Hoàn)** | keystone | Karma records 40 % and pays out every 5 s. A payout is a Chaos part with `bypass_share` 50 % (R2's cap, ward shields only); it cannot be evaded or crit and does not count as direct damage for `trig_budget` | Your hits deal 15 % less directly (L2 −15) | Nghiệp |
 | **Heaven Keeps Accounts (Thiên Ký Sổ)** | keystone | Retribution's bonus is limited only by the L5 cap (100), and Owed never resets until spent | You cannot block or evade (block 0, evade 0) | Báo Ứng |
 | **Debt Never Paid (Nợ Bất Hoàn)** | keystone | Borrowed Power's repayment lasts 7 s, not 15 | Every fight, win or lose, costs 2 months of lifespan | Nợ |
 | **Outside Karma (Siêu Nhân Quả)** | keystone | You are immune to the `delayed` effects Sever names | You cannot use Karma, Owed or any stored-damage Effect yourself | Đoạn Nhân Quả |
 
 ## New pieces
 
-- Karma and Owed counters: `Needs key`.
-- Damage skipping shields (Karma payout): `Needs rule` (shared with Thương, Chưởng).
+- Karma and Owed counters: self-counters, tag `growing` (Effects rule 8, R7).
+- Damage skipping shields (Karma payout): `bypass_share`, 50 % per part at most (Combat Defence rule 9, R2).
 - Causes cashed by later events: `Needs key` (Event Engine).
 
 ## Kept apart from

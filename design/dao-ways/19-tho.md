@@ -45,7 +45,8 @@
   earth stack effect +2 · Split Ground (Nứt Đất): earth penetration +2
 - **Effects:**
   - **Major: Earthquake (Địa Chấn).** When your hit deals more than 8 % of the target's max health, every art
-    timer of the target is pushed back 0.6 s (once per 2 s).
+    timer of the target is pushed back 0.6 s (once per 2 s). A bounded delay (`delay_timer`): repeats on the same target
+    within 3 s move half the seconds of the one before (0.6, 0.3, 0.15 s), and the target's `timer_resist_pct` shortens each (Effects rule 6, R1).
   - Minor: Shaken (Lảo Đảo). Your hits on a target bearing 15+ of your Earth debuff stacks cannot be evaded.
   - Minor: Tremor Step (Bước Chấn). Your basic attack applies 2 Earth debuff stacks for 6 pulses. *(starter)*
 
@@ -65,7 +66,7 @@
   Đá): block +1, regen +0.05 · Patience of Hills (Đồi Nhẫn): max health +1, defense +1
 - **Effects:**
   - **Major: Deep Roots (Bàn Căn).** A streak: for each full 5 s since you last escaped or evaded (resets to 0 on either), your hits deal more (L5 +5, cap +40).
-  - Minor: Stand Fast (Đứng Vững). Effects that would push back your timers do half. *(starter)*
+  - Minor: Stand Fast (Đứng Vững). Effects that would push back your timers do half: `timer_resist_pct` +50 (key: `timer_resist_pct`, R1). *(starter)*
   - Minor: Grounded (Tiếp Địa). Your Lightning resistance +20 points while you hold 10+ Earth buff stacks.
 
 ## Capstones
@@ -81,8 +82,7 @@
 
 - Block applying to ticks: `Needs rule` (Combat rule 7).
 - Weighed (Áp Trọng), an art-speed curse: `Needs key` (new curse in the Status Catalogue).
-- Timer pushback from a hit (Earthquake): `Needs rule` (no Effect action pushes foe timers today; shared with
-  Thời Đạo's Ngưng and Băng's Đông Kết).
+- Timer pushback from a hit (Earthquake): `delay_timer` with falloff and `timer_resist_pct` (Effects rule 6, R1).
 
 ## Kept apart from
 

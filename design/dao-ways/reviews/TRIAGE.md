@@ -82,3 +82,18 @@ leaves fight-long batches alone. Curse-duration changes go to R22.
 
 **Deferred:** curse immunities in Vô Tình and Thiền kept as different shapes (halving against a high-health
 window); theme-stats headers as before.
+
+## Shared-rules pass and batches 63–94 (2026-11-11, headless Sonnet)
+
+After the user decided R1–R22 (`../_shared-rules-decisions.md`) and wrote them into the GDDs, eight headless sessions
+(`fix-jobs-a.json`, `fix-jobs-b.json`) revised all 92 drafts (Kiếm pilot and archived Binh untouched): batches
+01–62 pointed their `Needs rule` / `Needs key` labels at the accepted rules and fitted the pieces to their bounds;
+batches 63–94 also fixed the high and medium rows of `batch-63-72.md` and `batch-73-94.md`. Per-batch notes:
+`fix-<batch>.md` (Fixed, Pointed, Deferred, Left). `Needs rule` labels fell from 185 to 94; the rest are pieces no
+decision covers, or deferred ones marked `(deferred, R12)` / `(deferred, R15e)`.
+
+**Decided by the user from the deferred list:** Trận owns carried ground and talisman builds (Kỹ keeps talisman
+crafting and "formations laid faster"; Họa's landscape adds ground tags only); Thiên's Rewrite a Law becomes its one
+cap-shift capstone; "harder when hurt" split by what is counted (Nghịch, Hận, Kiếp); Stones as Fuel keeps its major
+slot with a close. Applied by one more session (`fix-jobs-c.json`, notes `fix-overlaps.md`). Absolute Zero and Cold
+Toll were merged in-session (Băng capstone).

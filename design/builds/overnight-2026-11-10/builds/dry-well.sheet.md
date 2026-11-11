@@ -1,6 +1,9 @@
 # The Dry Well (Khô Tỉnh)
 
 > **Status**: Design sheet, 2026-11-11 (overnight run 2026-11-10). Not in game data. Numbers on new content are first guesses.
+> **Merged 2026-11-11 (user decision):** Cold Toll below is now **Băng Đạo's capstone Absolute Zero (Tuyệt Đối Linh Độ)**,
+> same rule and close; the build takes Băng Đạo as a second Way instead of Cold Toll in Vụ's Chìm facet. This sheet's
+> body keeps the old name as a record.
 > **Seed**: "Starve the enemy: burn their linh lực to zero so they have no ward and no arts, then win on hits that land nearly in full. A qi-burn build that wins by taking away the other side's game, and has to survive the opening where the enemy is still full."
 > **Direction**: The Dry Well: Ice makes the enemy's arts dearer, heavy Cold hits make their drain ward bill their own pool, and Cold Toll makes the Ice tax the ward too, so the well is dry before their first volley comes off cooldown. Then guarded finishers fire into an empty ward.
 > **Realm span**: Trúc Cơ (Foundation Establishment) to Nguyên Anh (Nascent Soul) · **Power level**: top-end · **Use**: player · **Kind**: min-max

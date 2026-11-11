@@ -52,7 +52,7 @@
   Night (Sương Đêm): regen +0.05, soul resist +1 · Pale Bloom (Hoa Nhạt): crit damage +2
 - **Effects:**
   - **Major: Bloom at Night (Dạ Hoa Khai).** Each Full phase you have lived through this fight adds L5 +15 to your hits (cap +45) and +10 % regeneration (cap +30 %).
-  - Minor: Night Fight (Dạ Chiến). Fights at night (world time) start in Full and Full lasts 2 s longer. `Needs key` (world time readable). *(starter)*
+  - Minor: Night Fight (Dạ Chiến). Fights at night (world time) start in Full and Full lasts 2 s longer. (world time readable: Character Stats rule 9a, R13). *(starter)*
   - Minor: Brief Beauty (Phù Dung Sớm Nở). Bloom at Night's bonus is doubled for the first 6 s after each cycle.
 
 ### 5. Kính Nguyệt (Borrowed Light)
@@ -62,7 +62,7 @@
 - **Effects:**
   - **Major: Borrowed Light (Tá Quang).** Every 3 s, copy 25 % of the foe's largest element buff pile as your own
     buff stacks of that element (a batch for 6 pulses).
-  - Minor: Moon Reflects (Trăng Soi). The foe's Exposed and Sundered on you last 1 pulse less. *(starter)*
+  - Minor: Moon Reflects (Trăng Soi). The foe's Exposed and Sundered on you last 1 pulse less (never below 1, R22). *(starter)*
   - Minor: Waxing on Their Light (Mượn Ánh Mà Tròn). While you hold borrowed stacks, your hits deal more (L5 +10).
 
 ## Capstones
@@ -76,8 +76,9 @@
 
 ## New pieces
 
-- World time readable in fights: `Needs key` (shared with Quỷ's Ghost Month).
-- Copying the foe's buff stacks: `Fits today` as an Effect (reads a sheet value and grants stacks).
+- World time readable in fights: Character Stats rule 9a, R13 (shared with Quỷ's Ghost Month).
+- Copying the foe's buff stacks: Effects rule 6, R16 (copying needs no new action; reads a sheet value and grants stacks, no status roll).
+- Full phases lived through (Bloom at Night): a self-counter with tag `growing` (Effects rule 8, R7), cap and decay as written.
 
 ## Kept apart from
 

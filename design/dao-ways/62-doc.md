@@ -32,9 +32,9 @@
 - **Stat notables:** Poison Pill (Độc Đan): alchemy ×2 · Inured (Nhờn Độc): toxicity resist ×2 · Toxic Brew (Nấu
   Độc): alchemy +1, poison +1 · Bitter Draught (Thuốc Đắng): status resist +2
 - **Effects:**
-  - **Major: Poison Pills (Độc Đan Thuật).** You can brew poison pills: taken before a foreseen fight, each puts 20 Poison stacks on the foe at t = 0 for 8 pulses and costs you 5 % toxicity. `Needs key` (Alchemy recipe class).
+  - **Major: Poison Pills (Độc Đan Thuật).** You can brew poison pills: taken before a foreseen fight, each puts 20 Poison stacks on the foe at t = 0 for 8 pulses and costs you 5 % toxicity (a pill `fight_payload`, Combat rule 12; one preparation pick, Effects rule 8, R8). `Needs key` (Alchemy recipe class).
   - Minor: Immune Blood (Huyết Kháng Độc). Poison and Corpse Rot on you are 30 % weaker. *(starter)*
-  - Minor: Coat the Blade (Tẩm Độc). Coatings you apply in preparation last the whole fight.
+  - Minor: Coat the Blade (Tẩm Độc). Coatings you apply in preparation last the whole fight (a preparation pick, Effects rule 8, R8).
 
 ### 3. Cổ (Gu)
 - **Small:** companion damage +2 · `attack_pct` poison +1
@@ -51,7 +51,7 @@
 - **Stat notables:** Pestilence (Dịch Bệnh): status duration ×2 · Fever (Sốt): over-time damage ×2 · Spreading Sick
   (Lây Lan): status duration +1, poison +1 · Bad Air (Khí Độc): over-time +1, chaos +1
 - **Effects:**
-  - **Major: Plague (Ôn Dịch).** Each pulse, half the Poison stacks of yours cleansed from the foe in the last pulse return 2 pulses later as a new batch of 4 pulses (`Needs rule` R20: a cleanse count). Returned batches never return again.
+  - **Major: Plague (Ôn Dịch).** Each pulse, half the Poison stacks of yours cleansed from the foe in the last pulse return 2 pulses later as a new batch of 4 pulses (reads the "your stacks were cleansed" count: Effects rule 5). Returned batches never return again.
   - Minor: Contagion (Truyền Nhiễm). When the foe holds 30+ of your Poison stacks, apply 5 Stagnation stacks (once per 3 s).
   - Minor: Incubation (Ủ Bệnh). Your Poison batches deal half for their first 2 pulses, then 40 % more. *(starter)*
 

@@ -9,7 +9,7 @@
 
 1. **Haste.** Art speed as the core, with time-specific tricks: speed that lands as earlier first firings and a
    lower `cooldown_min` (a cap shift, small and costly). The tempo build.
-2. **Stillness.** Slow the foe's timers (the shared timer-pushback rule, done fully here): the control build.
+2. **Stillness.** Slow the foe's timers (`delay_timer` and the Slowed Time curse, Effects rule 6 and Status Catalogue, R1, done fully here): the control build.
 3. **Rewind.** Once a fight, return your health and pool to what they were 5 s ago (Hồi Quang); a defensive
    reset that makes burst builds whiff.
 4. **Years.** Lifespan and herb ageing: the life-around-the-fight Time (Lão Hóa, Năm Tháng).
@@ -23,7 +23,7 @@
 - **Effects:**
   - **Major: Hasten the Years (Thúc Niên).** Once a season, age one herb plot or pill batch by 10 years at once.
     `Needs key` (herb age; the seed's old effect). Life-around power for alchemists.
-  - Minor: Wither the Foe (Lão Hóa Địch). Once per pulse, your hit shortens the foe's newest buff batch by 1 pulse (shared rule R16). *(starter)*
+  - Minor: Wither the Foe (Lão Hóa Địch). Once per pulse, your hit removes 1 stack from the foe's oldest buff batch (`strip_buff`, Effects rule 6, R16). *(starter)*
   - Minor: Old Wood (Gỗ Già). Wood and Earth buff stacks you hold last 2 pulses longer.
 
 ### 2. Tốc (Haste)
@@ -42,10 +42,10 @@
 - **Stat notables:** Frozen Moment (Khoảnh Đông): status duration ×2 · Still Clock (Đồng Hồ Dừng): defense ×2 · Held
   Breath (Nín Thở): status duration +1, defense +1 · Stopped Sand (Cát Ngừng): soul resist +2
 - **Effects:**
-  - **Major: Time Stands Still (Thời Gian Ngưng).** Your hits apply Slowed Time: the target's art timers run 4 %
-    slower per stack (stacks to 5, 3 pulses). `Needs key` (curse) + `Needs rule` (timers; shared).
-  - Minor: Delay (Hoãn). Your first hit each fight pushes all the foe's timers back 0.5 s. *(starter)*
-  - Minor: Long Moment (Khoảnh Dài). Your curses last 1 pulse longer.
+  - **Major: Time Stands Still (Thời Gian Ngưng).** Your hits apply Slowed Time: the target's art timers run 6 %
+    slower per stack (stacks to 5, so 30 %; 3 pulses) (Status Catalogue Slowed Time, R1; the target's `timer_resist_pct` shrinks it).
+  - Minor: Delay (Hoãn). Your first hit each fight pushes each of the foe's art timers back 0.5 s (`delay_timer`, Effects rule 6, R1). *(starter)*
+  - Minor: Long Moment (Khoảnh Dài). Your curses last 1 pulse longer (clamped to 1–5 pulses, R22).
 
 ### 4. Năm Tháng (Years)
 - **Small:** `lifespan_pct` +1 · `khi_huyet_pct` +0.5
@@ -62,7 +62,7 @@
 - **Stat notables:** Turn Back (Quay Lại): healing ×2 · Echo of Self (Bóng Cũ): healing +1, max health +1 · Second Look
   (Nhìn Lại): art speed ×2 · Undo (Hoàn Tác): status resist +2
 - **Effects:**
-  - **Major: Rewind (Hồi Quang).** Once per fight, at the Down step's refusal, refuse it: your health and linh lực become the higher of now and their values 5 s earlier (clipped at t = 0). Statuses stay. It counts as healing (`no_heal` blocks it).
+  - **Major: Rewind (Hồi Quang).** Once per fight, at the Down step's refusal, refuse it (one Down refusal per fight from all sources, Effects rule 11, R5): your health and linh lực become the higher of now and their values 5 s earlier (clipped at t = 0). Statuses stay. It counts as healing (`no_heal` blocks it).
   - Minor: Recall (Hồi Tưởng). After a Rewind, your art timers are set to what they were 5 s earlier too. *(starter)*
   - Minor: Replay (Phát Lại). After a Rewind, your next art deals more (L5 +30).
 
@@ -70,14 +70,14 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **The Fight Runs on Your Clock (Thời Tại Ngã)** | keystone | Your `cooldown_min` is 25 % lower (a cap shift, `Needs rule`; R14) | Your art costs are 40 % higher | Tốc |
-| **Stopped Heaven (Ngưng Thiên)** | keystone | Slowed Time stacks to 10 | Your arts cost 30 % more | Ngưng |
-| **Endless Rewind (Vô Tận Hồi Quang)** | keystone | Rewind fires twice; the second reads 10 s back | Your max health is 30 % lower | Hồi Quang |
+| **The Fight Runs on Your Clock (Thời Tại Ngã)** | keystone | Your `cooldown_min` is 25 % lower (the Way's one cap shift, Dao rule 4, R14; the cost is the felt price) | Your art costs are 40 % higher | Tốc |
+| **Stopped Heaven (Ngưng Thiên)** | keystone | Each hit applies 2 Slowed Time stacks and the curse lasts 5 pulses (the cap stays 5 stacks, 30 %, R1; the duration is the clamp's top, R22) | Your arts cost 30 % more | Ngưng |
+| **Endless Rewind (Vô Tận Hồi Quang)** | keystone | Rewind fires twice; the second reads 10 s back (a "twice" capstone: the Down refusal budget is 2, never higher, R5) | Your max health is 30 % lower | Hồi Quang |
 | **The Old Master (Lão Tổ)** | keystone | Years Are Power has no cap | Your art speed is −20 % | Năm Tháng |
 
 ## New pieces
 
-- Slowed Time curse, timers slowed: `Needs key` + `Needs rule` (the shared timer rule).
+- Slowed Time curse and timer pushes: Effects Status Catalogue and rule 6 (`delay_timer`), key `timer_resist_pct`, R1.
 - A state snapshot to rewind to: `Needs rule` (Combat rule 21 keeps the engine pure; a snapshot is fine).
 - Herb age as an item field: `Needs key`.
 

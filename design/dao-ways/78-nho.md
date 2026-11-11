@@ -7,8 +7,7 @@
 
 ## Build directions
 
-1. **Words of Power.** Spoken commands as curses: Silence, Sealed Meridian and a new curse, Commanded (the foe's
-   next art fires on your timing) (Ngôn Linh). The scholar-controller.
+1. **Words of Power.** Spoken commands: Silence, Sealed Meridian and timer delays on the foe's next art (Ngôn Linh). The scholar-controller.
 2. **Righteous Qi.** A Righteousness meter that rises with "just" fights (against foes who attacked first, demons,
    bullies) and powers Light and Force (Chính Khí).
 3. **Calligraphy.** Written arts: arts inscribed in advance hit harder the longer the inscription (Thư Pháp).
@@ -33,8 +32,8 @@
 - **Stat notables:** Iron Brush (Bút Sắt): attack ×2 · Flowing Script (Chữ Thảo): art cost ×2 · Bold Hand (Nét Đậm):
   attack +1, art cost −1 · Seal Script (Chữ Triện): defense +2
 - **Effects:**
-  - **Major: Written Art (Văn Chiêu).** Before a foreseen fight, inscribe one art: for each hour (game time) spent, +2 %
-    damage to it for the fight (cap +30 %). `Needs key`.
+  - **Major: Written Art (Văn Chiêu).** Before a foreseen fight, inscribe one art (a preparation choice, Effects rule 8 / Combat rule 12, R8):
+    for each season spent inscribing, +10 % damage to it for the fight (cap +30 %). `Needs key` (seasons spent).
   - Minor: Practised Character (Chữ Luyện). Your inscribed art's first firing comes 1 s sooner. *(starter)*
   - Minor: Ink on the Blade (Mực Trên Lưỡi). Your inscribed art applies Exposed on its first hit.
 
@@ -44,9 +43,9 @@
   +1, status resist +1 · Temple Bell (Chuông Đền): soul resist +2
 - **Effects:**
   - **Major: The Rite of Combat (Lễ Chiến).** In foreseen fights (challenges, duels), you perform the rite: +10 % to all
-    damage and resistance for the fight. In ambush and blind fights, nothing. `Needs key` (fight situation readable).
+    damage and resistance for the fight. In ambush and blind fights, nothing. A preparation choice gated by Combat rule 12's situation table (Effects rule 8, R8).
   - Minor: Courtesy (Lễ Độ). Challenge duels offered to you by NPCs can be declined without renown loss. *(starter)*
-  - Minor: Order in Chaos (Trật Tự Giữa Hỗn Loạn). In ambush fights, curses on you last 1 pulse less.
+  - Minor: Order in Chaos (Trật Tự Giữa Hỗn Loạn). In ambush fights, curses on you last 1 pulse less (clamped to 1–5 pulses, never below 1; R22).
 
 ### 4. Học (Learning)
 - **Small:** `ngo_tinh` (comprehension) +1 · `tam_ma_resist_pct` +1
@@ -62,8 +61,10 @@
 - **Stat notables:** Commanding Voice (Giọng Lệnh): curse duration ×2 · Weighty Words (Lời Nặng): force ×2 · True Name
   (Chân Danh): curse duration +1, force +1 · Edict (Chiếu): soul resist +2
 - **Effects:**
-  - **Major: Command (Hiệu Lệnh).** Every 12 s, speak a Command: the foe's next art fires at a moment you set by guard
-    (delayed up to 2 s, or forced now if it is ready and its cost is due). `Needs key` (Commanded) + `Needs rule`.
+  - **Major: Command (Hiệu Lệnh).** Every 12 s, speak a Command: the foe's next art is delayed by up to 2 s (`delay_timer`;
+    repeats on one target within 3 s fall off by half, and `timer_resist_pct` shortens it; Effects rule 6, R1). The
+    trigger is the first foe art ready after the 12 s mark. The "Commanded" curse is dropped: Slowed Time (R1) is the
+    curse that already exists.
   - Minor: Halt (Dừng). Your first Command each fight comes at 3 s. *(starter)*
   - Minor: Silence the Unjust (Bịt Miệng Kẻ Bất Nghĩa). Your Silence lasts 1 pulse longer against a demonic foe.
 
@@ -77,7 +78,8 @@
 
 ## New pieces
 
-- Righteousness meter, inscription, fight situation readable, Commanded: `Needs key` / `Needs rule`.
+- Righteousness meter, seasons spent inscribing: `Needs key`. Fight situation: Combat rule 12 (R8). Commanded is
+  dropped (Command uses `delay_timer`, R1).
 
 ## Kept apart from
 

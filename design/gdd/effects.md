@@ -267,7 +267,7 @@ different.
     | Earth (Thổ) | Physical damage taken **1.1 % dampened** (Modifier System rule 6a; no cap) | −1.2 pp accuracy |
     | Metal (Kim) | +1.2 % Physical damage dealt | +1.8 % Physical damage taken |
     | Wood (Mộc) | +0.1 pp health regeneration | **Poison**: Chaos damage each pulse, `c_tick` 0.019 per stack (Status Catalogue) |
-    | Ice (Băng) | — (Water carries the pair's buff) | +3.9 % art cost (also an art-slot ward's cast cost, never a ward-slot payment; Combat Defence & Healing Edge Cases) |
+    | Ice (Băng) | — (Water carries the pair's buff) | +3.9 % art cost (also an art-slot ward's cast cost, never a ward-slot payment, except drain bills under Băng Đạo's Absolute Zero; Combat Defence & Healing Edge Cases) |
     | Thunder (Lôi) | +0.7 pp accuracy, +0.35 pp crit chance | +1.2 pp crit chance and +5 % crit damage taken |
     | Wind (Phong) | +7.5 % art speed (meets `cooldown_min` after a few stacks; to become dampen-shaped) | −1.2 pp evade |
 

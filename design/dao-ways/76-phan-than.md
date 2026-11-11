@@ -22,12 +22,12 @@
 - **Stat notables:** Second Self (Bản Thể Thứ Hai): companion ×2 · Split Breath (Chia Hơi): thần thức ×2 · Mirror Body
   (Thân Gương): companion +1, thần thức +1 · Same Blood (Cùng Huyết): max health +2
 - **Effects:**
-  - **Major: Split Self (Phân Thân Thuật).** Your companion may be a Clone: it fires a copy of your slot-1 art on that
-    art's cooldown × 1.5, at your stats × its power share (thần thức ratio × 25 %, cap `c_comp_cap`), with no cost.
+  - **Major: Split Self (Phân Thân Thuật).** Your companion may be a Clone: it fires a copy of your first damaging art on that
+    art's cooldown × 1.5 (companion hits otherwise follow Combat rule 19), at your stats × its power share (thần thức ratio × 25 %, cap `c_comp_cap`), with no cost.
     `Needs key` (clone companion).
   - Minor: Quick Split (Phân Nhanh). Your Clone's first firing comes at half the cooldown. *(starter)*
-  - Minor: Clone Swap (Hoán Thân). Once per fight, swap places with the Clone: the next hit on you is taken by it (it
-    drops its share by 10 %).
+  - Minor: Clone Swap (Hoán Thân). Once per fight, swap places with the Clone: the next hit on you is moved to it at the avoid step (it
+    drops its share by 10 %; counts in the per-pulse avoid budget; Effects rule 6 avoid, R6).
 
 ### 2. Kính Ảnh (Mirror Images)
 - **Small:** `evade_pct` +0.4 · `than_thuc_pct` +0.5
@@ -35,7 +35,8 @@
   evade +1, thần thức +1 · Glass Body (Thân Kính): soul resist +2
 - **Effects:**
   - **Major: Split the Blow (Phân Kích).** Each hit on you is split: 25 % goes to an Image (lost harmlessly) while you
-    hold Images (start with 3, one lost per 4 hits, regrow every 6 s).
+    hold Images (start with 3, one lost per 4 hits, regrow every 6 s). The split is an avoid-step move (Effects rule 6 avoid, R6): it
+    counts in the per-pulse avoid budget of 2 and never splits ticks.
   - Minor: Image Start (Ảnh Đầu). You start with 1 extra Image. *(starter)*
   - Minor: Shattered Image (Ảnh Vỡ). When an Image is lost, +5 pp evade for 1 pulse.
 
@@ -54,8 +55,8 @@
 - **Stat notables:** One Mind (Một Tâm): thần thức ×2 · Twin Thought (Ý Đôi): soul ×2 · Linked Sense (Thức Liên): thần
   thức +1, soul +1 · Echo Mind (Tâm Vọng): soul resist +2
 - **Effects:**
-  - **Major: Shared Mind (Đồng Tâm).** If your slot-1 art is a soul art, your Clone's copy runs on its own soul lockout,
-    separate from yours. `Needs rule` (Combat rule 24).
+  - **Major: Shared Mind (Đồng Tâm).** If your first damaging art is a soul art, your Clone's copy runs on its own soul lockout,
+    separate from yours. `Needs rule` (Combat rule 24; not covered by R11, which only adds a Soul part).
   - Minor: Shared Sight (Cùng Nhìn). Your Clone's hits make the foe Slackened Soul every 4th hit. *(starter)*
   - Minor: Mind Link (Liên Tâm). Your Clone's power share +3 %.
 
@@ -73,14 +74,14 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **There Are Three of You (Nhất Khí Hóa Tam Thanh)** | keystone | You may have 2 Clones (they copy slot 1 and slot 2), counting as one companion against `c_comp_cap` | You cannot attach any other companion, and your max health is 20 % lower | Phân Thân |
+| **There Are Three of You (Nhất Khí Hóa Tam Thanh)** | keystone | You may have 2 Clones (they copy your first and second damaging arts), each counting against `c_comp_cap` (the cap is shared between them) | You cannot attach any other companion, and your max health is 20 % lower | Phân Thân |
 | **Hall of Mirrors (Kính Điện)** | keystone | Split the Blow sends 40 % and Images regrow every 4 s | Your hits deal 20 % less (L2 −20) | Kính Ảnh |
-| **The Avatar Walks (Hóa Thân Hành Thế)** | keystone | Your Avatar can hold a Dao glimpse of its own (a fifth Dao) | Your Avatar's Dao counts at 50 % for stat lines | Hóa Thân |
+| **The Avatar Walks (Hóa Thân Hành Thế)** | keystone | Your Avatar can hold a Dao glimpse of its own (a fifth Dao: the one allowed exception to dao.md rule 9, R15b; no other source) | Your Avatar's Dao counts at 50 % for stat lines | Hóa Thân |
 
 ## New pieces
 
-- Clone companions; Images; the Avatar; a fifth Dao (capstone): `Needs key` / `Needs rule` (the fifth Dao is a big
-  rule change against dao.md rule 9; flag it).
+- Clone companions; Images; the Avatar: `Needs key` / `Needs rule`. The fifth Dao (capstone) is decided: Dao rule 9
+  exception, Phân Thân only (R15b).
 
 ## Kept apart from
 

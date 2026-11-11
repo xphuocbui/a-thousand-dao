@@ -2,6 +2,8 @@
 
 > Overnight draft 2026-11-11. Proposal. **Needs:** none.
 > **Theme stats:** `art_speed_pct`, `art_cost_pct`, `attack_pct`, `defense_pct`, `than_thuc_pct`, `ngo_tinh` (comprehension).
+> Also used below, listed here (dao.md rule 12): `tam_ma_resist_pct` (heart demon), `crit_damage_pct`, `khi_huyet_pct`,
+> max health.
 > **Road:** `than_thuc_pct` +0.9.
 
 ## Build directions
@@ -25,28 +27,28 @@ more powerful and more numerous.
   Reading (Đọc Sâu): thần thức +1, defense +1 · Calm Player (Kỳ Thủ Bình Tĩnh): heart-demon resist +2
 - **Effects:**
   - **Major: Answer Move (Ứng Thủ).** Name one foe art before the fight (you see its loadout); one art of yours is set to
-    fire the instant that art fires (ignoring its own timer, once per its cooldown). `Needs key` (a reactive guard).
+    fire the instant that art fires (its timer ends, clipped by `cooldown_min`, once per its cooldown) at 70 % damage. `Needs key` (a reactive guard; no decision covers it).
   - Minor: See the Board (Nhìn Cờ). You see the foe's slot order and guards before the fight. *(starter)*
     *Shared minor* (with Hồn, Mệnh).
-  - Minor: Forced Move (Nước Ép). The foe's first art waits 0.5 s.
+  - Minor: Forced Move (Nước Ép). The foe's first art waits 0.5 s (a delay, Effects rule 6, R1; falls off within 3 s and shrinks with its `timer_resist_pct`).
 
 ### 2. Bố Cục (the Opening)
 - **Small:** `art_speed_pct` +0.5 · `attack_pct` +1
 - **Stat notables:** Opening Book (Sách Khai Cuộc): art speed ×2 · Strong Start (Khai Cuộc Mạnh): attack ×2 · Joseki
   (Định Thức): art speed +1, attack +1 · Corner First (Chiếm Góc): art cost −2
 - **Effects:**
-  - **Major: The Opening (Bố Cục).** Your first 3 arts in slot order fire in sequence from 1 s, 0.4 s apart, once per
-    fight (their first firing ignores their cooldown).
+  - **Major: The Opening (Bố Cục).** Your first 3 damaging non-talisman arts in slot order fire in sequence from 1 s, 0.4 s apart, once per
+    fight (their guards still apply, their costs are paid, and each timer restarts from its firing).
   - Minor: First Stone (Quân Đầu). Your first art in slot order costs nothing on its first firing. *(starter)*
-  - Minor: Shape (Thế Cờ). Arts in slots 1 to 3 deal +8 %.
+  - Minor: Shape (Thế Cờ). Arts in slots 1 to 3 deal +8 % (L2).
 
 ### 3. Hư Chiêu Kỳ (Feints in Play)
 - **Small:** `art_cost_pct` −0.5 · `attack_pct` +1
 - **Stat notables:** Probe (Thăm Dò): art cost ×2 · Ladder (Thang): attack ×2 · Ko Threat (Đe Dọa Cướp): art cost −1, attack
   +1 · Tesuji (Diệu Thủ): crit damage +2
 - **Effects:**
-  - **Major: Probe and Punish (Thăm Rồi Phạt).** When the foe's counter Effect fires on one of your hits, your next art
-    within 2 s deals L5 +30 and cannot be countered.
+  - **Major: Probe and Punish (Thăm Rồi Phạt).** When one of your hits sets off a reaction of the foe's (a counter, reflect or thorns), your next art
+    within 2 s deals L5 +30.
   - Minor: Test Move (Nước Thử). Your cheapest art costs 50 % less. *(starter)*
   - Minor: Ko Fight (Tranh Cướp). When the foe reapplies a curse you just cleansed, you are immune to it for 2 s.
 
@@ -56,8 +58,7 @@ more powerful and more numerous.
   Quân Giành Nhịp): art speed +1, art cost −1 · Strong Group (Nhóm Mạnh): defense +2
 - **Effects:**
   - **Major: Sacrifice (Khí Tử Tranh Tiên).** Set one art as the sacrifice with a guard: when the guard is met, it is
-    removed for the rest of the fight, refunding 30 % of max linh lực, and your other arts deal +12 % and cost 10 % less.
-    `Needs rule` (unslotting mid-fight).
+    removed for the rest of the fight, refunding 30 % of max linh lực (clipped at the usable maximum), and your other arts deal +12 % and cost 10 % less. The sacrifice art must have a cooldown of 6 s or more. The choice of sacrifice is a preparation choice (Effects rule 8, R8; one pick). `Needs rule` (unslotting mid-fight; no decision covers it).
   - Minor: Small Loss (Mất Ít). A sacrificed art's slot fires your basic attack an extra time once. *(starter)*
   - Minor: Living Group (Nhóm Sống). After a sacrifice, curses on you last 1 pulse less.
 
@@ -70,7 +71,7 @@ more powerful and more numerous.
     (L5 +10 per art, cap +40).
   - Minor: Patient Endgame (Tàn Cục Kiên Nhẫn). After 20 s, your art costs −10 %. *(starter)*
   - Minor: Resign (Đầu Hàng). Once per fight, if the foe's health share is 3× yours after 20 s, you may flee with a
-    certain escape.
+    certain escape (needs your escape art in its slot). `Needs rule` (a certain escape; no decision covers it).
 
 ## Capstones
 
@@ -78,7 +79,7 @@ more powerful and more numerous.
 |---|---|---|---|---|
 | **Every Move Was Planned (Mỗi Nước Đều Tính)** | keystone | You may set two guards per art (both must be true), and Answer Move names 2 foe arts | Your art speed bonuses count at half | Tiên Tri |
 | **The World in One Game (Nhất Cục Thiên Hạ)** | keystone | The Opening fires 5 arts | After the opening, your arts cost 20 % more | Bố Cục |
-| **Sacrifice the Dragon (Thí Long)** | keystone | Sacrifice may be used twice | You must slot a sacrifice art in every fight | Khí Tử |
+| **Sacrifice the Dragon (Thí Long)** | keystone | Sacrifice may be used twice | Your max linh lực is −10 % | Khí Tử |
 
 ## New pieces
 

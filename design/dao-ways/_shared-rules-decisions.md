@@ -85,7 +85,17 @@ Suggestions 10–17 were not asked (outside the top 9).
   (4 Pending rows promoted, 8 new rows, W guesses marked G, `basic_coef_add` W unset, `art_coef_add` Effect-only);
   Dao rule 1 own outline per Dao, rule 4 cap shifts (one per Dao), rule 9 fifth Dao for Phân Thân and the
   between-lives paragraph. **Every decision above now has its GDD text.**
-- **Not yet done:** merging Absolute Zero and Cold Toll (content), and revising each asking Way to point at the
+- **Absolute Zero / Cold Toll merged 2026-11-11** (user decisions): one piece, Băng Đạo's capstone Absolute Zero
+  (enabler), Cold Toll's rule (Ice raises the foe's drain bills against your hits and ticks by the art-cost share; a
+  bill never passes the live pool), close: Ice's art-cost raise on that foe halved. The one exception to "Ice never
+  touches ward payments" (Combat Defence & Healing Edge Cases; Effects rule 9a). dry-well takes Băng Đạo as a
+  second Way.
+- **Way overlaps decided 2026-11-11** (from the batch 63–94 fixes): Trận Đạo owns carried ground (Kỹ's Folding Array
+  becomes "formations laid faster", Họa's Unroll the Landscape adds ground tags only); Trận owns talisman builds, Kỹ
+  keeps talisman crafting; Thiên's Rewrite a Law becomes its one cap-shift capstone; "harder when hurt" split by
+  what is counted (Nghịch: missing health; Hận: damage from the named foe; Kiếp: events survived); Kỹ's Stones as
+  Fuel stays a major with a close and a defined rate.
+- **Earlier note:** merging Absolute Zero and Cold Toll (content), and revising each asking Way to point at the
   rules instead of `Needs rule` (with the batch 63–94 fixes).
 - **Next (old note):** write the accepted rules into their other owning GDDs (section by section, user approves each), then revise
   each asking Way to point at the rule instead of its own `Needs rule`.

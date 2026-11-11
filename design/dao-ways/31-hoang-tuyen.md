@@ -23,7 +23,7 @@
 - **Stat notables:** Deeper Spring (Suối Sâu): attack ×2 · Yellow Water (Nước Vàng): chaos ×2 · Cold Spring (Suối
   Lạnh): cold ×2 · Underworld Rock (Đá Âm): max health +2 (the one plain survival node)
 - **Effects:**
-  - **Major: Descend (Hạ Tuyền).** Before a fight, choose a depth 0–9. Each depth: −5 % max health, and L5 +6 on all
+  - **Major: Descend (Hạ Tuyền).** Before a fight, choose a depth 0–9 (a preparation choice, Effects rule 8, R8; one pick). Each depth: −5 % max health, and L5 +6 on all
     hits (depth 9: −45 % max health, L5 +54).
   - Minor: Used to the Dark (Quen Âm). Each depth also gives +3 Chaos and Cold resistance. *(starter)*
   - Minor: Spring Water (Nước Suối). Each depth gives +2 % healing.
@@ -43,8 +43,7 @@
   Oil (Dầu Đèn): soul resist +1, thần thức +1 · Beckoning (Vẫy Gọi): soul attack +1, thần thức +1
 - **Effects:**
   - **Major: Lantern of Souls (Dẫn Hồn Đăng).** Each cultivator you defeat gives 1 Soul charge (cap 9, kept between
-    fights). Before a fight you may spend charges: each gives +4 % `x_soul` for that fight. `Needs key` (a
-    character resource).
+    fights). Before a fight you may spend charges (a preparation choice, Effects rule 8, R8): each gives +4 % `x_soul` for that fight. Soul charges are a life readable (Character Stats rule 9a, R13).
   - Minor: Lead Gently (Dẫn Nhẹ). Your soul lockout is 0.2 s shorter while you hold 5+ Soul charges. *(starter)*
   - Minor: Restless Souls (Hồn Không Yên). Creatures you defeat give a Soul charge one time in four.
 
@@ -77,8 +76,9 @@
 
 ## New pieces
 
-- Pre-fight depth choice lowering max health: `Fits today` (preparation Effect), but needs UI.
-- Soul charges kept between fights: `Needs key`.
+- Pre-fight depth choice lowering max health: a preparation choice (Effects rule 8, Combat rule 12, R8), but needs UI.
+- Soul charges kept between fights: a life readable (Character Stats rule 9a, R13).
+- `status_duration_pct`: the key exists (Modifiers Stat List); curse durations clamp to 1–5 pulses (R22).
 
 ## Kept apart from
 

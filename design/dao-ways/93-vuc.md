@@ -26,8 +26,7 @@ applies its Rules to both sides inside it, with you as its lord. It is L4 (groun
 - **Effects:**
   - **Major: Unfold the Domain (Triển Khai Lĩnh Vực).** Unlocks your Domain: it unfolds at a time or guard you set
     (default 10 s), costs 20 % of max linh lực, and lasts 12 s; once per fight (twice with capstones). While up, your
-    L4 is +20 and your Domain's Rules apply. `Needs key` (the Domain object) + `Needs rule` (Combat rule 12, ground
-    mid-fight).
+    L4 is +20 and your Domain's Rules apply. (The Domain is the one carried ground that unfolds mid-fight: Combat rule 12, R9.)
   - Minor: Quick Unfolding (Triển Tốc). Your Domain unfolds 3 s sooner. *(starter)*
   - Minor: Lingering Domain (Vực Lưu). Your Domain lasts 3 s longer.
 
@@ -37,7 +36,7 @@ applies its Rules to both sides inside it, with you as its lord. It is L4 (groun
   (Đất Trói): status duration +1, attack +1 · Edict (Chiếu Lệnh): defense +2
 - **Effects:**
   - **Major: Domain Rules (Vực Quy).** Choose 2 Rules for your Domain from: *No Evade* (evade is 0 inside), *Heavy Air*
-    (art cooldowns +20 % for the foe), *Lord's Stacks* (your stacks granted inside are doubled), *Silent Ground* (the
+    (each foe art that fires inside is delayed 0.5 s: `delay_timer`, Effects rule 6, R1), *Lord's Stacks* (your stacks granted inside are doubled), *Silent Ground* (the
     foe's quick arts cannot fire), *Bright Ground* (Exposed on the foe while inside).
   - Minor: Third Rule (Quy Thứ Ba). Your Domain holds 3 Rules.
   - Minor: Rule Echo (Quy Vọng). A Rule lingers 2 s after the Domain folds.
@@ -47,8 +46,9 @@ applies its Rules to both sides inside it, with you as its lord. It is L4 (groun
 - **Stat notables:** Crushing Air (Khí Đè): attack ×2 · Weight of the Realm (Sức Nặng Cõi): art speed ×2 · Pressing Down
   (Đè Xuống): attack +1, art speed +1 · Heavy Sky (Trời Nặng): force +2
 - **Effects:**
-  - **Major: Domain Pressure (Vực Áp).** Each second the foe spends inside your Domain, its art speed −3 % and its
-    resistances −5 (both for the fight, caps −30 % and −60).
+  - **Major: Domain Pressure (Vực Áp).** Each second the foe spends inside your Domain, it gains 1 stack of Slowed Time
+    (6 % per stack, cap 5: Effects Status Catalogue, R1) and 1 stack of Sundered (named curses, durations clamped 1–5
+    pulses, R17, R22).
   - Minor: Pressure Point (Điểm Áp). The first second of your Domain applies Sealed Meridian on L4 to the foe.
     *(starter)*
   - Minor: No Room to Breathe (Ngột Ngạt). The foe regenerates 25 % less linh lực inside your Domain.
@@ -61,7 +61,7 @@ applies its Rules to both sides inside it, with you as its lord. It is L4 (groun
   - **Major: Sanctuary (Vực Hộ).** Inside your Domain damage you take is dampened 20 % (rule 6a) and your regeneration of both pools is
     doubled.
   - Minor: Safe Unfolding (Triển An). Unfolding the Domain cleanses 5 debuff stacks. *(starter)*
-  - Minor: Domain Shield (Thuẫn Vực). When your Domain folds, gain a ward shield of 8 % of max linh lực.
+  - Minor: Domain Shield (Thuẫn Vực). When your Domain folds, restore a body shield of 4 % of max health.
 
 ### 5. Vực Thần (Domain Lord)
 - **Small:** `formation_power_pct` +1.2 · `than_thuc_pct` +0.5
@@ -79,12 +79,12 @@ applies its Rules to both sides inside it, with you as its lord. It is L4 (groun
 |---|---|---|---|---|
 | **Within My Domain, I Decide (Vực Trung Ngã Chủ)** | keystone | Your Domain unfolds twice per fight and holds 3 Rules | Outside your Domain, your hits deal 25 % less (L2 −25) | Vực Quy |
 | **Endless Domain (Vô Biên Lĩnh Vực)** | keystone | Your Domain, once unfolded, never folds | It costs 40 % of max linh lực and unfolds no sooner than 15 s | Triển Vực |
-| **Domain of Crushing Heaven (Thiên Áp Vực)** | keystone | Domain Pressure's caps are −50 % and −100 | You cannot evade or escape inside your Domain | Vực Áp |
+| **Domain of Crushing Heaven (Thiên Áp Vực)** | keystone | Domain Pressure applies 2 stacks of each curse per second (Slowed Time keeps its cap of 5) | You cannot evade or escape inside your Domain | Vực Áp |
 
 ## New pieces
 
-- The Domain object (a timed, self-carried ground with Rules): `Needs key` + `Needs rule`; the Way's whole engine.
-  A strong candidate for a small rule of its own in Combat.
+- The Domain object (a timed, self-carried ground with Rules): carried ground, Combat rule 12 (R9); the Way's whole
+  engine. Its Rules list is this Way's own.
 
 ## Kept apart from
 

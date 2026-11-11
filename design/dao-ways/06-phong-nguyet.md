@@ -24,7 +24,7 @@ the point (Tứ Cảnh). Where Ngũ Hành rewards elements in order, Phong Nguy�
   Gió): art speed +1, healing +1 · Wind Song (Gió Hát): crit chance +1
 - **Effects:**
   - **Major: Wind Carries Petals (Phong Tống Hoa).** Each art you fire gives your next heal +10 % (cap +50 %), and each
-    heal gives your next art +5 % art speed (cap +25 %).
+    heal gives your next art +5 % art speed (cap +25 %) (held payloads, Effects rule 8; the caps are self-counters, tag `growing`, R7).
   - Minor: Light Breeze (Gió Thoảng). +5 % art speed while above 70 % health. *(starter)*
   - Minor: Wind Beauty (Phong Cảnh). +5 % art speed; counts as a Beauty for Tứ Cảnh.
 
@@ -71,7 +71,7 @@ the point (Tứ Cảnh). Where Ngũ Hành rewards elements in order, Phong Nguy�
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Beauty Is the Blade (Mỹ Tức Phong)** | keystone | Your crit multiplier cap is +0.3 higher (a cap shift, `Needs rule`; R14) while you hold all four Beauties | Your non-crit hits deal 25 % less (L2 −25) | Tứ Cảnh |
+| **Beauty Is the Blade (Mỹ Tức Phong)** | keystone | Your crit multiplier cap is +0.3 higher (the Way's one cap shift, Dao rule 4, R14; the closing cost is the felt price) while you hold all four Beauties | Your non-crit hits deal 25 % less (L2 −25) | Tứ Cảnh |
 | **Wind, Flowers, Snow, Moon (Phong Hoa Tuyết Nguyệt)** | keystone | Each Beauty minor you own counts twice for The Four Beauties | Your heals are 25 % weaker and your crit damage −15 % | Tứ Cảnh |
 | **Flowers on the Crit (Hoa Bạo)** | keystone | Flowers Bloom on the Crit heals 2.5 % (still once per 0.5 s) | Your max health is 25 % lower | Hoa |
 

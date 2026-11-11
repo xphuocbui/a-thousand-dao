@@ -52,7 +52,7 @@
   Helping (Thêm Phần): pill effect +1, toxicity resist +1 · Bitter Root (Rễ Đắng): max health +2
 - **Effects:**
   - **Major: Poison Is Food (Độc Là Thực).** At fight start, gain L5 +1 per 2 % of your pill toxicity as a share of
-    its limit (cap +40). The toxicity stays. `Needs key` (toxicity readable).
+    its limit (cap +40). The toxicity stays. (toxicity readable: Character Stats rule 9a, R13).
   - Minor: Overdose Tolerance (Quen Liều). The toxicity threshold where penalties begin is 15 % higher. *(starter)*
   - Minor: Chew the Dregs (Nhai Bã). Failed pills you brew can be eaten for half effect. `Needs key` (Alchemy).
 
@@ -62,8 +62,8 @@
   (Họng Ma): thần thức +1, soul resist +1 · Mind Hunger (Đói Thần): soul attack +1, thần thức +1
 - **Effects:**
   - **Major: Devour Soul (Phệ Hồn).** Your soul hits steal thần thức: the target loses 1 % of its thần thức per hit and
-    you gain it for the fight (cap +30 %). `Needs rule` (thần thức changes mid-fight).
-  - Minor: Soul Belch (Ợ Hồn). Your soul lockout is 0.2 s shorter while you have stolen 10 %+ thần thức.
+    you gain it for the fight (cap +30 %). `Needs rule` (thần thức theft; deferred, R12).
+  - Minor: Soul Belch (Ợ Hồn). Your soul lockout is 0.2 s shorter while you have stolen 10 %+ thần thức (deferred with Devour Soul, R12).
   - Minor: Taste of Fear (Vị Sợ). Every 3rd soul hit you land applies Slackened Soul. *(starter)*
 
 ## Capstones
@@ -78,8 +78,8 @@
 ## New pieces
 
 - Permanent growth from kills (Digest): `Needs key`, and a balance flag (power from the world, not points).
-- Thần thức theft mid-fight: `Needs rule`.
-- Toxicity readable in fights: `Needs key` (shared with Hỏa's Fever Pill).
+- Thần thức theft mid-fight: `Needs rule` (deferred, R12).
+- Toxicity readable in fights: Character Stats rule 9a, R13 (shared with Hỏa's Fever Pill).
 
 ## Kept apart from
 

@@ -34,7 +34,7 @@
 - **Effects:**
   - **Major: Endured Strength (Nhẫn Lực).** 20 % of the damage that reaches your health is stored (cap 50 % of max
     health). Each art you fire spends up to 5 % of max health from the store for L5 +1 per 0.2 % spent (so up to +25).
-    `Needs key` (the store).
+    The store is a self-counter (tag `growing`; id, adding event, cap 50 % of max health, readers; Effects rule 8, R7).
   - Minor: Bite the Lip (Cắn Môi). The first 3 hits each fight are reduced by 15 %. *(starter)*
   - Minor: Overflow of Pain (Tràn Đau). When the store is full, your basic attack spends from it too.
 
@@ -45,7 +45,7 @@
 - **Effects:**
   - **Major: Iron Will (Ý Chí Sắt).** Each curse placed on you gives 3 % of max health to the store (with Endured
     Strength) or heals 2 % (without).
-  - Minor: Shrug (Nhún Vai). Curses on you last 1 pulse less. *(starter)*
+  - Minor: Shrug (Nhún Vai). Curses on you last 1 pulse less (clamp 1–5, R22). *(starter)*
   - Minor: Will Holds (Ý Vững). Fear and charm Effects on you are refused.
 
 ### 4. Tử Thủ (Last Stand)
@@ -54,7 +54,7 @@
   (Bức Tường Cuối): body shield +1, attack +1 · Dying Fury (Cơn Giận Cuối): crit damage +2
 - **Effects:**
   - **Major: Last Stand (Tử Thủ).** Once per fight, when you fall below 20 % health, release the whole store at once as
-    a Force hit (a trigger; `Needs rule` R18: a once-per-fight exemption from `trig_budget`) and gain a body shield equal to half of it.
+    a Force hit (a trigger inside `trig_budget`, R18) and gain a body shield equal to half of it.
   - Minor: Dig In (Bám Trụ). Below 30 % health, block +20. *(starter)*
   - Minor: Stand Until Dawn (Đứng Đến Sáng). After Last Stand, your regeneration is doubled for 6 s.
 
@@ -77,7 +77,7 @@
 
 ## New pieces
 
-- The damage store (Endured Strength): `Needs key`.
+- The damage store (Endured Strength): a self-counter (Effects rule 8, R7).
 
 ## Kept apart from
 

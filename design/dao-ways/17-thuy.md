@@ -25,7 +25,7 @@
 - **Effects:**
   - **Major: Flow On (Lưu Chuyển).** When one of your arts fires, the art in the next slot has its timer cut by
     15 % of its effective cooldown (at most once per art per second).
-  - Minor: Find the Gap (Tìm Khe). When your art hit deals no damage to health (all stopped by wards), refund 50 % of its cost (`Needs rule` R20: that result as an event).
+  - Minor: Find the Gap (Tìm Khe). When your art hit deals no damage to health (all stopped by wards), refund 50 % of its cost (event: a hit fully stopped by wards, Effects rule 5, R20).
   - Minor: Water Takes the Shape (Tùy Hình). Your first art each fight fires at half its cooldown. *(starter)*
     *Shared minor* (with Phong, Thời).
 
@@ -80,8 +80,8 @@
 ## New pieces
 
 - The Tide Turns: a fixed wave from t = 0, `Fits today` (time guard Effects).
-- Like Water: conversion to the foe's least-resisted type, `Needs rule` (conversion is authored, not chosen).
-- Bottomless: overdraw, `Needs rule` (Combat rule 11).
+- Like Water: `convert_to: least_resisted`, decided when the hit lands, uses one of the 2 conversions; capstone tier (Effects rule 6, Combat Damage Types rule 6, R10).
+- Bottomless: overdraw, `Needs rule` (Combat rule 11) (deferred, R12).
 
 ## Kept apart from
 

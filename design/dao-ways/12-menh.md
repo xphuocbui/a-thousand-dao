@@ -62,7 +62,7 @@ loading it and knowing it, never about rolling more.
 - **Stat notables:** Ill Star (Sao Xấu): status chance ×2 · Black Omen (Điềm Đen): fortune ×2 · Crossed Stars (Sao
   Chéo): status chance +1, fortune +1 · Unlucky Day (Ngày Xui): crit damage +2
 - **Effects:**
-  - **Major: Ill Star (Hung Tinh Chiếu).** Your fortune also counts against the foe: its rolls (crit, evade, status,
+  - **Major: Ill Star (Hung Tinh Chiếu).** Your hits apply Ill Star (a named curse, 3 pulses, refreshed by each hit; R17, R21): while it is on the foe, its rolls (crit, evade, status,
     escape) are shifted against it by half your fortune.
   - Minor: Jinx (Xui Xẻo). The foe's first status roll against you each fight fails. *(starter)*
   - Minor: Bad Luck Spreads (Vận Xui Lan). Your curses have +10 pp status chance against a foe with lower fortune.

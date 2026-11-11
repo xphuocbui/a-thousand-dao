@@ -21,8 +21,8 @@
 - **Stat notables:** Imperial Bearing (Long Uy): status resist ×2 · Dragon Robe (Long Bào): defense ×2 · Cold Gaze of Rule
   (Ánh Mắt Quân Vương): status resist +1, defense +1 · Mandate (Thiên Mệnh Đế): renown +2
 - **Effects:**
-  - **Major: Imperial Majesty (Đế Uy).** Foes of a lower realm deal you 20 % less and start with −10 % art speed; foes of
-    your realm with less renown deal 10 % less.
+  - **Major: Imperial Majesty (Đế Uy).** Foes of your realm with less renown than you deal you 10 % less (dampened, rule 6a) and
+    start with −10 % art speed for 10 s (the lower-realm case is already Combat rule 20's suppression).
   - Minor: Bow Before Me (Quỳ Xuống). The foe's first hit each fight is dampened 30 % (rule 6a). *(starter)*
   - Minor: Unbending Crown (Vương Miện Không Cúi). Fear and charm on you are refused.
 
@@ -41,9 +41,11 @@
 - **Stat notables:** Edict (Chiếu Chỉ): curse duration ×2 · Imperial Seal (Ngọc Tỷ): attack ×2 · Heaven's Order (Lệnh
   Trời): curse duration +1, attack +1 · Herald (Sứ Giả): renown +2
 - **Effects:**
-  - **Major: Decree (Thánh Chỉ).** Before a foreseen fight, issue one Decree: *No Haste* (the foe's art speed −20 % for
-    10 s), *No Mercy* (the foe cannot heal for 10 s), *No Retreat* (the foe cannot escape), *Kneel* (the foe's first art
-    waits 2 s). `Needs key`.
+  - **Major: Decree (Thánh Chỉ).** Before a foreseen fight, issue one Decree: *No Haste* (the foe gets 3 Slowed Time stacks (−18 %
+    art speed) for 10 s, R1), *No Mercy* (the foe carries Withering, −50 % healing taken, for 10 s), *No Retreat* (the foe's escape channel
+    is refused for the first 10 s), *Kneel* (the foe's first art is delayed 2 s, `delay_timer`, Effects rule 6, R1).
+    The Decree is a preparation choice (Effects rule 8 / Combat rule 12, R8); curse durations clamp to 1–5 pulses (R22).
+    `Needs key` (Decree list).
   - Minor: Quick Decree (Chiếu Nhanh). Decrees work in ambush fights too. *(starter)*
   - Minor: Long Decree (Chiếu Dài). Decrees last 15 s.
 
@@ -62,8 +64,8 @@
 - **Stat notables:** Dragon Throne (Ngai Rồng): formation ×2 · Palace Walls (Tường Cung): defense ×2 · Throne Room (Điện
   Ngai): formation +1, defense +1 · Imperial Guard Array (Trận Ngự Lâm): resist all +1
 - **Effects:**
-  - **Major: The Seat of Power (Ngự Tọa).** Fights at your seat (cave dwelling or a hall you own) are foreseen for you,
-    and damage you take is dampened 25 % (rule 6a) there.
+  - **Major: The Seat of Power (Ngự Tọa).** At your seat (cave dwelling or a hall you own), damage you take is dampened 25 % (rule 6a).
+    The foreseen-fight clause is dropped here (overlap with Thủ Đạo's guarded gate).
   - Minor: Palace Array (Trận Cung). Your seat's formations need no upkeep. *(starter)*
   - Minor: Audience (Thiết Triều). NPCs come to your seat with offers (events).
 
@@ -71,7 +73,7 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **All under Heaven (Phổ Thiên Chi Hạ)** | keystone | Imperial Majesty applies to foes of your own realm as to lower ones | Foes of a higher realm deal you 15 % more (you do not bow) | Uy Nghiêm |
+| **All under Heaven (Phổ Thiên Chi Hạ)** | keystone | Imperial Majesty applies to foes of your own realm whatever their renown | Foes of a higher realm deal you 15 % more (you do not bow) | Uy Nghiêm |
 | **Son of Heaven (Thiên Tử)** | keystone | You may issue two Decrees | Each fight you lose costs 20 % of your treasury | Thánh Chỉ |
 
 ## New pieces

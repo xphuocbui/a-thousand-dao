@@ -60,7 +60,7 @@
 - **Effects:**
   - **Major: Unmoving (Bất Động Như Sơn).** In Stillness, your basic attack deals more by the time spent there (L5 +3
     per second, cap +45) and your block counts double.
-  - Minor: Heavy Seat (Ngồi Nặng). Timer pushback on you does nothing in Stillness. *(starter)*
+  - Minor: Heavy Seat (Ngồi Nặng). `delay_timer` pushes on you (Effects rule 6, R1) do nothing in Stillness. *(starter)*
   - Minor: Patience Repaid (Nhẫn Được Đền). After 20 s in Stillness, your next switch into Motion refills 30 % linh lực.
 
 ## Capstones
@@ -76,6 +76,7 @@
 
 - Stance (a two-state self-mode with a player-set guard): `Needs key` + Combat rule 13 guard vocabulary.
 - Arts suppressed by a stance: `Needs rule`.
+- The store (The Hare Bolts) and Momentum: self-counters with tag `growing` (Effects rule 8, R7), caps as written.
 
 ## Kept apart from
 

@@ -24,8 +24,8 @@ spent for power, and the world (NPCs, events) feeds it.
   soul resist +1, defense +1 · Carved Seal (Ấn Khắc): status resist +2
 - **Effects:**
   - **Major: Burn Incense Before the Tablet (Thắp Hương).** Before a foreseen fight, spend Incense: each 10 Incense
-    gives L5 +5 for that fight (cap +40). `Needs key` (Incense, a character resource).
-  - Minor: Small Offering (Lễ Mọn). You start each fight with a ward shield of 3 % of max linh lực per shrine you own
+    gives L5 +5 for that fight (cap +40). A preparation choice, allowed in foreseen fights (Effects rule 8 / Combat rule 12, R8). `Needs key` (Incense, a character resource).
+  - Minor: Small Offering (Lễ Mọn). You start each fight with a body shield of 3 % of max health per shrine you own
     (cap 15 %). *(starter)*
   - Minor: Name Remembered (Danh Được Nhớ). Your renown decays half as fast.
 
@@ -55,10 +55,10 @@ spent for power, and the world (NPCs, events) feeds it.
 - **Stat notables:** Awe (Kính Sợ): status resist ×2 · Holy Presence (Thánh Uy): soul resist ×2 · Tall Shadow (Bóng
   Cao): status resist +1, defense +1 · Crowned (Đội Mũ Thần): max health +2
 - **Effects:**
-  - **Major: Divine Majesty (Thần Uy).** The foe's crit chance −5 pp and accuracy −5 pp; per 1,000 renown you have, a
-    further −1 pp each (cap −10 pp).
-  - Minor: Kneel (Quỳ). Foes two realms below you cannot attack for the first 2 s. *(starter)*
-  - Minor: Terrible Face (Mặt Thần Dữ). The foe's Fury-type self-stacks grow 25 % slower.
+  - **Major: Divine Majesty (Thần Uy).** Your evade is +5 pp; per 1,000 renown you have, a further +1 pp (cap +10 pp).
+    An owner modifier instead of a direct foe stat change (R21).
+  - Minor: Kneel (Quỳ). Foes two realms below you have their first art delayed 2 s (`delay_timer`, Effects rule 6, R1; delays fall off within 3 s). *(starter)*
+  - Minor: Terrible Face (Mặt Thần Dữ). The foe's Wind and Thunder buff stacks grow 25 % slower.
 
 ### 5. Hiển Linh (Manifestation)
 - **Small:** renown +1 · `attack_pct` light +1
@@ -74,7 +74,7 @@ spent for power, and the world (NPCs, events) feeds it.
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Worshipped, Therefore Mighty (Hương Hỏa Thần Lực)** | keystone | Burn Incense has no cap and also gives max health (+1 % per 10 Incense) | Without Incense spent, your hits deal 25 % less (L2 −25) | Thần Vị |
+| **Worshipped, Therefore Mighty (Hương Hỏa Thần Lực)** | keystone | Burn Incense's cap rises to +60 (L5 headroom) and it also gives max health (+1 % per 10 Incense) | Without Incense spent, your hits deal 25 % less (L2 −25) | Thần Vị |
 | **A God of This Land (Thổ Thần)** | keystone | Holy Ground applies in neighbouring regions too | Outside regions with shrines, your wards are −20 % | Miếu |
 | **The Faith Never Fades (Tín Bất Diệt)** | keystone | Incense never decays and shrines produce 50 % more | You cannot leave the regions with your shrines for more than a year at a time | Hương Hỏa |
 

@@ -72,7 +72,7 @@
   - **Major: Heaven Purges (Thiên Tịnh).** Each pulse, remove 1 debuff stack or curse from yourself; each one
     removed gives your next Lightning hit L5 +6 (cap +30).
   - Minor: Smite the Unclean (Trảm Tà). Your Lightning hits deal more to a target bearing Chaos-damage statuses or
-    Corpse Rot, and to demonic cultivators (L5 +15). `Needs key`: a `demonic` foe tag.
+    Corpse Rot, and to demonic cultivators (L5 +15). (foe tag `demonic`: Effects rule 5 readable, Combat rule 18 profile tag, R13.)
   - Minor: Clear Sky (Trời Quang). The first curse placed on you each fight is refused. *(starter)*
 
 ## Capstones
@@ -81,14 +81,14 @@
 |---|---|---|---|---|
 | **Carry Your Own Tribulation (Tự Độ Kiếp)** | keystone | The bolt strikes every 5 s for 6 % | You cannot gain Lightning resistance from wards | Thiên Lôi |
 | **Nine Heavens (Cửu Thiên)** | keystone | Crit chance above the cap converts to crit damage (1 pp to +3 %) | Your non-crit hits deal 20 % less (L2 −20) | Thiểm Điện |
-| **Thunder God's Body (Lôi Thần Thể)** | enabler | Your basic attack counts as a Lightning art for art speed (it can be sped up, floor `cooldown_min`) | You can slot at most 2 arts | Lôi Thể |
+| **Thunder God's Body (Lôi Thần Thể)** | enabler | Your basic attack gains `basic_speed_pct` equal to your lightning `art_speed_pct` (floor `cooldown_min`; Combat Formulas A2, key: `basic_speed_pct`) | You can slot at most 2 arts | Lôi Thể |
 | **Heaven's Verdict (Thiên Phán)** | keystone | Heaven Purges removes 3 a pulse, and each removal deals 1 % of the target's max health as Lightning to the foe that applied it (a trigger) | You cannot apply any curse | Tịnh Hóa |
 
 ## New pieces
 
-- Basic attack under art speed (Thunder God's Body): `Needs rule` (Combat rule 13: art speed is arts only).
+- Basic attack under art speed (Thunder God's Body): reads as `basic_speed_pct` (Combat Formulas A2, build-run suggestion 6); art speed stays arts only.
 - Crit chance over the cap as a readable (Overcharge): `Needs key`.
-- `demonic` foe tag: `Needs key` (Combat rule 6, foe tags pending).
+- `demonic` foe tag: Effects rule 5 readable (Character Stats rule 9a, R13).
 
 ## Kept apart from
 

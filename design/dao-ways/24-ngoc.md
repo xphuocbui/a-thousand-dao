@@ -24,7 +24,7 @@
   Marrow Shell (Vỏ Ngọc): body shield +1, status resist +1 · Cool Stone (Đá Mát): fire resistance +2
 - **Effects:**
   - **Major: Unflawed Shell (Ngọc Bất Tỳ).** Your body shield stops Chaos damage too (at half its value) while it
-    is above 50 %. `Needs rule` (Chaos passes body shields).
+    is above 50 %. (The shield's `stops` list adds Chaos at a 50 % share, the cap: Combat Defence rule 9, R3.)
   - Minor: Polished (Đánh Bóng). Your body shield is 20 % stronger while you have no debuff on you. *(starter)*
   - Minor: Jade Resonance (Ngọc Cộng Minh). When your body shield breaks, it rings: the attacker is Exposed for 1
     pulse.
@@ -78,11 +78,11 @@
 | **Flawless (Hoàn Mỹ)** | keystone | You are immune to curses while above 70 % health | Your max health is 15 % lower | Thuần Khiết |
 | **Jade Purity (Ngọc Thanh)** | keystone | Your element stacks of your second-highest element use your highest purity | You may hold buff stacks of two elements only | Thuần Khiết |
 | **The Thousand-Facet Gem (Thiên Diện Ngọc)** | keystone | Refract splits into 5 hits of 22 % each | Your crits deal 30 % less extra damage | Khúc Xạ |
-| **Better Broken Jade (Ninh Vi Ngọc Toái)** | keystone | Once a fight, at the Down step's refusal, refuse it (health 1) and shatter: deal 20 % of your max health as Light to the foe (a trigger) | You cannot escape | Ngọc Thể |
+| **Better Broken Jade (Ninh Vi Ngọc Toái)** | keystone | Once a fight, at the Down step's refusal, refuse it (health 1; the fight's one Down refusal, R5) and shatter: deal 20 % of your max health as Light to the foe (a trigger) | You cannot escape | Ngọc Thể |
 
 ## New pieces
 
-- Chaos against body shields (Unflawed Shell): `Needs rule`.
+- Chaos against body shields (Unflawed Shell): `stops` list at 50 % (Combat Defence rule 9, R3).
 - Artifact material tag (`jade`): `Needs key`.
 - Hit splitting (Refract): `Needs rule` (Combat rule 10, one hit per firing).
 

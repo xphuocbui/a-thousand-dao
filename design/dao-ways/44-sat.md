@@ -22,8 +22,8 @@
 - **Stat notables:** Cold Eyes of a Killer (Mắt Sát Thủ): attack ×2 · Bloodstained Aura (Khí Nhuốm Máu): fear duration
   ×2 · Weight of Deaths (Sức Nặng Cái Chết): attack +1, crit damage +1 · Death's Shadow (Bóng Tử): pierce +2
 - **Effects:**
-  - **Major: Killing Intent (Sát Ý Lẫm Lẫm).** At fight start, the foe gains Thunder debuff stacks for the fight: 1 per 10 cultivators you have killed (cap 15). `Needs key` (kill count).
-  - Minor: Glare of Death (Ánh Mắt Tử). The foe's first art each fight waits 0.5 s. *(starter)*
+  - **Major: Killing Intent (Sát Ý Lẫm Lẫm).** At fight start, the foe gains Thunder debuff stacks for the fight: 1 per 10 cultivators you have killed (cap 15; kill count is an R13 life readable).
+  - Minor: Glare of Death (Ánh Mắt Tử). The foe's first art each fight waits 0.5 s (`delay_timer`, R1). *(starter)*
   - Minor: Killer's Name (Danh Sát Thủ). Foes two realms below you may flee before the fight (an event choice).
 
 ### 2. Chiến Liên (Battle Streak)
@@ -31,7 +31,7 @@
 - **Stat notables:** Unbeaten (Bất Bại): attack ×2 · War-Worn (Dày Dạn Trận): max health ×2 · Rolling Victory (Thắng
   Liền): attack +1, max health +1 · Hunger for Battle (Khát Chiến): crit damage +2
 - **Effects:**
-  - **Major: Battle Streak (Chiến Liên).** Each fight won in a row against a foe no more than one realm below you gives 1 Streak (cap 20, kept between fights): L1 +1 % damage each. A loss or flight resets it. `Needs key`.
+  - **Major: Battle Streak (Chiến Liên).** Each fight won in a row against a foe no more than one realm below you gives 1 Streak (cap 20, kept between fights): L1 +1 % damage each. A loss or flight resets it (win streak: an R13 life readable).
   - Minor: Warm Blood (Máu Còn Nóng). A fight within the same month as your last win starts with 10 % extra linh lực.
     *(starter)*
   - Minor: Streak Guard (Giữ Chuỗi). Your first loss halves the Streak instead of resetting it.
@@ -41,7 +41,7 @@
 - **Stat notables:** Headsman (Đao Phủ Thủ): crit damage ×2 · Final Stroke (Nhát Cuối): attack ×2 · Swift End (Kết Nhanh):
   crit damage +1, attack +1 · Mercy Denied (Không Tha): pierce +2
 - **Effects:**
-  - **Major: Cull (Trảm).** Your hits put a foe at or below 8 % of its max health Down (refusals still apply; overkill counts as 0 for the double-knockout rule). Bosses and tribulations are immune. `Needs rule` (Combat Down step).
+  - **Major: Death Sentence (Án Tử).** Your crits on a target below 30 % health deal +25 % crit damage (a plain finisher with no cull in it). The cull itself is this Way's capstone (R15c), not a major.
   - Minor: Smell Weakness (Ngửi Thấy Yếu). Your hits on a target below 30 % deal more (L5 +15). *(starter)*
   - Minor: Clean Kill (Giết Gọn). Your hits on a target below 15 % health restore 1 % of max linh lực.
 
@@ -68,14 +68,14 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **A Thousand Deaths Behind You (Thiên Tử Tại Hậu)** | keystone | Cull's threshold is 12 % | You cannot heal or leech at all | Đao Phủ |
+| **A Thousand Deaths Behind You (Thiên Tử Tại Hậu)** | keystone | **Cull** (Effects rule 6, R15c): a foe at or below 12 % of its max health at the defeat check goes Down (a refusal within its budget can still save it at 1 health; overkill counts as 0 for the double-knockout rule; bosses and tribulations are immune). The Way's 8 % `cull_threshold` knob is raised to 12 % here | You cannot heal or leech at all | Đao Phủ |
 | **Asura (Tu La)** | keystone | Mutual Ruin is L5 +1 per 5 % (cap +60) | Your max health is 20 % lower and your regeneration is dampened by 100 | Huyết Hải Tu La |
 | **Hundred Battles Unbeaten (Bách Chiến Bất Bại)** | keystone | Battle Streak's cap is 50 | A loss costs 1 year of lifespan per 10 Streak lost | Chiến Liên |
 
 ## New pieces
 
-- Cull (kill below a threshold): `Needs rule` (Combat Down step); a big tool, flagged.
-- Kill count and Streak as character counters: `Needs key`.
+- Cull (kill below a threshold): Effects rule 6 and rule 11 (R15c), capstone tier, Sát only.
+- Kill count and win streak: life readables (Character Stats rule 9a, R13).
 
 ## Kept apart from
 

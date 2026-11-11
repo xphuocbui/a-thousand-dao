@@ -23,7 +23,7 @@
   and Through (Xuyên Suốt): penetration +1, spear +1 · Thin Point (Mũi Nhọn): spear crit damage +2
 - **Effects:**
   - **Major: Through the Ward (Xuyên Hộ).** 25 % of each spear hit's damage skips ward shields (it still meets
-    resistance, block and the body shield). `Needs rule` (Combat Defence path).
+    resistance, block and the body shield). (`bypass_share` 25 %: Combat Defence rule 9, R2; the cap is 50 % per part.)
   - Minor: Find the Seam (Tìm Kẽ). Your spear crits apply Sundered. *(starter)*
   - Minor: Bore In (Khoan). Each spear hit on the same target in a row ignores 3 more resistance points (cap 15),
     reset when another art hits.
@@ -34,7 +34,7 @@
   (Giữ Xa): evade +1, spear art speed +1 · Long Arm (Tay Dài): spear +2
 - **Effects:**
   - **Major: First Strike (Tiên Phát).** Your spear arts' first firing comes after 40 % of their cooldown, not the
-    full cooldown.
+    full cooldown (opening haste +150 %, key: `opening_haste_pct`).
   - Minor: Keep Them Out (Ngăn Xa). Until the foe's first art fires, your hits deal more (L5 +20). *(starter)*
   - Minor: Measured Distance (Đo Tầm). Your spear arts cannot be evaded in the first 5 s.
 
@@ -79,8 +79,9 @@
 ## New pieces
 
 - `spear` form tag: `Needs key`.
-- Damage skipping ward shields: `Needs rule` (shared with Chưởng, Nhân Quả, Hỗn Độn: one bypass rule).
-- First firing after a share of cooldown (First Strike): `Needs rule` (Combat rule 13).
+- Damage skipping ward shields: `bypass_share` (Combat Defence rule 9, R2). The capstone sits at the 50 % cap.
+- First firing after a share of cooldown (First Strike): opening haste +150 % on spear arts (key: `opening_haste_pct`,
+  Combat A2; a Way notable, so allowed).
 
 ## Kept apart from
 

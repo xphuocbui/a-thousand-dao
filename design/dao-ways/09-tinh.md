@@ -21,9 +21,8 @@
 - **Stat notables:** Seven Star Array (Thất Tinh Trận): formation power ×2 · Constellation (Chòm Sao): formation +1,
   light +1 · Star Map (Tinh Đồ): thần thức +2 · Pole Star Anchor (Neo Bắc Cực): defense +2
 - **Effects:**
-  - **Major: Array in the Sky (Thiên Trận).** One formation you have laid this season comes with you into ambush and
-    blind fights at 60 % power. `Needs rule` (Combat rule 12, preparation by situation).
-  - Minor: Starlit Ground (Đất Sao). Your formations' L4 is +5 at night. `Needs key` (world time). *(starter)*
+  - **Major: Array in the Sky (Thiên Trận).** One formation you have laid this season comes with you into fights as a carried ground: foreseen 100 %, ambush 70 %, blind 50 % (Combat rule 12, L4, R9).
+  - Minor: Starlit Ground (Đất Sao). Your formations' L4 is +5 at night. (world time: Character Stats rule 9a, R13). *(starter)*
   - Minor: Shifting Stars (Sao Dời). Your formations cost 20 % less upkeep.
 
 ### 2. Tinh Quang (Starlight)
@@ -69,14 +68,15 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **The Sky Is Your Array (Thiên Vi Trận)** | keystone | Array in the Sky runs at 100 % and carries 2 formations | You cannot lay a formation on ground in a foreseen fight (only the sky arrays) | Tinh Trận |
+| **The Sky Is Your Array (Thiên Vi Trận)** | keystone | Array in the Sky carries 2 formations (each at the carried-ground shares 100/70/50 %, R9; formations on one ground take the stronger, Combat rule 12) | You cannot lay a formation on ground in a foreseen fight (only the sky arrays) | Tinh Trận |
 | **River of Stars (Tinh Hà)** | keystone | Falling Stars drops a meteor at 5 Stars | Your non-meteor hits deal 25 % less (L2 −25) | Lưu Tinh |
 | **Seven Stars Aligned (Thất Tinh Liên Châu)** | keystone | Your crit chance is +1 pp per Star held (cap +7) and crits add 2 Stars | Your max health is 20 % lower | Lưu Tinh, Bắc Đẩu |
 | **Starlit Eye (Tinh Nhãn)** | keystone | Starlight Sees All gives +1 pp crit per 1 pp of the foe's evade | Your accuracy can never exceed what the foe's evade needs (no spare accuracy), and your crit damage −20 % | Tinh Quang |
 
 ## New pieces
 
-- Formations carried into ambush and blind fights: `Needs rule` (Combat rule 12).
+- Formations carried into ambush and blind fights: Combat rule 12, R9 (carried ground).
+- Stars (Falling Stars): a self-counter with tag `growing`, cap 7 (Effects rule 8, R7).
 - Event choice preview (Dipper): `Needs key`.
 
 ## Kept apart from

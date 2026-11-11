@@ -24,8 +24,9 @@
   Trung): companion +1, max health +1 · Bond Mark (Dấu Khế): companion attack speed +2
 - **Effects:**
   - **Major: One Heart in Two Bodies (Nhất Tâm Song Thể).** Your companion's power share cap (`c_comp_cap`) is +20 %
-    of itself, and 10 % of damage you take is moved to the companion (it lowers its share for the fight instead of
-    health). `Needs rule` (companion as a damage sink; shared with Cốt's Bone Wall).
+    of itself, and 10 % of each hit on you is moved to the companion at the avoid step (it lowers its share for the fight instead of
+    health); it counts against the per-pulse avoid budget of 2, and ticks are never moved (Effects rule 6 avoid, R6;
+    shared with Cốt's Bone Wall).
   - Minor: Loyal (Trung Thành). Your companion's loyalty never falls below its floor. *(starter)* `Needs key`.
   - Minor: Called by Name (Gọi Tên). Your companion's first hit each fight comes at 0.5 s.
 
@@ -45,8 +46,9 @@
   +1 · Beast Blood (Máu Thú): regen +0.1
 - **Effects:**
   - **Major: Borrow the Beast (Mượn Thú).** Your basic attack gains your companion's damage type and `beast` tag, and
-    20 % of its power share as L5 (+1 per 1 %).
-  - Minor: Beast Sense (Thú Cảm). +3 pp evade while your companion is alive in the fight. *(starter)*
+    L5 = 0.2 × its power share in % (cap 25). The share is borrowed: your companion's own hits deal nothing while
+    you hold this.
+  - Minor: Beast Sense (Thú Cảm). +3 pp evade while a companion is attached to your loadout at compile. *(starter)*
   - Minor: Shared Hide (Chung Da). Your companion's element gives you its element's buff stacks (5, for the fight).
 
 ### 4. Thú Hồn (Beast Souls) — replaces ◇ Tọa Kỵ
@@ -57,7 +59,7 @@
   - **Major: Grow Together (Cùng Lớn).** Your companion gains +1 % power share (inside the cap) per year it has been
     with you (cap +15 %). `Needs key`.
   - Minor: Beast Core Feast (Tiệc Nội Đan). Beast cores fed to your companion give double. *(starter)*
-  - Minor: Last Gift (Quà Cuối). If your companion dies, you gain +3 % of its share as permanent attack.
+  - Minor: Last Gift (Quà Cuối). A life event, not a fight rule (a companion cannot be removed in a fight): when your companion dies in the world, you gain +3 % of its share as permanent attack. `Needs key`.
 
 ### 5. Săn (the Hunt)
 - **Small:** creature damage +2 · `travel_speed_pct` +1
@@ -75,12 +77,12 @@
 |---|---|---|---|---|
 | **One Heart in Many Bodies (Nhất Tâm Vạn Thể)** | keystone | Your companion's power share cap is +50 % of itself | Your own hits deal 40 % less (L2 −40) | Linh Khế |
 | **King of Beasts (Bách Thú Chi Vương)** | keystone | The Pack counts up to 10 beasts | You cannot slot more than 3 arts | Bầy |
-| **Wild Shape (Dã Hình)** | keystone | Borrow the Beast gives 50 % of the share as L5 | Your companion deals 50 % less | Thú Thể |
+| **Wild Shape (Dã Hình)** | keystone | Borrow the Beast gives L5 = 0.5 × the share in % (cap 40) | Your arts other than the basic attack deal 20 % less (L2 −20) | Thú Thể |
 
 ## New pieces
 
 - Beasts kept at home, companion years, loyalty floors: `Needs key` (Spirit Beasts).
-- Companion as a damage sink: `Needs rule`.
+- Companion as a damage sink: the avoid step's companion sink (Effects rule 6, R6).
 
 ## Kept apart from
 

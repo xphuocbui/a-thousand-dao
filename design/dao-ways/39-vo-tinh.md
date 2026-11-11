@@ -59,7 +59,7 @@
 - **Stat notables:** Stone Face (Mặt Đá): status resist ×2 · Granite Will (Ý Đá): defense ×2 · Weathered Stone (Đá
   Mòn): status resist +1, defense +1 · Cold Stone (Đá Lạnh): resist all +1
 - **Effects:**
-  - **Major: Heart of Stone (Tâm Như Thạch).** Curses on you last half as long, and you are immune to Silence.
+  - **Major: Heart of Stone (Tâm Như Thạch).** Curses on you last half as long (rounded down, never below 1 pulse; R22), and you are immune to Silence.
   - Minor: Unblinking (Không Chớp). Exposed on you is halved in strength. *(starter)*
   - Minor: Unshaken (Không Lay). Timer pushback on you is halved.
 

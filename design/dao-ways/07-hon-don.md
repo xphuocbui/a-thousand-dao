@@ -22,10 +22,9 @@
 - **Stat notables:** Primal Murk (Mù Mịt): chaos ×2 · Formless Edge (Lưỡi Vô Hình): chaos penetration ×2 · Grey Fire
   (Lửa Xám): chaos +1, crit damage +1 · Void Grip (Nắm Hư): chaos +2
 - **Effects:**
-  - **Major: Before the Forms (Tiên Hình).** 20 % of your Chaos damage ignores ward shields (it meets resistance and
-    health only). `Needs rule` (shared bypass rule).
+  - **Major: Before the Forms (Tiên Hình).** 20 % of your Chaos damage ignores ward shields (`bypass_share` 20 %, Combat Defence rule 9, R2: it still meets resistance, block and body shield; all sources add, cap 50 % per hit).
   - Minor: Chaos Taint (Nhiễm Hỗn). Your Chaos hits apply 2 Poison stacks for 6 pulses. *(starter)*
-  - Minor: Churning (Cuộn Xoáy). Your Chaos crits remove 2 of the foe's buff stacks (shared rule R16).
+  - Minor: Churning (Cuộn Xoáy). Your Chaos crits remove 2 of the foe's buff stacks (`strip_buff`, Effects rule 6, R16: oldest batch first, once per pulse).
 
 ### 2. Vô Hình (Unformed)
 - **Small:** `element_affinity_pct` +1.5 · `attack_pct` +1
@@ -61,7 +60,7 @@
 - **Stat notables:** Blend (Hòa Trộn): stack effect ×2 · Long Mix (Trộn Lâu): stack duration ×2 · Cauldron (Vạc):
   stack effect +1, duration +1 · Murky Pool (Ao Đục): regen +0.1
 - **Effects:**
-  - **Major: Primal Mixing (Hồng Mông Hợp).** Every 5 s, all your element buff batches end and become one Chaos batch (one Chaos stack per stack merged, lasting 10 pulses). Each Chaos stack counts as 0.3 of a stack of every element you held when it merged. `Needs key` (Chaos stacks).
+  - **Major: Primal Mixing (Hồng Mông Hợp).** Every 5 s (a time conditional), you `consume` all your element buff stacks (Effects rule 6, R19: oldest batch first; the count goes to this Effect's payload) and gain one Chaos batch (one Chaos stack per stack consumed, lasting 10 pulses). Each Chaos stack counts as 0.3 of a stack of every element you held when it merged. `Needs key` (Chaos stacks).
   - Minor: Muddy (Đục). Merged Chaos stacks last 2 pulses longer. *(starter)*
   - Minor: All in One (Vạn Hợp). Your hits deal more by the number of different elements merged in the last batch
     (L5 +5 each).
@@ -72,7 +71,7 @@
 |---|---|---|---|---|
 | **All Five, None of Them (Ngũ Hành Giai Vô)** | keystone | Your arts grant only Chaos stacks (Primal Mixing's kind), at the size they would have granted of their own element ×1.3 | Your arts cannot deal non-Chaos damage (all converted) | Vô Hình |
 | **Primal Haze (Hồng Mông)** | keystone | Eroded stacks to 8 | Your max health is 25 % lower | Xâm Thực |
-| **Chaos Unbound (Hỗn Độn Vô Câu)** | keystone | Before the Forms bypasses 45 % | Your Chaos resistance is −40 (you are part of it) | Hỗn Độn |
+| **Chaos Unbound (Hỗn Độn Vô Câu)** | keystone | Before the Forms bypasses 45 % (`bypass_share`, still inside the 50 % cap per hit with other sources, R2) | Your Chaos resistance is −40 (you are part of it) | Hỗn Độn |
 | **Mother of Elements (Vạn Tố Chi Mẫu)** | keystone | Chaos stacks count as 0.5 of each element | You cannot hold element buff stacks except as Chaos stacks (every grant merges at once) | Hỗn Hợp |
 
 ## New pieces

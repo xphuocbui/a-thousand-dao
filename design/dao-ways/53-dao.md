@@ -34,7 +34,7 @@
 - **Effects:**
   - **Major: Sweep (Hoành Tảo).** Your saber hits deal 30 % of their damage to every ward shield the target has up,
     in addition to the normal defence path. `Needs rule` (Combat Defence: one path per hit).
-  - Minor: Clear the Field (Dọn Trận). Your saber hits remove 1 buff stack of the target's highest-count element (shared rule R16, once per pulse).
+  - Minor: Clear the Field (Dọn Trận). Your saber hits remove 1 buff stack of the target's highest-count element (`strip_buff`, Effects rule 6, R16; once per pulse).
   - Minor: Wide Stance (Thế Rộng). +5 block rating per slotted saber art. *(starter)*
 
 ### 3. Đao Ý (Saber Intent)
@@ -42,7 +42,7 @@
 - **Stat notables:** Rising Madness (Cuồng Dâng): saber ×2 · Battle Blood (Máu Chiến): max health +1, saber +1 ·
   Unrelenting (Không Ngớt): saber crit damage +2 · Wild Eyes (Mắt Dại): saber crit chance +1, accuracy +1
 - **Effects:**
-  - **Major: Fury (Cuồng Ý).** Each saber hit you land (basic attack included, once you hold a saber; trigger hits count) gives 1 Fury (cap 20): L5 +2 per Fury on saber hits. After 3 s without a saber hit, Fury falls by 1 a second. `Needs key` (a self-counter, R7).
+  - **Major: Fury (Cuồng Ý).** Each saber hit you land (basic attack included, once you hold a saber; trigger hits count) gives 1 Fury (cap 20): L5 +2 per Fury on saber hits. After 3 s without a saber hit, Fury falls by 1 a second. (a self-counter, tag `growing`: Effects rule 8, R7; cap 20, decay as written).
   - Minor: Roar (Hống). At 20 Fury, your next saber hit crits for certain and resets Fury to 10.
   - Minor: Hot Start (Khởi Nóng). You begin each fight with 5 Fury, and Fury never falls below 5. *(starter)*
 
@@ -77,7 +77,7 @@
 ## New pieces
 
 - `saber` form tag: `Needs key` (Combat rule 6, Modifier System rule 9).
-- Fury (self-stack with decay): `Needs key`; shared idea with Sát Đạo's Chiến Liên.
+- Fury (self-counter, tag `growing`): Effects rule 8, R7; shared idea with Sát Đạo's Chiến Liên.
 - Sweep (damage to all ward shields): `Needs rule`.
 
 ## Kept apart from

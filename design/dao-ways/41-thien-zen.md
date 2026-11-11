@@ -32,7 +32,7 @@
   Calm (Lặng Không): status resist +1, resist +1 · Formless Peace (Bình An Vô Tướng): soul resist +2
 - **Effects:**
   - **Major: Form Is Emptiness (Sắc Tức Thị Không).** The first curse each foe art would place on you each fight fails (a fixed fail, no roll), and debuff stacks placed on you are 20 % fewer (rounded down).
-  - Minor: Let It Pass (Để Qua). Debuff batches on you are 1 pulse shorter. *(starter)*
+  - Minor: Let It Pass (Để Qua). Debuff batches on you are 1 pulse shorter (curses clamp to 1–5 pulses, R22). *(starter)*
   - Minor: Empty Hand Calm (Tay Không Lặng). With no damaging art slotted, +20 % resist all.
 
 ### 3. Thệ Nguyện (Vows)
@@ -40,19 +40,19 @@
 - **Stat notables:** Vow Kept (Giữ Nguyện): attack ×2 · Discipline (Giới): defense ×2 · Strict (Nghiêm): attack +1,
   defense +1 · Pure Conduct (Hạnh Thanh): status resist +2
 - **Effects:**
-  - **Major: Vows (Thệ Nguyện).** Before a fight, take up to 3 Vows from a list: *No Fire arts*, *No Healing*, *At Most Two Arts*, *No Escape*, *No Talismans*, *No Pills*, *No Artifacts Beyond One*. A Vow counts only if it forbids something your loadout actually holds (you unslot it). Each counted Vow gives L5 +10 and +4 % resistance to all. `Needs key`.
+  - **Major: Vows (Thệ Nguyện).** Before a fight, take up to 3 Vows from a list: *No Fire arts*, *No Healing*, *At Most Two Arts*, *No Escape*, *No Talismans*, *No Pills*, *No Artifacts Beyond One*. A Vow counts only if it forbids something your loadout actually holds (you unslot it). Each counted Vow gives L5 +10 and +4 % resistance to all. A preparation choice (Effects rule 8, Combat rule 12, R8): foreseen fights, the Advisor can preset it, one pick per source.
   - Minor: Easy Vow (Nguyện Dễ). Your first Vow gives +50 % of its bonus. *(starter)*
-  - Minor: Vow of Silence (Nguyện Câm). An extra Vow: *No Curses* (counts only if you hold a curse-applying art); while kept, Silence on you lasts 1 pulse less.
+  - Minor: Vow of Silence (Nguyện Câm). An extra Vow: *No Curses* (counts only if you hold a curse-applying art); while kept, Silence on you lasts 1 pulse less (R22).
 
 ### 4. Kim Cương (the Diamond Body)
 - **Small:** `body_shield_pct` +1 · `resist_pct` +1
 - **Stat notables:** Diamond Skin (Da Kim Cương): body shield ×2 · Vajra (Kim Cang): resist all ×2 · Unbreakable Seat
   (Tòa Không Vỡ): body shield +1, resist +1 · Golden Bones (Cốt Vàng): max health +2
 - **Effects:**
-  - **Major: Diamond Body (Kim Cương Bất Hoại).** Your body shield is not worn down by Burn, and Chaos passes it at half
-    (Chaos usually passes body shields fully). `Needs rule`.
+  - **Major: Diamond Body (Kim Cương Bất Hoại).** Your body shield is not worn down by Burn (`Needs rule`, no decision covers it), and its `stops` list takes Chaos at 30 %
+    (Combat Defence rule 9, R3; Chaos usually passes body shields fully).
   - Minor: Immovable Seat (Tòa Bất Động). Timer pushback on you does nothing. *(starter)*
-  - Minor: Diamond Mind (Tâm Kim Cương). While your body shield is up, curses on you last 1 pulse less.
+  - Minor: Diamond Mind (Tâm Kim Cương). While your body shield is up, curses on you last 1 pulse less (R22).
 
 ### 5. Đốn Ngộ (Sudden Insight)
 - **Small:** `ngo_tinh` (comprehension) +1 · `than_thuc_pct` +0.5
@@ -68,13 +68,13 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **The Mind Does Not Move (Tâm Bất Động)** | keystone | Vows give L5 +14 each and you may take 4 | Each fight you break a Vow (by event) costs 20 heart demon | Thệ Nguyện |
-| **Diamond Never Breaks (Kim Cương Bất Hoại Thân)** | keystone | Diamond Body stops Chaos fully | Your art speed is −25 % | Kim Cương |
-| **Bright Heart (Minh Tâm Kiến Tính)** | keystone | Above 80 % health, each curse placed on you has its duration halved (floor 1 pulse) | Your max health is 15 % lower | Không |
+| **Diamond Never Breaks (Kim Cương Bất Hoại Thân)** | keystone | Diamond Body's Chaos stop is 50 % (the R3 cap) | Your art speed is −25 % | Kim Cương |
+| **Bright Heart (Minh Tâm Kiến Tính)** | keystone | Above 80 % health, each curse placed on you has its duration halved (rounded down, floor 1 pulse; R22) | Your max health is 15 % lower | Không |
 
 ## New pieces
 
-- Vows (pre-fight restrictions with rewards): `Needs key`; shared machinery with Kiếp's Trials and Thệ Đạo.
-- Burn and Chaos against body shields: `Needs rule`.
+- Vows (pre-fight restrictions with rewards): preparation choices (Effects rule 8, R8); shared machinery with Kiếp's Trials and Thệ Đạo.
+- Chaos against body shields: a `stops` entry (Combat Defence rule 9, R3). Burn not wearing the shield down: `Needs rule`.
 
 ## Kept apart from
 

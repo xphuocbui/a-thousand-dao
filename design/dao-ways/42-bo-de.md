@@ -24,7 +24,7 @@ for power or protection.
 - **Stat notables:** Kind Hand (Tay Hiền): healing ×2 · Gentle Shield (Thuẫn Hiền): body shield ×2 · Mercy (Lòng Từ):
   healing +1, body shield +1 · Patience of Saints (Nhẫn Thánh): regen +0.1
 - **Effects:**
-  - **Major: Compassion (Từ Bi).** Healing from your arts and Effects that would go past full health becomes a body shield (up to 20 % of max health); regeneration does not count. `Needs rule` R20 (a health-overflow readable).
+  - **Major: Compassion (Từ Bi).** Healing from your arts and Effects that would go past full health becomes a body shield (up to 20 % of max health); regeneration does not count. Reads the health overflow readable (Effects rule 5, "healing lost to a full pool, per pulse").
   - Minor: Spare Them (Tha). When you win, choosing mercy gives 10 Merit. `Needs key` (Merit). *(starter)*
   - Minor: Kind Heal (Trị Hiền). Each pulse in which you healed 5 %+ of max health, cleanse 1 curse.
 
@@ -33,7 +33,7 @@ for power or protection.
 - **Stat notables:** Merit Wall (Tường Công Đức): defense ×2 · Good Karma (Nghiệp Lành): ward efficiency ×2 · Blessed
   Guard (Hộ Phúc): defense +1, ward +1 · Lotus Aegis (Khiên Sen): soul resist +2
 - **Effects:**
-  - **Major: Karma Shield (Nghiệp Thuẫn).** Before a fight, spend Merit: each 10 Merit gives a body shield of 1 % of max health for that fight (cap 15 %). Merit: 10 per mercy, 5 to 30 per good-deed quest.
+  - **Major: Karma Shield (Nghiệp Thuẫn).** Before a fight (a preparation choice, Effects rule 8, R8), spend Merit (a life readable, Character Stats rule 9a, R13): each 10 Merit gives a body shield of 1 % of max health for that fight (cap 15 %). Merit: 10 per mercy, 5 to 30 per good-deed quest.
   - Minor: Protected (Được Che). The first hit each fight that would take 20 %+ of your health is dampened 50 % (rule 6a). *(starter)*
   - Minor: Merit Lingers (Phúc Lưu). Merit decays 50 % slower.
 
@@ -53,7 +53,7 @@ for power or protection.
   (Tụng Kinh): light +1, soul resist +1 · Demon Bane (Khắc Ma): crit damage +2
 - **Effects:**
   - **Major: Exorcise (Trừ Ma Vệ Đạo).** Your hits deal more to demonic, ghost and undead foes (L5 +35), and their
-    Chaos and Soul hits on you are reduced by 20 %. `Needs key` (foe tags).
+    Chaos and Soul hits on you are reduced by 20 %. Reads the foe tags `demonic`, `ghost`, `undead` (Character Stats rule 9a, Combat rule 18, R13).
   - Minor: Sin Revealed (Tội Hiện). *Shared minor* (with Quang, Lôi): L5 +15 to Light hits on demonic foes or Corpse
     Rot carriers. *(starter)*
   - Minor: Purifying Word (Lời Tịnh). Your Light hits remove 1 Corpse Rot or Chaos-status stack from you.
@@ -77,8 +77,8 @@ for power or protection.
 
 ## New pieces
 
-- Merit (công đức) as a character resource; mercy choices feeding it: `Needs key`.
-- Foe tags `demonic`, `ghost`, `undead`: `Needs key` (shared with Lôi, Quang, Luân Hồi).
+- Merit (công đức) is a life readable (Character Stats rule 9a, R13); the mercy choice feeding it stays `Needs key`.
+- Foe tags `demonic`, `ghost`, `undead`: profile tags (Combat rule 18, R13), shared with Lôi, Quang, Luân Hồi.
 
 ## Kept apart from
 

@@ -79,8 +79,8 @@
 
 ## New pieces
 
-- Yin and Yang counters; damage-share readables over a window: `Needs key`.
-- Pool swap (The Fish Turn): `Needs rule` (Combat rule 11).
+- Yin and Yang counters: self-counters with tag `growing` (Effects rule 8, R7); each carries its own cap of 20. Damage-share readables over a window: `Needs key`.
+- Pool swap (The Fish Turn): `Needs rule` (Combat rule 11) `(deferred, R12)`.
 
 ## Kept apart from
 

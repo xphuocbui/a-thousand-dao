@@ -68,7 +68,7 @@
 | Mother Lode (Mẫu Khoáng) | Trade (Effect) | soul, via Thousand-Weight Thought | none | Fits today | soul-lance (from by-root dual-earth-metal) | dual-earth-metal (as a cost) | reused, by-root |
 | `than_hon`, `than_thuc_pct`, `x_soul`, `art_speed_pct`, `pierce_pct`, `linh_luc_regen_pct` | Flat, Increased, Timing | soul | none | Fits today (Character Stats live, Modifier System designed) | soul-lance | every soul build | in the Modifier System |
 | Slackened Soul (curse), Soul Wound, Open Sky, First Move, Unyielding Breath | Curse, Effects, keystone | soul, survival | none | Fits today (effects.md) | soul-lance | soul builds, ward builds | in the Effects GDD |
-| Cold Toll (Hàn Thuế) | Redirect (keystone Effect) | linh lực burn via the enemy's drain ward | none | Needs rule | dry-well | variant-ice Frozen Treasury and Frost Lock, Ice + Force anti-ward builds | proposal (staging) |
+| Cold Toll (Hàn Thuế), merged 2026-11-11 into Băng Đạo's Absolute Zero | Redirect (keystone Effect) | linh lực burn via the enemy's drain ward | none | Needs rule | dry-well | variant-ice Frozen Treasury and Frost Lock, Ice + Force anti-ward builds | proposal (staging) |
 | Owed Water (Thủy Trái) | Overflow (Effect) | linh lực burn past an empty pool | none | Needs rule | dry-well | two-clocks, soul-lance, Qi Disruption builds | proposal (staging) |
 | Weighted Bucket (Trụy Dũng), `ward_bill_pct` | Increased | linh lực burn via the enemy's drain ward | none | Needs key | dry-well | Water Table builds, first-volley's Breaker, Force anti-ward | proposal (staging) |
 | Cold Depths (Hàn Uyên) | More | art hit [cold] | L2 | Fits today | dry-well | any Cold build | proposal (staging) |

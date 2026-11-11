@@ -51,9 +51,8 @@
 - **Stat notables:** Ring of Light (Vòng Sáng): defense ×2 · Halo Ward (Hộ Quang): ward efficiency ×2 · Holy Glow
   (Thánh Quang): soul resistance ×2 · Bright Shield (Thuẫn Sáng): defense +1, chaos resistance +1
 - **Effects:**
-  - **Major: Halo (Hào Quang).** Your wards' shields also stop Chaos and Soul damage at 40 % of their value, and each
-    hit they fully stop grants +1 % ward strength for the fight (cap +30 %). `Needs rule` (Chaos and Soul passing
-    ward shields).
+  - **Major: Halo (Hào Quang).** Your wards' shields also stop Chaos damage at 40 % and Soul damage at 20 % of their value, and each
+    hit they fully stop grants +1 % ward strength for the fight (cap +30 %). (Shield `stops` list, under the caps of 50 % Chaos / 30 % Soul: Combat Defence rule 9, R3; event: a hit fully stopped by wards, Effects rule 5, R20.)
   - Minor: Radiant Guard (Quang Hộ). When your ward stops a Chaos hit, apply Exposed to the attacker for 1 pulse.
   - Minor: Warm Light (Ánh Ấm). Your wards heal you for 1 % of max health when they are cast. *(starter)*
 
@@ -72,14 +71,14 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **Nothing Hides (Vô Sở Độn Hình)** | keystone | Exposed from you has no refresh limit: it can be re-applied while running, its duration adding up to 10 pulses | Your hits deal no damage to a target that is not Exposed for the first 3 s (you need to light it first) | Quang |
-| **Radiance (Quang Minh)** | keystone | Your Light hits cannot be evaded, and 10 % of each ward shield's value is skipped by them (`Needs rule`: R2) | Your arts cannot be Light and another element at once (no Light conversion) | Quang, Thự Quang |
-| **The Sun Within (Nội Nhật)** | keystone | Your Halo stops Chaos and Soul at 80 % | Your hits deal 25 % less (L2 −25) | Hào Quang |
+| **Radiance (Quang Minh)** | keystone | Your Light hits cannot be evaded, and `bypass_share` 10 % on every part of your hits: that share skips ward shields only (Combat Defence rule 9, R2; cap 50 % per part) | Your arts cannot be Light and another element at once (no Light conversion) | Quang, Thự Quang |
+| **The Sun Within (Nội Nhật)** | keystone | Your Halo stops Chaos at 50 % and Soul at 30 %, the caps (Combat Defence rule 9, R3) | Your hits deal 25 % less (L2 −25) | Hào Quang |
 | **Heaven's Mirror (Thiên Kính)** | keystone | Each curse a foe places on you is also placed on it | You cannot place curses other than Exposed | Phán Xét |
 
 ## New pieces
 
 - Exposed stacking duration: `Needs rule` (Exposed refreshes, Status Catalogue).
-- Chaos and Soul against ward shields: `Needs rule` (Combat Defence).
+- Chaos and Soul against ward shields: shield `stops` list, caps 50 % / 30 % (Combat Defence rule 9, R3).
 
 ## Kept apart from
 

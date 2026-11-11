@@ -4,6 +4,8 @@
 > carries as well; dao.md rule 10).
 > **Theme stats:** `attack_pct` (force, soul), `art_speed_pct`, companion damage, `tam_ma_resist_pct`, `status_duration_pct`,
 > `than_thuc_pct`.
+> Also used below, listed here (dao.md rule 12): `crit_damage_pct`, soul resist (`soul_res_pct`), max health, `x_soul`.
+> `status_duration_pct` is a proposed key (`Needs key`).
 > **Road:** `attack_pct` force +1.5.
 
 ## Build directions
@@ -18,10 +20,10 @@
 
 ## Art
 
-**Song of Heaven's Pipes (Thiên Lại Khúc)** — Way art (the Cầm facet's notable). Two parts: a Force part (c_art
-per the lint) and a Soul part (`x_soul` at 0.4 of a soul art of its cost). Cost 8 % of max
-linh lực, cooldown 6 s. Rider (counts as a minor): +3 Resonance. `Needs rule` (a mixed Soul part; shared with Mị's
-Fox Fire).
+**Song of Heaven's Pipes (Thiên Lại Khúc)** — Way art (the Cầm facet's notable). Two parts: a Force part of 70 % of the hit (c_art
+per the lint) and an added Soul part of 30 % (the cap of R11, Combat soul rules): the Soul part meets only soul defence,
+shares the soul lockout, and is priced as a soul art of its share (Combat Formulas E2). Cost 8 % of max
+linh lực, cooldown 6 s. The hit carries the form tag `song`. Rider (counts as a minor): +3 Resonance.
 
 ## Facets
 
@@ -32,7 +34,7 @@ Fox Fire).
 - **Effects:**
   - **Art: Song of Heaven's Pipes** (above).
   - **Major: Strings of the Soul (Huyền Âm Nhiếp Hồn).** Your Force hits apply 1 Slackened Soul stack every 3rd hit, and
-    your soul hits deal +1 % `x_soul` per 5 Resonance.
+    your soul parts deal +2 % `x_soul` per 5 Resonance (+8 % at the cap of 20).
   - Minor: Tuning (Lên Dây). You start each fight with 5 Resonance. *(starter)*
 
 ### 2. Chiến Cổ (the War Drum)
@@ -50,19 +52,20 @@ Fox Fire).
 - **Stat notables:** Bamboo Flute (Sáo Trúc): heart-demon resist ×2 · Long Note (Nốt Dài): status duration ×2 · Lonely
   Tune (Khúc Cô Đơn): heart-demon resist +1, status duration +1 · Moon Flute (Tiêu Trăng): soul resist +2
 - **Effects:**
-  - **Major: Flute of Calm (Tiêu Tĩnh).** The foe's growing self-stacks (Fury, Hunger, Spin, Obsession and the like) lose
-    1 a second while you have fired an art in the last 3 s.
+  - **Major: Flute of Calm (Tiêu Tĩnh).** The foe's growing self-stacks (self-counters with the tag `growing`: Fury, Hunger, Spin, Obsession and the like; Effects rule 8, R7) lose
+    1 a second while you have fired an art in the last 3 s. `Needs rule` (the tag exists, R7; no action lowers a foe's self-counter yet, and R21 bars direct foe changes).
   - Minor: Soothing Air (Khúc Êm). Heart demon gained from fights −20 %. *(starter)*
-  - Minor: Lull (Ru). The foe's art speed −5 % while you hold 10+ Resonance.
+  - Minor: Lull (Ru). While you hold 10+ Resonance, your hits apply 1 Slowed Time stack (3 pulses; 6 % per stack, Status Catalogue, R1).
 
 ### 4. Cộng Hưởng (Resonance)
 - **Small:** `attack_pct` +1.2 · `art_speed_pct` +0.5
 - **Stat notables:** Echoing Hall (Sảnh Vang): attack ×2 · Harmony (Hòa Âm): art speed ×2 · Sympathetic String (Dây Cộng
   Hưởng): attack +1, art speed +1 · Overtone (Bội Âm): crit damage +2
 - **Effects:**
-  - **Major: Resonance (Cộng Hưởng).** Each hit with the same form tag as your previous hit gives 1 Resonance (cap 20):
-    L5 +2 each. A hit of a different form tag halves Resonance.
-  - Minor: Sustain the Note (Giữ Nốt). Resonance does not fall while you have hit in the last 1 s. *(starter)*
+  - **Major: Resonance (Cộng Hưởng).** Each art hit with the same form tag as your previous tagged art hit gives 1 Resonance (cap 20):
+    L5 +2 each. A tagged art hit of a different form tag halves Resonance. Basic, companion, trigger and soul-part hits
+    are ignored (they neither raise nor break it). With no counting hit for 3 s, Resonance falls 1 a second.
+  - Minor: Sustain the Note (Giữ Nốt). Resonance's fall starts after 5 s without a counting hit instead of 3 s. *(starter)*
   - Minor: Crescendo (Cao Trào). At 20 Resonance, your next hit crits for certain and Resonance falls to 10.
 
 ### 5. Vô Thanh (Silence)
@@ -85,8 +88,10 @@ Fox Fire).
 
 ## New pieces
 
-- A mixed Force + Soul art: `Needs rule` (Combat Damage Types: soul hits are all Soul).
-- A tag for growing self-stacks: `Needs key` (shared with Liên's Calming Scent).
+- A mixed Force + Soul art: pointed at the added Soul part (R11, 30 %).
+- The tag for growing self-stacks: exists now (`growing`, R7). The action that lowers a foe's self-counter: `Needs rule`
+  (shared with Liên's Calming Scent).
+- `status_duration_pct`: `Needs key`.
 
 ## Kept apart from
 

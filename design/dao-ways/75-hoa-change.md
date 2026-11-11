@@ -8,9 +8,10 @@
 ## Build directions
 
 A **Form** is a self-state that rewrites your stat profile: you hold one at a time and change by a guard you set.
+On a switch your health share is kept (health = share × the new maximum): a switch never heals or hurts.
 
-1. **The Shapeshifter.** Change form mid-fight to answer the foe: Giant when it bursts, Small when it is accurate,
-   Elemental when it resists your element (Biến Hóa). The adaptive build.
+1. **The Shapeshifter.** Change form mid-fight by guards (own or foe health share, a status, fight time): Giant when
+   your health share is low, Small when the foe's is high, Elemental late in the fight (Biến Hóa). The adaptive build.
 2. **The Giant.** One form, always: huge health, slow, unstoppable (Cự Hình).
 3. **The Small.** Evade and stealth as a mouse or a sparrow: the hardest target in the game (Tiểu Hình).
 4. **The Beast.** Beast Form: claws on the basic attack and a beast's instincts (Thú Hình).
@@ -35,17 +36,17 @@ A **Form** is a self-state that rewrites your stat profile: you hold one at a ti
 - **Effects:**
   - **Major: Giant Form (Cự Hình).** In Giant Form: max health +40 %, block +40, your hits +15 %; art speed −30 % and
     evade 0.
-  - Minor: Grow (Lớn Lên). Entering Giant Form heals the health gained. *(starter)*
-  - Minor: Stomp (Dậm). Entering Giant Form pushes the foe's timers back 0.5 s. `Needs rule` (timer pushback).
+  - Minor: Grow (Lớn Lên). The first time each fight you enter Giant Form, you heal the health gained, once. *(starter)*
+  - Minor: Stomp (Dậm). Entering Giant Form delays the foe's next art 0.5 s (`delay_timer`, falls off within 3 s; Effects rule 6, R1).
 
 ### 3. Tiểu Hình (Small Form)
 - **Small:** `evade_pct` +0.4 · `escape_pct` +1
 - **Stat notables:** Sparrow (Chim Sẻ): evade ×2 · Mouse Hole (Hang Chuột): escape ×2 · Quick and Small (Nhỏ Nhanh): evade
   +1, art speed +1 · Hidden in Grass (Ẩn Trong Cỏ): crit chance +2
 - **Effects:**
-  - **Major: Small Form (Tiểu Hình).** In Small Form: evade +20 pp (may exceed `evade_cap` by 5), max health −30 %, your
+  - **Major: Small Form (Tiểu Hình).** In Small Form: evade +20 pp (clipped by `evade_cap` like any evade), max health −30 %, your
     hits −20 %.
-  - Minor: Slip Through (Lách Qua). Entering Small Form cleanses Bound and Hooked-type effects. *(starter)*
+  - Minor: Slip Through (Lách Qua). Entering Small Form cleanses 1 curse. *(starter)*
   - Minor: Tiny Bite (Cắn Nhẹ). In Small Form, your crits apply 1 Bleed stack.
 
 ### 4. Nguyên Tố Hình (Elemental Form)
@@ -54,7 +55,9 @@ A **Form** is a self-state that rewrites your stat profile: you hold one at a ti
   affinity +1, attack +1 · Storm Shape (Hình Bão): resist all +1
 - **Effects:**
   - **Major: Elemental Form (Nguyên Tố Hình).** In Elemental Form (of your highest-purity element): your hits convert 50 %
-    to that element's damage type, you gain +60 resistance to it, and your buff stacks of it count double.
+    to that element's damage type (Metal, Earth, Wood → Physical; Water, Ice → Cold; Fire → Fire; Thunder →
+    Lightning; Light → Light; Wind → Force), using one of the 2 conversions per hit; you gain +60 resistance to
+    that type, and your buff stacks of it count double.
   - Minor: Element Skin (Da Nguyên Tố). Entering Elemental Form gives 10 buff stacks of its element. *(starter)*
   - Minor: Shifting Element (Nguyên Tố Đổi). You may choose your second-highest element instead.
 
@@ -64,8 +67,9 @@ A **Form** is a self-state that rewrites your stat profile: you hold one at a ti
   (Nhiều Hình): art speed +1, max health +1 · True Shape (Chân Hình): status resist +2
 - **Effects:**
   - **Major: Ten Thousand Changes (Vạn Hóa).** Set up to 3 Forms and a guard for each; you switch when its guard is met
-    (once per 4 s). Each switch cleanses 3 debuff stacks and gives L5 +15 for 3 s. `Needs key` (Form guards).
-  - Minor: Smooth Change (Biến Mượt). Switching keeps 50 % of your health share instead of rescaling. *(starter)*
+    (once per 4 s). A guard is a health or linh lực share (yours or the foe's), a status, or fight time. Each switch
+    cleanses 3 debuff stacks (at most once per 4 s) and gives L5 +15 for 1 s. `Needs key` (Form guards).
+  - Minor: Smooth Change (Biến Mượt). Your first switch each fight has no 4 s lockout. *(starter)*
   - Minor: Memory of Form (Nhớ Hình). Each Form you have used this fight gives +3 % to all damage.
 
 ## Capstones

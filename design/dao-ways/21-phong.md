@@ -75,8 +75,8 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Never in One Place (Lưu Phong)** | keystone | Your evade cap is 10 pp higher (a cap shift, `Needs rule`; R14) | Your max health is 30 % lower | Phiêu |
-| **The Wind Has No Floor (Phong Vô Để)** | keystone | Your `cooldown_min` is 20 % lower (a cap shift, `Needs rule`; R14). Rival of Over the Limit: the two cannot both be held | Your arts cost 40 % more | Cuồng Phong |
+| **Never in One Place (Lưu Phong)** | keystone | Each 1 pp of evade you would have above `evade_cap` becomes +2 block rating instead (a conversion, not a cap shift: the Way's one cap shift is The Wind Has No Floor, Dao rule 4, R14) | Your max health is 30 % lower | Phiêu |
+| **The Wind Has No Floor (Phong Vô Để)** | keystone | Your `cooldown_min` is 20 % lower (the Way's one cap shift: Dao rule 4, R14; the closing cost is the 40 % dearer arts). Rival of Over the Limit: the two cannot both be held | Your arts cost 40 % more | Cuồng Phong |
 | **Ten Thousand Blades (Vạn Nhận)** | keystone | Your quick arts hit twice at 50 % each (one firing for lockouts and trigger limits; `Needs rule`: hit splitting) | Your slow arts cannot be slotted | Phong Nhận |
 | **Clear Breeze (Thanh Phong)** | keystone | Your Wind buff stacks never expire while you have evaded in the last 4 s | You cannot slot a ward with a block payload | Phiêu, Bão Táp |
 

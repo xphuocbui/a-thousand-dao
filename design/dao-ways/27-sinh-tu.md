@@ -33,7 +33,7 @@
 - **Stat notables:** Grave Cold (Lạnh Mộ): curse duration ×2 · Death Touch (Chạm Chết): chaos ×2 · Mourning (Tang):
   curse duration +1, chaos +1 · Dust to Dust (Cát Bụi): chaos penetration +2
 - **Effects:**
-  - **Major: Withering Hand (Khô Thủ).** Your Chaos hits apply Withering. Each pulse, a Withered foe that healed this pulse gains 3 Poison stacks for 6 pulses (`Needs rule` R20: "a heal lands" as an event).
+  - **Major: Withering Hand (Khô Thủ).** Your Chaos hits apply Withering. Each pulse, a Withered foe that healed this pulse gains 3 Poison stacks for 6 pulses (event "a heal restored", Effects rule 5, R20).
   - Minor: Death's Patience (Tử Nhẫn). Withering you apply lasts 2 pulses longer. *(starter)*
   - Minor: Last Breath (Tàn Hơi). A Withered foe below 30 % health has its regeneration dampened by 100 (halved; Modifier System rule 6a).
 
@@ -42,7 +42,7 @@
 - **Stat notables:** Edge of Life (Bờ Sinh): max health ×2 · Second Chance (Cơ Hội Hai): healing taken ×2 · Thin
   Line (Lằn Ranh): max health +1, regen +0.05 · Death's Door (Cửa Tử): crit damage +2
 - **Effects:**
-  - **Major: Walk the Threshold (Hành Ranh).** Once per fight, at the Down step's refusal, refuse it (health 1, Effects rule 11) and drop every hit that lands on you for 1 s (`Needs rule` R6; ticks still land). Each threshold crossed is reported to the caller as a life result: +1 % max health for life, cap +10 % (applied outside the fight, `Needs key`).
+  - **Major: Walk the Threshold (Hành Ranh).** Once per fight, at the Down step's refusal, refuse it (health 1, Effects rule 11) and you are untargetable for 1 s: at the avoid step the hits that reach you are dropped, up to the per-pulse avoid budget of 2; ticks still land (Combat Defence rule 1, R6). Each threshold crossed is reported to the caller as a life result: +1 % max health for life, cap +10 % (applied outside the fight, `Needs key`).
   - Minor: Last Act (Tối Hậu Chiêu). At the Down step's last act, your next ready art fires at once and deals more
     (L5 +40). *(starter)*
   - Minor: Near Death (Cận Tử). While below 20 % health, healing you receive is 50 % stronger.
@@ -73,14 +73,15 @@
 |---|---|---|---|---|
 | **Crossing the Line Both Ways (Sinh Tử Lưỡng Giới)** | keystone | While the foe is Withered by you, healing it receives is dealt to it as Chaos damage instead | You cannot be healed by any source but regeneration | Diệt |
 | **The Living Wound (Sinh Thương)** | keystone | Life Overflowing deals 100 % of the overflow (still a trigger inside `trig_budget`) | Your direct hits deal 40 % less (L2 −40) | Sinh |
-| **Thrice-Crossed (Tam Quá Quỷ Môn)** | keystone | Walk the Threshold may refuse twice per fight (`Needs rule` R5) | Your max health is 35 % lower | Ranh Giới |
+| **Thrice-Crossed (Tam Quá Quỷ Môn)** | keystone | Walk the Threshold may refuse twice per fight (Effects rule 11, R5: the budget is 2, the most any source gives; last acts stay free) | Your max health is 35 % lower | Ranh Giới |
 | **Corpse Lord (Thi Vương)** | enabler | You may hold 2 Corpse Rots on a target, each with its own fee (`Needs rule`: Corpse Rot has no stacking) | You cannot apply Poison by hits | Thi Khí |
 | **Ten Thousand Years (Vạn Thọ)** | keystone | Undying Spring counts every 5 years (cap +50 %) | Every breakthrough you attempt costs 2 % more lifespan, success or not | Trường Sinh |
 
 ## New pieces
 
-- Healing turned to damage (Crossing the Line): `Needs rule` (Combat Defence healing).
-- Untouchable for 1 s: `Needs rule` (shared with Ám's Step into Shadow).
+- Healing turned to damage (Crossing the Line): Combat Defence rule 19, Effects rule 6 (R12). It goes straight to health, like fatigue.
+- Untouchable for 1 s: the avoid step (Combat Defence rule 1, R6), shared with Ám's Step into Shadow.
+- `status_duration_pct` [curse]: the key exists (Modifiers Stat List); every change is applied, then durations clamp to 1–5 pulses (Effects Status Catalogue, R22).
 - A life-long "thresholds crossed" counter: `Needs key`.
 
 ## Kept apart from

@@ -22,7 +22,7 @@
 - **Stat notables:** Clean Stem (Thân Sạch): status resist ×2 · Rise Up (Vươn Lên): attack ×2 · Mud Below (Bùn
   Dưới): status resist +1, max health +1 · Unstained (Không Vấy): chaos resistance +2
 - **Effects:**
-  - **Major: Out of the Mud (Xuất Ứ Nê Nhi Bất Nhiễm).** Each debuff stack or curse **cleansed** from you gives L5 +2 for 10 s (cap +40).
+  - **Major: Out of the Mud (Xuất Ứ Nê Nhi Bất Nhiễm).** Each debuff stack or curse **cleansed** from you gives L5 +2 for 10 s (cap +40). Reads the event "your stacks or curse were cleansed" (Effects rule 5, R20).
   - Minor: Untouched (Bất Nhiễm). Your cleanses remove 1 more stack. *(starter)*
   - Minor: Bloom in Dirt (Nở Trong Bùn). While you carry 3+ different debuffs, your regeneration is 50 % higher.
 
@@ -40,7 +40,7 @@
 - **Stat notables:** Thousand-Petal Seat (Đài Ngàn Cánh): defense ×2 · Lotus Ward (Hộ Sen): ward efficiency ×2 ·
   Floating Throne (Đài Nổi): defense +1, cast ward duration +1 · Stillness Seat (Tòa Tĩnh): soul resist +2
 - **Effects:**
-  - **Major: Lotus Throne (Liên Đài).** Each pulse you are not hit, grow 1 Petal (cap 9): each Petal is a ward shield of 2 % of max linh lực (scaled by ward strength), refilled each pulse; a hit that lands on health loses 2 Petals.
+  - **Major: Lotus Throne (Liên Đài).** Each pulse you are not hit, grow 1 Petal (a self-counter, tag `growing`, Effects rule 8, R7; cap 9): each Petal is a ward shield of 2 % of max linh lực (scaled by ward strength), refilled each pulse; a hit that lands on health loses 2 Petals.
   - Minor: Opening Petals (Cánh Nở). You start each fight with 3 Petals. *(starter)*
   - Minor: Closed Bud (Nụ Khép). While you hold 9 Petals, curses on you last 1 pulse less.
 
@@ -58,7 +58,7 @@
 - **Stat notables:** Faint Scent (Hương Thoảng): heart-demon resist ×2 · Calm Water (Nước Lặng): status resist ×2 ·
   Incense of Lotus (Nhang Sen): heart-demon resist +1, soul resist +1 · Still Pond (Ao Tĩnh): regen +0.1
 - **Effects:**
-  - **Major: Calming Scent (Hương Định Tâm).** Every 3 s, apply 1 Calmed stack to the foe (a curse: −1 % art speed per stack, stacks to 15, 5 pulses, refreshed by each new stack; `Needs key` and `Needs rule`: art speed is not yet a curse rule), and its growing self-counters (shared rule R7) gain 30 % slower.
+  - **Major: Calming Scent (Hương Định Tâm).** Every 3 s, apply 1 Calmed stack to the foe (a curse: −1 % art speed per stack, stacks to 15, 5 pulses, refreshed by each new stack; slows timers like Slowed Time, so the foe's `timer_resist_pct` shrinks it and no timer drops below `cooldown_min`: Effects Status Catalogue, R1; the Calmed record itself `Needs key`), and its self-counters tagged `growing` (Effects rule 8, R7) gain 30 % slower.
   - Minor: Clear Mind in Battle (Chiến Tâm Thanh). Heart demon gained from fights is 30 % lower. *(starter)*
   - Minor: Soothing (Xoa Dịu). Afraid (Tình's proposed curse) cannot be placed on you.
 
@@ -68,12 +68,12 @@
 |---|---|---|---|---|
 | **Untouched by the Mud (Xuất Nê Bất Nhiễm)** | keystone | You are immune to the first 3 debuff stacks of each element each pulse, and Out of the Mud counts each refused stack | Your hits deal 25 % less (L2 −25) | Xuất Bùn |
 | **Blue Lotus Throne (Thanh Liên Bảo Tọa)** | keystone | Lotus Throne grows 2 Petals a pulse, cap 15 | Your arts cost 20 % more | Liên Đài |
-| **Seed of Rebirth (Liên Tử Tái Sinh)** | keystone | At the Down step's refusal, eat every Seed at once instead of going Down (if they heal you above 0) | Seeds grow every 9 s | Liên Tử |
+| **Seed of Rebirth (Liên Tử Tái Sinh)** | keystone | At the Down step's refusal, eat every Seed at once instead of going Down: the refusal sets health to 1, then the Seeds heal (Effects rule 11, R5; one refusal) | Seeds grow every 9 s | Liên Tử |
 | **Heart of the Lotus (Liên Tâm)** | keystone | You cannot gain heart demon in fights, and the status-resistance clamp floor is 0 % for you (a certain resist is possible) | Your hits deal 15 % less (L2 −15) | Hương Liên |
 
 ## New pieces
 
-- A tag for growing self-stacks (Fury, Hunger, Spin, Dragon stacks): `Needs key` (lets counters read them).
+- A tag for growing self-stacks (Fury, Hunger, Spin, Dragon stacks): the tag `growing` (Effects rule 8, R7).
 
 ## Kept apart from
 

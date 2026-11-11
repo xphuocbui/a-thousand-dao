@@ -46,7 +46,7 @@
   Master's Mark (Ấn Thợ): artifact power +1, artifact attack +1 · Slag Out (Lọc Xỉ): artifact attack ×2
 - **Effects:**
   - **Major: Living Forge (Hoạt Lô).** Each time your weapon artifact's active effect fires, that weapon gains
-    +2 % artifact attack for the fight (cap +40 %). `Needs rule`: L3 moving mid-fight.
+    +2 % artifact attack for the fight (cap +40 %, no decay). A self-counter tagged `growing` (Effects rule 8, R7).
   - Minor: Quench (Tôi). The first artifact active you fire each fight costs no linh lực. *(starter)*
   - Minor: Spirit in the Steel (Khí Linh). +1 % artifact power for each 5 % of your thần thức left unused by
     artifacts (cap +15 %).
@@ -57,7 +57,7 @@
   Quartermaster (Quản Khố): thần thức cost −1, artifact power +1 · Spare Blade (Kiếm Dự): artifact attack +1, block +1
 - **Effects:**
   - **Major: Hundred Weapons Answer (Bách Binh Ứng).** Up to two of your artifact actives with an authored
-    cooldown of 10 s or more take no art slot. `Needs rule`: Combat rule 13, the one slot pool.
+    cooldown of 10 s or more take no art slot: you gain 2 kind-locked `artifact_active` slots (`free_slots[artifact_active]` +2; Combat rule 13, R4).
   - Minor: Light Load (Khinh Trang). Your cheapest equipped artifact costs no thần thức.
   - Minor: Weapon Rack (Binh Giá). Your Physical hits deal more for each weapon-role artifact equipped (L5 +3
     each, cap +15). *Shared minor* (with Thương, Đao).
@@ -81,13 +81,13 @@
 | **Hundred Temperings (Bách Luyện Thành Cương)** | keystone | Your Metal buff stacks never expire during a fight | You can never hold more than 30 Metal buff stacks | Kim Phong |
 | **Sole Edge (Độc Phong)** | keystone | The two largest non-Soul parts of your hits convert to Physical (one conversion each; the limit of 2 holds) | You cannot apply Burn or Poison | Tinh Kim |
 | **Living Arsenal (Vạn Binh Thân)** | enabler | +1 artifact equipped beyond `equip.max_slots` | Your artifacts cost 30 % more thần thức | Binh Khố |
-| **Unbreaking (Bất Chiết)** | keystone | Your Physical resistance may exceed the resistance cap by 10 points (a cap shift, `Needs rule`; R14) | You take 20 % more Chaos damage (rust) | Thối Thể |
+| **Unbreaking (Bất Chiết)** | keystone | Your Physical resistance may exceed the resistance cap by 10 points (the Way's one cap shift: Dao rule 4, R14) | You take 20 % more Chaos damage (rust) | Thối Thể |
 
 ## New pieces
 
 - `stack_duration_pct` scoped by element: exists as a key; element scope `Needs key`.
-- Living Forge, Bách Binh Ứng, Living Arsenal: `Needs rule` (L3 in-fight growth; actives outside the slot pool;
-  a slot above `equip.max_slots`).
+- Living Forge: self-counter (Effects rule 8, R7). Bách Binh Ứng: `free_slots[artifact_active]` (Combat rule 13, R4).
+  Living Arsenal: `Needs rule` (a slot above `equip.max_slots`; no decision covers it).
 
 ## Kept apart from
 

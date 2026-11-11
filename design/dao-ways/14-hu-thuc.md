@@ -71,16 +71,17 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Which Blow Was Real? (Hư Thực Mạc Trắc)** | keystone | Feints take no art slot (up to 3) | Your non-feint arts cost 30 % more | Hư Chiêu |
+| **Which Blow Was Real? (Hư Thực Mạc Trắc)** | keystone | Feints take no art slot (up to 3: `free_slots[feint]` +3, R4) | Your non-feint arts cost 30 % more | Hư Chiêu |
 | **All Empty (Toàn Hư)** | keystone | The Real One has no cap | You may slot at most 1 non-feint art | Thực Kích |
-| **Ten Thousand Images (Vạn Ảnh)** | keystone | Afterimages cap at 10 and may exceed `evade_cap` by 5 pp | Your max health is 25 % lower | Hư Ảnh |
+| **Ten Thousand Images (Vạn Ảnh)** | keystone | Afterimages cap at 10 and may exceed `evade_cap` by 5 pp (the Way's one cap shift, Dao rule 4, R14) | Your max health is 25 % lower | Hư Ảnh |
 | **The Hidden Dragon (Tàng Long)** | keystone | Hide Your Strength lowers displayed power by 80 % and its first-art-hit bonus is L5 +80 | Your stat lines from all Daos count at 85 % | Ẩn Thực |
 
 ## New pieces
 
 - Feint art kind (`feint` tag): `Needs key`.
 - A displayed-power modifier: `Needs key` (Combat Formulas K).
-- An art kind outside the slot pool (feints): `Needs rule`.
+- An art kind outside the slot pool (feints): Combat rule 13, `free_slots[feint]` (Character Stats rule 15, R4).
+- Images (Afterimages): a self-counter with tag `growing`, cap 5 (Effects rule 8, R7).
 
 ## Kept apart from
 

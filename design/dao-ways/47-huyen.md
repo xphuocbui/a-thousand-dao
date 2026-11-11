@@ -32,7 +32,7 @@
 - **Stat notables:** Bronze Mirror (Gương Đồng): soul resist ×2 · Polished Face (Mặt Bóng): defense ×2 · Two Faces (Hai
   Mặt): soul resist +1, defense +1 · Bright Glass (Kính Sáng): light resist +2
 - **Effects:**
-  - **Major: The Mirror Returns (Kính Phản).** 20 % of each art hit's damage stopped by your wards is reflected to the attacker as the same damage type (a trigger inside `trig_budget`). Basic attacks and ticks are not reflected. `Needs key` (a ward-absorbed readable).
+  - **Major: The Mirror Returns (Kính Phản).** 20 % of the damage of each art hit fully stopped by your wards (the event "a hit fully stopped by wards", Effects rule 5, R20) is reflected to the attacker as the same damage type (a trigger inside `trig_budget`). Basic attacks and ticks are not reflected.
   - Minor: Mirror Ward (Hộ Gương). Your first ward each fight is 20 % stronger. *(starter)*
   - Minor: Cracked Mirror (Gương Nứt). When your ward shield breaks, reflect 50 % of the breaking hit.
 
@@ -42,9 +42,9 @@
   Nightmare Seed (Mầm Ác Mộng): soul +1, heart-demon resist +1 · False Memory (Ký Ức Giả): thần thức +2
 - **Effects:**
   - **Major: Sow Demons (Gieo Tâm Ma).** Your soul hits add 2 heart demon to the foe for the fight (a fight value, not
-    kept); each 10 fight heart demon gives the foe −3 % art speed and your soul hits +2 % `x_soul` against it.
-    `Needs key` (in-fight heart demon on profiles).
-  - Minor: Shared Nightmare (Ác Mộng Chung). Afraid (Tình's proposed curse) you apply lasts 1 pulse longer. *(starter)*
+    kept); each 10 fight heart demon puts 1 Slowed Time stack on the foe (6 %; R1, R21: no direct foe stat change) and gives your soul hits +2 % `x_soul` against it.
+    `Needs key` (in-fight heart demon on profiles; R12 covers only the owner's pool).
+  - Minor: Shared Nightmare (Ác Mộng Chung). Afraid (Tình's proposed curse) you apply lasts 1 pulse longer (clamp 1–5, R22). *(starter)*
   - Minor: Reflected Demon (Ma Phản). Heart-demon Effects the foe uses against you are reflected.
 
 ### 4. Bụi Trần (Dust)
@@ -61,7 +61,7 @@
 - **Stat notables:** Reflection (Ảnh Phản Chiếu): thần thức ×2 · Ripple (Gợn Sóng): evade ×2 · Moon on the Pond (Trăng
   Đáy Ao): thần thức +1, evade +1 · Empty Catch (Bắt Hụt): soul resist +2
 - **Effects:**
-  - **Major: Moon in Water (Thủy Trung Nguyệt).** You hold Decoys (cap 2, start with 2). An art hit that would deal 15 %+ of your max health (read before the defence path) hits a Decoy instead and is absorbed. Ticks and soul hits never meet Decoys. A Decoy rebuilds every 15 s. `Needs rule` R6.
+  - **Major: Moon in Water (Thủy Trung Nguyệt).** You hold Decoys (cap 2, start with 2). An art hit that would deal 15 %+ of your max health (read before the defence path) hits a Decoy instead and is absorbed. Ticks and soul hits never meet Decoys. A Decoy rebuilds every 15 s. This is the avoid step (Combat Defence rule 1, Effects rule 6, R6): each absorbed hit counts against the avoid budget (2 per pulse, all sources).
   - Minor: Ripple Step (Bước Gợn). When a Decoy breaks, +10 pp evade for 1 pulse. *(starter)*
   - Minor: More Moons (Thêm Trăng). Decoys rebuild every 6 s while your thần thức exceeds the foe's.
 
@@ -75,8 +75,8 @@
 
 ## New pieces
 
-- Decoys (whole-hit absorption): `Needs rule`.
-- In-fight heart demon on profiles: `Needs key`.
+- Decoys (whole-hit absorption): the avoid step (Combat Defence rule 1, R6).
+- In-fight heart demon on the foe's profile: `Needs key` (no decision covers it).
 - Dusted was folded into Earth's debuff after review (no new key).
 
 ## Kept apart from

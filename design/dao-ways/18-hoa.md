@@ -48,7 +48,7 @@
     fight: 10 per pill (at most 3 pills).
   - Minor: Clean Burn (Đốt Sạch). Your pill toxicity gained from fight pills is 30 % lower. *(starter)*
   - Minor: Fever Pill (Đan Sốt). While your pill toxicity is above half its limit, your Fire hits deal more
-    (L5 +15). `Needs key`: toxicity readable in the fight.
+    (L5 +15). (readable: pill toxicity, Effects rule 5, R13.)
 
 ### 4. Tro Tàn (Ash)
 - **Small:** `attack_pct` burn +1.5 · `attack_pct` fire +1
@@ -75,15 +75,15 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **The Furnace Never Cools (Lò Bất Lãnh)** | keystone | Your Fire buff batches do not expire while you have fired a Fire art in the last 3 s | Your Fire arts cost 25 % more | Chân Hỏa |
-| **Burning Heaven (Phần Thiên)** | keystone | Burn ticks you deal also count as Fire hits for "on hit" Effects (at most 1 per pulse per target) | Your direct Fire hits deal 30 % less (L2 −30) | Tro Tàn |
+| **Burning Heaven (Phần Thiên)** | keystone | At each pulse in which you dealt Burn tick damage to a target, your "on hit" Fire Effects fire once for it, as if a Fire hit landed (a pulse check, at most 1 per pulse per target; Effects rule 5, R20) | Your direct Fire hits deal 30 % less (L2 −30) | Tro Tàn |
 | **Lava Body (Dung Thân)** | enabler | Your basic attack becomes a Fire-and-Physical hit that applies 3 Burn stacks for 6 pulses | You cannot slot a Water or Ice art or a ward with a Cold payload | Dung Nham |
-| **Nine Furnaces (Cửu Lô)** | keystone | Up to 3 combat pills may be carried into any fight and fire at a guard you set, taking no art slot (`Needs rule`: R4, pills in fights) | Fight pills give 50 % more toxicity | Đan Hỏa |
-| **Nirvana (Niết Bàn)** | keystone | Rise from the Ashes may fire twice per fight, the second healing 15 % (`Needs rule`: R5, a second refusal) | Your max health is 20 % lower | Niết Bàn |
+| **Nine Furnaces (Cửu Lô)** | keystone | Up to 3 combat pills may be carried into any fight and fire at a guard you set, taking no art slot (`free_slots[pill]` +3; Combat rule 13, R4) | Fight pills give 50 % more toxicity | Đan Hỏa |
+| **Nirvana (Niết Bàn)** | keystone | Rise from the Ashes may fire twice per fight, the second healing 15 % (raises the fight's Down refusals to 2, never higher: Combat defeat check, Effects rule 11, R5) | Your max health is 20 % lower | Niết Bàn |
 
 ## New pieces
 
-- Burn ticks counting as hits for "on hit" (Burning Heaven): `Needs rule` (Combat rule 9 events).
-- Fight-time readable for pill toxicity: `Needs key`.
+- Burn ticks counting as hits for "on hit" (Burning Heaven): written as a per-pulse check, no new event (Effects rule 5, R20).
+- Fight-time readable for pill toxicity: (Effects rule 5, Character Stats rule 9a, R13).
 
 ## Kept apart from
 

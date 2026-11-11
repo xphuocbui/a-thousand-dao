@@ -12,7 +12,7 @@ Four rules of the fight make this build possible.
    built outside the pool (reserved wards, resistance from items, body shields) stays.
 2. **Ice (Băng) attacks the pool.** Each Ice stack on an enemy makes their arts cost 3.9 % more, with no cap. Your Ice
    purity makes each stack stronger. An enemy under 30 Ice stacks pays about three times the normal price for every art.
-3. **Cold Toll (Hàn Thuế) puts the Ice into the bucket too.** Normally Ice never touches a ward's payment. This build's
+3. **Absolute Zero (Hàn Thuế) puts the Ice into the bucket too.** Normally Ice never touches a ward's payment. This build's
    keystone changes that for you alone: your Ice stacks also raise what the enemy's drain ward bills against your hits.
    The more stacks, the dearer their defence. Every half second the needle adds stacks, and the next bill is bigger. In
    exchange, Ice's raise on their art costs is halved.
@@ -22,14 +22,14 @@ Four rules of the fight make this build possible.
 
 **The numbers.** All are first guesses, at Nguyên Anh (Nascent Soul) in a prepared fight, worked by hand on today's
 rules. The project's fight calculator, `fight_calc.py`, still runs on the rules from before the #44 economy revision (31 of
-its 60 constants are out of date) and cannot express Ice stacks, Cold Toll or the new ward maths, so its results are
+its 60 constants are out of date) and cannot express Ice stacks, Absolute Zero or the new ward maths, so its results are
 observations, not proof.
 
 - Against a **top-end opponent** whose arts first fire at 2.0 s: your bills take its pool from 4,030 to 2,342 at 1.0 s and
   to 339 at 1.5 s. At 2.0 s its pulse and your Qi Disruption tick leave it at 0. Its six arts are ready and cost 478 each:
   **none fire.** Your Undertow (Ám Lưu) lands on 300 points of resistance instead of 1,500: 15,950 damage against 10,753
   health left. **You win at 2.0 s with 81 % health.**
-- **The identity test:** the same fight **without Cold Toll** is a **loss at 2.0 s**. The enemy still holds 2,067 linh lực,
+- **The identity test:** the same fight **without Absolute Zero** is a **loss at 2.0 s**. The enemy still holds 2,067 linh lực,
   pays for two Ice-taxed arts, and two hits of 76,800 go through your ward.
 - Against a heavily warded master (1,500 points of resistance, ordinary offence): **win at 2.0 s, no health lost**. Its
   arts never fire.
@@ -50,8 +50,7 @@ In the order you will meet them.
 2. **Talents:** Comprehension (ngộ tính) for technique layers and Way glimpses; Root bone (căn cốt) second, because you
    take the opening on shields and health. *In the game.*
 3. **Đạo:** **Vụ Đạo** · *Yên Vũ* (Misty Rain). *In the game's Way catalogue; its graph is not drawn yet.* Two facets:
-   - **Chìm** (Drowning: linh lực burn): **Cold Toll** at its far end, *not in the game yet (staged: cold-toll)*;
-     **Owed Water (Thủy Trái)**, *not in the game yet (staged: owed-water)*; **Bare Vessel (Lộ Đỉnh)**, *not in the game
+   - **Chìm** (Drowning: linh lực burn): **Owed Water (Thủy Trái)**, *not in the game yet (staged: owed-water)*; **Bare Vessel (Lộ Đỉnh)**, *not in the game
      yet (an earlier build's piece, placed here by vu-chim-drowning)*; lines of Weighted Bucket and Force penetration
      on the way in, *not in the game yet (staged: vu-chim-drowning, weighted-bucket)*.
    - **Hàn Vụ** (Cold Mist: Ice debuff): Ice stack effect, Ice stack duration, art speed for Ice arts, three **Cold
@@ -87,9 +86,10 @@ In the order you will meet them.
   your linh lực never regenerates in fights. In the opening the enemy is full and paying, so you drink 500–600 a
   second, more than your bucket arts cost. That is how the build survives the opening: their full well is your fuel.
   *In the game (designed; not built yet).*
-- **Cold Toll (Hàn Thuế)**, the keystone: your Ice stacks also raise the drain bills their wards pay against your hits
-  and ticks, by the same share they raise art costs. **Closes:** your Ice's raise on their art costs is halved. It is
-  the build: it turns the slow Ice clock into a fast one. *Not in the game yet (staged: cold-toll).*
+- **Absolute Zero (Tuyệt Đối Linh Độ)**, Băng Đạo's capstone (the build's second Way): your Ice stacks also raise the
+  drain bills their wards pay against your hits and ticks, by the same share they raise art costs. **Closes:** your
+  Ice's raise on their art costs is halved. It is the build: it turns the slow Ice clock into a fast one. *Not in the
+  game yet (Băng Đạo draft; the staged Absolute Zero was merged into it, user decision 2026-11-11).*
 - **Owed Water (Thủy Trái)**: linh lực your burns and bills cannot take, because their pool is empty, becomes their
   debt (up to 40 % of their maximum). Their regeneration pays the debt before it refills them, and you get half of every
   repayment. It keeps a dry enemy dry and feeds you after Water Table goes quiet. In the short fights above it changes
@@ -113,7 +113,7 @@ In the order you will meet them.
 Most important first.
 
 1. **Ice stack effect** (`stack_effect_pct` [bang, debuff]), the multiplier on every stack. Fills: the Ice debuff (and
-   through Cold Toll, the bill). Aim for +50 %. No cap; stop when Rime Needle's stacks already empty a top-end pool by
+   through Absolute Zero, the bill). Aim for +50 %. No cap; stop when Rime Needle's stacks already empty a top-end pool by
    your enemy's first cooldown (about +50 % at Nguyên Anh).
 2. **Weighted Bucket** (`ward_bill_pct`), bills against your hits and ticks. Fills: the bill. Aim for +30 % (the gourd
    15, the Well-Rope cluster 15). Falling returns: a bill can never take more than the pool holds, so past the point
@@ -143,8 +143,8 @@ the game's data yet. Pieces marked "catalogue only" are in the tree modifier cat
 
 | Piece | Modifier or Effect | What it adds to this build | Where it comes from | In the game or staged | Priority |
 |---|---|---|---|---|---|
-| Cold Toll (Hàn Thuế) | Effect (keystone) | Your Ice stacks also raise the drain bills their ward pays. It is the build: without it the top-end foe is a loss at 2.0 s | Vụ Đạo, Chìm facet keystone, or a Meridian Map keystone in the Water land's Ice reach | not in the game yet (staged: cold-toll) | core |
-| Ice stack effect (`stack_effect_pct` [bang, debuff]) | Modifier | Makes every Ice stack hit harder, on art costs and, through Cold Toll, on bills. Aim for +50 % | Vụ Đạo Hàn Vụ lines; Well-Rope cluster farthest notable (+24) | not in the game yet (staged: vu-han-vu-frost, well-rope-cluster) | core |
+| Absolute Zero (Tuyệt Đối Linh Độ) | Effect (enabler) | Your Ice stacks also raise the drain bills their ward pays. It is the build: without it the top-end foe is a loss at 2.0 s | Băng Đạo capstone (Absolute Zero merged into it, 2026-11-11) | not in the game yet (Băng Đạo draft) | core |
+| Ice stack effect (`stack_effect_pct` [bang, debuff]) | Modifier | Makes every Ice stack hit harder, on art costs and, through Absolute Zero, on bills. Aim for +50 % | Vụ Đạo Hàn Vụ lines; Well-Rope cluster farthest notable (+24) | not in the game yet (staged: vu-han-vu-frost, well-rope-cluster) | core |
 | Weighted Bucket (Trụy Dũng, `ward_bill_pct`) | Modifier | Their drain ward bills more for every point it stops. Aim for +30 | Well-Drawing Gourd affix (+15); Well-Rope notable (+15); Vụ Đạo Chìm lines | not in the game yet (staged: weighted-bucket) | core |
 | Dry Well Scripture (Khô Tỉnh Quyết / Khô Tỉnh Kinh) | Modifier (+60 [bang] on L2) with the six arts | The main công pháp: the Ice and Cold L2 passive, Rime Needle, Leaking Seal, Drowning Palm, the two blades and the heal | Công pháp (Huyền giai to Kết Đan, Địa giai to Nguyên Anh) | not in the game yet (staged: dry-well-scripture) | core |
 | Water Table (Thủy Mạch) on the Well-Drawing Gourd (Cấp Tỉnh Hồ Lô) | Effect (enabler) | Drinks 30 % of what their ward pays: 500–600 linh lực a second in the opening, which pays for your bucket arts. Closes your regeneration | Named item: the old dry well in the drought country, or a well-thief NPC at Nguyên Anh. Gourd also gives Weighted Bucket +15 and max linh lực +10 | Effect in the game (designed); gourd not in the game yet (staged: well-drawing-gourd) | core |
@@ -171,7 +171,7 @@ the game's data yet. Pieces marked "catalogue only" are in the tree modifier cat
 | Driven Nail (Đóng Đinh) | Effect | Each curse you lay (Leaking Ward) shortens your slowest art's timer by 0.5 s, so Dry Riverbed comes sooner | Sinh Tử Đạo, Diệt facet major; a named item | not in the game yet (staged: driven-nail) | nice |
 | Formation power and pill effect (`formation_power_pct`, `pill_effect_pct`) | Modifier | Make the array and the pill bigger inside L4's cap, so a weaker pill still reaches it | Tree notables (+8 % and +6 %) | in the game | nice |
 
-**The jump from working to top-end:** Cold Toll alone makes the build work. The strong rows decide how fast: Cold Depths
+**The jump from working to top-end:** Absolute Zero alone makes the build work. The strong rows decide how fast: Cold Depths
 fill L2, Bare Vessel and Cracked Clay fill L5, the pill and the array fill L4, and Frost Tithe plus the gourd keep you
 fuelled through the opening. A fifth Cold L2 source is still missing from the game (the sheet's planned 260 points).
 
@@ -181,8 +181,8 @@ fuelled through the opening. A fifth Cold L2 source is still missing from the ga
   Seal, Drowning Palm, Undertow. Common Ward. Your linh lực still regenerates. You are a patient needler: Ice makes a
   strong foe's arts so dear that it empties itself casting them, and by about 5 s it is silent. Then Undertow fires on an
   empty ward. Fights last 10–15 s against strong foes.
-- **Kết Đan (Core Formation), 5 slots, 2 ward slots.** The Way of Mist (Vụ Đạo): Cold Toll, Owed Water, Bare Vessel,
-  Cracked Clay, Cold Depths. Add Spring at the Well's Mouth and Mountain Screen. Now the Ice taxes their ward too, and
+- **Kết Đan (Core Formation), 5 slots, 2 ward slots.** The Way of Mist (Vụ Đạo): Owed Water, Bare Vessel,
+  Cracked Clay, Cold Depths; and the Way of Ice (Băng Đạo), glimpsed this realm, for its capstone Absolute Zero. Add Spring at the Well's Mouth and Mountain Screen. Now the Ice taxes their ward too, and
   the dry point comes twice as fast.
 - **Nguyên Anh (Nascent Soul), 6 slots, 3 ward slots.** The Địa giai Khô Tỉnh Kinh and Dry Riverbed; Thousand-Layer
   Cloud; the **Well-Drawing Gourd**. You stop regenerating and start drinking from their ward. Strong foes are dry by
@@ -217,7 +217,7 @@ arts come off cooldown, and the pool that should have paid for them is gone.
   Aura or Iron Shirt). Its defence is paid before the fight, so starving it changes nothing, and it drains you while
   Water Table has stopped your regeneration. *Adapt:* take the gourd off (your regeneration returns), slot Mountain
   Screen and a reserved resistance ward, and fight it as a plain Cold caster.
-- **Reserved-ward and per-hit-ward casters.** Cold Toll only taxes drain bills, and its close halves your Ice. You still
+- **Reserved-ward and per-hit-ward casters.** Absolute Zero only taxes drain bills, and its close halves your Ice. You still
   win (about 3–4 s against a reserved healer), but the payoff after the dry point is a tenth of their damage, not a
   quarter. *Adapt:* lean on Dry Riverbed and Leaking Seal's raw damage.
 - **A body cultivator (thể tu).** Its block, body shields and Physical resistance need no linh lực. An even fight on raw
@@ -230,7 +230,7 @@ arts come off cooldown, and the pool that should have paid for them is gone.
 
 Every staged piece this build needs (`design/builds/overnight-2026-11-10/staging-catalogue.md`):
 
-- **Effects:** cold-toll (Cold Toll), owed-water (Owed Water), cracked-clay (Cracked Clay), frost-tithe (Frost Tithe).
+- **Effects:** Absolute Zero (Băng Đạo; was staged cold-toll), owed-water (Owed Water), cracked-clay (Cracked Clay), frost-tithe (Frost Tithe).
 - **Modifiers:** weighted-bucket (Weighted Bucket, new stat `ward_bill_pct`), cold-depths (Cold Depths).
 - **Công pháp:** dry-well-scripture (Dry Well Scripture, Huyền and Địa giai).
 - **Arts:** rime-needle, leaking-seal, drowning-palm, undertow, well-mouth-spring, dry-riverbed.
@@ -244,7 +244,7 @@ Every staged piece this build needs (`design/builds/overnight-2026-11-10/staging
 
 ## Changes the game would need
 
-1. **Let one keystone carry Ice onto drain bills** (Cold Toll). Today Ice raises art costs and never a ward-slot payment
+1. **Let one keystone carry Ice onto drain bills** (Absolute Zero). Today Ice raises art costs and never a ward-slot payment
    (`design/gdd/combat-defence.md` Edge Cases, a user decision of 2026-11-10; `design/gdd/effects.md` rule 9a). The
    proposal keeps that rule for everyone and lets one named keystone override it for its owner, with the bill still
    bounded by the live pool (`combat-defence.md` Formulas C).

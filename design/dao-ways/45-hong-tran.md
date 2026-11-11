@@ -24,7 +24,7 @@ The Way of living among mortals. Almost all of it is life-around-the-fight; the 
   mission income ×2 · Known in Town (Quen Phố): renown +2
 - **Effects:**
   - **Major: Coin Is Qi (Tiền Là Khí).** Before a fight, spend spirit stones: each 1 % of your realm's typical monthly
-    income gives L4 +1 (cap +20). `Needs key` (stone spend at preparation).
+    income gives L4 +1 (cap +20). A preparation choice (Effects rule 8, Combat rule 12, R8); the stone spend stays `Needs key`.
   - Minor: Good Customer (Khách Quen). Shops in towns you have visited three times give −5 % prices. *(starter)*
   - Minor: Guild Friend (Bạn Phường Hội). Missions from mortal guilds pay 20 % more.
 

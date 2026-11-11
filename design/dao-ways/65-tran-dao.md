@@ -4,6 +4,8 @@
 > (Phù Lục facet).
 > **Theme stats:** `formation_power_pct`, formation upkeep, `talisman_ink_pct`, talisman power, `defense_pct`,
 > `linh_luc_regen_pct`, `cultivation_speed_pct` (capped).
+> Also used below, listed here (dao.md rule 12): `attack_pct`, resist all, max linh lực, `health_regen_pct`, herb
+> growth (`Needs key`).
 > **Road:** `formation_power_pct` +1.2.
 
 ## Build directions
@@ -24,7 +26,7 @@
 - **Effects:**
   - **Major: Linked Arrays (Liên Trận).** You may lay 2 formations on one ground; their L4 adds (cap still holds).
   - Minor: Quick Setup (Bày Nhanh). Laying a formation takes half the time. *(starter)*
-  - Minor: Array Eye (Mắt Trận). Your formations' L4 is +5 while you stand on their ground.
+  - Minor: Array Eye (Mắt Trận). Your formations' L4 is +5 for each formation you laid (at most 2 are laid, so +10).
 
 ### 2. Linh Mạch (Spirit Veins)
 - **Small:** `linh_luc_regen_pct` +0.075 · `cultivation_speed_pct` +0.4
@@ -41,9 +43,11 @@
 - **Stat notables:** Thunder Talisman (Phù Lôi): talisman power ×2 · Ink Saver (Tiết Kiệm Mực): ink ×2 · Talisman Stack
   (Chồng Phù): talisman power +1, ink +1 · Sealed Paper (Giấy Phong): defense +2
 - **Effects:**
-  - **Major: Talisman Barrage (Phù Trận).** Each talisman you fire gives your next talisman L4 +8 (cap +40); talismans
-    you slot have +1 stock.
-  - Minor: Ready Talisman (Phù Sẵn). Your first talisman each fight fires at 1 s. *(starter)*
+  - **Major: Talisman Barrage (Phù Trận).** Each talisman you fire adds L4 +8 to every later talisman this fight (stacking, cap +24); talismans
+    you slot have +1 stock. **Talisman Sleeve (Tay Áo Phù, moved from Kỹ):** two talismans you slot take no art
+    slot (Effects rule 6, key: `free_slots[talisman]`, R4; no total cap, so the Way's own cost is the limit: Ten
+    Thousand Talismans' close).
+  - Minor: Ready Talisman (Phù Sẵn). Your first talisman each fight has its timer set to 1 s; its guard still applies. *(starter)*
   - Minor: Twin Talisman (Phù Đôi). A talisman fired with another in the same instant deals +15 %.
 
 ### 4. Hộ Trận (Ward Arrays)
@@ -52,7 +56,8 @@
   Vững): defense +1, formation +1 · Mountain-Guard Array (Hộ Sơn Trận): resist all +1
 - **Effects:**
   - **Major: Ward Array (Hộ Trận).** A ward formation you lay gives a ward shield of 10 % of your max linh lực that
-    refreshes every 10 s and does not drain your pool.
+    refreshes every 10 s. It is paid by reservation (Combat rule 22: one of the four payments): a share of your linh lực
+    stays reserved while it stands.
   - Minor: Array Shelter (Trận Che). On your formation ground, curses on you last 1 pulse less. *(starter)*
   - Minor: Reinforce (Gia Cố). Ward Array refreshes every 8 s.
 
@@ -62,8 +67,8 @@
   defense +1, formation +1 · Spirit Garden (Vườn Linh): herb growth +2
 - **Effects:**
   - **Major: Home Ground (Động Phủ).** Fights at your cave dwelling are always foreseen for you, and your formations
-    there run at +25 %.
-  - Minor: Guarded Door (Cửa Có Canh). Intruders at your cave are fought with your formations already laid.
+    there run at +25 %. `Needs rule` (overrides the Event Engine's classification, Combat rule 12; no decision covers it).
+  - Minor: Guarded Door (Cửa Có Canh). At your cave, your formation ground has L4 +3 more.
     *(starter)*
   - Minor: Restful Cave (Động Yên). Seclusion at your cave recovers heart demon 20 % faster.
 
@@ -71,16 +76,19 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **A Formation within the Body (Thân Trung Hữu Trận)** | keystone | One formation is carried in your body: it applies in every fight at 50 % power, any situation | You cannot lay ground formations | Trận Pháp |
+| **A Formation within the Body (Thân Trung Hữu Trận)** | keystone | One formation is carried in your body. Trận owns this: it is the Dao's carried-ground source under Combat rule 12 (R9): foreseen 100 %, ambush 70 %, blind 50 % (`carried_ground_share`). Away from home one formation counts, laid or carried, the stronger | You cannot lay ground formations | Trận Pháp |
 | **Wind and Water (Phong Thủy)** | keystone | Tap the Vein works on any ground you have laid a formation on | Your formations cost double upkeep | Linh Mạch |
-| **Ten Thousand Talismans (Vạn Phù)** | keystone | Talisman Barrage's cap is +80 | Your non-talisman arts deal 30 % less (L2 −30) | Phù Lục |
+| **Ten Thousand Talismans (Vạn Phù)** | keystone | Talisman Barrage's cap is +48, and the Talisman Sleeve covers 4 talismans | Your non-talisman arts deal 30 % less (L2 −30) | Phù Lục |
 
 ## New pieces
 
-- Spirit veins on the map; formations carried in the body: `Needs key` / `Needs rule`.
+- Spirit veins on the map: `Needs key`. Formation carried in the body: pointed at carried ground (R9). Home Ground's
+  always-foreseen: `Needs rule`.
 
 ## Kept apart from
 
 Tinh's Array in the Sky (one formation carried in the sky; Trận's capstone carries one in the body: these are rival
 answers to the same problem, keep both but never both on one character via `dao` rival marking), Kỹ's Chế Trận
-(formation crafting), Vực (a domain). Trận is **arrays on the ground, veins, talismans and home**.
+(formation crafting; Folding Array only lays faster) and Họa Phù (talisman crafting only: ink, copies, success, quality), Họa's
+landscape (ground tags only, no formation strength), Vực (a domain). Trận is **arrays on the ground and in the body
+(the only carried formation), veins, talisman builds and home**.

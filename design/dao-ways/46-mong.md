@@ -24,7 +24,7 @@ when you wake, and damage you deal is kept at half. The Way builds around that w
 - **Stat notables:** Deep Sleep (Ngủ Say): comprehension ×2 · Sweet Dreams (Giấc Êm): heart-demon resist ×2 · Lucid (Mộng
   Tỉnh): comprehension +1, heart-demon resist +1 · Pillow Stone (Gối Đá): regen +0.1
 - **Effects:**
-  - **Major: The Dream (Nhập Mộng).** Each fight begins with a 6 s Dream: there is no Down check for you during it (`Needs rule`), and when it ends your health is set back to its value at the Dream's start, minus 50 % of the health you lost in it. Shields, linh lực and statuses are not restored. Your damage in it counts at 50 %. Only arts with a cooldown under 6 s fire in it. `Needs key`.
+  - **Major: The Dream (Nhập Mộng).** Each fight begins with a 6 s Dream: there is no Down check for you during it (`Needs rule`, deferred, R15e), and when it ends your health is set back to its value at the Dream's start, minus 50 % of the health you lost in it. Shields, linh lực and statuses are not restored. Your damage in it counts at 50 %. Only arts with a cooldown under 6 s fire in it. `Needs key`.
   - Minor: Dreamless Rest (Ngủ Không Mộng). A night's sleep after a fight removes 3 heart demon. *(starter)*
   - Minor: Dream Lesson (Bài Học Trong Mơ). Seclusion progress +5 % in seasons with no fights.
 
@@ -43,7 +43,7 @@ when you wake, and damage you deal is kept at half. The Way builds around that w
 - **Stat notables:** Which Is Real (Thật Hay Mơ): status resist ×2 · Wake Strong (Tỉnh Mạnh): max health ×2 · Between
   (Giữa Mơ Thực): status resist +1, max health +1 · Dream Logic (Lý Mộng): soul resist +2
 - **Effects:**
-  - **Major: Which One Is Dreaming (Trang Chu Mộng Điệp).** Once per fight, at a guard you set, the health each side lost in the last 6 s is swapped (heals and shields do not move), bounded at 20 % of the smaller max health. `Needs rule`.
+  - **Major: Which One Is Dreaming (Trang Chu Mộng Điệp).** Once per fight, at a guard you set, the health each side lost in the last 6 s is swapped (heals and shields do not move), bounded at 20 % of the smaller max health. `Needs rule` (deferred, R15e).
   - Minor: Half-Awake (Nửa Tỉnh). The Dream lasts 2 s longer. *(starter)*
   - Minor: Dream Wound (Vết Thương Mơ). Damage you deal during the Dream counts at 70 %.
 
@@ -52,8 +52,8 @@ when you wake, and damage you deal is kept at half. The Way builds around that w
 - **Stat notables:** Dream Garden (Vườn Mơ): formation power ×2 · Shifting Halls (Sảnh Đổi): evade ×2 · Dream Ground
   (Đất Mơ): formation +1, evade +1 · Endless Stair (Bậc Vô Tận): soul resist +2
 - **Effects:**
-  - **Major: Dreamscape (Mộng Cảnh).** During the Dream, your hits gain L4 +15 (a dream ground). `Needs rule` R9 (carried ground).
-  - Minor: Drowsy Air (Khí Buồn Ngủ). During the Dream, the foe's art speed −15 %. *(starter)*
+  - **Major: Dreamscape (Mộng Cảnh).** During the Dream, your hits gain L4 +15 (a carried ground, Combat rule 12, R9: 100 % foreseen, 70 % ambush, 50 % blind, so +15, +10.5, +7.5).
+  - Minor: Drowsy Air (Khí Buồn Ngủ). During the Dream, the foe carries 2 Slowed Time stacks (12 %; Status Catalogue, R1; the foe's art speed is never changed directly, R21). *(starter)*
   - Minor: Dream Door (Cửa Mơ). Your escape chance is +25 % during the Dream.
 
 ### 5. Tỉnh (Waking)
@@ -64,7 +64,7 @@ when you wake, and damage you deal is kept at half. The Way builds around that w
   - **Major: Waking (Tỉnh Mộng).** When the Dream ends, cleanse every debuff and curse on you, and your next 3 hits deal
     more (L5 +25).
   - Minor: Rise Early (Dậy Sớm). When the Dream ends, restore 10 % of max linh lực. *(starter)*
-  - Minor: Shake It Off (Rũ Bỏ). When the Dream ends, the foe's buff batches applied during it end too.
+  - Minor: Shake It Off (Rũ Bỏ). When the Dream ends, the foe's largest buff pile applied during it is stripped (`strip_buff`, oldest batch first, once, R16).
 
 ## Capstones
 
@@ -76,7 +76,7 @@ when you wake, and damage you deal is kept at half. The Way builds around that w
 
 ## New pieces
 
-- The Dream window (undo on waking), the health-change swap: `Needs rule` (Combat rule 21: a snapshot is fine; the
+- The Dream window (undo on waking), the health-change swap: `Needs rule` (deferred, R15e; Combat rule 21: a snapshot is fine; the
   log must show it).
 
 ## Kept apart from

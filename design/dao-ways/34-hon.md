@@ -34,8 +34,8 @@
   - **Major: Twin Soul Strike (Song Hồn Kích).** Your soul lockout is 25 % shorter, and a soul art that fires the
     instant the lockout ends deals +10 % `x_soul`.
   - Minor: Soul Shock (Hồn Chấn). Your soul hits apply Slackened Soul (1 stack). *(starter)*
-  - Minor: Mind Crack (Nứt Thần). Your soul hits on a target with negative soul resistance push its next art back
-    0.3 s. `Needs rule` (timer pushback, shared).
+  - Minor: Mind Crack (Nứt Thần). Your soul hits on a target with negative soul resistance delay its next art by
+    0.3 s (`delay_timer`, Effects rule 6, R1: repeats within 3 s fall off by half; `timer_resist_pct` shortens it).
 
 ### 3. Hồn Hộ (Soul Ward)
 - **Small:** `soul_res_pct` +1 · `tam_ma_resist_pct` +1

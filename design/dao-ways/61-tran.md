@@ -44,7 +44,7 @@
   - **Major: Bind the Beast (Thu Phục).** A creature you defeat while it bears a curse of yours can be bound as a
     companion without a taming roll (once per season). `Needs key` (Spirit Beasts, Event Engine).
   - Minor: Beast Fears the Seal (Thú Sợ Ấn). Creatures deal 10 % less to you. *(starter)*
-  - Minor: Muzzled Companion (Rọ Mõm). The foe's companion deals 30 % less while its owner bears a curse of yours.
+  - Minor: Muzzled Companion (Rọ Mõm). You take 30 % less from the foe's companion while its owner bears a curse of yours (an owner-side line, R21).
 
 ### 4. Lao Ngục (Prison)
 - **Small:** `formation_power_pct` +1.2 · `status_duration_pct` +2
@@ -60,7 +60,7 @@
 - **Stat notables:** Locked Strength (Lực Khóa): attack ×2 · Sealed Body (Thân Phong): defense ×2 · Coiled Spring
   (Lò Xo Nén): attack +1, crit damage +1 · Patience Seal (Ấn Nhẫn): max health +2
 - **Effects:**
-  - **Major: Break the Seal (Phá Phong).** At fight start your arts and basic attack are sealed for 6 s (they do not fire); each second sealed stores L5 +8 (cap +48), shared by your first 3 **art** hits after the seal breaks (a third each).
+  - **Major: Break the Seal (Phá Phong).** At fight start your arts and basic attack are sealed for 6 s (they do not fire); each second sealed stores L5 +8 (cap +48), shared by your first 3 **art** hits after the seal breaks (a third each). The store is a held payload (Effects rule 8): banked each second, spent on the first 3 art hits, lost if unspent.
   - Minor: Sealed Defence (Phòng Phong). While your arts are sealed, damage you take is dampened by 33 (a quarter less). *(starter)*
   - Minor: Controlled Release (Thả Dần). The stored bonus is shared by 5 art hits instead of 3 (a fifth each), and +20 % larger.
 

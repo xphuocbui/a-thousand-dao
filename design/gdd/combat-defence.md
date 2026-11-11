@@ -931,7 +931,10 @@ marks a derived price, **G** a guess.
 - **If a ward sits in an ordinary art slot**: it counts toward `slot_count` (Combat Formulas A2) and gives up
   that art. It is an art for cost changes: Ice stacks and other art-cost raises reach its cast cost; a ward in a
   ward slot keeps its own payment (user decision 2026-11-10). Only a cast is an art's cost, so a reserved, per-hit
-  or drain payment is unchanged by Ice wherever the ward sits.
+  or drain payment is unchanged by Ice wherever the ward sits. **One exception** (user decision 2026-11-11): Băng
+  Đạo's capstone **Absolute Zero** makes its holder's Ice stacks also raise the drain bills the foe's wards pay
+  against the holder's hits and ticks, by the share they add to art costs (a bill never passes the live pool); its
+  close halves those stacks' art-cost raise. Reserved and per-hit payments stay untouched.
 - **If a side has more ward slots than wards**: the empty slots do nothing, and the default ward is up only
   for a part that no other ward is Up for (rule 11).
 - **If the reservations together would pass 90 %**: the ward that would pass it cannot be slotted. Compile

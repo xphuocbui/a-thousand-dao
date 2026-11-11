@@ -60,9 +60,8 @@
 - **Stat notables:** Old Blood (Máu Xưa): max health ×2 · Awakened Line (Mạch Thức): attack ×2 · Noble Vein (Mạch
   Quý): attack +1, max health +1 · Beast Blood (Máu Thú): physical +2
 - **Effects:**
-  - **Major: Awaken the Bloodline (Huyết Mạch Thức Tỉnh).** Your Blood Purity (a new character stat, 0–100) rises by
+  - **Major: Awaken the Bloodline (Huyết Mạch Thức Tỉnh).** Your Blood Purity (a life readable, 0–100; Character Stats rule 9a, R13) rises by
     1 for each fight won below 30 % health; each point gives +0.3 % max health and +0.2 % attack (cap 100).
-    `Needs key` (a progression stat).
   - Minor: Blood Remembers (Máu Nhớ). Each fight won below 30 % health gives 1 extra Blood Purity while your heart demon is below 20. *(starter)*
   - Minor: Dragon Blood Trace (Vết Long Huyết). With Long Đạo held, Blood Purity rises twice as fast.
 
@@ -77,7 +76,8 @@
 
 ## New pieces
 
-- Blood Purity (progression stat): `Needs key`.
+- Blood Purity (progression stat): a life readable (Character Stats rule 9a, R13).
+- Sea of Blood is this Way's one cap-shift capstone, closing 30 % of non-Bleed damage (Dao rule 4, R14).
 - Health paid over a pulse (Clot): `Needs rule` (Combat Formulas E).
 
 ## Kept apart from

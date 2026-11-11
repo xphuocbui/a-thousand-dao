@@ -32,7 +32,7 @@
   Thép): body shield +1, max health +1 · Unbending (Không Cong): force resistance +2
 - **Effects:**
   - **Major: Iron Bones (Thiết Cốt).** Your body shield is increased by 1 % per point of căn cốt above 30 (cap +40 %), and it regains 2 % of its value each pulse.
-  - Minor: Hard Frame (Khung Cứng). Timer pushback and Weighed on you are halved. *(starter)*
+  - Minor: Hard Frame (Khung Cứng). +50 `timer_resist_pct` (key: `timer_resist_pct`, R1): delays and Slowed Time on you are halved. Weighed on you is halved. *(starter)*
   - Minor: Bone Song (Cốt Ca). When your body shield is full, your basic attack deals more (L5 +15).
 
 ### 3. Ngọc Tủy (Jade Marrow)

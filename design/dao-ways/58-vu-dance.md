@@ -76,12 +76,12 @@
 |---|---|---|---|---|
 | **The Fight Is a Dance (Chiến Như Vũ)** | keystone | On the Beat triggers on art hits within 50 ms of a pulse | Your off-beat art hits deal 20 % less (L2 −20) | Tiết Tấu |
 | **Rainbow Robe (Nghê Thường)** | keystone | Spin's cap is 20 and it does not decay while you keep alternating | Two arts of the same form and element cannot both be slotted | Xoay |
-| **Feather Dance (Vũ Lông)** | keystone | Grace's evade bonus may exceed `evade_cap` by 5 pp (a cap shift, `Needs rule`; R14) | Your max health is 25 % lower | Uyển Chuyển |
+| **Feather Dance (Vũ Lông)** | keystone | Grace's evade bonus may exceed `evade_cap` by 5 pp (this Way's one cap-shift capstone: Dao rule 4, R14; the −25 % max health is the felt close) | Your max health is 25 % lower | Uyển Chuyển |
 
 ## New pieces
 
 - Cooldown snapping to the pulse (Keep Time): `Needs rule` (Combat rule 10).
-- Spin (self-stack with decay): `Needs key`; same machinery as Đao's Fury.
+- Spin (self-counter, tag `growing`): Effects rule 8, R7; same machinery as Đao's Fury.
 
 ## Kept apart from
 

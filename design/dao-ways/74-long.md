@@ -31,9 +31,9 @@
 - **Stat notables:** Hard Scales (Vảy Cứng): body shield ×2 · Shining Scales (Vảy Sáng): resist all ×2 · Overlapping
   (Vảy Chồng): body shield +1, resist +1 · Reverse Scale (Nghịch Lân): crit damage +2
 - **Effects:**
-  - **Major: Dragon Scales (Long Lân).** Your body shield is split into 4 Scales, one per element group (Physical/Force,
-    Fire/Cold/Lightning/Light, Chaos, Soul): each stops only its group, at 40 % of the whole shield's value each.
-    `Needs rule` (Combat Defence shields; shared idea with Cốt's Plates).
+  - **Major: Dragon Scales (Long Lân).** Your body shield is two Scales (shield pieces), each the full shield's value: one stops only
+    Physical/Force, the other only Fire/Cold/Lightning/Light. One hit breaks at most one piece; pieces regrow
+    (Combat Defence rule 9, R3 `stops` and `pieces`; shared idea with Cốt's Plates).
   - Minor: Polished Scale (Vảy Bóng). A Scale that has not broken this fight stops 10 % more. *(starter)*
   - Minor: The Reverse Scale (Nghịch Lân). When a crit hits you, your next hit deals L5 +30 (the dragon's anger).
 
@@ -45,7 +45,7 @@
   - **Major: Dragon's Roar (Long Ngâm).** At 2 s and every 20 s after, roar: the foe is Silenced on its most-slotted tag
     for 1 pulse and Afraid (Tình's key) for 2 pulses.
   - Minor: Opening Roar (Hống Mở Màn). The first roar comes at 1 s. *(starter)*
-  - Minor: Roar of Kings (Hống Vương). Foes two realms below cannot act for 1 s after a roar.
+  - Minor: Roar of Kings (Hống Vương). Foes two realms below have their next art delayed 1 s after a roar (`delay_timer`, falls off within 3 s; Effects rule 6, R1).
 
 ### 4. Long Tàng (the Hoard)
 - **Small:** `artifact_power_pct` +0.9 · spirit stone yield +1
@@ -72,12 +72,12 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **The Dragon Wakes (Long Tỉnh)** | keystone | Dragon Blood uses 1.2 % | Your art speed is −20 % | Long Huyết |
-| **Ninefold Scales (Cửu Lân)** | keystone | Each Scale stops its group at 60 % | Your ward strength is halved | Long Lân |
+| **Ninefold Scales (Cửu Lân)** | keystone | Two more Scales: Chaos at 50 % of the shield and Soul at 30 % (R3 caps; ticks are still not stopped) | Your ward strength is halved | Long Lân |
 | **Lord of the Four Seas (Tứ Hải Long Vương)** | keystone | Call the Rain's bonus is L5 +35 and starts at 10 stacks | You cannot apply Burn | Hô Vũ |
 
 ## New pieces
 
-- Scales by element group: `Needs rule`.
+- Scales by element group: Combat Defence rule 9 (R3 `stops` lists and `pieces`).
 - Carried wealth as a readable: `Needs key`.
 
 ## Kept apart from

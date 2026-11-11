@@ -31,7 +31,7 @@
   Cửa): block +1, formation +1 · Keys (Chìa Khóa): defense +2
 - **Effects:**
   - **Major: Hold the Gate (Giữ Cổng).** At a place you have sworn to guard (your cave, your sect's gate: one at a time),
-    fights are foreseen for you and your wards are +25 %. `Needs key`.
+    your wards are +25 % (a defence bonus only; foreseen-fight and carried-ground clauses belong to Vực and Thần). `Needs key`.
   - Minor: Watchman (Người Canh). Intruders at your guarded place are detected a turn early. *(starter)*
   - Minor: Gate Never Opens (Cổng Không Mở). At your guarded place, foes cannot escape.
 
@@ -40,7 +40,7 @@
 - **Stat notables:** Shield Bash (Đập Khiên): attack ×2 · Riposte Guard (Thủ Phản): block ×2 · Edge of the Shield (Mép
   Khiên): attack +1, block +1 · Bracing Blow (Đòn Chống): force +2
 - **Effects:**
-  - **Major: Guarded Counter (Phản Thủ).** Each hit your ward stops fully queues a counter: a Force trigger hit scaled by
+  - **Major: Guarded Counter (Phản Thủ).** Each hit your ward stops fully (event 'hit fully stopped by wards', Effects rule 5, R20) queues a counter: a Force trigger hit scaled by
     your ward strength (`c_trig` 0.4, inside `trig_budget`).
   - Minor: Shield Edge (Viền Khiên). Your counters apply 1 Earth debuff stack for 4 pulses. *(starter)*
   - Minor: Punish the Reckless (Phạt Kẻ Liều). Counters against a slow-tagged art deal +30 %.
@@ -68,14 +68,14 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Nothing Passes You (Nhất Phu Đương Quan)** | keystone | Your `ward_cap` is 15 % higher | You cannot slot more than 2 damaging arts | Thuẫn Tường |
+| **Nothing Passes You (Nhất Phu Đương Quan)** | keystone | Shield Wall gives +15 % per other slotted ward instead of +10 % | You cannot slot more than 2 damaging arts | Thuẫn Tường |
 | **Eternal Vigil (Vĩnh Canh)** | keystone | Vigil starts at 10 s and refills 8 % | Your arts cost 25 % more | Canh Giữ |
 | **Shield and Spear (Khiên Và Giáo)** | keystone | Guarded Counter's `c_trig` is 0.7 and it fires on hits your ward stops by 80 % or more | Your arts deal 30 % less (L2 −30) | Phản Thủ |
 
 ## New pieces
 
 - A sworn guarded place: `Needs key`.
-- `ward_cap` shift: a cap shift, `Needs rule`, flagged.
+- None for the capstone: `ward_cap` is retired (Combat Defence rule 3), so Nothing Passes You raises Shield Wall's step.
 
 ## Kept apart from
 

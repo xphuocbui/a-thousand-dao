@@ -25,7 +25,7 @@
 - **Effects:**
   - **Major: The Wheel Turns (Luân Chuyển).** Every 6 s the Wheel moves to the next Path, in order: Heaven (L5 +20),
     Asura (crit chance +10 pp), Human (art speed +20 %), Beast (block +40), Hungry Ghost (leech +3 %), Hell (all
-    resistance +40). You may choose the starting Path before the fight.
+    resistance +40). You may choose the starting Path before the fight (a preparation choice, Effects rule 8, R8).
   - Minor: Wheel Spins Faster (Quay Nhanh). The Wheel turns every 5 s. *(starter)*
   - Minor: Hold the Path (Giữ Đạo). Once per fight, when you crit, the current Path holds for one extra turn.
 
@@ -35,7 +35,7 @@
   Art (Chiêu Nhớ): comprehension +1, thần thức +1 · Deja Vu (Quen Thuộc): soul resist +2
 - **Effects:**
   - **Major: Memory of Lives (Túc Tuệ).** At a glimpse, you may be offered one Dao your previous character held (if
-    any) as a fourth choice. `Needs rule` (meta progression across lives; Save/Load).
+    any) as a fourth choice. This is a small named inheritance, the only kind that passes between lives (Dao rule 9, R15a); nothing else carries over.
   - Minor: Familiar Art (Chiêu Quen). Techniques of a kind you have mastered before in this life learn 20 % faster.
     *(starter)*
   - Minor: Old Enemy (Cừu Cũ). Your hits deal more to a cultivator who has defeated you before (L5 +15).
@@ -57,7 +57,7 @@
 - **Effects:**
   - **Major: Send On (Tiễn Đưa).** Your soul hits gain +1 % `x_soul` per 2 pp of the foe's health below 50 % (cap +25 %). Soul ignores layers, so this is the soul build's execute.
   - Minor: Calm Passage (Tĩnh Độ). Your soul lockout is 0.2 s shorter. *(starter)*
-  - Minor: Released (Siêu Thoát). Ghost and undead creatures take 20 % more from you. `Needs key` (undead tag).
+  - Minor: Released (Siêu Thoát). Ghost and undead creatures take 20 % more from you (foe tags `ghost` and `undead`, Effects rule 5, R13).
 
 ### 5. Lục Đạo (the Six Paths)
 - **Small:** `attack_pct` +1.2 · `khi_huyet_pct` +0.5
@@ -73,16 +73,16 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Death Is a Door (Tử Tức Môn)** | keystone | Rebirth may refuse twice (`Needs rule` R5); the second switch returns to your first loadout | Your max health is 30 % lower | Tái Sinh |
+| **Death Is a Door (Tử Tức Môn)** | keystone | Rebirth may refuse twice (Effects rule 11, R5: the budget is 2, the most any source gives); the second switch returns to your first loadout | Your max health is 30 % lower | Tái Sinh |
 | **Turn the Wheel by Hand (Thủ Chuyển Luân)** | keystone | You choose the Wheel's order before the fight and may skip one Path | The Wheel turns every 8 s whatever else says (Wheel Spins Faster does nothing) | Bánh Xe |
 | **Six Paths as One (Lục Đạo Quy Nhất)** | keystone | Walk All Six's residue is 50 % (not 30 %) | The Wheel turns every 9 s | Lục Đạo |
-| **Eternal Return (Vĩnh Hồi)** | keystone | At each pulse, each of your element buff batches that expired that pulse returns once as the next element in the generating cycle (Wood → Fire → Earth → Metal → Water), at half size, for its original duration. A returned batch never returns again | Your batches last 30 % shorter | Bánh Xe |
+| **Eternal Return (Vĩnh Hồi)** | keystone | At each pulse (a pulse check, not an event; R20), each of your element buff batches that expired since the last pulse returns once as the next element in the generating cycle (Wood → Fire → Earth → Metal → Water), at half size, for its original duration. A returned batch never returns again | Your batches last 30 % shorter | Bánh Xe |
 
 ## New pieces
 
 - A second loadout used after a rebirth: `Needs rule` (Combat rule 13, loadout).
-- Meta progression across lives (Memory of Lives): `Needs rule`; big design question for the user.
-- `undead` foe tag: `Needs key`.
+- Meta progression across lives (Memory of Lives): decided small, this Way only (Dao rule 9, R15a).
+- `undead` foe tag: a profile tag (Effects rule 5, R13).
 
 ## Kept apart from
 

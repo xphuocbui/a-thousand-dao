@@ -24,7 +24,7 @@
 - **Effects:**
   - **Major: Flower without Leaves (Hoa Lá Bất Tương Kiến).** Your Fire and Chaos parts never meet the same
     defence twice: a hit that has both types converts its smaller part to whichever type the foe resists less.
-    `Needs rule` (conversion chosen by resistance; shared with Thủy's Like Water).
+    (`convert_to: least_resisted`, decided when the hit lands; a major, so allowed; it uses one of the 2 conversions: Combat Damage Types rule 6, R10.)
   - Minor: Lily Root (Rễ Lan). Your Chaos hits apply 2 Burn stacks for 6 pulses and your Fire hits apply 2 Poison stacks for 6 pulses.
     *(starter)*
   - Minor: Blooming in Autumn (Nở Mùa Thu). After 30 s of fight, your Fire and Chaos hits deal more (L5 +12).
@@ -35,8 +35,7 @@
   +1, evade +1 · Calm Water (Nước Lặng): regen +0.1
 - **Effects:**
   - **Major: To the Other Shore (Đáo Bỉ Ngạn).** Your escape art fires automatically at 15 % health whatever its
-    guard and slot, once per fight, with +30 % chance. It takes no art slot. `Needs rule` (escape outside the
-    slot pool).
+    guard and slot, once per fight, with +30 % chance. It takes no art slot: it sits in a free escape slot (`free_slots[escape]`, Combat rule 13, R4).
   - Minor: Ferryman's Fee (Tiền Đò). A failed escape restores 10 % of max health. *(starter)*
   - Minor: Mist on the River (Sương Sông). Pursuers cannot lower your escape chance below 30 %.
 
@@ -46,7 +45,7 @@
   Mind (Tâm Trống): curse duration +1, soul attack +1 · Drowned Memory (Ký Ức Chìm): thần thức +2
 - **Effects:**
   - **Major: Forget (Lãng Quên).** Every 9 s, Silence the foe's form tag that has the most slotted arts, for 2 pulses (`Needs rule`: no reapply lockout on this Silence).
-  - Minor: Lost Thread (Mất Mạch). Your soul hits push the foe's next art back 0.3 s. `Needs rule` (timer pushback).
+  - Minor: Lost Thread (Mất Mạch). Your soul hits delay the foe's next art by 0.3 s (`delay_timer`, Effects rule 6, R1: repeats within 3 s fall off by half; `timer_resist_pct` shortens it).
   - Minor: Meng's Soup (Canh Quên). The first curse each fight you place lasts 2 pulses longer. *(starter)*
 
 ### 4. Giác Ngộ (Enlightenment)
@@ -68,7 +67,7 @@
 - **Effects:**
   - **Major: Red Petals (Hồng Hoa Tán).** For each 10 % of max health you have lost (from full), grow 1 Petal (they
     do not shrink when healed). At the Down step's last act, each Petal deals 3 % of your max health as Fire to the
-    foe (a trigger; `Needs rule` R18: a last-act exemption from `trig_budget`).
+    foe (a trigger inside `trig_budget`, Effects rule 7, R18). Petals are a self-counter that only grows (tag `growing`, Effects rule 8, R7).
   - Minor: Petal Shield (Thuẫn Cánh). Each Petal gives a body shield of 2 % of max health. *(starter)*
   - Minor: Early Bloom (Nở Sớm). Once per fight, at 5 Petals, release 2 of them at once (they are spent).
 
@@ -83,7 +82,8 @@
 
 ## New pieces
 
-- Petals (a counter that only grows): `Needs key`.
+- Petals (a counter that only grows): a self-counter, tag `growing` (Effects rule 8, R7).
+- `status_duration_pct` [curse]: the key exists (Modifiers Stat List); durations clamp to 1–5 pulses (R22).
 - Progress gained from a fight (Enlightened at the Edge): `Needs key`.
 
 ## Kept apart from

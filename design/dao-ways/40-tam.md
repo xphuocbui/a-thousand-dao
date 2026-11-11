@@ -31,7 +31,7 @@ The breakthrough Way. Tâm turns the **heart demon system** from a tax into a ga
 - **Stat notables:** Firm Heart (Tâm Vững): status resist ×2 · True Heart (Tâm Thật): heart-demon resist ×2 · Heart of
   the Way (Tâm Đạo): status resist +1, heart-demon resist +1 · Unshakable (Bất Động Tâm): soul resist +2
 - **Effects:**
-  - **Major: Dao Heart (Đạo Tâm Kiên Cố).** A new stat, Dao Heart (0–100): +1 for each breakthrough, each Turned Demon, each oath kept. Each 10 points give +0.5 pp to breakthrough heart-demon checks (cap +5 pp, inside the q-extras ceiling) and +5 soul resistance. `Needs key`.
+  - **Major: Dao Heart (Đạo Tâm Kiên Cố).** Dao Heart (0–100; the effective `dao_tam` talent, Character Stats rule 9a, R13): +1 for each breakthrough, each Turned Demon, each oath kept. Each 10 points give +0.5 pp to breakthrough heart-demon checks (cap +5 pp, inside the q-extras ceiling) and +5 soul resistance.
   - Minor: Steady Heart (Tâm Ổn). Your heart demon cannot rise more than 10 from any one event. *(starter)*
   - Minor: Heart Ward (Hộ Tâm). In fights, while your Dao Heart is 50+, fear and charm Effects on you are refused.
 
@@ -51,7 +51,7 @@ The breakthrough Way. Tâm turns the **heart demon system** from a tax into a ga
 - **Stat notables:** Iron Resolve (Ý Sắt): status resist ×2 · Stand Firm (Đứng Vững): max health ×2 · Resolute (Quyết
   Tâm): status resist +1, max health +1 · Will to Live (Ý Sống): regen +0.1
 - **Effects:**
-  - **Major: Resolve (Kiên Định).** While above 50 % health, curses on you last 1 pulse less; below 50 %, your status
+  - **Major: Resolve (Kiên Định).** While above 50 % health, curses on you last 1 pulse less (clamp 1–5, R22); below 50 %, your status
     resistance is +20 pp.
   - Minor: Unwavering (Không Nao Núng). The first curse on you each fight is refused. *(starter)*
   - Minor: Resolve Rewarded (Kiên Định Được Thưởng). Fights won while under 3+ curses give +1 Dao Heart.
@@ -75,7 +75,7 @@ The breakthrough Way. Tâm turns the **heart demon system** from a tax into a ga
 
 ## New pieces
 
-- Dao Heart stat; heart-demon trial fights; seclusion Question events: `Needs key`.
+- Dao Heart is `dao_tam` (Character Stats rule 9a, R13). Heart-demon trial fights and seclusion Question events: `Needs key`.
 
 ## Kept apart from
 

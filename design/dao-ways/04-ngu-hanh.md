@@ -34,7 +34,7 @@
 - **Stat notables:** Water Quenches (Thủy Diệt Hỏa): cold +2 · Fire Melts (Hỏa Khắc Kim): fire +2 · Metal Cuts
   (Kim Khắc Mộc): physical +2 · Wood Breaks (Mộc Khắc Thổ): chaos +2 · Earth Dams (Thổ Khắc Thủy): force +2
 - **Effects:**
-  - **Major: Overcome (Khắc Chế).** Your hits of an element remove 2 of the foe's buff stacks of the element it overcomes (shared rule R16, at most once per pulse), and deal more by the stacks removed in the last 3 s (L5 +3 per stack, cap +30).
+  - **Major: Overcome (Khắc Chế).** Your hits of an element remove 2 of the foe's buff stacks of the element it overcomes (`strip_buff`, Effects rule 6, R16: oldest batch first, at most once per pulse), and deal more by the stacks removed in the last 3 s (L5 +3 per stack, cap +30).
   - Minor: Know the Enemy (Tri Khắc). At fight start, your art of the element that overcomes the foe's root element
     fires at half cooldown. *(starter)*
   - Minor: Turned Against (Phản Khắc). Damage you take from arts whose element overcomes your root's highest-purity element is dampened 10 % (rule 6a).
@@ -77,7 +77,7 @@
 |---|---|---|---|---|
 | **All Five Turn as One (Ngũ Hành Hợp Nhất)** | keystone | Every art you fire grants 1 buff stack (6 pulses) of the element it generates, and the cycle never breaks: the next art always counts as its child | Your stacks of any single element cannot exceed 12 | Quân Bình |
 | **The Wheel Without End (Luân Bất Tận)** | keystone | Mother Feeds Child fires when the last art fired **of the generating element** fired within 4 s, whatever was fired between | Your arts of the same element as the art before cost 50 % more | Tương Sinh |
-| **Overcoming Heaven (Khắc Thiên)** | keystone | Overcome removes 5 stacks of the overcome element and grants you 5 buff stacks of your overcoming element (shared rule R16) | Your arts cannot apply debuff stacks | Tương Khắc |
+| **Overcoming Heaven (Khắc Thiên)** | keystone | Overcome removes 5 stacks of the overcome element and grants you 5 buff stacks of your overcoming element (`strip_buff` with the `steal` variant, Effects rule 6, R16: still once per pulse, oldest batch first) | Your arts cannot apply debuff stacks | Tương Khắc |
 | **Five Phases Body (Ngũ Hành Thể)** | keystone | Rotation applies to every art you slot | You may slot at most 3 arts | Luân Chuyển |
 
 ## New pieces

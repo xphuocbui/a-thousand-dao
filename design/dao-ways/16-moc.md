@@ -71,7 +71,7 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **The Forest Outlives Everything (Rừng Trường Tồn)** | keystone | Your Wood buff batches do not expire: they lose 1 stack a pulse instead | Blossom cannot be bought (rival) | Sinh Trưởng |
-| **Wither and Bloom (Khô Vinh Luân)** | keystone | Every 10 s your Wood stacks switch side: your Wood buff count is applied to the foe as Poison, and the Poison on the foe returns as your buff stacks | Your arts deal 30 % less hit damage (L2 −30) | Khai Hoa |
+| **Wither and Bloom (Khô Vinh Luân)** | keystone | Every 10 s your Wood stacks switch side: your Wood buff count is consumed and applied to the foe as Poison, and the Poison on the foe is consumed and returns as your buff stacks (Effects rule 6, R19) | Your arts deal 30 % less hit damage (L2 −30) | Khai Hoa |
 | **Ironbark (Thiết Mộc)** | keystone | Your health regeneration also restores your body shield at the same rate | Your ward strength is halved | Gai |
 | **Green Blood (Lục Huyết)** | enabler | Your arts may be paid in health at 1.5× their cost, and your health regeneration also restores linh lực at 50 % of its rate | You cannot use pills in a fight | Rễ |
 
@@ -79,7 +79,7 @@
 
 - Spreading Growth: a stack that grows by itself, `Needs rule` (Effects 9a: batches never change size).
 - Bramble Coat: retaliation scaled by damage taken, `Fits today` as an Effect on "being hit".
-- Wither and Bloom: transfers stacks between sides, `Needs rule`.
+- Wither and Bloom: transfers stacks between sides with `consume(wood, self, all)` then a Poison batch of that count on the foe, and `consume(poison, foe, all)` then a Wood buff batch of that count on you (Effects rule 6, R19; the new batches carry fresh durations, 6 pulses).
 
 ## Kept apart from
 

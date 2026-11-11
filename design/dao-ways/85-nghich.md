@@ -25,9 +25,8 @@
   max health +1 · Back to the Wall (Lưng Tựa Tường): crit damage +2
 - **Effects:**
   - **Major: Against the Current (Nghịch Lưu).** Your hits deal more by how far your health share is below the foe's
-    (L5 +1 per 1 % of the gap, cap +50).
-  - Minor: Turnaround (Lật Ngược). When your health share falls below the foe's for the first time, cleanse every
-    curse on you. *(starter)*
+    (L5 +1 per 1 % of the gap, cap +50). It reads the **gap to the foe now**, your missing health against theirs; not damage taken (Hận counts the foe's hits, Kiếp counts events survived).
+  - Minor: Turnaround (Lật Ngược). When your health first crosses 50 % in a fight, cleanse every curse on you. *(starter)*
   - Minor: Spite (Hờn). While behind, your crits deal +15 % more.
 
 ### 2. Vượt Cấp (Fighting Upward)
@@ -35,8 +34,7 @@
 - **Stat notables:** Climb (Leo): pierce ×2 · Reach Above (Với Cao): attack ×2 · Rising Star (Sao Mới): pierce +1,
   attack +1 · Sharper Than Rank (Bén Hơn Cấp): crit damage +2
 - **Effects:**
-  - **Major: Leap the Realm (Vượt Cảnh).** Against a foe of a higher realm, your pierce may exceed `pierce_cap` by 10
-    pp and each 1 pp of suppression you still suffer gives L5 +1 (cap +30).
+  - **Major: Leap the Realm (Vượt Cảnh).** Against a foe of a higher realm, each 1 pp of suppression you still suffer gives L5 +1 (cap +30).
   - Minor: Measure the Giant (Đo Khổng Lồ). Against a higher realm, your first art fires at half cooldown. *(starter)*
   - Minor: Earned Respect (Được Kính Nể). A cultivator of a higher realm you defeat grants double World Database
     renown. `Needs key`.
@@ -58,7 +56,8 @@
   (Vẫn Đứng): max health +1, block +1 · Last Breath Fight (Đánh Đến Hơi Cuối): regen +0.1
 - **Effects:**
   - **Major: Unyielding (Bất Khuất Bất Phục).** No single hit can take more than 25 % of your max health (the rest is
-    stopped). Ticks are not hits.
+    stopped). Per hit, applied last in the defence path to the amount that would reach health; Soul hits count, ticks
+    are not hits; one Breakdown line. `Needs rule` (no decision covers a per-hit health limit).
   - Minor: Stand Back Up (Đứng Dậy). After a hit that took 15 %+ of your max health, regenerate 5 % over 2 s.
     *(starter)*
   - Minor: Will over Wound (Ý Thắng Thương). While below 50 % health, curses on you last 1 pulse less.
@@ -79,7 +78,7 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **The Weaker You Are, the Harder You Strike (Nhược Giả Cường Kích)** | keystone | Against the Current counts the gap twice (L5 +2 per 1 %, cap +80) | While your health share is above the foe's, your hits deal 25 % less (L2 −25) | Nghịch Cảnh |
-| **Defy Heaven (Nghịch Thiên)** | keystone | Leap the Realm also works against equals: suppression you do not suffer still counts as 10 pp | Against lower realms, your hits deal 30 % less | Vượt Cấp |
+| **Defy Heaven (Nghịch Thiên)** | keystone | Leap the Realm also works against equals (suppression you do not suffer still counts as 10 pp), and your pierce may exceed `pierce_cap` by 10 pp against a higher realm (the Way's one cap shift, R14) | Against lower realms, your hits deal 30 % less | Vượt Cấp |
 | **Unbreakable Will (Ý Chí Bất Diệt)** | keystone | Unyielding's limit is 15 % | Your max health is 20 % lower | Bất Phục |
 | **Change Fate (Nghịch Thiên Cải Mệnh)** | keystone | Change Fate works twice per realm | Every breakthrough you attempt, success or not, adds 10 heart demon | Cải Mệnh |
 
@@ -87,7 +86,8 @@
 
 - Per-hit damage limit (Unyielding): `Needs rule` (Combat Defence path), and a strong counter to burst: flag for
   balance.
-- Pierce past its cap: a cap shift, `Needs rule`.
+- Pierce past its cap: now on the capstone Defy Heaven, the Way's one cap shift (Dao rule 4, R14); its closing cost
+  is the 30 % damage cut against lower realms.
 
 ## Kept apart from
 

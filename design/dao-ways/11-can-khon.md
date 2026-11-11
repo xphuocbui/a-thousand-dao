@@ -23,7 +23,7 @@
   +1, escape +1 · Afterimage (Dư Ảnh): crit chance +1
 - **Effects:**
   - **Major: Step Through Space (Thuấn Bộ).** When you evade, your next hit deals more (L5 +25) and ignores the foe's block (`Needs key`: a block-ignore flag).
-  - Minor: Folded Distance (Rút Ngắn). The foe's first art each fight is delayed by 0.5 s (it must find you).
+  - Minor: Folded Distance (Rút Ngắn). The foe's first art each fight is delayed by 0.5 s (`delay_timer`, Effects rule 6, R1; it must find you).
     *(starter)*
   - Minor: Slip the Grip (Thoát Kẹp). Your escape chance is +15 % while you have evaded in the last 2 s.
 
@@ -32,7 +32,7 @@
 - **Stat notables:** Deep Sleeve (Tay Áo Sâu): inventory ×2 · Pocket World (Thế Giới Túi): thần thức ×2 · Fresh Keep
   (Giữ Tươi): pill effect +2 · Hidden Pocket (Túi Ẩn): talisman power +2
 - **Effects:**
-  - **Major: World in a Sleeve (Tụ Lý Càn Khôn).** +1 artifact equipped beyond `equip.max_slots`, and each slotted
+  - **Major: World in a Sleeve (Tụ Lý Càn Khôn).** +1 artifact equipped beyond `equip.max_slots` (`free_slots[artifact_active]` +1, Character Stats rule 15, R4), and each slotted
     talisman has +1 stock.
   - Minor: Time-Stopped Pouch (Túi Ngừng Thời). Pills and herbs you carry do not lose potency over time. `Needs key`.
     *(starter)*
@@ -45,7 +45,7 @@
 - **Effects:**
   - **Major: Rift (Liệt Không).** Your Force hits leave a Rift (stacks to 5, 3 pulses): each Rift makes the target's ward
     shields stop 6 % less of each hit.
-  - Minor: Torn Ward (Hộ Rách). Your Force crits make the foe's drain ward bill +20 % for 2 pulses. *(starter)*
+  - Minor: Torn Ward (Hộ Rách). Your Force crits apply Leaking Ward (Status Catalogue: drain wards bill more; R21, a named status, not a direct foe change). *(starter)*
   - Minor: Space Shear (Cắt Không Gian). Your Force hits ignore 10 % of the target's block (`Needs key`, the same block-ignore flag).
 
 ### 4. Súc Địa (Folding the Earth)
@@ -72,7 +72,7 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **Here and There at Once (Thử Bỉ Đồng Tại)** | keystone | Step Through Space triggers on every evade and on every hit you block fully | Your max health is 20 % lower | Thuấn Bộ |
-| **Heaven and Earth in a Sleeve (Tụ Lý Càn Khôn Đại Pháp)** | enabler | +2 artifacts beyond the slot cap | Your artifacts' thần thức cost +40 % | Tụ Lý |
+| **Heaven and Earth in a Sleeve (Tụ Lý Càn Khôn Đại Pháp)** | enabler | +2 artifacts beyond the slot cap (`free_slots[artifact_active]` +2, R4: no total cap, so the cost below is the limit) | Your artifacts' thần thức cost +40 % | Tụ Lý |
 | **Shattered Space (Không Gian Toái)** | keystone | Rifts stack to 10 | Your non-Force hits deal 30 % less (L2 −30) | Liệt Không |
 | **A World Apart (Biệt Giới)** | keystone | Fights you seal cannot be interfered with by events (no third parties) and your hits deal +10 % | Your max health is 15 % lower | Phong Tỏa |
 

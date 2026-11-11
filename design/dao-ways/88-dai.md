@@ -50,10 +50,10 @@
 - **Stat notables:** True Form (Chân Hình): attack ×2 · Original Face (Bản Lai): crit damage ×2 · Raw Strength (Lực
   Thô): attack +1, crit damage +1 · Unadorned (Mộc Mạc): defense +2
 - **Effects:**
-  - **Major: Return to the True (Phản Phác Quy Chân).** Your hits ignore the foe's buff stacks and conversions applied
-    to its defences (its element buffs do not reduce your damage). `Needs rule`.
+  - **Major: Return to the True (Phản Phác Quy Chân).** Your hits ignore Earth's Physical dampen and the foe's dampen `D` on damage
+    taken (the only foe buffs that cut your damage). `Needs rule` (no decision covers ignoring a dampen).
   - Minor: Plain Hit (Đòn Mộc). Your basic attack ignores 15 resistance points. *(starter)*
-  - Minor: No Tricks (Không Mánh). Feints and false images do not fool you (your hits ignore Afterimages).
+  - Minor: No Tricks (Không Mánh). Feints and false images do not fool you (decoys and images do not absorb your hits: the avoid step, Combat Defence rule 1, R6).
 
 ### 5. Vô Chiêu (No Forms)
 - **Small:** `attack_pct` basic +2 · `khi_huyet_pct` +0.5
@@ -71,13 +71,13 @@
 |---|---|---|---|---|
 | **Less Is Everything (Thiểu Tức Đa)** | keystone | The Great Way Is Simple gives L5 +15 per empty slot (cap +60) | You may slot at most 2 arts | Giản |
 | **The One (Duy Nhất)** | keystone | One Art, One Ward gives L5 +60 and 60 % | You may slot only one art and one ward, nothing else (no talismans, no escape) | Nhất |
-| **No Forms (Vô Chiêu)** | keystone | Your basic attack counts as every form tag (sword, palm, seal...) for modifiers | You cannot slot damaging arts | Vô Chiêu |
+| **No Forms (Vô Chiêu)** | keystone | Your basic attack counts as every form tag (sword, palm, seal...) for modifiers | You cannot slot damaging arts or talismans, and your basic attack's cooldown is 20 % longer | Vô Chiêu |
 | **Return to Simplicity (Đại Giản)** | keystone | Letting Go doubles | You can hold at most 2 Daos | Bỏ |
 
 ## New pieces
 
 - Empty Dao slots readable: `Needs key`.
-- Ignoring the foe's buff stacks (Return to the True): `Needs rule`.
+- Ignoring Earth's Physical dampen and the foe's `D` (Return to the True): `Needs rule`.
 
 ## Kept apart from
 

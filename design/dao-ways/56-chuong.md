@@ -22,7 +22,7 @@
   (Kích Vững): force +1, max health +1 · Collapse (Sập): force penetration +2
 - **Effects:**
   - **Major: One Palm Fells a Mountain (Nhất Chưởng Đảo Sơn).** Your Force palm hits ignore block, and push the
-    target's slowest art timer back 0.5 s (once per 3 s). `Needs rule` (timer pushback; shared).
+    target's slowest art timer back 0.5 s (once per 3 s). (`delay_timer`, falls off within 3 s, foe's `timer_resist_pct` shortens it: Effects rule 6, R1).
   - Minor: Weighty (Nặng Nề). Your slow palm arts deal more (L5 +12). *(starter)*
   - Minor: Shockwave (Sóng Xung). When your palm hit breaks a ward shield, apply Qi Disruption (1 stack).
 

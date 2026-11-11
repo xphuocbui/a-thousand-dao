@@ -34,7 +34,7 @@
   Qua): evade +1, healing +1 · Unattached (Không Vương): status resist +2
 - **Effects:**
   - **Major: Water Flows On (Lưu Thủy Vô Tình).** After 20 s, your evade is +10 pp and each evade heals 1 % of max health.
-  - Minor: Let It Go (Thả Trôi). After 20 s, curses on you last 1 pulse less. *(starter)*
+  - Minor: Let It Go (Thả Trôi). After 20 s, curses on you last 1 pulse less (clamp 1–5, R22). *(starter)*
   - Minor: Two Halves (Hai Nửa). With both this facet's major and Falling with Intent, the switch time is yours to set
     (5 to 40 s).
 
@@ -63,14 +63,14 @@
 - **Effects:**
   - **Major: Lingering Scent (Dư Hương).** When a curse or debuff batch you applied ends (not cleansed), it leaves a Scent
     for 2 pulses at 40 % of its effect.
-  - Minor: Faint Trace (Vết Hương). Your curses last 1 pulse longer. *(starter)*
-  - Minor: Scent of Spring (Hương Xuân). When your heal over-heals, the excess lingers as regeneration for 2 pulses.
+  - Minor: Faint Trace (Vết Hương). Your curses last 1 pulse longer (never past 5, R22). *(starter)*
+  - Minor: Scent of Spring (Hương Xuân). When your heal over-heals (the health overflow readable, Effects rule 5), the excess lingers as regeneration for 2 pulses.
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Beautiful Because It Falls (Hoa Lạc Tri Mỹ)** | keystone | Petal Rain scatters up to 8 Petals and they are outside `trig_budget` (`Needs rule` R18: Petals become their own channel) | Your arts' own hits deal 40 % less (L2 −40) | Hoa Vũ |
+| **Beautiful Because It Falls (Hoa Lạc Tri Mỹ)** | keystone | Petal Rain scatters up to 8 Petals and they are outside `trig_budget` (R18: the one exception; this capstone declares a petal channel, `Needs rule`) | Your arts' own hits deal 40 % less (L2 −40) | Hoa Vũ |
 | **Never Quite Gone (Hương Bất Tán)** | keystone | Lingering Scent keeps 70 % for 4 pulses | Your curses' first application is at 70 % strength | Hương Tàn |
 | **The Last Bloom (Tàn Hoa Tối Hậu)** | keystone | Fading Bloom's L5 has no cap | Your buff batches start at 70 % of their size | Tàn Hoa |
 

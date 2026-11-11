@@ -24,7 +24,7 @@
 - **Effects:**
   - **Major: Formless (Vô Tướng).** Curses that name a tag (Silence) or a damage type (Sundered) cannot be placed on you, and Exposed on you is halved. `Needs rule`.
   - Minor: No Target (Vô Đích). The foe's first art each fight misses (evaded for certain). *(starter)*
-  - Minor: Empty Shape (Hình Trống). Exposed and Sundered on you last 1 pulse less.
+  - Minor: Empty Shape (Hình Trống). Exposed and Sundered on you last 1 pulse less (never below 1, R22).
 
 ### 2. Vô Hạn (Unbounded)
 - **Small:** `attack_pct` +1.2 · `stack_duration_pct` +2
@@ -42,7 +42,7 @@
 - **Stat notables:** One Root (Nhất Căn): attack ×2 · One Breath (Nhất Khí): max health ×2 · Gathered (Tụ Hội): attack
   +1, max health +1 · Centre (Trung): defense +2
 - **Effects:**
-  - **Major: Return to One (Vạn Pháp Quy Nhất).** Your lowest damage layer among L2 and L4 gains bonus points equal to 25 % of your highest layer's bonus points (cap +25 points). `Needs rule` (layer readables).
+  - **Major: Return to One (Vạn Pháp Quy Nhất).** Your hits deal more (L5) equal to 25 % of your highest layer's bonus points among L2 and L4 (cap +25), but only while your lowest of the two is below your highest. A read of layer totals, no write (Effects rule 5 readables; layer writes are capstone only, R15d).
   - Minor: Single Breath (Nhất Tức). While every art you slot shares one element, your arts cost 15 % less. *(starter)*
   - Minor: One Path (Nhất Lộ). If you hold only this Dao, +10 % to all stat lines in it. `Needs key`.
 
@@ -62,21 +62,21 @@
 - **Effects:**
   - **Major: The First Breath (Sơ Tức).** Your first firing of each art deals more (L5 +40).
   - Minor: Beginning (Khởi Đầu). Your first art each fight fires at 1 s. *(starter)*
-  - Minor: Before Taiji (Tiền Thái Cực). Your first art hit each fight skips ward shields (shared rule R2).
+  - Minor: Before Taiji (Tiền Thái Cực). Your first art hit each fight has 50 % of its damage skip ward shields (`bypass_share`, R2: capped 50 % per hit; it still meets resistance, block and body shield).
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **Beyond Limit (Vô Cực)** | keystone | Unbounded gives 2 stacks a second after 20 s | Your hits deal 30 % less for the first 15 s (L2 −30) | Vô Hạn |
-| **Before Taiji (Vô Cực Sinh Thái Cực)** | keystone | Return to One raises your lowest layer among L2 and L4 to your second-highest layer's points | Your L1 (increased) bonuses count at half | Quy Nhất |
+| **Before Taiji (Vô Cực Sinh Thái Cực)** | keystone | Return to One's L5 bonus is replaced by a layer write: your lowest layer among L2 and L4 is raised to your second-highest layer's points (the Way's one layer write, Combat Formulas B, R15d; logged) | Your L1 (increased) bonuses count at half | Quy Nhất |
 | **The Great Void (Đại Hư)** | keystone | Emptiness Is Form gives L5 +1 per 1 % missing, cap +70 | Your linh lực regeneration is 0 | Hư Vô |
 | **The Formless Form (Vô Tướng Chi Tướng)** | keystone | You are immune to every curse for the first 10 s | Your own tag-scoped modifiers count at half | Vô Tướng |
 
 ## New pieces
 
-- Layer totals as readables and an Effect that raises a layer (Return to One): `Needs rule` (Combat rule 5; flag as a
-  big one).
+- Layer totals as readables (Return to One's major) and the one capstone layer write: Effects rule 5 and Combat Formulas B, R15d.
+- Boundless stacks: a self-counter with tag `growing` (Effects rule 8, R7); no cap of its own, bounded by L5's cap of 100.
 - Formless (no tags for the foe's Effects): `Needs rule`.
 
 ## Kept apart from

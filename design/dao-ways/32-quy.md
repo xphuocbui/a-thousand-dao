@@ -62,8 +62,7 @@
   companion +1, leech +0.3 · Seventh Month (Tháng Bảy): soul +2
 - **Effects:**
   - **Major: Open the Ghost Gate (Khai Quỷ Môn).** Every 5 s, a wandering ghost strikes the foe: a soul trigger hit by Formulas E2 at 40 % of your weakest soul art, inside `trig_budget`, outside the soul lockout.
-  - Minor: Ghost Month (Tháng Cô Hồn). In the seventh month of the year, your soul damage is +15 %. `Needs key`
-    (calendar readable). *(starter)*
+  - Minor: Ghost Month (Tháng Cô Hồn). In the seventh month of the year, your soul damage is +15 % (world time and season readable, Effects rule 5, R13). *(starter)*
   - Minor: Shut the Gate (Đóng Cửa). Soul hits on you are 15 % weaker.
 
 ## Capstones
@@ -80,7 +79,8 @@
 - Ghost companion with Soul hits: `Needs key`.
 - Possessed (foe's art hits itself): `Needs key` + `Needs rule`.
 - A soul tick (Ghost Fire): `Needs rule` (Combat Damage Types rule 1).
-- Calendar readable: `Needs key`.
+- Calendar readable: world time and season, a life readable (Effects rule 5, R13).
+- `status_duration_pct`: the key exists (Modifiers Stat List); curse durations clamp to 1–5 pulses (R22).
 
 ## Kept apart from
 

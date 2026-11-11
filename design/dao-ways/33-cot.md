@@ -21,7 +21,7 @@
 - **Stat notables:** Ribcage (Lồng Ngực): body shield ×2 · Bone Plate (Giáp Xương): block ×2 · Exoskeleton (Xương
   Ngoài): body shield +1, block +1 · Spur (Gai Xương): physical +2
 - **Effects:**
-  - **Major: Bone Plates (Cốt Phiến).** Your body shield is split into 5 Plates, each worth a fifth. A hit breaks at most one Plate (it loses up to its own damage from that Plate; the rest goes on to health). Ticks wear Plates but never break one below 1 point. A broken Plate regrows after 4 s. `Needs rule` (Combat Defence shields).
+  - **Major: Bone Plates (Cốt Phiến).** Your body shield is split into 5 Plates, each worth a fifth. A hit breaks at most one Plate (it loses up to its own damage from that Plate; the rest goes on to health). Ticks wear Plates but never break one below 1 point. A broken Plate regrows after 4 s (shield `pieces` 5, Combat Defence rule 9, R3: one hit breaks at most one Plate, the overflow moves on to health).
   - Minor: Calcify (Vôi Hóa). Your Chaos resistance is +10 per unbroken Plate. *(starter)*
   - Minor: Splintered Plate (Phiến Vỡ). When a Plate breaks, deal 1 % of your max health as Physical to the attacker.
 
@@ -50,8 +50,7 @@
   Rattling Host (Đoàn Lách Cách): companion +1, block +1 · Dry Bones (Xương Khô): chaos resistance +2
 - **Effects:**
   - **Major: Bone Wall (Tường Cốt).** Your bone companion takes 20 % of each hit aimed at you (it cannot fall; its
-    power share drops 1 % per 2 % of your max health it has taken, floor 50 %). `Needs rule` (companions in the
-    defence path).
+    power share drops 1 % per 2 % of your max health it has taken, floor 50 %). This is the companion sink at the avoid step (Combat Defence rule 1, R6): it counts against the budget of 2 avoided hits a pulse, and ticks are never shared.
   - Minor: Reassemble (Ráp Lại). Your companion's power share recovers 1 % a second. *(starter)*
   - Minor: Bone Toss (Ném Xương). Your companion's hits apply 1 Metal debuff stack for 4 pulses.
 
@@ -60,8 +59,7 @@
 - **Stat notables:** Thick Skull (Sọ Dày): soul resistance ×2 · Crown Bone (Xương Đỉnh): body shield ×2 · Skull Cup
   (Chén Sọ): soul resist +1, thần thức +1 · Death's Head (Đầu Lâu): soul resist +1, max health +1
 - **Effects:**
-  - **Major: Skull Ward (Sọ Hộ).** Your body shield also stops Soul hits at 50 % of its value. `Needs rule` (soul
-    meets only soul resistance and soul wards).
+  - **Major: Skull Ward (Sọ Hộ).** Your body shield also stops Soul hits at 30 % of its value (a `stops` entry at the Soul cap, Combat Defence rule 9, R3). It closes something real: Plates regrow 1 s slower while you hold it.
   - Minor: Hard Head (Cứng Đầu). Slackened Soul on you is halved. *(starter)*
   - Minor: Grinning Skull (Sọ Cười). When a soul hit breaks your body shield, apply Slackened Soul to the attacker.
 
@@ -76,9 +74,9 @@
 
 ## New pieces
 
-- Plates (a body shield in pieces): `Needs rule`.
+- Plates (a body shield in pieces): shield `pieces` (Combat Defence rule 9, R3).
 - Max health spent for the fight (Draw the Bone): `Needs key`.
-- Companion in the defence path; body shield against Soul: `Needs rule`.
+- Companion in the defence path: the avoid step's companion sink (R6). Body shield against Soul: `stops` list, 30 % cap (R3).
 
 ## Kept apart from
 

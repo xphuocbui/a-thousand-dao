@@ -42,7 +42,7 @@
 - **Effects:**
   - **Major: Annihilate (Diệt Tuyệt).** Your Chaos hits deal more by the health you have lost (L5 +1 per 2 % of max
     health missing, cap +40).
-  - Minor: Unravel (Tháo Gỡ). Your Chaos hits remove 1 of the foe's buff stacks (shared rule R16, once per pulse).
+  - Minor: Unravel (Tháo Gỡ). Your Chaos hits remove 1 of the foe's buff stacks (`strip_buff`, Effects rule 6, R16; once per pulse).
   - Minor: Extinction Touch (Chạm Diệt). Your basic attack converts 30 % to Chaos. *(starter)*
 
 ### 4. Sụp Đổ (Collapse)
@@ -70,7 +70,7 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **Nothing Is Left Standing (Vạn Vật Quy Hư)** | keystone | Your hits ignore 30 % of the target's resistance | You take 30 % more damage of every type (your own guard breaks too) | Phá Giáp |
-| **Silent Extinction (Tịch Diệt)** | keystone | Your Chaos hits cannot be stopped by ward shields | You cannot regenerate linh lực | Diệt Tuyệt |
+| **Silent Extinction (Tịch Diệt)** | keystone | Your Chaos parts have `bypass_share` 50 % (the cap per part, skips ward shields only: Combat Defence rule 9, R2) | You cannot regenerate linh lực | Diệt Tuyệt |
 | **The World Ends (Tận Thế)** | keystone | Calamity Fuel's cap is the L5 cap | Your max health is 40 % lower | Tai Kiếp |
 | **Ruin Upon Ruin (Họa Vô Đơn Chí)** | keystone | Ruin counts every damage type twice (cap +72) | You must deal at least 3 damage types or your hits deal 30 % less (L2 −30) | Hủy Hoại |
 

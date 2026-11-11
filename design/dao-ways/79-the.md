@@ -24,8 +24,10 @@ disaster; a kept oath is permanent power.
 - **Effects:**
   - **Major: Oath to Heaven (Thiên Thệ).** Swear up to 3 life oaths from a list (never slot a ward in a ward slot; never
     flee; never use pills in fights; never hold a companion; never use artifacts beyond one; never kill a surrendered
-    foe). Each gives +6 % to all damage and +4 % max health for life. Breaking one (only by choice, in an event) loses
-    all oath bonuses and adds 50 heart demon. `Needs key`.
+    foe). Each gives +4 % to all damage and +3 % max health for life, but only if your loadout at compile holds
+    something it forbids (a ward, a companion, pills, a second artifact, an escape, a way to flee); an oath that
+    forbids nothing you own gives nothing. Events can offer a choice that tests an oath. Breaking one (only by choice,
+    in an event) loses all oath bonuses and adds 50 heart demon. `Needs key`.
   - Minor: Witnessed Oath (Thề Có Chứng). Your first oath gives +50 % of its bonus. *(starter)*
   - Minor: Oath Strength (Sức Lời Thề). +5 % status resistance per oath held.
 
@@ -74,7 +76,7 @@ disaster; a kept oath is permanent power.
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **A Word Is Law (Nhất Ngôn Cửu Đỉnh)** | keystone | You may swear 5 oaths, each +8 % damage | Breaking an oath also costs 10 years of lifespan | Tự Thệ |
+| **A Word Is Law (Nhất Ngôn Cửu Đỉnh)** | keystone | You may swear 5 oaths, each +4 % damage (the fourth and fifth +2 %) | Breaking an oath also costs 10 years of lifespan | Tự Thệ |
 | **Heaven Is My Witness (Thiên Chứng Ngã Tâm)** | keystone | Heaven Witnesses' bonus is +40 % | You can never make a contract you might break (no deceit choices in events) | Thiên Chứng |
 
 ## New pieces

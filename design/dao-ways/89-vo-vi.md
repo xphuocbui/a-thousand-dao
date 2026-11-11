@@ -22,9 +22,9 @@
 - **Stat notables:** Folded Hands (Khoanh Tay): defense ×2 · Empty Moment (Lúc Rảnh): linh lực regen ×2 · Still Hand
   (Tay Yên): defense +1, regen +0.05 · Waiting Power (Lực Chờ): attack +2
 - **Effects:**
-  - **Major: Not Striking (Bất Xuất Thủ).** For each second in which none of your arts fires, gain 1 Stillness (cap 20):
+  - **Major: Not Striking (Bất Xuất Thủ).** For each second in which none of your arts fires (the basic attack does not count as an art here), gain 1 Stillness (cap 20; a self-counter, tag `growing`, Effects rule 8, R7):
     your wards are +2 % stronger per Stillness, and your next art consumes them for L5 +3 each.
-  - Minor: Idle Breath (Hơi Rảnh). While no art has fired for 2 s, your linh lực regeneration is doubled. *(starter)*
+  - Minor: Idle Breath (Hơi Rảnh). While no art other than the basic attack has fired for 2 s, your linh lực regeneration is doubled. *(starter)*
   - Minor: Patient Hand (Tay Nhẫn). Your arts with a cooldown of 10 s or more cost 25 % less.
 
 ### 2. Tự Nhiên (Let It Happen)
@@ -35,7 +35,7 @@
   - **Major: Things Happen of Themselves (Vạn Vật Tự Hóa).** Damage from sources that are not your arts or basic attack
     (ticks, triggers, your companion, formations, ward retaliation) is increased by 30 % (L4 +30 for ticks and
     formations; L5 +30 for triggers).
-  - Minor: Self-Mending (Tự Lành). Your wards heal you for 0.5 % of max health each time they stop a hit fully.
+  - Minor: Self-Mending (Tự Lành). Your wards heal you for 0.5 % of max health each time they stop a hit fully (event 'hit fully stopped by wards', Effects rule 5, R20).
     *(starter)*
   - Minor: Natural Order (Trật Tự Tự Nhiên). Your ticks' batches last 1 pulse longer.
 
@@ -44,8 +44,8 @@
 - **Stat notables:** Bend (Uốn): block ×2 · Give Way (Nhường): evade ×2 · Reed in Wind (Lau Trước Gió): block +1, evade
   +1 · Return Push (Đẩy Lại): force +2
 - **Effects:**
-  - **Major: Yield and Return (Thuận Thế Hoàn Lực).** 15 % of the damage each hit deals to you (after defence) is
-    returned as Force (a trigger, inside `trig_budget`), and the hit is reduced by the same amount.
+  - **Major: Yield and Return (Thuận Thế Hoàn Lực).** Each hit on you is dampened by D 15 (Modifier System rule 6a), applied before ward
+    shields; the amount dampened away is returned as Force (a trigger, inside `trig_budget`).
   - Minor: Soft Catch (Đỡ Mềm). The first hit that lands on you each fight is dampened 30 % (rule 6a). *(starter)*
   - Minor: Turn the Force (Chuyển Lực). Returned Force applies 1 Qi Disruption stack.
 
@@ -54,8 +54,8 @@
 - **Stat notables:** Soft Water (Nước Mềm): regen ×2 · Supple (Mềm Dẻo): body shield ×2 · Soft Overcomes Hard (Nhu Khắc
   Cương): regen +0.05, body shield +1 · Gentle (Hiền): status resist +2
 - **Effects:**
-  - **Major: The Soft Overcomes the Hard (Nhu Năng Khắc Cương).** Hits on you are reduced by 20 %, and by a further
-    10 % while you hold no ward shield.
+  - **Major: The Soft Overcomes the Hard (Nhu Năng Khắc Cương).** Damage taken is dampened by D 20 (Modifier System rule 6a, before ward shields),
+    and by a further D 10 while you hold no ward shield.
   - Minor: Water Takes the Blow (Nước Nhận Đòn). Crits against you deal 20 % less extra damage. *(starter)*
   - Minor: Bend, Don't Break (Cong Không Gãy). Your body shield regenerates 1 % a pulse while you hold no ward shield.
 
@@ -74,7 +74,7 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **It Wins without Moving (Bất Động Nhi Thắng)** | keystone | Things Happen of Themselves gives +60 % | Your arts and basic attack deal 50 % less (L2 −50) | Tự Nhiên |
-| **Rule by Not Acting (Vô Vi Nhi Trị)** | keystone | Not Striking's cap is 40 and Stillness also gives +1 % regeneration each | You may slot at most 2 arts | Bất Động Thủ |
+| **Rule by Not Acting (Vô Vi Nhi Trị)** | keystone | Not Striking's cap is 33 (L5 +99, inside the L5 cap of 100) and Stillness also gives +1 % regeneration each | You may slot at most 2 arts | Bất Động Thủ |
 | **The Highest Good (Thượng Thiện)** | keystone | Yield and Return returns 30 % | Your max health is 20 % lower | Thuận |
 
 ## New pieces

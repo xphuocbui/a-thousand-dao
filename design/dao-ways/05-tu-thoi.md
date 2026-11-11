@@ -47,7 +47,7 @@ with the **world's calendar** (Pillar 4: every season counts). A build reads the
   - **Major: Autumn's Killing Qi (Thu Sát).** In Autumn, your hits on a target below 35 % health deal more (L5 +40);
     defeated creatures yield one more material roll. Out of Autumn, the execute is L5 +15.
   - Minor: Reaping (Gặt). Herbs you harvest in Autumn have +1 quality step chance. `Needs key`. *(starter)*
-  - Minor: Bare Branches (Cành Trơ). In Autumn, your hits remove 1 of the foe's buff stacks (shared rule R16, once per pulse).
+  - Minor: Bare Branches (Cành Trơ). In Autumn, your hits remove 1 of the foe's buff stacks (`strip_buff`, Effects rule 6, R16: oldest batch first, once per pulse).
 
 ### 4. Đông (Winter)
 - **Small:** `defense_pct` +1.2 · `attack_pct` cold +1
@@ -80,7 +80,7 @@ with the **world's calendar** (Pillar 4: every season counts). A build reads the
 
 ## New pieces
 
-- The world season readable in fights and crafts: `Needs key` (a world-time readable, shared with Thái Âm and Quỷ).
+- The world season readable in fights and crafts: Character Stats rule 9a, R13 (world time/season; shared with Thái Âm and Quỷ). Crafts still need their own reader: `Needs key`.
 - A seasons-lived counter: `Needs key`.
 
 ## Kept apart from
