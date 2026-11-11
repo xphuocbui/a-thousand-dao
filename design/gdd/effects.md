@@ -2,7 +2,7 @@
 
 > **Status**: Revised 2026-11-09 for the Combat economy revision (#44), part 3: element stacks (rule 9a, Formulas D), Burn and Poison become Fire's and Wood's debuffs, Frostbite and Shock retire, no tick or burn caps, overflow readable (decisions in `design/research/economy-revision-44-decisions.md`). Earlier: designed 2026-11-08; `/design-review` 2026-11-08 overnight (lean, passes 1–4): NEEDS REVISION; revised 2026-11-08 with the user's answers; daytime re-review 2026-11-08 (lean, three passes): NEEDS REVISION, see `reviews/effects-review-log.md`; revised the same day with the user's answers to all 24 items (more reads and actions; the qi-tick path; last acts resolve requesting side first and win only on overkill). Second re-review 2026-11-08b: NEEDS REVISION; its fixes and the user's answers applied the same day (`reviews/rereview-2026-11-08b/effects.md`)
 > **Author**: user + agents
-> **Last Updated**: 2026-11-10 (re-review fixes: tick-cap text, Shock AC, stack lint horizon and rounding, cleansing ward owner, Spiritual Roots dependency). Earlier: 2026-11-09 (#44 part 3). Earlier: 2026-11-08 (second re-review 2026-11-08b applied; see `reviews/rereview-2026-11-08b/effects.md`)
+> **Last Updated**: 2026-11-11 (W5 and B5: the ward and body layers' fifth layer is an Effect payload only, like L5; Combat Defence & Healing Formulas A0). Earlier: 2026-11-10 (re-review fixes: tick-cap text, Shock AC, stack lint horizon and rounding, cleansing ward owner, Spiritual Roots dependency). Earlier: 2026-11-09 (#44 part 3). Earlier: 2026-11-08 (second re-review 2026-11-08b applied; see `reviews/rereview-2026-11-08b/effects.md`)
 > **Last Verified**: 2026-11-10 (confirming re-review)
 > **Implements Pillar**: Your Dao, Your Name (1); Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2)
 > **Scope**: Every build piece with a rule in it: conditions, scaling, triggers, conditional conversion, overflow, rule changes, keystones and enablers. An Effect usually grants Modifier System modifiers (`design/gdd/modifiers.md`) as its payload (user decision 2026-11-07). Plain numbers on a stat are Modifiers, not Effects; so is a plain conversion share (`convert_pct`, user decision 2026-11-08).
@@ -358,6 +358,9 @@ duration to read. They are bound instead by their standing cost (Formulas B) and
 > Drafted by `game-designer` 2026-11-07, filtered from `modifier-inventory.md` Part 2 and new pieces; inserted
 > as drafted (user decision). Every record is `price: unpriced`. **L5 +N** is N points in Combat's layer L5
 > (cap 100), granted through `damage_more` on L5, which only Effects may grant (Modifier System rule 6).
+> **W5 +N** and **B5 +N** are the defence twins (2026-11-11): N points in the ward layer W5 (`ward_more`) or the body
+> layer B5 (`body_more`), cap 100 each, also granted only by Effects (Combat Defence & Healing Formulas A0). No
+> record in this catalogue grants them yet.
 > **Tiers** (rule 4): keystones and enablers carry their own tier. Of the rest, these are `major`: Flowing Water,
 > Echo, Shattering Ward, Blood Drinker, Final Clause, Marked Prey, Gorged,
 > Field Walls, Overheat, Elemental Fist, Measured Stroke, Talisman Sleeve and Great Essence-Draining Art. Every
@@ -814,7 +817,7 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-41** [Logic] Called Blow. **GIVEN** a crit sum of 0.50 and a fortune modifier, **THEN** the counted p is 0.35, and adding or removing fortune leaves it unchanged.
 - **AC-EF-42** [Logic] Elemental Fist. **GIVEN** a Fire root, **THEN** the basic attack takes Fire-element-scoped damage modifiers, and its resistance is still Physical: a defender with Fire resistance 0.5 and Physical 0 takes unreduced damage.
 - **AC-EF-43** [Integration] Seal of Full Payment. **GIVEN** 1,000 carried stones, **THEN** linh lực pays for nothing and stones spent are reported, not deducted mid-fight; a knockout reports a 100-stone loss to the winner; NPC Builds never picks it.
-- **AC-EF-44** [Logic] L5 payloads. **GIVEN** a `damage_more` L5 modifier on a source that is not an Effect, **THEN** it is rejected (Modifier System rule 6); Kindled Wound's L5 +15 is accepted.
+- **AC-EF-44** [Logic] L5 payloads. **GIVEN** a `damage_more` L5 modifier on a source that is not an Effect, **THEN** it is rejected (Modifier System rule 6); Kindled Wound's L5 +15 is accepted. **GIVEN** a `ward_more` W5 or `body_more` B5 modifier on a source that is not an Effect, **THEN** it is rejected the same way (2026-11-11).
 - **AC-EF-48** [Logic] Spillover (#44). **GIVEN** a tick of 12 after resistance, **THEN** the target also loses 3 linh lực, with no second resistance step and no burn cap. **GIVEN** a Qi Disruption tick of 7 and Spillover burns of 6 in one pulse, **THEN** 13 comes off and nothing is clipped.
 - **AC-EF-49** [Logic] Water Table (ward payment event; restore linh lực). **GIVEN** the enemy's drain wards paying 20 against your hits and your pool 5 below your usable maximum, **THEN** you regain 5 (not 6), it is not healing, and your linh lực never regenerates.
 - **AC-EF-50** [Logic] Beast Soul Union (multiply a share). **GIVEN** a strongest companion whose `share / (B_p · stage_mult)` is 0.40, **THEN** its `c_comp` is 0.80. **GIVEN** 0.60, **THEN** 1.20 is clipped to 1.0 (`c_comp_cap`, Combat Formulas J) and the Breakdown names the cap.

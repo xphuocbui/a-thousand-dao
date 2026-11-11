@@ -2,7 +2,7 @@
 
 > **Status**: Revised 2026-11-09 for the Combat economy revision (#44), part 4 (applied overnight; **accepted by the user 2026-11-10**): the B3 exception (gain on hit, crit and kill, and leech are plain modifiers), paying art costs with health, increased regeneration, element stack modifiers, sustain stats re-priced from the #44 simulator, derived tag thresholds halved with art costs. Earlier: designed 2026-11-07; `/design-review` 2026-11-08 (lean, passes 1–4): NEEDS REVISION. Revised 2026-11-08 with the user's answers; fresh re-review the same day (three passes): NEEDS REVISION, see `reviews/modifiers-review-log.md`. Resumed after Combat Defence & Healing (#21a) and Combat Damage Types (#21b); the Stat List, price table and General Catalogue were rebuilt for them (damage-type scopes, resistance, block, body shield, healing stats, penetration; body guard retired); revised again 2026-11-08 with the user's answers to all re-review items (type scopes on whole-hit and whole-art stats; the [type + family] resistance row removed; conversion modifiers allowed as an ordinary stat, `convert_pct`). Second re-review 2026-11-08b: APPROVED; its fixes applied the same day (`reviews/rereview-2026-11-08b/modifiers.md`)
 > **Author**: user + agents
-> **Last Updated**: 2026-11-10 (#44 part 4 accepted; dampened op `D`; resistance in points; re-review fixes)
+> **Last Updated**: 2026-11-11 (`ward_more` and `body_more`: defence layers on par with damage `more`, Combat Defence & Healing Formulas A0). Earlier: 2026-11-10 (#44 part 4 accepted; dampened op `D`; resistance in points; re-review fixes)
 > **Last Verified**: 2026-11-10 (confirming re-review)
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Your Dao, Your Name (1)
 > **Scope**: Modifiers only, meaning plain numbers on a stat ("+X" or "X % increased / more"), optionally narrowed by tags. Effects (conditions, scaling, triggers, conditional conversion, keystones, enablers) are a separate system with their own GDD (user decision 2026-11-07). A plain conversion share is a modifier (`convert_pct`, user decision 2026-11-08).
@@ -93,7 +93,12 @@ system. An Effect grants modifiers from this catalogue as its payload.
    nodes) or **L4** (preparation and ground: formations, talismans, pills, coatings). Combat Formulas B
    multiplies the layers, so `more` stacks multiplicatively against `increased`. L3 is computed from gear,
    so no modifier writes to it. **L5** (cap 100) is granted only as an Effect's payload (Effects System,
-   user decision 2026-11-07), never by a plain modifier. Every other stat has no "more", which keeps one
+   user decision 2026-11-07), never by a plain modifier. **Defence layers** (user decision 2026-11-11: top-end
+   defence on par with top-end offence) mirror this exactly: `ward_more` adds points to the ward layers **W2**
+   (ward techniques, ward arts, Way ward nodes) or **W4** (formations, talismans, ground), and `body_more` to the
+   body layers **B2** (body techniques, arts, Way body nodes) or **B4** (pills, tempering, ground). W3 and B3 are
+   computed from gear; W5 and B5 are Effect payloads only. Caps, sources and prices are the damage layers'
+   (Combat Defence & Healing Formulas A0; Formulas D below). Every other stat has no "more", which keeps one
    multiplier per stat.
 
 6a. **Dampened** (user decision 2026-11-10: "don't cap anything") adds percentage points to the stat's one
@@ -313,6 +318,8 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Cast ward duration | `cast_ward_duration_pct` | I | ward | higher | 0.5 | Combat Defence & Healing rule 7; a cast ward's duration stays below its cooldown (variety 2026-11-08) | Pending |
 | Ward strength | `defense_pct` | I | ward | higher | 1.0 | Combat Defence & Healing rule 6 (scales ward payloads) | Live |
 | Ward efficiency | `ward_efficiency_pct` | I | ward | higher | 1.0 | Combat Defence & Healing rule 6 (lowers ward payments) | Designed |
+| Ward strength, more | `ward_more` (M, W2/W4; W5 as an Effect payload only; grid 0.1 points) | M | ward | higher | points (Formulas D, as `damage_more`) | Combat Defence & Healing A0: multiplies ward strength, so every ward payload and the drain rate; never soul payloads (2026-11-11) | Designed |
+| Body, more | `body_more` (M, B2/B4; B5 as an Effect payload only; grid 0.1 points) | M | none | higher | points (Formulas D, as `damage_more`) | Combat Defence & Healing A0: multiplies body block, body resistance and health regeneration, not the body shield (2026-11-11) | Designed |
 | Maximum health (khí huyết) | `khi_huyet_pct` | I | none | higher | 0.6 (was 1.2; user decision 2026-11-10) | Character Stats C | Live |
 | Evade | `evade_pct` | F (pp) | none | higher | 1.5 | Combat I | Designed |
 | Soul resistance | `soul_res_pct` | F (pp) | none | higher | 0.6 | Combat E2 | Designed |
@@ -666,6 +673,10 @@ have no grade sizes here.
 |---|---|---|---|---|
 | Damage, more L2 (`damage_more`) | arts and their tags: damage type, element, form, art | techniques, arts, Way art nodes | 5–50 per piece; a build's typical L2 is +40, the cap 300 | Designed |
 | Damage, more L4 (`damage_more`) | preparation: formation, talisman, pill coating, ground tags | formations, talismans, pills, coatings | a build's typical L4 is +20, the cap 150 | Designed |
+| Ward strength, more W2 (`ward_more`) | wards: ward kind, element, ward art | ward techniques, ward arts, Way ward nodes | 5–50 per piece; a build's typical W2 is +40, the cap 300 | Designed (2026-11-11) |
+| Ward strength, more W4 (`ward_more`) | preparation: formation, talisman, ground tags | formations, talismans | a build's typical W4 is +20, the cap 150 | Designed (2026-11-11) |
+| Body, more B2 (`body_more`) | — | body techniques, body arts, Way body nodes | 5–50 per piece; a typical-level thể tu is about +40, the cap 300 | Designed (2026-11-11) |
+| Body, more B4 (`body_more`) | preparation: pill, tempering, ground tags | pills, tempering | about +20 for a typical-level thể tu, the cap 150 | Designed (2026-11-11) |
 
 **Rare.** Counts come one unit each; rare-by-row stats are sized by Formulas C from the source's budget. Only on sources whose budget covers the price (rule 13).
 
@@ -883,7 +894,7 @@ The more_price formula is defined as:
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| i | enum | L2, L4 | modifier record | Target layer |
+| i | enum | L2, L4; W2, W4, B2, B4 (2026-11-11) | modifier record | Target layer. A defence layer is priced as its damage twin (W2 and B2 as L2; W4 and B4 as L4), so a point of defence costs what a point of damage does: on par |
 | r | enum | Qi Refining to Deity Transformation | the source's realm tier | Realm |
 | L1_typ(r) | float | 1.265–3.465 | Combat Formulas B typical anchor | L1 at 25 % of tree W |
 | L_i_typ | float | L2 1.4, L4 1.2 | Combat Formulas B | Typical layer value |

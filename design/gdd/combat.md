@@ -3,7 +3,7 @@
 > **Status**: **Approved 2026-11-10** (combat review, `reviews/combat-review-2026-11-10/`, five headless rounds). Revised 2026-11-10 after the combat review: fatigue is a flat amount growing with n² (not a share of health), `time_limit` and the stalemate are retired, soul resistance may go below 0, ticks have no floor of 1 (user decisions). Revised 2026-11-09 for the Combat economy revision (#44), part 1 (fight length, fatigue, linh lực costs and regeneration, no tick caps; decisions in `design/research/economy-revision-44-decisions.md`; part 2 re-derived the ward-dependent numbers the same day). Earlier: revised 2026-11-08 for the Combat revision (#43): the defence path, wards, shields and healing move to Combat Defence & Healing (#21a); damage types and conversion to Combat Damage Types (#21b); modifier records, operations and scopes to the Modifier System (#40); statuses, curses and the Down step to the Effects System (#41). This GDD keeps the fight frame: the timeline, offence, the defeat check, results and the rating. Earlier: reworked 2026-11-06 to a timeline of seconds with no rounds (user decision); seventh review fixes applied the same day (ward pass clamp, since retired; defeat check judged after all of an instant's damage, a draw on equal overkill, guards read after the pulse), not re-reviewed; ninth-pass fixes applied the same day (wake-up events, ward expiry tie), not re-reviewed. Simulated numbers predate the timeline and are provisional. Earlier: fourth design-review fixes, cooldown timers and hit order, escape step, one health bar and wards
 > **Build status**: On hold (user decision 2026-11-06). The full fight is not built until items, techniques, abilities and passives exist. Until then fights keep using today's power duel (`CombatPower`, `combat_rules.json`) unchanged, so the Character Stats and Cultivation Techniques edits that cite this GDD describe the target, not the running game.
 > **Author**: user + agents
-> **Last Updated**: 2026-11-10 (third review round: tick formula in points, heal-versus-fatigue note, start-maximum art costs, `ward_cap` retired). Earlier: 2026-11-10 (review sweep `reviews/combat-review-2026-11-10/combat.md`: flat n² fatigue, `time_limit` and stalemate retired, soul resistance without a floor, no tick floor (user decisions); stale ACs re-based; resistance in points throughout). Earlier: 2026-11-10 (#44 follow-ups: resistance in points, regeneration curve, re-review fixes)
+> **Last Updated**: 2026-11-11 (top-end defence on par with offence: ward and body layers in Combat Defence & Healing Formulas A0; rule 18 and Formulas B notes). Earlier: 2026-11-10 (third review round: tick formula in points, heal-versus-fatigue note, start-maximum art costs, `ward_cap` retired). Earlier: 2026-11-10 (review sweep `reviews/combat-review-2026-11-10/combat.md`: flat n² fatigue, `time_limit` and stalemate retired, soul resistance without a floor, no tick floor (user decisions); stale ACs re-based; resistance in points throughout). Earlier: 2026-11-10 (#44 follow-ups: resistance in points, regeneration curve, re-review fixes)
 > **Last Verified**: 2026-11-10 (fifth confirming review: **approved**, `reviews/combat-review-2026-11-10/round5/`; its notes applied)
 > **Implements Pillar**: Power Is Built, Not Given (3); Your Dao, Your Name (1); Every Number Is Bounded and Visible (2)
 
@@ -341,7 +341,9 @@ author's reading and wait for confirmation (see Open Questions).
     stopping 60 %, with its wards up), one that drains linh lực hard (it carries Qi Disruption or a soul art) and one that heals (a heal
     art or heal Effect) (Combat revision D8; thresholds user decision C3, 2026-11-08). Every enemy profile lists its damage types, its wards and a soul
     defence (Combat Damage Types Open Question 5; Combat Defence & Healing rule 14), so a one-note build meets something it cannot answer. A top-end build
-    may end an ordinary fight with its first volley or two; that is its payoff (user decision 2026-11-06).
+    may end an ordinary fight with its first volley or two; that is its payoff (user decision 2026-11-06). Two
+    top-end builds fight as long as two typical ones: top-end defence grows on par with top-end offence through the
+    ward and body layers (Combat Defence & Healing Formulas A0; user decision 2026-11-11).
     Bosses and tribulation bosses carry a `boss_pool_mult`. An ordinary boss is set so that a top-end build
     needs at least 4 seconds against it; a tribulation boss is exempt, because it must stay beatable by a typical build (user decision 2026-11-06, thien-kiep.md Formulas C).
 19. **Companions.** A spirit beast attached to a side adds the power share it already has
@@ -593,8 +595,10 @@ W shares are attack / ward strength / ward efficiency / linh lực / health.
   coefficient 1.6 at 15 % crits of ×1.7; the Common Ward (all 342.5 resistance points, drain 0.328), so 448 points at ws 30.8 (stops 81.75 %),
   plus block rating 15.0 (Combat Defence & Healing Formulas A, A2).
 - **Top-end:** 45 / 10 / 7.5 / 7.5 / 20 %, L2–L5 at 4.0, 3.5, 2.5, 2.0, artifact defence 5 × B_p, 50 % crits
-  of ×2; resistance about 900 points (stops 90 %) at Qi Refining, rising to about 1,900 (95 %) by Deity Transformation, no cap
-  (Combat Defence & Healing Formulas A).
+  of ×2; `ws_base` 163 and the ward layers W2–W5 at their caps (W3 3.35 from gear), so 1 + ws/100 is 68.1 at Qi
+  Refining, ×52 over typical (Combat Defence & Healing Formulas A0, user decision 2026-11-11). The Common Ward alone
+  then holds about 23,300 points (99.6 %) and bills ×52 less per point stopped. The other realms
+  are re-derived by the harness (the old figures, about 900 rising to 1,900 points, had no layers).
 - **Thể tu:** Combat Defence & Healing's Formulas G fixture: block 88.3 rating (flesh 5.3, gear 12, Iron Body Art
   tier 3 30, W 41), body shield 0.90 (technique 0.30, gear 0.60), Physical resistance 36.1 points (Iron Body tier 3 25,
   Black Iron Armour's Physical affix 11.1), body gear 1.0 × B_p, the default ward only. Its W shares need a harness
@@ -613,6 +617,10 @@ Typical ehp at Qi Refining is Combat Defence & Healing Formulas G's 1,376.2 / 6.
 Qi Refining only, so the other ehp cells are re-derived from its Formulas G by the balance harness (the old
 values 56 / 73 / 94 / 127 and 125 / 163 / 217 / 315 / 460 assumed the retired ward and body guard). Open
 Question 20 still applies to the mirror columns.
+
+**Top-end mirror (2026-11-11).** With the ward layers at their caps the top-end mirror lasts about **35 s** at Qi
+Refining (35.2 s, `tools/design/combat_sim/sim.py`, 20 seeds), against 2.0 s with the old wards, and a top-end build
+still beats a typical side at 2.0 s, its first volley (rule 18). The top-end columns above are superseded by this.
 
 **#44 note:** the mirror columns and the spot checks below predate the Combat economy revision and are
 superseded. **The canonical typical mirror is the simulator's** (`tools/design/combat_sim/sim.py`, three arts, 20
@@ -667,7 +675,7 @@ dealt; the drain bill is 0.1917 × 33.76 = **6.47** linh lực. With every ward 
 ### D. Wards and body defence (moved)
 
 These formulas moved to Combat Defence & Healing in the Combat revision (#43, 2026-11-08):
-- ward strength, ward efficiency and artifact defence (`ws`, `we`, `a_w`, `a_b`, `ward_gear_scale` 0.30,
+- ward strength, ward efficiency and artifact defence, and since 2026-11-11 the ward and body layers that mirror L2–L5 (`ws`, `ws_base`, `we`, `a_w`, `a_b`, `ward_gear_scale` 0.30,
   `ward_floor` −90; `ward_cap` retired 2026-11-10): its Formulas A0;
 - resistance by damage type: A; block: A2; shields: B; the five payments: C; ward slots: D; healing: E; the
   ward price check: F; effective health: G; the starter wards: H.
@@ -721,7 +729,7 @@ The soul_attack formula is defined as:
 | x_soul | float | ≥ 0 | calculated | Soul-tagged modifiers, so a soul build has something to stack |
 | soul_beta | float | 2 (1.5–3) | data file | Steepness: a big gap is frightening and parity is small |
 | rho_min | float | 0.25 | data file | Below this the attack cannot touch the soul |
-| soul_res_pct | float | any; below 0 amplifies | Modifier System (`soul_res_pct`); soul wards | Way nodes, rare items and soul-ward payloads (scaled by ws). Lowered by Slackened Soul, −15 pp per stack (Combat revision D12), with no floor since 2026-11-10, like resistance |
+| soul_res_pct | float | any; below 0 amplifies | Modifier System (`soul_res_pct`); soul wards | Way nodes, rare items and soul-ward payloads (scaled by `ws_base`, never by the ward layers: Combat Defence & Healing rule 14). Lowered by Slackened Soul, −15 pp per stack (Combat revision D12), with no floor since 2026-11-10, like resistance |
 | soul_cap | float | 0.30 | data file | Most one hit can take |
 | supp | float | 0.25–1 | calculated (H) | Suppression applies, and pierce works on it |
 

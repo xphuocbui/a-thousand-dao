@@ -2,7 +2,7 @@
 
 > **Status**: **Approved 2026-11-10** (combat review, `reviews/combat-review-2026-11-10/`, five headless rounds; round 4 and 5 approved). Revised the same day: resistance in points with no cap or floor, no per-ward resistance maximum, no ward strength or efficiency ceiling, shield wards and Clear Heart Ward re-priced, art costs read the start maximum, Ice on art-slot wards only, Water's gain usable, full heal refund (user decisions). Before that: the Combat economy revision #44 (2026-11-09, `design/research/economy-revision-44-decisions.md`), designed 2026-11-07, reviews 2026-11-08 to 08c; the full history is in `reviews/combat-defence-review-log.md` and the review folders
 > **Author**: user + agents
-> **Last Updated**: 2026-11-10 (third review round and its decisions: shield and Clear Heart re-price, no ward strength ceiling, start-maximum art costs)
+> **Last Updated**: 2026-11-11 (ward and body layers: top-end defence on par with top-end offence, Formulas A0; earlier 2026-11-10: third review round, shield and Clear Heart re-price, no ward strength ceiling, start-maximum art costs)
 > **Last Verified**: 2026-11-10 (fifth confirming review: **approved**, `reviews/combat-review-2026-11-10/round5/`; its notes applied)
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Your Dao, Your Name (1)
 > **Parent system**: Combat (#21, `design/gdd/combat.md`). This is sub-system #21a. It owns the whole defence path (evade, resistance, block, wards and body shields, health, soul and status defence) and healing in a fight. Combat keeps offence, the timeline, triggers and results, and is revised afterwards to point here (systems-index design order, user decision 2026-11-07).
@@ -274,7 +274,7 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
     side of rho). Soul wards add soul resistance and soul shields. A **soul shield** has a share and a bar
     (user decision 2026-11-08, re-review CD 1): after E2's `pct` sets a soul hit's losses to health and
     linh lực, the shield takes its share of each loss off its own bar until the bar is empty. The share is
-    capped below 1 (`soul_shield_share_max`), and ward strength scales the bar, never the share (Formulas B). **Every profile has a soul defence**:
+    capped below 1 (`soul_shield_share_max`), and ward strength scales the bar, never the share (Formulas B). Soul payloads read `ws_base`, not the layered `ws`: soul attacks already scale by the ratio of thần thức (Combat Formulas E2), so the ward layers would make them useless at the top end (2026-11-11, Formulas A0). **Every profile has a soul defence**:
     reference enemies and NPCs carry thần thức and soul resistance by realm, so soul results can be
     trusted (overnight decision 8).
 
@@ -397,26 +397,81 @@ resistance ×1.25 (typical r 0.8175), drain ×0.2. Typical ehp is now 1,376.2 an
 Moved here from Combat Formulas D (re-review CD 2; the Combat revision #43 leaves a stub there). The values
 are unchanged.
 
-`ws = max(ward_floor, defense_pct + Σ ward_strength + 100 · ward_gear_scale · a_w)` ; `we = max(0, ward_efficiency_pct + 100 · ward_gear_scale · a_w)` (no ceiling since 2026-11-10) ; `a_w = Σ (defence of artifacts without the body_gear tag) / (B_p · stage_mult)` ; `a_b = Σ (defence of body_gear-tagged artifacts) / (B_p · stage_mult)`
+`ws_base = max(ward_floor, defense_pct + Σ ward_strength + 100 · ward_gear_scale · a_w)` ; `ws = 100 · ((1 + ws_base/100) · M_w / w_ref − 1)`, with `M_w` the ward layers below (2026-11-11) ; `we = max(0, ward_efficiency_pct + 100 · ward_gear_scale · a_w)` (no ceiling since 2026-11-10) ; `a_w = Σ (defence of artifacts without the body_gear tag) / (B_p · stage_mult)` ; `a_b = Σ (defence of body_gear-tagged artifacts) / (B_p · stage_mult)`
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | defense_pct | float | ≥ −100 | Modifier System (`defense_pct`, ward strength) | Tree nodes keep their W price |
 | ward_strength | float | any | modifiers and Effects naming ward strength | Added flat |
+| ws_base | float | −90 and up | calculated | The additive sum, what ws was before 2026-11-11. Soul payloads read it instead of `ws` (ward layers below) |
+| ws | float | above −100 | calculated | **Effective ward strength.** Every formula that reads `(1 + ws/100)` reads this one, so the layers reach resistance, block, shields and the drain rate (A, A2, B, C). Typical 30.8, as before |
 | ward_efficiency_pct | float | ≥ 0 | Modifier System | Lowers payments, speeds recharge |
-| ward_gear_scale | float | 0.30 | data file | Artifact defence 0.85 × B_p gives +25.5 to both ws and we |
+| ward_gear_scale | float | 0.30 | data file | Artifact defence 0.85 × B_p gives +25.5 to both `ws_base` and we. Ward gear also fills layer W3 (below): it counts twice on purpose (user decision 2026-11-11) |
 | a_w | float | ≥ 0 | Item DB | **All non-body artifact defence** (re-review CD 10; the role-tag rename of `ward`/`body` to `ward_gear`/`body_gear` is done, D2, 2026-11-08). Counts in full for ws and we; counts up to 1 for gear block only (Formulas A2, Open Question 13; re-review 2026-11-08b CD-01) |
 | a_b | float | 0–1.0 per piece at top end | Item DB | body_gear-tagged artifact defence. One top-end body piece gives 1.0; a_b sums every body_gear-tagged piece, so 2.0 means two top-end pieces (re-review CD 9) |
 | ward_floor | float | −90 | data file | ws stays above −90 so `1 + ws/100` stays positive. `ward_cap` (400) is retired: neither stat has a ceiling (user decision 2026-11-10) |
 
-**Anchor:** Combat's typical fixture FX-T sets ws = we = 30.8. With a_w 0.85 the gear term gives 25.5 of that,
-so the remaining 5.3 comes from modifiers (derived, not a separate fixture value).
+**Anchor:** Combat's typical fixture FX-T sets `ws_base` = we = 30.8. With a_w 0.85 the gear term gives 25.5 of that,
+so the remaining 5.3 comes from modifiers (derived, not a separate fixture value). The typical ward layers equal
+`w_ref`, so ws = `ws_base` = 30.8.
+
+**Ward and body layers** (added 2026-11-11, user decision: top-end defence scales on par with top-end offence, mostly
+through warding, and the body through its own layers and regeneration). Both sets mirror Combat's offence layers
+L2–L5 (Combat Formulas B), with the same caps.
+
+`W_i = 1 + min(y_i, cap_i) / 100` and `B_i = 1 + min(z_i, cap_i) / 100` for i = 2 to 5 ; `M_w = W2 · W3 · W4 · W5` ;
+`bs_mult = B2 · B3 · B4 · B5` ; `y_3 = 100 · layer_gear_scale · a_w` ; `z_3 = 100 · layer_gear_scale · a_b`
+
+`M_w` sets `ws` above. `bs_mult` multiplies the body's own defence: body block (`b_src` and body gear's part of
+`b_gear`, Formulas A2), body resistance (`R_x,other` from body techniques and body_gear pieces, Formulas A) and health
+regeneration (Formulas E).
+
+| Variable | Type | Range | Source | Description |
+|---|---|---|---|---|
+| y_2, z_2 | float | ≥ 0 | Modifier System (`ward_more`, `body_more` on layer 2) | Ward or body techniques, arts and Way nodes. Typical ward +40 |
+| y_3 | float | ≥ 0 | calculated from a_w | Ward gear. Typical +40 (a_w 0.85); top-end ward gear (a_w 5) +235 |
+| z_3 | float | ≥ 0 | calculated from a_b | Body gear. One top-end piece (a_b 1.0) +47 |
+| y_4, z_4 | float | ≥ 0 | Modifier System (`ward_more`, `body_more` on layer 4) | Ward: formations, talismans, ground. Body: pills, tempering, ground. Typical ward +20 |
+| y_5, z_5 | float | ≥ 0 | Effects System (payload only) | As with L5: never a plain modifier, applied only while the Effect is active. Typical ward +10 |
+| cap_2 to cap_5 | float | 300 / 250 / 150 / 100 | data file (`defence_layer_caps`) | The same as Combat `layer_caps` L2–L5 |
+| layer_gear_scale | float | 0.47 | data file | Sets typical ward gear (a_w 0.85) to +40, the offence L3 typical |
+| w_ref | float | 2.587 | data file | The typical anchor's M_w (1.4 · 1.4 · 1.2 · 1.1), so a typical side has ws = `ws_base` = 30.8 and every typical fixture holds |
+| M_w | float | 1–70 | calculated | Ward layers. Typical 2.587 (1.4 · 1.4 · 1.2 · 1.1) |
+| bs_mult | float | 1–70 | calculated | Body layers. There is no reference value: a build with no body sources has 1, so typical sides are unchanged |
+
+**Why on par.** The top end's damage over typical is ×31.5 from layers (Combat Formulas B), ×42.7 with crit. The
+drain rate divides by `(1 + ws/100)` (Formulas C), so a stronger ward stops more and bills less per point stopped.
+When linh lực runs out the ward falls and a top-end hit lands whole: linh lực stays the real life bar. That is why
+the ward must outrun offence rather than just match it. A typical side lives about 20 s after its ward falls, a
+top-end side about one volley, so a top-end duel lasts only as long as its wards. The layers alone (×27) gave a
+20.6 s top-end duel. With ward gear in both `ws_base` and W3, the top end reaches ×52 over typical and a 35.2 s duel
+(user decision 2026-11-11).
+- **Body.** bs_mult reaches ×70 at every cap, which is ×27 over a typical-level thể tu (about 2.6). The thể tu
+  fixture (Formulas G) is re-fitted for this, together with its planned move to Core Formation.
+- **The body shield is not scaled.** It is the body's pool, as linh lực is the ward's, and it already grows with
+  health. In the simulator, scaling it ×27 made the thể tu win 20 of 20 against a top-end ward build.
+- **Regeneration** is the body's sustain: scaled by bs_mult, it decides whether a top-end thể tu keeps pace. The
+  simulator (2026-11-11, against the top-end ward build below) gives the thể tu 0 of 20 at 8.1 % of `health_max` a
+  pulse, about even at 10.8 % (10 to 8, 57.7 s) and 19 of 20 at 13.5 %. That is a sharp edge for the harness to tune.
+- **Budget.** Layer points are bought from the budgets that already exist (tree points, technique and item budgets,
+  slots) at the Modifier System's `more` price, so they compete with damage. Whether the top-end anchor can reach
+  every cap on both offence and wards is a harness check.
+
+**Output Range:** ws stays above −100 with no ceiling: at the `ws_base` floor of −90 and no layers, 1 + ws/100 =
+0.039. A side with no ward layers runs its wards at 1 / 2.587 = 0.39 of a typical-layered side's strength (the
+default ward, which ws does not touch, is unchanged). bs_mult 1–70.
+
+**Example:** the top end at Qi Refining, `ws_base` 163 (modifiers 13, gear a_w 5 gives 150) and every ward layer at
+cap except W3 (3.35): 1 + ws/100 = 2.63 × 67 / 2.587 = **68.1**, ×52 over typical. The Common Ward holds 342.5 × 68.1
+= 23,330 points and stops 99.6 %, and its drain rate falls by the same ×52. Simulator (`tools/design/combat_sim/sim.py`,
+Qi Refining, 20 seeds, 2026-11-11): top-end mirror **35.2 s** (2.0 s with today's wards), top end vs typical 2.0 s
+(Combat rule 18's volley), typical mirror 36.7 s (unchanged).
 
 ### A. Resistance
 
 The resistance formula is defined as:
 
-`R_j = R_all + R_type(j) − pen_j` (points, no cap) ; `a_j = D_j · 100 / (100 + R_j)` when R_j ≥ 0, and `a_j = D_j · (1 − R_j / 100)` when R_j < 0 ; `R_x = R_x,other + Σ_w R_w,x · (1 + ws/100)` ; the share stopped is `r_j = R_j / (100 + R_j)` when R_j ≥ 0 and `r_j = R_j / 100` (negative) when R_j < 0, so `a_j = D_j · (1 − r_j)` either way
+`R_j = R_all + R_type(j) − pen_j` (points, no cap) ; `a_j = D_j · 100 / (100 + R_j)` when R_j ≥ 0, and `a_j = D_j · (1 − R_j / 100)` when R_j < 0 ; `R_x = R_x,body · bs_mult + R_x,other + Σ_w R_w,x · (1 + ws/100)` (bs_mult: Formulas A0, 2026-11-11) ; the share stopped is `r_j = R_j / (100 + R_j)` when R_j ≥ 0 and `r_j = R_j / 100` (negative) when R_j < 0, so `a_j = D_j · (1 − r_j)` either way
 
 **Variables:**
 
@@ -425,7 +480,8 @@ The resistance formula is defined as:
 | D_j | float | ≥ 0 | Combat Formulas C | The part after layers, crit and suppression |
 | R_all | float | points, any | Modifier System (`resist_pct`, no scope) | All resistance: every type except Soul |
 | R_type(j) | float | points, any | Modifier System (`resist_pct` scoped to a damage type) | Resistance of the part's **final** damage type only (Combat Damage Types rule 6) |
-| R_x,other | float | points, any | items, the tree, the Way, techniques, body pieces | Not scaled by ws |
+| R_x,body | float | points, any | body techniques, body_gear-tagged pieces | The body's own resistance, scaled by the body layers (`bs_mult`, Formulas A0), never by ws |
+| R_x,other | float | points, any | other items, the tree, the Way, other techniques | Scaled by neither |
 | R_w,x | float | ≥ 0 points (no per-ward maximum since 2026-11-10; the price check bounds it) | ward record | One ward's resistance payload on x (all or a type) |
 | ws | float | −90 and up | Formulas A0 | Ward strength, no ceiling |
 | pen_j | float | points, ≥ 0 | Modifier System (`resist_pen_pct`, scoped by type or tag) | Subtracted from R; a type scope matches the final type only |
@@ -446,11 +502,11 @@ The resistance formula is defined as:
 
 | Realm | Typical ws | Typical R (Common Ward) | Share stopped | Top-end |
 |---|---|---|---|---|
-| Qi Refining | 30.8 | 448 | 81.75 % | a second ward and modifiers, about 900 (90 %) |
-| Foundation Establishment | 37.9 | 472 | 82.5 % | about 1,000 |
-| Core Formation | 47.9 | 507 | 83.5 % | about 1,200 |
-| Nascent Soul | 62.5 | 557 | 84.8 % | about 1,500 |
-| Deity Transformation | 84.1 | 631 | 86.3 % | about 1,900 (95 %) |
+| Qi Refining | 30.8 | 448 | 81.75 % | every ward layer at cap (A0, 2026-11-11): ws 6,710, the Common Ward alone about 23,300 (99.6 %); was about 900 |
+| Foundation Establishment | 37.9 | 472 | 82.5 % | re-derive with the layers (was about 1,000) |
+| Core Formation | 47.9 | 507 | 83.5 % | re-derive with the layers (was about 1,200) |
+| Nascent Soul | 62.5 | 557 | 84.8 % | re-derive with the layers (was about 1,500) |
+| Deity Transformation | 84.1 | 631 | 86.3 % | re-derive with the layers (was about 1,900 (95 %)) |
 
 Higher realms stop a little less than under the old 90 % cap (accepted by the user); more free ward slots (Formulas D)
 let them stack a second or third ward.
@@ -462,7 +518,7 @@ not apply to it.
 
 The block formula is defined as:
 
-`B_hit = block_unit[r] · stage · (b_flesh + b_gear + Σ b_src + Σ_w b_w · (1 + ws/100))` ; `b_flesh = flesh_block · n_body` ; `b_gear = gear_block · (min(a_w, 1) + a_b)` ; `k_j = a_j · min(1, B_hit / Σ_i a_i)` ; `c_j = a_j − k_j` ; after shields soak `h_j` ; `dealt_j = 0 if h_j ≤ 0, else max(1, h_j)`
+`B_hit = block_unit[r] · stage · (b_flesh + b_gear + Σ b_src · bs_mult + Σ_w b_w · (1 + ws/100))` ; `b_flesh = flesh_block · n_body` ; `b_gear = gear_block · (min(a_w, 1) + a_b · bs_mult)` (bs_mult: Formulas A0, 2026-11-11; ward gear's part and flesh are not scaled) ; `k_j = a_j · min(1, B_hit / Σ_i a_i)` ; `c_j = a_j − k_j` ; after shields soak `h_j` ; `dealt_j = 0 if h_j ≤ 0, else max(1, h_j)`
 
 **Variables:**
 
@@ -474,7 +530,7 @@ The block formula is defined as:
 | n_body | float | 0.25–8 | Combat Formulas A | Căn cốt and health % raise it |
 | gear_block | float | 12 per unit of a | data file | Ward gear counts up to a = 1; body gear counts in full (Formulas B) |
 | a_w, a_b | float | ≥ 0 | Formulas A0 | All non-body_gear artifact defence; body_gear-tagged artifact defence |
-| b_src | float | ≥ 0 | body techniques; `block_rating` modifiers | Block rating from other sources |
+| b_src | float | ≥ 0 | body techniques; `block_rating` modifiers | Block rating from other sources, scaled by the body layers (`bs_mult`) |
 | b_w | float | 0–100 (`ward_block_max`) | ward record | A ward's block payload, scaled by ws |
 | a_j | float | ≥ 0 | A | Each part after resistance |
 | k_j | float | 0–a_j | calculated | The part's share of block, split by its size after resistance |
@@ -532,7 +588,7 @@ ward shield `S_w = σ · qi_max · (1 + ws/100)`, recharging at `shield_recharge
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | σ | float | 0–0.50 | ward record | Ward shield size as a share of the full `qi_max` |
-| σ_b | float | ≥ 0 | body techniques, body gear, `body_shield_pct` | Body shield as a share of `health_max`. Not scaled by ws |
+| σ_b | float | ≥ 0 | body techniques, body gear, `body_shield_pct` | Body shield as a share of `health_max`. Not scaled by ws or by the body layers: it is the body's pool (Formulas A0) |
 | body_gear_shield | float | 0.60 per unit of a_b | data file | Body gear's shield (user decision 2026-11-07: body gear gives mainly shield, worth the same W per defence point as ward gear, 0.648) |
 | a_b | float | 0–1.0 per piece at top end | Formulas A0 | body_gear-tagged artifact defence / (B_p · stage_mult). Top-end body gear is 1.0 × B_p, against 5 × B_p for ward gear; 2.0 is two top-end pieces |
 | κ | float | 0.04–0.25 | ward record | Cast cost share |
@@ -557,11 +613,11 @@ at a_b 2.0 with Iron Body tier 3.
 
 **Soul shield** (rule 14; user decision 2026-11-08, re-review CD 1):
 
-`S_soul = σ_soul · qi_max · (1 + ws/100)` ; for each soul hit, after Combat Formulas E2's `pct` gives losses `L_h` (health) and `L_q` (linh lực): `soak_x = min(S_soul,left, s_soul · L_x)` for x = h then q ; `L_x ← L_x − soak_x` ; `s_soul ≤ soul_shield_share_max`
+`S_soul = σ_soul · qi_max · (1 + ws_base/100)` (`ws_base`, not the layered ws: rule 14) ; for each soul hit, after Combat Formulas E2's `pct` gives losses `L_h` (health) and `L_q` (linh lực): `soak_x = min(S_soul,left, s_soul · L_x)` for x = h then q ; `L_x ← L_x − soak_x` ; `s_soul ≤ soul_shield_share_max`
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| σ_soul | float | 0–0.50 | ward record | The soul shield's bar as a share of `qi_max`, scaled by ws |
+| σ_soul | float | 0–0.50 | ward record | The soul shield's bar as a share of `qi_max`, scaled by `ws_base` |
 | s_soul | float | 0–0.75 | ward record | Share of each soul-hit loss the shield takes. Never scaled by ws |
 | soul_shield_share_max | float | 0.75 | data file | Keeps every soul hit landing in part |
 
@@ -646,7 +702,7 @@ step of 1.5 would be too low, because peak stage alone would nearly reach it.
 
 The healing formulas are defined as:
 
-`heal = base · (1 + healing_pct/100) · (1 + taken_pct/100)` ; heal art `base = U · stage · c_heal · (health_units / 16)`, and the heal art **refunds the linh lực actually paid for it** when it lands and restores any health (rule 16) ; regeneration `base = health_max · (hregen_base + hregen_bonus) · (1 + health_regen_inc_pct/100) / (1 + D_stag/100)` per pulse, with `D_stag` Stagnation's dampened sum (Combat Formulas E, which also owns linh lực regeneration's log curve and `regen_k`) ; heal lint `c_heal ≤ heal_lint_ratio · (basic_coef · (1 + art_coef_per_cost · cost_share) + art_coef_per_cooldown · (cooldown − 1))`
+`heal = base · (1 + healing_pct/100) · (1 + taken_pct/100)` ; heal art `base = U · stage · c_heal · (health_units / 16)`, and the heal art **refunds the linh lực actually paid for it** when it lands and restores any health (rule 16) ; regeneration `base = health_max · (hregen_base + hregen_bonus) · (1 + health_regen_inc_pct/100) · bs_mult / (1 + D_stag/100)` per pulse (bs_mult, the body layers of Formulas A0, 2026-11-11: regeneration is the body's sustain), with `D_stag` Stagnation's dampened sum (Combat Formulas E, which also owns linh lực regeneration's log curve and `regen_k`) ; heal lint `c_heal ≤ heal_lint_ratio · (basic_coef · (1 + art_coef_per_cost · cost_share) + art_coef_per_cooldown · (cooldown − 1))`
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
@@ -917,14 +973,14 @@ marks a derived price, **G** a guess.
 |---|---|---|---|---|
 | Combat (#21) | Hard, parent | Timeline, pulses, instants, offence (layers, crit, suppression), tags and conversion, the defeat check, results, the art lint, the evade formula | GDD approved for rules | Yes (since the Combat revision #43). History: the revision replaced rule 4's path, rule 22, rule 23's body guard and all of Formulas D (leaving a stub that cites Formulas A0), updates rule 24 and E2 for soul wards, removes `ward_art_duration` from A2, and updates Formulas A's ehp and Formulas K |
 | Character Stats (#7) | Hard | Maximum health and linh lực, thần thức and `ds_ref`, căn cốt, the stat sheet sums | In review | Not yet: add the new defence keys to Parameter keys |
-| Modifier System (#40) | Hard | The defence and healing stats, their W prices, breadth, scope matching | Approved 2026-11-08b; revised for #44 2026-11-09/10 | Yes: its Stat List carries the defence stats, its rule 7 leaves the bounds here, and its Cross-References cite rules 2–4, 6, 7, 9–12 and Formulas A–E, I |
+| Modifier System (#40) | Hard | The defence and healing stats, their W prices, breadth, scope matching; `ward_more` and `body_more` on layers 2 and 4 (2026-11-11) | Approved 2026-11-08b; revised for #44 2026-11-09/10 | Yes: its Stat List carries the defence stats, its rule 7 leaves the bounds here, and its Cross-References cite rules 2–4, 6, 7, 9–12 and Formulas A–E, I |
 | Combat Damage Types (#21b) | Hard | The damage types that resistance is keyed on, conversion, and what passes each shield | Approved 2026-11-08c; revised 2026-11-10 (points) | Yes: rules 4, 5 and 7 and its Cross-References |
-| Effects System (#41) | Soft | Lifesteal, triggered heals, other reservations, curses on resistance and healing taken | Approved 2026-11-08c; revised for #44 2026-11-09/10 | Yes: rule 6 (restores and reservation) and its Cross-References |
+| Effects System (#41) | Soft | Lifesteal, triggered heals, other reservations, curses on resistance and healing taken; ward and body layer-5 payloads (2026-11-11) | Approved 2026-11-08c; revised for #44 2026-11-09/10 | Yes: rule 6 (restores and reservation) and its Cross-References |
 | Heavenly Tribulation (#22) | Soft | Sets `no_heal` on every wave; tribulation lightning is Lightning | Approved for rules | Yes (Dependencies note, Combat revision #43; its rule 7 should still cite `no_heal`) |
 | Realms (#8) | Soft | The realm, for free ward slots by realm (Formulas D) | In review | Yes (Dependencies note, Combat revision #43) |
 | Quests (#31) | Soft | Reads effective health (Formulas G) through Combat's fight power F | In review | Yes (Dependencies note, Combat revision #43) |
 | Cultivation Techniques (#9), The Way (#39) | Soft | Ward spells and heal arts as content | In review; approved | Not yet |
-| Item DB (#13), Artifact Refining (#16) | Soft | Ward_gear-role artifacts, resistance affixes, body gear | Approved; built | Not yet |
+| Item DB (#13), Artifact Refining (#16) | Soft | Ward_gear-role artifacts, resistance affixes, body gear; a_w and a_b now also fill layers W3 and B3 (2026-11-11) | Approved; built | Not yet |
 | Talismans (#18), Formations (#17), Alchemy (#15) | Soft | Cast wards from talismans, formation wards, healing pills | Implemented, quick specs | Not yet |
 | NPC Builds | Soft | The same profile rules, including a soul defence by realm (rule 14) | Implemented | Not yet |
 | Game UI (#37), Debug Terminal | Soft | Bars, ward states, Breakdown lines | Not started; built | Not yet |
@@ -1004,6 +1060,7 @@ or died (Pillar 2). Every defence event has a distinct cue.
 | Formulas G | combat.md Formulas A, K | ehp, `t_w`, `t_h` | Replaced (ehp); proposed for K |
 | Formulas B, I | item-database.md (artifact defence a_w, a_b) | Body gear mapping 0.60 σ_b and 12 block per a_b; top-end body gear 1.0 × B_p | Proposed change to Item DB |
 | Formulas A0 | combat.md Formulas D | `ws`, `we`, `ward_floor`, `a_w`, `a_b`, `ward_gear_scale` (`ward_cap` retired 2026-11-10) | Moved here; Combat keeps a stub after #43 |
+| Formulas A0, ward and body layers | combat.md Formulas B (layers L2–L5, `layer_caps`); modifiers.md rule 6, Formulas D | Mirrored caps; `ward_more`, `body_more` and their `more` price | Proposed 2026-11-11; Modifier System and Effects System to adopt |
 | Rules 5, 6, 10, 11, 19, Edge Cases | effects.md rules 5, 6, 11; No Ward | Reservation by Effects; restores; live changes; the Down step; `cannot_slot_wards`, `no_default_ward` | Read |
 | Rules 5, 10, 16 | modifiers.md rule 13 | Rare modifiers (ward slots) | Read |
 
@@ -1031,7 +1088,10 @@ design estimates until the balance harness confirms them.
 | `cleanse_share` | 0.25 | 0.25–0.5 | Share of every debuff batch a cleansing ward removes each pulse | Rule 6 |
 | `ward_block_max` | 100 | 80–120 | Largest block payload on one ward | A2, F |
 | ~~`ward_cap`~~, `ward_floor` | retired 2026-11-10; −90 | —; fixed | No ceiling on ward strength or efficiency; floor on ward strength | A0 |
-| `ward_gear_scale` | 0.30 | 0.25–0.35 | Ward strength and efficiency from artifact defence | A0 |
+| `ward_gear_scale` | 0.30 | 0.25–0.35 | Ward strength (`ws_base`) and efficiency from artifact defence | A0 |
+| `defence_layer_caps` | 300 / 250 / 150 / 100 | move only with Combat `layer_caps` | Caps on the ward and body layers W2–W5, B2–B5; on par with offence | A0 |
+| `layer_gear_scale` | 0.47 | 0.40–0.55 | Layer points from artifact defence (W3 from a_w, B3 from a_b); typical ward gear +40 | A0 |
+| `w_ref` | 2.587 | derived: the typical anchor's M_w; rederive if the typical layers move | Keeps the typical ws equal to `ws_base` (30.8) | A0 |
 | α_m | drain 1.0, reserved 1.0, per hit 1.0, cast 1.25 | ±0.10 each | How the price check rates each payment model | F |
 | `T_ref` | 45 s | 30–60 s | Length of the price check's standard stream (#44) | F |
 | `soul_shield_share_max` | 0.75 | 0.50–0.90 | Most of a soul hit's loss a soul shield can take | B, rule 14 |
@@ -1152,7 +1212,7 @@ design estimates until the balance harness confirms them.
 - **AC-CD-59** [Harness] No shield stall (shields uncapped, user decision 2026-11-08; attackers per re-review CD 4). **GIVEN** a top-end shield kit at each realm (Mountain Screen and Thousand-Layer Cloud at ws 400 and we 400, and again at ws 800 since ws has no ceiling, plus body gear at a_b 2.0 and Iron Body tier 5) **AGAINST** the realm's typical attacker (FX-T offence) **AND** a slow-hitter variant: FX-T with only Formulas A2's slow art (c 3.3, 3 s cooldown, D 68.1 at Qi Refining, scaled per realm) and no basic attack, **THEN** it is Down by 90 s against both (fatigue passes shields and grows without bound, so this holds by rule), and its end time against the typical attacker is recorded; past 60 s, the first fix is a cap knob (`shield_total_cap` or `body_shield_cap`); raising `recharge_delay` or lowering `shield_recharge` is also allowed. Record the value chosen.
 - **AC-CD-60** [Logic] Formulas C, drain. **GIVEN** a drain-paid resistance ward on a part whose R after penetration is −20 points, **THEN** its bill is 0. **GIVEN** a part with no positive resistance (R_pos 0), **THEN** the bill is 0 and nothing divides by 0. **GIVEN** a drain-paid block payload of 8 points on FX-U (flesh 0.278, so `B_hit` 8.278) and a hit whose parts total 5, **THEN** it bills `rate_w` × 4.83. **GIVEN** a drain-paid evade, status or soul ward, **THEN** compile rejects it.
 - **AC-CD-61** [Logic] Formulas C, shared block (re-review CD 3). **GIVEN** a hit whose `B_hit` of 10 points is 4 from flesh and gear and 6 from a drain-paid ward's block, against parts totalling 5, **THEN** the hit loses 5 points of block, the ward's share is 3.0, and it bills `rate_w` × 3.0. **GIVEN** a pool short by half for a drain-paid resistance ward, **THEN** half its prevented damage rejoins the part before block, and block and shields then meet it. **GIVEN** the first hit and a pool that pays only half of the ward's 3.0 bill, **THEN** the ward takes 1.5, flesh and gear take 2.0, the hit loses 3.5 points of block, and 1.5 more moves on to shields.
-- **AC-CD-62** [Logic] Rule 14, Formulas B (re-review CD 1). **GIVEN** a soul hit that E2 turns into losses of 10 health and 6 linh lực, against a soul shield of s_soul 0.50 and a bar of 6, **THEN** the shield takes 5 from health and 1 from linh lực, the bar is empty, and 5 health and 5 linh lực are lost. **GIVEN** ws 100, **THEN** the bar doubles and s_soul stays 0.50. **GIVEN** a record with s_soul 0.90, **THEN** compile clamps it to 0.75 and warns.
+- **AC-CD-62** [Logic] Rule 14, Formulas B (re-review CD 1). **GIVEN** a soul hit that E2 turns into losses of 10 health and 6 linh lực, against a soul shield of s_soul 0.50 and a bar of 6, **THEN** the shield takes 5 from health and 1 from linh lực, the bar is empty, and 5 health and 5 linh lực are lost. **GIVEN** `ws_base` 100, **THEN** the bar doubles and s_soul stays 0.50; **GIVEN** ward layers that raise the layered ws but not `ws_base`, **THEN** the bar is unchanged. **GIVEN** a record with s_soul 0.90, **THEN** compile clamps it to 0.75 and warns.
 - **AC-CD-63** [Logic] Rule 11 (re-review CD 8, CD 11). **GIVEN** a side whose only ward is Clear Heart Ward (status payload only), **THEN** the default ward still covers every hit part. **GIVEN** a side flagged `no_default_ward`, **THEN** it has no default ward. **GIVEN** a side flagged `cannot_slot_wards` with a ward in its loadout, **THEN** compile rejects the ward and names it.
 - **AC-CD-64** [Logic] Rule 19 (re-review CD 21). **GIVEN** `no_heal` and an Effect that refuses the Down step, **THEN** the side stands at 1 health, and it is not counted as healing.
 - **AC-CD-65** [Logic] Formulas G (re-review CD 7). **GIVEN** a side whose only ward is Still Lake Aura (reserved, all resistance, so the default ward is never Up and b = 0), **THEN** ehp is P / λ_all and nothing divides by 0.
@@ -1165,6 +1225,11 @@ design estimates until the balance harness confirms them.
 - **AC-CD-72** [Logic] Rule 6, cleanse. **GIVEN** a side with Clear Heart Ward (`cleanse_share` 0.25) carrying a Poison batch of 8 stacks, **WHEN** a pulse passes, **THEN** 6 stacks remain; **GIVEN** a batch thinned below 0.05 stacks, **THEN** it is removed (Effects Formulas D).
 - **AC-CD-73** [Logic] Rule 16, Formulas E, heal refund (user decision 2026-11-10). **GIVEN** FX-T 1 health below maximum and a heal art that paid 12.96 linh lực, **WHEN** it lands, **THEN** 1 health is restored and 12.96 is refunded; **GIVEN** a heal art with a cast time, **THEN** the refund lands with the heal; **GIVEN** a short pool that paid 0, **THEN** 0 is refunded.
 - **AC-CD-74** [Logic] Edge Cases, wards and stacks (user decisions 2026-11-10). **GIVEN** 5 Ice stacks (+19.5 % art cost) on a side with Black Tortoise Shell in an art slot and the same ward in a ward slot, **THEN** only the art-slot copy's cast cost rises by 19.5 %. **GIVEN** FX-T with Still Lake reserved at the start and Water stacks raising maximum linh lực by 20, **THEN** usable linh lực rises by 20.
+
+- **AC-CD-75** [Logic] Formulas A0, ward layers (2026-11-11). **GIVEN** FX-T (`ws_base` 30.8, ward layers +40 / +40 from a_w 0.85 / +20 / +10), **THEN** ws is 30.8 (±0.1) and every FX-T result in this GDD is unchanged. **GIVEN** `ws_base` 163 and layers at 300 / 235 / 150 / 100, **THEN** 1 + ws/100 is 68.1 (±0.1). **GIVEN** a side with no ward layers and `ws_base` 30.8, **THEN** 1 + ws/100 is 0.506. **GIVEN** a layer above its cap, **THEN** it counts at the cap.
+- **AC-CD-76** [Logic] Formulas A0, A, A2, E, body layers (2026-11-11). **GIVEN** bs_mult 10, body resistance 36.1 points, b_src 30, a_b 1 and a_w 0.85, **THEN** body resistance counts 361 points, b_src counts 300, b_gear is 12 × (0.85 + 10) = 130.2, and flesh block is unchanged; **GIVEN** the same side with `health_regen_pct` +1 %, **THEN** it regenerates 10 % of `health_max` a pulse; **GIVEN** σ_b 0.90, **THEN** the body shield is still 0.90 × `health_max`. **GIVEN** a side with no body sources, **THEN** bs_mult is 1.
+- **AC-CD-77** [Logic] Rule 14, soul payloads (2026-11-11). **GIVEN** a soul ward on a side with `ws_base` 50 and ward layers that make ws 400, **THEN** its soul resistance and soul shield bar scale by 1.5, not 5.
+- **AC-CD-78** [Harness] Formulas A0, on par (user decision 2026-11-11). **GIVEN** the top-end anchor at every offence and ward layer cap, at each realm, **THEN** the top-end mirror ends in 30–60 s, a top-end build beats the realm's typical side within its first two volleys (Combat rule 18), and the typical mirror is unchanged. **GIVEN** a top-end thể tu at every body layer cap, **THEN** it wins 30–70 % against the top-end ward build; tune health regeneration first (about even at 10.8 % of `health_max` a pulse in the 2026-11-11 simulator). Record the regeneration chosen.
 
 **Remaining gaps** (from `qa-lead`, not yet resolved; see Open Questions):
 - AC-CD-51 checks presence only. Exact soul defence values by realm need a table (Open Question 12).
@@ -1194,3 +1259,5 @@ design estimates until the balance harness confirms them.
 | 19 | **Reserved resistance got dearer.** At `T_ref` 45 s, Still Lake Aura needs 0.71 of the pool (was 0.50) and the Flame-Quelling Aura 0.49 (was 0.35). Confirm with the harness that auras still get picked in 30–60 s fights | systems-designer | Balance harness |
 | 20 | ~~The price check values each ward alone~~ **Closed 2026-11-10:** documented as intended (Formulas F, Stacking): the lone price is exact for a side's first ward, later wards are worth less by design | — | — |
 | 21 | ~~Clear Heart Ward's cleanse payload has no price~~ **Closed 2026-11-10:** the ward is priced on its status payload (reserved 0.25, 3.043 / 3.050) and the cleanse rides free; the simulator shows a free 0.25 cleanse moves Fire stacks only from 19 to 16 wins in 20 | — | — |
+| 22 | **Ward and body layers (2026-11-11).** Re-derive the top-end anchors at Foundation Establishment to Deity Transformation (Formulas A table, G), re-fit the thể tu fixture with body layers at Core Formation, and run AC-CD-78. Health regeneration at the top end is a sharp edge: in the 2026-11-11 simulator a top-end thể tu won 0 of 20 at 8.1 % of `health_max` a pulse, about half at 10.8 % and 19 of 20 at 13.5 % | systems-designer | Balance harness |
+| 23 | Content has no `ward_more` or `body_more` sources yet: ward and body techniques, formations, pills, the Đạo drafts in `design/dao-ways/` and the staged build pieces were written without them. Add layer points when that content is next revised | user | Content passes |

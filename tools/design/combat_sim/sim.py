@@ -9,6 +9,9 @@ What it models (Qi Refining anchors from combat.md Formulas A-K and combat-defen
 - one drain-paid resistance ward plus flat block (the Common Ward of the typical anchor)
 - healing with no decay and no cap (C1, C3), health regeneration
 - fatigue from 60 s (A3)
+- ward and body layers (Combat Defence & Healing Formulas A0, 2026-11-11): `ward_layer` multiplies the ward's
+  (1 + ws/100), so its points rise and its drain rate falls by the same factor; `bs_mult` scales body resistance,
+  body block and health regeneration. The body shield is folded into the health bar (no recharge, an approximation)
 - element stacks (D1-D8): batches with their own timers, cleanse removes oldest first
 - linh lu.c gained on hit and leech (B3), part of art costs paid with health (B4)
 
@@ -118,6 +121,12 @@ class Build:
     k_frost: float = 0.0      # Frost Tithe: share of the foe's extra art cost (from your Ice stacks) you gain
     curse_wither: bool = False  # your hits apply Withering (healing taken -50 %) for 4 pulses
     curse_stagnate: bool = False  # your hits apply Stagnation (no regeneration) for 3 pulses
+    # ward and body layers (Combat Defence & Healing Formulas A0, 2026-11-11); all neutral by default
+    ward_layer: float = 1.0   # (1 + ws/100) relative to the listed ward: x ward_pts, / drain
+    body_pts: float = 0.0     # body resistance in points (body techniques and body gear), never billed
+    body_block: float = 0.0   # body block rating (b_src and body gear), on top of `block`
+    bs_mult: float = 1.0      # body layers: scale body_pts, body_block and health regeneration
+    body_shield: float = 0.0  # sigma_b, share of health_max; folded into the health bar (never scaled)
     arts: list = field(default_factory=list)
     purity: dict = field(default_factory=dict)  # element -> purity; stacks x (1 + 0.002 P), Water/Ice share half (Spiritual Roots rule 8a)
 
@@ -126,7 +135,7 @@ class Side:
     def __init__(self, b: Build):
         self.b = b
         self.U = U[b.realm]
-        self.hp_max = 16 * self.U * b.n_body * K["health_mult"]
+        self.hp_max = 16 * self.U * b.n_body * K["health_mult"] * (1 + b.body_shield)
         self.qi_base = 26 * self.U * b.n_qi
         self.hp = self.hp_max
         self.qi = self.qi_base
@@ -181,11 +190,17 @@ def supp(att, dfn):
     return 1 - SUPP[min(g, 4)]
 
 
-def resist(dfn, dtype):
-    """Share stopped by resistance in points (2026-11-10): R / (100 + R), no cap. The typical Common Ward is
-    448 points at Qi Refining (stops 81.75 %); ward_mult scales it as ward strength does."""
-    R = dfn.b.ward_pts * K["ward_mult"] / 1.25
-    return R / (100 + R) if R >= 0 else -(-R) / 100
+def defend(dfn, D):
+    """Resistance in points (2026-11-10), R / (100 + R), no cap; the typical Common Ward is 448 points at Qi Refining
+    (stops 81.75 %) and ward_mult scales it as ward strength does. Resistance on one part: the ward's points (while linh luc lasts) plus the body's (always). Returns the damage
+    prevented and the ward's share of it, which is the part the drain bill is charged on (Formulas C)."""
+    Rw = (dfn.b.ward_pts * K["ward_mult"] / 1.25 * dfn.b.ward_layer) if dfn.qi > 0 else 0.0
+    Rb = dfn.b.body_pts * dfn.b.bs_mult
+    R = Rw + Rb
+    if R <= 0:
+        return (D * R / 100 if R < 0 else 0.0), 0.0
+    prevented = D * R / (100 + R)
+    return prevented, prevented * Rw / R
 
 
 def hit(att, dfn, c, dtype, rng, t, log, art=None):
@@ -205,17 +220,16 @@ def hit(att, dfn, c, dtype, rng, t, log, art=None):
         D *= 1 - att.b.k_noncrit_pen
     if art is not None and art.element == "fire" and att.b.k_fire_pen:
         D *= 1 - att.b.k_fire_pen
-    r = resist(dfn, dtype) if dfn.qi > 0 else 0.0
-    prevented = D * r
-    bill = prevented * dfn.b.drain * K["drain_scale"]
+    prevented, bill_share = defend(dfn, D)
+    bill = bill_share * dfn.b.drain * K["drain_scale"] / dfn.b.ward_layer
     if bill > dfn.qi and bill > 0:
         frac = dfn.qi / bill
         dfn.qi = 0.0
-        prevented *= frac
+        prevented -= bill_share * (1 - frac)
     else:
         dfn.qi -= bill
     a = D - prevented
-    blk = BLOCK_UNIT[dfn.b.realm] * dfn.b.block
+    blk = BLOCK_UNIT[dfn.b.realm] * (dfn.b.block + dfn.b.body_block * dfn.b.bs_mult)
     stopped = prevented + min(blk, a)
     a = max(0.0, a - blk)
     dealt = 0.0 if a <= 0 else max(1.0, a)
@@ -258,11 +272,10 @@ def pulse(s, o, t, log):
         if c:
             more = 1 + src.bsum("dmg")
             tick = src.U * c * n * src.b.M * more * supp(src, s) * stack_power(src.b, el)
-            r = resist(s, "elem") if s.qi > 0 else 0.0
-            prevented = tick * r
-            bill = prevented * s.b.drain * K["drain_scale"]
+            prevented, bill_share = defend(s, tick)
+            bill = bill_share * s.b.drain * K["drain_scale"] / s.b.ward_layer
             if bill > s.qi:
-                prevented *= s.qi / bill if bill else 0
+                prevented -= bill_share * (1 - (s.qi / bill if bill else 0))
                 s.qi = 0.0
             else:
                 s.qi -= bill
@@ -275,7 +288,7 @@ def pulse(s, o, t, log):
     s.now = t
     if t >= s.stag_until:
         s.qi = min(s.qi_max(), s.qi + s.regen())
-        heal(s, s.hp_max * (s.b.hregen + s.bsum("hregen")))
+        heal(s, s.hp_max * (s.b.hregen + s.bsum("hregen")) * s.b.bs_mult)
     # cleansing ward
     n = s.b.cleanse_pulse
     while n > 0 and s.debuffs:
@@ -416,7 +429,19 @@ def builds():
     I = Build("ice lock", arts=kit(element="ice", dtype="elem", debuff=(3, 8)))
     C = Build("cleanser", arts=kit(), cleanse_pulse=2, cleanse_cost=0.004)
     Up = Build("typical +1 realm", realm=1, arts=kit())
-    return dict(T=T, S=S, Bu=Bu, H=H, F=F, W=W, I=I, C=C, Up=Up)
+    # Top end (Combat Formulas B; Combat Defence & Healing A0, 2026-11-11): M 103, 50 % crits of x2, ws_base 163 and
+    # ward layers at every cap (1 + ws/100 = 68.1, x52 over typical), we from 5 x B_p gear (2.56). Pool sizes are
+    # guesses until the harness fits the top-end W shares.
+    top = dict(M=103, crit=0.5, crit_mult=2.0, n_body=1.6, n_qi=1.3, block=17)
+    Top = Build("top-end", arts=kit(), ward_pts=342.5, drain=1.64 / 2.56, ward_layer=68.1, **top)
+    # Top-end the^ tu: the default ward only (60 points, drain 0.40 = 2.0 before drain_scale, no ws), the QR fixture's
+    # body (block 88.3, Physical resistance 36.1, body shield 0.90) as a typical-level the^ tu, body layers x27.06
+    # over it, health regeneration 0.4 % a pulse before them (10.8 % after). The regeneration is a placeholder: parity
+    # sits between 8 % and 12 % (Open Question 22)
+    TT = Build("top-end the^ tu", arts=kit(), M=103, crit=0.5, crit_mult=2.0, n_body=1.2, n_qi=1.0,
+               ward_pts=60 * 1.25 / K["ward_mult"], drain=2.0, block=0, body_block=88.3, body_pts=36.1,
+               bs_mult=27.06, body_shield=0.90, hregen=0.004)
+    return dict(T=T, S=S, Bu=Bu, H=H, F=F, W=W, I=I, C=C, Up=Up, Top=Top, TT=TT)
 
 
 def scenarios():
@@ -432,6 +457,10 @@ def scenarios():
         ("water/wood vs typical", b["W"], b["T"]),
         ("ice lock vs typical", b["I"], b["T"]),
         ("typical vs +1 realm", b["T"], b["Up"]),
+        ("top-end mirror (layers)", b["Top"], b["Top"]),
+        ("top-end vs typical", b["Top"], b["T"]),
+        ("top-end the^ tu vs top-end", b["TT"], b["Top"]),
+        ("top-end the^ tu mirror", b["TT"], b["TT"]),
     ]
 
 
