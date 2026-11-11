@@ -96,18 +96,21 @@
 | 90 Si Đạo | Converting unscoped bonuses to one scope (Forget the Self): `Needs rule`. |
 | 93 Vực Đạo | The Domain object (a timed, self-carried ground with Rules): `Needs key` + `Needs rule`; the Way's whole engine. A strong candidate for a small rule of its own in Combat. |
 
-## Needs key (91)
+## Needs key (93)
 
 | Way | Piece |
 |---|---|
 | 1 Âm Dương Đạo | Yin and Yang counters; damage-share readables over a window: `Needs key`. |
+| 2 Thái Dương Đạo | Heat Haze (a status: −5 pp accuracy, 2 pulses, refresh): `Needs key`. |
 | 3 Thái Âm Đạo | World time readable in fights: `Needs key` (shared with Quỷ's Ghost Month). |
 | 4 Ngũ Hành Đạo | The foe's root element as a readable: `Needs key`. |
 | 5 Tứ Thời Đạo | The world season readable in fights and crafts: `Needs key` (a world-time readable, shared with Thái Âm and Quỷ). |
 | 5 Tứ Thời Đạo | A seasons-lived counter: `Needs key`. |
+| 7 Hỗn Độn Đạo | Eroded (curse, −12 all resistance per stack, to 5): `Needs key`. |
 | 7 Hỗn Độn Đạo | Chaos stacks (a merged buff): `Needs key` (Effects 9a: Chaos has no stacks). |
 | 9 Tinh Đạo | Event choice preview (Dipper): `Needs key`. |
 | 10 Thời Đạo | Herb age as an item field: `Needs key`. |
+| 11 Càn Khôn Đạo | Rift and Pressed (statuses): `Needs key`; a block-ignore flag: `Needs key`. |
 | 11 Càn Khôn Đạo | Inventory capacity key: `Needs key`. |
 | 11 Càn Khôn Đạo | Choosing the ground of an encounter: `Needs key`. |
 | 12 Mệnh Đạo | Star Sign table: `Needs key`. |
@@ -144,11 +147,10 @@
 | 42 Bồ Đề Đạo | Merit (công đức) as a character resource; mercy choices feeding it: `Needs key`. |
 | 42 Bồ Đề Đạo | Foe tags `demonic`, `ghost`, `undead`: `Needs key` (shared with Lôi, Quang, Luân Hồi). |
 | 43 Ma Đạo | Heart demon as a spendable fight pool: `Needs key`. |
-| 43 Ma Đạo | Corrupted curse; `forbidden` art tag: `Needs key`. |
+| 43 Ma Đạo | `forbidden` art tag: `Needs key` (Corrupted was folded into Sundered and Withering after review). |
 | 44 Sát Đạo | Kill count and Streak as character counters: `Needs key`. |
 | 45 Hồng Trần Đạo | NPC bonds, towns lived in, stone spend before a fight: `Needs key` (World Database, Travel & Map). |
 | 47 Huyễn Đạo | In-fight heart demon on profiles: `Needs key`. |
-| 47 Huyễn Đạo | Dusted (accuracy-down stacks; one key with Fogged): `Needs key`. |
 | 49 Nhẫn Đạo | The damage store (Endured Strength): `Needs key`. |
 | 50 Tiêu Dao Đạo | Sect markets for non-members, regions visited, fortunate-encounter counters: `Needs key` (Travel & Map, Sects). |
 | 51 Hoa Đạo | Scents (after-effects of ended statuses): `Needs key`. |
@@ -192,7 +194,7 @@
 | 92 Cô Đạo | Sect membership, companion count and seasons alone as readables: `Needs key`. |
 | 94 Thần Đạo | Incense (a character resource), shrines (world objects), mortal-prayer events: `Needs key` (Travel & Map, Event Engine, World Database). A Way that needs world systems first; flag it as late content. |
 
-## Other (8)
+## Other (9)
 
 | Way | Piece |
 |---|---|
@@ -204,3 +206,4 @@
 | 17 Thủy Đạo | The Tide Turns: a fixed wave from t = 0, `Fits today` (time guard Effects). |
 | 31 Hoàng Tuyền Đạo | Pre-fight depth choice lowering max health: `Fits today` (preparation Effect), but needs UI. |
 | 34 Hồn Đạo | Showing the foe's slot order: UI, `Fits today`. |
+| 47 Huyễn Đạo | Dusted was folded into Earth's debuff after review (no new key). |

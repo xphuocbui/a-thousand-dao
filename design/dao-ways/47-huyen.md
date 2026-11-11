@@ -53,8 +53,8 @@
   Nghẹt): status duration +1, evade +1 · Dust Devil (Lốc Bụi): earth +2
 - **Effects:**
   - **Major: Dust in the Eyes (Bụi Mờ Mắt).** Your hits apply 2 Earth debuff stacks (−accuracy) for 4 pulses, whatever their element, and your Earth debuff stacks count 50 % stronger.
-  - Minor: Dusty Veil (Màn Bụi). +5 pp evade while the foe has 10+ Dusted. *(starter)*
-  - Minor: Dust Settles (Bụi Đọng). Dusted batches last 1 pulse longer.
+  - Minor: Dusty Veil (Màn Bụi). +5 pp evade while the foe has 10+ of your Earth debuff stacks. *(starter)*
+  - Minor: Dust Settles (Bụi Đọng). Earth debuff batches you apply to a target with 10+ already last 1 pulse longer.
 
 ### 5. Thủy Nguyệt (the Moon in Water)
 - **Small:** `than_thuc_pct` +0.9 · `evade_pct` +0.4
