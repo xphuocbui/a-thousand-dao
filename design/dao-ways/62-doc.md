@@ -32,8 +32,7 @@
 - **Stat notables:** Poison Pill (Độc Đan): alchemy ×2 · Inured (Nhờn Độc): toxicity resist ×2 · Toxic Brew (Nấu
   Độc): alchemy +1, poison +1 · Bitter Draught (Thuốc Đắng): status resist +2
 - **Effects:**
-  - **Major: Poison Pills (Độc Đan Thuật).** You can brew poison pills: taken by you before a foreseen fight, each
-    puts 20 Poison stacks on the foe at t = 0 and costs you 5 % toxicity. `Needs key` (Alchemy recipe class).
+  - **Major: Poison Pills (Độc Đan Thuật).** You can brew poison pills: taken before a foreseen fight, each puts 20 Poison stacks on the foe at t = 0 for 8 pulses and costs you 5 % toxicity. `Needs key` (Alchemy recipe class).
   - Minor: Immune Blood (Huyết Kháng Độc). Poison and Corpse Rot on you are 30 % weaker. *(starter)*
   - Minor: Coat the Blade (Tẩm Độc). Coatings you apply in preparation last the whole fight.
 
@@ -52,29 +51,27 @@
 - **Stat notables:** Pestilence (Dịch Bệnh): status duration ×2 · Fever (Sốt): over-time damage ×2 · Spreading Sick
   (Lây Lan): status duration +1, poison +1 · Bad Air (Khí Độc): over-time +1, chaos +1
 - **Effects:**
-  - **Major: Plague (Ôn Dịch).** When the foe cleanses stacks of your Poison, half the removed stacks come back
-    after 2 pulses as a new batch.
-  - Minor: Contagion (Truyền Nhiễm). Your Poison also slows the foe's health regeneration by 0.5 % per 10 stacks.
-  - Minor: Incubation (Ủ Bệnh). Your Poison batches deal nothing for 2 pulses, then deal 40 % more. *(starter)*
+  - **Major: Plague (Ôn Dịch).** Each pulse, half the Poison stacks of yours cleansed from the foe in the last pulse return 2 pulses later as a new batch of 4 pulses (`Needs rule` R20: a cleanse count). Returned batches never return again.
+  - Minor: Contagion (Truyền Nhiễm). When the foe holds 30+ of your Poison stacks, apply 5 Stagnation stacks (once per 3 s).
+  - Minor: Incubation (Ủ Bệnh). Your Poison batches deal half for their first 2 pulses, then 40 % more. *(starter)*
 
 ### 5. Giải Độc (Antidote)
 - **Small:** `status_resist_pct` +1 · `healing_pct` +1.5
 - **Stat notables:** Antidote (Thuốc Giải): status resist ×2 · Purge Blood (Thanh Huyết): healing ×2 · Known Poisons
   (Biết Độc): status resist +1, poison +1 · Herb Lore (Thảo Dược): alchemy +2
 - **Effects:**
-  - **Major: Poison Fights Poison (Dĩ Độc Công Độc).** Poison and Corpse Rot on you are converted: each pulse, up to 5
-    of their stacks move from you to the foe as your Poison.
+  - **Major: Poison Fights Poison (Dĩ Độc Công Độc).** Each pulse, up to 5 Poison stacks on you are removed and applied to the foe as your Poison (4 pulses). Corpse Rot is not moved.
   - Minor: Clean Veins (Mạch Sạch Độc). Your cleanses remove poison tags first and remove 2 more. *(starter)*
-  - Minor: Know Your Venom (Biết Mình). Chaos resistance +15 points.
+  - Minor: Know Your Venom (Biết Mình). While you bear Poison, your Chaos resistance is +15.
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Your Blood Is Poison (Huyết Tức Độc)** | keystone | Any hit that lands on you applies Poison to the attacker: 1 stack per 1 % of your max health it took | You cannot be healed by others' effects, pills or arts that heal (only regeneration) | Nọc, Giải Độc |
-| **Ten Thousand Poisons (Vạn Độc Quy Tông)** | keystone | Each different poison-tagged status on the target (Poison, Corpse Rot, Bleed via poison coating, Paralytic) gives your over-time damage L4 +10 | You cannot deal direct hit damage above 50 % of your basic attack's | Ôn Dịch |
-| **Gu King (Cổ Vương)** | enabler | Your companion's power share cap (`c_comp_cap`) is 50 % higher for a gu companion | You cannot slot more than 3 arts | Cổ |
-| **Plague Bearer (Dịch Chủ)** | keystone | Plague returns all removed stacks, not half | Your Poison deals 20 % less | Ôn Dịch |
+| **Your Blood Is Poison (Huyết Tức Độc)** | keystone | Any hit that lands on you applies Poison to the attacker for 4 pulses: 1 stack per 1 % of your max health it took | You cannot be healed by others' arts or pills (your own healing works) | Nọc, Giải Độc |
+| **Ten Thousand Poisons (Vạn Độc Quy Tông)** | keystone | Each different poison-tagged status on the target (Poison, Bleed via a poison coating, Paralytic; your Poison batches also apply 1 Paralytic) gives your over-time damage L4 +10 | Your hit parts deal 50 % of their normal damage | Ôn Dịch |
+| **Gu King (Cổ Vương)** | enabler | Requires a gu companion: its power share cap (`c_comp_cap`) is 50 % higher | You cannot slot more than 3 arts | Cổ |
+| **Plague Bearer (Dịch Chủ)** | keystone | Plague returns all the cleansed stacks (still once per batch) | Returned batches last 1 pulse less, and your Poison deals 20 % less | Ôn Dịch |
 
 ## New pieces
 

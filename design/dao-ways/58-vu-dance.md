@@ -22,8 +22,7 @@
 - **Stat notables:** Steady Beat (Nhịp Đều): art speed ×2 · Drum in the Heart (Trống Lòng): crit chance ×2 ·
   Measure (Khuông): art speed +1, crit chance +0.5 · Downbeat (Phách Mạnh): crit damage +2
 - **Effects:**
-  - **Major: On the Beat (Hợp Tiết).** Your hits that land in the same millisecond as a pulse deal double damage
-    (L5 +100 for that hit; the L5 cap still holds). (The Ninth Bell pilot's identity piece, given a home.)
+  - **Major: On the Beat (Hợp Tiết).** Your **art** hits that land in the same millisecond as a pulse deal more (L5 +60). The basic attack and companion are excluded. (The Ninth Bell pilot's identity piece, given a home.)
   - Minor: Keep Time (Giữ Nhịp). Your arts' effective cooldowns round to the nearest multiple of the pulse when
     within 5 % of it. *(starter)* `Needs rule` (Combat rule 10 rounding).
   - Minor: Syncopation (Nghịch Phách). Hits off the beat apply 1 Wind debuff stack for 4 pulses.
@@ -75,9 +74,9 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **The Fight Is a Dance (Chiến Như Vũ)** | keystone | On the Beat triggers on hits within 50 ms of a pulse, not only the exact millisecond | Your off-beat hits deal 20 % less (L2 −20) | Tiết Tấu |
+| **The Fight Is a Dance (Chiến Như Vũ)** | keystone | On the Beat triggers on art hits within 50 ms of a pulse | Your off-beat art hits deal 20 % less (L2 −20) | Tiết Tấu |
 | **Rainbow Robe (Nghê Thường)** | keystone | Spin's cap is 20 and it does not decay while you keep alternating | Two arts of the same form and element cannot both be slotted | Xoay |
-| **Feather Dance (Vũ Lông)** | keystone | Grace's evade bonus may exceed `evade_cap` by 5 pp | Your max health is 25 % lower | Uyển Chuyển |
+| **Feather Dance (Vũ Lông)** | keystone | Grace's evade bonus may exceed `evade_cap` by 5 pp (a cap shift, `Needs rule`; R14) | Your max health is 25 % lower | Uyển Chuyển |
 
 ## New pieces
 

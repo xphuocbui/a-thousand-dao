@@ -1,0 +1,19 @@
+The review is written to `design/dao-ways/reviews/batch-53-62.md`. It has a summary paragraph and 40 rows, most severe first. I wrote it from the drafts and rule sources and did not run any simulation.
+
+- **Dead on the timeline:** Fury (53), which decays faster than saber arts can feed it, and Hunger (60), because every hit leeches so it never builds. Spin (58) and Cornered (61) are marginal.
+- **Contradicts a rule without a `Needs rule` label:**
+  - Cleave Through (53) and Collapse (59): Combat Defence rule 9 already passes the excess past a shield at full strength, so both do nothing.
+  - No Escape (61) puts Silence on an escape art, which the Status Catalogue forbids.
+  - Aftertaste (60) starts linh lực over the maximum, which the action list clips.
+  - Bottomless Hunger (60) drains your own health, which has no action.
+  - Feather Dance (58) raises the evade cap, which has no action.
+  - The Lao Ngục small node (61) has a non-stat line.
+  - Four minors change the foe's stats without a status.
+- **Dominant or no real closing cost:** On the Beat (58) doubles every basic attack, because `basic_cooldown` equals `pulse_interval`. Plague Bearer (62) makes Poison immune to cleansing. Sealed Qi (61) is a near-permanent art lock. Also Furnace Palm, Poison Saint's Gut, Palm Wind and Break the Seal.
+- **Cross-Way overlaps:** Name the Art (57) and Name the Silence (61) are the same minor, and their lockout effects overlap. The "no cap" capstones all hit the L5 cap of 100. There is a cluster of ward-shield bypass pieces, a repeated self-stack pattern, and two health-pay rates.
+- **Stat keys:** most exist in the Character Stats and modifiers GDDs, but several notables use keys outside their Way's own theme stats (one consolidated row).
+
+REVIEW-DONE design/dao-ways/reviews/batch-53-62.md
+
+[stderr]
+Permission allow rule (--allowed-tools): Write(design/dao-ways/reviews/batch-53-62.md) is not matched by file permission checks — only Edit(path) rules are. Use Edit(design/dao-ways/reviews/batch-53-62.md) instead (Edit rules cover all file-editing tools).

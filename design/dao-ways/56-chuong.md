@@ -31,10 +31,9 @@
 - **Stat notables:** Palm Gust (Gió Chưởng): palm art speed ×2 · Air Blade (Phong Nhận Chưởng): palm +2 · Pushing
   Wind (Gió Đẩy): evade +1, palm +1 · Whirl (Xoáy): wind stack effect +2
 - **Effects:**
-  - **Major: Palm Wind (Chưởng Phong).** Each palm hit grants 1 Wind buff stack for 4 pulses; at 15+ Wind buff
-    stacks your palm hits also apply 2 Wind debuff stacks for 4 pulses.
-  - Minor: Wind Pressure (Phong Áp). Palm hits push the foe's evade down by 2 pp for 2 pulses (no stacking).
-  - Minor: Light Palm (Chưởng Nhẹ). Your quick palm arts cost 20 % less. *(starter)*
+  - **Major: Palm Wind (Chưởng Phong).** Each palm **art** hit grants 1 Wind buff stack for 4 pulses (at most 10 from this source); at 10+ Wind buff stacks your palm hits also apply 2 Wind debuff stacks for 4 pulses.
+  - Minor: Wind Pressure (Phong Áp). Your palm hits ignore 2 pp of the foe's evade.
+  - Minor: Light Palm (Chưởng Nhẹ). Your quick palm arts cost 20 % less while you hold 5+ Wind buff stacks. *(starter)*
 
 ### 3. Nội Kình (Inner Strike)
 - **Small:** `attack_pct` force +1 · `resist_pen_pct` force +0.6
@@ -44,8 +43,8 @@
   - **Major: Internal Injury (Nội Thương).** 30 % of the damage your palm hits deal to ward shields is stored as
     Internal Injury on the target; every 3 s it deals the stored amount as Force straight to health (no shield,
     no block). `Needs key` (status) and `Needs rule` (bypass).
-  - Minor: Shaken Meridians (Chấn Mạch). Targets bearing Internal Injury regenerate 20 % less linh lực.
-  - Minor: Deep Palm (Chưởng Sâu). Your palm hits ignore 10 Force resistance points. *(starter)*
+  - Minor: Shaken Meridians (Chấn Mạch). When Internal Injury bursts, apply 5 Stagnation stacks.
+  - Minor: Deep Palm (Chưởng Sâu). Your palm hits on a target bearing Internal Injury ignore 10 Force resistance points. *(starter)*
 
 ### 4. Hỏa Chưởng (Burning Palm)
 - **Small:** `attack_pct` fire +1 · `attack_pct` palm +1
@@ -62,8 +61,7 @@
 - **Stat notables:** Many Hands (Đa Thủ): palm ×2 · Endless Palms (Chưởng Vô Tận): palm cost ×2 · Blur (Mờ Tay):
   palm art speed +1, palm +1 · Rapid Strikes (Liên Kích): palm crit chance +2
 - **Effects:**
-  - **Major: A Thousand Hands (Thiên Thủ).** Every 5th palm hit you land strikes again as a trigger hit
-    (`c_trig` 0.6) with the same tags.
+  - **Major: A Thousand Hands (Thiên Thủ).** Every 5th palm hit you land (trigger hits do not count) strikes again as a trigger hit (`c_trig` 0.6) with the same tags.
   - Minor: Rhythm of Palms (Nhịp Chưởng). Each palm hit in the last 2 s gives L5 +2 to the next (cap +20).
   - Minor: Open Hand (Tay Mở). Your basic attack counts as a palm art hit. *(starter)*
 
@@ -72,8 +70,8 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **One Palm, a Mountain Falls (Nhất Chưởng)** | keystone | Internal Injury stores 60 % and bursts every 2 s | Your palm hits deal 30 % less to health directly (L2 −30) | Nội Kình |
-| **Thousand-Hand Body (Thiên Thủ Thân)** | keystone | You may slot 2 more quick palm arts beyond your slots | Your slow arts cannot be slotted | Thiên Chưởng |
-| **Palm of the Furnace (Lô Chưởng)** | keystone | Burn you apply with palm hits never expires while you hit the target with a palm every 3 s | You cannot apply Burn by any other source | Hỏa Chưởng |
+| **Thousand-Hand Body (Thiên Thủ Thân)** | keystone | You may slot 2 more quick palm arts of this Way's techniques beyond your slots | Your slow arts cannot be slotted, and your basic attack deals 50 % less | Thiên Chưởng |
+| **Palm of the Furnace (Lô Chưởng)** | keystone | While you hit the target with a palm at least every 3 s, the timers of the Burn batches you applied with palms are frozen (cap 60 stacks from palms) | Your non-palm Fire hits deal 30 % less (L2 −30) | Hỏa Chưởng |
 | **Empty Hand (Không Thủ Chưởng)** | keystone | Your palm hits deal more by unused art slots (L5 +15 per empty slot) | You cannot equip a weapon artifact | Trọng Chưởng |
 
 ## New pieces

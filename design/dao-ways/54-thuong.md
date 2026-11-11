@@ -55,8 +55,7 @@
 - **Effects:**
   - **Major: Spear Wall (Thương Trận).** When a quick-tagged hit lands on you, thrust back: a spear trigger hit
     (`c_trig` 0.45), once per 0.5 s.
-  - Minor: Set Against the Charge (Chống Xung). The foe's first hit each fight is reduced by your block rating
-    twice. *(starter)*
+  - Minor: Set Against the Charge (Chống Xung). The foe's first hit each fight meets your block rating plus 30. *(starter)*
   - Minor: Pin (Ghim). Your counter-thrusts apply Silence on the `quick` tag for 1 pulse (once per 6 s).
 
 ### 5. Long Thương (Dragon Spear)
@@ -64,9 +63,8 @@
 - **Stat notables:** Coiling (Cuộn): spear crit chance ×2 · Dragon Tail (Đuôi Rồng): spear +2 · Scale Point (Mũi
   Vảy): spear +1, crit damage +1 · Seven Turns (Thất Chuyển): spear art speed +1, spear +1
 - **Effects:**
-  - **Major: Dragon Combo (Long Liên).** Each time your arts fire in slot order (slot n then slot n+1 within 3 s),
-    gain 1 Dragon stack (cap 6); your last-slot art consumes them for L5 +8 each.
-  - Minor: Dragon Turns (Long Hồi). A broken combo keeps half its Dragon stacks. *(starter)*
+  - **Major: Dragon Combo (Long Liên).** Each time one of your arts fires within 3 s of your previous art, gain 1 Dragon stack (cap 6); your last-slot art consumes them for L5 +8 each.
+  - Minor: Dragon Turns (Long Hồi). Dragon stacks are not lost when 3 s pass without an art: they fall by 1 each pulse instead. *(starter)*
   - Minor: Dragon Breath (Long Tức). At 6 Dragon stacks, your next art costs nothing.
 
 ## Capstones
@@ -74,7 +72,7 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **The Point Goes Through (Thương Xuyên)** | keystone | Through the Ward skips 50 % | Your spear hits cannot crit | Xuyên Thấu |
-| **Army-Breaker (Phá Quân Thương)** | keystone | Break the Army applies to every spear hit while the foe's ward shields are above 20 % of its max health | Your hits on a foe with no ward shield deal 30 % less (L2 −30) | Xung Phong |
+| **Army-Breaker (Phá Quân Thương)** | keystone | Break the Army applies to every spear hit while the foe's ward shields (read at the start of the instant) are above 20 % of its max health | Your spear hits on a foe with no ward shield deal 30 % less (L2 −30) | Xung Phong |
 | **Nine Dragons (Cửu Long)** | keystone | Dragon Combo's cap is 12 | You must slot at least 4 arts or Dragon stacks are never gained | Long Thương |
 | **Unbroken Line (Tuyến Bất Phá)** | keystone | Spear Wall triggers on every hit that lands, not only quick ones | Your arts' cooldowns are 25 % longer | Thương Trận |
 
