@@ -58,7 +58,7 @@ applies its Rules to both sides inside it, with you as its lord. It is L4 (groun
 - **Stat notables:** Sanctuary (Thánh Địa): defense ×2 · Safe Ground (Đất Lành): regen ×2 · Walled Realm (Cõi Có Tường):
   defense +1, regen +0.05 · Lord's Shelter (Chủ Che): soul resist +2
 - **Effects:**
-  - **Major: Sanctuary (Vực Hộ).** Inside your Domain you take 20 % less damage and your regeneration of both pools is
+  - **Major: Sanctuary (Vực Hộ).** Inside your Domain damage you take is dampened 20 % (rule 6a) and your regeneration of both pools is
     doubled.
   - Minor: Safe Unfolding (Triển An). Unfolding the Domain cleanses 5 debuff stacks. *(starter)*
   - Minor: Domain Shield (Thuẫn Vực). When your Domain folds, gain a ward shield of 8 % of max linh lực.

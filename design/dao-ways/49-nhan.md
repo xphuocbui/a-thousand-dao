@@ -24,7 +24,7 @@
 - **Effects:**
   - **Major: Patience (Kiên Nhẫn).** Your hits deal more by fight time past 15 s (L5 +2 per second, cap +60); before
     15 s, they deal 15 % less.
-  - Minor: Patient Start (Khởi Chậm). For the first 15 s, you take 15 % less damage. *(starter)*
+  - Minor: Patient Start (Khởi Chậm). For the first 15 s, damage you take is dampened 15 % (rule 6a). *(starter)*
   - Minor: Outlast (Bền Hơn). Fatigue affects you 50 % less.
 
 ### 2. Chịu Đựng (Bear It)

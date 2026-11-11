@@ -25,7 +25,7 @@ build chooses which feelings it can enter and how it moves between them.
 - **Stat notables:** Laughter (Tiếng Cười): art speed ×2 · Glad Heart (Lòng Vui): healing ×2 · Light Step (Bước Nhẹ):
   art speed +1, evade +1 · Bright Mood (Tâm Trạng Tươi): crit chance +1
 - **Effects:**
-  - **Major: Joy (Hỷ).** Each crit or heal over 3 % of max health puts you in Joy for 4 s: +20 % art speed and your
+  - **Major: Joy (Hỷ).** Each crit, and each pulse in which you healed 3 %+ of max health, puts you in Joy for 4 s: +20 % art speed and your
     heals +15 %. Joy is a mood (only one at a time).
   - Minor: Good Spirits (Phấn Chấn). You start each fight in Joy. *(starter)*
   - Minor: Shared Joy (Chia Vui). While in Joy, your companion attacks 15 % faster.

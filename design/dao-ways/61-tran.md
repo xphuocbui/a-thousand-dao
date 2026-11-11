@@ -66,7 +66,7 @@
 - **Effects:**
   - **Major: Break the Seal (Phá Phong).** At fight start your arts are sealed for 6 s (they do not fire); each
     second sealed stores L5 +8 (cap +48), released on your first 3 hits after the seal breaks.
-  - Minor: Sealed Defence (Phòng Phong). While your arts are sealed, you take 25 % less damage. *(starter)*
+  - Minor: Sealed Defence (Phòng Phong). While your arts are sealed, damage you take is dampened 25 % (rule 6a). *(starter)*
   - Minor: Controlled Release (Thả Dần). The stored bonus spreads over 5 hits instead of 3, at 80 % each.
 
 ## Capstones

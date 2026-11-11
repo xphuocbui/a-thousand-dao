@@ -26,7 +26,7 @@ for power or protection.
 - **Effects:**
   - **Major: Compassion (Từ Bi).** Healing you do past full health becomes a body shield (up to 20 % of max health).
   - Minor: Spare Them (Tha). When you win, choosing mercy gives 10 Merit. `Needs key` (Merit). *(starter)*
-  - Minor: Kind Heal (Trị Hiền). Your heals over 5 % of max health also cleanse 1 curse.
+  - Minor: Kind Heal (Trị Hiền). Each pulse in which you healed 5 %+ of max health, cleanse 1 curse.
 
 ### 2. Nghiệp Thuẫn (Karma Shield)
 - **Small:** `defense_pct` +1.2 · `ward_efficiency_pct` +1.2
@@ -35,7 +35,7 @@ for power or protection.
 - **Effects:**
   - **Major: Karma Shield (Nghiệp Thuẫn).** Before a fight, spend Merit: each 10 Merit gives a ward shield of 2 % of max
     linh lực that does not drain your pool (cap 20 %).
-  - Minor: Protected (Được Che). The first hit each fight that would take 20 %+ of your health is halved. *(starter)*
+  - Minor: Protected (Được Che). The first hit each fight that would take 20 %+ of your health is dampened 50 % (rule 6a). *(starter)*
   - Minor: Merit Lingers (Phúc Lưu). Merit decays 50 % slower.
 
 ### 3. Thiện Hạnh (Good Deeds)

@@ -46,7 +46,7 @@
 - **Effects:**
   - **Major: Yield and Return (Thuận Thế Hoàn Lực).** 15 % of the damage each hit deals to you (after defence) is
     returned as Force (a trigger, inside `trig_budget`), and the hit is reduced by the same amount.
-  - Minor: Soft Catch (Đỡ Mềm). The first hit each fight is reduced by 30 %. *(starter)*
+  - Minor: Soft Catch (Đỡ Mềm). The first hit that lands on you each fight is dampened 30 % (rule 6a). *(starter)*
   - Minor: Turn the Force (Chuyển Lực). Returned Force applies 1 Qi Disruption stack.
 
 ### 4. Thủ Nhu (Keeping Soft)

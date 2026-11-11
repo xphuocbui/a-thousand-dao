@@ -23,7 +23,7 @@
 - **Effects:**
   - **Major: Imperial Majesty (Đế Uy).** Foes of a lower realm deal you 20 % less and start with −10 % art speed; foes of
     your realm with less renown deal 10 % less.
-  - Minor: Bow Before Me (Quỳ Xuống). The foe's first hit each fight deals 30 % less. *(starter)*
+  - Minor: Bow Before Me (Quỳ Xuống). The foe's first hit each fight is dampened 30 % (rule 6a). *(starter)*
   - Minor: Unbending Crown (Vương Miện Không Cúi). Fear and charm on you are refused.
 
 ### 2. Quốc Khố (the Treasury) — replaces ◇ Thần Dân
@@ -63,7 +63,7 @@
   Ngai): formation +1, defense +1 · Imperial Guard Array (Trận Ngự Lâm): resist all +1
 - **Effects:**
   - **Major: The Seat of Power (Ngự Tọa).** Fights at your seat (cave dwelling or a hall you own) are foreseen for you,
-    and you take 25 % less damage there.
+    and damage you take is dampened 25 % (rule 6a) there.
   - Minor: Palace Array (Trận Cung). Your seat's formations need no upkeep. *(starter)*
   - Minor: Audience (Thiết Triều). NPCs come to your seat with offers (events).
 
