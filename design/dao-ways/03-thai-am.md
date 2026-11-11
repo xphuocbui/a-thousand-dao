@@ -51,10 +51,8 @@
 - **Stat notables:** Night-Blooming Cereus (Quỳnh Hoa): regen ×2 · Midnight Petal (Cánh Nửa Đêm): attack ×2 · Dew at
   Night (Sương Đêm): regen +0.05, soul resist +1 · Pale Bloom (Hoa Nhạt): crit damage +2
 - **Effects:**
-  - **Major: Bloom at Night (Dạ Hoa Khai).** For each full lunar cycle completed in the fight, your hits deal more (L5
-    +15, cap +45) and your regeneration +10 %.
-  - Minor: Night Fight (Dạ Chiến). Fights at night (world time) start in Full. `Needs key` (world time readable).
-    *(starter)*
+  - **Major: Bloom at Night (Dạ Hoa Khai).** Each Full phase you have lived through this fight adds L5 +15 to your hits (cap +45) and +10 % regeneration (cap +30 %).
+  - Minor: Night Fight (Dạ Chiến). Fights at night (world time) start in Full and Full lasts 2 s longer. `Needs key` (world time readable). *(starter)*
   - Minor: Brief Beauty (Phù Dung Sớm Nở). Bloom at Night's bonus is doubled for the first 6 s after each cycle.
 
 ### 5. Kính Nguyệt (Borrowed Light)
@@ -72,9 +70,9 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **The Full Moon Every Night (Dạ Dạ Mãn Nguyệt)** | keystone | The cycle is Full for 12 s and New for 12 s (Waxing and Waning skipped) | During New, your hits deal 30 % less (L2 −30) | Nguyệt Tướng |
-| **Moon Palace (Quảng Hàn Cung)** | keystone | Moonlight's Exposed applies on every Cold hit, not only crits | You cannot apply Burn and Fire hits deal you 25 % more | Nguyệt Quang |
-| **The Moon Has No Light of Its Own (Nguyệt Vô Tự Quang)** | keystone | Borrowed Light copies 60 % and also removes what it copies from the foe | You cannot gain buff stacks except by borrowing | Kính Nguyệt |
-| **Endless Night (Trường Dạ)** | keystone | Bloom at Night has no cap | The cycle runs 36 s | Dạ Hoa |
+| **Moon Palace (Quảng Hàn Cung)** | keystone | Moonlight's Exposed applies on every Cold hit, not only crits (once per 2 s) | Your Light hits deal 30 % less (L2 −30) | Nguyệt Quang |
+| **The Moon Has No Light of Its Own (Nguyệt Vô Tự Quang)** | keystone | Borrowed Light copies 60 % of the foe's largest pile (copies only; it removes nothing) | You cannot gain buff stacks except by borrowing | Kính Nguyệt |
+| **Endless Night (Trường Dạ)** | keystone | The cycle runs 16 s (4 s per phase), so Full comes three times by 48 s | Your Full phases last 3 s | Dạ Hoa |
 
 ## New pieces
 

@@ -24,16 +24,15 @@
 - **Effects:**
   - **Major: Before the Forms (Tiên Hình).** 20 % of your Chaos damage ignores ward shields (it meets resistance and
     health only). `Needs rule` (shared bypass rule).
-  - Minor: Chaos Taint (Nhiễm Hỗn). Your Chaos hits apply 2 Poison stacks. *(starter)*
-  - Minor: Churning (Cuộn Xoáy). Your Chaos crits remove 2 buff stacks from the target.
+  - Minor: Chaos Taint (Nhiễm Hỗn). Your Chaos hits apply 2 Poison stacks for 6 pulses. *(starter)*
+  - Minor: Churning (Cuộn Xoáy). Your Chaos crits remove 2 of the foe's buff stacks (shared rule R16).
 
 ### 2. Vô Hình (Unformed)
 - **Small:** `element_affinity_pct` +1.5 · `attack_pct` +1
 - **Stat notables:** Shapeless (Vô Dạng): affinity ×2 · All Colours (Mọi Sắc): attack ×2 · Primal Clay (Đất Sét Sơ
   Khai): affinity +1, attack +1 · Every Root (Vạn Căn): stack effect +2
 - **Effects:**
-  - **Major: Unformed (Vô Hình).** Your arts count as every base element for modifiers and Effects that read element
-    tags (not for stacks granted).
+  - **Major: Unformed (Vô Hình).** Your arts count as every base element for modifiers and Effects that read element tags, but only the largest element-scoped bonus in each layer applies (the others are ignored).
   - Minor: Any Shape (Tùy Hình). Your arts grant buff stacks of your highest-purity element. *(starter)*
   - Minor: Shifting Grain (Vân Đổi). Each pulse, your basic attack's element tag changes in the generating order.
 
@@ -42,10 +41,9 @@
 - **Stat notables:** Corrode (Ăn Mòn): penetration ×2 · Slow Rot (Mục Dần): chaos +1, penetration +1 · Eat Away (Gặm
   Mòn): chaos ×2 · Unmake (Tan Rã): chaos crit damage +2
 - **Effects:**
-  - **Major: Erosion (Xâm Thực).** Each Chaos hit lowers all of the target's resistances by 3 points for the fight
-    (cap −60). Stacks with Sundered and Exposed.
-  - Minor: Wear (Mòn). Your Chaos hits lower the target's block by 2 for the fight (cap −30). *(starter)*
-  - Minor: Crumbling Ward (Hộ Vỡ Vụn). A target eroded by 30+ points has its ward efficiency −10 %.
+  - **Major: Erosion (Xâm Thực).** Your Chaos hits apply Eroded (a curse: −12 resistance to all per stack, stacks to 5, 4 pulses, cleanse tags curse and chaos).
+  - Minor: Wear (Mòn). Eroded also lowers block by 4 per stack. *(starter)*
+  - Minor: Crumbling Ward (Hộ Vỡ Vụn). A target at 5 Eroded stacks has its ward efficiency −10 % while it stays at 5.
 
 ### 4. Tiên Thiên (Before Heaven)
 - **Small:** `ngo_tinh` (comprehension) +1 · `cultivation_speed_pct` +0.4 (counts toward the 10 % per-Dao cap)
@@ -63,8 +61,7 @@
 - **Stat notables:** Blend (Hòa Trộn): stack effect ×2 · Long Mix (Trộn Lâu): stack duration ×2 · Cauldron (Vạc):
   stack effect +1, duration +1 · Murky Pool (Ao Đục): regen +0.1
 - **Effects:**
-  - **Major: Primal Mixing (Hồng Mông Hợp).** Every 5 s, your buff stacks of all elements merge into Chaos stacks (one
-    per stack merged); each Chaos stack gives every element buff at 30 % of its value. `Needs key` (Chaos stacks).
+  - **Major: Primal Mixing (Hồng Mông Hợp).** Every 5 s, all your element buff batches end and become one Chaos batch (one Chaos stack per stack merged, lasting 10 pulses). Each Chaos stack counts as 0.3 of a stack of every element you held when it merged. `Needs key` (Chaos stacks).
   - Minor: Muddy (Đục). Merged Chaos stacks last 2 pulses longer. *(starter)*
   - Minor: All in One (Vạn Hợp). Your hits deal more by the number of different elements merged in the last batch
     (L5 +5 each).
@@ -73,13 +70,14 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **All Five, None of Them (Ngũ Hành Giai Vô)** | keystone | Unformed also applies to stacks: each art grants stacks of every base element at 30 % size | Your arts cannot deal non-Chaos damage (all converted) | Vô Hình |
-| **Primal Haze (Hồng Mông)** | keystone | Erosion has no cap | Your max health is 25 % lower | Xâm Thực |
+| **All Five, None of Them (Ngũ Hành Giai Vô)** | keystone | Your arts grant only Chaos stacks (Primal Mixing's kind), at the size they would have granted of their own element ×1.3 | Your arts cannot deal non-Chaos damage (all converted) | Vô Hình |
+| **Primal Haze (Hồng Mông)** | keystone | Eroded stacks to 8 | Your max health is 25 % lower | Xâm Thực |
 | **Chaos Unbound (Hỗn Độn Vô Câu)** | keystone | Before the Forms bypasses 45 % | Your Chaos resistance is −40 (you are part of it) | Hỗn Độn |
-| **Mother of Elements (Vạn Tố Chi Mẫu)** | keystone | Primal Mixing's Chaos stacks count at 60 % | Stacks merge every 3 s (less time to use them raw) | Hỗn Hợp |
+| **Mother of Elements (Vạn Tố Chi Mẫu)** | keystone | Chaos stacks count as 0.5 of each element | You cannot hold element buff stacks except as Chaos stacks (every grant merges at once) | Hỗn Hợp |
 
 ## New pieces
 
+- Eroded (curse, −12 all resistance per stack, to 5): `Needs key`.
 - Chaos stacks (a merged buff): `Needs key` (Effects 9a: Chaos has no stacks).
 - Glimpse offer of 4: `Needs rule` (dao.md rule 6).
 

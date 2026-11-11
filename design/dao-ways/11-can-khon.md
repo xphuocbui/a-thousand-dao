@@ -22,8 +22,7 @@
 - **Stat notables:** Blink (Thuấn Di): evade ×2 · Fold Step (Bước Gấp): escape ×2 · Between Places (Giữa Chốn): evade
   +1, escape +1 · Afterimage (Dư Ảnh): crit chance +1
 - **Effects:**
-  - **Major: Step Through Space (Thuấn Bộ).** When you evade, step behind the foe: your next hit deals more (L5 +25)
-    and cannot be blocked.
+  - **Major: Step Through Space (Thuấn Bộ).** When you evade, your next hit deals more (L5 +25) and ignores the foe's block (`Needs key`: a block-ignore flag).
   - Minor: Folded Distance (Rút Ngắn). The foe's first art each fight is delayed by 0.5 s (it must find you).
     *(starter)*
   - Minor: Slip the Grip (Thoát Kẹp). Your escape chance is +15 % while you have evaded in the last 2 s.
@@ -47,7 +46,7 @@
   - **Major: Rift (Liệt Không).** Your Force hits leave a Rift (stacks to 5, 3 pulses): each Rift makes the target's ward
     shields stop 6 % less of each hit.
   - Minor: Torn Ward (Hộ Rách). Your Force crits make the foe's drain ward bill +20 % for 2 pulses. *(starter)*
-  - Minor: Space Shear (Cắt Không Gian). Your Force hits ignore 10 % of the target's block.
+  - Minor: Space Shear (Cắt Không Gian). Your Force hits ignore 10 % of the target's block (`Needs key`, the same block-ignore flag).
 
 ### 4. Súc Địa (Folding the Earth)
 - **Small:** `travel_speed_pct` +2 · `escape_pct` +1
@@ -64,10 +63,9 @@
 - **Stat notables:** Sealed Space (Không Gian Phong): defense ×2 · Closed World (Thế Giới Đóng): force ×2 · Space Lock
   (Khóa Không): defense +1, force +1 · No Exit (Không Lối Ra): status resist +2
 - **Effects:**
-  - **Major: Seal the Space (Phong Tỏa Không Gian).** Neither side can escape the fight; the foe's escape art is
-    Silenced and your own escape art's slot gives L5 +15 to all your hits instead.
+  - **Major: Seal the Space (Phong Tỏa Không Gian).** Neither side's escape art can fire (a closing rule on both sides). If you slot no escape art, your hits deal more (L5 +15).
   - Minor: Closed Door (Cửa Đóng). Foes cannot escape from you below 30 % health. *(starter)*
-  - Minor: Pressed Space (Ép Không Gian). Each 10 s of a sealed fight, the foe's evade −3 pp (cap −15).
+  - Minor: Pressed Space (Ép Không Gian). In a sealed fight, every 10 s apply Pressed to the foe (a curse: −3 pp evade per stack, stacks to 5, lasts until the fight ends or is cleansed).
 
 ## Capstones
 
@@ -76,10 +74,11 @@
 | **Here and There at Once (Thử Bỉ Đồng Tại)** | keystone | Step Through Space triggers on every evade and on every hit you block fully | Your max health is 20 % lower | Thuấn Bộ |
 | **Heaven and Earth in a Sleeve (Tụ Lý Càn Khôn Đại Pháp)** | enabler | +2 artifacts beyond the slot cap | Your artifacts' thần thức cost +40 % | Tụ Lý |
 | **Shattered Space (Không Gian Toái)** | keystone | Rifts stack to 10 | Your non-Force hits deal 30 % less (L2 −30) | Liệt Không |
-| **A World Apart (Biệt Giới)** | keystone | Fights you seal cannot be interfered with by events (no third parties) and your hits deal +10 % | You can never flee a fight | Phong Tỏa |
+| **A World Apart (Biệt Giới)** | keystone | Fights you seal cannot be interfered with by events (no third parties) and your hits deal +10 % | Your max health is 15 % lower | Phong Tỏa |
 
 ## New pieces
 
+- Rift and Pressed (statuses): `Needs key`; a block-ignore flag: `Needs key`.
 - Inventory capacity key: `Needs key`.
 - Choosing the ground of an encounter: `Needs key`.
 

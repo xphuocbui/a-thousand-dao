@@ -23,7 +23,7 @@
 - **Effects:**
   - **Major: Hasten the Years (Thúc Niên).** Once a season, age one herb plot or pill batch by 10 years at once.
     `Needs key` (herb age; the seed's old effect). Life-around power for alchemists.
-  - Minor: Wither the Foe (Lão Hóa Địch). Your hits make the foe's buff batches 1 pulse shorter. *(starter)*
+  - Minor: Wither the Foe (Lão Hóa Địch). Once per pulse, your hit shortens the foe's newest buff batch by 1 pulse (shared rule R16). *(starter)*
   - Minor: Old Wood (Gỗ Già). Wood and Earth buff stacks you hold last 2 pulses longer.
 
 ### 2. Tốc (Haste)
@@ -62,8 +62,7 @@
 - **Stat notables:** Turn Back (Quay Lại): healing ×2 · Echo of Self (Bóng Cũ): healing +1, max health +1 · Second Look
   (Nhìn Lại): art speed ×2 · Undo (Hoàn Tác): status resist +2
 - **Effects:**
-  - **Major: Rewind (Hồi Quang).** Once per fight, when your health falls below 30 %, return your health and linh lực
-    to what they were 5 s earlier (statuses stay).
+  - **Major: Rewind (Hồi Quang).** Once per fight, at the Down step's refusal, refuse it: your health and linh lực become the higher of now and their values 5 s earlier (clipped at t = 0). Statuses stay. It counts as healing (`no_heal` blocks it).
   - Minor: Recall (Hồi Tưởng). After a Rewind, your art timers are set to what they were 5 s earlier too. *(starter)*
   - Minor: Replay (Phát Lại). After a Rewind, your next art deals more (L5 +30).
 
@@ -71,9 +70,9 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **The Fight Runs on Your Clock (Thời Tại Ngã)** | keystone | Your `cooldown_min` is 25 % lower | Your art costs are 40 % higher | Tốc |
-| **Stopped Heaven (Ngưng Thiên)** | keystone | Slowed Time stacks to 10 | Your own art speed bonuses count at half | Ngưng |
-| **Endless Rewind (Vô Tận Hồi Quang)** | keystone | Rewind fires twice per fight | Your max health is 30 % lower | Hồi Quang |
+| **The Fight Runs on Your Clock (Thời Tại Ngã)** | keystone | Your `cooldown_min` is 25 % lower (a cap shift, `Needs rule`; R14) | Your art costs are 40 % higher | Tốc |
+| **Stopped Heaven (Ngưng Thiên)** | keystone | Slowed Time stacks to 10 | Your arts cost 30 % more | Ngưng |
+| **Endless Rewind (Vô Tận Hồi Quang)** | keystone | Rewind fires twice; the second reads 10 s back | Your max health is 30 % lower | Hồi Quang |
 | **The Old Master (Lão Tổ)** | keystone | Years Are Power has no cap | Your art speed is −20 % | Năm Tháng |
 
 ## New pieces

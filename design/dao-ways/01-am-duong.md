@@ -25,8 +25,8 @@
 - **Effects:**
   - **Major: Yin Gathers (Âm Tụ).** Each Yin hit (Cold or Chaos) you land gives 1 Yin (cap 20). At 20, your next Yang
     hit consumes all Yin and deals more (L5 +3 per Yin).
-  - Minor: Yin Shelter (Âm Ẩn). While you hold 10+ Yin, Fire hits on you deal 15 % less. *(starter)*
-  - Minor: Cold Night (Đêm Lạnh). Your Cold hits apply 1 Ice stack.
+  - Minor: Yin Shelter (Âm Ẩn). While you hold 10+ Yin, Fire damage you take is dampened 15 % (Modifier System rule 6a). *(starter)*
+  - Minor: Cold Night (Đêm Lạnh). Your Cold hits apply 1 Ice stack for 6 pulses.
 
 ### 2. Dương (Yang) †
 - **Small:** `attack_pct` fire +1 · `attack_pct` light +1
@@ -35,8 +35,8 @@
 - **Effects:**
   - **Major: Yang Rises (Dương Thăng).** Each Yang hit (Fire or Light) gives 1 Yang (cap 20). At 20, your next Yin hit
     consumes all Yang and deals more (L5 +3 per Yang).
-  - Minor: Yang Fire (Dương Hỏa). While you hold 10+ Yang, Cold hits on you deal 15 % less. *(starter)*
-  - Minor: Noon Qi (Ngọ Khí). Your Fire hits apply 1 extra Burn stack.
+  - Minor: Yang Fire (Dương Hỏa). While you hold 10+ Yang, Cold damage you take is dampened 15 % (rule 6a). *(starter)*
+  - Minor: Noon Qi (Ngọ Khí). Your Fire hits apply 1 extra Burn stack for 6 pulses.
 
 ### 3. Thái Cực (Taiji) †
 - **Small:** `attack_pct` cold +0.75 and fire +0.75 · `defense_pct` +0.6
@@ -45,8 +45,7 @@
 - **Effects:**
   - **Major: Taiji (Thái Cực).** Your hits deal more by how balanced your Yin and Yang damage was over the last 5 s:
     L5 +40 × (1 − |share_yin − share_yang|).
-  - Minor: The Fish Turn (Cá Quay Đầu). Once per fight, when either pool falls below 25 %, swap your health and linh
-    lực shares (each takes the other's percentage). *(starter)*
+  - Minor: The Fish Turn (Cá Quay Đầu). Once per fight, when your health falls below 25 % while your linh lực share is higher, swap the two shares (health never set below 1; it counts as healing, so `no_heal` blocks it). *(starter)*
   - Minor: Opposites Hold (Đối Lập Tương Trì). While both Yin and Yang are 5+, your resistances to Cold and Fire are
     +20.
 
@@ -65,19 +64,18 @@
 - **Stat notables:** Fire and Ice (Băng Hỏa): fire stack effect +1, ice stack effect +1 ×2 · Steam (Hơi Nước): fire
   stack duration +2 · Frost Smoke (Khói Băng): ice stack duration +2 · Wedding of Opposites (Hôn Phối): cold +1, fire +1
 - **Effects:**
-  - **Major: Union (Âm Dương Giao Hòa).** For each pair of one Burn stack and one Ice stack on the foe, Burn ticks
-    deal +1 % and Ice stacks raise art cost +1 % more (pairs counted up to the smaller pile).
-  - Minor: Shared Fire (Cộng Hỏa). Your Cold hits apply 1 Burn stack. *(starter)*
-  - Minor: Shared Frost (Cộng Băng). Your Fire hits apply 1 Ice stack.
+  - **Major: Union (Âm Dương Giao Hòa).** Pairs = the smaller of your Burn pile and your Ice pile on the foe. Each pair adds +1 % to your Burn ticks and +1 pp to the art-cost raise of your Ice stacks.
+  - Minor: Shared Fire (Cộng Hỏa). Your Cold hits apply 1 Burn stack for 6 pulses. *(starter)*
+  - Minor: Shared Frost (Cộng Băng). Your Fire hits apply 1 Ice stack for 6 pulses.
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **The Two Fish Turn (Lưỡng Ngư Chuyển)** | keystone | Every Yin hit converts 30 % to Yang's type and every Yang hit 30 % to Yin's, keeping both tag families | You cannot deal Physical, Force or Lightning damage | Thái Cực |
+| **The Two Fish Turn (Lưỡng Ngư Chuyển)** | keystone | Your Cold and Fire parts convert 30 % into each other, and your Chaos and Light parts likewise (one conversion; both tag families kept; Soul never converts). Your basic attack converts 100 %: half Cold, half Fire | You cannot slot arts that deal Physical, Force or Lightning damage | Thái Cực |
 | **Perfect Balance (Âm Dương Cân Bằng)** | keystone | Taiji's bonus is L5 +70 | If either side's share falls below 30 %, your hits deal 30 % less (L2 −30) | Thái Cực |
-| **Eternal Day (Vĩnh Nhật)** | keystone | Day lasts 15 s and Night 5 s | During Night you regenerate nothing | Ngày Đêm |
-| **Yin and Yang Unite (Âm Dương Hợp Nhất)** | keystone | Union counts every Burn and Ice stack as a pair (no smaller-pile limit) | Your Burn and Ice batches last half as long | Giao Hòa |
+| **Eternal Day (Vĩnh Nhật)** | keystone | Day lasts 15 s and Night 5 s | During Night your hits deal 50 % less (L2 −50) | Ngày Đêm |
+| **Yin and Yang Unite (Âm Dương Hợp Nhất)** | keystone | Union's pairs are the larger pile, not the smaller | Your Burn and Ice batches last half as long (fight-long batches end at 20 s) | Giao Hòa |
 
 ## New pieces
 

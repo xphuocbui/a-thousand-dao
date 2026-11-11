@@ -31,8 +31,7 @@
 - **Stat notables:** Maiden's Calm (Tĩnh Nữ): defense ×2 · Still Water (Nước Lặng): regen ×2 · Quiet Breath (Hơi
   Lặng): linh lực regen +0.15 · Rooted (Bám Rễ): block +1, defense +1
 - **Effects:**
-  - **Major: Stillness (Tĩnh Thế).** In Stillness stance: your arts do not fire, your regeneration of both pools is
-    tripled and you take 25 % less damage. The basic attack still runs.
+  - **Major: Stillness (Tĩnh Thế).** In Stillness stance: your arts do not fire, your regeneration of both pools is tripled and all damage you take is dampened 25 % (rule 6a). The basic attack still runs.
   - Minor: Settle (Lắng Xuống). Switching into Stillness cleanses 3 debuff stacks. *(starter)*
   - Minor: Calm Eye (Mắt Tĩnh). In Stillness, +10 pp evade.
 
@@ -41,9 +40,7 @@
 - **Stat notables:** Turning Point (Điểm Xoay): art speed +1, defense +1 ×2 · Fluid (Linh Hoạt): evade ×2 · Hinge
   (Bản Lề): regen +0.05, attack +1 · Pivot (Trục Xoay): block +2
 - **Effects:**
-  - **Major: Change of Stance (Chuyển Thế).** You start in a stance you choose and switch by a guard you set before the
-    fight (own linh lực below or above a share, own health, or every N seconds). Without this Effect, you switch every
-    8 s. `Needs key` (a stance guard).
+  - **Major: Change of Stance (Chuyển Thế).** You start in a stance you choose and switch by a guard you set before the fight (own linh lực below or above a share, own health, or every N seconds), with a minimum of 4 s in each stance. Without this Effect, you switch every 8 s. `Needs key` (a stance guard).
   - Minor: Clean Switch (Chuyển Gọn). Switching gives 1 s of +20 pp evade. *(starter)*
   - Minor: Stance Memory (Nhớ Thế). Each switch gives L5 +5 for 4 s (cap +15).
 
@@ -52,8 +49,7 @@
 - **Stat notables:** Coiled (Cuộn Mình): attack ×2 · Pounce (Vồ): crit damage ×2 · Held Arrow (Tên Giữ): attack +1,
   crit damage +1 · Spring Loaded (Lò Xo): art speed +2
 - **Effects:**
-  - **Major: The Hare Bolts (Thỏ Thoát).** Each second in Stillness stores L5 +6 (cap +60), spent on your first 3 hits
-    after switching into Motion.
+  - **Major: The Hare Bolts (Thỏ Thoát).** Each second in Stillness stores L5 +6 (cap +60). Your first 3 **art** hits after switching into Motion share the store (each takes a third).
   - Minor: Ambush Stance (Thế Phục). Your first hit in Motion each time crits for certain. *(starter)*
   - Minor: Long Wait (Chờ Lâu). The store's cap is +80 after 10 s straight in Stillness.
 
@@ -71,8 +67,8 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Two Stances, One Master (Lưỡng Thế Nhất Chủ)** | keystone | Each stance keeps 40 % of the other stance's bonuses | You switch at most every 6 s | Chuyển Thế |
-| **Swift as a Fleeing Hare (Động Như Thoát Thố)** | keystone | You are always in Motion, and Motion's regeneration penalty is gone | You can never enter Stillness | Động |
+| **Two Stances, One Master (Lưỡng Thế Nhất Chủ)** | keystone | Each stance keeps 40 % of the other stance's bonuses | Your minimum time in each stance is 8 s | Chuyển Thế |
+| **Swift as a Fleeing Hare (Động Như Thoát Thố)** | keystone | You are always in Motion and Motion gives +40 % art speed | Motion's regeneration penalty stays, and all healing you receive is halved | Động |
 | **Still as a Maiden (Tĩnh Như Xử Nữ)** | keystone | You are always in Stillness, and your arts may fire in it at half damage | You can never enter Motion | Tĩnh, Bất Động |
 | **Stillness Gives Birth to Motion (Tĩnh Cực Sinh Động Đại)** | keystone | The Hare Bolts stores L5 +10 a second (cap +100) | Each Motion stint lasts at most 4 s | Tĩnh Cực Sinh Động |
 

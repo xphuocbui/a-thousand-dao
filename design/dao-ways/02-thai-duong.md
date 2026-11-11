@@ -22,8 +22,7 @@
 - **Stat notables:** First Rays (Tia Đầu): art speed ×2 · Red Dawn (Rạng Đông Đỏ): fire ×2 · Morning Heat (Nắng
   Sớm): fire +1, art speed +0.5 · Cockcrow (Gà Gáy): fire crit chance +1
 - **Effects:**
-  - **Major: Sunrise (Nhật Xuất).** For the first 8 s, your Fire hits deal more (L5 +35) and each applies 3 extra Burn
-    stacks.
+  - **Major: Sunrise (Nhật Xuất).** For the first 8 s, your Fire hits deal more (L5 +35) and each applies 3 extra Burn stacks for 6 pulses.
   - Minor: Crow Takes Wing (Ô Cất Cánh). Your first Fire art fires at half its cooldown. *(starter)*
   - Minor: Early Warmth (Ấm Sớm). You start each fight with 10 Fire buff stacks for 8 pulses.
 
@@ -41,8 +40,7 @@
 - **Stat notables:** Burning Light (Quang Cháy): fire +1, light +1 ×2 · Searing (Thiêu Đốt Sáng): light penetration ×2 ·
   Blaze Ray (Tia Rực): fire penetration +2 · Heat Shimmer (Hơi Nóng): accuracy +3
 - **Effects:**
-  - **Major: Scorching Sun (Liệt Nhật).** Your Fire hits apply Exposed for 1 pulse; your Light hits apply Burn stacks
-    equal to 2 per 1 % of the target's max health they deal.
+  - **Major: Scorching Sun (Liệt Nhật).** Your Fire hits apply Exposed for 1 pulse (no more than once per 3 s); your Light hits apply Burn stacks for 6 pulses, 2 per 1 % of the target's max health they deal.
   - Minor: Sun-Bleached (Phai Nắng). Exposed you apply also lowers Fire resistance by 20 more. *(starter)*
   - Minor: Light Feeds Fire (Quang Dưỡng Hỏa). Each Light hit gives 1 Fire buff stack for 6 pulses.
 
@@ -51,9 +49,8 @@
 - **Stat notables:** Ring of Fire (Vòng Lửa): fire stack effect ×2 · Halo of Heat (Quầng Nóng): defense ×2 · Solar
   Wind (Gió Mặt Trời): fire stack duration +2, fire +1 · Corona Shield (Thuẫn Quầng): fire resist +2
 - **Effects:**
-  - **Major: Corona (Nhật Miện).** While you hold 20+ Fire buff stacks, the foe takes a standing Burn: 1 Burn stack per
-    10 of your Fire buff stacks is applied each pulse (no slot, no cost).
-  - Minor: Heat Haze (Sóng Nhiệt). While you hold 20+ Fire buff stacks, the foe's accuracy is −5 pp. *(starter)*
+  - **Major: Corona (Nhật Miện).** While you hold 20+ Fire buff stacks, each pulse apply a Burn batch to the foe: 1 stack per 10 of your Fire buff stacks, lasting 4 pulses (no slot, no cost).
+  - Minor: Heat Haze (Sóng Nhiệt). While you hold 20+ Fire buff stacks, each of your Fire hits applies the Heat Haze status (−5 pp accuracy, 2 pulses, refresh). *(starter)*
   - Minor: Radiant Body (Thân Phát Sáng). Fire buff stacks you hold also give +0.5 Fire resistance each.
 
 ### 5. Hoàng Hôn (Sunset)
@@ -71,13 +68,14 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **A Sun That Never Sets (Bất Lạc Nhật)** | keystone | High Noon lasts from 10 s to the end of the fight | Sunrise and Sunset Effects do nothing | Chính Ngọ |
-| **Golden Crow (Kim Ô)** | enabler | Corona needs only 10 Fire buff stacks and applies 1 Burn stack per 5 | You cannot slot a Water or Ice art | Nhật Miện |
+| **A Sun That Never Sets (Bất Lạc Nhật)** | keystone | High Noon lasts from 10 s to 30 s | Before 10 s your hits deal 30 % less (L2 −30), and you can never hold more than 30 Fire buff stacks | Chính Ngọ |
+| **Golden Crow (Kim Ô)** | enabler | Corona needs only 10 Fire buff stacks and applies 1 Burn stack per 5 | Your direct Fire hits deal 20 % less (L2 −20): the sun burns, it does not strike | Nhật Miện |
 | **Ten Suns (Thập Nhật)** | keystone | Scorching Sun's Exposed lasts 2 pulses and its Burn is doubled | Your max health is 20 % lower | Liệt Nhật |
 | **Twilight Sovereign (Hoàng Hôn Đế)** | keystone | Last Blaze starts at 50 % health | You cannot heal above 60 % health | Hoàng Hôn |
 
 ## New pieces
 
+- Heat Haze (a status: −5 pp accuracy, 2 pulses, refresh): `Needs key`.
 - Standing Burn from buff stacks (Corona): `Fits today` as an Effect on the pulse event.
 
 ## Kept apart from

@@ -45,8 +45,7 @@ loading it and knowing it, never about rolling more.
 - **Effects:**
   - **Major: Read the Omens (Xem Quẻ).** Once a season, see the next event this season will bring you and decide to
     meet or avoid it. `Needs key` (Event Engine).
-  - Minor: Foreknowledge (Biết Trước). At fight start you see the foe's guards and slot order. *(starter)*
-    *Shared minor* (with Hồn's Read the Foe).
+  - Minor: Foreknowledge (Biết Trước). At fight start you see the foe's guards and slot order (UI only; the NPC AI also reads it). *(starter)* *Shared minor* (with Hồn's Read the Foe).
   - Minor: Ill Omen Avoided (Tránh Hung). The first event each year that would cost you lifespan costs half.
 
 ### 4. Định Mệnh (Destiny)
@@ -54,11 +53,9 @@ loading it and knowing it, never about rolling more.
 - **Stat notables:** Fated Strike (Kích Định): crit chance ×2 · Fated Dodge (Né Định): evade ×2 · Written Path (Đường
   Đã Viết): crit chance +1, evade +1 · Destiny's Hand (Tay Số Mệnh): crit damage +2
 - **Effects:**
-  - **Major: Counted Fate (Số Định).** Your crit chance becomes a counter: you crit on every hit that brings the running
-    total of your crit chance to a whole number (a 25 % chance crits exactly every 4th hit). Uses no draw; fortune does
-    not shift it (Combat rule 15, Effects rule 12).
-  - Minor: Counted Dodge (Né Theo Số). Your evade becomes a counter in the same way. *(starter)*
-  - Minor: Fate's Margin (Lề Số Mệnh). Counters start half full each fight.
+  - **Major: Fated Blow (Số Kích).** Every 8th hit you land is a crit (a counter; your other crit rolls are unchanged).
+  - Minor: Fated Dodge (Số Né). Every 8th hit aimed at you is evaded. *(starter)*
+  - Minor: Fate's Margin (Lề Số Mệnh). Your Fated counters start at 4 each fight.
 
 ### 5. Hung Tinh (Ill Star)
 - **Small:** fortune +1 · `status_chance_pct` +1
@@ -67,16 +64,16 @@ loading it and knowing it, never about rolling more.
 - **Effects:**
   - **Major: Ill Star (Hung Tinh Chiếu).** Your fortune also counts against the foe: its rolls (crit, evade, status,
     escape) are shifted against it by half your fortune.
-  - Minor: Jinx (Xui Xẻo). The foe's first crit each fight is not a crit. *(starter)*
+  - Minor: Jinx (Xui Xẻo). The foe's first status roll against you each fight fails. *(starter)*
   - Minor: Bad Luck Spreads (Vận Xui Lan). Your curses have +10 pp status chance against a foe with lower fortune.
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **The Heavens Bend (Thiên Tùy Nhân Nguyện)** | keystone | All your chances become counters (crit, evade, status, trigger, escape) | Fortune does nothing for you | Định Mệnh |
-| **Heaven's Secret (Thiên Cơ)** | keystone | Read the Omens works once a month | You cannot gain fortune from any source but this Dao | Bói Toán |
-| **Child of Fortune (Thiên Mệnh Chi Tử)** | keystone | Fortune's shift on your rolls is tripled | Fortune's shift on the foe's rolls against you is doubled too (heaven watches both) | Khí Vận |
+| **The Heavens Bend (Thiên Tùy Nhân Nguyện)** | keystone | One chance of your choice (crit, evade or status) becomes a counted chance (Effects rule 12) | Fortune does nothing for you | Định Mệnh |
+| **Heaven's Secret (Thiên Cơ)** | keystone | Read the Omens works once a month | Each Omen you read costs 3 heart demon | Bói Toán |
+| **Child of Fortune (Thiên Mệnh Chi Tử)** | keystone | Fortune's shift on your rolls is tripled | Your counted chances (Effects rule 12) cannot be bought: you live by the roll | Khí Vận |
 | **Change Your Star (Cải Tinh)** | keystone | Choose a second Star Sign | Your fortune is halved | Tinh Tượng |
 
 ## New pieces

@@ -27,29 +27,27 @@
     generating element (Wood before Fire, and so on), it deals more (L5 +25) and costs 25 % less.
   - Minor: The Cycle Turns (Luân Hồi Ngũ Khí). Each art you fire grants 2 buff stacks of the next element in the
     generating cycle for 6 pulses. *(starter)*
-  - Minor: Child Returns (Tử Phản Mẫu). When a chain of 3 generating steps completes, restore 6 % of max linh lực.
+  - Minor: Child Returns (Tử Phản Mẫu). When three arts fire in generating order (each the child of the one before, within 4 s), restore 6 % of max linh lực; a chain counts once, then starts again from the next art.
 
 ### 2. Tương Khắc (the Overcoming Cycle)
 - **Small:** `attack_pct` +1.2 · `resist_pen_pct` +0.6
 - **Stat notables:** Water Quenches (Thủy Diệt Hỏa): cold +2 · Fire Melts (Hỏa Khắc Kim): fire +2 · Metal Cuts
   (Kim Khắc Mộc): physical +2 · Wood Breaks (Mộc Khắc Thổ): chaos +2 · Earth Dams (Thổ Khắc Thủy): force +2
 - **Effects:**
-  - **Major: Overcome (Khắc Chế).** Your hits of an element remove 2 of the foe's buff stacks of the element it
-    overcomes, and deal more for each stack the foe held (L5 +1 per 5 stacks, cap +25).
+  - **Major: Overcome (Khắc Chế).** Your hits of an element remove 2 of the foe's buff stacks of the element it overcomes (shared rule R16, at most once per pulse), and deal more by the stacks removed in the last 3 s (L5 +3 per stack, cap +30).
   - Minor: Know the Enemy (Tri Khắc). At fight start, your art of the element that overcomes the foe's root element
     fires at half cooldown. *(starter)*
-  - Minor: Turned Against (Phản Khắc). When the foe's element would overcome yours, its hits deal you 10 % less.
+  - Minor: Turned Against (Phản Khắc). Damage you take from arts whose element overcomes your root's highest-purity element is dampened 10 % (rule 6a).
 
 ### 3. Quân Bình (Balance)
 - **Small:** `stack_duration_pct` +2 · `khi_huyet_pct` +0.5
 - **Stat notables:** Five Pillars (Ngũ Trụ): stack duration ×2 · Even Hand (Tay Đều): affinity +1, max health +1 ·
   Steady Centre (Trung Tâm): defense +2 · Harmony of Five (Ngũ Hòa): regen +0.1
 - **Effects:**
-  - **Major: Balance (Quân Bình).** Your hits deal more by the smallest of your five base-element buff piles (L5 +2
-    per stack in the smallest pile, cap +50).
+  - **Major: Balance (Quân Bình).** Your hits deal more by the smallest of your five base-element buff piles (L5 +8 per stack in the smallest pile, cap +40).
   - Minor: Even Breath (Hơi Đều). While you hold buff stacks of all five base elements, your regeneration of both
     pools is 25 % higher. *(starter)*
-  - Minor: Fill the Gap (Lấp Chỗ Trống). Each pulse, grant 1 buff stack (6 pulses) of your smallest base element.
+  - Minor: Fill the Gap (Lấp Chỗ Trống). Each pulse, grant 1 buff stack of your smallest base element, for the fight.
 
 ### 4. Luân Chuyển (Rotation)
 - **Small:** `art_speed_pct` +0.5 · `element_affinity_pct` +1
@@ -77,9 +75,9 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **All Five Turn as One (Ngũ Hành Hợp Nhất)** | keystone | Every art you fire grants 1 buff stack of all five base elements | Your stacks of any single element cannot exceed 25 | Quân Bình |
-| **The Wheel Without End (Luân Bất Tận)** | keystone | Mother Feeds Child triggers on any art whose element generates the next (slot order is not needed, the last art of each element counts) | Your arts of the same element as the art before cost 50 % more | Tương Sinh |
-| **Overcoming Heaven (Khắc Thiên)** | keystone | Overcome removes 5 stacks and converts them to your own buff stacks of the overcoming element | Your arts cannot apply debuff stacks | Tương Khắc |
+| **All Five Turn as One (Ngũ Hành Hợp Nhất)** | keystone | Every art you fire grants 1 buff stack (6 pulses) of the element it generates, and the cycle never breaks: the next art always counts as its child | Your stacks of any single element cannot exceed 12 | Quân Bình |
+| **The Wheel Without End (Luân Bất Tận)** | keystone | Mother Feeds Child fires when the last art fired **of the generating element** fired within 4 s, whatever was fired between | Your arts of the same element as the art before cost 50 % more | Tương Sinh |
+| **Overcoming Heaven (Khắc Thiên)** | keystone | Overcome removes 5 stacks of the overcome element and grants you 5 buff stacks of your overcoming element (shared rule R16) | Your arts cannot apply debuff stacks | Tương Khắc |
 | **Five Phases Body (Ngũ Hành Thể)** | keystone | Rotation applies to every art you slot | You may slot at most 3 arts | Luân Chuyển |
 
 ## New pieces

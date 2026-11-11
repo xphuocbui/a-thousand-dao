@@ -34,7 +34,7 @@
   - **Major: Starlight Sees All (Tinh Quang Chiếu).** Each 1 pp of the foe's evade gives you +1 pp accuracy and +0.5 pp
     crit chance against it (the brighter it dodges, the clearer it shows).
   - Minor: Star Glint (Sao Lóe). Your Light crits apply Exposed for 1 pulse. *(starter)*
-  - Minor: Distant Light (Ánh Xa). Your Light hits ignore 10 resistance points.
+  - Minor: Distant Light (Ánh Xa). Your Light hits ignore 10 resistance points against a foe that has evaded you this fight.
 
 ### 3. Thiên Lý (Distance)
 - **Small:** `travel_speed_pct` +2 · `art_speed_pct` +0.5
@@ -61,8 +61,7 @@
 - **Stat notables:** Meteor (Sao Băng): light ×2 · Shooting Star (Sao Đổi Ngôi): crit damage ×2 · Star Shower (Mưa
   Sao): light +1, crit damage +1 · Crater (Hố Va): force +2
 - **Effects:**
-  - **Major: Falling Stars (Lưu Tinh Trụy).** Each hit you land adds 1 Star (cap 7). At 7, a meteor falls: a Light and
-    Force trigger hit (`c_trig` 1.2 of your strongest art's coefficient, not inside `trig_budget`), and Stars reset.
+  - **Major: Falling Stars (Lưu Tinh Trụy).** Each art hit you land adds 1 Star (cap 7; trigger hits and meteors add none). At 7, a meteor falls: a trigger hit, half Light and half Force, `c_trig` 1.2 of your strongest art's coefficient, inside `trig_budget`; Stars reset.
   - Minor: Wish on a Star (Ước Sao). Each meteor restores 4 % of max linh lực. *(starter)*
   - Minor: Starfall Crater (Hố Sao). A meteor applies Sundered (Force).
 
@@ -73,7 +72,7 @@
 | **The Sky Is Your Array (Thiên Vi Trận)** | keystone | Array in the Sky runs at 100 % and carries 2 formations | You cannot lay a formation on ground in a foreseen fight (only the sky arrays) | Tinh Trận |
 | **River of Stars (Tinh Hà)** | keystone | Falling Stars drops a meteor at 5 Stars | Your non-meteor hits deal 25 % less (L2 −25) | Lưu Tinh |
 | **Seven Stars Aligned (Thất Tinh Liên Châu)** | keystone | Your crit chance is +1 pp per Star held (cap +7) and crits add 2 Stars | Your max health is 20 % lower | Lưu Tinh, Bắc Đẩu |
-| **Starlit Eye (Tinh Nhãn)** | keystone | Starlight Sees All gives +1 pp crit per 1 pp evade | Your evade is 0 | Tinh Quang |
+| **Starlit Eye (Tinh Nhãn)** | keystone | Starlight Sees All gives +1 pp crit per 1 pp of the foe's evade | Your accuracy can never exceed what the foe's evade needs (no spare accuracy), and your crit damage −20 % | Tinh Quang |
 
 ## New pieces
 

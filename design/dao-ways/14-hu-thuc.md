@@ -26,14 +26,14 @@
     `Needs key` (an art kind with the `feint` tag).
   - Minor: Bait (Mồi). The foe's counter Effects (Return Stroke, Spear Wall, retaliation) fire on your feints and are
     then on their cooldown. *(starter)*
-  - Minor: Empty Threat (Dọa Suông). Each feint that lands applies 1 Wind debuff stack.
+  - Minor: Empty Threat (Dọa Suông). Each feint that lands applies 1 Wind debuff stack for 4 pulses.
 
 ### 2. Thực Kích (True Strikes)
 - **Small:** `attack_pct` +1.2 · `crit_damage_pct` +1.5
 - **Stat notables:** Real Blow (Đòn Thật): attack ×2 · Full Weight (Toàn Lực): crit damage ×2 · Heavy Truth (Thật
   Nặng): attack +1, crit damage +1 · True Line (Đường Thật): accuracy +2
 - **Effects:**
-  - **Major: The Real One (Thực Chiêu).** Each feint that lands adds L5 +6 to your next non-feint hit (cap +48).
+  - **Major: The Real One (Thực Chiêu).** Each feint that lands adds L5 +6 to your next non-feint **art** hit (cap +48; the basic attack neither uses nor clears it).
   - Minor: Unguarded (Sơ Hở). Your first non-feint hit after 2+ feints cannot be evaded. *(starter)*
   - Minor: Through the Gap (Qua Kẽ Hở). Your non-feint hits after a feint ignore 15 resistance points.
 
@@ -52,9 +52,7 @@
 - **Stat notables:** Plain Robe (Áo Thường): attack ×2 · Humble Face (Mặt Hiền): defense ×2 · Hidden Depth (Sâu Kín):
   attack +1, defense +1 · Quiet Power (Lực Lặng): crit damage +2
 - **Effects:**
-  - **Major: Hide Your Strength (Tàng Phong).** Your displayed power (`display_power`, the rating others read) is 40 %
-    lower. NPCs that choose fights by power pick you more, and Effects that read your power read the lower number.
-    Your first hit each fight deals more (L5 +40). `Needs key` (a displayed-power modifier).
+  - **Major: Hide Your Strength (Tàng Phong).** Your displayed power (`display_power`) is 40 % lower: NPCs that choose fights by power pick you more, and Effects that read your power read the lower number. Your first **art** hit each fight deals more (L5 +40). `Needs key` (a displayed-power modifier).
   - Minor: Underestimated (Bị Coi Thường). Against a foe one realm or less above you, +10 % damage. *(starter)*
   - Minor: Reveal (Lộ Diện). After your first true strike, +5 % to all stats for the fight.
 
@@ -63,8 +61,7 @@
 - **Stat notables:** Turn (Chuyển Hóa): attack ×2 · Fill (Lấp Đầy): art cost ×2 · Two Faces (Hai Mặt): attack +1, evade
   +1 · Surprise (Bất Ngờ): crit chance +1
 - **Effects:**
-  - **Major: Empty Becomes Full (Hư Hóa Thực).** Every 3rd feint you fire becomes a true strike: it deals as your
-    strongest slotted art (its coefficient and tags) at 60 %.
+  - **Major: Empty Becomes Full (Hư Hóa Thực).** Every 3rd feint you fire becomes a true strike: a copy of your strongest slotted art's damage parts at 60 % (no riders, no stack grants), which costs 60 % of that art's linh lực and cannot happen more than once per 3 s.
   - Minor: Full Becomes Empty (Thực Hóa Hư). Once every 10 s, an art the foe would evade becomes a feint instead (it
     still triggers The Real One). *(starter)*
   - Minor: Which Was Real (Thật Giả Khó Phân). The foe's counter Effects fire on your feints only (not on true strikes)
@@ -77,7 +74,7 @@
 | **Which Blow Was Real? (Hư Thực Mạc Trắc)** | keystone | Feints take no art slot (up to 3) | Your non-feint arts cost 30 % more | Hư Chiêu |
 | **All Empty (Toàn Hư)** | keystone | The Real One has no cap | You may slot at most 1 non-feint art | Thực Kích |
 | **Ten Thousand Images (Vạn Ảnh)** | keystone | Afterimages cap at 10 and may exceed `evade_cap` by 5 pp | Your max health is 25 % lower | Hư Ảnh |
-| **The Hidden Dragon (Tàng Long)** | keystone | Hide Your Strength lowers displayed power by 80 % and its first-hit bonus is L5 +80 | Your stat lines from all Daos count at 85 % | Ẩn Thực |
+| **The Hidden Dragon (Tàng Long)** | keystone | Hide Your Strength lowers displayed power by 80 % and its first-art-hit bonus is L5 +80 | Your stat lines from all Daos count at 85 % | Ẩn Thực |
 
 ## New pieces
 

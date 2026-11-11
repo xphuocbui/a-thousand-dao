@@ -174,6 +174,30 @@ and let the balance harness price them.
   layer totals.
 - **The Dream window and the swap:** Mộng. A snapshot of the fight state.
 
+## R16. An action that strips the foe's buff stacks (added after review)
+
+**Asked by:** Ngũ Hành (Overcome), Hỗn Độn (Churning), Tứ Thời (Bare Branches), Thời (Wither the Foe), Quang
+(Dispel), Thâu (Steal Qi), Đao (Clear the Field), Diệt (Unravel), Thái Âm (copying only). **9 Ways.** The review
+found that Effects rule 6's closed action list cannot remove, shorten or steal the foe's buffs.
+
+**Proposal.** One action: `strip_buff(n, element = largest pile)` removes n of the foe's buff stacks, oldest batch
+first, at most once per pulse per source. A variant moves them to the owner (`steal`). Copying (Thái Âm's
+Borrowed Light) needs no new action: it reads a sheet value and grants stacks.
+
+## R17. Fight-long debuffs are statuses (added after review)
+
+Several drafts gave the foe a "for the fight" stat loss (resistance, block, evade, accuracy) without a status. The
+review noted that these are not actions, and that a curse needs a duration of at most 5 pulses (Status
+Catalogue). **Fixed in batch 01–14** by turning each one into a named curse with stacks and a duration (Eroded,
+Pressed, Heat Haze). Later batches follow the same rule.
+
+## R18. Triggers outside `trig_budget` (added after review)
+
+Effects rule 7 puts all trigger damage inside Formulas G's budget. The drafts that said "outside `trig_budget`"
+(Tinh's meteor, Bỉ Ngạn's petals, Hoa's capstone, Ti's webs, Họa's finishing stroke, Nhẫn's Last Stand, Thủ's
+capstone) either move inside it or become a `Needs rule` for a one-off burst exemption. **Recommended:** inside,
+except Hoa's capstone, which declares a petal channel and is flagged `Needs rule`.
+
 ## How to use this
 
 Say yes, no or later to each R. A "yes" becomes a rule in the owning GDD (Combat, Combat Defence, Effects,

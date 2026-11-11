@@ -65,15 +65,15 @@ the point (Tứ Cảnh). Where Ngũ Hành rewards elements in order, Phong Nguy�
   - **Major: The Four Beauties (Tứ Cảnh Hợp).** For each of the four "Beauty" minors you hold, your crits deal more
     (L5 +8 per Beauty; all four: L5 +32) and your crits restore 0.5 % of max linh lực per Beauty.
   - Minor: Two Beauties (Song Cảnh). With 2+ Beauties, +3 pp crit chance. *(starter)*
-  - Minor: Four Together (Tứ Cảnh Tề). With all 4 Beauties, crits on you are reduced by 20 %.
+  - Minor: Four Together (Tứ Cảnh Tề). With all 4 Beauties, crit damage you take is dampened 20 % (rule 6a).
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Beauty Is the Blade (Mỹ Tức Phong)** | keystone | Your crit damage cap (`crit_mult_cap`) is +0.3 higher while you hold all four Beauties | Your non-crit hits deal 25 % less (L2 −25) | Tứ Cảnh |
-| **Wind, Flowers, Snow, Moon (Phong Hoa Tuyết Nguyệt)** | keystone | The four Beauty minors take no Effect slot (they count as notables you own for free when you buy any notable in their facet) | You cannot hold more than 3 capstones in any Dao | Tứ Cảnh |
-| **Flowers on the Crit (Hoa Bạo)** | keystone | Flowers Bloom on the Crit heals 3 % and has no time limit (bounded by `trig_cap`) | Your max health is 25 % lower | Hoa |
+| **Beauty Is the Blade (Mỹ Tức Phong)** | keystone | Your crit multiplier cap is +0.3 higher (a cap shift, `Needs rule`; R14) while you hold all four Beauties | Your non-crit hits deal 25 % less (L2 −25) | Tứ Cảnh |
+| **Wind, Flowers, Snow, Moon (Phong Hoa Tuyết Nguyệt)** | keystone | Each Beauty minor you own counts twice for The Four Beauties | Your heals are 25 % weaker and your crit damage −15 % | Tứ Cảnh |
+| **Flowers on the Crit (Hoa Bạo)** | keystone | Flowers Bloom on the Crit heals 2.5 % (still once per 0.5 s) | Your max health is 25 % lower | Hoa |
 
 ## New pieces
 

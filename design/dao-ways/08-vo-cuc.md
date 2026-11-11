@@ -22,8 +22,7 @@
 - **Stat notables:** No Face (Vô Diện): defense ×2 · Shapeless Guard (Hộ Vô Hình): evade ×2 · Unformed Body (Thân Vô
   Hình): defense +1, evade +1 · No Mark (Vô Dấu): status resist +2
 - **Effects:**
-  - **Major: Formless (Vô Tướng).** Effects that read your tags (the foe's tag-scoped bonuses against you, Silence on
-    your tags) treat you as having no form or element tags.
+  - **Major: Formless (Vô Tướng).** Curses that name a tag (Silence) or a damage type (Sundered) cannot be placed on you, and Exposed on you is halved. `Needs rule`.
   - Minor: No Target (Vô Đích). The foe's first art each fight misses (evaded for certain). *(starter)*
   - Minor: Empty Shape (Hình Trống). Exposed and Sundered on you last 1 pulse less.
 
@@ -43,10 +42,8 @@
 - **Stat notables:** One Root (Nhất Căn): attack ×2 · One Breath (Nhất Khí): max health ×2 · Gathered (Tụ Hội): attack
   +1, max health +1 · Centre (Trung): defense +2
 - **Effects:**
-  - **Major: Return to One (Vạn Pháp Quy Nhất).** Your lowest damage layer (L2 to L5) is raised to 50 % of the way
-    toward your highest layer's total.
-  - Minor: Single Breath (Nhất Tức). Your arts with the same element as your root's highest-purity element cost 15 %
-    less. *(starter)*
+  - **Major: Return to One (Vạn Pháp Quy Nhất).** Your lowest damage layer among L2 and L4 gains bonus points equal to 25 % of your highest layer's bonus points (cap +25 points). `Needs rule` (layer readables).
+  - Minor: Single Breath (Nhất Tức). While every art you slot shares one element, your arts cost 15 % less. *(starter)*
   - Minor: One Path (Nhất Lộ). If you hold only this Dao, +10 % to all stat lines in it. `Needs key`.
 
 ### 4. Hư Vô (Emptiness)
@@ -54,8 +51,7 @@
 - **Stat notables:** Void Sea (Biển Hư): max linh lực ×2 · Empty Bowl (Bát Rỗng): art cost ×2 · Nothing Held (Không
   Giữ): max linh lực +1, art cost −1 · Hollow (Trống Rỗng): evade +2
 - **Effects:**
-  - **Major: Emptiness Is Form (Không Tức Thị Sắc).** Your hits deal more by your missing linh lực (L5 +1 per 2 % of
-    max linh lực missing, cap +45).
+  - **Major: Emptiness Is Form (Không Tức Thị Sắc).** Your hits deal more by your missing linh lực (L5 +1 per 2 % of max linh lực missing, cap +30).
   - Minor: Empty Vessel (Bình Trống). While below 20 % linh lực, your art costs are halved. *(starter)*
   - Minor: Void Ward (Hộ Hư). Your ward shields are 20 % stronger while below 30 % linh lực.
 
@@ -66,16 +62,16 @@
 - **Effects:**
   - **Major: The First Breath (Sơ Tức).** Your first firing of each art deals more (L5 +40).
   - Minor: Beginning (Khởi Đầu). Your first art each fight fires at 1 s. *(starter)*
-  - Minor: Before Taiji (Tiền Thái Cực). Your first hit each fight ignores ward shields.
+  - Minor: Before Taiji (Tiền Thái Cực). Your first art hit each fight skips ward shields (shared rule R2).
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **Beyond Limit (Vô Cực)** | keystone | Unbounded gives 2 stacks a second after 20 s | Your hits deal 30 % less for the first 15 s (L2 −30) | Vô Hạn |
-| **Before Taiji (Vô Cực Sinh Thái Cực)** | keystone | Return to One raises every layer to your highest (all layers equal) | Your highest layer is capped at 1.8× | Quy Nhất |
-| **The Great Void (Đại Hư)** | keystone | Emptiness Is Form has no cap | Your linh lực regeneration is 0 | Hư Vô |
-| **The Formless Form (Vô Tướng Chi Tướng)** | keystone | You are immune to curses that name a tag | Your own tag-scoped modifiers count at half | Vô Tướng |
+| **Before Taiji (Vô Cực Sinh Thái Cực)** | keystone | Return to One raises your lowest layer among L2 and L4 to your second-highest layer's points | Your L1 (increased) bonuses count at half | Quy Nhất |
+| **The Great Void (Đại Hư)** | keystone | Emptiness Is Form gives L5 +1 per 1 % missing, cap +70 | Your linh lực regeneration is 0 | Hư Vô |
+| **The Formless Form (Vô Tướng Chi Tướng)** | keystone | You are immune to every curse for the first 10 s | Your own tag-scoped modifiers count at half | Vô Tướng |
 
 ## New pieces
 

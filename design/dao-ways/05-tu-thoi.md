@@ -26,7 +26,7 @@ with the **world's calendar** (Pillar 4: every season counts). A build reads the
 - **Effects:**
   - **Major: Spring Awakening (Xuân Sinh).** In Spring, your health regeneration is doubled in fights and your herb
     fields grow 25 % faster. Out of Spring, your heals are +10 %.
-  - Minor: First Green (Xanh Đầu Mùa). In Spring, you start each fight with 10 Wood buff stacks. *(starter)*
+  - Minor: First Green (Xanh Đầu Mùa). In Spring, you start each fight with 10 Wood buff stacks for 10 pulses. *(starter)*
   - Minor: Thaw (Tan Băng). In Spring, Ice stacks on you expire twice as fast.
 
 ### 2. Hạ (Summer)
@@ -47,15 +47,14 @@ with the **world's calendar** (Pillar 4: every season counts). A build reads the
   - **Major: Autumn's Killing Qi (Thu Sát).** In Autumn, your hits on a target below 35 % health deal more (L5 +40);
     defeated creatures yield one more material roll. Out of Autumn, the execute is L5 +15.
   - Minor: Reaping (Gặt). Herbs you harvest in Autumn have +1 quality step chance. `Needs key`. *(starter)*
-  - Minor: Bare Branches (Cành Trơ). In Autumn, the foe's buff stacks last 1 pulse less.
+  - Minor: Bare Branches (Cành Trơ). In Autumn, your hits remove 1 of the foe's buff stacks (shared rule R16, once per pulse).
 
 ### 4. Đông (Winter)
 - **Small:** `defense_pct` +1.2 · `attack_pct` cold +1
 - **Stat notables:** Deep Snow (Tuyết Dày): defense ×2 · Long Winter (Đông Dài): cold ×2 · Hearth (Bếp Lửa): max health
   +1, regen +0.05 · Hibernation (Ngủ Đông): linh lực regen +0.15
 - **Effects:**
-  - **Major: Winter Stillness (Đông Tàng).** In Winter, seclusion cultivation progress is +10 % (within
-    `dao_rate_cap_pct`) and in fights you take 15 % less damage. Out of Winter, you take 5 % less.
+  - **Major: Winter Stillness (Đông Tàng).** In Winter, seclusion cultivation progress is +10 % (within `dao_rate_cap_pct`), and in fights all damage you take is dampened 15 % (rule 6a). Out of Winter, dampened 5 %.
   - Minor: Frozen Ground (Đất Đóng Băng). In Winter, your Cold hits apply 1 extra Ice stack. *(starter)*
   - Minor: Store for Winter (Tích Trữ). Pills you brewed in Autumn are 10 % stronger in Winter. `Needs key`.
 
@@ -74,9 +73,9 @@ with the **world's calendar** (Pillar 4: every season counts). A build reads the
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Always the Right Season (Tứ Thời Như Ý)** | keystone | Choose one season: its facet's in-season Effects apply all year | The other three seasons' in-season Effects never apply | any |
-| **Endless Summer (Trường Hạ)** | keystone | Summer Fury's in-season bonus applies in Spring and Autumn too | In Winter, your hits deal 30 % less (L2 −30) | Hạ |
-| **The Long Winter (Trường Đông)** | keystone | Winter Stillness applies to every fight in Autumn and Winter, and its damage cut is 25 % | In Summer, your regeneration is halved | Đông |
+| **Always the Right Season (Tứ Thời Như Ý)** | keystone | Choose one season: its facet's in-season Effects apply all year, at half strength out of season | The other three facets' Effects, in and out of season, never apply (their consolation lines included) | any |
+| **Endless Summer (Trường Hạ)** | keystone | Summer Fury's in-season bonus applies in Spring and Autumn too | Out of those seasons, Summer Fury gives nothing, and your regeneration is −25 % all year | Hạ |
+| **The Long Winter (Trường Đông)** | keystone | Winter Stillness's in-season Effects apply in Autumn and Winter, and its dampening is 25 % | Your regeneration is −25 % in every season | Đông |
 | **Wheel of the Year (Niên Luân)** | keystone | Every Season Counts has no cap and counts double in seclusion | Each failed breakthrough loses 4 seasons of its count | Luân Niên |
 
 ## New pieces
