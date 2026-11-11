@@ -147,16 +147,24 @@ def own_rows(path):
     return out
 
 
+PLACEHOLDER_IDS = {"none", "—", "-", "n/a", "na"}
+
+
 def merge_table_file(shared, own_path, sections, slug, label, report):
+    canonical = {s.lower(): s for s in sections}
     for section, rows in own_rows(own_path).items():
-        if section == "Reused":
+        if section.lower() == "reused":
             continue
+        # Sessions vary heading case ("New Concepts" vs "New concepts"); match case-insensitively.
+        section = canonical.get(section.lower(), section)
         if section not in sections:
             for r in rows:
                 report.append("UNPLACED\t%s\tunknown section '%s': %s" % (label, section, r[:100]))
             continue
         for r in rows:
             c = cells(r)
+            if c and key(c[0]) in PLACEHOLDER_IDS:
+                continue  # an explicit "nothing here" row
             if not c or not key(c[0]):
                 report.append("UNPLACED\t%s\trow with no ID in '%s': %s" % (label, section, r[:100]))
                 continue

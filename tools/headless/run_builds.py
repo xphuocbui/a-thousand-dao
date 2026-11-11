@@ -61,7 +61,9 @@ ALLOWED = ",".join(ALLOWED_BASE + [FIGHT_TOOL])
 DISALLOWED = ",".join(DISALLOWED_BASE)
 
 FIGHT_SIM = """   - `{builds}/{slug}.fight.json`: the fight input (references/content-formats.md, Fight input). In Phase 2
-     run `python .claude/skills/design-build/scripts/fight.py --selftest`; in Phase 7 run `python
+     run `python .claude/skills/design-build/scripts/fight.py --selftest` AND `python
+     .claude/skills/design-build/scripts/fight.py --numbers`, and take the fight's numbers from the second; in
+     Phase 7 run `python
      .claude/skills/design-build/scripts/fight.py {builds}/{slug}.fight.json --matrix` and the `--without` run on
      the identity piece, at the defining realm and one other. That script is the only Python you may run; do not
      write or run any other script, and do not hand-simulate the fight. Report the fight checks from its output,
@@ -128,8 +130,11 @@ Overrides to the skill, in force for this session:
    with a rule; Effects are hand-designed and unpriced; sustain is king and fights run 30-60 s; slightly
    overpowered is fine, only macro targets matter. Originality: no names lifted from novels or games.
 9. Reading and writing (2026-11-11, cost): follow the skill's Phase 2 "Read each file once" and "What not to
-   read" exactly. Never read another build's files or an earlier run. Write each output file whole with one
-   Write when its content is ready, then fix it with a few Edits; do not build files line by line.
+   read" exactly. Never read another build's files or an earlier run. Data files (assets/data/*.json): Grep
+   for the id or name, never Read more than about 40 lines of one. Never read simulator or script source
+   (tools/, .claude/skills/design-build/scripts/): the fight file format is in content-formats.md. Write each
+   output file whole with one Write when its content is ready, then fix it with a few Edits; do not build files
+   line by line.
 10. Finish with exactly one line as the last line of your final message:
    BUILD-RESULT: slug={slug} status=<DONE|PARTIAL|FAILED> staged_new=<n> staged_reused=<n> suggestions=<n> checks_fail=<n> checks_na=<n>
 """
@@ -245,7 +250,11 @@ def build_one(args, seed, attempt):
                            use=seed.get("use", "player"), builds=builds, staging=f"{run}/staging-catalogue.md",
                            suggestions=f"{run}/suggestions.md", ledger=f"{run}/ledger.md",
                            index=f"{run}/staging-index.md", fight=fight_block(args, builds, slug))
-    prompt = f"/design-build {seed['seed']}"
+    # Not "/design-build ...": a typed skill runs on its own model pin (model: opus), overriding --model. Run through
+    # the Skill tool, the session keeps --model (coordination-rules.md, Model Tier Assignment; found 2026-11-11 when
+    # two "--model sonnet" sessions ran on Opus).
+    prompt = ("Use the Skill tool to run the design-build skill (skill: design-build) with these arguments: "
+              f"{seed['seed']}")
     tag = f"{slug}-try{attempt}"
     log(run, f"start {tag}")
     t0 = time.time()

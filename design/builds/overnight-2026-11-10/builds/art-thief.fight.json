@@ -1,0 +1,36 @@
+{
+  "name": "art-thief", "realm": "nguyen_anh",
+  "layers": [400, 200, 240, 150, 0],
+  "crit": {"chance": 0.15, "mult": 1.8},
+  "n_body": 1.0, "n_qi": 1.3,
+  "art_speed_pct": 25, "art_cost_pct": 35, "art_cost_health_pct": 0,
+  "regen_bonus_pp": 5, "health_regen_pp": 0.5, "healing_pct": 0,
+  "evade_pct": 5, "accuracy_pct": 10,
+  "gain_on_hit_pct": 0, "leech_qi_pct": 8, "leech_health_pct": 0,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 62.5, "we": 40,
+           "layers": [300, 250, 150, 100], "block": 17.7},
+  "body": {"block": 17.7, "resistance": 25, "shield": 0.2, "layers": [100, 100, 60, 30]},
+  "purity": {"water": 60, "metal": 50},
+  "bonus_slots": 0,
+  "arts": [
+    {"id": "hollow-palm", "c_art": 2.6, "cost_share": 0.04, "cooldown": 4, "element": "water", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]},
+    {"id": "still-pool-mending", "c_art": 0, "cost_share": 0.04, "cooldown": 6, "element": "water", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 1.2, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]},
+    {"id": "loan-slot-1-copy", "c_art": 2.6, "cost_share": 0.05, "cooldown": 4, "element": "fire", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 100, 0, 0, 60]},
+    {"id": "loan-slot-2-copy", "c_art": 2.4, "cost_share": 0.05, "cooldown": 5, "element": "metal", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 100, 0, 0, 60]},
+    {"id": "loan-slot-3-copy", "c_art": 2.2, "cost_share": 0.05, "cooldown": 6, "element": "thunder", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 100, 0, 0, 60]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "THEFT ITSELF: copies are modelled as three ordinary arts with a first firing at 4-6 s (enemy first cast ~3 s plus half a copy cooldown); real copies are whatever the enemy fires, appear only after the enemy fires them, and are FIFO-replaced",
+    "loan slots (Tá Vị) and the 'stolen' tag: the x points on the copies stand in for stolen-tag L2 and L5 modifiers",
+    "the copy's cost half-share rule and half-start cooldown",
+    "a bare-fist enemy gives nothing to copy: not run (the matrix enemy always has arts)",
+    "Pre-Read preparation (foe's costly art in loan slot 1 at t = 0), Hollow Guard (ward strength per empty loan slot), Spent Hand (a trigger)",
+    "Borrowed Echo refund: stolen arts leech linh lực on hit (approximated by leech_qi_pct 3 on everything)"
+  ]
+}

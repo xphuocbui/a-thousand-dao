@@ -26,8 +26,8 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | weighted-bucket | Weighted Bucket (Trụy Dũng) | Needs key (modifiers.md Sta… | dry-well, slow-thunder |
 | heavy-knuckle | Heavy Knuckle (Trọng Quyền) | Needs key (modifiers.md Sta… | bare-fist |
 | worn-knuckles | Worn Knuckles (Chai Quyền) | Fits today (`damage_more` L… | bare-fist |
-| basic-attack-speed | Basic attack speed (Khoái Quyền), `basic_speed_pc… | Needs rule (combat.md rule … | bare-fist, cooldown-floor |
-| deeper-nails | Deeper Nails (Đinh Sâu), `curse_effect_pct` | Needs key (modifiers.md Sta… | curse-engine, triple-convert |
+| basic-attack-speed | Basic attack speed (Khoái Quyền), `basic_speed_pc… | Needs rule (combat.md rule … | bare-fist, cooldown-floor, starter-blade, pacifist |
+| deeper-nails | Deeper Nails (Đinh Sâu), `curse_effect_pct` | Needs key (modifiers.md Sta… | curse-engine, triple-convert, status-collector, pacifist |
 | fang-and-claw | Fang and Claw (Nha Trảo) | Fits today (`damage_more` L… | beast-carry |
 | thick-hide | Thick Hide (Hậu Bì) | Needs key (modifiers.md Sta… | beast-carry |
 | beast-bond-affix | Beast-Bond (Thú Khế) | Needs key (modifiers.md row… | beast-carry |
@@ -37,7 +37,7 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | kiln-heat | Kiln Heat (Diêu Nhiệt) | Fits today (`damage_more` L… | triple-convert |
 | lingering-fume | Lingering Fume (Tàn Yên) | Fits today (`damage_more` L… | triple-convert |
 | ore-weight | Ore Weight (Khoáng Trọng) | Fits today (`damage_more` L… | triple-convert, armoury-mind, one-art, giant-killer |
-| hoi-xuan-affix | Spring Returns (Hồi Xuân) | Fits today (a data row in `… | unkillable |
+| hoi-xuan-affix | Spring Returns (Hồi Xuân) | Fits today (a data row in `… | unkillable, starter-wall, mirror-hide |
 | laid-stone | Laid Stone (Lũy Thạch) | Fits today (`damage_more` L… | home-fortress |
 | cold-iron-order | Cold Iron Order (Hàn Thiết Lệnh) | Fits today (`damage_more` L… | armoury-mind, giant-killer |
 | kindred-affix | Kindred Vessels (Đồng Khí) | Fits today (a data row in `… | armoury-mind |
@@ -49,6 +49,49 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | trigger-limit | Trigger limit (Dư Hưởng) | Needs rule (combat.md Formu… | cooldown-floor |
 | needles-eye | Needle's Eye (Châm Nhãn) | Fits today (`damage_more` L… | giant-killer |
 | realm-piercing-affix | Realm-Piercing (Thấu Cảnh) | Fits today (a data row in `… | giant-killer |
+| stone-does-not-hurry | Stone Does Not Hurry (Thạch Bất Cấp) | Needs key (a stat key for a… | starter-wall |
+| patient-venom | Patient Venom (Nhẫn Độc) | Needs rule (modifiers.md Pe… | starter-venom |
+| watched-rot | Watched Rot (Quan Hủ) | Needs key (a stack-count co… | starter-venom |
+| drawn-steel | Drawn Steel (Xuất Thiết) | Needs key (modifiers.md Sta… | starter-blade |
+| edge-spills-over | Edge Spills Over (Phong Dật) | Needs rule (combat.md rule … | starter-blade |
+| hot-edge | Hot Edge (Nhiệt Phong) | Needs rule (an event "you c… | starter-blade |
+| still-water | Still Water (Tĩnh Thủy) | Needs rule (combat-defence.… | starter-tide |
+| depth-is-shield | Depth Is Shield (Uyên Thành Thuẫn) | Needs rule (combat-defence.… | starter-tide |
+| deep-heat | Deep Heat (Nhiệt Thâm) | Needs key (a Per stat on ti… | sect-ladder |
+| return-share | Return Share (Phản Lượng) | Needs key | mirror-hide |
+| return-damage | Return Damage (Phản Thương) | Needs key | mirror-hide |
+| return-more | Return More (Phản Trọng) | Needs key | mirror-hide |
+| weight-of-the-hide | Hide Hardens (Bì Cứng) | Needs key | mirror-hide |
+| tick-return-weight | Tick Return Weight (Dư Thương) | Needs key | mirror-hide |
+| return-cap-shift | Return Cap Shift (Phản Hạn) | Needs key | mirror-hide |
+| surplus-breeze | Surplus Breeze (Dư Phong) | Needs rule (combat.md Formu… | evade-dancer |
+| wind-fed-edge | Wind-Fed Edge (Phong Dưỡng Nhận) | Needs key (a Wind-stack cou… | evade-dancer |
+| rhythm-of-the-miss | Rhythm of the Miss (Hụt Tiết) | Needs rule (effects.md cond… | evade-dancer |
+| veiled-aim | Veiled Aim (Mạc Chuẩn) | Needs key (foe accuracy key) | evade-dancer |
+| crowded-ledger | Crowded Ledger (Chúng Bệnh) | Needs rule (combat.md Formu… | status-collector |
+| thrifty-brand | Thrifty Brand (Tiết Ấn) | Needs key (new tag `status_… | status-collector |
+| extra-curse-slot | Extra Curse Slot (Thêm Chú Vị) | Needs key (a cap-shift key) | status-collector, pacifist |
+| fast-art-ward | Fast-Art Ward (Khoái Kích Hộ) | Needs key | deity-warden |
+| lustral-share | Lustral Share (Tẩy Phần) | Needs key | deity-warden |
+| ward-down-more | Bare Gate (Lộ Quan) | Needs key | deity-warden |
+| spent-blood | Spent Blood (Huyết Phí) | Needs rule (a readable, see… | meta-hunter |
+| hounds-scent | Hounds on the Scent (Truy Tung) | Needs rule (the distinct-st… | meta-hunter |
+| spilled-ink | Spilled Ink (Dật Mặc) | Needs rule (combat-defence.… | meta-hunter |
+| stacked-meter | Stacked Meter (Tích Tiết) | Needs key (a payout count r… | loaded-dice |
+| spilled-luck | Spilled Luck (Dật Phúc) | Needs rule (Effects System … | loaded-dice |
+| loaded-start | Loaded Start (Quán Khởi) | Needs rule (Effects System … | loaded-dice |
+| faithful-copy | Faithful Copy (Chân Bản) | Needs key | art-thief |
+| warm-hand | Warm Hand (Nhiệt Thủ) | Needs key | art-thief |
+| pilfered-craft | Pilfered Craft (Thâu Công) | Needs key (tag `stolen`) | art-thief |
+| borrowed-weight | Borrowed Weight (Mượn Trọng) | Needs key | art-thief |
+| full-hand | Full Hand (Mãn Thủ) | Needs key (condition readab… | art-thief |
+| hollow-guard | Hollow Guard (Hư Hộ) | Needs rule (reads slot fill… | art-thief |
+| own-medicine | Own Medicine (Dĩ Độc Công Độc) | Needs key | art-thief |
+| wide-sleeve | Wide Sleeve (Khoan Tụ) | Needs key | art-thief |
+| stolen-breath | Stolen Breath (Tá Tức) | Needs key | art-thief |
+| deeper-frost | Deeper Frost (Hàn Thâm) | Needs key | pacifist |
+| long-frost | Long Frost (Hàn Kéo Dài) | Needs key | pacifist |
+| patient-ward | Patient Ward (Nhẫn Hộ) | Needs key | pacifist |
 
 ## Effects
 
@@ -57,7 +100,7 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | ash-ledger | Ash Ledger (Tro Trướng) | Needs rule (effects.md rule… | two-clocks |
 | cinder-debt | Cinder Debt (Tẫn Trái) | Needs rule (effects.md rule… | two-clocks |
 | fuel-for-the-fire | Fuel for the Fire (Tân Hỏa) | Needs rule (combat.md Formu… | two-clocks |
-| embers-feed-the-hearth | Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô) | Needs rule (effects.md rule… | two-clocks |
+| embers-feed-the-hearth | Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô) | Needs rule (effects.md rule… | two-clocks, starter-flame, sect-ladder |
 | unanswered | Unanswered (Vô Ứng) | Fits today if "events this … | first-volley |
 | taut-string | Taut String (Huyền Căng) | Needs rule (depends on `ope… | first-volley |
 | eruption | Eruption (Phún Trào) | Needs rule (effects.md rule… | first-volley, cooldown-floor |
@@ -84,8 +127,8 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | festering-wound | Festering Wound (Hủ Thương) | Fits today (element stack c… | triple-convert |
 | fourth-smelting | The Fourth Smelting (Đệ Tứ Luyện) | Needs rule (combat-damage-t… | triple-convert |
 | growth-rings | Growth Rings (Niên Luân) | Fits today (lifespan and ag… | unkillable |
-| sap-rises | Sap Rises (Nhựa Thăng) | Fits today (element stack c… | unkillable |
-| spring-never-fails | The Spring Never Fails (Tuyền Bất Kiệt) | Needs rule (combat.md Formu… | unkillable |
+| sap-rises | Sap Rises (Nhựa Thăng) | Fits today (element stack c… | unkillable, starter-venom |
+| spring-never-fails | The Spring Never Fails (Tuyền Bất Kiệt) | Needs rule (combat.md Formu… | unkillable, starter-tide |
 | overbuilt-walls | Overbuilt Walls (Lũy Thặng) | Needs rule (effects.md rule… | home-fortress |
 | five-preparations | Five Preparations (Ngũ Bị) | Fits today (preparation and… | home-fortress |
 | primed-talismans | Primed Talismans (Phù Dĩ Khai) | Fits today (foreseen or bli… | home-fortress |
@@ -97,7 +140,7 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | humming-shields | Humming Shields (Thuẫn Minh) | Needs rule (`equipped-piece… | armoury-mind |
 | opened-seams | Opened Seams (Khai Phùng) | Fits today (element stack c… | armoury-mind |
 | empty-hall | Empty Hall (Không Đường) | Fits today (slots and loado… | one-art |
-| clear-path | Clear Path (Thông Lộ) | Fits today (slots readable … | one-art |
+| clear-path | Clear Path (Thông Lộ) | Fits today (slots readable … | one-art, art-thief |
 | undivided | Undivided (Chuyên Nhất) | Fits today (slots readable … | one-art, slow-thunder |
 | slipstream | Slipstream (Thuận Phong) | Needs rule (concept `art-co… | cooldown-floor |
 | breath-between-blows | Breath Between Blows (Gian Tức) | Fits today (event "an art f… | cooldown-floor |
@@ -107,6 +150,31 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | stiff-neck | Stiff Neck (Cường Hạng) | Fits today (realm gap and o… | giant-killer |
 | through-the-ceiling | Through the Ceiling (Xuyên Đỉnh) | Fits today (a named cap's c… | giant-killer |
 | mountain-notches | Mountain Notches (Sơn Ngân) | Needs rule (effects.md rule… | giant-killer |
+| seeds-left-behind | Seeds Left Behind (Di Chủng) | Needs rule (effects.md rule… | starter-venom |
+| whetted-edge | Whetted Edge (Mài Phong) | Needs rule (effects.md: a s… | starter-blade, meta-hunter |
+| held-reflection | Held Reflection (Tồn Ảnh) | Needs rule (effects.md over… | mirror-hide |
+| self-wound-counts | Self-Wound Counts (Tự Thương Cũng Trả) | Needs rule (combat-defence.… | mirror-hide |
+| boil-returned | Boil Returned (Phản Độc) | Needs rule (effects.md even… | mirror-hide |
+| bait | Bait (Mồi Nhử) | Needs rule (combat.md rule … | mirror-hide |
+| evade-pays | Evade Pays (Tị Hồi) | Needs rule (the hit-evaded … | evade-dancer |
+| reply | Reply (Hồi Báo) | Needs rule (hit-evaded even… | evade-dancer |
+| carried-off | Carried Off (Phong Tải) | Needs rule (hit-evaded even… | evade-dancer |
+| tally-ten | Tally Ten (Thập Kết) | Needs rule (effects.md Mark… | status-collector, deity-warden |
+| rolling-refresh | Rolling Refresh (Lan Bệnh) | Needs rule (effects.md Trig… | status-collector, deity-warden |
+| gate-turning | Gate Turning (Chuyển Quan) | Needs rule (combat-defence.… | deity-warden |
+| lustral-toll | Lustral Toll (Tẩy Chung) | Needs rule (effects.md rule… | deity-warden |
+| dear-blood | Dear Blood (Huyết Quý) | Needs rule (effects.md curs… | meta-hunter |
+| called-debt | Called Debt (Đòi Nợ) | Needs rule (effects.md tick… | meta-hunter |
+| clean-ledger | Clean Ledger (Sạch Sổ) | Needs rule (effects.md rule… | meta-hunter |
+| jackpot | Jackpot (Đại Phát) | Needs rule (Effects System … | loaded-dice |
+| cash-out | Cash Out (Thu Bàn) | Needs rule (Effects System … | loaded-dice |
+| spent-hand | Spent Hand (Tàn Thủ) | Needs rule (combat.md rule … | art-thief |
+| pre-read | Pre-Read (Tiên Duyệt) | Needs rule (Combat Open Que… | art-thief |
+| debt-seal | Debt Seal (Trái Ấn) | Needs rule (effects.md Bloo… | pacifist |
+| interest | Interest (Lợi Tức) | Needs rule (effects.md) | pacifist |
+| unspent-edge | Unspent Edge (Nhận Chưa Rút) | Needs rule (combat-defence.… | pacifist |
+| backlash-count | Backlash Count (Phản Chấn) | Needs rule (effects.md) | pacifist |
+| dread-of-the-ledger | Dread of the Ledger (Kinh Trướng) | Needs rule (combat.md Escap… | pacifist |
 
 ## Enablers
 
@@ -121,6 +189,14 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | garrison-mind | Garrison Mind (Thủ Khố Tâm) | Needs rule (effects.md rule… | armoury-mind |
 | vow-of-one-stroke | Vow of the One Stroke (Nhất Chiêu Thệ) | Needs key (`art_coef_add`);… | one-art |
 | half-a-realm | Half a Realm (Bán Cảnh) | Needs rule (combat.md Formu… | giant-killer |
+| mirror-scale-hide | Mirror-Scale Hide (Kính Lân Giáp) | Needs rule (combat.md Formu… | mirror-hide |
+| unstruck-body | Unstruck Body (Bất Xúc Thân) | Needs rule | evade-dancer |
+| tally-gourd | Tally Gourd (Kết Sổ Hồ Lô) | Needs rule (effects.md Trig… | status-collector |
+| nine-gate-seal | Nine-Gate Seal (Cửu Quan Ấn) | Needs rule | deity-warden |
+| ledger-seal | Ledger Seal (Bạ Ấn) | Needs rule | meta-hunter |
+| loaded-table | The Loaded Table (Quán Bàn) | Needs rule (Effects System … | loaded-dice |
+| borrowed-hand | Borrowed Hand (Tá Thủ) | Needs rule (combat.md rule … | art-thief |
+| open-palm-vow | Open Palm Vow (Bất Tranh Thệ) | Needs rule (effects.md clos… | pacifist |
 
 ## Artifacts, talismans, pills, formations
 
@@ -131,10 +207,10 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | nine-rods-array | Nine Rods Array (Cửu Can Trận) | Needs key (a combat formati… | first-volley, dry-well, bare-fist, curse-engine, triple-con… |
 | bronze-shrine-bell | Bronze Shrine Bell (Đồng Từ Chung) | Fits today (named item on e… | soul-lance |
 | lamp-clear-pill | Lamp-Clear Pill (Minh Đăng Đan) | Needs key (a pill's fight p… | soul-lance |
-| well-drawing-gourd | Well-Drawing Gourd (Cấp Tỉnh Hồ Lô) | Fits today for Water Table … | dry-well |
+| well-drawing-gourd | Well-Drawing Gourd (Cấp Tỉnh Hồ Lô) | Fits today for Water Table … | dry-well, starter-tide |
 | cold-marrow-pill | Cold-Marrow Pill (Hàn Tủy Đan) | Needs key (a pill's fight p… | dry-well |
 | quarry-knuckle-rings | Quarry-Master's Knuckle Rings (Thạch Tượng Quyền … | Needs key (new base `quyen_… | bare-fist |
-| stone-marrow-pill | Stone-Marrow Pill (Thạch Tủy Đan) | Needs key (a pill's fight p… | bare-fist |
+| stone-marrow-pill | Stone-Marrow Pill (Thạch Tủy Đan) | Needs key (a pill's fight p… | bare-fist, starter-wall, mirror-hide |
 | iron-sand-hand-bath | Iron-Sand Hand Bath (Thiết Sa Dục Thủ) | Needs key (a coating's figh… | bare-fist, home-fortress, armoury-mind, one-art, cooldown-f… |
 | insect-waking-incense | Insect-Waking Incense (Kinh Trập Hương) | Needs key (a pill's fight p… | curse-engine |
 | tiger-tally-seal | Tiger-Tally Seal (Hổ Phù Ấn) | Needs key (`companion_speed… | beast-carry |
@@ -145,7 +221,7 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | soot-coating | Soot Coating (Yên Mặc Đồ) | Needs key (a coating's figh… | triple-convert |
 | banyan-bark-mantle | Banyan-Bark Mantle (Dung Bì Bào) | Fits today (named item on l… | unkillable |
 | thousand-year-sap-pill | Thousand-Year Sap Pill (Thiên Niên Dịch Đan) | Needs key (a pill's fight p… | unkillable |
-| hot-spring-array | Hot Spring Array (Ôn Tuyền Trận) | Needs key (a combat formati… | unkillable, home-fortress |
+| hot-spring-array | Hot Spring Array (Ôn Tuyền Trận) | Needs key (a combat formati… | unkillable, home-fortress, starter-wall, starter-venom, sta… |
 | mountain-root-pill | Mountain-Root Pill (Sơn Căn Đan) | Needs key (a pill's fight p… | home-fortress |
 | boundary-stake-talisman | Boundary-Stake Talisman (Giới Trụ Phù) | Needs key (a talisman's fig… | home-fortress |
 | alarm-array | Alarm Array (Cảnh Linh Trận) | Needs rule (combat.md rule … | home-fortress |
@@ -157,6 +233,41 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | gale-affixes | Gale affixes: Tật, Hồi Khí and Hấp Huyết | cooldown-floor | What a generated piece rolls for a many-hit build, so the b… |
 | ice-jam-seal | Ice-Jam Seal (Phá Lăng Ấn) | Fits today (named item on d… | slow-thunder |
 | forty-year-needle | Forty-Year Needle (Tứ Thập Niên Châm) | Needs rule (Mountain Notche… | giant-killer |
+| ember-rod | Ember Rod (Xích Lô Trượng) | Needs key (Fire affixes) | starter-flame, sect-ladder |
+| hearth-warming-pill | Hearth-Warming Pill (Noãn Lô Đan) | Needs key | starter-flame, sect-ladder |
+| gathering-flame-array | Gathering Flame Array (Tụ Hỏa Trận) | Needs key | starter-flame, sect-ladder |
+| bitter-thorn-needle | Bitter-Thorn Needle (Khổ Thích Châm) | Fits today (named item on a… | starter-venom |
+| mossback-vest | Mossback Vest (Đài Bối Giáp) | Fits today | starter-venom |
+| bitterroot-pill | Bitterroot Pill (Khổ Căn Đan) | Needs key (a pill's fight p… | starter-venom |
+| wren-feather-sword | Wren-Feather Flying Sword (Yến Vũ Phi Kiếm) | Fits today for the base; Ne… | starter-blade |
+| whetstone-oil | Whetstone Oil (Ma Du) | Needs key (a coating's figh… | starter-blade |
+| clear-edge-pill | Clear-Edge Pill (Minh Phong Đan) | Needs key (a pill's fight p… | starter-blade |
+| tide-bound-gourd | Tide-Bound Gourd (Hệ Triều Hồ Lô) | Needs key (new utility base… | starter-tide |
+| still-pool-array | Still Pool Array (Tĩnh Trì Trận) | Needs key (a combat formati… | starter-tide |
+| clear-spring-pill | Clear-Spring Pill (Thanh Tuyền Đan) | Needs key (a pill's fight p… | starter-tide |
+| quiet-mirror-talisman | Quiet Mirror Talisman (Tĩnh Kính Phù) | Needs rule (soul ward retur… | mirror-hide, deity-warden |
+| bruise-blossom-pill | Bruise-Blossom Pill (Ứ Hoa Đan) | Needs key (pill fight paylo… | mirror-hide |
+| echo-wall-array | Echo-Wall Array (Hưởng Bích Trận) | Needs key (combat formation… | mirror-hide |
+| cicada-wing-sash | Cicada-Wing Sash (Thiền Dực Đới) | Needs key (a light base) | evade-dancer |
+| clear-breeze-pill | Clear-Breeze Pill (Thanh Phong Đan) | Needs key (a pill's fight p… | evade-dancer |
+| crosswind-array | Crosswind Array (Giao Phong Trận) | Needs key (foe accuracy) | evade-dancer |
+| registrars-needle | Registrar's Needle (Chủ Bộ Châm) | Fits today (generated item) | status-collector |
+| hospice-ward-robe | Hospice Ward Robe (Dưỡng Đường Y) | Fits today (generated item) | status-collector |
+| hundred-herb-pill | Hundred-Herb Pill (Bách Thảo Đan) | Needs key (uses the reused … | status-collector |
+| turning-key | Turning Key (Chuyển Quan Thược) | Needs rule | deity-warden |
+| toll-array | Toll Array (Đối Quan Trận) | Needs key | deity-warden |
+| clear-bile-pill | Clear-Bile Pill (Thanh Đởm Đan) | Needs key (a pill's fight p… | meta-hunter |
+| ledger-hall-array | Ledger-Hall Array (Bạ Đường Trận) | Needs key (combat formation… | meta-hunter |
+| ledger-bone-dice | Ledger-Bone Dice (Toán Cốt Tử) | Fits today (khí vận affix; … | loaded-dice |
+| nine-star-array | Nine-Star Array (Cửu Tinh Trận) | Needs key (a fight-long khí… | loaded-dice |
+| borrowed-luck-talisman | Borrowed Luck Talisman (Tá Vận Phù) | Needs key | loaded-dice |
+| sparrow-pill | Sparrow-Luck Pill (Tước Vận Đan) | Needs key | loaded-dice |
+| thousand-hands-gauntlet | Thousand-Hands Gauntlet (Thiên Thủ Thủ Sáo) | Needs key | art-thief |
+| bare-scroll-robe | Bare-Scroll Robe (Bạch Quyển Y) | Fits today (ward and a new … | art-thief |
+| mirror-study-array | Mirror-Study Array (Duyệt Kính Trận) | Needs rule (carries an Effe… | art-thief |
+| still-mind-pill | Still-Mind Pill (Tĩnh Tâm Đan) | Fits today | art-thief |
+| still-pond-array | Silent Pond Array (Tĩnh Trì Trận) | Needs key | pacifist |
+| ledger-slip-talisman | Ledger Slip Talisman (Trướng Phù) | Needs key | pacifist |
 
 ## Công pháp
 
@@ -179,6 +290,20 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | winnowing-wind-scripture | Winnowing Wind Scripture (Dương Khang Phong Quyết) | Needs key (combat passives … | cooldown-floor |
 | long-winter-thunder-scripture | Long Winter Thunder Scripture (Trường Đông Lôi Ki… | Needs key (combat passives,… | slow-thunder |
 | iron-pestle-scripture | Iron Pestle Scripture (Thiết Xử Quyết; Thiên giai… | Needs key (combat passives,… | giant-killer |
+| kindling-breath-primer | Kindling Breath Primer (Khơi Hỏa Sơ Quyết) | Fits today (one data row) | starter-flame, sect-ladder |
+| quiet-vine-sutra | Quiet Vine Sutra (Tĩnh Đằng Kinh) | Needs key | starter-venom |
+| plain-iron-sword-manual | Plain Iron Sword Manual (Phác Thiết Kiếm Quyết) | Needs key (abilities and co… | starter-blade |
+| tide-reading-canon | Reading the Tide Canon (Độc Triều Kinh) | Needs key (abilities, comba… | starter-tide |
+| red-hearth-canon | Red Hearth True Canon (Xích Lô Chân Kinh) | Needs key (abilities empty … | sect-ladder |
+| mirror-skin-scripture | Mirror-Skin Hundred Tempering Scripture (Kính Bì … | Needs key | mirror-hide |
+| reed-shadow-scripture | Reed-Shadow Scripture (Lô Ảnh Kinh) | Needs key | evade-dancer |
+| hundred-ailment-canon | Hundred-Ailment Register Canon (Bách Bệnh Chân Ki… | Needs key (a five-element m… | status-collector |
+| two-variants-pamphlet | Two Variants Pamphlet (Nhị Biến Tiểu Sách) | Needs key | status-collector |
+| cuu-quan-kinh | Nine Thresholds Scripture (Cửu Quan Kinh) | Needs key | deity-warden |
+| open-ledger-sutra | Open Ledger Sutra (Khai Bạ Kinh) | Needs key (abilities are ar… | meta-hunter |
+| nine-bone-ledger-sutra | Nine-Bone Ledger Sutra (Cửu Cốt Toán Kinh) | Fits today (bonuses); abili… | loaded-dice |
+| hollow-hall-sutra | Hollow Hall Sutra (Hư Đường Kinh) | Needs rule (the ability) | art-thief |
+| tinh-tri-truong-kinh | Still Pond Ledger Sutra (Tĩnh Trì Trướng Kinh) | Needs key | pacifist |
 
 ## Arts
 
@@ -259,13 +384,74 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | pestle-grind | Pestle Grind (Ma Xử) | Needs key (art record) | giant-killer |
 | last-stitch | Last Stitch (Mạt Tuyến) | Needs key (art record) | giant-killer |
 | sweepers-exit | Sweeper's Exit (Tảo Môn Độn) | Needs key (art record) | giant-killer |
+| spark-palm | Spark Palm (Hỏa Tinh Chưởng) | Needs key (art record) | starter-flame |
+| kindling-seal | Kindling Seal (Dẫn Hỏa Ấn) | Needs key (art record) | starter-flame |
+| flame-lance | Flame Lance (Liệt Diễm Thương) | Needs key (art record) | starter-flame |
+| warm-the-hearth | Warm the Hearth (Noãn Lô Quyết) | Needs key (art record) | starter-flame |
+| packed-earth-stance | Packed Earth Stance (Hậu Thổ Trụ Thế) | Needs key (art record) | starter-wall, mirror-hide |
+| tremor-palm | Tremor Palm (Chấn Thổ Chưởng) | Needs key (art record) | starter-wall |
+| mending-breath | Mending Breath (Hồi Khí Tức) | Needs key (art record) | starter-wall, mirror-hide |
+| thorn-seed | Thorn Seed (Thích Chủng) | Needs key (art record) | starter-venom |
+| weeping-sap | Weeping Sap (Khấp Dịch) | Needs key (art record) | starter-venom |
+| rot-bloom | Rot Bloom (Hủ Hoa) | Needs key (art record) | starter-venom |
+| venom-tithe | Venom Tithe (Độc Thuế) | Needs key (art record) | starter-venom |
+| returning-sword-light | Returning Sword Light (Hồi Quang Kiếm) | Needs key (art record) | starter-blade |
+| quick-draw-cut | Quick Draw Cut (Tật Xuất Kiếm Trảm) | Needs key (art record) | starter-blade |
+| notch-the-foe | Notch the Foe (Khắc Ngân) | Needs key (art record) | starter-blade |
+| ten-thousand-returns | Ten Thousand Returns (Vạn Hồi Kiếm Vũ) | Needs key (art record) | starter-blade |
+| sheathe-and-breathe | Sheathe and Breathe (Thu Kiếm Điều Tức) | Needs key (art record) | starter-blade |
+| tide-pulse | Tide Pulse (Triều Xung) | Needs key (art record) | starter-tide |
+| deep-well-seal | Deep Well Seal (Thâm Tỉnh Ấn) | Needs key (art record) | starter-tide |
+| drawing-breath | Drawing Breath (Hấp Triều) | Needs key (art record) | starter-tide |
+| kindle-palm | Kindle Palm (Dẫn Hỏa Chưởng) | Needs key (art record) | sect-ladder |
+| red-lotus-ring | Red Lotus Ring (Xích Liên Ấn) | Needs key (art record) | sect-ladder |
+| cinder-lance | Cinder Lance (Tẫn Hỏa Thương) | Needs key (art record) | sect-ladder |
+| hearth-banner | Hearth Banner (Lô Kỳ) | Needs key (art record) | sect-ladder |
+| needle-mark | Needle Mark (Châm Ấn) | Needs key | mirror-hide |
+| open-the-mirror | Open the Mirror (Khai Kính) | Needs rule | mirror-hide |
+| offering-cut | Offering Cut (Hiến Huyết Thức) | Needs rule | mirror-hide |
+| thorn-chorus | Thorn Chorus (Kinh Hợp Xướng) | Needs key | mirror-hide |
+| tuoc-phong-nhan | Reed-Cutting Breeze (Tước Phong Nhận) | Needs key | evade-dancer |
+| hu-bo | Hollow Step (Hư Bộ) | Needs key | evade-dancer |
+| dieu-lac | Falling Leaf (Điệp Lạc) | Needs key | evade-dancer |
+| tan-phong | Scatter Gale (Tán Phong) | Needs key | evade-dancer |
+| cuong-phong-quan | Gale Crown (Cuồng Phong Quán) | Needs key | evade-dancer |
+| ember-brand | Ember Brand (Hỏa Ấn) | Needs key (art record) | status-collector |
+| cracked-earth-brand | Cracked-Earth Brand (Thổ Ấn) | Needs key (art record) | status-collector |
+| cold-iron-brand | Cold-Iron Brand (Kim Ấn) | Needs key (art record) | status-collector |
+| bitter-sap-brand | Bitter-Sap Brand (Mộc Ấn) | Needs key (art record) | status-collector |
+| thread-lightning-brand | Thread-Lightning Brand (Lôi Ấn) | Needs key (art record) | status-collector |
+| rime-brand | Rime Brand (Băng Ấn) | Needs key (art record) | status-collector |
+| ledger-reckoning | Ledger Reckoning (Tính Sổ) | Needs key (art record) | status-collector |
+| gate-hammer | Gate Hammer (Quan Chùy) | Needs key | deity-warden |
+| closing-palm | Closing Palm (Hợp Chưởng) | Needs key | deity-warden |
+| lustral-bell | Lustral Bell (Tẩy Chung) | Needs rule | deity-warden |
+| deaf-verdict | Deaf Verdict (Tuyệt Thính Phán) | Needs rule | deity-warden |
+| open-hand-reckoning | Open Hand Reckoning (Khai Chưởng Phán) | Needs rule | deity-warden |
+| whetted-tally | Whetted Tally (Ma Nhận Kế) | Needs key | meta-hunter |
+| closing-the-book | Closing the Book (Hợp Bạ Trảm) | Needs key | meta-hunter, pacifist |
+| writ-of-reckoning | Writ of Reckoning (Thúc Nợ Trạng) | Needs rule | meta-hunter |
+| clean-the-page | Clean the Page (Tẩy Trang) | Needs key | meta-hunter |
+| ink-line-breath | Ink-Line Breath (Mặc Tuyến Tức) | Needs key | meta-hunter |
+| bloodhound-count | Bloodhound's Count (Truy Huyết Toán) | Needs key | meta-hunter |
+| cast-the-bones | Cast the Bones (Phóng Cốt) | Fits today | loaded-dice |
+| counting-blade | Counting Blade (Toán Đao) | Fits today | loaded-dice |
+| thunder-debt | Thunder Debt (Lôi Trái) | Fits today | loaded-dice |
+| winnings | Winnings (Thắng Lợi) | Fits today | loaded-dice |
+| raise-the-stakes | Raise the Stakes (Đại Chú) | Fits today | loaded-dice |
+| house-takes-all | House Takes All (Nhà Cái Thắng) | Needs rule | loaded-dice |
+| hollow-palm | Hollow Palm (Hư Chưởng) | Needs key | art-thief |
+| still-pool-mending | Still Pool Mending (Tĩnh Trì Hồi Khí) | Fits today | art-thief |
+| cold-ledger | Cold Ledger (Hàn Trướng) | Needs key | pacifist |
+| silent-tally | Silent Tally (Mặc Kế) | Needs key | pacifist |
+| still-tide | Still Tide (Tĩnh Triều) | Needs key | pacifist |
 
 ## Đạo pieces
 
 | ID | Name | Fit | Used by |
 |---|---|---|---|
 | tro-tan-ledger | Ash Facet holds Ash Ledger (Tro Tàn: Tro Trướng) | Needs rule (via `ash-ledger… | two-clocks |
-| noc-spillover | Venom Facet holds Spillover (Nọc: Dật Độc) | Fits today (Spillover is de… | two-clocks |
+| noc-spillover | Venom Facet holds Spillover (Nọc: Dật Độc) | Fits today (Spillover is de… | two-clocks, starter-venom |
 | thiem-dien-before-the-sound | Lightning Facet: Before the Sound (Thiểm Điện: Th… | Needs key (`opening_haste_p… | first-volley |
 | hon-than-thuc-weight | Divine Sense Facet holds Thousand-Weight Thought … | Fits today (the graph is no… | soul-lance, armoury-mind |
 | hon-kich-splinters | Soul Strike Facet holds Splinters of Thought (Hồn… | Fits today (Siphon itself N… | soul-lance |
@@ -287,17 +473,36 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | dong-phu-hearth | Cave Dwelling and Ward Array Facets (Động Phủ, Hộ… | Needs key (`own_abode`, via… | home-fortress |
 | binh-kho-rack | Armoury Facet holds Full Rack, Edge Past the Rack… | Needs rule (via `full-rack`… | armoury-mind |
 | dai-dao-gian-nhat | Simplicity, The One and Letting Go facets, and th… | Fits today for the Effects … | one-art |
-| phong-cuong-phong-gale | Gale and Drift Facets hold Slipstream (Cuồng Phon… | Needs rule (via `slipstream… | cooldown-floor |
+| phong-cuong-phong-gale | Gale and Drift Facets hold Slipstream (Cuồng Phon… | Needs rule (via `slipstream… | cooldown-floor, evade-dancer |
 | dong-tinh-stillness-burst | Stillness and Stillness-Bursting Facets hold Thun… | Needs rule (via `thunderhea… | slow-thunder |
 | thien-loi-heavy-sky | Heavenly Thunder Facet lines and Thunder Breaks t… | Fits today (the graph is no… | slow-thunder |
 | nghich-vuot-cap-facet | Fighting Upward Facet holds Stiff Neck and Throug… | Fits today for Stiff Neck, … | giant-killer |
+| moc-tinh-dang-lines | Quiet Vine branch (Mộc: Tĩnh Đằng) | Needs key | starter-venom |
+| kiem-y-edge-spills | Kiếm Ý facet holds Edge Spills Over and Hot Edge … | Needs rule (via `edge-spill… | starter-blade |
+| thuy-uyen-tide-lines | Depths and Tides lines (Uyên, Triều) | Needs rule (via still-water… | starter-tide |
+| nhan-qua-bao-ung-return | Every Blow Comes Home (Nhân Quả: Báo Ứng) | Needs rule | mirror-hide |
+| phong-phieu-facet | Drift Facet lines (Phiêu) | Needs key | evade-dancer |
+| on-dich-tally-ten | Plague Facet holds Tally Ten and Rolling Refresh … | Needs rule (via `tally-ten`) | status-collector |
+| luan-nien-gate | Turning Year cluster (Luân Niên) | Needs rule | deity-warden |
+| kim-dao-whetted-edge | Whetted Edge (Lợi Nhận) | Needs key | meta-hunter |
+| kim-dao-clean-hand | Clean Hand (Thanh Thủ) | Fits today | meta-hunter |
+| open-book | Open Book (Mở Sổ) | Fits today (stat) | loaded-dice |
+| tally-keeper | Tally Keeper (Giữ Sổ) | Needs key | loaded-dice |
+| spilled-luck-node | Spilled Luck node | Needs rule | loaded-dice |
+| house-edge | House Edge (Địa Lợi Cục) | Needs rule | loaded-dice |
+| loaded-table-capstone | The Loaded Table | Needs rule | loaded-dice |
+| jackpot-capstone-notable | Jackpot node | Needs rule | loaded-dice |
+| hidden-hand-notable | Hidden Hand (Ẩn Thủ) | Needs key | art-thief |
+| true-hand-notable | True Hand (Thực Thủ) | Needs key | art-thief |
+| empty-becomes-full | The Empty Becomes Full (Hư Thực Tương Sinh) | Needs rule | art-thief |
+| no-ledger-facet | Debts facet notables (Nợ) | Needs rule | pacifist |
 
 ## Concepts and keys
 
 | ID | Name | Fit | Used by |
 |---|---|---|---|
 | tick-prevented-points | Prevented points of a tick | Needs rule (effects.md rule… | two-clocks |
-| cleansed-stacks-event | Stacks removed by a cleanse | Needs rule (effects.md rule… | two-clocks, curse-engine |
+| cleansed-stacks-event | Stacks removed by a cleanse | Needs rule (effects.md rule… | two-clocks, curse-engine, starter-venom, mirror-hide, evade… |
 | arts-fired-this-instant | Arts you fired this instant | Needs rule (effects.md rule… | first-volley, cooldown-floor |
 | drawn-bowstring-cluster | Drawn Bowstring (Mãn Huyền) | Needs key (`opening_haste_p… | first-volley |
 | linh-luc-debt | Linh lực debt (Thủy Trái's pool) | Needs rule (combat.md rule … | dry-well |
@@ -307,8 +512,8 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | soul-art-lint | Soul-art lint | Needs rule (combat.md Formu… | soul-lance |
 | soul-reference-table | Reference thần thức and soul resistance by realm | Needs rule (combat-defence.… | soul-lance, giant-killer |
 | lamp-wick-cluster | Lamp Wick (Đăng Tâm) | Fits today (existing and de… | soul-lance |
-| basic-coef-add-key | `basic_coef_add` | Needs key (modifiers.md Sta… | bare-fist |
-| held-payload | A payload held until a named event | Needs rule (effects.md rule… | bare-fist, slow-thunder |
+| basic-coef-add-key | `basic_coef_add` | Needs key (modifiers.md Sta… | bare-fist, starter-blade |
+| held-payload | A payload held until a named event | Needs rule (effects.md rule… | bare-fist, slow-thunder, mirror-hide |
 | porters-shoulder-cluster | Porter's Shoulder (Phu Kiên) | Needs key (`basic_coef_add`… | bare-fist |
 | nine-knots-cluster | Nine Knots (Cửu Kết) | Needs key (`curse_effect_pc… | curse-engine |
 | beast-in-the-open | Beast in the open (Thú Hiện Thân) | Needs rule (combat.md rule … | beast-carry |
@@ -324,14 +529,14 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | own-abode-ground-tag | `own_abode` ground tag | Needs key (combat.md rule 1… | home-fortress |
 | situation-step | Raising a fight's situation | Needs rule (combat.md rule … | home-fortress |
 | layer-total-readable | A layer's total before its cap, at compile | Needs rule (effects.md rule… | home-fortress, armoury-mind |
-| preparation-fight-payload | A fight payload for pills, coatings and talismans | Needs key (Item DB records;… | home-fortress, armoury-mind, cooldown-floor |
+| preparation-fight-payload | A fight payload for pills, coatings and talismans | Needs key (Item DB records;… | home-fortress, armoury-mind, cooldown-floor, starter-blade,… |
 | quartermaster-cluster | Quartermaster's Ledger (Quân Nhu Bạ) | Needs key (Talisman stock a… | home-fortress |
 | equipped-pieces-readable | The pieces you control | Needs rule (effects.md rule… | armoury-mind |
 | thinned-mind | Thinned Mind (Thức Bạc): bound thần thức partly o… | Needs rule (combat.md rule … | armoury-mind |
 | peg-wall-cluster | Peg Wall (Đinh Bích) | Needs key (`weapon-efficien… | armoury-mind |
 | swept-floor-cluster | Swept Floor (Tảo Địa) | Fits today (designed keys; … | one-art, slow-thunder |
 | art-coef-add-key | `art_coef_add` | Needs key (modifiers.md Sta… | one-art, slow-thunder |
-| empty-art-slot | Empty art slot | Needs rule (effects.md rule… | one-art, slow-thunder |
+| empty-art-slot | Empty art slot | Needs rule (effects.md rule… | one-art, slow-thunder, art-thief |
 | threshing-floor-cluster | Threshing Floor (Cốc Trường) | Fits today (designed keys) | cooldown-floor |
 | art-cost-dampened | Art cost accepts the dampened op | Needs rule (combat.md Formu… | cooldown-floor |
 | hit-landed-definition | What "a hit landed" means for on-hit sustain | Needs rule (modifiers.md ru… | cooldown-floor |
@@ -339,7 +544,39 @@ To reuse a staged piece, list its ID in your file's `## Reused` table: `| ID | F
 | winter-breath-region | Winter Breath (Đông Tức) | Fits today for designed key… | slow-thunder |
 | fight-unit-shift | Strike at a shifted fight unit | Needs rule (effects.md rule… | giant-killer |
 | higher-realm-knockouts-readable | Higher-realm knockouts this life | Needs rule (effects.md rule… | giant-killer |
-| boss-readable | The target is a boss | Needs rule (effects.md rule… | giant-killer |
+| boss-readable | The target is a boss | Needs rule (effects.md rule… | giant-killer, deity-warden |
 | gap-reach-two | Gap readers stop at two | Needs rule (effects.md rule… | giant-killer |
 | ants-ladder-region | Ant's Ladder (Nghĩ Thê) | Fits today for designed key… | giant-killer |
+| kindled-meridians | Kindled Meridians (Hỏa Mạch Thiêu) | Needs key | starter-flame |
+| poison-stack-count-readable | Target's Poison stacks | Needs rule (modifiers.md, e… | starter-venom |
+| bitter-sap-cluster | Bitter Sap Row (Khổ Dịch) | Needs key | starter-venom |
+| cleanser-telegraph | Cleanser telegraph | Needs rule (combat.md rule … | starter-venom, status-collector, deity-warden |
+| whetstone-row-cluster | Whetstone Row (Ma Thạch Hàng) | Needs key (sword-scoped cri… | starter-blade |
+| full-cistern-cluster | Full Cistern (Mãn Trì) | Needs key | starter-tide |
+| pool-share-on-ward | Pool share read by a ward | Needs rule (combat-defence.… | starter-tide |
+| sect-curriculum | Sect curriculum (Môn Quy Giáo Trình) | Needs rule (NPC Builds #24,… | sect-ladder |
+| hearth-keepers-line | Hearth Keeper's Line (Lô Thủ Mạch) | Needs key | sect-ladder |
+| return-channel | Return channel (Phản) | Needs rule (combat.md Formu… | mirror-hide |
+| incoming-hit-readable | Incoming hit readable | Needs rule | mirror-hide |
+| scarred-hide-cluster | Scarred Hide (Sẹo Bì) | Needs key | mirror-hide |
+| hit-evaded-event | Hit-evaded event | Needs rule (combat.md Formu… | evade-dancer |
+| reed-drift-cluster | Reed Drift (Lô Phiêu) | Needs key | evade-dancer |
+| status-roster-twelve | Distinct-status roster (the twelve) | Needs rule (effects.md Mark… | status-collector, meta-hunter |
+| status-apply-tag | `status_apply` tag | Needs key | status-collector |
+| many-hands-cluster | Many Hands (Quần Thủ) | Needs key | status-collector |
+| phase-script | Phase script (Luân Môn) | Needs rule (combat.md rule … | deity-warden |
+| ward-swap-gap | Ward-swap gap (Toll) | Needs rule (combat-defence.… | deity-warden |
+| health-paid-cost-readable | Health paid on art costs | Needs rule | meta-hunter |
+| quarry-knowledge | Quarry knowledge | Needs rule | meta-hunter |
+| incoming-status-stack-cap | Incoming status stack cap | Needs rule | meta-hunter |
+| steady-hand-cluster | Steady Hand (Ổn Thủ) | Needs key | meta-hunter |
+| counted-payout-event | Counted payout (Chi Trả) | Needs rule | loaded-dice |
+| fight-fortune | Fortune in the fight (Khí Vận Chiến) | Needs key | loaded-dice |
+| gamblers-row | Gambler's Row (Phố Cược) | Needs key | loaded-dice |
+| loan-slot | Loan slot (Tá Vị) | Needs rule | art-thief |
+| stolen-tag | Stolen tag | Needs key | art-thief |
+| enemy-art-cast-readable | Foe's art cast readable | Needs rule | art-thief |
+| hollow-hall-cluster | Hollow Hall (Hư Đường) | Needs key | art-thief |
+| foe-pays-cost | Foe pays its costs in health | Needs rule | pacifist |
+| flight-is-a-win | Flight is a win | Needs rule | pacifist |
 

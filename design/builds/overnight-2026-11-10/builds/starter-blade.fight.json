@@ -1,0 +1,15 @@
+{
+  "name": "starter-blade", "realm": "truc_co",
+  "layers": [58, 40, 40, 20, 10],
+  "crit": {"chance": 0.15, "mult": 1.7},
+  "n_body": 1.2, "n_qi": 1.1,
+  "art_speed_pct": 0, "art_cost_pct": 0,
+  "regen_bonus_pp": 0.3,
+  "arts": [
+    {"id": "returning-sword-light", "c_art": 2.0, "cost_share": 0.04, "cooldown": 3, "element": "metal", "kind": "phys", "x": [0, 10, 0, 0, 0]},
+    {"id": "quick-draw-cut", "c_art": 1.0, "cost_share": 0.02, "cooldown": 1.5, "element": "metal", "kind": "phys", "x": [0, 10, 0, 0, 0]},
+    {"id": "notch-the-foe", "c_art": 0.6, "cost_share": 0.02, "cooldown": 5, "element": "metal", "kind": "phys", "debuff": [3, 8], "x": [0, 10, 0, 0, 0]}
+  ],
+  "enemy": "typical",
+  "unmodelled": ["Whetted Edge Effect (crit stacks) is averaged into crit chance", "Flowing Water timer cut on crit", "linh lực regained on crit", "basic attack coefficient add", "Hot Edge recent-crit condition (L5 held at 10 points)"]
+}

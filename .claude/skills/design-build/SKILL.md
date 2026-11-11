@@ -4,7 +4,7 @@ description: "Turns a build concept into a complete cultivator build, modifiers 
 argument-hint: "[build concept, lore, or both] | promote [slug]"
 user-invocable: true
 allowed-tools: Read, Glob, Grep, Write, Edit, AskUserQuestion, Bash(bash "*/.claude/skills/design-build/../../hooks/yaml-helper.sh" resolve_config *), Bash(python .claude/skills/design-build/scripts/fight.py *)
-model: opus
+model: sonnet
 ---
 
 !`bash "${CLAUDE_SKILL_DIR}/../../hooks/yaml-helper.sh" resolve_config --keys automation`

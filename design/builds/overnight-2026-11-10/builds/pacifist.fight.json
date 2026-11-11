@@ -1,0 +1,27 @@
+{
+  "name": "pacifist", "realm": "ket_dan",
+  "layers": [0, 0, 0, 0, 0],
+  "crit": {"chance": 0, "mult": 1.5},
+  "n_body": 1.2, "n_qi": 1.2,
+  "art_speed_pct": 15, "art_cost_pct": 20,
+  "regen_bonus_pp": 3, "health_regen_pp": 1.5, "healing_pct": 20,
+  "evade_pct": 5,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 45, "we": 40,
+           "layers": [40, 40, 20, 10], "block": 15},
+  "body": {"block": 15, "resistance": 25, "shield": 0.3, "layers": [40, 40, 20, 10]},
+  "curses": ["stagnation"],
+  "purity": {"water": 80},
+  "arts": [
+    {"id": "cold-ledger", "c_art": 0.02, "cost_share": 0.04, "cooldown": 4, "element": "ice", "kind": "elem",
+     "buff": [0, 0], "debuff": [3, 12], "x": [0, 0, 0, 0, 0]},
+    {"id": "still-tide", "c_art": 0, "cost_share": 0.04, "cooldown": 5, "element": "water", "kind": "elem",
+     "buff": [2, 12], "debuff": [0, 0], "c_heal": 0.5, "x": [0, 0, 0, 0, 0]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Debt Seal (enemy arts also cost health): no sim field; stood in for by ice cost_up stacks only",
+    "Basic attack zeroed by the enabler (Open Palm Vow): sim basic attack still runs at base",
+    "Heart-demon Dread and enemy flight: not modelled",
+    "Held Reflection / returned costs: not modelled"
+  ]
+}

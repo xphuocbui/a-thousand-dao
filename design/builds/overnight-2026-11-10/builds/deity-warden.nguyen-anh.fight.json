@@ -1,0 +1,29 @@
+{
+  "name": "deity-warden", "realm": "nguyen_anh",
+  "layers": [400, 300, 250, 150, 100],
+  "crit": {"chance": 0.1, "mult": 1.5},
+  "n_body": 1.4, "n_qi": 1.4,
+  "art_speed_pct": 10, "art_cost_pct": 30, "art_cost_health_pct": 0,
+  "regen_bonus_pp": 7, "health_regen_pp": 7,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 100, "we": 100,
+           "layers": [300, 250, 150, 100], "block": 30},
+  "body": {"block": 40, "resistance": 40, "shield": 0.3, "layers": [300, 250, 150, 100]},
+  "cleanse": {"per_pulse": 0, "fee_share": 0, "share": 0.25},
+  "arts": [
+    {"id": "gate-hammer", "c_art": 3.4, "cost_share": 0.05, "cooldown": 6, "element": "earth", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "x": [0, 0, 0, 0, 0]},
+    {"id": "closing-palm", "c_art": 2.4, "cost_share": 0.04, "cooldown": 3, "element": "metal", "kind": "elem",
+     "buff": [0, 0], "debuff": [3, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "lustral-bell", "c_art": 1.0, "cost_share": 0.03, "cooldown": 10, "element": "metal", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "cleanse": 1, "x": [0, 0, 0, 0, 0]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "ward model change at each phase (per-hit, drain, soul, off): the file holds one drain ward, the phase-I-to-IV average",
+    "Phase script and the 12 s phase clock (Needs rule)",
+    "Soul ward and Deaf Verdict (soul art): soul is not modelled",
+    "Per-hit ward payload of the Iron Gate phase",
+    "Purge bell as a timed full strip; modelled as a cleanse on a 10 s art",
+    "Open Hand phase (no ward, doubled offence)"
+  ]
+}

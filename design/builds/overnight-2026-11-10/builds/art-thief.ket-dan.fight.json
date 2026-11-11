@@ -1,0 +1,34 @@
+{
+  "name": "art-thief-ket-dan", "realm": "ket_dan",
+  "layers": [300, 150, 180, 100, 0],
+  "crit": {"chance": 0.12, "mult": 1.7},
+  "n_body": 1.0, "n_qi": 1.2,
+  "art_speed_pct": 20, "art_cost_pct": 30,
+  "regen_bonus_pp": 4, "health_regen_pp": 0.5,
+  "evade_pct": 4, "accuracy_pct": 8,
+  "leech_qi_pct": 6,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 52, "we": 30,
+           "layers": [200, 150, 100, 60], "block": 16.4},
+  "body": {"block": 16.4, "resistance": 20, "shield": 0.2, "layers": [60, 60, 30, 0]},
+  "purity": {"water": 60, "metal": 50},
+  "arts": [
+    {"id": "hollow-palm", "c_art": 2.6, "cost_share": 0.04, "cooldown": 4, "element": "water", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]},
+    {"id": "still-pool-mending", "c_art": 0, "cost_share": 0.04, "cooldown": 6, "element": "water", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 1.2, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]},
+    {"id": "loan-slot-1-copy", "c_art": 2.6, "cost_share": 0.05, "cooldown": 4, "element": "fire", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 80, 0, 0, 50]},
+    {"id": "loan-slot-2-copy", "c_art": 2.4, "cost_share": 0.05, "cooldown": 5, "element": "metal", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 80, 0, 0, 50]},
+    {"id": "loan-slot-3-copy", "c_art": 2.2, "cost_share": 0.05, "cooldown": 6, "element": "thunder", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 80, 0, 0, 50]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "THEFT ITSELF: copies modelled as three ordinary arts with first firing at 4-6 s; real copies are whatever the enemy fires, and are FIFO-replaced",
+    "loan slots and the 'stolen' tag: x points stand in for stolen-tag L2 and L5 modifiers",
+    "copy cost half-share rule and half-start cooldown",
+    "a bare-fist enemy (nothing to copy) is not run",
+    "Hollow Reading Glance preparation"
+  ]
+}

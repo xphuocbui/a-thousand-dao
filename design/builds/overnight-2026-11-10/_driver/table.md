@@ -15,3 +15,17 @@
 | cooldown-floor | DONE | yes | 18 | 6 | 3 | 0 | 2 | 15.5 | 1 |
 | slow-thunder | DONE | yes | 14 | 11 | 2 | 0 | 2 | 15.7 | 1 |
 | giant-killer | DONE | yes | 21 | 6 | 4 | 0 | 2 | 17.7 | 1 |
+| starter-flame | DONE | yes | 9 | 6 | 1 | 0 | 2 | 4.4 | 1 |
+| starter-wall | DONE | yes | 4 | 6 | 0 | 1 | 1 | 4.9 | 1 |
+| starter-venom | DONE | yes | 15 | 15 | 2 | 0 | 1 | 5.5 | 1 |
+| starter-blade | DONE | yes | 15 | 10 | 2 | 0 | 3 | 5.4 | 1 |
+| starter-tide | DONE | yes | 12 | 9 | 2 | 0 | 2 | 4.3 | 1 |
+| sect-ladder | DONE | yes | 8 | 10 | 1 | 0 | 1 | 6.0 | 1 |
+| mirror-hide | DONE | yes | 23 | 12 | 3 | 0 | 2 | 5.7 | 1 |
+| evade-dancer | DONE | yes | 20 | 7 | 2 | 0 | 4 | 5.8 | 1 |
+| status-collector | DONE | yes | 22 | 4 | 2 | 1 | 2 | 7.0 | 1 |
+| deity-warden | DONE | yes | 18 | 15 | 2 | 0 | 3 | 5.4 | 1 |
+| meta-hunter | DONE | yes | 23 | 2 | 3 | 0 | 3 | 8.1 | 1 |
+| loaded-dice | DONE | yes | 26 | 5 | 2 | 0 | 3 | 5.4 | 1 |
+| art-thief | DONE | yes | 26 | 7 | 2 | 0 | 3 | 6.9 | 1 |
+| pacifist | DONE | yes | 19 | 7 | 3 | 0 | 2 | 5.1 | 1 |

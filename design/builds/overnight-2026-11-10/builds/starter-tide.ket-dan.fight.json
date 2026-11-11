@@ -1,0 +1,23 @@
+{
+  "name": "starter-tide-ket-dan", "realm": "ket_dan",
+  "layers": [105, 40, 20, 20, 16],
+  "crit": {"chance": 0.05, "mult": 1.5},
+  "n_body": 1.0, "n_qi": 1.3,
+  "art_speed_pct": 5, "art_cost_pct": 12,
+  "regen_bonus_pp": 1.5, "health_regen_pp": 0, "healing_pct": 0,
+  "ward": {"model": "drain", "ws_base": 40, "we": 55, "layers": [50, 40, 30, 20]},
+  "purity": {"water": 60},
+  "arts": [
+    {"id": "tide-pulse", "c_art": 2.0, "cost_share": 0.03, "cooldown": 3, "element": "water", "kind": "elem",
+     "buff": [1, 12], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]},
+    {"id": "deep-well-seal", "c_art": 3.1, "cost_share": 0.04, "cooldown": 6, "element": "water", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]},
+    {"id": "drawing-breath", "c_art": 0.8, "cost_share": 0.02, "cooldown": 8, "element": "water", "kind": "elem",
+     "buff": [2, 15], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0.07, "cleanse": 0, "x": [0, 0, 0, 0, 0]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Brimming Cup is modelled as a flat +16 in L5 (see the Foundation file)",
+    "Full-Sea ward bonus, technique passives, Tide-Bound Vessel and Still Pool Array are folded into layers and ward numbers"
+  ]
+}

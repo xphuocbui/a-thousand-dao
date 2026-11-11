@@ -1,0 +1,32 @@
+{
+  "name": "meta-hunter-ket-dan", "realm": "ket_dan",
+  "layers": [180, 250, 220, 120, 60],
+  "crit": {"chance": 0.15, "mult": 1.7},
+  "n_body": 1.1, "n_qi": 1.2,
+  "art_speed_pct": 20, "art_cost_pct": 25,
+  "regen_bonus_pp": 0.8,
+  "gain_on_hit_pct": 0.4, "leech_qi_pct": 5, "leech_health_pct": 5,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 100, "we": 120,
+           "layers": [250, 200, 120, 60], "block": 16},
+  "body": {"block": 18, "resistance": 18, "shield": 0.2, "layers": [120, 120, 80, 0]},
+  "cleanse": {"per_pulse": 1, "fee_share": 0.0, "share": 0.5},
+  "curses": ["withering"],
+  "purity": {"metal": 80},
+  "arts": [
+    {"id": "whetted-tally", "c_art": 2.6, "cost_share": 0.05, "cooldown": 3, "element": "metal", "kind": "phys",
+     "buff": [0, 0], "debuff": [2, 8], "x": [0, 20, 0, 0, 0]},
+    {"id": "closing-the-book", "c_art": 3.1, "cost_share": 0.04, "cooldown": 6, "element": "metal", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "x": [0, 20, 0, 0, 0]},
+    {"id": "writ-of-reckoning", "c_art": 1.2, "cost_share": 0.03, "cooldown": 5, "element": "metal", "kind": "elem",
+     "buff": [0, 0], "debuff": [4, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "clean-the-page", "c_art": 0, "cost_share": 0.03, "cooldown": 6, "element": "metal", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "cleanse": 0.5, "x": [0, 0, 0, 0, 0]},
+    {"id": "ink-line-breath", "c_art": 0, "cost_share": 0.02, "cooldown": 8, "element": "metal", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "qi_restore": 0.05, "x": [0, 0, 0, 0, 0]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Dear Blood, Called Debt, Debt Called, the Ledger Seal and L4 against a known quarry are not in the simulator",
+    "The Kết Đan run uses lighter layers than Nguyên Anh: fewer slots (5), smaller ward"
+  ]
+}

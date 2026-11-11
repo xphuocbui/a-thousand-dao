@@ -1,0 +1,25 @@
+{
+  "name": "sect-ladder-ket-dan", "realm": "ket_dan",
+  "layers": [55, 40, 40, 20, 0],
+  "art_speed_pct": 6, "art_cost_pct": 4,
+  "regen_bonus_pp": 0.5,
+  "keystones": {"k_burn": 0.3},
+  "purity": {"fire": 85},
+  "arts": [
+    {"id": "kindle-palm", "c_art": 1.4, "cost_share": 0.02, "cooldown": 2, "element": "fire", "kind": "elem",
+     "buff": [0, 0], "debuff": [2, 8], "x": [0, 0, 0, 0, 15]},
+    {"id": "red-lotus-ring", "c_art": 2.9, "cost_share": 0.04, "cooldown": 5, "element": "fire", "kind": "elem",
+     "buff": [2, 12], "debuff": [3, 10], "x": [0, 0, 0, 0, 15]},
+    {"id": "cinder-lance", "c_art": 3.4, "cost_share": 0.05, "cooldown": 7, "element": "fire", "kind": "elem",
+     "buff": [0, 0], "debuff": [4, 10], "x": [0, 0, 0, 0, 15]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Kindled Wound applied unconditionally on damage arts",
+    "Embers Feed the Hearth modelled by k_burn 0.3; its closing cost is folded into the coefficients",
+    "Ember Rod, Hearth-Warming Pill and Gathering Flame Array carried by typical L3 and L4 points",
+    "Deep Heat (Per: +0.4 % more Burn tick damage per Burn stack, to 20 stacks, L2) is not in the file",
+    "The Red Hearth Robe's body and ward affixes are carried by the typical Common Ward",
+    "Hearth Banner (3-stack Fire buff art, 4th slot) not run"
+  ]
+}

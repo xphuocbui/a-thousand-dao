@@ -1,0 +1,23 @@
+{
+  "name": "sect-ladder", "realm": "truc_co",
+  "layers": [26.5, 40, 40, 20, 0],
+  "art_speed_pct": 4, "art_cost_pct": 3,
+  "regen_bonus_pp": 0.4,
+  "keystones": {"k_burn": 0.3},
+  "purity": {"fire": 80},
+  "arts": [
+    {"id": "kindle-palm", "c_art": 1.4, "cost_share": 0.02, "cooldown": 2, "element": "fire", "kind": "elem",
+     "buff": [0, 0], "debuff": [2, 8], "x": [0, 0, 0, 0, 15]},
+    {"id": "red-lotus-ring", "c_art": 2.9, "cost_share": 0.04, "cooldown": 5, "element": "fire", "kind": "elem",
+     "buff": [2, 12], "debuff": [3, 10], "x": [0, 0, 0, 0, 15]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Kindled Wound (L5 +15 on Fire parts vs a target with your Burn) is applied unconditionally on the two damage arts; its true value is lower in the first seconds",
+    "Embers Feed the Hearth (burn tick restores linh luc) is modelled by k_burn 0.5; its closing cost (direct Fire hits 15 percent less) is folded into the arts' coefficients, not a separate field",
+    "Hearth-Warming Pill and Gathering Flame Array (L4) are carried by the typical L4 20 points; Ember Rod (L3) by the typical L3 40",
+    "Hoa Dao Chan Hoa nodes and the sect's tree cluster sit inside the typical L1 and L2 points",
+    "Hearth Banner (a 3-stack Fire buff art) is a Foundation-realm option not run here",
+    "Deep Heat (Per: +0.4 % more Burn tick damage per Burn stack, to 20 stacks, L2) is not in the file"
+  ]
+}

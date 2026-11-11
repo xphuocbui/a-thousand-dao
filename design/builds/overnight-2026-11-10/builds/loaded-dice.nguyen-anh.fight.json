@@ -1,0 +1,30 @@
+{
+  "name": "loaded-dice-nguyen-anh", "realm": "nguyen_anh",
+  "layers": [90, 30, 20, 15, 0],
+  "crit": {"chance": 0.40, "mult": 2.2},
+  "art_speed_pct": 15, "art_cost_pct": 20,
+  "regen_bonus_pp": 2.5, "gain_on_hit_pct": 0.5,
+  "evade_pct": 15,
+  "purity": {"thunder": 90},
+  "arts": [
+    {"id": "cast-the-bones", "c_art": 2.0, "cost_share": 0.04, "cooldown": 2, "element": "thunder", "kind": "elem",
+     "buff": [2, 10], "x": [0, 8, 0, 0, 0]},
+    {"id": "counting-blade", "c_art": 3.1, "cost_share": 0.06, "cooldown": 4, "element": "metal", "kind": "elem",
+     "x": [0, 8, 0, 0, 0]},
+    {"id": "thunder-debt", "c_art": 1.4, "cost_share": 0.03, "cooldown": 3, "element": "thunder", "kind": "elem",
+     "debuff": [4, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "winnings", "c_art": 0.8, "cost_share": 0.05, "cooldown": 6, "element": "thunder", "kind": "elem",
+     "qi_restore": 0.03, "x": [0, 0, 0, 0, 0]},
+    {"id": "raise-the-stakes", "c_art": 4.6, "cost_share": 0.08, "cooldown": 8, "element": "metal", "kind": "elem",
+     "x": [0, 12, 0, 0, 0]},
+    {"id": "house-takes-all", "c_art": 3.4, "cost_share": 0.05, "cooldown": 6, "element": "thunder", "kind": "elem",
+     "x": [0, 12, 0, 0, 0]}
+  ],
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 50, "we": 40,
+           "layers": [30, 30, 20, 0], "block": 15},
+  "enemy": "typical",
+  "unmodelled": [
+    "Loaded Table, Jackpot, counted evade, Stacked Meter, Flowing Water, Winnings refund, Spilled Luck: as in the Core Formation file, folded into crit, evade, art speed and gain on hit",
+    "Escape closed by the enabler: no escape art is modelled anyway"
+  ]
+}

@@ -1,0 +1,83 @@
+[
+ {
+  "slug": "heart-demon-rider",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Kết Đan to Hóa Thần",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Use the life around the fight: heart demon (tâm ma) as fuel. The higher the tâm ma the stronger the build, with breakthrough and qi-deviation risk as the real price. A build that changes how the player lives between fights."
+ },
+ {
+  "slug": "borrowed-years",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Nguyên Anh to Hóa Thần",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Lifespan as a resource: spend years of life for power in a fight, and earn them back by other means. A build that is a race against its own death in the world, not only in the fight."
+ },
+ {
+  "slug": "pill-furnace",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Trúc Cơ to Nguyên Anh",
+  "root": "Fire-Wood",
+  "use": "player",
+  "seed": "Pill toxicity (đan độc) as power: overdose on purpose, toxicity becomes damage or defence, and the build manages the toxicity between fights. An alchemist who is their own best customer."
+ },
+ {
+  "slug": "second-wind",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Kết Đan to Hóa Thần",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Built around being Downed once: the build is weak until it falls, then rises with a rewritten loadout and wins the second half. The comeback build, and what it does if the enemy kills it in one blow."
+ },
+ {
+  "slug": "lone-star",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Trúc Cơ to Hóa Thần",
+  "root": "your choice",
+  "use": "player",
+  "seed": "No companion, no sect, nothing attached: power for every missing piece of the social game. A wanderer build that makes the solo life a choice with teeth."
+ },
+ {
+  "slug": "fleeing-master",
+  "kind": "archetype",
+  "power": "ordinary",
+  "realm": "all realms",
+  "root": "your choice (Wind or Water suggested)",
+  "use": "NPC or sect archetype",
+  "seed": "The cultivator who never loses because it never stays: escape when the fight turns, survive the world. Matters for the world simulation (who lives to Nguyên Anh). Strong at surviving, weak at killing."
+ },
+ {
+  "slug": "ward-eater",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Kết Đan to Nguyên Anh",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Every point of the enemy's ward you break becomes your linh lực. The bigger their ward, the richer you get. A build that eats tanks and starves against a no-ward build."
+ },
+ {
+  "slug": "tempo-thief",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Kết Đan to Hóa Thần",
+  "root": "your choice (Time-flavoured)",
+  "use": "player",
+  "seed": "Control the enemy's clock: delay their cooldowns, push their arts off the pulse, freeze their timers. A build that wins because the enemy never gets to act, and loses to builds that do not need to act (ticks, basic attacks)."
+ },
+ {
+  "slug": "berserk-bloom",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Trúc Cơ to Nguyên Anh",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Stronger the lower your health: Nghịch Cảnh-style low-life play, staying at the edge on purpose with a hard floor that keeps it alive. The PoE low-life build, and how it avoids just dying."
+ }
+]

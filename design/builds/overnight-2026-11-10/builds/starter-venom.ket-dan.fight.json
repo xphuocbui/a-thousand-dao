@@ -1,0 +1,19 @@
+{
+  "name": "starter-venom-ket-dan", "realm": "ket_dan",
+  "layers": [80, 0, 40, 20, 0],
+  "n_body": 1.0, "n_qi": 1.0,
+  "art_speed_pct": 10, "art_cost_pct": 10,
+  "regen_bonus_pp": 4.5, "health_regen_pp": 1.2, "healing_pct": 20,
+  "arts": [
+    {"id": "thorn-seed", "c_art": 0.5, "cost_share": 0.03, "cooldown": 3, "element": "wood", "kind": "elem",
+     "buff": [0, 0], "debuff": [12, 14], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 55, 0, 0, 0]},
+    {"id": "rot-bloom", "c_art": 0.4, "cost_share": 0.05, "cooldown": 6, "element": "wood", "kind": "elem",
+     "buff": [0, 0], "debuff": [30, 20], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 55, 0, 0, 0]},
+    {"id": "weeping-sap", "c_art": 0, "cost_share": 0.04, "cooldown": 7, "element": "wood", "kind": "elem",
+     "buff": [4, 14], "debuff": [0, 0], "c_heal": 0.9, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]},
+    {"id": "venom-tithe", "c_art": 0.3, "cost_share": 0.04, "cooldown": 8, "element": "wood", "kind": "elem",
+     "buff": [0, 0], "debuff": [16, 24], "c_heal": 0, "qi_restore": 0.02, "cleanse": 0, "x": [0, 55, 0, 0, 0]}
+  ],
+  "enemy": "typical",
+  "unmodelled": ["Root Drinks the Rot leech", "Patient Venom per-stack effect (cap folded into L2 on the poison arts)", "Spillover", "Sap Rises healing from stacks beyond the table", "Moss-Ledger cleanse-immunity window"]
+}

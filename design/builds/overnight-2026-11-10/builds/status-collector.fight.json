@@ -1,0 +1,27 @@
+{
+  "name": "status-collector", "realm": "hoa_than",
+  "layers": [400, 250, 250, 150, 52],
+  "crit": {"chance": 0.3, "mult": 2.2},
+  "n_body": 2.0, "n_qi": 2.0,
+  "art_speed_pct": 40, "art_cost_pct": 20,
+  "regen_bonus_pp": 6, "health_regen_pp": 8,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 84.1, "we": 40,
+           "layers": [300, 250, 150, 100], "block": 15},
+  "body": {"block": 15, "resistance": 20, "shield": 0.2, "layers": [60, 50, 30, 0]},
+  "arts": [
+    {"id": "ember-brand", "c_art": 0.7, "cost_share": 0.02, "cooldown": 3, "element": "fire", "kind": "elem", "buff": [0, 0], "debuff": [5, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "cracked-earth-brand", "c_art": 0.7, "cost_share": 0.02, "cooldown": 3, "element": "earth", "kind": "elem", "buff": [0, 0], "debuff": [5, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "cold-iron-brand", "c_art": 0.7, "cost_share": 0.02, "cooldown": 3, "element": "metal", "kind": "elem", "buff": [0, 0], "debuff": [5, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "bitter-sap-brand", "c_art": 0.7, "cost_share": 0.02, "cooldown": 3, "element": "wood", "kind": "elem", "buff": [0, 0], "debuff": [5, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "thread-lightning-brand", "c_art": 0.7, "cost_share": 0.02, "cooldown": 3, "element": "thunder", "kind": "elem", "buff": [0, 0], "debuff": [5, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "rime-brand", "c_art": 0.7, "cost_share": 0.02, "cooldown": 3, "element": "ice", "kind": "elem", "buff": [0, 0], "debuff": [5, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "ledger-reckoning", "c_art": 3.1, "cost_share": 0.06, "cooldown": 4, "element": "metal", "kind": "phys", "buff": [0, 0], "debuff": [0, 0], "x": [0, 50, 0, 0, 48]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Marked Prey and Tally Ten (L5 +4 per distinct own status, cap +48) are conditional on the count; the file puts the 12-status value (+48 L5) and Crowded Ledger plus art-tag more (L2 +50) flat on the cash-in art's x from t = 0, and the basic attack gets neither, so the count is assumed full whenever the art fires and the basic attack's count bonus (real, in the game) is left out",
+    "Tally Gourd echo statuses (Qi Disruption, Bleed, Exposed) and the two further curses are not applied; only the six element debuffs are, so the simulator's count is 6 and the file credits 12",
+    "The enabler's 30 percent cut on status-applying arts is modelled as c_art 0.7 on the applicators",
+    "Curses other than Withering and Stagnation, conditions and guards, triggers, and the Opening Cut Bleed are not modelled"
+  ]
+}

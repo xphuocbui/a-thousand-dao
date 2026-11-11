@@ -1,0 +1,36 @@
+{
+  "name": "mirror-hide-nguyen-anh", "realm": "nguyen_anh",
+  "layers": [400, 250, 200, 120, 0],
+  "crit": {"chance": 0.0, "mult": 1.5},
+  "n_body": 1.4, "n_qi": 1.0,
+  "art_speed_pct": 20, "art_cost_pct": 15, "art_cost_health_pct": 0,
+  "regen_bonus_pp": 3, "health_regen_pp": 2, "healing_pct": 20,
+  "evade_pct": 0, "accuracy_pct": 5,
+  "gain_on_hit_pct": 0, "leech_qi_pct": 0, "leech_health_pct": 0,
+  "ward": {"model": "off", "block": 30},
+  "body": {"block": 40, "resistance": 40, "shield": 0.3, "layers": [300, 250, 150, 100]},
+  "cleanse": {"per_pulse": 0, "fee_share": 0, "share": 0.25},
+  "keystones": {},
+  "curses": [],
+  "purity": {"earth": 70, "metal": 70},
+  "bonus_slots": 0,
+  "arts": [
+    {"id": "mirror-return", "c_art": 1.4, "cost_share": 0.02, "cooldown": 1.0, "element": "metal", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 40, 0, 0, 0]},
+    {"id": "packed-earth-hide", "c_art": 0.2, "cost_share": 0.03, "cooldown": 4.0, "element": "earth", "kind": "elem",
+     "buff": [3, 12], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]},
+    {"id": "needle-mark", "c_art": 0.3, "cost_share": 0.03, "cooldown": 3.0, "element": "metal", "kind": "elem",
+     "buff": [0, 0], "debuff": [3, 10], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]},
+    {"id": "open-the-mirror", "c_art": 3.6, "cost_share": 0.06, "cooldown": 6.0, "element": "metal", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 30, 0, 0, 0]},
+    {"id": "sap-the-bruise", "c_art": 0.0, "cost_share": 0.04, "cooldown": 5.0, "element": "earth", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 1.2, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]},
+    {"id": "thorn-chorus", "c_art": 1.2, "cost_share": 0.04, "cooldown": 4.0, "element": "metal", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 40, 0, 0, 0]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Return channel approximated by mirror-return (a Physical hit once a second); the real return scales with the enemy's hit size and count",
+    "Mirror Hide enabler, banked return, return on ticks, health-pay arts, soul returns, Provoke curse"
+  ]
+}

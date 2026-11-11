@@ -1,0 +1,24 @@
+{
+  "name": "status-collector-ket-dan", "realm": "ket_dan",
+  "layers": [200, 100, 70, 40, 6],
+  "crit": {"chance": 0.15, "mult": 1.8},
+  "n_body": 1.1, "n_qi": 1.1,
+  "art_speed_pct": 25, "art_cost_pct": 12,
+  "regen_bonus_pp": 3, "health_regen_pp": 2,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 47.9, "we": 30,
+           "layers": [100, 80, 40, 20], "block": 15},
+  "body": {"block": 15, "resistance": 15, "shield": 0.2, "layers": [30, 25, 10, 0]},
+  "arts": [
+    {"id": "ember-brand", "c_art": 0.7, "cost_share": 0.02, "cooldown": 3, "element": "fire", "kind": "elem", "buff": [0, 0], "debuff": [4, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "cracked-earth-brand", "c_art": 0.7, "cost_share": 0.02, "cooldown": 3, "element": "earth", "kind": "elem", "buff": [0, 0], "debuff": [4, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "cold-iron-brand", "c_art": 0.7, "cost_share": 0.02, "cooldown": 3, "element": "metal", "kind": "elem", "buff": [0, 0], "debuff": [4, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "bitter-sap-brand", "c_art": 0.7, "cost_share": 0.02, "cooldown": 3, "element": "wood", "kind": "elem", "buff": [0, 0], "debuff": [4, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "ledger-reckoning", "c_art": 3.1, "cost_share": 0.06, "cooldown": 4, "element": "metal", "kind": "phys", "buff": [0, 0], "debuff": [0, 0], "x": [0, 12, 0, 0, 16]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Marked Prey (L5 +4 per distinct own status, cap +16 at Kết Đan: four statuses) and Crowded Ledger (L2 +3 each) are conditional on the count; the file puts the four-status value flat on the cash-in art's x from t = 0 and gives the basic attack nothing",
+    "The enabler's 30 percent cut on status-applying arts is modelled as c_art 0.7 on the applicators; the Tally Gourd is not yet usable at this realm",
+    "Conditions and guards, triggers and curses other than Withering and Stagnation are not modelled"
+  ]
+}

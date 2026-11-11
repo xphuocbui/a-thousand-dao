@@ -1,0 +1,37 @@
+{
+  "name": "meta-hunter", "realm": "nguyen_anh",
+  "layers": [200, 280, 250, 150, 80],
+  "crit": {"chance": 0.2, "mult": 1.8},
+  "n_body": 1.1, "n_qi": 1.2,
+  "art_speed_pct": 25, "art_cost_pct": 30,
+  "regen_bonus_pp": 1.0,
+  "gain_on_hit_pct": 0.5, "leech_qi_pct": 6, "leech_health_pct": 6,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 110, "we": 140,
+           "layers": [300, 250, 150, 100], "block": 18},
+  "body": {"block": 20, "resistance": 20, "shield": 0.2, "layers": [150, 150, 100, 0]},
+  "cleanse": {"per_pulse": 1, "fee_share": 0.0, "share": 0.5},
+  "curses": ["withering"],
+  "purity": {"metal": 80},
+  "arts": [
+    {"id": "whetted-tally", "c_art": 2.6, "cost_share": 0.05, "cooldown": 3, "element": "metal", "kind": "phys",
+     "buff": [0, 0], "debuff": [2, 8], "x": [0, 20, 0, 0, 0]},
+    {"id": "closing-the-book", "c_art": 3.1, "cost_share": 0.04, "cooldown": 6, "element": "metal", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "x": [0, 20, 0, 0, 0]},
+    {"id": "writ-of-reckoning", "c_art": 1.2, "cost_share": 0.03, "cooldown": 5, "element": "metal", "kind": "elem",
+     "buff": [0, 0], "debuff": [4, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "clean-the-page", "c_art": 0, "cost_share": 0.03, "cooldown": 6, "element": "metal", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "cleanse": 0.5, "x": [0, 0, 0, 0, 0]},
+    {"id": "ink-line-breath", "c_art": 0, "cost_share": 0.02, "cooldown": 8, "element": "metal", "kind": "elem",
+     "buff": [0, 0], "debuff": [0, 0], "qi_restore": 0.05, "x": [0, 0, 0, 0, 0]},
+    {"id": "bloodhound-count", "c_art": 3.4, "cost_share": 0.05, "cooldown": 8, "element": "metal", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "x": [0, 20, 0, 0, 0]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Dear Blood (curse: the foe's health-paid art costs x1.5): the simulator has no such curse; the Writ art is run as its Metal debuff stacks only",
+    "Called Debt (a tick returning 15 % of the health the foe paid on art costs): no health-paid-cost readable in the simulator",
+    "Debt Called Per modifier (+0.4 % more per Stagnation stack on me, cap +40 %) and L5 conditions: not modelled; L5 is left at 0 so the run does not overstate",
+    "Ledger Seal's entries, and its closing rule (no health-paid costs, no Stagnation applied by me)",
+    "L4 preparation against a known quarry: run at 100 points, assumes the hunters were not blind"
+  ]
+}

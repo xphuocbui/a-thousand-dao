@@ -1,0 +1,32 @@
+{
+  "name": "loaded-dice", "realm": "ket_dan",
+  "layers": [70, 20, 15, 10, 0],
+  "crit": {"chance": 0.30, "mult": 2.0},
+  "art_speed_pct": 10, "art_cost_pct": 15,
+  "regen_bonus_pp": 1.5, "gain_on_hit_pct": 0.4,
+  "evade_pct": 10,
+  "purity": {"thunder": 80},
+  "arts": [
+    {"id": "cast-the-bones", "c_art": 2.0, "cost_share": 0.04, "cooldown": 2, "element": "thunder", "kind": "elem",
+     "buff": [1, 10], "x": [0, 6, 0, 0, 0]},
+    {"id": "counting-blade", "c_art": 3.1, "cost_share": 0.06, "cooldown": 4, "element": "metal", "kind": "elem",
+     "x": [0, 6, 0, 0, 0]},
+    {"id": "thunder-debt", "c_art": 1.4, "cost_share": 0.03, "cooldown": 3, "element": "thunder", "kind": "elem",
+     "debuff": [3, 10], "x": [0, 0, 0, 0, 0]},
+    {"id": "winnings", "c_art": 0.8, "cost_share": 0.05, "cooldown": 6, "element": "thunder", "kind": "elem",
+     "qi_restore": 0.03, "x": [0, 0, 0, 0, 0]},
+    {"id": "raise-the-stakes", "c_art": 4.6, "cost_share": 0.08, "cooldown": 8, "element": "metal", "kind": "elem",
+     "x": [0, 10, 0, 0, 0]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Loaded Table (counted crit and evade meters fed by khi van, pre-filled to half): the simulator uses crit chance as a mean, so only the crit rate is tested, not the counted order or the pre-fill",
+    "Jackpot (every 3rd counted crit +1.0 multiplier): folded into crit.mult as part of 2.0",
+    "Counted evade meter: approximated as evade_pct 10",
+    "Stacked Meter (Per, +2% L2 per payout in 8 s, cap 10): folded into the arts' x L2 as an average 6",
+    "Flowing Water (crit shortens other timers by 0.5 s): folded into art_speed_pct",
+    "Winnings refund on a counted crit: approximated as gain_on_hit_pct 0.4 plus the art's qi_restore",
+    "Spilled Luck (overflow of crit chance above the counted cap into crit multiplier): folded into crit.mult",
+    "Escape closed by the enabler: no escape art is modelled anyway"
+  ]
+}

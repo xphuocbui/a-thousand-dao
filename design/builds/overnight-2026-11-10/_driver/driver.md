@@ -60,3 +60,58 @@
 - [2026-11-11 09:42:12] summary session exit 0
 - [2026-11-11 09:42:12] removed project.local.yaml
 - [2026-11-11 09:42:12] driver done
+- [2026-11-11 12:40:27] merge all: exit 0, 1 lines
+- [2026-11-11 12:40:27] created project.local.yaml (automation: autonomous)
+- [2026-11-11 12:40:27] start starter-flame-try1
+- [2026-11-11 12:40:57] start starter-wall-try1
+- [2026-11-11 12:52:19] merge all: exit 0, 1 lines
+- [2026-11-11 12:52:19] created project.local.yaml (automation: autonomous)
+- [2026-11-11 12:52:19] start starter-flame-try1
+- [2026-11-11 12:52:49] start starter-wall-try1
+- [2026-11-11 12:56:43] end starter-flame-try1: {'status': 'DONE', 'staged_new': 9, 'staged_reused': 6, 'suggestions': 1, 'checks_fail': 0, 'checks_na': 2, 'exit': 0, 'minutes': 4.4, 'guide': True, 'attempt': 1}
+- [2026-11-11 12:56:59] merge starter-flame: exit 1, 26 lines; UNPLACED	ledger	unknown section 'New Concepts': | None | | | |
+- [2026-11-11 12:56:59] start starter-venom-try1
+- [2026-11-11 12:57:44] end starter-wall-try1: {'status': 'DONE', 'staged_new': 4, 'staged_reused': 6, 'suggestions': 0, 'checks_fail': 1, 'checks_na': 1, 'exit': 0, 'minutes': 4.9, 'guide': True, 'attempt': 1}
+- [2026-11-11 12:57:49] merge starter-wall: exit 0, 14 lines
+- [2026-11-11 12:57:49] start starter-blade-try1
+- [2026-11-11 13:02:29] end starter-venom-try1: {'status': 'DONE', 'staged_new': 15, 'staged_reused': 15, 'suggestions': 2, 'checks_fail': 0, 'checks_na': 1, 'exit': 0, 'minutes': 5.5, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:02:39] merge starter-venom: exit 0, 37 lines
+- [2026-11-11 13:02:39] start starter-tide-try1
+- [2026-11-11 13:03:14] end starter-blade-try1: {'status': 'DONE', 'staged_new': 15, 'staged_reused': 10, 'suggestions': 2, 'checks_fail': 0, 'checks_na': 3, 'exit': 0, 'minutes': 5.4, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:03:30] merge starter-blade: exit 0, 35 lines
+- [2026-11-11 13:03:30] start sect-ladder-try1
+- [2026-11-11 13:06:59] end starter-tide-try1: {'status': 'DONE', 'staged_new': 12, 'staged_reused': 9, 'suggestions': 2, 'checks_fail': 0, 'checks_na': 2, 'exit': 0, 'minutes': 4.3, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:07:00] merge starter-tide: exit 0, 32 lines
+- [2026-11-11 13:07:00] start mirror-hide-try1
+- [2026-11-11 13:09:30] end sect-ladder-try1: {'status': 'DONE', 'staged_new': 8, 'staged_reused': 10, 'suggestions': 1, 'checks_fail': 0, 'checks_na': 1, 'exit': 0, 'minutes': 6.0, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:09:50] merge sect-ladder: exit 0, 23 lines
+- [2026-11-11 13:09:50] start status-collector-try1
+- [2026-11-11 13:12:43] end mirror-hide-try1: {'status': 'DONE', 'staged_new': 23, 'staged_reused': 12, 'suggestions': 3, 'checks_fail': 0, 'checks_na': 2, 'exit': 0, 'minutes': 5.7, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:13:00] merge mirror-hide: exit 1, 52 lines; UNPLACED	ledger	unknown section 'New Concepts': | Return channel (Phản) | Combat Formulas G2 | Mirror Hide, any Thorns or Mirror Ward build | Questi; UNPLACED	ledger	unknown section 'New Concepts': | Incoming hit readable | Combat Defence & Healing rule 1 | Mirror Hide, any reactive ward | Questio
+- [2026-11-11 13:13:00] start evade-dancer-try1
+- [2026-11-11 13:20:09] merge all: exit 0, 7 lines
+- [2026-11-11 13:20:09] created project.local.yaml (automation: autonomous)
+- [2026-11-11 13:20:09] start status-collector-try1
+- [2026-11-11 13:20:39] start evade-dancer-try1
+- [2026-11-11 13:26:29] end evade-dancer-try1: {'status': 'DONE', 'staged_new': 20, 'staged_reused': 7, 'suggestions': 2, 'checks_fail': 0, 'checks_na': 4, 'exit': 0, 'minutes': 5.8, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:26:29] merge evade-dancer: exit 0, 39 lines
+- [2026-11-11 13:26:29] start meta-hunter-try1
+- [2026-11-11 13:27:11] end status-collector-try1: {'status': 'DONE', 'staged_new': 22, 'staged_reused': 4, 'suggestions': 2, 'checks_fail': 1, 'checks_na': 2, 'exit': 0, 'minutes': 7.0, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:27:19] merge status-collector: exit 0, 44 lines
+- [2026-11-11 13:27:19] start deity-warden-try1
+- [2026-11-11 13:32:40] end deity-warden-try1: {'status': 'DONE', 'staged_new': 18, 'staged_reused': 15, 'suggestions': 2, 'checks_fail': 0, 'checks_na': 3, 'exit': 0, 'minutes': 5.4, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:32:49] merge deity-warden: exit 0, 39 lines
+- [2026-11-11 13:32:49] start loaded-dice-try1
+- [2026-11-11 13:34:35] end meta-hunter-try1: {'status': 'DONE', 'staged_new': 23, 'staged_reused': 2, 'suggestions': 3, 'checks_fail': 0, 'checks_na': 3, 'exit': 0, 'minutes': 8.1, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:34:39] merge meta-hunter: exit 0, 42 lines
+- [2026-11-11 13:34:39] start art-thief-try1
+- [2026-11-11 13:38:14] end loaded-dice-try1: {'status': 'DONE', 'staged_new': 26, 'staged_reused': 5, 'suggestions': 2, 'checks_fail': 0, 'checks_na': 3, 'exit': 0, 'minutes': 5.4, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:38:29] merge loaded-dice: exit 0, 46 lines
+- [2026-11-11 13:38:29] start pacifist-try1
+- [2026-11-11 13:41:35] end art-thief-try1: {'status': 'DONE', 'staged_new': 26, 'staged_reused': 7, 'suggestions': 2, 'checks_fail': 0, 'checks_na': 3, 'exit': 0, 'minutes': 6.9, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:41:39] merge art-thief: exit 0, 52 lines
+- [2026-11-11 13:43:35] end pacifist-try1: {'status': 'DONE', 'staged_new': 19, 'staged_reused': 7, 'suggestions': 3, 'checks_fail': 0, 'checks_na': 2, 'exit': 0, 'minutes': 5.1, 'guide': True, 'attempt': 1}
+- [2026-11-11 13:43:40] merge pacifist: exit 0, 39 lines
+- [2026-11-11 13:43:40] queue empty
+- [2026-11-11 13:43:40] removed project.local.yaml
+- [2026-11-11 13:43:40] driver done

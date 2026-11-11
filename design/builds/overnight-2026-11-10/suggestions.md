@@ -372,3 +372,217 @@ Format for each entry:
 - **Proposal:** any Effect that reads the realm gap for power pays out at gaps 1 and 2 only, never at 3 or more. Escape Effects (Beneath Notice) are exempt.
 - **Why the build needs it:** the build stacks four gap readers (Half a Realm, Against the Heavens, Stiff Neck, Through the Ceiling). By the clash model's fight-power ratio, letting them scale past two realms would lift a top-end build's three-up win chance from 0 % to roughly 7–26 %, against the user's target of ≤ 2 %. One shared convention keeps that target true for every future vượt cấp piece, not only this build's.
 - **Trade-off:** none for content inside it. It makes "three realms up" a hard wall by rule, so the only answer there is escape, as the concept intends.
+
+### starter-flame: Effects action "restore linh lực" on a tick event
+
+- **Kind:** change to an existing rule
+- **Touches:** `design/gdd/effects.md` rule 6 (action list) and the event list (tick dealt); Combat linh lực rules for the cap on refunds
+- **Proposal:** allow an Effect on the "tick dealt" event with the action "restore linh lực" equal to a share of the tick's damage (Embers Feed the Hearth: 25 %), bounded by the pool maximum and reported in the Breakdown as "Embers: +n linh lực".
+- **Why the build needs it:** the whole build's forgiveness comes from Burn ticks paying for the arts that apply them. Without it the build falls back to a regeneration stack.
+- **Trade-off:** a Burn build gets near-free sustain, so Burn needs a counter that stays real: cleansing and Fire resistance already do that. It must not stack with other refund Effects without a per-pulse cap.
+
+### starter-venom: Stack-count Per modifier on ticks
+- **Kind:** Rule change
+- **Touches:** `design/gdd/modifiers.md` (Per form, scope readables); `design/gdd/effects.md` rule 9a (element stack reads)
+- **Proposal:** A modifier may read the number of the applier's element stacks on the target at each tick, as "X % more per N stacks, up to a cap", in layer L2 (not L5, which ticks never use).
+- **Why the build needs it:** Patient Venom, the reward for a long poison fight, is a Per on stack count; without it the build's late-game scaling is a flat number.
+- **Trade-off:** a tick now reads live state, so the Breakdown must show it. It is bounded by its cap and is NPC-safe.
+
+### starter-venom: Cleanser telegraph in preparation
+- **Kind:** Rule change
+- **Touches:** `design/gdd/combat.md` rule 12 (preparation and what a foreseen fight reveals); the Guidance Layer
+- **Proposal:** Before a foreseen fight, show whether the enemy carries a cleanse (a cleansing ward payload or a cleanse art), as one line on the enemy profile.
+- **Why the build needs it:** The build loses 0 to 19 to a cleanser, and the lesson is meant to be learnt in preparation, not by dying. Without the line, a new player has no way to adapt (swap Rot Bloom for a hit art, take Seeds Left Behind).
+- **Trade-off:** It gives away part of an enemy's profile, which Combat Open Question 4 treats as information worth paying for; keep it for foreseen fights only.
+
+### starter-blade: Crit as an event and a self-stack source
+
+- **Kind**: New rule.
+- **Touches**: `design/gdd/effects.md` (status families and events), `design/gdd/combat.md` rule 8 (crit).
+- **Proposal**: Make "you land a crit" a readable event for Effects. Allow a self-status family (Whet) that gains a stack on that event, with its own timer per stack, a stack cap of 8, and +2 pp crit chance per stack. Also let "you crit within the last N seconds" be a readable condition for an L5 bonus.
+- **Why the build needs it**: Whetted Edge, Hot Edge and Flowing Water all hang off the crit event; without it crit is only a flat chance and the build has no loop.
+- **Trade-off**: Crit feeding crit adds variance, and Combat rule 15 wants chance to stay a flavour. The stack cap (8 x 2 pp = 16 pp) and the existing `crit_chance_cap` 0.5 bound it, and the loop is deterministic given the seed.
+
+### starter-blade: Overflow on the crit-chance cap
+
+- **Kind**: Rule change (a cap overflow).
+- **Touches**: `design/gdd/combat.md` rule 8 and Formulas C (`crit_chance_cap` 0.5, `crit_mult_cap` 3.0).
+- **Proposal**: Crit chance above the cap converts to crit multiplier at 1 pp of multiplier per 2 pp over, still bounded by `crit_mult_cap`. Shown in the Breakdown as "crit chance over the cap".
+- **Why the build needs it**: A crit build otherwise hits a wall at 0.5 and has nothing to stack; this is the top-end upgrade that turns a working crit build into a finished one.
+- **Trade-off**: It gives crit builds a long tail of useful stacking; `crit_mult_cap` 3.0 still stops it, so top-end offence is not raised by more than the multiplier cap already allows.
+
+### starter-tide: Ward efficiency may read the pool share
+
+- **Kind:** Change to an existing rule
+- **Touches:** combat-defence.md Formulas A (ward drain rate); the Effects System readable list
+- **Proposal:** Allow a ward modifier to be conditional on the owner's current linh lực share, for example Still Water: +15 ward efficiency while the pool is at or above 80 %.
+- **Why the build needs it:** Brimming Tide wants the ward and arts both to pay for a full pool. Without this, the ward ignores how full the pool is and half the economy is invisible.
+- **Trade-off:** The ward's strength then varies during a fight, which makes a Breakdown line longer and a drain ward harder to read; bound it with a single threshold and one modifier per ward.
+
+### starter-tide: Max linh lực counts toward ward strength (Borrow)
+
+- **Kind:** New rule
+- **Touches:** combat-defence.md A0 (ward layers W2 to W5)
+- **Proposal:** Depth Is Shield: 1 point of ward strength per 5 % of maximum linh lực above the realm's typical pool, capped at +40.
+- **Why the build needs it:** It is the top-end piece that makes a deep pool also the wall, which is the fantasy of the build at Kết Đan.
+- **Trade-off:** It counts the pool twice, as casts and as ward; the cap and the fact that the ward still drains the same pool are the bound.
+
+### sect-ladder: Sect curriculum record
+
+- **Kind:** new system data and a change to an existing rule
+- **Touches:** NPC Builds (#24, no GDD yet) and Sects & Missions (#26, no GDD yet); Combat rule 2 (every modifier applies to NPCs) and the combat GDD's NPC Builds dependency
+- **Proposal:** a sect carries a curriculum record: per realm, one technique, the arts it teaches, an artifact base, a pill, an array and a few Đạo nodes, plus a talent grade (laggard, plain, gifted) that moves a disciple one rung up or down the ladder. The NPC generator builds each member of that sect from the record at their realm, so the world's 5,000 cultivators come from a few dozen records plus rogues.
+- **Why the build needs it:** the build is the standard kit of an ordinary Fire sect; without a record to hold it, it is only one build and not the template of a sect.
+- **Trade-off:** NPCs of one sect are alike, so players can predict them; talent grades and an occasional off-curriculum art or item are the way to break that, and the curriculum should not hold powers above the "ordinary" level.
+
+### mirror-hide: Return channel
+
+- **Kind:** new channel (rule)
+- **Touches:** `design/gdd/combat.md` Formulas G (Triggers) and rule 9, with a new G2; `design/gdd/combat-defence.md` rule 1 (the defence path)
+- **Proposal:** a free-hit channel "Return": for each incoming hit part that enters the defence path (ticks at weight 0.25), the owner returns `return_share × pre_defence_damage × L1..L4(return) × supp`, delivered as a free Physical hit that meets the target's defence path. Clipped at `ret_cap × U × stage` per hit (ret_cap 2.0). Not a trigger: it uses no `trig_budget` or `trigger_depth`, and a return never causes a return.
+- **Why the build needs it:** triggers are capped at half of your own direct damage, so a thorns build cannot be built from triggers. Return scales with what the enemy throws, which is the seed.
+- **Trade-off:** a new channel that is strongest against the highest-damage foe; the per-hit cap and depth 1 bound it. Two return builds mirroring each other only end by fatigue.
+
+### mirror-hide: Bait curse changes the enemy's basic cooldown
+
+- **Kind:** rule change
+- **Touches:** `design/gdd/combat.md` rule 8 (curses change rules, never pools); `design/gdd/effects.md` Status Catalogue
+- **Proposal:** one curse, Bait (Mồi Nhử), shortens the enemy's basic attack cooldown by 20 % for its duration.
+- **Why the build needs it:** a return build earns by being hit; the curse is the lever against enemies that attack slowly.
+- **Trade-off:** it helps the enemy as well as the cursing build against anything that does not return. Duration is short and it takes a curse slot.
+
+### mirror-hide: Health paid counts as a hit taken
+
+- **Kind:** rule change
+- **Touches:** `design/gdd/combat-defence.md` rule 1; `design/gdd/effects.md` event vocabulary
+- **Proposal:** when an art costs health, that health is read as one hit taken for the Return channel, at most once per cast.
+- **Why the build needs it:** enemies that evade, wait or stall give a thorns build nothing to return; this makes the build its own supply of hits, paid for by health regeneration.
+- **Trade-off:** it gives any health-pay build a free return source; limited by the health cost and the art's cooldown.
+
+### evade-dancer: Hit-evaded event
+
+- **Kind:** New concept (an event).
+- **Touches:** combat.md Formulas I (evade roll and the line that an evaded hit fires no on-hit trigger); effects.md rule 9 (events an Effect can listen to) and rule 12 (counted chance).
+- **Proposal:** an evaded hit fires one "hit evaded" event on the defender, readable by Effects. It stays bounded by `trig_budget` and `trigger_depth`, and the evaded hit still deals nothing, drains nothing and fires no on-hit trigger of the attacker. The Breakdown shows "evaded n of m hits".
+- **Why the build needs it:** Evade Pays, Reply and Carried Off all listen to it. Without it, evade is only a defence stat.
+- **Trade-off:** more event traffic per fight and a new bound to test; enemies with Effects on evade (NPCs) get the same power, so a high-evade NPC becomes harder to kill.
+
+### evade-dancer: Evade points over the cap readable
+
+- **Kind:** Rule addition.
+- **Touches:** combat.md Formulas I (`p_evade = clamp(...)`, `evade_cap`).
+- **Proposal:** report the points the clamp removed (evade − accuracy + realm step above `evade_cap`) as a readable value, for Overflow modifiers.
+- **Why the build needs it:** Surplus Breeze turns clipped evade into art speed, the one reason to stack evade past the cap.
+- **Trade-off:** evade over the cap is no longer wasted, which slightly raises the worth of evade stacking; the overflow is capped at +20 % art speed to bound it.
+
+### status-collector: A second Effect may raise Marked Prey's cap
+
+- **Kind**: change to an existing rule
+- **Touches**: `design/gdd/effects.md`, Starter Effects, Marked Prey (Limits: Cap +16)
+- **Proposal**: an Effect, such as Tally Ten, may raise another Effect's stated cap, to a bound the second Effect names (here +48, twelve kinds). The cap shift is read at compile and shown in the Breakdown beside the Effect it raises.
+- **Why the build needs it**: Marked Prey stops paying at four kinds, so the eight others a breadth build collects are worth nothing in L5.
+- **Trade-off**: a count-reader at twelve kinds fills L5 on its own; the L5 cap of 100 and the three-curse limit bound it.
+
+### status-collector: A live-count Per modifier in L2
+
+- **Kind**: new rule
+- **Touches**: `design/gdd/combat.md` Formulas B (L2), `design/gdd/modifiers.md` (Per form)
+- **Proposal**: a modifier may grant L2 "more" per distinct own status on the target, read live each hit, with a stated cap (Crowded Ledger: +3 per kind, cap +36). L5 stays Effects-only.
+- **Why the build needs it**: the count has two readers, one in L5 (Marked Prey) and one in L2, so the build's payoff comes from two layers.
+- **Trade-off**: L2 is compile-time today; a live L2 term makes a Breakdown change during the fight and gives builds a second way to read a state.
+
+### deity-warden: Boss phase script
+
+- **Kind:** new system
+- **Touches:** `design/gdd/combat.md` rule 10 (time), `design/gdd/combat-defence.md` rule 1 (the one-ward rule)
+- **Proposal:** an NPC or boss profile may carry a phase list of up to four entries, each with a duration of at least 8 s, a ward model (drain, per hit, reserved, soul or off) and optional stat swaps. The fight clock moves it from one phase to the next; the order is fixed and shown in the Breakdown ("Phase 2 of 4: Lustration").
+- **Why the build needs it:** the Warden is four wards that each shut one channel; without a script it is one ward.
+- **Trade-off:** the simulator needs a phase clock to prove any boss, and a boss with a fixed list can be memorised, which is the intent.
+
+### deity-warden: Ward-swap gap
+
+- **Kind:** rule change
+- **Touches:** `design/gdd/combat-defence.md` rule 1
+- **Proposal:** when a holder's ward model changes mid-fight the old ward's remaining capacity is discarded and the holder has no ward for a short window (2 s here), announced by a Toll.
+- **Why the build needs it:** it gives the fight a readable opening and stops a player from stripping one ward and hitting the next.
+- **Trade-off:** a ward swap becomes a strong action for any holder; players with the Turning Key also gain it, so the gap must stay at 2 s or longer.
+
+### meta-hunter: A curse on how costs are paid
+
+- **Kind:** New Effect (curse) and a readable.
+- **Touches:** `design/gdd/effects.md` (curse table, rule 5 readables); `design/gdd/combat-defence.md` Formulas E (cost payment, `art_cost_health_pct`).
+- **Proposal:** Dear Blood, a curse: the foe's health-paid art costs are 1.5×. A readable gives the health a side has paid on costs this fight and in the last pulse; Called Debt returns 15 % of the last pulse's amount as a tick. Both need a holder of the Ledger Seal.
+- **Why the build needs it:** `notes.md` § 2 says health-paid costs have no counter, and Withering only hurts the builds that also heal. Without a rule on the payment itself, the Hunter would have a bigger number and no answer.
+- **Trade-off:** It gives a counter to one pattern, so a health-payer must now weigh meeting a hunter. A foe with status resistance can ignore it. If the 1.5× is too hard it can fall to 1.25×.
+
+### meta-hunter: Incoming status stack cap with overflow
+
+- **Kind:** Rule extension.
+- **Touches:** `design/gdd/effects.md` rule 9 (stacking); `design/quick-specs/tree-modifier-catalogue.md` (a keystone row).
+- **Proposal:** A wearer's cap on stacks of one named status (here Stagnation, 20). A stack that would exceed it is not applied and adds a small bonus (+0.4 % more, L5, capped at +40 %).
+- **Why the build needs it:** Stagnation on hit is the other pattern the sect hunts; at 1 % per stack a cap of 20 removes the curse as a threat, and the overflow makes the pattern feed the hunter.
+- **Trade-off:** It makes one curse nearly harmless for holders of the keystone. Applies per status, one keystone, so it does not answer Silence or Sealed Meridian.
+
+### meta-hunter: Quarry knowledge
+
+- **Kind:** Rule change.
+- **Touches:** `design/gdd/combat.md` rule 12 (blind fights); world and NPC generation (a sect's listed quarry).
+- **Proposal:** A sect may list a pattern as its quarry (health-payers, Stagnation appliers). Against a foe of that pattern the fight is not blind for the hunter, so L4 preparation counts.
+- **Why the build needs it:** The hunter's L4 (150 points, a ×2.5 factor in the simulator run) only exists if the fight is not blind, which makes the build the right answer to a known foe.
+- **Trade-off:** It gives sect members a prepared layer in some fights, so the world must tag patterns. It does not apply to the player unless the player joins the sect.
+
+### loaded-dice: Fortune may feed a counted chance (through a keystone)
+
+- **Kind**: Change to an existing rule
+- **Touches**: Effects System rule 12 and Formulas A ("Fortune does not shift counted chance"); Combat Formulas I (`khi_van_per_point`)
+- **Proposal**: One named keystone, The Loaded Table, may add `0.002 × khí vận` (at most +0.15) to every counted chance its owner has, after the chance's own cap and inside the global caps. It also counts the owner's evade (one chance, as rule 12 allows). The meter still takes no seeded draw, so the fight stays deterministic.
+- **Why the build needs it**: It is the whole fantasy. The player gets "luck as a stat" but the luck is prepared (items, formation, pill) and shows as a number on a meter, so nothing is rolled. Without it fortune does nothing for a counted build.
+- **Trade-off**: One more path from a soft stat (khí vận) into combat power. It is bounded (+0.15, a named keystone, escape closed) but a gambler with very high fortune hits the bound early; an Ill Star curse (Mệnh Đạo) is its counter.
+
+### loaded-dice: Counted payouts as a readable event
+
+- **Kind**: New system (small)
+- **Touches**: Effects System rule 12 and the event list; Combat rule 9 (triggers)
+- **Proposal**: When a counted meter reaches 1 it emits a `counted_payout` event with the chance's name. Per modifiers and Effects may read it (Stacked Meter: payouts in the last 8 s; Jackpot: every third crit payout; Winnings: refund on a crit payout). An art guard may read and spend a meter (Cash Out).
+- **Why the build needs it**: A counted build has predictable moments but today nothing can hang a reward on them. This lets the payout be the thing the build is built around.
+- **Trade-off**: Counted payouts become a trigger source, so they count against `trig_budget` and `trigger_depth` when they fire free hits. The Per cap and Jackpot's crit multiplier cap bound the rest.
+
+### art-thief: Loan slots, copying the foe's art
+
+- **Kind:** New system
+- **Touches:** `design/gdd/combat.md` rule 13 (arts, cooldown timers and slot order), rule 10 (instant order), rule 9 (the trigger budget, for Spent Hand)
+- **Proposal:** An enabler may turn every empty art slot into a loan slot at the start of the fight. When the foe casts a body or qi art, the oldest empty loan slot records a copy: the foe's tags plus `stolen`, a fidelity share of its coefficient (70 % base), half its cost share, a first firing at half its cooldown. The copy is an ordinary art for the copier: its cooldown, linh lực and all five layers are the copier's. One copy per art id; a full hand loses the oldest copy; soul, ward and escape arts cannot be copied; copies end with the fight.
+- **Why the build needs it:** it is the whole of The Hollow Thief; nothing today lets one side use the other side's art.
+- **Trade-off:** it makes a fight depend on what the foe casts, so a simulator must model the foe's casts as events; a foe with no art gives nothing, which is the intended counter. It can feed back on itself (two thieves copying each other), so one copy per art id and the fidelity cap matter.
+
+### art-thief: The foe's art list known before the fight
+
+- **Kind:** Rule change
+- **Touches:** `design/gdd/combat.md` Open Question 4 (what a character can read about the foe while preparing), rule 12 (blind fights)
+- **Proposal:** Allow a preparation piece to read the foe's most costly known art. In a blind fight it reads nothing unless a formation says so (the Standing Array keystone).
+- **Why the build needs it:** Pre-Read, the Nguyên Anh answer to the slow start.
+- **Trade-off:** it adds information to preparation and gives scouts a reason to exist, and it could trivialise ambushes unless blind fights stay blind.
+
+### pacifist: Opposed cost payment (Debt Seal, Interest)
+
+- **Kind:** change to an existing rule
+- **Touches:** `design/gdd/effects.md` (Blood Casting, rule 11 pay-in-health) and `design/gdd/combat.md` rule 11 (linh lực as one pool)
+- **Proposal:** an Effect on one side can make the other side pay a share of each art's cost in health, per stack, capped at 10 stacks and 50 % of a cost; and a second Effect returns 20 % of the linh lực the other side spends, up to 2 % of maximum a pulse.
+- **Why the build needs it:** it is the only thing in the build that wounds the foe, and it is the engine.
+- **Trade-off:** it puts a health cost on NPC casters, so anti-caster builds are stronger against caster sects; the simulator needs a new foe-side field to test it.
+
+### pacifist: Flight is a win
+
+- **Kind:** change to an existing rule
+- **Touches:** `design/gdd/combat.md` Escape (lines about "the fight ends in flight with no winner")
+- **Proposal:** when the fleeing side's opponent holds Open Palm Vow, the fight ends as a win for the opponent. A forced escape (Dread of the Ledger) starts the foe's escape channel at 8 or more Seals and half health.
+- **Why the build needs it:** "outlast them until they flee" is only a win if the rules call it one.
+- **Trade-off:** flight with no winner exists so callers can treat it as a failure; the proposal narrows that for one enabler. Soul Pressure builds would want the same.
+
+### pacifist: Borrow attack into ward strength
+
+- **Kind:** new rule
+- **Touches:** `design/gdd/combat-defence.md` Formulas A0 (ward and body layers)
+- **Proposal:** Unspent Edge: the character's `attack_pct` counts 50 % as ward strength and body strength.
+- **Why the build needs it:** its offence is zero by the Vow, so every attack bonus on gear would otherwise be wasted.
+- **Trade-off:** it makes attack gear a defence source for any build that wears it, which can bring up defence above its offence twin, against Combat rule 18.

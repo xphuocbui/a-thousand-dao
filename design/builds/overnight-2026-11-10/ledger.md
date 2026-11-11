@@ -25,6 +25,20 @@
 | The Winnowing Gale (Dương Khang Phong) | Art hit, many and small: six cheap, quick Wind arts at `cooldown_min` plus the basic attack, 13 hits a second at Nguyên Anh; per-hit sustain and Wind stacks paid per hit | None (a stack; one named fan carries the +1 slot) | Slipstream (Thuận Phong) | [cooldown-floor.sheet.md](builds/cooldown-floor.sheet.md) |
 | The Slow Thunder (Trì Lôi) | Art hit, few and huge: three cheap slow Lightning peals (8, 10, 12 s at cost 0.02, the lint's best coefficient per linh lực) and a herald; the full pool is a full ward, its overflow heals and loads the 12 s peal, and the single huge hit overdraws drain wards | None (a stack, plus one identity Effect) | Thunderhead (Tích Lôi Vân) | [slow-thunder.sheet.md](builds/slow-thunder.sheet.md) |
 | The Needle Under the Mountain (Sơn Hạ Châm) | Art hit, Physical with Metal, few and heavy, built for one realm up: pierce to the cap (suppression), past it (penetration) and as soul resistance; an L5 that exists only against a higher foe | Half a Realm (Bán Cảnh): against a foe 1–2 realms above, both sides strike half a realm closer (×1.585 / ÷1.585); closes: a quarter realm down (÷1.26) against equals and lower | Half a Realm (Bán Cảnh) | [giant-killer.sheet.md](builds/giant-killer.sheet.md) |
+| The Hearth Keeper (starter-flame) | Tick (Burn), cheap Fire art hits | Embers Feed the Hearth | Embers Feed the Hearth | starter-flame.sheet.md |
+| The Patient Wall (Nại Bích) | Basic attack and art hit, defence-led | None | Packed Earth Stance (Earth stack wall) | [starter-wall.sheet.md](starter-wall.sheet.md) |
+| The Quiet Vine (starter-venom) | Tick (Poison) | None | Rot Bloom with Long Roots | [starter-venom.md](starter-venom.md) |
+| The Whetted Edge (starter-blade) | Art hit and basic attack, with crit | Whetted Edge (an Effect, no enabler item) | Whetted Edge | [starter-blade.sheet.md](starter-blade.sheet.md) |
+| The Brimming Tide (starter-tide) | Art hit, Water, with a pool-fed ward | None | Brimming Cup | [starter-tide.sheet.md](starter-tide.sheet.md) |
+| The Red Hearth Ladder (sect archetype) | Tick (Burn), Fire art hits | None | Embers Feed the Hearth | [sect-ladder.md](sect-ladder.md) |
+| The Mirror Hide (Kính Bì) | Return (new channel) | Mirror-Scale Hide | The Return channel | [mirror-hide.sheet.md](mirror-hide.sheet.md) |
+| Drifting Wind Dancer (Phiêu Phong Vũ Giả) | Art hit (Wind), small trigger | Unstruck Body | Evade Pays | [evade-dancer.md](evade-dancer.md) |
+| The Hundred-Ailment Ledger (status-collector) | Art hit (one count-reading hit) | Tally Gourd | Tally Ten | [status-collector.md](status-collector.md) |
+| The Nine-Gate Warden (boss) | Art hit, phase wards | Nine-Gate Seal | Gate Turning | [deity-warden.md](deity-warden.md) |
+| The Open Ledger (Khai Bạ) | Art hit (Metal) | Ledger Seal | Dear Blood | [meta-hunter.md](meta-hunter.md) |
+| The Loaded Dice (Quán Cốt) | Art hit, crit by counted meter | The Loaded Table | The Loaded Table (fortune feeds the counted meters) | [loaded-dice.md](loaded-dice.md) |
+| The Hollow Thief (Hư Thủ Thâu Pháp) | Art hit (copied arts) | Borrowed Hand | Borrowed Weight | [art-thief.sheet.md](art-thief.sheet.md) |
+| The Unquarrelling Ledger (Bất Tranh Trướng) | Foe's own cost (stack, curse, pay in health) | Open Palm Vow | Debt Seal | [pacifist.md](pacifist.md) |
 
 ## Modifiers
 
@@ -35,8 +49,8 @@
 | Banked Coals (Than Ủ) | More | tick [burn] | L2 | Fits today | two-clocks | any Burn build | proposal (staging) |
 | Fuel for the Fire (Tân Hỏa) | Per (Effect) | tick [burn] | L5 | Needs rule | two-clocks (from by-root dual-wood-fire) | any Wood-Fire stack build | reused, by-root |
 | Bare Vessel (Lộ Đỉnh) | Conditional (Effect) | tick, via the Incense Clock | L5 | Needs key | two-clocks (also Burial Shroud, Ninth Bell in the content ledger) | any ward-breaker | reused, content ledger |
-| Rot Deepens (Thi Độc Thâm) | More | tick [poison] | L2 | Needs key | two-clocks (also Burial Shroud) | any poison build | reused, content ledger |
-| Corpse-Wax Coating (Thi Lạp) | More | tick, prepared | L4 | Needs key | two-clocks (also Burial Shroud) | any poison build | reused, content ledger |
+| Rot Deepens (Thi Độc Thâm) | More | tick [poison] | L2 | Needs key | two-clocks (also Burial Shroud), starter-venom | any poison build | reused, content ledger |
+| Corpse-Wax Coating (Thi Lạp) | More | tick, prepared | L4 | Needs key | two-clocks (also Burial Shroud), starter-venom | any poison build | reused, content ledger |
 | Spillover (Dật Độc), #44 form | Overflow (Effect) | tick → linh lực | none | Fits today (designed in effects.md) | two-clocks | any poison build | in the Effects GDD |
 | Kindled Wound (Trì Nhiệt), Marked Prey (Tiêu Ký) | Conditional, Scaling (Effects) | tick via the Incense Clock | L5 | Fits today (designed), Needs rule to reach ticks | two-clocks | Fire, status builds | in the Effects GDD |
 | Damage over time, poison, stack effect, stack duration, penetration [fire]/[chaos] | Increased, flat | tick | L1, none | Fits today (Modifier System, Designed) | two-clocks | any tick build | in the Modifier System |
@@ -70,7 +84,7 @@
 | Basic attack speed (Khoái Quyền), `basic_speed_pct` | Increased (timing) | basic | none | Needs rule | bare-fist | starter-blade, per-hit-ward breakers | proposal (staging; Modifier System row Pending) |
 | Quiet Channels (Tĩnh Mạch) | Per (Effect, minor) | regeneration → Stored Breath | none | Fits today | bare-fist | unkillable, pacifist, Guide Hound, ward casters | proposal (staging) |
 | Settled Dust (Lắng Trần) | Trigger (Effect, minor) | basic → Earth buff | none | Fits today | bare-fist | starter-wall, mirror-hide | proposal (staging) |
-| Full Sea (Mãn Hải) | Conditional (keystone) | basic | L5 (+30 while linh lực ≥ 80 % of usable) | Needs key | bare-fist | Full Sea's own "efficient, cheap arts" family | reused, tree catalogue (size is this build's guess) |
+| Full Sea (Mãn Hải) | Conditional (keystone) | basic | L5 (+30 while linh lực ≥ 80 % of usable) | Needs key | bare-fist, starter-tide | Full Sea's own "efficient, cheap arts" family | reused, tree catalogue (size is this build's guess) |
 | Steady Breath [basic], Bare Rack [basic], Elemental Fist, Still Water, Unyielding Breath | Conditional, Scaling, Rule change, Overflow, Keystone (Effects) | basic, survival | L5, none | Fits today (effects.md Starter Effects) | bare-fist | martial, ward and body builds | in the Effects GDD |
 | Ringing Ground (Hưởng Địa), via Nine Rods Array | More | basic (it carries the `art` tag) | L4 | Needs key | bare-fist (also first-volley, dry-well; Ninth Bell) | any prepared art build | reused, staging and tree catalogue |
 | Iron-Sand Hand Bath (Thiết Sa Dục Thủ) | More | basic, body hits, prepared | L4 | Needs key | bare-fist | any thể tu | reused by name from the 2026-11-07 ledger (staged) |
@@ -163,6 +177,62 @@
 | Mountain Notches (Sơn Ngân) | Per (Effect) | whole hit | none | Needs rule | giant-killer | Hiệp Đạo duellists, bounty hunters | proposal (staging) |
 | Ore Weight; Cold Iron Order; Nine Rods Array; Iron-Sand Hand Bath (reused) | More | art hit | L2, L4 | as staged | giant-killer (added to Used by) | as staged | proposal (staging) |
 | `pierce_pct`, `resist_pen_pct` [physical], `accuracy_pct`, `soul_res_pct`, `than_thuc_pct`, `attack_pct` [physical] and [kim], crit; Beneath Notice | Increased, Flat; Conditional (existing Effect) | any | L1, outside M | Fits today / Needs key (scoped rows) | giant-killer | every vượt cấp build | in the game (designed keys; Effects starter) |
+| Fire damage | Increased | art, tick | L1 | Needs key | starter-flame | any Fire build | catalogue row |
+| Fire art cost | Increased | art | none | Needs key | starter-flame | any one-tag build | catalogue row |
+| Status duration | Increased | tick | none | Needs key | starter-flame | any status build | catalogue row |
+| First Move (Tiên Thủ) | Timing | art | none | Needs key | starter-flame | alpha-strike builds | catalogue keystone |
+| Kindled Wound (Trì Nhiệt) | Conditional | art | L5 | Fits today | starter-flame | any Burn build | in effects.md |
+| Stone Does Not Hurry (Thạch Bất Cấp) | Per | basic | L2 | Needs key | starter-wall | any Late Bloom build | proposal |
+| Sustained Note (Dư Âm) | Per | art | L2 | Needs key | starter-wall | Ninth Bell | proposal |
+| Patient Venom (Nhẫn Độc) | Per | tick | L2 | Needs rule | starter-venom | any stack builder | proposal |
+| Watched Rot (Quan Hủ) | Conditional | any | none | Needs key | starter-venom | any stack builder | proposal |
+| Damage over time | Increased | tick | L1 | Needs key | Burial Shroud, starter-venom | any poison build | catalogue row |
+| Drawn Steel (Xuất Thiết) | More | art | L2 | Needs key | starter-blade | any Kiếm Đạo or armoury build | proposal |
+| Edge Spills Over (Phong Dật) | Overflow | art, basic | outside M | Needs rule | starter-blade | any crit build | proposal |
+| Hot Edge (Nhiệt Phong) | Conditional | art, basic | L5 | Needs rule | starter-blade | any crit build | proposal |
+| Still Water (Tĩnh Thủy) | Conditional | ward | W5 | Needs rule | starter-tide | any pool-fed ward build | proposal |
+| Depth Is Shield (Uyên Thành Thuẫn) | Borrow | ward | W2 | Needs rule | starter-tide | any deep-pool build | proposal |
+| Water damage | Increased | art | L1 | Needs key | starter-tide | any Water build | catalogue row |
+| Deep Heat (Nhiệt Thâm) | Per | tick | L2 | Needs key | Red Hearth Ladder, sect-ladder | any Burn build | proposal |
+| Return Share (Phản Lượng) | Flat base | return | none | Needs key | Mirror Hide, mirror-hide | any thorns build | proposal |
+| Return Damage (Phản Thương) | Increased | return | L1 | Needs key | Mirror Hide, mirror-hide | Thorns (Kinh Thứ) builds | proposal |
+| Return More (Phản Trọng) | More | return | L2 | Needs key | Mirror Hide, mirror-hide | any Mirror Ward build | proposal |
+| Hide Hardens (Bì Cứng) | Per | return | L2 | Needs key | Mirror Hide, mirror-hide | any block build | proposal |
+| Tick Return Weight (Dư Thương) | Per | return | none | Needs key | Mirror Hide, mirror-hide | any poison-resist build | proposal |
+| Return Cap Shift (Phản Hạn) | Cap shift | return | none | Needs key | Mirror Hide, mirror-hide | any return build | proposal |
+| Surplus Breeze (Dư Phong) | Overflow | art | none | Needs rule | evade-dancer | any evade or crit-over-cap build | proposal |
+| Wind-Fed Edge (Phong Dưỡng Nhận) | Per | art | L2 | Needs key | evade-dancer | any Wind-stack build | proposal |
+| Rhythm of the Miss (Hụt Tiết) | Conditional | art | L5 | Needs rule | evade-dancer | any dodge or counter build | proposal |
+| Veiled Aim (Mạc Chuẩn) | Flat base | all | none | Needs key | evade-dancer | any evade or ward build | proposal |
+| Crowded Ledger (Chúng Bệnh) | Per | art | L2 | Needs rule | status-collector | Curse-engine | proposal |
+| Thrifty Brand (Tiết Ấn) | Increased | art | none | Needs key | status-collector | starter-venom, curse-engine | proposal |
+| Extra Curse Slot (Thêm Chú Vị) | Cap shift | any | none | Needs key | status-collector | Curse-engine | proposal |
+| Tally Ten (Thập Kết) | Cap shift | art | L5 | Needs rule | status-collector | any Marked Prey build | proposal |
+| Rolling Refresh (Lan Bệnh) | Trigger | any | none | Needs rule | status-collector | starter-venom | proposal |
+| Fast-Art Ward (Khoái Kích Hộ) | More | art, basic | W2 | Needs key | deity-warden | any anti-flurry defender | proposal |
+| Lustral Share (Tẩy Phần) | Increased | stacks | none | Needs key | deity-warden | any cleanser | proposal |
+| Bare Gate (Lộ Quan) | Conditional | art | L5 | Needs key | deity-warden | any no-ward build | proposal |
+| Whetted Edge (Lợi Nhận) | More | art | L2 | Needs key | meta-hunter | any Metal build | proposal |
+| Spent Blood (Huyết Phí) | Per | art | L2 | Needs rule | meta-hunter | any build facing a health-payer | proposal |
+| Hounds on the Scent (Truy Tung) | Per | art | L5 | Needs rule | meta-hunter | any status-stacking build | proposal |
+| Spilled Ink (Dật Mặc) | Overflow | any | none | Needs rule | meta-hunter | any leech or on-hit build | proposal |
+| Stacked Meter (Tích Tiết) | Per | art | L2 | Needs key | loaded-dice | any counted-chance build | proposal |
+| Spilled Luck (Dật Phúc) | Overflow | art, basic | none | Needs rule | loaded-dice | any crit build with a chance cap | proposal |
+| Loaded Start (Quán Khởi) | Timing | any | none | Needs rule | loaded-dice | any counted-chance build | proposal |
+| Flowing Water (Lưu Thủy) | Trigger | art | none | Needs rule | loaded-dice | any crit chain | catalogue row |
+| Art damage | More | art | L2 | Needs key | loaded-dice | any art build | catalogue row |
+| Faithful Copy (Chân Bản) | Flat base | art (copy) | none | Needs key | art-thief | any clone or likeness build | proposal |
+| Warm Hand (Nhiệt Thủ) | Timing | art (copy) | none | Needs key | art-thief | any opening-speed build | proposal |
+| Pilfered Craft (Thâu Công) | More | art (copy) | L2 | Needs key | art-thief | any mimic or companion-art build | proposal |
+| Borrowed Weight (Mượn Trọng) | Per | art (copy) | L2 | Needs key | art-thief | signature | proposal |
+| Full Hand (Mãn Thủ) | Conditional | art (copy) | L5 | Needs key | art-thief | any full-loadout build | proposal |
+| Hollow Guard (Hư Hộ) | Conditional | ward | W2 | Needs rule | art-thief | Clear Path and Quiet Channels builds | proposal |
+| Own Medicine (Dĩ Độc Công Độc) | More | art (copy) | none | Needs key | art-thief | any build against a resistant foe | proposal |
+| Wide Sleeve (Khoan Tụ) | Cap shift and Trade | none | none | Needs key | art-thief | any slot bender | proposal |
+| Stolen Breath (Tá Tức) | Trigger | art (copy) | none | Needs key | art-thief | any leech build | proposal |
+| Deeper Frost (Hàn Thâm) | Increased | stack | none | Needs key | pacifist | any ice build | proposal |
+| Long Frost (Hàn Kéo Dài) | Increased | stack | none | Needs key | pacifist | any stack build | proposal |
+| Patient Ward (Nhẫn Hộ) | Per | ward | W2 | Needs key | pacifist | Late Bloom builds | proposal |
 
 ## Enablers
 
@@ -178,6 +248,17 @@
 | Garrison Mind (Thủ Khố Tâm) | Free channel: a status engine with no art slot (Effect, enabler) | Pass-Garrison Armoury Scripture (Thiên L11, Địa L9); Kim Đạo capstone (Binh Khố) | Each controlled weapon piece strikes each pulse (free hit, `c_trig` 0.3) and lays 1 Metal stack for 6 s; `trig_cap` 6 | Thinned Mind: against soul hits only free thần thức plus half the bound defends | armoury-mind | proposal (staging) |
 | Vow of the One Stroke (Nhất Chiêu Thệ) | Slot bender (Effect, enabler) | Whetstone Scripture (layer 1); Đại Đạo capstone | Room to Grow: the one art's coefficient +0.4 per empty art slot past the lint, cap +2.8 | One art only: no second art, talisman, escape art or art-slot ward | one-art | proposal (staging) |
 | Half a Realm (Bán Cảnh) | Rule swap (Effect, enabler) | Iron Pestle Scripture (layer 1); Nghịch Đạo capstone | Against a foe 1–2 major realms above: your hits struck at U × 1.585, theirs at U ÷ 1.585 (the fight-unit gap in fight power ×6.31 → ×2.51) | Against your realm or below: your hits struck at U ÷ 1.26 | giant-killer | proposal (staging; Needs rule) |
+| none |  |  |  |  | starter-wall, starter-tide |  |
+| Whetted Edge (Mài Phong) | Loop opener (an Effect) | Plain Iron Sword Manual, layer 4 | Crit gives a Whet stack, +2 pp crit chance each, max 8 | Stacks lapse after 6 s without a crit; no defensive bonus | starter-blade | proposal |
+| (none) |  |  |  |  | sect-ladder |  |
+| Mirror-Scale Hide (Kính Lân Giáp) | New channel | Named body armour | The Return channel at 30 % | Wards and evade | Mirror Hide, mirror-hide | proposal |
+| Unstruck Body (Bất Xúc Thân) | New channel | Reed-Shadow Scripture layer 6 | the hit-evaded event, Evade Pays, Reply, Carried Off | soul resistance 0, no soul ward | evade-dancer | proposal |
+| Tally Gourd (Kết Sổ Hồ Lô) | Loop opener | Named artifact, `ho_lo` | A free batch of Qi Disruption, Bleed, Exposed after an art applies a status | −30 % direct damage on status arts, a curse slot, 25 thần thức | status-collector | proposal |
+| Nine-Gate Seal (Cửu Quan Ấn) | Rule swap | Named artifact | phase clock and purge bell | the Toll gap | deity-warden | proposal |
+| Ledger Seal (Bạ Ấn) | Rule swap and loop opener | Named artifact, `an` | The entries rule: Dear Blood, Called Debt, Spent Blood, Clean Ledger | No health-paid costs, no Stagnation applied | meta-hunter | proposal |
+| The Loaded Table (Quán Bàn) | Scaling bridge | Mệnh Đạo capstone keystone | Counted evade; khí vận adds up to +0.15 to every counted chance | No escape art; fortune no longer shifts rolled chances | loaded-dice | proposal |
+| Borrowed Hand (Tá Thủ) | Slot bender and Borrow | Hollow Hall Sutra, layer 4 ability | Loan slots that copy the foe's casts | The slots, soul, ward and escape arts, a foe with no art | art-thief | proposal |
+| Open Palm Vow (Bất Tranh Thệ) | Free channel | Technique ability, layer 9 | Basic attack lays a Debt Seal | All direct damage | pacifist | proposal |
 
 ## Other pieces
 
@@ -185,7 +266,7 @@
 |---|---|---|---|---|
 | Green Flame Scripture (Thanh Diễm Quyết / Thiên Kinh) | Technique, main, moc + hoa | Needs key | two-clocks (name from by-root dual-wood-fire) | proposal (staging) |
 | Ember Rain, Rot Seed, Red Censer, Green Censer, Spring Sap | Arts | Fits today | two-clocks | proposal (staging) |
-| Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô) | Meridian Map keystone | Needs rule | two-clocks (from by-root single-fire) | reused, by-root |
+| Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô) | Meridian Map keystone | Needs rule | two-clocks (from by-root single-fire), starter-flame | reused, by-root |
 | Hỏa Đạo Tro Tàn: Ash Ledger notable; Độc Đạo Nọc: Spillover notable | Đạo pieces | Needs rule / Fits today | two-clocks | proposal (staging) |
 | Common Ward, Mountain Screen, Golden Light Shield, Clear Heart Ward, Thousand-Layer Cloud | Wards | Fits today (combat-defence.md Formulas H) | two-clocks | in the defence GDD |
 | Lôi Đế Chân Kinh abilities (the template is in the game; its abilities are new) | Technique, main, loi, Địa giai | Needs key | first-volley | proposal (staging) |
@@ -293,6 +374,92 @@
 | Ant's Ladder (Nghĩ Thê) | Tree region idea | Needs key | giant-killer | proposal (staging) |
 | Ore-Vein Scripture (reused, secret art) | Technique | as staged | giant-killer (added to Used by) | proposal (staging) |
 | Golden Bell, Soul-Guarding Lamp, Common Ward, Clear Heart Ward; generated `giap`, `chuong` pieces | Wards; artifacts | Fits today | giant-killer | in the game (defence GDD; item data) |
+| Khơi Hỏa Sơ Quyết (Kindling Breath Primer) | Technique | Fits today | starter-flame | proposal |
+| Spark Palm, Kindling Seal, Flame Lance, Warm the Hearth | Arts | Needs key | starter-flame | proposal |
+| Xích Lô Trượng (Ember Rod) | Artifact | Needs key | starter-flame | proposal |
+| Noãn Lô Đan (Hearth-Warming Pill) | Pill | Needs key | starter-flame | proposal |
+| Tụ Hỏa Trận (Gathering Flame Array) | Formation | Needs key | starter-flame | proposal |
+| Kindled Meridians (Hỏa Mạch Thiêu) | Cluster idea | Needs key | starter-flame | proposal |
+| Packed Earth Stance, Tremor Palm, Mending Breath | Arts | Needs key | starter-wall | proposal |
+| Settled Earth (Định Thổ) | Cluster idea | Needs key | starter-wall | proposal |
+| Quiet Vine Sutra (Tĩnh Đằng Kinh) | Technique | Needs key | starter-venom | proposal |
+| Thorn Seed, Weeping Sap, Rot Bloom, Venom Tithe | Arts | Needs key | starter-venom | proposal |
+| Seeds Left Behind (Di Chủng) | Effect | Needs rule | starter-venom | proposal |
+| Bitterroot Pill (Khổ Căn Đan) | Pill | Needs key | starter-venom | proposal |
+| Bitter-Thorn Needle, Mossback Vest | Artifacts | Fits today | starter-venom | proposal |
+| Bitter Sap Row (Khổ Dịch) | Cluster idea | Needs key | starter-venom | proposal |
+| Wood Way, Quiet Vine branch | Đạo proposal | Needs key | starter-venom | proposal |
+| Plain Iron Sword Manual (Phác Thiết Kiếm Quyết) | Technique | Needs key | starter-blade | proposal |
+| Returning Sword Light, Quick Draw Cut, Notch the Foe, Ten Thousand Returns, Sheathe and Breathe | Arts | Needs key | starter-blade | proposal |
+| Wren-Feather Flying Sword (Yến Vũ Phi Kiếm) | Named artifact | Fits today (base), Needs key (affixes) | starter-blade | proposal |
+| Whetstone Oil (Ma Du) | Coating | Needs key | starter-blade | proposal |
+| Clear-Edge Pill (Minh Phong Đan) | Pill | Needs key | starter-blade | proposal |
+| Whetstone Row (Ma Thạch Hàng) | Cluster idea | Needs key | starter-blade | proposal |
+| Kiếm Đạo, Kiếm Ý facet: Edge Spills Over and Hot Edge | Đạo notables | Needs rule | starter-blade | proposal |
+| Reading the Tide Canon (Độc Triều Kinh) | Technique | Needs key | starter-tide | proposal |
+| Tide Pulse, Deep Well Seal, Drawing Breath | Arts | Needs key | starter-tide | proposal |
+| Tide-Bound Gourd (Hệ Triều Hồ Lô) | Artifact | Needs key | starter-tide | proposal |
+| Still Pool Array (Tĩnh Trì Trận) | Formation | Needs key | starter-tide | proposal |
+| Clear-Spring Pill (Thanh Tuyền Đan) | Pill | Needs key | starter-tide | proposal |
+| Full Cistern (Mãn Trì) | Cluster idea | Needs key | starter-tide | proposal |
+| Thủy Đạo Uyên and Triều nodes | Đạo proposal | Needs rule | starter-tide | proposal |
+| Red Hearth True Canon (Xích Lô Chân Kinh) | Technique | Needs key | Red Hearth Ladder, sect-ladder | proposal |
+| Kindle Palm, Red Lotus Ring, Cinder Lance, Hearth Banner | Arts | Needs key | Red Hearth Ladder, sect-ladder | proposal |
+| Red Hearth Robe (Xích Lô Môn Phục) | Artifact (generated giáp) | Fits today | Red Hearth Ladder, sect-ladder | proposal |
+| Hearth Keeper's Line (Lô Thủ Mạch) | Cluster idea | Needs key | Red Hearth Ladder, sect-ladder | proposal |
+| Mirror-Skin Hundred Tempering Scripture (Kính Bì Bách Luyện Kinh) | Technique | Needs key | Mirror Hide, mirror-hide | proposal |
+| Needle Mark, Open the Mirror, Offering Cut, Thorn Chorus | Arts | Needs key, Needs rule | Mirror Hide, mirror-hide | proposal |
+| Held Reflection, Self-Wound Counts, Boil Returned, Bait | Effects | Needs rule | Mirror Hide, mirror-hide | proposal |
+| Echo-Wall Array, Bruise-Blossom Pill, Quiet Mirror Talisman | Formation, pill, talisman | Needs key | Mirror Hide, mirror-hide | proposal |
+| Scarred Hide (Sẹo Bì) | Cluster idea | Needs key | Mirror Hide, mirror-hide | proposal |
+| Nhân Quả Đạo, Retribution branch nodes | Đạo proposal | Needs rule | Mirror Hide, mirror-hide | proposal |
+| Evade Pays, Reply, Carried Off | Effects | Needs rule | evade-dancer | proposal |
+| Reed-Shadow Scripture (Lô Ảnh Kinh) | Technique | Needs key | evade-dancer | proposal |
+| Reed-Cutting Breeze, Hollow Step, Falling Leaf, Scatter Gale, Gale Crown | Arts | Needs key | evade-dancer | proposal |
+| Cicada-Wing Sash, Clear-Breeze Pill, Crosswind Array | Artifact, pill, formation | Needs key | evade-dancer | proposal |
+| Drift Facet lines (Phong Đạo) | Đạo piece | Needs key | evade-dancer | proposal |
+| Reed Drift (Lô Phiêu) | Cluster idea | Needs key | evade-dancer | proposal |
+| Hundred-Ailment Register Canon (Bách Bệnh Chân Kinh) | Technique | Needs key | status-collector | proposal |
+| Two Variants Pamphlet (Nhị Biến Tiểu Sách) | Technique | Needs key | status-collector | proposal |
+| Ember, Cracked-Earth, Cold-Iron, Bitter-Sap, Thread-Lightning, Rime Brands; Ledger Reckoning | Arts | Needs key | status-collector | proposal |
+| Registrar's Needle, Hospice Ward Robe | Artifacts | Fits today | status-collector | proposal |
+| Hundred-Herb Pill (Bách Thảo Đan) | Pill | Needs key | status-collector | proposal |
+| Many Hands (Quần Thủ) | Cluster idea | Needs key | status-collector | proposal |
+| Độc Đạo, Ôn Dịch facet nodes | Đạo proposal | Needs rule | status-collector | proposal |
+| Nine Thresholds Scripture (Cửu Quan Kinh) | Technique | Needs key | deity-warden | proposal |
+| Gate Hammer, Closing Palm, Lustral Bell, Deaf Verdict, Open Hand Reckoning | Arts | Needs key | deity-warden | proposal |
+| Turning Key (Chuyển Quan Thược) | Artifact | Needs rule | deity-warden | proposal |
+| Toll Array (Đối Quan Trận) | Formation | Needs key | deity-warden | proposal |
+| Gate Turning, Lustral Toll | Effects | Needs rule | deity-warden | proposal |
+| Turning Year (Luân Niên) | Cluster idea | Needs rule | deity-warden | proposal |
+| Dear Blood, Called Debt, Clean Ledger | Effects | Needs rule | meta-hunter | proposal |
+| Open Ledger Sutra (Khai Bạ Kinh) | Technique | Needs key | meta-hunter | proposal |
+| Whetted Tally, Closing the Book, Writ of Reckoning, Clean the Page, Ink-Line Breath, Bloodhound's Count | Arts | Needs key | meta-hunter | proposal |
+| Clear-Bile Pill, Ledger-Hall Array | Pill, formation | Needs key | meta-hunter | proposal |
+| Steady Hand (Ổn Thủ) | Cluster idea | Needs key | meta-hunter | proposal |
+| Kim Đạo: Whetted Edge, Clean Hand | Đạo proposal | Needs key | meta-hunter | proposal |
+| Nine-Bone Ledger Sutra (Cửu Cốt Toán Kinh) | Technique | Fits today | loaded-dice | proposal |
+| Cast the Bones, Counting Blade, Thunder Debt, Winnings, Raise the Stakes | Arts | Fits today | loaded-dice | proposal |
+| House Takes All (Nhà Cái Thắng), Cash Out | Art, Effect | Needs rule | loaded-dice | proposal |
+| Jackpot (Đại Phát) | Effect | Needs rule | loaded-dice | proposal |
+| Ledger-Bone Dice (Toán Cốt Tử) | Named artifact | Fits today | loaded-dice | proposal |
+| Nine-Star Array (Cửu Tinh Trận), Borrowed Luck Talisman, Sparrow-Luck Pill | Formation, talisman, pill | Needs key | loaded-dice | proposal |
+| Gambler's Row (Phố Cược) | Cluster idea | Needs key | loaded-dice | proposal |
+| Mệnh Đạo, Định Mệnh and Khí Vận nodes (Open Book, Tally Keeper, Spilled Luck, House Edge, Jackpot, Loaded Table) | Đạo nodes | Needs rule | loaded-dice | proposal |
+| Hollow Hall Sutra (Hư Đường Kinh) | Technique | Needs rule | art-thief | proposal |
+| Hollow Palm, Still Pool Mending | Arts | Needs key | art-thief | proposal |
+| Spent Hand, Pre-Read | Effects | Needs rule | art-thief | proposal |
+| Thousand-Hands Gauntlet, Bare-Scroll Robe | Artifacts | Needs key | art-thief | proposal |
+| Mirror-Study Array | Formation | Needs rule | art-thief | proposal |
+| Still-Mind Pill | Pill | Fits today | art-thief | proposal |
+| Hollow Hall (Hư Đường) | Cluster idea | Needs key | art-thief | proposal |
+| Hidden Hand, True Hand, The Empty Becomes Full | Đạo nodes (Hư Thực Đạo) | Needs rule | art-thief | proposal |
+| Debt Seal, Interest, Backlash Count, Unspent Edge, Dread of the Ledger | Effects | Needs rule | pacifist | proposal |
+| Still Pond Ledger Sutra (Tĩnh Trì Trướng Kinh) | Technique | Needs key | pacifist | proposal |
+| Cold Ledger, Silent Tally, Still Tide, Closing the Book | Arts | Needs key, one Needs rule | pacifist | proposal |
+| Silent Pond Array, Ledger Slip Talisman | Formation, talisman | Needs key | pacifist | proposal |
+| Dried Pond Ledger (Đồ Hội Thổ) | Cluster idea | Needs key | pacifist | proposal |
+| Nhân Quả Đạo, Nợ facet notables | Đạo nodes | Needs rule | pacifist | proposal |
 
 ## New concepts
 
@@ -350,3 +517,23 @@
 | Readable: higher-realm knockouts this life | effects.md rule 5 | giant-killer (Mountain Notches); bounty hunters; duellist NPCs | suggestion |
 | Readable: the target is a boss | effects.md rule 5 | giant-killer (Hóa Thần arc); any boss hunter | suggestion |
 | Gap readers stop at two | effects.md rule 5; combat.md Formulas H target | giant-killer; every future vượt cấp Effect | suggestion |
+| Target's Poison stacks readable | modifiers.md Per form; effects.md rule 9a | starter-venom, any stack builder | Question for the user |
+| Cleanser telegraph | Combat rule 12, Guidance Layer | starter-venom, any status build | Question for the user |
+| Crit as an event with self-stacks | effects.md events, combat.md rule 8 | starter-blade, any crit build | Question for the user |
+| Overflow on the crit-chance cap | combat.md rule 8, Formulas C | starter-blade, any crit build | Question for the user |
+| Pool share read by a ward | combat-defence.md Formulas A | starter-tide, any pool-fed ward build | Question for the user |
+| Sect curriculum (Môn Quy Giáo Trình) | NPC Builds (#24) and Sects & Missions (#26) | every sect archetype, rogue generation | Question for the user |
+| Return channel (Phản) | Combat Formulas G2 | Mirror Hide, any Thorns or Mirror Ward build | Question for the user |
+| Incoming hit readable | Combat Defence & Healing rule 1 | Mirror Hide, any reactive ward | Question for the user |
+| Hit-evaded event | Combat Formulas I and Effects rule 9 | evade-dancer, block or counter builds | Question for the user |
+| Distinct-status roster (the twelve) | Effects System, Marked Prey "distinct statuses" | status-collector, Curse-engine, starter-venom | Question for the user |
+| Phase script (Luân Môn) | Combat rule 10, Combat Defence rule 1 | deity-warden, any phase boss, Thiên Kiếp waves | Question for the user |
+| Ward-swap gap (Toll) | Combat Defence rule 1 | deity-warden, Turning Key | Question for the user |
+| Quarry knowledge | Combat rule 12 | meta-hunter, any sect archetype with a named enemy | Question for the user |
+| Incoming status stack cap | Effects rule 9 | meta-hunter, any anti-curse build | Question for the user |
+| Counted payout event (Chi Trả) | Effects System rule 12 | Loaded Dice, any counted-chance build | Question for the user |
+| Fortune in the fight (Khí Vận Chiến) | Combat Formulas I | Loaded Dice, any fortune or escape build | Question for the user |
+| Loan slot (Tá Vị) | Combat rule 13 and rule 10 | art-thief, any counter-caster, NPC duellist sects | Question for the user |
+| Foe's art cast readable | Combat rule 10 | art-thief, reactive builds, Pre-Read | Question for the user |
+| Foe pays its costs in health | Effects System (Blood Casting rule) and Combat rule 11 | pacifist, anti-caster builds | Question for the user |
+| Flight is a win | Combat Escape rule | pacifist, Soul Pressure builds | Question for the user |

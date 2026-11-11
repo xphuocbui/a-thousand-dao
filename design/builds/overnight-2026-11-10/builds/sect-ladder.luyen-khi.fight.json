@@ -1,0 +1,20 @@
+{
+  "name": "sect-ladder-luyen-khi", "realm": "luyen_khi",
+  "layers": [10, 40, 40, 20, 0],
+  "art_speed_pct": 2, "art_cost_pct": 0,
+  "regen_bonus_pp": 0.2,
+  "keystones": {"k_burn": 0.3},
+  "purity": {"fire": 70},
+  "arts": [
+    {"id": "kindle-palm", "c_art": 1.4, "cost_share": 0.02, "cooldown": 2, "element": "fire", "kind": "elem",
+     "buff": [0, 0], "debuff": [2, 8], "x": [0, 0, 0, 0, 15]},
+    {"id": "red-lotus-ring", "c_art": 2.9, "cost_share": 0.04, "cooldown": 5, "element": "fire", "kind": "elem",
+     "buff": [2, 12], "debuff": [3, 10], "x": [0, 0, 0, 0, 15]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Kindled Wound applied unconditionally on damage arts",
+    "Embers Feed the Hearth modelled by k_burn 0.3; its closing cost is folded into the coefficients",
+    "At Qi Refining the disciple holds no ward gear, pill or array; typical L3 and L4 points are the anchor, so this file slightly flatters the build"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "starter-wall", "realm": "truc_co",
+  "layers": [90, 10, 0, 0, 0],
+  "crit": {"chance": 0.0, "mult": 1.5},
+  "n_body": 1.2, "n_qi": 1.1,
+  "art_speed_pct": 0, "art_cost_pct": 10, "art_cost_health_pct": 0,
+  "regen_bonus_pp": 2.5, "health_regen_pp": 1.5, "healing_pct": 20,
+  "evade_pct": 0, "accuracy_pct": 0,
+  "gain_on_hit_pct": 0, "leech_qi_pct": 0, "leech_health_pct": 0,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 45, "we": 30,
+           "layers": [50, 47, 20, 0], "block": 15},
+  "body": {"block": 30, "resistance": 25, "shield": 0.3, "layers": [50, 47, 20, 0]},
+  "cleanse": {"per_pulse": 0, "fee_share": 0, "share": 0.25},
+  "purity": {"earth": 50},
+  "bonus_slots": 0,
+  "arts": [
+    {"id": "packed-earth-stance", "c_art": 0.6, "cost_share": 0.03, "cooldown": 8, "element": "earth", "kind": "phys",
+     "buff": [8, 16], "debuff": [0, 0], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]},
+    {"id": "tremor-palm", "c_art": 1.8, "cost_share": 0.04, "cooldown": 3, "element": "earth", "kind": "phys",
+     "buff": [0, 0], "debuff": [2, 8], "c_heal": 0, "qi_restore": 0, "cleanse": 0, "x": [0, 10, 0, 0, 0]},
+    {"id": "mending-breath", "c_art": 0, "cost_share": 0.05, "cooldown": 6, "element": "earth", "kind": "phys",
+     "buff": [0, 0], "debuff": [0, 0], "c_heal": 4.0, "qi_restore": 0, "cleanse": 0, "x": [0, 0, 0, 0, 0]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Mending Breath guard (own health at or below 60 %): the simulator fires an art whenever it is off cooldown and affordable",
+    "Iron Skin Renewed (body shield regains 2 % of max health when an art with a Physical part fires)",
+    "Hộ Sơn Trận (formation, home ground only) and Kim Cương Phù talisman (prepared defence, blind fights)",
+    "Stone Does Not Hurry (new Per modifier on the basic attack, up to +12 % more): needs a key and is not in the file",
+    "Block, body resistance and ward are modelled by their nearest numbers; ward is a drain ward"
+  ]
+}
