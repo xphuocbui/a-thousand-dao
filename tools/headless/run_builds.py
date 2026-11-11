@@ -43,15 +43,14 @@ LIMIT_WAIT = 15 * 60
 
 ALLOWED = ",".join([
     "Read", "Glob", "Grep", "Edit", "Write", "Skill", "TodoWrite",
-    "Bash(python .claude/skills/design-build/scripts/fight_calc.py *)",
-    "Bash(python -I .claude/skills/design-build/scripts/fight_calc.py *)",
     "Bash(bash */.claude/skills/design-build/../../hooks/yaml-helper.sh *)",
     "Bash(bash .claude/hooks/yaml-helper.sh *)",
     "Bash(ls *)", "Bash(wc *)", "Bash(grep *)", "Bash(head *)",
 ])
-DISALLOWED = ",".join(["AskUserQuestion", "Agent", "Bash(git *)", "WebSearch", "WebFetch"])
+# No combat simulator in this run (user, 2026-11-11): python is blocked, so fight_calc.py cannot run.
+DISALLOWED = ",".join(["AskUserQuestion", "Agent", "Bash(git *)", "Bash(python *)", "WebSearch", "WebFetch"])
 
-SYSTEM = """You are running UNATTENDED overnight; the user is asleep and cannot answer. AskUserQuestion is
+SYSTEM = """You are running UNATTENDED; the user cannot answer. AskUserQuestion is
 unavailable. The project is in autonomous automation mode for this run (project.local.yaml).
 
 You are running the design-build skill for ONE build: slug `{slug}`. Goal: a build that makes the game
@@ -65,14 +64,22 @@ Overrides to the skill, in force for this session:
    the sheet under "Directions considered". Phases 4, 5 and 8 prompts: proceed as if the user chose [A].
 2. Outputs go to `{builds}/`, not design/builds/:
    - `{builds}/{slug}.sheet.md`: the skill's design sheet (assets/build-sheet-template.md).
-   - `{builds}/{slug}.fight.json`: the fight input. Run fight_calc.py on it as Phase 7 says.
+   - NO combat simulator in this run (user decision 2026-11-11). Do not write a fight input, do not run or
+     write any simulation script, and do not hand-simulate the fight second by second. In Phase 7 run every
+     check you can by reading the rules; mark "The fight" and the identity test NOT ASSESSED with the reason
+     "no simulator this run (user decision 2026-11-11)". Explain the engine in words and a few key numbers
+     taken straight from the GDD formulas.
    - `{builds}/{slug}.md`: a PLAYER GUIDE, written for a new player, plain language. Sections, in order:
-     "# <Build name> (<Hán-Việt>)" then a one-line pitch; "## Why it works" (the engine in plain words, and
-     the numbers that prove it from fight_calc); "## What to look for" (in the order a player finds them:
+     "# <Build name> (<Hán-Việt>)" then a one-line pitch; "## Why it works" (the engine in plain words, with
+     the few key numbers from the formulas); "## What to look for" (in the order a player finds them:
      spiritual root, talents, Đạo and nodes, công pháp, arts, items, enabler; mark each piece "in the game"
      or "not in the game yet (staged: <name>)"); "## The enabling Effects" (each Effect, what it does, why
      the build needs it); "## Modifiers to stack" (a priority list, most important first, with the layer
-     each fills and when to stop: caps, falling returns); "## Realm by realm" (what changes as it climbs);
+     each fills and when to stop: caps, falling returns); "## Upgrades to look for" (the player's shopping
+     list for improving the build: a table | Piece | Modifier or Effect | What it adds to this build | Where it
+     comes from (tree node or cluster, Đạo node, công pháp, item affix, named item, pill, formation) | In the
+     game or staged | Priority (core / strong / nice) |, at least 12 rows, both modifiers and Effects, core
+     first, including the pieces that turn a working build into a top-end one); "## Realm by realm" (what changes as it climbs);
      "## How it plays" (art order, loadout, the signature moment); "## What beats it" (real enemy types and
      how to adapt); "## Not in the game yet" (every staged piece this build needs); "## Changes the game
      would need" (new systems or changes to existing rules, each naming the GDD and rule; write "None" if
@@ -90,7 +97,9 @@ Overrides to the skill, in force for this session:
    re-read it right before each edit and keep each edit small.
 5. System suggestions: if the build needs a new system or a change to an existing rule, write it in the
    guide's last section AND append to `{suggestions}` one entry per suggestion in that file's format.
-6. Append your build's rows to `{ledger}` (the run's ledger; same columns as the real content ledger).
+6. Append your build's rows to `{ledger}` (the run's ledger; same columns as the real content ledger). If rows
+   for your slug already exist in the shared files from an interrupted earlier run, update them instead of adding
+   duplicates.
 7. Take every number from the data files and GDDs on this run. Numbers on new pieces are first guesses.
 8. Respect the project memory: Modifier = a plain number on a stat (conversions allowed); Effect = anything
    with a rule; Effects are hand-designed and unpriced; sustain is king and fights run 30-60 s; slightly
@@ -104,7 +113,8 @@ Read every guide and sheet in `{run}/builds/`, `{run}/staging-catalogue.md`, `{r
 `{run}/ledger.md` and the driver table below. Do not edit anything else, and do not run git.
 
 Contents, plain and short:
-1. Synopsis of the run: builds made, by kind, with one line each (name, the engine, power, fight result),
+1. Synopsis of the run: builds made, by kind, with one line each (name, the engine, power, the build's
+   strongest upgrade). Note that the fight checks were not assessed by user decision (no simulator),
    and builds that failed or did not run, by name, with why.
 2. All system suggestions, merged where builds asked for the same thing, each with: the GDD and rule it
    touches, the proposal, the builds that need it, the trade-off, and your recommendation. Most important
