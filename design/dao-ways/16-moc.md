@@ -77,7 +77,7 @@
 
 ## New pieces
 
-- Spreading Growth: a stack that grows by itself, `Needs rule` (Effects 9a: batches never change size).
+- Spreading Growth: a stack that grows by itself, Effects rule 16, R35 (an owner's batches may grow or decay each pulse, overriding 9a).
 - Bramble Coat: retaliation scaled by damage taken, `Fits today` as an Effect on "being hit".
 - Wither and Bloom: transfers stacks between sides with `consume(wood, self, all)` then a Poison batch of that count on the foe, and `consume(poison, foe, all)` then a Wood buff batch of that count on you (Effects rule 6, R19; the new batches carry fresh durations, 6 pulses).
 

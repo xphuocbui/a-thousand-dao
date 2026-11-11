@@ -24,7 +24,7 @@
 - **Effects:**
   - **Major: On the Beat (Hợp Tiết).** Your **art** hits that land in the same millisecond as a pulse deal more (L5 +60). The basic attack and companion are excluded. (The Ninth Bell pilot's identity piece, given a home.)
   - Minor: Keep Time (Giữ Nhịp). Your arts' effective cooldowns round to the nearest multiple of the pulse when
-    within 5 % of it. *(starter)* `Needs rule` (Combat rule 10 rounding).
+    within 5 % of it. *(starter)* (Effects rule 16, R37)
   - Minor: Syncopation (Nghịch Phách). Hits off the beat apply 1 Wind debuff stack for 4 pulses.
 
 ### 2. Xoay (Spin)
@@ -80,7 +80,7 @@
 
 ## New pieces
 
-- Cooldown snapping to the pulse (Keep Time): `Needs rule` (Combat rule 10).
+- Cooldown snapping to the pulse (Keep Time): Effects rule 16, R37.
 - Spin (self-counter, tag `growing`): Effects rule 8, R7; same machinery as Đao's Fury.
 
 ## Kept apart from

@@ -56,7 +56,7 @@
 - **Effects:**
   - **Major: Five Turning (Ngũ Hành Luân Chuyển).** One art you choose changes element each time it fires, in the
     generating order, and its damage type follows (Wood: Chaos, Fire: Fire, Earth: Force, Metal: Physical, Water:
-    Cold). `Needs rule` (an art's element changing in a fight).
+    Cold). (Effects rule 16, R29: a state swaps an art's element tag)
   - Minor: Colour Change (Đổi Sắc). Each time a rotating art changes element, it grants 3 buff stacks of its new
     element. *(starter)*
   - Minor: Full Turn (Trọn Vòng). Every 5th firing of a rotating art deals more (L5 +40).
@@ -82,7 +82,7 @@
 
 ## New pieces
 
-- An art whose element changes mid-fight: `Needs rule` (Combat rule 6: element tags never convert).
+- An art whose element changes mid-fight: Effects rule 16, R29 (a state swaps the art's element tag).
 - The foe's root element as a readable: `Needs key`.
 
 ## Kept apart from

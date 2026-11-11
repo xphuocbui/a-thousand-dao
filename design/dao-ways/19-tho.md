@@ -35,7 +35,7 @@
   physical resistance +2, block +1 · Ridge Back (Lưng Núi): max health +1, block +1
 - **Effects:**
   - **Major: Unmoving Mountain (Sơn Bất Động).** Your block also applies to ticks (Bleed, Burn) at half its value.
-    `Needs rule` (ticks never meet block, Combat rule 7).
+    (Effects rule 16, R24)
   - Minor: Stone Skin (Thạch Bì). Each Earth buff stack also gives +0.5 block rating (cap +40). *(starter)*
   - Minor: Landslide Guard (Hộ Sạt). When your body shield breaks, gain 10 Earth buff stacks for 6 pulses.
 
@@ -80,7 +80,7 @@
 
 ## New pieces
 
-- Block applying to ticks: `Needs rule` (Combat rule 7).
+- Block applying to ticks: Effects rule 16, R24.
 - Weighed (Áp Trọng), an art-speed curse: `Needs key` (new curse in the Status Catalogue).
 - Timer pushback from a hit (Earthquake): `delay_timer` with falloff and `timer_resist_pct` (Effects rule 6, R1).
 

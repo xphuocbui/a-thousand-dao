@@ -56,7 +56,7 @@
   thức +1, soul +1 · Echo Mind (Tâm Vọng): soul resist +2
 - **Effects:**
   - **Major: Shared Mind (Đồng Tâm).** If your first damaging art is a soul art, your Clone's copy runs on its own soul lockout,
-    separate from yours. `Needs rule` (Combat rule 24; not covered by R11, which only adds a Soul part).
+    separate from yours. (Effects rule 16, R32: a clone's soul art runs on the clone's own lockout).
   - Minor: Shared Sight (Cùng Nhìn). Your Clone's hits make the foe Slackened Soul every 4th hit. *(starter)*
   - Minor: Mind Link (Liên Tâm). Your Clone's power share +3 %.
 
@@ -80,7 +80,7 @@
 
 ## New pieces
 
-- Clone companions; Images; the Avatar: `Needs key` / `Needs rule`. The fifth Dao (capstone) is decided: Dao rule 9
+- Clone companions: `Needs key`; the rule is Effects rule 16, R31 (one companion per source). Images: decoys at the avoid step (Combat Defence & Healing rule 1, R6). The Avatar: `Needs key`. The fifth Dao (capstone) is decided: Dao rule 9
   exception, Phân Thân only (R15b).
 
 ## Kept apart from

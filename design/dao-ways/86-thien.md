@@ -61,8 +61,7 @@
   defense +1, attack +1 · Precedent (Tiền Lệ): status resist +2
 - **Effects:**
   - **Major: Black-Letter Law (Luật Chữ Đen).** Curses you place on the foe cannot be cleansed during their first 2
-    pulses, and they ignore 25 pp of the foe's status resist. `Needs rule` (a cleanse lock; `cleanse_share` is the
-    nearest existing constant).
+    pulses, and they ignore 25 pp of the foe's status resist. (Effects rule 16, R27: a cleanse lock).
   - Minor: Lawful (Tuân Luật). Curses that name a tag do not apply to you for the first 10 s of a fight. *(starter)*
   - Minor: By the Book (Đúng Luật). +5 % to all stat lines from this Dao while the foe has not yet used its Down refusal.
 

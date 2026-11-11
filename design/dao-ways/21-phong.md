@@ -58,7 +58,7 @@
     stacks (crit chance and accuracy).
   - Minor: Downburst (Gió Giật Xuống). When your art crits, gain 2 Wind buff stacks for 4 pulses.
   - Minor: Eye of Calm (Mắt Lặng). While you hold 30+ Wind buff stacks, 15 % of your evade also applies to ticks.
-    `Needs rule` (ticks never meet evade).
+    (Effects rule 16, R24)
 
 ### 5. Lãng Du (the Wanderer)
 - **Small:** `travel_speed_pct` +2 · `escape_pct` +1
@@ -77,15 +77,15 @@
 |---|---|---|---|---|
 | **Never in One Place (Lưu Phong)** | keystone | Each 1 pp of evade you would have above `evade_cap` becomes +2 block rating instead (a conversion, not a cap shift: the Way's one cap shift is The Wind Has No Floor, Dao rule 4, R14) | Your max health is 30 % lower | Phiêu |
 | **The Wind Has No Floor (Phong Vô Để)** | keystone | Your `cooldown_min` is 20 % lower (the Way's one cap shift: Dao rule 4, R14; the closing cost is the 40 % dearer arts). Rival of Over the Limit: the two cannot both be held | Your arts cost 40 % more | Cuồng Phong |
-| **Ten Thousand Blades (Vạn Nhận)** | keystone | Your quick arts hit twice at 50 % each (one firing for lockouts and trigger limits; `Needs rule`: hit splitting) | Your slow arts cannot be slotted | Phong Nhận |
+| **Ten Thousand Blades (Vạn Nhận)** | keystone | Your quick arts hit twice at 50 % each (one firing for lockouts and trigger limits; Effects rule 16, R23: split hits) | Your slow arts cannot be slotted | Phong Nhận |
 | **Clear Breeze (Thanh Phong)** | keystone | Your Wind buff stacks never expire while you have evaded in the last 4 s | You cannot slot a ward with a block payload | Phiêu, Bão Táp |
 
 ## New pieces
 
 - Clipped art speed as a readable (Over the Limit): the clip is already a trigger event (Combat rule 9); `Needs
   key` for the amount.
-- Evade against ticks: `Needs rule`.
-- Escape with no channel: `Needs rule` (escape_channel).
+- Evade against ticks: Effects rule 16, R24.
+- Escape with no channel: Effects rule 16, R33 (an Effect may set the escape channel to 0).
 
 ## Kept apart from
 

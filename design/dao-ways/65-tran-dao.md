@@ -67,7 +67,7 @@
   defense +1, formation +1 · Spirit Garden (Vườn Linh): herb growth +2
 - **Effects:**
   - **Major: Home Ground (Động Phủ).** Fights at your cave dwelling are always foreseen for you, and your formations
-    there run at +25 %. `Needs rule` (overrides the Event Engine's classification, Combat rule 12; no decision covers it).
+    there run at +25 %. (Effects rule 16, R34: home ground counts as foreseen).
   - Minor: Guarded Door (Cửa Có Canh). At your cave, your formation ground has L4 +3 more.
     *(starter)*
   - Minor: Restful Cave (Động Yên). Seclusion at your cave recovers heart demon 20 % faster.
@@ -83,7 +83,7 @@
 ## New pieces
 
 - Spirit veins on the map: `Needs key`. Formation carried in the body: pointed at carried ground (R9). Home Ground's
-  always-foreseen: `Needs rule`.
+  always-foreseen: Effects rule 16, R34.
 
 ## Kept apart from
 

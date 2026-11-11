@@ -43,7 +43,7 @@
   thần thức +1, art speed +1 · Mimic (Nhại): crit chance +2
 - **Effects:**
   - **Major: Steal the Art (Thâu Thuật).** Your empty art slots hold the foe's last distinct fired arts, one per slot, newest first (a copy at 70 %
-    damage, with your stats, its own cooldown; cost paid in full by you). Ward, escape and talisman arts are not copied. A replaced copy's timer restarts full. `Needs rule` (copying the foe's arts; no decision covers it).
+    damage, with your stats, its own cooldown; cost paid in full by you). Ward, escape and talisman arts are not copied. A replaced copy's timer restarts full. (Effects rule 16, R30: copy a foe's fired art into an empty slot).
   - Minor: Quick Study (Học Nhanh). A stolen art's first firing comes at half its cooldown. *(starter)*
   - Minor: Keep the Best (Giữ Cái Hay). Once per fight, lock a stolen art so it is not replaced.
 
@@ -63,7 +63,7 @@
   Thở): escape +1, evade +1 · Shadow Run (Chạy Bóng): travel +2
 - **Effects:**
   - **Major: Vanish (Biến Mất).** Your escape art succeeds for certain if you have stolen 30+ buff stacks or a stolen art
-    has fired this fight. `Needs rule` (a certain escape).
+    has fired this fight. (Effects rule 16, R33: a certain escape).
   - Minor: No Trace (Không Dấu Vết). Fights you flee leave no World Database grudge. *(starter)*
   - Minor: Cover Story (Chuyện Bịa). Town guards suspect you 50 % less.
 
@@ -77,8 +77,7 @@
 
 ## New pieces
 
-- Stealing buff stacks: pointed at `strip_buff` steal (R16). Copying the foe's arts; a certain escape: `Needs rule`
-  (no decision). Loot from NPC gear, loot rolls, travel: `Needs key`.
+- Stealing buff stacks: pointed at `strip_buff` steal (R16). Copying the foe's arts: Effects rule 16, R30; a certain escape: R33. Loot from NPC gear, loot rolls, travel: `Needs key`.
 
 ## Kept apart from
 

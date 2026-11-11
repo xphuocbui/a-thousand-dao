@@ -42,7 +42,7 @@
 - **Effects:**
   - **Major: Internal Injury (Nội Thương).** 30 % of the damage your palm hits deal to ward shields is stored as
     Internal Injury on the target; every 3 s it deals the stored amount as Force straight to health (no shield,
-    no block). `Needs key` (status) and `Needs rule` (bypass).
+    no block). `Needs key` (status); the bypass is Effects rule 16, R26.
   - Minor: Shaken Meridians (Chấn Mạch). When Internal Injury bursts, apply 5 Stagnation stacks.
   - Minor: Deep Palm (Chưởng Sâu). Your palm hits on a target bearing Internal Injury ignore 10 Force resistance points. *(starter)*
 
@@ -76,8 +76,8 @@
 
 ## New pieces
 
-- Internal Injury (stored damage released past shields): `Needs key` + `Needs rule`.
-- Extra slots for one form only (Thousand-Hand Body): `Needs rule` (`slots_by_realm`).
+- Internal Injury (stored damage released past shields): `Needs key` (status); the release is Effects rule 16, R26.
+- Extra slots for one form only (Thousand-Hand Body): kind-locked slots keyed by a form tag, `free_slots[palm]` (Effects rule 16, R37; Combat rule 13, R4).
 
 ## Kept apart from
 

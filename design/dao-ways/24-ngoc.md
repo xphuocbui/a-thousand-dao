@@ -56,10 +56,10 @@
   cultivation speed +1 · Engraved Memory (Khắc Nhớ): soul resistance ×2 · Seal of Record (Ấn Ghi): thần thức +2
 - **Effects:**
   - **Major: Record the Way (Ghi Đạo).** When you buy a capstone in any Dao, you gain 2 free skill points
-    (once per Dao). `Needs rule` (points economy, Meridian Map Formulas A).
+    (once per Dao). (Effects rule 16, R34: free skill points as an output)
   - Minor: Read Twice (Đọc Hai Lần). Technique mastery from study is 15 % faster while your heart demon is below 20.
   - Minor: Slip for the Road (Giản Đi Đường). A jade slip you carry can store one art seen in a fight this
-    season, usable once as a talisman. `Needs rule`.
+    season, usable once as a talisman. (Effects rule 16, R30: one seen art stored as a talisman)
 
 ### 5. Điêu Khắc (Carving)
 - **Small:** `artifact_power_pct` +0.9 · `than_thuc_cost_pct` −0.8
@@ -84,7 +84,7 @@
 
 - Chaos against body shields (Unflawed Shell): `stops` list at 50 % (Combat Defence rule 9, R3).
 - Artifact material tag (`jade`): `Needs key`.
-- Hit splitting (Refract): `Needs rule` (Combat rule 10, one hit per firing).
+- Hit splitting (Refract): Effects rule 16, R23 (split hits; one firing for cooldowns and the trigger budget).
 
 ## Kept apart from
 

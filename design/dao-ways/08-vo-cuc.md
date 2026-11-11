@@ -22,7 +22,7 @@
 - **Stat notables:** No Face (Vô Diện): defense ×2 · Shapeless Guard (Hộ Vô Hình): evade ×2 · Unformed Body (Thân Vô
   Hình): defense +1, evade +1 · No Mark (Vô Dấu): status resist +2
 - **Effects:**
-  - **Major: Formless (Vô Tướng).** Curses that name a tag (Silence) or a damage type (Sundered) cannot be placed on you, and Exposed on you is halved. `Needs rule`.
+  - **Major: Formless (Vô Tướng).** Curses that name a tag (Silence) or a damage type (Sundered) cannot be placed on you, and Exposed on you is halved. (Effects rule 16, R28)
   - Minor: No Target (Vô Đích). The foe's first art each fight misses (evaded for certain). *(starter)*
   - Minor: Empty Shape (Hình Trống). Exposed and Sundered on you last 1 pulse less (never below 1, R22).
 
@@ -77,7 +77,7 @@
 
 - Layer totals as readables (Return to One's major) and the one capstone layer write: Effects rule 5 and Combat Formulas B, R15d.
 - Boundless stacks: a self-counter with tag `growing` (Effects rule 8, R7); no cap of its own, bounded by L5's cap of 100.
-- Formless (no tags for the foe's Effects): `Needs rule`.
+- Formless (curses that name a tag or a damage type cannot be placed on you): Effects rule 16, R28 (major tier).
 
 ## Kept apart from
 

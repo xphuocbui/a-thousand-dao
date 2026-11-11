@@ -379,7 +379,7 @@ author's reading and wait for confirmation (see Open Questions).
     ward and body layers (Combat Defence & Healing Formulas A0; user decision 2026-11-11).
     Bosses and tribulation bosses carry a `boss_pool_mult`. An ordinary boss is set so that a top-end build
     needs at least 4 seconds against it; a tribulation boss is exempt, because it must stay beatable by a typical build (user decision 2026-11-06, thien-kiep.md Formulas C).
-19. **Companions.** A spirit beast attached to a side adds the power share it already has
+19. **Companions.** One companion per source, with no total cap (Effects rule 16, R31, 2026-11-11). A spirit beast attached to a side adds the power share it already has
     (Spirit Beasts) as one more attack source every `basic_cooldown`, with its own tags and a simple fixed art whose damage type is
     authored, like every damaging art (Combat Damage Types rule 1).
     A companion cannot be targeted in this version, and cannot be removed from the fight except by its
@@ -414,7 +414,7 @@ author's reading and wait for confirmation (see Open Questions).
     act (Formulas E; the Effects System's pay-in-health action can also put the side Down, Combat revision D14).
 24. **Thần thức attacks.** A soul attack is an ordinary art whose hit is all Soul: it has a cost and a cooldown
     like any other, and fires whenever its timer and guard allow, but a side's soul arts share a
-    **`soul_lockout`**: after one fires, no other soul art of that side fires until the lockout ends, and
+    **`soul_lockout`** (a capstone may give each soul art its own, Effects rule 16): after one fires, no other soul art of that side fires until the lockout ends, and
     ready ones wait (an interim limit until the technique content exists, Open Question 16). A soul hit is all
     Soul; a hit that mixes Soul with other types is rejected at compile (Combat Damage Types rule 1), except a
     non-soul art's **added Soul part** of at most 30 % (Đạo shared rule R11, 2026-11-11; Formulas E2). It ignores

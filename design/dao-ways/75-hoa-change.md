@@ -82,7 +82,7 @@ On a switch your health share is kept (health = share × the new maximum): a swi
 
 ## New pieces
 
-- Forms (a self-state rewriting the stat profile) and Form guards: `Needs key` + `Needs rule`.
+- Forms (a self-state rewriting the stat profile) and Form guards: `Needs key`; the rule is Effects rule 16, R29 (self-states and their guards).
 
 ## Kept apart from
 

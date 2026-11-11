@@ -77,7 +77,7 @@
 
 ## New pieces
 
-- Exposed stacking duration: `Needs rule` (Exposed refreshes, Status Catalogue).
+- Exposed stacking duration: Effects rule 16, R27 (refresh to stack).
 - Chaos and Soul against ward shields: shield `stops` list, caps 50 % / 30 % (Combat Defence rule 9, R3).
 
 ## Kept apart from

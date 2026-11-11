@@ -45,7 +45,7 @@
 - **Stat notables:** New Flesh (Thịt Mới): max health ×2 · Reborn Blood (Huyết Tái): healing ×2 · Seedling Body
   (Thân Mầm): max health +1, regen +0.05 · Second Dawn (Bình Minh Hai): healing +1, max health +1
 - **Effects:**
-  - **Major: Rebirth (Tái Sinh).** Once per fight, at the Down step's refusal, refuse it (health 1) and switch to your second loadout (a saved art set and slot order prepared before the fight): its arts start on full cooldown and reservations are retaken. Then heal 50 % of max health (a heal; `no_heal` blocks it). `Needs rule` (a second loadout).
+  - **Major: Rebirth (Tái Sinh).** Once per fight, at the Down step's refusal, refuse it (health 1) and switch to your second loadout (a saved art set and slot order prepared before the fight): its arts start on full cooldown and reservations are retaken. Then heal 50 % of max health (a heal; `no_heal` blocks it). (Effects rule 16, R30: swap to a prepared second loadout on a Down refusal)
   - Minor: Shed the Old (Lột Xác). When reborn, every debuff and curse on you is removed. *(starter)*
   - Minor: Infant Strength (Lực Hài Nhi). For 5 s after a rebirth, your hits deal more (L5 +30).
 
@@ -80,7 +80,7 @@
 
 ## New pieces
 
-- A second loadout used after a rebirth: `Needs rule` (Combat rule 13, loadout).
+- A second loadout used after a rebirth: Effects rule 16, R30.
 - Meta progression across lives (Memory of Lives): decided small, this Way only (Dao rule 9, R15a).
 - `undead` foe tag: a profile tag (Effects rule 5, R13).
 

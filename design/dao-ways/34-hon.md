@@ -53,7 +53,7 @@
   Mind-Linked (Tâm Liên): thần thức ×2 · Faithful Spirit (Linh Trung): companion +1, soul resist +1
 - **Effects:**
   - **Major: Spirit Servant (Linh Bộc).** Your companion's power share is replaced by your thần thức ratio over the
-    foe's × 20 % (cap `c_comp_cap`). Its hits are Force. `Needs rule` (power share source).
+    foe's × 20 % (cap `c_comp_cap`). Its hits are Force. (Effects rule 16, R31: replaces the companion's power-share source)
   - Minor: Quick Spirit (Linh Nhanh). Your companion attacks 10 % faster. *(starter)*
   - Minor: Shared Sense (Cộng Thức). Your companion's hits on a foe give you +1 % thần thức for the fight (cap +10 %).
 
@@ -64,7 +64,7 @@
 - **Effects:**
   - **Major: Puppet Theatre (Khôi Lỗi Hí).** Up to 2 puppet artifacts you equip act on their own: each hits every
     `basic_cooldown` × 1.5 with Physical damage scaled by its artifact attack (an artifact-companion that takes no
-    art slot; it does not count against the one-companion rule but against `equip.max_slots`). `Needs rule`.
+    art slot; it counts against `equip.max_slots`; companions are one per source, Effects rule 16, R31).
   - Minor: Strings of Mind (Tơ Thần). Your puppets' damage is +1 % per 2 % of your thần thức above the foe's (cap
     +20 %). *(starter)*
   - Minor: Spare Parts (Phụ Tùng). Your puppets' first hits each fight come at 1 s.
@@ -80,8 +80,8 @@
 
 ## New pieces
 
-- Puppets as artifact companions: `Needs rule` (Combat rule 19, one companion).
-- Per-art soul lockouts (The Body Is a Vessel): `Needs rule` (Combat rule 24; a big one, flag it).
+- Puppets as artifact companions: Effects rule 16, R31 (one companion per source).
+- Per-art soul lockouts (The Body Is a Vessel): Effects rule 16, R32 (capstone; this Way's cap shift, Dao rule 4).
 - Showing the foe's slot order: UI, `Fits today`.
 
 ## Kept apart from

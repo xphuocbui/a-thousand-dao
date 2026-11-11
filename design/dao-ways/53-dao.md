@@ -33,7 +33,7 @@
   saber +1, accuracy +1 · Spinning Edge (Lưỡi Xoáy): saber crit chance +1, saber +1
 - **Effects:**
   - **Major: Sweep (Hoành Tảo).** Your saber hits deal 30 % of their damage to every ward shield the target has up,
-    in addition to the normal defence path. `Needs rule` (Combat Defence: one path per hit).
+    in addition to the normal defence path. (Effects rule 16, R26)
   - Minor: Clear the Field (Dọn Trận). Your saber hits remove 1 buff stack of the target's highest-count element (`strip_buff`, Effects rule 6, R16; once per pulse).
   - Minor: Wide Stance (Thế Rộng). +5 block rating per slotted saber art. *(starter)*
 
@@ -78,7 +78,7 @@
 
 - `saber` form tag: `Needs key` (Combat rule 6, Modifier System rule 9).
 - Fury (self-counter, tag `growing`): Effects rule 8, R7; shared idea with Sát Đạo's Chiến Liên.
-- Sweep (damage to all ward shields): `Needs rule`.
+- Sweep (damage to all ward shields): Effects rule 16, R26.
 
 ## Kept apart from
 

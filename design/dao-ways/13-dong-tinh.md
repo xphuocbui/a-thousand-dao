@@ -75,7 +75,7 @@
 ## New pieces
 
 - Stance (a two-state self-mode with a player-set guard): `Needs key` + Combat rule 13 guard vocabulary.
-- Arts suppressed by a stance: `Needs rule`.
+- Arts suppressed by a stance: Effects rule 16, R29 (a state may suppress named arts).
 - The store (The Hare Bolts) and Momentum: self-counters with tag `growing` (Effects rule 8, R7), caps as written.
 
 ## Kept apart from

@@ -73,7 +73,7 @@
 
 ## New pieces
 
-- A switch that turns off conditional L5 (Steady Power): `Needs rule` (Effects read conditions per record).
+- A switch that turns off conditional L5 (Steady Power): Effects rule 16, R29 (a switch may turn the owner's conditional Effects off).
 - Bonds (Dao partner, sworn siblings) as readables: `Needs key`.
 
 ## Kept apart from

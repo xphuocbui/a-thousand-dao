@@ -49,7 +49,7 @@
 - **Stat notables:** Diamond Skin (Da Kim Cương): body shield ×2 · Vajra (Kim Cang): resist all ×2 · Unbreakable Seat
   (Tòa Không Vỡ): body shield +1, resist +1 · Golden Bones (Cốt Vàng): max health +2
 - **Effects:**
-  - **Major: Diamond Body (Kim Cương Bất Hoại).** Your body shield is not worn down by Burn (`Needs rule`, no decision covers it), and its `stops` list takes Chaos at 30 %
+  - **Major: Diamond Body (Kim Cương Bất Hoại).** Your body shield is not worn down by Burn (Effects rule 16, R25), and its `stops` list takes Chaos at 30 %
     (Combat Defence rule 9, R3; Chaos usually passes body shields fully).
   - Minor: Immovable Seat (Tòa Bất Động). Timer pushback on you does nothing. *(starter)*
   - Minor: Diamond Mind (Tâm Kim Cương). While your body shield is up, curses on you last 1 pulse less (R22).
@@ -74,7 +74,7 @@
 ## New pieces
 
 - Vows (pre-fight restrictions with rewards): preparation choices (Effects rule 8, R8); shared machinery with Kiếp's Trials and Thệ Đạo.
-- Chaos against body shields: a `stops` entry (Combat Defence rule 9, R3). Burn not wearing the shield down: `Needs rule`.
+- Chaos against body shields: a `stops` entry (Combat Defence rule 9, R3). Burn not wearing the shield down: Effects rule 16, R25 (major tier).
 
 ## Kept apart from
 

@@ -32,7 +32,7 @@
 - **Stat notables:** Ride the Flesh (Cưỡi Xác): soul attack ×2 · Slip Inside (Lẻn Vào): status duration ×2 · Hollow
   Eyes (Mắt Rỗng): soul attack +1, thần thức +1 · Puppet Strings (Dây Rối): soul +1, curse duration +1
 - **Effects:**
-  - **Major: Possess (Nhập).** Your soul hits apply Possessed (until the foe's next art fires, at most 5 pulses; 8 s reapply lockout): that art also deals 30 % of its damage to the foe itself. `Needs key` + `Needs rule` (self-damage from a foe's art).
+  - **Major: Possess (Nhập).** Your soul hits apply Possessed (until the foe's next art fires, at most 5 pulses; 8 s reapply lockout): that art also deals 30 % of its damage to the foe itself. `Needs key` + (Effects rule 16, R26: the foe's next art also hits the foe).
   - Minor: Lingering Presence (Ám Ảnh). Possessed lasts 2 pulses. *(starter)*
   - Minor: Puppet's Fumble (Rối Vụng). A Possessed foe's arts cost 20 % more.
 
@@ -77,8 +77,8 @@
 ## New pieces
 
 - Ghost companion with Soul hits: `Needs key`.
-- Possessed (foe's art hits itself): `Needs key` + `Needs rule`.
-- A soul tick (Ghost Fire): `Needs rule` (Combat Damage Types rule 1).
+- Possessed (foe's art hits itself): `Needs key` + Effects rule 16, R26.
+- A soul tick (Ghost Fire): Effects rule 16, R37 (a Soul tick that meets only soul defence).
 - Calendar readable: world time and season, a life readable (Effects rule 5, R13).
 - `status_duration_pct`: the key exists (Modifiers Stat List); curse durations clamp to 1–5 pulses (R22).
 

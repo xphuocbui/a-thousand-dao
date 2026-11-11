@@ -57,7 +57,7 @@
 - **Effects:**
   - **Major: Unyielding (Bất Khuất Bất Phục).** No single hit can take more than 25 % of your max health (the rest is
     stopped). Per hit, applied last in the defence path to the amount that would reach health; Soul hits count, ticks
-    are not hits; one Breakdown line. `Needs rule` (no decision covers a per-hit health limit).
+    are not hits; one Breakdown line. (Effects rule 16, R28: a per-hit limit on health lost).
   - Minor: Stand Back Up (Đứng Dậy). After a hit that took 15 %+ of your max health, regenerate 5 % over 2 s.
     *(starter)*
   - Minor: Will over Wound (Ý Thắng Thương). While below 50 % health, curses on you last 1 pulse less.
@@ -84,7 +84,7 @@
 
 ## New pieces
 
-- Per-hit damage limit (Unyielding): `Needs rule` (Combat Defence path), and a strong counter to burst: flag for
+- Per-hit damage limit (Unyielding): Effects rule 16, R28 (Combat Defence path), and a strong counter to burst: flag for
   balance.
 - Pierce past its cap: now on the capstone Defy Heaven, the Way's one cap shift (Dao rule 4, R14); its closing cost
   is the 30 % damage cut against lower realms.

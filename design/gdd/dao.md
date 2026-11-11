@@ -141,7 +141,7 @@ before you are waiting in it.
 
 **Gaining a Dao**
 
-6. **A glimpse opens a Dao.** An event effect `dao_glimpse` presents an offer of up to `dao_offer_size` (3) Daos
+6. **A glimpse opens a Dao.** An event effect `dao_glimpse` presents an offer of up to `dao_offer_size` (3, +1 per Effect source: Effects rule 16) Daos
    the character qualifies for and has not glimpsed (Formulas D2). The player's pick is made
    inside the effect, before it resolves, and the effect opens exactly that one Dao (Event
    Engine, provisional contract). A glimpse

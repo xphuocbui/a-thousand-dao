@@ -44,7 +44,7 @@
 - **Stat notables:** Grey Water (Nước Xám): curse duration ×2 · Forgetful Cup (Chén Quên): soul attack ×2 · Blank
   Mind (Tâm Trống): curse duration +1, soul attack +1 · Drowned Memory (Ký Ức Chìm): thần thức +2
 - **Effects:**
-  - **Major: Forget (Lãng Quên).** Every 9 s, Silence the foe's form tag that has the most slotted arts, for 2 pulses (`Needs rule`: no reapply lockout on this Silence).
+  - **Major: Forget (Lãng Quên).** Every 9 s, Silence the foe's form tag that has the most slotted arts, for 2 pulses (Effects rule 16, R27: no reapply lockout on this Silence).
   - Minor: Lost Thread (Mất Mạch). Your soul hits delay the foe's next art by 0.3 s (`delay_timer`, Effects rule 6, R1: repeats within 3 s fall off by half; `timer_resist_pct` shortens it).
   - Minor: Meng's Soup (Canh Quên). The first curse each fight you place lasts 2 pulses longer. *(starter)*
 

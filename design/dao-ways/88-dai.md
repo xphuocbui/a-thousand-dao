@@ -51,7 +51,7 @@
   Thô): attack +1, crit damage +1 · Unadorned (Mộc Mạc): defense +2
 - **Effects:**
   - **Major: Return to the True (Phản Phác Quy Chân).** Your hits ignore Earth's Physical dampen and the foe's dampen `D` on damage
-    taken (the only foe buffs that cut your damage). `Needs rule` (no decision covers ignoring a dampen).
+    taken (the only foe buffs that cut your damage). (Effects rule 16, R28: hits that ignore the defender's dampen).
   - Minor: Plain Hit (Đòn Mộc). Your basic attack ignores 15 resistance points. *(starter)*
   - Minor: No Tricks (Không Mánh). Feints and false images do not fool you (decoys and images do not absorb your hits: the avoid step, Combat Defence rule 1, R6).
 
@@ -77,7 +77,7 @@
 ## New pieces
 
 - Empty Dao slots readable: `Needs key`.
-- Ignoring Earth's Physical dampen and the foe's `D` (Return to the True): `Needs rule`.
+- Ignoring Earth's Physical dampen and the foe's `D` (Return to the True): Effects rule 16, R28.
 
 ## Kept apart from
 

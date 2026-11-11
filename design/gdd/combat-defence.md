@@ -67,7 +67,7 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
    | Threat | Path |
    |---|---|
    | Any hit except Soul, per part | **avoid** → evade → resistance → block → shields → health |
-   | Over-time tick | resistance → the shields that do not let it pass → health. Ticks skip evade and block |
+   | Over-time tick | resistance → the shields that do not let it pass → health. Ticks skip evade and block, unless an Effect lets a share meet them (Effects rule 16) |
    | Tick on linh lực (Qi Disruption) | resistance (all + Force, rule 3) → linh lực, passing every shield. Never evade, never block (Combat Damage Types rule 4) |
    | Soul hit | soul resistance and soul wards → its share of health and linh lực (Combat Formulas E2). Skips everything else |
    | Curse | status resistance (its chance) → applied or not. Curses never deal damage (Combat rule 8) |

@@ -78,7 +78,7 @@
 ## New pieces
 
 - Slowed Time curse and timer pushes: Effects Status Catalogue and rule 6 (`delay_timer`), key `timer_resist_pct`, R1.
-- A state snapshot to rewind to: `Needs rule` (Combat rule 21 keeps the engine pure; a snapshot is fine).
+- A state snapshot to rewind to: Effects rule 16, R37 (a readable of the owner's health 5 s ago, read at the Down refusal).
 - Herb age as an item field: `Needs key`.
 
 ## Kept apart from

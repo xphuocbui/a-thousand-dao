@@ -50,7 +50,7 @@
   Heaven (Mầm Trời): comprehension +1, cultivation speed +0.5 · Prenatal Qi (Tiên Thiên Khí): max linh lực +2
 - **Effects:**
   - **Major: Innate Understanding (Tiên Thiên Ngộ).** Your glimpses offer 4 Daos instead of 3, and your first node in
-    each Dao is free. `Needs rule` (dao_offer_size).
+    each Dao is free. (Effects rule 16, R34: `dao_offer_size` +1 per source; free skill points as an output)
   - Minor: Primordial Breath (Hỗn Nguyên Khí). +0.1 pp linh lực regeneration per element whose buff stacks you hold.
     *(starter; the by-root keystone, Way form)*
   - Minor: Unwritten (Chưa Viết). Technique mastery +15 %.
@@ -78,7 +78,7 @@
 
 - Eroded (curse, −12 all resistance per stack, to 5): `Needs key`.
 - Chaos stacks (a merged buff): `Needs key` (Effects 9a: Chaos has no stacks).
-- Glimpse offer of 4: `Needs rule` (dao.md rule 6).
+- Glimpse offer of 4: Effects rule 16, R34 (`dao_offer_size` +1 per source).
 
 ## Kept apart from
 

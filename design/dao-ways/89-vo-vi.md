@@ -80,7 +80,7 @@
 ## New pieces
 
 - Damage-source split (arts vs everything else) as a scope: `Needs key` (a `non_art` source tag).
-- Immunity to the foe's on-hit triggers: `Needs rule`.
+- Immunity to the foe's on-hit triggers: Effects rule 16, R28.
 
 ## Kept apart from
 

@@ -87,7 +87,7 @@
 
 - `stack_duration_pct` scoped by element: exists as a key; element scope `Needs key`.
 - Living Forge: self-counter (Effects rule 8, R7). Bách Binh Ứng: `free_slots[artifact_active]` (Combat rule 13, R4).
-  Living Arsenal: `Needs rule` (a slot above `equip.max_slots`; no decision covers it).
+  Living Arsenal: Effects rule 16, R34 (an artifact slot above `equip.max_slots`, one per source).
 
 ## Kept apart from
 

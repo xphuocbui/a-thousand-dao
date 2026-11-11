@@ -31,7 +31,7 @@
 - **Stat notables:** Armour Breaker (Phá Giáp Thủ): penetration ×2 · Brittle Plate (Giáp Giòn): penetration +1, crit
   damage +1 · Shear Line (Đường Cắt): attack +1, penetration +1 · Rending (Xé): attack +2
 - **Effects:**
-  - **Major: Shatter Every Guard (Phá Vạn Giáp).** Sundered you apply holds one batch per damage type at once (each counts as one curse against `curse_slots`). `Needs rule` (Status Catalogue).
+  - **Major: Shatter Every Guard (Phá Vạn Giáp).** Sundered you apply holds one batch per damage type at once (each counts as one curse against `curse_slots`). (Effects rule 16, R27)
   - Minor: Weak Point (Điểm Yếu). Your first hit each fight applies Sundered for its largest type. *(starter)*
   - Minor: Brittle Body (Thân Giòn). A Sundered target's block is halved against your hits.
 
@@ -76,7 +76,7 @@
 
 ## New pieces
 
-- Sundered stacking by type: `Needs rule`.
+- Sundered stacking by type: Effects rule 16, R27.
 - Overkill carried into the next fight (Aftermath): `Needs key` (a season-scoped character stat).
 - Collapse was reworked after review (the overflow it asked for is already Combat Defence rule 9).
 

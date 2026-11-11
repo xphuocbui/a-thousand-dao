@@ -23,7 +23,7 @@
 - **Stat notables:** Iron Lock (Khóa Sắt): curse duration ×2 · Gag (Bịt Miệng): seal ×2 · Sealing Script (Phù Phong):
   curse duration +1, seal +1 · Heavy Lock (Khóa Nặng): status resist +2
 - **Effects:**
-  - **Major: Keep Them Silent (Vĩnh Cấm).** Silence you apply has no reapply lockout when a different art of yours reapplies it (`Needs rule`). Trấn is the Way of keeping Silence up; Ấn is marks and detonation.
+  - **Major: Keep Them Silent (Vĩnh Cấm).** Silence you apply has no reapply lockout when a different art of yours reapplies it (Effects rule 16, R27). Trấn is the Way of keeping Silence up; Ấn is marks and detonation.
   - Minor: Name the Silence (Định Cấm). Silence you apply names the foe's tag with the most slotted arts. *(starter)* *Shared minor.*
   - Minor: Muffled (Bóp Nghẹt). While the foe is Silenced by you, your hits deal more (L5 +10).
 
@@ -77,7 +77,7 @@
 
 - Sealed Qi (spend cap per pulse): `Needs key`.
 - Binding a beaten creature: `Needs key` (Spirit Beasts).
-- Silence without lockout (Keep Them Silent, Nothing Moves): `Needs rule` (Status Catalogue reapply lockout).
+- Silence without lockout (Keep Them Silent, Nothing Moves): Effects rule 16, R27.
 
 ## Kept apart from
 

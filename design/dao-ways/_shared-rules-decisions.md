@@ -99,3 +99,32 @@ Suggestions 10–17 were not asked (outside the top 9).
   rules instead of `Needs rule` (with the batch 63–94 fixes).
 - **Next (old note):** write the accepted rules into their other owning GDDs (section by section, user approves each), then revise
   each asking Way to point at the rule instead of its own `Needs rule`.
+
+## Round 2: R23–R37 (2026-11-11, decided by Claude on the user's instruction)
+
+> The user asked Claude to settle the remaining `Needs rule` labels with its own recommendations, "limitless scaling,
+> avoid caps and limits, follow the game spirit", and to finish without further questions. Each proposal groups the
+> asks of several Ways. The default answer is **yes, with no numeric cap**: the tier (major or capstone) and the
+> piece's own `closes` are the limit, as with every Effect (Effects rule 4). Written into Effects rule 16, with
+> pointers from the GDD lines each one overrides.
+
+| R | Asked by | Decision |
+|---|---|---|
+| R23 Split hits | Phong (Ten Thousand Blades), Xạ (Rain of Arrows), Ngọc (Refract) | **Yes.** An art may split its hit into N sub-hits at stated shares (the total may pass 100 %; the art lint prices the total). Each sub-hit is a hit for Effects, wards, block, crit and on-hit sustain; the firing counts once for cooldowns, lockouts and the trigger budget. No cap on N |
+| R24 Defence on ticks, block twice | Thổ (Unmoving Mountain), Thể (Bronze Body, Shrug Off), Phong (Eye of Calm) | **Yes.** An Effect may let a share of its owner's block or evade meet ticks, and may apply block a second time to a part block already cut by more than half. No cap on the share |
+| R25 Shields that hold | Băng (Eternal Glacier), Thiền (Diamond Body) | **Yes.** An Effect may give a shield a floor (past 0 it keeps stopping a share) or make a named type not wear it down. Capstone or major only |
+| R26 Damage outside the one path | Chưởng (Internal Injury), Đao (Sweep), Lôi (Carry the Tribulation), Quỷ (Possess) | **Yes, four actions:** store a share of dealt damage on the target as a status and release it straight to health (Crossing the Line's path); deal a share of a hit to every ward shield the target has up, besides the normal path; strike your own side (meets your own defence); make the foe's next art also hit the foe |
+| R27 Status rules bent by Effects | Quang (Exposed duration stacks), Diệt (Sundered per type), Sinh Tử (two Corpse Rots), Bỉ Ngạn and Trấn (Silence lockout), Độc (cleanse resistance), Thiên (cleanse lock) | **Yes.** An Effect may change a status's stacking (refresh to stack, one batch per type, a second standing copy with its own fee), remove a reapply lockout, give a status a cleanse resistance or a cleanse lock. The 3 curse slots and the 1–5 pulse clamp still hold (they are the curse system, not a scaling cap) |
+| R28 Immunities and ignores | Vô Cực (Formless), Vô Vi (foe on-hit triggers), Đại (ignore dampen), Nghịch (Unyielding per-hit limit) | **Yes, at major or capstone tier:** immunity to curses that name a tag or type; immunity to the foe's on-hit triggers; hits that ignore the defender's dampen; a per-hit limit on health lost (a defensive cap is a build piece, not a scaling limit) |
+| R29 Forms, stances, changing elements | Ngũ Hành (cycling element), Hóa (Forms), Động Tĩnh (stance-suppressed arts), Vô Tình (switch off conditionals) | **Yes.** An Effect may define self-states (forms, stances) that swap a modifier set, tags and an art's element tag; guards may read the state; a state may suppress named arts; a switch may turn the owner's conditional Effects off |
+| R30 Loadout changes in a fight | Luân Hồi (second loadout), Kỳ (sacrifice an art; two guards), Thâu (copy the foe's arts), Ngọc (stored art) | **Yes.** Swap to a prepared second loadout (on a refusal), remove an own art for the rest of the fight, copy a foe's fired art into an empty slot, give an art two guards (both must hold), store one seen art as a talisman |
+| R31 Many companions | Hồn (puppets, Spirit Servant), Kỹ (puppets), Phân Thân (clones, images), Họa (painted companions) | **Yes.** Combat rule 19's one companion becomes **one per source**, no total cap; each companion acts on its own timer and power share. An Effect may replace a companion's power-share source |
+| R32 Soul lockout per art | Hồn (The Body Is a Vessel), Phân Thân (Shared Mind) | **Yes.** A capstone may give each soul art its own lockout (Hồn's one cap shift, R14); a clone's soul art runs on the clone's own lockout |
+| R33 Certain and instant escape | Phong (no channel), Kỳ (Resign), Thâu (Vanish) | **Yes.** Skip a roll extends to the escape roll, and an Effect may set the escape channel to 0 |
+| R34 Life and progression hooks | Hỗn Độn (offer of 4), Ngọc (Record the Way), Trận (Home Ground), Kim (Living Arsenal), Ấn (the foe's profile), Sư (Pass the Lamp) | **Yes.** `dao_offer_size` +1 per source; free skill points as an Effect output; home ground counts as foreseen; an artifact slot above `equip.max_slots` per source; the foe's profile counts (slotted arts by tag, healing arts) readable at compile; Sư's succession is R15a's inheritance |
+| R35 Stack batches that change size | Mộc (Spreading Growth), Hoa (Fading Bloom) | **Yes.** An Effect may make its owner's batches grow or decay over time (stated per pulse) |
+| R36 Hoa's petal channel | Hoa (Beautiful Because It Falls) | **Yes.** Petals are their own channel outside `trig_budget`, R18's one exception; their number is the capstone's own |
+| R37 Small rule hooks | Si (scope conversion), Vũ (Keep Time), Ma (leech on ticks), Huyết (cost paid over a pulse), Thể (body as L3), Cầm (drain a foe's self-counter), Quỷ (Ghost Fire, a soul tick), Họa (ground mid-fight) | **Yes, each as written in its Way:** convert unscoped bonuses to one scope; snap a cooldown to the pulse; leech that reads ticks; a cost paid over a pulse; body cultivation counting as gear for L3; lower a foe's `growing` self-counter (a counter, not a stat, so R21 holds); a Soul tick meeting only soul defence; a ground arriving mid-fight (tags only) |
+
+**Proposed keys** (`Needs key` labels): accepted in principle; each is added to Character Stats rule 15 and the
+Modifier Stat List when its Way is drawn (dao.md rule 12 theme stats pass).

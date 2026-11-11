@@ -84,7 +84,7 @@
 
 - Frozen Clock, The World Stops: `delay_timer` with falloff and `timer_resist_pct` (Effects rule 6, R1).
 - Absolute Zero: drain bills only, the named exception to "Ice never touches ward payments" (Combat Defence & Healing Edge Cases; Effects rule 9a Ice row; user decision 2026-11-11). Reserved and per-hit wards are its counter.
-- Eternal Glacier: `Needs rule` (Combat Defence shields).
+- Eternal Glacier: Effects rule 16, R25 (a shield floor; keystone tier).
 
 ## Kept apart from
 

@@ -58,7 +58,7 @@ more powerful and more numerous.
   Quân Giành Nhịp): art speed +1, art cost −1 · Strong Group (Nhóm Mạnh): defense +2
 - **Effects:**
   - **Major: Sacrifice (Khí Tử Tranh Tiên).** Set one art as the sacrifice with a guard: when the guard is met, it is
-    removed for the rest of the fight, refunding 30 % of max linh lực (clipped at the usable maximum), and your other arts deal +12 % and cost 10 % less. The sacrifice art must have a cooldown of 6 s or more. The choice of sacrifice is a preparation choice (Effects rule 8, R8; one pick). `Needs rule` (unslotting mid-fight; no decision covers it).
+    removed for the rest of the fight, refunding 30 % of max linh lực (clipped at the usable maximum), and your other arts deal +12 % and cost 10 % less. The sacrifice art must have a cooldown of 6 s or more. The choice of sacrifice is a preparation choice (Effects rule 8, R8; one pick). (Effects rule 16, R30: remove an own art for the rest of the fight).
   - Minor: Small Loss (Mất Ít). A sacrificed art's slot fires your basic attack an extra time once. *(starter)*
   - Minor: Living Group (Nhóm Sống). After a sacrifice, curses on you last 1 pulse less.
 
@@ -71,7 +71,7 @@ more powerful and more numerous.
     (L5 +10 per art, cap +40).
   - Minor: Patient Endgame (Tàn Cục Kiên Nhẫn). After 20 s, your art costs −10 %. *(starter)*
   - Minor: Resign (Đầu Hàng). Once per fight, if the foe's health share is 3× yours after 20 s, you may flee with a
-    certain escape (needs your escape art in its slot). `Needs rule` (a certain escape; no decision covers it).
+    certain escape (needs your escape art in its slot). (Effects rule 16, R33: a certain escape).
 
 ## Capstones
 
@@ -84,7 +84,7 @@ more powerful and more numerous.
 ## New pieces
 
 - A reactive guard (fire when the foe's named art fires): `Needs key` (Combat rule 13 guard vocabulary).
-- Two guards per art; unslotting mid-fight: `Needs rule`.
+- Two guards per art; unslotting mid-fight: Effects rule 16, R30.
 
 ## Kept apart from
 

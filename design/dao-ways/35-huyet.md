@@ -78,7 +78,7 @@
 
 - Blood Purity (progression stat): a life readable (Character Stats rule 9a, R13).
 - Sea of Blood is this Way's one cap-shift capstone, closing 30 % of non-Bleed damage (Dao rule 4, R14).
-- Health paid over a pulse (Clot): `Needs rule` (Combat Formulas E).
+- Health paid over a pulse (Clot): Effects rule 16, R37 (a cost paid over a pulse).
 
 ## Kept apart from
 

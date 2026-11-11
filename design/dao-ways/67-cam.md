@@ -53,7 +53,7 @@ linh lực, cooldown 6 s. The hit carries the form tag `song`. Rider (counts as 
   Tune (Khúc Cô Đơn): heart-demon resist +1, status duration +1 · Moon Flute (Tiêu Trăng): soul resist +2
 - **Effects:**
   - **Major: Flute of Calm (Tiêu Tĩnh).** The foe's growing self-stacks (self-counters with the tag `growing`: Fury, Hunger, Spin, Obsession and the like; Effects rule 8, R7) lose
-    1 a second while you have fired an art in the last 3 s. `Needs rule` (the tag exists, R7; no action lowers a foe's self-counter yet, and R21 bars direct foe changes).
+    1 a second while you have fired an art in the last 3 s. (Effects rule 16, R37: lowering a foe's `growing` self-counter; a counter, not a stat, so R21 holds).
   - Minor: Soothing Air (Khúc Êm). Heart demon gained from fights −20 %. *(starter)*
   - Minor: Lull (Ru). While you hold 10+ Resonance, your hits apply 1 Slowed Time stack (3 pulses; 6 % per stack, Status Catalogue, R1).
 
@@ -89,7 +89,7 @@ linh lực, cooldown 6 s. The hit carries the form tag `song`. Rider (counts as 
 ## New pieces
 
 - A mixed Force + Soul art: pointed at the added Soul part (R11, 30 %).
-- The tag for growing self-stacks: exists now (`growing`, R7). The action that lowers a foe's self-counter: `Needs rule`
+- The tag for growing self-stacks: exists now (`growing`, R7). The action that lowers a foe's self-counter: Effects rule 16, R37
   (shared with Liên's Calming Scent).
 - `status_duration_pct`: `Needs key`.
 

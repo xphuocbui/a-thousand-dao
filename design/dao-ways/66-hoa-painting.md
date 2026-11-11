@@ -38,7 +38,7 @@
 - **Effects:**
   - **Major: Unroll the Landscape (Trải Tranh).** One painted landscape (a ground of your choosing) unrolls at 3 s in any
     fight situation: its ground tags apply from that time (hits before it have no painted ground). It adds ground **tags** only: no
-    formation strength in a fight you did not prepare for (Trận Đạo owns carried formations, R9). `Needs rule` (a ground that arrives mid-fight: R9 lets only the Domain unfold mid-fight; shared with Vực, Tinh).
+    formation strength in a fight you did not prepare for (Trận Đạo owns carried formations, R9). (Effects rule 16, R37: a ground arriving mid-fight, tags only; shared with Vực, Tinh).
   - Minor: Quick Sketch (Phác Nhanh). The landscape unrolls at 1 s. *(starter)*
   - Minor: Painted Mist (Sương Vẽ). In your landscape, +5 pp evade.
 
@@ -80,7 +80,7 @@
 ## New pieces
 
 - Painted companions: `Needs key`. Stored arts: pointed at preparation choices (R8). Layer reads: pointed at Effects rule 5.
-  A ground arriving mid-fight: `Needs rule`, not covered by R9.
+  A ground arriving mid-fight: Effects rule 16, R37.
 
 ## Kept apart from
 

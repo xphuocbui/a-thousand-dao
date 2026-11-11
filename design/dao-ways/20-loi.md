@@ -24,7 +24,7 @@
   lightning ×2 · Scarred by Heaven (Sẹo Trời): max health +1, lightning resistance +1 · Heaven's Anger (Thiên Nộ):
   lightning crit damage +2
 - **Effects:**
-  - **Major: Carry the Tribulation (Thân Mang Kiếp).** Every 10 s, a bolt strikes you for 4 % of max health as Lightning (it meets your resistance; `Needs rule`: a self-hit action). Your next Lightning art deals more by what it took after resistance (L5 +10 per 1 % of max health, cap +40). High resistance makes it cheaper and weaker: pick your spot.
+  - **Major: Carry the Tribulation (Thân Mang Kiếp).** Every 10 s, a bolt strikes you for 4 % of max health as Lightning (it meets your resistance; Effects rule 16, R26: strike your own side). Your next Lightning art deals more by what it took after resistance (L5 +10 per 1 % of max health, cap +40). High resistance makes it cheaper and weaker: pick your spot.
   - Minor: Tribulation Scar (Kiếp Ấn). After surviving a heavenly tribulation, +1 % lightning damage per
     tribulation survived this life (cap +10 %). Life-around-the-fight.
   - Minor: Ground the Bolt (Tiếp Địa Lôi). Lightning damage that reaches you grants 2 Thunder buff stacks for 6

@@ -52,7 +52,7 @@
 - **Stat notables:** Slow Wilt (Héo Chậm): stack duration ×2 · Last Colour (Màu Cuối): attack ×2 · Pressed Flower (Hoa
   Ép): stack duration +1, attack +1 · Dry Bloom (Hoa Khô): max health +2
 - **Effects:**
-  - **Major: Fading Bloom (Tàn Hoa).** Your timed buff batches do not expire at their end: from then on they lose 15 % of their stacks each pulse (at least 1). Each stack lost this way gives L5 +0.5 to your next hit (cap +30). Fight-long batches are not affected. `Needs rule`.
+  - **Major: Fading Bloom (Tàn Hoa).** Your timed buff batches do not expire at their end: from then on they lose 15 % of their stacks each pulse (at least 1). Each stack lost this way gives L5 +0.5 to your next hit (cap +30). Fight-long batches are not affected. (Effects rule 16, R35)
   - Minor: Lingering Colour (Sắc Lưu). Your first buff batch each fight does not fade for 5 pulses. *(starter)*
   - Minor: Petals Fall Softly (Cánh Rơi Nhẹ). Faded stacks heal 0.1 % of max health each.
 
@@ -70,13 +70,13 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Beautiful Because It Falls (Hoa Lạc Tri Mỹ)** | keystone | Petal Rain scatters up to 8 Petals and they are outside `trig_budget` (R18: the one exception; this capstone declares a petal channel, `Needs rule`) | Your arts' own hits deal 40 % less (L2 −40) | Hoa Vũ |
+| **Beautiful Because It Falls (Hoa Lạc Tri Mỹ)** | keystone | Petal Rain scatters up to 8 Petals and they are outside `trig_budget` (R18: the one exception; this capstone declares a petal channel: Effects rule 16, R36) | Your arts' own hits deal 40 % less (L2 −40) | Hoa Vũ |
 | **Never Quite Gone (Hương Bất Tán)** | keystone | Lingering Scent keeps 70 % for 4 pulses | Your curses' first application is at 70 % strength | Hương Tàn |
 | **The Last Bloom (Tàn Hoa Tối Hậu)** | keystone | Fading Bloom's L5 has no cap | Your buff batches start at 70 % of their size | Tàn Hoa |
 
 ## New pieces
 
-- Decaying batches (Fading Bloom): `Needs rule`.
+- Decaying batches (Fading Bloom): Effects rule 16, R35.
 - Scents (after-effects of ended statuses): `Needs key`.
 
 ## Kept apart from

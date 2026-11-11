@@ -77,7 +77,7 @@
 
 - Paralytic (a poison-tagged curse: art speed −10 %, 3 pulses): `Needs key`, for Ten Thousand Poisons' breadth.
 - Poison pill recipe class: `Needs key` (Alchemy).
-- Cleanse resistance on a status (Lingering Venom): `Needs rule` (Effects 9a cleansing).
+- Cleanse resistance on a status (Lingering Venom): Effects rule 16, R27.
 
 ## Kept apart from
 

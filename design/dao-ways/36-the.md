@@ -22,9 +22,9 @@
   block +1, physical resist +1 · Ringing Skin (Da Vang): force resistance +2
 - **Effects:**
   - **Major: Bronze Body (Đồng Thân).** Hits that your block reduces by more than half are reduced by your block a
-    second time (block applies twice to small hits). `Needs rule` (Combat Defence block).
+    second time (block applies twice to small hits). (Effects rule 16, R24)
   - Minor: Thick-Skinned (Da Dày). +15 block rating while above 70 % health. *(starter)*
-  - Minor: Shrug Off (Nhún Vai). Your block reduces Burn ticks by 2 % each. `Needs rule` (ticks never meet block).
+  - Minor: Shrug Off (Nhún Vai). Your block reduces Burn ticks by 2 % each. (Effects rule 16, R24)
 
 ### 2. Thiết Cốt (Iron Bones)
 - **Small:** `body_shield_pct` +1 · `can_cot` +0.5
@@ -76,8 +76,8 @@
 
 ## New pieces
 
-- Block twice / block on ticks: `Needs rule` (Combat Defence).
-- Body counting as artifacts for L3: `Needs rule` (Combat rule 5: L3 from gear only).
+- Block twice / block on ticks: Effects rule 16, R24.
+- Body counting as artifacts for L3: Effects rule 16, R37 (body cultivation counts as gear for L3).
 
 ## Kept apart from
 

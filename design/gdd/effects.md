@@ -278,7 +278,7 @@ different.
     - **Two separate tracks.** A side may carry buff stacks, debuff stacks, both or neither. Chaos (Hỗn Độn), Light
       (Quang) and Darkness (Ám) have no stacks; Void and Blood are archived (Spiritual Roots).
     - **Batches.** Each grant is a batch with its own timer: the source (an art record, an Effect, an item) says how
-      many stacks and for how long, or "for the fight". Batches never merge or refresh one another, and **a batch lasts at least 2 pulses** (build-run
+      many stacks and for how long, or "for the fight". Batches never merge or refresh one another (an Effect may make its owner's batches grow or decay, rule 16), and **a batch lasts at least 2 pulses** (build-run
       suggestion 4d, 2026-11-11). A side's count for an element is the sum of its live batches.
     - **Granted stacks never roll** (build-run suggestion 5, 2026-11-11): stacks an art or Effect grants directly
       always land, with no status chance; cleansing is the answer.
@@ -373,6 +373,51 @@ different.
     same rules. The LLM Game Master never creates an Effect and, while Effects are unpriced, never grants one;
     it may grant modifiers only (Modifier System rule 16).
 
+16. **Extended rules for named Effects** (Đạo shared rules R23–R37, 2026-11-11; decided by Claude on the user's
+    instruction: "limitless scaling, avoid caps and limits"). Each is open to any Effect whose record uses it, at the
+    tier stated, with no numeric cap beyond the record's own numbers and `closes`. Where a line elsewhere says the
+    opposite, it points here.
+    - **Split hits** (R23): an art may split its hit into N sub-hits at stated shares (the total may pass 100 %, and
+      the art lint prices the total). Each sub-hit is a hit for Effects, wards, block, crit and on-hit sustain; the
+      firing counts once for cooldowns, lockouts and the trigger budget.
+    - **Defence on ticks and block twice** (R24): a share of the owner's block or evade may meet ticks; block may apply
+      a second time to a part it already cut by more than half.
+    - **Shields that hold** (R25, major or capstone): a shield floor (past 0 the shield keeps stopping a share), or a
+      named type that does not wear the shield down.
+    - **Damage outside the one path** (R26): store a share of dealt damage on the target as a status and release it
+      straight to health (the path of Crossing the Line, Combat Defence & Healing rule 19); deal a share of a hit to
+      every ward shield the target has up, besides the normal path; strike the owner's own side (it meets the owner's
+      defence); make the foe's next art also hit the foe.
+    - **Status rules bent** (R27): change a status's stacking (refresh to stack, one batch per damage type, a second
+      standing copy with its own fee), remove a reapply lockout, give a status cleanse resistance or a cleanse lock.
+      The 3 curse slots and the 1–5 pulse clamp still hold.
+    - **Immunities and ignores** (R28, major or capstone): immunity to curses that name a tag or type; immunity to
+      the foe's on-hit triggers; hits that ignore the defender's dampen; a per-hit limit on health lost.
+    - **States** (R29): self-states (forms, stances) that swap a modifier set, tags and an art's element tag; guards
+      may read the state; a state may suppress named arts; a switch may turn the owner's conditional Effects off.
+    - **Loadout changes** (R30): swap to a prepared second loadout (on a Down refusal); remove an own art for the rest
+      of the fight; copy a foe's fired art into an empty slot (its record, the owner's stats, full cost); an art with
+      two guards (both must hold); one seen art stored as a talisman.
+    - **Many companions** (R31): Combat rule 19's companion is **one per source**, with no total cap, each on its own
+      timer and power share; an Effect may replace a companion's power-share source.
+    - **Soul lockout per art** (R32): a capstone may give each soul art its own lockout (that Way's cap shift, Dao
+      rule 4); a clone's soul art runs on the clone's own lockout.
+    - **Certain and instant escape** (R33): "skip a roll" (rule 6) covers the escape roll, and an Effect may set the
+      escape channel to 0.
+    - **Life and progression hooks** (R34): `dao_offer_size` +1 per source; free skill points as an output; home
+      ground counts as foreseen; an artifact slot above `equip.max_slots` per source; the foe's profile counts
+      (slotted arts by tag, healing arts) readable at compile.
+    - **Batches that change size** (R35): an owner's batches may grow or decay by a stated amount each pulse, though
+      rule 9a's batches otherwise never change size.
+    - **Hoa's petal channel** (R36): petals are their own channel outside `trig_budget` (R18's one exception).
+    - **Small hooks** (R37): convert unscoped bonuses to one scope; kind-locked slots keyed by a form tag (`free_slots[palm]`, rule 6, R4); snap a cooldown to the pulse; leech that reads
+      ticks; a cost paid over a pulse; body cultivation counting as gear for L3; lower a foe's `growing`
+      self-counter (a counter, not a stat, so R21 holds); a Soul tick that meets only soul defence; a ground that
+      arrives mid-fight (tags only).
+
+    Proposed stat keys (`Needs key` in the Đạo drafts) are accepted in principle and enter Character Stats rule 15
+    and the Modifier Stat List when their Way is drawn.
+
 ### Status Catalogue
 
 > Drafted by `game-designer` 2026-11-07; inserted as drafted (user decision). Bounds are Combat Formulas F:
@@ -414,7 +459,8 @@ duration to read. They are bound instead by their standing cost (Formulas B) and
 
 **Curse durations** (Đạo shared rule R22, 2026-11-11): apply every change, both shortenings on the holder and
 lengthenings by the applier, then clamp the result to 1–`curse_duration_max` (5) pulses. Halves round down, and a
-duration never goes below 1.
+duration never goes below 1. An Effect may change a status's stacking, remove its reapply lockout, or give it cleanse resistance
+or a cleanse lock (rule 16, R27); the 3 curse slots and this clamp still hold.
 
 ### Starter Effects
 

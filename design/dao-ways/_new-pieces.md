@@ -4,60 +4,16 @@
 > `Needs rule` asks a GDD to change; `Needs key` asks for a new stat key, status, tag or readable. Many rows
 > ask for the same thing from different Ways: the morning report groups those into shared rules.
 
-## Needs rule (48)
+## Needs rule (4)
 
 | Way | Piece |
 |---|---|
 | 1 Âm Dương Đạo | Pool swap (The Fish Turn): `Needs rule` (Combat rule 11) `(deferred, R12)`. |
-| 4 Ngũ Hành Đạo | An art whose element changes mid-fight: `Needs rule` (Combat rule 6: element tags never convert). |
-| 7 Hỗn Độn Đạo | Glimpse offer of 4: `Needs rule` (dao.md rule 6). |
-| 8 Vô Cực Đạo | Formless (no tags for the foe's Effects): `Needs rule`. |
-| 10 Thời Đạo | A state snapshot to rewind to: `Needs rule` (Combat rule 21 keeps the engine pure; a snapshot is fine). |
-| 13 Động Tĩnh Đạo | Arts suppressed by a stance: `Needs rule`. |
-| 15 Kim Đạo | Living Forge: self-counter (Effects rule 8, R7). Bách Binh Ứng: `free_slots[artifact_active]` (Combat rule 13, R4). Living Arsenal: `Needs rule` (a slot above `equip.max_slots`; no decision covers it). |
-| 16 Mộc Đạo | Spreading Growth: a stack that grows by itself, `Needs rule` (Effects 9a: batches never change size). |
 | 17 Thủy Đạo | Bottomless: overdraw, `Needs rule` (Combat rule 11) (deferred, R12). |
-| 19 Thổ Đạo | Block applying to ticks: `Needs rule` (Combat rule 7). |
-| 21 Phong Đạo | Evade against ticks: `Needs rule`. |
-| 21 Phong Đạo | Escape with no channel: `Needs rule` (escape_channel). |
-| 22 Băng Đạo | Eternal Glacier: `Needs rule` (Combat Defence shields). |
-| 24 Ngọc Đạo | Hit splitting (Refract): `Needs rule` (Combat rule 10, one hit per firing). |
-| 25 Quang Đạo | Exposed stacking duration: `Needs rule` (Exposed refreshes, Status Catalogue). |
-| 28 Luân Hồi Đạo | A second loadout used after a rebirth: `Needs rule` (Combat rule 13, loadout). |
-| 32 Quỷ Đạo | Possessed (foe's art hits itself): `Needs key` + `Needs rule`. |
-| 32 Quỷ Đạo | A soul tick (Ghost Fire): `Needs rule` (Combat Damage Types rule 1). |
-| 34 Hồn Đạo | Puppets as artifact companions: `Needs rule` (Combat rule 19, one companion). |
-| 34 Hồn Đạo | Per-art soul lockouts (The Body Is a Vessel): `Needs rule` (Combat rule 24; a big one, flag it). |
-| 35 Huyết Đạo | Health paid over a pulse (Clot): `Needs rule` (Combat Formulas E). |
-| 36 Thể Đạo | Block twice / block on ticks: `Needs rule` (Combat Defence). |
-| 36 Thể Đạo | Body counting as artifacts for L3: `Needs rule` (Combat rule 5: L3 from gear only). |
-| 39 Vô Tình Đạo | A switch that turns off conditional L5 (Steady Power): `Needs rule` (Effects read conditions per record). |
-| 41 Thiền Đạo | Chaos against body shields: a `stops` entry (Combat Defence rule 9, R3). Burn not wearing the shield down: `Needs rule`. |
 | 46 Mộng Đạo | The Dream window (undo on waking), the health-change swap: `Needs rule` (deferred, R15e; Combat rule 21: a snapshot is fine; the log must show it). |
-| 51 Hoa Đạo | Decaying batches (Fading Bloom): `Needs rule`. |
-| 53 Đao Đạo | Sweep (damage to all ward shields): `Needs rule`. |
-| 56 Chưởng Đạo | Internal Injury (stored damage released past shields): `Needs key` + `Needs rule`. |
-| 56 Chưởng Đạo | Extra slots for one form only (Thousand-Hand Body): `Needs rule` (`slots_by_realm`). |
-| 57 Ấn Đạo | Riders chosen by the foe's profile (A Seal for Every Answer): `Needs rule` (readables on the foe's profile). |
-| 58 Vũ Đạo | Cooldown snapping to the pulse (Keep Time): `Needs rule` (Combat rule 10). |
-| 59 Diệt Đạo | Sundered stacking by type: `Needs rule`. |
 | 60 Phệ Đạo | Thần thức theft mid-fight: `Needs rule` (deferred, R12). |
-| 61 Trấn Đạo | Silence without lockout (Keep Them Silent, Nothing Moves): `Needs rule` (Status Catalogue reapply lockout). |
-| 62 Độc Đạo | Cleanse resistance on a status (Lingering Venom): `Needs rule` (Effects 9a cleansing). |
-| 65 Trận Đạo | Spirit veins on the map: `Needs key`. Formation carried in the body: pointed at carried ground (R9). Home Ground's always-foreseen: `Needs rule`. |
-| 66 Họa Đạo | Painted companions: `Needs key`. Stored arts: pointed at preparation choices (R8). Layer reads: pointed at Effects rule 5. A ground arriving mid-fight: `Needs rule`, not covered by R9. |
-| 67 Cầm Đạo | The tag for growing self-stacks: exists now (`growing`, R7). The action that lowers a foe's self-counter: `Needs rule` (shared with Liên's Calming Scent). |
-| 68 Kỳ Đạo | Two guards per art; unslotting mid-fight: `Needs rule`. |
-| 72 Thâu Đạo | Stealing buff stacks: pointed at `strip_buff` steal (R16). Copying the foe's arts; a certain escape: `Needs rule` (no decision). Loot from NPC gear, loot rolls, travel: `Needs key`. |
-| 75 Hóa Đạo | Forms (a self-state rewriting the stat profile) and Form guards: `Needs key` + `Needs rule`. |
-| 76 Phân Thân Đạo | Clone companions; Images; the Avatar: `Needs key` / `Needs rule`. The fifth Dao (capstone) is decided: Dao rule 9 exception, Phân Thân only (R15b). |
-| 80 Sư Đạo | NPC pupils, lineage facts, succession: `Needs key` / `Needs rule` (big questions; flagged as later content). |
-| 85 Nghịch Đạo | Per-hit damage limit (Unyielding): `Needs rule` (Combat Defence path), and a strong counter to burst: flag for balance. |
-| 88 Đại Đạo | Ignoring Earth's Physical dampen and the foe's `D` (Return to the True): `Needs rule`. |
-| 89 Vô Vi Đạo | Immunity to the foe's on-hit triggers: `Needs rule`. |
-| 90 Si Đạo | Converting unscoped bonuses to one scope (Forget the Self): `Needs rule`. |
 
-## Needs key (78)
+## Needs key (86)
 
 | Way | Piece |
 |---|---|
@@ -89,6 +45,7 @@
 | 29 Nhân Quả Đạo | Causes cashed by later events: `Needs key` (Event Engine). |
 | 30 Bỉ Ngạn Đạo | Progress gained from a fight (Enlightened at the Edge): `Needs key`. |
 | 32 Quỷ Đạo | Ghost companion with Soul hits: `Needs key`. |
+| 32 Quỷ Đạo | Possessed (foe's art hits itself): `Needs key` + Effects rule 16, R26. |
 | 33 Cốt Đạo | Max health spent for the fight (Draw the Bone): `Needs key`. |
 | 38 Tình Đạo | Moods (a one-at-a-time self-state): `Needs key`. |
 | 38 Tình Đạo | Afraid (a curse; its hesitation is `delay_timer`, R1): `Needs key`. |
@@ -105,6 +62,7 @@
 | 54 Thương Đạo | `spear` form tag: `Needs key`. |
 | 55 Xạ Đạo | `bow` form tag; creature damage key (`creature` foe tag is Pending, Combat CB-08): `Needs key`. |
 | 55 Xạ Đạo | Spare accuracy as a readable: `Needs key`. |
+| 56 Chưởng Đạo | Internal Injury (stored damage released past shields): `Needs key` (status); the release is Effects rule 16, R26. |
 | 57 Ấn Đạo | Seal Marks (a counter on the foe, consumed): `Needs key`. |
 | 59 Diệt Đạo | Overkill carried into the next fight (Aftermath): `Needs key` (a season-scoped character stat). |
 | 60 Phệ Đạo | Permanent growth from kills (Digest): `Needs key`, and a balance flag (power from the world, not points). |
@@ -116,17 +74,23 @@
 | 63 Kỹ Đạo | Header lines for refining success, crafting speed, formation upkeep, appraisal, buy price: `Needs key` (not in the catalogue). |
 | 64 Đan Đạo | Pill Belt: pointed at `free_slots[pill]` (R4) and pill `fight_payload` (build-run 1). Thrown pill art: `Needs key`. |
 | 64 Đan Đạo | Fields, cooking, wounds: `Needs key` (systems not designed yet). |
+| 65 Trận Đạo | Spirit veins on the map: `Needs key`. Formation carried in the body: pointed at carried ground (R9). Home Ground's always-foreseen: Effects rule 16, R34. |
+| 66 Họa Đạo | Painted companions: `Needs key`. Stored arts: pointed at preparation choices (R8). Layer reads: pointed at Effects rule 5. A ground arriving mid-fight: Effects rule 16, R37. |
 | 67 Cầm Đạo | `status_duration_pct`: `Needs key`. |
 | 68 Kỳ Đạo | A reactive guard (fire when the foe's named art fires): `Needs key` (Combat rule 13 guard vocabulary). |
 | 69 Tửu Đạo | Tipsiness: pointed at a self-counter (R7) and a life readable (R13). Wine items, brewing success: `Needs key`. |
 | 70 Ti Đạo | Bound (a named curse, R17); Webs (prepared traps, pointed at preparation choices R8); a tie to the foe's art: `Needs key`. |
 | 71 Điếu Đạo | The Line (a waiting meter with a player-set guard); fishing as a world activity: `Needs key`. |
 | 71 Điếu Đạo | Hooked as a named curse; the Line: `Needs key`. |
+| 72 Thâu Đạo | Stealing buff stacks: pointed at `strip_buff` steal (R16). Copying the foe's arts: Effects rule 16, R30; a certain escape: R33. Loot from NPC gear, loot rolls, travel: `Needs key`. |
 | 73 Thú Đạo | Beasts kept at home, companion years, loyalty floors: `Needs key` (Spirit Beasts). |
 | 74 Long Đạo | Carried wealth as a readable: `Needs key`. |
+| 75 Hóa Đạo | Forms (a self-state rewriting the stat profile) and Form guards: `Needs key`; the rule is Effects rule 16, R29 (self-states and their guards). |
+| 76 Phân Thân Đạo | Clone companions: `Needs key`; the rule is Effects rule 16, R31 (one companion per source). Images: decoys at the avoid step (Combat Defence & Healing rule 1, R6). The Avatar: `Needs key`. The fifth Dao (capstone) is decided: Dao rule 9 exception, Phân Thân only (R15b). |
 | 77 Hiếu Đạo | Ancestral shrines, house rules, kindness ledger, inheritances: `Needs key` (World Database, Event Engine, Sects). |
 | 78 Nho Đạo | Righteousness meter, seasons spent inscribing: `Needs key`. Fight situation: Combat rule 12 (R8). Commanded is dropped (Command uses `delay_timer`, R1). |
 | 79 Thệ Đạo | Life oaths, contracts, sworn siblings, debts owed: `Needs key` (World Database, Event Engine). |
+| 80 Sư Đạo | NPC pupils, lineage facts: `Needs key`, later content (sects and NPC systems). Succession is R15a's inheritance (Dao rule 9). |
 | 81 Hiệp Đạo | NPC traits (wicked, bully), fight situations, renown as a fight readable: `Needs key`. |
 | 82 Hoàng Đạo | Treasury, tribute, Decrees, the seat of power: `Needs key` (World Database, Travel & Map). |
 | 84 Thủ Đạo | A sworn guarded place: `Needs key`. |
@@ -140,7 +104,7 @@
 | 92 Cô Đạo | Sect membership, companion count and seasons alone as readables: `Needs key`. |
 | 94 Thần Đạo | Incense (a character resource), shrines (world objects), mortal-prayer events: `Needs key` (Travel & Map, Event Engine, World Database). A Way that needs world systems first; flag it as late content. |
 
-## Other (76)
+## Other (112)
 
 | Way | Piece |
 |---|---|
@@ -148,35 +112,49 @@
 | 3 Thái Âm Đạo | World time readable in fights: Character Stats rule 9a, R13 (shared with Quỷ's Ghost Month). |
 | 3 Thái Âm Đạo | Copying the foe's buff stacks: Effects rule 6, R16 (copying needs no new action; reads a sheet value and grants stacks, no status roll). |
 | 3 Thái Âm Đạo | Full phases lived through (Bloom at Night): a self-counter with tag `growing` (Effects rule 8, R7), cap and decay as written. |
+| 4 Ngũ Hành Đạo | An art whose element changes mid-fight: Effects rule 16, R29 (a state swaps the art's element tag). |
 | 6 Phong Nguyệt Đạo | "Beauty" set counting: `Fits today` (an Effect reading which Effects you hold), needs a readable for held Effects. |
+| 7 Hỗn Độn Đạo | Glimpse offer of 4: Effects rule 16, R34 (`dao_offer_size` +1 per source). |
 | 8 Vô Cực Đạo | Layer totals as readables (Return to One's major) and the one capstone layer write: Effects rule 5 and Combat Formulas B, R15d. |
 | 8 Vô Cực Đạo | Boundless stacks: a self-counter with tag `growing` (Effects rule 8, R7); no cap of its own, bounded by L5's cap of 100. |
+| 8 Vô Cực Đạo | Formless (curses that name a tag or a damage type cannot be placed on you): Effects rule 16, R28 (major tier). |
 | 9 Tinh Đạo | Formations carried into ambush and blind fights: Combat rule 12, R9 (carried ground). |
 | 9 Tinh Đạo | Stars (Falling Stars): a self-counter with tag `growing`, cap 7 (Effects rule 8, R7). |
 | 10 Thời Đạo | Slowed Time curse and timer pushes: Effects Status Catalogue and rule 6 (`delay_timer`), key `timer_resist_pct`, R1. |
+| 10 Thời Đạo | A state snapshot to rewind to: Effects rule 16, R37 (a readable of the owner's health 5 s ago, read at the Down refusal). |
 | 12 Mệnh Đạo | Counters for every chance (The Heavens Bend): `Fits today` (Effects rule 12 counted chance), broadened. |
+| 13 Động Tĩnh Đạo | Arts suppressed by a stance: Effects rule 16, R29 (a state may suppress named arts). |
 | 13 Động Tĩnh Đạo | The store (The Hare Bolts) and Momentum: self-counters with tag `growing` (Effects rule 8, R7), caps as written. |
 | 14 Hư Thực Đạo | An art kind outside the slot pool (feints): Combat rule 13, `free_slots[feint]` (Character Stats rule 15, R4). |
 | 14 Hư Thực Đạo | Images (Afterimages): a self-counter with tag `growing`, cap 5 (Effects rule 8, R7). |
+| 15 Kim Đạo | Living Forge: self-counter (Effects rule 8, R7). Bách Binh Ứng: `free_slots[artifact_active]` (Combat rule 13, R4). Living Arsenal: Effects rule 16, R34 (an artifact slot above `equip.max_slots`, one per source). |
+| 16 Mộc Đạo | Spreading Growth: a stack that grows by itself, Effects rule 16, R35 (an owner's batches may grow or decay each pulse, overriding 9a). |
 | 16 Mộc Đạo | Bramble Coat: retaliation scaled by damage taken, `Fits today` as an Effect on "being hit". |
 | 16 Mộc Đạo | Wither and Bloom: transfers stacks between sides with `consume(wood, self, all)` then a Poison batch of that count on the foe, and `consume(poison, foe, all)` then a Wood buff batch of that count on you (Effects rule 6, R19; the new batches carry fresh durations, 6 pulses). |
 | 17 Thủy Đạo | The Tide Turns: a fixed wave from t = 0, `Fits today` (time guard Effects). |
 | 17 Thủy Đạo | Like Water: `convert_to: least_resisted`, decided when the hit lands, uses one of the 2 conversions; capstone tier (Effects rule 6, Combat Damage Types rule 6, R10). |
 | 18 Hỏa Đạo | Burn ticks counting as hits for "on hit" (Burning Heaven): written as a per-pulse check, no new event (Effects rule 5, R20). |
 | 18 Hỏa Đạo | Fight-time readable for pill toxicity: (Effects rule 5, Character Stats rule 9a, R13). |
+| 19 Thổ Đạo | Block applying to ticks: Effects rule 16, R24. |
 | 19 Thổ Đạo | Timer pushback from a hit (Earthquake): `delay_timer` with falloff and `timer_resist_pct` (Effects rule 6, R1). |
 | 20 Lôi Đạo | Basic attack under art speed (Thunder God's Body): reads as `basic_speed_pct` (Combat Formulas A2, build-run suggestion 6); art speed stays arts only. |
 | 20 Lôi Đạo | `demonic` foe tag: Effects rule 5 readable (Character Stats rule 9a, R13). |
+| 21 Phong Đạo | Evade against ticks: Effects rule 16, R24. |
+| 21 Phong Đạo | Escape with no channel: Effects rule 16, R33 (an Effect may set the escape channel to 0). |
 | 22 Băng Đạo | Frozen Clock, The World Stops: `delay_timer` with falloff and `timer_resist_pct` (Effects rule 6, R1). |
 | 22 Băng Đạo | Absolute Zero: drain bills only, the named exception to "Ice never touches ward payments" (Combat Defence & Healing Edge Cases; Effects rule 9a Ice row; user decision 2026-11-11). Reserved and per-hit wards are its counter. |
+| 22 Băng Đạo | Eternal Glacier: Effects rule 16, R25 (a shield floor; keystone tier). |
 | 23 Vụ Đạo | Escape art outside the slot pool: `free_slots[escape]` (Combat rule 13, R4). |
 | 24 Ngọc Đạo | Chaos against body shields (Unflawed Shell): `stops` list at 50 % (Combat Defence rule 9, R3). |
+| 24 Ngọc Đạo | Hit splitting (Refract): Effects rule 16, R23 (split hits; one firing for cooldowns and the trigger budget). |
+| 25 Quang Đạo | Exposed stacking duration: Effects rule 16, R27 (refresh to stack). |
 | 25 Quang Đạo | Chaos and Soul against ward shields: shield `stops` list, caps 50 % / 30 % (Combat Defence rule 9, R3). |
 | 26 Ám Đạo | Untargetable state: avoid step, budget 2 hits per pulse, ticks never avoided (Combat Defence rule 1, Effects rule 6, R6). |
 | 26 Ám Đạo | Crit multiplier past its cap (One Cut, One Life): the Way's one cap shift (Dao rule 4, R14); the felt closing cost is the halved crit chance above 30 % target health. |
 | 27 Sinh Tử Đạo | Healing turned to damage (Crossing the Line): Combat Defence rule 19, Effects rule 6 (R12). It goes straight to health, like fatigue. |
 | 27 Sinh Tử Đạo | Untouchable for 1 s: the avoid step (Combat Defence rule 1, R6), shared with Ám's Step into Shadow. |
 | 27 Sinh Tử Đạo | `status_duration_pct` [curse]: the key exists (Modifiers Stat List); every change is applied, then durations clamp to 1–5 pulses (Effects Status Catalogue, R22). |
+| 28 Luân Hồi Đạo | A second loadout used after a rebirth: Effects rule 16, R30. |
 | 28 Luân Hồi Đạo | Meta progression across lives (Memory of Lives): decided small, this Way only (Dao rule 9, R15a). |
 | 28 Luân Hồi Đạo | `undead` foe tag: a profile tag (Effects rule 5, R13). |
 | 29 Nhân Quả Đạo | Karma and Owed counters: self-counters, tag `growing` (Effects rule 8, R7). |
@@ -186,15 +164,23 @@
 | 31 Hoàng Tuyền Đạo | Pre-fight depth choice lowering max health: a preparation choice (Effects rule 8, Combat rule 12, R8), but needs UI. |
 | 31 Hoàng Tuyền Đạo | Soul charges kept between fights: a life readable (Character Stats rule 9a, R13). |
 | 31 Hoàng Tuyền Đạo | `status_duration_pct`: the key exists (Modifiers Stat List); curse durations clamp to 1–5 pulses (R22). |
+| 32 Quỷ Đạo | A soul tick (Ghost Fire): Effects rule 16, R37 (a Soul tick that meets only soul defence). |
 | 32 Quỷ Đạo | Calendar readable: world time and season, a life readable (Effects rule 5, R13). |
 | 32 Quỷ Đạo | `status_duration_pct`: the key exists (Modifiers Stat List); curse durations clamp to 1–5 pulses (R22). |
 | 33 Cốt Đạo | Plates (a body shield in pieces): shield `pieces` (Combat Defence rule 9, R3). |
 | 33 Cốt Đạo | Companion in the defence path: the avoid step's companion sink (R6). Body shield against Soul: `stops` list, 30 % cap (R3). |
+| 34 Hồn Đạo | Puppets as artifact companions: Effects rule 16, R31 (one companion per source). |
+| 34 Hồn Đạo | Per-art soul lockouts (The Body Is a Vessel): Effects rule 16, R32 (capstone; this Way's cap shift, Dao rule 4). |
 | 34 Hồn Đạo | Showing the foe's slot order: UI, `Fits today`. |
 | 35 Huyết Đạo | Blood Purity (progression stat): a life readable (Character Stats rule 9a, R13). |
 | 35 Huyết Đạo | Sea of Blood is this Way's one cap-shift capstone, closing 30 % of non-Bleed damage (Dao rule 4, R14). |
+| 35 Huyết Đạo | Health paid over a pulse (Clot): Effects rule 16, R37 (a cost paid over a pulse). |
+| 36 Thể Đạo | Block twice / block on ticks: Effects rule 16, R24. |
+| 36 Thể Đạo | Body counting as artifacts for L3: Effects rule 16, R37 (body cultivation counts as gear for L3). |
 | 37 Liên Đạo | A tag for growing self-stacks (Fury, Hunger, Spin, Dragon stacks): the tag `growing` (Effects rule 8, R7). |
+| 39 Vô Tình Đạo | A switch that turns off conditional L5 (Steady Power): Effects rule 16, R29 (a switch may turn the owner's conditional Effects off). |
 | 41 Thiền Đạo | Vows (pre-fight restrictions with rewards): preparation choices (Effects rule 8, R8); shared machinery with Kiếp's Trials and Thệ Đạo. |
+| 41 Thiền Đạo | Chaos against body shields: a `stops` entry (Combat Defence rule 9, R3). Burn not wearing the shield down: Effects rule 16, R25 (major tier). |
 | 42 Bồ Đề Đạo | Foe tags `demonic`, `ghost`, `undead`: profile tags (Combat rule 18, R13), shared with Lôi, Quang, Luân Hồi. |
 | 43 Ma Đạo | Heart demon as a spendable fight pool: Combat rule 11 (R12) with the R13 readable. |
 | 44 Sát Đạo | Cull (kill below a threshold): Effects rule 6 and rule 11 (R15c), capstone tier, Sát only. |
@@ -202,21 +188,35 @@
 | 47 Huyễn Đạo | Decoys (whole-hit absorption): the avoid step (Combat Defence rule 1, R6). |
 | 47 Huyễn Đạo | Dusted was folded into Earth's debuff after review (no new key). |
 | 49 Nhẫn Đạo | The damage store (Endured Strength): a self-counter (Effects rule 8, R7). |
+| 51 Hoa Đạo | Decaying batches (Fading Bloom): Effects rule 16, R35. |
 | 53 Đao Đạo | Fury (self-counter, tag `growing`): Effects rule 8, R7; shared idea with Sát Đạo's Chiến Liên. |
+| 53 Đao Đạo | Sweep (damage to all ward shields): Effects rule 16, R26. |
 | 54 Thương Đạo | Damage skipping ward shields: `bypass_share` (Combat Defence rule 9, R2). The capstone sits at the 50 % cap. |
 | 54 Thương Đạo | First firing after a share of cooldown (First Strike): opening haste +150 % on spear arts (key: `opening_haste_pct`, Combat A2; a Way notable, so allowed). |
 | 55 Xạ Đạo | Thần thức as an in-fight pool: Combat rule 11, R12 (accepted). |
+| 56 Chưởng Đạo | Extra slots for one form only (Thousand-Hand Body): kind-locked slots keyed by a form tag, `free_slots[palm]` (Effects rule 16, R37; Combat rule 13, R4). |
+| 57 Ấn Đạo | Riders chosen by the foe's profile (A Seal for Every Answer): Effects rule 16, R34. |
+| 58 Vũ Đạo | Cooldown snapping to the pulse (Keep Time): Effects rule 16, R37. |
 | 58 Vũ Đạo | Spin (self-counter, tag `growing`): Effects rule 8, R7; same machinery as Đao's Fury. |
+| 59 Diệt Đạo | Sundered stacking by type: Effects rule 16, R27. |
 | 59 Diệt Đạo | Collapse was reworked after review (the overflow it asked for is already Combat Defence rule 9). |
 | 60 Phệ Đạo | Toxicity readable in fights: Character Stats rule 9a, R13 (shared with Hỏa's Fever Pill). |
+| 61 Trấn Đạo | Silence without lockout (Keep Them Silent, Nothing Moves): Effects rule 16, R27. |
+| 62 Độc Đạo | Cleanse resistance on a status (Lingering Venom): Effects rule 16, R27. |
 | 63 Kỹ Đạo | Stone payments: Effects rule 6 as written; the stones-per-1 % table above is a first guess. |
 | 67 Cầm Đạo | A mixed Force + Soul art: pointed at the added Soul part (R11, 30 %). |
+| 67 Cầm Đạo | The tag for growing self-stacks: exists now (`growing`, R7). The action that lowers a foe's self-counter: Effects rule 16, R37 (shared with Liên's Calming Scent). |
+| 68 Kỳ Đạo | Two guards per art; unslotting mid-fight: Effects rule 16, R30. |
 | 71 Điếu Đạo | A single hit past the L5 cap: a cap shift, pointed at R14 (one per Way, felt closing cost: L2 −30). |
 | 73 Thú Đạo | Companion as a damage sink: the avoid step's companion sink (Effects rule 6, R6). |
 | 74 Long Đạo | Scales by element group: Combat Defence rule 9 (R3 `stops` lists and `pieces`). |
 | 84 Thủ Đạo | None for the capstone: `ward_cap` is retired (Combat Defence rule 3), so Nothing Passes You raises Shield Wall's step. |
+| 85 Nghịch Đạo | Per-hit damage limit (Unyielding): Effects rule 16, R28 (Combat Defence path), and a strong counter to burst: flag for balance. |
 | 85 Nghịch Đạo | Pierce past its cap: now on the capstone Defy Heaven, the Way's one cap shift (Dao rule 4, R14); its closing cost is the 30 % damage cut against lower realms. |
 | 86 Thiên Đạo | Pre-fight Rule choice: Effects rule 8 / Combat rule 12 (R8). Clipping the foe's layers: layer write at capstone tier (R15d, Thiên named). Rewrite a Law is now Thiên's one cap-shift capstone (R14); the layer write (Heaven Has No Favourites, R15d) is not a cap shift. Black-Letter Law (the freed major) needs a cleanse-lock rule. |
 | 87 Kiếp Đạo | Pre-fight Trials: preparation choices (Effects rule 8 / Combat rule 12, R8); the handicap list is this Way's own. |
+| 88 Đại Đạo | Ignoring Earth's Physical dampen and the foe's `D` (Return to the True): Effects rule 16, R28. |
+| 89 Vô Vi Đạo | Immunity to the foe's on-hit triggers: Effects rule 16, R28. |
+| 90 Si Đạo | Converting unscoped bonuses to one scope (Forget the Self): Effects rule 16, R37. |
 | 91 Hận Đạo | World Database reads (grudges, Nemesis): Character Stats rule 9a life readables (R13); a strong Pillar 5 tie. |
 | 93 Vực Đạo | The Domain object (a timed, self-carried ground with Rules): carried ground, Combat rule 12 (R9); the Way's whole engine. Its Rules list is this Way's own. |
