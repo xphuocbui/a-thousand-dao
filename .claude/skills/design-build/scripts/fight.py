@@ -48,6 +48,7 @@ if ROOT is None:
     sys.exit(2)
 sys.path.insert(0, os.path.join(ROOT, "tools", "design", "combat_sim"))
 import sim  # noqa: E402
+import engine  # noqa: E402  (the fights run here since 2026-11-11; sim.py keeps the #44 record)
 
 REALMS = ["luyen_khi", "truc_co", "ket_dan", "nguyen_anh", "hoa_than"]
 
@@ -158,11 +159,14 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "art_cost_health_pct", "regen_bonus_pp", "health_regen_pp", "healing_pct", "evade_pct",
             "accuracy_pct", "gain_on_hit_pct", "leech_qi_pct", "leech_health_pct", "ward", "body", "cleanse",
             "keystones", "curses", "purity", "bonus_slots", "arts", "enemy", "enemy_overrides", "unmodelled",
-            "_comment"}
+            "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct",
+            "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
+            "x_soul", "tam_ma", "resist", "boss", "tags"}
 WARD_KEYS = {"model", "payload", "drain_base", "ws_base", "we", "layers", "block"}
 BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
-            "qi_restore", "cleanse", "x", "_comment"}
+            "qi_restore", "cleanse", "x", "_comment", "tags", "guards", "statuses", "split", "soul_pct",
+            "soul_part", "bypass", "pool"}
 CLEANSE_KEYS = {"per_pulse", "fee_share", "share"}
 KEYSTONES = {f for f in sim.Build.__dataclass_fields__ if f.startswith("k_")}
 CURSES = {"withering": "curse_wither", "stagnation": "curse_stagnate"}
@@ -306,7 +310,41 @@ def to_build(d, r, notes, who):
     if len(arts) > slots:
         notes.append("slots_over\t%s\t%d arts in %d slots (slots_by_realm + bonus_slots)" % (who, len(arts), slots))
     kw["arts"] = arts
-    return sim.Build(d.get("name", who), **kw)
+    old = sim.Build(d.get("name", who), **kw)
+    try:
+        eb = engine.from_sim(old)
+    except engine.EngineError as e:
+        raise BadInput("%s: %s" % (who, e))
+    eb.layers = list(d["layers"]) + [0] * (5 - len(d["layers"]))
+    for i, a in enumerate(d.get("arts", [])):
+        ea = eb.arts[i]
+        ea.tags = tuple(a.get("tags", ()))
+        ea.guards = list(a.get("guards", []))
+        ea.statuses = list(a.get("statuses", []))
+        ea.split = list(a.get("split", []))
+        ea.soul_pct = a.get("soul_pct", 0.0)
+        ea.soul_part = a.get("soul_part", 0.0)
+        ea.bypass = a.get("bypass", 0.0)
+        ea.pool = a.get("pool", "qi")
+        if ea.soul_pct:
+            ea.c = 0.0
+    eb.effects = eb.effects + list(d.get("effects", []))
+    eb.counters = list(d.get("counters", []))
+    eb.companions = list(d.get("companions", []))
+    eb.shields = [engine.Shield(**sh) for sh in d.get("shields", [])]
+    for key, field in (("basic_speed_pct", "basic_speed_pct"), ("opening_haste_pct", "opening_haste_pct"),
+                       ("basic_coef_add", "basic_coef_add"), ("timer_resist_pct", "timer_resist"),
+                       ("ward_bill_pct", "ward_bill_pct"), ("refusals", "refusals"), ("divine_sense", "divine_sense"),
+                       ("soul_res_pct", "soul_res"), ("x_soul", "x_soul"), ("tam_ma", "tam_ma"), ("boss", "boss")):
+        if key in d:
+            setattr(eb, field, d[key])
+    eb.resist = dict(d.get("resist", {}))
+    eb.tags = tuple(d.get("tags", ()))
+    try:
+        engine.validate(eb)
+    except engine.EngineError as e:
+        raise BadInput("%s: %s" % (who, e))
+    return eb
 
 
 # ------------------------------------------------------------------ reference enemies
@@ -352,7 +390,7 @@ def merge(a, b):
 
 # ------------------------------------------------------------------ running
 def run(build, enemy, seeds):
-    res = [sim.fight(build, enemy, seed=s) for s in range(seeds)]
+    res = [engine.fight(build, enemy, seed=s) for s in range(seeds)]
     n = len(res)
     t = sum(x["t"] for x in res) / n
     win = sum(x["win"] == "A" for x in res)
@@ -364,13 +402,20 @@ def run(build, enemy, seeds):
         return ("%.1f" % (sum(v) / len(v))) if len(v) > n / 2 else "never"
     fires = [sum(x["A"].fired[i] for x in res) / n for i in range(len(build.arts))]
     hp_left = sum(max(0.0, x["A"].hp) / x["A"].hp_max for x in res) / n
+    clipped = {}
+    for x in res:
+        for k, v in x["A"].clipped.items():
+            clipped[k] = clipped.get(k, 0) + v
     return dict(t=t, win=win, loss=loss, other=other, dry_a=dry("A"), dry_b=dry("B"), fires=fires,
-                hp_left=hp_left, fat=sum(x["A"].fat for x in res) / n)
+                hp_left=hp_left, fat=sum(x["A"].fat for x in res) / n,
+                clipped={k: v / n for k, v in clipped.items()})
 
 
 def print_row(label, out, build):
     print("fight\t%s\tmean %.1f s\twins %d\tlosses %d\tdraws/time %d\tdry you %s\tdry foe %s\thealth left %.0f %%"
           % (label, out["t"], out["win"], out["loss"], out["other"], out["dry_a"], out["dry_b"], 100 * out["hp_left"]))
+    for k, v in sorted(out.get("clipped", {}).items()):
+        print("clipped	%s	%s	%.1f per fight" % (label, k, v))
     for a, f in zip(build.arts, out["fires"]):
         print("fires\t%s\t%s\t%.1f per fight%s" % (label, a.name, f, "\tNEVER_FIRED" if f == 0 else ""))
 
@@ -398,6 +443,10 @@ def run_all(d, r, args, label_prefix=""):
 
 def remove_piece(d, piece):
     d = copy.deepcopy(d)
+    eids = [e.get("id") for e in d.get("effects", [])]
+    if piece in eids:
+        d["effects"] = [e for e in d["effects"] if e.get("id") != piece]
+        return d
     ids = [a.get("id") for a in d.get("arts", [])]
     if piece in ids:
         d["arts"] = [a for a in d["arts"] if a.get("id") != piece]
@@ -453,11 +502,16 @@ def selftest():
         notes = []
         A = to_build(enemy_file(a, 0), 0, notes, "a")
         B = to_build(enemy_file(b, 0), 0, notes, "b")
-        res = [sim.fight(A, B, seed=s) for s in range(20)]
+        res = [engine.fight(A, B, seed=s) for s in range(20)]
         got = (round(sum(x["t"] for x in res) / 20, 1), sum(x["win"] == "A" for x in res),
                sum(x["win"] == "B" for x in res))
-        exp = EXPECTED[name]
-        if abs(got[0] - exp[0]) > 0.05 or got[1:] != exp[1:]:
+        sb = {n: (x, y) for n, x, y in sim.scenarios()}[name]
+        ref = [engine.fight(engine.from_sim(sb[0]), engine.from_sim(sb[1]), seed=s) for s in range(20)]
+        exp = (round(sum(x["t"] for x in ref) / 20, 1), sum(x["win"] == "A" for x in ref),
+               sum(x["win"] == "B" for x in ref))
+        # the engine is millisecond-exact, so rounding in the loader's anchors (M 3.27325 against 3.273) can move a
+        # kill across a pulse: 2 % and two wins of tolerance
+        if abs(got[0] - exp[0]) > 0.02 * exp[0] or abs(got[1] - exp[1]) > 2 or abs(got[2] - exp[2]) > 2:
             print("LOADER_FAIL\t%s\tthe loader's enemies give %s, sim.py's builds %s" % (name, got, exp))
             ok = False
         else:
@@ -469,6 +523,14 @@ def selftest():
             if abs(m - target) > 0.01 * target:
                 print("LOADER_FAIL\t%s at %s\tM %.2f, anchor %.2f" % (kind, REALMS[r], m, target))
                 ok = False
+    import regress
+    import test_engine
+    print("engine regression against sim.py (40 seeds):")
+    if regress.main():
+        ok = False
+    print("engine mechanism tests:")
+    if test_engine.main():
+        ok = False
     print("selftest\t%s" % ("passed" if ok else "FAILED"))
     return ok
 
