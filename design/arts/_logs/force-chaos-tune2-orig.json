@@ -1,0 +1,115 @@
+[
+{"id": "marrow-siphon-palm", "name": "Marrow-Siphon Palm (Tủy Hấp Chưởng)", "element": "", "role": "stacks", "tier": "authored", "power": "engine", "group": "hollow-tide-scripture",
+ "tags": ["force", "palm", "drain"], "cost_share": 0.04, "cooldown": 4, "kind": "elem", "c_art": 1.6,
+ "statuses": [{"id": "qi_disruption", "stacks": 1, "dur": 3}],
+ "counters": [{"id": "drink", "each_for": 10}],
+ "effects": [
+  {"id": "siphon-return", "on": "tick_dealt", "filter": {"dtype": "force"}, "do": [{"gain_qi": {"of": "amount", "share": 0.5}}]},
+  {"id": "siphon-drink", "on": "tick_dealt", "filter": {"dtype": "force"}, "do": [{"counter": {"id": "drink", "add": 1}}]}
+ ],
+ "steps": [
+  {"unlock": [{"any": [
+     {"read": "own.fired_within.1.group.hollow-tide-scripture", "op": ">=", "value": 2},
+     {"read": "foe.status.qi_disruption", "op": ">=", "value": 3},
+     {"read": "own.state.hollow-husk", "op": ">=", "value": 1}]}],
+   "c_mult": 1.5, "add_statuses": [{"id": "qi_disruption", "stacks": 1, "dur": 3}]},
+  {"unlock": [{"any": [
+     {"read": "own.counter.drink", "op": ">=", "value": 8},
+     {"read": "foe.qi_share", "op": "<=", "value": 0.35}]}],
+   "pay": [{"counter": {"id": "drink", "add": -8}}], "c_mult": 4.0, "qi_restore": 0.08}
+ ],
+ "rule": "A force palm that lays 1 Qi Disruption, which burns the foe's linh lực each pulse; half of every point burned returns to you, and each burn tick adds a Drink for 10 s. Fired in a row, the palm becomes a Gulping Palm (1.5 times the force, one more Disruption) when you fired another art of this scripture the same pulse, the foe has 3 Disruption, or you hold the Husk stance, and then a Draining Gulp (4 times the force, returns 8 % of your linh lực) when you spend 8 Drink or the foe is below 35 % linh lực.",
+ "hooks": ["qi burn", "Force damage", "tick damage", "leech qi", "Qi Disruption stacks", "drink count", "art speed", "foe linh lực"], "sources": ["qi-shaking-palm"]},
+
+{"id": "hollowing-strike", "name": "Hollowing Strike (Khoét Rỗng Kích)", "element": "", "role": "damage", "tier": "authored", "power": "engine", "group": "hollow-tide-scripture",
+ "tags": ["force", "fist", "heavy"], "cost_share": 0.05, "cooldown": 5, "kind": "elem", "c_art": 2.2,
+ "statuses": [{"id": "qi_disruption", "stacks": 1, "dur": 3}],
+ "counters": [{"id": "drink", "each_for": 10}],
+ "empower": [
+  {"if": [{"read": "foe.qi_share", "op": "<=", "value": 0.4}, {"read": "own.counter.drink", "op": ">=", "value": 3}],
+   "pay": [{"counter": {"id": "drink", "add": -3}}], "c_mult": 3.5, "qi_restore": 0.10},
+  {"if": [{"read": "foe.status.qi_disruption", "op": ">=", "value": 1}],
+   "c_mult": 2.2}
+ ],
+ "rule": "A heavy force fist that lays 1 Qi Disruption. Against a foe wearing Disruption it hits 2.2 times as hard. Against a foe below 40 % linh lực while you spend 3 Drink, it is a Hollowing Blow: 3.5 times the force, and it returns 10 % of your linh lực.",
+ "hooks": ["Force damage", "foe dry linh lực", "drink count", "Qi Disruption stacks", "stance", "linh lực return", "crit", "cooldown reduction"], "sources": ["force-wave"]},
+
+{"id": "hollow-husk-stance", "name": "Hollow Husk Stance (Không Xác Thế)", "element": "", "role": "utility", "tier": "authored", "power": "standalone", "group": "hollow-tide-scripture",
+ "tags": ["force", "stance"], "cost_share": 0.02, "cooldown": 2, "kind": "elem", "c_art": 0.0,
+ "states": [{"id": "hollow-husk", "mods": {"basic_coef": 0.8, "basic_speed": 30, "cost_red": -35}, "suppress": []}],
+ "effects": [
+  {"id": "husk-toggle", "on": "art_fired", "filter": {"art_id": "hollow-husk-stance"}, "do": [{"state": {"set": "hollow-husk", "toggle": true}}]},
+  {"id": "husk-burn", "on": "hit_landed", "filter": {"kind": "basic"}, "if": [{"read": "own.state.hollow-husk", "op": ">=", "value": 1}],
+   "do": [{"status": {"id": "qi_disruption", "stacks": 1, "dur": 3, "side": "foe"}}]}
+ ],
+ "rule": "Toggles a stance: your basic attack hits 0.8 harder and 30 % faster and every basic hit lays 1 Qi Disruption, but every art costs 35 % more linh lực. Fire it again to drop the stance.",
+ "hooks": ["basic attack", "basic speed", "basic coefficient", "Qi Disruption stacks", "art cost reduction", "linh lực regeneration", "gain on hit"], "sources": []},
+
+{"id": "fraying-thread", "name": "Fraying Thread (Tơ Rã)", "element": "", "role": "curse", "tier": "authored", "power": "engine", "group": "ruin-ledger-scripture",
+ "tags": ["chaos", "thread", "curse"], "cost_share": 0.04, "cooldown": 3, "kind": "elem", "c_art": 0.5,
+ "statuses": [{"id": "sundered", "stacks": 1, "dur": 2}],
+ "counters": [{"id": "fray", "each_for": 12}],
+ "effects": [{"id": "fray-grow", "on": "status_applied", "do": [{"counter": {"id": "fray", "add": 1}}]}],
+ "empower": [
+  {"if": [{"read": "own.counter.fray", "op": ">=", "value": 6}],
+   "pay": [{"counter": {"id": "fray", "add": -6}}], "c_mult": 3.0},
+  {"if": [{"read": "own.counter.fray", "op": "<", "value": 6}, {"read": "foe.distinct_statuses", "op": ">=", "value": 3}],
+   "c_mult": 1.8},
+  {"if": [{"read": "own.counter.fray", "op": "<", "value": 6}, {"read": "foe.distinct_statuses", "op": "<", "value": 3},
+          {"read": "own.counter.fray", "op": ">=", "value": 3}, {"read": "own.fired_within.1.group.ruin-ledger-scripture", "op": ">=", "value": 2}],
+   "pay": [{"counter": {"id": "fray", "add": -3}}], "c_mult": 3.5}
+ ],
+ "rule": "A chaos thread that lays Sundered. Every status or stack batch you land adds a Fray for 12 s, with no cap. With 6 Fray it spends them and tears the foe for 3 times the force; a foe wearing 3 different statuses takes 1.8 times, and 3 Fray spent when you fired another art of this scripture the same pulse tear for 3.5 times.",
+ "hooks": ["status application", "element stacks", "curse count", "distinct statuses", "fray count", "Chaos damage", "art speed", "crit"], "sources": ["exposing-thread"]},
+
+{"id": "gathered-ruin-verdict", "name": "Gathered Ruin Verdict (Tụ Phế Phán)", "element": "", "role": "curse", "tier": "authored", "power": "engine", "group": "ruin-ledger-scripture",
+ "tags": ["chaos", "verdict", "curse"], "cost_share": 0.04, "cooldown": 6, "kind": "elem", "c_art": 0.8,
+ "statuses": [{"id": "exposed", "stacks": 1, "dur": 2}],
+ "counters": [{"id": "fray", "each_for": 12}],
+ "effects": [{"id": "ruin-gather", "on": "status_applied", "held": {"until": "art_fired", "cap": 5}, "do": [{"mod": {"dmg_more": 3}}]}],
+ "empower": [
+  {"if": [{"read": "own.counter.fray", "op": ">=", "value": 4}],
+   "pay": [{"counter": {"id": "fray", "add": -4}}], "c_mult": 4.0},
+  {"if": [{"read": "own.counter.fray", "op": "<", "value": 4}, {"read": "foe.distinct_statuses", "op": ">=", "value": 4}],
+   "c_mult": 3.5},
+  {"if": [{"read": "own.counter.fray", "op": "<", "value": 4}, {"read": "foe.distinct_statuses", "op": "<", "value": 4},
+          {"read": "own.since.ripening-curse", "op": "<=", "value": 4}],
+   "c_mult": 3.5}
+ ],
+ "rule": "Each status or stack batch you land banks 3 % damage more for your next art, up to 5 times, and the next art spends it; the Verdict itself lays Exposed. It becomes a Final Verdict of 4 times the force when it spends 4 Fray, 3.5 times when the foe wears 4 different statuses or you cast Ripening Curse within 4 s.",
+ "hooks": ["status application", "element stacks", "held payload", "damage more", "fray count", "distinct statuses", "art speed", "Chaos damage"], "sources": ["unravelling-seal"]},
+
+{"id": "ripening-curse", "name": "Ripening Curse (Thục Chú)", "element": "", "role": "curse", "tier": "authored", "power": "engine", "group": "ruin-ledger-scripture",
+ "tags": ["chaos", "seal", "curse"], "cost_share": 0.05, "cooldown": 4, "kind": "elem", "c_art": 0.7,
+ "statuses": [{"id": "stagnation", "stacks": 1, "dur": 2}],
+ "counters": [{"id": "fray", "each_for": 12}],
+ "effects": [{"id": "ripening-bloom", "on": "art_fired", "filter": {"art_id": "ripening-curse"}, "scale": {"read": "foe.distinct_statuses", "per": 1}, "do": [{"mod": {"dmg_more": 3, "for": 2}}]}],
+ "steps": [
+  {"unlock": [{"any": [
+     {"read": "foe.status.stagnation", "op": ">=", "value": 2},
+     {"read": "own.since.fraying-thread", "op": "<=", "value": 4}]}],
+   "c_mult": 1.4, "add_statuses": [{"id": "stagnation", "stacks": 2, "dur": 3}]},
+  {"unlock": [{"any": [
+     {"read": "foe.status.stagnation", "op": ">=", "value": 5},
+     {"read": "foe.distinct_statuses", "op": ">=", "value": 4},
+     {"read": "own.counter.fray", "op": ">=", "value": 5}]}],
+   "c_mult": 3.0, "add_statuses": [{"id": "stagnation", "stacks": 3, "dur": 3}]}
+ ],
+ "rule": "A chaos hit that lays Stagnation and hits 3 % harder (damage more) for every different status already on the foe. Fired in a row, it ripens: a Budding Curse (1.4 times, 2 more Stagnation) when the foe has 2 Stagnation or you fired Fraying Thread within 4 s, then a Blooming Curse (3 times, 3 more Stagnation) at 5 Stagnation, 4 different statuses or 5 Fray.",
+ "hooks": ["distinct statuses", "Stagnation stacks", "curse slots", "damage more", "curse duration", "fray count", "Chaos damage", "status application"], "sources": ["unravelling-seal", "exposing-thread"]},
+
+{"id": "bloodletting-rite", "name": "Bloodletting Rite (Phóng Huyết Nghi)", "element": "", "role": "damage", "tier": "authored", "power": "standalone",
+ "tags": ["chaos", "rite", "blood"], "cost_share": 0.03, "cooldown": 9, "kind": "elem", "c_art": 0.7, "hp_cost": 0.04, "convert": {"to": "force", "share": 0.5},
+ "effects": [
+  {"id": "rite-debt", "on": "art_fired", "filter": {"art_id": "bloodletting-rite"}, "scale": {"read": "own.hp_missing_share", "per": 0.1}, "do": [{"mod": {"dmg_more": 4, "for": 2}}]},
+  {"id": "rite-recoup", "on": "art_fired", "filter": {"art_id": "bloodletting-rite"}, "do": [{"mod": {"leech_hp": 12, "for": 6}}]}
+ ],
+ "rule": "Pays 4 % of your health on top of its linh lực cost for a heavy chaos hit that deals 4 % more for every 10 % of health you are missing. For the next 6 s every hit you land heals you for 12 % of the damage, so the cut is repaid if you keep striking.",
+ "hooks": ["leech health", "low health", "health cost reduction", "healing", "art speed", "hit rate", "Chaos damage"], "sources": []},
+
+{"id": "shearing-palm", "name": "Shearing Palm (Cắt Xé Chưởng)", "element": "", "role": "damage", "tier": "authored", "power": "standalone",
+ "tags": ["force", "palm", "heavy"], "cost_share": 0.05, "cooldown": 3, "kind": "elem", "c_art": 2.3, "convert": {"to": "chaos", "share": 0.5},
+ "effects": [{"id": "shear-crit", "on": "crit", "filter": {"art_id": "shearing-palm"}, "limit": {"per_pulse": 2}, "do": [{"free_hit": {"c": 0.4, "dtype": "chaos"}}]}],
+ "rule": "A force palm of which half becomes Chaos: that half meets Chaos resistance and passes shields, the other half meets Force defence. When it crits, the palm tears again for a 0.4 chaos hit.",
+ "hooks": ["Force damage", "Chaos damage", "shield bypass", "conversion", "resistance penetration", "crit", "art speed"], "sources": ["force-wave"]}
+]

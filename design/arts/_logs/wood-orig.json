@@ -1,0 +1,121 @@
+[
+{"id": "seed-of-spring", "name": "Seed of Spring (Xuân Chủng)", "element": "wood", "role": "stacks", "tier": "authored", "power": "engine", "group": "verdant-cycle-scripture",
+ "tags": ["wood", "seed", "quick"], "c_art": 1.4, "cost_share": 0.04, "cooldown": 5, "kind": "elem", "buff": [4, 8],
+ "counters": [{"id": "seed"}],
+ "effects": [
+  {"id": "seed-sow", "on": "hit_landed", "filter": {"element": "wood", "kind": "art"}, "limit": {"per_pulse": 1}, "do": [{"counter": {"id": "seed", "add": 1}}]},
+  {"id": "seed-bank", "on": "hit_landed", "filter": {"art_id": "seed-of-spring"}, "held": {"until": "art_fired", "cap": 3},
+   "do": [{"stacks": {"el": "wood", "n": 4, "for": 10, "side": "own"}}, {"stacks": {"el": "wood", "n": 3, "for": 8, "side": "foe"}}, {"heal": {"share": 0.015}}]}
+ ],
+ "empower": [
+  {"if": [{"read": "own.counter.seed", "op": ">=", "value": 4}],
+   "pay": [{"counter": {"id": "seed", "add": -4}}], "c_mult": 5},
+  {"if": [{"read": "own.counter.seed", "op": "<", "value": 4}, {"read": "foe.debuff.wood", "op": ">=", "value": 8}],
+   "pay": [{"consume": {"el": "wood", "side": "foe", "kind": "debuff", "n": 8}}], "c_mult": 5},
+  {"if": [{"read": "own.counter.seed", "op": "<", "value": 4}, {"read": "foe.debuff.wood", "op": "<", "value": 8},
+          {"any": [{"read": "own.state.rooted", "op": ">=", "value": 1}, {"read": "own.hp_share", "op": "<=", "value": 0.5}]}],
+   "c_mult": 4.5}
+ ],
+ "rule": "Hits and gives you 4 Wood stacks for 8 s; each landing banks a Seed (up to 3), and your next art fired, whatever it is, sprouts every banked Seed into 4 more Wood stacks on you, 3 Poison on the foe and a 1.5 % heal. Fired with 4 Seeds (spent; every Wood art you land plants one), or with 8 Poison stacks on the foe (eaten), or in Rooted Form or at half health or less, the hit lands five times as hard.",
+ "hooks": ["wood buff stacks", "art speed", "wood arts fired", "healing", "banked-seed cap", "poison stacks", "low health"], "sources": ["gap: Wood held payload"]},
+
+{"id": "harvest-bloom", "name": "Harvest Bloom (Thu Hoạch Khai Hoa)", "element": "wood", "role": "damage", "tier": "authored", "power": "engine", "group": "verdant-cycle-scripture",
+ "tags": ["wood", "poison", "bloom", "heavy"], "c_art": 2.0, "cost_share": 0.05, "cooldown": 6, "kind": "elem", "debuff": [2, 8],
+ "counters": [{"id": "seed"}],
+ "empower": [
+  {"if": [{"read": "foe.debuff.wood", "op": ">=", "value": 12}],
+   "pay": [{"consume": {"el": "wood", "side": "foe", "kind": "debuff", "n": 12, "per": 2, "then": [{"free_hit": {"c": 0.35, "dtype": "chaos"}}, {"heal": {"share": 0.008}}]}}], "c_mult": 4},
+  {"if": [{"read": "foe.debuff.wood", "op": "<", "value": 12}, {"read": "own.counter.seed", "op": ">=", "value": 4}],
+   "pay": [{"counter": {"id": "seed", "add": -4}}, {"heal": {"share": 0.03}}], "c_mult": 4},
+  {"if": [{"read": "foe.debuff.wood", "op": "<", "value": 12}, {"read": "own.counter.seed", "op": "<", "value": 4}, {"read": "own.buff.wood", "op": ">=", "value": 10}],
+   "pay": [{"consume": {"el": "wood", "side": "own", "kind": "buff", "n": 10, "per": 5, "then": [{"free_hit": {"c": 0.6, "dtype": "chaos"}}]}}], "c_mult": 4}
+ ],
+ "effects": [
+  {"id": "bloom-ripple", "on": "empowered", "filter": {"art_id": "harvest-bloom"}, "do": [{"free_hit": {"c": 1.0, "dtype": "chaos"}}, {"heal": {"share": 0.02}}]}
+ ],
+ "rule": "A heavy Wood hit that lays 2 Poison stacks for 8 s. With 12 Poison stacks on the foe it harvests them, every 2 blooming as a Chaos hit and a heal; or it spends 4 Seeds, or 10 of your own Wood stacks (every 5 blooming as a Chaos hit). Any harvest hits four times as hard and ripples once more.",
+ "hooks": ["poison stacks", "wood buff stacks", "seeds", "free hits", "chaos damage", "healing", "crit", "stack duration"], "sources": ["heartwood-spear"]},
+
+{"id": "second-spring", "name": "Second Spring (Tái Xuân)", "element": "wood", "role": "heal", "tier": "authored", "power": "engine", "group": "verdant-cycle-scripture",
+ "tags": ["wood", "heal", "spring"], "c_art": 0.0, "c_heal": 2.5, "cost_share": 0.05, "cooldown": 8, "kind": "elem",
+ "guards": [{"read": "own.hp_share", "op": "<=", "value": 0.95}],
+ "counters": [{"id": "spring"}, {"id": "seed"}],
+ "effects": [
+  {"id": "spring-count", "on": "heal_restored", "filter": {"tags": ["heal"]}, "do": [{"counter": {"id": "spring", "add": 1}}]},
+  {"id": "spring-echo", "on": "heal_restored", "filter": {"tags": ["heal"]}, "if": [{"read": "own.counter.spring", "op": ">=", "value": 3}],
+   "scale": {"read": "own.counter.spring", "per": 3}, "do": [{"fire_art": {"which": "last", "share": 0.4}}, {"counter": {"id": "spring", "set": 0}}]}
+ ],
+ "steps": [
+  {"unlock": [{"any": [{"read": "own.buff.wood", "op": ">=", "value": 6}, {"read": "own.counter.seed", "op": ">=", "value": 2}, {"read": "own.state.rooted", "op": ">=", "value": 1}]}],
+   "pay": [{"counter": {"id": "spring", "add": 1}}], "c_heal": 4.5, "c_art": 5.0},
+  {"unlock": [{"any": [{"read": "own.counter.spring", "op": ">=", "value": 3}, {"read": "own.hp_share", "op": "<=", "value": 0.4}]}],
+   "pay": [{"fire_art": {"which": "last", "share": 1.0}}], "c_heal": 9.0, "c_art": 12.0}
+ ],
+ "rule": "Heals you when you are at 95 % health or less. Every heal from a healing art counts a Spring, and at 3 Springs your last art fires again at 40 % (once more per further 3), resetting the count. Fired with 6 Wood stacks, 2 Seeds or in Rooted Form it heals more and strikes; the firing after that, with 3 Springs or you at 40 % health or less, heals hugely, strikes for a great hit and fires your last art again in full.",
+ "hooks": ["healing", "heal arts", "echo", "last art damage", "wood buff stacks", "seeds", "low health", "cooldown cut"], "sources": ["banyan-shade"]},
+
+{"id": "rooted-form", "name": "Rooted Form (Cắm Rễ Thế)", "element": "wood", "role": "utility", "tier": "authored", "power": "standalone", "group": "verdant-cycle-scripture",
+ "tags": ["wood", "buff", "stance", "form"], "c_art": 0.0, "cost_share": 0.03, "cooldown": 6, "kind": "elem",
+ "counters": [{"id": "seed"}],
+ "states": [{"id": "rooted", "mods": {"hregen": 0.3, "healing": 25, "dampen_taken": 10, "art_speed": -20}, "suppress": ["thorn-rain"]}],
+ "effects": [
+  {"id": "rooted-toggle", "on": "art_fired", "filter": {"art_id": "rooted-form"}, "do": [{"state": {"set": "rooted", "toggle": true}}]},
+  {"id": "rooted-creep", "on": "pulse", "if": [{"read": "own.state.rooted", "op": "==", "value": 1}], "do": [{"stacks": {"el": "wood", "n": 2, "for": 5, "side": "foe"}}, {"counter": {"id": "seed", "add": 1}}]},
+  {"id": "rooted-sap", "on": "pulse", "if": [{"read": "own.state.rooted", "op": "==", "value": 1}], "scale": {"read": "own.buff.wood", "per": 10}, "do": [{"stacks": {"el": "wood", "n": 2, "for": 5, "side": "foe"}}]}
+ ],
+ "rule": "Toggles Rooted Form: health regeneration, healing and damage reduction up, arts 20 % slower, and Thorn Rain is suppressed. Each pulse in the form puts 2 Poison stacks on the foe and plants a Seed, plus 2 more Poison for every 10 Wood stacks you hold.",
+ "hooks": ["health regeneration", "healing", "wood buff stacks", "damage taken", "poison stacks", "seeds"], "sources": []},
+
+{"id": "thornling-grove", "name": "Thornling Grove (Thích Linh Lâm)", "element": "wood", "role": "summon", "tier": "authored", "power": "engine", "group": "rotting-canopy-canon",
+ "tags": ["wood", "poison", "summon", "grove"], "c_art": 1.4, "cost_share": 0.05, "cooldown": 8, "kind": "elem", "debuff": [2, 10],
+ "effects": [
+  {"id": "grove-plant", "on": "art_fired", "filter": {"art_id": "thornling-grove"}, "do": [{"summon": {"c": 0.45, "dtype": "chaos", "cd": 2, "for": 12}}]},
+  {"id": "grove-seed", "on": "hit_landed", "filter": {"kind": "companion"}, "limit": {"per_pulse": 3}, "do": [{"stacks": {"el": "wood", "n": 1, "for": 6, "side": "foe"}}]}
+ ],
+ "steps": [
+  {"unlock": [{"any": [{"read": "foe.debuff.wood", "op": ">=", "value": 10}, {"read": "own.fired_within.1.group.rotting-canopy-canon", "op": ">=", "value": 2}, {"read": "own.since.thornling-grove", "op": ">=", "value": 14}]}],
+   "pay": [{"summon": {"c": 0.5, "dtype": "chaos", "cd": 2, "for": 12}}], "c_mult": 3},
+  {"unlock": [{"any": [{"read": "foe.debuff.wood", "op": ">=", "value": 25}, {"read": "foe.status.stagnation", "op": ">=", "value": 3}, {"read": "own.fired_within.1.group.rotting-canopy-canon", "op": ">=", "value": 3}]}],
+   "pay": [{"summon": {"c": 0.6, "dtype": "chaos", "cd": 2, "for": 12}}, {"consume": {"el": "wood", "side": "foe", "kind": "debuff", "n": 15, "per": 5, "then": [{"summon": {"c": 0.6, "dtype": "chaos", "cd": 2, "for": 12}}]}}], "c_mult": 6}
+ ],
+ "rule": "Hits, lays 2 Poison stacks for 10 s and raises a Thornling that strikes with Chaos every 2 s for 12 s; each Thornling strike seeds 1 Poison stack. Fired again with 10 Poison on the foe, 2 canopy arts in a pulse, or 14 s since the last grove, a second Thornling rises and the hit triples; the firing after that, with 25 Poison, 3 Stagnation or 3 canopy arts in a pulse, raises two more, eats up to 15 Poison to raise one more per 5, and hits six times as hard.",
+ "hooks": ["summons", "companion speed", "poison stacks", "chaos damage", "cooldown cut", "stagnation", "art speed"], "sources": ["gap: Wood summon"]},
+
+{"id": "blight-canker", "name": "Blight Canker (Hủ Căn)", "element": "wood", "role": "curse", "tier": "authored", "power": "engine", "group": "rotting-canopy-canon",
+ "tags": ["wood", "poison", "curse", "canker"], "c_art": 1.3, "cost_share": 0.04, "cooldown": 6, "kind": "elem", "debuff": [2, 8],
+ "statuses": [{"id": "stagnation", "stacks": 3, "dur": 3}],
+ "effects": [
+  {"id": "canker-spread", "on": "tick_dealt", "filter": {"dtype": "chaos"}, "limit": {"per_pulse": 2}, "if": [{"read": "foe.status.stagnation", "op": ">=", "value": 1}],
+   "do": [{"status": {"id": "stagnation", "stacks": 1, "dur": 3, "side": "foe"}}]},
+  {"id": "canker-wither", "on": "tick_dealt", "filter": {"dtype": "chaos"}, "limit": {"per_pulse": 1}, "if": [{"read": "foe.status.stagnation", "op": ">=", "value": 10}],
+   "do": [{"status": {"id": "withering", "stacks": 1, "dur": 4, "side": "foe"}}]}
+ ],
+ "empower": [
+  {"if": [{"read": "foe.status.stagnation", "op": ">=", "value": 6}],
+   "c_mult": 4, "add_statuses": [{"id": "withering", "stacks": 1, "dur": 4}]},
+  {"if": [{"read": "foe.status.stagnation", "op": "<", "value": 6}, {"read": "foe.debuff.wood", "op": ">=", "value": 15}],
+   "pay": [{"consume": {"el": "wood", "side": "foe", "kind": "debuff", "n": 15}}], "c_mult": 4, "add_statuses": [{"id": "stagnation", "stacks": 6, "dur": 3}]},
+  {"if": [{"read": "foe.status.stagnation", "op": "<", "value": 6}, {"read": "foe.debuff.wood", "op": "<", "value": 15}, {"read": "own.fired_within.1.group.rotting-canopy-canon", "op": ">=", "value": 3}],
+   "c_mult": 4, "add_statuses": [{"id": "stagnation", "stacks": 4, "dur": 3}]}
+ ],
+ "rule": "Hits, lays 2 Poison stacks for 8 s and 3 Stagnation. While the foe is stagnated, your Chaos ticks add more Stagnation (twice a pulse); at 10 Stagnation they also curse it with Withering. Fired into 6 Stagnation, or eating 15 Poison stacks, or after 3 canopy arts in a pulse, it hits four times as hard and drives the curse deeper.",
+ "hooks": ["poison ticks", "stagnation", "regeneration dampening", "curse duration", "tick damage", "poison stacks", "art speed"], "sources": ["withering-touch"]},
+
+{"id": "thorn-rain", "name": "Thorn Rain (Thích Vũ)", "element": "wood", "role": "stacks", "tier": "authored", "power": "standalone", "group": "rotting-canopy-canon",
+ "tags": ["wood", "poison", "thorn", "quick"], "c_art": 2.4, "cost_share": 0.04, "cooldown": 5, "kind": "elem", "split": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2],
+ "effects": [
+  {"id": "thorn-prick", "on": "hit_landed", "filter": {"tags": ["thorn"]}, "do": [{"stacks": {"el": "wood", "n": 1, "for": 6, "side": "foe"}}]},
+  {"id": "thorn-barb", "on": "crit", "filter": {"tags": ["thorn"]}, "do": [{"stacks": {"el": "wood", "n": 1, "for": 6, "side": "foe"}}]}
+ ],
+ "rule": "Splits into 6 thorns; each thorn that lands lays 1 Poison stack for 6 s and each crit thorn lays 1 more. Every thorn rolls to crit and to be evaded on its own.",
+ "hooks": ["crit", "split hits", "poison stacks", "accuracy", "art speed"], "sources": []},
+
+{"id": "bloodroot-pact", "name": "Bloodroot Pact (Huyết Căn Khế)", "element": "wood", "role": "stacks", "tier": "authored", "power": "standalone", "group": "rotting-canopy-canon",
+ "tags": ["wood", "poison", "root", "heavy"], "c_art": 1.5, "cost_share": 0.02, "cooldown": 6, "kind": "elem", "hp_cost": 0.06, "debuff": [3, 10],
+ "effects": [
+  {"id": "root-drink", "on": "tick_dealt", "filter": {"dtype": "chaos"}, "limit": {"per_pulse": 1}, "scale": {"read": "foe.debuff.wood", "per": 10}, "do": [{"heal": {"share": 0.002}}]},
+  {"id": "pact-repaid", "on": "art_fired", "filter": {"art_id": "bloodroot-pact"}, "if": [{"read": "foe.debuff.wood", "op": ">=", "value": 15}], "do": [{"heal": {"share": 0.06}}]}
+ ],
+ "rule": "Costs 6 % of your health besides a little linh lực; hits and lays 3 Poison stacks for 10 s. Once a pulse a Chaos tick you deal heals you for 0.2 % of your health for every 10 Poison stacks on the foe, and fired into 15 Poison stacks the pact repays the blood in full.",
+ "hooks": ["health cost", "poison stacks", "healing", "tick damage", "leech", "low health"], "sources": ["venom-drinking-root"]}
+]

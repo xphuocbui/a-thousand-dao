@@ -645,8 +645,8 @@ def main():
         if r > 0:
             print("model_note\tenemies are exact at Qi Refining and fitted at %s (Combat Formulas B: re-derive)"
                   % REALMS[r])
-        print("model_note\tnot modelled by the simulator: soul attacks, companions, triggers, conversion, curses other "
-              "than Withering and Stagnation, guards and conditions, shields beyond the body shield, escape")
+        print("model_note\tnot modelled by the engine: escape, ward payment models other than drain, companion "
+              "targets (shield, heal, Down), boss phases and telegraphs; everything else runs as Effects (engine.py)")
         for u in d.get("unmodelled", []):
             print("UNMODELLED\t%s" % u)
     except BadInput as e:

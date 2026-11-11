@@ -1,0 +1,145 @@
+[
+  {
+    "id": "hundred-feather-flurry", "name": "Hundred-Feather Flurry (Bách Vũ Loạn Phong)", "element": "wind", "role": "damage",
+    "tier": "authored", "tags": ["wind", "palm", "quick"], "kind": "elem", "power": "engine", "group": "gale-courier-scripture",
+    "c_art": 0.8, "cost_share": 0.04, "cooldown": 6,
+    "counters": [{"id": "feather"}],
+    "effects": [
+      {"id": "feather-gather", "on": "hit_landed", "filter": {"kind": "basic"}, "do": [{"counter": {"id": "feather", "add": 1}}]},
+      {"id": "feather-evade", "on": "evaded", "limit": {"per_pulse": 2}, "do": [{"counter": {"id": "feather", "add": 1}}]},
+      {"id": "feather-loose", "on": "art_fired", "filter": {"art_id": "hundred-feather-flurry"}, "scale": {"read": "own.counter.feather", "per": 1},
+       "do": [{"free_hit": {"c": 0.1, "dtype": "elem"}}, {"counter": {"id": "feather", "set": 0}}]}
+    ],
+    "steps": [
+      {"unlock": [{"any": [{"read": "own.counter.feather", "op": ">=", "value": 5}, {"read": "own.state.swallow", "op": ">=", "value": 1}]}], "c_mult": 2},
+      {"unlock": [{"read": "own.counter.feather", "op": ">=", "value": 8},
+                  {"any": [{"read": "foe.status.slowed_time", "op": ">=", "value": 2}, {"read": "own.state.swallow", "op": ">=", "value": 1},
+                           {"read": "own.fired_within.1.group.gale-courier-scripture", "op": ">=", "value": 3}]}],
+       "pay": [{"consume": {"el": "wind", "side": "own", "n": 3, "then": [{"free_hit": {"c": 0.4, "dtype": "elem"}}], "per": 1}}], "c_mult": 3.5}
+    ],
+    "rule": "Every basic attack that lands, and every evade (twice a pulse at most), gathers a Feather with no cap; firing the art releases one 0.1-strength hit per Feather and spends them. Fired with 5 Feathers or in Swallow Stance it hits 2 times as hard, and the firing after that, with 8 Feathers and also a Slowed foe, Swallow Stance or three courier arts fired in one pulse, burns 3 of your Wind stacks (a 0.4 hit for each one burned) to hit 3.5 times as hard.",
+    "hooks": ["basic attack speed", "basic_coef", "evade", "wind stacks", "free-hit / trigger damage", "crit", "art speed"],
+    "sources": ["threshing-rain", "winnowing-toss"]
+  },
+  {
+    "id": "swallow-stance", "name": "Swallow Stance (Yến Hành Thế)", "element": "wind", "role": "utility",
+    "tier": "authored", "tags": ["wind", "step", "stance"], "kind": "elem", "power": "standalone", "group": "gale-courier-scripture",
+    "c_art": 0.0, "cost_share": 0.02, "cooldown": 4,
+    "states": [{"id": "swallow", "mods": {"basic_speed": 10, "evade": 12, "art_speed": -25}, "suppress": []}],
+    "effects": [
+      {"id": "swallow-toggle", "on": "art_fired", "filter": {"art_id": "swallow-stance"}, "do": [{"state": {"set": "swallow", "toggle": true}}]},
+      {"id": "swallow-glide", "on": "evaded", "limit": {"per_pulse": 3}, "if": [{"read": "own.state.swallow", "op": ">=", "value": 1}],
+       "do": [{"stacks": {"el": "wind", "n": 1, "for": 5, "side": "own"}}]}
+    ],
+    "rule": "A stance you toggle: basic attacks are 10 % faster and you gain 12 evade, but your arts are 25 % slower. In it each evade gives 1 Wind buff stack for 5 s, up to 3 a pulse.",
+    "hooks": ["basic attack speed", "evade", "wind stacks", "basic_coef", "stance mods", "art speed (offsets the penalty)"],
+    "sources": ["riding-the-gust", "cooldown-floor", "evade-dancer"]
+  },
+  {
+    "id": "three-step-chase", "name": "Three-Step Chase (Tam Bộ Truy Phong)", "element": "wind", "role": "damage",
+    "tier": "authored", "tags": ["wind", "step", "dash", "quick"], "kind": "elem", "power": "standalone", "group": "gale-courier-scripture",
+    "c_art": 0.8, "cost_share": 0.03, "cooldown": 9, "charges": 3,
+    "counters": [{"id": "stride", "each_for": 6}],
+    "effects": [
+      {"id": "stride-count", "on": "art_fired", "filter": {"art_id": "three-step-chase"}, "do": [{"counter": {"id": "stride", "add": 1}}, {"mod": {"evade": 20, "for": 2}}]},
+      {"id": "stride-momentum", "on": "always", "scale": {"read": "own.counter.stride", "per": 1}, "do": [{"mod": {"dmg_more": 4, "tags": ["dash"]}}]}
+    ],
+    "rule": "Holds 3 charges: fire all three in quick succession, each giving +20 evade for 2 s. Each Stride in the last 6 s makes your dash arts hit 4 % more.",
+    "hooks": ["charges", "cooldown recovery", "art speed", "dash-tag more", "evade", "crit"],
+    "sources": ["hollow-step", "hu-bo"]
+  },
+  {
+    "id": "held-breath", "name": "Held Breath (Bế Tức Phong)", "element": "wind", "role": "damage",
+    "tier": "authored", "tags": ["wind", "palm", "quick", "held"], "kind": "elem", "power": "engine", "group": "gale-courier-scripture",
+    "c_art": 0.9, "cost_share": 0.02, "cooldown": 3,
+    "counters": [{"id": "breath"}],
+    "effects": [
+      {"id": "breath-count", "on": "evaded", "do": [{"counter": {"id": "breath", "add": 1}}]},
+      {"id": "breath-bank", "on": "evaded", "held": {"until": "art_fired", "cap": 10},
+       "do": [{"free_hit": {"c": 0.2, "dtype": "elem"}}, {"stacks": {"el": "wind", "n": 1, "for": 4, "side": "own"}}]},
+      {"id": "breath-spent", "on": "art_fired", "filter": {"art_id": "held-breath"}, "do": [{"counter": {"id": "breath", "set": 0}}]}
+    ],
+    "empower": [
+      {"if": [{"read": "own.counter.breath", "op": ">=", "value": 2},
+              {"any": [{"read": "foe.status.slowed_time", "op": ">=", "value": 2}, {"read": "own.state.swallow", "op": ">=", "value": 1}, {"read": "own.buff.wind", "op": ">=", "value": 3},
+                       {"read": "own.fired_within.1.group.gale-courier-scripture", "op": ">=", "value": 3}]}],
+       "c_mult": 3.5}
+    ],
+    "rule": "Each evade banks a Breath (up to 10): your next art fired, any art, spends them all as one 0.2 hit and 1 Wind stack for 4 s per Breath (Breath is only counted out when Held Breath itself fires). Held Breath hits 3.5 times as hard with 2 Breath counted and also Swallow Stance, a Slowed foe, 3 Wind stacks or three courier arts fired in one pulse.",
+    "hooks": ["evade", "held payload size", "any art (next art)", "wind stacks", "free-hit / trigger damage", "art speed"],
+    "sources": []
+  },
+  {
+    "id": "echo-of-the-dodge", "name": "Echo of the Dodge (Hồi Phong Ảnh)", "element": "wind", "role": "damage",
+    "tier": "authored", "tags": ["wind", "song", "quick"], "kind": "elem", "power": "engine", "group": "slow-hour-scripture",
+    "c_art": 1.2, "cost_share": 0.02, "cooldown": 3,
+    "counters": [{"id": "echo"}],
+    "effects": [
+      {"id": "echo-evade", "on": "evaded", "limit": {"per_pulse": 3}, "do": [{"counter": {"id": "echo", "add": 1}}]},
+      {"id": "echo-crit", "on": "crit", "limit": {"per_pulse": 2}, "do": [{"counter": {"id": "echo", "add": 1}}]},
+      {"id": "echo-ring", "on": "art_fired", "filter": {"art_id": "echo-of-the-dodge"}, "scale": {"read": "own.counter.echo", "per": 1},
+       "do": [{"fire_art": {"which": "last", "share": 0.25}}, {"counter": {"id": "echo", "set": 0}}]}
+    ],
+    "empower": [
+      {"if": [{"read": "own.counter.echo", "op": ">=", "value": 3},
+              {"any": [{"read": "foe.status.slowed_time", "op": ">=", "value": 2}, {"read": "own.state.swallow", "op": ">=", "value": 1}]}],
+       "c_mult": 3.5}
+    ],
+    "rule": "Every evade and every crit counts an Echo, with no cap. Firing this art replays your previous art once for each Echo, each at 25 % strength, and spends them. It hits 3.5 times as hard with 3 Echoes and also a Slowed foe or Swallow Stance up.",
+    "hooks": ["evade", "crit", "power of the last art", "free-hit / trigger damage", "echo count", "art speed"],
+    "sources": []
+  },
+  {
+    "id": "reckless-gale", "name": "Reckless Gale (Mệnh Phong Bộ)", "element": "wind", "role": "damage",
+    "tier": "authored", "tags": ["wind", "heavy", "blood"], "kind": "elem", "power": "engine", "group": "slow-hour-scripture",
+    "c_art": 1.8, "cost_share": 0.02, "cooldown": 6, "hp_cost": 0.06,
+    "effects": [
+      {"id": "gale-debt", "on": "art_fired", "filter": {"art_id": "reckless-gale"}, "scale": {"read": "own.hp_missing_share", "per": 0.1},
+       "do": [{"mod": {"art_speed": 10, "for": 8}}]}
+    ],
+    "steps": [
+      {"unlock": [{"any": [{"read": "own.hp_share", "op": "<=", "value": 0.6}, {"read": "own.since.reckless-gale", "op": "<=", "value": 5}]}], "c_mult": 2},
+      {"unlock": [{"read": "own.hp_share", "op": "<=", "value": 0.5},
+                  {"any": [{"read": "foe.hp_share", "op": "<=", "value": 0.3}, {"read": "own.buff.wind", "op": ">=", "value": 6}]}],
+       "pay": [{"consume": {"el": "wind", "side": "own", "n": 4, "then": [{"free_hit": {"c": 0.3, "dtype": "elem"}}], "per": 1}}], "c_mult": 3.5, "hp_cost": 0.12}
+    ],
+    "rule": "Costs 6 % of your health on top of a small linh lực cost, then grants +10 % art speed for 8 s for every 10 % of health you are missing. Fired within 5 s of itself or at 60 % health it hits 2 times as hard; the firing after that, at 50 % health and also against a foe at 30 % or with 6 Wind stacks, burns 4 Wind stacks (a 0.3 hit for each one burned) to hit 3.5 times as hard for 12 % health.",
+    "hooks": ["low health", "health regeneration / leech", "healing", "art speed", "art cost in health", "wind stacks", "crit"],
+    "sources": ["cuong-phong-quan"]
+  },
+  {
+    "id": "trailing-gale", "name": "Trailing Gale (Lưu Phong Chướng)", "element": "wind", "role": "curse",
+    "tier": "authored", "tags": ["wind", "seal", "curse"], "kind": "elem", "power": "engine", "group": "slow-hour-scripture",
+    "c_art": 1.2, "cost_share": 0.03, "cooldown": 4,
+    "statuses": [{"id": "slowed_time", "stacks": 2, "dur": 3}],
+    "effects": [
+      {"id": "gale-drag", "on": "evaded", "limit": {"per_pulse": 2}, "if": [{"read": "foe.status.slowed_time", "op": ">=", "value": 1}],
+       "do": [{"timer": {"side": "foe", "which": "longest", "by": 0.5}}]}
+    ],
+    "steps": [
+      {"unlock": [{"any": [{"read": "foe.status.slowed_time", "op": ">=", "value": 2}, {"read": "foe.qi_share", "op": "<=", "value": 0.25}]}],
+       "pay": [{"timer": {"side": "foe", "which": "longest", "by": 1.0}}], "c_mult": 2},
+      {"unlock": [{"read": "foe.status.slowed_time", "op": ">=", "value": 3},
+                  {"any": [{"read": "foe.status.slowed_time", "op": ">=", "value": 5},
+                           {"read": "own.fired_within.1.group.slow-hour-scripture", "op": ">=", "value": 3},
+                           {"read": "own.counter.echo", "op": ">=", "value": 3}]}],
+       "pay": [{"timer": {"side": "foe", "which": "all", "by": 1.0}}], "c_mult": 3.5}
+    ],
+    "rule": "Hits and lays 2 Slowed Time on the foe. While the foe is Slowed, each time you evade pushes their longest timer back 0.5 s, up to twice a pulse. Fired into a Slowed or dry foe it hits 2 times as hard and delays their longest timer 1 s; the firing after that, at 3 Slowed Time and also 5 Slowed Time, three slow-hour arts in one pulse or 3 Echoes, hits 3.5 times as hard and delays every timer 1 s.",
+    "hooks": ["evade", "Slowed Time stacks", "curse duration", "foe delay", "status chance", "timer pressure"],
+    "sources": []
+  },
+  {
+    "id": "gale-sprite", "name": "Gale Sprite (Phong Linh Đồng)", "element": "wind", "role": "summon",
+    "tier": "authored", "tags": ["wind", "summon", "companion"], "kind": "elem", "power": "standalone", "group": "slow-hour-scripture",
+    "c_art": 1.0, "cost_share": 0.05, "cooldown": 8,
+    "effects": [
+      {"id": "sprite-call", "on": "art_fired", "filter": {"art_id": "gale-sprite"}, "do": [{"summon": {"c": 0.45, "dtype": "elem", "cd": 1.0, "for": 12}}]},
+      {"id": "sprite-quicken", "on": "always", "scale": {"read": "own.buff.wind", "per": 2}, "do": [{"mod": {"companion_speed": 8}}]},
+      {"id": "sprite-dance", "on": "evaded", "limit": {"per_pulse": 1}, "do": [{"mod": {"companion_speed": 15, "for": 3}}]}
+    ],
+    "rule": "Calls a sprite for 12 s that strikes for 0.45 each second. Every 2 Wind buff stacks you hold make it strike 8 % faster, and each evade makes it 15 % faster for 3 s.",
+    "hooks": ["companion speed", "wind stacks", "companion damage", "summon duration", "evade", "art speed"],
+    "sources": []
+  }
+]

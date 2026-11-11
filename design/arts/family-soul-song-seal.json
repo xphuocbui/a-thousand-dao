@@ -1,0 +1,104 @@
+[
+{"id": "tolling-bell-requiem", "name": "Tolling Bell Requiem (Điếu Chung Khúc)", "element": "", "role": "soul", "tier": "authored", "power": "engine", "group": "hollow-bell-canon",
+ "tags": ["soul", "song", "bell"], "c_art": 0.0, "cost_share": 0.05, "cooldown": 3, "kind": "elem", "soul_pct": 0.033,
+ "counters": [{"id": "toll", "decay_per_pulse": 0.25}],
+ "effects": [
+  {"id": "toll-add", "on": "soul_hit", "do": [{"counter": {"id": "toll", "add": 2}}]},
+  {"id": "toll-echo", "on": "art_fired", "filter": {"art_id": "tolling-bell-requiem"}, "scale": {"read": "own.counter.toll", "per": 1}, "do": [{"free_hit": {"c": 4.0, "dtype": "elem"}}]}
+ ],
+ "steps": [
+  {"unlock": [{"any": [{"read": "own.counter.toll", "op": ">=", "value": 3}, {"read": "foe.status.slackened_soul", "op": ">=", "value": 1}, {"read": "own.fired_within.1.group.hollow-bell-canon", "op": ">=", "value": 2}]}],
+   "pay": [{"counter": {"id": "toll", "add": -3}}, {"free_hit": {"c": 14.0, "dtype": "elem"}}]},
+  {"unlock": [{"read": "own.counter.toll", "op": ">=", "value": 7}, {"any": [{"read": "foe.status.slackened_soul", "op": ">=", "value": 2}, {"read": "own.hp_share", "op": "<=", "value": 0.4}]}],
+   "pay": [{"counter": {"id": "toll", "add": -6}}, {"free_hit": {"c": 14.0, "dtype": "elem"}}, {"status": {"id": "slackened_soul", "stacks": 2, "dur": 2}}]}
+ ],
+ "rule": "Every soul hit you land adds a Toll, and Tolls fade slowly (1 every 4 pulses). Each time you ring the bell it strikes the foe's soul once more for every Toll you hold, with no limit. With 3 Tolls, 1 Slackened Soul on the foe, or another art of the canon fired the same pulse, the next ring is a Great Peal that spends 3 Tolls for a heavy extra soul strike; the ring after that, with 5 Tolls and either 2 Slackened Soul on the foe or you at 40 % health or less, is a Death Knell that spends 6 Tolls for a far heavier one and slackens the foe's soul.",
+ "hooks": ["soul hits landed", "toll gained from other sources", "art speed", "trigger damage", "x_soul", "soul resistance down", "low health", "crit"], "sources": ["bell-of-waking", "lamp-threading-needle"]},
+
+{"id": "lamp-oil-lance", "name": "Lamp-Oil Lance (Đăng Du Thương)", "element": "", "role": "soul", "tier": "authored", "power": "engine", "group": "hollow-bell-canon",
+ "tags": ["soul", "lance", "costly"], "c_art": 0.0, "cost_share": 0.06, "cooldown": 3, "kind": "elem", "soul_pct": 0.036, "pool": "than_thuc",
+ "statuses": [{"id": "slackened_soul", "stacks": 1, "dur": 5}],
+ "effects": [
+  {"id": "oil-siphon", "on": "soul_hit", "scale": {"read": "foe.status.slackened_soul", "per": 1}, "do": [{"gain_qi": {"share": 0.02}}]}
+ ],
+ "empower": [
+  {"if": [{"read": "own.counter.toll", "op": ">=", "value": 6}, {"any": [{"read": "foe.status.slackened_soul", "op": ">=", "value": 2}, {"read": "foe.qi_share", "op": "<=", "value": 0.25}, {"read": "own.counter.toll", "op": ">=", "value": 4}, {"read": "own.since.tolling-bell-requiem", "op": "<=", "value": 2}]}],
+   "pay": [{"free_hit": {"c": 80.0, "dtype": "elem"}}, {"gain_qi": {"share": 0.08}}], "add_statuses": [{"id": "slackened_soul", "stacks": 1, "dur": 2}]}
+ ],
+ "rule": "Paid in divine sense (thần thức) instead of linh lực. It loosens the foe's soul, and every soul hit returns 2 % linh lực per Slackened Soul stack on the foe. If the foe is already slackened to 2, is dry of linh lực, you hold 4 Tolls, or the Bell rang in the last 2 s, the lance is Fully Lit: an extra heavy soul strike, 8 % linh lực back and a further slackening.",
+ "hooks": ["divine sense", "x_soul", "slackened soul stacks", "foe linh lực drain", "toll", "cost reduction", "soul resistance down"], "sources": ["heart-lamp-lance", "ninth-weight-lance"]},
+
+{"id": "ambush-talisman", "name": "Ambush Talisman (Phục Kích Phù)", "element": "", "role": "control", "tier": "authored", "power": "engine", "group": "nine-seal-ledger",
+ "tags": ["seal", "talisman", "trap", "held"], "c_art": 0.5, "cost_share": 0.04, "cooldown": 3, "kind": "elem",
+ "counters": [{"id": "seal", "each_for": 12}],
+ "effects": [
+  {"id": "seal-count", "on": "art_fired", "filter": {"tags": ["seal"]}, "do": [{"counter": {"id": "seal", "add": 1}}]},
+  {"id": "ambush-bank", "on": "art_fired", "filter": {"art_id": "ambush-talisman"}, "held": {"until": "hit_landed", "cap": 3},
+   "do": [{"timer": {"side": "foe", "which": "longest", "by": 0.8}}, {"free_hit": {"c": 0.5, "dtype": "chaos"}}]}
+ ],
+ "steps": [
+  {"unlock": [{"any": [{"read": "own.counter.seal", "op": ">=", "value": 3}, {"read": "foe.status.exposed", "op": ">=", "value": 1}, {"read": "own.fired_within.1.group.nine-seal-ledger", "op": ">=", "value": 2}]}],
+   "pay": [{"counter": {"id": "seal", "add": -2}}], "c_mult": 2.2, "add_statuses": [{"id": "exposed", "stacks": 1, "dur": 3}]},
+  {"unlock": [{"read": "own.counter.seal", "op": ">=", "value": 4}, {"any": [{"read": "foe.hp_share", "op": "<=", "value": 0.5}, {"read": "own.hp_share", "op": "<=", "value": 0.4}]}],
+   "pay": [{"counter": {"id": "seal", "add": -4}}], "c_mult": 5, "add_statuses": [{"id": "exposed", "stacks": 1, "dur": 3}]}
+ ],
+ "rule": "Lays a hidden talisman, up to 3: your next hit that lands springs them all, delaying the foe's slowest art 0.8 s and striking for a free Chaos hit each. Every seal you fire adds a Seal. With 3 Seals, an Exposed foe, or another seal fired the same pulse the talisman is a Snare that spends 2 Seals, strikes 3 times harder and exposes; the one after, with 4 Seals and either the foe at 50 % health or you at 40 % or less, is a Death Trap at 5 times that spends 4 Seals.",
+ "hooks": ["seal count", "art speed", "trigger damage", "timer delay", "exposed", "hit count", "crit", "low health"], "sources": ["straw-binding"]},
+
+{"id": "frozen-hour-seal", "name": "Frozen Hour Seal (Đình Thời Ấn)", "element": "", "role": "control", "tier": "authored", "power": "engine", "group": "nine-seal-ledger",
+ "tags": ["seal", "time", "curse"], "c_art": 1.2, "cost_share": 0.05, "cooldown": 5, "kind": "elem",
+ "statuses": [{"id": "slowed_time", "stacks": 2, "dur": 3}],
+ "counters": [{"id": "seal", "each_for": 12}],
+ "effects": [
+  {"id": "hour-steal", "on": "hit_landed", "filter": {"art_id": "frozen-hour-seal"}, "scale": {"read": "foe.status.slowed_time", "per": 1}, "do": [{"timer": {"side": "own", "which": "others", "by": -0.25}}]},
+  {"id": "hour-count", "on": "art_fired", "filter": {"art_id": "frozen-hour-seal"}, "do": [{"counter": {"id": "seal", "add": 1}}]}
+ ],
+ "empower": [
+  {"if": [{"read": "own.counter.seal", "op": ">=", "value": 2}, {"any": [{"read": "foe.status.slowed_time", "op": ">=", "value": 1}, {"read": "own.since.ambush-talisman", "op": "<=", "value": 3}, {"read": "own.counter.seal", "op": ">=", "value": 4}]}],
+   "pay": [{"counter": {"id": "seal", "add": -3}}, {"timer": {"side": "own", "which": "others", "by": -1}}], "c_mult": 2.5, "add_statuses": [{"id": "slowed_time", "stacks": 3, "dur": 3}]}
+ ],
+ "rule": "A seal hit that lays 2 Slowed Time, and every Slowed Time stack on the foe brings each of your other arts 0.25 s closer to ready. If you hold 2 Seals and the foe holds Slowed Time, the Ambush Talisman was set in the last 3 s, or you hold 4 Seals, the seal becomes the Hour Stopped: 2.5 times the force, 3 more Slowed Time, 3 Seals spent and all your other arts 1 s closer.",
+ "hooks": ["slowed time stacks", "curse duration", "art speed", "cooldown reduction", "seal count", "foe timer resistance"], "sources": ["dragging-moment"]},
+
+{"id": "branding-seal", "name": "Branding Seal (Lạc Ấn)", "element": "", "role": "damage", "tier": "authored", "power": "engine", "group": "nine-seal-ledger",
+ "tags": ["seal", "soul", "heavy"], "c_art": 1.0, "cost_share": 0.06, "cooldown": 5, "kind": "elem", "convert": {"to": "soul", "share": 0.4},
+ "counters": [{"id": "seal", "each_for": 12}],
+ "effects": [{"id": "brand-count", "on": "art_fired", "filter": {"art_id": "branding-seal"}, "do": [{"counter": {"id": "seal", "add": 1}}]}],
+ "empower": [
+  {"if": [{"read": "own.counter.seal", "op": ">=", "value": 2}, {"any": [{"read": "foe.status.slackened_soul", "op": ">=", "value": 2}, {"read": "foe.hp_share", "op": "<=", "value": 0.5}, {"read": "own.fired_within.1.group.nine-seal-ledger", "op": ">=", "value": 2}]}],
+   "pay": [{"counter": {"id": "seal", "add": -2}}], "c_mult": 3, "convert": {"to": "soul", "share": 1.0}}
+ ],
+ "rule": "A heavy seal strike of which 40 % is turned into Soul damage, passing wards and body. With 2 Seals and either 2 Slackened Soul on the foe, the foe at 50 % health or less, or another ledger seal fired the same pulse, the brand is Sunk to the Soul: 3 times the force, entirely Soul, and it spends 2 Seals.",
+ "hooks": ["soul damage", "conversion", "seal count", "slackened soul", "heavy arts", "foe with thick wards", "crit"], "sources": ["unravelling-seal"]},
+
+{"id": "marching-dirge", "name": "Marching Dirge (Hành Quân Khúc)", "element": "", "role": "utility", "tier": "authored", "power": "standalone",
+ "tags": ["song", "stance", "form"], "c_art": 0.0, "cost_share": 0.03, "cooldown": 3, "kind": "elem",
+ "counters": [{"id": "measure"}],
+ "states": [{"id": "march", "mods": {"art_speed": 35, "basic_speed": 35, "cost_red": -0.05}}],
+ "effects": [
+  {"id": "march-measure", "on": "pulse", "if": [{"read": "own.state.march", "op": ">=", "value": 1}], "do": [{"counter": {"id": "measure", "add": 1}}]},
+  {"id": "march-finale", "on": "art_fired", "filter": {"art_id": "marching-dirge"}, "if": [{"read": "own.state.march", "op": ">=", "value": 1}], "scale": {"read": "own.counter.measure", "per": 1}, "do": [{"free_hit": {"c": 1.8, "dtype": "elem"}}]},
+  {"id": "march-reset", "on": "art_fired", "filter": {"art_id": "marching-dirge"}, "if": [{"read": "own.state.march", "op": ">=", "value": 1}], "do": [{"counter": {"id": "measure", "set": 0}}]},
+  {"id": "march-toggle", "on": "art_fired", "filter": {"art_id": "marching-dirge"}, "do": [{"state": {"set": "march", "toggle": true}}]}
+ ],
+ "rule": "Playing it starts the march: your arts and basic attack run 20 % faster but cost 20 % more, and each pulse adds a Measure. Playing it again ends the march in a finale of one free hit for every Measure, with no limit.",
+ "hooks": ["art speed", "basic speed", "trigger damage", "crit", "long fights", "cost reduction", "stance switching"], "sources": []},
+
+{"id": "thorn-lullaby", "name": "Thorn Lullaby (Cức Mộng Ru)", "element": "", "role": "heal", "tier": "authored", "power": "standalone",
+ "tags": ["song", "heal", "soul"], "c_art": 1.8, "cost_share": 0.05, "cooldown": 6, "kind": "elem", "c_heal": 0.6,
+ "effects": [
+  {"id": "lullaby-shield", "on": "art_fired", "filter": {"art_id": "thorn-lullaby"}, "do": [{"shield": {"body": 0.08}}]},
+  {"id": "lullaby-thorn", "on": "heal_restored", "limit": {"per_pulse": 3}, "do": [{"free_hit": {"c": 1.0, "dtype": "soul"}}]}
+ ],
+ "rule": "Heals you and raises a body shield of 8 % of your health. Every time you are healed, from any source, thorns of the song strike the foe's soul (up to 3 times a pulse).",
+ "hooks": ["healing received", "health regeneration", "leech", "healing amount", "trigger damage", "max health", "x_soul"], "sources": []},
+
+{"id": "blood-ink-writ", "name": "Blood-Ink Writ (Huyết Mặc Phù)", "element": "", "role": "curse", "tier": "authored", "power": "standalone",
+ "tags": ["seal", "talisman", "blood"], "c_art": 0.85, "cost_share": 0.03, "cooldown": 3, "kind": "elem", "hp_cost": 0.03,
+ "statuses": [{"id": "withering", "stacks": 1, "dur": 4}, {"id": "stagnation", "stacks": 1, "dur": 1}],
+ "effects": [
+  {"id": "ink-spite", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1}, "do": [{"mod": {"dmg_more": 3, "tags": ["seal"]}}]}
+ ],
+ "rule": "Written in your own blood: it costs 8 % of your health on top of its linh lực, and brands the foe with Withering and Stagnation. Every different status on the foe makes your seal arts 4 % stronger, with no limit.",
+ "hooks": ["curse count", "distinct statuses", "health cost reduction", "healing", "seal arts", "stagnation stacks", "leech"], "sources": []}
+]

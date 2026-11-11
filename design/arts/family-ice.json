@@ -1,0 +1,104 @@
+[
+{"id": "rime-lock-seal", "name": "Rime-Lock Seal (Sương Tỏa Ấn)", "element": "ice", "role": "curse", "tier": "authored", "power": "engine", "group": "winter-toll-canon", "tags": ["cold", "seal", "toll"], "c_art": 1.1, "cost_share": 0.04, "cooldown": 5, "kind": "elem",
+ "statuses": [{"id": "heavy_breath", "stacks": 1, "dur": 4}],
+ "counters": [{"id": "frost"}],
+ "effects": [
+  {"id": "toll-lock", "on": "hit_landed", "filter": {"art_id": "rime-lock-seal"}, "limit": {"per_pulse": 1}, "scale": {"read": "foe.debuff.ice", "per": 10}, "do": [{"status": {"id": "heavy_breath", "stacks": 1, "dur": 4, "side": "foe"}}]},
+  {"id": "toll-frost", "on": "art_fired", "filter": {"art_id": "rime-lock-seal"}, "do": [{"counter": {"id": "frost", "add": 1}}]}
+ ],
+ "steps": [
+  {"unlock": [{"any": [{"read": "foe.debuff.ice", "op": ">=", "value": 10}, {"read": "foe.status.heavy_breath", "op": ">=", "value": 1}, {"read": "own.fired_within.1.group.winter-toll-canon", "op": ">=", "value": 2}]}],
+   "pay": [{"timer": {"side": "foe", "which": "longest", "by": 1.0}}], "c_art": 2.5,
+   "statuses": [{"id": "heavy_breath", "stacks": 2, "dur": 5}]},
+  {"unlock": [{"read": "foe.debuff.ice", "op": ">=", "value": 15}, {"any": [{"read": "foe.status.heavy_breath", "op": ">=", "value": 2}, {"read": "own.since.shatter-palm", "op": "<=", "value": 3}]}],
+   "pay": [{"consume": {"el": "ice", "side": "foe", "kind": "debuff", "n": 10}}, {"timer": {"side": "foe", "which": "all", "by": 1.5}}], "c_art": 3.5,
+   "statuses": [{"id": "heavy_breath", "stacks": 2, "dur": 5}]}
+ ],
+ "rule": "A seal strike that reads your Ice stacks on the foe: each full 10 adds a Heavy Breath curse (their art costs up 25 %, two at most). Fired again with 10 Ice stacks, a cursed foe or two arts of its canon this pulse it locks harder and delays their slowest art; a third firing with 15 Ice stacks on the foe and either two Heavy Breath or a Shatter Palm within 3 s eats 10 stacks and delays every art.",
+ "hooks": ["ice stacks", "foe art costs", "timer delay", "art speed", "curse duration", "canon arts fired", "frost"], "sources": ["frostbound-toll", "leaking-seal", "_draft1 cold-toll-seal"]},
+
+{"id": "shatter-palm", "name": "Shatter Palm (Toái Băng Chưởng)", "element": "ice", "role": "damage", "tier": "authored", "power": "engine", "group": "winter-toll-canon", "tags": ["cold", "palm", "shatter", "heavy"], "c_art": 1.5, "cost_share": 0.05, "cooldown": 5, "kind": "elem", "debuff": [3, 6],
+ "counters": [{"id": "frost"}],
+ "effects": [
+  {"id": "shatter-frost", "on": "art_fired", "filter": {"art_id": "shatter-palm"}, "do": [{"counter": {"id": "frost", "add": 1}}]}
+ ],
+ "empower": [
+  {"if": [{"read": "foe.debuff.ice", "op": ">=", "value": 10}, {"read": "own.counter.frost", "op": ">=", "value": 2}],
+   "pay": [{"consume": {"el": "ice", "side": "foe", "kind": "debuff", "then": [{"free_hit": {"c": 0.3, "dtype": "cold"}}], "per": 1}}], "c_art": 3.5},
+  {"if": [{"any": [{"read": "foe.status.slowed_time", "op": ">=", "value": 2}, {"read": "foe.hp_share", "op": "<=", "value": 0.3}, {"read": "own.state.deep-winter", "op": ">=", "value": 1}]}],
+   "pay": [{"consume": {"el": "ice", "side": "foe", "kind": "debuff", "n": 5}}], "c_art": 3.0}
+ ],
+ "rule": "A heavy cold palm that lays 3 Ice stacks for 6 s. With 10 Ice stacks on the foe and 2 Frost it shatters them all: a big hit and a cold free hit for every stack eaten; against Slowed Time, a foe at 30 % health or less, or from the Deep Winter form it shatters 5 stacks for a smaller hit.",
+ "hooks": ["ice stacks", "stack duration", "free hits", "crit", "cold damage", "slowed time stacks", "low-health foe", "frost"], "sources": ["gap: Ice cash-in", "_draft1 shatter-palm"]},
+
+{"id": "deep-winter-form", "name": "Deep Winter Form (Thâm Đông Thế)", "element": "ice", "role": "utility", "tier": "authored", "power": "engine", "group": "winter-toll-canon", "tags": ["cold", "stance", "form"], "c_art": 0.0, "cost_share": 0.03, "cooldown": 4, "kind": "elem",
+ "counters": [{"id": "frost"}],
+ "states": [{"id": "deep-winter", "mods": {"art_speed": -20, "resist": 20}}],
+ "effects": [
+  {"id": "winter-toggle", "on": "art_fired", "filter": {"art_id": "deep-winter-form"}, "do": [{"state": {"set": "deep-winter", "toggle": true}}]},
+  {"id": "winter-rime", "on": "hit_landed", "if": [{"read": "own.state.deep-winter", "op": ">=", "value": 1}], "do": [{"stacks": {"el": "ice", "n": 2, "for": 8, "side": "foe"}}]},
+  {"id": "winter-deepens", "on": "pulse", "if": [{"read": "own.state.deep-winter", "op": ">=", "value": 1}], "do": [{"counter": {"id": "frost", "add": 1}}]},
+  {"id": "thaw-break-rime", "on": "empowered", "filter": {"art_id": "deep-winter-form"}, "do": [{"stacks": {"el": "ice", "n": 10, "for": 8, "side": "foe"}}]}
+ ],
+ "empower": [
+  {"if": [{"read": "own.state.deep-winter", "op": ">=", "value": 1},
+          {"any": [{"read": "own.counter.frost", "op": ">=", "value": 5}, {"read": "foe.debuff.ice", "op": ">=", "value": 15}, {"read": "own.hp_share", "op": "<=", "value": 0.5}]}],
+   "pay": [{"counter": {"id": "frost", "set": 0}}], "c_art": 4.5}
+ ],
+ "rule": "Firing it enters or leaves the Deep Winter: inside you cast 20 % slower and resist 20 points more, every hit you land (basic attacks too) lays 2 Ice stacks for 8 s, and you gain a Frost each pulse. Leaving with 5 Frost, 15 Ice stacks on the foe or half health or less is a thaw break: one big cold hit and 10 more Ice stacks.",
+ "hooks": ["basic speed", "basic attack", "ice stacks", "frost", "resistance", "stance switching", "low health"], "sources": ["gap: Ice stance", "_draft1 deep-winter-form"]},
+
+{"id": "black-ice-glaze", "name": "Black Ice Glaze (Huyền Băng Ấn)", "element": "ice", "role": "curse", "tier": "authored", "power": "standalone", "group": "winter-toll-canon", "tags": ["cold", "seal", "glaze"], "c_art": 1.3, "cost_share": 0.04, "cooldown": 7, "kind": "elem",
+ "effects": [
+  {"id": "glaze-hold", "on": "art_fired", "filter": {"art_id": "black-ice-glaze"}, "held": {"until": "art_fired", "cap": 2},
+   "do": [{"status": {"id": "exposed", "stacks": 1, "dur": 2, "side": "foe"}}, {"stacks": {"el": "ice", "n": 8, "for": 6, "side": "foe"}}, {"free_hit": {"c": 0.6, "dtype": "cold"}}]}
+ ],
+ "rule": "Hits and glazes the foe in black ice. Your next art, of any kind, lands on a brittle foe: Exposed (their resistances down 100), 8 Ice stacks for 6 s and a cold free hit. Glaze twice and two arts are blessed.",
+ "hooks": ["next art", "art speed", "heavy arts", "exposed duration", "ice stacks", "free hits"], "sources": ["gap: Ice brittle payoff", "leaking-seal", "_draft1 black-ice-glaze"]},
+
+{"id": "stilled-instant", "name": "Stilled Instant (Đình Thời Ấn)", "element": "ice", "role": "control", "tier": "authored", "power": "engine", "group": "stilled-hour-sutra", "tags": ["cold", "seal", "stilled"], "c_art": 1.0, "cost_share": 0.05, "cooldown": 8, "kind": "elem",
+ "statuses": [{"id": "slowed_time", "stacks": 1, "dur": 3}],
+ "effects": [
+  {"id": "stilled-delay", "on": "hit_landed", "filter": {"art_id": "stilled-instant"}, "scale": {"read": "foe.debuff.ice", "per": 10}, "do": [{"timer": {"side": "foe", "which": "all", "by": 0.5}}]}
+ ],
+ "steps": [
+  {"unlock": [{"any": [{"read": "foe.status.slowed_time", "op": ">=", "value": 2}, {"read": "foe.debuff.ice", "op": ">=", "value": 10}, {"read": "own.fired_within.1.group.stilled-hour-sutra", "op": ">=", "value": 2}]}],
+   "pay": [{"timer": {"side": "foe", "which": "longest", "by": 1.5}}], "c_art": 6.0,
+   "statuses": [{"id": "slowed_time", "stacks": 2, "dur": 4}]},
+  {"unlock": [{"read": "foe.debuff.ice", "op": ">=", "value": 15}, {"any": [{"read": "foe.status.slowed_time", "op": ">=", "value": 3}, {"read": "own.fired_within.1.group.stilled-hour-sutra", "op": ">=", "value": 2}]}],
+   "pay": [{"consume": {"el": "ice", "side": "foe", "kind": "debuff", "n": 10}}, {"timer": {"side": "foe", "which": "all", "by": 2.0}}], "c_art": 9.0,
+   "statuses": [{"id": "slowed_time", "stacks": 3, "dur": 5}]}
+ ],
+ "rule": "Hits and lays Slowed Time; every full 10 Ice stacks on the foe also freeze 0.5 s onto every art timer they have. Fired again against 2 Slowed Time, 10 Ice stacks or two arts of its sutra this pulse, time stops harder (bigger hit, slowest art delayed); a third firing against 15 Ice stacks and either 3 Slowed Time or two sutra arts this pulse eats 10 stacks and delays every art by 2 s.",
+ "hooks": ["ice stacks", "timer delay", "slowed time stacks", "art cooldown", "sutra arts fired", "curse duration"], "sources": ["undertow", "gap: Ice timers", "_draft1 stilled-instant"]},
+
+{"id": "shattering-mantle", "name": "Shattering Mantle (Toái Băng Giáp)", "element": "ice", "role": "ward", "tier": "authored", "power": "engine", "group": "stilled-hour-sutra", "tags": ["cold", "ward", "mantle"], "c_art": 0.0, "cost_share": 0.05, "cooldown": 6, "kind": "elem",
+ "effects": [
+  {"id": "mantle-raise", "on": "art_fired", "filter": {"art_id": "shattering-mantle"}, "do": [{"shield": {"body": 0.2}}]},
+  {"id": "mantle-burst", "on": "shield_broken", "limit": {"per_pulse": 1}, "do": [{"free_hit": {"c": 1.5, "dtype": "cold"}}, {"stacks": {"el": "ice", "n": 12, "for": 8, "side": "foe"}}]},
+  {"id": "mantle-brittle", "on": "shield_broken", "limit": {"per_pulse": 1}, "if": [{"read": "foe.debuff.ice", "op": ">=", "value": 10}], "do": [{"free_hit": {"c": 1.2, "dtype": "cold"}}]}
+ ],
+ "steps": [
+  {"unlock": [{"any": [{"read": "own.body_shield_share", "op": ">=", "value": 0.1}, {"read": "own.hp_share", "op": "<=", "value": 0.5}, {"read": "foe.debuff.ice", "op": ">=", "value": 6}]}],
+   "pay": [{"shield": {"body": 0.1}}], "c_art": 6.0},
+  {"unlock": [{"read": "foe.debuff.ice", "op": ">=", "value": 12}, {"any": [{"read": "own.body_shield_share", "op": ">=", "value": 0.1}, {"read": "own.fired_within.1.group.stilled-hour-sutra", "op": ">=", "value": 2}]}],
+   "pay": [{"consume": {"el": "ice", "side": "foe", "kind": "debuff", "n": 12}}, {"shield": {"body": 0.2}}], "c_art": 9.0}
+ ],
+ "rule": "Raises a body shield of 20 % of your health; when it breaks it bursts for a cold hit and 12 Ice stacks, and again for more against a foe with 10 Ice stacks. Fired again with a shield standing, at half health or against 6 Ice stacks it slams down as a huge strike and thickens the shield; a third firing with 12 Ice stacks on the foe and either a shield standing or two arts of its sutra this pulse eats those stacks for a bigger slam and a new shield.",
+ "hooks": ["body shield size", "shield breaks", "free hits", "ice stacks", "low health", "shield recovery", "sutra arts fired"], "sources": ["rime-mantle", "_draft1 shattering-mantle"]},
+
+{"id": "sleet-volley", "name": "Sleet Volley (Tuyết Vũ Tiễn)", "element": "ice", "role": "stacks", "tier": "authored", "power": "standalone", "group": "stilled-hour-sutra", "tags": ["cold", "needle", "quick"], "c_art": 1.8, "cost_share": 0.03, "cooldown": 6, "kind": "elem", "charges": 3, "split": [0.2, 0.2, 0.2, 0.2, 0.2],
+ "effects": [
+  {"id": "sleet-rime", "on": "hit_landed", "filter": {"art_id": "sleet-volley"}, "do": [{"stacks": {"el": "ice", "n": 1, "for": 8, "side": "foe"}}]},
+  {"id": "sleet-crit", "on": "crit", "filter": {"art_id": "sleet-volley"}, "do": [{"stacks": {"el": "ice", "n": 2, "for": 8, "side": "foe"}}]}
+ ],
+ "rule": "Holds 3 charges; each firing throws 5 icicles, and every icicle that lands lays 1 Ice stack for 8 s, 2 more if it crits. A spent charge returns after the minimum cooldown, all of them after the full cooldown.",
+ "hooks": ["charges", "art speed", "split hits", "ice stacks", "crit"], "sources": ["rime-needle", "gap: Ice burst", "_draft1 sleet-volley"]},
+
+{"id": "frozen-marrow-pact", "name": "Frozen Marrow Pact (Cốt Băng Khế)", "element": "ice", "role": "damage", "tier": "authored", "power": "standalone", "group": "stilled-hour-sutra", "tags": ["cold", "pact", "costly"], "c_art": 1.5, "cost_share": 0.02, "cooldown": 3, "kind": "elem", "hp_cost": 0.06,
+ "effects": [
+  {"id": "pact-cold-claim", "on": "art_fired", "filter": {"art_id": "frozen-marrow-pact"}, "scale": {"read": "foe.debuff.ice", "per": 5}, "do": [{"free_hit": {"c": 0.5, "dtype": "cold"}}, {"heal": {"share": 0.01}}]}
+ ],
+ "rule": "Pay 6 % of your health along with a little linh lực to strike. For every 5 Ice stacks on the foe it adds a cold free hit and heals you 1 %, so the colder they are the more the pact gives back.",
+ "hooks": ["ice stacks", "health cost reduction", "healing", "free hits", "max health", "leech"], "sources": ["gap: Ice health-paid art"]}
+]

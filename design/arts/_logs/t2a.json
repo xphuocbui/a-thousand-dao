@@ -1,0 +1,9 @@
+{
+"fraying-thread":{"c_art":0.35,"empower.0.c_mult":2.2,"empower.1.c_mult":1.4,"empower.2.c_mult":2.6},
+"gathered-ruin-verdict":{"c_art":0.6,"empower.0.c_mult":3.0,"empower.1.c_mult":2.6,"empower.2.c_mult":2.6},
+"ripening-curse":{"c_art":0.5,"steps.0.c_mult":1.1,"steps.1.c_mult":2.2},
+"marrow-siphon-palm":{"c_art":1.3,"steps.0.c_mult":1.25,"steps.1.c_mult":3.2},
+"hollowing-strike":{"c_art":1.8,"empower.0.c_mult":2.8,"empower.1.c_mult":1.8},
+"bloodletting-rite":{"c_art":0.5,"effects.0.do.0.mod.dmg_more":2,"effects.1.do.0.mod.leech_hp":6},
+"shearing-palm":{"c_art":3.0,"effects.0.do.0.free_hit.c":0.8}
+}
