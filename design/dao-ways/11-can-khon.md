@@ -65,7 +65,7 @@
 - **Effects:**
   - **Major: Seal the Space (Phong Tỏa Không Gian).** Neither side's escape art can fire (a closing rule on both sides). If you slot no escape art, your hits deal more (L5 +15).
   - Minor: Closed Door (Cửa Đóng). Foes cannot escape from you below 30 % health. *(starter)*
-  - Minor: Pressed Space (Ép Không Gian). In a sealed fight, every 10 s apply Pressed to the foe (a curse: −3 pp evade per stack, stacks to 5, lasts until the fight ends or is cleansed).
+  - Minor: Pressed Space (Ép Không Gian). In a sealed fight, every 10 s apply Pressed to the foe (a curse: −3 pp evade per stack, stacks to 5, 5 pulses, refreshed by each new stack).
 
 ## Capstones
 
