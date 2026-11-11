@@ -69,7 +69,9 @@ would have to mean both a crushing wave and a freezing mist.
      conversion (rule 6).
    - **A hit is either all Soul or has no Soul part** (user decision 2026-11-08). Soul uses its own damage
      formula and defence path (rule 4), so compile rejects a hit that mixes Soul with another type. An art that
-     wants both deals two hits.
+     wants both deals two hits. **One exception** (Đạo shared rule R11, 2026-11-11): a non-soul art may carry an
+     **added Soul part** of at most 30 % of its damage, worked as an ordinary part that meets only soul defence
+     (Combat Formulas E2). Converting to Soul stays forbidden.
    - Every tick has one type: a burn is Fire, a poison Chaos, a bleed Physical, Qi Disruption Force. No status deals
      Soul damage.
    - The Breakdown names the type of every part.
@@ -129,7 +131,10 @@ would have to mean both a crushing wave and a freezing mist.
    System row, `convert_pct` keyed by its from and to types, that any host may carry (user decision 2026-11-08,
    re-review DT 2: a plain conversion share is a modifier, not an Effect). A tag scope is not a condition, so a
    scoped share such as "40 % of the Physical in sword hits becomes Fire" is `convert_pct` with scope [sword]
-   (user decision 2026-11-08b, DT-07). Only a conversion with a real condition is an Effect. The limits:
+   (user decision 2026-11-08b, DT-07). Only a conversion with a real condition is an Effect. A capstone or major
+   Effect may name the target **`least_resisted`**: the type the defender resists least among the non-Soul types,
+   chosen when the hit lands (ties go to the first type in this GDD's order); it counts as one of the 2
+   conversions (Đạo shared rule R10, 2026-11-11). The limits:
    - **At most 2 conversions per hit.** Each conversion counts, including two from one type in the same step.
      A conversion that moves nothing (no part of its source type is left, or its target is already in the
      history of every part of its source type) does not count, matching the Soul rule below.

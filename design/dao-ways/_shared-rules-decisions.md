@@ -70,5 +70,11 @@ Suggestions 10–17 were not asked (outside the top 9).
   Status Catalogue (Slowed Time, R22 clamp), rule 9a (Fire buff layer, no roll on granted stacks, 2-pulse minimum
   batch), Formulas D (lint fails above 0.6; Slowed Time and delay maths), 7 knobs, AC-EF-71..80. The "Applied?"
   column above still says No where Combat, Combat Defence, Character Stats, Modifiers or Dao also own a part.
+- **Combat GDD applied 2026-11-11** (five sections, each approved): rule 11 second pools (heart demon really spent;
+  spent thần thức is lost soul defence), rule 12 (fight_payload, preparation choices, carried ground, formations on
+  one ground: laid or carried, the stronger), rule 13 + Formulas A2 (kind-locked slots, opening/basic/companion
+  speed), Formulas C (curse charge, coef_add), E2 (soul pricing, live divine_sense_def, Thinned Mind, reference
+  thần thức, added Soul part worked as a normal part meeting soul defence only), Formulas B layer writes, rule 10
+  curse start, knobs, AC-CB-85..91. Combat Damage Types: Soul-part exception (rule 1), `least_resisted` (rule 6).
 - **Next:** write the accepted rules into their other owning GDDs (section by section, user approves each), then revise
   each asking Way to point at the rule instead of its own `Needs rule`.

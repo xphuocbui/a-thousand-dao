@@ -175,8 +175,9 @@ author's reading and wait for confirmation (see Open Questions).
       next); standing statuses take their caster's standing fee before they tick (Effects Formulas B); over-time
       statuses tick; status and curse durations fall; sides that are not Down regenerate linh lực and health;
       **fatigue** strikes from `fatigue_start` (below); and the per-pulse limits reset (`trig_cap`, the trigger
-      budget). Healing and ticks have no per-pulse cap (#44 items C1, C3). A status or curse applied
-      between pulses first counts at the next one. A tick may take health to 0 or below, but nothing ends the
+      budget). Healing and ticks have no per-pulse cap (#44 items C1, C3). A curse's rule applies the
+      moment it is placed and its duration first falls at the next pulse; a tick first ticks at the next pulse
+      (build-run suggestion 5, 2026-11-11). A tick may take health to 0 or below, but nothing ends the
       fight until the instant's defeat check (see Same instant).
     - **Firing.** An art fires the moment its timer has ended, its guard is true and its cost can be paid. The
       **guard is read once the instant's pulse has resolved and before any art cost is paid** (user decision
@@ -255,6 +256,18 @@ author's reading and wait for confirmation (see Open Questions).
     **Sustain is king** (user decision 2026-11-08): a long fight favours the build that brought sustain, and a burst
     build must win before its own spending drops its guard. Healing keeps full strength all fight (#44 item C1);
     fatigue (rule 10) is what ends a fight neither side can win.
+
+    **Second pools** (Đạo shared rule R12, user decisions 2026-11-11). Only an Effect opens a second pool, and it
+    names the arts that may pay from it; wards never pay from a second pool.
+    - **Heart demon (tâm ma) pool** (Ma Đạo's Demon Power): its size is the side's heart demon at fight start, and it
+      does not regenerate. A covered art may be paid at **1 heart demon per 1 % of maximum linh lực** of its cost.
+      What is spent is really spent: the fight result reports it and the caller lowers tâm ma afterwards (Effects
+      rule 10).
+    - **Thần thức pool** (Xạ Đạo's Spirit Arrows): its size is the side's fighting thần thức. A covered art costs the
+      same share of thần thức that it would of linh lực, and the pool regenerates at the side's linh lực
+      regeneration share each pulse. **Spent thần thức is lost defence:** soul hits compare against the side's
+      current thần thức (rule 24, Formulas E2), so an emptied quiver is open to soul attacks, as an emptied linh lực
+      pool is open to everything else.
 12. **Preparation counts.** Before a fight the player may prepare, within what the situation allows.
     The Event Engine tells Combat which kind of situation the fight is:
 
@@ -267,7 +280,22 @@ author's reading and wait for confirmation (see Open Questions).
     Each prepared item adds modifiers to a layer, costs the time, goods and upkeep its own system
     sets, and appears in the fight's opening Breakdown. Combat does not price preparation: Artifact
     Refining, Formations, Talismans and the Alchemy pills each own their cost, and Combat owns
-    only what the prepared item does inside the fight.
+    only what the prepared item does inside the fight. Every pill, coating and combat talisman carries a
+    **`fight_payload`** (build-run suggestion 1, 2026-11-11): an L4 `damage_more` with a scope, or a stat; the
+    situations that allow it; and what scales it. Combat formations are data records in the same shape.
+
+    **Preparation choices** (Đạo shared rule R8, 2026-11-11). Vows, decrees, sacrifices, incense and the like
+    (Effects rule 8) are prepared like items: each record lists the situations that allow it, and the Advisor can
+    preset them for ambush and blind fights. Each source gives one pick, with no total cap.
+
+    **Carried ground** (Đạo shared rule R9, 2026-11-11). A side may bring a carried ground object (a formation in a
+    sleeve, an array in the body, a landscape scroll). It works at **100 % foreseen, 70 % in an ambush and 50 %
+    blind** (`carried_ground_share`), so preparing still pays. The Domain (Vực Đạo) is the one carried ground that
+    unfolds mid-fight, at a time or event its record names.
+
+    **Formations on one ground** (build-run suggestion 5, 2026-11-11). Away from home each side counts one formation:
+    its laid formation or its carried ground, whichever is stronger. At your own abode every standing home formation
+    counts. When both sides lay one, both count unless an Effect says otherwise.
 13. **Arts, cooldown timers and slot order.** An **art** has an id, tags, damage parts with their types (Combat
     Damage Types rule 1), a linh lực cost, a cooldown in seconds, an effect and optionally a heal payload under the
     heal lint (Combat Defence & Healing Formulas E). The sources are: the divine abilities (thần thông) that the main and
@@ -277,7 +305,9 @@ author's reading and wait for confirmation (see Open Questions).
     basic attack (Physical, tags physical, hit, art and basic, no cost). A combatant's **loadout** has `slot_count` art slots (Formulas A2), its
     free ward slots (Combat Defence & Healing rule 5 and Formulas D) and the basic attack. The art slots are one pool: a divine ability, a Way art, an artifact's
     active effect, a talisman, the escape art and a ward placed in an art slot each take one, so carrying an escape costs a
-    damage art. The basic attack and wards in ward slots take none. Every slotted ward is up at once, so a side can layer
+    damage art. **Kind-locked slots** (Đạo shared rule R4, 2026-11-11): `free_slots[kind]` adds slots that hold only
+    one kind (talisman, artifact_active, escape, pill or feint); they sit outside the one pool and have no total cap,
+    each source's own cost being the limit. The basic attack and wards in ward slots take none. Every slotted ward is up at once, so a side can layer
     wards (Combat Defence & Healing rule 5). **Every art runs on its own cooldown timer**
     (user decision 2026-11-06, in the manner of an auto-battler's item cooldowns). Every art starts on its
     full effective cooldown, so its first firing comes one cooldown into the fight (user decision 2026-11-06).
@@ -286,7 +316,10 @@ author's reading and wait for confirmation (see Open Questions).
     cooldown counts from that firing. There is no choice in the fight: the choices are which arts are slotted,
     in what order, and each art's guard. **Art speed** divides a cooldown: +100 % art speed halves it, +300 % quarters it, and
     a cooldown never falls below `cooldown_min` (user decision 2026-11-06, Formulas A2). Bonuses add together like
-    other percentage keys, and each point is worth less than the last. It applies to arts only. Compile gives each art its derived tags (rule 6) from its authored cooldown and cost
+    other percentage keys, and each point is worth less than the last. It applies to arts only. Three more timer stats share its shape (build-run suggestion 6, 2026-11-11):
+    **opening haste** shortens each art's first timer only, **basic speed** the basic attack's timer, **companion
+    speed** the companion's (Formulas A2); an enemy Effect can push timers the other way with a delay or the curse
+    Slowed Time (Effects rule 6, Status Catalogue). Compile gives each art its derived tags (rule 6) from its authored cooldown and cost
     share; art speed and cost reduction do not change them (Combat revision D5). The basic attack carries only
     `basic`, never `quick` or `cheap` (user decision C4, 2026-11-08). The **basic attack** is a
     free art on its own timer of `basic_cooldown` and **always runs**, whatever else fires (user decision
@@ -383,7 +416,8 @@ author's reading and wait for confirmation (see Open Questions).
     like any other, and fires whenever its timer and guard allow, but a side's soul arts share a
     **`soul_lockout`**: after one fires, no other soul art of that side fires until the lockout ends, and
     ready ones wait (an interim limit until the technique content exists, Open Question 16). A soul hit is all
-    Soul; a hit that mixes Soul with other types is rejected at compile (Combat Damage Types rule 1). It ignores
+    Soul; a hit that mixes Soul with other types is rejected at compile (Combat Damage Types rule 1), except a
+    non-soul art's **added Soul part** of at most 30 % (Đạo shared rule R11, 2026-11-11; Formulas E2). It ignores
     every defence except soul resistance and soul wards, and takes
     a share of maximum linh lực and of maximum health at once. The share rises steeply with the attacker's
     thần thức over the defender's, so it is only dangerous across a big gap in power and small between
@@ -520,7 +554,11 @@ The cooldown formula is defined as:
 | cooldown | float | 0.5–12 s (was 0.5–30 s; #44 item A2) | data file (art record) | The art's authored cooldown |
 | art_speed_pct | float | ≥ 0 (percentage points) | Modifier System (`art_speed_pct`, 0.6 W) | How much faster arts cycle, summed over sources. +100 means twice as fast, so half the cooldown (user decision 2026-11-06) |
 | cooldown_min | float | 0.5 s | data file | Floor on any art's cooldown, so the rate of hits stays bounded |
-| basic_cooldown | float | 1 s | data file | The basic attack's and the companion's timer. Art speed does not touch it |
+| basic_cooldown | float | 1 s | data file | The basic attack's and the companion's timer. Art speed does not touch it; basic speed and companion speed do |
+| opening_haste_pct | float | ≥ 0 | Modifier System (≈ 0.3 W per %) | Each art's first timer only (build-run suggestion 6, 2026-11-11). **Never on tree smalls**: only techniques, Way notables, named items and pills carry it. The NPC generator gives top-end NPCs some, so a first volley can be answered |
+| basic_speed_pct | float | ≥ 0 | Modifier System (0.4 W per %, its Pending row) | The basic attack's timer |
+| companion_speed_pct | float | ≥ 0 | Modifier System | The companion's timer; Bonded Spirit also adds the owner's art speed |
+| free_slots[kind] | int | ≥ 0 | Modifier System; Effects rule 6 | Kind-locked slots (R4), counted beside `slot_count`, no cap |
 | pulse_interval | float | 1 s | data file | Beat of regeneration, ticks, durations and per-pulse limits |
 | ~~time_limit~~ | — | retired 2026-11-10 | — | Fatigue grows without bound, so no fight needs a limit; no stalemate |
 | fatigue_start | float | 60 s | data file | First fatigue pulse (#44 item A3) |
@@ -531,6 +569,12 @@ The cooldown formula is defined as:
 | soul_lockout | float | 1 s (guess) | data file | Minimum gap between a side's soul arts |
 
 **Output Range:** `cd_eff` runs from `cooldown_min` to the authored cooldown. Dividing never reaches 0 on its own, so the floor is the only hard stop.
+
+The other timers (build-run suggestion 6, 2026-11-11) are defined as:
+
+`first_timer = round_ms(max(cooldown_min, cd_eff / (1 + opening_haste_pct / 100)))` ; `basic_cd = round_ms(max(cooldown_min, basic_cooldown / (1 + basic_speed_pct / 100)))` ; `companion_cd` is `basic_cd` reading `companion_speed_pct`
+
+**Example:** a 4 s art with +50 % art speed and +100 % opening haste first fires at 2.667 / 2 = **1.333 s**, then cycles at 2.667 s. A delay or Slowed Time then stretches a timer as Effects Formulas D says.
 
 The fatigue formula is defined as:
 
@@ -588,6 +632,11 @@ The layer_total formula is defined as:
 | L4 | Preparation and ground | `damage_more` on L4 from formations, talismans, pills, coatings and ground tags (rule 12); typical +20. When blind, x4 holds ground tags only |
 | L5 | Effects | `damage_more` on L5, granted only as an Effect's payload (Modifier System rule 6), applied only while active |
 
+**Layer writes** (Đạo shared rule R15d, 2026-11-11). Effects may read layer totals freely, each total before its cap
+included. Only a capstone may write one (clip or raise, Effects rule 6), at most one such capstone per Way; a
+write applies after the caps and is logged. A raise never passes the layer's cap unless the Effect is that Way's
+one cap-shift capstone (Đạo shared rule R14).
+
 **Output Range:** anchors per realm, all at stage 1.00. These are targets until real builds are measured.
 W shares are attack / ward strength / ward efficiency / linh lực / health.
 
@@ -642,13 +691,14 @@ spends its arts up front, so it is shorter than Formulas K's averaged typical ro
 
 The hit_damage formula is defined as:
 
-`base = U_att · stage_att · c_art` ; `part_j = base · s_j · M(T_j) · crit` ; `D_j = part_j · supp` ; `D_j` then meets the defence path: resistance `a_j = D_j ÷ (1 + R_j / 100)` with R_j in points, or `D_j · (1 + |R_j| / 100)` below 0 (Combat Defence & Healing Formulas A), its share `k_j` of block (A2), shields (B), and `dealt_j = 0` if nothing reaches health, else `max(1, h_j)` for a hit (ticks have no floor, Formulas F) ; `overkill = max(0, damage_in_instant − health_at_instant_start) / health_max`, where `damage_in_instant` is everything that removed health from that side in the instant (ticks, hits, trigger hits and last acts, after the defence path) and health is not floored until the defeat check
+`base = U_att · stage_att · (c_art + coef_add)` ; `part_j = base · s_j · M(T_j) · crit` ; `D_j = part_j · supp` ; `D_j` then meets the defence path: resistance `a_j = D_j ÷ (1 + R_j / 100)` with R_j in points, or `D_j · (1 + |R_j| / 100)` below 0 (Combat Defence & Healing Formulas A), its share `k_j` of block (A2), shields (B), and `dealt_j = 0` if nothing reaches health, else `max(1, h_j)` for a hit (ticks have no floor, Formulas F) ; `overkill = max(0, damage_in_instant − health_at_instant_start) / health_max`, where `damage_in_instant` is everything that removed health from that side in the instant (ticks, hits, trigger hits and last acts, after the defence path) and health is not floored until the defeat check
 
 **Variables:**
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| c_art | float | basic 1.0; arts 1.2–6.75 (the lint's maximum at cost 0.125 and 12 s; #44) | data file (`basic_coef`, art record) | Art coefficient. Lint: `c_art ≤ basic_coef · (1 + art_coef_per_cost · cost_share) + art_coef_per_cooldown · (cooldown − 1)`, on the authored cooldown in seconds. An art that grants element stacks lints at `lint · (1 − charge)` (Effects System Formulas D, #44) |
+| c_art | float | basic 1.0; arts 1.2–6.75 (the lint's maximum at cost 0.125 and 12 s; #44) | data file (`basic_coef`, art record) | Art coefficient. Lint: `c_art ≤ basic_coef · (1 + art_coef_per_cost · cost_share) + art_coef_per_cooldown · (cooldown − 1)`, on the authored cooldown in seconds. An art that grants element stacks lints at `lint · (1 − charge)` (Effects System Formulas D, #44). An art that applies a curse adds `curse_charge` to that charge: 0.10 per pulse of duration for a rule-changing curse, 0.15 per pulse for Leaking Ward or Heavy Breath; above 0.6 in total the art fails (build-run suggestion 4a, 2026-11-11). Non-element ticks keep the status lint (Formulas F) |
+| coef_add | float | ≥ 0 | Modifier System (`basic_coef_add`, `art_coef_add`) | Flat coefficient outside the lint (build-run suggestion 8, 2026-11-11). `basic_coef_add`: basic attack only, from tree, technique, Way and item lines. `art_coef_add`: arts, only from named, capped Effect payloads (Vow of the One Stroke, Thunderhead). The lint never reads it; the Breakdown shows the added part |
 | art_coef_per_cost, art_coef_per_cooldown | float | 24 (was 12: costs were halved, so each share of cost buys twice the coefficient and arts keep their damage; user decision 2026-11-09), 0.25 | data file | Art power is paid for in linh lực and cooldown |
 | s_j | float | 0–1, Σ = 1 | Combat Damage Types Formulas A | Share of the hit in part j |
 | T_j | tag set | — | calculated | The art's tags, plus part j's damage type and its earlier types (Combat Damage Types rule 6) |
@@ -725,7 +775,8 @@ The soul_attack formula is defined as:
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| soul_pct | float | 0.03–0.08 | data file (art record) | Share of maximum at equal souls; a guess |
+| soul_pct | float | 0.03–0.08 | data file (art record) | Share of maximum at equal souls; a guess. Priced (build-run suggestion 4b, 2026-11-11): `soul_pct ≤ 0.0125 × the art's lint`, clipped to 0.03–0.08 |
+| divine_sense_def | float | > 0 | calculated | The defender's **current** thần thức: what a thần thức pool has spent is missing (rule 11). **Thinned Mind** (build-run suggestion 3): a keystone's or enabler's close may set its holder's `divine_sense_def = free + k × bound` (Garrison Mind k 0.5) |
 | x_soul | float | ≥ 0 | calculated | Soul-tagged modifiers, so a soul build has something to stack |
 | soul_beta | float | 2 (1.5–3) | data file | Steepness: a big gap is frightening and parity is small |
 | rho_min | float | 0.25 | data file | Below this the attack cannot touch the soul |
@@ -737,6 +788,16 @@ Only soul resistance and soul wards apply. After `pct` sets the losses, a soul s
 off its own bar until the bar is empty (Combat Defence & Healing rule 14, Formulas B). Evade, crit, damage-type
 resistance, block and every other shield do not apply. Cost and cooldown are the art's own. Percent is taken on the pools
 before `boss_pool_mult`, so a ×8 boss loses at most 3.75 % a hit.
+
+**Reference thần thức** (build-run suggestion 3, 2026-11-11; first guesses, to be measured): typical foe 59.4
+talent-units, soul resistance 0; top-end foe 142, soul resistance 15; rule 18's soul-resistant foe as top-end plus a
+Soul-Guarding Lamp. NPC Builds and the harness honour these (Combat Defence & Healing AC-CD-51).
+
+**An added Soul part** (Đạo shared rule R11, 2026-11-11). A non-soul art may carry an added Soul part of at most
+30 % of its damage. That part is worked as an ordinary part (Formulas C: `base · s_soul · M · crit · supp`), then
+meets only soul defence: `÷ (1 + soul_res_pct / 100)` (amplified below 0 as above) and soul shields; it is dealt
+to health, and rho does not apply. Firing the art starts the side's `soul_lockout`, and the art waits for it like a
+soul art. Converting a part to Soul stays forbidden.
 
 **Output Range:** 0 to 0.30 of each pool per hit.
 
@@ -1154,6 +1215,10 @@ elsewhere, such as `power_base` and `attack_pct` prices, stay in their own GDDs.
 | `health_units`, `qi_units`, `fatigue_start`, `fatigue_units`, `fatigue_pow` | Fight length, how much staying power sits in wards and shields, and when fatigue ends a fight |
 | `pulse_interval`, `basic_cooldown`, `cooldown_min`, `escape_channel`, `soul_lockout` | The pace of a fight |
 | `slots_by_realm` | How many arts a build carries, and so its burst and linh lực burn |
+| `carried_ground_share` (1.0 / 0.7 / 0.5) | How much carried ground keeps when a side cannot fully prepare (R9, 2026-11-11) |
+| `curse_charge` (0.10, 0.15 per pulse) | What art power a curse costs (build-run suggestion 4a) |
+| `soul_price` (0.0125), `soul_part_max` (0.30), `thinned_mind_k` (0.5) | Soul arts' size, hybrid Soul arts and how open Thinned Mind leaves a build (suggestions 3, 4b; R11) |
+| `opening_haste_pct`, `basic_speed_pct`, `companion_speed_pct` prices | How fast first volleys, basic attacks and companions come (suggestion 6) |
 | `basic_coef`, `art_coef_per_cost`, `art_coef_per_cooldown` | Art power against its cost |
 | `l1_soft_start`, `l1_soft_slope`, `layer_caps` | How far a build can scale |
 | `crit_chance_cap`, `crit_mult_cap`, `evade_cap` | How swingy fights are |
@@ -1385,6 +1450,16 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 - **AC-CB-58** [Logic] Knob invariant (user decision C1, 2026-11-08). Fatigue (#44 item A3; flat n² since 2026-11-10). **GIVEN** two FX-T sides at full health that cannot hurt each other (block takes every part), **THEN** fatigue takes 3.16, 12.62, 28.39 … at t = 60, 61, 62 …, both sides reach 0 at t = 66.000 with equal overkill shares (0.005), and the fight is a draw with both at 1 health and `wound: grave`. **GIVEN** one side at 50 % health at t = 60, **THEN** it falls at t = 65. **GIVEN** a side with twice FX-T's health, **THEN** each fatigue pulse is the same amount as FX-T's. **GIVEN** fatigue on a side with every ward up, a body shield and resistance 900 points, **THEN** the full amount is taken. **GIVEN** a refusal held, **THEN** the side is set to 1 health once and falls at the next fatigue pulse. Fatigue is logged on its own line and fires no hit, crit or status trigger.
 - **AC-CB-83** [Config/Data] Rule 6 (D17). **GIVEN** the tag registry, **THEN** the effect family holds pierce, lock, poison, cleanse, escape, bleed and seal; Bleed's cleanse tag is `bleed`, and Sealed Meridian's and Silence's is `seal`, and all three statuses load with no unknown-tag error. The status family (one tag per status) is the Effects System's.
 - **AC-CB-84** [Config/Data] Rule 18 (D8). **GIVEN** the enemy profile data, **WHEN** the data scan runs, **THEN** it reports how many profiles it scanned per realm tier, and each tier has at least one enemy dealing each group (Physical/Force; Fire/Cold/Lightning/Light; Chaos; Soul), at least one whose resistance against each non-Soul group is at least 150 points (stopping 60 %) with its wards up (rule 18, user decision C3), at least one carrying Qi Disruption or a soul art, and at least one with a heal art or heal Effect; and every profile lists its damage types, its wards and a soul defence.
+
+**Added 2026-11-11 (Đạo shared rules and build-run suggestions)**
+
+- **AC-CB-85** [Logic] Rule 11, heart demon pool. **GIVEN** a covered art costing 7.5 % of maximum linh lực and a heart demon pool of 40, **WHEN** it fires, **THEN** the pool pays 7.5, linh lực is untouched, the pool never regenerates, and the result reports 7.5 heart demon spent.
+- **AC-CB-86** [Logic] Rule 11, thần thức pool. **GIVEN** a side that has spent 30 % of its thần thức on covered arts, **WHEN** a soul hit lands on it, **THEN** `divine_sense_def` is 70 % of its start value.
+- **AC-CB-87** [Logic] Rule 12, carried ground. **GIVEN** a +20 L4 carried ground, **THEN** it gives +14 in an ambush and +10 blind. **GIVEN** away from home a laid +20 formation and a +15 carried ground on one side, **THEN** only +20 counts.
+- **AC-CB-88** [Logic] Formulas A2, opening haste. **GIVEN** a 4 s art with +50 % art speed and +100 % opening haste, **THEN** it first fires at 1.333 s and then every 2.667 s.
+- **AC-CB-89** [Logic] Rule 13, kind-locked slots. **GIVEN** `free_slots[talisman]` 1 and a full art pool, **THEN** a talisman fits the extra slot and a damage art cannot use it.
+- **AC-CB-90** [Logic] Formulas E2, added Soul part. **GIVEN** a c_art 2.0 art with a 30 % added Soul part against soul resistance +50, **THEN** that part is dealt at ÷ 1.5 past no other defence, the other 70 % meets the normal defence path, and the art starts the side's `soul_lockout`.
+- **AC-CB-91** [Logic] Rule 10, curse start. **GIVEN** a curse placed at t = 2.4 s, **THEN** its rule applies at 2.4 s and its duration first falls at t = 3 s.
 
 **Cross-system integration**
 
