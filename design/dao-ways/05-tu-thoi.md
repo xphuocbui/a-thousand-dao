@@ -55,7 +55,7 @@ with the **world's calendar** (Pillar 4: every season counts). A build reads the
   +1, regen +0.05 · Hibernation (Ngủ Đông): linh lực regen +0.15
 - **Effects:**
   - **Major: Winter Stillness (Đông Tàng).** In Winter, seclusion cultivation progress is +10 % (within `dao_rate_cap_pct`), and in fights all damage you take is dampened 15 % (rule 6a). Out of Winter, dampened 5 %.
-  - Minor: Frozen Ground (Đất Đóng Băng). In Winter, your Cold hits apply 1 extra Ice stack. *(starter)*
+  - Minor: Frozen Ground (Đất Đóng Băng). In Winter, your Cold hits apply 1 extra Ice stack for 6 pulses. *(starter)*
   - Minor: Store for Winter (Tích Trữ). Pills you brewed in Autumn are 10 % stronger in Winter. `Needs key`.
 
 ### 5. Luân Niên (the Turning Year)

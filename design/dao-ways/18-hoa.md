@@ -25,7 +25,7 @@
   +2 ×2 · Hungry Fire (Lửa Đói): over-time damage ×2 · Cutting Heat (Nhiệt Xuyên): fire penetration +1, fire +1
 - **Effects:**
   - **Major: Wildfire (Liệu Nguyên).** At each pulse, each of your Burn batches that expired that pulse on a target is reapplied at half its stacks for its original duration. A reapplied batch never reapplies again.
-  - Minor: Catch (Bén Lửa). Your Fire hits apply 1 extra Burn stack per 10 stacks already on the target (cap +5).
+  - Minor: Catch (Bén Lửa). Your Fire hits apply 1 extra Burn stack per 10 stacks already on the target (cap +5; batches of 6 pulses).
   - Minor: Kindling (Mồi Lửa). Your first Fire art each fight applies double Burn. *(starter)*
 
 ### 2. Dung Nham (Lava) †

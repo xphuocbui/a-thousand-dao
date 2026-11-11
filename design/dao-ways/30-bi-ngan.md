@@ -25,7 +25,7 @@
   - **Major: Flower without Leaves (Hoa Lá Bất Tương Kiến).** Your Fire and Chaos parts never meet the same
     defence twice: a hit that has both types converts its smaller part to whichever type the foe resists less.
     `Needs rule` (conversion chosen by resistance; shared with Thủy's Like Water).
-  - Minor: Lily Root (Rễ Lan). Your Chaos hits apply 2 Burn stacks and your Fire hits apply 2 Poison stacks.
+  - Minor: Lily Root (Rễ Lan). Your Chaos hits apply 2 Burn stacks for 6 pulses and your Fire hits apply 2 Poison stacks for 6 pulses.
     *(starter)*
   - Minor: Blooming in Autumn (Nở Mùa Thu). After 30 s of fight, your Fire and Chaos hits deal more (L5 +12).
 

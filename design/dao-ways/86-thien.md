@@ -47,7 +47,7 @@
   - **Major: Heaven's Punishment (Thiên Phạt).** Your hits deal more to a foe that breaks heaven's order: per thing it
     does (refuses a Down, pays arts in health, holds 50+ stacks of one kind, uses a forbidden art, carries Corpse Rot),
     L5 +12, cap +48. `Needs key` (forbidden tag).
-  - Minor: Lightning for the Wicked (Lôi Cho Kẻ Ác). Your hits apply 2 Thunder debuff stacks to a foe with a demonic
+  - Minor: Lightning for the Wicked (Lôi Cho Kẻ Ác). Your hits apply 2 Thunder debuff stacks for 4 pulses to a foe with a demonic
     tag. *(starter)*
   - Minor: No Second Chance (Không Cơ Hội Hai). A foe that refused the Down step against you takes 20 % more for the
     rest of the fight.

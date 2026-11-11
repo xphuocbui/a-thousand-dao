@@ -56,7 +56,7 @@
     power share drops 1 % per 2 % of your max health it has taken, floor 50 %). `Needs rule` (companions in the
     defence path).
   - Minor: Reassemble (Ráp Lại). Your companion's power share recovers 1 % a second. *(starter)*
-  - Minor: Bone Toss (Ném Xương). Your companion's hits apply 1 Metal debuff stack.
+  - Minor: Bone Toss (Ném Xương). Your companion's hits apply 1 Metal debuff stack for 4 pulses.
 
 ### 5. Sọ Hộ (Skull Ward)
 - **Small:** `soul_res_pct` +1 · `body_shield_pct` +1

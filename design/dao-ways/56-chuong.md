@@ -32,7 +32,7 @@
   Wind (Gió Đẩy): evade +1, palm +1 · Whirl (Xoáy): wind stack effect +2
 - **Effects:**
   - **Major: Palm Wind (Chưởng Phong).** Each palm hit grants 1 Wind buff stack for 4 pulses; at 15+ Wind buff
-    stacks your palm hits also apply 2 Wind debuff stacks.
+    stacks your palm hits also apply 2 Wind debuff stacks for 4 pulses.
   - Minor: Wind Pressure (Phong Áp). Palm hits push the foe's evade down by 2 pp for 2 pulses (no stacking).
   - Minor: Light Palm (Chưởng Nhẹ). Your quick palm arts cost 20 % less. *(starter)*
 
@@ -52,9 +52,9 @@
 - **Stat notables:** Red Palm (Chưởng Đỏ): fire ×2 · Scorched Hand (Tay Cháy): palm +1, fire +1 · Smoke Palm
   (Chưởng Khói): fire stack effect +2 · Furnace Grip (Nắm Lò): fire penetration +2
 - **Effects:**
-  - **Major: Burning Palm (Liệt Hỏa Chưởng).** Your palm hits convert 30 % to Fire and apply 3 Burn stacks; your
+  - **Major: Burning Palm (Liệt Hỏa Chưởng).** Your palm hits convert 30 % to Fire and apply 3 Burn stacks for 6 pulses; your
     palm art speed is +1 % per 5 Burn stacks on the target (cap +30 %).
-  - Minor: Hot Hands (Tay Nóng). Your palm crits apply 5 extra Burn stacks. *(starter)*
+  - Minor: Hot Hands (Tay Nóng). Your palm crits apply 5 extra Burn stacks for 6 pulses. *(starter)*
   - Minor: Branded (Dấu Lửa). A target bearing 30+ Burn stacks takes more from your palm hits (L5 +12).
 
 ### 5. Thiên Chưởng (a Thousand Palms)

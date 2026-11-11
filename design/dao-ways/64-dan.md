@@ -44,7 +44,7 @@
   Băng): cold +1, alchemy +1 · Calm Blood (Máu Mát): dan độc resist +2
 - **Effects:**
   - **Major: Thrown Pill (Ném Đan).** Pills may be thrown at the foe in a fight as an art (cost 0, cooldown 8 s): a cold
-    pill applies 15 Ice stacks; a toxic pill applies 15 Poison stacks; a fire pill applies 15 Burn. `Needs key`.
+    pill applies 15 Ice stacks for 6 pulses; a toxic pill applies 15 Poison stacks for 6 pulses; a fire pill applies 15 Burn stacks for 6 pulses. `Needs key`.
   - Minor: Cool Head (Đầu Mát). Toxicity from cold pills is 50 % lower. *(starter)*
   - Minor: Frost-Kept (Giữ Lạnh). Pills do not lose potency over time.
 

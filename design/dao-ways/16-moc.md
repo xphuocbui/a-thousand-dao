@@ -35,7 +35,7 @@
 - **Effects:**
   - **Major: Bramble Coat (Áo Gai).** When a hit lands on your health, apply Poison to the attacker equal to
     1 stack per 1 % of your maximum health it took (at most 10 per hit).
-  - Minor: Splinter (Dằm). When your block reduces a hit, apply 2 Poison stacks to the attacker. *(starter)*
+  - Minor: Splinter (Dằm). When your block reduces a hit, apply 2 Poison stacks for 6 pulses to the attacker. *(starter)*
   - Minor: Grown Over (Liền Sẹo). When your body shield breaks, gain Wood buff stacks equal to 5 for 6 pulses.
 
 ### 3. Rừng (the Forest)
@@ -43,7 +43,7 @@
 - **Stat notables:** Old Grove (Rừng Già): companion damage ×2 · Canopy (Tán Rừng): formation power ×2 · Wild
   Pack (Bầy Rừng): companion damage +1, max health +1 · Mossbed (Đệm Rêu): health regen +0.1, formation power +1
 - **Effects:**
-  - **Major: The Forest Fights (Rừng Chiến).** Your companion's hits apply 2 Poison stacks and grant you 1 Wood
+  - **Major: The Forest Fights (Rừng Chiến).** Your companion's hits apply 2 Poison stacks for 6 pulses and grant you 1 Wood
     buff stack.
   - Minor: Home Grove (Rừng Nhà). On forest ground your Wood buff stacks are 50 % stronger.
   - Minor: Shared Root (Cộng Căn). Your companion's hits deal +1 % per 10 Wood buff stacks you hold (cap +10 %).

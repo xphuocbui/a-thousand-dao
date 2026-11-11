@@ -26,7 +26,7 @@
     (L5 +100 for that hit; the L5 cap still holds). (The Ninth Bell pilot's identity piece, given a home.)
   - Minor: Keep Time (Giữ Nhịp). Your arts' effective cooldowns round to the nearest multiple of the pulse when
     within 5 % of it. *(starter)* `Needs rule` (Combat rule 10 rounding).
-  - Minor: Syncopation (Nghịch Phách). Hits off the beat apply 1 Wind debuff stack.
+  - Minor: Syncopation (Nghịch Phách). Hits off the beat apply 1 Wind debuff stack for 4 pulses.
 
 ### 2. Xoay (Spin)
 - **Small:** `attack_pct` +1 · `art_speed_pct` +0.5
@@ -57,7 +57,7 @@
   - **Major: Sword Dance (Kiếm Vũ).** When you evade, your next sword art's timer ends 0.5 s sooner and its hit
     deals more (L5 +15).
   - Minor: Flourish (Múa Hoa). Your sword crits give 2 Spin. *(starter)*
-  - Minor: Ribbon Edge (Lưỡi Lụa). Your sword hits apply 1 Wind debuff stack.
+  - Minor: Ribbon Edge (Lưỡi Lụa). Your sword hits apply 1 Wind debuff stack for 4 pulses.
 
 ### 5. Biến Tấu (Variation) — replaces ◇ Hội
 - **Small:** `art_cost_pct` −0.5 · `attack_pct` +1

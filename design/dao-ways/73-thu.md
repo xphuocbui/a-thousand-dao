@@ -36,7 +36,7 @@
 - **Effects:**
   - **Major: The Pack (Bầy Đàn).** For each tamed beast you keep at your home (cap 5), your fighting companion's power
     share is +2 % (inside the cap) and its hits deal +5 %. `Needs key` (beasts kept at home).
-  - Minor: Pack Howl (Tru Bầy). Your companion's hits apply 1 Earth debuff stack. *(starter)*
+  - Minor: Pack Howl (Tru Bầy). Your companion's hits apply 1 Earth debuff stack for 4 pulses. *(starter)*
   - Minor: Rotation (Thay Phiên). Between fights, swap your companion for a kept beast at no cost.
 
 ### 3. Thú Thể (Beast Body)

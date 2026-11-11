@@ -25,7 +25,7 @@
 - **Effects:**
   - **Major: Shatter (Băng Toái).** (Consumes stacks: R19.) Every 6 s, your next Cold hit on a target bearing 25+ Ice stacks consumes 15
     and deals more (L5 +3 per stack consumed, +45).
-  - Minor: Frostbite (Đống Thương). Your Cold hits apply 1 Ice stack per 2 % of the target's max health they deal
+  - Minor: Frostbite (Đống Thương). Your Cold hits apply 1 Ice stack per 2 % of the target's max health they deal for 6 pulses
     (cap 5). *(starter)*
   - Minor: Brittle (Giòn). A target bearing 15+ Ice stacks takes more Physical damage (L5 +10 to your Physical
     hits on it).

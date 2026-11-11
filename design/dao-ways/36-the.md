@@ -66,7 +66,7 @@
     deals more (L5 +12 per slot, cap +48) and your block +10.
   - Minor: Fist Rhythm (Nhịp Quyền). Each basic attack hit gives the next L5 +3 (cap +15, lost if 2 s pass).
     *(starter)*
-  - Minor: Grapple (Vật). Your basic attack applies 1 Earth debuff stack.
+  - Minor: Grapple (Vật). Your basic attack applies 1 Earth debuff stack for 4 pulses.
 
 ## Capstones
 

@@ -62,7 +62,7 @@
 - **Stat notables:** Storm Dragon (Bão Long): cold +1, lightning +1 ×2 · Rain Pearl (Ngọc Mưa): water stack effect +2 · Cloud
   Rider (Cưỡi Mây Long): art speed +2 · Thunder Claw (Vuốt Sấm): lightning crit damage +2
 - **Effects:**
-  - **Major: Call the Rain (Hô Phong Hoán Vũ).** Your Cold hits grant 1 Water buff stack and your Lightning hits apply 1
+  - **Major: Call the Rain (Hô Phong Hoán Vũ).** Your Cold hits grant 1 Water buff stack for 6 pulses and your Lightning hits apply 1
     Thunder debuff stack; while you hold 15+ Water buff stacks, your Lightning hits deal L5 +15.
   - Minor: Rain Cloud (Mây Mưa). You start each fight with 10 Water buff stacks. *(starter)*
   - Minor: Wet Target (Mục Tiêu Ướt). A foe bearing Ice stacks takes +10 % from your Lightning.

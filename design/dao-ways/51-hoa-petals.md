@@ -45,7 +45,7 @@
 - **Effects:**
   - **Major: Petal Rain (Hoa Vũ).** Each art that hits scatters Petals equal to 1 per 2 s of its authored cooldown (cap
     5): each a trigger hit of `c_trig` 0.12 with the art's tags (inside `trig_budget`).
-  - Minor: Wind-Borne (Gió Mang). Your Petals apply 1 Wind debuff stack each. *(starter)*
+  - Minor: Wind-Borne (Gió Mang). Your Petals apply 1 Wind debuff stack for 4 pulses each. *(starter)*
   - Minor: Thorned Petals (Cánh Có Gai). Your Petals apply 1 Bleed stack every 3rd hit.
 
 ### 4. Tàn Hoa (Fading)

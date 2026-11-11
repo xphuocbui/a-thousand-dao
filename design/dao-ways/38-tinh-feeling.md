@@ -48,7 +48,7 @@ build chooses which feelings it can enter and how it moves between them.
   - **Major: Sorrow (Ai).** When you lose 10 % of max health in 2 s, or the foe heals 10 %, enter Sorrow for 6 s: curses
     you apply last 2 pulses longer and apply Withering.
   - Minor: Weep (Khóc). Entering Sorrow cleanses 3 debuff stacks. *(starter)*
-  - Minor: Shared Grief (Sầu Chung). In Sorrow, your Cold hits apply 2 Ice stacks.
+  - Minor: Shared Grief (Sầu Chung). In Sorrow, your Cold hits apply 2 Ice stacks for 6 pulses.
 
 ### 4. Ái (Love)
 - **Small:** companion damage +2 · `healing_pct` +1

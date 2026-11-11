@@ -42,7 +42,7 @@
 - **Effects:**
   - **Major: Guarded Counter (Phản Thủ).** Each hit your ward stops fully queues a counter: a Force trigger hit scaled by
     your ward strength (`c_trig` 0.4, inside `trig_budget`).
-  - Minor: Shield Edge (Viền Khiên). Your counters apply 1 Earth debuff stack. *(starter)*
+  - Minor: Shield Edge (Viền Khiên). Your counters apply 1 Earth debuff stack for 4 pulses. *(starter)*
   - Minor: Punish the Reckless (Phạt Kẻ Liều). Counters against a slow-tagged art deal +30 %.
 
 ### 4. Canh Giữ (Vigil)

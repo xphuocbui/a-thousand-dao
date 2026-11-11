@@ -34,7 +34,7 @@
   curse duration +1, chaos +1 · Dust to Dust (Cát Bụi): chaos penetration +2
 - **Effects:**
   - **Major: Withering Hand (Khô Thủ).** Your Chaos hits apply Withering; while the foe is Withered, each heal it
-    receives applies 3 Poison stacks to it.
+    receives applies 3 Poison stacks for 6 pulses to it.
   - Minor: Death's Patience (Tử Nhẫn). Withering you apply lasts 2 pulses longer. *(starter)*
   - Minor: Last Breath (Tàn Hơi). A Withered foe below 30 % health regenerates nothing.
 
@@ -57,7 +57,7 @@
 - **Effects:**
   - **Major: Corpse Qi (Thi Khí).** Your Corpse Rot's standing fee is 1 % (not 2 %), and its ticks heal you for 50 %
     of their damage.
-  - Minor: Rot Spreads (Thối Lan). While Corpse Rot is on the foe, your Chaos hits apply 2 Poison stacks. *(starter)*
+  - Minor: Rot Spreads (Thối Lan). While Corpse Rot is on the foe, your Chaos hits apply 2 Poison stacks for 6 pulses. *(starter)*
   - Minor: Grave Wind (Gió Mộ). Corpse Rot you apply also applies Stagnation (5 stacks) every 3 pulses.
 
 ### 5. Trường Sinh (Longevity)

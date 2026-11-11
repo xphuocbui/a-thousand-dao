@@ -69,7 +69,7 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **A Sun That Never Sets (Bất Lạc Nhật)** | keystone | High Noon lasts from 10 s to 30 s | Before 10 s your hits deal 30 % less (L2 −30), and you can never hold more than 30 Fire buff stacks | Chính Ngọ |
-| **Golden Crow (Kim Ô)** | enabler | Corona needs only 10 Fire buff stacks and applies 1 Burn stack per 5 | Your direct Fire hits deal 20 % less (L2 −20): the sun burns, it does not strike | Nhật Miện |
+| **Golden Crow (Kim Ô)** | enabler | Corona needs only 10 Fire buff stacks and applies 1 Burn stack per 5 (batches of 4 pulses) | Your direct Fire hits deal 20 % less (L2 −20): the sun burns, it does not strike | Nhật Miện |
 | **Ten Suns (Thập Nhật)** | keystone | Scorching Sun's Exposed lasts 2 pulses and its Burn is doubled | Your max health is 20 % lower | Liệt Nhật |
 | **Twilight Sovereign (Hoàng Hôn Đế)** | keystone | Last Blaze starts at 50 % health | You cannot heal above 60 % health | Hoàng Hôn |
 

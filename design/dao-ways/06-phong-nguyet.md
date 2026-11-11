@@ -46,7 +46,7 @@ the point (Tứ Cảnh). Where Ngũ Hành rewards elements in order, Phong Nguy�
   - **Major: Snow Falls Silently (Tuyết Lạc Vô Thanh).** Your crits deal more by the number of Ice stacks on the target
     (crit damage +1 % per stack, cap +40 %, inside `crit_mult_cap`).
   - Minor: Cold Clarity (Lạnh Tỉnh). Heart demon gain from fights −20 %. *(starter)*
-  - Minor: Snow Beauty (Tuyết Cảnh). Your Cold hits apply 1 Ice stack; counts as a Beauty for Tứ Cảnh.
+  - Minor: Snow Beauty (Tuyết Cảnh). Your Cold hits apply 1 Ice stack for 6 pulses; counts as a Beauty for Tứ Cảnh.
 
 ### 4. Nguyệt (Moon)
 - **Small:** `attack_pct` light +1 · `crit_chance_pct` +0.4
