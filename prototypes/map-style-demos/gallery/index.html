@@ -1,0 +1,337 @@
+<title>Map Style Trials</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Layout: a cartographer's proof sheet. A sticky switcher (map A/B/C, style jump), then one section per style with six set cards. */
+:root {
+  --bg: #eceee9; --surface: #f8f9f6; --fg: #1d2622; --muted: #5b6862; --line: #c9cfc9; --accent: #2c6e5e;
+  --display: "IM Fell English SC", "Palatino Linotype", Georgia, serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121614; --surface: #1a201d; --fg: #e3e8e4; --muted: #9aa8a1; --line: #2e3833; --accent: #74c3ab; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #121614; --surface: #1a201d; --fg: #e3e8e4; --muted: #9aa8a1; --line: #2e3833; --accent: #74c3ab; color-scheme: dark; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 48px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 1320px; margin: 0 auto; }
+.intro { padding-block: 36px 12px; display: grid; gap: 8px; }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.05; margin: 0; text-wrap: balance; }
+.intro p { margin: 0; max-width: 68ch; color: var(--muted); }
+.intro p b { color: var(--fg); font-weight: 600; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line);
+  padding-block: 10px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.bar .group { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.bar .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.chip { font: inherit; font-size: 13px; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+  padding: 4px 12px; cursor: pointer; text-decoration: none; }
+.chip span { color: var(--muted); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.chip[aria-pressed="true"] span { color: var(--bg); opacity: 0.8; }
+.chip:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.style { padding-block: 32px 8px; display: grid; gap: 16px; scroll-margin-top: 64px; }
+.style-head { display: grid; gap: 4px; }
+h2 { font-family: var(--display); font-weight: 400; font-size: clamp(24px, 3.4vw, 32px); margin: 0; }
+h2 .vn { font-family: var(--body); font-size: 14px; color: var(--muted); letter-spacing: 0.04em; margin-left: 6px; }
+.blurb { margin: 0; max-width: 72ch; }
+.look { margin: 0; font-size: 13px; color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 20px; }
+.set { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.set-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; }
+h3 { margin: 0; font-size: 16px; font-weight: 600; }
+.meta { margin: 0; display: flex; gap: 10px; font-family: var(--mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.note { margin: 0; font-size: 13px; color: var(--muted); }
+button.map, button.sheet { padding: 0; border: 1px solid var(--line); background: var(--surface); cursor: zoom-in; display: block; width: 100%; }
+.map-img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; background: var(--surface); }
+.sheets { display: flex; gap: 8px; min-width: 0; }
+.sheets .sheet { flex: 1 1 0; min-width: 0; height: 72px; }
+.sheets img { width: 100%; height: 100%; object-fit: contain; display: block; }
+img.px { image-rendering: pixelated; }
+dialog { border: 1px solid var(--line); background: var(--surface); color: var(--fg); padding: 12px; max-width: min(96vw, 1500px); }
+dialog::backdrop { background: rgba(0, 0, 0, 0.6); }
+dialog img { display: block; max-width: 100%; max-height: 82vh; width: auto; height: auto; margin: 0 auto; }
+dialog .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; }
+dialog .row span { font-family: var(--mono); font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.foot { margin-top: 40px; font-size: 13px; color: var(--muted); max-width: 72ch; }
+@media (prefers-reduced-motion: no-preference) { .map-img { transition: opacity 0.2s; } }
+</style>
+
+<div class="wrap">
+  <div class="intro">
+    <h1>Map Style Trials</h1>
+    <p>Three candidate looks for the Game UI world map (Travel &amp; Map GDD, Visual/Audio). Each style has <b>six seeded sets</b>
+      (three in round 1, three more in round 2), and every set draws the <b>same three hand-authored maps</b> from one shared data file,
+      so you can compare like with like. Choose a map below; click any image to see it full size.</p>
+  </div>
+  <nav class="bar" aria-label="Map and style">
+    <div class="group" role="group" aria-label="Map shown in every set"><span class="label">Map</span><button class="chip" data-map="A" aria-pressed="true"><b>A</b> Thanh Vân <span>temperate continent</span></button><button class="chip" data-map="B" aria-pressed="false"><b>B</b> Bích Hải <span>island chain</span></button><button class="chip" data-map="C" aria-pressed="false"><b>C</b> Băng Nguyên <span>cold highland</span></button></div>
+    <div class="group"><span class="label">Jump to</span><a class="chip link" href="#pixel">Pixel tiles</a><a class="chip link" href="#parchment">Painted parchment</a><a class="chip link" href="#ink">Ink-wash</a></div>
+  </nav>
+  
+  <section class="style" id="pixel" aria-labelledby="h-pixel">
+    <div class="style-head">
+      <h2 id="h-pixel">Pixel tiles <span class="vn">điểm ảnh</span></h2>
+      <p class="blurb">16 × 16 tiles on the GDD's grid: one tile per cell, auto-tiled roads and rivers, place icons on top. Closest to Dwarf Fortress; the grid is the art.</p>
+      <p class="look">Look up: Dwarf Fortress (Steam tiles), Caves of Qud, Amazing Cultivation Simulator</p>
+    </div>
+    <div class="grid">
+      <article class="set" data-base="round1/pixel/p1">
+        <header class="set-head">
+          <h3>Spring</h3>
+          <p class="meta"><span>Round 1</span><span>id p1</span><span>seed 101</span></p>
+        </header>
+        <button class="map" data-full="round1/pixel/p1_map_A.png" aria-label="Enlarge Spring map">
+          <img class="map-img px" src="round1/pixel/p1_map_A.png" alt="Spring: demo map" loading="lazy">
+        </button>
+        <p class="note">Bright, saturated tiles.</p>
+        <div class="sheets"><button class="sheet" data-full="round1/pixel/p1_tiles.png" aria-label="Enlarge Spring tiles"><img src="round1/pixel/p1_tiles.png" alt="Spring tiles sheet" loading="lazy" class="px"></button><button class="sheet" data-full="round1/pixel/p1_icons.png" aria-label="Enlarge Spring icons"><img src="round1/pixel/p1_icons.png" alt="Spring icons sheet" loading="lazy" class="px"></button></div>
+      </article>
+      <article class="set" data-base="round1/pixel/p2">
+        <header class="set-head">
+          <h3>Autumn dusk</h3>
+          <p class="meta"><span>Round 1</span><span>id p2</span><span>seed 202</span></p>
+        </header>
+        <button class="map" data-full="round1/pixel/p2_map_A.png" aria-label="Enlarge Autumn dusk map">
+          <img class="map-img px" src="round1/pixel/p2_map_A.png" alt="Autumn dusk: demo map" loading="lazy">
+        </button>
+        <p class="note">Warm reds and ochres, blue roof tiles.</p>
+        <div class="sheets"><button class="sheet" data-full="round1/pixel/p2_tiles.png" aria-label="Enlarge Autumn dusk tiles"><img src="round1/pixel/p2_tiles.png" alt="Autumn dusk tiles sheet" loading="lazy" class="px"></button><button class="sheet" data-full="round1/pixel/p2_icons.png" aria-label="Enlarge Autumn dusk icons"><img src="round1/pixel/p2_icons.png" alt="Autumn dusk icons sheet" loading="lazy" class="px"></button></div>
+      </article>
+      <article class="set" data-base="round1/pixel/p3">
+        <header class="set-head">
+          <h3>Ash and jade</h3>
+          <p class="meta"><span>Round 1</span><span>id p3</span><span>seed 303</span></p>
+        </header>
+        <button class="map" data-full="round1/pixel/p3_map_A.png" aria-label="Enlarge Ash and jade map">
+          <img class="map-img px" src="round1/pixel/p3_map_A.png" alt="Ash and jade: demo map" loading="lazy">
+        </button>
+        <p class="note">Muted, desaturated jade.</p>
+        <div class="sheets"><button class="sheet" data-full="round1/pixel/p3_tiles.png" aria-label="Enlarge Ash and jade tiles"><img src="round1/pixel/p3_tiles.png" alt="Ash and jade tiles sheet" loading="lazy" class="px"></button><button class="sheet" data-full="round1/pixel/p3_icons.png" aria-label="Enlarge Ash and jade icons"><img src="round1/pixel/p3_icons.png" alt="Ash and jade icons sheet" loading="lazy" class="px"></button></div>
+      </article>
+      <article class="set" data-base="round2/pixel/p4">
+        <header class="set-head">
+          <h3>Glyph</h3>
+          <p class="meta"><span>Round 2</span><span>id p4</span><span>seed 404</span></p>
+        </header>
+        <button class="map" data-full="round2/pixel/p4_map_A.png" aria-label="Enlarge Glyph map">
+          <img class="map-img px" src="round2/pixel/p4_map_A.png" alt="Glyph: demo map" loading="lazy">
+        </button>
+        <p class="note">Hand-drawn glyphs on tinted black cells, the roguelike look.</p>
+        <div class="sheets"><button class="sheet" data-full="round2/pixel/p4_tiles.png" aria-label="Enlarge Glyph tiles"><img src="round2/pixel/p4_tiles.png" alt="Glyph tiles sheet" loading="lazy" class="px"></button><button class="sheet" data-full="round2/pixel/p4_icons.png" aria-label="Enlarge Glyph icons"><img src="round2/pixel/p4_icons.png" alt="Glyph icons sheet" loading="lazy" class="px"></button></div>
+      </article>
+      <article class="set" data-base="round2/pixel/p5">
+        <header class="set-head">
+          <h3>Warm cultivation</h3>
+          <p class="meta"><span>Round 2</span><span>id p5</span><span>seed 505</span></p>
+        </header>
+        <button class="map" data-full="round2/pixel/p5_map_A.png" aria-label="Enlarge Warm cultivation map">
+          <img class="map-img px" src="round2/pixel/p5_map_A.png" alt="Warm cultivation: demo map" loading="lazy">
+        </button>
+        <p class="note">Foam shorelines, region and city labels.</p>
+        <div class="sheets"><button class="sheet" data-full="round2/pixel/p5_tiles.png" aria-label="Enlarge Warm cultivation tiles"><img src="round2/pixel/p5_tiles.png" alt="Warm cultivation tiles sheet" loading="lazy" class="px"></button><button class="sheet" data-full="round2/pixel/p5_icons.png" aria-label="Enlarge Warm cultivation icons"><img src="round2/pixel/p5_icons.png" alt="Warm cultivation icons sheet" loading="lazy" class="px"></button></div>
+      </article>
+      <article class="set" data-base="round2/pixel/p6">
+        <header class="set-head">
+          <h3>Winter night</h3>
+          <p class="meta"><span>Round 2</span><span>id p6</span><span>seed 606</span></p>
+        </header>
+        <button class="map" data-full="round2/pixel/p6_map_A.png" aria-label="Enlarge Winter night map">
+          <img class="map-img px" src="round2/pixel/p6_map_A.png" alt="Winter night: demo map" loading="lazy">
+        </button>
+        <p class="note">Cold palette at night, foam shorelines.</p>
+        <div class="sheets"><button class="sheet" data-full="round2/pixel/p6_tiles.png" aria-label="Enlarge Winter night tiles"><img src="round2/pixel/p6_tiles.png" alt="Winter night tiles sheet" loading="lazy" class="px"></button><button class="sheet" data-full="round2/pixel/p6_icons.png" aria-label="Enlarge Winter night icons"><img src="round2/pixel/p6_icons.png" alt="Winter night icons sheet" loading="lazy" class="px"></button></div>
+      </article>
+    </div>
+  </section>
+  <section class="style" id="parchment" aria-labelledby="h-parchment">
+    <div class="style-head">
+      <h2 id="h-parchment">Painted parchment <span class="vn">bản đồ giấy da</span></h2>
+      <p class="blurb">The same grid drawn as a hand-made chart: contour coastlines from a smoothed land field, ripple lines, terrain symbols, inked rivers, dashed roads, a cartouche and a compass.</p>
+      <p class="look">Look up: Crusader Kings III (zoomed out), Battle Brothers</p>
+    </div>
+    <div class="grid">
+      <article class="set" data-base="round1/parchment/c1">
+        <header class="set-head">
+          <h3>Sepia ink</h3>
+          <p class="meta"><span>Round 1</span><span>id c1</span><span>seed 11</span></p>
+        </header>
+        <button class="map" data-full="round1/parchment/c1_map_A.png" aria-label="Enlarge Sepia ink map">
+          <img class="map-img " src="round1/parchment/c1_map_A.png" alt="Sepia ink: demo map" loading="lazy">
+        </button>
+        <p class="note">Monochrome brown ink on tan paper.</p>
+        <div class="sheets"><button class="sheet" data-full="round1/parchment/c1_symbols.png" aria-label="Enlarge Sepia ink symbols"><img src="round1/parchment/c1_symbols.png" alt="Sepia ink symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round1/parchment/c1_icons.png" aria-label="Enlarge Sepia ink icons"><img src="round1/parchment/c1_icons.png" alt="Sepia ink icons sheet" loading="lazy" class=""></button></div>
+      </article>
+      <article class="set" data-base="round1/parchment/c2">
+        <header class="set-head">
+          <h3>Coloured atlas</h3>
+          <p class="meta"><span>Round 1</span><span>id c2</span><span>seed 22</span></p>
+        </header>
+        <button class="map" data-full="round1/parchment/c2_map_A.png" aria-label="Enlarge Coloured atlas map">
+          <img class="map-img " src="round1/parchment/c2_map_A.png" alt="Coloured atlas: demo map" loading="lazy">
+        </button>
+        <p class="note">Watercolour biome washes, red roads.</p>
+        <div class="sheets"><button class="sheet" data-full="round1/parchment/c2_symbols.png" aria-label="Enlarge Coloured atlas symbols"><img src="round1/parchment/c2_symbols.png" alt="Coloured atlas symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round1/parchment/c2_icons.png" aria-label="Enlarge Coloured atlas icons"><img src="round1/parchment/c2_icons.png" alt="Coloured atlas icons sheet" loading="lazy" class=""></button></div>
+      </article>
+      <article class="set" data-base="round1/parchment/c3">
+        <header class="set-head">
+          <h3>Sect archive</h3>
+          <p class="meta"><span>Round 1</span><span>id c3</span><span>seed 33</span></p>
+        </header>
+        <button class="map" data-full="round1/parchment/c3_map_A.png" aria-label="Enlarge Sect archive map">
+          <img class="map-img " src="round1/parchment/c3_map_A.png" alt="Sect archive: demo map" loading="lazy">
+        </button>
+        <p class="note">Faded blue-grey ink, cinnabar seals, ruled sea.</p>
+        <div class="sheets"><button class="sheet" data-full="round1/parchment/c3_symbols.png" aria-label="Enlarge Sect archive symbols"><img src="round1/parchment/c3_symbols.png" alt="Sect archive symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round1/parchment/c3_icons.png" aria-label="Enlarge Sect archive icons"><img src="round1/parchment/c3_icons.png" alt="Sect archive icons sheet" loading="lazy" class=""></button></div>
+      </article>
+      <article class="set" data-base="round2/parchment/c4">
+        <header class="set-head">
+          <h3>Explorer's chart</h3>
+          <p class="meta"><span>Round 2</span><span>id c4</span><span>seed 44</span></p>
+        </header>
+        <button class="map" data-full="round2/parchment/c4_map_A.png" aria-label="Enlarge Explorer's chart map">
+          <img class="map-img " src="round2/parchment/c4_map_A.png" alt="Explorer's chart: demo map" loading="lazy">
+        </button>
+        <p class="note">Rhumb lines, junk boats, region names along curves.</p>
+        <div class="sheets"><button class="sheet" data-full="round2/parchment/c4_symbols.png" aria-label="Enlarge Explorer's chart symbols"><img src="round2/parchment/c4_symbols.png" alt="Explorer's chart symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round2/parchment/c4_icons.png" aria-label="Enlarge Explorer's chart icons"><img src="round2/parchment/c4_icons.png" alt="Explorer's chart icons sheet" loading="lazy" class=""></button></div>
+      </article>
+      <article class="set" data-base="round2/parchment/c5">
+        <header class="set-head">
+          <h3>Territory atlas</h3>
+          <p class="meta"><span>Round 2</span><span>id c5</span><span>seed 55</span></p>
+        </header>
+        <button class="map" data-full="round2/parchment/c5_map_A.png" aria-label="Enlarge Territory atlas map">
+          <img class="map-img " src="round2/parchment/c5_map_A.png" alt="Territory atlas: demo map" loading="lazy">
+        </button>
+        <p class="note">Sect territories as dotted borders, with a legend.</p>
+        <div class="sheets"><button class="sheet" data-full="round2/parchment/c5_symbols.png" aria-label="Enlarge Territory atlas symbols"><img src="round2/parchment/c5_symbols.png" alt="Territory atlas symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round2/parchment/c5_icons.png" aria-label="Enlarge Territory atlas icons"><img src="round2/parchment/c5_icons.png" alt="Territory atlas icons sheet" loading="lazy" class=""></button></div>
+      </article>
+      <article class="set" data-base="round2/parchment/c6">
+        <header class="set-head">
+          <h3>Engraved</h3>
+          <p class="meta"><span>Round 2</span><span>id c6</span><span>seed 66</span></p>
+        </header>
+        <button class="map" data-full="round2/parchment/c6_map_A.png" aria-label="Enlarge Engraved map">
+          <img class="map-img " src="round2/parchment/c6_map_A.png" alt="Engraved: demo map" loading="lazy">
+        </button>
+        <p class="note">Black ink, hatched relief, dense coastal contours.</p>
+        <div class="sheets"><button class="sheet" data-full="round2/parchment/c6_symbols.png" aria-label="Enlarge Engraved symbols"><img src="round2/parchment/c6_symbols.png" alt="Engraved symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round2/parchment/c6_icons.png" aria-label="Enlarge Engraved icons"><img src="round2/parchment/c6_icons.png" alt="Engraved icons sheet" loading="lazy" class=""></button></div>
+      </article>
+    </div>
+  </section>
+  <section class="style" id="ink" aria-labelledby="h-ink">
+    <div class="style-head">
+      <h2 id="h-ink">Ink-wash <span class="vn">thủy mặc</span></h2>
+      <p class="blurb">Misty layered peaks that fade into paper, stippled forests, dry-brush coasts, water left as blank paper, red seals for the great places.</p>
+      <p class="look">Look up: Okami, Tale of Immortal's world map</p>
+    </div>
+    <div class="grid">
+      <article class="set" data-base="round1/ink/k1">
+        <header class="set-head">
+          <h3>Pure ink</h3>
+          <p class="meta"><span>Round 1</span><span>id k1</span><span>seed 7</span></p>
+        </header>
+        <button class="map" data-full="round1/ink/k1_map_A.png" aria-label="Enlarge Pure ink map">
+          <img class="map-img " src="round1/ink/k1_map_A.png" alt="Pure ink: demo map" loading="lazy">
+        </button>
+        <p class="note">Greys only, red seals.</p>
+        <div class="sheets"><button class="sheet" data-full="round1/ink/k1_symbols.png" aria-label="Enlarge Pure ink symbols"><img src="round1/ink/k1_symbols.png" alt="Pure ink symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round1/ink/k1_icons.png" aria-label="Enlarge Pure ink icons"><img src="round1/ink/k1_icons.png" alt="Pure ink icons sheet" loading="lazy" class=""></button></div>
+      </article>
+      <article class="set" data-base="round1/ink/k2">
+        <header class="set-head">
+          <h3>Light colour</h3>
+          <p class="meta"><span>Round 1</span><span>id k2</span><span>seed 8</span></p>
+        </header>
+        <button class="map" data-full="round1/ink/k2_map_A.png" aria-label="Enlarge Light colour map">
+          <img class="map-img " src="round1/ink/k2_map_A.png" alt="Light colour: demo map" loading="lazy">
+        </button>
+        <p class="note">Thiển giáng: pale mineral greens and ochre.</p>
+        <div class="sheets"><button class="sheet" data-full="round1/ink/k2_symbols.png" aria-label="Enlarge Light colour symbols"><img src="round1/ink/k2_symbols.png" alt="Light colour symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round1/ink/k2_icons.png" aria-label="Enlarge Light colour icons"><img src="round1/ink/k2_icons.png" alt="Light colour icons sheet" loading="lazy" class=""></button></div>
+      </article>
+      <article class="set" data-base="round1/ink/k3">
+        <header class="set-head">
+          <h3>Moonlit indigo</h3>
+          <p class="meta"><span>Round 1</span><span>id k3</span><span>seed 9</span></p>
+        </header>
+        <button class="map" data-full="round1/ink/k3_map_A.png" aria-label="Enlarge Moonlit indigo map">
+          <img class="map-img " src="round1/ink/k3_map_A.png" alt="Moonlit indigo: demo map" loading="lazy">
+        </button>
+        <p class="note">Indigo ink on grey paper, gold seals.</p>
+        <div class="sheets"><button class="sheet" data-full="round1/ink/k3_symbols.png" aria-label="Enlarge Moonlit indigo symbols"><img src="round1/ink/k3_symbols.png" alt="Moonlit indigo symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round1/ink/k3_icons.png" aria-label="Enlarge Moonlit indigo icons"><img src="round1/ink/k3_icons.png" alt="Moonlit indigo icons sheet" loading="lazy" class=""></button></div>
+      </article>
+      <article class="set" data-base="round2/ink/k4">
+        <header class="set-head">
+          <h3>Scroll</h3>
+          <p class="meta"><span>Round 2</span><span>id k4</span><span>seed 17</span></p>
+        </header>
+        <button class="map" data-full="round2/ink/k4_map_A.png" aria-label="Enlarge Scroll map">
+          <img class="map-img " src="round2/ink/k4_map_A.png" alt="Scroll: demo map" loading="lazy">
+        </button>
+        <p class="note">Vertical place names, sampans, faint region names.</p>
+        <div class="sheets"><button class="sheet" data-full="round2/ink/k4_symbols.png" aria-label="Enlarge Scroll symbols"><img src="round2/ink/k4_symbols.png" alt="Scroll symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round2/ink/k4_icons.png" aria-label="Enlarge Scroll icons"><img src="round2/ink/k4_icons.png" alt="Scroll icons sheet" loading="lazy" class=""></button></div>
+      </article>
+      <article class="set" data-base="round2/ink/k5">
+        <header class="set-head">
+          <h3>Gold on night paper</h3>
+          <p class="meta"><span>Round 2</span><span>id k5</span><span>seed 18</span></p>
+        </header>
+        <button class="map" data-full="round2/ink/k5_map_A.png" aria-label="Enlarge Gold on night paper map">
+          <img class="map-img " src="round2/ink/k5_map_A.png" alt="Gold on night paper: demo map" loading="lazy">
+        </button>
+        <p class="note">Cream and gold ink on dark paper.</p>
+        <div class="sheets"><button class="sheet" data-full="round2/ink/k5_symbols.png" aria-label="Enlarge Gold on night paper symbols"><img src="round2/ink/k5_symbols.png" alt="Gold on night paper symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round2/ink/k5_icons.png" aria-label="Enlarge Gold on night paper icons"><img src="round2/ink/k5_icons.png" alt="Gold on night paper icons sheet" loading="lazy" class=""></button></div>
+      </article>
+      <article class="set" data-base="round2/ink/k6">
+        <header class="set-head">
+          <h3>Splashed ink</h3>
+          <p class="meta"><span>Round 2</span><span>id k6</span><span>seed 19</span></p>
+        </header>
+        <button class="map" data-full="round2/ink/k6_map_A.png" aria-label="Enlarge Splashed ink map">
+          <img class="map-img " src="round2/ink/k6_map_A.png" alt="Splashed ink: demo map" loading="lazy">
+        </button>
+        <p class="note">Phá mặc: bold blurred washes and colour splashes.</p>
+        <div class="sheets"><button class="sheet" data-full="round2/ink/k6_symbols.png" aria-label="Enlarge Splashed ink symbols"><img src="round2/ink/k6_symbols.png" alt="Splashed ink symbols sheet" loading="lazy" class=""></button><button class="sheet" data-full="round2/ink/k6_icons.png" aria-label="Enlarge Splashed ink icons"><img src="round2/ink/k6_icons.png" alt="Splashed ink icons sheet" loading="lazy" class=""></button></div>
+      </article>
+    </div>
+  </section>
+  <p class="foot">Hand-authored with the pxl and vex art skills. Source and rebuild steps: <code>prototypes/map-style-demos/README.md</code>.
+    Every map is the GDD grid (28 × 18 cells); the parchment and ink styles draw that grid as contours and brush marks instead of squares.</p>
+</div>
+
+<dialog id="viewer" aria-label="Full-size image">
+  <div class="row"><span id="viewer-name"></span><button class="chip" id="viewer-close">Close</button></div>
+  <img id="viewer-img" alt="">
+</dialog>
+
+<script>
+(() => {
+  const viewer = document.getElementById("viewer");
+  const vimg = document.getElementById("viewer-img");
+  const vname = document.getElementById("viewer-name");
+  let current = "A";
+  try { const m = localStorage.getItem("map-style-map"); if (m && "ABC".includes(m)) current = m; } catch (e) {}
+  const setMap = (k) => {
+    current = k;
+    document.querySelectorAll(".chip[data-map]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.map === k)));
+    document.querySelectorAll(".set").forEach((card) => {
+      const src = card.dataset.base + "_map_" + k + ".png";
+      card.querySelector(".map-img").src = src;
+      card.querySelector("button.map").dataset.full = src;
+    });
+    try { localStorage.setItem("map-style-map", k); } catch (e) {}
+  };
+  document.querySelectorAll(".chip[data-map]").forEach((b) => b.addEventListener("click", () => setMap(b.dataset.map)));
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("button.map, button.sheet");
+    if (!b) return;
+    vimg.src = b.dataset.full;
+    vimg.className = b.querySelector("img").classList.contains("px") ? "px" : "";
+    vname.textContent = b.dataset.full;
+    viewer.showModal();
+  });
+  document.getElementById("viewer-close").addEventListener("click", () => viewer.close());
+  viewer.addEventListener("click", (e) => { if (e.target === viewer) viewer.close(); });
+  setMap(current);
+})();
+</script>

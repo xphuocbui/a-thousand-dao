@@ -1,0 +1,7 @@
+# Regenerable build output and scratch files (see README "How to rebuild")
+pixel/out2x/
+pixel/out3x/
+pixel/up/
+pixel/tmp/
+parchment/_tout/
+parchment/_t.vx.js
