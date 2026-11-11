@@ -19,12 +19,11 @@
 ## Facets
 
 ### 1. Huyết Giá (Blood Price)
-- **Small:** `art_cost_health_pct` −0.5 · `khi_huyet_pct` +0.5
-- **Stat notables:** Red Coin (Đồng Đỏ): health cost −1.5 · Deep Veins (Mạch Sâu): max health ×2 · Paid in Full
-  (Trả Đủ): max health +1, health cost −0.5 · Blood Ink (Mực Máu): attack +2
+- **Small:** `leech_health_pct` +0.3 · `khi_huyet_pct` +0.5
+- **Stat notables:** Red Coin (Đồng Đỏ): leech ×2 · Deep Veins (Mạch Sâu): max health ×2 · Paid in Full
+  (Trả Đủ): max health +1, leech +0.3 · Blood Ink (Mực Máu): attack +2
 - **Effects:**
-  - **Major: Blood Price (Huyết Giá).** Your arts may be paid in health at 1:1; arts paid this way deal more (L5 +10)
-    but your health regeneration is −20 % while any art was health-paid in the last 5 s.
+  - **Major: Blood Price (Huyết Giá).** Your arts are paid in health when your linh lực is below 50 %: 1 % of max health per 1 % of max linh lực they cost. Health-paid arts deal more (L5 +10); while any art was health-paid in the last 5 s, your health regeneration is dampened by 25.
   - Minor: Clot (Đông Máu). Health you pay is taken over 1 pulse, not at once (a cushion against burst). *(starter)*
   - Minor: Blood for Blood (Máu Đổi Máu). When you pay health for an art, your next hit leeches 3 % more.
 
@@ -33,8 +32,7 @@
 - **Stat notables:** Open Wounds (Vết Hở): bleed ×2 · Long Bleed (Chảy Dài): bleed duration +2 ×2 · Gash (Vết
   Toác): physical +1, bleed +1 · Serrated (Răng Cưa): physical crit damage +2
 - **Effects:**
-  - **Major: Haemorrhage (Băng Huyết).** Bleed you apply stacks to 10 (not 5), and each Bleed tick heals you for
-    20 % of its damage.
+  - **Major: Haemorrhage (Băng Huyết).** Bleed you apply stacks to 10 (not 5). At each pulse, heal 20 % of the health your Bleed removed that pulse.
   - Minor: Nick (Cứa). Your Physical crits apply 2 Bleed stacks. *(starter)*
   - Minor: Thin Blood (Máu Loãng). A target bearing 5+ Bleed stacks regenerates 25 % less health.
 
@@ -43,8 +41,7 @@
 - **Stat notables:** Scab (Vảy Máu): body shield ×2 · Clotted Ward (Hộ Đông): body shield +1, max health +1 · Iron
   Blood (Huyết Sắt): healing ×2 · Red Mantle (Áo Đỏ): max health +2
 - **Effects:**
-  - **Major: Blood Shield (Huyết Thuẫn).** Health you pay for arts becomes a Blood Shield (a body shield) at 60 % of
-    the amount, lasting 6 s, stacking up to 20 % of max health.
+  - **Major: Blood Shield (Huyết Thuẫn).** Health you pay for arts becomes a Blood Shield (a body shield) at 30 % of the amount, lasting 6 s, up to 15 % of max health.
   - Minor: Thick Blood (Huyết Đặc). Bleed on you is 40 % weaker. *(starter)*
   - Minor: Shield of Life (Thuẫn Sinh). Your heals over 5 % of max health add 25 % of themselves as Blood Shield.
 
@@ -66,17 +63,17 @@
   - **Major: Awaken the Bloodline (Huyết Mạch Thức Tỉnh).** Your Blood Purity (a new character stat, 0–100) rises by
     1 for each fight won below 30 % health; each point gives +0.3 % max health and +0.2 % attack (cap 100).
     `Needs key` (a progression stat).
-  - Minor: Blood Remembers (Máu Nhớ). Blood Purity is not lost at a failed breakthrough. *(starter)*
+  - Minor: Blood Remembers (Máu Nhớ). Each fight won below 30 % health gives 1 extra Blood Purity while your heart demon is below 20. *(starter)*
   - Minor: Dragon Blood Trace (Vết Long Huyết). With Long Đạo held, Blood Purity rises twice as fast.
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Life Is the Only Currency (Huyết Tức Tiền)** | keystone | All your arts are paid in health; your linh lực is reserved whole as ward (no art spends it) | Your max health is 20 % lower and Blood Price's L5 does not apply | Huyết Giá |
+| **Life Is the Only Currency (Huyết Tức Tiền)** | keystone | All your arts are paid in health (Blood Price's rate) and a reserved ward of yours may reserve up to its cap without costing casts. Rival of Crimson Aegis | Your max health is 20 % lower and Blood Price's L5 does not apply | Huyết Giá |
 | **Sea of Blood (Huyết Hải)** | keystone | Haemorrhage has no Bleed cap | Your non-Bleed damage deals 30 % less (L2 −30) | Xuất Huyết |
-| **Crimson Aegis (Huyết Khải)** | keystone | Blood Shield converts at 100 % and its cap is 35 % | You cannot slot wards in ward slots | Huyết Thuẫn |
-| **Bloodline Sovereign (Huyết Mạch Chí Tôn)** | keystone | Blood Purity also adds to element stack purity (1 for 1, cap +30) | Your heart demon gain is +25 % (the blood is loud) | Huyết Mạch |
+| **Crimson Aegis (Huyết Khải)** | keystone | Blood Shield converts at 50 % and its cap is 25 %. Rival of Life Is the Only Currency | You cannot slot wards in ward slots | Huyết Thuẫn |
+| **Bloodline Sovereign (Huyết Mạch Chí Tôn)** | keystone | Blood Purity also adds to your highest element's stack purity (1 for 1, cap +60) | Your heart demon gain is +25 % | Huyết Mạch |
 
 ## New pieces
 

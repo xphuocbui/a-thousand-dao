@@ -157,7 +157,7 @@ Effects (Combat rule 2 already reads the whole sheet).
 
 Crit multiplier past its cap (Ám), pierce past its cap (Nghịch, Vượt Cấp), one hit past the L5 cap (Điếu),
 `ward_cap` (Thủ), `cooldown_min` (Phong, Thời), `evade_cap` (Phong, Vũ, Huyễn, Tửu, Hóa, Hư Thực), resistance cap
-(Kim), `soul_lockout` per art (Hồn, Phân Thân), `crit_chance_cap` (Lôi), `regen_cap` (Thể), `c_comp_cap` (Thú, Độc,
+(Kim), `soul_lockout` per art (Hồn, Phân Thân), `crit_chance_cap` (Lôi; now rewritten as crit-to-crit-damage), `c_comp_cap` (Thú, Độc,
 Quỷ).
 
 **Rule from the combat model:** a cap shift is among the strongest things in the game, so make it small, single

@@ -55,7 +55,7 @@ roaming as fortune and options.
 - **Effects:**
   - **Major: Carefree (Tiêu Dao Tự Tại).** Heart demon decays 1 per week while travelling, and your breakthrough
     heart-demon checks are +1 pp (q-extras) if you have travelled this season.
-  - Minor: Light Heart (Lòng Nhẹ). Fear-type Effects on you are halved. *(starter)*
+  - Minor: Light Heart (Lòng Nhẹ). Afraid (Tình's proposed curse) on you lasts 1 pulse less. *(starter)*
   - Minor: Free Spirit (Hồn Tự Do). In fights, curses on you last 1 pulse less while above 50 % health.
 
 ### 5. Thoát (Escape)

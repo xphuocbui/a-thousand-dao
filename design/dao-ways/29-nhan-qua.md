@@ -27,16 +27,14 @@
     the Karma is dealt to the foe's health as one Chaos part that skips ward shields, and resets.
     `Needs key` (Karma counter) + `Needs rule` (bypass).
   - Minor: Ripening (Chín). Karma paid out after 20 s of fight is 30 % larger. *(starter)*
-  - Minor: Compounding (Lãi Mẹ Đẻ Lãi Con). Each Karma payout grows by 10 % of the payout before it (the second
-    is ×1.1, the third ×1.2, and so on).
+  - Minor: Compounding (Lãi Mẹ Đẻ Lãi Con). Each Karma payout is larger by 10 % per payout before it this fight (linear: ×1.1, ×1.2, ×1.3…, cap ×1.5).
 
 ### 2. Nợ (Debts)
 - **Small:** `attack_pct` +1.2 · `healing_pct` +1.5
 - **Stat notables:** Borrowed Strength (Lực Vay): attack ×2 · Grace Period (Hạn Trả): healing ×2 · Creditor (Chủ
   Nợ): attack +1, healing +1 · Interest (Lãi): crit damage +2
 - **Effects:**
-  - **Major: Borrowed Power (Mượn Lực).** For the first 15 s, your hits deal more (L5 +40). After 15 s you repay:
-    your hits deal less (L2 −20) until you have dealt damage equal to what the loan added.
+  - **Major: Borrowed Power (Mượn Lực).** For the first 15 s, your hits deal more (L5 +40). From 15 s to 30 s you repay: your hits deal less (L2 −20).
   - Minor: Debtor's Grace (Ân Hạn). The loan lasts 18 s. *(starter)*
   - Minor: Default (Quịt). If you win before repayment ends, gain 1 Fortune (khí vận) for the season.
 
@@ -66,8 +64,7 @@
 - **Stat notables:** Clean Slate (Bảng Trắng): status resist ×2 · Severing (Cắt Đứt): attack ×2 · No Debt (Không
   Nợ): status resist +1, max health +1 · Free of Cause (Vô Nhân): soul resist +2
 - **Effects:**
-  - **Major: Sever (Đoạn).** Delayed effects on you (Karma, stored damage like Internal Injury, standing statuses)
-    resolve at half; and your cleanses also remove one foe buff that reads time (a growing stack, a stored bonus).
+  - **Major: Sever (Đoạn).** These on you resolve at half: Karma, Owed, Internal Injury, Corpse Rot ticks, and any status tagged `delayed` (`Needs key`: a `delayed` tag). Your cleanses also remove one foe self-counter tagged `growing` (R7).
   - Minor: Untethered (Không Neo). Curses on you last 1 pulse less. *(starter)*
   - Minor: Cut the Thread (Cắt Chỉ). The foe's companion deals 20 % less to you.
 
@@ -75,10 +72,10 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Every Blow Comes Home (Nhân Quả Tuần Hoàn)** | keystone | Karma records 40 % and pays out every 5 s | Your hits deal 30 % less directly (L2 −30) | Nghiệp |
-| **Heaven Keeps Accounts (Thiên Ký Sổ)** | keystone | Retribution has no cap and Owed never resets until spent | You cannot block or evade (block 0, evade 0) | Báo Ứng |
-| **Debt Never Paid (Nợ Bất Hoàn)** | keystone | Borrowed Power's repayment is halved | If you lose the fight, you lose 1 year of lifespan per 10 % of the loan unpaid | Nợ |
-| **Outside Karma (Siêu Nhân Quả)** | keystone | You are immune to delayed and stored effects (they do not apply to you) | You cannot use Karma, Owed or any stored-damage Effect yourself | Đoạn Nhân Quả |
+| **Every Blow Comes Home (Nhân Quả Tuần Hoàn)** | keystone | Karma records 40 % and pays out every 5 s. A payout is a Chaos part that skips ward shields only; it cannot be evaded or crit and does not count as direct damage for `trig_budget` | Your hits deal 15 % less directly (L2 −15) | Nghiệp |
+| **Heaven Keeps Accounts (Thiên Ký Sổ)** | keystone | Retribution's bonus is limited only by the L5 cap (100), and Owed never resets until spent | You cannot block or evade (block 0, evade 0) | Báo Ứng |
+| **Debt Never Paid (Nợ Bất Hoàn)** | keystone | Borrowed Power's repayment lasts 7 s, not 15 | Every fight, win or lose, costs 2 months of lifespan | Nợ |
+| **Outside Karma (Siêu Nhân Quả)** | keystone | You are immune to the `delayed` effects Sever names | You cannot use Karma, Owed or any stored-damage Effect yourself | Đoạn Nhân Quả |
 
 ## New pieces
 

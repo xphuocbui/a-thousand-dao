@@ -51,7 +51,7 @@
 ### 4. Huyết Đao (Blood Saber)
 - **Small:** `leech_health_pct` +0.3 · `attack_pct` bleed +1.5
 - **Stat notables:** Red Edge (Lưỡi Đỏ): leech ×2 · Drip (Nhỏ Giọt): bleed ×2 · Blood Groove (Rãnh Máu): leech
-  +0.5, saber +1 · Pay in Red (Trả Máu): art cost in health −3 %
+  +0.5, saber +1 · Pay in Red (Trả Máu): leech +0.5, max health +1
 - **Effects:**
   - **Major: Blood Saber (Huyết Đao).** Your saber arts may be paid in health (1 % health per 1 % linh lực of cost),
     and each Bleed tick you deal heals you for 30 % of its damage.

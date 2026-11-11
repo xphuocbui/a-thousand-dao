@@ -37,6 +37,13 @@ One file per Way, `NN-slug.md`, NN the roster number. Each has:
   always runs. Wards pay reserved, per hit, drain or cast.
 - **Build-first, not romantic.** The names and titles are the roster's. The mechanics are written for players
   who min-max: a hook to scale, a resource to convert, a rule to bend, a drawback worth taking.
+- **Fear** and **charm** in any draft mean the two proposed curses **Afraid** (Tình Đạo) and **Enthralled** (Mị Đạo).
+  Neither exists yet (`_new-modifiers.md`); an Effect that resists "fear" resists Afraid.
+- **`status_duration_pct`** (scoped by curse, fear, blind…) is a **proposed** key (`Needs key`). Curse durations are whole
+  pulses capped at 5 (`curse_duration_max`), so a duration line needs a rounding rule (carry the fraction) before it does
+  anything; see `_new-modifiers.md`.
+- **Down refusals** set health to 1 (Effects rule 11); any restore after that is a separate heal, blocked by `no_heal`.
+- **Regeneration** is never fully blocked: "dampened by N" (Modifier System rule 6a) is the only way to lower it.
 - **(starter)** marks an Effect simple enough for a first Way, as in the Sword pilot.
 - **Shared minor** marks a `minor` Effect from the shared pool (dao.md rule 3; at most 4 per Way).
 

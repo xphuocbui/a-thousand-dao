@@ -45,8 +45,7 @@
 - **Stat notables:** Grey Water (Nước Xám): curse duration ×2 · Forgetful Cup (Chén Quên): soul attack ×2 · Blank
   Mind (Tâm Trống): curse duration +1, soul attack +1 · Drowned Memory (Ký Ức Chìm): thần thức +2
 - **Effects:**
-  - **Major: Forget (Lãng Quên).** Every 9 s, Silence the foe's most recently fired art's form tag for 2 pulses
-    (this Silence has no reapply lockout).
+  - **Major: Forget (Lãng Quên).** Every 9 s, Silence the foe's form tag that has the most slotted arts, for 2 pulses (`Needs rule`: no reapply lockout on this Silence).
   - Minor: Lost Thread (Mất Mạch). Your soul hits push the foe's next art back 0.3 s. `Needs rule` (timer pushback).
   - Minor: Meng's Soup (Canh Quên). The first curse each fight you place lasts 2 pulses longer. *(starter)*
 
@@ -58,7 +57,7 @@
   - **Major: Enlightened at the Edge (Lâm Tử Ngộ Đạo).** Each fight you win after falling below 15 % health grants
     comprehension progress equal to a week of study and removes 5 heart demon. `Needs key` (Character Stats
     progress).
-  - Minor: Unafraid (Vô Úy). Fear-type Effects do nothing to you below 30 % health. *(starter)*
+  - Minor: Unafraid (Vô Úy). Below 30 % health, Afraid (Tình's proposed curse) and Silence on you last 1 pulse less. *(starter)*
   - Minor: See the Shore (Kiến Ngạn). Your breakthrough chance +1 pp after a fight won below 15 % (q-extras, counted
     under the ceiling).
 
@@ -70,16 +69,16 @@
   - **Major: Red Petals (Hồng Hoa Tán).** For each 10 % of max health you have lost (from full), grow 1 Petal (they
     do not shrink when healed). At the Down step's last act, each Petal deals 3 % of your max health as Fire to the
     foe (a trigger; `Needs rule` R18: a last-act exemption from `trig_budget`).
-  - Minor: Petal Shield (Thuẫn Cánh). Each Petal gives +2 % body shield. *(starter)*
-  - Minor: Early Bloom (Nở Sớm). Once per fight, at 5 Petals, release half of them at once.
+  - Minor: Petal Shield (Thuẫn Cánh). Each Petal gives a body shield of 2 % of max health. *(starter)*
+  - Minor: Early Bloom (Nở Sớm). Once per fight, at 5 Petals, release 2 of them at once (they are spent).
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Death and Awakening, One Shore (Sinh Tử Nhất Ngạn)** | keystone | Red Petals bursts at each Down refusal you make too, not only the last act | Your health regeneration is 0 | Hồng Hoa |
+| **Death and Awakening, One Shore (Sinh Tử Nhất Ngạn)** | keystone | Red Petals may burst at a Down refusal you make instead of the last act (Petals reset when they burst) | Your health regeneration is dampened by 100 (halved) | Hồng Hoa |
 | **The Far-Shore Flower Blooms (Bỉ Ngạn Hoa Khai)** | keystone | Petals grow per 5 % lost | Your max health is 30 % lower | Hồng Hoa |
-| **River without Return (Bất Quy Xuyên)** | keystone | Forget fires every 6 s | You cannot slot any other curse | Vong Xuyên |
+| **River without Return (Bất Quy Xuyên)** | keystone | Forget fires every 6 s | You apply no curse other than Forget's Silence | Vong Xuyên |
 | **The Other Shore (Bỉ Ngạn)** | keystone | To the Other Shore always succeeds | Fights you flee count as defeats for heart demon, doubled | Độ |
 
 ## New pieces

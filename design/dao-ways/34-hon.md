@@ -22,10 +22,8 @@
 - **Stat notables:** Vast Sense (Thần Thức Rộng): thần thức ×2 · Light Grip (Nắm Nhẹ): thần thức cost ×2 · Inner Eye
   (Mắt Trong): thần thức +1, soul resist +1 · Sea of Mind (Thức Hải): thần thức +1, max linh lực +1
 - **Effects:**
-  - **Major: Overwhelming Sense (Thần Áp).** While your thần thức is at least 1.5× the foe's, the foe's art speed is
-    −15 % and its accuracy −10 pp (pressure).
-  - Minor: Read the Foe (Dò Xét). At fight start you see the foe's slot order and guards (UI only, and the NPC AI
-    uses it for slot choice). *(starter)*
+  - **Major: Overwhelming Sense (Thần Áp).** While your thần thức is at least 1.5× the foe's, your soul hits apply Pressed Mind (a curse: −15 % art speed, 3 pulses, refresh; `Needs key`).
+  - Minor: Read the Foe (Dò Xét). At fight start you see the foe's slot order and guards (UI; the NPC AI also reads it), and your first soul art fires 0.5 s sooner. *(starter)*
   - Minor: Spare Sense (Thức Dư). +1 % `x_soul` per 5 % of your thần thức not used by artifacts (cap +12 %).
 
 ### 2. Hồn Kích (Soul Strike)
@@ -77,7 +75,7 @@
 |---|---|---|---|---|
 | **The Body Is a Vessel (Thân Vi Khí)** | keystone | Your soul arts share no lockout with each other: each has its own lockout | Your max health is 30 % lower and you cannot slot a ward in an art slot | Hồn Kích |
 | **Primordial Spirit (Nguyên Thần Xuất Khiếu)** | keystone | Your thần thức counts 25 % higher for soul damage (inside the squared ratio) | Your non-soul hits deal 40 % less (L2 −40) | Thần Thức |
-| **Unshakable Soul (Hồn Bất Động)** | keystone | Your soul resistance cap is 15 pp higher | Your soul arts deal 25 % less | Hồn Hộ |
+| **Unshakable Soul (Hồn Bất Động)** | keystone | While your linh lực is above 50 %, your soul resistance is +40 pp | Your ward strength is −30 % | Hồn Hộ |
 | **Thousand Puppets (Thiên Khôi)** | keystone | Puppet Theatre runs 4 puppets | Your arts cost 30 % more | Khôi Lỗi |
 
 ## New pieces

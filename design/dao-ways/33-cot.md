@@ -21,9 +21,8 @@
 - **Stat notables:** Ribcage (Lồng Ngực): body shield ×2 · Bone Plate (Giáp Xương): block ×2 · Exoskeleton (Xương
   Ngoài): body shield +1, block +1 · Spur (Gai Xương): physical +2
 - **Effects:**
-  - **Major: Bone Plates (Cốt Phiến).** Your body shield is split into 5 Plates. A hit breaks at most one Plate and
-    the excess is stopped; a broken Plate regrows after 4 s. `Needs rule` (Combat Defence shields).
-  - Minor: Calcify (Vôi Hóa). Chaos damage on your body shield is reduced by 20 %. *(starter)*
+  - **Major: Bone Plates (Cốt Phiến).** Your body shield is split into 5 Plates, each worth a fifth. A hit breaks at most one Plate (it loses up to its own damage from that Plate; the rest goes on to health). Ticks wear Plates but never break one below 1 point. A broken Plate regrows after 4 s. `Needs rule` (Combat Defence shields).
+  - Minor: Calcify (Vôi Hóa). Your Chaos resistance is +10 per unbroken Plate. *(starter)*
   - Minor: Splintered Plate (Phiến Vỡ). When a Plate breaks, deal 1 % of your max health as Physical to the attacker.
 
 ### 2. Cốt Thương (Bone Spear)
@@ -31,8 +30,7 @@
 - **Stat notables:** Spine Lance (Thương Sống): physical ×2 · Femur Club (Chùy Xương): physical crit damage ×2 · Bone
   Splinter (Mảnh Xương): physical +1, penetration +1 · Marrow Tip (Mũi Tủy): physical penetration +2
 - **Effects:**
-  - **Major: Draw the Bone (Rút Cốt).** Your Physical arts may take 2 % of your max health (for the fight) as an extra
-    cost; when they do, they deal more (L5 +25). Max health returns after the fight.
+  - **Major: Draw the Bone (Rút Cốt).** Each of your Physical arts takes 2 % of your max health for the fight when it fires (if your health allows) and deals more (L5 +25). Max health returns after the fight.
   - Minor: Bone Shard (Mảnh Cốt). Your Physical crits apply 1 Bleed stack. *(starter)*
   - Minor: Hollow Bones (Xương Rỗng). Each 10 % of max health given up to Draw the Bone gives +2 % art speed.
 
@@ -41,8 +39,7 @@
 - **Stat notables:** Red Marrow (Tủy Đỏ): regen ×2 · Root Bone (Căn Cốt): root bone +1 ×2 · Deep Marrow (Tủy Sâu):
   regen +0.05, max health +1 · Bone Broth (Nước Xương): regen increased +4
 - **Effects:**
-  - **Major: Marrow Spring (Tủy Tuyền).** Your health regeneration is increased by 1 % per point of root bone
-    (căn cốt) above 30 (cap +40 %).
+  - **Major: Marrow Spring (Tủy Tuyền).** Each broken Plate that regrows heals you 2 % of max health.
   - Minor: Knit (Liền Xương). Your body shield regains 1 % of max health each pulse while you are not hit.
     *(starter)*
   - Minor: Bone Deep (Thấu Xương). Bleed on you is 50 % weaker.
@@ -73,8 +70,8 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **Strength from the Inside Out (Nội Cốt Ngoại Giáp)** | keystone | Bone Plates regrow after 2 s | Your ward strength is halved | Cốt Giáp |
-| **White Bone Demon (Bạch Cốt Ma)** | keystone | Draw the Bone may take up to 6 % per art and gives L5 +8 per 1 % taken | You cannot heal above your reduced max health | Cốt Thương |
-| **Bones of the Ancients (Cổ Cốt)** | keystone | Root bone counts double for max health and body shield | Your art speed is −25 % | Tủy |
+| **White Bone Demon (Bạch Cốt Ma)** | keystone | Draw the Bone takes 4 % per art and gives L5 +40 | Your health regeneration is 0 | Cốt Thương |
+| **Bones of the Ancients (Cổ Cốt)** | keystone | Plates regrow 1 s sooner per 20 căn cốt above 30 (floor 2 s) | Your art speed is −25 % | Tủy |
 | **Bone Legion (Cốt Quân)** | keystone | Bone Wall takes 35 % and its floor is 70 % | You cannot slot a ward in an art slot | Cốt Nô |
 
 ## New pieces

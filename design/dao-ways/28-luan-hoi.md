@@ -45,9 +45,7 @@
 - **Stat notables:** New Flesh (Thịt Mới): max health ×2 · Reborn Blood (Huyết Tái): healing ×2 · Seedling Body
   (Thân Mầm): max health +1, regen +0.05 · Second Dawn (Bình Minh Hai): healing +1, max health +1
 - **Effects:**
-  - **Major: Rebirth (Tái Sinh).** Once per fight, at the Down step's refusal, you are reborn at 50 % health with
-    your second loadout (a saved alternative slot order and art set, prepared before the fight). `Needs rule`
-    (a second loadout).
+  - **Major: Rebirth (Tái Sinh).** Once per fight, at the Down step's refusal, refuse it (health 1) and switch to your second loadout (a saved art set and slot order prepared before the fight): its arts start on full cooldown and reservations are retaken. Then heal 50 % of max health (a heal; `no_heal` blocks it). `Needs rule` (a second loadout).
   - Minor: Shed the Old (Lột Xác). When reborn, every debuff and curse on you is removed. *(starter)*
   - Minor: Infant Strength (Lực Hài Nhi). For 5 s after a rebirth, your hits deal more (L5 +30).
 
@@ -57,8 +55,7 @@
   Guiding Lamp (Đèn Dẫn): thần thức +1, soul resist +1 · Mantra of Passage (Chú Vãng Sinh): soul attack +1, thần
   thức +1
 - **Effects:**
-  - **Major: Send On (Tiễn Đưa).** Your soul hits gain +1 % `x_soul` per 2 % of the target's missing health below
-    50 % (cap +25 %). Soul ignores layers, so this is the soul build's execute.
+  - **Major: Send On (Tiễn Đưa).** Your soul hits gain +1 % `x_soul` per 2 pp of the foe's health below 50 % (cap +25 %). Soul ignores layers, so this is the soul build's execute.
   - Minor: Calm Passage (Tĩnh Độ). Your soul lockout is 0.2 s shorter. *(starter)*
   - Minor: Released (Siêu Thoát). Ghost and undead creatures take 20 % more from you. `Needs key` (undead tag).
 
@@ -76,10 +73,10 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Death Is a Door (Tử Tức Môn)** | keystone | Rebirth fires twice per fight; the second loadout may be a third | Your max health is 30 % lower | Tái Sinh |
-| **Turn the Wheel by Hand (Thủ Chuyển Luân)** | keystone | You choose the Wheel's order before the fight, and may skip one Path | The Wheel turns every 8 s | Bánh Xe |
-| **Six Paths as One (Lục Đạo Quy Nhất)** | keystone | You hold every Path's bonus at 50 % at all times; the Wheel no longer turns | Your arts cost 30 % more | Lục Đạo |
-| **Eternal Return (Vĩnh Hồi)** | keystone | When an element buff batch of yours expires, it returns as a batch of the next element in the generating cycle (Wood → Fire → Earth → Metal → Water) at the same size | Your batches last 30 % shorter | Bánh Xe |
+| **Death Is a Door (Tử Tức Môn)** | keystone | Rebirth may refuse twice (`Needs rule` R5); the second switch returns to your first loadout | Your max health is 30 % lower | Tái Sinh |
+| **Turn the Wheel by Hand (Thủ Chuyển Luân)** | keystone | You choose the Wheel's order before the fight and may skip one Path | The Wheel turns every 8 s whatever else says (Wheel Spins Faster does nothing) | Bánh Xe |
+| **Six Paths as One (Lục Đạo Quy Nhất)** | keystone | Walk All Six's residue is 50 % (not 30 %) | The Wheel turns every 9 s | Lục Đạo |
+| **Eternal Return (Vĩnh Hồi)** | keystone | At each pulse, each of your element buff batches that expired that pulse returns once as the next element in the generating cycle (Wood → Fire → Earth → Metal → Water), at half size, for its original duration. A returned batch never returns again | Your batches last 30 % shorter | Bánh Xe |
 
 ## New pieces
 

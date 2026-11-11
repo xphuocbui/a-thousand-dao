@@ -33,8 +33,7 @@
 - **Stat notables:** Final Breath (Hơi Cuối): attack ×2 · Spoken Twice (Nói Hai Lần): crit damage +2 · Testament
   (Di Chúc): max health +1, attack +1 · Unfinished (Dở Dang): art cost −3
 - **Effects:**
-  - **Major: Last Words (Di Ngôn).** When an art of yours waits because you cannot pay its linh lực, it fires anyway,
-    paid in health at 1.5× (once per art per 6 s).
+  - **Major: Last Words (Di Ngôn).** When an art of yours is ready but you cannot pay its linh lực, it fires anyway, paid in health: 1.5 % of max health per 1 % of max linh lực it costs (once per art per 6 s).
   - Minor: Dying Wish (Nguyện Cuối). At the Down step's last act, every ready art fires. *(starter)*
   - Minor: Words Remain (Lời Còn). Arts fired with Last Words deal more (L5 +15).
 
@@ -54,8 +53,7 @@
 - **Stat notables:** Warm Again (Ấm Lại): healing ×2 · Breath Returns (Hơi Về): regen ×2 · Sun on the Face (Nắng
   Mặt): max health +1, healing +1 · Living Colour (Hồng Hào): fire resistance +2
 - **Effects:**
-  - **Major: Return to the Living (Hoàn Dương).** Each time your health rises back above 50 % after being below 25 %,
-    your hits deal more for 6 s (L5 +30) and you cleanse 5 debuff stacks.
+  - **Major: Return to the Living (Hoàn Dương).** Up to twice a fight, when your health rises back above 50 % after being below 25 %, your hits deal more for 6 s (L5 +30) and you cleanse 5 debuff stacks.
   - Minor: Climb Out (Leo Lên). Healing you receive while below 25 % health is 40 % stronger. *(starter)*
   - Minor: Shed the Grave (Rũ Đất). Returning above 50 % (as above) also removes one curse.
 
@@ -64,17 +62,16 @@
 - **Stat notables:** Black Spring (Suối Đen): cold +1, chaos +1 ×2 · Grave Chill (Lạnh Mồ): ice stack effect ×2 ·
   Silt (Bùn Đáy): chaos penetration +2 · Still Dark (Tối Lặng): cold penetration +2
 - **Effects:**
-  - **Major: Dark Water (Âm Thủy).** Your hits with both Cold and Chaos parts apply Ice stacks and Poison stacks
-    equal to the larger of the two they would apply alone.
+  - **Major: Dark Water (Âm Thủy).** Your hits with both Cold and Chaos parts apply 3 Ice stacks and 3 Poison stacks, for 6 pulses each.
   - Minor: Underflow (Dòng Ngầm). Your Cold hits convert 25 % to Chaos. *(starter)*
-  - Minor: Drink of the Springs (Uống Suối Vàng). A foe bearing 20+ Ice and 20+ Poison stacks regenerates no linh lực.
+  - Minor: Drink of the Springs (Uống Suối Vàng). A foe bearing 20+ Ice and 20+ Poison stacks has its linh lực regeneration dampened by 100 (halved).
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **One Foot Already Below (Nhất Cước Đạp Âm)** | keystone | Descend's depths give L5 +8 each | You must descend at least to depth 4 | Cửu Tuyền |
-| **The Road to the Springs (Hoàng Tuyền Lộ)** | keystone | Last Words has no per-art limit and costs 1× in health | Your linh lực regeneration is halved | Di Ngôn |
+| **One Foot Already Below (Nhất Cước Đạp Âm)** | keystone | Descend's depths give L5 +8 each | Your healing received is −30 % | Cửu Tuyền |
+| **The Road to the Springs (Hoàng Tuyền Lộ)** | keystone | Last Words has no per-art limit and costs 1 % of health per 1 % of linh lực | Your max health is 20 % lower | Di Ngôn |
 | **Ninefold Lantern (Cửu Đăng)** | keystone | Soul charges cap at 18 and each gives +5 % `x_soul` | Your non-soul hits deal 30 % less (L2 −30) | Dẫn Hồn |
 | **The Springs Run Both Ways (Lưỡng Tuyền)** | keystone | Return to the Living fires each time you cross 50 % upward, with no lower threshold | Your max health is 20 % lower | Hoàn Dương |
 

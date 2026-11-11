@@ -42,3 +42,22 @@ Over the Limit. Judgement works against foes that do not curse. Mark for Death's
 
 **Deferred:** theme-stats headers (as batch 01–14); Phong and Lôi dual-root facets (kept: they are the dual-root
 bridge, single-root players have four other facets); Thổ/Băng timer roles both stay until R1 is decided.
+
+## Batch 27–37
+
+**Fixed:** pieces that read removed or non-existent things: `regen_cap` (The Undying Body), status- and soul-resistance
+caps (Heart of the Lotus, Unshakable Soul), Chaos on a body shield (Calcify), full regeneration blocks (Last Breath,
+Drink of the Springs, Death and Awakening, Titan → dampening). Haunt is a run-on wound reported to the caller, not a
+damaging curse. Eternal Return returns once at half size. The Huyết health-to-shield loop is netted (30 %, cap 15 %),
+health payment only below 50 % linh lực, and no line lowers the health-cost rate any more (Đao's Pay in Red too).
+Life Is the Only Currency and Crimson Aegis are rivals. White Bone Demon closes regeneration; Draw the Bone fires every
+Physical art. Refusals set health 1, then heal (Rebirth, Walk the Threshold); second refusals point at R5. Plates are
+defined (value, ticks). Flesh Beats Treasure: the capstone replaces the major. Pure Water every 8 s, up to 15
+stacks. Lotus Seeds per crossing, 3 a fight. Calming Scent within 5 pulses. Possessed lasts until the next art.
+Ghost hits use Formulas E2. Corpse Rot now has a source in Sinh Tử. Tick-heals are pulse sums. Borrowed Power
+repays on a fixed window. Compounding is linear. Fear and charm defined in the README.
+
+**Deferred:** Down-refusal majors still sit in Sinh Tử, Luân Hồi and Hỏa (R5 limits them to one per fight; which
+Way keeps the refusal *major* is a design call). Three "permanent gain from winning at the edge" majors (Sinh Tử,
+Bỉ Ngạn, Huyết) wait on the life-earned ceiling (`_combos-and-risks.md` item 1). Six Paths as One and Walk All Six
+kept as major and capstone (the capstone deepens the major).

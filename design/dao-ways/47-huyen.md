@@ -45,7 +45,7 @@
   - **Major: Sow Demons (Gieo Tâm Ma).** Your soul hits add 2 heart demon to the foe for the fight (a fight value, not
     kept); each 10 fight heart demon gives the foe −3 % art speed and your soul hits +2 % `x_soul` against it.
     `Needs key` (in-fight heart demon on profiles).
-  - Minor: Shared Nightmare (Ác Mộng Chung). Fear-type Effects you apply last 1 pulse longer. *(starter)*
+  - Minor: Shared Nightmare (Ác Mộng Chung). Afraid (Tình's proposed curse) you apply lasts 1 pulse longer. *(starter)*
   - Minor: Reflected Demon (Ma Phản). Heart-demon Effects the foe uses against you are reflected.
 
 ### 4. Bụi Trần (Dust)

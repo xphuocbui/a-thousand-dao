@@ -23,9 +23,7 @@
 - **Stat notables:** Bound Ghost (Quỷ Trói): companion damage ×2 · Cold Hands (Tay Lạnh): companion +1, thần thức
   +1 · Night Retainer (Gia Nhân Đêm): companion +1, soul resist +1 · Grave Leash (Xích Mộ): thần thức ×2
 - **Effects:**
-  - **Major: Ghost Servant (Quỷ Bộc).** You may bind a ghost as your companion (acquired by defeating a ghost
-    creature). Its hits are all Soul and meet only soul resistance and soul wards; its power share counts against
-    `c_comp_cap` at 70 %. `Needs key` (ghost companion kind).
+  - **Major: Ghost Servant (Quỷ Bộc).** You may bind a ghost as your companion (acquired by defeating a ghost creature). Its hits are Soul hits by Formulas E2, at its power share, and meet only soul resistance and soul wards. `Needs key` (ghost companion kind).
   - Minor: Restless Servant (Bộc Bất An). Your companion's first hit each fight comes at 1 s. *(starter)*
   - Minor: Chill Touch (Hàn Thủ). Your companion's hits apply 1 Slackened Soul stack every 4th hit.
 
@@ -34,9 +32,7 @@
 - **Stat notables:** Ride the Flesh (Cưỡi Xác): soul attack ×2 · Slip Inside (Lẻn Vào): status duration ×2 · Hollow
   Eyes (Mắt Rỗng): soul attack +1, thần thức +1 · Puppet Strings (Dây Rối): soul +1, curse duration +1
 - **Effects:**
-  - **Major: Possess (Nhập).** Your soul hits apply Possessed (1 pulse, no stacking, 8 s reapply lockout): the
-    foe's next art to fire also deals 30 % of its damage to the foe itself (before its own defences).
-    `Needs key` + `Needs rule` (self-damage from a foe's art).
+  - **Major: Possess (Nhập).** Your soul hits apply Possessed (until the foe's next art fires, at most 5 pulses; 8 s reapply lockout): that art also deals 30 % of its damage to the foe itself. `Needs key` + `Needs rule` (self-damage from a foe's art).
   - Minor: Lingering Presence (Ám Ảnh). Possessed lasts 2 pulses. *(starter)*
   - Minor: Puppet's Fumble (Rối Vụng). A Possessed foe's arts cost 20 % more.
 
@@ -45,9 +41,7 @@
 - **Stat notables:** Grudge (Oán): curse duration ×2 · Wailing (Than Khóc): chaos ×2 · Unquiet Grave (Mồ Động):
   curse duration +1, chaos +1 · Black Grudge (Oán Đen): status resist +2
 - **Effects:**
-  - **Major: Haunt (Ám Hồn).** If you go Down, your curses on the winner do not end with you: they last their full
-    duration, and each one ticks 1 % of its max health a pulse as Chaos. If you die, the winner carries a Haunt (−5 %
-    to all its rolls of fortune) for a year. `Needs key` (World Database consequence).
+  - **Major: Haunt (Ám Hồn).** If you lose, a **haunt wound** runs on the winner, reported to the caller (Effects rules 10 and 11): −5 % to its fortune rolls for a year, and 1 % of max health lost at the start of each of its fights for a season. `Needs key` (a run-on wound).
   - Minor: Curse on the Killer (Rủa Kẻ Giết). The first curse you place each fight cannot be cleansed. *(starter)*
   - Minor: Ghostly Wail (Tiếng Than). When you fall below 30 % health, apply Withering to the foe.
 
@@ -67,8 +61,7 @@
 - **Stat notables:** Open Gate (Mở Cửa): companion ×2 · Gatekeeper (Giữ Cửa): evade ×2 · Hungry Ghosts (Ngạ Quỷ):
   companion +1, leech +0.3 · Seventh Month (Tháng Bảy): soul +2
 - **Effects:**
-  - **Major: Open the Ghost Gate (Khai Quỷ Môn).** Every 10 s, a wandering ghost strikes the foe (a soul trigger hit,
-    `c_trig` 0.4 of your basic attack's base, inside `trig_budget`).
+  - **Major: Open the Ghost Gate (Khai Quỷ Môn).** Every 5 s, a wandering ghost strikes the foe: a soul trigger hit by Formulas E2 at 40 % of your weakest soul art, inside `trig_budget`, outside the soul lockout.
   - Minor: Ghost Month (Tháng Cô Hồn). In the seventh month of the year, your soul damage is +15 %. `Needs key`
     (calendar readable). *(starter)*
   - Minor: Shut the Gate (Đóng Cửa). Soul hits on you are 15 % weaker.
@@ -78,9 +71,9 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **The Dead Fight for You (Quỷ Binh)** | enabler | Your ghost companion's power share counts at 50 % against `c_comp_cap` and its hits apply Possessed | You cannot slot soul arts yourself | Quỷ Bộc |
-| **Netherworld (U Minh)** | keystone | Ghost Fire may be applied during the soul lockout | Your non-soul hits deal 30 % less (L2 −30) | Quỷ Hỏa |
+| **Netherworld (U Minh)** | keystone | With a ghost companion, its hits and Ghost Gate strikes may apply Ghost Fire during the soul lockout | Your non-soul hits deal 30 % less (L2 −30) | Quỷ Hỏa |
 | **Puppet of the Dead (Hồn Khôi)** | keystone | Possessed sends 60 % back | Possess's reapply lockout is 12 s | Nhập Xác |
-| **Undying Grudge (Oán Bất Tán)** | keystone | Haunt applies at your Down even if you win (your curses last to the end) and each ticks 2 % | Your max health is 25 % lower | Oán Hồn |
+| **Undying Grudge (Oán Bất Tán)** | keystone | The haunt wound is reported even when you flee or draw, and its health loss is 2 % | Your max health is 25 % lower | Oán Hồn |
 
 ## New pieces
 
