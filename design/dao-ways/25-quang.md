@@ -31,7 +31,7 @@
 - **Stat notables:** White Fire (Bạch Hỏa): light +2 · Clear Eyes (Mắt Trong): status resist ×2 · Holy Water (Nước
   Thánh): status resist +1, healing +1 · Purge Light (Quang Tẩy): light penetration +1, status resist +1
 - **Effects:**
-  - **Major: Dispel (Tịnh Trừ).** Each of your Light hits removes 3 buff stacks from the target (oldest first); for
+  - **Major: Dispel (Tịnh Trừ).** Each of your Light hits removes 3 of the target's buff stacks (oldest first; shared rule R16, once per pulse); for
     each stack removed this way in the last 3 s, your Light hits deal more (L5 +1, cap +30).
   - Minor: Clean Light (Quang Sạch). Each Light hit you land cleanses 1 debuff stack from you. *(starter)*
   - Minor: Unshadowed (Không Bóng). Darkness effects on you (blind, accuracy down) are halved.

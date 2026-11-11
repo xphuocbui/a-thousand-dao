@@ -62,8 +62,7 @@
 - **Stat notables:** Faint Scent (Hương Thoảng): heart-demon resist ×2 · Calm Water (Nước Lặng): status resist ×2 ·
   Incense of Lotus (Nhang Sen): heart-demon resist +1, soul resist +1 · Still Pond (Ao Tĩnh): regen +0.1
 - **Effects:**
-  - **Major: Calming Scent (Hương Định Tâm).** The foe's art speed is −1 % per 3 s of fight (cap −20 %), and its
-    Fury, Hunger, Spin and similar growing self-stacks grow 30 % slower. `Needs key` (a tag for growing self-stacks).
+  - **Major: Calming Scent (Hương Định Tâm).** Every 3 s, apply 1 Calmed stack to the foe (a curse: −1 % art speed per stack, stacks to 20, 6 pulses, refreshed by each new stack; `Needs key`), and its growing self-counters (shared rule R7) gain 30 % slower.
   - Minor: Clear Mind in Battle (Chiến Tâm Thanh). Heart demon gained from fights is 30 % lower. *(starter)*
   - Minor: Soothing (Xoa Dịu). Fear-type Effects on you are refused.
 

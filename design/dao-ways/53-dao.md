@@ -35,7 +35,7 @@
 - **Effects:**
   - **Major: Sweep (Hoành Tảo).** Your saber hits deal 30 % of their damage to every ward shield the target has up,
     in addition to the normal defence path. `Needs rule` (Combat Defence: one path per hit).
-  - Minor: Clear the Field (Dọn Trận). Your saber hits remove 1 buff stack of the target's highest-count element.
+  - Minor: Clear the Field (Dọn Trận). Your saber hits remove 1 buff stack of the target's highest-count element (shared rule R16, once per pulse).
   - Minor: Wide Stance (Thế Rộng). +5 block rating per slotted saber art. *(starter)*
 
 ### 3. Đao Ý (Saber Intent)

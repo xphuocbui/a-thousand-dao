@@ -30,7 +30,7 @@
 - **Stat notables:** Qi Thief (Đạo Khí): leech ×2 · Borrowed Breath (Hơi Mượn): art speed ×2 · Siphon (Hút Trộm): leech
   +0.2, art speed +0.5 · Thief's Vein (Mạch Trộm): max linh lực +2
 - **Effects:**
-  - **Major: Steal Qi (Thâu Khí).** Each of your hits steals 2 of the foe's buff stacks (largest pile first): they leave
+  - **Major: Steal Qi (Thâu Khí).** Each of your hits steals 2 of the foe's buff stacks (largest pile first; shared rule R16's `steal`, once per pulse): they leave
     the foe and become your own buff stacks of that element (a batch for 6 pulses).
   - Minor: Quick Siphon (Hút Nhanh). Your first hit each fight steals 5. *(starter)*
   - Minor: Waterlogged (Sũng Nước). *Shared minor* (with Vụ, Phệ): L5 +15 against a foe with 0 linh lực.

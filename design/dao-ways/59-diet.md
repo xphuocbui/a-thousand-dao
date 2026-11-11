@@ -44,7 +44,7 @@
 - **Effects:**
   - **Major: Annihilate (Diệt Tuyệt).** Your Chaos hits deal more by the health you have lost (L5 +1 per 2 % of max
     health missing, cap +40).
-  - Minor: Unravel (Tháo Gỡ). Your Chaos hits remove 1 buff stack per hit.
+  - Minor: Unravel (Tháo Gỡ). Your Chaos hits remove 1 of the foe's buff stacks (shared rule R16, once per pulse).
   - Minor: Extinction Touch (Chạm Diệt). Your basic attack converts 30 % to Chaos. *(starter)*
 
 ### 4. Sụp Đổ (Collapse)

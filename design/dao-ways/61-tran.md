@@ -56,7 +56,7 @@
 - **Effects:**
   - **Major: No Escape (Bất Thoát).** Foes cannot escape from you, and their escape art's slot is Silenced for the
     fight.
-  - Minor: Walls Close In (Tường Ép). Each 10 s of fight, the foe's evade falls by 2 pp (cap −10). *(starter)*
+  - Minor: Walls Close In (Tường Ép). Every 10 s of fight, apply Cornered to the foe (a curse: −2 pp evade per stack, stacks to 5, lasts until cleansed or the fight ends; `Needs key`). *(starter)*
   - Minor: Solitary (Biệt Giam). A foe with no companion takes more from your Force hits (L5 +10).
 
 ### 5. Tự Phong (Self-Seal)
