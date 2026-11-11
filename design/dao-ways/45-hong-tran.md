@@ -63,8 +63,7 @@ The Way of living among mortals. Almost all of it is life-around-the-fight; the 
 - **Stat notables:** World-Wise (Từng Trải): comprehension ×2 · Street Fighter (Võ Phố): attack ×2 · Seen It All (Đã Thấy
   Hết): comprehension +1, attack +1 · Dust on the Robe (Bụi Trên Áo): status resist +2
 - **Effects:**
-  - **Major: Tempered by Red Dust (Hồng Trần Luyện Tâm).** For each 10 years lived among mortals (in towns), +1 % to all
-    stat lines from every Dao you hold (cap +8 %). `Needs key`.
+  - **Major: Tempered by Red Dust (Hồng Trần Luyện Tâm).** For each 10 years lived among mortals (in towns), +1 % max health and +1 % comprehension (cap +8 %). `Needs key`.
   - Minor: Common Sense (Lẽ Thường). Event choices that read "wisdom" are always available. *(starter)*
   - Minor: Quiet Streets (Phố Lặng). Heart demon above 50 decays twice as fast in towns.
 

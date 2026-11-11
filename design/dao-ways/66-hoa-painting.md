@@ -27,7 +27,7 @@
     your thần thức ratio over the foe's × 15 % (cap `c_comp_cap`), and you choose its damage type (Chaos, Cold or
     Physical). `Needs key`.
   - Minor: Fresh Ink (Mực Mới). Your ink beast's first hit comes at 1 s. *(starter)*
-  - Minor: Ink Splash (Mực Bắn). Your ink beast's hits apply 1 Dusted stack for 4 pulses (Huyễn's accuracy-down key).
+  - Minor: Ink Splash (Mực Bắn). Your ink beast's hits apply 1 Earth debuff stack for 4 pulses (−accuracy).
 
 ### 2. Sơn Thủy (Landscape)
 - **Small:** `formation_power_pct` +1.2 · `defense_pct` +0.6

@@ -43,8 +43,7 @@
 - **Stat notables:** Storm of Petals (Bão Cánh): art speed ×2 · Thousand Petals (Ngàn Cánh Hoa): attack ×2 · Swirl (Xoáy
   Cánh): art speed +1, attack +1 · Petal Edge (Lưỡi Cánh): crit chance +2
 - **Effects:**
-  - **Major: Petal Rain (Hoa Vũ).** Each art that hits scatters Petals equal to 1 per 2 s of its authored cooldown (cap
-    5): each a trigger hit of `c_trig` 0.12 with the art's tags (inside `trig_budget`).
+  - **Major: Petal Rain (Hoa Vũ).** Each art that hits scatters Petals equal to its authored cooldown in seconds ÷ 2, rounded up (min 1, cap 5), as one trigger firing of several hits, each `c_trig` 0.12 with the art's tags (inside `trig_budget`).
   - Minor: Wind-Borne (Gió Mang). Your Petals apply 1 Wind debuff stack for 4 pulses each. *(starter)*
   - Minor: Thorned Petals (Cánh Có Gai). Your Petals apply 1 Bleed stack every 3rd hit.
 
@@ -53,9 +52,7 @@
 - **Stat notables:** Slow Wilt (Héo Chậm): stack duration ×2 · Last Colour (Màu Cuối): attack ×2 · Pressed Flower (Hoa
   Ép): stack duration +1, attack +1 · Dry Bloom (Hoa Khô): max health +2
 - **Effects:**
-  - **Major: Fading Bloom (Tàn Hoa).** Your buff stack batches do not expire: they lose 15 % of their stacks each pulse
-    instead (rounded down, at least 1). Each stack lost this way gives L5 +0.5 to your next hit (cap +30).
-    `Needs rule` (Effects 9a batches).
+  - **Major: Fading Bloom (Tàn Hoa).** Your timed buff batches do not expire at their end: from then on they lose 15 % of their stacks each pulse (at least 1). Each stack lost this way gives L5 +0.5 to your next hit (cap +30). Fight-long batches are not affected. `Needs rule`.
   - Minor: Lingering Colour (Sắc Lưu). Your first buff batch each fight does not fade for 5 pulses. *(starter)*
   - Minor: Petals Fall Softly (Cánh Rơi Nhẹ). Faded stacks heal 0.1 % of max health each.
 

@@ -24,7 +24,7 @@ for power or protection.
 - **Stat notables:** Kind Hand (Tay Hiền): healing ×2 · Gentle Shield (Thuẫn Hiền): body shield ×2 · Mercy (Lòng Từ):
   healing +1, body shield +1 · Patience of Saints (Nhẫn Thánh): regen +0.1
 - **Effects:**
-  - **Major: Compassion (Từ Bi).** Healing you do past full health becomes a body shield (up to 20 % of max health).
+  - **Major: Compassion (Từ Bi).** Healing from your arts and Effects that would go past full health becomes a body shield (up to 20 % of max health); regeneration does not count. `Needs rule` R20 (a health-overflow readable).
   - Minor: Spare Them (Tha). When you win, choosing mercy gives 10 Merit. `Needs key` (Merit). *(starter)*
   - Minor: Kind Heal (Trị Hiền). Each pulse in which you healed 5 %+ of max health, cleanse 1 curse.
 
@@ -33,8 +33,7 @@ for power or protection.
 - **Stat notables:** Merit Wall (Tường Công Đức): defense ×2 · Good Karma (Nghiệp Lành): ward efficiency ×2 · Blessed
   Guard (Hộ Phúc): defense +1, ward +1 · Lotus Aegis (Khiên Sen): soul resist +2
 - **Effects:**
-  - **Major: Karma Shield (Nghiệp Thuẫn).** Before a fight, spend Merit: each 10 Merit gives a ward shield of 2 % of max
-    linh lực that does not drain your pool (cap 20 %).
+  - **Major: Karma Shield (Nghiệp Thuẫn).** Before a fight, spend Merit: each 10 Merit gives a body shield of 1 % of max health for that fight (cap 15 %). Merit: 10 per mercy, 5 to 30 per good-deed quest.
   - Minor: Protected (Được Che). The first hit each fight that would take 20 %+ of your health is dampened 50 % (rule 6a). *(starter)*
   - Minor: Merit Lingers (Phúc Lưu). Merit decays 50 % slower.
 
@@ -64,7 +63,7 @@ for power or protection.
 - **Stat notables:** Gilded Skin (Da Vàng): body shield ×2 · Golden Bones (Xương Vàng): max health ×2 · Buddha's Calm
   (Phật Tĩnh): body shield +1, max health +1 · Radiant Body (Thân Sáng): resist all +1
 - **Effects:**
-  - **Major: Golden Body (Kim Thân).** Your body shield and max health are +0.5 % per 100 Merit held (cap +20 %).
+  - **Major: Golden Body (Kim Thân).** Your body shield and max health are +1 % per 50 Merit held (cap +15 %).
   - Minor: Gold Leaf (Lá Vàng). Spending Merit on a shrine gives +1 % body shield for a year (cap +10 %). *(starter)*
   - Minor: Unharmed Saint (Thánh Vô Thương). Bleed and Burn on you are 30 % weaker.
 

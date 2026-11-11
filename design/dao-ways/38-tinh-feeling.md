@@ -35,18 +35,16 @@ build chooses which feelings it can enter and how it moves between them.
 - **Stat notables:** Rage (Thịnh Nộ): attack ×2 · Hot Blood (Máu Nóng): max health ×2 · Clenched Fist (Nắm Chặt): attack
   +1, max health +1 · Red Mist (Sương Đỏ): crit damage +2
 - **Effects:**
-  - **Major: Anger (Nộ).** Each hit that lands on you for 3 %+ of max health gives 1 Anger (cap 15) and puts you in the
-    Anger mood: L5 +3 per Anger. Leaving the mood halves Anger.
+  - **Major: Anger (Nộ).** Each hit that lands on you for 3 %+ of max health gives 1 Anger (cap 15) and puts you in the Anger mood: L5 +3 per Anger. Anger loses 1 a second while you are in another mood. Mood priority, when two moods trigger in one instant: Anger, then Sorrow, then Joy, then Love.
   - Minor: Quick Temper (Nóng Tính). Your first hit taken each fight gives 3 Anger. *(starter)*
-  - Minor: Cold Fury (Giận Lạnh). Anger does not decay while you hold 10+.
+  - Minor: Cold Fury (Giận Lạnh). While you hold 10+ Anger, it does not decay in other moods.
 
 ### 3. Ai (Sorrow)
 - **Small:** `status_duration_pct` curse +2 · `attack_pct` cold +1
 - **Stat notables:** Grief (Đau Buồn): curse duration ×2 · Tears (Nước Mắt): cold ×2 · Mourning Song (Khúc Tang): curse
   duration +1, cold +1 · Heavy Heart (Lòng Nặng): soul resist +2
 - **Effects:**
-  - **Major: Sorrow (Ai).** When you lose 10 % of max health in 2 s, or the foe heals 10 %, enter Sorrow for 6 s: curses
-    you apply last 2 pulses longer and apply Withering.
+  - **Major: Sorrow (Ai).** When a hit of 10 %+ of your max health lands on you, enter Sorrow for 6 s: your next curse applied lasts 1 pulse longer (never past 5), and on entering Sorrow you apply Withering once.
   - Minor: Weep (Khóc). Entering Sorrow cleanses 3 debuff stacks. *(starter)*
   - Minor: Shared Grief (Sầu Chung). In Sorrow, your Cold hits apply 2 Ice stacks for 6 pulses.
 
@@ -55,9 +53,7 @@ build chooses which feelings it can enter and how it moves between them.
 - **Stat notables:** Devotion (Tận Tình): companion ×2 · Tender (Dịu Dàng): healing ×2 · Bound Hearts (Hai Tim): companion
   +1, healing +1 · Faithful (Chung Thủy): max health +2
 - **Effects:**
-  - **Major: Love (Ái).** Your companion's power share is +1 % per 5 % of your own max health missing (cap +15 %, inside
-    `c_comp_cap`): it fights harder when you are hurt. In the Love mood (entered when your companion hits), you heal 1 %
-    of max health per companion hit.
+  - **Major: Love (Ái).** Your companion's hits deal more by your missing health (+1 % per 5 % missing, cap +20 %). In the Love mood (entered when your companion hits), each companion hit heals you 0.5 % of max health (at most 3 % a pulse).
   - Minor: Together (Cùng Nhau). Your companion's first hit each fight comes at 1 s. *(starter)*
   - Minor: Protective (Che Chở). While in Love, hits on you are reduced by 8 %.
 
@@ -66,8 +62,7 @@ build chooses which feelings it can enter and how it moves between them.
 - **Stat notables:** Dread (Khiếp Sợ): status duration ×2 · Looming (Đe Dọa): attack ×2 · Cold Sweat (Mồ Hôi Lạnh):
   status duration +1, attack +1 · Terror (Kinh Hoàng): crit damage +2
 - **Effects:**
-  - **Major: Fear (Cụ).** Your crits apply Afraid (a curse, 2 pulses): the foe's arts have a counted 1-in-4 chance to
-    wait 0.5 s before firing (counted, not rolled). `Needs key` (Afraid).
+  - **Major: Fear (Cụ).** Your crits apply Afraid (a curse, 2 pulses): the foe's next art after each of your crits waits 0.5 s before firing (`Needs rule` R1, timers).
   - Minor: Nervous Foe (Địch Run). The foe's first art each fight waits 0.5 s. *(starter)*
   - Minor: Smell of Fear (Mùi Sợ). Your hits on an Afraid foe deal more (L5 +12).
 
@@ -76,8 +71,8 @@ build chooses which feelings it can enter and how it moves between them.
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **Every Feeling, Mastered (Thất Tình Tự Tại)** | keystone | You hold every mood you have unlocked at once, each at 40 % of its value | No mood is ever at full value | any two facets |
-| **Burning Anger (Nộ Hỏa Thiêu Thân)** | keystone | Anger's cap is 30 and it never leaves | You cannot be in any other mood | Nộ |
-| **Love Unto Death (Ái Đến Chết)** | keystone | Love's power share bonus has no cap below `c_comp_cap` and counts every 2 % missing | You cannot heal yourself from arts | Ái |
+| **Burning Anger (Nộ Hỏa Thiêu Thân)** | keystone | Anger's cap is 25 and it never decays | You can never enter Joy or Love; your heals are halved | Nộ |
+| **Love Unto Death (Ái Đến Chết)** | keystone | Love's companion bonus is +1 % per 2 % missing (cap +40 %) | You cannot heal yourself from arts | Ái |
 
 ## New pieces
 

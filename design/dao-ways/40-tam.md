@@ -22,9 +22,7 @@ The breakthrough Way. Tâm turns the **heart demon system** from a tax into a ga
 - **Stat notables:** Face the Shadow (Đối Diện Bóng): heart-demon resist ×2 · Know Thyself (Tự Biết): soul resist ×2 ·
   Inner Mirror (Gương Trong): heart-demon resist +1, soul resist +1 · Demon Tamer (Kẻ Thuần Ma): thần thức +2
 - **Effects:**
-  - **Major: Turn the Demon (Chuyển Ma).** When your heart demon would cause a trial (a breakthrough check or event),
-    you may fight it instead (a fight against your mirror at 70 % power). Win: remove 30 heart demon and gain a Turned
-    Demon (+1 % to one stat, permanent, cap 10). `Needs key` (heart-demon fights; Event Engine).
+  - **Major: Turn the Demon (Chuyển Ma).** When your heart demon would cause a trial (a breakthrough check or event), you may fight it instead (a fight against your mirror at 70 % power). Win: remove 30 heart demon and gain a Turned Demon (+1 % to one of this Way's theme stats, permanent, cap 10). `Needs key`.
   - Minor: Know Your Demon (Biết Ma Mình). You see your heart demon's exact number and its next threshold. *(starter)*
   - Minor: Demon's Lesson (Ma Dạy). Each Turned Demon gives +2 % comprehension.
 
@@ -33,9 +31,7 @@ The breakthrough Way. Tâm turns the **heart demon system** from a tax into a ga
 - **Stat notables:** Firm Heart (Tâm Vững): status resist ×2 · True Heart (Tâm Thật): heart-demon resist ×2 · Heart of
   the Way (Tâm Đạo): status resist +1, heart-demon resist +1 · Unshakable (Bất Động Tâm): soul resist +2
 - **Effects:**
-  - **Major: Dao Heart (Đạo Tâm Kiên Cố).** A new stat, Dao Heart (0–100): +1 for each breakthrough, each Turned Demon,
-    each oath kept; each point gives +0.1 pp to breakthrough heart-demon checks (q-extras) and +0.5 soul resistance.
-    `Needs key`.
+  - **Major: Dao Heart (Đạo Tâm Kiên Cố).** A new stat, Dao Heart (0–100): +1 for each breakthrough, each Turned Demon, each oath kept. Each 10 points give +0.5 pp to breakthrough heart-demon checks (cap +5 pp, inside the q-extras ceiling) and +5 soul resistance. `Needs key`.
   - Minor: Steady Heart (Tâm Ổn). Your heart demon cannot rise more than 10 from any one event. *(starter)*
   - Minor: Heart Ward (Hộ Tâm). In fights, while your Dao Heart is 50+, fear and charm Effects on you are refused.
 
@@ -65,8 +61,7 @@ The breakthrough Way. Tâm turns the **heart demon system** from a tax into a ga
 - **Stat notables:** Clear Light (Ánh Trong): comprehension ×2 · Awakened Mind (Tâm Thức Tỉnh): cultivation speed +1 ·
   Lucid (Minh Mẫn): comprehension +1, soul resist +1 · Insight's Edge (Lưỡi Ngộ): thần thức +2
 - **Effects:**
-  - **Major: Sudden Clarity (Đốn Minh).** After a fight you win against a higher realm or below 20 % health, gain
-    a Clarity: the next technique mastery step or Dao node is free. `Needs key`.
+  - **Major: Sudden Clarity (Đốn Minh).** After a fight you win against a higher realm or below 20 % health, gain a Clarity: your next season of seclusion gives +15 % progress (inside the per-Dao rate cap). `Needs key`.
   - Minor: Clear Morning (Sáng Trong Lành). Seclusion progress +5 % in the season after a Clarity. *(starter)*
   - Minor: Clear in Battle (Tỉnh Táo Khi Chiến). Your accuracy +5 pp while heart demon is below 20.
 
@@ -75,7 +70,7 @@ The breakthrough Way. Tâm turns the **heart demon system** from a tax into a ga
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **No Demon Left Inside (Tâm Vô Ma)** | keystone | Turn the Demon works on every trial and Turned Demons cap at 20 | You can never gain power from heart demon (Ma, Si and similar Effects do nothing) | Tâm Ma |
-| **Heart Like a Mirror (Tâm Như Minh Kính)** | keystone | Dao Heart counts double for breakthroughs (still a separate Effect source, bot fixture) | Your heart demon gain from defeats is doubled | Đạo Tâm |
+| **Heart Like a Mirror (Tâm Như Minh Kính)** | keystone | Dao Heart's breakthrough bonus cap is +8 pp (an Effect source, bot fixture) | Your heart demon gain from defeats is doubled | Đạo Tâm |
 | **Ask and Be Answered (Vấn Tất Đáp)** | keystone | Question the Heart works once a month | Your seclusion time per season is −20 % | Tự Vấn |
 
 ## New pieces

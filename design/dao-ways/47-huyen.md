@@ -32,8 +32,7 @@
 - **Stat notables:** Bronze Mirror (Gương Đồng): soul resist ×2 · Polished Face (Mặt Bóng): defense ×2 · Two Faces (Hai
   Mặt): soul resist +1, defense +1 · Bright Glass (Kính Sáng): light resist +2
 - **Effects:**
-  - **Major: The Mirror Returns (Kính Phản).** 20 % of each art hit's damage stopped by your wards is reflected to the
-    attacker as the same damage type (a trigger, inside `trig_budget`). Basic attacks and ticks are not reflected.
+  - **Major: The Mirror Returns (Kính Phản).** 20 % of each art hit's damage stopped by your wards is reflected to the attacker as the same damage type (a trigger inside `trig_budget`). Basic attacks and ticks are not reflected. `Needs key` (a ward-absorbed readable).
   - Minor: Mirror Ward (Hộ Gương). Your first ward each fight is 20 % stronger. *(starter)*
   - Minor: Cracked Mirror (Gương Nứt). When your ward shield breaks, reflect 50 % of the breaking hit.
 
@@ -53,8 +52,7 @@
 - **Stat notables:** Dust Cloud (Mây Bụi): status duration ×2 · Grit in Eyes (Cát Vào Mắt): evade ×2 · Choking Dust (Bụi
   Nghẹt): status duration +1, evade +1 · Dust Devil (Lốc Bụi): earth +2
 - **Effects:**
-  - **Major: Dust in the Eyes (Bụi Mờ Mắt).** Your hits apply Dusted (stacks with no cap, 3 pulses): −0.8 pp accuracy
-    per stack on the foe. `Needs key` (shared shape with Vụ's Fogged; one key may serve both).
+  - **Major: Dust in the Eyes (Bụi Mờ Mắt).** Your hits apply 2 Earth debuff stacks (−accuracy) for 4 pulses, whatever their element, and your Earth debuff stacks count 50 % stronger.
   - Minor: Dusty Veil (Màn Bụi). +5 pp evade while the foe has 10+ Dusted. *(starter)*
   - Minor: Dust Settles (Bụi Đọng). Dusted batches last 1 pulse longer.
 
@@ -63,9 +61,7 @@
 - **Stat notables:** Reflection (Ảnh Phản Chiếu): thần thức ×2 · Ripple (Gợn Sóng): evade ×2 · Moon on the Pond (Trăng
   Đáy Ao): thần thức +1, evade +1 · Empty Catch (Bắt Hụt): soul resist +2
 - **Effects:**
-  - **Major: Moon in Water (Thủy Trung Nguyệt).** You hold Decoys (cap 3, start with 2). A hit that would deal 10 %+ of
-    your max health hits a Decoy instead (fully absorbed). A Decoy rebuilds every 8 s.
-    `Needs rule` (a hit absorbed outside the defence path).
+  - **Major: Moon in Water (Thủy Trung Nguyệt).** You hold Decoys (cap 2, start with 2). An art hit that would deal 15 %+ of your max health (read before the defence path) hits a Decoy instead and is absorbed. Ticks and soul hits never meet Decoys. A Decoy rebuilds every 15 s. `Needs rule` R6.
   - Minor: Ripple Step (Bước Gợn). When a Decoy breaks, +10 pp evade for 1 pulse. *(starter)*
   - Minor: More Moons (Thêm Trăng). Decoys rebuild every 6 s while your thần thức exceeds the foe's.
 
@@ -73,15 +69,15 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **The Enemy Fights a Dream (Địch Chiến Ảo Mộng)** | keystone | Decoys cap at 5 and absorb hits of 5 %+ | Your max health is 25 % lower | Thủy Nguyệt |
+| **The Enemy Fights a Dream (Địch Chiến Ảo Mộng)** | keystone | Decoys cap at 3 and rebuild every 12 s | Your max health is 25 % lower | Thủy Nguyệt |
 | **Flowers in a Mirror (Kính Hoa)** | keystone | The Mirror Returns reflects 40 % and also basic attacks | Your own arts deal 25 % less (L2 −25) | Gương |
-| **A World of Dust (Trần Thế)** | keystone | Dusted also lowers the foe's crit chance by 0.3 pp per stack | You cannot crit | Bụi Trần |
+| **A World of Dust (Trần Thế)** | keystone | Your Earth debuff stacks also lower the foe's crit chance by 0.3 pp each | You cannot crit | Bụi Trần |
 
 ## New pieces
 
 - Decoys (whole-hit absorption): `Needs rule`.
 - In-fight heart demon on profiles: `Needs key`.
-- Dusted (accuracy-down stacks; one key with Fogged): `Needs key`.
+- Dusted was folded into Earth's debuff after review (no new key).
 
 ## Kept apart from
 

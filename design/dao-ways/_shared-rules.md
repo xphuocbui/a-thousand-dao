@@ -229,3 +229,10 @@ meaningful.
 Say yes, no or later to each R. A "yes" becomes a rule in the owning GDD (Combat, Combat Defence, Effects,
 Character Stats), and each Way that asked is revised to point at it. A "no" means each Way's piece is cut or
 redesigned around the existing rules.
+
+## R22. Curse durations: floor 1, cap 5 after all changes (added after review)
+
+Six Ways shorten curses on their owner ("1 pulse less", "half as long"), and four lengthen the curses they apply
+(Sorrow, Faint Trace, Lingering Charm, Long Moment). **Proposal:** apply every change, then clamp to 1–5 pulses
+(`curse_duration_max`). Rounding: halves round down, never below 1. One sentence in the Status Catalogue settles
+all ten pieces.

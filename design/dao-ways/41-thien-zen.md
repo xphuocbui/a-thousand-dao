@@ -31,8 +31,7 @@
 - **Stat notables:** Empty Mind (Tâm Không): status resist ×2 · Nothing to Hit (Không Chỗ Đánh): resist all ×2 · Void
   Calm (Lặng Không): status resist +1, resist +1 · Formless Peace (Bình An Vô Tướng): soul resist +2
 - **Effects:**
-  - **Major: Form Is Emptiness (Sắc Tức Thị Không).** Curse and debuff stack chances against you are rolled twice and
-    the lower taken (or, if counted, need twice the count).
+  - **Major: Form Is Emptiness (Sắc Tức Thị Không).** The first curse each foe art would place on you each fight fails (a fixed fail, no roll), and debuff stacks placed on you are 20 % fewer (rounded down).
   - Minor: Let It Pass (Để Qua). Debuff batches on you are 1 pulse shorter. *(starter)*
   - Minor: Empty Hand Calm (Tay Không Lặng). With no damaging art slotted, +20 % resist all.
 
@@ -41,11 +40,9 @@
 - **Stat notables:** Vow Kept (Giữ Nguyện): attack ×2 · Discipline (Giới): defense ×2 · Strict (Nghiêm): attack +1,
   defense +1 · Pure Conduct (Hạnh Thanh): status resist +2
 - **Effects:**
-  - **Major: Vows (Thệ Nguyện).** Before a fight, take up to 3 Vows from a list (*No Fire*, *No Healing*, *At Most Two
-    Arts*, *No Escape*, *No Talismans*, *No Pills*, *No Artifacts Beyond One*). Each Vow kept gives L5 +12 and +4 % resist
-    all. Breaking a Vow mid-fight is impossible (the vowed things cannot be slotted). `Needs key`.
+  - **Major: Vows (Thệ Nguyện).** Before a fight, take up to 3 Vows from a list: *No Fire arts*, *No Healing*, *At Most Two Arts*, *No Escape*, *No Talismans*, *No Pills*, *No Artifacts Beyond One*. A Vow counts only if it forbids something your loadout actually holds (you unslot it). Each counted Vow gives L5 +10 and +4 % resistance to all. `Needs key`.
   - Minor: Easy Vow (Nguyện Dễ). Your first Vow gives +50 % of its bonus. *(starter)*
-  - Minor: Vow of Silence (Nguyện Câm). An extra Vow: *No Curses*; it also makes you immune to Silence.
+  - Minor: Vow of Silence (Nguyện Câm). An extra Vow: *No Curses* (counts only if you hold a curse-applying art); while kept, Silence on you lasts 1 pulse less.
 
 ### 4. Kim Cương (the Diamond Body)
 - **Small:** `body_shield_pct` +1 · `resist_pct` +1
@@ -62,8 +59,7 @@
 - **Stat notables:** Flash of Truth (Chớp Chân Lý): comprehension ×2 · Open Eye (Mắt Mở): thần thức ×2 · Koan (Công Án):
   comprehension +1, thần thức +1 · Awakening (Giác): soul resist +2
 - **Effects:**
-  - **Major: Sudden Insight (Đốn Ngộ).** Each season, a counted chance (every 8th season of seclusion) of an Insight: a
-    technique layer or a Dao node gained free. `Needs key`.
+  - **Major: Sudden Insight (Đốn Ngộ).** Every 8th season of seclusion (counted) brings an Insight: a technique layer gained free (never a Dao node). `Needs key`.
   - Minor: Ready Mind (Tâm Sẵn). Your Insight counter starts at 4. *(starter)*
   - Minor: Insight in Battle (Ngộ Trong Chiến). A fight won while holding 3 Vows adds 1 to the Insight counter.
 
@@ -71,9 +67,9 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **The Mind Does Not Move (Tâm Bất Động)** | keystone | Vows give L5 +18 each and you may take 5 | You must take at least 2 Vows in every fight | Thệ Nguyện |
+| **The Mind Does Not Move (Tâm Bất Động)** | keystone | Vows give L5 +14 each and you may take 4 | Each fight you break a Vow (by event) costs 20 heart demon | Thệ Nguyện |
 | **Diamond Never Breaks (Kim Cương Bất Hoại Thân)** | keystone | Diamond Body stops Chaos fully | Your art speed is −25 % | Kim Cương |
-| **Bright Heart (Minh Tâm Kiến Tính)** | keystone | You are immune to curses while above 80 % health | Your max health is 15 % lower | Không |
+| **Bright Heart (Minh Tâm Kiến Tính)** | keystone | Above 80 % health, each curse placed on you has its duration halved (floor 1 pulse) | Your max health is 15 % lower | Không |
 
 ## New pieces
 

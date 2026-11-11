@@ -24,9 +24,7 @@ when you wake, and damage you deal is kept at half. The Way builds around that w
 - **Stat notables:** Deep Sleep (Ngủ Say): comprehension ×2 · Sweet Dreams (Giấc Êm): heart-demon resist ×2 · Lucid (Mộng
   Tỉnh): comprehension +1, heart-demon resist +1 · Pillow Stone (Gối Đá): regen +0.1
 - **Effects:**
-  - **Major: The Dream (Nhập Mộng).** Each fight begins with a 6 s Dream: health you lose in it is restored when it ends;
-    damage you deal in it counts at 50 %. Both sides' arts fire normally. `Needs key` (the Dream window) +
-    `Needs rule` (undo on waking).
+  - **Major: The Dream (Nhập Mộng).** Each fight begins with a 6 s Dream: there is no Down check for you during it (`Needs rule`), and when it ends your health is set back to its value at the Dream's start, minus 50 % of the health you lost in it. Shields, linh lực and statuses are not restored. Your damage in it counts at 50 %. Only arts with a cooldown under 6 s fire in it. `Needs key`.
   - Minor: Dreamless Rest (Ngủ Không Mộng). A night's sleep after a fight removes 3 heart demon. *(starter)*
   - Minor: Dream Lesson (Bài Học Trong Mơ). Seclusion progress +5 % in seasons with no fights.
 
@@ -45,8 +43,7 @@ when you wake, and damage you deal is kept at half. The Way builds around that w
 - **Stat notables:** Which Is Real (Thật Hay Mơ): status resist ×2 · Wake Strong (Tỉnh Mạnh): max health ×2 · Between
   (Giữa Mơ Thực): status resist +1, max health +1 · Dream Logic (Lý Mộng): soul resist +2
 - **Effects:**
-  - **Major: Which One Is Dreaming (Trang Chu Mộng Điệp).** Once per fight, at a guard you set, swap the last 6 s of
-    health changes between you and the foe (what you lost, it lost; what it lost, you lost). `Needs rule`.
+  - **Major: Which One Is Dreaming (Trang Chu Mộng Điệp).** Once per fight, at a guard you set, the health each side lost in the last 6 s is swapped (heals and shields do not move), bounded at 20 % of the smaller max health. `Needs rule`.
   - Minor: Half-Awake (Nửa Tỉnh). The Dream lasts 2 s longer. *(starter)*
   - Minor: Dream Wound (Vết Thương Mơ). Damage you deal during the Dream counts at 70 %.
 
@@ -55,8 +52,7 @@ when you wake, and damage you deal is kept at half. The Way builds around that w
 - **Stat notables:** Dream Garden (Vườn Mơ): formation power ×2 · Shifting Halls (Sảnh Đổi): evade ×2 · Dream Ground
   (Đất Mơ): formation +1, evade +1 · Endless Stair (Bậc Vô Tận): soul resist +2
 - **Effects:**
-  - **Major: Dreamscape (Mộng Cảnh).** During the Dream, the fight's ground is your Dreamscape: your ground-scoped L4
-    applies (any situation, blind included) and the foe's ground bonuses do not.
+  - **Major: Dreamscape (Mộng Cảnh).** During the Dream, your hits gain L4 +15 (a dream ground). `Needs rule` R9 (carried ground).
   - Minor: Drowsy Air (Khí Buồn Ngủ). During the Dream, the foe's art speed −15 %. *(starter)*
   - Minor: Dream Door (Cửa Mơ). Your escape chance is +25 % during the Dream.
 
@@ -74,9 +70,9 @@ when you wake, and damage you deal is kept at half. The Way builds around that w
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **The Long Dream (Trường Mộng)** | keystone | The Dream lasts 12 s | Damage you deal during the Dream counts at 25 % | Mộng |
+| **The Long Dream (Trường Mộng)** | keystone | The Dream lasts 10 s | Damage you deal during the Dream counts at 25 % | Mộng |
 | **The Butterfly Dream (Hồ Điệp Mộng)** | keystone | Which One Is Dreaming works twice per fight | Your max health is 25 % lower | Thực Mộng |
-| **Never Wake (Bất Tỉnh)** | keystone | The Dream never ends: health you lose is restored every 6 s (at 50 %) | Damage you deal counts at 60 % all fight | Mộng, Tỉnh |
+| **Never Wake (Bất Tỉnh)** | keystone | A new Dream begins every 20 s (3 s long) | You cannot heal at all | Mộng, Tỉnh |
 
 ## New pieces
 

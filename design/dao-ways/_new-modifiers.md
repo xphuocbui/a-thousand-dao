@@ -28,14 +28,13 @@
 | Status | Kind | Rule | Ways |
 |---|---|---|---|
 | Veiled (Ẩn Vụ) | self-buff | Foe hits −25 pp accuracy until you hit | Vụ |
-| Fogged / Dusted (Vụ / Bụi) | debuff stacks, no cap | −0.8 to −1 pp accuracy per stack (**one key for both**) | Vụ, Huyễn, Họa |
+| Fogged (Vụ) | debuff stacks | −1 pp accuracy per stack (Huyễn and Họa now use Earth's debuff instead; consider folding Fogged into it too) | Vụ |
 | Drowned (Chìm) | qi tick | 0.6 % of max linh lực a pulse, passes every shield | Vụ |
 | Weighed (Áp Trọng) | curse | −15 % art speed | Thổ |
 | Slowed Time (Thời Hoãn) | curse | Timers run 4 % slower per stack, to 5 (shared rule R1) | Thời, Băng |
 | Blinded (Mù) | curse | −10 pp accuracy, −5 pp crit chance, stacks to 3 | Ám |
 | Bound (Trói) | debuff stacks | −3 % art speed, −1 pp evade per stack, to 10 | Ti |
-| Corrupted (Ma Nhiễm) | curse | −8 Chaos resistance, −4 % healing taken per stack, to 5 | Ma |
-| Enthralled (Mê) | curse | Foe hits −30 %, its arts wait 0.3 s | Mị |
+| Enthralled (Mê) | a named application, not a new curse | Heavy Breath (1) + Sealed Meridian on L2 | Mị |
 | Afraid (Sợ) | curse | Counted 1-in-4 hesitation of 0.5 s | Tình, Long |
 | Possessed (Nhập) | curse | Foe's next art also hits itself for 30 % | Quỷ |
 | Sealed Qi (Phong Khí) | curse | Foe may spend at most 8 % of max linh lực a pulse on arts | Trấn |

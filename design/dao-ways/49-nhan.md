@@ -25,7 +25,7 @@
   - **Major: Patience (Kiên Nhẫn).** Your hits deal more by fight time past 15 s (L5 +2 per second, cap +60); before
     15 s, they deal 15 % less.
   - Minor: Patient Start (Khởi Chậm). For the first 15 s, damage you take is dampened 15 % (rule 6a). *(starter)*
-  - Minor: Outlast (Bền Hơn). Fatigue affects you 50 % less.
+  - Minor: Outlast (Bền Hơn). After 45 s of fight, your regeneration of both pools is +30 %.
 
 ### 2. Chịu Đựng (Bear It)
 - **Small:** `khi_huyet_pct` +1 · `block_rating` +1
@@ -63,7 +63,7 @@
 - **Stat notables:** Embers Within (Than Trong): regen ×2 · Steady Flame (Lửa Đều): max health ×2 · Long Night Fire (Lửa
   Đêm Dài): regen +0.05, max health +1 · Smoulder (Âm Ỉ Cháy): regen increased +4
 - **Effects:**
-  - **Major: Slow Burn (Âm Ỉ).** Your health regeneration rises by 2 % each pulse of the fight (cap +80 %).
+  - **Major: Slow Burn (Âm Ỉ).** Each pulse of the fight adds +0.01 pp to your health regeneration (flat, cap +0.6 pp).
   - Minor: Warm Coals (Than Ấm). You start each fight with +20 % regeneration from Slow Burn. *(starter)*
   - Minor: Never Out (Không Tắt). Stagnation on you cannot reduce regeneration gained from Slow Burn.
 
@@ -73,7 +73,7 @@
 |---|---|---|---|---|
 | **Whoever Lasts, Wins (Nhẫn Giả Thắng)** | keystone | Patience has no cap and starts at 10 s | Before 10 s, your hits deal 40 % less | Kiên Nhẫn |
 | **Endure a Moment (Nhẫn Nhất Thời)** | keystone | Endured Strength stores 40 % and its cap is 100 % of max health | Your ward strength is halved | Chịu Đựng |
-| **Wind and Waves Fall Still (Phong Bình Lãng Tĩnh)** | keystone | Slow Burn has no cap | Your hits deal 20 % less (L2 −20) | Âm Ỉ |
+| **Wind and Waves Fall Still (Phong Bình Lãng Tĩnh)** | keystone | Slow Burn adds +0.02 pp a pulse (cap +1 pp) | Your hits deal 20 % less (L2 −20) | Âm Ỉ |
 
 ## New pieces
 

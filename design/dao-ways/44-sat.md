@@ -22,8 +22,7 @@
 - **Stat notables:** Cold Eyes of a Killer (Mắt Sát Thủ): attack ×2 · Bloodstained Aura (Khí Nhuốm Máu): fear duration
   ×2 · Weight of Deaths (Sức Nặng Cái Chết): attack +1, crit damage +1 · Death's Shadow (Bóng Tử): pierce +2
 - **Effects:**
-  - **Major: Killing Intent (Sát Ý Lẫm Lẫm).** At fight start, the foe loses 1 % of its attack and accuracy per 10
-    cultivators you have killed (cap −15 %). `Needs key` (kill count).
+  - **Major: Killing Intent (Sát Ý Lẫm Lẫm).** At fight start, the foe gains Thunder debuff stacks for the fight: 1 per 10 cultivators you have killed (cap 15). `Needs key` (kill count).
   - Minor: Glare of Death (Ánh Mắt Tử). The foe's first art each fight waits 0.5 s. *(starter)*
   - Minor: Killer's Name (Danh Sát Thủ). Foes two realms below you may flee before the fight (an event choice).
 
@@ -32,8 +31,7 @@
 - **Stat notables:** Unbeaten (Bất Bại): attack ×2 · War-Worn (Dày Dạn Trận): max health ×2 · Rolling Victory (Thắng
   Liền): attack +1, max health +1 · Hunger for Battle (Khát Chiến): crit damage +2
 - **Effects:**
-  - **Major: Battle Streak (Chiến Liên).** Each fight won in a row gives 1 Streak (cap 20, kept between fights): +1 %
-    damage each. A loss or flight resets it. `Needs key`.
+  - **Major: Battle Streak (Chiến Liên).** Each fight won in a row against a foe no more than one realm below you gives 1 Streak (cap 20, kept between fights): L1 +1 % damage each. A loss or flight resets it. `Needs key`.
   - Minor: Warm Blood (Máu Còn Nóng). A fight within the same month as your last win starts with 10 % extra linh lực.
     *(starter)*
   - Minor: Streak Guard (Giữ Chuỗi). Your first loss halves the Streak instead of resetting it.
@@ -43,18 +41,16 @@
 - **Stat notables:** Headsman (Đao Phủ Thủ): crit damage ×2 · Final Stroke (Nhát Cuối): attack ×2 · Swift End (Kết Nhanh):
   crit damage +1, attack +1 · Mercy Denied (Không Tha): pierce +2
 - **Effects:**
-  - **Major: Cull (Trảm).** Your hits kill a foe at or below 8 % of its max health outright (it goes Down; refusals of
-    the Down step still apply).
+  - **Major: Cull (Trảm).** Your hits put a foe at or below 8 % of its max health Down (refusals still apply; overkill counts as 0 for the double-knockout rule). Bosses and tribulations are immune. `Needs rule` (Combat Down step).
   - Minor: Smell Weakness (Ngửi Thấy Yếu). Your hits on a target below 30 % deal more (L5 +15). *(starter)*
-  - Minor: Clean Kill (Giết Gọn). A cull refunds 15 % of max linh lực.
+  - Minor: Clean Kill (Giết Gọn). Your hits on a target below 15 % health restore 1 % of max linh lực.
 
 ### 4. Huyết Hải Tu La (the Asura's Sea of Blood)
 - **Small:** `leech_health_pct` +0.3 · `attack_pct` +1
 - **Stat notables:** Red Sea (Biển Đỏ): leech ×2 · Asura's Rage (Tu La Nộ): attack ×2 · Wading in Blood (Lội Máu): leech
   +0.5, attack +1 · Six Arms (Sáu Tay): crit damage +2
 - **Effects:**
-  - **Major: Mutual Ruin (Lưỡng Bại Câu Thương).** Your hits deal more by the **sum** of health both sides have lost
-    (L5 +1 per 4 % lost in total, cap +50).
+  - **Major: Mutual Ruin (Lưỡng Bại Câu Thương).** Your hits deal more by the health both sides have lost this fight, counting healed-back health (L5 +1 per 8 % of max health lost in total, cap +40).
   - Minor: Blood Haze (Sương Huyết). When both sides are below 50 %, your leech is doubled. *(starter)*
   - Minor: Asura's Stance (Thế Tu La). Below 50 % health, your art speed +15 %.
 
@@ -64,16 +60,16 @@
   Unmoved by Death (Không Động Trước Chết): heart-demon resist +1, crit chance +0.5 · Steady Blade (Lưỡi Vững):
   accuracy +2
 - **Effects:**
-  - **Major: Cold Blood (Lãnh Huyết).** Killing gives no heart demon, and each kill removes 2 heart demon.
+  - **Major: Cold Blood (Lãnh Huyết).** Each cultivator you kill removes 2 heart demon.
   - Minor: No Nightmares (Không Ác Mộng). Heart demon from grim events is halved. *(starter)*
-  - Minor: Calm in Carnage (Lặng Giữa Thảm Sát). After a cull, your crit chance +10 pp for 3 s.
+  - Minor: Calm in Carnage (Lặng Giữa Thảm Sát). Your crits on a target below 20 % health have +10 pp crit chance on your next hit.
 
 ## Capstones
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **A Thousand Deaths Behind You (Thiên Tử Tại Hậu)** | keystone | Cull's threshold is 15 % | Your heals are halved | Đao Phủ |
-| **Asura (Tu La)** | keystone | Mutual Ruin has no cap | Your max health is 20 % lower and your regeneration is 0 | Huyết Hải Tu La |
+| **A Thousand Deaths Behind You (Thiên Tử Tại Hậu)** | keystone | Cull's threshold is 12 % | You cannot heal or leech at all | Đao Phủ |
+| **Asura (Tu La)** | keystone | Mutual Ruin is L5 +1 per 5 % (cap +60) | Your max health is 20 % lower and your regeneration is dampened by 100 | Huyết Hải Tu La |
 | **Hundred Battles Unbeaten (Bách Chiến Bất Bại)** | keystone | Battle Streak's cap is 50 | A loss costs 1 year of lifespan per 10 Streak lost | Chiến Liên |
 
 ## New pieces

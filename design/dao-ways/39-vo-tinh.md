@@ -31,9 +31,8 @@
 - **Stat notables:** Even Pulse (Mạch Đều): attack ×2 · Steady (Vững): defense ×2 · Flat Calm (Lặng Phẳng): attack +1,
   defense +1 · Exact (Chính Xác): accuracy +2
 - **Effects:**
-  - **Major: Steady Power (Bình Ổn Chi Lực).** Your conditional L5 Effects (while, after, below, above) do nothing; you
-    gain a flat L5 +35 that always applies instead.
-  - Minor: Measured (Đo Lường). Your crit chance is a counter (Mệnh's Counted Fate) for your first 10 s. *(starter)*
+  - **Major: Steady Power (Bình Ổn Chi Lực).** Your Vô Tình Effects that read a condition are replaced by a flat L5 +15 that always applies; your conditional L5 Effects from other Ways count at half.
+  - Minor: Measured (Đo Lường). Your crit chance cannot be shifted down by the foe's fortune or Effects (it is read as written). *(starter)*
   - Minor: No Peaks (Không Đỉnh). The foe's conditional bonuses against you (execute, low-health, after-crit) are halved.
 
 ### 3. Thái Thượng (Above Feeling)
@@ -51,8 +50,7 @@
 - **Stat notables:** Solitude (Cô Tịch): attack ×2 · Self Only (Chỉ Mình): max health ×2 · Single Path (Lối Riêng):
   attack +1, max health +1 · No Ties (Không Vướng Bận): crit chance +1
 - **Effects:**
-  - **Major: Heartless Strength (Vô Tình Lực).** With no companion, its whole power share is added to your own hits as
-    L5 (+1 per 1 % of the share you would have had, cap +25).
+  - **Major: Heartless Strength (Vô Tình Lực).** With no companion attached, your hits deal more (L5 +15) and your thần thức counts 10 % higher for soul damage.
   - Minor: Travel Light (Đi Nhẹ). With no companion, +10 % travel speed. *(starter)*
   - Minor: No One to Lose (Không Ai Để Mất). With no companion, heart demon from loss events is 0.
 
@@ -69,8 +67,8 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Heaven Has No Heart (Thiên Đạo Vô Tình)** | keystone | Steady Power's flat L5 is +55 | Your crit damage is fixed at the base multiplier (no crit damage bonuses) | Lạnh Lùng |
-| **The Highest Forget Feeling (Thái Thượng Vong Tình)** | keystone | You are immune to curses for the first 10 s of every fight | You cannot form bonds (Dao partners, sworn siblings, disciples, companions) | Đoạn Tình |
+| **Heaven Has No Heart (Thiên Đạo Vô Tình)** | keystone | Steady Power's flat L5 is +25 | Your conditional L5 Effects from other Ways do nothing | Lạnh Lùng |
+| **The Highest Forget Feeling (Thái Thượng Vong Tình)** | keystone | Curses on you last half as long (rounded down, floor 1 pulse) | You cannot form bonds (Dao partners, sworn siblings, disciples, companions) | Đoạn Tình |
 | **Stone Heart, Iron Hand (Thạch Tâm Thiết Thủ)** | keystone | Heart of Stone makes you immune to all curses that change rules (not damage) | Your heals are halved | Như Đá |
 
 ## New pieces

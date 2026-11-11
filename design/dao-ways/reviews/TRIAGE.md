@@ -61,3 +61,24 @@ repays on a fixed window. Compounding is linear. Fear and charm defined in the R
 Way keeps the refusal *major* is a design call). Three "permanent gain from winning at the edge" majors (Sinh Tử,
 Bỉ Ngạn, Huyết) wait on the life-earned ceiling (`_combos-and-risks.md` item 1). Six Paths as One and Walk All Six
 kept as major and capstone (the capstone deepens the major).
+
+## Batch 38–51
+
+**Fixed:** Outlast no longer touches fatigue (Combat rule 10). Counted chance was removed from minors and from
+the foe side (Measured, Fear, Form Is Emptiness); Mệnh and Kiếm keep the only keystone counts. Steady Power is
+scoped to its own Way and sized below the usual conditionals. Heartless Strength works with no companion. Vows
+count only if they forbid something you hold, at L5 +10 each (+14 and 4 Vows with the capstone). The Dream has
+an explicit no-Down window and a defined restore (50 % of health lost), and only short arts fire in it; Never Wake
+is a short repeat with no healing. Decoys are 2, absorb art hits of 15 %+ (read before defence), and rebuild
+every 15 s. Cull spares bosses and tribulations, the capstone threshold is 12 % and closes all healing, and its
+post-kill riders now act before the kill. Mutual Ruin is defined over damage taken and can be capped meaningfully.
+Moods have a priority and decay. Love is a live damage bonus, not a share change. Sorrow uses an event. Nine Lives
+is a refusal. Enthral and Corrupted are built from existing curses; Dusted folded into Earth's debuff. Killing
+Intent is Thunder debuff stacks. Blood Sacrifice costs 3 months, and the capstone costs every time. Turned Demon is
+limited to theme stats; Dao Heart is capped at +5 pp. Sudden Clarity and Sudden Insight no longer give the same
+payload, and neither gives Dao nodes. Tempered by Red Dust is additive. Slow Burn is a flat per-pulse amount.
+Compassion ignores regeneration; Merit has a scale. Petal Rain is one firing with a rounding rule. Fading Bloom
+leaves fight-long batches alone. Curse-duration changes go to R22.
+
+**Deferred:** curse immunities in Vô Tình and Thiền kept as different shapes (halving against a high-health
+window); theme-stats headers as before.
