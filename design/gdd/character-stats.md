@@ -139,6 +139,23 @@ here but not built yet.
    - A great breakthrough refills it.
    - A qi deviation sets it to the 5 % floor (Realms & Bottlenecks rule 10).
 
+9a. **Life readables** (Đạo shared rule R13, user decisions 2026-11-11). Values a life gathers that Effects may read
+    at compile (Effects rule 5). This GDD stores the counters; the systems named own how they change.
+
+    | Readable | Range | Who changes it |
+    |---|---|---|
+    | Kill count, win streak, higher-realm knockouts this life | integers ≥ 0; the streak resets on a loss | Combat's result, applied by the caller |
+    | Grudges, oaths, kindness, debts | per person, from the World Database | World Database, Event Engine |
+    | Merit (công đức), incense (hương hỏa), renown (danh vọng) | ≥ 0 | events, sects, deeds |
+    | Blood Purity, Calamity Marks, Soul charges, Tipsiness | each with a range set by its Way | the Way that grants it (Huyết, Kiếp, Hồn, Tửu) |
+    | Dao Heart | the effective `dao_tam` talent (rule 5), not a new resource | rule 4 |
+    | World time and season | — | Time & Turn |
+
+    The foe's tags `demonic`, `ghost` and `undead` are profile tags (Combat rule 18), not character stats; they are
+    listed for completeness. **Per life:** every counter starts at 0 for a new character, except what a Luân Hồi or
+    Sư piece passes on (Đạo shared rule R15a). **No ceiling on life-earned power** (user decision 2026-11-11):
+    permanent bonuses Effects build from these readables have no shared cap; each Effect's own cap is the limit.
+
 **Derived values**
 
 10. **The four realm-scaled values.** Each takes the realm's multiplier and the stage
@@ -252,7 +269,7 @@ here but not built yet.
     `resist_pen_pct`, `damage_more`), `stealth` and `lifespan_years`; 0.01 for the six talent keys (`ngo_tinh`, `can_cot`,
     `than_hon`, `khi_van`, `dao_tam`, `mi_luc`), `dan_doc_decay`, `density_bonus`, and the two regeneration keys
     `health_regen_pct` and `linh_luc_regen_pct` (Modifier System re-review MD 16, 2026-11-08); 0.001 for the three
-    linh lực-on-event keys (#44); 1 for `stack_grant`, `field_plots`,
+    linh lực-on-event keys (#44); 0.01 for `basic_coef_add` and `art_coef_add`; 1 for `stack_grant`, `free_slots`, `field_plots`,
     `alchemy_yield`, `block_rating`, `convert_pct` (whole pp; user decision 2026-11-08b, DT-10) and flags, as in
     the registry's `stat_precision_grid`. **`field_plots` is
     an integer.**
@@ -260,7 +277,7 @@ here but not built yet.
     | Group | Keys (unit) |
     |---|---|
     | Cultivation | `cultivation_speed_pct`, `cultivation_speed_per_element_pct` (pct, × the root's base element count), `density_bonus` (flat qi density), `breakthrough_chance` (pct, pill attempts only) |
-    | Combat | `attack_pct`, `defense_pct` (ward strength: Combat Formulas D), `khi_huyet_pct`, `linh_luc_pct`, `than_thuc_pct`, `artifact_power_pct` (pct); artifact-local: `artifact_attack_pct`, `artifact_defense_pct`, `element_affinity_pct`, `than_thuc_cost_pct` (pct, applied by Combat only); `single_artifact` (flag); `artifact_slots` (flat, integer, rare: Item DB rule 11); fight rolls and sustain (added by the Combat GDD 2026-11-06): `crit_chance_pct`, `crit_damage_pct`, `evade_pct`, `accuracy_pct`, `pierce_pct`, `art_cost_pct`, `linh_luc_regen_pct`, `status_resist_pct`, `ward_efficiency_pct`, `soul_res_pct` (pct); `body_guard_pct` retired (Combat revision #43); the rest of Combat's Parameter keys (consistency C14, added 2026-11-09): `art_speed_pct`, `x_soul`, `escape_pct`, `resist_pct` and `resist_pen_pct` (points), `body_shield_pct`, `recharge_delay_pct`, `cast_ward_duration_pct`, `status_duration_taken_pct`, `health_regen_pct`, `healing_pct`, `healing_taken_pct`, `reserve_eff_pct` (pct); `block_rating`, `convert_pct`, `damage_more` (layer points), `bonus_slots`, `bonus_ward_slots` (flat); Combat economy revision #44 (2026-11-09): `linh_luc_regen_inc_pct`, `health_regen_inc_pct`, `art_cost_health_pct`, `leech_linh_luc_pct`, `leech_health_pct` (pct); `linh_luc_on_hit_pct`, `linh_luc_on_crit_pct`, `linh_luc_on_kill_pct` (pp of maximum linh lực per event); element stack keys `stack_effect_pct`, `stack_duration_pct` (pct) and `stack_grant` (flat, integer), each scoped by element (Effects System rule 9a) |
+    | Combat | `attack_pct`, `defense_pct` (ward strength: Combat Formulas D), `khi_huyet_pct`, `linh_luc_pct`, `than_thuc_pct`, `artifact_power_pct` (pct); artifact-local: `artifact_attack_pct`, `artifact_defense_pct`, `element_affinity_pct`, `than_thuc_cost_pct` (pct, applied by Combat only); `single_artifact` (flag); `artifact_slots` (flat, integer, rare: Item DB rule 11); fight rolls and sustain (added by the Combat GDD 2026-11-06): `crit_chance_pct`, `crit_damage_pct`, `evade_pct`, `accuracy_pct`, `pierce_pct`, `art_cost_pct`, `linh_luc_regen_pct`, `status_resist_pct`, `ward_efficiency_pct`, `soul_res_pct` (pct); `body_guard_pct` retired (Combat revision #43); the rest of Combat's Parameter keys (consistency C14, added 2026-11-09): `art_speed_pct`, `x_soul`, `escape_pct`, `resist_pct` and `resist_pen_pct` (points), `body_shield_pct`, `recharge_delay_pct`, `cast_ward_duration_pct`, `status_duration_taken_pct`, `health_regen_pct`, `healing_pct`, `healing_taken_pct`, `reserve_eff_pct` (pct); `block_rating`, `convert_pct`, `damage_more` (layer points), `bonus_slots`, `bonus_ward_slots` (flat); Combat economy revision #44 (2026-11-09): `linh_luc_regen_inc_pct`, `health_regen_inc_pct`, `art_cost_health_pct`, `leech_linh_luc_pct`, `leech_health_pct` (pct); `linh_luc_on_hit_pct`, `linh_luc_on_crit_pct`, `linh_luc_on_kill_pct` (pp of maximum linh lực per event); element stack keys `stack_effect_pct`, `stack_duration_pct` (pct) and `stack_grant` (flat, integer), each scoped by element (Effects System rule 9a); Đạo shared rules and build-run suggestions (2026-11-11): `opening_haste_pct`, `basic_speed_pct`, `companion_speed_pct`, `timer_resist_pct`, `curse_effect_pct`, `ward_bill_pct`, `companion_health_pct`, `companion_power_pct`, `status_duration_pct` (pct); `free_slots` (flat, integer, keyed by kind: talisman, artifact_active, escape, pill, feint); `basic_coef_add`, `art_coef_add` (flat coefficient; `art_coef_add` is an Effect payload only) |
     | Toxicity and heart demon | `tam_ma_resist_pct`, `dan_doc_resist_pct`, `pill_effect_pct` (pct); `dan_doc_decay` (flat per season); `dan_doc_no_penalty`, `safe_failure` (flag); `qi_deviation_pct` (pct: the qi deviation chance is × (1 + total ÷ 100); +100 doubles it) |
     | Lifespan | `lifespan_years` (years), `lifespan_pct` (pct) |
     | Crafts and economy | `alchemy_success` (pct, dampened: rule 14), `refining_success`, `formation_power_pct`, `herb_growth_pct`, `mission_income_pct`, `formation_upkeep_pct`, `talisman_ink_pct`, `buy_price_pct`, `sell_price_pct` (pct); `alchemy_yield` (flat pills); `field_plots` (flat, integer) |

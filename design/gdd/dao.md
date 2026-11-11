@@ -73,8 +73,9 @@ before you are waiting in it.
    It is a graph drawn by hand with the Meridian Map kit and its authoring rules
    (`design/research/meridian-land-authoring.md`): roads carry clusters, a cluster joins at its nearest node,
    notables come after two or three small nodes, figures are chosen for the theme. The Sword pilot fans five
-   facets upward from a start at the bottom (user: "actually looks pretty good"); other Daos may take other
-   outlines. A silhouette of the Dao (a sword shape) was tried and dropped (user: "bad"). The data lint
+   facets upward from a start at the bottom (user: "actually looks pretty good"). **Each Dao gets its own
+   outline** (user decision 2026-11-11), still a cluster graph drawn with the kit; the Sword fan used by drafts
+   (Hỏa's on the Sword layout) is a placeholder. A silhouette of the Dao (a sword shape) was tried and dropped (user: "bad"). The data lint
    requires that the graph is connected, that every node is reachable from the start, and that no two edges
    cross. A node has
    a kind (rule 3) and its content. Adding a Dao is a data change, never a rule change.
@@ -127,6 +128,12 @@ before you are waiting in it.
    reward, rerolled odds, heart demon gain or decay) may go beyond that ceiling (user decision 2026-11-10, review
    D-05): each such Effect carries a bot fixture (AC-DAO-29), and the Realms calibration is re-run with them
    (Realms & Bottlenecks' recalibration open question).
+   **Cap shifts** (Đạo shared rule R14, user decision 2026-11-11): stat lines still never raise a cap, but a
+   **capstone** may shift one of Combat's caps (the crit multiplier, pierce, L5 on one hit, `cooldown_min`, the evade
+   cap, the resistance cap, `soul_lockout`, `c_comp_cap` and the like). A Dao holds **at most one cap-shift
+   capstone**, and its `closes` must cost something the build feels. A capstone that writes a layer total
+   (R15d, Effects rule 6) is held to the same one per Dao. Like every Effect they stay unpriced until the game is
+   finished (Effects rule 4).
 5. **Requirement.** A Dao names what it needs from the root and technique: elements at a
    minimum purity of `dao_req_purity_min` (30; user decision 2026-11-10, review D-12), a variant, or a technique
    kind. The old mutation's parents are the natural
@@ -157,7 +164,13 @@ before you are waiting in it.
    Establishment (rule 6) means at most one new Dao per realm: four in a life on the current ladder, Foundation
    Establishment to Deity Transformation. How deep each goes is what the
    character's points allow, and each point spent here is not spent on an acupoint (user
-   decision 2026-11-05). No other rule limits the count or the depth.
+   decision 2026-11-05). No other rule limits the count or the depth, with one exception: **Phân Thân's capstone,
+   The Avatar Walks**, opens a **fifth Dao** at a real cost stated in its `closes` (Đạo shared rule R15b, user
+   decision 2026-11-11). Nothing else raises the count.
+
+   **Nothing carries to a new life by default** (R15a, 2026-11-11). Only pieces of Luân Hồi (Memory of Lives) and
+   Sư (Pass the Lamp) pass on a small inheritance named in their records (one remembered technique, a lineage
+   bonus), reported when the character dies.
 10. **A Dao node beats the acupoints it replaces, and a facet's rules are bounded by slots.**
     - **Stat nodes carry the premium.** A small or road node is worth twice a map small node (2.4 W against
       1.2) and a stat notable twice a map notable (16 W against 8) (user decisions 2026-11-06 and 2026-11-10),

@@ -297,8 +297,13 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Soul attack damage | `x_soul` | I | outgoing soul hit | higher | 1.0 | Combat E2 | Designed |
 | Art speed | `art_speed_pct` | I | art | higher | 0.6 | Combat A2 | Designed |
 | Art cost | `art_cost_pct` | I | art | lower | 0.6 (was 1.2; #44) | Combat E | Designed |
-| Basic attack speed | — | I | basic attack | higher | 0.4 | Combat A2 (`basic_cooldown` is fixed today) | Pending |
-| Status duration | — | I | outgoing status | higher | 0.6 | Combat F (duration is fixed per status) | Pending |
+| Basic attack speed | `basic_speed_pct` | I | basic attack | higher | 0.4 | Combat A2 (build-run suggestion 6, 2026-11-11) | Designed |
+| Opening haste | `opening_haste_pct` | I | art (first timer only) | higher | 0.3 | Combat A2. **Never on tree smalls**: techniques, Way notables, named items and pills only (suggestion 6, 2026-11-11) | Designed |
+| Basic coefficient | `basic_coef_add` | F (coefficient, grid 0.01) | basic attack | higher | unset, waits for the harness | Combat C: flat, outside the art lint (suggestion 8, 2026-11-11) | Designed |
+| Art coefficient | `art_coef_add` | — | art | higher | unpriced: an Effect payload only, never a node, affix or technique line (Effects rule 4) | Combat C (suggestion 8, 2026-11-11) | Designed |
+| Curse effect | `curse_effect_pct` | I | outgoing curse | higher | 0.6 (G, above stack effect) | Effects Status Catalogue: each curse's number × (1 + X/100), its own maximum still clips (suggestion 7, 2026-11-11) | Designed |
+| Ward bill | `ward_bill_pct` | I | outgoing hit | higher | 0.5 (G) | Combat Defence & Healing C: enemy drain wards bill more against your hits (suggestion 7, 2026-11-11) | Designed |
+| Status duration | `status_duration_pct`; scope [curse] allowed | I | outgoing status | higher | 0.6 | Combat F; curses clamp at `curse_duration_max` (Effects R22, 2026-11-11) | Designed |
 | Status stack cap | — | F, rare | outgoing status | higher | 10 | Combat F (`stack_cap` 5) | Pending |
 | Damage conversion | `convert_pct`, keyed from → to type (never Soul, never to itself) | F (pp of the from type's share; grid 1) | conversion (rule 8) | higher | 0.8 (G) | Combat Damage Types rule 6: the modifier step, after the art's own and Effects; counts toward the 2 per hit (user decision 2026-11-08) | Designed |
 | Damage against a foe | `attack_pct` scoped [cultivator] or [creature] | I | outgoing hit (defender's foe tag) | higher | 1.0 | Combat rules 2, 18: foe tags on profiles (variety 2026-11-08) | Pending |
@@ -324,7 +329,8 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Evade | `evade_pct` | F (pp) | none | higher | 1.5 | Combat I | Designed |
 | Soul resistance | `soul_res_pct` | F (pp) | none | higher | 0.6 | Combat E2 | Designed |
 | Status resistance | `status_resist_pct` | F (pp) | incoming status | higher | 0.4 | Combat F. Scopes by one status read the status tags (Effects Status Catalogue; re-review MD 4) | Designed |
-| Status duration on you | `status_duration_taken_pct` | I | incoming status | lower | 0.3 | Combat F (`duration`, `curse_duration_max`); the answer to statuses that always land (variety 2026-11-08) | Pending |
+| Status duration on you | `status_duration_taken_pct` | I | incoming status | lower | 0.3 | Combat F (`duration`, `curse_duration_max`); the answer to statuses that always land (variety 2026-11-08) | Designed (2026-11-11) |
+| Timer resistance | `timer_resist_pct` | F (pp) | incoming delay or slow | higher | 0.5 (G) | Effects rule 6 and Slowed Time (Đạo shared rule R1, 2026-11-11) | Designed |
 | Health regeneration | `health_regen_pct` | F, D (pp of maximum per pulse, no cap since #44; grid 0.01) | none | higher | 9.9 (was 3.0; #44) | Combat Defence & Healing E | Designed |
 | Health regeneration, increased | `health_regen_inc_pct` | I | none | higher | 0.3 (G) | Combat Defence & Healing E (#44 item B5) | Designed |
 | Health leech | `leech_health_pct` | F (% of damage dealt) | own hit | higher | 0.21 | Combat Defence & Healing E; the sustain exception (rule 1, #44) | Designed |
@@ -364,8 +370,9 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Artifact attack | `artifact_attack_pct` | I | artifact (`weapon`) | higher | 0.6 | Item DB | Live |
 | Artifact defence | `artifact_defense_pct` | I | artifact (`ward_gear`, `body_gear`) | higher | 0.6 | Item DB | Live |
 | Element affinity | `element_affinity_pct` | I | artifact | higher | 1.3 | Item DB | Live |
-| Artifact thần thức cost | `than_thuc_cost_pct` | I | artifact | lower | 0.8 | Item DB | Live |
+| Artifact thần thức cost | `than_thuc_cost_pct` | I | artifact; scope [weapon] allowed (suggestion 7, 2026-11-11) | lower | 0.8 | Item DB | Live |
 | Art slots | `bonus_slots` | F, rare | none | higher | 20 | Combat A2 | Designed |
+| Kind-locked slots | `free_slots[kind]` (talisman, artifact_active, escape, pill, feint) | F, rare (integer) | none | higher | 10 per slot (G, half an art slot) | Combat rule 13; no total cap (Đạo shared rule R4, 2026-11-11) | Designed |
 | Artifact slots | — | F, rare | none | higher | 25 | Item DB (capability #2 today) | Pending |
 
 **Preparation and companions**: domain `combat`. Families: preparation (formations, pills, talismans), companion (power share, beast slots).
@@ -377,7 +384,9 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Talisman power | — | I | none | higher | 0.7 | Talismans | Pending |
 | Talisman keep chance | — | F (pp) | none | higher | 0.3 | Talismans (capability #13 today) | Pending |
 | Talisman stock | — | F, rare | none | higher | 10 | Talismans | Pending |
-| Companion power share | — | F (pp) | none | higher | 0.4 | Spirit Beasts / Combat J | Pending |
+| Companion power share | `companion_power_pct` | F (pp) | none | higher | 0.4 | Spirit Beasts / Combat J (suggestion 7, 2026-11-11) | Designed |
+| Companion speed | `companion_speed_pct` | I | companion | higher | 0.4 (G) | Combat A2 (suggestion 6, 2026-11-11) | Designed |
+| Companion health | `companion_health_pct` | I | companion | higher | 0.4 (G) | Combat J (suggestion 7, 2026-11-11) | Designed |
 | Beast slots | — | F, rare | none | higher | 15 | Spirit Beasts (capability #16 today) | Pending |
 | Formation upkeep | `formation_upkeep_pct` | I | none | lower | 0.15 | Formations (`upkeep_lt_per_level`) (variety 2026-11-08) | Pending |
 | Talisman ink cost | `talisman_ink_pct` | I | none | lower | 0.15 | Talismans (`ink_lt`) (variety 2026-11-08) | Pending |

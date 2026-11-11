@@ -80,5 +80,12 @@ Suggestions 10–17 were not asked (outside the top 9).
   pulse; ticks, soul and curses never avoided), rule 9 `stops` lists (caps 50 % Chaos / 30 % Soul), `bypass_share`
   (cap 50 % per part), pieces (overflow moves on to the next shield or health), rule 19 Crossing the Line (straight
   to health like fatigue), Formulas C `ward_bill_pct`, knobs, AC-CD-79..84.
-- **Next:** write the accepted rules into their other owning GDDs (section by section, user approves each), then revise
+- **Character Stats, Modifiers and Dao applied 2026-11-11** (each approved): Character Stats rule 9a life
+  readables (Dao Heart = the `dao_tam` talent, user 2026-11-11) and the new keys in rule 15; Modifiers Stat List
+  (4 Pending rows promoted, 8 new rows, W guesses marked G, `basic_coef_add` W unset, `art_coef_add` Effect-only);
+  Dao rule 1 own outline per Dao, rule 4 cap shifts (one per Dao), rule 9 fifth Dao for Phân Thân and the
+  between-lives paragraph. **Every decision above now has its GDD text.**
+- **Not yet done:** merging Absolute Zero and Cold Toll (content), and revising each asking Way to point at the
+  rules instead of `Needs rule` (with the batch 63–94 fixes).
+- **Next (old note):** write the accepted rules into their other owning GDDs (section by section, user approves each), then revise
   each asking Way to point at the rule instead of its own `Needs rule`.
