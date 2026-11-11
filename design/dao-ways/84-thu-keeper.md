@@ -70,7 +70,7 @@
 |---|---|---|---|---|
 | **Nothing Passes You (Nhất Phu Đương Quan)** | keystone | Your `ward_cap` is 15 % higher | You cannot slot more than 2 damaging arts | Thuẫn Tường |
 | **Eternal Vigil (Vĩnh Canh)** | keystone | Vigil starts at 10 s and refills 8 % | Your arts cost 25 % more | Canh Giữ |
-| **Shield and Spear (Khiên Và Giáo)** | keystone | Guarded Counter is outside `trig_budget` | Your arts deal 30 % less (L2 −30) | Phản Thủ |
+| **Shield and Spear (Khiên Và Giáo)** | keystone | Guarded Counter's `c_trig` is 0.7 and it fires on hits your ward stops by 80 % or more | Your arts deal 30 % less (L2 −30) | Phản Thủ |
 
 ## New pieces
 

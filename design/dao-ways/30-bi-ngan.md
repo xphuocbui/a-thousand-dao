@@ -69,7 +69,7 @@
 - **Effects:**
   - **Major: Red Petals (Hồng Hoa Tán).** For each 10 % of max health you have lost (from full), grow 1 Petal (they
     do not shrink when healed). At the Down step's last act, each Petal deals 3 % of your max health as Fire to the
-    foe (a trigger without `trig_budget`).
+    foe (a trigger; `Needs rule` R18: a last-act exemption from `trig_budget`).
   - Minor: Petal Shield (Thuẫn Cánh). Each Petal gives +2 % body shield. *(starter)*
   - Minor: Early Bloom (Nở Sớm). Once per fight, at 5 Petals, release half of them at once.
 

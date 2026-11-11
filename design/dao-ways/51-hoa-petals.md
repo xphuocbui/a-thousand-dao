@@ -73,7 +73,7 @@
 
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
-| **Beautiful Because It Falls (Hoa Lạc Tri Mỹ)** | keystone | Petal Rain scatters up to 8 Petals and they are outside `trig_budget` | Your arts' own hits deal 40 % less (L2 −40) | Hoa Vũ |
+| **Beautiful Because It Falls (Hoa Lạc Tri Mỹ)** | keystone | Petal Rain scatters up to 8 Petals and they are outside `trig_budget` (`Needs rule` R18: Petals become their own channel) | Your arts' own hits deal 40 % less (L2 −40) | Hoa Vũ |
 | **Never Quite Gone (Hương Bất Tán)** | keystone | Lingering Scent keeps 70 % for 4 pulses | Your curses' first application is at 70 % strength | Hương Tàn |
 | **The Last Bloom (Tàn Hoa Tối Hậu)** | keystone | Fading Bloom's L5 has no cap | Your buff batches start at 70 % of their size | Tàn Hoa |
 

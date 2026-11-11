@@ -55,9 +55,7 @@
 - **Stat notables:** Swift Brush (Bút Nhanh): art speed ×2 · Economy of Stroke (Nét Tiết Kiệm): art cost ×2 · Flying
   White (Phi Bạch): art speed +1, art cost −1 · Wild Cursive (Cuồng Thảo): crit damage +2
 - **Effects:**
-  - **Major: Write the Character (Viết Chữ).** When your arts fire in slot order through all your slotted arts (a full
-    character), a finishing stroke follows: a trigger hit with `c_trig` = 0.3 × the number of strokes (outside
-    `trig_budget`), of the last art's tags.
+  - **Major: Write the Character (Viết Chữ).** When your arts fire in slot order through all your slotted arts (a full character), a finishing stroke follows: a trigger hit with `c_trig` = 0.3 × the number of strokes, inside `trig_budget`, with the last art's tags.
   - Minor: Practised Hand (Tay Quen). A broken character keeps its count for 2 s. *(starter)*
   - Minor: Signature (Chữ Ký). The finishing stroke applies Sundered.
 

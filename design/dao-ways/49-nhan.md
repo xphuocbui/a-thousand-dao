@@ -54,7 +54,7 @@
   (Bức Tường Cuối): body shield +1, attack +1 · Dying Fury (Cơn Giận Cuối): crit damage +2
 - **Effects:**
   - **Major: Last Stand (Tử Thủ).** Once per fight, when you fall below 20 % health, release the whole store at once as
-    a Force hit (trigger, not inside `trig_budget`) and gain a body shield equal to half of it.
+    a Force hit (a trigger; `Needs rule` R18: a once-per-fight exemption from `trig_budget`) and gain a body shield equal to half of it.
   - Minor: Dig In (Bám Trụ). Below 30 % health, block +20. *(starter)*
   - Minor: Stand Until Dawn (Đứng Đến Sáng). After Last Stand, your regeneration is doubled for 6 s.
 

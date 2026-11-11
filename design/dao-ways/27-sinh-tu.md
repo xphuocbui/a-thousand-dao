@@ -77,7 +77,7 @@
 | Capstone | Kind | Rule | Closes | Near |
 |---|---|---|---|---|
 | **Crossing the Line Both Ways (Sinh Tử Lưỡng Giới)** | keystone | While the foe is Withered by you, healing it receives is dealt to it as Chaos damage instead | You cannot be healed by any source but regeneration | Diệt |
-| **The Living Wound (Sinh Thương)** | keystone | Life Overflowing deals 100 % and is not a trigger (no `trig_budget`) | Your direct hits deal 40 % less (L2 −40) | Sinh |
+| **The Living Wound (Sinh Thương)** | keystone | Life Overflowing deals 100 % of the overflow (still a trigger inside `trig_budget`) | Your direct hits deal 40 % less (L2 −40) | Sinh |
 | **Thrice-Crossed (Tam Quá Quỷ Môn)** | keystone | Walk the Threshold fires 3 times per fight | Your max health is 35 % lower | Ranh Giới |
 | **Corpse Lord (Thi Vương)** | enabler | You may hold 2 Corpse Rots on a target (separate fees) | You cannot apply Poison by hits | Thi Khí |
 | **Ten Thousand Years (Vạn Thọ)** | keystone | Undying Spring has no cap and counts every 5 years | Breakthroughs cost you 5 % more lifespan when they fail | Trường Sinh |
