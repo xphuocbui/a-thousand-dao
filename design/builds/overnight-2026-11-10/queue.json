@@ -1,0 +1,128 @@
+[
+ {
+  "slug": "two-clocks",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Kết Đan to Hóa Thần",
+  "root": "your choice (Fire-Wood suggested)",
+  "use": "player",
+  "seed": "Tick builds are a clock capped by dot_pulse_cap. Run two separate tick families (Burn and Poison, or a Burn plus a Corpse Rot) so each hits its own cap, then spend what the caps clip. The min-max question: what is the fastest legal kill clock, and how does the build live until it rings?"
+ },
+ {
+  "slug": "first-volley",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Nguyên Anh",
+  "root": "your choice (Metal or Thunder suggested)",
+  "use": "player",
+  "seed": "Everything goes into the first second the arts can fire: art speed pulls the first firing earlier, every layer is filled for one volley, crit at cap. A glass cannon that ends ordinary fights before the ward matters, and must answer what happens when the volley does not kill."
+ },
+ {
+  "slug": "soul-lance",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Kết Đan to Hóa Thần",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Soul arts skip ward, guard and evade and ignore the multiplier layers; they scale with thần thức squared and are bounded by soul_lockout. Build the strongest legal soul sniper: thần thức as the only stat that matters, and what it spends its artifact budget on instead."
+ },
+ {
+  "slug": "dry-well",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Trúc Cơ to Nguyên Anh",
+  "root": "your choice (Water or Ice suggested)",
+  "use": "player",
+  "seed": "Starve the enemy: burn their linh lực to zero so they have no ward and no arts, then win on hits that land nearly in full. A qi-burn build that wins by taking away the other side's game, and has to survive the opening where the enemy is still full."
+ },
+ {
+  "slug": "bare-fist",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Luyện Khí to Hóa Thần",
+  "root": "your choice (Earth suggested)",
+  "use": "player",
+  "seed": "Never cast an art. The basic attack is the only free, guaranteed channel and art speed never touches it, so the whole linh lực pool is ward. Stack basic_coef and the basic attack's cooldown, and make the slots that would hold arts do something else."
+ },
+ {
+  "slug": "curse-engine",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Kết Đan to Nguyên Anh",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Triggers can never be the main damage, but they apply statuses, curses and refunds that the damage budget does not count. A build whose triggers keep every curse slot full and whose main damage reads how cursed the target is."
+ },
+ {
+  "slug": "beast-carry",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Trúc Cơ to Hóa Thần",
+  "root": "your choice (Wood suggested)",
+  "use": "player",
+  "seed": "The companion is the main damage: power share up to c_comp_cap, the cultivator's arts exist only to buff, heal or protect the beast. The PoE minion player's build in a one-companion game."
+ },
+ {
+  "slug": "triple-convert",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Nguyên Anh",
+  "root": "a three-element root",
+  "use": "player",
+  "seed": "Conversion keeps both tag families and a hit allows two conversions. Physical to Fire to Chaos (or similar) so one hit is scaled by three tag families' modifiers at once. Find the strongest legal conversion chain and what it costs."
+ },
+ {
+  "slug": "unkillable",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Kết Đan to Hóa Thần",
+  "root": "your choice (Wood-Water suggested)",
+  "use": "player",
+  "seed": "Sustain is king. A build that cannot lose a 60 s fight: regeneration at regen_cap, many health and linh lực sustain sources, damage low but certain. The tank that wins by being alive at the end, and the enemy type that is built to break it."
+ },
+ {
+  "slug": "home-fortress",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Kết Đan to Nguyên Anh",
+  "root": "your choice (Earth suggested)",
+  "use": "player",
+  "seed": "Fill L4 to its cap: formations, talismans, pills, coatings and home ground before the fight. Monstrous when it chooses the fight, crippled in a blind one. What the player does to force fights onto their ground."
+ },
+ {
+  "slug": "armoury-mind",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Nguyên Anh to Hóa Thần",
+  "root": "Metal",
+  "use": "player",
+  "seed": "L3 gear and artifact count, limited by thần thức and equip.max_slots. A build whose divine sense exists to carry more artifacts, each one acting or adding power. Max out L3 and find what the thần thức budget forces out."
+ },
+ {
+  "slug": "one-art",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Trúc Cơ to Hóa Thần",
+  "root": "a single-element root, high purity",
+  "use": "player",
+  "seed": "Slot exactly one art and leave the other slots empty on purpose, gaining power per empty slot. The minimalist min-maxer: what one art has to be when everything feeds it."
+ },
+ {
+  "slug": "cooldown-floor",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Kết Đan to Nguyên Anh",
+  "root": "Wind or Thunder",
+  "use": "player",
+  "seed": "Push every art to cooldown_min with art speed, use only cheap arts, and solve the linh lực bill. Highest hit count per second in the game, to feed per-hit effects. The build that per-hit wards hate."
+ },
+ {
+  "slug": "slow-thunder",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Nguyên Anh",
+  "root": "your choice",
+  "use": "player",
+  "seed": "The opposite of art spam: long cooldown, low cost, huge coefficient arts give the most damage per linh lực. Two or three enormous arts on slow timers, and a plan for the seconds before they land. Drain wards hate it."
+ }
+]

@@ -1,0 +1,218 @@
+[
+ {
+  "slug": "giant-killer",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "fighting one realm up, all realms",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Built to fight upward: pierce to pierce_cap, suppression answered, damage that reads the gap between realms. Weak against equals, deadly against the realm above. The player's tool for punching above their weight."
+ },
+ {
+  "slug": "mirror-hide",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Trúc Cơ to Nguyên Anh",
+  "root": "your choice (Earth-Metal suggested)",
+  "use": "player",
+  "seed": "Retaliation: damage taken becomes damage dealt. Block and guard high, every hit that lands on you returns. A thorns build that wants the enemy to hit it, and has to handle enemies that refuse to (ticks, soul, waiting)."
+ },
+ {
+  "slug": "status-collector",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Kết Đan to Hóa Thần",
+  "root": "a multi-element root",
+  "use": "player",
+  "seed": "Each distinct status on the target adds power. Apply as many different statuses as the rules allow, cheaply, then cash in with a hit that reads the count. A breadth build in a game of depth builds."
+ },
+ {
+  "slug": "evade-dancer",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Trúc Cơ to Nguyên Anh",
+  "root": "Wind",
+  "use": "player",
+  "seed": "Evade to evade_cap and make evading do something: every evaded hit pays linh lực, stacks a buff or triggers a counter. Hits never land; ticks and soul are its nightmare and it must have an answer for one of them."
+ },
+ {
+  "slug": "meta-hunter",
+  "kind": "archetype",
+  "power": "top-end",
+  "realm": "Kết Đan to Nguyên Anh",
+  "root": "your choice",
+  "use": "NPC or sect archetype",
+  "seed": "A counter-build to the strongest known patterns: health-paid art costs and Stagnation-on-hit (see design/builds/by-root/notes.md). The sect that exists to hunt those builds. Make it strong against them and honest against everything else, so the game has a real answer in its world."
+ },
+ {
+  "slug": "deity-warden",
+  "kind": "boss",
+  "power": "legend",
+  "realm": "Hóa Thần",
+  "root": "your choice",
+  "use": "boss",
+  "seed": "A Hóa Thần boss that punishes the common shapes of player build: it changes ward model mid-fight, cleanses on a timer, and has phases that each counter one channel. Hard, readable, beatable by a prepared build. List which player builds it beats and which beat it."
+ },
+ {
+  "slug": "sect-ladder",
+  "kind": "archetype",
+  "power": "ordinary",
+  "realm": "Luyện Khí to Kết Đan",
+  "root": "Fire",
+  "use": "NPC or sect archetype",
+  "seed": "The standard build a mid-sized Fire sect teaches its disciples, realm by realm: what an ordinary NPC of that sect carries at each realm, so the world's 5,000 cultivators are built from it. Ordinary power, coherent, beatable."
+ },
+ {
+  "slug": "starter-flame",
+  "kind": "starter",
+  "power": "ordinary",
+  "realm": "Luyện Khí to Kết Đan",
+  "root": "Fire, middling purity",
+  "use": "player",
+  "seed": "A new player's first build: simple Fire art caster that is easy to understand, forgiving with linh lực, and grows into something strong by Kết Đan with pieces that are easy to find. Explain every choice."
+ },
+ {
+  "slug": "starter-wall",
+  "kind": "starter",
+  "power": "ordinary",
+  "realm": "Luyện Khí to Kết Đan",
+  "root": "Earth, middling purity",
+  "use": "player",
+  "seed": "A new player's safe build: an Earth body cultivator that is very hard to kill, wins slowly, and teaches the player what wards, guard and regeneration do. Easy pieces, few ways to get it wrong."
+ },
+ {
+  "slug": "starter-venom",
+  "kind": "starter",
+  "power": "ordinary",
+  "realm": "Luyện Khí to Kết Đan",
+  "root": "Wood, middling purity",
+  "use": "player",
+  "seed": "A new player's poison build: apply, wait, outlast. Teaches ticks, caps and the clock. Has a regeneration safety net."
+ },
+ {
+  "slug": "starter-blade",
+  "kind": "starter",
+  "power": "ordinary",
+  "realm": "Luyện Khí to Kết Đan",
+  "root": "Metal, middling purity",
+  "use": "player",
+  "seed": "A new player's sword build: a flying sword art and a strong basic attack, crit as the thing to chase. Clear upgrades at each realm."
+ },
+ {
+  "slug": "starter-tide",
+  "kind": "starter",
+  "power": "ordinary",
+  "realm": "Luyện Khí to Kết Đan",
+  "root": "Water, middling purity",
+  "use": "player",
+  "seed": "A new player's mana build: a deep pool, a strong ward, arts that get stronger the fuller the pool. Teaches the linh lực economy."
+ },
+ {
+  "slug": "loaded-dice",
+  "kind": "fun",
+  "power": "ordinary to top-end",
+  "realm": "Trúc Cơ to Nguyên Anh",
+  "root": "your choice",
+  "use": "player",
+  "seed": "A gambler's build: chance-based arts and khí vận (fortune) as a stat, but counted chance (rule 15 wants chance to stay a flavour), so the dice are loaded in the player's favour by preparation. Fun to watch, swingy but not random."
+ },
+ {
+  "slug": "art-thief",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Kết Đan to Nguyên Anh",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Copy or steal the enemy's arts mid-fight and fire them back. Empty slots that fill with what the enemy brought. Strong against art-heavy builds, helpless against a bare-fist build."
+ },
+ {
+  "slug": "pacifist",
+  "kind": "fun",
+  "power": "ordinary",
+  "realm": "Trúc Cơ to Nguyên Anh",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Never deals direct damage. Wins by making the enemy hurt itself: reflected costs, backlash, heart demon, collapse of their own linh lực, or by outlasting until they flee. A strange build that should still be viable."
+ },
+ {
+  "slug": "heart-demon-rider",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Kết Đan to Hóa Thần",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Use the life around the fight: heart demon (tâm ma) as fuel. The higher the tâm ma the stronger the build, with breakthrough and qi-deviation risk as the real price. A build that changes how the player lives between fights."
+ },
+ {
+  "slug": "borrowed-years",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Nguyên Anh to Hóa Thần",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Lifespan as a resource: spend years of life for power in a fight, and earn them back by other means. A build that is a race against its own death in the world, not only in the fight."
+ },
+ {
+  "slug": "pill-furnace",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Trúc Cơ to Nguyên Anh",
+  "root": "Fire-Wood",
+  "use": "player",
+  "seed": "Pill toxicity (đan độc) as power: overdose on purpose, toxicity becomes damage or defence, and the build manages the toxicity between fights. An alchemist who is their own best customer."
+ },
+ {
+  "slug": "second-wind",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Kết Đan to Hóa Thần",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Built around being Downed once: the build is weak until it falls, then rises with a rewritten loadout and wins the second half. The comeback build, and what it does if the enemy kills it in one blow."
+ },
+ {
+  "slug": "lone-star",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Trúc Cơ to Hóa Thần",
+  "root": "your choice",
+  "use": "player",
+  "seed": "No companion, no sect, nothing attached: power for every missing piece of the social game. A wanderer build that makes the solo life a choice with teeth."
+ },
+ {
+  "slug": "fleeing-master",
+  "kind": "archetype",
+  "power": "ordinary",
+  "realm": "all realms",
+  "root": "your choice (Wind or Water suggested)",
+  "use": "NPC or sect archetype",
+  "seed": "The cultivator who never loses because it never stays: escape when the fight turns, survive the world. Matters for the world simulation (who lives to Nguyên Anh). Strong at surviving, weak at killing."
+ },
+ {
+  "slug": "ward-eater",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Kết Đan to Nguyên Anh",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Every point of the enemy's ward you break becomes your linh lực. The bigger their ward, the richer you get. A build that eats tanks and starves against a no-ward build."
+ },
+ {
+  "slug": "tempo-thief",
+  "kind": "fun",
+  "power": "top-end",
+  "realm": "Kết Đan to Hóa Thần",
+  "root": "your choice (Time-flavoured)",
+  "use": "player",
+  "seed": "Control the enemy's clock: delay their cooldowns, push their arts off the pulse, freeze their timers. A build that wins because the enemy never gets to act, and loses to builds that do not need to act (ticks, basic attacks)."
+ },
+ {
+  "slug": "berserk-bloom",
+  "kind": "min-max",
+  "power": "top-end",
+  "realm": "Trúc Cơ to Nguyên Anh",
+  "root": "your choice",
+  "use": "player",
+  "seed": "Stronger the lower your health: Nghịch Cảnh-style low-life play, staying at the edge on purpose with a hard floor that keeps it alive. The PoE low-life build, and how it avoids just dying."
+ }
+]
