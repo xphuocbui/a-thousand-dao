@@ -56,7 +56,7 @@
 - **Effects:**
   - **Major: The Wall Remembers (Tường Nhớ).** When a Physical hit lands on you, gain Earth buff stacks equal to
     1 per 2 % of your max health it took (cap 8 per hit).
-  - Minor: Dust in the Eyes (Bụi Mắt). While the foe has 20+ of your Earth debuff stacks, its crits deal 25 % less.
+  - Minor: Grit (Sạn). While the foe has 20+ of your Earth debuff stacks, its crits deal 25 % less.
   - Minor: Settled (Lắng). Your Earth batches last 2 pulses longer. *(starter)*
 
 ### 5. Bàn Căn (Deep Roots)

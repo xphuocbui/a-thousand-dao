@@ -36,7 +36,7 @@
   - **Major: Yang Rises (Dương Thăng).** Each Yang hit (Fire or Light) gives 1 Yang (cap 20). At 20, your next Yin hit
     consumes all Yang and deals more (L5 +3 per Yang).
   - Minor: Yang Fire (Dương Hỏa). While you hold 10+ Yang, Cold hits on you deal 15 % less. *(starter)*
-  - Minor: High Noon (Chính Ngọ Khí). Your Fire hits apply 1 extra Burn stack.
+  - Minor: Noon Qi (Ngọ Khí). Your Fire hits apply 1 extra Burn stack.
 
 ### 3. Thái Cực (Taiji) †
 - **Small:** `attack_pct` cold +0.75 and fire +0.75 · `defense_pct` +0.6

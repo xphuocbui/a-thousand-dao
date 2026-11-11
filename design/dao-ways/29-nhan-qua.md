@@ -68,7 +68,7 @@
 - **Effects:**
   - **Major: Sever (Đoạn).** Delayed effects on you (Karma, stored damage like Internal Injury, standing statuses)
     resolve at half; and your cleanses also remove one foe buff that reads time (a growing stack, a stored bonus).
-  - Minor: Unbound (Vô Ràng Buộc). Curses on you last 1 pulse less. *(starter)*
+  - Minor: Untethered (Không Neo). Curses on you last 1 pulse less. *(starter)*
   - Minor: Cut the Thread (Cắt Chỉ). The foe's companion deals 20 % less to you.
 
 ## Capstones

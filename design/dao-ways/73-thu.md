@@ -75,7 +75,7 @@
 |---|---|---|---|---|
 | **One Heart in Many Bodies (Nhất Tâm Vạn Thể)** | keystone | Your companion's power share cap is +50 % of itself | Your own hits deal 40 % less (L2 −40) | Linh Khế |
 | **King of Beasts (Bách Thú Chi Vương)** | keystone | The Pack counts up to 10 beasts | You cannot slot more than 3 arts | Bầy |
-| **Beast Form (Thú Hình)** | keystone | Borrow the Beast gives 50 % of the share as L5 | Your companion deals 50 % less | Thú Thể |
+| **Wild Shape (Dã Hình)** | keystone | Borrow the Beast gives 50 % of the share as L5 | Your companion deals 50 % less | Thú Thể |
 
 ## New pieces
 

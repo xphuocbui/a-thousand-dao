@@ -66,7 +66,7 @@ The Way of living among mortals. Almost all of it is life-around-the-fight; the 
   - **Major: Tempered by Red Dust (Hồng Trần Luyện Tâm).** For each 10 years lived among mortals (in towns), +1 % to all
     stat lines from every Dao you hold (cap +8 %). `Needs key`.
   - Minor: Common Sense (Lẽ Thường). Event choices that read "wisdom" are always available. *(starter)*
-  - Minor: Dust Settles (Bụi Lắng). Heart demon above 50 decays twice as fast in towns.
+  - Minor: Quiet Streets (Phố Lặng). Heart demon above 50 decays twice as fast in towns.
 
 ## Capstones
 

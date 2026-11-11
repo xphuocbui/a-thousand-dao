@@ -61,7 +61,7 @@
 | 48 Mị Đạo | Enthralled (curse); an added Soul part on a non-soul art: `Needs key` / `Needs rule`. |
 | 51 Hoa Đạo | Decaying batches (Fading Bloom): `Needs rule`. |
 | 53 Đao Đạo | Sweep (damage to all ward shields): `Needs rule`. |
-| 54 Thương Đạo | Damage skipping ward shields: `Needs rule` (also asked by Huyền? see Chưởng's Nội Kình; share the rule). |
+| 54 Thương Đạo | Damage skipping ward shields: `Needs rule` (shared with Chưởng, Nhân Quả, Hỗn Độn: one bypass rule). |
 | 54 Thương Đạo | First firing after a share of cooldown (First Strike): `Needs rule` (Combat rule 13). |
 | 55 Xạ Đạo | Thần thức as an in-fight pool: `Needs rule`. |
 | 56 Chưởng Đạo | Internal Injury (stored damage released past shields): `Needs key` + `Needs rule`. |

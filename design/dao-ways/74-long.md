@@ -23,7 +23,7 @@
 - **Effects:**
   - **Major: Dragon Blood (Long Huyết Thức Tỉnh).** Your hits gain flat damage equal to 0.6 % of your max health; with
     Blood Purity (Huyết Đạo), +0.01 % more per point.
-  - Minor: Thick Blood (Huyết Dày). +8 % max health. *(starter)*
+  - Minor: Dragon's Girth (Long Thể). +8 % max health. *(starter)*
   - Minor: Dragon's Vigour (Long Sinh Lực). Your health regeneration +1 % per 10 % of max health above your realm base.
 
 ### 2. Long Lân (Scales)

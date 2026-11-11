@@ -45,7 +45,7 @@
 - **Effects:**
   - **Major: Break the Army (Phá Quân).** Your first spear hit each fight deals more by the foe's ward strength: L5
     +1 per 2 % of its total ward shields as a share of its max health (cap +50).
-  - Minor: Momentum (Đà). Each spear hit in the first 10 s gives the next one L5 +5 (cap +25). *(starter)*
+  - Minor: Run-Up (Lấy Đà). Each spear hit in the first 10 s gives the next one L5 +5 (cap +25). *(starter)*
   - Minor: Trample (Giẫm Đạp). Your spear hits in the first 10 s apply 3 Earth debuff stacks for 6 pulses.
 
 ### 4. Thương Trận (Spear Wall)
@@ -81,7 +81,7 @@
 ## New pieces
 
 - `spear` form tag: `Needs key`.
-- Damage skipping ward shields: `Needs rule` (also asked by Huyền? see Chưởng's Nội Kình; share the rule).
+- Damage skipping ward shields: `Needs rule` (shared with Chưởng, Nhân Quả, Hỗn Độn: one bypass rule).
 - First firing after a share of cooldown (First Strike): `Needs rule` (Combat rule 13).
 
 ## Kept apart from

@@ -47,7 +47,7 @@
   - **Major: Avatar (Hóa Thân).** An Avatar sits in seclusion at home while you travel: it gives you 30 % of seclusion's
     cultivation progress during travel seasons (counts within the per-Dao rate cap). `Needs key`.
   - Minor: Avatar Watch (Thân Canh). Your cave dwelling is guarded by your Avatar (events). *(starter)*
-  - Minor: Recall (Gọi Về). Once a year, swap places with your Avatar (travel home instantly).
+  - Minor: Swap Home (Đổi Về). Once a year, swap places with your Avatar (travel home instantly).
 
 ### 4. Đồng Tâm (Shared Mind)
 - **Small:** `than_thuc_pct` +0.9 · `attack_pct` soul +1

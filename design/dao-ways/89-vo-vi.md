@@ -75,7 +75,7 @@
 |---|---|---|---|---|
 | **It Wins without Moving (Bất Động Nhi Thắng)** | keystone | Things Happen of Themselves gives +60 % | Your arts and basic attack deal 50 % less (L2 −50) | Tự Nhiên |
 | **Rule by Not Acting (Vô Vi Nhi Trị)** | keystone | Not Striking's cap is 40 and Stillness also gives +1 % regeneration each | You may slot at most 2 arts | Bất Động Thủ |
-| **Like Water (Thượng Thiện Nhược Thủy)** | keystone | Yield and Return returns 30 % | Your max health is 20 % lower | Thuận |
+| **The Highest Good (Thượng Thiện)** | keystone | Yield and Return returns 30 % | Your max health is 20 % lower | Thuận |
 
 ## New pieces
 
