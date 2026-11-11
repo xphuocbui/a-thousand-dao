@@ -161,7 +161,7 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "keystones", "curses", "purity", "bonus_slots", "arts", "enemy", "enemy_overrides", "unmodelled",
             "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct",
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
-            "x_soul", "tam_ma", "resist", "boss", "tags", "states"}
+            "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques"}
 WARD_KEYS = {"model", "payload", "drain_base", "ws_base", "we", "layers", "block"}
 BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
@@ -184,6 +184,119 @@ def check_keys(d, allowed, where):
     if extra:
         raise BadInput("UNKNOWN_FIELD\t%s: %s. Allowed: %s. Put what the simulator cannot express in "
                        "\"unmodelled\"" % (where, ", ".join(extra), ", ".join(sorted(allowed))))
+
+
+# ------------------------------------------------------------------ the art library and technique catalogue
+# A build may name library pieces instead of copying them (2026-11-11):
+#   "arts": [{"lib": "<art id>"}]      -> the art record from design/arts/family-*.json (or a `common` art of
+#                                         design/arts/part-*.json), its effects, counters, states
+#   "techniques": ["<technique id>"]   -> the technique's passives from design/techniques/catalogue-*.json, as one
+#                                         always-on Effect "tech:<id>" (so --without tech:<id> tests it)
+LIB_ART_KEYS = ART_KEYS - {"x", "_comment"}
+ELEMENT_EN = {"hoa": "fire", "thuy": "water", "tho": "earth", "kim": "metal", "moc": "wood", "bang": "ice",
+              "loi": "thunder", "phong": "wind"}
+DTYPE_TAG = {"physical": "phys", "fire": "fire", "cold": "cold", "lightning": "lightning", "force": "force",
+             "chaos": "chaos", "soul": "soul"}
+# GDD passive key -> (engine mod key, factor to the engine's unit)
+PASSIVE_MOD = {"attack_pct": ("L1", 1), "damage_more": ("L2", 1), "crit_chance_pct": ("crit", 1),
+               "crit_damage_pct": ("crit_mult", 1), "accuracy_pct": ("acc", 1), "evade_pct": ("evade", 1),
+               "art_speed_pct": ("art_speed", 1), "basic_speed_pct": ("basic_speed", 1),
+               "opening_haste_pct": ("opening_haste", 1), "art_cost_pct": ("cost_red", -0.01),
+               "linh_luc_regen_pct": ("regen", 0.01), "linh_luc_regen_inc_pct": ("regen", 0.00035),
+               "health_regen_pct": ("hregen", 0.01), "healing_pct": ("healing", 1),
+               "leech_health_pct": ("leech_hp", 1), "leech_linh_luc_pct": ("leech_qi", 1),
+               "linh_luc_on_hit_pct": ("gain_on_hit", 1), "resist_pct": ("resist", 1), "block_rating": ("block", 1),
+               "soul_res_pct": ("soul_res", 1), "x_soul": ("x_soul", 1), "timer_resist_pct": ("timer_resist", 1),
+               "ward_bill_pct": ("ward_bill", 1), "basic_coef_add": ("basic_coef", 1)}
+CTX_MODS = {"L1", "L2", "L3", "L4", "L5", "crit", "crit_mult", "dmg_more", "bypass", "resist"}
+_LIB = {}
+
+
+def _library():
+    if not _LIB:
+        import glob as _g
+        arts, techs = {}, {}
+        for f in sorted(_g.glob(os.path.join(ROOT, "design", "arts", "family-*.json"))):
+            for a in json.load(open(f, encoding="utf-8")):
+                arts[a["id"]] = a
+        for f in sorted(_g.glob(os.path.join(ROOT, "design", "arts", "part-*.json"))):
+            for a in json.load(open(f, encoding="utf-8")):
+                if a.get("tier") == "common":   # the common pool generated techniques roll (cong-phap rule 17)
+                    arts.setdefault(a["id"], a)
+        for f in sorted(_g.glob(os.path.join(ROOT, "design", "techniques", "catalogue-*.json"))):
+            for t in json.load(open(f, encoding="utf-8")):
+                techs[t["id"]] = t
+        _LIB["arts"], _LIB["techs"] = arts, techs
+    return _LIB["arts"], _LIB["techs"]
+
+
+def passive_effect(t, unmod):
+    """A technique's passives as one always-on Effect; lines the engine has no stat for go to unmod."""
+    do = []
+    for p in t.get("passives", []):
+        key, val, scope = p["key"], p["value"], list(p.get("scope", []))
+        if key not in PASSIVE_MOD:
+            unmod.append("technique %s passive %s %+g %s: no engine stat (not run)" % (t["id"], key, val, scope or ""))
+            continue
+        mk, f = PASSIVE_MOD[key]
+        m = {mk: val * f}
+        if scope:
+            if mk not in CTX_MODS:
+                unmod.append("technique %s passive %s scope %s: the engine reads %s without hit context, so it "
+                             "applies to every art" % (t["id"], key, scope, mk))
+            else:
+                for tag in scope:
+                    if tag in ELEMENT_EN:
+                        m["element"] = ELEMENT_EN[tag]
+                    elif tag in DTYPE_TAG:
+                        m["dtype"] = DTYPE_TAG[tag]
+                    else:
+                        m.setdefault("tags", []).append(tag)
+        do.append({"mod": m})
+    return {"id": "tech:%s" % t["id"], "on": "always", "do": do} if do else None
+
+
+def expand_library(d):
+    """Resolve {"lib": id} arts and "techniques" ids into plain build fields. Unknown ids are BadInput."""
+    if not any(isinstance(a, dict) and "lib" in a for a in d.get("arts", [])) and not d.get("techniques"):
+        return d
+    arts_lib, techs = _library()
+    d = copy.deepcopy(d)
+    effects, counters, states = list(d.get("effects", [])), list(d.get("counters", [])), list(d.get("states", []))
+    have_c, have_s = {c.get("id") for c in counters}, {s.get("id") for s in states}
+    out = []
+    for a in d.get("arts", []):
+        if isinstance(a, dict) and "lib" in a:
+            src = arts_lib.get(a["lib"])
+            if not src:
+                raise BadInput("arts: library art %r not found in design/arts/ (family-*.json, or part-*.json commons)"
+                               % a["lib"])
+            x = {k: v for k, v in src.items() if k in LIB_ART_KEYS}
+            x["id"] = src["id"]
+            x.update({k: v for k, v in a.items() if k != "lib"})
+            out.append(x)
+            effects += src.get("effects", [])
+            for c in src.get("counters", []):
+                if c.get("id") not in have_c:
+                    have_c.add(c.get("id"))
+                    counters.append(c)
+            for st in src.get("states", []):
+                if st.get("id") not in have_s:
+                    have_s.add(st.get("id"))
+                    states.append(st)
+        else:
+            out.append(a)
+    d["arts"] = out
+    unmod = list(d.get("unmodelled", []))
+    for tid in d.pop("techniques", []) or []:
+        t = techs.get(tid)
+        if not t:
+            raise BadInput("techniques: %r not found in design/techniques/catalogue-*.json" % tid)
+        e = passive_effect(t, unmod)
+        if e:
+            effects.append(e)
+    d["effects"], d["counters"], d["states"], d["unmodelled"] = effects, counters, states, unmod
+    return d
 
 
 def realm_index(v):
@@ -620,6 +733,7 @@ def main():
         drift_ok = check_constants()
         if not drift_ok:
             print("NOT_ASSESSED\tconstants drifted: results below are observations from out-of-date values")
+        d = expand_library(d)
         r = realm_index(d.get("realm", "luyen_khi"))
         build, notes, base = run_all(d, r, args)
         if args.without:

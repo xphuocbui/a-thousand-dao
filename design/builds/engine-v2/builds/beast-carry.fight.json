@@ -1,0 +1,20 @@
+{
+  "name": "beast-carry",
+  "realm": "nguyen_anh",
+  "layers": [332, 300, 250, 110, 89],
+  "crit": {"chance": 0.0, "mult": 1.5},
+  "art_speed_pct": 100,
+  "purity": {"fire": 80, "wood": 60},
+  "techniques": ["verdant-cycle-scripture", "ashen-phoenix-canon"],
+  "companions": [{"c": 1.0, "dtype": "physical", "cd": 0.5}],
+  "arts": [
+    {"lib": "warm-the-hearth"},
+    {"lib": "second-spring"}
+  ],
+  "unmodelled": [
+    "Shared-Heart Contract: the beast in the open (its own health bar, 30 % of hit damage redirected, Down and Rouse) is not an engine concept",
+    "Straining Leash: +5 L5 per 0.1 of companion share above the cap needs a companion share readable the engine lacks",
+    "Bonded Spirit and Lent Hand: modelled only as the companion timer 0.5 s (cd), not as art speed feeding it",
+    "Sure Bite, Roused, Pack Hunt, Marked Prey, Rain on Both: no companion hit filter for them"
+  ]
+}

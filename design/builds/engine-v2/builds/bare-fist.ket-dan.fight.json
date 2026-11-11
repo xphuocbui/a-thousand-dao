@@ -1,0 +1,24 @@
+{
+  "name": "bare-fist (Ket Dan)",
+  "realm": "ket_dan",
+  "n_body": 1.19,
+  "n_qi": 1.25,
+  "layers": [140, 0, 150, 0, 0],
+  "crit": {"chance": 0.35, "mult": 1.9},
+  "regen_bonus_pp": 5.29,
+  "evade_pct": 26,
+  "enemy": "typical",
+  "purity": {"earth": 80},
+  "ward": {"ws_base": 0, "we": 0, "layers": [300, 235, 150, 100]},
+  "techniques": ["mountain-heart-canon", "unbroken-flesh-canon"],
+  "arts": [
+    {"lib": "sinking-weight"},
+    {"lib": "bastion-reprisal"},
+    {"lib": "strata-hammer"},
+    {"lib": "bulwark-knuckle"},
+    {"lib": "last-breath-fist"}
+  ],
+  "unmodelled": [
+    "Second-realm run of bare-fist.fight.json; the same choices, and the same unmodelled list applies (Closed Hand Vow void with damaging arts slotted, Stored Breath and the other old Effects never in the file, basic speed and flat coefficient not in the file, layered wards folded into one drain ward, mountain-stance left out)"
+  ]
+}

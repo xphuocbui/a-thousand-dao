@@ -1,0 +1,33 @@
+{
+  "name": "unkillable", "realm": "hoa_than",
+  "layers": [120, 80, 50, 20, 0],
+  "crit": {"chance": 0.05, "mult": 1.5},
+  "n_body": 3.0, "n_qi": 1.1,
+  "health_regen_pp": 6, "healing_pct": 30,
+  "purity": {"wood": 80, "water": 60},
+  "body": {"shield": 0.1},
+  "techniques": ["verdant-cycle-scripture", "rotting-canopy-canon", "unbroken-flesh-canon"],
+  "counters": [],
+  "effects": [
+    {"id": "growth-rings", "on": "always", "do": [{"mod": {"hregen": 1.2}}]},
+    {"id": "sap-rises", "on": "always", "scale": {"read": "own.buff.moc", "per": 1}, "do": [{"mod": {"healing": 1}}]},
+    {"id": "still-water", "on": "overflow", "do": [{"heal": {"of": "amount", "share": 0.5}}]}
+  ],
+  "arts": [
+    {"lib": "seed-of-spring"},
+    {"lib": "rooted-form"},
+    {"lib": "second-spring"},
+    {"lib": "harvest-bloom"},
+    {"lib": "blight-canker"},
+    {"lib": "bloodroot-pact"},
+    {"lib": "thornling-grove"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Surplus Life (Du Sinh): needs a health-overflow readable; the engine only emits linh luc overflow",
+    "Rooted (Bam Re) price: evade fixed at 0 is not expressible",
+    "Spillover (Dat Doc): no action burns the foe's linh luc from a tick",
+    "Wards beyond the realm's Common Ward (Still Lake Aura, Clear Heart Ward, Mountain Screen, Thousand-Layer Cloud, Soul-Guarding Lamp, Golden Bell)",
+    "Underground Spring, Banyan Shade, Shedding Bark: not in the library; Quiet Channels, The Spring Never Fails, Hot Spring Array, pill and coating not modelled"
+  ]
+}

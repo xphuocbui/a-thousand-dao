@@ -1,0 +1,38 @@
+{
+  "name": "first-volley",
+  "realm": "nguyen_anh",
+  "n_body": 3.82,
+  "n_qi": 1.5,
+  "layers": [360, 0, 250, 0, 0],
+  "crit": {"chance": 0.5, "mult": 3.0},
+  "art_speed_pct": 200,
+  "art_cost_pct": 20,
+  "regen_bonus_pp": 0.35,
+  "evade_pct": 0,
+  "accuracy_pct": 15,
+  "opening_haste_pct": 250,
+  "refusals": 1,
+  "purity": {"thunder": 60},
+  "enemy": "typical",
+  "ward": {"ws_base": 0, "we": 0, "layers": [300, 235, 150, 100]},
+  "techniques": ["thousand-bolt-scripture"],
+  "arts": [
+    {"lib": "overload-form"},
+    {"lib": "chain-arc"},
+    {"lib": "answering-peal"},
+    {"lib": "capacitor-palm"},
+    {"lib": "forked-light"}
+  ],
+  "effects": [
+    {"id": "flowing-water", "on": "crit", "limit": {"per_pulse": 3},
+     "do": [{"timer": {"side": "own", "which": "others", "by": -0.5}}]},
+    {"id": "linh-luc-on-crit", "on": "crit", "do": [{"gain_qi": {"share": 0.0126}}]},
+    {"id": "unanswered", "on": "always", "if": [{"read": "foe.fired", "op": "==", "value": 0}],
+     "do": [{"mod": {"L5": 40}}]}
+  ],
+  "unmodelled": [
+    "L2 Lightning more (300) and L4 preparation (150): the old file carried them in per-art x; library arts take no overrides, so they are absent here",
+    "first_move, eruption, taut_string, final_clause, cold_feet: not carried over (arts gone or the engine lacks the read)",
+    "lightning step escape art: no library equivalent"
+  ]
+}

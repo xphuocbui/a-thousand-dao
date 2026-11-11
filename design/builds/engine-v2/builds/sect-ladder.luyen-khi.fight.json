@@ -1,0 +1,21 @@
+{
+  "name": "sect-ladder-luyen-khi", "realm": "luyen_khi",
+  "layers": [10, 40, 40, 20, 0],
+  "art_speed_pct": 2, "art_cost_pct": 0,
+  "regen_bonus_pp": 0.2,
+  "keystones": {"k_burn": 0.3},
+  "purity": {"fire": 70},
+  "techniques": ["red-sun-scripture"],
+  "arts": [
+    {"lib": "brazier-form"}, {"lib": "flint-volley"}
+  ],
+  "effects": [
+    {"id": "kindled-wound", "on": "always", "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 1}],
+     "do": [{"mod": {"L5": 15}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Embers Feed the Hearth modelled by keystone k_burn 0.3; its closing cost is not in the file",
+    "At Qi Refining the disciple holds no ward gear, pill or array; typical L3 and L4 points are the anchor, so this file slightly flatters the build"
+  ]
+}

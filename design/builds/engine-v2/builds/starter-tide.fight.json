@@ -1,0 +1,17 @@
+{
+  "name": "starter-tide", "realm": "truc_co",
+  "layers": [60, 0, 20, 20, 0],
+  "crit": {"chance": 0.05, "mult": 1.5},
+  "n_body": 1.0, "n_qi": 1.3,
+  "art_speed_pct": 5, "art_cost_pct": 12,
+  "regen_bonus_pp": 1.5, "health_regen_pp": 0, "healing_pct": 0,
+  "ward": {"model": "drain", "ws_base": 40, "we": 55, "layers": [50, 40, 30, 20]},
+  "purity": {"water": 60},
+  "techniques": ["still-moon-tide-scripture"],
+  "arts": [{"lib": "deep-lake-stance"}, {"lib": "gathering-wave"}, {"lib": "brimming-cup"}, {"lib": "swelling-tide-palm"}],
+  "enemy": "typical",
+  "unmodelled": [
+    "Full-Sea ward bonus (ward drain falls while the pool is above 80 %) is not modelled; ward uses fixed ws_base and we",
+    "The Tide-Bound Vessel artifact and the Still Pool Array are folded into layers and ward numbers, not run as pieces"
+  ]
+}

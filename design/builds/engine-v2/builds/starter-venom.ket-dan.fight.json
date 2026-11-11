@@ -1,0 +1,25 @@
+{
+  "name": "starter-venom-ket-dan", "realm": "ket_dan",
+  "layers": [80, 0, 40, 20, 0],
+  "n_body": 1.0, "n_qi": 1.0,
+  "art_speed_pct": 10, "art_cost_pct": 10,
+  "regen_bonus_pp": 4.5, "health_regen_pp": 1.2, "healing_pct": 20,
+  "purity": {"wood": 50},
+  "techniques": ["verdant-cycle-scripture", "rotting-canopy-canon"],
+  "arts": [
+    {"lib": "thorn-rain"},
+    {"lib": "blight-canker"},
+    {"lib": "second-spring"},
+    {"lib": "harvest-bloom"},
+    {"lib": "thornling-grove"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Root Drinks the Rot leech: staged only, not in the old file",
+    "Patient Venom per-stack effect: cap was folded into L2 in the old file, dropped with the invented arts",
+    "Spillover: an upgrade, not in this file",
+    "Sap Rises healing from stacks beyond the table: staged only",
+    "Moss-Ledger cleanse-immunity window: not expressible",
+    "Purity wood 50 added from the guide (the old file carried none)"
+  ]
+}

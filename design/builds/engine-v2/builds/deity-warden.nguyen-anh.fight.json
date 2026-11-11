@@ -1,0 +1,27 @@
+{
+  "name": "deity-warden", "realm": "nguyen_anh",
+  "layers": [400, 300, 250, 150, 100],
+  "crit": {"chance": 0.1, "mult": 1.5},
+  "n_body": 1.4, "n_qi": 1.4,
+  "art_speed_pct": 10, "art_cost_pct": 30, "art_cost_health_pct": 0,
+  "regen_bonus_pp": 7, "health_regen_pp": 7,
+  "purity": {"metal": 80, "earth": 70},
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 100, "we": 100,
+           "layers": [300, 250, 150, 100], "block": 30},
+  "body": {"block": 40, "resistance": 40, "shield": 0.3, "layers": [300, 250, 150, 100]},
+  "cleanse": {"per_pulse": 0, "fee_share": 0, "share": 0.25},
+  "techniques": ["mountain-heart-canon", "iron-hide-manual", "mountain-bone-body-art"],
+  "arts": [
+    {"lib": "mountain-stance"}, {"lib": "sinking-weight"}, {"lib": "bastion-reprisal"}, {"lib": "strata-hammer"},
+    {"lib": "iron-hide-stance"}, {"lib": "bone-turning-palm"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "ward model change at each phase (per-hit, drain, soul, off): the file holds one drain ward, the phase-I-to-IV average",
+    "Phase script and the 12 s phase clock (Needs rule)",
+    "Soul ward and Deaf Verdict (soul art): soul is not modelled",
+    "Per-hit ward payload of the Iron Gate phase",
+    "Purge bell as a timed full strip (no library art cleanses on a 10 s clock)",
+    "Open Hand phase (no ward, doubled offence)"
+  ]
+}

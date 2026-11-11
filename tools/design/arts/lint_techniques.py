@@ -15,7 +15,8 @@ Emits observations, not a verdict (CLAUDE.md: helpers in scripts emit observatio
   SUITE_SPLIT  a suite's arts (one `group`) not all carried by one technique whose `suite` names it
   UNCARRIED    (whole-catalogue runs only) a signature art no technique carries
   DUPLICATE    two techniques with the same id
-Notes (not findings): `abilities` above 3 (rule 17 says 1-3), passive W used per technique.
+  ABILITIES    more than 4 abilities (cong-phap rule 17: 1-4, a suite carried whole)
+Notes (not findings): passive W used per technique.
 It ends with `checked N techniques, F findings` so a run that read nothing cannot look clean.
 
 Run: python -I tools/design/arts/lint_techniques.py [files...]   (default: design/techniques/*.json, whole catalogue)

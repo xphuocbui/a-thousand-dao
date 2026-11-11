@@ -1,0 +1,30 @@
+{
+  "name": "pacifist", "realm": "nguyen_anh",
+  "layers": [0, 0, 0, 0, 0],
+  "crit": {"chance": 0, "mult": 1.5},
+  "n_body": 1.2, "n_qi": 1.2,
+  "art_speed_pct": 15, "art_cost_pct": 20,
+  "regen_bonus_pp": 3, "health_regen_pp": 1.5, "healing_pct": 20,
+  "evade_pct": 5,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 45, "we": 40,
+           "layers": [40, 40, 20, 10], "block": 15},
+  "body": {"block": 15, "resistance": 25, "shield": 0.3, "layers": [40, 40, 20, 10]},
+  "curses": ["stagnation"],
+  "purity": {"water": 80},
+  "techniques": ["still-moon-tide-scripture", "undertow-litany"],
+  "arts": [
+    {"lib": "deep-lake-stance"},
+    {"lib": "gathering-wave"},
+    {"lib": "brimming-cup"},
+    {"lib": "swelling-tide-palm"},
+    {"lib": "drag-of-the-deep"},
+    {"lib": "marrow-to-dew"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Debt Seal (enemy arts also cost health): no sim field, no library art lays it",
+    "Basic attack zeroed by the enabler (Open Palm Vow): sim basic attack still runs at base",
+    "Heart-demon Dread and enemy flight: not modelled",
+    "Held Reflection / returned costs: not modelled"
+  ]
+}

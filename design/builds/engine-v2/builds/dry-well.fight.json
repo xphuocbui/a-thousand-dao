@@ -1,0 +1,39 @@
+{
+  "name": "dry-well",
+  "realm": "nguyen_anh",
+  "n_body": 1.5,
+  "n_qi": 2.0,
+  "layers": [160, 0, 250, 0, 0],
+  "crit": {"chance": 0.0, "mult": 1.5},
+  "art_speed_pct": 100,
+  "art_cost_pct": 0,
+  "evade_pct": 0,
+  "accuracy_pct": 0,
+  "enemy": "top_end",
+  "ward": {"ws_base": 150, "we": 100, "layers": [300, 235, 150, 100]},
+  "purity": {"water": 90, "ice": 72},
+  "techniques": ["winter-toll-canon", "stilled-hour-sutra"],
+  "arts": [
+    {"lib": "rime-lock-seal"},
+    {"lib": "sleet-volley"},
+    {"lib": "deep-winter-form"},
+    {"lib": "black-ice-glaze"},
+    {"lib": "stilled-instant"},
+    {"lib": "shatter-palm"}
+  ],
+  "unmodelled": [
+    "Cold Toll / Absolute Zero (identity): Ice stacks raise the enemy's drain bills against your hits and ticks; its close halves Ice's art-cost raise",
+    "Owed Water: burn and unpaid bills past an empty pool become debt (cap 40 % of the enemy's maximum); their regeneration repays it, half to you",
+    "Water Table (enabler): 30 % of the bills the enemy's drain wards pay against your hits restore your linh luc (its close, no regeneration, is modelled)",
+    "Frost Tithe: 9 % of the extra art cost your Ice stacks make the enemy pay restores your linh luc",
+    "Still Water: linh luc lost to a full pool heals at half",
+    "Weighted Bucket (+30 % drain bills against your hits and ticks)",
+    "Cracked Clay: L5 +4 per 10 of your Ice stacks on the target, cap +20",
+    "Mountain Screen and Thousand-Layer Cloud ward shields (reserved, about 6,110 points at ws 150); only their reservation is modelled",
+    "#44 defence: resistance in points, drain rates scaled by ws and we, kept resistance that survives an empty pool",
+    "v1 reserve_share 0.069",
+    "v1 regen_bonus_pct -2 (a regeneration penalty; #44 regeneration is 3.5 % a pulse with no negative bonus, so it is left out)",
+    "v1 pierce_pct 0",
+    "v1 conditional_mods [{\"id\": \"bare_vessel\", \"layer\": 5, \"points\": 80, \"channels\": [\"art\", \"basic\"], \"guard\": {\"who\": \"enemy\", \"pool\": \"qi\", \"below\": 0.05}}]"
+  ]
+}

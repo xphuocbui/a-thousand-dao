@@ -1,0 +1,27 @@
+{
+  "name": "art-thief-ket-dan", "realm": "ket_dan",
+  "layers": [300, 150, 180, 100, 0],
+  "crit": {"chance": 0.12, "mult": 1.7},
+  "n_body": 1.0, "n_qi": 1.2,
+  "art_speed_pct": 20, "art_cost_pct": 30,
+  "regen_bonus_pp": 4, "health_regen_pp": 0.5,
+  "evade_pct": 4, "accuracy_pct": 8,
+  "leech_qi_pct": 6,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 52, "we": 30,
+           "layers": [200, 150, 100, 60], "block": 16.4},
+  "body": {"block": 16.4, "resistance": 20, "shield": 0.2, "layers": [60, 60, 30, 0]},
+  "purity": {"water": 60, "metal": 50},
+  "techniques": ["hollow-tide-scripture", "hundred-echo-palm-scripture", "afterimage-sword-canon"],
+  "arts": [
+    {"lib": "marrow-siphon-palm"},
+    {"lib": "hollowing-strike"},
+    {"lib": "answering-palm"},
+    {"lib": "twin-shadow-fist"},
+    {"lib": "phantom-sword"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "THEFT ITSELF (loan slots, the stolen tag, copying the foe's arts, half-cost half-cooldown copies): no library art or technique copies a foe's art, so the build carries the nearest library echo arts instead",
+    "a bare-fist enemy gives nothing to copy: not run"
+  ]
+}

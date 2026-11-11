@@ -1,0 +1,26 @@
+{
+  "name": "loaded-dice", "realm": "ket_dan",
+  "layers": [70, 20, 15, 10, 0],
+  "crit": {"chance": 0.30, "mult": 2.0},
+  "art_speed_pct": 10, "art_cost_pct": 15,
+  "regen_bonus_pp": 1.5, "gain_on_hit_pct": 0.4,
+  "evade_pct": 10,
+  "purity": {"thunder": 80},
+  "techniques": ["thousand-bolt-scripture", "hundred-echo-palm-scripture"],
+  "arts": [
+    {"lib": "overload-form"},
+    {"lib": "chain-arc"},
+    {"lib": "answering-peal"},
+    {"lib": "capacitor-palm"},
+    {"lib": "rolling-barrage-fist"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Loaded Table (counted crit and evade meters fed by khi van, pre-filled to half): the simulator uses crit chance as a mean, so only the crit rate is tested, not the counted order or the pre-fill",
+    "Jackpot (every 3rd counted crit +1.0 multiplier): folded into crit.mult as part of 2.0",
+    "Counted evade meter: approximated as evade_pct 10",
+    "Stacked Meter (+2% L2 per payout): not modelled; the old folded L2 average went with the invented arts",
+    "Spilled Luck: folded into crit.mult",
+    "Escape closed by the enabler: no escape art is modelled anyway"
+  ]
+}

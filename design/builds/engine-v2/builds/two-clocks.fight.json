@@ -1,0 +1,36 @@
+{
+  "name": "two-clocks",
+  "realm": "nguyen_anh",
+  "n_body": 1.5,
+  "n_qi": 1.3,
+  "layers": [10, 0, 200, 0, 0],
+  "crit": {"chance": 0.0, "mult": 1.5},
+  "art_speed_pct": 0,
+  "art_cost_pct": 0,
+  "regen_bonus_pp": 1,
+  "evade_pct": 0,
+  "accuracy_pct": 0,
+  "enemy": "top_end",
+  "ward": {"ws_base": 60, "we": 40, "layers": [300, 235, 150, 100]},
+  "purity": {"fire": 80, "wood": 80},
+  "techniques": ["red-sun-scripture", "ashen-phoenix-canon", "rotting-canopy-canon"],
+  "arts": [
+    {"lib": "flint-volley"},
+    {"lib": "heat-haze"},
+    {"lib": "furnace-heart"},
+    {"lib": "thorn-rain"},
+    {"lib": "blight-canker"},
+    {"lib": "thornling-grove"}
+  ],
+  "unmodelled": [
+    "Twin-Wick Incense Clock (enabler): L5 payloads also apply to ticks and the owner's hits deal no damage. Library arts keep their hits (no overrides allowed) and the L5-on-ticks opening is not expressed.",
+    "Ash Ledger (identity): 20 % of the tick damage resistance stops burns the target's linh luc. Needs a tick-prevented readable the engine lacks.",
+    "Spillover: 25 % of each tick's dealt damage burns linh luc. Not written as an Effect in the old file; left out.",
+    "Embers Feed the Hearth: Burn ticks restore 25 % of their dealt damage as linh luc. Not written as an Effect in the old file; left out.",
+    "Drain-ward billing of ticks and the ward falling at 0 linh luc (the first clock).",
+    "Cinder Debt: cleansed stacks burn the cleanser's linh luc.",
+    "Golden Light Shield, Spring Sap, Red/Green Censer and the old Ember Rain/Rot Seed were invented or common arts with no catalogue carrier here; dropped.",
+    "Common Ward and Mountain Screen in ward slots (resistance in points, reserved shield). The ward block above is the old pass model.",
+    "Purity fire 80 and wood 80 added from the guide (the old file carried none; its c_tick had folded purity in)."
+  ]
+}

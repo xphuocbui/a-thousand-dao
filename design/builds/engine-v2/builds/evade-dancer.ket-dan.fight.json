@@ -1,0 +1,26 @@
+{
+  "name": "evade-dancer-ket-dan", "realm": "ket_dan",
+  "layers": [150, 120, 60, 40, 20],
+  "crit": {"chance": 0.15, "mult": 1.8},
+  "n_body": 1.2, "n_qi": 1.2,
+  "art_speed_pct": 35, "art_cost_pct": 20, "art_cost_health_pct": 0,
+  "regen_bonus_pp": 3.0, "health_regen_pp": 3.0, "healing_pct": 0,
+  "evade_pct": 40, "accuracy_pct": 5,
+  "gain_on_hit_pct": 0, "leech_qi_pct": 0, "leech_health_pct": 0,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 40, "we": 40,
+           "layers": [80, 60, 40, 20], "block": 15},
+  "body": {"block": 20, "resistance": 25, "shield": 0.2, "layers": [60, 60, 40, 10]},
+  "cleanse": {"per_pulse": 0, "fee_share": 0, "share": 0.25},
+  "purity": {"wind": 80},
+  "bonus_slots": 0,
+  "techniques": ["gale-courier-scripture", "slow-hour-scripture"],
+  "arts": [
+    {"lib": "hundred-feather-flurry"},
+    {"lib": "held-breath"},
+    {"lib": "trailing-gale"},
+    {"lib": "echo-of-the-dodge"},
+    {"lib": "gale-sprite"}
+  ],
+  "enemy": "typical",
+  "unmodelled": ["evaded hit pays linh luc (modelled as +3 pp regen)", "evaded hit adds Wind stack (Evade Pays; not modelled, library arts bring their own stacks)", "evaded hit fires riposte (trigger, not modelled)", "evade_cap shift keystone"]
+}

@@ -1,0 +1,36 @@
+{
+  "_comment": "cooldown-floor (The Winnowing Gale) rebuilt from the art library at Nguyen Anh. NO OLD FIGHT FILE: every number is read from the guide and sheet, or ASSUMED. ASSUMED: purity wind 80 (guide says 70+; sheet computes at 80); art_speed_pct 190 = tree 87 (3 x 20 [wind] + 2 x 13.3) + fan 30 + Glass Meridians 40 + 33 Way lines, the scripture's +40 is lost; art_cost_pct 33 = tree 20 + 13.3 (scripture -20 lost); gain_on_hit_pct 0.44 = tree 0.29 + fan 0.15 (scripture 0.10 lost); leech_health_pct 6 (fan); layers [185, 0, 170, 0, 0]: L1 200 minus the scripture's +15 (lost), L2 0 (Light Chaff +60 scripture and +80 Way lost, no library equivalent), L3 170 fan and needle, L4 0 (blind, no foreseen fight), L5 0 (Overheat, Eruption lost; Steady Breath is an Effect); crit 0.5 / 3.0 (caps, guide rung 4); n_body 0.9 and body shield 0.15 = typical 1.2 and 0.3 with Glass Meridians (-25 % health, half body shields), n_qi 1.1 typical; typical Common Ward and typical body otherwise; bonus_slots 1 from the Granary-Mother's Fan. Techniques: gale-courier-scripture (main) and slow-hour-scripture (auxiliary secret), both wind; 7 arts in 6 + 1 slots, Swallow Stance dropped (it slows arts 25 %, against the floor).",
+  "name": "cooldown-floor", "realm": "nguyen_anh",
+  "layers": [185, 0, 170, 0, 0],
+  "crit": {"chance": 0.5, "mult": 3.0},
+  "n_body": 0.9, "n_qi": 1.1,
+  "art_speed_pct": 190, "art_cost_pct": 33,
+  "gain_on_hit_pct": 0.44, "leech_health_pct": 6,
+  "body": {"block": 15.0, "resistance": 25, "shield": 0.15},
+  "purity": {"wind": 80},
+  "bonus_slots": 1,
+  "techniques": ["gale-courier-scripture", "slow-hour-scripture"],
+  "arts": [
+    {"lib": "hundred-feather-flurry"},
+    {"lib": "three-step-chase"},
+    {"lib": "held-breath"},
+    {"lib": "trailing-gale"},
+    {"lib": "gale-sprite"},
+    {"lib": "echo-of-the-dodge"},
+    {"lib": "reckless-gale"}
+  ],
+  "effects": [
+    {"id": "steady-breath", "on": "always", "if": [{"read": "own.qi_share", "op": ">=", "value": 0.5}], "do": [{"mod": {"L5": 12}}]},
+    {"id": "still-water", "on": "overflow", "do": [{"heal": {"share": 0.5, "of": "amount"}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Slipstream (identity Effect, dampened art cost): staged, no library equivalent, lost",
+    "Light Chaff L2 more [quick, cheap] (scripture +60, Way +80): staged, lost",
+    "Breath Between Blows keystone, Eruption, Trigger limit, Overheat (reads clipped art speed): staged or no readable, lost",
+    "Echo of the guide (25 % free strike): host unspecified, replaced by the library art echo-of-the-dodge",
+    "Winnowing Wind Scripture passives (art speed +40, on-hit +0.10, cost -20, damage/ward bonuses) and its seven arts: replaced by library techniques",
+    "Steady Breath scope [phong] and the fan's other lines (carried as plain art_speed, gain_on_hit, leech, bonus slot)",
+    "Wind buff stacks as the art-speed engine: only arts that grant them, library arts here grant few"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+ "name": "curse-engine v2 (library arts), Ket Dan",
+ "realm": "ket_dan",
+ "n_body": 3.0,
+ "n_qi": 1.5,
+ "layers": [250, 0, 150, 80, 0],
+ "crit": {"chance": 0.0, "mult": 1.5},
+ "art_speed_pct": 100,
+ "art_cost_pct": 20,
+ "regen_bonus_pp": 2,
+ "accuracy_pct": 16,
+ "purity": {"metal": 80, "wood": 40},
+ "techniques": ["hunters-reach-canon", "hundred-blades-canon", "nine-seal-ledger"],
+ "enemy": "top_end",
+ "ward": {"ws_base": 100, "we": 80, "layers": [300, 235, 150, 100]},
+ "arts": [
+  {"lib": "pinning-arrow"},
+  {"lib": "needle-rain"},
+  {"lib": "sundering-wedge"},
+  {"lib": "frozen-hour-seal"},
+  {"lib": "branding-seal"}
+ ],
+ "effects": [
+  {"id": "litany-1-sealed", "on": "hit_landed", "if": [{"read": "foe.status.sealed_meridian", "op": "<", "value": 1}], "do": [{"status": {"id": "sealed_meridian", "stacks": 1, "dur": 2, "side": "foe"}}]},
+  {"id": "litany-2-sundered", "on": "hit_landed", "if": [{"read": "foe.status.sealed_meridian", "op": ">=", "value": 1}, {"read": "foe.status.sundered", "op": "<", "value": 3}], "do": [{"status": {"id": "sundered", "stacks": 1, "dur": 4, "side": "foe"}}]},
+  {"id": "litany-3-exposed", "on": "hit_landed", "if": [{"read": "foe.status.sealed_meridian", "op": ">=", "value": 1}, {"read": "foe.status.sundered", "op": ">=", "value": 1}, {"read": "foe.status.exposed", "op": "<", "value": 1}], "do": [{"status": {"id": "exposed", "stacks": 1, "dur": 3, "side": "foe"}}]},
+  {"id": "driven-nail", "on": "status_applied", "limit": {"per_pulse": 3}, "do": [{"timer": {"side": "own", "which": "longest", "by": -0.5}}]},
+  {"id": "weight-of-names", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 8}, "do": [{"mod": {"L5": 10}}]},
+  {"id": "marked-prey", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 4}, "do": [{"mod": {"L5": 4}}]},
+  {"id": "blood-drinker", "on": "hit_landed", "do": [{"heal": {"of": "amount", "share": 0.06}}]}
+ ],
+ "unmodelled": [
+  "Sealed Meridian's layer (the enemy's L2) is applied with no layer given: the engine default layer may be what it locks, not L2",
+  "The Litany refreshing the curse with least time left: four fixed if-chains here (three names at Ket Dan), no refresh",
+  "Weight of Names and Marked Prey are approximated with foe.distinct_statuses, which counts non-curse statuses and not stacks",
+  "Fourth Nail and Heavy Breath: not reached at Ket Dan",
+  "Backlash and Ash of the Effigy: no cleansing enemy in the engine",
+  "Insect-Waking Incense (+70 more on seal arts, layer 4): not writable without an art override; only the Nine Rods formation (+80 L4) is in layers",
+  "Linh luc on hit (+0.19 pp per hit): not modelled",
+  "ambush-talisman is the sixth art and Ket Dan has five slots, so it is left out"
+ ]
+}

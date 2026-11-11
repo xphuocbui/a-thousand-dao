@@ -1,0 +1,33 @@
+{
+  "name": "starter-flame",
+  "realm": "ket_dan",
+  "layers": [50, 40, 30, 20, 15],
+  "crit": {"chance": 0.05, "mult": 1.5},
+  "n_body": 1.0, "n_qi": 1.1,
+  "art_speed_pct": 10, "art_cost_pct": 15, "art_cost_health_pct": 0,
+  "regen_bonus_pp": 3, "health_regen_pp": 0, "healing_pct": 0,
+  "evade_pct": 0, "accuracy_pct": 0,
+  "gain_on_hit_pct": 0.6, "leech_qi_pct": 0, "leech_health_pct": 0,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 40, "we": 40,
+           "layers": [40, 40, 20, 10], "block": 15},
+  "body": {"block": 15, "resistance": 20, "shield": 0.2, "layers": [20, 20, 0, 0]},
+  "purity": {"fire": 70},
+  "bonus_slots": 0,
+  "techniques": ["red-sun-scripture", "ashen-phoenix-canon", "scorch-fist-primer"],
+  "arts": [
+    {"lib": "brazier-form"},
+    {"lib": "flint-volley"},
+    {"lib": "furnace-heart"},
+    {"lib": "twin-flame-echo"},
+    {"lib": "heat-haze"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Embers Feed the Hearth (25 % of each Burn tick returned as linh lực) is approximated by gain_on_hit_pct 0.6 and regen_bonus_pp 3 (identity id: embers-feed-the-hearth); its true trigger is not modelled",
+    "Embers Feed the Hearth's closing cost (direct Fire hits deal 15 % less) is not applied, so direct damage here is overstated by up to 15 %",
+    "First Move (first art free) and Fire art cost nodes are folded into art_cost_pct 15",
+    "Kindled Wound (L5 +15 on Fire parts vs a target bearing your Burn) is a guard the simulator cannot model: applied as always-on L5 15, a slight overstatement because Burn lands with the first art",
+    "Xich Diem Dia Quyet technique bonuses (linh_luc_pct 12, tam_ma_resist_pct 8) and the root purity are not checked beyond purity.fire; the technique's L2 share is folded into layers L2 40",
+    "Burn ticks are modelled by the simulator's fire debuff stacks; their linh luc return is the Embers approximation above"
+  ]
+}

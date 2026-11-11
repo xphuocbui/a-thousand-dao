@@ -255,8 +255,9 @@ which technique you commit your seasons to. The decision has two sides:
       rolled from tier templates (Formulas E). They name 1 element, or 2 with chance
       `multi_element_chance`. Each draws its bonuses from `bonus_pool`. It carries **one ability**, rolled from the
       art library's `common` tier, from an element it names (element-less for a body technique), unlocked at layer 1
-      (user decision 2026-11-11), so every life's starting technique has a real art. Authored techniques carry 1–3
-      signature abilities from the library, unlocking across their layers.
+      (user decision 2026-11-11), so every life's starting technique has a real art. Authored techniques carry 1–4
+      signature abilities from the library, unlocking across their layers; a technique that carries an art suite
+      (arts that read "another art of the same công pháp") carries the whole suite (user decision 2026-11-11; was 1–3).
     - A common offered to the player (market stock, an event reward) draws each
       element from the player's root with chance `root_bias` (0.6). Without the
       bias a random 1-element technique fits a 1-element root only 1 time in 5.

@@ -1,0 +1,29 @@
+{
+  "name": "mirror-hide-nguyen-anh", "realm": "nguyen_anh",
+  "layers": [400, 250, 200, 120, 0],
+  "crit": {"chance": 0.0, "mult": 1.5},
+  "n_body": 1.4, "n_qi": 1.0,
+  "art_speed_pct": 20, "art_cost_pct": 15, "art_cost_health_pct": 0,
+  "regen_bonus_pp": 3, "health_regen_pp": 2, "healing_pct": 20,
+  "evade_pct": 0, "accuracy_pct": 5,
+  "gain_on_hit_pct": 0, "leech_qi_pct": 0, "leech_health_pct": 0,
+  "ward": {"model": "off", "block": 30},
+  "body": {"block": 40, "resistance": 40, "shield": 0.3, "layers": [300, 250, 150, 100]},
+  "cleanse": {"per_pulse": 0, "fee_share": 0, "share": 0.25},
+  "keystones": {},
+  "curses": [],
+  "purity": {"earth": 70, "metal": 70},
+  "bonus_slots": 0,
+  "techniques": ["mountain-heart-canon", "iron-hide-manual"],
+  "arts": [
+    {"lib": "mountain-stance"},
+    {"lib": "sinking-weight"},
+    {"lib": "bastion-reprisal"},
+    {"lib": "strata-hammer"},
+    {"lib": "iron-hide-stance"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Return channel (Phan), Mirror-Scale Hide enabler, Held Reflection bank, Self-Wound Counts, Boil Returned, Bait curse: no engine event for a free hit per hit taken scaled by what was stopped"
+  ]
+}

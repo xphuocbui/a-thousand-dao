@@ -1,0 +1,29 @@
+{
+  "name": "art-thief", "realm": "nguyen_anh",
+  "layers": [400, 200, 240, 150, 0],
+  "crit": {"chance": 0.15, "mult": 1.8},
+  "n_body": 1.0, "n_qi": 1.3,
+  "art_speed_pct": 25, "art_cost_pct": 35, "art_cost_health_pct": 0,
+  "regen_bonus_pp": 5, "health_regen_pp": 0.5, "healing_pct": 0,
+  "evade_pct": 5, "accuracy_pct": 10,
+  "gain_on_hit_pct": 0, "leech_qi_pct": 8, "leech_health_pct": 0,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 62.5, "we": 40,
+           "layers": [300, 250, 150, 100], "block": 17.7},
+  "body": {"block": 17.7, "resistance": 25, "shield": 0.2, "layers": [100, 100, 60, 30]},
+  "purity": {"water": 60, "metal": 50},
+  "bonus_slots": 0,
+  "techniques": ["hollow-tide-scripture", "hundred-echo-palm-scripture", "afterimage-sword-canon"],
+  "arts": [
+    {"lib": "marrow-siphon-palm"},
+    {"lib": "hollowing-strike"},
+    {"lib": "answering-palm"},
+    {"lib": "twin-shadow-fist"},
+    {"lib": "phantom-sword"},
+    {"lib": "hollow-husk-stance"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "THEFT ITSELF (loan slots, the stolen tag, copying the foe's arts, half-cost half-cooldown copies, Pre-Read, Hollow Guard, Spent Hand): no library art or technique copies a foe's art, so the build carries the nearest library echo arts (own last art re-fired) instead",
+    "a bare-fist enemy gives nothing to copy: not run (the matrix enemy always has arts)"
+  ]
+}

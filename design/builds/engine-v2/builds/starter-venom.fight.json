@@ -1,0 +1,24 @@
+{
+  "name": "starter-venom", "realm": "truc_co",
+  "layers": [60, 0, 25, 15, 0],
+  "n_body": 1.0, "n_qi": 1.0,
+  "art_speed_pct": 0, "art_cost_pct": 5,
+  "regen_bonus_pp": 3, "health_regen_pp": 0.8, "healing_pct": 10,
+  "purity": {"wood": 50},
+  "techniques": ["verdant-cycle-scripture", "rotting-canopy-canon"],
+  "arts": [
+    {"lib": "thorn-rain"},
+    {"lib": "blight-canker"},
+    {"lib": "second-spring"},
+    {"lib": "harvest-bloom"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Root Drinks the Rot leech: an Effect from the tree keystone, staged only, not written in the old file",
+    "Patient Venom per-stack effect: needs a Per modifier on tick stack count, not in the old file",
+    "Sap Rises healing from stacks beyond the table: staged only, not in the old file",
+    "Moss-Ledger cleanse-immunity window: not expressible, not in the old file",
+    "Spillover is an upgrade, not in this file",
+    "Purity wood 50 added from the guide's 'middling purity' (the old file carried none)"
+  ]
+}

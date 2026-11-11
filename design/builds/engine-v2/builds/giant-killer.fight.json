@@ -1,0 +1,28 @@
+{
+  "name": "giant-killer",
+  "realm": "ket_dan",
+  "_comment": "No old fight file existed. ASSUMED from the guide/sheet (Core Formation, defining realm): layers [200,225,250,130,100] = L1 +200 (knee), L2 +225 (sheet; Needle's Eye 60+40+40, Ore Weight 45, Ant's Ladder 40 are NOT modelled as such, the number is kept as the sheet's total), L3 250 (cap, top-end anchor, needle+giap+chuong), L4 +130 (Nine Rods + Hand Bath, foreseen fight), L5 +100 (Against the Heavens, applied at every gap because no gap readable exists; the gap-0 row overstates). crit chance 0.5 mult 2.0 (guide cap and x2.0). art_speed_pct 50 (guide 40-60), art_cost_pct 20 (guide -20 %), regen_bonus_pp 6 (sheet), accuracy_pct 10 (guide). purity metal 80 / earth 80 (guide: 80 or more each). Ward and body left at the realm's typical Common Ward and typical body (no anchor in the guide beyond the Golden Bell / Soul-Guarding Lamp, which are not drain wards). Keystones none (Against the Heavens has no k_ field). Curses none.",
+  "layers": [200, 225, 250, 130, 100],
+  "crit": {"chance": 0.5, "mult": 2.0},
+  "art_speed_pct": 50,
+  "art_cost_pct": 20,
+  "regen_bonus_pp": 6,
+  "accuracy_pct": 10,
+  "purity": {"metal": 80, "earth": 80},
+  "techniques": ["nine-temper-scripture", "hundred-blades-canon", "iron-hide-manual"],
+  "arts": [
+    {"lib": "whetstone-pass"},
+    {"lib": "sheathed-edge"},
+    {"lib": "shatter-edge-cleave"},
+    {"lib": "flying-blade-retinue"},
+    {"lib": "sundering-wedge"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Half a Realm (enabler): no library art or technique does it and the engine has no fight-unit shift; lost",
+    "Against the Heavens: L5 +100 only against a higher foe; no realm-gap readable, so L5 100 is applied at every gap",
+    "Stiff Neck, Through the Ceiling, Mountain Notches, Needle's Eye, Realm-Piercing affix: not in the game, no library equivalent; lost",
+    "Realm pierce (pierce_pct) and Physical penetration: no engine field, so the pierce-to-cap job is absent",
+    "Golden Bell, Soul-Guarding Lamp, Clear Heart Ward: per-hit and soul wards are modelled as the typical Common Ward"
+  ]
+}

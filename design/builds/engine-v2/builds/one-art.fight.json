@@ -1,0 +1,28 @@
+{
+  "name": "one-art", "realm": "hoa_than",
+  "layers": [200, 80, 40, 0, 0],
+  "crit": {"chance": 0.333, "mult": 3.0},
+  "art_speed_pct": 30,
+  "regen_bonus_pp": 0,
+  "leech_health_pct": 6,
+  "purity": {"metal": 100},
+  "bonus_slots": 1,
+  "techniques": ["nine-temper-scripture", "hundred-blades-canon", "afterimage-sword-canon"],
+  "arts": [{"lib": "shatter-edge-cleave"}],
+  "effects": [
+    {"id": "clear-path", "on": "always", "do": [{"mod": {"art_speed": 280}}]},
+    {"id": "undivided", "on": "always", "do": [{"mod": {"L5": 70}}]},
+    {"id": "quiet-channels", "on": "always", "do": [{"mod": {"regen": 3}}]},
+    {"id": "steady-breath", "on": "always", "if": [{"read": "own.qi_share", "op": ">=", "value": 0.5}], "do": [{"mod": {"L5": 12}}]},
+    {"id": "empty-hall", "on": "art_fired", "filter": {"art_id": "shatter-edge-cleave"}, "do": [{"stacks": {"el": "metal", "n": 6, "for": 6, "side": "foe"}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Vow of the One Stroke: +0.4 coefficient per empty slot has no key and arts take no overrides; the cleave stays at the library coefficient",
+    "Empty Hall rings are modelled as 6 Metal debuff stacks laid on the foe at firing; the free echo hit of each ring is not modelled",
+    "Called Blow meter modelled as a fixed 33.3 % crit chance; the real meter is deterministic",
+    "Six wards (Common, Mountain Screen, Thousand-Layer Cloud, Golden Bell, Clear Heart, Soul-Guarding Lamp) modelled as the realm's typical Common Ward",
+    "Single-Notch Sword reduced to +30 art speed and Blood Drinker 6 %; its Physical penetration and Treasure Nurtured Within growth are not modelled",
+    "Open Sky, Whole Weight and plain armour folded into layers L2 80 and L3 40; no preparation (L4 0) in a blind fight"
+  ]
+}

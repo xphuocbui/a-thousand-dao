@@ -1,0 +1,22 @@
+{
+  "name": "sect-ladder-ket-dan", "realm": "ket_dan",
+  "layers": [55, 40, 40, 20, 0],
+  "art_speed_pct": 6, "art_cost_pct": 4,
+  "regen_bonus_pp": 0.5,
+  "keystones": {"k_burn": 0.3},
+  "purity": {"fire": 85},
+  "techniques": ["red-sun-scripture"],
+  "arts": [
+    {"lib": "brazier-form"}, {"lib": "flint-volley"}, {"lib": "furnace-heart"}, {"lib": "twin-flame-echo"}
+  ],
+  "effects": [
+    {"id": "kindled-wound", "on": "always", "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 1}],
+     "do": [{"mod": {"L5": 15}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Embers Feed the Hearth modelled by keystone k_burn 0.3; its closing cost is not in the file",
+    "Ember Rod, Hearth-Warming Pill and Gathering Flame Array carried by typical L3 and L4 points",
+    "The Red Hearth Robe's body and ward affixes are carried by the typical Common Ward"
+  ]
+}

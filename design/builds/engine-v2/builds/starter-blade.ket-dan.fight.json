@@ -1,0 +1,19 @@
+{
+  "name": "starter-blade-ket-dan", "realm": "ket_dan",
+  "layers": [85, 40, 35, 20, 10],
+  "crit": {"chance": 0.18, "mult": 1.7},
+  "n_body": 1.2, "n_qi": 1.1,
+  "art_speed_pct": 0, "art_cost_pct": 0,
+  "regen_bonus_pp": 0.5,
+  "purity": {"metal": 65},
+  "techniques": ["nine-temper-scripture", "afterimage-sword-canon", "hundred-blades-canon"],
+  "arts": [
+    {"lib": "whetstone-pass"},
+    {"lib": "needle-rain"},
+    {"lib": "sheathed-edge"},
+    {"lib": "phantom-sword"},
+    {"lib": "flying-sword"}
+  ],
+  "enemy": "typical",
+  "unmodelled": ["Flowing Water timer cut on crit (Kiem Y notable, not in the game)", "linh luc regained on crit (tree notable)", "basic attack coefficient add", "Hot Edge recent-crit condition (L5 held at 10 points)", "crit chance 0.18 still carries the old averaged Whet stacks"]
+}

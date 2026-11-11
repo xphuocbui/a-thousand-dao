@@ -1,0 +1,44 @@
+{
+ "name": "curse-engine v2 (library arts), Nguyen Anh",
+ "realm": "nguyen_anh",
+ "n_body": 3.0,
+ "n_qi": 1.5,
+ "layers": [330, 0, 150, 80, 0],
+ "crit": {"chance": 0.0, "mult": 1.5},
+ "art_speed_pct": 100,
+ "art_cost_pct": 20,
+ "regen_bonus_pp": 2,
+ "accuracy_pct": 16,
+ "purity": {"metal": 80, "wood": 40},
+ "techniques": ["hunters-reach-canon", "hundred-blades-canon", "nine-seal-ledger"],
+ "enemy": "top_end",
+ "ward": {"ws_base": 120, "we": 100, "layers": [300, 235, 150, 100]},
+ "arts": [
+  {"lib": "pinning-arrow"},
+  {"lib": "needle-rain"},
+  {"lib": "sundering-wedge"},
+  {"lib": "ambush-talisman"},
+  {"lib": "frozen-hour-seal"},
+  {"lib": "branding-seal"}
+ ],
+ "effects": [
+  {"id": "litany-1-sealed", "on": "hit_landed", "if": [{"read": "foe.status.sealed_meridian", "op": "<", "value": 1}], "do": [{"status": {"id": "sealed_meridian", "stacks": 1, "dur": 2, "side": "foe"}}]},
+  {"id": "litany-2-sundered", "on": "hit_landed", "if": [{"read": "foe.status.sealed_meridian", "op": ">=", "value": 1}, {"read": "foe.status.sundered", "op": "<", "value": 3}], "do": [{"status": {"id": "sundered", "stacks": 1, "dur": 4, "side": "foe"}}]},
+  {"id": "litany-3-exposed", "on": "hit_landed", "if": [{"read": "foe.status.sealed_meridian", "op": ">=", "value": 1}, {"read": "foe.status.sundered", "op": ">=", "value": 1}, {"read": "foe.status.exposed", "op": "<", "value": 1}], "do": [{"status": {"id": "exposed", "stacks": 1, "dur": 3, "side": "foe"}}]},
+  {"id": "litany-4-heavy-breath", "on": "hit_landed", "if": [{"read": "foe.status.exposed", "op": ">=", "value": 1}, {"read": "foe.status.heavy_breath", "op": "<", "value": 2}], "do": [{"status": {"id": "heavy_breath", "stacks": 1, "dur": 4, "side": "foe"}}]},
+  {"id": "driven-nail", "on": "status_applied", "limit": {"per_pulse": 3}, "do": [{"timer": {"side": "own", "which": "longest", "by": -0.5}}]},
+  {"id": "weight-of-names", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 8}, "do": [{"mod": {"L5": 10}}]},
+  {"id": "marked-prey", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 4}, "do": [{"mod": {"L5": 4}}]},
+  {"id": "blood-drinker", "on": "hit_landed", "do": [{"heal": {"of": "amount", "share": 0.06}}]}
+ ],
+ "unmodelled": [
+  "Sealed Meridian's layer (the enemy's L2) is applied with no layer given: the engine default layer may be what it locks, not L2",
+  "The Litany refreshing the curse with least time left and the 'fewer stacks than the most' rule: written as four fixed if-chains, no refresh",
+  "Weight of Names (curse stacks, +10 each, cap +80) and Marked Prey (different curses, +4 each, cap 16) are approximated with foe.distinct_statuses, which counts non-curse statuses and not stacks",
+  "Fourth Nail (curse_slots +1, curses on you last twice as long): no keystone field; Heavy Breath is laid by the litany but may not fit a fourth slot",
+  "Backlash (a cleansed curse lands on you) and Ash of the Effigy: no cleansing enemy in the engine; Ash left with the invented arts",
+  "Insect-Waking Incense (+70 more on seal arts, layer 4): a seal-scoped L4 cannot be written without an art override; only the Nine Rods formation (+80 L4) is in layers",
+  "Linh luc on hit (+0.19 pp per hit): not modelled",
+  "Paid in Nails and Nail Into Straw (Scripture pieces): lost with the invented Scripture"
+ ]
+}

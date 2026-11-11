@@ -33,11 +33,8 @@ the bonuses, W-priced passives against the budget, that suite arts unlock by lay
 
 ## Open
 
-- **Rule 17 says an authored technique carries 1-3 signature abilities.** 14 suite techniques carry 4. Either rule 17
-  becomes 1-4, or those suites split across two techniques, which breaks the "same công pháp" link the suite's
-  engines read. The lint notes these lines and does not count them as findings.
-- **The force-chaos techniques name Primordial Chaos (`hon_don`)**, which needs all five elements in the root, so
-  few characters can slot them. Element-less arts may sit in any technique, so these could name one base element
-  instead.
-- The passives are not yet run on the combat engine: the suite check (`tools/design/arts/suite_check.py`) fights
-  arts only. They take effect when the builds are rebuilt from the library (`design/builds/engine-v2/`).
+- Decided 2026-11-11 (user, on Claude's recommendation): rule 17 now allows 1-4 signature abilities, a suite carried
+  whole; the force-chaos techniques name one base element each (water, earth, metal) instead of Primordial Chaos.
+- `fight.py` runs a build's techniques (`"techniques": [ids]`) as one always-on Effect `tech:<id>`. Passives with no
+  engine stat (stack effect and duration, status duration, resistance penetration, body shield, health) and scopes on
+  stats the engine reads without hit context (art speed, art cost) are printed as UNMODELLED, not run.

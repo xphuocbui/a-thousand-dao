@@ -1,0 +1,23 @@
+{
+  "name": "sect-ladder", "realm": "truc_co",
+  "layers": [26.5, 40, 40, 20, 0],
+  "art_speed_pct": 4, "art_cost_pct": 3,
+  "regen_bonus_pp": 0.4,
+  "keystones": {"k_burn": 0.3},
+  "purity": {"fire": 80},
+  "techniques": ["red-sun-scripture"],
+  "arts": [
+    {"lib": "brazier-form"}, {"lib": "flint-volley"}, {"lib": "furnace-heart"}, {"lib": "twin-flame-echo"}
+  ],
+  "effects": [
+    {"id": "kindled-wound", "on": "always", "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 1}],
+     "do": [{"mod": {"L5": 15}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Embers Feed the Hearth (burn tick restores linh luc) is modelled by keystone k_burn 0.3; its closing cost (direct Fire hits 15 percent less) is not in the file",
+    "Hearth-Warming Pill, Gathering Flame Array (L4) and Ember Rod (L3) are carried by the typical L3 and L4 points",
+    "Hoa Dao Chan Hoa nodes and the sect tree cluster sit inside the typical L1 and L2 points",
+    "Deep Heat (+0.4 % more Burn per stack, L2) was never in the old file and is not here"
+  ]
+}

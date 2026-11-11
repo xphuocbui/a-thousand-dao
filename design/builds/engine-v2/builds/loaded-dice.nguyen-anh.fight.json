@@ -1,0 +1,25 @@
+{
+  "name": "loaded-dice-nguyen-anh", "realm": "nguyen_anh",
+  "layers": [90, 30, 20, 15, 0],
+  "crit": {"chance": 0.40, "mult": 2.2},
+  "art_speed_pct": 15, "art_cost_pct": 20,
+  "regen_bonus_pp": 2.5, "gain_on_hit_pct": 0.5,
+  "evade_pct": 15,
+  "purity": {"thunder": 90},
+  "techniques": ["thousand-bolt-scripture", "hundred-echo-palm-scripture"],
+  "arts": [
+    {"lib": "overload-form"},
+    {"lib": "chain-arc"},
+    {"lib": "answering-peal"},
+    {"lib": "capacitor-palm"},
+    {"lib": "rolling-barrage-fist"},
+    {"lib": "twin-shadow-fist"}
+  ],
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 50, "we": 40,
+           "layers": [30, 30, 20, 0], "block": 15},
+  "enemy": "typical",
+  "unmodelled": [
+    "Loaded Table, Jackpot, counted evade, Spilled Luck, escape closed by the enabler: as in the Core Formation file",
+    "Stacked Meter: not modelled"
+  ]
+}

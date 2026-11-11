@@ -1,0 +1,32 @@
+{
+  "name": "burial-shroud",
+  "realm": "ket_dan",
+  "n_body": 2.6,
+  "n_qi": 2.4,
+  "layers": [134, 0, 90, 0, 0],
+  "regen_bonus_pp": 3,
+  "ward": {
+    "ws_base": 150,
+    "we": 150
+  },
+  "purity": {"water": 50, "earth": 50},
+  "techniques": ["hollow-tide-scripture", "ruin-ledger-scripture"],
+  "arts": [
+    {"lib": "marrow-siphon-palm"},
+    {"lib": "hollowing-strike"},
+    {"lib": "fraying-thread"},
+    {"lib": "ripening-curse"},
+    {"lib": "gathered-ruin-verdict"}
+  ],
+  "unmodelled": [
+    "Grave Rot (the shroud's permanent no-duration tick, c_tick 0.35, x [60,180,0,100,0]) is not expressible; the old file carried it only as an unmodelled line",
+    "Reservation of 25 % of linh lực by the shroud: no reservation field in the engine",
+    "pierce_pct 30 (realm pierce): no field in the engine",
+    "body guard {a_b 3.0, t_b 1.0, body_guard_pct 40}: not modelled, typical body used",
+    "Spillover (tick overflow burns linh lực): not expressible; the Qi Disruption of Marrow Siphon Palm is the nearest library burn",
+    "Bare Vessel (+80 L5 to art and basic hits while enemy linh lực under 5 %): no conditional layer field",
+    "Corpse-Wax Coating (L4 +100 on ticks), Rot Deepens (L2 +180 on ticks): tick-scoped layers, no Rot to scope them to",
+    "Cleansing by enemies and the shroud's vitality cost after a long fight: caller rules, as in the old file",
+    "Ward shape: modelled as the Common Ward at ws 150 and we 150, as in the old file"
+  ]
+}

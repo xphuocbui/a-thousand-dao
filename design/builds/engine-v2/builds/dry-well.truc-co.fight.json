@@ -1,0 +1,25 @@
+{
+  "name": "dry-well-truc-co",
+  "realm": "truc_co",
+  "n_body": 1.3,
+  "n_qi": 1.5,
+  "layers": [60, 0, 100, 0, 0],
+  "crit": {"chance": 0.0, "mult": 1.5},
+  "art_speed_pct": 30,
+  "regen_bonus_pp": 2.5,
+  "enemy": "typical",
+  "ward": {"ws_base": 60, "we": 40, "layers": [300, 235, 150, 100]},
+  "purity": {"water": 90, "ice": 72},
+  "techniques": ["winter-toll-canon", "stilled-hour-sutra"],
+  "arts": [
+    {"lib": "rime-lock-seal"},
+    {"lib": "sleet-volley"},
+    {"lib": "deep-winter-form"},
+    {"lib": "shatter-palm"}
+  ],
+  "unmodelled": [
+    "Frost Tithe: 9 % of the extra art cost your Ice stacks make the enemy pay restores your linh luc",
+    "Weighted Bucket (+10 % at this realm)",
+    "#44 defence: resistance in points, drain rates scaled by ws and we"
+  ]
+}

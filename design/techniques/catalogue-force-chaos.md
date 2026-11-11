@@ -1,12 +1,13 @@
 # Techniques: element-less Force (Chấn) and Chaos (Hỗn Độn)
 
-Family `force-chaos`: 8 signature arts in two suites plus two loose arts, carried by 3 techniques. All name Primordial
-Chaos (`hon_don`), the family's element id; harmony with other mains is neutral. Hollow Tide Scripture is the main
+Family `force-chaos`: 8 signature arts in two suites plus two loose arts, carried by 3 techniques. Each names one base
+element (water, earth, metal; changed from Primordial Chaos `hon_don` 2026-11-11 so most roots can slot them; the arts
+are element-less). Hollow Tide Scripture is the main
 method; the other two are secret arts that ride beside any main. Passive W are from `lint_techniques.py`.
 
 ## Hollow Tide Scripture (Không Triều Kinh)
 
-Main method, Earth (Địa, tier 2), 12 layers. Names: `hon_don`. Suite `hollow-tide-scripture`.
+Main method, Earth (Địa, tier 2), 12 layers. Names: `thuy`. Suite `hollow-tide-scripture`.
 
 | Layer | Art unlocked |
 |---|---|
@@ -24,7 +25,7 @@ other tick arts) and anything that lowers foe linh lực so Hollowing Strike's d
 
 ## Ruin Ledger Scripture (Phế Trướng Kinh)
 
-Secret art, Profound (Huyền, tier 1), 9 layers. Names: `hon_don`. Suite `ruin-ledger-scripture`.
+Secret art, Profound (Huyền, tier 1), 9 layers. Names: `tho`. Suite `ruin-ledger-scripture`.
 
 | Layer | Art unlocked |
 |---|---|
@@ -41,7 +42,7 @@ for all three arts. Cast the Thread, then Ripening, then spend on the Verdict.
 
 ## Tearing Force Rites (Xé Chấn Nghi)
 
-Secret art, Yellow (Hoàng, tier 0), 6 layers. Names: `hon_don`. Carrier for the two loose arts (suite: none).
+Secret art, Yellow (Hoàng, tier 0), 6 layers. Names: `kim`. Carrier for the two loose arts (suite: none).
 
 | Layer | Art unlocked |
 |---|---|

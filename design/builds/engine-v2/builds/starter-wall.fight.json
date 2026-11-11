@@ -1,0 +1,30 @@
+{
+  "name": "starter-wall", "realm": "truc_co",
+  "layers": [90, 10, 0, 0, 0],
+  "crit": {"chance": 0.0, "mult": 1.5},
+  "n_body": 1.2, "n_qi": 1.1,
+  "art_speed_pct": 0, "art_cost_pct": 10, "art_cost_health_pct": 0,
+  "regen_bonus_pp": 2.5, "health_regen_pp": 1.5, "healing_pct": 20,
+  "evade_pct": 0, "accuracy_pct": 0,
+  "gain_on_hit_pct": 0, "leech_qi_pct": 0, "leech_health_pct": 0,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 45, "we": 30,
+           "layers": [50, 47, 20, 0], "block": 15},
+  "body": {"block": 30, "resistance": 25, "shield": 0.3, "layers": [50, 47, 20, 0]},
+  "cleanse": {"per_pulse": 0, "fee_share": 0, "share": 0.25},
+  "purity": {"earth": 50},
+  "bonus_slots": 0,
+  "techniques": ["mountain-heart-canon", "unbroken-flesh-canon", "mountain-bone-body-art"],
+  "arts": [
+    {"lib": "mountain-stance"},
+    {"lib": "sinking-weight"},
+    {"lib": "bastion-reprisal"},
+    {"lib": "strata-hammer"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Iron Skin Renewed (body shield regains 2 % of max health when an art with a Physical part fires): an Effect of the Way, not written in the file",
+    "Hộ Sơn Trận (formation, home ground only) and Kim Cương Phù talisman (prepared defence, blind fights)",
+    "Stone Does Not Hurry (new Per modifier on the basic attack, up to +12 % more): needs a key and is not in the file",
+    "Block, body resistance and ward are modelled by their nearest numbers; ward is a drain ward"
+  ]
+}

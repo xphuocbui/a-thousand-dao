@@ -1,0 +1,24 @@
+{
+  "name": "status-collector-ket-dan", "realm": "ket_dan",
+  "layers": [200, 100, 70, 40, 6],
+  "crit": {"chance": 0.15, "mult": 1.8},
+  "n_body": 1.1, "n_qi": 1.1,
+  "art_speed_pct": 25, "art_cost_pct": 12,
+  "regen_bonus_pp": 3, "health_regen_pp": 2,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 47.9, "we": 30,
+           "layers": [100, 80, 40, 20], "block": 15},
+  "body": {"block": 15, "resistance": 15, "shield": 0.2, "layers": [30, 25, 10, 0]},
+  "techniques": ["winter-toll-canon", "ruin-ledger-scripture", "rotting-canopy-canon"],
+  "arts": [
+    {"lib": "rime-lock-seal"},
+    {"lib": "black-ice-glaze"},
+    {"lib": "fraying-thread"},
+    {"lib": "ripening-curse"},
+    {"lib": "blight-canker"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Marked Prey, Crowded Ledger and the Tally Gourd belonged to the old invented arts and are not in this file; the library count reader is Ripening Curse",
+    "The old fight file carried no purity field and none is written here"
+  ]
+}

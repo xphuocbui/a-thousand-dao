@@ -1,0 +1,30 @@
+{
+  "name": "bare-fist",
+  "realm": "nguyen_anh",
+  "n_body": 1.275,
+  "n_qi": 1.3,
+  "layers": [200, 0, 180, 0, 0],
+  "crit": {"chance": 0.45, "mult": 2.1},
+  "art_speed_pct": 0,
+  "regen_bonus_pp": 6.03,
+  "evade_pct": 31,
+  "accuracy_pct": 0,
+  "enemy": "typical",
+  "purity": {"earth": 80},
+  "ward": {"ws_base": 0, "we": 0, "layers": [300, 235, 150, 100]},
+  "techniques": ["mountain-heart-canon", "unbroken-flesh-canon"],
+  "arts": [
+    {"lib": "sinking-weight"},
+    {"lib": "bastion-reprisal"},
+    {"lib": "strata-hammer"},
+    {"lib": "bulwark-knuckle"},
+    {"lib": "last-breath-fist"}
+  ],
+  "unmodelled": [
+    "Closed Hand Vow (ward efficiency +100 with no damaging art slotted): the rebuilt loadout slots damaging arts (strata-hammer, last-breath-fist, bulwark-knuckle), so the Vow would be void; the old file only folded it into the ward drain floor, and that ward is kept unchanged",
+    "Stored Breath, Quiet Channels, Settled Dust, Still Water, Unyielding Breath, Elemental Fist, Steady Breath, Full Sea, Bare Rack: never expressed as effects in the old file, so not added now (Stored Breath belonged to the invented Uncarved Stone Fist, which has no library equivalent)",
+    "basic_speed_pct and basic_coef_add (old guide: +50 % speed, +1.2 coefficient): not in the old file's fields; not added",
+    "Layered wards (Common Ward, Qi-Scattering Robe, Mountain Screen, Iron Shirt, Clear Heart Ward and others) are modelled as the one drain ward of the old file; reserved-ward payloads, ward shields and per-hit wards are not modelled",
+    "mountain-stance (mountain-heart-canon L1) left out: its state slows the basic attack by 40 percent, against the concept, and the engine would toggle it on cooldown"
+  ]
+}
