@@ -517,6 +517,8 @@ def main():
                 print("timeline\t%d\t%.2f\t%.2f\t%.2f\t%.2f" % row[:5])
             print("timeline_end\t%s\t%.2f s" % (out["win"].replace("A", "you").replace("B", "foe"), out["t"]))
         for n in sorted(set(notes)):
+            if n.startswith("soft_knee\tenemy"):
+                continue  # the reference enemies' own L1 fit, the same on every run
             print(n)
         if r > 0:
             print("model_note\tenemies are exact at Qi Refining and fitted at %s (Combat Formulas B: re-derive)"

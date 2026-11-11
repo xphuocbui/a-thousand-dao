@@ -1,0 +1,133 @@
+{
+  "name": "dry-well",
+  "realm": "nguyen_anh",
+  "n_body": 1.5,
+  "n_qi": 2.0,
+  "layers": [
+    160,
+    0,
+    250,
+    0,
+    0
+  ],
+  "crit": {
+    "chance": 0.0,
+    "mult": 1.5
+  },
+  "art_speed_pct": 100,
+  "art_cost_pct": 0,
+  "evade_pct": 0,
+  "accuracy_pct": 0,
+  "enemy": "top_end",
+  "ward": {
+    "ws_base": 150,
+    "we": 100,
+    "layers": [
+      300,
+      235,
+      150,
+      100
+    ]
+  },
+  "arts": [
+    {
+      "id": "rime_needle",
+      "c_art": 0.68,
+      "cost_share": 0.03,
+      "cooldown": 1,
+      "kind": "elem",
+      "x": [
+        140,
+        300,
+        0,
+        150,
+        0
+      ]
+    },
+    {
+      "id": "leaking_seal",
+      "c_art": 1.9,
+      "cost_share": 0.03,
+      "cooldown": 2,
+      "kind": "elem",
+      "x": [
+        140,
+        300,
+        0,
+        150,
+        0
+      ]
+    },
+    {
+      "id": "drowning_palm",
+      "c_art": 2.2,
+      "cost_share": 0.05,
+      "cooldown": 3,
+      "kind": "phys",
+      "x": [
+        40,
+        150,
+        0,
+        60,
+        0
+      ]
+    },
+    {
+      "id": "undertow",
+      "c_art": 2.9,
+      "cost_share": 0.06,
+      "cooldown": 3,
+      "kind": "elem",
+      "x": [
+        140,
+        300,
+        0,
+        150,
+        0
+      ]
+    },
+    {
+      "id": "dry_riverbed",
+      "c_art": 4.6,
+      "cost_share": 0.1,
+      "cooldown": 6,
+      "kind": "elem",
+      "x": [
+        140,
+        300,
+        0,
+        150,
+        0
+      ]
+    }
+  ],
+  "unmodelled": [
+    "v1 note: The Dry Well (Khô Tỉnh), Nguyen Anh, foreseen. fight_calc.py is the pre-#44 model (CONSTANT_DRIFT 31 of 60), so its numbers are observations only; the sheet's verdicts use the paper model in dry-well.sheet.md § Fight Results. Old-model shapes: Cold hits are kind qi, Force hits kind body; the build's ward is a drain ward shaped like the top-end fixture at ws 150, we 100. Ice stacks are approximated by a cost_raise curse (capped at +50 % by the old curse cap; the real stacks are uncapped). regen_bonus_pct -2 sets the old regen_base 0.02 to 0, which is Water Table's close.",
+    "Cold Toll (identity): Ice stacks raise the enemy's drain bills against your hits and ticks; its close halves Ice's art-cost raise",
+    "Ice element debuff stacks (+3.9 % art cost each, x1.234 purity, +50 % stack effect, no cap); approximated by a +50 % cost_raise curse",
+    "Owed Water: burn and unpaid bills past an empty pool become debt (cap 40 % of the enemy's maximum); their regeneration repays it, half to you",
+    "Water Table (enabler): 30 % of the bills the enemy's drain wards pay against your hits restore your linh luc (its close, no regeneration, is modelled)",
+    "Frost Tithe: 9 % of the extra art cost your Ice stacks make the enemy pay restores your linh luc",
+    "Still Water: linh luc lost to a full pool heals at half",
+    "Weighted Bucket (+30 % drain bills against your hits and ticks)",
+    "Cracked Clay: L5 +4 per 10 of your Ice stacks on the target, cap +20",
+    "Spring at the Well's Mouth (heal art, slot 6, refunds its cost when it heals)",
+    "Mountain Screen and Thousand-Layer Cloud ward shields (reserved, about 6,110 points at ws 150); only their reservation is modelled",
+    "#44 defence: resistance in points, drain rates scaled by ws and we, kept resistance that survives an empty pool",
+    "Dry Riverbed's 40 % Physical part; Drowning Palm's Force penetration +300 points",
+    "v1 reserve_share 0.069",
+    "v1 regen_bonus_pct -2 (a regeneration penalty; #44 regeneration is 3.5 % a pulse with no negative bonus, so it is left out)",
+    "v1 pierce_pct 0",
+    "v1 conditional_mods [{\"id\": \"bare_vessel\", \"layer\": 5, \"points\": 80, \"channels\": [\"art\", \"basic\"], \"guard\": {\"who\": \"enemy\", \"pool\": \"qi\", \"below\": 0.05}}]",
+    "v1 ward shape {\"pass\": {\"body\": 0.42, \"qi\": 0.28}, \"drain\": {\"body\": 0.72, \"qi\": 1.08}} (pass and drain shares are retired; modelled as the Common Ward at this ws and we, every ward layer at cap)",
+    "v1 art rime_needle curse {\"cost_raise\": 0.5, \"duration\": 7}",
+    "v1 art rime_needle guard {\"who\": \"enemy\", \"pool\": \"qi\", \"above\": 0.05}",
+    "v1 art leaking_seal curse {\"drain_raise\": 0.5, \"duration\": 3}",
+    "v1 art leaking_seal guard {\"who\": \"enemy\", \"pool\": \"qi\", \"above\": 0.05}",
+    "v1 art drowning_palm applies [{\"id\": \"qi_disruption\", \"kind\": \"qi_burn\", \"c_tick\": 0.3, \"stacks\": 3, \"stack_cap\": 3, \"duration\": 3, \"x\": [40, 150, 0, 60, 0]}]",
+    "v1 art drowning_palm guard {\"who\": \"enemy\", \"pool\": \"qi\", \"above\": 0.05}",
+    "v1 art undertow guard {\"who\": \"enemy\", \"pool\": \"qi\", \"below\": 0.05}",
+    "v1 art dry_riverbed guard {\"who\": \"enemy\", \"pool\": \"qi\", \"below\": 0.05}"
+  ],
+  "_comment": "Migrated from fight_calc.py format v1 by tools/design/combat_sim/migrate_fight_v1.py (2026-11-11). Art kinds: qi -> elem, body -> phys, no element stacks. Costs kept (post-#44 file). Ward: v1 ws and we kept, every ward layer at cap (top-end build). Everything with no new field is in unmodelled, prefixed v1."
+}

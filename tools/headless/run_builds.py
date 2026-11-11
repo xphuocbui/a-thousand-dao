@@ -6,6 +6,7 @@ fresh session keeps the parent's long context out of every build (see the memory
 Usage (from the repo root):
     python -I tools/headless/run_builds.py --run design/builds/overnight-2026-11-10 \
         [--queue <run>/queue.json] [--until 2026-11-11T09:00] [--parallel 2] [--model opus] [--dry-run]
+        [--no-simulator]
     python -I tools/headless/run_builds.py --run <run dir> --summary-only
 
 The queue is a JSON list of seeds, re-read before every launch, so seeds can be appended while it runs:
@@ -15,7 +16,7 @@ The queue is a JSON list of seeds, re-read before every launch, so seeds can be 
 Per build the session writes, inside <run>/builds/:
     <slug>.md          a player guide (why it works, what to look for, what to stack, what is missing)
     <slug>.sheet.md    the design-build sheet (skill template)
-    <slug>.fight.json  the fight input for fight.py (only when the simulator is allowed)
+    <slug>.fight.json  the fight input for fight.py (not with --no-simulator)
 and appends to the run's shared files: staging-catalogue.md (missing pieces), suggestions.md (system
 changes), ledger.md. It never touches GDDs, the real modifier catalogue, the real content ledger, data or code.
 
@@ -41,14 +42,31 @@ LOCAL = os.path.join(REPO, "project.local.yaml")
 SESSION_TIMEOUT = 75 * 60
 LIMIT_WAIT = 15 * 60
 
-ALLOWED = ",".join([
+ALLOWED_BASE = [
     "Read", "Glob", "Grep", "Edit", "Write", "Skill", "TodoWrite",
     "Bash(bash */.claude/skills/design-build/../../hooks/yaml-helper.sh *)",
     "Bash(bash .claude/hooks/yaml-helper.sh *)",
     "Bash(ls *)", "Bash(wc *)", "Bash(grep *)", "Bash(head *)",
-])
-# No combat simulator in this run (user, 2026-11-11): python is blocked, so fight.py cannot run.
-DISALLOWED = ",".join(["AskUserQuestion", "Agent", "Bash(git *)", "Bash(python *)", "WebSearch", "WebFetch"])
+]
+# The simulator (default): sessions may run fight.py and nothing else in Python. A deny rule would beat this
+# allow rule, so Python is not denied by pattern; a headless session cannot prompt, so any Python command not
+# on the allow list is refused anyway. --no-simulator denies all Python, as in the 2026-11-10 run.
+FIGHT_TOOL = "Bash(python .claude/skills/design-build/scripts/fight.py *)"
+DISALLOWED_BASE = ["AskUserQuestion", "Agent", "Bash(git *)", "WebSearch", "WebFetch"]
+ALLOWED = ",".join(ALLOWED_BASE + [FIGHT_TOOL])
+DISALLOWED = ",".join(DISALLOWED_BASE)
+
+FIGHT_SIM = """   - `{builds}/{slug}.fight.json`: the fight input (references/content-formats.md, Fight input). In Phase 2
+     run `python .claude/skills/design-build/scripts/fight.py --selftest`; in Phase 7 run `python
+     .claude/skills/design-build/scripts/fight.py {builds}/{slug}.fight.json --matrix` and the `--without` run on
+     the identity piece, at the defining realm and one other. That script is the only Python you may run; do not
+     write or run any other script, and do not hand-simulate the fight. Report the fight checks from its output,
+     and list everything it could not model (its `model_note` and `UNMODELLED` lines) in the sheet."""
+FIGHT_NONE = """   - NO combat simulator in this run (driver --no-simulator). Do not write a fight input, do not run or
+     write any simulation script, and do not hand-simulate the fight second by second. In Phase 7 run every
+     check you can by reading the rules; mark "The fight" and the identity test NOT ASSESSED with the reason
+     "no simulator this run". Explain the engine in words and a few key numbers taken straight from the GDD
+     formulas."""
 
 SYSTEM = """You are running UNATTENDED; the user cannot answer. AskUserQuestion is
 unavailable. The project is in autonomous automation mode for this run (project.local.yaml).
@@ -64,11 +82,7 @@ Overrides to the skill, in force for this session:
    the sheet under "Directions considered". Phases 4, 5 and 8 prompts: proceed as if the user chose [A].
 2. Outputs go to `{builds}/`, not design/builds/:
    - `{builds}/{slug}.sheet.md`: the skill's design sheet (assets/build-sheet-template.md).
-   - NO combat simulator in this run (user decision 2026-11-11). Do not write a fight input, do not run or
-     write any simulation script, and do not hand-simulate the fight second by second. In Phase 7 run every
-     check you can by reading the rules; mark "The fight" and the identity test NOT ASSESSED with the reason
-     "no simulator this run (user decision 2026-11-11)". Explain the engine in words and a few key numbers
-     taken straight from the GDD formulas.
+{fight}
    - `{builds}/{slug}.md`: a PLAYER GUIDE, written for a new player, plain language. Sections, in order:
      "# <Build name> (<Hán-Việt>)" then a one-line pitch; "## Why it works" (the engine in plain words, with
      the few key numbers from the formulas); "## What to look for" (in the order a player finds them:
@@ -114,8 +128,7 @@ Read every guide and sheet in `{run}/builds/`, `{run}/staging-catalogue.md`, `{r
 
 Contents, plain and short:
 1. Synopsis of the run: builds made, by kind, with one line each (name, the engine, power, the build's
-   strongest upgrade). Note that the fight checks were not assessed by user decision (no simulator),
-   and builds that failed or did not run, by name, with why.
+   strongest upgrade). {fight_note} Name builds that failed or did not run, with why.
 2. All system suggestions, merged where builds asked for the same thing, each with: the GDD and rule it
    touches, the proposal, the builds that need it, the trade-off, and your recommendation. Most important
    (most builds, biggest effect on the game) first.
@@ -196,6 +209,10 @@ def is_limit(text):
         "hit your" in t and "limit" in t)
 
 
+def fight_block(args, builds, slug):
+    return (FIGHT_NONE if args.no_simulator else FIGHT_SIM).format(builds=builds, slug=slug)
+
+
 def build_one(args, seed, attempt):
     run = args.run
     slug = seed["slug"]
@@ -203,7 +220,8 @@ def build_one(args, seed, attempt):
     system = SYSTEM.format(slug=slug, kind=seed.get("kind", "player build"), realm=seed.get("realm", "your choice"),
                            power=seed.get("power", "your choice"), root=seed.get("root", "your choice"),
                            use=seed.get("use", "player"), builds=builds, staging=f"{run}/staging-catalogue.md",
-                           suggestions=f"{run}/suggestions.md", ledger=f"{run}/ledger.md")
+                           suggestions=f"{run}/suggestions.md", ledger=f"{run}/ledger.md",
+                           fight=fight_block(args, builds, slug))
     prompt = f"/design-build {seed['seed']}"
     tag = f"{slug}-try{attempt}"
     log(run, f"start {tag}")
@@ -247,7 +265,13 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--summary-only", action="store_true")
     ap.add_argument("--no-summary", action="store_true")
+    ap.add_argument("--no-simulator", action="store_true",
+                    help="no fight.py: sessions mark the fight checks NOT ASSESSED (the 2026-11-10 run's setting)")
     args = ap.parse_args()
+    global ALLOWED, DISALLOWED
+    if args.no_simulator:
+        ALLOWED = ",".join(ALLOWED_BASE)
+        DISALLOWED = ",".join(DISALLOWED_BASE + ["Bash(python *)"])
     args.run = args.run.replace("\\", "/").rstrip("/")
     args.until = datetime.datetime.fromisoformat(args.until) if args.until else None
     queue_path = args.queue or os.path.join(REPO, args.run, "queue.json")
@@ -264,7 +288,8 @@ def main():
         print(SYSTEM.format(slug=s["slug"], kind=s.get("kind"), realm=s.get("realm"), power=s.get("power"),
                             root=s.get("root"), use=s.get("use"), builds=f"{args.run}/builds",
                             staging=f"{args.run}/staging-catalogue.md", suggestions=f"{args.run}/suggestions.md",
-                            ledger=f"{args.run}/ledger.md")[:1500])
+                            ledger=f"{args.run}/ledger.md", fight=fight_block(args, f"{args.run}/builds", s["slug"]))[:4000])
+        print(f"\nallowedTools: {ALLOWED}\ndisallowedTools: {DISALLOWED}")
         return
 
     created_local = False
@@ -323,7 +348,11 @@ def main():
         if not args.no_summary:
             log(args.run, "writing RUN-SUMMARY.md")
             code, _ = run_session(args.run, "Write the end-of-run report as instructed.",
-                                  SUMMARY.format(run=args.run, table=table(state)), "summary", args.model)
+                                  SUMMARY.format(run=args.run, table=table(state), fight_note=(
+                                      "Note that the fight checks were not assessed (driver --no-simulator)."
+                                      if args.no_simulator else "Give each build's fight results from its sheet "
+                                      "(fight.py), and what the simulator could not model.")),
+                                  "summary", args.model)
             log(args.run, f"summary session exit {code}")
     finally:
         with open(os.path.join(args.run, "_driver", "table.md"), "w", encoding="utf-8") as f:

@@ -1,0 +1,51 @@
+{
+  "name": "bare-fist",
+  "realm": "nguyen_anh",
+  "n_body": 1.275,
+  "n_qi": 1.3,
+  "layers": [
+    200,
+    0,
+    180,
+    0,
+    0
+  ],
+  "crit": {
+    "chance": 0.45,
+    "mult": 2.1
+  },
+  "art_speed_pct": 0,
+  "regen_bonus_pp": 6.03,
+  "evade_pct": 31,
+  "accuracy_pct": 0,
+  "enemy": "typical",
+  "ward": {
+    "ws_base": 0,
+    "we": 0,
+    "layers": [
+      300,
+      235,
+      150,
+      100
+    ]
+  },
+  "arts": [],
+  "unmodelled": [
+    "fight_calc runs the retired ward model (pass and drain shares, body guard); CONSTANT_DRIFT on 31 of 60 constants (health_units 16 vs 64, regen_base 0.02 vs 0.035, art lint 12 vs 24). Every number here is an observation on old rules",
+    "Stored Breath (overflow banks +0.10 basic coefficient per 1 % of maximum linh luc lost to a full pool, cap +1.2, spent by the next basic attack): approximated as L5 +40 while the pool is full (guard above 0.55 of qi_max = full usable pool after 0.42 reserved). The real piece adds to the coefficient, not L5",
+    "basic_speed_pct +50 (basic_cooldown 1 s -> 0.667 s): fight_calc fixes the basic attack at 1 s. Damage per second from the basic is understated by a third",
+    "basic_coef_add: expressed as basic c 2.2 (1.0 + 1.2 flat)",
+    "Layered wards in art and ward slots (Common Ward, Qi-Scattering Robe, Fire-Shunning Veil, Mountain Screen, Thousand-Layer Cloud, Iron Shirt, Clear Heart Ward, Soul-Guarding Lamp): approximated as one drain ward passing 0.10 at the drain floor 0.15 and evade 31 %. Points resistance (890 at ws 160), block 461 points, ward shields 4,131 and the reserved-ward payloads are not modelled",
+    "Closed Hand (ward efficiency +100 with no damaging art): folded into the drain floor; not separately removable",
+    "Quiet Channels (+0.5 pp regeneration per art slot holding no art, cap +3 pp): folded into regen_bonus_pct; fight_calc also caps regeneration at regen_cap 0.08, which the GDD retired",
+    "Settled Dust (Earth buff stacks from basic hits, Physical damage taken dampened), Still Water (overflow heals), Unyielding Breath (refuse Down once), Elemental Fist ([earth] tag for scopes): not modelled",
+    "Steady Breath and Full Sea read linh luc as a share of qi_max in fight_calc; the sheet reads them as shares of the usable maximum (thresholds 0.50 and 0.80 of 0.58 usable = 0.29 and 0.46 of qi_max)",
+    "v1 reserve_share 0.42",
+    "v1 pierce_pct 0",
+    "v1 guard {\"a_b\": 0, \"t_b\": 0, \"body_guard_pct\": 0}",
+    "v1 basic attack {\"c\": 2.2, \"kind\": \"body\", \"x\": [66, 300, 0, 150, 0]} (the basic attack is always coefficient 1.0, Physical)",
+    "v1 conditional_mods [{\"id\": \"steady_breath\", \"layer\": 5, \"points\": 12, \"channels\": [\"basic\"], \"guard\": {\"who\": \"own\", \"pool\": \"qi\", \"above\": 0.29}}, {\"id\": \"full_sea\", \"layer\": 5, \"points\": 30, \"channels\": [\"basic\"], \"guard\": {\"who\": \"own\", \"pool\": \"qi\", \"above\": 0.46}}, {\"id\": \"bare_rack\", \"layer\": 5, \"points\": 5, \"channels\": [\"basic\"]}, {\"id\": \"stored_breath_approx\", \"layer\": 5, \"points\": 40, \"channels\": [\"basic\"], \"guard\": {\"who\": \"own\", \"pool\": \"qi\", \"above\": 0.55}}]",
+    "v1 ward shape {\"pass\": {\"body\": 0.1, \"qi\": 0.1}, \"drain\": {\"body\": 0.15, \"qi\": 0.15}} (pass and drain shares are retired; modelled as the Common Ward at this ws and we, every ward layer at cap)"
+  ],
+  "_comment": "Migrated from fight_calc.py format v1 by tools/design/combat_sim/migrate_fight_v1.py (2026-11-11). Art kinds: qi -> elem, body -> phys, no element stacks. Costs kept (post-#44 file). Ward: v1 ws and we kept, every ward layer at cap (top-end build). Everything with no new field is in unmodelled, prefixed v1."
+}

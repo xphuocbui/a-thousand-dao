@@ -1,27 +1,52 @@
 {
   "name": "ninth-bell",
   "realm": "ket_dan",
-  "n_body": 1.6, "n_qi": 2.0,
+  "n_body": 1.6,
+  "n_qi": 2.0,
   "layers": [134, 0, 110, 0, 0],
   "art_speed_pct": 100,
   "art_cost_pct": 25,
-  "regen_bonus_pct": 4,
-  "pierce_pct": 30,
-  "crit": {"chance": 0.0, "mult": 1.5},
-  "ward": {"model": "drain", "pass": {"body": 0.54, "qi": 0.36}, "drain": {"body": 1.0, "qi": 1.5}, "ws": 120, "we": 120},
-  "guard": {"body_guard_pct": 10},
-  "conditional_mods": [
-    {"id": "On the Beat", "layer": 5, "points": 70, "channels": ["art"], "guard": {"on_beat": true}},
-    {"id": "Bare Vessel", "layer": 5, "points": 30, "channels": ["art", "basic"],
-     "guard": {"who": "enemy", "pool": "qi", "below": 0.05}},
-    {"id": "Sustained Note", "layer": 2, "per": "fight_seconds", "points_per": 15, "channels": ["art"]}
-  ],
+  "regen_bonus_pp": 4,
+  "crit": {
+    "chance": 0.0,
+    "mult": 1.5
+  },
+  "ward": {
+    "ws_base": 120,
+    "we": 120
+  },
   "arts": [
-    {"id": "first_strike", "kind": "qi", "c_art": 2.4, "cost_share": 0.1, "cooldown": 2, "x": [20, 30, 0, 20, 0]},
-    {"id": "second_strike", "kind": "body", "c_art": 3.3, "cost_share": 0.14, "cooldown": 4, "x": [20, 30, 0, 20, 0]},
-    {"id": "third_strike", "kind": "qi", "c_art": 4.5, "cost_share": 0.2, "cooldown": 6, "x": [20, 30, 0, 20, 0]}
+    {
+      "id": "first_strike",
+      "c_art": 2.4,
+      "cost_share": 0.05,
+      "cooldown": 2,
+      "kind": "elem",
+      "x": [20, 30, 0, 20, 0]
+    },
+    {
+      "id": "second_strike",
+      "c_art": 3.3,
+      "cost_share": 0.07,
+      "cooldown": 4,
+      "kind": "phys",
+      "x": [20, 30, 0, 20, 0]
+    },
+    {
+      "id": "third_strike",
+      "c_art": 4.5,
+      "cost_share": 0.1,
+      "cooldown": 6,
+      "kind": "elem",
+      "x": [20, 30, 0, 20, 0]
+    }
   ],
   "unmodelled": [
-    "Sustained Note's cap and reset on a missed beat are not modelled; the fight is short enough that the cap is not reached"
-  ]
+    "Sustained Note's cap and reset on a missed beat are not modelled; the fight is short enough that the cap is not reached",
+    "v1 pierce_pct 30",
+    "v1 guard {\"body_guard_pct\": 10}",
+    "v1 conditional_mods [{\"id\": \"On the Beat\", \"layer\": 5, \"points\": 70, \"channels\": [\"art\"], \"guard\": {\"on_beat\": true}}, {\"id\": \"Bare Vessel\", \"layer\": 5, \"points\": 30, \"channels\": [\"art\", \"basic\"], \"guard\": {\"who\": \"enemy\", \"pool\": \"qi\", \"below\": 0.05}}, {\"id\": \"Sustained Note\", \"layer\": 2, \"per\": \"fight_seconds\", \"points_per\": 15, \"channels\": [\"art\"]}]",
+    "v1 ward shape {\"pass\": {\"body\": 0.54, \"qi\": 0.36}, \"drain\": {\"body\": 1.0, \"qi\": 1.5}} (pass and drain shares are retired; modelled as the Common Ward at this ws and we, typical ward layers)"
+  ],
+  "_comment": "Migrated from fight_calc.py format v1 by tools/design/combat_sim/migrate_fight_v1.py (2026-11-11). Art kinds: qi -> elem, body -> phys, no element stacks. Costs halved (pre-#44 file). Ward: v1 ws and we kept, typical ward layers. Everything with no new field is in unmodelled, prefixed v1."
 }

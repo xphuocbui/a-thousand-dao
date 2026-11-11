@@ -1,0 +1,100 @@
+{
+  "name": "curse-engine (The Straw Effigy), Nguyen Anh, foreseen",
+  "realm": "nguyen_anh",
+  "n_body": 3.0,
+  "n_qi": 1.5,
+  "layers": [
+    330,
+    0,
+    150,
+    0,
+    0
+  ],
+  "crit": {
+    "chance": 0.0,
+    "mult": 1.5
+  },
+  "art_speed_pct": 100,
+  "art_cost_pct": 20,
+  "regen_bonus_pp": 2,
+  "accuracy_pct": 16,
+  "enemy": "top_end",
+  "ward": {
+    "ws_base": 120,
+    "we": 100,
+    "layers": [
+      300,
+      235,
+      150,
+      100
+    ]
+  },
+  "arts": [
+    {
+      "id": "iron_nail",
+      "c_art": 4.65,
+      "cost_share": 0.1,
+      "cooldown": 6,
+      "kind": "phys",
+      "x": [
+        0,
+        220,
+        0,
+        150,
+        0
+      ]
+    },
+    {
+      "id": "slipper_blow",
+      "c_art": 1.48,
+      "cost_share": 0.02,
+      "cooldown": 1,
+      "kind": "phys",
+      "x": [
+        0,
+        140,
+        0,
+        80,
+        0
+      ]
+    },
+    {
+      "id": "straw_binding",
+      "c_art": 1.48,
+      "cost_share": 0.02,
+      "cooldown": 1,
+      "kind": "phys",
+      "x": [
+        0,
+        140,
+        0,
+        80,
+        0
+      ]
+    }
+  ],
+  "unmodelled": [
+    "Driven Nail (identity): each curse laid shortens the longest-cooldown art's timer by 0.5 s, 3 per pulse. fight_calc has no timer-move action; the Nail here runs on its plain 3.0 s cooldown. See the sheet's paper model",
+    "The Litany (the Effigy's rule): first missing curse in order, skipping reapply lockouts. fight_calc gives each trigger one fixed curse, so the litany is approximated by two triggers and the arts' own curses",
+    "Sealed Meridian (the litany's first name: the enemy's L2 counts as 1.0, 2 pulses, 2-pulse reapply lockout): no layer-lock field in fight_calc",
+    "Sundered and Exposed are resistance in points under the current GDDs (-150 per stack, -100 all, below 0 amplifies). fight_calc still models the pre-#44 body guard and ward pass, so they are mapped to shred (0.17 x 3 stacks, clipped at 0.5) and pass_raise 0.5: a large understatement",
+    "Weight of Names reads curse stacks (+10 each, cap +80); fight_calc reads curse count, so 20 per curse approximates two stacks per curse",
+    "Fourth Nail (curse_slots +1): fight_calc's curse_slots is a constant (3)",
+    "Backlash (the Effigy's close: a cleansed curse lands on you) and Ash of the Effigy (cleanse): no cleansing enemy in fight_calc",
+    "Paid in Nails is mapped to refund_qi_share 0.10 on every Nail firing; the real rule needs every litany curse on the target",
+    "Blood Drinker (6 % of direct damage as healing): no healing in fight_calc",
+    "Linh luc on hit (+0.19 pp per hit): not modelled",
+    "Paper Money Burning (heal) and Paper Boat Crossing (escape): not slotted here",
+    "fight_calc's art lint uses the pre-#44 12-per-cost rule; the arts are authored at the current 24-per-cost lint (combat.md Formulas C)",
+    "v1 pierce_pct 0",
+    "v1 guard {\"a_b\": 0.3, \"t_b\": 0, \"body_guard_pct\": 20}",
+    "v1 triggers [{\"id\": \"effigy\", \"source\": \"art\", \"chance\": 1.0, \"curse\": {\"id\": \"sundered\", \"shred\": 0.17, \"duration\": 4}}, {\"id\": \"effigy\", \"source\": \"basic\", \"chance\": 1.0, \"curse\": {\"id\": \"heavy_breath\", \"cost_raise\": 0.5, \"duration\": 4}}]",
+    "v1 conditional_mods [{\"id\": \"weight_of_names\", \"layer\": 5, \"per\": \"enemy_curses\", \"points_per\": 20, \"channels\": [\"art\", \"basic\"]}, {\"id\": \"marked_prey\", \"layer\": 5, \"per\": \"enemy_curses\", \"points_per\": 4, \"channels\": [\"art\", \"basic\"]}]",
+    "v1 ward shape {\"pass\": {\"body\": 0.3, \"qi\": 0.3}, \"drain\": {\"body\": 1.0, \"qi\": 1.5}} (pass and drain shares are retired; modelled as the Common Ward at this ws and we, every ward layer at cap)",
+    "v1 art iron_nail guard {\"who\": \"enemy\", \"status\": \"exposed\"}",
+    "v1 art iron_nail refund_qi_share 0.1",
+    "v1 art slipper_blow curse {\"id\": \"sundered\", \"shred\": 0.17, \"duration\": 4}",
+    "v1 art straw_binding curse {\"id\": \"exposed\", \"pass_raise\": 0.5, \"duration\": 3}"
+  ],
+  "_comment": "Migrated from fight_calc.py format v1 by tools/design/combat_sim/migrate_fight_v1.py (2026-11-11). Art kinds: qi -> elem, body -> phys, no element stacks. Costs kept (post-#44 file). Ward: v1 ws and we kept, every ward layer at cap (top-end build). Everything with no new field is in unmodelled, prefixed v1."
+}

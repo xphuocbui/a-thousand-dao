@@ -41,6 +41,8 @@ docs/consistency-failures.md
 /build/
 builds/
 !design/builds/
+# a design run's own builds/ folder (guides, sheets, fight files) is design work, not build output
+!design/builds/*/builds/
 bin/
 # ...but not an addon's own scripts: gdUnit4's test runner lives in
 # addons/gdUnit4/bin/, and without it neither /smoke-check nor CI can run tests.

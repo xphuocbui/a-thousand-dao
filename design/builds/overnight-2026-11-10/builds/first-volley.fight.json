@@ -1,0 +1,126 @@
+{
+  "name": "first-volley",
+  "realm": "nguyen_anh",
+  "n_body": 3.82,
+  "n_qi": 1.5,
+  "layers": [
+    360,
+    0,
+    250,
+    0,
+    0
+  ],
+  "crit": {
+    "chance": 0.5,
+    "mult": 3.0
+  },
+  "art_speed_pct": 200,
+  "art_cost_pct": 20,
+  "regen_bonus_pp": 0.35,
+  "evade_pct": 0,
+  "accuracy_pct": 15,
+  "enemy": "typical",
+  "ward": {
+    "ws_base": 0,
+    "we": 0,
+    "layers": [
+      300,
+      235,
+      150,
+      100
+    ]
+  },
+  "arts": [
+    {
+      "id": "cloud_splitting_bolt",
+      "c_art": 4.15,
+      "cost_share": 0.1,
+      "cooldown": 4,
+      "kind": "elem",
+      "x": [
+        0,
+        300,
+        0,
+        150,
+        0
+      ]
+    },
+    {
+      "id": "forked_light",
+      "c_art": 2.35,
+      "cost_share": 0.025,
+      "cooldown": 4,
+      "kind": "elem",
+      "x": [
+        0,
+        300,
+        0,
+        150,
+        0
+      ]
+    },
+    {
+      "id": "thunder_needle",
+      "c_art": 2.35,
+      "cost_share": 0.025,
+      "cooldown": 4,
+      "kind": "elem",
+      "x": [
+        0,
+        300,
+        0,
+        150,
+        0
+      ]
+    },
+    {
+      "id": "iron_spark",
+      "c_art": 2.35,
+      "cost_share": 0.025,
+      "cooldown": 4,
+      "kind": "elem",
+      "x": [
+        0,
+        300,
+        0,
+        150,
+        0
+      ]
+    },
+    {
+      "id": "rolling_thunder",
+      "c_art": 2.95,
+      "cost_share": 0.05,
+      "cooldown": 4,
+      "kind": "elem",
+      "x": [
+        0,
+        300,
+        0,
+        150,
+        0
+      ]
+    }
+  ],
+  "unmodelled": [
+    "v1 note: fight_calc.py reports CONSTANT_DRIFT on 31 of 60 constants (pre-#44 ward pass, body guard, health_units 16, art lint 12 per cost). n_body is the real 0.956 x 4 to restore health_units 64; the ward is the Nascent Soul Common Ward (557 points, stops 84.8 %) written as pass 0.152 at drain 0.124 per point blocked, which the old model floors at drain_min 0.15. Art coefficients follow the #44 lint (24 per cost share), so the old lint flags them. Results are observations under the old rules, not the fight check.",
+    "opening_haste: +250 % opening haste puts every first firing at the 0.5 s floor; fight_calc starts each art at its full cd_eff (1.333 s), so the volley it shows comes at 1.333 s",
+    "unanswered: modelled as L5 +72 (Unanswered 40 + Eruption 15 + Taut String 17) while the enemy is at full health, an approximation of 'the enemy has fired no art' and of the first volley",
+    "eruption and taut_string: folded into the conditional above; their true reads (arts fired this instant, opening haste clipped on a first firing) are not expressible",
+    "first_move: the Breaker's first firing costs nothing",
+    "unyielding_breath: one refusal (the tie-breaker against a 0.5 s opener)",
+    "final_clause: the Breaker fires free as a last act at Down",
+    "flowing_water: each crit pulls the other arts' timers 0.5 s closer (3 a pulse)",
+    "linh_luc_on_crit_pct 1.26: crit refunds",
+    "iron_spark conversion 60 % Lightning to Physical (fight_calc kinds are body/qi only)",
+    "lightning_step escape art (slot 6) and Cold Feet",
+    "the post-#44 defence path: resistance points with the drain bill on prevented points, pay_frac leak, flat block",
+    "v1 pierce_pct 0",
+    "v1 guard {\"a_b\": 0, \"t_b\": 0, \"body_guard_pct\": 0}",
+    "v1 conditional_mods [{\"id\": \"unanswered\", \"layer\": 5, \"points\": 72, \"channels\": [\"art\"], \"guard\": {\"who\": \"enemy\", \"pool\": \"health\", \"above\": 0.999}}]",
+    "v1 ward shape {\"pass\": 0.152, \"drain\": 0.124} (pass and drain shares are retired; modelled as the Common Ward at this ws and we, every ward layer at cap)",
+    "v1 art thunder_needle curse {\"drain_raise\": 0.5, \"duration\": 3}",
+    "v1 art rolling_thunder guard {\"who\": \"enemy\", \"pool\": \"health\", \"below\": 0.5}"
+  ],
+  "_comment": "Migrated from fight_calc.py format v1 by tools/design/combat_sim/migrate_fight_v1.py (2026-11-11). Art kinds: qi -> elem, body -> phys, no element stacks. Costs kept (post-#44 file). Ward: v1 ws and we kept, every ward layer at cap (top-end build). Everything with no new field is in unmodelled, prefixed v1."
+}

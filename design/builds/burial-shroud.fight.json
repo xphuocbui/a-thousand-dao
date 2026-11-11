@@ -1,30 +1,53 @@
 {
   "name": "burial-shroud",
   "realm": "ket_dan",
-  "n_body": 2.6, "n_qi": 2.4,
-  "reserve_share": 0.25,
+  "n_body": 2.6,
+  "n_qi": 2.4,
   "layers": [134, 0, 90, 0, 0],
-  "regen_bonus_pct": 3,
-  "pierce_pct": 30,
-  "ward": {"model": "drain", "pass": {"body": 0.42, "qi": 0.28}, "drain": {"body": 0.72, "qi": 1.08}, "ws": 150, "we": 150},
-  "guard": {"a_b": 3.0, "t_b": 1.0, "body_guard_pct": 40},
-  "aura": [{"id": "grave_rot", "kind": "body", "c_tick": 0.35, "stacks": 1, "x": [60, 180, 0, 100, 0]}],
-  "tick_overflow_qi": 1.0,
-  "conditional_mods": [
-    {"id": "Bare Vessel", "layer": 5, "points": 80, "channels": ["art", "basic"],
-     "guard": {"who": "enemy", "pool": "qi", "below": 0.05}}
-  ],
+  "regen_bonus_pp": 3,
+  "ward": {
+    "ws_base": 150,
+    "we": 150
+  },
   "arts": [
-    {"id": "bier_hush", "kind": "qi", "c_art": 1.5, "cost_share": 0.06, "cooldown": 3,
-     "curse": {"block_regen": true, "duration": 3}},
-    {"id": "grave_wind", "kind": "qi", "c_art": 1.2, "cost_share": 0.05, "cooldown": 2,
-     "applies": [{"id": "wither", "kind": "qi", "c_tick": 0.3, "duration": 4, "stacks": 1, "x": [60, 180, 0, 100, 0]}]},
-    {"id": "closing_the_lid", "kind": "body", "c_art": 3.2, "cost_share": 0, "body_cost_share": 0.05, "cooldown": 5,
-     "x": [0, 60, 0, 0, 0], "guard": {"who": "enemy", "pool": "qi", "below": 0.05}}
+    {
+      "id": "bier_hush",
+      "c_art": 1.5,
+      "cost_share": 0.03,
+      "cooldown": 3,
+      "kind": "elem"
+    },
+    {
+      "id": "grave_wind",
+      "c_art": 1.2,
+      "cost_share": 0.025,
+      "cooldown": 2,
+      "kind": "elem"
+    },
+    {
+      "id": "closing_the_lid",
+      "c_art": 3.2,
+      "cost_share": 0.0,
+      "cooldown": 5,
+      "kind": "phys",
+      "x": [0, 60, 0, 0, 0]
+    }
   ],
   "unmodelled": [
     "Reservation is modelled as a lower cap on the pool; the art of reserving it (when it can be released) is not",
     "Cleansing: enemy cleanse arts are not in the reference enemies, so the aura is never removed here",
-    "The shroud's price outside the fight (vitality loss when a fight runs long) is a caller rule"
-  ]
+    "The shroud's price outside the fight (vitality loss when a fight runs long) is a caller rule",
+    "v1 reserve_share 0.25",
+    "v1 pierce_pct 30",
+    "v1 guard {\"a_b\": 3.0, \"t_b\": 1.0, \"body_guard_pct\": 40}",
+    "v1 aura [{\"id\": \"grave_rot\", \"kind\": \"body\", \"c_tick\": 0.35, \"stacks\": 1, \"x\": [60, 180, 0, 100, 0]}]",
+    "v1 tick_overflow_qi 1.0",
+    "v1 conditional_mods [{\"id\": \"Bare Vessel\", \"layer\": 5, \"points\": 80, \"channels\": [\"art\", \"basic\"], \"guard\": {\"who\": \"enemy\", \"pool\": \"qi\", \"below\": 0.05}}]",
+    "v1 ward shape {\"pass\": {\"body\": 0.42, \"qi\": 0.28}, \"drain\": {\"body\": 0.72, \"qi\": 1.08}} (pass and drain shares are retired; modelled as the Common Ward at this ws and we, typical ward layers)",
+    "v1 art bier_hush curse {\"block_regen\": true, \"duration\": 3}",
+    "v1 art grave_wind applies [{\"id\": \"wither\", \"kind\": \"qi\", \"c_tick\": 0.3, \"duration\": 4, \"stacks\": 1, \"x\": [60, 180, 0, 100, 0]}]",
+    "v1 art closing_the_lid body_cost_share 0.05",
+    "v1 art closing_the_lid guard {\"who\": \"enemy\", \"pool\": \"qi\", \"below\": 0.05}"
+  ],
+  "_comment": "Migrated from fight_calc.py format v1 by tools/design/combat_sim/migrate_fight_v1.py (2026-11-11). Art kinds: qi -> elem, body -> phys, no element stacks. Costs halved (pre-#44 file). Ward: v1 ws and we kept, typical ward layers. Everything with no new field is in unmodelled, prefixed v1."
 }

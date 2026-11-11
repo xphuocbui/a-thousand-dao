@@ -1,0 +1,105 @@
+{
+  "name": "two-clocks",
+  "realm": "nguyen_anh",
+  "n_body": 1.5,
+  "n_qi": 1.3,
+  "layers": [
+    10,
+    0,
+    200,
+    0,
+    0
+  ],
+  "crit": {
+    "chance": 0.0,
+    "mult": 1.5
+  },
+  "art_speed_pct": 0,
+  "art_cost_pct": 0,
+  "regen_bonus_pp": 1,
+  "evade_pct": 0,
+  "accuracy_pct": 0,
+  "enemy": "top_end",
+  "ward": {
+    "ws_base": 60,
+    "we": 40,
+    "layers": [
+      300,
+      235,
+      150,
+      100
+    ]
+  },
+  "arts": [
+    {
+      "id": "ember-rain",
+      "c_art": 0.0,
+      "cost_share": 0.02,
+      "cooldown": 1,
+      "kind": "elem"
+    },
+    {
+      "id": "rot-seed",
+      "c_art": 0.0,
+      "cost_share": 0.02,
+      "cooldown": 1,
+      "kind": "elem"
+    },
+    {
+      "id": "sap-rising",
+      "c_art": 0.0,
+      "cost_share": 0.02,
+      "cooldown": 2,
+      "kind": "elem"
+    },
+    {
+      "id": "red-censer",
+      "c_art": 0.0,
+      "cost_share": 0.02,
+      "cooldown": 2,
+      "kind": "elem"
+    },
+    {
+      "id": "green-censer",
+      "c_art": 0.0,
+      "cost_share": 0.02,
+      "cooldown": 2,
+      "kind": "elem"
+    },
+    {
+      "id": "golden-light-shield",
+      "c_art": 0.0,
+      "cost_share": 0.024,
+      "cooldown": 4,
+      "kind": "elem"
+    }
+  ],
+  "unmodelled": [
+    "CONSTANT_DRIFT: 31 of 60 constants no longer match combat.md; this script predates #44 (health_units 64, resistance in points, no tick caps, fatigue). Every number it prints for this build is an observation of the old model.",
+    "Element stack batches (Effects rule 9a): the script merges one status per id and refreshes duration; Burn and Poison are separate batches with their own timers and no stack cap. stack_cap 1000 stands in for 'no cap'.",
+    "c_tick 0.02997 = Burn/Poison 0.019 x stack_effect_pct +36 % x purity (1 + 0.002 x 80). Poison's stack_duration_pct +60 % is folded into duration 16 (authored 10 s).",
+    "Burn is entered as kind qi and Poison as kind body only to split the old ward's pass shares; in the game Burn is Fire and Poison is Chaos, both meeting resistance in points.",
+    "Incense Clock (enabler): L5 payloads also apply to ticks; hits deal no damage (c_art 0 and basic c 0 model the close). The script skips L5 on ticks, so Bare Vessel, Kindled Wound, Marked Prey and Fuel for the Fire are not tested here.",
+    "Ash Ledger (identity): 20 % of the tick damage resistance stops burns the target's linh luc. Not expressible here.",
+    "Spillover (#44 form): 25 % of each tick's dealt damage burns linh luc. The script only has the retired clipped-amount form (tick_overflow_qi), so it is left out.",
+    "Embers Feed the Hearth: Burn ticks restore 25 % of their dealt damage as linh luc. Not expressible.",
+    "Drain-ward billing of ticks and the ward falling at 0 linh luc (the first clock). The script's ticks skip the ward.",
+    "Cinder Debt: cleansed stacks burn the cleanser's linh luc. Not expressible.",
+    "Sap Rising's Wood buff stacks (+0.1 pp health regeneration each) and Golden Light Shield's cast shield. Entered as cost-only arts.",
+    "Common Ward and Mountain Screen in ward slots (resistance in points, reserved shield). The ward block above is the old pass model.",
+    "v1 start_qi 0.94 (fights start at full linh luc)",
+    "v1 pierce_pct 0",
+    "v1 soul_res_pct 0",
+    "v1 x_soul 0",
+    "v1 divine_sense 1.0",
+    "v1 enemy_divine_sense 1.0",
+    "v1 guard {\"a_b\": 0, \"t_b\": 0, \"body_guard_pct\": 0}",
+    "v1 basic attack {\"c\": 0.0, \"kind\": \"body\"} (the basic attack is always coefficient 1.0, Physical)",
+    "v1 ward shape {\"pass\": {\"body\": 0.3, \"qi\": 0.3}, \"drain\": {\"body\": 1.0, \"qi\": 1.5}} (pass and drain shares are retired; modelled as the Common Ward at this ws and we, every ward layer at cap)",
+    "v1 art ember-rain applies [{\"id\": \"burn\", \"kind\": \"qi\", \"c_tick\": 0.02997, \"duration\": 2, \"stacks\": 20, \"stack_cap\": 1000, \"x\": [290, 150, 0, 100, 0]}]",
+    "v1 art rot-seed applies [{\"id\": \"poison\", \"kind\": \"body\", \"c_tick\": 0.02997, \"duration\": 16, \"stacks\": 4, \"stack_cap\": 1000, \"x\": [290, 150, 0, 100, 0]}]",
+    "v1 art red-censer applies [{\"id\": \"burn\", \"kind\": \"qi\", \"c_tick\": 0.02997, \"duration\": 2, \"stacks\": 20, \"stack_cap\": 1000, \"x\": [290, 150, 0, 100, 0]}]",
+    "v1 art green-censer applies [{\"id\": \"poison\", \"kind\": \"body\", \"c_tick\": 0.02997, \"duration\": 16, \"stacks\": 4, \"stack_cap\": 1000, \"x\": [290, 150, 0, 100, 0]}]"
+  ],
+  "_comment": "Migrated from fight_calc.py format v1 by tools/design/combat_sim/migrate_fight_v1.py (2026-11-11). Art kinds: qi -> elem, body -> phys, no element stacks. Costs kept (post-#44 file). Ward: v1 ws and we kept, every ward layer at cap (top-end build). Everything with no new field is in unmodelled, prefixed v1."
+}

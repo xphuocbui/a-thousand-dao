@@ -1,0 +1,40 @@
+{
+  "name": "bare-fist (Ket Dan)",
+  "realm": "ket_dan",
+  "n_body": 1.19,
+  "n_qi": 1.25,
+  "layers": [
+    140,
+    0,
+    150,
+    0,
+    0
+  ],
+  "crit": {
+    "chance": 0.35,
+    "mult": 1.9
+  },
+  "regen_bonus_pp": 5.29,
+  "evade_pct": 26,
+  "enemy": "typical",
+  "ward": {
+    "ws_base": 0,
+    "we": 0,
+    "layers": [
+      300,
+      235,
+      150,
+      100
+    ]
+  },
+  "arts": [],
+  "unmodelled": [
+    "Second-realm run of bare-fist.fight.json; the same UNMODELLED list applies (retired ward model, CONSTANT_DRIFT, Stored Breath approximated as L5 +40 while the usable pool is full, basic_speed_pct +30 not expressible, layered wards folded into one drain ward, Settled Dust, Still Water, Unyielding Breath, Closed Hand, Elemental Fist not modelled)",
+    "Kết Đan loadout: Common Ward and Qi-Scattering Robe in ward slots; Mountain Screen, Thousand-Layer Cloud, Iron Shirt, Clear Heart Ward, Soul-Guarding Lamp in the five art slots (0.55 reserved after reservation efficiency 20 and ward efficiency 100)",
+    "v1 reserve_share 0.55",
+    "v1 basic attack {\"c\": 1.9, \"kind\": \"body\", \"x\": [20, 120, 0, 80, 0]} (the basic attack is always coefficient 1.0, Physical)",
+    "v1 conditional_mods [{\"id\": \"steady_breath\", \"layer\": 5, \"points\": 12, \"channels\": [\"basic\"], \"guard\": {\"who\": \"own\", \"pool\": \"qi\", \"above\": 0.225}}, {\"id\": \"full_sea\", \"layer\": 5, \"points\": 30, \"channels\": [\"basic\"], \"guard\": {\"who\": \"own\", \"pool\": \"qi\", \"above\": 0.36}}, {\"id\": \"stored_breath_approx\", \"layer\": 5, \"points\": 40, \"channels\": [\"basic\"], \"guard\": {\"who\": \"own\", \"pool\": \"qi\", \"above\": 0.44}}]",
+    "v1 ward shape {\"pass\": {\"body\": 0.12, \"qi\": 0.12}, \"drain\": {\"body\": 0.15, \"qi\": 0.15}} (pass and drain shares are retired; modelled as the Common Ward at this ws and we, every ward layer at cap)"
+  ],
+  "_comment": "Migrated from fight_calc.py format v1 by tools/design/combat_sim/migrate_fight_v1.py (2026-11-11). Art kinds: qi -> elem, body -> phys, no element stacks. Costs kept (post-#44 file). Ward: v1 ws and we kept, every ward layer at cap (top-end build). Everything with no new field is in unmodelled, prefixed v1."
+}

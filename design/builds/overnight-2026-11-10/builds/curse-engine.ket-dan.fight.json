@@ -1,0 +1,93 @@
+{
+  "name": "curse-engine (The Straw Effigy), Ket Dan, foreseen",
+  "realm": "ket_dan",
+  "n_body": 3.0,
+  "n_qi": 1.5,
+  "layers": [
+    250,
+    0,
+    150,
+    0,
+    0
+  ],
+  "crit": {
+    "chance": 0.0,
+    "mult": 1.5
+  },
+  "art_speed_pct": 100,
+  "art_cost_pct": 20,
+  "regen_bonus_pp": 2,
+  "accuracy_pct": 16,
+  "enemy": "top_end",
+  "ward": {
+    "ws_base": 100,
+    "we": 80,
+    "layers": [
+      300,
+      235,
+      150,
+      100
+    ]
+  },
+  "arts": [
+    {
+      "id": "iron_nail",
+      "c_art": 4.65,
+      "cost_share": 0.1,
+      "cooldown": 6,
+      "kind": "phys",
+      "x": [
+        0,
+        180,
+        0,
+        150,
+        0
+      ]
+    },
+    {
+      "id": "slipper_blow",
+      "c_art": 1.48,
+      "cost_share": 0.02,
+      "cooldown": 1,
+      "kind": "phys",
+      "x": [
+        0,
+        100,
+        0,
+        80,
+        0
+      ]
+    },
+    {
+      "id": "straw_binding",
+      "c_art": 1.48,
+      "cost_share": 0.02,
+      "cooldown": 1,
+      "kind": "phys",
+      "x": [
+        0,
+        100,
+        0,
+        80,
+        0
+      ]
+    }
+  ],
+  "unmodelled": [
+    "Driven Nail (identity): timer moves are not in fight_calc; see the sheet's paper model",
+    "The Litany: approximated by fixed-curse triggers; Sealed Meridian (layer lock) not expressible",
+    "Sundered and Exposed in points (current GDDs) mapped to the pre-#44 shred and pass_raise: an understatement",
+    "Weight of Names reads curse stacks (+10 each); 17 per curse approximates 5 stacks over 3 curses",
+    "Backlash, Ash of the Effigy, Blood Drinker, linh luc on hit, Paper Boat Crossing: not modelled",
+    "fight_calc's art lint uses the pre-#44 12-per-cost rule; the arts follow the current 24-per-cost lint",
+    "v1 guard {\"a_b\": 0.3, \"t_b\": 0, \"body_guard_pct\": 20}",
+    "v1 triggers [{\"id\": \"effigy\", \"source\": \"art\", \"chance\": 1.0, \"curse\": {\"id\": \"sundered\", \"shred\": 0.17, \"duration\": 4}}, {\"id\": \"effigy\", \"source\": \"basic\", \"chance\": 1.0, \"curse\": {\"id\": \"exposed\", \"pass_raise\": 0.5, \"duration\": 3}}]",
+    "v1 conditional_mods [{\"id\": \"weight_of_names\", \"layer\": 5, \"per\": \"enemy_curses\", \"points_per\": 17, \"channels\": [\"art\", \"basic\"]}, {\"id\": \"marked_prey\", \"layer\": 5, \"per\": \"enemy_curses\", \"points_per\": 4, \"channels\": [\"art\", \"basic\"]}]",
+    "v1 ward shape {\"pass\": {\"body\": 0.3, \"qi\": 0.3}, \"drain\": {\"body\": 1.0, \"qi\": 1.5}} (pass and drain shares are retired; modelled as the Common Ward at this ws and we, every ward layer at cap)",
+    "v1 art iron_nail guard {\"who\": \"enemy\", \"status\": \"exposed\"}",
+    "v1 art iron_nail refund_qi_share 0.1",
+    "v1 art slipper_blow curse {\"id\": \"sundered\", \"shred\": 0.17, \"duration\": 4}",
+    "v1 art straw_binding curse {\"id\": \"exposed\", \"pass_raise\": 0.5, \"duration\": 3}"
+  ],
+  "_comment": "Migrated from fight_calc.py format v1 by tools/design/combat_sim/migrate_fight_v1.py (2026-11-11). Art kinds: qi -> elem, body -> phys, no element stacks. Costs kept (post-#44 file). Ward: v1 ws and we kept, every ward layer at cap (top-end build). Everything with no new field is in unmodelled, prefixed v1."
+}
