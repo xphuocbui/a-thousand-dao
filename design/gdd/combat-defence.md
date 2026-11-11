@@ -452,7 +452,7 @@ top-end side about one volley, so a top-end duel lasts only as long as its wards
   health. In the simulator, scaling it ×27 made the thể tu win 20 of 20 against a top-end ward build.
 - **Regeneration** is the body's sustain: scaled by bs_mult, it decides whether a top-end thể tu keeps pace. The
   simulator (2026-11-11, against the top-end ward build below) gives the thể tu 0 of 20 at 8.1 % of `health_max` a
-  pulse, about even at 10.8 % (10 to 8, 57.7 s) and 19 of 20 at 13.5 %. That is a sharp edge for the harness to tune.
+  pulse, about even at 10.8 % (10 to 9, 57.6 s) and 19 of 20 at 13.5 %. That is a sharp edge for the harness to tune.
 - **Budget.** Layer points are bought from the budgets that already exist (tree points, technique and item budgets,
   slots) at the Modifier System's `more` price, so they compete with damage. Whether the top-end anchor can reach
   every cap on both offence and wards is a harness check.

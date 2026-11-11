@@ -2,8 +2,9 @@
 
 How the fight actually rewards a build. The GDD says what the rules are; this file says what they
 mean for someone designing modifiers. It holds rules and key names, not values, so it stays true when
-numbers move. Read values from `design/gdd/combat.md` on each run, or let `scripts/fight_calc.py`
-apply them. Rule and Formulas references are to that GDD.
+numbers move. Read values from `design/gdd/combat.md` and `design/gdd/combat-defence.md` on each run, or
+let `scripts/fight.py` apply them through the combat simulator. Rule and Formulas references are to
+`combat.md` unless a line names Combat Defence & Healing.
 
 ## The shape of a fight
 
@@ -12,9 +13,12 @@ the fight starts, then the engine runs it on a timeline of seconds (rule 10). So
 Path of Exile player would stack for screen coverage do not exist here, and everything a build wants
 has to come from one of the axes below.
 
-Fights are short. A typical mirror lasts a few seconds, and a top-end build can end an ordinary fight
-in its first volley (rule 18). Anything that pays off late must also explain how the build lives
-that long.
+A typical same-realm fight lasts 30–60 s (#44). Fatigue starts at 60 s and grows every pulse, so
+every fight ends, and a stall is never a draw by time. A top-end build can end an ordinary fight in its
+first volley or two (rule 18), but two top-end builds fight as long as two typical ones: top-end defence
+grows with top-end offence through the ward and body layers (Combat Defence & Healing Formulas A0).
+Sustain is king: the side whose linh lực runs dry first usually loses, so anything that pays off late must
+explain how the build keeps its pool that long.
 
 ## Damage channels
 
@@ -24,22 +28,20 @@ new channel, or a channel that was not available without a slot or a cost.
 
 | Channel | Scales with | Does not get | Meets | Limited by |
 |---|---|---|---|---|
-| **Art hit** | `c_art`, L1 to L5, crit, art speed | | evade, ward, body guard | linh lực, cooldown, slots, art lint |
-| **Basic attack** | `basic_coef`, L1 to L5, crit | art speed, costs nothing | evade, ward, body guard | `basic_cooldown`, always runs |
-| **Companion hit** | power share, M | crit | evade, ward, body guard | `c_comp_cap`, `basic_cooldown` |
-| **Trigger free hit** | `c_trig`, L1 to L4 | L5, crit | evade, ward, body guard | `trig_budget`, `trig_cap`, `trigger_depth` |
-| **Tick (over time)** | `c_tick`, stacks, L1 to L4 | L5, crit | body guard only, inside the ward | `dot_pool_cap`, `dot_pulse_cap`, duration |
-| **Qi burn tick** | as a tick, on linh lực | L5, crit | nothing | its own share cap |
-| **Soul art** | `x_soul`, thần thức ratio squared | layers, crit | skips ward, guard and evade | `soul_cap`, `soul_lockout`, `rho_min` |
-| **Ward drain** | your hit size, the enemy's drain rate | | a side effect of any blocked hit | the enemy's ward model |
+| **Art hit** | `c_art`, L1 to L5, crit, art speed | | evade, resistance, block, shields | linh lực, cooldown, slots, art lint |
+| **Basic attack** | `basic_coef`, L1 to L5, crit | art speed, costs nothing | evade, resistance, block, shields | `basic_cooldown`, always runs |
+| **Companion hit** | power share, M | crit | evade, resistance, block, shields | `c_comp_cap`, `basic_cooldown` |
+| **Trigger free hit** | `c_trig`, L1 to L4 | L5, crit | evade, resistance, block, shields | `trig_budget`, `trig_cap`, `trigger_depth` |
+| **Tick (over time)** | `c_tick`, stacks, L1 to L4 | L5, crit, block | resistance, then the shields it does not pass | duration, stack timers, cleansing |
+| **Qi burn tick** | as a tick, on linh lực | L5, crit | resistance (all + Force), never shields | duration |
+| **Soul art** | `x_soul`, thần thức ratio squared | layers, crit | only soul resistance and soul wards | `soul_cap`, `soul_lockout`, `rho_min` |
+| **Ward drain** | your hit size, the enemy's drain rate | | a side effect of any hit the ward stops | the enemy's ward strength and efficiency |
 
 What follows from the table:
 
-- **Ticks are a clock, not a damage race.** Past the caps, more damage does nothing, and the caps are
-  shares of the target's maximum health. So at `dot_pulse_cap` a build kills anything in a fixed time,
-  whatever its realm, with suppression only raising what it takes to reach the cap. A tick build's real
-  stack is: reach the cap, then survive the clock. Modifiers that raise a cap, or spend the damage
-  clipped by a cap, are worth far more than more damage.
+- **Ticks have no cap and no floor of 1 (#44).** They skip evade and block, so they are the answer to a
+  block-heavy body build, and they meet resistance like hits. Element stacks are the main tick source
+  (Effects System Formulas D): uncapped, each batch on its own timer, and cleansing is the counter.
 - **Soul ignores the whole multiplier game.** Layers do nothing, so a soul build stacks thần thức and
   `x_soul` instead. Rate is bounded by the lockout.
 - **Triggers can never be the main damage.** They are at most a set share of direct damage since the
@@ -62,6 +64,10 @@ What follows from the table:
 | L4 Preparation | Formations, talismans, pills, coatings, ground | What you did before | Mostly gone in a blind fight (rule 12), ground tags only |
 | L5 Trigger and conversion | "While" and "after" effects | The condition you must hold | Only while active, and hits only |
 
+- **Defence has the same shape** (Combat Defence & Healing Formulas A0). Ward strength has four layers
+  W2–W5 and the body four layers B2–B5, with L2–L5's caps: techniques and arts, gear, preparation, and
+  Effects only for the fifth. `ward_more` and `body_more` are priced as their damage twins, so a build
+  pays the same for a point of defence as for a point of damage, from the same budgets.
 - **Spreading wins.** Five modest layers beat one huge one, so a modifier in an empty layer is worth
   more than the same points in a full one. Always ask which layer the build is short in.
 - **The top-end anchors sit exactly on the hard caps of L2 to L5.** Reaching top-end means filling every
@@ -85,15 +91,17 @@ What follows from the table:
 - **Waiting is a state.** An art blocked by cost or guard stays ready and fires when it can.
 - **The art lint trades three things:** coefficient, cost and cooldown. Short cooldowns give the most
   damage per second and burn linh lực fastest. Long cooldowns at a low cost give by far the most damage
-  per linh lực, but arrive late. Run `fight_calc.py` rather than guessing where a build sits.
+  per linh lực, but arrive late. Run `fight.py` rather than guessing where a build sits.
 
 ## Linh lực
 
-- **It is mana and defence in one pool** (rule 11). Every art cast weakens the ward. Nothing reserves it.
+- **It is mana and defence in one pool** (rule 11). Every art cast weakens the ward. A reserved ward
+  takes its share before the fight (Combat Defence & Healing rule 10), so it never competes with arts.
 - **Costs are shares of maximum,** so a bigger pool buys no extra casts. It does buy more ward, because
   a drain ward's capacity is `pool / drain`.
-- **Regeneration is a small share per pulse.** Sustainable spending is about `regen` per second. Most
-  builds overspend and live on their opening pool.
+- **Regeneration is a share per pulse** with a log curve on bonuses and no cap (Formulas E). Sustain
+  sources (regeneration, cost reduction, gain on hit, leech, paying with health, heal refunds) are the
+  central build axis: a build that spends faster than it regains needs to win before it runs dry.
 - **The first thing that goes wrong is usually the pool.** Several arts on similar cooldowns drain it
   in one or two volleys, and then the ward has nothing.
 - **Starving an enemy is a real win condition.** With no linh lực a side has no ward and no arts, only
@@ -102,27 +110,37 @@ What follows from the table:
 
 ## Defence
 
+The defence path is Combat Defence & Healing's (rule 1): evade, resistance, block, shields, health.
+
 | Layer | Stops | Paid by | Fails to |
 |---|---|---|---|
-| Evade | Body and qi hits | Nothing | Ticks, soul |
-| Ward | Body and qi hits, a share set by pass | Linh lực, by model: drain, per hit or per pulse | Ticks, soul, an empty pool |
-| Body guard | Everything past the ward, including ticks; less against qi | Nothing | Soul |
+| Evade | Hits | Nothing | Ticks, soul |
+| Resistance | A share `R / (100 + R)` of each part, by damage type; points, no cap | Ward points: linh lực (drain, reserved, per hit or cast). Body points: nothing | Soul; ward points fall with an empty pool |
+| Block | A flat amount per hit | Nothing, or a ward's drain | Ticks, soul; small against big hits |
+| Shields | Ward shields (linh lực bars) and the body shield (a share of health) | Linh lực for ward shields | What passes them (Soul, Chaos for the body shield) |
 | Health | The bar that ends the fight | | |
-| `soul_res_pct`, thần thức | Soul arts | Nothing | Only the Way and rare items give it |
-| `status_resist_pct`, cleanse | Status chances, curses | An art slot for a cleanse | |
+| `soul_res_pct`, soul wards | Soul arts | Nothing or a ward | Only the Way, rare items and soul wards give it |
+| `status_resist_pct`, cleanse | Status chances, curses, stacks | A slot for a cleanse | |
 
-Ward models matter for matchups. A drain ward is punished by big hits, a per-hit ward by many small
-hits, and a per-pulse ward by a long fight. A new ward model is data plus a rule (rule 22).
+- **Ward strength scales everything a ward does,** and its drain rate falls as it rises, so a strong
+  ward is also cheap to run. A ward falls when linh lực runs out, and then a top-end hit lands whole.
+- **The body defends without linh lực** (thể tu): block, body resistance and health regeneration scale
+  with the body layers; the body shield is the body's pool and does not.
+- Ward models matter for matchups. A drain ward is punished by big hits and by burning its linh lực, a
+  per-hit ward by many small hits, a reserved ward by nothing in the fight but its cost up front. A new
+  ward model is data plus a rule.
 
 ## Fixed limits worth designing against
 
 Each of these is a key in Combat. A modifier that moves one is a **cap shift**, among the strongest
 things in the game, so make it small, single and costly.
 
-`slots_by_realm` · `curse_slots` · `stack_cap` · `dot_pool_cap` · `dot_pulse_cap` · `trig_cap` ·
-`trig_budget` · `trigger_depth` · conversions per hit (2) · `crit_chance_cap` · `crit_mult_cap` ·
-`evade_cap` · `pierce_cap` · `soul_cap` · `soul_lockout` · `cooldown_min` · `regen_cap` · `ward_cap` ·
-`guard_cap` · `equip.max_slots` · `aux_slots`
+`slots_by_realm` · ward slots · `curse_slots` · `trig_cap` · `trig_budget` · `trigger_depth` ·
+conversions per hit (2) · `crit_chance_cap` · `crit_mult_cap` · `evade_cap` · `pierce_cap` · `soul_cap` ·
+`soul_lockout` · `cooldown_min` · `layer_caps` · `defence_layer_caps` · `equip.max_slots` · `aux_slots`
+
+Retired since #44 and the 2026-11-10 reviews, so never design against them: tick caps (`dot_pool_cap`,
+`dot_pulse_cap`), `regen_cap`, `ward_cap`, the resistance cap, body guard and `time_limit`.
 
 ## The life around the fight
 
@@ -144,14 +162,14 @@ Read a real key before using one: `design/gdd/character-stats.md` Parameter keys
 | In PoE | Here | Note |
 |---|---|---|
 | Aura | A permanent status with no slot | `Needs rule`: statuses have durations today |
-| Mana reservation | Not in the game: rule 11 says nothing reserves linh lực | `Needs rule`, and a strong cost, because reserved linh lực is also ward |
+| Mana reservation | Reserved wards (Combat Defence & Healing rule 10) | Reserved linh lực is gone from the pool for the fight, so it is no longer ward or casts |
 | Area of effect | No equivalent in a duel | Replace with stacks, status count or duration. It matters only in the mass-battle rating |
 | Movement speed | No equivalent | Replace with art speed, earlier first firing or escape |
 | Minions | One companion (rule 19), or artifacts that act | A swarm is a `Needs rule` channel |
 | Totems, traps, mines | Formations and talismans | Prepared before the fight, so they live in L4 |
 | Curses | Curses (rule 8), `curse_slots` of them | They change rules, never pools |
 | Flasks | Pills and talismans | Pills only in preparation |
-| Life and energy shield | Health behind a linh lực ward | |
+| Life and energy shield | Health behind a linh lực ward; the body shield | Linh lực is the real life bar: when it runs dry the ward falls |
 | Chaos Inoculation style keystones | Rule-benders in the catalogue, such as No Ward | |
 | Conversion, gained as extra | Conversion (rule 6). A converted part keeps both tag families | At most 2 per hit |
 | Support gems | Not in the game | A new concept: an auxiliary art that alters arts by tag |
@@ -161,7 +179,8 @@ Read a real key before using one: `design/gdd/character-stats.md` Parameter keys
 
 ## How builds usually fail
 
-1. The opening spend empties linh lực and the ward falls before the arts finish the job.
+1. The opening spend empties linh lực and the ward falls before the arts finish the job. Sustain is
+   the usual fix, not more damage.
 2. All the arts are slow and the fight is over before they fire.
 3. Modifiers target a layer the channel does not use, such as L5 on ticks.
 4. Damage stacks past a cap with nothing to spend it on.

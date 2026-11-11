@@ -3,7 +3,7 @@ name: design-build
 description: "Turns a build concept into a complete cultivator build, modifiers first: finds the enabling effect, forges the modifiers that stack on it, then gives them to techniques, arts, items, tree clusters, Đạo or new concepts, and proves it on the fight timeline. Use whenever the user describes a build, playstyle, cultivator archetype, sect style, enabling item or technique idea they want designed, even if they never say 'build'. Also promotes a saved build's pieces into the GDDs."
 argument-hint: "[build concept, lore, or both] | promote [slug]"
 user-invocable: true
-allowed-tools: Read, Glob, Grep, Write, Edit, AskUserQuestion, Bash(bash "*/.claude/skills/design-build/../../hooks/yaml-helper.sh" resolve_config *), Bash(python .claude/skills/design-build/scripts/fight_calc.py *)
+allowed-tools: Read, Glob, Grep, Write, Edit, AskUserQuestion, Bash(bash "*/.claude/skills/design-build/../../hooks/yaml-helper.sh" resolve_config *), Bash(python .claude/skills/design-build/scripts/fight.py *)
 model: opus
 ---
 
@@ -60,9 +60,10 @@ of this skill.
 `references/system-roles.md` and `references/content-formats.md` are for Phase 6. Read GDDs by section:
 find headings with Grep (`^#`) and read those ranges.
 
-Run `python .claude/skills/design-build/scripts/fight_calc.py --selftest`. If it reports
-`CONSTANT_DRIFT` or a failed case, or Python is missing, carry on, but the fight check in Phase 7 is
-`NOT ASSESSED` and the sheet says why.
+Run `python .claude/skills/design-build/scripts/fight.py --selftest`. It checks the simulator's constants
+against the Combat GDDs and replays the simulator's own scenarios. If it reports `CONSTANT_DRIFT`,
+`SIM_DRIFT`, `SELFTEST_FAIL` or `LOADER_FAIL`, or Python is missing, carry on, but the fight check in Phase 7
+is `NOT ASSESSED` and the sheet says why.
 
 Values change often, so take numbers from the data files and GDDs on each run, never from memory
 of an earlier run.
@@ -163,10 +164,12 @@ Numbers on anything new are first guesses, and the sheet says so.
 ## Phase 7: Prove it
 
 Write `design/builds/[slug].fight.json` (format in `content-formats.md`), then run
-`python .claude/skills/design-build/scripts/fight_calc.py design/builds/[slug].fight.json --matrix`.
-Add `--timeline` to see it second by second. Do this at the build's defining realm and at one other
-realm. Then remove the identity piece with `--without "[its id]"` and run it again. The script gives
-observations; the verdicts below are yours.
+`python .claude/skills/design-build/scripts/fight.py design/builds/[slug].fight.json --matrix`.
+It runs the build on `tools/design/combat_sim/sim.py`, the simulator the Combat GDDs cite, over 20 fixed
+seeds. Add `--timeline` to see one fight pulse by pulse. Do this at the build's defining realm and at one
+other realm. Then remove the identity piece with `--without "[its id]"`; the `identity` lines compare the
+two runs. The script gives observations; the verdicts below are yours. A field the file format does not
+know stops the run (`UNKNOWN_FIELD`): put that piece in `unmodelled` and model the nearest thing it can.
 
 Run these and fix what fails before showing the sheet. Each check reports `PASS`, `FAIL` or
 `NOT ASSESSED`, with the reason. `NOT ASSESSED` means the check could not run. It is not a softer `FAIL`,
@@ -180,16 +183,20 @@ on a `Needs key` piece usually lands here, and that is an honest result.
 3. **Stack:** every ladder rung is filled or named as a sacrifice; no modifier targets something its
    channel does not use; the stack has four or more forms and an identity piece; each layer's total is
    stated, with which layers are empty and what that costs. **The identity test:** the `--without` run
-   must change the fight. If it does not, the piece does nothing and the sheet's claim is wrong, whatever
-   it says. If the piece cannot be removed because it is unmodelled, this part is `NOT ASSESSED`.
+   must change the fight: an `identity ... changed` line in at least one matchup the build claims. If every
+   line reads `NO_CHANGE`, the piece does nothing and the sheet's claim is wrong, whatever it says. If the
+   piece cannot be removed because it is unmodelled, this part is `NOT ASSESSED`.
 4. **Scaling:** compare `m_static` and the layers with the typical and top-end anchors. Only a build that
    falls short of its stated power level fails. A build above the anchors is noted as `INFO` and is not
    pulled back, since only the macro targets matter.
 5. **The fight:** the matrix shows the loop actually happens. It fails when the build runs dry before its
-   engine works, when its key art never fires, or when a condition is never true. Name every `cap_hit`.
-   A `CONSTANT_DRIFT` line or a failed selftest makes this `NOT ASSESSED`. Each `UNMODELLED` line in the
-   output is a piece the fight did not test, and the sheet lists them. If an unmodelled piece is the
-   engine, this check is `NOT ASSESSED`.
+   engine works, when its key art shows `NEVER_FIRED`, or when a condition is never true. Name every
+   `cap_hit` and `lint_over`. Same-realm fights against a typical foe should last 30–60 s for a typical
+   build; a top-end build may end them in its first volley or two, and a top-end mirror lasts as long as a
+   typical one (Combat rule 18). A `CONSTANT_DRIFT` or `SIM_DRIFT` line or a failed selftest makes this
+   `NOT ASSESSED`. Each `UNMODELLED` line, and the `model_note` list of what the simulator does not model,
+   names a piece the fight did not test, and the sheet lists them. If an unmodelled piece is the engine,
+   this check is `NOT ASSESSED`.
 6. **Reuse:** each new piece has a second home, signature pieces are few, and the build reuses earlier
    pieces where the ledger has any that fit. With no ledger yet, this reports `NOT ASSESSED` for reuse.
 7. **NPC use:** the generator could use each new modifier, and one line of a Breakdown can explain it.

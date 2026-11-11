@@ -5,7 +5,7 @@
 `/design-build [concept]` turns a build concept into a complete cultivator build, modifiers first. It
 reads the seed, loads the combat model and the modifier forge, offers directions framed as an enabler
 plus a stack, sets a spine, forges the modifiers up the stack ladder, then assigns them to systems and
-generates what carries them. It proves the build with `scripts/fight_calc.py`, reports each check as
+generates what carries them. It proves the build with `scripts/fight.py` (the combat simulator), reports each check as
 `PASS`, `FAIL` or `NOT ASSESSED`, and on approval writes `design/builds/[slug].md`, its `.fight.json`,
 ledger rows and catalogue rows. `/design-build promote [slug]` moves chosen pieces into the GDDs with
 per-file approval. It never writes `assets/data/` for a field no code reads, and never edits
@@ -57,7 +57,7 @@ Fixture says otherwise. Rules: `studio-tests/CLAUDE.md` § Fixture defaults.
 2. Asks the direction with `AskUserQuestion`, then the realm, power, root and use
 3. Shows a spine that includes channel and enabler before forging
 4. Shows the modifier table across at least four forms, with a second home or `signature` on each new piece
-5. Runs `fight_calc.py --matrix` and a `--without` run on the identity piece
+5. Runs `fight.py --matrix` and a `--without` run on the identity piece
 6. Asks once before writing the sheet, fight input, ledger and catalogue rows
 
 **Assertions:**
@@ -71,7 +71,7 @@ Fixture says otherwise. Rules: `studio-tests/CLAUDE.md` § Fixture defaults.
 ### Case 2: The calculator cannot be trusted
 
 **Fixture:**
-- `fight-constants.json` holds a value whose anchor no longer appears in `design/gdd/combat.md`
+- `fight.py`'s constant table holds an anchor that no longer appears in `design/gdd/combat.md` or `combat-defence.md`
 
 **Input:** `/design-build a build that stacks one thing`
 
@@ -172,5 +172,5 @@ Fixture says otherwise. Rules: `studio-tests/CLAUDE.md` § Fixture defaults.
 
 ## Coverage Notes
 
-The quality of the creative output is judged by a person, not by this spec. `fight_calc.py` has its own
-check: `--selftest` replays the Combat GDD's fixtures.
+The quality of the creative output is judged by a person, not by this spec. `fight.py` has its own
+check: `--selftest` verifies its constants against the Combat GDDs and replays the simulator's scenarios.

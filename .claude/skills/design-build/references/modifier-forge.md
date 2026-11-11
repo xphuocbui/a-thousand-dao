@@ -204,4 +204,4 @@ because of the reservation. Rung 8 is body guard, because the ward is smaller.
 - A stack with no answer to the channel's cap.
 - An enabler that is strictly better than not having it.
 - Three stats that all mean "more damage" in the same layer.
-- A condition that is always true, or never true, in a real fight. Check it with `fight_calc.py`.
+- A condition that is always true, or never true, in a real fight. Check it with `fight.py --timeline`.

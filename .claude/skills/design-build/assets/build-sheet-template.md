@@ -138,12 +138,14 @@ Each result is PASS, FAIL or NOT ASSESSED, with the reason.
 
 ## Fight Results
 
-Input: `design/builds/[slug].fight.json`. Observations from `fight_calc.py`, a paper model with expected
-values for chance, not the game.
+Input: `design/builds/[slug].fight.json`. Observations from `fight.py` on the combat simulator
+(`tools/design/combat_sim/sim.py`, 20 fixed seeds), not the game.
 
-| Enemy | Gap | Result | Time | Own dry at | Cap hits |
-|---|---|---|---|---|---|
-| [typical / top_end] | [0–2] | [result] | [s] | [s or never] | [names] |
+| Enemy | Gap | Wins / losses / draws | Mean time | Own dry at | Never fired | Cap hits |
+|---|---|---|---|---|---|---|
+| [typical / top_end] | [0–2] | [w / l / d] | [s] | [s or never] | [art ids or none] | [names] |
+
+**Identity test** (`--without [piece]`): [the matchups that changed, or NO_CHANGE everywhere]
 
 **Unmodelled:** [each piece the fight did not test]
 

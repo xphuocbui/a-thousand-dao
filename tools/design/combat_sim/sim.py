@@ -79,6 +79,7 @@ class Art:
     heal: float = 0.0        # c_heal
     qi_restore: float = 0.0  # share of qi_max a heal art restores (#44 part 2, P2-2)
     cleanse: int = 0         # debuff stacks removed from self on firing
+    m_mult: float = 1.0      # this art's own layer points, as a factor on the build's M (build loader)
 
 
 @dataclass
@@ -121,6 +122,7 @@ class Build:
     k_frost: float = 0.0      # Frost Tithe: share of the foe's extra art cost (from your Ice stacks) you gain
     curse_wither: bool = False  # your hits apply Withering (healing taken -50 %) for 4 pulses
     curse_stagnate: bool = False  # your hits apply Stagnation (no regeneration) for 3 pulses
+    art_speed_pct: float = 0.0  # Combat Formulas A2: cooldown / (1 + art_speed_pct / 100), floor 0.5 s
     # ward and body layers (Combat Defence & Healing Formulas A0, 2026-11-11); all neutral by default
     ward_layer: float = 1.0   # (1 + ws/100) relative to the listed ward: x ward_pts, / drain
     body_pts: float = 0.0     # body resistance in points (body techniques and body gear), never billed
@@ -139,7 +141,8 @@ class Side:
         self.qi_base = 26 * self.U * b.n_qi
         self.hp = self.hp_max
         self.qi = self.qi_base
-        self.ready = [a.cd for a in b.arts]  # nothing fires at t = 0 (AC-CB-32)
+        self.ready = [max(0.5, a.cd / (1 + b.art_speed_pct / 100)) for a in b.arts]  # nothing fires at t = 0 (AC-CB-32)
+        self.fired = [0 for _ in b.arts]  # firings per art, for the build loader's observations
         self.basic_ready = 1.0
         self.buffs = []    # [element, stacks, t_end]
         self.debuffs = []  # [element, stacks, t_end, source Side]
@@ -213,7 +216,7 @@ def hit(att, dfn, c, dtype, rng, t, log, art=None):
     is_crit = rng.random() < crit_ch
     crit = (att.b.crit_mult + dfn.dsum("critdmg_taken")) if is_crit else 1.0
     more = 1 + att.bsum("dmg") + (att.bsum("dmg_phys") + dfn.dsum("phys_taken") if dtype == "phys" else 0)
-    D = att.U * c * att.b.M * crit * more * supp(att, dfn)
+    D = att.U * c * att.b.M * (art.m_mult if art is not None else 1.0) * crit * more * supp(att, dfn)
     if dtype == "phys" and dfn.bsum("phys_dampen"):
         D /= 1 + dfn.bsum("phys_dampen")
     if not is_crit and att.b.k_noncrit_pen:
@@ -321,7 +324,7 @@ def act(s, o, t, rng, log):
     s.now = t
     o.now = t
     b = s.b
-    speed = 1 + s.bsum("speed")
+    speed = 1 + s.bsum("speed") + b.art_speed_pct / 100
     for i, a in enumerate(b.arts):
         if t + 1e-9 < s.ready[i]:
             continue
@@ -339,6 +342,7 @@ def act(s, o, t, rng, log):
         if b.k_art:
             s.qi = min(s.qi_max(), s.qi + b.k_art * s.qi_max())
         s.ready[i] = t + max(0.5, a.cd / speed)
+        s.fired[i] += 1
         if a.buff:
             s.buffs.append([a.element, a.buff[0], t + a.buff[1]])
         if a.cleanse:
@@ -434,13 +438,14 @@ def builds():
     # guesses until the harness fits the top-end W shares.
     top = dict(M=103, crit=0.5, crit_mult=2.0, n_body=1.6, n_qi=1.3, block=17)
     Top = Build("top-end", arts=kit(), ward_pts=342.5, drain=1.64 / 2.56, ward_layer=68.1, **top)
-    # Top-end the^ tu: the default ward only (60 points, drain 0.40 = 2.0 before drain_scale, no ws), the QR fixture's
-    # body (block 88.3, Physical resistance 36.1, body shield 0.90) as a typical-level the^ tu, body layers x27.06
-    # over it, health regeneration 0.4 % a pulse before them (10.8 % after). The regeneration is a placeholder: parity
-    # sits between 8 % and 12 % (Open Question 22)
+    # Top-end the^ tu: the default ward only (60 points, drain 0.40 = 2.0 before drain_scale, no ws). The QR
+    # fixture's body (block 88.3, Physical resistance 36.1) is read as a typical-level the^ tu at body layers 2.587,
+    # so its base values are those / 2.587, and every body layer at cap gives bs_mult 70 (x27.06 over the fixture).
+    # Body shield 0.90, never scaled. Health regeneration 10.8 % a pulse after the layers: about even with the
+    # top-end ward build (Combat Defence & Healing Open Question 22)
     TT = Build("top-end the^ tu", arts=kit(), M=103, crit=0.5, crit_mult=2.0, n_body=1.2, n_qi=1.0,
-               ward_pts=60 * 1.25 / K["ward_mult"], drain=2.0, block=0, body_block=88.3, body_pts=36.1,
-               bs_mult=27.06, body_shield=0.90, hregen=0.004)
+               ward_pts=60 * 1.25 / K["ward_mult"], drain=2.0, block=0, body_block=88.3 / 2.587,
+               body_pts=36.1 / 2.587, bs_mult=70.0, body_shield=0.90, hregen=0.108 / 70)
     return dict(T=T, S=S, Bu=Bu, H=H, F=F, W=W, I=I, C=C, Up=Up, Top=Top, TT=TT)
 
 

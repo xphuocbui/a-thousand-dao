@@ -15,7 +15,7 @@ The queue is a JSON list of seeds, re-read before every launch, so seeds can be 
 Per build the session writes, inside <run>/builds/:
     <slug>.md          a player guide (why it works, what to look for, what to stack, what is missing)
     <slug>.sheet.md    the design-build sheet (skill template)
-    <slug>.fight.json  the fight input for fight_calc.py
+    <slug>.fight.json  the fight input for fight.py (only when the simulator is allowed)
 and appends to the run's shared files: staging-catalogue.md (missing pieces), suggestions.md (system
 changes), ledger.md. It never touches GDDs, the real modifier catalogue, the real content ledger, data or code.
 
@@ -47,7 +47,7 @@ ALLOWED = ",".join([
     "Bash(bash .claude/hooks/yaml-helper.sh *)",
     "Bash(ls *)", "Bash(wc *)", "Bash(grep *)", "Bash(head *)",
 ])
-# No combat simulator in this run (user, 2026-11-11): python is blocked, so fight_calc.py cannot run.
+# No combat simulator in this run (user, 2026-11-11): python is blocked, so fight.py cannot run.
 DISALLOWED = ",".join(["AskUserQuestion", "Agent", "Bash(git *)", "Bash(python *)", "WebSearch", "WebFetch"])
 
 SYSTEM = """You are running UNATTENDED; the user cannot answer. AskUserQuestion is
