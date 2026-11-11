@@ -5,7 +5,7 @@ fresh session keeps the parent's long context out of every build (see the memory
 
 Usage (from the repo root):
     python -I tools/headless/run_builds.py --run design/builds/overnight-2026-11-10 \
-        [--queue <run>/queue.json] [--until 2026-11-11T09:00] [--parallel 2] [--model opus] [--dry-run]
+        [--queue <run>/queue.json] [--until 2026-11-11T09:00] [--parallel 2] [--model sonnet] [--dry-run]
         [--no-simulator]
     python -I tools/headless/run_builds.py --run <run dir> --summary-only
 
@@ -17,8 +17,12 @@ Per build the session writes, inside <run>/builds/:
     <slug>.md          a player guide (why it works, what to look for, what to stack, what is missing)
     <slug>.sheet.md    the design-build sheet (skill template)
     <slug>.fight.json  the fight input for fight.py (not with --no-simulator)
-and appends to the run's shared files: staging-catalogue.md (missing pieces), suggestions.md (system
-changes), ledger.md. It never touches GDDs, the real modifier catalogue, the real content ledger, data or code.
+    <slug>.staging.md, <slug>.ledger.md, <slug>.suggestions.md   its own rows for the run's shared files
+It never reads or writes the shared files (staging-catalogue.md, ledger.md, suggestions.md): after each build the
+driver merges its own files into them with tools/headless/merge_build_files.py and rewrites staging-index.md, the
+short index sessions grep for reuse (2026-11-11: re-reading the 170k-character shared catalogue before every edit
+was the largest avoidable cost of the 2026-11-10 run). It never touches GDDs, the real modifier catalogue, the
+real content ledger, data or code.
 
 State lives in <run>/_driver/ (state.json, driver.md, one transcript per session as <slug>-try<n>.md). A build that fails is
 retried once. A usage-limit message pauses the driver (15 min steps) until --until, then it stops.
@@ -66,7 +70,8 @@ FIGHT_NONE = """   - NO combat simulator in this run (driver --no-simulator). Do
      write any simulation script, and do not hand-simulate the fight second by second. In Phase 7 run every
      check you can by reading the rules; mark "The fight" and the identity test NOT ASSESSED with the reason
      "no simulator this run". Explain the engine in words and a few key numbers taken straight from the GDD
-     formulas."""
+     formulas. `fight.py --numbers` cannot run either: Grep the GDDs for the numbers you need (about 40 lines
+     around each hit), never whole sections."""
 
 SYSTEM = """You are running UNATTENDED; the user cannot answer. AskUserQuestion is
 unavailable. The project is in autonomous automation mode for this run (project.local.yaml).
@@ -101,24 +106,31 @@ Overrides to the skill, in force for this session:
 3. Do NOT edit design/quick-specs/tree-modifier-catalogue.md, design/builds/content-ledger.md, any file in
    design/gdd/, design/registry/, assets/, src/, project.yaml, or files under design/dao-ways/ (a separate
    task; do not read it either). Do not run git.
-4. Missing pieces go to the STAGING CATALOGUE `{staging}`: every new modifier, Effect, enabler, artifact,
-   talisman, pill, formation, công pháp, art, Đạo facet or notable, or concept this build needs that the
-   game does not have. Before adding, look for a fit in this order and reuse by name: the staging catalogue,
-   design/quick-specs/tree-modifier-catalogue.md, design/builds/content-ledger.md,
-   design/builds/by-root/missing-pieces.md. Reusing a staged row = add your slug to its "Used by" cell (the
-   only edit you may make to another build's row). Add new rows under the matching section, using the
-   table's columns; the ID is a short kebab-case name. Other sessions write this file at the same time:
-   re-read it right before each edit and keep each edit small.
+4. Missing pieces go to YOUR OWN staging file `{builds}/{slug}.staging.md`: every new modifier, Effect,
+   enabler, artifact, talisman, pill, formation, công pháp, art, Đạo facet or notable, or concept this build
+   needs that the game does not have. Do NOT read or edit the run's shared files (staging-catalogue.md,
+   ledger.md, suggestions.md); the driver merges your files into them after you finish. Before staging a piece,
+   look for a fit and reuse it by name: Grep `{index}` (every piece earlier builds staged, one short row each,
+   with each section's column headers at the top), then design/quick-specs/tree-modifier-catalogue.md and
+   design/builds/content-ledger.md (read in Phase 2), then Grep design/builds/by-root/missing-pieces.md. In
+   your staging file, use `## <section>` headings with the section names and columns listed at the top of the
+   index; the ID is a short kebab-case name; "Used by" is `{slug}`. List each staged piece you reuse in a
+   `## Reused` table: `| ID | Found in |` (Found in: staging, tree catalogue, content ledger or missing
+   pieces).
 5. System suggestions: if the build needs a new system or a change to an existing rule, write it in the
-   guide's last section AND append to `{suggestions}` one entry per suggestion in that file's format.
-6. Append your build's rows to `{ledger}` (the run's ledger; same columns as the real content ledger). If rows
-   for your slug already exist in the shared files from an interrupted earlier run, update them instead of adding
-   duplicates.
-7. Take every number from the data files and GDDs on this run. Numbers on new pieces are first guesses.
+   guide's last section AND in `{builds}/{slug}.suggestions.md`, one entry each, headed
+   `### {slug}: <short title>`, with the bullets Kind, Touches, Proposal, Why the build needs it, Trade-off.
+6. Your ledger rows go in `{builds}/{slug}.ledger.md`, with `## Builds`, `## Modifiers`, `## Enablers`,
+   `## Other pieces` and `## New concepts` tables in the real content ledger's columns
+   (design/builds/content-ledger.md). If your own files exist from an interrupted earlier try, update them.
+7. Take every number from `fight.py --numbers` and the data files on this run. Numbers on new pieces are first guesses.
 8. Respect the project memory: Modifier = a plain number on a stat (conversions allowed); Effect = anything
    with a rule; Effects are hand-designed and unpriced; sustain is king and fights run 30-60 s; slightly
    overpowered is fine, only macro targets matter. Originality: no names lifted from novels or games.
-9. Finish with exactly one line as the last line of your final message:
+9. Reading and writing (2026-11-11, cost): follow the skill's Phase 2 "Read each file once" and "What not to
+   read" exactly. Never read another build's files or an earlier run. Write each output file whole with one
+   Write when its content is ready, then fix it with a few Edits; do not build files line by line.
+10. Finish with exactly one line as the last line of your final message:
    BUILD-RESULT: slug={slug} status=<DONE|PARTIAL|FAILED> staged_new=<n> staged_reused=<n> suggestions=<n> checks_fail=<n> checks_na=<n>
 """
 
@@ -209,6 +221,17 @@ def is_limit(text):
         "hit your" in t and "limit" in t)
 
 
+def merge_files(run, slug):
+    """Merges one build's own files (or all, slug None) into the shared files and rewrites staging-index.md."""
+    cmd = [sys.executable, "-I", os.path.join(REPO, "tools", "headless", "merge_build_files.py"), "--run", run]
+    cmd += ["--slug", slug] if slug else ["--all"]
+    r = subprocess.run(cmd, cwd=REPO, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    out = (r.stdout + r.stderr).strip()
+    unplaced = [l for l in out.splitlines() if l.startswith("UNPLACED")]
+    log(run, "merge %s: exit %d, %d lines%s" % (slug or "all", r.returncode, len(out.splitlines()),
+                                                ("; " + "; ".join(unplaced)) if unplaced else ""))
+
+
 def fight_block(args, builds, slug):
     return (FIGHT_NONE if args.no_simulator else FIGHT_SIM).format(builds=builds, slug=slug)
 
@@ -221,7 +244,7 @@ def build_one(args, seed, attempt):
                            power=seed.get("power", "your choice"), root=seed.get("root", "your choice"),
                            use=seed.get("use", "player"), builds=builds, staging=f"{run}/staging-catalogue.md",
                            suggestions=f"{run}/suggestions.md", ledger=f"{run}/ledger.md",
-                           fight=fight_block(args, builds, slug))
+                           index=f"{run}/staging-index.md", fight=fight_block(args, builds, slug))
     prompt = f"/design-build {seed['seed']}"
     tag = f"{slug}-try{attempt}"
     log(run, f"start {tag}")
@@ -261,7 +284,8 @@ def main():
     ap.add_argument("--queue", help="queue JSON (default <run>/queue.json)")
     ap.add_argument("--until", help="stop launching after this local time, ISO format")
     ap.add_argument("--parallel", type=int, default=1)
-    ap.add_argument("--model", default="opus")
+    ap.add_argument("--model", default="sonnet",
+                    help="sonnet by default (2026-11-11, cost); the skill's own model pin does not apply here")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--summary-only", action="store_true")
     ap.add_argument("--no-summary", action="store_true")
@@ -279,6 +303,8 @@ def main():
     os.makedirs(os.path.join(REPO, args.run, "builds"), exist_ok=True)
     os.chdir(REPO)
     state = load_state(args.run)
+    if not args.dry_run:
+        merge_files(args.run, None)  # fold in anything an earlier interrupted run left, and write the index
 
     if args.dry_run:
         seeds = load_queue(queue_path)
@@ -288,7 +314,8 @@ def main():
         print(SYSTEM.format(slug=s["slug"], kind=s.get("kind"), realm=s.get("realm"), power=s.get("power"),
                             root=s.get("root"), use=s.get("use"), builds=f"{args.run}/builds",
                             staging=f"{args.run}/staging-catalogue.md", suggestions=f"{args.run}/suggestions.md",
-                            ledger=f"{args.run}/ledger.md", fight=fight_block(args, f"{args.run}/builds", s["slug"]))[:4000])
+                            ledger=f"{args.run}/ledger.md", index=f"{args.run}/staging-index.md",
+                            fight=fight_block(args, f"{args.run}/builds", s["slug"]))[:6000])
         print(f"\nallowedTools: {ALLOWED}\ndisallowedTools: {DISALLOWED}")
         return
 
@@ -310,6 +337,7 @@ def main():
                         del running[fut]
                         state["builds"][slug] = res
                         save_state(args.run, state)
+                        merge_files(args.run, slug)
                         if res["status"] == "LIMIT":
                             paused_until = time.time() + LIMIT_WAIT
                             log(args.run, f"usage limit; pausing launches for {LIMIT_WAIT // 60} min")

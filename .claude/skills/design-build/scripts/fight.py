@@ -473,6 +473,56 @@ def selftest():
     return ok
 
 
+def print_numbers():
+    """The numbers a build is designed against, each read from this file's GDD-anchored table (checked first), so
+    a session does not read GDD sections for them. Exit 1 when an anchor drifted: the numbers are then stale."""
+    ok = check_constants()
+    if not ok:
+        print("NOT_VERIFIED\tthe values below may be out of date; read the drifted GDD lines named above")
+    realm_names = "Qi Refining / Foundation / Core Formation / Nascent Soul / Deity Transformation"
+    rows = [
+        ("realms", realm_names),
+        ("fight unit U_r", " / ".join(str(u) for u in sim.U)),
+        ("health, linh luc", "health_units %s x U x n_body; qi_units %s x U x n_qi (Combat A)"
+         % (C["health_units"], C["qi_units"])),
+        ("offence layers", "M = L1..L5; caps %s; L1 past +%d counts x%s (Combat B). W fills only L1"
+         % (" / ".join(map(str, C["layer_caps"])), C["l1_soft"][0], C["l1_soft"][1])),
+        ("typical M", " / ".join(map(str, C["typical_M"])) + "  (L2-L5 typical 1.4, 1.4, 1.2, 1.1)"),
+        ("top-end M", " / ".join(map(str, C["topend_M"])) + "  (L2-L5 at their caps)"),
+        ("crit caps", "chance %s, multiplier %s; base chance 0, base multiplier 1.5" % (C["crit_chance_cap"],
+                                                                                      C["crit_mult_cap"])),
+        ("art lint", "c_art <= 1 x (1 + %s x cost_share) + %s x (cooldown - 1); heal lint x%s"
+         % (C["art_lint"][0], C["art_lint"][1], C["heal_lint_ratio"])),
+        ("art cost, cooldown", "cost_share %s-%s of qi_max; cooldown %s-%s s, floor %s s"
+         % (C["cost_share"][0], C["cost_share"][1], C["cooldown_range"][0], C["cooldown_range"][1], C["cooldown_min"])),
+        ("art slots", " / ".join(map(str, C["slots_by_realm"])) + " by realm, plus bonus slots"),
+        ("linh luc regen", "%s of qi_max a pulse; bonus on a log curve, k %s, no cap (Combat E)"
+         % (C["regen_base"], C["regen_k"])),
+        ("fatigue", "from %s s: %s x U x n^%s a pulse, n = 1, 2, 3 ...; ends every fight"
+         % (C["fatigue_start"], C["fatigue_units"], C["fatigue_pow"])),
+        ("suppression", " / ".join(map(str, C["suppression"])) + " for a gap of 0-4 realms"),
+        ("resistance", "points, R / (100 + R) stopped, no cap; the Common Ward %s points at ws 0, drain 0.328"
+         % C["common_ward"]),
+        ("typical ward strength", " / ".join(map(str, C["typical_ws"])) + " by realm (ws = ws_base for typical layers)"),
+        ("typical block", " / ".join(map(str, C["typical_block"])) + " rating; block_unit "
+         + " / ".join(map(str, C["block_unit"]))),
+        ("default ward", "%s points, drain %s, ward strength does not apply" % C["default_ward"]),
+        ("ward layers W2-W5", "caps %s; 1 + ws/100 = (1 + ws_base/100) x M_w / %s; W3 = 100 x %s x a_w; ward gear also "
+         "adds 100 x %s x a_w to ws_base (Combat Defence A0)"
+         % (" / ".join(map(str, C["defence_layer_caps"])), C["w_ref"], C["layer_gear_scale"], C["ward_gear_scale"])),
+        ("body layers B2-B5", "same caps; bs_mult scales body block, body resistance, health regen, not the body "
+         "shield; B3 = 100 x %s x a_b; no reference value" % C["layer_gear_scale"]),
+        ("top-end anchors", "top-end mirror ~35 s, top end vs typical one volley (2 s), typical mirror ~37 s, "
+         "top-end the^ tu vs top-end ward build about even at 10.8 % health regen a pulse (simulator)"),
+    ]
+    for k, v in rows:
+        print("number\t%s\t%s" % (k, v))
+    print("number\telement stacks\tper stack, simulator's table (Effects System Formulas D): buff %s; debuff %s" % (
+        ", ".join("%s %s" % (e, " ".join("%s %s" % kv for kv in d.items())) for e, d in sim.BUFF.items()),
+        ", ".join("%s %s" % (e, " ".join("%s %s" % kv for kv in d.items())) for e, d in sim.DEBUFF.items())))
+    return 0 if ok else 1
+
+
 def main():
     ap = argparse.ArgumentParser(description="A design-build build on the canonical combat simulator")
     ap.add_argument("build", nargs="?")
@@ -483,9 +533,12 @@ def main():
     ap.add_argument("--timeline", action="store_true")
     ap.add_argument("--without")
     ap.add_argument("--seeds", type=int, default=20)
+    ap.add_argument("--numbers", action="store_true")
     args = ap.parse_args()
     if args.selftest:
         return 0 if selftest() else 1
+    if args.numbers:
+        return print_numbers()
     if not args.build:
         ap.error("a build file or --selftest is needed")
     try:

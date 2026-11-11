@@ -49,7 +49,8 @@ a faster way to find out what they want than questions are.
 ## Phase 2: Load the rules
 
 Read these before suggesting anything. A creative idea that ignores the rules is the commonest failure
-of this skill.
+of this skill. **Read each file once.** They do not change during the run, so never read one again;
+every re-read is paid again on every later turn.
 
 1. `references/combat-model.md`: how the fight rewards a build.
 2. `references/modifier-forge.md`: how modifiers and enablers are made.
@@ -57,16 +58,28 @@ of this skill.
 4. `design/quick-specs/tree-modifier-catalogue.md`: the modifiers and keystones that already exist.
 5. `design/builds/content-ledger.md` if it exists: what earlier builds already made. Reuse it.
 
-`references/system-roles.md` and `references/content-formats.md` are for Phase 6. Read GDDs by section:
-find headings with Grep (`^#`) and read those ranges.
+Then run `python .claude/skills/design-build/scripts/fight.py --numbers` for the numbers a build is
+designed against (layers and caps, the art lint, costs, regeneration, fatigue, wards and the ward and body
+layers, element stacks), each checked against the GDD text. Use these, not memory of an earlier run. If it
+prints `NOT_VERIFIED`, read only the drifted GDD lines it names. Run `fight.py --selftest` too: if it reports
+`CONSTANT_DRIFT`, `SIM_DRIFT`, `SELFTEST_FAIL` or `LOADER_FAIL`, or Python is missing, carry on, but the
+fight check in Phase 7 is `NOT ASSESSED` and the sheet says why.
 
-Run `python .claude/skills/design-build/scripts/fight.py --selftest`. It checks the simulator's constants
-against the Combat GDDs and replays the simulator's own scenarios. If it reports `CONSTANT_DRIFT`,
-`SIM_DRIFT`, `SELFTEST_FAIL` or `LOADER_FAIL`, or Python is missing, carry on, but the fight check in Phase 7
-is `NOT ASSESSED` and the sheet says why.
+**What not to read.** GDDs, data files and catalogues are large, and the digest above covers the numbers:
 
-Values change often, so take numbers from the data files and GDDs on each run, never from memory
-of an earlier run.
+- **GDDs** (`design/gdd/*.md`): Grep only, for one rule or Effect, and read at most about 40 lines around
+  the hit. Reasons to look: to cite the rule a `Needs rule` piece changes, or to reuse an Effect from
+  `effects.md` (Status Catalogue, Starter Effects) or a Way from `dao.md` (Catalogue). Never read a GDD's
+  Core Rules or Formulas whole.
+- **Data** (`assets/data/*.json`): Grep for the id or name you need.
+- **Other builds' sheets and guides, earlier runs, session logs, simulator source**: do not read them. The
+  ledger and catalogues say what exists.
+
+`references/system-roles.md`, `references/content-formats.md` and the sheet template are for Phase 6: read
+each once there.
+
+**Write in few steps.** Write the sheet (and any other output file) whole with one Write when its content
+is ready, then fix it with a few Edits. Building a file one line at a time costs one full turn per line.
 
 ## Phase 3: Find the enabler and the stack
 
@@ -135,8 +148,8 @@ stack: replace the most ordinary rungs and look for another identity piece.
 
 ## Phase 6: Give the pieces homes
 
-Read `references/system-roles.md` and `references/content-formats.md`, then the sources they list for what
-this build touches. Assign every modifier to the system that should carry it, spread across systems, then
+Read `references/system-roles.md` and `references/content-formats.md` once, then Grep the sources they
+list for what this build touches (Phase 2's "What not to read" holds here too). Assign every modifier to the system that should carry it, spread across systems, then
 generate what carries them. Fill `assets/build-sheet-template.md`. Generate only the sections this build
 uses: a build with no companion has no companion section.
 

@@ -1,23 +1,27 @@
 # Content Formats
 
-What a build's pieces look like on the page, and where the live rules are. Numbers live in the
-sources, so read them there. `system-roles.md` says which system should carry what; `combat-model.md`
-says how the fight treats it.
+What a build's pieces look like on the page, and where the live rules are. `system-roles.md` says which
+system should carry what; `combat-model.md` says how the fight treats it.
 
-## Sources to read
+## Where to look
 
-| Build touches | Read |
+The fight's numbers come from `python .claude/skills/design-build/scripts/fight.py --numbers`, checked
+against the GDDs; how the fight behaves is in `combat-model.md`. The places below are **lookups: Grep for
+the rule, key or id, and read only the lines around it** (about 40). Never read a GDD section whole for
+numbers the digest already gives.
+
+| Build touches | Grep in |
 |---|---|
-| Any fight | `design/gdd/combat.md`: rules 10, 13, 22 to 24, Formulas A2, C, D, E |
-| Tags and modifiers | `design/gdd/combat.md`: rules 5, 6 and Formulas B |
-| Statuses, curses, triggers | `design/gdd/combat.md`: rules 7 to 9, Formulas F, G |
+| A fight rule to cite in a `Needs rule` piece | `design/gdd/combat.md` (offence, time, linh lực, statuses, triggers), `design/gdd/combat-defence.md` (wards, resistance, block, shields, healing, the ward and body layers) |
+| Tags and modifier keys | `design/gdd/modifiers.md` Stat List, by key |
+| Statuses, curses, Effects to reuse | `design/gdd/effects.md` Status Catalogue and Starter Effects, by name or keyword |
 | Techniques | `design/gdd/cong-phap.md`: rules 1 to 6, 12, 13, Formulas D, F; `assets/data/items_cong_phap.json` |
 | Spiritual root and elements | `assets/data/character_elements.json`, `design/gdd/linh-can.md` |
 | Artifacts | `assets/data/items_artifacts.json`, `design/gdd/item-database.md` rule 6 |
 | Talismans, formations, beasts | `assets/data/crafting_talismans.json`, `crafting_formations.json`, `creatures_linh_thu.json`, and the quick specs in `design/quick-specs/` |
 | Modifiers, tree and clusters | `design/quick-specs/tree-modifier-catalogue.md`, `design/gdd/kinh-mach-do.md` rules 6, 12, 16, `assets/data/meridian_capabilities.json` |
 | What earlier builds made | `design/builds/content-ledger.md` |
-| The Way | `design/gdd/dao.md`: rules 1 to 5, 12, Formulas D1 |
+| The Way | `design/gdd/dao.md` Catalogue, by Way name; its rules only to cite one |
 | Stat keys | `design/gdd/character-stats.md`, the key groups table |
 | Tone and pillars | `design/gdd/game-concept.md` |
 | Registry values | `design/registry/entities.yaml`, grep by name |
