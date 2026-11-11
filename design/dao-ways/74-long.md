@@ -23,7 +23,7 @@
 - **Effects:**
   - **Major: Dragon Blood (Long Huyết Thức Tỉnh).** Your hits gain flat damage equal to 0.6 % of your max health; with
     Blood Purity (Huyết Đạo), +0.01 % more per point.
-  - Minor: Dragon's Girth (Long Thể). +8 % max health. *(starter)*
+  - Minor: Dragon's Girth (Long Thể). Each 10 % of your max health above your realm's base gives +2 block. *(starter)*
   - Minor: Dragon's Vigour (Long Sinh Lực). Your health regeneration +1 % per 10 % of max health above your realm base.
 
 ### 2. Long Lân (Scales)
@@ -34,7 +34,7 @@
   - **Major: Dragon Scales (Long Lân).** Your body shield is split into 4 Scales, one per element group (Physical/Force,
     Fire/Cold/Lightning/Light, Chaos, Soul): each stops only its group, at 40 % of the whole shield's value each.
     `Needs rule` (Combat Defence shields; shared idea with Cốt's Plates).
-  - Minor: Polished Scale (Vảy Bóng). +10 % body shield. *(starter)*
+  - Minor: Polished Scale (Vảy Bóng). A Scale that has not broken this fight stops 10 % more. *(starter)*
   - Minor: The Reverse Scale (Nghịch Lân). When a crit hits you, your next hit deals L5 +30 (the dragon's anger).
 
 ### 3. Long Ngâm (the Roar)

@@ -53,8 +53,7 @@
 - **Effects:**
   - **Major: Giant's Strength (Cự Lực).** Your Physical hits gain flat damage equal to 1 % of your maximum health
     (before layers).
-  - Minor: Big Frame (Thân To). +10 % max health, −5 pp evade. *(starter)* (A stat pair with a price: an Effect
-    because it trades.)
+  - Minor: Big Frame (Thân To). Your max health is +1 % per point of căn cốt above 40 (cap +10 %). *(starter)*
   - Minor: Stride (Sải Bước). Your basic attack's cooldown is 0.1 s shorter per 20 % of max health above your
     realm's base (cap −0.3 s).
 

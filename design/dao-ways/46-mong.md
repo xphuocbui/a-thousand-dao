@@ -37,7 +37,7 @@ when you wake, and damage you deal is kept at half. The Way builds around that w
 - **Effects:**
   - **Major: Butterfly Wings (Hồ Điệp Dực).** During the Dream, your evade is +20 pp (inside `evade_cap`); each hit you
     evade in it gives +1 pp evade for the rest of the fight (cap +8).
-  - Minor: Light as a Wing (Nhẹ Như Cánh). +3 pp evade. *(starter)*
+  - Minor: Light as a Wing (Nhẹ Như Cánh). Your evade counts double against the foe's first art each fight. *(starter)*
   - Minor: Wing Beat (Vỗ Cánh). After you evade, your next art's cost −15 %.
 
 ### 3. Thực Mộng (Dream into Real)
