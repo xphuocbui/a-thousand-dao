@@ -57,7 +57,7 @@
 - **Effects:**
   - **Major: Monsoon (Mùa Mưa).** Each Water buff stack you hold also gives +0.05 pp health regeneration.
   - Minor: Rain Curtain (Màn Mưa). When you are hit for more than 10 % of max health, gain 8 Water buff stacks
-    for 8 pulses.
+    for 8 pulses. *(starter)*
   - Minor: After Rain (Sau Mưa). Your heals over 5 % of max health also cleanse 2 debuff stacks.
 
 ### 5. Giang Hà (Rivers)
