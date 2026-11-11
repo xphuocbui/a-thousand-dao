@@ -1,0 +1,41 @@
+[
+  {
+    "id": "gale-courier-scripture", "name": "Gale Courier Scripture (Phong Sứ Kinh)", "tier": 1, "tech_kind": "main",
+    "names": ["phong"], "layers": 9,
+    "bonuses": [{"stat": "linh_luc_pct", "value": 10}],
+    "passives": [
+      {"key": "evade_pct", "value": 5, "scope": []},
+      {"key": "basic_speed_pct", "value": 10, "scope": []},
+      {"key": "stack_effect_pct", "value": 8, "scope": ["phong"]},
+      {"key": "art_speed_pct", "value": 6, "scope": ["quick"]}
+    ],
+    "abilities": [
+      {"ability_id": "swallow-stance", "unlock_layer": 1},
+      {"ability_id": "hundred-feather-flurry", "unlock_layer": 2},
+      {"ability_id": "three-step-chase", "unlock_layer": 4},
+      {"ability_id": "held-breath", "unlock_layer": 6}
+    ],
+    "effects": [], "origin": "authored", "suite": "gale-courier-scripture", "family": "wind",
+    "lore": "Couriers who outran the storm wrote this scripture, each step a verse and each dodge a breath saved for the next."
+  },
+  {
+    "id": "slow-hour-scripture", "name": "Slow Hour Scripture (Trì Thời Kinh)", "tier": 2, "tech_kind": "secret",
+    "names": ["phong"], "layers": 12,
+    "bonuses": [{"stat": "khi_huyet_pct", "value": 8}, {"stat": "tam_ma_resist_pct", "value": 8}],
+    "passives": [
+      {"key": "evade_pct", "value": 4, "scope": []},
+      {"key": "status_duration_pct", "value": 10, "scope": ["curse"]},
+      {"key": "art_speed_pct", "value": 10, "scope": []},
+      {"key": "leech_health_pct", "value": 10, "scope": []},
+      {"key": "healing_pct", "value": 12, "scope": []}
+    ],
+    "abilities": [
+      {"ability_id": "trailing-gale", "unlock_layer": 1},
+      {"ability_id": "gale-sprite", "unlock_layer": 2},
+      {"ability_id": "echo-of-the-dodge", "unlock_layer": 4},
+      {"ability_id": "reckless-gale", "unlock_layer": 6}
+    ],
+    "effects": [], "origin": "authored", "suite": "slow-hour-scripture", "family": "wind",
+    "lore": "A hermit who bargained with the wind learned to stretch a single heartbeat into a whole afternoon, at a price paid in blood."
+  }
+]

@@ -1,0 +1,32 @@
+[
+{"id": "unbroken-flesh-canon", "name": "Unbroken Flesh Canon (Bất Hoại Nhục Kinh)", "tier": 0, "tech_kind": "body", "names": [], "layers": 6,
+ "bonuses": [],
+ "passives": [
+  {"key": "body_shield_pct", "value": 6, "scope": []},
+  {"key": "health_regen_inc_pct", "value": 10, "scope": []},
+  {"key": "khi_huyet_pct", "value": 3, "scope": []}],
+ "abilities": [{"ability_id": "marrow-tithe-strike", "unlock_layer": 1}, {"ability_id": "bulwark-knuckle", "unlock_layer": 3}, {"ability_id": "last-breath-fist", "unlock_layer": 5}],
+ "effects": [], "origin": "authored", "suite": "unbroken-flesh-canon", "family": "body",
+ "lore": "A flesh-tempering canon that treats wounds as a ledger to be paid forward into a harder body."},
+{"id": "hundred-echo-palm-scripture", "name": "Hundred Echo Palm Scripture (Bách Hưởng Chưởng Kinh)", "tier": 1, "tech_kind": "body", "names": [], "layers": 9,
+ "bonuses": [{"stat": "linh_luc_pct", "value": 10}],
+ "passives": [
+  {"key": "crit_chance_pct", "value": 4, "scope": ["palm"]},
+  {"key": "art_speed_pct", "value": 8, "scope": ["physical"]},
+  {"key": "crit_damage_pct", "value": 20, "scope": ["palm"]},
+  {"key": "attack_pct", "value": 6, "scope": ["palm"]},
+  {"key": "art_cost_pct", "value": -3, "scope": ["physical"]}],
+ "abilities": [{"ability_id": "answering-palm", "unlock_layer": 1}, {"ability_id": "twin-shadow-fist", "unlock_layer": 2}, {"ability_id": "rolling-barrage-fist", "unlock_layer": 4}],
+ "effects": [], "origin": "authored", "suite": "hundred-echo-palm-scripture", "family": "body",
+ "lore": "A palm scripture whose every strike is answered by a hundred echoes, until the opponent drowns in rhythm."},
+{"id": "mountain-bone-body-art", "name": "Mountain Bone Body Art (Sơn Cốt Thể Thuật)", "tier": 0, "tech_kind": "body", "names": [], "layers": 6,
+ "bonuses": [],
+ "passives": [
+  {"key": "block_rating", "value": 8, "scope": []},
+  {"key": "body_shield_pct", "value": 4, "scope": []},
+  {"key": "resist_pct", "value": 40, "scope": ["physical"]},
+  {"key": "attack_pct", "value": 1.5, "scope": ["force"]}],
+ "abilities": [{"ability_id": "mountain-root-stance", "unlock_layer": 2}, {"ability_id": "bone-turning-palm", "unlock_layer": 5}],
+ "effects": [], "origin": "authored", "suite": "", "family": "body",
+ "lore": "A plain body art that roots the cultivator like a mountain and turns blows through the bone."}
+]

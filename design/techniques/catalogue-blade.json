@@ -1,0 +1,41 @@
+[
+ {"id": "afterimage-sword-canon", "name": "Afterimage Sword Canon (Tàn Ảnh Kiếm Kinh)", "tier": 2, "tech_kind": "secret", "names": ["kim"], "layers": 12,
+  "bonuses": [{"stat": "attack_pct", "value": 10}, {"stat": "khi_huyet_pct", "value": 10}],
+  "passives": [
+   {"key": "crit_chance_pct", "value": 9, "scope": ["sword"]},
+   {"key": "crit_damage_pct", "value": 30, "scope": ["sword"]},
+   {"key": "art_speed_pct", "value": 10, "scope": []},
+   {"key": "status_duration_pct", "value": 15, "scope": []}
+  ],
+  "abilities": [
+   {"ability_id": "flurry-stance", "unlock_layer": 1},
+   {"ability_id": "phantom-sword", "unlock_layer": 2},
+   {"ability_id": "triple-draw", "unlock_layer": 4},
+   {"ability_id": "flying-sword", "unlock_layer": 6}
+  ],
+  "effects": [], "origin": "authored", "suite": "afterimage-sword-canon", "family": "blade",
+  "lore": "A fast-handed scripture whose swordsman leaves a trail of cuts that keep striking after the blade has moved on."},
+ {"id": "hunters-reach-canon", "name": "Hunter's Reach Canon (Liệp Trình Kinh)", "tier": 0, "tech_kind": "main", "names": ["kim"], "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "crit_chance_pct", "value": 3, "scope": []},
+   {"key": "art_speed_pct", "value": 5, "scope": []},
+   {"key": "status_duration_pct", "value": 5, "scope": ["curse"]}
+  ],
+  "abilities": [
+   {"ability_id": "pinning-arrow", "unlock_layer": 1},
+   {"ability_id": "nocked-arrow", "unlock_layer": 3},
+   {"ability_id": "coiling-thrust", "unlock_layer": 5}
+  ],
+  "effects": [], "origin": "authored", "suite": "hunters-reach-canon", "family": "blade",
+  "lore": "A patient hunter's method of bow and spear that slows the quarry before the final thrust."},
+ {"id": "debt-ledger-blade", "name": "Debt Ledger Blade (Huyết Trái Đao Lục)", "tier": 0, "tech_kind": "secret", "names": ["kim"], "layers": 6,
+  "bonuses": [],
+  "passives": [
+   {"key": "leech_health_pct", "value": 20, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 10, "scope": []}
+  ],
+  "abilities": [{"ability_id": "debt-blade", "unlock_layer": 1}],
+  "effects": [], "origin": "authored", "suite": "", "family": "blade",
+  "lore": "A mercenary's blade manual that lends strength against the health owed to the next breath."}
+]

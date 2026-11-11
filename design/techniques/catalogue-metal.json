@@ -1,0 +1,44 @@
+[
+{"id": "nine-temper-scripture", "name": "Nine-Temper Scripture (Cửu Luyện Kinh)", "tier": 0, "tech_kind": "main", "names": ["kim"], "layers": 6,
+ "bonuses": [],
+ "passives": [
+  {"key": "crit_chance_pct", "value": 4, "scope": ["kim"]},
+  {"key": "art_speed_pct", "value": 5, "scope": ["kim"]},
+  {"key": "crit_damage_pct", "value": 10, "scope": ["kim"]},
+  {"key": "stack_duration_pct", "value": 4, "scope": ["kim"]}
+ ],
+ "abilities": [
+  {"ability_id": "whetstone-pass", "unlock_layer": 1},
+  {"ability_id": "blood-quench-blade", "unlock_layer": 2},
+  {"ability_id": "sheathed-edge", "unlock_layer": 4},
+  {"ability_id": "shatter-edge-cleave", "unlock_layer": 6}
+ ],
+ "effects": [], "origin": "authored", "suite": "nine-temper-scripture", "family": "metal",
+ "lore": "A blade is struck nine times and quenched in blood before it learns to bite."},
+{"id": "hundred-blades-canon", "name": "Hundred-Blades Canon (Bách Nhận Kinh)", "tier": 1, "tech_kind": "secret", "names": ["kim"], "layers": 9,
+ "bonuses": [{"stat": "linh_luc_pct", "value": 12}],
+ "passives": [
+  {"key": "damage_more", "value": 3, "scope": ["kim"]},
+  {"key": "stack_duration_pct", "value": 10, "scope": ["kim"]},
+  {"key": "status_duration_pct", "value": 15, "scope": ["curse"]},
+  {"key": "crit_chance_pct", "value": 4, "scope": ["kim"]},
+  {"key": "art_speed_pct", "value": 7, "scope": ["kim"]}
+ ],
+ "abilities": [
+  {"ability_id": "needle-rain", "unlock_layer": 1},
+  {"ability_id": "flying-blade-retinue", "unlock_layer": 3},
+  {"ability_id": "sundering-wedge", "unlock_layer": 6}
+ ],
+ "effects": [], "origin": "authored", "suite": "hundred-blades-canon", "family": "metal",
+ "lore": "A hundred flying edges cut a foe open until the weakest strike falls like the heaviest."},
+{"id": "iron-hide-manual", "name": "Iron Hide Manual (Thiết Bì Quyết)", "tier": 0, "tech_kind": "secret", "names": ["kim"], "layers": 6,
+ "bonuses": [],
+ "passives": [
+  {"key": "resist_pct", "value": 100, "scope": ["physical"]},
+  {"key": "block_rating", "value": 9, "scope": []},
+  {"key": "stack_duration_pct", "value": 4, "scope": ["kim"]}
+ ],
+ "abilities": [{"ability_id": "iron-hide-stance", "unlock_layer": 3}],
+ "effects": [], "origin": "authored", "suite": "", "family": "metal",
+ "lore": "The skin is taught to answer every blow as iron answers the hammer."}
+]

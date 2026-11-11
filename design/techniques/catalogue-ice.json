@@ -1,0 +1,38 @@
+[
+{"id": "winter-toll-canon", "name": "Winter Toll Canon (Đông Toán Kinh)", "tier": 1, "tech_kind": "main", "names": ["bang"], "layers": 9,
+ "bonuses": [{"stat": "linh_luc_pct", "value": 12}],
+ "passives": [
+  {"key": "stack_duration_pct", "value": 12, "scope": []},
+  {"key": "stack_effect_pct", "value": 6, "scope": []},
+  {"key": "art_cost_pct", "value": -9, "scope": ["seal"]},
+  {"key": "art_speed_pct", "value": 6, "scope": ["seal"]},
+  {"key": "attack_pct", "value": 3, "scope": ["cold"]}
+ ],
+ "abilities": [
+  {"ability_id": "rime-lock-seal", "unlock_layer": 1},
+  {"ability_id": "deep-winter-form", "unlock_layer": 2},
+  {"ability_id": "black-ice-glaze", "unlock_layer": 4},
+  {"ability_id": "shatter-palm", "unlock_layer": 6}
+ ],
+ "effects": [], "origin": "authored", "suite": "winter-toll-canon", "family": "ice",
+ "lore": "A monastery's tolling rite that counts the cold into a foe, bell by bell, until one blow shatters the sum."},
+{"id": "stilled-hour-sutra", "name": "Stilled Hour Sutra (Đình Thời Kinh)", "tier": 3, "tech_kind": "secret", "names": ["bang"], "layers": 15,
+ "bonuses": [{"stat": "linh_luc_pct", "value": 18}, {"stat": "tam_ma_resist_pct", "value": 12}, {"stat": "khi_huyet_pct", "value": 12}],
+ "passives": [
+  {"key": "stack_duration_pct", "value": 15, "scope": []},
+  {"key": "stack_effect_pct", "value": 11, "scope": []},
+  {"key": "art_speed_pct", "value": 12, "scope": ["cold"]},
+  {"key": "status_duration_pct", "value": 15, "scope": []},
+  {"key": "body_shield_pct", "value": 5, "scope": []},
+  {"key": "healing_pct", "value": 8, "scope": []},
+  {"key": "attack_pct", "value": 4.5, "scope": ["cold"]}
+ ],
+ "abilities": [
+  {"ability_id": "sleet-volley", "unlock_layer": 1},
+  {"ability_id": "stilled-instant", "unlock_layer": 2},
+  {"ability_id": "shattering-mantle", "unlock_layer": 4},
+  {"ability_id": "frozen-marrow-pact", "unlock_layer": 6}
+ ],
+ "effects": [], "origin": "authored", "suite": "stilled-hour-sutra", "family": "ice",
+ "lore": "A sutra said to have halted one hour for a whole winter, so the cold could settle into marrow and mend what it froze."}
+]

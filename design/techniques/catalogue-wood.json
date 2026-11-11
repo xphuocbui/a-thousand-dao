@@ -1,0 +1,29 @@
+[
+{"id": "verdant-cycle-scripture", "name": "Verdant Cycle Scripture (Thanh Hoàn Kinh)", "tier": 1, "tech_kind": "main", "names": ["moc"], "layers": 9,
+ "bonuses": [{"stat": "khi_huyet_pct", "value": 12}],
+ "passives": [
+  {"key": "stack_effect_pct", "value": 8, "scope": ["moc"]},
+  {"key": "stack_duration_pct", "value": 10, "scope": ["moc"]},
+  {"key": "healing_pct", "value": 6, "scope": []},
+  {"key": "art_cost_pct", "value": -6, "scope": []},
+  {"key": "health_regen_inc_pct", "value": 8, "scope": []},
+  {"key": "art_speed_pct", "value": 4, "scope": ["moc"]}
+ ],
+ "abilities": [{"ability_id": "seed-of-spring", "unlock_layer": 1}, {"ability_id": "rooted-form", "unlock_layer": 2}, {"ability_id": "second-spring", "unlock_layer": 4}, {"ability_id": "harvest-bloom", "unlock_layer": 6}],
+ "effects": [], "origin": "authored", "suite": "verdant-cycle-scripture", "family": "wood",
+ "lore": "A scripture that teaches the body to be a tree: sow a seed, take root, mend in the shade, and harvest what the foe has grown."},
+{"id": "rotting-canopy-canon", "name": "Rotting Canopy Canon (Hủ Quan Điển)", "tier": 2, "tech_kind": "secret", "names": ["moc"], "layers": 12,
+ "bonuses": [{"stat": "tam_ma_resist_pct", "value": 10}, {"stat": "lifespan_years", "value": 10}],
+ "passives": [
+  {"key": "stack_effect_pct", "value": 10, "scope": ["moc"]},
+  {"key": "stack_duration_pct", "value": 16, "scope": ["moc"]},
+  {"key": "status_duration_pct", "value": 12, "scope": ["curse"]},
+  {"key": "art_speed_pct", "value": 6, "scope": ["moc"]},
+  {"key": "leech_health_pct", "value": 8, "scope": []},
+  {"key": "attack_pct", "value": 6, "scope": ["chaos"]},
+  {"key": "art_cost_health_pct", "value": 8, "scope": []}
+ ],
+ "abilities": [{"ability_id": "thorn-rain", "unlock_layer": 1}, {"ability_id": "blight-canker", "unlock_layer": 2}, {"ability_id": "bloodroot-pact", "unlock_layer": 4}, {"ability_id": "thornling-grove", "unlock_layer": 6}],
+ "effects": [], "origin": "authored", "suite": "rotting-canopy-canon", "family": "wood",
+ "lore": "A canon of slow decay: thorns that seed poison, cankers that spread stagnation, and a grove that feeds on the rot."}
+]

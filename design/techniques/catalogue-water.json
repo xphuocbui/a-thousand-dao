@@ -1,0 +1,43 @@
+[
+{"id": "still-moon-tide-scripture", "name": "Still Moon Tide Scripture (Tĩnh Nguyệt Triều Kinh)", "tier": 2, "tech_kind": "main", "names": ["thuy"], "layers": 12,
+ "bonuses": [{"stat": "linh_luc_pct", "value": 12}, {"stat": "khi_huyet_pct", "value": 10}],
+ "passives": [
+  {"key": "art_speed_pct", "value": 12, "scope": ["thuy"]},
+  {"key": "healing_pct", "value": 14, "scope": []},
+  {"key": "health_regen_inc_pct", "value": 18, "scope": []},
+  {"key": "stack_duration_pct", "value": 10, "scope": []},
+  {"key": "linh_luc_regen_inc_pct", "value": 3, "scope": []}
+ ],
+ "abilities": [
+  {"ability_id": "deep-lake-stance", "unlock_layer": 1},
+  {"ability_id": "gathering-wave", "unlock_layer": 2},
+  {"ability_id": "brimming-cup", "unlock_layer": 4},
+  {"ability_id": "swelling-tide-palm", "unlock_layer": 6}
+ ],
+ "effects": [], "origin": "authored", "suite": "still-moon-tide-scripture", "family": "water",
+ "lore": "A scripture read by the light of a still moon, teaching that the tide fills the cultivator before it breaks on the foe."},
+{"id": "undertow-litany", "name": "Undertow Litany (Hạ Lưu Kệ)", "tier": 0, "tech_kind": "secret", "names": ["thuy"], "layers": 6,
+ "bonuses": [],
+ "passives": [
+  {"key": "art_speed_pct", "value": 9, "scope": ["curse"]},
+  {"key": "status_duration_pct", "value": 6, "scope": ["curse"]},
+  {"key": "linh_luc_regen_inc_pct", "value": 3, "scope": []}
+ ],
+ "abilities": [
+  {"ability_id": "seep-through-palm", "unlock_layer": 1},
+  {"ability_id": "marrow-to-dew", "unlock_layer": 3},
+  {"ability_id": "drag-of-the-deep", "unlock_layer": 5}
+ ],
+ "effects": [], "origin": "authored", "suite": "undertow-litany", "family": "water",
+ "lore": "A chant of drowned fishermen that drags the foe's hours down into the dark while the singer drinks from their own marrow."},
+{"id": "returning-wake-verse", "name": "Returning Wake Verse (Hồi Lưu Thi)", "tier": 0, "tech_kind": "secret", "names": ["thuy"], "layers": 6,
+ "bonuses": [],
+ "passives": [
+  {"key": "art_speed_pct", "value": 9, "scope": ["thuy"]},
+  {"key": "attack_pct", "value": 3, "scope": ["thuy"]},
+  {"key": "crit_damage_pct", "value": 10, "scope": ["thuy"]}
+ ],
+ "abilities": [{"ability_id": "backwash-seal", "unlock_layer": 1}],
+ "effects": [], "origin": "authored", "suite": "", "family": "water",
+ "lore": "A short verse about the wake that follows every boat, sealed into a quick hand sign that makes the water answer twice."}
+]

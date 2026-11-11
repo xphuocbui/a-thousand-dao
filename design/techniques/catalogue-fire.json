@@ -1,0 +1,37 @@
+[
+{"id": "red-sun-scripture", "name": "Red Sun Scripture (Xích Nhật Kinh)", "tier": 1, "tech_kind": "main", "names": ["hoa"], "layers": 9,
+ "bonuses": [{"stat": "linh_luc_pct", "value": 12}],
+ "passives": [
+  {"key": "art_speed_pct", "value": 10, "scope": ["fire"]},
+  {"key": "damage_more", "value": 3, "scope": ["fire"]},
+  {"key": "stack_effect_pct", "value": 8, "scope": []},
+  {"key": "art_cost_pct", "value": -8, "scope": ["fire"]},
+  {"key": "stack_duration_pct", "value": 4, "scope": []}
+ ],
+ "abilities": [{"ability_id": "brazier-form", "unlock_layer": 1}, {"ability_id": "flint-volley", "unlock_layer": 2}, {"ability_id": "furnace-heart", "unlock_layer": 4}, {"ability_id": "twin-flame-echo", "unlock_layer": 6}],
+ "effects": [], "origin": "authored", "suite": "red-sun-scripture", "family": "fire",
+ "lore": "A sun-worshippers' scripture whose four forms are chanted in quick succession, each flame lighting the next."},
+{"id": "ashen-phoenix-canon", "name": "Ashen Phoenix Canon (Hôi Phượng Điển)", "tier": 2, "tech_kind": "secret", "names": ["hoa"], "layers": 12,
+ "bonuses": [{"stat": "khi_huyet_pct", "value": 10}, {"stat": "tam_ma_resist_pct", "value": 8}],
+ "passives": [
+  {"key": "damage_more", "value": 4, "scope": ["over_time", "hoa"]},
+  {"key": "attack_pct", "value": 8, "scope": ["over_time", "hoa"]},
+  {"key": "healing_pct", "value": 10, "scope": []},
+  {"key": "leech_health_pct", "value": 10, "scope": []},
+  {"key": "stack_effect_pct", "value": 10, "scope": []},
+  {"key": "status_duration_pct", "value": 10, "scope": ["curse"]}
+ ],
+ "abilities": [{"ability_id": "blood-fed-pyre", "unlock_layer": 1}, {"ability_id": "heat-haze", "unlock_layer": 3}, {"ability_id": "ash-rebirth", "unlock_layer": 6}],
+ "effects": [], "origin": "authored", "suite": "ashen-phoenix-canon", "family": "fire",
+ "lore": "The phoenix-keepers' canon teaches that a body is only fuel, and what the fire leaves behind can be made to rise."},
+{"id": "scorch-fist-primer", "name": "Scorch Fist Primer (Chước Quyền Sơ Giải)", "tier": 0, "tech_kind": "secret", "names": ["hoa"], "layers": 6,
+ "bonuses": [],
+ "passives": [
+  {"key": "stack_effect_pct", "value": 8, "scope": []},
+  {"key": "attack_pct", "value": 3, "scope": ["fire"]},
+  {"key": "resist_pen_pct", "value": 24, "scope": ["fire"]}
+ ],
+ "abilities": [{"ability_id": "scorch-fist", "unlock_layer": 1}],
+ "effects": [], "origin": "authored", "suite": "", "family": "fire",
+ "lore": "A brawler's primer that teaches the fist to carry a hearth's heat into the foe's flesh."}
+]

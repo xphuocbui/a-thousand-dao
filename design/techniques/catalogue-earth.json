@@ -1,0 +1,25 @@
+[
+{"id": "mountain-heart-canon", "name": "Mountain Heart Canon (Sơn Tâm Kinh)", "tier": 1, "tech_kind": "main", "names": ["tho"], "layers": 9,
+ "bonuses": [{"stat": "khi_huyet_pct", "value": 12}],
+ "passives": [
+  {"key": "body_shield_pct", "value": 8, "scope": []},
+  {"key": "stack_effect_pct", "value": 10, "scope": ["tho"]},
+  {"key": "stack_duration_pct", "value": 15, "scope": ["tho"]},
+  {"key": "damage_more", "value": 2, "scope": ["tho"]},
+  {"key": "block_rating", "value": 6, "scope": []}],
+ "abilities": [{"ability_id": "mountain-stance", "unlock_layer": 1}, {"ability_id": "sinking-weight", "unlock_layer": 2}, {"ability_id": "bastion-reprisal", "unlock_layer": 4}, {"ability_id": "strata-hammer", "unlock_layer": 6}],
+ "effects": [], "origin": "authored", "suite": "mountain-heart-canon", "family": "earth",
+ "lore": "A fortress-sect canon that teaches the body to stand like a mountain and answer every blow with a slow, crushing fall."},
+{"id": "deep-vein-scripture", "name": "Deep Vein Scripture (Thâm Mạch Kinh)", "tier": 3, "tech_kind": "secret", "names": ["tho"], "layers": 15,
+ "bonuses": [{"stat": "linh_luc_pct", "value": 15}, {"stat": "lifespan_years", "value": 10}, {"stat": "tam_ma_resist_pct", "value": 10}],
+ "passives": [
+  {"key": "art_cost_health_pct", "value": 30, "scope": []},
+  {"key": "stack_effect_pct", "value": 16, "scope": ["tho"]},
+  {"key": "stack_duration_pct", "value": 20, "scope": ["tho"]},
+  {"key": "damage_more", "value": 2, "scope": ["tho"]},
+  {"key": "leech_health_pct", "value": 10, "scope": []},
+  {"key": "healing_pct", "value": 4, "scope": []}],
+ "abilities": [{"ability_id": "quarry-offering", "unlock_layer": 1}, {"ability_id": "stone-warden-call", "unlock_layer": 2}, {"ability_id": "millstone-palm", "unlock_layer": 4}, {"ability_id": "aftershock-slam", "unlock_layer": 6}],
+ "effects": [], "origin": "authored", "suite": "deep-vein-scripture", "family": "earth",
+ "lore": "Miners of a buried sect drank their own blood to wake the stone, and the stone paid back every drop."}
+]

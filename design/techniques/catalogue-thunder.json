@@ -1,0 +1,38 @@
+[
+{"id": "thousand-bolt-scripture", "name": "Thousand-Bolt Scripture (Thiên Lôi Kinh)", "tier": 0, "tech_kind": "main", "names": ["loi"], "layers": 6,
+ "bonuses": [],
+ "passives": [
+  {"key": "crit_chance_pct", "value": 6, "scope": ["lightning"]},
+  {"key": "art_speed_pct", "value": 5, "scope": ["lightning"]},
+  {"key": "crit_damage_pct", "value": 10, "scope": ["lightning"]}
+ ],
+ "abilities": [
+  {"ability_id": "overload-form", "unlock_layer": 1},
+  {"ability_id": "chain-arc", "unlock_layer": 2},
+  {"ability_id": "answering-peal", "unlock_layer": 4},
+  {"ability_id": "capacitor-palm", "unlock_layer": 6}
+ ],
+ "effects": [], "origin": "authored", "suite": "thousand-bolt-scripture", "family": "thunder",
+ "lore": "A beginner's scripture of a thousand small bolts, each crit calling the next until the cultivator is the storm."},
+{"id": "heavenly-tribulation-scripture", "name": "Heavenly Tribulation Scripture (Thiên Kiếp Kinh)", "tier": 3, "tech_kind": "main", "names": ["loi"], "layers": 15,
+ "bonuses": [
+  {"stat": "attack_pct", "value": 10},
+  {"stat": "linh_luc_pct", "value": 15},
+  {"stat": "tam_ma_resist_pct", "value": 10}
+ ],
+ "passives": [
+  {"key": "stack_effect_pct", "value": 40, "scope": ["loi"]},
+  {"key": "stack_duration_pct", "value": 50, "scope": ["loi"]},
+  {"key": "status_duration_pct", "value": 20, "scope": ["curse"]},
+  {"key": "damage_more", "value": 1, "scope": ["lightning"]},
+  {"key": "crit_chance_pct", "value": 3, "scope": ["lightning"]}
+ ],
+ "abilities": [
+  {"ability_id": "stormcloud-familiar", "unlock_layer": 1},
+  {"ability_id": "storm-bank", "unlock_layer": 2},
+  {"ability_id": "thunderclap-bind", "unlock_layer": 4},
+  {"ability_id": "tribulation-seal", "unlock_layer": 6}
+ ],
+ "effects": [], "origin": "authored", "suite": "heavenly-tribulation-scripture", "family": "thunder",
+ "lore": "The scripture of the heavenly tribulation, taught to those who would summon the judgement of heaven upon a foe and not be struck down themselves."}
+]

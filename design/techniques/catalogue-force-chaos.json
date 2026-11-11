@@ -1,0 +1,34 @@
+[
+{"id": "hollow-tide-scripture", "name": "Hollow Tide Scripture (Không Triều Kinh)", "tier": 2, "tech_kind": "main",
+ "names": ["hon_don"], "layers": 12,
+ "bonuses": [{"stat": "linh_luc_pct", "value": 12}, {"stat": "khi_huyet_pct", "value": 10}],
+ "passives": [
+  {"key": "attack_pct", "value": 8, "scope": ["force"]},
+  {"key": "attack_pct", "value": 9, "scope": ["over_time"]},
+  {"key": "status_duration_pct", "value": 12, "scope": []},
+  {"key": "art_cost_pct", "value": -8, "scope": ["force"]},
+  {"key": "leech_linh_luc_pct", "value": 2, "scope": []}],
+ "abilities": [{"ability_id": "marrow-siphon-palm", "unlock_layer": 1}, {"ability_id": "hollow-husk-stance", "unlock_layer": 2}, {"ability_id": "hollowing-strike", "unlock_layer": 4}],
+ "effects": [], "origin": "authored", "suite": "hollow-tide-scripture", "family": "force-chaos",
+ "lore": "The scripture teaches a cultivator to be the tide that empties a foe's well and fills their own."},
+{"id": "ruin-ledger-scripture", "name": "Ruin Ledger Scripture (Phế Trướng Kinh)", "tier": 1, "tech_kind": "secret",
+ "names": ["hon_don"], "layers": 9,
+ "bonuses": [{"stat": "tam_ma_resist_pct", "value": 10}],
+ "passives": [
+  {"key": "art_speed_pct", "value": 12, "scope": ["curse"]},
+  {"key": "status_duration_pct", "value": 20, "scope": ["curse"]},
+  {"key": "attack_pct", "value": 6, "scope": ["chaos"]},
+  {"key": "art_cost_pct", "value": -2, "scope": ["curse"]}],
+ "abilities": [{"ability_id": "fraying-thread", "unlock_layer": 1}, {"ability_id": "ripening-curse", "unlock_layer": 3}, {"ability_id": "gathered-ruin-verdict", "unlock_layer": 6}],
+ "effects": [], "origin": "authored", "suite": "ruin-ledger-scripture", "family": "force-chaos",
+ "lore": "Every ruin a cultivator inflicts is written in this ledger, and the ledger is always called in."},
+{"id": "tearing-force-rites", "name": "Tearing Force Rites (Xé Chấn Nghi)", "tier": 0, "tech_kind": "secret",
+ "names": ["hon_don"], "layers": 6, "bonuses": [],
+ "passives": [
+  {"key": "crit_chance_pct", "value": 5, "scope": ["force"]},
+  {"key": "leech_health_pct", "value": 10, "scope": []},
+  {"key": "resist_pen_pct", "value": 20, "scope": ["chaos"]}],
+ "abilities": [{"ability_id": "shearing-palm", "unlock_layer": 1}, {"ability_id": "bloodletting-rite", "unlock_layer": 3}],
+ "effects": [], "origin": "authored", "suite": "", "family": "force-chaos",
+ "lore": "A back-alley rite of cutting hard and paying in blood, then taking the blood back."}
+]
