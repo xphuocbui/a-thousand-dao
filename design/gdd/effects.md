@@ -125,7 +125,31 @@ different.
      root's element**, **your formation's level**, **your cultivation base and stage**, **an art's authored
      record** (cooldown, cost, parts); events: **the Down step** (step 1 and step 2), **a failed brew**, **a death in
      an event**; and, live, **the chance about to be rolled** (read at each would-be roll, for counted chance);
+   - **added with the shared-rules decisions** (user decisions 2026-11-11; Đạo shared rules R12, R13, R20 and
+     build-run suggestions 2 and 5). **Every Effect that reads one of these carries its own cap in its record.**
+     - events: **a heal restored** (the amount, after Withering and other healing changes); **a hit fully stopped
+       by wards** (no part reached health or the body shield); **your stacks or curse were cleansed** (the count,
+       or the curse and the time it had left); **a soul hit took linh lực** (the amount); **a tick's prevented
+       points** (the share of the tick resistance stopped);
+     - live: **arts you fired this instant**; **the enemy's firings this fight** (they count in "firings this
+       fight"); **pool shortfall** (what a cost or bill could not take from an empty pool); **the extra art cost
+       your Ice stacks added**; **health overflow** (healing lost to a full pool, per pulse); **the heart demon and
+       thần thức pools** (Combat rule 11, R12);
+     - at compile: **each layer's total before its cap**; **the pieces you control** (count and roles: artifacts,
+       companions, wards); **the target is a boss**; a part's **conversion history** (its earlier types are a
+       scope and a readable);
+     - **life readables** (Character Stats' "life readables" section, read at compile): kill count, win streak and
+       higher-realm knockouts this life; World Database grudges, oaths, kindness and debts; merit, incense and
+       renown; Blood Purity, Dao Heart, Calamity Marks, Soul charges, Tipsiness; the foe's tags `demonic`, `ghost`
+       and `undead`; world time and season.
+
+     "A batch expired" and "a time window starting" are not events (R20): an Effect uses a pulse check or a time
+     conditional instead.
    - **in life:** the season, the place, the sect, and the World DB facts the Event Engine exposes.
+
+   **Clarifications** (build-run suggestion 5, 2026-11-11): linh lực shares are read against the **usable**
+   maximum, as start shares already are; an **empty art slot** holds no art, talisman, escape art or ward;
+   **overflow is read whole**, so every Effect that reads the overflow event reads the whole amount, never a split.
 
    An Effect that needs something not on the list asks for an engine addition first; the list is extended in
    this GDD. Each read says *when* it is read: at compile (fixed for the fight), at the start of each instant
@@ -146,25 +170,37 @@ different.
    | Grant element stacks: a number of buff stacks of an element to its owner, or debuff stacks to the target, for a duration or for the fight (rule 9a) | this GDD |
    | Cleanse element stacks: a number of debuff stacks, oldest first; a share of every debuff batch; or every debuff stack of one element (rule 9a) | this GDD |
    | Enforce a closing rule at compile: the `closes` of a keystone or enabler, applied for the whole fight (or, for a life Effect, while it holds). It may forbid (a ward, a slot kind, a companion, regeneration), set Combat Defence & Healing's `cannot_slot_wards` and `no_default_ward` flags, lower an owner's cap (Called Blow's crit cap), scale a named cost or pool (Formation Within a Formation's upkeep, Glass Meridians' body shields), or set a shared floor (Blood Casting with Withering) (re-review EF 2; 2026-11-08b EF-02) | the rule's owner |
-   | Convert a share of a hit, under a condition (a plain share is `convert_pct`; none in the starter set yet) | Combat Damage Types rule 6 |
+   | Convert a share of a hit, under a condition (a plain share is `convert_pct`; none in the starter set yet). The target may be `least_resisted`, chosen when the hit lands; it still uses one of the two conversions, and only capstones and majors may use it (R10, 2026-11-11) | Combat Damage Types rule 6 |
    | Reserve linh lực | Combat Defence & Healing rule 10 |
    | Raise or lower a ward, or change its payload while a condition holds | Combat Defence & Healing rules 5–9 |
-   | Move a timer: shorten your own, or delay the enemy's | Combat rule 13. An art's next firing is never sooner than `cooldown_min` after its last |
+   | Move a timer: shorten your own, or delay the enemy's. Delays are bounded (R1, 2026-11-11): each further delay on the same target within `delay_falloff_window` (3 s) moves half the seconds of the one before, and the target's `timer_resist_pct` shortens every delay. The fight log shows each delay | Combat rule 13. An art's next firing is never sooner than `cooldown_min` after its last |
    | Pay an art's cost in health (not damage, so nothing reduces it; it can put the side Down, and the Down step, refusals included, then runs as usual) | this GDD; it is neither damage nor healing |
    | Pay art and ward costs from carried spirit stones, reported after the fight | this GDD; rule 10 |
    | Report a life cost (rule 10) | this GDD; the caller applies it |
    | Add a tag to an art or its hits, for modifier scopes only (never defence) | Combat rule 6; Modifier System rule 8 |
-   | Add a slot of a named kind (an art slot that takes only one kind of piece) | Combat Formulas A2 |
+   | Add a slot of a named kind (an art slot that takes only one kind of piece): talisman, artifact_active, escape, pill or feint, through the key `free_slots[kind]`. No total cap; each source's own cost is the limit (R4, 2026-11-11) | Combat Formulas A2 |
    | Skip a roll (evade, crit or a status chance): the roll is not drawn and its result is fixed | Combat rule 15; Combat Formulas C, I |
    | Multiply a sheet share by a fixed factor, read at compile and clipped by its owner's cap | the share's owner (e.g. Combat Formulas J `c_comp_cap`) |
    | Fire an art as a last act, at Down step 2 | rule 11; Combat rule 9 |
    | Raise a host's cap by a fixed amount (a formation's maximum level, a stack cap) | the cap's owner |
    | Change a life output (what a brew, a refinement or an event yields, including an event's outcome such as surviving a death) on the seeded life stream | the output's owner (Alchemy, Artifact Refining, Event Engine) |
-   | Refuse Down, at Down step 1 | rule 11 |
+   | Refuse Down, at Down step 1, within the side's refusal budget (R5, 2026-11-11) | rule 11 |
+| Strip buff stacks: `strip_buff(n, element)` removes n of the foe's buff stacks of one element (by default its largest pile), oldest batch first, at most once per pulse per source. The **steal** variant grants the removed stacks to the owner as a new batch with the time they had left (R16, 2026-11-11) | this GDD, rule 9a |
+| Consume stacks: `consume(element, side, n)` removes up to n stacks of an element from a side, oldest batch first, and passes the count to the same Effect's payload; one Breakdown line (R19, 2026-11-11) | this GDD, rule 9a |
+| Skip ward shields with a share of a hit: `bypass_share` on a part. That share skips ward shields only and still meets resistance, block and the body shield; shares from all sources add, capped at 50 % per hit (R2, 2026-11-11) | Combat Defence & Healing |
+| Widen what a shield stops: add damage types or ticks to a shield's `stops` list, at a share. Answers to the counters are capped at 50 % of Chaos and 30 % of Soul, and each source closes something real; base shields never stop ticks (R3, 2026-11-11) | Combat Defence & Healing |
+| Add a Soul part to a non-soul art, at most 30 % of its damage. That part meets only soul defence and shares the soul lockout; converting to Soul stays forbidden (R11, 2026-11-11) | Combat (soul rules) |
+| Avoid a hit: a decoy absorbs a whole hit, an untargetable window drops hits, or a companion takes a share, at the avoid step before evade, within the side's per-pulse avoid budget (`avoid_budget`, start 2). Ticks are never avoided (R6, 2026-11-11) | Combat Defence & Healing (defence path) |
+| Turn healing into damage: while the target carries Withering, healing it would receive is dealt to it as damage instead (Crossing the Line, R12, 2026-11-11) | Combat Defence & Healing rule 19 |
+| Pay a cost from the heart demon or thần thức pool (R12, 2026-11-11) | Combat rule 11 (the pools) |
+| Lay carried ground: at fight start, at foreseen 100 %, ambush 70 %, blind 50 % strength; the Domain is the one carried ground that unfolds mid-fight (R9, 2026-11-11) | Combat rule 12 |
+| Write a layer total (clip or raise): capstones only, one per Way, logged; reading layer totals stays free (R15d, 2026-11-11) | Combat (layers) |
+| Cull: set the target Down at the defeat check when its health is at or below a threshold (`cull_threshold`, start 8 %); capstones only, and Sát Đạo is the only source (R15c, 2026-11-11) | rule 11 |
    | Count a chance on a meter instead of rolling it (keystones only) | rule 12, Formulas A |
 
    The list is closed (user decision 2026-11-08). A new action is an engine addition, added here before any
-   Effect uses it.
+   Effect uses it. An Effect never changes the foe's stats directly: it applies a status, or gives its owner a
+   modifier such as "your hits ignore 15 block" (R21, 2026-11-11).
 
 7. **Engine limits apply to every Effect.**
    - **Triggers:** Combat rule 9 and Formulas G: a fixed resolution order, chain depth 2, at most 6 firings per
@@ -187,6 +223,21 @@ different.
      is part of its record.
    - A **trigger** resolves right after the event that set it off, in Combat rule 9's order.
    - **Life effects** (outside fights) resolve when the Event Engine or the season tick reaches them.
+   - A **held** Effect (build-run suggestion 9, 2026-11-11) banks its payload when its trigger fires and spends it
+     on the owner's **next event of a named kind** ("your next art", "your next basic attack"). The record caps what
+     can be banked, and anything banked is lost at fight end. It writes one Breakdown line when banked and one when
+     spent.
+   - A **self-counter** (Đạo shared rule R7, 2026-11-11) is one generic record: `id`; the **event that adds** to it
+     and how much; its **cap**; its **decay rule** (per pulse, on an event, or none); and the **Effects that read
+     it** (its count is readable live). Every self-counter carries the tag `growing`, so counter-pieces can read
+     the tag. Fury, Spin, Hunger, Seal Marks and Stars are self-counters. A side may run any number of them; each is
+     bounded by its own cap and decay.
+
+   **Preparation choices** (Đạo shared rule R8, 2026-11-11). A **preparation-choice record** holds its `id`, its
+   effects, and the situations that allow it (foreseen, ambush, blind; Combat rule 12's table). Vows, decrees,
+   sacrifices, incense and inscriptions are preparation choices. The choice is made before the fight, the Advisor
+   can preset it, and each source that offers one gives one pick, with no total cap. In the fight the chosen effects
+   work as compile-time Effects.
 
 **Statuses**
 
@@ -211,7 +262,7 @@ different.
 
     | Element | Buff, per stack | Debuff, per stack |
     |---|---|---|
-    | Fire (Hỏa) | +1.2 % damage dealt | **Burn**: Fire damage each pulse, `c_tick` 0.019 per stack (Status Catalogue) |
+    | Fire (Hỏa) | +1.2 % damage dealt: a factor on all of the side's direct damage, outside M; companion hits count (build-run suggestion 5, 2026-11-11) | **Burn**: Fire damage each pulse, `c_tick` 0.019 per stack (Status Catalogue) |
     | Water (Thủy) | +0.5 % maximum linh lực, +0.025 pp linh lực regeneration | — (Ice carries the pair's debuff) |
     | Earth (Thổ) | Physical damage taken **1.1 % dampened** (Modifier System rule 6a; no cap) | −1.2 pp accuracy |
     | Metal (Kim) | +1.2 % Physical damage dealt | +1.8 % Physical damage taken |
@@ -227,8 +278,10 @@ different.
     - **Two separate tracks.** A side may carry buff stacks, debuff stacks, both or neither. Chaos (Hỗn Độn), Light
       (Quang) and Darkness (Ám) have no stacks; Void and Blood are archived (Spiritual Roots).
     - **Batches.** Each grant is a batch with its own timer: the source (an art record, an Effect, an item) says how
-      many stacks and for how long, or "for the fight". Batches never merge or refresh one another. A side's count
-      for an element is the sum of its live batches.
+      many stacks and for how long, or "for the fight". Batches never merge or refresh one another, and **a batch lasts at least 2 pulses** (build-run
+      suggestion 4d, 2026-11-11). A side's count for an element is the sum of its live batches.
+    - **Granted stacks never roll** (build-run suggestion 5, 2026-11-11): stacks an art or Effect grants directly
+      always land, with no status chance; cleansing is the answer.
     - **No cap** on stacks (user decision). Global caps still hold: crit chance, the resistance cap, the evade cap.
       Curse caps do not apply to stacks, so Ice stacks raise art cost past Heavy Breath's +50 %.
     - **Which element.** A stack belongs to its source's element tag (Kim, Mộc, Thủy, Hỏa, Thổ, Băng, Lôi, Phong),
@@ -259,14 +312,19 @@ different.
     (Combat rule 10), after all of the instant's damage:
     1. **Refusals.** Each side's Effects that refuse Down (for example "once a fight, a killing blow leaves you
        at 1 health") are checked in that side's slot order, and the first unspent one saves it: health is set to
-       1 and that Effect is Spent. Each refusal works once per fight, and at most one fires per Down, so a side
-       holding two refusals can survive two separate Downs. A side saved by one is not Down. A refusal is not healing: it works under `no_heal`
+       1 and that Effect is Spent. **Refusal budget** (Đạo shared rule R5, 2026-11-11): a side may refuse Down
+       **once per fight** from all its sources combined; a capstone that says "twice" raises the budget to 2, and
+       nothing raises it higher. Once the budget is spent, no other refusal fires. At most one fires per Down. A side saved by one is not Down. A refusal is not healing: it works under `no_heal`
        (Combat Defence & Healing rule 19).
     2. **Last acts.** For a side still Down, its Effects that act at Down (a final art, a parting curse) resolve
        once, then the side is Down. Their damage enters a follow-up check. The side making the last act cannot
        refuse a second time; a side the last act puts Down runs this step as usual, refusal included.
     3. **Wounds that run on** (a ledger of deferred damage, a curse that outlives its caster) are not resolved
        in the fight. They are reported in the result, and the caller applies them (rule 10).
+
+    **Last acts are not refusals** and have no limit (R5). **Cull** (R15c, 2026-11-11): a cull Effect checks its
+    target at the defeat check; at or below `cull_threshold` of maximum health the target is Down, and this step runs
+    as usual, so a refusal within the budget can still save it (at 1 health, where the next check can cull again).
 
     If both sides are saved, both are at 1 and the fight goes on. If both fall, Combat rule 10's overkill and
     draw rules decide as usual.
@@ -352,6 +410,11 @@ duration to read. They are bound instead by their standing cost (Formulas B) and
 | Leaking Ward (Lậu Hộ) | Drain wards bill more | +50 % (`curse_drain_raise_max`) | 3 | Refresh | curse, ward, cleanse | leaking_ward, curse, ward | Drain wards only |
 | Withering (Khô Héo) | Healing taken down | −50 % (`curse_heal_taken_max`, new) | 4 | Refresh | curse, cleanse | withering, curse | The healer's answer |
 | Slackened Soul (Tùng Hồn) | Soul resistance down | −15 pp per stack (Combat revision D12); no floor since 2026-11-10, so below 0 it amplifies soul hits (Combat Formulas E2) | 2 | Stacks to 2 | curse, soul, cleanse | slackened_soul, curse, soul | — |
+| Slowed Time (Hoãn Thời) | The target's art timers and basic attack run slower | 6 % per stack (`slowed_time_pct`), 30 % at 5 stacks | 3 | Stacks to 5; a new stack refreshes all | curse, cleanse | slowed_time, curse | Thời Đạo's curse (Đạo shared rule R1, 2026-11-11). The target's `timer_resist_pct` shrinks it; a slower timer never breaks `cooldown_min` |
+
+**Curse durations** (Đạo shared rule R22, 2026-11-11): apply every change, both shortenings on the holder and
+lengthenings by the applier, then clamp the result to 1–`curse_duration_max` (5) pulses. Halves round down, and a
+duration never goes below 1.
 
 ### Starter Effects
 
@@ -583,7 +646,7 @@ and A is Down.
 
 The element stack formulas are defined as:
 
-`count(side, element, kind) = Σ live batches` ; buff and debuff effects are `per_stack · count` (rule 9a's table) ; a cleansing ward removes `cleanse_share · stacks` from every debuff batch on its side each pulse ; an art that grants stacks lints at `c_art ≤ lint · (1 − charge)`, where `charge = Σ w_kind · stacks · seconds` per firing, buff and debuff charges simply add (the two-sided discount was removed 2026-11-10: re-measured at 1.00), with `charge ≤ 0.6`. A batch "for the fight" is charged as **60 s** (the fatigue start); the lint compares the capped coefficient **rounded down to 0.01**; a batch below **0.05** stacks is removed (user decisions 2026-11-10, re-review)
+`count(side, element, kind) = Σ live batches` ; buff and debuff effects are `per_stack · count` (rule 9a's table) ; a cleansing ward removes `cleanse_share · stacks` from every debuff batch on its side each pulse ; an art that grants stacks lints at `c_art ≤ lint · (1 − charge)`, where `charge = Σ w_kind · stacks · seconds` per firing, buff and debuff charges simply add (the two-sided discount was removed 2026-11-10: re-measured at 1.00); an art whose `charge` **exceeds 0.6 fails the lint** and is not clipped, so one firing grants at most 40 debuff or 60 buff stack-seconds (build-run suggestion 4c, 2026-11-11). A batch "for the fight" is charged as **60 s** (the fatigue start); the lint compares the capped coefficient **rounded down to 0.01**; a batch below **0.05** stacks is removed (user decisions 2026-11-10, re-review)
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
@@ -600,6 +663,11 @@ pulse; the charge runs from 0 to 0.6, so an art that grants stacks keeps at leas
 debuff stacks for 6 s per hit breaks even at 0.015 (the foe at 10 % evade, so accuracy and evade stacks act). Debuffs
 are worth more per stack-second because they can be cleansed. A kit granting both sides is worth the sum of the two
 (re-measured after equalising: factor 1.00 on average, `twosidefit.py`), so the charges add with no discount.
+
+**Slowed Time** (Đạo shared rule R1, 2026-11-11): a slowed timer's remaining time is stretched by
+`× (1 + slowed_time_pct × stacks × (1 − timer_resist_pct / 100))`, stacks capped at 5. Example: 5 stacks, no
+resistance, a 4 s cooldown becomes 4 × 1.30 = **5.2 s**. A delay (rule 6) moves `d × 0.5^k × (1 − timer_resist_pct / 100)`
+seconds, k the number of earlier delays on the same target inside `delay_falloff_window`.
 
 **Example:** a Fire art (cost 0.075, cooldown 4 s, lint 3.55) granting 1 buff stack for 10 s and 2 Burn stacks for
 6 s per hit: charge = 0.010 × 10 + 0.015 × 12 = **0.28**, so c_art ≤ 3.55 × 0.72 = **2.55**. A cleansing ward
@@ -748,7 +816,14 @@ not prices. Safe ranges are design estimates.
 | Batch removal threshold; whole-fight charge horizon | 0.05 stacks; 60 s | 0.01–0.1; 45–75 s | When a thinned batch disappears; how a "for the fight" grant is priced | Formulas D |
 | `cleanse_share` | 0.25 per pulse | 0.25–0.5 | How fast a cleansing ward clears debuff piles | Formulas D |
 | Stack weights `w_kind` | buff 0.010, debuff 0.015 per stack-second | 0.008–0.012; 0.012–0.018 | What arts pay for granting stacks; refit rule 9a's numbers (`equalfit.py`) when these change | Formulas D |
-| Charge cap | 0.6 | 0.5–0.7 | The least damage an art that grants stacks keeps (the two-sided factor was removed 2026-11-10) | Formulas D |
+| Charge cap | 0.6 (above it the art fails the lint, 2026-11-11) | 0.5–0.7 | The least damage an art that grants stacks keeps (the two-sided factor was removed 2026-11-10) | Formulas D |
+| `delay_falloff_window` | 3 s | 2–5 s | How fast repeated delays on one target lose strength (R1, 2026-11-11) | Rule 6, Formulas D |
+| `slowed_time_pct` | 6 % per stack, 5 stacks | 4–10 % | How much Slowed Time stretches the target's timers | Status Catalogue, Formulas D |
+| `curse_duration_max` | 5 pulses | 4–6 | The longest any curse lasts after every duration change (R22) | Status Catalogue |
+| `avoid_budget` | 2 per pulse | 1–3 | How many hits a side may avoid each pulse (R6) | Rule 6; Combat Defence & Healing |
+| `cull_threshold` | 8 % of maximum health | 5–12 % | When Sát's cull takes a target (R15c) | Rules 6, 11 |
+| Refusal budget | 1 per fight; 2 with a "twice" capstone | fixed | How often a side may refuse Down (R5) | Rule 11 |
+| Minimum batch length | 2 pulses | 1–3 | The shortest element stack batch (build-run suggestion 4d) | Rule 9a |
 
 ## Acceptance Criteria
 
@@ -841,6 +916,19 @@ not prices. Safe ranges are design estimates.
 - **AC-EF-68** [Logic] Formulas D, cleansing ward. **GIVEN** `cleanse_share` 0.25 and a Burn batch of 8, **THEN** it is 6, 4.5 and 3.375 after three pulses; a batch below 0.05 stacks is removed. **GIVEN** a cleanse art removing 5 stacks against batches of 3 (older) and 4, **THEN** the older is gone and the newer holds 2. **GIVEN** an element-wide cleanse, **THEN** every debuff batch of that element is removed and other elements stay.
 - **AC-EF-69** [Config/Data] Formulas D, lint. **GIVEN** a Fire art with cost 0.075, cooldown 4 s, 1 buff stack for 10 s and 2 Burn stacks for 6 s per hit, **THEN** its charge is 0.28 and c_art 2.55 passes, 2.56 fails (the lint rounds 2.556 down to 0.01). **GIVEN** an art whose charge would exceed 0.6, **THEN** the charge is 0.6. **GIVEN** an art granting no stacks, **THEN** its charge is 0.
 - **AC-EF-70** [Logic] Rule 5, overflow. **GIVEN** a full pool and regeneration of 6.05, **THEN** the overflow event carries 6.05 and Still Water restores 3.02 health with no cap. **GIVEN** a pool 2 short of full, **THEN** overflow is 4.05.
+
+**Added 2026-11-11 (Đạo shared rules and build-run suggestions)**
+
+- **AC-EF-71** [Logic] Delay falloff. **GIVEN** three 1 s delays on the same foe art within 3 s and `timer_resist_pct` 0, **THEN** the art moves 1 s, 0.5 s and 0.25 s. **GIVEN** `timer_resist_pct` 20, **THEN** the first delay moves 0.8 s.
+- **AC-EF-72** [Logic] Slowed Time. **GIVEN** 5 stacks on a foe whose art has a 4 s cooldown, **THEN** its timer runs 5.2 s. **GIVEN** a 6th stack, **THEN** the stretch stays 1.30 and every stack's duration refreshes.
+- **AC-EF-73** [Logic] Strip and steal. **GIVEN** a foe with Fire buff batches of 2 (older) and 4 stacks and `strip_buff(3, fire)`, **THEN** the 2-stack batch is removed and the other falls to 3. **GIVEN** the steal variant, **THEN** the owner gains a 3-stack Fire buff batch with the time the removed stacks had left. **GIVEN** a second strip from the same source in the same pulse, **THEN** nothing is removed and the Breakdown says why.
+- **AC-EF-74** [Logic] Consume. **GIVEN** a foe with 6 Ice debuff stacks and `consume(ice, foe, 10)`, **THEN** 6 are removed and the payload reads 6.
+- **AC-EF-75** [Logic] Refusal budget. **GIVEN** a side with two refusal Effects and no "twice" capstone, **WHEN** it goes Down twice, **THEN** the first Down is refused and the second is not. **GIVEN** a "twice" capstone, **THEN** both are refused and a third is not.
+- **AC-EF-76** [Logic] Cull. **GIVEN** a foe at 7 % health with refusal budget left and a cull source at 8 %, **THEN** the foe is saved at 1 health; **WHEN** the next defeat check runs, **THEN** it is culled and goes Down.
+- **AC-EF-77** [Logic] Curse clamp. **GIVEN** a 4-pulse curse lengthened by 2 pulses, **THEN** it lasts 5. **GIVEN** a 3-pulse curse halved, **THEN** it lasts 1.
+- **AC-EF-78** [Logic] Granted stacks. **GIVEN** an art granting a debuff batch, **THEN** no value is drawn from the seeded stream for it. **GIVEN** a batch authored at 1 pulse, **THEN** it lasts 2.
+- **AC-EF-79** [Logic] Held payload. **GIVEN** a held payload banked by a trigger, **THEN** it is spent on the owner's next event of the named kind and writes a "spent" line. **GIVEN** a payload still banked at fight end, **THEN** a "lost" line is written and nothing applies.
+- **AC-EF-80** [Logic] Lint. **GIVEN** an art whose stack charge is 0.61, **THEN** the lint fails it. **GIVEN** 0.60, **THEN** it passes with `c_art ≤ lint × 0.40`.
 
 **Data and UI**
 

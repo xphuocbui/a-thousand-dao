@@ -64,5 +64,11 @@ Suggestions 10–17 were not asked (outside the top 9).
 - **Accepted:** R1–R11, R12 (Crossing the Line, heart demon pool, thần thức pool), R13, R14, R15a–d, R16, R19, R20,
   R22. **Confirmed (already in the Ways):** R17, R21. **Deferred:** R12 thần thức theft, overdraw, pool swap; R15e Dream window.
 - **Changed from the proposal:** R4 has no total cap; R15b allows Phân Thân's fifth Đạo.
-- **Next:** write the accepted rules into their owning GDDs (section by section, user approves each), then revise
+- **Effects GDD applied 2026-11-11** (six sections, each approved): rule 5 readables and events (R13 exposure,
+  R20, S2, S5), rule 6 actions (R1, R2, R3, R4, R5, R6, R9, R10, R11, R12, R15c, R15d, R16, R19, R21), rule 8 (held
+  payload, self-counters, preparation choices), rule 11 (refusal budget; Cull can be refused, user 2026-11-11),
+  Status Catalogue (Slowed Time, R22 clamp), rule 9a (Fire buff layer, no roll on granted stacks, 2-pulse minimum
+  batch), Formulas D (lint fails above 0.6; Slowed Time and delay maths), 7 knobs, AC-EF-71..80. The "Applied?"
+  column above still says No where Combat, Combat Defence, Character Stats, Modifiers or Dao also own a part.
+- **Next:** write the accepted rules into their other owning GDDs (section by section, user approves each), then revise
   each asking Way to point at the rule instead of its own `Needs rule`.
