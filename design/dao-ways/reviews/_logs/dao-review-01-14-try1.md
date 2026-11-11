@@ -1,3 +1,7 @@
+# Review session transcript: dao-review-01-14-try1
+
+> The final message of one headless `claude -p` session, saved by the overnight driver.
+
 I reviewed all 14 drafts and wrote the findings to `design/dao-ways/reviews/batch-01-14.md`. It has a one-paragraph summary and a 36-row table, most severe first. The drafts themselves are untouched.
 
 The main findings:
@@ -18,5 +22,8 @@ The main findings:
 
 REVIEW-DONE design/dao-ways/reviews/batch-01-14.md
 
-[stderr]
+## stderr
+
+```text
 Permission allow rule (--allowed-tools): Write(design/dao-ways/reviews/batch-01-14.md) is not matched by file permission checks — only Edit(path) rules are. Use Edit(design/dao-ways/reviews/batch-01-14.md) instead (Edit rules cover all file-editing tools).
+```

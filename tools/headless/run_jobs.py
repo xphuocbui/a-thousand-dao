@@ -5,7 +5,7 @@ Usage (from the repo root):
 
 jobs.json: [{"id": "dao-review-01", "prompt": "...", "system": "...", "allowed": "Read,Glob,Grep,Write(...)",
              "expect": "path/that/must/exist/after"}]
-Each job's transcript goes to <log_dir>/<id>.txt and a line to <log_dir>/jobs.log. A job whose `expect` file is
+Each job's transcript goes to <log_dir>/<id>-try<n>.md and a line to <log_dir>/jobs.md. A job whose `expect` file is
 missing after it ends is logged as NO-OUTPUT and retried once. Usage-limit messages pause 15 minutes and retry.
 For /design-build runs use run_builds.py, which knows the build outputs.
 """
@@ -23,8 +23,12 @@ CLAUDE = os.path.expanduser("~/.local/bin/claude.exe" if os.name == "nt" else "~
 def log(d, msg):
     line = f"[{datetime.datetime.now():%Y-%m-%d %H:%M:%S}] {msg}"
     print(line, flush=True)
-    with open(os.path.join(d, "jobs.log"), "a", encoding="utf-8") as f:
-        f.write(line + "\n")
+    p = os.path.join(d, "jobs.md")
+    new = not os.path.exists(p)
+    with open(p, "a", encoding="utf-8") as f:
+        if new:
+            f.write("# Job runner log\n\n> One line per event, written by tools/headless/run_jobs.py.\n\n")
+        f.write("- " + line + "\n")
 
 
 def main():
@@ -53,13 +57,18 @@ def main():
                 text, code = (r.stdout or "") + ("\n[stderr]\n" + r.stderr if r.stderr else ""), r.returncode
             except subprocess.TimeoutExpired as e:
                 text, code = (e.stdout if isinstance(e.stdout, str) else "") + "\n[runner] TIMEOUT", -1
-            with open(os.path.join(log_dir, f"{job['id']}-try{attempt}.txt"), "w", encoding="utf-8") as f:
-                f.write(text)
+            body, _, err = text.partition("\n[stderr]\n")
+            md = f"# Job transcript: {job['id']} (try {attempt})\n\n{body.strip()}\n"
+            if err.strip():
+                md += f"\n## stderr\n\n```text\n{err.strip()}\n```\n"
+            with open(os.path.join(log_dir, f"{job['id']}-try{attempt}.md"), "w", encoding="utf-8") as f:
+                f.write(md)
             ok = (not exp) or os.path.exists(os.path.join(REPO, exp))
             log(log_dir, f"end {job['id']} try {attempt}: exit {code}, output {'yes' if ok else 'NO-OUTPUT'}")
             if ok:
                 break
-            if any(k in text.lower() for k in ("usage limit", "rate limit", "limit reached", "resets at")):
+            t = text.lower()
+            if any(k in t for k in ("usage limit", "rate limit", "limit reached", "resets at")) or ("hit your" in t and "limit" in t):
                 log(log_dir, "usage limit; waiting 15 min")
                 time.sleep(15 * 60)
 

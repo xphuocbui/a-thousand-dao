@@ -1,3 +1,7 @@
+# Review session transcript: dao-review-27-37-try1
+
+> The final message of one headless `claude -p` session, saved by the overnight driver.
+
 I reviewed all eleven drafts (27–37) and wrote the findings to `design/dao-ways/reviews/batch-27-37.md`: a one-paragraph summary and a 37-row table, most severe first.
 
 I did not check the 20 or so stat keys outside `modifiers.md`, and I did not run anything against the data. The drafts are unedited.
@@ -15,5 +19,8 @@ Main findings:
 
 REVIEW-DONE design/dao-ways/reviews/batch-27-37.md
 
-[stderr]
+## stderr
+
+```text
 Permission allow rule (--allowed-tools): Write(design/dao-ways/reviews/batch-27-37.md) is not matched by file permission checks — only Edit(path) rules are. Use Edit(design/dao-ways/reviews/batch-27-37.md) instead (Edit rules cover all file-editing tools).
+```

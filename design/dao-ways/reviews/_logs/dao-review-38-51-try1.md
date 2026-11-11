@@ -1,3 +1,7 @@
+# Review session transcript: dao-review-38-51-try1
+
+> The final message of one headless `claude -p` session, saved by the overnight driver.
+
 I've written the findings file with 40 rows, after trimming five low-severity rows to meet the cap. I didn't edit any drafts. I haven't re-read the final file since that trim.
 
 The most serious problems:
@@ -15,5 +19,8 @@ Rows are rated high, medium or low, most severe first.
 
 REVIEW-DONE design/dao-ways/reviews/batch-38-51.md
 
-[stderr]
+## stderr
+
+```text
 Permission allow rule (--allowed-tools): Write(design/dao-ways/reviews/batch-38-51.md) is not matched by file permission checks — only Edit(path) rules are. Use Edit(design/dao-ways/reviews/batch-38-51.md) instead (Edit rules cover all file-editing tools).
+```

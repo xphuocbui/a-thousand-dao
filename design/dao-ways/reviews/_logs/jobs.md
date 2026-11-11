@@ -1,3 +1,8 @@
+# jobs.log
+
+> Timestamped lines written by the overnight driver.
+
+```text
 [2026-11-11 01:18:31] start dao-review-01-14 try 1
 [2026-11-11 01:27:08] end dao-review-01-14 try 1: exit 0, output yes
 [2026-11-11 01:27:08] start dao-review-15-26 try 1
@@ -20,3 +25,4 @@
 [2026-11-11 02:01:01] end dao-review-73-94 try 2: exit 1, output NO-OUTPUT
 [2026-11-11 02:01:01] start dao-review-73-94 try 3
 [2026-11-11 02:01:14] end dao-review-73-94 try 3: exit 1, output NO-OUTPUT
+```

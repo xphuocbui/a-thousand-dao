@@ -19,7 +19,7 @@ Per build the session writes, inside <run>/builds/:
 and appends to the run's shared files: staging-catalogue.md (missing pieces), suggestions.md (system
 changes), ledger.md. It never touches GDDs, the real modifier catalogue, the real content ledger, data or code.
 
-State lives in <run>/_driver/ (state.json, driver.log, one transcript per session). A build that fails is
+State lives in <run>/_driver/ (state.json, driver.md, one transcript per session as <slug>-try<n>.md). A build that fails is
 retried once. A usage-limit message pauses the driver (15 min steps) until --until, then it stops.
 When the queue is empty or the deadline passes, a final session writes <run>/RUN-SUMMARY.md.
 A temporary project.local.yaml (automation: autonomous) is created if none exists and removed at the end.
@@ -124,8 +124,12 @@ def log(run, msg):
     line = f"[{datetime.datetime.now():%Y-%m-%d %H:%M:%S}] {msg}"
     with _lock:
         print(line, flush=True)
-        with open(os.path.join(run, "_driver", "driver.log"), "a", encoding="utf-8") as f:
-            f.write(line + "\n")
+        p = os.path.join(run, "_driver", "driver.md")
+        new = not os.path.exists(p)
+        with open(p, "a", encoding="utf-8") as f:
+            if new:
+                f.write("# Build driver log\n\n> One line per event, written by tools/headless/run_builds.py.\n\n")
+            f.write("- " + line + "\n")
 
 
 def load_state(run):
@@ -150,7 +154,7 @@ def load_queue(path):
 
 
 def run_session(run, prompt, system, tag, model):
-    out_path = os.path.join(run, "_driver", f"{tag}.txt")
+    out_path = os.path.join(run, "_driver", f"{tag}.md")
     cmd = [CLAUDE, "-p", prompt, "--model", model, "--permission-mode", "acceptEdits",
            "--allowedTools", ALLOWED, "--disallowedTools", DISALLOWED,
            "--append-system-prompt", system, "--output-format", "text"]
@@ -162,8 +166,12 @@ def run_session(run, prompt, system, tag, model):
     except subprocess.TimeoutExpired as e:
         text = (e.stdout if isinstance(e.stdout, str) else "") + "\n[driver] TIMEOUT"
         code = -1
+    body, _, err = text.partition("\n[stderr]\n")
+    md = f"# Session transcript: {tag}\n\n> Final message of one headless `claude -p` session.\n\n{body.strip()}\n"
+    if err.strip():
+        md += f"\n## stderr\n\n```text\n{err.strip()}\n```\n"
     with open(out_path, "w", encoding="utf-8") as f:
-        f.write(text)
+        f.write(md)
     return code, text
 
 
@@ -173,7 +181,9 @@ RESULT = re.compile(r"BUILD-RESULT:\s*slug=(\S+)\s+status=(\w+)\s+staged_new=(\d
 
 def is_limit(text):
     t = text.lower()
-    return any(k in t for k in ("usage limit", "rate limit", "limit reached", "resets at", "overloaded"))
+    # "You've hit your 5-hour limit · resets 4:50am" is the subscription message; it was missed on 2026-11-11.
+    return any(k in t for k in ("usage limit", "rate limit", "limit reached", "resets at", "overloaded")) or (
+        "hit your" in t and "limit" in t)
 
 
 def build_one(args, seed, attempt):

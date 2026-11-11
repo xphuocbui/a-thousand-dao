@@ -1,3 +1,7 @@
+# Review session transcript: dao-review-15-26-try1
+
+> The final message of one headless `claude -p` session, saved by the overnight driver.
+
 The review is written, with 38 findings in the table (under the 40-row limit). I only checked the file by row count; I did not re-read it after the edits. I read all twelve drafts and the rule sections you named, and changed none of the drafts.
 
 The five patterns that matter most:
@@ -19,5 +23,8 @@ The five patterns that matter most:
 
 REVIEW-DONE design/dao-ways/reviews/batch-15-26.md
 
-[stderr]
+## stderr
+
+```text
 Permission allow rule (--allowed-tools): Write(design/dao-ways/reviews/batch-15-26.md) is not matched by file permission checks — only Edit(path) rules are. Use Edit(design/dao-ways/reviews/batch-15-26.md) instead (Edit rules cover all file-editing tools).
+```

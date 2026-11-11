@@ -1,3 +1,7 @@
+# Review session transcript: dao-review-53-62-try1
+
+> The final message of one headless `claude -p` session, saved by the overnight driver.
+
 The review is written to `design/dao-ways/reviews/batch-53-62.md`. It has a summary paragraph and 40 rows, most severe first. I wrote it from the drafts and rule sources and did not run any simulation.
 
 - **Dead on the timeline:** Fury (53), which decays faster than saber arts can feed it, and Hunger (60), because every hit leeches so it never builds. Spin (58) and Cornered (61) are marginal.
@@ -15,5 +19,8 @@ The review is written to `design/dao-ways/reviews/batch-53-62.md`. It has a summ
 
 REVIEW-DONE design/dao-ways/reviews/batch-53-62.md
 
-[stderr]
+## stderr
+
+```text
 Permission allow rule (--allowed-tools): Write(design/dao-ways/reviews/batch-53-62.md) is not matched by file permission checks — only Edit(path) rules are. Use Edit(design/dao-ways/reviews/batch-53-62.md) instead (Edit rules cover all file-editing tools).
+```
