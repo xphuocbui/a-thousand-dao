@@ -66,12 +66,17 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
 
    | Threat | Path |
    |---|---|
-   | Any hit except Soul, per part | evade → resistance → block → shields → health |
+   | Any hit except Soul, per part | **avoid** → evade → resistance → block → shields → health |
    | Over-time tick | resistance → the shields that do not let it pass → health. Ticks skip evade and block |
    | Tick on linh lực (Qi Disruption) | resistance (all + Force, rule 3) → linh lực, passing every shield. Never evade, never block (Combat Damage Types rule 4) |
    | Soul hit | soul resistance and soul wards → its share of health and linh lực (Combat Formulas E2). Skips everything else |
    | Curse | status resistance (its chance) → applied or not. Curses never deal damage (Combat rule 8) |
    | Fatigue (Combat rule 10) | straight to health: no evade, resistance, block or shield, no Effect changes it; the Down step applies |
+
+   **Avoid** (Đạo shared rule R6, 2026-11-11) is checked before evade: a decoy or image absorbs a whole hit, an
+   untargetable window drops hits, and a companion sink moves a share of the hit to the companion. A side avoids at
+   most `avoid_budget` hits per pulse (start 2) from all sources together, and each avoid is logged with its source.
+   Ticks, soul hits and curses are never avoided.
 
    Element stacks that change damage taken (Earth's dampened Physical damage, Metal's Physical damage taken) act on the
    part **before resistance**, like the attacker's layers (user decision 2026-11-10, re-review Q2). They are a separate
@@ -202,6 +207,16 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
    - **What passes a shield is data on the shield** (Combat Damage Types rule 7). Ward shields are passed by
      Soul and by ticks by default; body shields by Soul and Chaos, so a burn wears a body shield down and a
      poison slips past it. A tick on linh lực passes every shield, whatever its list (Combat Damage Types rule 4). Soul shields are the reverse: passed by everything except Soul (Formulas B).
+   - **`stops` lists** (Đạo shared rule R3, 2026-11-11): a shield's list says what it stops, by type and for ticks, at
+     a share, and Effects may add to it. Answers to the counters are capped at **50 % of Chaos and 30 % of Soul** on
+     any shield, and each source must close something real. Base shields never stop ticks; only an Effect that adds
+     ticks to the list can, at a share.
+   - **`bypass_share`** (Đạo shared rule R2, 2026-11-11): that share of a hit part skips **ward shields** only and
+     still meets resistance, block and the body shield. Shares from all sources add, capped at 50 % per part.
+   - **Pieces** (R3): a shield may have `pieces` N, splitting its value into N equal pieces. One hit breaks at most
+     one piece: the piece soaks up to its own value, and the rest of the hit skips the shield's other pieces and
+     moves on to the next shield, then health. A broken piece regrows on the shield's own recharge rule, one piece
+     at a time. Good against many small hits, weak against one big one.
    - A shield at 0 is **broken**.
    - A **standing shield starts full** at t = 0. While its ward is Down (unpaid), the shield keeps its value,
      does not soak and does not recharge (re-review CD 6).
@@ -314,6 +329,10 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
     - A fight request may carry `no_heal`. **Heavenly Tribulation sets it on every wave** (user decision
       2026-11-07), so healing inside waves is 0 for now. Thiên Kiếp rule 7 already forbids healing between
       waves.
+    - **Crossing the Line** (Sinh Tử Đạo; Đạo shared rule R12, user decisions 2026-11-11): while a side carries
+      Withering from a Crossing the Line source, healing it would receive (after Withering's −50 %) is dealt to it
+      instead, **straight to health like fatigue**: no evade, resistance, block or shield. It is not healing, it
+      counts as the source's damage, and the Down step applies. It is bounded by how much the side tries to heal.
     - **Healing never raises vitality.** After the fight, `v_after = min(v, health_end / health_max)`
       still holds (Combat Formulas A). Healing only keeps a side standing during the fight; its injuries
       are the caller's (Combat rule 14).
@@ -634,7 +653,7 @@ The ward_payment formulas are defined as:
 `pay_mult = 1 / (1 + we/100)` ;
 reserved `= ρ · (1 − min(res_eff, res_eff_cap)/100) / (1 + we/200)` of qi_max ;
 per-hit fee `= φ · qi_max · pay_mult` per hit or tick met ;
-drain: `rate_w = drain_base / ((1 + ws/100)(1 + we/100))` ; resistance payload `prevented_w = D · max(0, r_eff) · r_w / R_pos`, and 0 when R_pos = 0 ; block payload `prevented_w = blk_w = min(B_hit, Σ a_j) · B_w / B_hit`, its share of the block points the hit lost ; `pay_frac = min(1, pool / Σ_w rate_w · prevented_w)` over the wards billed together in that step (`pay_frac` = 1 when that sum is 0, so nothing divides by 0), and `bill_w = pay_frac · rate_w · prevented_w` ; a short pool's unpaid fraction `(1 − pay_frac)` of a resistance payload's prevented damage is added back to `a_j` before block, and a drain-paid block's unpaid share is simply not taken ; resistance bills are settled before block, block bills after ; drain is invalid for evade, status and soul payloads (the price check rejects them) ; a tick on linh lực bills drain like any part, so a drain ward can make it cost more than no ward when its `drain_base` is above 1 (known weakness, user decision 2026-11-08b CD-04; since #44 the default ward turns a 10-point tick into 6.25 lost plus a 1.5 bill = 7.75, so at default numbers it no longer costs more; the bill is taken first, then the tick lands on what is left) ;
+drain: `rate_w = drain_base / ((1 + ws/100)(1 + we/100))` ; resistance payload `prevented_w = D · max(0, r_eff) · r_w / R_pos`, and 0 when R_pos = 0 ; block payload `prevented_w = blk_w = min(B_hit, Σ a_j) · B_w / B_hit`, its share of the block points the hit lost ; against a hit from a side with `ward_bill_pct`, `rate_w` is multiplied by `(1 + ward_bill_pct / 100)` (build-run suggestion 7, 2026-11-11; not a curse, and the live pool still bounds the bill) ; `pay_frac = min(1, pool / Σ_w rate_w · prevented_w)` over the wards billed together in that step (`pay_frac` = 1 when that sum is 0, so nothing divides by 0), and `bill_w = pay_frac · rate_w · prevented_w` ; a short pool's unpaid fraction `(1 − pay_frac)` of a resistance payload's prevented damage is added back to `a_j` before block, and a drain-paid block's unpaid share is simply not taken ; resistance bills are settled before block, block bills after ; drain is invalid for evade, status and soul payloads (the price check rejects them) ; a tick on linh lực bills drain like any part, so a drain ward can make it cost more than no ward when its `drain_base` is above 1 (known weakness, user decision 2026-11-08b CD-04; since #44 the default ward turns a 10-point tick into 6.25 lost plus a 1.5 bill = 7.75, so at default numbers it no longer costs more; the bill is taken first, then the tick lands on what is left) ;
 cast `= κ · qi_max · pay_mult` at each firing
 
 **Variables:**
@@ -1095,6 +1114,10 @@ design estimates until the balance harness confirms them.
 | α_m | drain 1.0, reserved 1.0, per hit 1.0, cast 1.25 | ±0.10 each | How the price check rates each payment model | F |
 | `T_ref` | 45 s | 30–60 s | Length of the price check's standard stream (#44) | F |
 | `soul_shield_share_max` | 0.75 | 0.50–0.90 | Most of a soul hit's loss a soul shield can take | B, rule 14 |
+| `avoid_budget` | 2 per pulse | 1–3 | How many hits a side may avoid each pulse (R6, 2026-11-11) | rule 1 |
+| `bypass_share_cap` | 0.50 per part | 0.30–0.75 | How much of a hit may skip ward shields (R2) | rule 9 |
+| `stops_cap_chaos`, `stops_cap_soul` | 0.50, 0.30 | 0.30–0.60; 0.15–0.40 | How far a shield may be widened against the two counters (R3) | rule 9 |
+| `ward_bill_pct` | per source | 0–50 per source | How much more enemy drain wards bill against your hits (suggestion 7) | C |
 
 ## Acceptance Criteria
 
@@ -1230,6 +1253,15 @@ design estimates until the balance harness confirms them.
 - **AC-CD-76** [Logic] Formulas A0, A, A2, E, body layers (2026-11-11). **GIVEN** bs_mult 10, body resistance 36.1 points, b_src 30, a_b 1 and a_w 0.85, **THEN** body resistance counts 361 points, b_src counts 300, b_gear is 12 × (0.85 + 10) = 130.2, and flesh block is unchanged; **GIVEN** the same side with `health_regen_pct` +1 %, **THEN** it regenerates 10 % of `health_max` a pulse; **GIVEN** σ_b 0.90, **THEN** the body shield is still 0.90 × `health_max`. **GIVEN** a side with no body sources, **THEN** bs_mult is 1.
 - **AC-CD-77** [Logic] Rule 14, soul payloads (2026-11-11). **GIVEN** a soul ward on a side with `ws_base` 50 and ward layers that make ws 400, **THEN** its soul resistance and soul shield bar scale by 1.5, not 5.
 - **AC-CD-78** [Harness] Formulas A0, on par (user decision 2026-11-11). **GIVEN** the top-end anchor at every offence and ward layer cap, at each realm, **THEN** the top-end mirror ends in 30–60 s, a top-end build beats the realm's typical side within its first two volleys (Combat rule 18), and the typical mirror is unchanged. **GIVEN** a top-end thể tu at every body layer cap, **THEN** it wins 30–70 % against the top-end ward build; tune health regeneration first (about even at 10.8 % of `health_max` a pulse in the 2026-11-11 simulator). Record the regeneration chosen.
+
+**Added 2026-11-11 (Đạo shared rules and build-run suggestions)**
+
+- **AC-CD-79** [Logic] Rule 1, avoid. **GIVEN** a side with three decoy charges and `avoid_budget` 2, **WHEN** four hits arrive in one pulse, **THEN** two are avoided, two go on to evade, and each avoid names its source. **GIVEN** a Burn tick, **THEN** it is never avoided.
+- **AC-CD-80** [Logic] Rule 9, bypass. **GIVEN** a part of 100 after resistance and block with `bypass_share` 0.3 + 0.3 against a ward shield of 200, **THEN** 50 skips the ward shield (capped at 0.5) and meets the body shield, and 50 is soaked by the ward shield.
+- **AC-CD-81** [Logic] Rule 9, `stops` cap. **GIVEN** two Effects each adding Chaos at 0.40 to a body shield's `stops`, **THEN** it stops 50 % of Chaos parts and no more.
+- **AC-CD-82** [Logic] Rule 9, pieces. **GIVEN** a shield of 300 in 3 pieces of 100 and a part of 250, **THEN** one piece breaks, 100 is soaked, and 150 moves on to the next shield or health. **GIVEN** three parts of 80, **THEN** each meets a different piece and all 240 are soaked.
+- **AC-CD-83** [Logic] Rule 19, Crossing the Line. **GIVEN** a side under Crossing the Line's Withering that would heal 40, **THEN** it loses 20 health past every defence, the loss counts as the source's damage, and no healing is logged.
+- **AC-CD-84** [Logic] Formulas C, `ward_bill_pct`. **GIVEN** an enemy drain ward billing 10 against a hit from a side with `ward_bill_pct` 30, **THEN** the bill is 13, clipped by the enemy's live pool.
 
 **Remaining gaps** (from `qa-lead`, not yet resolved; see Open Questions):
 - AC-CD-51 checks presence only. Exact soul defence values by realm need a table (Open Question 12).

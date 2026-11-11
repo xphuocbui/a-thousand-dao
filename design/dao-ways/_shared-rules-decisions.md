@@ -76,5 +76,9 @@ Suggestions 10–17 were not asked (outside the top 9).
   speed), Formulas C (curse charge, coef_add), E2 (soul pricing, live divine_sense_def, Thinned Mind, reference
   thần thức, added Soul part worked as a normal part meeting soul defence only), Formulas B layer writes, rule 10
   curse start, knobs, AC-CB-85..91. Combat Damage Types: Soul-part exception (rule 1), `least_resisted` (rule 6).
+- **Combat Defence & Healing applied 2026-11-11** (two sections, each approved): rule 1 avoid step (budget 2 per
+  pulse; ticks, soul and curses never avoided), rule 9 `stops` lists (caps 50 % Chaos / 30 % Soul), `bypass_share`
+  (cap 50 % per part), pieces (overflow moves on to the next shield or health), rule 19 Crossing the Line (straight
+  to health like fatigue), Formulas C `ward_bill_pct`, knobs, AC-CD-79..84.
 - **Next:** write the accepted rules into their other owning GDDs (section by section, user approves each), then revise
   each asking Way to point at the rule instead of its own `Needs rule`.
