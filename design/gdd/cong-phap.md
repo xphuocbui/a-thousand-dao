@@ -80,6 +80,11 @@ which technique you commit your seasons to. The decision has two sides:
      decision 2026-11-10, review D4). A `damage_more` or conversion modifier (Modifier System rule 12, L2) scales with
      B(k) only, not with F, H or `comp_strength`. `effects` do not use `bonus_pool` or the budget, and an enabler's
      `closes` is checked at load (Effects System rule 13);
+   - `passives`: combat modifier lines (any combat key in the Modifier Stat List, tag scopes allowed, `damage_more`
+     L2 included), valued at full mastery and scaled like bonuses (`damage_more` by B(k) only). They are priced in W
+     against a per-tier **combat passive budget**, outside `bonus_pool`: Yellow 8 W, Profound 16 W, Earth 24 W,
+     Heaven 32 W, half that for generated commons (build-run suggestion 1, user decision 2026-11-11). The budget
+     prices a technique; it never caps a build: passives from techniques, Ways and items stack without limit;
    - `body_defence`: not a field; a body technique's Combat Iron Body tier is derived from its tier and mastered
      layer (rule 2), so nothing can disagree with it;
    - `origin`: `authored` or `generated` (rule 17).
@@ -248,8 +253,10 @@ which technique you commit your seasons to. The decision has two sides:
       The target is about 40 (Concept); the MVP has a handful per kind.
     - **Generated commons** are Yellow and Profound main methods and secret arts,
       rolled from tier templates (Formulas E). They name 1 element, or 2 with chance
-      `multi_element_chance`. Each draws its bonuses from `bonus_pool`. It has no
-      abilities.
+      `multi_element_chance`. Each draws its bonuses from `bonus_pool`. It carries **one ability**, rolled from the
+      art library's `common` tier, from an element it names (element-less for a body technique), unlocked at layer 1
+      (user decision 2026-11-11), so every life's starting technique has a real art. Authored techniques carry 1–3
+      signature abilities from the library, unlocking across their layers.
     - A common offered to the player (market stock, an event reward) draws each
       element from the player's root with chance `root_bias` (0.6). Without the
       bias a random 1-element technique fits a 1-element root only 1 time in 5.
