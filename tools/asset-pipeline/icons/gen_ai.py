@@ -10,15 +10,18 @@ Costs are estimates from the providers' published per-image prices (OpenAI's is 
 Run (from the repo root):
   python -I tools/asset-pipeline/icons/gen_ai.py --set test --provider both --n 2 --dry-run   (prompts and cost only)
   python -I tools/asset-pipeline/icons/gen_ai.py --set test --provider both --n 2
-Default provider: openai (gpt-image-2, user choice 2026-11-12). Sets: test (17 icons), arts, techniques, wards, statuses, counters, stances, glyphs, all.
+Default provider: openai (gpt-image-2, user choice 2026-11-12). Sets: test (17 icons), arts, techniques, wards, statuses, counters, stances, glyphs, chips (the last four), all.
+Subjects are hand-written per icon in subjects.py.
 """
 import argparse
+import concurrent.futures
 import base64
 import glob
 import io
 import json
 import os
 import sys
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -45,160 +48,60 @@ STYLE = ("Square game ability icon, semi-realistic painted concept art, cinemati
          "in the image. Strong bloom, sparks and motion streaks, a dynamic often diagonal composition cropped tight so "
          "the effect fills the frame and runs off its edges. Vivid and luminous, high contrast, readable at 48 pixels. "
          "No text, no letters, no numbers, no border, no frame, no UI, no watermark.")
-GLYPH_STYLE = ("Simple bold game status icon of {what}, in its own colours ({hue_name}, {hex}), painterly but very "
-               "simple, one shape, centred, strong silhouette readable at 20 pixels, on a plain near-black background "
-               "(#0B0D10). No text, no border, no frame, no halo.")
-
-SUBJ = {  # recipe subject -> what to paint (an element phrase is filled in)
-    "palm": "an open palm thrusting forward, releasing a burst of {el} energy from its centre",
-    "fist": "a clenched fist striking forward with a shockwave of {el} force at the knuckles",
-    "sword": "a straight jian sword thrusting diagonally, its blade blazing with {el} light",
-    "saber": "a curved dao saber mid-swing leaving a bright crescent trail of {el} light",
-    "spear": "a long spear with a leaf-shaped head driving forward, a spiral of {el} energy coiling round the shaft",
-    "bow": "a drawn recurve bow with a glowing {el} arrow nocked",
-    "needles": "a volley of thin glowing {el} needles flying diagonally in parallel",
-    "seal": "a round cultivation seal sigil of interlocking glyph strokes, glowing {el}",
-    "talisman": "a yellow paper talisman with brushed red glyphs, its lower edge burning with {el} flame",
-    "bell": "a bronze temple bell ringing, rings of {el} sound rippling outward",
-    "song": "flowing ribbons of {el} sound with drifting musical notes",
-    "hammer": "a heavy war hammer smashing down, shards of {el} stone bursting",
-    "mountain": "jagged mountain peaks rising, cracked with {el} light",
-    "flame": "a tall living flame of {el} fire",
-    "wave": "a cresting ocean wave curling over, foam glowing {el}",
-    "cup": "an overflowing jade cup spilling glowing {el} water",
-    "sprout": "a seed splitting open with a bright sprout of {el} life",
-    "bloom": "a flower bursting into bloom, petals glowing {el}",
-    "vine": "a thorny vine lashing like a whip, glowing {el}",
-    "root": "gnarled roots gripping the ground, pulsing with {el} light",
-    "bolt": "a forked lightning bolt striking down, crackling {el}",
-    "cloud": "a dark storm cloud with a {el} lightning bolt falling from it",
-    "crystal": "a cluster of sharp ice crystals, glowing {el}",
-    "feather": "a single feather sweeping on a gust, edges glowing {el}",
-    "swirl": "a spiralling whirlwind of {el} air",
-    "stance": "a robed cultivator standing in a martial stance, a {el} aura around the body",
-    "dash": "a robed cultivator dashing forward, leaving afterimages and {el} streaks",
-    "eye": "a single sinister eye wreathed in {el} curse smoke",
-    "lotus": "a glowing lotus flower opening, healing {el} light rising from it",
-    "spirit": "a small ghostly spirit companion formed of {el} energy",
-    "lance": "a beam-like lance of pure {el} light piercing diagonally",
-    "hourglass": "an hourglass with frozen {el} sand suspended mid-fall",
-    "chain": "glowing {el} chains snapping taut",
-    "shield": "a round warding shield with a glowing {el} sigil",
-    "drop": "a single glowing drop of {el} essence",
-    "brazier": "a bronze tripod brazier burning with {el} fire",
-    "phoenix": "a phoenix rising with spread wings of {el} fire and ash",
-    "core": "a glowing golden core orb inside the chest, orbits of {el} energy around it",
-    "thread": "a needle trailing a fraying glowing {el} thread",
-    "orb": "a glowing orb of {el} energy hurtling forward with a comet tail",
-    "tablet": "an ancient stone tablet carved with glowing {el} glyphs",
-    "husk": "a hollow empty mask, eye slits glowing {el}",
-    "cleave": "a great blade cleaving downward in a wide {el} arc",
-    "wedge": "a glowing wedge splitting a stone block with {el} cracks",
-    "mantle": "an armoured mantle of {el} plates over the shoulders",
-    "scroll": "an unrolled scroll with a glowing {el} pact seal",
-    "cairn": "a stack of balanced stones awakening as a guardian, eyes glowing {el}",
-    "millstone": "a spinning carved millstone, grinding sparks of {el}",
-    "breath": "a cross-legged meditating cultivator drawing a column of {el} breath up from the belly",
-    "haze": "rippling heat haze distorting the air around a glowing {el} eye",
-    "blood": "a falling drop of blood ringed by {el} energy",
-}
-EL_WORD = {"fire": "fiery", "water": "watery", "wood": "verdant", "metal": "golden metal", "earth": "earthen",
-           "ice": "icy", "thunder": "violet lightning", "wind": "wind", "phys": "pale steel", "force": "rose-coloured force",
-           "chaos": "magenta chaos", "soul": "ghostly soul"}
-MOD_TXT = {"echo": "with a translucent afterimage echoing it", "quick": "with fast speed streaks",
-           "heavy": "with a heavy impact shockwave at its base", "held": "charged and held back, energy gathering",
-           "summon": "standing over a faint summoning circle"}
-# hand-written subjects where the template is not enough
-OVERRIDE = {
-    "twin-flame-echo": "two fireballs streaking diagonally from the bottom left to the top right, one close behind the other along the same path; the leading fireball blazing white-yellow, the one behind it a fainter echo, each with its own long fiery trail; no hands, no people",
-    "tolling-bell-requiem": "a bronze funeral bell tolling, pale soul wisps spiralling out of its mouth",
-    "stilled-instant": "an hourglass encased in ice, its falling sand frozen mid-air",
-    "three-step-chase": "a robed cultivator dashing in three fast steps, three fading afterimages behind, wind streaks",
-    "hollowing-strike": "a fist punching through a hollow ring of rose-coloured force, the air caving inward",
-}
-STATUS_TXT = {"bleed": "three drops of blood dripping from a slash wound", "corpse_rot": "rotting green-black miasma rising from a skull",
-              "exposed": "a cracked shield with a glowing target mark behind it", "heavy_breath": "laboured breath clouds and a heavy chained chest",
-              "leaking_ward": "a cracked ward bubble leaking blue qi", "qi_disruption": "a tangled knot of broken qi lines",
-              "sealed_meridian": "glowing meridian lines on a body bound shut by a seal glyph",
-              "silence": "a mouth sealed by a paper talisman", "slackened_soul": "a dim soul flame drifting loose from a body",
-              "slowed_time": "a clock face with its hands dragged by slow ripples", "stagnation": "still murky water with a stopped whirl",
-              "sundered": "a breastplate split in two", "withering": "a withering hand, its flesh drying to grey"}
-GLYPHS = {"fire": "a flame", "water": "a water drop", "wood": "a leaf with a curling vine", "metal": "a gold ingot",
-          "earth": "a three-layered mountain", "ice": "a six-pointed ice crystal", "thunder": "a lightning bolt",
-          "wind": "three curling wind lines"}
-TIER_BIND = {0: "plain yellow cloth binding", 1: "dark lacquered binding", 2: "carved jade covers", 3: "gilded gold covers"}
-
-
-def recipes():
-    sys.path.insert(0, HERE)
-    import make_icons
-    return {r["id"]: r for r in make_icons.load()}
-
+# Chip style (2026-11-12): the flat glyph read as clip art. Element stacks only (user: "the basic buffs and debuffs are
+# fine, everything else should be the same") are painted as ONE bold emblem on a dark tinted ground, so they read at
+# 24 px inside the in-engine green or red halo (art bible 7.4). Statuses, counters and stances use the art STYLE.
+CHIP_STYLE = ("Small square status-effect icon for a game HUD, painted in a semi-realistic glowing concept-art manner, "
+              "Chinese xianxia cultivation theme. One single bold emblem, centred, filling about two thirds of the square, "
+              "with a thick simple silhouette that still reads at 24 pixels. The emblem is made of luminous {hue_name} "
+              "light ({hex}) with a white-hot core and crisp edges, softly blooming, with a little painterly texture; the "
+              "background is a deep, almost black {hue_name}-tinted vignette with a faint glow behind the emblem and dark "
+              "space all round the edge. Minimal detail, no scene, no extra objects, no motion clutter. No text, no "
+              "letters, no numbers, no border, no frame, no ring, no UI, no watermark.")
 
 def items(which):
-    R = recipes()
+    """(kind, id, hue, subject, style) for every icon in the set; subjects are hand-written in subjects.py."""
+    sys.path.insert(0, HERE)
+    import subjects as S
+    out = []
     names = {}
     for f in glob.glob(os.path.join(ROOT, "design", "arts", "family-*.json")) + glob.glob(os.path.join(ROOT, "design", "arts", "part-*.json")):
         for a in json.load(open(f, encoding="utf-8")):
             names[a["id"]] = a.get("name", a["id"]).split(" (")[0]
-    out = []
+    missing = [i for i in names if i not in S.ART]
+    if missing:
+        print("MISSING_SUBJECT	arts with no subject in subjects.py: %s" % ",".join(sorted(missing)))
     if which in ("arts", "all", "test"):
-        for aid, r in R.items():
-            el = r["hue"]
-            subj = OVERRIDE.get(aid) or SUBJ[r["subject"]].format(el=EL_WORD[el])
-            mods = "" if aid in OVERRIDE else ", ".join(MOD_TXT[m] for m in r["mods"] if m in MOD_TXT)
-            what = "%s: %s%s" % (names.get(aid, aid), subj, (", " + mods) if mods else "")
-            out.append(("art", aid, el, what, STYLE))
+        for aid in sorted(names):
+            if aid in S.ART:
+                el, subj = S.ART[aid]
+                out.append(("art", aid, el, "%s: %s" % (names[aid], subj), STYLE))
     if which in ("techniques", "all", "test"):
         for f in sorted(glob.glob(os.path.join(ROOT, "design", "techniques", "catalogue-*.json"))):
             for t in json.load(open(f, encoding="utf-8")):
-                pay = t["abilities"][-1]["ability_id"]
-                r = R.get(pay, {"hue": "phys", "subject": "seal"})
-                if t["tech_kind"] == "body":
-                    what = "%s: a muscular cultivator in a body-refining stance, skin glowing like bronze" % t["name"].split(" (")[0]
+                el, form, subj = S.TECH[t["id"]]
+                nm = t["name"].split(" (")[0]
+                if form == "body":
+                    what = "%s, a body-refining art: %s" % (nm, subj)
                 else:
-                    what = ("%s: a closed cultivation scripture book with %s, seen at a slight angle, its cover emblem showing %s"
-                            % (t["name"].split(" (")[0], TIER_BIND[t["tier"]], SUBJ[r["subject"]].format(el=EL_WORD[r["hue"]])))
-                out.append(("tech", t["id"], r["hue"], what, STYLE))
+                    what = ("%s: a closed cultivation scripture book with %s, seen at a slight angle, %s"
+                            % (nm, S.TIER_BIND[t["tier"]], subj))
+                out.append(("tech", t["id"], el, what, STYLE))
     if which in ("wards", "all", "test"):
-        wards = [("common-ward", "phys", "a faint shell of body qi around a meditating silhouette"),
-                 ("golden-bell", "metal", "a huge translucent golden bell dome covering a cultivator"),
-                 ("black-tortoise-shell", "water", "a black tortoise shell barrier with glowing hexagonal plates"),
-                 ("mountain-screen", "earth", "a folding screen of stone mountains standing as a wall"),
-                 ("thousand-layer-cloud", "wind", "many layered clouds wrapped around as armour"),
-                 ("fire-shunning-veil", "fire", "a shimmering veil parting incoming flames"),
-                 ("clear-heart-ward", "soul", "a calm glowing heart inside a protective lotus sigil"),
-                 ("soul-guarding-lamp", "soul", "a small lantern whose flame shields a soul wisp"),
-                 ("iron-shirt", "phys", "a torso hardened like iron, rivets of light on the skin"),
-                 ("surging-tide", "water", "a wall of surging water circling as a barrier"),
-                 ("golden-light-shield", "metal", "a radiant round shield of golden light"),
-                 ("qi-scattering-robe", "wind", "a flowing robe scattering incoming qi into sparks"),
-                 ("flame-quelling-aura", "ice", "a cold aura snuffing out flames around a figure"),
-                 ("still-lake-aura", "water", "a perfectly still lake surface as a shield")]
-        for wid, el, what in wards:
-            out.append(("ward", wid, el, "A protective ward, symmetric and calm, no motion: " + what, STYLE))
-    if which in ("statuses", "all", "test"):
-        for sid, what in STATUS_TXT.items():
-            out.append(("status", sid, "chaos" if sid in ("corpse_rot", "withering") else "phys", what, STYLE))
-    if which in ("counters", "all"):
-        cs = set()
-        for f in glob.glob(os.path.join(ROOT, "design", "arts", "family-*.json")):
-            for a in json.load(open(f, encoding="utf-8")):
-                for c in a.get("counters", []):
-                    cs.add((c["id"], R[a["id"]]["hue"]))
-        for cid, el in sorted(cs):
-            out.append(("counter", cid, el, "a single small emblem standing for '%s', gathered %s energy" % (cid, EL_WORD[el]), STYLE))
-    if which in ("stances", "all"):
-        ss = set()
-        for f in glob.glob(os.path.join(ROOT, "design", "arts", "family-*.json")):
-            for a in json.load(open(f, encoding="utf-8")):
-                for s in a.get("states", []):
-                    ss.add((s["id"], R[a["id"]]["hue"]))
-        for sid, el in sorted(ss):
-            out.append(("stance", sid, el, "a robed cultivator holding the '%s' stance, %s aura" % (sid.replace("-", " "), EL_WORD[el]), STYLE))
-    if which in ("glyphs", "all", "test"):
-        for el, what in GLYPHS.items():
-            out.append(("glyph", el, el, what, GLYPH_STYLE))
+        for wid, (el, subj) in S.WARD.items():
+            out.append(("ward", wid, el, "A protective ward, symmetric and calm, no motion: " + subj, STYLE))
+    if which in ("statuses", "chips", "all", "test"):
+        for sid, (el, subj) in S.STATUS.items():
+            out.append(("status", sid, el, subj, STYLE))
+    if which in ("counters", "chips", "all"):
+        for cid, (el, subj) in S.COUNTER.items():
+            out.append(("counter", cid, el, subj, STYLE))
+    if which in ("stances", "chips", "all"):
+        for sid, (el, subj) in S.STANCE.items():
+            out.append(("stance", sid, el, subj, STYLE))
+    if which in ("glyphs", "chips", "all", "test"):
+        for gid, (el, subj) in S.GLYPH.items():
+            out.append(("glyph", gid, el, subj, CHIP_STYLE))
     if which == "test":
         keep = {("art", x) for x in ("twin-flame-echo", "swelling-tide-palm", "sheathed-edge", "strata-hammer", "harvest-bloom",
                                       "stilled-instant", "chain-arc", "three-step-chase", "tolling-bell-requiem", "hollowing-strike")}
@@ -246,6 +149,7 @@ def main():
     ap.add_argument("--ids", help="only these icon ids (comma-separated), e.g. the rejects to redo at high")
     ap.add_argument("--tag", default="", help="file suffix for a rerun, e.g. h (saves <id>_h0.png)")
     ap.add_argument("--n", type=int, default=2)
+    ap.add_argument("--workers", type=int, default=3, help="parallel requests (429s back off and retry)")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     QUALITY[0] = a.quality
@@ -265,43 +169,73 @@ def main():
     ready = [p for p in provs if os.environ.get(keys[p])]
     for p in provs:
         if p not in ready:
-            print("NOT_ASSESSED\t%s skipped: environment variable %s is not set" % (p, keys[p]))
+            print("NOT_ASSESSED	%s skipped: environment variable %s is not set" % (p, keys[p]))
     if not ready:
         return 2
-    log = open(os.path.join(OUTDIR, "log.jsonl"), "a", encoding="utf-8") if os.makedirs(OUTDIR, exist_ok=True) is None else None
-    spent, fails = 0.0, 0
-    for k, iid, el, what, style in its:
+    os.makedirs(OUTDIR, exist_ok=True)
+    log = open(os.path.join(OUTDIR, "log.jsonl"), "a", encoding="utf-8")
+    lock = threading.Lock()
+    state = {"spent": 0.0, "fails": 0, "stop": False}
+
+    def have(d, iid):
+        # candidates already on disk for this tag; a short icon (e.g. 1 of 2) is topped up, never overwritten
+        return sorted(glob.glob(os.path.join(d, "%s_%s[0-9]*.png" % (glob.escape(iid), a.tag))))
+
+    def one(job):
+        k, iid, el, what, style, p = job
+        if state["stop"]:
+            return
         prompt = prompt_of(k, iid, el, what, style)
-        for p in ready:
-            d = os.path.join(OUTDIR, p, k)
-            os.makedirs(d, exist_ok=True)
-            if all(os.path.exists(os.path.join(d, "%s_%s%d.png" % (iid, a.tag, j))) for j in range(a.n)):
-                continue
-            seed = abs(hash((iid, p))) % 100000
+        d = os.path.join(OUTDIR, p, k)
+        os.makedirs(d, exist_ok=True)
+        need = a.n - len(have(d, iid))
+        if need <= 0:
+            return
+        seed = abs(hash((iid, p))) % 100000
+        for attempt in range(6):
             try:
-                imgs = gen(p, prompt, a.n, seed)
+                imgs = gen(p, prompt, need, seed)
+                break
             except urllib.error.HTTPError as e:
                 body = e.read()[:300].decode("utf-8", "replace")
-                print("FAIL\t%s\t%s/%s\tHTTP %d %s" % (p, k, iid, e.code, body))
-                fails += 1
-                if e.code in (401, 403) or "insufficient_quota" in body or "credit_balance" in body:
-                    print("STOPPED\t%s: account or billing problem; nothing more will succeed until it is fixed" % p)
-                    return 2
-                continue
+                if e.code == 429 and "quota" not in body and "billing" not in body and attempt < 5:
+                    time.sleep(20 * (attempt + 1))          # rate limit: back off and retry
+                    continue
+                with lock:
+                    print("FAIL	%s	%s/%s	HTTP %d %s" % (p, k, iid, e.code, body), flush=True)
+                    state["fails"] += 1
+                    if e.code in (401, 403) or "insufficient_quota" in body or "credit_balance" in body or "billing" in body:
+                        print("STOPPED	%s: account or billing problem; nothing more will succeed until it is fixed" % p, flush=True)
+                        state["stop"] = True
+                return
             except Exception as e:  # network, timeout
-                print("FAIL\t%s\t%s/%s\t%s" % (p, k, iid, e))
-                fails += 1
-                continue
-            for j, b in enumerate(imgs):
+                if attempt < 2:
+                    time.sleep(10)
+                    continue
+                with lock:
+                    print("FAIL	%s	%s/%s	%s" % (p, k, iid, e), flush=True)
+                    state["fails"] += 1
+                return
+        with lock:
+            used = {os.path.basename(f) for f in have(d, iid)}
+            j = 0
+            for b in imgs:
+                while "%s_%s%d.png" % (iid, a.tag, j) in used:
+                    j += 1
                 open(os.path.join(d, "%s_%s%d.png" % (iid, a.tag, j)), "wb").write(b)
-            spent += PRICE[p] * len(imgs)
+                used.add("%s_%s%d.png" % (iid, a.tag, j))
+            state["spent"] += PRICE[p] * len(imgs)
             log.write(json.dumps({"t": time.time(), "provider": p, "model": MODEL[p], "kind": k, "id": iid, "seed": seed,
-                                  "n": len(imgs), "quality": QUALITY[0], "tag": a.tag, "prompt": prompt}) + "\n")
+                                  "n": len(imgs), "quality": QUALITY[0], "tag": a.tag, "prompt": prompt}) + chr(10))
             log.flush()
-            print("ok\t%s\t%s/%s\t%d images" % (p, k, iid, len(imgs)))
-    print("spent\tabout $%.2f; %d failures" % (spent, fails))
+            print("ok	%s	%s/%s	%d images	(about $%.2f so far)" % (p, k, iid, len(imgs), state["spent"]), flush=True)
+
+    jobs = [(k, iid, el, what, style, p) for k, iid, el, what, style in its for p in ready]
+    with concurrent.futures.ThreadPoolExecutor(max_workers=a.workers) as ex:
+        list(ex.map(one, jobs))
+    print("spent	about $%.2f; %d failures" % (state["spent"], state["fails"]))
     print("next	python -I tools/asset-pipeline/icons/review.py   (builds the review page)")
-    return 1 if fails else 0
+    return 2 if state["stop"] else (1 if state["fails"] else 0)
 
 
 def sheet(its, provs, n):

@@ -142,6 +142,16 @@ button, select { font: inherit; color: inherit; }
 .chip.ctr { border-style: dashed; }
 .chip.flash { animation: flash .35s ease-out; }
 .none { font-size: 11px; color: var(--ink-3); }
+/* painted chips (art bible 7.4): only the icon and a number; polarity is a halo drawn here, never baked */
+.chip.chipi { position: relative; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 6px; background: #0b0d10; gap: 0; }
+.chip.chipi > img { width: 100%; height: 100%; margin: 0; border-radius: 6px; display: block; }
+.chip.chipi > b { position: absolute; right: -4px; bottom: -5px; min-width: 15px; padding: 0 3px; border-radius: 8px; font: 700 10.5px/15px system-ui, sans-serif;
+  text-align: center; color: #f4f1e8; background: rgba(11,13,16,.88); box-shadow: 0 0 0 1px rgba(244,241,232,.25); }
+.chip.chipi.buff { box-shadow: 0 0 0 2px #5BD66B, 0 0 7px 1px rgba(91,214,107,.65); }
+.chip.chipi.debuff { box-shadow: 0 0 0 2px #E5384F, 0 0 7px 1px rgba(229,56,79,.65); outline: 1px dashed #E5384F; outline-offset: 3px; }
+.chip.chipi.stance { box-shadow: 0 0 0 2px #5BD66B; }
+.chip.chipi.ctr { box-shadow: 0 0 0 1px rgba(244,241,232,.35); }
+.chips:has(.chipi) { gap: 9px; padding: 3px 4px 5px; }
 
 /* centre log */
 .logcol { min-width: 0; display: flex; flex-direction: column; gap: 6px; min-height: 0; border-left: 1px solid var(--line); border-right: 1px solid var(--line); padding: 0 10px; }
@@ -371,7 +381,9 @@ function renderCol(side) {
       : `<button class="ic small" style="--el:var(--ward)" data-tip="ward:${side}" id="ward${side}"><span class="gl">⛨</span></button>`}
     <span id="wsh${side}" style="display:contents"></span></div></div>
   <div class="row"><h4>Techniques &amp; items</h4><div class="icons">
-    ${s.techniques.map((tq, i) => `<button class="ic small" style="--el:var(--gold)" data-tip="tech:${side}:${i}"><span class="gl">${esc(tq.name[0])}</span></button>`).join('')}
+    ${s.techniques.map((tq, i) => ICONS['tech:' + tq.id]
+      ? `<button class="ic small img" data-tip="tech:${side}:${i}" aria-label="${esc(tq.name)}"><img src="${ICONS['tech:' + tq.id]}" alt=""></button>`
+      : `<button class="ic small" style="--el:var(--gold)" data-tip="tech:${side}:${i}"><span class="gl">${esc(tq.name[0])}</span></button>`).join('')}
     ${s.effects.map((e, i) => `<button class="ic small" style="--el:var(--ink-2)" id="eff${side}${i}" data-tip="eff:${side}:${i}"><span class="gl">✦</span></button>`).join('')}
     ${!s.techniques.length && !s.effects.length ? '<span class="none">none</span>' : ''}</div></div>
   <div class="row"><h4>Buffs</h4><div class="chips" id="buf${side}"></div></div>
@@ -425,15 +437,23 @@ function draw(force) {
     const bf = sumBy(x.buffs), df = sumBy(x.debuffs);
     $('buf' + side).innerHTML = chips(bf, 'buff', side) || '<span class="none">none</span>';
     $('deb' + side).innerHTML = chips(df, 'debuff', side) || '<span class="none">none</span>';
-    const sta = Object.entries(x.st).map(([k, n]) => `<span class="chip" tabindex="0" data-tip="st:${k}:${n}" style="--el:var(--foe)"><span class="dot"></span>${esc(nice(k))} ×${+(+n).toFixed(1)}</span>`)
-      .concat(Object.entries(x.ct).map(([k, n]) => `<span class="chip ctr" id="ct${side}-${k}" tabindex="0" data-tip="ct:${side}:${k}:${n}" style="--el:var(--gold)"><span class="dot"></span>${esc(nice(k))} ${+(+n).toFixed(1)}</span>`))
-      .concat(x.state ? [`<span class="chip" style="--el:var(--you)">Stance: ${esc(nice(x.state))}</span>`] : []);
+    const sta = Object.entries(x.st).map(([k, n]) => ICONS['status:' + k]
+        ? `<span class="chip chipi debuff" tabindex="0" data-tip="st:${k}:${n}" aria-label="${esc(nice(k))} ${num(n)}"><img src="${ICONS['status:' + k]}" alt=""><b>${num(n)}</b></span>`
+        : `<span class="chip" tabindex="0" data-tip="st:${k}:${n}" style="--el:var(--foe)"><span class="dot"></span>${esc(nice(k))} ×${+(+n).toFixed(1)}</span>`)
+      .concat(Object.entries(x.ct).map(([k, n]) => ICONS['counter:' + k]
+        ? `<span class="chip chipi ctr" id="ct${side}-${k}" tabindex="0" data-tip="ct:${side}:${k}:${n}" aria-label="${esc(nice(k))} ${num(n)}"><img src="${ICONS['counter:' + k]}" alt=""><b>${num(n)}</b></span>`
+        : `<span class="chip ctr" id="ct${side}-${k}" tabindex="0" data-tip="ct:${side}:${k}:${n}" style="--el:var(--gold)"><span class="dot"></span>${esc(nice(k))} ${+(+n).toFixed(1)}</span>`))
+      .concat(x.state ? [ICONS['stance:' + x.state]
+        ? `<span class="chip chipi stance" tabindex="0" data-tip="sn:${x.state}" aria-label="Stance: ${esc(nice(x.state))}"><img src="${ICONS['stance:' + x.state]}" alt=""></span>`
+        : `<span class="chip" style="--el:var(--you)">Stance: ${esc(nice(x.state))}</span>`] : []);
     $('sta' + side).innerHTML = sta.join('') || '<span class="none">none</span>';
   }
   renderLog();
 }
-function chips(m, kind, side) { return Object.entries(m).filter(([, n]) => n > 0.05).map(([el, n]) =>
-  `<span class="chip" tabindex="0" data-tip="${kind}:${el}:${n}" style="--el:${elv(el)}">${ICONS[kind + ':' + el] ? `<img src="${ICONS[kind + ':' + el]}" alt="">` : '<span class="dot"></span>'}${EL_HV[el] ? EL_HV[el] + ' ' : ''}${esc(nice(el))} ×${+n.toFixed(1)}</span>`).join(''); }
+function num(n) { n = +n; return n >= 10 || Math.abs(n - Math.round(n)) < 0.05 ? String(Math.round(n)) : n.toFixed(1); }
+function chips(m, kind, side) { return Object.entries(m).filter(([, n]) => n > 0.05).map(([el, n]) => ICONS['element:' + el]
+  ? `<span class="chip chipi ${kind}" tabindex="0" data-tip="${kind}:${el}:${n}" aria-label="${esc(nice(el))} ${kind} ${num(n)}"><img src="${ICONS['element:' + el]}" alt=""><b>${num(n)}</b></span>`
+  : `<span class="chip" tabindex="0" data-tip="${kind}:${el}:${n}" style="--el:${elv(el)}">${ICONS[kind + ':' + el] ? `<img src="${ICONS[kind + ':' + el]}" alt="">` : '<span class="dot"></span>'}${EL_HV[el] ? EL_HV[el] + ' ' : ''}${esc(nice(el))} ×${+n.toFixed(1)}</span>`).join(''); }
 
 /* ---------- animations for events between t0 and t1 ---------- */
 const stageRect = () => $('stage').getBoundingClientRect();
@@ -538,6 +558,7 @@ function tipHtml(key) {
     return `<h5>${nm}</h5><div>${v}</div>${p[1]==='body'?'<div class="mut">Its own bar over health; it never refills.</div>':''}${p[1]==='qi'?'<div class="mut">Pays for arts and the ward. Running dry is how most builds lose.</div>':''}`; }
   if (p[0] === 'buff' || p[0] === 'debuff') return `<h5>${EL_HV[p[1]] ? EL_HV[p[1]] + ' · ' : ''}${esc(nice(p[1]))} ${p[0]}</h5><div>${(+p[2]).toFixed(1)} stacks</div><div class="mut">Element stacks: each stack adds its element's effect.</div>`;
   if (p[0] === 'st') return `<h5>${esc(nice(p[1]))}</h5><div>×${(+p[2]).toFixed(1)}</div><div class="mut">A status or curse on this side.</div>`;
+  if (p[0] === 'sn') return `<h5>Stance: ${esc(nice(p[1]))}</h5><div class="mut">A toggled stance; fire its art again to leave it.</div>`;
   if (p[0] === 'ct') return `<h5>${esc(nice(p[2]))}</h5><div>${(+p[3]).toFixed(1)}</div><div class="mut">A counter the build's engine fills and its payoff arts spend.</div>`;
   return '';
 }

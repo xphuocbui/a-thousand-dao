@@ -4,6 +4,8 @@
                                                                       at game size, the pre-pick highlighted)
   python -I tools/asset-pipeline/icons/review.py --apply DECISIONS    install the picks from the page's copied decisions
                                                                       (a JSON file), list the rejects to regenerate
+  python -I tools/asset-pipeline/icons/review.py --install-prepicks   install every pre-pick now as provisional (so the
+                                                                      game and viewer have icons before the user picks)
 
 Pre-pick (an observation, not a verdict): the candidate whose colour field sits closest to the icon's hue (§7.5) and
 whose value contrast is highest at 48 px. The user overrides any of it on the page.
@@ -38,13 +40,16 @@ def need_pil():
         return False
 
 
+_HUES = {}
+
+
 def hue_of(kind, iid):
-    sys.path.insert(0, HERE)
-    import gen_ai
-    for k, i, el, what, style in gen_ai.items("all"):
-        if k == kind and i == iid:
-            return gen_ai.HUE[el][1]
-    return None
+    if not _HUES:
+        sys.path.insert(0, HERE)
+        import gen_ai
+        for k, i, el, what, style in gen_ai.items("all"):
+            _HUES[(k, i)] = gen_ai.HUE[el][1]
+    return _HUES.get((kind, iid))
 
 
 def score(path, hexhue):
@@ -57,7 +62,7 @@ def score(path, hexhue):
     th = colorsys.rgb_to_hsv(r, g, b)[0]
     small = im.resize((12, 12))
     hs = []
-    for px in small.getdata():
+    for px in (small.getpixel((x, y)) for y in range(12) for x in range(12)):
         h, s, v = colorsys.rgb_to_hsv(*(c / 255 for c in px))
         if s > 0.25 and v > 0.2:
             hs.append(min(abs(h - th), 1 - abs(h - th)))
@@ -78,20 +83,28 @@ def candidates():
 def thumb(path, size):
     from PIL import Image
     buf = io.BytesIO()
-    Image.open(path).convert("RGB").resize((size, size), Image.LANCZOS).save(buf, "PNG")
-    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode("ascii")
+    # JPEG keeps a ~680-candidate page under the 16 MB artifact limit; the installed icon is cut from the full PNG
+    Image.open(path).convert("RGB").resize((size, size), Image.LANCZOS).save(buf, "JPEG", quality=88)
+    return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode("ascii")
+
+
+def prepicks():
+    """(kind, id, files, best index) per icon; best = the pre-pick (hue fit + contrast at 48 px)."""
+    out = []
+    for (kind, iid), files in sorted(candidates().items()):
+        hx = hue_of(kind, iid)
+        sc = [score(f, hx) for f in files]
+        out.append((kind, iid, files, max(range(len(files)), key=lambda i: sc[i])))
+    return out
 
 
 def build():
-    C = candidates()
-    if not C:
+    P = prepicks()
+    if not P:
         print("NO_INPUT\tno candidates under %s (run gen_ai.py first)" % AI)
         return 2
     rows = []
-    for (kind, iid), files in sorted(C.items()):
-        hx = hue_of(kind, iid)
-        sc = [score(f, hx) for f in files]
-        best = max(range(len(files)), key=lambda i: sc[i])
+    for kind, iid, files, best in P:
         rows.append({"kind": kind, "id": iid, "pick": best,
                      "c": [{"file": os.path.relpath(f, HERE).replace("\\", "/"), "big": thumb(f, 128), "small": thumb(f, 48)} for f in files]})
     html = PAGE.replace("/*ROWS*/", json.dumps(rows))
@@ -102,9 +115,10 @@ def build():
     return 0
 
 
-def apply(path):
+def apply(path, dec=None, picked_by="user"):
     from PIL import Image
-    dec = json.load(open(path, encoding="utf-8"))
+    if dec is None:
+        dec = json.load(open(path, encoding="utf-8"))
     logs = {}
     lp = os.path.join(HERE, "ai", "log.jsonl")
     if os.path.exists(lp):
@@ -130,7 +144,7 @@ def apply(path):
         r = logs.get((d["kind"], d["id"], tag), {})
         prov["%s/%s" % (folder, name)] = {"source": d["file"], "provider": r.get("provider"), "model": r.get("model"),
                                           "quality": r.get("quality"), "seed": r.get("seed"), "prompt": r.get("prompt"),
-                                          "picked_by": "user"}
+                                          "picked_by": picked_by}
         done += 1
     json.dump(prov, open(prov_p, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
     print("installed\t%d icons; provenance in %s" % (done, prov_p))
@@ -148,6 +162,7 @@ body { background: var(--bg); color: var(--fg); font: 14px "Segoe UI", system-ui
 h1 { font-size: 20px; margin: 0 0 4px; } p { color: var(--mut); margin: 0 0 14px; max-width: 70ch; }
 .bar { position: sticky; top: 0; background: var(--bg); padding: 8px 0; display: flex; gap: 10px; align-items: center; border-bottom: 1px solid var(--line); z-index: 2; flex-wrap: wrap; }
 button { font: inherit; padding: 6px 12px; border: 1px solid var(--fg); background: var(--fg); color: var(--bg); border-radius: 4px; cursor: pointer; }
+select { font: inherit; padding: 5px 8px; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 4px; }
 .row { display: grid; grid-template-columns: 170px 1fr auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
 .row.rej { opacity: .45; }
 .id b { display: block; } .id span { color: var(--mut); font-size: 12px; }
@@ -164,14 +179,20 @@ textarea { width: 100%; height: 90px; font: 12px ui-monospace, monospace; }
 <p>Each row is one icon; the outlined candidate is the pre-pick. Click another candidate to pick it, or Reject to have it
 regenerated at high quality. The small copy is the in-game size. When done, press Copy decisions and paste the text into
 the chat.</p>
-<div class="bar"><button id="copy">Copy decisions</button><span id="stat"></span></div>
+<div class="bar"><button id="copy">Copy decisions</button><select id="kind" aria-label="Show"></select><span id="stat"></span></div>
 <div id="rows"></div>
 <textarea id="out" readonly hidden></textarea>
 <script>
 const ROWS = /*ROWS*/;
 const box = document.getElementById('rows');
+const KIND = { art: 'Arts', tech: 'Techniques', ward: 'Wards', status: 'Statuses', counter: 'Counters', stance: 'Stances', glyph: 'Element stacks' };
+const sel = document.getElementById('kind');
+sel.innerHTML = '<option value="">All kinds</option>' + [...new Set(ROWS.map(r => r.kind))].map(k =>
+  `<option value="${k}">${KIND[k] || k} (${ROWS.filter(r => r.kind === k).length})</option>`).join('');
+try { sel.value = localStorage.getItem('iconKind') || ''; } catch (e) {}
+sel.onchange = () => { try { localStorage.setItem('iconKind', sel.value); } catch (e) {} render(); };
 function render() {
-  box.innerHTML = ROWS.map((r, i) => `<div class="row${r.reject ? ' rej' : ''}"><div class="id"><b>${r.id}</b><span>${r.kind}</span></div>
+  box.innerHTML = ROWS.map((r, i) => (sel.value && r.kind !== sel.value) ? '' : `<div class="row${r.reject ? ' rej' : ''}"><div class="id"><b>${r.id}</b><span>${r.kind}</span></div>
     <div class="cands">${r.c.map((c, j) => `<button class="c${r.pick === j && !r.reject ? ' on' : ''}" data-i="${i}" data-j="${j}">
       <img class="big" src="${c.big}" alt=""><img class="small" src="${c.small}" alt=""></button>`).join('')}</div>
     <button class="rej-b" data-r="${i}">${r.reject ? 'Rejected' : 'Reject'}</button></div>`).join('');
@@ -196,9 +217,14 @@ render();
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply")
+    ap.add_argument("--install-prepicks", action="store_true",
+                    help="install every icon's pre-pick now, marked provisional; a later --apply of the user's picks replaces them")
     a = ap.parse_args()
     if not need_pil():
         return 2
+    if a.install_prepicks:
+        dec = [{"kind": k, "id": i, "file": os.path.relpath(f[b], HERE).replace("\\", "/"), "reject": False} for k, i, f, b in prepicks()]
+        return apply(None, dec, "pre-pick (provisional, not yet confirmed by the user)")
     return apply(a.apply) if a.apply else build()
 
 

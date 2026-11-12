@@ -117,6 +117,12 @@ Revised 2026-11-12 (user: "a green or red halo; just an icon and a number, think
 - **Every status, counter and stance has its own icon**: the 13 statuses (Bleed, Withering, Sealed Meridian ...), the
   build counters (Twin flames, Tide, Temper ...) and the stances (Brazier Form, Iron Hide ...). Statuses on a side
   are debuffs (red halo), counters and stances are the owner's (green halo, or no halo for a neutral counter).
+- **Element stack painting** (2026-11-12, after the first painted batch: the flat element glyph read as clip art).
+  The 8 element stack icons only are painted as **one bold emblem**: centred, about two thirds of the tile, thick
+  silhouette, white-hot core in its hue, on a deep near-black vignette tinted with that hue, readable at 24 px with
+  room for the halo. **Statuses, counters and stances use the full art style (7.2)** (user, same day: "the basic buffs
+  and debuffs are fine, but everything else should be the same"). Subjects are written per icon in
+  `tools/asset-pipeline/icons/subjects.py`.
 - Glyphs for physical, force, chaos and soul conditions are still open (7.8, F7).
 
 ### 7.4b Technique icons
