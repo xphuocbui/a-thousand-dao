@@ -7,9 +7,27 @@
   "base": "phi_kiem",
   "grade": 1,
   "modifiers": [
-   {"key": "attack_pct", "value": 9, "scope": ["sword"]},
-   {"key": "art_speed_pct", "value": 6, "scope": ["sword"]},
-   {"key": "crit_chance_pct", "value": 3, "scope": ["sword"]}
+   {
+    "key": "attack_pct",
+    "value": 9,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 6,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "crit_chance_pct",
+    "value": 3,
+    "scope": [
+     "sword"
+    ]
+   }
   ],
   "effects": [],
   "arts": [
@@ -20,18 +38,36 @@
     "role": "damage",
     "tier": "authored",
     "power": "standalone",
-    "tags": ["kim", "sword", "artifact", "quick"],
+    "tags": [
+     "kim",
+     "sword",
+     "artifact",
+     "quick"
+    ],
     "c_art": 1.6,
     "cost_share": 0.03,
     "cooldown": 2,
     "kind": "elem",
-    "debuff": [1, 6],
+    "debuff": [
+     1,
+     6
+    ],
     "rule": "A quick flying-sword cut that lays 1 Metal debuff stack for 6 s.",
-    "hooks": ["metal debuff", "art speed", "crit"],
-    "sources": ["item:blade-thread-edge-sword"]
+    "hooks": [
+     "metal debuff",
+     "art speed",
+     "crit"
+    ],
+    "sources": [
+     "item:blade-thread-edge-sword"
+    ]
    }
   ],
-  "sources": ["event", "craft", "quest"],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
   "lore": "A sword thin as a hair, forged in bulk for the outer disciples of sword sects.",
   "build_use": "The Thousand Cuts: a cheap, quick Metal-debuff cut that fills the first extra slots before better flying swords arrive."
  },
@@ -43,13 +79,36 @@
   "base": "nhan",
   "grade": 1,
   "modifiers": [
-   {"key": "crit_chance_pct", "value": 4, "scope": ["sword"]},
-   {"key": "attack_pct", "value": 6, "scope": ["sword"]},
-   {"key": "linh_luc_on_crit_pct", "value": 0.5, "scope": []},
-   {"key": "khi_huyet_pct", "value": 2, "scope": []}
+   {
+    "key": "crit_chance_pct",
+    "value": 4,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "attack_pct",
+    "value": 6,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "linh_luc_on_crit_pct",
+    "value": 0.5,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 2,
+    "scope": []
+   }
   ],
   "effects": [],
-  "sources": ["event", "craft"],
+  "sources": [
+   "event",
+   "craft"
+  ],
   "lore": "A steel band sharpened on one side; sword disciples joke that it cuts the finger that wears it.",
   "build_use": "The Thousand Cuts: an early ring for the crit loop, a little linh lực back on each crit."
  },
@@ -61,13 +120,43 @@
   "base": "phi_kiem",
   "grade": 2,
   "modifiers": [
-   {"key": "attack_pct", "value": 14, "scope": ["sword"]},
-   {"key": "crit_chance_pct", "value": 6, "scope": ["sword"]},
-   {"key": "art_speed_pct", "value": 10, "scope": ["sword"]},
-   {"key": "linh_luc_on_crit_pct", "value": 0.8, "scope": []},
-   {"key": "crit_damage_pct", "value": 15, "scope": ["sword"]}
+   {
+    "key": "attack_pct",
+    "value": 14,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "crit_chance_pct",
+    "value": 6,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 10,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "linh_luc_on_crit_pct",
+    "value": 0.8,
+    "scope": []
+   },
+   {
+    "key": "crit_damage_pct",
+    "value": 15,
+    "scope": [
+     "sword"
+    ]
+   }
   ],
-  "effects": ["Opening Cut"],
+  "effects": [
+   "Opening Cut"
+  ],
   "arts": [
    {
     "id": "blade-twin-edge-return",
@@ -76,27 +165,60 @@
     "role": "damage",
     "tier": "authored",
     "power": "standalone",
-    "tags": ["kim", "sword", "artifact", "quick"],
+    "tags": [
+     "kim",
+     "sword",
+     "artifact",
+     "quick"
+    ],
     "c_art": 1.9,
     "cost_share": 0.035,
     "cooldown": 3,
     "kind": "elem",
-    "statuses": [{"id": "bleed", "stacks": 1}],
+    "statuses": [
+     {
+      "id": "bleed",
+      "stacks": 1
+     }
+    ],
     "effects": [
      {
       "id": "blade-twin-edge-crit-bleed",
       "on": "crit",
-      "filter": {"art_id": "blade-twin-edge-return"},
-      "limit": {"cooldown": 1},
-      "do": [{"status": {"id": "bleed", "stacks": 2, "dur": 5, "side": "foe"}}]
+      "filter": {
+       "art_id": "blade-twin-edge-return"
+      },
+      "limit": {
+       "cooldown": 1
+      },
+      "do": [
+       {
+        "status": {
+         "id": "bleed",
+         "stacks": 2,
+         "dur": 5,
+         "side": "foe"
+        }
+       }
+      ]
      }
     ],
     "rule": "A flying sword cuts out and back: a Metal hit that lays 1 Bleed stack. A critical hit lays 2 more Bleed stacks for 5 s.",
-    "hooks": ["crit", "bleed", "art speed"],
-    "sources": ["item:blade-twin-edge-sword"]
+    "hooks": [
+     "crit",
+     "bleed",
+     "art speed"
+    ],
+    "sources": [
+     "item:blade-twin-edge-sword"
+    ]
    }
   ],
-  "sources": ["event", "craft", "npc"],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
   "lore": "One blade cuts going out and the other coming home, so the foe is never cut only once.",
   "build_use": "The Thousand Cuts and the Afterimage Sword Canon: crits lay Bleed, which Phantom Sword, Flying Sword and Triple Draw read as an alternate key; Opening Cut adds Bleed on every Physical crit."
  },
@@ -108,10 +230,26 @@
   "base": "dao_bao",
   "grade": 2,
   "modifiers": [
-   {"key": "evade_pct", "value": 6, "scope": []},
-   {"key": "than_thuc_pct", "value": 4, "scope": []},
-   {"key": "khi_huyet_pct", "value": 10, "scope": []},
-   {"key": "resist_pct", "value": 100, "scope": []}
+   {
+    "key": "evade_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 4,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 100,
+    "scope": []
+   }
   ],
   "effects": [],
   "wards": [
@@ -125,7 +263,11 @@
     "notes": "The Common Ward at 1.2 times its payload and its drain, so the price check is unchanged (3.049 of 3.050)"
    }
   ],
-  "sources": ["event", "craft", "quest"],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
   "lore": "Sword sects dress their disciples in grey robes so wide that no one can tell which sleeve holds the blade.",
   "build_use": "The Thousand Cuts: the Common Ward the build wants, a little stronger, with evade and thần thức left over for more swords."
  },
@@ -137,27 +279,69 @@
   "base": "ngoc_boi",
   "grade": 2,
   "modifiers": [
-   {"key": "stack_effect_pct", "value": 12, "scope": ["kim", "debuff"]},
-   {"key": "stack_duration_pct", "value": 20, "scope": ["kim", "debuff"]},
-   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []},
-   {"key": "linh_luc_pct", "value": 6, "scope": []},
-   {"key": "khi_huyet_pct", "value": 2, "scope": []}
+   {
+    "key": "stack_effect_pct",
+    "value": 12,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 20,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 2,
+    "scope": []
+   }
   ],
   "effects": [],
   "reserve_arts": [
    {
     "id": "blade-sword-intent-aura",
     "name": "Sword Intent Aura (Kiếm Ý Quang)",
-    "reserve": 0.10,
+    "reserve": 0.1,
     "rule": "While reserved, your sword arts are 8 % faster and deal 6 % more.",
     "grants": [
-     {"key": "art_speed_pct", "value": 8, "scope": ["sword"]},
-     {"key": "attack_pct", "value": 6, "scope": ["sword"]}
+     {
+      "key": "art_speed_pct",
+      "value": 8,
+      "scope": [
+       "sword"
+      ]
+     },
+     {
+      "key": "attack_pct",
+      "value": 6,
+      "scope": [
+       "sword"
+      ]
+     }
     ],
     "notes": "Priced by Formulas I reserve arts: 10 % reserved buys up to 10 W (8.8 W)"
    }
   ],
-  "sources": ["event", "craft", "npc"],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
   "lore": "Jade cut from a sword-tomb, where the dead left their intent in the stone.",
   "build_use": "The Thousand Cuts: Metal debuff piles that last longer and bite harder, with the swords' speed paid in reserved linh lực, not an art slot."
  },
@@ -169,12 +353,44 @@
   "base": "phi_kiem",
   "grade": 3,
   "modifiers": [
-   {"key": "attack_pct", "value": 18, "scope": ["sword"]},
-   {"key": "art_speed_pct", "value": 12, "scope": ["sword"]},
-   {"key": "crit_chance_pct", "value": 8, "scope": ["sword"]},
-   {"key": "crit_damage_pct", "value": 30, "scope": ["sword"]},
-   {"key": "linh_luc_on_crit_pct", "value": 0.6, "scope": []},
-   {"key": "khi_huyet_pct", "value": 8, "scope": []}
+   {
+    "key": "attack_pct",
+    "value": 18,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 12,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "crit_chance_pct",
+    "value": 8,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "crit_damage_pct",
+    "value": 30,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "linh_luc_on_crit_pct",
+    "value": 0.6,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 8,
+    "scope": []
+   }
   ],
   "effects": [],
   "arts": [
@@ -186,42 +402,106 @@
     "tier": "authored",
     "power": "engine",
     "group": "afterimage-sword-canon",
-    "tags": ["kim", "sword", "artifact", "quick"],
+    "tags": [
+     "kim",
+     "sword",
+     "artifact",
+     "quick"
+    ],
     "c_art": 1.4,
     "cost_share": 0.04,
     "cooldown": 3,
     "kind": "elem",
-    "debuff": [1, 6],
-    "counters": [{"id": "afterimage", "decay_per_pulse": 0.1}],
+    "debuff": [
+     1,
+     6
+    ],
+    "counters": [
+     {
+      "id": "afterimage",
+      "decay_per_pulse": 0.1
+     }
+    ],
     "effects": [
      {
       "id": "blade-rain-afterimage",
       "on": "hit_landed",
-      "filter": {"art_id": "blade-sword-rain"},
-      "limit": {"per_pulse": 2},
-      "do": [{"counter": {"id": "afterimage", "add": 1}}]
+      "filter": {
+       "art_id": "blade-sword-rain"
+      },
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": 1
+        }
+       }
+      ]
      }
     ],
     "steps": [
      {
       "unlock": [
-       {"read": "own.counter.afterimage", "op": ">=", "value": 5},
-       {"any": [
-        {"read": "own.fired_within.2.group.afterimage-sword-canon", "op": ">=", "value": 2},
-        {"read": "foe.status.bleed", "op": ">=", "value": 3}
-       ]}
+       {
+        "read": "own.counter.afterimage",
+        "op": ">=",
+        "value": 5
+       },
+       {
+        "any": [
+         {
+          "read": "own.fired_within.2.group.afterimage-sword-canon",
+          "op": ">=",
+          "value": 2
+         },
+         {
+          "read": "foe.status.bleed",
+          "op": ">=",
+          "value": 3
+         }
+        ]
+       }
       ],
-      "pay": [{"counter": {"id": "afterimage", "add": -5}}],
+      "pay": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": -5
+        }
+       }
+      ],
       "c_mult": 3.0,
-      "split": [0.25, 0.25, 0.25, 0.25]
+      "split": [
+       0.25,
+       0.25,
+       0.25,
+       0.25
+      ]
      }
     ],
     "rule": "Counts as an Afterimage Sword Canon art. A quick Metal cut that lays 1 Metal debuff stack for 6 s; each of its hits leaves an Afterimage (twice a pulse at most). With 5 Afterimages, and either two canon arts fired in the last 2 s or 3 Bleed on the foe, the sword calls the rain: it spends the Afterimages and becomes four cuts of 3 times the force.",
-    "hooks": ["afterimage sword canon", "afterimage count", "bleed", "metal debuff", "art speed", "crit"],
-    "sources": ["item:blade-rain-calling-sword"]
+    "hooks": [
+     "afterimage sword canon",
+     "afterimage count",
+     "bleed",
+     "metal debuff",
+     "art speed",
+     "crit"
+    ],
+    "sources": [
+     "item:blade-rain-calling-sword"
+    ]
    }
   ],
-  "sources": ["event", "craft", "quest", "npc"],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
   "lore": "Its tassel is cut from the rope that once bound a thousand swords in a sect's armoury, and they still answer to it.",
   "build_use": "The Afterimage Sword Canon and The Sword Hall: a fifth suite art that Phantom Sword, Flying Sword and Triple Draw count, and a payoff of its own when the Afterimages pile up."
  },
@@ -233,12 +513,42 @@
   "base": "ky",
   "grade": 3,
   "modifiers": [
-   {"key": "attack_pct", "value": 12, "scope": ["sword"]},
-   {"key": "art_speed_pct", "value": 10, "scope": ["sword"]},
-   {"key": "crit_chance_pct", "value": 6, "scope": ["sword"]},
-   {"key": "than_thuc_pct", "value": 6, "scope": []},
-   {"key": "artifact_attack_pct", "value": 15, "scope": []},
-   {"key": "khi_huyet_pct", "value": 4, "scope": []}
+   {
+    "key": "attack_pct",
+    "value": 12,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 10,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "crit_chance_pct",
+    "value": 6,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "artifact_attack_pct",
+    "value": 15,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 4,
+    "scope": []
+   }
   ],
   "effects": [
    {
@@ -252,10 +562,15 @@
     "payload": "damage_more on sword artifact arts, per other sword artifact",
     "closes": "Your arts that are not sword arts deal 15 % less.",
     "hosts": "Named Item",
-    "from": "new (The Sword Hall: several flying swords in extra slots)"
+    "from": "new (The Sword Hall: several flying swords in extra slots)",
+    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
    }
   ],
-  "sources": ["npc", "event", "quest"],
+  "sources": [
+   "npc",
+   "event",
+   "quest"
+  ],
   "lore": "A grey flag that hangs in the sword-hall rafters; each blade hung beneath it sings with the others.",
   "build_use": "The Sword Hall (Kiếm Các), a new build: a sword cultivator who wears Flying Swords in every extra slot, and each added sword makes all of them hit harder; the flag takes a utility slot and holds the chorus together."
  },
@@ -267,13 +582,35 @@
   "base": "giap",
   "grade": 3,
   "modifiers": [
-   {"key": "defense_pct", "value": 10, "scope": []},
-   {"key": "khi_huyet_pct", "value": 14, "scope": []},
-   {"key": "resist_pct", "value": 150, "scope": []},
-   {"key": "block_rating", "value": 18, "scope": []},
-   {"key": "health_regen_inc_pct", "value": 20, "scope": []}
+   {
+    "key": "defense_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 14,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 150,
+    "scope": []
+   },
+   {
+    "key": "block_rating",
+    "value": 18,
+    "scope": []
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 20,
+    "scope": []
+   }
   ],
-  "effects": ["Iron Skin Renewed"],
+  "effects": [
+   "Iron Skin Renewed"
+  ],
   "wards": [
    {
     "id": "blade-tortoise-edge-shell",
@@ -285,7 +622,11 @@
     "notes": "The starter shell at 2 times its payload and its cast cost, so the price check is unchanged (4.711 of 4.766)"
    }
   ],
-  "sources": ["event", "craft", "npc"],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
   "lore": "Plates ground from a tortoise-shell hall where sword sects tested their blades and the shell won.",
   "build_use": "Blood on the Whetstone: Physical foes break on the shell, and every Physical art fired gives the body shield back a little."
  },
@@ -297,14 +638,54 @@
   "base": "phi_kiem",
   "grade": 4,
   "modifiers": [
-   {"key": "attack_pct", "value": 24, "scope": ["sword"]},
-   {"key": "art_speed_pct", "value": 16, "scope": ["sword"]},
-   {"key": "crit_chance_pct", "value": 10, "scope": ["sword"]},
-   {"key": "crit_damage_pct", "value": 40, "scope": ["sword"]},
-   {"key": "stack_effect_pct", "value": 20, "scope": ["kim", "debuff"]},
-   {"key": "stack_duration_pct", "value": 30, "scope": ["kim", "debuff"]}
+   {
+    "key": "attack_pct",
+    "value": 24,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 16,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "crit_chance_pct",
+    "value": 10,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "crit_damage_pct",
+    "value": 40,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 20,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 30,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   }
   ],
-  "effects": ["Marked Prey"],
+  "effects": [
+   "Marked Prey"
+  ],
   "arts": [
    {
     "id": "blade-thousand-cut-return",
@@ -313,40 +694,96 @@
     "role": "damage",
     "tier": "authored",
     "power": "engine",
-    "tags": ["kim", "sword", "artifact"],
+    "tags": [
+     "kim",
+     "sword",
+     "artifact"
+    ],
     "c_art": 1.8,
     "cost_share": 0.05,
     "cooldown": 5,
     "kind": "elem",
-    "debuff": [3, 6],
-    "counters": [{"id": "afterimage", "decay_per_pulse": 0.1}],
+    "debuff": [
+     3,
+     6
+    ],
+    "counters": [
+     {
+      "id": "afterimage",
+      "decay_per_pulse": 0.1
+     }
+    ],
     "effects": [
      {
       "id": "blade-return-afterimage",
       "on": "hit_landed",
-      "filter": {"art_id": "blade-thousand-cut-return"},
-      "do": [{"counter": {"id": "afterimage", "add": 1}}]
+      "filter": {
+       "art_id": "blade-thousand-cut-return"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": 1
+        }
+       }
+      ]
      }
     ],
     "steps": [
      {
       "unlock": [
-       {"read": "foe.debuff.metal", "op": ">=", "value": 15},
-       {"any": [
-        {"read": "own.counter.afterimage", "op": ">=", "value": 3},
-        {"read": "own.fired_within.1.group.afterimage-sword-canon", "op": ">=", "value": 2}
-       ]}
+       {
+        "read": "foe.debuff.metal",
+        "op": ">=",
+        "value": 15
+       },
+       {
+        "any": [
+         {
+          "read": "own.counter.afterimage",
+          "op": ">=",
+          "value": 3
+         },
+         {
+          "read": "own.fired_within.1.group.afterimage-sword-canon",
+          "op": ">=",
+          "value": 2
+         }
+        ]
+       }
       ],
-      "pay": [{"consume": {"el": "metal", "side": "foe", "kind": "debuff", "n": 10}}],
+      "pay": [
+       {
+        "consume": {
+         "el": "metal",
+         "side": "foe",
+         "kind": "debuff",
+         "n": 10
+        }
+       }
+      ],
       "c_mult": 4.0
      }
     ],
     "rule": "A Metal cut that lays 3 Metal debuff stacks for 6 s; each hit leaves an Afterimage. With 15 Metal debuff stacks on the foe, and either 3 Afterimages or two Afterimage Sword Canon arts fired in the last second, the sword gathers every cut: it spends 10 of the stacks and falls 4 times as hard.",
-    "hooks": ["metal debuff", "afterimage count", "afterimage sword canon", "consume stacks", "art speed"],
-    "sources": ["item:blade-thousand-cut-sword"]
+    "hooks": [
+     "metal debuff",
+     "afterimage count",
+     "afterimage sword canon",
+     "consume stacks",
+     "art speed"
+    ],
+    "sources": [
+     "item:blade-thousand-cut-sword"
+    ]
    }
   ],
-  "sources": ["npc", "event", "quest"],
+  "sources": [
+   "npc",
+   "event",
+   "quest"
+  ],
   "holder": "An elder of a sword sect at Core Formation or above; otherwise Lost in a sword-tomb that no sect has opened",
   "lore": "It was thrown a thousand times at one mountain and came back a thousand times; the mountain has a new gorge.",
   "build_use": "The Thousand Cuts: the keystone sword; the debuff pile is its fuel and its payoff, and the cut it lands turns the hundredth hit into the heaviest."
@@ -359,12 +796,44 @@
   "base": "nhan",
   "grade": 4,
   "modifiers": [
-   {"key": "crit_chance_pct", "value": 8, "scope": ["sword"]},
-   {"key": "linh_luc_on_crit_pct", "value": 1.2, "scope": []},
-   {"key": "attack_pct", "value": 18, "scope": ["sword"]},
-   {"key": "art_speed_pct", "value": 14, "scope": ["sword"]},
-   {"key": "crit_damage_pct", "value": 50, "scope": ["sword"]},
-   {"key": "linh_luc_pct", "value": 8, "scope": []}
+   {
+    "key": "crit_chance_pct",
+    "value": 8,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "linh_luc_on_crit_pct",
+    "value": 1.2,
+    "scope": []
+   },
+   {
+    "key": "attack_pct",
+    "value": 18,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 14,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "crit_damage_pct",
+    "value": 50,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 8,
+    "scope": []
+   }
   ],
   "effects": [
    {
@@ -378,7 +847,8 @@
     "payload": "Blade counters keep their count until spent",
     "closes": "Your basic attack deals 30 % less.",
     "hosts": "Named Item",
-    "from": "new (The Sword Hall: banking Afterimages across a long fight)"
+    "from": "new (The Sword Hall: banking Afterimages across a long fight)",
+    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
    }
   ],
   "reserve_arts": [
@@ -388,13 +858,28 @@
     "reserve": 0.15,
     "rule": "While reserved, your sword arts crit 8 % more often and are 12 % faster.",
     "grants": [
-     {"key": "crit_chance_pct", "value": 8, "scope": ["sword"]},
-     {"key": "art_speed_pct", "value": 12, "scope": ["sword"]}
+     {
+      "key": "crit_chance_pct",
+      "value": 8,
+      "scope": [
+       "sword"
+      ]
+     },
+     {
+      "key": "art_speed_pct",
+      "value": 12,
+      "scope": [
+       "sword"
+      ]
+     }
     ],
     "notes": "Priced by Formulas I reserve arts: 15 % reserved buys up to 15 W (10.1 W)"
    }
   ],
-  "sources": ["npc", "event"],
+  "sources": [
+   "npc",
+   "event"
+  ],
   "holder": "A Nascent Soul sword cultivator who has not lost a duel in a century; otherwise Lost in the ruins of a sword sect",
   "lore": "A ring forged from the last fragment of a sword that was broken once and never again.",
   "build_use": "The Sword Hall and the Afterimage Sword Canon: Afterimages and Coils are never lost between cuts, so slow engines bank to their biggest step."

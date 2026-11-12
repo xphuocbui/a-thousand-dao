@@ -1,7 +1,7 @@
 # Named-Item Catalogue
 
-> **Status**: Pilot, 2026-11-12. The fire family only, for the user's review before the other 12 families are written.
-> Not reviewed, not in game data.
+> **Status**: First complete draft, 2026-11-12: 130 named items in 13 families, accepted for now by the user. Not in
+> game data.
 > **Rules**: `design/gdd/item-database.md` rules 6 (roles), 11 (base and extra slots), 20 (named items: copies,
 > sources, refining), 21 (what an item gives, a blueprint with marked exceptions) and Formulas I (the plain-modifier
 > budget); modifiers priced by `design/gdd/modifiers.md` Formulas A–B; Effects from `design/gdd/effects.md`; item arts
@@ -53,7 +53,24 @@ rule}], `exception` (a reason, when the item breaks the rule 21 blueprint), `sou
 4. **Spend 80–100 % of the budget**; an item whose main value is a strong enabler may go to about 60 % and says why.
    The lint notes a lower spend.
 
+## Decided at the full-catalogue review (user, 2026-11-12)
+
+5. **All 130 items stand** (12 families written by headless Sonnet sessions from the fire pilot; `_logs/`).
+6. **The general Heaven-Purchasing Coin carries Bought Fate** (once a fight a roll against you flips, paid in spirit
+   stones), so the metal Heaven-Minted Coin alone carries Seal of Full Payment, for Gold Rain.
+7. **Edge Returns the Breath and Whetstone Vow stay item Effects** (metal), though `missing-pieces.md` proposed them as
+   Meridian Map keystones; a future tree keystone can be a stronger version with a harsher cost.
+8. **The 27 new Effects are accepted for now** (each marked `status` in its record). They are not in `effects.md` yet;
+   promoting them is a separate, section-by-section step.
+
 ## Open
+
+- **Promote the 27 new Effects into `effects.md`** (with the user, section by section). Worth a look then:
+  Deep Freeze (ice) is Rime Lock repeating at every 10 Ice stacks, and five Effects now delay the foe's next art
+  (Soul Wound, Rime Lock, Deep Freeze, Plucked Time, Gripping Root), so delay may need one shared rule.
+- **Fan the Pyre** in the fight sim before the items go into data.
+- **Into game data:** the 13 new bases, the common arts, the ring, necklace and robe roles, and the named items
+  (`items_artifacts.json` and a named-item file); the Item Database build gaps of rules 11, 20 and 21 come with it.
 
 - New wards are scaled starter wards (payload and payment by the same factor), so their price check is inherited,
   not run; a ward price-check tool does not exist yet.

@@ -13,7 +13,7 @@
 | **Hundred-Patch Armour (Bách Nạp Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Hundred-Patch Ward; Effect: Final Clause | 38.3 of 38.3 |
 | **Five-Phase Flag (Ngũ Hành Kỳ)** | Kỳ · extra slot (utility) | Thượng (High) (4) | Effect: Wheel in the Flag (new) | 35.1 of 38.3 |
 | **Talisman-Bearer's Ring (Phù Sứ Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Paid in Advance | 30.9 of 38.3 |
-| **Heaven-Purchasing Coin (Mãi Thiên Tiền)** | Tiền Tiêu · weapon slot | Cực (Peak) (5, unique) | art: Last Coin Flick; Effect: Seal of Full Payment | 44.2 of 51.1 |
+| **Heaven-Purchasing Coin (Mãi Thiên Tiền)** | Tiền Tiêu · weapon slot | Cực (Peak) (5, unique) | art: Last Coin Flick; Effect: Bought Fate (new) | 44.2 of 51.1 |
 | **Mirror of the Second Seat (Nhị Tòa Kính)** | Kính · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Cold Feet | 42.2 of 51.1 |
 
 ## Wayfarer's Ring (Hành Lữ Giới)
@@ -128,11 +128,11 @@
 
 > The first spirit stone ever cut, they say, and the one that bought a sect its mountain.
 
-**Build use.** Spirit-stone builds: Seal of Full Payment pays arts and wards in carried stones, and the coin flies heaviest at the brink.
+**Build use.** Any build that dies to one bad roll: once a fight a crit taken, a failed evade or a failed escape flips your way, paid in carried spirit stones.
 
 **Art: Last Coin Flick (Tuyệt Tiền Kích)** (damage, engine, c 2.00, cost 0.030, cooldown 2.5 s). A flicked coin: a quick Physical hit. With 40 % of your health gone it is the last coin in the purse, and flies four times as hard.
 
-**Effect: Seal of Full Payment** (effects.md). Your arts and wards are paid in carried spirit stones.
+**Effect (new): Bought Fate (Mãi Mệnh)** (Trigger, enabler). Once a fight, a roll that goes against you (a crit you take, an evade that fails, an escape that fails) goes your way instead. *Payload:* One roll flipped in your favour. *Closes:* Each flip burns spirit stones worth 5 % of the spirit stones you carry; with none carried it does nothing.
 
 **Modifiers:** +24 % damage [art] · 19.2 W; +5 % crit chance · 5.0 W; +30 % crit damage · 9.0 W; +10 % art speed · 6.0 W; +1 fortune (khí vận) · 5.0 W
 

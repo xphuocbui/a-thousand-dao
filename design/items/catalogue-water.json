@@ -7,9 +7,28 @@
   "base": "cham",
   "grade": 1,
   "modifiers": [
-   {"key": "attack_pct", "value": 8, "scope": ["thuy"]},
-   {"key": "art_speed_pct", "value": 6, "scope": ["thuy"]},
-   {"key": "stack_duration_pct", "value": 20, "scope": ["thuy", "buff"]}
+   {
+    "key": "attack_pct",
+    "value": 8,
+    "scope": [
+     "thuy"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 6,
+    "scope": [
+     "thuy"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 20,
+    "scope": [
+     "thuy",
+     "buff"
+    ]
+   }
   ],
   "effects": [],
   "arts": [
@@ -20,17 +39,30 @@
     "role": "damage",
     "tier": "authored",
     "power": "standalone",
-    "tags": ["water", "artifact", "quick"],
+    "tags": [
+     "water",
+     "artifact",
+     "quick"
+    ],
     "c_art": 1.4,
     "cost_share": 0.02,
     "cooldown": 1.5,
     "kind": "elem",
-    "buff": [1, 8],
+    "buff": [
+     1,
+     8
+    ],
     "rule": "A fine needle of water: a quick Water hit that gives you 1 Water stack for 8 s.",
-    "sources": ["item:water-dew-needle"]
+    "sources": [
+     "item:water-dew-needle"
+    ]
    }
   ],
-  "sources": ["event", "craft", "quest"],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
   "lore": "A needle that draws morning dew from the air; Water sects give it to disciples who learn to breathe.",
   "build_use": "The Deep Sea's first weapon: a cheap, quick art that keeps a Water stack up before the công pháp arts arrive."
  },
@@ -42,12 +74,30 @@
   "base": "nhan",
   "grade": 1,
   "modifiers": [
-   {"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []},
-   {"key": "linh_luc_pct", "value": 4, "scope": []},
-   {"key": "stack_effect_pct", "value": 4, "scope": ["thuy", "buff"]}
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 4,
+    "scope": []
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 4,
+    "scope": [
+     "thuy",
+     "buff"
+    ]
+   }
   ],
   "effects": [],
-  "sources": ["event", "craft"],
+  "sources": [
+   "event",
+   "craft"
+  ],
   "lore": "A silver band with a bead of water that never dries and never falls.",
   "build_use": "Any Water build's early ring: a deeper pool and faster breathing."
  },
@@ -59,12 +109,35 @@
   "base": "ho_lo",
   "grade": 2,
   "modifiers": [
-   {"key": "linh_luc_regen_inc_pct", "value": 12, "scope": []},
-   {"key": "linh_luc_pct", "value": 8, "scope": []},
-   {"key": "stack_effect_pct", "value": 10, "scope": ["thuy", "buff"]},
-   {"key": "art_speed_pct", "value": 5, "scope": ["thuy"]}
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 10,
+    "scope": [
+     "thuy",
+     "buff"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 5,
+    "scope": [
+     "thuy"
+    ]
+   }
   ],
-  "effects": ["Steady Breath"],
+  "effects": [
+   "Steady Breath"
+  ],
   "arts": [
    {
     "id": "water-gourd-pours-the-pool",
@@ -73,25 +146,55 @@
     "role": "damage",
     "tier": "authored",
     "power": "engine",
-    "tags": ["water", "artifact"],
+    "tags": [
+     "water",
+     "artifact"
+    ],
     "c_art": 2.0,
     "cost_share": 0.04,
     "cooldown": 4,
     "kind": "elem",
-    "buff": [2, 10],
+    "buff": [
+     2,
+     10
+    ],
     "steps": [
      {
-      "unlock": [{"read": "own.buff.water", "op": ">=", "value": 6}],
-      "pay": [{"consume": {"el": "water", "side": "own", "kind": "buff", "n": 3}}],
+      "unlock": [
+       {
+        "read": "own.buff.water",
+        "op": ">=",
+        "value": 6
+       }
+      ],
+      "pay": [
+       {
+        "consume": {
+         "el": "water",
+         "side": "own",
+         "kind": "buff",
+         "n": 3
+        }
+       }
+      ],
       "c_mult": 2.2
      }
     ],
     "rule": "The gourd tips out a pool: a Water hit that gives you 2 Water stacks for 10 s. With 6 Water stacks it pours three of them out as a hit 2.2 times as hard.",
-    "hooks": ["water stacks", "consume stacks"],
-    "sources": ["item:water-still-pool-gourd"]
+    "hooks": [
+     "water stacks",
+     "consume stacks"
+    ],
+    "sources": [
+     "item:water-still-pool-gourd"
+    ]
    }
   ],
-  "sources": ["event", "craft", "npc"],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
   "lore": "A gourd that was never emptied; every sip leaves the pool exactly as full.",
   "build_use": "The Deep Sea: turns a built-up Water stack pile into a heavy hit, and Steady Breath pays while the pool stays above half."
  },
@@ -103,10 +206,26 @@
   "base": "chuong",
   "grade": 2,
   "modifiers": [
-   {"key": "defense_pct", "value": 10, "scope": []},
-   {"key": "linh_luc_pct", "value": 8, "scope": []},
-   {"key": "khi_huyet_pct", "value": 6, "scope": []},
-   {"key": "ward_efficiency_pct", "value": 3, "scope": []}
+   {
+    "key": "defense_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "ward_efficiency_pct",
+    "value": 3,
+    "scope": []
+   }
   ],
   "effects": [],
   "wards": [
@@ -118,11 +237,15 @@
     "activation": "standing",
     "check_from": "Surging Tide (Triều Thủy Tráo)",
     "notes": "The starter ward at 1.5 times its payload and its per-hit payment, so the price check is unchanged (2.935 of 3.050)"
-  }
- ],
- "sources": ["event", "craft", "quest"],
- "lore": "Harbour sects ring it as a tide turns; the sound rolls over the wearer and softens blows.",
- "build_use": "The Crushing Tide: a stronger per-hit ward for a build that takes few, heavy hits while it saves for its wave."
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
+  "lore": "Harbour sects ring it as a tide turns; the sound rolls over the wearer and softens blows.",
+  "build_use": "The Crushing Tide: a stronger per-hit ward for a build that takes few, heavy hits while it saves for its wave."
  },
  {
   "id": "water-moon-well-pendant",
@@ -132,10 +255,29 @@
   "base": "ngoc_boi",
   "grade": 2,
   "modifiers": [
-   {"key": "healing_pct", "value": 8, "scope": []},
-   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []},
-   {"key": "stack_effect_pct", "value": 12, "scope": ["thuy", "buff"]},
-   {"key": "than_thuc_pct", "value": 5, "scope": []}
+   {
+    "key": "healing_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 12,
+    "scope": [
+     "thuy",
+     "buff"
+    ]
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 5,
+    "scope": []
+   }
   ],
   "effects": [],
   "reserve_arts": [
@@ -145,13 +287,31 @@
     "reserve": 0.1,
     "rule": "While reserved, your Water buff stacks last 25 % longer and are 10 % stronger.",
     "grants": [
-     {"key": "stack_duration_pct", "value": 25, "scope": ["thuy", "buff"]},
-     {"key": "stack_effect_pct", "value": 10, "scope": ["thuy", "buff"]}
+     {
+      "key": "stack_duration_pct",
+      "value": 25,
+      "scope": [
+       "thuy",
+       "buff"
+      ]
+     },
+     {
+      "key": "stack_effect_pct",
+      "value": 10,
+      "scope": [
+       "thuy",
+       "buff"
+      ]
+     }
     ],
     "notes": "Priced by Formulas I reserve arts: 10 % reserved buys up to 10 W"
    }
   ],
-  "sources": ["event", "craft", "npc"],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
   "lore": "A pale jade disc that holds a reflection of the moon even at noon.",
   "build_use": "The Deep Sea and The Moon in the Well: a standing upgrade to Water stacks paid in linh lực, not an art slot."
  },
@@ -163,11 +323,38 @@
   "base": "mao",
   "grade": 3,
   "modifiers": [
-   {"key": "attack_pct", "value": 18, "scope": ["thuy"]},
-   {"key": "art_speed_pct", "value": 8, "scope": ["thuy"]},
-   {"key": "linh_luc_pct", "value": 10, "scope": []},
-   {"key": "stack_effect_pct", "value": 16, "scope": ["thuy", "buff"]},
-   {"key": "khi_huyet_pct", "value": 8, "scope": []}
+   {
+    "key": "attack_pct",
+    "value": 18,
+    "scope": [
+     "thuy"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 8,
+    "scope": [
+     "thuy"
+    ]
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 16,
+    "scope": [
+     "thuy",
+     "buff"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 8,
+    "scope": []
+   }
   ],
   "effects": [],
   "arts": [
@@ -179,40 +366,93 @@
     "tier": "authored",
     "power": "engine",
     "group": "still-moon-tide-scripture",
-    "tags": ["water", "artifact", "slow", "heavy"],
+    "tags": [
+     "water",
+     "artifact",
+     "slow",
+     "heavy"
+    ],
     "c_art": 2.8,
     "cost_share": 0.06,
     "cooldown": 6,
     "kind": "elem",
-    "counters": [{"id": "tide"}],
+    "counters": [
+     {
+      "id": "tide"
+     }
+    ],
     "effects": [
      {
       "id": "water-anchor-tide",
       "on": "art_fired",
-      "filter": {"element": "water"},
-      "limit": {"per_pulse": 2},
-      "do": [{"counter": {"id": "tide", "add": 1}}]
+      "filter": {
+       "element": "water"
+      },
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "tide",
+         "add": 1
+        }
+       }
+      ]
      }
     ],
     "empower": [
      {
       "if": [
-       {"read": "own.counter.tide", "op": ">=", "value": 3},
-       {"any": [
-        {"read": "own.state.deep-lake", "op": ">=", "value": 1},
-        {"read": "own.buff.water", "op": ">=", "value": 4}
-       ]}
+       {
+        "read": "own.counter.tide",
+        "op": ">=",
+        "value": 3
+       },
+       {
+        "any": [
+         {
+          "read": "own.state.deep-lake",
+          "op": ">=",
+          "value": 1
+         },
+         {
+          "read": "own.buff.water",
+          "op": ">=",
+          "value": 4
+         }
+        ]
+       }
       ],
-      "pay": [{"counter": {"id": "tide", "add": -3}}],
+      "pay": [
+       {
+        "counter": {
+         "id": "tide",
+         "add": -3
+        }
+       }
+      ],
       "c_mult": 2.5
      }
     ],
     "rule": "Counts as a Still Moon Tide Scripture art. A slow, heavy Water drop; every Water art you fire adds a Tide (twice a pulse at most). With 3 Tide, and either the Deep Lake or 4 Water stacks, the anchor falls 2.5 times as hard and spends the 3 Tide.",
-    "hooks": ["still moon tide scripture", "tide", "deep lake", "water stacks"],
-    "sources": ["item:water-drowned-anchor"]
+    "hooks": [
+     "still moon tide scripture",
+     "tide",
+     "deep lake",
+     "water stacks"
+    ],
+    "sources": [
+     "item:water-drowned-anchor"
+    ]
    }
   ],
-  "sources": ["event", "craft", "quest", "npc"],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
   "lore": "Dragged up from a drowned harbour, its chain still wet; the Still Moon lineage's arts answer to it.",
   "build_use": "The Crushing Tide: a fifth Tide source and a heavy finisher the Still Moon Tide Scripture counts, without learning another technique."
  },
@@ -224,13 +464,35 @@
   "base": "thuan",
   "grade": 3,
   "modifiers": [
-   {"key": "defense_pct", "value": 12, "scope": []},
-   {"key": "linh_luc_regen_inc_pct", "value": 14, "scope": []},
-   {"key": "linh_luc_pct", "value": 8, "scope": []},
-   {"key": "khi_huyet_pct", "value": 6, "scope": []},
-   {"key": "ward_efficiency_pct", "value": 3, "scope": []}
+   {
+    "key": "defense_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 14,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "ward_efficiency_pct",
+    "value": 3,
+    "scope": []
+   }
   ],
-  "effects": ["Steady Breath"],
+  "effects": [
+   "Steady Breath"
+  ],
   "wards": [
    {
     "id": "water-layered-cloud",
@@ -240,11 +502,16 @@
     "activation": "standing",
     "check_from": "Thousand-Layer Cloud (Thiên Tầng Vân)",
     "notes": "The starter ward at 1.5 times its shield and its reservation, so the price check is unchanged (3.031 of 3.050)"
-  }
- ],
- "sources": ["event", "craft", "quest", "npc"],
- "lore": "A round shield of water held in a frame of cold bronze; it is always brimming, never spilling.",
- "build_use": "The Overflowing Cup: a big standing shield for a pool that stays full, and Steady Breath pays for it."
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
+  "lore": "A round shield of water held in a frame of cold bronze; it is always brimming, never spilling.",
+  "build_use": "The Overflowing Cup: a big standing shield for a pool that stays full, and Steady Breath pays for it."
  },
  {
   "id": "water-returning-tide-ring",
@@ -254,11 +521,34 @@
   "base": "nhan",
   "grade": 3,
   "modifiers": [
-   {"key": "healing_pct", "value": 14, "scope": []},
-   {"key": "linh_luc_regen_inc_pct", "value": 14, "scope": []},
-   {"key": "health_regen_inc_pct", "value": 20, "scope": []},
-   {"key": "linh_luc_pct", "value": 8, "scope": []},
-   {"key": "stack_effect_pct", "value": 12, "scope": ["thuy", "buff"]}
+   {
+    "key": "healing_pct",
+    "value": 14,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 14,
+    "scope": []
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 12,
+    "scope": [
+     "thuy",
+     "buff"
+    ]
+   }
   ],
   "effects": [
    {
@@ -272,10 +562,14 @@
     "payload": "Linh lực restored",
     "closes": "",
     "hosts": "Item, Way, Tech",
-    "from": "single-water.md, The Deep Sea and The Overflowing Cup (heals feeding the pool)"
+    "from": "single-water.md, The Deep Sea and The Overflowing Cup (heals feeding the pool)",
+    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
    }
   ],
-  "sources": ["event", "npc"],
+  "sources": [
+   "event",
+   "npc"
+  ],
   "lore": "A ring of salt-white silver; what the sea takes from its wearer, it returns.",
   "build_use": "The Overflowing Cup and Tide builds: every heal refills the pool, so Water's healing arts pay for the next art."
  },
@@ -287,11 +581,34 @@
   "base": "kinh",
   "grade": 4,
   "modifiers": [
-   {"key": "linh_luc_regen_inc_pct", "value": 25, "scope": []},
-   {"key": "linh_luc_pct", "value": 15, "scope": []},
-   {"key": "stack_effect_pct", "value": 20, "scope": ["thuy", "buff"]},
-   {"key": "healing_pct", "value": 10, "scope": []},
-   {"key": "than_thuc_pct", "value": 4, "scope": []}
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 25,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 15,
+    "scope": []
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 20,
+    "scope": [
+     "thuy",
+     "buff"
+    ]
+   },
+   {
+    "key": "healing_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 4,
+    "scope": []
+   }
   ],
   "effects": [
    {
@@ -305,7 +622,8 @@
     "payload": "Water buff stacks for the fight",
     "closes": "Your arts cost 10 % more linh lực.",
     "hosts": "Named Item",
-    "from": "single-water.md, The Deep Sea (the pool is deep from t = 0)"
+    "from": "single-water.md, The Deep Sea (the pool is deep from t = 0)",
+    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
    }
   ],
   "reserve_arts": [
@@ -315,12 +633,20 @@
     "reserve": 0.15,
     "rule": "While reserved, the foe's blows strike a reflection: you gain 6 points of evade.",
     "grants": [
-     {"key": "evade_pct", "value": 6, "scope": []}
+     {
+      "key": "evade_pct",
+      "value": 6,
+      "scope": []
+     }
     ],
     "notes": "Priced by Formulas I reserve arts: 15 % reserved buys up to 15 W; this spends 9 W"
    }
   ],
-  "sources": ["npc", "event", "quest"],
+  "sources": [
+   "npc",
+   "event",
+   "quest"
+  ],
   "holder": "A Nascent Soul Water cultivator of an illusion-leaning sect, otherwise Lost at the bottom of a drowned-moon lake",
   "lore": "A bronze mirror that sank with the moon's reflection still in it; its wearer starts every fight already in deep water.",
   "build_use": "The Deep Sea and The Moon in the Well: the sea is deep from the first pulse, and the reflection turns blows aside."
@@ -333,14 +659,49 @@
   "base": "an",
   "grade": 4,
   "modifiers": [
-   {"key": "attack_pct", "value": 22, "scope": ["thuy"]},
-   {"key": "art_speed_pct", "value": 10, "scope": ["thuy"]},
-   {"key": "linh_luc_pct", "value": 12, "scope": []},
-   {"key": "stack_effect_pct", "value": 14, "scope": ["thuy", "buff"]},
-   {"key": "status_duration_pct", "value": 12, "scope": ["curse"]},
-   {"key": "khi_huyet_pct", "value": 6, "scope": []}
+   {
+    "key": "attack_pct",
+    "value": 22,
+    "scope": [
+     "thuy"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 10,
+    "scope": [
+     "thuy"
+    ]
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 14,
+    "scope": [
+     "thuy",
+     "buff"
+    ]
+   },
+   {
+    "key": "status_duration_pct",
+    "value": 12,
+    "scope": [
+     "curse"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 6,
+    "scope": []
+   }
   ],
-  "effects": ["Water Table"],
+  "effects": [
+   "Water Table"
+  ],
   "arts": [
    {
     "id": "water-abyss-seal-descends",
@@ -350,36 +711,84 @@
     "tier": "authored",
     "power": "engine",
     "group": "undertow-litany",
-    "tags": ["water", "seal", "curse", "artifact", "slow"],
+    "tags": [
+     "water",
+     "seal",
+     "curse",
+     "artifact",
+     "slow"
+    ],
     "c_art": 1.9,
     "cost_share": 0.05,
     "cooldown": 5,
     "kind": "elem",
-    "statuses": [{"id": "slowed_time", "stacks": 1, "dur": 4}],
+    "statuses": [
+     {
+      "id": "slowed_time",
+      "stacks": 1,
+      "dur": 4
+     }
+    ],
     "effects": [
      {
       "id": "water-abyss-delay",
       "on": "hit_landed",
-      "filter": {"art_id": "water-abyss-seal-descends"},
-      "do": [{"timer": {"side": "foe", "which": "longest", "by": 1.0}}]
+      "filter": {
+       "art_id": "water-abyss-seal-descends"
+      },
+      "do": [
+       {
+        "timer": {
+         "side": "foe",
+         "which": "longest",
+         "by": 1.0
+        }
+       }
+      ]
      }
     ],
     "steps": [
      {
       "unlock": [
-       {"read": "foe.status.slowed_time", "op": ">=", "value": 4},
-       {"read": "own.fired_within.1.group.undertow-litany", "op": ">=", "value": 2}
+       {
+        "read": "foe.status.slowed_time",
+        "op": ">=",
+        "value": 4
+       },
+       {
+        "read": "own.fired_within.1.group.undertow-litany",
+        "op": ">=",
+        "value": 2
+       }
       ],
-      "pay": [{"timer": {"side": "foe", "which": "all", "by": 1.5}}],
+      "pay": [
+       {
+        "timer": {
+         "side": "foe",
+         "which": "all",
+         "by": 1.5
+        }
+       }
+      ],
       "c_mult": 4.5
      }
     ],
     "rule": "Counts as an Undertow Litany art. A slow Water seal that adds a Slowed Time stack and delays the foe's slowest-ready art by 1 s. With 4 Slowed Time on the foe and two Undertow Litany arts fired in the last second, it drops four and a half times as hard and delays every art of the foe by 1.5 s.",
-    "hooks": ["undertow litany", "slowed time", "timer delay", "curse duration"],
-    "sources": ["item:water-nine-fathom-seal"]
+    "hooks": [
+     "undertow litany",
+     "slowed time",
+     "timer delay",
+     "curse duration"
+    ],
+    "sources": [
+     "item:water-nine-fathom-seal"
+    ]
    }
   ],
-  "sources": ["npc", "event"],
+  "sources": [
+   "npc",
+   "event"
+  ],
   "holder": "A Nascent Soul Water or Ice cultivator who keeps to a deep-sea sect; otherwise Lost in a flooded secret realm",
   "lore": "Carved from a stone that fell into the sea nine fathoms past where light reaches; it still sinks.",
   "build_use": "The Moon in the Well and slowing builds: the litany's keystone seal, and Water Table turns a foe's drain wards into the wearer's pool."

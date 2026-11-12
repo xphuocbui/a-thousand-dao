@@ -481,7 +481,8 @@
     "payload": "Fire debuff stacks on the enemy",
     "closes": "",
     "hosts": "Item, Way, Tech",
-    "from": "single-fire.md, The Phoenix Feather (its New piece, as an Effect instead of an art)"
+    "from": "single-fire.md, The Phoenix Feather (its New piece, as an Effect instead of an art)",
+    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
    }
   ],
   "wards": [
@@ -606,7 +607,8 @@
     "payload": "Burn batches on the target restart their timers",
     "closes": "Your direct Fire hits deal 15 % less.",
     "hosts": "Named Item",
-    "from": "new (The Bonfire's 'start small, burn forever')"
+    "from": "new (The Bonfire's 'start small, burn forever')",
+    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
    }
   ],
   "arts": [
@@ -752,7 +754,8 @@
     "payload": "Cleanse immunity for your Burn",
     "closes": "Your own wards cannot cleanse you.",
     "hosts": "Named Item",
-    "from": "new (answers the cleansing wards listed as The Bonfire's weakness)"
+    "from": "new (answers the cleansing wards listed as The Bonfire's weakness)",
+    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
    }
   ],
   "reserve_arts": [

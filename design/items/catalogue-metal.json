@@ -7,9 +7,28 @@
   "base": "tien_tieu",
   "grade": 1,
   "modifiers": [
-   {"key": "attack_pct", "value": 10, "scope": ["kim"]},
-   {"key": "art_speed_pct", "value": 6, "scope": ["kim"]},
-   {"key": "stack_duration_pct", "value": 10, "scope": ["kim", "debuff"]}
+   {
+    "key": "attack_pct",
+    "value": 10,
+    "scope": [
+     "kim"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 6,
+    "scope": [
+     "kim"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 10,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   }
   ],
   "effects": [],
   "arts": [
@@ -20,17 +39,31 @@
     "role": "damage",
     "tier": "authored",
     "power": "standalone",
-    "tags": ["metal", "artifact", "quick", "coin"],
+    "tags": [
+     "metal",
+     "artifact",
+     "quick",
+     "coin"
+    ],
     "c_art": 1.5,
     "cost_share": 0.025,
     "cooldown": 1.5,
     "kind": "phys",
-    "debuff": [1, 6],
+    "debuff": [
+     1,
+     6
+    ],
     "rule": "A flicked coin: a quick Physical hit that lays 1 Metal debuff stack for 6 s.",
-    "sources": ["item:metal-copper-sling-coin"]
+    "sources": [
+     "item:metal-copper-sling-coin"
+    ]
    }
   ],
-  "sources": ["event", "craft", "quest"],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
   "lore": "A holed copper cash, weighted with lead; street guards throw them at thieves.",
   "build_use": "The Thousand Cuts and Gold Rain: a cheap, quick Metal-debuff source before better arts arrive."
  },
@@ -42,12 +75,32 @@
   "base": "nhan",
   "grade": 1,
   "modifiers": [
-   {"key": "crit_chance_pct", "value": 4, "scope": ["physical"]},
-   {"key": "khi_huyet_pct", "value": 8, "scope": []},
-   {"key": "stack_effect_pct", "value": 12, "scope": ["kim", "buff"]}
+   {
+    "key": "crit_chance_pct",
+    "value": 4,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 12,
+    "scope": [
+     "kim",
+     "buff"
+    ]
+   }
   ],
   "effects": [],
-  "sources": ["event", "craft"],
+  "sources": [
+   "event",
+   "craft"
+  ],
   "lore": "A band quenched in oil and hammered thin by a journeyman smith; it never rusts.",
   "build_use": "Any Metal crit build's early ring: a little crit, a stronger Metal buff and some health."
  },
@@ -59,10 +112,28 @@
   "base": "chuong",
   "grade": 2,
   "modifiers": [
-   {"key": "defense_pct", "value": 10, "scope": []},
-   {"key": "khi_huyet_pct", "value": 12, "scope": []},
-   {"key": "resist_pct", "value": 100, "scope": ["physical"]},
-   {"key": "block_rating", "value": 12, "scope": []}
+   {
+    "key": "defense_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 100,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "block_rating",
+    "value": 12,
+    "scope": []
+   }
   ],
   "effects": [],
   "wards": [
@@ -76,7 +147,11 @@
     "notes": "The starter bell at 1.2 times its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)"
    }
   ],
-  "sources": ["event", "craft", "quest"],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
   "lore": "A temple bell recast for the road; every blow that lands on it rings out and fades.",
   "build_use": "Boss fighters and Diamond Body builds: a stronger Golden Bell for slow heavy hits, with block that stacks beside it."
  },
@@ -88,12 +163,39 @@
   "base": "phu",
   "grade": 2,
   "modifiers": [
-   {"key": "attack_pct", "value": 16, "scope": ["kim"]},
-   {"key": "crit_damage_pct", "value": 20, "scope": ["physical"]},
-   {"key": "art_speed_pct", "value": 6, "scope": ["slow"]},
-   {"key": "stack_effect_pct", "value": 12, "scope": ["kim", "debuff"]}
+   {
+    "key": "attack_pct",
+    "value": 16,
+    "scope": [
+     "kim"
+    ]
+   },
+   {
+    "key": "crit_damage_pct",
+    "value": 20,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 6,
+    "scope": [
+     "slow"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 12,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   }
   ],
-  "effects": ["Marked Prey"],
+  "effects": [
+   "Marked Prey"
+  ],
   "arts": [
    {
     "id": "metal-splitting-chop",
@@ -102,25 +204,61 @@
     "role": "damage",
     "tier": "authored",
     "power": "standalone",
-    "tags": ["metal", "artifact", "heavy", "axe"],
+    "tags": [
+     "metal",
+     "artifact",
+     "heavy",
+     "axe"
+    ],
     "c_art": 3.3,
     "cost_share": 0.055,
     "cooldown": 5,
     "kind": "phys",
-    "statuses": [{"id": "bleed", "stacks": 2, "dur": 6}],
+    "statuses": [
+     {
+      "id": "bleed",
+      "stacks": 2,
+      "dur": 6
+     }
+    ],
     "empower": [
      {
-      "if": [{"read": "foe.debuff.metal", "op": ">=", "value": 6}],
-      "pay": [{"consume": {"el": "metal", "side": "foe", "n": 6}}],
+      "if": [
+       {
+        "read": "foe.debuff.metal",
+        "op": ">=",
+        "value": 6
+       }
+      ],
+      "pay": [
+       {
+        "consume": {
+         "el": "metal",
+         "side": "foe",
+         "n": 6
+        }
+       }
+      ],
       "c_mult": 1.8
      }
     ],
     "rule": "A heavy Physical chop that lays 2 Bleed for 6 s. With 6 Metal stacks on the foe it splits them (breaking 6) and falls 1.8 times as hard.",
-    "hooks": ["metal debuff stacks", "bleed", "consume stacks", "slow arts"],
-    "sources": ["item:metal-woodsplitter-axe"]
+    "hooks": [
+     "metal debuff stacks",
+     "bleed",
+     "consume stacks",
+     "slow arts"
+    ],
+    "sources": [
+     "item:metal-woodsplitter-axe"
+    ]
    }
   ],
-  "sources": ["event", "craft", "npc"],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
   "lore": "A forester's axe with a Kim-ore head that never dulls on hardwood.",
   "build_use": "Thousand Cuts and Hammer and Anvil: a heavy swing that cashes in a stack pile; Marked Prey rewards Bleed plus Metal stacks on the foe."
  },
@@ -132,10 +270,26 @@
   "base": "ngoc_boi",
   "grade": 2,
   "modifiers": [
-   {"key": "linh_luc_pct", "value": 6, "scope": []},
-   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []},
-   {"key": "khi_huyet_pct", "value": 10, "scope": []},
-   {"key": "healing_pct", "value": 6, "scope": []}
+   {
+    "key": "linh_luc_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "healing_pct",
+    "value": 6,
+    "scope": []
+   }
   ],
   "effects": [],
   "reserve_arts": [
@@ -145,13 +299,30 @@
     "reserve": 0.15,
     "rule": "While reserved, your Metal debuff stacks are 20 % stronger and your Metal arts fire 10 % faster.",
     "grants": [
-     {"key": "stack_effect_pct", "value": 20, "scope": ["kim", "debuff"]},
-     {"key": "art_speed_pct", "value": 10, "scope": ["kim"]}
+     {
+      "key": "stack_effect_pct",
+      "value": 20,
+      "scope": [
+       "kim",
+       "debuff"
+      ]
+     },
+     {
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": [
+       "kim"
+      ]
+     }
     ],
     "notes": "Priced by Formulas I reserve arts: 15 % reserved buys up to 15 W (this grants 9 W)"
    }
   ],
-  "sources": ["event", "craft", "npc"],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
   "lore": "Green jade ground on a smith's wheel until it hums when struck.",
   "build_use": "The Thousand Cuts and any Metal stack build: a standing stack upgrade and faster arts paid in linh lực, not in an art slot."
  },
@@ -163,12 +334,50 @@
   "base": "phi_kiem",
   "grade": 3,
   "modifiers": [
-   {"key": "attack_pct", "value": 18, "scope": ["sword"]},
-   {"key": "art_speed_pct", "value": 10, "scope": ["sword"]},
-   {"key": "crit_chance_pct", "value": 5, "scope": ["physical"]},
-   {"key": "stack_duration_pct", "value": 20, "scope": ["kim", "debuff"]},
-   {"key": "crit_damage_pct", "value": 20, "scope": ["physical"]},
-   {"key": "stack_effect_pct", "value": 14, "scope": ["kim", "debuff"]}
+   {
+    "key": "attack_pct",
+    "value": 18,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 10,
+    "scope": [
+     "sword"
+    ]
+   },
+   {
+    "key": "crit_chance_pct",
+    "value": 5,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 20,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   },
+   {
+    "key": "crit_damage_pct",
+    "value": 20,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 14,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   }
   ],
   "effects": [],
   "arts": [
@@ -180,7 +389,12 @@
     "tier": "authored",
     "power": "engine",
     "group": "hundred-blades-canon",
-    "tags": ["metal", "sword", "artifact", "quick"],
+    "tags": [
+     "metal",
+     "sword",
+     "artifact",
+     "quick"
+    ],
     "c_art": 0.9,
     "cost_share": 0.03,
     "cooldown": 2,
@@ -189,30 +403,90 @@
      {
       "id": "hundred-edge-notch",
       "on": "hit_landed",
-      "limit": {"per_pulse": 1},
-      "do": [{"stacks": {"el": "metal", "n": 1, "for": 6, "side": "foe"}}]
+      "limit": {
+       "per_pulse": 1
+      },
+      "do": [
+       {
+        "stacks": {
+         "el": "metal",
+         "n": 1,
+         "for": 6,
+         "side": "foe"
+        }
+       }
+      ]
      }
     ],
     "empower": [
      {
       "if": [
-       {"read": "foe.debuff.metal", "op": ">=", "value": 6},
-       {"any": [
-        {"read": "own.fired_within.4.group.hundred-blades-canon", "op": ">=", "value": 2},
-        {"read": "own.counter.temper", "op": ">=", "value": 4}
-       ]}
+       {
+        "read": "foe.debuff.metal",
+        "op": ">=",
+        "value": 6
+       },
+       {
+        "any": [
+         {
+          "read": "own.fired_within.4.group.hundred-blades-canon",
+          "op": ">=",
+          "value": 2
+         },
+         {
+          "read": "own.counter.temper",
+          "op": ">=",
+          "value": 4
+         }
+        ]
+       }
       ],
-      "pay": [{"consume": {"el": "metal", "side": "foe", "n": 6, "per": 3, "then": [{"free_hit": {"c": 0.5, "dtype": "phys"}}]}}],
+      "pay": [
+       {
+        "consume": {
+         "el": "metal",
+         "side": "foe",
+         "n": 6,
+         "per": 3,
+         "then": [
+          {
+           "free_hit": {
+            "c": 0.5,
+            "dtype": "phys"
+           }
+          }
+         ]
+        }
+       }
+      ],
       "c_mult": 2.5
      }
     ],
-    "counters": [{"id": "temper", "each_for": 10}],
+    "counters": [
+     {
+      "id": "temper",
+      "each_for": 10
+     }
+    ],
     "rule": "Counts as a Hundred-Blades Canon art. A quick Physical sword hit that lays a Metal debuff stack for 6 s. With 6 Metal stacks on the foe and either another canon art fired in the last 4 s or 4 Temper, it breaks up to 6 stacks (each 3 broken a free 0.5 hit) and hits 2.5 times as hard.",
-    "hooks": ["hundred blades canon", "metal debuff stacks", "temper count", "consume stacks", "quick arts"],
-    "sources": ["item:metal-hundred-edge-flying-sword"]
+    "hooks": [
+     "hundred blades canon",
+     "metal debuff stacks",
+     "temper count",
+     "consume stacks",
+     "quick arts"
+    ],
+    "sources": [
+     "item:metal-hundred-edge-flying-sword"
+    ]
    }
   ],
-  "sources": ["event", "craft", "quest", "npc"],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
   "lore": "A sword whose blade is a hundred stacked leaf-thin edges; the Canon's disciples carve one for their best.",
   "build_use": "The Thousand Cuts: a fourth canon art that Retinue and Wedge count, and a cut that turns a stack pile into a burst."
  },
@@ -224,13 +498,37 @@
   "base": "giap",
   "grade": 3,
   "modifiers": [
-   {"key": "khi_huyet_pct", "value": 20, "scope": []},
-   {"key": "defense_pct", "value": 10, "scope": []},
-   {"key": "resist_pct", "value": 120, "scope": ["physical"]},
-   {"key": "block_rating", "value": 15, "scope": []},
-   {"key": "health_regen_inc_pct", "value": 20, "scope": []}
+   {
+    "key": "khi_huyet_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "defense_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 120,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "block_rating",
+    "value": 15,
+    "scope": []
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 20,
+    "scope": []
+   }
   ],
-  "effects": ["Iron Skin Renewed"],
+  "effects": [
+   "Iron Skin Renewed"
+  ],
   "wards": [
    {
     "id": "metal-tortoise-scale-shell",
@@ -242,7 +540,12 @@
     "notes": "The starter shell at 1.5 times its payload and its cast cost, so the price check is unchanged (4.711 of 4.766)"
    }
   ],
-  "sources": ["event", "craft", "quest", "npc"],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
   "lore": "Overlapping bronze plates beaten to the pattern of a tortoise's back.",
   "build_use": "Blood on the Whetstone: Iron Skin Renewed returns body shield on every Physical art, and the health and regeneration carry the bleeding."
  },
@@ -254,11 +557,39 @@
   "base": "nhan",
   "grade": 3,
   "modifiers": [
-   {"key": "crit_chance_pct", "value": 8, "scope": ["physical"]},
-   {"key": "crit_damage_pct", "value": 40, "scope": ["physical"]},
-   {"key": "attack_pct", "value": 14, "scope": ["physical"]},
-   {"key": "art_speed_pct", "value": 8, "scope": ["kim"]},
-   {"key": "khi_huyet_pct", "value": 10, "scope": []}
+   {
+    "key": "crit_chance_pct",
+    "value": 8,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "crit_damage_pct",
+    "value": 40,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "attack_pct",
+    "value": 14,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 8,
+    "scope": [
+     "kim"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 10,
+    "scope": []
+   }
   ],
   "effects": [
    {
@@ -272,10 +603,14 @@
     "payload": "linh_luc_on_crit_pct 0.8",
     "closes": "Your non-Physical hits cannot crit.",
     "hosts": "Item, Way",
-    "from": "single-metal.md (Metal's linh lực keystone, as an Effect on a ring)"
+    "from": "single-metal.md (Metal's linh lực keystone, as an Effect on a ring)",
+    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
    }
   ],
-  "sources": ["event", "npc"],
+  "sources": [
+   "event",
+   "npc"
+  ],
   "lore": "A ring that rings on every clean cut and breathes the strike back into its wearer.",
   "build_use": "The Thousand Cuts: a crit pile never runs the swords dry, and Called Blow makes it reliable."
  },
@@ -287,14 +622,52 @@
   "base": "tien_tieu",
   "grade": 4,
   "modifiers": [
-   {"key": "attack_pct", "value": 20, "scope": ["physical"]},
-   {"key": "art_speed_pct", "value": 12, "scope": ["kim"]},
-   {"key": "crit_chance_pct", "value": 6, "scope": ["physical"]},
-   {"key": "stack_effect_pct", "value": 20, "scope": ["kim", "debuff"]},
-   {"key": "stack_duration_pct", "value": 30, "scope": ["kim", "debuff"]},
-   {"key": "linh_luc_pct", "value": 10, "scope": []}
+   {
+    "key": "attack_pct",
+    "value": 20,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 12,
+    "scope": [
+     "kim"
+    ]
+   },
+   {
+    "key": "crit_chance_pct",
+    "value": 6,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 20,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 30,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 10,
+    "scope": []
+   }
   ],
-  "effects": ["Seal of Full Payment"],
+  "effects": [
+   "Seal of Full Payment"
+  ],
   "arts": [
    {
     "id": "metal-golden-coin-rain",
@@ -303,31 +676,82 @@
     "role": "damage",
     "tier": "authored",
     "power": "engine",
-    "tags": ["metal", "artifact", "quick", "coin"],
+    "tags": [
+     "metal",
+     "artifact",
+     "quick",
+     "coin"
+    ],
     "c_art": 1.2,
     "cost_share": 0.03,
     "cooldown": 2,
     "kind": "phys",
-    "debuff": [2, 6],
-    "counters": [{"id": "temper", "each_for": 10}],
+    "debuff": [
+     2,
+     6
+    ],
+    "counters": [
+     {
+      "id": "temper",
+      "each_for": 10
+     }
+    ],
     "empower": [
      {
       "if": [
-       {"any": [
-        {"read": "foe.debuff.metal", "op": ">=", "value": 8},
-        {"read": "own.counter.temper", "op": ">=", "value": 5}
-       ]}
+       {
+        "any": [
+         {
+          "read": "foe.debuff.metal",
+          "op": ">=",
+          "value": 8
+         },
+         {
+          "read": "own.counter.temper",
+          "op": ">=",
+          "value": 5
+         }
+        ]
+       }
       ],
-      "pay": [{"consume": {"el": "metal", "side": "foe", "n": 8, "per": 2, "then": [{"free_hit": {"c": 0.4, "dtype": "phys"}}]}}],
+      "pay": [
+       {
+        "consume": {
+         "el": "metal",
+         "side": "foe",
+         "n": 8,
+         "per": 2,
+         "then": [
+          {
+           "free_hit": {
+            "c": 0.4,
+            "dtype": "phys"
+           }
+          }
+         ]
+        }
+       }
+      ],
       "c_mult": 3.0
      }
     ],
     "rule": "A quick Physical coin that lays 2 Metal debuff stacks for 6 s. With 8 Metal stacks on the foe or 5 Temper, it breaks up to 8 stacks (each 2 broken a free 0.4 hit) and falls 3 times as hard.",
-    "hooks": ["metal debuff stacks", "temper count", "consume stacks", "spirit-stone payment"],
-    "sources": ["item:metal-heaven-minted-coin"]
+    "hooks": [
+     "metal debuff stacks",
+     "temper count",
+     "consume stacks",
+     "spirit-stone payment"
+    ],
+    "sources": [
+     "item:metal-heaven-minted-coin"
+    ]
    }
   ],
-  "sources": ["npc", "event", "quest"],
+  "sources": [
+   "npc",
+   "event",
+   "quest"
+  ],
   "holder": "A Gold-root merchant elder at Core Formation or above; otherwise Lost in a sunken treasury vault",
   "lore": "The first coin ever struck from heaven's own gold; whoever holds it never runs short.",
   "build_use": "Gold Rain: Seal of Full Payment pays arts and wards in carried stones, so linh lực stays full for the ward while the coins fly."
@@ -340,11 +764,31 @@
   "base": "lac_thiet",
   "grade": 4,
   "modifiers": [
-   {"key": "art_cost_health_pct", "value": 20, "scope": []},
-   {"key": "leech_health_pct", "value": 25, "scope": []},
-   {"key": "khi_huyet_pct", "value": 20, "scope": []},
-   {"key": "health_regen_inc_pct", "value": 30, "scope": []},
-   {"key": "block_rating", "value": 25, "scope": []}
+   {
+    "key": "art_cost_health_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "leech_health_pct",
+    "value": 25,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 30,
+    "scope": []
+   },
+   {
+    "key": "block_rating",
+    "value": 25,
+    "scope": []
+   }
   ],
   "effects": [
    "Blood Casting",
@@ -359,7 +803,8 @@
     "payload": "Health costs halved",
     "closes": "You can never heal above 80 % of your maximum health.",
     "hosts": "Named Item",
-    "from": "single-metal.md, Blood on the Whetstone (its New keystone, as an Effect)"
+    "from": "single-metal.md, Blood on the Whetstone (its New keystone, as an Effect)",
+    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
    }
   ],
   "reserve_arts": [
@@ -369,13 +814,29 @@
     "reserve": 0.08,
     "rule": "While reserved, your Metal arts crit more often and fire a little faster.",
     "grants": [
-     {"key": "crit_chance_pct", "value": 6, "scope": ["physical"]},
-     {"key": "art_speed_pct", "value": 4, "scope": ["kim"]}
+     {
+      "key": "crit_chance_pct",
+      "value": 6,
+      "scope": [
+       "physical"
+      ]
+     },
+     {
+      "key": "art_speed_pct",
+      "value": 4,
+      "scope": [
+       "kim"
+      ]
+     }
     ],
     "notes": "Priced by Formulas I reserve arts: 8 % reserved buys up to 8 W (this grants 6.4 W)"
    }
   ],
-  "sources": ["npc", "event", "quest"],
+  "sources": [
+   "npc",
+   "event",
+   "quest"
+  ],
   "holder": "A Nascent Soul blood-forger of a demonic-path sect; otherwise Lost under a battlefield's bone mound",
   "lore": "A stone that has sharpened ten thousand blades and drunk the blood of every smith who wielded them.",
   "build_use": "Blood on the Whetstone: Blood Casting lets arts run on health, the Vow halves that bill, and leech and regeneration carry the bleeding.",
