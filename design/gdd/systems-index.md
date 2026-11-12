@@ -2,7 +2,7 @@
 
 > **Status**: Approved (system list, dependencies and priority tiers approved by the user, 2026-11-03)
 > **Created**: 2026-11-03
-> **Last Updated**: 2026-11-10 (refresh: statuses compressed to the current state; progress tracker, design order and next steps updated; combat GDDs approved; seven progression GDDs revised after the 2026-11-10 reviews). Earlier: 2026-11-10 (combat review of #21, #21a, #21b and its fixes). Earlier: 2026-11-08 (#21a, #21b, #40 and #41 approved; the Combat revision #43 applied to combat.md with back-references in the older GDDs; next: a fresh /design-review of combat.md). Earlier: 2026-11-08 (#21a, #21b, #40 and #41 designed, pending review; next: four fresh-session design reviews, then the Combat revision #43. Earlier 2026-11-07: Modifier System added as #40, now in design and paused; Combat Defence & Healing #21a (in design) and Combat Damage Types #21b added as sub-systems of Combat; Effects System added as #41; Meridian Map redesign planned; build design order)
+> **Last Updated**: 2026-11-12 (library counts in the Progress Tracker; Game UI groundwork; Next Steps: item catalogue next). Earlier: 2026-11-10 (refresh: statuses compressed to the current state; progress tracker, design order and next steps updated; combat GDDs approved; seven progression GDDs revised after the 2026-11-10 reviews). Earlier: 2026-11-10 (combat review of #21, #21a, #21b and its fixes). Earlier: 2026-11-08 (#21a, #21b, #40 and #41 approved; the Combat revision #43 applied to combat.md with back-references in the older GDDs; next: a fresh /design-review of combat.md). Earlier: 2026-11-08 (#21a, #21b, #40 and #41 designed, pending review; next: four fresh-session design reviews, then the Combat revision #43. Earlier 2026-11-07: Modifier System added as #40, now in design and paused; Combat Defence & Healing #21a (in design) and Combat Damage Types #21b added as sub-systems of Combat; Effects System added as #41; Meridian Map redesign planned; build design order)
 > **Source Concept**: design/gdd/game-concept.md
 
 ---
@@ -91,7 +91,7 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 34 | Localization & Hán-Việt Glossary | Meta | Alpha | Not Started | — | LLM GM, Event Engine, Guidance, Game UI, Config |
 | 35 | Guidance Layer: Advisor, change line, tutorial role (inferred) | UI | Vertical Slice | Implemented | — | Realms, Spirit Herbs, Alchemy, Event Engine, Market, Travel, Sects, Edges, Meridian Map |
 | 36 | Debug Terminal (added by request) | UI | MVP | Implemented | docs/debug-terminal.md (run guide, not a GDD) | Guidance, Save/Load, LLM GM |
-| 37 | Game UI: Godot, 2D; art style open (candidates 2026-11-10: pixel/tile, painted parchment map, ink-wash; the art bible decides) | UI | Vertical Slice | Not Started | — | Guidance, Save/Load |
+| 37 | Game UI: Godot, 2D; art style open (candidates 2026-11-10: pixel/tile, painted parchment map, ink-wash; the art bible decides) | UI | Vertical Slice | Not Started in Godot. Groundwork: fight-screen UX spec (design/ux/fight-screen.md), replay viewer mock-up, 330 painted icons (assets/icons). Map style to pick | — | Guidance, Save/Load |
 | 38 | Audio | Audio | Full Vision | Not Started | — | Game UI, Event Engine |
 | 39 | The Way (Đạo) (added by request; holds the mutations moved out of the root) | Progression | Alpha (provisional) | In Review: graph Ways, 94-Way Catalogue (short Hán-Việt names with poetic titles), Sword pilot drawn; design-review 2026-11-10 answered and fixed; confirming re-review 2026-11-10 (NEEDS REVISION, small) answered and fixed the same day; next: a clean re-review for approval. Not built. History: the GDD header and its review log. | design/gdd/dao.md | Spiritual Roots; contract provisional (Spiritual Roots Open Question 9); Meridian Map (shared skill points); Combat (arts only, on hold: needs a full combat system); soft: Cultivation Techniques (techniques naming relocated mutations, its Open Question 11), Realms (any ceiling raise or root factor re-runs the breakthrough calibration) |
 | 40 | Modifier System (added by request 2026-11-07; the base every build piece draws from; plain numbers on a stat only, user decision 2026-11-07) | Gameplay | MVP | **Approved** (2026-11-08b; #44 parts 4–5 accepted 2026-11-10; re-review 2026-11-10 fixes applied). Not built. History: the GDD header and its review log. | design/gdd/modifiers.md | Combat (damage layers L1–L5 and their caps, channels, ward models), Character Stats; read by: Meridian Map, The Way (Đạo), Cultivation Techniques, Item DB, Artifact Refining, Formations, Talismans, Spirit Beasts |
@@ -330,6 +330,8 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
 | MVP systems designed | 14 / 28 (26 MVP plus #21a, #21b, #40, #41 counted; #43 added) |
 | Vertical Slice systems designed | 1 / 8 (31) |
+| Library content (2026-11-12) | 223 arts (design/arts), 31 công pháp (design/techniques), 94 Ways (1 drawn), 0 named items, keystones not written, 31 builds tested in the engine (design/builds/engine-v2) |
+| Combat engine | Python reference only (tools/design/combat_sim/engine.py); not in Godot |
 
 ---
 
@@ -439,15 +441,26 @@ lively. Not urgent: it can come after the world map and sects.
 Done: the systems enumeration (2026-11-03); the level ladder into Realms (2026-11-05); Heavenly Tribulation designed
 (2026-11-06); the full Combat design with #21a, #21b, #40, #41, revisions #43 and #44 (approved 2026-11-10); the Way
 designed and its catalogue started (2026-11-10); the Meridian Map redrawn by hand and its GDD rewritten (2026-11-10);
-design reviews of the progression GDDs with fixes (2026-11-10).
+design reviews of the progression GDDs with fixes (2026-11-10); the arts and công pháp catalogues, builds tested in the
+engine, fight length fixed (2026-11-11); the fight-screen UX spec, replay viewer and icons (2026-11-12).
 
+**Next, in the recommended order (2026-11-12):**
+
+- [ ] **Item catalogue** (next in the library order): named items and enablers by family, with a lint, like the
+      technique catalogue; start by proposing families and counts
+- [ ] The Meridian Map's real shape and its content pass (every element land's linh-lực keystone, proposals in
+      `design/builds/by-root/missing-pieces.md`); the side-tree tab for công pháp and items (`design/research/side-trees-thoughts.md`)
+- [ ] Pick the shipped icons (`tools/asset-pipeline/icons/review.py`, then `--apply`)
+- [ ] Pick the map style for the art bible; it unblocks Game UI (#37)
 - [x] Confirming re-reviews of 6, 7, 8, 9, 10, 13 and 39, and their fixes (2026-11-10)
 - [ ] A last clean re-review of those seven for approval
 - [ ] `/consistency-check`, then a split `/review-all-gdds` (progression, combat, economy and content, then a cross-part pass)
 - [ ] Library track (user's design order: modifiers, Đạo, công pháp, items, builds): the Đạo catalogue (93 of 94 Ways to draw;
-      the Sword Effects into effects.md), the công pháp catalogue (bonuses to W budgets), hand-authored items, then builds as tests
-- [ ] The Meridian Map's real shape and its content pass (every element land's linh-lực keystone); the side-tree tab for
-      công pháp and items (`design/research/side-trees-thoughts.md`)
+      the Sword Effects into effects.md); công pháp catalogue done (31, 2026-11-11); items (above); then builds as tests
+- [ ] Parked balance: top-end defence vs offence (a fully layered ward stops ~99 % for a tiny bill), the thể tu body
+      shield, the deity-warden and mirror-hide outliers
+- [ ] Build track: port the combat engine to Godot (#40, #41, #21, #21a, #21b) with golden tests from replay
+      recordings, then the fight screen (`design/ux/fight-screen.md`)
 - [ ] Design the open world map (Travel & Map #25, with World Generation #27; in design 2026-11-10), then Regional Economy & Trade (#43), then a real sect system (Sects & Missions #26,
       with sect tiers)
 - [ ] Later: design NPC Traits (#42, System Briefs), after the world map and sects
