@@ -281,8 +281,12 @@ def main():
             try:
                 imgs = gen(p, prompt, a.n, seed)
             except urllib.error.HTTPError as e:
-                print("FAIL\t%s\t%s/%s\tHTTP %d %s" % (p, k, iid, e.code, e.read()[:300].decode("utf-8", "replace")))
+                body = e.read()[:300].decode("utf-8", "replace")
+                print("FAIL\t%s\t%s/%s\tHTTP %d %s" % (p, k, iid, e.code, body))
                 fails += 1
+                if e.code in (401, 403) or "insufficient_quota" in body or "credit_balance" in body:
+                    print("STOPPED\t%s: account or billing problem; nothing more will succeed until it is fixed" % p)
+                    return 2
                 continue
             except Exception as e:  # network, timeout
                 print("FAIL\t%s\t%s/%s\t%s" % (p, k, iid, e))
