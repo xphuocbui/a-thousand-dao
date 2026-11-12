@@ -115,10 +115,9 @@ button, select { font: inherit; color: inherit; }
 .ic .gl { position: relative; font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--el, var(--ink)); }
 .ic .bdg { position: absolute; font-size: 9.5px; font-weight: 600; line-height: 1; padding: 2px 3px; border-radius: 3px; background: var(--ink); color: var(--paper); }
 .ic .bdg.stp { left: 2px; bottom: 2px; }
-/* painted icons (assets/icons, art bible §7): image, dimmed while charging, an ivory ring that fills round the edge */
+/* painted icons (assets/icons, art bible §7): image at full colour, an ivory ring that fills round the edge while charging */
 .ic.img { border: 0; background: #0b0d10; box-shadow: 0 1px 0 rgba(28,30,29,.35); }
-.ic.img > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; transition: filter .15s; }
-.ic.img.charging > img { filter: brightness(.55) saturate(.55); }
+.ic.img > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .ic.img .fill { display: none; }
 .ic .ring { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .ic .ring rect { fill: none; stroke: #f4f1e8; stroke-width: 3; stroke-linecap: round; }
