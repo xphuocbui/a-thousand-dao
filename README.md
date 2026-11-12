@@ -3,7 +3,7 @@
   <p align="center">
     Turn a single Claude Code session into a full game development studio.
     <br />
-    49 agents. 75 skills. One coordinated AI team.
+    49 agents. 74 skills. One coordinated AI team.
   </p>
 </p>
 
@@ -101,7 +101,7 @@ The template includes agent sets for all three major engines. Use the set that m
 
 ## Slash Commands
 
-Type `/` in Claude Code to access all 75 skills:
+Type `/` in Claude Code to access all 74 skills:
 
 **Onboarding & Navigation**
 `/start` `/help` `/project-stage-detect` `/setup-engine` `/adopt` `/settings`
@@ -290,7 +290,7 @@ studio-tests/                       # QA for the skills and agents themselves â€
 
 CCGS is a template you are meant to edit. `studio-tests/` is how
 you check that an edited or newly written skill still holds up â€” a catalog of all
-75 skills and 49 agents, per-category quality rubrics, behavioral specs, and
+74 skills and 49 agents, per-category quality rubrics, behavioral specs, and
 templates for writing specs of your own.
 
 ```

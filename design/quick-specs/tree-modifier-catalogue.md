@@ -210,7 +210,7 @@ Big power with a real cost outside the fight, so the choice carries into the res
 
 ## Forged by builds
 
-Added by the `design-build` skill. Who uses each piece is in `design/builds/content-ledger.md`. All are ○, and sizes are first guesses from the pilot builds.
+Added by the build sessions. Who uses each piece is in `design/builds/content-ledger.md`. All are ○, and sizes are first guesses from the pilot builds.
 
 ### Modifiers
 

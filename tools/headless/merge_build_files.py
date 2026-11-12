@@ -1,11 +1,11 @@
 """merge_build_files.py: folds one build session's own files into a run's shared files, and writes the index.
 
-Each headless /design-build session writes only its own files (cheap: it never reads the large shared ones):
+Each headless build session writes only its own files (cheap: it never reads the large shared ones):
     <run>/builds/<slug>.staging.md      new pieces, in the staging catalogue's sections and columns, plus a
                                         "## Reused" table (| ID | Found in |) of staged pieces it reuses
     <run>/builds/<slug>.ledger.md       its ledger rows, in the run ledger's sections and columns
     <run>/builds/<slug>.suggestions.md  its system suggestions, one "### <slug>: <title>" entry each
-This script, run by tools/headless/run_builds.py after each build (or by hand), merges them:
+This script, run by hand after each build, merges them:
     - a staging or ledger row whose ID is new is appended to its section; a row whose ID already exists only
       adds the slug to that row's "Used by" (rows are never rewritten)
     - a "Reused" ID adds the slug to that staged row's "Used by"

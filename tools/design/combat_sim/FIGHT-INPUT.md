@@ -1,6 +1,6 @@
 # Fight Input Format
 
-> The build-file format `tools/design/combat_sim/fight.py` reads (moved from the retired design-build skill's
+> The build-file format `tools/design/combat_sim/fight.py` reads (moved from a retired skill's
 > `references/content-formats.md`, 2026-11-11). Run `python tools/design/combat_sim/fight.py --numbers` for the anchors.
 
 

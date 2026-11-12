@@ -7,7 +7,6 @@ jobs.json: [{"id": "dao-review-01", "prompt": "...", "system": "...", "allowed":
              "expect": "path/that/must/exist/after"}]
 Each job's transcript goes to <log_dir>/<id>-try<n>.md and a line to <log_dir>/jobs.md. A job whose `expect` file is
 missing after it ends is logged as NO-OUTPUT and retried once. Usage-limit messages pause 15 minutes and retry.
-For /design-build runs use run_builds.py, which knows the build outputs.
 """
 import datetime
 import json
