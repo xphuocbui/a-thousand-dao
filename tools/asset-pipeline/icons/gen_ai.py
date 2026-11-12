@@ -242,13 +242,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--set", default="test")
     ap.add_argument("--provider", default="openai", choices=["recraft", "openai", "both"])
-    ap.add_argument("--quality", default="high", choices=["low", "medium", "high"])
+    ap.add_argument("--quality", default="medium", choices=["low", "medium", "high"])
+    ap.add_argument("--ids", help="only these icon ids (comma-separated), e.g. the rejects to redo at high")
+    ap.add_argument("--tag", default="", help="file suffix for a rerun, e.g. h (saves <id>_h0.png)")
     ap.add_argument("--n", type=int, default=2)
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     QUALITY[0] = a.quality
     PRICE["openai"] = OPENAI_PRICE[a.quality]
     its = items(a.set)
+    if a.ids:
+        want = set(a.ids.split(","))
+        its = [i for i in its if i[1] in want]
     provs = ["recraft", "openai"] if a.provider == "both" else [a.provider]
     est = sum(PRICE[p] for p in provs) * a.n * len(its)
     print("plan\t%d icons x %d candidates x %s = %d images, about $%.2f" % (len(its), a.n, "+".join(provs), len(its) * a.n * len(provs), est))
@@ -270,7 +275,7 @@ def main():
         for p in ready:
             d = os.path.join(OUTDIR, p, k)
             os.makedirs(d, exist_ok=True)
-            if all(os.path.exists(os.path.join(d, "%s_%d.png" % (iid, j))) for j in range(a.n)):
+            if all(os.path.exists(os.path.join(d, "%s_%s%d.png" % (iid, a.tag, j))) for j in range(a.n)):
                 continue
             seed = abs(hash((iid, p))) % 100000
             try:
@@ -284,14 +289,14 @@ def main():
                 fails += 1
                 continue
             for j, b in enumerate(imgs):
-                open(os.path.join(d, "%s_%d.png" % (iid, j)), "wb").write(b)
+                open(os.path.join(d, "%s_%s%d.png" % (iid, a.tag, j)), "wb").write(b)
             spent += PRICE[p] * len(imgs)
             log.write(json.dumps({"t": time.time(), "provider": p, "model": MODEL[p], "kind": k, "id": iid, "seed": seed,
-                                  "n": len(imgs), "prompt": prompt}) + "\n")
+                                  "n": len(imgs), "quality": QUALITY[0], "tag": a.tag, "prompt": prompt}) + "\n")
             log.flush()
             print("ok\t%s\t%s/%s\t%d images" % (p, k, iid, len(imgs)))
     print("spent\tabout $%.2f; %d failures" % (spent, fails))
-    sheet(its, ready, a.n)
+    print("next	python -I tools/asset-pipeline/icons/review.py   (builds the review page)")
     return 1 if fails else 0
 
 
