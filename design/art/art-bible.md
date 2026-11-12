@@ -60,8 +60,8 @@ Buff and debuff icons are very simple element glyphs: green for buffs, red for d
 ### 7.1 Dark tiles on ink-wash paper
 
 The UI is rice paper with printed numbers; icons are the one place the player sees *a thing* rather than a number, so
-they are dark, glowing objects set into the paper, like lacquered ink-stones inlaid in a page: a near-black square, a
-thin dark frame, a 1 px warm-ink contact shadow and no outer glow. The glow never leaves the tile. This keeps the
+they are glowing painted tiles set into the paper, like lacquered ink-stones inlaid in a page: a square filled with one
+element hue (7.2), a thin dark frame, a 1 px warm-ink contact shadow and no outer glow. The glow never leaves the tile. This keeps the
 anchor. *The world is brushed, the math is printed*: subjects are brush-weight silhouettes, while every number
 (cooldown, stack count, charges) is printed in-engine around the tile or on a flat badge, never baked into the art.
 *Glyphs, not paintings* is **revised for icons** (user decision 2026-11-12, after the first vector set was judged too
@@ -69,15 +69,22 @@ weak): art, technique, ward and status icons are **painted images made with an i
 the user, held to this section's grammar. Each icon keeps its prompt beside it so a set can be regenerated. The vector
 pipeline (`tools/asset-pipeline/icons/`) stays for frames, rings and badges, and as the placeholder set.
 
-### 7.2 Art icon grammar (bottom to top)
+### 7.2 Art icon grammar
 
-1. **Ground**: near-black #0B0D10–#14171C (never pure black, so a dimmed tile still reads as a tile), dark vignette.
-2. **Glow**: one radial gradient in the element hue (7.5), about 60 % of the tile, one hue per icon.
-3. **Subject**: one readable thing (a figure in action, palm, blade, bell, sigil, talisman) with a near-white core
-   (#F4F1E8) and a thin rim light in the element hue; it fills 62–72 % of the tile and never touches the frame.
-4. **Effect layer**: at most two motifs (sparks, motion arcs, wisps, rays), at most 7 sparks, subordinate to the subject.
-5. **Frame**: fixed dark frame (#1E2227, 1 px inner highlight at 25 %) with a 1–2 px light rim so the tile reads on
-   both the light and the dark theme. The same frame for every art.
+Revised 2026-11-12 (user, after testing the look on GPT Image 2): the painted icon is a **whole-tile colour field**,
+not a dark tile with a small glow.
+
+1. **Colour field**: the whole square is one element hue (7.5), rich and saturated, darker toward the corners; nearly
+   monochrome, one hue family from deep shadow to blazing white. No second colour.
+2. **Rendering**: semi-realistic painted concept art, soft atmospheric edges and motion blur: a cinematic still of the
+   spell going off, not flat and not visibly brush-textured.
+3. **Subject**: one readable thing caught mid-moment (a projectile streaking, a strike landing, a seal flaring, a bell
+   tolling). Solid forms are dark or mid-tone silhouettes cut against intense glowing energy, which is the brightest
+   thing in the image. Hands and people only where the art is about them (a palm strike, a stance), never as decoration.
+4. **Composition**: dynamic, often diagonal, cropped tight so the effect fills the tile and runs off its edges; strong
+   bloom, sparks, smoke or motion streaks. Readable at 48 px.
+5. **Frame**: none in the painting. The fixed dark frame (#1E2227, 1 px inner highlight at 25 %) with a 1–2 px light
+   rim is added in-engine, so it is the same for every art and reads on both the light and the dark theme.
 
 - **Element** is read from hue (glow and rim) and the family motif: fire rising sparks, water ripple arcs, earth
   falling shards, metal flat glints, wood curling tendrils, ice angular crystals, thunder forked bolts, wind long
@@ -87,7 +94,7 @@ pipeline (`tools/asset-pipeline/icons/`) stays for frames, rings and badges, and
   subject's shape. **The silhouette is the identifier**: one build may carry five arts of one element.
 - **Role** is a small mark top-left: none for damage; three ticks stacks, hook curse, plus-sprout heal, arc ward,
   flame-dot soul, diamond utility, chain control, double-dot summon.
-- **Common arts** use a muted tier (glow peak 35 %, no white core spark), so signature arts read brighter.
+- **Common arts** use a muted tier (a less saturated colour field and a smaller bright core), so signature arts read brighter.
 
 ### 7.3 Ward icon grammar
 
@@ -119,7 +126,7 @@ angle, its cover emblem drawn from the technique's suite (the payoff art's subje
 the same dark tile. Tier shows in the binding: Yellow plain cloth, Profound dark lacquer, Earth jade, Heaven gold. Body
 techniques show a figure in a stance instead of a book.
 
-### 7.5 Icon hue table (glow and rim, on near-black)
+### 7.5 Icon hue table (the colour field of each icon)
 
 | Element | Fire (Hỏa) | Water (Thủy) | Wood (Mộc) | Metal (Kim) | Earth (Thổ) | Ice (Băng) | Thunder (Lôi) | Wind (Phong) |
 |---|---|---|---|---|---|---|---|---|
