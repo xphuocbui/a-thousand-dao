@@ -15,6 +15,7 @@
 | **Tortoise-Edge Armour (Quy Nhận Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Tortoise-Edge Shell; Effect: Iron Skin Renewed | 37.6 of 38.3 |
 | **Thousand-Cut Returning Sword (Thiên Trảm Hồi Kiếm)** | Phi Kiếm · weapon slot | Cực (Peak) (5, unique) | art: Thousand-Cut Return; Effect: Marked Prey | 48.1 of 51.1 |
 | **Ring of Unbroken Edges (Bất Đoạn Nhận Giới)** | Nhẫn · ring slot | Cực (Peak) (5, unique) | Effect: Lingering Afterimage (new); reserve: Unbroken Edge Aura | 48.5 of 51.1 |
+| **Mirror-Trace Flying Sword (Kính Ngấn Phi Kiếm)** | Phi Kiếm · weapon slot | Trung (Middle) (3) | art: Mirror-Trace Cut | 21.7 of 25.6 |
 
 ## Thread-Edge Flying Sword (Ti Nhận Phi Kiếm)
 
@@ -154,4 +155,17 @@
 **Modifiers:** +8 % crit chance [sword] · 5.3 W; +1.2 % linh lực on crit · 7.6 W; +18 % damage [sword] · 12.0 W; +14 % art speed [sword] · 5.6 W; +50 % crit damage [sword] · 10.0 W; +8 % maximum linh lực · 8.0 W
 
 **Placed at world start:** A Nascent Soul sword cultivator who has not lost a duel in a century; otherwise Lost in the ruins of a sword sect
+
+
+## Mirror-Trace Flying Sword (Kính Ngấn Phi Kiếm)
+
+*Phi Kiếm (Flying Sword), weapon slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> Its flat is polished so true that every cut that lands leaves a second blade hanging in the air.
+
+**Build use.** The Afterimage Sword Canon and The Sword Hall: a crit banks 3 Afterimages, which Sword Rain and the Thousand-Cut Return spend.
+
+**Art: Mirror-Trace Cut (Kính Ngấn Trảm)** (damage, standalone, c 1.70, cost 0.032, cooldown 3 s). A quick Metal cut that polishes the air into a mirror. A critical hit leaves 3 Afterimages.
+
+**Modifiers:** +10 % damage [sword] · 6.7 W; +7 % crit chance [sword] · 4.7 W; +10 % art speed [sword] · 4.0 W; +20 % crit damage [sword] · 4.0 W; +4 % maximum health (khí huyết) · 2.4 W
 

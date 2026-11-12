@@ -62,6 +62,8 @@ CONST = {
     "crit_mult_cap": ("combat.md", "| crit_mult_base, crit_mult_cap | float | 1.5, 3.0 |", 3.0),
     "cooldown_min": ("combat.md", "| cooldown_min | float | 0.5 s |", 0.5),
     "slots_by_realm": ("combat.md", "| slots_by_realm | int | 3 / 4 / 5 / 6 / 7 |", [3, 4, 5, 6, 7]),
+    "ward_slots_by_realm": ("combat-defence.md", "| ward_slots_by_realm | int | 1 / 1 / 2 / 3 / 4 |", [1, 1, 2, 3, 4]),
+    "ward_slot_sense_step": ("combat-defence.md", "| ward_slot_sense_step | float | 1.75 (1.5–2.0) |", 1.75),
     "art_lint": ("combat.md", "| art_coef_per_cost, art_coef_per_cooldown | float | 24 (", (24, 0.25)),
     "cost_share": ("combat.md", "| cost_share | float | 0.02–0.125 (halved, #44 item B1) |", (0.02, 0.125)),
     "cooldown_range": ("combat.md", "| cooldown | float | 0.5–12 s", (0.5, 12)),
@@ -162,7 +164,7 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct",
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
             "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques", "items", "reserved",
-            "stack_eff", "stack_dur"}
+            "stack_eff", "stack_dur", "wards"}
 WARD_KEYS = {"model", "payload", "drain_base", "ws_base", "we", "layers", "block"}
 BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
@@ -249,6 +251,8 @@ def _library():
                 items[it["id"]] = it
                 for a in it.get("arts", []):
                     arts.setdefault(a["id"], a)
+        bpath = os.path.join(ROOT, "design", "items", "bases.json")
+        _LIB["bases"] = {b["id"]: b for b in json.load(open(bpath, encoding="utf-8"))} if os.path.exists(bpath) else {}
         _LIB["arts"], _LIB["techs"], _LIB["items"] = arts, techs, items
     return _LIB["arts"], _LIB["techs"]
 
@@ -374,8 +378,9 @@ def expand_library(d):
         e = passive_effect(it, unmod, lines=it.get("modifiers", []), what="item", prefix="item")
         if e:
             effects.append(e)
-        for w in it.get("wards", []):
-            unmod.append("item %s ward %s (%s; %s): model the nearest drain ward in \"ward\"" % (iid, w["name"], w["payload"], w["payment"]))
+        armour = "body_gear" in (_LIB.get("bases", {}).get(it.get("base"), {}).get("roles") or [])[:1]
+        for w in it.get("wards", []):   # a worn armour brings a ward slot for its own ward (Combat D&H rule 5, 2026-11-13)
+            d.setdefault("wards", []).append(dict(w, source="item %s" % iid, own_slot=armour))
         for r in it.get("reserve_arts", []):
             d["reserved"] = d.get("reserved", 0.0) + r["reserve"]
             apply_static(d, r.get("grants", []), "item %s reserve %s" % (iid, r["id"]), unmod)
@@ -424,6 +429,104 @@ def ward_fields(w, r, notes, who):
                 drain=drain_base / C["drain_44"] / (ws_mult * (1 + we / 100)))
 
 
+DTYPE_WORD = {"physical": "phys", "force": "force", "fire": "fire", "cold": "cold", "lightning": "lightning",
+              "chaos": "chaos", "all": "all"}
+
+
+def parse_ward(w):
+    """A ward record in the GDD's words (Combat Defence & Healing Formulas H; item wards) to engine fields, unscaled.
+    Returns (fields, [what is not run]). payload: "Fire 240 points", "all 100 points", "shield σ 0.135", "block 60";
+    payment: "drain 0.176", "per hit 0.035", "reserved 0.49", "cast 0.036"; activation: "standing" or
+    "cast, cooldown 4 s, up 3 s"."""
+    import re as _re
+    out, skip = {"id": w.get("id") or w.get("name", "ward"), "payload": {}}, []
+    for part in _re.split(r"[;,]|\s\+\s| and ", str(w.get("payload", ""))):
+        part = part.strip()
+        if not part:
+            continue
+        m = _re.match(r"(?i)^(all|physical|force|fire|cold|lightning|chaos)\s+([\d.,]+)\s*points", part)
+        if m:
+            k = DTYPE_WORD[m.group(1).lower()]
+            out["payload"][k] = out["payload"].get(k, 0.0) + float(m.group(2).replace(",", ""))
+            continue
+        m = _re.match(r"(?i)^shield\s*(?:σ|sigma)?\s*([\d.]+)", part)
+        if m:
+            out["shield"] = float(m.group(1))
+            continue
+        m = _re.match(r"(?i)^block\s+([\d.]+)", part)
+        if m:
+            out["block"] = float(m.group(1))
+            continue
+        skip.append("payload %r" % part)
+    m = _re.match(r"(?i)^\s*(drain|per hit|reserved|cast)\s+([\d.]+)", str(w.get("payment", "")))
+    if not m:
+        return None, ["payment %r" % w.get("payment")]
+    model = m.group(1).lower().replace(" ", "_")
+    out["model"] = model
+    val = float(m.group(2))
+    if model == "drain":
+        out["drain_base"] = val
+    elif model == "reserved":
+        out["reserve"] = val
+    else:
+        out["cost"] = val
+    act = str(w.get("activation", "standing"))
+    if model == "cast" or "cast" in act.lower():
+        cd = _re.search(r"cooldown\s+([\d.]+)", act)
+        up = _re.search(r"up\s+([\d.]+)", act)
+        out["model"] = "cast"
+        out["cooldown"] = float(cd.group(1)) if cd else 5.0
+        out["up"] = float(up.group(1)) if up else 3.0
+    if not out["payload"] and not out.get("shield") and not out.get("block"):
+        return None, skip or ["no payload the engine runs"]
+    return out, skip
+
+
+def extra_wards(d, r, notes, who, ws_mult, we):
+    """The build's extra wards (its own "wards" and its items'), scaled by its ward strength and efficiency, in the
+    free ward slots, then the free art slots [Combat Defence & Healing rule 5, Formulas D]."""
+    unmod = d.setdefault("unmodelled", [])
+    main = 0 if d.get("ward", {}).get("model") == "off" else 1
+    ds = d.get("divine_sense", 1.0)
+    free_ward = C["ward_slots_by_realm"][r] + min(2, int(ds // C["ward_slot_sense_step"])) - main
+    free_art = C["slots_by_realm"][r] + d.get("bonus_slots", 0) - len(d.get("arts", []))
+    out, reserved = [], 0.0
+    for w in d.get("wards", []):
+        name = w.get("name", w.get("id", "ward"))
+        src = w.get("source", "build")
+        f, skip = parse_ward(w)
+        for x in skip:
+            unmod.append("%s ward %s: %s is not run" % (src, name, x))
+        if f is None:
+            continue
+        if w.get("own_slot"):
+            where = "its armour's own slot"
+        elif free_ward > 0:
+            free_ward -= 1
+            where = "a ward slot"
+        elif free_art > 0:
+            free_art -= 1
+            where = "an art slot"
+        else:
+            unmod.append("%s ward %s: no free ward or art slot, not slotted" % (src, name))
+            continue
+        eff = 1 + we / 100
+        f["payload"] = {k: v * ws_mult for k, v in f["payload"].items()}
+        if f.get("block"):
+            f["block"] *= ws_mult
+        if f.get("shield"):
+            f["shield"] *= ws_mult
+        if "cost" in f:
+            f["cost"] /= eff
+        if f["model"] == "drain":
+            f["drain"] = f.pop("drain_base") / C["drain_44"] / (ws_mult * eff)
+        if f["model"] == "reserved":
+            reserved += f.pop("reserve") / eff
+        notes.append("ward\t%s\t%s (%s, %s) in %s" % (who, name, src, f["model"], where))
+        out.append(f)
+    return out, reserved
+
+
 def to_build(d, r, notes, who):
     """A build-file object to sim.Build. Raises BadInput on anything it does not know."""
     check_keys(d, TOP_KEYS, who)
@@ -460,6 +563,10 @@ def to_build(d, r, notes, who):
     check_keys(ward, WARD_KEYS, who + ".ward")
     kw.update(ward_fields(ward, r, notes, who))
     kw["block"] = ward.get("block", C["typical_block"][r])
+    _ws = ward.get("ws_base", C["typical_ws"][r])
+    _xw, _xres = extra_wards(d, r, notes, who,
+                             max(0.1, 1 + _ws / 100) * defence_layers(ward.get("layers", [40, 40, 20, 10]), [], who) / C["w_ref"],
+                             ward.get("we", _ws))
     body = d.get("body", {})
     check_keys(body, BODY_KEYS, who + ".body")
     if body:
@@ -555,9 +662,11 @@ def to_build(d, r, notes, who):
         if key in d:
             setattr(eb, field, d[key])
     eb.resist = dict(d.get("resist", {}))
-    eb.reserved = min(0.9, d.get("reserved", 0.0))
-    if d.get("reserved", 0.0) > 0.9:
-        notes.append("cap_hit\t%s\treserved %.2f over reserve_cap 0.90" % (who, d["reserved"]))
+    eb.wards = _xw
+    total_res = d.get("reserved", 0.0) + _xres
+    eb.reserved = min(0.9, total_res)
+    if total_res > 0.9:
+        notes.append("cap_hit\t%s\treserved %.2f over reserve_cap 0.90" % (who, total_res))
     eb.stack_eff = dict(d.get("stack_eff", {}))
     eb.stack_dur = dict(d.get("stack_dur", {}))
     eb.tags = tuple(d.get("tags", ()))

@@ -15,6 +15,9 @@
 | **Echoing Ring (Hồi Âm Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Echo | 31.0 of 38.3 |
 | **Thousand-String Zither (Thiên Huyền Cầm)** | Cầm · weapon slot | Cực (Peak) (5, unique) | art: Thousand-String Dirge; Effect: Plucked Time (new) | 41.8 of 51.1 |
 | **Ninth Vigil Heart-Lamp (Cửu Canh Tâm Đăng)** | Đăng · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Lamp-Lit Reading (new); reserve: Vigil Light | 45.8 of 51.1 |
+| **Toll-Counting Needle (Điểm Chung Châm)** | Châm · weapon slot | Trung (Middle) (3) | art: Tolled Prick | 22.0 of 25.6 |
+| **Seal-Bearer's Ring (Chấp Ấn Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | modifiers only | 20.9 of 25.6 |
+| **Clear-Mind Robe (Thanh Minh Bào)** | Đạo Bào · armour slot | Trung (Middle) (3) | ward: Clear-Mind Ward | 22.0 of 25.6 |
 
 ## Rain-Listening Zither (Thính Vũ Cầm)
 
@@ -152,4 +155,41 @@
 **Modifiers:** +10 soul attack damage · 8.0 W; +30 % soul resistance · 18.0 W; +6 % thần thức · 7.8 W; +10 % linh lực regeneration, increased · 8.0 W; +10 % status duration · 4.0 W
 
 **Placed at world start:** The abbot of a Soul sect's mountain temple; otherwise Lost in a collapsed meditation cave
+
+
+## Toll-Counting Needle (Điểm Chung Châm)
+
+*Châm (Needle), weapon slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A bone needle the bell-ringers of a hill temple used to count the strokes of the night watch.
+
+**Build use.** Any soul build that keeps a Toll rhythm: a cheap soul weapon that turns every three Tolls into a heavier strike, with no Chord counter to feed.
+
+**Art: Tolled Prick (Chung Điểm Thích)** (soul, standalone, c 0.00, cost 0.040, cooldown 3 s). A thin soul prick that adds a Toll on each soul hit (once a pulse). At 3 Tolls the needle rings the bell itself: a heavier extra soul strike that spends the 3 Tolls. It needs no Chord, only the Toll rhythm you already keep.
+
+**Modifiers:** +8 soul attack damage · 6.4 W; +10 % art speed [soul] · 4.8 W; +2 % thần thức · 2.6 W; +4 % linh lực regeneration, increased · 3.2 W; +5 % maximum linh lực · 5.0 W
+
+
+## Seal-Bearer's Ring (Chấp Ấn Giới)
+
+*Nhẫn (Ring), ring slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A jade ring cut with a tiny seal-face; the clerks of a soul sect wore it to prove their stamp was true.
+
+**Build use.** Seal builds and soul builds paid in thần thức: seal arts hit harder and come faster, and the divine sense rises.
+
+**Modifiers:** +5 % thần thức · 6.5 W; +12 % damage [seal] · 8.0 W; +10 % art speed [seal] · 4.0 W; +6 % status duration · 2.4 W
+
+
+## Clear-Mind Robe (Thanh Minh Bào)
+
+*Đạo Bào (Robe), armour slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A plain grey robe the soul-song cloisters give novices whose minds were seized by a curse; it is said to wash a sealed mind clean.
+
+**Build use.** Builds that fear curses and Stagnation: the ward cleanses debuffs every pulse and the robe resists soul and status.
+
+**Ward: Clear-Mind Ward (Thanh Minh Chú)**: status +45 pp, cleanse 0.3 of every debuff batch per pulse; reserved 0.30; reserved. Price check from Clear Heart Ward (Thanh Tâm Chú). The starter ward at 1.2 times its payload, cleanse and reservation, so the price check is inherited (3.043 of 3.050)
+
+**Modifiers:** +15 % soul resistance · 9.0 W; +20 % status resistance · 8.0 W; +2 % thần thức · 2.6 W; +4 % maximum health (khí huyết) · 2.4 W
 

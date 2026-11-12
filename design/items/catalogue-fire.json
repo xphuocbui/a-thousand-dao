@@ -775,5 +775,172 @@
   "holder": "A Nascent Soul Fire cultivator, or the final reward of a Legendary quest in a Fire sect's ruins",
   "lore": "Its wick is a sliver of a sun-crow's bone. It has not gone out in four thousand years.",
   "build_use": "Burn builds against cleansing foes (Clear Heart Ward, cleansing curses): the Burn stays, and one batch burns all fight."
+ },
+ {
+  "id": "fire-cinder-steel-mail",
+  "name": "Cindersteel Mail (Tẫn Thiết Giáp)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "defense_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 14,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 120,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 4,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "cinder-veil",
+    "name": "Cinder Veil (Tẫn Hỏa Sa)",
+    "payload": "Fire 360 points",
+    "payment": "drain 0.264",
+    "activation": "standing",
+    "check_from": "Fire-Shunning Veil (Tị Hỏa Sa)",
+    "notes": "The starter veil at 1.2 times its payload and its drain, so the price check is unchanged (4.545 of 4.575)"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
+  "lore": "Plates of slag-darkened steel, quenched in a furnace that was never allowed to cool.",
+  "build_use": "A Fire build's armour that runs a standing drain ward the engine can use, against Fire foes and Fire sects.",
+  "notes": "Answers: sect-ladder: a Fire armour with a standing drain ward at grade 3"
+ },
+ {
+  "id": "fire-hearth-ember-ring",
+  "name": "Ring of the Fed Hearth (Dưỡng Lô Giới)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 14,
+    "scope": [
+     "over_time"
+    ]
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 20,
+    "scope": [
+     "hoa",
+     "debuff"
+    ]
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 5,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "embers-feed-the-hearth",
+    "name": "Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "Each Burn tick you deal returns linh lực equal to 0.4 % of your maximum, at most 2 ticks a pulse.",
+    "reads": "Your Burn ticks landing, live",
+    "payload": "Linh lực restored to you",
+    "closes": "",
+    "hosts": "Item, Way, Tech",
+    "from": "starter-flame and two-clocks (Embers Feed the Hearth, as an item Effect)",
+    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A ring of red copper with a hollow bezel where a tiny hearth is kept lit. Each ember that falls from the foe feeds it.",
+  "build_use": "Burn builds that want their ticks to pay back: no health spent, the Burn itself refills the pool.",
+  "notes": "Answers: sect-ladder: a grade 2-3 Fire ring that does not pay in health; starter-flame and two-clocks: Embers Feed the Hearth as an item Effect"
+ },
+ {
+  "id": "fire-long-ember-censer",
+  "name": "Long-Ember Censer (Trường Tàn Hương Lô)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "huong_lo",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "stack_grant",
+    "value": 1,
+    "scope": [
+     "hoa",
+     "buff"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 30,
+    "scope": [
+     "hoa",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 20,
+    "scope": [
+     "hoa",
+     "buff"
+    ]
+   },
+   {
+    "key": "attack_pct",
+    "value": 8,
+    "scope": [
+     "over_time"
+    ]
+   }
+  ],
+  "effects": [],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A bronze censer whose incense is a slow coal. The smoke it gives off clings to whatever it touches.",
+  "build_use": "A cheap extra (10 thần thức) for Burn builds: Burn lasts longer and each Fire buff cast lays an extra stack.",
+  "notes": "Answers: beast-carry: a Fire-stack utility item for the extra slots; sect-ladder: an extra-slot treasure under 20 thần thức that lets Burn last longer; two-clocks: a second cheap extra"
  }
 ]

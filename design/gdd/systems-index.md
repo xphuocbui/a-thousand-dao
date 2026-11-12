@@ -330,7 +330,7 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
 | MVP systems designed | 14 / 28 (26 MVP plus #21a, #21b, #40, #41 counted; #43 added) |
 | Vertical Slice systems designed | 1 / 8 (31) |
-| Library content (2026-11-12) | 223 arts (design/arts), 31 công pháp (design/techniques), 94 Ways (1 drawn), 130 named items in 13 families (design/items, 2026-11-12, accepted for now; 27 new Effects not yet in effects.md), keystones not written, 31 builds tested in the engine (design/builds/engine-v2) |
+| Library content (2026-11-12) | 223 arts (design/arts), 31 công pháp (design/techniques), 94 Ways (1 drawn), 168 named items in 13 families (design/items, 2026-11-12, patched 2026-11-13, accepted for now; 35 new Effects not yet in effects.md), keystones not written, 31 builds tested in the engine (design/builds/engine-v2) |
 | Combat engine | Python reference only (tools/design/combat_sim/engine.py); not in Godot |
 
 ---
@@ -447,7 +447,7 @@ engine, fight length fixed (2026-11-11); the fight-screen UX spec, replay viewer
 **Next, in the recommended order (2026-11-12):**
 
 - [x] **Item catalogue** (2026-11-12): Item Database rules 11 (base and extra slots), 20 (named items), 21 (what items
-      give) and Formulas I; 22 bases; 130 named items in 13 families (`design/items/`), linted clean. Left: promote the 27
+      give) and Formulas I; 22 bases; 130 named items in 13 families (`design/items/`), linted clean. Left: promote the 35
       new Effects into `effects.md`, the Fan the Pyre sim check, and the data entry
 - [ ] The Meridian Map's real shape and its content pass (every element land's linh-lực keystone, proposals in
       `design/builds/by-root/missing-pieces.md`); the side-tree tab for công pháp and items (`design/research/side-trees-thoughts.md`)

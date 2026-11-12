@@ -40,8 +40,9 @@
 
 ## Known
 
-- The fitted typical enemies above Qi Refining run short: the typical mirror is 25.6 s at Trúc Cơ and 20.0 s at Kết
-  Đan, under the 30–60 s band (enemy fitting, Combat Formulas B; not an art issue).
+- ~~The fitted typical enemies above Qi Refining run short (typical mirror 25.6 s at Trúc Cơ, 20.0 s at Kết Đan).~~
+  **Outdated (2026-11-13):** on the current engine the typical mirror is 38.0 s at Trúc Cơ and 44.5 s at Kết Đan
+  (`design/builds/engine-v3/ROUND-SUMMARY.md`, correction).
 - Suites still win every fight against a typical build with nothing else built (20–0), at a faster but not trivial
   pace. That is the intended edge of a signature suite; whether it is too much is the user's call.
 - Not modelled by the engine yet: escape, ward payment models other than drain, companion targets, boss phases.

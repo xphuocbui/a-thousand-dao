@@ -692,5 +692,133 @@
   "holder": "The keeper of the Shadow Shrine, or Lost in a sunken tomb on the Darkness island",
   "lore": "Inside it is a name signed in ink that is not ink. Its wearer has already paid; only the collecting is left.",
   "build_use": "The Shadow Bargain: Final Clause makes the Down step a last free Chaos art, the crit damage and the leech pay for the fight before it, and Darkness damage rides the rest."
+ },
+ {
+  "id": "force-chaos-null-plate",
+  "name": "Null Plate (Hư Giáp)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 3,
+  "modifiers": [
+   {"key": "defense_pct", "value": 12, "scope": []},
+   {"key": "khi_huyet_pct", "value": 20, "scope": []},
+   {"key": "status_resist_pct", "value": 25, "scope": []},
+   {"key": "resist_pct", "value": 100, "scope": ["force"]}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "force-chaos-null-plate-ward",
+    "name": "Null Ward (Hư Tráo)",
+    "payload": "all 445.25 points",
+    "payment": "drain 0.426",
+    "activation": "standing",
+    "check_from": "Common Ward (Hộ Thể Chân Khí)",
+    "notes": "The Common Ward at 1.3 of its payload and its drain, so the price check is unchanged (3.049 of 3.050)"
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "Plate hammered from metal that rang wrong, so that it hums back at whatever strikes it and takes the sting out.",
+  "build_use": "Builds that want heavier armour than the Hollow Robe: a standing drain ward that beats the Common Ward, with Force resistance and status resistance.",
+  "notes": "Answers: art-thief: a heavier armour whose ward beats a Common Ward at ws 62.5"
+ },
+ {
+  "id": "force-chaos-drain-signet",
+  "name": "Draining Signet (Hấp Khí Giới)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 2,
+  "modifiers": [
+   {"key": "attack_pct", "value": 12, "scope": ["force"]},
+   {"key": "stack_effect_pct", "value": 14, "scope": ["debuff"]},
+   {"key": "status_duration_pct", "value": 8, "scope": []},
+   {"key": "linh_luc_pct", "value": 6, "scope": []}
+  ],
+  "effects": ["Spillover"],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A ring of pale bone-grey metal; held near a lamp, the flame leans toward it.",
+  "build_use": "Qi-burn and Disruption builds: Force damage, stronger Disruption stacks, and every tick also burns the foe's linh lực.",
+  "notes": "Answers: art-thief: a Force-scoped ring with attack_pct; burial-shroud: a ring that raises Qi Disruption strength or the foe's linh lực drain"
+ },
+ {
+  "id": "force-chaos-ash-to-void-pendant",
+  "name": "Ash-to-Void Pendant (Hôi Hư Bội)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 3,
+  "modifiers": [
+   {"key": "convert_pct", "value": 40, "scope": ["fire"]},
+   {"key": "resist_pen_pct", "value": 60, "scope": ["chaos"]},
+   {"key": "attack_pct", "value": 12, "scope": ["chaos"]}
+  ],
+  "effects": [],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A jade flecked with soot; whatever burns near it leaves ash that is not ash but absence.",
+  "build_use": "Fire-to-Chaos converters: a share of Fire damage turns to Chaos, and the Chaos that results cuts through resistance.",
+  "notes": "Answers: triple-convert: a Fire-to-Chaos conversion piece (+30 to +50 % convert); triple-convert: Chaos penetration on a necklace"
+ },
+ {
+  "id": "force-chaos-foreclosure-seal",
+  "name": "Seal of Foreclosure (Tịch Biên Ấn)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "an",
+  "grade": 4,
+  "modifiers": [
+   {"key": "attack_pct", "value": 20, "scope": ["chaos"]},
+   {"key": "art_cost_health_pct", "value": 60, "scope": []},
+   {"key": "stack_effect_pct", "value": 25, "scope": ["debuff"]}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "force-chaos-foreclose",
+    "name": "Foreclose (Tịch Biên)",
+    "element": "",
+    "role": "curse",
+    "tier": "authored",
+    "power": "engine",
+    "group": "ruin-ledger-scripture",
+    "tags": ["chaos", "seal", "curse", "artifact"],
+    "c_art": 0.6,
+    "cost_share": 0.05,
+    "cooldown": 6,
+    "kind": "elem",
+    "statuses": [{"id": "sundered", "stacks": 1, "dur": 4}],
+    "counters": [{"id": "fray", "each_for": 12}],
+    "effects": [
+     {
+      "id": "foreclose-fray",
+      "on": "status_applied",
+      "do": [{"counter": {"id": "fray", "add": 1}}]
+     }
+    ],
+    "empower": [
+     {
+      "if": [{"read": "own.counter.fray", "op": ">=", "value": 4}],
+      "pay": [{"counter": {"id": "fray", "add": -4}}],
+      "c_mult": 4.0
+     },
+     {
+      "if": [
+       {"read": "own.counter.fray", "op": "<", "value": 4},
+       {"read": "foe.distinct_statuses", "op": ">=", "value": 4}
+      ],
+      "c_mult": 2.0
+     }
+    ],
+    "rule": "Counts as a Ruin Ledger Scripture art. A slow Chaos seal that lays 1 Sundered. Every status or stack batch you land adds a Fray for 12 s. With 4 Fray it spends them and forecloses: 2.4 times as hard; a foe wearing 4 different statuses takes 1.2 times.",
+    "hooks": ["ruin ledger scripture", "fray count", "distinct statuses", "Sundered stacks", "Chaos damage", "health pay"],
+    "sources": ["item:force-chaos-foreclosure-seal"]
+   }
+  ],
+  "sources": ["npc", "event", "quest"],
+  "holder": "The ledger-master of a Chaos-root sect; otherwise Lost in the ruins at the centre of the map",
+  "lore": "The seal that closes a book for good. What it stamps is owed in blood.",
+  "build_use": "Ruin Ledger curse stackers: a grade 4 scripture weapon that lays Sundered, cashes Fray sooner than the Balance-Sheet Seal, and shifts its art costs to health.",
+  "notes": "Answers: burial-shroud: a grade 4 Ruin Ledger weapon; unique-chaos-last-bargain-locket: a grade 4 weapon of the family with health pay"
  }
 ]

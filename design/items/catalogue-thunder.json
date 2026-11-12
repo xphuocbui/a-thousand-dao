@@ -818,5 +818,76 @@
   "holder": "The head of a Thunder sect, kept in its rain-calling hall; otherwise Lost in a drowned thunder temple",
   "lore": "A drum whose skin is said to be a cloud, and whose beat the sky repeats.",
   "build_use": "The Thunder Drum: the count of four is the build's rhythm, art speed shortens the beat, and every drum crit builds the Thunder buff."
+ },
+ {
+  "id": "thunder-winnings-band",
+  "name": "Winnings Band (Lôi Thắng Giới)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 3,
+  "modifiers": [
+   {"key": "linh_luc_on_crit_pct", "value": 1.5, "scope": []},
+   {"key": "crit_chance_pct", "value": 10, "scope": ["lightning"]},
+   {"key": "crit_damage_pct", "value": 50, "scope": ["lightning"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["lightning"]},
+   {"key": "attack_pct", "value": 6, "scope": ["lightning"]}
+  ],
+  "effects": [],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A ring of braided gold and storm-iron, won in a dice game under a thunderhead; every bolt that lands pays the wearer back.",
+  "build_use": "The Crit Storm and the gambler builds: a grade 3 Lightning ring where each crit refunds linh lực, so fast crit arts feed their own pool.",
+  "notes": "Answers: first-volley: a Thunder ring of grade 2-3 with crit or art-speed modifiers; loaded-dice: a ring that refunds linh lực on crit at grade 3 (Winnings) and a second Thunder ring above grade 1; unique-ninth-tribulation-seal: a grade 3 Lightning ring. Plain spend about 34.1 W of 38.3."
+ },
+ {
+  "id": "thunder-stormveil-robe",
+  "name": "Stormveil Robe (Lôi Mạc Bào)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 2,
+  "modifiers": [
+   {"key": "resist_pct", "value": 150, "scope": ["lightning"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["lightning"]},
+   {"key": "crit_chance_pct", "value": 6, "scope": ["lightning"]},
+   {"key": "than_thuc_pct", "value": 5, "scope": []},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "stormveil-drain",
+    "name": "Stormveil Drain (Lôi Mạc Hộ)",
+    "payload": "all 445.25 points",
+    "payment": "drain 0.4264",
+    "activation": "standing",
+    "check_from": "Common Ward (Hộ Thể Chân Khí)",
+    "notes": "The Common Ward at 1.3 times its payload and its drain, so the price check is unchanged (3.049 of 3.050)"
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A grey robe threaded with rain-silk; its qi hangs about the wearer like a thundercloud and is spent slowly.",
+  "build_use": "The Crit Storm: a standing drain ward the engine can run, with lightning resistance and crit and speed on the side.",
+  "notes": "Answers: first-volley: a Thunder ward armour with a drain ward. Plain spend about 24.5 W of 25.6."
+ },
+ {
+  "id": "thunder-lightning-step-charm",
+  "name": "Lightning Step Charm (Lôi Bộ Bội)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 2,
+  "modifiers": [
+   {"key": "art_speed_pct", "value": 15, "scope": ["escape"]},
+   {"key": "art_speed_pct", "value": 8, "scope": ["lightning"]},
+   {"key": "crit_chance_pct", "value": 6, "scope": ["lightning"]},
+   {"key": "evade_pct", "value": 4, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []}
+  ],
+  "effects": ["Cold Feet"],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A jade sliver that flickers like a bolt between clouds; the wearer is gone before the thunder arrives.",
+  "build_use": "The Crit Storm: an escape piece for Lightning Step, whose first firing comes at once and whose escape cools faster.",
+  "notes": "Answers: first-volley: a Thunder escape or step item for Lightning Step. Plain spend about 24.1 W of 25.6."
  }
 ]

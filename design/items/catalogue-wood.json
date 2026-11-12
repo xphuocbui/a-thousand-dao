@@ -745,5 +745,224 @@
   "holder": "The keeper of a Green Wood Array grove in a Wood sect; otherwise Lost in a forest spirit's hollow",
   "lore": "A banner whose cloth is a mat of living roots; it was planted in the ground of a sect that no longer stands.",
   "build_use": "The Strangler Fig: every thorn hit delays the foe's next art while Poison works, and the banner's art speed and Physical damage speed the thorns."
+ },
+ {
+  "id": "wood-venom-drinker-pendant",
+  "name": "Venom-Drinker's Pendant (Ẩm Độc Bội)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "stack_duration_pct",
+    "value": 40,
+    "scope": [
+     "moc",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 36,
+    "scope": [
+     "moc",
+     "debuff"
+    ]
+   },
+   {
+    "key": "leech_linh_luc_pct",
+    "value": 6,
+    "scope": [
+     "over_time"
+    ]
+   },
+   {
+    "key": "leech_health_pct",
+    "value": 30,
+    "scope": [
+     "over_time"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 12,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A pendant of black amber with a bead of venom sealed inside; it warms each time the foe's poison bites.",
+  "build_use": "A Poison build's necklace: longer, stronger batches, and every tick feeds back health and linh lực. A grade 3 piece at 10 thần thức, so Cycle Seal and Bulwark are not forced to fill the limit.",
+  "notes": "Answers: two-clocks: Wood necklace with Poison duration and effect. Answers: starter-venom: a necklace that turns Poison ticks into health and linh lực, and a grade 3 piece of at most 15 thần thức. Leech is scoped to over-time hits (ticks)."
+ },
+ {
+  "id": "wood-moss-ledger-robe",
+  "name": "Moss-Ledger Robe (Đài Tịch Bào)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "stack_duration_pct",
+    "value": 30,
+    "scope": [
+     "moc",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 20,
+    "scope": [
+     "moc",
+     "debuff"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 4,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "moss-ledger",
+    "name": "Moss Ledger (Đài Sổ)",
+    "group": "Rule change",
+    "tier": "minor",
+    "rule": "Poison stacks you lay cannot be cleansed for their first 4 s.",
+    "reads": "Your Wood debuff stacks, at the moment they are laid",
+    "payload": "A 4 s cleanse-immunity window on each Poison batch you lay",
+    "closes": "",
+    "hosts": "Item, Way",
+    "from": "starter-venom.md, the Moss-Ledger (its Missing piece)",
+    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+   }
+  ],
+  "wards": [
+   {
+    "id": "wood-moss-ledger-ward",
+    "name": "Moss-Ledger Ward (Đài Tịch Chướng)",
+    "payload": "all 274 points",
+    "payment": "drain 0.2624",
+    "activation": "standing",
+    "check_from": "Common Ward (Hộ Thể Chân Khí)",
+    "notes": "The Common Ward at 0.8 times its payload and its drain, so the price check is unchanged (3.049 of 3.050)"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
+  "lore": "A light robe of grey cloth under a coat of moss that remembers every wound laid on a foe.",
+  "build_use": "The Wood poisoner's light armour: Poison that a cleanse cannot strip for its first seconds, longer and stronger batches, and a standing ward the engine can run.",
+  "notes": "Answers: starter-venom: light armour for the Wood poisoner with a cleanse-immunity window. Ward factor 0.8 of the Common Ward."
+ },
+ {
+  "id": "wood-packmate-collar",
+  "name": "Packmate Collar (Bạn Thú Khuyên)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 22,
+    "scope": [
+     "companion"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 12,
+    "scope": [
+     "companion"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 8,
+    "scope": []
+   }
+  ],
+  "effects": [
+   "Pack Hunt"
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A ring of braided vine that a beast wears as a collar, its keeper as a band.",
+  "build_use": "The beast carry: the companion hits harder and faster, and harder still on a target bearing any of your statuses.",
+  "notes": "Answers: beast-carry: companion damage, companion speed and a companion hit filter (Pack Hunt)."
+ },
+ {
+  "id": "wood-thorn-seeding-ring",
+  "name": "Thorn-Seeding Ring (Chủng Cức Giới)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "stack_grant",
+    "value": 1,
+    "scope": [
+     "moc",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 20,
+    "scope": [
+     "moc",
+     "debuff"
+    ]
+   },
+   {
+    "key": "attack_pct",
+    "value": 18,
+    "scope": [
+     "over_time"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 10,
+    "scope": [
+     "moc"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 10,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A ring set with thorns turned inward; each cast leaves one more of them in the foe.",
+  "build_use": "The poisoner's ring: every Wood art lays one more Poison stack, not a longer one.",
+  "notes": "Answers: starter-venom: a Wood ring that adds Poison stacks laid per art, not duration only."
  }
 ]

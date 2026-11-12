@@ -15,6 +15,10 @@
 | **Ring of the Returning Tide (Hồi Triều Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Backflow (new) | 35.2 of 38.3 |
 | **Mirror of the Drowned Moon (Nịch Nguyệt Kính)** | Kính · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Sea Already Deep (new); reserve: Reflection | 50.2 of 51.1 |
 | **Nine-Fathom Abyss Seal (Cửu Tầm Uyên Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Abyss Seal Descends; Effect: Water Table | 41.4 of 51.1 |
+| **Undertow Mail (Ám Lưu Giáp)** | Giáp · armour slot | Trung (Middle) (3) | ward: Undertow Ward | 23.0 of 25.6 |
+| **Owed Water Pendant (Thiếu Thủy Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | Effect: Owed Water (new) | 20.6 of 25.6 |
+| **Slack Tide Ring (Hoãn Triều Giới)** | Nhẫn · ring slot | Hạ (Low) (2) | modifiers only | 11.6 of 12.8 |
+| **Underground Spring Censer (Địa Tuyền Hương Lô)** | Hương Lô · extra slot (utility) | Trung (Middle) (3) | Effect: Brimming Cup (new); reserve: Underground Spring | 22.0 of 25.6 |
 
 ## Dew Needle (Lộ Châm)
 
@@ -154,4 +158,56 @@
 **Modifiers:** +22 % damage [thuy] · 14.7 W; +10 % art speed [thuy] · 4.0 W; +12 % maximum linh lực · 12.0 W; +14 % stack effect [thuy, buff] · 3.5 W; +12 % status duration [curse] · 3.6 W; +6 % maximum health (khí huyết) · 3.6 W
 
 **Placed at world start:** A Nascent Soul Water or Ice cultivator who keeps to a deep-sea sect; otherwise Lost in a flooded secret realm
+
+
+## Undertow Mail (Ám Lưu Giáp)
+
+*Giáp (Armour), armour slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> Scale-plate of dark blue lacquer; the water inside it moves against every blow.
+
+**Build use.** A standing drain ward the engine can run, paid from the Water pool: a Water body armour for builds that wear a ward all fight.
+
+**Ward: Undertow Ward (Ám Lưu Tráo)**: all 205.5 points; drain 0.1968; standing. Price check from Common Ward (Hộ Thể Chân Khí). The Common Ward at 0.6 times its payload and its drain, so the price check is unchanged (3.049 of 3.050)
+
+**Modifiers:** +10 % ward strength · 10.0 W; +10 % maximum health (khí huyết) · 6.0 W; +4 % maximum linh lực · 4.0 W; +3 % ward efficiency · 3.0 W
+
+
+## Owed Water Pendant (Thiếu Thủy Bội)
+
+*Ngọc Bội (Necklace (jade pendant)), necklace slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A pendant the sea lends against and always collects back; it repays whoever runs dry.
+
+**Build use.** Builds that run dry before the foe: a pool refill that is not a reserve art.
+
+**Effect (new): Owed Water (Thiếu Thủy)** (Trigger, minor). When your linh lực falls to 20 % of maximum or below, you regain 15 % of your maximum linh lực over the next 5 s. Once every 20 s. *Payload:* Linh lực restored over time.
+
+**Modifiers:** +8 % maximum linh lực · 8.0 W; +12 % linh lực regeneration, increased · 9.6 W; +6 % healing · 3.0 W
+
+
+## Slack Tide Ring (Hoãn Triều Giới)
+
+*Nhẫn (Ring), ring slot · grade Hạ (Low), rarity 2, repeatable · from events and secret realms, crafting, quest and sect rewards*
+
+> A plain tin ring that leaves the wearer's fingers a little cold; curses hung with it cling.
+
+**Build use.** Slowing and thrifty Water builds: a cheap ring that keeps Slowed Time on the foe and trims Water art costs.
+
+**Modifiers:** +12 % status duration [curse] · 3.6 W; -8 % art cost [thuy] · 3.2 W; +6 % linh lực regeneration, increased · 4.8 W
+
+
+## Underground Spring Censer (Địa Tuyền Hương Lô)
+
+*Hương Lô (Censer), extra slot (utility) · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> Incense that smells of wet stone; the smoke runs down, not up, to where a spring is.
+
+**Build use.** The Overflowing Cup: a full pool spills into Water stacks, and the spring keeps it full.
+
+**Effect (new): Brimming Cup (Mãn Bôi)** (Conversion and overflow, minor). Linh lực lost to a full pool fills your Cup: you gain 1 Water buff stack for 8 s for every 5 % of maximum linh lực lost, at most 2 stacks a pulse. *Payload:* Water buff stacks.
+
+**Reserve art: Underground Spring (Địa Tuyền)** (reserves 10 % of maximum linh lực). While reserved, a spring feeds your pool: your linh lực regenerates 8 % faster and your Water buff stacks last 10 % longer.
+
+**Modifiers:** +8 % maximum linh lực · 8.0 W; +10 % linh lực regeneration, increased · 8.0 W; +12 % stack effect [thuy, buff] · 3.0 W; +6 % healing · 3.0 W
 

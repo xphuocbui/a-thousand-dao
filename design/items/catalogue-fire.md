@@ -15,6 +15,9 @@
 | **Ring of Blood Kindling (Huyết Dẫn Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Blood Casting | 29.9 of 38.3 |
 | **Ashen Phoenix Fan (Tro Phượng Phiến)** | Phiến · weapon slot | Cực (Peak) (5, unique) | art: Ash-Feather Gale; Effect: Fan the Pyre (new) | 47.7 of 51.1 |
 | **Undying Ember Lantern (Bất Diệt Tàn Đăng)** | Đăng · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Embers Never Die (new); reserve: Lantern of the Long Burn | 45.8 of 51.1 |
+| **Cindersteel Mail (Tẫn Thiết Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Cinder Veil | 32.8 of 38.3 |
+| **Ring of the Fed Hearth (Dưỡng Lô Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | Effect: Embers Feed the Hearth (new) | 24.7 of 25.6 |
+| **Long-Ember Censer (Trường Tàn Hương Lô)** | Hương Lô · extra slot (utility) | Trung (Middle) (3) | modifiers only | 21.3 of 25.6 |
 
 ## Ember Fan (Tàn Hỏa Phiến)
 
@@ -154,4 +157,41 @@
 **Modifiers:** +20 % damage [over_time] · 13.3 W; +30 % stack effect [hoa, debuff] · 7.5 W; +10 % thần thức · 13.0 W; +15 % linh lực regeneration, increased · 12.0 W
 
 **Placed at world start:** A Nascent Soul Fire cultivator, or the final reward of a Legendary quest in a Fire sect's ruins
+
+
+## Cindersteel Mail (Tẫn Thiết Giáp)
+
+*Giáp (Armour), armour slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, quest and sect rewards, NPC holders*
+
+> Plates of slag-darkened steel, quenched in a furnace that was never allowed to cool.
+
+**Build use.** A Fire build's armour that runs a standing drain ward the engine can use, against Fire foes and Fire sects.
+
+**Ward: Cinder Veil (Tẫn Hỏa Sa)**: Fire 360 points; drain 0.264; standing. Price check from Fire-Shunning Veil (Tị Hỏa Sa). The starter veil at 1.2 times its payload and its drain, so the price check is unchanged (4.545 of 4.575)
+
+**Modifiers:** +10 % ward strength · 10.0 W; +14 % maximum health (khí huyết) · 8.4 W; +120 points resistance, all [fire] · 3.2 W; +20 % health regeneration, increased · 6.0 W; +4 % thần thức · 5.2 W
+
+
+## Ring of the Fed Hearth (Dưỡng Lô Giới)
+
+*Nhẫn (Ring), ring slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A ring of red copper with a hollow bezel where a tiny hearth is kept lit. Each ember that falls from the foe feeds it.
+
+**Build use.** Burn builds that want their ticks to pay back: no health spent, the Burn itself refills the pool.
+
+**Effect (new): Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô)** (Trigger, minor). Each Burn tick you deal returns linh lực equal to 0.4 % of your maximum, at most 2 ticks a pulse. *Payload:* Linh lực restored to you.
+
+**Modifiers:** +14 % damage [over_time] · 9.3 W; +8 % linh lực regeneration, increased · 6.4 W; +20 % stack duration [hoa, debuff] · 4.0 W; +5 % maximum linh lực · 5.0 W
+
+
+## Long-Ember Censer (Trường Tàn Hương Lô)
+
+*Hương Lô (Censer), extra slot (utility) · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A bronze censer whose incense is a slow coal. The smoke it gives off clings to whatever it touches.
+
+**Build use.** A cheap extra (10 thần thức) for Burn builds: Burn lasts longer and each Fire buff cast lays an extra stack.
+
+**Modifiers:** +1 stacks per grant [hoa, buff] · 5.0 W; +30 % stack duration [hoa, debuff] · 6.0 W; +20 % stack effect [hoa, buff] · 5.0 W; +8 % damage [over_time] · 5.3 W
 

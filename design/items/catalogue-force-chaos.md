@@ -15,6 +15,10 @@
 | **Ring of the Open Vein (Khai Mạch Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Blood Drinker | 34.8 of 38.3 |
 | **Mirror of Primordial Chaos (Hỗn Nguyên Kính)** | Kính · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Unmaking Glass (new); reserve: Still Reflection | 41.5 of 51.1 |
 | **Locket of the Last Bargain (Tuyệt Khế Bội)** | Ngọc Bội · necklace slot | Cực (Peak) (5, unique) | Effect: Final Clause | 47.1 of 51.1 |
+| **Null Plate (Hư Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Null Ward | 37.2 of 38.3 |
+| **Draining Signet (Hấp Khí Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | Effect: Spillover | 23.5 of 25.6 |
+| **Ash-to-Void Pendant (Hôi Hư Bội)** | Ngọc Bội · necklace slot | Thượng (High) (4) | modifiers only | 33.3 of 38.3 |
+| **Seal of Foreclosure (Tịch Biên Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Foreclose | 42.7 of 51.1 |
 
 ## Shock-Wave Zither (Chấn Ba Cầm)
 
@@ -148,4 +152,56 @@
 **Modifiers:** +26 % damage [am] · 13.0 W; +40 % crit damage · 12.0 W; +18 % maximum health (khí huyết) · 10.8 W; +30 % health leech · 6.3 W; +10 % healing · 5.0 W
 
 **Placed at world start:** The keeper of the Shadow Shrine, or Lost in a sunken tomb on the Darkness island
+
+
+## Null Plate (Hư Giáp)
+
+*Giáp (Armour), armour slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, quest and sect rewards*
+
+> Plate hammered from metal that rang wrong, so that it hums back at whatever strikes it and takes the sting out.
+
+**Build use.** Builds that want heavier armour than the Hollow Robe: a standing drain ward that beats the Common Ward, with Force resistance and status resistance.
+
+**Ward: Null Ward (Hư Tráo)**: all 445.25 points; drain 0.426; standing. Price check from Common Ward (Hộ Thể Chân Khí). The Common Ward at 1.3 of its payload and its drain, so the price check is unchanged (3.049 of 3.050)
+
+**Modifiers:** +12 % ward strength · 12.0 W; +20 % maximum health (khí huyết) · 12.0 W; +25 % status resistance · 10.0 W; +100 points resistance, all [force] · 3.2 W
+
+
+## Draining Signet (Hấp Khí Giới)
+
+*Nhẫn (Ring), ring slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A ring of pale bone-grey metal; held near a lamp, the flame leans toward it.
+
+**Build use.** Qi-burn and Disruption builds: Force damage, stronger Disruption stacks, and every tick also burns the foe's linh lực.
+
+**Effect: Spillover** (effects.md). Your ticks also burn the target's linh lực, 25 % of the damage each deals after resistance.
+
+**Modifiers:** +12 % damage [force] · 9.6 W; +14 % stack effect [debuff] · 4.7 W; +8 % status duration · 3.2 W; +6 % maximum linh lực · 6.0 W
+
+
+## Ash-to-Void Pendant (Hôi Hư Bội)
+
+*Ngọc Bội (Necklace (jade pendant)), necklace slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A jade flecked with soot; whatever burns near it leaves ash that is not ash but absence.
+
+**Build use.** Fire-to-Chaos converters: a share of Fire damage turns to Chaos, and the Chaos that results cuts through resistance.
+
+**Modifiers:** +40 % damage conversion [fire] · 21.3 W; +60 % resistance penetration [chaos] · 4.0 W; +12 % damage [chaos] · 8.0 W
+
+
+## Seal of Foreclosure (Tịch Biên Ấn)
+
+*Ấn (Seal), weapon slot · grade Cực (Peak), rarity 5, **unique** · from NPC holders, events and secret realms, quest and sect rewards*
+
+> The seal that closes a book for good. What it stamps is owed in blood.
+
+**Build use.** Ruin Ledger curse stackers: a grade 4 scripture weapon that lays Sundered, cashes Fray sooner than the Balance-Sheet Seal, and shifts its art costs to health.
+
+**Art: Foreclose (Tịch Biên)** (curse, engine, c 0.60, cost 0.050, cooldown 6 s). Counts as a Ruin Ledger Scripture art. A slow Chaos seal that lays 1 Sundered. Every status or stack batch you land adds a Fray for 12 s. With 4 Fray it spends them and forecloses: 2.4 times as hard; a foe wearing 4 different statuses takes 1.2 times.
+
+**Modifiers:** +20 % damage [chaos] · 13.3 W; +60 % art costs shifted to health · 21.0 W; +25 % stack effect [debuff] · 8.3 W
+
+**Placed at world start:** The ledger-master of a Chaos-root sect; otherwise Lost in the ruins at the centre of the map
 

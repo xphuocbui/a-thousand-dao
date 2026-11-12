@@ -825,5 +825,111 @@
   "holder": "The abbot of a Soul sect's mountain temple; otherwise Lost in a collapsed meditation cave",
   "lore": "Nine monks kept this lamp alight through nine night-watches, and each one was found sitting before it, smiling.",
   "build_use": "Soul builds against high soul resistance (their stated weakness): Lamp-Lit Reading strips the foe's resistance for every status laid, and the vigil light covers the wearer's own."
+ },
+ {
+  "id": "soul-song-seal-toll-counting-needle",
+  "name": "Toll-Counting Needle (Điểm Chung Châm)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "cham",
+  "grade": 2,
+  "modifiers": [
+   {"key": "x_soul", "value": 8, "scope": []},
+   {"key": "art_speed_pct", "value": 10, "scope": ["soul"]},
+   {"key": "than_thuc_pct", "value": 2, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 4, "scope": []},
+   {"key": "linh_luc_pct", "value": 5, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "soul-song-seal-tolled-prick",
+    "name": "Tolled Prick (Chung Điểm Thích)",
+    "element": "",
+    "role": "soul",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": ["soul", "song", "artifact", "quick"],
+    "c_art": 0.0,
+    "cost_share": 0.04,
+    "cooldown": 3,
+    "kind": "elem",
+    "soul_pct": 0.03,
+    "counters": [{"id": "toll", "decay_per_pulse": 0.25}],
+    "effects": [
+     {
+      "id": "prick-toll",
+      "on": "soul_hit",
+      "limit": {"per_pulse": 1},
+      "do": [{"counter": {"id": "toll", "add": 1}}]
+     }
+    ],
+    "steps": [
+     {
+      "unlock": [{"read": "own.counter.toll", "op": ">=", "value": 3}],
+      "pay": [
+       {"counter": {"id": "toll", "add": -3}},
+       {"free_hit": {"c": 6.0, "dtype": "elem"}}
+      ]
+     }
+    ],
+    "rule": "A thin soul prick that adds a Toll on each soul hit (once a pulse). At 3 Tolls the needle rings the bell itself: a heavier extra soul strike that spends the 3 Tolls. It needs no Chord, only the Toll rhythm you already keep.",
+    "hooks": ["toll", "soul hits landed", "art speed", "x_soul"],
+    "sources": ["item:soul-song-seal-toll-counting-needle"]
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A bone needle the bell-ringers of a hill temple used to count the strokes of the night watch.",
+  "build_use": "Any soul build that keeps a Toll rhythm: a cheap soul weapon that turns every three Tolls into a heavier strike, with no Chord counter to feed.",
+  "notes": "Answers: soul-lance: a soul weapon whose art fires on the build's own Toll rhythm without a chord counter. Spends about 21.6 of 25.6 W."
+ },
+ {
+  "id": "soul-song-seal-seal-bearers-ring",
+  "name": "Seal-Bearer's Ring (Chấp Ấn Giới)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 2,
+  "modifiers": [
+   {"key": "than_thuc_pct", "value": 5, "scope": []},
+   {"key": "attack_pct", "value": 12, "scope": ["seal"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["seal"]},
+   {"key": "status_duration_pct", "value": 6, "scope": []}
+  ],
+  "effects": [],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A jade ring cut with a tiny seal-face; the clerks of a soul sect wore it to prove their stamp was true.",
+  "build_use": "Seal builds and soul builds paid in thần thức: seal arts hit harder and come faster, and the divine sense rises.",
+  "notes": "Answers: meta-hunter: a seal-scoped ring (seal attack and speed); soul-lance: a thần thức ring that raises the divine sense soul arts are paid in. Spends about 20.9 of 25.6 W."
+ },
+ {
+  "id": "soul-song-seal-clear-mind-robe",
+  "name": "Clear-Mind Robe (Thanh Minh Bào)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 2,
+  "modifiers": [
+   {"key": "soul_res_pct", "value": 15, "scope": []},
+   {"key": "status_resist_pct", "value": 20, "scope": []},
+   {"key": "than_thuc_pct", "value": 2, "scope": []},
+   {"key": "khi_huyet_pct", "value": 4, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "soul-song-seal-clear-mind-ward",
+    "name": "Clear-Mind Ward (Thanh Minh Chú)",
+    "payload": "status +45 pp, cleanse 0.3 of every debuff batch per pulse",
+    "payment": "reserved 0.30",
+    "activation": "reserved",
+    "check_from": "Clear Heart Ward (Thanh Tâm Chú)",
+    "notes": "The starter ward at 1.2 times its payload, cleanse and reservation, so the price check is inherited (3.043 of 3.050)"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A plain grey robe the soul-song cloisters give novices whose minds were seized by a curse; it is said to wash a sealed mind clean.",
+  "build_use": "Builds that fear curses and Stagnation: the ward cleanses debuffs every pulse and the robe resists soul and status.",
+  "notes": "Answers: curse-engine: a cleanse answer to Sealed Meridian; meta-hunter: a cleanse piece for the Stagnation-immune concept. Spends about 22 of 25.6 W."
  }
 ]

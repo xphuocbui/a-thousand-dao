@@ -721,5 +721,293 @@
   "holder": "A Nascent Soul thể tu who has held it since the last sect war; otherwise the final reward of a Legendary quest in a body sect's ruins",
   "lore": "The axe that cut a peak in two to open a sect's gate; its edge is still the width of the gap.",
   "build_use": "The Mountain Root Bulwark: stand in the stance, take the hits, and the axe turns Debt and shield into one blow while its leech keeps the body full."
+ },
+ {
+  "id": "body-iron-gate-armour",
+  "name": "Iron-Gate Armour (Thiết Môn Giáp)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "khi_huyet_pct",
+    "value": 14,
+    "scope": []
+   },
+   {
+    "key": "defense_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "body_shield_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "block_rating",
+    "value": 10,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "body-iron-gate-ward",
+    "name": "Iron-Gate Ward (Thiết Môn Chướng)",
+    "payload": "all 513.8 points",
+    "payment": "drain 0.492",
+    "activation": "standing",
+    "check_from": "Common Ward (Hộ Thể Chân Khí)",
+    "notes": "The starter ward at 1.5 times its payload and its drain, so the price check is unchanged (3.049 of 3.050)"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
+  "lore": "Plates riveted from a sect gate's iron bands; the gate warden's own qi leaks into them and never stops.",
+  "build_use": "A standing drain ward above the starter for body-and-Earth walls, with a body shield and regrowth under it.",
+  "notes": "Answers: deity-warden: a ward that pays and drains; starter-wall: an armour ward above the starter drain ward; ninth-bell: a family-neutral ward that beats the build's own. Plain modifiers 36.6 W of 38.3 W."
+ },
+ {
+  "id": "body-stone-answer-ring",
+  "name": "Ring of the Answering Stone (Ứng Thạch Giới)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "body_shield_pct",
+    "value": 18,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 14,
+    "scope": []
+   },
+   {
+    "key": "block_rating",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "defense_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "healing_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "stone-answers",
+    "name": "Stone Answers (Thạch Ứng)",
+    "group": "Trigger",
+    "tier": "trigger",
+    "rule": "When your body shield or a ward stops damage, you strike back with a free Physical hit worth 25 % of the damage stopped, at most 6 % of your maximum health per pulse.",
+    "reads": "Damage stopped by your shields and wards, live",
+    "payload": "A free Physical hit (Return channel), capped per pulse",
+    "closes": "None (a trigger; the cap per pulse is its limit)",
+    "hosts": "Named Item",
+    "from": "new (mirror-hide: a Return-channel Effect for body gear)",
+    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A ring cut from a gate-stone that rang back every ram thrown at it.",
+  "build_use": "Mirror Hide and Debt of Stone builds: what the shield stops comes back as a free Physical hit.",
+  "notes": "Answers: mirror-hide: a Return-channel Effect, ring or armour. Plain modifiers 34.6 W of 38.3 W."
+ },
+ {
+  "id": "body-pledge-anchor",
+  "name": "Pledge Anchor (Thệ Cốt Mao)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "mao",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 14,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 14,
+    "scope": []
+   },
+   {
+    "key": "body_shield_pct",
+    "value": 16,
+    "scope": []
+   },
+   {
+    "key": "leech_health_pct",
+    "value": 40,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "body-pledge-drop",
+    "name": "Pledge Drop (Thệ Cốt Trầm)",
+    "element": "",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "unbroken-flesh-canon",
+    "tags": [
+     "anchor",
+     "body",
+     "pledge",
+     "heavy"
+    ],
+    "kind": "phys",
+    "c_art": 2.0,
+    "cost_share": 0.04,
+    "cooldown": 6,
+    "hp_cost": 0.06,
+    "counters": [
+     {
+      "id": "debt"
+     }
+    ],
+    "effects": [
+     {
+      "id": "pledge-write",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "pledge"
+       ]
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "debt",
+         "add": 3
+        }
+       },
+       {
+        "shield": {
+         "body": 0.04
+        }
+       }
+      ]
+     }
+    ],
+    "steps": [
+     {
+      "unlock": [
+       {
+        "read": "own.counter.debt",
+        "op": ">=",
+        "value": 4
+       }
+      ],
+      "pay": [
+       {
+        "counter": {
+         "id": "debt",
+         "add": -4
+        }
+       }
+      ],
+      "c_mult": 3.0
+     }
+    ],
+    "rule": "Counts as an Unbroken Flesh Canon art. An anchor dropped on a pledge of 6 % of your health: it writes 3 Debt and hardens a little body shield without taking a single hit. With 4 Debt the pledge is called in: 3 times as hard, spending the Debt.",
+    "hooks": [
+     "unbroken flesh canon",
+     "health cost",
+     "Debt counter",
+     "body shield",
+     "heavy hit"
+    ],
+    "sources": [
+     "item:body-pledge-anchor"
+    ]
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
+  "lore": "A ship's anchor that body cultivators swear oaths on, paying a measure of blood at each drop.",
+  "build_use": "Debt of Stone and Last Marrow builds: a health-paid art that writes Debt without hits and is a fifth canon art.",
+  "notes": "Answers: mirror-hide: a health-payment art; unique-mountain-splitting-axe: a Debt source that needs no hits; unique-vajra-hide-armour: a Debt-reading canon art. Plain modifiers 36.2 W of 38.3 W."
+ },
+ {
+  "id": "body-first-stand-pendant",
+  "name": "Pendant of the First Stand (Tiên Lập Bội)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "body_shield_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 30,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "first-stand",
+    "name": "First Stand (Tiên Lập)",
+    "group": "Rule change",
+    "tier": "trigger",
+    "rule": "At the start of a fight, your body shield is already raised to 30 % of your maximum health.",
+    "reads": "Fight start, your maximum health",
+    "payload": "Body shield set to 30 % of health at t = 0",
+    "closes": "None (once, at the start; it does not refill)",
+    "hosts": "Named Item",
+    "from": "new (unique-mountain-splitting-axe: shield held at 30 % without the stance)",
+    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A pendant of gate-stone worn by wardens who meet the first blow already hardened.",
+  "build_use": "Mountain-Splitting Axe and Bulwark builds: the 30 % body shield gate is open from the first pulse.",
+  "notes": "Answers: unique-mountain-splitting-axe: a body shield held at 30 % at fight start. Plain modifiers 24.0 W of 25.6 W."
  }
 ]

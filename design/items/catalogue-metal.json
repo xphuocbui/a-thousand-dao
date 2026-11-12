@@ -841,5 +841,280 @@
   "lore": "A stone that has sharpened ten thousand blades and drunk the blood of every smith who wielded them.",
   "build_use": "Blood on the Whetstone: Blood Casting lets arts run on health, the Vow halves that bill, and leech and regeneration carry the bleeding.",
   "notes": "Spends 85 % of the budget; Whetstone Vow plus Blood Casting are the value."
+ },
+ {
+  "id": "metal-ironwall-plate",
+  "name": "Ironwall Plate (Thiết Bích Giáp)",
+  "family": "metal",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "khi_huyet_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "defense_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 100,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "block_rating",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 20,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "metal-ironwall-drain",
+    "name": "Ironwall Drain (Thiết Bích Chân Khí)",
+    "payload": "all 445.3 points",
+    "payment": "drain 0.426",
+    "activation": "standing",
+    "check_from": "Common Ward (Hộ Thể Chân Khí)",
+    "notes": "The Common Ward at 1.3 times its payload and its drain, so the price check is unchanged (3.049 of 3.050). A standing drain ward for plain Metal and Physical blows, no health spend."
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
+  "lore": "Riveted iron plate over a quilted coat; the wearer's breath runs through it like a bellows.",
+  "build_use": "A standing drain ward the engine can run, for Metal builds that took a cast ward and wanted a plain one.",
+  "notes": "Answers: armoury-mind: Metal armour with a standing drain ward at Nascent Soul size; giant-killer: drain-ward armour for Metal; starter-blade: body piece whose ward reads as a drain ward; triple-convert: Metal armour with a drain ward; unique-heaven-purchasing-coin: Metal armour with a drain ward; one-art: plain Metal-damage ward with no health spend. Spends 92 % of the budget."
+ },
+ {
+  "id": "metal-giantfall-ring",
+  "name": "Giantfall Ring (Đồ Cự Giới)",
+  "family": "metal",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "pierce_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "stack_grant",
+    "value": 1,
+    "scope": [
+     "kim",
+     "debuff"
+    ]
+   },
+   {
+    "key": "attack_pct",
+    "value": 8,
+    "scope": [
+     "physical"
+    ]
+   }
+  ],
+  "effects": [],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A ring filed from the tip of a broken spear; woodcutters wear it to fell trees taller than themselves.",
+  "build_use": "Giant-killer: realm pierce and a heavier Metal stack per hit, so a six-stack break lands before the fight ends.",
+  "notes": "Answers: giant-killer: physical penetration or realm pierce as a modifier; giant-killer: item that raises the Metal stack applied per hit; giant-killer: realm-gap damage ring (pierce is the gap). Spends 84 % of the budget."
+ },
+ {
+  "id": "metal-black-nail-needle",
+  "name": "Black-Nail Needle (Hắc Đinh Châm)",
+  "family": "metal",
+  "kind": "artifact",
+  "base": "cham",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 12,
+    "scope": [
+     "curse"
+    ]
+   },
+   {
+    "key": "status_duration_pct",
+    "value": 20,
+    "scope": [
+     "curse"
+    ]
+   },
+   {
+    "key": "crit_chance_pct",
+    "value": 2,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "accuracy_pct",
+    "value": 12,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "metal-black-nail-prick",
+    "name": "Black-Nail Prick (Hắc Đinh Thích)",
+    "element": "metal",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": [
+     "metal",
+     "artifact",
+     "quick",
+     "needle"
+    ],
+    "c_art": 0.85,
+    "cost_share": 0.025,
+    "cooldown": 1.5,
+    "kind": "phys",
+    "statuses": [
+     {
+      "id": "sundered",
+      "stacks": 1,
+      "dur": 6
+     }
+    ],
+    "rule": "A quick Physical needle that lays 1 Sundered for 6 s.",
+    "hooks": [
+     "sundered",
+     "curse"
+    ],
+    "sources": [
+     "item:metal-black-nail-needle"
+    ]
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A coffin nail drawn out to a needle; whoever it pricks is said to come apart at the seams.",
+  "build_use": "Curse and status builds: a cheap Metal source of Sundered, with curse-scoped damage and duration instead of Metal stack boosts.",
+  "notes": "Answers: curse-engine: curse-scoped weapon, boosts scoped to curses and statuses; status-collector: Metal item that lays Sundered. Spends 80 % of the budget."
+ },
+ {
+  "id": "metal-clear-mind-jade",
+  "name": "Clear-Mind Jade (Minh Tâm Ngọc Bội)",
+  "family": "metal",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 1,
+  "modifiers": [
+   {
+    "key": "soul_res_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 2,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "sources": [
+   "event",
+   "craft"
+  ],
+  "lore": "A cold white jade that sharpens the wits of whoever wears it against the whisper of spirits.",
+  "build_use": "Armoury Mind: a cheap soul-defence piece for the neck slot, standing in for the Thinned Mind close.",
+  "notes": "Answers: armoury-mind: metal necklace with a soul-defence modifier. Spends 100 % of the budget."
+ },
+ {
+  "id": "metal-armoury-banner",
+  "name": "Armoury Banner (Binh Khí Kỳ)",
+  "family": "metal",
+  "kind": "artifact",
+  "base": "ky",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 15,
+    "scope": [
+     "artifact"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 10,
+    "scope": [
+     "artifact"
+    ]
+   },
+   {
+    "key": "crit_chance_pct",
+    "value": 5,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "artifact_attack_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 5,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "armoury-count",
+    "name": "Armoury Count (Binh Khí Kê)",
+    "group": "Enablers",
+    "tier": "enabler",
+    "rule": "Your hits deal 4 % more for each equipped weapon-base artifact you carry.",
+    "reads": "Equipped artifacts on weapon bases, live",
+    "payload": "damage_more 4 per weapon-base artifact",
+    "closes": "Your wards are 15 % weaker.",
+    "hosts": "Named Item",
+    "from": "armoury-mind (the build's own identity)",
+    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+   }
+  ],
+  "sources": [
+   "event",
+   "npc",
+   "quest"
+  ],
+  "lore": "A war banner hung with a tassel for every blade its bearer owns.",
+  "build_use": "Armoury Mind: each weapon in the rack makes every hit heavier.",
+  "notes": "Answers: armoury-mind: Effect that counts equipped weapon-base pieces and hits more per piece. Spends about 70 % of the budget; the Effect is the value."
  }
 ]

@@ -792,5 +792,223 @@
   "holder": "A Nascent Soul Water or Ice cultivator who keeps to a deep-sea sect; otherwise Lost in a flooded secret realm",
   "lore": "Carved from a stone that fell into the sea nine fathoms past where light reaches; it still sinks.",
   "build_use": "The Moon in the Well and slowing builds: the litany's keystone seal, and Water Table turns a foe's drain wards into the wearer's pool."
+ },
+ {
+  "id": "water-undertow-mail",
+  "name": "Undertow Mail (Ám Lưu Giáp)",
+  "family": "water",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "defense_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 4,
+    "scope": []
+   },
+   {
+    "key": "ward_efficiency_pct",
+    "value": 3,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "water-undertow-ward",
+    "name": "Undertow Ward (Ám Lưu Tráo)",
+    "payload": "all 205.5 points",
+    "payment": "drain 0.1968",
+    "activation": "standing",
+    "check_from": "Common Ward (Hộ Thể Chân Khí)",
+    "notes": "The Common Ward at 0.6 times its payload and its drain, so the price check is unchanged (3.049 of 3.050)"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "Scale-plate of dark blue lacquer; the water inside it moves against every blow.",
+  "build_use": "A standing drain ward the engine can run, paid from the Water pool: a Water body armour for builds that wear a ward all fight.",
+  "notes": "Answers: pacifist: a Water armour (Giáp) with a standing ward; unique-nine-fathom-seal: a Water body armour; starter-tide: a Water armour with a pool ward. Ward factor 0.6 of the Common Ward."
+ },
+ {
+  "id": "water-owed-water-pendant",
+  "name": "Owed Water Pendant (Thiếu Thủy Bội)",
+  "family": "water",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "linh_luc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "healing_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "owed-water",
+    "name": "Owed Water (Thiếu Thủy)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "When your linh lực falls to 20 % of maximum or below, you regain 15 % of your maximum linh lực over the next 5 s. Once every 20 s.",
+    "reads": "Linh lực pool, live",
+    "payload": "Linh lực restored over time",
+    "closes": "",
+    "hosts": "Item, Way, Tech",
+    "from": "dry-well (linh lực debt repaid to the wearer); starter-tide (a non-reserve Water necklace Effect)",
+    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A pendant the sea lends against and always collects back; it repays whoever runs dry.",
+  "build_use": "Builds that run dry before the foe: a pool refill that is not a reserve art.",
+  "notes": "Answers: dry-well: Owed Water, linh lực debt repaid to the wearer; dry-well: a Water necklace with sustain that is not a reserve art; starter-tide: a Water necklace with a non-reserve Effect."
+ },
+ {
+  "id": "water-slack-tide-ring",
+  "name": "Slack Tide Ring (Hoãn Triều Giới)",
+  "family": "water",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 1,
+  "modifiers": [
+   {
+    "key": "status_duration_pct",
+    "value": 12,
+    "scope": [
+     "curse"
+    ]
+   },
+   {
+    "key": "art_cost_pct",
+    "value": -8,
+    "scope": [
+     "thuy"
+    ]
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
+  "lore": "A plain tin ring that leaves the wearer's fingers a little cold; curses hung with it cling.",
+  "build_use": "Slowing and thrifty Water builds: a cheap ring that keeps Slowed Time on the foe and trims Water art costs.",
+  "notes": "Answers: unique-nine-fathom-seal: a cheap grade-1 slow item (Slowed Time duration); pacifist: a cost-reducing item (Water art cost)."
+ },
+ {
+  "id": "water-spring-censer",
+  "name": "Underground Spring Censer (Địa Tuyền Hương Lô)",
+  "family": "water",
+  "kind": "artifact",
+  "base": "huong_lo",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "linh_luc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 12,
+    "scope": [
+     "thuy",
+     "buff"
+    ]
+   },
+   {
+    "key": "healing_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "brimming-cup",
+    "name": "Brimming Cup (Mãn Bôi)",
+    "group": "Conversion and overflow",
+    "tier": "minor",
+    "rule": "Linh lực lost to a full pool fills your Cup: you gain 1 Water buff stack for 8 s for every 5 % of maximum linh lực lost, at most 2 stacks a pulse.",
+    "reads": "Linh lực lost to a full pool, live",
+    "payload": "Water buff stacks",
+    "closes": "",
+    "hosts": "Item, Way, Tech",
+    "from": "starter-tide (a full pool turned into a Cup refill)",
+    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+   }
+  ],
+  "reserve_arts": [
+   {
+    "id": "water-underground-spring",
+    "name": "Underground Spring (Địa Tuyền)",
+    "reserve": 0.1,
+    "rule": "While reserved, a spring feeds your pool: your linh lực regenerates 8 % faster and your Water buff stacks last 10 % longer.",
+    "grants": [
+     {
+      "key": "linh_luc_regen_inc_pct",
+      "value": 8,
+      "scope": []
+     },
+     {
+      "key": "stack_duration_pct",
+      "value": 10,
+      "scope": [
+       "thuy",
+       "buff"
+      ]
+     }
+    ],
+    "notes": "Priced by Formulas I reserve arts: 10 % reserved buys up to 10 W; this spends 8.4 W"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "Incense that smells of wet stone; the smoke runs down, not up, to where a spring is.",
+  "build_use": "The Overflowing Cup: a full pool spills into Water stacks, and the spring keeps it full.",
+  "notes": "Answers: starter-tide: a Water extra-slot piece that turns a full pool into a Cup refill; unkillable: a Water buff or spring item (Underground Spring)."
  }
 ]

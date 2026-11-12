@@ -15,6 +15,8 @@
 | **Necklace of Stone Debt (Thạch Trái Liên)** | Ngọc Bội · necklace slot | Thượng (High) (4) | Effect: Debt of Stone (new) | 34.6 of 38.3 |
 | **Mountain-Pressing Seal (Áp Sơn Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Mountain Presses the Sky | 45.8 of 51.1 |
 | **Unmoving Gate Shield (Bất Động Môn Thuẫn)** | Thuẫn · extra slot (ward gear) | Cực (Peak) (5, unique) | ward: Gate Screen; Effect: Shattering Ward; Effect: Unmoved Stance (new) | 46.2 of 51.1 |
+| **Deep Carrier Ring (Thâm Tải Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | modifiers only | 22.2 of 25.6 |
+| **Slow-Sand Needle (Hoãn Sa Châm)** | Châm · weapon slot | Hạ (Low) (2) | art: Sand Needle Prick | 10.6 of 12.8 |
 
 ## Quarryman's Pick (Thạch Công Phủ)
 
@@ -154,4 +156,28 @@
 **Modifiers:** +40 % body shield · 20.4 W; +10 % ward strength · 10.0 W; +15 % maximum health (khí huyết) · 9.0 W; +150 points resistance, all [physical] · 4.8 W; +5 block · 2.0 W
 
 **Placed at world start:** The gate guardian of an Earth sect, a Core Formation elder; otherwise Lost in a flooded quarry
+
+
+## Deep Carrier Ring (Thâm Tải Giới)
+
+*Nhẫn (Ring), ring slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A heavy ring of packed loam and iron, said to carry its wearer's burdens so the mind need not.
+
+**Build use.** The Deity Warden: a cheap extra (8 thần thức) that returns 8 % more thần thức, so more extras can be carried, with a stronger Earth buff.
+
+**Modifiers:** +8 % thần thức · 10.4 W; +20 % stack effect [tho, buff] · 5.0 W; +8 % maximum health (khí huyết) · 4.8 W; +2 % ward strength · 2.0 W
+
+
+## Slow-Sand Needle (Hoãn Sa Châm)
+
+*Châm (Needle), weapon slot · grade Hạ (Low), rarity 2, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A needle that leaves a trickle of sand in the wound, and the foe's limbs grow heavy.
+
+**Build use.** The Mountain Seal: a cheap Earth debuff source stronger than Tremor Palm that is not a Deep Vein art, and Slowed Time on hit for the Slowed 3 deep branch.
+
+**Art: Sand Needle Prick (Sa Châm Thích)** (control, standalone, c 1.60, cost 0.030, cooldown 3 s). A needle of packed sand: an Earth hit that lays 3 Earth stacks for 6 s. With 6 Earth stacks on the foe, it spends them for a hit twice as hard that adds 1 Slowed Time for 4 s.
+
+**Modifiers:** +6 % damage [tho] · 4.0 W; +12 % stack effect [tho, debuff] · 3.0 W; +4 % art speed [tho] · 1.6 W; +10 % stack duration [tho, debuff] · 2.0 W
 

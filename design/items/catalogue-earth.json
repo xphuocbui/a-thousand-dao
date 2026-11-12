@@ -803,5 +803,70 @@
   "holder": "The gate guardian of an Earth sect, a Core Formation elder; otherwise Lost in a flooded quarry",
   "lore": "The door of a sect's vault, beaten into a shield; nothing has ever pushed it back.",
   "build_use": "The Mountain That Pays: Mountain Stance without its slowness, a standing screen, and every shield that breaks bursts on the foe."
+ },
+ {
+  "id": "earth-deep-carrier-ring",
+  "name": "Deep Carrier Ring (Thâm Tải Giới)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 2,
+  "modifiers": [
+   {"key": "than_thuc_pct", "value": 8, "scope": []},
+   {"key": "stack_effect_pct", "value": 20, "scope": ["tho", "buff"]},
+   {"key": "khi_huyet_pct", "value": 8, "scope": []},
+   {"key": "defense_pct", "value": 2, "scope": []}
+  ],
+  "effects": [],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A heavy ring of packed loam and iron, said to carry its wearer's burdens so the mind need not.",
+  "build_use": "The Deity Warden: a cheap extra (8 thần thức) that returns 8 % more thần thức, so more extras can be carried, with a stronger Earth buff.",
+  "notes": "Answers: deity-warden: an Earth thần thức piece so more than 30 TT of extras can be carried."
+ },
+ {
+  "id": "earth-slow-sand-needle",
+  "name": "Slow-Sand Needle (Hoãn Sa Châm)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "cham",
+  "grade": 1,
+  "modifiers": [
+   {"key": "attack_pct", "value": 6, "scope": ["tho"]},
+   {"key": "stack_effect_pct", "value": 12, "scope": ["tho", "debuff"]},
+   {"key": "art_speed_pct", "value": 4, "scope": ["tho"]},
+   {"key": "stack_duration_pct", "value": 10, "scope": ["tho", "debuff"]}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "earth-sand-needle-prick",
+    "name": "Sand Needle Prick (Sa Châm Thích)",
+    "element": "earth",
+    "role": "control",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": ["earth", "artifact", "slow"],
+    "c_art": 1.6,
+    "cost_share": 0.03,
+    "cooldown": 3,
+    "kind": "elem",
+    "debuff": [3, 6],
+    "steps": [
+     {
+      "unlock": [{"read": "foe.debuff.earth", "op": ">=", "value": 6}],
+      "pay": [{"consume": {"el": "earth", "side": "foe", "n": 6}}],
+      "c_mult": 2.0,
+      "add_statuses": [{"id": "slowed_time", "stacks": 1, "dur": 4}]
+     }
+    ],
+    "rule": "A needle of packed sand: an Earth hit that lays 3 Earth stacks for 6 s. With 6 Earth stacks on the foe, it spends them for a hit twice as hard that adds 1 Slowed Time for 4 s.",
+    "hooks": ["earth debuff stacks", "slowed time"],
+    "sources": ["item:earth-slow-sand-needle"]
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A needle that leaves a trickle of sand in the wound, and the foe's limbs grow heavy.",
+  "build_use": "The Mountain Seal: a cheap Earth debuff source stronger than Tremor Palm that is not a Deep Vein art, and Slowed Time on hit for the Slowed 3 deep branch.",
+  "notes": "Answers: unique-mountain-pressing-seal: a cheap Earth debuff source stronger than Tremor Palm, and Slowed Time on hit."
  }
 ]

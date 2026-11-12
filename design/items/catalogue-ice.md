@@ -15,6 +15,7 @@
 | **Black Ledger Mirror (Huyền Trướng Kính)** | Kính · extra slot (utility) | Thượng (High) (4) | Effect: Toll Taker (new); reserve: Cold Ledger Aura | 34.0 of 38.3 |
 | **Deep Freeze Ring (Thâm Đống Giới)** | Nhẫn · ring slot | Cực (Peak) (5, unique) | Effect: Deep Freeze (new) | 45.0 of 51.1 |
 | **Moonrime Flying Sword (Nguyệt Sương Phi Kiếm)** | Phi Kiếm · weapon slot | Cực (Peak) (5, unique) | art: Moon Stills the Tide | 45.1 of 51.1 |
+| **Stilled Thread Needle (Đình Tuyến Châm)** | Châm · weapon slot | Trung (Middle) (3) | art: Stilled Thread Prick | 21.9 of 25.6 |
 
 ## Hoarfrost Needle (Sương Châm)
 
@@ -152,4 +153,17 @@
 **Modifiers:** +22 % damage [cold] · 14.7 W; +14 % art speed [cold] · 5.6 W; +30 % stack duration [bang, debuff] · 4.8 W; +10 % realm pierce · 10.0 W; +10 % maximum linh lực · 10.0 W
 
 **Placed at world start:** An elder of a northern sword sect at Core Formation or above; otherwise Lost in a snow-buried sword tomb
+
+
+## Stilled Thread Needle (Đình Tuyến Châm)
+
+*Châm (Needle), weapon slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A hair-thin needle of frost-silk steel; those pricked by it feel the next breath arrive late.
+
+**Build use.** Cheap on thần thức (base 10), so the last points of a full thần thức budget can be filled (Answers: dry-well: cheap utility piece for the last points). A second Slowed Time source outside the four Scripture arts (Answers: unique-ninth-tribulation-seal: second source of Slowed Time from the ice family).
+
+**Art: Stilled Thread Prick (Đình Tuyến Thích)** (damage, standalone, c 0.80, cost 0.020, cooldown 2 s). A needle that stitches the moment still: a quick Cold hit that lays 1 Ice stack for 8 s and 1 Slowed Time for 4 s.
+
+**Modifiers:** +16 % damage [cold] · 10.7 W; +14 % art speed [cold] · 5.6 W; +10 % status duration · 4.0 W; +2 % linh lực regeneration, increased · 1.6 W
 

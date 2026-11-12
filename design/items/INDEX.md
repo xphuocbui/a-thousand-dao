@@ -16,6 +16,7 @@
 | `blade-tortoise-edge-armour` | blade | Giáp (armour) | 3 | 5 | ward Tortoise-Edge Shell; Effect Iron Skin Renewed | Blood on the Whetstone |
 | `blade-thousand-cut-sword` | blade | Phi Kiếm (weapon) | 4 unique | 20 | art blade-thousand-cut-return; Effect Marked Prey | The Thousand Cuts |
 | `blade-unbroken-edge-ring` | blade | Nhẫn (ring) | 4 unique | 8 | Effect Lingering Afterimage (new); reserve 15 % | The Sword Hall and the Afterimage Sword Canon |
+| `blade-mirror-trace-sword` | blade | Phi Kiếm (weapon) | 2 | 20 | art blade-mirror-trace-cut | The Afterimage Sword Canon and The Sword Hall |
 | `body-bone-cleaver` | body | Phủ (weapon) | 1 | 25 | art body-bone-splitting-chop | The Iron Body's first weapon |
 | `body-tempered-marrow-ring` | body | Nhẫn (ring) | 1 | 8 | modifiers | Any thể tu's early ring |
 | `body-mountain-hide-armour` | body | Giáp (armour) | 2 | 5 | ward Mountain-Hide Shell | The Iron Body against sword and fist cultivators |
@@ -26,6 +27,10 @@
 | `body-echo-skin-drum` | body | Cổ (extra (utility)) | 3 | 20 | Effect Echo | Hundred Echo Palm Scripture builds |
 | `body-vajra-hide-armour` | body | Giáp (armour) | 4 unique | 5 | ward Vajra Shell; Effect Shield Pays the Blood (new) | Marrow Tithe builds |
 | `body-mountain-splitting-axe` | body | Phủ (weapon) | 4 unique | 25 | art body-splitting-the-mountain; Effect Blood Drinker | The Mountain Root Bulwark |
+| `body-iron-gate-armour` | body | Giáp (armour) | 3 | 5 | ward Iron-Gate Ward | A standing drain ward above the starter for body-and-Earth walls, with |
+| `body-stone-answer-ring` | body | Nhẫn (ring) | 3 | 8 | Effect Stone Answers (new) | Mirror Hide and Debt of Stone builds |
+| `body-pledge-anchor` | body | Mao (weapon) | 3 | 30 | art body-pledge-drop | Debt of Stone and Last Marrow builds |
+| `body-first-stand-pendant` | body | Ngọc Bội (necklace) | 2 | 10 | Effect First Stand (new) | Mountain-Splitting Axe and Bulwark builds |
 | `earth-quarryman-pick` | earth | Phủ (weapon) | 1 | 25 | art earth-pick-fall | The Mountain Seal and Deep Vein builds' first weapon |
 | `earth-clay-seal-ring` | earth | Nhẫn (ring) | 1 | 8 | modifiers | The Mountain That Pays |
 | `earth-dust-veil-robe` | earth | Đạo Bào (armour) | 2 | 6 | ward Settling Dust Shirt; Effect Beneath Notice | The Dust Veil |
@@ -36,6 +41,8 @@
 | `earth-stone-debt-necklace` | earth | Ngọc Bội (necklace) | 3 | 10 | Effect Debt of Stone (new) | The Deep Vein health-payer |
 | `earth-mountain-pressing-seal` | earth | Ấn (weapon) | 4 unique | 30 | art earth-mountain-presses-sky | The Mountain Seal's keystone piece |
 | `earth-unmoving-gate-shield` | earth | Thuẫn (extra (ward gear)) | 4 unique | 15 | ward Gate Screen; Effect Shattering Ward; Effect Unmoved Stance (new) | The Mountain That Pays |
+| `earth-deep-carrier-ring` | earth | Nhẫn (ring) | 2 | 8 | modifiers | The Deity Warden |
+| `earth-slow-sand-needle` | earth | Châm (weapon) | 1 | 10 | art earth-sand-needle-prick | The Mountain Seal |
 | `fire-ember-fan` | fire | Phiến (weapon) | 1 | 25 | art fanning-embers | The Bonfire's first weapon |
 | `fire-cinder-ring` | fire | Nhẫn (ring) | 1 | 8 | modifiers | Any Fire build's early ring |
 | `fire-furnace-mouth-gourd` | fire | Hồ Lô (weapon) | 2 | 25 | art gourd-swallows-flame; Effect Kindled Wound | The Furnace Master and The Bonfire |
@@ -46,6 +53,9 @@
 | `fire-blood-kindling-ring` | fire | Nhẫn (ring) | 3 | 8 | Effect Blood Casting | The Self-Immolator |
 | `fire-ashen-phoenix-fan` | fire | Phiến (weapon) | 4 unique | 25 | art ash-feather-gale; Effect Fan the Pyre (new) | The Bonfire's keystone piece |
 | `fire-undying-ember-lantern` | fire | Đăng (extra (utility)) | 4 unique | 15 | Effect Embers Never Die (new); reserve 20 % | Burn builds against cleansing foes (Clear Heart Ward, cleansing curses |
+| `fire-cinder-steel-mail` | fire | Giáp (armour) | 3 | 5 | ward Cinder Veil | A Fire build's armour that runs a standing drain ward the engine can u |
+| `fire-hearth-ember-ring` | fire | Nhẫn (ring) | 2 | 8 | Effect Embers Feed the Hearth (new) | Burn builds that want their ticks to pay back |
+| `fire-long-ember-censer` | fire | Hương Lô (extra (utility)) | 2 | 10 | modifiers | A cheap extra (10 thần thức) for Burn builds |
 | `force-chaos-shock-zither` | force-chaos | Cầm (weapon) | 1 | 25 | art force-chaos-resonant-shockwave | Hollow Tide Scripture builds (the Qi Drinker) |
 | `force-chaos-hollow-ring` | force-chaos | Nhẫn (ring) | 1 | 8 | modifiers | Any Chaos-damage curse build (the Night Plague, the Ruin Ledger curse  |
 | `force-chaos-hollow-robe` | force-chaos | Đạo Bào (armour) | 2 | 6 | ward Hollow Veil | The Hundred Arts Sage and the Unmaker |
@@ -56,6 +66,10 @@
 | `force-chaos-open-vein-ring` | force-chaos | Nhẫn (ring) | 3 | 8 | Effect Blood Drinker | Bloodletting Rite users |
 | `force-chaos-primordial-mirror` | force-chaos | Kính (extra (utility)) | 4 unique | 18 | Effect Unmaking Glass (new); reserve 15 % | The Unmaker |
 | `force-chaos-last-bargain-locket` | force-chaos | Ngọc Bội (necklace) | 4 unique | 10 | Effect Final Clause | The Shadow Bargain |
+| `force-chaos-null-plate` | force-chaos | Giáp (armour) | 3 | 5 | ward Null Ward | Builds that want heavier armour than the Hollow Robe |
+| `force-chaos-drain-signet` | force-chaos | Nhẫn (ring) | 2 | 8 | Effect Spillover | Qi-burn and Disruption builds |
+| `force-chaos-ash-to-void-pendant` | force-chaos | Ngọc Bội (necklace) | 3 | 10 | modifiers | Fire-to-Chaos converters |
+| `force-chaos-foreclosure-seal` | force-chaos | Ấn (weapon) | 4 unique | 30 | art force-chaos-foreclose | Ruin Ledger curse stackers |
 | `general-wayfarer-ring` | general | Nhẫn (ring) | 1 | 8 | modifiers | Any build |
 | `general-pilgrim-sword` | general | Phi Kiếm (weapon) | 1 | 20 | art general-wayfarer-cut | Any build's first weapon |
 | `general-stitchwind-needles` | general | Châm (weapon) | 2 | 10 | art general-threading-rain; Effect Echo | Quick-art and crit builds |
@@ -66,6 +80,8 @@
 | `general-talisman-bearer-ring` | general | Nhẫn (ring) | 3 | 8 | Effect Paid in Advance | Talisman builds |
 | `general-heaven-purchasing-coin` | general | Tiền Tiêu (weapon) | 4 unique | 8 | art general-last-coin-flick; Effect Bought Fate (new) | Any build that dies to one bad roll |
 | `general-mirror-of-second-seat` | general | Kính (extra (utility)) | 4 unique | 18 | Effect Cold Feet | Every build |
+| `general-long-road-robe` | general | Đạo Bào (armour) | 3 | 6 | ward Long-Road Ward | Builds that must spend every last point of thần thức or lift the extra |
+| `general-waking-lantern` | general | Đăng (extra (utility)) | 2 | 15 | Effect Cold Feet; reserve 12 % | Soul and curse-pressed builds |
 | `ice-hoarfrost-needle` | ice | Châm (weapon) | 1 | 10 | art ice-hoarfrost-prick | The Frozen Treasury's first weapon |
 | `ice-rimed-band` | ice | Nhẫn (ring) | 1 | 8 | modifiers | The Frozen Treasury and The Frost Lock |
 | `ice-hoarfrost-fan` | ice | Phiến (weapon) | 2 | 25 | art ice-frost-tithe-gust; Effect Rime Lock | The Frozen Treasury |
@@ -76,6 +92,7 @@
 | `ice-black-ledger-mirror` | ice | Kính (extra (utility)) | 3 | 18 | Effect Toll Taker (new); reserve 15 % | The Frozen Treasury |
 | `ice-deep-freeze-ring` | ice | Nhẫn (ring) | 4 unique | 8 | Effect Deep Freeze (new) | The Frost Lock's keystone piece |
 | `ice-moonrime-sword` | ice | Phi Kiếm (weapon) | 4 unique | 20 | art ice-moon-stills-tide | The Frost Lock with the Stilled Hour Sutra |
+| `ice-stilled-thread-needle` | ice | Châm (weapon) | 2 | 10 | art ice-stilled-thread-prick | Cheap on thần thức (base 10), so the last points of a full thần thức b |
 | `metal-copper-sling-coin` | metal | Tiền Tiêu (weapon) | 1 | 8 | art metal-copper-flick | The Thousand Cuts and Gold Rain |
 | `metal-iron-temper-ring` | metal | Nhẫn (ring) | 1 | 8 | modifiers | Any Metal crit build's early ring |
 | `metal-bronze-peal-bell` | metal | Chuông (extra (ward gear)) | 2 | 25 | ward Bronze Peal | Boss fighters and Diamond Body builds |
@@ -86,6 +103,11 @@
 | `metal-ring-of-returning-edge` | metal | Nhẫn (ring) | 3 | 8 | Effect Edge Returns the Breath (new) | The Thousand Cuts |
 | `metal-heaven-minted-coin` | metal | Tiền Tiêu (weapon) | 4 unique | 8 | art metal-golden-coin-rain; Effect Seal of Full Payment | Gold Rain |
 | `metal-blood-seasoned-whetstone` | metal | Lạc Thiết (extra (utility)) | 4 unique | 15 | Effect Blood Casting; Effect Whetstone Vow (new); reserve 8 % | Blood on the Whetstone |
+| `metal-ironwall-plate` | metal | Giáp (armour) | 3 | 5 | ward Ironwall Drain | A standing drain ward the engine can run, for Metal builds that took a |
+| `metal-giantfall-ring` | metal | Nhẫn (ring) | 2 | 8 | modifiers | Giant-killer |
+| `metal-black-nail-needle` | metal | Châm (weapon) | 2 | 10 | art metal-black-nail-prick | Curse and status builds |
+| `metal-clear-mind-jade` | metal | Ngọc Bội (necklace) | 1 | 10 | modifiers | Armoury Mind |
+| `metal-armoury-banner` | metal | Kỳ (extra (utility)) | 3 | 20 | Effect Armoury Count (new) | Armoury Mind |
 | `soul-song-seal-rain-listening-zither` | soul-song-seal | Cầm (weapon) | 1 | 25 | art soul-song-seal-raindrop-pluck | The Zither Player's first instrument |
 | `soul-song-seal-quiet-mind-ring` | soul-song-seal | Nhẫn (ring) | 1 | 8 | modifiers | Any soul build's early ring |
 | `soul-song-seal-muffled-temple-bell` | soul-song-seal | Chuông (extra (ward gear)) | 2 | 25 | ward Muffled Bell Ward | Anyone facing soul builds or slow heavy hitters |
@@ -96,6 +118,9 @@
 | `soul-song-seal-echoing-ring` | soul-song-seal | Nhẫn (ring) | 3 | 8 | Effect Echo | Soul-note builds |
 | `soul-song-seal-thousand-string-zither` | soul-song-seal | Cầm (weapon) | 4 unique | 25 | art soul-song-seal-thousand-string-dirge; Effect Plucked Time (new) | The Zither Player's keystone |
 | `soul-song-seal-ninth-vigil-heart-lamp` | soul-song-seal | Đăng (extra (utility)) | 4 unique | 15 | Effect Lamp-Lit Reading (new); reserve 15 % | Soul builds against high soul resistance (their stated weakness) |
+| `soul-song-seal-toll-counting-needle` | soul-song-seal | Châm (weapon) | 2 | 10 | art soul-song-seal-tolled-prick | Any soul build that keeps a Toll rhythm |
+| `soul-song-seal-seal-bearers-ring` | soul-song-seal | Nhẫn (ring) | 2 | 8 | modifiers | Seal builds and soul builds paid in thần thức |
+| `soul-song-seal-clear-mind-robe` | soul-song-seal | Đạo Bào (armour) | 2 | 6 | ward Clear-Mind Ward | Builds that fear curses and Stagnation |
 | `thunder-spark-needle` | thunder | Châm (weapon) | 1 | 10 | art thunder-spark-prick | The Crit Storm's first weapon |
 | `thunder-static-band` | thunder | Nhẫn (ring) | 1 | 8 | modifiers | The Crit Storm |
 | `thunder-forked-light-sword` | thunder | Phi Kiếm (weapon) | 2 | 20 | art thunder-forked-slash | The Crit Storm and The Thunder Drum |
@@ -106,6 +131,9 @@
 | `thunder-tribulation-rod` | thunder | Lôi Trượng (extra (utility)) | 3 | 20 | Effect Lightning Drinker (new) | The Tribulation Rider |
 | `thunder-ninth-tribulation-seal` | thunder | Ấn (weapon) | 4 unique | 30 | art thunder-ninth-verdict; Effect Verdict Stands (new) | The Thunderclap |
 | `thunder-heartbeat-of-heaven-drum` | thunder | Cổ (extra (utility)) | 4 unique | 20 | Effect Drumbeat (new); reserve 20 % | The Thunder Drum |
+| `thunder-winnings-band` | thunder | Nhẫn (ring) | 3 | 8 | modifiers | The Crit Storm and the gambler builds |
+| `thunder-stormveil-robe` | thunder | Đạo Bào (armour) | 2 | 6 | ward Stormveil Drain | The Crit Storm |
+| `thunder-lightning-step-charm` | thunder | Ngọc Bội (necklace) | 2 | 10 | Effect Cold Feet | The Crit Storm |
 | `water-dew-needle` | water | Châm (weapon) | 1 | 10 | art water-dew-prick | The Deep Sea's first weapon |
 | `water-dewdrop-ring` | water | Nhẫn (ring) | 1 | 8 | modifiers | Any Water build's early ring |
 | `water-still-pool-gourd` | water | Hồ Lô (weapon) | 2 | 25 | art water-gourd-pours-the-pool; Effect Steady Breath | The Deep Sea |
@@ -116,6 +144,10 @@
 | `water-returning-tide-ring` | water | Nhẫn (ring) | 3 | 8 | Effect Backflow (new) | The Overflowing Cup and Tide builds |
 | `water-mirror-of-the-drowned-moon` | water | Kính (extra (utility)) | 4 unique | 18 | Effect Sea Already Deep (new); reserve 15 % | The Deep Sea and The Moon in the Well |
 | `water-nine-fathom-seal` | water | Ấn (weapon) | 4 unique | 30 | art water-abyss-seal-descends; Effect Water Table | The Moon in the Well and slowing builds |
+| `water-undertow-mail` | water | Giáp (armour) | 2 | 5 | ward Undertow Ward | A standing drain ward the engine can run, paid from the Water pool |
+| `water-owed-water-pendant` | water | Ngọc Bội (necklace) | 2 | 10 | Effect Owed Water (new) | Builds that run dry before the foe |
+| `water-slack-tide-ring` | water | Nhẫn (ring) | 1 | 8 | modifiers | Slowing and thrifty Water builds |
+| `water-spring-censer` | water | Hương Lô (extra (utility)) | 2 | 10 | Effect Brimming Cup (new); reserve 10 % | The Overflowing Cup |
 | `wind-gale-feather-fan` | wind | Phiến (weapon) | 1 | 25 | art wind-fanning-gust | The Gale Dancer's first weapon |
 | `wind-gale-step-ring` | wind | Nhẫn (ring) | 1 | 8 | modifiers | Any Wind build's early ring |
 | `wind-slow-hour-needle` | wind | Châm (weapon) | 2 | 10 | art wind-stitch-the-hour | The slow-hour builds |
@@ -126,6 +158,8 @@
 | `wind-hollow-echo-ring` | wind | Nhẫn (ring) | 3 | 8 | Effect Echo | The Storm Front and echo builds |
 | `wind-heron-fan` | wind | Phiến (weapon) | 4 unique | 25 | art wind-heron-takes-wing; Effect Phantom Dodge (new) | The Gale Dancer's keystone piece |
 | `wind-cloud-walker-mantle` | wind | Đạo Bào (armour) | 4 unique | 6 | ward Cloud-Walker's Veil; Effect Cold Feet; Effect Beneath Notice | The Untouchable |
+| `wind-slipstream-ring` | wind | Nhẫn (ring) | 2 | 8 | modifiers | The cooldown-floor build's second real ring |
+| `wind-scatter-gale-pendant` | wind | Ngọc Bội (necklace) | 3 | 10 | Effect Scatter Gale (new) | The Evade Dancer |
 | `wood-bramble-needle` | wood | Châm (weapon) | 1 | 10 | art wood-bramble-flick | The Slow Garden's first weapon |
 | `wood-sprout-ring` | wood | Nhẫn (ring) | 1 | 8 | modifiers | The Evergreen Wall's early ring |
 | `wood-heartwood-hatchet` | wood | Phủ (weapon) | 2 | 25 | art wood-fell-the-rotting | The Woodcutter and the Rotting Canopy builds |
@@ -136,3 +170,7 @@
 | `wood-slow-garden-ring` | wood | Nhẫn (ring) | 3 | 8 | Effect Spillover | The Slow Garden |
 | `wood-grave-silk-robe` | wood | Đạo Bào (armour) | 4 unique | 6 | ward Grave-Silk Veil; Effect Grave-Silk Shroud | The Slow Garden's keystone piece |
 | `wood-thousand-roots-banner` | wood | Kỳ (extra (utility)) | 4 unique | 20 | Effect Gripping Root (new); reserve 15 % | The Strangler Fig |
+| `wood-venom-drinker-pendant` | wood | Ngọc Bội (necklace) | 3 | 10 | modifiers | A Poison build's necklace |
+| `wood-moss-ledger-robe` | wood | Đạo Bào (armour) | 2 | 6 | ward Moss-Ledger Ward; Effect Moss Ledger (new) | The Wood poisoner's light armour |
+| `wood-packmate-collar` | wood | Nhẫn (ring) | 2 | 8 | Effect Pack Hunt | The beast carry |
+| `wood-thorn-seeding-ring` | wood | Nhẫn (ring) | 3 | 8 | modifiers | The poisoner's ring |

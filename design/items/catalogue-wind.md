@@ -15,6 +15,8 @@
 | **Ring of Hollow Echoes (Không Hưởng Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Echo | 31.2 of 38.3 |
 | **Nine-Gale Heron Fan (Cửu Phong Lộ Phiến)** | Phiến · weapon slot | Cực (Peak) (5, unique) | art: Heron Takes Wing; Effect: Phantom Dodge (new) | 41.0 of 51.1 |
 | **Cloud-Walker's Mantle (Đằng Vân Bào)** | Đạo Bào · armour slot | Cực (Peak) (5, unique) | ward: Cloud-Walker's Veil; Effect: Cold Feet; Effect: Beneath Notice | 46.6 of 51.1 |
+| **Slipstream Ring (Phong Lưu Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | modifiers only | 23.7 of 25.6 |
+| **Scatter-Gale Pendant (Tán Phong Bội)** | Ngọc Bội · necklace slot | Thượng (High) (4) | Effect: Scatter Gale (new) | 32.5 of 38.3 |
 
 ## Gale-Feather Fan (Phong Vũ Phiến)
 
@@ -154,4 +156,28 @@
 **Modifiers:** +8 % evade · 12.0 W; +8 % thần thức · 10.4 W; +15 % maximum health (khí huyết) · 9.0 W; +12 % art speed · 7.2 W; +10 % linh lực regeneration, increased · 8.0 W
 
 **Placed at world start:** A travelling Nascent Soul cultivator, or Lost in the last waystation of a road that no longer exists
+
+
+## Slipstream Ring (Phong Lưu Giới)
+
+*Nhẫn (Ring), ring slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A ring of braided copper wire that hums when an art is thrown; the air behind it is never quite still.
+
+**Build use.** The cooldown-floor build's second real ring: faster arts that cost less, and a little linh lực back on every hit, so a build that pays per hit stays fed.
+
+**Modifiers:** +10 % art speed · 6.0 W; -8 % art cost · 4.8 W; +3 % evade · 4.5 W; +0.2 % linh lực on hit · 8.4 W
+
+
+## Scatter-Gale Pendant (Tán Phong Bội)
+
+*Ngọc Bội (Necklace (jade pendant)), necklace slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, NPC holders, quest and sect rewards*
+
+> A jade pendant split along its length; when the wind takes it, whatever clung to you is blown off.
+
+**Build use.** The Evade Dancer: every dodge sweeps your own stacks away, so evading doubles as the build's cleanse, on top of evade, status resistance and linh lực regeneration.
+
+**Effect (new): Scatter Gale (Tán Phong)** (Trigger, minor). When you evade, you cleanse your own debuff stacks, at most 2 batches every 6 s. *Payload:* Cleanse of your own debuff stacks, 2 batches per 6 s.
+
+**Modifiers:** +5 % evade · 7.5 W; +15 % status resistance · 6.0 W; +10 % linh lực regeneration, increased · 8.0 W; +10 % maximum health (khí huyết) · 6.0 W; +2 % thần thức · 2.6 W; +4 % art speed · 2.4 W
 

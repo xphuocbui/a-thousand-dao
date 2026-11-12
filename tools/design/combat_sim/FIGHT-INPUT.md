@@ -150,3 +150,13 @@ looks like a strong build.
   arts add their share and run their `grants`), `stack_eff` and `stack_dur` (percent, keyed `"<element>|<buff|debuff>"`
   with `*` for any: `{"fire|debuff": 20, "*|*": 10}`).
 
+- **Extra wards** (2026-11-13): `"wards": [{"name", "payload", "payment", "activation"}]` in the GDD's words, as the
+  starter ward table and item wards write them: payload `"Fire 240 points"`, `"all 100 points"`, `"shield σ 0.135"`,
+  `"block 60"`; payment `"drain 0.176"`, `"per hit 0.035"`, `"reserved 0.49"`, `"cast 0.036"`; activation `"standing"` or
+  `"cast, cooldown 4 s, up 3 s"`. Item wards are added the same way. They are scaled by the build's ward strength and
+  efficiency and take the free ward slots (`ward_slots_by_realm` 1 / 1 / 2 / 3 / 4 plus up to 2 from thần thức, less one
+  for the main ward), then the free art slots; a ward with no slot is listed as UNMODELLED. A worn armour's ward
+  (an item whose base is body_gear) takes its armour's own slot (Combat Defence & Healing rule 5, 2026-11-13); a
+  ward record of your own takes it with `"own_slot": true`. A per-hit ward meets no
+  ticks; a reserved ward holds its share through `reserved`; a cast ward fires on its cooldown and is up for its window.
+  Evade, status, soul and cleanse payloads are not run (listed).

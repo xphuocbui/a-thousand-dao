@@ -15,6 +15,8 @@
 | **Talisman-Bearer's Ring (Phù Sứ Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Paid in Advance | 30.9 of 38.3 |
 | **Heaven-Purchasing Coin (Mãi Thiên Tiền)** | Tiền Tiêu · weapon slot | Cực (Peak) (5, unique) | art: Last Coin Flick; Effect: Bought Fate (new) | 44.2 of 51.1 |
 | **Mirror of the Second Seat (Nhị Tòa Kính)** | Kính · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Cold Feet | 42.2 of 51.1 |
+| **Long-Road Robe (Trường Lộ Bào)** | Đạo Bào · armour slot | Thượng (High) (4) | ward: Long-Road Ward | 35.4 of 38.3 |
+| **Lantern of Waking (Tỉnh Mộng Đăng)** | Đăng · extra slot (utility) | Trung (Middle) (3) | Effect: Cold Feet; reserve: Waking Light | 23.7 of 25.6 |
 
 ## Wayfarer's Ring (Hành Lữ Giới)
 
@@ -152,4 +154,32 @@
 **Modifiers:** +1 artifact_slots · 25.0 W; +1 fortune (khí vận) · 5.0 W; +6 % thần thức · 7.8 W; +2 % cultivation speed (tu luyện) · 4.4 W
 
 **Placed at world start:** The elder of a sect's treasure hall at Core Formation or above; otherwise Lost in a collapsed sect vault
+
+
+## Long-Road Robe (Trường Lộ Bào)
+
+*Đạo Bào (Robe), armour slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A grey travelling robe whose hem has seen every road in the realm; it asks little of the mind that wears it.
+
+**Build use.** Builds that must spend every last point of thần thức or lift the extra-slot limit: a standing ward the engine can run, on a robe that costs only 6 TT and no art speed.
+
+**Ward: Long-Road Ward (Trường Lộ Hộ Thể)**: all 394 points; drain 0.377; standing. Price check from Common Ward (Hộ Thể Chân Khí). The starter ward at 1.15 times its payload and its drain, so the price check is unchanged
+
+**Modifiers:** +8 % thần thức · 10.4 W; +15 % maximum health (khí huyết) · 9.0 W; +6 % ward strength · 6.0 W; +150 points resistance, all · 6.0 W; +10 % status resistance · 4.0 W
+
+
+## Lantern of Waking (Tỉnh Mộng Đăng)
+
+*Đăng (Lantern), extra slot (utility) · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, quest and sect rewards*
+
+> A paper lantern that gutters when a curse draws near and shakes sleepers awake before the knife falls.
+
+**Build use.** Soul and curse-pressed builds: a resistance aura and a first escape at once, standing in for the lost Bell of Waking and Lantern Out.
+
+**Effect: Cold Feet** (effects.md). Your escape art's first firing comes at cooldown_min.
+
+**Reserve art: Waking Light (Tỉnh Mộng Quang)** (reserves 12 % of maximum linh lực). While reserved, curses and statuses cling to you less and your escape is likelier.
+
+**Modifiers:** +20 % status resistance · 8.0 W; +4 % evade [escape] · 3.0 W; +3 % thần thức · 3.9 W; +8 % linh lực regeneration, increased · 6.4 W; +4 % maximum health (khí huyết) · 2.4 W
 

@@ -883,5 +883,53 @@
   "holder": "A Nascent Soul sword cultivator who has not lost a duel in a century; otherwise Lost in the ruins of a sword sect",
   "lore": "A ring forged from the last fragment of a sword that was broken once and never again.",
   "build_use": "The Sword Hall and the Afterimage Sword Canon: Afterimages and Coils are never lost between cuts, so slow engines bank to their biggest step."
+ },
+ {
+  "id": "blade-mirror-trace-sword",
+  "name": "Mirror-Trace Flying Sword (Kính Ngấn Phi Kiếm)",
+  "family": "blade",
+  "kind": "artifact",
+  "base": "phi_kiem",
+  "grade": 2,
+  "modifiers": [
+   {"key": "attack_pct", "value": 10, "scope": ["sword"]},
+   {"key": "crit_chance_pct", "value": 7, "scope": ["sword"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["sword"]},
+   {"key": "crit_damage_pct", "value": 20, "scope": ["sword"]},
+   {"key": "khi_huyet_pct", "value": 4, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "blade-mirror-trace-cut",
+    "name": "Mirror-Trace Cut (Kính Ngấn Trảm)",
+    "element": "metal",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": ["kim", "sword", "artifact", "quick"],
+    "c_art": 1.7,
+    "cost_share": 0.032,
+    "cooldown": 3,
+    "kind": "elem",
+    "counters": [{"id": "afterimage", "decay_per_pulse": 0.1}],
+    "effects": [
+     {
+      "id": "blade-mirror-trace-crit-afterimage",
+      "on": "crit",
+      "filter": {"art_id": "blade-mirror-trace-cut"},
+      "limit": {"cooldown": 1},
+      "do": [{"counter": {"id": "afterimage", "add": 3}}]
+     }
+    ],
+    "rule": "A quick Metal cut that polishes the air into a mirror. A critical hit leaves 3 Afterimages.",
+    "hooks": ["afterimage count", "crit", "art speed"],
+    "sources": ["item:blade-mirror-trace-sword"]
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "notes": "Answers: unique-unbroken-edge-ring: a way to bank Afterimages faster on crit, beyond Phantom Sword. Plain modifiers about 21.7 W of the 25.6 W grade 2 budget.",
+  "lore": "Its flat is polished so true that every cut that lands leaves a second blade hanging in the air.",
+  "build_use": "The Afterimage Sword Canon and The Sword Hall: a crit banks 3 Afterimages, which Sword Rain and the Thousand-Cut Return spend."
  }
 ]

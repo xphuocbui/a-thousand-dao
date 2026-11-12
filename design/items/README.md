@@ -1,7 +1,7 @@
 # Named-Item Catalogue
 
-> **Status**: First complete draft, 2026-11-12: 130 named items in 13 families, accepted for now by the user. Not in
-> game data.
+> **Status**: First complete draft, 2026-11-12, patched 2026-11-13: 168 named items in 13 families, accepted for now by
+> the user. Not in game data.
 > **Rules**: `design/gdd/item-database.md` rules 6 (roles), 11 (base and extra slots), 20 (named items: copies,
 > sources, refining), 21 (what an item gives, a blueprint with marked exceptions) and Formulas I (the plain-modifier
 > budget); modifiers priced by `design/gdd/modifiers.md` Formulas A–B; Effects from `design/gdd/effects.md`; item arts
@@ -63,9 +63,18 @@ rule}], `exception` (a reason, when the item breaks the rule 21 blueprint), `sou
 8. **The 27 new Effects are accepted for now** (each marked `status` in its record). They are not in `effects.md` yet;
    promoting them is a separate, section-by-section step.
 
+## Patch 2026-11-13 (from the engine-v3 build round)
+
+38 items appended to the 13 families (168 in all, 27 unique), each answering asks the playtested builds made
+(`_logs/patch/asks-<family>.md`, and `notes` on each item says which): 8 armour pieces with standing drain wards the
+combat sim runs, 10 rings above grade 1 (thunder, wind and fire among them), 6 cheap extras at 10 thần thức, 10 items
+with `than_thuc_pct`, and lost signature pieces of the old builds (Embers Feed the Hearth, Scatter Gale, Owed Water,
+the Armoury Banner). 8 more new Effects, marked "accepted for now" like the first 27. No existing item changed; the
+lint is clean. Asks that are not items (engine, effects.md, enemy design, techniques) are in `_logs/patch/not-items.md`.
+
 ## Open
 
-- **Promote the 27 new Effects into `effects.md`** (with the user, section by section). Worth a look then:
+- **Promote the 35 new Effects into `effects.md`** (with the user, section by section). Worth a look then:
   Deep Freeze (ice) is Rime Lock repeating at every 10 Ice stacks, and five Effects now delay the foe's next art
   (Soul Wound, Rime Lock, Deep Freeze, Plucked Time, Gripping Root), so delay may need one shared rule.
 - **Fan the Pyre** in the fight sim before the items go into data.

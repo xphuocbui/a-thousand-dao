@@ -368,6 +368,66 @@ def t_stack_duration():  # modifiers.md stack_duration_pct
     check("... and a Fire buff batch keeps 6 s", A.buffs[-1][2] - f.t == 6000, str(A.buffs[-1][2] - f.t))
 
 
+def t_extra_wards():     # Combat Defence & Healing rules 5-8: drain, per-hit, reserved and cast wards beside the main ward
+    fire = {"id": "veil", "model": "per_hit", "payload": {"fire": 200.0}, "cost": 0.02}
+    f, A, B = setup(b=dummy(wards=[fire], ward_pts=0.0))
+    q0 = B.qi
+    xs = f.extra_wards(B, "fire", False)
+    check("per-hit ward: meets a Fire hit and pays its fee", len(xs) == 1 and abs(q0 - B.qi - 0.02 * B.qi_max()) < 1e-9)
+    check("per-hit ward: meets no Physical part and no tick",
+          f.extra_wards(B, "phys", False) == [] and f.extra_wards(B, "fire", True) == [])
+    cast = {"id": "shell", "model": "cast", "payload": {"phys": 70.0}, "cost": 0.03, "cooldown": 5.0, "up": 2.0}
+    f, A, B = setup(b=dummy(wards=[cast]))
+    check("cast ward: down before it is cast", f.extra_wards(B, "phys", False) == [])
+    f.cast_wards(B)
+    up = f.extra_wards(B, "phys", False)
+    f.t += 2500
+    f.cast_wards(B)
+    check("cast ward: up for its window, then down until its cooldown",
+          len(up) == 1 and f.extra_wards(B, "phys", False) == [])
+    shield = {"id": "gold", "model": "cast", "payload": {}, "shield": 0.1, "cost": 0.02, "cooldown": 4.0, "up": 3.0}
+    f, A, B = setup(b=dummy(wards=[shield]))
+    n0 = len(B.wshields)
+    f.cast_wards(B)
+    check("cast shield: casting adds a bar of 0.1 x qi", len(B.wshields) == n0 + 1
+          and abs(B.wshields[-1]["left"] - 0.1 * B.qi_base) < 1e-9)
+    f.t += 3500
+    f.cast_wards(B)
+    check("cast shield: the bar is gone when the window ends", len(B.wshields) == n0)
+    res = {"id": "lake", "model": "reserved", "payload": {"all": 50.0}}
+    f, A, B = setup(b=dummy(wards=[res]))
+    B.qi = 0.0
+    check("reserved ward: up even with no linh lực left", len(f.extra_wards(B, "phys", False)) == 1)
+
+
+def t_parse_ward():      # fight.py parse_ward: ward records in the GDD's own words
+    import fight as F
+    w, skip = F.parse_ward({"payload": "Fire 240 points", "payment": "drain 0.176", "activation": "standing"})
+    check("parse: Fire 240 points, drain 0.176", w["model"] == "drain" and w["payload"] == {"fire": 240.0}
+          and w["drain_base"] == 0.176 and not skip)
+    w, skip = F.parse_ward({"payload": "shield σ 0.135", "payment": "cast 0.036", "activation": "cast, cooldown 4 s, up 3 s"})
+    check("parse: shield σ 0.135, cast, cooldown 4, up 3", w["model"] == "cast" and w["shield"] == 0.135
+          and w["cooldown"] == 4.0 and w["up"] == 3.0 and w["cost"] == 0.036)
+    w, skip = F.parse_ward({"payload": "block 60, evade +12 pp", "payment": "reserved 0.47"})
+    check("parse: block 60 runs, evade is reported", w["block"] == 60.0 and w["reserve"] == 0.47 and len(skip) == 1)
+
+
+def t_armour_ward_slot():   # AC-CD-14b: each worn armour brings a ward slot for its own ward (2026-11-13)
+    import fight as F
+    arts = [{"id": "a%d" % i} for i in range(3)]          # Qi Refining: 3 art slots, all full
+    armour = {"name": "plate", "payload": "all 100 points", "payment": "drain 0.3", "own_slot": True}
+    armour2 = dict(armour, name="second plate")
+    bell = {"name": "bell", "payload": "all 100 points", "payment": "per hit 0.035"}
+    d = {"realm": "luyen_khi", "arts": arts, "wards": [armour, armour2, bell]}
+    notes = []
+    out, _ = F.extra_wards(d, 0, notes, "t", 1.0, 0.0)
+    names = [n.split("\t")[2].split(" (")[0] for n in notes]
+    check("AC-CD-14b: two armour wards up beside the main ward at Qi Refining", names == ["plate", "second plate"],
+          str(names))
+    check("AC-CD-14b: the bell finds no slot (the realm's one slot holds the main ward, art slots full)",
+          any("bell" in u and "no free ward or art slot" in u for u in d["unmodelled"]))
+
+
 def t_static_lines():    # fight.py apply_static: item and technique lines that change the build itself
     import fight as F
     d, un = {"realm": "truc_co"}, []

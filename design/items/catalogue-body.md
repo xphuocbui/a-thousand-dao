@@ -15,6 +15,10 @@
 | **Echo-Skin Drum (Hưởng Bì Cổ)** | Cổ · extra slot (utility) | Thượng (High) (4) | Effect: Echo | 32.5 of 38.3 |
 | **Vajra-Hide Armour (Kim Cương Bì Giáp)** | Giáp · armour slot | Cực (Peak) (5, unique) | ward: Vajra Shell; Effect: Shield Pays the Blood (new) | 50.3 of 51.1 |
 | **Mountain-Splitting Axe (Phích Sơn Phủ)** | Phủ · weapon slot | Cực (Peak) (5, unique) | art: Splitting the Mountain; Effect: Blood Drinker | 42.8 of 51.1 |
+| **Iron-Gate Armour (Thiết Môn Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Iron-Gate Ward | 36.6 of 38.3 |
+| **Ring of the Answering Stone (Ứng Thạch Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Stone Answers (new) | 34.6 of 38.3 |
+| **Pledge Anchor (Thệ Cốt Mao)** | Mao · weapon slot | Thượng (High) (4) | art: Pledge Drop | 36.2 of 38.3 |
+| **Pendant of the First Stand (Tiên Lập Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | Effect: First Stand (new) | 24.0 of 25.6 |
 
 ## Bone Cleaver (Phách Cốt Phủ)
 
@@ -150,4 +154,56 @@
 **Modifiers:** +25 % damage [physical] · 20.0 W; +40 % health leech · 8.4 W; +14 % maximum health (khí huyết) · 8.4 W; +6 % realm pierce · 6.0 W
 
 **Placed at world start:** A Nascent Soul thể tu who has held it since the last sect war; otherwise the final reward of a Legendary quest in a body sect's ruins
+
+
+## Iron-Gate Armour (Thiết Môn Giáp)
+
+*Giáp (Armour), armour slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, quest and sect rewards, NPC holders*
+
+> Plates riveted from a sect gate's iron bands; the gate warden's own qi leaks into them and never stops.
+
+**Build use.** A standing drain ward above the starter for body-and-Earth walls, with a body shield and regrowth under it.
+
+**Ward: Iron-Gate Ward (Thiết Môn Chướng)**: all 513.8 points; drain 0.492; standing. Price check from Common Ward (Hộ Thể Chân Khí). The starter ward at 1.5 times its payload and its drain, so the price check is unchanged (3.049 of 3.050)
+
+**Modifiers:** +14 % maximum health (khí huyết) · 8.4 W; +8 % ward strength · 8.0 W; +20 % body shield · 10.2 W; +20 % health regeneration, increased · 6.0 W; +10 block · 4.0 W
+
+
+## Ring of the Answering Stone (Ứng Thạch Giới)
+
+*Nhẫn (Ring), ring slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A ring cut from a gate-stone that rang back every ram thrown at it.
+
+**Build use.** Mirror Hide and Debt of Stone builds: what the shield stops comes back as a free Physical hit.
+
+**Effect (new): Stone Answers (Thạch Ứng)** (Trigger, trigger). When your body shield or a ward stops damage, you strike back with a free Physical hit worth 25 % of the damage stopped, at most 6 % of your maximum health per pulse. *Payload:* A free Physical hit (Return channel), capped per pulse. *Closes:* None (a trigger; the cap per pulse is its limit)
+
+**Modifiers:** +18 % body shield · 9.2 W; +14 % maximum health (khí huyết) · 8.4 W; +20 block · 8.0 W; +6 % ward strength · 6.0 W; +6 % healing · 3.0 W
+
+
+## Pledge Anchor (Thệ Cốt Mao)
+
+*Mao (Anchor), weapon slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, quest and sect rewards, NPC holders*
+
+> A ship's anchor that body cultivators swear oaths on, paying a measure of blood at each drop.
+
+**Build use.** Debt of Stone and Last Marrow builds: a health-paid art that writes Debt without hits and is a fifth canon art.
+
+**Art: Pledge Drop (Thệ Cốt Trầm)** (damage, engine, c 2.00, cost 0.040, cooldown 6 s). Counts as an Unbroken Flesh Canon art. An anchor dropped on a pledge of 6 % of your health: it writes 3 Debt and hardens a little body shield without taking a single hit. With 4 Debt the pledge is called in: 3 times as hard, spending the Debt.
+
+**Modifiers:** +14 % damage [physical] · 11.2 W; +14 % maximum health (khí huyết) · 8.4 W; +16 % body shield · 8.2 W; +40 % health leech · 8.4 W
+
+
+## Pendant of the First Stand (Tiên Lập Bội)
+
+*Ngọc Bội (Necklace (jade pendant)), necklace slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A pendant of gate-stone worn by wardens who meet the first blow already hardened.
+
+**Build use.** Mountain-Splitting Axe and Bulwark builds: the 30 % body shield gate is open from the first pulse.
+
+**Effect (new): First Stand (Tiên Lập)** (Rule change, trigger). At the start of a fight, your body shield is already raised to 30 % of your maximum health. *Payload:* Body shield set to 30 % of health at t = 0. *Closes:* None (once, at the start; it does not refill)
+
+**Modifiers:** +20 % body shield · 10.2 W; +8 % maximum health (khí huyết) · 4.8 W; +30 % health regeneration, increased · 9.0 W
 

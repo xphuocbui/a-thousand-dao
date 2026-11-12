@@ -228,7 +228,9 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     them, so they stay deliberate and visible. Rolled affixes never break it. By default, every equippable piece gives
     modifiers (its rolled affixes, or a named item's authored modifiers) and, by its role:
     - **Weapon** (in the weapon slot, or a weapon treasure in an extra slot): **one attack art**.
-    - **Armour (`body_gear`) and ward gear** (a bell, a shield): **one ward art**.
+    - **Armour (`body_gear`) and ward gear** (a bell, a shield): **one ward art**. A worn armour also brings the ward
+      slot its ward sits in (Combat Defence & Healing rule 5, user decision 2026-11-13); ward gear's ward takes an
+      ordinary ward or art slot.
     - **Ring, necklace and utility** (a flag, a gourd, a mirror, a drum): **an Effect, or modifiers only, and optionally a
       reserve art**. A reserve art is always on and pays by reserving a share of maximum linh lực, as reserved wards do
       (Combat Defence & Healing rule 10).

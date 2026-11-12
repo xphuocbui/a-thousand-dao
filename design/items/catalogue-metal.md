@@ -15,6 +15,11 @@
 | **Ring of the Returning Edge (Phong Hồi Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Edge Returns the Breath (new) | 36.4 of 38.3 |
 | **Heaven-Minted Coin (Thiên Đúc Tiền Tiêu)** | Tiền Tiêu · weapon slot | Cực (Peak) (5, unique) | art: Golden Coin Rain; Effect: Seal of Full Payment | 46.6 of 51.1 |
 | **Blood-Seasoned Whetstone (Huyết Tẩm Ma Thạch)** | Lạc Thiết · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Blood Casting; Effect: Whetstone Vow (new); reserve: Whetstone Hum | 43.2 of 51.1 |
+| **Ironwall Plate (Thiết Bích Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Ironwall Drain | 35.2 of 38.3 |
+| **Giantfall Ring (Đồ Cự Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | modifiers only | 21.4 of 25.6 |
+| **Black-Nail Needle (Hắc Đinh Châm)** | Châm · weapon slot | Trung (Middle) (3) | art: Black-Nail Prick | 21.6 of 25.6 |
+| **Clear-Mind Jade (Minh Tâm Ngọc Bội)** | Ngọc Bội · necklace slot | Hạ (Low) (2) | modifiers only | 12.8 of 12.8 |
+| **Armoury Banner (Binh Khí Kỳ)** | Kỳ · extra slot (utility) | Thượng (High) (4) | Effect: Armoury Count (new) | 27.0 of 38.3 |
 
 ## Copper Sling Coin (Đồng Tiền Tiêu)
 
@@ -156,4 +161,65 @@
 **Modifiers:** +20 % art costs shifted to health · 7.0 W; +25 % health leech · 5.2 W; +20 % maximum health (khí huyết) · 12.0 W; +30 % health regeneration, increased · 9.0 W; +25 block · 10.0 W
 
 **Placed at world start:** A Nascent Soul blood-forger of a demonic-path sect; otherwise Lost under a battlefield's bone mound
+
+
+## Ironwall Plate (Thiết Bích Giáp)
+
+*Giáp (Armour), armour slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, quest and sect rewards, NPC holders*
+
+> Riveted iron plate over a quilted coat; the wearer's breath runs through it like a bellows.
+
+**Build use.** A standing drain ward the engine can run, for Metal builds that took a cast ward and wanted a plain one.
+
+**Ward: Ironwall Drain (Thiết Bích Chân Khí)**: all 445.3 points; drain 0.426; standing. Price check from Common Ward (Hộ Thể Chân Khí). The Common Ward at 1.3 times its payload and its drain, so the price check is unchanged (3.049 of 3.050). A standing drain ward for plain Metal and Physical blows, no health spend.
+
+**Modifiers:** +20 % maximum health (khí huyết) · 12.0 W; +10 % ward strength · 10.0 W; +100 points resistance, all [physical] · 3.2 W; +10 block · 4.0 W; +20 % health regeneration, increased · 6.0 W
+
+
+## Giantfall Ring (Đồ Cự Giới)
+
+*Nhẫn (Ring), ring slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A ring filed from the tip of a broken spear; woodcutters wear it to fell trees taller than themselves.
+
+**Build use.** Giant-killer: realm pierce and a heavier Metal stack per hit, so a six-stack break lands before the fight ends.
+
+**Modifiers:** +10 % realm pierce · 10.0 W; +1 stacks per grant [kim, debuff] · 5.0 W; +8 % damage [physical] · 6.4 W
+
+
+## Black-Nail Needle (Hắc Đinh Châm)
+
+*Châm (Needle), weapon slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A coffin nail drawn out to a needle; whoever it pricks is said to come apart at the seams.
+
+**Build use.** Curse and status builds: a cheap Metal source of Sundered, with curse-scoped damage and duration instead of Metal stack boosts.
+
+**Art: Black-Nail Prick (Hắc Đinh Thích)** (damage, standalone, c 0.85, cost 0.025, cooldown 1.5 s). A quick Physical needle that lays 1 Sundered for 6 s.
+
+**Modifiers:** +12 % damage [curse] · 8.0 W; +20 % status duration [curse] · 6.0 W; +2 % crit chance [physical] · 1.6 W; +12 % accuracy · 6.0 W
+
+
+## Clear-Mind Jade (Minh Tâm Ngọc Bội)
+
+*Ngọc Bội (Necklace (jade pendant)), necklace slot · grade Hạ (Low), rarity 2, repeatable · from events and secret realms, crafting*
+
+> A cold white jade that sharpens the wits of whoever wears it against the whisper of spirits.
+
+**Build use.** Armoury Mind: a cheap soul-defence piece for the neck slot, standing in for the Thinned Mind close.
+
+**Modifiers:** +12 % soul resistance · 7.2 W; +6 % maximum health (khí huyết) · 3.6 W; +2 % maximum linh lực · 2.0 W
+
+
+## Armoury Banner (Binh Khí Kỳ)
+
+*Kỳ (Flag), extra slot (utility) · grade Thượng (High), rarity 4, repeatable · from events and secret realms, NPC holders, quest and sect rewards*
+
+> A war banner hung with a tassel for every blade its bearer owns.
+
+**Build use.** Armoury Mind: each weapon in the rack makes every hit heavier.
+
+**Effect (new): Armoury Count (Binh Khí Kê)** (Enablers, enabler). Your hits deal 4 % more for each equipped weapon-base artifact you carry. *Payload:* damage_more 4 per weapon-base artifact. *Closes:* Your wards are 15 % weaker.
+
+**Modifiers:** +15 % damage [artifact] · 10.0 W; +10 % art speed [artifact] · 4.0 W; +5 % crit chance [physical] · 4.0 W; +10 % artifact attack · 6.0 W; +5 % maximum health (khí huyết) · 3.0 W
 

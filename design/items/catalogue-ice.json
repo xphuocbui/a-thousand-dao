@@ -833,5 +833,86 @@
   "holder": "An elder of a northern sword sect at Core Formation or above; otherwise Lost in a snow-buried sword tomb",
   "lore": "A sword forged on the longest night of a winter that lasted three years, so that its light is the moon's.",
   "build_use": "The Frost Lock with the Stilled Hour Sutra: a sutra sword that stops time for a whole pulse when Volley and Instant have set the table."
+ },
+ {
+  "id": "ice-stilled-thread-needle",
+  "name": "Stilled Thread Needle (Đình Tuyến Châm)",
+  "family": "ice",
+  "kind": "artifact",
+  "base": "cham",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 16,
+    "scope": [
+     "cold"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 14,
+    "scope": [
+     "cold"
+    ]
+   },
+   {
+    "key": "status_duration_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 2,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "ice-stilled-thread-prick",
+    "name": "Stilled Thread Prick (Đình Tuyến Thích)",
+    "element": "ice",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": [
+     "cold",
+     "artifact",
+     "quick"
+    ],
+    "c_art": 0.8,
+    "cost_share": 0.02,
+    "cooldown": 2,
+    "kind": "elem",
+    "debuff": [
+     1,
+     8
+    ],
+    "statuses": [
+     {
+      "id": "slowed_time",
+      "stacks": 1,
+      "dur": 4
+     }
+    ],
+    "rule": "A needle that stitches the moment still: a quick Cold hit that lays 1 Ice stack for 8 s and 1 Slowed Time for 4 s.",
+    "hooks": [
+     "slowed time stacks",
+     "ice stacks"
+    ],
+    "sources": [
+     "item:ice-stilled-thread-needle"
+    ]
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A hair-thin needle of frost-silk steel; those pricked by it feel the next breath arrive late.",
+  "build_use": "Cheap on thần thức (base 10), so the last points of a full thần thức budget can be filled (Answers: dry-well: cheap utility piece for the last points). A second Slowed Time source outside the four Scripture arts (Answers: unique-ninth-tribulation-seal: second source of Slowed Time from the ice family).",
+  "notes": "Answers: dry-well: cheap extra piece to fill the last thần thức points; Answers: unique-ninth-tribulation-seal: a second Slowed Time source outside the Scripture arts"
  }
 ]

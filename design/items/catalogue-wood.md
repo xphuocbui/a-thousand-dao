@@ -15,6 +15,10 @@
 | **Ring of the Slow Garden (Hoãn Viên Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Spillover | 33.1 of 38.3 |
 | **Grave-Silk Robe (Mộ Ti Bào)** | Đạo Bào · armour slot | Cực (Peak) (5, unique) | ward: Grave-Silk Veil; Effect: Grave-Silk Shroud | 50.5 of 51.1 |
 | **Thousand Roots Banner (Vạn Căn Kỳ)** | Kỳ · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Gripping Root (new); reserve: Web of Roots | 48.4 of 51.1 |
+| **Venom-Drinker's Pendant (Ẩm Độc Bội)** | Ngọc Bội · necklace slot | Thượng (High) (4) | modifiers only | 34.2 of 38.3 |
+| **Moss-Ledger Robe (Đài Tịch Bào)** | Đạo Bào · armour slot | Trung (Middle) (3) | ward: Moss-Ledger Ward; Effect: Moss Ledger (new) | 22.2 of 25.6 |
+| **Packmate Collar (Bạn Thú Khuyên)** | Nhẫn · ring slot | Trung (Middle) (3) | Effect: Pack Hunt | 24.3 of 25.6 |
+| **Thorn-Seeding Ring (Chủng Cức Giới)** | Nhẫn · ring slot | Thượng (High) (4) | modifiers only | 32.0 of 38.3 |
 
 ## Bramble Needle (Kinh Cức Châm)
 
@@ -152,4 +156,54 @@
 **Modifiers:** +16 % art speed [moc] · 6.4 W; +20 % damage [physical] · 16.0 W; +24 % stack effect [moc, debuff] · 6.0 W; +4 % thần thức · 5.2 W; +10 % maximum linh lực · 10.0 W; +8 % maximum health (khí huyết) · 4.8 W
 
 **Placed at world start:** The keeper of a Green Wood Array grove in a Wood sect; otherwise Lost in a forest spirit's hollow
+
+
+## Venom-Drinker's Pendant (Ẩm Độc Bội)
+
+*Ngọc Bội (Necklace (jade pendant)), necklace slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A pendant of black amber with a bead of venom sealed inside; it warms each time the foe's poison bites.
+
+**Build use.** A Poison build's necklace: longer, stronger batches, and every tick feeds back health and linh lực. A grade 3 piece at 10 thần thức, so Cycle Seal and Bulwark are not forced to fill the limit.
+
+**Modifiers:** +40 % stack duration [moc, debuff] · 8.0 W; +36 % stack effect [moc, debuff] · 9.0 W; +6 % linh lực leech [over_time] · 5.8 W; +30 % health leech [over_time] · 4.2 W; +12 % maximum health (khí huyết) · 7.2 W
+
+
+## Moss-Ledger Robe (Đài Tịch Bào)
+
+*Đạo Bào (Robe), armour slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, quest and sect rewards*
+
+> A light robe of grey cloth under a coat of moss that remembers every wound laid on a foe.
+
+**Build use.** The Wood poisoner's light armour: Poison that a cleanse cannot strip for its first seconds, longer and stronger batches, and a standing ward the engine can run.
+
+**Ward: Moss-Ledger Ward (Đài Tịch Chướng)**: all 274 points; drain 0.2624; standing. Price check from Common Ward (Hộ Thể Chân Khí). The Common Ward at 0.8 times its payload and its drain, so the price check is unchanged (3.049 of 3.050)
+
+**Effect (new): Moss Ledger (Đài Sổ)** (Rule change, minor). Poison stacks you lay cannot be cleansed for their first 4 s. *Payload:* A 4 s cleanse-immunity window on each Poison batch you lay.
+
+**Modifiers:** +30 % stack duration [moc, debuff] · 6.0 W; +20 % stack effect [moc, debuff] · 5.0 W; +10 % maximum health (khí huyết) · 6.0 W; +4 % thần thức · 5.2 W
+
+
+## Packmate Collar (Bạn Thú Khuyên)
+
+*Nhẫn (Ring), ring slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A ring of braided vine that a beast wears as a collar, its keeper as a band.
+
+**Build use.** The beast carry: the companion hits harder and faster, and harder still on a target bearing any of your statuses.
+
+**Effect: Pack Hunt** (effects.md). Your companion's hits deal more to a target bearing any of your statuses.
+
+**Modifiers:** +22 % damage [companion] · 14.7 W; +12 % art speed [companion] · 4.8 W; +8 % maximum health (khí huyết) · 4.8 W
+
+
+## Thorn-Seeding Ring (Chủng Cức Giới)
+
+*Nhẫn (Ring), ring slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A ring set with thorns turned inward; each cast leaves one more of them in the foe.
+
+**Build use.** The poisoner's ring: every Wood art lays one more Poison stack, not a longer one.
+
+**Modifiers:** +1 stacks per grant [moc, debuff] · 5.0 W; +20 % stack effect [moc, debuff] · 5.0 W; +18 % damage [over_time] · 12.0 W; +10 % art speed [moc] · 4.0 W; +10 % maximum health (khí huyết) · 6.0 W
 

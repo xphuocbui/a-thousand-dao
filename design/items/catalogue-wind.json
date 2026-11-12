@@ -756,5 +756,108 @@
   "holder": "A travelling Nascent Soul cultivator, or Lost in the last waystation of a road that no longer exists",
   "lore": "Said to be the cloak of the first man to cross the sea on foot; it has never been seen to touch the ground.",
   "build_use": "The Untouchable: Cold Feet and Beneath Notice make fleeing a higher-realm foe likely, and the veil's evade keeps the rest of the fight from starting."
+ },
+ {
+  "id": "wind-slipstream-ring",
+  "name": "Slipstream Ring (Phong Lưu Giới)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "art_speed_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "art_cost_pct",
+    "value": -8,
+    "scope": []
+   },
+   {
+    "key": "evade_pct",
+    "value": 3,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_on_hit_pct",
+    "value": 0.2,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A ring of braided copper wire that hums when an art is thrown; the air behind it is never quite still.",
+  "build_use": "The cooldown-floor build's second real ring: faster arts that cost less, and a little linh lực back on every hit, so a build that pays per hit stays fed.",
+  "notes": "Answers: cooldown-floor: a Wind ring above grade 1 with art speed and cost reduction; also lowers art cost and feeds linh lực per hit"
+ },
+ {
+  "id": "wind-scatter-gale-pendant",
+  "name": "Scatter-Gale Pendant (Tán Phong Bội)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "evade_pct",
+    "value": 5,
+    "scope": []
+   },
+   {
+    "key": "status_resist_pct",
+    "value": 15,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 2,
+    "scope": []
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 4,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "scatter-gale",
+    "name": "Scatter Gale (Tán Phong)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "When you evade, you cleanse your own debuff stacks, at most 2 batches every 6 s.",
+    "reads": "Your evades, instant",
+    "payload": "Cleanse of your own debuff stacks, 2 batches per 6 s",
+    "closes": "",
+    "hosts": "Item, Way, Tech",
+    "from": "variant-wind.md, The Evade Dancer (the lost Scatter Gale)",
+    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+   }
+  ],
+  "sources": [
+   "event",
+   "npc",
+   "quest"
+  ],
+  "lore": "A jade pendant split along its length; when the wind takes it, whatever clung to you is blown off.",
+  "build_use": "The Evade Dancer: every dodge sweeps your own stacks away, so evading doubles as the build's cleanse, on top of evade, status resistance and linh lực regeneration.",
+  "notes": "Answers: evade-dancer: an evade-cleanse treasure (the lost Scatter Gale), 2 batches per 6 s"
  }
 ]

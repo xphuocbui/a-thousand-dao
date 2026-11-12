@@ -15,6 +15,9 @@
 | **Tribulation Rod (Độ Kiếp Lôi Trượng)** | Lôi Trượng · extra slot (utility) | Thượng (High) (4) | Effect: Lightning Drinker (new) | 35.3 of 38.3 |
 | **Seal of the Ninth Tribulation (Cửu Kiếp Lôi Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Ninth Verdict; Effect: Verdict Stands (new) | 44.0 of 51.1 |
 | **Heartbeat of Heaven Drum (Thiên Tâm Lôi Cổ)** | Cổ · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Drumbeat (new); reserve: Heaven's Pulse | 44.8 of 51.1 |
+| **Winnings Band (Lôi Thắng Giới)** | Nhẫn · ring slot | Thượng (High) (4) | modifiers only | 34.1 of 38.3 |
+| **Stormveil Robe (Lôi Mạc Bào)** | Đạo Bào · armour slot | Trung (Middle) (3) | ward: Stormveil Drain | 24.5 of 25.6 |
+| **Lightning Step Charm (Lôi Bộ Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | Effect: Cold Feet | 24.1 of 25.6 |
 
 ## Spark Needle (Lôi Tinh Châm)
 
@@ -154,4 +157,41 @@
 **Modifiers:** +12 % crit chance [lightning] · 8.0 W; +12 % art speed [lightning] · 4.8 W; +60 % crit damage [lightning] · 12.0 W; +15 % linh lực regeneration, increased · 12.0 W; +8 % maximum linh lực · 8.0 W
 
 **Placed at world start:** The head of a Thunder sect, kept in its rain-calling hall; otherwise Lost in a drowned thunder temple
+
+
+## Winnings Band (Lôi Thắng Giới)
+
+*Nhẫn (Ring), ring slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A ring of braided gold and storm-iron, won in a dice game under a thunderhead; every bolt that lands pays the wearer back.
+
+**Build use.** The Crit Storm and the gambler builds: a grade 3 Lightning ring where each crit refunds linh lực, so fast crit arts feed their own pool.
+
+**Modifiers:** +1.5 % linh lực on crit · 9.4 W; +10 % crit chance [lightning] · 6.7 W; +50 % crit damage [lightning] · 10.0 W; +10 % art speed [lightning] · 4.0 W; +6 % damage [lightning] · 4.0 W
+
+
+## Stormveil Robe (Lôi Mạc Bào)
+
+*Đạo Bào (Robe), armour slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, quest and sect rewards*
+
+> A grey robe threaded with rain-silk; its qi hangs about the wearer like a thundercloud and is spent slowly.
+
+**Build use.** The Crit Storm: a standing drain ward the engine can run, with lightning resistance and crit and speed on the side.
+
+**Ward: Stormveil Drain (Lôi Mạc Hộ)**: all 445.25 points; drain 0.4264; standing. Price check from Common Ward (Hộ Thể Chân Khí). The Common Ward at 1.3 times its payload and its drain, so the price check is unchanged (3.049 of 3.050)
+
+**Modifiers:** +150 points resistance, all [lightning] · 4.0 W; +10 % art speed [lightning] · 4.0 W; +6 % crit chance [lightning] · 4.0 W; +5 % thần thức · 6.5 W; +10 % maximum health (khí huyết) · 6.0 W
+
+
+## Lightning Step Charm (Lôi Bộ Bội)
+
+*Ngọc Bội (Necklace (jade pendant)), necklace slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A jade sliver that flickers like a bolt between clouds; the wearer is gone before the thunder arrives.
+
+**Build use.** The Crit Storm: an escape piece for Lightning Step, whose first firing comes at once and whose escape cools faster.
+
+**Effect: Cold Feet** (effects.md). Your escape art's first firing comes at cooldown_min.
+
+**Modifiers:** +15 % art speed [escape] · 4.5 W; +8 % art speed [lightning] · 3.2 W; +6 % crit chance [lightning] · 4.0 W; +4 % evade · 6.0 W; +8 % linh lực regeneration, increased · 6.4 W
 

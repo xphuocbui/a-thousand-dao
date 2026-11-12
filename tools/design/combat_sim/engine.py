@@ -190,6 +190,11 @@ class Build:
     reserved: float = 0.0
     stack_eff: dict = field(default_factory=dict)
     stack_dur: dict = field(default_factory=dict)
+    # extra wards beside the main drain ward (2026-11-13) [Combat Defence & Healing rules 5-8]: each
+    # {id, model: drain | per_hit | reserved | cast, payload {dtype or "all": points}, block, shield (share of qi_base),
+    #  cost (per-hit fee or cast cost, share of qi), drain (engine drain units), cooldown, up}; numbers already scaled
+    # by ward strength and efficiency by the loader. A reserved ward's share is in `reserved`.
+    wards: list = field(default_factory=list)
 
 
 def from_sim(b):
@@ -232,6 +237,13 @@ class Side:
         self.body_bar = b.body_shield * self.hp_max
         self.wshields = [dict(s=s, left=s.size * self.qi_base * (s.pieces and 1), quiet_since=0, pieces_left=s.pieces)
                          for s in b.shields]
+        # extra wards: standing ones are up from the start; a standing shield ward joins the ward shields
+        self.xwards = []
+        for w in b.wards:
+            self.xwards.append(dict(w=w, up=w["model"] != "cast", until=0, ready=0, bar=None))
+            if w.get("shield") and w["model"] != "cast":
+                self.wshields.append(dict(s=Shield(size=w["shield"]), left=w["shield"] * self.qi_base, quiet_since=0,
+                                          pieces_left=1))
         self.tam_ma = b.tam_ma
         self.ts_spent = 0.0
         self.buffs, self.debuffs = [], []          # [element, stacks, t_end_ms(None=fight), source]
@@ -622,9 +634,35 @@ class Fight:
         self.fire_event(s, "pulse", {})
 
     # ---------------------------------------------------------- acting
+    def cast_wards(self, s):
+        """Cast wards [Combat Defence & Healing rule 7]: fired on their cooldown when linh lực pays the cast cost,
+        up for their window; a cast shield's bar lasts the window."""
+        for xw in s.xwards:
+            w = xw["w"]
+            if w["model"] != "cast":
+                continue
+            if xw["up"] and self.t >= xw["until"]:
+                xw["up"] = False
+                if xw["bar"] is not None and xw["bar"] in s.wshields:
+                    s.wshields.remove(xw["bar"])
+                xw["bar"] = None
+            if not xw["up"] and self.t >= xw["ready"]:
+                cost = w.get("cost", 0.0) * s.qi_base
+                if s.qi + 1e-9 < cost:
+                    continue
+                s.qi -= cost
+                s.spent += cost
+                xw["up"], xw["until"], xw["ready"] = True, self.t + ms(w.get("up", 3.0)), self.t + ms(w.get("cooldown", 5.0))
+                if w.get("shield"):
+                    xw["bar"] = dict(s=Shield(size=w["shield"], standing=False), left=w["shield"] * s.qi_base,
+                                     quiet_since=self.t, pieces_left=1)
+                    s.wshields.append(xw["bar"])
+
     def act(self, s):
         if s.down:
             return
+        if s.xwards:
+            self.cast_wards(s)
         o = s.foe
         b = s.b
         speed = 1 + s.bsum("speed") + (b.art_speed_pct + self.mod(s, "art_speed")) / 100
@@ -831,21 +869,49 @@ class Fight:
         Rc = dfn.st("sundered") * STATUS["sundered"]["res_pts"] + dfn.st("exposed") * STATUS["exposed"]["res_all"]
         return Rw, Rb + Rc
 
+    def extra_wards(self, dfn, dtype, is_tick):
+        """The extra wards up against this hit part: [(ward, resistance points)]. A per-hit ward pays its fee here
+        and meets no ticks; every ward but a reserved one needs live linh lực, as the main ward does."""
+        out = []
+        for xw in dfn.xwards:
+            w = xw["w"]
+            if not xw["up"] or (w["model"] != "reserved" and dfn.qi <= 0):
+                continue
+            pts = w["payload"].get(dtype, 0.0) + w["payload"].get("all", 0.0)
+            if pts <= 0 and not w.get("block"):
+                continue
+            if w["model"] == "per_hit":
+                if is_tick:
+                    continue
+                fee = w.get("cost", 0.0) * dfn.qi_max()
+                if dfn.qi + 1e-9 < fee:
+                    continue
+                dfn.qi -= fee
+                dfn.spent += fee
+            out.append((w, pts * dfn.b.ward_layer))
+        return out
+
     def defend(self, att, dfn, D, dtype, art, ctx, is_tick=False):
         """Resistance with the drain bill, block, shields, health. Returns health removed."""
         if dtype == "soul":
             dfn.hp -= D
             return D
         Rw, Ro = self.resistance(dfn, dtype)
-        R = Rw + Ro
+        xs = self.extra_wards(dfn, dtype, is_tick) if dfn.xwards else []
+        R = Rw + Ro + sum(r for _, r in xs)
         if R >= 0:
             prevented = D * R / (100 + R) if R > 0 else 0.0
             bill_share = prevented * Rw / R if R > 0 else 0.0
         else:
             prevented = -D * abs(R) / 100   # negative: amplified
             bill_share = 0.0
-        bill = bill_share * dfn.b.drain * K["drain_scale"] / dfn.b.ward_layer / dfn.g
-        bill *= (1 + (att.b.ward_bill_pct + self.mod(att, "ward_bill")) / 100) * (1 + dfn.st("leaking_ward") * STATUS["leaking_ward"]["bill_up"])
+        bill_up = (1 + (att.b.ward_bill_pct + self.mod(att, "ward_bill")) / 100) * (1 + dfn.st("leaking_ward") * STATUS["leaking_ward"]["bill_up"])
+        bill = bill_share * dfn.b.drain * K["drain_scale"] / dfn.b.ward_layer / dfn.g * bill_up
+        for w, r in xs:                     # an extra drain ward bills for the share of prevention it holds
+            if w["model"] == "drain" and R > 0 and prevented > 0:
+                share = prevented * r / R
+                bill_share += share
+                bill += share * w.get("drain", 0.0) * K["drain_scale"] / dfn.b.ward_layer / dfn.g * bill_up
         if bill > 0:
             if bill > dfn.qi:
                 frac = dfn.qi / bill
@@ -855,7 +921,8 @@ class Fight:
                 dfn.qi -= bill
         a = D - prevented
         # block (not for ticks unless an Effect lets a share meet them, R24)
-        blk = BLOCK_UNIT[dfn.b.realm] * (dfn.b.block + self.mod(dfn, "block") + dfn.b.body_block * dfn.b.bs_mult)
+        blk = BLOCK_UNIT[dfn.b.realm] * (dfn.b.block + self.mod(dfn, "block") + dfn.b.body_block * dfn.b.bs_mult
+                                         + sum(w.get("block", 0.0) for w, _ in xs))
         if is_tick:
             blk *= self.mod(dfn, "tick_block") / 100
         a = max(0.0, a - blk)

@@ -110,3 +110,27 @@ Refought on the new engine, each build without gear (engine-v2) against with gea
 - **Reservation has a real cost.** Curse Engine's 10 % reserve pendant (Ledger Murmur) costs it 8 of 20 top-end fights:
   without that one item it wins 20-0 again. Pacifist also lost health. A build that runs close to dry should not wear a
   reserve art; the guides' loadouts were chosen before reservation was run.
+
+## Correction 2026-11-13: the typical enemy is not too weak
+
+"Read these numbers with care" points 1 and 3 were wrong. Measured on the current engine, the **typical mirror** (typical
+against typical) lasts 35.4 / 38.0 / 44.5 / 53.2 / 61.4 s from Qi Refining to Deity Transformation: inside the 30–60 s band,
+Deity Transformation a second over. The note that the fitted enemies run short (25.6 s at Trúc Cơ, 20.0 s at Kết Đan)
+came from `design/arts/README.md` and predates later engine changes. So the 1–9 s same-realm fights mean these builds
+are far stronger than a typical cultivator, close to the top-end enemy (which beats typical in 2 s by design, a
+regression anchor). No refit of Combat Formulas B is proposed.
+
+The double counting of point 3 is small: rolled gear gives no increased damage, so named items' damage lines do not
+overlap the builds' layers; only the gear layer L3 is shared, and both use it the same way. See GEAR-BASELINE.md.
+
+## Addendum 2026-11-13: wards
+
+The sim now runs extra wards beside the main drain ward: drain, per-hit, reserved and cast wards, shield and block
+payloads, in the free ward slots (1 / 1 / 2 / 3 / 4 by realm, plus up to 2 from thần thức) and then the free art slots.
+Item wards load automatically. Across the 38 builds, 42 item wards found a slot and 21 did not, most at Trúc Cơ and Kết
+Đan, where the main ward takes the only slot. Results moved a little both ways: Dry Well survives the top-end enemy twice
+as long (18.8 to 39.2 s); Evade Dancer's cast wards cost linh lực it needed, and it drops from 20 to 12 top-end wins.
+
+**Armour brings its own ward slot** (user decision 2026-11-13, Combat Defence & Healing rule 5, AC-CD-14b): each worn armour
+adds a ward slot that holds only its own ward. With it, 58 item wards find a slot across the 38 builds (42 before) and
+only 5 do not, all ward gear (bells, shields) competing for the realm's ordinary slots.

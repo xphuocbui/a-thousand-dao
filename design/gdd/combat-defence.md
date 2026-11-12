@@ -2,7 +2,7 @@
 
 > **Status**: **Approved 2026-11-10** (combat review, `reviews/combat-review-2026-11-10/`, five headless rounds; round 4 and 5 approved). Revised the same day: resistance in points with no cap or floor, no per-ward resistance maximum, no ward strength or efficiency ceiling, shield wards and Clear Heart Ward re-priced, art costs read the start maximum, Ice on art-slot wards only, Water's gain usable, full heal refund (user decisions). Before that: the Combat economy revision #44 (2026-11-09, `design/research/economy-revision-44-decisions.md`), designed 2026-11-07, reviews 2026-11-08 to 08c; the full history is in `reviews/combat-defence-review-log.md` and the review folders
 > **Author**: user + agents
-> **Last Updated**: 2026-11-11 (ward and body layers: top-end defence on par with top-end offence, Formulas A0; earlier 2026-11-10: third review round, shield and Clear Heart re-price, no ward strength ceiling, start-maximum art costs)
+> **Last Updated**: 2026-11-13 (each worn armour brings a ward slot for its own ward, rule 5, user decision; earlier 2026-11-11: ward and body layers: top-end defence on par with top-end offence, Formulas A0; earlier 2026-11-10: third review round, shield and Clear Heart re-price, no ward strength ceiling, start-maximum art costs)
 > **Last Verified**: 2026-11-10 (fifth confirming review: **approved**, `reviews/combat-review-2026-11-10/round5/`; its notes applied)
 > **Implements Pillar**: Power Is Built, Not Given (3); Every Number Is Bounded and Visible (2); Your Dao, Your Name (1)
 > **Parent system**: Combat (#21, `design/gdd/combat.md`). This is sub-system #21a. It owns the whole defence path (evade, resistance, block, wards and body shields, health, soul and status defence) and healing in a fight. Combat keeps offence, the timeline, triggers and results, and is revised afterwards to point here (systems-index design order, user decision 2026-11-07).
@@ -139,6 +139,9 @@ stronger or last forever on regeneration. It also gives healing builds the rule 
      `ward_slot_sense_step` times its realm's reference thần thức, and +1 more at twice that step, for at
      most +2.
    - **By modifiers:** a rare modifier, +1 ward slot (Modifier System rule 13).
+   - **By armour** (user decision 2026-11-13): each worn armour piece (a `body_gear` item, Item Database rule 11)
+     brings one ward slot of its own, which holds only that armour's ward. So armour never competes with the Common
+     Ward for a realm's few slots. An armour without a ward brings no slot.
 
    A ward in an ordinary art slot gives up that art. Creatures and NPCs follow the same rules.
 
@@ -700,7 +703,7 @@ linh lực (pre-#44: 25.9). Block 0.946 leaves **6.59** dealt.
 
 The ward_slots formula is defined as:
 
-`ward_slots = ward_slots_by_realm[r] + min(2, floor(divine_sense / (ward_slot_sense_step · ds_ref[r]))) + Σ bonus_ward_slots`
+`ward_slots = ward_slots_by_realm[r] + min(2, floor(divine_sense / (ward_slot_sense_step · ds_ref[r]))) + Σ bonus_ward_slots`, plus one slot per worn armour that carries a ward, for that ward only (rule 5, 2026-11-13)
 
 **Variables:**
 
@@ -712,7 +715,8 @@ The ward_slots formula is defined as:
 | ward_slot_sense_step | float | 1.75 (1.5–2.0) | data file | +1 slot at 1.75 × the reference, +2 at 3.5 × |
 | bonus_ward_slots | int | ≥ 0 | rare modifier (Modifier System rule 13) | +1 each |
 
-**Output Range:** from 1 at Qi Refining up to 6 plus bonuses at Deity Transformation (4 by realm + 2 from thần thức).
+**Output Range:** from 1 at Qi Refining up to 6 plus bonuses at Deity Transformation (4 by realm + 2 from thần thức),
+besides the armour slots, which hold only their own armour's ward.
 
 **Example:** talent 45 at peak stage (×1.45) with +25 % thần thức has 81.6 thần thức against a step of 78.75,
 so **2 slots** at Qi Refining. +2 needs a soul build, such as talent 60, peak stage and +82 % thần thức. A
@@ -1164,6 +1168,7 @@ design estimates until the balance harness confirms them.
 **Wards, slots and activation (Rules 5–7, Formulas D)**
 
 - **AC-CD-14** [Logic] Formulas D. **GIVEN** Qi Refining with thần thức 81.6 (step 78.75), **THEN** there are 2 ward slots. **GIVEN** 78.74, **THEN** 1. **GIVEN** 157.5, **THEN** 3. **GIVEN** 400, **THEN** still 3. **GIVEN** Deity Transformation at 3.5 × ds_ref plus one `bonus_ward_slots`, **THEN** 7 (4 + 2 + 1).
+- **AC-CD-14b** [Logic] Rule 5, armour slots (2026-11-13). **GIVEN** Qi Refining with the Common Ward in its one slot and a worn armour carrying a ward, **THEN** both wards are up. **GIVEN** a second armour with a ward in an extra slot, **THEN** three wards are up. **GIVEN** the armour's slot, **THEN** no other ward can be put in it, and an armour with no ward adds no slot.
 - **AC-CD-15** [Logic] Rule 5. **GIVEN** three wards in two ward slots and one art slot, **THEN** all three payloads apply at once, the art slot holds no art, and `slot_count` counts the ward.
 - **AC-CD-16** [Logic] Rule 6. **GIVEN** a ward with resistance 40 points, shield σ 0.20 and block 60 at ws 50, **THEN** it gives 60 points of resistance, a shield of 0.30 × qi_max and 90 block rating, and its non-drain payment equals its payment at ws 0. **GIVEN** ws 500, **THEN** it applies in full (× 6; no ceiling since 2026-11-10), and a record carrying `ward_cap` is rejected at load. **GIVEN** `defense_pct` −500, **THEN** ws is −90 (`ward_floor`) and `1 + ws/100` is 0.10 (Formulas A0; moved from Combat AC-CB-13).
 - **AC-CD-17** [Logic] Rule 7. **GIVEN** a cast ward with cooldown 4 s and duration 3 s, **THEN** it is Waiting until its first firing, Up from each firing through the whole millisecond at firing + 3 s, and Expired until the next firing. **GIVEN** its shield breaks while Up, **THEN** its other payloads stay up until the duration ends. **GIVEN** a refire while it is Up, **THEN** its duration restarts, its shield refills to its maximum, and only one copy exists.

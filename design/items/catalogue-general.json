@@ -615,5 +615,69 @@
   "holder": "The elder of a sect's treasure hall at Core Formation or above; otherwise Lost in a collapsed sect vault",
   "lore": "It shows its holder seated twice, once in the hall and once in the heaven above, and lets both hold a treasure.",
   "build_use": "Every build: one extra artifact slot, plus Cold Feet for the first escape; the classic piece a build hunts for."
+ },
+ {
+  "id": "general-long-road-robe",
+  "name": "Long-Road Robe (Trường Lộ Bào)",
+  "family": "general",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 3,
+  "modifiers": [
+   {"key": "than_thuc_pct", "value": 8, "scope": []},
+   {"key": "khi_huyet_pct", "value": 15, "scope": []},
+   {"key": "defense_pct", "value": 6, "scope": []},
+   {"key": "resist_pct", "value": 150, "scope": []},
+   {"key": "status_resist_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "long-road-ward",
+    "name": "Long-Road Ward (Trường Lộ Hộ Thể)",
+    "payload": "all 394 points",
+    "payment": "drain 0.377",
+    "activation": "standing",
+    "check_from": "Common Ward (Hộ Thể Chân Khí)",
+    "notes": "The starter ward at 1.15 times its payload and its drain, so the price check is unchanged"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A grey travelling robe whose hem has seen every road in the realm; it asks little of the mind that wears it.",
+  "build_use": "Builds that must spend every last point of thần thức or lift the extra-slot limit: a standing ward the engine can run, on a robe that costs only 6 TT and no art speed.",
+  "notes": "Answers: bare-fist: a utility treasure adding than_thuc_pct; cooldown-floor: a cheap extra (TT 6 or less); curse-engine: a ward armour that costs no art speed."
+ },
+ {
+  "id": "general-waking-lantern",
+  "name": "Lantern of Waking (Tỉnh Mộng Đăng)",
+  "family": "general",
+  "kind": "artifact",
+  "base": "dang",
+  "grade": 2,
+  "modifiers": [
+   {"key": "status_resist_pct", "value": 20, "scope": []},
+   {"key": "evade_pct", "value": 4, "scope": ["escape"]},
+   {"key": "than_thuc_pct", "value": 3, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []},
+   {"key": "khi_huyet_pct", "value": 4, "scope": []}
+  ],
+  "effects": ["Cold Feet"],
+  "reserve_arts": [
+   {
+    "id": "general-waking-light",
+    "name": "Waking Light (Tỉnh Mộng Quang)",
+    "reserve": 0.12,
+    "rule": "While reserved, curses and statuses cling to you less and your escape is likelier.",
+    "grants": [
+     {"key": "status_resist_pct", "value": 20, "scope": []},
+     {"key": "evade_pct", "value": 5, "scope": ["escape"]}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 12 % reserved buys up to 12 W (uses 11.75 W)"
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A paper lantern that gutters when a curse draws near and shakes sleepers awake before the knife falls.",
+  "build_use": "Soul and curse-pressed builds: a resistance aura and a first escape at once, standing in for the lost Bell of Waking and Lantern Out.",
+  "notes": "Answers: soul-lance: a cleanse or escape treasure."
  }
 ]
