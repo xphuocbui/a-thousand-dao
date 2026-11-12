@@ -2,7 +2,7 @@
 
 > **Status**: Ready for review (all sections approved by the user 2026-11-11)
 > **Author**: user + ux-designer
-> **Last Updated**: 2026-11-11
+> **Last Updated**: 2026-11-12 (chips: icon and number only)
 > **Journey Phase(s)**: unknown — no player journey map yet
 > **Platform Target**: PC (Steam / Epic); keyboard and mouse
 > **Visual direction**: ink-wash (thuỷ mặc), user choice 2026-11-11; no art bible yet
@@ -114,8 +114,8 @@ The two columns mirror each other so the eye compares like with like across the 
 | Art icon | ARTS row | The art; **cooldown fill**; **flash on fire**; badges: next step (multi-step arts), ⚡ empowered, charges left; dimmed if unaffordable | Hover: art tooltip (rule, cost, cooldown, damage parts by type colour, step and empower conditions) | Loadout icon (new) |
 | Ward icon | WARDS row | State: waiting, up, down, broken, expired, off; duration ring for cast wards; recharge fill for shields; the default ward when it is the one up | Hover: ward tooltip (payloads, payment, drain paid so far) | Loadout icon |
 | Item icon | ITEMS row | Item abilities: cooldown fill, uses left, flash on use | Hover: item tooltip | Loadout icon |
-| Buff / debuff chip | BUFFS, DEBUFFS | Element stacks with a count; their time left | Hover: what each stack does now | Status chip (new) |
-| Status chip | STATUS | Statuses with stacks and pulses left; curse slots (n of 3); the build's **counters** (Twin flames, Tide, Temper) with their count; **Spent** marks on once-per-fight Effects; counted-chance meters | Hover: the Effect's rule and limits | Status chip |
+| Buff / debuff chip | BUFFS, DEBUFFS | **Only the element icon and its stack count** (user, 2026-11-12: "just an icon and a number, think Backpack Battles"); a green halo for a buff, a red halo for a debuff (art bible 7.4) | Hover: name, what each stack does now, time left | Status chip (new) |
+| Status chip | STATUS | **Only an icon and a number** for each status (stacks or pulses left), curse (n of 3), the build's **counters** (Twin flames, Tide, Temper) and stance; every one has its own icon (art bible 7.4); **Spent** marks on once-per-fight Effects; counted-chance meters | Hover: name, the Effect's rule and limits | Status chip |
 | Link line | Over the columns | A brief line from a source icon or chip to the one it feeds (an art adding a counter, a step unlocking, an echo re-firing an art, a ward stopping a hit) | No | Link line (new) |
 | Floating number | Over the struck bars | Damage split by part and coloured by final type; heals in their own colour; "evaded", "blocked" | No | Floating number (new) |
 | Fight log | Centre | One line per event (Summary) or per pulse in full (Full), coloured by side | Click a hit: its Breakdown; switch Summary / Full | Log list (new) |

@@ -64,8 +64,10 @@ they are dark, glowing objects set into the paper, like lacquered ink-stones inl
 thin dark frame, a 1 px warm-ink contact shadow and no outer glow. The glow never leaves the tile. This keeps the
 anchor. *The world is brushed, the math is printed*: subjects are brush-weight silhouettes, while every number
 (cooldown, stack count, charges) is printed in-engine around the tile or on a flat badge, never baked into the art.
-*Glyphs, not paintings*: each icon is composed by the parametric pipeline from a hand-drawn subject library, an element
-hue, a glow, a frame and an effect layer, so a new art needs a new combination, not a new painting.
+*Glyphs, not paintings* is **revised for icons** (user decision 2026-11-12, after the first vector set was judged too
+weak): art, technique, ward and status icons are **painted images made with an image-generation model** and picked by
+the user, held to this section's grammar. Each icon keeps its prompt beside it so a set can be regenerated. The vector
+pipeline (`tools/asset-pipeline/icons/`) stays for frames, rings and badges, and as the placeholder set.
 
 ### 7.2 Art icon grammar (bottom to top)
 
@@ -95,16 +97,27 @@ ripple) and no spark trails; a centred, cooler, tighter glow. The drain-paid war
 linh lực" badge; ward shields carry a stacked-bar badge. Later ward catalogue entries keep the chamfer and double frame
 and add one badge per payment kind.
 
-### 7.4 Buff and debuff glyphs
+### 7.4 Buffs, debuffs, statuses, counters and stances: icon and number
 
-One element glyph per chip, flat fill with one soft glow, one stroke weight: Fire flame, Water drop, Wood leaf and vine,
-Metal ingot, Earth three-layer mountain, Ice six-point crystal, Thunder zigzag bolt, Wind three curls.
-- **Hue** says good or bad: buff green #5BD66B, debuff red #E5384F. The glyph says the element.
-- **Non-colour cues** (user decision: keep green and red and add shape; the separate BUFFS and DEBUFFS rows are already
-  the main cue): buff chips are rounded with an up-notch on the top edge and a solid rim; debuff chips have chamfered
-  top-left and bottom-right corners, a down-notch on the bottom edge and a dashed rim; a tiny ↑ or ↓ pip in a corner.
-  The tooltip says "Buff" or "Debuff". A fire glow is never used on a debuff chip (the debuff red sits close to Fire).
-- Damage-type conditions with no element (physical, force, chaos, soul) have no glyph yet (7.8, F7).
+Revised 2026-11-12 (user: "a green or red halo; just an icon and a number, think Backpack Battles").
+- **Display**: each one is **only its icon and a number** (stacks, or pulses left for a timed status); the name, rule and
+  timer are in the tooltip. No text label on the chip.
+- **Element stacks** use one element icon each, in **the element's own colours** (Section 7.5): Fire flame, Water drop,
+  Wood leaf and vine, Metal ingot, Earth three-layer mountain, Ice six-point crystal, Thunder bolt, Wind three curls.
+- **Polarity is a halo**: a **green halo (#5BD66B) for a buff**, a **red halo (#E5384F) for a debuff**, drawn in-engine
+  around the icon, so one element icon serves both. Backup cues stay: the separate BUFFS and DEBUFFS rows, the halo's
+  shape (buff a soft round halo, debuff a jagged or dashed one), a tiny ↑ or ↓ pip, and "Buff" or "Debuff" in the tooltip.
+- **Every status, counter and stance has its own icon**: the 13 statuses (Bleed, Withering, Sealed Meridian ...), the
+  build counters (Twin flames, Tide, Temper ...) and the stances (Brazier Form, Iron Hide ...). Statuses on a side
+  are debuffs (red halo), counters and stances are the owner's (green halo, or no halo for a neutral counter).
+- Glyphs for physical, force, chaos and soul conditions are still open (7.8, F7).
+
+### 7.4b Technique icons
+
+A technique (công pháp) icon is the manual itself: a closed cultivation scripture, scroll or jade slip seen at a slight
+angle, its cover emblem drawn from the technique's suite (the payoff art's subject) and glowing in its element hue, on
+the same dark tile. Tier shows in the binding: Yellow plain cloth, Profound dark lacquer, Earth jade, Heaven gold. Body
+techniques show a figure in a stance instead of a book.
 
 ### 7.5 Icon hue table (glow and rim, on near-black)
 
@@ -222,7 +235,9 @@ silhouettes overlap too closely. It writes a contact sheet at 50 px and 40 px, i
 7. **Distinctness**: beside its family and one icon from each neighbouring family at 50 px, nothing is mistakable.
 8. **No copying**: the subject is original, not traced or closely redrawn from any PoE 2 or other game icon; style
    traits only. A reviewer records the check.
-9. **No AI-generated material** in a master or the subject library.
+9. **AI-generated icons are allowed** (user decision 2026-11-12, replacing "no AI-generated material"): every shipped
+   icon is picked by the user from candidates; its prompt, model and seed are kept beside it; no game's icons are used
+   as a style reference or input (the style reference is our own approved icons only).
 10. **Technical**: the validation script passes and no banding shows on the near-black ground.
 11. **Evidence**: a screenshot of the icons in fight-screen slots at 1× and 2× is kept in `production/qa/evidence/`.
 
