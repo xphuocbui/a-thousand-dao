@@ -405,7 +405,7 @@ different.
     - **Certain and instant escape** (R33): "skip a roll" (rule 6) covers the escape roll, and an Effect may set the
       escape channel to 0.
     - **Life and progression hooks** (R34): `dao_offer_size` +1 per source; free skill points as an output; home
-      ground counts as foreseen; an artifact slot above `equip.max_slots` per source; the foe's profile counts
+      ground counts as foreseen; an extra artifact slot (`artifact_slots`, Item Database rule 11) per source; the foe's profile counts
       (slotted arts by tag, healing arts) readable at compile.
     - **Batches that change size** (R35): an owner's batches may grow or decay by a stated amount each pulse, though
       rule 9a's batches otherwise never change size.
