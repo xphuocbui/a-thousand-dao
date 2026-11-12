@@ -10,7 +10,7 @@ Costs are estimates from the providers' published per-image prices (OpenAI's is 
 Run (from the repo root):
   python -I tools/asset-pipeline/icons/gen_ai.py --set test --provider both --n 2 --dry-run   (prompts and cost only)
   python -I tools/asset-pipeline/icons/gen_ai.py --set test --provider both --n 2
-Sets: test (17 icons), arts, techniques, wards, statuses, counters, stances, glyphs, all.
+Default provider: openai (gpt-image-2, user choice 2026-11-12). Sets: test (17 icons), arts, techniques, wards, statuses, counters, stances, glyphs, all.
 """
 import argparse
 import base64
@@ -28,18 +28,23 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 OUTDIR = os.path.join(HERE, "ai")
 PRICE = {"recraft": 0.035, "openai": 0.211}           # USD per image: recraftv4_1 raster; gpt-image-2 high 1024 (unverified)
 MODEL = {"recraft": "recraftv4_1", "openai": "gpt-image-2"}
+QUALITY = ["high"]
+OPENAI_PRICE = {"low": 0.006, "medium": 0.053, "high": 0.211}   # gpt-image-2 1024x1024, unverified
 
 HUE = {"fire": ("vermilion", "#E8442A"), "water": ("deep blue", "#3F6FE0"), "wood": ("jade green", "#2FBF8A"),
        "metal": ("gold", "#E3B341"), "earth": ("ochre", "#B9772E"), "ice": ("pale cyan", "#7AD7F0"),
        "thunder": ("violet", "#A15CFF"), "wind": ("pale mint", "#A6EBD8"), "phys": ("bone white", "#C9C2B2"),
        "force": ("rose", "#E58FB5"), "chaos": ("magenta", "#E0409A"), "soul": ("lavender white", "#CFC4FF")}
 
-STYLE = ("Square game skill icon, painterly digital painting with visible brushwork, dark fantasy lighting, Chinese "
-         "xianxia cultivation theme. Near-black background (#0B0D10) with a dark vignette and one soft radial glow of "
-         "{hue_name} ({hex}) behind the subject. One clear subject, centred, filling about two thirds of the square, with "
-         "a bright near-white core and rim light in {hue_name}; small sparks and motion arcs carry the action. Strong "
-         "value contrast, a clean silhouette readable at 48 pixels. No text, no letters, no numbers, no border, no "
-         "frame, no UI elements, no watermark.")
+# Style validated by the user on GPT Image 2 (2026-11-12): the whole tile is one hue field, painted concept art, an
+# action caught mid-moment, a dark subject against blazing light (art bible 7.2, revised).
+STYLE = ("Square game ability icon, semi-realistic painted concept art, cinematic spell-effect still, Chinese xianxia "
+         "cultivation theme. The whole square is filled with a rich {hue_name} colour field ({hex}), darker toward the "
+         "corners; nearly monochrome, one hue family from deep shadow to blazing white. The subject is caught mid-moment; "
+         "solid forms are dark or mid-tone silhouettes cut against intense glowing energy, which is the brightest thing "
+         "in the image. Strong bloom, sparks and motion streaks, a dynamic often diagonal composition cropped tight so "
+         "the effect fills the frame and runs off its edges. Vivid and luminous, high contrast, readable at 48 pixels. "
+         "No text, no letters, no numbers, no border, no frame, no UI, no watermark.")
 GLYPH_STYLE = ("Simple bold game status icon of {what}, in its own colours ({hue_name}, {hex}), painterly but very "
                "simple, one shape, centred, strong silhouette readable at 20 pixels, on a plain near-black background "
                "(#0B0D10). No text, no border, no frame, no halo.")
@@ -105,7 +110,7 @@ MOD_TXT = {"echo": "with a translucent afterimage echoing it", "quick": "with fa
            "summon": "standing over a faint summoning circle"}
 # hand-written subjects where the template is not enough
 OVERRIDE = {
-    "twin-flame-echo": "two flames rising from one open palm, the second a translucent echo of the first",
+    "twin-flame-echo": "two fireballs streaking diagonally from the bottom left to the top right, one close behind the other along the same path; the leading fireball blazing white-yellow, the one behind it a fainter echo, each with its own long fiery trail; no hands, no people",
     "tolling-bell-requiem": "a bronze funeral bell tolling, pale soul wisps spiralling out of its mouth",
     "stilled-instant": "an hourglass encased in ice, its falling sand frozen mid-air",
     "three-step-chase": "a robed cultivator dashing in three fast steps, three fading afterimages behind, wind streaks",
@@ -227,7 +232,7 @@ def gen(provider, prompt, n, seed):
             elif d.get("url"):
                 out.append(urllib.request.urlopen(d["url"], timeout=120).read())
         return out
-    body = {"model": MODEL["openai"], "prompt": prompt, "size": "1024x1024", "quality": "high", "n": n,
+    body = {"model": MODEL["openai"], "prompt": prompt, "size": "1024x1024", "quality": QUALITY[0], "n": n,
             "output_format": "png", "background": "opaque"}
     res = post("https://api.openai.com/v1/images/generations", body, os.environ["OPENAI_API_KEY"])
     return [base64.b64decode(d["b64_json"]) for d in res.get("data", [])]
@@ -236,10 +241,13 @@ def gen(provider, prompt, n, seed):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--set", default="test")
-    ap.add_argument("--provider", default="both", choices=["recraft", "openai", "both"])
+    ap.add_argument("--provider", default="openai", choices=["recraft", "openai", "both"])
+    ap.add_argument("--quality", default="high", choices=["low", "medium", "high"])
     ap.add_argument("--n", type=int, default=2)
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
+    QUALITY[0] = a.quality
+    PRICE["openai"] = OPENAI_PRICE[a.quality]
     its = items(a.set)
     provs = ["recraft", "openai"] if a.provider == "both" else [a.provider]
     est = sum(PRICE[p] for p in provs) * a.n * len(its)
