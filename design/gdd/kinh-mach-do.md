@@ -876,7 +876,8 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `design/research/meridian-tree-overnight.md` | The drawn tree, its open points and the PoE comparison |
 | `design/research/side-trees-thoughts.md` | Cultivation-technique and item trees in their own tab (rules 1, 6) |
 | `design/research/linh-can-proficiency-direction.md` | Purity as proficiency; roads grant purity (rule 4) |
-| `tools/design/meridian_rework/` | The kit, `build_tree.py` (lean build: `KMD_LIGHT=1`), its checks and the viewer |
+| `tools/design/meridian_rework/` | The kit, `build_tree.py` (lean build: `KMD_LIGHT=1`), its checks, the viewer, and the editor (`editor/serve.py`, 2026-11-12) |
+| `design/meridian-map/versions/` | Graph versions: each generator run writes a new one; the editor saves over only the version it has open (2026-11-12) |
 | `design/gdd/linh-can.md` | Purities, variants and the purity roads grant (its rule 8a) |
 | `design/gdd/modifiers.md`, `design/gdd/effects.md` | Prices of every acupoint; capability and keystone rules |
 | `design/gdd/dao.md` | The shared point pool |

@@ -181,3 +181,6 @@ $RECYCLE.BIN/
 
 # === gdUnit4 run reports ===
 reports/
+
+# Meridian Map editor: the one-step-back copy kept before each save over a version
+design/meridian-map/versions/.prev/

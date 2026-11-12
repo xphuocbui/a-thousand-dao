@@ -1,7 +1,13 @@
 """Build the whole Kinh Mạch Đồ from its hand-drawn regions, join them, check the tree and write data + a viewer page.
 
 Usage (from the repo root):
-  python -I tools/design/meridian_rework/build_tree.py <out_dir> [--only r1,r2] [--no-geometry] [--keep-hidden]
+  python -I tools/design/meridian_rework/build_tree.py [<out_dir>] [--only r1,r2] [--no-geometry] [--keep-hidden]
+                                                       [--name <version>] [--note "..."] [--no-version]
+
+Every run writes a NEW graph version to design/meridian-map/versions/ (gen-<date>[-lean], suffixed -2, -3 ... when
+taken) and never overwrites one: the editor (editor/serve.py) owns the versions after that (user decision
+2026-11-12). --name picks the base name, --note stores a line in its meta, --no-version skips it (quick checks).
+<out_dir>, when given, also gets the old scratch outputs, tree.json and tree.html (from tree_viewer.html).
 
 Each region (regions/<name>.py) is drawn in its own frame with kit.Tree, exactly as build_region.py draws one land.
 This script turns every region into world coordinates (x right, y down, angle 0 at the top, clockwise), joins the
@@ -18,6 +24,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import kit  # noqa: E402
+import versions  # noqa: E402
 
 # region file, in drawing order
 REGIONS = ["hub", "fire", "blend_fe", "earth", "blend_em", "metal", "blend_mw", "water", "blend_ww", "wood", "blend_wf",
@@ -49,12 +56,16 @@ def load(region):
 
 
 def main():
-    OUT = sys.argv[1]
+    flags_with_value = ("--only", "--name", "--note")
+    pos = [a for i, a in enumerate(sys.argv[1:], 1) if not a.startswith("--") and sys.argv[i - 1] not in flags_with_value]
+    OUT = pos[0] if pos else None
+    opt = lambda k: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else None
     only = None
     if "--only" in sys.argv:
         only = sys.argv[sys.argv.index("--only") + 1].split(",")
     geometry = "--no-geometry" not in sys.argv
-    os.makedirs(OUT, exist_ok=True)
+    if OUT:
+        os.makedirs(OUT, exist_ok=True)
     nodes, edges, clusters, themes, ports, regions_meta, fit_fail = [], [], [], {}, {}, [], {}
     for name in REGIONS:
         if only and name not in only:
@@ -133,10 +144,20 @@ def main():
                           "region": c["region"], "hidden": c["hidden"], "n": len(c["nodes"]),
                           "centre": [round(v, 3) for v in c["mastery"]] if c["mastery"] else None} for c in clusters],
             "metrics": metrics, "themes": themes, "regions": regions_meta}
-    json.dump(data, open(os.path.join(OUT, "tree.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
-    tpl = open(os.path.join(HERE, "tree_viewer.html"), encoding="utf-8").read()
-    open(os.path.join(OUT, "tree.html"), "w", encoding="utf-8").write(
-        tpl.replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\u002f")))
+    if OUT:
+        json.dump(data, open(os.path.join(OUT, "tree.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+        tpl = open(os.path.join(HERE, "tree_viewer.html"), encoding="utf-8").read()
+        open(os.path.join(OUT, "tree.html"), "w", encoding="utf-8").write(
+            tpl.replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\u002f")))
+    if "--no-version" not in sys.argv:
+        light = os.environ.get("KMD_LIGHT") == "1"
+        base = opt("--name") or f"gen-{versions.now()[:10]}" + ("-lean" if light else "")
+        argv = sys.argv[1:]
+        args = " ".join(a for i, a in enumerate(argv) if a not in pos and a not in ("--note", "--name")
+                        and (i == 0 or argv[i - 1] not in ("--note", "--name")))
+        name = versions.write_new(data, base, note=opt("--note") or "",
+                                  source="build_tree.py" + (" KMD_LIGHT=1" if light else "") + (" " + args if args else ""))
+        print(f"new version: design/meridian-map/versions/{name}.json")
     short = {k: v for k, v in metrics.items() if k not in ("shapes", "themes")}
     print(json.dumps(short, ensure_ascii=False, indent=None))
     for k, v in report.items():

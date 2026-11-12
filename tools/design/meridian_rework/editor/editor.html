@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian Map Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Kinh Mạch Đồ editor. Layout: a tool bar on top, the map on a night-silk plate, an inspector on the right, a status
+   line at the bottom. The plate stays dark in both themes (it is the art); the chrome follows the theme. */
+:root{
+  --bg:#eceee9; --panel:#fbfbf8; --panel2:#f2f3ef; --fg:#1a1f25; --muted:#5b6570; --line:#d3d7d1; --accent:#a8792a; --accent-fg:#fff;
+  --ok:#2f8a5b; --warn:#b7791f; --bad:#c2413a; --sel:#3fb8ff; --chip:#e7e9e3;
+  --plate:#0b0f15; --plate2:#05070b;
+  --f-display:"Marcellus","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e1217;--panel:#151a20;--panel2:#1b2129;--fg:#e5e8eb;--muted:#9aa4ae;--line:#29323c;--accent:#d9a84a;--accent-fg:#1a1205;--chip:#222a33;--ok:#4cc38a;--warn:#e0a640;--bad:#ef6a5f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1217;--panel:#151a20;--panel2:#1b2129;--fg:#e5e8eb;--muted:#9aa4ae;--line:#29323c;--accent:#d9a84a;--accent-fg:#1a1205;--chip:#222a33;--ok:#4cc38a;--warn:#e0a640;--bad:#ef6a5f;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font:13px/1.45 var(--f-body);overflow:hidden}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:4px 9px;line-height:1.3}
+button:hover{border-color:var(--muted)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg);font-weight:600}
+button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+button:disabled{opacity:.45;cursor:default}
+input[type=text],input[type=number],input[type=search],select,textarea{background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:4px 7px;min-width:0}
+textarea{resize:vertical}
+:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+#app{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:100%}
+/* top bar */
+#top{display:flex;flex-wrap:nowrap;align-items:center;gap:6px 8px;padding-block:6px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--panel);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:thin}
+#top>*{flex:none}
+#top .brand{font:400 18px/1 var(--f-display);white-space:nowrap}
+@media (max-width:1720px) and (min-width:821px){#top .brand{display:none}}  /* the version name already says what is open */
+#top .grp{display:flex;align-items:center;gap:4px}
+#top .sep{width:1px;height:22px;background:var(--line)}
+#verBtn{font-family:var(--f-mono);max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#saveState{font:500 12px var(--f-mono);color:var(--muted);white-space:nowrap;display:inline-block;width:6.5em}
+#saveState.dirty{color:var(--warn)}
+#find{width:150px}
+#top .grp:has(#find){flex:1 1 auto;min-width:120px}#top .grp:has(#find) #find{width:100%;max-width:220px}
+#modeSel{width:132px}#snapSel{width:118px}#boxSel{width:104px}
+#foundN{font:12px var(--f-mono);color:var(--muted);min-width:5ch}
+.tools button{min-width:34px}
+.kbd{font:500 10.5px var(--f-mono);color:var(--muted);margin-left:3px}
+button.on .kbd{color:inherit;opacity:.7}
+/* main */
+#main{display:grid;grid-template-columns:minmax(0,1fr) 360px;min-height:0}
+#main.noside{grid-template-columns:minmax(0,1fr) 0}
+#stage{position:relative;min-height:0;background:radial-gradient(circle at 50% 50%,var(--plate) 0%,var(--plate2) 80%);overflow:hidden;touch-action:none}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+#mini{position:absolute;right:max(10px,env(safe-area-inset-right,0px));bottom:10px;width:180px;height:180px;border:1px solid #2b3440;border-radius:6px;background:rgba(5,7,11,.78);cursor:pointer}
+#tip{position:absolute;pointer-events:none;max-width:340px;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:5px;padding:7px 9px;font-size:12px;line-height:1.45;box-shadow:0 6px 22px rgba(0,0,0,.35);z-index:3}
+#tip ul{margin:3px 0 0;padding-left:16px}#tip .meta{color:var(--muted)}#tip .cost{font:500 11.5px var(--f-mono);color:var(--accent)}
+#hud{position:absolute;left:10px;top:10px;font:500 12px var(--f-mono);color:#e9e3d2;background:rgba(5,7,11,.6);padding:3px 8px;border-radius:4px;pointer-events:none}
+#hud:empty{display:none}
+/* side */
+#side{background:var(--panel);border-left:1px solid var(--line);display:grid;grid-template-rows:auto minmax(0,1fr);min-height:0;overflow:hidden}
+#tabs{display:flex;border-bottom:1px solid var(--line)}
+#tabs button{flex:1;border:0;border-radius:0;background:transparent;padding:8px 4px;color:var(--muted);border-bottom:2px solid transparent}
+#tabs button.on{color:var(--fg);border-bottom-color:var(--accent);background:transparent}
+.pane{overflow:auto;padding-block:10px 40px;padding-left:16px;padding-right:max(16px,env(safe-area-inset-right,0px));min-height:0}
+.pane[hidden]{display:none}
+h2{font:400 18px/1.2 var(--f-display);margin:2px 0 8px}
+h3{font:600 11px/1.3 var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:14px 0 6px}
+.row{display:grid;grid-template-columns:78px minmax(0,1fr);gap:6px;align-items:center;margin:5px 0}
+.row>label{color:var(--muted);font-size:12px}
+.row input,.row select{width:100%}
+.seg{display:flex;flex-wrap:wrap;gap:3px}
+.seg button{padding:3px 7px;font-size:12px}
+.btns{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0}
+.btns button{font-size:12px;padding:3px 8px}
+.hint{color:var(--muted);font-size:12px}
+.mods{display:grid;gap:5px}
+.mod{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px;align-items:start;border:1px solid var(--line);border-radius:5px;padding:4px;background:var(--panel2)}
+.mod textarea{width:100%;border:0;background:transparent;padding:2px 3px;min-height:22px;height:auto;resize:none;overflow:hidden;line-height:1.4}
+.mod .side{display:flex;flex-direction:column;gap:2px;align-items:flex-end}
+.mod .ops{display:flex;gap:2px}
+.mod .ops button{padding:0 5px;font-size:11px;border-color:transparent;background:transparent;color:var(--muted)}
+.mod .ops button:hover{color:var(--fg);border-color:var(--line)}
+.badge{font:500 10px/1.5 var(--f-mono);padding:0 5px;border-radius:3px;white-space:nowrap}
+.badge.cat{background:rgba(47,138,91,.16);color:var(--ok)}
+.badge.free{background:rgba(183,121,31,.18);color:var(--warn)}
+.badge.gen{background:var(--chip);color:var(--muted)}
+.union .count{font:11px var(--f-mono);color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:12px}
+th,td{text-align:left;padding:3px 5px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:11px}
+td.n{font-family:var(--f-mono);text-align:right;white-space:nowrap}
+.issue{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:3px 2px;font-size:12px}
+.issue:hover{background:var(--panel2)}
+details{border:1px solid var(--line);border-radius:5px;margin:6px 0;background:var(--panel)}
+details>summary{cursor:pointer;padding:5px 8px;display:flex;justify-content:space-between;gap:8px;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary .n{font-family:var(--f-mono)}
+details>summary .n.bad{color:var(--bad);font-weight:600}
+details>summary .n.ok{color:var(--ok)}
+details .list{max-height:260px;overflow:auto;padding:0 6px 6px}
+.vlist{display:grid;gap:4px}
+.ver{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;border:1px solid var(--line);border-radius:5px;padding:6px 8px}
+.ver.cur{border-color:var(--accent)}
+.ver .nm{font:500 12.5px var(--f-mono);overflow-wrap:anywhere}
+.ver .sub{grid-column:1/-1;color:var(--muted);font-size:11.5px}
+.totals{font:12px var(--f-mono);display:grid;gap:1px}
+.clist{display:grid;gap:2px}
+.clist button{display:grid;grid-template-columns:minmax(0,1fr) auto;text-align:left;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:4px 2px}
+.clist button:hover{background:var(--panel2)}
+.clist .sub{color:var(--muted);font-size:11px}
+/* status */
+#status{display:flex;gap:16px;align-items:center;padding-block:3px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--panel);border-top:1px solid var(--line);font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden}
+#status .mono{font-family:var(--f-mono)}
+#hint{overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+/* modal and toasts */
+#modalWrap{position:fixed;inset:0;background:rgba(0,0,0,.45);display:grid;place-items:center;z-index:20;padding:16px}
+#modalWrap[hidden]{display:none}
+#modal{background:var(--panel);border:1px solid var(--line);border-radius:8px;box-shadow:0 18px 60px rgba(0,0,0,.45);width:min(560px,100%);max-height:min(86vh,900px);display:grid;grid-template-rows:auto minmax(0,1fr) auto;overflow:hidden}
+#modal.wide{width:min(860px,100%)}
+#modal header{padding:12px 14px 6px}
+#modal .body{padding:4px 14px 10px;overflow:auto}
+#modal footer{display:flex;gap:6px;justify-content:flex-end;padding:10px 14px;border-top:1px solid var(--line);background:var(--panel2);flex-wrap:wrap;align-items:center}
+.pk-tabs{display:flex;gap:4px;margin:6px 0}
+.pk-list{display:grid;gap:2px;max-height:52vh;overflow:auto;margin-top:6px}
+.pk-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;text-align:left;border:1px solid transparent;border-radius:5px;padding:5px 8px;background:transparent}
+.pk-item.act{border-color:var(--accent);background:var(--panel2)}
+.pk-item .nm{font-weight:500}
+.pk-item .sub{grid-column:1/-1;color:var(--muted);font-size:11.5px}
+.pk-item .val{font:12px var(--f-mono);color:var(--accent);white-space:nowrap}
+.pk-grp{font:600 10.5px var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:8px 8px 2px}
+#toasts{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);display:grid;gap:6px;z-index:30;pointer-events:none}
+.toast{background:var(--fg);color:var(--bg);padding:6px 12px;border-radius:6px;font-size:12.5px;box-shadow:0 6px 20px rgba(0,0,0,.3);text-align:center}
+.help{columns:2 260px;column-gap:24px;font-size:12.5px}
+.help div{break-inside:avoid;display:flex;justify-content:space-between;gap:10px;padding:2px 0;border-bottom:1px dotted var(--line)}
+.help kbd{font:500 11.5px var(--f-mono);background:var(--chip);border-radius:3px;padding:0 5px;white-space:nowrap}
+.help h4{margin:10px 0 4px;font:600 11px var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);break-after:avoid}
+body.readonly .edit-only{display:none!important}
+@media (max-width:820px){
+  body{overflow:auto}
+  #app{height:auto;min-height:100vh;grid-template-rows:auto auto auto auto}
+  #main{grid-template-columns:minmax(0,1fr);grid-template-rows:72vh auto}
+  #side{border-left:0;border-top:1px solid var(--line);max-height:none}
+  #mini{width:120px;height:120px}
+  #find{width:140px}
+  #top{flex-wrap:wrap;overflow-x:visible}
+  #status{display:none}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <header id="top">
+    <span class="brand" title="Kinh Mạch Đồ">Meridian Map</span>
+    <div class="grp"><button id="verBtn" title="Versions (open, save as new)">…</button><span id="saveState"></span></div>
+    <div class="grp edit-only"><button id="saveBtn" class="primary" title="Save over this version (Ctrl+S)">Save</button><button id="saveAsBtn" title="Save as a new version (Ctrl+Shift+S)">Save as…</button></div>
+    <span class="sep edit-only"></span>
+    <div class="grp edit-only"><button id="undoBtn" title="Undo (Ctrl+Z)">↶</button><button id="redoBtn" title="Redo (Ctrl+Shift+Z)">↷</button></div>
+    <span class="sep"></span>
+    <div class="grp tools" role="group" aria-label="Tools">
+      <button data-tool="select" title="Select and move (V)">Select<span class="kbd">V</span></button>
+      <button data-tool="add" class="edit-only" title="Add nodes (N)">Add<span class="kbd">N</span></button>
+      <button data-tool="connect" class="edit-only" title="Connect nodes (C)">Link<span class="kbd">C</span></button>
+      <button data-tool="pan" title="Pan (H, or hold Space)">Pan<span class="kbd">H</span></button>
+      <select id="boxSel" class="edit-only" aria-label="What a box selects" title="What dragging a box over empty space selects (E cycles)"><option value="nodes">Box: nodes</option><option value="links">Box: links</option><option value="both">Box: both</option></select>
+    </div>
+    <span class="sep edit-only"></span>
+    <div class="grp edit-only">
+      <select id="snapSel" aria-label="Snapping" title="Snapping while you drag (G cycles; hold Ctrl while dragging to skip it)">
+        <option value="guides">Snap: guides</option><option value="0.25">Snap: grid 0.25</option><option value="0.5">Snap: grid 0.5</option><option value="1">Snap: grid 1</option><option value="off">Snap: off</option>
+      </select>
+    </div>
+    <div class="grp">
+      <select id="modeSel" aria-label="Colour by" title="Colour the map by">
+        <option value="elem">Colour: element</option><option value="theme">Colour: theme</option><option value="kind">Colour: kind</option><option value="cluster">Colour: cluster</option><option value="region">Colour: region</option><option value="dist">Colour: points from start</option><option value="mods">Colour: modifier source</option>
+      </select>
+      <label class="hint" title="Node names when zoomed in"><input type="checkbox" id="labChk" checked> Names</label>
+      <label class="hint"><input type="checkbox" id="issChk" checked> Issues</label>
+    </div>
+    <div class="grp"><input id="find" type="search" placeholder="Find (Ctrl+F)" aria-label="Find nodes by name, theme, cluster or modifier"><span id="foundN"></span></div>
+    <div class="grp" style="margin-left:auto"><button id="sideBtn" title="Show or hide the panel (\)">Panel</button><button id="helpBtn" title="Shortcuts (?)">?</button></div>
+  </header>
+  <main id="main">
+    <div id="stage"><canvas id="cv" aria-label="The meridian map. Drag to select or move, scroll to zoom."></canvas><canvas id="mini" aria-label="Minimap"></canvas><div id="tip" hidden></div><div id="hud"></div></div>
+    <aside id="side">
+      <nav id="tabs"><button data-tab="inspect" class="on">Inspect</button><button data-tab="checks">Checks</button><button data-tab="clusters">Clusters</button><button data-tab="version">Version</button></nav>
+      <section class="pane" id="pane-inspect"></section>
+      <section class="pane" id="pane-checks" hidden></section>
+      <section class="pane" id="pane-clusters" hidden></section>
+      <section class="pane" id="pane-version" hidden></section>
+    </aside>
+  </main>
+  <footer id="status"><span id="hint"></span><span class="mono" id="coords"></span><span class="mono" id="zoomTxt"></span><span class="mono" id="counts"></span></footer>
+</div>
+<div id="modalWrap" hidden><div id="modal" role="dialog" aria-modal="true"></div></div>
+<div id="toasts"></div>
+<script id="embed" type="application/json">__EMBED__</script>
+<script>
+'use strict';
+(()=>{
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const r3=v=>Math.round(v*1000)/1000;
+const clone=o=>o==null?null:structuredClone(o);
+
+// ---------------------------------------------------------------------------------------------------------------
+// Mode: served by serve.py (edit) or embedded data (read-only view published as an artifact)
+let EMBED=null;try{const t=$('#embed').textContent.trim();if(t[0]==='{')EMBED=JSON.parse(t);}catch(_){}
+const RO=!!(EMBED&&EMBED.readonly);
+if(RO)document.body.classList.add('readonly');
+
+// ---------------------------------------------------------------------------------------------------------------
+// Model. Edges keep their curve as a bend ratio k = signed bulge / chord length (|k| <= 0.5, a half circle), so a
+// curve keeps its shape when its ends move, rotate or scale. Files store the kit's form: the arc's circle centre.
+const M={meta:{},extra:{},nodes:new Map(),edges:new Map(),clusters:new Map(),nextN:0,nextE:0,nextC:0};
+let adj=new Map(), PAIR=new Map(), TOPO=0;      // node -> Set(edge ids); "a|b" -> edge id; topology version
+const pk=(a,b)=>a<b?a+'|'+b:b+'|'+a;
+let VER={name:null,mtime:null};let dirty=false;let savedRec=null;  // the undo record the file matches (null: none)
+let CAT={modifiers:[],stats:[],effects:[]};
+const KINDS=[['small','Minor','1'],['notable','Notable','2'],['keystone','Keystone','3'],['travel','Travel','4'],['start','Start','5']];
+const KLABEL=Object.fromEntries(KINDS.map(k=>[k[0],k[1]]));
+
+function arcToK(a,b,c){if(!c)return 0;const L=Math.hypot(b.x-a.x,b.y-a.y);if(L<1e-9)return 0;
+  const mx=(a.x+b.x)/2,my=(a.y+b.y)/2,nx=-(b.y-a.y)/L,ny=(b.x-a.x)/L,r=Math.hypot(a.x-c[0],a.y-c[1]);
+  const h=r-Math.sqrt(Math.max(0,r*r-L*L/4));const side=(c[0]-mx)*nx+(c[1]-my)*ny;return (side>0?-h:h)/L;}
+function geom(e){const a=M.nodes.get(e.a),b=M.nodes.get(e.b);if(!a||!b)return null;
+  const L=Math.hypot(b.x-a.x,b.y-a.y),k=Math.max(-.5,Math.min(.5,e.k||0));
+  if(Math.abs(k)<1e-4||L<1e-9)return {a,b,L,arc:null,mid:[(a.x+b.x)/2,(a.y+b.y)/2]};
+  const mx=(a.x+b.x)/2,my=(a.y+b.y)/2,nx=-(b.y-a.y)/L,ny=(b.x-a.x)/L,s=k*L,as=Math.abs(s),sg=Math.sign(s);
+  const r=(L*L/4+s*s)/(2*as),cx=mx-nx*sg*(r-as),cy=my-ny*sg*(r-as);
+  const ta=Math.atan2(a.y-cy,a.x-cx);let d=Math.atan2(b.y-cy,b.x-cx)-ta;while(d>Math.PI)d-=2*Math.PI;while(d<-Math.PI)d+=2*Math.PI;
+  return {a,b,L,arc:{cx,cy,r,ta,d},mid:[mx+nx*s,my+ny*s]};}
+function pathEdge(p,g){p.moveTo(g.a.x,g.a.y);if(g.arc){const A=g.arc;p.arc(A.cx,A.cy,A.r,A.ta,A.ta+A.d,A.d<0);}else p.lineTo(g.b.x,g.b.y);}
+function onEdge(g,t){if(!g.arc)return [g.a.x+(g.b.x-g.a.x)*t,g.a.y+(g.b.y-g.a.y)*t];const A=g.arc,th=A.ta+A.d*t;return [A.cx+A.r*Math.cos(th),A.cy+A.r*Math.sin(th)];}
+function samplesOf(g,step){if(!g.arc)return [[g.a.x,g.a.y],[g.b.x,g.b.y]];const n=Math.max(2,Math.ceil(Math.abs(g.arc.d)*g.arc.r/step));const o=[];for(let i=0;i<=n;i++)o.push(onEdge(g,i/n));return o;}
+
+function rebuildTopo(){adj=new Map();PAIR=new Map();for(const id of M.nodes.keys())adj.set(id,new Set());
+  for(const e of M.edges.values()){if(!adj.has(e.a)||!adj.has(e.b))continue;adj.get(e.a).add(e.id);adj.get(e.b).add(e.id);PAIR.set(pk(e.a,e.b),e.id);}TOPO++;}
+const other=(e,id)=>e.a===id?e.b:e.a;
+function neighbours(id){const o=[];for(const eid of adj.get(id)||[]){const e=M.edges.get(eid);if(e)o.push(other(e,id));}return o;}
+
+function loadDoc(doc){
+  M.nodes.clear();M.edges.clear();M.clusters.clear();M.meta=doc.meta||{};M.extra={};
+  for(const k in doc)if(!['meta','nodes','edges','clusters'].includes(k))M.extra[k]=doc[k];
+  const nid=new Map();
+  (doc.nodes||[]).forEach((n,i)=>{const o={...n,id:i};nid.set(n.id,i);o.mods=Array.isArray(n.mods)?n.mods.slice():[];
+    o.mod_refs=Array.isArray(n.mod_refs)&&n.mod_refs.length===o.mods.length?n.mod_refs.slice():o.mods.map(()=> 'gen');M.nodes.set(i,o);});
+  const cid=new Map();(doc.clusters||[]).forEach((c,i)=>{cid.set(c.id,i);const o={...c,id:i};delete o.n;M.clusters.set(i,o);});
+  for(const n of M.nodes.values())n.cluster=n.cluster!=null&&cid.has(n.cluster)?cid.get(n.cluster):null;
+  let j=0;for(const e of doc.edges||[]){const a=nid.get(e.a),b=nid.get(e.b);if(a==null||b==null)continue;const {arc,...rest}=e;
+    const o={...rest,id:j,a,b,k:arcToK(M.nodes.get(a),M.nodes.get(b),arc),kind:e.kind||'link',long:!!e.long};M.edges.set(j++,o);}
+  M.nextN=M.nodes.size;M.nextE=j;M.nextC=M.clusters.size;
+  rebuildTopo();HIST.length=0;FUT.length=0;SEL.clear();SELE.clear();invalidate(true);
+}
+function serialize(){
+  const ids=[...M.nodes.keys()].sort((a,b)=>a-b),nm=new Map(ids.map((id,i)=>[id,i]));
+  const cids=[...M.clusters.keys()].sort((a,b)=>a-b),cm=new Map(cids.map((id,i)=>[id,i]));
+  const cnt=new Map(),reg=new Map();
+  const nodes=ids.map(id=>{const n=M.nodes.get(id),o={};for(const k in n){if(k==='locked'&&!n.locked)continue;o[k]=n[k];}
+    o.id=nm.get(id);o.x=r3(n.x);o.y=r3(n.y);o.cluster=n.cluster!=null&&cm.has(n.cluster)?cm.get(n.cluster):null;
+    if(o.mod_refs&&o.mod_refs.every(r=>r==='gen'))delete o.mod_refs;
+    if(o.cluster!=null)cnt.set(o.cluster,(cnt.get(o.cluster)||0)+1);reg.set(n.region,(reg.get(n.region)||0)+1);return o;});
+  const edges=[...M.edges.values()].sort((a,b)=>a.id-b.id).filter(e=>nm.has(e.a)&&nm.has(e.b)).map(e=>{const {id,k,...rest}=e;const g=geom(e);
+    return {...rest,a:nm.get(e.a),b:nm.get(e.b),arc:g&&g.arc?[r3(g.arc.cx),r3(g.arc.cy)]:null};});
+  const clusters=cids.map(c=>{const o={...M.clusters.get(c),id:cm.get(c)};o.n=cnt.get(o.id)||0;if(o.centre)o.centre=[r3(o.centre[0]),r3(o.centre[1])];return o;});
+  const extra={...M.extra};if(Array.isArray(extra.regions))extra.regions=extra.regions.map(r=>({...r,nodes:reg.get(r.name)||0}));
+  return {meta:{...M.meta,edited:true,metrics_stale:true},nodes,edges,clusters,...extra};
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Undo: every change runs inside a transaction that records each touched node, edge and cluster before and after.
+let TX=null;const HIST=[],FUT=[];
+function begin(label,key){if(RO)return false;if(TX)commit();TX={label,key,n:new Map(),e:new Map(),c:new Map()};return true;}
+const tN=id=>{if(TX&&!TX.n.has(id))TX.n.set(id,clone(M.nodes.get(id)));};
+const tE=id=>{if(TX&&!TX.e.has(id))TX.e.set(id,clone(M.edges.get(id)));};
+const tC=id=>{if(TX&&!TX.c.has(id))TX.c.set(id,clone(M.clusters.get(id)));};
+function commit(opts={}){if(!TX)return false;const tx=TX;TX=null;
+  const rec={label:tx.label,key:tx.key,t:performance.now(),n:[],e:[],c:[]};let topo=false;
+  for(const [kind,src,map] of [['n',tx.n,M.nodes],['e',tx.e,M.edges],['c',tx.c,M.clusters]])for(const [id,b] of src){const a=clone(map.get(id));
+    if(JSON.stringify(a)!==JSON.stringify(b)){rec[kind].push([id,b,a]);if(kind==='e'||a==null||b==null)topo=true;}}
+  if(!rec.n.length&&!rec.e.length&&!rec.c.length)return false;
+  const last=HIST[HIST.length-1];
+  if(tx.key&&last&&last!==savedRec&&last.key===tx.key&&rec.t-last.t<1500){for(const k of ['n','e','c']){const ix=new Map(last[k].map((r,i)=>[r[0],i]));
+      for(const r of rec[k]){if(ix.has(r[0]))last[k][ix.get(r[0])][2]=r[2];else last[k].push(r);}}last.t=rec.t;}
+  else{HIST.push(rec);if(HIST.length>400)HIST.shift();}
+  FUT.length=0;if(topo)TOPO++;changed(opts);return true;}
+function applyRec(rec,ix){for(const [id,...v] of rec.n){const x=v[ix];if(x==null)M.nodes.delete(id);else M.nodes.set(id,clone(x));}
+  for(const [id,...v] of rec.c){const x=v[ix];if(x==null)M.clusters.delete(id);else M.clusters.set(id,clone(x));}
+  for(const [id,...v] of rec.e){const x=v[ix];if(x==null)M.edges.delete(id);else M.edges.set(id,clone(x));}
+  rebuildTopo();for(const id of [...SEL])if(!M.nodes.has(id))SEL.delete(id);for(const id of [...SELE])if(!M.edges.has(id))SELE.delete(id);
+  changed({inspector:true});}
+function undo(){if(RO)return;if(TX)commit();const r=HIST.pop();if(!r)return toast('Nothing to undo');applyRec(r,0);FUT.push(r);toast('Undo: '+r.label);}
+function redo(){if(RO)return;const r=FUT.pop();if(!r)return toast('Nothing to redo');applyRec(r,1);HIST.push(r);toast('Redo: '+r.label);}
+
+// mutations (call inside begin/commit)
+function setXY(id,x,y){tN(id);const n=M.nodes.get(id);n.x=x;n.y=y;}
+function addNode(p){const id=M.nextN++;tN(id);const n={kind:'small',name:'',theme:'',cluster:null,region:'',mods:[],mod_refs:[],x:0,y:0,...p,id};
+  M.nodes.set(id,n);adj.set(id,new Set());return id;}
+function delNodes(ids){const set=new Set(ids);for(const e of [...M.edges.values()])if(set.has(e.a)||set.has(e.b))delEdge(e.id);
+  for(const id of set){if(!M.nodes.has(id))continue;tN(id);M.nodes.delete(id);adj.delete(id);SEL.delete(id);}}
+function addEdge(a,b,p={}){if(a===b||PAIR.has(pk(a,b))||!M.nodes.has(a)||!M.nodes.has(b))return null;const id=M.nextE++;tE(id);
+  M.edges.set(id,{kind:'link',long:false,k:0,...p,id,a,b});adj.get(a).add(id);adj.get(b).add(id);PAIR.set(pk(a,b),id);return id;}
+function delEdge(id){const e=M.edges.get(id);if(!e)return;tE(id);M.edges.delete(id);adj.get(e.a)?.delete(id);adj.get(e.b)?.delete(id);PAIR.delete(pk(e.a,e.b));SELE.delete(id);}
+function patchNode(id,p){tN(id);Object.assign(M.nodes.get(id),p);}
+function patchEdge(id,p){tE(id);Object.assign(M.edges.get(id),p);}
+function addCluster(p){const id=M.nextC++;tC(id);M.clusters.set(id,{name:'New cluster',theme:'',form:'custom',region:'',hidden:null,centre:null,...p,id});return id;}
+function patchCluster(id,p){tC(id);Object.assign(M.clusters.get(id),p);}
+function delCluster(id){for(const n of M.nodes.values())if(n.cluster===id)patchNode(n.id,{cluster:null});tC(id);M.clusters.delete(id);}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Derived data, rebuilt lazily
+let GRID=null,EGRID=null,MEMBERS=null,colCache=new Map(),DISTC=null;
+function invalidate(topo){GRID=null;EGRID=null;MEMBERS=null;colCache.clear();if(topo)DISTC=null;miniDirty=true;}
+function changed(o={}){invalidate(true);markDirty(metaDirty||(HIST[HIST.length-1]||null)!==savedRec);scheduleChecks();scheduleDraft();draw.req();updUndo();if(o.inspector!==false)refreshInspector(o);refreshCounts();}
+const GC=2,EC=4,gk=(x,y)=>(x+4096)*8192+(y+4096);
+function grid(){if(GRID)return GRID;GRID=new Map();for(const n of M.nodes.values()){const k=gk(Math.floor(n.x/GC),Math.floor(n.y/GC));let c=GRID.get(k);if(!c)GRID.set(k,c=[]);c.push(n);}return GRID;}
+function near(x,y,r){const G=grid(),o=[];for(let gx=Math.floor((x-r)/GC);gx<=Math.floor((x+r)/GC);gx++)for(let gy=Math.floor((y-r)/GC);gy<=Math.floor((y+r)/GC);gy++){const c=G.get(gk(gx,gy));if(c)for(const n of c)if((n.x-x)**2+(n.y-y)**2<=r*r)o.push(n);}return o;}
+function egrid(){if(EGRID)return EGRID;EGRID=new Map();for(const e of M.edges.values()){const g=geom(e);if(!g)continue;const pts=samplesOf(g,0.6);let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const [x,y] of pts){x0=Math.min(x0,x);y0=Math.min(y0,y);x1=Math.max(x1,x);y1=Math.max(y1,y);}
+  for(let gx=Math.floor(x0/EC);gx<=Math.floor(x1/EC);gx++)for(let gy=Math.floor(y0/EC);gy<=Math.floor(y1/EC);gy++){const k=gk(gx,gy);let c=EGRID.get(k);if(!c)EGRID.set(k,c=[]);c.push(e.id);}}return EGRID;}
+function members(){if(MEMBERS)return MEMBERS;MEMBERS=new Map();for(const n of M.nodes.values())if(n.cluster!=null){let a=MEMBERS.get(n.cluster);if(!a)MEMBERS.set(n.cluster,a=[]);a.push(n.id);}return MEMBERS;}
+function bfs(src){const d=new Map([[src,0]]),q=[src];for(let h=0;h<q.length;h++){const u=q[h];for(const eid of adj.get(u)||[]){const e=M.edges.get(eid);if(!e||e.kind==='gate')continue;const v=other(e,u);const nv=M.nodes.get(v);if(!d.has(v)&&nv&&!nv.hidden){d.set(v,d.get(u)+1);q.push(v);}}}return d;}
+let startId=null;
+function starts(){return [...M.nodes.values()].filter(n=>n.kind==='start');}
+function distMap(){if(startId==null||!M.nodes.has(startId)){const s=starts()[0];startId=s?s.id:null;}if(startId==null)return new Map();
+  if(DISTC&&DISTC.s===startId&&DISTC.t===TOPO)return DISTC.d;DISTC={s:startId,t:TOPO,d:bfs(startId)};return DISTC.d;}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Colours (as the tree viewer draws them)
+const EL={metal:'#b9c6d3',fire:'#e7653f',earth:'#d1a64c',water:'#4f95e0',wood:'#5bbd78',light:'#f3dc7c',dark:'#a68ae0',thunder:'#ecc93c',wind:'#80d8b4',ice:'#93dcef',chaos:'#c79af5',uni:'#d8d0bd',hidden:'#8c86a8'};
+const THEME_EL={sword:'metal',refining:'metal',metal:'metal',body:'metal',alchemy:'fire',blaze:'fire',fire:'fire',phoenix:'fire',formation:'earth',mountain:'earth',earth:'earth',gravity:'earth',talisman:'water',tide:'water',water:'water',ice:'ice',field:'wood',beast:'wood',wood:'wood',growth:'wood',lava:'fire',ore:'earth',dew:'metal',rain:'water',kindling:'wood',wind:'wind',thunder:'thunder',light:'light',dark:'dark',chaos:'chaos',secret:'hidden'};
+const TC={sword:'#e05a4e',refining:'#e09a3a',metal:'#a9b7c6',body:'#7d8fa3',alchemy:'#f08a3c',blaze:'#e8453a',fire:'#f2683f',phoenix:'#f4a259',formation:'#c99a3e',mountain:'#a8834a',earth:'#d9b25a',gravity:'#9b7b52',talisman:'#6fa8f0',tide:'#4cc2c6',water:'#3f86de',ice:'#9fe0f2',field:'#9cc85a',beast:'#c7883f',wood:'#4fb36d',growth:'#7ed49a',lava:'#e0703a',ore:'#b9a77c',dew:'#9cc3d8',rain:'#77b9a8',kindling:'#c9a14a',wind:'#7fd8b4',thunder:'#efd03c',light:'#f6e08a',dark:'#a68ae0',chaos:'#c79af5',health:'#d9566c',linh:'#6a98ee',sense:'#a985e6',ward:'#47bfae',crit:'#ebba45',lifespan:'#86c573',heart:'#e48abd',insight:'#68cbdc',keystone:'#ff6b81',secret:'#8c86a8'};
+const LANDA={fire:0,earth:72,metal:144,water:216,wood:288},ISL={light:'light',darkness:'dark',thunder:'thunder',hub:'chaos'};
+const hex2=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));
+const mix=(a,b,t)=>{const A=hex2(a),B=hex2(b);return '#'+A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,'0')).join('');};
+function regionCol(n){if(LANDA[n.region]!==undefined)return EL[n.region];if(ISL[n.region])return EL[ISL[n.region]];
+  const a=(Math.atan2(n.x,-n.y)*180/Math.PI+360)%360,k=Math.floor(a/72),t=(a-72*k)/72,L=['fire','earth','metal','water','wood'];
+  return mix(EL[L[k%5]],EL[L[(k+1)%5]],Math.min(1,Math.max(0,(t-.3)/.4)));}
+const hue=i=>`hsl(${(i*137.508)%360} 62% 62%)`;
+const strHue=s=>{let h=0;for(const c of String(s))h=(h*31+c.charCodeAt(0))>>>0;return hue(h%997);};
+function ramp(d){if(d==null)return '#39424d';const t=Math.min(1,d/60),st=[[0,[90,160,255]],[.33,[60,200,170]],[.66,[235,190,60]],[1,[240,80,90]]];
+  for(let k=1;k<st.length;k++)if(t<=st[k][0]){const [a,ca]=st[k-1],[b,cb]=st[k],u=(t-a)/(b-a);return `rgb(${ca.map((c,j)=>Math.round(c+(cb[j]-c)*u)).join(',')})`;}return 'rgb(240,80,90)';}
+function modSrc(n){if(!n.mods||!n.mods.length)return '#4a525c';const r=n.mod_refs||[];if(r.some(x=>x==null))return '#e0a640';if(r.some(x=>x&&x!=='gen'))return '#4cc38a';return '#7d8794';}
+function col(n){let c=colCache.get(n.id);if(c)return c;const m=mode;
+  if(m==='kind')c={travel:'#8a93a0',small:'#9aa3ae',notable:'#e4b850',keystone:'#ff6b81',start:'#e9e3d2'}[n.kind]||'#ccc';
+  else if(m==='cluster')c=n.cluster==null?'#6b7480':hue(n.cluster);
+  else if(m==='region')c=strHue(n.region||'');
+  else if(m==='dist')c=ramp(distMap().get(n.id));
+  else if(m==='mods')c=modSrc(n);
+  else if(n.kind==='start')c=EL[n.start_of]||'#e9e3d2';
+  else if(n.kind==='travel')c=n.road==='lightning'?EL.thunder:n.road==='shadow'?EL.dark:'#cbb886';
+  else if(n.kind==='keystone')c='#ff6b81';
+  else if(m==='theme')c=TC[n.theme]||EL.uni;
+  else{const e=THEME_EL[n.theme];c=e?mix(EL[e],'#ffffff',.08):mix(regionCol(n),'#e8e1cf',.62);}
+  colCache.set(n.id,c);return c;}
+const isRoadN=n=>n&&(n.kind==='travel'||n.kind==='start');
+function edgeCol(e,a,b){if(mode==='dist'){const d=distMap();return ramp(Math.max(d.get(a.id)??99,d.get(b.id)??99));}
+  if(mode==='kind'||mode==='mods')return '#59616c';
+  if(isRoadN(a)&&isRoadN(b)){const r=a.road||b.road;return r==='lightning'?EL.thunder:r==='shadow'?EL.dark:'#bfa76f';}
+  return col(isRoadN(a)?b:a);}
+
+// ---------------------------------------------------------------------------------------------------------------
+// View and drawing
+const cv=$('#cv'),ctx=cv.getContext('2d'),stage=$('#stage'),mini=$('#mini'),mctx=mini.getContext('2d'),tip=$('#tip'),hud=$('#hud');
+let W=0,H=0,dpr=1,view={s:4,tx:0,ty:0};let mode='elem',tool='select';
+const opt={labels:true,issues:true,snap:'guides',box:'nodes'};
+let hover=-1,hoverE=-1;
+const toW=(x,y)=>[(x-view.tx)/view.s,(y-view.ty)/view.s],toS=(x,y)=>[x*view.s+view.tx,y*view.s+view.ty];
+const pxOf=()=>Math.max(1.6,Math.min(9,view.s*0.36));
+function radPx(n){const px=pxOf();return n.kind==='keystone'?px*2.0:n.kind==='start'?px*3:n.kind==='notable'?px*1.0:n.kind==='travel'?px*.8:px*.55;}
+let autoFit=true;  // until the viewer pans or zooms, a resize refits the whole map; after that it keeps the centre
+function resize(){const b=stage.getBoundingClientRect();const c=W>0&&H>0?toW(W/2,H/2):null;dpr=Math.min(2,devicePixelRatio||1);W=b.width;H=b.height;if(autoFit&&M.nodes.size)setTimeout(fitAll,0);else if(c){view.tx=W/2-view.s*c[0];view.ty=H/2-view.s*c[1];}cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);
+  const mb=mini.getBoundingClientRect();mini.width=mb.width*dpr;mini.height=mb.height*dpr;miniDirty=true;draw.req();}
+function bboxOf(ids){let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9,n=0;for(const id of ids){const p=M.nodes.get(id);if(!p)continue;n++;x0=Math.min(x0,p.x);y0=Math.min(y0,p.y);x1=Math.max(x1,p.x);y1=Math.max(y1,p.y);}return n?{x0,y0,x1,y1,cx:(x0+x1)/2,cy:(y0+y1)/2,n}:null;}
+function frame(ids,pad=60){autoFit=false;const b=bboxOf(ids);if(!b)return;const w=Math.max(b.x1-b.x0,6),h=Math.max(b.y1-b.y0,6);
+  const s=Math.min((W-2*pad)/w,(H-2*pad)/h,60);view={s,tx:W/2-s*b.cx,ty:H/2-s*b.cy};draw.req();}
+function fitAll(){frame(M.nodes.keys(),24);autoFit=true;}
+let found=[],foundIx=-1;let marquee=null,guides=[],connectFrom=null,cursorW=[0,0],dragInfo=null;
+let CHK=null;
+
+function draw(){draw.pending=false;
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+  const {s,tx,ty}=view,u=1/s,px=pxOf();
+  const [vx0,vy0]=toW(-40,-40),[vx1,vy1]=toW(W+40,H+40);const inV=n=>n.x>=vx0&&n.x<=vx1&&n.y>=vy0&&n.y<=vy1;
+  ctx.setTransform(dpr*s,0,0,dpr*s,dpr*tx,dpr*ty);
+  // guide rings of the kit (faint) and the grid when grid snapping is on
+  ctx.lineWidth=u;ctx.strokeStyle='rgba(201,176,122,.07)';for(const r of [17,30.5,44.5,58.5,70,76]){ctx.beginPath();ctx.arc(0,0,r,0,7);ctx.stroke();}
+  const gs=+opt.snap;if(gs&&s*gs>=7){ctx.strokeStyle='rgba(255,255,255,.05)';ctx.beginPath();for(let x=Math.floor(vx0/gs)*gs;x<=vx1;x+=gs){ctx.moveTo(x,vy0);ctx.lineTo(x,vy1);}for(let y=Math.floor(vy0/gs)*gs;y<=vy1;y+=gs){ctx.moveTo(vx0,y);ctx.lineTo(vx1,y);}ctx.stroke();}
+  // edges, batched by colour and width
+  const groups=new Map();const selN=SEL;
+  for(const e of M.edges.values()){const a=M.nodes.get(e.a),b=M.nodes.get(e.b);if(!a||!b)continue;
+    if((a.x<vx0&&b.x<vx0)||(a.x>vx1&&b.x>vx1)||(a.y<vy0&&b.y<vy0)||(a.y>vy1&&b.y>vy1))continue;
+    const road=isRoadN(a)&&isRoadN(b);const key=edgeCol(e,a,b)+'|'+(road?(e.long?2:2.8):1.4)+'|'+(e.kind==='gate'?1:0);
+    let p=groups.get(key);if(!p)groups.set(key,p=new Path2D());pathEdge(p,geom(e));}
+  ctx.globalAlpha=.62;for(const [key,p] of groups){const [c,w,g]=key.split('|');ctx.strokeStyle=c;ctx.lineWidth=w*u;if(g==='1')ctx.setLineDash([5*u,4*u]);ctx.stroke(p);ctx.setLineDash([]);}ctx.globalAlpha=1;
+  // selected edges and edges inside the selection
+  if(SELE.size||selN.size){const p=new Path2D(),q=new Path2D();for(const e of M.edges.values()){if(SELE.has(e.id))pathEdge(p,geom(e));else if(selN.has(e.a)&&selN.has(e.b)&&selN.size<3000)pathEdge(q,geom(e));}
+    ctx.strokeStyle='#3fb8ff';ctx.globalAlpha=.55;ctx.lineWidth=2.2*u;ctx.stroke(q);ctx.globalAlpha=1;ctx.lineWidth=3.2*u;ctx.stroke(p);}
+  if(hoverE>=0&&M.edges.has(hoverE)&&hover<0&&!dragInfo){const p=new Path2D();pathEdge(p,geom(M.edges.get(hoverE)));ctx.strokeStyle='#9fdcff';ctx.globalAlpha=.9;ctx.lineWidth=3.4*u;ctx.stroke(p);ctx.globalAlpha=1;}
+  // nodes, batched by colour and shape
+  const fills=new Map(),big=[];
+  for(const n of M.nodes.values()){if(!inV(n))continue;if(n.kind==='keystone'||n.kind==='start'){big.push(n);continue;}
+    const c=col(n),key=n.kind+'|'+c;let p=fills.get(key);if(!p)fills.set(key,p=new Path2D());const r=radPx(n)*u;
+    if(n.kind==='travel'){p.moveTo(n.x,n.y-r);p.lineTo(n.x+r*.8,n.y);p.lineTo(n.x,n.y+r);p.lineTo(n.x-r*.8,n.y);p.closePath();}
+    else{p.moveTo(n.x+r,n.y);p.arc(n.x,n.y,r,0,7);}}
+  const notableRing=new Path2D();
+  for(const [key,p] of fills){const [k,c]=key.split('|');ctx.fillStyle=c;ctx.fill(p);if(k==='notable')notableRing.addPath(p);}
+  if(px>2.4){ctx.strokeStyle='#e9d9a8';ctx.globalAlpha=.8;ctx.lineWidth=1.3*u;
+    const ring=new Path2D();for(const n of M.nodes.values())if(n.kind==='notable'&&inV(n)){const r=radPx(n)*u+1.6*u;ring.moveTo(n.x+r,n.y);ring.arc(n.x,n.y,r,0,7);}ctx.stroke(ring);ctx.globalAlpha=1;}
+  for(const n of big){const c=col(n),r=radPx(n)*u;
+    if(n.kind==='keystone'){ctx.strokeStyle=c;ctx.globalAlpha=.45;ctx.lineWidth=1.1*u;const R=r*1.9;for(const off of [0,Math.PI/4]){ctx.beginPath();for(let k=0;k<4;k++){const t=off+k*Math.PI/2,X=n.x+Math.cos(t)*R,Y=n.y+Math.sin(t)*R;k?ctx.lineTo(X,Y):ctx.moveTo(X,Y);}ctx.closePath();ctx.stroke();}ctx.globalAlpha=1;
+      ctx.fillStyle='#0b0f15';ctx.beginPath();ctx.arc(n.x,n.y,r,0,7);ctx.fill();ctx.strokeStyle=c;ctx.lineWidth=2.2*u;ctx.stroke();ctx.fillStyle=c;ctx.beginPath();ctx.arc(n.x,n.y,r*.55,0,7);ctx.fill();}
+    else{ctx.strokeStyle=c;ctx.globalAlpha=.5;ctx.lineWidth=1.4*u;ctx.beginPath();ctx.arc(n.x,n.y,r*1.7,0,7);ctx.stroke();ctx.globalAlpha=1;ctx.fillStyle='#0b0f15';ctx.beginPath();ctx.arc(n.x,n.y,r,0,7);ctx.fill();ctx.lineWidth=2.4*u;ctx.stroke();ctx.fillStyle=c;ctx.beginPath();ctx.arc(n.x,n.y,r*.42,0,7);ctx.fill();}}
+  // locked nodes: a dashed ring
+  {const p=new Path2D();let any=false;for(const n of M.nodes.values())if(n.locked&&inV(n)){const r=radPx(n)*u+3*u;p.moveTo(n.x+r,n.y);p.arc(n.x,n.y,r,0,7);any=true;}if(any){ctx.strokeStyle='#9aa4ae';ctx.setLineDash([2*u,2*u]);ctx.lineWidth=1.2*u;ctx.stroke(p);ctx.setLineDash([]);}}
+  // issues from the last check run
+  if(opt.issues&&CHK){const red=new Path2D(),amb=new Path2D(),mag=new Path2D();const R=Math.max(5,px*1.8)*u;
+    for(const id of CHK.unreach){const n=M.nodes.get(id);if(n&&inV(n)){mag.moveTo(n.x+R,n.y);mag.arc(n.x,n.y,R,0,7);}}
+    for(const [a] of CHK.overlap){const n=M.nodes.get(a);if(n&&inV(n)){amb.moveTo(n.x+R,n.y);amb.arc(n.x,n.y,R,0,7);}}
+    for(const c of CHK.cross){const [x,y]=c[2];if(x<vx0||x>vx1||y<vy0||y>vy1)continue;const d=R*.8;red.moveTo(x-d,y-d);red.lineTo(x+d,y+d);red.moveTo(x+d,y-d);red.lineTo(x-d,y+d);}
+    ctx.lineWidth=1.8*u;ctx.strokeStyle='#ff5a5a';ctx.stroke(red);ctx.strokeStyle='#ffb347';ctx.stroke(amb);ctx.strokeStyle='#ff6bd6';ctx.stroke(mag);}
+  // found and selected rings
+  if(found.length){const p=new Path2D();for(const id of found){const n=M.nodes.get(id);if(!n||!inV(n))continue;const r=radPx(n)*u+4.5*u;p.moveTo(n.x+r,n.y);p.arc(n.x,n.y,r,0,7);}ctx.strokeStyle='#ffd166';ctx.lineWidth=1.8*u;ctx.stroke(p);}
+  if(selN.size){const p=new Path2D();for(const id of selN){const n=M.nodes.get(id);if(!n||!inV(n))continue;const r=radPx(n)*u+2.6*u;p.moveTo(n.x+r,n.y);p.arc(n.x,n.y,r,0,7);}ctx.strokeStyle='#3fb8ff';ctx.lineWidth=2.2*u;ctx.stroke(p);}
+  if(dragInfo&&dragInfo.type==='move'&&dragInfo.over>=0&&M.nodes.has(dragInfo.over)){const n=M.nodes.get(dragInfo.over),r=radPx(n)*u+5*u;ctx.strokeStyle='#ff9d3d';ctx.lineWidth=2.4*u;ctx.setLineDash([4*u,3*u]);ctx.beginPath();ctx.arc(n.x,n.y,r,0,7);ctx.stroke();ctx.setLineDash([]);}
+  if(hover>=0&&M.nodes.has(hover)){const n=M.nodes.get(hover),r=radPx(n)*u+3.5*u;ctx.strokeStyle='#fff';ctx.lineWidth=1.6*u;ctx.beginPath();ctx.arc(n.x,n.y,r,0,7);ctx.stroke();}
+  if(connectFrom!=null&&M.nodes.has(connectFrom)){const n=M.nodes.get(connectFrom);ctx.strokeStyle='#ff9d3d';ctx.lineWidth=2*u;ctx.setLineDash([6*u,4*u]);ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(cursorW[0],cursorW[1]);ctx.stroke();ctx.setLineDash([]);ctx.beginPath();ctx.arc(n.x,n.y,radPx(n)*u+4*u,0,7);ctx.stroke();}
+  // ---- screen space overlays
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  if(opt.labels)drawLabels(inV);
+  for(const g of guides){ctx.strokeStyle='rgba(255,90,200,.85)';ctx.lineWidth=1;ctx.setLineDash([4,3]);ctx.beginPath();
+    if(g.t==='x'){const [X]=toS(g.v,0);ctx.moveTo(X,0);ctx.lineTo(X,H);}else if(g.t==='y'){const [,Y]=toS(0,g.v);ctx.moveTo(0,Y);ctx.lineTo(W,Y);}else{const [X,Y]=toS(0,0);ctx.arc(X,Y,g.v*s,0,7);}ctx.stroke();ctx.setLineDash([]);}
+  // bend handles on selected edges
+  if(!RO&&SELE.size&&SELE.size<=300){for(const id of SELE){const g=geom(M.edges.get(id));if(!g)continue;const [X,Y]=toS(...g.mid);
+      if(SELE.size===1){const [ax,ay]=toS(g.a.x,g.a.y),[bx,by]=toS(g.b.x,g.b.y),L=Math.hypot(bx-ax,by-ay)||1,nx=-(by-ay)/L,ny=(bx-ax)/L,mx=(ax+bx)/2,my=(ay+by)/2,R=Math.max(34,Math.min(90,L*.5));
+        // the line the handle slides along, an arrow at each end, and what to do
+        ctx.strokeStyle='rgba(63,184,255,.55)';ctx.lineWidth=1;ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(mx-nx*R,my-ny*R);ctx.lineTo(mx+nx*R,my+ny*R);ctx.stroke();ctx.setLineDash([]);
+        ctx.fillStyle='rgba(63,184,255,.8)';for(const sg of [1,-1]){const tx_=mx+nx*R*sg,ty_=my+ny*R*sg;ctx.beginPath();ctx.moveTo(tx_+nx*7*sg,ty_+ny*7*sg);ctx.lineTo(tx_-ny*5,ty_+nx*5);ctx.lineTo(tx_+ny*5,ty_-nx*5);ctx.closePath();ctx.fill();}
+        ctx.font='600 11.5px "IBM Plex Sans",system-ui,sans-serif';ctx.textAlign='left';ctx.textBaseline='middle';ctx.lineWidth=3;ctx.strokeStyle='rgba(5,7,11,.9)';ctx.strokeText('drag to curve',X+12,Y-12);ctx.fillStyle='#bfe8ff';ctx.fillText('drag to curve',X+12,Y-12);}
+      ctx.fillStyle='#3fb8ff';ctx.strokeStyle='#e6f6ff';ctx.lineWidth=2;ctx.beginPath();ctx.arc(X,Y,7,0,7);ctx.fill();ctx.stroke();}}
+  // selection box with scale and rotate handles
+  const hb=handleBox();if(hb){ctx.strokeStyle='rgba(63,184,255,.7)';ctx.lineWidth=1;ctx.setLineDash([5,4]);ctx.strokeRect(hb.X0,hb.Y0,hb.X1-hb.X0,hb.Y1-hb.Y0);ctx.setLineDash([]);
+    ctx.fillStyle='#e6f6ff';ctx.strokeStyle='#3fb8ff';for(const [X,Y] of hb.corners){ctx.fillRect(X-4.5,Y-4.5,9,9);ctx.strokeRect(X-4.5,Y-4.5,9,9);}
+    ctx.beginPath();ctx.moveTo(hb.rot[0],hb.Y0);ctx.lineTo(hb.rot[0],hb.rot[1]+6);ctx.stroke();ctx.beginPath();ctx.arc(hb.rot[0],hb.rot[1],6,0,7);ctx.fill();ctx.stroke();}
+  if(marquee){ctx.fillStyle='rgba(63,184,255,.1)';ctx.strokeStyle='rgba(63,184,255,.9)';ctx.lineWidth=1;const x=Math.min(marquee.x0,marquee.x1),y=Math.min(marquee.y0,marquee.y1),w=Math.abs(marquee.x1-marquee.x0),h=Math.abs(marquee.y1-marquee.y0);ctx.fillRect(x,y,w,h);ctx.strokeRect(x,y,w,h);}
+  drawMini();
+}
+draw.req=()=>{if(!draw.pending){draw.pending=true;requestAnimationFrame(draw);}};
+// labels: starts, keystones and notables first, then the rest where there is room; a label never covers another
+const LPRI={start:0,keystone:1,notable:2,travel:4,small:3};
+function drawLabels(inV){const px=pxOf();if(px<4.2)return;ctx.font='11.5px "IBM Plex Sans",system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='top';ctx.lineJoin='round';
+  const all=px>=8.6,cand=[];for(const n of M.nodes.values()){if(!inV(n))continue;if(!all&&!(n.kind==='notable'||n.kind==='keystone'||n.kind==='start'))continue;if(!n.name&&!SEL.has(n.id))continue;cand.push(n);}
+  cand.sort((a,b)=>(SEL.has(b.id)-SEL.has(a.id))||(LPRI[a.kind]??5)-(LPRI[b.kind]??5));
+  const occ=new Map(),C=24,box=(x0,y0,x1,y1,put)=>{for(let gx=Math.floor(x0/C);gx<=Math.floor(x1/C);gx++)for(let gy=Math.floor(y0/C);gy<=Math.floor(y1/C);gy++){const k=gx*10000+gy,l=occ.get(k);
+      if(put){if(l)l.push([x0,y0,x1,y1]);else occ.set(k,[[x0,y0,x1,y1]]);}else if(l)for(const b of l)if(x0<b[2]&&x1>b[0]&&y0<b[3]&&y1>b[1])return true;}return false;};
+  let n0=0;for(const n of cand){const t=n.name||KLABEL[n.kind]||'';const tt=t.length>34?t.slice(0,32)+'…':t;const [X,Y]=toS(n.x,n.y),r=radPx(n),w=ctx.measureText(tt).width,y=Y+r+3;
+    if(box(X-w/2-2,y,X+w/2+2,y+14,false))continue;box(X-w/2-2,y,X+w/2+2,y+14,true);
+    ctx.lineWidth=3;ctx.strokeStyle='rgba(5,7,11,.9)';ctx.strokeText(tt,X,y);ctx.fillStyle=n.kind==='small'||n.kind==='travel'?'rgba(233,227,210,.72)':'#efe6cf';ctx.fillText(tt,X,y);if(++n0>600)break;}}
+// minimap: all nodes once, then the view box each frame
+let miniDirty=true,miniImg=null,miniT=null;
+function miniTf(){const b=bboxOf(M.nodes.keys())||{x0:-1,y0:-1,x1:1,y1:1};const w=mini.width,h=mini.height,pad=6*dpr;const s=Math.min((w-2*pad)/(b.x1-b.x0||1),(h-2*pad)/(b.y1-b.y0||1));return {s,ox:w/2-s*(b.x0+b.x1)/2,oy:h/2-s*(b.y0+b.y1)/2};}
+function drawMini(){if(!mini.width)return;if(miniDirty||!miniImg){miniDirty=false;miniT=miniTf();const c=document.createElement('canvas');c.width=mini.width;c.height=mini.height;const g=c.getContext('2d');
+    for(const n of M.nodes.values()){g.fillStyle=col(n);const z=n.kind==='keystone'||n.kind==='start'?2.5*dpr:n.kind==='notable'?1.6*dpr:1*dpr;g.fillRect(n.x*miniT.s+miniT.ox-z/2,n.y*miniT.s+miniT.oy-z/2,z,z);}miniImg=c;}
+  mctx.setTransform(1,0,0,1,0,0);mctx.clearRect(0,0,mini.width,mini.height);mctx.drawImage(miniImg,0,0);
+  const [a,b]=toW(0,0),[c,d]=toW(W,H),T=miniT;mctx.strokeStyle='#ffd166';mctx.lineWidth=1.5*dpr;mctx.strokeRect(a*T.s+T.ox,b*T.s+T.oy,(c-a)*T.s,(d-b)*T.s);
+  if(SEL.size&&SEL.size<4000){mctx.fillStyle='#3fb8ff';for(const id of SEL){const n=M.nodes.get(id);if(n)mctx.fillRect(n.x*T.s+T.ox-1.5*dpr,n.y*T.s+T.oy-1.5*dpr,3*dpr,3*dpr);}}}
+function handleBox(){if(RO||tool!=='select'||SEL.size<2||(dragInfo&&dragInfo.type==='move'))return null;const b=bboxOf(SEL);if(!b)return null;
+  let [X0,Y0]=toS(b.x0,b.y0),[X1,Y1]=toS(b.x1,b.y1);X0-=10;Y0-=10;X1+=10;Y1+=10;if(X1-X0<24&&Y1-Y0<24)return null;
+  return {X0,Y0,X1,Y1,b,corners:[[X0,Y0],[X1,Y0],[X1,Y1],[X0,Y1]],rot:[(X0+X1)/2,Y0-26]};}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Picking
+function pickNode(x,y){const [wx,wy]=toW(x,y);let best=-1,bd=1e9;for(const n of near(wx,wy,Math.max(26,pxOf()*3*2.2)/view.s)){const [X,Y]=toS(n.x,n.y),d=Math.hypot(X-x,Y-y),lim=Math.max(7,radPx(n)+3);if(d<=lim&&d<bd){bd=d;best=n.id;}}return best;}
+function pickEdge(x,y){const [wx,wy]=toW(x,y),tol=8/view.s,E=egrid(),c=E.get(gk(Math.floor(wx/EC),Math.floor(wy/EC)));if(!c)return -1;let best=-1,bd=tol;
+  for(const id of c){const e=M.edges.get(id);if(!e)continue;const g=geom(e);if(!g)continue;let d;
+    if(!g.arc){const dx=g.b.x-g.a.x,dy=g.b.y-g.a.y,L2=dx*dx+dy*dy||1,t=Math.max(0,Math.min(1,((wx-g.a.x)*dx+(wy-g.a.y)*dy)/L2));d=Math.hypot(wx-g.a.x-dx*t,wy-g.a.y-dy*t);}
+    else{const A=g.arc;let th=Math.atan2(wy-A.cy,wx-A.cx)-A.ta;while(th>Math.PI)th-=2*Math.PI;while(th<-Math.PI)th+=2*Math.PI;const t=th/A.d;d=t>=0&&t<=1?Math.abs(Math.hypot(wx-A.cx,wy-A.cy)-A.r):1e9;}
+    if(d<bd){bd=d;best=id;}}return best;}
+function pickHandle(x,y){const hb=handleBox();if(hb){if(Math.hypot(x-hb.rot[0],y-hb.rot[1])<9)return {type:'rotate',hb};for(let i=0;i<4;i++){const [X,Y]=hb.corners[i];if(Math.abs(x-X)<8&&Math.abs(y-Y)<8)return {type:'scale',hb,i};}}
+  if(!RO&&SELE.size&&SELE.size<=300)for(const id of SELE){const g=geom(M.edges.get(id));if(!g)continue;const [X,Y]=toS(...g.mid);if(Math.hypot(x-X,y-Y)<8)return {type:'bend',id};}return null;}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Selection
+const SEL=new Set(),SELE=new Set();
+function select(ids,eids=[],add=false){if(!add){SEL.clear();SELE.clear();}for(const i of ids)SEL.add(i);for(const i of eids)SELE.add(i);onSel();}
+function onSel(){refreshInspector({sel:true});draw.req();refreshCounts();}
+function selectCluster(id){const c=M.nodes.get(id)?.cluster;if(c==null)return;select(members().get(c)||[]);}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Editing operations
+const movable=ids=>[...ids].filter(id=>{const n=M.nodes.get(id);return n&&!n.locked;});
+function nudge(dx,dy){const ids=movable(SEL);if(!ids.length)return;begin('Nudge','nudge:'+ids.length);for(const id of ids){const n=M.nodes.get(id);setXY(id,n.x+dx,n.y+dy);}moveClusterCentres(ids,(x,y)=>[x+dx,y+dy]);commit({inspector:false});}
+function moveClusterCentres(ids,fn){const set=new Set(ids);for(const [cid,mem] of members())if(mem.length&&mem.every(i=>set.has(i))){const c=M.clusters.get(cid);if(c&&c.centre){tC(cid);c.centre=fn(c.centre[0],c.centre[1]);}}}
+function transform(fn,label,{flip=false,ids=null,key=null}={}){ids=movable(ids||SEL);if(!ids.length)return toast('Select some nodes first');begin(label,key);
+  for(const id of ids){const n=M.nodes.get(id);const [x,y]=fn(n.x,n.y);setXY(id,x,y);}moveClusterCentres(ids,fn);
+  if(flip){const set=new Set(ids);for(const e of M.edges.values())if(set.has(e.a)&&set.has(e.b)&&e.k)patchEdge(e.id,{k:-e.k});}commit({inspector:false});}
+function pivot(about){if(about==='map')return [0,0];const b=bboxOf(SEL);return b?[b.cx,b.cy]:[0,0];}
+function rotate(deg,about='sel'){const [cx,cy]=pivot(about),t=deg*Math.PI/180,c=Math.cos(t),s=Math.sin(t);transform((x,y)=>[cx+(x-cx)*c-(y-cy)*s,cy+(x-cx)*s+(y-cy)*c],`Rotate ${deg}°`,{key:'rot'+about});}
+function scale(f,about='sel'){const [cx,cy]=pivot(about);transform((x,y)=>[cx+(x-cx)*f,cy+(y-cy)*f],`Scale ×${r3(f)}`,{key:'scale'+about});}
+function mirror(axis){const [cx,cy]=pivot('sel');transform((x,y)=>axis==='h'?[2*cx-x,y]:[x,2*cy-y],axis==='h'?'Mirror left–right':'Mirror top–bottom',{flip:true});}
+function fragment(ids){const set=new Set(ids),mem=members(),cl=[];
+  for(const [cid,m] of mem)if(m.length&&m.every(i=>set.has(i)))cl.push(clone(M.clusters.get(cid)));
+  return {kmd_fragment:1,nodes:[...set].map(id=>clone(M.nodes.get(id))).filter(Boolean),edges:[...M.edges.values()].filter(e=>set.has(e.a)&&set.has(e.b)).map(clone),clusters:cl};}
+function pasteFragment(fr,fn,label){begin(label);const cmap=new Map();
+  for(const c of fr.clusters||[]){if(!c)continue;const {id,...rest}=c;cmap.set(id,addCluster({...rest,name:rest.name+' (copy)',centre:rest.centre?fn(rest.centre[0],rest.centre[1]):null}));}
+  const nmap=new Map();for(const n of fr.nodes){const {id,locked,...rest}=n;const [x,y]=fn(n.x,n.y);const cl=cmap.has(n.cluster)?cmap.get(n.cluster):M.clusters.has(n.cluster)?n.cluster:null;
+    nmap.set(id,addNode({...clone(rest),x,y,cluster:cl}));}
+  for(const e of fr.edges){const {id,a,b,...rest}=e;if(nmap.has(a)&&nmap.has(b))addEdge(nmap.get(a),nmap.get(b),rest);}
+  commit();return [...nmap.values()];}
+function duplicate(){if(!SEL.size)return toast('Select some nodes first');const d=30/view.s;const ids=pasteFragment(fragment(SEL),(x,y)=>[x+d,y+d],'Duplicate');select(ids);}
+function radialCopies(count,about){count=Math.round(count);if(!SEL.size||count<2)return;const [cx,cy]=pivot(about),fr=fragment(SEL);let all=[];
+  begin('Radial copies');  // one undo step for every copy
+  for(let k=1;k<count;k++){const t=k*2*Math.PI/count,c=Math.cos(t),s=Math.sin(t);
+    const cmap=new Map();for(const cc of fr.clusters){const {id,...rest}=cc;cmap.set(id,addCluster({...rest,name:rest.name+` (${k+1}/${count})`,centre:rest.centre?[cx+(rest.centre[0]-cx)*c-(rest.centre[1]-cy)*s,cy+(rest.centre[0]-cx)*s+(rest.centre[1]-cy)*c]:null}));}
+    const nmap=new Map();for(const n of fr.nodes){const {id,locked,...rest}=n;nmap.set(id,addNode({...clone(rest),x:cx+(n.x-cx)*c-(n.y-cy)*s,y:cy+(n.x-cx)*s+(n.y-cy)*c,cluster:cmap.has(n.cluster)?cmap.get(n.cluster):n.cluster}));}
+    for(const e of fr.edges){const {id,a,b,...rest}=e;addEdge(nmap.get(a),nmap.get(b),rest);}all=all.concat([...nmap.values()]);}
+  commit();toast(`${count-1} copies around ${about==='map'?'the map centre':'the selection centre'}`);select([...SEL,...all]);}
+function deleteSel(dissolve){if(!SEL.size&&!SELE.size)return;begin(dissolve?'Dissolve':'Delete');
+  if(dissolve)for(const id of SEL){const nb=neighbours(id).filter(v=>!SEL.has(v));if(nb.length===2)addEdge(nb[0],nb[1]);}
+  for(const id of [...SELE])delEdge(id);delNodes([...SEL]);commit();select([]);}
+// swapping: "places" trades everything about the nodes except where they sit and what links to them (links stay);
+// "positions" trades only x and y (links follow the nodes). With more than two, both cycle in click order.
+const PLACE=new Set(['id','x','y','cluster','region','locked','hidden']);
+function swapContent(ids){const src=ids.map(i=>clone(M.nodes.get(i))),n=ids.length;
+  ids.forEach((id,i)=>{const s=src[(i-1+n)%n],t=M.nodes.get(id);tN(id);for(const k of Object.keys(t))if(!PLACE.has(k))delete t[k];for(const k in s)if(!PLACE.has(k))t[k]=s[k];});}
+function swap(posOnly){const ids=[...SEL];if(ids.length<2)return toast('Select two nodes to swap (with more, they cycle in click order)');
+  if(posOnly){if(movable(ids).length!==ids.length)return toast('Some of these are locked: unlock them first (K)');const P=ids.map(i=>{const n=M.nodes.get(i);return [n.x,n.y];});
+    begin('Swap positions');ids.forEach((id,i)=>setXY(id,...P[(i+1)%ids.length]));commit({inspector:false});toast(ids.length===2?'Swapped positions (links followed)':'Cycled positions in click order');return;}
+  begin('Swap places');swapContent(ids);commit();toast(ids.length===2?'Swapped places (links stayed)':'Cycled places in click order');}
+function setKind(k){if(!SEL.size)return;begin('Kind: '+KLABEL[k]);for(const id of SEL)patchNode(id,{kind:k});commit();lastKind=k;}
+let lastKind='small';
+function toggleLock(){if(!SEL.size)return;const on=![...SEL].every(id=>M.nodes.get(id).locked);begin(on?'Lock':'Unlock');for(const id of SEL)patchNode(id,{locked:on});commit();toast(on?'Locked: these nodes no longer move':'Unlocked');}
+function selEdgesOrInner(){if(SELE.size)return [...SELE];const o=[];if(SEL.size>=2)for(const e of M.edges.values())if(SEL.has(e.a)&&SEL.has(e.b))o.push(e.id);return o;}
+function straighten(){const ids=selEdgesOrInner();if(!ids.length)return toast('Select links (or nodes with links between them)');begin('Straighten');for(const id of ids)patchEdge(id,{k:0});commit();}
+function curve(){const ids=selEdgesOrInner();if(!ids.length)return toast('Select links (or nodes with links between them)');begin('Curve');for(const id of ids){const e=M.edges.get(id);patchEdge(id,{k:e.k?-e.k:0.18});}commit();toast('Curved (press B again to flip the side)');}
+function link(){const ids=[...SEL];if(ids.length<2)return toast('Select two or more nodes to link (in click order)');
+  if(ids.length===2){const id=PAIR.get(pk(ids[0],ids[1]));begin(id!=null?'Unlink':'Link');if(id!=null)delEdge(id);else addEdge(ids[0],ids[1],linkProps(ids[0],ids[1]));commit();return;}
+  begin('Link chain');for(let i=1;i<ids.length;i++)addEdge(ids[i-1],ids[i],linkProps(ids[i-1],ids[i]));commit();}
+const linkProps=(a,b)=>isRoadN(M.nodes.get(a))&&isRoadN(M.nodes.get(b))?{kind:'highway'}:{kind:'link'};
+function splitEdges(){const ids=selEdgesOrInner();if(!ids.length)return toast('Select a link to put a node on it');begin('Insert node');const made=[];
+  for(const id of ids){const e=M.edges.get(id),g=geom(e);if(!g)continue;const [x,y]=onEdge(g,.5),A=g.a,B=g.b;const src=isRoadN(A)?B:A;
+    const kind=isRoadN(A)&&isRoadN(B)?'travel':'small';let k2=0;if(g.arc){const th=Math.abs(g.arc.d)/2,L2=2*g.arc.r*Math.sin(th/2),s2=g.arc.r*(1-Math.cos(th/2));k2=Math.sign(e.k)*s2/L2;}
+    const {id:_i,a:_a,b:_b,k:_k,...rest}=e;const nid=addNode({kind,name:'',theme:src.theme,cluster:src.cluster,region:src.region,road:kind==='travel'?(A.road||B.road):undefined,x,y,mods:[],mod_refs:[]});
+    delEdge(id);addEdge(e.a,nid,{...rest,k:k2});addEdge(nid,e.b,{...rest,k:k2});made.push(nid);}commit();select(made);}
+function placeNode(wx,wy,linkTo){const src=linkTo!=null?M.nodes.get(linkTo):near(wx,wy,6).sort((a,b)=>((a.x-wx)**2+(a.y-wy)**2)-((b.x-wx)**2+(b.y-wy)**2))[0];
+  [wx,wy]=snapPoint(wx,wy);begin('Add node');const kind=lastKind;
+  const id=addNode({kind,name:'',theme:src?src.theme:'',cluster:src&&kind!=='travel'?src.cluster:null,region:src?src.region:'',x:wx,y:wy,mods:[],mod_refs:[],...(kind==='travel'&&src?{road:src.road}:{})});
+  if(linkTo!=null)addEdge(linkTo,id,linkProps(linkTo,id));commit();select([id]);return id;}
+function makeCluster(){if(!SEL.size)return toast('Select nodes to group');const ns=[...SEL].map(i=>M.nodes.get(i));const most=k=>{const c=new Map();for(const n of ns)c.set(n[k],(c.get(n[k])||0)+1);return [...c].sort((a,b)=>b[1]-a[1])[0]?.[0]??'';};
+  const b=bboxOf(SEL);begin('New cluster');const id=addCluster({name:'New cluster',theme:most('theme'),region:most('region'),form:'custom',centre:[b.cx,b.cy]});for(const n of ns)patchNode(n.id,{cluster:id});commit();setTab('inspect');toast('Grouped into a new cluster: name it in the panel');}
+function align(how){const ids=movable(SEL);if(ids.length<2)return toast('Select two or more nodes');const b=bboxOf(ids);const ns=ids.map(i=>M.nodes.get(i));
+  const tf={left:n=>[b.x0,n.y],cx:n=>[b.cx,n.y],right:n=>[b.x1,n.y],top:n=>[n.x,b.y0],cy:n=>[n.x,b.cy],bottom:n=>[n.x,b.y1]}[how];
+  if(tf){begin('Align');for(const n of ns)setXY(n.id,...tf(n));commit({inspector:false});return;}
+  if(how==='dx'||how==='dy'){const k=how==='dx'?'x':'y';ns.sort((p,q)=>p[k]-q[k]);const lo=ns[0][k],hi=ns[ns.length-1][k];begin('Distribute');ns.forEach((n,i)=>{const v=lo+(hi-lo)*i/(ns.length-1);setXY(n.id,k==='x'?v:n.x,k==='y'?v:n.y);});commit({inspector:false});return;}
+  if(how==='line'){let A=ns[0],B=ns[1],bd=-1;if(ns.length<=600){for(let i=0;i<ns.length;i++)for(let j=i+1;j<ns.length;j++){const d=(ns[i].x-ns[j].x)**2+(ns[i].y-ns[j].y)**2;if(d>bd){bd=d;A=ns[i];B=ns[j];}}}
+    const ax=A.x,ay=A.y,dx=B.x-ax,dy=B.y-ay,L2=dx*dx+dy*dy||1;ns.sort((p,q)=>((p.x-ax)*dx+(p.y-ay)*dy)-((q.x-ax)*dx+(q.y-ay)*dy));begin('Even on a line');ns.forEach((n,i)=>setXY(n.id,ax+dx*i/(ns.length-1),ay+dy*i/(ns.length-1)));commit({inspector:false});return;}
+  if(how==='circle'){const cx=ns.reduce((a,n)=>a+n.x,0)/ns.length,cy=ns.reduce((a,n)=>a+n.y,0)/ns.length,r=ns.reduce((a,n)=>a+Math.hypot(n.x-cx,n.y-cy),0)/ns.length;
+    ns.sort((p,q)=>Math.atan2(p.y-cy,p.x-cx)-Math.atan2(q.y-cy,q.x-cx));const t0=Math.atan2(ns[0].y-cy,ns[0].x-cx);begin('Even on a circle');ns.forEach((n,i)=>{const t=t0+i*2*Math.PI/ns.length;setXY(n.id,cx+r*Math.cos(t),cy+r*Math.sin(t));});commit({inspector:false});return;}
+  if(how==='ring'){const r=ns.reduce((a,n)=>a+Math.hypot(n.x,n.y),0)/ns.length;begin('Same ring');for(const n of ns){const t=Math.atan2(n.y,n.x);setXY(n.id,r*Math.cos(t),r*Math.sin(t));}commit({inspector:false});toast(`All at ${r3(r)} from the map centre`);}}
+// snapping
+function snapPoint(x,y){const g=+opt.snap;if(g)return [Math.round(x/g)*g,Math.round(y/g)*g];return [x,y];}
+function snapMove(tx,ty,anchor,moving){guides=[];const g=+opt.snap;if(g)return [Math.round(tx/g)*g,Math.round(ty/g)*g];if(opt.snap!=='guides')return [tx,ty];
+  const tol=7/view.s;let bx=null,by=null,br=null,dx=tol,dy=tol,dr=tol;const r0=Math.hypot(tx,ty);
+  const cand=new Set(neighbours(anchor));for(const n of near(tx,ty,Math.max(8,120/view.s)))cand.add(n.id);
+  for(const id of cand){if(moving.has(id))continue;const n=M.nodes.get(id);if(!n)continue;
+    if(Math.abs(n.x-tx)<dx){dx=Math.abs(n.x-tx);bx=n.x;}if(Math.abs(n.y-ty)<dy){dy=Math.abs(n.y-ty);by=n.y;}const rr=Math.hypot(n.x,n.y);if(Math.abs(rr-r0)<dr&&r0>2){dr=Math.abs(rr-r0);br=rr;}}
+  if(bx!=null){tx=bx;guides.push({t:'x',v:bx});}if(by!=null){ty=by;guides.push({t:'y',v:by});}
+  if(bx==null&&by==null&&br!=null){const k=br/r0;tx*=k;ty*=k;guides.push({t:'r',v:br});}return [tx,ty];}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Pointer input
+const ptrs=new Map();let pinch=null,spaceHeld=false;
+function setTool(t){if(RO&&(t==='add'||t==='connect'))return;tool=t;connectFrom=null;$$('[data-tool]').forEach(b=>b.classList.toggle('on',b.dataset.tool===t));
+  cv.style.cursor=t==='pan'?'grab':t==='add'?'crosshair':t==='connect'?'cell':'default';updHint();draw.req();}
+function updHint(){const h={select:'Click selects · Shift+click adds · drag empty space for a box · drag nodes to move (Alt+drag copies) · double-click a node: its cluster · double-click empty: new node · ? shortcuts',
+  add:'Click to place a node, linked to the selected one (Shift+click: unlinked) · 1–5 sets the kind · Esc to finish',
+  connect:connectFrom==null?'Click the first node':'Click the next node to link (click a linked pair to unlink) · Esc to stop',pan:'Drag to pan · scroll to zoom'}[tool];
+  $('#hint').textContent=RO?'Click a node to read it · drag to pan · scroll to zoom · Find searches names, themes and modifiers':h;}
+let hintKind=null;
+function hoverHint(k){if(k===hintKind)return;hintKind=k;if(!k)return updHint();
+  $('#hint').textContent=k==='link'?'Link: drag it to curve it · click to select it (presets in the panel) · Shift+click adds it':'Node: drag to move · drop it on another node with Shift held to swap places · double-click: its cluster';}
+cv.addEventListener('contextmenu',e=>e.preventDefault());
+cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);ptrs.set(e.pointerId,[e.offsetX,e.offsetY]);tip.hidden=true;
+  if(ptrs.size===2){const [a,b]=[...ptrs.values()];pinch={d:Math.hypot(a[0]-b[0],a[1]-b[1]),s:view.s,tx:view.tx,ty:view.ty,c:[(a[0]+b[0])/2,(a[1]+b[1])/2]};dragInfo=null;marquee=null;return;}
+  const x=e.offsetX,y=e.offsetY,[wx,wy]=toW(x,y);
+  if(e.button===1||e.button===2||tool==='pan'||spaceHeld||(e.pointerType==='touch'&&tool!=='add')){dragInfo={type:'pan',x,y,tx:view.tx,ty:view.ty,moved:false,touchPick:e.pointerType==='touch'};cv.style.cursor='grabbing';return;}
+  if(RO){dragInfo={type:'pan',x,y,tx:view.tx,ty:view.ty,moved:false,roPick:true};return;}
+  const h=pickHandle(x,y);
+  if(h){const b=h.hb?h.hb.b:null;const orig=new Map(movable(SEL).map(id=>{const n=M.nodes.get(id);return [id,[n.x,n.y]];}));
+    const cent=new Map();const set=new Set(orig.keys());for(const [cid,m] of members())if(m.length&&m.every(i=>set.has(i))&&M.clusters.get(cid)?.centre)cent.set(cid,M.clusters.get(cid).centre.slice());
+    if(h.type==='bend'){begin('Bend');dragInfo={type:'bend',id:h.id};}
+    else if(h.type==='rotate'){begin('Rotate');dragInfo={type:'rotate',orig,cent,c:[b.cx,b.cy],a0:Math.atan2(wy-b.cy,wx-b.cx)};}
+    else{const opp=[[b.x1,b.y1],[b.x0,b.y1],[b.x0,b.y0],[b.x1,b.y0]][h.i];begin('Scale');dragInfo={type:'scale',orig,cent,anchor:e.altKey?[b.cx,b.cy]:opp,d0:null,start:[wx,wy]};}
+    return;}
+  if(tool==='add'){placeNode(wx,wy,e.shiftKey||SEL.size!==1?null:[...SEL][0]);return;}
+  const id=pickNode(x,y);
+  if(tool==='connect'){if(id<0){connectFrom=null;updHint();draw.req();return;}
+    if(connectFrom==null||connectFrom===id){connectFrom=id;select([id]);}
+    else{const ex=PAIR.get(pk(connectFrom,id));begin(ex!=null?'Unlink':'Link');if(ex!=null)delEdge(ex);else addEdge(connectFrom,id,linkProps(connectFrom,id));commit();connectFrom=id;select([id]);}
+    updHint();return;}
+  // select tool
+  if(id>=0){const add=e.shiftKey||e.ctrlKey||e.metaKey;
+    if(add){if(SEL.has(id))SEL.delete(id);else SEL.add(id);onSel();}else if(!SEL.has(id))select([id]);
+    dragInfo={type:'press',x,y,id,alt:e.altKey,deferSolo:!add&&SEL.has(id)&&SEL.size>1};return;}
+  const eid=pickEdge(x,y);
+  if(eid>=0){const add=e.shiftKey||e.ctrlKey||e.metaKey;if(add){SELE.has(eid)?SELE.delete(eid):SELE.add(eid);onSel();dragInfo=null;return;}
+    if(!(SELE.has(eid)&&!SEL.size))select([],[eid]);dragInfo={type:'edgepress',id:eid,x,y};return;}  // a drag from here curves it
+  prevSel=[...SEL];dragInfo={type:'marquee',x,y,add:e.shiftKey||e.ctrlKey||e.metaKey};marquee={x0:x,y0:y,x1:x,y1:y};});
+let prevSel=[];
+cv.addEventListener('pointermove',e=>{const x=e.offsetX,y=e.offsetY;cursorW=toW(x,y);updCoords();
+  if(ptrs.has(e.pointerId))ptrs.set(e.pointerId,[x,y]);
+  if(pinch&&ptrs.size===2){const [a,b]=[...ptrs.values()],k=Math.hypot(a[0]-b[0],a[1]-b[1])/pinch.d;view.s=pinch.s*k;view.tx=pinch.c[0]-(pinch.c[0]-pinch.tx)*k;view.ty=pinch.c[1]-(pinch.c[1]-pinch.ty)*k;draw.req();return;}
+  const D=dragInfo;
+  if(!D){if(tool==='connect'&&connectFrom!=null)draw.req();
+    if(tool==='select'||tool==='connect'||RO){const h=pickNode(x,y);let he=-1;if(h<0&&tool==='select'&&!RO)he=pickEdge(x,y);if(h!==hover||he!==hoverE){hover=h;hoverE=he;draw.req();}showTip(h,x,y);if(!RO&&tool==='select')hoverHint(h>=0?'node':he>=0?'link':null);
+      if(!RO&&tool==='select'){const ph=pickHandle(x,y);cv.style.cursor=ph?(ph.type==='rotate'?'alias':ph.type==='bend'?'move':'nwse-resize'):h>=0?'move':he>=0?'pointer':'default';}}
+    return;}
+  if(D.type==='pan'){if(Math.hypot(x-D.x,y-D.y)>3){D.moved=true;autoFit=false;}view.tx=D.tx+(x-D.x);view.ty=D.ty+(y-D.y);draw.req();return;}
+  if(D.type==='marquee'){marquee.x1=x;marquee.y1=y;draw.req();return;}
+  if(D.type==='press'){if(Math.hypot(x-D.x,y-D.y)<4)return;
+    let ids=movable(SEL);if(!ids.length){dragInfo=null;return;}
+    if(D.alt){const order=[...SEL],ix=order.indexOf(D.id);const made=pasteFragment(fragment(SEL),(a,b)=>[a,b],'Copy');select(made);ids=made;D.id=made[ix]??made[0];}
+    const anchor=D.alt?ids[0]:(M.nodes.get(D.id)?.locked?ids[0]:D.id);
+    const orig=new Map(ids.map(i=>{const n=M.nodes.get(i);return [i,[n.x,n.y]];}));const cent=new Map();const set=new Set(ids);
+    for(const [cid,m] of members())if(m.length&&m.every(i=>set.has(i))&&M.clusters.get(cid)?.centre)cent.set(cid,M.clusters.get(cid).centre.slice());
+    begin(D.alt?'Copy':'Move');Object.assign(D,{type:'move',orig,cent,anchor,set,start:toW(D.x,D.y)});tip.hidden=true;}
+  if(D.type==='move'){const [wx,wy]=toW(x,y),A=D.orig.get(D.anchor);let tx=A[0]+wx-D.start[0],ty=A[1]+wy-D.start[1];
+    if(!e.ctrlKey)[tx,ty]=snapMove(tx,ty,D.anchor,D.set);else guides=[];const dx=tx-A[0],dy=ty-A[1];
+    for(const [i,[ox,oy]] of D.orig)setXY(i,ox+dx,oy+dy);for(const [cid,[cx,cy]] of D.cent){tC(cid);M.clusters.get(cid).centre=[cx+dx,cy+dy];}
+    GRID=null;EGRID=null;hud.textContent=`Δ ${r3(dx)}, ${r3(dy)}`;
+    if(D.orig.size===1){let ov=-1,bd=1e9;for(const n of near(wx,wy,40/view.s)){if(n.id===D.anchor)continue;const [X,Y]=toS(n.x,n.y),d=Math.hypot(X-x,Y-y);if(d<=Math.max(10,radPx(n)+5)&&d<bd){bd=d;ov=n.id;}}
+      D.over=ov;if(ov>=0){const o=M.nodes.get(ov),nm=o.name||KLABEL[o.kind];hud.textContent=e.shiftKey?`Release to swap places with ${nm}`:`Hold Shift and release to swap places with ${nm}`;}}
+    draw.req();return;}
+  if(D.type==='edgepress'){if(Math.hypot(x-D.x,y-D.y)<4)return;begin('Curve link');D.type='bend';}
+  if(D.type==='bend'){const e2=M.edges.get(D.id),g=geom(e2);if(!g||g.L<1e-6)return;const [wx,wy]=toW(x,y),mx=(g.a.x+g.b.x)/2,my=(g.a.y+g.b.y)/2,nx=-(g.b.y-g.a.y)/g.L,ny=(g.b.x-g.a.x)/g.L;
+    let k=((wx-mx)*nx+(wy-my)*ny)/g.L;if(Math.abs(k)<0.025)k=0;k=Math.max(-.5,Math.min(.5,k));patchEdge(D.id,{k});EGRID=null;hud.textContent=k?`curve ${Math.round(Math.abs(k)*200)} % of a half circle`:'straight';draw.req();return;}
+  if(D.type==='rotate'){const [wx,wy]=toW(x,y);let a=Math.atan2(wy-D.c[1],wx-D.c[0])-D.a0;let deg=a*180/Math.PI;deg=((deg+540)%360)-180;if(e.shiftKey)deg=Math.round(deg/15)*15;
+    const t=deg*Math.PI/180,c=Math.cos(t),s=Math.sin(t),[cx,cy]=D.c,f=(px,py)=>[cx+(px-cx)*c-(py-cy)*s,cy+(px-cx)*s+(py-cy)*c];
+    for(const [i,[ox,oy]] of D.orig)setXY(i,...f(ox,oy));for(const [cid,[a1,b1]] of D.cent){tC(cid);M.clusters.get(cid).centre=f(a1,b1);}GRID=null;EGRID=null;hud.textContent=`${Math.round(deg*10)/10}°`;draw.req();return;}
+  if(D.type==='scale'){const [wx,wy]=toW(x,y),[ax,ay]=D.anchor;const d0=Math.hypot(D.start[0]-ax,D.start[1]-ay)||1;let f=Math.hypot(wx-ax,wy-ay)/d0;if(e.shiftKey)f=Math.round(f*10)/10;f=Math.max(.02,f);
+    const g=(px,py)=>[ax+(px-ax)*f,ay+(py-ay)*f];for(const [i,[ox,oy]] of D.orig)setXY(i,...g(ox,oy));for(const [cid,[a1,b1]] of D.cent){tC(cid);M.clusters.get(cid).centre=g(a1,b1);}GRID=null;EGRID=null;hud.textContent=`× ${Math.round(f*100)} %`;draw.req();return;}});
+function endDrag(e){const D=dragInfo;dragInfo=null;ptrs.delete(e.pointerId);if(ptrs.size<2)pinch=null;hud.textContent='';guides=[];
+  if(!D){draw.req();return;}
+  if(D.type==='pan'){setTool(tool);if(!D.moved&&(D.roPick||D.touchPick)){const id=pickNode(e.offsetX,e.offsetY);select(id>=0?[id]:[]);if(id>=0)showTip(id,e.offsetX,e.offsetY);}draw.req();return;}
+  if(D.type==='marquee'){const m=marquee;marquee=null;if(Math.abs(m.x1-m.x0)<3&&Math.abs(m.y1-m.y0)<3){if(!D.add)select([]);else draw.req();return;}
+    const [a,b]=toW(Math.min(m.x0,m.x1),Math.min(m.y0,m.y1)),[c,d]=toW(Math.max(m.x0,m.x1),Math.max(m.y0,m.y1));const inb=(x,y)=>x>=a&&x<=c&&y>=b&&y<=d,ids=[],eids=[];
+    if(opt.box!=='links')for(const n of M.nodes.values())if(inb(n.x,n.y))ids.push(n.id);
+    if(opt.box!=='nodes'||!ids.length)for(const ed of M.edges.values()){const g=geom(ed);if(g&&inb(...g.mid))eids.push(ed.id);}  // a link counts when its middle is in the box
+    select(ids,eids,D.add);return;}
+  if(D.type==='press'){if(D.deferSolo)select([D.id]);return;}
+  if(D.type==='edgepress'){draw.req();return;}
+  if(D.type==='move'&&D.over>=0&&e.shiftKey&&M.nodes.has(D.over)&&M.nodes.has(D.anchor)){
+    for(const [i,[ox,oy]] of D.orig)setXY(i,ox,oy);for(const [cid,c] of D.cent)M.clusters.get(cid).centre=c;
+    swapContent([D.anchor,D.over]);TX.label='Swap places';commit();toast('Swapped places (links stayed)');draw.req();return;}
+  if(['move','bend','rotate','scale'].includes(D.type)){commit({inspector:D.type==='bend'});draw.req();}}
+cv.addEventListener('pointerup',endDrag);cv.addEventListener('pointercancel',endDrag);
+cv.addEventListener('pointerleave',()=>{if(!dragInfo){hover=-1;hoverE=-1;tip.hidden=true;hoverHint(null);draw.req();}});
+cv.addEventListener('dblclick',e=>{if(RO)return;const id=pickNode(e.offsetX,e.offsetY);if(id>=0){selectCluster(id);toast('Selected its cluster');return;}
+  if(tool==='select'&&pickEdge(e.offsetX,e.offsetY)<0){const [wx,wy]=toW(e.offsetX,e.offsetY);const from=SEL.size===1?[...SEL][0]:prevSel.length===1&&M.nodes.has(prevSel[0])?prevSel[0]:null;placeNode(wx,wy,from);}});
+cv.addEventListener('wheel',e=>{e.preventDefault();autoFit=false;const k=Math.exp(-e.deltaY*(e.ctrlKey?0.01:0.0015));const s2=Math.max(.3,Math.min(400,view.s*k)),kk=s2/view.s;
+  view.tx=e.offsetX-(e.offsetX-view.tx)*kk;view.ty=e.offsetY-(e.offsetY-view.ty)*kk;view.s=s2;draw.req();updZoom();},{passive:false});
+// minimap navigation
+let miniDrag=false;const miniGo=e=>{const r=mini.getBoundingClientRect(),T=miniT;if(!T)return;const wx=((e.clientX-r.left)*dpr-T.ox)/T.s,wy=((e.clientY-r.top)*dpr-T.oy)/T.s;view.tx=W/2-view.s*wx;view.ty=H/2-view.s*wy;draw.req();};
+mini.addEventListener('pointerdown',e=>{e.stopPropagation();miniDrag=true;mini.setPointerCapture(e.pointerId);miniGo(e);});
+mini.addEventListener('pointermove',e=>{if(miniDrag)miniGo(e);});mini.addEventListener('pointerup',()=>miniDrag=false);
+
+function showTip(i,x,y){if(i<0||dragInfo){tip.hidden=true;return;}const n=M.nodes.get(i);if(!n){tip.hidden=true;return;}const c=n.cluster!=null?M.clusters.get(n.cluster):null;
+  let h=`<b>${esc(n.name||KLABEL[n.kind]||n.kind)}</b> <span class="meta">· ${esc(KLABEL[n.kind]||n.kind)}${n.theme?' · '+esc(themeLabel(n.theme)):''}</span>`;
+  if(c)h+=`<div class="meta">${esc(c.name)}${c.form?' · '+esc(c.form):''}</div>`;
+  if(n.mods&&n.mods.length)h+=`<ul>${n.mods.map(m=>`<li>${esc(m)}</li>`).join('')}</ul>`;
+  const d=distMap().get(i),sn=M.nodes.get(startId);h+=`<div class="cost">${d==null?'not reachable from '+esc(sn?sn.name:'the start'):d===0?'the start':d+' points from '+esc(sn.name)}</div>`;
+  tip.innerHTML=h;tip.hidden=false;let lx=x+16,ly=y+16;const tw=tip.offsetWidth,th=tip.offsetHeight;if(lx+tw>W-8)lx=x-tw-16;if(ly+th>H-8)ly=y-th-16;tip.style.left=Math.max(8,lx)+'px';tip.style.top=Math.max(8,ly)+'px';}
+const themeLabel=t=>(M.extra.themes&&M.extra.themes[t]&&M.extra.themes[t].label)||t;
+
+// ---------------------------------------------------------------------------------------------------------------
+// Keyboard
+const typing=()=>{const a=document.activeElement;return a&&(a.tagName==='INPUT'||a.tagName==='TEXTAREA'||a.tagName==='SELECT'||a.isContentEditable);};
+document.addEventListener('keydown',e=>{
+  if(!$('#modalWrap').hidden){if(e.key==='Escape')closeModal();return;}
+  const ctrl=e.ctrlKey||e.metaKey,k=e.key;
+  if(ctrl&&(k==='s'||k==='S')){e.preventDefault();if(e.shiftKey)saveAs();else save();return;}
+  if(ctrl&&(k==='f'||k==='F')){e.preventDefault();$('#find').focus();$('#find').select();return;}
+  if(typing()){if(k==='Escape')document.activeElement.blur();return;}
+  if(ctrl&&(k==='z'||k==='Z')){e.preventDefault();e.shiftKey?redo():undo();return;}
+  if(ctrl&&(k==='y'||k==='Y')){e.preventDefault();redo();return;}
+  if(ctrl&&(k==='a'||k==='A')){e.preventDefault();select(M.nodes.keys());return;}
+  if(ctrl&&(k==='d'||k==='D')){e.preventDefault();if(!RO)duplicate();return;}
+  if(ctrl&&(k==='g'||k==='G')){e.preventDefault();if(!RO)makeCluster();return;}
+  if(ctrl&&!k.startsWith('Arrow'))return;  // Ctrl+letter belongs to the browser or the clipboard
+  if(k===' '){if(!spaceHeld){spaceHeld=true;cv.style.cursor='grab';}e.preventDefault();return;}
+  if(k==='Escape'){if(connectFrom!=null){connectFrom=null;updHint();draw.req();return;}if(tool!=='select'){setTool('select');return;}select([]);found=[];$('#find').value='';$('#foundN').textContent='';return;}
+  if(k==='?'){help();return;}
+  if(k==='\\'){toggleSide();return;}
+  if(k==='f'||k==='F'){if(e.shiftKey||!SEL.size)fitAll();else frame(SEL);return;}
+  if(k==='e'||k==='E'){const o=['nodes','links','both'];opt.box=o[(o.indexOf(opt.box)+1)%3];$('#boxSel').value=opt.box;toast('Box selects '+(opt.box==='both'?'nodes and links':opt.box));return;}
+  if(k==='v'||k==='V'){setTool('select');return;}if(k==='h'||k==='H'){setTool('pan');return;}
+  if(RO)return;
+  if(k.startsWith('Arrow')){e.preventDefault();const st=e.shiftKey?1:ctrl?0.02:0.1;nudge(k==='ArrowLeft'?-st:k==='ArrowRight'?st:0,k==='ArrowUp'?-st:k==='ArrowDown'?st:0);return;}
+  if(k==='Delete'||k==='Backspace'){e.preventDefault();deleteSel(e.shiftKey);return;}
+  if(k==='n'||k==='N'){setTool('add');return;}if(k==='c'||k==='C'){setTool('connect');return;}
+  if(k==='r'||k==='R'){rotate(e.shiftKey?-15:15);return;}
+  if(e.code==='BracketLeft'){scale(e.shiftKey?0.98:0.9);return;}if(e.code==='BracketRight'){scale(e.shiftKey?1.02:1/0.9);return;}
+  if(k==='m'||k==='M'){mirror(e.shiftKey?'v':'h');return;}
+  if(k==='s'||k==='S'){straighten();return;}if(k==='b'||k==='B'){curve();return;}
+  if(k==='l'||k==='L'){link();return;}if(k==='i'||k==='I'){splitEdges();return;}
+  if(k==='k'||k==='K'){toggleLock();return;}
+  if(k==='x'||k==='X'){swap(e.shiftKey);return;}
+  if(k==='g'||k==='G'){const o=['guides','0.25','0.5','1','off'];opt.snap=o[(o.indexOf(opt.snap)+1)%o.length];$('#snapSel').value=opt.snap;toast('Snap: '+$('#snapSel').selectedOptions[0].text);draw.req();return;}
+  if(/^[1-5]$/.test(k)){const kind=KINDS[+k-1][0];lastKind=kind;if(SEL.size)setKind(kind);else toast('New nodes: '+KLABEL[kind]);return;}
+  if(k==='Enter'&&SEL.size){setTab('inspect');const f=$('#pane-inspect input');if(f)f.focus();e.preventDefault();}});
+document.addEventListener('keyup',e=>{if(e.key===' '){spaceHeld=false;setTool(tool);}});
+// clipboard: copy and paste a selection as JSON, also between tabs and versions
+document.addEventListener('copy',e=>{if(typing()||!SEL.size)return;e.clipboardData.setData('text/plain',JSON.stringify(fragment(SEL)));e.preventDefault();toast(`Copied ${SEL.size} nodes`);});
+document.addEventListener('cut',e=>{if(typing()||RO||!SEL.size)return;e.clipboardData.setData('text/plain',JSON.stringify(fragment(SEL)));e.preventDefault();deleteSel(false);toast('Cut');});
+document.addEventListener('paste',e=>{if(typing()||RO)return;let fr;try{fr=JSON.parse(e.clipboardData.getData('text/plain'));}catch(_){return;}if(!fr||!fr.kmd_fragment)return;e.preventDefault();
+  const b={x0:1e9,y0:1e9,x1:-1e9,y1:-1e9};for(const n of fr.nodes){b.x0=Math.min(b.x0,n.x);b.y0=Math.min(b.y0,n.y);b.x1=Math.max(b.x1,n.x);b.y1=Math.max(b.y1,n.y);}
+  const cx=(b.x0+b.x1)/2,cy=(b.y0+b.y1)/2,[tx,ty]=cursorW;select(pasteFragment(fr,(x,y)=>[x-cx+tx,y-cy+ty],'Paste'));toast(`Pasted ${fr.nodes.length} nodes at the cursor`);});
+
+// ---------------------------------------------------------------------------------------------------------------
+// Inspector
+let tab='inspect';
+function setTab(t){tab=t;$$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===t));$$('.pane').forEach(p=>p.hidden=p.id!=='pane-'+t);if(t==='checks')renderChecks();if(t==='clusters')renderClusters();if(t==='version')renderVersion();if(t==='inspect')refreshInspector({sel:true});}
+$$('#tabs button').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
+function themeOptions(){const s=new Set(Object.keys(M.extra.themes||{}));for(const n of M.nodes.values())if(n.theme)s.add(n.theme);return [...s].sort();}
+function regionOptions(){const s=new Set((M.extra.regions||[]).map(r=>r.name));for(const n of M.nodes.values())if(n.region)s.add(n.region);return [...s];}
+function common(ns,k){const v=ns[0]?.[k];return ns.every(n=>n[k]===v)?v:undefined;}
+function refreshInspector(o={}){if(tab!=='inspect'){if(tab==='checks'&&!o.sel)renderChecksSoon();return;}
+  const ae=document.activeElement,pane=$('#pane-inspect');if(!o.sel&&ae&&pane.contains(ae)&&(ae.tagName==='INPUT'||ae.tagName==='TEXTAREA'))return;  // do not redraw under the cursor while typing
+  pane.innerHTML=inspectorHTML();bindInspector(pane);}
+function inspectorHTML(){
+  if(!SEL.size&&!SELE.size){const ks={};for(const n of M.nodes.values())ks[n.kind]=(ks[n.kind]||0)+1;
+    return `<h2>Nothing selected</h2><p class="hint">${RO?'Click a node to read what it holds.':'Click a node to edit it, drag a box to select many, or press <b>?</b> for every shortcut.'}</p>
+    <h3>This version</h3><table>${KINDS.map(([k,l])=>`<tr><td>${l}</td><td class="n">${(ks[k]||0).toLocaleString()}</td></tr>`).join('')}<tr><td>Links</td><td class="n">${M.edges.size.toLocaleString()}</td></tr><tr><td>Clusters</td><td class="n">${M.clusters.size}</td></tr></table>
+    ${RO?'':`<h3>Quick start</h3><ul class="hint" style="padding-left:16px;margin:0;display:grid;gap:3px"><li><b>Move</b>: drag a node, or select and use the arrow keys (Shift: 1, Ctrl: 0.02).</li><li><b>Shape</b>: select several, then drag the box corners to scale or the round handle to rotate. <b>R</b> rotates 15°, <b>[ ]</b> shrink and grow, <b>M</b> mirrors.</li><li><b>Links</b>: click one to select it, or set <b>Box: links</b> (E) to box-select many. <b>Drag a link to curve it</b>; the panel has straight, gentle, strong and half-circle presets.</li><li><b>Swap</b>: select two nodes, then <b>X</b> swaps their places (links stay) or <b>Shift+X</b> their positions (links follow). Or drag one onto the other and release with Shift.</li><li><b>Build</b>: <b>N</b> adds nodes linked to the selected one, <b>C</b> links nodes, <b>I</b> puts a node on a link, <b>Ctrl+D</b> duplicates.</li><li><b>Content</b>: select a node and add modifiers or effects here.</li></ul>`}`;}
+  if(!SEL.size)return edgeHTML();
+  const ns=[...SEL].map(i=>M.nodes.get(i)).filter(Boolean),one=ns.length===1,n0=ns[0];
+  const dis=RO?'disabled':'';const kind=common(ns,'kind');
+  const name=common(ns,'name'),theme=common(ns,'theme'),cl=common(ns,'cluster'),reg=common(ns,'region');
+  const clOpts=[...M.clusters.values()].sort((a,b)=>(a.region||'').localeCompare(b.region||'')||a.name.localeCompare(b.name)||a.id-b.id);
+  let h=`<h2>${one?esc(n0.name||KLABEL[n0.kind]):`${ns.length.toLocaleString()} nodes`}</h2>`;
+  if(one)h+=`<div class="hint" style="margin:-4px 0 6px">#${n0.id} · (${r3(n0.x)}, ${r3(n0.y)}) · ${distMap().get(n0.id)??'—'} points from ${esc(M.nodes.get(startId)?.name||'start')}${n0.locked?' · locked':''}</div>`;
+  h+=`<div class="row"><label for="f-name">Name</label><input type="text" id="f-name" ${dis} value="${esc(name??'')}" placeholder="${name===undefined?'— mixed —':'unnamed'}"></div>`;
+  h+=`<div class="row"><label>Kind</label><div class="seg">${KINDS.map(([k,l,key])=>`<button class="${kind===k?'on':''}" data-kind="${k}" ${dis} title="${l} (${key})">${l}</button>`).join('')}</div></div>`;
+  h+=`<div class="row"><label for="f-theme">Theme</label><input type="text" id="f-theme" list="themeList" ${dis} value="${esc(theme??'')}" placeholder="${theme===undefined?'— mixed —':'none'}"></div><datalist id="themeList">${themeOptions().map(t=>`<option value="${esc(t)}">${esc(themeLabel(t))}</option>`).join('')}</datalist>`;
+  h+=`<div class="row"><label for="f-cluster">Cluster</label><select id="f-cluster" ${dis}>${cl===undefined?'<option value="__mixed" selected>— mixed —</option>':''}<option value="">(none)</option>${clOpts.map(c=>`<option value="${c.id}" ${cl===c.id?'selected':''}>${esc(c.name)} · ${esc(c.region||'')} · #${c.id}</option>`).join('')}</select></div>`;
+  h+=`<div class="btns edit-only"><button data-act="selcluster" ${cl==null?'disabled':''}>Select whole cluster</button><button data-act="makecluster" title="Ctrl+G">New cluster from selection</button>${cl!=null&&cl!==undefined?'<button data-act="editcluster">Edit cluster</button>':''}</div>`;
+  h+=`<div class="row"><label for="f-region">Region</label><select id="f-region" ${dis}>${reg===undefined?'<option value="__mixed" selected>— mixed —</option>':''}${regionOptions().map(r=>`<option ${reg===r?'selected':''}>${esc(r)}</option>`).join('')}</select></div>`;
+  if(kind==='travel')h+=`<div class="row"><label for="f-road">Road</label><input type="text" id="f-road" ${dis} value="${esc(common(ns,'road')??'')}"></div>`;
+  if(kind==='start')h+=`<div class="row"><label for="f-start">Start of</label><input type="text" id="f-start" ${dis} value="${esc(common(ns,'start_of')??'')}" placeholder="root key, e.g. fire"></div>`;
+  h+=`<h3>Modifiers and effects</h3>`;
+  if(one){h+=`<div class="mods">${n0.mods.map((m,i)=>modRow(m,(n0.mod_refs||[])[i],i,ns.length)).join('')||'<div class="hint">None yet.</div>'}</div>`;}
+  else{const u=new Map();for(const n of ns)n.mods.forEach((m,i)=>{const x=u.get(m)||{c:0,ref:(n.mod_refs||[])[i]};x.c++;u.set(m,x);});
+    const arr=[...u].sort((a,b)=>b[1].c-a[1].c);h+=`<div class="mods union">${arr.slice(0,60).map(([m,x])=>`<div class="mod"><div style="padding:2px 3px">${esc(m)}</div><div class="side">${badge(x.ref)}<span class="count">${x.c} of ${ns.length}</span><div class="ops edit-only"><button data-unmod="${esc(m)}" title="Remove from every selected node">✕</button></div></div></div>`).join('')||'<div class="hint">None.</div>'}${arr.length>60?`<div class="hint">…and ${arr.length-60} more lines</div>`:''}</div>`;}
+  h+=`<div class="btns edit-only"><button data-act="pick-mod">+ Modifier</button><button data-act="pick-stat">+ Stat with value</button><button data-act="pick-eff">+ Effect</button><button data-act="free">+ Free text</button>${one?'':'<button data-act="clearmods">Clear all</button>'}</div>`;
+  if(!one)h+=`<div class="hint">Adding puts the line on every selected node.</div>`;
+  h+=totalsHTML(ns);
+  if(!RO)h+=transformHTML(ns.length);
+  if(SELE.size)h+=edgeHTML(true);
+  return h;}
+function badge(r){return r==null?'<span class="badge free" title="Typed by hand, not from a catalogue">free text</span>':r==='gen'?'<span class="badge gen" title="Placeholder from the generator">placeholder</span>':`<span class="badge cat" title="${esc(r)}">catalogue</span>`;}
+function modRow(m,ref,i,n){return `<div class="mod" data-i="${i}"><textarea rows="1" data-mod="${i}" ${RO?'readonly':''}>${esc(m)}</textarea><div class="side">${badge(ref)}<div class="ops edit-only"><button data-up="${i}" title="Move up">↑</button><button data-down="${i}" title="Move down">↓</button><button data-del="${i}" title="Remove">✕</button></div></div></div>`;}
+const NUMRE=/^([+\-−]?\d+(?:\.\d+)?)\s*(%|pp)?\s+(.+)$/;
+function totalsHTML(ns){const t=new Map();let other=0;for(const n of ns)for(const m of n.mods){const x=NUMRE.exec(m.trim());if(!x){other++;continue;}const key=(x[2]?x[2]+' ':'')+x[3].toLowerCase();t.set(key,(t.get(key)||0)+parseFloat(x[1].replace('−','-')));}
+  if(!t.size&&!other)return '';const arr=[...t].sort((a,b)=>Math.abs(b[1])-Math.abs(a[1]));const kinds={};for(const n of ns)kinds[n.kind]=(kinds[n.kind]||0)+1;
+  return `<h3>Totals${ns.length>1?' of the selection':''}</h3><div class="hint">${Object.entries(kinds).map(([k,v])=>`${v} ${KLABEL[k]||k}`).join(' · ')}</div><div class="totals">${arr.slice(0,40).map(([k,v])=>{const [u,...rest]=k.includes(' ')&&(k.startsWith('% ')||k.startsWith('pp '))?k.split(' '):['',k];return `<div>${v>0?'+':''}${Math.round(v*100)/100}${u?' '+u:''} ${esc(u?rest.join(' '):k)}</div>`;}).join('')}${other?`<div class="hint">${other} lines without a leading number (effects)</div>`:''}</div>`;}
+function transformHTML(n){return `<h3>Transform</h3>
+  <div class="row"><label>Rotate</label><div class="btns" style="margin:0"><input type="number" id="t-rot" value="15" step="1" style="width:64px"><button data-act="rot">↻ by °</button><select id="t-about" title="Around"><option value="sel">selection centre</option><option value="map">map centre</option></select></div></div>
+  <div class="row"><label>Scale</label><div class="btns" style="margin:0"><input type="number" id="t-scale" value="90" step="1" style="width:64px"><button data-act="scale">× %</button><button data-act="mirh" title="M">Mirror ↔</button><button data-act="mirv" title="Shift+M">Mirror ↕</button></div></div>
+  <div class="row"><label>Copies</label><div class="btns" style="margin:0"><input type="number" id="t-copies" value="5" min="2" max="36" style="width:64px"><button data-act="radial" title="Copies spread evenly round the chosen centre (5 for the five lands)">around centre</button><button data-act="dup" title="Ctrl+D">Duplicate</button></div></div>
+  ${n>1?`<h3>Arrange</h3><div class="btns"><button data-al="left">⇤ Left</button><button data-al="cx">↔ Centre</button><button data-al="right">Right ⇥</button><button data-al="top">⤒ Top</button><button data-al="cy">↕ Middle</button><button data-al="bottom">Bottom ⤓</button></div>
+  <div class="btns"><button data-al="dx">Distribute ↔</button><button data-al="dy">Distribute ↕</button><button data-al="line">Even on a line</button><button data-al="circle">Even on a circle</button><button data-al="ring" title="Same distance from the map centre, angles kept">Same ring</button></div>
+  <div class="btns"><button data-act="link" title="L: link in click order (two: toggle)">Link in order</button><button data-act="straight" title="S">Straighten links</button><button data-act="curve" title="B">Curve links</button><button data-act="sellinks" title="Select only the links between these nodes, to curve or retype them">Select their links</button></div>
+  <div class="btns"><button data-act="swap" title="X: everything trades spots except position and links">Swap places</button><button data-act="swappos" title="Shift+X: only the positions trade; links go with the nodes">Swap positions</button></div>`:''}
+  <div class="btns"><button data-act="lock" title="K">Lock / unlock</button><button data-act="del" title="Delete; Shift+Delete reconnects a node's two neighbours">Delete</button></div>`;}
+function edgeHTML(sub){const es=[...SELE].map(i=>M.edges.get(i)).filter(Boolean),one=es.length===1,e0=es[0];const kinds=['link','highway','join','gate'];const ck=common(es,'kind');const dis=RO?'disabled':'';
+  const a=M.nodes.get(e0.a),b=M.nodes.get(e0.b);
+  const ks=es.map(e=>e.k||0),kc=ks.every(v=>v===ks[0])?ks[0]:0;
+  return `${sub?`<h3>${es.length} link${es.length>1?'s':''} selected too</h3>`:`<h2>${one?'Link':es.length+' links'}</h2>`}${one?`<div class="hint" style="margin:-4px 0 6px">${esc(a?.name||'#'+e0.a)} — ${esc(b?.name||'#'+e0.b)}</div>`:''}
+  <div class="row"><label for="e-bend">Curve</label><div style="display:grid;gap:1px;min-width:0"><input type="range" id="e-bend" ${dis} min="-50" max="50" step="1" value="${Math.round(kc*100)}"><div class="hint" style="display:flex;justify-content:space-between;font-size:11px"><span>◀ one side</span><span>straight</span><span>other side ▶</span></div></div></div>
+  <div class="seg edit-only" style="margin:4px 0"><button data-bend="0" class="${ks.every(v=>!v)?'on':''}">Straight</button><button data-bend="0.12">Gentle</button><button data-bend="0.25">Strong</button><button data-bend="0.5">Half circle</button><button data-bend="flip">Flip side</button></div>
+  <p class="hint edit-only" style="margin:4px 0 8px">You can also curve a link by dragging it on the map. A curve keeps its shape when its ends move.</p>
+  <div class="row"><label for="e-kind">Kind</label><select id="e-kind" ${dis}>${ck===undefined?'<option value="__mixed" selected>— mixed —</option>':''}${kinds.map(k=>`<option ${ck===k?'selected':''}>${k}</option>`).join('')}</select></div>
+  <div class="row"><label for="e-long">Long</label><input type="checkbox" id="e-long" ${dis} ${es.every(e=>e.long)?'checked':''} style="justify-self:start"></div>
+  <div class="btns edit-only"><button data-act="split" title="I">Put a node on it</button><button data-act="selends">Select its ends</button><button data-act="delLinks">Delete link${es.length>1?'s':''}</button></div>`;}
+function bindInspector(p){
+  const ids=()=>[...SEL];
+  const prop=(sel,key,fn)=>{const el=p.querySelector(sel);if(!el)return;el.addEventListener('input',()=>{const v=fn?fn(el.value):el.value;if(el.value==='__mixed')return;begin('Edit '+key,'prop:'+key+':'+ids().join(','));for(const id of ids())patchNode(id,{[key]:v});commit({inspector:false});});};
+  prop('#f-name','name');prop('#f-theme','theme');prop('#f-road','road');prop('#f-start','start_of');prop('#f-region','region');
+  const fc=p.querySelector('#f-cluster');if(fc)fc.addEventListener('change',()=>{if(fc.value==='__mixed')return;begin('Cluster');for(const id of ids())patchNode(id,{cluster:fc.value===''?null:+fc.value});commit();});
+  p.querySelectorAll('[data-kind]').forEach(b=>b.addEventListener('click',()=>setKind(b.dataset.kind)));
+  p.querySelectorAll('textarea[data-mod]').forEach(t=>{const fit=()=>{t.style.height='auto';t.style.height=t.scrollHeight+'px';};fit();
+    t.addEventListener('input',()=>{const i=+t.dataset.mod,id=ids()[0],n=M.nodes.get(id);begin('Edit modifier','mod:'+id+':'+i);const mods=n.mods.slice(),refs=(n.mod_refs||mods.map(()=>null)).slice();mods[i]=t.value;if(refs[i]==='gen')refs[i]=null;patchNode(id,{mods,mod_refs:refs});commit({inspector:false});fit();
+      const bd=t.parentElement.querySelector('.badge');if(bd)bd.outerHTML=badge(refs[i]);});});
+  const modOp=(attr,fn)=>p.querySelectorAll(`[${attr}]`).forEach(b=>b.addEventListener('click',()=>{const i=+b.getAttribute(attr),id=ids()[0],n=M.nodes.get(id);const mods=n.mods.slice(),refs=(n.mod_refs||mods.map(()=>null)).slice();fn(mods,refs,i);begin('Modifiers');patchNode(id,{mods,mod_refs:refs});commit();}));
+  modOp('data-del',(m,r,i)=>{m.splice(i,1);r.splice(i,1);});
+  modOp('data-up',(m,r,i)=>{if(i>0){[m[i-1],m[i]]=[m[i],m[i-1]];[r[i-1],r[i]]=[r[i],r[i-1]];}});
+  modOp('data-down',(m,r,i)=>{if(i<m.length-1){[m[i+1],m[i]]=[m[i],m[i+1]];[r[i+1],r[i]]=[r[i],r[i+1]];}});
+  p.querySelectorAll('[data-unmod]').forEach(b=>b.addEventListener('click',()=>{const line=b.getAttribute('data-unmod');begin('Remove modifier');for(const id of ids()){const n=M.nodes.get(id);const keep=n.mods.map((m,i)=>m!==line);if(keep.every(Boolean))continue;patchNode(id,{mods:n.mods.filter((_,i)=>keep[i]),mod_refs:(n.mod_refs||[]).filter((_,i)=>keep[i])});}commit();}));
+  p.querySelectorAll('[data-al]').forEach(b=>b.addEventListener('click',()=>align(b.dataset.al)));
+  const eb=p.querySelector('#e-bend');if(eb)eb.addEventListener('input',()=>{begin('Bend','bend:'+[...SELE].join(','));for(const id of SELE)patchEdge(id,{k:+eb.value/100});commit({inspector:false});});
+  p.querySelectorAll('[data-bend]').forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.bend;begin(v==='flip'?'Flip curve':'Curve preset');
+    for(const id of SELE){const e=M.edges.get(id);patchEdge(id,{k:v==='flip'?-(e.k||0):+v===0?0:(Math.sign(e.k||0)||1)*+v});}commit();}));
+  const ek=p.querySelector('#e-kind');if(ek)ek.addEventListener('change',()=>{if(ek.value==='__mixed')return;begin('Link kind');for(const id of SELE)patchEdge(id,{kind:ek.value});commit();});
+  const el=p.querySelector('#e-long');if(el)el.addEventListener('change',()=>{begin('Long link');for(const id of SELE)patchEdge(id,{long:el.checked});commit();});
+  p.querySelectorAll('[data-act]').forEach(b=>b.addEventListener('click',()=>{const a=b.dataset.act,about=p.querySelector('#t-about')?.value||'sel';
+    ({selcluster:()=>selectCluster(ids()[0]),makecluster:makeCluster,editcluster:()=>{const c=M.nodes.get(ids()[0]).cluster;setTab('clusters');openCluster(c);},
+      'pick-mod':()=>picker('modifiers'),'pick-stat':()=>picker('stats'),'pick-eff':()=>picker('effects'),free:()=>addLines([{text:'',ref:null}],true),
+      clearmods:()=>{begin('Clear modifiers');for(const id of ids())patchNode(id,{mods:[],mod_refs:[]});commit();},
+      rot:()=>rotate(+p.querySelector('#t-rot').value||0,about),scale:()=>scale((+p.querySelector('#t-scale').value||100)/100,about),mirh:()=>mirror('h'),mirv:()=>mirror('v'),
+      radial:()=>radialCopies(+p.querySelector('#t-copies').value,about),dup:duplicate,link,straight:straighten,curve,split:splitEdges,lock:toggleLock,del:()=>deleteSel(false),
+      sellinks:()=>{const s=new Set(SEL);const es=[...M.edges.values()].filter(e=>s.has(e.a)&&s.has(e.b)).map(e=>e.id);if(!es.length)return toast('No links between these nodes');select([],es);toast(es.length+' links selected');},
+      swap:()=>swap(false),swappos:()=>swap(true),delLinks:()=>{begin('Delete links');for(const id of [...SELE])delEdge(id);commit();onSel();},
+      selends:()=>{const s=new Set();for(const id of SELE){const e=M.edges.get(id);s.add(e.a);s.add(e.b);}select(s);}})[a]?.();}));}
+function addLines(lines,focus){const ids=[...SEL];if(!ids.length)return;begin('Add modifier');for(const id of ids){const n=M.nodes.get(id);patchNode(id,{mods:[...n.mods,...lines.map(l=>l.text)],mod_refs:[...(n.mod_refs||n.mods.map(()=>null)),...lines.map(l=>l.ref)]});}commit();
+  if(focus&&ids.length===1){const ts=$$('#pane-inspect textarea[data-mod]');const t=ts[ts.length-1];if(t)t.focus();}}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Catalogue picker
+function picker(which){if(!SEL.size)return;const ns=[...SEL].map(i=>M.nodes.get(i)),big=ns.every(n=>n.kind==='notable'||n.kind==='keystone');let cur=which,act=0,items=[];
+  openModal(`<h2 style="margin:0">Add to ${ns.length===1?esc(ns[0].name||'this node'):ns.length+' nodes'}</h2>
+    <div class="pk-tabs"><button data-pt="modifiers">Modifiers</button><button data-pt="stats">Stat with value</button><button data-pt="effects">Effects</button></div>
+    <input type="search" id="pk-q" placeholder="Search name, key, scope, rule…" style="width:100%">`,
+    `<div class="pk-list" id="pk-list"></div>`,
+    `<span class="hint" id="pk-note" style="margin-right:auto"></span><label class="hint" for="pk-val">Value</label><input type="text" id="pk-val" style="width:110px"><button id="pk-cancel">Cancel</button><button class="primary" id="pk-add">Add</button>`,true);
+  const q=$('#pk-q'),list=$('#pk-list'),val=$('#pk-val');
+  const render=()=>{$$('[data-pt]').forEach(b=>b.classList.toggle('on',b.dataset.pt===cur));const t=q.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    items=(CAT[cur]||[]).filter(it=>{const s=Object.values(it).join(' ').toLowerCase();return t.every(w=>s.includes(w));});act=Math.min(act,Math.max(0,items.length-1));
+    let g=null,h='';items.slice(0,400).forEach((it,i)=>{if(it.group!==g){g=it.group;h+=`<div class="pk-grp">${esc(g)}</div>`;}
+      const v=cur==='modifiers'?(big?it.notable:it.small)||it.note:cur==='stats'?it.ops:'';
+      const sub=cur==='modifiers'?[it.scope,it.tier,it.status].filter(Boolean).join(' · '):cur==='stats'?`${it.key} · ${it.better} is better · ${it.status}`:[it.rule,it.payload&&('Payload: '+it.payload),it.closes&&('Closes: '+it.closes)].filter(Boolean).join(' — ');
+      h+=`<button class="pk-item ${i===act?'act':''}" data-i="${i}"><span class="nm">${esc(it.name)}${it.key&&cur==='modifiers'?` <span class="hint">${esc(it.key)}</span>`:''}</span><span class="val">${esc(v||'')}</span><span class="sub">${esc(sub)}</span></button>`;});
+    list.innerHTML=h||`<div class="hint" style="padding:8px">${CAT[cur]?.length?'No match.':'The catalogue is empty (is serve.py running?).'}</div>`;
+    list.querySelectorAll('.pk-item').forEach(b=>{b.addEventListener('click',()=>{act=+b.dataset.i;sync();});b.addEventListener('dblclick',()=>{act=+b.dataset.i;sync();add();});});sync(false);};
+  const sync=(scroll=true)=>{list.querySelectorAll('.pk-item').forEach(b=>b.classList.toggle('act',+b.dataset.i===act));const it=items[act];if(!it){val.value='';return;}
+    if(cur==='modifiers')val.value=(big?it.notable:it.small)||(it.note.match(/^[+\-]\d+(\.\d+)?/)||[''])[0];else if(cur==='stats')val.value=val.value&&val.dataset.for==='stats'?val.value:(it.ops.includes('%')||it.ops.includes('I')?'+1 %':'+1');else val.value='';val.dataset.for=cur;
+    val.disabled=cur==='effects';$('#pk-note').textContent=cur==='modifiers'?`Value for a ${big?'notable':'minor'} node; edit it if you like.`:cur==='stats'?'Type the value, e.g. +2 % or +1.':'';
+    if(scroll)list.querySelector('.pk-item.act')?.scrollIntoView({block:'nearest'});};
+  const lineOf=it=>{const v=val.value.trim();if(cur==='modifiers')return {text:`${v?v+' ':''}${it.name}${it.scope?' ('+it.scope+')':''}`.trim(),ref:it.id};
+    if(cur==='stats')return {text:`${v} ${it.name.toLowerCase()}`.trim(),ref:it.id};return {text:`${it.name}: ${it.rule}${it.payload?' ['+it.payload+']':''}`,ref:it.id};};
+  const add=()=>{const it=items[act];if(!it)return;addLines([lineOf(it)]);closeModal();toast('Added: '+lineOf(it).text.slice(0,60));};
+  q.addEventListener('input',()=>{act=0;render();});
+  q.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){act=Math.min(items.length-1,act+1);sync();e.preventDefault();}else if(e.key==='ArrowUp'){act=Math.max(0,act-1);sync();e.preventDefault();}else if(e.key==='Enter'){add();e.preventDefault();}});
+  val.addEventListener('keydown',e=>{if(e.key==='Enter')add();});
+  $$('[data-pt]').forEach(b=>b.addEventListener('click',()=>{cur=b.dataset.pt;act=0;render();q.focus();}));
+  $('#pk-cancel').onclick=closeModal;$('#pk-add').onclick=add;render();q.focus();}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Checks: run in the background after edits; click an issue to go to it
+let chkTimer=null;
+function scheduleChecks(){clearTimeout(chkTimer);chkTimer=setTimeout(runChecks,700);}
+function runChecks(){const t0=performance.now(),N=M.nodes,spacing=+($('#ck-sp')?.value||0.6);
+  const sts=starts(),reach=new Set(),per={};
+  for(const s of sts){const d=bfs(s.id);for(const k of d.keys())reach.add(k);
+    let web9=0,web9n=0,fn=null,nk=null,far=0;for(const [id,v] of d){const n=N.get(id);if(v<=9){web9++;if(n.kind==='notable')web9n++;}if(n.kind==='notable'&&(fn==null||v<fn))fn=v;if(n.kind==='keystone'&&(nk==null||v<nk))nk=v;if(v>far)far=v;}
+    per[s.id]={name:s.name,web9,web9n,fn,nk,far,reach:d.size};}
+  const unreach=[];for(const n of N.values())if(!n.hidden&&!reach.has(n.id)&&n.kind!=='exit')unreach.push(n.id);
+  const overlap=[];for(const n of N.values())for(const m of near(n.x,n.y,spacing))if(m.id>n.id){overlap.push([n.id,m.id,Math.hypot(m.x-n.x,m.y-n.y)]);}
+  // crossings
+  const es=[...M.edges.values()],S=es.map(e=>{const g=geom(e);return g?samplesOf(g,0.35):null;}),bb=S.map(p=>{if(!p)return null;let a=1e9,b=1e9,c=-1e9,d=-1e9;for(const [x,y] of p){a=Math.min(a,x);b=Math.min(b,y);c=Math.max(c,x);d=Math.max(d,y);}return [a,b,c,d];});
+  const eg=new Map();bb.forEach((b,i)=>{if(!b)return;for(let gx=Math.floor(b[0]/4);gx<=Math.floor(b[2]/4);gx++)for(let gy=Math.floor(b[1]/4);gy<=Math.floor(b[3]/4);gy++){const k=gk(gx,gy);let c=eg.get(k);if(!c)eg.set(k,c=[]);c.push(i);}});
+  const cr=(p,q,r)=>(q[0]-p[0])*(r[1]-p[1])-(q[1]-p[1])*(r[0]-p[0]);const seen=new Set(),cross=[];
+  for(const c of eg.values())for(let x=0;x<c.length;x++)for(let y=x+1;y<c.length;y++){const i=c[x],j=c[y],key=i<j?i*100000+j:j*100000+i;if(seen.has(key))continue;seen.add(key);
+    const A=es[i],B=es[j];if(A.a===B.a||A.a===B.b||A.b===B.a||A.b===B.b)continue;const bi=bb[i],bj=bb[j];if(bi[2]<bj[0]||bj[2]<bi[0]||bi[3]<bj[1]||bj[3]<bi[1])continue;
+    const si=S[i],sj=S[j];let hit=null;for(let a=0;a<si.length-1&&!hit;a++)for(let b=0;b<sj.length-1;b++){const p1=si[a],p2=si[a+1],p3=sj[b],p4=sj[b+1];
+      if(cr(p1,p2,p3)*cr(p1,p2,p4)<0&&cr(p3,p4,p1)*cr(p3,p4,p2)<0){const d1=cr(p3,p4,p1),d2=cr(p3,p4,p2),t=d1/(d1-d2);hit=[p1[0]+(p2[0]-p1[0])*t,p1[1]+(p2[1]-p1[1])*t];break;}}
+    if(hit)cross.push([A.id,B.id,hit]);}
+  // links that pass over a node
+  const graze=[];es.forEach((e,i)=>{const g=geom(e);if(!g)return;const L=g.arc?Math.abs(g.arc.d)*g.arc.r:g.L,n=Math.max(2,Math.ceil(L/0.25));const hit=new Set();
+    for(let k=1;k<n;k++){const [x,y]=onEdge(g,k/n);for(const m of near(x,y,0.28))if(m.id!==e.a&&m.id!==e.b&&!hit.has(m.id)){hit.add(m.id);graze.push([e.id,m.id]);}}});
+  const isolated=[],empty=[],free=[];let gen=0,catN=0;for(const n of N.values()){if(!(adj.get(n.id)||new Set()).size)isolated.push(n.id);
+    if((n.kind==='small'||n.kind==='notable'||n.kind==='keystone')&&!n.mods.length)empty.push(n.id);const r=n.mod_refs||[];if(r.some(x=>x==null))free.push(n.id);if(r.some(x=>x==='gen'))gen++;if(r.some(x=>x&&x!=='gen'))catN++;}
+  const pairs=new Map(),dup=[];for(const e of es){const k=pk(e.a,e.b);if(pairs.has(k))dup.push(e.id);else pairs.set(k,e.id);}
+  CHK={unreach,overlap,cross,graze,isolated,empty,free,dup,per,gen,catN,ms:Math.round(performance.now()-t0),at:new Date()};
+  if(tab==='checks')renderChecks();draw.req();refreshCounts();}
+let rcT=null;function renderChecksSoon(){clearTimeout(rcT);rcT=setTimeout(()=>{if(tab==='checks')renderChecks();},200);}
+function renderChecks(){const p=$('#pane-checks');if(!CHK){p.innerHTML='<h2>Checks</h2><p class="hint">Running…</p>';return;}const C=CHK;const live=id=>M.nodes.has(id);C.unreach=C.unreach.filter(live);C.isolated=C.isolated.filter(live);C.empty=C.empty.filter(live);C.free=C.free.filter(live);C.overlap=C.overlap.filter(([a,b])=>live(a)&&live(b));C.cross=C.cross.filter(([a,b])=>M.edges.has(a)&&M.edges.has(b));C.graze=C.graze.filter(([e,n])=>M.edges.has(e)&&live(n));const nm=id=>{const n=M.nodes.get(id);return n?esc(n.name||KLABEL[n.kind])+` <span class="hint">#${id}</span>`:'#'+id;};
+  const sec=(title,list,fmt,bad=true,help='')=>`<details ${list.length&&bad&&list.length<200?'open':''}><summary><span>${title}</span><span class="n ${list.length?(bad?'bad':''):'ok'}">${list.length.toLocaleString()}</span></summary>${help?`<div class="hint" style="padding:0 8px 4px">${help}</div>`:''}<div class="list">${list.slice(0,300).map((x,i)=>`<button class="issue" data-k="${title}" data-i="${i}">${fmt(x)}</button>`).join('')}${list.length>300?`<div class="hint">…and ${list.length-300} more</div>`:''}</div></details>`;
+  const lists={'Unreachable from every start':[C.unreach,id=>nm(id),'Pink rings on the map.'],'Too close together':[C.overlap,([a,b,d])=>`${nm(a)} / ${nm(b)} · ${r3(d)}`,'Orange rings on the map.'],
+    'Crossing links':[C.cross,([a,b])=>{const A=M.edges.get(a),B=M.edges.get(b);return A&&B?`${nm(A.a)}–${nm(A.b)} × ${nm(B.a)}–${nm(B.b)}`:'(changed)';},'Red crosses on the map.'],
+    'Links passing over a node':[C.graze,([e,n])=>{const E=M.edges.get(e);return E?`${nm(E.a)}–${nm(E.b)} over ${nm(n)}`:'(changed)';},''],
+    'Nodes with no links':[C.isolated,id=>nm(id),''],'Duplicate links':[C.dup,id=>{const E=M.edges.get(id);return E?`${nm(E.a)}–${nm(E.b)}`:'(changed)';},''],
+    'Minor, notable or keystone with nothing on it':[C.empty,id=>nm(id),''],'Nodes with free-text lines':[C.free,id=>nm(id),'Lines typed by hand, not from the catalogues. Fine while drafting; worth a look before a version ships.']};
+  p.innerHTML=`<h2>Checks</h2><div class="hint">Last run ${C.at.toLocaleTimeString()} in ${C.ms} ms. They re-run on their own after each edit. <button id="ck-run" style="margin-left:6px">Run now</button></div>
+   <div class="row" style="margin-top:8px"><label for="ck-sp">Spacing</label><input type="number" id="ck-sp" value="${$('#ck-sp')?.value||0.6}" step="0.05" min="0.1" title="Two nodes closer than this count as too close (the kit uses 0.6)"></div>
+   ${Object.entries(lists).map(([t,[l,f,h]],i)=>sec(t,l,f,i!==7,h)).join('')}
+   <div class="hint" style="margin:4px 0 10px">Modifier sources: ${C.catN.toLocaleString()} nodes use catalogue lines, ${C.gen.toLocaleString()} still hold generator placeholders. Colour by <i>Modifier source</i> to see them.</div>
+   <h3>From each start</h3><div class="row"><label for="ck-start">Distances</label><select id="ck-start">${starts().map(s=>`<option value="${s.id}" ${s.id===startId?'selected':''}>${esc(s.name)}</option>`).join('')}</select></div>
+   <table><tr><th>Start</th><th title="Nodes within 9 points">≤ 9</th><th title="Points to the first notable">Notable</th><th title="Points to the nearest keystone">Key</th><th title="Points to the farthest node">Far</th></tr>
+   ${Object.entries(C.per).map(([id,v])=>`<tr><td><button class="issue" data-start="${id}" style="padding:0">${esc(v.name.replace(/ start.*/,''))}</button></td><td class="n">${v.web9}</td><td class="n">${v.fn??'—'}</td><td class="n">${v.nk??'—'}</td><td class="n">${v.far}</td></tr>`).join('')}</table>`;
+  p.querySelector('#ck-run').onclick=runChecks;p.querySelector('#ck-sp').onchange=runChecks;
+  p.querySelector('#ck-start').onchange=e=>{startId=+e.target.value;DISTC=null;colCache.clear();miniDirty=true;draw.req();toast('Distances now from '+M.nodes.get(startId).name);};
+  p.querySelectorAll('[data-start]').forEach(b=>b.onclick=()=>{select([+b.dataset.start]);frame([+b.dataset.start],200);});
+  p.querySelectorAll('.issue[data-k]').forEach(b=>b.onclick=()=>{const [l]=lists[b.dataset.k],x=l[+b.dataset.i];let ns=[],es=[];
+    if(b.dataset.k==='Crossing links'){es=[x[0],x[1]].filter(i=>M.edges.has(i));}else if(b.dataset.k==='Too close together')ns=[x[0],x[1]];else if(b.dataset.k==='Links passing over a node'){es=[x[0]];ns=[x[1]];}
+    else if(b.dataset.k==='Duplicate links')es=[x];else ns=[x];ns=ns.filter(i=>M.nodes.has(i));
+    const fr=new Set(ns);for(const id of es){const e=M.edges.get(id);if(e){fr.add(e.a);fr.add(e.b);}}select(ns,es);frame(fr,Math.min(W,H)/2.6);});}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Clusters tab
+let openC=null;
+function openCluster(id){openC=id;renderClusters();}
+function renderClusters(){const p=$('#pane-clusters'),mem=members();const q=(p.querySelector('#cl-q')?.value||'').toLowerCase();
+  if(openC!=null&&M.clusters.has(openC)){const c=M.clusters.get(openC),ids=mem.get(openC)||[],ns=ids.map(i=>M.nodes.get(i));const dis=RO?'disabled':'';
+    p.innerHTML=`<button id="cl-back">← All clusters</button><h2 style="margin-top:8px">${esc(c.name)}</h2><div class="hint" style="margin:-4px 0 6px">#${c.id} · ${ids.length} nodes · ${ns.filter(n=>n.kind==='notable').length} notables</div>
+     <div class="row"><label for="c-name">Name</label><input type="text" id="c-name" ${dis} value="${esc(c.name)}"></div>
+     <div class="row"><label for="c-theme">Theme</label><input type="text" id="c-theme" list="themeList2" ${dis} value="${esc(c.theme||'')}"></div><datalist id="themeList2">${themeOptions().map(t=>`<option value="${esc(t)}">`).join('')}</datalist>
+     <div class="row"><label for="c-form">Form</label><input type="text" id="c-form" ${dis} value="${esc(c.form||'')}"></div>
+     <div class="row"><label for="c-region">Region</label><select id="c-region" ${dis}>${regionOptions().map(r=>`<option ${c.region===r?'selected':''}>${esc(r)}</option>`).join('')}</select></div>
+     <div class="btns"><button id="c-sel">Select its nodes</button><button id="c-theme-all" class="edit-only" title="Give every node in it the cluster's theme">Theme → nodes</button><button id="c-del" class="edit-only" title="The nodes stay, unassigned">Delete cluster</button></div>
+     ${totalsHTML(ns)}`;
+    p.querySelector('#cl-back').onclick=()=>{openC=null;renderClusters();};
+    for(const [f,k] of [['#c-name','name'],['#c-theme','theme'],['#c-form','form'],['#c-region','region']]){const el=p.querySelector(f);el.addEventListener('input',()=>{begin('Cluster '+k,'cl:'+k+':'+c.id);patchCluster(c.id,{[k]:el.value});commit({inspector:false});});}
+    p.querySelector('#c-sel').onclick=()=>{select(ids);frame(ids);};
+    p.querySelector('#c-theme-all').onclick=()=>{begin('Theme to nodes');for(const i of ids)patchNode(i,{theme:c.theme});commit();toast('Theme set on '+ids.length+' nodes');};
+    p.querySelector('#c-del').onclick=()=>{begin('Delete cluster');delCluster(c.id);commit();openC=null;renderClusters();};return;}
+  openC=null;const all=[...M.clusters.values()].filter(c=>!q||(c.name+' '+c.theme+' '+c.region+' '+c.form).toLowerCase().includes(q)).sort((a,b)=>(a.region||'').localeCompare(b.region||'')||a.name.localeCompare(b.name));
+  p.innerHTML=`<h2>Clusters</h2><input type="search" id="cl-q" placeholder="Filter by name, theme, region, form" value="${esc(q)}" style="width:100%"><div class="hint" style="margin:4px 0">${all.length} of ${M.clusters.size}. Click one to select it and edit its name, theme and form.</div>
+   <div class="clist">${all.slice(0,500).map(c=>`<button data-c="${c.id}"><span>${esc(c.name)}<div class="sub">${esc(c.region||'')} · ${esc(c.form||'')} · ${esc(themeLabel(c.theme||''))}</div></span><span class="sub">${(mem.get(c.id)||[]).length}</span></button>`).join('')}</div>`;
+  const qi=p.querySelector('#cl-q');qi.addEventListener('input',()=>{renderClusters();const x=$('#cl-q');x.focus();x.setSelectionRange(x.value.length,x.value.length);});
+  p.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{const id=+b.dataset.c,ids=mem.get(id)||[];select(ids);if(ids.length)frame(ids);openCluster(id);});}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Versions: open, save over the open one, save as new
+async function api(path,opts={}){const r=await fetch(path,opts);let body=null;try{body=await r.json();}catch(_){}return {ok:r.ok,status:r.status,body,headers:r.headers};}
+let VERS=[];
+async function listVersions(){if(!SERVER)return [];const r=await api('/api/versions');VERS=r.ok?r.body:[];return VERS;}
+const SERVER=!EMBED;
+async function openVersion(name,{skipDirty}={}){if(!skipDirty&&dirty&&!(await confirmDiscard()))return;
+  const r=await fetch('/api/versions/'+encodeURIComponent(name));if(!r.ok){toast('Could not open '+name);return;}const doc=await r.json();
+  VER={name,mtime:+r.headers.get('X-Mtime')};loadDoc(doc);markSaved();history.replaceState(null,'','?v='+encodeURIComponent(name));fitAll();setTab(tab);runChecks();
+  await offerDraft();}
+function markSaved(){savedRec=HIST[HIST.length-1]||null;metaDirty=false;markDirty(false);}
+let metaDirty=false;
+function markDirty(on){dirty=on;const s=$('#saveState');s.textContent=RO?'read-only':on?'● unsaved':'saved';s.title=on?'Changes not saved yet (Ctrl+S)':'';s.classList.toggle('dirty',on);$('#verBtn').textContent=VER.name||'(no version)';document.title=(on?'● ':'')+(VER.name?VER.name+' · ':'')+'Meridian Map Editor';}
+async function save(){if(RO)return;if(!VER.name)return saveAs();if(TX)commit();
+  const r=await api('/api/versions/'+encodeURIComponent(VER.name),{method:'PUT',headers:{'Content-Type':'application/json','X-Base-Mtime':String(VER.mtime)},body:JSON.stringify(serialize())});
+  if(r.status===409){const c=await choose('This version changed on disk',`<p><b>${esc(VER.name)}</b> was saved somewhere else (another tab, or a script) after you opened it.</p><p class="hint">Overwrite replaces that copy with yours (the old one is kept in versions/.prev/). Save as new keeps both.</p>`,[['cancel','Cancel'],['new','Save as new…'],['over','Overwrite']]);
+    if(c==='new')return saveAs();if(c!=='over')return;const r2=await api('/api/versions/'+encodeURIComponent(VER.name),{method:'PUT',headers:{'Content-Type':'application/json','X-Force':'1'},body:JSON.stringify(serialize())});if(!r2.ok)return toast('Save failed');VER.mtime=r2.body.mtime;}
+  else if(!r.ok)return toast('Save failed: '+(r.body?.error||r.status));else VER.mtime=r.body.mtime;
+  markSaved();dropDraft();toast('Saved '+VER.name);if(tab==='version')renderVersion();}
+async function saveAs(){if(RO)return;if(TX)commit();await listVersions();const taken=new Set(VERS.map(v=>v.name));const base=(VER.name||'map').replace(/^gen-/,'edit-');let sug=base;for(let k=2;taken.has(sug);k++)sug=base+'-'+k;
+  openModal('<h2 style="margin:0">Save as a new version</h2>',`<div class="row"><label for="sa-name">Name</label><input type="text" id="sa-name" value="${esc(sug)}"></div><div class="row"><label for="sa-note">Note</label><input type="text" id="sa-note" value="${esc(M.meta.note||'')}" placeholder="what this version is for"></div><p class="hint">Letters, digits, dot, dash and underscore. From now on Save writes to the new version; ${esc(VER.name||'the old one')} stays as it is.</p>`,
+    '<button id="sa-cancel">Cancel</button><button class="primary" id="sa-ok">Save as new</button>');
+  const go=async()=>{const name=$('#sa-name').value.trim();if(!/^[A-Za-z0-9][A-Za-z0-9._-]{0,80}$/.test(name))return toast('Use letters, digits, dot, dash or underscore');if(taken.has(name))return toast('That name is taken');
+    const doc=serialize();doc.meta={...doc.meta,parent:VER.name,note:$('#sa-note').value};const r=await api('/api/versions/'+encodeURIComponent(name),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(doc)});
+    if(!r.ok)return toast('Save failed: '+(r.body?.error||r.status));const old=VER.name;VER={name:r.body.name,mtime:r.body.mtime};M.meta=r.body.meta||{...M.meta,name:VER.name,parent:old,note:doc.meta.note,source:'editor'};closeModal();markSaved();dropDraft(old);history.replaceState(null,'','?v='+encodeURIComponent(VER.name));toast('Saved as '+VER.name);if(tab==='version')renderVersion();};
+  $('#sa-ok').onclick=go;$('#sa-cancel').onclick=closeModal;$('#sa-name').addEventListener('keydown',e=>{if(e.key==='Enter')go();});$('#sa-name').select();}
+async function renderVersion(){const p=$('#pane-version');const m=M.meta||{};
+  p.innerHTML=`<h2>${esc(VER.name||m.name||'Version')}</h2><table><tr><td>Created</td><td>${esc(m.created||'—')}</td></tr><tr><td>Saved</td><td>${esc(m.saved||'—')}</td></tr><tr><td>Source</td><td>${esc(m.source||'—')}</td></tr><tr><td>From</td><td>${esc(m.parent||'—')}</td></tr></table>
+   <div class="row edit-only"><label for="v-note">Note</label><input type="text" id="v-note" value="${esc(m.note||'')}"></div>${RO?`<p>${esc(m.note||'')}</p>`:''}
+   <div class="btns edit-only"><button class="primary" id="v-save">Save</button><button id="v-saveas">Save as new…</button></div>
+   <p class="hint edit-only">Save overwrites only this version (its previous copy goes to versions/.prev/). A generator run always makes a new one.</p>
+   ${SERVER?'<h3>All versions</h3><div class="vlist" id="v-list"><div class="hint">Loading…</div></div>':''}`;
+  if(RO)return;const vn=p.querySelector('#v-note');vn.addEventListener('input',()=>{M.meta={...M.meta,note:vn.value};metaDirty=true;markDirty(true);scheduleDraft();});
+  p.querySelector('#v-save').onclick=save;p.querySelector('#v-saveas').onclick=saveAs;
+  await listVersions();const L=p.querySelector('#v-list');if(!L)return;L.innerHTML=VERS.map(v=>`<div class="ver ${v.name===VER.name?'cur':''}"><span class="nm">${esc(v.name)}</span>${v.name===VER.name?'<span class="hint">open</span>':`<button data-open="${esc(v.name)}">Open</button>`}<span class="sub">${new Date(v.mtime*1000).toLocaleString()} · ${(v.bytes/1e6).toFixed(1)} MB${v.meta?.source?' · '+esc(v.meta.source):''}${v.meta?.note?'<br>'+esc(v.meta.note):''}</span></div>`).join('')||'<div class="hint">No versions yet.</div>';
+  L.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openVersion(b.dataset.open));}
+// drafts: unsaved edits survive a closed tab (IndexedDB, this browser only)
+const IDB={db:null,async open(){if(this.db)return this.db;this.db=await new Promise((res,rej)=>{const r=indexedDB.open('kmd-editor',1);r.onupgradeneeded=()=>r.result.createObjectStore('drafts');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);});return this.db;},
+  async op(mode,fn){try{const db=await this.open();return await new Promise((res,rej)=>{const t=db.transaction('drafts',mode),q=fn(t.objectStore('drafts'));q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error);});}catch(_){return null;}}};
+let draftT=null;function scheduleDraft(){if(RO||!VER.name)return;clearTimeout(draftT);draftT=setTimeout(()=>{if(dirty)IDB.op('readwrite',s=>s.put({base:VER.mtime,at:Date.now(),doc:serialize()},VER.name));},3000);}
+function dropDraft(name){clearTimeout(draftT);IDB.op('readwrite',s=>s.delete(name||VER.name));}
+async function offerDraft(){if(RO)return;const d=await IDB.op('readonly',s=>s.get(VER.name));if(!d||!d.doc)return;
+  const same=Math.abs(d.base-VER.mtime)<1e-6;const c=await choose('Unsaved edits found',`<p>This browser kept edits to <b>${esc(VER.name)}</b> from ${new Date(d.at).toLocaleString()} that were never saved.</p>${same?'':'<p class="hint">The file has changed on disk since then; restoring puts the old edits over the newer file once you save.</p>'}`,[['drop','Discard them'],['keep','Restore']]);
+  if(c==='keep'){loadDoc(d.doc);M.meta={...M.meta,name:VER.name};metaDirty=true;markDirty(true);fitAll();runChecks();toast('Restored unsaved edits');}else if(c==='drop')dropDraft();}
+window.addEventListener('beforeunload',e=>{if(dirty&&!RO){e.preventDefault();e.returnValue='';}});
+
+// ---------------------------------------------------------------------------------------------------------------
+// Modal, toasts, help
+let modalResolve=null;
+function openModal(head,body,foot,wide){const m=$('#modal');m.className=wide?'wide':'';m.innerHTML=`<header>${head}</header><div class="body">${body}</div><footer>${foot||''}</footer>`;$('#modalWrap').hidden=false;}
+function closeModal(){$('#modalWrap').hidden=true;$('#modal').innerHTML='';if(modalResolve){const r=modalResolve;modalResolve=null;r(null);}}
+$('#modalWrap').addEventListener('pointerdown',e=>{if(e.target.id==='modalWrap')closeModal();});
+function choose(title,html,opts){return new Promise(res=>{openModal(`<h2 style="margin:0">${esc(title)}</h2>`,html,opts.map(([v,l],i)=>`<button data-ch="${v}" class="${i===opts.length-1?'primary':''}">${l}</button>`).join(''));
+  modalResolve=res;$$('[data-ch]').forEach(b=>b.onclick=()=>{modalResolve=null;closeModal();res(b.dataset.ch);});});}
+async function confirmDiscard(){const c=await choose('Unsaved changes',`<p>${esc(VER.name)} has changes that are not saved.</p>`,[['cancel','Cancel'],['discard','Discard them'],['save','Save first']]);
+  if(c==='save'){await save();return !dirty;}if(c==='discard'){dropDraft();return true;}return false;}
+function toast(t){const box=$('#toasts');while(box.children.length>=3)box.firstChild.remove();const d=document.createElement('div');d.className='toast';d.textContent=t;box.appendChild(d);setTimeout(()=>d.remove(),2200);}
+function help(){const K=(k,t)=>`<div><span>${t}</span><kbd>${k}</kbd></div>`;
+  openModal('<h2 style="margin:0">Shortcuts</h2>',`<div class="help">
+   <h4>Select and view</h4>${K('Click','Select a node or a link')}${K('E','Box selects nodes, links or both')}${K('Shift / Ctrl + click','Add or remove')}${K('Drag empty space','Box select (Shift adds)')}${K('Double-click node','Select its cluster')}${K('Ctrl+A','Select everything')}${K('Esc','Clear, or leave a tool')}${K('Scroll','Zoom')}${K('Space+drag, right or middle drag, H','Pan')}${K('F','Frame the selection')}${K('Shift+F','Fit the whole map')}${K('Ctrl+F','Find')}${K('Enter (in Find)','Next match')}
+   ${RO?'':`<h4>Move and shape</h4>${K('Drag','Move (snaps to guides)')}${K('Ctrl while dragging','No snapping')}${K('Alt+drag','Copy and move')}${K('Arrows','Nudge 0.1')}${K('Shift / Ctrl + arrows','Nudge 1 / 0.02')}${K('R / Shift+R','Rotate 15° / −15°')}${K('[  ]','Shrink / grow 10 %')}${K('Shift+[  ]','Shrink / grow 2 %')}${K('M / Shift+M','Mirror ↔ / ↕')}${K('Box corners','Scale (Alt: from the centre)')}${K('Round handle','Rotate (Shift: 15° steps)')}${K('G','Cycle snapping')}${K('K','Lock or unlock')}
+   <h4>Build</h4>${K('N','Add tool: click to place, linked to the selected node')}${K('Double-click empty','Add a node here')}${K('C','Link tool: click node, node, node…')}${K('L','Link selected (in click order); two: toggle')}${K('I','Put a node on the selected link')}${K('Drag a link','Curve it')}${K('X','Swap two nodes: places (links stay)')}${K('Shift+X','Swap positions (links follow)')}${K('Drag onto a node, Shift','Swap places')}${K('S','Straighten links')}${K('B','Curve links, again to flip')}${K('1 2 3 4 5','Minor, notable, keystone, travel, start')}${K('Ctrl+D','Duplicate')}${K('Ctrl+C / X / V','Copy, cut, paste at the cursor')}${K('Ctrl+G','New cluster from the selection')}${K('Delete','Delete')}${K('Shift+Delete','Delete and join its two neighbours')}${K('Enter','Edit the name')}
+   <h4>File</h4>${K('Ctrl+S','Save over this version')}${K('Ctrl+Shift+S','Save as a new version')}${K('Ctrl+Z','Undo')}${K('Ctrl+Shift+Z / Ctrl+Y','Redo')}`}${K('\\','Hide or show the panel')}${K('?','This sheet')}</div>`,'<button class="primary" id="hl-ok">Close</button>',true);$('#hl-ok').onclick=closeModal;}
+function toggleSide(){$('#main').classList.toggle('noside');setTimeout(resize,0);}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Top bar wiring
+$$('[data-tool]').forEach(b=>b.addEventListener('click',()=>setTool(b.dataset.tool)));
+$('#modeSel').addEventListener('change',e=>{mode=e.target.value;colCache.clear();miniDirty=true;draw.req();});
+$('#snapSel').addEventListener('change',e=>{opt.snap=e.target.value;draw.req();});
+$('#boxSel').addEventListener('change',e=>{opt.box=e.target.value;});
+$('#labChk').addEventListener('change',e=>{opt.labels=e.target.checked;draw.req();});
+$('#issChk').addEventListener('change',e=>{opt.issues=e.target.checked;draw.req();});
+$('#saveBtn').onclick=save;$('#saveAsBtn').onclick=saveAs;$('#undoBtn').onclick=undo;$('#redoBtn').onclick=redo;$('#helpBtn').onclick=help;$('#sideBtn').onclick=toggleSide;
+$('#verBtn').onclick=()=>setTab('version');
+function updUndo(){$('#undoBtn').disabled=!HIST.length;$('#redoBtn').disabled=!FUT.length;$('#undoBtn').title='Undo'+(HIST.length?': '+HIST[HIST.length-1].label:'')+' (Ctrl+Z)';}
+const findEl=$('#find');
+function runFind(){const q=findEl.value.trim().toLowerCase();found=[];foundIx=-1;
+  if(q.length>=2){for(const n of M.nodes.values()){const c=n.cluster!=null?M.clusters.get(n.cluster):null;const s=(n.name+' '+themeLabel(n.theme)+' '+(c?c.name:'')+' '+n.mods.join(' ')).toLowerCase();if(s.includes(q))found.push(n.id);}found.sort((a,b)=>(!(M.nodes.get(a).name||'').toLowerCase().includes(q))-(!(M.nodes.get(b).name||'').toLowerCase().includes(q)));}
+  $('#foundN').innerHTML=q.length>=2?`${found.length}${found.length?` <button id="selFound" style="padding:0 5px;font-size:11px">select</button>`:''}`:'';const sf=$('#selFound');if(sf)sf.onclick=()=>{select(found);frame(found);};draw.req();}
+findEl.addEventListener('input',runFind);
+findEl.addEventListener('keydown',e=>{if(e.key==='Enter'&&found.length){e.preventDefault();if(e.ctrlKey){select(found);frame(found);return;}foundIx=(foundIx+(e.shiftKey?-1:1)+found.length)%found.length;const id=found[foundIx];select([id]);frame([id],Math.min(W,H)/2.4);$('#foundN').firstChild.textContent=`${foundIx+1}/${found.length}`;}});
+function updCoords(){const [x,y]=cursorW;$('#coords').textContent=`x ${x.toFixed(2)}  y ${y.toFixed(2)}  r ${Math.hypot(x,y).toFixed(2)}  ${((Math.atan2(x,-y)*180/Math.PI+360)%360).toFixed(1)}°`;}
+function updZoom(){$('#zoomTxt').textContent=`zoom ${view.s.toFixed(1)}`;}
+function refreshCounts(){const c=CHK;$('#counts').textContent=`${M.nodes.size.toLocaleString()} nodes · ${M.edges.size.toLocaleString()} links`+(SEL.size?` · ${SEL.size} selected`:'')+(SELE.size?` · ${SELE.size} links selected`:'')+(c?` · ${c.cross.length} crossings · ${c.overlap.length} too close · ${c.unreach.length} unreachable`:'');}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Start
+new ResizeObserver(resize).observe(stage);
+// a handle for automated tests and the console (read-only use; edits go through the UI)
+window.__kmd={M,SEL,SELE,HIST,pickHandle,handleBox,pickEdge,pickNode,geom,toS:(x,y)=>toS(x,y),view:()=>view,serialize,get CHK(){return CHK;},get ptrs(){return [...ptrs.keys()];},get drag(){return dragInfo&&dragInfo.type;},get pinch(){return !!pinch;},get VER(){return VER;},get dirty(){return dirty;},get CAT(){return CAT;}};
+async function boot(){resize();setTool('select');updHint();
+  if(EMBED){CAT=EMBED.catalogue||CAT;VER={name:EMBED.version||EMBED.doc?.meta?.name,mtime:null};loadDoc(EMBED.doc);markSaved();fitAll();runChecks();setTab('inspect');updUndo();return;}
+  api('/api/catalogue').then(r=>{if(r.ok)CAT=r.body;if(r.body?.error)toast('Catalogue: '+r.body.error);});
+  const want=new URLSearchParams(location.search).get('v');const vs=await listVersions();
+  if(!vs.length){$('#pane-inspect').innerHTML='<h2>No versions yet</h2><p class="hint">Run <code>python -I tools/design/meridian_rework/build_tree.py</code> to generate one, then reload.</p>';return;}
+  await openVersion(want&&vs.some(v=>v.name===want)?want:vs[0].name,{skipDirty:true});updUndo();}
+boot();
+})();
+</script>
+</body>
+</html>
