@@ -47,13 +47,22 @@ Rules that keep the two views consistent:
   areas show when needed.
 - Art style still to be picked from `prototypes/map-style-demos`.
 
-**Open:** how much of the overview a character knows. Proposed: broad geography and famous places shown to
-everyone, with the knowledge mask applied only in the zoomed-in view. This changes Travel & Map rule 14
-(a character starts knowing only their birth region and the main roads), so it waits on the user.
+**What a character sees (decided 2026-11-13):**
+
+- **The overview is common knowledge.** Every character sees the whole painting, the famous places, the
+  great cities and the sects from the start. The knowledge mask (blank paper until known) applies only in
+  the zoomed-in view, where the tiles, sites and secrets are.
+- **Political map:** borders of the major sects and kingdoms update live for everyone; small holdings and
+  minor seats show as the character last heard them.
+
+Both change Travel & Map rule 14 (a character starts knowing only their birth region and the main roads);
+the rewrite is in the list below.
 
 ## What this changes (to do, section by section with the user)
 
-- Travel & Map: rule 1 ("one generated world") and Formulas C (land generation).
+- Travel & Map: rule 1 ("one generated world"), Formulas C (land generation), rule 14 (what a character
+  knows: the overview is common knowledge, politics live for big powers), and Visual/Audio Requirements
+  (the two-view map).
 - World Generation & History (#27): keeps random NPCs and their generated backgrounds, which fit
   inside the authored history; sects, territories, special characters and past events become
   authored data.
