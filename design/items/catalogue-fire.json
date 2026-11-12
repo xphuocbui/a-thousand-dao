@@ -1,0 +1,776 @@
+[
+ {
+  "id": "fire-ember-fan",
+  "name": "Ember Fan (Tàn Hỏa Phiến)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "phien",
+  "grade": 1,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 9,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 5,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 15,
+    "scope": [
+     "hoa",
+     "debuff"
+    ]
+   }
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "fanning-embers",
+    "name": "Fanning Embers (Quạt Tàn Hỏa)",
+    "element": "fire",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": [
+     "fire",
+     "artifact",
+     "quick"
+    ],
+    "c_art": 1.7,
+    "cost_share": 0.03,
+    "cooldown": 2.5,
+    "kind": "elem",
+    "debuff": [
+     2,
+     6
+    ],
+    "rule": "One sweep of burning wind: a quick Fire hit that lays 2 Burn stacks for 6 s.",
+    "sources": [
+     "item:fire-ember-fan"
+    ]
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
+  "lore": "A paper fan painted with coals. Refiners in Fire sects make them for their outer disciples.",
+  "build_use": "The Bonfire's first weapon: a cheap, quick Burn source before its công pháp arts arrive."
+ },
+ {
+  "id": "fire-cinder-ring",
+  "name": "Cinder Ring (Hỏa Tẫn Giới)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 1,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 7,
+    "scope": [
+     "over_time"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 10,
+    "scope": [
+     "hoa",
+     "buff"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "sources": [
+   "event",
+   "craft"
+  ],
+  "lore": "A plain iron band with a coal sealed in its bezel. It is always warm.",
+  "build_use": "Any Fire build's early ring: Burn damage, a stronger Fire buff, a little health."
+ },
+ {
+  "id": "fire-furnace-mouth-gourd",
+  "name": "Furnace-Mouth Gourd (Lô Khẩu Hồ Lô)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "ho_lo",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 16,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 16,
+    "scope": [
+     "hoa",
+     "debuff"
+    ]
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 5,
+    "scope": [
+     "fire"
+    ]
+   }
+  ],
+  "effects": [
+   "Kindled Wound"
+  ],
+  "arts": [
+   {
+    "id": "gourd-swallows-flame",
+    "name": "Gourd Swallows the Flame (Hồ Lô Thôn Diễm)",
+    "element": "fire",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "tags": [
+     "fire",
+     "artifact"
+    ],
+    "c_art": 2.7,
+    "cost_share": 0.04,
+    "cooldown": 4,
+    "kind": "elem",
+    "steps": [
+     {
+      "unlock": [
+       {
+        "read": "foe.debuff.fire",
+        "op": ">=",
+        "value": 10
+       }
+      ],
+      "pay": [
+       {
+        "consume": {
+         "el": "fire",
+         "side": "foe",
+         "kind": "debuff",
+         "n": 5
+        }
+       }
+      ],
+      "c_mult": 2.2
+     }
+    ],
+    "rule": "The gourd drinks the flames on the foe: a Fire hit. With 10 Burn stacks or more on the foe, it swallows 5 of them and spits them back as a hit 2.2 times as hard.",
+    "hooks": [
+     "burn on foe",
+     "consume stacks"
+    ],
+    "sources": [
+     "item:fire-furnace-mouth-gourd"
+    ]
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "Alchemists keep their best pills in gourds like this one; its mouth was widened to swallow furnace fire.",
+  "build_use": "The Furnace Master and The Bonfire: turns a Burn pile into one heavy hit, and Kindled Wound makes every Fire part hit harder on a burning foe."
+ },
+ {
+  "id": "fire-smouldering-robe",
+  "name": "Smouldering Robe (Âm Hỏa Đạo Bào)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "than_thuc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 120,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "healing_taken_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "smouldering-veil",
+    "name": "Smouldering Veil (Âm Hỏa Sa)",
+    "payload": "Fire 240 points",
+    "payment": "drain 0.176",
+    "activation": "standing",
+    "check_from": "Fire-Shunning Veil (Tị Hỏa Sa)",
+    "notes": "The starter veil at 0.8 of its payload and its drain, so the price check is unchanged (4.545 of 4.575)"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
+  "lore": "A robe woven with fire-rat hair. It smoulders and never catches.",
+  "build_use": "A Fire caster's armour against Fire foes and Fire sects; light, so it leaves thần thức for treasures."
+ },
+ {
+  "id": "fire-hearth-keeper-pendant",
+  "name": "Hearth-Keeper Pendant (Thủ Lô Bội)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "healing_pct",
+    "value": 6,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "attack_pct",
+    "value": 6,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 4,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 5,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "reserve_arts": [
+   {
+    "id": "hearth-aura",
+    "name": "Hearth Aura (Lô Hỏa Quang)",
+    "reserve": 0.12,
+    "rule": "While reserved, your Burn batches last 25 % longer and your Fire debuff stacks are 10 % stronger.",
+    "grants": [
+     {
+      "key": "stack_duration_pct",
+      "value": 25,
+      "scope": [
+       "hoa",
+       "debuff"
+      ]
+     },
+     {
+      "key": "stack_effect_pct",
+      "value": 10,
+      "scope": [
+       "hoa",
+       "debuff"
+      ]
+     }
+    ],
+    "notes": "Priced by Formulas I reserve arts: 12 % reserved buys up to 12 W"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "Red jade carved as a closed furnace. Hearth-keepers of Fire sects wear it on duty.",
+  "build_use": "The Bonfire and The Phoenix Feather: a standing Burn upgrade paid in linh lực, not in an art slot."
+ },
+ {
+  "id": "fire-red-sun-seal",
+  "name": "Red Sun Seal (Hồng Nhật Ấn)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "an",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 18,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 8,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 20,
+    "scope": [
+     "hoa",
+     "buff"
+    ]
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 8,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "red-sun-descends",
+    "name": "Red Sun Descends (Hồng Nhật Giáng)",
+    "element": "fire",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "red-sun-scripture",
+    "tags": [
+     "fire",
+     "seal",
+     "artifact",
+     "slow"
+    ],
+    "c_art": 2.2,
+    "cost_share": 0.05,
+    "cooldown": 6,
+    "kind": "elem",
+    "debuff": [
+     4,
+     6
+    ],
+    "empower": [
+     {
+      "if": [
+       {
+        "any": [
+         {
+          "read": "own.state.brazier",
+          "op": "==",
+          "value": 1
+         },
+         {
+          "read": "own.counter.heat",
+          "op": ">=",
+          "value": 6
+         }
+        ]
+       }
+      ],
+      "c_mult": 2.0
+     }
+    ],
+    "rule": "Counts as a Red Sun Scripture art. A slow Fire seal that lays 4 Burn stacks for 6 s. In Brazier Form, or with 6 Heat, it falls twice as hard.",
+    "hooks": [
+     "red sun scripture",
+     "brazier form",
+     "heat",
+     "burn on foe"
+    ],
+    "sources": [
+     "item:fire-red-sun-seal"
+    ]
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
+  "lore": "A vermilion seal cast in the Red Sun lineage's forges, so their scripture's arts answer to it.",
+  "build_use": "Red Sun Scripture builds: a fourth suite art that the suite's engines count (Twin Flame, Furnace Heart, Flint Volley), without learning another technique."
+ },
+ {
+  "id": "fire-phoenix-plume-armour",
+  "name": "Phoenix Plume Armour (Phượng Vũ Giáp)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "healing_pct",
+    "value": 14,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 120,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "defense_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 4,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "phoenix-mend",
+    "name": "Phoenix Mend (Phượng Dũ)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "When you restore health with an art, the enemy gains 1 Burn stack for each 1 % of your maximum health restored, at most 6 a pulse, at your Burn's values.",
+    "reads": "Health restored by your arts, live",
+    "payload": "Fire debuff stacks on the enemy",
+    "closes": "",
+    "hosts": "Item, Way, Tech",
+    "from": "single-fire.md, The Phoenix Feather (its New piece, as an Effect instead of an art)"
+   }
+  ],
+  "wards": [
+   {
+    "id": "phoenix-shell",
+    "name": "Phoenix Shell (Phượng Xác)",
+    "payload": "shield σ 0.135",
+    "payment": "cast 0.036",
+    "activation": "cast, cooldown 4 s, up 3 s",
+    "check_from": "Golden Light Shield (Kim Quang Thuẫn)",
+    "notes": "The starter shield at 1.5 times its shield and its cast cost, so the price check is unchanged (3.750 of 3.813)"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
+  "lore": "Scale armour set with phoenix plumes; it warms when its wearer heals.",
+  "build_use": "The Phoenix Feather: every heal also burns the foe, so the healer-striker's mending is its damage."
+ },
+ {
+  "id": "fire-blood-kindling-ring",
+  "name": "Ring of Blood Kindling (Huyết Dẫn Giới)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 10,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "leech_health_pct",
+    "value": 20,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 15,
+    "scope": []
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 10,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 20,
+    "scope": []
+   }
+  ],
+  "effects": [
+   "Blood Casting"
+  ],
+  "sources": [
+   "event",
+   "npc"
+  ],
+  "lore": "A ring of blood-red iron from a demonic-path forge. It drinks from the finger that wears it.",
+  "build_use": "The Self-Immolator: Blood Casting lets arts run on health once linh lực is gone; the leech and health keep the fury going.",
+  "notes": "Spends 78 %: Blood Casting is a strong enabler"
+ },
+ {
+  "id": "fire-ashen-phoenix-fan",
+  "name": "Ashen Phoenix Fan (Tro Phượng Phiến)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "phien",
+  "grade": 4,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 22,
+    "scope": [
+     "over_time"
+    ]
+   },
+   {
+    "key": "attack_pct",
+    "value": 15,
+    "scope": [
+     "fire"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 30,
+    "scope": [
+     "hoa",
+     "debuff"
+    ]
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 12,
+    "scope": []
+   },
+   {
+    "key": "healing_pct",
+    "value": 10,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "fan-the-pyre",
+    "name": "Fan the Pyre (Phiến Hỏa Liệu Nguyên)",
+    "group": "Enablers",
+    "tier": "enabler",
+    "rule": "Each Fire hit you land refreshes the duration of every Burn batch you have on the target.",
+    "reads": "Your Fire hits landing, instant",
+    "payload": "Burn batches on the target restart their timers",
+    "closes": "Your direct Fire hits deal 15 % less.",
+    "hosts": "Named Item",
+    "from": "new (The Bonfire's 'start small, burn forever')"
+   }
+  ],
+  "arts": [
+   {
+    "id": "ash-feather-gale",
+    "name": "Ash-Feather Gale (Tro Vũ Cuồng Phong)",
+    "element": "fire",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "ashen-phoenix-canon",
+    "tags": [
+     "fire",
+     "artifact"
+    ],
+    "c_art": 1.95,
+    "cost_share": 0.04,
+    "cooldown": 4,
+    "kind": "elem",
+    "debuff": [
+     3,
+     6
+    ],
+    "counters": [
+     {
+      "id": "cinder"
+     }
+    ],
+    "effects": [
+     {
+      "id": "gale-cinder",
+      "on": "tick_dealt",
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": 1
+        }
+       }
+      ]
+     }
+    ],
+    "steps": [
+     {
+      "unlock": [
+       {
+        "read": "own.counter.cinder",
+        "op": ">=",
+        "value": 4
+       },
+       {
+        "any": [
+         {
+          "read": "own.hp_missing_share",
+          "op": ">=",
+          "value": 0.4
+         },
+         {
+          "read": "own.fired_within.3.group.ashen-phoenix-canon",
+          "op": ">=",
+          "value": 1
+         }
+        ]
+       }
+      ],
+      "pay": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": -4
+        }
+       }
+      ],
+      "c_mult": 4.0
+     }
+    ],
+    "rule": "Counts as an Ashen Phoenix Canon art. A Fire gale that lays 3 Burn stacks for 6 s. Every Burn tick you deal blows a Cinder into the fan (twice a pulse at most). With 4 Cinders, and either 40 % of your health gone or another Ashen Phoenix art fired in the last 3 s, the fan unleashes the Ash-Feather Gale: four times as hard, spending the Cinders.",
+    "hooks": [
+     "ashen phoenix canon",
+     "burn ticks",
+     "low health",
+     "counter"
+    ],
+    "sources": [
+     "item:fire-ashen-phoenix-fan"
+    ]
+   }
+  ],
+  "sources": [
+   "npc",
+   "event"
+  ],
+  "holder": "An elder of a Fire sect at Core Formation or above; otherwise Lost in a burned-out secret realm",
+  "lore": "Woven from the tail feathers of a phoenix that burned itself out. The Ashen Phoenix lineage lost it three generations ago.",
+  "build_use": "The Bonfire's keystone piece: Burn never runs out while the hits keep coming, and with the Ashen Phoenix Canon the fan becomes the suite's finisher."
+ },
+ {
+  "id": "fire-undying-ember-lantern",
+  "name": "Undying Ember Lantern (Bất Diệt Tàn Đăng)",
+  "family": "fire",
+  "kind": "artifact",
+  "base": "dang",
+  "grade": 4,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 20,
+    "scope": [
+     "over_time"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 30,
+    "scope": [
+     "hoa",
+     "debuff"
+    ]
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 15,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "embers-never-die",
+    "name": "Embers Never Die (Tàn Hỏa Bất Diệt)",
+    "group": "Rule change",
+    "tier": "enabler",
+    "rule": "Your Burn on a target cannot be cleansed. A cleanse that would remove it removes the same number of your own Fire buff stacks instead.",
+    "reads": "Cleanses on the target, instant",
+    "payload": "Cleanse immunity for your Burn",
+    "closes": "Your own wards cannot cleanse you.",
+    "hosts": "Named Item",
+    "from": "new (answers the cleansing wards listed as The Bonfire's weakness)"
+   }
+  ],
+  "reserve_arts": [
+   {
+    "id": "long-burn-light",
+    "name": "Lantern of the Long Burn (Trường Diễm Đăng Quang)",
+    "reserve": 0.2,
+    "rule": "While reserved, the first Burn batch you lay in a fight never expires.",
+    "notes": "Grants a rule, no modifiers, so nothing to price under Formulas I"
+   }
+  ],
+  "sources": [
+   "npc",
+   "event",
+   "quest"
+  ],
+  "holder": "A Nascent Soul Fire cultivator, or the final reward of a Legendary quest in a Fire sect's ruins",
+  "lore": "Its wick is a sliver of a sun-crow's bone. It has not gone out in four thousand years.",
+  "build_use": "Burn builds against cleansing foes (Clear Heart Ward, cleansing curses): the Burn stays, and one batch burns all fight."
+ }
+]

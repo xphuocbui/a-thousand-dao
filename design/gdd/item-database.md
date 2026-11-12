@@ -198,7 +198,10 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     - **a. What it holds.** A base, as a rolled artifact has, so its attack, defence, thần thức cost and value follow
       Formulas D; a fixed grade from 1 to 4 (a named treasure has its rarity instead); `modifiers`, catalogue modifiers
       with rare ones allowed (Modifier System rule 13), within the budget of Formulas I; `effects`, Effects System records,
-      unpriced, and it may be an enabler; and the arts its role gives (rule 21), authored instead of common.
+      unpriced, and it may be an enabler; and the arts its role gives (rule 21), authored instead of common. **A named
+      item's art may join a công pháp suite** by naming the suite as its `group`, so the suite's engines count it as one
+      of their own (user decision 2026-11-12, at the fire pilot review); several items may count for one suite. A rolled
+      piece's common art never names a suite.
     - **b. Tier.** A named item's tier is set when its record is made, by the realm of what made it, exactly as for a
       rolled artifact. Its modifiers and Effects do not scale with tier. **Artifact Refining may raise a named item's tier**
       and keep its modifiers, Effects and art (user decision 2026-11-12, Open Question 17); the cost belongs to Artifact Refining.
@@ -603,6 +606,25 @@ the lint recomputes it.
 rolled Thượng piece, and the lint passes up to 47.9 W. A rare +1 art slot (20 W) would use about half of it. Its Effect
 comes on top, unpriced.
 
+**Authoring target** (user decision 2026-11-12). A named item spends 80–100 % of its budget. An item whose main value is
+a strong enabler may spend down to about 60 %, and says why. The lint reports a lower spend as a note, never a finding.
+
+**Reserve arts** (user decision 2026-11-12). A reserve art (rule 21) pays by reserving a share ρ of maximum linh lực, so
+its granted modifiers are priced against that reservation, **on top of** the item's budget:
+
+`reserve_W_max = reserve_w_rate · 100 · ρ`
+
+| Variable | Type | Range | Source | Description |
+|---|---|---|---|---|
+| ρ | float | 0.05–0.90 | item record | The reserved share (all reservations together stay under `reserve_cap` 0.9, Combat Defence & Healing Formulas C) |
+| reserve_w_rate | float | 1.0 (a guess) | data file (**change**: new) | W of modifiers per percentage point reserved; anchored on maximum linh lực's own price, 1.0 W per 1 % |
+
+An Effect inside a reserve art stays unpriced. A reserved **ward** keeps its own price check (Combat Defence & Healing
+Formulas F) and is not priced here.
+
+**Example:** Hearth Aura reserves 12 %, so it may grant up to 12 W; its +25 % stack duration and +10 % stack effect
+[hoa, debuff] cost 5.0 + 2.5 = 7.5 W.
+
 ## Edge Cases
 
 **Records and data**
@@ -729,6 +751,7 @@ the Market's margin, stay with their owners.
 | `unique_rarity_min` | Which named items are unique in a world and which repeat (rule 20c) |
 | `unique_return_years` (50, a guess) | How long a destroyed unique item stays gone (rule 20c) |
 | `lost_decay_years` (30, a guess), `lost_decay_rarity_max` (4) | How long ordinary Lost items last, and from which rarity they never decay (rule 14) |
+| `reserve_w_rate` (1.0, a guess) | How much a reserve art may grant per point of linh lực it reserves (Formulas I) |
 | `named_W_tolerance` (`w_affix` is computed, not set) | How much plain power a named item may carry beside its Effects (Formulas I) |
 
 **Knobs that move together.** `kind_offset` and `realm_rarity_cap` together set every kind's cap, so a change to one must be

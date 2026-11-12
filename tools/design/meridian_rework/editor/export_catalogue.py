@@ -131,10 +131,13 @@ def stats(lines):
             key = _key_of(r[col["Key"]])
             if not key:
                 continue
+            wcell = plain(r[col["W"]]) if "W" in col else ""
+            wnum = re.match(r"\s*([0-9]+(?:\.[0-9]+)?)", wcell)
             out.append({"type": "stat", "id": f"stat:{key}", "group": group.split(":")[0] + (":" + group.split(":")[1] if ":" in group else ""),
                         "name": plain(r[0]), "key": key, "ops": plain(r[col.get("Ops", 2)]),
                         "better": plain(r[col["Better"]]) if "Better" in col else "",
-                        "status": plain(r[col["Status"]]) if "Status" in col else ""})
+                        "status": plain(r[col["Status"]]) if "Status" in col else "",
+                        "w": float(wnum.group(1)) if wnum else None, "w_text": wcell})
     return out
 
 
