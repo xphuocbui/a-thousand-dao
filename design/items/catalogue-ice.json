@@ -1,0 +1,392 @@
+[
+ {
+  "id": "ice-hoarfrost-needle",
+  "name": "Hoarfrost Needle (Sương Châm)",
+  "family": "ice",
+  "kind": "artifact",
+  "base": "cham",
+  "grade": 1,
+  "modifiers": [
+   {"key": "attack_pct", "value": 10, "scope": ["cold"]},
+   {"key": "art_speed_pct", "value": 8, "scope": ["cold"]},
+   {"key": "stack_duration_pct", "value": 12, "scope": ["bang", "debuff"]}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "ice-hoarfrost-prick",
+    "name": "Hoarfrost Prick (Sương Châm Thích)",
+    "element": "ice",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": ["cold", "artifact", "quick"],
+    "c_art": 1.4,
+    "cost_share": 0.02,
+    "cooldown": 1.5,
+    "kind": "elem",
+    "debuff": [1, 8],
+    "rule": "A needle of frost: a quick Cold hit that lays 1 Ice stack for 8 s.",
+    "sources": ["item:ice-hoarfrost-needle"]
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A silver needle that never loses its frost; acupuncturists of the northern sects use it to numb.",
+  "build_use": "The Frozen Treasury's first weapon: a fast, cheap Ice-stack source, so the foe's art costs begin to climb at once."
+ },
+ {
+  "id": "ice-rimed-band",
+  "name": "Rimed Band (Sương Giới)",
+  "family": "ice",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 1,
+  "modifiers": [
+   {"key": "stack_effect_pct", "value": 20, "scope": ["bang", "debuff"]},
+   {"key": "khi_huyet_pct", "value": 6, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 4, "scope": []}
+  ],
+  "effects": [],
+  "sources": ["event", "craft"],
+  "lore": "A ring of pale jade that is always coated with a thin rime.",
+  "build_use": "The Frozen Treasury and The Frost Lock: each Ice stack bites harder, and a little health and linh lực flow for the early fights."
+ },
+ {
+  "id": "ice-hoarfrost-fan",
+  "name": "Hoarfrost Fan (Sương Phiến)",
+  "family": "ice",
+  "kind": "artifact",
+  "base": "phien",
+  "grade": 2,
+  "modifiers": [
+   {"key": "attack_pct", "value": 14, "scope": ["cold"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["cold"]},
+   {"key": "stack_duration_pct", "value": 25, "scope": ["bang", "debuff"]},
+   {"key": "stack_effect_pct", "value": 20, "scope": ["bang", "debuff"]}
+  ],
+  "effects": ["Rime Lock"],
+  "arts": [
+   {
+    "id": "ice-frost-tithe-gust",
+    "name": "Frost-Tithe Gust (Sương Thuế Phong)",
+    "element": "ice",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "tags": ["cold", "artifact", "quick"],
+    "c_art": 1.65,
+    "cost_share": 0.03,
+    "cooldown": 3,
+    "kind": "elem",
+    "debuff": [2, 8],
+    "steps": [
+     {
+      "unlock": [{"read": "foe.debuff.ice", "op": ">=", "value": 8}],
+      "pay": [
+       {"consume": {"el": "ice", "side": "foe", "kind": "debuff", "n": 4}},
+       {"timer": {"side": "foe", "which": "longest", "by": 0.5}}
+      ],
+      "c_mult": 2.0
+     }
+    ],
+    "rule": "A cold gust that lays 2 Ice stacks for 8 s. With 8 Ice stacks on the foe it eats 4 of them, hits twice as hard and delays the foe's slowest art by 0.5 s.",
+    "hooks": ["ice stacks", "timer delay", "art speed", "consume stacks"],
+    "sources": ["item:ice-hoarfrost-fan"]
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "Cranes' feathers frozen in a spring of the northern peaks, then bound to a bamboo frame.",
+  "build_use": "The Frozen Treasury: a fast stacker whose gust turns a pile of Ice into a delay, and Rime Lock stalls the foe's best art at 10 stacks."
+ },
+ {
+  "id": "ice-sleeping-marrow-pendant",
+  "name": "Sleeping Marrow Pendant (Miên Tủy Bội)",
+  "family": "ice",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 2,
+  "modifiers": [
+   {"key": "dan_doc_resist_pct", "value": 10, "scope": []},
+   {"key": "healing_pct", "value": 6, "scope": []},
+   {"key": "khi_huyet_pct", "value": 6, "scope": []}
+  ],
+  "effects": [],
+  "reserve_arts": [
+   {
+    "id": "ice-winter-sleep-aura",
+    "name": "Winter Sleep Aura (Đông Miên Quang)",
+    "reserve": 0.1,
+    "rule": "While reserved, healing taken is 10 % higher and health regeneration is 15 % increased.",
+    "grants": [
+     {"key": "healing_taken_pct", "value": 10, "scope": []},
+     {"key": "health_regen_inc_pct", "value": 15, "scope": []}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 10 % reserved buys up to 10 W (9.5 W)"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "Blue-white jade that holds a thread of the cold that stills a hibernating beast's blood.",
+  "build_use": "The Ice Physician: pills that would poison anyone else sit easy in the blood, and the pendant turns the extra healing into a steady mend."
+ },
+ {
+  "id": "ice-hoarfrost-tide-shield",
+  "name": "Hoarfrost Tide Shield (Sương Triều Thuẫn)",
+  "family": "ice",
+  "kind": "artifact",
+  "base": "thuan",
+  "grade": 2,
+  "modifiers": [
+   {"key": "defense_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 6, "scope": []},
+   {"key": "ward_efficiency_pct", "value": 5, "scope": []},
+   {"key": "status_resist_pct", "value": 10, "scope": []},
+   {"key": "healing_pct", "value": 4, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "ice-tide-frost-ward",
+    "name": "Hoarfrost Tide (Sương Triều Tráo)",
+    "payload": "all 75 points",
+    "payment": "per hit 0.03375",
+    "activation": "standing",
+    "check_from": "Surging Tide (Triều Thủy Tráo)",
+    "notes": "The starter ward at 1.25 times its payload and its per-hit payment, so the price check is unchanged (2.935 of 3.050)"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A round shield of blue ice that sweats cold water; the blows run off it like a tide.",
+  "build_use": "The Frozen Treasury and The Ice Physician: a light ward for slow fights where the foe's few heavy hits matter and linh lực is kept for arts."
+ },
+ {
+  "id": "ice-winter-toll-seal",
+  "name": "Winter Toll Seal (Đông Toán Ấn)",
+  "family": "ice",
+  "kind": "artifact",
+  "base": "an",
+  "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 16, "scope": ["cold"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["cold"]},
+   {"key": "stack_duration_pct", "value": 30, "scope": ["bang", "debuff"]},
+   {"key": "linh_luc_pct", "value": 12, "scope": []},
+   {"key": "than_thuc_pct", "value": 3, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "ice-toll-stamp",
+    "name": "Toll Stamp (Toán Ấn Áp)",
+    "element": "ice",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "winter-toll-canon",
+    "tags": ["cold", "seal", "artifact", "slow"],
+    "c_art": 2.2,
+    "cost_share": 0.05,
+    "cooldown": 6,
+    "kind": "elem",
+    "debuff": [3, 8],
+    "counters": [{"id": "frost"}],
+    "effects": [
+     {
+      "id": "toll-stamp-frost",
+      "on": "art_fired",
+      "filter": {"art_id": "ice-toll-stamp"},
+      "do": [{"counter": {"id": "frost", "add": 1}}]
+     }
+    ],
+    "empower": [
+     {
+      "if": [
+       {"read": "foe.debuff.ice", "op": ">=", "value": 10},
+       {"any": [
+        {"read": "own.counter.frost", "op": ">=", "value": 2},
+        {"read": "own.fired_within.3.group.winter-toll-canon", "op": ">=", "value": 1}
+       ]}
+      ],
+      "pay": [
+       {"consume": {"el": "ice", "side": "foe", "kind": "debuff", "n": 5}},
+       {"counter": {"id": "frost", "add": -2}}
+      ],
+      "c_mult": 2.5
+     }
+    ],
+    "rule": "Counts as a Winter Toll Canon art. A slow cold seal that lays 3 Ice stacks for 8 s and adds a Frost. With 10 Ice stacks on the foe, and either 2 Frost or another Winter Toll art fired in the last 3 s, it eats 5 stacks and 2 Frost and falls two and a half times as hard.",
+    "hooks": ["winter toll canon", "ice stacks", "frost", "consume stacks"],
+    "sources": ["item:ice-winter-toll-seal"]
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "The seal the toll-keepers of the Winter Toll lineage stamped on every pass that crossed their frozen river.",
+  "build_use": "The Frozen Treasury and The Frost Lock with the Winter Toll Canon: another canon art that builds the shared Frost, so Shatter Palm and the thaw break fire sooner."
+ },
+ {
+  "id": "ice-glacier-plate",
+  "name": "Glacier Plate (Băng Xuyên Giáp)",
+  "family": "ice",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 3,
+  "modifiers": [
+   {"key": "defense_pct", "value": 12, "scope": []},
+   {"key": "khi_huyet_pct", "value": 12, "scope": []},
+   {"key": "status_resist_pct", "value": 20, "scope": []},
+   {"key": "body_shield_pct", "value": 10, "scope": []},
+   {"key": "resist_pct", "value": 120, "scope": ["cold"]}
+  ],
+  "effects": ["Shattering Ward"],
+  "wards": [
+   {
+    "id": "ice-glacier-shell",
+    "name": "Glacier Shell (Băng Xuyên Xác)",
+    "payload": "shield σ 0.126",
+    "payment": "cast 0.0336",
+    "activation": "cast, cooldown 4 s, up 3 s",
+    "check_from": "Golden Light Shield (Kim Quang Thuẫn)",
+    "notes": "The starter shield at 1.4 times its shield and its cast cost, so the price check is unchanged (3.750 of 3.813)"
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "Plates cut from a glacier's heart and sewn onto hide; they crack loudly, and the crack hurts.",
+  "build_use": "The Shattering Mantle builds of the Stilled Hour Sutra: every shield that breaks bursts against the foe, and the ward comes back every 4 s."
+ },
+ {
+  "id": "ice-black-ledger-mirror",
+  "name": "Black Ledger Mirror (Huyền Trướng Kính)",
+  "family": "ice",
+  "kind": "artifact",
+  "base": "kinh",
+  "grade": 3,
+  "modifiers": [
+   {"key": "stack_duration_pct", "value": 35, "scope": ["bang", "debuff"]},
+   {"key": "stack_effect_pct", "value": 30, "scope": ["bang", "debuff"]},
+   {"key": "art_speed_pct", "value": 12, "scope": ["cold"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 12, "scope": []},
+   {"key": "linh_luc_pct", "value": 8, "scope": []}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "toll-taker",
+    "name": "Toll Taker (Thu Thuế Giả)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "When the enemy pays art cost that your Ice stacks added, you restore linh lực equal to 10 % of that extra cost.",
+    "reads": "The extra art cost your Ice stacks add to the enemy's arts, live",
+    "payload": "Linh lực restored to you",
+    "closes": "",
+    "hosts": "Item, Way, Tech",
+    "from": "variant-ice.md, The Frozen Treasury (Frost Tithe, as a smaller Effect on an item)"
+   }
+  ],
+  "reserve_arts": [
+   {
+    "id": "ice-cold-ledger-aura",
+    "name": "Cold Ledger Aura (Hàn Trướng Quang)",
+    "reserve": 0.15,
+    "rule": "While reserved, your Ice debuff stacks last 25 % longer.",
+    "grants": [{"key": "stack_duration_pct", "value": 25, "scope": ["bang", "debuff"]}],
+    "notes": "Priced by Formulas I reserve arts: 15 % reserved buys up to 15 W"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A mirror of black ice in which a moneylender's ledger can be read backwards; whoever is reflected pays more.",
+  "build_use": "The Frozen Treasury: the foe's inflated costs also refill the cultivator, so a long fight against an expensive foe feeds the Ice build."
+ },
+ {
+  "id": "ice-deep-freeze-ring",
+  "name": "Deep Freeze Ring (Thâm Đống Giới)",
+  "family": "ice",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 4,
+  "modifiers": [
+   {"key": "stack_grant", "value": 1, "scope": ["bang", "debuff"]},
+   {"key": "art_speed_pct", "value": 12, "scope": ["cold"]},
+   {"key": "stack_duration_pct", "value": 25, "scope": ["bang", "debuff"]},
+   {"key": "attack_pct", "value": 18, "scope": ["bang"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 15, "scope": []},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []},
+   {"key": "than_thuc_pct", "value": 4, "scope": []}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "deep-freeze",
+    "name": "Deep Freeze (Thâm Đống)",
+    "group": "Enablers",
+    "tier": "enabler",
+    "rule": "Each time your Ice stacks on a target cross a multiple of 10, that target's art with the least time left is delayed by 1 s, once every 2 pulses.",
+    "reads": "Your Ice stacks on the target crossing a multiple of 10, instant",
+    "payload": "A 1 s delay on the target's art with the least time left",
+    "closes": "Your arts cost 10 % more linh lực.",
+    "hosts": "Named Item",
+    "from": "variant-ice.md, The Frost Lock (New piece: Deep Freeze)"
+   }
+  ],
+  "sources": ["npc", "event", "quest"],
+  "holder": "A Nascent Soul Ice cultivator of a northern sect; otherwise Lost under a frozen lake",
+  "lore": "A band of ice that has not thawed since the first winter, and in whose depth every year of cold can be seen.",
+  "build_use": "The Frost Lock's keystone piece: Rime Lock stops being a one-time delay and becomes a lock at every 10 stacks, so the foe's slowest art never lands."
+ },
+ {
+  "id": "ice-moonrime-sword",
+  "name": "Moonrime Flying Sword (Nguyệt Sương Phi Kiếm)",
+  "family": "ice",
+  "kind": "artifact",
+  "base": "phi_kiem",
+  "grade": 4,
+  "modifiers": [
+   {"key": "attack_pct", "value": 22, "scope": ["cold"]},
+   {"key": "art_speed_pct", "value": 14, "scope": ["cold"]},
+   {"key": "stack_duration_pct", "value": 30, "scope": ["bang", "debuff"]},
+   {"key": "pierce_pct", "value": 10, "scope": []},
+   {"key": "linh_luc_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "ice-moon-stills-tide",
+    "name": "Moon Stills the Tide (Nguyệt Đình Triều)",
+    "element": "ice",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "stilled-hour-sutra",
+    "tags": ["cold", "sword", "artifact"],
+    "c_art": 1.1,
+    "cost_share": 0.04,
+    "cooldown": 5,
+    "kind": "elem",
+    "debuff": [2, 8],
+    "statuses": [{"id": "slowed_time", "stacks": 1, "dur": 3}],
+    "steps": [
+     {
+      "unlock": [
+       {"read": "foe.debuff.ice", "op": ">=", "value": 10},
+       {"any": [
+        {"read": "foe.status.slowed_time", "op": ">=", "value": 2},
+        {"read": "own.fired_within.1.group.stilled-hour-sutra", "op": ">=", "value": 2}
+       ]}
+      ],
+      "pay": [
+       {"consume": {"el": "ice", "side": "foe", "kind": "debuff", "n": 6}},
+       {"timer": {"side": "foe", "which": "longest", "by": 0.5}}
+      ],
+      "c_mult": 3.5,
+      "statuses": [{"id": "slowed_time", "stacks": 1, "dur": 5}]
+     }
+    ],
+    "rule": "Counts as a Stilled Hour Sutra art. A cold sword stroke that lays 2 Ice stacks for 8 s and 1 Slowed Time. With 10 Ice stacks on the foe, and either 2 Slowed Time or two Sutra arts fired this pulse, the moon stills the tide: it eats 6 stacks, hits three and a half times as hard, delays the foe's slowest art by 0.5 s and lays a further Slowed Time for 5 s.",
+    "hooks": ["stilled hour sutra", "slowed time stacks", "ice stacks", "timer delay", "sutra arts fired"],
+    "sources": ["item:ice-moonrime-sword"]
+   }
+  ],
+  "sources": ["npc", "event"],
+  "holder": "An elder of a northern sword sect at Core Formation or above; otherwise Lost in a snow-buried sword tomb",
+  "lore": "A sword forged on the longest night of a winter that lasted three years, so that its light is the moon's.",
+  "build_use": "The Frost Lock with the Stilled Hour Sutra: a sutra sword that stops time for a whole pulse when Volley and Instant have set the table."
+ }
+]

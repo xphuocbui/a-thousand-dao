@@ -1,0 +1,804 @@
+[
+ {
+  "id": "earth-quarryman-pick",
+  "name": "Quarryman's Pick (Thạch Công Phủ)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "phu",
+  "grade": 1,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 10,
+    "scope": [
+     "tho"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 4,
+    "scope": [
+     "tho"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 15,
+    "scope": [
+     "tho",
+     "debuff"
+    ]
+   }
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "earth-pick-fall",
+    "name": "Pick Fall (Thạch Phủ Trụy)",
+    "element": "earth",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": [
+     "earth",
+     "artifact",
+     "heavy",
+     "slow"
+    ],
+    "c_art": 2.42,
+    "cost_share": 0.04,
+    "cooldown": 5,
+    "kind": "elem",
+    "debuff": [
+     2,
+     6
+    ],
+    "rule": "One heavy overhead stroke: an Earth hit that lays 2 Earth stacks for 6 s. It is a heavy art, so Aftershock Slam counts it.",
+    "hooks": [
+     "heavy tag",
+     "Earth debuff stacks"
+    ],
+    "sources": [
+     "item:earth-quarryman-pick"
+    ]
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A short-hafted iron pick that quarry gangs hand to apprentices once they can lift it for a day.",
+  "build_use": "The Mountain Seal and Deep Vein builds' first weapon: a cheap heavy Earth hit that lays the Earth stacks their arts spend."
+ },
+ {
+  "id": "earth-clay-seal-ring",
+  "name": "Clay Seal Ring (Nê Ấn Giới)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 1,
+  "modifiers": [
+   {
+    "key": "stack_effect_pct",
+    "value": 12,
+    "scope": [
+     "tho",
+     "buff"
+    ]
+   },
+   {
+    "key": "resist_pct",
+    "value": 100,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 8,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "sources": [
+   "event",
+   "craft"
+  ],
+  "lore": "Fired river clay stamped with a sect seal; it never chips.",
+  "build_use": "The Mountain That Pays: a stronger Earth buff against Physical hits and a little health, from the first season."
+ },
+ {
+  "id": "earth-dust-veil-robe",
+  "name": "Robe of Settling Dust (Trần Lạc Đạo Bào)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "evade_pct",
+    "value": 4,
+    "scope": []
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 25,
+    "scope": [
+     "tho",
+     "debuff"
+    ]
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 4,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 100,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 5,
+    "scope": []
+   }
+  ],
+  "effects": [
+   "Beneath Notice"
+  ],
+  "wards": [
+   {
+    "id": "settling-dust-shirt",
+    "name": "Settling Dust Shirt (Trần Lạc Sam)",
+    "payload": "block 48, evade +9.6 pp",
+    "payment": "reserved 0.376",
+    "activation": "standing",
+    "check_from": "Iron Shirt (Thiết Bố Sam)",
+    "notes": "The starter shirt at 0.8 of its payload and its reservation, so the price check is unchanged (3.019 of 3.050)"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
+  "lore": "Sand-coloured silk that sheds a haze of dust at every step, so foes strike where its wearer was.",
+  "build_use": "The Dust Veil: evade and longer Earth debuff stacks make the foe's misses pile up, and Beneath Notice lets it slip away from higher realms."
+ },
+ {
+  "id": "earth-remembering-stone-pendant",
+  "name": "Pendant of the Remembering Stone (Thạch Ký Bội)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "stack_effect_pct",
+    "value": 20,
+    "scope": [
+     "tho",
+     "buff"
+    ]
+   },
+   {
+    "key": "linh_luc_regen_inc_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 8,
+    "scope": []
+   },
+   {
+    "key": "defense_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "reserve_arts": [
+   {
+    "id": "still-stone-aura",
+    "name": "Still Stone Aura (Tĩnh Thạch Quang)",
+    "reserve": 0.1,
+    "rule": "While reserved, your Earth buff stacks are 15 % stronger and you resist 100 points more Physical damage.",
+    "grants": [
+     {
+      "key": "stack_effect_pct",
+      "value": 15,
+      "scope": [
+       "tho",
+       "buff"
+      ]
+     },
+     {
+      "key": "resist_pct",
+      "value": 100,
+      "scope": [
+       "physical"
+      ]
+     }
+    ],
+    "notes": "Priced by Formulas I reserve arts: 10 % reserved buys up to 10 W (3.75 + 3.2 = 6.95)"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A river pebble worn smooth by a thousand years of current, hung on a plain cord.",
+  "build_use": "The Mountain That Pays: a standing Earth-buff and Physical-resistance upgrade paid in linh lực, with regeneration so the ward keeps paying."
+ },
+ {
+  "id": "earth-boundary-flag",
+  "name": "Boundary Flag of the Field Lord (Điền Chủ Giới Kỳ)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "ky",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "stack_effect_pct",
+    "value": 24,
+    "scope": [
+     "tho",
+     "buff"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 30,
+    "scope": [
+     "tho",
+     "buff"
+    ]
+   },
+   {
+    "key": "attack_pct",
+    "value": 8,
+    "scope": [
+     "tho"
+    ]
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 3,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "planted-banner",
+    "name": "Planted Banner (Thụ Kỳ)",
+    "group": "Scaling",
+    "tier": "minor",
+    "rule": "Your Earth parts deal 2 % more for every 4 Earth buff stacks you hold.",
+    "reads": "Your Earth buff stacks, live",
+    "payload": "More damage on Earth parts",
+    "closes": "",
+    "hosts": "Item",
+    "from": "single-earth.md, The Mountain That Pays and The Field Lord (Earth buff stacks as the build's currency)"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "The cloth of a field boundary banner; where it is driven in, the ground is its owner's.",
+  "build_use": "The Field Lord and The Mountain That Pays: every Earth buff stack also raises Earth damage, so a fortress of stacks hits back harder."
+ },
+ {
+  "id": "earth-mountain-mooring-anchor",
+  "name": "Mountain-Mooring Anchor (Hệ Sơn Mao)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "mao",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 16,
+    "scope": [
+     "tho"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 30,
+    "scope": [
+     "tho",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 30,
+    "scope": [
+     "tho",
+     "debuff"
+    ]
+   },
+   {
+    "key": "art_speed_pct",
+    "value": 12,
+    "scope": [
+     "tho"
+    ]
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 2,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 4,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "earth-mooring-drop",
+    "name": "Mooring Drop (Mao Trầm Địa)",
+    "element": "earth",
+    "role": "control",
+    "tier": "authored",
+    "power": "engine",
+    "group": "mountain-heart-canon",
+    "tags": [
+     "earth",
+     "artifact",
+     "heavy",
+     "slow"
+    ],
+    "c_art": 2.4,
+    "cost_share": 0.05,
+    "cooldown": 6,
+    "kind": "phys",
+    "counters": [
+     {
+      "id": "strata"
+     }
+    ],
+    "effects": [
+     {
+      "id": "mooring-strata",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "earth-mooring-drop"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "strata",
+         "add": 2
+        }
+       }
+      ]
+     },
+     {
+      "id": "mooring-lock",
+      "on": "step_unlocked",
+      "filter": {
+       "art_id": "earth-mooring-drop"
+      },
+      "do": [
+       {
+        "timer": {
+         "side": "foe",
+         "which": "all",
+         "by": 1.5
+        }
+       }
+      ]
+     }
+    ],
+    "steps": [
+     {
+      "unlock": [
+       {
+        "read": "own.counter.strata",
+        "op": ">=",
+        "value": 5
+       },
+       {
+        "any": [
+         {
+          "read": "foe.status.slowed_time",
+          "op": ">=",
+          "value": 2
+         },
+         {
+          "read": "own.state.mountain",
+          "op": ">=",
+          "value": 1
+         },
+         {
+          "read": "own.fired_within.4.group.mountain-heart-canon",
+          "op": ">=",
+          "value": 2
+         }
+        ]
+       }
+      ],
+      "pay": [
+       {
+        "counter": {
+         "id": "strata",
+         "add": -5
+        }
+       }
+      ],
+      "c_mult": 2.8,
+      "add_statuses": [
+       {
+        "id": "slowed_time",
+        "stacks": 2,
+        "dur": 5
+       }
+      ]
+     }
+    ],
+    "rule": "Counts as a Mountain Heart Canon art. The anchor drops as a Physical hit and lays 2 Strata. With 5 Strata, and the foe Slowed 2 deep, Mountain Stance, or two canon arts fired in the last 4 s, it moors the foe: spends 5 Strata for a hit 2.8 times as hard, 2 Slowed Time and a 1.5 s delay on every foe art.",
+    "hooks": [
+     "mountain heart canon",
+     "strata",
+     "slowed time",
+     "timer delay",
+     "stance"
+    ],
+    "sources": [
+     "item:earth-mountain-mooring-anchor"
+    ]
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
+  "lore": "A ship's anchor from the old river-sect forges, re-cast to hold a mountain's weight rather than a boat's.",
+  "build_use": "The Mountain Seal and Mountain Heart Canon builds: a fifth canon art that feeds Strata to the Hammer and locks the foe in place."
+ },
+ {
+  "id": "earth-boulder-ring-mail",
+  "name": "Boulder-Ring Mail (Cự Thạch Hoàn Giáp)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "defense_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 150,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 15,
+    "scope": []
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 25,
+    "scope": []
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 2,
+    "scope": []
+   }
+  ],
+  "effects": [
+   "Iron Skin Renewed"
+  ],
+  "wards": [
+   {
+    "id": "boulder-shell",
+    "name": "Boulder Shell (Cự Thạch Xác)",
+    "payload": "Physical 105.3 points",
+    "payment": "cast 0.0555",
+    "activation": "cast, cooldown 5 s, up 2 s",
+    "check_from": "Black Tortoise Shell (Huyền Quy Giáp)",
+    "notes": "The starter shell at 1.5 times its payload and its cast cost, so the price check is unchanged (4.711 of 4.766)"
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest",
+   "npc"
+  ],
+  "lore": "Overlapping plates cut from a single boulder and joined with iron rings.",
+  "build_use": "The Mountain That Pays: every Physical art refills the body shield and the shell covers Physical hits, so Bastion Reprisal's wall keeps standing."
+ },
+ {
+  "id": "earth-stone-debt-necklace",
+  "name": "Necklace of Stone Debt (Thạch Trái Liên)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "khi_huyet_pct",
+    "value": 14,
+    "scope": []
+   },
+   {
+    "key": "health_regen_inc_pct",
+    "value": 30,
+    "scope": []
+   },
+   {
+    "key": "leech_health_pct",
+    "value": 25,
+    "scope": []
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 24,
+    "scope": [
+     "tho",
+     "buff"
+    ]
+   },
+   {
+    "key": "healing_pct",
+    "value": 12,
+    "scope": []
+   }
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "debt-of-stone",
+    "name": "Debt of Stone (Thạch Trái)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "When an art of yours is paid in health, you gain 1 Earth buff stack for 15 s for each 2 % of maximum health paid.",
+    "reads": "Health paid by your arts, live",
+    "payload": "Earth buff stacks on you",
+    "closes": "",
+    "hosts": "Item",
+    "from": "single-earth.md and family-earth.md (Quarry Offering's health payment)"
+   }
+  ],
+  "sources": [
+   "event",
+   "npc",
+   "quest"
+  ],
+  "lore": "Beads of quarry stone, each said to be owed to the mountain it was cut from.",
+  "build_use": "The Deep Vein health-payer: Quarry Offering's 7 % health cost returns 3 Earth stacks, and the leech and regeneration pay the debt back."
+ },
+ {
+  "id": "earth-mountain-pressing-seal",
+  "name": "Mountain-Pressing Seal (Áp Sơn Ấn)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "an",
+  "grade": 4,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 22,
+    "scope": [
+     "tho"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 36,
+    "scope": [
+     "tho",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 40,
+    "scope": [
+     "tho",
+     "debuff"
+    ]
+   },
+   {
+    "key": "status_duration_pct",
+    "value": 18,
+    "scope": []
+   },
+   {
+    "key": "than_thuc_pct",
+    "value": 3,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 3,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "earth-mountain-presses-sky",
+    "name": "Mountain Presses the Sky (Sơn Áp Thiên)",
+    "element": "earth",
+    "role": "control",
+    "tier": "authored",
+    "power": "engine",
+    "group": "deep-vein-scripture",
+    "tags": [
+     "earth",
+     "seal",
+     "artifact",
+     "heavy",
+     "slow"
+    ],
+    "c_art": 2.6,
+    "cost_share": 0.06,
+    "cooldown": 8,
+    "kind": "elem",
+    "debuff": [
+     4,
+     6
+    ],
+    "steps": [
+     {
+      "unlock": [
+       {
+        "read": "foe.debuff.earth",
+        "op": ">=",
+        "value": 10
+       },
+       {
+        "any": [
+         {
+          "read": "own.fired_within.8.group.deep-vein-scripture",
+          "op": ">=",
+          "value": 3
+         },
+         {
+          "read": "foe.status.slowed_time",
+          "op": ">=",
+          "value": 3
+         }
+        ]
+       }
+      ],
+      "pay": [
+       {
+        "consume": {
+         "el": "earth",
+         "side": "foe",
+         "n": 10
+        }
+       }
+      ],
+      "c_mult": 4.2,
+      "add_statuses": [
+       {
+        "id": "sundered",
+        "stacks": 1,
+        "dur": 4
+       },
+       {
+        "id": "slowed_time",
+        "stacks": 2,
+        "dur": 5
+       }
+      ]
+     }
+    ],
+    "rule": "Counts as a Deep Vein Scripture art. A slow heavy Earth seal that lays 4 Earth stacks for 6 s. With 10 Earth stacks on the foe, and either three deep-vein arts fired in 8 s or the foe Slowed 3 deep, it presses the mountain down: spends 10 stacks for a hit 4.2 times as hard that Sunders and adds 2 Slowed Time.",
+    "hooks": [
+     "deep vein scripture",
+     "earth debuff stacks",
+     "sundered",
+     "slowed time",
+     "heavy tag"
+    ],
+    "sources": [
+     "item:earth-mountain-pressing-seal"
+    ]
+   }
+  ],
+  "sources": [
+   "npc",
+   "event"
+  ],
+  "holder": "An elder of an Earth sect at Nascent Soul; otherwise Lost beneath a collapsed mountain pass",
+  "lore": "The seal that held a sect's founding peak in place, carved from the peak's own heart.",
+  "build_use": "The Mountain Seal's keystone piece: a heavy seal that counts for the Deep Vein suite and turns a pile of Earth stacks into a Sundering press."
+ },
+ {
+  "id": "earth-unmoving-gate-shield",
+  "name": "Unmoving Gate Shield (Bất Động Môn Thuẫn)",
+  "family": "earth",
+  "kind": "artifact",
+  "base": "thuan",
+  "grade": 4,
+  "modifiers": [
+   {
+    "key": "body_shield_pct",
+    "value": 40,
+    "scope": []
+   },
+   {
+    "key": "defense_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 15,
+    "scope": []
+   },
+   {
+    "key": "resist_pct",
+    "value": 150,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "block_rating",
+    "value": 5,
+    "scope": []
+   }
+  ],
+  "effects": [
+   "Shattering Ward",
+   {
+    "new": true,
+    "id": "unmoved-stance",
+    "name": "Unmoved Stance (Bất Động Thế)",
+    "group": "Rule change",
+    "tier": "enabler",
+    "rule": "The art-speed and basic-speed penalties of your stances do not apply to you.",
+    "reads": "Your stance states, live",
+    "payload": "Stance speed penalties removed",
+    "closes": "Your evade is 0 while a stance is on.",
+    "hosts": "Named Item",
+    "from": "single-earth.md, The Mountain That Pays (Mountain Stance without its slowness)"
+   }
+  ],
+  "wards": [
+   {
+    "id": "gate-screen",
+    "name": "Gate Screen (Môn Bình Chướng)",
+    "payload": "shield σ 0.432",
+    "payment": "reserved 0.096",
+    "activation": "standing",
+    "check_from": "Mountain Screen (Sơn Hà Bình Chướng)",
+    "notes": "The starter screen at 1.6 times its shield and its reservation, so the price check is unchanged (3.000 of 3.050)"
+   }
+  ],
+  "sources": [
+   "npc",
+   "event"
+  ],
+  "holder": "The gate guardian of an Earth sect, a Core Formation elder; otherwise Lost in a flooded quarry",
+  "lore": "The door of a sect's vault, beaten into a shield; nothing has ever pushed it back.",
+  "build_use": "The Mountain That Pays: Mountain Stance without its slowness, a standing screen, and every shield that breaks bursts on the foe."
+ }
+]

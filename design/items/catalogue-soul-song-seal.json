@@ -1,0 +1,381 @@
+[
+ {
+  "id": "soul-song-seal-rain-listening-zither",
+  "name": "Rain-Listening Zither (Thính Vũ Cầm)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "cam",
+  "grade": 1,
+  "modifiers": [
+   {"key": "x_soul", "value": 5, "scope": []},
+   {"key": "art_speed_pct", "value": 8, "scope": ["soul"]},
+   {"key": "than_thuc_pct", "value": 2, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "soul-song-seal-raindrop-pluck",
+    "name": "Raindrop Pluck (Vũ Lạc Huyền)",
+    "element": "",
+    "role": "soul",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": ["soul", "song", "artifact", "quick"],
+    "c_art": 0.0,
+    "cost_share": 0.04,
+    "cooldown": 3,
+    "kind": "elem",
+    "soul_pct": 0.03,
+    "counters": [{"id": "toll", "decay_per_pulse": 0.25}],
+    "effects": [
+     {"id": "pluck-toll", "on": "soul_hit", "limit": {"per_pulse": 1}, "do": [{"counter": {"id": "toll", "add": 1}}]}
+    ],
+    "rule": "One light note that strikes the foe's soul. Each soul hit you land adds a Toll (once a pulse), so it feeds the Tolling Bell Requiem from any hand.",
+    "hooks": ["toll gained from other sources", "soul hits landed", "art speed", "x_soul"],
+    "sources": ["item:soul-song-seal-rain-listening-zither"]
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A short zither with a cracked soundboard, played by blind street-singers who listen to rain on roofs.",
+  "build_use": "The Zither Player's first instrument: a cheap, quick soul note that also feeds Tolls to the Tolling Bell Requiem."
+ },
+ {
+  "id": "soul-song-seal-quiet-mind-ring",
+  "name": "Quiet Mind Ring (Tĩnh Tâm Giới)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 1,
+  "modifiers": [
+   {"key": "than_thuc_pct", "value": 3, "scope": []},
+   {"key": "x_soul", "value": 3, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 6, "scope": []}
+  ],
+  "effects": [],
+  "sources": ["event", "craft"],
+  "lore": "A plain jade band that the novice monks of a meditation hall wear to still their thoughts.",
+  "build_use": "Any soul build's early ring: more thần thức and soul damage, and a pool that refills between notes."
+ },
+ {
+  "id": "soul-song-seal-muffled-temple-bell",
+  "name": "Muffled Temple Bell (Ám Chung)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "chuong",
+  "grade": 2,
+  "modifiers": [
+   {"key": "soul_res_pct", "value": 20, "scope": []},
+   {"key": "defense_pct", "value": 5, "scope": []},
+   {"key": "khi_huyet_pct", "value": 5, "scope": []},
+   {"key": "than_thuc_pct", "value": 1, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "soul-song-seal-muffled-bell-ward",
+    "name": "Muffled Bell Ward (Ám Chung Tráo)",
+    "payload": "all 120 points",
+    "payment": "per hit 0.042",
+    "activation": "standing",
+    "check_from": "Golden Bell (Kim Chung Tráo)",
+    "notes": "The starter bell at 1.2 times its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)"
+  }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A temple bell stuffed with felt so that it only hums; it was hung in the halls where soul-singers practised.",
+  "build_use": "Anyone facing soul builds or slow heavy hitters: soul resistance on top of a bell ward."
+ },
+ {
+  "id": "soul-song-seal-sandalwood-censer",
+  "name": "Sandalwood Censer (Đàn Hương Lô)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "huong_lo",
+  "grade": 2,
+  "modifiers": [
+   {"key": "than_thuc_pct", "value": 4, "scope": []},
+   {"key": "x_soul", "value": 8, "scope": []},
+   {"key": "status_duration_pct", "value": 12, "scope": []},
+   {"key": "linh_luc_pct", "value": 5, "scope": []}
+  ],
+  "effects": ["Marked Prey"],
+  "reserve_arts": [
+   {
+    "id": "soul-song-seal-incense-haze",
+    "name": "Incense Haze (Hương Yên Vụ)",
+    "reserve": 0.10,
+    "rule": "While reserved, your soul hits are 4 % stronger and your statuses on the foe last 8 % longer.",
+    "grants": [
+     {"key": "x_soul", "value": 4, "scope": []},
+     {"key": "status_duration_pct", "value": 8, "scope": []}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 10 % reserved buys up to 10 W (spends 8.8)"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A bronze bowl of sandalwood ash; the smoke seems to cling to whoever is thinking hardest.",
+  "build_use": "The Incense Burner: Marked Prey rewards every different status laid on the foe, and the haze keeps statuses and soul hits stronger for a little linh lực."
+ },
+ {
+  "id": "soul-song-seal-waking-soul-jade",
+  "name": "Waking-Soul Jade (Tỉnh Hồn Bội)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 2,
+  "modifiers": [
+   {"key": "healing_pct", "value": 10, "scope": []},
+   {"key": "x_soul", "value": 6, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 20, "scope": []},
+   {"key": "art_speed_pct", "value": 8, "scope": ["soul"]},
+   {"key": "khi_huyet_pct", "value": 2, "scope": []}
+  ],
+  "effects": [],
+  "sources": ["event", "craft", "npc"],
+  "lore": "Pale jade that warms when its wearer is sung to; sect healers lend it to patients who cannot wake.",
+  "build_use": "The Zither Player and anyone who plays Thorn Lullaby: more healing taken in, which the Lullaby's thorns turn into soul strikes."
+ },
+ {
+  "id": "soul-song-seal-ledger-seal",
+  "name": "Ledger Seal (Lục Ấn)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "an",
+  "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 18, "scope": ["seal"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["seal"]},
+   {"key": "x_soul", "value": 6, "scope": []},
+   {"key": "status_duration_pct", "value": 12, "scope": []},
+   {"key": "than_thuc_pct", "value": 2, "scope": []},
+   {"key": "linh_luc_pct", "value": 3, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "soul-song-seal-ledger-stamp",
+    "name": "Ledger Stamp (Lục Ấn Áp)",
+    "element": "",
+    "role": "control",
+    "tier": "authored",
+    "power": "engine",
+    "group": "nine-seal-ledger",
+    "tags": ["seal", "artifact", "heavy"],
+    "c_art": 2.4,
+    "cost_share": 0.05,
+    "cooldown": 5,
+    "kind": "elem",
+    "counters": [{"id": "seal", "each_for": 12}],
+    "effects": [
+     {"id": "stamp-count", "on": "art_fired", "filter": {"art_id": "soul-song-seal-ledger-stamp"}, "do": [{"counter": {"id": "seal", "add": 1}}]}
+    ],
+    "empower": [
+     {
+      "if": [
+       {"read": "own.counter.seal", "op": ">=", "value": 2},
+       {"any": [
+        {"read": "foe.status.exposed", "op": ">=", "value": 1},
+        {"read": "foe.status.slackened_soul", "op": ">=", "value": 1},
+        {"read": "own.fired_within.1.group.nine-seal-ledger", "op": ">=", "value": 2}
+       ]}
+      ],
+      "pay": [{"counter": {"id": "seal", "add": -2}}],
+      "c_mult": 2.8,
+      "add_statuses": [{"id": "exposed", "stacks": 1, "dur": 3}]
+     }
+    ],
+    "rule": "Counts as a Nine Seal Ledger art. A slow, heavy seal stamp that adds a Seal. With 2 Seals and either an Exposed foe, a Slackened Soul foe, or another ledger seal fired the same pulse, the stamp is entered in the ledger: 2.8 times as hard, it spends 2 Seals and exposes the foe.",
+    "hooks": ["nine seal ledger", "seal count", "exposed", "slackened soul", "heavy arts"],
+    "sources": ["item:soul-song-seal-ledger-seal"]
+   }
+  ],
+  "sources": ["event", "craft", "quest", "npc"],
+  "lore": "The magistrate's seal of a vanished dynasty's ledger-hall, where every debt of the dead was stamped.",
+  "build_use": "The Ledger Keeper (Nine Seal Ledger builds): a fourth seal art the suite's Seal counter and Snare, Hour and Brand all count, and it gets the Slackened Soul the Bell canon lays."
+ },
+ {
+  "id": "soul-song-seal-mourning-robe",
+  "name": "Mourning Robe (Tang Y)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 3,
+  "modifiers": [
+   {"key": "soul_res_pct", "value": 30, "scope": []},
+   {"key": "khi_huyet_pct", "value": 8, "scope": []},
+   {"key": "than_thuc_pct", "value": 4, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 5, "scope": []},
+   {"key": "healing_taken_pct", "value": 6, "scope": []}
+  ],
+  "effects": ["Final Clause"],
+  "wards": [
+   {
+    "id": "soul-song-seal-mourning-veil",
+    "name": "Mourning Veil (Tang Sa)",
+    "payload": "Force 275 points",
+    "payment": "drain 0.33",
+    "activation": "standing",
+    "check_from": "Qi-Scattering Robe (Tán Khí Bào)",
+    "notes": "The starter robe at 1.25 times its payload and its drain, so the price check is unchanged (3.788 of 3.813)"
+  }
+  ],
+  "sources": ["event", "craft", "quest", "npc"],
+  "lore": "White hemp worn by the singers who mourned for a living; it turns aside sound and the blows that carry it.",
+  "build_use": "The Zither Player and Bell canon builds: Final Clause fires the longest-cooldown art free as you go Down, often a Death Knell, and the veil covers Force."
+ },
+ {
+  "id": "soul-song-seal-echoing-ring",
+  "name": "Echoing Ring (Hồi Âm Giới)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 3,
+  "modifiers": [
+   {"key": "x_soul", "value": 12, "scope": []},
+   {"key": "art_speed_pct", "value": 12, "scope": ["soul"]},
+   {"key": "than_thuc_pct", "value": 4, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []},
+   {"key": "status_duration_pct", "value": 10, "scope": []}
+  ],
+  "effects": ["Echo"],
+  "sources": ["event", "npc"],
+  "lore": "A silver ring hollow as a flute; a note struck near it comes back a breath later.",
+  "build_use": "Soul-note builds: Echo makes a quarter of every soul hit strike again, and each strike adds a Toll."
+ },
+ {
+  "id": "soul-song-seal-thousand-string-zither",
+  "name": "Thousand-String Zither (Thiên Huyền Cầm)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "cam",
+  "grade": 4,
+  "modifiers": [
+   {"key": "x_soul", "value": 14, "scope": []},
+   {"key": "art_speed_pct", "value": 12, "scope": ["soul"]},
+   {"key": "than_thuc_pct", "value": 6, "scope": []},
+   {"key": "linh_luc_pct", "value": 8, "scope": []},
+   {"key": "healing_pct", "value": 10, "scope": []},
+   {"key": "status_duration_pct", "value": 10, "scope": []}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "plucked-time",
+    "name": "Plucked Time (Huyền Trì)",
+    "group": "Enablers",
+    "tier": "enabler",
+    "rule": "When one of your song arts lands a soul hit, the enemy's next ready art is delayed by 0.4 s, at most once a second.",
+    "reads": "Your song arts landing soul hits, instant",
+    "payload": "Delay of the enemy's next ready art",
+    "closes": "Your arts that are neither soul nor song deal 15 % less.",
+    "hosts": "Named Item",
+    "from": "triple-metal-water-wood.md, The Zither Player (a soul art each second, each delaying the foe's next art; Soul Wound as an item Effect)"
+   }
+  ],
+  "arts": [
+   {
+    "id": "soul-song-seal-thousand-string-dirge",
+    "name": "Thousand-String Dirge (Thiên Huyền Điếu)",
+    "element": "",
+    "role": "soul",
+    "tier": "authored",
+    "power": "engine",
+    "group": "hollow-bell-canon",
+    "tags": ["soul", "song", "artifact"],
+    "c_art": 0.0,
+    "cost_share": 0.05,
+    "cooldown": 3,
+    "kind": "elem",
+    "soul_pct": 0.032,
+    "counters": [{"id": "chord"}, {"id": "toll", "decay_per_pulse": 0.25}],
+    "effects": [
+     {"id": "chord-count", "on": "art_fired", "filter": {"tags": ["song"]}, "do": [{"counter": {"id": "chord", "add": 1}}]}
+    ],
+    "steps": [
+     {
+      "unlock": [
+       {"read": "own.counter.chord", "op": ">=", "value": 3},
+       {"any": [
+        {"read": "foe.status.slackened_soul", "op": ">=", "value": 1},
+        {"read": "own.fired_within.1.group.hollow-bell-canon", "op": ">=", "value": 2}
+       ]}
+      ],
+      "pay": [
+       {"counter": {"id": "chord", "add": -3}},
+       {"counter": {"id": "toll", "add": 2}},
+       {"free_hit": {"c": 12.0, "dtype": "elem"}}
+      ]
+     },
+     {
+      "unlock": [
+       {"read": "own.counter.chord", "op": ">=", "value": 6},
+       {"any": [
+        {"read": "foe.status.slackened_soul", "op": ">=", "value": 2},
+        {"read": "own.hp_share", "op": "<=", "value": 0.4}
+       ]}
+      ],
+      "pay": [
+       {"counter": {"id": "chord", "add": -6}},
+       {"free_hit": {"c": 12.0, "dtype": "elem"}},
+       {"status": {"id": "slackened_soul", "stacks": 2, "dur": 2}}
+      ]
+     }
+    ],
+    "rule": "Counts as a Hollow Bell Canon art. A soul strike on the foe. Every song art you fire adds a Chord. With 3 Chords and either a Slackened Soul foe or another canon art fired the same pulse, the strings answer in chorus: a heavy extra soul strike that spends 3 Chords and adds 2 Tolls to the Bell. The next, with 6 Chords and either 2 Slackened Soul on the foe or you at 40 % health or less, spends 6 Chords for another and slackens the foe's soul.",
+    "hooks": ["hollow bell canon", "toll", "song arts fired", "slackened soul", "low health", "x_soul"],
+    "sources": ["item:soul-song-seal-thousand-string-zither"]
+   }
+  ],
+  "sources": ["npc", "event"],
+  "holder": "An elder of a Soul sect at Nascent Soul or above; otherwise Lost under the silted lake of a drowned music hall",
+  "lore": "A zither of a thousand strings that was played by a court musician until the court listened to nothing else.",
+  "build_use": "The Zither Player's keystone: every song art delays the foe, and the Dirge turns each fed chord into a Bell Peal's worth of soul strikes, at the price of weaker non-song arts."
+ },
+ {
+  "id": "soul-song-seal-ninth-vigil-heart-lamp",
+  "name": "Ninth Vigil Heart-Lamp (Cửu Canh Tâm Đăng)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "dang",
+  "grade": 4,
+  "modifiers": [
+   {"key": "x_soul", "value": 10, "scope": []},
+   {"key": "soul_res_pct", "value": 30, "scope": []},
+   {"key": "than_thuc_pct", "value": 6, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []},
+   {"key": "status_duration_pct", "value": 10, "scope": []}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "lamp-lit-reading",
+    "name": "Lamp-Lit Reading (Đăng Chiếu)",
+    "group": "Enablers",
+    "tier": "enabler",
+    "rule": "Each different status of yours on the target lowers its soul resistance by 3 points, to at most 5 statuses.",
+    "reads": "Your different statuses on the target, live",
+    "payload": "Soul resistance reduction on the target",
+    "closes": "Your own soul resistance is 15 points lower.",
+    "hosts": "Named Item",
+    "from": "triple-metal-water-wood.md and triple-wood-fire-earth.md (the weakness 'soul resistance' of the Zither Player and the Incense Burner)"
+   }
+  ],
+  "reserve_arts": [
+   {
+    "id": "soul-song-seal-vigil-light",
+    "name": "Vigil Light (Thủ Canh Quang)",
+    "reserve": 0.15,
+    "rule": "While reserved, your soul resistance is 15 points higher and your thần thức 3 % higher.",
+    "grants": [
+     {"key": "soul_res_pct", "value": 15, "scope": []},
+     {"key": "than_thuc_pct", "value": 3, "scope": []}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 15 % reserved buys up to 15 W (spends 12.9)"
+   }
+  ],
+  "sources": ["npc", "event", "quest"],
+  "holder": "The abbot of a Soul sect's mountain temple; otherwise Lost in a collapsed meditation cave",
+  "lore": "Nine monks kept this lamp alight through nine night-watches, and each one was found sitting before it, smiling.",
+  "build_use": "Soul builds against high soul resistance (their stated weakness): Lamp-Lit Reading strips the foe's resistance for every status laid, and the vigil light covers the wearer's own."
+ }
+]

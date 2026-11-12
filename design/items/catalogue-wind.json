@@ -1,0 +1,367 @@
+[
+ {
+  "id": "wind-gale-feather-fan",
+  "name": "Gale-Feather Fan (Phong Vũ Phiến)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "phien",
+  "grade": 1,
+  "modifiers": [
+   {"key": "art_speed_pct", "value": 10, "scope": ["quick"]},
+   {"key": "basic_speed_pct", "value": 12, "scope": []},
+   {"key": "evade_pct", "value": 2, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "wind-fanning-gust",
+    "name": "Fanning Gust (Quạt Phong Trận)",
+    "element": "wind",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": ["wind", "artifact", "quick"],
+    "kind": "elem",
+    "c_art": 1.7,
+    "cost_share": 0.03,
+    "cooldown": 2.5,
+    "effects": [
+     {"id": "fanning-gust-stacks", "on": "art_fired", "filter": {"art_id": "wind-fanning-gust"}, "do": [{"stacks": {"el": "wind", "n": 2, "for": 6, "side": "own"}}]}
+    ],
+    "rule": "One sweep of the fan: a quick Wind hit that gives you 2 Wind buff stacks for 6 s.",
+    "hooks": ["wind stacks", "art speed"],
+    "sources": ["item:wind-gale-feather-fan"]
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A fan of grey goose feathers; wind sects hand one to every disciple who first learns to stand in a draught.",
+  "build_use": "The Gale Dancer's first weapon: a quick art that lays Wind buff stacks, so art speed starts climbing before the công pháp arts arrive."
+ },
+ {
+  "id": "wind-gale-step-ring",
+  "name": "Gale-Step Ring (Phong Bộ Giới)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 1,
+  "modifiers": [
+   {"key": "evade_pct", "value": 3, "scope": []},
+   {"key": "stack_effect_pct", "value": 12, "scope": ["phong", "buff"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 5, "scope": []}
+  ],
+  "effects": [],
+  "sources": ["event", "craft"],
+  "lore": "A thin ring of bent reed-iron that hums when its wearer walks fast.",
+  "build_use": "Any Wind build's early ring: a little evade, stronger Wind buff stacks, and linh lực to keep the quick arts fed."
+ },
+ {
+  "id": "wind-slow-hour-needle",
+  "name": "Slow-Hour Needle (Trì Thời Châm)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "cham",
+  "grade": 2,
+  "modifiers": [
+   {"key": "attack_pct", "value": 10, "scope": ["phong"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["quick"]},
+   {"key": "evade_pct", "value": 3, "scope": []},
+   {"key": "status_duration_pct", "value": 12, "scope": ["curse"]},
+   {"key": "accuracy_pct", "value": 8, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "wind-stitch-the-hour",
+    "name": "Stitch the Hour (Phùng Thời)",
+    "element": "wind",
+    "role": "curse",
+    "tier": "authored",
+    "power": "engine",
+    "group": "slow-hour-scripture",
+    "tags": ["wind", "artifact", "curse", "quick"],
+    "kind": "elem",
+    "c_art": 1.25,
+    "cost_share": 0.025,
+    "cooldown": 2,
+    "statuses": [{"id": "slowed_time", "stacks": 1, "dur": 3}],
+    "empower": [
+     {
+      "if": [
+       {"any": [
+        {"read": "foe.status.slowed_time", "op": ">=", "value": 3},
+        {"read": "own.counter.echo", "op": ">=", "value": 3}
+       ]}
+      ],
+      "c_mult": 2.5
+     }
+    ],
+    "rule": "Counts as a Slow-Hour Scripture art. A quick Wind needle that lays 1 Slowed Time for 3 s. With the foe at 3 Slowed Time, or with 3 Echoes, the needle hits 2.5 times as hard.",
+    "hooks": ["slow-hour scripture", "slowed time", "echo count", "curse duration"],
+    "sources": ["item:wind-slow-hour-needle"]
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A needle sewn with a hair from a clock-keeper's beard; those it pricks feel the hour drag.",
+  "build_use": "The slow-hour builds: a cheap Slowed Time layer that counts as a suite art, and whose hit swells when Slowed Time or Echoes are stacked."
+ },
+ {
+  "id": "wind-cloud-veil-robe",
+  "name": "Cloud-Veil Robe (Vân Sa Đạo Bào)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 2,
+  "modifiers": [
+   {"key": "than_thuc_pct", "value": 5, "scope": []},
+   {"key": "evade_pct", "value": 4, "scope": []},
+   {"key": "resist_pct", "value": 100, "scope": ["force"]},
+   {"key": "khi_huyet_pct", "value": 8, "scope": []},
+   {"key": "status_resist_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "cloud-veil",
+    "name": "Cloud Veil (Vân Sa Hộ)",
+    "payload": "Force 176 points",
+    "payment": "drain 0.211",
+    "activation": "standing",
+    "check_from": "Qi-Scattering Robe (Tán Khí Bào)",
+    "notes": "The starter robe at 0.8 of its payload and its drain, so the price check is unchanged"
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A robe of woven mist-silk that lets blows slide past like cloud through fingers.",
+  "build_use": "The Untouchable and Gale Dancer: Force resistance for a build that shrugs off Force, with evade and status resistance on top; light, so it leaves thần thức for treasures."
+ },
+ {
+  "id": "wind-swallow-tail-pendant",
+  "name": "Swallow-Tail Pendant (Yến Vĩ Bội)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 2,
+  "modifiers": [
+   {"key": "evade_pct", "value": 3, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []},
+   {"key": "stack_effect_pct", "value": 15, "scope": ["phong", "buff"]},
+   {"key": "healing_pct", "value": 6, "scope": []},
+   {"key": "than_thuc_pct", "value": 3, "scope": []}
+  ],
+  "effects": [],
+  "reserve_arts": [
+   {
+    "id": "swallows-poise",
+    "name": "Swallow's Poise (Yến Trì)",
+    "reserve": 0.1,
+    "rule": "While reserved, your basic attacks are 10 % faster and you evade 3 % more often.",
+    "grants": [
+     {"key": "basic_speed_pct", "value": 10, "scope": []},
+     {"key": "evade_pct", "value": 3, "scope": []}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 10 % reserved buys up to 10 W (8.5 W used)"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "Two jade swallow-tails on a cord; swallows never stop moving, and neither does the one who wears them.",
+  "build_use": "The Gale Dancer and the courier-scripture builds: a standing basic-speed and evade boost paid in linh lực, which feeds Feathers and Breath without an art slot."
+ },
+ {
+  "id": "wind-four-winds-banner",
+  "name": "Four-Winds Banner (Tứ Phương Phong Kỳ)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "ky",
+  "grade": 3,
+  "modifiers": [
+   {"key": "art_speed_pct", "value": 12, "scope": ["phong"]},
+   {"key": "stack_effect_pct", "value": 20, "scope": ["phong", "buff"]},
+   {"key": "evade_pct", "value": 5, "scope": []},
+   {"key": "linh_luc_pct", "value": 10, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 11, "scope": []},
+   {"key": "attack_pct", "value": 8, "scope": ["phong"]}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "wind-at-your-back",
+    "name": "Wind at Your Back (Thuận Phong)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "When you evade, you gain 1 Wind buff stack for 4 s, at most 2 a pulse.",
+    "reads": "Your evades, instant",
+    "payload": "Wind buff stacks on you",
+    "closes": "",
+    "hosts": "Item, Way, Tech",
+    "from": "variant-wind.md, The Gale Dancer and The Untouchable (evade feeding the Wind buff)"
+   }
+  ],
+  "reserve_arts": [
+   {
+    "id": "standing-wind",
+    "name": "Standing Wind (Lập Phong)",
+    "reserve": 0.08,
+    "rule": "While reserved, your arts are 5.8 % faster and you evade 3 % more often.",
+    "grants": [
+     {"key": "art_speed_pct", "value": 5.8, "scope": []},
+     {"key": "evade_pct", "value": 3, "scope": []}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 8 % reserved buys up to 8 W (8.0 W used)"
+   }
+  ],
+  "sources": ["event", "craft", "quest", "npc"],
+  "lore": "Four pennants, one for each quarter, that never hang limp even in a closed room.",
+  "build_use": "The Gale Dancer and The Untouchable: every evade becomes a Wind buff stack, which becomes art speed, and the reserve keeps the standing evade high."
+ },
+ {
+  "id": "wind-windbreak-shield",
+  "name": "Windbreak Shield (Cách Phong Thuẫn)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "thuan",
+  "grade": 3,
+  "modifiers": [
+   {"key": "art_speed_pct", "value": 14, "scope": []},
+   {"key": "evade_pct", "value": 6, "scope": []},
+   {"key": "defense_pct", "value": 8, "scope": []},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []},
+   {"key": "than_thuc_pct", "value": 3, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "windbreak-screen",
+    "name": "Windbreak Screen (Cách Phong Bình)",
+    "payload": "shield σ 0.1125",
+    "payment": "cast 0.030",
+    "activation": "cast, cooldown 4 s, up 3 s",
+    "check_from": "Golden Light Shield (Kim Quang Thuẫn)",
+    "notes": "The starter shield at 1.25 times its shield and its cast cost, so the price check is unchanged"
+   }
+  ],
+  "sources": ["event", "craft", "quest", "npc"],
+  "lore": "A round shield of lacquered paper and bamboo; it stops no blade, and arrows still go wide.",
+  "build_use": "The Gale Dancer: a cast shield suits an art-speed build, and the art speed and evade on the shield itself are what the build wants."
+ },
+ {
+  "id": "wind-hollow-echo-ring",
+  "name": "Ring of Hollow Echoes (Không Hưởng Giới)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 3,
+  "modifiers": [
+   {"key": "crit_chance_pct", "value": 5, "scope": []},
+   {"key": "evade_pct", "value": 4, "scope": []},
+   {"key": "art_speed_pct", "value": 12, "scope": ["phong"]},
+   {"key": "attack_pct", "value": 10, "scope": ["phong"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 6, "scope": []}
+  ],
+  "effects": ["Echo"],
+  "sources": ["event", "npc"],
+  "lore": "A ring with nothing in its bezel; if you hold it to your ear it answers a moment late.",
+  "build_use": "The Storm Front and echo builds: crit and evade count Echoes for Echo of the Dodge, and this ring's own Echo strikes again on the hits that land."
+ },
+ {
+  "id": "wind-heron-fan",
+  "name": "Nine-Gale Heron Fan (Cửu Phong Lộ Phiến)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "phien",
+  "grade": 4,
+  "modifiers": [
+   {"key": "attack_pct", "value": 19, "scope": ["phong"]},
+   {"key": "art_speed_pct", "value": 14, "scope": ["phong"]},
+   {"key": "basic_speed_pct", "value": 20, "scope": []},
+   {"key": "evade_pct", "value": 6, "scope": []},
+   {"key": "stack_effect_pct", "value": 25, "scope": ["phong", "buff"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "phantom-dodge",
+    "name": "Phantom Dodge (Ảnh Tị)",
+    "group": "Enablers",
+    "tier": "enabler",
+    "rule": "Each basic attack of yours that lands counts as an evade for your arts' counters and held payloads, at most twice a pulse.",
+    "reads": "Your basic attacks landing, instant",
+    "payload": "An evade event for your counters, Breath and Echoes",
+    "closes": "You evade 10 pp less.",
+    "hosts": "Named Item",
+    "from": "new (variant-wind.md's evade engines, fed by basic attacks instead of being dodged at)"
+   }
+  ],
+  "arts": [
+   {
+    "id": "wind-heron-takes-wing",
+    "name": "Heron Takes Wing (Lộ Khởi Phong)",
+    "element": "wind",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "gale-courier-scripture",
+    "tags": ["wind", "artifact", "quick"],
+    "kind": "elem",
+    "c_art": 1.9,
+    "cost_share": 0.04,
+    "cooldown": 5,
+    "effects": [
+     {"id": "heron-wing", "on": "art_fired", "filter": {"art_id": "wind-heron-takes-wing"}, "do": [{"stacks": {"el": "wind", "n": 2, "for": 6, "side": "own"}}]}
+    ],
+    "steps": [
+     {
+      "unlock": [
+       {"read": "own.counter.feather", "op": ">=", "value": 5},
+       {"any": [
+        {"read": "own.state.swallow", "op": ">=", "value": 1},
+        {"read": "own.fired_within.1.group.gale-courier-scripture", "op": ">=", "value": 3}
+       ]}
+      ],
+      "pay": [{"consume": {"el": "wind", "side": "own", "n": 3}}],
+      "c_mult": 3.5
+     }
+    ],
+    "rule": "Counts as a Gale Courier Scripture art. A quick Wind sweep that gives you 2 Wind buff stacks for 6 s. With 5 Feathers, and either Swallow Stance up or three courier arts fired in one pulse, the heron takes wing: 3.5 times as hard, burning 3 of your Wind stacks.",
+    "hooks": ["gale courier scripture", "feather counter", "swallow stance", "wind stacks"],
+    "sources": ["item:wind-heron-fan"]
+   }
+  ],
+  "sources": ["npc", "event"],
+  "holder": "A Wind sect elder at Core Formation or above; otherwise Lost in a cliff-top ruin where the wind never stops",
+  "lore": "Nine heron wing-feathers, each taken from a bird that outflew a storm; the Gale Courier lineage lost it in a crossing.",
+  "build_use": "The Gale Dancer's keystone piece: basic attacks count as evades, so Feathers, Breath and Echoes fill without being hit at, and the fan itself is the courier suite's finisher."
+ },
+ {
+  "id": "wind-cloud-walker-mantle",
+  "name": "Cloud-Walker's Mantle (Đằng Vân Bào)",
+  "family": "wind",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 4,
+  "modifiers": [
+   {"key": "evade_pct", "value": 8, "scope": []},
+   {"key": "than_thuc_pct", "value": 8, "scope": []},
+   {"key": "khi_huyet_pct", "value": 15, "scope": []},
+   {"key": "art_speed_pct", "value": 12, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}
+  ],
+  "effects": ["Cold Feet", "Beneath Notice"],
+  "wards": [
+   {
+    "id": "cloud-walkers-veil",
+    "name": "Cloud-Walker's Veil (Đằng Vân Sa)",
+    "payload": "block 72, evade +14.4 pp",
+    "payment": "reserved 0.564",
+    "activation": "standing",
+    "check_from": "Iron Shirt (Thiết Bố Sam)",
+    "notes": "The starter ward at 1.2 times its payload and its reservation, so the price check is unchanged"
+   }
+  ],
+  "sources": ["npc", "quest"],
+  "holder": "A travelling Nascent Soul cultivator, or Lost in the last waystation of a road that no longer exists",
+  "lore": "Said to be the cloak of the first man to cross the sea on foot; it has never been seen to touch the ground.",
+  "build_use": "The Untouchable: Cold Feet and Beneath Notice make fleeing a higher-realm foe likely, and the veil's evade keeps the rest of the fight from starting."
+ }
+]

@@ -1,0 +1,336 @@
+[
+ {
+  "id": "body-bone-cleaver",
+  "name": "Bone Cleaver (Phách Cốt Phủ)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "phu",
+  "grade": 1,
+  "modifiers": [
+   {"key": "attack_pct", "value": 8, "scope": ["physical"]},
+   {"key": "body_shield_pct", "value": 8, "scope": []},
+   {"key": "khi_huyet_pct", "value": 3, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "body-bone-splitting-chop",
+    "name": "Bone-Splitting Chop (Phách Cốt Trảm)",
+    "element": "",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": ["axe", "body", "chop", "heavy"],
+    "kind": "phys",
+    "c_art": 3.0,
+    "cost_share": 0.045,
+    "cooldown": 5,
+    "counters": [{"id": "debt"}],
+    "effects": [
+     {"id": "chop-debt", "on": "art_fired", "filter": {"tags": ["chop"]}, "do": [{"counter": {"id": "debt", "add": 1}}, {"shield": {"body": 0.03}}]}
+    ],
+    "rule": "A slow heavy chop with a butcher's axe. Each chop writes 1 Debt and hardens a little body shield, feeding the Unbroken Flesh arts.",
+    "hooks": ["Debt counter", "body shield", "heavy hit"],
+    "sources": ["item:body-bone-cleaver"]
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A slaughterhouse axe that outer-court body cultivators are handed to learn the weight of a blow.",
+  "build_use": "The Iron Body's first weapon: a slow chop that starts the Debt and shield the Unbroken Flesh arts later spend."
+ },
+ {
+  "id": "body-tempered-marrow-ring",
+  "name": "Ring of Tempered Marrow (Luyện Tủy Giới)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 1,
+  "modifiers": [
+   {"key": "khi_huyet_pct", "value": 8, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 20, "scope": []},
+   {"key": "block_rating", "value": 4, "scope": []}
+  ],
+  "effects": [],
+  "sources": ["event", "craft"],
+  "lore": "A ring of boiled-bone lacquer that body cultivators wear from their first day of tempering.",
+  "build_use": "Any thể tu's early ring: more health, faster regrowth, a little block while the body shield is not yet built."
+ },
+ {
+  "id": "body-mountain-hide-armour",
+  "name": "Mountain-Hide Armour (Sơn Bì Giáp)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 2,
+  "modifiers": [
+   {"key": "khi_huyet_pct", "value": 14, "scope": []},
+   {"key": "defense_pct", "value": 6, "scope": []},
+   {"key": "body_shield_pct", "value": 10, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 12, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "body-mountain-hide-shell",
+    "name": "Mountain-Hide Shell (Sơn Bì Xác)",
+    "payload": "Physical 98.3 points",
+    "payment": "cast 0.052",
+    "activation": "cast, cooldown 5 s, up 2 s",
+    "check_from": "Black Tortoise Shell (Huyền Quy Giáp)",
+    "notes": "The starter shell at 1.4 times its payload and its cast cost, so the price check is unchanged (4.711 of 4.766)"
+   }
+  ],
+  "sources": ["event", "craft", "quest", "npc"],
+  "lore": "Layered ox and boar hide, stitched with iron wire, taken from the sparring grounds of a body-tempering sect.",
+  "build_use": "The Iron Body against sword and fist cultivators: a bigger Physical ward over a thick health pool."
+ },
+ {
+  "id": "body-mountain-gate-shield",
+  "name": "Mountain-Gate Shield (Sơn Môn Thuẫn)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "thuan",
+  "grade": 2,
+  "modifiers": [
+   {"key": "block_rating", "value": 20, "scope": []},
+   {"key": "defense_pct", "value": 8, "scope": []},
+   {"key": "body_shield_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 4, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "body-mountain-gate-ward",
+    "name": "Mountain-Gate Ward (Sơn Môn Chướng)",
+    "payload": "shield σ 0.18",
+    "payment": "cast 0.048",
+    "activation": "cast, cooldown 4 s, up 3 s",
+    "check_from": "Golden Light Shield (Kim Quang Thuẫn)",
+    "notes": "The starter shield at 2 times its shield and its cast cost, so the price check is unchanged (3.750 of 3.813)"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A door-sized slab of black stone slung on a strap, carried by the gate wardens of a body-tempering sect.",
+  "build_use": "Bulwark builds: a large cast shield that sits beside the body shield, with block for the small hits."
+ },
+ {
+  "id": "body-stone-marrow-pendant",
+  "name": "Stone-Marrow Pendant (Thạch Tủy Bội)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 2,
+  "modifiers": [
+   {"key": "leech_health_pct", "value": 40, "scope": []},
+   {"key": "healing_pct", "value": 10, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 30, "scope": []},
+   {"key": "khi_huyet_pct", "value": 3, "scope": []}
+  ],
+  "effects": [],
+  "reserve_arts": [
+   {
+    "id": "body-stone-marrow-aura",
+    "name": "Stone-Marrow Aura (Thạch Tủy Quang)",
+    "reserve": 0.1,
+    "rule": "While reserved, your body shields are 10 % stronger and you gain 10 block.",
+    "grants": [
+     {"key": "body_shield_pct", "value": 10, "scope": []},
+     {"key": "block_rating", "value": 10, "scope": []}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 10 % reserved buys up to 10 W (9.1 W granted)"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A jade pebble ground from the marrow of a mountain spirit's bone; it is cold and heavy as a fist.",
+  "build_use": "The Iron Body's sustain: leech and regrowth that keep the body shield up, and a standing shield bonus paid in linh lực."
+ },
+ {
+  "id": "body-flesh-seal",
+  "name": "Seal of Unbroken Flesh (Bất Hoại Nhục Ấn)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "an",
+  "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 16, "scope": ["physical"]},
+   {"key": "body_shield_pct", "value": 20, "scope": []},
+   {"key": "khi_huyet_pct", "value": 14, "scope": []},
+   {"key": "defense_pct", "value": 6, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "body-flesh-seal-slam",
+    "name": "Flesh-Seal Slam (Nhục Ấn Áp)",
+    "element": "",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "unbroken-flesh-canon",
+    "tags": ["seal", "body", "flesh-seal", "heavy"],
+    "kind": "phys",
+    "c_art": 2.6,
+    "cost_share": 0.04,
+    "cooldown": 6,
+    "counters": [{"id": "debt"}],
+    "effects": [
+     {"id": "flesh-seal-write", "on": "art_fired", "filter": {"tags": ["flesh-seal"]}, "do": [{"counter": {"id": "debt", "add": 2}}, {"shield": {"body": 0.05}}]}
+    ],
+    "steps": [
+     {
+      "unlock": [
+       {"read": "own.counter.debt", "op": ">=", "value": 4},
+       {"read": "own.body_shield_share", "op": ">=", "value": 0.2}
+      ],
+      "pay": [{"counter": {"id": "debt", "add": -4}}],
+      "c_mult": 3.5
+     }
+    ],
+    "rule": "Counts as an Unbroken Flesh Canon art. A heavy seal slam that writes 2 Debt and hardens a body shield worth 5 % of your health. With 4 Debt and a body shield of 20 % of your health held, the seal presses down as the Flesh Seal: 3.5 times as hard, spending the Debt.",
+    "hooks": ["unbroken flesh canon", "Debt counter", "body shield", "heavy hit"],
+    "sources": ["item:body-flesh-seal"]
+   }
+  ],
+  "sources": ["event", "craft", "quest", "npc"],
+  "lore": "A basalt seal pressed into the flesh of each disciple of the Unbroken Flesh lineage, so their canon answers to it.",
+  "build_use": "Unbroken Flesh Canon builds: a fourth canon art that feeds the three-arts-in-2-s route and writes Debt for Marrow Tithe and Last Breath Fist."
+ },
+ {
+  "id": "body-iron-skin-ring",
+  "name": "Ring of Renewed Iron Skin (Thiết Bì Phục Giới)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 3,
+  "modifiers": [
+   {"key": "body_shield_pct", "value": 24, "scope": []},
+   {"key": "khi_huyet_pct", "value": 14, "scope": []},
+   {"key": "block_rating", "value": 20, "scope": []},
+   {"key": "healing_pct", "value": 6, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 10, "scope": []}
+  ],
+  "effects": ["Iron Skin Renewed"],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A ring of black iron that tightens with every blow its wearer throws.",
+  "build_use": "Bulwark and Mountain Root builds: every Physical art refills the body shield, so the shield the Bulwark Knuckle hits with never stays down."
+ },
+ {
+  "id": "body-echo-skin-drum",
+  "name": "Echo-Skin Drum (Hưởng Bì Cổ)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "co",
+  "grade": 3,
+  "modifiers": [
+   {"key": "art_speed_pct", "value": 14, "scope": ["physical"]},
+   {"key": "crit_chance_pct", "value": 8, "scope": ["physical"]},
+   {"key": "crit_damage_pct", "value": 30, "scope": ["physical"]},
+   {"key": "khi_huyet_pct", "value": 12, "scope": []},
+   {"key": "healing_pct", "value": 10, "scope": []}
+  ],
+  "effects": ["Echo"],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A hand drum stretched with the hide of an echo ape; each strike on it is answered a heartbeat later.",
+  "build_use": "Hundred Echo Palm Scripture builds: faster, crit-heavy fists and palms, and Echo repeats a landed art for free."
+ },
+ {
+  "id": "body-vajra-hide-armour",
+  "name": "Vajra-Hide Armour (Kim Cương Bì Giáp)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 4,
+  "modifiers": [
+   {"key": "khi_huyet_pct", "value": 20, "scope": []},
+   {"key": "body_shield_pct", "value": 30, "scope": []},
+   {"key": "defense_pct", "value": 8, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 30, "scope": []},
+   {"key": "block_rating", "value": 15, "scope": []}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "shield-pays-blood",
+    "name": "Shield Pays the Blood (Thuẫn Thế Huyết)",
+    "group": "Enablers",
+    "tier": "enabler",
+    "rule": "Health that your arts would cost is paid from your body shield first, point for point; once the shield is gone, health pays again.",
+    "reads": "Your arts' health costs and your body shield, live",
+    "payload": "Health costs paid by body shield",
+    "closes": "Your healing is 20 % weaker.",
+    "hosts": "Named Item",
+    "from": "new (Marrow Tithe Strike's health cost, paid in shield instead of flesh)"
+   }
+  ],
+  "wards": [
+   {
+    "id": "body-vajra-shell",
+    "name": "Vajra Shell (Kim Cương Xác)",
+    "payload": "Physical 140.4 points",
+    "payment": "cast 0.074",
+    "activation": "cast, cooldown 5 s, up 2 s",
+    "check_from": "Black Tortoise Shell (Huyền Quy Giáp)",
+    "notes": "The starter shell at 2 times its payload and its cast cost, so the price check is unchanged (4.711 of 4.766)"
+   }
+  ],
+  "sources": ["npc", "event"],
+  "holder": "An elder of a body-tempering sect at Core Formation or above; otherwise Lost beneath a collapsed mountain gate",
+  "lore": "A suit grown, not forged: a thể tu's own hide, shed at his ascension and hardened for a thousand years.",
+  "build_use": "Marrow Tithe builds: the tithe is paid by the body shield, so health stays full while the Debt piles up for the x11 Last Marrow."
+ },
+ {
+  "id": "body-mountain-splitting-axe",
+  "name": "Mountain-Splitting Axe (Phích Sơn Phủ)",
+  "family": "body",
+  "kind": "artifact",
+  "base": "phu",
+  "grade": 4,
+  "modifiers": [
+   {"key": "attack_pct", "value": 25, "scope": ["physical"]},
+   {"key": "leech_health_pct", "value": 40, "scope": []},
+   {"key": "khi_huyet_pct", "value": 14, "scope": []},
+   {"key": "pierce_pct", "value": 6, "scope": []}
+  ],
+  "effects": ["Blood Drinker"],
+  "arts": [
+   {
+    "id": "body-splitting-the-mountain",
+    "name": "Splitting the Mountain (Phích Sơn)",
+    "element": "",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "tags": ["axe", "body", "heavy", "mountain"],
+    "kind": "phys",
+    "c_art": 3.4,
+    "cost_share": 0.05,
+    "cooldown": 8,
+    "counters": [{"id": "debt"}],
+    "effects": [
+     {"id": "mountain-hit-debt", "on": "was_hit", "limit": {"per_pulse": 1}, "do": [{"counter": {"id": "debt", "add": 1}}]},
+     {"id": "mountain-weight", "on": "always", "scale": {"read": "own.body_shield_share", "per": 0.05}, "do": [{"mod": {"dmg_more": 0.05, "tags": ["mountain"]}}]}
+    ],
+    "steps": [
+     {
+      "unlock": [
+       {"read": "own.counter.debt", "op": ">=", "value": 5},
+       {"any": [
+        {"read": "own.state.mountain-root", "op": "==", "value": 1},
+        {"read": "own.body_shield_share", "op": ">=", "value": 0.3}
+       ]}
+      ],
+      "pay": [{"counter": {"id": "debt", "add": -5}}],
+      "c_mult": 4.5
+     }
+    ],
+    "rule": "A slow axe blow that deals 5 % more for every 5 % of health held as body shield, and winds 1 Debt for each hit you take (once a pulse). With 5 Debt, and either Mountain Root held or a body shield of 30 % of your health, the axe splits the mountain: 4.5 times as hard, spending the Debt.",
+    "hooks": ["Debt counter", "body shield", "stance", "Mountain Root", "dmg more", "heavy hit"],
+    "sources": ["item:body-mountain-splitting-axe"]
+   }
+  ],
+  "sources": ["npc", "event", "quest"],
+  "holder": "A Nascent Soul thể tu who has held it since the last sect war; otherwise the final reward of a Legendary quest in a body sect's ruins",
+  "lore": "The axe that cut a peak in two to open a sect's gate; its edge is still the width of the gap.",
+  "build_use": "The Mountain Root Bulwark: stand in the stance, take the hits, and the axe turns Debt and shield into one blow while its leech keeps the body full."
+ }
+]

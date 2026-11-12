@@ -1,0 +1,382 @@
+[
+ {
+  "id": "thunder-spark-needle",
+  "name": "Spark Needle (Lôi Tinh Châm)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "cham",
+  "grade": 1,
+  "modifiers": [
+   {"key": "crit_chance_pct", "value": 6, "scope": ["lightning"]},
+   {"key": "art_speed_pct", "value": 6, "scope": ["lightning"]},
+   {"key": "attack_pct", "value": 7, "scope": ["lightning"]}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "thunder-spark-prick",
+    "name": "Spark Prick (Lôi Tinh Thích)",
+    "element": "thunder",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": ["lightning", "artifact", "quick"],
+    "c_art": 1.2,
+    "cost_share": 0.02,
+    "cooldown": 1.5,
+    "kind": "elem",
+    "debuff": [2, 6],
+    "rule": "A needle of static: a quick Lightning hit that lays 2 Thunder stacks on the foe for 6 s.",
+    "sources": ["item:thunder-spark-needle"]
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A copper needle that crackles when drawn from its sleeve; Storm-sect outer disciples are taught to throw it first.",
+  "build_use": "The Crit Storm's first weapon: a cheap, quick Lightning hit that lays Thunder debuff stacks, so the foe takes crits harder from the start."
+ },
+ {
+  "id": "thunder-static-band",
+  "name": "Static Band (Tĩnh Điện Giới)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 1,
+  "modifiers": [
+   {"key": "linh_luc_on_crit_pct", "value": 0.8, "scope": []},
+   {"key": "crit_damage_pct", "value": 20, "scope": ["lightning"]},
+   {"key": "crit_chance_pct", "value": 4, "scope": ["lightning"]}
+  ],
+  "effects": [],
+  "sources": ["event", "craft"],
+  "lore": "An iron ring wrapped in a thread of lightning-struck copper; hair stands up near it.",
+  "build_use": "The Crit Storm: a little linh lực back on every crit, the early stand-in for Storm Battery."
+ },
+ {
+  "id": "thunder-forked-light-sword",
+  "name": "Forked-Light Sword (Phân Quang Lôi Kiếm)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "phi_kiem",
+  "grade": 2,
+  "modifiers": [
+   {"key": "attack_pct", "value": 14, "scope": ["lightning"]},
+   {"key": "crit_chance_pct", "value": 8, "scope": ["lightning"]},
+   {"key": "art_speed_pct", "value": 8, "scope": ["lightning"]},
+   {"key": "crit_damage_pct", "value": 25, "scope": ["lightning"]}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "thunder-forked-slash",
+    "name": "Forked Slash (Phân Lôi Trảm)",
+    "element": "thunder",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "thousand-bolt-scripture",
+    "tags": ["lightning", "sword", "artifact", "quick"],
+    "c_art": 1.6,
+    "cost_share": 0.03,
+    "cooldown": 2.5,
+    "kind": "elem",
+    "effects": [
+     {"id": "forked-slash-ramp", "on": "crit", "filter": {"art_id": "thunder-forked-slash"}, "limit": {"per_pulse": 1}, "do": [{"mod": {"crit": 5, "for": 3, "stack": true}}]}
+    ],
+    "empower": [
+     {
+      "if": [
+       {"any": [
+        {"read": "own.state.overload", "op": "==", "value": 1},
+        {"read": "own.counter.charge", "op": ">=", "value": 3},
+        {"read": "own.counter.peal", "op": ">=", "value": 3},
+        {"read": "own.fired_within.1.group.thousand-bolt-scripture", "op": ">=", "value": 3}
+       ]}
+      ],
+      "c_mult": 2.2
+     }
+    ],
+    "rule": "Counts as a Thousand-Bolt Scripture art. A quick Lightning slash; each crit it lands raises your crit chance by 5 for 3 s, stacking. In Overload Form, or with 3 Charges or 3 Peals, or three scripture arts fired in one pulse, it hits 2.2 times as hard.",
+    "hooks": ["thousand-bolt scripture", "overload form", "charges", "peals", "crit chance"],
+    "sources": ["item:thunder-forked-light-sword"]
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A sword whose blade was split by a bolt and reforged in the fork, so it cuts twice.",
+  "build_use": "The Crit Storm and The Thunder Drum: a fifth Thousand-Bolt Scripture art that the suite's Palm, Chain Arc and Peal count, and its crits keep the crit chance climbing."
+ },
+ {
+  "id": "thunder-thunderclap-bell",
+  "name": "Thunderclap Bell (Lôi Minh Chuông)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "chuong",
+  "grade": 2,
+  "modifiers": [
+   {"key": "resist_pct", "value": 150, "scope": ["lightning"]},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []},
+   {"key": "defense_pct", "value": 10, "scope": []},
+   {"key": "crit_chance_pct", "value": 3, "scope": ["lightning"]},
+   {"key": "art_speed_pct", "value": 5, "scope": ["lightning"]}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "thunderclap-toll",
+    "name": "Thunderclap Toll (Lôi Minh Tráo)",
+    "payload": "all 140 points",
+    "payment": "per hit 0.049",
+    "activation": "standing",
+    "check_from": "Golden Bell (Kim Chung Tráo)",
+    "notes": "The starter bell at 1.4 times its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)"
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A bronze bell that rings by itself when lightning is near, and its ring is a shield.",
+  "build_use": "The Thunderclap: a bell for the boss fighter facing slow heavy hits, with lightning resistance and crit chance on the side."
+ },
+ {
+  "id": "thunder-stormcaller-drum",
+  "name": "Stormcaller's Drum (Hô Lôi Cổ)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "co",
+  "grade": 2,
+  "modifiers": [
+   {"key": "crit_chance_pct", "value": 10, "scope": ["lightning"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["lightning"]},
+   {"key": "crit_damage_pct", "value": 30, "scope": ["lightning"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 8, "scope": []}
+  ],
+  "effects": ["Steady Breath"],
+  "reserve_arts": [
+   {
+    "id": "stormcaller-cadence",
+    "name": "Stormcaller's Cadence (Hô Lôi Tiết)",
+    "reserve": 0.1,
+    "rule": "While reserved, your Lightning arts have 8 more crit chance and fire 4 % faster.",
+    "grants": [
+     {"key": "crit_chance_pct", "value": 8, "scope": ["lightning"]},
+     {"key": "art_speed_pct", "value": 4, "scope": ["lightning"]}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 10 % reserved buys up to 10 W"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A war drum from a Thunder sect's rain-calling rites; each beat is answered from the clouds.",
+  "build_use": "The Thunder Drum: crit chance and speed set the beat, and Steady Breath rewards keeping the pool full while Storm Battery refills it."
+ },
+ {
+  "id": "thunder-stormcloud-armour",
+  "name": "Stormcloud Armour (Vân Lôi Giáp)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 3,
+  "modifiers": [
+   {"key": "defense_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 14, "scope": []},
+   {"key": "resist_pct", "value": 150, "scope": ["lightning"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["lightning"]},
+   {"key": "crit_chance_pct", "value": 6, "scope": ["lightning"]},
+   {"key": "crit_damage_pct", "value": 30, "scope": ["lightning"]}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "cloudflash-shell",
+    "name": "Cloudflash Shell (Vân Thiểm Xác)",
+    "payload": "shield σ 0.144",
+    "payment": "cast 0.0384",
+    "activation": "cast, cooldown 4 s, up 3 s",
+    "check_from": "Golden Light Shield (Kim Quang Thuẫn)",
+    "notes": "The starter shield at 1.6 times its shield and its cast cost, so the price check is unchanged (3.750 of 3.813)"
+   }
+  ],
+  "sources": ["event", "craft", "quest", "npc"],
+  "lore": "Dark scale armour that flashes with heat lightning when struck.",
+  "build_use": "The Crit Storm: a fast-cast shield for art-speed crit builds, with lightning resistance against Thunder sects."
+ },
+ {
+  "id": "thunder-peal-heart-pendant",
+  "name": "Peal-Heart Pendant (Lôi Tâm Bội)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 3,
+  "modifiers": [
+   {"key": "crit_chance_pct", "value": 10, "scope": ["lightning"]},
+   {"key": "crit_damage_pct", "value": 40, "scope": ["lightning"]},
+   {"key": "linh_luc_pct", "value": 10, "scope": []},
+   {"key": "leech_linh_luc_pct", "value": 2, "scope": []},
+   {"key": "than_thuc_pct", "value": 4, "scope": []}
+  ],
+  "effects": ["Marked Prey"],
+  "reserve_arts": [
+   {
+    "id": "peal-heart-aura",
+    "name": "Peal-Heart Aura (Hồi Lôi Tâm Quang)",
+    "reserve": 0.15,
+    "rule": "While reserved, your Lightning arts have 9 more crit chance and deal 30 % more crit damage.",
+    "grants": [
+     {"key": "crit_chance_pct", "value": 9, "scope": ["lightning"]},
+     {"key": "crit_damage_pct", "value": 30, "scope": ["lightning"]}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 15 % reserved buys up to 15 W"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "Violet jade with a bolt frozen inside; it thrums like a second heart.",
+  "build_use": "The Thunderclap and The Crit Storm: Marked Prey rewards the Thunder stacks and Slowed Time laid on the foe, and the aura stands in for a crit passive."
+ },
+ {
+  "id": "thunder-tribulation-rod",
+  "name": "Tribulation Rod (Độ Kiếp Lôi Trượng)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "loi_truong",
+  "grade": 3,
+  "modifiers": [
+   {"key": "resist_pct", "value": 200, "scope": ["lightning"]},
+   {"key": "linh_luc_pct", "value": 12, "scope": []},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []},
+   {"key": "crit_chance_pct", "value": 6, "scope": ["lightning"]}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "lightning-drinker",
+    "name": "Lightning Drinker (Ẩm Lôi)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "When a Lightning part hits you, 20 % of the damage it deals after resistance returns as linh lực.",
+    "reads": "Lightning damage you take, live",
+    "payload": "Linh lực restored",
+    "closes": "",
+    "hosts": "Item, Way",
+    "from": "variant-thunder.md, The Tribulation Rider (its New piece)"
+   }
+  ],
+  "sources": ["event", "npc", "quest"],
+  "lore": "A rod of black iron drawn from a tribulation crater; its first owner stood under the bolt and lived.",
+  "build_use": "The Tribulation Rider: Lightning foes and tribulation waves refill the pool instead of draining it."
+ },
+ {
+  "id": "thunder-ninth-tribulation-seal",
+  "name": "Seal of the Ninth Tribulation (Cửu Kiếp Lôi Ấn)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "an",
+  "grade": 4,
+  "modifiers": [
+   {"key": "attack_pct", "value": 25, "scope": ["lightning"]},
+   {"key": "crit_damage_pct", "value": 50, "scope": ["lightning"]},
+   {"key": "crit_chance_pct", "value": 8, "scope": ["lightning"]},
+   {"key": "status_duration_pct", "value": 20, "scope": []},
+   {"key": "art_speed_pct", "value": 10, "scope": ["lightning"]}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "verdict-stands",
+    "name": "Verdict Stands (Phán Quyết Bất Diệt)",
+    "group": "Enablers",
+    "tier": "enabler",
+    "rule": "Your Thunder debuff stacks on a Slowed target cannot expire.",
+    "reads": "Slowed Time on the target, live",
+    "payload": "Thunder stacks on a Slowed foe never expire",
+    "closes": "Thunder stacks you lay on a foe that is not Slowed last 25 % shorter.",
+    "hosts": "Named Item",
+    "from": "new (The Thunderclap's 'delay, then the clap'; Tribulation Seal's verdict)"
+   }
+  ],
+  "arts": [
+   {
+    "id": "thunder-ninth-verdict",
+    "name": "Ninth Verdict (Cửu Kiếp Phán)",
+    "element": "thunder",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "heavenly-tribulation-scripture",
+    "tags": ["lightning", "seal", "artifact", "slow"],
+    "c_art": 1.5,
+    "cost_share": 0.05,
+    "cooldown": 8,
+    "kind": "elem",
+    "debuff": [4, 8],
+    "effects": [
+     {"id": "verdict-mark", "on": "crit", "filter": {"art_id": "thunder-ninth-verdict"}, "limit": {"per_pulse": 2}, "do": [{"stacks": {"el": "thunder", "n": 1, "for": 8, "side": "foe"}}]}
+    ],
+    "steps": [
+     {
+      "unlock": [
+       {"read": "foe.debuff.thunder", "op": ">=", "value": 6},
+       {"any": [
+        {"read": "foe.status.slowed_time", "op": ">=", "value": 2},
+        {"read": "foe.hp_share", "op": "<=", "value": 0.5},
+        {"read": "own.fired_within.1.group.heavenly-tribulation-scripture", "op": ">=", "value": 3}
+       ]}
+      ],
+      "pay": [{"consume": {"el": "thunder", "side": "foe", "n": 6}}],
+      "c_mult": 6.0
+     }
+    ],
+    "rule": "Counts as a Heavenly Tribulation Scripture art. A slow Lightning seal that lays 4 Thunder stacks for 8 s; each crit it lands lays 1 more (twice a pulse at most). With 6 Thunder stacks on the foe and also a foe Slowed twice, a foe at 50 % health or three scripture arts in one pulse, it consumes 6 of them to hit 6 times as hard.",
+    "hooks": ["heavenly tribulation scripture", "thunder stacks", "slowed time", "low-health foe"],
+    "sources": ["item:thunder-ninth-tribulation-seal"]
+   }
+  ],
+  "sources": ["npc", "event"],
+  "holder": "An elder of a Thunder sect at Nascent Soul; otherwise Lost on a thunder-scarred peak",
+  "lore": "The seal that bound the ninth lightning of a heavenly tribulation, and kept it.",
+  "build_use": "The Thunderclap: Slowed Time makes its Thunder stacks permanent and the verdict consumes them for one huge crit; a fourth Heavenly Tribulation Scripture art."
+ },
+ {
+  "id": "thunder-heartbeat-of-heaven-drum",
+  "name": "Heartbeat of Heaven Drum (Thiên Tâm Lôi Cổ)",
+  "family": "thunder",
+  "kind": "artifact",
+  "base": "co",
+  "grade": 4,
+  "modifiers": [
+   {"key": "crit_chance_pct", "value": 12, "scope": ["lightning"]},
+   {"key": "art_speed_pct", "value": 12, "scope": ["lightning"]},
+   {"key": "crit_damage_pct", "value": 60, "scope": ["lightning"]},
+   {"key": "linh_luc_regen_inc_pct", "value": 15, "scope": []},
+   {"key": "linh_luc_pct", "value": 8, "scope": []}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "drumbeat",
+    "name": "Drumbeat (Cổ Tiết)",
+    "group": "Enablers",
+    "tier": "enabler",
+    "rule": "Every fourth art you fire in a fight is a guaranteed crit, and each such crit gives you 1 Thunder buff stack.",
+    "reads": "Arts fired this fight, live",
+    "payload": "Guaranteed crit; Thunder buff stack",
+    "closes": "Your other arts have 8 less crit chance.",
+    "hosts": "Named Item",
+    "from": "variant-thunder.md, The Thunder Drum (a steady-count crit, without the keystone)"
+   }
+  ],
+  "reserve_arts": [
+   {
+    "id": "heavens-pulse",
+    "name": "Heaven's Pulse (Thiên Mạch)",
+    "reserve": 0.2,
+    "rule": "While reserved, your Lightning arts fire 8 % faster and deal 40 % more crit damage.",
+    "grants": [
+     {"key": "art_speed_pct", "value": 8, "scope": ["lightning"]},
+     {"key": "crit_damage_pct", "value": 40, "scope": ["lightning"]}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 20 % reserved buys up to 20 W"
+   }
+  ],
+  "sources": ["npc", "event", "quest"],
+  "holder": "The head of a Thunder sect, kept in its rain-calling hall; otherwise Lost in a drowned thunder temple",
+  "lore": "A drum whose skin is said to be a cloud, and whose beat the sky repeats.",
+  "build_use": "The Thunder Drum: the count of four is the build's rhythm, art speed shortens the beat, and every drum crit builds the Thunder buff."
+ }
+]

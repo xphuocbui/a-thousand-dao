@@ -1,0 +1,318 @@
+[
+ {
+  "id": "force-chaos-shock-zither",
+  "name": "Shock-Wave Zither (Chấn Ba Cầm)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "cam",
+  "grade": 1,
+  "modifiers": [
+   {"key": "attack_pct", "value": 10, "scope": ["force"]},
+   {"key": "art_speed_pct", "value": 5, "scope": ["force"]},
+   {"key": "khi_huyet_pct", "value": 2, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "force-chaos-resonant-shockwave",
+    "name": "Resonant Shockwave (Cộng Chấn Ba)",
+    "element": "",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "group": "hollow-tide-scripture",
+    "tags": ["force", "artifact", "quick"],
+    "c_art": 1.5,
+    "cost_share": 0.03,
+    "cooldown": 2.5,
+    "kind": "elem",
+    "statuses": [{"id": "qi_disruption", "stacks": 1, "dur": 3}],
+    "counters": [{"id": "drink", "each_for": 10}],
+    "effects": [
+     {"id": "shockwave-drink", "on": "tick_dealt", "filter": {"dtype": "force"}, "limit": {"per_pulse": 1}, "do": [{"counter": {"id": "drink", "add": 1}}]}
+    ],
+    "rule": "Counts as a Hollow Tide Scripture art. A quick Force wave that lays 1 Qi Disruption. Each Force burn tick you deal adds a Drink (once a pulse), so the zither feeds the scripture's Draining Gulp and Hollowing Strike.",
+    "hooks": ["hollow tide scripture", "Force damage", "Qi Disruption stacks", "drink count", "qi burn"],
+    "sources": ["item:force-chaos-shock-zither"]
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A short zither strung with hollow reed; one plucked string makes a stone ring and then crack.",
+  "build_use": "Hollow Tide Scripture builds (the Qi Drinker): a cheap fourth scripture art that lays Disruption, adds Drink and counts for Siphon Palm's same-pulse step."
+ },
+ {
+  "id": "force-chaos-hollow-ring",
+  "name": "Hollow Ring (Không Giới)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 1,
+  "modifiers": [
+   {"key": "stack_effect_pct", "value": 10, "scope": ["debuff"]},
+   {"key": "attack_pct", "value": 8, "scope": ["chaos"]},
+   {"key": "status_duration_pct", "value": 5, "scope": []}
+  ],
+  "effects": [],
+  "sources": ["event", "craft"],
+  "lore": "A band of grey metal with nothing set in its bezel. It weighs less than it should.",
+  "build_use": "Any Chaos-damage curse build (the Night Plague, the Ruin Ledger curse stacker): longer statuses, stronger debuffs, a little Chaos damage."
+ },
+ {
+  "id": "force-chaos-hollow-robe",
+  "name": "Hollow Robe (Không Y)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 2,
+  "modifiers": [
+   {"key": "than_thuc_pct", "value": 6, "scope": []},
+   {"key": "resist_pct", "value": 100, "scope": ["chaos"]},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []},
+   {"key": "defense_pct", "value": 5, "scope": []},
+   {"key": "status_resist_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "force-chaos-hollow-veil",
+    "name": "Hollow Veil (Không Sa)",
+    "payload": "Force 264 points",
+    "payment": "drain 0.317",
+    "activation": "standing",
+    "check_from": "Qi-Scattering Robe (Tán Khí Bào)",
+    "notes": "The starter robe's ward at 1.2 of its payload and its drain, so the price check is unchanged (3.788 of 3.813)"
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A robe cut from cloth that was never dyed or woven, only pressed. Blows slide off it like wind off a bowl.",
+  "build_use": "The Hundred Arts Sage and the Unmaker: light armour with Force cover and Chaos resistance, leaving thần thức for treasures."
+ },
+ {
+  "id": "force-chaos-ledger-murmur-pendant",
+  "name": "Ledger-Murmur Pendant (Phế Thanh Bội)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 2,
+  "modifiers": [
+   {"key": "stack_effect_pct", "value": 12, "scope": ["debuff"]},
+   {"key": "attack_pct", "value": 12, "scope": ["chaos"]},
+   {"key": "healing_pct", "value": 8, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 6, "scope": []}
+  ],
+  "effects": [],
+  "reserve_arts": [
+   {
+    "id": "force-chaos-murmuring-debts",
+    "name": "Murmuring Debts (Thì Thầm Nợ)",
+    "reserve": 0.1,
+    "rule": "While reserved, the statuses you land last 8 % longer and your Chaos hits deal 5 % more, so every curse stays on the books a little longer.",
+    "grants": [
+     {"key": "status_duration_pct", "value": 8, "scope": []},
+     {"key": "attack_pct", "value": 5, "scope": ["chaos"]}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 10 % reserved buys up to 10 W (8.1 W)"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "Black jade that hums a count of numbers when held to the ear; accountants of the Ruin Ledger lineage wear it.",
+  "build_use": "Curse builds on the Ruin Ledger Scripture: a standing, slot-free lengthening of every status they land, which keeps Fray and distinct-status reads fed."
+ },
+ {
+  "id": "force-chaos-ledger-branding-iron",
+  "name": "Ledger Branding Iron (Phế Trướng Lạc Thiết)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "lac_thiet",
+  "grade": 2,
+  "modifiers": [
+   {"key": "attack_pct", "value": 14, "scope": ["curse"]},
+   {"key": "status_duration_pct", "value": 15, "scope": ["curse"]},
+   {"key": "art_speed_pct", "value": 8, "scope": ["curse"]},
+   {"key": "than_thuc_pct", "value": 4, "scope": []}
+  ],
+  "effects": ["Marked Prey"],
+  "sources": ["event", "craft", "npc"],
+  "lore": "An executioner's iron whose brand does not blister the skin but the name; each mark is another line in the ledger.",
+  "build_use": "The Ruin Ledger curse stacker: every different status on the foe (Sundered, Exposed, Stagnation, Disruption) makes all its hits harder, on top of the scripture's own distinct-status reads."
+ },
+ {
+  "id": "force-chaos-ledger-seal",
+  "name": "Balance-Sheet Seal (Kết Toán Ấn)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "an",
+  "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 16, "scope": ["chaos"]},
+   {"key": "art_speed_pct", "value": 8, "scope": ["curse"]},
+   {"key": "status_duration_pct", "value": 20, "scope": ["curse"]},
+   {"key": "stack_effect_pct", "value": 15, "scope": ["debuff"]},
+   {"key": "khi_huyet_pct", "value": 12, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "force-chaos-settle-the-account",
+    "name": "Settle the Account (Kết Toán)",
+    "element": "",
+    "role": "curse",
+    "tier": "authored",
+    "power": "engine",
+    "group": "ruin-ledger-scripture",
+    "tags": ["chaos", "seal", "curse", "artifact"],
+    "c_art": 0.5,
+    "cost_share": 0.05,
+    "cooldown": 5,
+    "kind": "elem",
+    "statuses": [{"id": "stagnation", "stacks": 1, "dur": 2}],
+    "counters": [{"id": "fray", "each_for": 12}],
+    "effects": [
+     {"id": "settle-fray", "on": "status_applied", "do": [{"counter": {"id": "fray", "add": 1}}]}
+    ],
+    "empower": [
+     {
+      "if": [{"read": "own.counter.fray", "op": ">=", "value": 5}],
+      "pay": [{"counter": {"id": "fray", "add": -5}}],
+      "c_mult": 3.5
+     },
+     {
+      "if": [
+       {"read": "own.counter.fray", "op": "<", "value": 5},
+       {"read": "foe.distinct_statuses", "op": ">=", "value": 4}
+      ],
+      "c_mult": 2.0
+     },
+     {
+      "if": [
+       {"read": "own.counter.fray", "op": "<", "value": 5},
+       {"read": "foe.distinct_statuses", "op": "<", "value": 4},
+       {"read": "own.since.ripening-curse", "op": "<=", "value": 4}
+      ],
+      "c_mult": 1.8
+     }
+    ],
+    "rule": "Counts as a Ruin Ledger Scripture art. A slow Chaos seal that lays 1 Stagnation. Every status or stack batch you land adds a Fray for 12 s. With 5 Fray it spends them and the account is settled: 4.5 times as hard; a foe wearing 4 different statuses takes 3 times, and so does one hit by Ripening Curse in the last 4 s (2.8 times).",
+    "hooks": ["ruin ledger scripture", "fray count", "distinct statuses", "Stagnation stacks", "Chaos damage", "curse slots"],
+    "sources": ["item:force-chaos-ledger-seal"]
+   }
+  ],
+  "sources": ["event", "craft", "quest", "npc"],
+  "lore": "The seal Ruin Ledger clerks stamp on a debt that can no longer be argued.",
+  "build_use": "Ruin Ledger Scripture builds: a fourth suite art that Fraying Thread, the Verdict and Ripening Curse count, and a finisher that cashes the Fray they stack."
+ },
+ {
+  "id": "force-chaos-hollow-bell",
+  "name": "Hollow Bell (Không Chung)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "chuong",
+  "grade": 3,
+  "modifiers": [
+   {"key": "than_thuc_pct", "value": 8, "scope": []},
+   {"key": "defense_pct", "value": 8, "scope": []},
+   {"key": "khi_huyet_pct", "value": 14, "scope": []},
+   {"key": "status_resist_pct", "value": 20, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "force-chaos-hollow-bell-ward",
+    "name": "Muffled Bell (Muộn Chung Tráo)",
+    "payload": "all 130 points",
+    "payment": "per hit 0.0455",
+    "activation": "standing",
+    "check_from": "Golden Bell (Kim Chung Tráo)",
+    "notes": "The starter bell at 1.3 of its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)"
+   }
+  ],
+  "sources": ["event", "craft", "quest", "npc"],
+  "lore": "A bell with no clapper. It rings only when struck, and the sound goes inward.",
+  "build_use": "Boss fighters in the Chaos and Darkness builds (the Shadow Bargain, the Hundred Arts Sage): a heavier bell against slow hits, with the status resistance they need against cleansing and curse foes."
+ },
+ {
+  "id": "force-chaos-open-vein-ring",
+  "name": "Ring of the Open Vein (Khai Mạch Giới)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 12, "scope": ["chaos"]},
+   {"key": "leech_health_pct", "value": 25, "scope": []},
+   {"key": "khi_huyet_pct", "value": 15, "scope": []},
+   {"key": "healing_pct", "value": 10, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 25, "scope": []}
+  ],
+  "effects": ["Blood Drinker"],
+  "sources": ["event", "npc"],
+  "lore": "A ring with a thorn on the inside; it takes a drop each dawn and gives it back in the fight.",
+  "build_use": "Bloodletting Rite users: the 4 % health the rite costs comes back through Blood Drinker, the leech and the health pool, and the rite's 6 s of leech stack on top."
+ },
+ {
+  "id": "force-chaos-primordial-mirror",
+  "name": "Mirror of Primordial Chaos (Hỗn Nguyên Kính)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "kinh",
+  "grade": 4,
+  "modifiers": [
+   {"key": "attack_pct", "value": 24, "scope": ["hon_don"]},
+   {"key": "stack_effect_pct", "value": 25, "scope": ["debuff"]},
+   {"key": "status_duration_pct", "value": 15, "scope": []},
+   {"key": "linh_luc_pct", "value": 10, "scope": []},
+   {"key": "than_thuc_pct", "value": 4, "scope": []}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "unmaking-glass",
+    "name": "Unmaking Glass (Hủy Nguyên Kính)",
+    "group": "Enablers",
+    "tier": "enabler",
+    "rule": "Each hit you land strips 1 buff stack from the target, from its largest pile, at most once a pulse. Each stack stripped counts as a status you landed, so it feeds your Fray and every read of the foe's distinct statuses.",
+    "reads": "Your hits landing, instant; the target's buff stacks",
+    "payload": "Removes 1 foe buff stack a pulse; counts as a status application",
+    "closes": "Your own buff stacks last 25 % shorter.",
+    "hosts": "Named Item",
+    "from": "variant-chaos.md, The Unmaker (its New piece Unmake, as an Effect)"
+   }
+  ],
+  "reserve_arts": [
+   {
+    "id": "force-chaos-still-reflection",
+    "name": "Still Reflection (Tĩnh Ảnh)",
+    "reserve": 0.15,
+    "rule": "While reserved, you resist the statuses and debuffs the enemy lays on you, as the mirror shows only what is.",
+    "grants": [
+     {"key": "status_resist_pct", "value": 20, "scope": []}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 15 % reserved buys up to 15 W (8 W)"
+   }
+  ],
+  "sources": ["npc", "event", "quest"],
+  "holder": "An elder of a Chaos-root lineage at Nascent Soul or above; otherwise Lost in the ruins at the centre of the map",
+  "lore": "A bronze mirror that reflects nothing; what it faces comes apart into the five things it was made of.",
+  "build_use": "The Unmaker: strips the stack builds of every element and turns each stripped stack into a status for the Ruin Ledger's Fray and distinct-status reads; a Chaos-damage mirror for the Hundred Arts Sage."
+ },
+ {
+  "id": "force-chaos-last-bargain-locket",
+  "name": "Locket of the Last Bargain (Tuyệt Khế Bội)",
+  "family": "force-chaos",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 4,
+  "modifiers": [
+   {"key": "attack_pct", "value": 26, "scope": ["am"]},
+   {"key": "crit_damage_pct", "value": 40, "scope": []},
+   {"key": "khi_huyet_pct", "value": 18, "scope": []},
+   {"key": "leech_health_pct", "value": 30, "scope": []},
+   {"key": "healing_pct", "value": 10, "scope": []}
+  ],
+  "effects": ["Final Clause"],
+  "sources": ["npc", "event", "quest"],
+  "holder": "The keeper of the Shadow Shrine, or Lost in a sunken tomb on the Darkness island",
+  "lore": "Inside it is a name signed in ink that is not ink. Its wearer has already paid; only the collecting is left.",
+  "build_use": "The Shadow Bargain: Final Clause makes the Down step a last free Chaos art, the crit damage and the leech pay for the fight before it, and Darkness damage rides the rest."
+ }
+]

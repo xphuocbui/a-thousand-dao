@@ -1,0 +1,357 @@
+[
+ {
+  "id": "wood-bramble-needle",
+  "name": "Bramble Needle (Kinh Cức Châm)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "cham",
+  "grade": 1,
+  "modifiers": [
+   {"key": "attack_pct", "value": 9, "scope": ["moc"]},
+   {"key": "stack_duration_pct", "value": 20, "scope": ["moc", "debuff"]},
+   {"key": "art_speed_pct", "value": 5, "scope": ["moc"]}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "wood-bramble-flick",
+    "name": "Bramble Flick (Kinh Cức Đạn)",
+    "element": "wood",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": ["wood", "poison", "artifact", "quick"],
+    "c_art": 1.4,
+    "cost_share": 0.025,
+    "cooldown": 2,
+    "kind": "elem",
+    "debuff": [2, 8],
+    "rule": "A thorn flicked from a needle: a quick Wood hit that lays 2 Poison stacks for 8 s.",
+    "sources": ["item:wood-bramble-needle"]
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "A needle of blackthorn that hunters keep dipped in sap; its tip never quite dries.",
+  "build_use": "The Slow Garden's first weapon: a cheap, quick Poison source whose batches last longer, before the Green Wood Heaven Canon arts arrive."
+ },
+ {
+  "id": "wood-sprout-ring",
+  "name": "Sprout Ring (Manh Nha Giới)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 1,
+  "modifiers": [
+   {"key": "health_regen_inc_pct", "value": 20, "scope": []},
+   {"key": "stack_effect_pct", "value": 12, "scope": ["moc", "buff"]},
+   {"key": "khi_huyet_pct", "value": 6, "scope": []}
+  ],
+  "effects": [],
+  "sources": ["event", "craft"],
+  "lore": "A ring of green wood with a living bud that never opens.",
+  "build_use": "The Evergreen Wall's early ring: faster health regeneration, a stronger Wood buff and a little more health."
+ },
+ {
+  "id": "wood-heartwood-hatchet",
+  "name": "Heartwood Hatchet (Tâm Mộc Phủ)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "phu",
+  "grade": 2,
+  "modifiers": [
+   {"key": "attack_pct", "value": 16, "scope": ["moc"]},
+   {"key": "attack_pct", "value": 12, "scope": ["physical"]},
+   {"key": "stack_effect_pct", "value": 8, "scope": ["moc", "debuff"]},
+   {"key": "art_speed_pct", "value": 5, "scope": ["moc"]}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "wood-fell-the-rotting",
+    "name": "Fell the Rotting Tree (Phạt Hủ Mộc)",
+    "element": "wood",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "rotting-canopy-canon",
+    "tags": ["wood", "poison", "artifact", "heavy"],
+    "c_art": 2.3,
+    "cost_share": 0.045,
+    "cooldown": 5,
+    "kind": "elem",
+    "debuff": [2, 8],
+    "steps": [
+     {
+      "unlock": [
+       {"any": [
+        {"read": "foe.debuff.wood", "op": ">=", "value": 10},
+        {"read": "own.fired_within.1.group.rotting-canopy-canon", "op": ">=", "value": 2}
+       ]}
+      ],
+      "pay": [
+       {"consume": {"el": "wood", "side": "foe", "kind": "debuff", "n": 8, "per": 4, "then": [{"free_hit": {"c": 0.4, "dtype": "chaos"}}]}}
+      ],
+      "c_mult": 2.4
+     }
+    ],
+    "rule": "Counts as a Rotting Canopy Canon art. A heavy Wood chop that lays 2 Poison stacks for 8 s. With 10 Poison on the foe, or 2 canopy arts fired in the last second, it eats 8 Poison stacks (every 4 a Chaos hit) and falls 2.4 times as hard.",
+    "hooks": ["rotting canopy canon", "poison stacks", "consume stacks", "free hits"],
+    "sources": ["item:wood-heartwood-hatchet"]
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "A woodcutter's hatchet whose haft is a single piece of heartwood; it is happiest in dead timber.",
+  "build_use": "The Woodcutter and the Rotting Canopy builds: a heavy chop that cashes a Poison pile into one big hit and counts as a canopy art for Thornling Grove and Blight Canker."
+ },
+ {
+  "id": "wood-ironbark-cuirass",
+  "name": "Ironbark Cuirass (Thiết Bì Giáp)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 2,
+  "modifiers": [
+   {"key": "health_regen_inc_pct", "value": 40, "scope": []},
+   {"key": "khi_huyet_pct", "value": 12, "scope": []},
+   {"key": "healing_taken_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "wood-ironbark-shell",
+    "name": "Ironbark Shell (Thiết Bì Xác)",
+    "payload": "Physical 91.3 points",
+    "payment": "cast 0.0481",
+    "activation": "cast, cooldown 5 s, up 2 s",
+    "check_from": "Black Tortoise Shell (Huyền Quy Giáp)",
+    "notes": "The starter shell at 1.3 times its payload and its cast cost, so the price check is unchanged (4.711 of 4.766)"
+   }
+  ],
+  "sources": ["event", "craft", "quest"],
+  "lore": "Plates of ironbark lashed over a hide of moss; the bark grows back overnight.",
+  "build_use": "The Evergreen Wall: heavy armour whose regeneration and healing taken carry the long fight, with a thicker Physical shell against sword and fist foes."
+ },
+ {
+  "id": "wood-sap-heart-pendant",
+  "name": "Sap-Heart Pendant (Dịch Tâm Bội)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "ngoc_boi",
+  "grade": 2,
+  "modifiers": [
+   {"key": "healing_pct", "value": 10, "scope": []},
+   {"key": "stack_effect_pct", "value": 16, "scope": ["moc", "buff"]},
+   {"key": "health_regen_inc_pct", "value": 28, "scope": []},
+   {"key": "linh_luc_regen_inc_pct", "value": 10, "scope": []}
+  ],
+  "effects": [],
+  "reserve_arts": [
+   {
+    "id": "wood-verdant-aura",
+    "name": "Verdant Aura (Thanh Diệp Quang)",
+    "reserve": 0.12,
+    "rule": "While reserved, your Wood buff stacks last 20 % longer and your health regenerates 20 % faster.",
+    "grants": [
+     {"key": "stack_duration_pct", "value": 20, "scope": ["moc", "buff"]},
+     {"key": "health_regen_inc_pct", "value": 20, "scope": []}
+    ],
+    "notes": "Priced by Formulas I reserve arts: 12 % reserved buys up to 12 W; this grants 10 W"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "Green jade with a drop of amber sap at its heart, warm like a pulse.",
+  "build_use": "The Evergreen Wall and the Vine Garden: a standing Wood-buff and regeneration upgrade paid in linh lực, not in an art slot."
+ },
+ {
+  "id": "wood-cycle-seal",
+  "name": "Verdant Cycle Seal (Thanh Hoàn Ấn)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "an",
+  "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 18, "scope": ["moc"]},
+   {"key": "art_speed_pct", "value": 10, "scope": ["moc"]},
+   {"key": "stack_effect_pct", "value": 20, "scope": ["moc", "buff"]},
+   {"key": "linh_luc_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 8, "scope": []}
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "wood-seal-of-turning-seasons",
+    "name": "Seal of the Turning Season (Chuyển Quý Ấn)",
+    "element": "wood",
+    "role": "damage",
+    "tier": "authored",
+    "power": "engine",
+    "group": "verdant-cycle-scripture",
+    "tags": ["wood", "seal", "artifact", "slow"],
+    "c_art": 2.2,
+    "cost_share": 0.05,
+    "cooldown": 6,
+    "kind": "elem",
+    "buff": [3, 8],
+    "counters": [{"id": "seed"}],
+    "empower": [
+     {
+      "if": [
+       {"read": "own.counter.seed", "op": ">=", "value": 3},
+       {"any": [
+        {"read": "own.state.rooted", "op": "==", "value": 1},
+        {"read": "own.buff.wood", "op": ">=", "value": 8}
+       ]}
+      ],
+      "pay": [{"counter": {"id": "seed", "add": -3}}, {"heal": {"share": 0.02}}],
+      "c_mult": 2.8
+     }
+    ],
+    "rule": "Counts as a Verdant Cycle Scripture art. A slow Wood seal that gives you 3 Wood stacks for 8 s. With 3 Seeds (spent) and either Rooted Form or 8 Wood stacks, it falls 2.8 times as hard and heals 2 %.",
+    "hooks": ["verdant cycle scripture", "seeds", "wood buff stacks", "rooted form", "healing"],
+    "sources": ["item:wood-cycle-seal"]
+   }
+  ],
+  "sources": ["event", "craft", "quest", "npc"],
+  "lore": "A jade seal carved with the four seasons, cut in the Verdant Cycle lineage so their scripture's arts answer to it.",
+  "build_use": "Verdant Cycle Scripture builds: a fifth suite art that plants and spends Seeds with the rest, a steady Wood-stack payoff for Seed of Spring and Harvest Bloom."
+ },
+ {
+  "id": "wood-heartwood-bulwark",
+  "name": "Heartwood Bulwark (Tâm Mộc Thuẫn)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "thuan",
+  "grade": 3,
+  "modifiers": [
+   {"key": "defense_pct", "value": 12, "scope": []},
+   {"key": "khi_huyet_pct", "value": 14, "scope": []},
+   {"key": "health_regen_inc_pct", "value": 40, "scope": []},
+   {"key": "stack_effect_pct", "value": 14, "scope": ["moc", "buff"]}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "sap-rises",
+    "name": "Sap Rises (Nhựa Thăng)",
+    "group": "Scaling",
+    "tier": "minor",
+    "rule": "Each Wood buff stack you hold adds 1 % healing, up to 20 %.",
+    "reads": "Your Wood buff stacks, live",
+    "payload": "healing_pct, 1 per stack, at most 20",
+    "closes": "",
+    "hosts": "Item, Way",
+    "from": "single-wood.md, The Evergreen Wall (its New piece)"
+   }
+  ],
+  "wards": [
+   {
+    "id": "wood-heartwood-ward",
+    "name": "Heartwood Ward (Tâm Mộc Chướng)",
+    "payload": "shield σ 0.144",
+    "payment": "cast 0.0384",
+    "activation": "cast, cooldown 4 s, up 3 s",
+    "check_from": "Golden Light Shield (Kim Quang Thuẫn)",
+    "notes": "The starter shield at 1.6 times its shield and its cast cost, so the price check is unchanged (3.750 of 3.813)"
+   }
+  ],
+  "sources": ["event", "craft", "quest", "npc"],
+  "lore": "A round shield cut from the heart of a thousand-year tree; it drinks rain and heals its own cracks.",
+  "build_use": "The Evergreen Wall: a shield to cast on cooldown, while Sap Rises turns the Wood stacks it keeps up into healing."
+ },
+ {
+  "id": "wood-slow-garden-ring",
+  "name": "Ring of the Slow Garden (Hoãn Viên Giới)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 3,
+  "modifiers": [
+   {"key": "attack_pct", "value": 14, "scope": ["over_time"]},
+   {"key": "stack_duration_pct", "value": 40, "scope": ["moc", "debuff"]},
+   {"key": "stack_effect_pct", "value": 16, "scope": ["moc", "debuff"]},
+   {"key": "leech_linh_luc_pct", "value": 4, "scope": []},
+   {"key": "khi_huyet_pct", "value": 10, "scope": []}
+  ],
+  "effects": ["Spillover"],
+  "sources": ["event", "npc"],
+  "lore": "A ring of root, grown around a finger over a whole spring and never taken off.",
+  "build_use": "The Slow Garden: longer, stronger Poison batches, linh lực leech to keep casting, and Spillover so every tick drains the foe's linh lực."
+ },
+ {
+  "id": "wood-grave-silk-robe",
+  "name": "Grave-Silk Robe (Mộ Ti Bào)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "dao_bao",
+  "grade": 4,
+  "modifiers": [
+   {"key": "attack_pct", "value": 24, "scope": ["over_time"]},
+   {"key": "stack_duration_pct", "value": 40, "scope": ["moc", "debuff"]},
+   {"key": "stack_effect_pct", "value": 30, "scope": ["moc", "debuff"]},
+   {"key": "than_thuc_pct", "value": 6, "scope": []},
+   {"key": "khi_huyet_pct", "value": 12, "scope": []},
+   {"key": "resist_pct", "value": 150, "scope": ["fire"]}
+  ],
+  "effects": ["Grave-Silk Shroud"],
+  "wards": [
+   {
+    "id": "wood-grave-silk-veil",
+    "name": "Grave-Silk Veil (Mộ Ti Sa)",
+    "payload": "Fire 450 points",
+    "payment": "drain 0.33",
+    "activation": "standing",
+    "check_from": "Fire-Shunning Veil (Tị Hỏa Sa)",
+    "notes": "The starter veil at 1.5 times its payload and its drain, so the price check is unchanged (4.545 of 4.575)"
+   }
+  ],
+  "sources": ["npc", "event", "quest"],
+  "holder": "An elder of a Wood or poison sect at Nascent Soul; otherwise Lost in a sunken tomb in a poison marsh",
+  "lore": "Woven from the silk of a corpse-spider that fed on a thousand graves; rot spreads wherever its wearer looks.",
+  "build_use": "The Slow Garden's keystone piece: Corpse Rot is on the foe from the first second without an art slot, the Poison lasts and bites harder, and the veil answers Wood's Fire weakness."
+ },
+ {
+  "id": "wood-thousand-roots-banner",
+  "name": "Thousand Roots Banner (Vạn Căn Kỳ)",
+  "family": "wood",
+  "kind": "artifact",
+  "base": "ky",
+  "grade": 4,
+  "modifiers": [
+   {"key": "art_speed_pct", "value": 16, "scope": ["moc"]},
+   {"key": "attack_pct", "value": 20, "scope": ["physical"]},
+   {"key": "stack_effect_pct", "value": 24, "scope": ["moc", "debuff"]},
+   {"key": "than_thuc_pct", "value": 4, "scope": []},
+   {"key": "linh_luc_pct", "value": 10, "scope": []},
+   {"key": "khi_huyet_pct", "value": 8, "scope": []}
+  ],
+  "effects": [
+   {
+    "new": true,
+    "id": "gripping-root",
+    "name": "Gripping Root (Triền Căn)",
+    "group": "Trigger",
+    "tier": "minor",
+    "rule": "When your Physical Wood hit lands, the target's art with the least time left is delayed by 0.5 s, once per 2 s.",
+    "reads": "Your Physical Wood hits landing, instant",
+    "payload": "The target's soonest art is delayed 0.5 s",
+    "closes": "",
+    "hosts": "Item, Way",
+    "from": "single-wood.md, The Strangler Fig (its New piece)"
+   }
+  ],
+  "reserve_arts": [
+   {
+    "id": "wood-root-web",
+    "name": "Web of Roots (Căn Võng)",
+    "reserve": 0.15,
+    "rule": "While reserved, your Poison stacks on a rooted foe are 20 % stronger.",
+    "grants": [{"key": "stack_effect_pct", "value": 20, "scope": ["moc", "debuff"]}],
+    "notes": "Priced by Formulas I reserve arts: 15 % reserved buys up to 15 W; this grants 5 W"
+   }
+  ],
+  "sources": ["npc", "event", "quest"],
+  "holder": "The keeper of a Green Wood Array grove in a Wood sect; otherwise Lost in a forest spirit's hollow",
+  "lore": "A banner whose cloth is a mat of living roots; it was planted in the ground of a sect that no longer stands.",
+  "build_use": "The Strangler Fig: every thorn hit delays the foe's next art while Poison works, and the banner's art speed and Physical damage speed the thorns."
+ }
+]
