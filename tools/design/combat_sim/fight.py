@@ -161,7 +161,8 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "keystones", "curses", "purity", "bonus_slots", "arts", "enemy", "enemy_overrides", "unmodelled",
             "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct",
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
-            "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques", "items"}
+            "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques", "items", "reserved",
+            "stack_eff", "stack_dur"}
 WARD_KEYS = {"model", "payload", "drain_base", "ws_base", "we", "layers", "block"}
 BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
@@ -215,6 +216,12 @@ PASSIVE_MOD = {"attack_pct": ("L1", 1), "damage_more": ("L2", 1), "crit_chance_p
                "soul_res_pct": ("soul_res", 1), "x_soul": ("x_soul", 1), "timer_resist_pct": ("timer_resist", 1),
                "ward_bill_pct": ("ward_bill", 1), "basic_coef_add": ("basic_coef", 1)}
 CTX_MODS = {"L1", "L2", "L3", "L4", "L5", "crit", "crit_mult", "dmg_more", "bypass", "resist"}
+# Stats that change the build itself rather than a live modifier (2026-11-13): pools, body shield, ward strength and
+# efficiency, divine sense, stack effect and duration. apply_static() folds them into the build file before loading.
+STATIC = {"khi_huyet_pct", "linh_luc_pct", "body_shield_pct", "defense_pct", "ward_efficiency_pct", "than_thuc_pct",
+          "stack_effect_pct", "stack_duration_pct"}
+EL_ID = {"hoa": "fire", "thuy": "water", "tho": "earth", "kim": "metal", "moc": "wood", "bang": "ice", "loi": "thunder",
+         "phong": "wind"}
 _LIB = {}
 
 
@@ -252,6 +259,8 @@ def passive_effect(t, unmod, lines=None, what="technique", prefix="tech"):
     do = []
     for p in (t.get("passives", []) if lines is None else lines):
         key, val, scope = p["key"], p["value"], list(p.get("scope", []))
+        if key in STATIC:
+            continue                      # folded into the build by apply_static()
         if key not in PASSIVE_MOD:
             unmod.append("%s %s passive %s %+g %s: no engine stat (not run)" % (what, t["id"], key, val, scope or ""))
             continue
@@ -271,6 +280,48 @@ def passive_effect(t, unmod, lines=None, what="technique", prefix="tech"):
                         m.setdefault("tags", []).append(tag)
         do.append({"mod": m})
     return {"id": "%s:%s" % (prefix, t["id"]), "on": "always", "do": do} if do else None
+
+
+def apply_static(d, lines, who, unmod):
+    """Fold pool, shield, ward, divine-sense and stack lines into the build file d (in place)."""
+    r = realm_index(d.get("realm", 0))
+    # increased % on the pools add up across every source (modifiers.md rule 6a), so they are summed and applied once
+    # over the build's own pool: n = n_file x (1 + sum / 100), recomputed from the file's n each call
+    pools = d.setdefault("_pool_pct", {"n_body": [d.get("n_body", 1.0883), 0.0], "n_qi": [d.get("n_qi", 1.053), 0.0]})
+    for ln in lines:
+        key, val, scope = ln["key"], ln["value"], list(ln.get("scope", []))
+        if key not in STATIC:
+            continue
+        if key in ("khi_huyet_pct", "linh_luc_pct"):
+            f = "n_body" if key == "khi_huyet_pct" else "n_qi"
+            pools[f][1] += val
+            d[f] = pools[f][0] * (1 + pools[f][1] / 100)
+        elif key == "body_shield_pct":
+            body = d.setdefault("body", {})
+            body["shield"] = body.get("shield", 0.0) + val / 100
+        elif key in ("defense_pct", "ward_efficiency_pct"):
+            ward = d.setdefault("ward", {})
+            if ward.get("model", "drain") != "drain":
+                unmod.append("%s %s %+g: the build's ward is not a drain ward" % (who, key, val))
+                continue
+            ws = ward.get("ws_base", C["typical_ws"][r])
+            ward.setdefault("we", ws)                     # keep efficiency where it was before raising strength
+            if key == "defense_pct":
+                ward["ws_base"] = ws + val
+            else:
+                ward["we"] = ward["we"] + val
+        elif key == "than_thuc_pct":
+            d["divine_sense"] = d.get("divine_sense", 1.0) * (1 + val / 100)
+        else:                                             # stack_effect_pct, stack_duration_pct
+            els = [EL_ID[t] for t in scope if t in EL_ID]
+            kinds = [t for t in scope if t in ("buff", "debuff")]
+            other = [t for t in scope if t not in EL_ID and t not in ("buff", "debuff")]
+            if other:
+                unmod.append("%s %s scope %s: only element and buff/debuff scopes are run; read as unscoped for %s"
+                             % (who, key, scope, other))
+            k = "%s|%s" % (els[0] if els else "*", kinds[0] if kinds else "*")
+            table = d.setdefault("stack_eff" if key == "stack_effect_pct" else "stack_dur", {})
+            table[k] = table.get(k, 0.0) + val
 
 
 def expand_library(d):
@@ -310,6 +361,7 @@ def expand_library(d):
         t = techs.get(tid)
         if not t:
             raise BadInput("techniques: %r not found in design/techniques/catalogue-*.json" % tid)
+        apply_static(d, t.get("passives", []), "technique %s" % tid, unmod)
         e = passive_effect(t, unmod)
         if e:
             effects.append(e)
@@ -318,20 +370,29 @@ def expand_library(d):
         it = items.get(iid)
         if not it:
             raise BadInput("items: %r not found in design/items/catalogue-*.json" % iid)
+        apply_static(d, it.get("modifiers", []), "item %s" % iid, unmod)
         e = passive_effect(it, unmod, lines=it.get("modifiers", []), what="item", prefix="item")
         if e:
             effects.append(e)
         for w in it.get("wards", []):
             unmod.append("item %s ward %s (%s; %s): model the nearest drain ward in \"ward\"" % (iid, w["name"], w["payload"], w["payment"]))
         for r in it.get("reserve_arts", []):
-            unmod.append("item %s reserve art %s reserves %d %% of linh luc (not deducted); its grants are not run"
-                         % (iid, r["name"], round(100 * r["reserve"])))
+            d["reserved"] = d.get("reserved", 0.0) + r["reserve"]
+            apply_static(d, r.get("grants", []), "item %s reserve %s" % (iid, r["id"]), unmod)
+            e = passive_effect(dict(id="%s:%s" % (iid, r["id"])), unmod, lines=r.get("grants", []), what="reserve art",
+                               prefix="reserve")
+            if e:
+                effects.append(e)
+            if not r.get("grants"):
+                unmod.append("item %s reserve art %s: reserves %d %% of linh luc; its rule (%s) is not run unless "
+                             "written in \"effects\"" % (iid, r["name"], round(100 * r["reserve"]), r.get("rule", "")[:60]))
         for ef in it.get("effects", []):
             name = ef if isinstance(ef, str) else ef.get("name")
             if not any(str(x.get("id", "")).startswith("eff:") and name.split(" (")[0].lower() in str(x.get("id")).lower()
                        for x in effects):
                 unmod.append("item %s Effect %s: write it in \"effects\" (id \"eff:<name>\") to run it" % (iid, name))
     d["effects"], d["counters"], d["states"], d["unmodelled"] = effects, counters, states, unmod
+    d.pop("_pool_pct", None)
     return d
 
 
@@ -494,6 +555,11 @@ def to_build(d, r, notes, who):
         if key in d:
             setattr(eb, field, d[key])
     eb.resist = dict(d.get("resist", {}))
+    eb.reserved = min(0.9, d.get("reserved", 0.0))
+    if d.get("reserved", 0.0) > 0.9:
+        notes.append("cap_hit\t%s\treserved %.2f over reserve_cap 0.90" % (who, d["reserved"]))
+    eb.stack_eff = dict(d.get("stack_eff", {}))
+    eb.stack_dur = dict(d.get("stack_dur", {}))
     eb.tags = tuple(d.get("tags", ()))
     eb.states = list(d.get("states", []))
     try:

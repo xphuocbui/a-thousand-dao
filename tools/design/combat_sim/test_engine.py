@@ -338,6 +338,56 @@ def t_since():
     check("since.<art>: never, then 1.5 s", never >= 1e8 and abs(f.read(A, "own.since.a1") - 1.5) < 1e-9)
 
 
+def t_reserved():        # Combat Defence & Healing rule 10: usable linh lực is qi_max x (1 - reserved), costs read qi_max
+    f, A, B = setup(a=dummy(reserved=0.25))
+    check("reserved 0.25: the fight starts at 75 % of linh lực", abs(A.qi - 0.75 * A.qi_base) < 1e-9, str(A.qi / A.qi_base))
+    e = {"id": "g", "on": "always", "do": []}
+    f.do(A, e, [{"gain_qi": {"share": 1.0}}], 1.0, {})
+    check("reserved 0.25: gains stop at the usable maximum", abs(A.qi - A.qi_use()) < 1e-9 and A.qi_use() < A.qi_max())
+    f, A, B = setup(a=dummy(reserved=0.95))
+    check("reserved above reserve_cap 0.9 is held at 0.9", abs(A.qi - 0.1 * A.qi_base) < 1e-9)
+
+
+def t_stack_effect():    # modifiers.md stack_effect_pct, Effects rule 9a
+    b = dummy(stack_eff={"fire|debuff": 100})
+    base = E.stack_power(dummy(), "fire", "debuff")
+    check("stack_effect_pct 100 [hoa, debuff] doubles Fire debuff stacks",
+          abs(E.stack_power(b, "fire", "debuff") - 2 * base) < 1e-9)
+    check("... and leaves Fire buff stacks and other elements alone",
+          abs(E.stack_power(b, "fire", "buff") - base) < 1e-9 and abs(E.stack_power(b, "water", "debuff") - base) < 1e-9)
+    b = dummy(stack_eff={"*|*": 50, "fire|*": 10})
+    check("unscoped and element-only lines add up (+60 %)", abs(E.stack_power(b, "fire", "buff") - 1.6 * base) < 1e-9)
+
+
+def t_stack_duration():  # modifiers.md stack_duration_pct
+    f, A, B = setup(a=dummy(stack_dur={"fire|debuff": 50}))
+    f.add_stacks(A, B, "fire", 2, 6.0, False)
+    f.add_stacks(A, A, "fire", 2, 6.0, True)
+    check("stack_duration_pct 50 [hoa, debuff]: a 6 s Burn batch lasts 9 s", B.debuffs[-1][2] - f.t == 9000,
+          str(B.debuffs[-1][2] - f.t))
+    check("... and a Fire buff batch keeps 6 s", A.buffs[-1][2] - f.t == 6000, str(A.buffs[-1][2] - f.t))
+
+
+def t_static_lines():    # fight.py apply_static: item and technique lines that change the build itself
+    import fight as F
+    d, un = {"realm": "truc_co"}, []
+    F.apply_static(d, [{"key": "khi_huyet_pct", "value": 10}, {"key": "linh_luc_pct", "value": 20},
+                       {"key": "body_shield_pct", "value": 15}, {"key": "defense_pct", "value": 12},
+                       {"key": "than_thuc_pct", "value": 50},
+                       {"key": "stack_effect_pct", "value": 16, "scope": ["hoa", "debuff"]}], "test", un)
+    ws = F.C["typical_ws"][1]
+    check("apply_static: health and linh lực pools x1.10 and x1.20",
+          abs(d["n_body"] - 1.0883 * 1.1) < 1e-9 and abs(d["n_qi"] - 1.053 * 1.2) < 1e-9)
+    check("apply_static: body shield +0.15 of health, divine sense x1.5",
+          abs(d["body"]["shield"] - 0.15) < 1e-9 and abs(d["divine_sense"] - 1.5) < 1e-9)
+    check("apply_static: ward strength +12 points, efficiency kept", abs(d["ward"]["ws_base"] - (ws + 12)) < 1e-9
+          and abs(d["ward"]["we"] - ws) < 1e-9)
+    check("apply_static: stack effect keyed fire|debuff", d["stack_eff"] == {"fire|debuff": 16}, str(d.get("stack_eff")))
+    F.apply_static(d, [{"key": "khi_huyet_pct", "value": 10}], "test", un)
+    check("apply_static: pool % add up across calls (+10 +10 = x1.20, not x1.21)", abs(d["n_body"] - 1.0883 * 1.2) < 1e-9,
+          str(d["n_body"] / 1.0883))
+
+
 def main():
     for name, fn in sorted(globals().items()):
         if name.startswith("t_"):

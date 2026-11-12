@@ -81,3 +81,32 @@ The full list is in each guide's **Missing pieces** section. The themes, most as
    adding on top.
 4. **A catalogue patch** from the themes: drain-ward armour per family, rings above grade 1 for thunder, wind and fire,
    cheap extras and thần thức pieces, and the lost identity pieces.
+
+## Addendum 2026-11-13: the engine runs item stats
+
+`engine.py` and `fight.py` now run the stats most item lines use: maximum health and linh lực, body shield, ward strength
+and efficiency, thần thức, stack effect and duration (by element and buff or debuff), and reservation (reserve arts hold
+their share of linh lực and run their grants). Tests: `test_engine.py` (5 new, 0 failed); regression and self-test
+unchanged. Cast and other non-drain wards are still not run.
+
+Refought on the new engine, each build without gear (engine-v2) against with gear (engine-v3), at its own realm:
+
+| Build | Typical: no gear → gear | Top-end: no gear → gear |
+|---|---|---|
+| starter-blade | 17.1 s, 71 % health → 7.2 s, 96 % | loses → loses |
+| soul-lance | 26.7 s, 40 % → 12.0 s, 75 % | **loses → wins 20-0** (49 % health) |
+| ninth-bell | 8.7 s, 59 % → 4.3 s, 90 % | loses → loses |
+| loaded-dice | 16.1 s, 74 % → 10.8 s, 87 % | loses → loses |
+| sect-ladder | 23.8 s, 56 % → 20.4 s, 76 % | loses → loses |
+| starter-venom, starter-flame, starter-tide, two-clocks, starter-wall | 35.7–27.6 s → 30.6–20.6 s | loses → loses |
+| evade-dancer | 2.0 s → 1.8 s | wins 15.6 s → wins 9.9 s |
+| curse-engine | 2.5 s → 2.5 s | **wins 20-0 → 12-8** |
+| pacifist | 64.0 s, 84 % → 66.0 s, 61 % | loses → loses |
+| the other 16 | 0–3.3 s faster (unkillable 18.9 → 15.6 s, bare-fist 12.0 → 9.6 s, triple-convert 15.3 → 13.1 s) | same results |
+
+- **Gear now helps every build with room to improve** against the typical enemy; against the top-end enemy (every
+  layer at cap) almost every build still dies in about 2 s with or without gear.
+- **Soul Lance gains the most**: its thần thức and pool items now count, and it beats the top-end enemy.
+- **Reservation has a real cost.** Curse Engine's 10 % reserve pendant (Ledger Murmur) costs it 8 of 20 top-end fights:
+  without that one item it wins 20-0 again. Pacifist also lost health. A build that runs close to dry should not wear a
+  reserve art; the guides' loadouts were chosen before reservation was run.

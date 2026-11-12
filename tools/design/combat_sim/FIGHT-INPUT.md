@@ -135,4 +135,18 @@ looks like a strong build.
   `design/techniques/catalogue-*.json` as one always-on Effect `tech:<id>` (`--without tech:<id>` tests it). Passives
   with no engine stat, and scopes on stats the engine reads without hit context, print as UNMODELLED.
   `design/arts/INDEX.md` lists every technique and art on one line.
+- **Items** (2026-11-12): `"items": ["<item id>"]` loads named items from `design/items/catalogue-*.json`: their plain
+  modifiers as one always-on Effect `item:<id>` (`--without item:<id>` removes them; the item's art stays slotted),
+  their arts as library arts (slot one with `{"lib": "<art id>"}`), and the weapon bases' common arts from
+  `design/items/common-arts.json`. Item wards are listed as UNMODELLED (model the nearest drain ward); write an item
+  Effect into `effects` with id `"eff:<English name>"` to run it. `design/items/INDEX.md` lists every item on one line.
+- **Build stats from techniques and items** (2026-11-13). These lines change the build itself, so they are folded in
+  at load instead of running as live modifiers: `khi_huyet_pct` and `linh_luc_pct` (summed, then the file's `n_body` /
+  `n_qi` × (1 + sum / 100)), `body_shield_pct` (`body.shield` + pp / 100), `defense_pct` and `ward_efficiency_pct`
+  (added to the drain ward's `ws_base` and `we`), `than_thuc_pct` (`divine_sense` × (1 + pct / 100)),
+  `stack_effect_pct` and `stack_duration_pct` (by element and buff/debuff scope).
+- **New build fields** (2026-11-13): `reserved` (share of maximum linh lực held by reservations, capped at 0.9: the
+  fight starts at and refills to `qi_max · (1 − reserved)` while art costs read the full `qi_max`; an item's reserve
+  arts add their share and run their `grants`), `stack_eff` and `stack_dur` (percent, keyed `"<element>|<buff|debuff>"`
+  with `*` for any: `{"fire|debuff": 20, "*|*": 10}`).
 

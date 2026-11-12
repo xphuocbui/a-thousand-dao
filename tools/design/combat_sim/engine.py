@@ -185,6 +185,11 @@ class Build:
     boss: bool = False
     tags: tuple = ()
     states: list = field(default_factory=list)     # forms and stances [R29]: {"id", "mods", "suppress", "start"}
+    # item and technique stats (2026-11-13): reserved share of maximum linh lực [Combat Defence & Healing rule 10];
+    # stack effect and duration %, keyed "<element>|<buff|debuff>" with "*" for any [Effects rule 9a; modifiers.md]
+    reserved: float = 0.0
+    stack_eff: dict = field(default_factory=dict)
+    stack_dur: dict = field(default_factory=dict)
 
 
 def from_sim(b):
@@ -222,7 +227,8 @@ class Side:
         self.g = K["realm_def"][b.realm]
         self.hp_max = 16 * self.U * b.n_body * K["health_mult"] * self.g
         self.qi_base = 26 * self.U * b.n_qi
-        self.hp, self.qi = self.hp_max, self.qi_base
+        self.hp = self.hp_max
+        self.qi = self.qi_base * (1 - min(0.9, b.reserved))
         self.body_bar = b.body_shield * self.hp_max
         self.wshields = [dict(s=s, left=s.size * self.qi_base * (s.pieces and 1), quiet_since=0, pieces_left=s.pieces)
                          for s in b.shields]
@@ -271,27 +277,37 @@ class Side:
     def qi_max(self):
         return self.qi_base * (1 + self.bsum("qi_max"))
 
+    def qi_use(self):
+        """Usable linh lực: the maximum less what reservations hold [Combat Defence & Healing rule 10, reserve_cap 0.9]."""
+        return self.qi_max() * (1 - min(0.9, self.b.reserved))
+
     def count(self, lst, el):
         return sum(x[1] for x in lst if x[0] == el)
 
     def bsum(self, key):
-        return sum(BUFF.get(x[0], {}).get(key, 0.0) * x[1] * stack_power(self.b, x[0]) for x in self.buffs)
+        return sum(BUFF.get(x[0], {}).get(key, 0.0) * x[1] * stack_power(self.b, x[0], "buff") for x in self.buffs)
 
     def dsum(self, key):
-        return sum(DEBUFF.get(x[0], {}).get(key, 0.0) * x[1] * stack_power(x[3].b, x[0]) for x in self.debuffs)
+        return sum(DEBUFF.get(x[0], {}).get(key, 0.0) * x[1] * stack_power(x[3].b, x[0], "debuff") for x in self.debuffs)
 
     def st(self, sid):
         s = self.statuses.get(sid)
         return s["stacks"] if s else 0
 
 
-def stack_power(build, el):
+def stack_pct(table, el, kind):
+    """A build's stack effect or duration % for one element and kind (keys "<el>|<kind>", "*" for any)."""
+    return sum(table.get(k, 0.0) for k in ("%s|%s" % (el, kind), "%s|*" % el, "*|%s" % kind, "*|*"))
+
+
+def stack_power(build, el, kind=None):
     p = build.purity.get(el, 0.0)
     if el == "water":
         p += 0.5 * build.purity.get("ice", 0.0)
     elif el == "ice":
         p += 0.5 * build.purity.get("water", 0.0)
-    return 1 + 0.002 * p
+    extra = stack_pct(build.stack_eff, el, kind or "*") if build.stack_eff else 0.0
+    return (1 + 0.002 * p) * (1 + extra / 100)
 
 
 def supp(att, dfn):
@@ -512,7 +528,7 @@ class Fight:
         for el, n, t_end, src in list(s.debuffs):
             c = DEBUFF.get(el, {}).get("burn", 0.0) + DEBUFF.get(el, {}).get("poison", 0.0)
             if c:
-                tick = src.U * c * n * src.b.M * (1 + src.bsum("dmg")) * supp(src, s) * stack_power(src.b, el)
+                tick = src.U * c * n * src.b.M * (1 + src.bsum("dmg")) * supp(src, s) * stack_power(src.b, el, "debuff")
                 self.tick(src, s, tick, TICK_TYPE[el], el)
         # status ticks
         for sid, stt in list(s.statuses.items()):
@@ -544,10 +560,10 @@ class Fight:
         k = K["regen_k"]
         bonus = s.b.regen_bonus + s.bsum("regen") + self.mod(s, "regen")
         regen = s.qi_max() * (K["regen_base"] + k * math.log(1 + max(0.0, bonus) / k)) / stag
-        room = s.qi_max() - s.qi
+        room = s.qi_use() - s.qi
         if regen > room:
             self.fire_event(s, "overflow", {"amount": regen - room})
-        s.qi = min(s.qi_max(), s.qi + regen)
+        s.qi = min(s.qi_use(), s.qi + regen)
         hreg = s.hp_max * (s.b.hregen + s.bsum("hregen") + self.mod(s, "hregen")) * s.b.bs_mult / stag
         if hreg > 0:
             self.heal(s, hreg)
@@ -646,9 +662,9 @@ class Fight:
                 got0 = s.healed
                 self.heal(s, s.U * a.heal * K["health_mult"])
                 if s.healed > got0:
-                    s.qi = min(s.qi_max(), s.qi + s.last_cost)
+                    s.qi = min(s.qi_use(), s.qi + s.last_cost)
             if a.qi_restore:
-                s.qi = min(s.qi_max(), s.qi + a.qi_restore * s.qi_max())
+                s.qi = min(s.qi_use(), s.qi + a.qi_restore * s.qi_max())
             ev = {"art": a, "art_id": a.name, "slot": i, "cost": s.last_cost, "tags": a.tags, "element": a.element,
                   "dtype": a.dtype, "kind": "art"}
             s.cur_ev = ev
@@ -789,7 +805,7 @@ class Fight:
         ev = dict(ctx, amount=dealt, crit=is_crit)
         # sustain on hit (a hit landed: not evaded, even if blocked to 0)
         gain = (att.b.gain_on_hit + self.mod(att, "gain_on_hit") / 100) * att.qi_max() + (att.b.leech_qi + self.mod(att, "leech_qi") / 100) * dealt
-        att.qi = min(att.qi_max(), att.qi + gain)
+        att.qi = min(att.qi_use(), att.qi + gain)
         lh = att.b.leech_hp + self.mod(att, "leech_hp") / 100
         if lh:
             self.heal(att, lh * dealt)
@@ -923,6 +939,8 @@ class Fight:
     def add_stacks(self, src, target, el, n, dur, buff):
         if not n:
             return
+        if dur is not None and src.b.stack_dur:
+            dur = dur * (1 + stack_pct(src.b.stack_dur, el, "buff" if buff else "debuff") / 100)
         until = None if dur is None else self.t + ms(max(K["min_batch"], dur))
         if buff:
             target.buffs.append([el, n, until, src])
@@ -1063,7 +1081,7 @@ class Fight:
                                                 e["id"]])
             elif verb == "gain_qi":
                 amt = arg.get("share", 0) * (ev.get("amount", 0.0) if arg.get("of") == "amount" else s.qi_max()) * n
-                s.qi = min(s.qi_max(), s.qi + amt)
+                s.qi = min(s.qi_use(), s.qi + amt)
             elif verb == "heal":
                 amt = arg.get("share", 0) * (ev.get("amount", 0.0) if arg.get("of") == "amount" else s.hp_max) * n
                 if arg.get("body_shield"):
@@ -1140,7 +1158,7 @@ class Fight:
                     last_ok = self.t + ms(K["cooldown_min"]) if tgt is s else 0
                     tgt.ready[i] = max(last_ok if by < 0 else 0, tgt.ready[i] + ms(by))
             elif verb == "refund":
-                s.qi = min(s.qi_max(), s.qi + min(1.0, arg.get("share", 1.0) * n) * ev.get("cost", 0.0))
+                s.qi = min(s.qi_use(), s.qi + min(1.0, arg.get("share", 1.0) * n) * ev.get("cost", 0.0))
             elif verb == "counter":
                 cdef = s.counter_def.get(arg["id"])
                 if cdef is None:
