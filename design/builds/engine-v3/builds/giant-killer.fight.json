@@ -1,0 +1,43 @@
+{
+  "name": "giant-killer",
+  "realm": "ket_dan",
+  "_comment": "Copy of the engine-v2 file (assumed layers, no number tuned) plus items. Layers unchanged: item plain modifiers are not added to them. Art slot 4 swapped to the item art metal-hundred-edge-flight (group hundred-blades-canon).",
+  "layers": [200, 225, 250, 130, 100],
+  "crit": {"chance": 0.5, "mult": 2.0},
+  "art_speed_pct": 50,
+  "art_cost_pct": 20,
+  "regen_bonus_pp": 6,
+  "accuracy_pct": 10,
+  "purity": {"metal": 80, "earth": 80},
+  "techniques": ["nine-temper-scripture", "hundred-blades-canon", "iron-hide-manual"],
+  "items": [
+    "metal-hundred-edge-flying-sword",
+    "metal-tortoise-scale-armour",
+    "metal-ring-of-returning-edge",
+    "metal-iron-temper-ring",
+    "metal-whetstone-jade-pendant",
+    "metal-bronze-peal-bell"
+  ],
+  "arts": [
+    {"lib": "whetstone-pass"},
+    {"lib": "sheathed-edge"},
+    {"lib": "shatter-edge-cleave"},
+    {"lib": "metal-hundred-edge-flight"},
+    {"lib": "sundering-wedge"}
+  ],
+  "effects": [
+    {"id": "eff:Edge Returns the Breath", "on": "crit", "filter": {"dtype": "phys"}, "do": [{"gain_qi": {"share": 0.008}}]},
+    {"id": "eff:Iron Skin Renewed", "on": "art_fired", "filter": {"dtype": "phys"}, "limit": {"per_pulse": 1}, "do": [{"shield": {"body": 0.02}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Half a Realm (enabler): no library art or technique does it and the engine has no fight-unit shift; lost",
+    "Against the Heavens: L5 +100 only against a higher foe; no realm-gap readable, so L5 100 is applied at every gap",
+    "Stiff Neck, Through the Ceiling, Mountain Notches, Needle's Eye, Realm-Piercing affix: not in the game, no library equivalent; lost",
+    "Realm pierce (pierce_pct) and Physical penetration: no engine field, so the pierce-to-cap job is absent",
+    "Golden Bell, Soul-Guarding Lamp, Clear Heart Ward: per-hit and soul wards are modelled as the typical Common Ward",
+    "Item plain modifiers (attack, crit, art speed, khi huyet, resist, block, stack effect and duration): layers and fields kept as the old file, no number tuned",
+    "Tortoise-Scale Shell and Bronze Peal wards: cast wards, not drain wards that beat the build's, so the typical Common Ward stays",
+    "Whetstone Jade Pendant reserve art Keen Edge Aura: reserve arts are not modelled"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "loaded-dice", "realm": "ket_dan",
+  "layers": [70, 20, 15, 10, 0],
+  "crit": {"chance": 0.30, "mult": 2.0},
+  "art_speed_pct": 10, "art_cost_pct": 15,
+  "regen_bonus_pp": 1.5, "gain_on_hit_pct": 0.4,
+  "evade_pct": 10,
+  "purity": {"thunder": 80},
+  "techniques": ["thousand-bolt-scripture", "hundred-echo-palm-scripture"],
+  "items": [
+    "thunder-forked-light-sword", "thunder-stormcloud-armour", "thunder-static-band", "wind-hollow-echo-ring",
+    "thunder-peal-heart-pendant", "thunder-heartbeat-of-heaven-drum", "thunder-stormcaller-drum"
+  ],
+  "arts": [
+    {"lib": "thunder-forked-slash"},
+    {"lib": "chain-arc"},
+    {"lib": "answering-peal"},
+    {"lib": "capacitor-palm"},
+    {"lib": "rolling-barrage-fist"}
+  ],
+  "effects": [
+    {"id": "eff:Echo", "on": "hit_landed", "filter": {"kind": "art"}, "chance": 0.25,
+     "limit": {"per_pulse": 1}, "do": [{"free_hit": {"c": 0.5, "dtype": "lightning"}}]},
+    {"id": "eff:Marked Prey", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 4},
+     "do": [{"mod": {"L5": 4}}]},
+    {"id": "eff:Steady Breath", "on": "always", "if": [{"read": "own.qi_share", "op": ">=", "value": 0.5}],
+     "do": [{"mod": {"L5": 12}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Loaded Table (counted crit and evade meters fed by khi van, pre-filled to half): the simulator uses crit chance as a mean, so only the crit rate is tested, not the counted order or the pre-fill",
+    "Jackpot (every 3rd counted crit +1.0 multiplier): folded into crit.mult as part of 2.0",
+    "Counted evade meter: approximated as evade_pct 10",
+    "Stacked Meter (+2% L2 per payout): not modelled; the old folded L2 average went with the invented arts",
+    "Spilled Luck: folded into crit.mult",
+    "Escape closed by the enabler: no escape art is modelled anyway"
+  ]
+}

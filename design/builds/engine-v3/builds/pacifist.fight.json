@@ -1,0 +1,49 @@
+{
+  "name": "pacifist", "realm": "ket_dan",
+  "layers": [0, 0, 0, 0, 0],
+  "crit": {"chance": 0, "mult": 1.5},
+  "n_body": 1.2, "n_qi": 1.2,
+  "art_speed_pct": 15, "art_cost_pct": 20,
+  "regen_bonus_pp": 3, "health_regen_pp": 1.5, "healing_pct": 20,
+  "evade_pct": 5,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 45, "we": 40,
+           "layers": [40, 40, 20, 10], "block": 15},
+  "body": {"block": 15, "resistance": 25, "shield": 0.3, "layers": [40, 40, 20, 10]},
+  "curses": ["stagnation"],
+  "purity": {"water": 80},
+  "techniques": ["still-moon-tide-scripture", "undertow-litany"],
+  "items": [
+    "water-still-pool-gourd",
+    "general-hundred-patch-armour",
+    "water-returning-tide-ring",
+    "water-dewdrop-ring",
+    "water-moon-well-pendant",
+    "water-mirror-of-the-drowned-moon",
+    "water-brimming-shield"
+  ],
+  "effects": [
+    {"id": "eff:Backflow", "on": "heal_restored", "limit": {"per_pulse": 1},
+     "do": [{"gain_qi": {"of": "amount", "share": 0.2}}]},
+    {"id": "eff:Sea Already Deep", "on": "fight_start",
+     "do": [{"stacks": {"el": "water", "n": 8, "for": 600, "side": "own"}}]},
+    {"id": "eff:Sea Already Deep cost", "on": "always",
+     "do": [{"mod": {"cost_red": -10}}]},
+    {"id": "eff:Steady Breath", "on": "always",
+     "if": [{"read": "own.qi_share", "op": ">=", "value": 0.5}],
+     "do": [{"mod": {"L5": 12}}]}
+  ],
+  "arts": [
+    {"lib": "deep-lake-stance"},
+    {"lib": "gathering-wave"},
+    {"lib": "brimming-cup"},
+    {"lib": "swelling-tide-palm"},
+    {"lib": "drag-of-the-deep"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Debt Seal (enemy arts also cost health): no sim field, no library art lays it",
+    "Basic attack zeroed by the enabler (Open Palm Vow): sim basic attack still runs at base",
+    "Heart-demon Dread and enemy flight: not modelled",
+    "Held Reflection / returned costs: not modelled"
+  ]
+}

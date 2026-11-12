@@ -1,0 +1,40 @@
+{
+  "name": "unique-vajra-hide-armour", "realm": "ket_dan",
+  "layers": [112, 40, 40, 20, 10],
+  "crit": {"chance": 0.1, "mult": 1.5},
+  "n_body": 1.2, "n_qi": 1.1,
+  "art_speed_pct": 0, "art_cost_pct": 0,
+  "regen_bonus_pp": 0.3, "health_regen_pp": 0.5,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 47.9, "we": 40,
+           "layers": [40, 40, 20, 10], "block": 15},
+  "body": {"block": 30, "resistance": 25, "shield": 0.3, "layers": [40, 47, 20, 0]},
+  "purity": {"earth": 60},
+  "bonus_slots": 0,
+  "techniques": ["unbroken-flesh-canon", "mountain-heart-canon", "mountain-bone-body-art"],
+  "items": ["body-vajra-hide-armour", "body-flesh-seal", "body-iron-skin-ring", "body-tempered-marrow-ring", "body-stone-marrow-pendant", "body-mountain-gate-shield", "earth-boundary-flag", "earth-clay-seal-ring"],
+  "arts": [
+    {"lib": "marrow-tithe-strike"},
+    {"lib": "last-breath-fist"},
+    {"lib": "bulwark-knuckle"},
+    {"lib": "bastion-reprisal"},
+    {"lib": "mountain-root-stance"}
+  ],
+  "effects": [
+    {"id": "eff:Shield Pays the Blood", "on": "art_fired", "filter": {"tags": ["tithe"]},
+     "if": [{"read": "own.body_shield_share", "op": ">=", "value": 0.08}],
+     "do": [{"heal": {"share": 0.08}}, {"shield": {"body": -0.08}}]},
+    {"id": "eff:Shield Pays the Blood (closes)", "on": "always", "do": [{"mod": {"healing": -20}}]},
+    {"id": "eff:Iron Skin Renewed", "on": "art_fired", "filter": {"dtype": "phys"}, "limit": {"per_pulse": 1},
+     "do": [{"shield": {"body": 0.02}}]},
+    {"id": "eff:Planted Banner", "on": "always", "scale": {"read": "own.buff.earth", "per": 4},
+     "do": [{"mod": {"dmg_more": 0.02, "element": "earth"}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Vajra Shell (cast Physical ward 140.4, cooldown 5 s, up 2 s): engine takes drain wards only; build keeps the typical drain ward",
+    "Mountain-Gate Ward (cast body-shield ward): no cast shield of that kind in the file",
+    "Item plain modifiers with no engine stat (khi_huyet_pct, defense_pct, health_regen_inc_pct, body_shield_pct on items): not added, layers and body shield kept at anchor",
+    "Shield Pays the Blood: modelled as a heal of 8 % plus a 8 % shield deduction on the Tithe firing while the shield holds 8 %; the heal is subject to the 20 % healing closes, and a partly empty shield is not split",
+    "Planted Banner: written from the earth-boundary-flag description in the starter-wall file"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "triple-convert", "realm": "nguyen_anh",
+  "layers": [150, 0, 40, 80, 0],
+  "crit": {"chance": 0.3, "mult": 2.0},
+  "n_body": 1.0, "n_qi": 1.0,
+  "art_speed_pct": 0, "art_cost_pct": 20,
+  "purity": {"metal": 75, "fire": 75, "wood": 75},
+  "techniques": ["nine-temper-scripture", "rotting-canopy-canon", "scorch-fist-primer"],
+  "items": ["fire-furnace-mouth-gourd", "fire-phoenix-plume-armour", "fire-blood-kindling-ring", "force-chaos-open-vein-ring", "metal-whetstone-jade-pendant", "fire-undying-ember-lantern"],
+  "arts": [
+    {"lib": "shatter-edge-cleave"},
+    {"lib": "scorch-fist"},
+    {"lib": "whetstone-pass"},
+    {"lib": "sheathed-edge"},
+    {"lib": "blight-canker"},
+    {"lib": "gourd-swallows-flame"}
+  ],
+  "effects": [
+    {"id": "former-shapes", "on": "always", "do": [{"mod": {"L5": 20}}]},
+    {"id": "eff:Kindled Wound", "on": "always", "if": [{"read": "foe.status.burn", "op": ">=", "value": 1}], "do": [{"mod": {"L5": 15}}]},
+    {"id": "marked-prey", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 4}, "do": [{"mod": {"L5": 4}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Two conversions per hit (Physical to Fire to Chaos) and the damage history: the engine does not model conversion inside a hit; only scorch-fist converts (half to Fire). The identity piece Former Shapes is approximated as a flat +20 L5, one link's worth, not +20 per earlier type",
+    "Kindled Wound scopes to Fire parts and Festering Wound to Chaos parts: mod keys have no part scope, so Kindled Wound is a flat L5 +15 against Burn and Festering Wound is omitted",
+    "Fire to Chaos convert_pct (Green-Smoke Sutra +50, Kiln-Hook Sword +30, tree) and Chaos penetration +80: no conversion field or typed penetration for them; not written",
+    "Sundered curse (curses takes only withering and stagnation): the library arts bring their own statuses instead",
+    "Kiln-Hook Sword Blood Drinker 6 % leech, Nine Rods Array and Soot Coating L4: L4 stands as a flat 80, leech omitted",
+    "Layers, crit, ward and cost reduction are not from an old fight file (none existed for this build): taken from the guide's caps and the typical Nguyen Anh anchor, L2 left empty because the invented canon passives are gone and library passives load as tech effects",
+    "Spiritual root purity 75 each in metal, fire, wood: the guide says 70 or more",
+    "Item Blood Casting (fire-blood-kindling-ring) and Blood Drinker (force-chaos-open-vein-ring): not written as Effects (their rules were not read for this run); only the rings' plain modifiers load",
+    "Item Embers Never Die and its Long Burn Light reserve art (fire-undying-ember-lantern): the typical foe cleanses nothing, so there is nothing to test; reserve not deducted",
+    "Item Phoenix Mend (fire-phoenix-plume-armour): the build has no healing art, so it would fire nothing; the Phoenix Shell cast shield is not a drain ward and is left out, the build keeps the typical ward",
+    "Reserve art Keen Edge Aura (metal-whetstone-jade-pendant, 15 % reserved): grants not run, reserve not deducted"
+  ]
+}

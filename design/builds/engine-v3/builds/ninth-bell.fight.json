@@ -1,0 +1,50 @@
+{
+  "name": "ninth-bell",
+  "realm": "ket_dan",
+  "n_body": 1.6,
+  "n_qi": 2.0,
+  "layers": [134, 0, 110, 0, 0],
+  "art_speed_pct": 100,
+  "art_cost_pct": 25,
+  "regen_bonus_pp": 4,
+  "crit": {
+    "chance": 0.0,
+    "mult": 1.5
+  },
+  "ward": {
+    "ws_base": 120,
+    "we": 120
+  },
+  "purity": {"metal": 80},
+  "techniques": ["nine-temper-scripture", "nine-seal-ledger"],
+  "items": [
+    "metal-heaven-minted-coin",
+    "metal-tortoise-scale-armour",
+    "metal-iron-temper-ring",
+    "metal-ring-of-returning-edge",
+    "metal-whetstone-jade-pendant",
+    "metal-bronze-peal-bell",
+    "metal-hundred-edge-flying-sword"
+  ],
+  "arts": [
+    {"lib": "whetstone-pass"},
+    {"lib": "blood-quench-blade"},
+    {"lib": "sheathed-edge"},
+    {"lib": "shatter-edge-cleave"},
+    {"lib": "metal-golden-coin-rain"}
+  ],
+  "effects": [
+    {"id": "eff:Edge Returns the Breath", "on": "crit", "filter": {"dtype": "phys"},
+     "do": [{"gain_qi": {"share": 0.008}}]}
+  ],
+  "unmodelled": [
+    "Sustained Note's cap and reset on a missed beat are not modelled; the fight is short enough that the cap is not reached",
+    "v1 pierce_pct 30",
+    "v1 guard {\"body_guard_pct\": 10}",
+    "v1 conditional_mods [{\"id\": \"On the Beat\", \"layer\": 5, \"points\": 70, \"channels\": [\"art\"], \"guard\": {\"on_beat\": true}}, {\"id\": \"Bare Vessel\", \"layer\": 5, \"points\": 30, \"channels\": [\"art\", \"basic\"], \"guard\": {\"who\": \"enemy\", \"pool\": \"qi\", \"below\": 0.05}}, {\"id\": \"Sustained Note\", \"layer\": 2, \"per\": \"fight_seconds\", \"points_per\": 15, \"channels\": [\"art\"]}]",
+    "v1 ward shape {\"pass\": {\"body\": 0.54, \"qi\": 0.36}, \"drain\": {\"body\": 1.0, \"qi\": 1.5}} (pass and drain shares are retired; modelled as the Common Ward at this ws and we, typical ward layers)",
+    "item Effect Seal of Full Payment (metal-heaven-minted-coin): no spirit-stone payment in the engine",
+    "item Effect Iron Skin Renewed (metal-tortoise-scale-armour): rule not read for this run, not modelled",
+    "item ward Tortoise-Scale Shell (cast, 2 s up) and ward Bronze Peal (standing, all 120): not better than the build's ward, so the build's ward stands in"
+  ]
+}

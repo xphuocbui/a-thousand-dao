@@ -1,0 +1,42 @@
+{
+  "name": "starter-venom", "realm": "truc_co",
+  "layers": [60, 0, 25, 15, 0],
+  "n_body": 1.0, "n_qi": 1.0,
+  "art_speed_pct": 0, "art_cost_pct": 5,
+  "regen_bonus_pp": 3, "health_regen_pp": 0.8, "healing_pct": 10,
+  "purity": {"wood": 50},
+  "techniques": ["verdant-cycle-scripture", "rotting-canopy-canon"],
+  "items": [
+    "wood-heartwood-hatchet",
+    "wood-ironbark-cuirass",
+    "wood-slow-garden-ring",
+    "wood-sprout-ring",
+    "wood-sap-heart-pendant",
+    "wood-cycle-seal",
+    "wood-heartwood-bulwark"
+  ],
+  "arts": [
+    {"lib": "thorn-rain"},
+    {"lib": "blight-canker"},
+    {"lib": "second-spring"},
+    {"lib": "wood-fell-the-rotting"}
+  ],
+  "effects": [
+    {"id": "eff:Sap Rises", "on": "always",
+     "scale": {"read": "own.buff.wood", "per": 1, "cap": 20},
+     "do": [{"mod": {"healing": 1}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Root Drinks the Rot leech: an Effect from the tree keystone, staged only, not written in the old file",
+    "Patient Venom per-stack effect: needs a Per modifier on tick stack count, not in the old file",
+    "Sap Rises healing from stacks beyond the table: staged only, not in the old file",
+    "Moss-Ledger cleanse-immunity window: not expressible, not in the old file",
+    "Spillover is an upgrade, not in this file",
+    "Purity wood 50 added from the guide's 'middling purity' (the old file carried none)",
+    "Spillover (Ring of the Slow Garden): the foe linh luc drain on each tick has no engine action I could confirm, and its rule text was not in the files I read",
+    "Ironbark Shell and Heartwood Ward (cast wards of the cuirass and bulwark): a cast Physical shell and a shield, not a drain ward that beats the build's Common Ward; left out",
+    "Verdant Aura reserve art (Sap-Heart Pendant): the 12 % reserve is not deducted and its grants are not run",
+    "Verdant Cycle Seal art (wood-seal-of-turning-seasons): no art slot left; the seal's modifiers run, its art does not"
+  ]
+}

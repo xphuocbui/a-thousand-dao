@@ -1,0 +1,34 @@
+{
+  "name": "unique-ninth-tribulation-seal", "realm": "ket_dan",
+  "layers": [112, 40, 40, 20, 10],
+  "crit": {"chance": 0.1, "mult": 1.5},
+  "n_body": 1.2, "n_qi": 1.1,
+  "art_speed_pct": 0, "art_cost_pct": 0,
+  "regen_bonus_pp": 0.3, "health_regen_pp": 0,
+  "ward": {"model": "drain", "payload": 411, "drain_base": 0.394, "ws_base": 40, "we": 40,
+           "layers": [40, 40, 20, 10], "block": 15},
+  "body": {"block": 30, "resistance": 25, "shield": 0.3, "layers": [40, 47, 20, 0]},
+  "purity": {"thunder": 100},
+  "techniques": ["heavenly-tribulation-scripture", "thousand-bolt-scripture", "unbroken-flesh-canon"],
+  "items": ["thunder-ninth-tribulation-seal", "thunder-stormcloud-armour", "thunder-static-band", "general-wayfarer-ring",
+            "thunder-peal-heart-pendant", "thunder-stormcaller-drum", "thunder-forked-light-sword"],
+  "arts": [
+    {"lib": "thunder-ninth-verdict"},
+    {"lib": "tribulation-seal"},
+    {"lib": "thunderclap-bind"},
+    {"lib": "stormcloud-familiar"},
+    {"lib": "storm-bank"}
+  ],
+  "effects": [
+    {"id": "eff:Verdict Stands", "on": "status_applied", "filter": {"element": "thunder"},
+     "if": [{"read": "foe.status.slowed_time", "op": ">=", "value": 1}], "limit": {"per_pulse": 1},
+     "do": [{"stacks": {"el": "thunder", "n": 1, "side": "foe"}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Verdict Stands: the engine cannot stretch a stack batch already laid, so it is written as one extra permanent Thunder stack per pulse in which a Thunder batch lands on a Slowed foe (the real rule makes the whole batch permanent, so this undercounts)",
+    "Verdict Stands closes (Thunder stacks on a foe that is not Slowed last 25 % shorter): no engine hook shortens a batch; not written",
+    "Marked Prey (Peal-Heart Pendant), Cloudflash Shell ward, Thunderclap Toll, reserves: not written or run; the build keeps the typical Common Ward",
+    "Item modifiers with no engine stat (khi_huyet_pct, defense_pct, linh_luc_pct, linh_luc_on_crit_pct, leech_linh_luc_pct, linh_luc_regen_inc_pct) and the Lightning-scoped resist_pct are not run"
+  ]
+}

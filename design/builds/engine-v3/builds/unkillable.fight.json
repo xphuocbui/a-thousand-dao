@@ -1,0 +1,38 @@
+{
+  "name": "unkillable", "realm": "hoa_than",
+  "layers": [120, 80, 50, 20, 0],
+  "crit": {"chance": 0.05, "mult": 1.5},
+  "n_body": 3.0, "n_qi": 1.1,
+  "health_regen_pp": 6, "healing_pct": 30,
+  "purity": {"wood": 80, "water": 60},
+  "body": {"shield": 0.1},
+  "techniques": ["verdant-cycle-scripture", "rotting-canopy-canon", "unbroken-flesh-canon"],
+  "items": ["wood-cycle-seal", "wood-ironbark-cuirass", "wood-slow-garden-ring", "wood-sprout-ring",
+            "wood-sap-heart-pendant", "wood-grave-silk-robe", "wood-heartwood-bulwark", "wood-thousand-roots-banner"],
+  "counters": [],
+  "effects": [
+    {"id": "growth-rings", "on": "always", "do": [{"mod": {"hregen": 1.2}}]},
+    {"id": "eff:Sap Rises", "on": "always", "scale": {"read": "own.buff.moc", "per": 1, "cap": 20}, "do": [{"mod": {"healing": 1}}]},
+    {"id": "still-water", "on": "overflow", "do": [{"heal": {"of": "amount", "share": 0.5}}]},
+    {"id": "eff:Grave-Silk Shroud", "on": "fight_start", "do": [{"status": {"id": "corpse_rot", "stacks": 1, "side": "foe"}}]}
+  ],
+  "arts": [
+    {"lib": "seed-of-spring"},
+    {"lib": "rooted-form"},
+    {"lib": "wood-seal-of-turning-seasons"},
+    {"lib": "harvest-bloom"},
+    {"lib": "blight-canker"},
+    {"lib": "bloodroot-pact"},
+    {"lib": "thornling-grove"}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Surplus Life (Du Sinh): needs a health-overflow readable; the engine only emits linh luc overflow",
+    "Rooted (Bam Re) price: evade fixed at 0 is not expressible",
+    "Spillover (Dat Doc): no action burns the foe's linh luc from a tick (also the Ring of the Slow Garden's Effect)",
+    "Wards beyond the realm's Common Ward (Still Lake Aura, Clear Heart Ward, Mountain Screen, Thousand-Layer Cloud, Soul-Guarding Lamp, Golden Bell)",
+    "Underground Spring, Banyan Shade, Shedding Bark: not in the library; Quiet Channels, The Spring Never Fails, Hot Spring Array, pill and coating not modelled",
+    "Gripping Root (Thousand Roots Banner): needs a Physical Wood hit, which this build never lands",
+    "Grave-Silk Shroud's 15 % linh luc reserve and its Fire ward; Ironbark Shell and Heartwood Ward (cast wards): the build keeps the realm's Common Ward"
+  ]
+}

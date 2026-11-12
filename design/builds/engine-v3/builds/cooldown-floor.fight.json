@@ -1,0 +1,42 @@
+{
+  "_comment": "GEARED (engine-v3) copy of the engine-v2 file: items added, reckless-gale replaced by the Heron Fan's art wind-heron-takes-wing, gale-sprite replaced by the Slow-Hour Needle's art wind-stitch-the-hour, item Effects Echo, Wind at Your Back and Phantom Dodge written as engine Effects. Every number else is the old file's: cooldown-floor (The Winnowing Gale) rebuilt from the art library at Nguyen Anh. NO OLD FIGHT FILE: every number is read from the guide and sheet, or ASSUMED. ASSUMED: purity wind 80; art_speed_pct 190; art_cost_pct 33; gain_on_hit_pct 0.44; leech_health_pct 6; layers [185, 0, 170, 0, 0]; crit 0.5 / 3.0 (caps); n_body 0.9 and body shield 0.15 (Glass Meridians); n_qi 1.1; bonus_slots 1 from the Granary-Mother's Fan. Techniques: gale-courier-scripture (main) and slow-hour-scripture (auxiliary secret), both wind; 7 arts in 6 + 1 slots, Swallow Stance dropped.",
+  "name": "cooldown-floor", "realm": "nguyen_anh",
+  "layers": [185, 0, 170, 0, 0],
+  "crit": {"chance": 0.5, "mult": 3.0},
+  "n_body": 0.9, "n_qi": 1.1,
+  "art_speed_pct": 190, "art_cost_pct": 33,
+  "gain_on_hit_pct": 0.44, "leech_health_pct": 6,
+  "body": {"block": 15.0, "resistance": 25, "shield": 0.15},
+  "purity": {"wind": 80},
+  "bonus_slots": 1,
+  "techniques": ["gale-courier-scripture", "slow-hour-scripture"],
+  "items": ["wind-heron-fan", "wind-cloud-walker-mantle", "wind-hollow-echo-ring", "wind-gale-step-ring", "wind-swallow-tail-pendant", "wind-four-winds-banner", "wind-windbreak-shield", "wind-slow-hour-needle"],
+  "arts": [
+    {"lib": "hundred-feather-flurry"},
+    {"lib": "three-step-chase"},
+    {"lib": "held-breath"},
+    {"lib": "trailing-gale"},
+    {"lib": "wind-stitch-the-hour"},
+    {"lib": "echo-of-the-dodge"},
+    {"lib": "wind-heron-takes-wing"}
+  ],
+  "effects": [
+    {"id": "steady-breath", "on": "always", "if": [{"read": "own.qi_share", "op": ">=", "value": 0.5}], "do": [{"mod": {"L5": 12}}]},
+    {"id": "still-water", "on": "overflow", "do": [{"heal": {"share": 0.5, "of": "amount"}}]},
+    {"id": "eff:Echo", "on": "hit_landed", "filter": {"kind": "art"}, "chance": 0.25, "do": [{"free_hit": {"c": 0.5, "dtype": "elem"}}]},
+    {"id": "eff:Wind at Your Back", "on": "evaded", "limit": {"per_pulse": 2}, "do": [{"stacks": {"el": "wind", "n": 1, "for": 4, "side": "own"}}]},
+    {"id": "eff:Phantom Dodge", "on": "hit_landed", "filter": {"kind": "basic"}, "limit": {"per_pulse": 2}, "do": [{"counter": {"id": "feather", "add": 1}}, {"counter": {"id": "breath", "add": 1}}]},
+    {"id": "eff:Phantom Dodge cost", "on": "always", "do": [{"mod": {"evade": -10}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Slipstream (identity Effect, dampened art cost): staged, no library equivalent, lost",
+    "Light Chaff L2 more [quick, cheap] (scripture +60, Way +80): staged, lost",
+    "Breath Between Blows keystone, Eruption, Trigger limit, Overheat (reads clipped art speed): staged or no readable, lost",
+    "Echo of the guide (25 % free strike): host unspecified, replaced by the library art echo-of-the-dodge",
+    "Winnowing Wind Scripture passives (art speed +40, on-hit +0.10, cost -20, damage/ward bonuses) and its seven arts: replaced by library techniques",
+    "Steady Breath scope [phong] and the fan's other lines (carried as plain art_speed, gain_on_hit, leech, bonus slot)",
+    "Wind buff stacks as the art-speed engine: only arts that grant them, library arts here grant few",
+    "Phantom Dodge: a landed basic attack is written as a Feather and a Breath counter step, not as an evade event, so the Breath bank (held free hit and Wind stack) and Echo of the Dodge's evade count do not see it"
+  ]
+}

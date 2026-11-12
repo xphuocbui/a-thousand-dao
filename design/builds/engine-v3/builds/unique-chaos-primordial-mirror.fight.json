@@ -1,0 +1,36 @@
+{
+  "name": "unique-chaos-primordial-mirror",
+  "realm": "ket_dan",
+  "layers": [112, 40, 40, 20, 10],
+  "purity": {"earth": 80},
+  "techniques": ["mountain-heart-canon", "ruin-ledger-scripture"],
+  "arts": [
+    {"lib": "fraying-thread"},
+    {"lib": "ripening-curse"},
+    {"lib": "gathered-ruin-verdict"},
+    {"lib": "force-chaos-settle-the-account"},
+    {"lib": "sinking-weight"}
+  ],
+  "items": [
+    "force-chaos-primordial-mirror",
+    "force-chaos-ledger-seal",
+    "force-chaos-hollow-robe",
+    "force-chaos-hollow-ring",
+    "force-chaos-open-vein-ring",
+    "force-chaos-ledger-murmur-pendant",
+    "force-chaos-ledger-branding-iron"
+  ],
+  "effects": [
+    {"id": "eff:Unmaking Glass", "on": "hit_landed", "limit": {"per_pulse": 1},
+     "if": [{"any": [
+       {"read": "foe.buff.fire", "op": ">=", "value": 1}, {"read": "foe.buff.water", "op": ">=", "value": 1},
+       {"read": "foe.buff.earth", "op": ">=", "value": 1}, {"read": "foe.buff.metal", "op": ">=", "value": 1},
+       {"read": "foe.buff.wood", "op": ">=", "value": 1}, {"read": "foe.buff.thunder", "op": ">=", "value": 1},
+       {"read": "foe.buff.wind", "op": ">=", "value": 1}, {"read": "foe.buff.ice", "op": ">=", "value": 1}]}],
+     "do": [{"strip": {"n": 1}}, {"counter": {"id": "fray", "add": 1}}]}
+  ],
+  "unmodelled": [
+    "Unmaking Glass: a stripped stack counts as a status landed; the engine's strip does not raise status_applied, so only the Fray counter is fed (+1 per strip); the held Verdict bank and the foe's distinct-status reads are not fed",
+    "Unmaking Glass closes: own buff stacks last 25 % shorter (no engine key for buff-stack duration)"
+  ]
+}

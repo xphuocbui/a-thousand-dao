@@ -1,0 +1,30 @@
+{
+  "name": "unique-nine-fathom-seal", "realm": "ket_dan",
+  "layers": [112, 40, 40, 20, 10],
+  "crit": {"chance": 0.1, "mult": 1.5},
+  "n_body": 1.2, "n_qi": 1.1,
+  "art_speed_pct": 0, "art_cost_pct": 0,
+  "regen_bonus_pp": 0.3, "health_regen_pp": 0,
+  "ward": {"model": "drain", "payload": 411, "drain_base": 0.394, "ws_base": 40, "we": 40,
+           "layers": [40, 40, 20, 10], "block": 15},
+  "body": {"block": 30, "resistance": 25, "shield": 0.3, "layers": [40, 47, 20, 0]},
+  "purity": {"water": 100},
+  "techniques": ["undertow-litany", "still-moon-tide-scripture", "returning-wake-verse"],
+  "items": ["water-nine-fathom-seal", "general-hundred-patch-armour", "water-returning-tide-ring", "general-wayfarer-ring", "water-moon-well-pendant", "water-tide-bell", "water-brimming-shield"],
+  "arts": [
+    {"lib": "water-abyss-seal-descends"},
+    {"lib": "seep-through-palm"},
+    {"lib": "marrow-to-dew"},
+    {"lib": "drag-of-the-deep"},
+    {"lib": "gathering-wave"}
+  ],
+  "effects": [
+    {"id": "eff:Water Table", "on": "hit_landed", "filter": {"element": "water"}, "limit": {"per_pulse": 1},
+     "do": [{"gain_qi": {"share": 0.01}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Water Table is written as 1 % linh lực back on each Water hit (once a pulse): the engine cannot read the foe's ward drain, so the pool is fed by a flat share, not by what the ward drains",
+    "Backflow (Returning Tide Ring), Final Clause (Hundred-Patch Armour), Layered Cloud ward, Rolling Tide Ward, reserves: not written or run; the build keeps the typical Common Ward"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "unique-heaven-purchasing-coin", "realm": "ket_dan",
+  "layers": [70, 20, 15, 10, 0],
+  "crit": {"chance": 0.15, "mult": 1.7},
+  "purity": {"metal": 80},
+  "techniques": ["nine-temper-scripture", "hundred-blades-canon", "unbroken-flesh-canon"],
+  "items": [
+    "general-heaven-purchasing-coin", "metal-tortoise-scale-armour", "metal-ring-of-returning-edge",
+    "metal-iron-temper-ring", "metal-whetstone-jade-pendant", "general-wayfarer-ring",
+    "metal-bronze-peal-bell", "general-hundred-patch-armour"
+  ],
+  "arts": [
+    {"lib": "general-last-coin-flick"},
+    {"lib": "whetstone-pass"},
+    {"lib": "sheathed-edge"},
+    {"lib": "needle-rain"},
+    {"lib": "blood-quench-blade"}
+  ],
+  "effects": [
+    {"id": "eff:Bought Fate", "on": "was_hit", "limit": {"per_fight": 1},
+     "if": [{"read": "event.crit", "op": "==", "value": 1}],
+     "do": [{"heal": {"of": "amount", "share": 0.4}}]},
+    {"id": "eff:Edge Returns the Breath", "on": "crit", "filter": {"dtype": "phys"},
+     "do": [{"gain_qi": {"share": 0.008}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Bought Fate flips a crit taken: the engine cannot change a roll already made, so the first crit taken each fight heals back 40 % of that hit (the crit's excess at a 1.7 multiplier), once a fight",
+    "Bought Fate failed evade and failed escape: the build has no evade stat and the engine has no escape, so only the crit branch is run",
+    "Bought Fate spirit-stone price (5 % of carried stones per flip): the engine has no carried currency; the cost is not charged",
+    "Iron Skin Renewed (Tortoise-Scale Armour) and Final Clause (Hundred-Patch Armour): not written, the build does not rely on them"
+  ]
+}

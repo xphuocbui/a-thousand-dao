@@ -1,0 +1,30 @@
+{
+  "name": "sect-ladder", "realm": "truc_co",
+  "layers": [26.5, 40, 40, 20, 0],
+  "art_speed_pct": 4, "art_cost_pct": 3,
+  "regen_bonus_pp": 0.4,
+  "keystones": {"k_burn": 0.3},
+  "purity": {"fire": 80},
+  "techniques": ["red-sun-scripture"],
+  "items": ["fire-red-sun-seal", "fire-phoenix-plume-armour", "fire-cinder-ring", "fire-hearth-keeper-pendant", "fire-furnace-mouth-gourd"],
+  "arts": [
+    {"lib": "brazier-form"}, {"lib": "red-sun-descends"}, {"lib": "furnace-heart"}, {"lib": "twin-flame-echo"}
+  ],
+  "effects": [
+    {"id": "kindled-wound", "on": "always", "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 1}],
+     "do": [{"mod": {"L5": 15}}]},
+    {"id": "eff:Phoenix Mend", "on": "heal_restored", "limit": {"per_pulse": 6},
+     "scale": {"read": "event.amount", "per": 0.01, "cap": 6},
+     "do": [{"stacks": {"el": "fire", "n": 1, "for": 6, "side": "foe"}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Embers Feed the Hearth (burn tick restores linh luc) is modelled by keystone k_burn 0.3; its closing cost (direct Fire hits 15 percent less) is not in the file",
+    "Hearth-Warming Pill, Gathering Flame Array (L4) and Ember Rod (L3) are carried by the typical L3 and L4 points",
+    "Hoa Dao Chan Hoa nodes and the sect tree cluster sit inside the typical L1 and L2 points",
+    "Deep Heat (+0.4 % more Burn per stack, L2) was never in the old file and is not here",
+    "Phoenix Shell (cast shield sigma 0.135, cooldown 4 s, up 3 s) from fire-phoenix-plume-armour: a cast shield, not a drain ward; not shown to beat the build's ward, so none is modelled",
+    "Hearth Aura reserve art (12 % reserved: Fire debuff stacks last 25 % longer, 10 % stronger) from fire-hearth-keeper-pendant: reserve arts are not an engine field; stack_effect and stack_duration have no engine stat",
+    "item modifiers (attack, art speed, linh luc, health, resist, healing): the typical L3 gear points already carry gear; none added"
+  ]
+}

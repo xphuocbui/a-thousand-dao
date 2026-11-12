@@ -1,0 +1,33 @@
+{
+  "name": "unique-chaos-last-bargain-locket", "realm": "ket_dan",
+  "layers": [112, 40, 40, 20, 10],
+  "crit": {"chance": 0.1, "mult": 1.5},
+  "n_body": 1.2, "n_qi": 1.1,
+  "art_speed_pct": 0, "art_cost_pct": 0,
+  "regen_bonus_pp": 0.3, "health_regen_pp": 0,
+  "ward": {"model": "drain", "payload": 411, "drain_base": 0.394, "ws_base": 40, "we": 40,
+           "layers": [40, 40, 20, 10], "block": 15},
+  "body": {"block": 30, "resistance": 25, "shield": 0.3, "layers": [40, 47, 20, 0]},
+  "purity": {"wood": 60, "metal": 40},
+  "techniques": ["verdant-cycle-scripture", "tearing-force-rites", "rotting-canopy-canon"],
+  "items": ["force-chaos-last-bargain-locket", "force-chaos-ledger-seal", "force-chaos-hollow-robe", "force-chaos-open-vein-ring", "force-chaos-hollow-ring", "force-chaos-hollow-bell", "force-chaos-ledger-murmur-pendant", "force-chaos-ledger-branding-iron"],
+  "arts": [
+    {"lib": "bloodletting-rite"},
+    {"lib": "thorn-rain"},
+    {"lib": "bloodroot-pact"},
+    {"lib": "blight-canker"},
+    {"lib": "harvest-bloom"}
+  ],
+  "effects": [
+    {"id": "eff:Final Clause", "on": "down", "limit": {"per_fight": 1},
+     "do": [{"fire_art": {"which": "bloodletting-rite", "share": 1.0}}]},
+    {"id": "eff:Blood Drinker", "on": "hit_landed", "do": [{"heal": {"of": "amount", "share": 0.06}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Final Clause is written as a down event, once a fight, firing Bloodletting Rite (the longest-cooldown art); no fight reached the Down step, so it is unproved",
+    "Blood Drinker heals 6 % of every hit's amount; the removes-health condition is not checked",
+    "Locket attack +26 % [am]: no Darkness tag in the engine, so it most likely adds nothing",
+    "Hollow Veil and Muffled Bell wards, Murmuring Debts reserve and Marked Prey are not run; the build keeps the typical Common Ward"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "meta-hunter", "realm": "nguyen_anh",
+  "layers": [200, 280, 250, 150, 80],
+  "crit": {"chance": 0.2, "mult": 1.8},
+  "n_body": 1.1, "n_qi": 1.2,
+  "art_speed_pct": 25, "art_cost_pct": 30,
+  "regen_bonus_pp": 1.0,
+  "gain_on_hit_pct": 0.5, "leech_qi_pct": 6, "leech_health_pct": 6,
+  "ward": {"model": "drain", "payload": 342.5, "drain_base": 0.328, "ws_base": 110, "we": 140,
+           "layers": [300, 250, 150, 100], "block": 18},
+  "body": {"block": 20, "resistance": 20, "shield": 0.2, "layers": [150, 150, 100, 0]},
+  "cleanse": {"per_pulse": 1, "fee_share": 0.0, "share": 0.5},
+  "curses": ["withering"],
+  "purity": {"metal": 80},
+  "techniques": ["hunters-reach-canon", "nine-seal-ledger"],
+  "items": [
+    "soul-song-seal-ledger-seal", "metal-tortoise-scale-armour", "metal-ring-of-returning-edge",
+    "metal-iron-temper-ring", "metal-whetstone-jade-pendant", "general-mirror-of-second-seat",
+    "force-chaos-ledger-branding-iron", "metal-heaven-minted-coin"
+  ],
+  "arts": [
+    {"lib": "pinning-arrow"},
+    {"lib": "nocked-arrow"},
+    {"lib": "coiling-thrust"},
+    {"lib": "soul-song-seal-ledger-stamp"},
+    {"lib": "frozen-hour-seal"},
+    {"lib": "branding-seal"}
+  ],
+  "effects": [
+    {"id": "eff:Edge Returns the Breath", "on": "crit", "filter": {"dtype": "phys"}, "do": [{"gain_qi": {"share": 0.008}}]},
+    {"id": "eff:Marked Prey", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 4},
+     "do": [{"mod": {"L5": 4}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Debt Called Per modifier (+0.4 % more per Stagnation stack on me, cap +40 %) and L5 conditions: not modelled; L5 is left at 0 so the run does not overstate",
+    "Ledger Seal's entries, and its closing rule (no health-paid costs, no Stagnation applied by me)",
+    "L4 preparation against a known quarry: run at 100 points, assumes the hunters were not blind"
+  ]
+}

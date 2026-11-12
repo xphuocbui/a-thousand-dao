@@ -161,7 +161,7 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "keystones", "curses", "purity", "bonus_slots", "arts", "enemy", "enemy_overrides", "unmodelled",
             "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct",
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
-            "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques"}
+            "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques", "items"}
 WARD_KEYS = {"model", "payload", "drain_base", "ws_base", "we", "layers", "block"}
 BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
@@ -192,6 +192,12 @@ def check_keys(d, allowed, where):
 #                                         design/arts/part-*.json), its effects, counters, states
 #   "techniques": ["<technique id>"]   -> the technique's passives from design/techniques/catalogue-*.json, as one
 #                                         always-on Effect "tech:<id>" (so --without tech:<id> tests it)
+#   "items": ["<item id>"]             -> a named item from design/items/catalogue-*.json (2026-11-12): its plain
+#                                         modifiers as one always-on Effect "item:<id>"; its arts become library
+#                                         arts (slot them with {"lib": "<art id>"}); its wards, reserve shares and
+#                                         Effects are listed as unmodelled (write an Effect into "effects" to run it).
+#                                         Item arts and the common arts of design/items/common-arts.json are also
+#                                         library arts.
 LIB_ART_KEYS = ART_KEYS - {"x", "_comment"}
 ELEMENT_EN = {"hoa": "fire", "thuy": "water", "tho": "earth", "kim": "metal", "moc": "wood", "bang": "ice",
               "loi": "thunder", "phong": "wind"}
@@ -226,24 +232,35 @@ def _library():
         for f in sorted(_g.glob(os.path.join(ROOT, "design", "techniques", "catalogue-*.json"))):
             for t in json.load(open(f, encoding="utf-8")):
                 techs[t["id"]] = t
-        _LIB["arts"], _LIB["techs"] = arts, techs
+        items = {}
+        common = os.path.join(ROOT, "design", "items", "common-arts.json")
+        if os.path.exists(common):
+            for a in json.load(open(common, encoding="utf-8")):
+                arts.setdefault(a["id"], a)
+        for f in sorted(_g.glob(os.path.join(ROOT, "design", "items", "catalogue-*.json"))):
+            for it in json.load(open(f, encoding="utf-8")):
+                items[it["id"]] = it
+                for a in it.get("arts", []):
+                    arts.setdefault(a["id"], a)
+        _LIB["arts"], _LIB["techs"], _LIB["items"] = arts, techs, items
     return _LIB["arts"], _LIB["techs"]
 
 
-def passive_effect(t, unmod):
-    """A technique's passives as one always-on Effect; lines the engine has no stat for go to unmod."""
+def passive_effect(t, unmod, lines=None, what="technique", prefix="tech"):
+    """A technique's passives (or an item's modifiers) as one always-on Effect; lines the engine has no stat for go to
+    unmod."""
     do = []
-    for p in t.get("passives", []):
+    for p in (t.get("passives", []) if lines is None else lines):
         key, val, scope = p["key"], p["value"], list(p.get("scope", []))
         if key not in PASSIVE_MOD:
-            unmod.append("technique %s passive %s %+g %s: no engine stat (not run)" % (t["id"], key, val, scope or ""))
+            unmod.append("%s %s passive %s %+g %s: no engine stat (not run)" % (what, t["id"], key, val, scope or ""))
             continue
         mk, f = PASSIVE_MOD[key]
         m = {mk: val * f}
         if scope:
             if mk not in CTX_MODS:
-                unmod.append("technique %s passive %s scope %s: the engine reads %s without hit context, so it "
-                             "applies to every art" % (t["id"], key, scope, mk))
+                unmod.append("%s %s passive %s scope %s: the engine reads %s without hit context, so it "
+                             "applies to every art" % (what, t["id"], key, scope, mk))
             else:
                 for tag in scope:
                     if tag in ELEMENT_EN:
@@ -253,12 +270,13 @@ def passive_effect(t, unmod):
                     else:
                         m.setdefault("tags", []).append(tag)
         do.append({"mod": m})
-    return {"id": "tech:%s" % t["id"], "on": "always", "do": do} if do else None
+    return {"id": "%s:%s" % (prefix, t["id"]), "on": "always", "do": do} if do else None
 
 
 def expand_library(d):
     """Resolve {"lib": id} arts and "techniques" ids into plain build fields. Unknown ids are BadInput."""
-    if not any(isinstance(a, dict) and "lib" in a for a in d.get("arts", [])) and not d.get("techniques"):
+    if not any(isinstance(a, dict) and "lib" in a for a in d.get("arts", [])) and not d.get("techniques") \
+            and not d.get("items"):
         return d
     arts_lib, techs = _library()
     d = copy.deepcopy(d)
@@ -269,8 +287,8 @@ def expand_library(d):
         if isinstance(a, dict) and "lib" in a:
             src = arts_lib.get(a["lib"])
             if not src:
-                raise BadInput("arts: library art %r not found in design/arts/ (family-*.json, or part-*.json commons)"
-                               % a["lib"])
+                raise BadInput("arts: library art %r not found in design/arts/ (family-*.json, or part-*.json commons), "
+                               "design/items/common-arts.json or an item's arts" % a["lib"])
             x = {k: v for k, v in src.items() if k in LIB_ART_KEYS}
             x["id"] = src["id"]
             x.update({k: v for k, v in a.items() if k != "lib"})
@@ -295,6 +313,24 @@ def expand_library(d):
         e = passive_effect(t, unmod)
         if e:
             effects.append(e)
+    items = _LIB.get("items", {})
+    for iid in d.pop("items", []) or []:
+        it = items.get(iid)
+        if not it:
+            raise BadInput("items: %r not found in design/items/catalogue-*.json" % iid)
+        e = passive_effect(it, unmod, lines=it.get("modifiers", []), what="item", prefix="item")
+        if e:
+            effects.append(e)
+        for w in it.get("wards", []):
+            unmod.append("item %s ward %s (%s; %s): model the nearest drain ward in \"ward\"" % (iid, w["name"], w["payload"], w["payment"]))
+        for r in it.get("reserve_arts", []):
+            unmod.append("item %s reserve art %s reserves %d %% of linh luc (not deducted); its grants are not run"
+                         % (iid, r["name"], round(100 * r["reserve"])))
+        for ef in it.get("effects", []):
+            name = ef if isinstance(ef, str) else ef.get("name")
+            if not any(str(x.get("id", "")).startswith("eff:") and name.split(" (")[0].lower() in str(x.get("id")).lower()
+                       for x in effects):
+                unmod.append("item %s Effect %s: write it in \"effects\" (id \"eff:<name>\") to run it" % (iid, name))
     d["effects"], d["counters"], d["states"], d["unmodelled"] = effects, counters, states, unmod
     return d
 

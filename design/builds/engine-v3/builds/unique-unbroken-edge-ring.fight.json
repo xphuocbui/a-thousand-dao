@@ -1,0 +1,32 @@
+{
+  "name": "unique-unbroken-edge-ring", "realm": "ket_dan",
+  "layers": [112, 40, 40, 20, 10],
+  "n_body": 1.2, "n_qi": 1.1,
+  "purity": {"metal": 70},
+  "techniques": ["hunters-reach-canon", "afterimage-sword-canon", "hundred-blades-canon"],
+  "items": ["blade-unbroken-edge-ring", "blade-rain-calling-sword", "blade-tortoise-edge-armour", "metal-ring-of-returning-edge", "metal-whetstone-jade-pendant", "blade-twin-edge-sword", "blade-whetted-ring", "metal-iron-temper-ring"],
+  "arts": [
+    {"lib": "phantom-sword"},
+    {"lib": "flying-sword"},
+    {"lib": "triple-draw"},
+    {"lib": "blade-sword-rain"},
+    {"lib": "coiling-thrust"}
+  ],
+  "effects": [
+    {"id": "eff:Lingering Afterimage", "on": "pulse", "if": [{"read": "own.counter.afterimage", "op": ">=", "value": 0.05}],
+     "do": [{"counter": {"id": "afterimage", "add": 0.1}}]},
+    {"id": "eff:Lingering Afterimage (Coils)", "on": "pulse", "if": [{"read": "own.counter.coil", "op": ">=", "value": 0.05}],
+     "do": [{"counter": {"id": "coil", "add": 0.1}}]},
+    {"id": "eff:Lingering Afterimage (closes)", "on": "always", "do": [{"mod": {"basic_coef": -0.3}}]},
+    {"id": "eff:Edge Returns the Breath", "on": "crit", "filter": {"dtype": "phys"}, "do": [{"gain_qi": {"share": 0.008}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Lingering Afterimage is run as two pulse Effects that add back the 0.1 a pulse the engine's counter decay takes (Afterimage and Coil); the engine has no 'counter does not decay' verb",
+    "Unbroken Edge Aura reserve art (15 % linh luc reserved, sword arts crit 8 % more and 12 % faster): reserve not deducted, grants not run",
+    "Tortoise-Edge Shell ward (Physical 140.4, cast): the engine takes only drain wards; the build keeps the typical ward",
+    "Iron Skin Renewed (armour) and Opening Cut (Twin-Edge sword): not written, the build does not rely on them",
+    "Twin-Edge Return art (Twin-Edge sword) not slotted: art slots full",
+    "Sword scope of item modifiers on crit chance, crit damage and art speed: art speed applies to every art, and Coiling Thrust (a spear art) gets the sword attack and crit too"
+  ]
+}

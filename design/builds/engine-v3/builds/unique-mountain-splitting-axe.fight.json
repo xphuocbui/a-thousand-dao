@@ -1,0 +1,25 @@
+{
+  "name": "unique-mountain-splitting-axe", "realm": "ket_dan",
+  "layers": [112, 40, 40, 20, 10],
+  "n_body": 1.2, "n_qi": 1.1,
+  "purity": {"earth": 80},
+  "techniques": ["mountain-heart-canon", "mountain-bone-body-art", "unbroken-flesh-canon"],
+  "items": ["body-mountain-splitting-axe", "body-mountain-hide-armour", "body-iron-skin-ring", "body-tempered-marrow-ring", "body-stone-marrow-pendant", "body-mountain-gate-shield", "earth-clay-seal-ring"],
+  "arts": [
+    {"lib": "body-splitting-the-mountain"},
+    {"lib": "mountain-root-stance"},
+    {"lib": "bulwark-knuckle"},
+    {"lib": "bastion-reprisal"},
+    {"lib": "sinking-weight"}
+  ],
+  "effects": [
+    {"id": "eff:Blood Drinker", "on": "hit_landed", "do": [{"heal": {"of": "amount", "share": 0.06}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Iron Skin Renewed (body-iron-skin-ring): not written, the build does not rely on it",
+    "Vajra-style and Mountain-Hide cast wards, Mountain-Gate cast shield: engine takes only drain wards, the build keeps the typical ward",
+    "Stone-Marrow Aura reserve art (body shields +10 %, block +10): reserve not deducted, grants not run",
+    "Blood Drinker written as 6 % of each hit healed (the catalogue gives only its name)"
+  ]
+}

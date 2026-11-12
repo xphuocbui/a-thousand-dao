@@ -1,0 +1,27 @@
+{
+  "name": "unique-mountain-pressing-seal", "realm": "ket_dan",
+  "layers": [112, 40, 40, 20, 10],
+  "crit": {"chance": 0.15, "mult": 1.7},
+  "n_body": 1.2, "n_qi": 1.1,
+  "art_speed_pct": 0, "art_cost_pct": 0,
+  "regen_bonus_pp": 0.3,
+  "purity": {"earth": 65},
+  "techniques": ["mountain-heart-canon", "deep-vein-scripture", "mountain-bone-body-art"],
+  "items": ["earth-mountain-pressing-seal", "earth-boulder-ring-mail", "earth-clay-seal-ring", "body-iron-skin-ring", "earth-stone-debt-necklace", "earth-mountain-mooring-anchor", "body-mountain-gate-shield"],
+  "arts": [
+    {"lib": "quarry-offering"},
+    {"lib": "millstone-palm"},
+    {"lib": "stone-warden-call"},
+    {"lib": "sinking-weight"},
+    {"lib": "earth-mountain-presses-sky"}
+  ],
+  "effects": [
+    {"id": "eff:Debt of Stone", "on": "art_fired", "filter": {"art_id": "quarry-offering"}, "do": [{"stacks": {"el": "earth", "n": 3, "for": 15, "side": "own"}}]}
+  ],
+  "enemy": "typical",
+  "unmodelled": [
+    "Iron Skin Renewed (Boulder-Ring Mail, Ring of Renewed Iron Skin): not written, the build does not rely on it",
+    "Mooring Drop (Mountain-Mooring Anchor art): art slots full, the anchor sits in an extra slot for its modifiers only",
+    "Mountain-Gate Ward and Boulder Shell wards: cast wards, the engine takes only drain wards; the build keeps the typical ward"
+  ]
+}

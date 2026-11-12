@@ -1,0 +1,45 @@
+{
+  "name": "armoury-mind", "realm": "nguyen_anh",
+  "items": ["metal-hundred-edge-flying-sword", "metal-tortoise-scale-armour", "metal-ring-of-returning-edge",
+            "metal-iron-temper-ring", "metal-whetstone-jade-pendant", "metal-woodsplitter-axe",
+            "metal-blood-seasoned-whetstone"],
+  "layers": [266, 265, 250, 130, 0],
+  "purity": {"metal": 95},
+  "ward": {"model": "drain", "drain_base": 0.328, "ws_base": 83, "we": 83},
+  "techniques": ["nine-temper-scripture", "hundred-blades-canon", "iron-hide-manual"],
+  "arts": [
+    {"lib": "shatter-edge-cleave"},
+    {"lib": "sundering-wedge"},
+    {"lib": "metal-hundred-edge-flight"},
+    {"lib": "whetstone-pass"},
+    {"lib": "metal-splitting-chop"},
+    {"lib": "blood-quench-blade"}
+  ],
+  "effects": [
+    {"id": "garrison-mind", "on": "pulse", "limit": {"per_pulse": 6},
+     "do": [{"free_hit": {"c": 0.1, "dtype": "physical"}}, {"free_hit": {"c": 0.1, "dtype": "physical"}},
+            {"free_hit": {"c": 0.1, "dtype": "physical"}}, {"free_hit": {"c": 0.1, "dtype": "physical"}},
+            {"stacks": {"el": "metal", "n": 4, "for": 6, "side": "foe"}}]},
+    {"id": "full-rack", "on": "always", "do": [{"mod": {"L5": 40}}]},
+    {"id": "opened-seams", "on": "always", "if": [{"read": "foe.debuff.metal", "op": ">=", "value": 1}],
+     "do": [{"mod": {"L5": 15}}]},
+    {"id": "steady-breath", "on": "always", "if": [{"read": "own.qi_share", "op": ">=", "value": 0.5}],
+     "do": [{"mod": {"L5": 12}}]},
+    {"id": "humming-shields", "on": "pulse", "do": [{"gain_qi": {"share": 0.006}}]},
+    {"id": "iron-skin-renewed", "on": "art_fired", "filter": {"dtype": "physical"}, "limit": {"per_pulse": 1},
+     "do": [{"shield": {"body": 0.02}}]},
+    {"id": "eff:Edge Returns the Breath", "on": "crit", "filter": {"dtype": "physical"},
+     "do": [{"gain_qi": {"share": 0.008}}]}
+  ],
+  "unmodelled": [
+    "Edge Past the Rack (L3 surplus 150 -> Physical penetration): needs a layer-total readable and a penetration mod key",
+    "Thinned Mind close (soul defence = free + half bound divine sense): no engine action",
+    "Steady Breath is scoped to Metal arts in the guide; here it lifts L5 for every hit",
+    "Piece-count reads (Garrison Mind per weapon, Full Rack past the third, Humming per ward piece) are written as fixed 4 weapons, +40 and 2 ward pieces",
+    "Gear layer L3, wards and body come from the guide's arithmetic, not an old fight file (none existed)",
+    "Item Marked Prey (metal-woodsplitter-axe): rule not read, not written as an engine Effect",
+    "Items Whetstone Vow and Blood Casting (metal-blood-seasoned-whetstone): rules not read, not written",
+    "Item Iron Skin Renewed (metal-tortoise-scale-armour): the build already runs it as iron-skin-renewed",
+    "Tortoise-Scale Shell ward (cast, Physical 105.3): not a drain ward and not clearly above the build's ward, so the build's ward is kept"
+  ]
+}
