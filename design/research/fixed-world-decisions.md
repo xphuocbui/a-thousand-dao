@@ -20,13 +20,36 @@ not from coastlines.
 | History before the game starts | Fully authored, the same every game |
 | Player start | Set by the chosen origin; each origin has a few home regions |
 
-## Map art direction (follows from the decision)
+## Map art direction (decided 2026-11-13)
 
-- One painted continent (AI-assisted, hand-finished) with no cities, roads, labels or borders baked in.
-- Grid data (120 × 80) is derived from painted index images (biome, elevation, moisture), not noise.
-- Dynamic things are sprites and overlays: sites, cities, territory, qi mist, the knowledge mask, scars.
-- No permanent visible grid; show the tile under the cursor, routes and search areas when needed.
+Two map views, each made the way it suits best:
+
+- **Overview (zoomed out): an AI-generated painting** of the whole continent, about 3–4k px. It shows the
+  large geography (mountain ranges, jungles, coasts, rivers), the famous places, cities and sects, and the
+  political map.
+- **Zoomed-in view: rendered.** A ground shader draws the land from the index images, and stamps (mountains,
+  forests, towns) are placed by rules, then hand-fixed in an editor. This view shows the detailed geography
+  and the tiles, which carry the map elements and their info.
+
+Rules that keep the two views consistent:
+
+- Grid data (120 × 80) comes from authored index images (biome, elevation, moisture), not noise. Both
+  views are built from them.
+- The painting follows the layout: the index images (or a rough render of them) are the guide image for
+  the AI, so the coasts, ranges and rivers line up with the tiles. It is generated late, once the geography
+  settles; until then a plain render of the overview stands in.
+- Only permanent landmarks are painted in. Political borders, cities, sects and markers are overlays on the
+  painting, so territory changes and discoveries show.
+- At the zoom threshold the two views crossfade. They share a palette (biome colours sampled from the
+  painting feed the ground shader) and one paper texture.
+- In the zoomed-in view, dynamic things are sprites and overlays: sites, cities, territory, qi mist, the
+  knowledge mask and scars. There is no permanent visible grid; the tile under the cursor, routes and search
+  areas show when needed.
 - Art style still to be picked from `prototypes/map-style-demos`.
+
+**Open:** how much of the overview a character knows. Proposed: broad geography and famous places shown to
+everyone, with the knowledge mask applied only in the zoomed-in view. This changes Travel & Map rule 14
+(a character starts knowing only their birth region and the main roads), so it waits on the user.
 
 ## What this changes (to do, section by section with the user)
 
