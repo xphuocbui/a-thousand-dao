@@ -259,8 +259,8 @@ names rather than a place.
     - **Layer 1, home works** (rule 32): a character's own improvements to their home, for themselves alone.
 
     Each layer adds to the one below, inside its own cap. The full stack has an overall cap on density (in Formulas).
-    The element match has none (user decision 2026-11-13), only each layer's own limit and the settled-home cap
-    (rule 34). The stat block shows each layer as its own line (Pillar 2), so a cultivator
+    The element match has none (user decision 2026-11-13), only each layer's own limit. The stat block shows each
+    layer as its own line (Pillar 2), so a cultivator
     always sees why a place is strong *for them*.
 
 **Layer 3: blessed lands and secrets**
@@ -317,10 +317,11 @@ names rather than a place.
 34. **Homes for rent or sale.** A city or a sect can rent out or sell residences on its developed ground. A rented or
     bought residence becomes the character's home, with the place's layers 4–2 and the residence's own furnishing (a
     fixed layer 1 home work that comes with it). Rent is paid each season; a purchase is paid once and the character
-    owns the residence, still inside the settlement. **A settled home is never as good as a cultivator's own developed
-    base or a blessed land:** homes inside settlements and sect grounds have their own lower caps (density 1.8, match
-    ×1.3), below a self-built base in the wilderness (density up to 3.0, match uncapped) and the blessed lands. The character may
-    add their own home works there, but the settled caps still apply. The holder sets prices and who may rent (Sects #26
+    owns the residence, still inside the settlement. **A settled home holds less qi than a cultivator's own developed
+    base or a blessed land:** homes inside settlements and sect grounds have a lower density cap (1.8, against 3.0 for a
+    self-built base in the wilderness). Their element match has no settled cap: it is as good as the land and works
+    under it (user decision 2026-11-13). The character may add their own home works there, but the density cap still
+    applies. The holder sets prices and who may rent (Sects #26
     for sect grounds).
 
 ### States and Transitions
@@ -467,7 +468,7 @@ The stacked_match formula is defined as:
 | D_cap | float | 3.0 | data file (`density_cap`) | Overall density cap |
 | Δs_{i,t}; cs_i | float | 0–100; 80 / 30 / 30 | calculated; data file | Share push on layer i; within 30 on layers 2 and 1, permanent 10 and upkept 20 |
 | m_i | float | 0.3 / 0.15 / 0.15 | data file (`match_cap_l3/l2/l1`) | Cap on each layer's match gain |
-| M_min | float | 0.8 | data file (`match_stack_min`) | Stack floor. The old cap `match_stack_max` (×1.6) is removed (user decision 2026-11-13); homes on settled ground keep `settled_match_cap` (Formulas M) |
+| M_min | float | 0.8 | data file (`match_stack_min`) | Stack floor. The old cap `match_stack_max` (×1.6) is removed (user decision 2026-11-13); the settled match cap is removed too; homes on settled ground keep only `settled_density_cap` (Formulas M) |
 
 **Output Range:** density 0.3–3.0 (today a secret realm at 2.2 with Tụ Linh at level 5 already reaches 2.95); match 0.8
 and up. The land has no ceiling, and layers 3–1 add at most 0.30 + 0.15 + 0.15 = 0.60 between them. A permanent
@@ -833,7 +834,7 @@ decision (Open Questions).
 
 The prebuilt_works formula is defined as: `ΔD2u_start[place] = prebuilt_density[kind]`, in place at game start and upkept by the holder
 
-The settled_caps formula is defined as: for a home inside a settlement or sect ground, `D ≤ settled_density_cap` and `M ≤ settled_match_cap` (replacing D_cap of B, and adding a match cap that B no longer has)
+The settled_caps formula is defined as: for a home inside a settlement or sect ground, `D ≤ settled_density_cap` (replacing D_cap of B). There is no settled match cap (user decision 2026-11-13)
 
 The rent formula is defined as: `rent_season = round(linh_thach_max[realm] · rent_frac · quality)`; `price = rent_season · buy_seasons`; `quality = D_residence / core_density_min`
 
@@ -841,13 +842,13 @@ The npc_home formula is defined as: settled with probability `npc_settled_share`
 
 The abode_cost formula is defined as: `abode_cost = round(linh_thach_max[realm] · abode_cost_frac)`, `abode_cost_frac` 0.05 *(guess)*, and opening takes one season (rule 8; user decision 2026-11-10). Example: 250 linh thạch at Core Formation.
 
-The furnishing formula is defined as: `ΔD1_furnish = furnish_per_grade · grade`, a fixed layer 1 work that comes with the residence, within the settled caps
+The furnishing formula is defined as: `ΔD1_furnish = furnish_per_grade · grade`, a fixed layer 1 work that comes with the residence, within the settled density cap
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | prebuilt_density | float | village 0.10, town 0.20, market 0.25, city 0.30, sect seat 0.40 | data file *(guess)* | Layer 2 upkept works at game start |
-| settled_density_cap, settled_match_cap | float | 1.8, 1.3 | data file *(guess)* | A settled home is never as good as an own base (density 3.0, match uncapped) or a blessed land |
+| settled_density_cap | float | 1.8 | data file *(guess)* | A settled home's density stays below an own base's (3.0) and a blessed land's. `settled_match_cap` (×1.3) is removed (user decision 2026-11-13) |
 | linh_thach_max | int | 80 / 600 / 5,000 / 40,000 / 300,000 | data file (`events_budgets.json`) | The renter's realm budget |
 | rent_frac, buy_seasons | float, int | 0.02, 40 | data file *(guess)* | Rent share and purchase multiple |
 | D_residence | float | 0.6–1.8 | calculated (B) | The residence's stacked density |
@@ -858,7 +859,7 @@ The furnishing formula is defined as: `ΔD1_furnish = furnish_per_grade · grade
 | furnish_per_grade | float | 0.05 | data file *(guess)* | Layer 1 density a residence's furnishing adds per grade |
 | grade_realm_min | int | grade 4 Core Formation, grade 5 Nascent Soul | data file *(guess)* | Least realm to rent or buy the top grades |
 
-**Output Range:** a settled home reaches at most density 1.8 and match ×1.3; rent 1.2–3.6 % of the realm budget a
+**Output Range:** a settled home reaches at most density 1.8, and its match is as good as its land and works; rent 1.2–3.6 % of the realm budget a
 season. A city at land density 1.0 sits at about 1.3 with its works, just short of Core Formation; a sect seat at 1.0
 reaches 1.4, so members can form their Core there. High-realm NPCs now sit on better ground, so they cultivate faster
 late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 and 3), which Realms' bot re-run measures.
@@ -869,7 +870,7 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 ## Edge Cases
 
 **Land and layers**
-- **If a stacked value passes its cap** (density 3.0, a settled cap, or any layer's own cap): it is clamped. The stat block
+- **If a stacked value passes its cap** (density 3.0, the settled density cap, or any layer's own cap): it is clamped. The stat block
   shows the clamp as its own line, so the lost part is visible.
 - **If a root has no element or variant the land holds** (an Ice root far from any glacier): its match is about ×1.0
   everywhere, not a penalty. The lows come only from high purity on land with none of its elements.
@@ -1473,8 +1474,9 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   Every ΔD3 is within the Formula B targets.
 - **AC-TM-115** [Logic] Formula M, prebuilt works. At land density 1.00, CITY stacks to 1.30 (Core Formation fails)
   and SEAT to **1.40** (passes). Village prebuilt is 0.10, town 0.20 and market 0.25.
-- **AC-TM-116** [Logic] Formula M, settled caps, rule 34. GIVEN a city residence whose stack reaches D 2.10 and M 1.45,
-  THEN it reads 1.80 and 1.30. The same stack at an own base in the wilderness reads 2.10 and 1.45.
+- **AC-TM-116** [Logic] Formula M, settled cap, rule 34. GIVEN a city residence whose stack reaches D 2.10 and M 1.45,
+  THEN it reads D 1.80 and M 1.45: only density is capped. The same stack at an own base in the wilderness reads 2.10
+  and 1.45.
 - **AC-TM-117** [Logic] Formula M, rent:
   - a Core Formation renter at D_residence 1.54 pays **110** a season, or **4,400** to buy;
   - Nascent Soul at 1.80 pays 1,029.
@@ -1485,10 +1487,10 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   - a player at FE renting grade 4 is refused, and at Core Formation is accepted;
   - grade 5 needs Nascent Soul.
 - **AC-TM-119** [Logic] Formula M, rule 34:
-  - a grade 3 furnishing adds +0.15 on layer 1, inside the settled caps;
+  - a grade 3 furnishing adds +0.15 on layer 1, inside the settled density cap;
   - rent bills each season;
   - a purchase bills once and is never billed again;
-  - the owner's own home works still obey the settled caps.
+  - the owner's own home works still obey the settled density cap.
 - **AC-TM-120** [Harness] Rule 33. GIVEN FX-TM-WORLD:
   - the settled share is 0.85 ±0.02;
   - every sect member lives at their seat;
@@ -1542,8 +1544,8 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   - no clamp line, since no cap binds (the old −0.094 stack-cap line is gone);
   - the character's own D and M.
 
-  `here` shows the same block. GIVEN the AC-TM-116 city residence, THEN the clamp lines read −0.30 on D and −0.15
-  on M.
+  `here` shows the same block. GIVEN the AC-TM-116 city residence, THEN a clamp line reads −0.30 on D, and there
+  is no clamp line on M.
 - **AC-TM-131** `route <place>`. GIVEN FX-TM-FE at TOWN, THEN the screenshot lists each route with seasons, danger,
   encounter chance and any teleport fee. Nothing starts before the confirm step. GIVEN ISL as the target for a Qi
   Refining character, THEN the refusal line is shown.
@@ -1593,4 +1595,3 @@ Blocked on other GDDs:
 | 11 | The Game UI map's art style (pixel/tile, parchment, ink-wash) and the game concept's "Ink and Ledger". The two-view split (painted overview, rendered zoomed-in view) is decided | art-director, user | `/art-bible` |
 | 12 | Every number marked *(guess)* is set by the bot run, map targets first. The signature pushes, feature strengths and reaches, and depth bonuses are set once the continent is painted | systems-designer, bot | Balance Harness run |
 | 13 | World Generation & History (#27) for the fixed world: the authored history's format, the candidate spots, the per-game rolls and the random NPCs placed into the authored history | user, narrative-director | #27 rework |
-| 14 | The settled match cap (×1.3) now binds for strong roots on their land alone: keep it, raise it, or let it scale | user | Before the map's numbers are approved |

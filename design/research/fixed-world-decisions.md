@@ -68,8 +68,9 @@ the rewrite is in the list below.
 - Depth also raises density and danger in biomes with a signature: the deep wild is richer and deadlier.
 - Special biomes are mild at their base (volcano Fire 45, Earth 40, Metal 15) and take their peaks from features.
 - The twelve features in Travel & Map rule 4 are kept.
-- The land match has no ceiling (the ×1.3 is gone); its 0.8 floor stays. The ×1.6 stack cap is removed too; per-layer
-  limits and the settled match cap (×1.3) stay.
+- The land match has no ceiling (the ×1.3 is gone); its 0.8 floor stays. The ×1.6 stack cap is removed too, and so is
+  the settled match cap for city and sect-ground homes (×1.3); only the per-layer limits and the settled density cap
+  (1.8) stay.
 
 ## What this changes
 
@@ -79,7 +80,7 @@ the rewrite is in the list below.
 - World Generation & History (#27): keeps random NPCs and their generated backgrounds, which fit
   inside the authored history; sects, territories, special characters and past events become
   authored data.
-- Still to do: the game concept's world-generation lines (pitch, feature 6, the anti-pillar, procedural systems,
-  MVP and Alpha scope).
+- **Done 2026-11-13:** the game concept's world-generation lines (pitch, feature 6, the session loop, the anti-pillar,
+  inspiration, technical challenges, procedural systems, risks, MVP and Alpha scope).
 - Other GDDs that mention world creation in passing: a wording check.
 - New authoring work: continent layout, secret candidate spots, an origins list with home regions.

@@ -3940,7 +3940,7 @@ constants:
       - design/gdd/canh-gioi.md
     value: 1.6
     unit: cultivation rate multiplier
-    notes: "Removed 2026-11-13: the match has no overall cap; per-layer limits and settled_match_cap remain (Travel & Map rule 27, Formulas B)."
+    notes: "Removed 2026-11-13: the match has no overall cap; per-layer limits remain; settled_match_cap was removed the same day (Travel & Map rule 27, Formulas B and M)."
     added: 2026-11-10
     revised: 2026-11-13
   - name: density_cap
