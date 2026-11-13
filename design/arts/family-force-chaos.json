@@ -36,7 +36,7 @@
 
 {"id": "hollow-husk-stance", "name": "Hollow Husk Stance (Không Xác Thế)", "element": "", "role": "utility", "tier": "authored", "power": "standalone", "group": "hollow-tide-scripture",
  "tags": ["force", "stance"], "cost_share": 0.02, "cooldown": 2, "kind": "elem", "c_art": 0.0,
- "states": [{"id": "hollow-husk", "mods": {"basic_coef": 0.8, "basic_speed": 30, "cost_red": -35}, "suppress": []}],
+ "states": [{"id": "hollow-husk", "mods": {"basic_coef": 0.8, "basic_speed": 30, "cost_red": -0.35}, "suppress": []}],
  "effects": [
   {"id": "husk-toggle", "on": "art_fired", "filter": {"art_id": "hollow-husk-stance"}, "do": [{"state": {"set": "hollow-husk", "toggle": true}}]},
   {"id": "husk-burn", "on": "hit_landed", "filter": {"kind": "basic"}, "if": [{"read": "own.state.hollow-husk", "op": ">=", "value": 1}],

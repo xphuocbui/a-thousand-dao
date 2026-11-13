@@ -16,7 +16,7 @@
   ],
   "effects": [
     {"id": "former-shapes", "on": "always", "do": [{"mod": {"L5": 20}}]},
-    {"id": "kindled-wound", "on": "always", "if": [{"read": "foe.status.burn", "op": ">=", "value": 1}], "do": [{"mod": {"L5": 15}}]},
+    {"id": "kindled-wound", "on": "always", "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 1}], "do": [{"mod": {"L5": 15}}]},
     {"id": "marked-prey", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 4}, "do": [{"mod": {"L5": 4}}]}
   ],
   "enemy": "typical",

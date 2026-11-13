@@ -98,8 +98,8 @@ looks like a strong build.
 - **Actions** (one verb each): `mod` (a stat for `for` seconds on an event, refreshed by a new firing unless
   `"stack": true`; live on `always`), `gain_qi` / `heal` (`share` of the max, or `"of": "amount"` of the event),
   `free_hit` (`c`, `dtype`; trigger budget and cap apply), `stacks` (`el`, `n`, `for`, `side`), `status` (`id`,
-  `stacks`, `dur`, `side`; ids from the Status Catalogue), `cleanse`, `timer` (`side` own or foe, `which` all,
-  others or longest, `by` seconds; foe delays fall off), `refund`, `counter`, `strip` (`n`, `el`, `steal`),
+  `stacks`, `dur`, `side`, `chance`; ids from the Status Catalogue), `cleanse`, `timer` (`side` own or foe, `which`
+  all, others, longest or next, `by` seconds, positive delays a foe; foe delays fall off), `refund`, `counter`, `strip` (`n`, `el`, `steal`),
   `consume` (`el`, `side`, `n`, `then`, `per`), `refuse_down`, `last_act` (`c`), `cull` (a health share),
   `shield` (`body` share), `self_hit`, `store_damage` (Internal Injury).
 - **Mod keys:** `L1`–`L5` (layer points), `crit`, `crit_mult`, `evade`, `acc` (pp), `art_speed`,
@@ -138,8 +138,8 @@ looks like a strong build.
 - **Items** (2026-11-12): `"items": ["<item id>"]` loads named items from `design/items/catalogue-*.json`: their plain
   modifiers as one always-on Effect `item:<id>` (`--without item:<id>` removes them; the item's art stays slotted),
   their arts as library arts (slot one with `{"lib": "<art id>"}`), and the weapon bases' common arts from
-  `design/items/common-arts.json`. Item wards are listed as UNMODELLED (model the nearest drain ward); write an item
-  Effect into `effects` with id `"eff:<English name>"` to run it. `design/items/INDEX.md` lists every item on one line.
+  `design/items/common-arts.json`. Item wards run as extra wards (below); item Effects run from the Effects library
+  (below), or from the build's own `"eff:<English name>"` records. `design/items/INDEX.md` lists every item on one line.
 - **Build stats from techniques and items** (2026-11-13). These lines change the build itself, so they are folded in
   at load instead of running as live modifiers: `khi_huyet_pct` and `linh_luc_pct` (summed, then the file's `n_body` /
   `n_qi` × (1 + sum / 100)), `body_shield_pct` (`body.shield` + pp / 100), `defense_pct` and `ward_efficiency_pct`
@@ -157,6 +157,37 @@ looks like a strong build.
   efficiency and take the free ward slots (`ward_slots_by_realm` 1 / 1 / 2 / 3 / 4 plus up to 2 from thần thức, less one
   for the main ward), then the free art slots; a ward with no slot is listed as UNMODELLED. A worn armour's ward
   (an item whose base is body_gear) takes its armour's own slot (Combat Defence & Healing rule 5, 2026-11-13); a
-  ward record of your own takes it with `"own_slot": true`. A per-hit ward meets no
-  ticks; a reserved ward holds its share through `reserved`; a cast ward fires on its cooldown and is up for its window.
-  Evade, status, soul and cleanse payloads are not run (listed).
+  ward record of your own takes it with `"own_slot": true`. A per-hit ward pays one fee per hit (all its parts) and
+  one per tick, which it then meets; a reserved ward holds its share through `reserved`; a cast ward fires on its cooldown and is up for its window.
+  Evade payloads (`"evade +14.4 pp"`) run while the ward is up (2026-11-13); status, soul and cleanse payloads are not
+  run (listed).
+
+- **Named Effects from the library** (2026-11-13): `tools/design/combat_sim/effects_library.json` holds an engine form
+  of every Effect the item catalogue names (its rule text beside it). A worn item's Effect is added from it unless the
+  build file writes its own `"eff:<English name>"` records, which win. An entry may also fold lines into the build
+  (`static`), reserve linh lực (`reserve`), define counters, or multiply by a count of worn items (`count`: by first
+  role, or by an art tag). Approximations and Effects the sim cannot run (escape, carried spirit stones) print as
+  UNMODELLED with the reason.
+- **Scoped reads** (2026-11-13): art speed, cost reduction and the soul multiplier read each art's own context
+  (`dtype`, `element`, `tags`), so a scoped `art_speed_pct`, `art_cost_pct` or `x_soul` speeds only the arts it names,
+  and the opening cooldown honours art speed too. An `elem` art meets a type filter as its element's usual type
+  (Combat Damage Types rule 3): Fire → fire, Ice and Water → cold, Thunder → lightning, Wind → force, Wood → chaos.
+- **Checked at load** (2026-11-13): a filter or mod with a `dtype` or `element` the engine never produces, a readable
+  naming an unknown element pile or status (`buff.moc`, `status.burn`), and a `cost_red` outside −1..1 (it is a share:
+  0.1 = 10 %) stop the run instead of silently doing nothing.
+- **More catalogue keys run** (2026-11-13): `status_duration_pct` (outgoing; scope `curse` allowed; curses still clamp),
+  `status_resist_pct` (Combat F: p = clamp(chance × (1 − resist), 5 %, 95 %), against guaranteed statuses too),
+  `healing_taken_pct` (floored at −50 %), `linh_luc_on_crit_pct`, `art_cost_health_pct` (linh lực pays cost ÷
+  (1 + X/100), health the rest point for point; as a build field too), `resist_pen_pct` (points off the part's
+  resistance, its type scope matching the final type), `pierce_pct` (Formulas H, capped at `pierce_cap` 0.75; as a
+  build field too), `stack_grant`. Out-of-fight keys (`khi_van`, `cultivation_speed_pct`, `artifact_slots` and others)
+  are skipped without a note.
+- **More vocabulary** (2026-11-13). Mod keys `status_dur`, `status_resist`, `heal_taken`, `qi_on_crit`, `art_cost_hp`,
+  `pen`, `pierce`, `stack_grant`, `blood_cast`, `shield_pays`, `hp_cost_red`, `heal_cap`, `unmoved`, `no_regen`,
+  `foe_soul_res`. Actions `burn_qi` (`of`, `share`: the foe loses linh lực), `emit` (`event`: raise another event, e.g.
+  a basic hit counting as an evade), `protect` (`el`, `for_first`, `swap_buff`: a cleanse skips your debuff batches),
+  `refresh` (`el`, `side`, `kind`, `hold`). `timer` takes `which: "next"` (least time left, the earlier slot on a tie:
+  the GDD's "next ready art"); `free_hit` takes `dtype: "same"`; `fire_art` takes `which: "longest"`. Events
+  `foe_ward_paid` (`amount`), `foe_cost_extra` (the cost a foe paid because of your Ice). Readables `curses`,
+  `ward_paid`, `buff_elements`, `state.any`; events now carry `share` on `heal_restored` and `overflow`,
+  `hp_paid_share` on `art_fired`, and the art's tags on `soul_hit`.

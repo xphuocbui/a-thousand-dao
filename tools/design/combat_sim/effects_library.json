@@ -1,0 +1,275 @@
+{
+  "_doc": "Engine forms of the Effects named Effects that items and techniques carry (design/items/catalogue-*.json, effects.md). fight.py adds an Effect's records when a build wears a piece naming it and the build file has not written its own 'eff:<Name>' records (a build's own version wins). Each entry: rule (the text it implements), records (engine Effects), optional static (lines folded into the build like item modifiers), reserve (share of linh luc reserved), count (compile-time multiplier: equipped items by role or by an art tag), approx (where the engine form is close but not exact), not_run (the rule needs a system the sim does not have). Units: dmg_more and cost_red are shares (0.15 = 15 %), L1-L5, crit, evade, healing, heal_taken and the other mods are points. Built 2026-11-13 from the hand-written forms in design/builds (harvested, conflicts resolved toward the rule text) plus new ones.",
+  "effects": {
+    "Armoury Count": {
+      "rule": "Your hits deal 4 % more for each equipped weapon-base artifact you carry. Closes: your wards are 15 % weaker.",
+      "count": {"role": "weapon"},
+      "records": [{"id": "eff:Armoury Count", "on": "always", "do": [{"mod": {"dmg_more": 0.04}}]}],
+      "static": [{"key": "defense_pct", "value": -15}]
+    },
+    "Backflow": {
+      "rule": "When you restore health with an art, you regain linh luc equal to 20 % of the health restored, at most 3 % of your maximum linh luc a pulse.",
+      "records": [{"id": "eff:Backflow", "on": "heal_restored", "limit": {"per_pulse": 1}, "do": [{"gain_qi": {"of": "amount", "share": 0.2}}]}],
+      "approx": "the 3 % a pulse cap is written as once a pulse; any heal counts, not only art heals"
+    },
+    "Beneath Notice": {
+      "rule": "Against an enemy of a higher realm, your escape is likelier.",
+      "not_run": "escape is not in the engine (deferred)"
+    },
+    "Blood Casting": {
+      "rule": "When your linh luc cannot pay for an art, you pay the shortfall in health, 1 for 1. Closes: healing taken -50 % for the fight.",
+      "records": [{"id": "eff:Blood Casting", "on": "always", "do": [{"mod": {"blood_cast": 1, "heal_taken": -50}}]}]
+    },
+    "Blood Drinker": {
+      "rule": "When your hit removes enemy health, you restore 6 % of what it dealt. Direct hits only, never ticks or trigger hits.",
+      "records": [
+        {"id": "eff:Blood Drinker", "on": "hit_landed", "filter": {"kind": "art"}, "do": [{"heal": {"of": "amount", "share": 0.06}}]},
+        {"id": "eff:Blood Drinker (basic)", "on": "hit_landed", "filter": {"kind": "basic"}, "do": [{"heal": {"of": "amount", "share": 0.06}}]}
+      ]
+    },
+    "Bought Fate": {
+      "rule": "Once a fight, a roll that goes against you (a crit you take, an evade that fails, an escape that fails) goes your way instead. Closes: each flip burns 5 % of carried spirit stones.",
+      "records": [{"id": "eff:Bought Fate", "on": "was_hit", "if": [{"read": "event.crit", "op": "==", "value": 1}], "limit": {"per_fight": 1}, "do": [{"heal": {"of": "amount", "share": 0.4}}]}],
+      "approx": "the first crit taken is half undone by healing back 40 % of it (a crit's extra share at the default 1.5x is a third); stones are not in the sim"
+    },
+    "Brimming Cup": {
+      "rule": "Linh luc lost to a full pool fills your Cup: you gain 1 Water buff stack for 8 s for every 5 % of maximum linh luc lost, at most 2 stacks a pulse.",
+      "records": [{"id": "eff:Brimming Cup", "on": "overflow", "scale": {"read": "event.share", "per": 0.05, "cap": 2}, "do": [{"stacks": {"el": "water", "n": 1, "for": 8, "side": "own"}}]}],
+      "approx": "each pulse's overflow counts on its own (a part under 5 % is lost, not carried)"
+    },
+    "Cold Feet": {
+      "rule": "Your escape art's first firing comes at cooldown_min.",
+      "not_run": "escape is not in the engine (deferred)"
+    },
+    "Debt of Stone": {
+      "rule": "When an art of yours is paid in health, you gain 1 Earth buff stack for 15 s for each 2 % of maximum health paid.",
+      "records": [{"id": "eff:Debt of Stone", "on": "art_fired", "scale": {"read": "event.hp_paid_share", "per": 0.02}, "do": [{"stacks": {"el": "earth", "n": 1, "for": 15, "side": "own"}}]}]
+    },
+    "Deep Freeze": {
+      "rule": "Each time your Ice stacks on a target cross a multiple of 10, that target's art with the least time left is delayed by 1 s, once every 2 pulses. Closes: your arts cost 10 % more linh luc.",
+      "records": [
+        {"id": "eff:Deep Freeze", "on": "status_applied", "filter": {"element": "ice"}, "if": [{"read": "foe.debuff.ice", "op": ">=", "value": 10}], "limit": {"cooldown": 2}, "do": [{"timer": {"side": "foe", "which": "next", "by": 1.0}}]},
+        {"id": "eff:Deep Freeze (closes)", "on": "always", "do": [{"mod": {"cost_red": -0.10}}]}
+      ],
+      "approx": "fires on any Ice grant at 10 or more stacks, once every 2 pulses, rather than exactly at each multiple of 10"
+    },
+    "Drumbeat": {
+      "rule": "Every fourth art you fire in a fight is a guaranteed crit, and each such crit gives you 1 Thunder buff stack. Closes: your other arts have 8 less crit chance.",
+      "records": [
+        {"id": "eff:Drumbeat", "on": "always", "if": [{"read": "own.counter.beat", "op": ">=", "value": 3}], "do": [{"mod": {"crit": 100}}]},
+        {"id": "eff:Drumbeat closes", "on": "always", "do": [{"mod": {"crit": -8}}]},
+        {"id": "eff:Drumbeat count", "on": "art_fired", "do": [{"counter": {"id": "beat", "add": 1}}]},
+        {"id": "eff:Drumbeat reset", "on": "art_fired", "if": [{"read": "own.counter.beat", "op": ">=", "value": 4}], "do": [{"counter": {"id": "beat", "add": -4}}, {"stacks": {"el": "thunder", "n": 1, "for": 8, "side": "own"}}]}
+      ],
+      "counters": [{"id": "beat"}],
+      "approx": "the Thunder stack lasts 8 s (the rule gives no length)"
+    },
+    "Echo": {
+      "rule": "When one of your arts lands a hit, it has a 25 % chance to strike again for free: c_trig 0.5, same tags, once per firing, inside the trigger budget.",
+      "records": [{"id": "eff:Echo", "on": "hit_landed", "filter": {"kind": "art"}, "chance": 0.25, "limit": {"per_pulse": 1}, "do": [{"free_hit": {"c": 0.5, "dtype": "same"}}]}],
+      "approx": "once per firing is written as once a pulse"
+    },
+    "Edge Returns the Breath": {
+      "rule": "Each crit with a Physical hit restores 0.8 % of your maximum linh luc. Closes: your non-Physical hits cannot crit.",
+      "records": [
+        {"id": "eff:Edge Returns the Breath", "on": "crit", "filter": {"dtype": "phys"}, "do": [{"gain_qi": {"share": 0.008}}]},
+        {"id": "eff:Edge Returns the Breath (closes)", "on": "always", "do": [{"mod": {"crit": -1000, "dtype": "fire"}}, {"mod": {"crit": -1000, "dtype": "cold"}}, {"mod": {"crit": -1000, "dtype": "lightning"}}, {"mod": {"crit": -1000, "dtype": "force"}}, {"mod": {"crit": -1000, "dtype": "chaos"}}, {"mod": {"crit": -1000, "dtype": "elem"}}]}
+      ]
+    },
+    "Embers Feed the Hearth": {
+      "rule": "Each Burn tick you deal returns linh luc equal to 0.4 % of your maximum, at most 2 ticks a pulse.",
+      "records": [{"id": "eff:Embers Feed the Hearth", "on": "tick_dealt", "filter": {"element": "fire"}, "limit": {"per_pulse": 2}, "do": [{"gain_qi": {"share": 0.004}}]}]
+    },
+    "Embers Never Die": {
+      "rule": "Your Burn on a target cannot be cleansed. A cleanse that would remove it removes the same number of your own Fire buff stacks instead. Closes: your own wards cannot cleanse you.",
+      "records": [{"id": "eff:Embers Never Die", "on": "fight_start", "do": [{"protect": {"el": "fire", "swap_buff": true}}]}],
+      "approx": "the closing is not run (no ward in the sim cleanses its wearer)"
+    },
+    "Fan the Pyre": {
+      "rule": "Each Fire hit you land refreshes the duration of every Burn batch you have on the target. Closes: your direct Fire hits deal 8 % less (softened from 15 %, user decision 2026-11-13).",
+      "records": [
+        {"id": "eff:Fan the Pyre", "on": "hit_landed", "filter": {"element": "fire"}, "do": [{"refresh": {"el": "fire", "side": "foe", "kind": "debuff"}}]},
+        {"id": "eff:Fan the Pyre (closes)", "on": "always", "do": [{"mod": {"dmg_more": -0.08, "element": "fire"}}]}
+      ]
+    },
+    "Final Clause": {
+      "rule": "Once a fight, as you go Down, your longest-cooldown art fires at no cost (ties to the earlier slot).",
+      "records": [{"id": "eff:Final Clause", "on": "down", "limit": {"per_fight": 1}, "do": [{"fire_art": {"which": "longest", "share": 1.0}}]}]
+    },
+    "First Stand": {
+      "rule": "At the start of a fight, your body shield is already raised to 30 % of your maximum health. It does not refill.",
+      "records": [{"id": "eff:First Stand", "on": "fight_start", "do": [{"shield": {"body": 0.30}}]}]
+    },
+    "Grave-Silk Shroud": {
+      "rule": "Corpse Rot is on the enemy from t = 0 without taking a slot. Closes: 15 % of maximum linh luc reserved for the fight.",
+      "records": [{"id": "eff:Grave-Silk Shroud", "on": "fight_start", "do": [{"status": {"id": "corpse_rot", "side": "foe", "stacks": 1}}]}],
+      "reserve": 0.15
+    },
+    "Gripping Root": {
+      "rule": "When your Physical Wood hit lands, the target's art with the least time left is delayed by 0.5 s, once per 2 s.",
+      "records": [{"id": "eff:Gripping Root", "on": "hit_landed", "filter": {"dtype": "phys", "element": "wood"}, "limit": {"cooldown": 2}, "do": [{"timer": {"side": "foe", "which": "next", "by": 0.5}}]}]
+    },
+    "Iron Skin Renewed": {
+      "rule": "When you fire an art with a Physical part, your body shield regains 2 % of maximum health, once a pulse.",
+      "records": [{"id": "eff:Iron Skin Renewed", "on": "art_fired", "filter": {"dtype": "phys"}, "limit": {"per_pulse": 1}, "do": [{"shield": {"body": 0.02}}]}]
+    },
+    "Kindled Wound": {
+      "rule": "Your Fire parts deal more to a target bearing your Burn: L5 +15, scope fire.",
+      "records": [{"id": "eff:Kindled Wound", "on": "always", "if": [{"read": "foe.debuff.fire", "op": ">=", "value": 1}], "do": [{"mod": {"L5": 15, "element": "fire"}}]}]
+    },
+    "Lamp-Lit Reading": {
+      "rule": "Each different status of yours on the target lowers its soul resistance by 3 points, to at most 5 statuses. Closes: your own soul resistance is 15 points lower.",
+      "records": [
+        {"id": "eff:Lamp-Lit Reading", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 5}, "do": [{"mod": {"foe_soul_res": -3}}]},
+        {"id": "eff:Lamp-Lit Reading (closes)", "on": "always", "do": [{"mod": {"soul_res": -15}}]}
+      ]
+    },
+    "Lightning Drinker": {
+      "rule": "When a Lightning part hits you, 20 % of the damage it deals after resistance returns as linh luc.",
+      "records": [{"id": "eff:Lightning Drinker", "on": "was_hit", "filter": {"dtype": "lightning"}, "do": [{"gain_qi": {"of": "amount", "share": 0.2}}]}]
+    },
+    "Lingering Afterimage": {
+      "rule": "Your Blade counters (Afterimages, Coils) do not decay. Closes: your basic attack deals 30 % less.",
+      "records": [{"id": "eff:Lingering Afterimage (closes)", "on": "always", "do": [{"mod": {"basic_coef": -0.3}}]}],
+      "approx": "counter decay belongs to the build's own counters; a build with Blade counters writes its no-decay records itself (see design/builds/engine-v3/builds)"
+    },
+    "Marked Prey": {
+      "rule": "Your hits deal more for each different status of yours on the target: L5 +4 each, cap +16.",
+      "records": [{"id": "eff:Marked Prey", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 4}, "do": [{"mod": {"L5": 4}}]}]
+    },
+    "Moss Ledger": {
+      "rule": "Poison stacks you lay cannot be cleansed for their first 4 s.",
+      "records": [{"id": "eff:Moss Ledger", "on": "fight_start", "do": [{"protect": {"el": "wood", "for_first": 4}}]}]
+    },
+    "Opening Cut": {
+      "rule": "When a Physical hit of yours crits, it applies one Bleed stack, once per hit.",
+      "records": [{"id": "eff:Opening Cut", "on": "crit", "filter": {"dtype": "phys"}, "do": [{"status": {"id": "bleed", "side": "foe", "stacks": 1}}]}]
+    },
+    "Owed Water": {
+      "rule": "When your linh luc falls to 20 % of maximum or below, you regain 15 % of your maximum linh luc over the next 5 s. Once every 20 s.",
+      "records": [{"id": "eff:Owed Water", "on": "pulse", "if": [{"read": "own.qi_share", "op": "<=", "value": 0.2}], "limit": {"cooldown": 20}, "do": [{"mod": {"regen": 0.03, "for": 5}}]}],
+      "approx": "checked once a pulse; +3 pp regeneration for 5 s (log-shaped like every regeneration bonus, so slightly under 15 %)"
+    },
+    "Pack Hunt": {
+      "rule": "Your companion's hits deal more to a target bearing any of your statuses: L5 +15, scope companion.",
+      "records": [{"id": "eff:Pack Hunt", "on": "always", "if": [{"read": "foe.distinct_statuses", "op": ">=", "value": 1}], "do": [{"mod": {"L5": 15, "kind": "companion"}}]}]
+    },
+    "Paid in Advance": {
+      "rule": "Your talismans cost no linh luc when they fire. Closes: you may slot only talismans, wards and the escape art.",
+      "records": [{"id": "eff:Paid in Advance", "on": "always", "do": [{"mod": {"cost_red": 0.95, "tags": ["talisman"]}}]}],
+      "approx": "cost reduction stops at the engine's 95 %; the slot rule is the build's to keep"
+    },
+    "Phantom Dodge": {
+      "rule": "Each basic attack of yours that lands counts as an evade for your arts' counters and held payloads, at most twice a pulse. Closes: you evade 10 pp less.",
+      "records": [
+        {"id": "eff:Phantom Dodge", "on": "hit_landed", "filter": {"kind": "basic"}, "limit": {"per_pulse": 2}, "do": [{"emit": {"event": "evaded"}}]},
+        {"id": "eff:Phantom Dodge cost", "on": "always", "do": [{"mod": {"evade": -10}}]}
+      ]
+    },
+    "Phoenix Mend": {
+      "rule": "When you restore health with an art, the enemy gains 1 Burn stack for each 1 % of your maximum health restored, at most 6 a pulse, at your Burn's values.",
+      "records": [{"id": "eff:Phoenix Mend", "on": "heal_restored", "scale": {"read": "event.share", "per": 0.01, "cap": 6}, "limit": {"per_pulse": 1}, "do": [{"stacks": {"el": "fire", "n": 1, "for": 6, "side": "foe"}}]}],
+      "approx": "any heal counts, not only art heals; Burn lasts 6 s"
+    },
+    "Planted Banner": {
+      "rule": "Your Earth parts deal 2 % more for every 4 Earth buff stacks you hold.",
+      "records": [{"id": "eff:Planted Banner", "on": "always", "scale": {"read": "own.buff.earth", "per": 4}, "do": [{"mod": {"dmg_more": 0.02, "element": "earth"}}]}]
+    },
+    "Plucked Time": {
+      "rule": "When one of your song arts lands a soul hit, the enemy's next ready art is delayed by 0.4 s, at most once a second. Closes: your arts that are neither soul nor song deal 15 % less.",
+      "records": [{"id": "eff:Plucked Time", "on": "soul_hit", "filter": {"tags": ["song"]}, "limit": {"cooldown": 1}, "do": [{"timer": {"side": "foe", "which": "next", "by": 0.4}}]}],
+      "approx": "the closing is not run (a filter cannot say 'neither soul nor song')"
+    },
+    "Rime Lock": {
+      "rule": "When your Ice stacks on a target reach 10, that target's art with the least time left is delayed by 1 s, once per 4 pulses per target.",
+      "records": [{"id": "eff:Rime Lock", "on": "status_applied", "filter": {"element": "ice"}, "if": [{"read": "foe.debuff.ice", "op": ">=", "value": 10}], "limit": {"cooldown": 4}, "do": [{"timer": {"side": "foe", "which": "next", "by": 1.0}}]}]
+    },
+    "Sap Rises": {
+      "rule": "Each Wood buff stack you hold adds 1 % healing, up to 20 %.",
+      "records": [{"id": "eff:Sap Rises", "on": "always", "scale": {"read": "own.buff.wood", "per": 1, "cap": 20}, "do": [{"mod": {"healing": 1}}]}]
+    },
+    "Scatter Gale": {
+      "rule": "When you evade, you cleanse your own debuff stacks, at most 2 batches every 6 s.",
+      "records": [{"id": "eff:Scatter Gale", "on": "evaded", "limit": {"cooldown": 6}, "do": [{"cleanse": {"n": 2}}]}],
+      "approx": "2 stacks, not 2 batches"
+    },
+    "Sea Already Deep": {
+      "rule": "You begin every fight with 8 Water buff stacks that last the whole fight. Closes: your arts cost 10 % more linh luc.",
+      "records": [
+        {"id": "eff:Sea Already Deep", "on": "fight_start", "do": [{"stacks": {"el": "water", "n": 8, "side": "own"}}]},
+        {"id": "eff:Sea Already Deep cost", "on": "always", "do": [{"mod": {"cost_red": -0.10}}]}
+      ]
+    },
+    "Seal of Full Payment": {
+      "rule": "Your arts and wards are paid in carried spirit stones.",
+      "not_run": "carried spirit stones are not in the sim"
+    },
+    "Shattering Ward": {
+      "rule": "When one of your shields breaks, it bursts against the enemy: free Force hit, c_trig 0.6, 1 a pulse, 3 a fight.",
+      "records": [{"id": "eff:Shattering Ward", "on": "shield_broken", "limit": {"per_pulse": 1, "per_fight": 3}, "do": [{"free_hit": {"c": 0.6, "dtype": "force"}}]}]
+    },
+    "Shield Pays the Blood": {
+      "rule": "Health that your arts would cost is paid from your body shield first, point for point; once the shield is gone, health pays again. Closes: your healing is 20 % weaker.",
+      "records": [{"id": "eff:Shield Pays the Blood", "on": "always", "do": [{"mod": {"shield_pays": 1, "healing": -20}}]}]
+    },
+    "Spillover": {
+      "rule": "Your ticks also burn the target's linh luc, 25 % of the damage each deals after resistance.",
+      "records": [{"id": "eff:Spillover", "on": "tick_dealt", "do": [{"burn_qi": {"of": "amount", "share": 0.25}}]}]
+    },
+    "Steady Breath": {
+      "rule": "While your linh luc is at 50 % or above, arts in this piece's scope deal more: L5 +12, scope set by the host.",
+      "records": [{"id": "eff:Steady Breath", "on": "always", "if": [{"read": "own.qi_share", "op": ">=", "value": 0.5}], "do": [{"mod": {"L5": 12}}]}],
+      "approx": "unscoped here; a build whose host sets a scope writes its own record"
+    },
+    "Stone Answers": {
+      "rule": "When your body shield or a ward stops damage, you strike back with a free Physical hit worth 25 % of the damage stopped, at most 6 % of your maximum health per pulse.",
+      "not_run": "a free hit sized by damage stopped needs a hit by amount, which the engine's free_hit (a coefficient) does not take"
+    },
+    "Sword Chorus": {
+      "rule": "Your sword artifact arts deal 6 % more for each other equipped artifact that gives you a sword art, with no cap. Closes: your arts that are not sword arts deal 15 % less.",
+      "count": {"art_tag": "sword", "minus": 1},
+      "records": [{"id": "eff:Sword Chorus", "on": "always", "do": [{"mod": {"dmg_more": 0.06, "tags": ["sword"]}}]}],
+      "approx": "applies to every sword art, not only artifact ones; the closing is not run (a filter cannot say 'not sword')"
+    },
+    "Toll Taker": {
+      "rule": "When the enemy pays art cost that your Ice stacks added, you restore linh luc equal to 10 % of that extra cost.",
+      "records": [{"id": "eff:Toll Taker", "on": "foe_cost_extra", "do": [{"gain_qi": {"of": "amount", "share": 0.10}}]}]
+    },
+    "Unmaking Glass": {
+      "rule": "Each hit you land strips 1 buff stack from the target, from its largest pile, at most once a pulse; each stack stripped counts as a status you landed. Closes: your own buff stacks last 25 % shorter.",
+      "records": [{"id": "eff:Unmaking Glass", "on": "hit_landed", "limit": {"per_pulse": 1}, "do": [{"strip": {"n": 1, "as_status": true}}]}],
+      "static": [{"key": "stack_duration_pct", "value": -25, "scope": ["buff"]}]
+    },
+    "Unmoved Stance": {
+      "rule": "The art-speed and basic-speed penalties of your stances do not apply to you. Closes: your evade is 0 while a stance is on.",
+      "records": [
+        {"id": "eff:Unmoved Stance", "on": "always", "do": [{"mod": {"unmoved": 1}}]},
+        {"id": "eff:Unmoved Stance (closes)", "on": "always", "if": [{"read": "own.state.any", "op": ">=", "value": 1}], "do": [{"mod": {"evade": -1000}}]}
+      ]
+    },
+    "Verdict Stands": {
+      "rule": "Your Thunder debuff stacks on a Slowed target cannot expire. Closes: Thunder stacks you lay on a foe that is not Slowed last 25 % shorter.",
+      "records": [{"id": "eff:Verdict Stands", "on": "status_applied", "if": [{"read": "foe.status.slowed_time", "op": ">=", "value": 1}], "do": [{"refresh": {"el": "thunder", "side": "foe", "kind": "debuff", "hold": true}}]}],
+      "approx": "held from the first status landed while Slowed; the closing is not run"
+    },
+    "Water Table": {
+      "rule": "You gain 30 % of the linh luc the enemy's drain wards pay against your hits. Closes: your linh luc never regenerates in fights.",
+      "records": [
+        {"id": "eff:Water Table", "on": "foe_ward_paid", "do": [{"gain_qi": {"of": "amount", "share": 0.3}}]},
+        {"id": "eff:Water Table (closes)", "on": "always", "do": [{"mod": {"no_regen": 1}}]}
+      ]
+    },
+    "Wheel in the Flag": {
+      "rule": "Your arts deal 5 % more for each element whose buff stacks you hold, up to five elements.",
+      "records": [{"id": "eff:Wheel in the Flag", "on": "always", "scale": {"read": "own.buff_elements", "per": 1, "cap": 5}, "do": [{"mod": {"dmg_more": 0.05, "kind": "art"}}]}]
+    },
+    "Whetstone Vow": {
+      "rule": "Art costs you pay in health are halved. Closes: you can never heal above 80 % of your maximum health.",
+      "records": [{"id": "eff:Whetstone Vow", "on": "always", "do": [{"mod": {"hp_cost_red": 0.5, "heal_cap": 0.8}}]}]
+    },
+    "Wind at Your Back": {
+      "rule": "When you evade, you gain 1 Wind buff stack for 4 s, at most 2 a pulse.",
+      "records": [{"id": "eff:Wind at Your Back", "on": "evaded", "limit": {"per_pulse": 2}, "do": [{"stacks": {"el": "wind", "n": 1, "for": 4, "side": "own"}}]}]
+    }
+  }
+}

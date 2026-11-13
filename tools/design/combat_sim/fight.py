@@ -164,7 +164,7 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct",
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
             "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques", "items", "reserved",
-            "stack_eff", "stack_dur", "wards"}
+            "stack_eff", "stack_dur", "wards", "pierce_pct"}
 WARD_KEYS = {"model", "payload", "drain_base", "ws_base", "we", "layers", "block"}
 BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
@@ -212,12 +212,23 @@ PASSIVE_MOD = {"attack_pct": ("L1", 1), "damage_more": ("L2", 1), "crit_chance_p
                "art_speed_pct": ("art_speed", 1), "basic_speed_pct": ("basic_speed", 1),
                "opening_haste_pct": ("opening_haste", 1), "art_cost_pct": ("cost_red", -0.01),
                "linh_luc_regen_pct": ("regen", 0.01), "linh_luc_regen_inc_pct": ("regen", 0.00035),
-               "health_regen_pct": ("hregen", 0.01), "healing_pct": ("healing", 1),
+               "health_regen_pct": ("hregen", 0.01), "health_regen_inc_pct": ("hregen_inc", 1), "healing_pct": ("healing", 1),
                "leech_health_pct": ("leech_hp", 1), "leech_linh_luc_pct": ("leech_qi", 1),
                "linh_luc_on_hit_pct": ("gain_on_hit", 1), "resist_pct": ("resist", 1), "block_rating": ("block", 1),
                "soul_res_pct": ("soul_res", 1), "x_soul": ("x_soul", 1), "timer_resist_pct": ("timer_resist", 1),
-               "ward_bill_pct": ("ward_bill", 1), "basic_coef_add": ("basic_coef", 1)}
-CTX_MODS = {"L1", "L2", "L3", "L4", "L5", "crit", "crit_mult", "dmg_more", "bypass", "resist"}
+               "ward_bill_pct": ("ward_bill", 1), "basic_coef_add": ("basic_coef", 1),
+               # 2026-11-13: the rest of the combat catalogue keys the builds use
+               "status_duration_pct": ("status_dur", 1), "status_resist_pct": ("status_resist", 1),
+               "healing_taken_pct": ("heal_taken", 1), "linh_luc_on_crit_pct": ("qi_on_crit", 1),
+               "art_cost_health_pct": ("art_cost_hp", 1), "resist_pen_pct": ("pen", 1), "pierce_pct": ("pierce", 1),
+               "stack_grant": ("stack_grant", 1)}
+# Character keys with no part in a fight (cultivation, luck, toxicity, slot count): skipped without a gap note.
+OUT_OF_FIGHT = {"khi_van", "cultivation_speed_pct", "dan_doc_resist_pct", "tam_ma_resist_pct", "artifact_slots",
+                "co_duyen_pct", "lifespan_pct", "mission_income_pct", "herb_growth_pct", "alchemy_success",
+                "refining_success", "travel_speed_pct"}
+# art_speed, cost_red and x_soul are read per art (engine.art_ctx) since 2026-11-13, so their scopes hold
+CTX_MODS = {"L1", "L2", "L3", "L4", "L5", "crit", "crit_mult", "dmg_more", "bypass", "resist", "art_speed", "cost_red", "x_soul",
+            "status_dur", "status_resist", "qi_on_crit", "art_cost_hp", "pen", "stack_grant"}
 # Stats that change the build itself rather than a live modifier (2026-11-13): pools, body shield, ward strength and
 # efficiency, divine sense, stack effect and duration. apply_static() folds them into the build file before loading.
 STATIC = {"khi_huyet_pct", "linh_luc_pct", "body_shield_pct", "defense_pct", "ward_efficiency_pct", "than_thuc_pct",
@@ -225,6 +236,59 @@ STATIC = {"khi_huyet_pct", "linh_luc_pct", "body_shield_pct", "defense_pct", "wa
 EL_ID = {"hoa": "fire", "thuy": "water", "tho": "earth", "kim": "metal", "moc": "wood", "bang": "ice", "loi": "thunder",
          "phong": "wind"}
 _LIB = {}
+_EFFLIB = {}
+
+
+def effects_library():
+    """tools/design/combat_sim/effects_library.json: engine forms of named Effects, by short name (2026-11-13)."""
+    if not _EFFLIB:
+        path = os.path.join(HERE, "effects_library.json")
+        if os.path.exists(path):
+            _EFFLIB.update(json.load(open(path, encoding="utf-8"))["effects"])
+    return _EFFLIB
+
+
+def _lib_count(spec, worn):
+    """The compile-time multiplier of a library Effect: worn items by first role, or by an art tag (less `minus`)."""
+    items, bases = _LIB.get("items", {}), _LIB.get("bases", {})
+    if "role" in spec:
+        n = sum(1 for iid in worn if (bases.get(items.get(iid, {}).get("base"), {}).get("roles") or [None])[0] == spec["role"])
+    else:
+        n = sum(1 for iid in worn if any(spec["art_tag"] in a.get("tags", []) for a in items.get(iid, {}).get("arts", [])))
+    return max(0, n - spec.get("minus", 0))
+
+
+def add_library_effect(name, d, effects, counters, unmod, who, worn):
+    """Add a named Effect's library form to a build being expanded. Returns False when the library has no entry."""
+    lib = effects_library().get(name)
+    if lib is None:
+        return False
+    if lib.get("not_run"):
+        unmod.append("%s Effect %s: not run (%s)" % (who, name, lib["not_run"]))
+        return True
+    n = _lib_count(lib["count"], worn) if lib.get("count") else 1
+    have = {e.get("id") for e in effects}
+    for r in lib.get("records", []):
+        if r["id"] in have:
+            continue
+        r = copy.deepcopy(r)
+        if n != 1:
+            for a in r.get("do", []):
+                if "mod" in a:
+                    a["mod"] = {k: (v * n if k in engine.MOD_KEYS else v) for k, v in a["mod"].items()}
+        if n > 0:
+            effects.append(r)
+    have_c = {c.get("id") for c in counters}
+    for c in lib.get("counters", []):
+        if c["id"] not in have_c:
+            counters.append(c)
+    if lib.get("static"):
+        apply_static(d, lib["static"], "%s Effect %s" % (who, name), unmod)
+    if lib.get("reserve"):
+        d["reserved"] = d.get("reserved", 0.0) + lib["reserve"]
+    if lib.get("approx"):
+        unmod.append("%s Effect %s: run from the library, approximately (%s)" % (who, name, lib["approx"]))
+    return True
 
 
 def _library():
@@ -263,8 +327,8 @@ def passive_effect(t, unmod, lines=None, what="technique", prefix="tech"):
     do = []
     for p in (t.get("passives", []) if lines is None else lines):
         key, val, scope = p["key"], p["value"], list(p.get("scope", []))
-        if key in STATIC:
-            continue                      # folded into the build by apply_static()
+        if key in STATIC or key in OUT_OF_FIGHT:
+            continue                      # folded into the build by apply_static(), or no part in a fight
         if key not in PASSIVE_MOD:
             unmod.append("%s %s passive %s %+g %s: no engine stat (not run)" % (what, t["id"], key, val, scope or ""))
             continue
@@ -280,6 +344,8 @@ def passive_effect(t, unmod, lines=None, what="technique", prefix="tech"):
                         m["element"] = ELEMENT_EN[tag]
                     elif tag in DTYPE_TAG:
                         m["dtype"] = DTYPE_TAG[tag]
+                    elif tag in ("buff", "debuff") and mk == "stack_grant":
+                        m["kind"] = tag
                     else:
                         m.setdefault("tags", []).append(tag)
         do.append({"mod": m})
@@ -370,6 +436,8 @@ def expand_library(d):
         if e:
             effects.append(e)
     items = _LIB.get("items", {})
+    worn = list(d.get("items", []) or [])
+    lib_done = set()
     for iid in d.pop("items", []) or []:
         it = items.get(iid)
         if not it:
@@ -393,9 +461,16 @@ def expand_library(d):
                              "written in \"effects\"" % (iid, r["name"], round(100 * r["reserve"]), r.get("rule", "")[:60]))
         for ef in it.get("effects", []):
             name = ef if isinstance(ef, str) else ef.get("name")
-            if not any(str(x.get("id", "")).startswith("eff:") and name.split(" (")[0].lower() in str(x.get("id")).lower()
-                       for x in effects):
-                unmod.append("item %s Effect %s: write it in \"effects\" (id \"eff:<name>\") to run it" % (iid, name))
+            short = name.split(" (")[0]
+            if any(str(x.get("id", "")).startswith("eff:") and short.lower() in str(x.get("id")).lower()
+                   for x in d.get("effects", [])):
+                continue                          # the build file wrote its own form: it wins
+            if short in lib_done:
+                continue
+            lib_done.add(short)
+            if not add_library_effect(short, d, effects, counters, unmod, "item %s" % iid, worn):
+                unmod.append("item %s Effect %s: not in effects_library.json; write it in \"effects\" (id "
+                             "\"eff:<name>\") to run it" % (iid, name))
     d["effects"], d["counters"], d["states"], d["unmodelled"] = effects, counters, states, unmod
     d.pop("_pool_pct", None)
     return d
@@ -457,6 +532,10 @@ def parse_ward(w):
         if m:
             out["block"] = float(m.group(1))
             continue
+        m = _re.match(r"(?i)^evade\s*\+?\s*([\d.]+)\s*pp", part)
+        if m:                                   # an evade payload: evade points while the ward is up (2026-11-13)
+            out["evade"] = float(m.group(1))
+            continue
         skip.append("payload %r" % part)
     m = _re.match(r"(?i)^\s*(drain|per hit|reserved|cast)\s+([\d.]+)", str(w.get("payment", "")))
     if not m:
@@ -477,7 +556,7 @@ def parse_ward(w):
         out["model"] = "cast"
         out["cooldown"] = float(cd.group(1)) if cd else 5.0
         out["up"] = float(up.group(1)) if up else 3.0
-    if not out["payload"] and not out.get("shield") and not out.get("block"):
+    if not out["payload"] and not out.get("shield") and not out.get("block") and not out.get("evade"):
         return None, skip or ["no payload the engine runs"]
     return out, skip
 
@@ -554,11 +633,10 @@ def to_build(d, r, notes, who):
         kw["cost_red"] = min(0.5, d["art_cost_pct"] / 100)
         if d["art_cost_pct"] > 50:
             notes.append("cap_hit\t%s\tart cost reduction %.0f %% over 50 %%" % (who, d["art_cost_pct"]))
-    if d.get("art_cost_health_pct", 0) > 0:
-        X = d["art_cost_health_pct"]
-        kw["hp_pay"] = X / (100 + X)
-        notes.append("model_note\t%s\tart_cost_health_pct: the simulator converts the health share by the "
-                     "pool ratio, the GDD point for point (Combat Formulas E)" % who)
+    # art_cost_health_pct and pierce_pct as build fields run through the same mods as the catalogue keys: health
+    # pays point for point (Combat Formulas E; 2026-11-13, was the pool-ratio hp_pay), pierce by Formulas H
+    top_fx = [{"mod": {k: d[f]}} for f, k in (("art_cost_health_pct", "art_cost_hp"), ("pierce_pct", "pierce"))
+              if d.get(f, 0)]
     ward = d.get("ward", {})
     check_keys(ward, WARD_KEYS, who + ".ward")
     kw.update(ward_fields(ward, r, notes, who))
@@ -651,7 +729,8 @@ def to_build(d, r, notes, who):
         ea.empower = list(a.get("empower", []))
         if ea.soul_pct:
             ea.c = 0.0
-    eb.effects = eb.effects + list(d.get("effects", []))
+    eb.effects = eb.effects + list(d.get("effects", [])) + (
+        [{"id": "build-fields", "on": "always", "do": top_fx}] if top_fx else [])
     eb.counters = list(d.get("counters", []))
     eb.companions = list(d.get("companions", []))
     eb.shields = [engine.Shield(**sh) for sh in d.get("shields", [])]
@@ -733,13 +812,15 @@ def run(build, enemy, seeds):
         return ("%.1f" % (sum(v) / len(v))) if len(v) > n / 2 else "never"
     fires = [sum(x["A"].fired[i] for x in res) / n for i in range(len(build.arts))]
     hp_left = sum(max(0.0, x["A"].hp) / x["A"].hp_max for x in res) / n
-    clipped = {}
+    clipped, steps = {}, {}
     for x in res:
         for k, v in x["A"].clipped.items():
             clipped[k] = clipped.get(k, 0) + v
+        for k, v in getattr(x["A"], "engine_counts", {}).items():   # step unlocks and empowers (2026-11-13)
+            steps[k] = steps.get(k, 0) + v
     return dict(t=t, win=win, loss=loss, other=other, dry_a=dry("A"), dry_b=dry("B"), fires=fires,
                 hp_left=hp_left, fat=sum(x["A"].fat for x in res) / n,
-                clipped={k: v / n for k, v in clipped.items()})
+                clipped={k: v / n for k, v in clipped.items()}, steps={k: v / n for k, v in steps.items()})
 
 
 def print_row(label, out, build):
@@ -749,6 +830,8 @@ def print_row(label, out, build):
         print("clipped	%s	%s	%.1f per fight" % (label, k, v))
     for a, f in zip(build.arts, out["fires"]):
         print("fires\t%s\t%s\t%.1f per fight%s" % (label, a.name, f, "\tNEVER_FIRED" if f == 0 else ""))
+    for (ev, art), v in sorted(out.get("steps", {}).items()):
+        print("%s\t%s\t%s\t%.1f per fight" % ("steps" if ev == "step_unlocked" else "empowers", label, art, v))
 
 
 def matchups(args, d, r):
@@ -970,8 +1053,9 @@ def main():
         if r > 0:
             print("model_note\tenemies are exact at Qi Refining and fitted at %s (Combat Formulas B: re-derive)"
                   % REALMS[r])
-        print("model_note\tnot modelled by the engine: escape, ward payment models other than drain, companion "
-              "targets (shield, heal, Down), boss phases and telegraphs; everything else runs as Effects (engine.py)")
+        print("model_note\tnot modelled by the engine: escape, a main ward paid other than by drain (extra wards run "
+              "every model), companion targets (shield, heal, Down), boss phases and telegraphs, carried spirit "
+              "stones; everything else runs as Effects (engine.py, effects_library.json)")
         for u in d.get("unmodelled", []):
             print("UNMODELLED\t%s" % u)
     except BadInput as e:

@@ -27,7 +27,7 @@
     {"id": "eff:Sea Already Deep", "on": "fight_start",
      "do": [{"stacks": {"el": "water", "n": 8, "for": 600, "side": "own"}}]},
     {"id": "eff:Sea Already Deep cost", "on": "always",
-     "do": [{"mod": {"cost_red": -10}}]},
+     "do": [{"mod": {"cost_red": -0.10}}]},
     {"id": "eff:Steady Breath", "on": "always",
      "if": [{"read": "own.qi_share", "op": ">=", "value": 0.5}],
      "do": [{"mod": {"L5": 12}}]}

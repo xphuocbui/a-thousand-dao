@@ -30,7 +30,7 @@
     {"lib": "last-breath-fist"}
   ],
   "effects": [
-    {"id": "eff:Iron Skin Renewed", "on": "art_fired", "filter": {"dtype": "physical"}, "limit": {"per_pulse": 1},
+    {"id": "eff:Iron Skin Renewed", "on": "art_fired", "filter": {"dtype": "phys"}, "limit": {"per_pulse": 1},
      "do": [{"shield": {"body": 0.02}}]},
     {"id": "eff:Shattering Ward", "on": "shield_broken", "limit": {"per_pulse": 1, "per_fight": 3},
      "do": [{"free_hit": {"c": 0.6, "dtype": "force"}}]}

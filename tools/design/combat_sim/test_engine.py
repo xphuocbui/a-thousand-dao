@@ -374,8 +374,14 @@ def t_extra_wards():     # Combat Defence & Healing rules 5-8: drain, per-hit, r
     q0 = B.qi
     xs = f.extra_wards(B, "fire", False)
     check("per-hit ward: meets a Fire hit and pays its fee", len(xs) == 1 and abs(q0 - B.qi - 0.02 * B.qi_max()) < 1e-9)
-    check("per-hit ward: meets no Physical part and no tick",
-          f.extra_wards(B, "phys", False) == [] and f.extra_wards(B, "fire", True) == [])
+    q1 = B.qi
+    check("per-hit ward: a second part of the same hit pays no second fee (CD&H rule 6)",
+          len(f.extra_wards(B, "fire", False)) == 1 and B.qi == q1)
+    check("per-hit ward: meets no Physical part", f.extra_wards(B, "phys", False) == [])
+    f.hit_fees = set()                       # a new tick
+    q2 = B.qi
+    check("per-hit ward: a tick pays one fee and is met (CD&H rule 6: one fee per tick)",
+          len(f.extra_wards(B, "fire", True)) == 1 and abs(q2 - B.qi - 0.02 * B.qi_max()) < 1e-9)
     cast = {"id": "shell", "model": "cast", "payload": {"phys": 70.0}, "cost": 0.03, "cooldown": 5.0, "up": 2.0}
     f, A, B = setup(b=dummy(wards=[cast]))
     check("cast ward: down before it is cast", f.extra_wards(B, "phys", False) == [])
@@ -409,7 +415,40 @@ def t_parse_ward():      # fight.py parse_ward: ward records in the GDD's own wo
     check("parse: shield σ 0.135, cast, cooldown 4, up 3", w["model"] == "cast" and w["shield"] == 0.135
           and w["cooldown"] == 4.0 and w["up"] == 3.0 and w["cost"] == 0.036)
     w, skip = F.parse_ward({"payload": "block 60, evade +12 pp", "payment": "reserved 0.47"})
-    check("parse: block 60 runs, evade is reported", w["block"] == 60.0 and w["reserve"] == 0.47 and len(skip) == 1)
+    check("parse: block 60 and evade +12 pp both run (evade wards, 2026-11-13)", w["block"] == 60.0
+          and w["evade"] == 12.0 and w["reserve"] == 0.47 and not skip, str((w, skip)))
+    f, A, B = setup()
+    B.xwards = [{"w": {"model": "reserved", "evade": 40.0, "payload": {}}, "up": True}]
+    B.qi = 0.0
+    dodged = sum(f.hit(A, B, 1.0, "phys", None, kind="basic") == 0.0 for _ in range(400))
+    check("a reserved evade ward adds its points to evade (40 pp -> the 40 % cap)", 120 < dodged < 200, str(dodged))
+
+
+def t_refresh_and_hold():   # the refresh action: Fan the Pyre (restart) and Verdict Stands (hold), 2026-11-13
+    f, A, B = setup()
+    f.add_stacks(A, B, "fire", 3, 6.0, False)
+    f.add_stacks(B, B, "fire", 3, 6.0, False)            # a batch someone else laid
+    f.t += 4000
+    e = {"id": "r", "on": "always", "do": []}
+    f.do(A, e, [{"refresh": {"el": "fire"}}], 1.0, {})
+    check("refresh: my Burn batch restarts its 6 s at t = 4 s", B.debuffs[0][2] == 10000, str(B.debuffs[0][2]))
+    check("refresh: another side's batch is left alone", B.debuffs[1][2] == 6000, str(B.debuffs[1][2]))
+    f.do(A, e, [{"refresh": {"el": "fire", "hold": True}}], 1.0, {})
+    check("hold: my batch never ends", B.debuffs[0][2] is None)
+
+
+def t_new_readables():      # curses on a side; drain-ward bills paid (Weight of Names, Water Table), 2026-11-13
+    f, A, B = setup()
+    B.statuses["withering"] = {"stacks": 1, "until": 1 << 40, "src": A, "batches": []}
+    B.statuses["sundered"] = {"stacks": 2, "until": 1 << 40, "src": A, "batches": []}
+    check("foe.curses counts curse statuses only", f.read(A, "foe.curses") == float(
+        sum(1 for k in ("withering", "sundered") if E.STATUS[k].get("kind") == "curse")))
+    got = []
+    A.b.effects.append({"id": "wt", "on": "foe_ward_paid", "do": [{"gain_qi": {"of": "amount", "share": 0.3}}]})
+    A.qi = 0.0
+    f.defend(A, B, 50.0, "phys", None, {})
+    check("a drain-ward bill raises foe_ward_paid for the attacker (Water Table refills it)", B.ward_paid > 0
+          and abs(A.qi - 0.3 * B.ward_paid) < 1e-9, "%s %s" % (B.ward_paid, A.qi))
 
 
 def t_armour_ward_slot():   # AC-CD-14b: each worn armour brings a ward slot for its own ward (2026-11-13)
@@ -446,6 +485,156 @@ def t_static_lines():    # fight.py apply_static: item and technique lines that 
     F.apply_static(d, [{"key": "khi_huyet_pct", "value": 10}], "test", un)
     check("apply_static: pool % add up across calls (+10 +10 = x1.20, not x1.21)", abs(d["n_body"] - 1.0883 * 1.2) < 1e-9,
           str(d["n_body"] / 1.0883))
+
+
+def t_scoped_art_reads():  # 2026-11-13: art speed, cost and soul reads use the art's own context (scoped modifiers)
+    fire = E.Art("fire", 1.0, 0.05, 4.0, element="fire")
+    other = E.Art("other", 1.0, 0.05, 4.0)
+    fx = [{"id": "fast-fire", "on": "always", "do": [{"mod": {"art_speed": 100, "element": "fire"}},
+                                                     {"mod": {"cost_red": 0.5, "element": "fire"}}]}]
+    f, A, B = setup(a=dummy(arts=[fire, other], effects=fx))
+    check("a Fire-scoped art speed halves only the Fire art's opening cooldown", A.ready == [2000, 4000], str(A.ready))
+    A.qi = A.qi_max()
+    q0 = A.qi
+    f.pay(A, fire)
+    paid_fire = q0 - A.qi
+    A.qi = q0
+    f.pay(A, other)
+    paid_other = q0 - A.qi
+    check("a Fire-scoped cost reduction halves only the Fire art's cost", abs(paid_fire - 0.5 * paid_other) < 1e-9,
+          "%s %s" % (paid_fire, paid_other))
+
+
+def _fx(*mods):
+    return [{"id": "t", "on": "always", "do": [{"mod": m} for m in mods]}]
+
+
+def t_status_duration_and_resist():   # modifiers.md status_duration_pct (scope curse) and status_resist_pct; Combat F
+    f, A, B = setup(a=dummy(effects=_fx({"status_dur": 50, "tags": ["curse"]})))
+    f.apply_status(A, B, {"id": "sundered", "dur": 2})
+    check("status_duration_pct 50 on curses: 2 pulses -> 3", B.statuses["sundered"]["until"] == 3000,
+          str(B.statuses["sundered"]["until"]))
+    f.apply_status(A, B, {"id": "withering", "dur": 4})
+    check("the curse clamp still holds after the raise (4 x 1.5 -> 5)", B.statuses["withering"]["until"] == 5000)
+    landed = 0
+    for seed in range(400):
+        f, A, B = setup(b=dummy(effects=_fx({"status_resist": 60})))
+        f.rng.seed(seed)
+        f.apply_status(A, B, {"id": "sundered"})
+        landed += "sundered" in B.statuses
+    check("status_resist_pct 60: a guaranteed status lands about 40 % of the time", 0.33 < landed / 400 < 0.47,
+          str(landed / 400))
+    f, A, B = setup(b=dummy(effects=_fx({"status_resist": 200})))
+    hits = 0
+    for seed in range(2000):
+        f.rng.seed(seed)
+        B.statuses.clear()
+        f.apply_status(A, B, {"id": "sundered"})
+        hits += "sundered" in B.statuses
+    check("status resistance above 100 leaves the 5 % floor", 0.03 < hits / 2000 < 0.07, str(hits / 2000))
+
+
+def t_heal_taken():          # Combat Defence & Healing E: healing_taken_pct, floored at -50 %
+    f, A, B = setup(a=dummy(effects=_fx({"heal_taken": 50})))
+    A.hp = A.hp_max / 2
+    h0 = A.hp
+    f.heal(A, 10.0)
+    check("healing_taken_pct 50: a heal of 10 restores 15", abs(A.hp - h0 - 15.0) < 1e-9, str(A.hp - h0))
+    f, A, B = setup(a=dummy(effects=_fx({"heal_taken": -90})))
+    A.hp = A.hp_max / 2
+    h0 = A.hp
+    f.heal(A, 10.0)
+    check("healing taken never falls below -50 %", abs(A.hp - h0 - 5.0) < 1e-9, str(A.hp - h0))
+
+
+def t_qi_on_crit():          # modifiers.md linh_luc_on_crit_pct: pp of maximum per crit
+    f, A, B = setup(a=dummy(crit=1.0, effects=_fx({"qi_on_crit": 2.0})))
+    A.qi = 0.0
+    f.hit(A, B, 1.0, "phys", E.Art("x", 1.0))
+    check("linh_luc_on_crit_pct 2: a crit restores 2 % of maximum", abs(A.qi - 0.02 * A.qi_max()) < 1e-9,
+          "%s %s" % (A.qi, A.qi_max()))
+
+
+def t_art_cost_health():     # Combat E: linh luc pays cost / (1 + X/100), health the rest point for point
+    art = E.Art("x", 1.0, 0.05, 4.0)
+    f, A, B = setup(a=dummy(arts=[art]))
+    A.qi = A.qi_max()
+    q0, h0 = A.qi, A.hp
+    f.pay(A, art)
+    full = q0 - A.qi
+    f, A, B = setup(a=dummy(arts=[art], effects=_fx({"art_cost_hp": 100})))
+    A.qi = A.qi_max()
+    q0, h0 = A.qi, A.hp
+    f.pay(A, art)
+    check("art_cost_health_pct 100: linh luc pays half", abs((q0 - A.qi) - full / 2) < 1e-9)
+    check("and health pays the other half point for point", abs((h0 - A.hp) - full / 2) < 1e-9, str(h0 - A.hp))
+
+
+def t_pen_and_pierce():      # AC-CD-13 (penetration by final type), AC-CB-44 (pierce)
+    def side(r):
+        return E.Side(dummy(realm=r), "x")
+    check("AC-CB-44 supp(2, 0.5) = 0.875", abs(E.supp(side(0), side(2), 0.5) - 0.875) < 1e-9)
+    check("AC-CB-44 pierce 90 stops at P 0.75", abs(E.supp(side(0), side(4), 0.9) - (1 - 0.75 * 0.25)) < 1e-9)
+    check("AC-CB-44 an actor above its target has supp 1", E.supp(side(3), side(1), 0.0) == 1.0)
+    got = {}
+    for pen in (0, 30):
+        f, A, B = setup(a=dummy(effects=_fx({"pen": pen, "dtype": "fire"})), b=dummy(resist={"fire": 448.0, "cold": 448.0}))
+        B.qi = 0.0
+        for dt in ("fire", "cold"):
+            B.hp = B.hp_max
+            got[(pen, dt)] = f.defend(A, B, 100.0, dt, None, {"dtype": dt})
+    blk = E.BLOCK_UNIT[B.b.realm] * B.b.block           # the default gear block, met after resistance
+    base = 100.0 / (1 + (448.0 + B.b.body_pts * B.b.bs_mult) / 100) - blk
+    check("AC-CD-13: Fire-scoped penetration 30 lowers a Fire part's R by 30 (448 -> 418)", abs(got[(30, "fire")] - (
+        100.0 / (1 + (418.0 + B.b.body_pts * B.b.bs_mult) / 100) - blk)) < 1e-6, "%s" % got)
+    check("AC-CD-13: a Cold part is unchanged", abs(got[(30, "cold")] - got[(0, "cold")]) < 1e-9 and
+          abs(got[(0, "cold")] - base) < 1e-6)
+
+
+def t_stack_grant():         # Effects rule 9a: stack_grant adds stacks to each grant of the element
+    f, A, B = setup(a=dummy(effects=_fx({"stack_grant": 1, "element": "fire", "kind": "debuff"})))
+    f.add_stacks(A, B, "fire", 2, 6.0, buff=False)
+    f.add_stacks(A, B, "water", 2, 6.0, buff=False)
+    check("stack_grant 1 on Fire debuffs: 2 -> 3, Water unchanged", [x[1] for x in B.debuffs] == [3, 2],
+          str(B.debuffs))
+
+
+def t_effects_library():   # tools/design/combat_sim/effects_library.json, 2026-11-13
+    import json
+    import fight as F
+    lib = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "effects_library.json"),
+                         encoding="utf-8"))["effects"]
+    bad = []
+    for name, entry in lib.items():
+        if entry.get("not_run"):
+            continue
+        b = dummy(effects=entry.get("records", []), counters=entry.get("counters", []))
+        try:
+            E.validate(b)
+            E.Fight(b, dummy(arts=[E.Art("x", 1.0, 0.05, 2.0)]), seed=1).run()
+        except Exception as ex:   # noqa: BLE001 (any failure is a finding)
+            bad.append("%s: %s" % (name, ex))
+    check("every library Effect validates and runs a fight", not bad, "; ".join(bad))
+    F._library()
+    named = {(e if isinstance(e, str) else e.get("name", "")).split(" (")[0]
+             for it in F._LIB["items"].values() for e in it.get("effects", [])}
+    missing = sorted(named - set(lib))
+    check("every Effect the item catalogue names has a library entry", not missing, str(missing))
+    item = next(i for i, it in F._LIB["items"].items() if any(
+        (e if isinstance(e, str) else e.get("name", "")).startswith("Opening Cut") for e in it.get("effects", [])))
+    d = F.expand_library({"name": "t", "realm": "luyen_khi", "arts": [], "items": [item]})
+    check("a worn item's Effect is added from the library", any(e["id"] == "eff:Opening Cut" for e in d["effects"]))
+    own = {"id": "eff:Opening Cut", "on": "crit", "do": [{"status": {"id": "bleed", "side": "foe", "stacks": 2}}]}
+    d = F.expand_library({"name": "t", "realm": "luyen_khi", "arts": [], "items": [item], "effects": [own]})
+    got = [e for e in d["effects"] if e["id"] == "eff:Opening Cut"]
+    check("a build's own form of the Effect wins over the library", got == [own], str(got))
+
+
+def t_elem_type_scope():   # an "elem" art meets type-scoped filters as its element's usual type (2026-11-13)
+    check("a Fire-type filter matches a Fire-element elem art", E.match({"dtype": "fire"}, {"dtype": "elem", "element": "fire"}))
+    check("a Lightning-type filter matches a Thunder elem art", E.match({"dtype": "lightning"}, {"dtype": "elem", "element": "thunder"}))
+    check("a Fire-type filter does not match a Water elem art", not E.match({"dtype": "fire"}, {"dtype": "elem", "element": "water"}))
+    check("a Physical filter does not match an elem art", not E.match({"dtype": "phys"}, {"dtype": "elem", "element": "metal"}))
 
 
 def main():

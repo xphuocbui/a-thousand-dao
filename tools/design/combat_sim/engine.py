@@ -39,7 +39,7 @@ K = dict(
     trig_cap=6, trig_depth=2, trig_budget=0.5, avoid_budget=2, curse_slots=3, curse_duration_max=5,
     delay_window=3.0, slowed_time_pct=0.06, soul_beta=2.0, rho_min=0.25, soul_cap=0.30, soul_lockout=1.0,
     recharge_delay=2.0, shield_recharge=0.25, bypass_cap=0.5, stops_cap_chaos=0.5, stops_cap_soul=0.3,
-    min_batch=2.0, layer_caps=(400, 300, 250, 150, 100), l1_soft=(200, 0.5),
+    curse_heal_taken_max=0.5, min_batch=2.0, layer_caps=(400, 300, 250, 150, 100), l1_soft=(200, 0.5), pierce_cap=0.75,
 )
 U = [6.31, 15.85, 39.81, 100.0, 251.19]
 SUPP = [0.0, 0.10, 0.25, 0.50, 0.75]
@@ -54,6 +54,9 @@ DEBUFF = {"fire": {"burn": 0.019}, "earth": {"acc_down": 0.012}, "metal": {"phys
 ELEMENTS = {"", "fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind"}
 DTYPES = {"phys", "elem", "fire", "cold", "lightning", "force", "chaos", "soul"}
 TICK_TYPE = {"fire": "fire", "wood": "chaos"}
+# An "elem" art's damage type is its element's usual type (Combat Damage Types rule 3, the authoring guide), so a
+# type-scoped modifier ("Fire", "Lightning") reaches it (2026-11-13; before, such filters never matched "elem").
+ELEM_TYPE = {"fire": "fire", "ice": "cold", "water": "cold", "thunder": "lightning", "wind": "force", "wood": "chaos"}
 
 # Status Catalogue (Effects GDD). kind: tick or curse. stack: refresh | cap N | all (a new stack refreshes all)
 STATUS = {
@@ -72,14 +75,14 @@ STATUS = {
     "slowed_time": dict(kind="curse", dur=3, cap=5, slow=1.0, refresh_all=True),
 }
 
-EVENTS = {"always", "fight_start", "art_fired", "step_unlocked", "empowered", "hit_landed", "crit", "evaded", "was_hit", "was_evaded", "hit_stopped",
+EVENTS = {"foe_cost_extra", "foe_ward_paid", "always", "fight_start", "art_fired", "step_unlocked", "empowered", "hit_landed", "crit", "evaded", "was_hit", "was_evaded", "hit_stopped",
           "pulse", "tick_dealt", "heal_restored", "shield_broken", "status_applied", "overflow", "cleansed", "down",
           "kill", "soul_hit"}
-MOD_KEYS = {"L1", "L2", "L3", "L4", "L5", "crit", "crit_mult", "evade", "acc", "art_speed", "basic_speed",
+MOD_KEYS = {"blood_cast", "shield_pays", "hp_cost_red", "heal_cap", "unmoved", "no_regen", "foe_soul_res", "stack_grant", "status_dur", "status_resist", "heal_taken", "qi_on_crit", "art_cost_hp", "pen", "pierce", "hregen_inc", "L1", "L2", "L3", "L4", "L5", "crit", "crit_mult", "evade", "acc", "art_speed", "basic_speed",
             "opening_haste", "cost_red", "regen", "hregen", "healing", "leech_hp", "leech_qi", "gain_on_hit",
             "resist", "block", "dampen_taken", "timer_resist", "bypass", "ward_bill", "basic_coef", "soul_res",
             "x_soul", "dmg_more", "companion_speed", "tick_block"}
-ACTIONS = {"mod", "gain_qi", "heal", "free_hit", "stacks", "status", "cleanse", "timer", "refund", "counter",
+ACTIONS = {"burn_qi", "emit", "protect", "refresh", "mod", "gain_qi", "heal", "free_hit", "stacks", "status", "cleanse", "timer", "refund", "counter",
            "strip", "consume", "refuse_down", "last_act", "shield", "bank", "self_hit", "store_damage", "state",
            "summon", "fire_art"}
 
@@ -246,7 +249,7 @@ class Side:
                                           pieces_left=1))
         self.tam_ma = b.tam_ma
         self.ts_spent = 0.0
-        self.buffs, self.debuffs = [], []          # [element, stacks, t_end_ms(None=fight), source]
+        self.buffs, self.debuffs = [], []          # [element, stacks, t_end_ms(None=fight), source, length_ms]
         self.statuses = {}                          # id -> {"stacks", "until", "src", "batches"}
         self.lockouts = {}                          # status id -> ms until it may be reapplied
         self.counters = {c["id"]: 0.0 for c in b.counters}
@@ -276,6 +279,10 @@ class Side:
         self.trig_count = 0
         self.trig_dmg = 0.0
         self.direct_dmg = 0.0
+        self.ward_paid = 0.0
+        self.engine_counts = {}             # (event, art id) -> times: step unlocks and empowers, for fight.py's report
+        self.protect = {}                   # element -> {for_first, swap_buff}: own debuff batches a cleanse skips
+        self.hp_paid = 0.0                  # health the last art cost (Debt of Stone reads it)
         self.avoided = 0
         self.decoys = 0
         self.dealt = self.spent = self.healed = self.fat = 0.0
@@ -322,8 +329,10 @@ def stack_power(build, el, kind=None):
     return (1 + 0.002 * p) * (1 + extra / 100)
 
 
-def supp(att, dfn):
-    return 1 - SUPP[min(max(0, dfn.b.realm - att.b.realm), 4)]
+def supp(att, dfn, pierce=0.0):
+    """Combat Formulas H: supp(g, P) = 1 - s_g (1 - P), P = min(pierce_cap, sum pierce_pct / 100)."""
+    g = SUPP[min(max(0, dfn.b.realm - att.b.realm), 4)]
+    return 1 - g * (1 - min(K["pierce_cap"], max(0.0, pierce)))
 
 
 # ------------------------------------------------------------------ the fight
@@ -340,9 +349,11 @@ class Fight:
         self.rows = []
         self.depth = 0
         self.cache = {}
+        self.hit_fees = set()                # per-hit wards that paid for the hit or tick in progress
         for s in (self.A, self.B):
-            hz = 1 + s.b.art_speed_pct / 100
             for i, a in enumerate(s.b.arts):
+                # the opening cooldown honours art speed too, scoped to the art (Effect mods included)
+                hz = 1 + (s.b.art_speed_pct + self.mod(s, "art_speed", art_ctx(a))) / 100
                 cd = max(K["cooldown_min"], a.cd / hz)
                 first = max(K["cooldown_min"], cd / (1 + (s.b.opening_haste_pct + self.mod(s, "opening_haste")) / 100))
                 s.ready.append(ms(first))
@@ -384,14 +395,22 @@ class Fight:
             return len([1 for v in x.statuses.values() if v["stacks"] > 0]) + len({d[0] for d in x.debuffs})
         if k == "fired":
             return sum(x.fired)
+        if k == "curses":                   # curse statuses up on the side (Weight of Names)
+            return float(len([1 for sid, v in x.statuses.items() if v["stacks"] > 0 and STATUS.get(sid, {}).get("kind") == "curse"]))
+        if k == "ward_paid":                # linh lực its drain wards have paid this fight, as a share of its qi_max
+            return x.ward_paid / x.qi_max()
         if k == "body_shield_share":
             return x.body_bar / x.hp_max
         if k == "boss":
             return 1.0 if x.b.boss else 0.0
         if k == "tam_ma":
             return x.tam_ma
+        if k == "state.any":                # any stance or state on (Unmoved Stance's closing)
+            return 1.0 if x.state else 0.0
         if k.startswith("state."):
             return 1.0 if x.state == k[6:] else 0.0
+        if k == "buff_elements":            # elements whose buff stacks the side holds (Wheel in the Flag)
+            return float(len({d[0] for d in x.buffs if d[1] > 0}))
         if k.startswith("fired_within."):   # fired_within.<seconds>.<all|tag|group|art>[.<value>]: distinct arts
             parts = k.split(".")
             win = ms(float(parts[1]))
@@ -460,7 +479,9 @@ class Fight:
                 tot += v
         st_def = s.state_def.get(s.state)
         if st_def and key in st_def.get("mods", {}):
-            tot += st_def["mods"][key]
+            v = st_def["mods"][key]
+            if not (v < 0 and key in ("art_speed", "basic_speed") and self.mod(s, "unmoved") > 0):
+                tot += v                     # Unmoved Stance: a stance's speed penalties do not apply
         for e, acts, n in s.banked:
             for a in acts:
                 m = a.get("mod")
@@ -537,17 +558,17 @@ class Fight:
     def pulse(self, s):
         o = s.foe
         # element ticks (Burn, Poison)
-        for el, n, t_end, src in list(s.debuffs):
+        for el, n, t_end, src in [x[:4] for x in s.debuffs]:
             c = DEBUFF.get(el, {}).get("burn", 0.0) + DEBUFF.get(el, {}).get("poison", 0.0)
             if c:
-                tick = src.U * c * n * src.b.M * (1 + src.bsum("dmg")) * supp(src, s) * stack_power(src.b, el, "debuff")
+                tick = src.U * c * n * src.b.M * (1 + src.bsum("dmg")) * supp(src, s, self.mod(src, "pierce") / 100) * stack_power(src.b, el, "debuff")
                 self.tick(src, s, tick, TICK_TYPE[el], el)
         # status ticks
         for sid, stt in list(s.statuses.items()):
             d = STATUS[sid]
             if d["kind"] == "tick" and stt["stacks"] > 0:
                 src = stt["src"]
-                tick = src.U * d["c_tick"] * stt["stacks"] * src.b.M * supp(src, s)
+                tick = src.U * d["c_tick"] * stt["stacks"] * src.b.M * supp(src, s, self.mod(src, "pierce") / 100)
                 if d.get("on_qi"):
                     s.qi = max(0.0, s.qi - tick)
                     src.dealt += tick
@@ -572,11 +593,14 @@ class Fight:
         k = K["regen_k"]
         bonus = s.b.regen_bonus + s.bsum("regen") + self.mod(s, "regen")
         regen = s.qi_max() * (K["regen_base"] + k * math.log(1 + max(0.0, bonus) / k)) / stag
+        if self.mod(s, "no_regen") > 0:     # Water Table's closing: no linh luc regeneration in fights
+            regen = 0.0
         room = s.qi_use() - s.qi
         if regen > room:
-            self.fire_event(s, "overflow", {"amount": regen - room})
+            self.fire_event(s, "overflow", {"amount": regen - room, "share": (regen - room) / s.qi_max()})
         s.qi = min(s.qi_use(), s.qi + regen)
-        hreg = s.hp_max * (s.b.hregen + s.bsum("hregen") + self.mod(s, "hregen")) * s.b.bs_mult / stag
+        hreg = s.hp_max * (s.b.hregen + s.bsum("hregen") + self.mod(s, "hregen")) * s.b.bs_mult / stag \
+            * (1 + self.mod(s, "hregen_inc") / 100)
         if hreg > 0:
             self.heal(s, hreg)
         # cleansing ward
@@ -665,7 +689,7 @@ class Fight:
             self.cast_wards(s)
         o = s.foe
         b = s.b
-        speed = 1 + s.bsum("speed") + (b.art_speed_pct + self.mod(s, "art_speed")) / 100
+        speed_base = 1 + s.bsum("speed") + b.art_speed_pct / 100
         sup = set(s.state_def.get(s.state, {}).get("suppress", []))
         for i, a in enumerate(b.arts):
             if s.removed[i] or self.t < s.ready[i] or a.name in sup:
@@ -679,6 +703,8 @@ class Fight:
             if not self.pay(s, a):
                 continue
             a = self.shape(s, i, a)
+            # art speed may be scoped (Sword arts, Fire arts, curse arts): read it in the art's own context
+            speed = speed_base + self.mod(s, "art_speed", art_ctx(a)) / 100
             cd = max(K["cooldown_min"], a.cd / speed) * self.slow(s)
             s.charges[i] -= 1
             if s.charges[i] > 0:
@@ -704,7 +730,7 @@ class Fight:
             if a.qi_restore:
                 s.qi = min(s.qi_use(), s.qi + a.qi_restore * s.qi_max())
             ev = {"art": a, "art_id": a.name, "slot": i, "cost": s.last_cost, "tags": a.tags, "element": a.element,
-                  "dtype": a.dtype, "kind": "art"}
+                  "dtype": a.dtype, "kind": "art", "hp_paid_share": s.hp_paid / s.hp_max}
             s.cur_ev = ev
             s.last_art = i
             self.fire_event(s, "art_fired", ev)
@@ -760,8 +786,9 @@ class Fight:
 
     def pay(self, s, a):
         b = s.b
+        s.hp_paid = 0.0
         cost_up = (1 + s.dsum("cost_up")) * (1 + s.st("heavy_breath") * STATUS["heavy_breath"]["cost_up"])
-        cost = a.cost * K["cost_scale"] * (1 - min(0.95, b.cost_red + self.mod(s, "cost_red"))) * cost_up * s.qi_base
+        cost = a.cost * K["cost_scale"] * (1 - min(0.95, b.cost_red + self.mod(s, "cost_red", art_ctx(a)))) * cost_up * s.qi_base
         if a.pool == "tam_ma":
             need = cost / s.qi_max() * 100
             if s.tam_ma < need:
@@ -777,14 +804,34 @@ class Fight:
             s.ts_spent += share
             s.last_cost = 0.0
             return True
-        if a.hp_cost and s.hp - a.hp_cost * s.hp_max < 1:
+        hp_red = 1 - min(1.0, self.mod(s, "hp_cost_red", art_ctx(a)))   # Whetstone Vow: health costs halved
+        if a.hp_cost and s.hp - a.hp_cost * hp_red * s.hp_max < 1 and self.mod(s, "shield_pays") <= 0:
             return False
         qi_part = cost * (1 - b.hp_pay)
         hp_part = cost * b.hp_pay * (s.hp_max / s.qi_base)
-        if s.qi + 1e-6 < qi_part or (hp_part and s.hp - hp_part < 1):
+        x_hp = self.mod(s, "art_cost_hp", art_ctx(a))
+        if x_hp > 0:
+            # art_cost_health_pct (Combat E, #44 B4): linh luc pays cost / (1 + X/100), health the rest point for point
+            shifted = qi_part - qi_part / (1 + x_hp / 100)
+            qi_part -= shifted
+            hp_part += shifted
+        blood = s.qi + 1e-6 < qi_part and self.mod(s, "blood_cast") > 0
+        if blood:                            # Blood Casting: the shortfall is paid in health, 1 for 1; it may put you Down
+            hp_part += qi_part - max(0.0, s.qi)
+            qi_part = max(0.0, s.qi)
+        if s.qi + 1e-6 < qi_part:
+            return False
+        hp_total = (hp_part + a.hp_cost * s.hp_max) * hp_red
+        from_shield = min(s.body_bar, hp_total) if self.mod(s, "shield_pays") > 0 else 0.0
+        if hp_total - from_shield > 0 and s.hp - (hp_total - from_shield) < 1 and not blood:
             return False
         s.qi -= qi_part
-        s.hp -= hp_part + a.hp_cost * s.hp_max
+        s.body_bar -= from_shield            # Shield Pays the Blood: the body shield pays health costs first
+        s.hp -= hp_total - from_shield
+        s.hp_paid = hp_total
+        ice = sum(DEBUFF["ice"]["cost_up"] * x[1] * stack_power(x[3].b, "ice", "debuff") for x in s.debuffs if x[0] == "ice")
+        if ice > 0 and qi_part > 0:          # the part of this cost the foe's Ice stacks added (Toll Taker)
+            self.fire_event(s.foe, "foe_cost_extra", {"amount": qi_part * ice / (1 + s.dsum("cost_up"))})
         s.spent += qi_part
         s.last_cost = qi_part
         return True
@@ -800,7 +847,9 @@ class Fight:
             dfn.avoided += 1
             return 0.0
         # evade
-        p_ev = min(K["evade_cap"], max(0.0, dfn.b.evade + self.mod(dfn, "evade") / 100 - dfn.dsum("evade_down")
+        w_ev = sum(xw["w"].get("evade", 0.0) for xw in dfn.xwards
+                   if xw["up"] and (xw["w"]["model"] == "reserved" or dfn.qi > 0)) / 100   # evade wards (2026-11-13)
+        p_ev = min(K["evade_cap"], max(0.0, dfn.b.evade + w_ev + self.mod(dfn, "evade") / 100 - dfn.dsum("evade_down")
                                        - (att.b.acc + self.mod(att, "acc") / 100 + att.bsum("acc") - att.dsum("acc_down"))))
         if self.rng.random() < p_ev:
             self.fire_event(dfn, "evaded", ctx)
@@ -815,7 +864,7 @@ class Fight:
         more = 1 + att.bsum("dmg") + (att.bsum("dmg_phys") + dfn.dsum("phys_taken") if phys else 0)
         more *= 1 + self.mod(att, "dmg_more", ctx)
         M = self.layers_M(att, art, ctx) if kind != "companion" else att.b.M
-        D = att.U * c * M * crit * more * supp(att, dfn)
+        D = att.U * c * M * crit * more * supp(att, dfn, self.mod(att, "pierce") / 100)
         damp = (dfn.bsum("phys_dampen") if phys else 0.0) + self.mod(dfn, "dampen_taken", ctx) / 100
         if damp:
             D /= 1 + damp
@@ -824,6 +873,7 @@ class Fight:
             soul_D = D * art.soul_part
             D -= soul_D
         conv = art.convert if art is not None else None
+        self.hit_fees = set()
         if conv and conv.get("share"):
             cD = D * conv["share"]
             dealt = self.defend(att, dfn, D - cD, dtype, art, ctx, is_tick=False)
@@ -831,7 +881,8 @@ class Fight:
         else:
             dealt = self.defend(att, dfn, D, dtype, art, ctx, is_tick=False)
         if soul_D:
-            sr = dfn.b.soul_res + self.mod(dfn, "soul_res") + dfn.st("slackened_soul") * STATUS["slackened_soul"]["soul_res"]
+            sr = dfn.b.soul_res + self.mod(dfn, "soul_res") + dfn.st("slackened_soul") * STATUS["slackened_soul"]["soul_res"] \
+                + self.mod(att, "foe_soul_res")   # Lamp-Lit Reading
             sd = soul_D / (1 + sr / 100) if sr >= 0 else soul_D * (1 + abs(sr) / 100)
             dfn.hp -= sd
             dealt += sd
@@ -855,6 +906,9 @@ class Fight:
         if not trig or self.depth < K["trig_depth"]:
             self.fire_event(att, "hit_landed", ev)
             if is_crit:
+                qc = self.mod(att, "qi_on_crit", ctx) / 100   # linh_luc_on_crit_pct: pp of maximum per crit (#44 B3)
+                if qc:
+                    att.qi = min(att.qi_use(), att.qi + qc * att.qi_max())
                 self.fire_event(att, "crit", ev)
             self.fire_event(dfn, "was_hit", ev)
             if ev.get("stopped"):
@@ -871,7 +925,8 @@ class Fight:
 
     def extra_wards(self, dfn, dtype, is_tick):
         """The extra wards up against this hit part: [(ward, resistance points)]. A per-hit ward pays its fee here
-        and meets no ticks; every ward but a reserved one needs live linh lực, as the main ward does."""
+        once per hit (all its parts) and once per tick; every ward but a reserved one needs live linh lực, as the main
+        ward does."""
         out = []
         for xw in dfn.xwards:
             w = xw["w"]
@@ -881,13 +936,16 @@ class Fight:
             if pts <= 0 and not w.get("block"):
                 continue
             if w["model"] == "per_hit":
-                if is_tick:
-                    continue
-                fee = w.get("cost", 0.0) * dfn.qi_max()
-                if dfn.qi + 1e-9 < fee:
-                    continue
-                dfn.qi -= fee
-                dfn.spent += fee
+                # one fee per hit covering all its parts, and one per tick (CD&H rule 6, 2026-11-13; it was charged
+                # per part and met no ticks)
+                key = id(xw)
+                if key not in self.hit_fees:
+                    fee = w.get("cost", 0.0) * dfn.qi_max()
+                    if dfn.qi + 1e-9 < fee:
+                        continue
+                    dfn.qi -= fee
+                    dfn.spent += fee
+                    self.hit_fees.add(key)
             out.append((w, pts * dfn.b.ward_layer))
         return out
 
@@ -898,27 +956,34 @@ class Fight:
             return D
         Rw, Ro = self.resistance(dfn, dtype)
         xs = self.extra_wards(dfn, dtype, is_tick) if dfn.xwards else []
-        R = Rw + Ro + sum(r for _, r in xs)
+        R_raw = Rw + Ro + sum(r for _, r in xs)
+        # resistance penetration in points, its type scope matching this part's final type (CD&H rule 4, AC-CD-13)
+        pen = self.mod(att, "pen", dict(ctx or {}, dtype=dtype)) if att is not None else 0.0
+        R = R_raw - pen
         if R >= 0:
             prevented = D * R / (100 + R) if R > 0 else 0.0
-            bill_share = prevented * Rw / R if R > 0 else 0.0
+            bill_share = prevented * Rw / R_raw if R > 0 and R_raw > 0 else 0.0
         else:
             prevented = -D * abs(R) / 100   # negative: amplified
             bill_share = 0.0
         bill_up = (1 + (att.b.ward_bill_pct + self.mod(att, "ward_bill")) / 100) * (1 + dfn.st("leaking_ward") * STATUS["leaking_ward"]["bill_up"])
         bill = bill_share * dfn.b.drain * K["drain_scale"] / dfn.b.ward_layer / dfn.g * bill_up
         for w, r in xs:                     # an extra drain ward bills for the share of prevention it holds
-            if w["model"] == "drain" and R > 0 and prevented > 0:
-                share = prevented * r / R
+            if w["model"] == "drain" and R > 0 and R_raw > 0 and prevented > 0:
+                share = prevented * r / R_raw
                 bill_share += share
                 bill += share * w.get("drain", 0.0) * K["drain_scale"] / dfn.b.ward_layer / dfn.g * bill_up
         if bill > 0:
+            paid = min(bill, dfn.qi)
             if bill > dfn.qi:
                 frac = dfn.qi / bill
                 dfn.qi = 0.0
                 prevented -= bill_share * (1 - frac)
             else:
                 dfn.qi -= bill
+            dfn.ward_paid += paid
+            if paid > 0:
+                self.fire_event(att, "foe_ward_paid", {"amount": paid})
         a = D - prevented
         # block (not for ticks unless an Effect lets a share meet them, R24)
         blk = BLOCK_UNIT[dfn.b.realm] * (dfn.b.block + self.mod(dfn, "block") + dfn.b.body_block * dfn.b.bs_mult
@@ -967,6 +1032,7 @@ class Fight:
         return dealt
 
     def tick(self, src, s, amount, dtype, sid):
+        self.hit_fees = set()
         dealt = self.defend(src, s, amount, dtype, None, {"dtype": dtype}, is_tick=True)
         src.dealt += dealt
         self.fire_event(src, "tick_dealt", {"amount": dealt, "status": sid, "element": sid if sid in ELEMENTS else "", "dtype": dtype})
@@ -975,44 +1041,54 @@ class Fight:
     def soul_hit(self, att, dfn, a):
         ds_att = att.b.divine_sense * (1 - att.ts_spent)
         ds_def = dfn.b.divine_sense * (1 - dfn.ts_spent)
-        sr = dfn.b.soul_res + self.mod(dfn, "soul_res") + dfn.st("slackened_soul") * STATUS["slackened_soul"]["soul_res"]
+        sr = dfn.b.soul_res + self.mod(dfn, "soul_res") + dfn.st("slackened_soul") * STATUS["slackened_soul"]["soul_res"] \
+            + self.mod(att, "foe_soul_res")   # Lamp-Lit Reading
         rho = ds_att / (ds_def * (1 + sr / 100)) if sr >= 0 else ds_att * (1 + abs(sr) / 100) / ds_def
         if rho < K["rho_min"]:
             return 0.0
-        pct = min(a.soul_pct * (1 + (att.b.x_soul + self.mod(att, "x_soul")) / 100) * rho ** K["soul_beta"] * supp(att, dfn), K["soul_cap"])
+        pct = min(a.soul_pct * (1 + (att.b.x_soul + self.mod(att, "x_soul", art_ctx(a))) / 100) * rho ** K["soul_beta"] * supp(att, dfn, self.mod(att, "pierce") / 100), K["soul_cap"])
         lh, lq = pct * dfn.hp_max, pct * dfn.qi_max()
         dfn.hp -= lh
         dfn.qi = max(0.0, dfn.qi - lq)
         att.dealt += lh
         att.direct_dmg += lh
-        self.fire_event(att, "soul_hit", {"amount": lh, "qi": lq})
+        self.fire_event(att, "soul_hit", {"amount": lh, "qi": lq, "tags": a.tags, "element": a.element, "art_id": a.name,
+                                          "kind": "art", "dtype": "soul"})
         return lh
 
     def heal(self, s, amount):
         amount *= 1 + s.b.healing + self.mod(s, "healing") / 100
+        # the receiver's healing taken (Combat Defence & Healing E; healing_taken_pct), floored at -50 % with curses
+        amount *= max(1 - K["curse_heal_taken_max"], 1 + self.mod(s, "heal_taken") / 100)
         if s.st("withering"):
             amount *= 1 + STATUS["withering"]["heal_taken"]
             if s.statuses["withering"].get("crossing"):
                 s.hp -= amount   # Crossing the Line: the heal lands as damage, straight to health [CD&H 19]
                 s.statuses["withering"]["src"].dealt += amount
                 return
-        got = min(amount, s.hp_max - s.hp)
+        top = s.hp_max
+        cap = self.mod(s, "heal_cap")
+        if cap > 0:                          # Whetstone Vow's closing: never heal above that share of maximum
+            top = min(top, cap * s.hp_max)
+        got = min(amount, top - s.hp)
         if got > 0:
             s.hp += got
             s.healed += got
-            self.fire_event(s, "heal_restored", dict(s.cur_ev or {}, amount=got))
+            self.fire_event(s, "heal_restored", dict(s.cur_ev or {}, amount=got, share=got / s.hp_max))
 
     # ---------------------------------------------------------- stacks and statuses
     def add_stacks(self, src, target, el, n, dur, buff):
         if not n:
             return
+        # stack_grant: each grant of the element's stacks gives that many more (Effects rule 9a; rare, flat)
+        n += int(self.mod(src, "stack_grant", {"element": el, "kind": "buff" if buff else "debuff"}))
         if dur is not None and src.b.stack_dur:
             dur = dur * (1 + stack_pct(src.b.stack_dur, el, "buff" if buff else "debuff") / 100)
         until = None if dur is None else self.t + ms(max(K["min_batch"], dur))
         if buff:
-            target.buffs.append([el, n, until, src])
+            target.buffs.append([el, n, until, src, None if until is None else until - self.t])
         else:
-            target.debuffs.append([el, n, until, src])
+            target.debuffs.append([el, n, until, src, None if until is None else until - self.t])
             self.fire_event(src, "status_applied", {"element": el, "stacks": n})
 
     def apply_status(self, src, target, spec):
@@ -1027,11 +1103,24 @@ class Fight:
         if self.t < target.lockouts.get(sid, -1):
             return
         is_curse = d["kind"] == "curse"
+        sctx = {"status": sid, "kind": d["kind"], "tags": (d["kind"], sid)}
+        # Combat Formulas F: p = 0 at chance 0; 1 at chance 1 with no status resistance; otherwise
+        # clamp(chance x (1 - resist), 0.05, 0.95). Resistance counts against guaranteed statuses too.
+        chance = spec.get("chance", 1.0)
+        resist = self.mod(target, "status_resist", sctx) / 100
+        if chance <= 0:
+            return
+        if not (chance >= 1 and resist <= 0):
+            if self.rng.random() >= min(0.95, max(0.05, chance * (1 - resist))):
+                return
         if is_curse and sid not in target.statuses:
             live = [k for k, v in target.statuses.items() if STATUS.get(k, {}).get("kind") == "curse"]
             if len(live) >= K["curse_slots"]:
                 return
         dur = spec.get("dur", d["dur"])
+        if dur is not None:
+            # status_duration_pct, outgoing, may be scoped to curses (modifiers.md); curses then clamp (Effects R22)
+            dur = dur * (1 + self.mod(src, "status_dur", sctx) / 100)
         if dur is not None and is_curse:
             dur = max(1, min(K["curse_duration_max"], dur))
         st = target.statuses.get(sid)
@@ -1057,6 +1146,21 @@ class Fight:
             if el and x[0] != el:
                 i += 1
                 continue
+            guard = x[3].protect.get(x[0]) if x[3] is not None else None
+            if guard:
+                ff = guard.get("for_first")
+                started = (x[2] - x[4]) if (x[2] is not None and len(x) > 4 and x[4] is not None) else None
+                if ff is None or started is None or self.t - started < ms(ff):
+                    if guard.get("swap_buff"):   # Embers Never Die: the source loses its own buff stacks instead
+                        own = x[3]
+                        lose = min(n, own.count(own.buffs, x[0]))
+                        for y in sorted([y for y in own.buffs if y[0] == x[0]], key=lambda y: y[2] if y[2] is not None else 1 << 40):
+                            k = min(lose, y[1])
+                            y[1] -= k
+                            lose -= k
+                        own.buffs = [y for y in own.buffs if y[1] > 0]
+                    i += 1
+                    continue
             take = min(n, x[1])
             x[1] -= take
             n -= take
@@ -1071,6 +1175,9 @@ class Fight:
 
     # ---------------------------------------------------------- Effects
     def fire_event(self, s, name, ev):
+        if name in ("step_unlocked", "empowered"):
+            key = (name, ev.get("art_id", ""))
+            s.engine_counts[key] = s.engine_counts.get(key, 0) + 1
         for e in s.b.effects:
             if e.get("on") != name or e.get("held"):
                 if e.get("held") and e.get("on") == name:
@@ -1165,7 +1272,10 @@ class Fight:
                     continue
                 s.trig_count += 1
                 before = o.hp
-                self.hit(s, o, arg["c"] * n, arg.get("dtype", "phys"), None, kind="trigger", trig=True)
+                dt = arg.get("dtype", "phys")
+                if dt == "same":                  # Echo: the same type as the hit that triggered it
+                    dt = ev.get("dtype", "phys") if ev.get("dtype") in DTYPES else "phys"
+                self.hit(s, o, arg["c"] * n, dt, None, kind="trigger", trig=True)
                 over = (before - o.hp) - budget
                 if over > 0 and not arg.get("outside_budget"):
                     o.hp += over
@@ -1203,8 +1313,12 @@ class Fight:
                 if self.depth > K["trig_depth"]:
                     continue
                 which = arg.get("which", "last")
-                idx = s.last_art if which == "last" else next(
-                    (i for i, x in enumerate(s.b.arts) if x.name == which), None)
+                if which == "longest":
+                    hitters = [i for i, x in enumerate(s.b.arts) if x.c and not x.soul_pct]
+                    idx = min(hitters, key=lambda i: (-s.b.arts[i].cd, i)) if hitters else None
+                else:
+                    idx = s.last_art if which == "last" else next(
+                        (i for i, x in enumerate(s.b.arts) if x.name == which), None)
                 if idx is None:
                     continue
                 art = s.b.arts[idx]
@@ -1221,6 +1335,8 @@ class Fight:
                 idx = [i for i in range(len(tgt.ready)) if not (tgt is s and ev.get("slot") == i and which == "others")]
                 if which == "longest" and idx:
                     idx = [max(idx, key=lambda i: tgt.ready[i])]
+                elif which == "next" and idx:     # least time left, the earlier slot on a tie (Effects rule 6)
+                    idx = [min(idx, key=lambda i: (tgt.ready[i], i))]
                 for i in idx:
                     last_ok = self.t + ms(K["cooldown_min"]) if tgt is s else 0
                     tgt.ready[i] = max(last_ok if by < 0 else 0, tgt.ready[i] + ms(by))
@@ -1258,9 +1374,24 @@ class Fight:
                     left -= k
                     taken += k
                     if arg.get("steal"):
-                        s.buffs.append([pile, k, x[2], s])
+                        s.buffs.append([pile, k, x[2], s, None if x[2] is None else x[2] - self.t])
                     if x[1] <= 0:
                         o.buffs.remove(x)
+                if taken and arg.get("as_status"):   # Unmaking Glass: each stripped stack counts as a status landed
+                    self.fire_event(s, "status_applied", {"element": pile, "stacks": taken, "strip": True})
+            elif verb == "refresh":
+                # refresh (or hold) the side's own batches of an element on a target [Fan the Pyre, Verdict Stands]:
+                # {"el", "side": foe|own, "kind": debuff|buff, "hold": false}; a batch restarts its own length, or
+                # never ends while held
+                tgt = o if arg.get("side", "foe") == "foe" else s
+                lst = tgt.debuffs if arg.get("kind", "debuff") == "debuff" else tgt.buffs
+                for x in lst:
+                    if x[3] is not s or (arg.get("el") and x[0] != arg["el"]):
+                        continue
+                    if arg.get("hold"):
+                        x[2] = None
+                    elif len(x) > 4 and x[4] is not None and x[2] is not None:
+                        x[2] = self.t + x[4]
             elif verb == "consume":
                 tgt = o if arg.get("side", "foe") == "foe" else s
                 lst = tgt.debuffs if arg.get("kind", "debuff") == "debuff" else tgt.buffs
@@ -1280,6 +1411,18 @@ class Fight:
                 if arg.get("then"):
                     per = arg.get("per", 1)
                     self.do(s, e, arg["then"], got / per, ev)
+            elif verb == "burn_qi":
+                # Spillover: burn the foe's linh luc by a share of the event's amount, no second resistance step
+                amt = arg.get("share", 0) * (ev.get("amount", 0.0) if arg.get("of", "amount") == "amount" else o.qi_max()) * n
+                o.qi = max(0.0, o.qi - amt)
+            elif verb == "emit":
+                # raise another event as if it happened (Phantom Dodge: a basic hit counts as an evade)
+                if self.depth <= K["trig_depth"]:
+                    self.fire_event(s, arg["event"], dict(ev or {}, emitted=True))
+            elif verb == "protect":
+                # own debuff batches of an element that a cleanse skips: for the whole batch, or its first N s
+                # (Embers Never Die, Moss Ledger); swap_buff: the cleanse takes the same number of own buff stacks
+                s.protect[arg["el"]] = {"for_first": arg.get("for_first"), "swap_buff": bool(arg.get("swap_buff"))}
             elif verb == "refuse_down" or verb == "last_act":
                 pass   # read by the Down step
             elif verb == "shield":
@@ -1327,6 +1470,12 @@ class Fight:
                 s.down = True
 
 
+def art_ctx(a):
+    """The context an art's own reads use (speed, cost, soul multiplier), the same keys as a hit's context, so a
+    scoped modifier (Fire arts, Sword arts, curse arts) matches the arts it names and no other."""
+    return {"dtype": a.dtype, "element": a.element, "tags": a.tags, "kind": "art", "art_id": a.name}
+
+
 def match(filt, ctx):
     if not filt:
         return True
@@ -1337,7 +1486,11 @@ def match(filt, ctx):
         if k == "tags":
             if not set(v) & set(ctx.get("tags", ())):
                 return False
-        elif k in ("dtype", "element", "kind", "status", "art_id"):
+        elif k == "dtype":
+            got = ctx.get("dtype")
+            if got != v and not (got == "elem" and ELEM_TYPE.get(ctx.get("element", "")) == v):
+                return False
+        elif k in ("element", "kind", "status", "art_id"):
             if ctx.get(k) != v:
                 return False
     return True
@@ -1362,10 +1515,41 @@ def override(a, spec):
     return b
 
 
+def _check_filter(b, e, filt, where):
+    """A filter value the engine never produces would silently never match (2026-11-13: "physical" for "phys")."""
+    if not isinstance(filt, dict):
+        return
+    if "dtype" in filt and filt["dtype"] not in DTYPES:
+        raise EngineError("%s: Effect %s: %s dtype %r is not one of %s" % (b.name, e["id"], where, filt["dtype"], sorted(DTYPES)))
+    if "element" in filt and filt["element"] not in ELEMENTS:
+        raise EngineError("%s: Effect %s: %s element %r is not one of %s" % (b.name, e["id"], where, filt["element"], sorted(ELEMENTS)))
+
+
+def _check_read(b, e, key):
+    """A readable naming an element or status the engine does not have reads 0 for ever (2026-11-13: buff.moc,
+    status.burn). Element piles are the engine's English names; statuses are the Status Catalogue's ids."""
+    side, _, k = str(key).partition(".")
+    for pre, ok in (("buff.", ELEMENTS - {""}), ("debuff.", ELEMENTS - {""}), ("status.", set(STATUS) | {"internal_injury"})):
+        if k.startswith(pre) and k[len(pre):] not in ok:
+            raise EngineError("%s: Effect %s: read %r: %r is not one of %s" % (b.name, e["id"], key, k[len(pre):], sorted(ok)))
+
+
+def _check_conds(b, e, conds):
+    for c in conds or []:
+        if "any" in c:
+            _check_conds(b, e, c["any"])
+        elif "read" in c:
+            _check_read(b, e, c["read"])
+
+
 def validate(b):
     for e in b.effects:
         if "id" not in e:
             raise EngineError("%s: an Effect has no id" % b.name)
+        _check_filter(b, e, e.get("filter"), "filter")
+        _check_conds(b, e, e.get("if"))
+        if e.get("scale"):
+            _check_read(b, e, e["scale"].get("read", ""))
         if e.get("on") not in EVENTS:
             raise EngineError("%s: Effect %s: event %r is not in the engine" % (b.name, e["id"], e.get("on")))
         for a in e.get("do", []):
@@ -1377,10 +1561,17 @@ def validate(b):
             if verb not in ACTIONS:
                 raise EngineError("%s: Effect %s: action %r is not in the engine" % (b.name, e["id"], verb))
             if verb == "mod":
+                _check_filter(b, e, arg, "mod")
+                if abs(arg.get("cost_red", 0)) > 1:   # a share (0.10 = 10 %), not points: -10 would mean 11x costs
+                    raise EngineError("%s: Effect %s: cost_red %r is a share of the cost (0.1 = 10 %%), not points"
+                                      % (b.name, e["id"], arg["cost_red"]))
                 bad = [k for k in arg if k not in MOD_KEYS and k not in ("for", "dtype", "element", "tags", "kind", "stack")]
                 if bad:
                     raise EngineError("%s: Effect %s: mod keys %s are not in the engine" % (b.name, e["id"], bad))
     for st in b.states:
+        if abs(st.get("mods", {}).get("cost_red", 0)) > 1:
+            raise EngineError("%s: state %s: cost_red %r is a share of the cost (0.1 = 10 %%), not points"
+                              % (b.name, st.get("id"), st["mods"]["cost_red"]))
         bad = [k for k in st.get("mods", {}) if k not in MOD_KEYS]
         if bad:
             raise EngineError("%s: state %s: mod keys %s are not in the engine" % (b.name, st.get("id"), bad))

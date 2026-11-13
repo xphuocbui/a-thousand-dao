@@ -134,3 +134,23 @@ as long (18.8 to 39.2 s); Evade Dancer's cast wards cost linh lực it needed, a
 **Armour brings its own ward slot** (user decision 2026-11-13, Combat Defence & Healing rule 5, AC-CD-14b): each worn armour
 adds a ward slot that holds only its own ward. With it, 58 item wards find a slot across the 38 builds (42 before) and
 only 5 do not, all ward gear (bells, shields) competing for the realm's ordinary slots.
+
+## Addendum 2026-11-13 (overnight): engine fixes that change this round's reading
+
+See `design/OVERNIGHT-2026-11-13.md` § The fight engine and § Balance. In short:
+
+- **Scoped art speed, art cost and soul multiplier used to apply to every art.** So pieces with a narrow scope looked
+  stronger than they are. The Whetstone Jade Pendant, picked by 7 builds here, now changes its builds' fights by +1 %
+  on average.
+- **Type-scoped modifiers never reached elemental arts** (`elem`). Fire and Thunder builds were understated; they are
+  now faster (Starter Flame 20.6 → 16.0 s).
+- **Seven build-file typos switched Effects off or multiplied costs**, and are fixed:
+  - `physical` for `phys` in armoury-mind and bare-fist;
+  - `buff.moc` in unkillable;
+  - `status.burn` in triple-convert;
+  - `cost_red` in points in pacifist (11× costs);
+  - in the arts library, Tithe Ledger and Hollow Husk Stance.
+- **Item Effects now run from `tools/design/combat_sim/effects_library.json`.** "The unique items' Effects mostly
+  measure small" should be re-measured on the current engine before it is relied on.
+- **Per-hit item wards cost more linh lực than they save against the typical enemy** (proposal 1 in the overnight
+  report).

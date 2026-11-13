@@ -10,7 +10,7 @@
   "counters": [],
   "effects": [
     {"id": "growth-rings", "on": "always", "do": [{"mod": {"hregen": 1.2}}]},
-    {"id": "sap-rises", "on": "always", "scale": {"read": "own.buff.moc", "per": 1}, "do": [{"mod": {"healing": 1}}]},
+    {"id": "sap-rises", "on": "always", "scale": {"read": "own.buff.wood", "per": 1}, "do": [{"mod": {"healing": 1}}]},
     {"id": "still-water", "on": "overflow", "do": [{"heal": {"of": "amount", "share": 0.5}}]}
   ],
   "arts": [

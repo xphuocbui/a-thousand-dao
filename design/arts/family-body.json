@@ -3,7 +3,7 @@
  "tags": ["fist", "body", "tithe"], "kind": "phys", "c_art": 1.4, "cost_share": 0.03, "cooldown": 8, "hp_cost": 0.08, "qi_restore": 0.15,
  "counters": [{"id": "debt"}],
  "effects": [
-  {"id": "tithe-ledger", "on": "art_fired", "filter": {"tags": ["tithe"]}, "do": [{"counter": {"id": "debt", "add": 2}}, {"mod": {"cost_red": 40, "for": 5}}, {"shield": {"body": 0.04}}]},
+  {"id": "tithe-ledger", "on": "art_fired", "filter": {"tags": ["tithe"]}, "do": [{"counter": {"id": "debt", "add": 2}}, {"mod": {"cost_red": 0.40, "for": 5}}, {"shield": {"body": 0.04}}]},
   {"id": "tithe-wound", "on": "was_hit", "limit": {"per_pulse": 1}, "do": [{"counter": {"id": "debt", "add": 1}}]},
   {"id": "tithe-feast", "on": "always", "scale": {"read": "own.hp_missing_share", "per": 0.1}, "do": [{"mod": {"regen": 0.2}}]}],
  "steps": [

@@ -17,8 +17,8 @@
   ],
   "effects": [
     {"id": "garrison-mind", "on": "pulse", "limit": {"per_pulse": 6},
-     "do": [{"free_hit": {"c": 0.1, "dtype": "physical"}}, {"free_hit": {"c": 0.1, "dtype": "physical"}},
-            {"free_hit": {"c": 0.1, "dtype": "physical"}}, {"free_hit": {"c": 0.1, "dtype": "physical"}},
+     "do": [{"free_hit": {"c": 0.1, "dtype": "phys"}}, {"free_hit": {"c": 0.1, "dtype": "phys"}},
+            {"free_hit": {"c": 0.1, "dtype": "phys"}}, {"free_hit": {"c": 0.1, "dtype": "phys"}},
             {"stacks": {"el": "metal", "n": 4, "for": 6, "side": "foe"}}]},
     {"id": "full-rack", "on": "always", "do": [{"mod": {"L5": 40}}]},
     {"id": "opened-seams", "on": "always", "if": [{"read": "foe.debuff.metal", "op": ">=", "value": 1}],
@@ -26,9 +26,9 @@
     {"id": "steady-breath", "on": "always", "if": [{"read": "own.qi_share", "op": ">=", "value": 0.5}],
      "do": [{"mod": {"L5": 12}}]},
     {"id": "humming-shields", "on": "pulse", "do": [{"gain_qi": {"share": 0.006}}]},
-    {"id": "iron-skin-renewed", "on": "art_fired", "filter": {"dtype": "physical"}, "limit": {"per_pulse": 1},
+    {"id": "iron-skin-renewed", "on": "art_fired", "filter": {"dtype": "phys"}, "limit": {"per_pulse": 1},
      "do": [{"shield": {"body": 0.02}}]},
-    {"id": "eff:Edge Returns the Breath", "on": "crit", "filter": {"dtype": "physical"},
+    {"id": "eff:Edge Returns the Breath", "on": "crit", "filter": {"dtype": "phys"},
      "do": [{"gain_qi": {"share": 0.008}}]}
   ],
   "unmodelled": [
