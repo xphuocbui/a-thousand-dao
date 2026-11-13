@@ -308,8 +308,9 @@ balance.** The one change is a rule-conformance fix (below).
     the claimed share and flags OVER_BUDGET; 14 of 38 builds are over.
 12. **The player's edge.** My first diagnosis (a cap) was wrong; the edge was just small. Fix: a protagonist
     breakthrough bonus per gate, outside the cap (`player.breakthrough_bonus_by_gate` 18 / 18 / 6 / 4).
-    - Autoplay, 36 edge lives: 69 % / 70 % / 38 % / 0 % against 0.70 / 0.70 / 0.30 / 0.20.
-    - The first two gates are on target; the last two rest on 16 and 6 arrivals, inside the noise.
+    - First guess 18 / 18 / 6 / 4: 108 edge lives gave 75 % / 85 % / 42 % / 21 %, gates 2 and 3 clearly high.
+    - Tuned to 18 / 9 / 2 / 4: a second 108 lives gave 78 % / 78 % / 25 % / 13 % against 0.70 / 0.70 / 0.30 / 0.20,
+      every gate within two standard errors.
 13. **Three commits** (b897e7b, 4a778ba, d569b0a). The bells, budget and edge work came after them.
 
 **Found while applying these:** the Effect **Open Sky** (already in `effects.md`) reads "thần thức not bound to
