@@ -3927,22 +3927,22 @@ constants:
     referenced_by:
       - design/gdd/travel-map.md
       - design/gdd/canh-gioi.md
-    value: [0.8, 1.3]
+    value: [0.8, null]
     unit: cultivation rate multiplier
-    notes: "match_land_min / match_land_max (Travel & Map Formulas A)."
+    notes: "match_land_min 0.8 is a floor; match_land_max (1.3) removed 2026-11-13, no ceiling (Travel & Map Formulas A)."
     added: 2026-11-10
-    revised: ""
+    revised: 2026-11-13
   - name: match_stack_max
-    status: active
+    status: deprecated
     source: design/gdd/travel-map.md
     referenced_by:
       - design/gdd/travel-map.md
       - design/gdd/canh-gioi.md
     value: 1.6
     unit: cultivation rate multiplier
-    notes: "Overall match cap through all four layers (Travel & Map rule 27)."
+    notes: "Removed 2026-11-13: the match has no overall cap; per-layer limits and settled_match_cap remain (Travel & Map rule 27, Formulas B)."
     added: 2026-11-10
-    revised: ""
+    revised: 2026-11-13
   - name: density_cap
     status: active
     source: design/gdd/travel-map.md

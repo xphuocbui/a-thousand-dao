@@ -58,14 +58,28 @@ Rules that keep the two views consistent:
 Both change Travel & Map rule 14 (a character starts knowing only their birth region and the main roads);
 the rewrite is in the list below.
 
-## What this changes (to do, section by section with the user)
+## Terrain-driven qi (decided 2026-11-13)
 
-- Travel & Map: rule 1 ("one generated world"), Formulas C (land generation), rule 14 (what a character
-  knows: the overview is common knowledge, politics live for big powers), and Visual/Audio Requirements
-  (the two-view map).
+- A tile's element shares follow the terrain: its biome's profile, its **depth** inside the biome (the heart is purer
+  than the edge; depth is measured to the nearest tile whose biome has a different signature, or none), a **blend**
+  with its neighbours, and **features** (lava flows, ice fields, rivers, veins and the rest) pushing their element
+  outward with a falloff.
+- Base shares are scaled back to 100 at the land level; variant qi comes only from features, outside the 100.
+- Depth also raises density and danger in biomes with a signature: the deep wild is richer and deadlier.
+- Special biomes are mild at their base (volcano Fire 45, Earth 40, Metal 15) and take their peaks from features.
+- The twelve features in Travel & Map rule 4 are kept.
+- The land match has no ceiling (the ×1.3 is gone); its 0.8 floor stays. The ×1.6 stack cap is removed too; per-layer
+  limits and the settled match cap (×1.3) stay.
+
+## What this changes
+
+- **Done 2026-11-13:** Travel & Map rewritten for all of the above (rules 1–5, 14, 15, 26–28, 33; Formulas A, B, C,
+  M; Interactions, Dependencies, Edge Cases, Visual/Audio, Game Feel, UI, Acceptance Criteria, Open Questions), plus
+  the entity registry and the systems index rows #25, #27 and #37.
 - World Generation & History (#27): keeps random NPCs and their generated backgrounds, which fit
   inside the authored history; sects, territories, special characters and past events become
   authored data.
-- Game concept and systems index: the world description and #27's role.
+- Still to do: the game concept's world-generation lines (pitch, feature 6, the anti-pillar, procedural systems,
+  MVP and Alpha scope).
 - Other GDDs that mention world creation in passing: a wording check.
 - New authoring work: continent layout, secret candidate spots, an origins list with home regions.

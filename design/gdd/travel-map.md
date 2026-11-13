@@ -1,8 +1,8 @@
 # Travel & Map (Bản Đồ & Hành Trình)
 
-> **Status**: Designed (pending review; design-system 2026-11-10, lean mode: CD-GDD-ALIGN skipped, specialists consulted for Formulas and Acceptance Criteria)
+> **Status**: Designed (pending review; design-system 2026-11-10, lean mode: CD-GDD-ALIGN skipped, specialists consulted for Formulas and Acceptance Criteria; **revised 2026-11-13** for the fixed world, terrain-driven qi and the uncapped match: `design/research/fixed-world-decisions.md`)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-10
+> **Last Updated**: 2026-11-13
 > **Last Verified**: 2026-11-10
 > **Implements Pillar**: Pillar 5 (A World That Remembers), Pillar 4 (Every Season Counts); touches Pillar 1 (Your Dao, Your Name) and Pillar 2 (Every Number Is Bounded and Visible)
 
@@ -16,7 +16,7 @@ travel matters to your build: matching ground cultivates faster, herbs grow only
 land, blessed lands and secrets, shared works, your own home works) decide what a place gives *you*. It also owns
 travel, discovery by clues, resource sites and the seasonal production contract that the economy and sects build on.
 
-> **Quick reference** — Layer: `Feature` · Priority: `MVP` · Key deps: `World Generation, World Database, Time & Turn, Spiritual Roots, Character Stats; soft: Realms & Bottlenecks, Sects & Missions, Formations, Event Engine, Regional Economy & Trade`
+> **Quick reference** — Layer: `Feature` · Priority: `MVP` · Key deps: `World Generation & History, Map build, World Database, Time & Turn, Spiritual Roots, Character Stats; soft: Realms & Bottlenecks, Sects & Missions, Formations, Event Engine, Regional Economy & Trade`
 
 ## Overview
 
@@ -969,18 +969,27 @@ finished (with the user's approval). Realms' existing rows also need wording for
 - **The terminal map, built first:** the tile grid drawn in characters, one glyph and colour per biome (`^` mountains,
   `~` water, `,` grass, `"` jungle, `.` desert and so on), with named places as letters and roads as `=` or `-`. Only
   tiles the character knows are drawn; unknown land is blank. A legend lists the glyphs.
-- **The Game UI map, later**, in the game's chosen visual identity. The style is **open**, and the art bible decides it.
-  Candidates the user wants weighed (2026-11-10):
-  - **pixel or tile art**, grid-native and closest to Dwarf Fortress (*Dwarf Fortress*'s Steam tiles, *Caves of Qud*,
-    *Amazing Cultivation Simulator*);
-  - **a painted parchment map** (*Crusader Kings III* zoomed out, *Battle Brothers*);
-  - **ink-wash** (*Okami*, *Tale of Immortal*'s world map).
-
-  Whatever the style, each biome must read at a glance, and an optional **qi overlay** shows density (as mist or
-  shading) and each element as a faint tint, so a Fire-rich region reads warm. A blessed land stands out in the
-  overlay, and a tile secret never shows unless known.
-- **Moments worth marking:** finding a hidden place or a secret (a mark appears on the map, with a short sound cue), a
-  secret realm opening (a visible ripple, plus rumour text), and a battle scar (the tile's look changes for good).
+- **The Game UI map, later**, has two views (user decision 2026-11-13; `design/research/fixed-world-decisions.md`):
+  - **Overview: an AI-generated painting** of the whole continent, about 3–4k px. It is guided by the index images so
+    the coasts, ranges and rivers line up with the tiles, and generated late, once the geography settles; a plain
+    render stands in until then. Only permanent landmarks are painted in. Political borders, cities, sects and
+    markers are overlays, so territory changes show.
+  - **Zoomed-in view: rendered.** A ground shader draws the land from the index images: blended biome edges,
+    hillshade, coast lines and a paper texture. Stamps (mountains, forests, towns, sites) are placed by rules from the
+    same depth and feature fields as the qi, then hand-fixed. Deep jungle draws a denser, darker canopy and ground near
+    lava glows, so good ground reads at a glance. There is no permanent grid; the tile under the cursor, routes and
+    search areas show when needed. The knowledge mask applies only here: unknown land is blank paper.
+  - The two views **crossfade** at the zoom threshold and share one palette and one paper texture.
+  - The **style is open**, and the art bible decides it. The candidates (pixel or tile art, painted parchment,
+    ink-wash) are demoed in `prototypes/map-style-demos`. A pixel style would draw the zoomed-in view with autotiles
+    instead of a ground shader.
+  - Whatever the style, each biome must read at a glance, and an optional **qi overlay** shows density (as mist or
+    shading) and each element as a faint tint, so a Fire-rich region reads warm. A blessed land stands out in the
+    overlay, and a tile secret never shows unless known.
+  - The overview painting and any AI-made stamps are declared in Steam's pre-generated AI content disclosure.
+- **Moments worth marking:** finding a hidden place or a secret (ink spreads outward from the tile in the zoomed-in
+  view, with a short sound cue), a secret realm opening (a visible ripple, plus rumour text), and a battle scar (the
+  tile's look changes for good).
 - **Audio** follows the biome in the Game UI: wind on steppe and highland, rain in jungle, quiet in a blessed land.
   There's no audio in the terminal.
 
@@ -992,15 +1001,20 @@ finished (with the user's approval). Realms' existing rows also need wording for
 - **Discovery should feel earned:** a clue narrows the search, the search takes visible seasons, and the find is a
   marked moment that is recorded in the world's history.
 - **Choosing ground should feel like build-craft:** the stat block shows *your* match, *your* density and each layer's
-  line, so moving a home is a decision with numbers behind it, like picking a node on the Meridian Map.
+  line, so moving a home is a decision with numbers behind it, like picking a node on the Meridian Map. The land has
+  gradients: the heart of a biome and the ground beside a feature are stronger, and riskier, than the edge, so the best
+  spot for a root is a specific place worth the journey.
 - **Response targets:** the map view renders in under 100 ms; planning a route (pathfinding over the grid) returns in
   under 200 ms for any two points on the continent.
 
 ## UI Requirements
 
-- **`map`:** the known map around the character, with zoom levels (region, continent) and the legend.
+- **`map`:** the known map around the character at region zoom, and the overview at continent zoom (the whole
+  continent, famous places, cities, sect seats, and borders: live for the major powers, as last heard for minor
+  ones), each with its legend.
 - **`place <name>`** (also `here`): the stat block (rule 7) with a line per layer (land, blessed land or secret, shared
-  works, home works), the clamp line when a cap binds, and the character's own match and density.
+  works, home works), the land line broken into its steps (biome, depth, blending, each feature, any hand
+  correction), the clamp line when a cap binds, and the character's own match and density.
 - **`route <place>`** (or a tile): every route available with the character's modes, each with seasons, danger,
   encounter chance and teleport fee, and a confirm step before starting.
 - **`search`:** the active clue's area, the chance per season, and seasons spent so far. A false clue is never marked.
@@ -1015,7 +1029,8 @@ finished (with the user's approval). Realms' existing rows also need wording for
 
 | Document | Relationship |
 |---|---|
-| `design/gdd/game-concept.md` | Pillars 2, 4 and 5; the anti-pillar on world simulation (clarified when this GDD is finished); the visual identity ("Ink and Ledger" names ink-wash; the map style is now open, Visual/Audio) |
+| `design/gdd/game-concept.md` | Pillars 2, 4 and 5; the anti-pillar on world simulation (clarified when this GDD is finished); the visual identity ("Ink and Ledger" names ink-wash; the map style is now open, Visual/Audio). Its world-generation lines predate the fixed world and are still to be updated |
+| `design/research/fixed-world-decisions.md` | The fixed world, the two-view map, what a character sees, terrain-driven qi and the removed match caps (user decisions 2026-11-12 and 2026-11-13) |
 | `design/gdd/canh-gioi.md` | Formulas I (rate × density × match), the Core Formation condition (`core_density_min`), rule 3 (the season-start rate; the leftover-season exception), Open Question 23 (the recalibration) |
 | `design/gdd/linh-can.md` | Rules 8 and 8a and Formulas G: purities, owned and road-raised; unowned purity counts at half weight in the match |
 | `design/gdd/character-stats.md` | `travel_speed_pct`; divine sense (Formulas C); `density_bonus` (tree and items only) |
@@ -1032,8 +1047,8 @@ finished (with the user's approval). Realms' existing rows also need wording for
 
 Drafted by `qa-lead`, 2026-11-10, after the user's rulings on the first draft. Nothing has run. Values marked *(guess)*
 in Formulas are tested at their data-file values, so a retune changes the expected number, not the test. Every random
-draw comes from a seeded stream: Logic tests inject rolls (FX-TM-RNG), Harness tests use the fixed seed list
-(FX-TM-SEEDS). Default tolerance ±0.001 on floats; integers exact. `round` is half up with a 1e-6 tolerance.
+draw comes from a seeded stream: Logic tests inject rolls (FX-TM-RNG), and Harness tests run on the shipped map
+(FX-TM-MAP), using the fixed seed list (FX-TM-SEEDS) for the per-game rolls. Default tolerance ±0.001 on floats; integers exact. `round` is half up with a 1e-6 tolerance.
 
 Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production/qa/evidence/balance/` (harness runs),
 `production/qa/evidence/debug-terminal/` (UI screenshots, retained), `production/qa/smoke-[date].md` (Config/Data).
@@ -1045,7 +1060,7 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 - **FX-TM-MU:** injected world means: each base `mu_e` 0.20, `mu_Ice` 0.01, other variants 0. Hand-built maps use these
   instead of computing them.
 - **FX-TM-MINI:** a hand-built small map using FX-TM-MU:
-  - **VOL** volcano: Fire 60, Earth 30, Metal 10; T 80, R 20; D4 1.10. It holds a small blessed land (ΔD3 0.40, Fire
+  - **VOL** volcano beside a lava flow: Fire 60, Earth 30, Metal 10; T 80, R 20; D4 1.10. It holds a small blessed land (ΔD3 0.40, Fire
     push +40).
   - **LAKE** lake valley: Water 60, Wood 40; D4 1.30.
   - **GLA** glacier: Water 100, Ice 40 (variant); T 5.
@@ -1069,53 +1084,77 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 - **FX-TM-SCAR:** a scripted Event Engine event above the scar threshold that sets one tile's density to 0 (a dead
   vein) or pushes Fire +30 (a crater).
 - **FX-TM-RNG:** an injected roll stream. It returns scripted values in order and records every roll.
-- **FX-TM-SEEDS:** 100 fixed world seeds, stored as test data.
-- **FX-TM-WORLD:** FX-TM-SEEDS[0] at full size with 5,000 cultivators, after 40 seasons of the Living World Tick on a
-  fixed seed.
+- **FX-TM-MAP:** the shipped map: its index images and hand corrections, built by the map build at the Formulas
+  defaults.
+- **FX-TM-GRID:** two hand-painted test grids at the Formulas defaults, with jungle Wood 50, Water 30, Fire 20 (push 25,
+  g_D +0.2, g_X +1, base danger 2), grassland Wood 50, Earth 50 (no signature) and volcano Fire 45, Earth 40, Metal 15:
+  - **G1**, 15 × 15: grassland, with a jungle block over rows and columns 2–12 whose column 12 is bamboo (signature
+    Wood). Tiles are named (row, column).
+  - **G2**, 11 × 11: all volcano, with one lava-flow tile at the centre (Fire +60, R 5) and one ice-field tile in a
+    corner (Ice +40, R 2).
+- **FX-TM-SEEDS:** 100 fixed game seeds for the per-game rolls (hidden-place spots, reserves, NPCs), stored as test
+  data.
+- **FX-TM-WORLD:** FX-TM-MAP with FX-TM-SEEDS[0] and 5,000 cultivators, after 40 seasons of the Living World Tick.
 
 ### Land and layers
 
-- **AC-TM-01** [Logic] Rule 1. GIVEN FX-TM-SEEDS[0], WHEN the world is generated twice in fresh processes, THEN both
-  tile dumps are byte-identical: elevation, temperature, rainfall, biome, river flag, density and shares.
-- **AC-TM-02** [Config/Data] Rule 1. GIVEN `world_map.json` set to 120 × 80, THEN the grid has 9,600 tiles. GIVEN it set
-  to 60 × 40 with no code change, THEN the grid has 2,400 tiles.
-- **AC-TM-03** [Logic] Rule 1. GIVEN any FX-TM-SEEDS world, THEN no river tile is lower than the next tile downstream.
-  Every river ends at sea, a lake or the map edge.
+- **AC-TM-01** [Logic] Rule 1. GIVEN FX-TM-MAP, WHEN the map is built twice in fresh processes, THEN both tile dumps are
+  byte-identical: elevation, temperature, rainfall, biome, features, river flag, depth, density, danger, shares and
+  variants.
+- **AC-TM-02** [Config/Data] Rule 1. GIVEN index images of 120 × 80, THEN the grid has 9,600 tiles. GIVEN images of
+  60 × 40 with no code change, THEN the grid has 2,400 tiles.
+- **AC-TM-03** [Logic] Rule 1. GIVEN FX-TM-MAP, THEN the map check lists 0 river tiles lower than the next tile
+  downstream, and every river ends at sea, a lake or the map edge.
 - **AC-TM-04** [Config/Data] Rule 2. GIVEN FX-TM-DATA, THEN 20 biomes are listed. Each has a base profile summing to
-  100, a base density, a danger of 1–4 and a climate band. The base densities equal Formulas C (sea 0.5 … volcano 1.1).
-- **AC-TM-05** [Logic] Rule 3. GIVEN every tile of FX-TM-MINI and of FX-TM-SEEDS[0], THEN the base shares sum to 100.
+  100, a base density, a danger of 1–4, a climate band, and a signature element or none, with its push and depth
+  bonuses. The base densities equal Formulas C (sea 0.5 … volcano 1.1), and the volcano is Fire 45, Earth 40, Metal 15.
+- **AC-TM-05** [Logic] Rule 3. GIVEN every tile of FX-TM-MINI, FX-TM-GRID and FX-TM-MAP, THEN the base shares sum to 100.
   Variant shares sit outside the 100.
-- **AC-TM-06** [Logic] Rule 3. GIVEN a volcano tile with a lava vent and the same tile without one, THEN the vent tile's
-  Fire share is higher, and both base sets still sum to 100.
-- **AC-TM-07** [Harness] Rule 4. GIVEN FX-TM-SEEDS, THEN each variant appears only on its own terrain:
-  - Ice on glacier or tundra;
-  - Thunder on storm peaks;
-  - Wind on highland, steppe or coast;
-  - Light on sacred summits;
-  - Darkness in deep caves, miasma or swamp.
+- **AC-TM-06** [Logic] Rule 4, Formula C. GIVEN G2, THEN the Fire share is **65.625** on the lava tile, **59.559** two
+  tiles away and **45.000** five or more tiles away, and the base shares sum to 100 on every tile. Ice is 40 on the
+  ice-field tile, 20 one tile away and 0 two tiles away, outside the 100.
+- **AC-TM-07** [Harness] Rule 4. GIVEN FX-TM-MAP, THEN each variant appears only within reach of its own feature:
+  - Ice near an ice field or above the snowline;
+  - Thunder at storm peaks;
+  - Wind on high plateaus;
+  - Light at sacred summits;
+  - Darkness at deep caves, karst cores or miasma sources.
 
-  In every world, each variant is in at most 2 % of places (`variant_place_share_max`).
+  Each variant is in at most 2 % of places (`variant_place_share_max`).
+- **AC-TM-139** [Logic] Rule 3, depth. GIVEN G1, THEN d is 6 and t 1.00 at (7,7), and d 1 and t 0 at (2,7). At (7,11),
+  d is 2 and t 0.25, because the bamboo in column 12 shares jungle's signature and the grassland in column 13 does not.
+- **AC-TM-140** [Logic] Formula C, own profile. GIVEN G1, THEN P at (7,7) is Wood 60, Water 24, Fire 16, and P at (2,7)
+  is the jungle base (Wood 50, Water 30, Fire 20).
+- **AC-TM-141** [Logic] Formula C, blending. GIVEN G1, THEN each tile's B equals the mean of P over its 5 × 5 window,
+  computed independently. Earth is 0 at (7,7) and above 0 at (2,7), and Wood never falls from (2,7) to (7,7) along
+  column 7.
+- **AC-TM-142** [Logic] Formula C, density and danger. GIVEN G1's wilderness tiles, THEN D4 is 1.20 and danger 3 at
+  (7,7), and D4 1.00 and danger 2 at (2,7).
+- **AC-TM-143** [Logic] Rule 1, hand corrections. GIVEN a hand correction setting a tile to Fire 80, Earth 20, WHEN the
+  map is rebuilt after the paint around it changes, THEN the tile still reads Fire 80, Earth 20, its stat block shows a
+  "set by hand" line, and the map check lists the tile.
+- **AC-TM-144** [Logic] Rule 3, stat block. GIVEN a G2 tile two steps from the lava flow, THEN its land line lists the
+  biome profile, depth (none), blending and "Lava flow 2 tiles away: Fire +36" as separate lines.
 - **AC-TM-08** [Logic] Formula A, rule 5. GIVEN FX-TM-ROOT-F, WHEN M4 is computed at VOL, THEN it is **1.244**.
 - **AC-TM-09** [Logic] Formula A. GIVEN FX-TM-ROOT-F at LAKE, THEN M4 is **0.948**.
 - **AC-TM-10** [Logic] Formula A. GIVEN FX-TM-ROOT-ICE at GLA, THEN M4 is **1.195**.
-- **AC-TM-11** [Logic] Formula A, bounds. GIVEN an owned Fire 200 root, THEN M4 at VOL is 1.300 (raw 1.8) and at LAKE
-  is 0.800 (raw 0.6).
+- **AC-TM-11** [Logic] Formula A, bounds. GIVEN an owned Fire 200 root, THEN M4 at VOL is **1.800** (no ceiling) and at
+  LAKE is 0.800 (raw 0.6, the floor).
 - **AC-TM-12** [Logic] Formula A, `u_e`. GIVEN FX-TM-ROOT-FU at VOL, THEN M4 is 1.172.
 - **AC-TM-13** [Logic] Formula A. GIVEN FX-TM-ROOT-5, THEN M4 is 1.000 at every FX-TM-MINI place with no variant share.
 - **AC-TM-14** [Logic] Edge (a root with none of the land's elements). GIVEN FX-TM-ROOT-ICE at VOL (Ice 0), THEN M4 is
-  0.995, not a penalty down to the clamp.
-- **AC-TM-15** [Logic] Formula A, `mu_e`. GIVEN a world from FX-TM-SEEDS[0], THEN each `mu_e` equals the mean of
+  0.995, not a penalty down to the floor.
+- **AC-TM-15** [Logic] Formula A, `mu_e`. GIVEN FX-TM-MAP, THEN each `mu_e` equals the mean of
   `s_e/100` over its places. The base `mu_e` sum to 1.000. A later scar does not change any `mu_e`.
-- **AC-TM-16** [Harness] Rule 5. GIVEN FX-TM-SEEDS and 200 fixed random roots per seed, THEN the mean M4 over all places
-  is 0.98–1.01.
+- **AC-TM-16** [Harness] Rule 5. GIVEN FX-TM-MAP and 200 fixed random roots, THEN the mean M4 over all places is
+  1.00–1.03 (the floor lifts it slightly; the bot run confirms the band).
 - **AC-TM-17** [Logic] Formula B, density. GIVEN LAKE (1.30) with a sect upkept array (+0.30) and Tụ Linh Trận level 2
   (+0.30), THEN D is **1.90**.
 - **AC-TM-18** [Logic] Formula B, match. GIVEN FX-TM-ROOT-F at VOL with the small blessed land (layer 3, Fire +40) and
   an element-focusing array (tụ nguyên trận) at level 5 on Fire (layer 1, +20), THEN:
   - layer 3 adds 0.300 (raw 0.344);
   - layer 1 adds 0.150 (raw 0.172);
-  - the raw sum is 1.694;
-  - M is **1.600**.
+  - M is **1.694**; no stack cap cuts it (user decision 2026-11-13).
 - **AC-TM-19** [Logic] Formula B, layer caps. GIVEN each input over its cap, THEN only the cap counts:
   - ΔD3 1.5 counts 1.00;
   - ΔD2p 0.25 counts 0.10;
@@ -1133,18 +1172,19 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 
 ### Places
 
-- **AC-TM-24** [Harness] Rule 6. GIVEN FX-TM-SEEDS, THEN every world has 150–250 places and 18–22 regions. Every place
+- **AC-TM-24** [Harness] Rule 6. GIVEN FX-TM-MAP, THEN the map has 150–250 places and 18–22 regions. Every place
   kind in rule 6 appears at least once.
 - **AC-TM-25** [Logic] Rule 6, Formula E `d_t`. GIVEN a town on jungle (base danger 2), THEN its danger is 1. GIVEN a
   village on grassland (danger 1), THEN it stays 1.
 - **AC-TM-26** [Logic] Rule 6. GIVEN CITY and MARKET, THEN each offers trade. GIVEN TOWN, VILLAGE and a wild site, THEN
   none offers trade.
 - **AC-TM-27** [Logic] Rule 7. GIVEN VOL, WHEN its stat block is read back from the World Database, THEN it holds
-  every field in this list, and each equals the generated value:
+  every field in this list, and each equals the built value:
   - biome, temperature, rainfall, density;
   - shares and variants, danger;
   - settlement size, resources, herb fit;
-  - owner, features.
+  - owner, features;
+  - the land line's steps: biome, depth, blending and each feature.
 - **AC-TM-28** [Logic] Rule 8. GIVEN a character whose home is TOWN, WHEN they open a cave abode on WILD1, THEN:
   - a cave abode place exists on WILD1 with WILD1's terrain;
   - the character owns it, and it is their home;
@@ -1226,8 +1266,12 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 
 ### Knowing and finding
 
-- **AC-TM-51** [Logic] Rule 14. GIVEN a newly created character, THEN their map shows their birth region, every city and
-  every road between cities, and nothing else.
+- **AC-TM-51** [Logic] Rule 14. GIVEN a newly created character, THEN their zoomed-in map shows their origin's home
+  region, every city and every road between cities, and nothing else. Their overview shows the whole continent, the
+  famous places, every city and every sect seat.
+- **AC-TM-145** [Logic] Rule 14, politics. GIVEN a major power and a minor holder each losing a region while the
+  character is far away, THEN the overview shows the major power's new border at once, and the minor holder's old
+  border until the character visits, hears news or buys a map.
 - **AC-TM-52** [Logic] Formula F, radius. GIVEN DS 45, 135, 450, 1,350 and 6,525, THEN r is 1, 1, 2, 3 and 7. GIVEN DS
   10,935, THEN r is 8 (raw 9; the r_max cap).
 - **AC-TM-53** [Logic] Rule 14. GIVEN a 10-tile straight path in open land, THEN every tile within Chebyshev distance r
@@ -1241,9 +1285,10 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   it.
 - **AC-TM-56** [Logic] Rule 15, Edge. GIVEN a hidden ruin, THEN no character's map, listing or stat query shows it.
   After A discovers it, it is still Unknown to B, and B's search can still find it.
-- **AC-TM-57** [Integration] Rule 15, World Generation. GIVEN FX-TM-SEEDS[0], THEN every hidden ruin or abode sits on a
-  wilderness tile and links to a history fact (a dead cultivator or a vanished sect). That figure's recorded abode
-  tile holds the place.
+- **AC-TM-57** [Integration] Rule 15, World Generation & History. GIVEN FX-TM-SEEDS, THEN in every game each hidden ruin
+  or abode sits on one of its 2–4 hand-picked candidate tiles and links to a history fact (a dead cultivator or a
+  vanished sect), and that figure's recorded abode tile holds the place. The same seed always picks the same tile.
+  Over the 100 seeds every candidate is picked at least once. Famous places never move.
 - **AC-TM-58** [Logic] Rule 16, Formula F `A`. GIVEN a region with 400 wilderness tiles, THEN a rumour's area is 100 and
   a jade slip's is 25.
 - **AC-TM-59** [Logic] Formula F, search. GIVEN FX-TM-CF, H 300, q 1.0 and cost-1 ground, THEN:
@@ -1294,13 +1339,14 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   at ×0.12 and nothing is destroyed. New planting there is refused.
 - **AC-TM-75** [Integration] Spirit Fields, Formulas B and G. GIVEN Thanh Tâm Liên at FOR with a level-3 private spring
   on Water (+6), THEN Spirit Fields reads f_e 0.930, fit 0.775 and growth ×0.930.
-- **AC-TM-76** [Harness] Rule 18. GIVEN FX-TM-SEEDS, THEN every wild herb ground's fit for its herb is at least 0.6.
+- **AC-TM-76** [Harness] Rule 18. GIVEN FX-TM-MAP, THEN every wild herb ground's fit for its herb is at least 0.6.
 - **AC-TM-77** [Config/Data] Rule 19. GIVEN `map_resources.json`, THEN it lists about ten kinds: linh thạch, five ores,
   herbs by element, beast materials and special goods. Every mapped id exists in the Item Database, and the validator
   reports 0 dangling ids.
-- **AC-TM-78** [Logic] Rule 20. GIVEN every resource site in FX-TM-SEEDS[0], THEN each has reserve, base output and
-  recovery rate. The start reserve is 0.85–1.0 of max, unless a history fact marks it thinned.
-- **AC-TM-79** [Harness] Rule 20. GIVEN FX-TM-SEEDS, THEN every ore site yields its tile's top base element. Every linh
+- **AC-TM-78** [Logic] Rules 15 and 20. GIVEN every resource site in FX-TM-WORLD, THEN each has reserve, base output
+  and recovery rate, and its max reserve is one of its hand-set sizes. The start reserve is 0.85–1.0 of max, unless a
+  history fact marks it thinned.
+- **AC-TM-79** [Harness] Rule 20. GIVEN FX-TM-MAP, THEN every ore site yields its tile's top base element. Every linh
   thạch mine sits on land density 1.0 or more with Earth + Metal of 50 or more.
 - **AC-TM-80** [Logic] Formula H. GIVEN FX-TM-MINE, THEN:
   - R_f is 0.85, W_f 0.85, G_f 1.26;
@@ -1334,8 +1380,8 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 
 ### Regions and territory
 
-- **AC-TM-90** [Harness] Rule 23. GIVEN FX-TM-SEEDS, THEN each region is one connected set of land tiles, and every
-  place is in exactly one region. In every world, at least 60 % of each region's border edges lie on mountain, river
+- **AC-TM-90** [Harness] Rule 23. GIVEN FX-TM-MAP, THEN each region is one connected set of land tiles, and every
+  place is in exactly one region. At least 60 % of each region's border edges lie on mountain, river
   or coast.
 - **AC-TM-91** [Logic] Rule 24. GIVEN an attempt to give a region or site to a non-sect, THEN it is rejected. The only
   places a loose cultivator owns are cave abodes. A region may have no holder.
@@ -1383,7 +1429,7 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   WHEN it is saved and reloaded, THEN:
   - the state dump is byte-identical;
   - the next 4 seasons match a run that never reloaded;
-  - the save holds the seed, sub-seed and changes, and no terrain array.
+  - the save holds the seed and the changes, and no terrain array.
 
 ### Developed ground and homes
 
@@ -1420,7 +1466,7 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   - GIVEN a small blessed land held as a home, THEN a second claim is refused;
   - on a large blessed land a second claim is accepted;
   - once found, layer 3 applies to everyone there.
-- **AC-TM-114** [Harness] Rule 28. GIVEN FX-TM-SEEDS, THEN every world has:
+- **AC-TM-114** [Harness] Rule 28. GIVEN FX-TM-MAP, THEN the map has:
   - 2–5 large blessed lands of 2–9 tiles each;
   - 10–30 small ones of 1 tile.
 
@@ -1450,10 +1496,10 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   - every NPC living outside sits in its region's top `npc_wild_pick_top[realm]` of free tiles by D · M for its root
     (100 % pass);
   - no NPC is placed on a small blessed land another character holds.
-- **AC-TM-121** [Harness] Formula A, rule 33. GIVEN FX-TM-WORLD, THEN settled NPCs' mean M is 0.98–1.02, and NPCs living
-  outside average 1.15–1.25.
+- **AC-TM-121** [Harness] Formula A, rule 33. GIVEN FX-TM-WORLD, THEN settled NPCs' mean M is 0.98–1.03, and NPCs living
+  outside average above 1.10; the exact band is set by the bot run (Open Question 4).
 - **AC-TM-122** [Integration] Realms. GIVEN FX-TM-ROOT-F at the AC-TM-18 stack with D 1.90, THEN Realms' rate there
-  divided by its rate at D 1.0, M 1.0 is 1.90 × 1.60 = **3.040**.
+  divided by its rate at D 1.0, M 1.0 is 1.90 × 1.694 = **3.219**.
 - **AC-TM-123** [Integration] Realms (Core Formation check). GIVEN LAKE (1.30), THEN the Core Formation condition
   fails. GIVEN the AC-TM-17 stack (1.90), THEN it passes. The boundary works as follows:
   - D 1.400 passes, and 1.399 fails;
@@ -1464,37 +1510,40 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 - **AC-TM-125** [Integration] Quests and Heavenly Tribulation. A Quests `visit` stage's travel time equals Formula D's T
   for the same route. Tribulation reads the biome and stacked shares of the place where it happens.
 
-### Generation targets [Harness], FX-TM-SEEDS (100 seeds)
+### Map targets [Harness], FX-TM-MAP
 
 - **AC-TM-126** Formula C:
-  - the share of places at D ≥ 1.4 is 15–21 % in at least 98 of 100 worlds, and every miss is logged;
-  - the mean over the seeds is 17–19 %;
-  - mean place density is 1.05–1.20 per world;
-  - each base `mu_e` is 0.15–0.25 per world.
+  - the share of places at D ≥ 1.4 is 15–21 %;
+  - mean place density is 1.05–1.20;
+  - each base `mu_e` is 0.15–0.25;
+  - each variant is in at most 2 % of places;
+  - every base element has at least 8 places where its share is 50 or more, spread over at least 3 regions.
 - **AC-TM-127** Formula C:
-  - wilderness land tiles at D ≥ 1.4 average 3–5 %, and at least 70 % of them are veins or vein neighbours;
-  - over 10,000 draws on a fixed seed, `n` stays inside ±0.15 with mean 0 ±0.005;
-  - the worked example gives **1.35**, and **1.50** beside a vein;
+  - wilderness land tiles at D ≥ 1.4 are 3–5 %, and at least 70 % of them are veins, vein neighbours or tiles at full
+    depth in a biome of base density 1.0 or more;
+  - the worked example gives **1.45**, **1.65** beside a vein and **1.25** at the edge;
   - the clamps give 0.30 and 2.40.
-- **AC-TM-128** Edge (generation):
-  - every inhabited island has a port, in 100 % of worlds;
+- **AC-TM-128** Edge (the map build):
+  - the map check lists 0 inhabited islands without a port;
   - every settlement reaches every other by some mode at FE;
-  - a forced miss (target set to 50–60 %) makes the generator try 10 times, keep the world with the smallest summed
-    relative miss, and log it;
-  - the result is identical on a rerun.
+  - a forced miss (target set to 50–60 %) makes the map check list the miss with the places behind it, and the built
+    map is unchanged;
+  - unusual features and stale hand corrections are listed, and the result is identical on a rerun.
 
 ### UI [UI], Debug Terminal, retained screenshots in `production/qa/evidence/debug-terminal/`
 
 - **AC-TM-129** `map`. GIVEN a character with a Heard-of place and a hidden ruin nearby, THEN the screenshot shows the
-  known map at region and continent zoom with its legend. Unknown tiles and the hidden ruin are not shown.
+  known map at region zoom and the overview at continent zoom, each with its legend. At region zoom, unknown tiles and
+  the hidden ruin are not shown; the overview shows the whole continent, its famous places, cities and sect seats.
 - **AC-TM-130** `place <name>` and `here`. GIVEN FX-TM-ROOT-F at VOL with the AC-TM-18 stack, THEN the screenshot
   shows:
   - every rule 7 field;
   - one line per layer (land, blessed land or secret, shared works, home works);
-  - a clamp line of −0.094;
+  - no clamp line, since no cap binds (the old −0.094 stack-cap line is gone);
   - the character's own D and M.
 
-  `here` shows the same block.
+  `here` shows the same block. GIVEN the AC-TM-116 city residence, THEN the clamp lines read −0.30 on D and −0.15
+  on M.
 - **AC-TM-131** `route <place>`. GIVEN FX-TM-FE at TOWN, THEN the screenshot lists each route with seasons, danger,
   encounter chance and any teleport fee. Nothing starts before the confirm step. GIVEN ISL as the target for a Qi
   Refining character, THEN the refusal line is shown.
@@ -1515,12 +1564,12 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 
 - **AC-TM-138** On the reference PC (to be named), headless, with FX-TM-WORLD (120 × 80, about 250 places, 5,000
   cultivators):
-  - one generation attempt takes ≤ 1 s, and the worst case with 10 tries ≤ 10 s;
+  - the map build (Formulas C over every tile, offline) takes ≤ 5 s;
   - the seasonal map update (reserves, cycles, fades, ownership, contract records, NPC home moves) has a mean ≤ 20 ms
     and p95 ≤ 50 ms over 400 seasons;
   - the stacked D · M for all 5,000 cultivators takes ≤ 10 ms a season;
   - one route query across the full grid takes ≤ 20 ms;
-  - after 400 seasons the save's map delta is ≤ 500 KB, and a load including regeneration takes ≤ 3 s.
+  - after 400 seasons the save's map delta is ≤ 500 KB, and a load including the stored map takes ≤ 3 s.
 
 Blocked on other GDDs:
 - AC-TM-39 waits on Realms (the leftover-season exception).
@@ -1534,12 +1583,14 @@ Blocked on other GDDs:
 | 1 | Money supply: does mine output add to the mission and stipend faucets, or replace them? If it adds, the supply roughly doubles | economy-designer, #43 | Regional Economy & Trade design |
 | 2 | Does the linh lực pool refill at each season start? Flight drain assumes so | Combat | Before the travel build |
 | 3 | Realms' season-start rate rule needs an exception for the leftover share of a travel season | Realms | With its Open Question 23 |
-| 4 | Realms' bot re-run with the match, settled and hermit NPCs and graded homes: do the player edge and the NPC targets (1 in 8 / 12 / 15 / 20; about 27 Nascent Soul, about 3 Hóa Thần) hold? | Realms, Balance Harness | Before the map's numbers are approved |
+| 4 | Realms' bot re-run with the match, settled and hermit NPCs and graded homes: do the player edge and the NPC targets (1 in 8 / 12 / 15 / 20; about 27 Nascent Soul, about 3 Hóa Thần) hold, now that the match has no ceiling and no stack cap? | Realms, Balance Harness | Before the map's numbers are approved |
 | 5 | Scar threshold and size: which events may scar the land, and by how much | Event Engine (budgets) | Event Engine GDD |
 | 6 | Capability #8 (travel seasons cultivate) under travel with leftover seasons | Meridian Map, Effects | Meridian content pass |
 | 7 | Should `stealth` lower the encounter chance (a factor on `m_mode`)? | user | Before the travel build |
 | 8 | Each herb's climate band (`temp_ideal`, `rain_ideal` and tolerances), and a pill-supply re-check with linear herb fit | content, Spirit Herbs | Content pass |
 | 9 | The move from today's region-and-place graph: Market, Sects, Spirit Fields, Events and the balance bots that rely on it | programming | Architecture / code pass |
-| 10 | Generation method (noise, rivers, region partition, place siting): a technical decision → becomes an ADR | technical-director | `/create-architecture` |
-| 11 | The Game UI map's art style (pixel/tile, parchment, ink-wash) and the game concept's "Ink and Ledger" | art-director, user | `/art-bible` |
-| 12 | Every number marked *(guess)* is set by the bot run, generation targets first | systems-designer, bot | Balance Harness run |
+| 10 | The map build pipeline (index image formats, the map build and map check tools, how hand corrections and candidate spots are stored): a technical decision → becomes an ADR | technical-director | `/create-architecture` |
+| 11 | The Game UI map's art style (pixel/tile, parchment, ink-wash) and the game concept's "Ink and Ledger". The two-view split (painted overview, rendered zoomed-in view) is decided | art-director, user | `/art-bible` |
+| 12 | Every number marked *(guess)* is set by the bot run, map targets first. The signature pushes, feature strengths and reaches, and depth bonuses are set once the continent is painted | systems-designer, bot | Balance Harness run |
+| 13 | World Generation & History (#27) for the fixed world: the authored history's format, the candidate spots, the per-game rolls and the random NPCs placed into the authored history | user, narrative-director | #27 rework |
+| 14 | The settled match cap (×1.3) now binds for strong roots on their land alone: keep it, raise it, or let it scale | user | Before the map's numbers are approved |
