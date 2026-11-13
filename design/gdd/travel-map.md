@@ -40,8 +40,8 @@ Where you are matters to your build. A root cultivates faster on ground that mat
 where its climate and element allow, and Core Formation needs a place dense enough in qi. Distance costs seasons
 (Pillar 4), and every place, road and discovery is a recorded fact the world remembers (Pillar 5).
 
-Each region produces resources: linh thạch from its mines, herbs, ores, beasts. It also needs some, and a sect, a
-kingdom or nobody controls it. This GDD owns what the map produces and where. Market and Sects build prices, trade,
+Each region produces resources: linh thạch from its mines, herbs, ores, beasts. It also needs some, and a sect
+or nobody controls it. This GDD owns what the map produces and where. Market and Sects build prices, trade,
 income and conflict on that contract.
 
 The terrain is authored once and stays fixed. Anything that changes (mine output, a region's supply, who holds a
@@ -164,7 +164,7 @@ names rather than a place.
 
    A settlement lowers danger, and cities and markets have trade (towns and villages do not, as built).
 7. **Every place shows its stat block** (Pillar 2): the tile's mix and the part the place sits in; climate (temperature and rainfall); density; element shares
-   and any variant; danger; settlement size; resources and herb fit; owner (a sect, a kingdom or none); and features
+   and any variant; danger; settlement size; resources and herb fit; owner (a sect or none); and features
    (river, coast, vein). Every value is stored, inspectable and recorded in the World Database.
 8. **A cave abode can be opened anywhere on land.** On a wilderness tile that holds no place, a cultivator may open a
    cave abode. It becomes a new place with that tile's terrain, owned by its founder and recorded as a fact. The
@@ -200,7 +200,7 @@ names rather than a place.
 
 14. **Each character knows part of the map.** The **overview map** is common knowledge: every character sees the whole
     continent's painted geography, the famous places, the great cities and the sect seats from the start. Its political
-    borders are live for the major powers (the great sects and kingdoms, marked in data); minor holdings and seats show
+    borders are live for the major powers (the great sects, marked in data); minor holdings and seats show
     as the character last heard of them, refreshed by a visit, news or a map (user decision 2026-11-13). The
     **zoomed-in map** is personal. A cultivator starts knowing their home region (set by their origin), the main roads
     (the roads between cities) and the great cities (every city). Tiles near their path become known as they travel, in

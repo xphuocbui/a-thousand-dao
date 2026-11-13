@@ -53,7 +53,7 @@ Rules that keep the two views consistent:
 - **The overview is common knowledge.** Every character sees the whole painting, the famous places, the
   great cities and the sects from the start. The knowledge mask (blank paper until known) applies only in
   the zoomed-in view, where the tiles, sites and secrets are.
-- **Political map:** borders of the major sects and kingdoms update live for everyone; small holdings and
+- **Political map:** borders of the great sects update live for everyone (sects are the only powers; no mortal kingdoms); small holdings and
   minor seats show as the character last heard them.
 
 Both change Travel & Map rule 14 (a character starts knowing only their birth region and the main roads);
