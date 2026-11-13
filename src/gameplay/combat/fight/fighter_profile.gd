@@ -4,8 +4,8 @@ extends RefCounted
 ## read-only by contract: a [Fight] copies what it changes into its [FighterState] and never writes here (GDScript
 ## has no immutable objects; the parity suite runs the same profiles twice to catch a slip).
 ##
-## Field names and meanings follow the sim's [code]Build[/code] (tools/design/combat_sim/engine.py). Slice 1 carries
-## the timeline and basic-damage fields; later slices add wards, shields, stacks, statuses and Effects.
+## Field names and meanings follow the sim's [code]Build[/code] (tools/design/combat_sim/engine.py). Slices 1-2 carry
+## the timeline, damage and defence-path fields; later slices add stacks, statuses, soul and Effects.
 
 
 ## A companion: a hit of its own on its own cooldown, one per source (Combat Formulas J, R31).
@@ -23,6 +23,16 @@ var m: float = 3.273
 ## Health and linh lực sheet multipliers.
 var n_body: float = 1.0
 var n_qi: float = 1.0
+## Crit chance (share) and crit multiplier; evade and accuracy (shares) (Combat Formulas I).
+var crit: float = 0.0
+var crit_mult: float = 1.7
+var evade: float = 0.0
+var acc: float = 0.0
+## Body shield bar as a share of health_max; chaos and Soul pass it.
+var body_shield: float = 0.0
+## Ward shields and extra wards (Combat Defence & Healing rules 5-9).
+var shields: Array[WardShieldDef] = []
+var wards: Array[ExtraWardDef] = []
 ## Main ward resistance points (count only while linh lực lasts), its layer and its drain.
 var ward_pts: float = 0.0
 var ward_layer: float = 1.0

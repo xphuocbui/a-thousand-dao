@@ -5,10 +5,11 @@ extends RefCounted
 ## parity suite (tests/parity) holds the two to 1e-6 on chance-free fixtures.
 ##
 ## Pure logic: no Node, scene, session or World DB. It reads its two [FighterProfile]s (never writing to them), the
-## [CombatConstants] and one seeded [RandomNumberGenerator]. Slice 1: the pulse loop (linh lực and health
-## regeneration, fatigue), arts on cooldown with charges and linh lực or health costs, heal and restore arts, the
-## basic attack, companions, hit damage (U x c x M x realm suppression) and the [DefencePath]; the plain Down check.
-## Effect mods, stacks, statuses, crits and evades join in later slices; where the sim adds a mod there, this
+## [CombatConstants] and one seeded [RandomNumberGenerator]. Slices 1-2: the pulse loop (linh lực and health
+## regeneration, fatigue, shield recharge), arts on cooldown with charges and linh lực or health costs, heal and
+## restore arts, cast wards, the basic attack, companions, evade and crit rolls, hit damage (U x c x M x crit x
+## realm suppression), conversion, and the [DefencePath]; the plain Down check.
+## Effect mods, stacks, statuses and soul attacks join in later slices; where the sim adds a mod there, this
 ## engine adds nothing yet (x + 0.0 is exact, so parity holds).
 ##
 ## Usage:
@@ -36,6 +37,8 @@ var _rng := RandomNumberGenerator.new()
 var _order: Order
 var _log_enabled: bool
 var _log: Array[FightLogRow] = []
+## Counts hits and ticks, so a per-hit ward pays one fee per hit (all its parts).
+var _hit_id: int = 0
 
 
 ## Sets up both sides and their opening timers, as the sim's Fight does. [param fight_seed] seeds the fight's only
@@ -135,6 +138,13 @@ func pulse(s: FighterState) -> void:
 		var f: float = s.u * _k.fatigue_units * pow(float(1 + n), _k.fatigue_pow) * (s.g if _k.fatigue_by_realm else 1.0)
 		s.hp -= f
 		s.fat += f
+	# ward shield recharge: standing bars refill a share after a quiet spell (Combat Defence & Healing rule 9)
+	for w in s.wshields:
+		var cap: float = w.def.size * s.qi_base
+		if w.def.standing and t - w.quiet_since >= _k.recharge_delay_ms and w.left < cap:
+			w.left = minf(cap, w.left + _k.shield_recharge * cap)
+			if w.def.pieces > 1:
+				w.pieces_left = mini(w.def.pieces, w.pieces_left + 1)
 	if _log_enabled:
 		_row(FightLogRow.Kind.PULSE, s.label, &"", &"", [s.hp, s.qi])
 
@@ -153,6 +163,8 @@ func heal(s: FighterState, amount: float) -> void:
 func act(s: FighterState) -> void:
 	if s.down:
 		return
+	if not s.xwards.is_empty():
+		cast_wards(s)
 	var o: FighterState = b if s == a else a
 	var p: FighterProfile = s.p
 	var speed_base: float = 1.0 + p.art_speed_pct / 100.0
@@ -218,13 +230,29 @@ func pay(s: FighterState, art: ArtDef) -> bool:
 	return true
 
 
-## One hit of coefficient [param c] from [param att] into [param dfn] (Combat Formulas A: D = U x c x M x
-## supp), through the [DefencePath], then on-hit sustain. Returns the health removed. Public for mechanism tests.
+## One hit of coefficient [param c] from [param att] into [param dfn]: the evade roll, the crit roll (not for
+## companions), D = U x c x M x crit x supp (Combat Formulas A, I), the [DefencePath] (per converted part), then
+## on-hit sustain. Returns the health removed. Public for mechanism tests.
 func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art: ArtDef, kind: StringName) -> float:
+	# evade, then crit: both rolls are drawn whenever they apply, so a zero chance never shifts the stream
+	if _rng.randf() < evade_chance(att, dfn):
+		return 0.0
+	var is_crit := false
+	if kind != KIND_COMPANION:
+		is_crit = _rng.randf() < crit_chance(att)
+	var crit: float = att.p.crit_mult if is_crit else 1.0
 	var m: float = att.p.m if kind == KIND_COMPANION else att.p.m * (art.m_mult if art != null else 1.0)
-	var d: float = att.u * c * m * _supp(att, dfn)
+	var d: float = att.u * c * m * crit * _supp(att, dfn)
 	var d_in: float = d
-	var dealt: float = DefencePath.defend(_k, att, dfn, d, dtype, art, false)
+	_hit_id += 1
+	var dealt: float
+	if art != null and art.convert_share != 0.0:
+		# conversion: each part meets its own type's defence (Combat Damage Types)
+		var cd_part: float = d * art.convert_share
+		dealt = DefencePath.defend(_k, att, dfn, d - cd_part, dtype, art, false, t, _hit_id)
+		dealt += DefencePath.defend(_k, att, dfn, cd_part, art.convert_to, art, false, t, _hit_id)
+	else:
+		dealt = DefencePath.defend(_k, att, dfn, d, dtype, art, false, t, _hit_id)
 	att.dealt += dealt
 	att.direct_dmg += dealt
 	var gain: float = att.p.gain_on_hit * att.qi_max() + att.p.leech_qi * dealt
@@ -235,6 +263,56 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 		var id: StringName = art.id if art != null else kind
 		_row(FightLogRow.Kind.HIT, att.label, kind, id, [d_in, dealt, dfn.hp, dfn.qi, att.hp, att.qi])
 	return dealt
+
+
+## The chance [param dfn] evades a hit from [param att] (Combat Formulas I): evade plus the evade of its up
+## wards (a reserved ward always counts, others need live linh lực), less accuracy, within 0 and evade_cap.
+func evade_chance(att: FighterState, dfn: FighterState) -> float:
+	var w_ev: float = 0.0
+	for xw in dfn.xwards:
+		if xw.up and (xw.def.model == ExtraWardDef.Model.RESERVED or dfn.qi > 0.0):
+			w_ev += xw.def.evade
+	w_ev /= 100.0
+	return minf(_k.evade_cap, maxf(0.0, dfn.p.evade + w_ev - att.p.acc))
+
+
+## The chance a hit from [param att] crits, within crit_cap (Combat Formulas I).
+func crit_chance(att: FighterState) -> float:
+	return minf(_k.crit_cap, att.p.crit)
+
+
+## Cast wards for [param s] (Combat Defence & Healing rule 7): a ward up past its window goes down (its bar goes
+## with it); a ward down and off cooldown is cast when linh lực pays the cost, up for its window, with a bar when
+## it carries a shield. Public for mechanism tests.
+func cast_wards(s: FighterState) -> void:
+	for xw in s.xwards:
+		var w: ExtraWardDef = xw.def
+		if w.model != ExtraWardDef.Model.CAST:
+			continue
+		if xw.up and t >= xw.until:
+			xw.up = false
+			if xw.bar != null:
+				s.wshields.erase(xw.bar)
+			xw.bar = null
+		if not xw.up and t >= xw.ready:
+			var cost: float = w.cost * s.qi_base
+			if s.qi + 1e-9 < cost:
+				continue
+			s.qi -= cost
+			s.spent += cost
+			xw.up = true
+			xw.until = t + CombatConstants.ms(w.up)
+			xw.ready = t + CombatConstants.ms(w.cooldown)
+			if w.shield != 0.0:
+				var bar_def := WardShieldDef.new()
+				bar_def.size = w.shield
+				bar_def.standing = false
+				var bar := FighterState.ShieldState.new()
+				bar.def = bar_def
+				bar.left = w.shield * s.qi_base
+				bar.quiet_since = t
+				xw.bar = bar
+				s.wshields.append(bar)
 
 
 ## Realm suppression (Combat Formulas H): 1 - s_g (1 - P); pierce P joins with Effect mods.

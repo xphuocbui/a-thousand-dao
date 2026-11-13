@@ -6,8 +6,13 @@ extends DaoTestSuite
 
 const EXPECTED_DIR := "res://tests/parity/expected/"
 const TOL := 1e-6
-## The slice-1 fixtures; the suite fails if any goes missing.
+## The fixtures each slice added; the suite fails if any goes missing.
 const SLICE_1 := ["t1_hazards", "t1_mirror_qr", "t1_realm_gap", "t1_stall"]
+const SLICE_2 := ["t2_wards_exact", "t2_shield_cycles", "t2_crit_evade_mirror", "t2_crit_vs_wards"]
+## ADR-0001 decision 4 (amended 2026-11-13): chancy fixtures over 1,000 seeds; mean fight time within 5 %, each win
+## share within 0.05 of the sim's reference (which parity_export.py takes over 10x the seeds).
+const TIME_TOL := 0.05
+const SHARE_TOL := 0.05
 
 
 static func _read(path: String) -> Dictionary:
@@ -79,8 +84,8 @@ func test_the_constants_load_from_the_shared_file() -> void:
 	assert_eq(k.pulse_ms, 1000, "a pulse is 1000 ms")
 
 
-func test_every_slice_1_fixture_has_an_expected_file() -> void:
-	for name in SLICE_1:
+func test_every_slice_fixture_has_an_expected_file() -> void:
+	for name in SLICE_1 + SLICE_2:
 		assert_true(FileAccess.file_exists(EXPECTED_DIR + name + ".json"), "%s.json is there" % name)
 
 
@@ -145,3 +150,38 @@ func test_the_coin_order_is_seeded_and_fair_in_a_mirror() -> void:
 		var r: FightResult = Fight.new(pr[0], pr[1], k, s).run()
 		wins[r.win_code()] += 1
 	assert_true(wins.A > 0 and wins.B > 0, "both sides win some mirrors: %s" % str(wins))
+
+
+func test_every_chancy_fixture_matches_the_sim_statistically() -> void:
+	var k := _constants()
+	var ran := 0
+	for file in DirAccess.get_files_at(EXPECTED_DIR):
+		if not file.ends_with(".json"):
+			continue
+		var doc := _read(EXPECTED_DIR + file)
+		if bool(doc.get("chance_free", true)):
+			continue
+		var errs: Array = []
+		var pr: Array = _profiles(doc, file, k, errs)
+		assert_true(errs.is_empty(), "%s loads: %s" % [file, "; ".join(errs)])
+		if pr.is_empty():
+			continue
+		var n: int = int(doc.seeds)
+		var wins := {"A": 0, "B": 0, "draw": 0, "time": 0}
+		var total_t := 0.0
+		for s in n:
+			var r: FightResult = Fight.new(pr[0], pr[1], k, s).run()
+			wins[r.win_code()] += 1
+			total_t += r.seconds
+		var want: Dictionary = doc.stats
+		var mean_t: float = total_t / n
+		var rel: float = absf(mean_t - float(want.mean_t)) / float(want.mean_t)
+		print("PARITY %s: GDScript %d seeds mean %.2f s, A %.3f B %.3f draw %.3f | sim %d seeds mean %.2f s, A %.3f B %.3f draw %.3f" % [
+			file, n, mean_t, float(wins.A) / n, float(wins.B) / n, float(wins.draw) / n, int(doc.get("ref_seeds", n)),
+			float(want.mean_t), float(want.share.A), float(want.share.B), float(want.share.draw)])
+		assert_true(rel <= TIME_TOL, "%s mean fight %.2f s, sim %.2f s (%.1f %%)" % [file, mean_t, float(want.mean_t), rel * 100.0])
+		for key in wins:
+			var share: float = float(wins[key]) / n
+			assert_near(share, float(want.share[key]), SHARE_TOL, "%s %s share over %d seeds" % [file, key, n])
+		ran += 1
+	assert_true(ran >= 2, "ran %d chancy fixtures" % ran)

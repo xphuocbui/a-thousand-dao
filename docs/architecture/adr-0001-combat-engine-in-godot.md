@@ -92,8 +92,10 @@ Port the sim engine to GDScript as **the canonical fight engine**. The Python si
    actions, mod keys, dtypes, elements and readables, as the sim does.
 4. **Parity, exact and statistical.** A shared fixture set (`tests/parity/fixtures/*.json`: two profiles and a
    seed count) is run by both engines. Chance-free fixtures (no crit, evade, chance Effect or status chance) must match
-   exactly: event by event, final health and linh lực within 1e-6. Chancy fixtures must match over 200 seeds: mean
-   fight time within 5 % and win share within 0.05. The sim's 49 mechanism tests become GdUnit tests with the same
+   exactly: event by event, final health and linh lực within 1e-6. Chancy fixtures must match over 1,000 seeds: mean
+   fight time within 5 % and win share within 0.05 (amended 2026-11-13, user decision: at 200 seeds the sampling noise
+   between two independent runs of an even fight is about ±0.05, so a correct port would fail about a third of the
+   time; at 1,000 it is about ±0.022). The sim's 49 mechanism tests become GdUnit tests with the same
    names and numbers. Any rule change lands in both engines in the same change, and the parity suite must pass.
 5. **Callers.** The Event Engine's combat check, and any player duel, call `CombatService.resolve(request)`, which
    compiles both fighters, runs one `Fight` on the session's seeded stream and returns a `FightResult`.
@@ -288,7 +290,7 @@ static func clash(a: RatingProfile, b: RatingProfile, gd: GameData, rng: RandomN
 ## Validation Criteria
 - All 49 ported mechanism tests pass in GdUnit with the sim's numbers.
 - Every chance-free parity fixture matches exactly; every chancy fixture matches within 5 % mean time and 0.05 win
-  share over 200 seeds.
+  share over 1,000 seeds.
 - A fight resolves in under 50 ms in a headless export build.
 - The typical mirror lasts 30–60 s at every realm in the Godot engine, as in the sim.
 - The Formulas K agreement test passes against the Godot engine.

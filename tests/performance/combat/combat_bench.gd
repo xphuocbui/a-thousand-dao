@@ -57,6 +57,10 @@ static func shapes() -> Array:
 		{"id": "stall", "doc": "heavy wards and regeneration, ends in fatigue", "a": _doc("t1_stall").a, "b": _doc("t1_stall").b},
 		{"id": "hazards", "doc": "health costs, heals, restores, splits", "a": _doc("t1_hazards").a, "b": _doc("t1_hazards").b},
 		{"id": "art_heavy", "doc": "8 arts with 4-way splits and charges plus a companion, each side", "a": heavy_a, "b": heavy_b},
+		{"id": "wards", "doc": "every extra ward model, pieced shields, body shield, conversion (slice 2)",
+			"a": _doc("t2_wards_exact").a, "b": _doc("t2_wards_exact").b},
+		{"id": "crit_mirror", "doc": "crits, evades and a cast evade ward, each side (slice 2)",
+			"a": _doc("t2_crit_evade_mirror").a, "b": _doc("t2_crit_evade_mirror").b},
 	]
 
 

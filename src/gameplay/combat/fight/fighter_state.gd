@@ -4,7 +4,27 @@ extends RefCounted
 ## [FighterProfile] at the start. The profile is only read. No reference to the [Fight] or the other side
 ## (ADR-0001: no back-pointers; cyclic RefCounted references leak).
 ##
-## Mirrors the sim's [code]Side[/code] (tools/design/combat_sim/engine.py). Slice 1 fields only.
+## Mirrors the sim's [code]Side[/code] (tools/design/combat_sim/engine.py). Slices 1-2 fields.
+
+
+## A ward shield bar in this fight: its definition, what is left, when it was last hit (ms), pieces left.
+class ShieldState extends RefCounted:
+	var def: WardShieldDef
+	var left: float = 0.0
+	var quiet_since: int = 0
+	var pieces_left: int = 1
+
+
+## An extra ward in this fight: up or down, cast window end and next cast (ms), its cast bar, the last hit that
+## paid its per-hit fee.
+class WardState extends RefCounted:
+	var def: ExtraWardDef
+	var up: bool = true
+	var until: int = 0
+	var ready: int = 0
+	var bar: ShieldState = null
+	var paid_hit: int = -1
+
 
 ## The compiled fighter (read only).
 var p: FighterProfile
@@ -25,6 +45,10 @@ var fired: PackedInt32Array = []
 var basic_ready: int = 0
 var comp_ready: PackedInt64Array = []
 var down: bool = false
+## The body shield bar, and the ward shield bars in order (the build's shields, then standing ward shields).
+var body_bar: float = 0.0
+var wshields: Array[ShieldState] = []
+var xwards: Array[WardState] = []
 ## Tallies for the result.
 var dealt: float = 0.0
 var direct_dmg: float = 0.0
@@ -57,6 +81,26 @@ func _init(profile: FighterProfile, side_label: String, k: CombatConstants) -> v
 	for i in n:
 		charges[i] = p.arts[i].charges
 	comp_ready.resize(p.companions.size())
+	body_bar = p.body_shield * hp_max
+	for sd in p.shields:
+		var sh := ShieldState.new()
+		sh.def = sd
+		sh.left = sd.size * qi_base * (1.0 if sd.pieces != 0 else 0.0)
+		sh.pieces_left = sd.pieces
+		wshields.append(sh)
+	for wd in p.wards:
+		var ws := WardState.new()
+		ws.def = wd
+		ws.up = wd.model != ExtraWardDef.Model.CAST
+		xwards.append(ws)
+		if wd.shield != 0.0 and wd.model != ExtraWardDef.Model.CAST:
+			# a standing ward's shield joins the ward shields
+			var bar_def := WardShieldDef.new()
+			bar_def.size = wd.shield
+			var bar := ShieldState.new()
+			bar.def = bar_def
+			bar.left = wd.shield * qi_base
+			wshields.append(bar)
 
 
 ## Maximum linh lực (Water stacks raise it in a later slice).

@@ -43,3 +43,22 @@ All shapes are within budget, and the worst p95 (5.5 ms) leaves about 9x headroo
   realm-4 shape was built for timing, not balanced.
 
 Raw output: the `BENCH_JSON` line printed by each run.
+
+## Re-run after slice 2 (defence path, wards, crits, evades), 2026-11-13
+
+Same machine and method, release export rebuilt. Two shapes added: `wards` (every extra ward model, pieced shields,
+body shield, conversion; from `t2_wards_exact`) and `crit_mirror` (crits, evades and a cast evade ward; from
+`t2_crit_evade_mirror`).
+
+| Shape | Fight (s) | Events | Mean ms | p50 ms | p95 ms | Max ms | µs/event |
+|---|---|---|---|---|---|---|---|
+| mirror_qr | 38.9 | 302 | 0.830 | 0.814 | 0.931 | 1.417 | 2.75 |
+| mirror_top | 66.0 | 644 | 1.583 | 1.558 | 1.701 | 2.077 | 2.46 |
+| stall | 67.0 | 328 | 0.814 | 0.785 | 0.930 | 1.227 | 2.48 |
+| hazards | 14.7 | 201 | 0.635 | 0.617 | 0.733 | 0.864 | 3.16 |
+| art_heavy | 29.7 | 2246 | 5.925 | 5.675 | 7.434 | 8.080 | 2.64 |
+| wards | 58.7 | 435 | 2.385 | 2.373 | 2.648 | 3.961 | 5.48 |
+| crit_mirror | 37.4 | 321 | 0.934 | 0.925 | 1.079 | 1.510 | 2.91 |
+
+Worst p95 7.4 ms of 50. The per-event cost rose about 30 % with slice 2 (two rolls per hit, ward checks), and is
+about 5.5 µs where every ward model is in play. Still a lower bound until the Effect slice.

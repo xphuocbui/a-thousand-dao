@@ -1,0 +1,32 @@
+{
+  "name": "t2_wards_exact",
+  "doc": "Slice 2 (defence path and wards), chance-free. Every extra ward model on side A (a per-hit Fire ward, a drain ward on all types, a reserved Physical ward with block, a cast Force ward with a shield bar and block), a standing ward shield in three pieces with a floor and partial Fire stops, and a body shield. Side B hits with Physical, Fire (split), Chaos (passes the body shield), Force (meets the cast ward), a bypass art and a converting art, and has a drain ward with a standing shield of its own.",
+  "slice": 2,
+  "chance_free": true,
+  "seed": 5,
+  "a": {
+    "name": "warden", "realm": 1, "crit": 0.0, "evade": 0.0, "reserved": 0.1, "body_shield": 0.12,
+    "shields": [{"size": 0.25, "stops": {"phys": 1.0, "fire": 0.5}, "pieces": 3, "floor": 0.1}],
+    "wards": [
+      {"id": "ember-veil", "model": "per_hit", "payload": {"fire": 120.0}, "cost": 0.01},
+      {"id": "deep-well", "model": "drain", "payload": {"all": 80.0}, "drain": 0.6},
+      {"id": "still-lake", "model": "reserved", "payload": {"phys": 60.0}, "block": 5.0},
+      {"id": "gold-bell", "model": "cast", "payload": {"force": 90.0}, "shield": 0.08, "block": 8.0, "cost": 0.03, "cooldown": 6.0, "up": 2.5}
+    ],
+    "arts": [
+      {"name": "patient-palm", "c": 2.2, "cost": 0.05, "cd": 2.5},
+      {"name": "ember-thread", "c": 1.6, "cost": 0.04, "cd": 3.0, "dtype": "fire", "convert": {"to": "cold", "share": 0.4}}
+    ]
+  },
+  "b": {
+    "name": "breaker", "realm": 1, "crit": 0.0, "evade": 0.0, "acc": 0.05,
+    "wards": [{"id": "thin-skin", "model": "drain", "payload": {"phys": 40.0}, "shield": 0.1, "drain": 0.8}],
+    "arts": [
+      {"name": "split-mountain", "c": 2.8, "cost": 0.06, "cd": 3.0, "bypass": 0.3},
+      {"name": "cinder-rain", "c": 1.4, "cost": 0.05, "cd": 2.0, "dtype": "fire", "split": [0.5, 0.5]},
+      {"name": "rot-touch", "c": 1.2, "cost": 0.04, "cd": 3.5, "dtype": "chaos"},
+      {"name": "gale-fist", "c": 1.8, "cost": 0.05, "cd": 4.0, "dtype": "force"},
+      {"name": "tempered-edge", "c": 2.0, "cost": 0.05, "cd": 5.0, "convert": {"to": "fire", "share": 0.5}}
+    ]
+  }
+}

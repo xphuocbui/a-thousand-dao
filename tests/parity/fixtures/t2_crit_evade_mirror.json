@@ -1,0 +1,23 @@
+{
+  "name": "t2_crit_evade_mirror",
+  "doc": "Slice 2, chancy (compared over 1,000 seeds: mean fight time within 5 %, win shares within 0.05). An even mirror with crits, evade, accuracy and a cast evade ward.",
+  "slice": 2,
+  "chance_free": false,
+  "seeds": 1000,
+  "a": {
+    "name": "duelist-a", "realm": 0, "crit": 0.25, "crit_mult": 1.9, "evade": 0.12, "acc": 0.02,
+    "wards": [{"id": "mist-step", "model": "cast", "payload": {}, "evade": 10.0, "cost": 0.03, "cooldown": 6.0, "up": 3.0}],
+    "arts": [
+      {"name": "cleaving-wave", "c": 2.0, "cost": 0.06, "cd": 3.0},
+      {"name": "rain-of-needles", "c": 1.2, "cost": 0.05, "cd": 2.0, "split": [0.4, 0.4, 0.4]}
+    ]
+  },
+  "b": {
+    "name": "duelist-b", "realm": 0, "crit": 0.25, "crit_mult": 1.9, "evade": 0.12, "acc": 0.02,
+    "wards": [{"id": "mist-step", "model": "cast", "payload": {}, "evade": 10.0, "cost": 0.03, "cooldown": 6.0, "up": 3.0}],
+    "arts": [
+      {"name": "cleaving-wave", "c": 2.0, "cost": 0.06, "cd": 3.0},
+      {"name": "rain-of-needles", "c": 1.2, "cost": 0.05, "cd": 2.0, "split": [0.4, 0.4, 0.4]}
+    ]
+  }
+}

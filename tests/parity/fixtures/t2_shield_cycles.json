@@ -1,0 +1,23 @@
+{
+  "name": "t2_shield_cycles",
+  "doc": "Slice 2, chance-free. A long fight where ward shields break and recharge (2 s quiet, 25 % per pulse), a cast ward opens and closes its window and bar, and a per-hit ward with a heavy fee runs linh luc dry and stops being met. Ends in fatigue.",
+  "slice": 2,
+  "chance_free": true,
+  "seed": 9,
+  "a": {
+    "name": "pecker", "realm": 0, "M": 2.4, "crit": 0.0, "evade": 0.0,
+    "arts": [
+      {"name": "peck", "c": 0.9, "cost": 0.03, "cd": 1.5},
+      {"name": "long-peck", "c": 2.0, "cost": 0.06, "cd": 5.0}
+    ]
+  },
+  "b": {
+    "name": "shell", "realm": 0, "M": 2.0, "crit": 0.0, "evade": 0.0, "ward_pts": 300.0,
+    "shields": [{"size": 0.2, "pieces": 2}, {"size": 0.1, "stops": {"phys": 0.6}, "floor": 0.2}],
+    "wards": [
+      {"id": "toll-veil", "model": "per_hit", "payload": {"phys": 150.0}, "cost": 0.06},
+      {"id": "turtle-bell", "model": "cast", "payload": {}, "shield": 0.15, "cost": 0.04, "cooldown": 7.0, "up": 3.0}
+    ],
+    "arts": [{"name": "shell-bash", "c": 1.5, "cost": 0.05, "cd": 3.5}]
+  }
+}

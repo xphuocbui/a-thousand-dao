@@ -18,6 +18,7 @@ const REQUIRED_K := [
 	"fatigue_start", "fatigue_units", "fatigue_pow", "time_limit", "realm_def", "fatigue_by_realm", "health_mult",
 	"regen_base", "regen_k", "cost_scale", "drain_scale", "cooldown_min", "basic_cooldown", "pulse", "bypass_cap",
 	"pierce_cap", "health_units", "qi_units", "cost_red_cap", "reserve_cap", "pay_keep_health", "min_hit",
+	"crit_cap", "evade_cap", "recharge_delay", "shield_recharge",
 ]
 
 var fatigue_start: float
@@ -47,6 +48,12 @@ var reserve_cap: float
 var pay_keep_health: float
 ## A hit that reaches health removes at least this much (ticks excepted).
 var min_hit: float
+## Caps on crit and evade chance (shares); a standing shield refills shield_recharge of its bar per pulse after
+## recharge_delay seconds without a hit.
+var crit_cap: float
+var evade_cap: float
+var recharge_delay: float
+var shield_recharge: float
 ## The per-realm unit U.
 var u: PackedFloat64Array
 ## Realm suppression by realm gap (Combat Formulas H).
@@ -58,6 +65,7 @@ var pulse_ms: int
 var time_limit_ms: int
 var fatigue_start_ms: int
 var cooldown_min_ms: int
+var recharge_delay_ms: int
 
 ## Load problems; empty when the constants are usable.
 var errors: PackedStringArray = []
@@ -117,6 +125,10 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.reserve_cap = float(kd.reserve_cap)
 	k.pay_keep_health = float(kd.pay_keep_health)
 	k.min_hit = float(kd.min_hit)
+	k.crit_cap = float(kd.crit_cap)
+	k.evade_cap = float(kd.evade_cap)
+	k.recharge_delay = float(kd.recharge_delay)
+	k.shield_recharge = float(kd.shield_recharge)
 	k.u = PackedFloat64Array(d.U)
 	k.supp = PackedFloat64Array(d.SUPP)
 	k.block_unit = PackedFloat64Array(d.BLOCK_UNIT)
@@ -124,6 +136,7 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.time_limit_ms = ms(k.time_limit)
 	k.fatigue_start_ms = ms(k.fatigue_start)
 	k.cooldown_min_ms = ms(k.cooldown_min)
+	k.recharge_delay_ms = ms(k.recharge_delay)
 	if k.realm_def.size() != 5:
 		k.errors.append("combat_engine.json: K.realm_def must list 5 realms")
 	return k

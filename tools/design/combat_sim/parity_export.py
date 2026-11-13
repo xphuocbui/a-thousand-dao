@@ -60,6 +60,35 @@ def check_chance_free(fx, b, where):
     for a in b.arts:
         if a.statuses:
             raise FixtureError("%s: chance_free, but art %s applies statuses" % (where, a.name))
+    for w in b.wards:
+        if w.get("evade"):
+            raise FixtureError("%s: chance_free, but ward %s gives evade" % (where, w.get("id")))
+
+
+def run_chancy(fx, name, a, b):
+    """A chancy fixture. The GDScript engine runs `seeds` fights (default 1,000; ADR-0001 amended 2026-11-13) with the
+    coin order and compares only statistics, since its random stream differs: mean fight time within 5 %, each win
+    share within 0.05. The reference here uses `ref_seeds` (default 10 x seeds), so the reference itself is close to
+    the true value and the band only has to absorb the GDScript sample's noise (about +-0.016 at 1,000 seeds); with a
+    1,000-seed reference, seeds 0-999 of the even mirror read A 0.529 / B 0.441 against a true 0.48 / 0.48."""
+    n = int(fx.get("seeds", 1000))
+    ref_n = int(fx.get("ref_seeds", 10 * n))
+    wins = {"A": 0, "B": 0, "draw": 0, "time": 0}
+    total_t = 0.0
+    for s in range(ref_n):
+        r = E.fight(a, b, seed=s, order="random")
+        wins[r["win"]] += 1
+        total_t += r["t"]
+    again = [E.fight(a, b, seed=s, order="random")["t"] for s in range(5)]
+    if again != [E.fight(a, b, seed=s, order="random")["t"] for s in range(5)]:
+        raise FixtureError("%s: the same seed gave two different fights" % name)
+    return dict(
+        fixture=name, slice=fx.get("slice"), chance_free=False, seeds=n, ref_seeds=ref_n,
+        generated_by="tools/design/combat_sim/parity_export.py (order=random)",
+        a=dataclasses.asdict(a), b=dataclasses.asdict(b),
+        stats=dict(mean_t=total_t / ref_n, share={k: v / ref_n for k, v in wins.items()}),
+        rows=[],
+    )
 
 
 def end_state(s):
@@ -76,6 +105,8 @@ def run_fixture(path):
     if fx.get("chance_free"):
         check_chance_free(fx, a, name + ".a")
         check_chance_free(fx, b, name + ".b")
+    else:
+        return name, run_chancy(fx, name, a, b)
     out = None
     for _ in range(2):                      # the same fixture twice: the sim itself must be deterministic
         f = E.Fight(a, b, seed=int(fx.get("seed", 1)), order="fixed", parity=True)
@@ -133,9 +164,16 @@ def main(argv):
             return 2
         text = dumps(doc)
         target = os.path.join(EXPECTED, name + ".json")
-        r = doc["result"]
-        line = "%-22s %-5s t=%7.3f s  rows=%5d  A hp %.1f/%.1f  B hp %.1f/%.1f" % (
-            name, r["win"], r["t_ms"] / 1000, len(doc["rows"]), r["A"]["hp"], r["A"]["hp_max"], r["B"]["hp"], r["B"]["hp_max"])
+        if doc["chance_free"]:
+            r = doc["result"]
+            line = "%-22s %-5s t=%7.3f s  rows=%5d  A hp %.1f/%.1f  B hp %.1f/%.1f" % (
+                name, r["win"], r["t_ms"] / 1000, len(doc["rows"]), r["A"]["hp"], r["A"]["hp_max"], r["B"]["hp"],
+                r["B"]["hp_max"])
+        else:
+            st = doc["stats"]
+            line = "%-22s chancy %d seeds: mean t=%.2f s  shares A %.3f  B %.3f  draw %.3f  time %.3f" % (
+                name, doc["seeds"], st["mean_t"], st["share"]["A"], st["share"]["B"], st["share"]["draw"],
+                st["share"]["time"])
         if check:
             old = open(target, encoding="utf-8").read() if os.path.exists(target) else None
             ok = old == text
