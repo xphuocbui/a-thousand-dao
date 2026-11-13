@@ -1,0 +1,21 @@
+{
+ "status": "proposal, awaiting the user's approval (2026-11-13)",
+ "note": "Working names only; real names (Han-Viet) come later. Region ids refer to regions.png / regions.json.",
+ "great_sects": [
+  {"key": "central_range", "working_name": "Central Range sect", "tier": 1, "leans": ["Metal", "Earth"],
+   "seat_region": 14, "regions": [14, 13], "colour": [196, 72, 56]},
+  {"key": "northern_forest", "working_name": "Northern Forest sect", "tier": 1, "leans": ["Wood", "Water"],
+   "seat_region": 6, "regions": [6, 7], "colour": [52, 150, 96]},
+  {"key": "southern_peaks", "working_name": "Southern Peaks sect", "tier": 1, "leans": ["Metal", "Wood", "Fire"],
+   "seat_region": 18, "regions": [18, 12, 17], "colour": [214, 160, 40]},
+  {"key": "storm_range", "working_name": "Storm Range sect", "tier": 2, "leans": ["Metal", "Water", "Thunder"],
+   "seat_region": 15, "regions": [15, 19], "colour": [92, 96, 206]},
+  {"key": "northeast_ice", "working_name": "North-east Ice sect", "tier": 2, "leans": ["Water", "Ice"],
+   "seat_region": 3, "regions": [3, 8], "colour": [90, 190, 220]},
+  {"key": "western_hills", "working_name": "Western Hills sect", "tier": 2, "leans": ["Earth", "Wood"],
+   "seat_region": 4, "regions": [4, 5, 2], "colour": [150, 96, 60]},
+  {"key": "volcano_coast", "working_name": "Volcano Coast sect", "tier": 2, "leans": ["Fire", "Wood"],
+   "seat_region": 20, "regions": [20], "colour": [226, 92, 150]}
+ ],
+ "wild_regions": [1, 9, 10, 11, 16]
+}

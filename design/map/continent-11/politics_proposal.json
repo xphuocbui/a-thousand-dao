@@ -1,0 +1,169 @@
+{
+ "great_sects": [
+  {
+   "key": "central_range",
+   "working_name": "Central Range sect",
+   "tier": 1,
+   "leans": [
+    "Metal",
+    "Earth"
+   ],
+   "regions": [
+    14,
+    13
+   ],
+   "seat_region": 14,
+   "seat_tile": [
+    378,
+    166
+   ],
+   "seat_elevation_km": 2.17,
+   "seat_lat": 39.0,
+   "tiles": 7524,
+   "land_share": 0.088
+  },
+  {
+   "key": "northern_forest",
+   "working_name": "Northern Forest sect",
+   "tier": 1,
+   "leans": [
+    "Wood",
+    "Water"
+   ],
+   "regions": [
+    6,
+    7
+   ],
+   "seat_region": 6,
+   "seat_tile": [
+    251,
+    136
+   ],
+   "seat_elevation_km": 0.98,
+   "seat_lat": 45.7,
+   "tiles": 11216,
+   "land_share": 0.131
+  },
+  {
+   "key": "southern_peaks",
+   "working_name": "Southern Peaks sect",
+   "tier": 1,
+   "leans": [
+    "Metal",
+    "Wood",
+    "Fire"
+   ],
+   "regions": [
+    18,
+    12,
+    17
+   ],
+   "seat_region": 18,
+   "seat_tile": [
+    318,
+    259
+   ],
+   "seat_elevation_km": 2.51,
+   "seat_lat": 18.3,
+   "tiles": 12488,
+   "land_share": 0.146
+  },
+  {
+   "key": "storm_range",
+   "working_name": "Storm Range sect",
+   "tier": 2,
+   "leans": [
+    "Metal",
+    "Water",
+    "Thunder"
+   ],
+   "regions": [
+    15,
+    19
+   ],
+   "seat_region": 15,
+   "seat_tile": [
+    341,
+    241
+   ],
+   "seat_elevation_km": 2.61,
+   "seat_lat": 22.3,
+   "tiles": 6358,
+   "land_share": 0.074
+  },
+  {
+   "key": "northeast_ice",
+   "working_name": "North-east Ice sect",
+   "tier": 2,
+   "leans": [
+    "Water",
+    "Ice"
+   ],
+   "regions": [
+    3,
+    8
+   ],
+   "seat_region": 3,
+   "seat_tile": [
+    394,
+    135
+   ],
+   "seat_elevation_km": 2.56,
+   "seat_lat": 45.9,
+   "tiles": 9384,
+   "land_share": 0.11
+  },
+  {
+   "key": "western_hills",
+   "working_name": "Western Hills sect",
+   "tier": 2,
+   "leans": [
+    "Earth",
+    "Wood"
+   ],
+   "regions": [
+    4,
+    5,
+    2
+   ],
+   "seat_region": 4,
+   "seat_tile": [
+    129,
+    106
+   ],
+   "seat_elevation_km": 1.05,
+   "seat_lat": 52.4,
+   "tiles": 11145,
+   "land_share": 0.13
+  },
+  {
+   "key": "volcano_coast",
+   "working_name": "Volcano Coast sect",
+   "tier": 2,
+   "leans": [
+    "Fire",
+    "Wood"
+   ],
+   "regions": [
+    20
+   ],
+   "seat_region": 20,
+   "seat_tile": [
+    413,
+    297
+   ],
+   "seat_elevation_km": 0.31,
+   "seat_lat": 9.8,
+   "tiles": 3123,
+   "land_share": 0.037
+  }
+ ],
+ "wild_regions": [
+  1,
+  9,
+  10,
+  11,
+  16
+ ],
+ "wild_land_share": 0.283
+}

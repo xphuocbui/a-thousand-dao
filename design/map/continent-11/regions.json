@@ -1,0 +1,1873 @@
+{
+ "seed": 11,
+ "generator": "tools/design/map/continent_gen.py",
+ "params": {
+  "h_cost": 3.0,
+  "h_ref_km": 1.5,
+  "rel_cost": 2.5,
+  "rel_ref_km": 1.5,
+  "river_cross": [
+   8.0,
+   30.0
+  ],
+  "river_factor": 2.0,
+  "divide_cost": [
+   1.0,
+   24.0
+  ],
+  "divide_area_tiles": [
+   20.0,
+   2000.0
+  ],
+  "flat_noise": 0.6,
+  "flat_noise_tiles": 14.0,
+  "lake_cost": 4.0,
+  "sea_cost": 6.0,
+  "sea_reach": 10,
+  "island_own_share": 0.55,
+  "lloyd_iters": 8,
+  "size_lo": 0.4,
+  "size_hi": 2.0,
+  "weight_step": 6.0,
+  "smooth_passes": 3,
+  "stray_tiles": 60,
+  "nat_h_km": 1.0,
+  "nat_rel_km": 1.0
+ },
+ "index": "regions.png: 540 x 360, value = region id (0 = sea)",
+ "check": {
+  "regions": 20,
+  "land_tiles": 85425,
+  "mean_tiles": 4271,
+  "smallest_tiles": 2771,
+  "largest_tiles": 7462,
+  "size_ratio_range": [
+   0.65,
+   1.75
+  ],
+  "land_border_edges": 2068,
+  "natural_border_share": 0.459,
+  "coast_edges": 6272,
+  "natural_share_with_coast": 0.866,
+  "natural_or_divide_share": 0.688,
+  "border_kinds": {
+   "divide": 472,
+   "open": 646,
+   "mountain": 755,
+   "river": 49,
+   "upland": 146
+  },
+  "island_regions": 1
+ },
+ "regions": [
+  {
+   "id": 1,
+   "tiles": 2822,
+   "area_km2": 1717000.0,
+   "landmass": "main",
+   "centre_tile": [
+    82,
+    79
+   ],
+   "centre_lat": 58.4,
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 57.0
+    },
+    {
+     "biome": "Tundra",
+     "share": 36.4
+    },
+    {
+     "biome": "Swamp",
+     "share": 3.7
+    },
+    {
+     "biome": "High mountain",
+     "share": 2.4
+    }
+   ],
+   "mean_elevation_km": 0.12,
+   "max_elevation_km": 1.21,
+   "mean_temp_c": 3.5,
+   "mean_rain_mm": 920,
+   "coast_tiles": 264,
+   "river_tiles": 0,
+   "big_river_tiles": 0,
+   "lake_tiles": 0,
+   "volcanoes": 0,
+   "hot_springs": 2,
+   "lava_tiles": 0,
+   "ore_vein_tiles": 0,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 116,
+   "natural_border_share": 0.08,
+   "neighbours": [
+    {
+     "region": 2,
+     "border_tiles": 20,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 11,
+      "open": 9
+     }
+    },
+    {
+     "region": 4,
+     "border_tiles": 96,
+     "natural_share": 0.09,
+     "kinds": {
+      "open": 51,
+      "divide": 36,
+      "mountain": 8,
+      "river": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "tiles": 5021,
+   "area_km2": 3055000.0,
+   "landmass": "main",
+   "centre_tile": [
+    187,
+    76
+   ],
+   "centre_lat": 59.1,
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 78.6
+    },
+    {
+     "biome": "Tundra",
+     "share": 12.7
+    },
+    {
+     "biome": "Swamp",
+     "share": 4.6
+    },
+    {
+     "biome": "High mountain",
+     "share": 3.9
+    }
+   ],
+   "mean_elevation_km": 0.14,
+   "max_elevation_km": 1.64,
+   "mean_temp_c": -0.9,
+   "mean_rain_mm": 758,
+   "coast_tiles": 175,
+   "river_tiles": 56,
+   "big_river_tiles": 0,
+   "lake_tiles": 0,
+   "volcanoes": 0,
+   "hot_springs": 0,
+   "lava_tiles": 0,
+   "ore_vein_tiles": 1,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 193,
+   "natural_border_share": 0.27,
+   "neighbours": [
+    {
+     "region": 1,
+     "border_tiles": 20,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 11,
+      "open": 9
+     }
+    },
+    {
+     "region": 4,
+     "border_tiles": 71,
+     "natural_share": 0.52,
+     "kinds": {
+      "open": 13,
+      "divide": 21,
+      "river": 2,
+      "mountain": 34,
+      "upland": 1
+     }
+    },
+    {
+     "region": 5,
+     "border_tiles": 43,
+     "natural_share": 0.35,
+     "kinds": {
+      "divide": 24,
+      "river": 3,
+      "open": 4,
+      "mountain": 12
+     }
+    },
+    {
+     "region": 6,
+     "border_tiles": 59,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 32,
+      "open": 27
+     }
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "tiles": 4378,
+   "area_km2": 2664000.0,
+   "landmass": "main",
+   "centre_tile": [
+    370,
+    82
+   ],
+   "centre_lat": 57.7,
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 54.3
+    },
+    {
+     "biome": "Tundra",
+     "share": 19.4
+    },
+    {
+     "biome": "High mountain",
+     "share": 13.0
+    },
+    {
+     "biome": "Swamp",
+     "share": 9.4
+    },
+    {
+     "biome": "Glacier",
+     "share": 2.7
+    }
+   ],
+   "mean_elevation_km": 0.21,
+   "max_elevation_km": 3.51,
+   "mean_temp_c": 1.9,
+   "mean_rain_mm": 927,
+   "coast_tiles": 443,
+   "river_tiles": 14,
+   "big_river_tiles": 0,
+   "lake_tiles": 0,
+   "volcanoes": 2,
+   "hot_springs": 2,
+   "lava_tiles": 7,
+   "ore_vein_tiles": 0,
+   "ice_field_tiles": 30,
+   "land_border_tiles": 178,
+   "natural_border_share": 0.52,
+   "neighbours": [
+    {
+     "region": 6,
+     "border_tiles": 12,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 3,
+      "open": 9
+     }
+    },
+    {
+     "region": 7,
+     "border_tiles": 91,
+     "natural_share": 0.2,
+     "kinds": {
+      "divide": 41,
+      "open": 32,
+      "mountain": 18
+     }
+    },
+    {
+     "region": 8,
+     "border_tiles": 24,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 24
+     }
+    },
+    {
+     "region": 16,
+     "border_tiles": 51,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 51
+     }
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "tiles": 3353,
+   "area_km2": 2040000.0,
+   "landmass": "main",
+   "centre_tile": [
+    118,
+    110
+   ],
+   "centre_lat": 51.5,
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 73.3
+    },
+    {
+     "biome": "High mountain",
+     "share": 17.8
+    },
+    {
+     "biome": "Swamp",
+     "share": 3.9
+    },
+    {
+     "biome": "Karst peaks",
+     "share": 1.7
+    },
+    {
+     "biome": "Tundra",
+     "share": 1.3
+    },
+    {
+     "biome": "Volcano",
+     "share": 1.1
+    }
+   ],
+   "mean_elevation_km": 0.25,
+   "max_elevation_km": 1.48,
+   "mean_temp_c": 6.0,
+   "mean_rain_mm": 1031,
+   "coast_tiles": 260,
+   "river_tiles": 58,
+   "big_river_tiles": 0,
+   "lake_tiles": 0,
+   "volcanoes": 3,
+   "hot_springs": 3,
+   "lava_tiles": 9,
+   "ore_vein_tiles": 49,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 185,
+   "natural_border_share": 0.27,
+   "neighbours": [
+    {
+     "region": 1,
+     "border_tiles": 96,
+     "natural_share": 0.09,
+     "kinds": {
+      "open": 51,
+      "divide": 36,
+      "mountain": 8,
+      "river": 1
+     }
+    },
+    {
+     "region": 2,
+     "border_tiles": 71,
+     "natural_share": 0.52,
+     "kinds": {
+      "open": 13,
+      "divide": 21,
+      "river": 2,
+      "mountain": 34,
+      "upland": 1
+     }
+    },
+    {
+     "region": 5,
+     "border_tiles": 4,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 4
+     }
+    },
+    {
+     "region": 10,
+     "border_tiles": 14,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 14
+     }
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "tiles": 2771,
+   "area_km2": 1686000.0,
+   "landmass": "main",
+   "centre_tile": [
+    197,
+    138
+   ],
+   "centre_lat": 45.2,
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 83.7
+    },
+    {
+     "biome": "Karst peaks",
+     "share": 7.3
+    },
+    {
+     "biome": "High mountain",
+     "share": 6.1
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 1.1
+    }
+   ],
+   "mean_elevation_km": 0.33,
+   "max_elevation_km": 1.37,
+   "mean_temp_c": 10.5,
+   "mean_rain_mm": 1054,
+   "coast_tiles": 113,
+   "river_tiles": 45,
+   "big_river_tiles": 0,
+   "lake_tiles": 0,
+   "volcanoes": 1,
+   "hot_springs": 1,
+   "lava_tiles": 4,
+   "ore_vein_tiles": 14,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 176,
+   "natural_border_share": 0.27,
+   "neighbours": [
+    {
+     "region": 2,
+     "border_tiles": 43,
+     "natural_share": 0.35,
+     "kinds": {
+      "divide": 24,
+      "river": 3,
+      "open": 4,
+      "mountain": 12
+     }
+    },
+    {
+     "region": 4,
+     "border_tiles": 4,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 4
+     }
+    },
+    {
+     "region": 6,
+     "border_tiles": 50,
+     "natural_share": 0.14,
+     "kinds": {
+      "divide": 6,
+      "open": 37,
+      "mountain": 3,
+      "upland": 4
+     }
+    },
+    {
+     "region": 11,
+     "border_tiles": 79,
+     "natural_share": 0.28,
+     "kinds": {
+      "mountain": 4,
+      "open": 26,
+      "divide": 31,
+      "river": 18
+     }
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "tiles": 6429,
+   "area_km2": 3912000.0,
+   "landmass": "main",
+   "centre_tile": [
+    262,
+    111
+   ],
+   "centre_lat": 51.2,
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 88.5
+    },
+    {
+     "biome": "High mountain",
+     "share": 5.0
+    },
+    {
+     "biome": "Tundra",
+     "share": 4.0
+    },
+    {
+     "biome": "Swamp",
+     "share": 2.0
+    }
+   ],
+   "mean_elevation_km": 0.26,
+   "max_elevation_km": 1.99,
+   "mean_temp_c": 3.4,
+   "mean_rain_mm": 698,
+   "coast_tiles": 107,
+   "river_tiles": 277,
+   "big_river_tiles": 45,
+   "lake_tiles": 0,
+   "volcanoes": 0,
+   "hot_springs": 0,
+   "lava_tiles": 0,
+   "ore_vein_tiles": 0,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 348,
+   "natural_border_share": 0.22,
+   "neighbours": [
+    {
+     "region": 2,
+     "border_tiles": 59,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 32,
+      "open": 27
+     }
+    },
+    {
+     "region": 3,
+     "border_tiles": 12,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 3,
+      "open": 9
+     }
+    },
+    {
+     "region": 5,
+     "border_tiles": 50,
+     "natural_share": 0.14,
+     "kinds": {
+      "divide": 6,
+      "open": 37,
+      "mountain": 3,
+      "upland": 4
+     }
+    },
+    {
+     "region": 7,
+     "border_tiles": 99,
+     "natural_share": 0.02,
+     "kinds": {
+      "divide": 34,
+      "open": 63,
+      "river": 2
+     }
+    },
+    {
+     "region": 11,
+     "border_tiles": 50,
+     "natural_share": 0.72,
+     "kinds": {
+      "upland": 9,
+      "open": 2,
+      "mountain": 27,
+      "divide": 12
+     }
+    },
+    {
+     "region": 13,
+     "border_tiles": 78,
+     "natural_share": 0.38,
+     "kinds": {
+      "divide": 33,
+      "open": 15,
+      "river": 6,
+      "mountain": 20,
+      "upland": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "tiles": 4787,
+   "area_km2": 2913000.0,
+   "landmass": "main",
+   "centre_tile": [
+    331,
+    122
+   ],
+   "centre_lat": 48.9,
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 79.5
+    },
+    {
+     "biome": "High mountain",
+     "share": 11.7
+    },
+    {
+     "biome": "Steppe",
+     "share": 4.2
+    },
+    {
+     "biome": "Lake",
+     "share": 2.4
+    },
+    {
+     "biome": "Badlands",
+     "share": 1.3
+    }
+   ],
+   "mean_elevation_km": 0.36,
+   "max_elevation_km": 4.59,
+   "mean_temp_c": 3.0,
+   "mean_rain_mm": 695,
+   "coast_tiles": 112,
+   "river_tiles": 112,
+   "big_river_tiles": 0,
+   "lake_tiles": 118,
+   "volcanoes": 0,
+   "hot_springs": 0,
+   "lava_tiles": 0,
+   "ore_vein_tiles": 0,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 339,
+   "natural_border_share": 0.31,
+   "neighbours": [
+    {
+     "region": 3,
+     "border_tiles": 91,
+     "natural_share": 0.2,
+     "kinds": {
+      "divide": 41,
+      "open": 32,
+      "mountain": 18
+     }
+    },
+    {
+     "region": 6,
+     "border_tiles": 99,
+     "natural_share": 0.02,
+     "kinds": {
+      "divide": 34,
+      "open": 63,
+      "river": 2
+     }
+    },
+    {
+     "region": 13,
+     "border_tiles": 62,
+     "natural_share": 0.16,
+     "kinds": {
+      "open": 41,
+      "divide": 11,
+      "mountain": 10
+     }
+    },
+    {
+     "region": 14,
+     "border_tiles": 76,
+     "natural_share": 0.83,
+     "kinds": {
+      "mountain": 57,
+      "upland": 6,
+      "open": 10,
+      "divide": 3
+     }
+    },
+    {
+     "region": 16,
+     "border_tiles": 11,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 11
+     }
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "tiles": 5006,
+   "area_km2": 3046000.0,
+   "landmass": "main",
+   "centre_tile": [
+    459,
+    102
+   ],
+   "centre_lat": 53.2,
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 63.7
+    },
+    {
+     "biome": "High mountain",
+     "share": 12.8
+    },
+    {
+     "biome": "Tundra",
+     "share": 10.3
+    },
+    {
+     "biome": "Steppe",
+     "share": 5.8
+    },
+    {
+     "biome": "Swamp",
+     "share": 2.8
+    },
+    {
+     "biome": "Badlands",
+     "share": 2.4
+    }
+   ],
+   "mean_elevation_km": 0.24,
+   "max_elevation_km": 2.88,
+   "mean_temp_c": 4.5,
+   "mean_rain_mm": 941,
+   "coast_tiles": 362,
+   "river_tiles": 38,
+   "big_river_tiles": 0,
+   "lake_tiles": 11,
+   "volcanoes": 2,
+   "hot_springs": 2,
+   "lava_tiles": 8,
+   "ore_vein_tiles": 58,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 130,
+   "natural_border_share": 0.45,
+   "neighbours": [
+    {
+     "region": 3,
+     "border_tiles": 24,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 24
+     }
+    },
+    {
+     "region": 16,
+     "border_tiles": 106,
+     "natural_share": 0.32,
+     "kinds": {
+      "mountain": 28,
+      "divide": 39,
+      "open": 33,
+      "river": 3,
+      "upland": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "tiles": 4099,
+   "area_km2": 2494000.0,
+   "landmass": "island",
+   "centre_tile": [
+    84,
+    269
+   ],
+   "centre_lat": 16.0,
+   "biomes": [
+    {
+     "biome": "Grassland",
+     "share": 53.2
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 19.8
+    },
+    {
+     "biome": "Jungle",
+     "share": 18.0
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 4.6
+    },
+    {
+     "biome": "Steppe",
+     "share": 3.5
+    }
+   ],
+   "mean_elevation_km": 0.1,
+   "max_elevation_km": 0.62,
+   "mean_temp_c": 25.4,
+   "mean_rain_mm": 1224,
+   "coast_tiles": 326,
+   "river_tiles": 23,
+   "big_river_tiles": 0,
+   "lake_tiles": 0,
+   "volcanoes": 0,
+   "hot_springs": 0,
+   "lava_tiles": 0,
+   "ore_vein_tiles": 0,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 0,
+   "natural_border_share": null,
+   "neighbours": []
+  },
+  {
+   "id": 10,
+   "tiles": 4359,
+   "area_km2": 2652000.0,
+   "landmass": "main",
+   "centre_tile": [
+    128,
+    199
+   ],
+   "centre_lat": 31.6,
+   "biomes": [
+    {
+     "biome": "Grassland",
+     "share": 54.0
+    },
+    {
+     "biome": "Steppe",
+     "share": 26.9
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 16.9
+    }
+   ],
+   "mean_elevation_km": 0.14,
+   "max_elevation_km": 1.36,
+   "mean_temp_c": 16.8,
+   "mean_rain_mm": 511,
+   "coast_tiles": 443,
+   "river_tiles": 1,
+   "big_river_tiles": 0,
+   "lake_tiles": 8,
+   "volcanoes": 1,
+   "hot_springs": 1,
+   "lava_tiles": 4,
+   "ore_vein_tiles": 1,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 98,
+   "natural_border_share": 0.0,
+   "neighbours": [
+    {
+     "region": 4,
+     "border_tiles": 14,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 14
+     }
+    },
+    {
+     "region": 11,
+     "border_tiles": 63,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 25,
+      "open": 38
+     }
+    },
+    {
+     "region": 17,
+     "border_tiles": 21,
+     "natural_share": 0.0,
+     "kinds": {
+      "open": 19,
+      "divide": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "tiles": 5445,
+   "area_km2": 3313000.0,
+   "landmass": "main",
+   "centre_tile": [
+    215,
+    194
+   ],
+   "centre_lat": 32.7,
+   "biomes": [
+    {
+     "biome": "Steppe",
+     "share": 27.3
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 24.9
+    },
+    {
+     "biome": "Grassland",
+     "share": 14.9
+    },
+    {
+     "biome": "High mountain",
+     "share": 14.0
+    },
+    {
+     "biome": "Badlands",
+     "share": 13.1
+    },
+    {
+     "biome": "Highland",
+     "share": 4.7
+    }
+   ],
+   "mean_elevation_km": 0.56,
+   "max_elevation_km": 2.28,
+   "mean_temp_c": 12.9,
+   "mean_rain_mm": 489,
+   "coast_tiles": 21,
+   "river_tiles": 201,
+   "big_river_tiles": 0,
+   "lake_tiles": 1,
+   "volcanoes": 0,
+   "hot_springs": 0,
+   "lava_tiles": 0,
+   "ore_vein_tiles": 81,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 374,
+   "natural_border_share": 0.43,
+   "neighbours": [
+    {
+     "region": 5,
+     "border_tiles": 79,
+     "natural_share": 0.28,
+     "kinds": {
+      "mountain": 4,
+      "open": 26,
+      "divide": 31,
+      "river": 18
+     }
+    },
+    {
+     "region": 6,
+     "border_tiles": 50,
+     "natural_share": 0.72,
+     "kinds": {
+      "upland": 9,
+      "open": 2,
+      "mountain": 27,
+      "divide": 12
+     }
+    },
+    {
+     "region": 10,
+     "border_tiles": 63,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 25,
+      "open": 38
+     }
+    },
+    {
+     "region": 12,
+     "border_tiles": 75,
+     "natural_share": 0.72,
+     "kinds": {
+      "mountain": 39,
+      "upland": 15,
+      "open": 21
+     }
+    },
+    {
+     "region": 13,
+     "border_tiles": 39,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 36,
+      "upland": 3
+     }
+    },
+    {
+     "region": 17,
+     "border_tiles": 68,
+     "natural_share": 0.15,
+     "kinds": {
+      "open": 22,
+      "divide": 36,
+      "mountain": 7,
+      "upland": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "tiles": 3359,
+   "area_km2": 2044000.0,
+   "landmass": "main",
+   "centre_tile": [
+    263,
+    243
+   ],
+   "centre_lat": 21.8,
+   "biomes": [
+    {
+     "biome": "High mountain",
+     "share": 38.8
+    },
+    {
+     "biome": "Steppe",
+     "share": 21.6
+    },
+    {
+     "biome": "Grassland",
+     "share": 17.4
+    },
+    {
+     "biome": "Badlands",
+     "share": 6.9
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 6.3
+    },
+    {
+     "biome": "Highland",
+     "share": 3.3
+    }
+   ],
+   "mean_elevation_km": 0.88,
+   "max_elevation_km": 4.44,
+   "mean_temp_c": 17.6,
+   "mean_rain_mm": 467,
+   "coast_tiles": 38,
+   "river_tiles": 60,
+   "big_river_tiles": 0,
+   "lake_tiles": 9,
+   "volcanoes": 1,
+   "hot_springs": 2,
+   "lava_tiles": 4,
+   "ore_vein_tiles": 2,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 253,
+   "natural_border_share": 0.62,
+   "neighbours": [
+    {
+     "region": 11,
+     "border_tiles": 75,
+     "natural_share": 0.72,
+     "kinds": {
+      "mountain": 39,
+      "upland": 15,
+      "open": 21
+     }
+    },
+    {
+     "region": 13,
+     "border_tiles": 64,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 32,
+      "upland": 32
+     }
+    },
+    {
+     "region": 17,
+     "border_tiles": 54,
+     "natural_share": 0.06,
+     "kinds": {
+      "mountain": 3,
+      "open": 50,
+      "divide": 1
+     }
+    },
+    {
+     "region": 18,
+     "border_tiles": 60,
+     "natural_share": 0.62,
+     "kinds": {
+      "mountain": 34,
+      "open": 17,
+      "divide": 6,
+      "river": 3
+     }
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "tiles": 4525,
+   "area_km2": 2753000.0,
+   "landmass": "main",
+   "centre_tile": [
+    293,
+    184
+   ],
+   "centre_lat": 35.0,
+   "biomes": [
+    {
+     "biome": "Steppe",
+     "share": 29.9
+    },
+    {
+     "biome": "High mountain",
+     "share": 20.5
+    },
+    {
+     "biome": "Highland",
+     "share": 17.3
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 16.7
+    },
+    {
+     "biome": "Badlands",
+     "share": 6.9
+    },
+    {
+     "biome": "Desert",
+     "share": 4.5
+    }
+   ],
+   "mean_elevation_km": 0.95,
+   "max_elevation_km": 2.24,
+   "mean_temp_c": 9.8,
+   "mean_rain_mm": 284,
+   "coast_tiles": 0,
+   "river_tiles": 135,
+   "big_river_tiles": 0,
+   "lake_tiles": 18,
+   "volcanoes": 0,
+   "hot_springs": 0,
+   "lava_tiles": 0,
+   "ore_vein_tiles": 98,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 346,
+   "natural_border_share": 0.62,
+   "neighbours": [
+    {
+     "region": 6,
+     "border_tiles": 78,
+     "natural_share": 0.38,
+     "kinds": {
+      "divide": 33,
+      "open": 15,
+      "river": 6,
+      "mountain": 20,
+      "upland": 4
+     }
+    },
+    {
+     "region": 7,
+     "border_tiles": 62,
+     "natural_share": 0.16,
+     "kinds": {
+      "open": 41,
+      "divide": 11,
+      "mountain": 10
+     }
+    },
+    {
+     "region": 11,
+     "border_tiles": 39,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 36,
+      "upland": 3
+     }
+    },
+    {
+     "region": 12,
+     "border_tiles": 64,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 32,
+      "upland": 32
+     }
+    },
+    {
+     "region": 14,
+     "border_tiles": 76,
+     "natural_share": 0.61,
+     "kinds": {
+      "mountain": 23,
+      "open": 30,
+      "upland": 21,
+      "river": 2
+     }
+    },
+    {
+     "region": 18,
+     "border_tiles": 27,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 22,
+      "upland": 5
+     }
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "tiles": 2999,
+   "area_km2": 1825000.0,
+   "landmass": "main",
+   "centre_tile": [
+    349,
+    188
+   ],
+   "centre_lat": 34.0,
+   "biomes": [
+    {
+     "biome": "High mountain",
+     "share": 36.7
+    },
+    {
+     "biome": "Steppe",
+     "share": 23.7
+    },
+    {
+     "biome": "Grassland",
+     "share": 14.6
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 8.8
+    },
+    {
+     "biome": "Desert",
+     "share": 7.5
+    },
+    {
+     "biome": "Badlands",
+     "share": 7.0
+    }
+   ],
+   "mean_elevation_km": 0.99,
+   "max_elevation_km": 4.72,
+   "mean_temp_c": 11.1,
+   "mean_rain_mm": 431,
+   "coast_tiles": 44,
+   "river_tiles": 114,
+   "big_river_tiles": 17,
+   "lake_tiles": 0,
+   "volcanoes": 1,
+   "hot_springs": 0,
+   "lava_tiles": 4,
+   "ore_vein_tiles": 57,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 264,
+   "natural_border_share": 0.84,
+   "neighbours": [
+    {
+     "region": 7,
+     "border_tiles": 76,
+     "natural_share": 0.83,
+     "kinds": {
+      "mountain": 57,
+      "upland": 6,
+      "open": 10,
+      "divide": 3
+     }
+    },
+    {
+     "region": 13,
+     "border_tiles": 76,
+     "natural_share": 0.61,
+     "kinds": {
+      "mountain": 23,
+      "open": 30,
+      "upland": 21,
+      "river": 2
+     }
+    },
+    {
+     "region": 15,
+     "border_tiles": 74,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 58,
+      "river": 6,
+      "upland": 10
+     }
+    },
+    {
+     "region": 16,
+     "border_tiles": 26,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 26
+     }
+    },
+    {
+     "region": 18,
+     "border_tiles": 12,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 8,
+      "upland": 4
+     }
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "tiles": 3315,
+   "area_km2": 2017000.0,
+   "landmass": "main",
+   "centre_tile": [
+    372,
+    234
+   ],
+   "centre_lat": 23.9,
+   "biomes": [
+    {
+     "biome": "High mountain",
+     "share": 46.2
+    },
+    {
+     "biome": "Grassland",
+     "share": 24.0
+    },
+    {
+     "biome": "Steppe",
+     "share": 13.2
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 6.1
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 5.9
+    },
+    {
+     "biome": "Jungle",
+     "share": 2.1
+    }
+   ],
+   "mean_elevation_km": 0.72,
+   "max_elevation_km": 3.07,
+   "mean_temp_c": 18.8,
+   "mean_rain_mm": 1162,
+   "coast_tiles": 107,
+   "river_tiles": 113,
+   "big_river_tiles": 0,
+   "lake_tiles": 0,
+   "volcanoes": 0,
+   "hot_springs": 1,
+   "lava_tiles": 0,
+   "ore_vein_tiles": 127,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 223,
+   "natural_border_share": 0.89,
+   "neighbours": [
+    {
+     "region": 14,
+     "border_tiles": 74,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 58,
+      "river": 6,
+      "upland": 10
+     }
+    },
+    {
+     "region": 16,
+     "border_tiles": 42,
+     "natural_share": 0.43,
+     "kinds": {
+      "mountain": 11,
+      "upland": 7,
+      "divide": 6,
+      "open": 18
+     }
+    },
+    {
+     "region": 18,
+     "border_tiles": 17,
+     "natural_share": 0.94,
+     "kinds": {
+      "upland": 7,
+      "mountain": 7,
+      "open": 1,
+      "river": 2
+     }
+    },
+    {
+     "region": 19,
+     "border_tiles": 90,
+     "natural_share": 1.0,
+     "kinds": {
+      "upland": 10,
+      "mountain": 80
+     }
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "tiles": 7462,
+   "area_km2": 4540000.0,
+   "landmass": "main",
+   "centre_tile": [
+    439,
+    183
+   ],
+   "centre_lat": 35.2,
+   "biomes": [
+    {
+     "biome": "Steppe",
+     "share": 36.3
+    },
+    {
+     "biome": "Grassland",
+     "share": 29.2
+    },
+    {
+     "biome": "High mountain",
+     "share": 17.7
+    },
+    {
+     "biome": "Desert",
+     "share": 9.2
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 4.2
+    },
+    {
+     "biome": "Badlands",
+     "share": 1.8
+    }
+   ],
+   "mean_elevation_km": 0.32,
+   "max_elevation_km": 5.24,
+   "mean_temp_c": 13.7,
+   "mean_rain_mm": 437,
+   "coast_tiles": 337,
+   "river_tiles": 131,
+   "big_river_tiles": 0,
+   "lake_tiles": 54,
+   "volcanoes": 0,
+   "hot_springs": 0,
+   "lava_tiles": 0,
+   "ore_vein_tiles": 90,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 263,
+   "natural_border_share": 0.53,
+   "neighbours": [
+    {
+     "region": 3,
+     "border_tiles": 51,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 51
+     }
+    },
+    {
+     "region": 7,
+     "border_tiles": 11,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 11
+     }
+    },
+    {
+     "region": 8,
+     "border_tiles": 106,
+     "natural_share": 0.32,
+     "kinds": {
+      "mountain": 28,
+      "divide": 39,
+      "open": 33,
+      "river": 3,
+      "upland": 3
+     }
+    },
+    {
+     "region": 14,
+     "border_tiles": 26,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 26
+     }
+    },
+    {
+     "region": 15,
+     "border_tiles": 42,
+     "natural_share": 0.43,
+     "kinds": {
+      "mountain": 11,
+      "upland": 7,
+      "divide": 6,
+      "open": 18
+     }
+    },
+    {
+     "region": 20,
+     "border_tiles": 27,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 8,
+      "open": 19
+     }
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "tiles": 5528,
+   "area_km2": 3363000.0,
+   "landmass": "main",
+   "centre_tile": [
+    200,
+    278
+   ],
+   "centre_lat": 14.0,
+   "biomes": [
+    {
+     "biome": "Grassland",
+     "share": 49.7
+    },
+    {
+     "biome": "Jungle",
+     "share": 15.4
+    },
+    {
+     "biome": "Steppe",
+     "share": 13.1
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 8.7
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 6.3
+    },
+    {
+     "biome": "High mountain",
+     "share": 2.6
+    }
+   ],
+   "mean_elevation_km": 0.2,
+   "max_elevation_km": 1.61,
+   "mean_temp_c": 24.0,
+   "mean_rain_mm": 999,
+   "coast_tiles": 278,
+   "river_tiles": 93,
+   "big_river_tiles": 0,
+   "lake_tiles": 0,
+   "volcanoes": 0,
+   "hot_springs": 0,
+   "lava_tiles": 0,
+   "ore_vein_tiles": 0,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 176,
+   "natural_border_share": 0.08,
+   "neighbours": [
+    {
+     "region": 10,
+     "border_tiles": 21,
+     "natural_share": 0.0,
+     "kinds": {
+      "open": 19,
+      "divide": 2
+     }
+    },
+    {
+     "region": 11,
+     "border_tiles": 68,
+     "natural_share": 0.15,
+     "kinds": {
+      "open": 22,
+      "divide": 36,
+      "mountain": 7,
+      "upland": 3
+     }
+    },
+    {
+     "region": 12,
+     "border_tiles": 54,
+     "natural_share": 0.06,
+     "kinds": {
+      "mountain": 3,
+      "open": 50,
+      "divide": 1
+     }
+    },
+    {
+     "region": 18,
+     "border_tiles": 33,
+     "natural_share": 0.03,
+     "kinds": {
+      "divide": 11,
+      "open": 21,
+      "river": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "tiles": 3601,
+   "area_km2": 2191000.0,
+   "landmass": "main",
+   "centre_tile": [
+    298,
+    277
+   ],
+   "centre_lat": 14.3,
+   "biomes": [
+    {
+     "biome": "High mountain",
+     "share": 28.9
+    },
+    {
+     "biome": "Grassland",
+     "share": 27.9
+    },
+    {
+     "biome": "Jungle",
+     "share": 19.8
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 11.8
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 4.7
+    },
+    {
+     "biome": "Badlands",
+     "share": 3.2
+    }
+   ],
+   "mean_elevation_km": 0.55,
+   "max_elevation_km": 4.0,
+   "mean_temp_c": 21.9,
+   "mean_rain_mm": 1024,
+   "coast_tiles": 174,
+   "river_tiles": 123,
+   "big_river_tiles": 0,
+   "lake_tiles": 0,
+   "volcanoes": 1,
+   "hot_springs": 2,
+   "lava_tiles": 3,
+   "ore_vein_tiles": 282,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 229,
+   "natural_border_share": 0.57,
+   "neighbours": [
+    {
+     "region": 12,
+     "border_tiles": 60,
+     "natural_share": 0.62,
+     "kinds": {
+      "mountain": 34,
+      "open": 17,
+      "divide": 6,
+      "river": 3
+     }
+    },
+    {
+     "region": 13,
+     "border_tiles": 27,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 22,
+      "upland": 5
+     }
+    },
+    {
+     "region": 14,
+     "border_tiles": 12,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 8,
+      "upland": 4
+     }
+    },
+    {
+     "region": 15,
+     "border_tiles": 17,
+     "natural_share": 0.94,
+     "kinds": {
+      "upland": 7,
+      "mountain": 7,
+      "open": 1,
+      "river": 2
+     }
+    },
+    {
+     "region": 17,
+     "border_tiles": 33,
+     "natural_share": 0.03,
+     "kinds": {
+      "divide": 11,
+      "open": 21,
+      "river": 1
+     }
+    },
+    {
+     "region": 19,
+     "border_tiles": 80,
+     "natural_share": 0.46,
+     "kinds": {
+      "mountain": 36,
+      "upland": 1,
+      "open": 18,
+      "divide": 25
+     }
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "tiles": 3043,
+   "area_km2": 1851000.0,
+   "landmass": "main",
+   "centre_tile": [
+    358,
+    284
+   ],
+   "centre_lat": 12.8,
+   "biomes": [
+    {
+     "biome": "High mountain",
+     "share": 31.9
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 28.2
+    },
+    {
+     "biome": "Grassland",
+     "share": 20.7
+    },
+    {
+     "biome": "Jungle",
+     "share": 14.5
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 3.5
+    }
+   ],
+   "mean_elevation_km": 0.47,
+   "max_elevation_km": 3.85,
+   "mean_temp_c": 23.3,
+   "mean_rain_mm": 1907,
+   "coast_tiles": 226,
+   "river_tiles": 77,
+   "big_river_tiles": 0,
+   "lake_tiles": 0,
+   "volcanoes": 0,
+   "hot_springs": 0,
+   "lava_tiles": 0,
+   "ore_vein_tiles": 4,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 194,
+   "natural_border_share": 0.77,
+   "neighbours": [
+    {
+     "region": 15,
+     "border_tiles": 90,
+     "natural_share": 1.0,
+     "kinds": {
+      "upland": 10,
+      "mountain": 80
+     }
+    },
+    {
+     "region": 18,
+     "border_tiles": 80,
+     "natural_share": 0.46,
+     "kinds": {
+      "mountain": 36,
+      "upland": 1,
+      "open": 18,
+      "divide": 25
+     }
+    },
+    {
+     "region": 20,
+     "border_tiles": 24,
+     "natural_share": 0.96,
+     "kinds": {
+      "mountain": 22,
+      "upland": 1,
+      "divide": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "tiles": 3123,
+   "area_km2": 1900000.0,
+   "landmass": "main",
+   "centre_tile": [
+    455,
+    289
+   ],
+   "centre_lat": 11.5,
+   "biomes": [
+    {
+     "biome": "Jungle",
+     "share": 38.2
+    },
+    {
+     "biome": "Grassland",
+     "share": 37.8
+    },
+    {
+     "biome": "High mountain",
+     "share": 7.5
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 7.3
+    },
+    {
+     "biome": "Steppe",
+     "share": 2.4
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 2.3
+    }
+   ],
+   "mean_elevation_km": 0.13,
+   "max_elevation_km": 2.56,
+   "mean_temp_c": 25.9,
+   "mean_rain_mm": 1712,
+   "coast_tiles": 517,
+   "river_tiles": 17,
+   "big_river_tiles": 0,
+   "lake_tiles": 0,
+   "volcanoes": 4,
+   "hot_springs": 6,
+   "lava_tiles": 13,
+   "ore_vein_tiles": 18,
+   "ice_field_tiles": 0,
+   "land_border_tiles": 51,
+   "natural_border_share": 0.45,
+   "neighbours": [
+    {
+     "region": 16,
+     "border_tiles": 27,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 8,
+      "open": 19
+     }
+    },
+    {
+     "region": 19,
+     "border_tiles": 24,
+     "natural_share": 0.96,
+     "kinds": {
+      "mountain": 22,
+      "upland": 1,
+      "divide": 1
+     }
+    }
+   ]
+  }
+ ]
+}

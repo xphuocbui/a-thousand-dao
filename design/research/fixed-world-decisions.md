@@ -84,6 +84,18 @@ the rewrite is in the list below.
 - From afar a known tile shows its main biome; crossing or standing on it shows the full mix.
 - Rules and generator: `design/research/map-making-rules.md` sections J–L, `tools/design/map/continent_gen.py`.
 
+## The continent (decided 2026-11-13)
+
+- **Chosen:** candidate #11 (seed 11, generator commit 8db1e2b). Its data now lives in design/map/continent-11/base,
+  and hand edits go there.
+- **Why #11:** a diagonal range splits the land into clear natural blocks: the north forest, the central basin, the
+  east coast with its inland sea, the south jungle coast and the south-west lands. It has a natural wild heart, room
+  for isolated sects (the south-west island, the inland sea, island chains) and no generator faults.
+- **Sects are the only powers. There are no mortal kingdoms** (Travel & Map rule 24, confirmed by the user).
+- **Regions:** 20 drafted along crests, rivers and watersheds by tools/design/map/regions.py
+  (design/map/continent-11/README.md).
+- **Great sects:** 7 in two tiers, plus 5 wild regions. This is a proposal awaiting approval; see the same README.
+
 ## What this changes
 
 - **Done 2026-11-13:** Travel & Map rewritten for all of the above (rules 1–5, 14, 15, 26–28, 33; Formulas A, B, C,

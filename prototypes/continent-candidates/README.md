@@ -6,9 +6,8 @@
 latitude and height) gives a continent that looks like a real map and holds every biome naturally, good enough to
 pick one and finish it by hand as the game's fixed world.
 
-**Status:** in progress (2026-11-13): 12 candidates generated at 540 × 360 tiles (about 25 km a tile; the user
-asked for the same world size on a grid about 20 times finer than the first 120 × 80 round), awaiting the user's
-pick.
+**Status:** concluded (2026-11-13). The user picked **candidate #11** out of 12 candidates at 540 × 360 tiles (about
+25 km a tile). Its data moved to design/map/continent-11/base, where it gets finished by hand.
 
 **How to run:**
 
@@ -62,4 +61,19 @@ are no longer biomes; Lake is. Still about 40 seconds a continent; the 12 run in
 
 ## Findings
 
-(to be filled in when the user picks)
+- **The hypothesis held after four rounds.** A generator that follows real geography gives a continent good enough
+  to finish by hand:
+  - round 1 looked generated;
+  - round 2's plates, stream-power erosion and climate basins fixed the look;
+  - round 3 calmed the coasts;
+  - round 4's fine map and mixed tiles made biome borders natural.
+- **The latitude range fixes the climate layout.** Every candidate has the same bands: conifer forest in the north,
+  steppe and desert in the middle, jungle in the south. What tells candidates apart is the outline and where the
+  ranges run, so the choice is about those.
+- **Why #11 won:** a diagonal range splits the land into clear natural blocks, there is a natural wild heart, there
+  are islands and an inland sea for isolated sects, and it has no faults. Runner-up was #9, the most dramatic (a
+  snow-capped spine), but its 18.5 km peak is a generator fault and the spine splits the land only north and south.
+- **Generator limits to remember:** the mountain-height fault seen on seed 9, and a wide, flat northern forest on
+  every seed. Miasma, spirit veins, sacred summits, deep caves and miasma sources are authored.
+- **Next:** regions and sects on #11 (design/map/continent-11). This prototype stays as a reference and is not
+  extended.
