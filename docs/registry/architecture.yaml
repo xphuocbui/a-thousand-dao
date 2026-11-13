@@ -40,7 +40,7 @@
 #   unsupported layout, with its number.
 
 version: 1
-last_updated: ""
+last_updated: "2026-11-13"
 
 # ─── STATE OWNERSHIP ─────────────────────────────────────────────────────────
 # Who is the authoritative owner of each piece of shared game state.
@@ -81,7 +81,35 @@ state_ownership: []
 #
 # pattern options: signal | direct_call | event_bus | shared_resource | rpc | none
 
-interfaces: []
+interfaces:
+  - contract: fight_resolution
+    status: active
+    pattern: direct_call
+    producer: combat-system
+    consumers:
+      - event-engine
+      - heavenly-tribulation
+      - debug-terminal
+    adr: docs/architecture/adr-0001-combat-engine-in-godot.md
+    signal_signature: "CombatService.resolve(request: FightRequest) -> FightResult (synchronous; fields per combat.md AC-CB-06)"
+    referenced_by:
+      - docs/architecture/adr-0001-combat-engine-in-godot.md
+    added: 2026-11-13
+    revised: ""
+  - contract: fighter_profile
+    status: active
+    pattern: direct_call
+    producer: combat-system
+    consumers:
+      - combat-system
+      - rating-profile
+      - npc-builds
+    adr: docs/architecture/adr-0001-combat-engine-in-godot.md
+    signal_signature: "FighterCompiler.compile(c: Character, gd: GameData, db: WorldDB, tree: MeridianTree) -> FighterProfile (cached; never mutated by a fight)"
+    referenced_by:
+      - docs/architecture/adr-0001-combat-engine-in-godot.md
+    added: 2026-11-13
+    revised: ""
 
 # Example:
 #
@@ -141,7 +169,17 @@ performance_budgets: []
 # Register an API decision when the choice is non-obvious and other ADRs might
 # make a different choice for the same purpose without knowing this was decided.
 
-api_decisions: []
+api_decisions:
+  - purpose: combat_effects
+    status: active
+    api: "The shared JSON Effect DSL (assets/data/combat_effects.json and art/technique records), compiled at load to typed EffectDef objects indexed by event"
+    not: "Effects written as GDScript classes"
+    adr: docs/architecture/adr-0001-combat-engine-in-godot.md
+    reason: "One format for the game engine and the Python design sim, so Effects cannot drift between them (user decision 2026-11-13)"
+    referenced_by:
+      - docs/architecture/adr-0001-combat-engine-in-godot.md
+    added: 2026-11-13
+    revised: ""
 
 # Example:
 #
@@ -167,7 +205,25 @@ api_decisions: []
 # Register a pattern when an ADR explicitly bans it AND other ADRs might
 # unknowingly use it (i.e., it's a tempting but wrong approach for this project).
 
-forbidden_patterns: []
+forbidden_patterns:
+  - pattern: global_random_in_combat
+    status: active
+    description: "Combat code must not call the global random functions (randf, randi_range, Array.shuffle, pick_random); each fight uses one RandomNumberGenerator seeded from FightRequest.seed."
+    why: "Global draws make fights unrepeatable and break the parity suite against the design sim."
+    adr: docs/architecture/adr-0001-combat-engine-in-godot.md
+    added: 2026-11-13
+  - pattern: full_fight_engine_in_world_tick
+    status: active
+    description: "The world tick must not run the full fight engine for NPC-against-NPC or mass fights; it uses the rating profile (combat.md Formulas K)."
+    why: "Thousands of NPCs: full fights would cost seconds per season; the GDD designed the closed-form clash for this."
+    adr: docs/architecture/adr-0001-combat-engine-in-godot.md
+    added: 2026-11-13
+  - pattern: mutating_cached_fighter_profile
+    status: active
+    description: "A Fight must not change a FighterProfile; it copies what it changes into its FighterState."
+    why: "Profiles are cached and shared; GDScript has no immutable objects, so a mutation silently corrupts every later fight."
+    adr: docs/architecture/adr-0001-combat-engine-in-godot.md
+    added: 2026-11-13
 
 # Example:
 #
