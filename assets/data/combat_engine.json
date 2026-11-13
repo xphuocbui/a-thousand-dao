@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "_doc": "Combat engine constants, the one source for both engines (ADR-0001 Implementation Guidelines). Read by tools/design/combat_sim/engine.py and src/gameplay/combat/fight/combat_constants.gd. K: Combat GDD constants (seconds unless named otherwise); U: per-realm unit; SUPP: realm suppression by realm gap (Formulas H); BLOCK_UNIT: block points to health per realm. health_units / qi_units: health_max = health_units x U x n_body x health_mult x d_r and qi_base = qi_units x U x n_qi; cost_red_cap and reserve_cap cap those shares; pay_keep_health: an art paid in health must leave this much; min_hit: a hit that reaches health removes at least this.",
+  "_doc": "Combat engine constants, the one source for both engines (ADR-0001 Implementation Guidelines). Read by tools/design/combat_sim/engine.py and src/gameplay/combat/fight/combat_constants.gd. K: Combat GDD constants (seconds unless named otherwise); U: per-realm unit; SUPP: realm suppression by realm gap (Formulas H); BLOCK_UNIT: block points to health per realm. health_units / qi_units: health_max = health_units x U x n_body x health_mult x d_r and qi_base = qi_units x U x n_qi; cost_red_cap and reserve_cap cap those shares; pay_keep_health: an art paid in health must leave this much; min_hit: a hit that reaches health removes at least this. BUFF / DEBUFF: per element, the stat each stack of an element buff or debuff adds (Effects rule 9a, #44). STATUS: the Status Catalogue (Effects GDD): kind tick or curse, damage type and c_tick for ticks, dur in pulses (null = until cleansed), cap (null = none) and each curse's numbers. TICK_TYPE: the damage type of an element debuff's tick. ELEM_TYPE: an elem art's usual damage type by element. status_chance_min / status_chance_max: a status chance below 1, or any chance against status resistance, is clamped to this range (Combat Formulas F). purity_stack_power: each point of an element's purity adds this to its stacks' power (Spiritual Roots rule 8a, Formulas H); water_ice_share: Water and Ice count this share of each other's purity. cleanse_min_stacks: after the cleansing ward's share, a debuff batch below this many stacks is gone.",
   "K": {
     "fatigue_start": 60.0,
     "fatigue_units": 0.5,
@@ -60,7 +60,12 @@
     "cost_red_cap": 0.95,
     "reserve_cap": 0.9,
     "pay_keep_health": 1.0,
-    "min_hit": 1.0
+    "min_hit": 1.0,
+    "status_chance_min": 0.05,
+    "status_chance_max": 0.95,
+    "purity_stack_power": 0.002,
+    "water_ice_share": 0.5,
+    "cleanse_min_stacks": 0.05
   },
   "U": [
     6.31,
@@ -82,5 +87,154 @@
     0.6672,
     2.254,
     6.883
-  ]
+  ],
+  "BUFF": {
+    "fire": {
+      "dmg": 0.012
+    },
+    "water": {
+      "qi_max": 0.005,
+      "regen": 0.00025
+    },
+    "earth": {
+      "phys_dampen": 0.011
+    },
+    "metal": {
+      "dmg_phys": 0.012
+    },
+    "wood": {
+      "hregen": 0.001
+    },
+    "thunder": {
+      "acc": 0.007,
+      "crit": 0.0035
+    },
+    "wind": {
+      "speed": 0.075
+    }
+  },
+  "DEBUFF": {
+    "fire": {
+      "burn": 0.019
+    },
+    "earth": {
+      "acc_down": 0.012
+    },
+    "metal": {
+      "phys_taken": 0.018
+    },
+    "wood": {
+      "poison": 0.019
+    },
+    "ice": {
+      "cost_up": 0.039
+    },
+    "thunder": {
+      "crit_taken": 0.012,
+      "critdmg_taken": 0.05
+    },
+    "wind": {
+      "evade_down": 0.012
+    }
+  },
+  "STATUS": {
+    "bleed": {
+      "kind": "tick",
+      "dtype": "phys",
+      "c_tick": 0.2,
+      "dur": 4,
+      "cap": 5,
+      "own_timers": true
+    },
+    "qi_disruption": {
+      "kind": "tick",
+      "dtype": "force",
+      "c_tick": 0.3,
+      "dur": 3,
+      "cap": 3,
+      "on_qi": true
+    },
+    "corpse_rot": {
+      "kind": "tick",
+      "dtype": "chaos",
+      "c_tick": 0.15,
+      "dur": null,
+      "cap": 1,
+      "standing": 0.02
+    },
+    "sundered": {
+      "kind": "curse",
+      "dur": 4,
+      "cap": 3,
+      "res_pts": -150
+    },
+    "exposed": {
+      "kind": "curse",
+      "dur": 3,
+      "cap": 1,
+      "res_all": -100
+    },
+    "sealed_meridian": {
+      "kind": "curse",
+      "dur": 2,
+      "cap": 1,
+      "lockout": 2
+    },
+    "silence": {
+      "kind": "curse",
+      "dur": 3,
+      "cap": 1,
+      "lockout": 2
+    },
+    "stagnation": {
+      "kind": "curse",
+      "dur": 3,
+      "cap": null,
+      "regen_dampen": 1.0,
+      "refresh_all": true
+    },
+    "heavy_breath": {
+      "kind": "curse",
+      "dur": 4,
+      "cap": 2,
+      "cost_up": 0.25
+    },
+    "leaking_ward": {
+      "kind": "curse",
+      "dur": 3,
+      "cap": 1,
+      "bill_up": 0.5
+    },
+    "withering": {
+      "kind": "curse",
+      "dur": 4,
+      "cap": 1,
+      "heal_taken": -0.5
+    },
+    "slackened_soul": {
+      "kind": "curse",
+      "dur": 2,
+      "cap": 2,
+      "soul_res": -15
+    },
+    "slowed_time": {
+      "kind": "curse",
+      "dur": 3,
+      "cap": 5,
+      "slow": 1.0,
+      "refresh_all": true
+    }
+  },
+  "TICK_TYPE": {
+    "fire": "fire",
+    "wood": "chaos"
+  },
+  "ELEM_TYPE": {
+    "fire": "fire",
+    "ice": "cold",
+    "water": "cold",
+    "thunder": "lightning",
+    "wind": "force",
+    "wood": "chaos"
+  }
 }

@@ -58,8 +58,14 @@ def check_chance_free(fx, b, where):
         if "chance" in e:
             raise FixtureError("%s: chance_free, but Effect %s has a chance" % (where, e.get("id")))
     for a in b.arts:
-        if a.statuses:
-            raise FixtureError("%s: chance_free, but art %s applies statuses" % (where, a.name))
+        for st in a.statuses:
+            if st.get("chance", 1.0) < 1:
+                raise FixtureError("%s: chance_free, but art %s applies %s at chance %s" % (where, a.name, st["id"], st["chance"]))
+        # Thunder stacks raise crit chance; Earth debuffs lower accuracy, which lets the other side evade
+        if a.element == "thunder" and (a.buff or a.debuff):
+            raise FixtureError("%s: chance_free, but art %s grants Thunder stacks (crit chance)" % (where, a.name))
+        if a.element == "earth" and a.debuff:
+            raise FixtureError("%s: chance_free, but art %s grants Earth debuffs (evade chance)" % (where, a.name))
     for w in b.wards:
         if w.get("evade"):
             raise FixtureError("%s: chance_free, but ward %s gives evade" % (where, w.get("id")))

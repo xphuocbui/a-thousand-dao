@@ -92,15 +92,17 @@ func test_log_off_builds_no_rows() -> void:
 	assert_eq(r.log_rows.size(), 0, "no rows with the log off")
 
 
-func test_loader_refuses_a_chancy_or_unported_field_by_name() -> void:
+func test_loader_refuses_an_unported_or_unknown_field_by_name() -> void:
 	var k := CombatConstants.load_file()
 	var cases := [
-		[_dummy({"purity": {"fire": 40.0}}), "purity"],
-		[_dummy({}, [{"name": "dream-lance", "soul_pct": 0.05}]), "soul_pct"],
 		[_dummy({"effects": [{"id": "x", "on": "crit", "do": []}]}), "effects"],
+		[_dummy({"states": [{"id": "stance", "mods": {}}]}), "states"],
 		[_dummy({"teleport": 1.0}), "teleport"],
-		[_dummy({}, [{"name": "seal", "statuses": [{"id": "sundered"}]}]), "statuses"],
-		[_dummy({}, [{"name": "dream", "pool": "tam_ma"}]), "pool"],
+		[_dummy({}, [{"name": "guarded", "guards": [{"read": "own.hp"}]}]), "guards"],
+		[_dummy({}, [{"name": "inner-wound", "statuses": [{"id": "internal_injury"}]}]), "internal_injury"],
+		[_dummy({}, [{"name": "seal", "statuses": [{"id": "no_such_status"}]}]), "no_such_status"],
+		[_dummy({}, [{"name": "dream", "pool": "dream_pool"}]), "pool"],
+		[_dummy({}, [{"name": "deep-soul", "soul_part": 0.5}]), "Soul part"],
 	]
 	for c in cases:
 		var loader := FighterProfileLoader.new(k)
@@ -205,8 +207,112 @@ func test_evade_and_crit_chances_stop_at_their_caps() -> void:
 	var k := CombatConstants.load_file()
 	var f := _fight(_dummy({"crit": 1.5, "acc": 0.1}), _dummy({"evade": 0.9}))
 	assert_near(f.evade_chance(f.a, f.b), k.evade_cap, 1e-12, "evade 0.9 - acc 0.1 caps at evade_cap")
-	assert_near(f.crit_chance(f.a), k.crit_cap, 1e-12, "crit 1.5 caps at crit_cap")
+	assert_near(f.crit_chance(f.a, f.b), k.crit_cap, 1e-12, "crit 1.5 caps at crit_cap")
 	var g := _fight(_dummy({"acc": 0.5}), _dummy({"evade": 0.2}))
 	assert_near(g.evade_chance(g.a, g.b), 0.0, 1e-12, "accuracy above evade floors at 0")
 	var w := _fight(_dummy(), _dummy({"evade": 0.1, "wards": [{"id": "fog", "model": "reserved", "payload": {}, "evade": 8.0}]}))
 	assert_near(w.evade_chance(w.a, w.b), 0.18, 1e-12, "a reserved evade ward adds its points")
+
+
+# --- slice 3: element stacks, statuses, curses, soul ----------------------------------------------------------------
+
+static func _spec(fields: Dictionary) -> StatusSpec:
+	var spec := StatusSpec.new()
+	spec.id = str(fields.id)
+	spec.stacks = int(fields.get("stacks", 1))
+	spec.chance = float(fields.get("chance", 1.0))
+	for key in fields:
+		if not (str(key) in ["id", "stacks", "chance"]):
+			spec.extra[str(key)] = fields[key]
+	return spec
+
+
+func test_slowed_time_five_stacks_slow_by_thirty_percent() -> void:
+	# test_engine.py t_slowed_time (AC-EF-72): six applications cap at 5 stacks, x1.30.
+	var f := _fight(_dummy(), _dummy())
+	for i in 6:
+		f.apply_status(f.a, f.b, _spec({"id": "slowed_time"}))
+	assert_near(f.slow(f.b), 1.30, 1e-9, "Slowed Time 5 stacks -> x1.30")
+	assert_eq(f.b.st("slowed_time"), 5, "capped at 5 stacks")
+
+
+func test_curse_durations_clamp_to_one_to_five_pulses() -> void:
+	# test_engine.py t_curse_clamp (AC-EF-77).
+	var f := _fight(_dummy(), _dummy())
+	f.apply_status(f.a, f.b, _spec({"id": "sundered", "dur": 6}))
+	assert_eq(f.b.statuses["sundered"].until, 5000, "a 6-pulse curse lasts 5")
+	f.apply_status(f.a, f.b, _spec({"id": "exposed", "dur": 0.4}))
+	assert_eq(f.b.statuses["exposed"].until, 1000, "a 0.4-pulse curse lasts 1")
+
+
+func test_a_fourth_curse_finds_no_slot() -> void:
+	# test_engine.py t_curse_slots: 3 curse slots.
+	var f := _fight(_dummy(), _dummy())
+	for sid in ["sundered", "exposed", "withering", "heavy_breath"]:
+		f.apply_status(f.a, f.b, _spec({"id": sid}))
+	assert_false(f.b.statuses.has("heavy_breath"), "the fourth curse is refused")
+	assert_eq(f.b.statuses.size(), 3, "three curses held")
+
+
+func test_a_one_pulse_batch_lasts_the_minimum_two() -> void:
+	# test_engine.py t_granted_min_batch (AC-EF-78).
+	var f := _fight(_dummy(), _dummy())
+	f.add_stacks(f.a, f.b, "fire", 3.0, 1.0, false)
+	assert_eq(f.b.debuffs[0].until, 2000, "a 1-pulse batch lasts 2")
+
+
+func test_crossing_the_line_turns_a_heal_into_damage() -> void:
+	# test_engine.py t_crossing (AC-CD-83): Withering halves a 40 heal, and Crossing the Line lands it as 20 damage.
+	var f := _fight(_dummy(), _dummy())
+	f.b.hp = f.b.hp_max - 100.0
+	f.apply_status(f.a, f.b, _spec({"id": "withering", "crossing": true}))
+	var hp0: float = f.b.hp
+	f.heal(f.b, 40.0)
+	assert_near(hp0 - f.b.hp, 20.0, 1e-6, "40 heal -> 20 damage")
+
+
+func test_added_soul_part_meets_soul_resistance_only() -> void:
+	# test_engine.py t_soul_part (AC-CB-90): 30 % of the hit meets soul resistance 50 (/1.5) and nothing else.
+	var f := _fight(_dummy({}, [{"name": "s", "c": 2.0, "soul_part": 0.3}]),
+			_dummy({"ward_pts": 0.0, "block": 0.0, "soul_res": 50.0}))
+	var hp0: float = f.b.hp
+	f.hit(f.a, f.b, 2.0, &"phys", f.a.p.arts[0], Fight.KIND_ART)
+	var d: float = CombatConstants.load_file().u[0] * 2.0 * f.a.p.m
+	assert_near(hp0 - f.b.hp, d * 0.7 + d * 0.3 / 1.5, 1e-6, "added Soul part meets soul resistance only")
+
+
+func test_stagnation_hundred_stacks_halve_regeneration() -> void:
+	# test_engine.py t_stagnation.
+	var f := _fight(_dummy(), _dummy())
+	f.b.qi = 0.0
+	f.pulse(f.b)
+	var r0: float = f.b.qi
+	var g := _fight(_dummy(), _dummy())
+	for i in 100:
+		g.apply_status(g.a, g.b, _spec({"id": "stagnation"}))
+	g.b.qi = 0.0
+	g.pulse(g.b)
+	assert_near(g.b.qi / r0, 0.5, 1e-6, "Stagnation 100 stacks halves regeneration")
+
+
+func test_stack_effect_scales_only_its_element_and_kind() -> void:
+	# test_engine.py t_stack_effect (modifiers.md stack_effect_pct, Effects rule 9a).
+	var k := CombatConstants.load_file()
+	var loader := FighterProfileLoader.new(k)
+	var plain: FighterProfile = loader.from_sim_build(_dummy(), "plain")
+	var fire_db: FighterProfile = loader.from_sim_build(_dummy({"stack_eff": {"fire|debuff": 100.0}}), "fire")
+	var base: float = StackMath.stack_power(k, plain, "fire", "debuff")
+	assert_near(StackMath.stack_power(k, fire_db, "fire", "debuff"), 2.0 * base, 1e-9, "100 [fire, debuff] doubles Fire debuff stacks")
+	assert_near(StackMath.stack_power(k, fire_db, "fire", "buff"), base, 1e-9, "leaves Fire buffs alone")
+	assert_near(StackMath.stack_power(k, fire_db, "water", "debuff"), base, 1e-9, "leaves other elements alone")
+	var mixed: FighterProfile = loader.from_sim_build(_dummy({"stack_eff": {"*|*": 50.0, "fire|*": 10.0}}), "mixed")
+	assert_near(StackMath.stack_power(k, mixed, "fire", "buff"), 1.6 * base, 1e-9, "unscoped and element-only lines add up (+60 %)")
+
+
+func test_stack_duration_lengthens_only_its_element_and_kind() -> void:
+	# test_engine.py t_stack_duration (modifiers.md stack_duration_pct).
+	var f := _fight(_dummy({"stack_dur": {"fire|debuff": 50.0}}), _dummy())
+	f.add_stacks(f.a, f.b, "fire", 2.0, 6.0, false)
+	f.add_stacks(f.a, f.a, "fire", 2.0, 6.0, true)
+	assert_eq(f.b.debuffs[-1].until - f.t, 9000, "a 6 s Burn batch lasts 9 s")
+	assert_eq(f.a.buffs[-1].until - f.t, 6000, "a Fire buff batch keeps 6 s")

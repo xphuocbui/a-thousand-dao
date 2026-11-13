@@ -3,7 +3,7 @@ extends RefCounted
 ## One row of a fight's timeline log (ADR-0001: built only when the request turns the log on). The layout matches
 ## the sim's parity log ([code]Fight.plog[/code]) so the parity suite compares them directly.
 
-enum Kind { PULSE, ART, HIT }
+enum Kind { PULSE, ART, HIT, TICK, QI_TICK, STACKS, STATUS, SOUL, CLEANSE }
 
 var kind: Kind
 var t_ms: int
@@ -11,10 +11,15 @@ var t_ms: int
 var side: String
 ## For a hit: art, basic or companion.
 var hit_kind: StringName = &""
-## The art's id; for a basic attack or companion hit, the hit kind.
+## For stacks and statuses: the side that received them.
+var other: String = ""
+## The art's id; for a basic attack or companion hit, the hit kind; for a tick or status, the status or element
+## id; for stacks, the element.
 var art_id: StringName = &""
 ## PULSE: hp, qi. ART: cost, hp, qi. HIT: amount before defence, dealt, defender hp, defender qi, attacker hp,
-## attacker qi.
+## attacker qi. TICK: amount, dealt, target hp, target qi. QI_TICK: amount, target hp, target qi. STACKS: count,
+## expiry ms (-1 none), 1 for a buff. STATUS: stacks, expiry ms (-1 none). SOUL: health and linh lực removed, target
+## hp, target qi. CLEANSE: stacks removed.
 var values: PackedFloat64Array = []
 
 
@@ -29,6 +34,18 @@ func to_array() -> Array:
 			out = ["art", t_ms, side, str(art_id)]
 		Kind.HIT:
 			out = ["hit", t_ms, side, str(hit_kind), str(art_id)]
+		Kind.TICK:
+			out = ["tick", t_ms, side, str(art_id)]
+		Kind.QI_TICK:
+			out = ["qi_tick", t_ms, side, str(art_id)]
+		Kind.STACKS:
+			out = ["stacks", t_ms, side, other, str(art_id)]
+		Kind.STATUS:
+			out = ["status", t_ms, side, other, str(art_id)]
+		Kind.SOUL:
+			out = ["soul", t_ms, side, str(art_id)]
+		Kind.CLEANSE:
+			out = ["cleanse", t_ms, side]
 	for v in values:
 		out.append(v)
 	return out

@@ -4,8 +4,8 @@ extends RefCounted
 ## read-only by contract: a [Fight] copies what it changes into its [FighterState] and never writes here (GDScript
 ## has no immutable objects; the parity suite runs the same profiles twice to catch a slip).
 ##
-## Field names and meanings follow the sim's [code]Build[/code] (tools/design/combat_sim/engine.py). Slices 1-2 carry
-## the timeline, damage and defence-path fields; later slices add stacks, statuses, soul and Effects.
+## Field names and meanings follow the sim's [code]Build[/code] (tools/design/combat_sim/engine.py). Slices 1-3 carry
+## the timeline, damage, defence path, stacks, statuses and soul; the Effect slice adds Effects.
 
 
 ## A companion: a hit of its own on its own cooldown, one per source (Combat Formulas J, R31).
@@ -60,6 +60,23 @@ var art_speed_pct: float = 0.0
 var basic_speed_pct: float = 0.0
 var opening_haste_pct: float = 0.0
 var ward_bill_pct: float = 0.0
+## Element stacks (Effects rule 9a): purity by element; stack effect and duration % keyed "<el>|<kind>" with "*"
+## for any. Keys are Strings.
+var purity: Dictionary = {}
+var stack_eff: Dictionary = {}
+var stack_dur: Dictionary = {}
+## The cleansing ward (Combat Defence & Healing): debuff stacks cleansed per pulse and the fee for each (share
+## of qi_max); a share of every debuff batch cleansed per pulse.
+var cleanse_pulse: int = 0
+var cleanse_cost: float = 0.0
+var cleanse_share: float = 0.0
+## Soul (Combat 24, E2; R11, R12): divine sense, soul resistance, soul damage %, heart-demon pool (tam_ma),
+## Slowed Time resistance %.
+var divine_sense: float = 1.0
+var soul_res: float = 0.0
+var x_soul: float = 0.0
+var tam_ma: float = 0.0
+var timer_resist: float = 0.0
 var basic_coef_add: float = 0.0
 ## Slotted arts in slot order.
 var arts: Array[ArtDef] = []

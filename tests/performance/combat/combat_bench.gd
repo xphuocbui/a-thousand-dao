@@ -61,6 +61,10 @@ static func shapes() -> Array:
 			"a": _doc("t2_wards_exact").a, "b": _doc("t2_wards_exact").b},
 		{"id": "crit_mirror", "doc": "crits, evades and a cast evade ward, each side (slice 2)",
 			"a": _doc("t2_crit_evade_mirror").a, "b": _doc("t2_crit_evade_mirror").b},
+		{"id": "stacks", "doc": "every element's stacks, ticks, purity, cleansing (slice 3)",
+			"a": _doc("t3_stacks_exact").a, "b": _doc("t3_stacks_exact").b},
+		{"id": "statuses", "doc": "every status and curse, slots, lockouts, Crossing the Line (slice 3)",
+			"a": _doc("t3_statuses_exact").a, "b": _doc("t3_statuses_exact").b},
 	]
 
 

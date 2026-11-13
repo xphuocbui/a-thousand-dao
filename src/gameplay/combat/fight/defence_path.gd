@@ -5,9 +5,9 @@ extends RefCounted
 ## order, so chance-free fights match it to 1e-6.
 ##
 ## Slices 1-2: resistance (main ward points while linh lực lasts, body and typed points, extra wards' points;
-## negative amplifies) with the drain bill (the main ward's and drain wards'), block (with ward block), ward shields
-## (stops by type, pieces, the floor, bypass), the body shield, the minimum hit, health. Penetration, curses and
-## ticks' block share come with later slices; the loader refuses fighters that need them.
+## Sundered and Exposed; negative amplifies) with the drain bill (the main ward's and drain wards', raised by
+## Leaking Ward), block (with ward block), ward shields (stops by type, pieces, the floor, bypass), the body shield,
+## the minimum hit, health. Penetration and ticks' block share come with the Effect slice.
 
 
 ## Runs one hit part of [param amount] and type [param dtype] from [param att] into [param dfn] at time [param t_ms].
@@ -21,6 +21,9 @@ static func defend(k: CombatConstants, att: FighterState, dfn: FighterState, amo
 	var dp: FighterProfile = dfn.p
 	var rw: float = dp.ward_pts * dp.ward_layer if dfn.qi > 0.0 else 0.0
 	var ro: float = dp.body_pts * dp.bs_mult + float(dp.resist.get(dtype, 0.0))
+	# curses on resistance: Sundered (points per stack) and Exposed (all types) (Status Catalogue)
+	if not dfn.statuses.is_empty():
+		ro += float(dfn.st("sundered")) * k.sundered_res_pts + float(dfn.st("exposed")) * k.exposed_res_all
 	var xs: Array[FighterState.WardState] = []
 	var xs_pts: PackedFloat64Array = []
 	if not dfn.xwards.is_empty():
@@ -41,6 +44,8 @@ static func defend(k: CombatConstants, att: FighterState, dfn: FighterState, amo
 		prevented = -amount * absf(r) / 100.0
 		bill_share = 0.0
 	var bill_up: float = 1.0 + att.p.ward_bill_pct / 100.0
+	if not dfn.statuses.is_empty():
+		bill_up *= 1.0 + float(dfn.st("leaking_ward")) * k.leaking_bill_up
 	var bill: float = bill_share * dp.drain * k.drain_scale / dp.ward_layer / dfn.g * bill_up
 	for i in xs.size():
 		# an extra drain ward bills for the share of prevention it holds

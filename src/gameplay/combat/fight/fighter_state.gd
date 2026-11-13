@@ -4,7 +4,32 @@ extends RefCounted
 ## [FighterProfile] at the start. The profile is only read. No reference to the [Fight] or the other side
 ## (ADR-0001: no back-pointers; cyclic RefCounted references leak).
 ##
-## Mirrors the sim's [code]Side[/code] (tools/design/combat_sim/engine.py). Slices 1-2 fields.
+## Mirrors the sim's [code]Side[/code] (tools/design/combat_sim/engine.py). Slices 1-3 fields.
+## A stack batch or status names its source by side index (0 = A, 1 = B), never by reference, so the two states
+## never point at each other.
+
+
+## A batch of element stacks: element, count, expiry ms (-1: the whole fight), source side and profile, length.
+class StackBatch extends RefCounted:
+	var el: String
+	var n: float
+	var until: int = -1
+	var src_idx: int
+	var src_p: FighterProfile
+	var length: int = -1
+	## Stack power, fixed at the grant: profiles never change in a fight, so this equals the sim's read-time value.
+	var power: float = 1.0
+
+
+## A status on this side: stacks, expiry ms (-1: until cleansed), source side, and the spec's extras.
+class StatusState extends RefCounted:
+	var stacks: int = 0
+	var until: int = -1
+	var src_idx: int
+	var tag: String = ""
+	var layer: int = 4
+	var crossing: bool = false
+	var no_lockout: bool = false
 
 
 ## A ward shield bar in this fight: its definition, what is left, when it was last hit (ms), pieces left.
@@ -49,6 +74,16 @@ var down: bool = false
 var body_bar: float = 0.0
 var wshields: Array[ShieldState] = []
 var xwards: Array[WardState] = []
+## Element stacks on this side (buffs it gave itself, debuffs the foe gave it), statuses by id (insertion order,
+## as the sim's dict), and the ms until each status may be reapplied.
+var buffs: Array[StackBatch] = []
+var debuffs: Array[StackBatch] = []
+var statuses: Dictionary = {}
+var lockouts: Dictionary = {}
+## Second pools (Combat 11, R12): heart-demon points left and the share of divine sense spent; soul lockout ms.
+var tam_ma: float = 0.0
+var ts_spent: float = 0.0
+var soul_ready: int = 0
 ## Tallies for the result.
 var dealt: float = 0.0
 var direct_dmg: float = 0.0
@@ -61,12 +96,18 @@ var last_cost: float = 0.0
 var hp_paid: float = 0.0
 
 var _reserve_keep: float
+var _k: CombatConstants
+## Sums of buff and debuff stats by key, valid until the stacks change ([method touch_buffs], [method touch_debuffs]).
+var _bcache: Dictionary = {}
+var _dcache: Dictionary = {}
 
 
 ## Sets up the side as the sim's Side does: full health, linh lực less the reserved share.
 func _init(profile: FighterProfile, side_label: String, k: CombatConstants) -> void:
 	p = profile
 	label = side_label
+	_k = k
+	tam_ma = p.tam_ma
 	u = k.u[p.realm]
 	g = k.realm_def[p.realm]
 	hp_max = k.health_units * u * p.n_body * k.health_mult * g
@@ -103,9 +144,57 @@ func _init(profile: FighterProfile, side_label: String, k: CombatConstants) -> v
 			wshields.append(bar)
 
 
-## Maximum linh lực (Water stacks raise it in a later slice).
+## Maximum linh lực: qi_base, raised by Water buff stacks.
 func qi_max() -> float:
-	return qi_base
+	return qi_base * (1.0 + bsum("qi_max"))
+
+
+## Stacks of status [param sid] on this side (0 when absent).
+func st(sid: String) -> int:
+	if statuses.is_empty():
+		return 0
+	var s: StatusState = statuses.get(sid)
+	return s.stacks if s != null else 0
+
+
+## The sum of [param key] over this side's buff stacks, each at its own power (the sim's bsum).
+func bsum(key: String) -> float:
+	if buffs.is_empty():
+		return 0.0
+	var hit: Variant = _bcache.get(key)
+	if hit != null:
+		return hit
+	var tot: float = 0.0
+	for x in buffs:
+		var tab: Dictionary = _k.buff.get(x.el, {})
+		tot += float(tab.get(key, 0.0)) * x.n * x.power
+	_bcache[key] = tot
+	return tot
+
+
+## The sum of [param key] over the debuff stacks on this side, each at its source's power (the sim's dsum).
+func dsum(key: String) -> float:
+	if debuffs.is_empty():
+		return 0.0
+	var hit: Variant = _dcache.get(key)
+	if hit != null:
+		return hit
+	var tot: float = 0.0
+	for x in debuffs:
+		var tab: Dictionary = _k.debuff.get(x.el, {})
+		tot += float(tab.get(key, 0.0)) * x.n * x.power
+	_dcache[key] = tot
+	return tot
+
+
+## Call after any change to [member buffs] (a grant, an expiry): the cached sums are dropped.
+func touch_buffs() -> void:
+	_bcache.clear()
+
+
+## Call after any change to [member debuffs] (a grant, an expiry, a cleanse): the cached sums are dropped.
+func touch_debuffs() -> void:
+	_dcache.clear()
 
 
 ## Usable linh lực: the maximum less what reservations hold (Combat Defence & Healing rule 10).

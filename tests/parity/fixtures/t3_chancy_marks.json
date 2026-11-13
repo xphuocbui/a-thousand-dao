@@ -1,0 +1,23 @@
+{
+  "name": "t3_chancy_marks",
+  "doc": "Slice 3, chancy (1,000 seeds). Thunder stacks (crit chance and crit damage taken), Earth debuffs (accuracy down, so the other side evades), and statuses at chances below 1, between unequal sides.",
+  "slice": 3,
+  "chance_free": false,
+  "seeds": 1000,
+  "a": {
+    "name": "storm-caller", "realm": 1, "crit": 0.1, "evade": 0.05, "purity": {"thunder": 50.0},
+    "arts": [
+      {"name": "charge", "c": 1.0, "cost": 0.03, "cd": 3.0, "element": "thunder", "dtype": "lightning", "buff": [3, 6.0], "debuff": [2, 5.0]},
+      {"name": "arc", "c": 2.0, "cost": 0.05, "cd": 2.5, "dtype": "lightning", "statuses": [{"id": "bleed", "chance": 0.5}]},
+      {"name": "rend", "c": 1.4, "cost": 0.05, "cd": 4.0, "statuses": [{"id": "sundered", "chance": 0.4}]}
+    ]
+  },
+  "b": {
+    "name": "mudslide", "realm": 1, "M": 3.6, "crit": 0.05, "evade": 0.1,
+    "arts": [
+      {"name": "mire", "c": 1.2, "cost": 0.04, "cd": 3.0, "element": "earth", "dtype": "phys", "debuff": [3, 5.0]},
+      {"name": "boulder", "c": 2.4, "cost": 0.06, "cd": 3.5},
+      {"name": "choke-dust", "c": 0.8, "cost": 0.03, "cd": 4.0, "statuses": [{"id": "heavy_breath", "chance": 0.6}]}
+    ]
+  }
+}

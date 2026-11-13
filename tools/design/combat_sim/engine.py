@@ -43,35 +43,16 @@ U = list(_C["U"])
 SUPP = list(_C["SUPP"])
 BLOCK_UNIT = list(_C["BLOCK_UNIT"])
 
-BUFF = {"fire": {"dmg": 0.012}, "water": {"qi_max": 0.005, "regen": 0.00025}, "earth": {"phys_dampen": 0.011},
-        "metal": {"dmg_phys": 0.012}, "wood": {"hregen": 0.001}, "thunder": {"acc": 0.007, "crit": 0.0035},
-        "wind": {"speed": 0.075}}
-DEBUFF = {"fire": {"burn": 0.019}, "earth": {"acc_down": 0.012}, "metal": {"phys_taken": 0.018},
-          "wood": {"poison": 0.019}, "ice": {"cost_up": 0.039}, "thunder": {"crit_taken": 0.012, "critdmg_taken": 0.05},
-          "wind": {"evade_down": 0.012}}
+# Element stack tables (Effects rule 9a, #44), the Status Catalogue (Effects GDD; kind tick or curse; dur in pulses,
+# None = until cleansed; cap None = none), an element debuff's tick type and an "elem" art's usual damage type
+# (Combat Damage Types rule 3, the authoring guide, 2026-11-13): all in combat_engine.json, the one source.
+BUFF = _C["BUFF"]
+DEBUFF = _C["DEBUFF"]
 ELEMENTS = {"", "fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind"}
 DTYPES = {"phys", "elem", "fire", "cold", "lightning", "force", "chaos", "soul"}
-TICK_TYPE = {"fire": "fire", "wood": "chaos"}
-# An "elem" art's damage type is its element's usual type (Combat Damage Types rule 3, the authoring guide), so a
-# type-scoped modifier ("Fire", "Lightning") reaches it (2026-11-13; before, such filters never matched "elem").
-ELEM_TYPE = {"fire": "fire", "ice": "cold", "water": "cold", "thunder": "lightning", "wind": "force", "wood": "chaos"}
-
-# Status Catalogue (Effects GDD). kind: tick or curse. stack: refresh | cap N | all (a new stack refreshes all)
-STATUS = {
-    "bleed": dict(kind="tick", dtype="phys", c_tick=0.20, dur=4, cap=5, own_timers=True),
-    "qi_disruption": dict(kind="tick", dtype="force", c_tick=0.30, dur=3, cap=3, on_qi=True),
-    "corpse_rot": dict(kind="tick", dtype="chaos", c_tick=0.15, dur=None, cap=1, standing=0.02),
-    "sundered": dict(kind="curse", dur=4, cap=3, res_pts=-150),
-    "exposed": dict(kind="curse", dur=3, cap=1, res_all=-100),
-    "sealed_meridian": dict(kind="curse", dur=2, cap=1, lockout=2),
-    "silence": dict(kind="curse", dur=3, cap=1, lockout=2),
-    "stagnation": dict(kind="curse", dur=3, cap=None, regen_dampen=1.0, refresh_all=True),
-    "heavy_breath": dict(kind="curse", dur=4, cap=2, cost_up=0.25),
-    "leaking_ward": dict(kind="curse", dur=3, cap=1, bill_up=0.5),
-    "withering": dict(kind="curse", dur=4, cap=1, heal_taken=-0.5),
-    "slackened_soul": dict(kind="curse", dur=2, cap=2, soul_res=-15),
-    "slowed_time": dict(kind="curse", dur=3, cap=5, slow=1.0, refresh_all=True),
-}
+TICK_TYPE = _C["TICK_TYPE"]
+ELEM_TYPE = _C["ELEM_TYPE"]
+STATUS = _C["STATUS"]
 
 EVENTS = {"foe_cost_extra", "foe_ward_paid", "always", "fight_start", "art_fired", "step_unlocked", "empowered", "hit_landed", "crit", "evaded", "was_hit", "was_evaded", "hit_stopped",
           "pulse", "tick_dealt", "heal_restored", "shield_broken", "status_applied", "overflow", "cleansed", "down",
@@ -320,11 +301,11 @@ def stack_pct(table, el, kind):
 def stack_power(build, el, kind=None):
     p = build.purity.get(el, 0.0)
     if el == "water":
-        p += 0.5 * build.purity.get("ice", 0.0)
+        p += K["water_ice_share"] * build.purity.get("ice", 0.0)
     elif el == "ice":
-        p += 0.5 * build.purity.get("water", 0.0)
+        p += K["water_ice_share"] * build.purity.get("water", 0.0)
     extra = stack_pct(build.stack_eff, el, kind or "*") if build.stack_eff else 0.0
-    return (1 + 0.002 * p) * (1 + extra / 100)
+    return (1 + K["purity_stack_power"] * p) * (1 + extra / 100)
 
 
 def supp(att, dfn, pierce=0.0):
@@ -521,7 +502,7 @@ class Fight:
         return max(K["cooldown_min"], K["basic_cooldown"] / (1 + (s.b.basic_speed_pct + self.mod(s, "basic_speed")) / 100))
 
     def slow(self, s):
-        n = min(s.st("slowed_time"), 5)
+        n = min(s.st("slowed_time"), STATUS["slowed_time"]["cap"])
         return 1 + K["slowed_time_pct"] * n * (1 - (s.b.timer_resist + self.mod(s, "timer_resist")) / 100)
 
     # ---------------------------------------------------------- the loop
@@ -582,6 +563,8 @@ class Fight:
                 tick = src.U * d["c_tick"] * stt["stacks"] * src.b.M * supp(src, s, self.mod(src, "pierce") / 100)
                 if d.get("on_qi"):
                     s.qi = max(0.0, s.qi - tick)
+                    if self.plog is not None:
+                        self.plog.append(["qi_tick", self.t, src.label, sid, tick, s.hp, s.qi])
                     src.dealt += tick
                 else:
                     self.tick(src, s, tick, d["dtype"], sid)
@@ -629,7 +612,7 @@ class Fight:
         if s.b.cleanse_share:
             for x in s.debuffs:
                 x[1] *= (1 - s.b.cleanse_share)
-            s.debuffs = [x for x in s.debuffs if x[1] >= 0.05]
+            s.debuffs = [x for x in s.debuffs if x[1] >= K["cleanse_min_stacks"]]
         # fatigue
         if self.t >= ms(K["fatigue_start"]):
             n = round((self.t - ms(K["fatigue_start"])) / 1000)
@@ -1053,6 +1036,8 @@ class Fight:
         self.hit_fees = set()
         dealt = self.defend(src, s, amount, dtype, None, {"dtype": dtype}, is_tick=True)
         src.dealt += dealt
+        if self.plog is not None:
+            self.plog.append(["tick", self.t, src.label, sid, amount, dealt, s.hp, s.qi])
         self.fire_event(src, "tick_dealt", {"amount": dealt, "status": sid, "element": sid if sid in ELEMENTS else "", "dtype": dtype})
         return dealt
 
@@ -1070,6 +1055,8 @@ class Fight:
         dfn.qi = max(0.0, dfn.qi - lq)
         att.dealt += lh
         att.direct_dmg += lh
+        if self.plog is not None:
+            self.plog.append(["soul", self.t, att.label, a.name, lh, lq, dfn.hp, dfn.qi])
         self.fire_event(att, "soul_hit", {"amount": lh, "qi": lq, "tags": a.tags, "element": a.element, "art_id": a.name,
                                           "kind": "art", "dtype": "soul"})
         return lh
@@ -1105,8 +1092,12 @@ class Fight:
         until = None if dur is None else self.t + ms(max(K["min_batch"], dur))
         if buff:
             target.buffs.append([el, n, until, src, None if until is None else until - self.t])
+            if self.plog is not None:
+                self.plog.append(["stacks", self.t, src.label, target.label, el, n, -1 if until is None else until, 1])
         else:
             target.debuffs.append([el, n, until, src, None if until is None else until - self.t])
+            if self.plog is not None:
+                self.plog.append(["stacks", self.t, src.label, target.label, el, n, -1 if until is None else until, 0])
             self.fire_event(src, "status_applied", {"element": el, "stacks": n})
 
     def apply_status(self, src, target, spec):
@@ -1129,7 +1120,7 @@ class Fight:
         if chance <= 0:
             return
         if not (chance >= 1 and resist <= 0):
-            if self.rng.random() >= min(0.95, max(0.05, chance * (1 - resist))):
+            if self.rng.random() >= min(K["status_chance_max"], max(K["status_chance_min"], chance * (1 - resist))):
                 return
         if is_curse and sid not in target.statuses:
             live = [k for k, v in target.statuses.items() if STATUS.get(k, {}).get("kind") == "curse"]
@@ -1153,6 +1144,9 @@ class Fight:
         for k in ("layer", "tag", "crossing", "no_lockout"):
             if k in spec:
                 st[k] = spec[k]
+        if self.plog is not None:
+            self.plog.append(["status", self.t, src.label, target.label, sid, st["stacks"],
+                              -1 if st["until"] is None else st["until"]])
         self.fire_event(src, "status_applied", {"status": sid, "stacks": n})
 
     def cleanse(self, s, n, el=None):
@@ -1187,6 +1181,8 @@ class Fight:
                 s.debuffs.pop(i)
             else:
                 i += 1
+        if self.plog is not None and removed:
+            self.plog.append(["cleanse", self.t, s.label, removed])
         if removed:
             self.fire_event(s.foe, "cleansed", {"amount": removed})
         return removed

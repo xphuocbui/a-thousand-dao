@@ -1,0 +1,174 @@
+{
+  "name": "t3_statuses_exact",
+  "doc": "Slice 3 (statuses and curses), chance-free (every chance 1). Bleed (stacks to a cap), Qi Disruption (drains linh luc), Corpse Rot (its standing fee on the source), Sundered and Exposed (resistance), Heavy Breath, Leaking Ward, Stagnation (more than the 3 curse slots allow: the extra curses are refused), Slowed Time; Withering with Crossing the Line on a side that regenerates health, Silence on Sword-tagged arts, Slackened Soul, Sealed Meridian (its lockout), and curse durations clamped to 1-5 pulses.",
+  "slice": 3,
+  "chance_free": true,
+  "seed": 17,
+  "a": {
+    "name": "hexer",
+    "realm": 0,
+    "crit": 0.0,
+    "evade": 0.0,
+    "hregen": 0.004,
+    "arts": [
+      {
+        "name": "cut",
+        "c": 1.4,
+        "cost": 0.04,
+        "cd": 2.0,
+        "statuses": [
+          {
+            "id": "bleed",
+            "stacks": 2
+          }
+        ]
+      },
+      {
+        "name": "meridian-pin",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 3.0,
+        "dtype": "force",
+        "statuses": [
+          {
+            "id": "qi_disruption"
+          }
+        ]
+      },
+      {
+        "name": "grave-mark",
+        "c": 0.8,
+        "cost": 0.03,
+        "cd": 6.0,
+        "dtype": "chaos",
+        "statuses": [
+          {
+            "id": "corpse_rot"
+          }
+        ]
+      },
+      {
+        "name": "break-armour",
+        "c": 1.2,
+        "cost": 0.05,
+        "cd": 4.0,
+        "statuses": [
+          {
+            "id": "sundered",
+            "stacks": 2
+          },
+          {
+            "id": "exposed",
+            "dur": 9
+          }
+        ]
+      },
+      {
+        "name": "choke",
+        "c": 1.0,
+        "cost": 0.05,
+        "cd": 5.0,
+        "statuses": [
+          {
+            "id": "heavy_breath"
+          },
+          {
+            "id": "leaking_ward"
+          },
+          {
+            "id": "stagnation",
+            "stacks": 20
+          }
+        ]
+      },
+      {
+        "name": "slow-hand",
+        "c": 0.8,
+        "cost": 0.03,
+        "cd": 3.5,
+        "statuses": [
+          {
+            "id": "slowed_time",
+            "stacks": 2,
+            "dur": 0.4
+          }
+        ]
+      },
+      {
+        "name": "blade",
+        "c": 1.6,
+        "cost": 0.04,
+        "cd": 2.5,
+        "tags": [
+          "sword"
+        ]
+      }
+    ],
+    "M": 0.9
+  },
+  "b": {
+    "name": "mender",
+    "realm": 0,
+    "crit": 0.0,
+    "evade": 0.0,
+    "hregen": 0.003,
+    "arts": [
+      {
+        "name": "mending",
+        "c": 0.0,
+        "cost": 0.05,
+        "cd": 5.0,
+        "heal": 1.2
+      },
+      {
+        "name": "sword-rain",
+        "c": 1.2,
+        "cost": 0.04,
+        "cd": 2.5,
+        "tags": [
+          "sword"
+        ]
+      },
+      {
+        "name": "hush",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 7.0,
+        "statuses": [
+          {
+            "id": "silence",
+            "tag": "sword"
+          }
+        ]
+      },
+      {
+        "name": "wither",
+        "c": 0.8,
+        "cost": 0.04,
+        "cd": 6.0,
+        "statuses": [
+          {
+            "id": "withering",
+            "crossing": true
+          }
+        ]
+      },
+      {
+        "name": "soft-soul",
+        "c": 0.6,
+        "cost": 0.03,
+        "cd": 4.0,
+        "statuses": [
+          {
+            "id": "slackened_soul",
+            "stacks": 2
+          },
+          {
+            "id": "sealed_meridian"
+          }
+        ]
+      }
+    ],
+    "M": 1.9
+  }
+}

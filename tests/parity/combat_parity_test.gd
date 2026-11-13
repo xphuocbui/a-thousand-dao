@@ -9,6 +9,7 @@ const TOL := 1e-6
 ## The fixtures each slice added; the suite fails if any goes missing.
 const SLICE_1 := ["t1_hazards", "t1_mirror_qr", "t1_realm_gap", "t1_stall"]
 const SLICE_2 := ["t2_wards_exact", "t2_shield_cycles", "t2_crit_evade_mirror", "t2_crit_vs_wards"]
+const SLICE_3 := ["t3_stacks_exact", "t3_statuses_exact", "t3_soul_exact", "t3_chancy_marks"]
 ## ADR-0001 decision 4 (amended 2026-11-13): chancy fixtures over 1,000 seeds; mean fight time within 5 %, each win
 ## share within 0.05 of the sim's reference (which parity_export.py takes over 10x the seeds).
 const TIME_TOL := 0.05
@@ -85,7 +86,7 @@ func test_the_constants_load_from_the_shared_file() -> void:
 
 
 func test_every_slice_fixture_has_an_expected_file() -> void:
-	for name in SLICE_1 + SLICE_2:
+	for name in SLICE_1 + SLICE_2 + SLICE_3:
 		assert_true(FileAccess.file_exists(EXPECTED_DIR + name + ".json"), "%s.json is there" % name)
 
 

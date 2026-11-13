@@ -1,0 +1,85 @@
+{
+  "name": "t3_soul_exact",
+  "doc": "Slice 3 (soul), chance-free. Soul arts paid from linh luc, from heart demon (tam ma) and from divine sense (than thuc, which lowers the payer's own divine sense left); an added Soul part on a normal art; soul resistance, soul damage %, Slackened Soul; and a side whose divine sense is too weak (rho below rho_min) until the other spends its own.",
+  "slice": 3,
+  "chance_free": true,
+  "seed": 19,
+  "a": {
+    "name": "soul-reader",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "divine_sense": 1.6,
+    "x_soul": 20.0,
+    "tam_ma": 30.0,
+    "arts": [
+      {
+        "name": "mind-spike",
+        "c": 0.0,
+        "cost": 0.05,
+        "cd": 3.0,
+        "soul_pct": 0.0067
+      },
+      {
+        "name": "demon-whisper",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 4.0,
+        "soul_pct": 0.005,
+        "pool": "tam_ma"
+      },
+      {
+        "name": "sense-lance",
+        "c": 0.0,
+        "cost": 0.12,
+        "cd": 5.0,
+        "soul_pct": 0.0083,
+        "pool": "than_thuc"
+      },
+      {
+        "name": "spirit-edge",
+        "c": 1.8,
+        "cost": 0.05,
+        "cd": 2.5,
+        "soul_part": 0.25
+      }
+    ],
+    "M": 2.0
+  },
+  "b": {
+    "name": "stolid",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "divine_sense": 0.35,
+    "soul_res": 30.0,
+    "arts": [
+      {
+        "name": "counter-gaze",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 4.0,
+        "soul_pct": 0.03
+      },
+      {
+        "name": "heavy-fist",
+        "c": 2.4,
+        "cost": 0.06,
+        "cd": 3.0
+      },
+      {
+        "name": "dull-mind",
+        "c": 0.8,
+        "cost": 0.03,
+        "cd": 5.0,
+        "statuses": [
+          {
+            "id": "slackened_soul",
+            "stacks": 2
+          }
+        ]
+      }
+    ],
+    "M": 3.0
+  }
+}

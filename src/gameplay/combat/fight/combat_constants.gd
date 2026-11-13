@@ -19,6 +19,9 @@ const REQUIRED_K := [
 	"regen_base", "regen_k", "cost_scale", "drain_scale", "cooldown_min", "basic_cooldown", "pulse", "bypass_cap",
 	"pierce_cap", "health_units", "qi_units", "cost_red_cap", "reserve_cap", "pay_keep_health", "min_hit",
 	"crit_cap", "evade_cap", "recharge_delay", "shield_recharge",
+	"min_batch", "curse_slots", "curse_duration_max", "slowed_time_pct", "soul_beta", "rho_min", "soul_cap",
+	"soul_lockout", "curse_heal_taken_max", "status_chance_min", "status_chance_max", "purity_stack_power",
+	"water_ice_share", "cleanse_min_stacks",
 ]
 
 var fatigue_start: float
@@ -54,6 +57,41 @@ var crit_cap: float
 var evade_cap: float
 var recharge_delay: float
 var shield_recharge: float
+## Element stacks and statuses (Effects rule 9a, Status Catalogue; Combat Formulas F, R22): the shortest batch
+## (s), curse slots, the curse duration clamp (pulses), Slowed Time's slow per stack, the status chance clamp,
+## purity's stack power and the Water/Ice share.
+var min_batch: float
+var curse_slots: int
+var curse_duration_max: float
+var slowed_time_pct: float
+var status_chance_min: float
+var status_chance_max: float
+var purity_stack_power: float
+var water_ice_share: float
+## A debuff batch below this many stacks after the cleansing ward's share is gone.
+var cleanse_min_stacks: float
+## Soul attacks (Combat 24, E2): the exponent on rho, the rho floor, the cap per hit, the lockout (s); and the
+## floor on healing taken with curses (Combat Defence & Healing E).
+var soul_beta: float
+var rho_min: float
+var soul_cap: float
+var soul_lockout: float
+var curse_heal_taken_max: float
+## Tables: per element, the stat each buff or debuff stack adds; the Status Catalogue by id; an element
+## debuff's tick type. Keys are Strings, as in the file.
+var buff: Dictionary = {}
+var debuff: Dictionary = {}
+var status: Dictionary = {}
+var tick_type: Dictionary = {}
+## The curse numbers the hot path reads, copied from the Status Catalogue at load (typed, no lookups per hit).
+var sundered_res_pts: float
+var exposed_res_all: float
+var leaking_bill_up: float
+var heavy_cost_up: float
+var stagnation_dampen: float
+var withering_heal_taken: float
+var slackened_soul_res: float
+var slowed_cap: int
 ## The per-realm unit U.
 var u: PackedFloat64Array
 ## Realm suppression by realm gap (Combat Formulas H).
@@ -66,6 +104,7 @@ var time_limit_ms: int
 var fatigue_start_ms: int
 var cooldown_min_ms: int
 var recharge_delay_ms: int
+var soul_lockout_ms: int
 
 ## Load problems; empty when the constants are usable.
 var errors: PackedStringArray = []
@@ -98,6 +137,9 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	for key in REQUIRED_K:
 		if not kd.has(key):
 			k.errors.append("combat_engine.json: K.%s is missing" % key)
+	for key in ["BUFF", "DEBUFF", "STATUS", "TICK_TYPE"]:
+		if not (d.get(key) is Dictionary):
+			k.errors.append("combat_engine.json: %s is missing" % key)
 	for key in ["U", "SUPP", "BLOCK_UNIT"]:
 		if not (d.get(key) is Array) or (d[key] as Array).size() != 5:
 			k.errors.append("combat_engine.json: %s must list 5 realms" % key)
@@ -129,6 +171,36 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.evade_cap = float(kd.evade_cap)
 	k.recharge_delay = float(kd.recharge_delay)
 	k.shield_recharge = float(kd.shield_recharge)
+	k.min_batch = float(kd.min_batch)
+	k.curse_slots = int(kd.curse_slots)
+	k.curse_duration_max = float(kd.curse_duration_max)
+	k.slowed_time_pct = float(kd.slowed_time_pct)
+	k.status_chance_min = float(kd.status_chance_min)
+	k.status_chance_max = float(kd.status_chance_max)
+	k.purity_stack_power = float(kd.purity_stack_power)
+	k.water_ice_share = float(kd.water_ice_share)
+	k.cleanse_min_stacks = float(kd.cleanse_min_stacks)
+	k.soul_beta = float(kd.soul_beta)
+	k.rho_min = float(kd.rho_min)
+	k.soul_cap = float(kd.soul_cap)
+	k.soul_lockout = float(kd.soul_lockout)
+	k.curse_heal_taken_max = float(kd.curse_heal_taken_max)
+	k.buff = d.BUFF
+	k.debuff = d.DEBUFF
+	k.status = d.STATUS
+	k.tick_type = d.TICK_TYPE
+	for sid in ["sundered", "exposed", "leaking_ward", "heavy_breath", "stagnation", "withering", "slackened_soul", "slowed_time"]:
+		if not k.status.has(sid):
+			k.errors.append("combat_engine.json: STATUS.%s is missing" % sid)
+			return k
+	k.sundered_res_pts = float(k.status.sundered.res_pts)
+	k.exposed_res_all = float(k.status.exposed.res_all)
+	k.leaking_bill_up = float(k.status.leaking_ward.bill_up)
+	k.heavy_cost_up = float(k.status.heavy_breath.cost_up)
+	k.stagnation_dampen = float(k.status.stagnation.regen_dampen)
+	k.withering_heal_taken = float(k.status.withering.heal_taken)
+	k.slackened_soul_res = float(k.status.slackened_soul.soul_res)
+	k.slowed_cap = int(k.status.slowed_time.cap)
 	k.u = PackedFloat64Array(d.U)
 	k.supp = PackedFloat64Array(d.SUPP)
 	k.block_unit = PackedFloat64Array(d.BLOCK_UNIT)
@@ -137,6 +209,7 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.fatigue_start_ms = ms(k.fatigue_start)
 	k.cooldown_min_ms = ms(k.cooldown_min)
 	k.recharge_delay_ms = ms(k.recharge_delay)
+	k.soul_lockout_ms = ms(k.soul_lockout)
 	if k.realm_def.size() != 5:
 		k.errors.append("combat_engine.json: K.realm_def must list 5 realms")
 	return k

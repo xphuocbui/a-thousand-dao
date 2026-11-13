@@ -19,34 +19,33 @@ extends RefCounted
 const DTYPES := ["phys", "elem", "fire", "cold", "lightning", "force", "chaos", "soul"]
 const ELEMENTS := ["", "fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind"]
 
-## Build fields slices 1-2 read, as float (the profile field when it differs).
+## The largest added Soul part an art may carry (R11; the sim's validate()).
+const SOUL_PART_MAX := 0.30
+## Build fields slices 1-3 read, as float (the profile field when it differs).
 const BUILD_FLOATS := {
 	"M": "m", "n_body": "", "n_qi": "", "ward_pts": "", "drain": "", "block": "", "regen_bonus": "", "hregen": "",
 	"cost_red": "", "gain_on_hit": "", "leech_qi": "", "leech_hp": "", "hp_pay": "", "healing": "",
 	"art_speed_pct": "", "basic_speed_pct": "", "opening_haste_pct": "", "basic_coef_add": "", "ward_layer": "",
 	"body_pts": "", "body_block": "", "bs_mult": "", "ward_bill_pct": "", "reserved": "",
 	"crit": "", "crit_mult": "", "evade": "", "acc": "", "body_shield": "",
+	"cleanse_cost": "", "cleanse_share": "", "divine_sense": "", "soul_res": "", "x_soul": "", "tam_ma": "",
+	"timer_resist": "",
 }
-## Build fields with no effect until a later slice ports what reads them (accepted, not used yet): the soul
-## fields only with soul arts; tam_ma with its pool; timer_resist with Slowed Time; refusals with refuse_down
-## Effects; layers with layer mods.
-const BUILD_NEUTRAL := [
-	"name", "layers", "divine_sense", "soul_res", "x_soul", "tam_ma", "timer_resist", "refusals",
-	"boss", "tags",
-]
+## Build fields with no effect until the Effect slice ports what reads them (accepted, not used yet): refusals
+## with refuse_down Effects; layers with layer mods.
+const BUILD_NEUTRAL := ["name", "layers", "refusals", "boss", "tags"]
 ## Build fields a later slice ports; they must be zero or empty here.
 const BUILD_NOT_PORTED := [
-	"cleanse_pulse", "cleanse_cost", "cleanse_share", "purity", "effects", "counters", "states", "stack_eff",
-	"stack_dur",
+	"effects", "counters", "states",
 ]
-## Art fields slices 1-2 read.
+## Art fields slices 1-3 read.
 const ART_PORTED := [
 	"name", "c", "cost", "cd", "element", "dtype", "m_mult", "split", "charges", "heal", "qi_restore", "hp_cost",
-	"bypass", "tags", "pool", "convert",
+	"bypass", "tags", "pool", "convert", "buff", "debuff", "cleanse", "statuses", "soul_pct", "soul_part",
 ]
 const ART_NEUTRAL := ["group"]
 const ART_NOT_PORTED := [
-	"buff", "debuff", "cleanse", "guards", "statuses", "soul_pct", "soul_part", "steps", "empower",
+	"guards", "steps", "empower",
 ]
 
 ## Problems found by the last calls; empty when every profile loaded.
@@ -65,7 +64,8 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 	var p := FighterProfile.new()
 	for key in d:
 		var name: String = str(key)
-		if BUILD_FLOATS.has(name) or name in ["realm", "resist", "arts", "companions", "shields", "wards"] \
+		if BUILD_FLOATS.has(name) or name in ["realm", "resist", "arts", "companions", "shields", "wards", "purity",
+				"stack_eff", "stack_dur", "cleanse_pulse"] \
 				or name in BUILD_NEUTRAL:
 			continue
 		if name in BUILD_NOT_PORTED:
@@ -96,11 +96,44 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 		var comp: FighterProfile.Companion = _companion(d.companions[i], "%s.companions[%d]" % [where, i])
 		if comp != null:
 			p.companions.append(comp)
+	p.cleanse_pulse = int(d.get("cleanse_pulse", 0))
+	for key in ["purity", "stack_eff", "stack_dur"]:
+		var src: Dictionary = d.get(key, {})
+		var dst: Dictionary = p.get(key)
+		for kk in src:
+			dst[str(kk)] = float(src[kk])
+	for el in p.purity:
+		if not (str(el) in ELEMENTS):
+			errors.append("%s: purity element %s is not one of %s" % [where, str(el), str(ELEMENTS)])
 	for i in (d.get("shields", []) as Array).size():
 		p.shields.append(_shield(d.shields[i], "%s.shields[%d]" % [where, i]))
 	for i in (d.get("wards", []) as Array).size():
 		p.wards.append(_ward(d.wards[i], "%s.wards[%d]" % [where, i]))
 	return p if errors.size() == n0 else null
+
+
+## A status an art applies, from the sim's spec dict. Internal Injury is an Effect's stored damage (the Effect
+## slice).
+func _status(d: Dictionary, where: String) -> StatusSpec:
+	var spec := StatusSpec.new()
+	spec.id = str(d.get("id", ""))
+	if spec.id == "internal_injury":
+		errors.append("%s: internal_injury is not ported yet (the Effect slice)" % where)
+		return null
+	if not _k.status.has(spec.id):
+		errors.append("%s: status %s is not in the Status Catalogue" % [where, spec.id])
+		return null
+	for key in d:
+		var name: String = str(key)
+		if name in ["id", "stacks", "chance"]:
+			continue
+		if name in ["dur", "cap", "layer", "tag", "crossing", "no_lockout"]:
+			spec.extra[name] = d[key]
+		else:
+			errors.append("%s: unknown status field %s" % [where, name])
+	spec.stacks = int(d.get("stacks", 1))
+	spec.chance = float(d.get("chance", 1.0))
+	return spec
 
 
 ## A ward shield from the sim's Shield record (size, body, standing, stops, pieces, floor).
@@ -165,8 +198,8 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 	for key in ART_PORTED:
 		if not d.has(key):
 			errors.append("%s: %s is missing (art records must be fully resolved)" % [where, key])
-	if str(d.get("pool", "qi")) != "qi":
-		errors.append("%s: pool %s is not ported yet (a later slice)" % [where, str(d.get("pool"))])
+	if not (str(d.get("pool", "qi")) in ["qi", "tam_ma", "than_thuc"]):
+		errors.append("%s: pool %s is not qi, tam_ma or than_thuc" % [where, str(d.get("pool"))])
 	var a := ArtDef.new()
 	a.id = StringName(str(d.get("name", "")))
 	a.c = float(d.get("c", 0.0))
@@ -181,6 +214,24 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 	a.qi_restore = float(d.get("qi_restore", 0.0))
 	a.hp_cost = float(d.get("hp_cost", 0.0))
 	a.bypass = float(d.get("bypass", 0.0))
+	a.pool = StringName(str(d.get("pool", "qi")))
+	var bf: Array = d.get("buff", [])
+	if not bf.is_empty():
+		a.buff_n = float(bf[0])
+		a.buff_dur = -1.0 if bf[1] == null else float(bf[1])
+	var dbf: Array = d.get("debuff", [])
+	if not dbf.is_empty():
+		a.debuff_n = float(dbf[0])
+		a.debuff_dur = -1.0 if dbf[1] == null else float(dbf[1])
+	a.cleanse = int(d.get("cleanse", 0))
+	a.soul_pct = float(d.get("soul_pct", 0.0))
+	a.soul_part = float(d.get("soul_part", 0.0))
+	if a.soul_part > SOUL_PART_MAX + 1e-9:
+		errors.append("%s: added Soul part %s is over %s (R11)" % [where, str(a.soul_part), str(SOUL_PART_MAX)])
+	for j in (d.get("statuses", []) as Array).size():
+		var spec: StatusSpec = _status(d.statuses[j], "%s.statuses[%d]" % [where, j])
+		if spec != null:
+			a.statuses.append(spec)
 	var conv: Dictionary = d.get("convert", {})
 	if float(conv.get("share", 0.0)) != 0.0:
 		a.convert_to = StringName(str(conv.get("to", "")))

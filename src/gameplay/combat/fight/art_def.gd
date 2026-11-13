@@ -1,8 +1,8 @@
 class_name ArtDef
 extends RefCounted
 ## One slotted art as the fight engine reads it (ADR-0001; Combat GDD rule 13, Formulas A2, C, E). Read-only once
-## loaded: a [Fight] never writes to it. Slices 1-2 (timeline, damage, defence path) carry these fields;
-## [FighterProfileLoader] refuses art records that need a later slice (buffs, statuses, soul, steps...).
+## loaded: a [Fight] never writes to it. Slices 1-3 carry these fields;
+## [FighterProfileLoader] refuses art records that need a later slice (guards, steps, empowers).
 
 ## The art's id (the sim's art name).
 var id: StringName
@@ -34,5 +34,21 @@ var bypass: float = 0.0
 ## defence; 0 for none.
 var convert_to: StringName = &""
 var convert_share: float = 0.0
-## Tags, for scoped reads in later slices.
+## Element stacks granted on firing (buff, to self) and on hit (debuff, to the target): count and duration in
+## seconds; a duration of -1 lasts the fight (the sim's None). Count 0: none.
+var buff_n: float = 0.0
+var buff_dur: float = -1.0
+var debuff_n: float = 0.0
+var debuff_dur: float = -1.0
+## Debuff batches cleansed from self on firing.
+var cleanse: int = 0
+## Statuses applied on hit (Status Catalogue).
+var statuses: Array[StatusSpec] = []
+## A soul art (Combat 24, E2): share of the target's pools removed, before rho and caps; 0 for none.
+var soul_pct: float = 0.0
+## An added Soul part (R11): this share of each hit meets soul resistance only.
+var soul_part: float = 0.0
+## The pool it is paid from (Combat 11, R12): qi, tam_ma or than_thuc.
+var pool: StringName = &"qi"
+## Tags, for scoped reads in later slices and Silence.
 var tags: Array[StringName] = []

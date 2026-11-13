@@ -1,0 +1,32 @@
+{
+  "name": "t3_stacks_exact",
+  "doc": "Slice 3 (element stacks), chance-free. Fire buffs and Burn, Water buffs (linh luc maximum, regeneration), Wood Poison (lasting the fight) and health regeneration, Ice cost-up, Earth dampening, Metal damage and Physical damage taken, Wind speed and evade-down; purity, Water and Ice sharing purity, stack effect and duration %, the 2 s minimum batch; the cleansing ward (per pulse and by share) and a cleanse art.",
+  "slice": 3,
+  "chance_free": true,
+  "seed": 13,
+  "a": {
+    "name": "ember-sage", "realm": 1, "crit": 0.0, "evade": 0.0,
+    "purity": {"fire": 60.0, "water": 30.0, "ice": 20.0},
+    "stack_eff": {"fire|debuff": 25.0},
+    "stack_dur": {"*|buff": 50.0},
+    "arts": [
+      {"name": "kindle", "c": 1.6, "cost": 0.05, "cd": 3.0, "element": "fire", "dtype": "fire", "buff": [2, 6.0], "debuff": [3, 4.0]},
+      {"name": "tide-breath", "c": 0.0, "cost": 0.03, "cd": 5.0, "element": "water", "buff": [4, 8.0]},
+      {"name": "rot-seed", "c": 1.0, "cost": 0.04, "cd": 4.0, "element": "wood", "dtype": "chaos", "debuff": [2, null]},
+      {"name": "green-pulse", "c": 0.0, "cost": 0.02, "cd": 6.0, "element": "wood", "buff": [3, 1.0]},
+      {"name": "frost-needle", "c": 1.2, "cost": 0.04, "cd": 3.5, "element": "ice", "dtype": "cold", "debuff": [3, 5.0]}
+    ]
+  },
+  "b": {
+    "name": "stone-wall", "realm": 1, "crit": 0.0, "evade": 0.0,
+    "purity": {"earth": 50.0, "metal": 40.0},
+    "cleanse_pulse": 1, "cleanse_cost": 0.01, "cleanse_share": 0.2,
+    "arts": [
+      {"name": "iron-skin", "c": 0.0, "cost": 0.03, "cd": 6.0, "element": "earth", "buff": [3, 6.0]},
+      {"name": "metal-edge", "c": 2.2, "cost": 0.06, "cd": 3.0, "element": "metal", "debuff": [2, 5.0]},
+      {"name": "honed", "c": 1.0, "cost": 0.03, "cd": 4.0, "element": "metal", "buff": [2, 8.0]},
+      {"name": "gale-step", "c": 1.0, "cost": 0.03, "cd": 2.5, "element": "wind", "buff": [2, 4.0], "debuff": [2, 4.0]},
+      {"name": "purify", "c": 0.0, "cost": 0.02, "cd": 5.0, "cleanse": 3}
+    ]
+  }
+}

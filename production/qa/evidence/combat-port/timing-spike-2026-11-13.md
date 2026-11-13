@@ -62,3 +62,30 @@ body shield, conversion; from `t2_wards_exact`) and `crit_mirror` (crits, evades
 
 Worst p95 7.4 ms of 50. The per-event cost rose about 30 % with slice 2 (two rolls per hit, ward checks), and is
 about 5.5 µs where every ward model is in play. Still a lower bound until the Effect slice.
+
+## Re-run after slice 3 (element stacks, statuses, curses, soul), 2026-11-13
+
+Two shapes added: `stacks` (every element's stacks, ticks, purity, cleansing; from `t3_stacks_exact`) and
+`statuses` (every status and curse; from `t3_statuses_exact`).
+
+The first slice-3 build doubled the per-event cost everywhere (about 5.3 µs) and put `stacks` at 33.5 µs per event,
+p95 23.5 ms: every read of a stack-driven stat walked all batches and rebuilt each batch's stack power with string
+formatting. Two exact fixes (profiles never change in a fight, so the values are identical, and parity stayed exact):
+each batch's stack power is computed once at the grant, and per-stat sums are cached until the stacks change; status
+numbers moved to typed fields, with early returns when a side has no stacks or statuses. After them:
+
+| Shape | Fight (s) | Events | Mean ms | p50 ms | p95 ms | Max ms | µs/event |
+|---|---|---|---|---|---|---|---|
+| mirror_qr | 38.9 | 302 | 1.577 | 1.313 | 2.106 | 13.763 | 5.22 |
+| mirror_top | 66.0 | 644 | 2.433 | 2.315 | 3.026 | 5.747 | 3.78 |
+| stall | 67.0 | 328 | 1.209 | 1.170 | 1.337 | 2.796 | 3.69 |
+| hazards | 14.7 | 201 | 0.929 | 0.877 | 1.195 | 2.774 | 4.62 |
+| art_heavy | 29.7 | 2246 | 8.601 | 8.249 | 10.782 | 13.103 | 3.83 |
+| wards | 58.7 | 435 | 3.170 | 3.156 | 3.409 | 6.063 | 7.29 |
+| crit_mirror | 37.4 | 321 | 1.323 | 1.310 | 1.518 | 4.060 | 4.12 |
+| stacks | 40.6 | 542 | 4.951 | 4.878 | 5.299 | 8.134 | 9.13 |
+| statuses | 22.2 | 320 | 1.563 | 1.523 | 1.698 | 3.742 | 4.88 |
+
+Worst p95 10.8 ms of 50 (`art_heavy`). The `mirror_qr` max of 13.8 ms is a single outlier (its p95 is 2.1 ms). The
+per-event cost is about 3.7-4.6 µs against slice 2's 2.5-2.9: slice 3 adds a dozen stat reads per hit. The Effect
+slice runs on every event, so its re-run decides whether the hot path needs more than this.
