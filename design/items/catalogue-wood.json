@@ -509,7 +509,7 @@
     "closes": "",
     "hosts": "Item, Way",
     "from": "single-wood.md, The Evergreen Wall (its New piece)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "wards": [
@@ -715,7 +715,7 @@
     "closes": "",
     "hosts": "Item, Way",
     "from": "single-wood.md, The Strangler Fig (its New piece)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "reserve_arts": [
@@ -848,7 +848,7 @@
     "closes": "",
     "hosts": "Item, Way",
     "from": "starter-venom.md, the Moss-Ledger (its Missing piece)",
-    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12, patch 2026-11-13)"
    }
   ],
   "wards": [

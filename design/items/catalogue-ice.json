@@ -583,7 +583,7 @@
     "closes": "",
     "hosts": "Item, Way, Tech",
     "from": "variant-ice.md, The Frozen Treasury (Frost Tithe, as a smaller Effect on an item)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "reserve_arts": [
@@ -680,7 +680,7 @@
     "closes": "Your arts cost 10 % more linh lực.",
     "hosts": "Named Item",
     "from": "variant-ice.md, The Frost Lock (New piece: Deep Freeze)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "sources": [

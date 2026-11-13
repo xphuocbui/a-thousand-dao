@@ -37,5 +37,20 @@
   ],
   "abilities": [{"ability_id": "debt-blade", "unlock_layer": 1}],
   "effects": [], "origin": "authored", "suite": "", "family": "blade",
-  "lore": "A mercenary's blade manual that lends strength against the health owed to the next breath."}
+  "lore": "A mercenary's blade manual that lends strength against the health owed to the next breath."},
+ {"id": "drawn-out-edge-canon", "name": "Drawn-Out Edge Canon (Trì Nhận Kinh)", "tier": 2, "tech_kind": "secret", "names": ["kim"], "layers": 12,
+  "bonuses": [{"stat": "attack_pct", "value": 8}, {"stat": "khi_huyet_pct", "value": 8}],
+  "passives": [
+   {"key": "art_speed_pct", "value": 15, "scope": ["slow"]},
+   {"key": "crit_chance_pct", "value": 9, "scope": ["sword"]},
+   {"key": "crit_damage_pct", "value": 30, "scope": ["sword"]},
+   {"key": "stack_duration_pct", "value": 15, "scope": ["sword"]}
+  ],
+  "abilities": [
+   {"ability_id": "phantom-sword", "unlock_layer": 2},
+   {"ability_id": "coiling-thrust", "unlock_layer": 4},
+   {"ability_id": "flying-sword", "unlock_layer": 6}
+  ],
+  "effects": [], "origin": "authored", "suite": "", "family": "blade",
+  "lore": "A patient sword scripture that draws each cut out slowly, so the edge's afterimages and coils pile up before one heavy stroke spends them."}
 ]

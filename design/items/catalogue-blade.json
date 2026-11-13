@@ -563,7 +563,7 @@
     "closes": "Your arts that are not sword arts deal 15 % less.",
     "hosts": "Named Item",
     "from": "new (The Sword Hall: several flying swords in extra slots)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "sources": [
@@ -848,7 +848,7 @@
     "closes": "Your basic attack deals 30 % less.",
     "hosts": "Named Item",
     "from": "new (The Sword Hall: banking Afterimages across a long fight)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "reserve_arts": [

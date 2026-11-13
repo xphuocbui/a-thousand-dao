@@ -1,7 +1,7 @@
 # Named items: Wood
 
 > Generated from `catalogue-wood.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,15 +10,15 @@
 | **Heartwood Hatchet (Tâm Mộc Phủ)** | Phủ · weapon slot | Trung (Middle) (3) | art: Fell the Rotting Tree | 24.3 of 25.6 |
 | **Ironbark Cuirass (Thiết Bì Giáp)** | Giáp · armour slot | Trung (Middle) (3) | ward: Ironbark Shell | 24.2 of 25.6 |
 | **Sap-Heart Pendant (Dịch Tâm Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | reserve: Verdant Aura | 25.4 of 25.6 |
-| **Verdant Cycle Seal (Thanh Hoàn Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Seal of the Turning Season | 35.8 of 38.3 |
-| **Heartwood Bulwark (Tâm Mộc Thuẫn)** | Thuẫn · extra slot (ward gear) | Thượng (High) (4) | ward: Heartwood Ward; Effect: Sap Rises (new) | 35.9 of 38.3 |
-| **Ring of the Slow Garden (Hoãn Viên Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Spillover | 33.1 of 38.3 |
-| **Grave-Silk Robe (Mộ Ti Bào)** | Đạo Bào · armour slot | Cực (Peak) (5, unique) | ward: Grave-Silk Veil; Effect: Grave-Silk Shroud | 50.5 of 51.1 |
-| **Thousand Roots Banner (Vạn Căn Kỳ)** | Kỳ · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Gripping Root (new); reserve: Web of Roots | 48.4 of 51.1 |
-| **Venom-Drinker's Pendant (Ẩm Độc Bội)** | Ngọc Bội · necklace slot | Thượng (High) (4) | modifiers only | 34.2 of 38.3 |
+| **Verdant Cycle Seal (Thanh Hoàn Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Seal of the Turning Season | 35.8 of 38.4 |
+| **Heartwood Bulwark (Tâm Mộc Thuẫn)** | Thuẫn · extra slot (ward gear) | Thượng (High) (4) | ward: Heartwood Ward; Effect: Sap Rises (new) | 35.9 of 38.4 |
+| **Ring of the Slow Garden (Hoãn Viên Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Spillover | 33.1 of 38.4 |
+| **Grave-Silk Robe (Mộ Ti Bào)** | Đạo Bào · armour slot | Cực (Peak) (5, unique) | ward: Grave-Silk Veil; Effect: Grave-Silk Shroud | 50.5 of 51.2 |
+| **Thousand Roots Banner (Vạn Căn Kỳ)** | Kỳ · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Gripping Root (new); reserve: Web of Roots | 48.4 of 51.2 |
+| **Venom-Drinker's Pendant (Ẩm Độc Bội)** | Ngọc Bội · necklace slot | Thượng (High) (4) | modifiers only | 34.2 of 38.4 |
 | **Moss-Ledger Robe (Đài Tịch Bào)** | Đạo Bào · armour slot | Trung (Middle) (3) | ward: Moss-Ledger Ward; Effect: Moss Ledger (new) | 22.2 of 25.6 |
 | **Packmate Collar (Bạn Thú Khuyên)** | Nhẫn · ring slot | Trung (Middle) (3) | Effect: Pack Hunt | 24.3 of 25.6 |
-| **Thorn-Seeding Ring (Chủng Cức Giới)** | Nhẫn · ring slot | Thượng (High) (4) | modifiers only | 32.0 of 38.3 |
+| **Thorn-Seeding Ring (Chủng Cức Giới)** | Nhẫn · ring slot | Thượng (High) (4) | modifiers only | 32.0 of 38.4 |
 
 ## Bramble Needle (Kinh Cức Châm)
 

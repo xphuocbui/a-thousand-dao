@@ -563,7 +563,7 @@
     "closes": "",
     "hosts": "Item, Way, Tech",
     "from": "single-water.md, The Deep Sea and The Overflowing Cup (heals feeding the pool)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "sources": [
@@ -623,7 +623,7 @@
     "closes": "Your arts cost 10 % more linh lực.",
     "hosts": "Named Item",
     "from": "single-water.md, The Deep Sea (the pool is deep from t = 0)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "reserve_arts": [
@@ -880,7 +880,7 @@
     "closes": "",
     "hosts": "Item, Way, Tech",
     "from": "dry-well (linh lực debt repaid to the wearer); starter-tide (a non-reserve Water necklace Effect)",
-    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12, patch 2026-11-13)"
    }
   ],
   "sources": [
@@ -975,7 +975,7 @@
     "closes": "",
     "hosts": "Item, Way, Tech",
     "from": "starter-tide (a full pool turned into a Cup refill)",
-    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12, patch 2026-11-13)"
    }
   ],
   "reserve_arts": [

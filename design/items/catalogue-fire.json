@@ -482,7 +482,7 @@
     "closes": "",
     "hosts": "Item, Way, Tech",
     "from": "single-fire.md, The Phoenix Feather (its New piece, as an Effect instead of an art)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "wards": [
@@ -605,10 +605,10 @@
     "rule": "Each Fire hit you land refreshes the duration of every Burn batch you have on the target.",
     "reads": "Your Fire hits landing, instant",
     "payload": "Burn batches on the target restart their timers",
-    "closes": "Your direct Fire hits deal 15 % less.",
+    "closes": "Your direct Fire hits deal 8 % less (softened from 15 %, user decision 2026-11-13).",
     "hosts": "Named Item",
     "from": "new (The Bonfire's 'start small, burn forever')",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "arts": [
@@ -755,7 +755,7 @@
     "closes": "Your own wards cannot cleanse you.",
     "hosts": "Named Item",
     "from": "new (answers the cleansing wards listed as The Bonfire's weakness)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "reserve_arts": [
@@ -881,7 +881,7 @@
     "closes": "",
     "hosts": "Item, Way, Tech",
     "from": "starter-flame and two-clocks (Embers Feed the Hearth, as an item Effect)",
-    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12, patch 2026-11-13)"
    }
   ],
   "sources": [

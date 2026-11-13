@@ -551,7 +551,7 @@
     "closes": "Your healing is 20 % weaker.",
     "hosts": "Named Item",
     "from": "new (Marrow Tithe Strike's health cost, paid in shield instead of flesh)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "wards": [
@@ -825,7 +825,7 @@
     "closes": "None (a trigger; the cap per pulse is its limit)",
     "hosts": "Named Item",
     "from": "new (mirror-hide: a Return-channel Effect for body gear)",
-    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12, patch 2026-11-13)"
    }
   ],
   "sources": [
@@ -998,7 +998,7 @@
     "closes": "None (once, at the start; it does not refill)",
     "hosts": "Named Item",
     "from": "new (unique-mountain-splitting-axe: shield held at 30 % without the stance)",
-    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12, patch 2026-11-13)"
    }
   ],
   "sources": [

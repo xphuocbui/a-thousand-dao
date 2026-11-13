@@ -1,7 +1,7 @@
 # Named items: Earth
 
 > Generated from `catalogue-earth.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,11 +10,11 @@
 | **Robe of Settling Dust (Trần Lạc Đạo Bào)** | Đạo Bào · armour slot | Trung (Middle) (3) | ward: Settling Dust Shirt; Effect: Beneath Notice | 22.4 of 25.6 |
 | **Pendant of the Remembering Stone (Thạch Ký Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | reserve: Still Stone Aura | 23.8 of 25.6 |
 | **Boundary Flag of the Field Lord (Điền Chủ Giới Kỳ)** | Kỳ · extra slot (utility) | Trung (Middle) (3) | Effect: Planted Banner (new) | 21.2 of 25.6 |
-| **Mountain-Mooring Anchor (Hệ Sơn Mao)** | Mao · weapon slot | Thượng (High) (4) | art: Mooring Drop | 34.0 of 38.3 |
-| **Boulder-Ring Mail (Cự Thạch Hoàn Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Boulder Shell; Effect: Iron Skin Renewed | 33.9 of 38.3 |
-| **Necklace of Stone Debt (Thạch Trái Liên)** | Ngọc Bội · necklace slot | Thượng (High) (4) | Effect: Debt of Stone (new) | 34.6 of 38.3 |
-| **Mountain-Pressing Seal (Áp Sơn Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Mountain Presses the Sky | 45.8 of 51.1 |
-| **Unmoving Gate Shield (Bất Động Môn Thuẫn)** | Thuẫn · extra slot (ward gear) | Cực (Peak) (5, unique) | ward: Gate Screen; Effect: Shattering Ward; Effect: Unmoved Stance (new) | 46.2 of 51.1 |
+| **Mountain-Mooring Anchor (Hệ Sơn Mao)** | Mao · weapon slot | Thượng (High) (4) | art: Mooring Drop | 34.0 of 38.4 |
+| **Boulder-Ring Mail (Cự Thạch Hoàn Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Boulder Shell; Effect: Iron Skin Renewed | 33.9 of 38.4 |
+| **Necklace of Stone Debt (Thạch Trái Liên)** | Ngọc Bội · necklace slot | Thượng (High) (4) | Effect: Debt of Stone (new) | 34.6 of 38.4 |
+| **Mountain-Pressing Seal (Áp Sơn Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Mountain Presses the Sky | 45.8 of 51.2 |
+| **Unmoving Gate Shield (Bất Động Môn Thuẫn)** | Thuẫn · extra slot (ward gear) | Cực (Peak) (5, unique) | ward: Gate Screen; Effect: Shattering Ward; Effect: Unmoved Stance (new) | 46.2 of 51.2 |
 | **Deep Carrier Ring (Thâm Tải Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | modifiers only | 22.2 of 25.6 |
 | **Slow-Sand Needle (Hoãn Sa Châm)** | Châm · weapon slot | Hạ (Low) (2) | art: Sand Needle Prick | 10.6 of 12.8 |
 

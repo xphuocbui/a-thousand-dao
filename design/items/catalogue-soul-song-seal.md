@@ -1,7 +1,7 @@
 # Named items: Soul Song Seal
 
 > Generated from `catalogue-soul-song-seal.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,14 +10,15 @@
 | **Muffled Temple Bell (Ám Chung)** | Chuông · extra slot (ward gear) | Trung (Middle) (3) | ward: Muffled Bell Ward | 21.3 of 25.6 |
 | **Sandalwood Censer (Đàn Hương Lô)** | Hương Lô · extra slot (utility) | Trung (Middle) (3) | Effect: Marked Prey; reserve: Incense Haze | 21.4 of 25.6 |
 | **Waking-Soul Jade (Tỉnh Hồn Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | modifiers only | 20.8 of 25.6 |
-| **Ledger Seal (Lục Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Ledger Stamp | 31.2 of 38.3 |
-| **Mourning Robe (Tang Y)** | Đạo Bào · armour slot | Thượng (High) (4) | ward: Mourning Veil; Effect: Final Clause | 35.0 of 38.3 |
-| **Echoing Ring (Hồi Âm Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Echo | 31.0 of 38.3 |
-| **Thousand-String Zither (Thiên Huyền Cầm)** | Cầm · weapon slot | Cực (Peak) (5, unique) | art: Thousand-String Dirge; Effect: Plucked Time (new) | 41.8 of 51.1 |
-| **Ninth Vigil Heart-Lamp (Cửu Canh Tâm Đăng)** | Đăng · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Lamp-Lit Reading (new); reserve: Vigil Light | 45.8 of 51.1 |
+| **Ledger Seal (Lục Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Ledger Stamp | 31.2 of 38.4 |
+| **Mourning Robe (Tang Y)** | Đạo Bào · armour slot | Thượng (High) (4) | ward: Mourning Veil; Effect: Final Clause | 35.0 of 38.4 |
+| **Echoing Ring (Hồi Âm Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Echo | 31.0 of 38.4 |
+| **Thousand-String Zither (Thiên Huyền Cầm)** | Cầm · weapon slot | Cực (Peak) (5, unique) | art: Thousand-String Dirge; Effect: Plucked Time (new) | 41.8 of 51.2 |
+| **Ninth Vigil Heart-Lamp (Cửu Canh Tâm Đăng)** | Đăng · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Lamp-Lit Reading (new); reserve: Vigil Light | 45.8 of 51.2 |
 | **Toll-Counting Needle (Điểm Chung Châm)** | Châm · weapon slot | Trung (Middle) (3) | art: Tolled Prick | 22.0 of 25.6 |
 | **Seal-Bearer's Ring (Chấp Ấn Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | modifiers only | 20.9 of 25.6 |
 | **Clear-Mind Robe (Thanh Minh Bào)** | Đạo Bào · armour slot | Trung (Middle) (3) | ward: Clear-Mind Ward | 22.0 of 25.6 |
+| **Hushed Vigil Cuirass (Tĩnh Canh Giáp)** | Giáp · armour slot | Trung (Middle) (3) | ward: Hushed Vigil Ward | 20.6 of 25.6 |
 
 ## Rain-Listening Zither (Thính Vũ Cầm)
 
@@ -192,4 +193,17 @@
 **Ward: Clear-Mind Ward (Thanh Minh Chú)**: status +45 pp, cleanse 0.3 of every debuff batch per pulse; reserved 0.30; reserved. Price check from Clear Heart Ward (Thanh Tâm Chú). The starter ward at 1.2 times its payload, cleanse and reservation, so the price check is inherited (3.043 of 3.050)
 
 **Modifiers:** +15 % soul resistance · 9.0 W; +20 % status resistance · 8.0 W; +2 % thần thức · 2.6 W; +4 % maximum health (khí huyết) · 2.4 W
+
+
+## Hushed Vigil Cuirass (Tĩnh Canh Giáp)
+
+*Giáp (Armour), armour slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> Lacquered plates padded with felt, worn by the night-watchers of a soul sect so that no singer's voice could reach the mind beneath.
+
+**Build use.** Builds facing soul-heavy foes: soul resistance on the plates, and a standing drain ward that soaks Soul damage from idle linh lực.
+
+**Ward: Hushed Vigil Ward (Tĩnh Canh Tráo)**: Soul 275 points; drain 0.33; standing. Price check from Qi-Scattering Robe (Tán Khí Bào). The starter robe ward at 1.25 times its payload and its drain, typed Soul instead of Force, so the price check is inherited (3.788 of 3.813)
+
+**Modifiers:** +25 % soul resistance · 15.0 W; +5 % maximum health (khí huyết) · 3.0 W; +2 % thần thức · 2.6 W
 

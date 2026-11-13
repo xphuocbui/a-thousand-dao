@@ -5,12 +5,12 @@
 
 ## Budget (Formulas I)
 
-| Grade | Rarity | Plain-modifier budget | Spend target 80 % | Lint limit (×1.25) | Copies |
+| Grade | Rarity | Plain-modifier budget | Spend target 80 % | Lint limit (×1.05) | Copies |
 |---|---|---|---|---|---|
-| 1 Hạ | 2 | 12.8 W | 10.2 W | 16.0 W | repeatable |
-| 2 Trung | 3 | 25.6 W | 20.4 W | 31.9 W | repeatable |
-| 3 Thượng | 4 | 38.3 W | 30.7 W | 47.9 W | repeatable |
-| 4 Cực | 5 | 51.1 W | 40.9 W | 63.9 W | unique |
+| 1 Hạ | 2 | 12.8 W | 10.2 W | 13.4 W | repeatable |
+| 2 Trung | 3 | 25.6 W | 20.4 W | 26.8 W | repeatable |
+| 3 Thượng | 4 | 38.3 W | 30.7 W | 40.2 W | repeatable |
+| 4 Cực | 5 | 51.1 W | 40.9 W | 53.7 W | unique |
 
 An item whose main value is a strong enabler may spend down to 60 %. A reserve art may grant up to 1 W of
 modifiers per percentage point of maximum linh lực it reserves, on top of the budget.

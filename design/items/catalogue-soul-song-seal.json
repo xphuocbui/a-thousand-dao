@@ -585,7 +585,7 @@
     "closes": "Your arts that are neither soul nor song deal 15 % less.",
     "hosts": "Named Item",
     "from": "triple-metal-water-wood.md, The Zither Player (a soul art each second, each delaying the foe's next art; Soul Wound as an item Effect)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "arts": [
@@ -793,7 +793,7 @@
     "closes": "Your own soul resistance is 15 points lower.",
     "hosts": "Named Item",
     "from": "triple-metal-water-wood.md and triple-wood-fire-earth.md (the weakness 'soul resistance' of the Zither Player and the Incense Burner)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "reserve_arts": [
@@ -931,5 +931,34 @@
   "lore": "A plain grey robe the soul-song cloisters give novices whose minds were seized by a curse; it is said to wash a sealed mind clean.",
   "build_use": "Builds that fear curses and Stagnation: the ward cleanses debuffs every pulse and the robe resists soul and status.",
   "notes": "Answers: curse-engine: a cleanse answer to Sealed Meridian; meta-hunter: a cleanse piece for the Stagnation-immune concept. Spends about 22 of 25.6 W."
+ },
+ {
+  "id": "soul-song-seal-hushed-vigil-cuirass",
+  "name": "Hushed Vigil Cuirass (Tĩnh Canh Giáp)",
+  "family": "soul-song-seal",
+  "kind": "artifact",
+  "base": "giap",
+  "grade": 2,
+  "modifiers": [
+   {"key": "soul_res_pct", "value": 25, "scope": []},
+   {"key": "khi_huyet_pct", "value": 5, "scope": []},
+   {"key": "than_thuc_pct", "value": 2, "scope": []}
+  ],
+  "effects": [],
+  "wards": [
+   {
+    "id": "soul-song-seal-hushed-vigil-ward",
+    "name": "Hushed Vigil Ward (Tĩnh Canh Tráo)",
+    "payload": "Soul 275 points",
+    "payment": "drain 0.33",
+    "activation": "standing",
+    "check_from": "Qi-Scattering Robe (Tán Khí Bào)",
+    "notes": "The starter robe ward at 1.25 times its payload and its drain, typed Soul instead of Force, so the price check is inherited (3.788 of 3.813)"
+   }
+  ],
+  "sources": ["event", "craft", "npc"],
+  "lore": "Lacquered plates padded with felt, worn by the night-watchers of a soul sect so that no singer's voice could reach the mind beneath.",
+  "build_use": "Builds facing soul-heavy foes: soul resistance on the plates, and a standing drain ward that soaks Soul damage from idle linh lực.",
+  "notes": "Answers: soul-lance: a ward piece with soul_res_pct and a standing drain ward the combat sim can run. Spends about 20.6 of 25.6 W."
  }
 ]

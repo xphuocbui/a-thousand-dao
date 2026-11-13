@@ -604,7 +604,7 @@
     "closes": "Your non-Physical hits cannot crit.",
     "hosts": "Item, Way",
     "from": "single-metal.md (Metal's linh lực keystone, as an Effect on a ring)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "sources": [
@@ -804,7 +804,7 @@
     "closes": "You can never heal above 80 % of your maximum health.",
     "hosts": "Named Item",
     "from": "single-metal.md, Blood on the Whetstone (its New keystone, as an Effect)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "reserve_arts": [
@@ -1105,7 +1105,7 @@
     "closes": "Your wards are 15 % weaker.",
     "hosts": "Named Item",
     "from": "armoury-mind (the build's own identity)",
-    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12, patch 2026-11-13)"
    }
   ],
   "sources": [
@@ -1116,5 +1116,139 @@
   "lore": "A war banner hung with a tassel for every blade its bearer owns.",
   "build_use": "Armoury Mind: each weapon in the rack makes every hit heavier.",
   "notes": "Answers: armoury-mind: Effect that counts equipped weapon-base pieces and hits more per piece. Spends about 70 % of the budget; the Effect is the value."
+ },
+ {
+  "id": "metal-ninth-bell-ring",
+  "name": "Ninth-Bell Ring (Cửu Chung Giới)",
+  "family": "metal",
+  "kind": "artifact",
+  "base": "nhan",
+  "grade": 2,
+  "modifiers": [
+   {
+    "key": "art_speed_pct",
+    "value": 24,
+    "scope": [
+     "kim"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "linh_luc_pct",
+    "value": 6,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "sources": [
+   "event",
+   "craft",
+   "npc"
+  ],
+  "lore": "A thin ring cast from the tenth strike of a bell that only rings nine; it hums the wearer's strokes along.",
+  "build_use": "Ninth Bell: a plain Metal art-speed ring, so the bell arts come round faster, with a little health and linh lực behind it.",
+  "notes": "Answers: ninth-bell: a Metal ring or necklace with art_speed_pct [kim]. Spends 84 % of the budget."
+ },
+ {
+  "id": "metal-earthbind-anchor",
+  "name": "Earthbind Anchor (Phược Địa Mao)",
+  "family": "metal",
+  "kind": "artifact",
+  "base": "mao",
+  "grade": 3,
+  "modifiers": [
+   {
+    "key": "attack_pct",
+    "value": 16,
+    "scope": [
+     "physical"
+    ]
+   },
+   {
+    "key": "stack_duration_pct",
+    "value": 30,
+    "scope": [
+     "tho",
+     "debuff"
+    ]
+   },
+   {
+    "key": "stack_effect_pct",
+    "value": 20,
+    "scope": [
+     "tho",
+     "debuff"
+    ]
+   },
+   {
+    "key": "khi_huyet_pct",
+    "value": 10,
+    "scope": []
+   },
+   {
+    "key": "block_rating",
+    "value": 10,
+    "scope": []
+   }
+  ],
+  "effects": [],
+  "arts": [
+   {
+    "id": "metal-earthbind-drop",
+    "name": "Earthbind Drop (Phược Địa Trầm)",
+    "element": "metal",
+    "role": "damage",
+    "tier": "authored",
+    "power": "standalone",
+    "tags": [
+     "metal",
+     "artifact",
+     "heavy",
+     "anchor"
+    ],
+    "c_art": 1.6,
+    "cost_share": 0.03,
+    "cooldown": 3,
+    "kind": "phys",
+    "effects": [
+     {
+      "id": "earthbind-notch",
+      "on": "hit_landed",
+      "limit": {
+       "per_pulse": 1
+      },
+      "do": [
+       {
+        "stacks": {
+         "el": "tho",
+         "n": 2,
+         "for": 8,
+         "side": "foe"
+        }
+       }
+      ]
+     }
+    ],
+    "rule": "A hooked anchor dropped on the foe: a Physical hit that lays 2 Earth debuff stacks for 8 s.",
+    "hooks": [
+     "earth debuff stacks"
+    ],
+    "sources": [
+     "item:metal-earthbind-anchor"
+    ]
+   }
+  ],
+  "sources": [
+   "event",
+   "craft",
+   "quest"
+  ],
+  "lore": "A ship's anchor with Kim-ore flukes that bite the ground itself and hold whatever they snag.",
+  "build_use": "Deity Warden: a Metal source of Earth debuff stacks, to sit beside Closing Palm and its 3 Metal stacks in an Earth-and-Metal build.",
+  "notes": "Answers: deity-warden: a Metal piece that lays Earth debuff stacks, an Earth-stack engine piece beside Closing Palm and its 3 Metal debuff stacks. Spends 88 % of the budget."
  }
 ]

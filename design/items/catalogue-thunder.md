@@ -1,7 +1,7 @@
 # Named items: Thunder
 
 > Generated from `catalogue-thunder.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,12 +10,12 @@
 | **Forked-Light Sword (Phân Quang Lôi Kiếm)** | Phi Kiếm · weapon slot | Trung (Middle) (3) | art: Forked Slash | 22.9 of 25.6 |
 | **Thunderclap Bell (Lôi Minh Chuông)** | Chuông · extra slot (ward gear) | Trung (Middle) (3) | ward: Thunderclap Toll | 24.0 of 25.6 |
 | **Stormcaller's Drum (Hô Lôi Cổ)** | Cổ · extra slot (utility) | Trung (Middle) (3) | Effect: Steady Breath; reserve: Stormcaller's Cadence | 23.1 of 25.6 |
-| **Stormcloud Armour (Vân Lôi Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Cloudflash Shell | 36.4 of 38.3 |
-| **Peal-Heart Pendant (Lôi Tâm Bội)** | Ngọc Bội · necklace slot | Thượng (High) (4) | Effect: Marked Prey; reserve: Peal-Heart Aura | 32.7 of 38.3 |
-| **Tribulation Rod (Độ Kiếp Lôi Trượng)** | Lôi Trượng · extra slot (utility) | Thượng (High) (4) | Effect: Lightning Drinker (new) | 35.3 of 38.3 |
-| **Seal of the Ninth Tribulation (Cửu Kiếp Lôi Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Ninth Verdict; Effect: Verdict Stands (new) | 44.0 of 51.1 |
-| **Heartbeat of Heaven Drum (Thiên Tâm Lôi Cổ)** | Cổ · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Drumbeat (new); reserve: Heaven's Pulse | 44.8 of 51.1 |
-| **Winnings Band (Lôi Thắng Giới)** | Nhẫn · ring slot | Thượng (High) (4) | modifiers only | 34.1 of 38.3 |
+| **Stormcloud Armour (Vân Lôi Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Cloudflash Shell | 36.4 of 38.4 |
+| **Peal-Heart Pendant (Lôi Tâm Bội)** | Ngọc Bội · necklace slot | Thượng (High) (4) | Effect: Marked Prey; reserve: Peal-Heart Aura | 32.7 of 38.4 |
+| **Tribulation Rod (Độ Kiếp Lôi Trượng)** | Lôi Trượng · extra slot (utility) | Thượng (High) (4) | Effect: Lightning Drinker (new) | 35.3 of 38.4 |
+| **Seal of the Ninth Tribulation (Cửu Kiếp Lôi Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Ninth Verdict; Effect: Verdict Stands (new) | 44.0 of 51.2 |
+| **Heartbeat of Heaven Drum (Thiên Tâm Lôi Cổ)** | Cổ · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Drumbeat (new); reserve: Heaven's Pulse | 44.8 of 51.2 |
+| **Winnings Band (Lôi Thắng Giới)** | Nhẫn · ring slot | Thượng (High) (4) | modifiers only | 34.1 of 38.4 |
 | **Stormveil Robe (Lôi Mạc Bào)** | Đạo Bào · armour slot | Trung (Middle) (3) | ward: Stormveil Drain | 24.5 of 25.6 |
 | **Lightning Step Charm (Lôi Bộ Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | Effect: Cold Feet | 24.1 of 25.6 |
 

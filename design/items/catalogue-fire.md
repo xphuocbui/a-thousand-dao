@@ -1,7 +1,7 @@
 # Named items: Fire
 
 > Generated from `catalogue-fire.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,12 +10,12 @@
 | **Furnace-Mouth Gourd (Lô Khẩu Hồ Lô)** | Hồ Lô · weapon slot | Trung (Middle) (3) | art: Gourd Swallows the Flame; Effect: Kindled Wound | 22.7 of 25.6 |
 | **Smouldering Robe (Âm Hỏa Đạo Bào)** | Đạo Bào · armour slot | Trung (Middle) (3) | ward: Smouldering Veil | 21.4 of 25.6 |
 | **Hearth-Keeper Pendant (Thủ Lô Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | reserve: Hearth Aura | 21.6 of 25.6 |
-| **Red Sun Seal (Hồng Nhật Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Red Sun Descends | 35.0 of 38.3 |
-| **Phoenix Plume Armour (Phượng Vũ Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Phoenix Shell; Effect: Phoenix Mend (new) | 36.6 of 38.3 |
-| **Ring of Blood Kindling (Huyết Dẫn Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Blood Casting | 29.9 of 38.3 |
-| **Ashen Phoenix Fan (Tro Phượng Phiến)** | Phiến · weapon slot | Cực (Peak) (5, unique) | art: Ash-Feather Gale; Effect: Fan the Pyre (new) | 47.7 of 51.1 |
-| **Undying Ember Lantern (Bất Diệt Tàn Đăng)** | Đăng · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Embers Never Die (new); reserve: Lantern of the Long Burn | 45.8 of 51.1 |
-| **Cindersteel Mail (Tẫn Thiết Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Cinder Veil | 32.8 of 38.3 |
+| **Red Sun Seal (Hồng Nhật Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Red Sun Descends | 35.0 of 38.4 |
+| **Phoenix Plume Armour (Phượng Vũ Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Phoenix Shell; Effect: Phoenix Mend (new) | 36.6 of 38.4 |
+| **Ring of Blood Kindling (Huyết Dẫn Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Blood Casting | 29.9 of 38.4 |
+| **Ashen Phoenix Fan (Tro Phượng Phiến)** | Phiến · weapon slot | Cực (Peak) (5, unique) | art: Ash-Feather Gale; Effect: Fan the Pyre (new) | 47.7 of 51.2 |
+| **Undying Ember Lantern (Bất Diệt Tàn Đăng)** | Đăng · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Embers Never Die (new); reserve: Lantern of the Long Burn | 45.8 of 51.2 |
+| **Cindersteel Mail (Tẫn Thiết Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Cinder Veil | 32.8 of 38.4 |
 | **Ring of the Fed Hearth (Dưỡng Lô Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | Effect: Embers Feed the Hearth (new) | 24.7 of 25.6 |
 | **Long-Ember Censer (Trường Tàn Hương Lô)** | Hương Lô · extra slot (utility) | Trung (Middle) (3) | modifiers only | 21.3 of 25.6 |
 
@@ -135,7 +135,7 @@
 
 **Art: Ash-Feather Gale (Tro Vũ Cuồng Phong)** (damage, engine, c 1.95, cost 0.040, cooldown 4 s). Counts as an Ashen Phoenix Canon art. A Fire gale that lays 3 Burn stacks for 6 s. Every Burn tick you deal blows a Cinder into the fan (twice a pulse at most). With 4 Cinders, and either 40 % of your health gone or another Ashen Phoenix art fired in the last 3 s, the fan unleashes the Ash-Feather Gale: four times as hard, spending the Cinders.
 
-**Effect (new): Fan the Pyre (Phiến Hỏa Liệu Nguyên)** (Enablers, enabler). Each Fire hit you land refreshes the duration of every Burn batch you have on the target. *Payload:* Burn batches on the target restart their timers. *Closes:* Your direct Fire hits deal 15 % less.
+**Effect (new): Fan the Pyre (Phiến Hỏa Liệu Nguyên)** (Enablers, enabler). Each Fire hit you land refreshes the duration of every Burn batch you have on the target. *Payload:* Burn batches on the target restart their timers. *Closes:* Your direct Fire hits deal 8 % less (softened from 15 %, user decision 2026-11-13).
 
 **Modifiers:** +22 % damage [over_time] · 14.7 W; +15 % damage [fire] · 10.0 W; +30 % stack duration [hoa, debuff] · 6.0 W; +12 % maximum linh lực · 12.0 W; +10 % healing · 5.0 W
 

@@ -1,7 +1,7 @@
 # Named items: Ice
 
 > Generated from `catalogue-ice.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,11 +10,11 @@
 | **Hoarfrost Fan (Sương Phiến)** | Phiến · weapon slot | Trung (Middle) (3) | art: Frost-Tithe Gust; Effect: Rime Lock | 21.3 of 25.6 |
 | **Sleeping Marrow Pendant (Miên Tủy Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | reserve: Winter Sleep Aura | 22.6 of 25.6 |
 | **Hoarfrost Tide Shield (Sương Triều Thuẫn)** | Thuẫn · extra slot (ward gear) | Trung (Middle) (3) | ward: Hoarfrost Tide | 24.6 of 25.6 |
-| **Winter Toll Seal (Đông Toán Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Toll Stamp | 35.4 of 38.3 |
-| **Glacier Plate (Băng Xuyên Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Glacier Shell; Effect: Shattering Ward | 35.5 of 38.3 |
-| **Black Ledger Mirror (Huyền Trướng Kính)** | Kính · extra slot (utility) | Thượng (High) (4) | Effect: Toll Taker (new); reserve: Cold Ledger Aura | 34.0 of 38.3 |
-| **Deep Freeze Ring (Thâm Đống Giới)** | Nhẫn · ring slot | Cực (Peak) (5, unique) | Effect: Deep Freeze (new) | 45.0 of 51.1 |
-| **Moonrime Flying Sword (Nguyệt Sương Phi Kiếm)** | Phi Kiếm · weapon slot | Cực (Peak) (5, unique) | art: Moon Stills the Tide | 45.1 of 51.1 |
+| **Winter Toll Seal (Đông Toán Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Toll Stamp | 35.4 of 38.4 |
+| **Glacier Plate (Băng Xuyên Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Glacier Shell; Effect: Shattering Ward | 35.5 of 38.4 |
+| **Black Ledger Mirror (Huyền Trướng Kính)** | Kính · extra slot (utility) | Thượng (High) (4) | Effect: Toll Taker (new); reserve: Cold Ledger Aura | 34.0 of 38.4 |
+| **Deep Freeze Ring (Thâm Đống Giới)** | Nhẫn · ring slot | Cực (Peak) (5, unique) | Effect: Deep Freeze (new) | 45.0 of 51.2 |
+| **Moonrime Flying Sword (Nguyệt Sương Phi Kiếm)** | Phi Kiếm · weapon slot | Cực (Peak) (5, unique) | art: Moon Stills the Tide | 45.1 of 51.2 |
 | **Stilled Thread Needle (Đình Tuyến Châm)** | Châm · weapon slot | Trung (Middle) (3) | art: Stilled Thread Prick | 21.9 of 25.6 |
 
 ## Hoarfrost Needle (Sương Châm)

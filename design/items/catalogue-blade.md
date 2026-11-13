@@ -1,7 +1,7 @@
 # Named items: Blade
 
 > Generated from `catalogue-blade.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,11 +10,11 @@
 | **Twin-Edge Flying Sword (Song Nhận Phi Kiếm)** | Phi Kiếm · weapon slot | Trung (Middle) (3) | art: Twin-Edge Return; Effect: Opening Cut | 25.4 of 25.6 |
 | **Edge-Hiding Robe (Tàng Nhận Đạo Bào)** | Đạo Bào · armour slot | Trung (Middle) (3) | ward: Edge-Hiding Veil | 24.2 of 25.6 |
 | **Sword-Intent Jade (Kiếm Ý Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | reserve: Sword Intent Aura | 22.2 of 25.6 |
-| **Rain-Calling Flying Sword (Hoán Vũ Phi Kiếm)** | Phi Kiếm · weapon slot | Thượng (High) (4) | art: Sword Rain Descends | 36.7 of 38.3 |
-| **Sword-Nest Flag (Kiếm Sào Kỳ)** | Kỳ · extra slot (utility) | Thượng (High) (4) | Effect: Sword Chorus (new) | 35.2 of 38.3 |
-| **Tortoise-Edge Armour (Quy Nhận Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Tortoise-Edge Shell; Effect: Iron Skin Renewed | 37.6 of 38.3 |
-| **Thousand-Cut Returning Sword (Thiên Trảm Hồi Kiếm)** | Phi Kiếm · weapon slot | Cực (Peak) (5, unique) | art: Thousand-Cut Return; Effect: Marked Prey | 48.1 of 51.1 |
-| **Ring of Unbroken Edges (Bất Đoạn Nhận Giới)** | Nhẫn · ring slot | Cực (Peak) (5, unique) | Effect: Lingering Afterimage (new); reserve: Unbroken Edge Aura | 48.5 of 51.1 |
+| **Rain-Calling Flying Sword (Hoán Vũ Phi Kiếm)** | Phi Kiếm · weapon slot | Thượng (High) (4) | art: Sword Rain Descends | 36.7 of 38.4 |
+| **Sword-Nest Flag (Kiếm Sào Kỳ)** | Kỳ · extra slot (utility) | Thượng (High) (4) | Effect: Sword Chorus (new) | 35.2 of 38.4 |
+| **Tortoise-Edge Armour (Quy Nhận Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Tortoise-Edge Shell; Effect: Iron Skin Renewed | 37.6 of 38.4 |
+| **Thousand-Cut Returning Sword (Thiên Trảm Hồi Kiếm)** | Phi Kiếm · weapon slot | Cực (Peak) (5, unique) | art: Thousand-Cut Return; Effect: Marked Prey | 48.1 of 51.2 |
+| **Ring of Unbroken Edges (Bất Đoạn Nhận Giới)** | Nhẫn · ring slot | Cực (Peak) (5, unique) | Effect: Lingering Afterimage (new); reserve: Unbroken Edge Aura | 48.5 of 51.2 |
 | **Mirror-Trace Flying Sword (Kính Ngấn Phi Kiếm)** | Phi Kiếm · weapon slot | Trung (Middle) (3) | art: Mirror-Trace Cut | 21.7 of 25.6 |
 
 ## Thread-Edge Flying Sword (Ti Nhận Phi Kiếm)

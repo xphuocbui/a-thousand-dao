@@ -182,5 +182,129 @@
     "suite": "",
     "family": "force-chaos",
     "lore": "A back-alley rite of cutting hard and paying in blood, then taking the blood back."
+  },
+  {
+    "id": "formless-ruin-canon",
+    "name": "Formless Ruin Canon (Vô Hình Phế Kinh)",
+    "tier": 1,
+    "tech_kind": "main",
+    "names": [
+      "hon_don"
+    ],
+    "layers": 9,
+    "bonuses": [
+      {
+        "stat": "tam_ma_resist_pct",
+        "value": 8
+      }
+    ],
+    "passives": [
+      {
+        "key": "attack_pct",
+        "value": 8,
+        "scope": [
+          "chaos"
+        ]
+      },
+      {
+        "key": "crit_chance_pct",
+        "value": 5,
+        "scope": [
+          "force"
+        ]
+      },
+      {
+        "key": "leech_health_pct",
+        "value": 10,
+        "scope": []
+      },
+      {
+        "key": "resist_pen_pct",
+        "value": 40,
+        "scope": [
+          "chaos"
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "ability_id": "shearing-palm",
+        "unlock_layer": 1
+      },
+      {
+        "ability_id": "bloodletting-rite",
+        "unlock_layer": 3
+      }
+    ],
+    "effects": [],
+    "origin": "authored",
+    "suite": "",
+    "family": "force-chaos",
+    "lore": "The first method that takes Primordial Chaos itself as its root: it cuts with force, turns the cut to ruin, and lives on what it spills."
+  },
+  {
+    "id": "hundred-arts-sage-canon",
+    "name": "Hundred Arts Sage Canon (Bách Pháp Hiền Kinh)",
+    "tier": 2,
+    "tech_kind": "main",
+    "names": [
+      "hon_don",
+      "hoa",
+      "thuy"
+    ],
+    "layers": 12,
+    "bonuses": [
+      {
+        "stat": "linh_luc_pct",
+        "value": 12
+      },
+      {
+        "stat": "than_thuc_pct",
+        "value": 10
+      }
+    ],
+    "passives": [
+      {
+        "key": "stack_effect_pct",
+        "value": 12,
+        "scope": []
+      },
+      {
+        "key": "stack_duration_pct",
+        "value": 15,
+        "scope": []
+      },
+      {
+        "key": "attack_pct",
+        "value": 6,
+        "scope": [
+          "chaos"
+        ]
+      },
+      {
+        "key": "art_speed_pct",
+        "value": 10,
+        "scope": []
+      }
+    ],
+    "abilities": [
+      {
+        "ability_id": "scorch-fist",
+        "unlock_layer": 1
+      },
+      {
+        "ability_id": "backwash-seal",
+        "unlock_layer": 2
+      },
+      {
+        "ability_id": "bloodletting-rite",
+        "unlock_layer": 4
+      }
+    ],
+    "effects": [],
+    "origin": "authored",
+    "suite": "",
+    "family": "force-chaos",
+    "lore": "The Sage borrows a little from every Way and holds that whoever carries the most stacks of the most elements has already mastered Chaos."
   }
 ]

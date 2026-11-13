@@ -1,7 +1,7 @@
 # Named items: Metal
 
 > Generated from `catalogue-metal.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,16 +10,18 @@
 | **Bronze Peal Bell (Đồng Chung Hộ)** | Chuông · extra slot (ward gear) | Trung (Middle) (3) | ward: Bronze Peal | 25.2 of 25.6 |
 | **Woodsplitter Axe (Phách Mộc Phủ)** | Phủ · weapon slot | Trung (Middle) (3) | art: Splitting Chop; Effect: Marked Prey | 20.9 of 25.6 |
 | **Whetstone Jade Pendant (Thạch Mài Ngọc Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | reserve: Keen Edge Aura | 23.0 of 25.6 |
-| **Hundred-Edge Flying Sword (Bách Nhận Phi Kiếm)** | Phi Kiếm · weapon slot | Thượng (High) (4) | art: Hundred-Edge Flight | 32.3 of 38.3 |
-| **Tortoise-Scale Armour (Quy Lân Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Tortoise-Scale Shell; Effect: Iron Skin Renewed | 37.8 of 38.3 |
-| **Ring of the Returning Edge (Phong Hồi Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Edge Returns the Breath (new) | 36.4 of 38.3 |
-| **Heaven-Minted Coin (Thiên Đúc Tiền Tiêu)** | Tiền Tiêu · weapon slot | Cực (Peak) (5, unique) | art: Golden Coin Rain; Effect: Seal of Full Payment | 46.6 of 51.1 |
-| **Blood-Seasoned Whetstone (Huyết Tẩm Ma Thạch)** | Lạc Thiết · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Blood Casting; Effect: Whetstone Vow (new); reserve: Whetstone Hum | 43.2 of 51.1 |
-| **Ironwall Plate (Thiết Bích Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Ironwall Drain | 35.2 of 38.3 |
+| **Hundred-Edge Flying Sword (Bách Nhận Phi Kiếm)** | Phi Kiếm · weapon slot | Thượng (High) (4) | art: Hundred-Edge Flight | 32.3 of 38.4 |
+| **Tortoise-Scale Armour (Quy Lân Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Tortoise-Scale Shell; Effect: Iron Skin Renewed | 37.8 of 38.4 |
+| **Ring of the Returning Edge (Phong Hồi Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Edge Returns the Breath (new) | 36.4 of 38.4 |
+| **Heaven-Minted Coin (Thiên Đúc Tiền Tiêu)** | Tiền Tiêu · weapon slot | Cực (Peak) (5, unique) | art: Golden Coin Rain; Effect: Seal of Full Payment | 46.6 of 51.2 |
+| **Blood-Seasoned Whetstone (Huyết Tẩm Ma Thạch)** | Lạc Thiết · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Blood Casting; Effect: Whetstone Vow (new); reserve: Whetstone Hum | 43.2 of 51.2 |
+| **Ironwall Plate (Thiết Bích Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Ironwall Drain | 35.2 of 38.4 |
 | **Giantfall Ring (Đồ Cự Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | modifiers only | 21.4 of 25.6 |
 | **Black-Nail Needle (Hắc Đinh Châm)** | Châm · weapon slot | Trung (Middle) (3) | art: Black-Nail Prick | 21.6 of 25.6 |
 | **Clear-Mind Jade (Minh Tâm Ngọc Bội)** | Ngọc Bội · necklace slot | Hạ (Low) (2) | modifiers only | 12.8 of 12.8 |
-| **Armoury Banner (Binh Khí Kỳ)** | Kỳ · extra slot (utility) | Thượng (High) (4) | Effect: Armoury Count (new) | 27.0 of 38.3 |
+| **Armoury Banner (Binh Khí Kỳ)** | Kỳ · extra slot (utility) | Thượng (High) (4) | Effect: Armoury Count (new) | 27.0 of 38.4 |
+| **Ninth-Bell Ring (Cửu Chung Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | modifiers only | 21.6 of 25.6 |
+| **Earthbind Anchor (Phược Địa Mao)** | Mao · weapon slot | Thượng (High) (4) | art: Earthbind Drop | 33.8 of 38.4 |
 
 ## Copper Sling Coin (Đồng Tiền Tiêu)
 
@@ -222,4 +224,28 @@
 **Effect (new): Armoury Count (Binh Khí Kê)** (Enablers, enabler). Your hits deal 4 % more for each equipped weapon-base artifact you carry. *Payload:* damage_more 4 per weapon-base artifact. *Closes:* Your wards are 15 % weaker.
 
 **Modifiers:** +15 % damage [artifact] · 10.0 W; +10 % art speed [artifact] · 4.0 W; +5 % crit chance [physical] · 4.0 W; +10 % artifact attack · 6.0 W; +5 % maximum health (khí huyết) · 3.0 W
+
+
+## Ninth-Bell Ring (Cửu Chung Giới)
+
+*Nhẫn (Ring), ring slot · grade Trung (Middle), rarity 3, repeatable · from events and secret realms, crafting, NPC holders*
+
+> A thin ring cast from the tenth strike of a bell that only rings nine; it hums the wearer's strokes along.
+
+**Build use.** Ninth Bell: a plain Metal art-speed ring, so the bell arts come round faster, with a little health and linh lực behind it.
+
+**Modifiers:** +24 % art speed [kim] · 9.6 W; +10 % maximum health (khí huyết) · 6.0 W; +6 % maximum linh lực · 6.0 W
+
+
+## Earthbind Anchor (Phược Địa Mao)
+
+*Mao (Anchor), weapon slot · grade Thượng (High), rarity 4, repeatable · from events and secret realms, crafting, quest and sect rewards*
+
+> A ship's anchor with Kim-ore flukes that bite the ground itself and hold whatever they snag.
+
+**Build use.** Deity Warden: a Metal source of Earth debuff stacks, to sit beside Closing Palm and its 3 Metal stacks in an Earth-and-Metal build.
+
+**Art: Earthbind Drop (Phược Địa Trầm)** (damage, standalone, c 1.60, cost 0.030, cooldown 3 s). A hooked anchor dropped on the foe: a Physical hit that lays 2 Earth debuff stacks for 8 s.
+
+**Modifiers:** +16 % damage [physical] · 12.8 W; +30 % stack duration [tho, debuff] · 6.0 W; +20 % stack effect [tho, debuff] · 5.0 W; +10 % maximum health (khí huyết) · 6.0 W; +10 block · 4.0 W
 

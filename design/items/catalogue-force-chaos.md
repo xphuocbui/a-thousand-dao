@@ -1,7 +1,7 @@
 # Named items: Force Chaos
 
 > Generated from `catalogue-force-chaos.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,15 +10,15 @@
 | **Hollow Robe (Không Y)** | Đạo Bào · armour slot | Trung (Middle) (3) | ward: Hollow Veil | 25.5 of 25.6 |
 | **Ledger-Murmur Pendant (Phế Thanh Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | reserve: Murmuring Debts | 20.8 of 25.6 |
 | **Ledger Branding Iron (Phế Trướng Lạc Thiết)** | Lạc Thiết · extra slot (utility) | Trung (Middle) (3) | Effect: Marked Prey | 22.2 of 25.6 |
-| **Balance-Sheet Seal (Kết Toán Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Settle the Account | 32.1 of 38.3 |
-| **Hollow Bell (Không Chung)** | Chuông · extra slot (ward gear) | Thượng (High) (4) | ward: Muffled Bell | 34.8 of 38.3 |
-| **Ring of the Open Vein (Khai Mạch Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Blood Drinker | 34.8 of 38.3 |
-| **Mirror of Primordial Chaos (Hỗn Nguyên Kính)** | Kính · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Unmaking Glass (new); reserve: Still Reflection | 41.5 of 51.1 |
-| **Locket of the Last Bargain (Tuyệt Khế Bội)** | Ngọc Bội · necklace slot | Cực (Peak) (5, unique) | Effect: Final Clause | 47.1 of 51.1 |
-| **Null Plate (Hư Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Null Ward | 37.2 of 38.3 |
+| **Balance-Sheet Seal (Kết Toán Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Settle the Account | 32.1 of 38.4 |
+| **Hollow Bell (Không Chung)** | Chuông · extra slot (ward gear) | Thượng (High) (4) | ward: Muffled Bell | 34.8 of 38.4 |
+| **Ring of the Open Vein (Khai Mạch Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Blood Drinker | 34.8 of 38.4 |
+| **Mirror of Primordial Chaos (Hỗn Nguyên Kính)** | Kính · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Unmaking Glass (new); reserve: Still Reflection | 41.5 of 51.2 |
+| **Locket of the Last Bargain (Tuyệt Khế Bội)** | Ngọc Bội · necklace slot | Cực (Peak) (5, unique) | Effect: Final Clause | 47.1 of 51.2 |
+| **Null Plate (Hư Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Null Ward | 37.2 of 38.4 |
 | **Draining Signet (Hấp Khí Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | Effect: Spillover | 23.5 of 25.6 |
-| **Ash-to-Void Pendant (Hôi Hư Bội)** | Ngọc Bội · necklace slot | Thượng (High) (4) | modifiers only | 33.3 of 38.3 |
-| **Seal of Foreclosure (Tịch Biên Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Foreclose | 42.7 of 51.1 |
+| **Ash-to-Void Pendant (Hôi Hư Bội)** | Ngọc Bội · necklace slot | Thượng (High) (4) | modifiers only | 33.3 of 38.4 |
+| **Seal of Foreclosure (Tịch Biên Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Foreclose | 42.7 of 51.2 |
 
 ## Shock-Wave Zither (Chấn Ba Cầm)
 

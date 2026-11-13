@@ -286,7 +286,7 @@
     "closes": "",
     "hosts": "Item",
     "from": "single-earth.md, The Mountain That Pays and The Field Lord (Earth buff stacks as the build's currency)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "sources": [
@@ -581,7 +581,7 @@
     "closes": "",
     "hosts": "Item",
     "from": "single-earth.md and family-earth.md (Quarry Offering's health payment)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "sources": [
@@ -782,7 +782,7 @@
     "closes": "Your evade is 0 while a stance is on.",
     "hosts": "Named Item",
     "from": "single-earth.md, The Mountain That Pays (Mountain Stance without its slowness)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "wards": [

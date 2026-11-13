@@ -1,7 +1,7 @@
 # Named items: General
 
 > Generated from `catalogue-general.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,12 +10,12 @@
 | **Stitchwind Needles (Phùng Phong Châm)** | Châm · weapon slot | Trung (Middle) (3) | art: Threading Rain; Effect: Echo | 26.4 of 25.6 |
 | **Bulwark of the Road (Lộ Trình Thuẫn)** | Thuẫn · extra slot (ward gear) | Trung (Middle) (3) | ward: Bulwark Light | 24.8 of 25.6 |
 | **Seeker's Pendant (Tầm Đạo Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | reserve: Seeker's Aura | 20.9 of 25.6 |
-| **Hundred-Patch Armour (Bách Nạp Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Hundred-Patch Ward; Effect: Final Clause | 38.3 of 38.3 |
-| **Five-Phase Flag (Ngũ Hành Kỳ)** | Kỳ · extra slot (utility) | Thượng (High) (4) | Effect: Wheel in the Flag (new) | 35.1 of 38.3 |
-| **Talisman-Bearer's Ring (Phù Sứ Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Paid in Advance | 30.9 of 38.3 |
-| **Heaven-Purchasing Coin (Mãi Thiên Tiền)** | Tiền Tiêu · weapon slot | Cực (Peak) (5, unique) | art: Last Coin Flick; Effect: Bought Fate (new) | 44.2 of 51.1 |
-| **Mirror of the Second Seat (Nhị Tòa Kính)** | Kính · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Cold Feet | 42.2 of 51.1 |
-| **Long-Road Robe (Trường Lộ Bào)** | Đạo Bào · armour slot | Thượng (High) (4) | ward: Long-Road Ward | 35.4 of 38.3 |
+| **Hundred-Patch Armour (Bách Nạp Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Hundred-Patch Ward; Effect: Final Clause | 38.3 of 38.4 |
+| **Five-Phase Flag (Ngũ Hành Kỳ)** | Kỳ · extra slot (utility) | Thượng (High) (4) | Effect: Wheel in the Flag (new) | 35.1 of 38.4 |
+| **Talisman-Bearer's Ring (Phù Sứ Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Paid in Advance | 30.9 of 38.4 |
+| **Heaven-Purchasing Coin (Mãi Thiên Tiền)** | Tiền Tiêu · weapon slot | Cực (Peak) (5, unique) | art: Last Coin Flick; Effect: Bought Fate (new) | 44.2 of 51.2 |
+| **Mirror of the Second Seat (Nhị Tòa Kính)** | Kính · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Cold Feet | 42.2 of 51.2 |
+| **Long-Road Robe (Trường Lộ Bào)** | Đạo Bào · armour slot | Thượng (High) (4) | ward: Long-Road Ward | 35.4 of 38.4 |
 | **Lantern of Waking (Tỉnh Mộng Đăng)** | Đăng · extra slot (utility) | Trung (Middle) (3) | Effect: Cold Feet; reserve: Waking Light | 23.7 of 25.6 |
 
 ## Wayfarer's Ring (Hành Lữ Giới)

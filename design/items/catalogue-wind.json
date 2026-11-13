@@ -405,7 +405,7 @@
     "closes": "",
     "hosts": "Item, Way, Tech",
     "from": "variant-wind.md, The Gale Dancer and The Untouchable (evade feeding the Wind buff)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "reserve_arts": [
@@ -605,7 +605,7 @@
     "closes": "You evade 10 pp less.",
     "hosts": "Named Item",
     "from": "new (variant-wind.md's evade engines, fed by basic attacks instead of being dodged at)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "arts": [
@@ -848,7 +848,7 @@
     "closes": "",
     "hosts": "Item, Way, Tech",
     "from": "variant-wind.md, The Evade Dancer (the lost Scatter Gale)",
-    "status": "accepted for now (user, 2026-11-12, patch 2026-11-13); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12, patch 2026-11-13)"
    }
   ],
   "sources": [

@@ -1,7 +1,7 @@
 # Named items: Body
 
 > Generated from `catalogue-body.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,14 +10,14 @@
 | **Mountain-Hide Armour (Sơn Bì Giáp)** | Giáp · armour slot | Trung (Middle) (3) | ward: Mountain-Hide Shell | 23.1 of 25.6 |
 | **Mountain-Gate Shield (Sơn Môn Thuẫn)** | Thuẫn · extra slot (ward gear) | Trung (Middle) (3) | ward: Mountain-Gate Ward | 23.5 of 25.6 |
 | **Stone-Marrow Pendant (Thạch Tủy Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | reserve: Stone-Marrow Aura | 24.2 of 25.6 |
-| **Seal of Unbroken Flesh (Bất Hoại Nhục Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Flesh-Seal Slam | 37.4 of 38.3 |
-| **Ring of Renewed Iron Skin (Thiết Bì Phục Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Iron Skin Renewed | 34.6 of 38.3 |
-| **Echo-Skin Drum (Hưởng Bì Cổ)** | Cổ · extra slot (utility) | Thượng (High) (4) | Effect: Echo | 32.5 of 38.3 |
-| **Vajra-Hide Armour (Kim Cương Bì Giáp)** | Giáp · armour slot | Cực (Peak) (5, unique) | ward: Vajra Shell; Effect: Shield Pays the Blood (new) | 50.3 of 51.1 |
-| **Mountain-Splitting Axe (Phích Sơn Phủ)** | Phủ · weapon slot | Cực (Peak) (5, unique) | art: Splitting the Mountain; Effect: Blood Drinker | 42.8 of 51.1 |
-| **Iron-Gate Armour (Thiết Môn Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Iron-Gate Ward | 36.6 of 38.3 |
-| **Ring of the Answering Stone (Ứng Thạch Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Stone Answers (new) | 34.6 of 38.3 |
-| **Pledge Anchor (Thệ Cốt Mao)** | Mao · weapon slot | Thượng (High) (4) | art: Pledge Drop | 36.2 of 38.3 |
+| **Seal of Unbroken Flesh (Bất Hoại Nhục Ấn)** | Ấn · weapon slot | Thượng (High) (4) | art: Flesh-Seal Slam | 37.4 of 38.4 |
+| **Ring of Renewed Iron Skin (Thiết Bì Phục Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Iron Skin Renewed | 34.6 of 38.4 |
+| **Echo-Skin Drum (Hưởng Bì Cổ)** | Cổ · extra slot (utility) | Thượng (High) (4) | Effect: Echo | 32.5 of 38.4 |
+| **Vajra-Hide Armour (Kim Cương Bì Giáp)** | Giáp · armour slot | Cực (Peak) (5, unique) | ward: Vajra Shell; Effect: Shield Pays the Blood (new) | 50.3 of 51.2 |
+| **Mountain-Splitting Axe (Phích Sơn Phủ)** | Phủ · weapon slot | Cực (Peak) (5, unique) | art: Splitting the Mountain; Effect: Blood Drinker | 42.8 of 51.2 |
+| **Iron-Gate Armour (Thiết Môn Giáp)** | Giáp · armour slot | Thượng (High) (4) | ward: Iron-Gate Ward | 36.6 of 38.4 |
+| **Ring of the Answering Stone (Ứng Thạch Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Stone Answers (new) | 34.6 of 38.4 |
+| **Pledge Anchor (Thệ Cốt Mao)** | Mao · weapon slot | Thượng (High) (4) | art: Pledge Drop | 36.2 of 38.4 |
 | **Pendant of the First Stand (Tiên Lập Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | Effect: First Stand (new) | 24.0 of 25.6 |
 
 ## Bone Cleaver (Phách Cốt Phủ)

@@ -55,4 +55,40 @@ Bonuses: none (Yellow).
 Use: a force-to-chaos crit build. Shearing Palm's crit tear wants crit chance; the leech repays Bloodletting Rite's
 health cost. Stack crit and conversion around it, and keep health low enough for the Rite to pay out.
 
-checked 3 techniques, 0 findings
+## Formless Ruin Canon (Vô Hình Phế Kinh)
+
+Main method, Profound (Huyền, tier 1), 9 layers. Names: `hon_don` (Primordial Chaos). Carrier for the two loose arts
+(suite: none); the family's first Chaos main method, so a Chaos build need not borrow another element's main.
+
+| Layer | Art unlocked |
+|---|---|
+| 1 | Shearing Palm (Cắt Xé Chưởng) |
+| 3 | Bloodletting Rite (Phóng Huyết Nghi) |
+
+Passives (14.1 W of 16): chaos damage +8 %, force crit chance +5 pp, health leech 10 %, chaos resistance
+penetration +40.
+Bonuses: tam_ma_resist_pct +8.
+
+Use: a force-to-chaos crit build with a Chaos root. Shearing Palm's crit tear wants the crit chance and its Chaos half
+wants the penetration; the leech repays Bloodletting Rite's health cost. Chaos-scoped pieces (hon_don) apply to
+everything it casts. Stack crit, conversion and low-health damage around it.
+
+## Hundred Arts Sage Canon (Bách Pháp Hiền Kinh)
+
+Main method, Earth (Địa, tier 2), 12 layers. Names: `hon_don`, `hoa`, `thuy` (a multi-element hub). No suite.
+
+| Layer | Art unlocked |
+|---|---|
+| 1 | Scorch Fist (Chước Quyền) |
+| 2 | Backwash Seal (Hồi Lưu Ấn) |
+| 4 | Bloodletting Rite (Phóng Huyết Nghi) |
+
+Passives (22.0 W of 24): stack effect +12 %, stack duration +15 % (both for stacks of every element), chaos damage
++6 %, art speed +10 %.
+Bonuses: linh_luc_pct +12, than_thuc_pct +10.
+
+Use: a hub for holding stacks of many elements at once. Burn from Scorch Fist, Water arts feeding Backwash Seal and
+any other element's stacks all gain effect and last longer, and the chaos damage line turns the wide stack base into
+Chaos-scoped (hon_don) pieces. Slot other elements' arts beside it; its own three arts are only the base.
+
+checked 5 techniques, 0 findings

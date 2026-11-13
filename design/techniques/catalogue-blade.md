@@ -63,6 +63,28 @@ Use: Debt Blade pays 5 % health per cast and hits again per 15 % health missing,
 leech, regeneration and healing; art speed and extra-hit sources multiply the interest. The lint prices a negative
 `art_cost_health_pct` as a subtraction, so no health-cost reduction is on this technique.
 
+## Drawn-Out Edge Canon (Trì Nhận Kinh)
+Secret art (bí thuật), Earth (Địa, tier 2), 12 layers. Names: kim. Suite none (a second carrier of Phantom Sword,
+Coiling Thrust and Flying Sword, for builds that bank Afterimages and Coils slowly).
+
+| Layer | Art unlocked |
+|---|---|
+| 2 | Phantom Sword (Huyễn Ảnh Kiếm) |
+| 4 | Coiling Thrust (Triền Thương Đột) |
+| 6 | Flying Sword (Phi Kiếm) |
+
+Passives (22.0 W of 24):
+- art speed +15 %, scope slow: 6 W
+- crit chance +9 pp, scope sword: 6 W
+- crit damage +30 pp, scope sword: 6 W
+- stack duration +15 %, scope sword (Afterimages and Coils last longer): 4 W
+
+Bonuses: attack +8 %, max health (khi huyết) +8 %.
+
+Use: the slow-engine partner of the Afterimage Sword Canon. Afterimages and Coils bank slowly, so stack duration keeps
+them from fading between heavy arts, and slow-art speed shortens the long cooldowns that spend them. Sword crit chance
+and crit damage make the banked crit-triggered echo (Phantom Sword) land hard. Pair with heavy, slow sword arts.
+
 ```
-checked 3 techniques, 0 findings
+checked 4 techniques, 0 findings
 ```

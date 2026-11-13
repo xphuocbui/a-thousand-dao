@@ -1,7 +1,7 @@
 # Named items: Water
 
 > Generated from `catalogue-water.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,11 +10,11 @@
 | **Still-Pool Gourd (Tĩnh Trì Hồ Lô)** | Hồ Lô · weapon slot | Trung (Middle) (3) | art: Gourd Pours the Pool; Effect: Steady Breath | 22.1 of 25.6 |
 | **Tide Bell (Triều Chung)** | Chuông · extra slot (ward gear) | Trung (Middle) (3) | ward: Rolling Tide Ward | 24.6 of 25.6 |
 | **Moon-Well Pendant (Tỉnh Nguyệt Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | reserve: Still Surface | 21.5 of 25.6 |
-| **Drowned Anchor (Trầm Hải Mao)** | Mao · weapon slot | Thượng (High) (4) | art: Anchor Falls on the Tide | 34.0 of 38.3 |
-| **Brimming Shield (Mãn Thuẫn)** | Thuẫn · extra slot (ward gear) | Thượng (High) (4) | ward: Layered Cloud; Effect: Steady Breath | 37.8 of 38.3 |
-| **Ring of the Returning Tide (Hồi Triều Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Backflow (new) | 35.2 of 38.3 |
-| **Mirror of the Drowned Moon (Nịch Nguyệt Kính)** | Kính · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Sea Already Deep (new); reserve: Reflection | 50.2 of 51.1 |
-| **Nine-Fathom Abyss Seal (Cửu Tầm Uyên Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Abyss Seal Descends; Effect: Water Table | 41.4 of 51.1 |
+| **Drowned Anchor (Trầm Hải Mao)** | Mao · weapon slot | Thượng (High) (4) | art: Anchor Falls on the Tide | 34.0 of 38.4 |
+| **Brimming Shield (Mãn Thuẫn)** | Thuẫn · extra slot (ward gear) | Thượng (High) (4) | ward: Layered Cloud; Effect: Steady Breath | 37.8 of 38.4 |
+| **Ring of the Returning Tide (Hồi Triều Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Backflow (new) | 35.2 of 38.4 |
+| **Mirror of the Drowned Moon (Nịch Nguyệt Kính)** | Kính · extra slot (utility) | Cực (Peak) (5, unique) | Effect: Sea Already Deep (new); reserve: Reflection | 50.2 of 51.2 |
+| **Nine-Fathom Abyss Seal (Cửu Tầm Uyên Ấn)** | Ấn · weapon slot | Cực (Peak) (5, unique) | art: Abyss Seal Descends; Effect: Water Table | 41.4 of 51.2 |
 | **Undertow Mail (Ám Lưu Giáp)** | Giáp · armour slot | Trung (Middle) (3) | ward: Undertow Ward | 23.0 of 25.6 |
 | **Owed Water Pendant (Thiếu Thủy Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | Effect: Owed Water (new) | 20.6 of 25.6 |
 | **Slack Tide Ring (Hoãn Triều Giới)** | Nhẫn · ring slot | Hạ (Low) (2) | modifiers only | 11.6 of 12.8 |

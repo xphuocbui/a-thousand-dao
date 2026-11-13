@@ -1,7 +1,7 @@
 # Named items: Wind
 
 > Generated from `catalogue-wind.json` by `tools/design/items/make_md.py`; edit the JSON. Rules: `design/gdd/item-database.md`
-> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.25).
+> rules 11, 20, 21 and Formulas I. Budget per grade: 12.8 W per affix the grade allows (lint passes up to ×1.05).
 
 | Item | Base · slot | Grade (rarity) | Gives | Plain W |
 |---|---|---|---|---|
@@ -10,13 +10,13 @@
 | **Slow-Hour Needle (Trì Thời Châm)** | Châm · weapon slot | Trung (Middle) (3) | art: Stitch the Hour | 21.1 of 25.6 |
 | **Cloud-Veil Robe (Vân Sa Đạo Bào)** | Đạo Bào · armour slot | Trung (Middle) (3) | ward: Cloud Veil | 24.5 of 25.6 |
 | **Swallow-Tail Pendant (Yến Vĩ Bội)** | Ngọc Bội · necklace slot | Trung (Middle) (3) | reserve: Swallow's Poise | 22.4 of 25.6 |
-| **Four-Winds Banner (Tứ Phương Phong Kỳ)** | Kỳ · extra slot (utility) | Thượng (High) (4) | Effect: Wind at Your Back (new); reserve: Standing Wind | 37.9 of 38.3 |
-| **Windbreak Shield (Cách Phong Thuẫn)** | Thuẫn · extra slot (ward gear) | Thượng (High) (4) | ward: Windbreak Screen | 35.3 of 38.3 |
-| **Ring of Hollow Echoes (Không Hưởng Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Echo | 31.2 of 38.3 |
-| **Nine-Gale Heron Fan (Cửu Phong Lộ Phiến)** | Phiến · weapon slot | Cực (Peak) (5, unique) | art: Heron Takes Wing; Effect: Phantom Dodge (new) | 41.0 of 51.1 |
-| **Cloud-Walker's Mantle (Đằng Vân Bào)** | Đạo Bào · armour slot | Cực (Peak) (5, unique) | ward: Cloud-Walker's Veil; Effect: Cold Feet; Effect: Beneath Notice | 46.6 of 51.1 |
+| **Four-Winds Banner (Tứ Phương Phong Kỳ)** | Kỳ · extra slot (utility) | Thượng (High) (4) | Effect: Wind at Your Back (new); reserve: Standing Wind | 37.9 of 38.4 |
+| **Windbreak Shield (Cách Phong Thuẫn)** | Thuẫn · extra slot (ward gear) | Thượng (High) (4) | ward: Windbreak Screen | 35.3 of 38.4 |
+| **Ring of Hollow Echoes (Không Hưởng Giới)** | Nhẫn · ring slot | Thượng (High) (4) | Effect: Echo | 31.2 of 38.4 |
+| **Nine-Gale Heron Fan (Cửu Phong Lộ Phiến)** | Phiến · weapon slot | Cực (Peak) (5, unique) | art: Heron Takes Wing; Effect: Phantom Dodge (new) | 41.0 of 51.2 |
+| **Cloud-Walker's Mantle (Đằng Vân Bào)** | Đạo Bào · armour slot | Cực (Peak) (5, unique) | ward: Cloud-Walker's Veil; Effect: Cold Feet; Effect: Beneath Notice | 46.6 of 51.2 |
 | **Slipstream Ring (Phong Lưu Giới)** | Nhẫn · ring slot | Trung (Middle) (3) | modifiers only | 23.7 of 25.6 |
-| **Scatter-Gale Pendant (Tán Phong Bội)** | Ngọc Bội · necklace slot | Thượng (High) (4) | Effect: Scatter Gale (new) | 32.5 of 38.3 |
+| **Scatter-Gale Pendant (Tán Phong Bội)** | Ngọc Bội · necklace slot | Thượng (High) (4) | Effect: Scatter Gale (new) | 32.5 of 38.4 |
 
 ## Gale-Feather Fan (Phong Vũ Phiến)
 

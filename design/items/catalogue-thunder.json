@@ -555,7 +555,7 @@
     "closes": "",
     "hosts": "Item, Way",
     "from": "variant-thunder.md, The Tribulation Rider (its New piece)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "sources": [
@@ -621,7 +621,7 @@
     "closes": "Thunder stacks you lay on a foe that is not Slowed last 25 % shorter.",
     "hosts": "Named Item",
     "from": "new (The Thunderclap's 'delay, then the clap'; Tribulation Seal's verdict)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "arts": [
@@ -782,7 +782,7 @@
     "closes": "Your other arts have 8 less crit chance.",
     "hosts": "Named Item",
     "from": "variant-thunder.md, The Thunder Drum (a steady-count crit, without the keystone)",
-    "status": "accepted for now (user, 2026-11-12); not yet in effects.md"
+    "status": "in effects.md (approved by the user 2026-11-13; accepted 2026-11-12)"
    }
   ],
   "reserve_arts": [

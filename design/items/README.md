@@ -83,4 +83,4 @@ lint is clean. Asks that are not items (engine, effects.md, enemy design, techni
 
 - New wards are scaled starter wards (payload and payment by the same factor), so their price check is inherited,
   not run; a ward price-check tool does not exist yet.
-- `reserve_w_rate` and `named_W_tolerance` are guesses (item-database.md Open Question 19).
+- `reserve_w_rate` (1.0) is a guess. `named_W_tolerance` is 1.05 since 2026-11-13 (item-database.md Open Question 19).
