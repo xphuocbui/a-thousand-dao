@@ -94,7 +94,11 @@ the rewrite is in the list below.
 - **Sects are the only powers. There are no mortal kingdoms** (Travel & Map rule 24, confirmed by the user).
 - **Regions:** 20 drafted along crests, rivers and watersheds by tools/design/map/regions.py
   (design/map/continent-11/README.md).
-- **Great sects:** 7 in two tiers, plus 5 wild regions. This is a proposal awaiting approval; see the same README.
+- **No wild regions** (user decision 2026-11-14): every region belongs to a great sect. Travel & Map rule 24 is
+  updated to match.
+- **Great sects:** 7 in two tiers, with romantic Hán-Việt names (user request 2026-11-14): Thiên Xu Tông,
+  Tùng Đào Cung, Lạc Hà Tông, Thính Vũ Lâu, Băng Tâm Các, Thúy Vi Tông, Phượng Minh Cung. This is a proposal
+  awaiting approval; see the same README.
 
 ## What this changes
 

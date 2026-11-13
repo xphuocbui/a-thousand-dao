@@ -660,11 +660,12 @@ def politics(R, sects_path, out, detail_src, scale=3):
         s["seat_lat"] = round(R.c.lat(y), 1)
         s["tiles"] = sum(o["tiles"] for o in R.out if o["id"] in s["regions"])
         s["land_share"] = round(s["tiles"] / land, 3)
-    keep = ("key", "working_name", "tier", "leans", "regions", "seat_region", "seat_tile", "seat_elevation_km",
+    keep = ("key", "working_name", "name_hv", "name_han", "gloss", "tier", "leans", "regions", "seat_region", "seat_tile", "seat_elevation_km",
             "seat_lat", "tiles", "land_share")
-    summary = {"great_sects": [{k: s[k] for k in keep} for s in sects],
+    summary = {"great_sects": [{k: s[k] for k in keep if k in s} for s in sects],
                "wild_regions": P["wild_regions"],
-               "wild_land_share": round(sum(o["tiles"] for o in R.out if o["id"] in P["wild_regions"]) / land, 3)}
+               "wild_land_share": round(sum(o["tiles"] for o in R.out if o["id"] in P["wild_regions"]) / land, 3),
+               "unassigned_regions": [o["id"] for o in R.out if o["id"] not in owner and o["id"] not in P["wild_regions"]]}
     with open(os.path.join(out, "politics_proposal.json"), "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=1, ensure_ascii=False)
 
@@ -720,6 +721,10 @@ def politics(R, sects_path, out, detail_src, scale=3):
             rr = 17 if t % 2 == 0 else 7
             pts.append((px + rr * math.cos(ang), py + rr * math.sin(ang)))
         d.polygon(pts, fill=tuple(sects[k]["colour"]), outline=(20, 10, 10), width=2)
+    try:
+        small = ImageFont.truetype("arial.ttf", 18)
+    except OSError:
+        pass
     rows = (len(sects) + 2) // 2 + 1
     strip = Image.new("RGB", (W * scale, 30 * rows + 20), (255, 250, 235))
     sd = ImageDraw.Draw(strip)
@@ -727,9 +732,11 @@ def politics(R, sects_path, out, detail_src, scale=3):
     for k, s in enumerate(sects):
         lx, yy = 20 + (k % 2) * colw, 12 + 30 * (k // 2)
         sd.rectangle((lx, yy + 3, lx + 18, yy + 21), fill=tuple(s["colour"]), outline=(40, 20, 20))
-        sd.text((lx + 28, yy), f"{s['working_name']}  (tier {s['tier']}; {', '.join(s['leans'])})",
+        name = f"{s['name_hv']} ({s['gloss']})" if s.get("name_hv") else s["working_name"]
+        sd.text((lx + 28, yy), f"{name}  tier {s['tier']}; {', '.join(s['leans'])}",
                 fill=(30, 15, 15), font=small)
-    sd.text((20, 12 + 30 * (rows - 1)), "Untinted land = wild regions.  Star = sect seat.  Numbers = regions.",
+    note = "Star = sect seat.  Numbers = regions." + ("  Untinted land = wild regions." if P["wild_regions"] else "")
+    sd.text((20, 12 + 30 * (rows - 1)), note,
             fill=(30, 15, 15), font=small)
     full = Image.new("RGB", (W * scale, H * scale + strip.height))
     full.paste(base.convert("RGB"), (0, 0))

@@ -17,7 +17,7 @@ fixed-world-decisions.md).
 | `regions.png` | Region index, 540 × 360: the value is the region id, 0 is sea. |
 | `regions.json` | For each region: size, biome mix, height, climate, coast, rivers, lakes, volcanoes, hot springs, ore and ice tiles, and its neighbours with how natural each shared border is. Also the map check. |
 | `regions_overview.jpg` | Region borders and numbers over the detail map. |
-| `sects_proposal.json` | The great-sect proposal: input data, edited by hand. |
+| `sects_proposal.json` | The great-sect proposal: input data, edited by hand (names, territories, colours). |
 | `politics_proposal.json`, `politics_proposal.jpg` | Output: each proposal sect's seat tile and share of the land, and the map with territories tinted. |
 
 **Rebuild:**
@@ -91,38 +91,49 @@ Working descriptions only. Names come later, in Hán-Việt.
 | 19 | Rain-forest range | 3,043 | High mountain 32, bamboo 28 | Wettest (1,907 mm) |
 | 20 | South-east volcano coast | 3,123 | Jungle 38, grassland 38 | 4 volcanoes, 6 hot springs, the longest coast |
 
-## Great sects: proposal (awaiting approval)
+## Great sects: proposal v2 (awaiting approval)
 
-Sects are the only powers. There are no mortal kingdoms (Travel & Map rule 24; the user confirmed this on 2026-11-13).
+Sects are the only powers. There are no mortal kingdoms (Travel & Map rule 24, confirmed by the user 2026-11-13) and no
+wild regions: every region belongs to a great sect (user decision 2026-11-14). Wilderness, the land away from roads
+and towns, still lies inside each territory.
 
-The proposal has **7 great sects** in 2 tiers, plus **5 wild regions**. The 15–25 minor sects are placed in a later step.
+There are **7 great sects** in 2 tiers. The 15–25 minor sects come later and sit inside these territories.
 
-| Sect (working name) | Tier | Leans | Regions (seat first) | Land share | Why here |
-|---|---|---|---|---|---|
-| Central Range sect | 1 | Metal, Earth | 14, 13 | 8.8 % | It holds the crossroads between north, south and east. Both its regions are rich in ore. Its land is small, but every route crosses it. |
-| Northern Forest sect | 1 | Wood, Water | 6, 7 | 13.1 % | The great river basin and the long lake: the purest Wood land, with the most rivers. |
-| Southern Peaks sect | 1 | Metal, Wood, Fire | 18, 12, 17 | 14.6 % | The richest ore on the continent, with jungle and a warm coast behind it. |
-| Storm Range sect | 2 | Metal, Water, Thunder | 15, 19 | 7.4 % | The wettest high mountains: the natural home for authored storm peaks. |
-| North-east Ice sect | 2 | Water, Ice | 3, 8 | 11.0 % | The only ice fields, and a northern range with ore. |
-| Western Hills sect | 2 | Earth, Wood | 4, 5, 2 | 13.0 % | Karst, volcanoes and ore in the hills, with cold forest behind. |
-| Volcano Coast sect | 2 | Fire, Wood | 20 | 3.7 % | The most volcanoes and hot springs. Small, but the purest Fire ground. |
-| **Wild** | — | — | 1, 9, 10, 11, 16 | 28.3 % | See below |
+**Names** are Hán-Việt and lean romantic and poetic (user request 2026-11-14), with the English meaning alongside.
+- **Suffixes vary:** tông (sect), cung (palace), các (pavilion), lâu (tower). A palace or tower name sounds just as
+  grand as a sect name.
+- **Not taken from known novels:** none are the well-known sect names of existing xianxia or wuxia novels.
+
+| Sect | Hán tự | Meaning | Tier | Leans | Regions (seat first) | Land |
+|---|---|---|---|---|---|---|
+| **Thiên Xu Tông** | 天樞宗 | Sect of the Heavenly Pivot. Thiên Xu is the first star of the Northern Dipper, the pivot the sky turns on: the sect at the crossroads of the continent. | 1 | Metal, Earth | 14, 13, 11 | 15.2 % |
+| **Tùng Đào Cung** | 松濤宮 | Palace of the Pine Waves: wind in endless pine forest that sounds like surf. | 1 | Wood, Water | 6, 7, 2 | 19.0 % |
+| **Lạc Hà Tông** | 落霞宗 | Sect of the Drifting Sunset Clouds, after Vương Bột's line *lạc hà dữ cô vụ tề phi*: "sunset clouds fly with a lone wild duck". | 1 | Metal, Wood, Fire | 18, 12, 17, 9 | 19.4 % |
+| **Thính Vũ Lâu** | 聽雨樓 | Tower Where One Listens to the Rain: on the wettest mountains, where storms roll in from the sea. | 2 | Metal, Water, Thunder | 15, 19 | 7.4 % |
+| **Băng Tâm Các** | 冰心閣 | Pavilion of the Ice Heart, after Vương Xương Linh's *nhất phiến băng tâm tại ngọc hồ*: "a heart of ice in a jade vessel", meaning purity. | 2 | Water, Ice | 3, 8 | 11.0 % |
+| **Thúy Vi Tông** | 翠微宗 | Sect of the Emerald Haze: the blue-green mist on distant hills. | 2 | Earth, Wood | 4, 5, 1, 10 | 15.6 % |
+| **Phượng Minh Cung** | 鳳鳴宮 | Palace of the Phoenix's Call: the fire bird of the south, on the volcano coast and the red drylands. | 2 | Fire, Wood | 20, 16 | 12.4 % |
+
+**Where the five former wild regions went:**
+
+| Region | Now held by | Why |
+|---|---|---|
+| 1, far north-west cape | Thúy Vi Tông | It borders the sect's seat region. |
+| 10, west peninsula | Thúy Vi Tông | Reached through the north-west hills. It is dry grassland, and its open neck is the sect's weak border. |
+| 11, west-central badlands | Thiên Xu Tông | Ore-rich. It touches all three tier-1 sects, so it is still the most contested region. |
+| 16, eastern drylands | Phượng Minh Cung | Desert's signature element is Fire. It makes the small volcano sect a real power. |
+| 9, south-west island | Lạc Hà Tông | Across the strait from its jungle coast (17). |
 
 **Why these numbers:**
-- **Tier 1 has 3 sects** to match the ~3 Hóa Thần (difficulty targets): each tier-1 sect would have one at its head.
+- **Tier 1 has 3 sects** to match the ~3 Hóa Thần (difficulty targets): each would have one at its head. The tier-1
+  sects hold 54 % of the land.
 - **The ~27 Nguyên Anh** leave each great sect 2–3, and the rest are loose or demonic cultivators.
 
-**Why each wild region stays wild:**
-- **1, far north-west cape:** cold and poor.
-- **9, south-west island:** cut off by sea, a place for hidden sects and secret realms.
-- **10, west peninsula:** no natural border to hold.
-- **11, west-central badlands:** ore-rich and sitting between all three tier-1 sects, so it is contested ground and a natural flashpoint.
-- **16, eastern drylands:** the largest and highest region, far from every seat.
-
-**Seats** are picked by the tool for now: high ground well inside the seat region. Each seat's tile is in `politics_proposal.json`. Hand-placed sacred summits or spirit veins (rules R27 and R29) can move them.
+**Seats** are picked by the tool for now: high ground well inside the seat region. Each seat's tile is in
+`politics_proposal.json`. Hand-placed sacred summits or spirit veins (rules R27 and R29) can move them.
 
 **Open for the user:**
-1. Approve, move or change the sects and their regions.
-2. Names for the regions and sects.
+1. Approve the territories and the names, or swap any of them.
+2. Names for the 20 regions (Hán-Việt).
 3. Where the 15–25 minor sects sit.
 4. Then the famous places (Travel & Map rule 6).

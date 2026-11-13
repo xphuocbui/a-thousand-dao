@@ -41,7 +41,7 @@ where its climate and element allow, and Core Formation needs a place dense enou
 (Pillar 4), and every place, road and discovery is a recorded fact the world remembers (Pillar 5).
 
 Each region produces resources: linh thạch from its mines, herbs, ores, beasts. It also needs some, and a sect
-or nobody controls it. This GDD owns what the map produces and where. Market and Sects build prices, trade,
+controls it. This GDD owns what the map produces and where. Market and Sects build prices, trade,
 income and conflict on that contract.
 
 The terrain is authored once and stays fixed. Anything that changes (mine output, a region's supply, who holds a
@@ -256,8 +256,9 @@ names rather than a place.
 23. **About 20 regions**, each a named set of tiles and places. Regions follow the terrain: mountain ranges, rivers and
     coasts make at least 60 % of their borders.
 24. **Only sects own land.** A sect's **territory** is the regions and sites it holds, and it acts as a country: its
-    towns, its production and its taxes. How it taxes and spends belongs to Sects (#26). Some regions belong to no one
-    (wild lands). A loose cultivator owns only their cave abodes.
+    towns, its production and its taxes. How it taxes and spends belongs to Sects (#26). Every region belongs to a sect;
+    there are no unowned regions (user decision 2026-11-14). Wilderness, the land away from roads and towns, still
+    lies inside every territory. A loose cultivator owns only their cave abodes.
 25. **The production contract.** Once a season the map adds up production by resource kind, for each region and each
     territory, and publishes it with the region's population. **Regional Economy & Trade** (a new system, designed
     next) turns that into market stock, prices and the flow of goods between markets. Until it exists, the Market
