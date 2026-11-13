@@ -15,8 +15,13 @@ How it works:
 The map check reports the share of land borders that are natural (crest, highland, river or lake), with and without
 the coast, and the share on watershed divides. It reports; it does not judge.
 
-With --sects (a JSON of great sects: regions, seat region, colour), it also picks a seat tile in each seat region
-(high ground well inside the region, never glacier) and draws politics_proposal.jpg.
+With --sects (a JSON of great sects: start tile, tier, names, colour) it works top-down instead (layout mode):
+1. Territories first. One seed per great sect grows over the same terrain cost; seeds move to their territory's
+   centre and per-sect weights pull sizes toward a share set by tier. Compact territories whose borders still
+   follow crests, rivers and watersheds.
+2. Then each territory is split into regions (about 20 in all, at least 2 a territory) the same way, inside it.
+3. A seat tile per sect: high ground well inside its territory, never glacier.
+It draws politics_proposal.jpg and reports each territory's shape (elongation, hull fill).
 
 Run:  python -I tools/design/map/regions.py --seed 11 --regions 20 --out design/map/continent-11 \
           --detail prototypes/continent-candidates/cand-11/detail.jpg --sects design/map/continent-11/sects_proposal.json
@@ -52,6 +57,14 @@ RP = {
     "size_lo": 0.4, "size_hi": 2.0, "weight_step": 6.0,
     "smooth_passes": 3, "stray_tiles": 60,
     "nat_h_km": 1.0, "nat_rel_km": 1.0,          # border edge counts as highland or crest at or above these
+    "tier_weight": {"1": 1.2, "2": 0.85},        # layout mode: territory size by tier (normalised over the sects)
+    "terr_iters": 14, "region_iters": 8,         # layout mode: centring passes for territories, then regions
+    "size_gain": 0.15,                           # layout mode: weight change per pass, per unit of size error
+    "base_cost": 2.5,                            # layout mode: added to every land step, so cheap lowland is not
+                                                 # crossed for free and territories stay compact
+    "feature_gain": 2.0,                         # layout mode: river and watershed crossing costs scale with base_cost
+    "anchor_tiles": 28,                          # layout mode: a sect's seed stays within this of its start tile
+    "min_regions": 2,                            # layout mode: regions per territory at least
 }
 
 MOUNTAIN = {cg.B[k] for k in ("high_mountain", "highland", "glacier", "volcano", "karst")}
@@ -109,6 +122,7 @@ class Regions:
             else:
                 m[i] = -1.0                                                         # impassable
         self.m = m
+        self.m_base = 0.0                                                         # layout mode adds base_cost
         # adjacency with costs (computed on the fly in dijkstra)
 
     def basins(self):
@@ -175,7 +189,7 @@ class Regions:
             c += max(pen[side[0]], pen[side[1]])
         return c
 
-    def dijkstra(self, seeds, weights=None):
+    def dijkstra(self, seeds, weights=None, allowed=None):
         W, H, m = self.W, self.H, self.m
         INF = float("inf")
         dist = [INF] * (W * H)
@@ -196,7 +210,7 @@ class Regions:
                 nx, ny = x + ox, y + oy
                 if 0 <= nx < W and 0 <= ny < H:
                     j = ny * W + nx
-                    if m[j] < 0:
+                    if m[j] < 0 or (allowed is not None and self.land[j] and not allowed[j]):
                         continue
                     if ox and oy:
                         nd = d + self.step(i, j, SQ2, (y * W + nx, ny * W + x))
@@ -233,7 +247,7 @@ class Regions:
         return comp, sizes
 
     def good_seed(self, i):
-        return self.land[i] and not self.lake[i] and not self.riv[i] and self.m[i] < 2.6
+        return self.land[i] and not self.lake[i] and not self.riv[i] and self.m[i] - self.m_base < 2.6
 
     def run(self):
         W, H, n = self.W, self.H, self.n
@@ -303,6 +317,12 @@ class Regions:
         return self
 
     def smooth(self):
+        self.reg = smooth_labels(self, self.reg)
+
+    def merge_strays(self):
+        self.reg = merge_stray_labels(self, self.reg)
+
+    def _unused_smooth(self):
         W, H, reg = self.W, self.H, self.reg
         for _ in range(RP["smooth_passes"]):
             new = list(reg)
@@ -323,8 +343,7 @@ class Regions:
                         new[i] = r
             self.reg = reg = new
 
-    def merge_strays(self):
-        """Patches of a region cut off from its main body on the same landmass join the neighbour they touch most."""
+    def _unused_merge(self):
         W, H = self.W, self.H
         for _ in range(3):
             reg = self.reg
@@ -605,12 +624,273 @@ class Regions:
         return best % W, best // W
 
 
-def pick_seat(R, region, min_edge=8):
-    """High ground well inside the region: height (capped at 2.5 km) plus a pull toward the middle, never glacier.
+def smooth_labels(R, lab, group=None):
+    """Majority filter on land labels; with group, a tile only takes a label from its own group."""
+    W, H = R.W, R.H
+    for _ in range(RP["smooth_passes"]):
+        new = list(lab)
+        for i in range(W * H):
+            if lab[i] < 0:
+                continue
+            x, y = i % W, i // W
+            cnt = {}
+            for ox, oy in N8:
+                nx, ny = x + ox, y + oy
+                if 0 <= nx < W and 0 <= ny < H:
+                    j = ny * W + nx
+                    r = lab[j]
+                    if r >= 0 and (group is None or group[j] == group[i]):
+                        cnt[r] = cnt.get(r, 0) + 1
+            if cnt:
+                r, k = max(cnt.items(), key=lambda t: t[1])
+                if r != lab[i] and k >= 5:
+                    new[i] = r
+        lab = new
+    return lab
+
+
+def merge_stray_labels(R, lab, group=None):
+    """Patches cut off from their label's main body join the neighbour they touch most (within their group)."""
+    W, H = R.W, R.H
+    lab = list(lab)
+    for _ in range(3):
+        seen = [False] * (W * H)
+        parts = {}
+        for s0 in range(W * H):
+            if lab[s0] < 0 or seen[s0]:
+                continue
+            r = lab[s0]
+            st, cells, touch = [s0], [], {}
+            seen[s0] = True
+            while st:
+                i = st.pop(); cells.append(i)
+                x, y = i % W, i // W
+                for ox, oy in N4:
+                    nx, ny = x + ox, y + oy
+                    if 0 <= nx < W and 0 <= ny < H:
+                        j = ny * W + nx
+                        if lab[j] == r and not seen[j]:
+                            seen[j] = True
+                            st.append(j)
+                        elif lab[j] >= 0 and lab[j] != r and (group is None or group[j] == group[i]):
+                            touch[lab[j]] = touch.get(lab[j], 0) + 1
+            parts.setdefault(r, []).append((cells, touch))
+        changed = False
+        for r, ps in parts.items():
+            ps.sort(key=lambda q: -len(q[0]))
+            for cells, touch in ps[1:]:
+                if touch and len(cells) <= max(RP["stray_tiles"], 0.25 * len(ps[0][0])):
+                    to = max(touch.items(), key=lambda t: t[1])[0]
+                    for i in cells:
+                        lab[i] = to
+                    changed = True
+        if not changed:
+            break
+    return lab
+
+
+def hull_area(pts):
+    pts = sorted(set(pts))
+    if len(pts) < 3:
+        return float(len(pts))
+
+    def cross(o, a, b):
+        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+    lo, up = [], []
+    for q in pts:
+        while len(lo) >= 2 and cross(lo[-2], lo[-1], q) <= 0:
+            lo.pop()
+        lo.append(q)
+    for q in reversed(pts):
+        while len(up) >= 2 and cross(up[-2], up[-1], q) <= 0:
+            up.pop()
+        up.append(q)
+    h = lo[:-1] + up[:-1]
+    a = sum(h[i][0] * h[(i + 1) % len(h)][1] - h[(i + 1) % len(h)][0] * h[i][1] for i in range(len(h)))
+    per = sum(math.dist(h[i], h[(i + 1) % len(h)]) for i in range(len(h)))
+    return abs(a) / 2 + per / 2 + 1
+
+
+def shape(cells):
+    """(elongation, hull fill) of a set of (x, y) tiles: long-axis / short-axis spread, and area / convex hull area."""
+    n = len(cells)
+    mx = sum(x for x, _ in cells) / n
+    my = sum(y for _, y in cells) / n
+    sxx = sum((x - mx) ** 2 for x, _ in cells) / n
+    syy = sum((y - my) ** 2 for _, y in cells) / n
+    sxy = sum((x - mx) * (y - my) for x, y in cells) / n
+    t = (sxx + syy) / 2
+    d = math.sqrt(((sxx - syy) / 2) ** 2 + sxy ** 2)
+    return round(math.sqrt((t + d) / max(1e-9, t - d)), 2), round(n / hull_area(cells), 2)
+
+
+def grow(R, seeds, targets, allowed=None, fixed=None, iters=8, tag="", anchors=None):
+    """Least-cost growth from seeds; free seeds move to their area's centre; weights pull sizes to the targets."""
+    W, H = R.W, R.H
+    k = len(seeds)
+    fixed = fixed or [False] * k
+    weights = [0.0] * k
+    seeds = list(seeds)
+    for it in range(iters + 1):
+        dist, own = R.dijkstra(seeds, weights, allowed)
+        cells = [[] for _ in range(k)]
+        for i in range(W * H):
+            if R.land[i] and own[i] >= 0 and (allowed is None or allowed[i]):
+                cells[own[i]].append(i)
+        if it == iters:
+            break
+        for r in range(k):
+            cs = cells[r]
+            if not cs:
+                continue
+            sample = cs[::5] or cs
+            radius = sum(dist[i] + weights[r] for i in sample) / len(sample)
+            weights[r] += RP["size_gain"] * (targets[r] - len(cs)) / targets[r] * radius
+            if fixed[r]:
+                continue
+            home = [i for i in cs if R.comp[i] == R.comp[seeds[r]]] or cs
+            mx = sum(i % W for i in home) / len(home)
+            my = sum(i // W for i in home) / len(home)
+            if anchors:
+                ax, ay = anchors[r]
+                dx, dy = mx - ax, my - ay
+                dd = math.hypot(dx, dy)
+                lim = RP["anchor_tiles"]
+                if dd > lim:
+                    mx, my = ax + dx * lim / dd, ay + dy * lim / dd
+            cand = [i for i in home if R.good_seed(i)] or home
+            seeds[r] = min(cand, key=lambda i: (i % W - mx) ** 2 + (i // W - my) ** 2)
+        if tag:
+            print(f"  {tag} pass {it + 1}: sizes {[len(c) for c in cells]}", flush=True)
+    lab = [-1] * (W * H)
+    for r, cs in enumerate(cells):
+        for i in cs:
+            lab[i] = r
+    # land the growth never reached (far islands): the nearest labelled tile, inside the allowed area
+    un = [i for i in range(W * H) if R.land[i] and lab[i] < 0 and (allowed is None or allowed[i])]
+    if un:
+        known = [i for i in range(W * H) if lab[i] >= 0]
+        for i in un:
+            x, y = i % W, i // W
+            j = min(known, key=lambda q: (q % W - x) ** 2 + (q // W - y) ** 2)
+            lab[i] = lab[j]
+    return lab, seeds
+
+
+def mask_components(R, mask):
+    """8-connected components of the tiles where mask is true, largest first (lists of tiles)."""
+    W, H = R.W, R.H
+    seen = [False] * (W * H)
+    out = []
+    for s0 in range(W * H):
+        if not mask[s0] or seen[s0]:
+            continue
+        seen[s0] = True
+        st, cs = [s0], []
+        while st:
+            i = st.pop(); cs.append(i)
+            x, y = i % W, i // W
+            for ox, oy in N8:
+                nx, ny = x + ox, y + oy
+                if 0 <= nx < W and 0 <= ny < H:
+                    j = ny * W + nx
+                    if mask[j] and not seen[j]:
+                        seen[j] = True
+                        st.append(j)
+        out.append(cs)
+    out.sort(key=lambda c: -len(c))
+    return out
+
+
+def centre_seed(R, cells):
+    W = R.W
+    mx = sum(i % W for i in cells) / len(cells)
+    my = sum(i // W for i in cells) / len(cells)
+    cand = [i for i in cells if R.good_seed(i)] or cells
+    return min(cand, key=lambda i: (i % W - mx) ** 2 + (i // W - my) ** 2)
+
+
+def layout(R, P, n_regions):
+    """Top-down: compact sect territories first, then regions inside each (layout mode)."""
+    W, H = R.W, R.H
+    comp, sizes = R.components()
+    R.comp, R.comp_sizes = comp, sizes
+    land_n = sum(R.land)
+    sects = P["great_sects"]
+    K = len(sects)
+    tw = [RP["tier_weight"][str(s["tier"])] for s in sects]
+    targets = [land_n * w / sum(tw) for w in tw]
+    seeds = []
+    for s in sects:
+        x0, y0 = s["start_tile"]
+        cand = [i for i in range(W * H) if R.good_seed(i) and abs(i % W - x0) <= 12 and abs(i // W - y0) <= 12]
+        if not cand:
+            cand = [i for i in range(W * H) if R.land[i]]
+        seeds.append(min(cand, key=lambda i: (i % W - x0) ** 2 + (i // W - y0) ** 2))
+    for i in range(W * H):                                                       # compactness: no free sprawl
+        if R.land[i] and not R.lake[i]:
+            R.m[i] += RP["base_cost"]
+    R.m_base = RP["base_cost"]
+    g = RP["feature_gain"]
+    R.rpen = [v * g for v in R.rpen]
+    R.div_lo, R.div_hi = R.div_lo * g, R.div_hi * g
+    anchors = [(i % W, i // W) for i in seeds]
+    terr, seeds = grow(R, seeds, targets, iters=RP["terr_iters"], tag="territories", anchors=anchors)
+    terr = smooth_labels(R, terr)
+    terr = merge_stray_labels(R, terr)
+    tsize = [sum(1 for v in terr if v == t) for t in range(K)]
+    # regions per territory: largest remainder of n_regions by land share, at least min_regions
+    raw = [n_regions * z / land_n for z in tsize]
+    alloc = [max(RP["min_regions"], int(r)) for r in raw]
+    while sum(alloc) < n_regions:
+        t = max(range(K), key=lambda t: raw[t] - alloc[t])
+        alloc[t] += 1
+    while sum(alloc) > n_regions:
+        t = max((t for t in range(K) if alloc[t] > RP["min_regions"]), key=lambda t: alloc[t] - raw[t])
+        alloc[t] -= 1
+    reg = [-1] * (W * H)
+    base = 0
+    for t in range(K):
+        allowed = [v == t for v in terr]
+        parts = mask_components(R, allowed)
+        k_t = alloc[t]
+        mean_t = tsize[t] / k_t
+        rseeds, fixed, rtargets = [], [], []
+        for cs in parts[1:]:
+            if len(cs) >= RP["island_own_share"] * mean_t and len(rseeds) < k_t - 1:
+                rseeds.append(centre_seed(R, cs)); fixed.append(True); rtargets.append(len(cs))
+        main = parts[0]
+        free = k_t - len(rseeds)
+        main_set = set(main)
+        first = len(rseeds)
+        rseeds.append(centre_seed(R, main)); fixed.append(False)
+        while len(rseeds) < k_t:
+            dist, _ = R.dijkstra(rseeds, None, allowed)
+            far = max((i for i in main if R.good_seed(i)), key=lambda i: dist[i])
+            rseeds.append(far); fixed.append(False)
+        rest = (tsize[t] - sum(rtargets)) / free
+        rtargets += [rest] * free
+        lab, _ = grow(R, rseeds, rtargets, allowed=allowed, fixed=fixed, iters=RP["region_iters"])
+        for i in range(W * H):
+            if allowed[i] and R.land[i] and lab[i] >= 0:
+                reg[i] = base + lab[i]
+        base += k_t
+        del main_set, first
+    reg = smooth_labels(R, reg, group=terr)
+    reg = merge_stray_labels(R, reg, group=terr)
+    R.reg, R.n, R.terr = reg, base, terr
+    R.terr_lab = [v + 1 if v >= 0 else 0 for v in terr]
+    R.alloc = alloc
+    return R
+
+
+def pick_seat(R, region, min_edge=8, labels=None):
+    """High ground well inside the area: height (capped at 2 km) plus a pull toward the middle, never glacier.
 
     Borders follow crests, so the plain highest tile would sit on the border; the inward pull keeps the seat home.
     """
-    W, H, rid, c = R.W, R.H, R.rid, R.c
+    W, H, c = R.W, R.H, R.c
+    rid = labels if labels is not None else R.rid
     INF = 10 ** 9
     dist = [INF] * (W * H)
     q = []
@@ -636,14 +916,17 @@ def pick_seat(R, region, min_edge=8):
             and c.biome[i] != cg.B["glacier"] and not R.lake[i]]
     if not cand:
         cand = [i for i in range(W * H) if rid[i] == region]
-    best = max(cand, key=lambda i: min(R.h[i], 2.5) + 0.06 * min(dist[i], 30))
+    best = max(cand, key=lambda i: 0.6 * min(R.h[i], 2.0) + 0.06 * min(dist[i], 45))
     return best % W, best // W
 
 
 def politics(R, sects_path, out, detail_src, scale=3):
     """Great-sect territories, seats and wild regions over the detail map (a proposal view)."""
-    with open(sects_path, encoding="utf-8") as f:
-        P = json.load(f)
+    if isinstance(sects_path, dict):
+        P = sects_path
+    else:
+        with open(sects_path, encoding="utf-8") as f:
+            P = json.load(f)
     W, H, rid = R.W, R.H, R.rid
     sects = P["great_sects"]
     owner = {}
@@ -652,16 +935,20 @@ def politics(R, sects_path, out, detail_src, scale=3):
             owner[r] = k
     land = sum(o["tiles"] for o in R.out)
     seats = []
-    for s in sects:
-        x, y = pick_seat(R, s["seat_region"])
+    for k, s in enumerate(sects):
+        if getattr(R, "terr_lab", None) is not None:
+            x, y = pick_seat(R, k + 1, labels=R.terr_lab)
+            s["seat_region"] = R.rid[y * W + x]
+        else:
+            x, y = pick_seat(R, s["seat_region"])
         seats.append((x, y))
         s["seat_tile"] = [x, y]
         s["seat_elevation_km"] = round(R.h[y * W + x], 2)
         s["seat_lat"] = round(R.c.lat(y), 1)
         s["tiles"] = sum(o["tiles"] for o in R.out if o["id"] in s["regions"])
         s["land_share"] = round(s["tiles"] / land, 3)
-    keep = ("key", "working_name", "name_hv", "name_han", "gloss", "tier", "leans", "regions", "seat_region", "seat_tile", "seat_elevation_km",
-            "seat_lat", "tiles", "land_share")
+    keep = ("key", "working_name", "name_hv", "name_han", "gloss", "tier", "leans", "regions", "seat_region",
+            "seat_tile", "seat_elevation_km", "seat_lat", "tiles", "land_share", "elongation", "hull_fill")
     summary = {"great_sects": [{k: s[k] for k in keep if k in s} for s in sects],
                "wild_regions": P["wild_regions"],
                "wild_land_share": round(sum(o["tiles"] for o in R.out if o["id"] in P["wild_regions"]) / land, 3),
@@ -708,11 +995,6 @@ def politics(R, sects_path, out, detail_src, scale=3):
         small = ImageFont.truetype("arialbd.ttf", 20)
     except OSError:
         small = ImageFont.load_default()
-    for o in R.out:
-        x, y = R.label_point(o["id"])
-        label = f"{o['id']} wild" if o["id"] in P["wild_regions"] else str(o["id"])
-        d.text((x * scale + 1, y * scale + 1), label, fill=(40, 20, 20), font=small, anchor="mm",
-               stroke_width=3, stroke_fill=(255, 250, 235))
     for k, (x, y) in enumerate(seats):
         px, py = x * scale + 1, y * scale + 1
         pts = []
@@ -721,6 +1003,11 @@ def politics(R, sects_path, out, detail_src, scale=3):
             rr = 17 if t % 2 == 0 else 7
             pts.append((px + rr * math.cos(ang), py + rr * math.sin(ang)))
         d.polygon(pts, fill=tuple(sects[k]["colour"]), outline=(20, 10, 10), width=2)
+    for o in R.out:                                                              # numbers over the stars
+        x, y = R.label_point(o["id"])
+        label = f"{o['id']} wild" if o["id"] in P["wild_regions"] else str(o["id"])
+        d.text((x * scale + 1, y * scale + 1), label, fill=(40, 20, 20), font=small, anchor="mm",
+               stroke_width=3, stroke_fill=(255, 250, 235))
     try:
         small = ImageFont.truetype("arial.ttf", 18)
     except OSError:
@@ -745,6 +1032,31 @@ def politics(R, sects_path, out, detail_src, scale=3):
     return summary
 
 
+def finish_layout(R, P):
+    """After numbering: each sect's regions and shape, written into P (and the map check)."""
+    W, H = R.W, R.H
+    sects = P["great_sects"]
+    reg_sect = {}
+    for i in range(W * H):
+        if R.rid[i]:
+            reg_sect[R.rid[i]] = R.terr[i]
+    shapes = {}
+    for k, s in enumerate(sects):
+        s["regions"] = sorted(r for r, t in reg_sect.items() if t == k)
+        cells = [(i % W, i // W) for i in range(W * H) if R.terr[i] == k]
+        s["elongation"], s["hull_fill"] = shape(cells)
+        shapes[s.get("name_hv", s["key"])] = [s["elongation"], s["hull_fill"]]
+    P["wild_regions"] = []
+    reg_shapes = [shape([(i % W, i // W) for i in range(W * H) if R.rid[i] == r]) for r in range(1, R.count + 1)]
+    R.check["territory_shape_elongation_hullfill"] = shapes
+    R.check["region_elongation_max"] = max(e for e, _ in reg_shapes)
+    R.check["region_elongation_mean"] = round(sum(e for e, _ in reg_shapes) / len(reg_shapes), 2)
+    R.check["regions_per_territory"] = {s.get("name_hv", s["key"]): len(s["regions"]) for s in sects}
+    for o, (e, f) in zip(R.out, reg_shapes):
+        o["sect"] = sects[reg_sect[o["id"]]].get("name_hv", sects[reg_sect[o["id"]]]["key"])
+        o["elongation"], o["hull_fill"] = e, f
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--seed", type=int, default=11)
@@ -760,14 +1072,24 @@ def main():
         os.makedirs(a.out, exist_ok=True)
         detail = os.path.join(a.out, "_detail.jpg")
         c.render_preview(os.path.join(a.out, "_preview.png"), detail)
-    print("drawing regions", flush=True)
-    R = Regions(c, a.regions).run()
-    R.finish()
-    R.stats()
-    R.save(a.out, detail)
-    print(json.dumps(R.check, indent=1))
     if a.sects:
-        print(json.dumps(politics(R, a.sects, a.out, detail), indent=1))
+        print("layout mode: territories first, then regions", flush=True)
+        with open(a.sects, encoding="utf-8") as f:
+            P = json.load(f)
+        R = layout(Regions(c, a.regions), P, a.regions)
+        R.finish()
+        R.stats()
+        finish_layout(R, P)
+        R.save(a.out, detail)
+        print(json.dumps(R.check, indent=1))
+        print(json.dumps(politics(R, P, a.out, detail), indent=1, ensure_ascii=False))
+    else:
+        print("drawing regions", flush=True)
+        R = Regions(c, a.regions).run()
+        R.finish()
+        R.stats()
+        R.save(a.out, detail)
+        print(json.dumps(R.check, indent=1))
 
 
 if __name__ == "__main__":

@@ -99,6 +99,8 @@ the rewrite is in the list below.
 - **Great sects:** 7 in two tiers, with romantic Hán-Việt names (user request 2026-11-14): Thiên Xu Tông,
   Tùng Đào Cung, Lạc Hà Tông, Thính Vũ Lâu, Băng Tâm Các, Thúy Vi Tông, Phượng Minh Cung. This is a proposal
   awaiting approval; see the same README.
+- **Layout v3 (2026-11-14):** the user found the sect lands "a bit too long". Territories are now drawn first as
+  compact areas around each sect's start, then split into regions. Elongation is now 1.07–1.74 (it was up to 3.28).
 
 ## What this changes
 

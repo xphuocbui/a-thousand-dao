@@ -1,8 +1,7 @@
 {
  "great_sects": [
   {
-   "key": "central_range",
-   "working_name": "Central Range sect",
+   "key": "thien_xu",
    "name_hv": "Thiên Xu Tông",
    "name_han": "天樞宗",
    "gloss": "Sect of the Heavenly Pivot",
@@ -12,23 +11,24 @@
     "Earth"
    ],
    "regions": [
+    6,
     14,
-    13,
-    11
+    15
    ],
    "seat_region": 14,
    "seat_tile": [
-    378,
-    166
+    281,
+    182
    ],
-   "seat_elevation_km": 2.17,
-   "seat_lat": 39.0,
-   "tiles": 12969,
-   "land_share": 0.152
+   "seat_elevation_km": 2.07,
+   "seat_lat": 35.4,
+   "tiles": 13765,
+   "land_share": 0.161,
+   "elongation": 1.25,
+   "hull_fill": 0.89
   },
   {
-   "key": "northern_forest",
-   "working_name": "Northern Forest sect",
+   "key": "tung_dao",
    "name_hv": "Tùng Đào Cung",
    "name_han": "松濤宮",
    "gloss": "Palace of the Pine Waves",
@@ -38,51 +38,52 @@
     "Water"
    ],
    "regions": [
-    6,
-    7,
-    2
+    1,
+    4,
+    5
    ],
-   "seat_region": 6,
+   "seat_region": 4,
    "seat_tile": [
-    251,
-    136
+    236,
+    124
    ],
-   "seat_elevation_km": 0.98,
-   "seat_lat": 45.7,
-   "tiles": 16237,
-   "land_share": 0.19
+   "seat_elevation_km": 0.81,
+   "seat_lat": 48.4,
+   "tiles": 13963,
+   "land_share": 0.163,
+   "elongation": 1.69,
+   "hull_fill": 0.74
   },
   {
-   "key": "southern_peaks",
-   "working_name": "Southern Peaks sect",
+   "key": "lac_ha",
    "name_hv": "Lạc Hà Tông",
    "name_han": "落霞宗",
    "gloss": "Sect of the Drifting Sunset Clouds",
    "tier": 1,
    "leans": [
-    "Metal",
-    "Wood",
-    "Fire"
+    "Earth",
+    "Wood"
    ],
    "regions": [
-    18,
+    10,
+    11,
     12,
-    17,
-    9
+    13
    ],
-   "seat_region": 18,
+   "seat_region": 13,
    "seat_tile": [
-    318,
-    259
+    198,
+    205
    ],
-   "seat_elevation_km": 2.51,
-   "seat_lat": 18.3,
-   "tiles": 16587,
-   "land_share": 0.194
+   "seat_elevation_km": 0.25,
+   "seat_lat": 30.3,
+   "tiles": 15179,
+   "land_share": 0.178,
+   "elongation": 1.63,
+   "hull_fill": 0.54
   },
   {
-   "key": "storm_range",
-   "working_name": "Storm Range sect",
+   "key": "thinh_vu",
    "name_hv": "Thính Vũ Lâu",
    "name_han": "聽雨樓",
    "gloss": "Tower Where One Listens to the Rain",
@@ -93,22 +94,23 @@
     "Thunder"
    ],
    "regions": [
-    15,
+    18,
     19
    ],
-   "seat_region": 15,
+   "seat_region": 18,
    "seat_tile": [
-    341,
-    241
+    253,
+    249
    ],
-   "seat_elevation_km": 2.61,
-   "seat_lat": 22.3,
-   "tiles": 6358,
-   "land_share": 0.074
+   "seat_elevation_km": 2.19,
+   "seat_lat": 20.5,
+   "tiles": 10560,
+   "land_share": 0.124,
+   "elongation": 1.74,
+   "hull_fill": 0.8
   },
   {
-   "key": "northeast_ice",
-   "working_name": "North-east Ice sect",
+   "key": "bang_tam",
    "name_hv": "Băng Tâm Các",
    "name_han": "冰心閣",
    "gloss": "Pavilion of the Ice Heart",
@@ -118,49 +120,50 @@
     "Ice"
    ],
    "regions": [
-    3,
-    8
+    7,
+    8,
+    9
    ],
-   "seat_region": 3,
+   "seat_region": 8,
    "seat_tile": [
-    394,
-    135
+    455,
+    139
    ],
-   "seat_elevation_km": 2.56,
-   "seat_lat": 45.9,
-   "tiles": 9384,
-   "land_share": 0.11
+   "seat_elevation_km": 0.91,
+   "seat_lat": 45.0,
+   "tiles": 11147,
+   "land_share": 0.13,
+   "elongation": 1.2,
+   "hull_fill": 0.6
   },
   {
-   "key": "western_hills",
-   "working_name": "Western Hills sect",
+   "key": "thuy_vi",
    "name_hv": "Thúy Vi Tông",
    "name_han": "翠微宗",
    "gloss": "Sect of the Emerald Haze",
    "tier": 2,
    "leans": [
-    "Earth",
-    "Wood"
+    "Wood",
+    "Earth"
    ],
    "regions": [
-    4,
-    5,
-    1,
-    10
+    2,
+    3
    ],
-   "seat_region": 4,
+   "seat_region": 3,
    "seat_tile": [
-    129,
-    106
+    147,
+    95
    ],
-   "seat_elevation_km": 1.05,
-   "seat_lat": 52.4,
-   "tiles": 13305,
-   "land_share": 0.156
+   "seat_elevation_km": 1.54,
+   "seat_lat": 54.8,
+   "tiles": 9898,
+   "land_share": 0.116,
+   "elongation": 1.54,
+   "hull_fill": 0.47
   },
   {
-   "key": "phoenix_coast",
-   "working_name": "Volcano Coast sect",
+   "key": "phuong_minh",
    "name_hv": "Phượng Minh Cung",
    "name_han": "鳳鳴宮",
    "gloss": "Palace of the Phoenix's Call",
@@ -170,18 +173,21 @@
     "Wood"
    ],
    "regions": [
-    20,
-    16
+    16,
+    17,
+    20
    ],
-   "seat_region": 20,
+   "seat_region": 16,
    "seat_tile": [
-    413,
-    297
+    369,
+    250
    ],
-   "seat_elevation_km": 0.31,
-   "seat_lat": 9.8,
-   "tiles": 10585,
-   "land_share": 0.124
+   "seat_elevation_km": 1.68,
+   "seat_lat": 20.3,
+   "tiles": 10913,
+   "land_share": 0.128,
+   "elongation": 1.07,
+   "hull_fill": 0.5
   }
  ],
  "wild_regions": [],
