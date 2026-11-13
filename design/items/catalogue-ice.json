@@ -307,7 +307,7 @@
     "id": "ice-tide-frost-ward",
     "name": "Hoarfrost Tide (Sương Triều Tráo)",
     "payload": "all 75 points",
-    "payment": "per hit 0.03375",
+    "payment": "per hit 0.0075",
     "activation": "standing",
     "check_from": "Surging Tide (Triều Thủy Tráo)",
     "notes": "The starter ward at 1.25 times its payload and its per-hit payment, so the price check is unchanged (2.935 of 3.050)"

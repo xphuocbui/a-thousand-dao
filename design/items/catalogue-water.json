@@ -233,7 +233,7 @@
     "id": "water-rolling-tide-ward",
     "name": "Rolling Tide Ward (Cuồn Triều Tráo)",
     "payload": "all 90 points",
-    "payment": "per hit 0.0405",
+    "payment": "per hit 0.009",
     "activation": "standing",
     "check_from": "Surging Tide (Triều Thủy Tráo)",
     "notes": "The starter ward at 1.5 times its payload and its per-hit payment, so the price check is unchanged (2.935 of 3.050)"

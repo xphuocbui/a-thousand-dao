@@ -162,6 +162,11 @@ looks like a strong build.
   Evade payloads (`"evade +14.4 pp"`) run while the ward is up (2026-11-13); status, soul and cleanse payloads are not
   run (listed).
 
+- **Layer budget** (user decision 2026-11-13): a build file's `layers` may claim at most a share of the gap between the
+  typical and the top-end enemy's layers, summed over L1–L5: 10 / 10 / 17 / 23 / 30 % from Qi Refining to Deity
+  Transformation. A build at its budget beats a typical same-realm enemy in about 10–20 s. `fight.py` prints the claimed
+  share on every run and `OVER_BUDGET` above it. This is a flag, not a refusal; a guide that claims more says which
+  pieces put it there.
 - **Named Effects from the library** (2026-11-13): `tools/design/combat_sim/effects_library.json` holds an engine form
   of every Effect the item catalogue names (its rule text beside it). A worn item's Effect is added from it unless the
   build file writes its own `"eff:<English name>"` records, which win. An entry may also fold lines into the build

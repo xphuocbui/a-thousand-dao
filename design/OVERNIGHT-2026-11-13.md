@@ -302,11 +302,15 @@ balance.** The one change is a rule-conformance fix (below).
 8. **Fan the Pyre's closing** is 8 % (was 15). Measured afterwards, it is still a small loss for the two consume builds
    (7–9 % slower; was 10–12 %); it gains for pure Burn tickers.
 9. **The 35 Effects** are in `effects.md`, approved as drafted.
-10. **Being done now:**
-    - per-hit wards repriced to about a quarter (Combat Defence & Healing Formulas H);
-    - a per-realm layer budget drafted for your approval;
-    - the player's edge diagnosed before any tuning;
-    - three commits.
+10. **Per-hit wards** repriced: Formulas F α_m per hit 4.5; Golden Bell 0.0078, Surging Tide 0.0058, the 6 catalogue
+    bells ÷4.5. A typical cultivator with a Golden Bell now breaks even (was 0–40).
+11. **Layer budget** for build files: 10 / 10 / 17 / 23 / 30 % of the typical-to-top-end gap by realm. `fight.py` prints
+    the claimed share and flags OVER_BUDGET; 14 of 38 builds are over.
+12. **The player's edge.** My first diagnosis (a cap) was wrong; the edge was just small. Fix: a protagonist
+    breakthrough bonus per gate, outside the cap (`player.breakthrough_bonus_by_gate` 18 / 18 / 6 / 4).
+    - Autoplay, 36 edge lives: 69 % / 70 % / 38 % / 0 % against 0.70 / 0.70 / 0.30 / 0.20.
+    - The first two gates are on target; the last two rest on 16 and 6 arrivals, inside the noise.
+13. **Three commits** (b897e7b, 4a778ba, d569b0a). The bells, budget and edge work came after them.
 
 **Found while applying these:** the Effect **Open Sky** (already in `effects.md`) reads "thần thức not bound to
 artifacts". Nothing binds thần thức any more, so its read needs a new meaning. For you to decide.

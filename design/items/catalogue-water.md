@@ -67,7 +67,7 @@
 
 **Build use.** The Crushing Tide: a stronger per-hit ward for a build that takes few, heavy hits while it saves for its wave.
 
-**Ward: Rolling Tide Ward (Cuồn Triều Tráo)**: all 90 points; per hit 0.0405; standing. Price check from Surging Tide (Triều Thủy Tráo). The starter ward at 1.5 times its payload and its per-hit payment, so the price check is unchanged (2.935 of 3.050)
+**Ward: Rolling Tide Ward (Cuồn Triều Tráo)**: all 90 points; per hit 0.009; standing. Price check from Surging Tide (Triều Thủy Tráo). The starter ward at 1.5 times its payload and its per-hit payment, so the price check is unchanged (2.935 of 3.050)
 
 **Modifiers:** +10 % ward strength · 10.0 W; +8 % maximum linh lực · 8.0 W; +6 % maximum health (khí huyết) · 3.6 W; +3 % ward efficiency · 3.0 W
 

@@ -55,7 +55,7 @@
 
 **Build use.** Boss fighters and Diamond Body builds: a stronger Golden Bell for slow heavy hits, with block that stacks beside it.
 
-**Ward: Bronze Peal (Đồng Chung Âm)**: all 120 points; per hit 0.042; standing. Price check from Golden Bell (Kim Chung Tráo). The starter bell at 1.2 times its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)
+**Ward: Bronze Peal (Đồng Chung Âm)**: all 120 points; per hit 0.0093; standing. Price check from Golden Bell (Kim Chung Tráo). The starter bell at 1.2 times its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)
 
 **Modifiers:** +10 % ward strength · 10.0 W; +12 % maximum health (khí huyết) · 7.2 W; +100 points resistance, all [physical] · 3.2 W; +12 block · 4.8 W
 

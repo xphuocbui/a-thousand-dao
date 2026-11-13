@@ -505,7 +505,7 @@
     "id": "force-chaos-hollow-bell-ward",
     "name": "Muffled Bell (Muộn Chung Tráo)",
     "payload": "all 130 points",
-    "payment": "per hit 0.0455",
+    "payment": "per hit 0.0101",
     "activation": "standing",
     "check_from": "Golden Bell (Kim Chung Tráo)",
     "notes": "The starter bell at 1.3 of its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)"

@@ -23,6 +23,7 @@
     "perk_choices": 3,
     "starting_items": [{"talisman": "pha_canh", "qty": 2}],
     "co_duyen_bottleneck_event_bonus": 0.25,
+    "breakthrough_bonus_by_gate": [18, 18, 6, 4],
     "co_duyen_per_realm": [3, 3, 2, 2, 2]
   },
   "npc": {

@@ -772,13 +772,13 @@ The ward_price formula is defined as:
 | reserve_weight | float | 1.5 | data file | User decision 2026-11-07: stronger auras. Each reserved point counts 1.5 paid points, since it is held all fight |
 | ε_0 | float | 3.05 (was 0.61) | data file, anchored to the Common Ward (1 / 0.328) | Prevented points per linh lực point; ×5 with the drain cut (#44) |
 | β_w | float | 1.0 / 1.25 / 1.5 / 2.0 / 2.5 | Modifier System Formulas B | Narrower scopes buy more |
-| α_m | float | drain 1.0, reserved 1.0, per hit 1.0, cast 1.25 | data file | A cast ward is Waiting until its first firing and Expired between firings |
+| α_m | float | drain 1.0, reserved 1.0, per hit 4.5, cast 1.25 | data file | A cast ward is Waiting until its first firing and Expired between firings. Per hit was 1.0 (2026-11-13, user decision: the typical enemy lands 1.6 hits a second, not the 1 the stream assumes, and in fights linh lực, not health, decides the winner; measured, a typical cultivator with the old Golden Bell lost 40 of 40 to a typical one, and at α 4.5 it breaks even at every realm) |
 | I, T_ref | float | Qi Refining 36.5 per second; 45 s | Combat Formulas K typical offence; the typical mirror (#44: 30–60 s) | Per realm from the anchors |
 | σ max | float | 0.50 | data file | Largest shield one ward may carry. `ward_resist_max` is retired (user decision 2026-11-10): a ward's resistance is bounded only by this price check |
 
 **Output Range:** a pass or fail lint; the margin is V / (ε_0 · β · α · C).
 
-**How the payments trade off.** All payments are equal against the standard stream. Away from it, each
+**How the payments trade off.** All payments are equal against the standard stream, per-hit wards after their α_m of 4.5, which makes up for a real stream being faster than one hit a second. Away from it, each
 wins somewhere different:
 - **Per hit** is 3 × better against one 3I hit every 3 s, and 4 × worse against three small hits plus a
   tick per second.
@@ -801,8 +801,8 @@ ward, so the lone price is exact for it; every later ward adds points on top, an
 cap. The flat per-point prices in Formulas I (`resist_pct` 0.04 W, penetration 0.1 W) are set at the typical 448
 points and carry the same bias, also intended.
 
-**Example:** Golden Bell (per hit 0.035, r 0.50): V = 0.50 × 36.5 × 45 = 821.2, C = 45 × 0.035 × 172.74 = 272.1, ratio
-3.019 ≤ 3.05, so it **passes**.
+**Example:** Golden Bell (per hit 0.0078, r 0.50): V = 0.50 × 36.5 × 45 = 821.2, C = 45 × 0.0078 × 172.74 = 60.6, ratio V / C = 13.54 against ε_0 · β · α_m = 3.05 × 1 × 4.5 = 13.73, so it **passes** (before 2026-11-13: φ 0.035, C 272.1, ratio
+3.019 ≤ 3.05).
 
 ### G. Effective health
 
@@ -862,8 +862,8 @@ to keep their pre-#44 margins; shield wards and Clear Heart Ward re-priced 2026-
 | Qi-Scattering Robe (Tán Khí Bào) | Force 220 points | drain 0.264, standing | 3.788 / 3.813 | Thể tu covering their Force weakness with idle linh lực |
 | Flame-Quelling Aura (Trấn Hỏa Quang) | Fire 50.9 points | reserved 0.49 | 4.366 / 4.575 | The sword cultivator under a Fire aura |
 | Still Lake Aura (Tĩnh Hồ Quang) | all 50.9 points | reserved 0.71 | 3.013 / 3.050 | Long fights, tribulation, art-light builds |
-| Golden Bell (Kim Chung Tráo) | all 100 points | per hit 0.035, standing | 3.019 / 3.050 | Boss fighters, anyone facing slow heavy hits |
-| Surging Tide (Triều Thủy Tráo) | all 60 points | per hit 0.027, standing (was upkeep) | 2.935 / 3.050 | A lighter bell for builds that take few, heavy hits |
+| Golden Bell (Kim Chung Tráo) | all 100 points | per hit 0.0078, standing (was 0.035; α_m 4.5, 2026-11-13) | 13.54 / 13.73 | Boss fighters, anyone facing slow heavy hits |
+| Surging Tide (Triều Thủy Tráo) | all 60 points | per hit 0.0058, standing (was 0.027, and upkeep before that; priced to the bar 2026-11-13) | 13.66 / 13.73 | A lighter bell for builds that take few, heavy hits |
 | Mountain Screen (Sơn Hà Bình Chướng) | shield σ 0.27 | reserved 0.060, standing (was 0.30) | 3.000 / 3.050 | Formation masters; fights against slow hitters |
 | Thousand-Layer Cloud (Thiên Tầng Vân) | shield σ 0.20 | reserved 0.044, standing (was 0.20) | 3.031 / 3.050 | Layered-shield builds |
 | Golden Light Shield (Kim Quang Thuẫn) | shield σ 0.09 | cast 0.024, cooldown 4 s, up 3 s (was 0.12) | 3.750 / 3.813 | Art-speed builds, talisman users |
@@ -1119,7 +1119,7 @@ design estimates until the balance harness confirms them.
 | `defence_layer_caps` | 300 / 250 / 150 / 100 | move only with Combat `layer_caps` | Caps on the ward and body layers W2–W5, B2–B5; on par with offence | A0 |
 | `layer_gear_scale` | 0.47 | 0.40–0.55 | Layer points from artifact defence (W3 from a_w, B3 from a_b); typical ward gear +40 | A0 |
 | `w_ref` | 2.587 | derived: the typical anchor's M_w; rederive if the typical layers move | Keeps the typical ws equal to `ws_base` (30.8) | A0 |
-| α_m | drain 1.0, reserved 1.0, per hit 1.0, cast 1.25 | ±0.10 each | How the price check rates each payment model | F |
+| α_m | drain 1.0, reserved 1.0, per hit 4.5, cast 1.25 | ±0.10 each; per hit 4.0–5.0 | How the price check rates each payment model; per hit 4.5 since 2026-11-13 (bells break even with a typical cultivator) | F |
 | `T_ref` | 45 s | 30–60 s | Length of the price check's standard stream (#44) | F |
 | `soul_shield_share_max` | 0.75 | 0.50–0.90 | Most of a soul hit's loss a soul shield can take | B, rule 14 |
 | `avoid_budget` | 2 per pulse | 1–3 | How many hits a side may avoid each pulse (R6, 2026-11-11) | rule 1 |
@@ -1178,7 +1178,7 @@ design estimates until the balance harness confirms them.
 
 - **AC-CD-19** [Logic] Reserved. **GIVEN** Still Lake ρ 0.71 on FX-T, **THEN** the reserved share is 0.6153 and usable linh lực is 66.4. **GIVEN** res_eff 80 and we 400, **THEN** the share is 0.1183.
 - **AC-CD-20** Retired (#44 item C2): upkeep wards were removed; Surging Tide is now per hit (Formulas H).
-- **AC-CD-21** [Logic] Per hit. **GIVEN** Golden Bell φ 0.035 on FX-T, **THEN** it costs 4.62 per hit, one fee covering all of the hit's parts. **GIVEN** a pool of 4, **THEN** that hit gets no Golden Bell resistance, and the next hit it can afford does.
+- **AC-CD-21** [Logic] Per hit. **GIVEN** Golden Bell φ 0.0078 on FX-T, **THEN** it costs 1.03 per hit, one fee covering all of the hit's parts (and one per tick). **GIVEN** a pool of 1, **THEN** that hit gets no Golden Bell resistance, and the next hit it can afford does.
 - **AC-CD-22** [Logic] Drain. **GIVEN** FX-T with the Common Ward and D 41.3, **THEN** 7.54 gets through resistance, the bill is 6.47, and 6.59 is dealt after block (7.54 − 0.946). **GIVEN** a pool of 5, **THEN** 5 is billed and the unpaid share of the prevented damage leaks. **GIVEN** two drain wards with a pool short of their total bill, **THEN** each pays the same fraction of its bill (pool 15, bills 20 and 10: 10 and 5), and the same share of the total prevented damage leaks.
 - **AC-CD-23** [Logic] Cast. **GIVEN** Golden Light Shield κ 0.024 at we 0, **THEN** each firing costs 4.15, and its shield fills to 15.55 at ws 0.
 - **AC-CD-24** [Logic] Regression: strength can lose a fight. **GIVEN** the Common Ward at we 30.8 and D 41.3, **FOR** ws in {−90, −50, 0, 30.8, 50, 100, 200, 400}, **THEN** the drain bill strictly falls: 26.42, 13.08, 8.02, 6.47, 5.78, 4.52, 3.15 and 1.96 (±0.01). **FOR** each of the four models, **THEN** total payment at a higher ws is never greater than at a lower one.

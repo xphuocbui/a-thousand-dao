@@ -220,7 +220,10 @@ func sync_player() -> void:
 
 ## Fresh stat sheet for the player.
 func sheet() -> StatSheet:
-	return StatSheet.build(player, gd, db, tree)
+	var sh := StatSheet.build(player, gd, db, tree)
+	if edge:
+		ProgressionEdges.add_protagonist_mods(player, gd, sh)
+	return sh
 
 
 ## "Năm 312, Thu" style clock label.

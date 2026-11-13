@@ -141,7 +141,7 @@
     "id": "metal-bronze-peal",
     "name": "Bronze Peal (Đồng Chung Âm)",
     "payload": "all 120 points",
-    "payment": "per hit 0.042",
+    "payment": "per hit 0.0093",
     "activation": "standing",
     "check_from": "Golden Bell (Kim Chung Tráo)",
     "notes": "The starter bell at 1.2 times its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)"

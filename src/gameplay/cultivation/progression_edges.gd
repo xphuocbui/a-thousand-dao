@@ -59,6 +59,15 @@ static func add_perk_mods(c: Character, gd: GameData, sheet: StatSheet) -> void:
 			sheet.add_mod("Thiên mệnh: %s" % p.name, str(fx.stat), float(fx.value), StatSheet.KIND_PERK)
 
 
+## The protagonist's own breakthrough bonus (user decision 2026-11-13): a life with the edge gets
+## `player.breakthrough_bonus_by_gate[gate]` points on pill attempts at the gate out of its realm, as a Thiên mệnh line,
+## so it sits outside the extras ceiling like the destiny perk.
+static func add_protagonist_mods(c: Character, gd: GameData, sheet: StatSheet) -> void:
+	var by_gate: Array = config(gd).player.get("breakthrough_bonus_by_gate", [])
+	if c.realm_index < by_gate.size() and float(by_gate[c.realm_index]) != 0.0:
+		sheet.add_mod("Thiên mệnh: nhân vật chính", "breakthrough_chance", float(by_gate[c.realm_index]), StatSheet.KIND_PERK)
+
+
 ## Fortuitous encounters a life with the edge may receive in [param realm_index].
 static func co_duyen_limit(gd: GameData, realm_index: int) -> int:
 	var per: Array = config(gd).player.co_duyen_per_realm

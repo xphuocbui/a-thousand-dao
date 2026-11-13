@@ -77,7 +77,7 @@
 
 **Build use.** The Frozen Treasury and The Ice Physician: a light ward for slow fights where the foe's few heavy hits matter and linh lực is kept for arts.
 
-**Ward: Hoarfrost Tide (Sương Triều Tráo)**: all 75 points; per hit 0.03375; standing. Price check from Surging Tide (Triều Thủy Tráo). The starter ward at 1.25 times its payload and its per-hit payment, so the price check is unchanged (2.935 of 3.050)
+**Ward: Hoarfrost Tide (Sương Triều Tráo)**: all 75 points; per hit 0.0075; standing. Price check from Surging Tide (Triều Thủy Tráo). The starter ward at 1.25 times its payload and its per-hit payment, so the price check is unchanged (2.935 of 3.050)
 
 **Modifiers:** +10 % ward strength · 10.0 W; +6 % maximum health (khí huyết) · 3.6 W; +5 % ward efficiency · 5.0 W; +10 % status resistance · 4.0 W; +4 % healing · 2.0 W
 

@@ -637,6 +637,18 @@ def t_elem_type_scope():   # an "elem" art meets type-scoped filters as its elem
     check("a Physical filter does not match an elem art", not E.match({"dtype": "phys"}, {"dtype": "elem", "element": "metal"}))
 
 
+def t_layer_budget():      # fight.py layer budget (user decision 2026-11-13)
+    import fight as F
+    import io
+    import contextlib
+    for r in range(5):
+        with contextlib.redirect_stdout(io.StringIO()):
+            typ = F.layer_budget({"layers": F.enemy_file("typical", r)["layers"]}, r)
+            top = F.layer_budget({"layers": F.enemy_file("top_end", r)["layers"]}, r)
+        check("layer budget %s: typical claims 0 %%, top-end 100 %%" % F.REALMS[r], abs(typ) < 1e-9 and abs(top - 1) < 1e-9,
+              "%s %s" % (typ, top))
+
+
 def main():
     for name, fn in sorted(globals().items()):
         if name.startswith("t_"):

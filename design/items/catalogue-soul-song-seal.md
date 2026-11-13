@@ -52,7 +52,7 @@
 
 **Build use.** Anyone facing soul builds or slow heavy hitters: soul resistance on top of a bell ward.
 
-**Ward: Muffled Bell Ward (Ám Chung Tráo)**: all 120 points; per hit 0.042; standing. Price check from Golden Bell (Kim Chung Tráo). The starter bell at 1.2 times its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)
+**Ward: Muffled Bell Ward (Ám Chung Tráo)**: all 120 points; per hit 0.0093; standing. Price check from Golden Bell (Kim Chung Tráo). The starter bell at 1.2 times its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)
 
 **Modifiers:** +20 % soul resistance · 12.0 W; +5 % ward strength · 5.0 W; +5 % maximum health (khí huyết) · 3.0 W; +1 % thần thức · 1.3 W
 

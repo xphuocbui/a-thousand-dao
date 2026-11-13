@@ -19,7 +19,7 @@ The first two rows hold at the first two gates. Since 2026-11-05 the last two ar
 
 Measured with `tools/balance/autoplay.gd` (`--edge off` = baseline, `--edge on` = player).
 
-## The player's edge (three parts, all in character_edges.json)
+## The player's edge (four parts, all in character_edges.json)
 
 1. **Destiny perk (thiên mệnh), the birth perk.** Fated birth (Thiên Định): three perks are rolled, the player picks one.
    Self-made birth (Tự Định): any one. Perks are ordinary stat modifiers on the sheet (source "Thiên mệnh: …",
@@ -44,7 +44,16 @@ Measured with `tools/balance/autoplay.gd` (`--edge off` = baseline, `--edge on` 
    At most `co_duyen_per_realm` such gifts per realm; the validator enforces it for LLM
    events too.
 
-A life created with `edge: false` (balance baseline) gets none of the three.
+4. **The protagonist's breakthrough bonus** (user decision 2026-11-13). Every life with the edge gets
+   `player.breakthrough_bonus_by_gate` points on pill attempts at the gate out of its realm (18 / 18 / 6 / 4; autoplay
+   2026-11-13, 36 edge lives: 69 % / 70 % / 38 % / 0 %, targets 0.70 / 0.70 / 0.30 / 0.20; the last two gates rest on
+   16 and 6 arrivals, inside the noise, so the values stand until a longer run). It is a Thiên mệnh line, so like the
+   destiny perk it sits outside the extras ceiling (`q_extras_ceiling_pp`), and perks and talismans stack on it.
+   Why (diagnosis 2026-11-13): the other three parts added only about 2–3 points an attempt on average, because only 2
+   of the 8 perks touch breakthroughs and one talisman counts per gate, while a life makes only 2–4 pill attempts at the
+   first gate. Edge-on and edge-off autoplay crossed it at the same rate (about 44 %).
+
+A life created with `edge: false` (balance baseline) gets none of the four.
 
 ## NPC edges
 

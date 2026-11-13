@@ -64,7 +64,7 @@
 
 **Build use.** The Thunderclap: a bell for the boss fighter facing slow heavy hits, with lightning resistance and crit chance on the side.
 
-**Ward: Thunderclap Toll (Lôi Minh Tráo)**: all 140 points; per hit 0.049; standing. Price check from Golden Bell (Kim Chung Tráo). The starter bell at 1.4 times its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)
+**Ward: Thunderclap Toll (Lôi Minh Tráo)**: all 140 points; per hit 0.0109; standing. Price check from Golden Bell (Kim Chung Tráo). The starter bell at 1.4 times its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)
 
 **Modifiers:** +150 points resistance, all [lightning] · 4.0 W; +10 % maximum health (khí huyết) · 6.0 W; +10 % ward strength · 10.0 W; +3 % crit chance [lightning] · 2.0 W; +5 % art speed [lightning] · 2.0 W
 

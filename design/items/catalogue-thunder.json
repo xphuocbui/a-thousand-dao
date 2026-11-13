@@ -277,7 +277,7 @@
     "id": "thunderclap-toll",
     "name": "Thunderclap Toll (Lôi Minh Tráo)",
     "payload": "all 140 points",
-    "payment": "per hit 0.049",
+    "payment": "per hit 0.0109",
     "activation": "standing",
     "check_from": "Golden Bell (Kim Chung Tráo)",
     "notes": "The starter bell at 1.4 times its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)"

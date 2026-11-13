@@ -781,6 +781,27 @@ def enemy_file(kind, r):
     raise BadInput("enemy must be typical, top_end or top_end_the_tu")
 
 
+# Build-file layer budget (user decision 2026-11-13): the share of the gap between the typical and the top-end layers a
+# designed build may claim, rising with realm. A build at the budget beats a typical same-realm enemy in about 10-20 s.
+LAYER_BUDGET = [0.10, 0.10, 0.17, 0.23, 0.30]
+
+
+def layer_budget(d, r):
+    """Prints the build's claimed share of the typical-to-top-end layer gap, and OVER_BUDGET past the realm's budget.
+    An observation, not a refusal: a guide may justify a claim above it."""
+    lay = d.get("layers")
+    if not lay:
+        return None
+    typ, top = enemy_file("typical", r)["layers"], enemy_file("top_end", r)["layers"]
+    gap = sum(max(0.0, top[i] - typ[i]) for i in range(5))
+    claim = sum(max(0.0, float(lay[i]) - typ[i]) for i in range(min(5, len(lay))))
+    share = claim / gap if gap > 0 else 0.0
+    tag = "OVER_BUDGET" if share > LAYER_BUDGET[r] + 1e-9 else "layer_budget"
+    print("%s	layers claim %.0f %% of the typical-to-top-end gap; the %s budget is %.0f %% (FIGHT-INPUT.md)"
+          % (tag, 100 * share, REALMS[r], 100 * LAYER_BUDGET[r]))
+    return share
+
+
 def x1_for(L1):
     """The x1 that gives layer L1, through the soft knee (Combat Formulas B)."""
     start, slope = C["l1_soft"]
@@ -1029,6 +1050,7 @@ def main():
             print("NOT_ASSESSED\tconstants drifted: results below are observations from out-of-date values")
         d = expand_library(d)
         r = realm_index(d.get("realm", "luyen_khi"))
+        layer_budget(d, r)
         build, notes, base = run_all(d, r, args)
         if args.without:
             print("without\t%s" % args.without)

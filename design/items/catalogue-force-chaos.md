@@ -104,7 +104,7 @@
 
 **Build use.** Boss fighters in the Chaos and Darkness builds (the Shadow Bargain, the Hundred Arts Sage): a heavier bell against slow hits, with the status resistance they need against cleansing and curse foes.
 
-**Ward: Muffled Bell (Muộn Chung Tráo)**: all 130 points; per hit 0.0455; standing. Price check from Golden Bell (Kim Chung Tráo). The starter bell at 1.3 of its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)
+**Ward: Muffled Bell (Muộn Chung Tráo)**: all 130 points; per hit 0.0101; standing. Price check from Golden Bell (Kim Chung Tráo). The starter bell at 1.3 of its payload and its per-hit payment, so the price check is unchanged (3.019 of 3.050)
 
 **Modifiers:** +8 % thần thức · 10.4 W; +8 % ward strength · 8.0 W; +14 % maximum health (khí huyết) · 8.4 W; +20 % status resistance · 8.0 W
 
