@@ -1,6 +1,6 @@
 # Travel & Map (Bản Đồ & Hành Trình)
 
-> **Status**: Designed (pending review; design-system 2026-11-10, lean mode: CD-GDD-ALIGN skipped, specialists consulted for Formulas and Acceptance Criteria; **revised 2026-11-13** for the fixed world, terrain-driven qi and the uncapped match: `design/research/fixed-world-decisions.md`)
+> **Status**: Designed (pending review; design-system 2026-11-10, lean mode: CD-GDD-ALIGN skipped, specialists consulted for Formulas and Acceptance Criteria; **revised 2026-11-13** for the fixed world, terrain-driven qi and the uncapped match: `design/research/fixed-world-decisions.md`; **revised again 2026-11-13** for mixed tiles on a fine map and 25 km tiles: `design/research/map-making-rules.md` section L)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-13
 > **Last Verified**: 2026-11-10
@@ -8,8 +8,9 @@
 
 ## Summary
 
-Travel & Map is the one fixed continent the cultivator lives in, the same in every game: seas and islands on a tile
-grid, twenty biomes, about 20 regions and 150–250 places, each with its own qi density and element shares. The qi follows
+Travel & Map is the one fixed continent the cultivator lives in, the same in every game: seas and islands on a grid
+of 25 km tiles, each a natural mix of up to three of nineteen biomes, about 20 regions and 150–250 places, each with
+its own qi density and element shares. The qi follows
 the terrain: the heart of a jungle is richer in Wood than its edge, and the ground beside a lava flow is the most fiery.
 Where you live and
 travel matters to your build: matching ground cultivates faster, herbs grow only where they fit, and four layers (the
@@ -21,9 +22,11 @@ travel, discovery by clues, resource sites and the seasonal production contract 
 ## Overview
 
 Travel & Map is the world the cultivator lives in and moves through. It is one authored continent, the same in every
-game, with its coasts, seas and island chains (user decision 2026-11-12). The land is painted as index images on a grid
-of tiles: biome, elevation, temperature, rainfall, and special features such as lava flows, ice fields and rivers. From
-these the map build computes the land's spiritual qi: the density (linh khí) and how much of each element (and variant)
+game, with its coasts, seas and island chains (user decision 2026-11-12). The land is stored as index images: a fine
+map of cells about 6 km across (biome, elevation, water) under a grid of 25 km tiles (temperature, rainfall, and special
+features such as lava flows, ice fields and ore veins). Each tile holds a natural mix of up to three biomes, read from
+its cells, so a tile can be part steppe, part foothills with a river through it, and biomes change gradually where they
+meet (user decision 2026-11-13). From these the map build computes the land's spiritual qi: the density (linh khí) and how much of each element (and variant)
 the ground holds. The qi follows the terrain. The heart of a biome is purer than its edge, and features such as a lava
 flow or an ice field push their element outward. On top of that terrain sit about 20 regions and 150–250 named places
 (towns, markets, mountains, valleys, lakes, islands, spirit veins, mines, sect seats), the same sects and starting
@@ -54,12 +57,17 @@ names rather than a place.
 **The land**
 
 1. **One fixed world.** The continent is authored once and is the same in every game (user decision 2026-11-12;
-   `design/research/fixed-world-decisions.md`). It is a grid of tiles (the size is a data value, about 120 × 80) holding
-   one continent, its coasts, the seas and island chains. The land comes from authored index images, one pixel per
-   tile: biome, elevation, temperature, rainfall, and a feature layer (rule 4) in which the rivers are also painted.
-   When the map is built, rules 2–4 are computed once from these images and stored with the map. A designer can
-   correct any tile by hand, and the correction is stored like any other value. A save stores the changes, not the land.
-2. **Twenty biomes.** Each biome has a base element profile, a base density, a base danger, its climate and, for most
+   `design/research/fixed-world-decisions.md`). It is a grid of tiles holding one continent, its coasts, the seas and
+   island chains: 540 × 360 tiles of about 25 km, covering about 13,300 × 8,900 km (user decision 2026-11-13; the size
+   is a data value). Under the tiles lies a **fine map** `fine_factor` (4) times finer, 2,160 × 1,440 cells of about
+   6 km, so each tile holds 16 cells (user decision 2026-11-13). The land comes from authored index images:
+   - per fine cell: biome, elevation, and water (sea, lake, river);
+   - per tile: temperature, rainfall, and a feature layer (rule 4).
+
+   When the map is built, each tile's mix (rule 2) and rules 3–4 are computed once from these images and stored with
+   the map. A designer can correct any cell or tile by hand, and the correction is stored like any other value. A save
+   stores the changes, not the land.
+2. **Nineteen biomes.** Each biome has a base element profile, a base density, a base danger, its climate and, for most
    biomes, a **signature element**: the element its heart is purest in. Biomes whose character comes from a feature
    (volcano, glacier, miasma wasteland) are mild at their base and take their peaks from features (rule 4). A volcano
    is Fire 45, Earth 40, Metal 15, and its lava flows make the fiery ground. The profiles are first guesses, kept in
@@ -84,19 +92,30 @@ names rather than a place.
    | Tundra | đồng băng | Water, Earth | Water |
    | Glacier | băng nguyên | Water (mild; ice fields make the Ice) | — |
    | Miasma wasteland | tử địa | Earth; low density, high danger (its source makes the Darkness) | — |
-   | Coast | bờ biển | Water, Earth | — |
-   | Lake and river valley | thung lũng sông hồ | Water, Wood (rivers and shores do the rest) | — |
+   | Lake | hồ | Water, Wood (shores do the rest) | — |
    | Sea | biển | Water | — |
 
+   Coast and Lake-and-river-valley are no longer biomes (user decision 2026-11-13): a tile that is part sea is a coast,
+   and a river is a line through the tiles (rule 4), so the mix does their job.
+
+   **A tile is a mix.** A tile's **mix** is the share of each biome among its 16 fine cells. A biome under 10 % of the
+   tile (`mix_share_min`) is folded away, at most three are kept (`mix_parts_max`), and the kept shares are scaled back
+   to 100 in whole percents. Each kept biome is a **part** of the tile; the cells of a folded biome count with the
+   largest part. The **main biome** is the largest part and names the tile; a tile is **sea** when sea covers half of it
+   or more. So a tile can read *Steppe 55 · Highland 30 · Grassland 15, with a river*. Where biomes meet, the fine map
+   breaks one into groves, outcrops and clearings of the next, so border tiles are mixed and deep ones are pure (user
+   decision 2026-11-13: up to three biomes a tile, each at least 10 %).
+
 3. **Qi has two parts.** **Density** (linh khí) says how much qi the ground holds. The **element shares** say what
-   kind it is: five base shares summing to 100. A tile's qi is built in three steps (Formulas C):
-   - **Depth:** the heart of a biome is purer than its edge. A tile's depth is its distance in tiles to the nearest
-     tile whose biome has a different signature, or none. Jungle beside bamboo (both Wood) is therefore not an edge, while
-     jungle beside grassland is. The deeper the tile, the more its signature element is pushed up, until full depth
-     (about 5 tiles). In wild biomes, depth also raises density and danger: the deep jungle is richer and deadlier,
+   kind it is: five base shares summing to 100. Qi is built on the fine map, cell by cell, in three steps (Formulas C),
+   and each part of a tile reads the mean of its own cells:
+   - **Depth:** the heart of a biome is purer than its edge. A cell's depth is its distance to the nearest cell whose
+     biome has a different signature, or none. Jungle beside bamboo (both Wood) is therefore not an edge, while
+     jungle beside grassland is. The deeper the cell, the more its signature element is pushed up, until full depth
+     (about 550 km). In wild biomes, depth also raises density and danger: the deep jungle is richer and deadlier,
      and farther from any market.
-   - **Blending:** each tile's shares are averaged with its neighbours', so biomes fade into each other. An outer
-     jungle tile beside grassland carries some Earth.
+   - **Blending:** each cell's shares are averaged with those around it (about 220 km), so biomes fade into each
+     other. Outer jungle beside grassland carries some Earth.
    - **Features:** each feature pushes its elements, density and danger outward from its tiles, fading with distance
      (rule 4).
 
@@ -104,8 +123,9 @@ names rather than a place.
    element, so the shares say what kind of qi a tile has and density says how much (user decision 2026-11-13). The
    stat block shows each step's contribution as its own line (rule 7). Today's meaning of density is unchanged, so
    Realms' Core Formation rule still reads it (density at least `core_density_min` 1.4, about 18 % of places).
-4. **Features.** Special terrain is painted in the feature layer or read from elevation and rainfall. Each feature
-   pushes from its tiles with a set strength and reach, kept in data:
+4. **Features.** Special terrain is painted in the feature layer or read from elevation and rainfall; rivers and lake
+   shores come from the fine map. Each feature pushes from its tiles with a set strength and a reach in kilometres,
+   kept in data:
 
    | Feature | Source | Pushes |
    |---|---|---|
@@ -115,7 +135,7 @@ names rather than a place.
    | Snowline | elevation above a threshold | a little Ice |
    | Storm peaks | high elevation and high rainfall | Thunder |
    | High plateau | high and flat | Wind |
-   | River or lake shore | painted | Water; Wood on the banks |
+   | River or lake shore | the fine map's rivers and lakes | Water; Wood on the banks |
    | Ore vein (khoáng mạch) | painted | Metal |
    | Spirit vein (linh mạch) | painted | density |
    | Sacred summit | painted | Light |
@@ -134,31 +154,34 @@ names rather than a place.
 
 **Places**
 
-6. **Named places sit on tiles.** About 150–250 places across about 20 regions. A place reads its tile's terrain, and its
-   kind adds to it. The kinds:
+6. **Named places sit on tiles.** About 150–250 places across about 20 regions. A place sits in one part of its tile
+   (rule 2) and reads that part's terrain and qi, and its kind adds to it: a mountain place on a tile that is 30 % high
+   mountain sits in the mountain part. The kinds:
    - **settlements:** city (thành), town (trấn), market (phường thị), village (thôn);
    - **wild sites:** mountain (sơn), valley (cốc), lake (hồ), forest (lâm), island (đảo);
    - **special sites:** spirit vein, mine (khoáng mạch), sect seat, secret realm (bí cảnh), ruin (di tích) and cave
      abode (động phủ).
 
    A settlement lowers danger, and cities and markets have trade (towns and villages do not, as built).
-7. **Every place shows its stat block** (Pillar 2): biome; climate (temperature and rainfall); density; element shares
+7. **Every place shows its stat block** (Pillar 2): the tile's mix and the part the place sits in; climate (temperature and rainfall); density; element shares
    and any variant; danger; settlement size; resources and herb fit; owner (a sect, a kingdom or none); and features
    (river, coast, vein). Every value is stored, inspectable and recorded in the World Database.
 8. **A cave abode can be opened anywhere on land.** On a wilderness tile that holds no place, a cultivator may open a
    cave abode. It becomes a new place with that tile's terrain, owned by its founder and recorded as a fact. The
    cultivator's home (where their fields and formations sit) is one place at a time. An abode left behind stays on the
    map as a place others can find. The price is the tile's danger and its distance from markets, and opening one
-   takes one season and a small fee (Formulas M; user decision 2026-11-10). Who may object on owned land is for Sects (#26).
+   takes one season and a small fee (Formulas M; user decision 2026-11-10). On a mixed tile the cultivator picks the
+   part, and the abode reads that part. Who may object on owned land is for Sects (#26).
 
 **Moving**
 
 9. **Four kinds of route.** Roads join places. Rivers carry boats between river places. Sea lanes carry ships between
    ports (coastal settlements). The **wilderness** is everything else, crossed tile by tile.
-10. **Speed is tiles per season.** Each mode has a speed, slowed by terrain: road about 12, wilderness about 4 (less in
-    mountains, swamps and jungle), boats and ships faster along their lanes. **Flight** opens at Foundation
-    Establishment on a flying artifact. It ignores terrain and roads, and it is faster at higher realms (about 30 tiles
-    a season and up). It drains linh lực per tile, so a flier may arrive with a low pool. `travel_speed_pct` applies to
+10. **Speed is tiles per season.** Each mode has a speed, slowed by terrain: road about 54 tiles (about 1,300 km),
+    wilderness about 18 (less in mountains, swamps and jungle), boats and ships faster along their lanes. A mixed tile
+    slows by the share of each land part, and its water parts are walked around. **Flight** opens at Foundation
+    Establishment on a flying artifact. It ignores terrain and roads, and it is faster at higher realms (about 135
+    tiles a season and up). It drains linh lực per tile, so a flier may arrive with a low pool. `travel_speed_pct` applies to
     every mode. The numbers are in Formulas.
 11. **Teleport arrays** (truyền tống trận) join some great cities. Sects own them and charge a fee in linh thạch that
     grows with distance, and a jump takes 0.05 of a season. The owner decides who may use one (Sects #26). Capability
@@ -168,7 +191,10 @@ names rather than a place.
     over several seasons and ages the character like any other. An encounter can interrupt a trip.
 13. **Danger on the way.** Each stretch of travel can draw an encounter from the Event Engine. The chance depends on
     the tiles' danger and the mode: roads are safer, the wilderness is riskier, and flight avoids ground encounters but
-    not everything. The biome filters which events can happen (a sandstorm needs a desert).
+    not everything. The biome filters which events can happen (a sandstorm needs a desert). On a mixed tile the
+    encounter's biome is rolled by share, and a fight takes place on that part. A character who knows the tile's mix
+    may **keep to one part**: the crossing then costs that part's terrain and danger, and its biome sets the encounter
+    (user decision 2026-11-13).
 
 **Knowing and finding**
 
@@ -178,7 +204,9 @@ names rather than a place.
     as the character last heard of them, refreshed by a visit, news or a map (user decision 2026-11-13). The
     **zoomed-in map** is personal. A cultivator starts knowing their home region (set by their origin), the main roads
     (the roads between cities) and the great cities (every city). Tiles near their path become known as they travel, in
-    a wider band with more divine sense (thần thức), and places become known when visited or heard of. Bought maps, jade
+    a wider band with more divine sense (thần thức), and places become known when visited or heard of. A known tile
+    shows its main biome; its full mix shows once the character has crossed or stood on it, or read it on a map or
+    jade slip. Bought maps, jade
     slips (ngọc giản) and sect libraries add more. NPCs know their own region, kept abstract.
 15. **Hidden places are left by history, and their spots are rolled.** The world's authored history names the ruins,
     dead cultivators' cave abodes and secret realms it left behind (Pillar 5: a famous dead NPC's cave is really there).
@@ -203,13 +231,13 @@ names rather than a place.
     herbs, a density need. At a place, each condition gives a factor from 0 to 1, and the **fit** is their product.
     Growth runs at the fit, up to a small bonus (about ×1.2) on ideal ground. Below a floor (about 0.2) the herb can't
     be planted. The screen shows the number, a word (excellent, good, fair, poor, unplantable) and a line per factor,
-    so a poor fit says why. Spirit Fields read the fit of the field's place, and wild herb grounds appear where fit is
-    0.6 or more.
+    so a poor fit says why. Spirit Fields read the fit of the field's place (its part), and wild herb grounds appear in
+    parts where fit is 0.6 or more.
 19. **About ten resource kinds**, kept in data: linh thạch, the five element ores, wild herbs (by element), beast
     materials and a few special goods. Each maps to Item Database materials and herbs.
 20. **Resource sites** are places of the kinds mine (including linh thạch mines), spirit vein, herb ground and beast
     lair. A site has a **reserve**, a **base output** per season and a **recovery rate**. The land decides what a site
-    yields: an ore site yields its tile's top base element (a Fire ore vein sits on a volcano), and a linh thạch mine
+    yields: an ore site yields its part's top base element (a Fire ore vein sits on a volcano), and a linh thạch mine
     needs land density 1.0 or more and Earth + Metal shares of 50 or more.
 21. **Every place has a production value** per resource kind per season. It is the base output times five factors:
     - its reserve;
@@ -267,7 +295,7 @@ names rather than a place.
 
 28. **Blessed lands** (phúc địa) are places whose qi is far richer than their biome. History leaves them: the old home of
     a Hóa Thần who has left the world, a dragon's lair, the grounds of a vanished sect. They come in two sizes:
-    - **large:** 2–5 on the map, each 2–9 tiles;
+    - **large:** 2–5 on the map, each 40–180 tiles (about 25,000–110,000 km²);
     - **small:** 10–30 on the map, one tile each, room for one cultivator.
 
     Their element match adds to the land's, with no cap on the total (user decision 2026-11-13). Most lean strongly
@@ -390,7 +418,7 @@ place left by history, rule 15).
 | Meridian Map capabilities | in | #8 (seasons spent travelling also cultivate) and #21 (Blink Mark) | Meridian Map / Effects |
 | Debug Terminal, Game UI | out | The map display, stat blocks with each layer's line, the known map | UI |
 | Save/Load | out | The seed for the per-game rolls (hidden-place spots, reserves, NPCs) and every change (scars, reserves, ownership, homes, works, secrets known, known maps), not the terrain | Save/Load |
-| Map build and map check (new tool) | in | The index images and hand corrections, turned into the stored map (Formulas C); the map targets report | Map build (tool); this GDD (the rules it computes) |
+| Map build and map check (new tool) | in | The index images (fine map and tiles) and hand corrections, turned into the stored map (each tile's mix, rule 2; Formulas C); the map targets report | Map build (tool); this GDD (the rules it computes) |
 
 ## Formulas
 
@@ -438,7 +466,7 @@ player can search the whole world and NPCs only their region.
 - The root Wood 40, Fire 86, Water 10 on a volcano away from any flow (Fire 45, Earth 40, Metal 15):
   0.86 × 0.25 + 0.40 × (−0.2) + 0.10 × (−0.2) = 0.115, so M4 = **1.115**. On its lava flow (Fire 66): 0.86 × 0.456
   − 0.08 − 0.02 = 0.292, so M4 = **1.292**.
-- The same root in a lake valley (Water 60, Wood 40): 0.10 × 0.40 + 0.40 × 0.20 + 0.86 × (−0.2) = −0.052, so
+- The same root on a lake shore (Water 60, Wood 40): 0.10 × 0.40 + 0.40 × 0.20 + 0.86 × (−0.2) = −0.052, so
   M4 = **0.948**.
 - A pure Wood root in deep jungle (Wood 60): at purity 100, 1 + 1.0 × 0.40 = **1.40** (the old ceiling cut this to
   1.3); at purity 200, 1 + 2.0 × 0.40 = **1.80**.
@@ -482,12 +510,14 @@ which the old cap would have cut to 1.60.
 
 ### C. Land qi: depth, blending and features (rules 2–4)
 
-Computed once when the map is built, tile by tile, in this order. Distances are steps to any of the 8 neighbours.
+Computed once when the map is built, cell by cell on the fine map (rule 1), in this order. Distances are steps to any
+of the 8 neighbours. Every distance key is kept in kilometres and turned into steps by the cell size (`cell_km`, about
+6.17 km on the shipped map), so the grid can change size without retuning.
 
 The depth formula is defined as:
 
-`t_i = clamp((d_i − 1) / (d_full − 1), 0, 1)`, where `d_i` is the distance from tile i to the nearest tile whose biome
-has a different signature, or none. An edge tile has `d_i` = 1.
+`t_i = clamp((d_i − 1) / (d_full − 1), 0, 1)`, where `d_i` is the distance from cell i to the nearest cell whose biome
+has a different signature, or none. An edge cell has `d_i` = 1.
 
 The own_profile formula is defined as:
 
@@ -495,13 +525,14 @@ The own_profile formula is defined as:
 
 The blend formula is defined as:
 
-`B_i = mean of P_j over the (2r + 1) × (2r + 1) window around i`, ignoring tiles off the map. Sea tiles count, so
-coasts pick up Water.
+`B_i = mean of P_j over the (2r + 1) × (2r + 1) window around i`, ignoring cells off the map. Sea and lake cells count,
+so coasts and shores pick up Water.
 
 The feature_push formula is defined as:
 
 `fall_f(i) = max(0, 1 − δ_f(i) / R_f)` and `Δ_{i,e} = Σ_f A_{f,e} · fall_f(i)`, where `δ_f(i)` is the distance from
-i to the nearest tile of feature f.
+i to the nearest cell of feature f (a feature painted on a tile covers that tile's land cells; rivers and lake shores
+are their fine cells).
 
 Base shares: `s_i = norm(B_i + Δ_i)` over the five base elements. Variants: `v_{i,e} = Δ_{i,e}`, outside the 100 and
 not scaled.
@@ -515,26 +546,36 @@ The land_danger formula is defined as:
 `X_i = x_b + round(t_i · g_X,b + Σ_f x_f · fall_f(i))`, before a settlement lowers it (rule 6).
 
 Overlapping features of the same kind add up: two lava flows side by side make hotter ground. A designer's hand
-correction to a tile replaces the computed value and shows in the stat block as its own line.
+correction to a cell or tile replaces the computed value and shows in the stat block as its own line.
+
+The part_values formula is defined as:
+
+`V_p = mean of V_i over the cells i of part p`, for the shares, variants and density; danger is the mean rounded half up.
+The cells of a folded biome count with the tile's largest part (rule 2).
+
+The tile_values formula is defined as:
+
+`V_t = Σ_p w_p · V_p / Σ_p w_p` over the tile's land parts p, with `w_p` the part's share. A place reads its own part's
+`V_p` (rule 6); a crossing reads `V_t`, or `V_p` when the character keeps to one part (rule 13).
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| d_i, d_full | int | 1 and up; 5 | calculated; data file (`depth_full`) | Depth in tiles; full depth |
+| d_i, d_full | int | 1 and up; 90 | calculated; data file (`depth_full_km` 555, turned into steps) | Depth in cells; full depth (about 550 km) |
 | t_i | float | 0–1 | calculated | Depth fraction: 0 at the edge, 1 at full depth |
 | P_b | float ×5 | 0–100, sums to 100 | data file (`world_map.json` biomes) | The biome's base profile (rule 2) |
 | σ_b, ê_sig | float; — | 0–40, about 25 *(guess)*; — | data file | Signature push at full depth; the signature element. Biomes without a signature have no depth |
-| r | int | 2 | data file (`blend_radius`) | Blend window radius (5 × 5) |
-| A_{f,e}, R_f | float, int | 0–80, 1–8 *(guess)* | data file (features) | A feature's push on element e at its own tiles; its reach in tiles |
-| a_f, x_f | float, float | 0–0.9; 0–2 *(guess)* | data file (features) | A feature's density add and danger add at its own tiles. A spirit vein is a_f 0.3–0.9 with R_f 2, which keeps today's "neighbours get half" |
+| r | int | 36 | data file (`blend_radius_km` 222, turned into steps) | Blend window radius (73 × 73 cells, about 450 km across) |
+| A_{f,e}, R_f | float, km | 0–80, 111–888 km *(guess)* | data file (features) | A feature's push on element e at its own cells; its reach in kilometres |
+| a_f, x_f | float, float | 0–0.9; 0–2 *(guess)* | data file (features) | A feature's density add and danger add at its own tiles. A spirit vein is a_f 0.3–0.9 with R_f 222 km, which keeps today's "neighbours get half" at about 110 km |
 | b_b, x_b | float, int | 0.4–1.1; per biome | data file | Biome base density (the values below) and base danger |
 | g_D,b, g_X,b | float | about +0.2; about +1 *(guess)* | data file | Density and danger added at full depth; 0 for biomes without a signature |
 | o_kind | float | −0.2 to +0.8 | data file | Place-kind offset, set per kind to meet the targets below; 0 on wilderness tiles |
 | snowline, storm, plateau | float | — | data file | Thresholds for the derived features: elevation for the snowline; elevation and rainfall for storm peaks; elevation and flatness for plateaus |
 
 Biome base densities `b_b`: sea 0.5; miasma 0.4; desert, salt flats, badlands 0.6; steppe, tundra 0.7; grassland,
-coast, swamp, mangrove, glacier 0.8; temperate forest, lake valley, highland 0.9; jungle, bamboo, karst 1.0; high
-mountain, volcano 1.1 *(guess)*.
+swamp, mangrove, glacier 0.8; temperate forest, lake, highland 0.9; jungle, bamboo, karst 1.0; high mountain, volcano
+1.1 *(guess)*.
 
 **Output Range:** base shares 0–100, summing to 100; variants 0 and up; density 0.3–2.4; danger the biome's range plus
 depth and features.
@@ -565,8 +606,8 @@ depth and features.
 | Hidden ruin or abode | 5 % | 1.0–1.6 | 30 % |
 | **Total** | 100 % | mean about 1.1 | **18.1 %** |
 
-**Example:** bamboo forest (b 1.0, Wood 50 plus push 25, g_D +0.2). A valley place 6 tiles deep (t = 1): D4 = 1.0 +
-0.2 + 0.25 = **1.45**, a Core Formation spot. With a spirit vein one tile away (0.4 × 0.5 = +0.2): **1.65**. The same
+**Example:** bamboo forest (b 1.0, Wood 50 plus push 25, g_D +0.2). A valley place 600 km deep in it (t = 1): D4 = 1.0 +
+0.2 + 0.25 = **1.45**, a Core Formation spot. With a spirit vein 111 km away (0.4 × 0.5 = +0.2): **1.65**. The same
 valley at the bamboo's edge (t = 0): **1.25**, which fails Core Formation. The heart of a rich biome is where the Core
 Formation ground is.
 
@@ -574,7 +615,7 @@ Formation ground is.
 
 The trip_time formula is defined as:
 
-`T = Σ_tiles c_t / (v_mode · max(f_min, 1 + tsp / 100))`; wilderness `c_t = c_biome`; road `c_t = 1 + r_share · (c_biome − 1)`; boat, ship and flight `c_t = 1`
+`T = Σ_tiles c_t / (v_mode · max(f_min, 1 + tsp / 100))`; wilderness `c_t = Σ_p w_p · c_p / Σ_p w_p` over the tile's land parts (water parts are walked around), or the `c_p` of the one part a character keeps to; road `c_t = 1 + r_share · (c_wild − 1)`, with `c_wild` the wilderness cost; boat, ship and flight `c_t = 1`
 
 The leftover_cultivation formula is defined as:
 
@@ -587,8 +628,9 @@ The flight_drain formula is defined as:
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| v_mode | float | road 12; wilderness 4; river 18 down / 10 up; sea 20; flight FE 30, CF 45, NS 65, DT 90 | data file (`speed_*`) | Tiles per season *(river, sea and flight above FE: guess)* |
-| c_biome | float | 1.0–2.5 | data file | Grassland, steppe, coast, lake valley, salt flats 1.0; badlands 1.25; forest, bamboo, desert, tundra, highland 1.5; jungle, swamp, mangrove, karst, volcano, miasma 2.0; high mountain, glacier 2.5; sea impassable on foot |
+| v_mode | float | road 54; wilderness 18; river 80 down / 45 up; sea 90; flight FE 135, CF 200, NS 290, DT 400 | data file (`speed_*`) | Tiles per season, 25 km tiles (the 111 km tiles' speeds × 4.5, rounded) *(river, sea and flight above FE: guess)* |
+| c_p (c_biome) | float | 1.0–2.5 | data file | A part's cost, from its biome: grassland, steppe, salt flats 1.0; badlands 1.25; forest, bamboo, desert, tundra, highland 1.5; jungle, swamp, mangrove, karst, volcano, miasma 2.0; high mountain, glacier 2.5; lake and sea are walked around, and a sea tile is impassable on foot |
+| w_p | float | 0.10–1 | calculated (rule 2) | A part's share of its tile |
 | r_share | float | 0.25 | data file (`road_terrain_share`) | How much terrain slows a road |
 | tsp | float | any | calculated (`travel_speed_pct`) | Every mode but teleport |
 | f_min | float | 0.25 | data file (`travel_speed_floor`) | A negative tsp never stops travel |
@@ -597,15 +639,19 @@ The flight_drain formula is defined as:
 | η | float | 1.0 | data file (`partial_season_efficiency`) | Rate for the leftover share |
 | rate_dest | float | 0+ | calculated (Realms Formulas I) | The destination's rate, through its stack |
 | f_drain | float | 0.6 | data file (`flight_drain_per_season`) | Share of the pool one full season of flight costs *(guess)* |
-| v_fly_eff | float | 7.5+ | calculated | v_fly × max(f_min, 1 + tsp / 100) |
+| v_fly_eff | float | 33.75+ | calculated | v_fly × max(f_min, 1 + tsp / 100) |
 
 **Output Range:** T 0 and up (each full season ages the character); gain_last 0 to rate_dest; pool_arrive 0.4–1.0 of the
-pool, assuming the pool refills at each season start (Open Questions). Today's fixed times still roughly hold: about 1
-season across a 20-tile region by road, about 3 between regions.
+pool, assuming the pool refills at each season start (Open Questions). Today's fixed times still roughly hold: about
+1–2 seasons across a region by road (about 90 tiles, 2,200 km), about 3 between regions.
 
-**Example:** an FE cultivator with tsp +20: 8 grassland road tiles (8 / 14.4 = 0.556 s) plus 3 jungle wilderness tiles
-(6 / 4.8 = 1.25 s) gives T = **1.806**; season 2 is 80.6 % travel, so it gains **19.4 %** of the valley's rate. Flying the
-11 tiles: 11 / 36 = 0.306 s; drain 0.6 × 11 / 36 = 0.183, landing at **81.7 %** of the pool.
+**Example:** an FE cultivator with tsp +20: 36 grassland road tiles (36 / 64.8 = 0.556 s) plus 14 jungle wilderness
+tiles (28 / 21.6 = 1.296 s) gives T = **1.852**; season 2 is 85.2 % travel, so it gains **14.8 %** of the valley's rate.
+Flying the 50 tiles: 50 / 162 = 0.309 s; drain 0.6 × 50 / 162 = 0.185, landing at **81.5 %** of the pool.
+
+**Example (a mixed tile):** a wilderness tile that is grassland 60, high mountain 40 costs 0.6 × 1.0 + 0.4 × 2.5 =
+**1.6**. Keeping to the grassland part costs 1.0; keeping to the mountain costs 2.5. A tile that is grassland 56, sea 44
+costs 1.0: the sea part is walked around.
 
 ### E. Encounters (rule 13)
 
@@ -614,12 +660,13 @@ The encounter_chance formula is defined as:
 `P_stretch = 1 − exp(−Σ_tiles h[d_t] · m_mode · Δt_t)`
 
 A stretch is the part of a trip inside one season, and it draws at most one encounter; the Event Engine picks it,
-filtered by biome.
+filtered by biome. On a mixed tile `h[d_t]` is `Σ_p w_p · h[d_p] / Σ_p w_p` over its land parts, and the encounter's
+biome is rolled by share; a character keeping to one part uses that part's `h[d_p]` and biome (rule 13).
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| d_t | int | 1–4 | calculated | Tile danger: biome base, −1 in a settlement, minimum 1 |
+| d_t, d_p | int | 1–4 | calculated (C) | A part's danger: its cells' mean, −1 in a settlement, minimum 1 |
 | h[d] | float | 0.15 / 0.35 / 0.70 / 1.20 | data file (`hazard_per_season`) | Hazard per season of wilderness exposure *(guess)* |
 | m_mode | float | wilderness and search 1.0; road 0.4; river 0.3; sea 0.5; flight 0.25 | data file (`mode_factor`) | Mode factor *(guess)* |
 | Δt_t | float | 0+ | calculated (D) | Time on the tile, c_t / v_eff |
@@ -628,8 +675,9 @@ filtered by biome.
 season at danger 1 gives 5.8 %. Hazard is per unit of time, so speed lowers exposure.
 
 **Example (the trip in D):** stretch 1: road 0.556 × 0.15 × 0.4 = 0.033, plus jungle (danger 2) 0.444 × 0.35 = 0.156,
-so P = 1 − e^−0.189 = **17.2 %**; stretch 2: 0.806 × 0.35 = 0.282, so **24.6 %**. Flying instead:
-0.25 × (8 × 0.15 + 3 × 0.35) / 36 = 0.0156, so **1.5 %**.
+so P = 1 − e^−0.189 = **17.2 %**; stretch 2: 0.852 × 0.35 = 0.298, so **25.8 %**. Flying instead:
+0.25 × (36 × 0.15 + 14 × 0.35) / 162 = 0.0159, so **1.6 %**. A mixed tile with parts at danger 1 (60 %) and 3 (40 %)
+has a hazard of 0.6 × 0.15 + 0.4 × 0.70 = **0.37** a season.
 
 ### F. Sight, search and secrets (rules 14, 17, 30)
 
@@ -646,21 +694,23 @@ The tile_search formula is defined as: `P_tile = 1 − (1 − p_detect)^n_rolls`
 |----------|------|-------|--------|-------------|
 | DS | float | 0 and up (45–6,525 typical) | calculated (Character Stats Formulas C) | Divine sense (thần thức) |
 | DS_ref | float | 135 | data file (`sense_ref`) | FE at talent 45 |
-| r_k, r_max | float, int | 1.0, 8 | data file | Sight and sweep radius; the same r widens the known band (rule 14). QR 1, FE 1, CF 2, NS 3, DT 7; distance counts diagonals as 1 (Chebyshev) |
+| r_k, r_max | float, int | 4.4, 36 | data file | Sight and sweep radius in tiles; the same r widens the known band (rule 14). QR 3, FE 4, CF 8, NS 14, DT 31 (about 75–770 km); distance counts diagonals as 1 (Chebyshev) |
 | H | float | 50–5,000 | data file, per secret or hidden place | How hidden: pocket vein 100, spring 300, sealed abode 1,000, Hóa Thần cache 3,000 *(guess)* |
-| A | float | 1 and up | calculated | Area in tiles: rumour = region wilderness × `rumour_area_share` 0.25 (about 100); jade slip `jade_slip_area` 25; an exact map is a sure find on arrival, with no roll |
+| A | float | 1 and up | calculated | Area in tiles: rumour = region wilderness × `rumour_area_share` 0.20 (about 1,600); jade slip `jade_slip_area` 400 (about 500 km square); an exact map is a sure find on arrival, with no roll |
 | q | float | 0.5–1.5 | data file, per clue | Clue quality |
-| v_wild_eff, c_area | float | 4 × speed factor; 1–2.5 | calculated; data file | Search speed and the area's mean biome cost |
+| v_wild_eff, c_area | float | 18 × speed factor; 1–2.5 | calculated; data file | Search speed and the area's mean tile cost (D) |
 | n_rolls | int | 3 | data file (`tile_search_rolls`) | Rolls for a season spent searching one tile |
 | fly_detect_mult | float | 0.5 | data file | A flier passing over a tile *(guess)* |
 
 **Output Range:** each chance is 0 up to, never reaching, 1, so the deepest caches stay hidden from the weak. The square
 root compresses divine sense's ×100 range over the realms to about ×6 in radius.
 
-**Example:** CF, DS 450 (r 2, a sweep of 20 tiles a season on cost-1 ground), H 300 (p_detect 0.6): with a jade slip,
-20 / 25 × 0.6 = 0.48, so **38 % a season**; from a rumour, 20 / 100 × 0.6, so **11 %**. The same slip at FE (DS 135,
-p 0.31, r 1): 12 / 25 × 0.31 = 0.149, so **14 %**. A spring on arrival at NS: 1,350 / 1,650 = **82 %**. An FE
-cultivator searching that tile for a season: 1 − 0.69³ = **67 %**.
+**Example:** CF, DS 450 (r 8, a sweep of 18 × 17 = 306 tiles a season on cost-1 ground), H 300 (p_detect 0.6): with a
+jade slip, 306 / 400 × 0.6 = 0.459, so **37 % a season**; from a rumour, 306 / 1,600 × 0.6 = 0.115, so **11 %**. The
+same slip at FE (DS 135, p 0.31, r 4, tsp +20: a sweep of 21.6 × 9 = 194.4): 194.4 / 400 × 0.31 = 0.151, so **14 %**.
+A spring on arrival at NS: 1,350 / 1,650 = **82 %**. An FE cultivator searching that tile for a season: 1 − 0.69³ =
+**67 %**. The areas were rescaled with the tiles (2026-11-13) so these chances stay close to the 111 km tiles' 38 %,
+11 % and 14 %.
 
 ### G. Herb fit (rule 18)
 
@@ -798,15 +848,15 @@ The teleport_fee formula is defined as:
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | linh_thach_max | int | 80 / 600 / 5,000 / 40,000 / 300,000 | data file (`events_budgets.json`) | The traveller's realm budget (realm-scaled: user decision 2026-11-10) |
-| d | int | 0 to about 144 | calculated | Straight-line tiles between the arrays |
-| fee_base_frac, fee_per_tile_frac, fee_frac_max | float | 0.05, 0.002, 0.30 | data file *(guess)* | Fixed part, distance part, cap |
+| d | int | 0 to about 650 | calculated | Straight-line tiles between the arrays |
+| fee_base_frac, fee_per_tile_frac, fee_frac_max | float | 0.05, 0.0005, 0.30 | data file *(guess)* | Fixed part, distance part (per 25 km tile), cap |
 | owner_mult | float | 1.0 default; 0.5–3 | Sects (#26) | Member discount or outsider surcharge |
 
-**Output Range:** 5–30 % of the realm's `linh_thach_max` (the cap binds past 125 tiles): 4–24 linh thạch at Qi
-Refining, 15,000–90,000 at Deity Transformation.
+**Output Range:** 5–30 % of the realm's `linh_thach_max` (the cap binds past 500 tiles, about 12,300 km): 4–24 linh
+thạch at Qi Refining, 15,000–90,000 at Deity Transformation.
 
-**Example:** a Core Formation cultivator jumping 100 tiles pays 5,000 × 0.25 = **1,250** (about two seasons of mission
-income, to save about 8 seasons on the road). A Qi Refining one jumping 40 tiles pays **10**.
+**Example:** a Core Formation cultivator jumping 450 tiles pays 5,000 × 0.275 = **1,375** (about two seasons of mission
+income, to save about 8 seasons on the road). A Qi Refining one jumping 180 tiles pays 80 × 0.14 = **11**.
 
 ### L. The seasonal production contract (rule 25)
 
@@ -895,6 +945,8 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 - **If no route exists for the character's modes** (an island with no port before Foundation Establishment, or a sea
   crossing on foot): the trip is refused, and the screen says what is missing (a port, a ship or flight).
 - **If `travel_speed_pct` is very negative:** speed never drops below a quarter of base (`travel_speed_floor`).
+- **If a character asks to keep to one part of a tile whose mix they don't know:** it is refused for that tile, which
+  is crossed by its mix (rule 13).
 - **If an encounter interrupts a trip:** the character stands on the tile reached. The time spent counts, and once the
   encounter resolves (unless it ends the trip: death, capture, flight back) the trip continues from there. A stretch
   draws at most one encounter.
@@ -919,8 +971,15 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 - **If the map misses a target:** the map check lists each miss with the tiles and places behind it. It never changes
   the map itself; the designer repaints or retunes the data and builds again.
 - **If an inhabited island has no port:** the map check lists it, and the designer adds one.
-- **If a biome patch is too small to have a heart** (every tile within one step of an edge): all its tiles are edge
-  tiles and get no signature push. That's correct: a lone grove isn't a deep forest.
+- **If a biome patch is too small to have a heart** (every cell within one step of an edge): all its cells are edge
+  cells and get no signature push. That's correct: a lone grove isn't a deep forest.
+- **If no biome reaches 10 % of a tile** (seven or more biomes among its 16 cells): the largest is kept alone, at 100.
+  Ties are broken by the biome's order in rule 2.
+- **If sea covers exactly half a tile:** it is a sea tile (rule 2).
+- **If a repaint folds away the part a place sits in:** the place moves to the tile's largest part, and the map check
+  lists it.
+- **If a hand correction on a tile disagrees with its cells** (a tile set to Fire 80 whose cells compute otherwise): the
+  correction wins for the tile and each of its parts, and the map check lists it.
 - **If a feature is painted on unlikely ground** (a lava flow in tundra): its push applies as painted, and the map
   check lists it as unusual so it's a choice, not an accident.
 - **If a hand correction sits on a tile whose computed value later changes** (the paint around it moved): the
@@ -959,7 +1018,7 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 | Meridian Map (#10) / Effects (#41) | Soft | Capabilities #8 (travel cultivates) and #21 (Blink Mark) act on travel | In review / approved; Meridian lists it |
 | Debug Terminal (#36), Game UI (#37), Guidance (#35) | Soft | The map, stat blocks with each layer's line, the known map, herb fit lines | Terminal built |
 | Balance Harness (#33) | Hard | Map targets on the one map; the Realms re-run with the uncapped match | Built, no GDD |
-| Map build and map check (new tool) | Hard | Index images to the stored map (Formulas C); map targets | Not started |
+| Map build and map check (new tool) | Hard | Index images (fine map and tiles) to the stored map: tile mixes (rule 2) and Formulas C; map targets | Prototype generator: `tools/design/map/continent_gen.py` |
 
 **Bidirectional check.** Realms, Character Stats, Quests, Heavenly Tribulation and the Meridian Map list this system.
 **Spiritual Roots, Combat and the Item Database do not**, so a back-reference row is added to each when this GDD is
@@ -967,16 +1026,18 @@ finished (with the user's approval). Realms' existing rows also need wording for
 
 ## Visual/Audio Requirements
 
-- **The terminal map, built first:** the tile grid drawn in characters, one glyph and colour per biome (`^` mountains,
-  `~` water, `,` grass, `"` jungle, `.` desert and so on), with named places as letters and roads as `=` or `-`. Only
-  tiles the character knows are drawn; unknown land is blank. A legend lists the glyphs.
+- **The terminal map, built first:** the tile grid drawn in characters, one glyph and colour per tile from its main
+  biome (`^` mountains, `~` water, `,` grass, `"` jungle, `.` desert and so on), a mixed tile's glyph drawn dimmer, with
+  named places as letters and roads as `=` or `-`. Only tiles the character knows are drawn; unknown land is blank. A
+  legend lists the glyphs.
 - **The Game UI map, later**, has two views (user decision 2026-11-13; `design/research/fixed-world-decisions.md`):
   - **Overview: an AI-generated painting** of the whole continent, about 3–4k px. It is guided by the index images so
     the coasts, ranges and rivers line up with the tiles, and generated late, once the geography settles; a plain
     render stands in until then. Only permanent landmarks are painted in. Political borders, cities, sects and
     markers are overlays, so territory changes show.
-  - **Zoomed-in view: rendered.** A ground shader draws the land from the index images: blended biome edges,
-    hillshade, coast lines and a paper texture. Stamps (mountains, forests, towns, sites) are placed by rules from the
+  - **Zoomed-in view: rendered.** A ground shader draws the land from the fine map's index images (about 6 km a
+    cell), so coasts, rivers and biome patches have detail inside a tile: blended biome edges, hillshade, coast lines
+    and a paper texture. Stamps (mountains, forests, towns, sites) are placed by rules from the
     same depth and feature fields as the qi, then hand-fixed. Deep jungle draws a denser, darker canopy and ground near
     lava glows, so good ground reads at a glance. There is no permanent grid; the tile under the cursor, routes and
     search areas show when needed. The knowledge mask applies only here: unknown land is blank paper.
@@ -1014,10 +1075,11 @@ finished (with the user's approval). Realms' existing rows also need wording for
   continent, famous places, cities, sect seats, and borders: live for the major powers, as last heard for minor
   ones), each with its legend.
 - **`place <name>`** (also `here`): the stat block (rule 7) with a line per layer (land, blessed land or secret, shared
-  works, home works), the land line broken into its steps (biome, depth, blending, each feature, any hand
-  correction), the clamp line when a cap binds, and the character's own match and density.
+  works, home works), the land line broken into its steps (the tile's mix and the place's part, depth, blending, each
+  feature, any hand correction), the clamp line when a cap binds, and the character's own match and density.
 - **`route <place>`** (or a tile): every route available with the character's modes, each with seasons, danger,
-  encounter chance and teleport fee, and a confirm step before starting.
+  encounter chance and teleport fee, and a confirm step before starting. On known mixed tiles the player may keep to
+  one part (rule 13), and the route's numbers update.
 - **`search`:** the active clue's area, the chance per season, and seasons spent so far. A false clue is never marked.
 - **`fit <herb>`:** herb fit at the current place or the home, with each factor's line and the label.
 - **`homes`:** residences for rent or sale in the current settlement, by grade, with price, rent, the realm needed and
@@ -1063,12 +1125,14 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 - **FX-TM-MINI:** a hand-built small map using FX-TM-MU:
   - **VOL** volcano beside a lava flow: Fire 60, Earth 30, Metal 10; T 80, R 20; D4 1.10. It holds a small blessed land (ΔD3 0.40, Fire
     push +40).
-  - **LAKE** lake valley: Water 60, Wood 40; D4 1.30.
+  - **LAKE** lake shore: Water 60, Wood 40; D4 1.30.
   - **GLA** glacier: Water 100, Ice 40 (variant); T 5.
   - **FOR** temperate forest: Wood 70, Water 30; R 50, T inside Thanh Tâm Liên's band. A spring secret (H 300) sits on
     the next tile.
-  - **TOWN** (on grassland): a road of 8 grassland tiles (danger 1) runs from it to a junction. From the junction, 3
+  - **TOWN** (on grassland): a road of 36 grassland tiles (danger 1) runs from it to a junction. From the junction, 14
     jungle wilderness tiles (danger 2) lead to LAKE.
+  - **MIX**: a wilderness tile whose 16 cells are 9 grassland (danger 1), 4 high mountain (danger 3), 2 desert and 1
+    jungle.
   - **CITY**, **MARKET**, **VILLAGE** and **SEAT** (sect seat), each at land density 1.00.
   - **ISL**: an island with a village and no port. Port auto-add is off in this fixture.
   - **WILD1**: an empty wilderness tile.
@@ -1087,7 +1151,8 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 - **FX-TM-RNG:** an injected roll stream. It returns scripted values in order and records every roll.
 - **FX-TM-MAP:** the shipped map: its index images and hand corrections, built by the map build at the Formulas
   defaults.
-- **FX-TM-GRID:** two hand-painted test grids at the Formulas defaults, with jungle Wood 50, Water 30, Fire 20 (push 25,
+- **FX-TM-GRID:** two hand-painted test grids at the Formulas defaults, built with `fine_factor` 1 and a cell of 111 km
+  (so 555 km of depth is 5 steps, a 222 km blend is 2 and a 555 km reach is 5), with jungle Wood 50, Water 30, Fire 20 (push 25,
   g_D +0.2, g_X +1, base danger 2), grassland Wood 50, Earth 50 (no signature) and volcano Fire 45, Earth 40, Metal 15:
   - **G1**, 15 × 15: grassland, with a jungle block over rows and columns 2–12 whose column 12 is bamboo (signature
     Wood). Tiles are named (row, column).
@@ -1100,17 +1165,17 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 ### Land and layers
 
 - **AC-TM-01** [Logic] Rule 1. GIVEN FX-TM-MAP, WHEN the map is built twice in fresh processes, THEN both tile dumps are
-  byte-identical: elevation, temperature, rainfall, biome, features, river flag, depth, density, danger, shares and
-  variants.
-- **AC-TM-02** [Config/Data] Rule 1. GIVEN index images of 120 × 80, THEN the grid has 9,600 tiles. GIVEN images of
-  60 × 40 with no code change, THEN the grid has 2,400 tiles.
+  byte-identical: elevation, temperature, rainfall, each tile's mix and main biome, features, river flag, and each
+  part's depth, density, danger, shares and variants.
+- **AC-TM-02** [Config/Data] Rule 1. GIVEN fine images of 2,160 × 1,440 and `fine_factor` 4, THEN the grid has 540 × 360 =
+  194,400 tiles of 16 cells. GIVEN fine images of 1,080 × 720 with no code change, THEN the grid has 48,600 tiles.
 - **AC-TM-03** [Logic] Rule 1. GIVEN FX-TM-MAP, THEN the map check lists 0 river tiles lower than the next tile
   downstream, and every river ends at sea, a lake or the map edge.
-- **AC-TM-04** [Config/Data] Rule 2. GIVEN FX-TM-DATA, THEN 20 biomes are listed. Each has a base profile summing to
-  100, a base density, a danger of 1–4, a climate band, and a signature element or none, with its push and depth
-  bonuses. The base densities equal Formulas C (sea 0.5 … volcano 1.1), and the volcano is Fire 45, Earth 40, Metal 15.
-- **AC-TM-05** [Logic] Rule 3. GIVEN every tile of FX-TM-MINI, FX-TM-GRID and FX-TM-MAP, THEN the base shares sum to 100.
-  Variant shares sit outside the 100.
+- **AC-TM-04** [Config/Data] Rule 2. GIVEN FX-TM-DATA, THEN 19 biomes are listed, with no Coast and no Lake and river
+  valley. Each has a base profile summing to 100, a base density, a danger of 1–4, a climate band, and a signature
+  element or none, with its push and depth bonuses. The base densities equal Formulas C (sea 0.5 … volcano 1.1), and the volcano is Fire 45, Earth 40, Metal 15.
+- **AC-TM-05** [Logic] Rule 3. GIVEN every tile and every part of FX-TM-MINI, FX-TM-GRID and FX-TM-MAP, THEN the base
+  shares sum to 100. Variant shares sit outside the 100.
 - **AC-TM-06** [Logic] Rule 4, Formula C. GIVEN G2, THEN the Fire share is **65.625** on the lava tile, **59.559** two
   tiles away and **45.000** five or more tiles away, and the base shares sum to 100 on every tile. Ice is 40 on the
   ice-field tile, 20 one tile away and 0 two tiles away, outside the 100.
@@ -1136,6 +1201,23 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   "set by hand" line, and the map check lists the tile.
 - **AC-TM-144** [Logic] Rule 3, stat block. GIVEN a G2 tile two steps from the lava flow, THEN its land line lists the
   biome profile, depth (none), blending and "Lava flow 2 tiles away: Fire +36" as separate lines.
+- **AC-TM-146** [Logic] Rule 2, the mix. GIVEN MIX, THEN its mix is grassland 60, high mountain 27, desert 13 (jungle at
+  6.25 % is folded into grassland), its main biome is grassland, and the shares sum to 100. GIVEN cells 6 / 4 / 3 / 3 of
+  four biomes, THEN three are kept (the tie goes to the earlier biome in rule 2) as 46 / 31 / 23. GIVEN 8 sea and 8
+  grassland cells, THEN the tile is sea; GIVEN 7 sea and 9 grassland, THEN it is a land tile, grassland 56, sea 44.
+- **AC-TM-147** [Logic] Formula C, parts. GIVEN a tile whose grassland cells average D 0.80 and whose jungle cells average
+  D 1.20, with mix grassland 60, jungle 40, THEN the parts read 0.80 and 1.20, the tile reads **0.96**, and a valley
+  place in the jungle part reads 1.20 plus its kind's offset.
+- **AC-TM-148** [Logic] Formula D, a mixed tile. GIVEN tsp 0, THEN wilderness on MIX's kept parts (grassland 60, high
+  mountain 27, desert 13) costs 0.60 × 1.0 + 0.27 × 2.5 + 0.13 × 1.5 = **1.470** per tile; keeping to the grassland
+  costs 1.0 and to the mountain 2.5. A tile of grassland 56, sea 44 costs 1.0.
+- **AC-TM-149** [Logic] Formula E, rule 13, a mixed tile. GIVEN a tile with parts at danger 1 (60 %) and 3 (40 %), THEN
+  its hazard is **0.370** a season. GIVEN FX-TM-RNG rolls of 0.59 and 0.61 for the encounter's biome, THEN they pick the
+  first part and the second. A character keeping to the second part uses hazard 0.70 and its biome, with no roll.
+- **AC-TM-150** [Harness] Rule 2, FX-TM-MAP. Every tile's mix has 1–3 parts, each at least 10 %, summing to 100; its
+  main biome is its largest part, or sea when sea covers half its cells or more; each tile value equals the
+  share-weighted mean of its land parts (Formula C); and every river cell of the fine map lies on a tile with the river
+  flag.
 - **AC-TM-08** [Logic] Formula A, rule 5. GIVEN FX-TM-ROOT-F, WHEN M4 is computed at VOL, THEN it is **1.244**.
 - **AC-TM-09** [Logic] Formula A. GIVEN FX-TM-ROOT-F at LAKE, THEN M4 is **0.948**.
 - **AC-TM-10** [Logic] Formula A. GIVEN FX-TM-ROOT-ICE at GLA, THEN M4 is **1.195**.
@@ -1181,7 +1263,7 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   none offers trade.
 - **AC-TM-27** [Logic] Rule 7. GIVEN VOL, WHEN its stat block is read back from the World Database, THEN it holds
   every field in this list, and each equals the built value:
-  - biome, temperature, rainfall, density;
+  - the tile's mix and the place's part, temperature, rainfall, density;
   - shares and variants, danger;
   - settlement size, resources, herb fit;
   - owner, features;
@@ -1195,7 +1277,8 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   Core Formation, 30 at Foundation Establishment and 4 at Qi Refining. GIVEN less money than the cost, THEN the opening
   is refused and nothing is charged.
 - **AC-TM-30** [Logic] Rule 8, Edge. Opening an abode is refused on a tile that holds a place, and on sea. It is
-  allowed inside a sect's territory. An abode the character has left stays on the map as a place.
+  allowed inside a sect's territory. An abode the character has left stays on the map as a place. GIVEN MIX, THEN the
+  opening asks for a part, and an abode opened in the high mountain part reads that part's density and shares.
 
 ### Travel
 
@@ -1212,34 +1295,34 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   - wilderness on high mountain costs 2.5;
   - flight costs 1.0 on any biome.
 - **AC-TM-34** [Logic] Rule 10, Formula D. GIVEN tsp 0:
-  - 18 river tiles downstream take 1.000 season, and 10 upstream take 1.000;
-  - 20 sea tiles take 1.000;
-  - 30 flight tiles at FE take 1.000.
+  - 80 river tiles downstream take 1.000 season, and 45 upstream take 1.000;
+  - 90 sea tiles take 1.000;
+  - 135 flight tiles at FE take 1.000.
 
-  Flight speed is 45 at Core Formation, 65 at Nascent Soul and 90 at Deity Transformation.
+  Flight speed is 200 at Core Formation, 290 at Nascent Soul and 400 at Deity Transformation.
 - **AC-TM-35** [Logic] Rule 10. Flight is refused below Foundation Establishment, and at Foundation Establishment
   without a flying artifact.
-- **AC-TM-36** [Logic] Formula D. GIVEN FX-TM-FE from TOWN to LAKE (8 grassland road tiles, then 3 jungle wilderness
+- **AC-TM-36** [Logic] Formula D. GIVEN FX-TM-FE from TOWN to LAKE (36 grassland road tiles, then 14 jungle wilderness
   tiles), THEN:
-  - T is **1.806** (0.556 + 1.250);
-  - u is 0.806;
-  - gain_last is **0.194 × rate_dest**.
-- **AC-TM-37** [Logic] Formula D, flight drain. GIVEN FX-TM-FE flying 11 tiles, THEN T is 0.306 and the pool arrives
-  at **0.817** of max. Over 11 glacier tiles, T is the same.
-- **AC-TM-38** [Logic] Formula D, `f_min`, Edge. GIVEN 12 grassland road tiles at tsp −75 and at tsp −90, THEN each trip
+  - T is **1.852** (0.556 + 1.296);
+  - u is 0.852;
+  - gain_last is **0.148 × rate_dest**.
+- **AC-TM-37** [Logic] Formula D, flight drain. GIVEN FX-TM-FE flying 50 tiles, THEN T is 0.309 and the pool arrives
+  at **0.815** of max. Over 50 glacier tiles, T is the same.
+- **AC-TM-38** [Logic] Formula D, `f_min`, Edge. GIVEN 54 grassland road tiles at tsp −75 and at tsp −90, THEN each trip
   takes **4.000** seasons.
 - **AC-TM-39** [Integration] Rule 12, Time & Turn. GIVEN the trip in AC-TM-36, THEN:
   - two season ends pass;
   - the character ages two seasons;
-  - season 2 credits 0.194 of LAKE's rate (η 1.0).
+  - season 2 credits 0.148 of LAKE's rate (η 1.0).
 
-  GIVEN the 0.306 flight, THEN the same season credits 0.694 of the destination rate.
+  GIVEN the 0.309 flight, THEN the same season credits 0.691 of the destination rate.
 - **AC-TM-40** [Logic] Formula K, rule 11:
-  - a Core Formation traveller over d 100 pays **1,250**;
-  - Qi Refining over d 40 pays **10**;
+  - a Core Formation traveller over d 450 pays **1,375**;
+  - Qi Refining over d 180 pays **11**;
   - Deity Transformation over d 0 pays **15,000**;
-  - Core Formation over d 100 with owner_mult 0.5 pays 625;
-  - Core Formation over d 125 pays 1,500, and over d 200 also pays **1,500** (the 0.30 cap).
+  - Core Formation over d 450 with owner_mult 0.5 pays 688;
+  - Core Formation over d 500 pays 1,500, and over d 800 also pays **1,500** (the 0.30 cap).
 - **AC-TM-41** [Logic] Rule 11. A teleport jump takes 0.05 of a season, whatever the distance. tsp does not change it.
 - **AC-TM-42** [Logic] Rule 11, Edge. GIVEN an array whose owner refuses the character, THEN no jump happens and no fee
   is taken.
@@ -1248,8 +1331,8 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 
 ### Encounters
 
-- **AC-TM-44** [Logic] Formula E. GIVEN the trip in AC-TM-36, THEN P is **0.172** for stretch 1 and **0.246** for
-  stretch 2. GIVEN the same trip flown, P is **0.0155**.
+- **AC-TM-44** [Logic] Formula E. GIVEN the trip in AC-TM-36, THEN P is **0.172** for stretch 1 and **0.258** for
+  stretch 2. GIVEN the same trip flown, P is **0.0158**.
 - **AC-TM-45** [Logic] Formula E. GIVEN one full wilderness season, THEN P is 0.1393, 0.2953, 0.5034 or 0.6988 at
   danger 1–4. One road season at danger 1 gives 0.0582.
 - **AC-TM-46** [Logic] Formula E. GIVEN FX-TM-RNG scripted to pass every roll, THEN each stretch draws exactly one
@@ -1260,8 +1343,8 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   - the character stands on tile 5, and the time spent counts;
   - after a win the trip resumes from tile 5;
   - after death, capture or flight back it does not resume.
-- **AC-TM-49** [Logic] Edge (flier mid-flight). GIVEN FX-TM-FE meeting an encounter on flight tile 5 of 11, THEN the
-  fight reads a pool of 0.917.
+- **AC-TM-49** [Logic] Edge (flier mid-flight). GIVEN FX-TM-FE meeting an encounter on flight tile 25 of 50, THEN the
+  fight reads a pool of 0.907.
 - **AC-TM-50** [Harness] Formula E. GIVEN 10,000 seeded full wilderness seasons at danger 2, THEN the encounter rate is
   0.295 ±0.01.
 
@@ -1273,11 +1356,12 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 - **AC-TM-145** [Logic] Rule 14, politics. GIVEN a major power and a minor holder each losing a region while the
   character is far away, THEN the overview shows the major power's new border at once, and the minor holder's old
   border until the character visits, hears news or buys a map.
-- **AC-TM-52** [Logic] Formula F, radius. GIVEN DS 45, 135, 450, 1,350 and 6,525, THEN r is 1, 1, 2, 3 and 7. GIVEN DS
-  10,935, THEN r is 8 (raw 9; the r_max cap).
-- **AC-TM-53** [Logic] Rule 14. GIVEN a 10-tile straight path in open land, THEN every tile within Chebyshev distance r
-  of the path becomes known, diagonals included, and no tile at r + 1 does. At FE (r 1) that is a band 3 tiles wide;
-  at Core Formation (r 2), 5 wide.
+- **AC-TM-52** [Logic] Formula F, radius. GIVEN DS 45, 135, 450, 1,350 and 6,525, THEN r is 3, 4, 8, 14 and 31. GIVEN DS
+  10,935, THEN r is 36 (raw 40; the r_max cap).
+- **AC-TM-53** [Logic] Rule 14. GIVEN a 40-tile straight path in open land, THEN every tile within Chebyshev distance r
+  of the path becomes known, diagonals included, and no tile at r + 1 does. At FE (r 4) that is a band 9 tiles wide;
+  at Core Formation (r 8), 17 wide. Known tiles beside the path show their main biome only; the tiles the path
+  crossed show their full mix.
 - **AC-TM-54** [Logic] States (place knowledge):
   - a rumour turns Unknown into Heard of (region shown, tile not);
   - a visit turns it into Known;
@@ -1290,13 +1374,13 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   or abode sits on one of its 2–4 hand-picked candidate tiles and links to a history fact (a dead cultivator or a
   vanished sect), and that figure's recorded abode tile holds the place. The same seed always picks the same tile.
   Over the 100 seeds every candidate is picked at least once. Famous places never move.
-- **AC-TM-58** [Logic] Rule 16, Formula F `A`. GIVEN a region with 400 wilderness tiles, THEN a rumour's area is 100 and
-  a jade slip's is 25.
+- **AC-TM-58** [Logic] Rule 16, Formula F `A`. GIVEN a region with 8,000 wilderness tiles, THEN a rumour's area is 1,600
+  and a jade slip's is 400.
 - **AC-TM-59** [Logic] Formula F, search. GIVEN FX-TM-CF, H 300, q 1.0 and cost-1 ground, THEN:
-  - p_detect is 0.600, and the sweep is 20 tiles a season;
-  - a jade slip gives **0.381** a season, and a rumour **0.113**.
+  - p_detect is 0.600, and the sweep is 306 tiles a season;
+  - a jade slip gives **0.368** a season, and a rumour **0.108**.
 
-  GIVEN FX-TM-FE with a slip, THEN p_detect is 0.310 and the chance is **0.138**.
+  GIVEN FX-TM-FE (tsp +20) with a slip, THEN p_detect is 0.310, the sweep is 194.4 and the chance is **0.140**.
 - **AC-TM-60** [Logic] Rule 16, Edge (false clue). GIVEN a false clue, THEN P_season is 0 in each of 1,000 seasons. No
   screen or exported field shows that the clue is false.
 - **AC-TM-61** [Logic] Rule 17. GIVEN an exact map, WHEN the character arrives on its tile, THEN the place is found that
@@ -1468,7 +1552,7 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   - on a large blessed land a second claim is accepted;
   - once found, layer 3 applies to everyone there.
 - **AC-TM-114** [Harness] Rule 28. GIVEN FX-TM-MAP, THEN the map has:
-  - 2–5 large blessed lands of 2–9 tiles each;
+  - 2–5 large blessed lands of 40–180 tiles each;
   - 10–30 small ones of 1 tile.
 
   Every ΔD3 is within the Formula B targets.
@@ -1564,13 +1648,13 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 
 ### Performance [Harness], all numbers are PROPOSALS
 
-- **AC-TM-138** On the reference PC (to be named), headless, with FX-TM-WORLD (120 × 80, about 250 places, 5,000
-  cultivators):
-  - the map build (Formulas C over every tile, offline) takes ≤ 5 s;
+- **AC-TM-138** On the reference PC (to be named), headless, with FX-TM-WORLD (540 × 360 tiles on a 2,160 × 1,440 fine
+  map, about 250 places, 5,000 cultivators):
+  - the map build (tile mixes and Formulas C over every fine cell, offline) takes ≤ 60 s;
   - the seasonal map update (reserves, cycles, fades, ownership, contract records, NPC home moves) has a mean ≤ 20 ms
     and p95 ≤ 50 ms over 400 seasons;
   - the stacked D · M for all 5,000 cultivators takes ≤ 10 ms a season;
-  - one route query across the full grid takes ≤ 20 ms;
+  - one route query across the full grid takes ≤ 50 ms;
   - after 400 seasons the save's map delta is ≤ 500 KB, and a load including the stored map takes ≤ 3 s.
 
 Blocked on other GDDs:

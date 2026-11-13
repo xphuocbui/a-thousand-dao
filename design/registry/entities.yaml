@@ -1349,10 +1349,10 @@ formulas:
       - v_mode
       - travel_speed_pct
     output_range: [0, unbounded]
-    expression: "T = sum_tiles c_t / (v_mode * max(0.25, 1 + tsp/100)); speeds road 12, wilderness 4, river 18/10, sea 20, flight FE 30 CF 45 NS 65 DT 90 tiles a season"
-    notes: "Travel & Map Formulas D; in seasons; the leftover share of the last season cultivates at the destination."
+    expression: "T = sum_tiles c_t / (v_mode * max(0.25, 1 + tsp/100)); a mixed tile's wilderness c_t = share-weighted mean of its land parts' costs; speeds road 54, wilderness 18, river 80/45, sea 90, flight FE 135 CF 200 NS 290 DT 400 tiles (25 km) a season"
+    notes: "Travel & Map Formulas D; in seasons; the leftover share of the last season cultivates at the destination. Rescaled 2026-11-13 from 111 km to 25 km tiles (speeds x 4.5)."
     added: 2026-11-10
-    revised: ""
+    revised: 2026-11-13
   - name: herb_fit
     status: active
     source: design/gdd/travel-map.md
@@ -1395,10 +1395,10 @@ formulas:
       - d
       - owner_mult
     output_range: ["0.05 x linh_thach_max", "0.30 x linh_thach_max x owner_mult"]
-    expression: "fee = round(linh_thach_max[realm] * min(0.05 + 0.002 * d, 0.30) * owner_mult)"
+    expression: "fee = round(linh_thach_max[realm] * min(0.05 + 0.0005 * d, 0.30) * owner_mult); d in 25 km tiles (rescaled 2026-11-13)"
     notes: "Travel & Map Formulas K; owner_mult set by Sects (#26)."
     added: 2026-11-10
-    revised: ""
+    revised: 2026-11-13
 constants:
   - name: root_count_weights
     status: active

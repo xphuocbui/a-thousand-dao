@@ -33,8 +33,9 @@ Two map views, each made the way it suits best:
 
 Rules that keep the two views consistent:
 
-- Grid data (120 × 80) comes from authored index images (biome, elevation, moisture), not noise. Both
-  views are built from them.
+- Grid data comes from authored index images, not noise: since 2026-11-13 a fine map of about 6 km cells (biome,
+  elevation, water) under 540 × 360 tiles of about 25 km (temperature, rainfall, features). Both views are built
+  from them.
 - The painting follows the layout: the index images (or a rough render of them) are the guide image for
   the AI, so the coasts, ranges and rivers line up with the tiles. It is generated late, once the geography
   settles; until then a plain render of the overview stands in.
@@ -72,6 +73,17 @@ the rewrite is in the list below.
   the settled match cap for city and sect-ground homes (×1.3); only the per-layer limits and the settled density cap
   (1.8) stay.
 
+## Map scale and mixed tiles (decided 2026-11-13)
+
+- Same world size (about 13,300 × 8,900 km, 76°N to 4°S) on a finer grid: 540 × 360 tiles of about 25 km.
+- A tile holds a natural mix of up to three biomes, each at least 10 %, read from a fine map 4 times finer (16 cells a
+  tile). The main biome names the tile; a tile is sea when sea covers half of it or more.
+- Coast and Lake-and-river-valley are no longer biomes; Lake is (19 biomes). Rivers are lines through tiles.
+- Every system reads the mix by share: qi per part, travel cost and hazard share-weighted, encounter biome rolled by
+  share. A player who knows a tile's mix may keep to one part. A place, abode or field sits in one part.
+- From afar a known tile shows its main biome; crossing or standing on it shows the full mix.
+- Rules and generator: `design/research/map-making-rules.md` sections J–L, `tools/design/map/continent_gen.py`.
+
 ## What this changes
 
 - **Done 2026-11-13:** Travel & Map rewritten for all of the above (rules 1–5, 14, 15, 26–28, 33; Formulas A, B, C,
@@ -84,3 +96,6 @@ the rewrite is in the list below.
   inspiration, technical challenges, procedural systems, risks, MVP and Alpha scope).
 - Other GDDs that mention world creation in passing: a wording check.
 - New authoring work: continent layout, secret candidate spots, an origins list with home regions.
+- **Done 2026-11-13:** Travel & Map revised for mixed tiles and rescaled to 25 km tiles (rules 1–4, 6–8, 10, 13, 14,
+  18, 20, 28; Formulas A, C, D, E, F, K; Edge Cases, Visual, UI, Dependencies; ACs, with new AC-TM-146–150), plus the
+  registry's trip_time and teleport_fee and the systems index row #25.
