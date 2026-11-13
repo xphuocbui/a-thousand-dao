@@ -121,6 +121,27 @@ func give_item(item_id: String, owner_id: String) -> bool:
 	return true
 
 
+## Moves a dead person's items (item-database.md rule 14): unbound items go to [param killer_id] if there is one,
+## else to [param heir_id] (a close relationship or the sect successor: see Inheritance), else they are Lost at
+## [param place_id]; bound items are always Lost there. The system resolving the death calls this. Clears the dead
+## person's `equipped` list. Returns the ids moved.
+func items_on_death(person_id: String, place_id: String, killer_id: String = "", heir_id: String = "") -> Array:
+	var moved: Array = []
+	var taker: String = killer_id if killer_id != "" else heir_id
+	for item in items_of(person_id):
+		var to_taker: bool = taker != "" and not bool(item.get("bound", false))
+		item["owner_id"] = taker if to_taker else place_id
+		item.erase("lost")
+		if not to_taker:
+			item["lost"] = true
+		moved.append(item.id)
+	var person: Dictionary = get_record("people", person_id)
+	if not person.is_empty():
+		person["equipped"] = []
+		person["equip_slots"] = {}
+	return moved
+
+
 # --- Events -----------------------------------------------------------------------
 
 ## Appends a history/story event and indexes it by every participant, place and item.

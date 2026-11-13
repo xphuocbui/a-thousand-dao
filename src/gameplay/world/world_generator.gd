@@ -42,6 +42,7 @@ func generate(rng: RandomNumberGenerator) -> WorldDB:
 	_make_sects(rng)
 	_make_loose_cultivators(rng)
 	_simulate_history(rng)
+	_place_unique_named(rng)
 	return _db
 
 
@@ -319,6 +320,52 @@ func _history_event(rng: RandomNumberGenerator, year: int, type: String) -> void
 				return
 			var p2: Dictionary = RngUtils.pick(rng, young)
 			_log(year, "newcomer", {"a": p2.id, "place": p2.location_id if p2.location_id != "" else RngUtils.pick(rng, _db.all("places")).id})
+
+
+## Every unique named item exists once at world start (item-database.md rule 20d, AC-ID-90): held by a living NPC
+## whose realm fits it (`named.holder_realm_min` or above, and the item is made at the holder's tier), who equips it
+## where a slot is free, or else Lost at a place. Runs after history so the history's random stream is unchanged.
+func _place_unique_named(rng: RandomNumberGenerator) -> void:
+	var cfg: Dictionary = _gd.artifacts_file().named
+	var h: Dictionary = _gd.world_gen().history
+	var candidates: Array = _db.find("people", func(p): return p.alive and not p.get("is_beast", false) and not p.get("is_player", false) and int(p.realm_index) >= int(cfg.holder_realm_min))
+	for t in _gd.named_items():
+		if not _items.is_unique(str(t.id)):
+			continue
+		var holder: Dictionary = {}
+		if not candidates.is_empty() and rng.randf() < float(h.legend_held_chance):
+			holder = RngUtils.pick(rng, candidates)
+			candidates.erase(holder)
+		var tier: int = int(holder.realm_index) if not holder.is_empty() else rng.randi_range(int(cfg.holder_realm_min), _gd.realms().size() - 1)
+		var art: Dictionary = _items.named_artifact(str(t.id), tier, _db, current_year)
+		if art.is_empty():
+			continue
+		var aid: String = _db.add("items", art)
+		var year: int = rng.randi_range(int(current_year / 3.0), current_year - 1)
+		if not holder.is_empty():
+			art["owner_id"] = holder.id
+			_equip_held(holder, aid)
+			_log(year, "treasure_found", {"a": holder.id, "item": aid, "place": holder.location_id})
+		else:
+			var place: Dictionary = RngUtils.pick(rng, _db.all("places"))
+			art["owner_id"] = place.id
+			art["lost"] = true
+			var former: String = _db.add("people", _dead_person(_builds.person_name(rng, "male"), tier, "Mất tích", year, ""))
+			_log(year, "treasure_lost", {"a": former, "item": aid, "place": place.id})
+	_sort_events_by_time()
+
+
+## Equips a placed named piece on an NPC record when a slot fits; otherwise it is only carried.
+func _equip_held(holder: Dictionary, item_id: String) -> void:
+	var c := Character.from_dict(holder)
+	var slot: String = EquipSlots.slot_for(c, _gd, _db, StatSheet.build(c, _gd, _db, _tree), _db.get_record("items", item_id))
+	if slot == "":
+		return
+	holder["equipped"] = Array(holder.get("equipped", [])) + [item_id]
+	var slots: Dictionary = holder.get("equip_slots", {})
+	slots[item_id] = slot
+	holder["equip_slots"] = slots
+	_builds.refresh_power(holder.id)
 
 
 func _dead_person(person_name: String, realm_index: int, cause: String, death_year: int, sect_id: String) -> Dictionary:

@@ -40,10 +40,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 		var base_life: float = float(_gd.realm(realm_index).lifespan)
 		var lifespan: float = base_life + minf(float(p.get("lifespan_bonus", 0.0)), base_life * float(_gd.attributes().bonus_ceilings.lifespan_frac))
 		if float(p.age) >= lifespan:
-			p["alive"] = false
-			p["death_cause"] = "Thọ nguyên cạn kiệt"
-			p["death_year"] = year
-			news.append(_log(year, season, "tick_death", texts, {"a": p.id, "realm": _gd.realm(realm_index).name}))
+			news.append_array(old_age_death(p, year, season))
 			continue
 		if not p.get("is_beast", false):
 			cultivators += 1
@@ -79,6 +76,38 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			var place: String = str(a.location_id) if str(a.location_id) != "" else str(RngUtils.pick(rng, _db.all("places")).id)
 			news.append(_log(year, season, "tick_duel", texts, {"a": a.id, "b": b.id, "winner": winner.id, "place": place}))
 	return news
+
+
+## An NPC dies of old age: the record is marked dead, and with no killer a close relationship or the sect successor
+## inherits, else the items are Lost where the NPC died (item-database.md rule 14); a dead sect leader's successor
+## takes the leadership. Returns the ids of the events logged.
+func old_age_death(p: Dictionary, year: int, season: int) -> Array:
+	var texts: Dictionary = _gd.world_gen().history.texts
+	var news: Array = []
+	p["alive"] = false
+	p["death_cause"] = "Thọ nguyên cạn kiệt"
+	p["death_year"] = year
+	news.append(_log(year, season, "tick_death", texts, {"a": p.id, "realm": _gd.realm(int(p.realm_index)).name}))
+	_db.items_on_death(p.id, str(p.get("location_id", "")), "", Inheritance.heir_of(_db, _gd, p))
+	var succ: String = _succeed_leader(p)
+	if succ != "":
+		news.append(_log(year, season, "tick_succession", texts, {"a": succ, "b": p.id}))
+	return news
+
+
+## When [param dead] led a sect, its successor (Inheritance.sect_successor) becomes the leader. Returns the new
+## leader's id, or "".
+func _succeed_leader(dead: Dictionary) -> String:
+	var sect: Dictionary = _db.get_record("sects", str(dead.get("sect_id", "")))
+	if sect.is_empty() or str(sect.get("leader_id", "")) != str(dead.id):
+		return ""
+	var heir: String = Inheritance.sect_successor(_db, _gd, dead)
+	if heir == "":
+		return ""
+	var ladder: Array = _gd.world_gen().sects.rank_ladder
+	sect["leader_id"] = heir
+	_db.get_record("people", heir)["sect_rank"] = str(ladder[-1])
+	return heir
 
 
 ## New cultivators (canh-gioi.md rule 12): each season the world replaces that season's dead, back

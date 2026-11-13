@@ -297,7 +297,7 @@ func _pass_season(mode: String) -> Dictionary:
 
 
 func _yearly() -> void:
-	if player.has_capability(3) and not player.equipped.is_empty():
+	if player.has_capability(3) and player.equipped.has(player.nurtured_id):
 		player.nurture_years += 1
 	if player.sect_id != "":
 		var stipend: int = int(gd.session().sect.stipend_per_year_by_realm.get(gd.realm(player.realm_index).id, 0))
@@ -713,8 +713,9 @@ func use_item(item_id: String, element: String = "") -> Dictionary:
 	return {"ok": r.ok, "lines": lines}
 
 
-## Equips a pháp bảo.
-func equip(item_id: String) -> Dictionary:
+## Equips a pháp bảo in [param slot] ("weapon", "armour", "ring", "necklace" or "extra"); with none, the first
+## fitting free base slot, then an extra slot (item-database.md rule 11).
+func equip(item_id: String, slot: String = "") -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
 		return g
@@ -723,16 +724,39 @@ func equip(item_id: String) -> Dictionary:
 		return {"ok": false, "lines": ["You own no pháp bảo %s." % item_id]}
 	if player.equipped.has(item_id):
 		return {"ok": false, "lines": ["Already equipped."]}
-	var slots: int = int(gd.artifacts_file().equip.max_slots) + (int(gd.capability(2).params.slots) if player.has_capability(2) else 0)
-	if player.equipped.size() >= slots:
-		return {"ok": false, "lines": ["All %d slots are full." % slots]}
+	var to: String = EquipSlots.slot_for(player, gd, db, sheet(), item, slot)
+	if to == "":
+		if slot != "":
+			return {"ok": false, "lines": ["%s cannot go in the %s slot, or it is full." % [item.name, slot]]}
+		return {"ok": false, "lines": ["No free slot fits %s." % item.name]}
 	player.equipped.append(item_id)
+	player.equip_slots[item_id] = to
 	sync_player()
 	var p: Dictionary = CombatPower.compute(player, gd, db, sheet())
-	var lines: Array = ["Equipped %s. Chiến lực now %.0f." % [item.name, p.total]]
+	var where: String = "an extra slot" if to == EquipSlots.EXTRA else "the %s slot" % to
+	var lines: Array = ["Equipped %s in %s. Chiến lực now %.0f." % [item.name, where, p.total]]
 	if p.overflow.has(item_id):
-		lines.append("  Warning: your thần thức (%.0f) cannot control it as well; it adds nothing until you grow stronger or unequip something." % p.than_thuc_capacity)
+		lines.append("  Warning: it is past your extra slots (%d); it adds nothing until a slot frees up (thần thức %.0f opens the next)." % [p.extra_limit, EquipSlots.next_slot_than_thuc(player, gd, sheet())])
 	return {"ok": true, "lines": lines}
+
+
+## Chooses the equipped pháp bảo to nurture (capability #3). Choosing another restarts the growth.
+func nurture(item_id: String) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	if not player.has_capability(3):
+		return {"ok": false, "lines": ["You have not opened Dưỡng Bảo Nội Thể."]}
+	if not player.equipped.has(item_id):
+		return {"ok": false, "lines": ["%s is not equipped." % item_id]}
+	if player.nurtured_id == item_id:
+		return {"ok": false, "lines": ["Already nurtured (%d years)." % player.nurture_years]}
+	var restarted: bool = player.nurtured_id != ""
+	player.nurtured_id = item_id
+	player.nurture_years = 0
+	sync_player()
+	var label: String = str(db.get_record("items", item_id).get("name", item_id))
+	return {"ok": true, "lines": ["You begin nurturing %s within your body%s." % [label, "; the old growth is lost" if restarted else ""]]}
 
 
 ## Unequips a pháp bảo.
@@ -743,6 +767,10 @@ func unequip(item_id: String) -> Dictionary:
 	if not player.equipped.has(item_id):
 		return {"ok": false, "lines": ["%s is not equipped." % item_id]}
 	player.equipped.erase(item_id)
+	player.equip_slots.erase(item_id)
+	if player.nurtured_id == item_id:   # capability #3: the growth restarts with the next chosen treasure
+		player.nurtured_id = ""
+		player.nurture_years = 0
 	sync_player()
 	return {"ok": true, "lines": ["Unequipped %s." % db.get_record("items", item_id).get("name", item_id)]}
 

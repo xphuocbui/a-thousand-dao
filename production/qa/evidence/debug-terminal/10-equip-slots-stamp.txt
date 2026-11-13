@@ -1,0 +1,8 @@
+Reviewed-Content-Hash: src/gameplay/items/equip_slots.gd 48a9f59705526d271b3bc7ec3d6f7c4919a40620
+Reviewed-Content-Hash: src/gameplay/items/item_stats.gd be0d4429a777dbab8983e92f47c55c36fb348f51
+Reviewed-Content-Hash: src/gameplay/items/item_factory.gd 1c16a6cbcd0ec854a430c6ccc2a7091993c34594
+Reviewed-Content-Hash: src/gameplay/combat/combat_power.gd 6786a69cd91446529893b04a6efef542cd3220a9
+Reviewed-Content-Hash: src/gameplay/session/game_session.gd 5adb654011bd20c925fca91ea8b1df1404ad56d9
+Reviewed-Content-Hash: src/debug_terminal/terminal_app.gd f4b5aa9866fc7c7a6ca8124f7d9fd91cdb7af378
+Reviewed-Content-Hash: assets/data/items_artifacts.json ea0435c872c7f31048a17210bb952657de02cf22
+Reviewed-Content-Hash: assets/data/items_named.json 0a45557fd15ad6bb542fae4a39a70afd014af5b8

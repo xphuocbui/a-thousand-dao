@@ -31,21 +31,19 @@ static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -
 	if not main.is_empty():
 		offense.add("Công pháp %s" % main.def.name, base * float(cfg.cong_phap_share) * CongPhap.tech_power(c, gd, sheet.effective("ngo_tinh", c)))
 
-	# Artifacts, limited by thần thức capacity and the single-artifact keystone.
+	# Artifacts, limited by the item slots (thần thức adds extra slots) and the single-artifact keystone.
 	var control: Dictionary = controlled(c, gd, db, sheet)
-	var capacity: float = control.capacity
 	var used: Array = control.used
 	var overflow: Array = control.overflow
-	var spent: float = control.spent
 	var single: bool = sheet.has_flag("single_artifact")
 	var art_cfg: Dictionary = gd.artifacts_file()
 	for item_id in used:
 		var art: Dictionary = db.get_record("items", item_id)
-		var nurtured: bool = c.has_capability(3) and item_id == c.equipped[0]
+		var nurtured: bool = c.has_capability(3) and item_id == c.nurtured_id
 		var mult: float = 1.0 + sheet.total("artifact_power_pct") / 100.0
 		if art.element != "" and c.linh_can.has(art.element):
 			mult += (float(art_cfg.element_match_bonus_pct) + _affix(art, "element_affinity_pct")) / 100.0
-		if single:
+		if single and control.slot_of.get(item_id, "") == EquipSlots.EXTRA:   # the one bonded treasure (rule 11)
 			mult *= float(art_cfg.equip.single_artifact_keystone_mult)
 		if nurtured:
 			var p3: Dictionary = gd.capability(3).params
@@ -80,33 +78,32 @@ static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -
 	lines.append_array(offense.lines())
 	lines.append_array(defense.lines())
 	lines.append_array(total.lines())
-	lines.append("Thần thức used %.0f / %.0f%s" % [spent, capacity, ("  (not enough for: %s)" % ", ".join(overflow)) if not overflow.is_empty() else ""])
-	return {"total": total.total, "offense": offense.total, "defense": defense.total, "lines": lines, "used_artifacts": used, "overflow": overflow, "than_thuc_used": spent, "than_thuc_capacity": capacity}
+	lines.append("Extra slots %d / %d, the next at thần thức %.0f%s" % [control.extra_used, control.limit, EquipSlots.next_slot_than_thuc(c, gd, sheet), ("  (past the count: %s)" % ", ".join(overflow)) if not overflow.is_empty() else ""])
+	return {"total": total.total, "offense": offense.total, "defense": defense.total, "lines": lines, "used_artifacts": used, "overflow": overflow, "extra_used": control.extra_used, "extra_limit": control.limit}
 
 
-## Splits the equipped pieces into those the wearer controls and those it cannot, in equip
-## order: a piece that does not fit is skipped, so a cheaper later piece still counts
-## (item-database.md rule 11). [param sheet] needs only what thần thức reads, so StatSheet
-## calls this before it adds affixes. Returns {used, overflow, spent, capacity}.
+## Splits the equipped pieces into those that count and those that do not (item-database.md rule 11). No piece costs
+## thần thức: every piece in a base slot counts, and extra pieces count in equip order up to the extra-slot count
+## (thần thức adds slots); a piece past it adds nothing. Under the one-treasure keystone (`single_artifact`) the base
+## slots count as usual and only the first extra piece does.
+## Returns {used, overflow, slot_of, limit, extra_used}.
 static func controlled(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -> Dictionary:
-	var capacity: float = CharacterRules.than_thuc(c, gd, sheet).total
 	var used: Array = []
 	var overflow: Array = []
-	var spent: float = 0.0
 	var single: bool = sheet.has_flag("single_artifact")
+	var slots: Dictionary = EquipSlots.assign(c, gd, db, sheet)
+	var extra_seen: bool = false
 	for item_id in c.equipped:
-		var art: Dictionary = db.get_record("items", item_id) if db != null else {}
-		if art.is_empty():
+		if not slots.slot_of.has(item_id):
 			continue
-		var cost: float = float(art.than_thuc_cost) * clampf(1.0 + _affix(art, "than_thuc_cost_pct") / 100.0, 0.1, 2.0)
-		if c.has_capability(3) and item_id == c.equipped[0]:
-			cost = 0.0
-		if spent + cost > capacity or (single and not used.is_empty()):
+		var extra: bool = slots.slot_of[item_id] == EquipSlots.EXTRA
+		if slots.unslotted.has(item_id) or (single and extra and extra_seen):
 			overflow.append(item_id)
 			continue
-		spent += cost
+		extra_seen = extra_seen or extra
 		used.append(item_id)
-	return {"used": used, "overflow": overflow, "spent": spent, "capacity": capacity}
+	return {"used": used, "overflow": overflow, "slot_of": slots.slot_of, "limit": slots.limit,
+		"extra_used": used.filter(func(id): return slots.slot_of[id] == EquipSlots.EXTRA).size()}
 
 
 ## Resolves a duel. Win chance = A^k / (A^k + B^k) + (Khí vận A - Khí vận B) x k2, clamped.
@@ -129,9 +126,6 @@ static func _pair_count(c: Character, db: WorldDB, base: String) -> int:
 	return c.equipped.filter(func(id): return str(db.get_record("items", id).get("base", "")) == base).size()
 
 
+## A stat summed over a piece's affixes and unscoped named modifiers.
 static func _affix(art: Dictionary, stat: String) -> float:
-	var t: float = 0.0
-	for a in art.get("affixes", []):
-		if str(a.stat) == stat:
-			t += float(a.value)
-	return t
+	return ItemStats.total(art, stat)

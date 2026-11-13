@@ -482,11 +482,14 @@ static func _craft_goals(s: GameSession, c: Character, gd: GameData, sh: StatShe
 
 static func _gear_goals(s: GameSession, c: Character, gd: GameData, sh: StatSheet) -> Array:
 	var out: Array = []
-	var power: Dictionary = CombatPower.compute(c, gd, s.db, sh)
-	var free: float = float(power.than_thuc_capacity) - float(power.than_thuc_used)
 	for it in s.db.items_of(c.id):
-		if it.kind == "artifact" and not c.equipped.has(it.id) and float(it.than_thuc_cost) <= free:
-			out.append(_g("equip_" + str(it.id), "tip", "%s is unused and your thần thức can carry it." % it.name, "equip %s" % it.id, "Equip %s" % it.name))
+		if it.kind != "artifact" or c.equipped.has(it.id):
+			continue
+		var slot: String = EquipSlots.slot_for(c, gd, s.db, sh, it)
+		if slot == "":
+			continue
+		var where: String = "a free extra slot" if slot == EquipSlots.EXTRA else "your empty %s slot" % slot
+		out.append(_g("equip_" + str(it.id), "tip", "%s is unused and fits %s." % [it.name, where], "equip %s" % it.id, "Equip %s" % it.name))
 	return out
 
 

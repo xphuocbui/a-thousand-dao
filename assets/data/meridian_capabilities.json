@@ -42,9 +42,10 @@
       },
       "params": {
         "per_year_pct": 1,
-        "max_pct": 50
+        "max_pct": 50,
+        "slots": 1
       },
-      "desc": "The first equipped treasure costs no divine sense and grows +1% per year, up to +50%."
+      "desc": "One chosen treasure is nurtured within the body: +1 extra item slot, and it grows +1% per year, up to +50%."
     },
     {
       "id": 4,

@@ -362,7 +362,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Stack duration | `stack_duration_pct` | I | the element's stack batches | higher | 0.4 (G) | Effects System rule 9a | Designed |
 | Stacks per grant | `stack_grant` | F, rare | each grant of the element's stacks | higher | 10 per stack (G; raised to the rare floor, 2026-11-10) | Effects System rule 9a | Designed |
 
-**Gear and loadout**: domain `combat`. Families: gear (artifact power, attack, defence, element affinity, thần thức cost), slots (art and artifact slots).
+**Gear and loadout**: domain `combat`. Families: gear (artifact power, attack, defence, element affinity; thần thức cost retired 2026-11-13), slots (art and artifact slots).
 
 | Stat | Key | Ops | Target | Better | W | Owner | Status |
 |---|---|---|---|---|---|---|---|
@@ -370,7 +370,7 @@ decision 2026-11-07); the rest come from Formulas A, which marks each as derived
 | Artifact attack | `artifact_attack_pct` | I | artifact (`weapon`) | higher | 0.6 | Item DB | Live |
 | Artifact defence | `artifact_defense_pct` | I | artifact (`ward_gear`, `body_gear`) | higher | 0.6 | Item DB | Live |
 | Element affinity | `element_affinity_pct` | I | artifact | higher | 1.3 | Item DB | Live |
-| Artifact thần thức cost | `than_thuc_cost_pct` | I | artifact; scope [weapon] allowed (suggestion 7, 2026-11-11) | lower | 0.8 | Item DB | Live |
+| ~~Artifact thần thức cost~~ | `than_thuc_cost_pct` | I | artifact; scope [weapon] allowed (suggestion 7, 2026-11-11) | lower | 0.8 | Item DB | Retired 2026-11-13 (Item DB rule 11: no piece costs thần thức; Linh gives `than_thuc_pct` instead) |
 | Art slots | `bonus_slots` | F, rare | none | higher | 20 | Combat A2 | Designed |
 | Kind-locked slots | `free_slots[kind]` (talisman, artifact_active, escape, pill, feint) | F, rare (integer) | none | higher | 10 per slot (G, half an art slot) | Combat rule 13; no total cap (Đạo shared rule R4, 2026-11-11) | Designed |
 | Artifact slots | — | F, rare | none | higher | 25 | Item DB (capability #2 today) | Pending |
@@ -607,7 +607,7 @@ and are not here.
 | Artifact attack (`artifact_attack_pct`) | — | universal | +2.0 % | +13.3 % | Live | 1 |
 | Artifact defence (`artifact_defense_pct`) | — | universal | +2.0 % | +13.3 % | Live | 1 |
 | Element affinity (`element_affinity_pct`) | — | family | +1.3 % | +9.2 % | Live | 1 |
-| Artifact thần thức cost (`than_thuc_cost_pct`) | — | universal | -1.5 % | -10.0 % | Live | 1 |
+| ~~Artifact thần thức cost (`than_thuc_cost_pct`)~~ | — | universal | -1.5 % | -10.0 % | Retired 2026-11-13 | 1 |
 
 **Preparation and companions**
 
@@ -806,7 +806,7 @@ formula; **G** marks a guess.
 | Artifact attack | 0.6 | D | 0.36 at typical L3 1.4, about 0.6 near the 250 cap, 0 at the cap |
 | Artifact defence | 0.6 | D | Priced per % of the stat: 0.51 through ward gear, about 0.35 on body gear. Combat Defence & Healing Formulas I prices defence *points* at 0.648 on both gears after the raised body-gear mapping; re-derive this price when Item DB adopts that mapping, and keep 0.6 until then (re-review MD 15) |
 | Element affinity | 1.3 | D | Same multiplier as artifact power, on matched artifacts only. Implied family |
-| Artifact thần thức cost | 0.8 / pp reduced | G | The capacity part of thần thức's 1.3 |
+| ~~Artifact thần thức cost~~ | 0.8 / pp reduced | G | Retired 2026-11-13. Thần thức's own 1.3 had a capacity part; it now buys extra item slots (Item DB rule 11), so its price is open for re-derivation |
 | Art slots | 20 / slot, rare | G | Mostly choice; the gain is held back by cost shares (Combat A2) |
 | Artifact slots | 25 / slot, rare | G | |
 | Formation power | 1.0 | — | Meridian Map table |

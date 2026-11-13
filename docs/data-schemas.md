@@ -17,7 +17,8 @@ Map). Systems with no GDD yet keep first-pass drafts from `design/gdd/game-conce
 | `character_elements.json` | Five elements, their economy roles, the 8 variant roots and their role lines | `LinhCan`, `MeridianTree`, `StatSheet`, `CharacterRules` |
 | `items_herbs.json` | Linh thảo templates and potency curve | `ItemFactory`, `HerbField`, `Alchemy` |
 | `items_recipes.json` | Alchemy rules and đan phương | `Alchemy`, `PillEffects`, `Market` |
-| `items_artifacts.json` | Pháp bảo grades, tiers, bases, affixes, equip rules | `ItemFactory`, `CombatPower` |
+| `items_artifacts.json` | Pháp bảo grades, tiers, bases, affixes, equip slots, named-item rules | `ItemFactory`, `CombatPower`, `EquipSlots` |
+| `items_named.json` | Named artifacts (generated from `design/items/catalogue-*.json` by `tools/design/items/export_named.py`; never hand-edited) | `ItemFactory`, `WorldGenerator` |
 | `items_cong_phap.json` | Công pháp tiers, name parts, bonus pool | `ItemFactory` |
 | `items_materials.json` | Materials (trade goods, future crafting) | `ItemFactory` |
 | `meridian_tree.json` | Kinh Mạch Đồ generator: rings, pools, notables, keystones | `MeridianTree` |
@@ -98,11 +99,27 @@ requires, desc) and `variant_effects` (per variant: {stat, per_purity}).
 ### items_artifacts.json
 - `grades[]`: `rank` 0–4, `affixes` count, `power_mult`, `value_mult`, `weight`.
 - `tiers[]`: per realm — `name`, `power_scale` (attack/defense ×), `value_scale`.
-  Thần thức cost scales with the realm's `than_thuc_mult` instead (see `ItemFactory.artifact`).
-- `bases[]`: `attack`, `defense`, `than_thuc_cost`, `base_value`, `weight`.
-- `affixes[]`: `word`, `stat`, `min`/`max`, `weight`, optional `element_bound`.
-- `element_chance`, `element_match_bonus_pct` (+% power when the item's element is in your root),
-  `equip.max_slots`, `equip.single_artifact_keystone_mult`.
+Schema 3 (2026-11-13; item-database.md rules 6, 11, 20, Formulas D). Bases are copied from `design/items/bases.json`,
+less its retired `than_thuc_cost`: no piece costs thần thức (rule 11, user decision 2026-11-13).
+- `bases[]`: `roles` (weapon, ward_gear, body_gear, utility, ring, necklace), `damage_type`, `attack`, `defense`,
+  `base_value`, `weight`.
+- `affixes[]`: `word`, `stat`, `min`/`max`, `weight`, optional `element_bound`, optional `exclude_roles` (Liệt and
+  Kiên skip rings and necklaces). Linh gives `than_thuc_pct` 7–18 (it lowered a cost before schema 3).
+- `element_chance`, `element_match_bonus_pct` (+% power when the item's element is in your root).
+- `equip.base_slots` (slot -> count), `equip.slot_roles` (slot -> roles it takes), `equip.extra_slots_by_realm`
+  (per realm; any piece), `equip.artifact_slot_sense_step` (1.75: one more extra slot per 1.75 × the realm's reference
+  thần thức, no cap) and `equip.sense_ref_talent` (45: the reference is 45 × thần thức per point × the realm's
+  `than_thuc_mult`, the `ds_ref` of Combat Defence & Healing), `equip.single_artifact_keystone_mult`. Every slot is free.
+  Replaces schema 1's `equip.max_slots`.
+- `named.unique_rarity_min` (5), `named.rarity_offset` (artifact rarity = grade + 1), `named.unique_return_years`
+  (50), `named.holder_realm_min` (2, Kết Đan: the lowest realm World Generation gives a unique named item to).
+
+### items_named.json
+
+Generated; schema 1. `named[]`: `id`, `name`, `base`, `grade` 1–4, `element` (Ngũ Hành families only), `family`,
+`modifiers[]` {`key`, `value`, `scope`}, `effects[]` (Effect names), `arts[]`/`wards[]`/`reserve_arts[]` {`id`, `name`,
+`rule`} (stored; the game has no art combat yet), `sources[]`, optional `holder`, `exception`. Only unscoped modifiers
+whose key is in `character_stat_labels.json` reach the stat sheet (`ItemStats`).
 
 ### items_cong_phap.json
 

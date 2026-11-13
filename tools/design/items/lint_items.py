@@ -54,7 +54,7 @@ LOWER = set(tech.LOWER) | {"than_thuc_cost_pct"}
 # Formulas D: the Thiết Bích affix is a marked change, not in data yet; Formulas I counts it in the pool
 PENDING_AFFIXES = [{"id": "thiet_bich", "stat": "resist_pct", "min": 5.0, "max": 15.0, "weight": 10}]
 AFFIX_COUNT = {1: 1, 2: 2, 3: 3, 4: 4}
-NAMED_W_TOLERANCE = 1.25          # Formulas I, a guess (Open Question 19)
+NAMED_W_TOLERANCE = 1.05          # Formulas I (user decision 2026-11-13; was 1.25)
 RESERVE_W_RATE = 1.0              # Formulas I, reserve arts: W per percentage point reserved (a guess)
 SPEND_TARGET, SPEND_ENABLER = 0.80, 0.60   # Formulas I, authoring target (user decision 2026-11-12)
 UNIQUE_RARITY_MIN = 5             # rule 20c
@@ -68,7 +68,7 @@ FIELDS = {"id", "name", "family", "kind", "base", "grade", "rarity", "modifiers"
 REQUIRED = {"id", "name", "family", "kind", "base", "modifiers", "effects", "sources", "build_use"}
 NEW_EFFECT_FIELDS = {"name", "rule", "payload"}
 WARD_FIELDS = {"id", "name", "payload", "payment", "activation", "check_from"}
-BASE_FIELDS = {"id", "name", "english", "roles", "attack", "defense", "than_thuc_cost", "base_value", "weight",
+BASE_FIELDS = {"id", "name", "english", "roles", "attack", "defense", "base_value", "weight",
                "damage_type", "status", "common_art", "common_ward", "notes", "tags"}
 
 

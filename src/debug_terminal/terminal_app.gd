@@ -38,7 +38,7 @@ const HELP := [
 	]],
 	["Actions (free)", [
 		["plant [herb id|item id]", "buy a seed / transplant a herb (at home)"], ["harvest [plot|all]", "harvest herbs"],
-		["use [item id]", "eat a pill"], ["equip|unequip [item id]", "pháp bảo"], ["learn [item id]", "switch công pháp"],
+		["use [item id]", "eat a pill"], ["equip|unequip [item id] [slot]", "pháp bảo; slot: weapon armour ring necklace extra"], ["nurture <item id>", "capability #3: the treasure nurtured within"], ["learn [item id]", "switch công pháp"],
 		["market / buy [id] / sell [id]", "trade at a market"], ["talk [person id] [what you say]", "conversation (LLM or template)"],
 		["(any id left out)", "shows a numbered list to pick from"],
 		["event / choose <n>", "read / answer the pending event"],
@@ -67,7 +67,7 @@ const HELP := [
 	["Debug", [
 		["debug event [template id]", "force an event"], ["debug tuvi <n>", "add tu vi"], ["debug lt <n>", "add linh thạch"],
 		["debug herb <herb id> <age>", "give a herb"], ["debug tp <n>", "add Kinh Mạch points"], ["debug heal", "full khí huyết, clear đan độc/tâm ma"],
-		["debug item artifact|cong_phap [grade]", "generate an item"], ["buildgen <archetype> [realm 0-4]", "generate and show an NPC build"],
+		["debug item artifact|cong_phap [grade] [base] | named <id>", "generate an item"], ["buildgen <archetype> [realm 0-4]", "generate and show an NPC build"],
 		["debug templates", "list event templates"],
 	]],
 ]
@@ -243,7 +243,9 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 		"equip":
 			var e: String = _arg(args, 0, "") if args.size() > 0 else _pick_item("Equip which pháp bảo?", func(it): return it.kind == "artifact" and not s.player.equipped.has(it.id))
 			if e != "":
-				_r(s.equip(e))
+				_r(s.equip(e, _arg(args, 1, "")))
+		"nurture":
+			_r(s.nurture(_arg(args, 0, "")))
 		"unequip":
 			var ue: String = _arg(args, 0, "") if args.size() > 0 else _pick_item("Unequip which pháp bảo?", func(it): return s.player.equipped.has(it.id))
 			if ue != "":
@@ -801,7 +803,7 @@ func _pick_design() -> String:
 	for b in gd.artifacts_file().bases:
 		var ck: Dictionary = s.refinery.check(s.player, b.id, tier)
 		var state: String = io.paint("ready", "32") if ck.ok else io.paint(str(ck.reason), "2")
-		rows.append({"label": "%-10s ATK %3d DEF %3d thần thức %3d · fuel %5d LT · %s" % [b.name, int(b.attack), int(b.defense), int(b.than_thuc_cost), s.refinery.fuel_cost(b.id, tier), state], "value": b.id})
+		rows.append({"label": "%-10s ATK %3d DEF %3d · fuel %5d LT · %s" % [b.name, int(b.attack), int(b.defense), s.refinery.fuel_cost(b.id, tier), state], "value": b.id})
 	return _pick("Refine which %s? (%.0f%% success, 'explain refine')" % [gd.artifact_tier(tier).name, chance], rows)
 
 
@@ -897,12 +899,19 @@ func _debug(args: Array) -> void:
 			io.out("Healed.")
 		"item":
 			var kind: String = _arg(args, 1, "artifact")
-			var grade: int = int(_arg(args, 2, "2"))
-			var it: Dictionary = s.items.cong_phap(s.rng, grade) if kind == "cong_phap" else s.items.artifact(s.rng, c.realm_index, grade)
+			var it: Dictionary = {}
+			if kind == "named":
+				it = s.items.named_artifact(_arg(args, 2, ""), c.realm_index, s.db, s.year)
+				if it.is_empty():
+					io.out("No such named item, or a unique one already exists.")
+					return
+			else:
+				var grade: int = int(_arg(args, 2, "2"))
+				it = s.items.cong_phap(s.rng, grade) if kind == "cong_phap" else s.items.artifact(s.rng, c.realm_index, grade, "", _arg(args, 3, ""))
 			it["owner_id"] = c.id
 			io.out("Gave %s [%s]." % [s.items.describe(it), s.db.add("items", it)])
 		_:
-			io.out("debug event [id] | templates | tuvi <n> | lt <n> | herb <id> <age> | tp <n> | heal | item artifact|cong_phap [grade]")
+			io.out("debug event [id] | templates | tuvi <n> | lt <n> | herb <id> <age> | tp <n> | heal | item artifact|cong_phap [grade] [base] | named <id>")
 	s.sync_player()
 
 

@@ -5,8 +5,8 @@ extends RefCounted
 ##
 ## Stat keys are shared with data files (meridian_tree.json, items_*.json,
 ## character_elements.json), e.g. cultivation_speed_pct, attack_pct, field_plots.
-## Stats that are local to one artifact (artifact_attack_pct, than_thuc_cost_pct,
-## element_affinity_pct) are excluded here and applied by CombatPower.
+## Stats that are local to one artifact (artifact_attack_pct, artifact_defense_pct,
+## element_affinity_pct, artifact_slots) are excluded here and applied by CombatPower and EquipSlots.
 ##
 ## Rules implemented here:
 ## - Modifiers are quantized once, on entry, to their key's grid (floored, with a tolerance).
@@ -22,10 +22,14 @@ extends RefCounted
 ## var ngo: float = sheet.effective("ngo_tinh", character)
 ## [/codeblock]
 
-const ARTIFACT_LOCAL_STATS := ["artifact_attack_pct", "artifact_defense_pct", "than_thuc_cost_pct", "element_affinity_pct"]
+## Stats a piece applies to itself, not to the sheet. `artifact_slots` from a worn piece is counted by EquipSlots,
+## so a piece never opens the slot it sits in.
+const ARTIFACT_LOCAL_STATS := ["artifact_attack_pct", "artifact_defense_pct", "element_affinity_pct", "artifact_slots"]
 ## Modifier kinds that breakthrough_chance treats apart (Realms Formulas C).
 const KIND_TREE := "tree"
 const KIND_PERK := "perk"
+## Modifiers worn pieces put on the sheet (the item-slot count leaves them out: Item Database rule 11).
+const KIND_ITEM := "item"
 
 ## stat -> Array of {source, value, kind}
 var _mods: Dictionary = {}
@@ -55,11 +59,13 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: MeridianTree) -
 	# Last, because control is limited by thần thức, which everything above can raise. No affix
 	# touches thần thức, so reading it here is not circular (item-database.md rule 11).
 	if db != null:
+		# Named pieces may carry combat keys (art speed, crit) the game does not run yet; they stay on the record.
+		var labels: Dictionary = gd.file("character_stat_labels").get("labels", {})
 		for item_id in CombatPower.controlled(c, gd, db, sheet).used:
 			var art: Dictionary = db.get_record("items", item_id)
-			for affix in art.get("affixes", []):
-				if not ARTIFACT_LOCAL_STATS.has(str(affix.stat)):
-					sheet.add_mod("Pháp bảo: %s" % art.get("name", "?"), str(affix.stat), float(affix.value))
+			for line in ItemStats.lines(art):
+				if not ARTIFACT_LOCAL_STATS.has(line.stat) and labels.has(line.stat):
+					sheet.add_mod("Pháp bảo: %s" % art.get("name", "?"), line.stat, line.value, KIND_ITEM)
 	return sheet
 
 
@@ -96,6 +102,11 @@ func total(stat: String) -> float:
 ## max(0, 1 + total / 100): the single multiplier of a _pct key.
 func mult(stat: String) -> float:
 	return maxf(0.0, 1.0 + total(stat) / 100.0)
+
+
+## A stat's total without the modifiers of one kind (no ceiling applied).
+func total_except_kind(stat: String, kind: String) -> float:
+	return _sum(stat, func(m): return m.kind != kind)
 
 
 ## Sum of a stat's positive modifiers.

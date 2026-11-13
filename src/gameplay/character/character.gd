@@ -85,8 +85,11 @@ var main_tech: String = ""
 var aux_tech: Array = ["", ""]
 ## Technique key in the second main slot (capability #6), or "".
 var second_tech: String = ""
-## Equipped artifact item ids.
+## Equipped artifact item ids, in equip order.
 var equipped: Array = []
+## Slots the player pinned pieces to: item id -> "weapon", "armour", "ring", "necklace" or "extra"
+## (Item Database rule 11). An unpinned piece is placed by [method EquipSlots.assign].
+var equip_slots: Dictionary = {}
 
 # --- Meridian tree --------------------------------------------------------------
 ## Allocated Kinh Mạch Đồ node ids (root included).
@@ -104,8 +107,10 @@ var fills: Dictionary = {}
 var tree_visibility: String = "silhouette"
 ## Open-cluster unseals used per realm index (string).
 var open_unseals: Dictionary = {}
-## Years the first equipped treasure has been nurtured (capability #3).
+## Years the nurtured treasure has been carried (capability #3).
 var nurture_years: int = 0
+## The treasure chosen for nurturing (capability #3), an equipped item id, or "".
+var nurtured_id: String = ""
 ## Place ids visited, for Blink Mark (capability #21).
 var visited: Array = []
 ## The year Blink Mark was last used.
@@ -190,11 +195,11 @@ func to_dict() -> Dictionary:
 		"attempt_log": attempt_log.duplicate(), "has_insight": has_insight, "cap_used": cap_used.duplicate(),
 		"lifespan_bonus": lifespan_bonus, "vitality": vitality, "dan_doc": dan_doc, "tam_ma": tam_ma,
 		"linh_thach": linh_thach, "techniques": techniques.duplicate(true), "main_tech": main_tech,
-		"aux_tech": aux_tech.duplicate(), "second_tech": second_tech, "equipped": equipped.duplicate(),
+		"aux_tech": aux_tech.duplicate(), "second_tech": second_tech, "equipped": equipped.duplicate(), "equip_slots": equip_slots.duplicate(),
 		"tree_nodes": tree_nodes.duplicate(), "tree_points": tree_points, "capabilities": capabilities.duplicate(),
 		"unsealed": unsealed.duplicate(), "discovered": discovered.duplicate(), "fills": fills.duplicate(true),
 		"tree_visibility": tree_visibility, "open_unseals": open_unseals.duplicate(),
-		"nurture_years": nurture_years, "visited": visited.duplicate(), "blink_year": blink_year,
+		"nurture_years": nurture_years, "nurtured_id": nurtured_id, "visited": visited.duplicate(), "blink_year": blink_year,
 		"skills": skills.duplicate(true), "pill_uses": pill_uses.duplicate(), "formations": formations.duplicate(),
 		"beasts": beasts.duplicate(), "owner_id": owner_id, "loyalty": loyalty,
 		"perks": perks.duplicate(), "background": background, "bt_fate": bt_fate.duplicate(),
@@ -245,6 +250,7 @@ static func from_dict(d: Dictionary) -> Character:
 	c.aux_tech = Array(d.get("aux_tech", ["", ""])).map(func(x): return str(x))
 	c.second_tech = str(d.get("second_tech", ""))
 	c.equipped = Array(d.get("equipped", [])).duplicate()
+	c.equip_slots = Dictionary(d.get("equip_slots", {})).duplicate()
 	c.tree_nodes = []
 	for n in d.get("tree_nodes", [0]):
 		c.tree_nodes.append(int(n))
@@ -256,6 +262,7 @@ static func from_dict(d: Dictionary) -> Character:
 	c.tree_visibility = str(d.get("tree_visibility", "silhouette"))
 	c.open_unseals = d.get("open_unseals", {}).duplicate()
 	c.nurture_years = int(d.get("nurture_years", 0))
+	c.nurtured_id = str(d.get("nurtured_id", ""))
 	c.visited = Array(d.get("visited", [])).map(func(x): return str(x))
 	c.blink_year = int(d.get("blink_year", -1))
 	c.skills = {}

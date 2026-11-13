@@ -300,7 +300,7 @@ static func sheet(s: GameSession, io: TerminalIO) -> Array:
 		skills.append("%s level %d" % [k, int(c.skills[k].level)])
 	lines.append(io.paint(" ĐẠO NGHỆ", C_BOLD) + "   %s" % (", ".join(skills) if not skills.is_empty() else "none yet (practice raises them)"))
 	var power: Dictionary = CombatPower.compute(c, gd, s.db, sh)
-	lines.append(io.paint(" CHIẾN LỰC", C_BOLD) + "  %.0f = offense %.0f + defense %.0f · thần thức %.0f/%.0f carried ('explain power')" % [power.total, power.offense, power.defense, power.than_thuc_used, power.than_thuc_capacity])
+	lines.append(io.paint(" CHIẾN LỰC", C_BOLD) + "  %.0f = offense %.0f + defense %.0f · extra slots %d/%d ('explain power')" % [power.total, power.offense, power.defense, power.extra_used, power.extra_limit])
 	lines.append(io.paint(" KINH MẠCH", C_BOLD) + "  %d huyệt open, %d point(s) unspent ('tree')" % [c.tree_nodes.size(), c.tree_points])
 	if not c.perks.is_empty():
 		var pk: PackedStringArray = []

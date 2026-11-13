@@ -152,11 +152,10 @@ func _equip_build(c: Character, rng: RandomNumberGenerator, arch_id: String) -> 
 	c.main_tech = str(cp.tech_id)
 	# NPC Build Generation sets layers to fit the realm (cong-phap.md rule 19).
 	c.techniques[c.main_tech]["layer"] = mini(3 * (c.realm_index + 1), int(cp.layers))
-	# Pháp bảo, equipped while thần thức allows.
+	# Pháp bảo, equipped while a slot is free (item-database.md rule 11).
 	var count: int = mini(int(cfg.artifacts_base) + c.realm_index * int(cfg.artifacts_per_realm), int(cfg.artifacts_max))
 	var bases: Array = arch.get("artifact_bases", [])
-	var capacity: float = CharacterRules.than_thuc(c, _gd, StatSheet.build(c, _gd, _db, _tree)).total
-	var spent: float = 0.0
+	var sheet := StatSheet.build(c, _gd, _db, _tree)
 	for i in count:
 		var base_id: String = str(RngUtils.pick(rng, bases)) if not bases.is_empty() else ""
 		var grade: int = _items.roll_grade(rng, mini(1 + c.realm_index, 4))
@@ -164,9 +163,11 @@ func _equip_build(c: Character, rng: RandomNumberGenerator, arch_id: String) -> 
 		var art: Dictionary = _items.artifact(rng, c.realm_index, grade, elem, base_id)
 		art["owner_id"] = c.id
 		var aid: String = _db.add("items", art)
-		if spent + float(art.than_thuc_cost) <= capacity:
-			spent += float(art.than_thuc_cost)
-			c.equipped.append(aid)
+		var slot: String = EquipSlots.slot_for(c, _gd, _db, sheet, art)
+		if slot == "":
+			continue
+		c.equipped.append(aid)
+		c.equip_slots[aid] = slot
 
 
 func _allocate_tree(c: Character, rng: RandomNumberGenerator, arch_id: String) -> void:

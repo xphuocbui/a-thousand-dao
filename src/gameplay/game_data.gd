@@ -21,6 +21,7 @@ var _herbs: Dictionary = {}
 var _recipes: Dictionary = {}
 var _materials: Dictionary = {}
 var _artifact_bases: Dictionary = {}
+var _named_items: Dictionary = {}
 var _variants: Dictionary = {}
 var _origins: Dictionary = {}
 var _archetypes: Dictionary = {}
@@ -46,6 +47,7 @@ func setup(reg: DataRegistry) -> void:
 	_recipes = _index(file("items_recipes").get("recipes", []))
 	_materials = _index(file("items_materials").get("materials", []))
 	_artifact_bases = _index(file("items_artifacts").get("bases", []))
+	_named_items = _index(file("items_named").get("named", []))
 	_variants = _index(file("character_elements").get("variants", []))
 	_origins = _index(file("character_attributes").get("origins", []))
 	_archetypes = _index(file("world_generation").get("archetypes", []))
@@ -281,6 +283,16 @@ func artifact_base(base_id: String) -> Dictionary:
 ## items_artifacts.json content.
 func artifacts_file() -> Dictionary:
 	return file("items_artifacts")
+
+
+## Named-item template by id (items_named.json, generated from the design catalogue; Item Database rule 20).
+func named_item(named_id: String) -> Dictionary:
+	return _named_items.get(named_id, {})
+
+
+## Every named-item template.
+func named_items() -> Array:
+	return file("items_named").get("named", [])
 
 
 ## Artifact grade by rank 0..4.

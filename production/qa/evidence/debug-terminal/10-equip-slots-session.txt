@@ -1,0 +1,449 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM on | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> new quick Slots 4242
+Generating the world (seed 4242)...
+A new world: 3 regions, 16 places, 5 sects, 5056 people, 214 recorded events (Thiên Nguyên lịch năm 300).
+Slots is born: Dual root: Fire [Hỏa] 39, Earth [Thổ] 85
+
+━━ Slots — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+
+ ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁  39 Trung    luyện đan success and quality
+   Thổ  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁  85 Thượng   more linh điền plots
+   Kim  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▆▁▁▁▁  63 Thượng       Căn cốt   ▆▆▆▆▆▆▆▁▁▁  65 Thượng
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  53 Trung        Khí vận   ▆▆▆▆▆▁▁▁▁▁  48 Trung   +15
+   Đạo tâm   ▆▆▁▁▁▁▁▁▁▁  18 Hạ           Mị lực    ▆▆▆▆▆▆▁▁▁▁  57 Trung
+
+ TRẠNG THÁI Linh lực 65 · Thần thức 53 · Khí huyết 650/650
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Hậu Thổ Công (layer 1/6)
+            tu vi 8.9 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  127 = offense 64 + defense 63 · extra slots 0/2 ('explain power')
+ KINH MẠCH  1 huyệt open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Thiên Đố Kỳ Duyên — Heaven's favour: more khí vận, and cơ duyên come twice as often.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Lưu Vân Trấn (l15) — Trấn, Tử Vân Châu. Linh khí 0.89, danger 1, bounties
+  Your động phủ is here.
+People here (282):
+  p61    Trương Quân          Luyện Khí Sơ kỳ        Tán tu | chiến lực 159 | attitude 0
+  p62    Mạc Vân              Luyện Khí Đại viên mãn Đan sư | chiến lực 218 | attitude 0
+  p125   Lạc Dật              Luyện Khí Hậu kỳ       Pháp tu | chiến lực 215 | attitude 0
+  p130   Cố Tịch              Luyện Khí Đại viên mãn Tán tu | chiến lực 204 | attitude 0
+  p140   Lạc Lăng             Luyện Khí Hậu kỳ       Đan sư | chiến lực 211 | attitude 0
+  p141   Mộ Dung Cảnh         Luyện Khí Đại viên mãn Thể tu | chiến lực 250 | attitude 0
+  p167   Tiêu Khinh Vũ        Luyện Khí Sơ kỳ        Tán tu | chiến lực 150 | attitude 0
+  p215   Lục Băng             Trúc Cơ Đại viên mãn   Tán tu | chiến lực 2105 | attitude 0
+  p242   Triệu Tử Yên         Luyện Khí Hậu kỳ       Tán tu | chiến lực 181 | attitude 0
+  p249   Ôn Uyển              Luyện Khí Hậu kỳ       Linh thực sư | chiến lực 228 | attitude 0
+  p259   Tô Nham              Luyện Khí Sơ kỳ        Tán tu | chiến lực 158 | attitude 0
+  p289   Tần Viễn             Luyện Khí Trung kỳ     Đan sư | chiến lực 208 | attitude 0
+  p306   Đông Phương Lạc Anh  Luyện Khí Sơ kỳ        Tán tu | chiến lực 187 | attitude 0
+  p310   Tiêu Thần            Luyện Khí Sơ kỳ        Tán tu | chiến lực 189 | attitude 0
+  p319   Cung Cảnh            Luyện Khí Trung kỳ     Tán tu | chiến lực 184 | attitude 0
+  ... 'db people l15' lists all
+Roads:
+  -> l14   Hàn Sơn Sơn (1 season)
+  -> l16   Phượng Minh Phường Thị (1 season)
+  -> l12   Long Tích Thành (1 season)
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 127 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Lưu Vân Trấn                 7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Talk to someone… (282 here)         15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> debug item artifact 0 phi_kiem
+Gave Hậu Thổ Phi Kiếm [Phàm phẩm Pháp khí, Thổ] ATK 30 DEF 0 [i11397].
+ Δ + Hậu Thổ Phi Kiếm
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 127 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Hậu Thổ Phi Kiếm
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> debug item artifact 0 giap
+Gave Canh Kim Giáp [Phàm phẩm Pháp khí, Kim] ATK 0 DEF 30 [i11398].
+ Δ + Canh Kim Giáp
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 127 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Hậu Thổ Phi Kiếm
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> debug item artifact 1 nhan
+Gave Hộ Thân Nhẫn [Hạ phẩm Pháp khí] ATK 0 DEF 0 | +12% khí huyết [i11399].
+ Δ + Hộ Thân Nhẫn
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 127 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Hậu Thổ Phi Kiếm
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> debug item artifact 1 nhan
+Gave Tụ Khí Nhẫn [Hạ phẩm Pháp khí] ATK 0 DEF 0 | +5.4% tu luyện speed [i11400].
+ Δ + Tụ Khí Nhẫn
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 127 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Hậu Thổ Phi Kiếm
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> debug item artifact 1 ngoc_boi
+Gave Hậu Thổ Tụ Khí Ngọc Bội [Hạ phẩm Pháp khí, Thổ] ATK 0 DEF 0 | +4.6% tu luyện speed [i11401].
+ Δ + Hậu Thổ Tụ Khí Ngọc Bội
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 127 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Hậu Thổ Phi Kiếm
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> debug item artifact 0 chuong
+Gave Canh Kim Chuông [Phàm phẩm Pháp khí, Kim] ATK 10 DEF 25 [i11402].
+ Δ + Canh Kim Chuông
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 127 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Hậu Thổ Phi Kiếm
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> debug item artifact 0 ky
+Gave Kỳ [Phàm phẩm Pháp khí] ATK 15 DEF 15 [i11403].
+ Δ + Kỳ
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 127 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Hậu Thổ Phi Kiếm
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> debug item artifact 0 nhan
+Gave Xích Diễm Nhẫn [Phàm phẩm Pháp khí, Hỏa] ATK 0 DEF 0 [i11404].
+ Δ + Xích Diễm Nhẫn
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 127 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Hậu Thổ Phi Kiếm
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> debug item named blade-sword-intent-jade
+Gave Sword-Intent Jade (Kiếm Ý Bội) [Trung phẩm Pháp khí] ATK 0 DEF 0 [i11405].
+ Δ + Sword-Intent Jade (Kiếm Ý Bội)
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 127 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Hậu Thổ Phi Kiếm
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> equip i11397
+Equipped Hậu Thổ Phi Kiếm in the weapon slot. Chiến lực now 162.
+ Δ Chiến lực 127 → 162 (+35)
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 162 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Canh Kim Giáp
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> equip i11398
+Equipped Canh Kim Giáp in the armour slot. Chiến lực now 192.
+ Δ Chiến lực 162 → 192 (+30)
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 192 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Hộ Thân Nhẫn
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> equip i11399
+Equipped Hộ Thân Nhẫn in the ring slot. Chiến lực now 193.
+ Δ Chiến lực 192 → 193 (+1)
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +8.9/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 193 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Tụ Khí Nhẫn
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> equip i11400
+Equipped Tụ Khí Nhẫn in the ring slot. Chiến lực now 193.
+> equip i11401
+Equipped Hậu Thổ Tụ Khí Ngọc Bội in the necklace slot. Chiến lực now 193.
+> equip i11402
+Equipped Canh Kim Chuông in an extra slot. Chiến lực now 228.
+ Δ Chiến lực 193 → 228 (+35)
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +9.7/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 228 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Kỳ
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Lưu Vân Trấn                 8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Talk to someone… (282 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> equip i11404
+Equipped Xích Diễm Nhẫn in an extra slot. Chiến lực now 228.
+> equip i11403
+No free slot fits Kỳ.
+> equip i11405 weapon
+Sword-Intent Jade (Kiếm Ý Bội) cannot go in the weapon slot, or it is full.
+> unequip i11404
+Unequipped Xích Diễm Nhẫn.
+> equip i11405
+Equipped Sword-Intent Jade (Kiếm Ý Bội) in an extra slot. Chiến lực now 229.
+ Δ Chiến lực 228 → 229 (+1)
+
+━━ Slots · Thiên Nguyên lịch năm 300, Xuân · Lưu Vân Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +9.7/season, next level in 1.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 229 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Lưu Vân Trấn                 7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Talk to someone… (282 here)         15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> explain power
+Realm Luyện Khí Sơ kỳ: base 100
+Offense = 108.97
+    Realm share                        = 50
+    Công pháp Hậu Thổ Công             +13.08  -> 63.08
+    Hậu Thổ Phi Kiếm                   +34.50  -> 97.58
+    Canh Kim Chuông                    +10  -> 107.58
+    Linh lực 69 x 0.02                 +1.39  -> 108.97
+Defense = 119.82
+    Realm share                        = 50
+    Canh Kim Giáp                      +30  -> 80
+    Canh Kim Chuông                    +25  -> 105
+    Khí huyết 741 x 0.02               +14.82  -> 119.82
+Chiến lực = 228.79
+    Offense                            = 108.97
+    Defense                            +119.82  -> 228.79
+Extra slots 2 / 2, the next at thần thức 79
+> inventory
+Linh thạch: 30
+Công pháp:
+  i11378 Hậu Thổ Công [Hoàng giai main, Thổ] 6 layers, up to Trúc Cơ [known]
+Pháp bảo:
+  i11397 Hậu Thổ Phi Kiếm [Phàm phẩm Pháp khí, Thổ] ATK 30 DEF 0 [equipped]
+  i11398 Canh Kim Giáp [Phàm phẩm Pháp khí, Kim] ATK 0 DEF 30 [equipped]
+  i11399 Hộ Thân Nhẫn [Hạ phẩm Pháp khí] ATK 0 DEF 0 | +12% khí huyết [equipped]
+  i11400 Tụ Khí Nhẫn [Hạ phẩm Pháp khí] ATK 0 DEF 0 | +5.4% tu luyện speed [equipped]
+  i11401 Hậu Thổ Tụ Khí Ngọc Bội [Hạ phẩm Pháp khí, Thổ] ATK 0 DEF 0 | +4.6% tu luyện speed [equipped]
+  i11402 Canh Kim Chuông [Phàm phẩm Pháp khí, Kim] ATK 10 DEF 25 [equipped]
+  i11403 Kỳ [Phàm phẩm Pháp khí] ATK 15 DEF 15
+  i11404 Xích Diễm Nhẫn [Phàm phẩm Pháp khí, Hỏa] ATK 0 DEF 0
+  i11405 Sword-Intent Jade (Kiếm Ý Bội) [Trung phẩm Pháp khí] ATK 0 DEF 0 [equipped]
+Phù lục (used automatically):
+  i11396 Phá Cảnh Phù x2 — A realm-breaking talisman: +breakthrough chance on the next attempt.
+> quit

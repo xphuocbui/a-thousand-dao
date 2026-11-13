@@ -92,7 +92,9 @@ func artifact(rng: RandomNumberGenerator, realm_tier: int, grade: int, element: 
 		elem = ""
 	var scale: float = float(g.power_mult) * float(tier.power_scale)
 	var affixes: Array = []
-	var pool: Array = cfg.affixes.duplicate()
+	# A ring or necklace has no attack or defence, so it never rolls Liệt or Kiên (Formulas D, `exclude_roles`).
+	var base_roles: Array = base.get("roles", [])
+	var pool: Array = cfg.affixes.filter(func(a): return not Array(a.get("exclude_roles", [])).any(func(r): return base_roles.has(r)))
 	for i in int(g.affixes):
 		if pool.is_empty():
 			break
@@ -105,14 +107,59 @@ func artifact(rng: RandomNumberGenerator, realm_tier: int, grade: int, element: 
 	var item := {
 		"kind": "artifact", "base": base.id, "grade": int(g.rank), "tier": realm_tier,
 		"element": elem, "attack": float(base.attack) * scale, "defense": float(base.defense) * scale,
-		# Control cost grows with the realm thần thức multiplier so a realm-appropriate
-		# cultivator can wield about two of its own tier.
-		"than_thuc_cost": float(base.than_thuc_cost) * float(_gd.realm(realm_tier).than_thuc_mult),
+		# No thần thức cost: pieces are limited by slots, and thần thức adds extra slots (item-database.md rule 11).
 		"affixes": affixes, "owner_id": "",
 		"value": int(float(base.base_value) * float(g.value_mult) * float(tier.value_scale)),
 	}
 	item["name"] = flavor_name.substr(0, 40) if flavor_name != "" else _artifact_name(base, elem, affixes)
 	return item
+
+
+## A named artifact from its template (Item Database rule 20): the base's numbers at the template's fixed grade and
+## [param realm_tier], with the authored modifiers, Effects and arts and no rolled affixes. Returns {} when the
+## template is unknown or, for a unique template, while [method named_available] says no.
+func named_artifact(named_id: String, realm_tier: int, db: WorldDB = null, year: int = 0) -> Dictionary:
+	var t: Dictionary = _gd.named_item(named_id)
+	if t.is_empty() or not named_available(db, named_id, year):
+		return {}
+	var base: Dictionary = _gd.artifact_base(str(t.base))
+	var g: Dictionary = _gd.artifact_grade(int(t.grade))
+	var tier: Dictionary = _gd.artifact_tier(realm_tier)
+	var scale: float = float(g.power_mult) * float(tier.power_scale)
+	return {
+		"kind": "artifact", "named": named_id, "unique": is_unique(named_id), "name": str(t.name),
+		"base": str(t.base), "grade": int(g.rank), "tier": realm_tier, "element": str(t.get("element", "")),
+		"attack": float(base.get("attack", 0.0)) * scale, "defense": float(base.get("defense", 0.0)) * scale,
+		"affixes": [], "modifiers": Array(t.get("modifiers", [])).duplicate(true),
+		"effects": Array(t.get("effects", [])).duplicate(), "arts": Array(t.get("arts", [])).map(func(a): return a.id),
+		"wards": Array(t.get("wards", [])).map(func(a): return a.id),
+		"reserve_arts": Array(t.get("reserve_arts", [])).map(func(a): return a.id),
+		"owner_id": "",
+		"value": int(float(base.get("base_value", 1)) * float(g.value_mult) * float(tier.value_scale)),
+	}
+
+
+## Whether a named template is unique: rarity (artifact grade + `rarity_offset`) at or above `unique_rarity_min`.
+func is_unique(named_id: String) -> bool:
+	var cfg: Dictionary = _gd.artifacts_file().named
+	return int(_gd.named_item(named_id).get("grade", 0)) + int(cfg.rarity_offset) >= int(cfg.unique_rarity_min)
+
+
+## Whether a source may make [param named_id] now (rule 20c): a repeatable template always; a unique one only while
+## no record of it exists, and not until `unique_return_years` after a record of it was destroyed (a record kept
+## with `destroyed_year` set by the system that destroyed it).
+func named_available(db: WorldDB, named_id: String, year: int = 0) -> bool:
+	if _gd.named_item(named_id).is_empty():
+		return false
+	if not is_unique(named_id) or db == null:
+		return true
+	var wait: int = int(_gd.artifacts_file().named.unique_return_years)
+	for it in db.find("items", func(r): return str(r.get("named", "")) == named_id):
+		if not it.has("destroyed_year"):
+			return false
+		if year - int(it.destroyed_year) < wait:
+			return false
+	return true
 
 
 ## Grade rank rolled by data weights, clamped to [param grade_max].
@@ -265,10 +312,10 @@ func describe(item: Dictionary) -> String:
 			var aff: PackedStringArray = []
 			for a in item.affixes:
 				aff.append(_gd.format_mod(str(a.stat), float(a.value)))
-			return "%s [%s %s%s] ATK %.0f DEF %.0f thần thức %.0f%s" % [
+			return "%s [%s %s%s] ATK %.0f DEF %.0f%s" % [
 				item.name, _gd.artifact_grade(int(item.grade)).name, _gd.artifact_tier(int(item.tier)).name,
 				(", " + _gd.element_name(item.element)) if item.element != "" else "",
-				float(item.attack), float(item.defense), float(item.than_thuc_cost),
+				float(item.attack), float(item.defense),
 				(" | " + ", ".join(aff)) if not aff.is_empty() else ""]
 		"cong_phap":
 			var els: PackedStringArray = []

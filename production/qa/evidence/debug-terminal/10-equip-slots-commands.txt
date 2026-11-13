@@ -1,0 +1,24 @@
+new quick Slots 4242
+debug item artifact 0 phi_kiem
+debug item artifact 0 giap
+debug item artifact 1 nhan
+debug item artifact 1 nhan
+debug item artifact 1 ngoc_boi
+debug item artifact 0 chuong
+debug item artifact 0 ky
+debug item artifact 0 nhan
+debug item named blade-sword-intent-jade
+equip i11397
+equip i11398
+equip i11399
+equip i11400
+equip i11401
+equip i11402
+equip i11404
+equip i11403
+equip i11405 weapon
+unequip i11404
+equip i11405
+explain power
+inventory
+quit

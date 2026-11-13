@@ -1,6 +1,6 @@
 # Item Database & Generation
 
-> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 3 blocking; answers and fixes applied the same day, see `reviews/item-database-review-2026-11-10.md`; confirming re-review 2026-11-10 answered and fixed the same day, see `reviews/item-database-rereview-2026-11-10.md`). D2 applied 2026-11-08: the role tags `ward` and `body` are now `ward_gear` and `body_gear`. **2026-11-12:** rule 20 (named items) expanded with user decisions (copies by rarity, the same plain-modifier budget as a rolled artifact, four sources), Formulas I added, with Edge Cases, Tuning Knobs, AC-ID-88 to 91 and Open Questions 17 to 19. **2026-11-12:** rule 11 (equipping) redesigned with the user: base slots (1 weapon, 1 armour, 2 rings, 1 necklace) cost no thần thức; extra slots take any piece, grow by realm (2 / 3 / 4 / 5 / 6) plus `artifact_slots`, and cost thần thức; `ring` and `necklace` roles and two worn bases added (rule 6, Formulas E). **2026-11-12:** Open Questions 4, 5, 7, 13, 15, 17, 18 closed and 20 partly (user decisions: edible herbs, Lost-item decay, timed effects on the character, rank names, no manual reissue, refining named items up, unique items return, the robe). **2026-11-12:** rule 21 added (user decisions): weapons give attack arts, armour and ward gear ward arts, rings, necklaces and utility an Effect or modifiers and optionally a reserve art; every rolled weapon and ward piece gives its base's common art; item arts use the art slots; the piece's number powers its art; the rule is a blueprint, and authored exceptions are marked and listed by the lint.
+> **Status**: In Review (design-review 2026-11-10: NEEDS REVISION, 3 blocking; answers and fixes applied the same day, see `reviews/item-database-review-2026-11-10.md`; confirming re-review 2026-11-10 answered and fixed the same day, see `reviews/item-database-rereview-2026-11-10.md`). D2 applied 2026-11-08: the role tags `ward` and `body` are now `ward_gear` and `body_gear`. **2026-11-12:** rule 20 (named items) expanded with user decisions (copies by rarity, the same plain-modifier budget as a rolled artifact, four sources), Formulas I added, with Edge Cases, Tuning Knobs, AC-ID-88 to 91 and Open Questions 17 to 19. **2026-11-12:** rule 11 (equipping) redesigned with the user: base slots (1 weapon, 1 armour, 2 rings, 1 necklace) cost no thần thức; extra slots take any piece, grow by realm (2 / 3 / 4 / 5 / 6) plus `artifact_slots`, and cost thần thức; `ring` and `necklace` roles and two worn bases added (rule 6, Formulas E). **2026-11-12:** Open Questions 4, 5, 7, 13, 15, 17, 18 closed and 20 partly; **2026-11-13:** 8, 19, 20, 21, 23, 24 closed and 10 narrowed (`named_W_tolerance` 1.05, jewellery affix pool, art power through the gear layers), 22 kept for the harness (user decisions: edible herbs, Lost-item decay, timed effects on the character, rank names, no manual reissue, refining named items up, unique items return, the robe). **2026-11-12:** rule 21 added (user decisions): weapons give attack arts, armour and ward gear ward arts, rings, necklaces and utility an Effect or modifiers and optionally a reserve art; every rolled weapon and ward piece gives its base's common art; item arts use the art slots; the piece's number powers its art; the rule is a blueprint, and authored exceptions are marked and listed by the lint. **2026-11-13 (with the user):** rule 11 changed: no piece costs thần thức; extra slots are free and thần thức adds more (one per `artifact_slot_sense_step` × `ds_ref`, no cap); the Linh affix gives thần thức % (Formulas D, Edge Cases, AC-ID-12, 41, 42, 43, 80 and Open Question 21 follow).
 > **Author**: user + agents
 > **Last Updated**: 2026-11-12
 > **Last Verified**: 2026-11-10
@@ -32,7 +32,7 @@ traded*. Every other economy system, the crafts, the Market, events and the Way 
 add none of their own rules to a record.
 
 Items are split into four categories: **consumables** (used up when their effect fires), **equippable**
-(worn or carried and kept, limited by divine sense [thần thức]), **crafting** (ingredients and materials
+(worn or carried and kept, in slots that grow with realm and divine sense [thần thức]), **crafting** (ingredients and materials
 that become something else) and **other** (manuals, keys, clues and whatever fits none of these). An item
 may carry **several categories**, so a herb can be crafting and also edible; the rules say which
 behaviour wins when they conflict (user decision 2026-11-06). Tags, as in Combat, carry what the
@@ -68,7 +68,7 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
    the template instead.
 3. **Four categories, and an item may have several** (user decision 2026-11-06).
    - **Consumable:** used up when its effect fires.
-   - **Equippable:** worn or carried and kept, limited by divine sense (thần thức).
+   - **Equippable:** worn or carried and kept, in slots that grow with realm and divine sense (thần thức).
    - **Crafting:** an ingredient or material that becomes something else.
    - **Other:** manuals, keys, clues and whatever fits none of these.
 
@@ -127,21 +127,29 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     identical (the same pill recipe and quality, the same material, the same talisman) is a **stack**:
     one record with a `qty`. Two stacks merge when their keys match (Formulas G), and a stack with `qty` 0 is
     removed.
-11. **Equipping: base slots and extra slots** (user decisions 2026-11-06, 2026-11-10 review D2, and 2026-11-12). A
-    character wears two kinds of slot.
+11. **Equipping: base slots and extra slots** (user decisions 2026-11-06, 2026-11-10 review D2, 2026-11-12 and
+    2026-11-13). A character wears two kinds of slot, and **no piece costs thần thức to wear** (user decision
+    2026-11-13, replacing the per-piece cost of 2026-11-12).
     - **Base slots, the same at every realm** (`equip.base_slots`): **1 weapon, 1 armour, 2 rings, 1 necklace**. The
       weapon slot takes a piece with the `weapon` role, the armour slot a `body_gear` piece, a ring slot a `ring` and
-      the necklace slot a `necklace`. **A piece in a base slot costs no thần thức**, so a Qi Refining cultivator can
-      always wear a full set.
-    - **Extra slots, growing by realm** (`equip.extra_slots_by_realm`: 2 / 3 / 4 / 5 / 6 from Qi Refining to Deity
-      Transformation) **+ `artifact_slots`**. An extra slot takes **any equippable piece** (user decision 2026-11-12): a
-      second flying sword, a bell, a seal, a gourd, a third ring or a second armour. **Each piece in an extra slot costs its thần thức to control**
-      (Formulas D), and a piece the character cannot control adds nothing but stays equipped. Extra pieces are counted
-      in equip order, and a piece that does not fit is skipped, so a cheaper later piece still counts. The realm sets
-      how many extras a character may carry; thần thức decides how many it can drive.
+      the necklace slot a `necklace`, so a Qi Refining cultivator can always wear a full set.
+    - **Extra slots, free like the base slots.** An extra slot takes **any equippable piece** (user decision
+      2026-11-12): a second flying sword, a bell, a seal, a gourd, a third ring or a second armour. How many extra
+      slots a character has (Formulas D, item slots):
+      - `equip.extra_slots_by_realm`: 2 / 3 / 4 / 5 / 6 from Qi Refining to Deity Transformation;
+      - **plus one for each full `artifact_slot_sense_step` × `ds_ref[r]` of thần thức, with no cap**, the same shape
+        as the ward slots of Combat Defence & Healing rule 6 (user decision 2026-11-13). Thần thức buys reach, not
+        upkeep;
+      - plus `artifact_slots`.
+    - Extra pieces fill the extra slots in equip order. A piece past the count stays equipped but adds nothing, until
+      a slot frees up (the count rises, or an earlier extra piece is unequipped).
     - `artifact_slots` is a Character Stats key (its rule 15; flat, integer, rare in the Modifier System) that adds
       extra slots. Meridian Map capability #2 (provisional text in its rule 17), the Way's Kim Đạo (Binh Khố),
       keystones, named items and quest rewards feed it as modifiers.
+    - **The one-treasure keystone** (`single_artifact`; the Meridian Map's Kim keystone Nhất Kiếm Phá Vạn Pháp; user
+      decision 2026-11-13): the base slots work as normal, and **at most one extra piece counts**, the first in equip
+      order. That one bonded treasure's power is multiplied by `equip.single_artifact_keystone_mult` (2.5). Further
+      extra pieces stay equipped but add nothing.
     - Equipping needs an owned equippable item and a free slot that fits it. The player picks the slot; a call that
       names none fills a fitting base slot first, then an extra slot. Combat and Character Stats decide what a piece
       adds; the Item Database decides whether it is held, worn and counted.
@@ -164,10 +172,21 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     item can still be found, looted or stolen; only selling and giving are refused. Neither stops a player
     using the item.
 14. **Ownership.** An item has exactly one owner at any time: a person, a place (a lost item waiting to
-    be found), a Market (stock) or no one. **When an owner dies** (user decision 2026-11-06), their unbound items go to the
-    killer if there is one, otherwise they become Lost at the place of death; their bound items become Lost there. The system that
-    resolves the death (Combat, the Event Engine or the Living World) names the killer and calls the Item Database's
-    transfer; the Item Database moves nothing by itself (rule 15). Transfers (buying, selling, giving, looting, finding, theft) change the single
+    be found), a Market (stock) or no one. **When an NPC dies** (user decisions 2026-11-06 and 2026-11-13), their
+    unbound items go to the first of:
+    1. **the killer**, if there is one;
+    2. **a close relationship**, while relationships are only master and disciple: the living disciple of the highest
+       realm (then stage, then the earlier record), else the living master. A future relationship system (family,
+       dao companions, sworn siblings) slots in here;
+    3. **the sect successor**, if the dead was in a sect: the living member of the same rank with the highest realm,
+       else the nearest rank above, else the nearest rank below (`sects.rank_ladder`: ngoại môn, nội môn, trưởng
+       lão, tông chủ). A dead sect leader's successor also takes the leadership;
+    4. otherwise the items become **Lost at the place of death**, to be looted there.
+
+    Bound items always become Lost there. The player's own death is outside this order. The system that resolves
+    the death (Combat, the Event Engine or the Living World) names the killer and calls the Item Database's
+    transfer; today only old age kills NPCs (the Living World), and no path names a killer yet. The transfer itself is
+    unchanged by that; the Item Database moves nothing by itself (rule 15). Transfers (buying, selling, giving, looting, finding, theft) change the single
     `owner_id` and are logged as events. An item whose owner no longer exists is a data error, caught
     when the world is saved. **Lost items decay** (user decision 2026-11-12, Open Question 5): an ordinary item that has been Lost at a
     place, untouched, for `lost_decay_years` is removed and logged. Named, bound and reserved items, and items at rarity
@@ -195,7 +214,7 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
 20. **Named items** (user decisions 2026-11-10, review D1, and 2026-11-12). A named item is an authored artifact or
     treasure template marked `named`. It is read through its template, like an authored manual, and generation never
     rolls one. A rolled artifact never carries an Effect or a rare modifier.
-    - **a. What it holds.** A base, as a rolled artifact has, so its attack, defence, thần thức cost and value follow
+    - **a. What it holds.** A base, as a rolled artifact has, so its attack, defence and value follow
       Formulas D; a fixed grade from 1 to 4 (a named treasure has its rarity instead); `modifiers`, catalogue modifiers
       with rare ones allowed (Modifier System rule 13), within the budget of Formulas I; `effects`, Effects System records,
       unpriced, and it may be an enabler; and the arts its role gives (rule 21), authored instead of common. **A named
@@ -215,7 +234,8 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
       - **Events and secret realms:** the Event Engine may award one within the reward bounds (Formulas F, with the
         Legendary exception).
       - **NPC holders:** World Generation places every unique named item at world start, either with an NPC of a fitting
-        realm (NPC Builds equips it) or as Lost at a place. After that, rule 14 moves it like any other item: trade, gift,
+        realm, Kết Đan or higher (`holder_realm_min` 2, user decision 2026-11-13), made at the holder's realm tier
+        (NPC Builds equips it where a slot fits), or as Lost at a place, at a tier from Kết Đan up. After that, rule 14 moves it like any other item: trade, gift,
         theft, or its holder's death.
       - **Quest and sect rewards:** a quest may name a named template as its reward; sect rewards wait on Sects & Missions.
       - **Crafting:** Artifact Refining may hold a recipe for a **repeatable** named item. A unique item is never crafted.
@@ -248,9 +268,10 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     like any ward (Combat rule 22). A reserve art takes no slot and pays by reservation. An art from an unequipped piece,
     or from an extra piece its wearer cannot control (rule 11), is not available.
 
-    **The piece's number powers its art.** A weapon's attack scales its attack art, and a ward piece's defence scales
-    its ward art, so grade and tier still matter (Formulas D). How the number enters the art's damage or ward strength
-    belongs to Combat (Open Question 23). The common arts of each base are authored content (Open Question 24); a base
+    **The piece's number powers its art through the gear layers** (user decision 2026-11-13, Open Question 23). A weapon's attack feeds
+    the gear layer L3 and a ward piece's defence feeds ward strength (`a_w`; armour, `a_b`), as rule 6 already says, and
+    those scale every art and ward the wearer has, the item's own among them. An item art is an ordinary art: nothing
+    scales it beyond that, so grade and tier still matter (Formulas D). The common arts of each base are authored content (Open Question 24); a base
     with none yet gives no art.
 
 ### States and Transitions
@@ -317,7 +338,7 @@ acceptance criteria that fail today are listed so the build scope is visible.
 | 18 | No counts or item measures exist in `tools/balance/` | 58, 71 to 74, 76, 77 |
 | Tuning | The quality step 0.5, the name limit 40, the potency floor 0.1 and the age floor 0.01 are hardcoded | — |
 | UI | No inventory, detail or equip screens match this GDD | 78 to 83 |
-| 11 | No `artifact_slots` stat; the cap is a flat `equip.max_slots` (6) for any piece, every piece costs thần thức, and there are no base slots, extra slots or `ring` and `necklace` roles | 41, 42, 43 |
+| 11 | ~~No `artifact_slots` stat; a flat `equip.max_slots` (6); every piece costs thần thức; no base or extra slots, no `ring` or `necklace` roles~~ Built 2026-11-13 (`EquipSlots`): base slots, extra slots by realm and thần thức, `artifact_slots`, ring and necklace roles; no piece costs thần thức | 41, 42, 43 |
 | 19 | The lint does not check affix keys against the Modifier catalogue, rare modifiers or Chaos resistance; the Thiết Bích affix does not exist | 85a to 85d |
 | 20 | No named items, no Effects or rare modifiers on items, no uniqueness or return timer, no named-item budget lint | 85e, 88 to 91, 93 |
 | 21 | Items give no arts; a piece's attack and defence feed combat power directly | 94, 95 |
@@ -421,7 +442,11 @@ warns on any new recipe below 1.
 
 The artifact formulas are defined as:
 
-`scale = grade.power_mult · tier.power_scale` ; `attack = base.attack · scale` ; `defense = base.defense · scale` ; `value = int(base.base_value · grade.value_mult · tier.value_scale)` ; `than_thuc_cost = base.than_thuc_cost · realm(tier).than_thuc_mult`, paid only by a piece in an extra slot (rule 11); a piece in a base slot pays nothing
+`scale = grade.power_mult · tier.power_scale` ; `attack = base.attack · scale` ; `defense = base.defense · scale` ; `value = int(base.base_value · grade.value_mult · tier.value_scale)` ; no piece has a thần thức cost (rule 11, user decision 2026-11-13)
+
+The item_slots formula (rule 11) is defined as:
+
+`item_slots = 5 + extra_slots_by_realm[r] + floor(than_thuc / (artifact_slot_sense_step · ds_ref[r])) + artifact_slots`, where the 5 are the base slots and every slot is free. A thần thức or `artifact_slots` grant counts toward it from any source except a piece in an extra slot
 
 **Variables:**
 
@@ -433,7 +458,9 @@ The artifact formulas are defined as:
 | tier | int | 0–4 | caller | The realm the item is made for |
 | damage_type | enum | Physical (default), any Combat Damage Types type but Soul (Soul comes only from soul arts, Combat Damage Types' type table and Combat rule 24) | data file (base) | The type of the piece's attack; its element is a tag (review D5) |
 | power_scale, value_scale | float | 1 / 10 / 100 / 1,000 / 10,000; 1 / 8 / 60 / 400 / 3,000 | data file | Per tier |
-| than_thuc_mult | float | 1 / 3 / 10 / 30 / 100 | data file (`cultivation_realms.json`) | Per realm. An affix's cost change is clamped to ×0.1–2.0 when worn, as built |
+| extra_slots_by_realm | int | 2 / 3 / 4 / 5 / 6 | data file | Extra slots by realm, before thần thức |
+| ds_ref[r] | float | 45 / 135 / 450 / 1,350 / 4,500 | Combat Defence & Healing Formulas D (talent 45 × `than_thuc_mult`) | The realm's reference thần thức, the same one the ward slots read |
+| artifact_slot_sense_step | float | 1.75 (1.5–2.0) | data file (**change**, new 2026-11-13) | +1 extra slot at 1.75 × `ds_ref`, +2 at 3.5 ×, and so on with no cap |
 | element_chance | float | 0.6 | data file | Chance an artifact has an element |
 
 **The affix pool** (`items_artifacts.json` `affixes`; keys checked against the Modifier catalogue by rule 19):
@@ -442,7 +469,7 @@ The artifact formulas are defined as:
 |---|---|---|---|
 | Liệt | `artifact_attack_pct` | 10–30 | 20 |
 | Kiên | `artifact_defense_pct` | 10–30 | 20 |
-| Linh | `than_thuc_cost_pct` | −10 to −30 | 12 |
+| Linh | `than_thuc_pct` (**change** 2026-11-13: was `than_thuc_cost_pct` −10 to −30, a cost no piece has now; 7–18 keeps `w_affix` at 12.8 W) | 7–18 | 12 |
 | Tụ Khí | `cultivation_speed_pct` | 2–6 | 8 |
 | Hộ Thân | `khi_huyet_pct` | 5–15 | 12 |
 | Dưỡng Sinh | `dan_doc_resist_pct` | 5–15 | 8 |
@@ -454,14 +481,15 @@ The artifact formulas are defined as:
 No rolled affix is Chaos resistance or any other rare modifier (rule 19; this closes Combat Damage Types Open
 Question 3 from this side).
 
-**Affix roll.** For each affix slot, one affix is picked by weight from the 10 in the pool without replacement. An
+**Affix roll.** For each affix slot, one affix is picked by weight from the 10 in the pool without replacement. A ring or
+necklace rolls from the pool without Liệt and Kiên, which act on artifact attack and defence it does not have (user decision 2026-11-13). An
 element-bound affix on an item with no element skips that slot, so the item has one affix fewer. Each value is
 `snapped(uniform(min, max), 0.1)`. Affixes change neither attack, defense nor value; they apply through Character Stats
 and Combat.
 
 **Output Range:** Phi Kiếm's attack runs 30 to 900,000 and its value 20 to 1,200,000 across grades and tiers.
 
-**Example:** Phi Kiếm at tier 1, grade 2: scale 17, attack **510**, value 20 × 4 × 8 = **640**, thần thức cost **60**, two affixes.
+**Example:** Phi Kiếm at tier 1, grade 2: scale 17, attack **510**, value 20 × 4 × 8 = **640**, two affixes. A Kết Đan character with thần thức 800 (1.78 × `ds_ref` 450) wears 5 + 4 + floor(800 / 787.5) = **10** pieces.
 
 ### E. Role tags
 
@@ -490,8 +518,8 @@ The default_role formula is defined as:
 | Chuông | 10 / 25 | 0.29 | ward_gear |
 | Thuẫn | 0 / 35 | 0.00 | ward_gear |
 | Giáp | 0 / 30 | 0.00 | body_gear (authored) |
-| Nhẫn (ring; **change**, new) | 0 / 0 | — | ring (authored); affixes only; a thần thức cost for when it sits in an extra slot, set at the catalogue pass |
-| Ngọc Bội (necklace or jade pendant; **change**, new) | 0 / 0 | — | necklace (authored); affixes only; a thần thức cost as for Nhẫn |
+| Nhẫn (ring; **change**, new) | 0 / 0 | — | ring (authored); affixes only |
+| Ngọc Bội (necklace or jade pendant; **change**, new) | 0 / 0 | — | necklace (authored); affixes only |
 | Đạo Bào (robe; **change**, new; user decision 2026-11-12) | 0 / less than Giáp | 0.00 | body_gear (authored); light armour: less body defence than Giáp, its affixes lean to resistance and thần thức; numbers at the catalogue pass |
 
 **Example:** Chuông: attack 10, defence 25, so a = 10 / (10 + 25) = 0.29, at or under 0.30, so **ward_gear**.
@@ -592,11 +620,11 @@ The lint passes a named template when `Σ W(modifiers) ≤ named_W_max · named_
 | W(modifier) | float | ≥ 0 | Modifier System (catalogue prices) | The price of each modifier on the template; a rare modifier costs its rare price (10–30 W) |
 | W(mid roll) | float | 0.4–22.8 | calculated | An affix's price at the middle of its roll range |
 | w_affix | float | about 12.8 W | calculated by the lint from the pool | What one rolled affix is worth on average |
-| named_W_tolerance | float | 1.25 (a guess) | data file (**change**: new) | How far over the budget a template may go |
+| named_W_tolerance | float | 1.05 (user decision 2026-11-13; was 1.25: the 168 catalogue items top out at 1.03) | data file (**change**: new) | How far over the budget a template may go |
 | unique_rarity_min | int | 5 | data file (**change**: new) | The rarity from which a named item is unique (rule 20c) |
 
 **Output Range:** `named_W_max` runs from about 12.8 W at grade 1 to about 51 W at grade 4, so the lint passes up to
-about 16 W and 64 W.
+about 13.4 W and 53.7 W.
 
 **How `w_affix` comes out at 12.8 W.** Mid-roll prices with today's pool: Liệt and Kiên 20 × 0.6 = 12 (weight 20 each);
 Linh 20 × 0.8 = 16 (12); Tụ Khí 4 × 2.2 = 8.8 (8); Hộ Thân 10 × 0.6 = 6 (12); Dưỡng Sinh 10 × 1.6 = 16 (8); Tĩnh Tâm
@@ -605,7 +633,7 @@ Linh 20 × 0.8 = 16 (12); Tụ Khí 4 × 2.2 = 8.8 (8); Hộ Thân 10 × 0.6 = 6
 the lint recomputes it.
 
 **Example:** a Thượng-grade (grade 3) named sword gets 3 × 12.8 = **38.3 W** of plain modifiers, the same as an average
-rolled Thượng piece, and the lint passes up to 47.9 W. A rare +1 art slot (20 W) would use about half of it. Its Effect
+rolled Thượng piece, and the lint passes up to 40.2 W. A rare +1 art slot (20 W) would use about half of it. Its Effect
 comes on top, unpriced.
 
 **Authoring target** (user decision 2026-11-12). A named item spends 80–100 % of its budget. An item whose main value is
@@ -650,7 +678,7 @@ Formulas F) and is not priced here.
 - **If part of a stack is sold, given or used:** the stack splits; the moved units keep every field and merge at their destination if a key matches.
 - **If two stacks have different owners or flags:** they never merge.
 - **If a herb's age is 0:** its potency is 0.1 and its value at least 1.
-- **If an affix value is negative:** it stands, as with the Linh affix's −10 to −30 thần thức cost.
+- **If an affix value is negative:** it stands. No affix in today's pool is negative (Linh was, until 2026-11-13).
 
 **Using and equipping**
 
@@ -659,11 +687,12 @@ Formulas F) and is not priced here.
 - **If an automatic caller gives no action:** the call is refused and logged. The item is not used.
 - **If an item has several categories and a craft takes it:** the crafting action consumes it, and no consumable effect fires.
 - **If no free slot fits the piece:** it is refused. Any piece fits a free extra slot (rule 11), so this happens only when the base slot for its role is taken and every extra slot is full.
-- **If a second armour is worn in an extra slot:** it counts in full and pays its thần thức; Combat Defence & Healing adds every body_gear piece's defence to `a_b` (its Formulas A2), so stacked armour is allowed and watched (Open Question 22).
-- **If a ring or necklace sits in an extra slot:** it pays its base's thần thức cost there, like any extra piece.
+- **If a second armour is worn in an extra slot:** it counts in full; Combat Defence & Healing adds every body_gear piece's defence to `a_b` (its Formulas A2), so stacked armour is allowed and watched (Open Question 22).
+- **If a ring or necklace sits in an extra slot:** it counts like any extra piece.
 - **If a character advances a realm:** its extra slots grow at once; nothing moves by itself.
-- **If a piece in an extra slot costs more thần thức than the wearer has left:** it stays equipped, adds nothing and warns. A piece in a base slot is never short of thần thức.
-- **If thần thức falls, or an `artifact_slots` source is removed:** extra pieces stay equipped in order. Extra pieces past the cap add nothing until the owner unequips.
+- **If more extra pieces are worn than there are extra slots:** those past the count, in equip order, stay equipped, add nothing and warn. A piece in a base slot always counts.
+- **If thần thức falls, or an `artifact_slots` source is removed:** the extra-slot count falls; extra pieces stay equipped in order, and those past the count add nothing until a slot frees up.
+- **If a piece in an extra slot grants thần thức or `artifact_slots`:** the grant counts everywhere else, but not toward the slot count, so no piece opens its own slot. The same grant on a piece in a base slot counts.
 - **If an equipped item is sold, given or stolen:** it is unequipped first, with the rule 12 preview for a player action. A theft has no preview.
 
 **Ownership**
@@ -747,11 +776,12 @@ the Market's margin, stay with their owners.
 | Each recipe's `price`, `yield` and quality step | Pill value |
 | Grade `power_mult`, `value_mult`, `weight`, affix count; tier `power_scale`, `value_scale` | Artifact power and price |
 | `element_chance`, the affix pool and its weights | What generated artifacts look like |
-| `equip.base_slots` (1 weapon, 1 armour, 2 rings, 1 necklace), `equip.extra_slots_by_realm` (2 / 3 / 4 / 5 / 6), both replacing `equip.max_slots`; `artifact_slots` (a Character Stats key, rare, 25 W per extra slot in the Modifier catalogue) | How many pieces a build wears |
+| `equip.base_slots` (1 weapon, 1 armour, 2 rings, 1 necklace), `equip.extra_slots_by_realm` (2 / 3 / 4 / 5 / 6), both replacing `equip.max_slots`; `artifact_slot_sense_step` (1.75, safe 1.5–2.0: thần thức per further extra slot, as a multiple of `ds_ref`; lower gives soul cultivators more pieces); `artifact_slots` (a Character Stats key, rare, 25 W per extra slot in the Modifier catalogue) | How many pieces a build wears |
 | `weapon_min`, `ward_max`, each base's `roles` | Equippable roles |
 | `realm_rarity_cap`, `default_rarity_offset` | Event reward strength |
 | `unique_rarity_min` | Which named items are unique in a world and which repeat (rule 20c) |
 | `unique_return_years` (50, a guess) | How long a destroyed unique item stays gone (rule 20c) |
+| `holder_realm_min` (2, Kết Đan; safe 1–3) | The lowest realm World Generation gives a unique named item to at world start (rule 20d); lower puts uniques in reach earlier |
 | `lost_decay_years` (30, a guess), `lost_decay_rarity_max` (4) | How long ordinary Lost items last, and from which rarity they never decay (rule 14) |
 | `reserve_w_rate` (1.0, a guess) | How much a reserve art may grant per point of linh lực it reserves (Formulas I) |
 | `named_W_tolerance` (`w_affix` is computed, not set) | How much plain power a named item may carry beside its Effects (Formulas I) |
@@ -779,7 +809,7 @@ The terminal shows rarity through a colour and always through a word as well, so
 |---|---|---|
 | Inventory | Items grouped by category, an item appearing under each of its categories, with rarity and value | Filter by category, tag and rarity; pick an action |
 | Item detail | `describe` line, categories, tags, rarity, value and any Breakdown (rule 17) | Each action its categories grant, with bound items showing that they cannot be traded |
-| Equip panel | Equipped pieces, slots used and the cap, thần thức used and available, roles | Equip and unequip, with the rule 12 preview on a removal that would end a life |
+| Equip panel | Equipped pieces, base and extra slots used and the count, the thần thức the next extra slot needs, roles | Equip and unequip, with the rule 12 preview on a removal that would end a life |
 | Use preview | The effect and the choice or irreversible result that needs it | Confirm or back out |
 
 All of these work in the Debug Terminal first, with numbered menus as elsewhere.
@@ -817,7 +847,7 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 - **FX-O:** an overlay copy of the data with the named values changed, loaded through `GameData`.
 - **FX-M:** test-only template `fx_edible_herb`, a herb with categories crafting and consumable and a heal effect.
 - **FX-N:** a character with Mị lực 50, so buying is exactly ×1.5 and selling exactly ×0.6.
-- **FX-E:** thần thức capacity 100, no capabilities, at Core Formation, equipped in order into extra slots A (cost 60), B (cost 60, one `khi_van` +5 affix), C (cost 20), each with attack 10.
+- **FX-E:** at Core Formation (4 extra slots by realm), thần thức 450 (1.0 × `ds_ref`, no thần thức slot), no capabilities, base slots full, equipped in order into extra slots A, B, C, D and E (E with one `khi_van` +5 affix), each with attack 10.
 - **FX-L:** a test-only artifact with a `lifespan_years` +5 affix, equipped by a Qi Refining character (base lifespan 120, curve scale k 18) with no other lifespan bonus, so the cap is 120 without it and 120 + 18 · ln(1 + 5 / 18) = 124.41 with it; the character's age is 121.
 
 **Records, categories and tags**
@@ -839,7 +869,7 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 
 - **AC-ID-10** [Logic] Rule 8. Given a fresh generator with seed S and the same inputs, when an artifact, a common manual, a random herb and a random material are each generated twice, then the records are deep-equal before `db.add`, and the generator's state afterward is equal. Over 20 seeds, at least two artifacts differ.
 - **AC-ID-11** [Integration] Rule 8. Given an event asking for an artifact with `attack` 99,999 and `value` 99,999, then the record's attack and value are the Formulas D results.
-- **AC-ID-12** [Logic] Formulas D. Given a fixed base and element `kim`: Phi Kiếm tier 1 grade 2 is attack 510, value 640, thần thức 60, 2 affixes; Phi Kiếm tier 0 grade 0 is 30, 20, 20, 0 affixes; Phi Kiếm tier 4 grade 4 is 900,000, 1,200,000, 2,000, 4 affixes; Ấn tier 0 grade 1 is attack 52, defense 6.5, value 50, thần thức 30, 1 affix; Giáp tier 2 grade 3 is defense 6,600, value 9,720, thần thức 50, 3 affixes.
+- **AC-ID-12** [Logic] Formulas D. Given a fixed base and element `kim`: Phi Kiếm tier 1 grade 2 is attack 510, value 640, 2 affixes; Phi Kiếm tier 0 grade 0 is 30, 20, 0 affixes; Phi Kiếm tier 4 grade 4 is 900,000, 1,200,000, 4 affixes; Ấn tier 0 grade 1 is attack 52, defense 6.5, value 50, 1 affix; Giáp tier 2 grade 3 is defense 6,600, value 9,720, 3 affixes. No record carries a thần thức cost.
 - **AC-ID-13** [Logic] Formulas D, affixes. Given 1,000 seeds at grade 4 with element `kim`, each artifact has 4 affixes with distinct ids, each value in range and a multiple of 0.1. Given element `none`, `nguyen_to` never appears and the count is 3 exactly when it was the rolled slot. Attack, defense and value equal the no-affix result.
 - **AC-ID-14** [Logic] Formulas D, rolls. Over 100,000 seeds, `roll_grade` with cap 4 gives 40 / 30 / 18 / 9 / 3 % (±1 point). With cap 2, shares are 45.5 / 34.1 / 20.5 % (±1 point). An artifact rolling its own element has one 60 % of the time (±1 point).
 - **AC-ID-15** [Logic] Rule 8. A flavour name of 41 characters is cut to 40. A name of 40 is unchanged. Each composed Vietnamese character counts as 1.
@@ -883,9 +913,9 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 
 **Equipping**
 
-- **AC-ID-41** [Logic] Rule 11. At Qi Refining with no `artifact_slots`: a weapon, a body_gear piece, two rings and a necklace equip into the base slots and thần thức spent stays 0; a treasure and a third ring equip into the two extra slots, each paying its thần thức, and a fourth piece of any kind is refused. With `artifact_slots` +1 (from capability #2, Kim Đạo or a keystone), a second body_gear piece equips into the third extra slot and its defence counts. At Deity Transformation six extra pieces equip and a seventh is refused. An unowned item, a non-equippable item and an already equipped item are refused.
-- **AC-ID-42** [Logic] Rule 11. Given FX-E, A, B and C stay equipped, B is reported as overflow with a warning, and thần thức spent is 80 of 100. B adds no attack, defense or `khi_van`. When A is unequipped, B adds its attack and +5 `khi_van`.
-- **AC-ID-43** [Logic] Edge Cases. Given FX-E at capacity 200, when capacity drops to 100, no piece is unequipped and AC-ID-42 holds. Given three extra pieces at Qi Refining with their `artifact_slots` +1 source removed by fixture, all three stay equipped, the third adds nothing, and it adds again once a piece is unequipped.
+- **AC-ID-41** [Logic] Rule 11. At Qi Refining with no `artifact_slots` and thần thức under 78.75 (1.75 × `ds_ref` 45): a weapon, a body_gear piece, two rings and a necklace equip into the base slots; a treasure and a third ring equip into the two extra slots; a further piece of any kind is refused. At thần thức 78.75 a third extra slot opens, and at 157.5 a fourth (no cap). With `artifact_slots` +1 (from capability #2, Kim Đạo or a keystone), a second body_gear piece equips into the next extra slot and its defence counts. At Deity Transformation below the first step, six extra pieces equip and a seventh is refused. No equip changes or spends thần thức. An unowned item, a non-equippable item and an already equipped item are refused.
+- **AC-ID-42** [Logic] Rule 11. Given FX-E, all five stay equipped; E is past the count, warned, and adds no attack, defense or `khi_van`. When thần thức reaches 787.5 (1.75 × 450), or when A is unequipped, E adds its attack and +5 `khi_van`.
+- **AC-ID-43** [Logic] Edge Cases. Given FX-E at thần thức 787.5, when it drops to 450, no piece is unequipped and AC-ID-42 holds. Given three extra pieces at Qi Refining with their `artifact_slots` +1 source removed by fixture, all three stay equipped, the third adds nothing, and it adds again once a piece is unequipped. An `artifact_slots` or thần thức grant on a piece in an extra slot does not raise the slot count; on a piece in a base slot it does.
 - **AC-ID-44** [Logic] Edge Cases. Given an equipped item sold or given by the player, it leaves the equipped list before the transfer. Given a theft, the same with no preview.
 
 **Removal preview**
@@ -948,7 +978,7 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 
 - **AC-ID-78** [UI] Inventory. Given a character holding every kind, a retained transcript shows items grouped by category, with the FX-K key under both of its categories, each with rarity and value. Filtering by category, tag and rarity each narrows the list.
 - **AC-ID-79** [UI] Item detail. A retained transcript shows the `describe` line, categories, tags, rarity, value and any Breakdown, with a numbered action for each granted action. A bound item shows that it cannot be traded.
-- **AC-ID-80** [UI] Equip panel. Given FX-E, a retained screenshot shows the pieces, slots used and cap, thần thức 80 of 100 and each role. FX-L's unequip shows the preview.
+- **AC-ID-80** [UI] Equip panel. Given FX-E, a retained screenshot shows the pieces, base and extra slots used (4 of 4 extra, E past the count), the thần thức the next extra slot needs, and each role. FX-L's unequip shows the preview.
 - **AC-ID-81** [UI] Use preview. Given Linh Căn Quả, the transcript shows the effect and choice. Backing out leaves every record unchanged.
 - **AC-ID-82** [UI] Visual requirements. With colour switched off, every rarity still reads as a word (Open Question 13).
 - **AC-ID-83** [UI] Game Feel. Given Hoàng Tinh Sâm at age 40, the transcript shows age 40, value 40, and at the next doubling age 80, potency 2.5, value 50.
@@ -963,8 +993,8 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 - **AC-ID-87** [Logic] Formulas D, `damage_type`. A base with no `damage_type` reads Physical; a base set to Fire attacks
   as Fire; Soul on an artifact base fails the lint; a version-3 save's artifacts load as Physical.
 - **AC-ID-88** [Config/Data] Formulas I. With today's pool, the lint computes `w_affix` as 12.8 W (±0.05). A grade-3 named
-  template with 47.9 W of modifiers passes and one with 48.0 W fails; a grade-1 template carrying a 20 W rare modifier fails
-  (budget 16 W at tolerance).
+  template with 40.2 W of modifiers passes and one with 40.3 W fails; a grade-1 template carrying a 20 W rare modifier fails
+  (budget 13.4 W at tolerance).
 - **AC-ID-89** [Logic] Rule 20c, uniqueness. Given a rarity-5 named template with one record in the world, an event request,
   a quest reward and a World Generation placement for it are each refused and logged, and each source receives its
   fallback; given a rarity-4 named template, three requests make three records.
@@ -997,9 +1027,9 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 | 5 | ~~Should ordinary items of dead NPCs be removed?~~ **Closed 2026-11-12:** ordinary Lost items decay after `lost_decay_years` untouched (rule 14). The Formulas H measure still needs data | Balance Harness | Formulas H |
 | 6 | Herb rarity means scarcity and artifact grade means power, yet they share one ladder. The ladder fits today only because the caps align; a retune of one kind may need an exception | economy-designer | Formulas A, F |
 | 7 | ~~Where is a timed pill effect held?~~ **Closed 2026-11-12:** on the character, with an end time (rule 12). Which pill effects are timed stays with Character Stats rule 12 | — | — |
-| 8 | Ward_gear, body_gear and utility roles beyond the 9 built bases, and new equippables Combat needs | game-designer | Content pass, Combat |
+| 8 | ~~New equippables and roles beyond the 9 built bases~~ **Closed 2026-11-13:** 22 bases in `design/items/bases.json` (13 new, with the ring, necklace and robe) | — | — |
 | 9 | All Formulas H thresholds, `weapon_min` and `ward_max` are guesses | economy-designer | Formulas E, H |
-| 10 | **To do (user 2026-11-06):** add more items to the game, authored by hand rather than generated. Today there are 10 herbs, 12 recipes, 8 materials, 9 artifact bases, 4 talismans and 2 treasures | user, game-designer | Content pass, Combat |
+| 10 | **To do (user 2026-11-06):** add more items by hand. **Artifacts done 2026-11-12/13** (168 named items, `design/items/`). Still the built handful: 10 herbs, 12 recipes, 8 materials, 4 talismans and 2 treasures | user, game-designer | Content pass |
 | 11 | The action interface's exact signature. **Behaviour closed 2026-11-06:** a `caller` argument (`player` / `auto`), refusals logged to the world event log. The signature may need an ADR | gameplay-programmer | Implementation only |
 | 12 | ~~What counts as a "risk"~~ **Closed 2026-11-06:** a preview shows only for a choice or an irreversible effect (rule 12) | — | — |
 | 13 | ~~The six rarity rank names~~ **Closed 2026-11-12:** Phàm, Hạ, Trung, Thượng, Cực, Thánh (Formulas A). Still open: which rank is announced on finding an item | writer, game-designer | AC-ID-82, Game Feel |
@@ -1008,9 +1038,9 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 | 16 | ~~Mạch Ấn bound to its cluster~~ **Closed 2026-11-06:** bound to its holder; retired with the item 2026-11-10 | — | — |
 | 17 | ~~May Artifact Refining raise a named item's tier?~~ **Closed 2026-11-12:** yes, keeping its modifiers, Effects and art (rule 20b); the cost waits on the Artifact Refining GDD | Artifact Refining | — |
 | 18 | ~~May a destroyed unique item return?~~ **Closed 2026-11-12:** yes, after `unique_return_years` (rule 20c) | — | — |
-| 19 | `named_W_tolerance` 1.25 is a guess; set it after the first named-item catalogue is linted | game-designer | Formulas I |
-| 20 | The ring and necklace bases' value and thần thức cost, and how their affix pool differs from a treasure's. **Robe decided 2026-11-12:** Đạo Bào joins Giáp as light armour (Formulas E) | game-designer, at the item catalogue pass | Rule 11, Formulas E |
-| 21 | `equip.extra_slots_by_realm` 2 / 3 / 4 / 5 / 6 is the user's curve (2026-11-12) with no harness run yet; check that thần thức, not the cap, is what usually limits extras | Balance Harness | Rule 11 |
-| 22 | Extra slots take any piece (rule 11), so armour can stack: Combat Defence & Healing Formulas A2 sums every body_gear piece into `a_b`. Watch stacked armour at the harness run; if it dominates, count only the best piece's body defence (an option the user weighed on 2026-11-12) | Balance Harness, Combat Defence & Healing owner | Rule 11 |
-| 23 | How an item art's power reads its piece's number: does a weapon's attack enter its art's damage as a multiplier or a base, and a ward piece's defence its ward strength; and does the number still feed offence and `a_w`/`a_b` passively as today (rule 6)? | Combat owner | Rule 21, Combat |
-| 24 | The common attack art and common ward of each base, and the reserve arts named pieces may carry; authored with the item catalogue against the arts catalogue (`design/arts/`) | game-designer, at the item catalogue pass | Rule 21 |
+| 19 | ~~`named_W_tolerance` 1.25 is a guess~~ **Closed 2026-11-13:** 1.05 (Formulas I); the 168 items top out at 1.03 | — | — |
+| 20 | ~~Ring and necklace values, thần thức cost and affix pool; the robe~~ **Closed:** values and costs in `design/items/bases.json` (ring 15 and 8, necklace 18 and 10); jewellery rolls the pool without Liệt and Kiên (Formulas D, 2026-11-13); robe decided 2026-11-12 | — | — |
+| 21 | ~~Is thần thức, not the extra-slot cap, what limits extras?~~ **Closed 2026-11-13, then reversed the same day by the user:** thần thức no longer limits pieces; it adds extra slots (rule 11) | — | — |
+| 22 | Extra slots take any piece (rule 11), so armour can stack: each worn armour adds its body defence to `a_b` (Combat Defence & Healing Formulas A2) and, since 2026-11-13, a ward slot of its own. Allowed; measure it at the harness run before limiting anything (user decision 2026-11-13). The option weighed: only the best piece's body defence counts | Balance Harness, Combat Defence & Healing owner | Rule 11 |
+| 23 | ~~How an item art's power reads its piece's number~~ **Closed 2026-11-13:** through the gear layers as today (rule 21): attack feeds L3, defence feeds `a_w` / `a_b`; an item art is an ordinary art | — | — |
+| 24 | ~~Common arts, common wards, reserve arts~~ **Closed 2026-11-12/13:** each weapon base has a common art (`design/items/common-arts.json`), armour and ward gear use the starter wards, named items carry their reserve arts | — | — |

@@ -4,30 +4,30 @@
 > rules 6, 11 and 21, Formulas D and E. **Built** bases are in game data; **new** ones join the rolled pool when the
 > catalogue goes into data.
 
-| Base | Roles | Attack / defence | Thần thức | Value | Weight | Damage | Gives when rolled | Status |
-|---|---|---|---|---|---|---|---|---|
-| **Phi Kiếm** (Flying Sword) | weapon | 30 / 0 | 20 | 20 | 25 | Physical | attack art: Flying Sword Strike (Phi Kiếm Trảm) (c 1.97, cost 0.030, 2 s) | built |
-| **Ấn** (Seal) | weapon | 40 / 5 | 30 | 25 | 10 | Physical | attack art: Seal Slam (Ấn Áp) (c 3.20, cost 0.050, 5 s) | built |
-| **Chuông** (Bell) | ward_gear | 10 / 25 | 25 | 25 | 10 | Physical | ward: Golden Bell (Kim Chung Tráo) (starter ward) | built |
-| **Hồ Lô** (Gourd) | weapon, utility | 25 / 10 | 25 | 25 | 8 | Physical | attack art: Gourd Spout (Hồ Lô Phún) (c 2.46, cost 0.040, 3 s) | built |
-| **Thuẫn** (Shield) | ward_gear | 0 / 35 | 15 | 18 | 12 | Physical | ward: Golden Light Shield (Kim Quang Thuẫn) (starter ward) | built |
-| **Giáp** (Armour) | body_gear | 0 / 30 | 5 | 18 | 12 | Physical | ward: Black Tortoise Shell (Huyền Quy Giáp) (starter ward) | built |
-| **Phiến** (Fan) | weapon | 32 / 5 | 25 | 22 | 8 | Physical | attack art: Fan Gust (Phiến Phong) (c 2.09, cost 0.030, 2.5 s) | built |
-| **Châm** (Needle) | weapon | 22 / 0 | 10 | 15 | 8 | Physical | attack art: Needle Rain (Châm Vũ) (c 1.48, cost 0.020, 1 s) | built |
-| **Kỳ** (Flag) | utility | 15 / 15 | 20 | 20 | 7 | Physical | modifiers only | built |
-| **Phủ** (Axe) | weapon | 45 / 0 | 25 | 22 | 8 | Physical | attack art: Mountain Cleave (Khai Sơn Phủ) (c 3.20, cost 0.050, 5 s) | new |
-| **Tiền Tiêu** (Coin) | weapon | 18 / 0 | 8 | 12 | 6 | Physical | attack art: Coin Shot (Tiền Tiêu Kích) (c 1.48, cost 0.020, 1 s) | new |
-| **Cầm** (Zither) | weapon | 28 / 4 | 25 | 25 | 5 | Force | attack art: String Cut (Cầm Huyền Trảm) (c 2.20, cost 0.035, 2.5 s) | new |
-| **Mao** (Anchor) | weapon | 35 / 10 | 30 | 24 | 4 | Physical | attack art: Anchor Drop (Mao Trầm) (c 3.45, cost 0.050, 6 s) | new |
-| **Cổ** (Drum) | utility | 10 / 10 | 20 | 22 | 5 | Physical | modifiers only | new |
-| **Kính** (Mirror) | utility | 8 / 16 | 18 | 22 | 6 | Physical | modifiers only | new |
-| **Hương Lô** (Censer) | utility | 5 / 5 | 10 | 20 | 5 | Physical | modifiers only | new |
-| **Đăng** (Lantern) | utility | 8 / 8 | 15 | 20 | 5 | Physical | modifiers only | new |
-| **Lạc Thiết** (Branding Iron) | utility | 20 / 0 | 15 | 18 | 4 | Physical | modifiers only | new |
-| **Lôi Trượng** (Lightning Rod) | utility | 15 / 5 | 20 | 22 | 4 | Lightning | modifiers only | new |
-| **Nhẫn** (Ring) | ring | 0 / 0 | 8 | 15 | 14 | Physical | modifiers only | new |
-| **Ngọc Bội** (Necklace (jade pendant)) | necklace | 0 / 0 | 10 | 18 | 10 | Physical | modifiers only | new |
-| **Đạo Bào** (Robe) | body_gear | 0 / 18 | 6 | 16 | 10 | Physical | ward: Qi-Scattering Robe (Tán Khí Bào) (starter ward) | new |
+| Base | Roles | Attack / defence | Value | Weight | Damage | Gives when rolled | Status |
+|---|---|---|---|---|---|---|---|
+| **Phi Kiếm** (Flying Sword) | weapon | 30 / 0 | 20 | 25 | Physical | attack art: Flying Sword Strike (Phi Kiếm Trảm) (c 1.97, cost 0.030, 2 s) | built |
+| **Ấn** (Seal) | weapon | 40 / 5 | 25 | 10 | Physical | attack art: Seal Slam (Ấn Áp) (c 3.20, cost 0.050, 5 s) | built |
+| **Chuông** (Bell) | ward_gear | 10 / 25 | 25 | 10 | Physical | ward: Golden Bell (Kim Chung Tráo) (starter ward) | built |
+| **Hồ Lô** (Gourd) | weapon, utility | 25 / 10 | 25 | 8 | Physical | attack art: Gourd Spout (Hồ Lô Phún) (c 2.46, cost 0.040, 3 s) | built |
+| **Thuẫn** (Shield) | ward_gear | 0 / 35 | 18 | 12 | Physical | ward: Golden Light Shield (Kim Quang Thuẫn) (starter ward) | built |
+| **Giáp** (Armour) | body_gear | 0 / 30 | 18 | 12 | Physical | ward: Black Tortoise Shell (Huyền Quy Giáp) (starter ward) | built |
+| **Phiến** (Fan) | weapon | 32 / 5 | 22 | 8 | Physical | attack art: Fan Gust (Phiến Phong) (c 2.09, cost 0.030, 2.5 s) | built |
+| **Châm** (Needle) | weapon | 22 / 0 | 15 | 8 | Physical | attack art: Needle Rain (Châm Vũ) (c 1.48, cost 0.020, 1 s) | built |
+| **Kỳ** (Flag) | utility | 15 / 15 | 20 | 7 | Physical | modifiers only | built |
+| **Phủ** (Axe) | weapon | 45 / 0 | 22 | 8 | Physical | attack art: Mountain Cleave (Khai Sơn Phủ) (c 3.20, cost 0.050, 5 s) | new |
+| **Tiền Tiêu** (Coin) | weapon | 18 / 0 | 12 | 6 | Physical | attack art: Coin Shot (Tiền Tiêu Kích) (c 1.48, cost 0.020, 1 s) | new |
+| **Cầm** (Zither) | weapon | 28 / 4 | 25 | 5 | Force | attack art: String Cut (Cầm Huyền Trảm) (c 2.20, cost 0.035, 2.5 s) | new |
+| **Mao** (Anchor) | weapon | 35 / 10 | 24 | 4 | Physical | attack art: Anchor Drop (Mao Trầm) (c 3.45, cost 0.050, 6 s) | new |
+| **Cổ** (Drum) | utility | 10 / 10 | 22 | 5 | Physical | modifiers only | new |
+| **Kính** (Mirror) | utility | 8 / 16 | 22 | 6 | Physical | modifiers only | new |
+| **Hương Lô** (Censer) | utility | 5 / 5 | 20 | 5 | Physical | modifiers only | new |
+| **Đăng** (Lantern) | utility | 8 / 8 | 20 | 5 | Physical | modifiers only | new |
+| **Lạc Thiết** (Branding Iron) | utility | 20 / 0 | 18 | 4 | Physical | modifiers only | new |
+| **Lôi Trượng** (Lightning Rod) | utility | 15 / 5 | 22 | 4 | Lightning | modifiers only | new |
+| **Nhẫn** (Ring) | ring | 0 / 0 | 15 | 14 | Physical | modifiers only | new |
+| **Ngọc Bội** (Necklace (jade pendant)) | necklace | 0 / 0 | 18 | 10 | Physical | modifiers only | new |
+| **Đạo Bào** (Robe) | body_gear | 0 / 18 | 16 | 10 | Physical | ward: Qi-Scattering Robe (Tán Khí Bào) (starter ward) | new |
 
 **Notes**
 

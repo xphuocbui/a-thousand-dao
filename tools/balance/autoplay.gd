@@ -402,18 +402,14 @@ func _invest(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
 	return false
 
 
-## Equips owned pháp bảo while thần thức can carry them.
+## Equips owned pháp bảo while a slot is free (item-database.md rule 11).
 func _equip_idle(s: GameSession) -> void:
 	var c: Character = s.player
 	var idle: Array = s.db.items_of(c.id).filter(func(i): return i.kind == "artifact" and not c.equipped.has(i.id))
 	if idle.is_empty():
 		return
-	var power: Dictionary = CombatPower.compute(c, gd, s.db, s.sheet())
-	var free: float = float(power.than_thuc_capacity) - float(power.than_thuc_used)
 	for it in idle:
-		if float(it.than_thuc_cost) <= free:
-			s.equip(it.id)
-			free -= float(it.than_thuc_cost)
+		s.equip(it.id)
 
 
 func _use_pills(s: GameSession) -> void:

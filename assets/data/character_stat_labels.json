@@ -106,6 +106,10 @@
       "name": "only one pháp bảo, much stronger",
       "unit": "flag"
     },
+    "artifact_slots": {
+      "name": "extra pháp bảo slots",
+      "unit": "flat"
+    },
     "mission_income_pct": {
       "name": "mission income",
       "unit": "pct"
@@ -172,6 +176,7 @@
   "precision_overrides": {
     "stealth": 0.1,
     "field_plots": 1,
+    "artifact_slots": 1,
     "alchemy_yield": 1,
     "alchemy_success": 0.1,
     "refining_success": 0.1,
