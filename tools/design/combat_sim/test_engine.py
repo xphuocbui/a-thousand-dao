@@ -649,6 +649,20 @@ def t_layer_budget():      # fight.py layer budget (user decision 2026-11-13)
               "%s %s" % (typ, top))
 
 
+def t_field_budget():      # fight.py hand-set field budget (user decision 2026-11-13)
+    import fight as F
+    import io
+    import contextlib
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        typ = F.field_budget({}, 2)
+        hot = F.field_budget({"art_speed_pct": 100, "crit": {"chance": 0.5, "mult": 3.0}}, 2)
+    check("field budget: a typical build claims nothing", all(v == 0 for v in typ.values()), str(typ))
+    check("field budget: speed 100 and capped crit claim their whole gaps and are flagged",
+          hot["art speed %"] == 1.0 and hot["crit chance"] == 1.0 and buf.getvalue().count("FIELD_OVER") == 3,
+          buf.getvalue())
+
+
 def main():
     for name, fn in sorted(globals().items()):
         if name.startswith("t_"):

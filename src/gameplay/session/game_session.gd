@@ -496,6 +496,7 @@ func explore() -> Dictionary:
 		if rng.randf() < chance:
 			lost["owner_id"] = player.id
 			lost.erase("lost")
+			lost.erase("lost_since")
 			_log("player_found_lost", {"a": player.id, "item": lost.id, "place": place.id})
 			lines.append("  !!! You sense a hidden aura and unearth %s, lost here long ago. [%s]" % [items.describe(lost), lost.id])
 		else:

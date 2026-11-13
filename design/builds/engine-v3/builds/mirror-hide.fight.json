@@ -1,7 +1,7 @@
 {
   "name": "mirror-hide", "realm": "ket_dan",
   "items": ["earth-mountain-mooring-anchor", "earth-boulder-ring-mail", "body-iron-skin-ring", "earth-clay-seal-ring", "earth-stone-debt-necklace", "earth-unmoving-gate-shield"],
-  "layers": [400, 250, 200, 120, 0],
+  "layers": [180, 90, 50, 0, 0],
   "crit": {"chance": 0.0, "mult": 1.5},
   "n_body": 1.4, "n_qi": 1.0,
   "art_speed_pct": 20, "art_cost_pct": 15, "art_cost_health_pct": 0,

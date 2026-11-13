@@ -19,6 +19,7 @@ Map). Systems with no GDD yet keep first-pass drafts from `design/gdd/game-conce
 | `items_recipes.json` | Alchemy rules and đan phương | `Alchemy`, `PillEffects`, `Market` |
 | `items_artifacts.json` | Pháp bảo grades, tiers, bases, affixes, equip slots, named-item rules | `ItemFactory`, `CombatPower`, `EquipSlots` |
 | `items_named.json` | Named artifacts (generated from `design/items/catalogue-*.json` by `tools/design/items/export_named.py`; never hand-edited) | `ItemFactory`, `WorldGenerator` |
+| `items_rarity.json` | The shared rarity ladder (kind offsets, pill price bands, `rarity_max`) and Lost-item decay (`lost_decay_years` 30, `lost_decay_rarity_max` 4) | `ItemRarity`, `WorldTicker` |
 | `items_cong_phap.json` | Công pháp tiers, name parts, bonus pool | `ItemFactory` |
 | `items_materials.json` | Materials (trade goods, future crafting) | `ItemFactory` |
 | `meridian_tree.json` | Kinh Mạch Đồ generator: rings, pools, notables, keystones | `MeridianTree` |

@@ -20,19 +20,18 @@ Extra thần thức total: 25 + 15 = **40 of 45**. Two extra slots left empty; t
 
 ## Before and after
 
-Old = the engine-v2 file run again today (its guide figures of 1.4 s and 3.0 s are out of date: the same file now gives 2.4 s and 5.0 s).
+Old = the engine-v2 file run again today (its guide figures of 1.4 s and 3.0 s are out of date: the same file now gives 2.4 s and 5.0 s). Geared = the within-budget layers (see "Budget revision (2026-11-13)"); the over-budget geared run gave 1.5 / 3.2 / 2.4 / 1.5 s.
 
 | Matchup | Mean s, old | Mean s, geared | W-L-other, old | W-L-other, geared |
 |---|---|---|---|---|
-| typical nguyen_anh+0 | 2.4 | 2.0 | 20-0-0 | 20-0-0 |
-| typical hoa_than+1 | 5.0 | 4.0 | 20-0-0 | 20-0-0 |
-| top_end nguyen_anh+0 | 2.0 | 2.0 | 0-20-0 | 0-20-0 |
+| typical nguyen_anh+0 | 2.4 | 3.7 | 20-0-0 | 20-0-0 |
+| typical hoa_than+1 | 5.0 | 5.6 | 20-0-0 | 20-0-0 |
+| top_end nguyen_anh+0 | 2.0 | 2.4 | 0-20-0 | 0-20-0 |
 | top_end hoa_than+1 | 1.5 | 1.5 | 0-20-0 | 0-20-0 |
 
 `--without` (geared, typical nguyen_anh+0):
 
-- `--without item:metal-hundred-edge-flying-sword` (the item I judged most important): 2.0 s, 20-0, health 100 %. No change at all (dry foe 1.8 against 1.7).
-- `--without eff:Edge Returns the Breath`: 2.0 s, 20-0, health 100 %. No change.
+- These two `--without` results were measured before the budget revision (2.0 s, 20-0, no change each) and were not re-run: `--without item:metal-hundred-edge-flying-sword` and `--without eff:Edge Returns the Breath`.
 
 ## Upgrades to look for
 
@@ -64,6 +63,23 @@ Old = the engine-v2 file run again today (its guide figures of 1.4 s and 3.0 s a
 - Item modifiers with no engine stat (khi_huyet_pct, defense_pct, health_regen_inc_pct, linh_luc_pct, stack_effect_pct, stack_duration_pct, art_cost_health_pct); item art_speed_pct scoped to sword, kim or slow applies to every art.
 - Iron Skin Renewed on the armour: the build already runs it as `iron-skin-renewed`, so no second copy was written.
 
+## Budget revision (2026-11-13)
+
+What changed in `layers`: `[266, 265, 250, 130, 0]` became `[150, 150, 120, 0, 0]`. The claimed share of the typical-to-top-end gap fell from 75 % to 23 %, which is the nguyen_anh budget.
+
+Why: the techniques' passives and the items' modifiers already run as Effects (`tech:*`, `item:*`), so the old file counted the gear twice by also writing it into `layers`. `layers` now holds only what the Meridian Map and other named sources give: a mid-sized base in the first three layers. The fourth layer (130) was cut first because the concept (many weapons, walls and strikes) needs it least, and the gear already lifts the fifth layer through the `full-rack`, `opened-seams` and `steady-breath` Effects. The Effects, techniques, items and arts are unchanged.
+
+How the fights moved (old over-budget file -> new, mean time and wins of 20):
+
+| Matchup | Old | New |
+|---|---|---|
+| typical nguyen_anh+0 | 1.5 s, 20 wins | 3.7 s, 20 wins |
+| typical hoa_than+1 | 3.2 s, 20 wins | 5.6 s, 20 wins |
+| top_end nguyen_anh+0 | 2.4 s, 0 wins | 2.4 s, 0 wins |
+| top_end hoa_than+1 | 1.5 s, 0 wins | 1.5 s, 0 wins |
+
+Arts that never fired against a typical same-realm foe before now fire (Sundering Wedge, Splitting Chop, Blood Quench Blade); only Shatter Edge Cleave stays unfired at nguyen_anh.
+
 ## Observations
 
-Gear made the typical fights a fifth faster (2.4 to 2.0 s at nguyen_anh, 5.0 to 4.0 s one realm up) with no loss of health, but the top-end enemy still kills the build in 2.0 s and 1.5 s, unchanged. Every fight is far inside 3 to 5 seconds, nowhere near the 30–60 s band. Removing the flying sword or Edge Returns the Breath changed nothing at typical nguyen_anh+0, so the speed-up probably comes from the item modifiers and the swapped-in arts together; I did not isolate it further. No item made the build degenerate, as nothing in the fight lasted long enough to compound. The Hundred-Edge Flight art fires (1.0 a fight, 2.0 a fight one realm up) and its `hundred-edge-notch` Effect is clipped 5.8 times a fight. Fired nothing: Splitting Chop, Shatter Edge Cleave, Sundering Wedge and Blood Quench Blade at typical nguyen_anh+0 (Splitting Chop stayed unfired at every matchup); Edge Returns the Breath fired but changed no outcome; most item modifiers have no engine stat, so much of the gear is unmodelled.
+With layers inside the budget the typical fights take 3.7 s at nguyen_anh and 5.6 s one realm up (health left 97 % and 93 %), and the top-end enemy still kills the build in 2.4 s and 1.5 s. Every fight is still far inside the 30–60 s band, and well under the 10–20 s a build at its budget should need against a typical foe; the rest of the gap is the pieces listed under "Missing pieces". Removing the flying sword or Edge Returns the Breath changed nothing at typical nguyen_anh+0, so the speed-up probably comes from the item modifiers and the swapped-in arts together; I did not isolate it further. No item made the build degenerate, as nothing in the fight lasted long enough to compound. The Hundred-Edge Flight art fires (2.0 a fight, 4.0 a fight one realm up) and its `hundred-edge-notch` Effect is clipped about 3 times a fight at typical nguyen_anh+0. Fired nothing at typical nguyen_anh+0: Shatter Edge Cleave only (it fires once a fight one realm up); Edge Returns the Breath fired but changed no outcome; most item modifiers have no engine stat, so much of the gear is unmodelled.

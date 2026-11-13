@@ -18,26 +18,20 @@ Build `divine_sense` absent (1.0) and no `than_thuc_pct`, so the extra-slot limi
 
 **Total thần thức: 25 of 45.**
 
-## Before and after
+## Fight results
 
-`--matrix`, 20 seeds. Old = `engine-v2` file re-run today; geared = `engine-v3` file.
+`--matrix`, 20 seeds, file with layers `[200, 70, 54, 20, 10]` (budget revision below). The earlier over-budget numbers (layers `[200, 225, 250, 130, 100]`) are kept in the revision section.
 
-| Matchup | Mean s, old | Mean s, geared | W-L-other, old | W-L-other, geared |
-|---|---|---|---|---|
-| typical, same realm (ket_dan+0) | 1.2 | 1.0 | 20-0-0 | 20-0-0 |
-| typical, nguyen_anh+1 | 3.3 | 1.9 | 20-0-0 | 20-0-0 |
-| typical, hoa_than+2 | 4.0 | 4.4 | 0-20-0 | 17-2-1 |
-| top_end, ket_dan+0 | 2.0 | 2.1 | 0-20-0 | 0-20-0 |
-| top_end, nguyen_anh+1 | 1.0 | 1.6 | 0-20-0 | 0-20-0 |
-| top_end, hoa_than+2 | 1.0 | 1.0 | 0-20-0 | 0-20-0 |
-
-`--without` (geared file, typical same realm, ket_dan+0):
-
-| Removed | Before | After |
+| Matchup | Mean s | W-L-other |
 |---|---|---|
-| `item:metal-hundred-edge-flying-sword` | 1.0 s, 20-0-0 | 1.0 s, 20-0-0 (NO_CHANGE) |
-| `eff:Edge Returns the Breath` | 1.0 s, 20-0-0 | 1.0 s, 20-0-0 (NO_CHANGE) |
-| `eff:Iron Skin Renewed` | 1.0 s, 20-0-0 | 1.0 s, 20-0-0 (NO_CHANGE) |
+| typical, same realm (ket_dan+0) | 3.2 | 20-0-0 |
+| typical, nguyen_anh+1 | 5.8 | 20-0-0 |
+| typical, hoa_than+2 | 8.1 | 0-20-0 |
+| top_end, ket_dan+0 | 2.9 | 0-20-0 |
+| top_end, nguyen_anh+1 | 1.4 | 0-20-0 |
+| top_end, hoa_than+2 | 1.0 | 0-20-0 |
+
+The `--without` tests of the old file (all NO_CHANGE, fights ended in 1 s) were not re-run; the fights are now long enough to see them, so they are worth repeating.
 
 ## Upgrades to look for
 
@@ -60,7 +54,7 @@ Build `divine_sense` absent (1.0) and no `than_thuc_pct`, so the extra-slot limi
 ## UNMODELLED
 
 - Half a Realm: no library art, technique or item does it; the engine has no fight-unit shift.
-- Against the Heavens: L5 +100 applied at every gap; no realm-gap readable.
+- Against the Heavens: the old file applied L5 100 at every gap; the budget revision cut L5 to 10, so the piece is now only a note.
 - Stiff Neck, Through the Ceiling, Mountain Notches, Needle's Eye, Realm-Piercing affix: not in the game.
 - Realm pierce and Physical penetration: no engine field.
 - Golden Bell, Soul-Guarding Lamp, Clear Heart Ward: run as the typical Common Ward.
@@ -69,6 +63,27 @@ Build `divine_sense` absent (1.0) and no `than_thuc_pct`, so the extra-slot limi
 - Item plain modifiers the engine has no stat for (khi huyet, defence, health regeneration, linh lực, stack effect, stack duration, buff stack effect): no engine stat. Scoped art-speed modifiers apply to every art.
 - Item modifiers were not added to `layers`; the engine's own item loader reads those it can.
 
-## Observations
+## Budget revision (2026-11-13)
+
+Rule: `layers` may claim at most 17 % at `ket_dan` of the gap between the typical and top-end enemy's layers (summed over L1-L5). The file claimed 88 %, so `OVER_BUDGET`.
+
+**What changed in `layers`:** `[200, 225, 250, 130, 100]` -> `[200, 70, 54, 20, 10]` (claim now 17 %). L5 and L4 were cut to the typical enemy's own values (10 and 20) because the "Against the Heavens" piece is unmodelled and a punch-up identity needs the realm-gap piece the engine lacks anyway. L1 (200, the attack side a crit cleave needs most) was kept whole. The 46 points of the gap left over went to L2 (+30, 70) and L3 (+14, 54).
+
+**Why:** the build's own techniques and items already run as Effects, so they were double counted by the large L2-L4 claims; `layers` should hold only what the Meridian Map and other named sources give, and this file names none beyond the old assumed numbers.
+
+**How the fights moved (old -> new, mean time and wins, 20 seeds):**
+
+| Matchup | Old | New |
+|---|---|---|
+| typical, ket_dan+0 | 1.0 s, 20 wins | 3.2 s, 20 wins |
+| typical, nguyen_anh+1 | 1.9 s, 20 wins | 5.8 s, 20 wins |
+| typical, hoa_than+2 | 4.4 s, 17 wins | 8.1 s, 0 wins |
+| top_end, ket_dan+0 | 2.1 s, 0 wins | 2.9 s, 0 wins |
+| top_end, nguyen_anh+1 | 1.6 s, 0 wins | 1.4 s, 0 wins |
+| top_end, hoa_than+2 | 1.0 s, 0 wins | 1.0 s, 0 wins |
+
+The same-realm typical fight is still 3.2 s, shorter than the 10-20 s the budget aims for; the pieces (crit 0.5 x2, art speed +50 %) carry it, not `layers`. Nothing else was changed.
+
+## Observations (before the revision)
 
 Gear changed the picture without touching any number: the one-realm-up fight dropped from 3.3 to 1.9 s and the two-realms-up typical foe went from 0-20 to 17-2-1, though fights stay at 1–4.4 s, far under the 30–60 s band. The `--without` tests at the same realm all show NO_CHANGE because the fight ends in 1 s, before the effects matter; the swap of the flying sword shows up at the higher gaps (Hundred-Edge Flight fired 1.0 and 3.1 times per fight at +1 and +2). Edge Returns the Breath and Iron Skin Renewed fired but changed nothing at that gap (Iron Skin Renewed was clipped 2.0 and 7.2 times per fight at +1 and +2). The top-end foe still wins every fight, so no item made the build degenerate against it, but the typical +2 win rate of 17 of 20 is high for a build the guide calls ordinary, and part of it comes from the old file's L5 +100 at every gap, not from the gear. Never fired: shatter-edge-cleave in every matchup, sundering-wedge in most rows, and sheathed-edge and Hundred-Edge Flight at the same realm. The Bronze Peal Bell and the Whetstone Jade Pendant did nothing the engine could show.

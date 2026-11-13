@@ -3,7 +3,7 @@
   "realm": "nguyen_anh",
   "n_body": 3.82,
   "n_qi": 1.5,
-  "layers": [360, 0, 250, 0, 0],
+  "layers": [270, 0, 130, 0, 0],
   "crit": {"chance": 0.5, "mult": 3.0},
   "art_speed_pct": 200,
   "art_cost_pct": 20,

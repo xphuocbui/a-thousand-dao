@@ -1,6 +1,6 @@
 {
   "name": "evade-dancer", "realm": "nguyen_anh",
-  "layers": [400, 260, 250, 150, 100],
+  "layers": [210, 120, 80, 40, 30],
   "crit": {"chance": 0.2, "mult": 2.0},
   "n_body": 1.2, "n_qi": 1.2,
   "art_speed_pct": 45, "art_cost_pct": 35, "art_cost_health_pct": 0,

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "_doc": "The shared rarity ladder (item-database.md rule 7, Formulas A): rarity = kind_rank + kind_offset[kind], clamped to 1..rarity_max. kind_rank: herb and treasure their template rarity, material its template rarity, artifact its grade (0-4), cong_phap (a manual) its tier (0-3), pill its price band, talisman its material_rarity. Lost-item decay (rule 14): an ordinary item Lost at a place, untouched, for lost_decay_years is removed; named, bound and reserved items, and items at rarity lost_decay_rarity_max or above, never decay.",
+  "rarity_max": 6,
+  "kind_offset": {"herb": 0, "material": 1, "artifact": 1, "cong_phap": 2, "pill": 1, "talisman": 1, "treasure": 0},
+  "pill_band_edges": [20, 150, 1500, 8000, 60000],
+  "lost_decay_years": 30,
+  "lost_decay_rarity_max": 4
+}

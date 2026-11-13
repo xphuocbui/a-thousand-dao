@@ -18,20 +18,35 @@ Thần thức: 15 + 15 = **30** against a limit of 45 × 1.0 × (1 + 4/100) = **
 
 ## Before and after
 
-Foes: typical and top-end Hóa Thần, 20 fights each. The old column is a fresh run of the engine-v2 file today (the engine-v2 guide quoted 1.9 s against the typical foe; today's engine gives 3.6 s for the same file).
+Foes: typical and top-end Hóa Thần, 20 fights each. The old column is the engine-v2 file run today (the engine-v2 guide quoted 1.9 s against the typical foe; today's engine gives 3.6 s for the same file). The geared column is this file after the budget revision (`layers` now 170 / 130 / 130 / 70 / 40, 28 % of the gap; see "Budget revision (2026-11-13)" below).
 
 | Matchup | Mean s, old | Mean s, geared | W-L-other, old | W-L-other, geared |
 |---|---|---|---|---|
-| typical hoa_than | 3.6 | 3.6 | 20-0-0 | 20-0-0 |
-| top_end hoa_than | 4.7 | 5.5 | 20-0-0 | 20-0-0 |
+| typical hoa_than | 3.6 | 5.7 | 20-0-0 | 20-0-0 |
+| top_end hoa_than | 4.7 | 14.8 | 20-0-0 | 20-0-0 |
 
 `--without` tests on the geared file (typical, then top-end):
 
 | Test | Typical | Top-end |
 |---|---|---|
-| `--without item:earth-mountain-mooring-anchor` (the item that matters most: it brings the one new art) | 3.6 s, 20-0, NO_CHANGE | 5.5 s, 20-0, NO_CHANGE |
-| `--without eff:Iron Skin Renewed` | 3.6 s, 20-0, NO_CHANGE | 5.5 s, 20-0, NO_CHANGE (its clip, 1.0 per fight, remains) |
-| `--without eff:Shattering Ward` | 3.6 s, 20-0, NO_CHANGE | 5.5 s, 20-0, NO_CHANGE |
+| `--without item:earth-mountain-mooring-anchor` (the item that matters most: it brings the one new art) | 5.5 s, 20-0 (not slower: one fewer art in the rotation) | 31.8 s, 20-0 (14.8 s -> 31.8 s: the Anchor now matters) |
+| `--without eff:Iron Skin Renewed` | 5.7 s, 20-0, NO_CHANGE | 14.8 s, 20-0, NO_CHANGE |
+| `--without eff:Shattering Ward` | 5.7 s, 20-0, NO_CHANGE | 14.8 s, 20-0, NO_CHANGE |
+
+## Budget revision (2026-11-13)
+
+**What changed:** `layers` went from `[400, 300, 250, 150, 100]` (86 % of the typical-to-top-end gap at Hóa Thần, budget 30 %) to `[170, 130, 130, 70, 40]` (28 %). Nothing else in the file changed: the techniques, items, arts, Effects, ward and body blocks are as before.
+
+**Why:** the old layers were the Mountain Heart Canon, Iron Hide Manual and gear passives counted by hand into the file. Those already run on their own (techniques as `tech:<id>`, items as `item:<id>` and their Effects), so the file counted them twice. The old L1 of 400 also sat past the soft knee (counted as 300). What `layers` keeps is the Meridian Map and the other named sources only. The cuts fell on the layers a defensive wall needs least: L1 (attack) from 400 to 170, L2 from 300 to 130, L3 and L4 about halved, L5 from 100 to 40. The ward and body blocks (`ward.layers`, `body.layers`) are not offence layers and were left alone, so the wall itself keeps its strength.
+
+**How the fights moved (old -> new, 20 fights each, all still won with full health left):**
+
+| Foe, same realm | Mean s | Wins |
+|---|---|---|
+| typical hoa_than | 3.6 -> 5.7 | 20 -> 20 |
+| top_end hoa_than | 5.2 -> 14.8 | 20 -> 20 |
+
+(The old top-end figure is the over-budget file run today, 5.2 s; the table above quotes the engine-v2 file's 4.7 s.) The fight against the typical foe is still shorter than the 10-20 s a build at its budget is meant to take. The wall defence is strong enough that the fight is decided by the foe's ward running dry, not by the offence layers; this is reported, not tuned, because layers are already at their cap.
 
 ## Upgrades to look for
 
@@ -63,4 +78,4 @@ Foes: typical and top-end Hóa Thần, 20 fights each. The old column is a fresh
 
 ## Observations
 
-Gear did not matter in this engine: all three `--without` tests are NO_CHANGE at both foes, and the only movement is that the geared build is slower against the top-end foe (5.5 s against 4.7 s, still 20-0 with full health left), a cost of the Anchor's art joining the arts that fire plus L1 and L2 now clipped at 2.0 per fight. Both fights are far inside the 30-60 s band's lower edge (3.6 s and 5.5 s), as before; the build does not reach a fight long enough for the wall to matter. No item made the build degenerate, because none changed the result. Against the typical foe only Mountain Stance and Bone-Turning Palm fire (0.9 each), so Mooring Drop and the other five arts never fire; against the top-end foe Mooring Drop fires 1.0 per fight, Bastion Reprisal and Strata Hammer still never fire. Iron Skin Renewed shows a clip (1.0 per fight) in the top-end fight, which means it triggers there; Shattering Ward reports nothing, so no shield broke in these fights (a reading, not a checked cause), and removing either changes nothing. The ward items could not be modelled because the build's drain ward is stronger, and most of the Earth items' modifiers (stack strength, body shield, health) have no engine stat, so the gear is mostly unmeasured here.
+After the budget revision the two Effect tests (Iron Skin Renewed, Shattering Ward) are still NO_CHANGE at both foes, but the Anchor now matters against the top-end foe (14.8 s with it, 31.8 s without). Both fights are still short of the 30-60 s band (5.7 s and 14.8 s), but they are closer than before (3.6 s and 5.2 s); the build wins every fight with full health left. The notes below were written for the earlier numbers (3.6 s and 5.5 s) and are kept for the item reading. No item made the build degenerate, because none changed the result. Against the typical foe only Mountain Stance and Bone-Turning Palm fire (0.9 each), so Mooring Drop and the other five arts never fire; against the top-end foe Mooring Drop fires 1.0 per fight, Bastion Reprisal and Strata Hammer still never fire. Iron Skin Renewed shows a clip (1.0 per fight) in the top-end fight, which means it triggers there; Shattering Ward reports nothing, so no shield broke in these fights (a reading, not a checked cause), and removing either changes nothing. The ward items could not be modelled because the build's drain ward is stronger, and most of the Earth items' modifiers (stack strength, body shield, health) have no engine stat, so the gear is mostly unmeasured here.

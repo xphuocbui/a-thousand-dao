@@ -21,15 +21,16 @@ Extra thần thức: 20 + 15 + 10 = **45** against a limit of 45 × 1.0 × (1 + 
 
 20 runs each, `--matrix`. (The matrix labels the higher realm hoa_than+1.) The old numbers are a fresh run of the old file; they differ a little from the old guide's table (typical 2.0 s here against 1.7 s there).
 
-| Matchup | Mean s, old | Mean s, geared | W-L-other, old | W-L-other, geared |
-|---|---|---|---|---|
-| typical, same realm | 2.0 | 1.9 | 20-0-0 | 20-0-0 |
-| typical, one realm higher | 3.8 | 3.1 | 20-0-0 | 20-0-0 |
-| top end, same realm | 15.9 | 10.5 | 20-0-0 | 20-0-0 |
-| top end, one realm higher | 8.6 | 8.7 | 0-20-0 | 0-20-0 |
+Current numbers (after the 2026-11-13 budget revision, `--matrix`, 20 runs each). The pre-revision numbers in the table at the end of this section are from the over-budget file and are kept only for comparison.
 
-`--without item:wind-heron-fan` (the item that matters most): typical same realm 2.0 s, 20-0-0; typical higher 3.2 s, 20-0-0; top end same realm 10.8 s, 20-0-0; top end higher 9.1 s, 0-20-0. The fan is worth 0.1–0.4 s and nothing in wins.
-`--without eff:Wind at Your Back` (typical same realm): 1.9 s, 20-0-0, identity NO_CHANGE.
+| Matchup | Mean s, now | W-L-other, now |
+|---|---|---|
+| typical, same realm | 3.0 | 20-0-0 |
+| typical, one realm higher | 6.1 | 20-0-0 |
+| top end, same realm | 9.0 | 0-20-0 |
+| top end, one realm higher | 5.1 | 0-20-0 |
+
+The `--without` item and Effect tests quoted in the first geared version (fan worth 0.1–0.4 s; Wind at Your Back NO_CHANGE) were run on the over-budget `layers` and were not re-run.
 
 ## Upgrades to look for
 
@@ -62,4 +63,23 @@ Extra thần thức: 20 + 15 + 10 = **45** against a limit of 45 × 1.0 × (1 + 
 
 ## Observations
 
-Gear mattered little. The modelled gains are the plain numbers (art speed, crit, regen) and one art, and they show as a shorter typical fight one realm higher (3.8 to 3.1 s) and a much shorter top-end same-realm fight (15.9 to 10.5 s); nobody changes result, and the top-end higher-realm foe still wins 20-0. The fan matters most of the pieces but only by 0.1–0.4 s, because the keystone Phantom Dodge cannot run, and its art Heron Takes Wing fires 4.9 times in the top-end same-realm fight yet never in the typical same-realm one. Typical fights are 1.9 s and 3.1 s, far under the 30–60 s band; the top end is 10.5 s, also under it. Nothing degenerated. NEVER_FIRED against the typical same-realm foe: hundred-feather-flurry, three-step-chase, trailing-gale and Heron Takes Wing (the foe dies first); against the typical higher-realm foe flurry and three-step-chase. The one item Effect I could write, Wind at Your Back, fired and changed nothing in the typical fight; I did not test it at top end. Gale Sprite was swapped out for Heron Takes Wing, which the old guide rated as the weakest art. Nothing was tuned.
+Gear mattered little in the first geared version, and the build was over budget (see below). The keystone Phantom Dodge still cannot run, so the fan's art Heron Takes Wing carries it. Fights are well under the 30–60 s band (typical 3.0 s, top end 9.0 s). Against the typical same-realm foe hundred-feather-flurry, three-step-chase, trailing-gale and Heron Takes Wing are NEVER_FIRED (the foe dies first). Gale Sprite was swapped out for Heron Takes Wing, which the old guide rated as the weakest art.
+
+## Budget revision (2026-11-13)
+
+**What changed.** `layers` went from [400, 260, 250, 150, 100] to [210, 120, 80, 40, 30]. The claimed share of the typical-to-top-end gap fell from 103 % to 22 % (nguyen_anh budget 23 %, `layer_budget` printed). Nothing else in the file changed: techniques, items, arts, ward, body and effects are as before.
+
+**Why.** The old values were the whole Map-and-gear total written as a layer claim. The techniques' passives and the items' modifiers already run as Effects, so counting them again in `layers` double-booked them. `layers` now holds only the Meridian Map share the concept needs.
+
+**What was cut first.** L5 (100 to 30), L4 (150 to 40) and L3 (250 to 80) were cut hardest: an evade-and-speed build lives on its dodge and art speed, which come from items, not these layers. L1 (400 to 210) and L2 (260 to 120) were kept highest because crit and art output run through them.
+
+**How the fights moved** (old -> new, fresh runs of both files, 20 runs, `--matrix`):
+
+| Matchup | Mean s | Wins-losses |
+|---|---|---|
+| typical, same realm | 1.2 -> 3.0 | 20-0 -> 20-0 |
+| typical, one realm higher | 2.1 -> 6.1 | 20-0 -> 20-0 |
+| top end, same realm | 7.1 -> 9.0 | 17-3 -> 0-20 |
+| top end, one realm higher | 5.1 -> 5.1 | 0-20 -> 0-20 |
+
+The build no longer beats the top-end same-realm enemy; that is intended for a build at budget. It still beats a typical same-realm enemy, in 3.0 s, faster than the 10–20 s the budget rule expects, so the gear and evade carry it.

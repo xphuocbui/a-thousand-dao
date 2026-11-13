@@ -1,6 +1,6 @@
 # beast-carry — Raising the Tiger (Dưỡng Hổ): a spirit beast (linh thú) does the killing while you feed, heal and ward it. Realm: Nguyên Anh (nguyen_anh).
 
-Fight file: `design/builds/engine-v3/builds/beast-carry.fight.json` (the v2 file plus `items`, one swapped-in item art and two Effects; no number changed). The v2 file was itself a reconstruction from the guide (see `design/builds/engine-v2/beast-carry.md`), so "old" below means that file.
+Fight file: `design/builds/engine-v3/builds/beast-carry.fight.json` (the v2 file plus `items`, one swapped-in item art and two Effects; `layers` since lowered, see Budget revision). The v2 file was itself a reconstruction from the guide (see `design/builds/engine-v2/beast-carry.md`), so "old" below means that file.
 
 ## Loadout
 
@@ -24,8 +24,8 @@ Art slots: the Seal's art is slotted as `{"lib": "wood-seal-of-turning-seasons"}
 
 | Matchup | Mean s, old | Mean s, geared | W-L-other, old | W-L-other, geared |
 |---|---|---|---|---|
-| typical nguyen_anh+0 | 1.5 | 1.5 | 20-0-0 | 20-0-0 |
-| typical hoa_than+1 | 5.0 | 4.0 | 20-0-0 | 20-0-0 |
+| typical nguyen_anh+0 | 1.5 | 18.5 | 20-0-0 | 20-0-0 |
+| typical hoa_than+1 | 5.0 | 16.0 | 20-0-0 | 0-20-0 |
 | top_end nguyen_anh+0 | 2.0 | 2.0 | 0-20-0 | 0-20-0 |
 | top_end hoa_than+1 | 1.0 | 1.0 | 0-20-0 | 0-20-0 |
 
@@ -70,5 +70,22 @@ Art slots: the Seal's art is slotted as `{"lib": "wood-seal-of-turning-seasons"}
 ## Observations
 
 Gear did not matter in these fights. Three of four matchups are unchanged; only typical hoa_than+1 moved, 5.0 -> 4.0 s, both runs 20-0-0, and in the geared run the second-spring heal fired 0.3 times and the Seal once while warm-the-hearth did not fire at all. The three `--without` tests on typical nguyen_anh+0 all printed NO_CHANGE because the fight ends in 1.5 s, before any art's first firing, so neither Effect and neither item art ever ran; Phoenix Mend and Sap Rises are modelled but fired nothing (the Sap Rises scale needs Wood stacks, and the Seal that would give them did not fire in the short fight). The fights are far outside the 30-60 s band (1.0-4.0 s), and the top_end foes still kill the build in 1.0-2.0 s, because the realm's default body and ward are unchanged and the item shields are unmodelled. No item made the build degenerate; nothing in the geared run is strong enough to. Items that fired nothing: every item Effect and the Seal's art in three of four matchups. Most of the loadout's value (health regeneration, stack effect, defence, khí huyết) is in stats the engine does not read, so the true effect of this gear cannot be seen here.
+
+## Budget revision (2026-11-13)
+
+**What changed:** `layers` went from `[332, 300, 250, 110, 89]` to `[332, 40, 40, 20, 0]`. The claimed share of the typical-to-top-end gap fell from 94 % to 18 % (Nguyên Anh budget 23 %); `fight.py` now prints `layer_budget`.
+
+**Why:** the techniques' passives and the items' modifiers already run as Effects, so the old L2-L5 numbers counted them twice. They were also a reconstruction from the v2 guide's multipliers, not Meridian Map points. L2-L4 are now the typical enemy's values (they claim nothing). L1 (332) is kept whole because the beast's bite is the concept; L5 (89, which stood in for the unmodelled Straining Leash) was cut first. No technique, item or art was removed.
+
+**How the fights moved (20 fights each):**
+
+| Matchup | Old mean s, wins | New mean s, wins |
+|---|---|---|
+| typical nguyen_anh+0 | 1.5 s, 20-0-0 | 18.5 s, 20-0-0 |
+| top_end nguyen_anh+0 | 2.0 s, 0-20-0 | 2.0 s, 0-20-0 |
+| typical hoa_than+1 | 4.3 s, 20-0-0 | 16.0 s, 0-20-0 |
+| top_end hoa_than+1 | 1.0 s, 0-20-0 | 1.0 s, 0-20-0 |
+
+The typical same-realm fight now sits in the 10-20 s target and the arts fire (warm-the-hearth 3.0, the Seal 6.0 per fight; second-spring 0.0 there, 1.9 against hoa_than+1). The build loses to both top-end foes and to a typical Hóa Thần foe; it needs pieces, not layers, to close that (see Missing pieces).
 
 GEAR-DONE beast-carry

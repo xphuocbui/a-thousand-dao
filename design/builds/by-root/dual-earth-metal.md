@@ -46,7 +46,7 @@ ordinary, the gear is not.
 - **Công pháp:** Canh Kim Earth Scripture.
 - **Đạo:** Refined Metal, the forge branch.
 - **Keystone:** Mother Lode (Mẫu Khoáng, placeholder on the map): content New.
-- **Effects:** Open Sky (exists: ward strength per free thần thức) to balance gear load.
+- **Effects:** Open Sky (exists: ward strength per empty extra slot, since 2026-11-13) to balance gear load.
 - **Modifiers:** artifact power; artifact attack; element affinity; refining success.
 - **Items:** self-forged artifacts; Twin Arms in Harmony (capability, exists: two treasures of a kind as a pair).
 - **Element stacks:** Metal buff.

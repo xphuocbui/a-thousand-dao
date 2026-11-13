@@ -167,6 +167,19 @@ looks like a strong build.
   Transformation. A build at its budget beats a typical same-realm enemy in about 10–20 s. `fight.py` prints the claimed
   share on every run and `OVER_BUDGET` above it. This is a flag, not a refusal; a guide that claims more says which
   pieces put it there.
+  The same budget applies to each hand-set field, against its own typical-to-top-end gap (`FIELD_OVER`):
+
+  | Field | Typical | Top-end |
+  |---|---|---|
+  | crit chance and damage | 0.15 / 1.7 | 0.5 / 3.0 (GDD caps) |
+  | `art_cost_pct` | 0 | 50 (the cap) |
+  | `evade_pct` | 0 | 40 (`evade_cap`) |
+  | `accuracy_pct` | 0 | 40 (a guess) |
+  | `art_speed_pct` | 0 | 100 (a guess) |
+
+  Sustain fields (regeneration, healing, leech) are not budgeted, nor are the pools (`n_body`, `n_qi`), which also
+  hold the item and technique pool modifiers the loader folds in. Once the Meridian Map is back, build files derive
+  these from their pieces instead (user decision 2026-11-13).
 - **Named Effects from the library** (2026-11-13): `tools/design/combat_sim/effects_library.json` holds an engine form
   of every Effect the item catalogue names (its rule text beside it). A worn item's Effect is added from it unless the
   build file writes its own `"eff:<English name>"` records, which win. An entry may also fold lines into the build

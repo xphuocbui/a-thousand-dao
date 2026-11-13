@@ -118,6 +118,9 @@ func give_item(item_id: String, owner_id: String) -> bool:
 	if item.is_empty():
 		return false
 	item["owner_id"] = owner_id
+	if table_of(owner_id) != "places":   # a person or a market takes it: it is no longer Lost (rule 14 decay)
+		item.erase("lost")
+		item.erase("lost_since")
 	return true
 
 
@@ -132,6 +135,7 @@ func items_on_death(person_id: String, place_id: String, killer_id: String = "",
 		var to_taker: bool = taker != "" and not bool(item.get("bound", false))
 		item["owner_id"] = taker if to_taker else place_id
 		item.erase("lost")
+		item.erase("lost_since")
 		if not to_taker:
 			item["lost"] = true
 		moved.append(item.id)

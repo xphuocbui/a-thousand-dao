@@ -1,7 +1,7 @@
 {
   "name": "beast-carry",
   "realm": "nguyen_anh",
-  "layers": [332, 300, 250, 110, 89],
+  "layers": [332, 40, 40, 20, 0],
   "crit": {"chance": 0.0, "mult": 1.5},
   "art_speed_pct": 100,
   "purity": {"fire": 80, "wood": 60},

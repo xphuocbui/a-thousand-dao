@@ -125,3 +125,29 @@ func test_a_weapon_still_rolls_liet() -> void:
 		for a in items.artifact(r, 0, 4, "none", "phi_kiem").affixes:
 			seen = seen or str(a.id) == "liet"
 	assert_true(seen, "Liệt is in a weapon's pool")
+
+
+func test_thiet_bich_rolls_with_its_physical_scope_and_stays_on_the_record() -> void:
+	# Formulas D (user decision 2026-11-13): in the rolled pool, stored until art combat reads resistance.
+	var gd := game_data()
+	var items := ItemFactory.new(gd)
+	var r := RandomNumberGenerator.new()
+	r.seed = 11
+	var found: Dictionary = {}
+	for i in 300:
+		for a in items.artifact(r, 0, 4, "none", "giap").affixes:
+			if str(a.id) == "thiet_bich":
+				found = a
+	assert_false(found.is_empty(), "Thiết Bích is in the pool")
+	assert_eq(Array(found.get("scope", [])), ["physical"], "scoped Physical")
+	assert_eq(ItemStats.total({"affixes": [found]}, "resist_pct"), 0.0, "not applied to the sheet yet")
+
+
+func test_a_variant_family_item_matches_its_variant_root() -> void:
+	# Ice, Thunder, Wind and Force-Chaos named items carry their variant root (user decision 2026-11-13).
+	var gd := game_data()
+	var ice: Array = gd.named_items().filter(func(t): return str(t.family) == "ice")
+	assert_true(not ice.is_empty() and str(ice[0].element) == "bang", "ice -> Băng")
+	var c := TestFixtures.character({"thuy": 50})
+	c.linh_can.variants["bang"] = 50
+	assert_true(c.linh_can.has(str(ice[0].element)), "a Băng holder matches it")

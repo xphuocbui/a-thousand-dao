@@ -1,8 +1,8 @@
 {
   "name": "giant-killer",
   "realm": "ket_dan",
-  "_comment": "Copy of the engine-v2 file (assumed layers, no number tuned) plus items. Layers unchanged: item plain modifiers are not added to them. Art slot 4 swapped to the item art metal-hundred-edge-flight (group hundred-blades-canon).",
-  "layers": [200, 225, 250, 130, 100],
+  "_comment": "Copy of the engine-v2 file (assumed layers, no number tuned) plus items. Layers cut 2026-11-13 to the ket_dan budget (17 %): [200, 225, 250, 130, 100] -> [200, 70, 54, 20, 10]; item plain modifiers are not added to them. Art slot 4 swapped to the item art metal-hundred-edge-flight (group hundred-blades-canon).",
+  "layers": [200, 70, 54, 20, 10],
   "crit": {"chance": 0.5, "mult": 2.0},
   "art_speed_pct": 50,
   "art_cost_pct": 20,

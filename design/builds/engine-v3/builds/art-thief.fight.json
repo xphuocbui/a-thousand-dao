@@ -1,6 +1,6 @@
 {
   "name": "art-thief", "realm": "nguyen_anh",
-  "layers": [400, 200, 240, 150, 0],
+  "layers": [370, 40, 40, 20, 0],
   "crit": {"chance": 0.15, "mult": 1.8},
   "n_body": 1.0, "n_qi": 1.3,
   "art_speed_pct": 25, "art_cost_pct": 35, "art_cost_health_pct": 0,

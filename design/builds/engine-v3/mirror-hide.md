@@ -25,14 +25,16 @@ Thần thức total: 15 of at most 46.8 (45 × divine_sense 1.0 × (1 + 4 % than
 
 Kết Đan file, `--matrix`, 20 fights per row. Old numbers were re-run on the current engine, so they differ from the v2 guide's table.
 
-| Matchup | Mean s, old | Mean s, geared | W-L-other, old | W-L-other, geared |
-|---|---|---|---|---|
-| typical ket_dan+0 | 5.0 | 5.0 | 20-0-0 | 20-0-0 |
-| typical nguyen_anh+1 | 7.1 | 7.5 | 20-0-0 | 20-0-0 |
-| typical hoa_than+2 | 24.5 | 19.8 | 20-0-0 | 20-0-0 |
-| top_end ket_dan+0 | 65.0 | 66.1 | 20-0-0 | 20-0-0 |
-| top_end nguyen_anh+1 | 51.6 | 46.9 | 11-9-0 | 9-11-0 |
-| top_end hoa_than+2 | 2.6 | 2.6 | 0-20-0 | 0-20-0 |
+Current file (layers at budget, 16 %); the earlier geared run with layers at 97 % is in brackets.
+
+| Matchup | Mean s, old (pre-gear) | Mean s, budget [geared at 97 %] | W-L-other, budget [geared at 97 %] |
+|---|---|---|---|
+| typical ket_dan+0 | 5.0 | 13.6 [5.0] | 20-0-0 [20-0-0] |
+| typical nguyen_anh+1 | 7.1 | 45.5 [7.5] | 20-0-0 [20-0-0] |
+| typical hoa_than+2 | 24.5 | 66.0 [19.8] | 20-0-0 [20-0-0] |
+| top_end ket_dan+0 | 65.0 | 67.2 [66.1] | 20-0-0 [20-0-0] |
+| top_end nguyen_anh+1 | 51.6 | 68.0 [46.9] | 20-0-0 [9-11-0] |
+| top_end hoa_than+2 | 2.6 | 5.7 [2.6] | 0-20-0 [0-20-0] |
 
 Geared, you run out of linh lực in the top_end rows (7.6 s at top_end ket_dan+0, 3.5 s at nguyen_anh+1, 2.0 s at hoa_than+2); the old file never ran dry.
 
@@ -76,3 +78,11 @@ Without the anchor, `earth-mooring-drop` still fired (1.0 per fight), because th
 ## Observations
 
 Gear moved little: five of six rows are within about ±1 s, and the one clear change was typical hoa_than+2 (24.5 s to 19.8 s, still 20-0). It lost one win in the top_end nguyen_anh+1 row (11-9 to 9-11), which is inside the 20-fight noise. Almost nothing the items carry is modelled: the plain modifiers all print as no engine stat, so what actually ran was the Mooring Drop art, the drain ward, Iron Skin Renewed and Shattering Ward. The typical rows stay at 5–8 s, well under 30–60 s, except hoa_than+2 at 19.8 s; the top_end same-realm row is 66.1 s, a little over the band. No item made the build degenerate. Mooring Drop replaced Sinking Weight and pulled more linh lực, so the build runs dry in all top_end rows where it used not to; Strata Hammer fires 3.4 times (was 10.0) at top_end ket_dan+0 and 0.8 at nguyen_anh+1, so the swap starved it, which is the opposite of the anchor's purpose. Iron Skin Renewed and Shattering Ward each gave NO_CHANGE in the typical row. Iron Skin Renewed was clipped 1.0 per fight at typical ket_dan+0 (the fight output reports the clip; I did not check why). I did not read per-Effect fire counts for Shattering Ward, so I cannot say whether it fired. NEVER_FIRED at typical ket_dan+0: bastion-reprisal and strata-hammer; at top_end hoa_than+2: all of the arts but mountain-stance.
+
+## Budget revision (2026-11-13)
+
+**What changed in `layers`:** `[400, 250, 200, 120, 0]` became `[180, 90, 50, 0, 0]`. The claimed share of the typical-to-top-end gap went from 97 % to 16 % (Kết Đan budget 17 %). Nothing else in the file changed; the `body` layers (300/250/150/100) and the ward are as they were.
+
+**Why:** the layer budget rule (user decision 2026-11-13). The build's techniques and items already run as Effects, so they are not counted again in `layers`. The build is a block tank, so the cuts fell on the layers it needs least: L4 (120 to 0) first, then L3 (200 to 50), then L2 and L1.
+
+**How the fights moved (old -> new mean time, wins, same realm):** typical ket_dan+0 5.0 s -> 13.6 s, 20-0 -> 20-0 (now inside the 10-20 s band). Top_end ket_dan+0 66.1 s -> 67.2 s, 20-0 -> 20-0. Other rows: typical nguyen_anh+1 7.5 -> 45.5 s, typical hoa_than+2 19.8 -> 66.0 s (all won); top_end nguyen_anh+1 46.9 -> 68.0 s, 9-11 -> 20-0 (the old split was within noise); top_end hoa_than+2 still 0-20. The build now runs out of linh lực at 36.3 s against typical hoa_than+2 and at 6.1 s against top_end ket_dan+0.

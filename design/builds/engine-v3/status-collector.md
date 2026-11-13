@@ -23,8 +23,10 @@ Art swap: `blight-canker` out, `force-chaos-settle-the-account` in (seven slots,
 
 | Matchup | Mean s, old | Mean s, geared | W-L-other, old | W-L-other, geared |
 |---|---|---|---|---|
-| Hóa Thần vs typical | 2.9 | 2.9 | 20-0-0 | 20-0-0 |
-| Hóa Thần vs top_end | 6.5 | 5.4 | 20-0-0 | 20-0-0 |
+| Hóa Thần vs typical | 2.9 | 2.9 (after budget revision; 2.0 before it) | 20-0-0 | 20-0-0 |
+| Hóa Thần vs top_end | 6.5 | 9.3 (after budget revision; 5.1 before it) | 20-0-0 | 20-0-0 |
+
+(The geared figures above are the current ones, from the 2026-11-13 budget run. The `--without` table below was measured before the budget revision and is kept as history.)
 
 (The old file was re-run on the current engine; the figures in the v2 guide, 1.6 s and 4.0 s, were from an earlier engine.)
 
@@ -66,3 +68,18 @@ All runs 20-0-0.
 ## Observations
 
 Gear barely mattered. Against a typical foe the fight stayed at 2.9 s, and on top_end it fell from 6.5 to 5.4 s, both still far under the 30-60 s band. Nothing went degenerate, but L1 clipping rose (4.0 on typical, 19.1 on top_end) because the added attack percentages push past the soft knee. The only item piece with a measurable effect is the Marked Prey Effect: removing it moves top_end from 5.4 to 5.9 s and changes nothing on typical. Removing the Balance-Sheet Seal or the Branding Iron alone changes nothing, since the seal's art never fires against a typical foe (it fires 1.1 times on top_end) and the iron's own modifiers are mostly unrun passives. NEVER_FIRED on typical: Rime Lock Seal, Black Ice Glaze, Shatter Palm, Gathered Ruin Verdict and Settle the Account; on top_end every art fires. The items' strongest passives (stack effect and duration, Deep Freeze, Toll Taker) cannot run, so the geared build is under-measured. Observations only, no tuning was done.
+
+## Budget revision (2026-11-13)
+
+**What changed in `layers`:** `[400, 250, 250, 150, 52]` became `[200, 130, 130, 80, 30]`. Nothing else in the file changed (techniques, items, arts, ward, body, effects are as before).
+
+**Why:** the Hóa Thần budget is 30 % of the gap between the typical and top-end enemy's layers; the file claimed 76 %. The build's techniques and items already run as Effects, so `layers` should hold only the Meridian Map and other named outside sources. All five layers were cut about in half. The concept (many different curses on one foe, paid by count) lives in the arts, the Marked Prey Effect and the stack items, not in raw layers, so no single layer was spared. The file now claims 28 %.
+
+**How the fights moved** (20 fights each, same realm):
+
+| Matchup | Mean s, old -> new | Wins, old -> new |
+|---|---|---|
+| vs typical | 2.0 -> 2.9 | 20 -> 20 |
+| vs top_end | 5.1 -> 9.3 | 20 -> 20 |
+
+The build still beats a typical foe far faster than the 10-20 s a budget build is expected to take, so its strength comes from its pieces (arts, Marked Prey, stack items), not its layers. Against top_end it is now much closer to the expected band. No tuning beyond the layer cut was done.

@@ -24,22 +24,22 @@ Twenty fights each, one `--matrix` run per file.
 
 | Matchup | Mean s, old | Mean s, geared | W-L-other, old | W-L-other, geared |
 |---|---|---|---|---|
-| typical, nguyen_anh+0 | 3.0 | 2.8 | 20-0-0 | 20-0-0 |
-| typical, hoa_than+1 | 3.7 | 4.8 | 20-0-0 | 20-0-0 |
-| top_end, nguyen_anh+0 | 8.9 | 11.2 | 19-1-0 | 20-0-0 |
-| top_end, hoa_than+1 | 4.7 | 4.5 | 0-20-0 | 0-20-0 |
+| typical, nguyen_anh+0 | 3.0 | 6.0 | 20-0-0 | 20-0-0 |
+| typical, hoa_than+1 | 3.7 | 20.2 | 20-0-0 | 20-0-0 |
+| top_end, nguyen_anh+0 | 8.9 | 37.9 | 19-1-0 | 9-10-1 |
+| top_end, hoa_than+1 | 4.7 | 5.9 | 0-20-0 | 0-20-0 |
 
-(The engine-v2 guide recorded 2.6 / 3.0 / 5.0 / 4.5 s; the engine reruns today read as shown above, and the old column uses today's rerun.)
+("Old" is the earlier engine-v2 rerun; "geared" is this file with the budgeted `layers`, rerun 2026-11-13. Before the budget revision the geared file read 1.9 / 3.6 / 5.2 / 8.7 s on today's engine.)
 
 `--without` tests (geared file, `--matrix`):
 
 | Test | typical n+0 | typical h+1 | top_end n+0 | top_end h+1 |
 |---|---|---|---|---|
-| geared, full | 2.8 s, 20-0-0 | 4.8 s, 20-0-0 | 11.2 s, 20-0-0 | 4.5 s, 0-20-0 |
-| `--without item:force-chaos-shock-zither` (the weapon, the item that matters most by its art) | 2.8 s, 20-0-0 | 4.8 s, 20-0-0 | 11.2 s, 20-0-0 | 4.5 s, 0-20-0 |
-| `--without eff:Echo` | 2.8 s, 20-0-0 | 4.8 s, 20-0-0 | 10.0 s, 19-1-0 | 4.5 s, 0-20-0 |
+| geared, full | 6.0 s, 20-0-0 | 20.2 s, 20-0-0 | 37.9 s, 9-10-1 | 5.9 s, 0-20-0 |
+| `--without item:force-chaos-shock-zither` | 6.0 s, 20-0-0 | 20.2 s, 20-0-0 | 37.9 s, 9-10-1 | 5.9 s, 0-20-0 |
+| `--without eff:Echo` | 6.2 s, 20-0-0 | 20.7 s, 20-0-0 | 34.4 s, 9-11-0 | 6.0 s, 0-20-0 |
 
-The zither test removes only the item's modifiers (a small Force attack, art speed and health), because the swapped-in art stays; it changed nothing. The Echo test is the one that moved: top_end Nguyên Anh +0 went from 11.2 s and 20-0 to 10.0 s and 19-1.
+The zither test removes only the item's modifiers (the swapped-in art stays); it changed nothing. Removing Echo changes the fights only slightly (it fires about 5 free hits a typical fight, 28 at top_end).
 
 ## Upgrades to look for
 
@@ -72,4 +72,10 @@ The zither test removes only the item's modifiers (a small Force attack, art spe
 
 ## Observations
 
-Gear changed the result only a little. The typical Nguyên Anh foe still dies in 2.8 s, about as fast as before and far below the 30-60 s band; the top-end foe takes 11.2 s and was won 20-0 against 19-1 before; against the Hóa Thần top-end foe the build still loses every fight (4.5 s). The fights stay well under 30 s, so the band is not reached by this gear. No item made the build degenerate: the clearest effect was the Echo Effect: with it the top_end fight runs 1.2 s longer (11.2 s against 10.0 s) and one more fight is won (20-0 against 19-1), so it reads as survival, not speed. The geared build is also slower than the old one at typical hoa_than+1 (4.8 s against 3.7 s) with the same wins; the cause was not isolated. The zither's art fires every row where the fight lasts (1.0 a fight at typical, 1.9 at top_end), but removing the zither's modifiers changed nothing, and its Drink count did not show up in any result. Fired nothing: Marrow-Siphon Palm and Hollowing Strike are NEVER_FIRED in the typical Nguyên Anh fight (the fight ends first; in the old file Marrow-Siphon Palm fired 0.0–1.4 a fight depending on the row), and Twin Shadow Fist is gone. The Echo-Skin Drum, Twin-Edge Sword, Hollow Ring and the pendant have only modifiers the engine mostly cannot read, so their effect here is close to nothing; the sword's art and Opening Cut were not slotted. These are observations from one 20-fight matrix each, not a verdict.
+With the budgeted layers the typical Nguyên Anh foe dies in 6.0 s (still faster than the 10-20 s budget target), the Hóa Thần +1 typical foe in 20.2 s, and the top-end Nguyên Anh foe is a coin flip (9-10-1, 37.9 s). Against the Hóa Thần top-end foe the build still loses every fight (5.9 s). Every art now fires in the typical Nguyên Anh fight (Marrow-Siphon Palm 1.9, Hollowing Strike 1.1 a fight). Echo is worth little by the `--without` test, and the zither's modifiers change nothing. The Echo-Skin Drum, Twin-Edge Sword, Hollow Ring and the pendant have mostly modifiers the engine cannot read. These are observations from one 20-fight matrix each, not a verdict.
+
+## Budget revision (2026-11-13)
+
+- **What changed:** `layers` went from `[400, 200, 240, 150, 0]` (84 % of the typical-to-top-end gap; the Nguyên Anh budget is 23 %) to `[370, 40, 40, 20, 0]` (22 %). L2-L4 now sit at the typical enemy's values; L1 was trimmed from 400 to 370; L5 was already 0. No technique, item or art was changed.
+- **Why:** the techniques' passives and items' modifiers already run as Effects, so claiming L2-L4 as well double-counted them. The concept (echoing palms and sword on the build's own multiplier) lives in L1 and the Effects, so L1 stayed and the other layers were cut first.
+- **How the fights moved** (mean time, wins; before -> after, same engine, today): typical nguyen_anh+0 1.9 s 20-0 -> 6.0 s 20-0; typical hoa_than+1 3.6 s 20-0 -> 20.2 s 20-0; top_end nguyen_anh+0 5.2 s 20-0 -> 37.9 s 9-10-1; top_end hoa_than+1 8.7 s 3-17 -> 5.9 s 0-20.

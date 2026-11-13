@@ -24,12 +24,12 @@ Both runs use `--matrix`, 20 fights per row. (Engine moved since the v2 guide, s
 
 | Matchup | Mean s, old | Mean s, geared | W-L-other, old | W-L-other, geared |
 |---|---|---|---|---|
-| typical nguyen_anh+0 | 2.5 | 2.5 | 20-0-0 | 20-0-0 |
-| typical hoa_than+1 | 4.7 | 4.9 | 20-0-0 | 20-0-0 |
-| top_end nguyen_anh+0 | 6.2 | 8.7 | 20-0-0 | 20-0-0 |
-| top_end hoa_than+1 | 6.5 | 7.8 | 0-20-0 | 0-20-0 |
+| typical nguyen_anh+0 | 2.5 | 4.4 | 20-0-0 | 20-0-0 |
+| typical hoa_than+1 | 4.7 | 8.8 | 20-0-0 | 20-0-0 |
+| top_end nguyen_anh+0 | 6.2 | 12.6 | 20-0-0 | 0-20-0 |
+| top_end hoa_than+1 | 6.5 | 7.9 | 0-20-0 | 0-20-0 |
 
-Health left, geared: 100 / 100 / 100 / 0 %. Geared top_end same realm shows "dry you 8.8" (you run out of linh lực at the end of the fight); the old file never ran dry.
+Health left, geared (after the budget revision): 100 / 100 / 0 / 0 %. Geared top_end same realm shows "dry you 9.0" (you run out of linh lực at the end of the fight); the old file never ran dry.
 
 `--without` (top_end nguyen_anh+0, geared 8.7 s, 20-0-0, dry you 8.8):
 
@@ -40,6 +40,23 @@ Health left, geared: 100 / 100 / 100 / 0 %. Geared top_end same realm shows "dry
 | `item:force-chaos-ledger-branding-iron` | 8.9 | 20-0-0 | 9.0 | 99 % |
 
 No `--without eff:` test: no item Effect was written (see UNMODELLED).
+
+## Budget revision (2026-11-13)
+
+**What changed in `layers`:** `[330, 0, 150, 80, 0]` became `[310, 0, 0, 80, 0]`. The claimed share of the typical-to-top-end gap fell from 38 % to 22 % (Nascent Soul [Nguyên Anh] budget: 23 %).
+
+**Why:** the 150 points of L3 (gear) were the items' own modifiers, which already run as Effects (`item:<id>`) and through `techniques`, so they were counted twice. L3 was cut to 0. L1 (Meridian Map) was trimmed 330 to 310 to get under the line. L4 keeps the 80 from the Nine Rods formation, the layer the concept (stacking curses) needs most; L2 and L5 were already 0 (Weight of Names and Marked Prey run as Effects on L5).
+
+**How the fights moved** (old -> new, mean seconds and wins out of 20):
+
+| Matchup | Old | New |
+|---|---|---|
+| typical nguyen_anh+0 | 2.3 s, 20 wins | 4.4 s, 20 wins |
+| typical hoa_than+1 | 6.1 s, 20 wins | 8.8 s, 20 wins |
+| top_end nguyen_anh+0 | 9.9 s, 14 wins (5 losses, 1 draw) | 12.6 s, 0 wins (20 losses) |
+| top_end hoa_than+1 | 7.9 s, 0 wins | 7.9 s, 0 wins |
+
+The build still beats a typical same-realm enemy, though faster than the 10-20 s a budgeted build is meant to take. It no longer beats the top-end enemy of its own realm.
 
 ## Upgrades to look for
 

@@ -376,6 +376,7 @@
       "tick_breakthrough": "Tin đồn: {a} vừa đột phá {realm}.",
       "tick_death": "{a} ({realm}) đã tọa hóa.",
       "tick_succession": "{a} kế nhiệm {b} làm tông chủ.",
+      "tick_item_decay": "{item} thất lạc tại {place} đã mục nát theo năm tháng.",
       "tick_duel": "{a} và {b} đại chiến tại {place}; {winner} thắng.",
       "player_born": "{a} bước lên con đường tu tiên tại {place}.",
       "player_breakthrough": "{a} đột phá {realm} thành công.",

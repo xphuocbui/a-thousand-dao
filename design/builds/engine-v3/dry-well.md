@@ -22,16 +22,16 @@ Arts swapped in (six art slots as before): Toll Stamp replaces Shatter Palm; Moo
 
 ## Before and after
 
-Twenty fights each, seeded, from `--matrix`. Old = the engine-v2 file run today (its guide's numbers were from an earlier engine state and are not used).
+Twenty fights each, seeded, from `--matrix`, rerun 2026-11-13 after the budget revision (`layers` `[160, 0, 230, 0, 0]`, 23 % of the gap). "Old file" = the engine-v2 file as run earlier (its numbers date from an older engine state); "before" = this build with L3 250 (25 %) rerun on today's engine.
 
-| Matchup | Mean s, old | Mean s, geared | W-L-other, old | W-L-other, geared |
+| Matchup | Mean s, old file | Mean s, before (L3 250) | Mean s, budget (L3 230) | W-L-other, budget |
 |---|---|---|---|---|
-| typical nguyen_anh+0 | 7.5 | 6.8 | 20-0-0 | 20-0-0 |
-| typical hoa_than+1 | 63.5 | 64.8 | 20-0-0 | 20-0-0 |
-| top_end nguyen_anh+0 | 18.1 | 17.1 | 0-20-0 | 0-20-0 |
-| top_end hoa_than+1 | 11.9 | 10.2 | 0-20-0 | 0-20-0 |
+| typical nguyen_anh+0 | 7.5 | 6.5 | 6.3 | 20-0-0 |
+| typical hoa_than+1 | 63.5 | 65.0 | 65.8 | 20-0-0 |
+| top_end nguyen_anh+0 | 18.1 | 62.5 | 62.0 | 0-12-8 |
+| top_end hoa_than+1 | 11.9 | 10.7 | 10.7 | 0-20-0 |
 
-Other readings: at typical hoa_than+1 health left fell 66 % → 49 % and the build ran dry at 14.5 s (old 17.4 s); at top_end nguyen_anh+0 the foe ran dry at 10.8 s (old 11.4 s) and the build at 12.5 s (old 14.7 s); at top_end hoa_than+1 the foe never ran dry geared (old 8.5 s).
+Other readings (budget file): at typical hoa_than+1 health left is 48 % and the build runs dry at 9.4 s; at top_end nguyen_anh+0 the foe runs dry at 33.8 s and the build at 8.2 s; at top_end hoa_than+1 the foe never runs dry. The `--without` table below was measured on an earlier engine state and was not rerun.
 
 `--without` (top_end nguyen_anh+0, geared 17.1 s, 0 wins):
 
@@ -74,4 +74,21 @@ No `--without eff:` run: no item Effect could be written for the engine (see UNM
 
 ## Observations
 
-Gear mattered a little and did not change a result: every win and loss is the same as before, and means moved by about a second (typical +0 7.5 → 6.8 s, top-end +0 18.1 → 17.1 s, top-end +1 11.9 → 10.2 s), while typical hoa_than+1 got slightly longer (63.5 → 64.8 s) and ended with less health (66 % → 49 %). The pieces that carry the build's concept, Deep Freeze, Toll Taker and Shattering Ward, are not run, so the gear here is mostly modifiers the engine reads as cold art speed; the `--without` runs show the Toll Seal, Moonrime Sword and Deep Freeze Ring each cost 0.6–1.4 s when removed, and the foe runs dry 2.5–3.1 s later without the Seal or the Ring. Only the hoa_than+1 typical fight sits in the 30-60 s band (64.8 s, just over it); typical +0 is 6.8 s and top-end 10–17 s, all under. No item made the build degenerate. Every swapped-in art fired in every row (Toll Stamp 2.0 to 6.0 times a fight, Moon Stills the Tide 3.0 to 11.9); no art or item fired nothing, but Glacier Plate, the Sleeping Marrow Pendant and the Black Ledger Mirror contribute nothing the engine runs. The `--without` tests removed an item's modifiers only, and ran at top_end nguyen_anh+0.
+(Written before the budget revision; the current numbers are in "Before and after" and the revision section below.) Gear mattered a little and did not change a result: every win and loss is the same as before, and means moved by about a second (typical +0 7.5 → 6.8 s, top-end +0 18.1 → 17.1 s, top-end +1 11.9 → 10.2 s), while typical hoa_than+1 got slightly longer (63.5 → 64.8 s) and ended with less health (66 % → 49 %). The pieces that carry the build's concept, Deep Freeze, Toll Taker and Shattering Ward, are not run, so the gear here is mostly modifiers the engine reads as cold art speed; the `--without` runs show the Toll Seal, Moonrime Sword and Deep Freeze Ring each cost 0.6–1.4 s when removed, and the foe runs dry 2.5–3.1 s later without the Seal or the Ring. Only the hoa_than+1 typical fight sits in the 30-60 s band (64.8 s, just over it); typical +0 is 6.8 s and top-end 10–17 s, all under. No item made the build degenerate. Every swapped-in art fired in every row (Toll Stamp 2.0 to 6.0 times a fight, Moon Stills the Tide 3.0 to 11.9); no art or item fired nothing, but Glacier Plate, the Sleeping Marrow Pendant and the Black Ledger Mirror contribute nothing the engine runs. The `--without` tests removed an item's modifiers only, and ran at top_end nguyen_anh+0.
+
+## Budget revision (2026-11-13)
+
+**What changed in `layers`:** `[160, 0, 250, 0, 0]` → `[160, 0, 230, 0, 0]`. Only L3 (gear) moved, down 20 points. The claimed share of the typical-to-top-end gap went from 25 % to 23 %, the nguyen_anh budget (`fight.py` now prints `layer_budget`, not `OVER_BUDGET`).
+
+**Why:** the seven Ice items already run as Effects (`item:<id>`) and the two techniques as `tech:<id>`, so their modifiers are not claimed again in `layers`, and the file names no Meridian Map source for the 250 in L3. L3 (gear) is the layer the concept needs least: the build wins through Ice stacks, drain bills and art speed, not flat gear damage. L1 (160) is kept. This is the smallest cut that fits the budget; no technique, item or art was removed.
+
+**How the fights moved (mean time and wins, 20 fights each):**
+
+| Matchup | Before (L3 250) | After (L3 230) |
+|---|---|---|
+| typical nguyen_anh+0 | 6.5 s, 20 wins | 6.3 s, 20 wins |
+| typical hoa_than+1 | 65.0 s, 20 wins | 65.8 s, 20 wins |
+| top_end nguyen_anh+0 | 62.5 s, 0 wins (12 losses, 8 timeouts) | 62.0 s, 0 wins (12 losses, 8 timeouts) |
+| top_end hoa_than+1 | 10.7 s, 0 wins | 10.7 s, 0 wins |
+
+No outcome changed. The build still beats a typical same-realm enemy in about 6 s, faster than the 10–20 s a build at its budget should take, so its strength sits in its arts and items rather than in `layers`.

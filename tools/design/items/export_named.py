@@ -6,8 +6,8 @@ The design catalogue stays the source; run this after any catalogue change:
     python -I tools/design/items/export_named.py            # write
     python -I tools/design/items/export_named.py --check    # exit 1 if the game data is stale
 
-What is kept per template: id, name, base, grade, element (the five Ngũ Hành families only; Ice, Thunder, Wind and the
-rest carry no Godot element yet), modifiers (key, value, scope), Effects by name, the arts, wards and reserve arts the
+What is kept per template: id, name, base, grade, element (the five Ngũ Hành families, and Ice, Thunder, Wind and Force-Chaos
+as the variant roots Băng, Lôi, Phong and Hỗn Độn), modifiers (key, value, scope), Effects by name, the arts, wards and reserve arts the
 piece gives (id, name, rule; the game has no art system yet, so they are stored, not run), sources, holder, and the
 `exception` note of rule 21 when there is one. Lore and build notes stay in the design catalogue.
 """
@@ -19,8 +19,10 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 OUT = os.path.join(ROOT, "assets", "data", "items_named.json")
 
-# Design family -> Godot element id (character_elements.json). Families without one get "".
-FAMILY_ELEMENT = {"fire": "hoa", "water": "thuy", "wood": "moc", "metal": "kim", "earth": "tho"}
+# Design family -> Godot element or variant-root id (character_elements.json; user decision 2026-11-13: the variant
+# families map to their variant roots). Blade, body, general and soul-song-seal are not elements and get "".
+FAMILY_ELEMENT = {"fire": "hoa", "water": "thuy", "wood": "moc", "metal": "kim", "earth": "tho",
+                  "ice": "bang", "thunder": "loi", "wind": "phong", "force-chaos": "hon_don"}
 
 
 def _art(a):

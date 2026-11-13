@@ -103,7 +103,10 @@ func artifact(rng: RandomNumberGenerator, realm_tier: int, grade: int, element: 
 		if bool(a.get("element_bound", false)) and elem == "":
 			continue
 		var v: float = snappedf(rng.randf_range(float(a.min), float(a.max)), 0.1)
-		affixes.append({"id": a.id, "word": a.word, "stat": a.stat, "value": v})
+		var affix := {"id": a.id, "word": a.word, "stat": a.stat, "value": v}
+		if a.has("scope"):
+			affix["scope"] = Array(a.scope).duplicate()
+		affixes.append(affix)
 	var item := {
 		"kind": "artifact", "base": base.id, "grade": int(g.rank), "tier": realm_tier,
 		"element": elem, "attack": float(base.attack) * scale, "defense": float(base.defense) * scale,

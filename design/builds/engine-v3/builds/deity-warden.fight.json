@@ -1,6 +1,6 @@
 {
   "name": "deity-warden", "realm": "hoa_than",
-  "layers": [400, 300, 250, 150, 100],
+  "layers": [170, 130, 130, 70, 40],
   "crit": {"chance": 0.1, "mult": 1.5},
   "n_body": 1.4, "n_qi": 1.4,
   "art_speed_pct": 10, "art_cost_pct": 30, "art_cost_health_pct": 0,

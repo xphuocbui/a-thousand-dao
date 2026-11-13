@@ -1,6 +1,6 @@
 {
   "name": "meta-hunter", "realm": "nguyen_anh",
-  "layers": [200, 280, 250, 150, 80],
+  "layers": [70, 110, 100, 70, 0],
   "crit": {"chance": 0.2, "mult": 1.8},
   "n_body": 1.1, "n_qi": 1.2,
   "art_speed_pct": 25, "art_cost_pct": 30,

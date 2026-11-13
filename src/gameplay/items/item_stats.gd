@@ -1,7 +1,7 @@
 class_name ItemStats
 extends RefCounted
 ## The plain numbers a worn piece carries: a rolled piece's affixes and a named piece's authored modifiers
-## (Item Database rules 20a and 21). A named modifier with a scope (`["fire"]`, `["sword"]`) acts only on what the
+## (Item Database rules 20a and 21). An affix or a named modifier with a scope (`["fire"]`, `["sword"]`) acts only on what the
 ## scope names, which needs the art-based combat the game does not have yet, so only unscoped modifiers count here;
 ## every modifier stays on the record for that combat.
 ##
@@ -17,7 +17,8 @@ extends RefCounted
 static func lines(art: Dictionary) -> Array:
 	var out: Array = []
 	for a in art.get("affixes", []):
-		out.append({"stat": str(a.stat), "value": float(a.value)})
+		if Array(a.get("scope", [])).is_empty():   # a scoped affix (Thiết Bích, Physical) waits for art combat
+			out.append({"stat": str(a.stat), "value": float(a.value)})
 	for m in art.get("modifiers", []):
 		if Array(m.get("scope", [])).is_empty():
 			out.append({"stat": str(m.key), "value": float(m.value)})

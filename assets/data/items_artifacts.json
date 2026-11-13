@@ -47,7 +47,8 @@
     {"id": "duong_sinh", "word": "Dưỡng Sinh", "stat": "dan_doc_resist_pct", "min": 5.0, "max": 15.0, "weight": 8},
     {"id": "tinh_tam", "word": "Tĩnh Tâm", "stat": "tam_ma_resist_pct", "min": 5.0, "max": 15.0, "weight": 8},
     {"id": "phuc_duyen", "word": "Phúc Duyên", "stat": "khi_van", "min": 2.0, "max": 6.0, "weight": 5},
-    {"id": "nguyen_to", "word": "", "stat": "element_affinity_pct", "min": 10.0, "max": 25.0, "weight": 15, "element_bound": true}
+    {"id": "nguyen_to", "word": "", "stat": "element_affinity_pct", "min": 10.0, "max": 25.0, "weight": 15, "element_bound": true},
+    {"id": "thiet_bich", "word": "Thiết Bích", "stat": "resist_pct", "scope": ["physical"], "min": 5.0, "max": 15.0, "weight": 10}
   ],
   "element_chance": 0.6,
   "element_match_bonus_pct": 15.0,

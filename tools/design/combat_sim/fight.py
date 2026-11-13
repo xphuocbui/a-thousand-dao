@@ -802,6 +802,34 @@ def layer_budget(d, r):
     return share
 
 
+# The hand-set fields the budget also covers (user decision 2026-11-13): typical -> top-end reference, each from the
+# GDD cap or the top-end enemy where one exists; art speed and accuracy have no cap and use a first guess. Sustain
+# (regeneration, healing, leech) is left out on purpose: sustain is meant to have many sources.
+FIELD_REFS = {
+    "crit chance": (lambda d: d.get("crit", {}).get("chance", 0.15), 0.15, 0.5),
+    "crit damage": (lambda d: d.get("crit", {}).get("mult", 1.7), 1.7, 3.0),
+    "art speed %": (lambda d: d.get("art_speed_pct", 0.0), 0.0, 100.0),
+    "art cost %": (lambda d: d.get("art_cost_pct", 0.0), 0.0, 50.0),
+    "evade pp": (lambda d: d.get("evade_pct", 0.0), 0.0, 40.0),
+    "accuracy pp": (lambda d: d.get("accuracy_pct", 0.0), 0.0, 40.0),
+}
+# Not budgeted: the pools (n_body, n_qi), because the loader folds item and technique pool modifiers into them, so they
+# hold pieces, not only hand-set claims.
+
+
+def field_budget(d, r):
+    """Prints FIELD_OVER for each hand-set field claiming more of its typical-to-top-end gap than the realm's budget.
+    Returns {field: share}. An observation, not a refusal."""
+    out = {}
+    for name, (get, typ, top) in FIELD_REFS.items():
+        share = max(0.0, (float(get(d)) - typ) / (top - typ))
+        out[name] = share
+        if share > LAYER_BUDGET[r] + 1e-9:
+            print("FIELD_OVER	%s claims %.0f %% of its gap (%g, typical %g, top-end %g); the %s budget is %.0f %%"
+                  % (name, 100 * share, float(get(d)), typ, top, REALMS[r], 100 * LAYER_BUDGET[r]))
+    return out
+
+
 def x1_for(L1):
     """The x1 that gives layer L1, through the soft knee (Combat Formulas B)."""
     start, slope = C["l1_soft"]
@@ -1051,6 +1079,7 @@ def main():
         d = expand_library(d)
         r = realm_index(d.get("realm", "luyen_khi"))
         layer_budget(d, r)
+        field_budget(d, r)
         build, notes, base = run_all(d, r, args)
         if args.without:
             print("without\t%s" % args.without)

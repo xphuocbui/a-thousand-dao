@@ -476,7 +476,7 @@ The item_slots formula (rule 11) is defined as:
 | Tĩnh Tâm | `tam_ma_resist_pct` | 5–15 | 8 |
 | Phúc Duyên | `khi_van` | 2–6 | 5 |
 | (element word) | `element_affinity_pct`, element-bound | 10–25 | 15 |
-| Thiết Bích (**change**, new) | `resist_pct` Physical, in points | 5–15 (a guess; Black Iron Armour's 11.1 sits inside) | 10 |
+| Thiết Bích (**change**, new; in the game's pool 2026-11-13, stored with its Physical scope until fights read resistance) | `resist_pct` Physical, in points | 5–15 (a guess; Black Iron Armour's 11.1 sits inside) | 10 |
 
 No rolled affix is Chaos resistance or any other rare modifier (rule 19; this closes Combat Damage Types Open
 Question 3 from this side).

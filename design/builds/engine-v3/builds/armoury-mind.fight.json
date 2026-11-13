@@ -3,7 +3,7 @@
   "items": ["metal-hundred-edge-flying-sword", "metal-tortoise-scale-armour", "metal-ring-of-returning-edge",
             "metal-iron-temper-ring", "metal-whetstone-jade-pendant", "metal-woodsplitter-axe",
             "metal-blood-seasoned-whetstone"],
-  "layers": [266, 265, 250, 130, 0],
+  "layers": [150, 150, 120, 0, 0],
   "purity": {"metal": 95},
   "ward": {"model": "drain", "drain_base": 0.328, "ws_base": 83, "we": 83},
   "techniques": ["nine-temper-scripture", "hundred-blades-canon", "iron-hide-manual"],

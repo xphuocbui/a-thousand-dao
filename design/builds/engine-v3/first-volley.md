@@ -27,9 +27,11 @@ Matchups are the `--matrix` of the old file (`engine-v2`) and the geared file (`
 | Matchup | Mean s, old | Mean s, geared | W-L-other, old | W-L-other, geared |
 |---|---|---|---|---|
 | typical, same realm | 1.5 | 1.5 | 20-0-0 | 20-0-0 |
-| typical, +1 realm (hoa_than) | 5.5 | 4.5 | 20-0-0 | 20-0-0 |
-| top_end, same realm | 10.0 | 11.6 (11.4 on an earlier run) | 0-20-0 | 0-20-0 |
+| typical, +1 realm (hoa_than) | 5.5 | 3.7 | 20-0-0 | 20-0-0 |
+| top_end, same realm | 10.0 | 48.2 | 0-20-0 | 15-5-0 |
 | top_end, +1 realm | 4.0 | 4.0 | 0-20-0 | 0-20-0 |
+
+(Geared column re-run 2026-11-13 after the budget revision; see the section at the end. The pre-revision geared file now reads 1.0 / 2.5 / 33.1 s.)
 
 `--without` (the matrix was run for the first two; the other two only for typical, same realm, where the result is 1.5 s, 20-0-0, same as geared):
 
@@ -70,6 +72,23 @@ The sword is named as the item that matters most because it is the only item wit
 - Drumbeat's Thunder buff stack on its crit: only the guaranteed crit and the 8 less crit chance were written (the stack would need a condition the counter cannot gate).
 - Drumbeat is an approximation: a counter `beat` (cap 4) adds 1 per art fired, a live +100 crit while it is at least 3, a reset at 4. The engine may count the fourth art differently.
 - Everything the engine-v2 file already listed (L2 and L4, First Move and others, Lightning Step).
+
+## Budget revision (2026-11-13)
+
+**What changed in `layers`:** `[360, 0, 250, 0, 0]` became `[270, 0, 130, 0, 0]`. The claimed share of the typical-to-top-end gap fell from 46 % to 21 % (budget at Nguyên Anh (nguyen_anh): 23 %); `fight.py` now prints `layer_budget`, not `OVER_BUDGET`.
+
+**Why:** the layers hold only what the Meridian Map and the old file's own sources give. The techniques' passives and the items' modifiers already run as Effects, so none of them is added again. L1 (base damage, the volley itself) was cut least, since the concept is a burst of lightning arts at the opening; L3 was cut most (250 to 130), as the build needs it least. L1 also counts as 235 rather than 270 past the soft knee. No technique, item or art was changed or removed.
+
+**How the fights moved** (mean time, wins-losses, 20 fights; old = file before the revision, new = after):
+
+| Matchup | Old | New |
+|---|---|---|
+| typical, same realm | 1.0 s, 20-0 | 1.5 s, 20-0 |
+| typical, +1 realm | 2.5 s, 20-0 | 3.7 s, 20-0 |
+| top_end, same realm | 33.1 s, 19-1 | 48.2 s, 15-5 |
+| top_end, +1 realm | 4.0 s, 0-20 | 4.0 s, 0-20 |
+
+Against a typical same-realm foe the build still wins in 1.5 s, far under the 10-20 s the budget is meant to give: the crit and art-speed caps (50 % / x3.0, 200 %) come from items and the build's own fields, not from `layers`, so they carry the fight. It now has a real contest with the top-end foe at the same realm.
 
 ## Observations
 
