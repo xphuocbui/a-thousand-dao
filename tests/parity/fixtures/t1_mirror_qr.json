@@ -1,0 +1,23 @@
+{
+  "name": "t1_mirror_qr",
+  "doc": "Slice 1 (timeline and basic damage). A typical mirror at Qi Refining (realm 0): the same three arts each side, default stat sheet, no chance. Side A acts first at every moment (fixed order), so A's first strikes land first.",
+  "slice": 1,
+  "chance_free": true,
+  "seed": 1,
+  "a": {
+    "name": "mirror-a", "realm": 0, "crit": 0.0, "evade": 0.0,
+    "arts": [
+      {"name": "cleaving-wave", "c": 2.0, "cost": 0.06, "cd": 3.0},
+      {"name": "rain-of-needles", "c": 1.2, "cost": 0.05, "cd": 2.0, "split": [0.4, 0.4, 0.4]},
+      {"name": "mountain-fist", "c": 3.5, "cost": 0.10, "cd": 6.0, "m_mult": 1.1}
+    ]
+  },
+  "b": {
+    "name": "mirror-b", "realm": 0, "crit": 0.0, "evade": 0.0,
+    "arts": [
+      {"name": "cleaving-wave", "c": 2.0, "cost": 0.06, "cd": 3.0},
+      {"name": "rain-of-needles", "c": 1.2, "cost": 0.05, "cd": 2.0, "split": [0.4, 0.4, 0.4]},
+      {"name": "mountain-fist", "c": 3.5, "cost": 0.10, "cd": 6.0, "m_mult": 1.1}
+    ]
+  }
+}

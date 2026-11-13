@@ -1,0 +1,15 @@
+{
+  "name": "t1_stall",
+  "doc": "Slice 1. A long stall: weak offence, heavy wards and health regeneration on both sides, so the fight runs deep into fatigue (from 60 s, quadratic) and toward the 300 s limit. Ward bills drain linh luc to zero, after which the main ward stops counting.",
+  "slice": 1,
+  "chance_free": true,
+  "seed": 11,
+  "a": {
+    "name": "turtle-a", "realm": 0, "M": 1.6, "crit": 0.0, "evade": 0.0, "ward_pts": 900.0, "hregen": 0.01, "block": 30.0,
+    "arts": [{"name": "tap", "c": 1.0, "cost": 0.08, "cd": 4.0}]
+  },
+  "b": {
+    "name": "turtle-b", "realm": 0, "M": 1.5, "crit": 0.0, "evade": 0.0, "ward_pts": 1000.0, "hregen": 0.011, "block": 28.0,
+    "arts": [{"name": "nudge", "c": 1.1, "cost": 0.09, "cd": 4.5}]
+  }
+}

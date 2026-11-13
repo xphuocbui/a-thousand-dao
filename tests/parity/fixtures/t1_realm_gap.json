@@ -1,0 +1,23 @@
+{
+  "name": "t1_realm_gap",
+  "doc": "Slice 1. A Foundation (realm 1) fighter with a stronger sheet against a Core Formation (realm 2) one: realm suppression (Formulas H), the realm defence factor, block units by realm, body resistance and block, a companion, linh luc gain and leech on hit.",
+  "slice": 1,
+  "chance_free": true,
+  "seed": 7,
+  "a": {
+    "name": "climber", "realm": 1, "M": 6.2, "crit": 0.0, "evade": 0.0,
+    "gain_on_hit": 0.004, "leech_qi": 0.05, "leech_hp": 0.03, "body_pts": 60.0, "bs_mult": 1.2, "body_block": 4.0,
+    "companions": [{"c": 0.6, "dtype": "phys", "cd": 1.5}],
+    "arts": [
+      {"name": "rising-dragon", "c": 2.6, "cost": 0.07, "cd": 3.0},
+      {"name": "thunder-palm", "c": 1.8, "cost": 0.05, "cd": 2.5, "dtype": "lightning"}
+    ]
+  },
+  "b": {
+    "name": "elder", "realm": 2, "crit": 0.0, "evade": 0.0, "block": 25.0, "resist": {"lightning": 40.0},
+    "arts": [
+      {"name": "elder-sweep", "c": 2.2, "cost": 0.06, "cd": 3.5},
+      {"name": "elder-seal", "c": 3.0, "cost": 0.09, "cd": 5.0, "dtype": "force", "charges": 2}
+    ]
+  }
+}

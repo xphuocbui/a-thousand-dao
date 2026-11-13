@@ -1,0 +1,27 @@
+{
+  "name": "t1_hazards",
+  "doc": "Slice 1. Porting hazards from ADR-0001 Risks: negative resistance (amplified hits), halves in shares and times (1.0005 s, 0.5 shares), integer-valued data (c 2, cd 3, block 10, charges 3), hp_pay and an art's health cost, cost reduction, a reserved share, art and basic speed, opening haste, the basic coefficient, a heal art that refunds its cost, a linh luc restore art, a ward layer and the ward bill multiplier.",
+  "slice": 1,
+  "chance_free": true,
+  "seed": 3,
+  "a": {
+    "name": "blood-scholar", "realm": 1, "crit": 0.0, "evade": 0.0,
+    "hp_pay": 0.3, "cost_red": 0.2, "reserved": 0.15, "art_speed_pct": 25.0, "basic_speed_pct": 50, "opening_haste_pct": 100.0,
+    "basic_coef_add": 0.5, "healing": 0.1, "hregen": 0.002, "regen_bonus": 0.03, "ward_bill_pct": 30.0,
+    "resist": {"fire": -60.0},
+    "arts": [
+      {"name": "crimson-script", "c": 2, "cost": 0.08, "cd": 3, "hp_cost": 0.02, "charges": 3},
+      {"name": "half-moon", "c": 1.5, "cost": 0.05, "cd": 1.0005, "split": [0.5, 0.25, 0.25], "bypass": 0.5},
+      {"name": "mending-verse", "c": 0.0, "cost": 0.06, "cd": 7.5, "heal": 1.5},
+      {"name": "still-spring", "c": 0.0, "cost": 0.0, "cd": 10.0, "qi_restore": 0.08}
+    ]
+  },
+  "b": {
+    "name": "fire-warden", "realm": 1, "crit": 0.0, "evade": 0.0,
+    "ward_layer": 1.5, "drain": 1.2, "block": 10, "resist": {"phys": -30.0},
+    "arts": [
+      {"name": "ember-lash", "c": 2.4, "cost": 0.06, "cd": 2.5, "dtype": "fire"},
+      {"name": "cinder-rain", "c": 1.0, "cost": 0.04, "cd": 1.5, "dtype": "fire", "split": [0.5, 0.5]}
+    ]
+  }
+}

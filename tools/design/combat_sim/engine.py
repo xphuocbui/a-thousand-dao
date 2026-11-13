@@ -24,26 +24,24 @@ more complete than it is.
 
 Run: python -I tools/design/combat_sim/engine.py          (self-check scenarios)
 """
+import json
 import math
+import os
 import random
 from dataclasses import dataclass, field
 
-# ------------------------------------------------------------------ constants (same numbers as sim.py K)
-K = dict(
-    fatigue_start=60.0, fatigue_units=0.5, fatigue_pow=2.0, time_limit=300.0,
-    # realm defence factor d_r = typical M(r) / typical M(QR): health, the drain bill and fatigue keep pace with
-    # typical offence (Combat Formulas A, Combat Defence C; user decision 2026-11-11, "defence keeps pace")
-    realm_def=(1.0, 4.19 / 3.273, 5.48 / 3.273, 7.37 / 3.273, 8.96 / 3.273), fatigue_by_realm=True,
-    health_mult=4.0, regen_base=0.035, regen_k=0.08, cost_scale=0.5, drain_scale=0.2,
-    crit_cap=1.0, evade_cap=0.4, cooldown_min=0.5, basic_cooldown=1.0, pulse=1.0,
-    trig_cap=6, trig_depth=2, trig_budget=0.5, avoid_budget=2, curse_slots=3, curse_duration_max=5,
-    delay_window=3.0, slowed_time_pct=0.06, soul_beta=2.0, rho_min=0.25, soul_cap=0.30, soul_lockout=1.0,
-    recharge_delay=2.0, shield_recharge=0.25, bypass_cap=0.5, stops_cap_chaos=0.5, stops_cap_soul=0.3,
-    curse_heal_taken_max=0.5, min_batch=2.0, layer_caps=(400, 300, 250, 150, 100), l1_soft=(200, 0.5), pierce_cap=0.75,
-)
-U = [6.31, 15.85, 39.81, 100.0, 251.19]
-SUPP = [0.0, 0.10, 0.25, 0.50, 0.75]
-BLOCK_UNIT = [0.0631, 0.2031, 0.6672, 2.254, 6.883]
+# ------------------------------------------------------------------ constants
+# One source for both engines (ADR-0001): assets/data/combat_engine.json, read here and by the GDScript engine
+# (src/gameplay/combat/fight/combat_constants.gd). Same numbers as sim.py K. realm_def is the realm defence factor
+# d_r = typical M(r) / typical M(QR): health, the drain bill and fatigue keep pace with typical offence (Combat
+# Formulas A, Combat Defence C; user decision 2026-11-11, "defence keeps pace").
+_DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "assets", "data", "combat_engine.json")
+with open(_DATA, encoding="utf-8") as _f:
+    _C = json.load(_f)
+K = {k: (tuple(v) if isinstance(v, list) else v) for k, v in _C["K"].items()}
+U = list(_C["U"])
+SUPP = list(_C["SUPP"])
+BLOCK_UNIT = list(_C["BLOCK_UNIT"])
 
 BUFF = {"fire": {"dmg": 0.012}, "water": {"qi_max": 0.005, "regen": 0.00025}, "earth": {"phys_dampen": 0.011},
         "metal": {"dmg_phys": 0.012}, "wood": {"hregen": 0.001}, "thunder": {"acc": 0.007, "crit": 0.0035},
@@ -233,10 +231,10 @@ class Side:
         self.b, self.label = b, label
         self.U = U[b.realm]
         self.g = K["realm_def"][b.realm]
-        self.hp_max = 16 * self.U * b.n_body * K["health_mult"] * self.g
-        self.qi_base = 26 * self.U * b.n_qi
+        self.hp_max = K["health_units"] * self.U * b.n_body * K["health_mult"] * self.g
+        self.qi_base = K["qi_units"] * self.U * b.n_qi
         self.hp = self.hp_max
-        self.qi = self.qi_base * (1 - min(0.9, b.reserved))
+        self.qi = self.qi_base * (1 - min(K["reserve_cap"], b.reserved))
         self.body_bar = b.body_shield * self.hp_max
         self.wshields = [dict(s=s, left=s.size * self.qi_base * (s.pieces and 1), quiet_since=0, pieces_left=s.pieces)
                          for s in b.shields]
@@ -298,7 +296,7 @@ class Side:
 
     def qi_use(self):
         """Usable linh lực: the maximum less what reservations hold [Combat Defence & Healing rule 10, reserve_cap 0.9]."""
-        return self.qi_max() * (1 - min(0.9, self.b.reserved))
+        return self.qi_max() * (1 - min(K["reserve_cap"], self.b.reserved))
 
     def count(self, lst, el):
         return sum(x[1] for x in lst if x[0] == el)
@@ -337,11 +335,18 @@ def supp(att, dfn, pierce=0.0):
 
 # ------------------------------------------------------------------ the fight
 class Fight:
-    def __init__(self, b1, b2, seed=1, trace=False):
+    def __init__(self, b1, b2, seed=1, trace=False, order="random", parity=False):
+        """order: "random" draws which side acts first at each moment (the rule in both engines, ADR-0001); "fixed"
+        is side A before side B, used only by the exact parity fixtures. parity: record
+        `plog`, the event rows the parity suite compares (tests/parity, parity_export.py)."""
         for b in (b1, b2):
             validate(b)
+        if order not in ("random", "fixed"):
+            raise EngineError("order %r is not random or fixed" % order)
         self.rng = random.Random(seed)
         self.order = random.Random(seed + 7919)
+        self.fixed_order = order == "fixed"
+        self.plog = [] if parity else None
         self.A, self.B = Side(b1, "A"), Side(b2, "B")
         self.A.foe, self.B.foe = self.B, self.A
         self.t = 0
@@ -536,13 +541,13 @@ class Fight:
                 break
             self.t = t
             if t >= next_pulse:
-                first, second = (A, B) if self.order.random() < 0.5 else (B, A)
+                first, second = self.sides_in_order()
                 self.pulse(first)
                 self.pulse(second)
                 next_pulse += ms(K["pulse"])
                 if self.trace:
                     self.rows.append((t / 1000, A.hp / A.hp_max, A.qi / A.qi_max(), B.hp / B.hp_max, B.qi / B.qi_max()))
-            first, second = (A, B) if self.order.random() < 0.5 else (B, A)
+            first, second = self.sides_in_order()
             self.act(first)
             self.act(second)
             for s in (A, B):
@@ -552,7 +557,13 @@ class Fight:
             if A.down or B.down:
                 break
         win = "draw" if A.down and B.down else "A" if B.down else "B" if A.down else "time"
-        return dict(t=self.t / 1000, win=win, A=A, B=B, rows=self.rows)
+        return dict(t=self.t / 1000, win=win, A=A, B=B, rows=self.rows, plog=self.plog)
+
+    def sides_in_order(self):
+        """Who acts first at this moment: a coin from the order stream, or A then B when the order is fixed."""
+        if self.fixed_order:
+            return self.A, self.B
+        return (self.A, self.B) if self.order.random() < 0.5 else (self.B, self.A)
 
     # ---------------------------------------------------------- pulses
     def pulse(self, s):
@@ -655,6 +666,8 @@ class Fight:
                 w["left"] = min(cap, w["left"] + K["shield_recharge"] * cap)
                 if w["s"].pieces > 1:
                     w["pieces_left"] = min(w["s"].pieces, w["pieces_left"] + 1)
+        if self.plog is not None:
+            self.plog.append(["pulse", self.t, s.label, s.hp, s.qi])
         self.fire_event(s, "pulse", {})
 
     # ---------------------------------------------------------- acting
@@ -729,6 +742,8 @@ class Fight:
                     s.qi = min(s.qi_use(), s.qi + s.last_cost)
             if a.qi_restore:
                 s.qi = min(s.qi_use(), s.qi + a.qi_restore * s.qi_max())
+            if self.plog is not None:
+                self.plog.append(["art", self.t, s.label, a.name, s.last_cost, s.hp, s.qi])
             ev = {"art": a, "art_id": a.name, "slot": i, "cost": s.last_cost, "tags": a.tags, "element": a.element,
                   "dtype": a.dtype, "kind": "art", "hp_paid_share": s.hp_paid / s.hp_max}
             s.cur_ev = ev
@@ -788,7 +803,7 @@ class Fight:
         b = s.b
         s.hp_paid = 0.0
         cost_up = (1 + s.dsum("cost_up")) * (1 + s.st("heavy_breath") * STATUS["heavy_breath"]["cost_up"])
-        cost = a.cost * K["cost_scale"] * (1 - min(0.95, b.cost_red + self.mod(s, "cost_red", art_ctx(a)))) * cost_up * s.qi_base
+        cost = a.cost * K["cost_scale"] * (1 - min(K["cost_red_cap"], b.cost_red + self.mod(s, "cost_red", art_ctx(a)))) * cost_up * s.qi_base
         if a.pool == "tam_ma":
             need = cost / s.qi_max() * 100
             if s.tam_ma < need:
@@ -805,7 +820,7 @@ class Fight:
             s.last_cost = 0.0
             return True
         hp_red = 1 - min(1.0, self.mod(s, "hp_cost_red", art_ctx(a)))   # Whetstone Vow: health costs halved
-        if a.hp_cost and s.hp - a.hp_cost * hp_red * s.hp_max < 1 and self.mod(s, "shield_pays") <= 0:
+        if a.hp_cost and s.hp - a.hp_cost * hp_red * s.hp_max < K["pay_keep_health"] and self.mod(s, "shield_pays") <= 0:
             return False
         qi_part = cost * (1 - b.hp_pay)
         hp_part = cost * b.hp_pay * (s.hp_max / s.qi_base)
@@ -823,7 +838,7 @@ class Fight:
             return False
         hp_total = (hp_part + a.hp_cost * s.hp_max) * hp_red
         from_shield = min(s.body_bar, hp_total) if self.mod(s, "shield_pays") > 0 else 0.0
-        if hp_total - from_shield > 0 and s.hp - (hp_total - from_shield) < 1 and not blood:
+        if hp_total - from_shield > 0 and s.hp - (hp_total - from_shield) < K["pay_keep_health"] and not blood:
             return False
         s.qi -= qi_part
         s.body_bar -= from_shield            # Shield Pays the Blood: the body shield pays health costs first
@@ -868,6 +883,7 @@ class Fight:
         damp = (dfn.bsum("phys_dampen") if phys else 0.0) + self.mod(dfn, "dampen_taken", ctx) / 100
         if damp:
             D /= 1 + damp
+        D_in = D                             # the hit's amount before the defence path (parity log)
         soul_D = 0.0
         if art is not None and art.soul_part:
             soul_D = D * art.soul_part
@@ -898,6 +914,8 @@ class Fight:
         lh = att.b.leech_hp + self.mod(att, "leech_hp") / 100
         if lh:
             self.heal(att, lh * dealt)
+        if self.plog is not None:
+            self.plog.append(["hit", self.t, att.label, kind, ctx["art_id"], D_in, dealt, dfn.hp, dfn.qi, att.hp, att.qi])
         if art and art.debuff:
             self.add_stacks(att, dfn, art.element, art.debuff[0], art.debuff[1], buff=False)
         if art:
@@ -1023,7 +1041,7 @@ class Fight:
                 dfn.body_bar -= soak
                 a -= soak
                 reached = soak > 0
-        dealt = 0.0 if a <= 1e-12 else (a if is_tick else max(1.0, a))
+        dealt = 0.0 if a <= 1e-12 else (a if is_tick else max(K["min_hit"], a))
         if dealt > 0:
             reached = True
         dfn.hp -= dealt
@@ -1584,8 +1602,8 @@ def validate(b):
             raise EngineError("%s: art %s: added Soul part over 30 %% (R11)" % (b.name, a.name))
 
 
-def fight(b1, b2, seed=1, trace=False):
-    return Fight(b1, b2, seed, trace).run()
+def fight(b1, b2, seed=1, trace=False, order="random", parity=False):
+    return Fight(b1, b2, seed, trace, order, parity).run()
 
 
 if __name__ == "__main__":

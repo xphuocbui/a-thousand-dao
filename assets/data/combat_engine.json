@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "_doc": "Combat engine constants, the one source for both engines (ADR-0001 Implementation Guidelines). Read by tools/design/combat_sim/engine.py and src/gameplay/combat/fight/combat_constants.gd. K: Combat GDD constants (seconds unless named otherwise); U: per-realm unit; SUPP: realm suppression by realm gap (Formulas H); BLOCK_UNIT: block points to health per realm. health_units / qi_units: health_max = health_units x U x n_body x health_mult x d_r and qi_base = qi_units x U x n_qi; cost_red_cap and reserve_cap cap those shares; pay_keep_health: an art paid in health must leave this much; min_hit: a hit that reaches health removes at least this.",
+  "K": {
+    "fatigue_start": 60.0,
+    "fatigue_units": 0.5,
+    "fatigue_pow": 2.0,
+    "time_limit": 300.0,
+    "realm_def": [
+      1.0,
+      1.2801710968530402,
+      1.674304919034525,
+      2.251756798044607,
+      2.737549648640391
+    ],
+    "fatigue_by_realm": true,
+    "health_mult": 4.0,
+    "regen_base": 0.035,
+    "regen_k": 0.08,
+    "cost_scale": 0.5,
+    "drain_scale": 0.2,
+    "crit_cap": 1.0,
+    "evade_cap": 0.4,
+    "cooldown_min": 0.5,
+    "basic_cooldown": 1.0,
+    "pulse": 1.0,
+    "trig_cap": 6,
+    "trig_depth": 2,
+    "trig_budget": 0.5,
+    "avoid_budget": 2,
+    "curse_slots": 3,
+    "curse_duration_max": 5,
+    "delay_window": 3.0,
+    "slowed_time_pct": 0.06,
+    "soul_beta": 2.0,
+    "rho_min": 0.25,
+    "soul_cap": 0.3,
+    "soul_lockout": 1.0,
+    "recharge_delay": 2.0,
+    "shield_recharge": 0.25,
+    "bypass_cap": 0.5,
+    "stops_cap_chaos": 0.5,
+    "stops_cap_soul": 0.3,
+    "curse_heal_taken_max": 0.5,
+    "min_batch": 2.0,
+    "layer_caps": [
+      400,
+      300,
+      250,
+      150,
+      100
+    ],
+    "l1_soft": [
+      200,
+      0.5
+    ],
+    "pierce_cap": 0.75,
+    "health_units": 16,
+    "qi_units": 26,
+    "cost_red_cap": 0.95,
+    "reserve_cap": 0.9,
+    "pay_keep_health": 1.0,
+    "min_hit": 1.0
+  },
+  "U": [
+    6.31,
+    15.85,
+    39.81,
+    100.0,
+    251.19
+  ],
+  "SUPP": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    0.75
+  ],
+  "BLOCK_UNIT": [
+    0.0631,
+    0.2031,
+    0.6672,
+    2.254,
+    6.883
+  ]
+}

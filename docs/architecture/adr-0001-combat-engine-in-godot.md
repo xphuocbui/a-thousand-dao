@@ -170,8 +170,12 @@ static func clash(a: RatingProfile, b: RatingProfile, gd: GameData, rng: RandomN
   from the session stream with `randi()`); the engine **must never** call the global random functions, including
   `Array.shuffle()`, `pick_random()` and the global `randi_range()`. A chance roll is always drawn when its event
   fires, then compared, so a skipped condition never shifts the stream.
-- Time **must** be integer milliseconds in both engines, and events at the same moment **must** run in one documented,
-  stable order (side A before side B, then slot order), the same in both engines.
+- Time **must** be integer milliseconds in both engines. At each moment both sides act, which side goes first **must**
+  be a coin drawn from the fight's own random stream (in the sim, its separate order stream), at each pulse and each
+  action step; within a side, arts run in slot order. Both engines **must** also offer a fixed order (side A before
+  side B), used only by the exact parity fixtures, since the two engines' random streams differ. (Amended 2026-11-13,
+  user decision: a fixed A-first order decided an exact mirror for A every time; the coin flip gave 70 / 70 / 60 draws
+  over 200 seeds.)
 - A `FightLogRow` **must** be built only when `log_enabled` is true.
 - A `FighterProfile` is shared and cached, so a `Fight` **must** copy into its `FighterState` everything it changes;
   it **must never** mutate the profile.

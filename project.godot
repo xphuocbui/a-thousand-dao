@@ -11,6 +11,9 @@ config_version=5
 
 config/name="Ten Thousand Daos"
 config/features=PackedStringArray("4.7", "Forward Plus")
+; Only builds with the combat_bench feature (export preset "Windows Combat Bench") start here: the combat
+; timing spike, tests/performance/combat/combat_bench.gd (ADR-0001). The game itself still has no main scene.
+run/main_scene.combat_bench="res://tests/performance/combat/combat_bench.tscn"
 
 [rendering]
 
