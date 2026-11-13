@@ -1,0 +1,26 @@
+{
+ "status": "proposal, awaiting the user's approval (2026-11-14); ids are layout v3's regions (regions.png)",
+ "style": "Han-Viet first, romantic: classical images and allusions; each sect's regions share a theme. The last word says the land: Lam forest, Giac cape, Linh ridge, Hai sea, Xuyen river land, Son mountains, Mac desert, Chau land by water, Dao island, Nguyen plain, Loan bay.",
+ "regions": {
+  "1":  {"name_hv": "Lãnh Nguyệt Lâm", "name_han": "冷月林", "gloss": "Forest of the Cold Moon", "note": "The long lake under the northern moon"},
+  "2":  {"name_hv": "Tuyết Hỏa Giác", "name_han": "雪火角", "gloss": "Cape of Snow and Fire", "note": "A cold cape with volcanic isles and hot springs"},
+  "3":  {"name_hv": "Thanh Loan Lĩnh", "name_han": "青巒嶺", "gloss": "Ridges of the Blue Peaks", "note": "The hills whose haze names Thúy Vi Tông"},
+  "4":  {"name_hv": "Thâm Tùng Hải", "name_han": "深松海", "gloss": "Deep Sea of Pines", "note": "Pine forest as wide as a sea"},
+  "5":  {"name_hv": "Cửu Khúc Xuyên", "name_han": "九曲川", "gloss": "Land of the Nine-Bend River", "note": "The great northern river basin"},
+  "6":  {"name_hv": "Dao Quang Lĩnh", "name_han": "瑤光嶺", "gloss": "Ridge of the Jade Light", "note": "Dao Quang (Alkaid), a star of the Northern Dipper like Thiên Xu"},
+  "7":  {"name_hv": "Ngọc Hồ Sơn", "name_han": "玉壺山", "gloss": "Mountains of the Jade Vessel", "note": "Băng tâm tại ngọc hồ: the ice heart sits in the jade vessel"},
+  "8":  {"name_hv": "Cô Yên Mạc", "name_han": "孤煙漠", "gloss": "Desert of the Lone Smoke", "note": "Vương Duy: đại mạc cô yên trực, a lone column of smoke over the great desert"},
+  "9":  {"name_hv": "Hàn Sương Châu", "name_han": "寒霜洲", "gloss": "Land of Cold Frost", "note": "The north-east forest peninsula"},
+  "10": {"name_hv": "Cô Vụ Đảo", "name_han": "孤鶩島", "gloss": "Isle of the Lone Wild Duck", "note": "Vương Bột: lạc hà dữ cô vụ tề phi, the same line as Lạc Hà Tông"},
+  "11": {"name_hv": "Trường Thiên Nguyên", "name_han": "長天原", "gloss": "Plain of the Endless Sky", "note": "Vương Bột: thu thủy cộng trường thiên nhất sắc"},
+  "12": {"name_hv": "Thu Thủy Loan", "name_han": "秋水灣", "gloss": "Bay of Autumn Water", "note": "The same line: autumn water one colour with the endless sky"},
+  "13": {"name_hv": "Ngư Ca Xuyên", "name_han": "漁歌川", "gloss": "River Land of the Fishermen's Songs", "note": "Vương Bột: ngư chu xướng vãn, fishing boats singing at dusk"},
+  "14": {"name_hv": "Thiên Tuyền Nguyên", "name_han": "天璇原", "gloss": "Plain of the Heavenly Jade Wheel", "note": "Thiên Tuyền (Merak), the Dipper star beside Thiên Xu"},
+  "15": {"name_hv": "Ngọc Hành Sơn", "name_han": "玉衡山", "gloss": "Mountains of the Jade Balance", "note": "Ngọc Hành (Alioth), a star of the Northern Dipper"},
+  "16": {"name_hv": "Thê Ngô Lĩnh", "name_han": "棲梧嶺", "gloss": "Ridge Where the Phoenix Roosts", "note": "The phoenix rests only in the wutong tree (ngô đồng)"},
+  "17": {"name_hv": "Triêu Dương Nguyên", "name_han": "朝陽原", "gloss": "Plain of the Morning Sun", "note": "Kinh Thi: the phoenix calls, the wutong grows facing the morning sun"},
+  "18": {"name_hv": "Tiêu Vũ Lâm", "name_han": "蕉雨林", "gloss": "Forest of Rain on Banana Leaves", "note": "Rain on banana leaves, a classic image of listening to rain"},
+  "19": {"name_hv": "Kinh Trập Sơn", "name_han": "驚蟄山", "gloss": "Mountains of the Waking Thunder", "note": "Kinh Trập: the solar term when spring thunder wakes sleeping creatures"},
+  "20": {"name_hv": "Đan Huyệt Châu", "name_han": "丹穴洲", "gloss": "Coast of the Vermilion Caves", "note": "Sơn Hải Kinh: the phoenix is born on Mount Đan Huyệt; here the caves are volcanic vents"}
+ }
+}

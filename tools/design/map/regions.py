@@ -24,7 +24,7 @@ With --sects (a JSON of great sects: start tile, tier, names, colour) it works t
 It draws politics_proposal.jpg and reports each territory's shape (elongation, hull fill).
 
 Run:  python -I tools/design/map/regions.py --seed 11 --regions 20 --out design/map/continent-11 \
-          --detail prototypes/continent-candidates/cand-11/detail.jpg --sects design/map/continent-11/sects_proposal.json
+          --detail design/map/continent-11/base/detail.jpg --sects design/map/continent-11/sects_proposal.json           --names design/map/continent-11/region_names.json
 """
 
 import argparse
@@ -1006,6 +1006,8 @@ def politics(R, sects_path, out, detail_src, scale=3):
     for o in R.out:                                                              # numbers over the stars
         x, y = R.label_point(o["id"])
         label = f"{o['id']} wild" if o["id"] in P["wild_regions"] else str(o["id"])
+        if o.get("name_hv"):
+            label = f"{o['id']} {o['name_hv']}"
         d.text((x * scale + 1, y * scale + 1), label, fill=(40, 20, 20), font=small, anchor="mm",
                stroke_width=3, stroke_fill=(255, 250, 235))
     try:
@@ -1064,6 +1066,7 @@ def main():
     ap.add_argument("--out", default="design/map/continent-11")
     ap.add_argument("--detail", default=None, help="detail.jpg of the candidate (else rendered fresh)")
     ap.add_argument("--sects", default=None, help="great-sect proposal JSON; draws politics_proposal.jpg")
+    ap.add_argument("--names", default=None, help="region names JSON (ids as in regions.png); labels the map")
     a = ap.parse_args()
     print(f"seed {a.seed}: building the continent", flush=True)
     c = cg.Continent(a.seed).run()
@@ -1080,6 +1083,11 @@ def main():
         R.finish()
         R.stats()
         finish_layout(R, P)
+        if a.names:
+            with open(a.names, encoding="utf-8") as f:
+                names = json.load(f)["regions"]
+            for o in R.out:
+                o.update({k: v for k, v in names.get(str(o["id"]), {}).items() if k in ("name_hv", "name_han", "gloss")})
         R.save(a.out, detail)
         print(json.dumps(R.check, indent=1))
         print(json.dumps(politics(R, P, a.out, detail), indent=1, ensure_ascii=False))

@@ -101,6 +101,8 @@ the rewrite is in the list below.
   awaiting approval; see the same README.
 - **Layout v3 (2026-11-14):** the user found the sect lands "a bit too long". Territories are now drawn first as
   compact areas around each sect's start, then split into regions. Elongation is now 1.07–1.74 (it was up to 3.28).
+- **Layout v3 accepted** by the user (2026-11-14: "looks good now"). The 20 regions got romantic Hán-Việt names
+  (design/map/continent-11/region_names.json); these await approval.
 
 ## What this changes
 
