@@ -1,7 +1,7 @@
 # ADR-0001: The Combat Engine in Godot
 
 ## Status
-Proposed
+Accepted
 
 ## Date
 2026-11-13
