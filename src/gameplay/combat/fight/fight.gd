@@ -198,39 +198,39 @@ func slow(s: FighterState) -> float:
 	return 1.0 + k.slowed_time_pct * n * (1.0 - (s.p.timer_resist + m(s, "timer_resist", null)) / 100.0)
 
 
-## The offence multiplier M with layer mods (Combat Formulas A): without layer mods, the fighter's M (x the art's);
-## with them, M scaled by the layer product with the mods over the product without, x1 soft-capped, each layer
-## capped. Ported as the sim has it, including its Sealed Meridian read of the attacker's foe.
+## The offence multiplier M with layer mods (Combat Formulas A): without layer mods or a seal, the fighter's M (x
+## the art's); otherwise M scaled by the layer product with the mods (and the seal) over the plain product, x1
+## soft-capped, each layer capped. Sealed Meridian (Status Catalogue) is on the SEALED fighter: one named layer L2-L5
+## counts as 1.0 when it attacks (fixed 2026-11-14 in both engines; a build without layers has nothing to remove).
 func layers_m(s: FighterState, art: ArtDef, ctx: Variant) -> float:
 	var mm: float = art.m_mult if art != null else 1.0
-	if not has_mods(s):
+	var seal: int = s.statuses["sealed_meridian"].layer if s.st("sealed_meridian") > 0.0 else -1
+	var sealed_bites: bool = seal >= 0 and not s.p.layers.is_empty()
+	if not has_mods(s) and not sealed_bites:
 		return s.p.m * mm
 	var adds := PackedFloat64Array()
 	var any := false
 	for i in 5:
-		var v: float = m(s, LAYER_KEYS[i], ctx)
+		var v: float = m(s, LAYER_KEYS[i], ctx) if has_mods(s) else 0.0
 		adds.append(v)
 		if v != 0.0:
 			any = true
-	if not any:
+	if not any and not sealed_bites:
 		return s.p.m * mm
 	var base: PackedFloat64Array = s.p.layers if not s.p.layers.is_empty() else PackedFloat64Array([0, 0, 0, 0, 0])
 	var nu := PackedFloat64Array()
 	for i in 5:
 		nu.append(base[i] + adds[i])
-	return s.p.m * mm * _m_of(s, nu) / _m_of(s, base)
+	return s.p.m * mm * _m_of(nu, seal) / _m_of(base, -1)
 
 
-func _m_of(s: FighterState, x: PackedFloat64Array) -> float:
-	var foe: FighterState = foe_of(s)
-	var sealed: bool = foe.st("sealed_meridian") > 0.0
-	var sealed_layer: int = foe.statuses["sealed_meridian"].layer if sealed else -1
+func _m_of(x: PackedFloat64Array, seal: int) -> float:
 	var prod: float = 1.0
 	for i in 5:
 		var xi: float = x[i]
 		if i == 0 and xi > k.l1_soft[0]:
 			xi = k.l1_soft[0] + k.l1_soft[1] * (xi - k.l1_soft[0])
-		if sealed and i >= 1 and i == sealed_layer:
+		if seal >= 0 and i >= 1 and i == seal:
 			xi = 0.0
 		prod *= 1.0 + minf(xi, k.layer_caps[i]) / 100.0
 	return prod

@@ -349,3 +349,16 @@ func test_every_library_effect_compiles_or_is_refused_as_a_later_slice() -> void
 	assert_eq(other, [], "no library Effect fails for any reason but a later slice")
 	assert_eq(ok, 44, "44 library Effects compile in slice 4a")
 	assert_eq(later.size(), 10, "10 wait for a later slice: %s" % str(later))
+
+
+func test_sealed_meridian_locks_the_sealed_fighters_own_layer() -> void:
+	# Status Catalogue (effects.md): Sealed Meridian, a layer lock on the sealed fighter: one named layer counts as 1.0.
+	# Fixed 2026-11-14 in both engines (it read the attacker's foe and cancelled out). A has layers and no mods.
+	var k := CombatConstants.load_file()
+	var f := _fight(_dummy({"layers": [90, 70, 50, 30, 20], "M": 4.2}), _dummy())
+	var before: float = f.layers_m(f.a, null, null)
+	f.apply_status(f.b, f.a, _spec({"id": "sealed_meridian", "layer": 1}))
+	var after: float = f.layers_m(f.a, null, null)
+	assert_near(before, 4.2, 1e-12, "no seal: the fighter's M")
+	assert_near(after, 4.2 / (1.0 + minf(70.0, k.layer_caps[1]) / 100.0), 1e-9, "L2 sealed: its 70 points count as nothing")
+	assert_near(f.layers_m(f.b, null, null), f.b.p.m, 1e-12, "the sealer's own M is untouched")

@@ -472,17 +472,22 @@ class Fight:
     def layers_M(self, s, art, ctx):
         """M with layer mods. Builds with `layers` get exact caps; others scale their fixed M."""
         adds = [self.mod(s, "L%d" % i, ctx) for i in range(1, 6)]
-        if not any(adds):
+        # Sealed Meridian (Status Catalogue): on the SEALED fighter, one named layer L2-L5 counts as 1.0 when it
+        # attacks. Fixed 2026-11-14 (user ruling): the seal was read from the attacker's foe, applied to the base
+        # product too (so it cancelled out), and only computed when a layer mod was present. A build without
+        # `layers` has no layer breakdown, so the seal cannot reduce its fixed M.
+        sealed = s.statuses["sealed_meridian"].get("layer", 4) if s.st("sealed_meridian") else None
+        if not any(adds) and not (sealed is not None and s.b.layers):
             return s.b.M * (art.m_mult if art else 1.0)
         base = list(s.b.layers) if s.b.layers else [0, 0, 0, 0, 0]
 
-        def M_of(x):
+        def M_of(x, seal):
             m = 1.0
             for i in range(5):
                 xi = x[i]
                 if i == 0 and xi > K["l1_soft"][0]:
                     xi = K["l1_soft"][0] + K["l1_soft"][1] * (xi - K["l1_soft"][0])
-                if s.foe.st("sealed_meridian") and i >= 1 and i == s.foe.statuses["sealed_meridian"].get("layer", 4):
+                if seal is not None and i >= 1 and i == seal:
                     xi = 0
                 m *= 1 + min(xi, K["layer_caps"][i]) / 100
             return m
@@ -490,7 +495,7 @@ class Fight:
         for i in range(5):
             if new[i] > K["layer_caps"][i]:
                 s.clipped["L%d" % (i + 1)] = s.clipped.get("L%d" % (i + 1), 0) + 1
-        return s.b.M * (art.m_mult if art else 1.0) * M_of(new) / M_of(base)
+        return s.b.M * (art.m_mult if art else 1.0) * M_of(new, sealed) / M_of(base, None)
 
     def basic_cd(self, s):
         return max(K["cooldown_min"], K["basic_cooldown"] / (1 + (s.b.basic_speed_pct + self.mod(s, "basic_speed")) / 100))

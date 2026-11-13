@@ -1,0 +1,88 @@
+{
+  "name": "t4_sealed_exact",
+  "slice": 4,
+  "chance_free": true,
+  "seed": 37,
+  "doc": "Sealed Meridian (fixed 2026-11-14 in both engines, user ruling): the sealed fighter's named layer (L2-L5) counts as 1.0 when it attacks. Side A lists its layers and has no layer mods (the seal must still bite); side B lists its layers and adds an always-on L2 mod. Each seals the other on a different layer.",
+  "a": {
+    "name": "layered-plain",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "M": 4.2,
+    "layers": [
+      90,
+      70,
+      50,
+      30,
+      20
+    ],
+    "arts": [
+      {
+        "name": "plain-cut",
+        "c": 1.8,
+        "cost": 0.05,
+        "cd": 2.5
+      },
+      {
+        "name": "seal-palm",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 4.0,
+        "statuses": [
+          {
+            "id": "sealed_meridian",
+            "layer": 1
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "name": "layered-modded",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "M": 4.0,
+    "layers": [
+      80,
+      60,
+      60,
+      40,
+      10
+    ],
+    "effects": [
+      {
+        "id": "s:press",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "L2": 25
+            }
+          }
+        ]
+      }
+    ],
+    "arts": [
+      {
+        "name": "press-strike",
+        "c": 2.0,
+        "cost": 0.05,
+        "cd": 3.0
+      },
+      {
+        "name": "seal-needle",
+        "c": 0.8,
+        "cost": 0.04,
+        "cd": 3.5,
+        "statuses": [
+          {
+            "id": "sealed_meridian",
+            "layer": 3
+          }
+        ]
+      }
+    ]
+  }
+}

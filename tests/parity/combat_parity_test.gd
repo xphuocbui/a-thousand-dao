@@ -10,7 +10,7 @@ const TOL := 1e-6
 const SLICE_1 := ["t1_hazards", "t1_mirror_qr", "t1_realm_gap", "t1_stall"]
 const SLICE_2 := ["t2_wards_exact", "t2_shield_cycles", "t2_crit_evade_mirror", "t2_crit_vs_wards"]
 const SLICE_3 := ["t3_stacks_exact", "t3_statuses_exact", "t3_soul_exact", "t3_chancy_marks"]
-const SLICE_4 := ["t4_effects_exact_a", "t4_effects_exact_b", "t4_mechanics_exact", "t4_effects_chancy"]
+const SLICE_4 := ["t4_effects_exact_a", "t4_effects_exact_b", "t4_mechanics_exact", "t4_sealed_exact", "t4_effects_chancy"]
 ## ADR-0001 decision 4 (amended 2026-11-13): chancy fixtures over 1,000 seeds; mean fight time within 5 %, each win
 ## share within 0.05 of the sim's reference (which parity_export.py takes over 10x the seeds).
 const TIME_TOL := 0.05
