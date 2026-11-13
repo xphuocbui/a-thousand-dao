@@ -49,50 +49,84 @@ names rather than a place.
 
 **The land**
 
-1. **One generated world.** At world creation the generator builds a grid of tiles (the size is a data value, about
-   120 × 80) holding one continent, its coasts, the seas and island chains. Each tile gets an elevation, a temperature
-   and a rainfall, and from them a biome. Rivers run downhill from the rainfall. The grid comes from the world seed and
-   never changes, so a save stores the seed and the changes, not the terrain.
-2. **Twenty biomes.** Each biome has a base element profile, a base density, a base danger and its climate. The
-   profiles below are first guesses, kept in data.
+1. **One fixed world.** The continent is authored once and is the same in every game (user decision 2026-11-12;
+   `design/research/fixed-world-decisions.md`). It is a grid of tiles (the size is a data value, about 120 × 80) holding
+   one continent, its coasts, the seas and island chains. The land comes from authored index images, one pixel per
+   tile: biome, elevation, temperature, rainfall, and a feature layer (rule 4) in which the rivers are also painted.
+   When the map is built, rules 2–4 are computed once from these images and stored with the map. A designer can
+   correct any tile by hand, and the correction is stored like any other value. A save stores the changes, not the land.
+2. **Twenty biomes.** Each biome has a base element profile, a base density, a base danger, its climate and, for most
+   biomes, a **signature element**: the element its heart is purest in. Biomes whose character comes from a feature
+   (volcano, glacier, miasma wasteland) are mild at their base and take their peaks from features (rule 4). A volcano
+   is Fire 45, Earth 40, Metal 15, and its lava flows make the fiery ground. The profiles are first guesses, kept in
+   data.
 
-   | Biome | Hán-Việt | Leans toward |
+   | Biome | Hán-Việt | Leans toward | Signature |
+   |---|---|---|---|
+   | Temperate forest | rừng ôn đới | Wood, Water | Wood |
+   | Bamboo forest | rừng trúc | Wood, Metal | Wood |
+   | Jungle | rừng rậm nhiệt đới | Wood, Water, Fire | Wood |
+   | Grassland | thảo nguyên | Wood, Earth | — |
+   | Steppe | đồng cỏ khô | Earth, Metal | Earth |
+   | Desert | sa mạc | Earth, Fire, Metal | Fire |
+   | Salt flats | bãi muối | Metal, Water, Earth | Metal |
+   | Badlands | đất cằn | Earth, Metal | Earth |
+   | Swamp | đầm lầy | Water, Wood | Water |
+   | Mangrove | rừng ngập mặn | Water, Wood | Water |
+   | Highland | cao nguyên | Earth | Earth |
+   | High mountain | núi cao | Metal, Earth | Metal |
+   | Karst peaks | núi đá vôi | Earth, Metal, Water | Earth |
+   | Volcano | hỏa sơn | Fire, Earth, Metal (mild; lava flows make the peaks) | — |
+   | Tundra | đồng băng | Water, Earth | Water |
+   | Glacier | băng nguyên | Water (mild; ice fields make the Ice) | — |
+   | Miasma wasteland | tử địa | Earth; low density, high danger (its source makes the Darkness) | — |
+   | Coast | bờ biển | Water, Earth | — |
+   | Lake and river valley | thung lũng sông hồ | Water, Wood (rivers and shores do the rest) | — |
+   | Sea | biển | Water | — |
+
+3. **Qi has two parts.** **Density** (linh khí) says how much qi the ground holds. The **element shares** say what
+   kind it is: five base shares summing to 100. A tile's qi is built in three steps (Formulas C):
+   - **Depth:** the heart of a biome is purer than its edge. A tile's depth is its distance in tiles to the nearest
+     tile whose biome has a different signature, or none. Jungle beside bamboo (both Wood) is therefore not an edge, while
+     jungle beside grassland is. The deeper the tile, the more its signature element is pushed up, until full depth
+     (about 5 tiles). In wild biomes, depth also raises density and danger: the deep jungle is richer and deadlier,
+     and farther from any market.
+   - **Blending:** each tile's shares are averaged with its neighbours', so biomes fade into each other. An outer
+     jungle tile beside grassland carries some Earth.
+   - **Features:** each feature pushes its elements, density and danger outward from its tiles, fading with distance
+     (rule 4).
+
+   After each step the five base shares are scaled back to 100. More Fire means a smaller share of every other
+   element, so the shares say what kind of qi a tile has and density says how much (user decision 2026-11-13). The
+   stat block shows each step's contribution as its own line (rule 7). Today's meaning of density is unchanged, so
+   Realms' Core Formation rule still reads it (density at least `core_density_min` 1.4, about 18 % of places).
+4. **Features.** Special terrain is painted in the feature layer or read from elevation and rainfall. Each feature
+   pushes from its tiles with a set strength and reach, kept in data:
+
+   | Feature | Source | Pushes |
    |---|---|---|
-   | Temperate forest | rừng ôn đới | Wood, Water |
-   | Bamboo forest | rừng trúc | Wood, Metal |
-   | Jungle | rừng rậm nhiệt đới | Wood, Water, Fire |
-   | Grassland | thảo nguyên | Wood, Earth |
-   | Steppe | đồng cỏ khô | Earth, Metal (Wind) |
-   | Desert | sa mạc | Earth, Fire, Metal |
-   | Salt flats | bãi muối | Metal, Water, Earth |
-   | Badlands | đất cằn | Earth, Metal |
-   | Swamp | đầm lầy | Water, Wood (Darkness) |
-   | Mangrove | rừng ngập mặn | Water, Wood |
-   | Highland | cao nguyên | Earth (Wind) |
-   | High mountain | núi cao | Metal, Earth (Thunder on storm peaks) |
-   | Karst peaks | núi đá vôi | Earth, Metal, Water |
-   | Volcano | hỏa sơn | Fire, Earth, Metal |
-   | Tundra | đồng băng | Water, Earth (Ice) |
-   | Glacier | băng nguyên | Water (Ice) |
-   | Miasma wasteland | tử địa | Darkness, Earth; low density, high danger |
-   | Coast | bờ biển | Water, Earth (Wind) |
-   | Lake and river valley | thung lũng sông hồ | Water, Wood |
-   | Sea | biển | Water |
+   | Lava flow or vent | painted | Fire, some density |
+   | Hot spring (ôn tuyền) | painted | Fire and Water, density |
+   | Ice field or glacier core | painted | Ice, Water |
+   | Snowline | elevation above a threshold | a little Ice |
+   | Storm peaks | high elevation and high rainfall | Thunder |
+   | High plateau | high and flat | Wind |
+   | River or lake shore | painted | Water; Wood on the banks |
+   | Ore vein (khoáng mạch) | painted | Metal |
+   | Spirit vein (linh mạch) | painted | density |
+   | Sacred summit | painted | Light |
+   | Deep cave or karst core | painted | Darkness |
+   | Miasma source (an old battlefield) | painted | Darkness, danger |
 
-3. **Qi has two parts.** **Density** (linh khí) says how much qi the ground holds. The **element shares** say what kind
-   it is, five base shares summing to 100 (a volcano might be Fire 60, Earth 30, Metal 10). A tile starts from its
-   biome's profile and density, and local features shift both: a spirit vein (linh mạch) raises density, and a
-   lava vent pushes Fire up. Today's meaning of density is unchanged, so Realms' Core Formation rule still reads it
-   (density at least `core_density_min` 1.4, about 18 % of places).
-4. **Variant qi in special terrain.** A few features carry a variant share as well: Ice on glaciers and tundra, Thunder
-   on storm peaks, Wind on high plateaus and steppe, Light on sacred summits, Darkness in deep caves and miasma.
-   These features are rare (each variant in at most 2 % of places, `variant_place_share_max`), so a variant root has
-   only a few prized homes.
+   **Variant qi** comes only from features and sits outside the 100. Variant features have a short reach, so each
+   variant stays in at most 2 % of places (`variant_place_share_max`) and a variant root has only a few prized homes.
 5. **The ground sets the cultivation rate.** Cultivating at a place multiplies the rate by the place's density, as it
    does today, and by an **element match**: how well the root's purities fit the place's shares and variants. Matching
-   ground speeds cultivation and mismatched ground slows it, within a bounded range (about ×0.8 to ×1.3) for the land
-   itself that averages about ×1.0 over the world, so Realms' calibration holds; the higher layers can lift it
-   further, up to the stack's cap (rule 27). The formula is in Formulas.
+   ground speeds cultivation **with no upper limit**, and mismatched ground slows it to ×0.8 at worst (user decision
+   2026-11-13: the ceiling and the stack cap are removed, the floor is kept). Over the world the land match still
+   averages about ×1.0 for every root, so Realms' calibration holds on average. A strong root on its best ground now
+   rises well past the old ×1.3, so Realms re-runs its bot with this in place. The higher layers add to the match
+   (rule 27), each within its own limit, with no cap on the total. The formula is in Formulas.
 
 **Places**
 
@@ -213,8 +247,9 @@ names rather than a place.
     - **Layer 2, shared works** (rule 31): improvements that whoever holds the place has made, for everyone there.
     - **Layer 1, home works** (rule 32): a character's own improvements to their home, for themselves alone.
 
-    Each layer adds to the one below, inside its own cap. The full stack has an overall cap on the element match (about
-    ×1.6) and on density (in Formulas). The stat block shows each layer as its own line (Pillar 2), so a cultivator
+    Each layer adds to the one below, inside its own cap. The full stack has an overall cap on density (in Formulas).
+    The element match has none (user decision 2026-11-13), only each layer's own limit and the settled-home cap
+    (rule 34). The stat block shows each layer as its own line (Pillar 2), so a cultivator
     always sees why a place is strong *for them*.
 
 **Layer 3: blessed lands and secrets**
@@ -272,7 +307,7 @@ names rather than a place.
     fixed layer 1 home work that comes with it). Rent is paid each season; a purchase is paid once and the character
     owns the residence, still inside the settlement. **A settled home is never as good as a cultivator's own developed
     base or a blessed land:** homes inside settlements and sect grounds have their own lower caps (density 1.8, match
-    ×1.3), below a self-built base in the wilderness (density 3.0, match ×1.6) and the blessed lands. The character may
+    ×1.3), below a self-built base in the wilderness (density up to 3.0, match uncapped) and the blessed lands. The character may
     add their own home works there, but the settled caps still apply. The holder sets prices and who may rent (Sects #26
     for sect grounds).
 
@@ -354,13 +389,14 @@ match reward, the Core Formation share, linear herb growth and the realm-scaled 
 
 The world_mean_share formula is defined as:
 
-`mu_e = (1 / N_places) · Σ_places s_e / 100`, computed once at world generation for each base element and variant.
+`mu_e = (1 / N_places) · Σ_places s_e / 100`, computed once when the map is built, for each base element and variant.
 
 The land_match formula is defined as:
 
-`M4 = clamp(1 + k · Σ_e q_e · (s_e / 100 − mu_e), M4_min, M4_max)` with `q_e = u_e · p_e / 100`
+`M4 = max(M4_min, 1 + k · Σ_e q_e · (s_e / 100 − mu_e))` with `q_e = u_e · p_e / 100`
 
-The sum runs over the 5 base elements and the 8 variants; a variant's `s_e` is its share outside the 100.
+The sum runs over the 5 base elements and the 8 variants; a variant's `s_e` is its share outside the 100. There is no
+upper bound (user decision 2026-11-13).
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -368,26 +404,31 @@ The sum runs over the 5 base elements and the 8 variants; a variant's `s_e` is i
 | p_e | int | 0 and up, uncapped | calculated (Spiritual Roots) | Purity of e: birth plus road-raised, owned or not |
 | u_e | float | 1 or 0.5 | data file (`match_unowned_rate`) | 1 if the root owns e; 0.5 if its purity comes only from rare sources |
 | q_e | float | 0 and up | calculated | The root's weight on e |
-| s_e | float | 0–100 | calculated (land generation) | The place's land share of e; base shares sum to 100, variant shares are mostly 0 |
-| mu_e | float | 0–1 | calculated (world constant) | World mean share over places; base values sum to 1 |
+| s_e | float | 0–100 | calculated (Formulas C) | The place's land share of e; base shares sum to 100, variant shares are mostly 0 |
+| mu_e | float | 0–1 | calculated (map constant) | Mean share over places; base values sum to 1 |
 | k | float | 1.0 | data file (`match_gain`) | Gain |
-| M4_min, M4_max | float | 0.8, 1.3 | data file (`match_land_min`, `match_land_max`) | Land-layer bounds |
+| M4_min | float | 0.8 | data file (`match_land_min`) | Land-layer floor; the old ceiling `match_land_max` is removed |
 
-**Output Range:** 0.8 to 1.3. At every place the base deviations `s_e/100 − mu_e` sum to 0 and each averages 0 over the
-world, so **every root averages ×1.0 over the world before the clamp**, whatever its element count; the clamp's bias is
-about −0.01 at purity 100. A single-element root has the highest peaks and lowest valleys; a dual root peaks on mixed
-land; a balanced five-element root gets ×1.0 on every land (it still gains from layers 1–3, which are not centred).
-Players choose their ground, so a well-placed player cultivates faster than the calibration's ×1.0; that is the reward
-for choosing ground (user decision 2026-11-10). A settled NPC's match averages about ×1.0, since cities sit wherever the
-land put them; the NPCs who live outside sit on chosen ground (rule 33) at about ×1.15–1.25. The NPC average therefore
-rises a few percent above ×1.0, and Realms re-runs its bot with the match in (its Open Question 23) against the NPC
-targets (1 in 8 / 12 / 15 / 20). The player still gains most from choosing ground, because the player can search the
-whole world and NPCs only their region.
+**Output Range:** 0.8 and up, with no ceiling. At every place the base deviations `s_e/100 − mu_e` sum to 0 and each
+averages 0 over the world, so **every root averages ×1.0 over the world before the floor**, whatever its element count.
+The floor lifts that average slightly for strong roots, and the bot run measures by how much. A single-element root has
+the highest peaks and lowest valleys; a dual root peaks on mixed land; a balanced five-element root gets ×1.0 on every
+land (it still gains from layers 1–3, which are not centred). Players choose their ground, so a well-placed player
+cultivates faster than the calibration's ×1.0; that is the reward for choosing ground (user decision 2026-11-10).
+Without the ceiling, that reward now grows with purity, and Realms re-runs its bot with the match in (its Open
+Question 23) against the NPC targets (1 in 8 / 12 / 15 / 20). A settled NPC's match averages about ×1.0; NPCs living
+outside sit on chosen ground (rule 33) at higher values. The player still gains most from choosing ground, because the
+player can search the whole world and NPCs only their region.
 
-**Example:** the root Wood 40, Fire 86, Water 10 (mu_e = 0.2 each). On a volcano (Fire 60, Earth 30, Metal 10):
-0.86 × 0.40 + 0.40 × (−0.2) + 0.10 × (−0.2) = 0.244, so M4 = **1.244**. In a lake valley (Water 60, Wood 40):
-0.10 × 0.40 + 0.40 × 0.20 + 0.86 × (−0.2) = −0.052, so M4 = **0.948**. An Ice root at purity 50 on a glacier with Ice
-share 40: 1 + 0.5 × (0.40 − 0.01) = **1.195**.
+**Examples** (mu_e = 0.2 for each base element):
+- The root Wood 40, Fire 86, Water 10 on a volcano away from any flow (Fire 45, Earth 40, Metal 15):
+  0.86 × 0.25 + 0.40 × (−0.2) + 0.10 × (−0.2) = 0.115, so M4 = **1.115**. On its lava flow (Fire 66): 0.86 × 0.456
+  − 0.08 − 0.02 = 0.292, so M4 = **1.292**.
+- The same root in a lake valley (Water 60, Wood 40): 0.10 × 0.40 + 0.40 × 0.20 + 0.86 × (−0.2) = −0.052, so
+  M4 = **0.948**.
+- A pure Wood root in deep jungle (Wood 60): at purity 100, 1 + 1.0 × 0.40 = **1.40** (the old ceiling cut this to
+  1.3); at purity 200, 1 + 2.0 × 0.40 = **1.80**.
+- An Ice root at purity 50 on a glacier with Ice share 40: 1 + 0.5 × (0.40 − 0.01) = **1.195**.
 
 ### B. The four-layer stack (rule 27)
 
@@ -400,7 +441,7 @@ The stacked_density formula is defined as:
 
 The stacked_match formula is defined as:
 
-`M = clamp(M4 + Σ_{i ∈ {3,2,1}} min(m_i, k · Σ_t q_t · min(cs_i, Δs_{i,t}) / 100), M_min, M_cap)`
+`M = max(M_min, M4 + Σ_{i ∈ {3,2,1}} min(m_i, k · Σ_t q_t · min(cs_i, Δs_{i,t}) / 100))`
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -413,35 +454,87 @@ The stacked_match formula is defined as:
 | D_cap | float | 3.0 | data file (`density_cap`) | Overall density cap |
 | Δs_{i,t}; cs_i | float | 0–100; 80 / 30 / 30 | calculated; data file | Share push on layer i; within 30 on layers 2 and 1, permanent 10 and upkept 20 |
 | m_i | float | 0.3 / 0.15 / 0.15 | data file (`match_cap_l3/l2/l1`) | Cap on each layer's match gain |
-| M_min, M_cap | float | 0.8, 1.6 | data file (`match_stack_min/max`) | Stack bounds |
+| M_min | float | 0.8 | data file (`match_stack_min`) | Stack floor. The old cap `match_stack_max` (×1.6) is removed (user decision 2026-11-13); homes on settled ground keep `settled_match_cap` (Formulas M) |
 
-**Output Range:** density 0.3–3.0 (today a secret realm at 2.2 with Tụ Linh at level 5 already reaches 2.95); match 0.8–1.6
-(the layer caps sum to 1.9, so 1.6 binds only when every layer stacks). A permanent shared-works cap of 0.1 keeps Core
-Formation meaningful: if every place were improved to it, places at 1.4 rise from 18 % to at most 28 %.
+**Output Range:** density 0.3–3.0 (today a secret realm at 2.2 with Tụ Linh at level 5 already reaches 2.95); match 0.8
+and up. The land has no ceiling, and layers 3–1 add at most 0.30 + 0.15 + 0.15 = 0.60 between them. A permanent
+shared-works cap of 0.1 keeps Core Formation meaningful: if every place were improved to it, places at 1.4 rise from
+18 % to at most 28 %.
 
 **Example:** a valley at land density 1.30 fails Core Formation; a sect's upkept array (+0.30) and a level-2 Tụ Linh Trận
-(+0.30) give D = **1.90**. The Fire 86 root on the volcano (M4 1.244), with a small blessed land pushing Fire +40
-(0.86 × 0.40 = 0.344, capped to +0.30) and an upkept home work pushing Fire +20 (0.172, capped to +0.15): 1.694, capped
-to **M = 1.60**.
+(+0.30) give D = **1.90**. The Fire 86 root on its lava flow (M4 1.292), with a small blessed land pushing Fire +40
+(0.86 × 0.40 = 0.344, capped to +0.30) and an upkept home work pushing Fire +20 (0.172, capped to +0.15): **M = 1.742**,
+which the old cap would have cut to 1.60.
 
-### C. Land density generation (rules 2–4)
+### C. Land qi: depth, blending and features (rules 2–4)
 
-The place_density formula is defined as:
+Computed once when the map is built, tile by tile, in this order. Distances are steps to any of the 8 neighbours.
 
-`D4 = clamp(b_biome + o_kind + a_vein + n, 0.3, 2.4)` with `n ~ U(−j, j)`
+The depth formula is defined as:
+
+`t_i = clamp((d_i − 1) / (d_full − 1), 0, 1)`, where `d_i` is the distance from tile i to the nearest tile whose biome
+has a different signature, or none. An edge tile has `d_i` = 1.
+
+The own_profile formula is defined as:
+
+`P_i = norm(P_b + t_i · σ_b · ê_sig)`, where `norm` scales the five base shares back to 100.
+
+The blend formula is defined as:
+
+`B_i = mean of P_j over the (2r + 1) × (2r + 1) window around i`, ignoring tiles off the map. Sea tiles count, so
+coasts pick up Water.
+
+The feature_push formula is defined as:
+
+`fall_f(i) = max(0, 1 − δ_f(i) / R_f)` and `Δ_{i,e} = Σ_f A_{f,e} · fall_f(i)`, where `δ_f(i)` is the distance from
+i to the nearest tile of feature f.
+
+Base shares: `s_i = norm(B_i + Δ_i)` over the five base elements. Variants: `v_{i,e} = Δ_{i,e}`, outside the 100 and
+not scaled.
+
+The land_density formula is defined as:
+
+`D4_i = clamp(b_b + t_i · g_D,b + Σ_f a_f · fall_f(i) + o_kind, 0.3, 2.4)`
+
+The land_danger formula is defined as:
+
+`X_i = x_b + round(t_i · g_X,b + Σ_f x_f · fall_f(i))`, before a settlement lowers it (rule 6).
+
+Overlapping features of the same kind add up: two lava flows side by side make hotter ground. A designer's hand
+correction to a tile replaces the computed value and shows in the stat block as its own line.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
-|----------|------|-------|--------|-------------|
-| b_biome | float | 0.4–1.1 | data file | Biome base: sea 0.5; miasma 0.4; desert, salt flats, badlands 0.6; steppe, tundra 0.7; grassland, coast, swamp, mangrove, glacier 0.8; temperate forest, lake valley, highland 0.9; jungle, bamboo, karst 1.0; high mountain, volcano 1.1 *(guess)* |
-| o_kind | float | −0.2 to +0.8 | data file | Place-kind offset, tuned by the generator to the targets below |
-| a_vein | float | 0 or 0.3–0.9 | data file | A spirit vein on the tile; neighbouring tiles get half |
-| j | float | 0.15 | data file | Noise |
+|---|---|---|---|---|
+| d_i, d_full | int | 1 and up; 5 | calculated; data file (`depth_full`) | Depth in tiles; full depth |
+| t_i | float | 0–1 | calculated | Depth fraction: 0 at the edge, 1 at full depth |
+| P_b | float ×5 | 0–100, sums to 100 | data file (`world_map.json` biomes) | The biome's base profile (rule 2) |
+| σ_b, ê_sig | float; — | 0–40, about 25 *(guess)*; — | data file | Signature push at full depth; the signature element. Biomes without a signature have no depth |
+| r | int | 2 | data file (`blend_radius`) | Blend window radius (5 × 5) |
+| A_{f,e}, R_f | float, int | 0–80, 1–8 *(guess)* | data file (features) | A feature's push on element e at its own tiles; its reach in tiles |
+| a_f, x_f | float, float | 0–0.9; 0–2 *(guess)* | data file (features) | A feature's density add and danger add at its own tiles. A spirit vein is a_f 0.3–0.9 with R_f 2, which keeps today's "neighbours get half" |
+| b_b, x_b | float, int | 0.4–1.1; per biome | data file | Biome base density (the values below) and base danger |
+| g_D,b, g_X,b | float | about +0.2; about +1 *(guess)* | data file | Density and danger added at full depth; 0 for biomes without a signature |
+| o_kind | float | −0.2 to +0.8 | data file | Place-kind offset, set per kind to meet the targets below; 0 on wilderness tiles |
+| snowline, storm, plateau | float | — | data file | Thresholds for the derived features: elevation for the snowline; elevation and rainfall for storm peaks; elevation and flatness for plateaus |
 
-**Output Range:** 0.3–2.4. **Generation targets, checked over 100 seeds:** 15–21 % of places at density 1.4 or more
-(Core Formation; user decision 2026-11-10 to keep 18 %, which is 27–45 places at 150–250 places); mean place density
-1.05–1.20 (today 1.13); about 4 % of wilderness land tiles at 1.4 or more, mostly veins and their neighbours, so a cave
-abode opened at random is rarely a Core Formation spot; each base element's mu_e between 0.15 and 0.25.
+Biome base densities `b_b`: sea 0.5; miasma 0.4; desert, salt flats, badlands 0.6; steppe, tundra 0.7; grassland,
+coast, swamp, mangrove, glacier 0.8; temperate forest, lake valley, highland 0.9; jungle, bamboo, karst 1.0; high
+mountain, volcano 1.1 *(guess)*.
+
+**Output Range:** base shares 0–100, summing to 100; variants 0 and up; density 0.3–2.4; danger the biome's range plus
+depth and features.
+
+**Map targets**, checked on the one map by the map check script instead of over 100 seeds:
+- 15–21 % of places at density 1.4 or more (Core Formation; user decision 2026-11-10 to keep 18 %, which is 27–45
+  places at 150–250 places);
+- mean place density 1.05–1.20 (today 1.13);
+- about 4 % of wilderness land tiles at 1.4 or more, mostly veins and the deep heart of rich biomes, so a cave abode
+  opened at random is rarely a Core Formation spot;
+- each base element's `mu_e` between 0.15 and 0.25;
+- each variant in at most 2 % of places;
+- every base element has at least 8 places where its share is 50 or more, spread over at least 3 regions *(guess)*,
+  so no root's best land sits in one corner (user decision 2026-11-13: terrain-driven qi).
 
 | Kind (of 200 places) | Share | Density band | Share at ≥ 1.4 |
 |---|---|---|---|
@@ -458,8 +551,10 @@ abode opened at random is rarely a Core Formation spot; each base element's mu_e
 | Hidden ruin or abode | 5 % | 1.0–1.6 | 30 % |
 | **Total** | 100 % | mean about 1.1 | **18.1 %** |
 
-**Example:** a valley on bamboo forest (1.0), o_kind +0.25, no vein, n = +0.10: D4 = **1.35**. Beside a vein (+0.3,
-halved to +0.15): **1.50**.
+**Example:** bamboo forest (b 1.0, Wood 50 plus push 25, g_D +0.2). A valley place 6 tiles deep (t = 1): D4 = 1.0 +
+0.2 + 0.25 = **1.45**, a Core Formation spot. With a spirit vein one tile away (0.4 × 0.5 = +0.2): **1.65**. The same
+valley at the bamboo's edge (t = 0): **1.25**, which fails Core Formation. The heart of a rich biome is where the Core
+Formation ground is.
 
 ### D. Travel (rules 10–12)
 
@@ -725,7 +820,7 @@ decision (Open Questions).
 
 The prebuilt_works formula is defined as: `ΔD2u_start[place] = prebuilt_density[kind]`, built at generation and upkept by the holder
 
-The settled_caps formula is defined as: for a home inside a settlement or sect ground, `D ≤ settled_density_cap` and `M ≤ settled_match_cap` (replacing D_cap and M_cap of B)
+The settled_caps formula is defined as: for a home inside a settlement or sect ground, `D ≤ settled_density_cap` and `M ≤ settled_match_cap` (replacing D_cap of B, and adding a match cap that B no longer has)
 
 The rent formula is defined as: `rent_season = round(linh_thach_max[realm] · rent_frac · quality)`; `price = rent_season · buy_seasons`; `quality = D_residence / core_density_min`
 
@@ -739,7 +834,7 @@ The furnishing formula is defined as: `ΔD1_furnish = furnish_per_grade · grade
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | prebuilt_density | float | village 0.10, town 0.20, market 0.25, city 0.30, sect seat 0.40 | data file *(guess)* | Layer 2 upkept works at generation |
-| settled_density_cap, settled_match_cap | float | 1.8, 1.3 | data file *(guess)* | A settled home is never as good as an own base (3.0, ×1.6) or a blessed land |
+| settled_density_cap, settled_match_cap | float | 1.8, 1.3 | data file *(guess)* | A settled home is never as good as an own base (density 3.0, match uncapped) or a blessed land |
 | linh_thach_max | int | 80 / 600 / 5,000 / 40,000 / 300,000 | data file (`events_budgets.json`) | The renter's realm budget |
 | rent_frac, buy_seasons | float, int | 0.02, 40 | data file *(guess)* | Rent share and purchase multiple |
 | D_residence | float | 0.6–1.8 | calculated (B) | The residence's stacked density |
@@ -761,7 +856,7 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 ## Edge Cases
 
 **Land and layers**
-- **If a stacked value passes its cap** (density 3.0, match ×1.6, or any layer's own cap): it is clamped. The stat block
+- **If a stacked value passes its cap** (density 3.0, a settled cap, or any layer's own cap): it is clamped. The stat block
   shows the clamp as its own line, so the lost part is visible.
 - **If a root has no element or variant the land holds** (an Ice root far from any glacier): its match is about ×1.0
   everywhere, not a penalty. The lows come only from high purity on land with none of its elements.
