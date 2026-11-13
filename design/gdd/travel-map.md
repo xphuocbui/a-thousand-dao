@@ -8,8 +8,10 @@
 
 ## Summary
 
-Travel & Map is the generated world the cultivator lives in: one continent with seas and islands on a tile grid,
-twenty biomes, about 20 regions and 150–250 places, each with its own qi density and element shares. Where you live and
+Travel & Map is the one fixed continent the cultivator lives in, the same in every game: seas and islands on a tile
+grid, twenty biomes, about 20 regions and 150–250 places, each with its own qi density and element shares. The qi follows
+the terrain: the heart of a jungle is richer in Wood than its edge, and the ground beside a lava flow is the most fiery.
+Where you live and
 travel matters to your build: matching ground cultivates faster, herbs grow only where they fit, and four layers (the
 land, blessed lands and secrets, shared works, your own home works) decide what a place gives *you*. It also owns
 travel, discovery by clues, resource sites and the seasonal production contract that the economy and sects build on.
@@ -18,13 +20,15 @@ travel, discovery by clues, resource sites and the seasonal production contract 
 
 ## Overview
 
-Travel & Map is the world the cultivator lives in and moves through. At world creation the game generates one
-continent with its coasts, seas and island chains, the way Dwarf Fortress does. The generator lays out a grid of
-tiles, and from each tile's elevation, temperature and rainfall it derives a biome (jungle, desert, volcano, swamp,
-glacier and the rest), rivers, and the land's spiritual qi: the density (linh khí) and how much of each element (and
-variant) the ground holds. On top of that terrain sit about 20 regions and 150–250 named places (towns, markets,
-mountains, valleys, lakes, islands, spirit veins, mines, sect seats, and the hidden ruins, caves and secret realms
-that the world's history left behind).
+Travel & Map is the world the cultivator lives in and moves through. It is one authored continent, the same in every
+game, with its coasts, seas and island chains (user decision 2026-11-12). The land is painted as index images on a grid
+of tiles: biome, elevation, temperature, rainfall, and special features such as lava flows, ice fields and rivers. From
+these the map build computes the land's spiritual qi: the density (linh khí) and how much of each element (and variant)
+the ground holds. The qi follows the terrain. The heart of a biome is purer than its edge, and features such as a lava
+flow or an ice field push their element outward. On top of that terrain sit about 20 regions and 150–250 named places
+(towns, markets, mountains, valleys, lakes, islands, spirit veins, mines, sect seats), the same sects and starting
+borders in every game, and the hidden ruins, caves and secret realms that the world's history left behind, whose exact
+spots are rolled each game from a few hand-picked candidates.
 
 Places are the stops, joined by roads, rivers and sea lanes. Leaving the road means crossing wilderness tile by
 tile, which is slower and more dangerous, and it is how a cultivator follows a clue to a hidden place.
@@ -37,7 +41,7 @@ Each region produces resources: linh thạch from its mines, herbs, ores, beasts
 kingdom or nobody controls it. This GDD owns what the map produces and where. Market and Sects build prices, trade,
 income and conflict on that contract.
 
-The terrain is generated once and stays fixed. Anything that changes (mine output, a region's supply, who holds a
+The terrain is authored once and stays fixed. Anything that changes (mine output, a region's supply, who holds a
 territory) is worked out per region once a season, so 5,000 cultivators stay cheap to simulate.
 
 Without this system, a root's elements and a herb's needs would never meet the land, and the world would be a list of
@@ -168,13 +172,20 @@ names rather than a place.
 
 **Knowing and finding**
 
-14. **Each character knows part of the map.** A cultivator starts knowing their birth region, the main roads (the roads between
-    cities) and the great cities (every city). Tiles near their path become known as they travel, in a wider band with more divine sense (thần
-    thức), and places become known when visited or heard of. Bought maps, jade slips (ngọc giản) and sect libraries
-    add more. NPCs know their own region, kept abstract.
-15. **Hidden places are left by history.** World generation places ruins, dead cultivators' cave abodes and secret
-    realms on wilderness tiles, from the world's own history (Pillar 5: a famous dead NPC's cave is really there). A
-    hidden place is not shown to anyone until it is discovered or revealed.
+14. **Each character knows part of the map.** The **overview map** is common knowledge: every character sees the whole
+    continent's painted geography, the famous places, the great cities and the sect seats from the start. Its political
+    borders are live for the major powers (the great sects and kingdoms, marked in data); minor holdings and seats show
+    as the character last heard of them, refreshed by a visit, news or a map (user decision 2026-11-13). The
+    **zoomed-in map** is personal. A cultivator starts knowing their home region (set by their origin), the main roads
+    (the roads between cities) and the great cities (every city). Tiles near their path become known as they travel, in
+    a wider band with more divine sense (thần thức), and places become known when visited or heard of. Bought maps, jade
+    slips (ngọc giản) and sect libraries add more. NPCs know their own region, kept abstract.
+15. **Hidden places are left by history, and their spots are rolled.** The world's authored history names the ruins,
+    dead cultivators' cave abodes and secret realms it left behind (Pillar 5: a famous dead NPC's cave is really there).
+    Each has 2–4 hand-picked candidate tiles in the wilderness, and at game start the seed picks one. The same history
+    therefore lies in a different spot each game, and a guide can't give it away (user decision 2026-11-12). Tile
+    secrets roll their spots the same way, and each resource site's reserve is picked from a few hand-set sizes. Famous
+    places shown on the overview are fixed. A hidden place is not shown to anyone until it is discovered or revealed.
 16. **Clues narrow the search.** A clue names a search area:
     - a **rumour** names a region;
     - a **jade slip** names a small area of tiles;
