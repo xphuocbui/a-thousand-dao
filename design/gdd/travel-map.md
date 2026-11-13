@@ -247,12 +247,12 @@ names rather than a place.
       shares, such as a Fire crater or a dead vein. A scar is stored as a change to the terrain, and the World Database
       records it.
 
-    The generated terrain never changes otherwise.
+    The authored terrain never changes otherwise.
 
 **The four layers of the land**
 
 27. **A place's qi and production are a stack of four layers**, read from the bottom up for a given character:
-    - **Layer 4, the land:** the generated biome and terrain (rules 1–4). It never changes, except through a battle scar
+    - **Layer 4, the land:** the authored biome and terrain, with its computed qi (rules 1–4). It never changes, except through a battle scar
       (rule 26).
     - **Layer 3, blessed lands and secrets** (rules 28–30): richer qi left by history.
     - **Layer 2, shared works** (rule 31): improvements that whoever holds the place has made, for everyone there.
@@ -267,12 +267,13 @@ names rather than a place.
 
 28. **Blessed lands** (phúc địa) are places whose qi is far richer than their biome. History leaves them: the old home of
     a Hóa Thần who has left the world, a dragon's lair, the grounds of a vanished sect. They come in two sizes:
-    - **large:** 2–5 per world, each 2–9 tiles;
-    - **small:** 10–30 per world, one tile each, room for one cultivator.
+    - **large:** 2–5 on the map, each 2–9 tiles;
+    - **small:** 10–30 on the map, one tile each, room for one cultivator.
 
-    Their element match may go past ×1.3, up to the stack's cap. Most lean strongly toward one element or variant, and
-    those strong in several elements are rarer. Some are famous and held by great sects; others are hidden places found
-    by clues (rules 15–17). Once a blessed land is found, its layer 3 benefits everyone there.
+    Their element match adds to the land's, with no cap on the total (user decision 2026-11-13). Most lean strongly
+    toward one element or variant, and those strong in several elements are rarer. Some are famous and held by great
+    sects, in the same place every game; others are hidden places whose spots are rolled from candidates each game
+    (rule 15) and found by clues (rules 16–17). Once a blessed land is found, its layer 3 benefits everyone there.
 29. **Tile secrets.** A tile may hide a small secret: a hidden spring (extra element match on that tile), a pocket vein,
     a rare herb patch or a buried cache. A secret is per-character knowledge. Only someone who has found it, or been
     told, gets its layer 3 benefit, and others on the same tile get nothing from it.
@@ -298,8 +299,8 @@ names rather than a place.
 **Developed ground and where people live**
 
 33. **Cities and sect grounds are developed, and most people live there.**
-    - World generation gives settlements and sect seats layer 2 works already built, and their holders keep them up. A
-      city holds more than a town, a town more than a village, and a sect seat the most. Settlements' natural density
+    - Settlements and sect seats start each game with layer 2 works already built (authored with the map), and their
+      holders keep them up. A city holds more than a town, a town more than a village, and a sect seat the most. Settlements' natural density
       is low (0.6–1.1), so these works are what make a city a decent place to cultivate.
     - **Most NPCs live in settlements and sect grounds** (about 85 %, `npc_settled_share`; user decision 2026-11-10).
       Sect members live at their sect's seat, and the rest spread over settlements by weight (city 8, town 4, market 3,
@@ -377,7 +378,7 @@ place left by history, rule 15).
 | Sects & Missions | in / out | In: who owns which regions, sites and teleport arrays; sect works on their land (layer 2). Out: the territory's production and towns; sect seats and famous blessed lands as places | Sects (ownership changes, taxes, array access); this GDD (the land and its layers) |
 | Formations (#17) | in / out | In: gathering formations and other works on layers 1 and 2. Out: the land's values the works start from | Formations (the formations); this GDD (the layer they change) |
 | Event Engine | in / out | Out: tile danger, biome and mode, which filter travel encounters; clue and rumour items; secret realm openings. In: discoveries, scars and ownership changes from events | Event Engine (events); this GDD (what they read and change) |
-| World Generation (#27) | in | The world's history, which places ruins, dead cultivators' abodes, secret realms, blessed lands and tile secrets (rules 15, 28, 29) | World Generation (history); this GDD (terrain, placement rules) |
+| World Generation & History (#27) | in | The authored history, which names ruins, dead cultivators' abodes, secret realms, blessed lands and tile secrets with their candidate spots; each game's roll among them (rules 15, 28, 29); the random NPCs and their homes (rule 33) | World Generation & History (history, rolls, NPCs); this GDD (terrain, candidate rules) |
 | World Database | out | Places, regions, discoveries, scars, ownership, homes, works on each place (layers 1 and 2), who knows each secret, each character's known map | World Database (storage) |
 | Living World Tick | out / in | The seasonal update: reserves, secret realm cycles, upkept works fading; NPC positions kept per region | Living World Tick (the tick); this GDD (the rules it runs) |
 | Time & Turn | in | Seasons and the fraction of a season a trip uses | Time & Turn |
@@ -387,7 +388,8 @@ place left by history, rule 15).
 | Heavenly Tribulation | out | The place's ground tags (biome, element shares) | Heavenly Tribulation |
 | Meridian Map capabilities | in | #8 (seasons spent travelling also cultivate) and #21 (Blink Mark) | Meridian Map / Effects |
 | Debug Terminal, Game UI | out | The map display, stat blocks with each layer's line, the known map | UI |
-| Save/Load | out | The seed and every change (scars, reserves, ownership, homes, works, secrets known, known maps), not the terrain | Save/Load |
+| Save/Load | out | The seed for the per-game rolls (hidden-place spots, reserves, NPCs) and every change (scars, reserves, ownership, homes, works, secrets known, known maps), not the terrain | Save/Load |
+| Map build and map check (new tool) | in | The index images and hand corrections, turned into the stored map (Formulas C); the map targets report | Map build (tool); this GDD (the rules it computes) |
 
 ## Formulas
 
@@ -829,7 +831,7 @@ decision (Open Questions).
 
 ### M. Developed ground, settled homes and where NPCs live (rules 33–34)
 
-The prebuilt_works formula is defined as: `ΔD2u_start[place] = prebuilt_density[kind]`, built at generation and upkept by the holder
+The prebuilt_works formula is defined as: `ΔD2u_start[place] = prebuilt_density[kind]`, in place at game start and upkept by the holder
 
 The settled_caps formula is defined as: for a home inside a settlement or sect ground, `D ≤ settled_density_cap` and `M ≤ settled_match_cap` (replacing D_cap of B, and adding a match cap that B no longer has)
 
@@ -844,7 +846,7 @@ The furnishing formula is defined as: `ΔD1_furnish = furnish_per_grade · grade
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| prebuilt_density | float | village 0.10, town 0.20, market 0.25, city 0.30, sect seat 0.40 | data file *(guess)* | Layer 2 upkept works at generation |
+| prebuilt_density | float | village 0.10, town 0.20, market 0.25, city 0.30, sect seat 0.40 | data file *(guess)* | Layer 2 upkept works at game start |
 | settled_density_cap, settled_match_cap | float | 1.8, 1.3 | data file *(guess)* | A settled home is never as good as an own base (density 3.0, match uncapped) or a blessed land |
 | linh_thach_max | int | 80 / 600 / 5,000 / 40,000 / 300,000 | data file (`events_budgets.json`) | The renter's realm budget |
 | rent_frac, buy_seasons | float, int | 0.02, 40 | data file *(guess)* | Rent share and purchase multiple |
@@ -912,12 +914,17 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 - **If a character is told a secret that is false:** it is recorded as told, and it gives nothing, because the tile
   holds no such secret.
 
-**Generation**
-- **If a generated world misses its targets** (Core Formation share outside 15–21 %, mean density outside 1.05–1.20,
-  or a base element's mean share outside 0.15–0.25): the generator retries with the next sub-seed, up to 10
-  tries. It then keeps the closest world (the smallest summed relative miss over the targets) and logs the miss.
-- **If an inhabited island has no port:** the generator adds one to its largest settlement, so every island is reachable
-  by ship.
+**The map build**
+- **If the map misses a target:** the map check lists each miss with the tiles and places behind it. It never changes
+  the map itself; the designer repaints or retunes the data and builds again.
+- **If an inhabited island has no port:** the map check lists it, and the designer adds one.
+- **If a biome patch is too small to have a heart** (every tile within one step of an edge): all its tiles are edge
+  tiles and get no signature push. That's correct: a lone grove isn't a deep forest.
+- **If a feature is painted on unlikely ground** (a lava flow in tundra): its push applies as painted, and the map
+  check lists it as unusual so it's a choice, not an accident.
+- **If a hand correction sits on a tile whose computed value later changes** (the paint around it moved): the
+  correction still wins, and the map check lists it so it can be reviewed.
+- **If a battle scar hits a tile:** the scar adds on top of the computed land, so nothing is recomputed.
 
 ## Dependencies
 
@@ -925,10 +932,10 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 
 | System | Type | Interface | State |
 |---|---|---|---|
-| World Generation & History (#27) | Hard | The world seed and history, which place ruins, abodes, secret realms, blessed lands and tile secrets | Built, no GDD; **provisional** |
+| World Generation & History (#27) | Hard | The authored history and the per-game rolls (hidden-place spots, reserves, random NPCs) | Built as a generator, no GDD; **provisional: to be reworked for the fixed world** |
 | World Database (#3) | Hard | Storage for places, regions, discoveries, scars, ownership, homes, works, known maps and secrets | Built, no GDD |
 | Time & Turn (#4) | Hard | Seasons, and the share of a season a trip uses | Built, no GDD; **provisional** (the leftover-season rule) |
-| Config (#1), Sim Core (#2), Save/Load (#5) | Hard | `world_map.json`, `map_resources.json`, `map_works.json`; seeded streams; saving the seed and the changes | Built, no GDD |
+| Config (#1), Sim Core (#2), Save/Load (#5) | Hard | `world_map.json`, `map_resources.json`, `map_works.json`; seeded streams for the per-game rolls; saving the seed and the changes | Built, no GDD |
 | Spiritual Roots (#6) | Hard | Purities, owned and road-raised, for the element match | GDD in review; **no row for this system yet** |
 | Character Stats (#7) | Hard | `travel_speed_pct`, divine sense, realm, `density_bonus` | GDD in review; lists this system |
 | Sects & Missions (#26) | Soft | Who holds regions, sites and arrays; who may rent or use them; tax and conflict | Built (thin), no GDD; **provisional** |
@@ -950,7 +957,8 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 | Heavenly Tribulation (#22) | Soft | Ground tags (biome, element shares) | Approved for rules; lists this system |
 | Meridian Map (#10) / Effects (#41) | Soft | Capabilities #8 (travel cultivates) and #21 (Blink Mark) act on travel | In review / approved; Meridian lists it |
 | Debug Terminal (#36), Game UI (#37), Guidance (#35) | Soft | The map, stat blocks with each layer's line, the known map, herb fit lines | Terminal built |
-| Balance Harness (#33) | Hard | Generation targets over seeds; the Realms re-run with the match | Built, no GDD |
+| Balance Harness (#33) | Hard | Map targets on the one map; the Realms re-run with the uncapped match | Built, no GDD |
+| Map build and map check (new tool) | Hard | Index images to the stored map (Formulas C); map targets | Not started |
 
 **Bidirectional check.** Realms, Character Stats, Quests, Heavenly Tribulation and the Meridian Map list this system.
 **Spiritual Roots, Combat and the Item Database do not**, so a back-reference row is added to each when this GDD is
