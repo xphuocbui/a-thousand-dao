@@ -1,0 +1,477 @@
+{
+ "fixture": "t4_effects_chancy",
+ "slice": 4,
+ "chance_free": false,
+ "seeds": 1000,
+ "ref_seeds": 10000,
+ "generated_by": "tools/design/combat_sim/parity_export.py (order=random)",
+ "a": {
+  "name": "drum-edge",
+  "realm": 1,
+  "M": 3.273,
+  "layers": null,
+  "crit": 0.25,
+  "crit_mult": 1.8,
+  "evade": 0.0,
+  "acc": 0.0,
+  "n_body": 1.0883,
+  "n_qi": 1.053,
+  "ward_pts": 448.0,
+  "drain": 0.959,
+  "block": 15.0,
+  "regen_bonus": 0.0,
+  "hregen": 0.0,
+  "cost_red": 0.0,
+  "gain_on_hit": 0.0,
+  "leech_qi": 0.0,
+  "leech_hp": 0.0,
+  "hp_pay": 0.0,
+  "healing": 0.0,
+  "cleanse_pulse": 0,
+  "cleanse_cost": 0.0,
+  "cleanse_share": 0.0,
+  "art_speed_pct": 0.0,
+  "basic_speed_pct": 0.0,
+  "opening_haste_pct": 0.0,
+  "basic_coef_add": 0.0,
+  "ward_layer": 1.0,
+  "body_pts": 0.0,
+  "body_block": 0.0,
+  "bs_mult": 1.0,
+  "body_shield": 0.0,
+  "resist": {},
+  "shields": [],
+  "arts": [
+   {
+    "name": "drum-strike",
+    "c": 1.6,
+    "cost": 0.05,
+    "cd": 2.5,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "edge-line",
+    "c": 2.2,
+    "cost": 0.06,
+    "cd": 3.5,
+    "element": "",
+    "dtype": "lightning",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "",
+    "steps": [],
+    "empower": []
+   }
+  ],
+  "purity": {},
+  "effects": [
+   {
+    "id": "eff:Drumbeat",
+    "on": "always",
+    "if": [
+     {
+      "read": "own.counter.beat",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "mod": {
+       "crit": 100
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Drumbeat closes",
+    "on": "always",
+    "do": [
+     {
+      "mod": {
+       "crit": -8
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Drumbeat count",
+    "on": "art_fired",
+    "do": [
+     {
+      "counter": {
+       "id": "beat",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Drumbeat reset",
+    "on": "art_fired",
+    "if": [
+     {
+      "read": "own.counter.beat",
+      "op": ">=",
+      "value": 4
+     }
+    ],
+    "do": [
+     {
+      "counter": {
+       "id": "beat",
+       "add": -4
+      }
+     },
+     {
+      "stacks": {
+       "el": "thunder",
+       "n": 1,
+       "for": 8,
+       "side": "own"
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Echo",
+    "on": "hit_landed",
+    "filter": {
+     "kind": "art"
+    },
+    "chance": 0.25,
+    "limit": {
+     "per_pulse": 1
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.5,
+       "dtype": "same"
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Edge Returns the Breath",
+    "on": "crit",
+    "filter": {
+     "dtype": "phys"
+    },
+    "do": [
+     {
+      "gain_qi": {
+       "share": 0.008
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Edge Returns the Breath (closes)",
+    "on": "always",
+    "do": [
+     {
+      "mod": {
+       "crit": -1000,
+       "dtype": "fire"
+      }
+     },
+     {
+      "mod": {
+       "crit": -1000,
+       "dtype": "cold"
+      }
+     },
+     {
+      "mod": {
+       "crit": -1000,
+       "dtype": "lightning"
+      }
+     },
+     {
+      "mod": {
+       "crit": -1000,
+       "dtype": "force"
+      }
+     },
+     {
+      "mod": {
+       "crit": -1000,
+       "dtype": "chaos"
+      }
+     },
+     {
+      "mod": {
+       "crit": -1000,
+       "dtype": "elem"
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Opening Cut",
+    "on": "crit",
+    "filter": {
+     "dtype": "phys"
+    },
+    "do": [
+     {
+      "status": {
+       "id": "bleed",
+       "side": "foe",
+       "stacks": 1
+      }
+     }
+    ]
+   }
+  ],
+  "counters": [
+   {
+    "id": "beat"
+   }
+  ],
+  "companions": [],
+  "divine_sense": 1.0,
+  "soul_res": 0.0,
+  "x_soul": 0.0,
+  "tam_ma": 0.0,
+  "timer_resist": 0.0,
+  "ward_bill_pct": 0.0,
+  "refusals": 1,
+  "boss": false,
+  "tags": [],
+  "states": [],
+  "reserved": 0.0,
+  "stack_eff": {},
+  "stack_dur": {},
+  "wards": []
+ },
+ "b": {
+  "name": "gale-dancer",
+  "realm": 1,
+  "M": 3.6,
+  "layers": null,
+  "crit": 0.1,
+  "crit_mult": 1.7,
+  "evade": 0.2,
+  "acc": 0.0,
+  "n_body": 1.0883,
+  "n_qi": 1.053,
+  "ward_pts": 448.0,
+  "drain": 0.959,
+  "block": 15.0,
+  "regen_bonus": 0.0,
+  "hregen": 0.0,
+  "cost_red": 0.0,
+  "gain_on_hit": 0.0,
+  "leech_qi": 0.0,
+  "leech_hp": 0.0,
+  "hp_pay": 0.0,
+  "healing": 0.0,
+  "cleanse_pulse": 0,
+  "cleanse_cost": 0.0,
+  "cleanse_share": 0.0,
+  "art_speed_pct": 0.0,
+  "basic_speed_pct": 0.0,
+  "opening_haste_pct": 0.0,
+  "basic_coef_add": 0.0,
+  "ward_layer": 1.0,
+  "body_pts": 0.0,
+  "body_block": 0.0,
+  "bs_mult": 1.0,
+  "body_shield": 0.0,
+  "resist": {},
+  "shields": [],
+  "arts": [
+   {
+    "name": "gale-cut",
+    "c": 1.8,
+    "cost": 0.05,
+    "cd": 2.5,
+    "element": "wind",
+    "dtype": "phys",
+    "buff": [
+     2,
+     4.0
+    ],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "",
+    "steps": [],
+    "empower": []
+   },
+   {
+    "name": "rend-wind",
+    "c": 1.2,
+    "cost": 0.04,
+    "cd": 3.0,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [],
+    "guards": [],
+    "statuses": [
+     {
+      "id": "bleed"
+     }
+    ],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "",
+    "steps": [],
+    "empower": []
+   }
+  ],
+  "purity": {},
+  "effects": [
+   {
+    "id": "eff:Phantom Dodge",
+    "on": "hit_landed",
+    "filter": {
+     "kind": "basic"
+    },
+    "limit": {
+     "per_pulse": 2
+    },
+    "do": [
+     {
+      "emit": {
+       "event": "evaded"
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Phantom Dodge cost",
+    "on": "always",
+    "do": [
+     {
+      "mod": {
+       "evade": -10
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Scatter Gale",
+    "on": "evaded",
+    "limit": {
+     "cooldown": 6
+    },
+    "do": [
+     {
+      "cleanse": {
+       "n": 2
+      }
+     }
+    ]
+   },
+   {
+    "id": "eff:Wind at Your Back",
+    "on": "evaded",
+    "limit": {
+     "per_pulse": 2
+    },
+    "do": [
+     {
+      "stacks": {
+       "el": "wind",
+       "n": 1,
+       "for": 4,
+       "side": "own"
+      }
+     }
+    ]
+   }
+  ],
+  "counters": [],
+  "companions": [],
+  "divine_sense": 1.0,
+  "soul_res": 0.0,
+  "x_soul": 0.0,
+  "tam_ma": 0.0,
+  "timer_resist": 0.0,
+  "ward_bill_pct": 0.0,
+  "refusals": 1,
+  "boss": false,
+  "tags": [],
+  "states": [],
+  "reserved": 0.0,
+  "stack_eff": {},
+  "stack_dur": {},
+  "wards": []
+ },
+ "stats": {
+  "mean_t": 31.061820600000058,
+  "share": {
+   "A": 0.1766,
+   "B": 0.8002,
+   "draw": 0.0232,
+   "time": 0.0
+  }
+ },
+ "rows": [
+
+ ]
+}

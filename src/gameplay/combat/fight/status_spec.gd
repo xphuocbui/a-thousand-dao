@@ -5,7 +5,8 @@ extends RefCounted
 ## Read-only once loaded.
 
 var id: String = ""
-var stacks: int = 1
+## May be fractional when an Effect grants it at a fractional scale.
+var stacks: float = 1.0
 ## 1 applies it surely (status resistance aside); below 1 it is rolled, clamped by Combat Formulas F.
 var chance: float = 1.0
 ## The optional keys as given ("dur" or "cap" may be null: until cleansed, no cap). Absent keys fall back to the

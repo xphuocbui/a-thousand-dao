@@ -240,9 +240,10 @@ _EFFLIB = {}
 
 
 def effects_library():
-    """tools/design/combat_sim/effects_library.json: engine forms of named Effects, by short name (2026-11-13)."""
+    """assets/data/combat_effects.json (was tools/design/combat_sim/effects_library.json until 2026-11-14, ADR-0001
+    decision 3): engine forms of named Effects, by short name. Both engines read it."""
     if not _EFFLIB:
-        path = os.path.join(HERE, "effects_library.json")
+        path = os.path.join(HERE, "..", "..", "..", "assets", "data", "combat_effects.json")
         if os.path.exists(path):
             _EFFLIB.update(json.load(open(path, encoding="utf-8"))["effects"])
     return _EFFLIB
@@ -469,7 +470,7 @@ def expand_library(d):
                 continue
             lib_done.add(short)
             if not add_library_effect(short, d, effects, counters, unmod, "item %s" % iid, worn):
-                unmod.append("item %s Effect %s: not in effects_library.json; write it in \"effects\" (id "
+                unmod.append("item %s Effect %s: not in assets/data/combat_effects.json; write it in \"effects\" (id "
                              "\"eff:<name>\") to run it" % (iid, name))
     d["effects"], d["counters"], d["states"], d["unmodelled"] = effects, counters, states, unmod
     d.pop("_pool_pct", None)
@@ -1106,7 +1107,7 @@ def main():
                   % REALMS[r])
         print("model_note\tnot modelled by the engine: escape, a main ward paid other than by drain (extra wards run "
               "every model), companion targets (shield, heal, Down), boss phases and telegraphs, carried spirit "
-              "stones; everything else runs as Effects (engine.py, effects_library.json)")
+              "stones; everything else runs as Effects (engine.py, assets/data/combat_effects.json)")
         for u in d.get("unmodelled", []):
             print("UNMODELLED\t%s" % u)
     except BadInput as e:

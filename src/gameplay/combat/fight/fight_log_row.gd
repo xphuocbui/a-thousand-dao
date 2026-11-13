@@ -3,7 +3,7 @@ extends RefCounted
 ## One row of a fight's timeline log (ADR-0001: built only when the request turns the log on). The layout matches
 ## the sim's parity log ([code]Fight.plog[/code]) so the parity suite compares them directly.
 
-enum Kind { PULSE, ART, HIT, TICK, QI_TICK, STACKS, STATUS, SOUL, CLEANSE }
+enum Kind { PULSE, ART, HIT, TICK, QI_TICK, STACKS, STATUS, SOUL, CLEANSE, EFFECT, BANK }
 
 var kind: Kind
 var t_ms: int
@@ -19,7 +19,7 @@ var art_id: StringName = &""
 ## PULSE: hp, qi. ART: cost, hp, qi. HIT: amount before defence, dealt, defender hp, defender qi, attacker hp,
 ## attacker qi. TICK: amount, dealt, target hp, target qi. QI_TICK: amount, target hp, target qi. STACKS: count,
 ## expiry ms (-1 none), 1 for a buff. STATUS: stacks, expiry ms (-1 none). SOUL: health and linh lực removed, target
-## hp, target qi. CLEANSE: stacks removed.
+## hp, target qi. CLEANSE: stacks removed. EFFECT: none (art_id is the Effect id). BANK: the banked scale.
 var values: PackedFloat64Array = []
 
 
@@ -46,6 +46,10 @@ func to_array() -> Array:
 			out = ["soul", t_ms, side, str(art_id)]
 		Kind.CLEANSE:
 			out = ["cleanse", t_ms, side]
+		Kind.EFFECT:
+			out = ["effect", t_ms, side, str(art_id)]
+		Kind.BANK:
+			out = ["bank", t_ms, side, str(art_id)]
 	for v in values:
 		out.append(v)
 	return out

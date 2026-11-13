@@ -4,37 +4,48 @@ extends RefCounted
 ## sim's [code]Fight.defend[/code], [code]resistance[/code] and [code]extra_wards[/code] in the same operation
 ## order, so chance-free fights match it to 1e-6.
 ##
-## Slices 1-2: resistance (main ward points while linh lực lasts, body and typed points, extra wards' points;
-## Sundered and Exposed; negative amplifies) with the drain bill (the main ward's and drain wards', raised by
-## Leaking Ward), block (with ward block), ward shields (stops by type, pieces, the floor, bypass), the body shield,
-## the minimum hit, health. Penetration and ticks' block share come with the Effect slice.
+## Resistance (main ward points while linh lực lasts, body, typed and Effect resistance, extra wards' points, Sundered
+## and Exposed; penetration; negative amplifies) with the drain bill (main and drain wards', raised by ward_bill and
+## Leaking Ward), block (Effect block, ward block; ticks only through tick_block), ward shields (stops by type, pieces,
+## the floor, bypass), the body shield, the minimum hit, health. It raises foe_ward_paid and shield_broken where the
+## sim does, and marks the context "stopped" when nothing reached the body or health. Static: the [Fight] is an
+## argument, never stored.
 
 
-## Runs one hit part of [param amount] and type [param dtype] from [param att] into [param dfn] at time [param t_ms].
-## [param hit_id] identifies the hit or tick this part belongs to, so a per-hit ward pays one fee for all its parts.
+## Runs one hit part of [param amount] and type [param dtype] from [param att] into [param dfn] for fight [param f].
+## [param ctx] is the hit's context (dtype, element, tags, kind, art_id); it gets "stopped" when the part was stopped.
 ## Changes the defender's linh lực (the bill, per-hit fees), its shields and health. Returns the health removed.
-static func defend(k: CombatConstants, att: FighterState, dfn: FighterState, amount: float, dtype: StringName,
-		art: ArtDef, is_tick: bool, t_ms: int, hit_id: int) -> float:
+static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float, dtype: StringName, art: ArtDef,
+		ctx: Dictionary, is_tick: bool) -> float:
+	var k: CombatConstants = f.k
 	if dtype == &"soul":
 		dfn.hp -= amount
 		return amount
 	var dp: FighterProfile = dfn.p
+	var sdt: String = str(dtype)
 	var rw: float = dp.ward_pts * dp.ward_layer if dfn.qi > 0.0 else 0.0
 	var ro: float = dp.body_pts * dp.bs_mult + float(dp.resist.get(dtype, 0.0))
+	if f.has_mods(dfn):
+		ro += f.m(dfn, "resist", {"dtype": sdt})
 	# curses on resistance: Sundered (points per stack) and Exposed (all types) (Status Catalogue)
 	if not dfn.statuses.is_empty():
-		ro += float(dfn.st("sundered")) * k.sundered_res_pts + float(dfn.st("exposed")) * k.exposed_res_all
+		ro += dfn.st("sundered") * k.sundered_res_pts + dfn.st("exposed") * k.exposed_res_all
 	var xs: Array[FighterState.WardState] = []
 	var xs_pts: PackedFloat64Array = []
 	if not dfn.xwards.is_empty():
-		var met: Array = extra_wards(dfn, dtype, hit_id)
+		var met: Array = extra_wards(dfn, dtype, f.hit_id)
 		xs = met[0]
 		xs_pts = met[1]
 	var x_sum: float = 0.0
 	for r in xs_pts:
 		x_sum += r
 	var r_raw: float = rw + ro + x_sum
+	# penetration in points, its type scope matching this part's final type (CD&H rule 4, AC-CD-13)
 	var r: float = r_raw
+	if f.has_mods(att):
+		var pen_ctx: Dictionary = ctx.duplicate()
+		pen_ctx["dtype"] = sdt
+		r = r_raw - f.m(att, "pen", pen_ctx)
 	var prevented: float
 	var bill_share: float
 	if r >= 0.0:
@@ -43,9 +54,11 @@ static func defend(k: CombatConstants, att: FighterState, dfn: FighterState, amo
 	else:
 		prevented = -amount * absf(r) / 100.0
 		bill_share = 0.0
-	var bill_up: float = 1.0 + att.p.ward_bill_pct / 100.0
+	var am: bool = f.has_mods(att)
+	var dm: bool = f.has_mods(dfn)
+	var bill_up: float = 1.0 + (att.p.ward_bill_pct + (f.m(att, "ward_bill", null) if am else 0.0)) / 100.0
 	if not dfn.statuses.is_empty():
-		bill_up *= 1.0 + float(dfn.st("leaking_ward")) * k.leaking_bill_up
+		bill_up *= 1.0 + dfn.st("leaking_ward") * k.leaking_bill_up
 	var bill: float = bill_share * dp.drain * k.drain_scale / dp.ward_layer / dfn.g * bill_up
 	for i in xs.size():
 		# an extra drain ward bills for the share of prevention it holds
@@ -62,16 +75,19 @@ static func defend(k: CombatConstants, att: FighterState, dfn: FighterState, amo
 		else:
 			dfn.qi -= bill
 		dfn.ward_paid += paid
+		if paid > 0.0 and f.listens(att, "foe_ward_paid"):
+			EffectRunner.fire(f, att, "foe_ward_paid", {"amount": paid})
 	var a: float = amount - prevented
 	var x_blk: float = 0.0
 	for xw in xs:
 		x_blk += xw.def.block
-	var blk: float = k.block_unit[dp.realm] * (dp.block + dp.body_block * dp.bs_mult + x_blk)
+	var blk: float = k.block_unit[dp.realm] * (dp.block + (f.m(dfn, "block", null) if dm else 0.0) + dp.body_block * dp.bs_mult + x_blk)
 	if is_tick:
-		blk *= 0.0   # ticks meet block only through an Effect's tick_block share (a later slice)
+		blk *= (f.m(dfn, "tick_block", null) if dm else 0.0) / 100.0
 	a = maxf(0.0, a - blk)
+	var reached := false
 	if a > 0.0:
-		var byp: float = 0.0 if is_tick else minf(k.bypass_cap, art.bypass if art != null else 0.0)
+		var byp: float = 0.0 if is_tick else minf(k.bypass_cap, (art.bypass if art != null else 0.0) + (f.m(att, "bypass", ctx) if am else 0.0))
 		var through: float = a * byp
 		var rest: float = a - through
 		for w in dfn.wshields:
@@ -93,23 +109,30 @@ static func defend(k: CombatConstants, att: FighterState, dfn: FighterState, amo
 				w.left -= soak
 				if w.left <= 1e-9:
 					w.left = 0.0
-			w.quiet_since = t_ms
+					if f.listens(dfn, "shield_broken"):
+						EffectRunner.fire(f, dfn, "shield_broken", {})
+			w.quiet_since = f.t
 			rest -= soak
 		a = rest + through
 		if a > 0.0 and dfn.body_bar > 0.0 and dtype != &"chaos" and dtype != &"soul":
 			var bsoak: float = minf(a, dfn.body_bar)
 			dfn.body_bar -= bsoak
 			a -= bsoak
+			reached = bsoak > 0.0
 	var dealt: float = 0.0 if a <= 1e-12 else (a if is_tick else maxf(k.min_hit, a))
+	if dealt > 0.0:
+		reached = true
 	dfn.hp -= dealt
+	if not reached and not is_tick and amount > 0.0:
+		ctx["stopped"] = true
 	return dealt
 
 
 ## The extra wards up against a part of type [param dtype] (Combat Defence & Healing rules 5-8). Returns
 ## [code][Array[FighterState.WardState], PackedFloat64Array][/code]: the wards met and their resistance points
-## (x ward_layer). A per-hit ward pays its fee once per
-## [param hit_id] (all the hit's parts) and is skipped when linh lực cannot pay it; every ward but a reserved one needs
-## live linh lực, as the main ward does. Public for mechanism tests.
+## (x ward_layer). A per-hit ward pays its fee once per [param hit_id] (all the hit's parts) and is skipped when linh
+## lực cannot pay it; every ward but a reserved one needs live linh lực, as the main ward does. Public for mechanism
+## tests.
 static func extra_wards(dfn: FighterState, dtype: StringName, hit_id: int) -> Array:
 	var out: Array[FighterState.WardState] = []
 	var out_pts: PackedFloat64Array = []

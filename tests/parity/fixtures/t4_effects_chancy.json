@@ -1,0 +1,287 @@
+{
+  "name": "t4_effects_chancy",
+  "slice": 4,
+  "chance_free": false,
+  "seeds": 1000,
+  "doc": "Slice 4a, chancy (1,000 seeds), the library Effects that turn on crits and evades: Drumbeat (counters), Echo (free hits of the same type), Edge Returns the Breath, Opening Cut, Phantom Dodge (emit), Scatter Gale, Wind at Your Back.",
+  "a": {
+    "name": "drum-edge",
+    "crit": 0.25,
+    "evade": 0.0,
+    "effects": [
+      {
+        "id": "eff:Drumbeat",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.counter.beat",
+            "op": ">=",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "crit": 100
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drumbeat closes",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "crit": -8
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drumbeat count",
+        "on": "art_fired",
+        "do": [
+          {
+            "counter": {
+              "id": "beat",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Drumbeat reset",
+        "on": "art_fired",
+        "if": [
+          {
+            "read": "own.counter.beat",
+            "op": ">=",
+            "value": 4
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "beat",
+              "add": -4
+            }
+          },
+          {
+            "stacks": {
+              "el": "thunder",
+              "n": 1,
+              "for": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Echo",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "chance": 0.25,
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.5,
+              "dtype": "same"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Edge Returns the Breath",
+        "on": "crit",
+        "filter": {
+          "dtype": "phys"
+        },
+        "do": [
+          {
+            "gain_qi": {
+              "share": 0.008
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Edge Returns the Breath (closes)",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "crit": -1000,
+              "dtype": "fire"
+            }
+          },
+          {
+            "mod": {
+              "crit": -1000,
+              "dtype": "cold"
+            }
+          },
+          {
+            "mod": {
+              "crit": -1000,
+              "dtype": "lightning"
+            }
+          },
+          {
+            "mod": {
+              "crit": -1000,
+              "dtype": "force"
+            }
+          },
+          {
+            "mod": {
+              "crit": -1000,
+              "dtype": "chaos"
+            }
+          },
+          {
+            "mod": {
+              "crit": -1000,
+              "dtype": "elem"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Opening Cut",
+        "on": "crit",
+        "filter": {
+          "dtype": "phys"
+        },
+        "do": [
+          {
+            "status": {
+              "id": "bleed",
+              "side": "foe",
+              "stacks": 1
+            }
+          }
+        ]
+      }
+    ],
+    "counters": [
+      {
+        "id": "beat"
+      }
+    ],
+    "realm": 1,
+    "crit_mult": 1.8,
+    "arts": [
+      {
+        "name": "drum-strike",
+        "c": 1.6,
+        "cost": 0.05,
+        "cd": 2.5
+      },
+      {
+        "name": "edge-line",
+        "c": 2.2,
+        "cost": 0.06,
+        "cd": 3.5,
+        "dtype": "lightning"
+      }
+    ]
+  },
+  "b": {
+    "name": "gale-dancer",
+    "crit": 0.1,
+    "evade": 0.2,
+    "effects": [
+      {
+        "id": "eff:Phantom Dodge",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "basic"
+        },
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "emit": {
+              "event": "evaded"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Phantom Dodge cost",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "evade": -10
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Scatter Gale",
+        "on": "evaded",
+        "limit": {
+          "cooldown": 6
+        },
+        "do": [
+          {
+            "cleanse": {
+              "n": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wind at Your Back",
+        "on": "evaded",
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "wind",
+              "n": 1,
+              "for": 4,
+              "side": "own"
+            }
+          }
+        ]
+      }
+    ],
+    "realm": 1,
+    "M": 3.6,
+    "arts": [
+      {
+        "name": "gale-cut",
+        "c": 1.8,
+        "cost": 0.05,
+        "cd": 2.5,
+        "element": "wind",
+        "buff": [
+          2,
+          4.0
+        ]
+      },
+      {
+        "name": "rend-wind",
+        "c": 1.2,
+        "cost": 0.04,
+        "cd": 3.0,
+        "statuses": [
+          {
+            "id": "bleed"
+          }
+        ]
+      }
+    ]
+  }
+}

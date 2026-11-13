@@ -89,3 +89,41 @@ numbers moved to typed fields, with early returns when a side has no stacks or s
 Worst p95 10.8 ms of 50 (`art_heavy`). The `mirror_qr` max of 13.8 ms is a single outlier (its p95 is 2.1 ms). The
 per-event cost is about 3.7-4.6 µs against slice 2's 2.5-2.9: slice 3 adds a dozen stat reads per hit. The Effect
 slice runs on every event, so its re-run decides whether the hot path needs more than this.
+
+## Re-run after slice 4a (the Effect interpreter core), 2026-11-14
+
+Three shapes added: `lib_effects` (21 real library Effects across both sides; `t4_effects_exact_a`), `mechanics`
+(counters, held payloads, timed mods, about 30 mod keys, triggers; `t4_mechanics_exact`) and `fx_chancy` (crit and
+evade Effects; `t4_effects_chancy`).
+
+The first 4a build tripled the per-event cost of every shape, Effects or not (about 12 µs; `art_heavy` p95 36.8 ms):
+each hit built and copied context dictionaries for Effect filters, formatted the layer keys, and read every mod.
+Exact fixes (results identical, parity re-run each time): fights where neither side has Effects or guards skip the
+contexts, events and fire log; mod reads are skipped for a side with no mod source; the layer keys are constants.
+After them (release export, 200 fights per shape):
+
+| Shape | Fight (s) | Events | Mean ms | p50 ms | p95 ms | Max ms | µs/event |
+|---|---|---|---|---|---|---|---|
+| mirror_qr | 38.9 | 302 | 2.579 | 2.463 | 3.111 | 11.041 | 8.54 |
+| mirror_top | 66.0 | 644 | 4.839 | 4.642 | 5.577 | 9.539 | 7.51 |
+| stall | 67.0 | 328 | 2.480 | 2.365 | 2.973 | 5.074 | 7.56 |
+| hazards | 14.7 | 201 | 1.700 | 1.641 | 1.851 | 3.904 | 8.46 |
+| art_heavy | 29.7 | 2246 | 17.235 | 16.620 | 21.927 | 25.854 | 7.67 |
+| wards | 58.7 | 435 | 5.285 | 5.256 | 5.934 | 6.716 | 12.15 |
+| crit_mirror | 37.4 | 321 | 2.492 | 2.455 | 3.000 | 3.494 | 7.76 |
+| stacks | 40.6 | 542 | 6.659 | 6.598 | 7.349 | 8.324 | 12.29 |
+| statuses | 22.2 | 320 | 2.605 | 2.558 | 2.859 | 3.435 | 8.14 |
+| lib_effects | 62.3 | 1168 | 21.542 | 21.127 | 23.221 | 46.698 | 18.44 |
+| mechanics | 25.0 | 655 | 16.091 | 15.286 | 17.563 | 65.660 | 24.57 |
+| fx_chancy | 30.9 | 529 | 8.787 | 8.518 | 10.720 | 12.842 | 16.61 |
+
+**Verdict for ADR-0001's fallback:** every shape's p95 is within the 50 ms budget (worst 23.2 ms, `lib_effects`), so
+the GDExtension fallback for the Effect runner stays closed. Two cautions:
+- The margin halved. Fights without Effects now cost about 7.5-8.5 µs per event (slice 3: about 4), and Effect-heavy
+  fights 17-25 µs. A build that is both art-heavy (about 2,200 events) and Effect-heavy would land near 40-55 ms.
+- Single runs spike: `mechanics` had one fight at 65.7 ms and `lib_effects` one at 46.7 ms in 200 (p95 17.6 and
+  23.2). The budget is judged on p95, but a player-facing hitch matters too.
+
+Next step if slices 4b and 5 push this further: profile with Godot's profiler (the remaining overhead is per-hit
+bookkeeping, not the mod sums, since gating every hot-path mod read changed nothing measurable), before reopening
+the GDExtension option.

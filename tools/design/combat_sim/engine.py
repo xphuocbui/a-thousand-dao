@@ -54,16 +54,10 @@ TICK_TYPE = _C["TICK_TYPE"]
 ELEM_TYPE = _C["ELEM_TYPE"]
 STATUS = _C["STATUS"]
 
-EVENTS = {"foe_cost_extra", "foe_ward_paid", "always", "fight_start", "art_fired", "step_unlocked", "empowered", "hit_landed", "crit", "evaded", "was_hit", "was_evaded", "hit_stopped",
-          "pulse", "tick_dealt", "heal_restored", "shield_broken", "status_applied", "overflow", "cleansed", "down",
-          "kill", "soul_hit"}
-MOD_KEYS = {"blood_cast", "shield_pays", "hp_cost_red", "heal_cap", "unmoved", "no_regen", "foe_soul_res", "stack_grant", "status_dur", "status_resist", "heal_taken", "qi_on_crit", "art_cost_hp", "pen", "pierce", "hregen_inc", "L1", "L2", "L3", "L4", "L5", "crit", "crit_mult", "evade", "acc", "art_speed", "basic_speed",
-            "opening_haste", "cost_red", "regen", "hregen", "healing", "leech_hp", "leech_qi", "gain_on_hit",
-            "resist", "block", "dampen_taken", "timer_resist", "bypass", "ward_bill", "basic_coef", "soul_res",
-            "x_soul", "dmg_more", "companion_speed", "tick_block"}
-ACTIONS = {"burn_qi", "emit", "protect", "refresh", "mod", "gain_qi", "heal", "free_hit", "stacks", "status", "cleanse", "timer", "refund", "counter",
-           "strip", "consume", "refuse_down", "last_act", "shield", "bank", "self_hit", "store_damage", "state",
-           "summon", "fire_art"}
+# The Effect vocabulary (Effects GDD rules 5-6), shared with the GDScript engine through combat_engine.json.
+EVENTS = set(_C["EVENTS"])
+MOD_KEYS = set(_C["MOD_KEYS"])
+ACTIONS = set(_C["ACTIONS"])
 
 
 class EngineError(Exception):
@@ -1206,6 +1200,8 @@ class Fight:
             if e.get("chance", 1.0) < 1.0 and self.rng.random() >= e["chance"]:
                 continue
             self.mark(s, e)
+            if self.plog is not None:
+                self.plog.append(["effect", self.t, s.label, e["id"]])
             self.depth += 1
             try:
                 self.do(s, e, e.get("do", []), self.scale(s, e, ev), ev)
@@ -1237,6 +1233,8 @@ class Fight:
         self.mark(s, e)
         cap = e["held"].get("cap")
         n = self.scale(s, e, ev)
+        if self.plog is not None:
+            self.plog.append(["bank", self.t, s.label, e["id"], n])
         for x in s.banked:
             if x[0] is e:
                 x[2] = n if cap is None else min(cap, x[2] + n)
@@ -1280,7 +1278,7 @@ class Fight:
                 if s.trig_count >= K["trig_cap"]:
                     s.clipped["trig_cap"] = s.clipped.get("trig_cap", 0) + 1
                     continue
-                budget = K["trig_budget"] * max(s.direct_dmg, 0.5 * s.U) - s.trig_dmg
+                budget = K["trig_budget"] * max(s.direct_dmg, K["trig_floor_u"] * s.U) - s.trig_dmg
                 if budget <= 0:
                     s.clipped["trig_budget"] = s.clipped.get("trig_budget", 0) + 1
                     continue

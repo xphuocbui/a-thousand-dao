@@ -65,6 +65,12 @@ static func shapes() -> Array:
 			"a": _doc("t3_stacks_exact").a, "b": _doc("t3_stacks_exact").b},
 		{"id": "statuses", "doc": "every status and curse, slots, lockouts, Crossing the Line (slice 3)",
 			"a": _doc("t3_statuses_exact").a, "b": _doc("t3_statuses_exact").b},
+		{"id": "lib_effects", "doc": "21 library Effects across both sides (slice 4a)",
+			"a": _doc("t4_effects_exact_a").a, "b": _doc("t4_effects_exact_a").b},
+		{"id": "mechanics", "doc": "counters, held payloads, timed mods, ~30 mod keys, triggers (slice 4a)",
+			"a": _doc("t4_mechanics_exact").a, "b": _doc("t4_mechanics_exact").b},
+		{"id": "fx_chancy", "doc": "crit and evade Effects with counters and free hits (slice 4a)",
+			"a": _doc("t4_effects_chancy").a, "b": _doc("t4_effects_chancy").b},
 	]
 
 

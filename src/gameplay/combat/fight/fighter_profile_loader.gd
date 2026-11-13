@@ -15,9 +15,9 @@ extends RefCounted
 ##     push_error("\n".join(loader.errors))
 ## [/codeblock]
 
-## Damage types and elements the engine knows (the sim's DTYPES and ELEMENTS).
-const DTYPES := ["phys", "elem", "fire", "cold", "lightning", "force", "chaos", "soul"]
-const ELEMENTS := ["", "fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind"]
+## Damage types and elements the engine knows (one copy, on CombatConstants).
+const DTYPES := CombatConstants.DTYPES
+const ELEMENTS := CombatConstants.ELEMENTS
 
 ## The largest added Soul part an art may carry (R11; the sim's validate()).
 const SOUL_PART_MAX := 0.30
@@ -31,26 +31,30 @@ const BUILD_FLOATS := {
 	"cleanse_cost": "", "cleanse_share": "", "divine_sense": "", "soul_res": "", "x_soul": "", "tam_ma": "",
 	"timer_resist": "",
 }
-## Build fields with no effect until the Effect slice ports what reads them (accepted, not used yet): refusals
-## with refuse_down Effects; layers with layer mods.
-const BUILD_NEUTRAL := ["name", "layers", "refusals", "boss", "tags"]
+## Build fields with no effect until a later slice ports what reads them (accepted, not used yet): refusals with
+## the Down step (slice 4b).
+const BUILD_NEUTRAL := ["name", "refusals", "tags"]
 ## Build fields a later slice ports; they must be zero or empty here.
 const BUILD_NOT_PORTED := [
-	"effects", "counters", "states",
+	"states",
 ]
 ## Art fields slices 1-3 read.
 const ART_PORTED := [
 	"name", "c", "cost", "cd", "element", "dtype", "m_mult", "split", "charges", "heal", "qi_restore", "hp_cost",
-	"bypass", "tags", "pool", "convert", "buff", "debuff", "cleanse", "statuses", "soul_pct", "soul_part",
+	"bypass", "tags", "pool", "convert", "buff", "debuff", "cleanse", "statuses", "soul_pct", "soul_part", "guards",
+	"group",
 ]
-const ART_NEUTRAL := ["group"]
+const ART_NEUTRAL := []
 const ART_NOT_PORTED := [
-	"guards", "steps", "empower",
+	"steps", "empower",
 ]
 
 ## Problems found by the last calls; empty when every profile loaded.
 var errors: PackedStringArray = []
 var _k: CombatConstants
+## While loading one fighter: its Effect compiler and counters, so its arts' guards compile against them.
+var _compiler: EffectCompiler
+var _counters_for_arts: Dictionary = {}
 
 
 ## [param k] supplies defaults that live in the constants (a companion's cooldown).
@@ -65,7 +69,7 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 	for key in d:
 		var name: String = str(key)
 		if BUILD_FLOATS.has(name) or name in ["realm", "resist", "arts", "companions", "shields", "wards", "purity",
-				"stack_eff", "stack_dur", "cleanse_pulse"] \
+				"stack_eff", "stack_dur", "cleanse_pulse", "effects", "counters", "layers", "boss"] \
 				or name in BUILD_NEUTRAL:
 			continue
 		if name in BUILD_NOT_PORTED:
@@ -88,6 +92,21 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 		if not (str(t) in DTYPES):
 			errors.append("%s: resist type %s is not one of %s" % [where, str(t), str(DTYPES)])
 		p.resist[StringName(str(t))] = float(resist[t])
+	p.boss = bool(d.get("boss", false))
+	if d.get("layers") is Array:
+		p.layers = PackedFloat64Array(d.layers)
+	for c in d.get("counters", []):
+		if not (c is Dictionary) or str(c.get("id", "")) == "":
+			errors.append("%s: a counter has no id" % where)
+			continue
+		p.counter_def[str(c.id)] = c
+	var eff_comp := EffectCompiler.new(_k)
+	for i in (d.get("effects", []) as Array).size():
+		var e: EffectDef = eff_comp.compile(d.effects[i], "%s.effects[%d]" % [where, i], p.counter_def)
+		if e != null:
+			p.effects.append(e)
+	_counters_for_arts = p.counter_def
+	_compiler = eff_comp
 	for i in (d.get("arts", []) as Array).size():
 		var art: ArtDef = _art(d.arts[i], "%s.arts[%d]" % [where, i])
 		if art != null:
@@ -109,7 +128,31 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 		p.shields.append(_shield(d.shields[i], "%s.shields[%d]" % [where, i]))
 	for i in (d.get("wards", []) as Array).size():
 		p.wards.append(_ward(d.wards[i], "%s.wards[%d]" % [where, i]))
+	errors.append_array(eff_comp.errors)
+	_compiler = null
+	_index_effects(p)
 	return p if errors.size() == n0 else null
+
+
+## The profile's Effect indexes: always-on mod entries per stat key, and listeners per event, both in record order.
+func _index_effects(p: FighterProfile) -> void:
+	var mod_keys := {}
+	for x in _k.mod_keys:
+		mod_keys[str(x)] = true
+	for e in p.effects:
+		if e.on == "always":
+			for a in e.actions:
+				if a.verb != "mod" or not (a.arg is Dictionary):
+					continue
+				for key in a.arg:
+					if mod_keys.has(str(key)):
+						if not p.always_by_key.has(str(key)):
+							p.always_by_key[str(key)] = []
+						p.always_by_key[str(key)].append([e, float(a.arg[key]), a.arg])
+		else:
+			if not p.listeners.has(e.on):
+				p.listeners[e.on] = []
+			p.listeners[e.on].append(e)
 
 
 ## A status an art applies, from the sim's spec dict. Internal Injury is an Effect's stored damage (the Effect
@@ -215,6 +258,12 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 	a.hp_cost = float(d.get("hp_cost", 0.0))
 	a.bypass = float(d.get("bypass", 0.0))
 	a.pool = StringName(str(d.get("pool", "qi")))
+	a.group = str(d.get("group", ""))
+	if not (d.get("guards", []) as Array).is_empty():
+		var gc: EffectCompiler = _compiler if _compiler != null else EffectCompiler.new(_k)
+		a.guards = gc.compile_conds(d.guards, where + ".guards", _counters_for_arts)
+		if gc != _compiler:
+			errors.append_array(gc.errors)
 	var bf: Array = d.get("buff", [])
 	if not bf.is_empty():
 		a.buff_n = float(bf[0])
@@ -240,6 +289,8 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 			errors.append("%s: convert to %s is not one of %s" % [where, str(a.convert_to), str(DTYPES)])
 	for t in d.get("tags", []):
 		a.tags.append(StringName(str(t)))
+		a.tags_s.append(str(t))
+	a.ctx = {"dtype": str(a.dtype), "element": str(a.element), "tags": a.tags_s, "kind": "art", "art_id": str(a.id)}
 	if not (str(a.dtype) in DTYPES):
 		errors.append("%s: dtype %s is not one of %s" % [where, str(a.dtype), str(DTYPES)])
 	if not (str(a.element) in ELEMENTS):

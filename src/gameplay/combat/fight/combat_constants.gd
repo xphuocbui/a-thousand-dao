@@ -11,6 +11,9 @@ extends RefCounted
 ##     push_error("\n".join(k.errors))
 ## [/codeblock]
 
+## Damage types and elements the engine knows (the sim's DTYPES and ELEMENTS).
+const DTYPES := ["phys", "elem", "fire", "cold", "lightning", "force", "chaos", "soul"]
+const ELEMENTS := ["", "fire", "water", "earth", "metal", "wood", "ice", "thunder", "wind"]
 ## Where the game keeps the constants.
 const DEFAULT_PATH := "res://assets/data/combat_engine.json"
 ## The K keys this engine slice reads; a missing one stops the load.
@@ -21,7 +24,8 @@ const REQUIRED_K := [
 	"crit_cap", "evade_cap", "recharge_delay", "shield_recharge",
 	"min_batch", "curse_slots", "curse_duration_max", "slowed_time_pct", "soul_beta", "rho_min", "soul_cap",
 	"soul_lockout", "curse_heal_taken_max", "status_chance_min", "status_chance_max", "purity_stack_power",
-	"water_ice_share", "cleanse_min_stacks",
+	"water_ice_share", "cleanse_min_stacks", "trig_cap", "trig_depth", "trig_budget", "trig_floor_u", "layer_caps",
+	"l1_soft",
 ]
 
 var fatigue_start: float
@@ -70,6 +74,20 @@ var purity_stack_power: float
 var water_ice_share: float
 ## A debuff batch below this many stacks after the cleansing ward's share is gone.
 var cleanse_min_stacks: float
+## Triggers (Combat Formulas G): firings per side per pulse, the depth of events Effects may raise, the trigger
+## damage budget and its floor in U. Damage layers (Combat Formulas A): caps per layer x1..x5, and x1's soft cap
+## (threshold, share kept above it).
+var trig_cap: int
+var trig_depth: int
+var trig_budget: float
+var trig_floor_u: float
+var layer_caps: PackedFloat64Array
+var l1_soft: PackedFloat64Array
+## The Effect vocabulary (Effects GDD rules 5-6) and an "elem" art's usual damage type by element.
+var events: Array = []
+var mod_keys: Array = []
+var actions: Array = []
+var elem_type: Dictionary = {}
 ## Soul attacks (Combat 24, E2): the exponent on rho, the rho floor, the cap per hit, the lockout (s); and the
 ## floor on healing taken with curses (Combat Defence & Healing E).
 var soul_beta: float
@@ -180,6 +198,16 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.purity_stack_power = float(kd.purity_stack_power)
 	k.water_ice_share = float(kd.water_ice_share)
 	k.cleanse_min_stacks = float(kd.cleanse_min_stacks)
+	k.trig_cap = int(kd.trig_cap)
+	k.trig_depth = int(kd.trig_depth)
+	k.trig_budget = float(kd.trig_budget)
+	k.trig_floor_u = float(kd.trig_floor_u)
+	k.layer_caps = PackedFloat64Array(kd.layer_caps)
+	k.l1_soft = PackedFloat64Array(kd.l1_soft)
+	k.events = d.get("EVENTS", [])
+	k.mod_keys = d.get("MOD_KEYS", [])
+	k.actions = d.get("ACTIONS", [])
+	k.elem_type = d.get("ELEM_TYPE", {})
 	k.soul_beta = float(kd.soul_beta)
 	k.rho_min = float(kd.rho_min)
 	k.soul_cap = float(kd.soul_cap)

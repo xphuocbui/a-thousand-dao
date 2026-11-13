@@ -1,0 +1,296 @@
+{
+  "name": "t4_effects_exact_b",
+  "slice": 4,
+  "chance_free": true,
+  "seed": 29,
+  "doc": "Slice 4a, chance-free, the other half of the exact library Effects: shield_broken (trigger hits within the budget), tick_dealt (burn linh luc), foe_cost_extra (Ice), foe_ward_paid (drain-ward bills), Water stacks at the fight's start, Sword-scoped mods, heal caps and health costs paid by the body shield.",
+  "a": {
+    "name": "sword-sea",
+    "crit": 0.0,
+    "evade": 0.0,
+    "effects": [
+      {
+        "id": "eff:Sap Rises",
+        "on": "always",
+        "scale": {
+          "read": "own.buff.wood",
+          "per": 1,
+          "cap": 20
+        },
+        "do": [
+          {
+            "mod": {
+              "healing": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Sea Already Deep",
+        "on": "fight_start",
+        "do": [
+          {
+            "stacks": {
+              "el": "water",
+              "n": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Sea Already Deep cost",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "cost_red": -0.1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Shattering Ward",
+        "on": "shield_broken",
+        "limit": {
+          "per_pulse": 1,
+          "per_fight": 3
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.6,
+              "dtype": "force"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Shield Pays the Blood",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "shield_pays": 1,
+              "healing": -20
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Spillover",
+        "on": "tick_dealt",
+        "do": [
+          {
+            "burn_qi": {
+              "of": "amount",
+              "share": 0.25
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Steady Breath",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.qi_share",
+            "op": ">=",
+            "value": 0.5
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "L5": 12
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Sword Chorus",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.06,
+              "tags": [
+                "sword"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "realm": 1,
+    "shields": [
+      {
+        "size": 0.15,
+        "body": false,
+        "standing": true,
+        "stops": {},
+        "pieces": 1,
+        "floor": 0.0
+      }
+    ],
+    "body_shield": 0.1,
+    "arts": [
+      {
+        "name": "tide-blade",
+        "c": 1.8,
+        "cost": 0.05,
+        "cd": 2.5,
+        "tags": [
+          "sword"
+        ],
+        "element": "water"
+      },
+      {
+        "name": "rot-needle",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 3.5,
+        "element": "wood",
+        "dtype": "chaos",
+        "debuff": [
+          2,
+          6.0
+        ]
+      },
+      {
+        "name": "blood-oath-cut",
+        "c": 2.4,
+        "cost": 0.07,
+        "cd": 4.0,
+        "tags": [
+          "sword"
+        ],
+        "hp_cost": 0.02
+      }
+    ]
+  },
+  "b": {
+    "name": "toll-keeper",
+    "crit": 0.0,
+    "evade": 0.0,
+    "effects": [
+      {
+        "id": "eff:Toll Taker",
+        "on": "foe_cost_extra",
+        "do": [
+          {
+            "gain_qi": {
+              "of": "amount",
+              "share": 0.1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Water Table",
+        "on": "foe_ward_paid",
+        "do": [
+          {
+            "gain_qi": {
+              "of": "amount",
+              "share": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Water Table (closes)",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "no_regen": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Wheel in the Flag",
+        "on": "always",
+        "scale": {
+          "read": "own.buff_elements",
+          "per": 1,
+          "cap": 5
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.05,
+              "kind": "art"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Whetstone Vow",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "hp_cost_red": 0.5,
+              "heal_cap": 0.8
+            }
+          }
+        ]
+      }
+    ],
+    "realm": 1,
+    "wards": [
+      {
+        "id": "deep-well",
+        "model": "drain",
+        "payload": {
+          "all": 60.0
+        },
+        "drain": 0.6
+      }
+    ],
+    "arts": [
+      {
+        "name": "frost-toll",
+        "c": 1.4,
+        "cost": 0.05,
+        "cd": 3.0,
+        "element": "ice",
+        "dtype": "cold",
+        "debuff": [
+          3,
+          5.0
+        ]
+      },
+      {
+        "name": "flag-wind",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 5.0,
+        "element": "wind",
+        "buff": [
+          2,
+          6.0
+        ]
+      },
+      {
+        "name": "flag-fire",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 5.0,
+        "element": "fire",
+        "buff": [
+          2,
+          6.0
+        ]
+      },
+      {
+        "name": "heavy-toll",
+        "c": 2.6,
+        "cost": 0.06,
+        "cd": 3.5
+      }
+    ]
+  }
+}

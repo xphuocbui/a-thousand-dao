@@ -4,7 +4,7 @@ extends RefCounted
 ## [FighterProfile] at the start. The profile is only read. No reference to the [Fight] or the other side
 ## (ADR-0001: no back-pointers; cyclic RefCounted references leak).
 ##
-## Mirrors the sim's [code]Side[/code] (tools/design/combat_sim/engine.py). Slices 1-3 fields.
+## Mirrors the sim's [code]Side[/code] (tools/design/combat_sim/engine.py). Slices 1-4a fields.
 ## A stack batch or status names its source by side index (0 = A, 1 = B), never by reference, so the two states
 ## never point at each other.
 
@@ -23,7 +23,8 @@ class StackBatch extends RefCounted:
 
 ## A status on this side: stacks, expiry ms (-1: until cleansed), source side, and the spec's extras.
 class StatusState extends RefCounted:
-	var stacks: int = 0
+	## Stacks may be fractional when an Effect grants them at a fractional scale, as in the sim.
+	var stacks: float = 0.0
 	var until: int = -1
 	var src_idx: int
 	var tag: String = ""
@@ -49,6 +50,22 @@ class WardState extends RefCounted:
 	var ready: int = 0
 	var bar: ShieldState = null
 	var paid_hit: int = -1
+
+
+## A timed mod from an Effect's mod action (the sim's temp_mods row): key, value, expiry ms, filter, Effect id.
+class TempMod extends RefCounted:
+	var key: String
+	var v: float
+	var until: int
+	var filt: Dictionary
+	var eid: String
+
+
+## A held payload in the bank (Effects rule 16): its Effect, actions and banked scale.
+class Banked extends RefCounted:
+	var e: EffectDef
+	var actions: Array[EffectDef.ActionDef]
+	var n: float
 
 
 ## The compiled fighter (read only).
@@ -94,6 +111,21 @@ var ward_paid: float = 0.0
 ## The last art's linh lực cost and health paid (a heal art refunds the former).
 var last_cost: float = 0.0
 var hp_paid: float = 0.0
+## Effects (slice 4a): limits per Effect id ([fight, pulse, next ms]), timed mods, the bank, self-counters (and the
+## per-stack expiry times of counters with each_for), triggers this pulse and their damage, the stance ("" none),
+## the arts fired in the last fire_log_ms ([t, art id, tags, group]), the event of the art being fired, the last
+## art's slot.
+var eff_state: Dictionary = {}
+var temp_mods: Array[TempMod] = []
+var banked: Array[Banked] = []
+var counters: Dictionary = {}
+var counter_times: Dictionary = {}
+var trig_count: int = 0
+var trig_dmg: float = 0.0
+var state: String = ""
+var fire_log: Array = []
+var cur_ev: Variant = null
+var last_art: int = -1
 
 var _reserve_keep: float
 var _k: CombatConstants
@@ -122,6 +154,9 @@ func _init(profile: FighterProfile, side_label: String, k: CombatConstants) -> v
 	for i in n:
 		charges[i] = p.arts[i].charges
 	comp_ready.resize(p.companions.size())
+	for cid in p.counter_def:
+		counters[cid] = 0.0
+		counter_times[cid] = []
 	body_bar = p.body_shield * hp_max
 	for sd in p.shields:
 		var sh := ShieldState.new()
@@ -150,11 +185,11 @@ func qi_max() -> float:
 
 
 ## Stacks of status [param sid] on this side (0 when absent).
-func st(sid: String) -> int:
+func st(sid: String) -> float:
 	if statuses.is_empty():
-		return 0
+		return 0.0
 	var s: StatusState = statuses.get(sid)
-	return s.stacks if s != null else 0
+	return s.stacks if s != null else 0.0
 
 
 ## The sum of [param key] over this side's buff stacks, each at its own power (the sim's bsum).

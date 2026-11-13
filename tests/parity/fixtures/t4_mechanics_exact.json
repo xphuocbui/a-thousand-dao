@@ -1,0 +1,721 @@
+{
+  "name": "t4_mechanics_exact",
+  "slice": 4,
+  "chance_free": true,
+  "seed": 31,
+  "doc": "Slice 4a, chance-free, hand-written to cover what the library's exact Effects do not: counters (add, set, cap, decay per pulse, per-stack timers), a held payload (banked on basic hits, spent on art_fired, its mod read while banked), timed mods (refreshing and stacking), limits (per fight, per pulse, cooldown), scaling (per, cap, no floor), any-conditions and guards, layer mods on a build with layers and Sealed Meridian, emit, refund, burn_qi, cleanse by status and by curse count, self_hit, free hits of the same type, heals of an amount and onto the body shield, and about 30 mod keys at their read sites.",
+  "a": {
+    "name": "clockwork-adept",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "layers": [
+      100,
+      50,
+      40,
+      20,
+      10
+    ],
+    "counters": [
+      {
+        "id": "focus",
+        "cap": 5,
+        "decay_per_pulse": 0.5
+      },
+      {
+        "id": "marks",
+        "each_for": 4,
+        "cap": 3
+      }
+    ],
+    "arts": [
+      {
+        "name": "keen-cut",
+        "c": 1.6,
+        "cost": 0.05,
+        "cd": 2.5,
+        "tags": [
+          "sword"
+        ]
+      },
+      {
+        "name": "measured-palm",
+        "c": 2.0,
+        "cost": 0.06,
+        "cd": 4.0,
+        "statuses": [
+          {
+            "id": "sundered"
+          }
+        ],
+        "guards": [
+          {
+            "read": "own.qi_share",
+            "op": ">=",
+            "value": 0.3
+          }
+        ]
+      },
+      {
+        "name": "fire-seal",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 3.0,
+        "element": "fire",
+        "dtype": "fire",
+        "debuff": [
+          2,
+          4.0
+        ],
+        "statuses": [
+          {
+            "id": "sealed_meridian",
+            "layer": 2
+          }
+        ]
+      },
+      {
+        "name": "renew",
+        "c": 0.0,
+        "cost": 0.05,
+        "cd": 6.0,
+        "heal": 0.8
+      }
+    ],
+    "effects": [
+      {
+        "id": "t:focus-up",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "sword"
+          ]
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "focus",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:focus-power",
+        "on": "always",
+        "scale": {
+          "read": "own.counter.focus",
+          "per": 1,
+          "cap": 2
+        },
+        "do": [
+          {
+            "mod": {
+              "L2": 10,
+              "tags": [
+                "sword"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:marks",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "marks",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:mark-read",
+        "on": "always",
+        "scale": {
+          "read": "own.counter.marks"
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.03
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:held-strike",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "basic"
+        },
+        "held": {
+          "until": "art_fired",
+          "cap": 3
+        },
+        "do": [
+          {
+            "mod": {
+              "L1": 20
+            }
+          },
+          {
+            "gain_qi": {
+              "share": 0.01
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:rally",
+        "on": "was_hit",
+        "limit": {
+          "cooldown": 5
+        },
+        "if": [
+          {
+            "read": "own.hp_share",
+            "op": "<",
+            "value": 0.8
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "block": 10,
+              "for": 3
+            }
+          },
+          {
+            "heal": {
+              "share": 0.5,
+              "of": "amount"
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:once",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 2
+        },
+        "if": [
+          {
+            "read": "time",
+            "op": ">=",
+            "value": 10
+          }
+        ],
+        "do": [
+          {
+            "shield": {
+              "body": 0.05
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:any",
+        "on": "pulse",
+        "if": [
+          {
+            "any": [
+              {
+                "read": "foe.status.sealed_meridian",
+                "op": ">=",
+                "value": 1
+              },
+              {
+                "read": "own.counter.focus",
+                "op": ">=",
+                "value": 4
+              }
+            ]
+          }
+        ],
+        "do": [
+          {
+            "counter": {
+              "id": "focus",
+              "set": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:refund",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "measured-palm"
+        },
+        "do": [
+          {
+            "refund": {
+              "share": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:burn",
+        "on": "tick_dealt",
+        "do": [
+          {
+            "burn_qi": {
+              "share": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:cleanse-curses",
+        "on": "status_applied",
+        "filter": {
+          "status": "sundered"
+        },
+        "do": [
+          {
+            "cleanse": {
+              "curses": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:fast",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "art_speed": 15,
+              "tags": [
+                "sword"
+              ]
+            }
+          },
+          {
+            "mod": {
+              "opening_haste": 50
+            }
+          },
+          {
+            "mod": {
+              "cost_red": 0.1
+            }
+          },
+          {
+            "mod": {
+              "pierce": 20
+            }
+          },
+          {
+            "mod": {
+              "pen": 30,
+              "dtype": "fire"
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:since",
+        "on": "always",
+        "if": [
+          {
+            "read": "own.since.renew",
+            "op": "<",
+            "value": 3
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "healing": 30
+            }
+          }
+        ]
+      },
+      {
+        "id": "t:within",
+        "on": "always",
+        "scale": {
+          "read": "own.fired_within.6.all",
+          "floor": false
+        },
+        "do": [
+          {
+            "mod": {
+              "basic_coef": 0.1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "name": "patient-wall",
+    "realm": 1,
+    "M": 3.6,
+    "crit": 0.0,
+    "evade": 0.0,
+    "counters": [
+      {
+        "id": "grit",
+        "cap": 10
+      }
+    ],
+    "wards": [
+      {
+        "id": "deep-well",
+        "model": "drain",
+        "payload": {
+          "all": 40.0
+        },
+        "drain": 0.6
+      }
+    ],
+    "companions": [
+      {
+        "c": 0.5,
+        "dtype": "phys",
+        "cd": 2.0
+      }
+    ],
+    "arts": [
+      {
+        "name": "wall-slam",
+        "c": 2.2,
+        "cost": 0.06,
+        "cd": 3.0
+      },
+      {
+        "name": "curse-whisper",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 4.0,
+        "statuses": [
+          {
+            "id": "withering"
+          },
+          {
+            "id": "heavy_breath"
+          }
+        ]
+      },
+      {
+        "name": "mud-stack",
+        "c": 1.2,
+        "cost": 0.04,
+        "cd": 3.5,
+        "element": "wood",
+        "dtype": "chaos",
+        "debuff": [
+          2,
+          5.0
+        ]
+      },
+      {
+        "name": "blood-pay",
+        "c": 2.6,
+        "cost": 0.07,
+        "cd": 5.0,
+        "hp_cost": 0.02
+      }
+    ],
+    "effects": [
+      {
+        "id": "u:grit",
+        "on": "was_hit",
+        "do": [
+          {
+            "counter": {
+              "id": "grit",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "u:grit-def",
+        "on": "always",
+        "scale": {
+          "read": "own.counter.grit",
+          "per": 2
+        },
+        "do": [
+          {
+            "mod": {
+              "resist": 10
+            }
+          },
+          {
+            "mod": {
+              "block": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "u:mods",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "dampen_taken": 10
+            }
+          },
+          {
+            "mod": {
+              "ward_bill": -20
+            }
+          },
+          {
+            "mod": {
+              "tick_block": 50
+            }
+          },
+          {
+            "mod": {
+              "bypass": 0.1
+            }
+          },
+          {
+            "mod": {
+              "companion_speed": 30
+            }
+          },
+          {
+            "mod": {
+              "basic_speed": 20
+            }
+          },
+          {
+            "mod": {
+              "timer_resist": 30
+            }
+          },
+          {
+            "mod": {
+              "hregen": 0.002
+            }
+          },
+          {
+            "mod": {
+              "hregen_inc": 50
+            }
+          },
+          {
+            "mod": {
+              "heal_taken": 20
+            }
+          },
+          {
+            "mod": {
+              "heal_cap": 0.9
+            }
+          },
+          {
+            "mod": {
+              "hp_cost_red": 0.5
+            }
+          },
+          {
+            "mod": {
+              "art_cost_hp": 20
+            }
+          },
+          {
+            "mod": {
+              "gain_on_hit": 0.3
+            }
+          },
+          {
+            "mod": {
+              "leech_qi": 2
+            }
+          },
+          {
+            "mod": {
+              "leech_hp": 2
+            }
+          },
+          {
+            "mod": {
+              "stack_grant": 1,
+              "element": "wood"
+            }
+          },
+          {
+            "mod": {
+              "status_dur": 50
+            }
+          },
+          {
+            "mod": {
+              "x_soul": 10
+            }
+          },
+          {
+            "mod": {
+              "soul_res": 20
+            }
+          }
+        ]
+      },
+      {
+        "id": "u:self",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 3
+        },
+        "if": [
+          {
+            "read": "time",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "do": [
+          {
+            "self_hit": {
+              "c": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "u:echo",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 0.4,
+              "dtype": "same"
+            }
+          }
+        ]
+      },
+      {
+        "id": "u:emit",
+        "on": "was_hit",
+        "limit": {
+          "cooldown": 4
+        },
+        "do": [
+          {
+            "emit": {
+              "event": "shield_broken"
+            }
+          }
+        ]
+      },
+      {
+        "id": "u:on-emit",
+        "on": "shield_broken",
+        "do": [
+          {
+            "gain_qi": {
+              "share": 0.02
+            }
+          },
+          {
+            "stacks": {
+              "el": "earth",
+              "n": 2,
+              "for": 5,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "u:status",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "wall-slam"
+        },
+        "do": [
+          {
+            "status": {
+              "id": "exposed",
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "u:temp",
+        "on": "art_fired",
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.05,
+              "for": 3,
+              "stack": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "u:temp2",
+        "on": "art_fired",
+        "do": [
+          {
+            "mod": {
+              "L3": 15,
+              "for": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "u:cleanse-status",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.status.sundered",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "cleanse": {
+              "status": "sundered"
+            }
+          }
+        ]
+      },
+      {
+        "id": "u:heal-body",
+        "on": "heal_restored",
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "heal": {
+              "share": 0.2,
+              "of": "amount",
+              "body_shield": true
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

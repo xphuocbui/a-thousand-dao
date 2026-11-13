@@ -5,14 +5,14 @@ extends RefCounted
 ## parity suite (tests/parity) holds the two to 1e-6 on chance-free fixtures and statistically on chancy ones.
 ##
 ## Pure logic: no Node, scene, session or World DB. It reads its two [FighterProfile]s (never writing to them), the
-## [CombatConstants] and one seeded [RandomNumberGenerator]. Slices 1-3: the pulse loop (element and status ticks,
-## linh lực and health regeneration with Stagnation, the cleansing ward, fatigue, expiries and lockouts, shield
-## recharge), arts on cooldown with charges, Slowed Time, Silence, the soul lockout and costs from linh lực, health,
-## heart demon or divine sense; heal, restore, buff and cleanse arts; cast wards; the basic attack; companions;
-## evade and crit rolls; hit damage (U x c x M x crit x more x realm suppression, dampened), conversion, the added
-## Soul part, the [DefencePath]; debuff stacks and statuses on hit; soul attacks; the plain Down check.
-## Effect mods join in the Effect slice; where the sim adds a mod, this engine adds nothing yet (x + 0.0 is exact,
-## so parity holds).
+## [CombatConstants] and one seeded [RandomNumberGenerator]. Slices 1-4a: the pulse loop (element and status ticks,
+## regeneration with Stagnation, overflow, the cleansing ward, fatigue, expiries and lockouts, timed mods, counter
+## decay, per-pulse resets, shield recharge), arts on cooldown with guards, charges, Slowed Time, Silence, the soul
+## lockout and every cost path; heal, restore, buff and cleanse arts; cast wards; the basic attack; companions; evade
+## and crit; damage layers; hit damage, conversion, the Soul part and the [DefencePath]; debuffs and statuses on hit;
+## soul attacks; Effect mods at every stat the sim reads them and Effect events where the sim raises them
+## ([EffectRunner]); trigger hits within their budget. The Down step, stances, timers, summons and multi-step arts
+## come in later slices; the loader refuses what needs them.
 ##
 ## Usage:
 ## [codeblock]
@@ -27,34 +27,53 @@ enum Order { COIN, FIXED }
 const KIND_ART := &"art"
 const KIND_BASIC := &"basic"
 const KIND_COMPANION := &"companion"
+const KIND_TRIGGER := &"trigger"
 ## Sorts batches with no expiry after every timed one, as the sim's 1 << 40.
 const _NO_EXPIRY_KEY := 1 << 40
+## How long fired arts stay in the fire log (the horizon of fired_within reads), as the sim.
+const FIRE_LOG_MS := 30000
+## The layer mod keys, x1..x5.
+const LAYER_KEYS := ["L1", "L2", "L3", "L4", "L5"]
 
-## Side A and side B. Public for tests and the parts that receive them as arguments.
+## Side A and side B. Public for tests and the parts that receive the fight as an argument.
 var a: FighterState
 var b: FighterState
 ## The current time in ms.
 var t: int = 0
+## The constants and the fight's one random stream (read by [EffectRunner] and [DefencePath]).
+var k: CombatConstants
+var rng := RandomNumberGenerator.new()
+## The depth of events Effects are raising now (Combat Formulas G).
+var depth: int = 0
+## Counts hits and ticks, so a per-hit ward pays one fee per hit (all its parts) and one per tick.
+var hit_id: int = 0
 
-var _k: CombatConstants
-var _rng := RandomNumberGenerator.new()
 var _order: Order
 var _log_enabled: bool
 var _log: Array[FightLogRow] = []
-## Counts hits and ticks, so a per-hit ward pays one fee per hit (all its parts) and one per tick.
-var _hit_id: int = 0
+var _mod_keys: Dictionary = {}
+## True when either side has any Effects or art guards; without them every Effect read is 0 and no event has a listener, so
+## the hit path skips building contexts and events (the results are identical).
+var _fx: bool = false
 
 
 ## Sets up both sides and their opening timers, as the sim's Fight does. [param fight_seed] seeds the fight's only
 ## random stream (the caller derives it from the session stream).
-func _init(profile_a: FighterProfile, profile_b: FighterProfile, k: CombatConstants, fight_seed: int,
+func _init(profile_a: FighterProfile, profile_b: FighterProfile, constants: CombatConstants, fight_seed: int,
 		order: Order = Order.COIN, log_enabled: bool = false) -> void:
-	_k = k
-	_rng.seed = fight_seed
+	k = constants
+	rng.seed = fight_seed
 	_order = order
 	_log_enabled = log_enabled
+	for x in k.mod_keys:
+		_mod_keys[str(x)] = true
 	a = FighterState.new(profile_a, "A", k)
 	b = FighterState.new(profile_b, "B", k)
+	_fx = not (profile_a.effects.is_empty() and profile_b.effects.is_empty())
+	for p in [profile_a, profile_b]:
+		for art in p.arts:
+			if not art.guards.is_empty():   # guards read the fire log (since, fired_within)
+				_fx = true
 	_open(a)
 	_open(b)
 
@@ -62,10 +81,11 @@ func _init(profile_a: FighterProfile, profile_b: FighterProfile, k: CombatConsta
 func _open(s: FighterState) -> void:
 	var p: FighterProfile = s.p
 	for i in p.arts.size():
-		# the opening cooldown honours art speed, then opening haste (Combat 13)
-		var hz: float = 1.0 + p.art_speed_pct / 100.0
-		var cd: float = maxf(_k.cooldown_min, p.arts[i].cd / hz)
-		var first: float = maxf(_k.cooldown_min, cd / (1.0 + p.opening_haste_pct / 100.0))
+		var art: ArtDef = p.arts[i]
+		# the opening cooldown honours art speed (scoped to the art), then opening haste (Combat 13)
+		var hz: float = 1.0 + (p.art_speed_pct + m(s, "art_speed", art.ctx)) / 100.0
+		var cd: float = maxf(k.cooldown_min, art.cd / hz)
+		var first: float = maxf(k.cooldown_min, cd / (1.0 + (p.opening_haste_pct + m(s, "opening_haste", null)) / 100.0))
 		s.ready[i] = CombatConstants.ms(first)
 	s.basic_ready = CombatConstants.ms(basic_cd(s))
 	for j in p.companions.size():
@@ -74,8 +94,10 @@ func _open(s: FighterState) -> void:
 
 ## Runs the fight to a Down or the time limit and returns the result.
 func run() -> FightResult:
-	var next_pulse: int = _k.pulse_ms
-	var limit: int = _k.time_limit_ms
+	var next_pulse: int = k.pulse_ms
+	var limit: int = k.time_limit_ms
+	_event(a, "fight_start", {})
+	_event(b, "fight_start", {})
 	while true:
 		var tn: int = next_pulse
 		tn = _earliest(a, tn)
@@ -90,7 +112,7 @@ func run() -> FightResult:
 			else:
 				pulse(b)
 				pulse(a)
-			next_pulse += _k.pulse_ms
+			next_pulse += k.pulse_ms
 		if _a_first():
 			act(a)
 			act(b)
@@ -119,7 +141,7 @@ func _earliest(s: FighterState, tn: int) -> int:
 func _a_first() -> bool:
 	if _order == Order.FIXED:
 		return true
-	return _rng.randf() < 0.5
+	return rng.randf() < 0.5
 
 
 func _side(idx: int) -> FighterState:
@@ -130,9 +152,41 @@ func _idx(s: FighterState) -> int:
 	return 0 if s == a else 1
 
 
+## The other side.
+func foe_of(s: FighterState) -> FighterState:
+	return b if s == a else a
+
+
+## Whether [param key] is in the Effect vocabulary's mod keys.
+func is_mod_key(key: String) -> bool:
+	return _mod_keys.has(key)
+
+
+## Whether [param s] has any Effect mod source now (always-on mods, timed mods, banked payloads).
+func has_mods(s: FighterState) -> bool:
+	return not (s.p.always_by_key.is_empty() and s.temp_mods.is_empty() and s.banked.is_empty())
+
+
+## The Effect mods on [param s] for stat [param key] in context [param ctx] (0 when it has none).
+func m(s: FighterState, key: String, ctx: Variant) -> float:
+	if s.p.always_by_key.is_empty() and s.temp_mods.is_empty() and s.banked.is_empty():
+		return 0.0
+	return EffectRunner.mod(self, s, key, ctx)
+
+
+## Whether any Effect of [param s] listens to [param name].
+func listens(s: FighterState, name: String) -> bool:
+	return s.p.listeners.has(name)
+
+
+func _event(s: FighterState, name: String, ev: Dictionary) -> void:
+	if s.p.listeners.has(name):
+		EffectRunner.fire(self, s, name, ev)
+
+
 ## The basic attack's cooldown in seconds (Combat A2: basic speed).
 func basic_cd(s: FighterState) -> float:
-	return maxf(_k.cooldown_min, _k.basic_cooldown / (1.0 + s.p.basic_speed_pct / 100.0))
+	return maxf(k.cooldown_min, k.basic_cooldown / (1.0 + (s.p.basic_speed_pct + m(s, "basic_speed", null)) / 100.0))
 
 
 ## The Slowed Time factor on [param s]'s cooldowns (Effects AC-EF-72): 1 + slowed_time_pct per stack (up to the
@@ -140,49 +194,95 @@ func basic_cd(s: FighterState) -> float:
 func slow(s: FighterState) -> float:
 	if s.statuses.is_empty():
 		return 1.0
-	var n: int = mini(s.st("slowed_time"), _k.slowed_cap)
-	return 1.0 + _k.slowed_time_pct * float(n) * (1.0 - s.p.timer_resist / 100.0)
+	var n: float = minf(s.st("slowed_time"), float(k.slowed_cap))
+	return 1.0 + k.slowed_time_pct * n * (1.0 - (s.p.timer_resist + m(s, "timer_resist", null)) / 100.0)
 
 
-## One pulse for [param s] (Combat rule 10; Combat Defence & Healing; Status Catalogue): element debuff ticks, status
-## ticks, regeneration (Stagnation dampens), health regeneration, the cleansing ward, fatigue, expiries (with
-## lockouts), shield recharge. Public for mechanism tests.
+## The offence multiplier M with layer mods (Combat Formulas A): without layer mods, the fighter's M (x the art's);
+## with them, M scaled by the layer product with the mods over the product without, x1 soft-capped, each layer
+## capped. Ported as the sim has it, including its Sealed Meridian read of the attacker's foe.
+func layers_m(s: FighterState, art: ArtDef, ctx: Variant) -> float:
+	var mm: float = art.m_mult if art != null else 1.0
+	if not has_mods(s):
+		return s.p.m * mm
+	var adds := PackedFloat64Array()
+	var any := false
+	for i in 5:
+		var v: float = m(s, LAYER_KEYS[i], ctx)
+		adds.append(v)
+		if v != 0.0:
+			any = true
+	if not any:
+		return s.p.m * mm
+	var base: PackedFloat64Array = s.p.layers if not s.p.layers.is_empty() else PackedFloat64Array([0, 0, 0, 0, 0])
+	var nu := PackedFloat64Array()
+	for i in 5:
+		nu.append(base[i] + adds[i])
+	return s.p.m * mm * _m_of(s, nu) / _m_of(s, base)
+
+
+func _m_of(s: FighterState, x: PackedFloat64Array) -> float:
+	var foe: FighterState = foe_of(s)
+	var sealed: bool = foe.st("sealed_meridian") > 0.0
+	var sealed_layer: int = foe.statuses["sealed_meridian"].layer if sealed else -1
+	var prod: float = 1.0
+	for i in 5:
+		var xi: float = x[i]
+		if i == 0 and xi > k.l1_soft[0]:
+			xi = k.l1_soft[0] + k.l1_soft[1] * (xi - k.l1_soft[0])
+		if sealed and i >= 1 and i == sealed_layer:
+			xi = 0.0
+		prod *= 1.0 + minf(xi, k.layer_caps[i]) / 100.0
+	return prod
+
+
+## One pulse for [param s] (Combat rule 10; Combat Defence & Healing; Status Catalogue; Effects): element debuff
+## ticks, status ticks, regeneration (Stagnation dampens; overflow raised), health regeneration, the cleansing ward,
+## fatigue, expiries (with lockouts), timed mods, counter decay, per-pulse resets, shield recharge, the pulse event.
+## Public for mechanism tests.
 func pulse(s: FighterState) -> void:
 	# element ticks (Burn, Poison), each batch at its source's offence and stack power
 	for x in s.debuffs.duplicate():
-		var tab: Dictionary = _k.debuff.get(x.el, {})
+		var tab: Dictionary = k.debuff.get(x.el, {})
 		var c: float = float(tab.get("burn", 0.0)) + float(tab.get("poison", 0.0))
 		if c != 0.0:
 			var src: FighterState = _side(x.src_idx)
-			var amount: float = src.u * c * x.n * src.p.m * (1.0 + src.bsum("dmg")) * _supp(src, s) * x.power
-			tick(src, s, amount, StringName(str(_k.tick_type[x.el])), x.el)
+			var amount: float = src.u * c * x.n * src.p.m * (1.0 + src.bsum("dmg")) \
+					* _supp(src, s, m(src, "pierce", null) / 100.0) * x.power
+			tick(src, s, amount, StringName(str(k.tick_type[x.el])), x.el)
 	# status ticks
 	for sid in s.statuses.keys():
 		var stt: FighterState.StatusState = s.statuses[sid]
-		var d: Dictionary = _k.status[sid]
-		if str(d.kind) == "tick" and stt.stacks > 0:
-			var src: FighterState = _side(stt.src_idx)
-			var amount: float = src.u * float(d.c_tick) * float(stt.stacks) * src.p.m * _supp(src, s)
+		var d: Dictionary = k.status[sid]
+		if str(d.kind) == "tick" and stt.stacks > 0.0:
+			var src2: FighterState = _side(stt.src_idx)
+			var amount2: float = src2.u * float(d.c_tick) * stt.stacks * src2.p.m * _supp(src2, s, m(src2, "pierce", null) / 100.0)
 			if bool(d.get("on_qi", false)):
-				s.qi = maxf(0.0, s.qi - amount)
-				src.dealt += amount
+				s.qi = maxf(0.0, s.qi - amount2)
+				src2.dealt += amount2
 				if _log_enabled:
-					_row(FightLogRow.Kind.QI_TICK, src.label, &"", StringName(sid), [amount, s.hp, s.qi])
+					_row(FightLogRow.Kind.QI_TICK, src2.label, &"", StringName(sid), [amount2, s.hp, s.qi])
 			else:
-				tick(src, s, amount, StringName(str(d.dtype)), sid)
+				tick(src2, s, amount2, StringName(str(d.dtype)), sid)
 			if d.get("standing") != null and float(d.standing) != 0.0:
-				var fee: float = float(d.standing) * src.qi_max()
-				if src.qi < fee:
-					stt.stacks = 0
+				var fee: float = float(d.standing) * src2.qi_max()
+				if src2.qi < fee:
+					stt.stacks = 0.0
 				else:
-					src.qi -= fee
+					src2.qi -= fee
 	# regeneration; Stagnation dampens both pools by regen_dampen % per stack
-	var stag: float = 1.0 + float(s.st("stagnation")) * _k.stagnation_dampen / 100.0
-	var kk: float = _k.regen_k
-	var bonus: float = s.p.regen_bonus + s.bsum("regen")
-	var regen: float = s.qi_max() * (_k.regen_base + kk * log(1.0 + maxf(0.0, bonus) / kk)) / stag
+	var stag: float = 1.0 + s.st("stagnation") * k.stagnation_dampen / 100.0
+	var kk: float = k.regen_k
+	var bonus: float = s.p.regen_bonus + s.bsum("regen") + m(s, "regen", null)
+	var regen: float = s.qi_max() * (k.regen_base + kk * log(1.0 + maxf(0.0, bonus) / kk)) / stag
+	if m(s, "no_regen", null) > 0.0:   # Water Table's closing: no linh lực regeneration in fights
+		regen = 0.0
+	var room: float = s.qi_use() - s.qi
+	if regen > room and listens(s, "overflow"):
+		_event(s, "overflow", {"amount": regen - room, "share": (regen - room) / s.qi_max()})
 	s.qi = minf(s.qi_use(), s.qi + regen)
-	var hreg: float = s.hp_max * (s.p.hregen + s.bsum("hregen")) * s.p.bs_mult / stag
+	var hreg: float = s.hp_max * (s.p.hregen + s.bsum("hregen") + m(s, "hregen", null)) * s.p.bs_mult / stag \
+			* (1.0 + m(s, "hregen_inc", null) / 100.0)
 	if hreg > 0.0:
 		heal(s, hreg)
 	# the cleansing ward: stacks per pulse for a fee each, earliest expiry first; then a share of every batch
@@ -202,15 +302,15 @@ func pulse(s: FighterState) -> void:
 		var kept: Array[FighterState.StackBatch] = []
 		for x in s.debuffs:
 			x.n *= (1.0 - s.p.cleanse_share)
-			if x.n >= _k.cleanse_min_stacks:
+			if x.n >= k.cleanse_min_stacks:
 				kept.append(x)
 		s.debuffs = kept
 		s.touch_debuffs()
 	# fatigue
-	if t >= _k.fatigue_start_ms:
+	if t >= k.fatigue_start_ms:
 		# pulses fall on whole seconds, so this is a whole number and Python's half-to-even round() never differs
-		var n: int = roundi(float(t - _k.fatigue_start_ms) / 1000.0)
-		var f: float = s.u * _k.fatigue_units * pow(float(1 + n), _k.fatigue_pow) * (s.g if _k.fatigue_by_realm else 1.0)
+		var nf: int = roundi(float(t - k.fatigue_start_ms) / 1000.0)
+		var f: float = s.u * k.fatigue_units * pow(float(1 + nf), k.fatigue_pow) * (s.g if k.fatigue_by_realm else 1.0)
 		s.hp -= f
 		s.fat += f
 	# expiries: stack batches, then statuses (a status with a lockout cannot return until it ends)
@@ -223,19 +323,39 @@ func pulse(s: FighterState) -> void:
 	for sid in s.statuses.keys():
 		var stt2: FighterState.StatusState = s.statuses[sid]
 		if stt2.until != -1 and stt2.until <= t:
-			var lock: Variant = _k.status[sid].get("lockout")
+			var lock: Variant = k.status[sid].get("lockout")
 			if lock != null and float(lock) != 0.0 and not stt2.no_lockout:
 				s.lockouts[sid] = t + CombatConstants.ms(float(lock))
 			s.statuses.erase(sid)
+	if not s.temp_mods.is_empty():
+		var keep_m: Array[FighterState.TempMod] = []
+		for tm in s.temp_mods:
+			if tm.until > t:
+				keep_m.append(tm)
+		s.temp_mods = keep_m
+	# self-counter decay
+	for cid in s.p.counter_def:
+		var dec: float = float(s.p.counter_def[cid].get("decay_per_pulse", 0))
+		if dec != 0.0:
+			s.counters[cid] = maxf(0.0, float(s.counters[cid]) - dec)
+	# per-pulse limits reset
+	s.trig_count = 0
+	s.trig_dmg = 0.0
+	s.direct_dmg = 0.0
+	for eid in s.eff_state:
+		var es: PackedInt64Array = s.eff_state[eid]
+		es[1] = 0
+		s.eff_state[eid] = es
 	# ward shield recharge: standing bars refill a share after a quiet spell (Combat Defence & Healing rule 9)
 	for w in s.wshields:
 		var cap: float = w.def.size * s.qi_base
-		if w.def.standing and t - w.quiet_since >= _k.recharge_delay_ms and w.left < cap:
-			w.left = minf(cap, w.left + _k.shield_recharge * cap)
+		if w.def.standing and t - w.quiet_since >= k.recharge_delay_ms and w.left < cap:
+			w.left = minf(cap, w.left + k.shield_recharge * cap)
 			if w.def.pieces > 1:
 				w.pieces_left = mini(w.def.pieces, w.pieces_left + 1)
 	if _log_enabled:
 		_row(FightLogRow.Kind.PULSE, s.label, &"", &"", [s.hp, s.qi])
+	_event(s, "pulse", {})
 
 
 func _live(batches: Array[FighterState.StackBatch]) -> Array[FighterState.StackBatch]:
@@ -261,21 +381,32 @@ static func _sort_by_until(batches: Array[FighterState.StackBatch]) -> void:
 		batches[j + 1] = x
 
 
-## Heals [param s] by [param amount] before healing modifiers, up to health_max; Withering halves it, and with
-## Crossing the Line it lands as damage instead (Combat Defence & Healing 19). Public for mechanism tests.
+## Heals [param s] by [param amount] (Combat Defence & Healing E, 19): healing and healing taken (floored with
+## curses), Withering (with Crossing the Line it lands as damage), a heal cap from Effects, then heal_restored.
+## Public for mechanism tests.
 func heal(s: FighterState, amount: float) -> void:
-	amount *= 1.0 + s.p.healing
-	if s.st("withering") > 0:
-		amount *= 1.0 + _k.withering_heal_taken
+	amount *= 1.0 + s.p.healing + m(s, "healing", null) / 100.0
+	amount *= maxf(1.0 - k.curse_heal_taken_max, 1.0 + m(s, "heal_taken", null) / 100.0)
+	if s.st("withering") > 0.0:
+		amount *= 1.0 + k.withering_heal_taken
 		var w: FighterState.StatusState = s.statuses["withering"]
 		if w.crossing:
 			s.hp -= amount
 			_side(w.src_idx).dealt += amount
 			return
-	var got: float = minf(amount, s.hp_max - s.hp)
+	var top: float = s.hp_max
+	var cap: float = m(s, "heal_cap", null)
+	if cap > 0.0:   # Whetstone Vow's closing: never heal above that share of maximum
+		top = minf(top, cap * s.hp_max)
+	var got: float = minf(amount, top - s.hp)
 	if got > 0.0:
 		s.hp += got
 		s.healed += got
+		if listens(s, "heal_restored"):
+			var ev: Dictionary = (s.cur_ev as Dictionary).duplicate() if s.cur_ev is Dictionary else {}
+			ev["amount"] = got
+			ev["share"] = got / s.hp_max
+			_event(s, "heal_restored", ev)
 
 
 ## [param s] acts at the current time: arts ready in slot order, the basic attack, companions. Public for
@@ -285,44 +416,61 @@ func act(s: FighterState) -> void:
 		return
 	if not s.xwards.is_empty():
 		cast_wards(s)
-	var o: FighterState = b if s == a else a
+	var o: FighterState = foe_of(s)
 	var p: FighterProfile = s.p
 	var speed_base: float = 1.0 + s.bsum("speed") + p.art_speed_pct / 100.0
 	for i in p.arts.size():
 		if t < s.ready[i]:
 			continue
 		var art: ArtDef = p.arts[i]
-		if not art.tags.is_empty() and s.st("silence") > 0:
+		if not art.tags.is_empty() and s.st("silence") > 0.0:
 			var sil: FighterState.StatusState = s.statuses["silence"]
 			if sil.tag != "" and art.tags.has(StringName(sil.tag)):
 				continue
+		if not art.guards.is_empty() and not EffectRunner.holds(self, s, art.guards, null):
+			continue
 		if art.soul_pct != 0.0 and t < s.soul_ready:
 			continue
 		if not pay(s, art):
 			continue
-		var cd: float = maxf(_k.cooldown_min, art.cd / speed_base) * slow(s)
+		var speed: float = speed_base + m(s, "art_speed", art.ctx) / 100.0
+		var cd: float = maxf(k.cooldown_min, art.cd / speed) * slow(s)
 		s.charges[i] -= 1
 		if s.charges[i] > 0:
-			s.ready[i] = t + _k.cooldown_min_ms
+			s.ready[i] = t + k.cooldown_min_ms
 		else:
 			s.ready[i] = t + CombatConstants.ms(cd)
 			s.charges[i] = art.charges
 		s.fired[i] += 1
+		if _fx:   # only Effect reads (fired_within, since) look at the fire log
+			s.fire_log.append([t, str(art.id), art.tags_s, art.group])
+			var log_keep: Array = []
+			for row in s.fire_log:
+				if t - int(row[0]) <= FIRE_LOG_MS:
+					log_keep.append(row)
+			s.fire_log = log_keep
 		if art.soul_pct != 0.0 or art.soul_part != 0.0:
-			s.soul_ready = t + _k.soul_lockout_ms
+			s.soul_ready = t + k.soul_lockout_ms
 		if art.buff_n != 0.0:
 			add_stacks(s, s, str(art.element), art.buff_n, art.buff_dur, true)
 		if art.cleanse != 0:
 			cleanse(s, art.cleanse)
 		if art.heal != 0.0:
 			var got0: float = s.healed
-			heal(s, s.u * art.heal * _k.health_mult)
+			heal(s, s.u * art.heal * k.health_mult)
 			if s.healed > got0:
 				s.qi = minf(s.qi_use(), s.qi + s.last_cost)
 		if art.qi_restore != 0.0:
 			s.qi = minf(s.qi_use(), s.qi + art.qi_restore * s.qi_max())
 		if _log_enabled:
 			_row(FightLogRow.Kind.ART, s.label, &"", art.id, [s.last_cost, s.hp, s.qi])
+		var ev: Dictionary = {}
+		if _fx:
+			ev = {"art_id": str(art.id), "slot": i, "cost": s.last_cost, "tags": art.tags_s, "element": str(art.element),
+				"dtype": str(art.dtype), "kind": "art", "hp_paid_share": s.hp_paid / s.hp_max}
+		s.cur_ev = ev
+		s.last_art = i
+		_event(s, "art_fired", ev)
 		if art.soul_pct != 0.0:
 			soul_hit(s, o, art)
 		elif art.c != 0.0:
@@ -331,24 +479,30 @@ func act(s: FighterState) -> void:
 			else:
 				for sh in art.split:
 					hit(s, o, art.c * sh, art.dtype, art, KIND_ART)
+		EffectRunner.spend_banked(self, s, "art_fired", ev)
+		s.cur_ev = null
 	while t >= s.basic_ready:
-		hit(s, o, 1.0 + p.basic_coef_add, &"phys", null, KIND_BASIC)
+		hit(s, o, 1.0 + p.basic_coef_add + m(s, "basic_coef", null), &"phys", null, KIND_BASIC)
 		s.basic_ready += CombatConstants.ms(basic_cd(s) * slow(s))
 	for j in p.companions.size():
 		var comp: FighterProfile.Companion = p.companions[j]
 		while t >= s.comp_ready[j]:
 			hit(s, o, comp.c, comp.dtype, null, KIND_COMPANION)
-			s.comp_ready[j] += CombatConstants.ms(maxf(_k.cooldown_min, comp.cd))
+			var ccd: float = comp.cd / (1.0 + m(s, "companion_speed", null) / 100.0)
+			s.comp_ready[j] += CombatConstants.ms(maxf(k.cooldown_min, ccd))
 
 
-## Pays [param art]'s cost for [param s] (Combat E, R12): Ice stacks and Heavy Breath raise it; a heart-demon art
-## pays from tâm ma, a divine-sense art spends a share of thần thức; otherwise linh lực, the hp_pay share and the
-## art's health cost. Returns false, paying nothing, when it cannot. Public for mechanism tests.
+## Pays [param art]'s cost for [param s] (Combat E, R12; Effects): Ice stacks and Heavy Breath raise it, cost
+## reduction lowers it; a heart-demon art pays from tâm ma, a divine-sense art spends thần thức; otherwise linh lực,
+## the hp_pay share, art_cost_health, Blood Casting and the art's health cost (halved by hp_cost_red, paid first by
+## the body shield with Shield Pays the Blood); foe_cost_extra raised on the Ice share. Returns false, paying
+## nothing, when it cannot. Public for mechanism tests.
 func pay(s: FighterState, art: ArtDef) -> bool:
 	var p: FighterProfile = s.p
 	s.hp_paid = 0.0
-	var cost_up: float = (1.0 + s.dsum("cost_up")) * (1.0 + float(s.st("heavy_breath")) * _k.heavy_cost_up)
-	var cost: float = art.cost * _k.cost_scale * (1.0 - minf(_k.cost_red_cap, p.cost_red)) * cost_up * s.qi_base
+	var cost_up: float = (1.0 + s.dsum("cost_up")) * (1.0 + s.st("heavy_breath") * k.heavy_cost_up)
+	var cost: float = art.cost * k.cost_scale * (1.0 - minf(k.cost_red_cap, p.cost_red + m(s, "cost_red", art.ctx))) \
+			* cost_up * s.qi_base
 	if art.pool == &"tam_ma":
 		var need: float = cost / s.qi_max() * 100.0
 		if s.tam_ma < need:
@@ -364,40 +518,77 @@ func pay(s: FighterState, art: ArtDef) -> bool:
 		s.ts_spent += share
 		s.last_cost = 0.0
 		return true
-	if art.hp_cost != 0.0 and s.hp - art.hp_cost * 1.0 * s.hp_max < _k.pay_keep_health:
+	var hp_red: float = 1.0 - minf(1.0, m(s, "hp_cost_red", art.ctx))
+	var shield_pays: bool = m(s, "shield_pays", null) > 0.0
+	if art.hp_cost != 0.0 and s.hp - art.hp_cost * hp_red * s.hp_max < k.pay_keep_health and not shield_pays:
 		return false
 	var qi_part: float = cost * (1.0 - p.hp_pay)
 	var hp_part: float = cost * p.hp_pay * (s.hp_max / s.qi_base)
+	var x_hp: float = m(s, "art_cost_hp", art.ctx)
+	if x_hp > 0.0:
+		# art_cost_health_pct (Combat E, #44 B4): linh lực pays cost / (1 + X/100), health the rest point for point
+		var shifted: float = qi_part - qi_part / (1.0 + x_hp / 100.0)
+		qi_part -= shifted
+		hp_part += shifted
+	var blood: bool = s.qi + 1e-6 < qi_part and m(s, "blood_cast", null) > 0.0
+	if blood:   # Blood Casting: the shortfall is paid in health, 1 for 1; it may put you Down
+		hp_part += qi_part - maxf(0.0, s.qi)
+		qi_part = maxf(0.0, s.qi)
 	if s.qi + 1e-6 < qi_part:
 		return false
-	var hp_total: float = hp_part + art.hp_cost * s.hp_max
-	if hp_total > 0.0 and s.hp - hp_total < _k.pay_keep_health:
+	var hp_total: float = (hp_part + art.hp_cost * s.hp_max) * hp_red
+	var from_shield: float = minf(s.body_bar, hp_total) if shield_pays else 0.0
+	if hp_total - from_shield > 0.0 and s.hp - (hp_total - from_shield) < k.pay_keep_health and not blood:
 		return false
 	s.qi -= qi_part
-	s.hp -= hp_total
+	s.body_bar -= from_shield
+	s.hp -= hp_total - from_shield
 	s.hp_paid = hp_total
+	if listens(foe_of(s), "foe_cost_extra") and qi_part > 0.0:
+		var ice: float = 0.0
+		for x in s.debuffs:
+			if x.el == "ice":
+				ice += float(k.debuff.ice.cost_up) * x.n * x.power
+		if ice > 0.0:   # the part of this cost the foe's Ice stacks added (Toll Taker)
+			_event(foe_of(s), "foe_cost_extra", {"amount": qi_part * ice / (1.0 + s.dsum("cost_up"))})
 	s.spent += qi_part
 	s.last_cost = qi_part
 	return true
 
 
 ## One hit of coefficient [param c] from [param att] into [param dfn]: the evade roll, the crit roll (not for
-## companions), D = U x c x M x crit x more x supp (Combat Formulas A, I; element stacks), Earth's dampening, the
-## added Soul part split off, the [DefencePath] (per converted part), the Soul part against soul resistance, then
-## on-hit sustain, debuff stacks and statuses. Returns the health removed. Public for mechanism tests.
-func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art: ArtDef, kind: StringName) -> float:
+## companions or triggers), D = U x c x M x crit x more x supp (Combat Formulas A, H, I; element stacks; Effect mods),
+## dampening, the added Soul part split off, the [DefencePath] (per converted part), the Soul part against soul
+## resistance, on-hit sustain, debuff stacks and statuses, then hit_landed, crit, was_hit and hit_stopped (a trigger
+## only below the trigger depth) and payloads held until hit_landed. Returns the health removed.
+## Public for mechanism tests.
+func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art: ArtDef, kind: StringName,
+		trig: bool = false) -> float:
+	var ctx: Dictionary
+	if not _fx:
+		ctx = {}   # no Effects: nothing reads the context
+	elif art != null:
+		ctx = art.ctx.duplicate()
+		ctx["dtype"] = str(dtype)
+	else:
+		ctx = {"dtype": str(dtype), "element": "", "tags": [str(kind)], "kind": str(kind), "art_id": str(kind)}
+	var am: bool = has_mods(att)
+	var dm: bool = has_mods(dfn)
 	# evade, then crit: both rolls are drawn whenever they apply, so a zero chance never shifts the stream
-	if _rng.randf() < evade_chance(att, dfn):
+	if rng.randf() < evade_chance(att, dfn):
+		_event(dfn, "evaded", ctx)
+		_event(att, "was_evaded", ctx)
 		return 0.0
 	var is_crit := false
-	if kind != KIND_COMPANION:
-		is_crit = _rng.randf() < crit_chance(att, dfn)
-	var crit: float = (att.p.crit_mult + dfn.dsum("critdmg_taken")) if is_crit else 1.0
+	if kind != KIND_COMPANION and not trig:
+		is_crit = rng.randf() < crit_chance(att, dfn, ctx)
+	var crit: float = (att.p.crit_mult + (m(att, "crit_mult", ctx) if am else 0.0) / 100.0 + dfn.dsum("critdmg_taken")) if is_crit else 1.0
 	var phys: bool = dtype == &"phys"
 	var more: float = 1.0 + att.bsum("dmg") + ((att.bsum("dmg_phys") + dfn.dsum("phys_taken")) if phys else 0.0)
-	var m: float = att.p.m if kind == KIND_COMPANION else att.p.m * (art.m_mult if art != null else 1.0)
-	var d: float = att.u * c * m * crit * more * _supp(att, dfn)
-	var damp: float = dfn.bsum("phys_dampen") if phys else 0.0
+	more *= 1.0 + (m(att, "dmg_more", ctx) if am else 0.0)
+	var mm: float = att.p.m if kind == KIND_COMPANION else layers_m(att, art, ctx)
+	var d: float = att.u * c * mm * crit * more * _supp(att, dfn, (m(att, "pierce", null) if am else 0.0) / 100.0)
+	var damp: float = (dfn.bsum("phys_dampen") if phys else 0.0) + (m(dfn, "dampen_taken", ctx) if dm else 0.0) / 100.0
 	if damp != 0.0:
 		d /= 1.0 + damp
 	var d_in: float = d
@@ -405,26 +596,34 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 	if art != null and art.soul_part != 0.0:
 		soul_d = d * art.soul_part
 		d -= soul_d
-	_hit_id += 1
+	hit_id += 1
 	var dealt: float
 	if art != null and art.convert_share != 0.0:
-		# conversion: each part meets its own type's defence (Combat Damage Types)
+		# conversion: each part meets its own type's defence (Combat Damage Types); the second part's context is a copy
 		var cd_part: float = d * art.convert_share
-		dealt = DefencePath.defend(_k, att, dfn, d - cd_part, dtype, art, false, t, _hit_id)
-		dealt += DefencePath.defend(_k, att, dfn, cd_part, art.convert_to, art, false, t, _hit_id)
+		dealt = DefencePath.defend(self, att, dfn, d - cd_part, dtype, art, ctx, false)
+		var ctx2: Dictionary = ctx.duplicate() if _fx else {}
+		if _fx:
+			ctx2["dtype"] = str(art.convert_to)
+		dealt += DefencePath.defend(self, att, dfn, cd_part, art.convert_to, art, ctx2, false)
 	else:
-		dealt = DefencePath.defend(_k, att, dfn, d, dtype, art, false, t, _hit_id)
+		dealt = DefencePath.defend(self, att, dfn, d, dtype, art, ctx, false)
 	if soul_d != 0.0:
-		var sr: float = _soul_res(dfn)
+		var sr: float = _soul_res(att, dfn)
 		var sd: float = soul_d / (1.0 + sr / 100.0) if sr >= 0.0 else soul_d * (1.0 + absf(sr) / 100.0)
 		dfn.hp -= sd
 		dealt += sd
 	att.dealt += dealt
-	att.direct_dmg += dealt
-	var gain: float = att.p.gain_on_hit * att.qi_max() + att.p.leech_qi * dealt
+	if trig:
+		att.trig_dmg += dealt
+	else:
+		att.direct_dmg += dealt
+	var gain: float = (att.p.gain_on_hit + (m(att, "gain_on_hit", null) if am else 0.0) / 100.0) * att.qi_max() \
+			+ (att.p.leech_qi + (m(att, "leech_qi", null) if am else 0.0) / 100.0) * dealt
 	att.qi = minf(att.qi_use(), att.qi + gain)
-	if att.p.leech_hp != 0.0:
-		heal(att, att.p.leech_hp * dealt)
+	var lh: float = att.p.leech_hp + (m(att, "leech_hp", null) if am else 0.0) / 100.0
+	if lh != 0.0:
+		heal(att, lh * dealt)
 	if _log_enabled:
 		var id: StringName = art.id if art != null else kind
 		_row(FightLogRow.Kind.HIT, att.label, kind, id, [d_in, dealt, dfn.hp, dfn.qi, att.hp, att.qi])
@@ -433,32 +632,51 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 	if art != null:
 		for spec in art.statuses:
 			apply_status(att, dfn, spec)
+	if _fx and (not trig or depth < k.trig_depth):
+		var ev: Dictionary = ctx.duplicate()
+		ev["amount"] = dealt
+		ev["crit"] = is_crit
+		_event(att, "hit_landed", ev)
+		if is_crit:
+			var qc: float = m(att, "qi_on_crit", ctx) / 100.0   # linh_luc_on_crit_pct: pp of maximum per crit (#44 B3)
+			if qc != 0.0:
+				att.qi = minf(att.qi_use(), att.qi + qc * att.qi_max())
+			_event(att, "crit", ev)
+		_event(dfn, "was_hit", ev)
+		if bool(ev.get("stopped", false)):
+			_event(dfn, "hit_stopped", ev)
+		if kind == KIND_ART or kind == KIND_BASIC:
+			EffectRunner.spend_banked(self, att, "hit_landed", ev)
 	return dealt
 
 
 ## A tick of [param amount] and type [param dtype] from [param src]'s status or element [param sid] into
-## [param s]: through the [DefencePath] as a tick (no minimum, no block, shields only where they stop ticks).
-## Returns the health removed.
+## [param s]: through the [DefencePath] as a tick (no minimum; block only through tick_block; shields only where they
+## stop ticks), then tick_dealt. Returns the health removed.
 func tick(src: FighterState, s: FighterState, amount: float, dtype: StringName, sid: String) -> float:
-	_hit_id += 1
-	var dealt: float = DefencePath.defend(_k, src, s, amount, dtype, null, true, t, _hit_id)
+	hit_id += 1
+	var dealt: float = DefencePath.defend(self, src, s, amount, dtype, null, {"dtype": str(dtype)} if _fx else {}, true)
 	src.dealt += dealt
 	if _log_enabled:
 		_row(FightLogRow.Kind.TICK, src.label, &"", StringName(sid), [amount, dealt, s.hp, s.qi])
+	if listens(src, "tick_dealt"):
+		_event(src, "tick_dealt", {"amount": dealt, "status": sid,
+			"element": sid if sid in CombatConstants.ELEMENTS else "", "dtype": str(dtype)})
 	return dealt
 
 
 ## A soul attack by [param att] with [param art] (Combat 24, E2): rho from both sides' divine sense left and the
 ## defender's soul resistance; no effect below rho_min; else a share of the defender's health and linh lực, capped
-## at soul_cap. Returns the health removed. Public for mechanism tests.
+## at soul_cap; then soul_hit. Returns the health removed. Public for mechanism tests.
 func soul_hit(att: FighterState, dfn: FighterState, art: ArtDef) -> float:
 	var ds_att: float = att.p.divine_sense * (1.0 - att.ts_spent)
 	var ds_def: float = dfn.p.divine_sense * (1.0 - dfn.ts_spent)
-	var sr: float = _soul_res(dfn)
+	var sr: float = _soul_res(att, dfn)
 	var rho: float = ds_att / (ds_def * (1.0 + sr / 100.0)) if sr >= 0.0 else ds_att * (1.0 + absf(sr) / 100.0) / ds_def
-	if rho < _k.rho_min:
+	if rho < k.rho_min:
 		return 0.0
-	var pct: float = minf(art.soul_pct * (1.0 + att.p.x_soul / 100.0) * pow(rho, _k.soul_beta) * _supp(att, dfn), _k.soul_cap)
+	var pct: float = minf(art.soul_pct * (1.0 + (att.p.x_soul + m(att, "x_soul", art.ctx)) / 100.0) * pow(rho, k.soul_beta)
+			* _supp(att, dfn, m(att, "pierce", null) / 100.0), k.soul_cap)
 	var lh: float = pct * dfn.hp_max
 	var lq: float = pct * dfn.qi_max()
 	dfn.hp -= lh
@@ -467,23 +685,31 @@ func soul_hit(att: FighterState, dfn: FighterState, art: ArtDef) -> float:
 	att.direct_dmg += lh
 	if _log_enabled:
 		_row(FightLogRow.Kind.SOUL, att.label, &"", art.id, [lh, lq, dfn.hp, dfn.qi])
+	if listens(att, "soul_hit"):
+		_event(att, "soul_hit", {"amount": lh, "qi": lq, "tags": art.tags_s, "element": str(art.element),
+			"art_id": str(art.id), "kind": "art", "dtype": "soul"})
 	return lh
 
 
-func _soul_res(dfn: FighterState) -> float:
-	return dfn.p.soul_res + float(dfn.st("slackened_soul")) * _k.slackened_soul_res
+## The defender's soul resistance against [param att]: its own, its Effect mods, Slackened Soul, and the attacker's
+## foe_soul_res (Lamp-Lit Reading).
+func _soul_res(att: FighterState, dfn: FighterState) -> float:
+	return dfn.p.soul_res + m(dfn, "soul_res", null) + dfn.st("slackened_soul") * k.slackened_soul_res \
+			+ m(att, "foe_soul_res", null)
 
 
-## Grants [param n] stacks of element [param el] from [param src] to [param target] (Effects rule 9a): a buff batch
-## or a debuff batch, lasting [param dur] seconds (-1: the fight) scaled by the source's stack duration %, at least
-## min_batch. Public for mechanism tests.
+## Grants [param n] stacks of element [param el] from [param src] to [param target] (Effects rule 9a): plus the
+## source's stack_grant, lasting [param dur] seconds (-1: the fight) scaled by its stack duration %, at least
+## min_batch; a debuff raises status_applied. Public for mechanism tests.
 func add_stacks(src: FighterState, target: FighterState, el: String, n: float, dur: float, is_buff: bool) -> void:
 	if n == 0.0:
 		return
 	var kind: String = "buff" if is_buff else "debuff"
+	if has_mods(src):
+		n += float(int(m(src, "stack_grant", {"element": el, "kind": kind})))
 	if dur >= 0.0 and not src.p.stack_dur.is_empty():
 		dur = dur * (1.0 + StackMath.stack_pct(src.p.stack_dur, el, kind) / 100.0)
-	var until: int = -1 if dur < 0.0 else t + CombatConstants.ms(maxf(_k.min_batch, dur))
+	var until: int = -1 if dur < 0.0 else t + CombatConstants.ms(maxf(k.min_batch, dur))
 	var batch := FighterState.StackBatch.new()
 	batch.el = el
 	batch.n = n
@@ -492,53 +718,58 @@ func add_stacks(src: FighterState, target: FighterState, el: String, n: float, d
 	batch.src_p = src.p
 	batch.length = -1 if until == -1 else until - t
 	# a buff's power reads the holder's profile, a debuff's its source's (the sim's bsum / dsum)
-	batch.power = StackMath.stack_power(_k, target.p if is_buff else src.p, el, kind)
+	batch.power = StackMath.stack_power(k, target.p if is_buff else src.p, el, kind)
 	if is_buff:
 		target.buffs.append(batch)
 		target.touch_buffs()
+		if _log_enabled:
+			_row(FightLogRow.Kind.STACKS, src.label, &"", StringName(el), [n, float(until), 1.0], target.label)
 	else:
 		target.debuffs.append(batch)
 		target.touch_debuffs()
-	if _log_enabled:
-		_row(FightLogRow.Kind.STACKS, src.label, &"", StringName(el), [n, float(until), 1.0 if is_buff else 0.0],
-				target.label)
+		if _log_enabled:
+			_row(FightLogRow.Kind.STACKS, src.label, &"", StringName(el), [n, float(until), 0.0], target.label)
+		_event(src, "status_applied", {"element": el, "stacks": n})
 
 
 ## Applies status [param spec] from [param src] to [param target] (Status Catalogue; Combat Formulas F; Effects
-## R22): nothing during its lockout; a chance below 1 is rolled within the chance clamp; a new curse needs a free
-## curse slot; curses last 1 to curse_duration_max pulses; stacks add up to the cap; the duration restarts.
-## Public for mechanism tests.
+## R22): nothing during its lockout; status resistance and a chance below 1 roll within the chance clamp; a new curse
+## needs a free curse slot; the duration scales with the source's status_dur, curses last 1 to curse_duration_max
+## pulses; stacks add up to the cap; the duration restarts; then status_applied. Public for mechanism tests.
 func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> void:
 	var sid: String = spec.id
-	var d: Dictionary = _k.status[sid]
+	var d: Dictionary = k.status[sid]
 	if t < int(target.lockouts.get(sid, -1)):
 		return
 	var is_curse: bool = str(d.kind) == "curse"
+	var sctx: Dictionary = {"status": sid, "kind": str(d.kind), "tags": [str(d.kind), sid]} if _fx else {}
 	var chance: float = spec.chance
-	var resist: float = 0.0   # status resistance arrives with Effect mods
+	var resist: float = m(target, "status_resist", sctx) / 100.0
 	if chance <= 0.0:
 		return
 	if not (chance >= 1.0 and resist <= 0.0):
-		if _rng.randf() >= minf(_k.status_chance_max, maxf(_k.status_chance_min, chance * (1.0 - resist))):
+		if rng.randf() >= minf(k.status_chance_max, maxf(k.status_chance_min, chance * (1.0 - resist))):
 			return
 	if is_curse and not target.statuses.has(sid):
 		var live: int = 0
 		for other in target.statuses:
-			if str(_k.status[other].kind) == "curse":
+			if str(k.status[other].kind) == "curse":
 				live += 1
-		if live >= _k.curse_slots:
+		if live >= k.curse_slots:
 			return
 	var dur_v: Variant = spec.extra["dur"] if spec.extra.has("dur") else d.get("dur")
 	var has_dur: bool = dur_v != null
 	var dur: float = float(dur_v) if has_dur else 0.0
+	if has_dur:
+		dur = dur * (1.0 + m(src, "status_dur", sctx) / 100.0)
 	if has_dur and is_curse:
-		dur = maxf(1.0, minf(_k.curse_duration_max, dur))
+		dur = maxf(1.0, minf(k.curse_duration_max, dur))
 	var st: FighterState.StatusState = target.statuses.get(sid)
 	var cap_v: Variant = spec.extra["cap"] if spec.extra.has("cap") else d.get("cap")
 	if st == null:
 		st = FighterState.StatusState.new()
 		target.statuses[sid] = st
-	st.stacks = st.stacks + spec.stacks if cap_v == null else mini(int(cap_v), st.stacks + spec.stacks)
+	st.stacks = st.stacks + spec.stacks if cap_v == null else minf(float(cap_v), st.stacks + spec.stacks)
 	st.src_idx = _idx(src)
 	st.until = -1 if not has_dur else t + CombatConstants.ms(dur)
 	if spec.extra.has("layer"):
@@ -550,12 +781,12 @@ func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> 
 	if spec.extra.has("no_lockout"):
 		st.no_lockout = bool(spec.extra.no_lockout)
 	if _log_enabled:
-		_row(FightLogRow.Kind.STATUS, src.label, &"", StringName(sid), [float(st.stacks), float(st.until)],
-				target.label)
+		_row(FightLogRow.Kind.STATUS, src.label, &"", StringName(sid), [st.stacks, float(st.until)], target.label)
+	_event(src, "status_applied", {"status": sid, "stacks": spec.stacks})
 
 
 ## Cleanses up to [param n] debuff stacks from [param s], earliest expiry first (of element [param el] only, when
-## given). Returns the stacks removed. Public for mechanism tests.
+## given); the foe hears cleansed. Returns the stacks removed. Public for mechanism tests.
 func cleanse(s: FighterState, n: int, el: String = "") -> float:
 	var removed: float = 0.0
 	var left: float = n
@@ -577,26 +808,32 @@ func cleanse(s: FighterState, n: int, el: String = "") -> float:
 	s.touch_debuffs()
 	if _log_enabled and removed != 0.0:
 		_row(FightLogRow.Kind.CLEANSE, s.label, &"", &"", [removed])
+	if removed != 0.0:
+		_event(foe_of(s), "cleansed", {"amount": removed})
 	return removed
 
 
-## The chance [param dfn] evades a hit from [param att] (Combat Formulas I): evade plus the evade of its up wards (a
-## reserved ward always counts, others need live linh lực), less Wind debuffs on it, less the attacker's accuracy
-## (raised by Thunder buffs, lowered by Earth debuffs), within 0 and evade_cap.
+## The chance [param dfn] evades a hit from [param att] (Combat Formulas I): evade, its up wards' evade (a reserved
+## ward always counts, others need live linh lực) and Effect evade, less Wind debuffs on it, less the attacker's
+## accuracy (Effect accuracy and Thunder buffs raise it, Earth debuffs lower it), within 0 and evade_cap.
 func evade_chance(att: FighterState, dfn: FighterState) -> float:
 	var w_ev: float = 0.0
 	for xw in dfn.xwards:
 		if xw.up and (xw.def.model == ExtraWardDef.Model.RESERVED or dfn.qi > 0.0):
 			w_ev += xw.def.evade
 	w_ev /= 100.0
-	var p_ev: float = dfn.p.evade + w_ev - dfn.dsum("evade_down") - (att.p.acc + att.bsum("acc") - att.dsum("acc_down"))
-	return minf(_k.evade_cap, maxf(0.0, p_ev))
+	var ev_m: float = m(dfn, "evade", null) if has_mods(dfn) else 0.0
+	var acc_m: float = m(att, "acc", null) if has_mods(att) else 0.0
+	var p_ev: float = dfn.p.evade + w_ev + ev_m / 100.0 - dfn.dsum("evade_down") \
+			- (att.p.acc + acc_m / 100.0 + att.bsum("acc") - att.dsum("acc_down"))
+	return minf(k.evade_cap, maxf(0.0, p_ev))
 
 
-## The chance a hit from [param att] on [param dfn] crits (Combat Formulas I): crit plus Thunder buffs on the
-## attacker and Thunder debuffs on the defender, within crit_cap.
-func crit_chance(att: FighterState, dfn: FighterState) -> float:
-	return minf(_k.crit_cap, att.p.crit + att.bsum("crit") + dfn.dsum("crit_taken"))
+## The chance a hit from [param att] on [param dfn] crits (Combat Formulas I): crit, Effect crit (scoped by the hit's
+## [param ctx]), Thunder buffs on the attacker and Thunder debuffs on the defender, within crit_cap.
+func crit_chance(att: FighterState, dfn: FighterState, ctx: Variant = null) -> float:
+	var crit_m: float = m(att, "crit", ctx) if has_mods(att) else 0.0
+	return minf(k.crit_cap, att.p.crit + crit_m / 100.0 + att.bsum("crit") + dfn.dsum("crit_taken"))
 
 
 ## Cast wards for [param s] (Combat Defence & Healing rule 7): a ward up past its window goes down (its bar goes
@@ -633,10 +870,10 @@ func cast_wards(s: FighterState) -> void:
 				s.wshields.append(bar)
 
 
-## Realm suppression (Combat Formulas H): 1 - s_g (1 - P); pierce P joins with Effect mods.
-func _supp(att: FighterState, dfn: FighterState) -> float:
+## Realm suppression (Combat Formulas H): 1 - s_g (1 - P), P = min(pierce_cap, max(0, pierce)).
+func _supp(att: FighterState, dfn: FighterState, pierce: float) -> float:
 	var gap: int = mini(maxi(0, dfn.p.realm - att.p.realm), 4)
-	return 1.0 - _k.supp[gap] * (1.0 - minf(_k.pierce_cap, 0.0))
+	return 1.0 - k.supp[gap] * (1.0 - minf(k.pierce_cap, maxf(0.0, pierce)))
 
 
 func _defeat_check() -> void:
@@ -644,6 +881,12 @@ func _defeat_check() -> void:
 		a.down = true
 	if b.hp <= 0.0:
 		b.down = true
+
+
+## Logs an Effect firing or a banked payload (parity rows), when the log is on.
+func log_effect(kind: FightLogRow.Kind, s: FighterState, eid: String, values: Array) -> void:
+	if _log_enabled:
+		_row(kind, s.label, &"", StringName(eid), values)
 
 
 ## The log rows so far (empty with the log off); for mechanism tests that drive [method act] directly.

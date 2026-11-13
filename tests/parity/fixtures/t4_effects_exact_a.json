@@ -1,0 +1,464 @@
+{
+  "name": "t4_effects_exact_a",
+  "slice": 4,
+  "chance_free": true,
+  "seed": 23,
+  "doc": "Slice 4a (the Effect interpreter), chance-free, with real library Effects (effects_library.json): always-on mods, conditions and scaling, and events art_fired, hit_landed, was_hit, heal_restored, overflow, tick_dealt and fight_start, with heal, gain_qi, stacks, shield and status actions. Side A burns, pays in health and heals; side B regenerates and is struck by Lightning.",
+  "a": {
+    "name": "pyre-ascetic",
+    "crit": 0.0,
+    "evade": 0.0,
+    "effects": [
+      {
+        "id": "eff:Armoury Count",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.04
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Backflow",
+        "on": "heal_restored",
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "gain_qi": {
+              "of": "amount",
+              "share": 0.2
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Blood Casting",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "blood_cast": 1,
+              "heal_taken": -50
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Blood Drinker",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 0.06
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Blood Drinker (basic)",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "basic"
+        },
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 0.06
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Bought Fate",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "event.crit",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "heal": {
+              "of": "amount",
+              "share": 0.4
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Brimming Cup",
+        "on": "overflow",
+        "scale": {
+          "read": "event.share",
+          "per": 0.05,
+          "cap": 2
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "water",
+              "n": 1,
+              "for": 8,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Debt of Stone",
+        "on": "art_fired",
+        "scale": {
+          "read": "event.hp_paid_share",
+          "per": 0.02
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "earth",
+              "n": 1,
+              "for": 15,
+              "side": "own"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Embers Feed the Hearth",
+        "on": "tick_dealt",
+        "filter": {
+          "element": "fire"
+        },
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "gain_qi": {
+              "share": 0.004
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:First Stand",
+        "on": "fight_start",
+        "do": [
+          {
+            "shield": {
+              "body": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Grave-Silk Shroud",
+        "on": "fight_start",
+        "do": [
+          {
+            "status": {
+              "id": "corpse_rot",
+              "side": "foe",
+              "stacks": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Iron Skin Renewed",
+        "on": "art_fired",
+        "filter": {
+          "dtype": "phys"
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "shield": {
+              "body": 0.02
+            }
+          }
+        ]
+      }
+    ],
+    "realm": 1,
+    "regen_bonus": 0.08,
+    "hp_pay": 0.2,
+    "arts": [
+      {
+        "name": "ember-brand",
+        "c": 1.6,
+        "cost": 0.06,
+        "cd": 3.0,
+        "element": "fire",
+        "dtype": "fire",
+        "debuff": [
+          3,
+          4.0
+        ]
+      },
+      {
+        "name": "blood-script",
+        "c": 2.0,
+        "cost": 0.1,
+        "cd": 4.0,
+        "hp_cost": 0.03
+      },
+      {
+        "name": "storm-thread",
+        "c": 1.2,
+        "cost": 0.04,
+        "cd": 2.5,
+        "dtype": "lightning"
+      },
+      {
+        "name": "warm-palm",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 6.0,
+        "heal": 1.0
+      }
+    ]
+  },
+  "b": {
+    "name": "ledger-warden",
+    "crit": 0.0,
+    "evade": 0.0,
+    "effects": [
+      {
+        "id": "eff:Kindled Wound",
+        "on": "always",
+        "if": [
+          {
+            "read": "foe.debuff.fire",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "L5": 15,
+              "element": "fire"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Lamp-Lit Reading",
+        "on": "always",
+        "scale": {
+          "read": "foe.distinct_statuses",
+          "per": 1,
+          "cap": 5
+        },
+        "do": [
+          {
+            "mod": {
+              "foe_soul_res": -3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Lamp-Lit Reading (closes)",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "soul_res": -15
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Lightning Drinker",
+        "on": "was_hit",
+        "filter": {
+          "dtype": "lightning"
+        },
+        "do": [
+          {
+            "gain_qi": {
+              "of": "amount",
+              "share": 0.2
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Lingering Afterimage (closes)",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "basic_coef": -0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Marked Prey",
+        "on": "always",
+        "scale": {
+          "read": "foe.distinct_statuses",
+          "per": 1,
+          "cap": 4
+        },
+        "do": [
+          {
+            "mod": {
+              "L5": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Owed Water",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "own.qi_share",
+            "op": "<=",
+            "value": 0.2
+          }
+        ],
+        "limit": {
+          "cooldown": 20
+        },
+        "do": [
+          {
+            "mod": {
+              "regen": 0.03,
+              "for": 5
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Pack Hunt",
+        "on": "always",
+        "if": [
+          {
+            "read": "foe.distinct_statuses",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "L5": 15,
+              "kind": "companion"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Paid in Advance",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "cost_red": 0.95,
+              "tags": [
+                "talisman"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Phoenix Mend",
+        "on": "heal_restored",
+        "scale": {
+          "read": "event.share",
+          "per": 0.01,
+          "cap": 6
+        },
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "fire",
+              "n": 1,
+              "for": 6,
+              "side": "foe"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Planted Banner",
+        "on": "always",
+        "scale": {
+          "read": "own.buff.earth",
+          "per": 4
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.02,
+              "element": "earth"
+            }
+          }
+        ]
+      }
+    ],
+    "realm": 1,
+    "hregen": 0.004,
+    "companions": [
+      {
+        "c": 0.6,
+        "dtype": "phys",
+        "cd": 1.5
+      }
+    ],
+    "arts": [
+      {
+        "name": "ledger-strike",
+        "c": 2.2,
+        "cost": 0.06,
+        "cd": 3.0
+      },
+      {
+        "name": "mark-of-debt",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 4.0,
+        "statuses": [
+          {
+            "id": "sundered"
+          }
+        ]
+      },
+      {
+        "name": "tide-turn",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 5.0,
+        "element": "water",
+        "buff": [
+          3,
+          6.0
+        ]
+      }
+    ]
+  }
+}

@@ -599,10 +599,10 @@ def t_stack_grant():         # Effects rule 9a: stack_grant adds stacks to each 
           str(B.debuffs))
 
 
-def t_effects_library():   # tools/design/combat_sim/effects_library.json, 2026-11-13
+def t_effects_library():   # assets/data/combat_effects.json (moved 2026-11-14, ADR-0001 decision 3)
     import json
     import fight as F
-    lib = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "effects_library.json"),
+    lib = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "assets", "data", "combat_effects.json"),
                          encoding="utf-8"))["effects"]
     bad = []
     for name, entry in lib.items():

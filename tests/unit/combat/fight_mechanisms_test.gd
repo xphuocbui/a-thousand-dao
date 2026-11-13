@@ -78,11 +78,11 @@ func test_ward_bill_pct_30_raises_the_bill_by_a_third() -> void:
 	var k := CombatConstants.load_file()
 	var f1 := _fight(_dummy({"ward_bill_pct": 30}), _dummy())
 	var q0: float = f1.b.qi
-	DefencePath.defend(k, f1.a, f1.b, 100.0, &"phys", null, false, 0, 1)
+	DefencePath.defend(f1, f1.a, f1.b, 100.0, &"phys", null, {}, false)
 	var bill: float = q0 - f1.b.qi
 	var f2 := _fight(_dummy(), _dummy())
 	var q1: float = f2.b.qi
-	DefencePath.defend(k, f2.a, f2.b, 100.0, &"phys", null, false, 0, 1)
+	DefencePath.defend(f2, f2.a, f2.b, 100.0, &"phys", null, {}, false)
 	assert_near(bill / (q1 - f2.b.qi), 1.3, 1e-6, "AC-CD-84 ward_bill_pct 30 -> bill x1.3")
 
 
@@ -95,7 +95,11 @@ func test_log_off_builds_no_rows() -> void:
 func test_loader_refuses_an_unported_or_unknown_field_by_name() -> void:
 	var k := CombatConstants.load_file()
 	var cases := [
-		[_dummy({"effects": [{"id": "x", "on": "crit", "do": []}]}), "effects"],
+		[_dummy({"effects": [{"id": "x", "on": "crit", "do": [{"timer": {"by": -1.0}}]}]}), "timer"],
+		[_dummy({"effects": [{"id": "x", "on": "teleported", "do": []}]}), "teleported"],
+		[_dummy({"effects": [{"id": "x", "on": "always", "do": [{"mod": {"luck": 5}}]}]}), "luck"],
+		[_dummy({"effects": [{"id": "x", "on": "crit", "if": [{"read": "own.mood"}], "do": []}]}), "own.mood"],
+		[_dummy({"effects": [{"id": "x", "on": "down", "do": []}]}), "down"],
 		[_dummy({"states": [{"id": "stance", "mods": {}}]}), "states"],
 		[_dummy({"teleport": 1.0}), "teleport"],
 		[_dummy({}, [{"name": "guarded", "guards": [{"read": "own.hp"}]}]), "guards"],
@@ -129,7 +133,7 @@ func test_shield_piece_soaks_one_piece_and_the_rest_moves_on() -> void:
 			"shields": [{"size": size, "body": false, "standing": true, "stops": {}, "pieces": 3, "floor": 0.0}]}))
 	f.b.wshields[0].left = 300.0
 	var hp0: float = f.b.hp
-	DefencePath.defend(k, f.a, f.b, 250.0, &"phys", null, false, 0, 1)
+	DefencePath.defend(f, f.a, f.b, 250.0, &"phys", null, {}, false)
 	assert_near(hp0 - f.b.hp, 150.0, 1e-6, "AC-CD-82 one piece soaks 100, 150 moves on")
 
 
@@ -139,7 +143,7 @@ func test_bypass_is_capped_at_half() -> void:
 	var f := _fight(_dummy({}, [{"name": "b", "bypass": 0.6}]), _dummy({"ward_pts": 0.0, "block": 0.0,
 			"shields": [{"size": 1.0, "body": false, "standing": true, "stops": {}, "pieces": 1, "floor": 0.0}]}))
 	var hp0: float = f.b.hp
-	DefencePath.defend(k, f.a, f.b, 100.0, &"phys", f.a.p.arts[0], false, 0, 1)
+	DefencePath.defend(f, f.a, f.b, 100.0, &"phys", f.a.p.arts[0], {}, false)
 	assert_near(hp0 - f.b.hp, 50.0, 1e-6, "AC-CD-80 bypass capped at 50 %")
 
 
@@ -316,3 +320,32 @@ func test_stack_duration_lengthens_only_its_element_and_kind() -> void:
 	f.add_stacks(f.a, f.a, "fire", 2.0, 6.0, true)
 	assert_eq(f.b.debuffs[-1].until - f.t, 9000, "a 6 s Burn batch lasts 9 s")
 	assert_eq(f.a.buffs[-1].until - f.t, 6000, "a Fire buff batch keeps 6 s")
+
+
+# --- slice 4a: the Effect interpreter ------------------------------------------------------------------------------
+
+func test_every_library_effect_compiles_or_is_refused_as_a_later_slice() -> void:
+	# ADR-0001 decision 3: assets/data/combat_effects.json is read by both engines. Slice 4a compiles the records of
+	# 44 library Effects; the other 10 need timers, protect, refresh, strip or the Down step and must be refused by
+	# name ("not ported yet"), never accepted silently or rejected for another reason.
+	var k := CombatConstants.load_file()
+	var lib: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/data/combat_effects.json")).effects
+	var ok := 0
+	var later: Array = []
+	var other: Array = []
+	for name in lib:
+		var c := EffectCompiler.new(k)
+		var counters := {}
+		for cdef in lib[name].get("counters", []):
+			counters[str(cdef.id)] = cdef
+		for rec in lib[name].get("records", []):
+			c.compile(rec, name, counters)
+		if c.errors.is_empty():
+			ok += 1
+		elif "; ".join(c.errors).contains("not ported yet"):
+			later.append(name)
+		else:
+			other.append("%s: %s" % [name, "; ".join(c.errors)])
+	assert_eq(other, [], "no library Effect fails for any reason but a later slice")
+	assert_eq(ok, 44, "44 library Effects compile in slice 4a")
+	assert_eq(later.size(), 10, "10 wait for a later slice: %s" % str(later))

@@ -50,5 +50,12 @@ var soul_pct: float = 0.0
 var soul_part: float = 0.0
 ## The pool it is paid from (Combat 11, R12): qi, tam_ma or than_thuc.
 var pool: StringName = &"qi"
-## Tags, for scoped reads in later slices and Silence.
+## Guards (Combat 13): conditions that must all hold for the art to fire.
+var guards: Array[EffectDef.CondDef] = []
+## The technique (cong phap) that carries it, for fired_within group reads.
+var group: String = ""
+## Tags, for scoped reads and Silence; the same as Strings for Effect filters and reads.
 var tags: Array[StringName] = []
+var tags_s: Array = []
+## The art's own context for scoped reads (the sim's art_ctx): dtype, element, tags, kind "art", art_id.
+var ctx: Dictionary = {}

@@ -80,4 +80,15 @@ var timer_resist: float = 0.0
 var basic_coef_add: float = 0.0
 ## Slotted arts in slot order.
 var arts: Array[ArtDef] = []
+## Effects (slice 4a): the compiled records in order; self-counter definitions by id ({cap, decay_per_pulse,
+## each_for}); per stat key, the always-on mod entries [EffectDef, value, mod dict] in Effect and action order (the
+## order the sim sums them); per event, the Effects listening (held ones included) in order. Built by the loader.
+var effects: Array[EffectDef] = []
+var counter_def: Dictionary = {}
+var always_by_key: Dictionary = {}
+var listeners: Dictionary = {}
+## Damage layer points x1..x5 (Combat Formulas A), when given; layer mods then meet exact caps.
+var layers: PackedFloat64Array = []
+## A boss (the boss readable).
+var boss: bool = false
 var companions: Array[Companion] = []
