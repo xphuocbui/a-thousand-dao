@@ -73,6 +73,10 @@ static func shapes() -> Array:
 			"a": _doc("t4_effects_chancy").a, "b": _doc("t4_effects_chancy").b},
 		{"id": "stances", "doc": "stances, summons, timers, fire_art, strip/steal, Internal Injury, the Down step (slice 4b)",
 			"a": _doc("t4b_mechanics_exact").a, "b": _doc("t4b_mechanics_exact").b},
+		{"id": "steps", "doc": "real design arts with steps and empowers (slice 5)",
+			"a": _doc("t5_steps_exact_1").a, "b": _doc("t5_steps_exact_1").b},
+		{"id": "typical_r4", "doc": "the sim's typical reference enemy mirror at realm 4 (sign-off)",
+			"a": _doc("t6_typical_mirror_r4").a, "b": _doc("t6_typical_mirror_r4").b},
 	]
 
 

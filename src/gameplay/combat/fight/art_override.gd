@@ -38,6 +38,10 @@ var add_statuses: Array[StatusSpec] = []
 ## A copy of [param a] with this override applied (the sim's override()).
 func apply(a: ArtDef) -> ArtDef:
 	var b: ArtDef = a.copy()
+	# the fired form never reads its own steps or empowers (shape() reads the slotted art's), and keeping them would
+	# make a cycle (a step's art -> the steps list -> the step -> its art) that RefCounted never frees (ADR-0001 Risks)
+	b.steps = []
+	b.empower = []
 	for key in keys:
 		var v: Variant = values[key]
 		match str(FIELDS[key]):

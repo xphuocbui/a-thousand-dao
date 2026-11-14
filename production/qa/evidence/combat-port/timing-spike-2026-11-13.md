@@ -127,3 +127,27 @@ the GDExtension fallback for the Effect runner stays closed. Two cautions:
 Next step if slices 4b and 5 push this further: profile with Godot's profiler (the remaining overhead is per-hit
 bookkeeping, not the mod sums, since gating every hot-path mod read changed nothing measurable), before reopening
 the GDExtension option.
+
+## Engine sign-off (slices 4b and 5 done), 2026-11-14
+
+Release export, 200 fights per shape. The shapes above, plus `stances` (slice 4b: stances, summons, timers,
+fire_art, strip and steal, Internal Injury, the Down step), `steps` (slice 5: real design arts with steps and
+empowers) and `typical_r4` (the sim's typical reference enemy mirror at realm 4).
+
+| Shape | Fight (s) | Events | p95 ms | µs/event |
+|---|---|---|---|---|
+| art_heavy | 29.7 | 2247 | 23.4 | 8.4 |
+| lib_effects | 62.3 | 1169 | 23.4 | 19.3 |
+| mechanics | 27.7 | 703 | 18.1 | 24.5 |
+| stances | 27.5 | 420 | 11.7 | 26.5 |
+| steps | 50.5 | 812 | 13.1 | 14.7 |
+| typical_r4 | 59.9 | 408 | 4.1 | 8.8 |
+
+Every shape's p95 is within 50 ms (worst 23.4 ms), so ADR-0001's performance criterion holds for the complete engine
+and the GDExtension fallback stays closed. Single runs still spike now and then (one `stacks` fight at 48.7 ms in 200,
+p95 8.6 ms).
+
+**A leak found and fixed:** the first slice-5 build leaked 76 objects per bench run (a step's art shared the steps
+list holding the step: a RefCounted cycle). Fixed, and `combat_parity_test.gd` now checks that loading and fighting
+leave no objects behind (it fails with 68 on the old code).
+

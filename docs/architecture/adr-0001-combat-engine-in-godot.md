@@ -295,6 +295,17 @@ static func clash(a: RatingProfile, b: RatingProfile, gd: GameData, rng: RandomN
 - The typical mirror lasts 30–60 s at every realm in the Godot engine, as in the sim.
 - The Formulas K agreement test passes against the Godot engine.
 
+**Status 2026-11-14 (Migration Plan step 2 done):** every engine slice is ported (commits 4e7c0f7 to the slice-5 commit).
+- Mechanism tests: 44 of the sim's 49 are ported with the same numbers and pass; the other 5 (t_parse_ward,
+  t_armour_ward_slot, t_static_lines, t_layer_budget, t_field_budget) test fight.py's build-file loader and move with
+  step 3, the FighterCompiler.
+- Parity: every chance-free fixture matches event by event within 1e-6; every chancy fixture matches over 1,000 seeds
+  (the sim's reference over 10,000).
+- Performance: worst p95 23.4 ms of 50 in a headless release export (production/qa/evidence/combat-port/).
+- The typical mirror lasts 34.6, 38.4, 43.8, 52.4 and 59.6 s at realms 0-4 in the Godot engine (sim: 34.7, 38.3, 43.8,
+  52.2, 59.8); realm 4 sits at the top of the target.
+- The Formulas K agreement test waits for step 5 (the rating profile).
+
 ## Related
 - `design/gdd/combat.md`, `combat-defence.md`, `combat-damage-types.md`, `effects.md`, `modifiers.md`,
   `item-database.md`, `character-stats.md`
