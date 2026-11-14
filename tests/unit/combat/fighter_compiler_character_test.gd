@@ -26,6 +26,7 @@ func test_a_bare_character_fights_as_the_typical_fighter_of_its_realm_with_its_p
 	var d: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, null), report)
 	var typical: Dictionary = gd.file("combat_library").typical[1]
 	assert_eq(d.layers, typical.layers, "the realm's typical layers")
+	assert_near(float(d.n_body), 50.0 / 45.0, 1e-9, "căn cốt 50 against the talent-45 reference")
 	assert_eq(d.ward, typical.ward, "the realm's typical ward")
 	assert_eq(d.arts, typical.arts, "the typical kit stands in for arts")
 	assert_true(report.any(func(x): return str(x).contains("typical kit")), "and the report says so")
@@ -99,3 +100,32 @@ func test_a_piece_past_the_slot_count_is_not_compiled() -> void:
 	c.equipped = [a, b, past]
 	var d: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, null))
 	assert_false(d.modifiers.any(func(l): return l.key == "crit_chance_pct"), "the third extra piece adds nothing")
+
+
+func test_pools_follow_the_characters_vitality_and_linh_luc() -> void:
+	# Combat Formulas A: n = clamp(stat / ref[r], 0.25, 8), the stats before their pct bonuses
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"hoa": 50}, 45, 1, 0)
+	var sheet := StatSheet.build(c, gd, db, null)
+	var p: Dictionary = FighterCompiler.pool_sizes(c, gd, sheet, 1)
+	assert_near(float(p.n_body), 1.0, 1e-9, "talent 45 at stage 1.00 is the reference")
+	assert_near(float(p.n_qi), float(gd.cong_phap_file().no_tech_power), 1e-9, "no main method: its power alone")
+	var strong := TestFixtures.character({"hoa": 50}, 90, 1, 2)
+	var p2: Dictionary = FighterCompiler.pool_sizes(strong, gd, StatSheet.build(strong, gd, db, null), 1)
+	assert_near(float(p2.n_body), 2.0 * Ladder.stage_mult(gd, 2), 1e-9, "talent 90, stage 2: twice, times the stage")
+	var absurd := TestFixtures.character({"hoa": 50}, 45, 1, 0)
+	var p3: Dictionary = FighterCompiler.pool_sizes(absurd, gd, StatSheet.build(absurd, gd, db, null), 4)
+	assert_near(float(p3.n_body), float(gd.combat().fighter_pools.n_min), 1e-9, "a Foundation body against Nascent Soul's reference clamps")
+
+
+func test_pct_bonuses_count_once_through_the_sheet_lines() -> void:
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"hoa": 50}, 45, 1, 0)
+	var sheet := StatSheet.build(c, gd, db, null)
+	sheet.add_mod("test", "khi_huyet_pct", 20.0)
+	var d: Dictionary = FighterCompiler.character_build_file(c, gd, db, sheet)
+	assert_near(float(d.n_body), 1.0, 1e-9, "the base leaves the bonus out")
+	var rec: Dictionary = BuildFileCompiler.new(gd).compile(d)
+	assert_near(float(rec.n_body), 1.2, 1e-9, "the sheet line adds it once")

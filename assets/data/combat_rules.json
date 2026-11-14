@@ -7,6 +7,13 @@
     "khi_huyet_weight": 0.02,
     "linh_luc_weight": 0.02
   },
+  "fighter_pools": {
+    "_doc": "Combat Formulas A, a Character's fighter pools: n = clamp(stat / ref[r], n_min, n_max), stat being the Character's vitality_max and spiritual_power before their pct bonuses (the build-file path adds those). ref[r] is the stat of a talent-ref_talent, stage-1.00, no-bonus character: body ref_talent x khi_huyet_per_can_cot x the realm's khi_huyet_mult, linh luc the realm's linh_luc_base x ref_tech_power.",
+    "ref_talent": 45,
+    "ref_tech_power": 1.0,
+    "n_min": 0.25,
+    "n_max": 8
+  },
   "fight_engine": {
     "_doc": "ADR-0001 step 4 feature flag: when enabled, an event's combat check runs a real fight (CombatService, both sides compiled by FighterCompiler.compile, the seed one draw from the session stream per ADR-0002) instead of the duel roll; a side that cannot compile falls back to the duel, and the check line says why. Off until the fights are signed off in play.",
     "enabled": false

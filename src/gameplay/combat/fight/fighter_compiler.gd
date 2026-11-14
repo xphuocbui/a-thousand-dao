@@ -11,8 +11,11 @@ extends RefCounted
 ## [method character_build_file] writes the build file, then [BuildFileCompiler] (a port of fight.py's build-file path,
 ## parity-tested on every item and art) resolves it and [FighterProfileLoader] loads it. The build file:
 ## - realm: the Character's realm (0-4).
-## - layers, pools and the main ward: the typical fighter's at that realm, until the Meridian Map gives a Character
-##   layers of its own (the sheet's pool, ward and stack lines then act on them, as on a build file).
+## - layers and the main ward: the typical fighter's at that realm, until the Meridian Map gives a Character layers
+##   of its own (the sheet's ward and stack lines then act on them, as on a build file).
+## - pools (Combat Formulas A): n = clamp(stat / ref[r], n_min, n_max) from the Character's vitality and linh lực
+##   before their pct bonuses, which the sheet lines then add (combat_rules.json fighter_pools). Capability #4's
+##   linh lực from vitality joins the base, so the pct lines scale it too (in the game it comes after them).
 ## - items: the named pieces the Character controls (CombatPower.controlled, the pieces the sheet counts), with their
 ##   modifiers (scoped ones too), arts, wards, reserve arts and Effects.
 ## - modifiers: the sheet's combat keys from every source but worn pieces, plus ordinary pieces' affixes (scoped
@@ -84,8 +87,9 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 	if r != c.realm_index:
 		report.append("realm %d: the fight engine has realms 0-%d; compiled at %d" % [c.realm_index, typical.size() - 1, r])
 	var base: Dictionary = (typical[r] as Dictionary).duplicate(true)
-	var d := {"name": c.name if c.name != "" else c.id, "realm": r, "layers": base.layers, "n_body": base.n_body,
-		"n_qi": base.n_qi, "ward": base.ward}
+	var pools: Dictionary = pool_sizes(c, gd, sheet, r)
+	var d := {"name": c.name if c.name != "" else c.id, "realm": r, "layers": base.layers, "n_body": pools.n_body,
+		"n_qi": pools.n_qi, "ward": base.ward}
 	var cm: Dictionary = gd.file("combat_engine").get("CHARACTER_MODS", {})
 	var combat_keys: Array = Array(cm.get("passive", {}).keys()) + Array(cm.get("static", []))
 	# the sheet's combat keys from every source but worn pieces (their lines come below, with their scopes)
@@ -129,3 +133,23 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 			purity[to_engine[str(el)]] = c.linh_can.purity(str(el))
 	d["purity"] = purity
 	return d
+
+
+## A Character's pool sizes at engine realm [param r] (Combat Formulas A): {n_body, n_qi}, each
+## clamp(stat / ref[r], n_min, n_max), the stats before their pct bonuses (the build-file path adds those).
+static func pool_sizes(c: Character, gd: GameData, sheet: StatSheet, r: int) -> Dictionary:
+	var cfg: Dictionary = gd.combat().fighter_pools
+	var d: Dictionary = gd.attributes().derived
+	var realm: Dictionary = gd.realm(c.realm_index)
+	var ref_realm: Dictionary = gd.realm(r)
+	var stage: float = Ladder.stage_mult(gd, c.stage)
+	var per: float = float(d.khi_huyet_per_can_cot)
+	# CharacterRules.khi_huyet_max and linh_luc without their pct steps
+	var body: float = maxf(1.0, sheet.effective("can_cot", c) * per * float(realm.khi_huyet_mult) * stage)
+	var qi: float = float(realm.linh_luc_base) * stage * CongPhap.tech_power(c, gd, sheet.effective("ngo_tinh", c))
+	if c.has_capability(4):
+		qi += float(d.linh_luc_conversion) * CharacterRules.khi_huyet_max(c, gd, sheet).total
+	var ref_body: float = float(cfg.ref_talent) * per * float(ref_realm.khi_huyet_mult)
+	var ref_qi: float = float(ref_realm.linh_luc_base) * float(cfg.ref_tech_power)
+	return {"n_body": clampf(body / ref_body, float(cfg.n_min), float(cfg.n_max)),
+		"n_qi": clampf(qi / ref_qi, float(cfg.n_min), float(cfg.n_max))}
