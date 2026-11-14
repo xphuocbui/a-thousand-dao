@@ -22,6 +22,10 @@ func _ready() -> void:
 	if OS.get_cmdline_user_args().has("--scale-probe"):
 		add_child(preload("res://tests/performance/combat/scale_probe.gd").new())
 		return
+	if OS.get_cmdline_user_args().has("--terminal"):
+		# the debug terminal in the release build (timing play with ratings on; same args as terminal_main.gd)
+		get_tree().quit(preload("res://src/debug_terminal/terminal_main.gd").run(OS.get_cmdline_user_args()))
+		return
 	if OS.get_cmdline_user_args().has("--ratings-world"):
 		# ADR-0003 step 3's measured run (tests/performance/combat/ratings_world_run.gd)
 		add_child(preload("res://tests/performance/combat/ratings_world_run.gd").new())

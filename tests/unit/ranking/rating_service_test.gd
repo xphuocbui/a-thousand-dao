@@ -82,3 +82,37 @@ func test_a_real_character_is_rated_and_a_new_panel_keeps_half_its_offset() -> v
 	assert_near(float(rec.offset), 20.0, 1e-9, "offset_keep 0.5")
 	assert_eq(int(rec.n), 7, "n kept at floor(15 x 0.5)")
 	assert_eq(str(rec.state), RatingService.RATED, "rated again")
+
+
+func test_an_injury_mastery_or_khi_van_is_not_a_build_change_but_a_stage_is_ac_pr_07_08() -> void:
+	# Regression (2026-11-14 play session): the build signature read chiến lực, which an injury lowers, so every
+	# injury and every season of recovery made the fighter Stale and re-ran its panel.
+	var gd := game_data()
+	var db := WorldDB.new()
+	var rs := RatingService.new(gd, db)
+	var builds := BuildGenerator.new(gd, TestFixtures.tree(), db)
+	var c := TestFixtures.character({"hoa": 50}, 50, 1, 0)
+	c.id = "p7"
+	var rec: Dictionary = c.to_dict()
+	rec["power"] = builds.power_of(c)
+	db.put("people", rec)
+	var r: Dictionary = rs.refresh_person(rec)
+	r["state"] = RatingService.RATED
+	r["sig"] = rs.build_sig(rec)
+	r["version"] = str(rs.knob("data_version"))
+	rec["vitality"] = 0.5
+	builds.refresh_power("p7")
+	rs.refresh_person(rec)
+	assert_eq(str(r.state), RatingService.RATED, "an injury is not a build change")
+	for k in rec.get("techniques", {}):
+		rec.techniques[k]["mastery"] = float(rec.techniques[k].get("mastery", 0.0)) + 10.0
+	rs.refresh_person(rec)
+	assert_eq(str(r.state), RatingService.RATED, "a season's mastery is not a build change")
+	rec.thien_phu["khi_van"] = int(rec.thien_phu.get("khi_van", 50)) + 10
+	rs.refresh_person(rec)
+	assert_eq(str(r.state), RatingService.RATED, "gaining khí vận is not (AC-PR-08)")
+	var saved: Dictionary = JSON.parse_string(JSON.stringify(rec))
+	assert_eq(rs.build_sig(saved), rs.build_sig(rec), "a save and load leaves the signature unchanged")
+	rec["stage"] = 1
+	rs.refresh_person(rec)
+	assert_eq(str(r.state), RatingService.STALE, "a stage change is (AC-PR-07)")

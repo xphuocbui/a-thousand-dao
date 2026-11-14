@@ -114,10 +114,42 @@ func mark_stale(c: Character) -> void:
 		rec["state"] = STALE
 
 
-## A person record's build signature: what its panel's build is checked against (rule 5; see the class doc).
-static func build_sig(person: Dictionary) -> String:
-	return "%d:%d:%d:%.6f" % [int(person.get("realm_index", 0)), int(person.get("stage", 0)), int(person.get("level", 0)),
-		float(person.get("power", 0.0))]
+## A person record's build signature (rule 5): a hash of what a build change changes — realm, stage, level, talents
+## (without khí vận: AC-PR-08), linh căn, each technique's layer, the slotted techniques, the equipped items' records
+## and slots, opened huyệt, capabilities, perks and the nurtured item. Not chiến lực: it moves with injury, and a
+## technique's mastery moves every season, neither of which is a build change. Numbers are normalised so a save and
+## load (ints back as floats) leaves it unchanged.
+func build_sig(person: Dictionary) -> String:
+	var layers := {}
+	var techs: Dictionary = person.get("techniques", {})
+	for k in techs:
+		layers[str(k)] = int((techs[k] as Dictionary).get("layer", 0)) if techs[k] is Dictionary else 0
+	var talents: Dictionary = (person.get("thien_phu", {}) as Dictionary).duplicate()
+	talents.erase("khi_van")
+	var worn: Array = []
+	var eq: Array = Array(person.get("equipped", [])).map(func(x): return str(x))
+	eq.sort()
+	for id in eq:
+		worn.append(_db.get_record("items", id))
+	var parts: Array = [int(person.get("realm_index", 0)), int(person.get("stage", 0)), int(person.get("level", 0)),
+		talents, person.get("linh_can", {}), layers, person.get("main_tech", ""), person.get("aux_tech", []),
+		person.get("second_tech", ""), person.get("equip_slots", {}), person.get("tree_nodes", []),
+		person.get("capabilities", []), person.get("perks", []), person.get("nurtured_id", ""), worn]
+	return str(RngUtils.stable_hash(JSON.stringify(_norm(parts), "", true)))
+
+
+## [param v] with every whole-number float made an int, recursively (JSON gives back 3 as 3.0).
+static func _norm(v: Variant) -> Variant:
+	if v is float and is_finite(v) and float(v) == floorf(v) and absf(v) < 1e15:
+		return int(v)
+	if v is Array:
+		return (v as Array).map(func(x): return _norm(x))
+	if v is Dictionary:
+		var out := {}
+		for k in v:
+			out[str(k)] = _norm(v[k])
+		return out
+	return v
 
 
 ## Brings every person's rating record up to date with the World DB (States and Transitions): a new fighter becomes

@@ -5,18 +5,30 @@ extends SceneTree
 ##       [-- --seed N] [--color | --no-color] [--echo] [--commands file.txt] [--exit-after-commands]
 ##          [--no-llm] [--llm-url http://localhost:18080] [--llm-model name]
 ##          [--achievements-file path]   (default user://achievements.json; memory only with --commands)
+##          [--set file.key.path=value ...]   (in-memory data overrides for this run only, e.g.
+##           --set combat_rankings.enabled=true --set combat_rules.fight_engine.enabled=true)
 ##
 ## tools/debug-terminal.sh and tools/debug-terminal.bat wrap this command.
 
 
 func _init() -> void:
-	var args: PackedStringArray = OS.get_cmdline_user_args()
+	quit(run(OS.get_cmdline_user_args()))
+
+
+## Runs the terminal with [param args] (the user args) until it exits; returns the exit code. Static so the release
+## bench export can run it too (tests/performance/combat/combat_bench.gd --terminal).
+static func run(args: PackedStringArray) -> int:
 	var gd := GameData.load_from("res://assets/data")
 	if not gd.registry.errors.is_empty():
 		for e in gd.registry.errors:
 			printerr("DATA ERROR: " + e)
-		quit(1)
-		return
+		return 1
+	for ai in args.size():
+		if args[ai] == "--set" and ai + 1 < args.size():
+			var err: String = apply_override(gd, args[ai + 1])
+			if err != "":
+				printerr("--set %s: %s" % [args[ai + 1], err])
+				return 1
 	var io := TerminalIO.new()
 	# Colour by default in an interactive console; --color forces it (pipes), --no-color disables it.
 	io.color = args.has("--color") or (OS.get_stdin_type() == OS.STD_HANDLE_CONSOLE and not args.has("--no-color"))
@@ -48,9 +60,37 @@ func _init() -> void:
 	if c != -1 and c + 1 < args.size():
 		if not io.queue_file(args[c + 1]):
 			printerr("Cannot read command file %s" % args[c + 1])
-			quit(1)
-			return
+			return 1
 		io.echo = true
 		io.scripted_only = args.has("--exit-after-commands")
 	app.run()
-	quit(0)
+	if app.session != null:
+		app.session.shutdown()   # a season batch may still run on its background thread
+	return 0
+
+
+## Applies one "--set file.key.path=value" override to [param gd]'s loaded data, in memory only (the files are never
+## written). The value is parsed as JSON (true, 12, 0.5, "text", [1, 2]); a bare word that is not JSON is a string.
+## Returns "" or the reason it was refused (an unknown file or key: a typo must not pass silently).
+static func apply_override(gd: GameData, spec: String) -> String:
+	var eq: int = spec.find("=")
+	if eq <= 0:
+		return "expected file.key=value"
+	var path: PackedStringArray = spec.substr(0, eq).split(".")
+	if path.size() < 2:
+		return "expected file.key=value"
+	var node: Variant = gd.file(path[0])
+	if not (node is Dictionary) or (node as Dictionary).is_empty():
+		return "no data file %s" % path[0]
+	for k in range(1, path.size() - 1):
+		if not (node is Dictionary) or not (node as Dictionary).has(path[k]):
+			return "no key %s" % ".".join(path.slice(0, k + 1))
+		node = node[path[k]]
+	var last: String = path[path.size() - 1]
+	if not (node is Dictionary) or not (node as Dictionary).has(last):
+		return "no key %s" % spec.substr(0, eq)
+	var raw: String = spec.substr(eq + 1)
+	var parsed: Variant = JSON.parse_string(raw)
+	node[last] = raw if parsed == null and raw != "null" else parsed
+	print("data override (this run only): %s = %s" % [spec.substr(0, eq), str(node[last])])
+	return ""

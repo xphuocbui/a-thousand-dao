@@ -1102,6 +1102,12 @@ func death_lines() -> Array:
 
 # --- Power Rankings ---------------------------------------------------------------
 
+## Call before the program exits or the session is dropped: waits for a season batch still running on its
+## background thread (a process quitting under a running batch hangs) and drops it unapplied.
+func shutdown() -> void:
+	_finish_ratings(false)
+
+
 ## True when Power Rankings runs (combat_rankings.json "enabled").
 func ratings_on() -> bool:
 	return ratings != null and ratings.enabled()

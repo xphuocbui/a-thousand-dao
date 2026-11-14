@@ -145,7 +145,7 @@ func test_a_world_fight_is_formulas_f_on_the_ratings_ac_pr_19_34() -> void:
 	db.put("people", b)
 	for pr in [["p1", 1450.0], ["p2", 1400.0]]:
 		db.put(RatingService.TABLE, {"id": pr[0], "base": pr[1], "offset": 0.0, "n": 0, "state": RatingService.RATED, "realm": 1,
-			"version": "", "sig": RatingService.build_sig(a), "seeds": {"season": -1, "counts": {}}})
+			"version": "", "sig": rs.build_sig(a), "seeds": {"season": -1, "counts": {}}})
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 9
 	var before: int = rng.state
@@ -179,6 +179,6 @@ func test_the_ranking_orders_by_rating_then_fights_then_age_then_id_provisional_
 		var p := {"id": row[0], "alive": true, "realm_index": 1, "stage": 0, "level": 0, "power": 1.0, "age": row[3]}
 		db.put("people", p)
 		db.put(RatingService.TABLE, {"id": row[0], "base": row[1], "offset": 0.0, "n": row[2], "state": row[4], "realm": 1,
-			"version": str(rs.knob("data_version")), "sig": RatingService.build_sig(p), "seeds": {"season": -1, "counts": {}}})
+			"version": str(rs.knob("data_version")), "sig": rs.build_sig(p), "seeds": {"season": -1, "counts": {}}})
 	var order: Array = rs.ranking([1]).map(func(r): return r.id)
 	assert_eq(order, ["p3", "p9", "p7", "p5"], "n, then age, then id; the Provisional one last")
