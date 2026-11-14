@@ -1,5 +1,5 @@
 {
- "status": "proposal, awaiting the user's approval (2026-11-14); ids are layout v3's regions (regions.png)",
+ "status": "approved by the user 2026-11-14; ids are layout v3's regions (regions.png)",
  "style": "Han-Viet first, romantic: classical images and allusions; each sect's regions share a theme. The last word says the land: Lam forest, Giac cape, Linh ridge, Hai sea, Xuyen river land, Son mountains, Mac desert, Chau land by water, Dao island, Nguyen plain, Loan bay.",
  "regions": {
   "1":  {"name_hv": "Lãnh Nguyệt Lâm", "name_han": "冷月林", "gloss": "Forest of the Cold Moon", "note": "The long lake under the northern moon"},

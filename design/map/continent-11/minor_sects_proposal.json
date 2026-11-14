@@ -1,5 +1,5 @@
 {
- "status": "proposal, awaiting the user's approval (2026-11-14). Alignment, size and leaders belong to World Generation & History (#27, Sects open question 9); the alignment here is a first guess so the names can carry it.",
+ "status": "approved by the user 2026-11-14. Alignment, size and leaders belong to World Generation & History (#27, Sects open question 9); the alignment here is a first guess so the names can carry it.",
  "note": "Input, edited by hand. Each minor sect is a vassal of one great sect (Sects rule 1) and sits in one region of its lord. 'want' lists the land its seat looks for, most important first; minor_sects.py picks the seat tile. Put 'tile': [x, y] on an entry to place it by hand, or 'islets': true to let it sit on a small island. Tags: mountain, peak, highland, coast, river, lake, volcano, hot_spring, ore, ice, forest, bamboo, jungle, grassland, steppe, desert, swamp, karst, tundra.",
  "style": "Hán-Việt, romantic, each from a line of classical poetry or prose; smaller suffixes than the great sects: Môn (gate), Phái (school), Cốc (valley), Trang (manor), Quán (abbey), Viện (academy), Trai (studio), Đường (hall), Am (hermitage), Đài (terrace), Viên (garden).",
  "minor_sects": [

@@ -97,12 +97,18 @@ the rewrite is in the list below.
 - **No wild regions** (user decision 2026-11-14): every region belongs to a great sect. Travel & Map rule 24 is
   updated to match.
 - **Great sects:** 7 in two tiers, with romantic Hán-Việt names (user request 2026-11-14): Thiên Xu Tông,
-  Tùng Đào Cung, Lạc Hà Tông, Thính Vũ Lâu, Băng Tâm Các, Thúy Vi Tông, Phượng Minh Cung. This is a proposal
-  awaiting approval; see the same README.
+  Tùng Đào Cung, Lạc Hà Tông, Thính Vũ Lâu, Băng Tâm Các, Thúy Vi Tông, Phượng Minh Cung. See the same README.
 - **Layout v3 (2026-11-14):** the user found the sect lands "a bit too long". Territories are now drawn first as
   compact areas around each sect's start, then split into regions. Elongation is now 1.07–1.74 (it was up to 3.28).
 - **Layout v3 accepted** by the user (2026-11-14: "looks good now"). The 20 regions got romantic Hán-Việt names
-  (design/map/continent-11/region_names.json); these await approval.
+  (design/map/continent-11/region_names.json).
+- **Minor sects (2026-11-14):** after Sects & Missions was approved, 22 minor sects were named and placed as vassals.
+  There are 4 under each tier-1 sect and 2–3 under each tier-2 sect, at least one in every region. Their names come
+  from classical poetry. Alignment is a first guess (15 chính đạo, 5 trung lập, 2 ma đạo), and World Generation &
+  History (#27) owns it. tools/design/map/minor_sects.py places the seats (design/map/continent-11/
+  minor_sects_proposal.json, README).
+- **Approved by the user 2026-11-14:** the great sects (names, tiers, territories), the 20 region names, and the 22
+  minor sects with their seats. Next: famous places, towns, roads and teleport arrays.
 
 ## What this changes
 

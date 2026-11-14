@@ -6,9 +6,8 @@ fixed-world-decisions.md).
 
 **Status:**
 - **Layout:** v3. Sect territories are drawn first, then regions inside them.
-- **Great sects and names:** a proposal, awaiting the user's approval.
-- **Region names:** a proposal, awaiting the user's approval.
-- **Minor sects:** 22, a proposal, awaiting the user's approval (2026-11-14).
+- **Approved by the user on 2026-11-14:** the great sects, their names and territories, the region names, and
+  the 22 minor sects with their seats.
 - **Still to do:** famous places, towns, roads and arrays.
 
 ## Files
@@ -16,7 +15,7 @@ fixed-world-decisions.md).
 | File | What it is |
 |---|---|
 | `base/` | The continent as generated: seed 11, `tools/design/map/continent_gen.py` at commit 8db1e2b. It holds the index images (Travel & Map rule 1) and `meta.json`, with the legend and the map check. `detail.jpg` is the fine map drawn naturally, and `tiles.png` is the game grid. Hand edits go here from now on. |
-| `sects_proposal.json` | Input, edited by hand. For each great sect: names, tier, element leanings, start tile and map colour. |
+| `sects_proposal.json` | Input, edited by hand; approved 2026-11-14 (the `_proposal` file names stay, so the tools' commands keep working). For each great sect: names, tier, element leanings, start tile and map colour. |
 | `regions.png` | Region index, 540 × 360: the value is the region id, 0 is sea. |
 | `regions.json` | For each region: its sect, size, shape, biome mix, height, climate, coast, rivers, lakes, volcanoes, hot springs, ore and ice tiles, and its neighbours with how natural each shared border is. Also the map check, including each territory's shape. |
 | `region_names.json` | Input, edited by hand: each region's Hán-Việt name, Hán tự, meaning and the image behind it. |
@@ -37,7 +36,8 @@ It takes about 2 minutes, and the same input gives the same output. Then place t
 reads the saved images, so run it again after any rebuild):
 
 ```
-python -I tools/design/map/minor_sects.py --map design/map/continent-11     --sects design/map/continent-11/minor_sects_proposal.json
+python -I tools/design/map/minor_sects.py --map design/map/continent-11 \
+    --sects design/map/continent-11/minor_sects_proposal.json
 ```
 
 `design/map/.gdignore` keeps Godot from importing these design files.
@@ -81,7 +81,7 @@ Rule 23 asks for 60 %:
 - A straight run on the Thúy Vi / Tùng Đào border near the north coast.
 - Region 11 (the west peninsula) has almost no natural land border.
 
-## Great sects: proposal v3 (awaiting approval)
+## Great sects (v3, approved 2026-11-14)
 
 Sects are the only powers. There are no mortal kingdoms (Travel & Map rule 24, confirmed 2026-11-13) and no wild regions:
 every region belongs to a great sect (user decision 2026-11-14). Wilderness, the land away from roads and towns, still
@@ -132,7 +132,7 @@ lies inside each territory. The 15–25 minor sects come later and sit inside th
 **Seats** are picked by the tool, and their tiles are in `politics_proposal.json`. Hand-placed sacred summits or spirit
 veins (rules R27 and R29) can move them.
 
-## The 20 regions (names: proposal, awaiting approval)
+## The 20 regions (names approved 2026-11-14)
 
 Names are Hán-Việt and lean romantic, in the same style as the sects (user request 2026-11-14). Each sect's regions
 share a theme:
@@ -178,7 +178,7 @@ Names live in `region_names.json`, keyed by the region ids in `regions.png`.
 Names were checked against the design files. Three first picks clashed with notables in the parked Meridian tree data
 (Kính Hồ, Xuân Lôi, Ngô Đồng) and were replaced.
 
-## Minor sects: proposal (awaiting approval)
+## Minor sects (approved 2026-11-14)
 
 Sects & Missions (approved 2026-11-14) sets the frame:
 - **Vassals:** 15–25 minor sects (tiểu tông môn), each a vassal of the great sect whose land it sits in. A vassal
@@ -186,7 +186,7 @@ Sects & Missions (approved 2026-11-14) sets the frame:
 - **Owner of the details:** the starting size, leaders, levels and alignment belong to World Generation & History
   (#27, Sects open question 9).
 
-This proposal names and places them.
+This list names and places them.
 
 **How many: 22.**
 - 4 under each tier-1 sect and 2–3 under each tier-2 sect.
@@ -263,9 +263,10 @@ The line each name comes from is in `minor_sects_proposal.json` (`note`).
 
 ## Open for the user
 
-1. Approve the territories and the sect names, or change any of them. To move a border, change a sect's start tile
-   or tier, or name the regions you want swapped.
-2. Approve the region names, or swap any of them.
-3. Approve the 22 minor sects: their names, lords, alignments and seats. To move a seat, add `"tile": [x, y]` or
-   change its wants. To move a sect to another lord, change its `lord` and `region`.
-4. Then the famous places (Travel & Map rule 6), towns, roads and teleport arrays.
+1. **Next:** the famous places (Travel & Map rule 6), towns, roads and teleport arrays.
+2. The known rough spots above, by hand.
+
+To change anything approved later:
+- **A border:** change a sect's start tile or tier.
+- **A minor seat:** add `"tile": [x, y]` or change its wants.
+- **A minor sect's lord:** change its `lord` and `region`.

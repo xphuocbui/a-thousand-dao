@@ -1,5 +1,5 @@
 {
- "status": "proposal v3, awaiting the user's approval (2026-11-14): compact territories drawn first, regions inside them; no wild regions",
+ "status": "approved by the user 2026-11-14 (v3): compact territories drawn first, regions inside them; no wild regions",
  "note": "start_tile is where a sect's territory starts growing (tile x, y on the 540 x 360 grid); the tool moves it to the territory's centre. Regions are derived per territory. name_hv is the sect's name; gloss its English meaning.",
  "great_sects": [
   {"key": "thien_xu", "name_hv": "Thiên Xu Tông", "name_han": "天樞宗", "gloss": "Sect of the Heavenly Pivot",
