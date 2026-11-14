@@ -27,7 +27,9 @@ extends RefCounted
 ##   ones too) and the slotted techniques' passives (flat combat lines with scopes, fight-only; their bonuses reach
 ##   the fight through the sheet); keys with no part in a fight are left out.
 ## - arts: the unlocked abilities of its slotted techniques (main, second main, auxiliaries; Cultivation Techniques
-##   rule 17), then the named pieces' arts, up to the realm's art slots; a Character with none fights with the
+##   rule 17), then its pieces' arts in equip order (a named piece's own, a rolled weapon its base's common art:
+##   Item Database rule 21), up to the realm's art slots; a rolled armour or ward gear piece brings its base's
+##   common ward; a Character with none fights with the
 ##   typical kit.
 ## - purity: the linh căn's element purities, by engine element.
 ## - stage_mult: the Realms stage multiplier (1.00-1.45), on the damage unit and block (Combat Formulas A).
@@ -115,6 +117,7 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 			lines.append({"key": str(key), "value": v})
 	var items: Array = []
 	var arts: Array = []
+	var wards: Array = []
 	var slots: int = int(lib.constants.slots_by_realm[r])
 	for key in [c.main_tech, c.second_tech] + Array(c.aux_tech):
 		var e: Dictionary = c.techniques.get(str(key), {}) if str(key) != "" else {}
@@ -146,8 +149,22 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 				line["scope"] = Array(a.scope).duplicate()
 			if str(a.stat) in combat_keys:
 				lines.append(line)
+		# Item Database rule 21: a rolled weapon gives its base's common attack art, a rolled armour or ward gear
+		# piece its base's common ward (an armour's ward sits in the armour's own ward slot, Combat D&H rule 5)
+		var b: Dictionary = lib.get("bases", {}).get(str(rec.get("base", "")), {})
+		var roles: Array = b.get("roles", [])
+		var common_art: String = str(b.get("common_art", ""))
+		if "weapon" in roles and common_art != "" and lib.arts.has(common_art) and arts.size() < slots 				and not arts.any(func(x): return x.lib == common_art):
+			arts.append({"lib": common_art})
+		if b.get("common_ward") != null and not roles.is_empty() and str(roles[0]) in ["body_gear", "ward_gear"]:
+			var w: Dictionary = (b.common_ward as Dictionary).duplicate(true)
+			w["source"] = "item %s" % str(rec.get("name", item_id))
+			w["own_slot"] = str(roles[0]) == "body_gear"
+			wards.append(w)
 	d["items"] = items
 	d["modifiers"] = lines
+	if not wards.is_empty():
+		d["wards"] = wards
 	if arts.is_empty():
 		d["arts"] = base.arts
 		report.append("no arts of its own: fights with the typical kit")

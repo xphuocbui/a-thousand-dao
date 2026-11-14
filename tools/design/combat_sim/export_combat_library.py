@@ -52,6 +52,43 @@ def _art_record(a, source):
     return rec
 
 
+def common_wards():
+    """The Combat Defence & Healing ward table (Formulas H), name -> its row, read as fight.py's parse_ward reads
+    a ward: payload, and payment with activation."""
+    path = os.path.join(ROOT, "design", "gdd", "combat-defence.md")
+    rows, on = {}, False
+    for line in open(path, encoding="utf-8"):
+        if line.startswith("| Ward | Payload | Payment, activation |"):
+            on = True
+            continue
+        if on:
+            if not line.startswith("|"):
+                break
+            cells = [c.strip() for c in line.strip().strip("|").split("|")]
+            if cells[0].startswith("---"):
+                continue
+            rows[cells[0]] = {"name": cells[0], "payload": cells[1], "payment": cells[2], "activation": cells[2]}
+    return rows
+
+
+def bases_record(bases):
+    """Item Database rule 21: a rolled weapon gives its base's common attack art, a rolled armour or ward gear piece
+    its base's common ward (parsed here, unscaled, as an item's ward)."""
+    table = common_wards()
+    out = {}
+    for bid in sorted(bases):
+        b = bases[bid]
+        ward = None
+        if b.get("common_ward"):
+            row = table.get(b["common_ward"])
+            if row is None:
+                raise SystemExit("bases.json %s: common ward %r is not in the combat-defence.md ward table" % (bid, b["common_ward"]))
+            fields, skip = F.parse_ward(dict(row, id=b["common_ward"]))
+            ward = {"id": b["common_ward"], "name": b["common_ward"], "fields": fields, "not_run": skip}
+        out[bid] = {"roles": list(b.get("roles", [])), "common_art": b.get("common_art") or "", "common_ward": ward}
+    return out
+
+
 def build_all():
     arts_lib, _techs = F._library()
     items, bases = F._LIB["items"], F._LIB["bases"]
@@ -108,7 +145,9 @@ def build_all():
                 "from fight.py's library, ward parser, reference enemies and constants; do not edit by hand. Read by "
                 "FighterCompiler. arts: library forms by id (build-file art fields, effects, counters, states; source "
                 "family | part_common | part_authored | common_arts | item). items: named items' combat records "
-                "(role = the base's first role; wards parsed and unscaled, fields null when not run). typical: the "
+                "(role = the base's first role; wards parsed and unscaled, fields null when not run). bases: per artifact "
+                "base, its roles, common art id and common ward (Item Database rule 21: what a rolled piece gives). "
+                "typical: the "
                 "typical fighter's build file per realm 0-4. constants: fight.py constants (Combat Formulas B, "
                 "Combat Defence & Healing A0-D) the compiler reads; lib_art_keys: the art fields a library art "
                 "brings; build_defaults: an engine Build's fields before to_build() sets them; file_defaults: fight.py's literal "
@@ -116,6 +155,7 @@ def build_all():
         "arts": {k: arts[k] for k in sorted(arts)},
         "items": out_items,
         "typical": [F.enemy_file("typical", r) for r in range(5)],
+        "bases": bases_record(bases),
         "constants": consts,
     }
 

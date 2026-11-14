@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "_doc": "The combat library (ADR-0001 step 3). Written by tools/design/combat_sim/export_combat_library.py from fight.py's library, ward parser, reference enemies and constants; do not edit by hand. Read by FighterCompiler. arts: library forms by id (build-file art fields, effects, counters, states; source family | part_common | part_authored | common_arts | item). items: named items' combat records (role = the base's first role; wards parsed and unscaled, fields null when not run). typical: the typical fighter's build file per realm 0-4. constants: fight.py constants (Combat Formulas B, Combat Defence & Healing A0-D) the compiler reads; lib_art_keys: the art fields a library art brings; build_defaults: an engine Build's fields before to_build() sets them; file_defaults: fight.py's literal defaults for a build file's missing fields.",
+ "_doc": "The combat library (ADR-0001 step 3). Written by tools/design/combat_sim/export_combat_library.py from fight.py's library, ward parser, reference enemies and constants; do not edit by hand. Read by FighterCompiler. arts: library forms by id (build-file art fields, effects, counters, states; source family | part_common | part_authored | common_arts | item). items: named items' combat records (role = the base's first role; wards parsed and unscaled, fields null when not run). bases: per artifact base, its roles, common art id and common ward (Item Database rule 21: what a rolled piece gives). typical: the typical fighter's build file per realm 0-4. constants: fight.py constants (Combat Formulas B, Combat Defence & Healing A0-D) the compiler reads; lib_art_keys: the art fields a library art brings; build_defaults: an engine Build's fields before to_build() sets them; file_defaults: fight.py's literal defaults for a build file's missing fields.",
  "arts": {
   "aftershock-slam": {
    "c_art": 0.7,
@@ -24443,6 +24443,214 @@
    ]
   }
  ],
+ "bases": {
+  "an": {
+   "roles": [
+    "weapon"
+   ],
+   "common_art": "seal-slam",
+   "common_ward": null
+  },
+  "cam": {
+   "roles": [
+    "weapon"
+   ],
+   "common_art": "string-cut",
+   "common_ward": null
+  },
+  "cham": {
+   "roles": [
+    "weapon"
+   ],
+   "common_art": "needle-rain",
+   "common_ward": null
+  },
+  "chuong": {
+   "roles": [
+    "ward_gear"
+   ],
+   "common_art": "",
+   "common_ward": {
+    "id": "Golden Bell (Kim Chung Tráo)",
+    "name": "Golden Bell (Kim Chung Tráo)",
+    "fields": {
+     "id": "Golden Bell (Kim Chung Tráo)",
+     "payload": {
+      "all": 100.0
+     },
+     "model": "per_hit",
+     "cost": 0.0078
+    },
+    "not_run": []
+   }
+  },
+  "co": {
+   "roles": [
+    "utility"
+   ],
+   "common_art": "",
+   "common_ward": null
+  },
+  "dang": {
+   "roles": [
+    "utility"
+   ],
+   "common_art": "",
+   "common_ward": null
+  },
+  "dao_bao": {
+   "roles": [
+    "body_gear"
+   ],
+   "common_art": "",
+   "common_ward": {
+    "id": "Qi-Scattering Robe (Tán Khí Bào)",
+    "name": "Qi-Scattering Robe (Tán Khí Bào)",
+    "fields": {
+     "id": "Qi-Scattering Robe (Tán Khí Bào)",
+     "payload": {
+      "force": 220.0
+     },
+     "model": "drain",
+     "drain_base": 0.264
+    },
+    "not_run": []
+   }
+  },
+  "giap": {
+   "roles": [
+    "body_gear"
+   ],
+   "common_art": "",
+   "common_ward": {
+    "id": "Black Tortoise Shell (Huyền Quy Giáp)",
+    "name": "Black Tortoise Shell (Huyền Quy Giáp)",
+    "fields": {
+     "id": "Black Tortoise Shell (Huyền Quy Giáp)",
+     "payload": {
+      "phys": 70.2
+     },
+     "model": "cast",
+     "cost": 0.037,
+     "cooldown": 5.0,
+     "up": 2.0
+    },
+    "not_run": []
+   }
+  },
+  "ho_lo": {
+   "roles": [
+    "weapon",
+    "utility"
+   ],
+   "common_art": "gourd-spout",
+   "common_ward": null
+  },
+  "huong_lo": {
+   "roles": [
+    "utility"
+   ],
+   "common_art": "",
+   "common_ward": null
+  },
+  "kinh": {
+   "roles": [
+    "utility"
+   ],
+   "common_art": "",
+   "common_ward": null
+  },
+  "ky": {
+   "roles": [
+    "utility"
+   ],
+   "common_art": "",
+   "common_ward": null
+  },
+  "lac_thiet": {
+   "roles": [
+    "utility"
+   ],
+   "common_art": "",
+   "common_ward": null
+  },
+  "loi_truong": {
+   "roles": [
+    "utility"
+   ],
+   "common_art": "",
+   "common_ward": null
+  },
+  "mao": {
+   "roles": [
+    "weapon"
+   ],
+   "common_art": "anchor-drop",
+   "common_ward": null
+  },
+  "ngoc_boi": {
+   "roles": [
+    "necklace"
+   ],
+   "common_art": "",
+   "common_ward": null
+  },
+  "nhan": {
+   "roles": [
+    "ring"
+   ],
+   "common_art": "",
+   "common_ward": null
+  },
+  "phi_kiem": {
+   "roles": [
+    "weapon"
+   ],
+   "common_art": "flying-sword-strike",
+   "common_ward": null
+  },
+  "phien": {
+   "roles": [
+    "weapon"
+   ],
+   "common_art": "fan-gust",
+   "common_ward": null
+  },
+  "phu": {
+   "roles": [
+    "weapon"
+   ],
+   "common_art": "mountain-cleave",
+   "common_ward": null
+  },
+  "thuan": {
+   "roles": [
+    "ward_gear"
+   ],
+   "common_art": "",
+   "common_ward": {
+    "id": "Golden Light Shield (Kim Quang Thuẫn)",
+    "name": "Golden Light Shield (Kim Quang Thuẫn)",
+    "fields": {
+     "id": "Golden Light Shield (Kim Quang Thuẫn)",
+     "payload": {},
+     "shield": 0.09,
+     "model": "cast",
+     "cost": 0.024,
+     "cooldown": 4.0,
+     "up": 3.0
+    },
+    "not_run": []
+   }
+  },
+  "tien_tieu": {
+   "roles": [
+    "weapon"
+   ],
+   "common_art": "coin-shot",
+   "common_ward": null
+  }
+ },
  "constants": {
   "typical_ws": [
    30.8,

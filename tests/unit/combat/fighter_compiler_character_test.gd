@@ -245,3 +245,19 @@ func test_a_stand_in_template_without_abilities_gets_one_common_art() -> void:
 	assert_eq(items.manual_from_template(t).abilities, m.abilities, "every copy carries the same art")
 	var authored: Dictionary = gd.cong_phap_file().templates.filter(func(x): return x.id == "hunters-reach-canon")[0]
 	assert_eq(items.manual_from_template(authored).abilities, authored.abilities, "authored abilities stay as written")
+
+
+func test_rolled_pieces_give_their_bases_common_art_and_ward() -> void:
+	# Item Database rule 21: a rolled weapon gives its base's common art; armour and ward gear their common ward
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"kim": 50}, 50, 1)
+	c.equipped = [_piece(db, "phi_kiem", 0.0), _piece(db, "giap", 30.0), _piece(db, "chuong", 10.0)]
+	var d: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, null))
+	assert_eq(d.arts, [{"lib": "flying-sword-strike"}], "the flying sword's strike")
+	assert_eq(d.wards.size(), 2, "the armour's and the bell's wards")
+	assert_eq(str(d.wards[0].name), "Black Tortoise Shell (Huyền Quy Giáp)", "the armour's ward")
+	assert_true(bool(d.wards[0].own_slot), "in the armour's own slot")
+	assert_false(bool(d.wards[1].own_slot), "the bell's ward takes an ordinary slot")
+	var p: FighterProfile = FighterCompiler.compile(c, gd, db, StatSheet.build(c, gd, db, null))
+	assert_eq(p.wards.size(), 2, "both wards reach the fighter")
