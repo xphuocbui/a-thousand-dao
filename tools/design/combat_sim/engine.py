@@ -764,8 +764,9 @@ class Fight:
         fired = a
         if a.steps:
             nxt = s.step[i] + 1
-            if nxt <= len(a.steps) and self.holds(s, a.steps[nxt - 1].get("unlock")):
+            if nxt <= len(a.steps) and self.holds(s, a.steps[nxt - 1].get("unlock"))                     and self.step_health(s, a, a.steps[nxt - 1], pay=False):
                 st = a.steps[nxt - 1]
+                self.step_health(s, a, st, pay=True)
                 fired = override(a, st)
                 if st.get("pay"):
                     self.do(s, {"id": a.name + "-step", "on": "art_fired"}, st["pay"], 1.0, {"art_id": a.name})
@@ -786,6 +787,23 @@ class Fight:
                     self.plog.append(["empower", self.t, s.label, a.name])
                 self.fire_event(s, "empowered", {"art_id": a.name})
         return fired
+
+    def step_health(self, s, a, st, pay):
+        """A step's own health cost (2026-11-14, reckless-gale): hp_cost x health_max, reduced by hp_cost_red, paid
+        first by the body shield under shield_pays, like an art's health cost; it must leave pay_keep_health or the
+        step does not unlock. With pay=False it only answers whether the step can pay."""
+        share = st.get("hp_cost", 0.0)
+        if not share:
+            return True
+        need = share * s.hp_max * (1 - min(1.0, self.mod(s, "hp_cost_red", art_ctx(a))))
+        from_shield = min(s.body_bar, need) if self.mod(s, "shield_pays") > 0 else 0.0
+        if s.hp - (need - from_shield) < K["pay_keep_health"]:
+            return False
+        if pay:
+            s.body_bar -= from_shield
+            s.hp -= need - from_shield
+            s.hp_paid += need
+        return True
 
     def pay(self, s, a):
         b = s.b
@@ -1116,6 +1134,8 @@ class Fight:
         d = STATUS[sid]
         if self.t < target.lockouts.get(sid, -1):
             return
+        if d.get("stacking") == "none" and target.st(sid) > 0:
+            return      # stacking None: a recast while it runs does nothing (Effects Edge Cases; 2026-11-14)
         is_curse = d["kind"] == "curse"
         sctx = {"status": sid, "kind": d["kind"], "tags": (d["kind"], sid)}
         # Combat Formulas F: p = 0 at chance 0; 1 at chance 1 with no status resistance; otherwise
@@ -1198,6 +1218,8 @@ class Fight:
             key = (name, ev.get("art_id", ""))
             s.engine_counts[key] = s.engine_counts.get(key, 0) + 1
         for e in s.b.effects:
+            if name == "down" and any("refuse_down" in a or "last_act" in a for a in e.get("do", [])):
+                continue    # refusals are Down step 1 and last acts run in the step itself (defeat_check)
             if e.get("on") != name or e.get("held"):
                 if e.get("held") and e.get("on") == name:
                     self.bank(s, e, ev)
@@ -1384,7 +1406,14 @@ class Fight:
                 s.counters[arg["id"]] = max(0.0, v if cap is None else min(cap, v))
             elif verb == "strip":
                 left = int(arg.get("n", 1) * n)
-                pile = arg.get("el") or max({x[0] for x in o.buffs} or {""}, key=lambda el: o.count(o.buffs, el))
+                pile = arg.get("el")
+                if not pile:
+                    # the largest pile; a tie goes to the pile listed first (2026-11-14: was set order, unstable)
+                    pile, best = "", -1.0
+                    for x in o.buffs:
+                        cnt = o.count(o.buffs, x[0])
+                        if cnt > best:
+                            best, pile = cnt, x[0]
                 o.buffs.sort(key=lambda x: x[2] if x[2] is not None else 1 << 40)
                 taken = 0
                 for x in list(o.buffs):
@@ -1475,8 +1504,11 @@ class Fight:
                                 self.plog.append(["cull", self.t, s.label])
         downs = [s for s in (self.A, self.B) if s.hp <= 0]
         for s in downs:
+            # Down step 1 [Effects 11]: the first usable refusal whose conditions hold (2026-11-14: conditions were
+            # not read, so Ash Rebirth refused with no Ash); its other actions run with it (Ash Rebirth's heal), then
+            # the "refused" event (Ash Rebirth's spending)
             refuse = [e for e in s.b.effects if e.get("on") == "down" and any("refuse_down" in a for a in e.get("do", []))
-                      and self.allowed(s, e)]
+                      and self.allowed(s, e) and self.holds(s, e.get("if"), {})]
             if refuse and s.refusals_left > 0:
                 e = refuse[0]
                 self.mark(s, e)
@@ -1484,6 +1516,14 @@ class Fight:
                 s.hp = K["refuse_down_health"]
                 if self.plog is not None:
                     self.plog.append(["down", self.t, s.label, "refused"])
+                rest = [a for a in e.get("do", []) if "refuse_down" not in a]
+                if rest:
+                    self.depth += 1
+                    try:
+                        self.do(s, e, rest, self.scale(s, e, {}), {})
+                    finally:
+                        self.depth -= 1
+                self.fire_event(s, "refused", {})
                 continue
             for e in s.b.effects:
                 for a in e.get("do", []):
@@ -1491,6 +1531,9 @@ class Fight:
                         self.mark(s, e)
                         la = a["last_act"]
                         self.hit(s, s.foe, la.get("c", 0.0), la.get("dtype", "phys"), None, kind="trigger", trig=True)
+            # Down step 2's event (2026-11-14: never raised, so Final Clause never fired): the "down" listeners
+            # that are neither refusals nor last acts
+            self.fire_event(s, "down", {})
             s.down = True
             if self.plog is not None:
                 self.plog.append(["down", self.t, s.label, "down"])

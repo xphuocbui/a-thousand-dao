@@ -5,10 +5,9 @@ extends DaoTestSuite
 
 const CASES := "res://tests/parity/compile/compile_cases.json"
 const TOL := 1e-9
-## Arts the Godot loader refuses on purpose, waiting on a content decision: art id -> the error it must give.
-## reckless-gale: a step sets hp_cost, which neither engine's step override runs (design/research/
-## fighter-compiler-questions.md, "A step field nobody runs").
-const KNOWN_REFUSALS := {"reckless-gale": "hp_cost is not run by either engine"}
+## Arts the Godot loader refuses on purpose, waiting on a content decision: art id -> the error it must give. Empty
+## since 2026-11-14 (reckless-gale's step hp_cost now runs in both engines).
+const KNOWN_REFUSALS := {}
 
 
 static func _cases() -> Array:

@@ -16,6 +16,9 @@ const SLICE_5 := ["t5_steps_exact_1", "t5_steps_exact_2", "t5_chancy"]
 ## Engine sign-off: the sim's typical reference enemy (fight.py) in a mirror at every realm.
 const SIGNOFF := ["t6_typical_mirror_r0", "t6_typical_mirror_r1", "t6_typical_mirror_r2", "t6_typical_mirror_r3",
 	"t6_typical_mirror_r4"]
+## Engine fixes of 2026-11-14 (both engines): step hp_cost, the Down step's events and refusal conditions, strip's
+## tie order, stacking None statuses ignoring a recast.
+const FIXES := ["t7_fixes_exact"]
 ## ADR-0001 decision 4 (amended 2026-11-13): chancy fixtures over 1,000 seeds; mean fight time within 5 %, each win
 ## share within 0.05 of the sim's reference (which parity_export.py takes over 10x the seeds).
 const TIME_TOL := 0.05
@@ -92,7 +95,7 @@ func test_the_constants_load_from_the_shared_file() -> void:
 
 
 func test_every_slice_fixture_has_an_expected_file() -> void:
-	for name in SLICE_1 + SLICE_2 + SLICE_3 + SLICE_4 + SLICE_5 + SIGNOFF:
+	for name in SLICE_1 + SLICE_2 + SLICE_3 + SLICE_4 + SLICE_5 + SIGNOFF + FIXES:
 		assert_true(FileAccess.file_exists(EXPECTED_DIR + name + ".json"), "%s.json is there" % name)
 
 

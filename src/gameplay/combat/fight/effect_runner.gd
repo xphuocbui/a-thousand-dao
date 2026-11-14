@@ -220,6 +220,8 @@ static func matches(f: Fight, filt: Dictionary, ctx: Variant) -> bool:
 static func fire(f: Fight, s: FighterState, name: String, ev: Dictionary) -> void:
 	var listeners: Array = s.p.listeners.get(name, [])
 	for e in listeners:
+		if name == "down" and e.actions.any(func(x): return x.verb == "refuse_down" or x.verb == "last_act"):
+			continue   # refusals are Down step 1 and last acts run in the step itself (Fight._defeat_check)
 		if e.held:
 			bank(f, s, e, ev)
 			continue
@@ -515,7 +517,7 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 				var left_s: float = float(int(float(arg.get("n", 1)) * n))
 				var pile: String = str(arg.get("el", "")) if arg.get("el") != null else ""
 				if pile == "":
-					# the pile with the most stacks; the sim breaks ties in set order (unstable), so ties are avoided
+					# the largest pile; a tie goes to the pile listed first (both engines, 2026-11-14)
 					var best_n: float = -1.0
 					for x in o.buffs:
 						var cnt: float = _count(o.buffs, x.el)

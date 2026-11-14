@@ -13,6 +13,8 @@ const FIELDS := {"c_art": "c", "statuses": "statuses", "buff": "buff", "debuff":
 ## A step of a multi-step art: its unlock conditions, what it pays, and the art as it fires (built once at load).
 class StepDef extends RefCounted:
 	var conds: Array[EffectDef.CondDef] = []
+	## The step's own health cost, a share of health_max (paid in Fight.step_health; 2026-11-14, both engines).
+	var hp_cost: float = 0.0
 	var pay: Array[EffectDef.ActionDef] = []
 	var pay_effect: EffectDef
 	var art: ArtDef

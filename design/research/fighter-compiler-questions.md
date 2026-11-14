@@ -52,11 +52,17 @@ Effect; ordinary pieces' affixes (scoped ones too) join the sheet lines.
 - **Arts that read counters nothing builds** (heat, peal, charge, feather, echo, toll, coil, strata): steps and
   empowers waiting on an engine another piece builds. Both engines read an undefined counter as 0; the Godot loader
   now reports it as a warning rather than refusing the fighter.
-- **A step field nobody runs:** `reckless-gale`'s second step sets `hp_cost` (0.12), which the sim's `override()`
-  ignores; the Godot loader refuses it by name, so a Character with that art does not compile (listed as a known
-  refusal in the compile parity test). Either add `hp_cost` to the override table (both engines) or move it off the
-  step.
-- **Final Clause** listens for `down`, which neither engine raises; it never fires.
-- **`strip` without an element** picks the largest buff pile and breaks ties in Python set order (unstable between
-  runs). Give tied piles a rule (oldest first?) in both engines.
-- **Sealed Meridian recast:** the GDD says a recast while it runs does nothing; both engines refresh its duration.
+All four below **fixed 2026-11-14 in both engines** (user: "please fix"), proven by `tests/parity/fixtures/
+t7_fixes_exact.json`:
+- **Step `hp_cost`** (`reckless-gale`): a step's own health cost, `hp_cost x health_max`, reduced by
+  `hp_cost_red` and paid first by the body shield under Shield Pays the Blood, like an art's health cost. It must
+  leave `pay_keep_health`, or the step does not unlock (the art fires as step 1). Empowers still refuse `hp_cost`.
+- **The Down step's events** (Effects rule 11): `down` is now raised at Down step 2 (a side going Down) for its
+  listeners that are neither refusals nor last acts, so **Final Clause** fires. A refusal now reads its own `if`
+  (Ash Rebirth refused with no Ash) and runs its other actions when it saves the side (Ash Rebirth's heal per Ash);
+  then a new event `refused` fires, and Ash Rebirth's `ash-spent` listens to it (it listened to `down`).
+- **`strip` with no element:** the largest pile; a tie goes to the pile listed first in the target's buffs (the
+  oldest batch still held). The sim used Python set order.
+- **Stacking None** (Corpse Rot, Sealed Meridian, Silence; `stacking: "none"` in `combat_engine.json` STATUS): a
+  recast while the status runs does nothing (Effects Edge Cases), so it neither refreshes nor changes the sealed layer
+  or silenced tag. Both engines refreshed it.

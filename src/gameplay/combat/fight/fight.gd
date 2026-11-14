@@ -540,8 +540,9 @@ func shape(s: FighterState, i: int, art: ArtDef) -> ArtDef:
 	var fired: ArtDef = art
 	if not art.steps.is_empty():
 		var nxt: int = s.step[i] + 1
-		if nxt <= art.steps.size() and EffectRunner.holds(self, s, art.steps[nxt - 1].conds, null):
+		if nxt <= art.steps.size() and EffectRunner.holds(self, s, art.steps[nxt - 1].conds, null) 				and step_health(s, art, art.steps[nxt - 1], false):
 			var sd: ArtOverride.StepDef = art.steps[nxt - 1]
+			step_health(s, art, sd, true)
 			fired = sd.art
 			if not sd.pay.is_empty():
 				EffectRunner.run(self, s, sd.pay_effect, sd.pay, 1.0, {"art_id": str(art.id)})
@@ -560,6 +561,23 @@ func shape(s: FighterState, i: int, art: ArtDef) -> ArtDef:
 				_row(FightLogRow.Kind.EMPOWER, s.label, &"", art.id, [])
 			_event(s, "empowered", {"art_id": str(art.id)})
 	return fired
+
+
+## A step's own health cost (the sim's step_health; 2026-11-14): hp_cost x health_max, reduced by hp_cost_red, paid
+## first by the body shield under shield_pays; it must leave pay_keep_health or the step does not unlock. With
+## [param do_pay] false it only answers whether the step can pay.
+func step_health(s: FighterState, art: ArtDef, sd: ArtOverride.StepDef, do_pay: bool) -> bool:
+	if sd.hp_cost == 0.0:
+		return true
+	var need: float = sd.hp_cost * s.hp_max * (1 - minf(1.0, m(s, "hp_cost_red", art.ctx)))
+	var from_shield: float = minf(s.body_bar, need) if m(s, "shield_pays", null) > 0 else 0.0
+	if s.hp - (need - from_shield) < k.pay_keep_health:
+		return false
+	if do_pay:
+		s.body_bar -= from_shield
+		s.hp -= need - from_shield
+		s.hp_paid += need
+	return true
 
 
 ## Pays [param art]'s cost for [param s] (Combat E, R12; Effects): Ice stacks and Heavy Breath raise it, cost
@@ -820,6 +838,8 @@ func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> 
 	var d: Dictionary = k.status[sid]
 	if t < int(target.lockouts.get(sid, -1)):
 		return
+	if str(d.get("stacking", "")) == "none" and target.st(sid) > 0.0:
+		return   # stacking None: a recast while it runs does nothing (Effects Edge Cases; both engines, 2026-11-14)
 	var is_curse: bool = str(d.kind) == "curse"
 	var sctx: Dictionary = {"status": sid, "kind": str(d.kind), "tags": [str(d.kind), sid]} if _fx else {}
 	var chance: float = spec.chance
@@ -998,9 +1018,11 @@ func _defeat_check() -> void:
 		if s.hp <= 0.0:
 			downs.append(s)
 	for s in downs:
+		# Down step 1 (Effects rule 11): the first usable refusal whose conditions hold; its other actions run with it,
+		# then the "refused" event (2026-11-14, both engines: conditions were not read, other actions never ran)
 		var refuse: EffectDef = null
 		for e in s.p.effects:
-			if e.on == "down" and EffectRunner.allowed(self, s, e):
+			if e.on == "down" and EffectRunner.allowed(self, s, e) and EffectRunner.holds(self, s, e.conds, {}):
 				var has_refuse := false
 				for act_def in e.actions:
 					if act_def.verb == "refuse_down":
@@ -1014,6 +1036,12 @@ func _defeat_check() -> void:
 			s.hp = k.refuse_down_health
 			if _log_enabled:
 				_row(FightLogRow.Kind.DOWN, s.label, &"", &"refused", [])
+			var rest: Array = refuse.actions.filter(func(x): return x.verb != "refuse_down")
+			if not rest.is_empty():
+				depth += 1
+				EffectRunner.run(self, s, refuse, rest, EffectRunner.scale(self, s, refuse, {}), {})
+				depth -= 1
+			EffectRunner.fire(self, s, "refused", {})
 			continue
 		for e in s.p.effects:
 			for act_def in e.actions:
@@ -1021,6 +1049,8 @@ func _defeat_check() -> void:
 					EffectRunner.mark(self, s, e)
 					var la: Dictionary = act_def.arg
 					hit(s, foe_of(s), float(la.get("c", 0.0)), StringName(str(la.get("dtype", "phys"))), null, KIND_TRIGGER, true)
+		# Down step 2's event: the "down" listeners that are neither refusals nor last acts (Final Clause)
+		EffectRunner.fire(self, s, "down", {})
 		s.down = true
 		if _log_enabled:
 			_row(FightLogRow.Kind.DOWN, s.label, &"", &"down", [])

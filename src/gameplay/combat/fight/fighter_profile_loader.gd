@@ -362,8 +362,9 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 		sd.conds = _cmp().compile_conds(spec.get("unlock", []), sw, _counters_for_arts)
 		sd.pay = _pay(spec.get("pay", []), sw)
 		sd.pay_effect = _pseudo(str(d.get("name", "")) + "-step")
+		sd.hp_cost = float(spec.get("hp_cost", 0.0))
 		sd.art = null
-		_pending_steps.append([a, sd, _override(spec, sw, ["unlock", "pay"])])
+		_pending_steps.append([a, sd, _override(spec, sw, ["unlock", "pay", "hp_cost"])])
 		a.steps.append(sd)
 	for j in (d.get("empower", []) as Array).size():
 		var ed := ArtOverride.EmpowerDef.new()

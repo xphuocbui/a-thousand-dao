@@ -1,0 +1,52 @@
+{
+  "name": "t7_fixes_exact",
+  "slice": 7,
+  "chance_free": true,
+  "seed": 71,
+  "doc": "Engine fixes of 2026-11-14 (both engines), chance-free. A: a two-step art whose step costs 12 % of health below 60 % health (step hp_cost, reckless-gale's shape); a refusal whose condition never holds listed first (a refusal's if is now read, so it is not spent) and a real one with Ash that heals per Ash when it saves A; a 'refused' listener (Ash Rebirth's spending); Final Clause on 'down' (Down step 2's event, now raised) firing A's longest art as A goes Down; two buff piles kept level for strip's tie (Fire and Water, which change different stats, so the pile taken shows). B: an art that recasts Sealed Meridian every 1.5 s naming another layer (stacking None: a recast while it runs does nothing), and a strip with no element (a tie goes to the pile listed first).",
+  "a": {
+    "name": "reckless",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "refusals": 1,
+    "counters": [{"id": "ash"}],
+    "arts": [
+      {
+        "name": "gale-cut",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 2.0,
+        "steps": [
+          {"unlock": [{"read": "own.hp_share", "op": "<=", "value": 0.6}], "hp_cost": 0.12, "c_mult": 3.0}
+        ]
+      },
+      {"name": "fire-fan", "c": 0.6, "cost": 0.03, "cd": 3.0, "element": "fire", "buff": [2, 30.0]},
+      {"name": "water-fan", "c": 0.6, "cost": 0.03, "cd": 3.0, "element": "water", "buff": [2, 30.0]},
+      {"name": "long-blade", "c": 2.0, "cost": 0.06, "cd": 7.0}
+    ],
+    "effects": [
+      {"id": "ash-gather", "on": "art_fired", "do": [{"counter": {"id": "ash", "add": 1}}]},
+      {"id": "never-refuse", "on": "down", "if": [{"read": "own.counter.ash", "op": ">=", "value": 999}], "limit": {"per_fight": 1}, "do": [{"refuse_down": {}}, {"heal": {"share": 0.5}}]},
+      {"id": "ash-rise", "on": "down", "if": [{"read": "own.counter.ash", "op": ">=", "value": 3}], "limit": {"per_fight": 1}, "scale": {"read": "own.counter.ash", "per": 1, "cap": 10}, "do": [{"refuse_down": {}}, {"heal": {"share": 0.02}}]},
+      {"id": "ash-spent", "on": "refused", "limit": {"per_fight": 1}, "do": [{"counter": {"id": "ash", "set": 0}}, {"stacks": {"el": "fire", "n": 4, "for": 10, "side": "own"}}]},
+      {"id": "final-clause", "on": "down", "limit": {"per_fight": 1}, "do": [{"fire_art": {"which": "longest", "share": 1.0}}]}
+    ]
+  },
+  "b": {
+    "name": "sealer",
+    "realm": 1,
+    "M": 4.6,
+    "crit": 0.0,
+    "evade": 0.0,
+    "arts": [
+      {"name": "seal-strike", "c": 1.2, "cost": 0.03, "cd": 1.5, "statuses": [{"id": "sealed_meridian", "layer": 3}]},
+      {"name": "unseal-other", "c": 0.8, "cost": 0.03, "cd": 2.5, "statuses": [{"id": "sealed_meridian", "layer": 5}]},
+      {"name": "strip-hand", "c": 1.0, "cost": 0.04, "cd": 4.0},
+      {"name": "heavy", "c": 2.6, "cost": 0.06, "cd": 4.0}
+    ],
+    "effects": [
+      {"id": "strip-on-hand", "on": "art_fired", "filter": {"art_id": "strip-hand"}, "do": [{"strip": {"n": 1}}]}
+    ]
+  }
+}

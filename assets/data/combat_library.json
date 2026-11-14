@@ -731,7 +731,7 @@
     },
     {
      "id": "ash-spent",
-     "on": "down",
+     "on": "refused",
      "if": [
       {
        "read": "own.counter.ash",

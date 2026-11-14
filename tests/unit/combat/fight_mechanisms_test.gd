@@ -407,8 +407,16 @@ func test_empower_triples_the_strike_when_the_foe_is_dry() -> void:
 
 
 func test_step_field_neither_engine_runs_is_refused() -> void:
-	# A step's hp_cost is not in the sim's override table, so the sim ignores it; the loader refuses it by name.
+	# A key the sim's override() ignores is refused by name. A step's hp_cost runs since 2026-11-14 (step_health);
+	# an empower's does not, and a step's cooldown never did.
 	var loader := FighterProfileLoader.new(CombatConstants.load_file())
-	var d := _dummy({}, [{"name": "pricey", "c": 1.0, "steps": [{"unlock": [], "c_mult": 2.0, "hp_cost": 0.05}]}])
+	var d := _dummy({}, [{"name": "pricey", "c": 1.0, "steps": [{"unlock": [], "c_mult": 2.0, "cooldown": 1.0}]}])
 	assert_true(loader.from_sim_build(d, "case") == null, "refused")
+	assert_true("; ".join(loader.errors).contains("cooldown"), "names cooldown")
+	loader.errors = []
+	var e := _dummy({}, [{"name": "pricey", "c": 1.0, "empower": [{"if": [], "c_mult": 2.0, "hp_cost": 0.05}]}])
+	assert_true(loader.from_sim_build(e, "case") == null, "an empower's hp_cost is refused")
 	assert_true("; ".join(loader.errors).contains("hp_cost"), "names hp_cost")
+	loader.errors = []
+	var ok := _dummy({}, [{"name": "pricey", "c": 1.0, "steps": [{"unlock": [], "c_mult": 2.0, "hp_cost": 0.05}]}])
+	assert_true(loader.from_sim_build(ok, "case") != null, "a step's hp_cost loads: %s" % "; ".join(loader.errors))
