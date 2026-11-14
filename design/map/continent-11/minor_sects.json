@@ -1,0 +1,777 @@
+{
+ "source": "tools/design/map/minor_sects.py",
+ "check": {
+  "minor_sects": 22,
+  "per_great_sect": {
+   "Thiên Xu Tông": 4,
+   "Tùng Đào Cung": 4,
+   "Lạc Hà Tông": 4,
+   "Thính Vũ Lâu": 2,
+   "Băng Tâm Các": 3,
+   "Thúy Vi Tông": 2,
+   "Phượng Minh Cung": 3
+  },
+  "regions_without_one": [],
+  "wants_met_share": 0.83,
+  "first_want_met": 22,
+  "alignments": {
+   "chính đạo": 15,
+   "ma đạo": 2,
+   "trung lập": 5
+  },
+  "min_seat_gap_tiles": 18.4,
+  "params": {
+   "min_sep": 14,
+   "edge_tiles": 4,
+   "islet_tiles": 200,
+   "space_gain": 0.02,
+   "space_cap": 30,
+   "want_weights": [
+    1.0,
+    0.7,
+    0.5,
+    0.35
+   ],
+   "km_per_tile": 25.0,
+   "scale": 3
+  }
+ },
+ "minor_sects": [
+  {
+   "key": "thoi_tinh",
+   "name_hv": "Thối Tinh Môn",
+   "name_han": "淬星門",
+   "gloss": "Gate of the Quenched Stars",
+   "alignment": "chính đạo",
+   "leans": [
+    "Metal",
+    "Fire"
+   ],
+   "craft": "weapon forging (luyện khí) from star iron",
+   "lord": "thien_xu",
+   "lord_name": "Thiên Xu Tông",
+   "region": 15,
+   "region_name": "Ngọc Hành Sơn",
+   "seat_tile": [
+    387,
+    160
+   ],
+   "placed": "by the tool",
+   "biome": "high mountain",
+   "elevation_km": 0.88,
+   "wants_met": [
+    "ore",
+    "mountain"
+   ],
+   "wants_missed": [
+    "river"
+   ],
+   "tiles_to_lord_seat": 108.3,
+   "km_to_lord_seat": 2710,
+   "tiles_to_other_sect": 4,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "phat_y",
+   "name_hv": "Phất Y Cốc",
+   "name_han": "拂衣谷",
+   "gloss": "Valley of the Brushed Sleeve",
+   "alignment": "chính đạo",
+   "leans": [
+    "Metal",
+    "Wind"
+   ],
+   "craft": "sword cultivation; wandering swordsmen for hire",
+   "lord": "thien_xu",
+   "lord_name": "Thiên Xu Tông",
+   "region": 15,
+   "region_name": "Ngọc Hành Sơn",
+   "seat_tile": [
+    335,
+    225
+   ],
+   "placed": "by the tool",
+   "biome": "grassland",
+   "elevation_km": 1.02,
+   "wants_met": [
+    "river",
+    "grassland",
+    "mountain"
+   ],
+   "wants_missed": [],
+   "tiles_to_lord_seat": 69.0,
+   "km_to_lord_seat": 1730,
+   "tiles_to_other_sect": 26,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "cung_tinh",
+   "name_hv": "Củng Tinh Quán",
+   "name_han": "拱星觀",
+   "gloss": "Abbey of the Bowing Stars",
+   "alignment": "chính đạo",
+   "leans": [
+    "Earth",
+    "Metal"
+   ],
+   "craft": "formations (trận pháp) and star divination",
+   "lord": "thien_xu",
+   "lord_name": "Thiên Xu Tông",
+   "region": 14,
+   "region_name": "Thiên Tuyền Nguyên",
+   "seat_tile": [
+    260,
+    181
+   ],
+   "placed": "by the tool",
+   "biome": "highland",
+   "elevation_km": 1.36,
+   "wants_met": [
+    "highland",
+    "lake"
+   ],
+   "wants_missed": [
+    "steppe"
+   ],
+   "tiles_to_lord_seat": 21.0,
+   "km_to_lord_seat": 530,
+   "tiles_to_other_sect": 23,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "cuu_cao",
+   "name_hv": "Cửu Cao Phái",
+   "name_han": "九皋派",
+   "gloss": "School of the Nine Marshes",
+   "alignment": "chính đạo",
+   "leans": [
+    "Wind",
+    "Wood"
+   ],
+   "craft": "spirit beasts: crane riders and beast tamers",
+   "lord": "thien_xu",
+   "lord_name": "Thiên Xu Tông",
+   "region": 6,
+   "region_name": "Dao Quang Lĩnh",
+   "seat_tile": [
+    355,
+    142
+   ],
+   "placed": "by the tool",
+   "biome": "temperate forest",
+   "elevation_km": 0.31,
+   "wants_met": [
+    "peak",
+    "forest",
+    "river"
+   ],
+   "wants_missed": [],
+   "tiles_to_lord_seat": 84.1,
+   "km_to_lord_seat": 2100,
+   "tiles_to_other_sect": 21,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "ham_nguyet",
+   "name_hv": "Hàm Nguyệt Trang",
+   "name_han": "含月莊",
+   "gloss": "Manor That Holds the Moon",
+   "alignment": "chính đạo",
+   "leans": [
+    "Water",
+    "Ice"
+   ],
+   "craft": "water arts; spirit fish and lake pearls",
+   "lord": "tung_dao",
+   "lord_name": "Tùng Đào Cung",
+   "region": 1,
+   "region_name": "Lãnh Nguyệt Lâm",
+   "seat_tile": [
+    303,
+    75
+   ],
+   "placed": "by the tool",
+   "biome": "temperate forest",
+   "elevation_km": 0.09,
+   "wants_met": [
+    "lake",
+    "forest"
+   ],
+   "wants_missed": [],
+   "tiles_to_lord_seat": 83.0,
+   "km_to_lord_seat": 2080,
+   "tiles_to_other_sect": 48,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "van_hac",
+   "name_hv": "Vạn Hác Viện",
+   "name_han": "萬壑院",
+   "gloss": "Academy of the Ten Thousand Ravines",
+   "alignment": "chính đạo",
+   "leans": [
+    "Wood",
+    "Wind"
+   ],
+   "craft": "sound cultivation: the zither (cầm) and its arts",
+   "lord": "tung_dao",
+   "lord_name": "Tùng Đào Cung",
+   "region": 4,
+   "region_name": "Thâm Tùng Hải",
+   "seat_tile": [
+    215,
+    149
+   ],
+   "placed": "by the tool",
+   "biome": "temperate forest",
+   "elevation_km": 0.84,
+   "wants_met": [
+    "mountain",
+    "forest"
+   ],
+   "wants_missed": [
+    "river"
+   ],
+   "tiles_to_lord_seat": 32.6,
+   "km_to_lord_seat": 820,
+   "tiles_to_other_sect": 15,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "thai_chi",
+   "name_hv": "Thải Chi Cốc",
+   "name_han": "採芝谷",
+   "gloss": "Valley of the Lingzhi Pickers",
+   "alignment": "chính đạo",
+   "leans": [
+    "Wood",
+    "Water"
+   ],
+   "craft": "herb fields and alchemy (luyện đan)",
+   "lord": "tung_dao",
+   "lord_name": "Tùng Đào Cung",
+   "region": 5,
+   "region_name": "Cửu Khúc Xuyên",
+   "seat_tile": [
+    256,
+    72
+   ],
+   "placed": "by the tool",
+   "biome": "temperate forest",
+   "elevation_km": 0.02,
+   "wants_met": [
+    "forest",
+    "swamp",
+    "river"
+   ],
+   "wants_missed": [],
+   "tiles_to_lord_seat": 55.7,
+   "km_to_lord_seat": 1390,
+   "tiles_to_other_sect": 67,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "lang_dao",
+   "name_hv": "Lãng Đào Môn",
+   "name_han": "浪淘門",
+   "gloss": "Gate of the Washing Waves",
+   "alignment": "chính đạo",
+   "leans": [
+    "Water",
+    "Wood"
+   ],
+   "craft": "river fleets, ferries and river trade",
+   "lord": "tung_dao",
+   "lord_name": "Tùng Đào Cung",
+   "region": 5,
+   "region_name": "Cửu Khúc Xuyên",
+   "seat_tile": [
+    238,
+    76
+   ],
+   "placed": "by the tool",
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "wants_met": [
+    "river",
+    "coast",
+    "forest"
+   ],
+   "wants_missed": [],
+   "tiles_to_lord_seat": 48.0,
+   "km_to_lord_seat": 1200,
+   "tiles_to_other_sect": 46,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "binh_thuy",
+   "name_hv": "Bình Thủy Môn",
+   "name_han": "萍水門",
+   "gloss": "Gate of Duckweed and Water",
+   "alignment": "trung lập",
+   "leans": [
+    "Water",
+    "Wood"
+   ],
+   "craft": "sea trade, ships and the strait crossing",
+   "lord": "lac_ha",
+   "lord_name": "Lạc Hà Tông",
+   "region": 10,
+   "region_name": "Cô Vụ Đảo",
+   "seat_tile": [
+    125,
+    247
+   ],
+   "placed": "by the tool",
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "wants_met": [
+    "coast",
+    "bamboo",
+    "grassland"
+   ],
+   "wants_missed": [],
+   "tiles_to_lord_seat": 84.2,
+   "km_to_lord_seat": 2110,
+   "tiles_to_other_sect": null,
+   "landmass_tiles": 4099
+  },
+  {
+   "key": "muc_van",
+   "name_hv": "Mục Vân Trang",
+   "name_han": "牧雲莊",
+   "gloss": "Manor of the Cloud Herders",
+   "alignment": "trung lập",
+   "leans": [
+    "Wind",
+    "Earth"
+   ],
+   "craft": "spirit horses and herd beasts of the open plain",
+   "lord": "lac_ha",
+   "lord_name": "Lạc Hà Tông",
+   "region": 11,
+   "region_name": "Trường Thiên Nguyên",
+   "seat_tile": [
+    129,
+    168
+   ],
+   "placed": "by the tool",
+   "biome": "grassland",
+   "elevation_km": 0.04,
+   "wants_met": [
+    "grassland",
+    "coast"
+   ],
+   "wants_missed": [
+    "steppe"
+   ],
+   "tiles_to_lord_seat": 78.3,
+   "km_to_lord_seat": 1960,
+   "tiles_to_other_sect": 94,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "thien_bao",
+   "name_hv": "Thiên Bảo Trai",
+   "name_han": "天寶齋",
+   "gloss": "Studio of Heaven's Treasures",
+   "alignment": "trung lập",
+   "leans": [
+    "Metal",
+    "Earth"
+   ],
+   "craft": "artifact refining and a treasure market",
+   "lord": "lac_ha",
+   "lord_name": "Lạc Hà Tông",
+   "region": 12,
+   "region_name": "Thu Thủy Loan",
+   "seat_tile": [
+    227,
+    215
+   ],
+   "placed": "by the tool",
+   "biome": "steppe",
+   "elevation_km": 0.4,
+   "wants_met": [
+    "ore",
+    "steppe"
+   ],
+   "wants_missed": [
+    "coast"
+   ],
+   "tiles_to_lord_seat": 30.7,
+   "km_to_lord_seat": 770,
+   "tiles_to_other_sect": 11,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "nam_pho",
+   "name_hv": "Nam Phố Đường",
+   "name_han": "南浦堂",
+   "gloss": "Hall of the Southern Shore",
+   "alignment": "chính đạo",
+   "leans": [
+    "Wood",
+    "Water"
+   ],
+   "craft": "talismans (phù lục) and scribes",
+   "lord": "lac_ha",
+   "lord_name": "Lạc Hà Tông",
+   "region": 13,
+   "region_name": "Ngư Ca Xuyên",
+   "seat_tile": [
+    181,
+    161
+   ],
+   "placed": "by the tool",
+   "biome": "temperate forest",
+   "elevation_km": 0.06,
+   "wants_met": [
+    "river",
+    "forest"
+   ],
+   "wants_missed": [
+    "grassland"
+   ],
+   "tiles_to_lord_seat": 47.2,
+   "km_to_lord_seat": 1180,
+   "tiles_to_other_sect": 14,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "xuyen_lam",
+   "name_hv": "Xuyên Lâm Môn",
+   "name_han": "穿林門",
+   "gloss": "Gate Through the Forest",
+   "alignment": "chính đạo",
+   "leans": [
+    "Thunder",
+    "Wood"
+   ],
+   "craft": "staff and footwork; guides through the rain forest",
+   "lord": "thinh_vu",
+   "lord_name": "Thính Vũ Lâu",
+   "region": 19,
+   "region_name": "Kinh Trập Sơn",
+   "seat_tile": [
+    342,
+    265
+   ],
+   "placed": "by the tool",
+   "biome": "high mountain",
+   "elevation_km": 1.14,
+   "wants_met": [
+    "bamboo",
+    "mountain"
+   ],
+   "wants_missed": [
+    "ore"
+   ],
+   "tiles_to_lord_seat": 90.4,
+   "km_to_lord_seat": 2260,
+   "tiles_to_other_sect": 5,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "hong_dau",
+   "name_hv": "Hồng Đậu Trang",
+   "name_han": "紅豆莊",
+   "gloss": "Manor of the Red Beans",
+   "alignment": "ma đạo",
+   "leans": [
+    "Poison",
+    "Wood"
+   ],
+   "craft": "poisons and charms behind a gracious door",
+   "lord": "thinh_vu",
+   "lord_name": "Thính Vũ Lâu",
+   "region": 18,
+   "region_name": "Tiêu Vũ Lâm",
+   "seat_tile": [
+    181,
+    305
+   ],
+   "placed": "by the tool",
+   "biome": "jungle",
+   "elevation_km": 0.04,
+   "wants_met": [
+    "jungle",
+    "swamp"
+   ],
+   "wants_missed": [
+    "hot_spring"
+   ],
+   "tiles_to_lord_seat": 91.2,
+   "km_to_lord_seat": 2280,
+   "tiles_to_other_sect": 4,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "le_hoa",
+   "name_hv": "Lê Hoa Am",
+   "name_han": "梨花庵",
+   "gloss": "Hermitage of the Pear Blossom",
+   "alignment": "chính đạo",
+   "leans": [
+    "Ice",
+    "Water"
+   ],
+   "craft": "ice cultivation; a hermitage near the ice fields",
+   "lord": "bang_tam",
+   "lord_name": "Băng Tâm Các",
+   "region": 7,
+   "region_name": "Ngọc Hồ Sơn",
+   "seat_tile": [
+    410,
+    140
+   ],
+   "placed": "by the tool",
+   "biome": "high mountain",
+   "elevation_km": 0.68,
+   "wants_met": [
+    "ice",
+    "peak"
+   ],
+   "wants_missed": [
+    "forest"
+   ],
+   "tiles_to_lord_seat": 45.0,
+   "km_to_lord_seat": 1130,
+   "tiles_to_other_sect": 29,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "trac_anh",
+   "name_hv": "Trạc Anh Đài",
+   "name_han": "濯纓臺",
+   "gloss": "Terrace Where the Hat Strings Are Washed",
+   "alignment": "trung lập",
+   "leans": [
+    "Water",
+    "Ice"
+   ],
+   "craft": "fishers and sea hunters of the frost coast",
+   "lord": "bang_tam",
+   "lord_name": "Băng Tâm Các",
+   "region": 9,
+   "region_name": "Hàn Sương Châu",
+   "seat_tile": [
+    458,
+    97
+   ],
+   "placed": "by the tool",
+   "biome": "temperate forest",
+   "elevation_km": 0.07,
+   "wants_met": [
+    "coast",
+    "forest",
+    "river"
+   ],
+   "wants_missed": [],
+   "tiles_to_lord_seat": 42.1,
+   "km_to_lord_seat": 1050,
+   "tiles_to_other_sect": 104,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "da_quang",
+   "name_hv": "Dạ Quang Môn",
+   "name_han": "夜光門",
+   "gloss": "Gate of the Night-Glowing Cup",
+   "alignment": "ma đạo",
+   "leans": [
+    "Fire",
+    "Metal"
+   ],
+   "craft": "blood sabres and caravan raiding in the desert",
+   "lord": "bang_tam",
+   "lord_name": "Băng Tâm Các",
+   "region": 8,
+   "region_name": "Cô Yên Mạc",
+   "seat_tile": [
+    431,
+    171
+   ],
+   "placed": "by the tool",
+   "biome": "steppe",
+   "elevation_km": 0.01,
+   "wants_met": [
+    "desert",
+    "steppe",
+    "lake"
+   ],
+   "wants_missed": [],
+   "tiles_to_lord_seat": 40.0,
+   "km_to_lord_seat": 1000,
+   "tiles_to_other_sect": 13,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "hong_lo",
+   "name_hv": "Hồng Lô Cốc",
+   "name_han": "紅爐谷",
+   "gloss": "Valley of the Red Furnace",
+   "alignment": "chính đạo",
+   "leans": [
+    "Fire",
+    "Wood"
+   ],
+   "craft": "alchemy over volcanic fire",
+   "lord": "thuy_vi",
+   "lord_name": "Thúy Vi Tông",
+   "region": 2,
+   "region_name": "Tuyết Hỏa Giác",
+   "seat_tile": [
+    108,
+    78
+   ],
+   "placed": "by the tool",
+   "biome": "tundra",
+   "elevation_km": 0.3,
+   "wants_met": [
+    "volcano",
+    "hot_spring",
+    "coast"
+   ],
+   "wants_missed": [],
+   "tiles_to_lord_seat": 42.5,
+   "km_to_lord_seat": 1060,
+   "tiles_to_other_sect": null,
+   "landmass_tiles": 41
+  },
+  {
+   "key": "van_khoi",
+   "name_hv": "Vân Khởi Quán",
+   "name_han": "雲起觀",
+   "gloss": "Abbey Where the Clouds Rise",
+   "alignment": "chính đạo",
+   "leans": [
+    "Earth",
+    "Wood"
+   ],
+   "craft": "a Daoist abbey of mountain hermits and teachers",
+   "lord": "thuy_vi",
+   "lord_name": "Thúy Vi Tông",
+   "region": 3,
+   "region_name": "Thanh Loan Lĩnh",
+   "seat_tile": [
+    140,
+    125
+   ],
+   "placed": "by the tool",
+   "biome": "high mountain",
+   "elevation_km": 0.88,
+   "wants_met": [
+    "mountain",
+    "ore"
+   ],
+   "wants_missed": [
+    "river"
+   ],
+   "tiles_to_lord_seat": 30.8,
+   "km_to_lord_seat": 770,
+   "tiles_to_other_sect": 73,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "truc_thuc",
+   "name_hv": "Trúc Thực Viên",
+   "name_han": "竹實園",
+   "gloss": "Garden of the Bamboo Seed",
+   "alignment": "chính đạo",
+   "leans": [
+    "Wood",
+    "Fire"
+   ],
+   "craft": "spirit farming: spirit grain and beast feed",
+   "lord": "phuong_minh",
+   "lord_name": "Phượng Minh Cung",
+   "region": 16,
+   "region_name": "Thê Ngô Lĩnh",
+   "seat_tile": [
+    364,
+    278
+   ],
+   "placed": "by the tool",
+   "biome": "grassland",
+   "elevation_km": 0.03,
+   "wants_met": [
+    "bamboo",
+    "river"
+   ],
+   "wants_missed": [
+    "jungle"
+   ],
+   "tiles_to_lord_seat": 28.4,
+   "km_to_lord_seat": 710,
+   "tiles_to_other_sect": 13,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "le_tuyen",
+   "name_hv": "Lễ Tuyền Phái",
+   "name_han": "醴泉派",
+   "gloss": "School of the Sweet Spring",
+   "alignment": "chính đạo",
+   "leans": [
+    "Water",
+    "Wood"
+   ],
+   "craft": "healing, spirit wine and the lake springs",
+   "lord": "phuong_minh",
+   "lord_name": "Phượng Minh Cung",
+   "region": 17,
+   "region_name": "Triêu Dương Nguyên",
+   "seat_tile": [
+    409,
+    211
+   ],
+   "placed": "by the tool",
+   "biome": "grassland",
+   "elevation_km": 0.02,
+   "wants_met": [
+    "lake",
+    "grassland",
+    "river"
+   ],
+   "wants_missed": [],
+   "tiles_to_lord_seat": 55.9,
+   "km_to_lord_seat": 1400,
+   "tiles_to_other_sect": 39,
+   "landmass_tiles": 80187
+  },
+  {
+   "key": "phan_vu",
+   "name_hv": "Phần Vũ Đường",
+   "name_han": "焚羽堂",
+   "gloss": "Hall of the Burning Feathers",
+   "alignment": "trung lập",
+   "leans": [
+    "Fire",
+    "Earth"
+   ],
+   "craft": "body tempering in the volcanic vents",
+   "lord": "phuong_minh",
+   "lord_name": "Phượng Minh Cung",
+   "region": 20,
+   "region_name": "Đan Huyệt Châu",
+   "seat_tile": [
+    491,
+    240
+   ],
+   "placed": "by the tool",
+   "biome": "grassland",
+   "elevation_km": 0.04,
+   "wants_met": [
+    "volcano",
+    "hot_spring",
+    "jungle"
+   ],
+   "wants_missed": [],
+   "tiles_to_lord_seat": 122.4,
+   "km_to_lord_seat": 3060,
+   "tiles_to_other_sect": 109,
+   "landmass_tiles": 80187
+  }
+ ]
+}

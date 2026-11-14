@@ -8,7 +8,8 @@ fixed-world-decisions.md).
 - **Layout:** v3. Sect territories are drawn first, then regions inside them.
 - **Great sects and names:** a proposal, awaiting the user's approval.
 - **Region names:** a proposal, awaiting the user's approval.
-- **Still to do:** minor sects and places.
+- **Minor sects:** 22, a proposal, awaiting the user's approval (2026-11-14).
+- **Still to do:** famous places, towns, roads and arrays.
 
 ## Files
 
@@ -21,6 +22,8 @@ fixed-world-decisions.md).
 | `region_names.json` | Input, edited by hand: each region's Hán-Việt name, Hán tự, meaning and the image behind it. |
 | `regions_overview.jpg` | Region borders and numbers over the detail map. |
 | `politics_proposal.json`, `politics_proposal.jpg` | Output: each sect's regions, seat tile, share of the land and shape, and the map with territories tinted. |
+| `minor_sects_proposal.json` | Input, edited by hand. For each minor sect: names, lord, region, alignment, element leanings, craft, and the land its seat looks for. |
+| `minor_sects.json`, `minor_sects.jpg` | Output of `tools/design/map/minor_sects.py`: each minor seat's tile, its land, which wants it met, its distance to its lord's seat and to another sect's land; the politics map with the minor seats. |
 
 **Rebuild:**
 
@@ -30,7 +33,12 @@ python -I tools/design/map/regions.py --seed 11 --regions 20 --out design/map/co
     --names design/map/continent-11/region_names.json
 ```
 
-It takes about 2 minutes, and the same input gives the same output.
+It takes about 2 minutes, and the same input gives the same output. Then place the minor sects (a few seconds; it
+reads the saved images, so run it again after any rebuild):
+
+```
+python -I tools/design/map/minor_sects.py --map design/map/continent-11     --sects design/map/continent-11/minor_sects_proposal.json
+```
 
 `design/map/.gdignore` keeps Godot from importing these design files.
 
@@ -170,10 +178,94 @@ Names live in `region_names.json`, keyed by the region ids in `regions.png`.
 Names were checked against the design files. Three first picks clashed with notables in the parked Meridian tree data
 (Kính Hồ, Xuân Lôi, Ngô Đồng) and were replaced.
 
+## Minor sects: proposal (awaiting approval)
+
+Sects & Missions (approved 2026-11-14) sets the frame:
+- **Vassals:** 15–25 minor sects (tiểu tông môn), each a vassal of the great sect whose land it sits in. A vassal
+  pays tribute, sends levies and holds sites, never a whole region (Sects rules 1–7).
+- **Owner of the details:** the starting size, leaders, levels and alignment belong to World Generation & History
+  (#27, Sects open question 9).
+
+This proposal names and places them.
+
+**How many: 22.**
+- 4 under each tier-1 sect and 2–3 under each tier-2 sect.
+- Every region has at least one.
+- 22 leaves room under the 25 cap for sects that players and NPCs found (Sects rules 29–30).
+
+**Names** follow the great sects' style:
+- **Hán-Việt and romantic,** each from a line of classical poetry or prose.
+- **Humbler suffixes than the great sects':** Môn (gate), Phái (school), Cốc (valley), Trang (manor),
+  Quán (abbey), Viện (academy), Trai (studio), Đường (hall), Am (hermitage), Đài (terrace), Viên (garden).
+- **Some echo their lord:**
+  - Củng Tinh Quán's stars bow to the Heavenly Pivot.
+  - Lãng Đào Môn's waves answer Tùng Đào's pine waves.
+  - Phượng Minh's three vassals are the phoenix's bamboo seed, sweet spring and fire.
+- **Checked against the design files.** Four first picks clashed with Đạo Ways or arts and were replaced:
+  Tàng Phong, Dục Hỏa, Độc Điếu and Trầm Bích.
+- **Not famous novel sects.**
+
+**Alignment** is a first guess so the names can carry it:
+- **15 chính đạo.**
+- **5 trung lập:** the traders, herders, fishers and the fire-tempering hall.
+- **2 ma đạo:**
+  - **Hồng Đậu Trang:** poisoners in the southern jungle.
+  - **Dạ Quang Môn:** blood sabres in the eastern desert.
+
+  Both pay tribute to lords who would rather not look closely. That is a ready source of feuds and rebellions
+  (Sects rule 6).
+
+**Seats** are placed by `minor_sects.py`:
+- **Fit to the sect:** each seat is the tile in its region that best fits the land the sect wants (the forge on
+  ore by a river, the hermitage by the ice fields, the alchemists by the volcanoes).
+- **Spacing:** at least 14 tiles from any other seat, and at least 4 from another sect's land.
+- **Not under a region label.**
+- **Not on a small islet,** except Hồng Lô Cốc, whose region's volcanoes are all on its islets.
+- **Hand placement:** a seat can be placed by hand with `"tile"`.
+
+**Map check:**
+- Every seat met its first want; 83 % of all wants were met.
+- The closest two seats are 18.4 tiles apart.
+
+Three seats sit near a border, by the lie of the land:
+- **Thối Tinh Môn** (4 tiles from Băng Tâm Các);
+- **Hồng Đậu Trang** (4 tiles from Lạc Hà Tông);
+- **Xuyên Lâm Môn** (5 tiles from Phượng Minh Cung).
+
+Those are the vassals a neighbour could court (Sects rule 6).
+
+| # | Name | Hán tự | Meaning | Lord | Region | Alignment | Leans | Craft |
+|---|---|---|---|---|---|---|---|---|
+| 1 | **Thối Tinh Môn** | 淬星門 | Gate of the Quenched Stars | Thiên Xu Tông | 15 Ngọc Hành Sơn | chính đạo | Metal, Fire | weapon forging (luyện khí) from star iron |
+| 2 | **Phất Y Cốc** | 拂衣谷 | Valley of the Brushed Sleeve | Thiên Xu Tông | 15 Ngọc Hành Sơn | chính đạo | Metal, Wind | sword cultivation; wandering swordsmen for hire |
+| 3 | **Củng Tinh Quán** | 拱星觀 | Abbey of the Bowing Stars | Thiên Xu Tông | 14 Thiên Tuyền Nguyên | chính đạo | Earth, Metal | formations (trận pháp) and star divination |
+| 4 | **Cửu Cao Phái** | 九皋派 | School of the Nine Marshes | Thiên Xu Tông | 6 Dao Quang Lĩnh | chính đạo | Wind, Wood | spirit beasts: crane riders and beast tamers |
+| 5 | **Hàm Nguyệt Trang** | 含月莊 | Manor That Holds the Moon | Tùng Đào Cung | 1 Lãnh Nguyệt Lâm | chính đạo | Water, Ice | water arts; spirit fish and lake pearls |
+| 6 | **Vạn Hác Viện** | 萬壑院 | Academy of the Ten Thousand Ravines | Tùng Đào Cung | 4 Thâm Tùng Hải | chính đạo | Wood, Wind | sound cultivation: the zither (cầm) and its arts |
+| 7 | **Thải Chi Cốc** | 採芝谷 | Valley of the Lingzhi Pickers | Tùng Đào Cung | 5 Cửu Khúc Xuyên | chính đạo | Wood, Water | herb fields and alchemy (luyện đan) |
+| 8 | **Lãng Đào Môn** | 浪淘門 | Gate of the Washing Waves | Tùng Đào Cung | 5 Cửu Khúc Xuyên | chính đạo | Water, Wood | river fleets, ferries and river trade |
+| 9 | **Bình Thủy Môn** | 萍水門 | Gate of Duckweed and Water | Lạc Hà Tông | 10 Cô Vụ Đảo | trung lập | Water, Wood | sea trade, ships and the strait crossing |
+| 10 | **Mục Vân Trang** | 牧雲莊 | Manor of the Cloud Herders | Lạc Hà Tông | 11 Trường Thiên Nguyên | trung lập | Wind, Earth | spirit horses and herd beasts of the open plain |
+| 11 | **Thiên Bảo Trai** | 天寶齋 | Studio of Heaven's Treasures | Lạc Hà Tông | 12 Thu Thủy Loan | trung lập | Metal, Earth | artifact refining and a treasure market |
+| 12 | **Nam Phố Đường** | 南浦堂 | Hall of the Southern Shore | Lạc Hà Tông | 13 Ngư Ca Xuyên | chính đạo | Wood, Water | talismans (phù lục) and scribes |
+| 13 | **Xuyên Lâm Môn** | 穿林門 | Gate Through the Forest | Thính Vũ Lâu | 19 Kinh Trập Sơn | chính đạo | Thunder, Wood | staff and footwork; guides through the rain forest |
+| 14 | **Hồng Đậu Trang** | 紅豆莊 | Manor of the Red Beans | Thính Vũ Lâu | 18 Tiêu Vũ Lâm | ma đạo | Poison, Wood | poisons and charms behind a gracious door |
+| 15 | **Lê Hoa Am** | 梨花庵 | Hermitage of the Pear Blossom | Băng Tâm Các | 7 Ngọc Hồ Sơn | chính đạo | Ice, Water | ice cultivation; a hermitage near the ice fields |
+| 16 | **Trạc Anh Đài** | 濯纓臺 | Terrace Where the Hat Strings Are Washed | Băng Tâm Các | 9 Hàn Sương Châu | trung lập | Water, Ice | fishers and sea hunters of the frost coast |
+| 17 | **Dạ Quang Môn** | 夜光門 | Gate of the Night-Glowing Cup | Băng Tâm Các | 8 Cô Yên Mạc | ma đạo | Fire, Metal | blood sabres and caravan raiding in the desert |
+| 18 | **Hồng Lô Cốc** | 紅爐谷 | Valley of the Red Furnace | Thúy Vi Tông | 2 Tuyết Hỏa Giác | chính đạo | Fire, Wood | alchemy over volcanic fire |
+| 19 | **Vân Khởi Quán** | 雲起觀 | Abbey Where the Clouds Rise | Thúy Vi Tông | 3 Thanh Loan Lĩnh | chính đạo | Earth, Wood | a Daoist abbey of mountain hermits and teachers |
+| 20 | **Trúc Thực Viên** | 竹實園 | Garden of the Bamboo Seed | Phượng Minh Cung | 16 Thê Ngô Lĩnh | chính đạo | Wood, Fire | spirit farming: spirit grain and beast feed |
+| 21 | **Lễ Tuyền Phái** | 醴泉派 | School of the Sweet Spring | Phượng Minh Cung | 17 Triêu Dương Nguyên | chính đạo | Water, Wood | healing, spirit wine and the lake springs |
+| 22 | **Phần Vũ Đường** | 焚羽堂 | Hall of the Burning Feathers | Phượng Minh Cung | 20 Đan Huyệt Châu | trung lập | Fire, Earth | body tempering in the volcanic vents |
+
+The line each name comes from is in `minor_sects_proposal.json` (`note`).
+
 ## Open for the user
 
 1. Approve the territories and the sect names, or change any of them. To move a border, change a sect's start tile
    or tier, or name the regions you want swapped.
 2. Approve the region names, or swap any of them.
-3. Where the 15–25 minor sects sit.
-4. Then the famous places (Travel & Map rule 6).
+3. Approve the 22 minor sects: their names, lords, alignments and seats. To move a seat, add `"tile": [x, y]` or
+   change its wants. To move a sect to another lord, change its `lord` and `region`.
+4. Then the famous places (Travel & Map rule 6), towns, roads and teleport arrays.
