@@ -12,7 +12,8 @@ extends RefCounted
 ## parity-tested on every item and art) resolves it and [FighterProfileLoader] loads it. The build file:
 ## - realm: the Character's realm (0-4).
 ## - layers and the main ward: the typical fighter's at that realm, until the Meridian Map gives a Character layers
-##   of its own (the sheet's ward and stack lines then act on them, as on a build file).
+##   of its own (the sheet's ward and stack lines then act on them, as on a build file), except L3, the gear layer
+##   (Combat Formulas B): 100 x the worn artifacts' attack as built / (power_base x stage_mult), so no gear is L3 0.
 ## - pools (Combat Formulas A): n = clamp(stat / ref[r], n_min, n_max) from the Character's vitality and linh lực
 ##   before their pct bonuses, which the sheet lines then add (combat_rules.json fighter_pools). Capability #4's
 ##   linh lực from vitality joins the base, so the pct lines scale it too (in the game it comes after them).
@@ -20,8 +21,11 @@ extends RefCounted
 ##   modifiers (scoped ones too), arts, wards, reserve arts and Effects.
 ## - modifiers: the sheet's combat keys from every source but worn pieces, plus ordinary pieces' affixes (scoped
 ##   ones too); keys with no part in a fight are left out.
-## - arts: the named pieces' arts, up to the realm's art slots; a Character with none fights with the typical kit.
+## - arts: the unlocked abilities of its slotted techniques (main, second main, auxiliaries; Cultivation Techniques
+##   rule 17), then the named pieces' arts, up to the realm's art slots; a Character with none fights with the
+##   typical kit.
 ## - purity: the linh căn's element purities, by engine element.
+## - stage_mult: the Realms stage multiplier (1.00-1.45), on the damage unit and block (Combat Formulas A).
 ## Not compiled yet: technique arts (no technique carries arts in game data), situation preparation (Combat rule 12).
 ##
 ## Usage:
@@ -88,8 +92,10 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 		report.append("realm %d: the fight engine has realms 0-%d; compiled at %d" % [c.realm_index, typical.size() - 1, r])
 	var base: Dictionary = (typical[r] as Dictionary).duplicate(true)
 	var pools: Dictionary = pool_sizes(c, gd, sheet, r)
-	var d := {"name": c.name if c.name != "" else c.id, "realm": r, "layers": base.layers, "n_body": pools.n_body,
-		"n_qi": pools.n_qi, "ward": base.ward}
+	var layers: Array = Array(base.layers).duplicate()
+	layers[2] = gear_layer(c, gd, db, sheet)
+	var d := {"name": c.name if c.name != "" else c.id, "realm": r, "layers": layers, "n_body": pools.n_body,
+		"n_qi": pools.n_qi, "ward": base.ward, "stage_mult": Ladder.stage_mult(gd, c.stage)}
 	var cm: Dictionary = gd.file("combat_engine").get("CHARACTER_MODS", {})
 	var combat_keys: Array = Array(cm.get("passive", {}).keys()) + Array(cm.get("static", []))
 	# the sheet's combat keys from every source but worn pieces (their lines come below, with their scopes)
@@ -101,6 +107,14 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 	var items: Array = []
 	var arts: Array = []
 	var slots: int = int(lib.constants.slots_by_realm[r])
+	for key in [c.main_tech, c.second_tech] + Array(c.aux_tech):
+		var e: Dictionary = c.techniques.get(str(key), {}) if str(key) != "" else {}
+		if e.is_empty() or not CongPhap.usable(c, e.def):   # rule 8: a technique the root cannot use gives nothing
+			continue
+		for ab in e.def.get("abilities", []):
+			var aid: String = str(ab.get("ability_id", ""))
+			if int(e.layer) >= int(ab.get("unlock_layer", 1)) and lib.arts.has(aid) and arts.size() < slots 					and not arts.any(func(x): return x.lib == aid):
+				arts.append({"lib": aid})
 	for item_id in CombatPower.controlled(c, gd, db, sheet).used:
 		var rec: Dictionary = db.get_record("items", item_id)
 		var named: String = str(rec.get("named", ""))
@@ -153,3 +167,12 @@ static func pool_sizes(c: Character, gd: GameData, sheet: StatSheet, r: int) -> 
 	var ref_qi: float = float(ref_realm.linh_luc_base) * float(cfg.ref_tech_power)
 	return {"n_body": clampf(body / ref_body, float(cfg.n_min), float(cfg.n_max)),
 		"n_qi": clampf(qi / ref_qi, float(cfg.n_min), float(cfg.n_max))}
+
+
+## The gear layer's points, x3 (Combat Formulas B, L3): 100 x the attack of the artifacts [param c] controls, as built
+## ([method CombatPower.artifact_numbers]), / (the realm's power_base x stage_mult).
+static func gear_layer(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -> float:
+	var atk := 0.0
+	for n in CombatPower.artifact_numbers(c, gd, db, sheet):
+		atk += float(n.attack)
+	return 100.0 * atk / (float(gd.realm(c.realm_index).power_base) * Ladder.stage_mult(gd, c.stage))

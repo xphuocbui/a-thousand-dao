@@ -46,6 +46,26 @@ Effect; ordinary pieces' affixes (scoped ones too) join the sheet lines.
    Effects (5), slots (6); a report of everything it could not compile, like fight.py's "unmodelled" lines.
 4. ADR-0001 step 4: `CombatService` behind a flag in the Event Engine's combat check (ADR-0002 first).
 
+## NPC substance (user decision 2026-11-14: before Power Rankings)
+Measured on a generated world, 4,997 of 5,001 NPCs first compiled to their realm's typical fighter. Four rules the
+approved GDDs already define now make them differ:
+1. **Pools** (Combat Formulas A): `n = clamp(stat / ref[r], 0.25, 8)` from vitality and linh lực before their pct
+   bonuses (`combat_rules.json` `fighter_pools`).
+2. **Stage multiplier** (Realms; Combat Formulas A, Combat Defence & Healing A2): `stage_mult` on the damage unit of
+   hits, ticks, trigger floors and heal arts, and on block, in both engines and fight.py (fixture `t8_stage_exact`).
+3. **Gear layer** (Combat Formulas B, L3): `100 x worn artifacts' attack as built / (power_base x stage_mult)`, from
+   `CombatPower.artifact_numbers`, the same numbers chiến lực uses.
+4. **Technique arts** (Cultivation Techniques rule 17): a generated common rolls one common-tier art of an element it
+   names from a keyed stream on its `tech_id`; the compiler slots slotted techniques' unlocked arts before items'.
+
+**Calibration finding (for the user):** against the typical fighter (10 fights each, up to 60 NPCs a realm), the
+median NPC's win share is 0.00 at Luyện Khí but 1.00 at every realm above: from Trúc Cơ up NPCs out-pool the
+typical fighter (n_qi median 1.30 / 1.78 / 2.24 / 2.56, from technique power) and out-gear it (L3 median 44 / 63 / 49 /
+92 against 40), while Luyện Khí NPCs are under-geared (L3 median 14). So "typical" is not where generated NPCs sit.
+Either the typical reference moves to the generated population, or NPC generation is tuned toward it; that is a
+balance decision. Authored technique templates in game data carry no abilities yet, so most Nguyên Anh and Hóa Thần
+NPCs still fight with the kit.
+
 ## Findings from the port that touch content
 - **Fixed 2026-11-14:** `metal-earthbind-drop` laid stacks of element `tho` (Hán-Việt for Earth) where the engine
   wants `earth`; the sim ran it silently. Now `earth`, and the sim's validate() refuses a non-engine stacks element.

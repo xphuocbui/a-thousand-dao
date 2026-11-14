@@ -33,29 +33,12 @@ static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -
 
 	# Artifacts, limited by the item slots (thần thức adds extra slots) and the single-artifact keystone.
 	var control: Dictionary = controlled(c, gd, db, sheet)
-	var used: Array = control.used
 	var overflow: Array = control.overflow
-	var single: bool = sheet.has_flag("single_artifact")
-	var art_cfg: Dictionary = gd.artifacts_file()
-	for item_id in used:
-		var art: Dictionary = db.get_record("items", item_id)
-		var nurtured: bool = c.has_capability(3) and item_id == c.nurtured_id
-		var mult: float = 1.0 + sheet.total("artifact_power_pct") / 100.0
-		if art.element != "" and c.linh_can.has(art.element):
-			mult += (float(art_cfg.element_match_bonus_pct) + _affix(art, "element_affinity_pct")) / 100.0
-		if single and control.slot_of.get(item_id, "") == EquipSlots.EXTRA:   # the one bonded treasure (rule 11)
-			mult *= float(art_cfg.equip.single_artifact_keystone_mult)
-		if nurtured:
-			var p3: Dictionary = gd.capability(3).params
-			mult += minf(float(c.nurture_years) * float(p3.per_year_pct), float(p3.max_pct)) / 100.0
-		if c.has_capability(1) and _pair_count(c, db, str(art.get("base", ""))) >= 2:
-			mult += float(gd.capability(1).params.attack_pct) / 100.0
-		var atk: float = float(art.attack) * (1.0 + _affix(art, "artifact_attack_pct") / 100.0) * mult
-		var dfn: float = float(art.defense) * (1.0 + _affix(art, "artifact_defense_pct") / 100.0) * mult
-		if atk > 0.0:
-			offense.add(str(art.name), atk)
-		if dfn > 0.0:
-			defense.add(str(art.name), dfn)
+	for n in artifact_numbers(c, gd, db, sheet, control):
+		if float(n.attack) > 0.0:
+			offense.add(str(n.name), float(n.attack))
+		if float(n.defense) > 0.0:
+			defense.add(str(n.name), float(n.defense))
 	for b in BeastKeeper.power_shares(c, gd, db):
 		offense.add("Linh thú %s" % b.name, float(b.power))
 	offense.add_pct("attack_pct", sheet.total("attack_pct"))
@@ -79,7 +62,7 @@ static func compute(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet) -
 	lines.append_array(defense.lines())
 	lines.append_array(total.lines())
 	lines.append("Extra slots %d / %d, the next at thần thức %.0f%s" % [control.extra_used, control.limit, EquipSlots.next_slot_than_thuc(c, gd, sheet), ("  (past the count: %s)" % ", ".join(overflow)) if not overflow.is_empty() else ""])
-	return {"total": total.total, "offense": offense.total, "defense": defense.total, "lines": lines, "used_artifacts": used, "overflow": overflow, "extra_used": control.extra_used, "extra_limit": control.limit}
+	return {"total": total.total, "offense": offense.total, "defense": defense.total, "lines": lines, "used_artifacts": control.used, "overflow": overflow, "extra_used": control.extra_used, "extra_limit": control.limit}
 
 
 ## Splits the equipped pieces into those that count and those that do not (item-database.md rule 11). No piece costs
@@ -104,6 +87,35 @@ static func controlled(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet
 		used.append(item_id)
 	return {"used": used, "overflow": overflow, "slot_of": slots.slot_of, "limit": slots.limit,
 		"extra_used": used.filter(func(id): return slots.slot_of[id] == EquipSlots.EXTRA).size()}
+
+
+## The attack and defence of each artifact [param c] controls, as built: the piece's numbers with its own
+## artifact_attack_pct / artifact_defense_pct, times artifact_power_pct, element affinity, the single-artifact keystone,
+## nurturing (#3) and pairing (#1). Returns [{id, name, base, attack, defense}] in equip order; chiến lực and the fight
+## compiler's gear layer (Combat Formulas B, L3) both read it. [param control] is [method controlled]'s result, or {}.
+static func artifact_numbers(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, control: Dictionary = {}) -> Array:
+	if control.is_empty():
+		control = controlled(c, gd, db, sheet)
+	var single: bool = sheet.has_flag("single_artifact")
+	var art_cfg: Dictionary = gd.artifacts_file()
+	var out: Array = []
+	for item_id in control.used:
+		var art: Dictionary = db.get_record("items", item_id)
+		var nurtured: bool = c.has_capability(3) and item_id == c.nurtured_id
+		var mult: float = 1.0 + sheet.total("artifact_power_pct") / 100.0
+		if art.element != "" and c.linh_can.has(art.element):
+			mult += (float(art_cfg.element_match_bonus_pct) + _affix(art, "element_affinity_pct")) / 100.0
+		if single and control.slot_of.get(item_id, "") == EquipSlots.EXTRA:   # the one bonded treasure (rule 11)
+			mult *= float(art_cfg.equip.single_artifact_keystone_mult)
+		if nurtured:
+			var p3: Dictionary = gd.capability(3).params
+			mult += minf(float(c.nurture_years) * float(p3.per_year_pct), float(p3.max_pct)) / 100.0
+		if c.has_capability(1) and _pair_count(c, db, str(art.get("base", ""))) >= 2:
+			mult += float(gd.capability(1).params.attack_pct) / 100.0
+		out.append({"id": item_id, "name": str(art.name), "base": str(art.get("base", "")),
+			"attack": float(art.attack) * (1.0 + _affix(art, "artifact_attack_pct") / 100.0) * mult,
+			"defense": float(art.defense) * (1.0 + _affix(art, "artifact_defense_pct") / 100.0) * mult})
+	return out
 
 
 ## Resolves a duel. Win chance = A^k / (A^k + B^k) + (Khí vận A - Khí vận B) x k2, clamped.

@@ -25,7 +25,9 @@ func test_a_bare_character_fights_as_the_typical_fighter_of_its_realm_with_its_p
 	var report: Array = []
 	var d: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, null), report)
 	var typical: Dictionary = gd.file("combat_library").typical[1]
-	assert_eq(d.layers, typical.layers, "the realm's typical layers")
+	var want: Array = Array(typical.layers).duplicate()
+	want[2] = 0.0
+	assert_eq(d.layers, want, "the realm's typical layers, with no gear in L3")
 	assert_near(float(d.n_body), 50.0 / 45.0, 1e-9, "căn cốt 50 against the talent-45 reference")
 	assert_eq(d.ward, typical.ward, "the realm's typical ward")
 	assert_eq(d.arts, typical.arts, "the typical kit stands in for arts")
@@ -129,3 +131,50 @@ func test_pct_bonuses_count_once_through_the_sheet_lines() -> void:
 	assert_near(float(d.n_body), 1.0, 1e-9, "the base leaves the bonus out")
 	var rec: Dictionary = BuildFileCompiler.new(gd).compile(d)
 	assert_near(float(rec.n_body), 1.2, 1e-9, "the sheet line adds it once")
+
+
+func test_the_gear_layer_follows_worn_artifacts_attack() -> void:
+	# Combat Formulas B, L3 = 100 x attack as built / (power_base x stage_mult)
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"hoa": 50}, 50, 0, 0)
+	c.equipped = [_ordinary(db, [])]
+	var sheet := StatSheet.build(c, gd, db, null)
+	var want: float = 100.0 * 10.0 / float(gd.realm(0).power_base)
+	assert_near(FighterCompiler.gear_layer(c, gd, db, sheet), want, 1e-9, "attack 10 at Qi Refining")
+	assert_near(float(FighterCompiler.character_build_file(c, gd, db, sheet).layers[2]), want, 1e-9, "in L3")
+	c.stage = 2
+	assert_near(FighterCompiler.gear_layer(c, gd, db, StatSheet.build(c, gd, db, null)), want / Ladder.stage_mult(gd, 2), 1e-9, "a later stage needs more gear")
+
+
+func test_a_generated_common_carries_one_common_art_of_its_element() -> void:
+	# Cultivation Techniques rule 17: one ability from the library's common tier, from an element it names, layer 1
+	var gd := game_data()
+	var items := ItemFactory.new(gd)
+	var lib: Dictionary = gd.file("combat_library").arts
+	for seed_v in [1, 2, 3, 4, 5]:
+		var m: Dictionary = items.cong_phap(rng(seed_v), 1, ["hoa"])
+		assert_eq(m.abilities.size(), 1, "one ability")
+		var art: Dictionary = lib[m.abilities[0].ability_id]
+		assert_eq(str(art.source), "part_common", "from the common tier")
+		assert_eq(str(art.element), "fire", "hỏa names Fire")
+		assert_eq(int(m.abilities[0].unlock_layer), 1, "unlocked at layer 1")
+	var a1: Array = items.common_ability("gen_42", ["thuy"], "main")
+	assert_eq(items.common_ability("gen_42", ["thuy"], "main"), a1, "the same technique always has the same art")
+	var body: Array = items.common_ability("gen_7", ["kim"], "body")
+	assert_eq(str(lib[body[0].ability_id].element), "", "a body technique's art is element-less")
+
+
+func test_slotted_technique_arts_come_before_item_arts() -> void:
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"hoa": 60}, 50, 1)
+	var manual: Dictionary = ItemFactory.new(gd).cong_phap(rng(9), 1, ["hoa"])
+	CongPhap.learn(c, manual)
+	c.main_tech = str(manual.tech_id)
+	c.equipped = [_named(db, gd, WEAPON, 1)]
+	var d: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, null))
+	var lib: Dictionary = gd.file("combat_library")
+	assert_eq(d.arts, [{"lib": manual.abilities[0].ability_id}, {"lib": lib.items[WEAPON].arts[0]}], "technique art, then the weapon's")
+	var p: FighterProfile = FighterCompiler.compile(c, gd, db, StatSheet.build(c, gd, db, null))
+	assert_true(p != null and p.arts.size() == 2, "both fight")

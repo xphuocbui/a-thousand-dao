@@ -216,11 +216,34 @@ func cong_phap(rng: RandomNumberGenerator, tier_rank: int, names: Array = [], fl
 		bonuses.append({"stat": b.stat, "value": v})
 		q_sum += clampf((v - float(b.min)) / (float(b.max) - float(b.min)), 0.0, 1.0)
 	var q: float = q_sum / float(n) if n > 0 else 0.5
+	var tech_id: String = "gen_%d" % rng.randi()
 	return {
-		"kind": "cong_phap", "name": name, "tech_id": "gen_%d" % rng.randi(), "tier": int(tier.rank), "tier_name": tier.name,
-		"tech_kind": kind, "names": elems, "layers": int(tier.layers), "bonuses": bonuses, "abilities": [],
+		"kind": "cong_phap", "name": name, "tech_id": tech_id, "tier": int(tier.rank), "tier_name": tier.name,
+		"tech_kind": kind, "names": elems, "layers": int(tier.layers), "bonuses": bonuses,
+		"abilities": common_ability(tech_id, elems, kind),
 		"seal_clusters": [], "origin": "generated", "value": _manual_price(cfg, tier, q), "owner_id": "",
 	}
+
+
+## A generated common's one ability (Cultivation Techniques rule 17): an art of the library's common tier from an
+## element the technique names (element-less for a body technique), unlocked at layer 1. Drawn from a keyed stream on
+## [param tech_id] (ADR-0002 decision 4), so it is the technique's own and takes no draw from the session stream.
+## Returns [{ability_id, unlock_layer}], or [] when the pool has no art for its elements.
+func common_ability(tech_id: String, elems: Array, kind: String) -> Array:
+	var arts: Dictionary = _gd.file("combat_library").get("arts", {})
+	var to_engine: Dictionary = _gd.file("combat_engine").get("CHARACTER_MODS", {}).get("scope_element", {})
+	var want: Array = [""] if kind == "body" else elems.map(func(e): return str(to_engine.get(str(e), "?")))
+	var pool: Array = []
+	for id in arts:
+		var a: Dictionary = arts[id]
+		if str(a.get("source", "")) == "part_common" and str(a.get("element", "")) in want:
+			pool.append(str(id))
+	if pool.is_empty():
+		return []
+	pool.sort()
+	var r := RandomNumberGenerator.new()
+	r.seed = RngUtils.stable_hash("ability:" + tech_id)
+	return [{"ability_id": pool[r.randi_range(0, pool.size() - 1)], "unlock_layer": 1}]
 
 
 ## A manual of an authored template.
