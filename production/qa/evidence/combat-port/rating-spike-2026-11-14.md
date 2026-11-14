@@ -46,3 +46,29 @@ World generation 8.0 s; compile 0.93 ms a fighter. The editor binary gave the sa
   small objects (batches, statuses, log rows) and re-measure.
 - If scaling cannot reach the target: a longer first load, fewer coarse-panel fights at load (2 a probe → 1), or
   coarse panels spread over the first seasons (the GDD's earlier provisional design).
+
+## Follow-up: what serialises the threads (2026-11-14, release export)
+
+`tests/performance/combat/scale_probe.gd` (`combat_bench.exe --headless -- --scale-probe`) runs each kind of work
+single-threaded and as one task per logical core (16):
+
+| Work | Speed-up |
+|---|---|
+| Arithmetic in a loop | ×9.4 |
+| Calling functions (instance, static) with float arguments | ×7.0–8.3 (×0.3–0.7 in the editor's debug build) |
+| Passing a constant String | ×1.4 |
+| Passing a StringName literal | ×1.9 |
+| Reading a value from a shared Dictionary | ×0.5 |
+| Reading from a per-thread Dictionary with string keys | ×1.3 |
+| Allocating RefCounted objects | ×0.4–0.6 |
+| Allocating Arrays and Dictionaries | ×2.1–2.5 |
+| A small typical fight | ×0.3 |
+
+Reading: arithmetic and calls scale; anything that copies a String, a StringName or a container reference, or
+allocates, does not. Constant strings are shared by every thread, so their reference counts are updated by all
+cores on the same memory, even inside a dictionary owned by one thread. The fight engine reads string-keyed
+dictionaries and passes string keys throughout (modifier keys, status tables, hit contexts), so trimming allocations
+does not move its scaling: an allocation pass (no eager empty defaults, reused contexts, no per-pulse copies when
+empty; parity exact, 404 tests) brought a real fight from 13.0 to 12.3 ms single-threaded and left threading at
+×2.5. The reference-count explanation is inferred from these measurements; the engine reference does not cover
+Godot's string or threading internals (NOT SOURCEABLE).

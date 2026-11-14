@@ -9,6 +9,13 @@ extends RefCounted
 
 ## A readable's value for side [param s] (Effects rule 5): own.* reads s, foe.* its foe; time and event.* read the
 ## clock and the event.
+## Shared read-only empties, so a lookup's default allocates nothing (GDScript evaluates defaults eagerly, and an
+## allocation takes an engine-wide lock that stops fights scaling across threads: ADR-0003 spike, 2026-11-14).
+const _NONE_A: Array = []
+const _NONE_D: Dictionary = {}
+## The filter keys matched by equality (the sim's match()).
+const _EQ_KEYS: Array = ["element", "kind", "status", "art_id"]
+
 static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -> float:
 	if r.side == 2:
 		if r.key == "time":
@@ -158,7 +165,7 @@ static func scale(f: Fight, s: FighterState, e: EffectDef, ev: Variant) -> float
 ## The sum of stat [param key]'s Effect mods on [param s] in context [param ctx] (the sim's mod): always-on
 ## Effects whose conditions hold (times their scale), timed mods from events, then banked payloads.
 static func mod(f: Fight, s: FighterState, key: String, ctx: Variant) -> float:
-	var always: Array = s.p.always_by_key.get(key, [])
+	var always: Array = s.p.always_by_key.get(key, _NONE_A)
 	if always.is_empty() and s.temp_mods.is_empty() and s.banked.is_empty() and s.state == "":
 		return 0.0
 	var tot: float = 0.0
@@ -173,7 +180,7 @@ static func mod(f: Fight, s: FighterState, key: String, ctx: Variant) -> float:
 		if m.key == key and m.until > f.t and matches(f, m.filt, ctx):
 			tot += m.v
 	if s.state != "":
-		var st_mods: Dictionary = s.p.states.get(s.state, {}).get("mods", {})
+		var st_mods: Dictionary = s.p.states.get(s.state, _NONE_D).get("mods", _NONE_D)
 		if st_mods.has(key):
 			var v: float = float(st_mods[key])
 			# Unmoved Stance: a stance's speed penalties do not apply
@@ -191,11 +198,11 @@ static func mod(f: Fight, s: FighterState, key: String, ctx: Variant) -> float:
 static func matches(f: Fight, filt: Dictionary, ctx: Variant) -> bool:
 	if filt.is_empty():
 		return true
-	var c: Dictionary = ctx if ctx is Dictionary else {}
+	var c: Dictionary = ctx if ctx is Dictionary else _NONE_D
 	for key in filt:
 		var k: String = str(key)
 		if k == "tags":
-			var have: Array = c.get("tags", [])
+			var have: Array = c.get("tags", _NONE_A)
 			var one := false
 			for tg in filt[key]:
 				if have.has(str(tg)):
@@ -208,7 +215,7 @@ static func matches(f: Fight, filt: Dictionary, ctx: Variant) -> bool:
 			var want: String = str(filt[key])
 			if got != want and not (got == "elem" and str(f.k.elem_type.get(str(c.get("element", "")), "")) == want):
 				return false
-		elif k in ["element", "kind", "status", "art_id"]:
+		elif k in _EQ_KEYS:
 			if not c.has(k) or str(c[k]) != str(filt[key]):
 				return false
 	return true

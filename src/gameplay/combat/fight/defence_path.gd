@@ -15,6 +15,7 @@ extends RefCounted
 ## Runs one hit part of [param amount] and type [param dtype] from [param att] into [param dfn] for fight [param f].
 ## [param ctx] is the hit's context (dtype, element, tags, kind, art_id); it gets "stopped" when the part was stopped.
 ## Changes the defender's linh lực (the bill, per-hit fees), its shields and health. Returns the health removed.
+
 static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float, dtype: StringName, art: ArtDef,
 		ctx: Dictionary, is_tick: bool) -> float:
 	var k: CombatConstants = f.k
@@ -26,12 +27,13 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 	var rw: float = dp.ward_pts * dp.ward_layer if dfn.qi > 0.0 else 0.0
 	var ro: float = dp.body_pts * dp.bs_mult + float(dp.resist.get(dtype, 0.0))
 	if f.has_mods(dfn):
-		ro += f.m(dfn, "resist", {"dtype": sdt})
+		f.dt_ctx["dtype"] = sdt   # a reused one-key context: m() only reads it
+		ro += f.m(dfn, "resist", f.dt_ctx)
 	# curses on resistance: Sundered (points per stack) and Exposed (all types) (Status Catalogue)
 	if not dfn.statuses.is_empty():
 		ro += dfn.st("sundered") * k.sundered_res_pts + dfn.st("exposed") * k.exposed_res_all
-	var xs: Array[FighterState.WardState] = []
-	var xs_pts: PackedFloat64Array = []
+	var xs: Array = EffectRunner._NONE_A
+	var xs_pts: PackedFloat64Array   # empty packed arrays hold no buffer, so this allocates nothing
 	if not dfn.xwards.is_empty():
 		var met: Array = extra_wards(dfn, dtype, f.hit_id)
 		xs = met[0]
@@ -43,8 +45,11 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 	# penetration in points, its type scope matching this part's final type (CD&H rule 4, AC-CD-13)
 	var r: float = r_raw
 	if f.has_mods(att):
-		var pen_ctx: Dictionary = ctx.duplicate()
-		pen_ctx["dtype"] = sdt
+		# the hit's context already carries this part's type in the usual case; a copy only when it does not
+		var pen_ctx: Dictionary = ctx
+		if str(ctx.get("dtype", "")) != sdt or ctx.size() == 0:
+			pen_ctx = ctx.duplicate()
+			pen_ctx["dtype"] = sdt
 		r = r_raw - f.m(att, "pen", pen_ctx)
 	var prevented: float
 	var bill_share: float

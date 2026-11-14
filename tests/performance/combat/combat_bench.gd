@@ -18,6 +18,9 @@ const EXPECTED := "res://tests/parity/expected/"
 
 
 func _ready() -> void:
+	if OS.get_cmdline_user_args().has("--scale-probe"):
+		add_child(preload("res://tests/performance/combat/scale_probe.gd").new())
+		return
 	if OS.get_cmdline_user_args().has("--rating-spike"):
 		# ADR-0003's WorkerThreadPool spike shares this export (tests/performance/combat/rating_spike.gd)
 		add_child(preload("res://tests/performance/combat/rating_spike.gd").new())

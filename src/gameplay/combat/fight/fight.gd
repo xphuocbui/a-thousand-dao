@@ -43,6 +43,10 @@ var t: int = 0
 ## The constants and the fight's one random stream (read by [EffectRunner] and [DefencePath]).
 var k: CombatConstants
 var rng := RandomNumberGenerator.new()
+## Reused one-key context for defence reads (DefencePath), and the hit context when no Effect exists: nothing keeps
+## them, so reuse avoids an allocation per hit (allocations serialise threads: ADR-0003 spike, 2026-11-14).
+var dt_ctx: Dictionary = {}
+var _bare_ctx: Dictionary = {}
 ## The depth of events Effects are raising now (Combat Formulas G).
 var depth: int = 0
 ## Counts hits and ticks, so a per-hit ward pays one fee per hit (all its parts) and one per tick.
@@ -262,8 +266,8 @@ func _m_of(x: PackedFloat64Array, seal: int) -> float:
 ## Public for mechanism tests.
 func pulse(s: FighterState) -> void:
 	# element ticks (Burn, Poison), each batch at its source's offence and stack power
-	for x in s.debuffs.duplicate():
-		var tab: Dictionary = k.debuff.get(x.el, {})
+	for x in (s.debuffs.duplicate() if not s.debuffs.is_empty() else EffectRunner._NONE_A):
+		var tab: Dictionary = k.debuff.get(x.el, EffectRunner._NONE_D)
 		var c: float = float(tab.get("burn", 0.0)) + float(tab.get("poison", 0.0))
 		if c != 0.0:
 			var src: FighterState = _side(x.src_idx)
@@ -271,7 +275,7 @@ func pulse(s: FighterState) -> void:
 					* _supp(src, s, m(src, "pierce", null) / 100.0) * x.power
 			tick(src, s, amount, StringName(str(k.tick_type[x.el])), x.el)
 	# status ticks
-	for sid in s.statuses.keys():
+	for sid in (s.statuses.keys() if not s.statuses.is_empty() else EffectRunner._NONE_A):
 		var stt: FighterState.StatusState = s.statuses[sid]
 		if not k.status.has(sid):   # Internal Injury is not a catalogue status: released below
 			continue
@@ -350,7 +354,7 @@ func pulse(s: FighterState) -> void:
 	if not s.debuffs.is_empty():
 		s.debuffs = _live(s.debuffs)
 		s.touch_debuffs()
-	for sid in s.statuses.keys():
+	for sid in (s.statuses.keys() if not s.statuses.is_empty() else EffectRunner._NONE_A):
 		var stt2: FighterState.StatusState = s.statuses[sid]
 		if stt2.until != -1 and stt2.until <= t:
 			var lock: Variant = k.status[sid].get("lockout")
@@ -385,7 +389,8 @@ func pulse(s: FighterState) -> void:
 				w.pieces_left = mini(w.def.pieces, w.pieces_left + 1)
 	if _log_enabled:
 		_row(FightLogRow.Kind.PULSE, s.label, &"", &"", [s.hp, s.qi])
-	_event(s, "pulse", {})
+	if listens(s, "pulse"):
+		_event(s, "pulse", {})
 
 
 func _live(batches: Array[FighterState.StackBatch]) -> Array[FighterState.StackBatch]:
@@ -449,7 +454,7 @@ func act(s: FighterState) -> void:
 	var o: FighterState = foe_of(s)
 	var p: FighterProfile = s.p
 	var speed_base: float = 1.0 + s.bsum("speed") + p.art_speed_pct / 100.0
-	var sup: Array = s.p.states.get(s.state, {}).get("suppress", []) if s.state != "" else []
+	var sup: Array = s.p.states.get(s.state, EffectRunner._NONE_D).get("suppress", EffectRunner._NONE_A) if s.state != "" else EffectRunner._NONE_A
 	for i in p.arts.size():
 		if t < s.ready[i]:
 			continue
@@ -519,7 +524,7 @@ func act(s: FighterState) -> void:
 	while t >= s.basic_ready:
 		hit(s, o, 1.0 + p.basic_coef_add + m(s, "basic_coef", null), &"phys", null, KIND_BASIC)
 		s.basic_ready += CombatConstants.ms(basic_cd(s) * slow(s))
-	for sm in s.summons.duplicate():
+	for sm in (s.summons.duplicate() if not s.summons.is_empty() else EffectRunner._NONE_A):
 		while t >= int(sm[3]) and int(sm[3]) < int(sm[4]):
 			hit(s, o, float(sm[0]), sm[1], null, KIND_COMPANION)
 			sm[3] = int(sm[3]) + int(sm[2])
@@ -654,7 +659,7 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 		trig: bool = false) -> float:
 	var ctx: Dictionary
 	if not _fx:
-		ctx = {}   # no Effects: nothing reads the context
+		ctx = _bare_ctx   # no Effects: nothing reads the context (defend may mark it stopped; nothing reads that)
 	elif art != null:
 		ctx = art.ctx.duplicate()
 		ctx["dtype"] = str(dtype)

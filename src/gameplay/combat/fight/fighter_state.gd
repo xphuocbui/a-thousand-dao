@@ -219,7 +219,7 @@ func bsum(key: String) -> float:
 		return hit
 	var tot: float = 0.0
 	for x in buffs:
-		var tab: Dictionary = _k.buff.get(x.el, {})
+		var tab: Dictionary = _k.buff.get(x.el, EffectRunner._NONE_D)
 		tot += float(tab.get(key, 0.0)) * x.n * x.power
 	_bcache[key] = tot
 	return tot
@@ -234,7 +234,7 @@ func dsum(key: String) -> float:
 		return hit
 	var tot: float = 0.0
 	for x in debuffs:
-		var tab: Dictionary = _k.debuff.get(x.el, {})
+		var tab: Dictionary = _k.debuff.get(x.el, EffectRunner._NONE_D)
 		tot += float(tab.get(key, 0.0)) * x.n * x.power
 	_dcache[key] = tot
 	return tot
