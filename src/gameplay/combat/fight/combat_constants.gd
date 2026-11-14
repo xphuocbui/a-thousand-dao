@@ -157,6 +157,17 @@ static func load_file(path: String = DEFAULT_PATH) -> CombatConstants:
 	return from_dict(parsed)
 
 
+## The constants from the game's loaded data (Config owns every data read; architecture.md, Data Flow 4). Check
+## [member errors] before use.
+static func from_game_data(gd: GameData) -> CombatConstants:
+	var d: Dictionary = gd.file("combat_engine")
+	if d.is_empty():
+		var k := CombatConstants.new()
+		k.errors.append("combat_engine.json is not in the game data")
+		return k
+	return from_dict(d)
+
+
 ## Builds the constants from the parsed file. Check [member errors] before use.
 static func from_dict(d: Dictionary) -> CombatConstants:
 	var k := CombatConstants.new()
