@@ -294,6 +294,7 @@
   "tags": [],
   "states": [],
   "reserved": 0.0,
+  "stage_mult": 1.0,
   "stack_eff": {},
   "stack_dur": {},
   "wards": []
@@ -511,6 +512,7 @@
   "tags": [],
   "states": [],
   "reserved": 0.0,
+  "stage_mult": 1.0,
   "stack_eff": {},
   "stack_dur": {},
   "wards": []

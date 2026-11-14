@@ -55,6 +55,8 @@ var gain_on_hit: float = 0.0
 var leech_qi: float = 0.0
 var leech_hp: float = 0.0
 var reserved: float = 0.0
+## Realms stage multiplier (1.00-1.45 through a realm): on the damage unit and on block, not on pools or fatigue.
+var stage_mult: float = 1.0
 ## Percent values.
 var art_speed_pct: float = 0.0
 var basic_speed_pct: float = 0.0

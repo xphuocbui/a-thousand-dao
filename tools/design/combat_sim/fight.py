@@ -164,7 +164,7 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct",
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
             "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques", "items", "reserved",
-            "stack_eff", "stack_dur", "wards", "pierce_pct"}
+            "stack_eff", "stack_dur", "wards", "pierce_pct", "stage_mult"}
 WARD_KEYS = {"model", "payload", "drain_base", "ws_base", "we", "layers", "block"}
 BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
@@ -722,7 +722,8 @@ def to_build(d, r, notes, who):
     for key, field in (("basic_speed_pct", "basic_speed_pct"), ("opening_haste_pct", "opening_haste_pct"),
                        ("basic_coef_add", "basic_coef_add"), ("timer_resist_pct", "timer_resist"),
                        ("ward_bill_pct", "ward_bill_pct"), ("refusals", "refusals"), ("divine_sense", "divine_sense"),
-                       ("soul_res_pct", "soul_res"), ("x_soul", "x_soul"), ("tam_ma", "tam_ma"), ("boss", "boss")):
+                       ("soul_res_pct", "soul_res"), ("x_soul", "x_soul"), ("tam_ma", "tam_ma"), ("boss", "boss"),
+                       ("stage_mult", "stage_mult")):
         if key in d:
             setattr(eb, field, d[key])
     eb.resist = dict(d.get("resist", {}))

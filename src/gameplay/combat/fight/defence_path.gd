@@ -81,7 +81,7 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 	var x_blk: float = 0.0
 	for xw in xs:
 		x_blk += xw.def.block
-	var blk: float = k.block_unit[dp.realm] * (dp.block + (f.m(dfn, "block", null) if dm else 0.0) + dp.body_block * dp.bs_mult + x_blk)
+	var blk: float = k.block_unit[dp.realm] * dp.stage_mult * (dp.block + (f.m(dfn, "block", null) if dm else 0.0) + dp.body_block * dp.bs_mult + x_blk)
 	if is_tick:
 		blk *= (f.m(dfn, "tick_block", null) if dm else 0.0) / 100.0
 	a = maxf(0.0, a - blk)

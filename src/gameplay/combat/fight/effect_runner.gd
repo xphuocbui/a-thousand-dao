@@ -348,7 +348,7 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 			"free_hit":
 				if s.trig_count >= int(k.trig_cap):
 					continue
-				var budget: float = k.trig_budget * maxf(s.direct_dmg, k.trig_floor_u * s.u) - s.trig_dmg
+				var budget: float = k.trig_budget * maxf(s.direct_dmg, k.trig_floor_u * s.u_att) - s.trig_dmg
 				if budget <= 0.0:
 					continue
 				s.trig_count += 1

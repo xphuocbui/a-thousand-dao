@@ -29,7 +29,7 @@ const BUILD_FLOATS := {
 	"body_pts": "", "body_block": "", "bs_mult": "", "ward_bill_pct": "", "reserved": "",
 	"crit": "", "crit_mult": "", "evade": "", "acc": "", "body_shield": "",
 	"cleanse_cost": "", "cleanse_share": "", "divine_sense": "", "soul_res": "", "x_soul": "", "tam_ma": "",
-	"timer_resist": "",
+	"timer_resist": "", "stage_mult": "",
 }
 ## Build fields with no effect until a later slice ports what reads them (accepted, not used yet): refusals with
 ## the Down step (slice 4b).

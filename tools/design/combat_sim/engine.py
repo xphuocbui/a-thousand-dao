@@ -164,6 +164,10 @@ class Build:
     # item and technique stats (2026-11-13): reserved share of maximum linh lực [Combat Defence & Healing rule 10];
     # stack effect and duration %, keyed "<element>|<buff|debuff>" with "*" for any [Effects rule 9a; modifiers.md]
     reserved: float = 0.0
+    # Realms stage multiplier (canh-gioi Formulas, 1.00-1.45 through a realm; 2026-11-14): on the damage unit of hits,
+    # ticks, trigger floors and heal arts, and on block (Combat Formulas A, Combat Defence & Healing A2); not on pools
+    # (the compiler's pools already hold it) or fatigue
+    stage_mult: float = 1.0
     stack_eff: dict = field(default_factory=dict)
     stack_dur: dict = field(default_factory=dict)
     # extra wards beside the main drain ward (2026-11-13) [Combat Defence & Healing rules 5-8]: each
@@ -205,6 +209,7 @@ class Side:
     def __init__(self, b: Build, label):
         self.b, self.label = b, label
         self.U = U[b.realm]
+        self.U_att = self.U * b.stage_mult       # the damage unit: U x stage (Combat Formulas A)
         self.g = K["realm_def"][b.realm]
         self.hp_max = K["health_units"] * self.U * b.n_body * K["health_mult"] * self.g
         self.qi_base = K["qi_units"] * self.U * b.n_qi
@@ -552,7 +557,7 @@ class Fight:
         for el, n, t_end, src in [x[:4] for x in s.debuffs]:
             c = DEBUFF.get(el, {}).get("burn", 0.0) + DEBUFF.get(el, {}).get("poison", 0.0)
             if c:
-                tick = src.U * c * n * src.b.M * (1 + src.bsum("dmg")) * supp(src, s, self.mod(src, "pierce") / 100) * stack_power(src.b, el, "debuff")
+                tick = src.U_att * c * n * src.b.M * (1 + src.bsum("dmg")) * supp(src, s, self.mod(src, "pierce") / 100) * stack_power(src.b, el, "debuff")
                 self.tick(src, s, tick, TICK_TYPE[el], el)
         # status ticks
         for sid, stt in list(s.statuses.items()):
@@ -561,7 +566,7 @@ class Fight:
                 continue
             if d["kind"] == "tick" and stt["stacks"] > 0:
                 src = stt["src"]
-                tick = src.U * d["c_tick"] * stt["stacks"] * src.b.M * supp(src, s, self.mod(src, "pierce") / 100)
+                tick = src.U_att * d["c_tick"] * stt["stacks"] * src.b.M * supp(src, s, self.mod(src, "pierce") / 100)
                 if d.get("on_qi"):
                     s.qi = max(0.0, s.qi - tick)
                     if self.plog is not None:
@@ -721,7 +726,7 @@ class Fight:
                 self.cleanse(s, a.cleanse)
             if a.heal:
                 got0 = s.healed
-                self.heal(s, s.U * a.heal * K["health_mult"])
+                self.heal(s, s.U_att * a.heal * K["health_mult"])
                 if s.healed > got0:
                     s.qi = min(s.qi_use(), s.qi + s.last_cost)
             if a.qi_restore:
@@ -885,7 +890,7 @@ class Fight:
         more = 1 + att.bsum("dmg") + (att.bsum("dmg_phys") + dfn.dsum("phys_taken") if phys else 0)
         more *= 1 + self.mod(att, "dmg_more", ctx)
         M = self.layers_M(att, art, ctx) if kind != "companion" else att.b.M
-        D = att.U * c * M * crit * more * supp(att, dfn, self.mod(att, "pierce") / 100)
+        D = att.U_att * c * M * crit * more * supp(att, dfn, self.mod(att, "pierce") / 100)
         damp = (dfn.bsum("phys_dampen") if phys else 0.0) + self.mod(dfn, "dampen_taken", ctx) / 100
         if damp:
             D /= 1 + damp
@@ -1010,7 +1015,7 @@ class Fight:
                 self.fire_event(att, "foe_ward_paid", {"amount": paid})
         a = D - prevented
         # block (not for ticks unless an Effect lets a share meet them, R24)
-        blk = BLOCK_UNIT[dfn.b.realm] * (dfn.b.block + self.mod(dfn, "block") + dfn.b.body_block * dfn.b.bs_mult
+        blk = BLOCK_UNIT[dfn.b.realm] * dfn.b.stage_mult * (dfn.b.block + self.mod(dfn, "block") + dfn.b.body_block * dfn.b.bs_mult
                                          + sum(w.get("block", 0.0) for w, _ in xs))
         if is_tick:
             blk *= self.mod(dfn, "tick_block") / 100
@@ -1311,7 +1316,7 @@ class Fight:
                 if s.trig_count >= K["trig_cap"]:
                     s.clipped["trig_cap"] = s.clipped.get("trig_cap", 0) + 1
                     continue
-                budget = K["trig_budget"] * max(s.direct_dmg, K["trig_floor_u"] * s.U) - s.trig_dmg
+                budget = K["trig_budget"] * max(s.direct_dmg, K["trig_floor_u"] * s.U_att) - s.trig_dmg
                 if budget <= 0:
                     s.clipped["trig_budget"] = s.clipped.get("trig_budget", 0) + 1
                     continue

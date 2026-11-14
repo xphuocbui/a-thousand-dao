@@ -1,0 +1,35 @@
+{
+  "name": "t8_stage_exact",
+  "slice": 8,
+  "chance_free": true,
+  "seed": 81,
+  "doc": "The Realms stage multiplier (2026-11-14, both engines), chance-free: A at stage 1.30 (late stage), B at 1.15. It multiplies the damage unit of hits, element-stack ticks (Burn), status ticks (Bleed), trigger free hits and their budget floor, and heal arts, and each side's block; pools and fatigue keep the plain unit.",
+  "a": {
+    "name": "late-stage",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "stage_mult": 1.3,
+    "block": 18.0,
+    "arts": [
+      {"name": "burning-palm", "c": 1.2, "cost": 0.04, "cd": 2.0, "element": "fire", "debuff": [3, 6.0]},
+      {"name": "bleeding-cut", "c": 1.0, "cost": 0.04, "cd": 3.0, "statuses": [{"id": "bleed", "stacks": 2}]},
+      {"name": "mending", "c": 0.0, "cost": 0.05, "cd": 6.0, "heal": 2.5}
+    ],
+    "effects": [
+      {"id": "echo-hit", "on": "hit_landed", "filter": {"kind": "art"}, "limit": {"per_pulse": 1}, "do": [{"free_hit": {"c": 0.4, "dtype": "phys"}}]}
+    ]
+  },
+  "b": {
+    "name": "mid-stage",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "stage_mult": 1.15,
+    "M": 4.4,
+    "arts": [
+      {"name": "heavy", "c": 2.2, "cost": 0.06, "cd": 4.0},
+      {"name": "quick", "c": 0.9, "cost": 0.03, "cd": 1.5}
+    ]
+  }
+}

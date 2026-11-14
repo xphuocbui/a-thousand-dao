@@ -26,7 +26,8 @@ extends RefCounted
 const LIBRARY_FILE := "combat_library"
 ## Build-file fields a Character's fighter may have (before and after expansion).
 const KEYS := ["name", "realm", "layers", "n_body", "n_qi", "ward", "arts", "items", "modifiers", "purity", "effects",
-	"counters", "states", "unmodelled", "wards", "reserved", "stack_eff", "stack_dur", "body", "divine_sense"]
+	"counters", "states", "unmodelled", "wards", "reserved", "stack_eff", "stack_dur", "body", "divine_sense",
+	"stage_mult"]
 const WARD_KEYS := ["model", "payload", "drain_base", "ws_base", "we", "layers", "block"]
 const BODY_KEYS := ["block", "resistance", "shield", "layers"]
 const ART_KEYS := ["id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
@@ -486,6 +487,8 @@ func _to_build(d: Dictionary, r: int, who: String) -> Dictionary:
 	b["states"] = Array(d.get("states", [])).duplicate(true)
 	if d.has("divine_sense"):
 		b["divine_sense"] = float(d.divine_sense)
+	if d.has("stage_mult"):
+		b["stage_mult"] = float(d.stage_mult)
 	b["wards"] = xw
 	var total_res: float = float(d.get("reserved", 0.0)) + _xres
 	b["reserved"] = minf(float(_file.reserved_cap), total_res)

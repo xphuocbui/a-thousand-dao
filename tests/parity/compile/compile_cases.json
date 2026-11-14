@@ -595,6 +595,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.1,
+    "stage_mult": 1.0,
     "stack_eff": {
      "metal|debuff": 12.0
     },
@@ -1412,6 +1413,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.15,
+    "stage_mult": 1.0,
     "stack_eff": {
      "metal|debuff": 20.0
     },
@@ -2221,6 +2223,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -3088,6 +3091,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": [
@@ -3827,6 +3831,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.1,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": [
@@ -4357,6 +4362,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.26895565092989987,
+    "stage_mult": 1.0,
     "stack_eff": {
      "*|*": 7.0,
      "earth|buff": 56.0
@@ -4975,6 +4981,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.1,
+    "stage_mult": 1.0,
     "stack_eff": {
      "fire|buff": 15.0,
      "earth|debuff": 78.0,
@@ -5739,6 +5746,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0600375234521576,
+    "stage_mult": 1.0,
     "stack_eff": {
      "earth|buff": 24.0,
      "fire|buff": 10.0
@@ -6496,6 +6504,7 @@
      }
     ],
     "reserved": 0.12,
+    "stage_mult": 1.0,
     "stack_eff": {
      "fire|debuff": 26.0
     },
@@ -7492,6 +7501,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.2,
+    "stage_mult": 1.0,
     "stack_eff": {
      "fire|buff": 40.0,
      "fire|debuff": 30.0
@@ -8088,6 +8098,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "*|debuff": 49.0
     },
@@ -8708,6 +8719,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.1,
+    "stage_mult": 1.0,
     "stack_eff": {
      "*|debuff": 27.0
     },
@@ -9354,6 +9366,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.15,
+    "stage_mult": 1.0,
     "stack_eff": {
      "*|*": 7.0,
      "*|debuff": 25.0
@@ -10174,6 +10187,7 @@
      }
     ],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "*|*": 19.0
     },
@@ -11006,6 +11020,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.22,
+    "stage_mult": 1.0,
     "stack_eff": {
      "fire|buff": 15.0
     },
@@ -11599,6 +11614,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.15,
+    "stage_mult": 1.0,
     "stack_eff": {
      "ice|debuff": 50.0
     },
@@ -12100,6 +12116,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.1,
+    "stage_mult": 1.0,
     "stack_eff": {
      "ice|debuff": 20.0
     },
@@ -12735,6 +12752,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.08,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {
      "ice|debuff": 30.0
@@ -13284,6 +13302,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "earth|debuff": 20.0
     },
@@ -14240,6 +14259,7 @@
      }
     ],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "metal|debuff": 34.0,
      "metal|buff": 12.0
@@ -14746,6 +14766,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.15,
+    "stage_mult": 1.0,
     "stack_eff": {
      "*|*": 7.0,
      "metal|debuff": 32.0
@@ -15391,6 +15412,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "fire|buff": 15.0
     },
@@ -16110,6 +16132,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.25,
+    "stage_mult": 1.0,
     "stack_eff": {
      "fire|buff": 15.0
     },
@@ -17112,6 +17135,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.2,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -18014,6 +18038,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.15,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -18531,6 +18556,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.1,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": [
@@ -19178,6 +19204,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "water|buff": 20.0
     },
@@ -19911,6 +19938,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.25,
+    "stage_mult": 1.0,
     "stack_eff": {
      "water|buff": 68.0
     },
@@ -20705,6 +20733,7 @@
      }
     ],
     "reserved": 0.1,
+    "stage_mult": 1.0,
     "stack_eff": {
      "*|*": 7.0,
      "water|buff": 22.0
@@ -21427,6 +21456,7 @@
      }
     ],
     "reserved": 0.38635524171645846,
+    "stage_mult": 1.0,
     "stack_eff": {
      "fire|buff": 15.0,
      "wind|buff": 32.0
@@ -22033,6 +22063,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "wind|buff": 25.0
     },
@@ -22621,6 +22652,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.25,
+    "stage_mult": 1.0,
     "stack_eff": {
      "wind|buff": 15.0,
      "wood|buff": 20.0,
@@ -23266,6 +23298,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "wood|buff": 14.0,
      "wood|debuff": 28.0
@@ -23999,6 +24032,7 @@
      }
     ],
     "reserved": 0.27,
+    "stage_mult": 1.0,
     "stack_eff": {
      "wood|buff": 28.0,
      "wood|debuff": 80.0
@@ -24759,6 +24793,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "wood|debuff": 36.0
     },
@@ -25125,6 +25160,7 @@
      }
     ],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {
      "*|*": 6.0
@@ -25636,6 +25672,7 @@
      }
     ],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "*|*": 7.0
     },
@@ -26208,6 +26245,7 @@
      }
     ],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "fire|buff": 15.0
     },
@@ -26783,6 +26821,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -27388,6 +27427,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -27847,6 +27887,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -28395,6 +28436,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -28862,6 +28904,7 @@
      }
     ],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -29590,6 +29633,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "*|*": 7.0
     },
@@ -30334,6 +30378,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "*|*": 7.0
     },
@@ -30740,6 +30785,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "fire|buff": 15.0
     },
@@ -31112,6 +31158,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -31516,6 +31563,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -32284,6 +32332,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -33064,6 +33113,7 @@
      }
     ],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -33452,6 +33502,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -33900,6 +33951,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "*|*": 7.0
     },
@@ -34481,6 +34533,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "fire|buff": 15.0
     },
@@ -35267,6 +35320,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {
      "fire|buff": 15.0
     },
@@ -35735,6 +35789,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -36068,6 +36123,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -36493,6 +36549,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []
@@ -36720,6 +36777,7 @@
     "tags": [],
     "states": [],
     "reserved": 0.0,
+    "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
     "wards": []

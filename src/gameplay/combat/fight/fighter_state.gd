@@ -78,6 +78,8 @@ var p: FighterProfile
 var label: String
 ## The realm's unit U and defence factor d_r.
 var u: float
+## The damage unit: u x the stage multiplier (Combat Formulas A); hits, ticks, trigger floors, heal arts.
+var u_att: float
 var g: float
 var hp_max: float
 var qi_base: float
@@ -153,6 +155,7 @@ func _init(profile: FighterProfile, side_label: String, k: CombatConstants) -> v
 	_k = k
 	tam_ma = p.tam_ma
 	u = k.u[p.realm]
+	u_att = u * p.stage_mult
 	g = k.realm_def[p.realm]
 	hp_max = k.health_units * u * p.n_body * k.health_mult * g
 	qi_base = k.qi_units * u * p.n_qi

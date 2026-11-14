@@ -267,7 +267,7 @@ func pulse(s: FighterState) -> void:
 		var c: float = float(tab.get("burn", 0.0)) + float(tab.get("poison", 0.0))
 		if c != 0.0:
 			var src: FighterState = _side(x.src_idx)
-			var amount: float = src.u * c * x.n * src.p.m * (1.0 + src.bsum("dmg")) \
+			var amount: float = src.u_att * c * x.n * src.p.m * (1.0 + src.bsum("dmg")) \
 					* _supp(src, s, m(src, "pierce", null) / 100.0) * x.power
 			tick(src, s, amount, StringName(str(k.tick_type[x.el])), x.el)
 	# status ticks
@@ -278,7 +278,7 @@ func pulse(s: FighterState) -> void:
 		var d: Dictionary = k.status[sid]
 		if str(d.kind) == "tick" and stt.stacks > 0.0:
 			var src2: FighterState = _side(stt.src_idx)
-			var amount2: float = src2.u * float(d.c_tick) * stt.stacks * src2.p.m * _supp(src2, s, m(src2, "pierce", null) / 100.0)
+			var amount2: float = src2.u_att * float(d.c_tick) * stt.stacks * src2.p.m * _supp(src2, s, m(src2, "pierce", null) / 100.0)
 			if bool(d.get("on_qi", false)):
 				s.qi = maxf(0.0, s.qi - amount2)
 				src2.dealt += amount2
@@ -492,7 +492,7 @@ func act(s: FighterState) -> void:
 			cleanse(s, art.cleanse)
 		if art.heal != 0.0:
 			var got0: float = s.healed
-			heal(s, s.u * art.heal * k.health_mult)
+			heal(s, s.u_att * art.heal * k.health_mult)
 			if s.healed > got0:
 				s.qi = minf(s.qi_use(), s.qi + s.last_cost)
 		if art.qi_restore != 0.0:
@@ -675,7 +675,7 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 	var more: float = 1.0 + att.bsum("dmg") + ((att.bsum("dmg_phys") + dfn.dsum("phys_taken")) if phys else 0.0)
 	more *= 1.0 + (m(att, "dmg_more", ctx) if am else 0.0)
 	var mm: float = att.p.m if kind == KIND_COMPANION else layers_m(att, art, ctx)
-	var d: float = att.u * c * mm * crit * more * _supp(att, dfn, (m(att, "pierce", null) if am else 0.0) / 100.0)
+	var d: float = att.u_att * c * mm * crit * more * _supp(att, dfn, (m(att, "pierce", null) if am else 0.0) / 100.0)
 	var damp: float = (dfn.bsum("phys_dampen") if phys else 0.0) + (m(dfn, "dampen_taken", ctx) if dm else 0.0) / 100.0
 	if damp != 0.0:
 		d /= 1.0 + damp
