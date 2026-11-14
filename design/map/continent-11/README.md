@@ -14,7 +14,7 @@ fixed-world-decisions.md).
   2026-11-14.
 - **History sites:** famous secret realms, a ruin and blessed lands, plus candidate spots for the hidden ones,
   approved by the user 2026-11-14.
-- **Mine names and origin home regions:** a proposal, awaiting the user's approval.
+- **Mine names and origin home regions:** approved by the user 2026-11-14.
 - **Still to do:**
   - the history itself (#27), which names the hidden slots;
   - the map's art style.
@@ -617,7 +617,7 @@ reaches 1.40).
 - **Clustered slots.** The cold north-east and the southern mountains hold many slots, because that is where Light,
   Thunder and Darkness ground is.
 
-## Mine names and origins: proposal (awaiting approval)
+## Mine names and origins (approved 2026-11-14)
 
 **Mine names.** The 16 mines (khoáng mạch) are named for the stone and the land, themed like their holders. The name
 is only a name. What a mine yields comes from its land (Travel & Map rule 20), and four names were changed so none
@@ -669,12 +669,11 @@ rule 1). Each sits in one of the most livable towns of its lord's land.
 
 ## Open for the user
 
-1. **Approve the mine names and the origins**, or swap any name, clan or home region.
-2. **Next:** World Generation & History (#27) for the fixed world: the authored history, which names the hidden
+1. **Next:** World Generation & History (#27) for the fixed world: the authored history, which names the hidden
    slots and fills in the wasteland's war, the ruin and the dead whose abodes these are. It is a GDD
    (`/design-system`), section by section with you.
-3. **The map's art style**, from the style demos (prototypes, 2026-11-11), for the art bible.
-4. The known rough spots above, by hand.
+2. **The map's art style**, from the style demos (prototypes, 2026-11-11), for the art bible.
+3. The known rough spots above, by hand.
 
 To change the places later:
 - **Names:** swap any in `place_names.json`.

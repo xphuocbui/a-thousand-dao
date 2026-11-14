@@ -127,7 +127,7 @@ the rewrite is in the list below.
   ruins, abodes, blessed lands) with 2–3 candidate tiles each, and 80 tile secrets with 3 each, chosen by the
   ground each kind suits. The history (#27) names the hidden slots, and each game's seed picks one candidate per
   slot (rule 15).
-- **Origins (2026-11-14, a proposal):** a sect disciple starts at its sect's seat (any of the 29 sects). A loose
+- **Origins (2026-11-14, approved the same day, with the 16 mine names):** a sect disciple starts at its sect's seat (any of the 29 sects). A loose
   cultivator starts at one of the 10 cultivator markets. A clan heir starts in the town of one of 7 clans, one in
   each great sect's land (design/map/continent-11/origins_proposal.json).
 

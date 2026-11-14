@@ -1,5 +1,5 @@
 {
- "status": "approved by the user 2026-11-14 (the names by kind and tile, and the town and village pool); the 16 mine names are a proposal, awaiting approval",
+ "status": "approved by the user 2026-11-14 (the names by kind and tile, and the town and village pool); the 16 mine names approved the same day",
  "note": "Input, edited by hand. Names for the cities, markets and famous wild sites that tools/design/map/places.py places; each entry goes to the nearest place of its kind within 4 tiles of 'tile'. Towns and villages take names from the pool below.",
  "style": "Hán-Việt, romantic, each from a line of classical poetry or myth, themed by the great sect whose land it is in (as the regions are). The last word says the kind: Thành city, Thị market, Phong peak, Sơn mountain, Hồ lake, Đảo island, Lâm forest, Hạp gorge.",
  "places": [
