@@ -231,3 +231,16 @@ func test_an_authored_technique_brings_its_unlocked_arts_and_scoped_passives() -
 	var d3: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, null))
 	assert_eq(d3.arts, [{"lib": "pinning-arrow"}, {"lib": "nocked-arrow"}], "layer 3 adds the second")
 	assert_true(FighterCompiler.compile(c, gd, db, StatSheet.build(c, gd, db, null)) != null, "and it compiles")
+
+
+func test_a_stand_in_template_without_abilities_gets_one_common_art() -> void:
+	var gd := game_data()
+	var items := ItemFactory.new(gd)
+	var t: Dictionary = gd.cong_phap_file().templates.filter(func(x): return x.id == "dia_kim")[0]
+	assert_true(Array(t.abilities).is_empty(), "the stand-in has none of its own")
+	var m: Dictionary = items.manual_from_template(t)
+	assert_eq(m.abilities.size(), 1, "one art")
+	assert_eq(str(gd.file("combat_library").arts[m.abilities[0].ability_id].element), "metal", "of its element")
+	assert_eq(items.manual_from_template(t).abilities, m.abilities, "every copy carries the same art")
+	var authored: Dictionary = gd.cong_phap_file().templates.filter(func(x): return x.id == "hunters-reach-canon")[0]
+	assert_eq(items.manual_from_template(authored).abilities, authored.abilities, "authored abilities stay as written")

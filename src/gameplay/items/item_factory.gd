@@ -246,14 +246,17 @@ func common_ability(tech_id: String, elems: Array, kind: String) -> Array:
 	return [{"ability_id": pool[r.randi_range(0, pool.size() - 1)], "unlock_layer": 1}]
 
 
-## A manual of an authored template.
+## A manual of an authored template. A template without abilities gets one common art ([method common_ability]).
 func manual_from_template(t: Dictionary) -> Dictionary:
 	var cfg: Dictionary = _gd.cong_phap_file()
 	var tier: Dictionary = _gd.cong_phap_tier(int(t.tier))
 	return {
 		"kind": "cong_phap", "name": t.name, "tech_id": t.id, "tier": int(t.tier), "tier_name": tier.name,
 		"tech_kind": t.tech_kind, "names": t.names.duplicate(), "layers": int(t.layers), "bonuses": t.bonuses.duplicate(true),
-		"abilities": t.abilities.duplicate(true), "passives": Array(t.get("passives", [])).duplicate(true),
+		# a template with no abilities (the hand-written stand-ins) gets one common art like a generated common
+		# (rule 17), keyed on the template id so every copy carries the same art (user decision 2026-11-14)
+		"abilities": t.abilities.duplicate(true) if not Array(t.abilities).is_empty() else common_ability(str(t.id), Array(t.names), str(t.tech_kind)),
+		"passives": Array(t.get("passives", [])).duplicate(true),
 		"seal_clusters": t.seal_clusters.duplicate(), "origin": "authored",
 		"value": _manual_price(cfg, tier, 0.5), "owner_id": "",
 	}
