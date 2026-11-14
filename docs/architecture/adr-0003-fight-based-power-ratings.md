@@ -13,7 +13,7 @@ Accepted (2026-11-14, by the user). Drafted the same day by the assistant from t
 The user (the design decisions, in `design/gdd/power-rankings.md`), with the assistant drafting.
 
 ## Summary
-Every fighter's power is measured by running real fights through the ADR-0001 engine: a reference-panel base when its
+Every fighter's power is measured by running real fights through the ADR-0001 engine: a ladder-panel base when its
 build changes, an Elo offset learned from seasonal matchmaking and round robins, all seeded from keyed streams and
 run off the main thread in a seasonal batch whose results are applied in a fixed order. This amends ADR-0001's
 Migration Plan step 5, which planned a closed-form rating profile for the world tick and displayed power.
@@ -73,11 +73,15 @@ fighter, panel 16 ms a fighter, a Nguyên Anh and Hóa Thần round robin 1.7 s.
    pair's fighter ids, so ratings never depend on which task finished first. Pairing reads start-of-season ratings;
    the fights read no ratings.
 4. **Keyed seeds.** A rating fight's seed is `RngUtils.stable_hash("rank:<game seed>:<season>:<id a>:<id b>")` with
-   the ids sorted, plus the fight's index within the pair (ADR-0002 decision 4). Only world fights draw from the
+   the ids sorted, plus the fight's index within the pair (ADR-0002 decision 4). *Amended 2026-11-14 (design review):*
+   a panel fight has a ladder rung instead of a second fighter, so its seed is
+   `RngUtils.stable_hash("rankp:<game seed>:<season>:<fighter id>:<realm>:<rung k>")` plus the fight's index among that
+   fighter's panel fights against that rung in the season (across all its panels that season); world-generation panels
+   use season 0. Only world fights draw from the
    session stream, one draw each.
 5. **The player's panel is synchronous** when the player opens a Stale power number (about 100 ms); everything else is
    background work.
-6. **Calibration is data.** Non-anchor panel members' ratings (Power Rankings Formulas C) are computed by a Godot
+6. **Calibration is data.** Ladder rung ratings (Power Rankings Formulas C) are computed by a Godot
    tool script once per data version (a hash of the combat data files) and stored in `combat_rankings.json`, so a
    game never calibrates at load. A data version mismatch at load marks every fighter Stale.
 7. **A feature flag** (`combat_rankings.json` `enabled`). Off, the power number is chiến lực and world fights use
@@ -85,13 +89,30 @@ fighter, panel 16 ms a fighter, a Nguyên Anh and Hóa Thần round robin 1.7 s.
 8. **Wars keep `rating_clash`** (Combat Formulas K) with members ranked by the new power number; the closed-form
    profile survives only for mass clashes.
 
-9. **Amendment (2026-11-14, design review of Power Rankings): panels at world generation.** A new game's
+9. **Amendment (2026-11-14, design review of Power Rankings): panels at world generation** (*superseded by decision
+   12: coarse panels at load*). A new game's
    world-generation panels (about 64,000 fights for 5,000 NPCs, Power Rankings rule 16) run while the game loads,
    outside any season budget, on the same background tasks, so a new world starts with every NPC Rated.
 10. **Amendment: `panel_budget_share`** (default 0.5, safe range 0.3-0.7) caps the share of `season_fight_budget`
     panels may use in a season; unused share goes to round robins and matchmaking (Power Rankings rule 14).
 11. **Amendment: injury in world fights.** A world fight's roll rating is lowered by
     `400*log10(max(v, injured_power_floor))` (Power Rankings Formulas F); the stored rating is untouched.
+    *Superseded by decision 12:* the factor is the measured `health_elo` (about 3,000), not 400.
+12. **Amendment (2026-11-14, from measured fights): ladder panels and measured anchors.** Fights are sharp (×1.2
+    strength is about 250 Elo; a realm is about ×29 in typical-health terms, about 4,400 Elo), so a fixed 3-4 member
+    panel cannot resolve NPCs that spread about 3,000 Elo within a realm (`design/research/power-rankings-measurements.md`).
+    - **Panels search a ladder** of the realm's typical fighter scaled from ×1/256 to ×256 (65 rungs, about 240 Elo
+      each) and solve the base over the probed rungs (Power Rankings Formulas B): about 12-16 fights warm, 20-32
+      cold. The top-end member is gone.
+    - **Calibration (decision 6) now stores** the anchors above Luyện Khí (measured, not 400 apart), every rung's
+      rating and `health_elo`, computed by the export tool once per data version (about 128,000 reference fights,
+      about 40 s on `fight.py`); a saturation guard fails calibration when adjacent rungs are too far apart.
+    - **World generation (supersedes decision 9):** the player's full panel and a coarse panel per NPC (2 fights a
+      probe, stopped at a 4-rung bracket; about 50,000 fights, target 120 s on 8 workers) run at load; NPCs start
+      Stale and full panels refine them in the season batch.
+    - **Fight cost:** the 2026-11-14 Godot probe measured 13.7 ms a fight against the 6 ms in Context, inflated by
+      extreme probe fighters; real panel fights are to be timed in implementation (Power Rankings Open Question 7).
+      Budgets are counted in fights, so the design holds; only wall time per season changes.
 
 ### Fallback if `WorkerThreadPool` does not verify
 Run the batch time-sliced on the main thread: a fixed number of fights per frame (about 2 at 6 ms within a 16.7 ms
