@@ -52,6 +52,11 @@ var ratings_background: bool = true
 ## {season, panels, panel_fights, pair_fights} of the last applied season batch (the terminal's 'rankings').
 var last_rating_batch: Dictionary = {}
 var _rating_batch: SeasonBatch
+## A multi-season command in progress (user decision 2026-11-14): the seasons that begin and end inside it share one
+## season_fight_budget, split evenly in order, so a command waits for about one season's batch however many seasons
+## it passes. _bulk_left counts the command's seasons still to pass; -1 outside such a command.
+var _bulk_left: int = -1
+var _bulk_share: int = 0
 var templates: EventTemplateSource
 var validator: EventValidator
 var resolver: EventResolver
@@ -315,6 +320,8 @@ func _pass_season(mode: String) -> Dictionary:
 		_yearly()
 	_finish_ratings()   # the season that just ended: its batch completes and applies (rule 13)
 	out.news = ticker.tick(rng, year, season)
+	if _bulk_left > 0:
+		_bulk_left -= 1
 	_start_ratings()
 	if player.age >= CultivationRules.lifespan(player, gd, sh).total:
 		_end_life("Thọ nguyên cạn kiệt ở tuổi %d" % int(player.age))
@@ -404,6 +411,7 @@ func cultivate(seasons: int) -> Dictionary:
 	var news: Array = []
 	var lines: Array = []
 	var done: int = 0
+	_bulk_begin(n)
 	for i in n:
 		var r: Dictionary = _pass_season("cultivate")
 		done += 1
@@ -417,6 +425,7 @@ func cultivate(seasons: int) -> Dictionary:
 		if not ev.is_empty():
 			lines.append_array(ev)
 			break
+	_bulk_end()
 	lines.push_front("Tu luyện %d season(s): +%.0f tu vi%s. Now %s (%.0f / %.0f)." % [done, total,
 		(", +%d stage(s), +%d Kinh Mạch points" % [stages, points]) if stages > 0 else "",
 		gd.realm_label(player.realm_index, player.stage), player.tu_vi, CultivationRules.level_requirement(player, gd)])
@@ -439,6 +448,7 @@ func closed_door(years: int) -> Dictionary:
 	var news: Array = []
 	var seasons: int = y * int(gd.cultivation_rules().seasons_per_year)
 	var done: int = 0
+	_bulk_begin(seasons)
 	for i in seasons:
 		var r: Dictionary = _pass_season("closed_door")
 		done += 1
@@ -447,6 +457,7 @@ func closed_door(years: int) -> Dictionary:
 		news.append_array(r.news)
 		if r.died:
 			break
+	_bulk_end()
 	var lines: Array = ["Bế quan %.1f năm: +%.0f tu vi (x%s efficiency)%s. Now %s, age %d." % [
 		float(done) / float(gd.cultivation_rules().seasons_per_year), total, str(gd.cultivation_rules().closed_door_efficiency),
 		(", +%d stage(s)" % stages) if stages > 0 else "", gd.realm_label(player.realm_index, player.stage), int(player.age)]]
@@ -551,12 +562,14 @@ func travel(dest_id: String) -> Dictionary:
 	var seasons: int = maxi(1, int(ceil(float(link.seasons) / maxf(1.0 + speed / 100.0, 0.1))))
 	var news: Array = []
 	var died: bool = false
+	_bulk_begin(seasons)
 	for i in seasons:
 		var r: Dictionary = _pass_season("travel")
 		news.append_array(r.news)
 		if r.died:
 			died = true
 			break
+	_bulk_end()
 	if died:
 		return {"ok": true, "lines": ["You die on the road."] + death_lines()}
 	player.location_id = dest_id
@@ -1118,9 +1131,24 @@ func _start_ratings() -> void:
 	if not ratings_on() or life_over:
 		return
 	sync_player()
-	_rating_batch = ratings.plan_season(seed_value, season_index(), year, season, player, sheet())
+	var budget: int = _bulk_share if _bulk_left > 0 else -1   # a season that will end inside the command
+	_rating_batch = ratings.plan_season(seed_value, season_index(), year, season, player, sheet(), budget)
 	if ratings_background:
 		_rating_batch.start()
+
+
+## Starts a command that passes [param seasons] seasons back to back: the seasons that begin inside it (all but its
+## first, whose batch was planned before) share one season_fight_budget. [method _bulk_end] when it returns.
+func _bulk_begin(seasons: int) -> void:
+	if seasons < 2 or not ratings_on():
+		return
+	_bulk_left = seasons
+	_bulk_share = floori(float(ratings.knob("season_fight_budget")) / float(seasons - 1))
+
+
+func _bulk_end() -> void:
+	_bulk_left = -1
+	_bulk_share = 0
 
 
 ## [game seed, season key] for Power Rankings' keyed event-fight seeds (EventResolver.rating_clock).
@@ -1140,8 +1168,8 @@ func _finish_ratings(apply: bool = true) -> void:
 		b.run(true)
 	if apply and ratings != null:
 		ratings.apply_batch(b)
-		last_rating_batch = {"season": b.season, "panels": b.panels.filter(func(p): return not p.result.is_empty()).size(),
-			"queued": b.panels.size(), "panel_fights": b.panel_fights, "pair_fights": b.pair_fights, "pairs": b.pairs.size()}
+		last_rating_batch = {"season": b.season, "budget": b.budget, "panels": b.panels.filter(func(p): return not p.result.is_empty()).size(),
+			"queued": b.waiting, "panel_fights": b.panel_fights, "pair_fights": b.pair_fights, "pairs": b.pairs.size()}
 
 
 ## The player's shown power (Power Rankings rule 10): the power number when ratings run (opening it while Stale runs

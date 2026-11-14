@@ -114,7 +114,13 @@ a won fight); curiosity about who is above them and why; never confusion about w
     most `season_fight_budget` fights run in a season, and panels may use at most `panel_budget_share` of it: panels
     beyond that share wait for the next season, and share the panels leave unused goes to the round robins and
     matchmaking. When a season ends with work left, unfinished panels carry to the next season and that season's
-    unplayed matchmaking and round-robin fights are dropped.
+    unplayed matchmaking and round-robin fights are dropped. A season's batch always completes before the next season begins, so ratings
+    never depend on machine speed. **Multi-season actions** (user decision 2026-11-14, after a release-build season
+    batch measured about 36 s): when one action passes several seasons back to back (cultivating several seasons,
+    closed-door cultivation, a long road), the seasons that begin inside it share one `season_fight_budget`, split
+    evenly in order; the season after the action is planned at the full budget. An action therefore waits for about
+    one season's batch however many seasons it passes, and rankings refine more slowly during long closed-door
+    cultivation.
 15. **Provisional ratings.** A fighter without a panel of its current realm (an NPC created during play, until its
     panel runs in the season batch; a fighter that has just broken through to a new realm; every fighter of an old
     save) takes a **provisional rating**: its realm's anchor moved by its stage (Formulas G). It is shown as

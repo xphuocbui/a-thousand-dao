@@ -51,6 +51,8 @@ var _knobs: Dictionary
 var _compiled: Dictionary = {}     # person id -> {sig, profile} (NPCs only)
 var _max_fights: Dictionary = {}   # "start_k:step:stop:fights" -> PanelSearch.max_fights
 var _prebuilt := false
+var _plan_sigs: Dictionary = {}    # person id -> build_sig while a plan runs (nothing changes during one)
+var _planning := false
 
 
 ## [param db] holds the ratings table; the ladder and knobs come from [param gd].
@@ -120,6 +122,8 @@ func mark_stale(c: Character) -> void:
 ## technique's mastery moves every season, neither of which is a build change. Numbers are normalised so a save and
 ## load (ints back as floats) leaves it unchanged.
 func build_sig(person: Dictionary) -> String:
+	if _planning and _plan_sigs.has(person.id):
+		return _plan_sigs[person.id]
 	var layers := {}
 	var techs: Dictionary = person.get("techniques", {})
 	for k in techs:
@@ -135,7 +139,10 @@ func build_sig(person: Dictionary) -> String:
 		talents, person.get("linh_can", {}), layers, person.get("main_tech", ""), person.get("aux_tech", []),
 		person.get("second_tech", ""), person.get("equip_slots", {}), person.get("tree_nodes", []),
 		person.get("capabilities", []), person.get("perks", []), person.get("nurtured_id", ""), worn]
-	return str(RngUtils.stable_hash(JSON.stringify(_norm(parts), "", true)))
+	var sig := str(RngUtils.stable_hash(JSON.stringify(_norm(parts), "", true)))
+	if _planning:
+		_plan_sigs[person.id] = sig
+	return sig
 
 
 ## [param v] with every whole-number float made an int, recursively (JSON gives back 3 as 3.0).
@@ -275,13 +282,24 @@ func apply_fight(a: Dictionary, b: Dictionary, s_a: float) -> void:
 ## Provisional panels (higher realm, then the player's region, then id), the Nguyên Anh and Hóa Thần round robin,
 ## matchmaking (rule 7, on the ratings as they stand now) and the Kết Đan slice (rule 8, dealt at the year's first
 ## planning). Compiles on this (the main) thread and prebuilds the rungs the panels need. [param player] may be null.
+## [param budget] overrides season_fight_budget (a season inside a multi-season command, GameSession).
 func plan_season(game_seed: int, season_key: int, year: int, season_in_year: int, player: Character,
-		player_sheet: StatSheet) -> SeasonBatch:
+		player_sheet: StatSheet, budget: int = -1) -> SeasonBatch:
+	_planning = true
+	_plan_sigs = {}
+	var b: SeasonBatch = _plan(game_seed, season_key, year, season_in_year, player, player_sheet, budget)
+	_planning = false
+	_plan_sigs = {}
+	return b
+
+
+func _plan(game_seed: int, season_key: int, year: int, season_in_year: int, player: Character,
+		player_sheet: StatSheet, budget: int) -> SeasonBatch:
 	refresh()
 	var b := SeasonBatch.new(self)
 	b.game_seed = game_seed
 	b.season = season_key
-	b.budget = int(_knobs.season_fight_budget)
+	b.budget = int(_knobs.season_fight_budget) if budget < 0 else budget
 	b.panel_budget = floori(float(b.budget) * float(_knobs.panel_budget_share))
 	var region: String = ""
 	if player != null:
@@ -310,7 +328,13 @@ func plan_season(game_seed: int, season_key: int, year: int, season_in_year: int
 		if hx != hy:
 			return hx
 		return id_less(str(x.id), str(y.id)))
+	# A panel takes at least one probe, so at most panel_budget / probe_fights panels can be admitted; the rest of the
+	# queue cannot run this season either way, so it is not prepared (exact, and it keeps planning cheap).
+	b.waiting = b.panels.size() + waiting.size()
+	var room: int = ceili(float(b.panel_budget) / float(maxi(1, int(_knobs.probe_fights)))) + 1
 	for x in waiting:
+		if b.panels.size() >= room:
+			break
 		var p: FighterProfile = _profile(x)
 		if p != null:
 			b.panels.append(_queue_panel(_db.get_record(TABLE, str(x.id)), p, false, build_sig(x), season_key))
@@ -320,11 +344,15 @@ func plan_season(game_seed: int, season_key: int, year: int, season_in_year: int
 	var met := {}
 	var top: Array = fighters.filter(func(x): return TOP_REALMS.has(int(x.realm_index))).map(func(x): return str(x.id))
 	top.sort_custom(id_less)
+	# Only a prefix of at most the budget can play, and a later pair never changes an earlier one's seed, so pairs
+	# past the budget are not generated (a short multi-season budget then plans quickly).
 	for i in top.size():
 		for j in range(i + 1, top.size()):
-			_add_pair(b, top[i], top[j], "rr", met)
+			if b.pairs.size() < b.budget:
+				_add_pair(b, top[i], top[j], "rr", met)
 	for r in 5:
-		_matchmake(b, fighters.filter(func(x): return int(x.realm_index) == r), r, met)
+		if b.pairs.size() < b.budget:
+			_matchmake(b, fighters.filter(func(x): return int(x.realm_index) == r), r, met)
 	_kd_slice(b, fighters, year, season_in_year, met)
 	for f in b.pairs:
 		b.profiles[f.a] = _compiled[f.a].profile
@@ -582,6 +610,8 @@ func _matchmake(b: SeasonBatch, people: Array, r: int, met: Dictionary) -> void:
 				cands = _candidates(order, i, 2 * w, used, matched)
 			if cands.is_empty():
 				continue
+			if b.pairs.size() >= b.budget:
+				return
 			var other: String = cands[rng.randi_range(0, cands.size() - 1)]
 			used[me] = true
 			used[other] = true
@@ -614,6 +644,8 @@ func _kd_slice(b: SeasonBatch, fighters: Array, year: int, season_in_year: int, 
 		ids.sort_custom(id_less)
 		st = {"id": SEASON_RECORD, "kd_year": year, "kd_ids": ids}
 		_db.put(TABLE, st)
+	if b.pairs.size() >= b.budget:
+		return   # the year's deal is recorded above; this season's slice could not play
 	var here := {}
 	for x in fighters:
 		if int(x.realm_index) == KD_REALM:
@@ -630,6 +662,8 @@ func _kd_slice(b: SeasonBatch, fighters: Array, year: int, season_in_year: int, 
 	var rng := RandomNumberGenerator.new()
 	rng.seed = RngUtils.stable_hash(KD_KEY % [b.game_seed, year, season_in_year])
 	for pr in RngUtils.shuffled(rng, slice):
+		if b.pairs.size() >= b.budget:
+			break
 		_add_pair(b, pr[0], pr[1], "kd", met)
 
 

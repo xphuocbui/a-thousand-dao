@@ -31,6 +31,7 @@ func _batch(rs: RatingService, seed: int = 7, season: int = 1201) -> SeasonBatch
 	var b := SeasonBatch.new(rs)
 	b.game_seed = seed
 	b.season = season
+	b.budget = 1 << 30   # pair generation stops at the budget; these tests check the pairing itself
 	return b
 
 
@@ -364,3 +365,19 @@ func test_the_players_event_fights_take_keyed_pair_seeds_ac_pr_23() -> void:
 	assert_eq(second, RngUtils.stable_hash(SeasonBatch.PAIR_KEY % [7, 1201, "p1", "p2", 1]), "a second fight that season is index 1")
 	var next_season: int = rs.event_fight_seed("p1", "p2", 7, 1202)
 	assert_eq(next_season, RngUtils.stable_hash(SeasonBatch.PAIR_KEY % [7, 1202, "p1", "p2", 0]), "a new season counts afresh")
+
+
+
+func test_pair_generation_stops_at_the_budget_without_changing_the_pairs_it_keeps() -> void:
+	# Exact truncation: a later pair never changes an earlier one, so a short budget plans the same prefix
+	var db := WorldDB.new()
+	var rs := _rs(db)
+	var kd: Array = _people(db, 60, 2)
+	var full := _batch(rs, 7, 1200)
+	rs._kd_slice(full, kd, 300, 0, {})
+	db.remove(RatingService.TABLE, RatingService.SEASON_RECORD)
+	var short := _batch(rs, 7, 1200)
+	short.budget = 50
+	rs._kd_slice(short, kd, 300, 0, {})
+	assert_eq(short.pairs.size(), 50, "stops at the budget")
+	assert_eq(short.pairs.map(func(f): return f.seed), full.pairs.slice(0, 50).map(func(f): return f.seed), "the same first 50 pairs")

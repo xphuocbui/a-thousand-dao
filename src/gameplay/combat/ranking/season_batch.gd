@@ -56,6 +56,9 @@ var budget: int = 0
 var panel_budget: int = 0
 ## Panels in rule 14's order; the run admits them while their worst case fits the panel share.
 var panels: Array[PanelJob] = []
+## Fighters waiting for a panel this season (Stale or Provisional, the player included); [member panels] holds only
+## the first of them a season could admit.
+var waiting: int = 0
 ## PairFight fights in rule 14's order (round robin, matchmaking, Kết Đan slice); the run plays a prefix.
 var pairs: Array[PairFight] = []
 ## Compiled fighters of the pair fights, by id.

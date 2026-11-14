@@ -182,3 +182,13 @@ func test_the_ranking_orders_by_rating_then_fights_then_age_then_id_provisional_
 			"version": str(rs.knob("data_version")), "sig": rs.build_sig(p), "seeds": {"season": -1, "counts": {}}})
 	var order: Array = rs.ranking([1]).map(func(r): return r.id)
 	assert_eq(order, ["p3", "p9", "p7", "p5"], "n, then age, then id; the Provisional one last")
+
+
+func test_a_multi_season_command_shares_one_season_budget_user_decision() -> void:
+	# User decision 2026-11-14: the seasons that begin inside a multi-season command share one season_fight_budget
+	var s := _session(36)
+	s.closed_door(1)   # 4 seasons, no events
+	assert_eq(int(s.last_rating_batch.budget), BUDGET / 3, "the 3 seasons begun inside the command get a third each")
+	assert_true(int(s.last_rating_batch.panel_fights) + int(s.last_rating_batch.pair_fights) <= BUDGET / 3, "and keep to it")
+	assert_eq(s._rating_batch.budget, BUDGET, "the season after the command is planned at the full budget")
+	assert_eq(s._bulk_left, -1, "the command's budget ends with it")
