@@ -362,8 +362,10 @@ author's reading and wait for confirmation (see Open Questions).
     defence by Combat Defence & Healing Formulas G, and sustain, over the force's members under a size rule; in a
     clash each side's effective health uses the attacker's own damage-type mix, and `display_power` uses a fixed
     `reference_type_mix` fitted by the balance harness, Combat revision D7) and the clash is
-    a closed-form comparison plus one seeded roll. Individual NPC duels do not collapse: they run
-    the full fight of rules 1 to 16, and the Living World keeps them rare (Interactions). The
+    a closed-form comparison plus one seeded roll. **Amended by Power Rankings (2026-11-14):** an NPC-against-NPC
+    fight in the Living World Tick no longer runs the full fight: it is one roll from the two fighters' ratings
+    (Power Rankings Core Rules rule 11, Formulas F). The full fight still runs for the player's own fights, panels,
+    matchmaking and round robins. The
     rating profile is derived from the same compiled profile, and its win rate must agree with
     the full fight on sampled one-on-one pairs within a stated tolerance (Acceptance Criteria).
 18. **Enemies are profiles.** A creature, a monster and an NPC all use the profile of rule 2. An
@@ -1014,7 +1016,9 @@ If the denominator of `t_w` is 0 or less (only reserved wards and body defence),
 `T0 = t_h`.
 
 `display_power` replaces today's chiến lực total wherever one number is shown or stored: screens, NPC
-records and beast power shares. An unbuilt character shows about B_p. Rating profiles are cached and
+records and beast power shares. **Amended by Power Rankings (2026-11-14):** the shown and stored power number is
+now Power Rankings Formulas E (from a fight-measured rating), not `display_power`; `display_power` is kept only as
+the profile's closed-form estimate, and the members of a mass clash are ranked by the power number. An unbuilt character shows about B_p. Rating profiles are cached and
 rebuilt only when a build changes.
 
 **Output Range:** P is 0.02–0.98. One roll decides a clash.
@@ -1474,7 +1478,7 @@ steps. Tolerance is ±0.01 unless stated. A pointer uses its owner's tolerance (
 - **AC-CB-62** [Integration] Event Engine request. **GIVEN** a combat choice carrying enemy, situation and ground tags, **WHEN** resolved, **THEN** a win takes the success branch, and a loss, a draw and a flight take the failure branch, and the check line shows how it ended and the fight time.
 - **AC-CB-63** [Integration] Consequences stay with the caller. **GIVEN** each ending, **THEN** vitality loss applies once, by the caller. The caller decides mercy. Capability #9 applies on a cultivator knockout only: not on a flight, a draw, a creature, or after mercy is chosen. Taming is offered only by the Event Engine after a won creature fight. A notable fight writes one World DB record. The fight engine imports no writer of these.
 - **AC-CB-64** [Integration] Duel callers migrated. `CombatPower.duel` has no callers and `ratio_exponent` is read nowhere, covering `event_resolver.gd`, `world_ticker.gd` and `advisor.gd`. Stored `power` uses (`build_generator.gd`, `state_snapshot.gd`, `world_generator.gd`, `BeastKeeper.power_shares`) read `display_power`. `tools/run-tests.sh` exits 0.
-- **AC-CB-65** [Integration, Bot: `world_census.gd`] Living World. **GIVEN** a headless run of 40 years, **THEN** every NPC duel winner comes from a full fight result, a draw writes no winner, a sect war resolves through the rating clash, there is no SCRIPT ERROR, and two runs on one world seed give identical news.
+- **AC-CB-65** [Integration, Bot: `world_census.gd`] Living World. *(Amended by Power Rankings: with `combat_rankings.json` `enabled` true, an NPC duel winner comes from the rating roll, AC-PR-19; the full-fight wording below applies with the flag off.)* **GIVEN** a headless run of 40 years, **THEN** every NPC duel winner comes from a full fight result, a draw writes no winner, a sect war resolves through the rating clash, there is no SCRIPT ERROR, and two runs on one world seed give identical news.
 
 **Performance (proposed budgets, not measured)**
 

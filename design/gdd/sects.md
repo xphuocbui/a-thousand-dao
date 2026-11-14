@@ -820,6 +820,8 @@ earns contribution faster than a sect's stock refills). Each needs the 400-seaso
 
 ## Dependencies
 
+> **Power Rankings (#44, 2026-11-14)** supplies ratings, power numbers and realm rankings that ranks, leaders and wars read; wars keep `rating_clash` with members ordered by power number (`design/gdd/power-rankings.md` rules 9, 10, 11).
+
 **Upstream (this system reads them)**
 
 | System | Hard / soft | Interface | Has a GDD? | Lists Sects back? |

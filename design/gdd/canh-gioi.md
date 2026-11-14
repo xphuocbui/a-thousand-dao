@@ -1317,6 +1317,8 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
 
 ## Dependencies
 
+> **Power Rankings (#44, 2026-11-14)** reads realm, stage and `power_base` for its anchors, provisional ratings and power number (`design/gdd/power-rankings.md` Formulas A, E, G). A breakthrough makes the fighter Provisional at the new realm until its panel runs.
+
 Spiritual Roots (`linh-can.md`), Character Stats (`character-stats.md`), Cultivation
 Techniques (`cong-phap.md`) and the Meridian Map (Kinh Mạch Đồ, `kinh-mach-do.md`) have
 GDDs among the systems below, and each lists Realms & Bottlenecks. Every other interface is provisional. When each remaining GDD is

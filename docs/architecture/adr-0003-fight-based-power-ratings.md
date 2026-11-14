@@ -85,6 +85,14 @@ fighter, panel 16 ms a fighter, a Nguyên Anh and Hóa Thần round robin 1.7 s.
 8. **Wars keep `rating_clash`** (Combat Formulas K) with members ranked by the new power number; the closed-form
    profile survives only for mass clashes.
 
+9. **Amendment (2026-11-14, design review of Power Rankings): panels at world generation.** A new game's
+   world-generation panels (about 64,000 fights for 5,000 NPCs, Power Rankings rule 16) run while the game loads,
+   outside any season budget, on the same background tasks, so a new world starts with every NPC Rated.
+10. **Amendment: `panel_budget_share`** (default 0.5, safe range 0.3-0.7) caps the share of `season_fight_budget`
+    panels may use in a season; unused share goes to round robins and matchmaking (Power Rankings rule 14).
+11. **Amendment: injury in world fights.** A world fight's roll rating is lowered by
+    `400*log10(max(v, injured_power_floor))` (Power Rankings Formulas F); the stored rating is untouched.
+
 ### Fallback if `WorkerThreadPool` does not verify
 Run the batch time-sliced on the main thread: a fixed number of fights per frame (about 2 at 6 ms within a 16.7 ms
 frame) spread across the season. The result is identical (same order of application, same seeds); only wall time

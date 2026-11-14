@@ -636,6 +636,7 @@ formulas:
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
+      - design/gdd/power-rankings.md
     variables:
       - Off
       - Q_use
@@ -649,7 +650,7 @@ formulas:
       - kappa
     output_range: [0.02, 0.98]
     expression: "t_w = Q_use/(D*b + n_hits*fee + upkeep_avg + net_spend); t_h = (S/lambda_all + (H + heal)/lambda_all)/D; T0 = t_h if t_h <= t_w, else t_w + (S + H + heal - t_w*D*lambda_all)/(D_late*lambda_fix); T = T0/(1 + pi_s*T0); R = T(B to A)/T(A to B); P(A) = clamp(1/(1+R^-kappa) + fortune term, 0.02, 0.98)"
-    notes: "Wars and great battles only; individual NPC duels run the full fight. Defence terms from Combat Defence & Healing Formulas C, E, G; the attacker's damage-type mix in a clash, reference_type_mix for display_power (D7). Typical Qi Refining mirror T0 7.95 s. Restated by the Combat revision #43 (2026-11-08)."
+    notes: "Wars and great battles only. Amended 2026-11-14 by Power Rankings: NPC-against-NPC world fights are one rating roll (power-rankings.md Formulas F, world_fight), not the full fight; the player's fights, panels and round robins still run it. Defence terms from Combat Defence & Healing Formulas C, E, G; the attacker's damage-type mix in a clash, reference_type_mix for display_power (D7). Typical Qi Refining mirror T0 7.95 s. Restated by the Combat revision #43 (2026-11-08)."
     added: 2026-11-06
     revised: 2026-11-08
   - name: display_power
@@ -663,9 +664,120 @@ formulas:
       - F_unbuilt
     output_range: "[0, unbounded]"
     expression: "B_p*sqrt(F/F_unbuilt); F = Off*ehp"
-    notes: "Replaces the stored chien luc total wherever one number is shown or stored."
+    notes: "Replaces the stored chien luc total wherever one number is shown or stored. Superseded 2026-11-14 by power_number (design/gdd/power-rankings.md Formulas E) for the shown and stored number; kept as the profile's closed-form estimate until Power Rankings is signed off in play."
     added: 2026-11-06
-    revised: 2026-11-06
+    revised: 2026-11-14
+  - name: rating_scale
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    variables:
+      - A_0
+      - realm_step
+      - r
+      - R_a
+      - R_b
+    output_range: "E in (0, 1); anchors 1000-2600"
+    expression: "A_r = A_0 + realm_step*r; E = 1/(1+10^((R_b-R_a)/400))"
+    notes: "Power Rankings Formulas A."
+    added: 2026-11-14
+    revised: ""
+  - name: panel_base
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    variables:
+      - panel_fights
+      - prior_games
+      - R_i
+      - S_i
+      - A_r
+    output_range: "A_r +/- 800"
+    expression: "base = clamp(R*, A_r-800, A_r+800); R* solves sum_i panel_fights*E(R*,R_i) + prior_games*E(R*,A_r) = sum_i S_i + prior_games*0.5"
+    notes: "Power Rankings Formulas B; bisection, 24 steps."
+    added: 2026-11-14
+    revised: ""
+  - name: member_calibration
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    variables:
+      - N
+      - S
+      - prior_games
+    output_range: "A_r to A_r+800"
+    expression: "top_end_r = clamp(A_r + 400*log10(s'/(1-s')), A_r, A_r+800); s' = (S + prior_games*0.5)/(N + prior_games)"
+    notes: "Power Rankings Formulas C; once per data version."
+    added: 2026-11-14
+    revised: ""
+  - name: offset_update
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    variables:
+      - K_0
+      - n_half
+      - K_min
+      - offset_cap
+      - offset_keep
+      - n
+      - s_a
+    output_range: "offset -200 to +200"
+    expression: "offset_a += K(n_a)*(s_a - E(R_a,R_b)), clamped; K(n) = max(K_min, K_0/(1+n/n_half)); new panel: offset*=offset_keep, n=floor(n*offset_keep)"
+    notes: "Power Rankings Formulas D."
+    added: 2026-11-14
+    revised: ""
+  - name: power_number
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    variables:
+      - B_p
+      - R
+      - A_0
+      - realm_step
+    output_range: "1 to 316,000,000"
+    expression: "power = max(1, round_3sf(B_p[0]*10^((R-A_0)/realm_step)))"
+    notes: "Power Rankings Formulas E. Replaces display_power as the shown and stored number."
+    added: 2026-11-14
+    revised: ""
+  - name: world_fight
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    variables:
+      - R
+      - v
+      - v_c
+      - eff_khi_van
+      - khi_van_per_point
+      - p_min
+      - p_max
+    output_range: "0.02-0.98"
+    expression: "R_roll = R + 400*log10(max(v,v_c)); P(A) = clamp(E(R_roll_a,R_roll_b) + (kv_A-kv_B)*khi_van_per_point, p_min, p_max)"
+    notes: "Power Rankings Formulas F. One session-stream draw per fight; no fight runs."
+    added: 2026-11-14
+    revised: ""
+  - name: provisional_rating
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    variables:
+      - A_r
+      - stage_step
+      - stage
+    output_range: "1000-2735"
+    expression: "R_prov = A_r + stage_step*stage"
+    notes: "Power Rankings Formulas G."
+    added: 2026-11-14
+    revised: ""
   # Superseded by design/gdd/combat-defence.md (2026-11-07): ward_payment, defence_resistance. Kept active until
   # the Combat revision (systems-index #43) replaces combat.md rule 22 and Formulas D, then set to deprecated.
   - name: ward_block
@@ -4516,5 +4628,75 @@ constants:
     value: [0.20, 0.12, 0.08, 0.05]
     unit: share of price, Openness 1-4
     notes: "RET Formula F. Openness 0 = no link. Guess."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_realm_step
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 400
+    unit: rating points
+    notes: "Power Rankings Formulas A; 10:1 odds per realm."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_stage_step
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 45
+    unit: rating points per stage
+    notes: "Power Rankings Formulas G."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_panel_fights
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 4
+    unit: fights per panel member
+    notes: "Power Rankings Formulas B."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_offset_cap
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 200
+    unit: rating points
+    notes: "Power Rankings Formulas D."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_offset_keep
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 0.5
+    unit: share
+    notes: "Power Rankings Formulas D."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_season_fight_budget
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 10000
+    unit: fights per season
+    notes: "Power Rankings Season budget."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_panel_budget_share
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 0.5
+    unit: share of season budget
+    notes: "Power Rankings rule 14; safe range 0.3-0.7."
     added: 2026-11-14
     revised: ""
