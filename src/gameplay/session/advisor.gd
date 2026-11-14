@@ -239,14 +239,19 @@ static func choice_odds(s: GameSession, index: int) -> Dictionary:
 				out.text += " + stealth %d" % int(sh.total("stealth"))
 		"combat":
 			var enemy := Character.from_dict(s.db.get_record("people", ch.check.enemy))
-			var mine: float = CombatPower.compute(s.player, s.gd, s.db, sh).total
-			var theirs: float = s.builds.power_of(enemy)
-			var cfg: Dictionary = s.gd.combat().duel
-			var k: float = float(cfg.ratio_exponent)
-			var p2: float = pow(maxf(mine, 1.0), k) / (pow(maxf(mine, 1.0), k) + pow(maxf(theirs, 1.0), k))
-			p2 += (sh.effective("khi_van", s.player) - float(enemy.base_stat("khi_van"))) * float(cfg.khi_van_per_point)
-			out.chance = clampf(p2, float(cfg.min_win_chance), float(cfg.max_win_chance))
-			out.text = "fight: chiến lực %.0f vs %.0f" % [mine, theirs]
+			var fo: Dictionary = s.resolver.fight_odds(s.player, sh, enemy)
+			if fo.ran:   # the fight engine is on: its own odds (ADR-0001 step 4)
+				out.chance = float(fo.chance)
+				out.text = "fight: won %d of %d trial fights" % [roundi(float(fo.chance) * float(fo.samples)), int(fo.samples)]
+			else:
+				var mine: float = CombatPower.compute(s.player, s.gd, s.db, sh).total
+				var theirs: float = s.builds.power_of(enemy)
+				var cfg: Dictionary = s.gd.combat().duel
+				var k: float = float(cfg.ratio_exponent)
+				var p2: float = pow(maxf(mine, 1.0), k) / (pow(maxf(mine, 1.0), k) + pow(maxf(theirs, 1.0), k))
+				p2 += (sh.effective("khi_van", s.player) - float(enemy.base_stat("khi_van"))) * float(cfg.khi_van_per_point)
+				out.chance = clampf(p2, float(cfg.min_win_chance), float(cfg.max_win_chance))
+				out.text = "fight: chiến lực %.0f vs %.0f" % [mine, theirs]
 	if not used.is_empty():
 		out.text += " + " + ", ".join(used)
 	return out

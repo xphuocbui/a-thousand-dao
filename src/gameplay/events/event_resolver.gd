@@ -156,6 +156,36 @@ func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNu
 		"line": "Combat: fight against %s, %.1f s -> %s" % [enemy.name, r.seconds, word]}
 
 
+## The fight engine's odds for [param c] against [param enemy] (the event card, ADR-0001 step 4): the share of
+## combat_rules.json fight_engine.odds_samples fights [param c] wins outright (a draw or the time limit fails, as in
+## [method fight_check]). Seeds come from a keyed stream on the two fighters (ADR-0002 decision 4), so the session
+## stream never moves and the card shows the same odds each time. Returns {ran, chance, samples}; ran is false when
+## the flag is off or a side cannot compile.
+func fight_odds(c: Character, sheet: StatSheet, enemy: Character) -> Dictionary:
+	var fe: Dictionary = _gd.combat().get("fight_engine", {})
+	if not bool(fe.get("enabled", false)):
+		return {"ran": false, "chance": 0.0, "samples": 0}
+	var a: FighterProfile = FighterCompiler.compile(c, _gd, _db, sheet)
+	var b: FighterProfile = FighterCompiler.compile(enemy, _gd, _db, _builds.sheet_of(enemy))
+	if a == null or b == null:
+		return {"ran": false, "chance": 0.0, "samples": 0}
+	if _service == null:
+		_service = CombatService.new(CombatConstants.from_game_data(_gd))
+	var keyed := RandomNumberGenerator.new()
+	keyed.seed = RngUtils.stable_hash("odds:%s:%s" % [c.id, enemy.id])
+	var n: int = maxi(1, int(fe.get("odds_samples", 24)))
+	var wins := 0
+	for i in n:
+		var req := FightRequest.new()
+		req.a = a
+		req.b = b
+		req.fight_seed = keyed.randi()
+		var r: FightResult = _service.resolve(req)
+		if r != null and r.win_code() == "A":
+			wins += 1
+	return {"ran": true, "chance": float(wins) / float(n), "samples": n}
+
+
 func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: Dictionary, fx: Dictionary, items: Array) -> String:
 	match str(fx.type):
 		"linh_thach":

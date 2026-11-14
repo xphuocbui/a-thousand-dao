@@ -80,3 +80,20 @@ func test_the_debug_terminal_prints_the_last_fight_log() -> void:
 	var lines: Array = TerminalViews.fight_log(s, io, 10)
 	assert_eq(lines.size(), 11, "a heading and the last 10 rows")
 	assert_true(str(lines[0]).contains("Fight:"), "the heading: %s" % lines[0])
+
+
+func test_the_card_shows_the_fight_engines_own_odds_without_moving_the_stream() -> void:
+	var s := _session(53)
+	var enemy_id: String = s.builds.create_person(s.rng, {"realm_index": 0, "archetype": "kiem_tu", "location_id": s.player.location_id})
+	s.pending_event = _combat_event(s, enemy_id)
+	var duel: Dictionary = Advisor.choice_odds(s, 0)
+	assert_true(str(duel.text).contains("chiến lực"), "flag off: the duel's odds")
+	_set_flag(s.gd, true)
+	var before: int = s.rng.state
+	var a: Dictionary = Advisor.choice_odds(s, 0)
+	var b: Dictionary = Advisor.choice_odds(s, 0)
+	_set_flag(s.gd, false)
+	assert_true(str(a.text).contains("trial fights"), "flag on: the fight engine's odds: %s" % a.text)
+	assert_true(float(a.chance) >= 0.0 and float(a.chance) <= 1.0, "a share")
+	assert_eq(a.chance, b.chance, "the same odds each time it is shown")
+	assert_eq(s.rng.state, before, "showing odds never moves the session stream")
