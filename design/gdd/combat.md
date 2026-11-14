@@ -1196,6 +1196,7 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 | Event Engine (#23) | Hard | Fight request, result | Built, no GDD; today's `duel` callers move to the result |
 | NPC Builds (#24) | Hard | Compiled profile, slot order and guards | Built, no GDD |
 | Living World Tick (#28) | Hard | Rating clash; keeps NPC duels rare | Built, no GDD |
+| Sects & Missions (#26) | Soft | Trials for the head seat and mission fights use the fight engine as built; sect wars stay abstract and do not (`design/gdd/sects.md`, Interactions; added 2026-11-14) | GDD designed 2026-11-14, pending review |
 | Balance Harness (#33) | Hard | Headless fights, the agreement test | Built, no GDD |
 | Debug Terminal (#36), Game UI (#37) | Soft | Log, preparation data, `display_power` | Terminal built, Game UI not started |
 | World DB (#3) | Soft | Notable fight record | Built, no GDD |

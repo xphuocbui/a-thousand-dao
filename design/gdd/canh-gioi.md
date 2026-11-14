@@ -1355,6 +1355,7 @@ written, it must list Realms & Bottlenecks in its own Dependencies section.
 | 31 | Quests | The realm band that sets a quest budget; a time estimate for a `reach` stage (provisional, not exposed yet; `design/gdd/quests.md` rule 5) |
 | 24 / 28 | NPC Build Generation, Living World Tick | NPC realm, stage and level; the fate roll; the intake |
 | 27 | World Generation & History | The world size and starting realm shares that the headcount targets need |
+| 26 | Sects & Missions | Members' and the player's realms for rank gates, stipends, mission pay and war strength (`design/gdd/sects.md`, rule 19, Formulas F8, F12, F13; added 2026-11-14) |
 | 9 | Cultivation Techniques | The realm, for the technique tier cap |
 | 39 | The Way (Đạo) | The realm, for the one glimpse a realm from Foundation Establishment (`dao.md` rule 6). The Way adds no cap raise or root factor (rule 4); its stat lines' breakthrough chance counts under X_q, and its Effects on breakthrough and heart-demon odds sit outside it (q_way) and re-run this calibration (Open Question 23) |
 | 20 | Market | Realm price tiers, breakthrough pill stock, and the recipes' main herbs, which it leaves out of random stock (Formulas D) |

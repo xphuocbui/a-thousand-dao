@@ -1456,7 +1456,7 @@ tail shares and cannot show the strongest-purity gain that `g` divides out. The
 - Lowering a realm: no rule does it.
 - The 75 %-cultivating ×1.14 guess: bot only, once Time & Turn exists.
 - What a divine ability does: Combat.
-- Sects forbidding the sale of their manuals: Sects & Missions.
+- Sects forbidding the sale of their manuals: Sects & Missions (**answered 2026-11-14**: `design/gdd/sects.md` rule 23a and Formulas F16: owner tag, black market ×1.5, discoverable leaks).
 - Codex carryover: not designed.
 
 ## Open Questions

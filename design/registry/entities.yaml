@@ -1390,6 +1390,7 @@ formulas:
     source: design/gdd/travel-map.md
     referenced_by:
       - design/gdd/travel-map.md
+      - design/gdd/sects.md
     variables:
       - linh_thach_max
       - d
@@ -1399,6 +1400,134 @@ formulas:
     notes: "Travel & Map Formulas K; owner_mult set by Sects (#26)."
     added: 2026-11-10
     revised: 2026-11-13
+  - name: sect_track_cost
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    variables:
+      - c0_T
+      - g
+      - L
+      - u
+      - w_v
+    output_range: ["2,000 (Holdings L1)", "no maximum"]
+    expression: "cost = c0_T * g^(L-1); C = c0_T * (g^L - 1)/(g - 1); upkeep = u * C; L_eff = log_g(1 + (g-1)(C_own + w_v * sum C_vassal)/c0_T)"
+    notes: "Sects F1. Guesses: c0 Holdings 2,000 / Institutions 2,500 / Military 2,000 / Trade 1,500; g 1.4; u 0.01. Layer-2 works keep Travel & Map Formula J prices, gated by work_max = ceil(H/2)."
+    added: 2026-11-14
+    revised: ""
+  - name: sect_collect_share
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    variables:
+      - H
+      - collect_share_max
+      - H_half
+    output_range: [0.086, "below 0.6"]
+    expression: "collect = s_max * (H + 1)/(H + 1 + H_half)"
+    notes: "Sects F2. Share of a territory's production the sect collects; s_max 0.6, H_half 6 (guesses). User accepted a share that approaches a limit (2026-11-14)."
+    added: 2026-11-14
+    revised: ""
+  - name: sect_treasury
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    variables:
+      - collect
+      - V_own
+      - tf
+      - open
+      - trib_in
+      - sect_mission_fee
+      - board_cash
+      - stip_r
+      - works_due
+    output_range: ["see Sects season budgets", "-"]
+    expression: "Inc = collect*V_own + tf*V_own*trade_mult*open[O] + trib_in + fee*board_cash; Cost = stipends + upkeep + works_due + trib_out + war_cost; R = 4*Cost; invest = max(0, Tr + Inc - Cost - R)*0.5"
+    notes: "Sects F3. V_own from Travel & Map Formula L value_lt until Regional Economy & Trade (#43). Cut order: investment, upkeep, stipends; tribute first."
+    added: 2026-11-14
+    revised: ""
+  - name: sect_tribute_rate
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    variables:
+      - Tax
+      - r_floor
+      - r_ceil
+      - pay_state
+    output_range: [0.05, 0.30]
+    expression: "rate = r_floor + (r_ceil - r_floor) * Tax/4; tribute = rate * gross_v * pay[state]"
+    notes: "Sects F4. Floor 0.05, ceiling 0.30 (guesses). Paid in season s, counted by the lord in s+1."
+    added: 2026-11-14
+    revised: ""
+  - name: vassal_loyalty
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    variables:
+      - Tax
+      - S_lord
+      - S_threat
+      - pull
+      - Loy
+    output_range: [0, 100]
+    expression: "dLoy = 2*(2 - Tax) + 2*clamp(log2(S_lord/S_threat), -1, 1) + sum pull + 0.05*(60 - Loy) - 10*refused + events"
+    notes: "Sects F5. Break line 30; Loyal from 60 (guesses)."
+    added: 2026-11-14
+    revised: ""
+  - name: sect_war_strength
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    variables:
+      - mil_mult
+      - def
+      - n_r
+      - p_r
+      - lv
+      - loy_f
+    output_range: [0, "no maximum"]
+    expression: "S = mil_mult * def * sum n_r * p_r + sum lv * loy_f * S_v"
+    notes: "Sects F8. p_r 1/8/60/400/3,000 by realm, starting equal to income_realm_scale (guess)."
+    added: 2026-11-14
+    revised: ""
+  - name: sect_standing_price
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    variables:
+      - sect_standing
+      - rank_m
+      - open_out
+    output_range: [0.5, 3]
+    expression: "price_mult = 1 - 0.002*St; owner_mult = clamp(member ? rank_m : open_out[O]*price_mult, 0.5, 3)"
+    notes: "Sects F11. Sets Travel & Map owner_mult (teleport_fee). No sale at St <= -30."
+    added: 2026-11-14
+    revised: ""
+  - name: sect_mission_pay
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    variables:
+      - sect_base_income
+      - income_realm_scale
+      - km
+      - need_k
+      - mission_cash_cap
+    output_range: ["10 x km", "30,000 x km x 1.3"]
+    expression: "pay = round(base*scale[realm]*km*(1 + 0.1*need)); above Ket Dan cash = min(pay, max(floor_cash, round(cash_cap*Inc_board))); contribution = round(0.25*cash + (pay - cash))"
+    notes: "Sects F12. Client pays cash*(1 + sect_mission_fee). floor_cash is the Ket Dan pay for the same mission."
+    added: 2026-11-14
+    revised: ""
 constants:
   - name: root_count_weights
     status: active
@@ -3586,11 +3715,12 @@ constants:
     source: design/gdd/quests.md
     referenced_by:
       - design/gdd/quests.md
+      - design/gdd/sects.md
     value: "-100 to 100, starts at 0"
     unit: sect standing
-    notes: "New World DB sect field, provisional. Nothing reads it yet (quests.md Open Question 10)."
+    notes: "New World DB sect field, provisional. Read by Sects rule 21 and Formulas F10-F11 (prices, recruits, sales, hostility), answering quests.md Open Question 10."
     added: 2026-11-07
-    revised: ""
+    revised: 2026-11-14
   - name: resist_cap
     status: deprecated
     source: design/gdd/combat-defence.md
@@ -4005,4 +4135,44 @@ constants:
     unit: share of linh_thach_max
     notes: "Opening a cave abode costs this share of the realm budget and one season (rule 8; user decision 2026-11-10)."
     added: 2026-11-10
+    revised: ""
+  - name: sect_mission_fee
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    value: 0.2
+    unit: share of mission cash
+    notes: "Sects F3/F12. Paid by the client on top of the reward (user decision 2026-11-14: client pays). Guess."
+    added: 2026-11-14
+    revised: ""
+  - name: mission_cash_cap
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    value: 0.1
+    unit: share of the board sect's income
+    notes: "Sects F12. Above Ket Dan only; the rest is paid as contribution (user decision 2026-11-14). Guess."
+    added: 2026-11-14
+    revised: ""
+  - name: vassal_investment_weight
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    value: 0.5
+    unit: weight
+    notes: "Sects F1. Share of vassals' track investment counted in the lord's L_eff (user decision 2026-11-14)."
+    added: 2026-11-14
+    revised: ""
+  - name: collect_share_max
+    status: active
+    source: design/gdd/sects.md
+    referenced_by:
+      - design/gdd/sects.md
+    value: 0.6
+    unit: share of production
+    notes: "Sects F2. Approached, never reached. Guess."
+    added: 2026-11-14
     revised: ""

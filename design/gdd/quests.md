@@ -50,7 +50,8 @@ author's reading and wait for confirmation (Open Questions).
 2. **Where quests come from.** There are two sources:
    - **A person or sect offers it** when the world state holds a fact that fits an offer: a grudge, a shortage, a
      death, an unpaid debt. The source fact is chosen by the engine from the World DB and written on the quest.
-   - **A board offers it.** A sect hall or town has a standing board (`board_size` open quests, refreshed each
+   - **A board offers it.** (At a sect hall or large town the board also lists that sect's one-season missions as a
+     second list with its own rules: `design/gdd/sects.md` rule 24, added 2026-11-14.) A sect hall or town has a standing board (`board_size` open quests, refreshed each
      season), which the player can read whether or not a person has an offer. A board quest comes from the fixed list
      in `quest_templates.json`, with no LLM call (user decision 2026-11-06), and is always Errand or Ordinary (rule 14). It
      has no individual offerer but is still tied to a place and a recorded fact of that place.
@@ -914,5 +915,5 @@ Evidence: `tests/unit/quests/`, `tests/integration/quests/`, `production/qa/evid
 | 7 | Feasibility was not checked against the pinned engine: there is no `scripting` module under `docs/engine-reference/godot/modules/` | technical-director | Architecture |
 | 8 | The Item Database's `realm_rarity_cap` must name the Legendary exception (rule 14). Rarity 6 items are also scarce today, so this reward needs more hand-authored top items | user, economy-designer | Content pass |
 | 9 | World effects write NPC wealth, vitality, rank and life. Confirm those fields and that deaths keep Realms' headcount targets when the Living World is documented | systems-designer | Implementation |
-| 10 | `sect_standing` is new and nothing reads it yet. What should it change: offers, prices, recruits, or sect wars? Sects & Missions and the Living World need to decide | user, game-designer | Effect of `standing` |
+| 10 | **Answered 2026-11-14 by `design/gdd/sects.md`** (rule 21, Formulas F10–F11): standing sets offers, prices, recruitment, manual sales and hostility. ~~`sect_standing` is new and nothing reads it yet. What should it change: offers, prices, recruits, or sect wars?~~ | user, game-designer | Effect of `standing` |
 | 11 | A `recipe` reward has nothing to teach: Alchemy has no recipe knowledge today, and an `items_recipes.json` `price` is the pill's price, not the knowledge's. Decide whether recipes become learnable, then set the reward's price and rarity (rule 11) | user, economy-designer | `recipe` rewards |
