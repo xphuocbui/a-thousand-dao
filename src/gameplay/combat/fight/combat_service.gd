@@ -3,8 +3,8 @@ extends RefCounted
 ## Runs fight requests (ADR-0001 decision 5): validates the request, runs one [Fight] on the request's seed and
 ## returns its [FightResult]. It never touches the character, the World DB or the clock; the caller applies the costs.
 ##
-## Not wired into the Event Engine yet: that needs a Character's compiled profile (ADR-0001 step 3, waiting on design;
-## design/research/fighter-compiler-questions.md), and goes behind a feature flag next to CombatPower.duel.
+## Not wired into the Event Engine yet (ADR-0001 step 4): it goes behind a feature flag next to CombatPower.duel, with
+## fighters from [method FighterCompiler.compile] and the seed from the session stream (ADR-0002).
 ##
 ## Usage:
 ## [codeblock]

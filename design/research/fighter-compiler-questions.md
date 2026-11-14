@@ -1,8 +1,22 @@
 # Fighter compiler: what a Character needs before it can fight (2026-11-14)
 
 ADR-0001 step 3 turns a Character into a `FighterProfile`. The engine is finished and matches the sim; this note
-lists what the *game data* still lacks for the Character path, and the decisions that are yours. Written overnight,
-so nothing here is decided.
+lists what the *game data* lacked for the Character path, and the decisions that were yours. Written overnight;
+**decided 2026-11-14** (see Decisions) and built the same day.
+
+## Decisions (user, 2026-11-14)
+1. **Arts and wards:** export all 223 authored arts and the parsed ward records. Done: `assets/data/combat_library.json`
+   (282 arts with the common and item arts, 171 items, 38 of 40 wards run) from
+   `tools/design/combat_sim/export_combat_library.py`; fight.py's library now resolves the authored part arts too.
+2. **Layers and pools:** typical for the realm until the Meridian Map returns. Done: `FighterCompiler.compile()`.
+3. **Modifier table:** in `combat_engine.json` `CHARACTER_MODS`, read by fight.py and the compiler. Done.
+4. (ADR-0002 accepted with a project-owned hash; not a compiler question.)
+
+The build-file step (`BuildFileCompiler`, a port of fight.py's `expand_library()` and `to_build()`) matches fight.py
+on 58 cases holding every named item and every art (`tests/parity/compile_parity_test.gd`,
+`compile_parity_export.py`). Choices the compile makes that are not settled design, all in `FighterCompiler`'s doc:
+a Character with no arts of its own fights with the typical kit; a Character's sheet lines run as one always-on
+Effect; ordinary pieces' affixes (scoped ones too) join the sheet lines.
 
 ## Done tonight (no design needed)
 - **Data-built enemies.** `FighterCompiler.from_data(kind, realm, gd)` loads the sim's reference fighters (typical,
@@ -33,8 +47,15 @@ so nothing here is decided.
 4. ADR-0001 step 4: `CombatService` behind a flag in the Event Engine's combat check (ADR-0002 first).
 
 ## Findings from the port that touch content
-- **A step field nobody runs:** one authored step sets `hp_cost`, which the sim's `override()` ignores; the Godot
-  loader refuses it by name. Either add `hp_cost` to the override table (both engines) or move it off the step.
+- **Fixed 2026-11-14:** `metal-earthbind-drop` laid stacks of element `tho` (Hán-Việt for Earth) where the engine
+  wants `earth`; the sim ran it silently. Now `earth`, and the sim's validate() refuses a non-engine stacks element.
+- **Arts that read counters nothing builds** (heat, peal, charge, feather, echo, toll, coil, strata): steps and
+  empowers waiting on an engine another piece builds. Both engines read an undefined counter as 0; the Godot loader
+  now reports it as a warning rather than refusing the fighter.
+- **A step field nobody runs:** `reckless-gale`'s second step sets `hp_cost` (0.12), which the sim's `override()`
+  ignores; the Godot loader refuses it by name, so a Character with that art does not compile (listed as a known
+  refusal in the compile parity test). Either add `hp_cost` to the override table (both engines) or move it off the
+  step.
 - **Final Clause** listens for `down`, which neither engine raises; it never fires.
 - **`strip` without an element** picks the largest buff pile and breaks ties in Python set order (unstable between
   runs). Give tied piles a rule (oldest first?) in both engines.
