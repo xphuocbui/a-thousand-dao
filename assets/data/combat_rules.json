@@ -14,6 +14,13 @@
     "n_min": 0.25,
     "n_max": 8
   },
+  "fighter_gear": {
+    "_doc": "Combat Defence & Healing Formulas A0 and A2, a Character's defence from worn gear. a_w = defence of artifacts without the body_gear role / (power_base x stage_mult); a_b = the same for body_gear pieces. Ward strength and efficiency start at 100 x ward_gear_scale x a_w (the sheet's defense_pct and ward_efficiency_pct lines add on top); ward layer W3 = 100 x layer_gear_scale x a_w and body layer B3 = 100 x layer_gear_scale x a_b; block = flesh_block x n_body + gear_block x min(a_w, 1), body block gear_block x a_b (scaled by the body layers). Typical gear (a_w 0.85) reproduces the typical anchor: ws_base 25.5 of 30.8, W3 +40, block 15.0.",
+    "ward_gear_scale": 0.30,
+    "layer_gear_scale": 0.47,
+    "gear_block": 12.0,
+    "flesh_block": 4.4
+  },
   "fight_engine": {
     "_doc": "ADR-0001 step 4 feature flag: when enabled, an event's combat check runs a real fight (CombatService, both sides compiled by FighterCompiler.compile, the seed one draw from the session stream per ADR-0002) instead of the duel roll; a side that cannot compile falls back to the duel, and the check line says why. Off until the fights are signed off in play.",
     "enabled": false

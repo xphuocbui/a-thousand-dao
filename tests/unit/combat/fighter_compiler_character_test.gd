@@ -29,7 +29,8 @@ func test_a_bare_character_fights_as_the_typical_fighter_of_its_realm_with_its_p
 	want[2] = 0.0
 	assert_eq(d.layers, want, "the realm's typical layers, with no gear in L3")
 	assert_near(float(d.n_body), 50.0 / 45.0, 1e-9, "căn cốt 50 against the talent-45 reference")
-	assert_eq(d.ward, typical.ward, "the realm's typical ward")
+	assert_eq(float(d.ward.ws_base), 0.0, "no ward gear: no gear ward strength")
+	assert_near(float(d.ward.block), 4.4 * 50.0 / 45.0, 1e-9, "flesh block only")
 	assert_eq(d.arts, typical.arts, "the typical kit stands in for arts")
 	assert_true(report.any(func(x): return str(x).contains("typical kit")), "and the report says so")
 	assert_eq(d.purity, {"fire": 60.0}, "hỏa purity as Fire")
@@ -178,3 +179,36 @@ func test_slotted_technique_arts_come_before_item_arts() -> void:
 	assert_eq(d.arts, [{"lib": manual.abilities[0].ability_id}, {"lib": lib.items[WEAPON].arts[0]}], "technique art, then the weapon's")
 	var p: FighterProfile = FighterCompiler.compile(c, gd, db, StatSheet.build(c, gd, db, null))
 	assert_true(p != null and p.arts.size() == 2, "both fight")
+
+
+
+func _piece(db: WorldDB, base: String, defense: float) -> String:
+	return db.add("items", {"kind": "artifact", "name": "Giáp", "base": base, "element": "", "attack": 0.0,
+		"defense": defense, "affixes": [], "owner_id": "", "value": 1})
+
+
+func test_typical_ward_gear_reproduces_the_typical_ward() -> void:
+	# Combat Defence & Healing A0, A2: a_w 0.85 gives ws_base 25.5 (the rest of 30.8 is modifiers), W3 +40, block 15.0
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"hoa": 50}, 45, 0, 0)
+	c.equipped = [_piece(db, "thuan", 85.0)]
+	var g: Dictionary = FighterCompiler.gear_defence(c, gd, db, StatSheet.build(c, gd, db, null), 1.0883, {})
+	assert_near(float(g.ward.ws_base), 25.5, 1e-9, "ward strength from gear")
+	assert_near(float(g.ward.we), 25.5, 1e-9, "and efficiency")
+	assert_near(float(g.ward.layers[1]), 39.95, 1e-9, "W3 about +40")
+	assert_near(float(g.ward.block), 4.4 * 1.0883 + 12.0 * 0.85, 1e-9, "block 15.0")
+	assert_true(g.body.is_empty(), "no body gear, no body layers")
+
+
+func test_body_gear_fills_the_body_layers_and_body_block() -> void:
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"hoa": 50}, 45, 0, 0)
+	c.equipped = [_piece(db, "giap", 100.0)]
+	var g: Dictionary = FighterCompiler.gear_defence(c, gd, db, StatSheet.build(c, gd, db, null), 1.0, {})
+	assert_near(float(g.body.layers[1]), 47.0, 1e-9, "B3 from a_b 1.0")
+	assert_near(float(g.body.block), 12.0, 1e-9, "body block")
+	assert_eq(float(g.ward.ws_base), 0.0, "body gear is not ward gear")
+	var p: FighterProfile = FighterCompiler.compile(c, gd, db, StatSheet.build(c, gd, db, null))
+	assert_near(p.bs_mult, 1.47, 1e-9, "the body layers reach the fighter")

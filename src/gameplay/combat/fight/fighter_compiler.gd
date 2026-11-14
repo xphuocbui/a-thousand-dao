@@ -14,6 +14,9 @@ extends RefCounted
 ## - layers and the main ward: the typical fighter's at that realm, until the Meridian Map gives a Character layers
 ##   of its own (the sheet's ward and stack lines then act on them, as on a build file), except L3, the gear layer
 ##   (Combat Formulas B): 100 x the worn artifacts' attack as built / (power_base x stage_mult), so no gear is L3 0.
+## - defence from gear (Combat Defence & Healing A0, A2; combat_rules.json fighter_gear): ward strength and efficiency
+##   start at the ward gear term (the sheet's defense_pct and ward_efficiency_pct lines add on top), ward layer W3 and
+##   body layer B3 come from ward and body gear, block from flesh and gear; the other ward layers stay typical.
 ## - pools (Combat Formulas A): n = clamp(stat / ref[r], n_min, n_max) from the Character's vitality and linh lực
 ##   before their pct bonuses, which the sheet lines then add (combat_rules.json fighter_pools). Capability #4's
 ##   linh lực from vitality joins the base, so the pct lines scale it too (in the game it comes after them).
@@ -94,8 +97,11 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 	var pools: Dictionary = pool_sizes(c, gd, sheet, r)
 	var layers: Array = Array(base.layers).duplicate()
 	layers[2] = gear_layer(c, gd, db, sheet)
+	var gear: Dictionary = gear_defence(c, gd, db, sheet, float(pools.n_body) * sheet.mult("khi_huyet_pct"), base.ward)
 	var d := {"name": c.name if c.name != "" else c.id, "realm": r, "layers": layers, "n_body": pools.n_body,
-		"n_qi": pools.n_qi, "ward": base.ward, "stage_mult": Ladder.stage_mult(gd, c.stage)}
+		"n_qi": pools.n_qi, "ward": gear.ward, "stage_mult": Ladder.stage_mult(gd, c.stage)}
+	if not gear.body.is_empty():
+		d["body"] = gear.body
 	var cm: Dictionary = gd.file("combat_engine").get("CHARACTER_MODS", {})
 	var combat_keys: Array = Array(cm.get("passive", {}).keys()) + Array(cm.get("static", []))
 	# the sheet's combat keys from every source but worn pieces (their lines come below, with their scopes)
@@ -176,3 +182,28 @@ static func gear_layer(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet
 	for n in CombatPower.artifact_numbers(c, gd, db, sheet):
 		atk += float(n.attack)
 	return 100.0 * atk / (float(gd.realm(c.realm_index).power_base) * Ladder.stage_mult(gd, c.stage))
+
+
+## A Character's ward and body from its worn gear (Combat Defence & Healing A0, A2): {ward, body}. [param n_body] is
+## the pool size the fight will have (flesh block reads it); [param typical_ward] gives the ward layers gear does not
+## fill (W2, W4, W5). body is {} without body gear.
+static func gear_defence(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, n_body: float, typical_ward: Dictionary) -> Dictionary:
+	var cfg: Dictionary = gd.combat().fighter_gear
+	var unit: float = float(gd.realm(c.realm_index).power_base) * Ladder.stage_mult(gd, c.stage)
+	var a_w := 0.0
+	var a_b := 0.0
+	for n in CombatPower.artifact_numbers(c, gd, db, sheet):
+		var roles: Array = gd.artifact_base(str(n.base)).get("roles", [])
+		if not roles.is_empty() and str(roles[0]) == "body_gear":
+			a_b += float(n.defense) / unit
+		else:
+			a_w += float(n.defense) / unit
+	var layers: Array = Array(typical_ward.get("layers", [40, 40, 20, 10])).duplicate()
+	layers[1] = 100.0 * float(cfg.layer_gear_scale) * a_w
+	var ws: float = 100.0 * float(cfg.ward_gear_scale) * a_w
+	var ward := {"ws_base": ws, "we": ws, "layers": layers,
+		"block": float(cfg.flesh_block) * n_body + float(cfg.gear_block) * minf(a_w, 1.0)}
+	var body := {}
+	if a_b > 0.0:
+		body = {"layers": [0.0, 100.0 * float(cfg.layer_gear_scale) * a_b, 0.0, 0.0], "block": float(cfg.gear_block) * a_b}
+	return {"ward": ward, "body": body}
