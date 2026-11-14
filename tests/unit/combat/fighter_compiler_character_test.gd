@@ -212,3 +212,22 @@ func test_body_gear_fills_the_body_layers_and_body_block() -> void:
 	assert_eq(float(g.ward.ws_base), 0.0, "body gear is not ward gear")
 	var p: FighterProfile = FighterCompiler.compile(c, gd, db, StatSheet.build(c, gd, db, null))
 	assert_near(p.bs_mult, 1.47, 1e-9, "the body layers reach the fighter")
+
+
+func test_an_authored_technique_brings_its_unlocked_arts_and_scoped_passives() -> void:
+	# Cultivation Techniques rule 17, exported from design/techniques (tools/design/items/export_techniques.py)
+	var gd := game_data()
+	var db := WorldDB.new()
+	var t: Dictionary = gd.cong_phap_file().templates.filter(func(x): return x.id == "hunters-reach-canon")[0]
+	var c := TestFixtures.character({"kim": 60}, 50, 0)
+	CongPhap.learn(c, ItemFactory.new(gd).manual_from_template(t))
+	c.main_tech = "hunters-reach-canon"
+	var d: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, null))
+	assert_eq(d.arts, [{"lib": "pinning-arrow"}], "layer 1 unlocks only the first art")
+	var scoped: Array = d.modifiers.filter(func(l): return l.key == "status_duration_pct")
+	assert_eq(scoped.size(), 1, "the passive comes")
+	assert_eq(scoped[0].scope, ["curse"], "with its scope")
+	c.techniques["hunters-reach-canon"].layer = 3
+	var d3: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, null))
+	assert_eq(d3.arts, [{"lib": "pinning-arrow"}, {"lib": "nocked-arrow"}], "layer 3 adds the second")
+	assert_true(FighterCompiler.compile(c, gd, db, StatSheet.build(c, gd, db, null)) != null, "and it compiles")

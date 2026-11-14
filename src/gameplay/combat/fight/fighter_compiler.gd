@@ -23,7 +23,8 @@ extends RefCounted
 ## - items: the named pieces the Character controls (CombatPower.controlled, the pieces the sheet counts), with their
 ##   modifiers (scoped ones too), arts, wards, reserve arts and Effects.
 ## - modifiers: the sheet's combat keys from every source but worn pieces, plus ordinary pieces' affixes (scoped
-##   ones too); keys with no part in a fight are left out.
+##   ones too) and the slotted techniques' passives (flat combat lines with scopes, fight-only; their bonuses reach
+##   the fight through the sheet); keys with no part in a fight are left out.
 ## - arts: the unlocked abilities of its slotted techniques (main, second main, auxiliaries; Cultivation Techniques
 ##   rule 17), then the named pieces' arts, up to the realm's art slots; a Character with none fights with the
 ##   typical kit.
@@ -117,6 +118,10 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 		var e: Dictionary = c.techniques.get(str(key), {}) if str(key) != "" else {}
 		if e.is_empty() or not CongPhap.usable(c, e.def):   # rule 8: a technique the root cannot use gives nothing
 			continue
+		var passives: Variant = e.def.get("passives")   # null on generated techniques and older copies
+		if passives is Array:
+			for pl in passives:
+				lines.append((pl as Dictionary).duplicate(true))
 		for ab in e.def.get("abilities", []):
 			var aid: String = str(ab.get("ability_id", ""))
 			if int(e.layer) >= int(ab.get("unlock_layer", 1)) and lib.arts.has(aid) and arts.size() < slots 					and not arts.any(func(x): return x.lib == aid):

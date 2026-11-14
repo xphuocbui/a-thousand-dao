@@ -167,7 +167,7 @@
       "authored_only": true
     }
   ],
-  "_doc": "design/gdd/cong-phap.md Parameter keys. templates are the authored catalogue.",
+  "_doc": "design/gdd/cong-phap.md Parameter keys. templates are the authored catalogue: the hand-written MVP templates and every design technique, which tools/design/items/export_techniques.py adds from design/techniques/catalogue-*.json (abilities with unlock layers; passives are fight-only combat lines with scopes, read by the fight compiler; bonuses go through the stat sheet).",
   "aux_slots": 2,
   "second_main_capability": 6,
   "tech_norm": 2,
@@ -574,6 +574,2140 @@
       "abilities": [],
       "seal_clusters": [],
       "origin": "authored"
+    },
+    {
+      "id": "afterimage-sword-canon",
+      "name": "Afterimage Sword Canon (Tàn Ảnh Kiếm Kinh)",
+      "tier": 2,
+      "tech_kind": "secret",
+      "names": [
+        "kim"
+      ],
+      "layers": 12,
+      "bonuses": [
+        {
+          "stat": "attack_pct",
+          "value": 10
+        },
+        {
+          "stat": "khi_huyet_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "crit_chance_pct",
+          "value": 9,
+          "scope": [
+            "sword"
+          ]
+        },
+        {
+          "key": "crit_damage_pct",
+          "value": 30,
+          "scope": [
+            "sword"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 15,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "flurry-stance",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "phantom-sword",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "triple-draw",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "flying-sword",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "hunters-reach-canon",
+      "name": "Hunter's Reach Canon (Liệp Trình Kinh)",
+      "tier": 0,
+      "tech_kind": "main",
+      "names": [
+        "kim"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "crit_chance_pct",
+          "value": 3,
+          "scope": []
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 5,
+          "scope": []
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 5,
+          "scope": [
+            "curse"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "pinning-arrow",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "nocked-arrow",
+          "unlock_layer": 3
+        },
+        {
+          "ability_id": "coiling-thrust",
+          "unlock_layer": 5
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "debt-ledger-blade",
+      "name": "Debt Ledger Blade (Huyết Trái Đao Lục)",
+      "tier": 0,
+      "tech_kind": "secret",
+      "names": [
+        "kim"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "leech_health_pct",
+          "value": 20,
+          "scope": []
+        },
+        {
+          "key": "health_regen_inc_pct",
+          "value": 10,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "debt-blade",
+          "unlock_layer": 1
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "drawn-out-edge-canon",
+      "name": "Drawn-Out Edge Canon (Trì Nhận Kinh)",
+      "tier": 2,
+      "tech_kind": "secret",
+      "names": [
+        "kim"
+      ],
+      "layers": 12,
+      "bonuses": [
+        {
+          "stat": "attack_pct",
+          "value": 8
+        },
+        {
+          "stat": "khi_huyet_pct",
+          "value": 8
+        }
+      ],
+      "passives": [
+        {
+          "key": "art_speed_pct",
+          "value": 15,
+          "scope": [
+            "slow"
+          ]
+        },
+        {
+          "key": "crit_chance_pct",
+          "value": 9,
+          "scope": [
+            "sword"
+          ]
+        },
+        {
+          "key": "crit_damage_pct",
+          "value": 30,
+          "scope": [
+            "sword"
+          ]
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 15,
+          "scope": [
+            "sword"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "phantom-sword",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "coiling-thrust",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "flying-sword",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "unbroken-flesh-canon",
+      "name": "Unbroken Flesh Canon (Bất Hoại Nhục Kinh)",
+      "tier": 0,
+      "tech_kind": "body",
+      "names": [],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "body_shield_pct",
+          "value": 6,
+          "scope": []
+        },
+        {
+          "key": "health_regen_inc_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "khi_huyet_pct",
+          "value": 3,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "marrow-tithe-strike",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "bulwark-knuckle",
+          "unlock_layer": 3
+        },
+        {
+          "ability_id": "last-breath-fist",
+          "unlock_layer": 5
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "hundred-echo-palm-scripture",
+      "name": "Hundred Echo Palm Scripture (Bách Hưởng Chưởng Kinh)",
+      "tier": 1,
+      "tech_kind": "body",
+      "names": [],
+      "layers": 9,
+      "bonuses": [
+        {
+          "stat": "linh_luc_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "crit_chance_pct",
+          "value": 4,
+          "scope": [
+            "palm"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 8,
+          "scope": [
+            "physical"
+          ]
+        },
+        {
+          "key": "crit_damage_pct",
+          "value": 20,
+          "scope": [
+            "palm"
+          ]
+        },
+        {
+          "key": "attack_pct",
+          "value": 6,
+          "scope": [
+            "palm"
+          ]
+        },
+        {
+          "key": "art_cost_pct",
+          "value": -3,
+          "scope": [
+            "physical"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "answering-palm",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "twin-shadow-fist",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "rolling-barrage-fist",
+          "unlock_layer": 4
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "mountain-bone-body-art",
+      "name": "Mountain Bone Body Art (Sơn Cốt Thể Thuật)",
+      "tier": 0,
+      "tech_kind": "body",
+      "names": [],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "block_rating",
+          "value": 8,
+          "scope": []
+        },
+        {
+          "key": "body_shield_pct",
+          "value": 4,
+          "scope": []
+        },
+        {
+          "key": "resist_pct",
+          "value": 40,
+          "scope": [
+            "physical"
+          ]
+        },
+        {
+          "key": "attack_pct",
+          "value": 1.5,
+          "scope": [
+            "force"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "mountain-root-stance",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "bone-turning-palm",
+          "unlock_layer": 5
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "mountain-heart-canon",
+      "name": "Mountain Heart Canon (Sơn Tâm Kinh)",
+      "tier": 1,
+      "tech_kind": "main",
+      "names": [
+        "tho"
+      ],
+      "layers": 9,
+      "bonuses": [
+        {
+          "stat": "khi_huyet_pct",
+          "value": 12
+        }
+      ],
+      "passives": [
+        {
+          "key": "body_shield_pct",
+          "value": 8,
+          "scope": []
+        },
+        {
+          "key": "stack_effect_pct",
+          "value": 10,
+          "scope": [
+            "tho"
+          ]
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 15,
+          "scope": [
+            "tho"
+          ]
+        },
+        {
+          "key": "damage_more",
+          "value": 2,
+          "scope": [
+            "tho"
+          ]
+        },
+        {
+          "key": "block_rating",
+          "value": 6,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "mountain-stance",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "sinking-weight",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "bastion-reprisal",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "strata-hammer",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "deep-vein-scripture",
+      "name": "Deep Vein Scripture (Thâm Mạch Kinh)",
+      "tier": 3,
+      "tech_kind": "secret",
+      "names": [
+        "tho"
+      ],
+      "layers": 15,
+      "bonuses": [
+        {
+          "stat": "linh_luc_pct",
+          "value": 15
+        },
+        {
+          "stat": "lifespan_years",
+          "value": 10
+        },
+        {
+          "stat": "tam_ma_resist_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "art_cost_health_pct",
+          "value": 30,
+          "scope": []
+        },
+        {
+          "key": "stack_effect_pct",
+          "value": 16,
+          "scope": [
+            "tho"
+          ]
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 20,
+          "scope": [
+            "tho"
+          ]
+        },
+        {
+          "key": "damage_more",
+          "value": 2,
+          "scope": [
+            "tho"
+          ]
+        },
+        {
+          "key": "leech_health_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "healing_pct",
+          "value": 4,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "quarry-offering",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "stone-warden-call",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "millstone-palm",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "aftershock-slam",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "red-sun-scripture",
+      "name": "Red Sun Scripture (Xích Nhật Kinh)",
+      "tier": 1,
+      "tech_kind": "main",
+      "names": [
+        "hoa"
+      ],
+      "layers": 9,
+      "bonuses": [
+        {
+          "stat": "linh_luc_pct",
+          "value": 12
+        }
+      ],
+      "passives": [
+        {
+          "key": "art_speed_pct",
+          "value": 10,
+          "scope": [
+            "fire"
+          ]
+        },
+        {
+          "key": "damage_more",
+          "value": 3,
+          "scope": [
+            "fire"
+          ]
+        },
+        {
+          "key": "stack_effect_pct",
+          "value": 8,
+          "scope": []
+        },
+        {
+          "key": "art_cost_pct",
+          "value": -8,
+          "scope": [
+            "fire"
+          ]
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 4,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "brazier-form",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "flint-volley",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "furnace-heart",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "twin-flame-echo",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "ashen-phoenix-canon",
+      "name": "Ashen Phoenix Canon (Hôi Phượng Điển)",
+      "tier": 2,
+      "tech_kind": "secret",
+      "names": [
+        "hoa"
+      ],
+      "layers": 12,
+      "bonuses": [
+        {
+          "stat": "khi_huyet_pct",
+          "value": 10
+        },
+        {
+          "stat": "tam_ma_resist_pct",
+          "value": 8
+        }
+      ],
+      "passives": [
+        {
+          "key": "damage_more",
+          "value": 4,
+          "scope": [
+            "over_time",
+            "hoa"
+          ]
+        },
+        {
+          "key": "attack_pct",
+          "value": 8,
+          "scope": [
+            "over_time",
+            "hoa"
+          ]
+        },
+        {
+          "key": "healing_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "leech_health_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "stack_effect_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 10,
+          "scope": [
+            "curse"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "blood-fed-pyre",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "heat-haze",
+          "unlock_layer": 3
+        },
+        {
+          "ability_id": "ash-rebirth",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "scorch-fist-primer",
+      "name": "Scorch Fist Primer (Chước Quyền Sơ Giải)",
+      "tier": 0,
+      "tech_kind": "secret",
+      "names": [
+        "hoa"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "stack_effect_pct",
+          "value": 8,
+          "scope": []
+        },
+        {
+          "key": "attack_pct",
+          "value": 3,
+          "scope": [
+            "fire"
+          ]
+        },
+        {
+          "key": "resist_pen_pct",
+          "value": 24,
+          "scope": [
+            "fire"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "scorch-fist",
+          "unlock_layer": 1
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "hollow-tide-scripture",
+      "name": "Hollow Tide Scripture (Không Triều Kinh)",
+      "tier": 2,
+      "tech_kind": "main",
+      "names": [
+        "thuy"
+      ],
+      "layers": 12,
+      "bonuses": [
+        {
+          "stat": "linh_luc_pct",
+          "value": 12
+        },
+        {
+          "stat": "khi_huyet_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "attack_pct",
+          "value": 8,
+          "scope": [
+            "force"
+          ]
+        },
+        {
+          "key": "attack_pct",
+          "value": 9,
+          "scope": [
+            "over_time"
+          ]
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 12,
+          "scope": []
+        },
+        {
+          "key": "art_cost_pct",
+          "value": -8,
+          "scope": [
+            "force"
+          ]
+        },
+        {
+          "key": "leech_linh_luc_pct",
+          "value": 2,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "marrow-siphon-palm",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "hollow-husk-stance",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "hollowing-strike",
+          "unlock_layer": 4
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "ruin-ledger-scripture",
+      "name": "Ruin Ledger Scripture (Phế Trướng Kinh)",
+      "tier": 1,
+      "tech_kind": "secret",
+      "names": [
+        "tho"
+      ],
+      "layers": 9,
+      "bonuses": [
+        {
+          "stat": "tam_ma_resist_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "art_speed_pct",
+          "value": 12,
+          "scope": [
+            "curse"
+          ]
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 20,
+          "scope": [
+            "curse"
+          ]
+        },
+        {
+          "key": "attack_pct",
+          "value": 6,
+          "scope": [
+            "chaos"
+          ]
+        },
+        {
+          "key": "art_cost_pct",
+          "value": -2,
+          "scope": [
+            "curse"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "fraying-thread",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "ripening-curse",
+          "unlock_layer": 3
+        },
+        {
+          "ability_id": "gathered-ruin-verdict",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "tearing-force-rites",
+      "name": "Tearing Force Rites (Xé Chấn Nghi)",
+      "tier": 0,
+      "tech_kind": "secret",
+      "names": [
+        "kim"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "crit_chance_pct",
+          "value": 5,
+          "scope": [
+            "force"
+          ]
+        },
+        {
+          "key": "leech_health_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "resist_pen_pct",
+          "value": 20,
+          "scope": [
+            "chaos"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "shearing-palm",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "bloodletting-rite",
+          "unlock_layer": 3
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "formless-ruin-canon",
+      "name": "Formless Ruin Canon (Vô Hình Phế Kinh)",
+      "tier": 1,
+      "tech_kind": "main",
+      "names": [
+        "hon_don"
+      ],
+      "layers": 9,
+      "bonuses": [
+        {
+          "stat": "tam_ma_resist_pct",
+          "value": 8
+        }
+      ],
+      "passives": [
+        {
+          "key": "attack_pct",
+          "value": 8,
+          "scope": [
+            "chaos"
+          ]
+        },
+        {
+          "key": "crit_chance_pct",
+          "value": 5,
+          "scope": [
+            "force"
+          ]
+        },
+        {
+          "key": "leech_health_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "resist_pen_pct",
+          "value": 40,
+          "scope": [
+            "chaos"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "shearing-palm",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "bloodletting-rite",
+          "unlock_layer": 3
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "hundred-arts-sage-canon",
+      "name": "Hundred Arts Sage Canon (Bách Pháp Hiền Kinh)",
+      "tier": 2,
+      "tech_kind": "main",
+      "names": [
+        "hon_don",
+        "hoa",
+        "thuy"
+      ],
+      "layers": 12,
+      "bonuses": [
+        {
+          "stat": "linh_luc_pct",
+          "value": 12
+        },
+        {
+          "stat": "than_thuc_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "stack_effect_pct",
+          "value": 12,
+          "scope": []
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 15,
+          "scope": []
+        },
+        {
+          "key": "attack_pct",
+          "value": 6,
+          "scope": [
+            "chaos"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 10,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "scorch-fist",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "backwash-seal",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "bloodletting-rite",
+          "unlock_layer": 4
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "winter-toll-canon",
+      "name": "Winter Toll Canon (Đông Toán Kinh)",
+      "tier": 1,
+      "tech_kind": "main",
+      "names": [
+        "bang"
+      ],
+      "layers": 9,
+      "bonuses": [
+        {
+          "stat": "linh_luc_pct",
+          "value": 12
+        }
+      ],
+      "passives": [
+        {
+          "key": "stack_duration_pct",
+          "value": 12,
+          "scope": []
+        },
+        {
+          "key": "stack_effect_pct",
+          "value": 6,
+          "scope": []
+        },
+        {
+          "key": "art_cost_pct",
+          "value": -9,
+          "scope": [
+            "seal"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 6,
+          "scope": [
+            "seal"
+          ]
+        },
+        {
+          "key": "attack_pct",
+          "value": 3,
+          "scope": [
+            "cold"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "rime-lock-seal",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "deep-winter-form",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "black-ice-glaze",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "shatter-palm",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "stilled-hour-sutra",
+      "name": "Stilled Hour Sutra (Đình Thời Kinh)",
+      "tier": 3,
+      "tech_kind": "secret",
+      "names": [
+        "bang"
+      ],
+      "layers": 15,
+      "bonuses": [
+        {
+          "stat": "linh_luc_pct",
+          "value": 18
+        },
+        {
+          "stat": "tam_ma_resist_pct",
+          "value": 12
+        },
+        {
+          "stat": "khi_huyet_pct",
+          "value": 12
+        }
+      ],
+      "passives": [
+        {
+          "key": "stack_duration_pct",
+          "value": 15,
+          "scope": []
+        },
+        {
+          "key": "stack_effect_pct",
+          "value": 11,
+          "scope": []
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 12,
+          "scope": [
+            "cold"
+          ]
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 15,
+          "scope": []
+        },
+        {
+          "key": "body_shield_pct",
+          "value": 5,
+          "scope": []
+        },
+        {
+          "key": "healing_pct",
+          "value": 8,
+          "scope": []
+        },
+        {
+          "key": "attack_pct",
+          "value": 4.5,
+          "scope": [
+            "cold"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "sleet-volley",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "stilled-instant",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "shattering-mantle",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "frozen-marrow-pact",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "nine-temper-scripture",
+      "name": "Nine-Temper Scripture (Cửu Luyện Kinh)",
+      "tier": 0,
+      "tech_kind": "main",
+      "names": [
+        "kim"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "crit_chance_pct",
+          "value": 4,
+          "scope": [
+            "kim"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 5,
+          "scope": [
+            "kim"
+          ]
+        },
+        {
+          "key": "crit_damage_pct",
+          "value": 10,
+          "scope": [
+            "kim"
+          ]
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 4,
+          "scope": [
+            "kim"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "whetstone-pass",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "blood-quench-blade",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "sheathed-edge",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "shatter-edge-cleave",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "hundred-blades-canon",
+      "name": "Hundred-Blades Canon (Bách Nhận Kinh)",
+      "tier": 1,
+      "tech_kind": "secret",
+      "names": [
+        "kim"
+      ],
+      "layers": 9,
+      "bonuses": [
+        {
+          "stat": "linh_luc_pct",
+          "value": 12
+        }
+      ],
+      "passives": [
+        {
+          "key": "damage_more",
+          "value": 3,
+          "scope": [
+            "kim"
+          ]
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 10,
+          "scope": [
+            "kim"
+          ]
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 15,
+          "scope": [
+            "curse"
+          ]
+        },
+        {
+          "key": "crit_chance_pct",
+          "value": 4,
+          "scope": [
+            "kim"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 7,
+          "scope": [
+            "kim"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "needle-rain",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "flying-blade-retinue",
+          "unlock_layer": 3
+        },
+        {
+          "ability_id": "sundering-wedge",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "iron-hide-manual",
+      "name": "Iron Hide Manual (Thiết Bì Quyết)",
+      "tier": 0,
+      "tech_kind": "secret",
+      "names": [
+        "kim"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "resist_pct",
+          "value": 100,
+          "scope": [
+            "physical"
+          ]
+        },
+        {
+          "key": "block_rating",
+          "value": 9,
+          "scope": []
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 4,
+          "scope": [
+            "kim"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "iron-hide-stance",
+          "unlock_layer": 3
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "hollow-bell-canon",
+      "name": "Hollow Bell Canon (Hư Chung Kinh)",
+      "tier": 0,
+      "tech_kind": "main",
+      "names": [
+        "thuy"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "x_soul",
+          "value": 4,
+          "scope": []
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 4,
+          "scope": [
+            "soul"
+          ]
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 5,
+          "scope": [
+            "curse"
+          ]
+        },
+        {
+          "key": "art_cost_pct",
+          "value": -3,
+          "scope": [
+            "costly"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "tolling-bell-requiem",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "lamp-oil-lance",
+          "unlock_layer": 3
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "nine-seal-ledger",
+      "name": "Nine Seal Ledger (Cửu Ấn Lục)",
+      "tier": 3,
+      "tech_kind": "secret",
+      "names": [
+        "kim"
+      ],
+      "layers": 15,
+      "bonuses": [
+        {
+          "stat": "than_thuc_pct",
+          "value": 12
+        },
+        {
+          "stat": "linh_luc_pct",
+          "value": 15
+        },
+        {
+          "stat": "tam_ma_resist_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "attack_pct",
+          "value": 12,
+          "scope": [
+            "seal"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 12,
+          "scope": [
+            "seal"
+          ]
+        },
+        {
+          "key": "art_cost_pct",
+          "value": -9,
+          "scope": [
+            "seal"
+          ]
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 20,
+          "scope": [
+            "curse"
+          ]
+        },
+        {
+          "key": "crit_damage_pct",
+          "value": 27,
+          "scope": [
+            "seal"
+          ]
+        },
+        {
+          "key": "x_soul",
+          "value": 6,
+          "scope": [
+            "seal"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "ambush-talisman",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "frozen-hour-seal",
+          "unlock_layer": 3
+        },
+        {
+          "ability_id": "branding-seal",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "thorn-and-ink-verses",
+      "name": "Thorn and Ink Verses (Cức Mặc Thi)",
+      "tier": 1,
+      "tech_kind": "secret",
+      "names": [
+        "moc"
+      ],
+      "layers": 9,
+      "bonuses": [
+        {
+          "stat": "khi_huyet_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "healing_pct",
+          "value": 8,
+          "scope": []
+        },
+        {
+          "key": "leech_health_pct",
+          "value": 15,
+          "scope": []
+        },
+        {
+          "key": "attack_pct",
+          "value": 6,
+          "scope": [
+            "seal"
+          ]
+        },
+        {
+          "key": "basic_speed_pct",
+          "value": 12,
+          "scope": []
+        },
+        {
+          "key": "khi_huyet_pct",
+          "value": 2,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "marching-dirge",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "thorn-lullaby",
+          "unlock_layer": 3
+        },
+        {
+          "ability_id": "blood-ink-writ",
+          "unlock_layer": 5
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "thousand-bolt-scripture",
+      "name": "Thousand-Bolt Scripture (Thiên Lôi Kinh)",
+      "tier": 0,
+      "tech_kind": "main",
+      "names": [
+        "loi"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "crit_chance_pct",
+          "value": 6,
+          "scope": [
+            "lightning"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 5,
+          "scope": [
+            "lightning"
+          ]
+        },
+        {
+          "key": "crit_damage_pct",
+          "value": 10,
+          "scope": [
+            "lightning"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "overload-form",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "chain-arc",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "answering-peal",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "capacitor-palm",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "heavenly-tribulation-scripture",
+      "name": "Heavenly Tribulation Scripture (Thiên Kiếp Kinh)",
+      "tier": 3,
+      "tech_kind": "main",
+      "names": [
+        "loi"
+      ],
+      "layers": 15,
+      "bonuses": [
+        {
+          "stat": "attack_pct",
+          "value": 10
+        },
+        {
+          "stat": "linh_luc_pct",
+          "value": 15
+        },
+        {
+          "stat": "tam_ma_resist_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "stack_effect_pct",
+          "value": 40,
+          "scope": [
+            "loi"
+          ]
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 50,
+          "scope": [
+            "loi"
+          ]
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 20,
+          "scope": [
+            "curse"
+          ]
+        },
+        {
+          "key": "damage_more",
+          "value": 1,
+          "scope": [
+            "lightning"
+          ]
+        },
+        {
+          "key": "crit_chance_pct",
+          "value": 3,
+          "scope": [
+            "lightning"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "stormcloud-familiar",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "storm-bank",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "thunderclap-bind",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "tribulation-seal",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "still-moon-tide-scripture",
+      "name": "Still Moon Tide Scripture (Tĩnh Nguyệt Triều Kinh)",
+      "tier": 2,
+      "tech_kind": "main",
+      "names": [
+        "thuy"
+      ],
+      "layers": 12,
+      "bonuses": [
+        {
+          "stat": "linh_luc_pct",
+          "value": 12
+        },
+        {
+          "stat": "khi_huyet_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "art_speed_pct",
+          "value": 12,
+          "scope": [
+            "thuy"
+          ]
+        },
+        {
+          "key": "healing_pct",
+          "value": 14,
+          "scope": []
+        },
+        {
+          "key": "health_regen_inc_pct",
+          "value": 18,
+          "scope": []
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "linh_luc_regen_inc_pct",
+          "value": 3,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "deep-lake-stance",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "gathering-wave",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "brimming-cup",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "swelling-tide-palm",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "undertow-litany",
+      "name": "Undertow Litany (Hạ Lưu Kệ)",
+      "tier": 0,
+      "tech_kind": "secret",
+      "names": [
+        "thuy"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "art_speed_pct",
+          "value": 9,
+          "scope": [
+            "curse"
+          ]
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 6,
+          "scope": [
+            "curse"
+          ]
+        },
+        {
+          "key": "linh_luc_regen_inc_pct",
+          "value": 3,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "seep-through-palm",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "marrow-to-dew",
+          "unlock_layer": 3
+        },
+        {
+          "ability_id": "drag-of-the-deep",
+          "unlock_layer": 5
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "returning-wake-verse",
+      "name": "Returning Wake Verse (Hồi Lưu Thi)",
+      "tier": 0,
+      "tech_kind": "secret",
+      "names": [
+        "thuy"
+      ],
+      "layers": 6,
+      "bonuses": [],
+      "passives": [
+        {
+          "key": "art_speed_pct",
+          "value": 9,
+          "scope": [
+            "thuy"
+          ]
+        },
+        {
+          "key": "attack_pct",
+          "value": 3,
+          "scope": [
+            "thuy"
+          ]
+        },
+        {
+          "key": "crit_damage_pct",
+          "value": 10,
+          "scope": [
+            "thuy"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "backwash-seal",
+          "unlock_layer": 1
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "gale-courier-scripture",
+      "name": "Gale Courier Scripture (Phong Sứ Kinh)",
+      "tier": 1,
+      "tech_kind": "main",
+      "names": [
+        "phong"
+      ],
+      "layers": 9,
+      "bonuses": [
+        {
+          "stat": "linh_luc_pct",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "evade_pct",
+          "value": 5,
+          "scope": []
+        },
+        {
+          "key": "basic_speed_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "stack_effect_pct",
+          "value": 8,
+          "scope": [
+            "phong"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 6,
+          "scope": [
+            "quick"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "swallow-stance",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "hundred-feather-flurry",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "three-step-chase",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "held-breath",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "slow-hour-scripture",
+      "name": "Slow Hour Scripture (Trì Thời Kinh)",
+      "tier": 2,
+      "tech_kind": "secret",
+      "names": [
+        "phong"
+      ],
+      "layers": 12,
+      "bonuses": [
+        {
+          "stat": "khi_huyet_pct",
+          "value": 8
+        },
+        {
+          "stat": "tam_ma_resist_pct",
+          "value": 8
+        }
+      ],
+      "passives": [
+        {
+          "key": "evade_pct",
+          "value": 4,
+          "scope": []
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 10,
+          "scope": [
+            "curse"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "leech_health_pct",
+          "value": 10,
+          "scope": []
+        },
+        {
+          "key": "healing_pct",
+          "value": 12,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "trailing-gale",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "gale-sprite",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "echo-of-the-dodge",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "reckless-gale",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "verdant-cycle-scripture",
+      "name": "Verdant Cycle Scripture (Thanh Hoàn Kinh)",
+      "tier": 1,
+      "tech_kind": "main",
+      "names": [
+        "moc"
+      ],
+      "layers": 9,
+      "bonuses": [
+        {
+          "stat": "khi_huyet_pct",
+          "value": 12
+        }
+      ],
+      "passives": [
+        {
+          "key": "stack_effect_pct",
+          "value": 8,
+          "scope": [
+            "moc"
+          ]
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 10,
+          "scope": [
+            "moc"
+          ]
+        },
+        {
+          "key": "healing_pct",
+          "value": 6,
+          "scope": []
+        },
+        {
+          "key": "art_cost_pct",
+          "value": -6,
+          "scope": []
+        },
+        {
+          "key": "health_regen_inc_pct",
+          "value": 8,
+          "scope": []
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 4,
+          "scope": [
+            "moc"
+          ]
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "seed-of-spring",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "rooted-form",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "second-spring",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "harvest-bloom",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
+    },
+    {
+      "id": "rotting-canopy-canon",
+      "name": "Rotting Canopy Canon (Hủ Quan Điển)",
+      "tier": 2,
+      "tech_kind": "secret",
+      "names": [
+        "moc"
+      ],
+      "layers": 12,
+      "bonuses": [
+        {
+          "stat": "tam_ma_resist_pct",
+          "value": 10
+        },
+        {
+          "stat": "lifespan_years",
+          "value": 10
+        }
+      ],
+      "passives": [
+        {
+          "key": "stack_effect_pct",
+          "value": 10,
+          "scope": [
+            "moc"
+          ]
+        },
+        {
+          "key": "stack_duration_pct",
+          "value": 16,
+          "scope": [
+            "moc"
+          ]
+        },
+        {
+          "key": "status_duration_pct",
+          "value": 12,
+          "scope": [
+            "curse"
+          ]
+        },
+        {
+          "key": "art_speed_pct",
+          "value": 6,
+          "scope": [
+            "moc"
+          ]
+        },
+        {
+          "key": "leech_health_pct",
+          "value": 8,
+          "scope": []
+        },
+        {
+          "key": "attack_pct",
+          "value": 6,
+          "scope": [
+            "chaos"
+          ]
+        },
+        {
+          "key": "art_cost_health_pct",
+          "value": 8,
+          "scope": []
+        }
+      ],
+      "abilities": [
+        {
+          "ability_id": "thorn-rain",
+          "unlock_layer": 1
+        },
+        {
+          "ability_id": "blight-canker",
+          "unlock_layer": 2
+        },
+        {
+          "ability_id": "bloodroot-pact",
+          "unlock_layer": 4
+        },
+        {
+          "ability_id": "thornling-grove",
+          "unlock_layer": 6
+        }
+      ],
+      "seal_clusters": [],
+      "origin": "authored",
+      "source": "design"
     }
   ]
 }

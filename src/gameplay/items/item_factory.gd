@@ -253,7 +253,8 @@ func manual_from_template(t: Dictionary) -> Dictionary:
 	return {
 		"kind": "cong_phap", "name": t.name, "tech_id": t.id, "tier": int(t.tier), "tier_name": tier.name,
 		"tech_kind": t.tech_kind, "names": t.names.duplicate(), "layers": int(t.layers), "bonuses": t.bonuses.duplicate(true),
-		"abilities": t.abilities.duplicate(true), "seal_clusters": t.seal_clusters.duplicate(), "origin": "authored",
+		"abilities": t.abilities.duplicate(true), "passives": Array(t.get("passives", [])).duplicate(true),
+		"seal_clusters": t.seal_clusters.duplicate(), "origin": "authored",
 		"value": _manual_price(cfg, tier, 0.5), "owner_id": "",
 	}
 

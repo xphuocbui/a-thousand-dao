@@ -30,7 +30,7 @@ static func learn(c: Character, manual: Dictionary) -> bool:
 	if c.techniques.has(key):
 		return false
 	var def: Dictionary = {}
-	for k in ["tech_id", "name", "tier", "tech_kind", "names", "layers", "bonuses", "abilities", "seal_clusters", "origin"]:
+	for k in ["tech_id", "name", "tier", "tech_kind", "names", "layers", "bonuses", "passives", "abilities", "seal_clusters", "origin"]:
 		def[k] = manual.get(k)
 	c.techniques[key] = {"def": def, "layer": 1, "mastery": 0.0, "seal_seasons": 0}
 	return true
@@ -370,7 +370,7 @@ static func migrate_record(rec: Dictionary, db: WorldDB, gd: GameData) -> Dictio
 	item["seal_clusters"] = []
 	item["origin"] = "generated"
 	var def: Dictionary = {}
-	for k in ["tech_id", "name", "tier", "tech_kind", "names", "layers", "bonuses", "abilities", "seal_clusters", "origin"]:
+	for k in ["tech_id", "name", "tier", "tech_kind", "names", "layers", "bonuses", "passives", "abilities", "seal_clusters", "origin"]:
 		def[k] = item.get(k)
 	var layer: int = mini(3 * (int(rec.get("realm_index", 0)) + 1), int(tier.layers))
 	rec.techniques[key] = {"def": def, "layer": layer, "mastery": 0.0, "seal_seasons": 0}
