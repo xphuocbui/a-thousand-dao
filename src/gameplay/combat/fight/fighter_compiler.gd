@@ -12,7 +12,8 @@ extends RefCounted
 ## parity-tested on every item and art) resolves it and [FighterProfileLoader] loads it. The build file:
 ## - realm: the Character's realm (0-4).
 ## - layers and the main ward: the typical fighter's at that realm, until the Meridian Map gives a Character layers
-##   of its own (the sheet's ward and stack lines then act on them, as on a build file), except L3, the gear layer
+##   of its own (the sheet's ward and stack lines then act on them, as on a build file), except L1, which is the
+##   Character's own attack_pct alone (Combat Formulas B; user decision 2026-11-14), and L3, the gear layer
 ##   (Combat Formulas B): 100 x the worn artifacts' attack as built / (power_base x stage_mult), so no gear is L3 0.
 ## - defence from gear (Combat Defence & Healing A0, A2; combat_rules.json fighter_gear): ward strength and efficiency
 ##   start at the ward gear term (the sheet's defense_pct and ward_efficiency_pct lines add on top), ward layer W3 and
@@ -97,6 +98,7 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 	var base: Dictionary = (typical[r] as Dictionary).duplicate(true)
 	var pools: Dictionary = pool_sizes(c, gd, sheet, r)
 	var layers: Array = Array(base.layers).duplicate()
+	layers[0] = 0.0   # L1 is the Character's own attack_pct (its sheet lines), no typical stand-in (user, 2026-11-14)
 	layers[2] = gear_layer(c, gd, db, sheet)
 	var gear: Dictionary = gear_defence(c, gd, db, sheet, float(pools.n_body) * sheet.mult("khi_huyet_pct"), base.ward)
 	var d := {"name": c.name if c.name != "" else c.id, "realm": r, "layers": layers, "n_body": pools.n_body,

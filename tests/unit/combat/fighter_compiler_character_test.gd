@@ -26,8 +26,9 @@ func test_a_bare_character_fights_as_the_typical_fighter_of_its_realm_with_its_p
 	var d: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, null), report)
 	var typical: Dictionary = gd.file("combat_library").typical[1]
 	var want: Array = Array(typical.layers).duplicate()
+	want[0] = 0.0
 	want[2] = 0.0
-	assert_eq(d.layers, want, "the realm's typical layers, with no gear in L3")
+	assert_eq(d.layers, want, "typical L2, L4, L5; L1 from its own attack_pct (none); no gear in L3")
 	assert_near(float(d.n_body), 50.0 / 45.0, 1e-9, "căn cốt 50 against the talent-45 reference")
 	assert_eq(float(d.ward.ws_base), 0.0, "no ward gear: no gear ward strength")
 	assert_near(float(d.ward.block), 4.4 * 50.0 / 45.0, 1e-9, "flesh block only")
