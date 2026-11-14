@@ -1798,17 +1798,19 @@ formulas:
       - design/gdd/sects.md
     variables:
       - pop_cultivators
-      - head_w
+      - basket
+      - fill
       - W_set
       - d_scale
       - spend_T
       - works_due
       - P_eff
     output_range: [0, "no maximum"]
-    expression: "D = d_scale*(sum n*head_w + 50*W_set)*(1+shockD) + 0.5*(sum spend_T*mix + works_due*wmix) + P_eff"
-    notes: "RET Formula C. head_w pegged to stipends 3/20/50/325/2,500; goods_frac 0.5 (guess)."
+    # was: sum n*head_w before 2026-11-14
+    expression: "D = d_scale*(sum n*basket*fill + 50*W_set)*(1+shockD) + 0.5*(sum spend_T*mix + works_due*wmix) + P_eff"
+    notes: "RET Formula C. basket pegged to stipends 3/20/50/325/2,500 (L2); fill from NPC wealth; goods_frac 0.5 (guess)."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: stock_update
     status: active
     source: design/gdd/regional-economy-trade.md
@@ -1917,8 +1919,45 @@ formulas:
       - purse
       - reserve
     output_range: [0, "0.5*rate"]
-    expression: "tv_stone = min(stones/spt[realm], 0.5*rate); NPC stones = 0.3*max(0, purse - reserve)"
-    notes: "RET Formula J. spt 1/4/20/150/1,000 stones per tu vi (guesses). The main money sink. Realms Formulas I stone term pending."
+    # was: NPC stones = 0.3*max(0, purse - reserve) before 2026-11-14
+    expression: "tv_stone = min(stones/spt[realm], 0.5*rate); NPC stones = 0.3*max(0, purse - reserve) - basket_spend"
+    notes: "RET Formula J. spt 1/4/20/150/1,000 stones per tu vi (guesses). The main money sink; the provision basket (L2) is bought first. Realms Formulas I stone term pending."
+    added: 2026-11-14
+    revised: 2026-11-14
+  - name: local_price
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/travel-map.md
+    variables:
+      - P
+      - value_lt
+      - D_r
+      - acc_r
+      - epsilon
+      - loc_band
+    output_range: ["P*(1-0.5)", "P*(1+0.5)"]
+    expression: "p_loc = clamp(P * ((value_lt+1)/(D_r+1))^(-eps*(1-acc)), P*(1-loc_band), P*(1+loc_band)); price_index[r] = p_loc"
+    notes: "RET Formula L1. loc_band 0.5 (guess). Shops price from p_loc; Travel & Map D_f reads it."
+    added: 2026-11-14
+    revised: ""
+  - name: provision_basket
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/canh-gioi.md
+    variables:
+      - basket
+      - bmix
+      - p_loc
+      - prov_max
+      - purse
+      - reserve
+    output_range: [0, 0.15]
+    expression: "basket_cost = sum basket*bmix*p_loc; fill = min(1, spent/basket_cost); prov = 0.15*fill; NPC basket_spend = min(basket_cost, 0.3*max(0, purse-reserve))"
+    notes: "RET Formula L2. basket 3/20/50/325/2,500 (= stipends); bmix herb 0.5 ore 0.2 beast 0.2 special 0.1 (guess). A bonus only, no penalty (user decision 2026-11-14). Realms Formulas I factor (1+prov) pending."
     added: 2026-11-14
     revised: ""
 constants:

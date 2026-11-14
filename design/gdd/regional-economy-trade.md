@@ -12,8 +12,9 @@ Regional Economy & Trade turns what the land produces into what people can buy. 
 is one market: once a season it reads Travel & Map's production contract and sets stock and a price for each good class
 (herbs, ores, beast parts, special goods) from supply and demand, and goods flow between linked markets up to the
 capacity their sects' Trade allows. Mines are the only source of money, and stone cultivation (cheap at the bottom,
-ruinous at the top) is its main sink. The player sees prices that differ by country and season, can carry goods where
-they are scarce, and every price shows its parts. It reworks the built Market (#20) and replaces Sects' production
+ruinous at the top) is its main sink. Prices also differ by region with access and local surplus, and every cultivator
+buys a realm-sized provision basket each season for a cultivation bonus. The player sees prices that differ by place
+and season, can carry goods where they are scarce, and every price shows its parts. It reworks the built Market (#20) and replaces Sects' production
 guess with real sect income.
 
 > **Quick reference** — Layer: `Feature` · Priority: `MVP (provisional)` · Key deps: `Travel & Map, Sects & Missions, Market, Item Database, Realms & Bottlenecks, Time & Turn, Living World Tick; soft: Event Engine, Character Stats`
@@ -80,14 +81,14 @@ adds to or replaces the mission and stipend faucets (Travel & Map Open Question 
    spoilage and loss. The hub is the seat's market place. Access is derived from Travel & Map data, not stored per place.
 8. **Stock carries over.** What a market does not sell in a season stays as stock. Stock decays by good class (herbs
    fast, ores almost never). Price depends on **cover**: stock plus supply, divided by demand.
-9. **Demand.** Demand for a good is population demand (heads by realm from the contract's `pop_cultivators`, and
+9. **Demand.** Demand for a good is population demand (the provision baskets NPCs actually buy, rules 21–22, plus
    settlement weight), plus the sect's own use (Institutions use herbs, Military uses ores and beast parts, works use
    ores), plus the player's purchases.
 10. **Price.** Each season a market's price for a good moves toward the level its cover implies. It is bounded by a floor
     and a ceiling and limited in how far it may move in one season (inertia), so a shock shows over several seasons.
     The price is a multiplier on the Item Database's base value; 1.0 is the base.
-11. **Prices feed the land.** At the end of the tick the market's price for each good class is written back as the
-    `price_index` that Travel & Map reads for its demand factor `D_f` (Formula H). `price_index` stays 1.0 for any
+11. **Prices feed the land.** At the end of the tick each region's **local price** (rule 20) for each good class is
+    written back as the `price_index` that Travel & Map reads for its demand factor `D_f` (Formula H). `price_index` stays 1.0 for any
     region whose market has not ticked yet.
 
 **Trade between markets**
@@ -105,7 +106,7 @@ adds to or replaces the mission and stipend faucets (Travel & Map Open Question 
 
 **The player**
 
-15. **Buying and selling.** The player buys and sells at a place at the market price for the item's class, times the
+15. **Buying and selling.** The player buys and sells at a place at the local price (rule 20) for the item's class, times the
     Item Database value, the buy markup and sell ratio, Mị lực, standing and tariff. Raw goods (herbs, ores, beast
     parts, special goods) trade at a narrow **bulk spread** with no charm or standing; finished goods keep the built
     retail spread (Formulas G; user decision 2026-11-14). Each trade moves
@@ -123,7 +124,27 @@ adds to or replaces the mission and stipend faucets (Travel & Map Open Question 
 19. **Tick order, once a season, after Travel & Map's production and Sects' season tick:** (a) read the contract;
     (b) apply holder changes; (c) compute access, supply and demand; (d) compute links and flows; (e) update prices and
     stock; (f) write `price_index`, each sect's trade income and production value; (g) restock the market places
-    (replacing the built yearly restock).
+    (replacing the built yearly restock). Local prices (rule 20) and provision baskets (rule 21) are worked out in step
+    (e), after market prices.
+
+**Local prices, realm needs and merchants** (user decisions 2026-11-14, after comparing EU5 and Victoria 3)
+
+20. **Local prices.** Each region has a local price for each good: its market's price, moved by the region's own surplus
+    or shortage, and moved more the poorer its access. At the seat (access 1) the local price equals the market price.
+    Shops sell at the local price of the region they stand in, and Travel & Map's `price_index` for a region is its
+    local price (Formula L1). *(After Victoria 3's market access.)*
+21. **Realm needs.** Every cultivator, the player and NPCs alike, has a **provision basket** each season that grows
+    steeply by realm: mostly herbs, then ores (gear upkeep), beast parts and special goods. It is bought at local prices
+    and consumed. A full basket gives a **provisioned** bonus to that season's cultivation rate; a part-filled basket
+    gives part of it; an empty basket gives no bonus and no penalty (user decision: a bonus, not a slowdown). A sect
+    member's stipend is sized to pay for about one basket; a loose cultivator pays from their own purse (Formula L2).
+22. **Demand follows wealth.** An NPC fills as much of their basket as their purse allows above their reserve, before
+    any stone cultivation. Population demand (Formula C) is the sum of what NPCs actually buy, so a poor territory
+    demands less and its prices fall.
+23. **Merchant charters (Post-MVP outline; no numbers, not built for MVP).** A cultivator, the player included, may buy a
+    charter on a link from the sect that holds it. The charter pays upkeep each season and earns a share of the margin
+    on that link's flow. War on the route or low Military can seize goods or void the charter. A sect sells charters
+    only at a given standing and Trade level. *(After EU5's merchants and Victoria 3's companies.)*
 
 ### States and Transitions
 
@@ -213,13 +234,14 @@ The market_supply formula is defined as:
 
 The market_demand formula is defined as:
 
-`D[m,k] = d_scale[k] · (Σ_rl n[m,rl] · head_w[rl] + set_w · W_set[m]) · (1 + shockD[m,k]) + goods_frac · (Σ_T spend_T · mix[T,k] + works_due · wmix[k]) + P_eff[m,k]`, clamped at 0
+`D[m,k] = d_scale[k] · (Σ_rl n[m,rl] · basket[rl] · fill[m,rl] + set_w · W_set[m]) · (1 + shockD[m,k]) + goods_frac · (Σ_T spend_T · mix[T,k] + works_due · wmix[k]) + P_eff[m,k]`, clamped at 0
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | n[m,rl] | int | ≥ 0 | contract `pop_cultivators` | Heads by realm in the territory |
-| head_w[rl] | float | 3 / 20 / 50 / 325 / 2,500 | Sects anchors (stipends) | Use per head, pegged to the stipend |
+| basket[rl] | float | 3 / 20 / 50 / 325 / 2,500 | data file, pegged to Sects' stipends | Provision basket per head a season, in base value (rule 21; Formula L2) |
+| fill[m,rl] | float | 0–1 | calculated (L2) | Mean basket fill of the market's NPCs of that realm; 1 in the worked examples |
 | W_set, set_w | float | ≥ 0; 50 | contract; data file *(guess)* | Mortal settlement weight and its scale |
 | d_scale[k] | float | ~0.3–1.5 | data file (computed once by a calibration tool) | Sets world demand so every class starts at P = 1 |
 | spend_T | float | ≥ 0 | Sects F1 | Investment plus upkeep paid into track T this season |
@@ -314,8 +336,8 @@ about 1.15–1.25 apart; unlinked markets can sit 3–5× apart.
 
 The shop_price formula is defined as:
 
-`buy = max(1, ceil(V · P[m,k] · bm[cls] · (1 − ch) · stp · mg_buy[p] − 1e-6))` ·
-`sell = max(1, floor(V · P[m,k] · sr[cls] · (1 + ch) · sts · mg_sell[p] · (1 − tar_in) + 1e-6))` ·
+`buy = max(1, ceil(V · p_loc[r,k] · bm[cls] · (1 − ch) · stp · mg_buy[p] − 1e-6))` ·
+`sell = max(1, floor(V · p_loc[r,k] · sr[cls] · (1 + ch) · sts · mg_sell[p] · (1 − tar_in) + 1e-6))` ·
 `ch = clamp((Mị lực − 50) · 0.004, −ch_max, ch_max)` · `stp = 1 − 0.002 · St` (Sects F11) · `sts = 1 + 0.001 · St` ·
 `P_eff[m,k] = clamp(Σ buys · V − Σ sells · V, −player_cap · D_pre, player_cap · D_pre)`
 
@@ -419,7 +441,7 @@ figures here are the economic side.
 
 The stone_cultivation formula is defined as:
 
-`tv_stone = min(stones / spt[rl], absorb_cap · rate)` · `stones_npc = s_spend · max(0, purse − reserve[rl])`, spent only up to `absorb_cap · rate · spt[rl]` · `burn_stone = Σ stones absorbed`
+`tv_stone = min(stones / spt[rl], absorb_cap · rate)` · `stones_npc = s_spend · max(0, purse − reserve[rl]) − basket_spend` (L2: the basket is bought first), spent only up to `absorb_cap · rate · spt[rl]` · `burn_stone = Σ stones absorbed`
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -434,8 +456,8 @@ The stone_cultivation formula is defined as:
 57,000 in NS and about 1.2 million in DT: one Nascent Soul at the cap burns about half the world's mine output, so the
 highest realms absorb stones only from great wealth (a sect master, a treasure hoard). The sink is bounded by money,
 not by heads.
-**Example:** a Core Formation NPC (rate 200, reserve 1,200) with 3,000 stones spends 0.3 · 1,800 = 540, gaining
-540 / 20 = **27 tu vi** (cap 100).
+**Example:** a Core Formation NPC (rate 200, reserve 1,200) with 3,000 stones has a budget of 0.3 · 1,800 = 540; the
+basket takes 50, and 490 goes to stones, gaining 490 / 20 = **24.5 tu vi** (cap 100).
 
 ### K. Loot drawn from holders (Pillar 2, user decision 2026-11-14)
 
@@ -452,6 +474,46 @@ The loot_source formula is defined as:
 **Output Range:** 0 to the source's balance. No event creates money; the harness asserts it every season.
 **Example:** a Hóa Thần event budgeted at 300,000 drawing on a lost-stash pool of 40,000 grants **40,000**, and the
 narration is told the smaller sum.
+
+### L1. Local price (rule 20)
+
+The local_price formula is defined as:
+
+`p_loc[r,k] = clamp(P[m,k] · bal_r^(−ε[k] · (1 − acc_r)), P[m,k] · (1 − loc_band), P[m,k] · (1 + loc_band))` ·
+`bal_r = (value_lt[r,k] + 1) / (D_r[r,k] + 1)` · `price_index[r,k] = p_loc[r,k]`
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| value_lt[r,k] | float | ≥ 0 | Travel & Map L | What region r makes of good k |
+| D_r[r,k] | float | ≥ 0 | calculated (C, the region's own heads, settlements and works) | The region's own demand |
+| acc_r | float | 0–1 | A | Market access; at 1 the local price is the market price |
+| ε[k] | float | per class | E | Same elasticity as the market price |
+| loc_band | float | 0.5 | data file *(guess)* | The farthest a local price may sit from its market's price |
+
+**Output Range:** P · (1 − loc_band) to P · (1 + loc_band). The +1 keeps a region with no output or no demand finite.
+**Example:** a herb region at access 0.5 making 8,000 against 2,000 of demand: bal = 3.9985; 1.065 · 3.9985^−0.35 =
+**0.656**. An ore-short region at access 0.5 (500 made, 3,000 needed): 1.0 · 0.1669^−0.2 = **1.43**.
+
+### L2. Provision basket and bonus (rules 21–22)
+
+The provision formula is defined as:
+
+`basket_cost = Σ_k basket[rl] · bmix[k] · p_loc[r,k]` · `fill = min(1, spent / basket_cost)` · `prov = prov_max · fill` ·
+NPC: `budget = s_spend · max(0, purse − reserve[rl])`, `basket_spend = min(basket_cost, budget)`, the rest to stones (J)
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| basket[rl] | float | 3 / 20 / 50 / 325 / 2,500 | data file (pegged to stipends) | Base value of a full basket a season |
+| bmix[k] | float | herb 0.5, ore 0.2, beast 0.2, special 0.1 | data file *(guess)* | What a basket is made of |
+| prov_max | float | 0.15 | data file *(guess)* | The most a full basket adds to the cultivation rate; a factor `(1 + prov)` in Realms Formulas I (handoff) |
+| spent | float | ≥ 0 | calculated | Value bought (or taken from the cultivator's own goods, at their value) this season |
+
+**Output Range:** prov 0 to prov_max; never negative (no penalty). Goods in a basket are consumed; the money paid goes to
+the commons pool (a transfer, not a burn).
+**Example:** a Nascent Soul at local prices near 1.0 pays about **325** a season, about 11 % of capped Nascent Soul mission
+pay, for +15 %; half a basket (162.5) gives +7.5 %. Buying where goods are cheap (L1) lowers the cost.
 
 ## Edge Cases
 
@@ -503,6 +565,13 @@ report raised. Review manually before production.
 - **If a herb the player holds ages while carried**: its value follows Item Database Formula B; market spoilage applies
   only to market stock.
 
+**Local prices and baskets**
+- **If a local price passes its band**: it is clamped to P · (1 ± loc_band), and the breakdown says so.
+- **If a region makes none of a good, or needs none**: the +1 in bal_r keeps the price finite, inside the band.
+- **If the player fills a basket from goods they carry**: those goods count at their value and are consumed.
+- **If a basket good is short in the market**: the basket fills as far as stock allows; fill is below 1 and the bonus
+  shrinks with it.
+
 **Order and timing**
 - **If a market has not ticked yet** (first season, or a new market): `price_index` is 1.0 and P = 1.0 for every good.
 - **If flows on a link would reverse every season**: β (half the gap) and last season's prices prevent it; the harness
@@ -516,7 +585,7 @@ report raised. Review manually before production.
 | Sects & Missions (#26) | Hard | In: development levels, Openness (tariffs, links), Tax, war state, holder changes, standing, investment and upkeep spent. Out: `Inc_mine`, `Inc_goods`, `Inc_tariff`, `V_own`, prices, the commons pool that pays mission cash | Approved | Yes; Sects F3 revised 2026-11-14 to read Formula I |
 | Market (#20) | Hard (this system reworks it) | Out: price per good class per market, each place's stock, the seasonal restock, the bulk spread. Market keeps the buy and sell actions | Built, no GDD | No GDD to update; the code change is the rework |
 | Item Database | Hard | In: value per unit (rule 9), good class, `origin_market` tag (new), herb ageing | In review | **Needs a note**: the `origin_market` tag on items |
-| Realms & Bottlenecks (#8) | Hard for stone cultivation | Out: stones absorbed per cultivator. In: the season's cultivation rate | In review | **Needs a revision**: Formulas I gains a stone term (Formula J, `absorb_cap`, `spt`); its bot re-runs the NPC targets with it |
+| Realms & Bottlenecks (#8) | Hard for stone cultivation and baskets | Out: stones absorbed and basket fill per cultivator. In: the season's cultivation rate | In review | **Needs a revision**: Formulas I gains a stone term (Formula J, `absorb_cap`, `spt`) and a provisioned factor `(1 + prov)` (L2); its bot re-runs the NPC targets with both |
 | Time & Turn (#4) | Hard | The season clock | Built | Index |
 | Living World Tick (#28) | Hard | Calls this tick after the sect tick; NPC purses, deaths and heirs | Built (abstract) | Needs a note when it gets a GDD |
 | Event Engine (#23) | Soft | In: shocks within budgets. Its `linh_thach_max` grants draw from holders (Formula K) | Built, no GDD | **Needs a revision**: event loot draws on a holder |
@@ -635,8 +704,8 @@ Tolerance: ±0.5 in the last digit shown; money ledgers must balance exactly.
   shockS 0.5 + 0.5, **THEN** 0.8 applies and the dropped 0.2 is logged.
 
 **Feeding the land, and trade**
-- **AC-RE-16** [Integration] Rule 11 → Travel & Map. **GIVEN** the AC-RE-10 tick, **THEN** both regions read
-  `price_index` **1.0649** and D_f **1.0325**; P 3.0 gives D_f **1.25**, P 0.5 gives **0.75**; an unticked market gives 1.0.
+- **AC-RE-16** [Integration] Rule 11 → Travel & Map. **GIVEN** the AC-RE-10 tick, **THEN** the seat region (access 1)
+  reads `price_index` **1.0649** and D_f **1.0325**, and R2 reads its local price (L1, AC-RE-45); P 3.0 gives D_f **1.25**, P 0.5 gives **0.75**; an unticked market gives 1.0.
 - **AC-RE-17** [Logic] Rule 12. **THEN** a link exists only with a border or teleport array, no war between the two,
   Openness ≥ 1 and Trade ≥ 1 on both sides; flipping any one condition removes it at the next tick.
 - **AC-RE-18** [Logic] Formula F, rule 13. **GIVEN** FX-RE-2M, **THEN** τ **0.10714**, gap **0.14757**, Q_close
@@ -679,8 +748,9 @@ Tolerance: ±0.5 in the last digit shown; money ledgers must balance exactly.
 - **AC-RE-30** [Logic] Formula I. **GIVEN** FX-RE-SECT, **THEN** collect_mine **0.6615**, Inc_mine **7,938**, G_coll
   **12,274**, G_sold **6,174**, Inc_goods **5,834.4**, Inc_tariff **1,800**. With a commons pool of 3,000, Inc_goods is
   3,000, the pool falls to 0, and **2,999.4** of base value returns to stock.
-- **AC-RE-31** [Logic] Formula J. **GIVEN** a Core Formation NPC with rate 200 and reserve 1,200, **THEN** a purse of 3,000
-  spends **540** for **27** tu vi; a purse of 10,000 spends **2,000** (the cap) for 100; a purse of 1,000 spends 0.
+- **AC-RE-31** [Logic] Formulas J and L2. **GIVEN** a Core Formation NPC with rate 200, reserve 1,200 and a basket of 50 at
+  P 1.0, **THEN** a purse of 3,000 spends 50 on the basket and **490** on stones for **24.5** tu vi; a purse of 10,000
+  spends 50 on the basket and **2,000** (the cap) on stones for 100; a purse of 1,000 spends 0.
 - **AC-RE-32** [Logic] Formula K. **GIVEN** a budget of 300,000 against a stash of 40,000, **THEN** the grant is
   **40,000**, the stash 0 and the narration is told 40,000; a budget of 5,000 against a victim's purse of 12,000 grants
   5,000 and leaves 7,000.
@@ -710,6 +780,16 @@ Tolerance: ±0.5 in the last digit shown; money ledgers must balance exactly.
 - **AC-RE-43** Determinism. The same seed run twice gives byte-identical ledgers.
 
 **Performance** *(PROPOSAL; owner technical-director)*
+- **AC-RE-45** [Logic] Formula L1, rule 20. **GIVEN** herb P 1.065, access 0.5, value_lt 8,000 and D_r 2,000, **THEN**
+  p_loc = **0.656**; **GIVEN** ore P 1.0, access 0.5, value_lt 500 and D_r 3,000, **THEN** p_loc = **1.43**; at access 1
+  p_loc = P; a raw value outside the band clamps to P · (1 ± 0.5). A shop in the region prices from p_loc.
+- **AC-RE-46** [Logic] Formula L2, rule 21. **GIVEN** a Nascent Soul with all local prices 1.0, **THEN** basket_cost =
+  **325**; spending 325 gives prov **0.15**, 162.5 gives **0.075**, 0 gives 0 and no penalty; the goods are consumed and
+  the money goes to the commons pool.
+- **AC-RE-47** [Logic] Rule 22. **GIVEN** an NPC whose purse is at or below reserve, **THEN** they buy no basket and no
+  stones, and their realm's fill in Formula C falls accordingly.
+- **AC-RE-48** [Config] Rule 21. **THEN** each realm's basket at P = 1 equals that realm's season stipend (3 / 20 / 50 /
+  325 / 2,500).
 - **AC-RE-44** [Harness] The market part of the tick (7 markets × 4 classes, ~20 regions, up to 21 links) runs in a
   median of 2 ms or less, p99 5 ms; stone cultivation over 5,000 NPCs 5 ms or less; the whole economy tick 8 ms or less on
   the reference machine over 400 seasons; memory does not grow past the bounded ledger history.
@@ -727,3 +807,7 @@ Tolerance: ±0.5 in the last digit shown; money ledgers must balance exactly.
 | 7 | What the player knows of other markets' prices: last seen, rumours from travellers, or a sect's trade report by standing? | user, ux-designer | Before the market UI |
 | 8 | All Formulas values are guesses: the harness run (AC-RE-36 to AC-RE-43) may move `d_scale`, `spt`, `cm0`, `goods_frac` and the price bands | economy-designer, Balance Harness | Before approval of the numbers |
 | 9 | Performance budget (AC-RE-44) | technical-director | `/create-architecture` |
+| 10 | Should a strong market pull a weak neighbour's border regions into it (EU5's markets that cross borders)? Revisit if wars feel economically flat | user | After the harness run |
+| 11 | Merchant charters (rule 23): price, upkeep, margin share, seizure odds | economy-designer | Post-MVP |
+| 12 | Do `prov_max` 0.15 and stone cultivation together keep the player edge at 0.70 and the NPC realm targets? | Realms, Balance Harness | Realms revision |
+| 13 | A continent-wide trade hub (Victoria 3's World Market) as a shared price anchor above the 7 markets | user | After the harness run |
