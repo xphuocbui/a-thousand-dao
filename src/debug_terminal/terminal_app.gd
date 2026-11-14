@@ -27,6 +27,7 @@ const HELP := [
 		["sheet", "full character sheet"], ["explain <what>", "breakdown of any number: rate power life ngo_tinh attack_pct ..."],
 		["inv", "inventory"], ["field", "linh điền (herb plots, ripeness)"], ["recipes", "đan phương with odds"],
 		["chronicle", "your life story so far"],
+		["rankings [realm|top]", "Power Rankings: a realm's ranking by rating, or the Vấn Đỉnh Bảng (when ratings are on)"],
 		["achievements", "thành tựu across lives (Thiên Định lives only; debug commands disqualify a life)"],
 	]],
 	["Actions (cost time)", [
@@ -197,6 +198,8 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 			io.out_lines(TerminalViews.field(s))
 		"recipes":
 			io.out_lines(TerminalViews.recipes(s))
+		"rankings", "rank", "bang":
+			io.out_lines(TerminalViews.rankings(s, _arg(args, 0, "")))
 		"chronicle", "story":
 			for e in s.db.events_of(s.player.id):
 				io.out("năm %d: %s" % [int(e.year), e.text])

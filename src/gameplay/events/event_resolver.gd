@@ -26,6 +26,8 @@ var _service: CombatService
 ## The last event fight, with its timeline log (the debug terminal's `fightlog`), or null; its two sides' names.
 var last_fight: FightResult
 var last_fight_names: Array = []
+## Power Rankings rule 12: when set and enabled, a fight against a rated NPC moves both offsets at once (Formulas D).
+var ratings: RatingService
 
 
 func _init(gd: GameData, db: WorldDB, builds: BuildGenerator, items: ItemFactory) -> void:
@@ -151,6 +153,9 @@ func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNu
 	last_fight = r
 	last_fight_names = [c.name, enemy.name]
 	var code: String = r.win_code()
+	if ratings != null and ratings.enabled() and enemy.id != "" and _db.has_record("people", enemy.id):
+		var score: float = {"A": 1.0, "B": 0.0}.get(code, 0.5)
+		ratings.apply_fight(ratings.ensure(c), ratings.refresh_person(_db.get_record("people", enemy.id)), score)
 	var word: String = {"A": "VICTORY", "B": "DEFEAT", "draw": "DRAW (a failure)", "time": "TIME LIMIT (a failure)"}[code]
 	return {"ran": true, "win": code == "A",
 		"line": "Combat: fight against %s, %.1f s -> %s" % [enemy.name, r.seconds, word]}

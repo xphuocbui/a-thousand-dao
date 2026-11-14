@@ -11,7 +11,8 @@ extends Node
 ## or in the editor binary for comparison:
 ##   godot --headless --path . res://tests/performance/combat/combat_bench.tscn -- --runs=200
 ## Prints a table and one line "BENCH_JSON {...}". Exit code 0 when every shape's p95 is within the budget, else 1.
-## With "-- --rating-spike" it runs ADR-0003's WorkerThreadPool spike instead (rating_spike.gd).
+## With "-- --rating-spike" it runs ADR-0003's WorkerThreadPool spike instead (rating_spike.gd); with
+## "-- --ratings-world" ADR-0003 step 3's measured world run (ratings_world_run.gd).
 
 const BUDGET_MS := 50.0
 const EXPECTED := "res://tests/parity/expected/"
@@ -20,6 +21,10 @@ const EXPECTED := "res://tests/parity/expected/"
 func _ready() -> void:
 	if OS.get_cmdline_user_args().has("--scale-probe"):
 		add_child(preload("res://tests/performance/combat/scale_probe.gd").new())
+		return
+	if OS.get_cmdline_user_args().has("--ratings-world"):
+		# ADR-0003 step 3's measured run (tests/performance/combat/ratings_world_run.gd)
+		add_child(preload("res://tests/performance/combat/ratings_world_run.gd").new())
 		return
 	if OS.get_cmdline_user_args().has("--rating-spike"):
 		# ADR-0003's WorkerThreadPool spike shares this export (tests/performance/combat/rating_spike.gd)

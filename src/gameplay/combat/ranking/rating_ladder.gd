@@ -102,6 +102,13 @@ func rung_profile(r: int, k: int) -> FighterProfile:
 	return p
 
 
+## Builds every rung of realm [param r] now. The cache fills lazily otherwise, which is not safe while worker threads
+## read it: a season batch prebuilds the realms its panels use before it runs, on the main thread.
+func prebuild(r: int) -> void:
+	for k in range(-k_max, k_max + 1):
+		rung_profile(r, k)
+
+
 ## Formulas G: the ladder read at strength [param f] (rung k = rung_div log2 f), linear between rungs and clamped to
 ## the ladder's ends.
 func rating_at_strength(r: int, f: float) -> float:

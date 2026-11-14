@@ -43,6 +43,15 @@ var beasts: BeastKeeper
 var formations: Formations
 var market: Market
 var ticker: WorldTicker
+## Power Rankings (design/gdd/power-rankings.md; ADR-0003), behind combat_rankings.json "enabled".
+var ratings: RatingService
+## Runs each season's rating batch on a background thread while the season is played (ADR-0003 decision 6); false
+## runs it, blocking, when the season ends (tools and tests). Either way the batch completes, so results do not
+## depend on how fast the season was played.
+var ratings_background: bool = true
+## {season, panels, panel_fights, pair_fights} of the last applied season batch (the terminal's 'rankings').
+var last_rating_batch: Dictionary = {}
+var _rating_batch: SeasonBatch
 var templates: EventTemplateSource
 var validator: EventValidator
 var resolver: EventResolver
@@ -79,6 +88,7 @@ func _init(game_data: GameData, llm_service: LlmService, meridian_tree: Meridian
 ## Generates a new world and player. [param spec]: mode ("roll" | "custom"), name, gender,
 ## origin, and for custom: thien_phu {id: value}, purities {element: purity}, variants [ids].
 func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
+	_finish_ratings(false)
 	seed_value = seed_v
 	rng.seed = seed_v
 	var gen := WorldGenerator.new(gd, tree)
@@ -115,9 +125,16 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 				tal["owner_id"] = player.id
 				db.add("items", tal)
 	sync_player()
+	var rated: Dictionary = {}
+	if ratings_on():   # Power Rankings rule 16, while the game loads
+		rated = ratings.worldgen(seed_value, player, sheet(), player.location_id)
+		_start_ratings()
 	var lines: Array = ["A new world: %d regions, %d places, %d sects, %d people, %d recorded events (%s năm %d)." % [
 		db.count("regions"), db.count("places"), db.count("sects"), db.count("people"), db.count("events"), gd.world_gen().calendar_name, year]]
 	lines.append("%s is born: %s" % [player.name, player.linh_can.describe(gd)])
+	if not rated.is_empty():
+		lines.append("Power Rankings: the player's panel (%d fights) and %d coarse panels (%d fights) rated at load." % [
+			int(rated.player_fights), int(rated.coarse_panels), int(rated.fights)])
 	return {"ok": true, "lines": lines}
 
 
@@ -148,9 +165,13 @@ func _wire() -> void:
 	formations = Formations.new(gd, db)
 	market = Market.new(gd, db, items)
 	ticker = WorldTicker.new(gd, db, builds)
+	ratings = RatingService.new(gd, db)
+	ratings.sheet_fn = builds.sheet_of
+	ticker.ratings = ratings
 	templates = EventTemplateSource.new(gd, db, builds)
 	validator = EventValidator.new(gd, db, builds)
 	resolver = EventResolver.new(gd, db, builds, items)
+	resolver.ratings = ratings
 	resolver.unseal_fn = _unseal_from_event
 	narrator = Narrator.new(gd, db, llm, templates, validator)
 
@@ -291,7 +312,9 @@ func _pass_season(mode: String) -> Dictionary:
 		season = 0
 		year += 1
 		_yearly()
+	_finish_ratings()   # the season that just ended: its batch completes and applies (rule 13)
 	out.news = ticker.tick(rng, year, season)
+	_start_ratings()
 	if player.age >= CultivationRules.lifespan(player, gd, sh).total:
 		_end_life("Thọ nguyên cạn kiệt ở tuổi %d" % int(player.age))
 		out.died = true
@@ -1059,6 +1082,7 @@ func _end_life(cause: String) -> void:
 	if life_over:
 		return
 	life_over = true
+	_finish_ratings(false)
 	player.alive = false
 	player.death_cause = cause
 	_log("player_death", {"a": player.id, "cause": cause})
@@ -1073,6 +1097,72 @@ func _end_life(cause: String) -> void:
 ## Lines shown when the life ends.
 func death_lines() -> Array:
 	return ["", "======== %s ========" % "ĐẠO TIÊU THÂN VẪN", epitaph_text, "", "Your life is over. 'chronicle' shows your story; 'new' begins another life."]
+
+
+# --- Power Rankings ---------------------------------------------------------------
+
+## True when Power Rankings runs (combat_rankings.json "enabled").
+func ratings_on() -> bool:
+	return ratings != null and ratings.enabled()
+
+
+## Plans this season's rating batch and, with [member ratings_background], starts it.
+func _start_ratings() -> void:
+	if not ratings_on() or life_over:
+		return
+	sync_player()
+	_rating_batch = ratings.plan_season(seed_value, season_index(), year, season, player, sheet())
+	if ratings_background:
+		_rating_batch.start()
+
+
+## Completes the pending batch and applies it ([param apply] false only waits, for a life or world being replaced).
+func _finish_ratings(apply: bool = true) -> void:
+	if _rating_batch == null:
+		return
+	var b: SeasonBatch = _rating_batch
+	_rating_batch = null
+	if ratings_background:
+		b.finish()
+	else:
+		b.run(true)
+	if apply and ratings != null:
+		ratings.apply_batch(b)
+		last_rating_batch = {"season": b.season, "panels": b.panels.filter(func(p): return not p.result.is_empty()).size(),
+			"queued": b.panels.size(), "panel_fights": b.panel_fights, "pair_fights": b.pair_fights, "pairs": b.pairs.size()}
+
+
+## The player's shown power (Power Rankings rule 10): the power number when ratings run (opening it while Stale runs
+## the player's panel now, once per build: Edge Cases), else chiến lực. Returns {value, text, provisional}.
+func player_power() -> Dictionary:
+	if not ratings_on():
+		var cl: float = CombatPower.compute(player, gd, db, sheet()).total
+		return {"value": cl, "text": "Chiến lực %.0f" % cl, "provisional": false}
+	sync_player()
+	var rec: Dictionary = ratings.refresh_person(db.get_record("people", player.id))
+	if str(rec.state) == RatingService.STALE:
+		ratings.run_panel(player, sheet(), seed_value, season_index())
+	return power_of_person(player.id)
+
+
+## A person's shown power: {value, text, provisional} (the power number when ratings run, else chiến lực).
+func power_of_person(id: String) -> Dictionary:
+	var p: Dictionary = db.get_record("people", id)
+	if not ratings_on():
+		return {"value": float(p.get("power", 0.0)), "text": "chiến lực %.0f" % float(p.get("power", 0.0)), "provisional": false}
+	var rec: Dictionary = ratings.refresh_person(p)
+	var n: int = ratings.ladder.power_number(float(rec.base) + float(rec.offset))
+	var prov: bool = str(rec.state) == RatingService.PROVISIONAL
+	return {"value": float(n), "text": "power %s%s" % [_thousands(n), "?" if prov else ""], "provisional": prov}
+
+
+static func _thousands(n: int) -> String:
+	var s: String = str(absi(n))
+	var out: String = ""
+	while s.length() > 3:
+		out = "," + s.right(3) + out
+		s = s.left(s.length() - 3)
+	return ("-" if n < 0 else "") + s + out
 
 
 # --- Save / load ------------------------------------------------------------------
@@ -1094,6 +1184,7 @@ func load_dict(d: Dictionary) -> Dictionary:
 		return {"ok": false, "lines": ["This save uses the old 300-level ladder and cannot be loaded."]}
 	if not SAVE_VERSIONS_READ.has(int(d.get("version", 0))):
 		return {"ok": false, "lines": ["Save version %s is not supported." % str(d.get("version"))]}
+	_finish_ratings(false)
 	seed_value = int(d.seed)
 	rng.seed = str(d.rng_seed).to_int()
 	rng.state = str(d.rng_state).to_int()
@@ -1122,6 +1213,8 @@ func load_dict(d: Dictionary) -> Dictionary:
 	for k in cdu.keys():
 		co_duyen_used[int(k)] = int(cdu[k])
 	epitaph_text = str(d.get("epitaph", ""))
+	if not life_over:
+		_start_ratings()   # the season's batch is planned again from the saved state (rule 14's pending work)
 	return {"ok": true, "lines": ["Loaded %s — %s, %s." % [player.name, gd.realm_label(player.realm_index, player.stage), clock_label()]]}
 
 

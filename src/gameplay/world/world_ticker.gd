@@ -14,6 +14,8 @@ extends RefCounted
 var _gd: GameData
 var _db: WorldDB
 var _builds: BuildGenerator
+## Power Rankings (rule 11): when set and enabled, a duel is Formulas F's roll on the two ratings instead of chiến lực.
+var ratings: RatingService
 
 
 func _init(gd: GameData, db: WorldDB, builds: BuildGenerator) -> void:
@@ -74,7 +76,11 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			var pair: Array = RngUtils.shuffled(rng, fighters).slice(0, 2)
 			var a: Dictionary = pair[0]
 			var b: Dictionary = pair[1]
-			var duel: Dictionary = CombatPower.duel(float(a.get("power", 1.0)), float(b.get("power", 1.0)), float(a.thien_phu.get("khi_van", 50)), float(b.thien_phu.get("khi_van", 50)), _gd, rng)
+			var duel: Dictionary
+			if ratings != null and ratings.enabled():
+				duel = ratings.world_fight(a, b, rng)   # one session draw, as the duel (rule 11)
+			else:
+				duel = CombatPower.duel(float(a.get("power", 1.0)), float(b.get("power", 1.0)), float(a.thien_phu.get("khi_van", 50)), float(b.thien_phu.get("khi_van", 50)), _gd, rng)
 			var winner: Dictionary = a if duel.win else b
 			var place: String = str(a.location_id) if str(a.location_id) != "" else str(RngUtils.pick(rng, _db.all("places")).id)
 			news.append(_log(year, season, "tick_duel", texts, {"a": a.id, "b": b.id, "winner": winner.id, "place": place}))

@@ -47,7 +47,7 @@ static func hud(s: GameSession, io: TerminalIO) -> Array:
 	var kh_col: String = C_RED if c.vitality < 0.3 else (C_YELLOW if c.vitality < 0.6 else C_GREEN)
 	var extras: PackedStringArray = []
 	extras.append("LT %d" % c.linh_thach)
-	extras.append("Chiến lực %.0f" % CombatPower.compute(c, gd, s.db, sh).total)
+	extras.append(str(s.player_power().text))
 	if c.tree_points > 0:
 		extras.append(io.paint("%d Kinh Mạch pt" % c.tree_points, C_MAGENTA))
 	if c.dan_doc >= 1.0:
@@ -314,6 +314,61 @@ static func sheet(s: GameSession, io: TerminalIO) -> Array:
 	return lines
 
 
+## 'explain power' with ratings on (Power Rankings Formulas A, D, E): rating = base + offset, state, rated fights, the
+## realm's anchor and where the power number comes from.
+static func power_lines(s: GameSession) -> Array:
+	var shown: Dictionary = s.player_power()
+	var rec: Dictionary = s.ratings.ensure(s.player)
+	var r: float = float(rec.base) + float(rec.offset)
+	var realm: int = int(rec.realm)
+	var lad: RatingLadder = s.ratings.ladder
+	var lines: Array = ["Power %s  (Power Rankings: the power number of your rating)" % str(shown.text).trim_prefix("power ")]
+	lines.append("  rating %.1f = base %.1f (ladder panel) + offset %+.1f (from %d rated fights)" % [r, float(rec.base), float(rec.offset), int(rec.n)])
+	lines.append("  state %s%s" % [str(rec.state), "  (a provisional rating from your realm and stage until your first panel at this realm)" if str(rec.state) == RatingService.PROVISIONAL else ""])
+	lines.append("  %s's typical fighter rates %.0f and shows power %s; each realm is ×10 power" % [s.gd.realm(realm).name, lad.anchors[realm], GameSession._thousands(lad.power_number(lad.anchors[realm]))])
+	lines.append("  your rating is %+.0f from it, rung %d of the realm's ladder (each rung is ×%.3f strength)" % [r - lad.anchors[realm], lad.nearest_rung(realm, r), pow(2.0, 1.0 / float(lad.rung_div))])
+	return lines
+
+
+## Power Rankings rule 9: a realm's ranking ([param which] a realm number 0-4 or name; "" the player's realm; "top"
+## the Vấn Đỉnh Bảng, Nguyên Anh and Hóa Thần), with the last season batch's work.
+static func rankings(s: GameSession, which: String) -> Array:
+	if not s.ratings_on():
+		return ["Power Rankings is off (combat_rankings.json enabled is false)."]
+	var realms: Array = [s.player.realm_index]
+	var title: String = "%s ranking" % s.gd.realm(s.player.realm_index).name
+	if which == "top":
+		realms = RatingService.TOP_REALMS
+		title = "Vấn Đỉnh Bảng (the Summit-Asking List)"
+	elif which.is_valid_int():
+		realms = [clampi(int(which), 0, 4)]
+		title = "%s ranking" % s.gd.realm(int(realms[0])).name
+	elif which != "":
+		for r in s.gd.realms().size():
+			if WorldDB.fold(str(s.gd.realm(r).name)).contains(WorldDB.fold(which)):
+				realms = [r]
+				title = "%s ranking" % s.gd.realm(r).name
+	var rows: Array = s.ratings.ranking(realms, s.player.id)
+	var lines: Array = ["%s: %d listed" % [title, rows.size()]]
+	var mine: int = -1
+	for i in rows.size():
+		if rows[i].id == s.player.id:
+			mine = i
+	for i in rows.size():
+		if i >= 20 and absi(i - mine) > 2:
+			continue
+		var row: Dictionary = rows[i]
+		var p: Dictionary = s.db.get_record("people", row.id)
+		lines.append("  %4d. %-6s %-20s %-22s power %10s  rating %8.1f  %s%s" % [i + 1, row.id, str(p.get("name", "")),
+			s.gd.realm_label(int(p.realm_index), int(p.stage)), GameSession._thousands(int(row.power)), float(row.rating),
+			"" if row.state == RatingService.RATED else "[%s] " % row.state, "<- you" if row.id == s.player.id else ""])
+	if not s.last_rating_batch.is_empty():
+		var b: Dictionary = s.last_rating_batch
+		lines.append("  last season batch: %d of %d panels (%d fights), %d of %d pair fights" % [int(b.panels), int(b.queued),
+			int(b.panel_fights), int(b.pair_fights), int(b.pairs)])
+	return lines
+
+
 ## Breakdown of any derived number or stat key.
 static func explain(s: GameSession, what: String) -> Array:
 	var c: Character = s.player
@@ -324,6 +379,8 @@ static func explain(s: GameSession, what: String) -> Array:
 		"rate", "tu_vi", "cultivation":
 			return Array(CultivationRules.rate_per_season(c, gd, s.db, sh, density).lines())
 		"power", "chien_luc":
+			if s.ratings_on():
+				return power_lines(s) + [""] + Array(CombatPower.compute(c, gd, s.db, sh).lines)
 			return Array(CombatPower.compute(c, gd, s.db, sh).lines)
 		"life", "lifespan", "tho_nguyen":
 			return Array(CultivationRules.lifespan(c, gd, sh).lines())
@@ -592,7 +649,7 @@ static func person_line(s: GameSession, p: Dictionary) -> String:
 		tags.append(sect.name)
 	if not p.alive:
 		tags.append("đã mất (%s)" % p.get("death_cause", ""))
-	return "%-6s %-20s %-22s %s | chiến lực %.0f | attitude %d" % [p.id, p.name, s.gd.realm_label(int(p.realm_index), int(p.stage)), ", ".join(tags), float(p.get("power", 0.0)), int(p.get("attitude", 0))]
+	return "%-6s %-20s %-22s %s | %s | attitude %d" % [p.id, p.name, s.gd.realm_label(int(p.realm_index), int(p.stage)), ", ".join(tags), str(s.power_of_person(str(p.id)).text), int(p.get("attitude", 0))]
 
 
 ## Full record of any entity id, with its history.

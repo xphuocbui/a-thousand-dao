@@ -19,7 +19,7 @@ func test_a_new_fighter_is_provisional_at_its_stage_strength() -> void:
 	c.id = "p1"
 	var rec: Dictionary = rs.ensure(c)
 	assert_eq(str(rec.state), RatingService.PROVISIONAL, "provisional")
-	assert_near(float(rec.base), rs.ladder.provisional(1, 2, gd), 1e-9, "Formulas G")
+	assert_near(float(rec.base), rs.ladder.provisional(1, 2, gd), 0.05, "Formulas G, stored to 0.1")
 	assert_true(float(rec.base) > rs.ladder.anchors[1], "stage 2 above the realm's typical")
 	assert_eq(rs.power_number(c), rs.ladder.power_number(float(rec.base)), "Formulas E on it")
 

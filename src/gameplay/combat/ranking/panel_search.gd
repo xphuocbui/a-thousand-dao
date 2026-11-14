@@ -51,6 +51,18 @@ static func search(probe: Callable, ladder: PackedFloat64Array, k_max: int, star
 		var s: float = probe.call(k, fights)
 		done.append([k, fights, s])
 		return s > float(fights) / 2.0
+	walk(run, k_max, start_k, step, bracket_stop)
+	var rungs: Array = []
+	var total := 0
+	for d in done:
+		rungs.append([ladder[int(d[0]) + k_max], d[1], d[2]])
+		total += int(d[1])
+	return {"base": solve_base(rungs, ladder[start_k + k_max], ladder, prior), "probes": done, "fights": total}
+
+
+## The search's probe order without the base solve: [param run] is Callable(k: int) -> bool (true when the fighter
+## won the probe at rung k). Shared by [method search] and [method max_fights], so the two never drift.
+static func walk(run: Callable, k_max: int, start_k: int, step: int, bracket_stop: int) -> void:
 	var k: int = start_k
 	var won: bool = run.call(k)
 	var last_win: Variant = k if won else null
@@ -77,9 +89,18 @@ static func search(probe: Callable, ladder: PackedFloat64Array, k_max: int, star
 				last_win = mid
 			else:
 				last_loss = mid
-	var rungs: Array = []
-	var total := 0
-	for d in done:
-		rungs.append([ladder[int(d[0]) + k_max], d[1], d[2]])
-		total += int(d[1])
-	return {"base": solve_base(rungs, ladder[start_k + k_max], ladder, prior), "probes": done, "fights": total}
+
+
+## The most fights a search with these settings can take (Core Rules rule 14 keeps panels inside their budget share
+## with it). Each probe's only effect on the path is win or lose, and every win/lose path is the path of some fighter
+## that wins up to a threshold rung, so the worst case over the thresholds is the worst case over all fighters.
+static func max_fights(k_max: int, start_k: int, step: int, bracket_stop: int, fights: int) -> int:
+	var most := 0
+	for t in range(-k_max - 1, k_max + 1):
+		var count: Array = [0]
+		var run := func(k: int) -> bool:
+			count[0] += 1
+			return k <= t
+		walk(run, k_max, start_k, step, bracket_stop)
+		most = maxi(most, int(count[0]))
+	return most * fights
