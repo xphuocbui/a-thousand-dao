@@ -1,6 +1,6 @@
 # Power Rankings
 
-> **Status**: Approved 2026-11-14 (lean re-review of the ladder revision; the earlier reviews' blockers resolved). The ladder revision (user decisions from measured fights: ladder panel, measured anchors, coarse panels at load; `design/research/power-rankings-measurements.md`) was re-reviewed and approved the same day. Decisions by the user in-session; specialists consulted in lean mode: `systems-designer` (Formulas), `qa-lead` (Acceptance Criteria). CD-GDD-ALIGN skipped (lean mode)
+> **Status**: Approved 2026-11-14 (lean re-review of the ladder revision; the earlier reviews' blockers resolved). **Changed after approval, 2026-11-14 (user decision after the ADR-0003 threading spike):** rule 16 coarse-panels only Kết Đan and above and the player's starting place at load, capped by `worldgen_fight_budget`; the rest start Provisional; Open Questions 7 (resolved) and 9 (new). A re-review of that change is recommended. The ladder revision (user decisions from measured fights: ladder panel, measured anchors, coarse panels at load; `design/research/power-rankings-measurements.md`) was re-reviewed and approved the same day. Decisions by the user in-session; specialists consulted in lean mode: `systems-designer` (Formulas), `qa-lead` (Acceptance Criteria). CD-GDD-ALIGN skipped (lean mode)
 > **Author**: the user + Claude
 > **Last Updated**: 2026-11-14 (ladder revision: Formulas A-C, E-G, Season budget; rules 3, 4, 16; Player Fantasy; Vấn Đỉnh Bảng)
 > **Last Verified**: 2026-11-14
@@ -119,10 +119,13 @@ a won fight); curiosity about who is above them and why; never confusion about w
     panel runs in the season batch; a fighter that has just broken through to a new realm; every fighter of an old
     save) takes a **provisional rating**: its realm's anchor moved by its stage (Formulas G). It is shown as
     provisional until its first panel at that realm runs.
-16. **World generation.** When a new game is created, the player's full panel and a **coarse** panel for every
-    generated NPC (Formulas B: 2 fights a probe, stopped at a 4-rung bracket) run while the game loads, outside any
-    season budget (about 50,000 fights; Season budget). The generated NPCs start **Stale** with their coarse base, so
-    the world is ordered from the first turn and full panels refine it in the background by rule 14's order.
+16. **World generation.** When a new game is created, the player's full panel and **coarse** panels (Formulas B: 2
+    fights a probe, stopped at a 4-rung bracket) run while the game loads, outside any season budget, for: every
+    generated NPC of Kết Đan and above, then the NPCs at the player's starting place, in that order (higher realm
+    first, then by id), until `worldgen_fight_budget` fights have run (user decision 2026-11-14, after the
+    threading spike). Those NPCs start **Stale** with their coarse base; every other generated NPC starts
+    **Provisional** (rule 15). The strongest of the world and the player's neighbours are ordered from the first turn,
+    and the season batch refines everyone else by rule 14's order.
 
 ### States and Transitions
 
@@ -130,7 +133,7 @@ The rating state of one fighter:
 
 | State | Meaning | Enters from | Leaves to |
 |---|---|---|---|
-| Provisional | Rated by Formulas G only; shown marked | Created during play; Rated or Stale (it breaks through to a new realm); loaded from an old save (Edge Cases) | Rated (its first panel at its realm runs), Gone (it dies) |
+| Provisional | Rated by Formulas G only; shown marked | Created at world generation outside rule 16's load set; created during play; Rated or Stale (it breaks through to a new realm); loaded from an old save (Edge Cases) | Rated (its first panel at its realm runs), Gone (it dies) |
 | Rated | `base` from a panel of its current build | Provisional, Stale (a panel runs) | Stale (its build changes, or a new data version), Provisional (a breakthrough), Gone (it dies) |
 | Stale | Its build changed, or its base is a world-generation coarse panel; keeps its rating until the full panel | Rated (a build change of rule 5, or a new data version); created at world generation (rule 16) | Rated (the panel runs), Provisional (a breakthrough), Gone (it dies) |
 | Gone | Dead or removed; no longer fights or ranks | Rated, Stale, Provisional | none (its last rating stays on its record for the chronicle) |
@@ -383,9 +386,12 @@ robin and matchmaking first, then about 1,565 of the season's 4,490 Kết Đan p
 quieter season the unused panel share completes the season's Kết Đan slice. Because the slice is shuffled (rule 8), a
 truncated season leaves a random, not id-ordered, share of pairs unplayed.
 
-**World generation** (rule 16): a coarse search for every generated NPC, about 5,000 × 10 ≈ **50,000** fights, about
-90 s on 8 workers at 13.7 ms a fight (to be re-measured on real panel fights, Open Question 7). The generated NPCs
-then refine by warm panels in the background, higher realms first: about 80,000 fights. Build-change panels share the
+**World generation** (rule 16): coarse searches for the NPCs of Kết Đan and above (about 230, about 2,300 fights) and
+then the NPCs at the player's starting place, capped at `worldgen_fight_budget` (8,000 fights): about **40 s** at the
+measured rate (12.3 ms a fight single-threaded, about ×2.5 on threads, about 200 fights a second; ADR-0003 spike,
+`production/qa/evidence/combat-port/rating-spike-2026-11-14.md`). A coarse search of every NPC (about 50,000
+fights) would take about 4 minutes at that rate, which is why the load set is limited. The other NPCs start
+Provisional and refine by panels in the background, higher realms first: about 80,000 fights. Build-change panels share the
 same queue, and an NPC refined once can go Stale again, so the drain is not 16 seasons: if the 3,200 fights a season
 of build-change demand were additive it would leave about 1,800 of the 5,000-fight share and take about 44 seasons
 (11 years), with the Luyện Khí refinement last. Which it is, is Open Question 7's measurement.
@@ -476,6 +482,7 @@ All in `combat_rankings.json` unless noted. Ranges are starting points to be con
 | `probe_fights` / `coarse_probe_fights` | 4 / 2 | 2–8 / 2–4 | Panel accuracy against compute |
 | `warm_step` / `cold_step` | 2 / 8 | 1–4 / 4–16 | First step of a search; fewer probes when the guess is good |
 | `coarse_bracket` | 4 | 2–8 | Where a world-generation coarse search stops; world-generation load time |
+| `worldgen_fight_budget` | 8,000 | 2,000–20,000 | Coarse-panel fights at a new game's load (rule 16): about 40 s at 200 fights a second; higher orders more of the world at load and lengthens it |
 | `prior_games` | 1 | 0.5–2 | Finite result off the ladder end; pull toward the start rung |
 | `calibration_fights` / `calibration_probe_fights` | 400 / 40 | 200–800 / 20–80 | Rung-gap and anchor accuracy, once per data version |
 | `health_elo` | measured (about 3,000) | not tuned | Injury on a world-fight roll; written by calibration (Formulas C) |
@@ -564,7 +571,7 @@ Ratings compare within ±0.05 (the stored 0.1).
 - **AC-PR-23** [Logic] Rule 13. **GIVEN** game seed X, season S and fighters a and b, **WHEN** their fight is seeded with a and b in either order, **THEN** the seed and the result are identical; **AND GIVEN** a Trúc Cơ panel probe's 4 fights against one rung, and a Kết Đan pair that meets in matchmaking and its round robin in the same season, **THEN** every one of those fights has a distinct seed; **AND GIVEN** a fighter whose coarse panel and later full panel both probe rung 4 in one season (or a player whose panel runs for two builds in one season), **THEN** the fights against that rung carry indexes 0, 1, 2, … in run order and no two share a seed; a world-generation panel's seeds use season 0.
 - **AC-PR-24** [Logic] Rule 14. **GIVEN** a queue with the player's Stale panel, a Stale Hóa Thần panel, a Provisional Luyện Khí panel, the Nguyên Anh and Hóa Thần round robin, matchmaking and Kết Đan round-robin pairs, **WHEN** the batch runs, **THEN** they run in exactly that order.
 - **AC-PR-25** [Logic] Rule 14. **GIVEN** `season_fight_budget` 200 and `panel_budget_share` 0.5 in test data and more work than that, **WHEN** a season runs, **THEN** exactly 200 fights run (the player's on-open panel, AC-PR-39, excluded), of which at most 100 are panel fights; **AND GIVEN** only 40 panel fights queued, **THEN** the other 160 are round-robin and matchmaking fights.
-- **AC-PR-26** [Logic] Rules 15, 16. **GIVEN** a new game's world generation (test world of 50 NPCs), **WHEN** loading finishes, **THEN** the player is Rated from a full panel, every generated NPC is Stale with a coarse base (not Provisional), the first season's budget count is 0, and the first season's queue holds their full panels in rule 14's order; **AND GIVEN** a Trúc Cơ stage-2 NPC created during play, **WHEN** its rating is read before its panel runs, **THEN** it is Provisional at 6,127 (test ladder).
+- **AC-PR-26** [Logic] Rules 15, 16. **GIVEN** a new game's world generation (test world of 50 NPCs), **WHEN** loading finishes, **THEN** the player is Rated from a full panel, every generated NPC of Kết Đan and above, then those at the player's starting place, is Stale with a coarse base until `worldgen_fight_budget` (set to 60 in the test data) is spent, every other generated NPC is Provisional, the first season's budget count is 0, and the first season's queue holds their full panels in rule 14's order; **AND GIVEN** a Trúc Cơ stage-2 NPC created during play, **WHEN** its rating is read before its panel runs, **THEN** it is Provisional at 6,127 (test ladder).
 
 **Formulas**
 
@@ -618,6 +625,7 @@ Ratings compare within ±0.05 (the stored 0.1).
 | 3 | ~~Top-end member saturates~~ **Resolved 2026-11-14 (user):** confirmed (top-end beats even ×256 typical); the top-end member is gone, replaced by the ladder, with a saturation guard on rung gaps (Formulas C) | systems-designer | Done |
 | 4 | ~~The strongest-under-heaven list needs an in-world name~~ **Resolved 2026-11-14 (user):** Vấn Đỉnh Bảng (問鼎榜, the Summit-Asking List), rule 9 | writer | Done |
 | 5 | ~~How many builds change a season?~~ **Measured 2026-11-14:** 2.3–6.4 % (mean 3.85 %), 95 % stage changes; fits the panel share. **Re-measure** once the world tick gives NPCs techniques and items, which it does not yet | systems-designer | When NPC acquisition is built |
-| 7 | Fight cost: the 2026-11-14 Godot probe measured 13.7 ms a fight (ADR-0003 assumed 6 ms), inflated by extreme probe fighters. Time real panel fights; if world-generation coarse panels exceed 120 s on 8 workers (AC-PR-51), raise `coarse_bracket` or lower `coarse_probe_fights` | systems-designer | Implementation |
+| 7 | ~~Fight cost~~ **Measured 2026-11-14 (ADR-0003 spike, release export):** a real NPC fight is 12.3 ms single-threaded; `WorkerThreadPool` gives only about ×2.5 on 16 cores (string, StringName and dictionary reference traffic serialises GDScript threads). Resolved by limiting rule 16's load set (`worldgen_fight_budget`) | systems-designer | Done |
+| 9 | Thread scaling: an integer-keyed hot loop (modifier keys, statuses and hit contexts as integers and typed objects instead of string-keyed dictionaries) would speed fights single-threaded and on threads. Revisit once rankings run end to end, if measured season or load times call for it | lead-programmer | After the first playable rankings |
 | 8 | Is a warm search (3–4 probes) as accurate as a cold one, and a coarse one good enough to order a new world (AC-PR-55)? If not, widen `warm_step` or the coarse bracket rule | systems-designer | Implementation |
 | 6 | Which world events read ranks (challenges for a top-10 place, sect recruitment of high-ranked rogues, rivalries) is for the Living World Tick and Sects to design | world-builder | With the Living World Tick GDD |

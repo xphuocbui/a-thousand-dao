@@ -107,11 +107,14 @@ fighter, panel 16 ms a fighter, a Nguyên Anh and Hóa Thần round robin 1.7 s.
     - **Calibration (decision 6) now stores** the anchors above Luyện Khí (measured, not 400 apart), every rung's
       rating and `health_elo`, computed by the export tool once per data version (about 128,000 reference fights,
       about 40 s on `fight.py`); a saturation guard fails calibration when adjacent rungs are too far apart.
-    - **World generation (supersedes decision 9):** the player's full panel and a coarse panel per NPC (2 fights a
-      probe, stopped at a 4-rung bracket; about 50,000 fights, target 120 s on 8 workers) run at load; NPCs start
-      Stale and full panels refine them in the season batch.
-    - **Fight cost:** the 2026-11-14 Godot probe measured 13.7 ms a fight against the 6 ms in Context, inflated by
-      extreme probe fighters; real panel fights are to be timed in implementation (Power Rankings Open Question 7).
+    - **World generation (supersedes decision 9):** the player's full panel and coarse panels (2 fights a probe,
+      stopped at a 4-rung bracket) run at load for the NPCs of Kết Đan and above, then those at the player's starting
+      place, capped at `worldgen_fight_budget` (8,000 fights, about 40 s); they start Stale, every other NPC
+      Provisional, and the season batch refines them (*amended 2026-11-14 after the spike: a coarse panel per NPC,
+      about 50,000 fights, measured about 4 minutes at load*).
+    - **Fight cost (measured by the spike, release export):** 12.3 ms a real NPC fight single-threaded, about
+      ×2.5 on 16 cores through `WorkerThreadPool`, about 200 fights a second
+      (`production/qa/evidence/combat-port/rating-spike-2026-11-14.md`).
       Budgets are counted in fights, so the design holds; only wall time per season changes.
 
 ### Fallback if `WorkerThreadPool` does not verify
@@ -173,8 +176,12 @@ var a_wins: bool = rs.world_fight(a_id, b_id, session.rng)
 - The closed-form profile stays for mass clashes only.
 
 ## Risks
-- **`WorkerThreadPool` unverified (NOT SOURCEABLE).** Mitigation: the spike in Engine Compatibility, and the
-  time-sliced fallback.
+- **`WorkerThreadPool` unverified (NOT SOURCEABLE).** *Verified 2026-11-14:* the spike passed (identical results,
+  main-thread gaps under 7.1 ms).
+- **Thread scaling.** GDScript threads scale only about ×2.5 here: string, StringName and dictionary reference traffic
+  and allocations serialise cores, and the fight engine is string-keyed (probe in the spike evidence). Mitigation:
+  budgets are counted in fights and the load set is capped; an integer-keyed hot loop is Power Rankings Open
+  Question 9.
 - **Budget starvation** (the Kết Đan yearly round robin uses about 60 % of a season's budget). Mitigation: Power
   Rankings Open Question 5.
 - **Calibration out of date** after a combat data change. Mitigation: the data version hash marks fighters Stale.
