@@ -109,6 +109,12 @@ the rewrite is in the list below.
   minor_sects_proposal.json, README).
 - **Approved by the user 2026-11-14:** the great sects (names, tiers, territories), the 20 region names, and the 22
   minor sects with their seats. Next: famous places, towns, roads and teleport arrays.
+- **Places (2026-11-14):** tools/design/map/places.py places 204 places. They are 15 cities, 10 markets, 40 towns,
+  70 villages, 16 mines and 24 famous wild sites, placed by how livable the land is. It also lays trunk and branch
+  roads, sea lanes along the coasts and 7 teleport arrays. The cities, markets and famous sites are named from
+  classical poetry, themed per sect, and the user approved all of this on 2026-11-14. Towns and villages take short
+  names from a pool, by the land at their tile. Spirit veins, secret realms, ruins and blessed lands wait for the
+  sacred features and the authored history (#27).
 
 ## What this changes
 

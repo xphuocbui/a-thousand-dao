@@ -58,6 +58,8 @@
   "unnamed": {
    "city": 0,
    "market": 0,
+   "town": 0,
+   "village": 0,
    "peak": 0,
    "volcano": 0,
    "lake": 0,
@@ -97,6 +99,7 @@
    "lane_open_sea": 0.25,
    "lane_min_tiles": 10,
    "lane_max_cost": 160,
+   "cold_name_c": 8.0,
    "km_per_tile": 25.0,
    "scale": 3
   }
@@ -1440,6 +1443,10 @@
    "livability": 0.53,
    "territory": "Tùng Đào Cung",
    "holder": "Tùng Đào Cung",
+   "name_hv": "Quy Điểu Trấn",
+   "name_han": "歸鳥鎮",
+   "gloss": "Homing Birds Town",
+   "name_from": "forest",
    "on_road": true,
    "id": 55
   },
@@ -1460,6 +1467,10 @@
    "livability": 1.16,
    "territory": "Thúy Vi Tông",
    "holder": "Thúy Vi Tông",
+   "name_hv": "Mục Ca Trấn",
+   "name_han": "牧歌鎮",
+   "gloss": "Herders' Song Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 56
   },
@@ -1480,6 +1491,10 @@
    "livability": 1.2,
    "territory": "Thúy Vi Tông",
    "holder": "Thúy Vi Tông",
+   "name_hv": "Bạch Sa Trấn",
+   "name_han": "白沙鎮",
+   "gloss": "White Sands Town",
+   "name_from": "coast",
    "on_road": true,
    "id": 57
   },
@@ -1500,6 +1515,10 @@
    "livability": 1.08,
    "territory": "Thúy Vi Tông",
    "holder": "Thúy Vi Tông",
+   "name_hv": "Bách Diệp Trấn",
+   "name_han": "柏葉鎮",
+   "gloss": "Cypress Leaf Town",
+   "name_from": "forest",
    "on_road": true,
    "id": 58
   },
@@ -1520,6 +1539,10 @@
    "livability": 0.89,
    "territory": "Thúy Vi Tông",
    "holder": "Thúy Vi Tông",
+   "name_hv": "Tiều Ca Trấn",
+   "name_han": "樵歌鎮",
+   "gloss": "Woodcutters' Song Town",
+   "name_from": "forest",
    "on_road": true,
    "id": 59
   },
@@ -1540,6 +1563,10 @@
    "livability": 1.02,
    "territory": "Tùng Đào Cung",
    "holder": "Lãng Đào Môn",
+   "name_hv": "Lộc Minh Trấn",
+   "name_han": "鹿鳴鎮",
+   "gloss": "Deer Call Town",
+   "name_from": "forest",
    "on_road": true,
    "id": 60
   },
@@ -1560,6 +1587,10 @@
    "livability": 0.96,
    "territory": "Tùng Đào Cung",
    "holder": "Tùng Đào Cung",
+   "name_hv": "Cổ Độ Trấn",
+   "name_han": "古渡鎮",
+   "gloss": "Old Ferry Town",
+   "name_from": "river",
    "on_road": true,
    "id": 61
   },
@@ -1580,6 +1611,10 @@
    "livability": 0.57,
    "territory": "Tùng Đào Cung",
    "holder": "Thải Chi Cốc",
+   "name_hv": "Hà Bạn Trấn",
+   "name_han": "河畔鎮",
+   "gloss": "Riverside Town",
+   "name_from": "river",
    "on_road": true,
    "id": 62
   },
@@ -1600,6 +1635,10 @@
    "livability": 0.58,
    "territory": "Tùng Đào Cung",
    "holder": "Tùng Đào Cung",
+   "name_hv": "Lâm Hạ Trấn",
+   "name_han": "林下鎮",
+   "gloss": "Under the Trees Town",
+   "name_from": "forest",
    "on_road": true,
    "id": 63
   },
@@ -1620,6 +1659,10 @@
    "livability": 0.68,
    "territory": "Thiên Xu Tông",
    "holder": "Thiên Xu Tông",
+   "name_hv": "Bích Khê Trấn",
+   "name_han": "碧溪鎮",
+   "gloss": "Jade Brook Town",
+   "name_from": "river",
    "on_road": true,
    "id": 64
   },
@@ -1640,6 +1683,10 @@
    "livability": 0.7,
    "territory": "Thiên Xu Tông",
    "holder": "Thiên Xu Tông",
+   "name_hv": "Thanh Bách Trấn",
+   "name_han": "青柏鎮",
+   "gloss": "Green Cypress Town",
+   "name_from": "forest",
    "on_road": true,
    "id": 65
   },
@@ -1660,6 +1707,10 @@
    "livability": 1.19,
    "territory": "Băng Tâm Các",
    "holder": "Lê Hoa Am",
+   "name_hv": "Hòe Âm Trấn",
+   "name_han": "槐蔭鎮",
+   "gloss": "Locust Shade Town",
+   "name_from": "forest",
    "on_road": true,
    "id": 66
   },
@@ -1680,6 +1731,10 @@
    "livability": 0.81,
    "territory": "Băng Tâm Các",
    "holder": "Băng Tâm Các",
+   "name_hv": "Hồi Lan Trấn",
+   "name_han": "迴瀾鎮",
+   "gloss": "Turning Waves Town",
+   "name_from": "coast",
    "on_road": true,
    "id": 67
   },
@@ -1700,6 +1755,10 @@
    "livability": 0.73,
    "territory": "Băng Tâm Các",
    "holder": "Băng Tâm Các",
+   "name_hv": "Mộc Lan Trấn",
+   "name_han": "木蘭鎮",
+   "gloss": "Magnolia Town",
+   "name_from": "forest",
    "on_road": true,
    "id": 68
   },
@@ -1720,6 +1779,10 @@
    "livability": 0.76,
    "territory": "Băng Tâm Các",
    "holder": "Băng Tâm Các",
+   "name_hv": "Kê Minh Trấn",
+   "name_han": "雞鳴鎮",
+   "gloss": "Cockcrow Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 69
   },
@@ -1740,6 +1803,10 @@
    "livability": 0.83,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Xích Ngạn Trấn",
+   "name_han": "赤岸鎮",
+   "gloss": "Red Shore Town",
+   "name_from": "coast",
    "on_road": true,
    "id": 70
   },
@@ -1760,6 +1827,10 @@
    "livability": 0.88,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Hải Yến Trấn",
+   "name_han": "海燕鎮",
+   "gloss": "Sea Swallow Town",
+   "name_from": "coast",
    "on_road": true,
    "id": 71
   },
@@ -1780,6 +1851,10 @@
    "livability": 1.23,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Triều Âm Trấn",
+   "name_han": "潮音鎮",
+   "gloss": "Tide Song Town",
+   "name_from": "coast",
    "on_road": true,
    "id": 72
   },
@@ -1800,6 +1875,10 @@
    "livability": 1.29,
    "territory": "Lạc Hà Tông",
    "holder": "Mục Vân Trang",
+   "name_hv": "Thanh Điền Trấn",
+   "name_han": "青田鎮",
+   "gloss": "Green Fields Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 73
   },
@@ -1820,6 +1899,10 @@
    "livability": 1.21,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Thảo Đường Trấn",
+   "name_han": "草塘鎮",
+   "gloss": "Grass Pond Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 74
   },
@@ -1840,6 +1923,10 @@
    "livability": 1.15,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Ngư Lương Trấn",
+   "name_han": "漁梁鎮",
+   "gloss": "Fish Weir Town",
+   "name_from": "coast",
    "on_road": true,
    "id": 75
   },
@@ -1860,6 +1947,10 @@
    "livability": 1.06,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Liễu Ngạn Trấn",
+   "name_han": "柳岸鎮",
+   "gloss": "Willow Bank Town",
+   "name_from": "river",
    "on_road": true,
    "id": 76
   },
@@ -1880,6 +1971,10 @@
    "livability": 0.85,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Hòa Phong Trấn",
+   "name_han": "和風鎮",
+   "gloss": "Gentle Breeze Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 77
   },
@@ -1900,6 +1995,10 @@
    "livability": 0.83,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Ngũ Cốc Trấn",
+   "name_han": "五穀鎮",
+   "gloss": "Five Grains Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 78
   },
@@ -1920,6 +2019,10 @@
    "livability": 1.94,
    "territory": "Lạc Hà Tông",
    "holder": "Nam Phố Đường",
+   "name_hv": "Phong Lâm Trấn",
+   "name_han": "楓林鎮",
+   "gloss": "Maple Wood Town",
+   "name_from": "forest",
    "on_road": true,
    "id": 79
   },
@@ -1940,6 +2043,10 @@
    "livability": 1.38,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Tang Ma Trấn",
+   "name_han": "桑麻鎮",
+   "gloss": "Mulberry and Hemp Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 80
   },
@@ -1960,6 +2067,10 @@
    "livability": 0.4,
    "territory": "Thiên Xu Tông",
    "holder": "Thiên Xu Tông",
+   "name_hv": "Thạch Kiều Trấn",
+   "name_han": "石橋鎮",
+   "gloss": "Stone Bridge Town",
+   "name_from": "river",
    "on_road": true,
    "id": 81
   },
@@ -1980,6 +2091,10 @@
    "livability": 1.0,
    "territory": "Thiên Xu Tông",
    "holder": "Thiên Xu Tông",
+   "name_hv": "Song Kiều Trấn",
+   "name_han": "雙橋鎮",
+   "gloss": "Twin Bridges Town",
+   "name_from": "river",
    "on_road": true,
    "id": 82
   },
@@ -2000,6 +2115,10 @@
    "livability": 1.47,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Mạch Điền Trấn",
+   "name_han": "麥田鎮",
+   "gloss": "Wheat Fields Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 83
   },
@@ -2020,6 +2139,10 @@
    "livability": 1.2,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Thanh Khê Trấn",
+   "name_han": "清溪鎮",
+   "gloss": "Clear Brook Town",
+   "name_from": "river",
    "on_road": true,
    "id": 84
   },
@@ -2040,6 +2163,10 @@
    "livability": 1.35,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Hoàng Vân Trấn",
+   "name_han": "黃雲鎮",
+   "gloss": "Yellow Clouds of Grain Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 85
   },
@@ -2060,6 +2187,10 @@
    "livability": 1.59,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Đạo Hương Trấn",
+   "name_han": "稻香鎮",
+   "gloss": "Rice Scent Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 86
   },
@@ -2080,6 +2211,10 @@
    "livability": 1.1,
    "territory": "Phượng Minh Cung",
    "holder": "Lễ Tuyền Phái",
+   "name_hv": "Lục Dã Trấn",
+   "name_han": "綠野鎮",
+   "gloss": "Green Meadows Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 87
   },
@@ -2100,6 +2235,10 @@
    "livability": 0.95,
    "territory": "Thính Vũ Lâu",
    "holder": "Thính Vũ Lâu",
+   "name_hv": "Bình Dã Trấn",
+   "name_han": "平野鎮",
+   "gloss": "Open Plain Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 88
   },
@@ -2120,6 +2259,10 @@
    "livability": 0.95,
    "territory": "Thính Vũ Lâu",
    "holder": "Thính Vũ Lâu",
+   "name_hv": "Xuân Thảo Trấn",
+   "name_han": "春草鎮",
+   "gloss": "Spring Grass Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 89
   },
@@ -2140,6 +2283,10 @@
    "livability": 0.97,
    "territory": "Thính Vũ Lâu",
    "holder": "Thính Vũ Lâu",
+   "name_hv": "Lãng Hoa Trấn",
+   "name_han": "浪花鎮",
+   "gloss": "Spray Flowers Town",
+   "name_from": "coast",
    "on_road": true,
    "id": 90
   },
@@ -2160,6 +2307,10 @@
    "livability": 1.03,
    "territory": "Thính Vũ Lâu",
    "holder": "Xuyên Lâm Môn",
+   "name_hv": "Vọng Hải Trấn",
+   "name_han": "望海鎮",
+   "gloss": "Sea Watch Town",
+   "name_from": "coast",
    "on_road": true,
    "id": 91
   },
@@ -2180,6 +2331,10 @@
    "livability": 1.24,
    "territory": "Thính Vũ Lâu",
    "holder": "Thính Vũ Lâu",
+   "name_hv": "Phong Đăng Trấn",
+   "name_han": "豐登鎮",
+   "gloss": "Rich Harvest Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 92
   },
@@ -2200,6 +2355,10 @@
    "livability": 0.88,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Thạch Cơ Trấn",
+   "name_han": "石磯鎮",
+   "gloss": "Stone Jetty Town",
+   "name_from": "coast",
    "on_road": true,
    "id": 93
   },
@@ -2220,6 +2379,10 @@
    "livability": 0.88,
    "territory": "Phượng Minh Cung",
    "holder": "Phần Vũ Đường",
+   "name_hv": "Tang Điền Trấn",
+   "name_han": "桑田鎮",
+   "gloss": "Mulberry Fields Town",
+   "name_from": "grassland",
    "on_road": true,
    "id": 94
   },
@@ -2240,6 +2403,10 @@
    "livability": 0.44,
    "territory": "Tùng Đào Cung",
    "holder": "Hàm Nguyệt Trang",
+   "name_hv": "Tuyết Lộc Thôn",
+   "name_han": "雪鹿村",
+   "gloss": "Snow Deer Village",
+   "name_from": "cold",
    "on_road": true,
    "id": 95
   },
@@ -2260,6 +2427,10 @@
    "livability": 0.5,
    "territory": "Tùng Đào Cung",
    "holder": "Tùng Đào Cung",
+   "name_hv": "Hàn Yên Thôn",
+   "name_han": "寒煙村",
+   "gloss": "Cold Smoke Village",
+   "name_from": "cold",
    "on_road": true,
    "id": 96
   },
@@ -2280,6 +2451,10 @@
    "livability": 0.47,
    "territory": "Tùng Đào Cung",
    "holder": "Tùng Đào Cung",
+   "name_hv": "Noãn Ốc Thôn",
+   "name_han": "暖屋村",
+   "gloss": "Warm Houses Village",
+   "name_from": "cold",
    "on_road": true,
    "id": 97
   },
@@ -2300,6 +2475,10 @@
    "livability": 1.0,
    "territory": "Thúy Vi Tông",
    "holder": "Thúy Vi Tông",
+   "name_hv": "Mạch Lãng Thôn",
+   "name_han": "麥浪村",
+   "gloss": "Wheat Waves Village",
+   "name_from": "grassland",
    "on_road": false,
    "id": 98
   },
@@ -2320,6 +2499,10 @@
    "livability": 1.0,
    "territory": "Thúy Vi Tông",
    "holder": "Thúy Vi Tông",
+   "name_hv": "Phong Phàm Thôn",
+   "name_han": "風帆村",
+   "gloss": "Wind in the Sails Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 99
   },
@@ -2340,6 +2523,10 @@
    "livability": 1.0,
    "territory": "Thúy Vi Tông",
    "holder": "Thúy Vi Tông",
+   "name_hv": "Hòa Thử Thôn",
+   "name_han": "禾黍村",
+   "gloss": "Grain and Millet Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 100
   },
@@ -2360,6 +2547,10 @@
    "livability": 1.1,
    "territory": "Thúy Vi Tông",
    "holder": "Thúy Vi Tông",
+   "name_hv": "Ẩn Loan Thôn",
+   "name_han": "隱灣村",
+   "gloss": "Hidden Cove Village",
+   "name_from": "coast",
    "on_road": false,
    "id": 101
   },
@@ -2380,6 +2571,10 @@
    "livability": 0.86,
    "territory": "Thúy Vi Tông",
    "holder": "Thúy Vi Tông",
+   "name_hv": "Ô Đề Thôn",
+   "name_han": "烏啼村",
+   "gloss": "Crows' Cry Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 102
   },
@@ -2400,6 +2595,10 @@
    "livability": 0.86,
    "territory": "Thúy Vi Tông",
    "holder": "Thúy Vi Tông",
+   "name_hv": "Lâm Tuyền Thôn",
+   "name_han": "林泉村",
+   "gloss": "Woods and Springs Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 103
   },
@@ -2420,6 +2619,10 @@
    "livability": 0.85,
    "territory": "Thúy Vi Tông",
    "holder": "Thúy Vi Tông",
+   "name_hv": "Thu Diệp Thôn",
+   "name_han": "秋葉村",
+   "gloss": "Autumn Leaves Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 104
   },
@@ -2440,6 +2643,10 @@
    "livability": 0.79,
    "territory": "Tùng Đào Cung",
    "holder": "Tùng Đào Cung",
+   "name_hv": "Bạch Hoa Thôn",
+   "name_han": "白樺村",
+   "gloss": "White Birch Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 105
   },
@@ -2460,6 +2667,10 @@
    "livability": 0.96,
    "territory": "Tùng Đào Cung",
    "holder": "Tùng Đào Cung",
+   "name_hv": "Thanh Tùng Thôn",
+   "name_han": "青松村",
+   "gloss": "Green Pine Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 106
   },
@@ -2480,6 +2691,10 @@
    "livability": 0.82,
    "territory": "Tùng Đào Cung",
    "holder": "Tùng Đào Cung",
+   "name_hv": "Tùng Phong Thôn",
+   "name_han": "松風村",
+   "gloss": "Pine Wind Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 107
   },
@@ -2500,6 +2715,10 @@
    "livability": 0.59,
    "territory": "Tùng Đào Cung",
    "holder": "Tùng Đào Cung",
+   "name_hv": "Tuyết Ốc Thôn",
+   "name_han": "雪屋村",
+   "gloss": "Snow Houses Village",
+   "name_from": "cold",
    "on_road": true,
    "id": 108
   },
@@ -2520,6 +2739,10 @@
    "livability": 0.54,
    "territory": "Tùng Đào Cung",
    "holder": "Tùng Đào Cung",
+   "name_hv": "Hàn Mai Thôn",
+   "name_han": "寒梅村",
+   "gloss": "Winter Plum Village",
+   "name_from": "cold",
    "on_road": true,
    "id": 109
   },
@@ -2540,6 +2763,10 @@
    "livability": 0.53,
    "territory": "Tùng Đào Cung",
    "holder": "Tùng Đào Cung",
+   "name_hv": "Bạch Lang Thôn",
+   "name_han": "白狼村",
+   "gloss": "White Wolf Village",
+   "name_from": "cold",
    "on_road": true,
    "id": 110
   },
@@ -2560,6 +2787,10 @@
    "livability": 0.73,
    "territory": "Thiên Xu Tông",
    "holder": "Cửu Cao Phái",
+   "name_hv": "Ba Quang Thôn",
+   "name_han": "波光村",
+   "gloss": "Glinting Waves Village",
+   "name_from": "lake",
    "on_road": true,
    "id": 111
   },
@@ -2580,6 +2811,10 @@
    "livability": 0.6,
    "territory": "Thiên Xu Tông",
    "holder": "Thiên Xu Tông",
+   "name_hv": "Hạc Quy Thôn",
+   "name_han": "鶴歸村",
+   "gloss": "Crane's Return Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 112
   },
@@ -2600,6 +2835,10 @@
    "livability": 0.64,
    "territory": "Thiên Xu Tông",
    "holder": "Thiên Xu Tông",
+   "name_hv": "Lộc Uyển Thôn",
+   "name_han": "鹿苑村",
+   "gloss": "Deer Park Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 113
   },
@@ -2620,6 +2859,10 @@
    "livability": 0.72,
    "territory": "Băng Tâm Các",
    "holder": "Băng Tâm Các",
+   "name_hv": "Đỗ Quyên Thôn",
+   "name_han": "杜鵑村",
+   "gloss": "Azalea Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 114
   },
@@ -2640,6 +2883,10 @@
    "livability": 0.72,
    "territory": "Băng Tâm Các",
    "holder": "Băng Tâm Các",
+   "name_hv": "Hoàng Oanh Thôn",
+   "name_han": "黃鶯村",
+   "gloss": "Oriole Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 115
   },
@@ -2660,6 +2907,10 @@
    "livability": 0.76,
    "territory": "Băng Tâm Các",
    "holder": "Băng Tâm Các",
+   "name_hv": "Ngư Đàm Thôn",
+   "name_han": "魚潭村",
+   "gloss": "Fish Pool Village",
+   "name_from": "lake",
    "on_road": true,
    "id": 116
   },
@@ -2680,6 +2931,10 @@
    "livability": 1.05,
    "territory": "Băng Tâm Các",
    "holder": "Dạ Quang Môn",
+   "name_hv": "Liên Đường Thôn",
+   "name_han": "蓮塘村",
+   "gloss": "Lotus Pond Village",
+   "name_from": "lake",
    "on_road": true,
    "id": 117
   },
@@ -2700,6 +2955,10 @@
    "livability": 0.79,
    "territory": "Băng Tâm Các",
    "holder": "Băng Tâm Các",
+   "name_hv": "Mã Minh Thôn",
+   "name_han": "馬鳴村",
+   "gloss": "Neighing Horses Village",
+   "name_from": "steppe",
    "on_road": true,
    "id": 118
   },
@@ -2720,6 +2979,10 @@
    "livability": 0.64,
    "territory": "Băng Tâm Các",
    "holder": "Trạc Anh Đài",
+   "name_hv": "Tiều Lộ Thôn",
+   "name_han": "樵路村",
+   "gloss": "Woodcutters' Path Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 119
   },
@@ -2740,6 +3003,10 @@
    "livability": 0.66,
    "territory": "Băng Tâm Các",
    "holder": "Băng Tâm Các",
+   "name_hv": "Lâm Ẩn Thôn",
+   "name_han": "林隱村",
+   "gloss": "Hidden in the Woods Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 120
   },
@@ -2760,6 +3027,10 @@
    "livability": 0.78,
    "territory": "Băng Tâm Các",
    "holder": "Băng Tâm Các",
+   "name_hv": "Lô Hoa Thôn",
+   "name_han": "蘆花村",
+   "gloss": "Reed Flowers Village",
+   "name_from": "lake",
    "on_road": true,
    "id": 121
   },
@@ -2780,6 +3051,10 @@
    "livability": 0.88,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Bối Sa Thôn",
+   "name_han": "貝沙村",
+   "gloss": "Shell Sands Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 122
   },
@@ -2800,6 +3075,10 @@
    "livability": 0.83,
    "territory": "Lạc Hà Tông",
    "holder": "Bình Thủy Môn",
+   "name_hv": "Lãng Thạch Thôn",
+   "name_han": "浪石村",
+   "gloss": "Wave Rock Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 123
   },
@@ -2820,6 +3099,10 @@
    "livability": 0.82,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Dương Liễu Thôn",
+   "name_han": "楊柳村",
+   "gloss": "Willows Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 124
   },
@@ -2840,6 +3123,10 @@
    "livability": 1.39,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Tình Sa Thôn",
+   "name_han": "晴沙村",
+   "gloss": "Sunlit Sands Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 125
   },
@@ -2860,6 +3147,10 @@
    "livability": 0.82,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Nguyệt Loan Thôn",
+   "name_han": "月灣村",
+   "gloss": "Moon Cove Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 126
   },
@@ -2880,6 +3171,10 @@
    "livability": 1.1,
    "territory": "Lạc Hà Tông",
    "holder": "Mục Vân Trang",
+   "name_hv": "Điền Viên Thôn",
+   "name_han": "田園村",
+   "gloss": "Fields and Gardens Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 127
   },
@@ -2900,6 +3195,10 @@
    "livability": 1.13,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Yến Quy Thôn",
+   "name_han": "燕歸村",
+   "gloss": "Swallows' Return Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 128
   },
@@ -2920,6 +3219,10 @@
    "livability": 1.12,
    "territory": "Lạc Hà Tông",
    "holder": "Mục Vân Trang",
+   "name_hv": "Chu Tân Thôn",
+   "name_han": "舟津村",
+   "gloss": "Boat Ford Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 129
   },
@@ -2940,6 +3243,10 @@
    "livability": 1.16,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Lô Cảng Thôn",
+   "name_han": "蘆港村",
+   "gloss": "Reed Harbour Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 130
   },
@@ -2960,6 +3267,10 @@
    "livability": 1.1,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Diêm Điền Thôn",
+   "name_han": "鹽田村",
+   "gloss": "Salt Pans Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 131
   },
@@ -2980,6 +3291,10 @@
    "livability": 0.99,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Khê Thanh Thôn",
+   "name_han": "溪聲村",
+   "gloss": "Brook Sound Village",
+   "name_from": "river",
    "on_road": true,
    "id": 132
   },
@@ -3000,6 +3315,10 @@
    "livability": 1.08,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Khê Đầu Thôn",
+   "name_han": "溪頭村",
+   "gloss": "Brook Head Village",
+   "name_from": "river",
    "on_road": true,
    "id": 133
   },
@@ -3020,6 +3339,10 @@
    "livability": 0.85,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Hải Môn Thôn",
+   "name_han": "海門村",
+   "gloss": "Sea Gate Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 134
   },
@@ -3040,6 +3363,10 @@
    "livability": 0.85,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Tân Khẩu Thôn",
+   "name_han": "津口村",
+   "gloss": "Harbour Mouth Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 135
   },
@@ -3060,6 +3387,10 @@
    "livability": 1.44,
    "territory": "Lạc Hà Tông",
    "holder": "Nam Phố Đường",
+   "name_hv": "Hoa Khê Thôn",
+   "name_han": "花溪村",
+   "gloss": "Flower Brook Village",
+   "name_from": "river",
    "on_road": true,
    "id": 136
   },
@@ -3080,6 +3411,10 @@
    "livability": 1.22,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Ngân Than Thôn",
+   "name_han": "銀灘村",
+   "gloss": "Silver Shoal Village",
+   "name_from": "river",
    "on_road": true,
    "id": 137
   },
@@ -3100,6 +3435,10 @@
    "livability": 1.24,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Phương Thảo Thôn",
+   "name_han": "芳草村",
+   "gloss": "Fragrant Grass Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 138
   },
@@ -3120,6 +3459,10 @@
    "livability": 1.26,
    "territory": "Lạc Hà Tông",
    "holder": "Lạc Hà Tông",
+   "name_hv": "Thủy Khẩu Thôn",
+   "name_han": "水口村",
+   "gloss": "Water's Mouth Village",
+   "name_from": "river",
    "on_road": true,
    "id": 139
   },
@@ -3140,6 +3483,10 @@
    "livability": 0.62,
    "territory": "Thiên Xu Tông",
    "holder": "Thiên Xu Tông",
+   "name_hv": "Mộc Hương Thôn",
+   "name_han": "木香村",
+   "gloss": "Wood Scent Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 140
   },
@@ -3160,6 +3507,10 @@
    "livability": 0.6,
    "territory": "Thiên Xu Tông",
    "holder": "Thiên Xu Tông",
+   "name_hv": "Thụ Âm Thôn",
+   "name_han": "樹陰村",
+   "gloss": "Tree Shade Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 141
   },
@@ -3180,6 +3531,10 @@
    "livability": 1.05,
    "territory": "Thiên Xu Tông",
    "holder": "Thiên Xu Tông",
+   "name_hv": "Thủy Đối Thôn",
+   "name_han": "水碓村",
+   "gloss": "Water Mill Village",
+   "name_from": "river",
    "on_road": true,
    "id": 142
   },
@@ -3200,6 +3555,10 @@
    "livability": 0.91,
    "territory": "Thiên Xu Tông",
    "holder": "Thiên Xu Tông",
+   "name_hv": "Thanh Mạch Thôn",
+   "name_han": "青麥村",
+   "gloss": "Green Wheat Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 143
   },
@@ -3220,6 +3579,10 @@
    "livability": 0.89,
    "territory": "Thiên Xu Tông",
    "holder": "Thiên Xu Tông",
+   "name_hv": "Châu Bạng Thôn",
+   "name_han": "珠蚌村",
+   "gloss": "Pearl Oyster Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 144
   },
@@ -3240,6 +3603,10 @@
    "livability": 1.08,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Đào Khê Thôn",
+   "name_han": "桃溪村",
+   "gloss": "Peach Brook Village",
+   "name_from": "river",
    "on_road": true,
    "id": 145
   },
@@ -3260,6 +3627,10 @@
    "livability": 1.13,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Hà Loan Thôn",
+   "name_han": "河灣村",
+   "gloss": "River Bend Village",
+   "name_from": "river",
    "on_road": true,
    "id": 146
   },
@@ -3280,6 +3651,10 @@
    "livability": 1.08,
    "territory": "Phượng Minh Cung",
    "holder": "Trúc Thực Viên",
+   "name_hv": "Bích Lãng Thôn",
+   "name_han": "碧浪村",
+   "gloss": "Jade Waves Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 147
   },
@@ -3300,6 +3675,10 @@
    "livability": 1.07,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Thủy Điền Thôn",
+   "name_han": "水田村",
+   "gloss": "Paddy Fields Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 148
   },
@@ -3320,6 +3699,10 @@
    "livability": 1.02,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Âu Lộ Thôn",
+   "name_han": "鷗鷺村",
+   "gloss": "Gulls and Herons Village",
+   "name_from": "coast",
    "on_road": true,
    "id": 149
   },
@@ -3340,6 +3723,10 @@
    "livability": 1.13,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Ngân Hạnh Thôn",
+   "name_han": "銀杏村",
+   "gloss": "Ginkgo Village",
+   "name_from": "forest",
    "on_road": true,
    "id": 150
   },
@@ -3360,6 +3747,10 @@
    "livability": 1.07,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Lý Hoa Thôn",
+   "name_han": "李花村",
+   "gloss": "Plum Blossom Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 151
   },
@@ -3380,6 +3771,10 @@
    "livability": 1.12,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Hoàng Ngưu Thôn",
+   "name_han": "黃牛村",
+   "gloss": "Yellow Ox Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 152
   },
@@ -3400,6 +3795,10 @@
    "livability": 1.0,
    "territory": "Thính Vũ Lâu",
    "holder": "Thính Vũ Lâu",
+   "name_hv": "Kiều Bạn Thôn",
+   "name_han": "橋畔村",
+   "gloss": "Bridgeside Village",
+   "name_from": "river",
    "on_road": true,
    "id": 153
   },
@@ -3420,6 +3819,10 @@
    "livability": 0.93,
    "territory": "Thính Vũ Lâu",
    "holder": "Thính Vũ Lâu",
+   "name_hv": "Bình Độ Thôn",
+   "name_han": "平渡村",
+   "gloss": "Calm Ferry Village",
+   "name_from": "river",
    "on_road": true,
    "id": 154
   },
@@ -3440,6 +3843,10 @@
    "livability": 0.93,
    "territory": "Thính Vũ Lâu",
    "holder": "Thính Vũ Lâu",
+   "name_hv": "Hoa Điền Thôn",
+   "name_han": "花田村",
+   "gloss": "Flower Fields Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 155
   },
@@ -3460,6 +3867,10 @@
    "livability": 0.92,
    "territory": "Thính Vũ Lâu",
    "holder": "Hồng Đậu Trang",
+   "name_hv": "Yên Kiều Thôn",
+   "name_han": "煙橋村",
+   "gloss": "Misty Bridge Village",
+   "name_from": "river",
    "on_road": true,
    "id": 156
   },
@@ -3480,6 +3891,10 @@
    "livability": 0.9,
    "territory": "Thính Vũ Lâu",
    "holder": "Thính Vũ Lâu",
+   "name_hv": "Ương Ca Thôn",
+   "name_han": "秧歌村",
+   "gloss": "Planting Song Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 157
   },
@@ -3500,6 +3915,10 @@
    "livability": 0.9,
    "territory": "Thính Vũ Lâu",
    "holder": "Thính Vũ Lâu",
+   "name_hv": "Song Khê Thôn",
+   "name_han": "雙溪村",
+   "gloss": "Twin Brooks Village",
+   "name_from": "river",
    "on_road": true,
    "id": 158
   },
@@ -3520,6 +3939,10 @@
    "livability": 0.83,
    "territory": "Thính Vũ Lâu",
    "holder": "Thính Vũ Lâu",
+   "name_hv": "Thượng Độ Thôn",
+   "name_han": "上渡村",
+   "gloss": "Upper Ferry Village",
+   "name_from": "river",
    "on_road": true,
    "id": 159
   },
@@ -3540,6 +3963,10 @@
    "livability": 0.88,
    "territory": "Thính Vũ Lâu",
    "holder": "Thính Vũ Lâu",
+   "name_hv": "Hà Châu Thôn",
+   "name_han": "河洲村",
+   "gloss": "River Isle Village",
+   "name_from": "river",
    "on_road": true,
    "id": 160
   },
@@ -3560,6 +3987,10 @@
    "livability": 0.81,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Cúc Viên Thôn",
+   "name_han": "菊園村",
+   "gloss": "Chrysanthemum Garden Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 161
   },
@@ -3580,6 +4011,10 @@
    "livability": 0.84,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Tang Âm Thôn",
+   "name_han": "桑陰村",
+   "gloss": "Mulberry Shade Village",
+   "name_from": "grassland",
    "on_road": true,
    "id": 162
   },
@@ -3600,6 +4035,10 @@
    "livability": 0.8,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Hồ Tâm Thôn",
+   "name_han": "湖心村",
+   "gloss": "Lake Heart Village",
+   "name_from": "lake",
    "on_road": true,
    "id": 163
   },
@@ -3620,6 +4059,10 @@
    "livability": 0.79,
    "territory": "Phượng Minh Cung",
    "holder": "Phượng Minh Cung",
+   "name_hv": "Lô Châu Thôn",
+   "name_han": "蘆洲村",
+   "gloss": "Reed Isle Village",
+   "name_from": "river",
    "on_road": true,
    "id": 164
   },
@@ -4560,24 +5003,15 @@
   ],
   [
    "Nhạn Thanh Thành",
-   [
-    107,
-    245
-   ]
+   "Hải Yến Trấn"
   ],
   [
    "Đàm Ảnh Thành",
-   [
-    107,
-    245
-   ]
+   "Hải Yến Trấn"
   ],
   [
    "Đàm Ảnh Thành",
-   [
-    57,
-    237
-   ]
+   "Xích Ngạn Trấn"
   ],
   [
    "Nhạn Thanh Thành",
@@ -4593,17 +5027,11 @@
   ],
   [
    "Yên Ba Thành",
-   [
-    78,
-    157
-   ]
+   "Mục Ca Trấn"
   ],
   [
    "Yên Ba Thành",
-   [
-    56,
-    168
-   ]
+   "Bạch Sa Trấn"
   ],
   [
    "Lai Nghi Thành",
@@ -4611,67 +5039,31 @@
   ],
   [
    "Tương Phùng Thị",
-   [
-    107,
-    245
-   ]
+   "Hải Yến Trấn"
   ],
   [
-   [
-    56,
-    168
-   ],
-   [
-    78,
-    157
-   ]
+   "Bạch Sa Trấn",
+   "Mục Ca Trấn"
   ],
   [
-   [
-    62,
-    289
-   ],
-   [
-    57,
-    237
-   ]
+   "Triều Âm Trấn",
+   "Xích Ngạn Trấn"
   ],
   [
    "Đàm Ảnh Thành",
-   [
-    62,
-    289
-   ]
+   "Triều Âm Trấn"
   ],
   [
-   [
-    107,
-    245
-   ],
-   [
-    57,
-    237
-   ]
+   "Hải Yến Trấn",
+   "Xích Ngạn Trấn"
   ],
   [
-   [
-    78,
-    157
-   ],
-   [
-    87,
-    156
-   ]
+   "Mục Ca Trấn",
+   "Mạch Lãng Thôn"
   ],
   [
-   [
-    56,
-    168
-   ],
-   [
-    49,
-    177
-   ]
+   "Bạch Sa Trấn",
+   "Ẩn Loan Thôn"
   ]
  ]
 }

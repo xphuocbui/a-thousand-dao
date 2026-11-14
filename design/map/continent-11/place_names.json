@@ -1,110 +1,1421 @@
 {
- "status": "proposal, awaiting the user's approval (2026-11-14)",
- "note": "Input, edited by hand. Names for the cities, markets and famous wild sites that tools/design/map/places.py places; each entry goes to the nearest place of its kind within 4 tiles of 'tile'. Towns and villages are named in a later pass.",
+ "status": "the names by kind and tile approved by the user 2026-11-14; the town and village pool is a proposal, awaiting approval",
+ "note": "Input, edited by hand. Names for the cities, markets and famous wild sites that tools/design/map/places.py places; each entry goes to the nearest place of its kind within 4 tiles of 'tile'. Towns and villages take names from the pool below.",
  "style": "Hán-Việt, romantic, each from a line of classical poetry or myth, themed by the great sect whose land it is in (as the regions are). The last word says the kind: Thành city, Thị market, Phong peak, Sơn mountain, Hồ lake, Đảo island, Lâm forest, Hạp gorge.",
  "places": [
-  {"kind": "city", "tile": [127, 132], "name_hv": "Yên Ba Thành", "name_han": "煙波城", "gloss": "City of the Misty Waves",
-   "note": "Thôi Hiệu, Hoàng Hạc Lâu: yên ba giang thượng sử nhân sầu (mist on the river waves makes one sad); the haze of Thúy Vi"},
-  {"kind": "city", "tile": [131, 76], "name_hv": "Hàn Tân Thành", "name_han": "寒津城", "gloss": "City of the Cold Ford",
-   "note": "The northern ford and port of the cold coast"},
-  {"kind": "city", "tile": [193, 124], "name_hv": "Tùng Gian Thành", "name_han": "松間城", "gloss": "City Among the Pines",
-   "note": "Vương Duy: minh nguyệt tùng gian chiếu (the bright moon shines among the pines)"},
-  {"kind": "city", "tile": [245, 131], "name_hv": "Đào Thanh Thành", "name_han": "濤聲城", "gloss": "City of the Wave Sound",
-   "note": "The pine waves of Tùng Đào Cung, heard from the city below its seat"},
-  {"kind": "city", "tile": [347, 127], "name_hv": "Khai Dương Thành", "name_han": "開陽城", "gloss": "City Opening to the Sun",
-   "note": "Khai Dương (Mizar), a star of the Northern Dipper like Thiên Xu"},
-  {"kind": "city", "tile": [377, 184], "name_hv": "Tinh Hán Thành", "name_han": "星漢城", "gloss": "City of the Star River",
-   "note": "Tào Tháo, Quan Thương Hải: tinh Hán xán lạn, nhược xuất kỳ lý (the bright Milky Way seems to rise out of the sea); Thiên Xu's port on the inland sea"},
-  {"kind": "city", "tile": [439, 177], "name_hv": "Trường Vân Thành", "name_han": "長雲城", "gloss": "City of the Long Clouds",
-   "note": "Vương Xương Linh, Tòng Quân Hành: Thanh Hải trường vân ám tuyết sơn (long clouds darken the snow mountains); the same poet as Băng Tâm"},
-  {"kind": "city", "tile": [487, 123], "name_hv": "Liên Giang Thành", "name_han": "連江城", "gloss": "City Where the Rain Meets the River",
-   "note": "Vương Xương Linh: hàn vũ liên giang dạ nhập Ngô (cold rain joins the river by night), the first line of the Băng Tâm poem"},
-  {"kind": "city", "tile": [87, 258], "name_hv": "Đàm Ảnh Thành", "name_han": "潭影城", "gloss": "City of the Pool's Reflections",
-   "note": "Vương Bột, Đằng Vương Các: nhàn vân đàm ảnh nhật du du (idle clouds and their reflections in the pool, day after day)"},
-  {"kind": "city", "tile": [146, 221], "name_hv": "Nhạn Thanh Thành", "name_han": "雁聲城", "gloss": "City of the Wild Geese's Cry",
-   "note": "Vương Bột: nhạn trận kinh hàn (the wild geese in formation, startled by the cold)"},
-  {"kind": "city", "tile": [184, 278], "name_hv": "Tử Điện Thành", "name_han": "紫電城", "gloss": "City of the Purple Lightning",
-   "note": "Vương Bột: tử điện thanh sương, Vương tướng quân chi vũ khố (the purple-lightning and blue-frost swords of General Vương's armoury)"},
-  {"kind": "city", "tile": [414, 220], "name_hv": "Lai Nghi Thành", "name_han": "來儀城", "gloss": "City Where the Phoenix Comes",
-   "note": "Kinh Thư: Tiêu Thiều cửu thành, phượng hoàng lai nghi (when the Shao music was played nine times, the phoenix came)"},
-  {"kind": "city", "tile": [229, 308], "name_hv": "Thu Trì Thành", "name_han": "秋池城", "gloss": "City of the Autumn Pools",
-   "note": "Lý Thương Ẩn: Ba Sơn dạ vũ trướng thu trì (night rain on the mountain swells the autumn pools)"},
-  {"kind": "city", "tile": [304, 275], "name_hv": "Không Mông Thành", "name_han": "空濛城", "gloss": "City of the Hazy Rain",
-   "note": "Tô Thức: sơn sắc không mông vũ diệc kỳ (the hills hazy in the rain are lovely too)"},
-  {"kind": "city", "tile": [414, 287], "name_hv": "Ngũ Thải Thành", "name_han": "五采城", "gloss": "City of the Five Colours",
-   "note": "Sơn Hải Kinh: the bird of Mount Đan Huyệt is five-coloured, the phoenix"},
-
-  {"kind": "market", "tile": [141, 89], "name_hv": "Lam Yên Thị", "name_han": "嵐煙市", "gloss": "Market of the Mountain Mist",
-   "note": "Below Thúy Vi Tông's seat, in the haze that names it"},
-  {"kind": "market", "tile": [230, 118], "name_hv": "Tùng Hạ Thị", "name_han": "松下市", "gloss": "Market Beneath the Pines",
-   "note": "Giả Đảo: tùng hạ vấn đồng tử (beneath the pine I asked the boy where his master was)"},
-  {"kind": "market", "tile": [243, 72], "name_hv": "Đào Sa Thị", "name_han": "淘沙市", "gloss": "Market of the Washed Sands",
-   "note": "Lưu Vũ Tích, Lãng Đào Sa: after a thousand washings the sand gives up its gold; beside Lãng Đào Môn"},
-  {"kind": "market", "tile": [458, 131], "name_hv": "Tống Khách Thị", "name_han": "送客市", "gloss": "Market of Farewells",
-   "note": "Vương Xương Linh: bình minh tống khách (at dawn I see my guest off), the Băng Tâm poem"},
-  {"kind": "market", "tile": [123, 239], "name_hv": "Tương Phùng Thị", "name_han": "相逢市", "gloss": "Market of Chance Meetings",
-   "note": "Vương Bột: bình thủy tương phùng (duckweed and water meet by chance); beside Bình Thủy Môn"},
-  {"kind": "market", "tile": [219, 214], "name_hv": "Vật Hoa Thị", "name_han": "物華市", "gloss": "Market of the Land's Riches",
-   "note": "Vương Bột: vật hoa thiên bảo (the riches of the land are heaven's treasures); beside Thiên Bảo Trai"},
-  {"kind": "market", "tile": [192, 200], "name_hv": "Hạc Đinh Thị", "name_han": "鶴汀市", "gloss": "Market of the Crane Shoal",
-   "note": "Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles); below Lạc Hà Tông's seat"},
-  {"kind": "market", "tile": [288, 185], "name_hv": "Thiên Quyền Thị", "name_han": "天權市", "gloss": "Market of the Heavenly Balance",
-   "note": "Thiên Quyền (Megrez), the Dipper star of authority and measure; below Thiên Xu Tông's seat"},
-  {"kind": "market", "tile": [371, 258], "name_hv": "Thiều Âm Thị", "name_han": "韶音市", "gloss": "Market of the Shao Music",
-   "note": "The music that brings the phoenix; below Phượng Minh Cung's seat"},
-  {"kind": "market", "tile": [259, 244], "name_hv": "Hạnh Hoa Thị", "name_han": "杏花市", "gloss": "Market of the Apricot Blossom",
-   "note": "Lục Du: tiểu lâu nhất dạ thính xuân vũ, thâm hạng minh triều mại hạnh hoa (all night in the small tower I listened to the spring rain; tomorrow the lanes will sell apricot blossom); below Thính Vũ Lâu"},
-
-  {"kind": "peak", "tile": [370, 140], "name_hv": "Phụ Tinh Phong", "name_han": "輔星峰", "gloss": "Peak of the Companion Star",
-   "note": "Phụ tinh (Alcor), the faint star beside the Dipper"},
-  {"kind": "peak", "tile": [380, 161], "name_hv": "Trích Tinh Phong", "name_han": "摘星峰", "gloss": "Peak Where One Picks the Stars",
-   "note": "Lý Bạch: thủ khả trích tinh thần (one could pluck the stars by hand); 4.7 km, the roof of the heartland"},
-  {"kind": "peak", "tile": [393, 139], "name_hv": "Hồi Lộ Phong", "name_han": "迴路峰", "gloss": "Peak of the Winding Road",
-   "note": "Sầm Tham, Bạch Tuyết Ca: sơn hồi lộ chuyển bất kiến quân (the mountain turns, the road bends, and you are gone)"},
-  {"kind": "peak", "tile": [410, 146], "name_hv": "Lăng Tuyệt Phong", "name_han": "凌絕峰", "gloss": "Peak Above All",
-   "note": "Đỗ Phủ, Vọng Nhạc: hội đương lăng tuyệt đỉnh, nhất lãm chúng sơn tiểu (I shall stand on the very top and see all mountains small); 5.2 km, the highest on the continent"},
-  {"kind": "peak", "tile": [351, 213], "name_hv": "Thanh Ải Phong", "name_han": "青靄峰", "gloss": "Peak of the Blue Haze",
-   "note": "Vương Duy, Chung Nam Sơn: thanh ải nhập khán vô (the blue haze, walked into, is gone)"},
-  {"kind": "peak", "tile": [342, 248], "name_hv": "Cùng Mục Phong", "name_han": "窮目峰", "gloss": "Peak of the Farthest Sight",
-   "note": "Vương Chi Hoán: dục cùng thiên lý mục, cánh thướng nhất tầng lâu (to see a thousand li further, climb one storey more)"},
-  {"kind": "peak", "tile": [325, 255], "name_hv": "Liệt Khuyết Phong", "name_han": "列缺峰", "gloss": "Peak of the Lightning Rift",
-   "note": "Lý Bạch, Mộng du Thiên Mỗ: liệt khuyết phích lịch, khâu loan băng thôi (lightning and thunder, and the ridges crumble)"},
-  {"kind": "volcano", "tile": [404, 27], "name_hv": "Chúc Long Sơn", "name_han": "燭龍山", "gloss": "Mountain of the Torch Dragon",
-   "note": "Sơn Hải Kinh: in the dark far north the Torch Dragon lights the world; a volcano on the ice"},
-  {"kind": "volcano", "tile": [429, 80], "name_hv": "Sương Diễm Sơn", "name_han": "霜焰山", "gloss": "Mountain of Frost and Flame",
-   "note": "Fire under the frost of the north-east peninsula"},
-
-  {"kind": "lake", "tile": [315, 89], "name_hv": "Hạo Nguyệt Hồ", "name_han": "皓月湖", "gloss": "Lake of the Bright Moon",
-   "note": "The long lake of Lãnh Nguyệt Lâm, the biggest on the continent; Hàm Nguyệt Trang holds its moon"},
-  {"kind": "lake", "tile": [466, 123], "name_hv": "Phiến Băng Hồ", "name_han": "片冰湖", "gloss": "Lake of the Piece of Ice",
-   "note": "Vương Xương Linh: nhất phiến băng tâm (one piece of ice heart); beside Băng Tâm Các"},
-  {"kind": "lake", "tile": [265, 186], "name_hv": "Tinh Lạc Hồ", "name_han": "星落湖", "gloss": "Lake Where the Stars Fall",
-   "note": "A high lake, 1.2 km up, that holds the Dipper at night; beside Củng Tinh Quán"},
-  {"kind": "lake", "tile": [408, 203], "name_hv": "Triêu Hà Hồ", "name_han": "朝霞湖", "gloss": "Lake of the Dawn Clouds",
-   "note": "The east's dawn clouds answer Lạc Hà's sunset clouds in the west; beside Lễ Tuyền Phái"},
-  {"kind": "lake", "tile": [247, 256], "name_hv": "Tàn Hà Hồ", "name_han": "殘荷湖", "gloss": "Lake of the Last Lotus",
-   "note": "Lý Thương Ẩn: lưu đắc khô hà thính vũ thanh (keep the withered lotus, to listen to the rain); beside Thính Vũ Lâu"},
-
-  {"kind": "island", "tile": [123, 151], "name_hv": "Phù Chử Đảo", "name_han": "鳧渚島", "gloss": "Isle of the Wild Ducks",
-   "note": "Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles)"},
-  {"kind": "island", "tile": [29, 188], "name_hv": "Tịch Chiếu Đảo", "name_han": "夕照島", "gloss": "Isle of the Evening Glow",
-   "note": "The westernmost island, last to see the sunset of Lạc Hà"},
-  {"kind": "island", "tile": [391, 276], "name_hv": "Tương Phi Đảo", "name_han": "湘妃島", "gloss": "Isle of the Xiang Consorts",
-   "note": "Its spotted bamboo, stained by the tears of the two consorts of Thuấn"},
-  {"kind": "island", "tile": [469, 335], "name_hv": "Dục Nhật Đảo", "name_han": "浴日島", "gloss": "Isle Where the Sun Bathes",
-   "note": "Sơn Hải Kinh: in the far south-east the suns bathe in the sea before they rise"},
-  {"kind": "island", "tile": [432, 346], "name_hv": "Đồ Nam Đảo", "name_han": "圖南島", "gloss": "Isle of the Southward Flight",
-   "note": "Trang Tử: the great Bằng rises ninety thousand li, then sets out for the south"},
-
-  {"kind": "forest", "tile": [301, 114], "name_hv": "Phản Cảnh Lâm", "name_han": "返景林", "gloss": "Forest of the Returning Light",
-   "note": "Vương Duy, Lộc Trại: phản cảnh nhập thâm lâm (the evening light comes back into the deep forest); the heart of the northern forest"},
-  {"kind": "forest", "tile": [472, 88], "name_hv": "Vô Tung Lâm", "name_han": "無蹤林", "gloss": "Forest Without Tracks",
-   "note": "Liễu Tông Nguyên, Giang Tuyết: vạn kính nhân tung diệt (on ten thousand paths, no human trace)"},
-  {"kind": "forest", "tile": [347, 280], "name_hv": "Đả Diệp Lâm", "name_han": "打葉林", "gloss": "Forest of the Beaten Leaves",
-   "note": "Tô Thức: xuyên lâm đả diệp thanh (rain piercing the forest, beating the leaves), the line of Xuyên Lâm Môn nearby"},
-  {"kind": "gorge", "tile": [401, 160], "name_hv": "Viên Đề Hạp", "name_han": "猿啼峽", "gloss": "Gorge of the Crying Gibbons",
-   "note": "Lý Bạch: lưỡng ngạn viên thanh đề bất trú (on both banks the gibbons cry without end)"},
-  {"kind": "gorge", "tile": [336, 221], "name_hv": "Vạn Trùng Hạp", "name_han": "萬重峽", "gloss": "Gorge of Ten Thousand Mountains",
-   "note": "Lý Bạch: khinh chu dĩ quá vạn trùng sơn (the light boat has passed ten thousand mountains)"}
- ]
+  {
+   "kind": "city",
+   "tile": [
+    127,
+    132
+   ],
+   "name_hv": "Yên Ba Thành",
+   "name_han": "煙波城",
+   "gloss": "City of the Misty Waves",
+   "note": "Thôi Hiệu, Hoàng Hạc Lâu: yên ba giang thượng sử nhân sầu (mist on the river waves makes one sad); the haze of Thúy Vi"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    131,
+    76
+   ],
+   "name_hv": "Hàn Tân Thành",
+   "name_han": "寒津城",
+   "gloss": "City of the Cold Ford",
+   "note": "The northern ford and port of the cold coast"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    193,
+    124
+   ],
+   "name_hv": "Tùng Gian Thành",
+   "name_han": "松間城",
+   "gloss": "City Among the Pines",
+   "note": "Vương Duy: minh nguyệt tùng gian chiếu (the bright moon shines among the pines)"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    245,
+    131
+   ],
+   "name_hv": "Đào Thanh Thành",
+   "name_han": "濤聲城",
+   "gloss": "City of the Wave Sound",
+   "note": "The pine waves of Tùng Đào Cung, heard from the city below its seat"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    347,
+    127
+   ],
+   "name_hv": "Khai Dương Thành",
+   "name_han": "開陽城",
+   "gloss": "City Opening to the Sun",
+   "note": "Khai Dương (Mizar), a star of the Northern Dipper like Thiên Xu"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    377,
+    184
+   ],
+   "name_hv": "Tinh Hán Thành",
+   "name_han": "星漢城",
+   "gloss": "City of the Star River",
+   "note": "Tào Tháo, Quan Thương Hải: tinh Hán xán lạn, nhược xuất kỳ lý (the bright Milky Way seems to rise out of the sea); Thiên Xu's port on the inland sea"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    439,
+    177
+   ],
+   "name_hv": "Trường Vân Thành",
+   "name_han": "長雲城",
+   "gloss": "City of the Long Clouds",
+   "note": "Vương Xương Linh, Tòng Quân Hành: Thanh Hải trường vân ám tuyết sơn (long clouds darken the snow mountains); the same poet as Băng Tâm"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    487,
+    123
+   ],
+   "name_hv": "Liên Giang Thành",
+   "name_han": "連江城",
+   "gloss": "City Where the Rain Meets the River",
+   "note": "Vương Xương Linh: hàn vũ liên giang dạ nhập Ngô (cold rain joins the river by night), the first line of the Băng Tâm poem"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    87,
+    258
+   ],
+   "name_hv": "Đàm Ảnh Thành",
+   "name_han": "潭影城",
+   "gloss": "City of the Pool's Reflections",
+   "note": "Vương Bột, Đằng Vương Các: nhàn vân đàm ảnh nhật du du (idle clouds and their reflections in the pool, day after day)"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    146,
+    221
+   ],
+   "name_hv": "Nhạn Thanh Thành",
+   "name_han": "雁聲城",
+   "gloss": "City of the Wild Geese's Cry",
+   "note": "Vương Bột: nhạn trận kinh hàn (the wild geese in formation, startled by the cold)"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    184,
+    278
+   ],
+   "name_hv": "Tử Điện Thành",
+   "name_han": "紫電城",
+   "gloss": "City of the Purple Lightning",
+   "note": "Vương Bột: tử điện thanh sương, Vương tướng quân chi vũ khố (the purple-lightning and blue-frost swords of General Vương's armoury)"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    414,
+    220
+   ],
+   "name_hv": "Lai Nghi Thành",
+   "name_han": "來儀城",
+   "gloss": "City Where the Phoenix Comes",
+   "note": "Kinh Thư: Tiêu Thiều cửu thành, phượng hoàng lai nghi (when the Shao music was played nine times, the phoenix came)"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    229,
+    308
+   ],
+   "name_hv": "Thu Trì Thành",
+   "name_han": "秋池城",
+   "gloss": "City of the Autumn Pools",
+   "note": "Lý Thương Ẩn: Ba Sơn dạ vũ trướng thu trì (night rain on the mountain swells the autumn pools)"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    304,
+    275
+   ],
+   "name_hv": "Không Mông Thành",
+   "name_han": "空濛城",
+   "gloss": "City of the Hazy Rain",
+   "note": "Tô Thức: sơn sắc không mông vũ diệc kỳ (the hills hazy in the rain are lovely too)"
+  },
+  {
+   "kind": "city",
+   "tile": [
+    414,
+    287
+   ],
+   "name_hv": "Ngũ Thải Thành",
+   "name_han": "五采城",
+   "gloss": "City of the Five Colours",
+   "note": "Sơn Hải Kinh: the bird of Mount Đan Huyệt is five-coloured, the phoenix"
+  },
+  {
+   "kind": "market",
+   "tile": [
+    141,
+    89
+   ],
+   "name_hv": "Lam Yên Thị",
+   "name_han": "嵐煙市",
+   "gloss": "Market of the Mountain Mist",
+   "note": "Below Thúy Vi Tông's seat, in the haze that names it"
+  },
+  {
+   "kind": "market",
+   "tile": [
+    230,
+    118
+   ],
+   "name_hv": "Tùng Hạ Thị",
+   "name_han": "松下市",
+   "gloss": "Market Beneath the Pines",
+   "note": "Giả Đảo: tùng hạ vấn đồng tử (beneath the pine I asked the boy where his master was)"
+  },
+  {
+   "kind": "market",
+   "tile": [
+    243,
+    72
+   ],
+   "name_hv": "Đào Sa Thị",
+   "name_han": "淘沙市",
+   "gloss": "Market of the Washed Sands",
+   "note": "Lưu Vũ Tích, Lãng Đào Sa: after a thousand washings the sand gives up its gold; beside Lãng Đào Môn"
+  },
+  {
+   "kind": "market",
+   "tile": [
+    458,
+    131
+   ],
+   "name_hv": "Tống Khách Thị",
+   "name_han": "送客市",
+   "gloss": "Market of Farewells",
+   "note": "Vương Xương Linh: bình minh tống khách (at dawn I see my guest off), the Băng Tâm poem"
+  },
+  {
+   "kind": "market",
+   "tile": [
+    123,
+    239
+   ],
+   "name_hv": "Tương Phùng Thị",
+   "name_han": "相逢市",
+   "gloss": "Market of Chance Meetings",
+   "note": "Vương Bột: bình thủy tương phùng (duckweed and water meet by chance); beside Bình Thủy Môn"
+  },
+  {
+   "kind": "market",
+   "tile": [
+    219,
+    214
+   ],
+   "name_hv": "Vật Hoa Thị",
+   "name_han": "物華市",
+   "gloss": "Market of the Land's Riches",
+   "note": "Vương Bột: vật hoa thiên bảo (the riches of the land are heaven's treasures); beside Thiên Bảo Trai"
+  },
+  {
+   "kind": "market",
+   "tile": [
+    192,
+    200
+   ],
+   "name_hv": "Hạc Đinh Thị",
+   "name_han": "鶴汀市",
+   "gloss": "Market of the Crane Shoal",
+   "note": "Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles); below Lạc Hà Tông's seat"
+  },
+  {
+   "kind": "market",
+   "tile": [
+    288,
+    185
+   ],
+   "name_hv": "Thiên Quyền Thị",
+   "name_han": "天權市",
+   "gloss": "Market of the Heavenly Balance",
+   "note": "Thiên Quyền (Megrez), the Dipper star of authority and measure; below Thiên Xu Tông's seat"
+  },
+  {
+   "kind": "market",
+   "tile": [
+    371,
+    258
+   ],
+   "name_hv": "Thiều Âm Thị",
+   "name_han": "韶音市",
+   "gloss": "Market of the Shao Music",
+   "note": "The music that brings the phoenix; below Phượng Minh Cung's seat"
+  },
+  {
+   "kind": "market",
+   "tile": [
+    259,
+    244
+   ],
+   "name_hv": "Hạnh Hoa Thị",
+   "name_han": "杏花市",
+   "gloss": "Market of the Apricot Blossom",
+   "note": "Lục Du: tiểu lâu nhất dạ thính xuân vũ, thâm hạng minh triều mại hạnh hoa (all night in the small tower I listened to the spring rain; tomorrow the lanes will sell apricot blossom); below Thính Vũ Lâu"
+  },
+  {
+   "kind": "peak",
+   "tile": [
+    370,
+    140
+   ],
+   "name_hv": "Phụ Tinh Phong",
+   "name_han": "輔星峰",
+   "gloss": "Peak of the Companion Star",
+   "note": "Phụ tinh (Alcor), the faint star beside the Dipper"
+  },
+  {
+   "kind": "peak",
+   "tile": [
+    380,
+    161
+   ],
+   "name_hv": "Trích Tinh Phong",
+   "name_han": "摘星峰",
+   "gloss": "Peak Where One Picks the Stars",
+   "note": "Lý Bạch: thủ khả trích tinh thần (one could pluck the stars by hand); 4.7 km, the roof of the heartland"
+  },
+  {
+   "kind": "peak",
+   "tile": [
+    393,
+    139
+   ],
+   "name_hv": "Hồi Lộ Phong",
+   "name_han": "迴路峰",
+   "gloss": "Peak of the Winding Road",
+   "note": "Sầm Tham, Bạch Tuyết Ca: sơn hồi lộ chuyển bất kiến quân (the mountain turns, the road bends, and you are gone)"
+  },
+  {
+   "kind": "peak",
+   "tile": [
+    410,
+    146
+   ],
+   "name_hv": "Lăng Tuyệt Phong",
+   "name_han": "凌絕峰",
+   "gloss": "Peak Above All",
+   "note": "Đỗ Phủ, Vọng Nhạc: hội đương lăng tuyệt đỉnh, nhất lãm chúng sơn tiểu (I shall stand on the very top and see all mountains small); 5.2 km, the highest on the continent"
+  },
+  {
+   "kind": "peak",
+   "tile": [
+    351,
+    213
+   ],
+   "name_hv": "Thanh Ải Phong",
+   "name_han": "青靄峰",
+   "gloss": "Peak of the Blue Haze",
+   "note": "Vương Duy, Chung Nam Sơn: thanh ải nhập khán vô (the blue haze, walked into, is gone)"
+  },
+  {
+   "kind": "peak",
+   "tile": [
+    342,
+    248
+   ],
+   "name_hv": "Cùng Mục Phong",
+   "name_han": "窮目峰",
+   "gloss": "Peak of the Farthest Sight",
+   "note": "Vương Chi Hoán: dục cùng thiên lý mục, cánh thướng nhất tầng lâu (to see a thousand li further, climb one storey more)"
+  },
+  {
+   "kind": "peak",
+   "tile": [
+    325,
+    255
+   ],
+   "name_hv": "Liệt Khuyết Phong",
+   "name_han": "列缺峰",
+   "gloss": "Peak of the Lightning Rift",
+   "note": "Lý Bạch, Mộng du Thiên Mỗ: liệt khuyết phích lịch, khâu loan băng thôi (lightning and thunder, and the ridges crumble)"
+  },
+  {
+   "kind": "volcano",
+   "tile": [
+    404,
+    27
+   ],
+   "name_hv": "Chúc Long Sơn",
+   "name_han": "燭龍山",
+   "gloss": "Mountain of the Torch Dragon",
+   "note": "Sơn Hải Kinh: in the dark far north the Torch Dragon lights the world; a volcano on the ice"
+  },
+  {
+   "kind": "volcano",
+   "tile": [
+    429,
+    80
+   ],
+   "name_hv": "Sương Diễm Sơn",
+   "name_han": "霜焰山",
+   "gloss": "Mountain of Frost and Flame",
+   "note": "Fire under the frost of the north-east peninsula"
+  },
+  {
+   "kind": "lake",
+   "tile": [
+    315,
+    89
+   ],
+   "name_hv": "Hạo Nguyệt Hồ",
+   "name_han": "皓月湖",
+   "gloss": "Lake of the Bright Moon",
+   "note": "The long lake of Lãnh Nguyệt Lâm, the biggest on the continent; Hàm Nguyệt Trang holds its moon"
+  },
+  {
+   "kind": "lake",
+   "tile": [
+    466,
+    123
+   ],
+   "name_hv": "Phiến Băng Hồ",
+   "name_han": "片冰湖",
+   "gloss": "Lake of the Piece of Ice",
+   "note": "Vương Xương Linh: nhất phiến băng tâm (one piece of ice heart); beside Băng Tâm Các"
+  },
+  {
+   "kind": "lake",
+   "tile": [
+    265,
+    186
+   ],
+   "name_hv": "Tinh Lạc Hồ",
+   "name_han": "星落湖",
+   "gloss": "Lake Where the Stars Fall",
+   "note": "A high lake, 1.2 km up, that holds the Dipper at night; beside Củng Tinh Quán"
+  },
+  {
+   "kind": "lake",
+   "tile": [
+    408,
+    203
+   ],
+   "name_hv": "Triêu Hà Hồ",
+   "name_han": "朝霞湖",
+   "gloss": "Lake of the Dawn Clouds",
+   "note": "The east's dawn clouds answer Lạc Hà's sunset clouds in the west; beside Lễ Tuyền Phái"
+  },
+  {
+   "kind": "lake",
+   "tile": [
+    247,
+    256
+   ],
+   "name_hv": "Tàn Hà Hồ",
+   "name_han": "殘荷湖",
+   "gloss": "Lake of the Last Lotus",
+   "note": "Lý Thương Ẩn: lưu đắc khô hà thính vũ thanh (keep the withered lotus, to listen to the rain); beside Thính Vũ Lâu"
+  },
+  {
+   "kind": "island",
+   "tile": [
+    123,
+    151
+   ],
+   "name_hv": "Phù Chử Đảo",
+   "name_han": "鳧渚島",
+   "gloss": "Isle of the Wild Ducks",
+   "note": "Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles)"
+  },
+  {
+   "kind": "island",
+   "tile": [
+    29,
+    188
+   ],
+   "name_hv": "Tịch Chiếu Đảo",
+   "name_han": "夕照島",
+   "gloss": "Isle of the Evening Glow",
+   "note": "The westernmost island, last to see the sunset of Lạc Hà"
+  },
+  {
+   "kind": "island",
+   "tile": [
+    391,
+    276
+   ],
+   "name_hv": "Tương Phi Đảo",
+   "name_han": "湘妃島",
+   "gloss": "Isle of the Xiang Consorts",
+   "note": "Its spotted bamboo, stained by the tears of the two consorts of Thuấn"
+  },
+  {
+   "kind": "island",
+   "tile": [
+    469,
+    335
+   ],
+   "name_hv": "Dục Nhật Đảo",
+   "name_han": "浴日島",
+   "gloss": "Isle Where the Sun Bathes",
+   "note": "Sơn Hải Kinh: in the far south-east the suns bathe in the sea before they rise"
+  },
+  {
+   "kind": "island",
+   "tile": [
+    432,
+    346
+   ],
+   "name_hv": "Đồ Nam Đảo",
+   "name_han": "圖南島",
+   "gloss": "Isle of the Southward Flight",
+   "note": "Trang Tử: the great Bằng rises ninety thousand li, then sets out for the south"
+  },
+  {
+   "kind": "forest",
+   "tile": [
+    301,
+    114
+   ],
+   "name_hv": "Phản Cảnh Lâm",
+   "name_han": "返景林",
+   "gloss": "Forest of the Returning Light",
+   "note": "Vương Duy, Lộc Trại: phản cảnh nhập thâm lâm (the evening light comes back into the deep forest); the heart of the northern forest"
+  },
+  {
+   "kind": "forest",
+   "tile": [
+    472,
+    88
+   ],
+   "name_hv": "Vô Tung Lâm",
+   "name_han": "無蹤林",
+   "gloss": "Forest Without Tracks",
+   "note": "Liễu Tông Nguyên, Giang Tuyết: vạn kính nhân tung diệt (on ten thousand paths, no human trace)"
+  },
+  {
+   "kind": "forest",
+   "tile": [
+    347,
+    280
+   ],
+   "name_hv": "Đả Diệp Lâm",
+   "name_han": "打葉林",
+   "gloss": "Forest of the Beaten Leaves",
+   "note": "Tô Thức: xuyên lâm đả diệp thanh (rain piercing the forest, beating the leaves), the line of Xuyên Lâm Môn nearby"
+  },
+  {
+   "kind": "gorge",
+   "tile": [
+    401,
+    160
+   ],
+   "name_hv": "Viên Đề Hạp",
+   "name_han": "猿啼峽",
+   "gloss": "Gorge of the Crying Gibbons",
+   "note": "Lý Bạch: lưỡng ngạn viên thanh đề bất trú (on both banks the gibbons cry without end)"
+  },
+  {
+   "kind": "gorge",
+   "tile": [
+    336,
+    221
+   ],
+   "name_hv": "Vạn Trùng Hạp",
+   "name_han": "萬重峽",
+   "gloss": "Gorge of Ten Thousand Mountains",
+   "note": "Lý Bạch: khinh chu dĩ quá vạn trùng sơn (the light boat has passed ten thousand mountains)"
+  }
+ ],
+ "pool": {
+  "coast": [
+   {
+    "name_hv": "Triều Âm",
+    "name_han": "潮音",
+    "gloss": "Tide Song"
+   },
+   {
+    "name_hv": "Bạch Sa",
+    "name_han": "白沙",
+    "gloss": "White Sands"
+   },
+   {
+    "name_hv": "Ngư Lương",
+    "name_han": "漁梁",
+    "gloss": "Fish Weir"
+   },
+   {
+    "name_hv": "Vọng Hải",
+    "name_han": "望海",
+    "gloss": "Sea Watch"
+   },
+   {
+    "name_hv": "Lãng Hoa",
+    "name_han": "浪花",
+    "gloss": "Spray Flowers"
+   },
+   {
+    "name_hv": "Hải Yến",
+    "name_han": "海燕",
+    "gloss": "Sea Swallow"
+   },
+   {
+    "name_hv": "Thạch Cơ",
+    "name_han": "石磯",
+    "gloss": "Stone Jetty"
+   },
+   {
+    "name_hv": "Xích Ngạn",
+    "name_han": "赤岸",
+    "gloss": "Red Shore"
+   },
+   {
+    "name_hv": "Hồi Lan",
+    "name_han": "迴瀾",
+    "gloss": "Turning Waves"
+   },
+   {
+    "name_hv": "Tình Sa",
+    "name_han": "晴沙",
+    "gloss": "Sunlit Sands"
+   },
+   {
+    "name_hv": "Lô Cảng",
+    "name_han": "蘆港",
+    "gloss": "Reed Harbour"
+   },
+   {
+    "name_hv": "Chu Tân",
+    "name_han": "舟津",
+    "gloss": "Boat Ford"
+   },
+   {
+    "name_hv": "Ẩn Loan",
+    "name_han": "隱灣",
+    "gloss": "Hidden Cove"
+   },
+   {
+    "name_hv": "Diêm Điền",
+    "name_han": "鹽田",
+    "gloss": "Salt Pans"
+   },
+   {
+    "name_hv": "Bích Lãng",
+    "name_han": "碧浪",
+    "gloss": "Jade Waves"
+   },
+   {
+    "name_hv": "Âu Lộ",
+    "name_han": "鷗鷺",
+    "gloss": "Gulls and Herons"
+   },
+   {
+    "name_hv": "Phong Phàm",
+    "name_han": "風帆",
+    "gloss": "Wind in the Sails"
+   },
+   {
+    "name_hv": "Châu Bạng",
+    "name_han": "珠蚌",
+    "gloss": "Pearl Oyster"
+   },
+   {
+    "name_hv": "Bối Sa",
+    "name_han": "貝沙",
+    "gloss": "Shell Sands"
+   },
+   {
+    "name_hv": "Hải Môn",
+    "name_han": "海門",
+    "gloss": "Sea Gate"
+   },
+   {
+    "name_hv": "Tân Khẩu",
+    "name_han": "津口",
+    "gloss": "Harbour Mouth"
+   },
+   {
+    "name_hv": "Lãng Thạch",
+    "name_han": "浪石",
+    "gloss": "Wave Rock"
+   },
+   {
+    "name_hv": "Nguyệt Loan",
+    "name_han": "月灣",
+    "gloss": "Moon Cove"
+   }
+  ],
+  "river": [
+   {
+    "name_hv": "Thanh Khê",
+    "name_han": "清溪",
+    "gloss": "Clear Brook"
+   },
+   {
+    "name_hv": "Liễu Ngạn",
+    "name_han": "柳岸",
+    "gloss": "Willow Bank"
+   },
+   {
+    "name_hv": "Song Kiều",
+    "name_han": "雙橋",
+    "gloss": "Twin Bridges"
+   },
+   {
+    "name_hv": "Cổ Độ",
+    "name_han": "古渡",
+    "gloss": "Old Ferry"
+   },
+   {
+    "name_hv": "Bích Khê",
+    "name_han": "碧溪",
+    "gloss": "Jade Brook"
+   },
+   {
+    "name_hv": "Hà Bạn",
+    "name_han": "河畔",
+    "gloss": "Riverside"
+   },
+   {
+    "name_hv": "Thạch Kiều",
+    "name_han": "石橋",
+    "gloss": "Stone Bridge"
+   },
+   {
+    "name_hv": "Hoa Khê",
+    "name_han": "花溪",
+    "gloss": "Flower Brook"
+   },
+   {
+    "name_hv": "Thủy Khẩu",
+    "name_han": "水口",
+    "gloss": "Water's Mouth"
+   },
+   {
+    "name_hv": "Ngân Than",
+    "name_han": "銀灘",
+    "gloss": "Silver Shoal"
+   },
+   {
+    "name_hv": "Hà Loan",
+    "name_han": "河灣",
+    "gloss": "River Bend"
+   },
+   {
+    "name_hv": "Khê Đầu",
+    "name_han": "溪頭",
+    "gloss": "Brook Head"
+   },
+   {
+    "name_hv": "Đào Khê",
+    "name_han": "桃溪",
+    "gloss": "Peach Brook"
+   },
+   {
+    "name_hv": "Thủy Đối",
+    "name_han": "水碓",
+    "gloss": "Water Mill"
+   },
+   {
+    "name_hv": "Kiều Bạn",
+    "name_han": "橋畔",
+    "gloss": "Bridgeside"
+   },
+   {
+    "name_hv": "Khê Thanh",
+    "name_han": "溪聲",
+    "gloss": "Brook Sound"
+   },
+   {
+    "name_hv": "Bình Độ",
+    "name_han": "平渡",
+    "gloss": "Calm Ferry"
+   },
+   {
+    "name_hv": "Yên Kiều",
+    "name_han": "煙橋",
+    "gloss": "Misty Bridge"
+   },
+   {
+    "name_hv": "Song Khê",
+    "name_han": "雙溪",
+    "gloss": "Twin Brooks"
+   },
+   {
+    "name_hv": "Hà Châu",
+    "name_han": "河洲",
+    "gloss": "River Isle"
+   },
+   {
+    "name_hv": "Thượng Độ",
+    "name_han": "上渡",
+    "gloss": "Upper Ferry"
+   },
+   {
+    "name_hv": "Lô Châu",
+    "name_han": "蘆洲",
+    "gloss": "Reed Isle"
+   }
+  ],
+  "lake": [
+   {
+    "name_hv": "Liên Đường",
+    "name_han": "蓮塘",
+    "gloss": "Lotus Pond"
+   },
+   {
+    "name_hv": "Hồ Tâm",
+    "name_han": "湖心",
+    "gloss": "Lake Heart"
+   },
+   {
+    "name_hv": "Lô Hoa",
+    "name_han": "蘆花",
+    "gloss": "Reed Flowers"
+   },
+   {
+    "name_hv": "Ngư Đàm",
+    "name_han": "魚潭",
+    "gloss": "Fish Pool"
+   },
+   {
+    "name_hv": "Ba Quang",
+    "name_han": "波光",
+    "gloss": "Glinting Waves"
+   },
+   {
+    "name_hv": "Hồ Bạn",
+    "name_han": "湖畔",
+    "gloss": "Lakeside"
+   },
+   {
+    "name_hv": "Hà Hương",
+    "name_han": "荷香",
+    "gloss": "Lotus Scent"
+   },
+   {
+    "name_hv": "Bình Hồ",
+    "name_han": "平湖",
+    "gloss": "Calm Lake"
+   },
+   {
+    "name_hv": "Thanh Đàm",
+    "name_han": "清潭",
+    "gloss": "Clear Pool"
+   },
+   {
+    "name_hv": "Áp Chử",
+    "name_han": "鴨渚",
+    "gloss": "Duck Isle"
+   }
+  ],
+  "forest": [
+   {
+    "name_hv": "Phong Lâm",
+    "name_han": "楓林",
+    "gloss": "Maple Wood"
+   },
+   {
+    "name_hv": "Hòe Âm",
+    "name_han": "槐蔭",
+    "gloss": "Locust Shade"
+   },
+   {
+    "name_hv": "Bách Diệp",
+    "name_han": "柏葉",
+    "gloss": "Cypress Leaf"
+   },
+   {
+    "name_hv": "Lộc Minh",
+    "name_han": "鹿鳴",
+    "gloss": "Deer Call"
+   },
+   {
+    "name_hv": "Tiều Ca",
+    "name_han": "樵歌",
+    "gloss": "Woodcutters' Song"
+   },
+   {
+    "name_hv": "Mộc Lan",
+    "name_han": "木蘭",
+    "gloss": "Magnolia"
+   },
+   {
+    "name_hv": "Thanh Bách",
+    "name_han": "青柏",
+    "gloss": "Green Cypress"
+   },
+   {
+    "name_hv": "Lâm Hạ",
+    "name_han": "林下",
+    "gloss": "Under the Trees"
+   },
+   {
+    "name_hv": "Quy Điểu",
+    "name_han": "歸鳥",
+    "gloss": "Homing Birds"
+   },
+   {
+    "name_hv": "Ngân Hạnh",
+    "name_han": "銀杏",
+    "gloss": "Ginkgo"
+   },
+   {
+    "name_hv": "Thanh Tùng",
+    "name_han": "青松",
+    "gloss": "Green Pine"
+   },
+   {
+    "name_hv": "Lâm Tuyền",
+    "name_han": "林泉",
+    "gloss": "Woods and Springs"
+   },
+   {
+    "name_hv": "Ô Đề",
+    "name_han": "烏啼",
+    "gloss": "Crows' Cry"
+   },
+   {
+    "name_hv": "Thu Diệp",
+    "name_han": "秋葉",
+    "gloss": "Autumn Leaves"
+   },
+   {
+    "name_hv": "Tùng Phong",
+    "name_han": "松風",
+    "gloss": "Pine Wind"
+   },
+   {
+    "name_hv": "Bạch Hoa",
+    "name_han": "白樺",
+    "gloss": "White Birch"
+   },
+   {
+    "name_hv": "Hoàng Oanh",
+    "name_han": "黃鶯",
+    "gloss": "Oriole"
+   },
+   {
+    "name_hv": "Đỗ Quyên",
+    "name_han": "杜鵑",
+    "gloss": "Azalea"
+   },
+   {
+    "name_hv": "Lâm Ẩn",
+    "name_han": "林隱",
+    "gloss": "Hidden in the Woods"
+   },
+   {
+    "name_hv": "Lộc Uyển",
+    "name_han": "鹿苑",
+    "gloss": "Deer Park"
+   },
+   {
+    "name_hv": "Tiều Lộ",
+    "name_han": "樵路",
+    "gloss": "Woodcutters' Path"
+   },
+   {
+    "name_hv": "Mộc Hương",
+    "name_han": "木香",
+    "gloss": "Wood Scent"
+   },
+   {
+    "name_hv": "Hạc Quy",
+    "name_han": "鶴歸",
+    "gloss": "Crane's Return"
+   },
+   {
+    "name_hv": "Thụ Âm",
+    "name_han": "樹陰",
+    "gloss": "Tree Shade"
+   },
+   {
+    "name_hv": "Dã Cúc",
+    "name_han": "野菊",
+    "gloss": "Wild Chrysanthemum"
+   }
+  ],
+  "bamboo": [
+   {
+    "name_hv": "Trúc Khê",
+    "name_han": "竹溪",
+    "gloss": "Bamboo Brook"
+   },
+   {
+    "name_hv": "Trúc Hiên",
+    "name_han": "竹軒",
+    "gloss": "Bamboo Veranda"
+   },
+   {
+    "name_hv": "Xuân Duẩn",
+    "name_han": "春筍",
+    "gloss": "Spring Shoots"
+   },
+   {
+    "name_hv": "Trúc Ảnh",
+    "name_han": "竹影",
+    "gloss": "Bamboo Shadow"
+   },
+   {
+    "name_hv": "Tu Trúc",
+    "name_han": "修竹",
+    "gloss": "Tall Bamboo"
+   },
+   {
+    "name_hv": "Trúc Lý",
+    "name_han": "竹裏",
+    "gloss": "In the Bamboo"
+   },
+   {
+    "name_hv": "Trúc Âm",
+    "name_han": "竹音",
+    "gloss": "Bamboo Sound"
+   }
+  ],
+  "jungle": [
+   {
+    "name_hv": "Khổng Tước",
+    "name_han": "孔雀",
+    "gloss": "Peacock"
+   },
+   {
+    "name_hv": "Lệ Chi",
+    "name_han": "荔枝",
+    "gloss": "Lychee"
+   },
+   {
+    "name_hv": "Đằng La",
+    "name_han": "藤蘿",
+    "gloss": "Hanging Vines"
+   },
+   {
+    "name_hv": "Ba Tiêu",
+    "name_han": "芭蕉",
+    "gloss": "Banana Grove"
+   },
+   {
+    "name_hv": "Long Nhãn",
+    "name_han": "龍眼",
+    "gloss": "Longan"
+   },
+   {
+    "name_hv": "Thanh Đằng",
+    "name_han": "青藤",
+    "gloss": "Green Vine"
+   },
+   {
+    "name_hv": "Anh Vũ",
+    "name_han": "鸚鵡",
+    "gloss": "Parrot"
+   },
+   {
+    "name_hv": "Da Lâm",
+    "name_han": "椰林",
+    "gloss": "Coconut Grove"
+   },
+   {
+    "name_hv": "Hương Mộc",
+    "name_han": "香木",
+    "gloss": "Incense Wood"
+   },
+   {
+    "name_hv": "Phỉ Thúy",
+    "name_han": "翡翠",
+    "gloss": "Kingfisher"
+   }
+  ],
+  "grassland": [
+   {
+    "name_hv": "Đạo Hương",
+    "name_han": "稻香",
+    "gloss": "Rice Scent"
+   },
+   {
+    "name_hv": "Mạch Điền",
+    "name_han": "麥田",
+    "gloss": "Wheat Fields"
+   },
+   {
+    "name_hv": "Tang Ma",
+    "name_han": "桑麻",
+    "gloss": "Mulberry and Hemp"
+   },
+   {
+    "name_hv": "Hoàng Vân",
+    "name_han": "黃雲",
+    "gloss": "Yellow Clouds of Grain"
+   },
+   {
+    "name_hv": "Thanh Điền",
+    "name_han": "青田",
+    "gloss": "Green Fields"
+   },
+   {
+    "name_hv": "Phong Đăng",
+    "name_han": "豐登",
+    "gloss": "Rich Harvest"
+   },
+   {
+    "name_hv": "Thảo Đường",
+    "name_han": "草塘",
+    "gloss": "Grass Pond"
+   },
+   {
+    "name_hv": "Mục Ca",
+    "name_han": "牧歌",
+    "gloss": "Herders' Song"
+   },
+   {
+    "name_hv": "Lục Dã",
+    "name_han": "綠野",
+    "gloss": "Green Meadows"
+   },
+   {
+    "name_hv": "Xuân Thảo",
+    "name_han": "春草",
+    "gloss": "Spring Grass"
+   },
+   {
+    "name_hv": "Bình Dã",
+    "name_han": "平野",
+    "gloss": "Open Plain"
+   },
+   {
+    "name_hv": "Tang Điền",
+    "name_han": "桑田",
+    "gloss": "Mulberry Fields"
+   },
+   {
+    "name_hv": "Hòa Phong",
+    "name_han": "和風",
+    "gloss": "Gentle Breeze"
+   },
+   {
+    "name_hv": "Ngũ Cốc",
+    "name_han": "五穀",
+    "gloss": "Five Grains"
+   },
+   {
+    "name_hv": "Kê Minh",
+    "name_han": "雞鳴",
+    "gloss": "Cockcrow"
+   },
+   {
+    "name_hv": "Phương Thảo",
+    "name_han": "芳草",
+    "gloss": "Fragrant Grass"
+   },
+   {
+    "name_hv": "Yến Quy",
+    "name_han": "燕歸",
+    "gloss": "Swallows' Return"
+   },
+   {
+    "name_hv": "Hoàng Ngưu",
+    "name_han": "黃牛",
+    "gloss": "Yellow Ox"
+   },
+   {
+    "name_hv": "Điền Viên",
+    "name_han": "田園",
+    "gloss": "Fields and Gardens"
+   },
+   {
+    "name_hv": "Thủy Điền",
+    "name_han": "水田",
+    "gloss": "Paddy Fields"
+   },
+   {
+    "name_hv": "Lý Hoa",
+    "name_han": "李花",
+    "gloss": "Plum Blossom"
+   },
+   {
+    "name_hv": "Hòa Thử",
+    "name_han": "禾黍",
+    "gloss": "Grain and Millet"
+   },
+   {
+    "name_hv": "Mạch Lãng",
+    "name_han": "麥浪",
+    "gloss": "Wheat Waves"
+   },
+   {
+    "name_hv": "Hoa Điền",
+    "name_han": "花田",
+    "gloss": "Flower Fields"
+   },
+   {
+    "name_hv": "Thanh Mạch",
+    "name_han": "青麥",
+    "gloss": "Green Wheat"
+   },
+   {
+    "name_hv": "Ương Ca",
+    "name_han": "秧歌",
+    "gloss": "Planting Song"
+   },
+   {
+    "name_hv": "Tang Âm",
+    "name_han": "桑陰",
+    "gloss": "Mulberry Shade"
+   },
+   {
+    "name_hv": "Dương Liễu",
+    "name_han": "楊柳",
+    "gloss": "Willows"
+   },
+   {
+    "name_hv": "Cúc Viên",
+    "name_han": "菊園",
+    "gloss": "Chrysanthemum Garden"
+   }
+  ],
+  "steppe": [
+   {
+    "name_hv": "Mã Minh",
+    "name_han": "馬鳴",
+    "gloss": "Neighing Horses"
+   },
+   {
+    "name_hv": "Thiên Mã",
+    "name_han": "天馬",
+    "gloss": "Heavenly Horse"
+   },
+   {
+    "name_hv": "Hoàng Thảo",
+    "name_han": "黃草",
+    "gloss": "Yellow Grass"
+   },
+   {
+    "name_hv": "Bạch Thảo",
+    "name_han": "白草",
+    "gloss": "White Grass"
+   },
+   {
+    "name_hv": "Mã Đề",
+    "name_han": "馬蹄",
+    "gloss": "Hoofbeats"
+   },
+   {
+    "name_hv": "Lang Yên",
+    "name_han": "狼煙",
+    "gloss": "Beacon Smoke"
+   },
+   {
+    "name_hv": "Xuy Địch",
+    "name_han": "吹笛",
+    "gloss": "Flute Players"
+   },
+   {
+    "name_hv": "Dã Mã",
+    "name_han": "野馬",
+    "gloss": "Wild Horses"
+   },
+   {
+    "name_hv": "Khương Địch",
+    "name_han": "羌笛",
+    "gloss": "Qiang Flute"
+   },
+   {
+    "name_hv": "Thảo Hải",
+    "name_han": "草海",
+    "gloss": "Sea of Grass"
+   },
+   {
+    "name_hv": "Liễu Doanh",
+    "name_han": "柳營",
+    "gloss": "Willow Camp"
+   },
+   {
+    "name_hv": "Trường Phong",
+    "name_han": "長風",
+    "gloss": "Long Wind"
+   }
+  ],
+  "desert": [
+   {
+    "name_hv": "Lục Châu",
+    "name_han": "綠洲",
+    "gloss": "Oasis"
+   },
+   {
+    "name_hv": "Đà Linh",
+    "name_han": "駝鈴",
+    "gloss": "Camel Bells"
+   },
+   {
+    "name_hv": "Hồ Dương",
+    "name_han": "胡楊",
+    "gloss": "Desert Poplar"
+   },
+   {
+    "name_hv": "Sa Tuyền",
+    "name_han": "沙泉",
+    "gloss": "Sand Spring"
+   },
+   {
+    "name_hv": "Phong Thạch",
+    "name_han": "風石",
+    "gloss": "Wind-carved Stones"
+   },
+   {
+    "name_hv": "Nguyệt Nha",
+    "name_han": "月牙",
+    "gloss": "Crescent"
+   },
+   {
+    "name_hv": "Xích Thổ",
+    "name_han": "赤土",
+    "gloss": "Red Earth"
+   },
+   {
+    "name_hv": "Diêm Trạch",
+    "name_han": "鹽澤",
+    "gloss": "Salt Marsh"
+   }
+  ],
+  "cold": [
+   {
+    "name_hv": "Tuyết Ốc",
+    "name_han": "雪屋",
+    "gloss": "Snow Houses"
+   },
+   {
+    "name_hv": "Hàn Mai",
+    "name_han": "寒梅",
+    "gloss": "Winter Plum"
+   },
+   {
+    "name_hv": "Bạch Lang",
+    "name_han": "白狼",
+    "gloss": "White Wolf"
+   },
+   {
+    "name_hv": "Hàn Yên",
+    "name_han": "寒煙",
+    "gloss": "Cold Smoke"
+   },
+   {
+    "name_hv": "Noãn Ốc",
+    "name_han": "暖屋",
+    "gloss": "Warm Houses"
+   },
+   {
+    "name_hv": "Tuyết Lộc",
+    "name_han": "雪鹿",
+    "gloss": "Snow Deer"
+   },
+   {
+    "name_hv": "Bắc Phong",
+    "name_han": "北風",
+    "gloss": "North Wind"
+   },
+   {
+    "name_hv": "Hàn Thạch",
+    "name_han": "寒石",
+    "gloss": "Cold Stone"
+   },
+   {
+    "name_hv": "Tuyết Nhạn",
+    "name_han": "雪雁",
+    "gloss": "Snow Goose"
+   },
+   {
+    "name_hv": "Phong Tuyết",
+    "name_han": "風雪",
+    "gloss": "Wind and Snow"
+   }
+  ],
+  "hill": [
+   {
+    "name_hv": "Vân Thê",
+    "name_han": "雲梯",
+    "gloss": "Cloud Ladder"
+   },
+   {
+    "name_hv": "Thạch Tuyền",
+    "name_han": "石泉",
+    "gloss": "Rock Spring"
+   },
+   {
+    "name_hv": "Thạch Môn",
+    "name_han": "石門",
+    "gloss": "Stone Gate"
+   },
+   {
+    "name_hv": "Sơn Âm",
+    "name_han": "山陰",
+    "gloss": "Shady Slope"
+   },
+   {
+    "name_hv": "Bạch Vân",
+    "name_han": "白雲",
+    "gloss": "White Clouds"
+   },
+   {
+    "name_hv": "Nham Hạ",
+    "name_han": "巖下",
+    "gloss": "Under the Cliff"
+   },
+   {
+    "name_hv": "Phi Bộc",
+    "name_han": "飛瀑",
+    "gloss": "Flying Falls"
+   },
+   {
+    "name_hv": "Bán Sơn",
+    "name_han": "半山",
+    "gloss": "Halfway Up"
+   },
+   {
+    "name_hv": "Thải Dược",
+    "name_han": "採藥",
+    "gloss": "Herb Gatherers"
+   },
+   {
+    "name_hv": "Kim Tỉnh",
+    "name_han": "金井",
+    "gloss": "Golden Well"
+   },
+   {
+    "name_hv": "Minh Tuyền",
+    "name_han": "鳴泉",
+    "gloss": "Singing Spring"
+   },
+   {
+    "name_hv": "Hổ Khiếu",
+    "name_han": "虎嘯",
+    "gloss": "Tiger's Roar"
+   },
+   {
+    "name_hv": "Ưng Chủy",
+    "name_han": "鷹嘴",
+    "gloss": "Eagle's Beak"
+   },
+   {
+    "name_hv": "Thạch Bích",
+    "name_han": "石壁",
+    "gloss": "Stone Wall"
+   }
+  ]
+ },
+ "pool_note": "Towns (Trấn) and villages (Thôn) with no name above take one from this pool, by the land at their tile: coast, lake shore or river first, then hills, cold, or the biome. Each name is used once. A name given above by kind and tile always wins."
 }

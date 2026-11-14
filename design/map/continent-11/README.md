@@ -8,9 +8,9 @@ fixed-world-decisions.md).
 - **Layout:** v3. Sect territories are drawn first, then regions inside them.
 - **Approved by the user on 2026-11-14:** the great sects, their names and territories, the region names, and
   the 22 minor sects with their seats.
-- **Places, roads and arrays:** 204 places, a proposal, awaiting the user's approval (2026-11-14).
+- **Places, roads and arrays:** 204 places, approved by the user 2026-11-14.
+- **Town and village names:** a proposal, awaiting the user's approval.
 - **Still to do:**
-  - town and village names;
   - sacred features, secret spots and history sites.
 
 ## Files
@@ -267,7 +267,7 @@ Those are the vassals a neighbour could court (Sects rule 6).
 
 The line each name comes from is in `minor_sects_proposal.json` (`note`).
 
-## Places, roads and arrays: proposal (awaiting approval)
+## Places, roads and arrays (approved 2026-11-14)
 
 Travel & Map rule 6 asks for 150–250 named places of the kinds it lists. Rules 9–11 add roads, rivers, sea lanes and
 teleport arrays, and AC-TM-128 asks that every settlement can reach every other and that no inhabited island lacks a
@@ -278,7 +278,7 @@ port. This pass places **204**:
 | Great sect seats, minor sect seats | 7, 22 | Approved above |
 | City (thành) | 15 | At most one a region. Count per sect set by hand: 3 for Lạc Hà Tông, 2 for each of the others. Each takes the most livable tile in its region: river mouths, coasts and mild lowland. All 15 are river ports, and 14 are sea ports. |
 | Cultivator market (phường thị) | 10 | Beside each great seat (7) and beside the three trading vassals: Thiên Bảo Trai, Bình Thủy Môn and Lãng Đào Môn |
-| Town (trấn), village (thôn) | 40, 70 | By livable land per region, at least 1 town and 2 villages in each. **Unnamed for now.** |
+| Town (trấn), village (thôn) | 40, 70 | By livable land per region, at least 1 town and 2 villages in each. Named from a pool, below. |
 | Mine (khoáng mạch) | 16 | On the biggest ore-vein clusters, one more per 40 ore tiles. Thiên Xu Tông holds 7, as befits the richest ore. |
 | Famous wild sites | 24 | The 7 highest isolated summits, the 2 biggest volcanoes, 5 biggest lakes, 5 biggest empty islands, 3 deepest forests and 2 deepest river gorges |
 
@@ -384,8 +384,46 @@ All of them were checked against the design files, and five first picks that cla
 | Gorge | **Viên Đề Hạp** | 猿啼峽 | Gorge of the Crying Gibbons | 8 Cô Yên Mạc | Băng Tâm Các |  |
 | Gorge | **Vạn Trùng Hạp** | 萬重峽 | Gorge of Ten Thousand Mountains | 15 Ngọc Hành Sơn | Thiên Xu Tông |  |
 
+**Town and village names** (a proposal, 2026-11-14):
+- **The pool:** 170 short Hán-Việt names, written by hand, each with its Hán tự and meaning. They are humbler than
+  the famous names: Triều Âm (Tide Song), Liễu Ngạn (Willow Bank), Đạo Hương (Rice Scent), Tiều Ca (Woodcutters'
+  Song), Đà Linh (Camel Bells).
+- **Grouped by land:** coast, river, lake, forest, bamboo, jungle, grassland, steppe, desert, cold and hills.
+- **Kind word:** Trấn for a town, Thôn for a village.
+- **Fit to the tile:** each place takes a name that fits its own tile (its water, hills, cold or biome), from the
+  fitting group with the most names left.
+- **Checked:**
+  - every name is used once;
+  - every name was checked against the design files, and 14 that clashed were replaced;
+  - only one village took a name from a neighbouring group (Mã Minh, "Neighing Horses", on grassland).
+- **Where they live:** the pool is in `place_names.json` (`pool`). To rename one place, add it by kind and tile like
+  the cities.
+
+| Region | Towns (Trấn) | Villages (Thôn) |
+|---|---|---|
+| 1 Lãnh Nguyệt Lâm | Quy Điểu (Homing Birds) | Tuyết Lộc (Snow Deer), Hàn Yên (Cold Smoke), Noãn Ốc (Warm Houses) |
+| 2 Tuyết Hỏa Giác | Mục Ca (Herders' Song), Bạch Sa (White Sands) | Mạch Lãng (Wheat Waves), Phong Phàm (Wind in the Sails), Hòa Thử (Grain and Millet), Ẩn Loan (Hidden Cove) |
+| 3 Thanh Loan Lĩnh | Bách Diệp (Cypress Leaf), Tiều Ca (Woodcutters' Song) | Ô Đề (Crows' Cry), Lâm Tuyền (Woods and Springs), Thu Diệp (Autumn Leaves) |
+| 4 Thâm Tùng Hải | Lộc Minh (Deer Call), Cổ Độ (Old Ferry) | Bạch Hoa (White Birch), Thanh Tùng (Green Pine), Tùng Phong (Pine Wind) |
+| 5 Cửu Khúc Xuyên | Hà Bạn (Riverside), Lâm Hạ (Under the Trees) | Tuyết Ốc (Snow Houses), Hàn Mai (Winter Plum), Bạch Lang (White Wolf) |
+| 6 Dao Quang Lĩnh | Bích Khê (Jade Brook), Thanh Bách (Green Cypress) | Ba Quang (Glinting Waves), Hạc Quy (Crane's Return), Lộc Uyển (Deer Park) |
+| 7 Ngọc Hồ Sơn | Hòe Âm (Locust Shade) | Đỗ Quyên (Azalea), Hoàng Oanh (Oriole) |
+| 8 Cô Yên Mạc | Hồi Lan (Turning Waves) | Ngư Đàm (Fish Pool), Liên Đường (Lotus Pond), Mã Minh (Neighing Horses) |
+| 9 Hàn Sương Châu | Mộc Lan (Magnolia), Kê Minh (Cockcrow) | Tiều Lộ (Woodcutters' Path), Lâm Ẩn (Hidden in the Woods), Lô Hoa (Reed Flowers) |
+| 10 Cô Vụ Đảo | Xích Ngạn (Red Shore), Hải Yến (Sea Swallow), Triều Âm (Tide Song) | Bối Sa (Shell Sands), Lãng Thạch (Wave Rock), Dương Liễu (Willows), Tình Sa (Sunlit Sands), Nguyệt Loan (Moon Cove) |
+| 11 Trường Thiên Nguyên | Thanh Điền (Green Fields), Thảo Đường (Grass Pond), Ngư Lương (Fish Weir) | Điền Viên (Fields and Gardens), Yến Quy (Swallows' Return), Chu Tân (Boat Ford), Lô Cảng (Reed Harbour), Diêm Điền (Salt Pans) |
+| 12 Thu Thủy Loan | Liễu Ngạn (Willow Bank), Hòa Phong (Gentle Breeze), Ngũ Cốc (Five Grains) | Khê Thanh (Brook Sound), Khê Đầu (Brook Head), Hải Môn (Sea Gate), Tân Khẩu (Harbour Mouth) |
+| 13 Ngư Ca Xuyên | Phong Lâm (Maple Wood), Tang Ma (Mulberry and Hemp) | Hoa Khê (Flower Brook), Ngân Than (Silver Shoal), Phương Thảo (Fragrant Grass), Thủy Khẩu (Water's Mouth) |
+| 14 Thiên Tuyền Nguyên | Thạch Kiều (Stone Bridge) | Mộc Hương (Wood Scent), Thụ Âm (Tree Shade) |
+| 15 Ngọc Hành Sơn | Song Kiều (Twin Bridges) | Thủy Đối (Water Mill), Thanh Mạch (Green Wheat), Châu Bạng (Pearl Oyster) |
+| 16 Thê Ngô Lĩnh | Mạch Điền (Wheat Fields), Thanh Khê (Clear Brook) | Đào Khê (Peach Brook), Hà Loan (River Bend), Bích Lãng (Jade Waves) |
+| 17 Triêu Dương Nguyên | Hoàng Vân (Yellow Clouds of Grain), Đạo Hương (Rice Scent), Lục Dã (Green Meadows) | Thủy Điền (Paddy Fields), Âu Lộ (Gulls and Herons), Ngân Hạnh (Ginkgo), Lý Hoa (Plum Blossom), Hoàng Ngưu (Yellow Ox) |
+| 18 Tiêu Vũ Lâm | Bình Dã (Open Plain), Xuân Thảo (Spring Grass) | Kiều Bạn (Bridgeside), Bình Độ (Calm Ferry), Hoa Điền (Flower Fields), Yên Kiều (Misty Bridge) |
+| 19 Kinh Trập Sơn | Lãng Hoa (Spray Flowers), Vọng Hải (Sea Watch), Phong Đăng (Rich Harvest) | Ương Ca (Planting Song), Song Khê (Twin Brooks), Thượng Độ (Upper Ferry), Hà Châu (River Isle) |
+| 20 Đan Huyệt Châu | Thạch Cơ (Stone Jetty), Tang Điền (Mulberry Fields) | Cúc Viên (Chrysanthemum Garden), Tang Âm (Mulberry Shade), Hồ Tâm (Lake Heart), Lô Châu (Reed Isle) |
+
 **Not in this pass:**
-- **Town and village names:** 110 of them, for a later naming pass.
+- **Mine names:** the 16 mines are not named yet.
 - **Four of rule 6's kinds:**
   - **spirit vein, secret realm and ruin:** they come with the hand-placed sacred features (spirit veins, sacred
     summits, storm peaks, the miasma wasteland) and the authored history (#27);
@@ -396,11 +434,13 @@ All of them were checked against the design files, and five first picks that cla
 
 ## Open for the user
 
-1. **Approve the places, roads and arrays**, or change any of them:
-   - **names:** swap any in `place_names.json`;
-   - **a city or a famous site:** move it by giving its name a new tile;
-   - **how many cities a sect has:** change `cities_by_sect`.
-2. **Then:** town and village names, the sacred features and the history sites.
+1. **Approve the town and village names**, or swap any of them.
+2. **Next:** the sacred features and the history sites.
+
+To change the places later:
+- **Names:** swap any in `place_names.json`.
+- **A city or a famous site:** move it by giving its name a new tile.
+- **How many cities a sect has:** change `cities_by_sect`.
 3. The known rough spots above, by hand.
 
 To change anything approved later:

@@ -2,7 +2,8 @@
 9, 11, 20, 33; Sects rules 1-3).
 
 Reads the saved map (regions.png, base/ index images, politics_proposal.json, minor_sects.json) and a hand-edited
-places_proposal.json (counts, markets, arrays) and place_names.json (names by kind and tile). Runs in about a minute.
+places_proposal.json (counts, markets, arrays) and place_names.json (names by kind and tile, and a pool of town and
+village names by the kind of land). Runs in seconds.
 
 How it works:
 - **Livability** per land tile: the biome's base (grassland best, glacier and volcano worst) times climate (mild
@@ -66,6 +67,7 @@ PP = {
     "lane_open_sea": 0.25,           # sea lane cost per tile of distance from land (up to 15), so lanes hug coasts
     "lane_min_tiles": 10,            # no lane between ports closer than this
     "lane_max_cost": 160,            # a port looks this far for its lane partners
+    "cold_name_c": 8.0,              # a town or village below this mean temperature may take a cold name
     "km_per_tile": 25.0,
     "scale": 3,
 }
@@ -778,6 +780,59 @@ def attach_names(places, names):
                 places[best[1]][f] = e[f]
 
 
+NEAR = {"forest": ["cold", "bamboo", "hill"], "grassland": ["steppe", "forest"], "steppe": ["grassland", "desert"],
+        "cold": ["forest", "hill"], "jungle": ["bamboo", "grassland"], "bamboo": ["jungle", "forest"],
+        "desert": ["steppe"], "hill": ["forest", "cold"], "coast": ["lake", "river"], "river": ["lake", "coast"],
+        "lake": ["river", "coast"]}
+
+
+def pool_names(M, places, pool):
+    """Unnamed towns and villages take a name from the pool by the land at their tile; each name once.
+
+    A place fits several kinds (its water, hills, cold, its biome) and takes from the fitting kind with the most names
+    left, so the pools share out; when all are used it falls back to a near kind (forest to hill, grassland to steppe).
+    """
+    used = {p.get("name_hv", "").rsplit(" ", 1)[0] for p in places if p.get("name_hv")}
+    biome_cat = {B["temperate_forest"]: "forest", B["bamboo_forest"]: "bamboo", B["jungle"]: "jungle",
+                 B["mangrove"]: "jungle", B["grassland"]: "grassland", B["steppe"]: "steppe", B["desert"]: "desert",
+                 B["badlands"]: "desert", B["salt_flats"]: "desert", B["swamp"]: "lake", B["tundra"]: "cold",
+                 B["highland"]: "hill", B["high_mountain"]: "hill", B["karst"]: "hill"}
+    order = ["coast", "river", "lake", "forest", "grassland", "steppe", "hill", "bamboo", "jungle", "cold", "desert"]
+    suffix = {"town": ("Trấn", "鎮", "Town"), "village": ("Thôn", "村", "Village")}
+    todo = [p for p in places if p["kind"] in suffix and not p.get("name_hv")]
+    todo.sort(key=lambda p: (p["kind"] != "town", -p["livability"]))
+    for p in todo:
+        i = M.idx(*p["tile"])
+        fits = []
+        if M.coast[i]:
+            fits.append("coast")
+        if M.shore[i] or M.b[i] == B["swamp"]:
+            fits.append("lake")
+        if M.river[i]:
+            fits.append("river")
+        if M.h[i] > 0.7:
+            fits.append("hill")
+        if M.t[i] < PP["cold_name_c"]:
+            fits.append("cold")
+        fits.append(biome_cat.get(M.b[i], "grassland"))
+        left = lambda c: sum(1 for e in pool.get(c, []) if e["name_hv"] not in used)
+        prefs = sorted(dict.fromkeys(fits), key=lambda c: -left(c))               # the fitting kind with most left
+        for c in list(prefs):
+            prefs += [n for n in NEAR.get(c, []) if n not in prefs]
+        prefs += [c for c in order if c not in prefs]
+        for c in prefs:
+            free = [e for e in pool.get(c, []) if e["name_hv"] not in used]
+            if free:
+                e = free[0]
+                used.add(e["name_hv"])
+                sx = suffix[p["kind"]]
+                p["name_hv"] = f"{e['name_hv']} {sx[0]}"
+                p["name_han"] = e["name_han"] + sx[1]
+                p["gloss"] = f"{e['gloss']} {sx[2]}"
+                p["name_from"] = c
+                break
+
+
 def render(M, places, roads, out):
     W, H, sc = M.W, M.H, PP["scale"]
     base = Image.open(os.path.join(M.d, "base", "detail.jpg")).convert("RGB").resize((W * sc, H * sc), Image.LANCZOS)
@@ -1004,7 +1059,7 @@ def check(M, places, roads, lanes):
         "river_places": sum(1 for p in settled if p.get("river")),
         "arrays": [p.get("name_hv") or p["tile"] for p in places if p.get("array")],
         "unnamed": {k: sum(1 for p in places if p["kind"] == k and not p.get("name_hv"))
-                    for k in ("city", "market", "peak", "volcano", "lake", "island", "forest", "gorge")},
+                    for k in ("city", "market", "town", "village", "peak", "volcano", "lake", "island", "forest", "gorge")},
         "params": PP,
     }
 
@@ -1016,10 +1071,11 @@ def main():
     with open(os.path.join(a.map, "places_proposal.json"), encoding="utf-8") as fh:
         prop = json.load(fh)
     names_path = os.path.join(a.map, "place_names.json")
-    names = []
+    names, pool = [], {}
     if os.path.exists(names_path):
         with open(names_path, encoding="utf-8") as fh:
-            names = json.load(fh)["places"]
+            nj = json.load(fh)
+        names, pool = nj["places"], nj.get("pool", {})
     M = Map(a.map)
     P = Placer(M, prop)
     cn = prop["counts"]
@@ -1045,6 +1101,7 @@ def main():
         p["livability"] = round(M.live[i], 2)
     holders(M, places, prop["minor_domain_tiles"])
     attach_names(places, names)
+    pool_names(M, places, pool)
     R = Roads(M)
     R.build(places)
     lanes = R.lanes(places)
