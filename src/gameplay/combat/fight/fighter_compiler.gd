@@ -21,7 +21,7 @@ extends RefCounted
 ##   body layer B3 come from ward and body gear, block from flesh and gear; the other ward layers stay typical.
 ## - pools (Combat Formulas A): n = clamp(stat / ref[r], n_min, n_max) from the Character's vitality and linh lực
 ##   before their pct bonuses, which the sheet lines then add (combat_rules.json fighter_pools). Capability #4's
-##   linh lực from vitality joins the base, so the pct lines scale it too (in the game it comes after them).
+##   linh lực from vitality joins the base divided by the pct multiplier, so it comes out unscaled, as in the game.
 ## - items: the named pieces the Character controls (CombatPower.controlled, the pieces the sheet counts), with their
 ##   modifiers (scoped ones too), arts, wards, reserve arts and Effects.
 ## - modifiers: the sheet's combat keys from every source but worn pieces, plus ordinary pieces' affixes (scoped
@@ -205,7 +205,11 @@ static func pool_sizes(c: Character, gd: GameData, sheet: StatSheet, r: int) -> 
 	var body: float = maxf(1.0, sheet.effective("can_cot", c) * per * float(realm.khi_huyet_mult) * stage)
 	var qi: float = float(realm.linh_luc_base) * stage * CongPhap.tech_power(c, gd, sheet.effective("ngo_tinh", c))
 	if c.has_capability(4):
-		qi += float(d.linh_luc_conversion) * CharacterRules.khi_huyet_max(c, gd, sheet).total
+		# Huyết Ngự Linh adds after the pct step in the game; the build-file path multiplies the whole pool by the pct
+		# lines, so this part is divided by that multiplier first and comes out once (exact while the multiplier > 0)
+		var conv: float = float(d.linh_luc_conversion) * CharacterRules.khi_huyet_max(c, gd, sheet).total
+		var pct_mult: float = sheet.mult("linh_luc_pct")
+		qi += conv / pct_mult if pct_mult > 0.0 else 0.0
 	var ref_body: float = float(cfg.ref_talent) * per * float(ref_realm.khi_huyet_mult)
 	var ref_qi: float = float(ref_realm.linh_luc_base) * float(cfg.ref_tech_power)
 	return {"n_body": clampf(body / ref_body, float(cfg.n_min), float(cfg.n_max)),

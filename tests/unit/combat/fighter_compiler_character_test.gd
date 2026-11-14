@@ -280,3 +280,16 @@ func test_own_damage_more_replaces_the_typical_l2_stand_in() -> void:
 			if a.verb == "mod" and a.arg.has("L2"):
 				l2 += float(a.arg.L2)
 	assert_near(float(rec.layers[1]) + l2, 40.0, 1e-9, "15 + 25 = the typical 40, not 65")
+
+
+func test_capability_4_linh_luc_is_not_scaled_by_linh_luc_pct() -> void:
+	# CharacterRules.linh_luc adds Huyết Ngự Linh after the pct step; the fight's pool must match the game's
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"hoa": 50}, 45, 1, 0)
+	c.grant_capability(4)
+	var sheet := StatSheet.build(c, gd, db, null)
+	sheet.add_mod("test", "linh_luc_pct", 50.0)
+	var rec: Dictionary = BuildFileCompiler.new(gd).compile(FighterCompiler.character_build_file(c, gd, db, sheet))
+	var ref_qi: float = float(gd.realm(1).linh_luc_base) * float(gd.combat().fighter_pools.ref_tech_power)
+	assert_near(float(rec.n_qi), CharacterRules.linh_luc(c, gd, sheet).total / ref_qi, 1e-9, "the game's linh lực, once")
