@@ -1,0 +1,134 @@
+{
+  "name": "t4b_chancy",
+  "slice": 4,
+  "chance_free": false,
+  "seeds": 1000,
+  "doc": "Slice 4b, chancy (1,000 seeds): Verdict Stands holds Thunder debuffs on a Slowed foe (Thunder raises crit chance), with delays and a stance switch, between unequal sides.",
+  "a": {
+    "name": "verdict-caller",
+    "realm": 1,
+    "crit": 0.1,
+    "effects": [
+      {
+        "id": "eff:Verdict Stands",
+        "on": "status_applied",
+        "if": [
+          {
+            "read": "foe.status.slowed_time",
+            "op": ">=",
+            "value": 1
+          }
+        ],
+        "do": [
+          {
+            "refresh": {
+              "el": "thunder",
+              "side": "foe",
+              "kind": "debuff",
+              "hold": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "c:delay",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "limit": {
+          "cooldown": 3
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.5
+            }
+          }
+        ]
+      }
+    ],
+    "arts": [
+      {
+        "name": "thunder-mark",
+        "c": 1.2,
+        "cost": 0.04,
+        "cd": 2.5,
+        "element": "thunder",
+        "dtype": "lightning",
+        "debuff": [
+          3,
+          4.0
+        ],
+        "statuses": [
+          {
+            "id": "slowed_time",
+            "stacks": 1
+          }
+        ]
+      },
+      {
+        "name": "verdict",
+        "c": 2.4,
+        "cost": 0.06,
+        "cd": 4.0
+      }
+    ]
+  },
+  "b": {
+    "name": "slow-wall",
+    "realm": 1,
+    "M": 4.6,
+    "crit": 0.15,
+    "evade": 0.1,
+    "timer_resist": 20,
+    "states": [
+      {
+        "id": "guard",
+        "start": true,
+        "mods": {
+          "block": 15
+        }
+      },
+      {
+        "id": "strike",
+        "mods": {
+          "dmg_more": 0.15
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "c:swap",
+        "on": "was_hit",
+        "limit": {
+          "cooldown": 5
+        },
+        "do": [
+          {
+            "state": {
+              "set": "strike",
+              "toggle": true
+            }
+          }
+        ]
+      }
+    ],
+    "arts": [
+      {
+        "name": "slow-fist",
+        "c": 2.2,
+        "cost": 0.05,
+        "cd": 3.0
+      },
+      {
+        "name": "jab",
+        "c": 1.0,
+        "cost": 0.03,
+        "cd": 1.5
+      }
+    ]
+  }
+}

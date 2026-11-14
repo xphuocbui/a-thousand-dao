@@ -11,11 +11,8 @@ extends RefCounted
 ## if not c.errors.is_empty(): push_error("\n".join(c.errors))
 ## [/codeblock]
 
-## Slice 4a runs these actions; the rest of the sim's vocabulary waits for 4b.
-const ACTIONS_4A := ["mod", "counter", "stacks", "free_hit", "heal", "status", "gain_qi", "shield", "refund",
-	"burn_qi", "self_hit", "cleanse", "emit", "bank"]
-## Events nothing raises before a later slice (multi-step arts and empowers; the Down step).
-const EVENTS_LATER := ["step_unlocked", "empowered", "down"]
+## Events nothing raises before a later slice (multi-step arts and empowers, slice 5).
+const EVENTS_LATER := ["step_unlocked", "empowered"]
 const OPS := ["<=", ">=", "<", ">", "=="]
 ## Readables with no parameter, on a side.
 const SIDE_READS := ["hp_share", "hp_missing_share", "qi_share", "qi_missing_share", "distinct_statuses", "fired",
@@ -102,14 +99,8 @@ func _action(a: Variant, w: String, counters: Dictionary) -> EffectDef.ActionDef
 	var ad := EffectDef.ActionDef.new()
 	ad.verb = verb
 	ad.arg = a[verb]
-	if verb == "cull" or not _actions.has(verb):
-		if verb == "cull":
-			errors.append("%s: action cull is not ported yet (the Down step, a later slice)" % w)
-		else:
-			errors.append("%s: action %s is not in the engine" % [w, verb])
-		return null
-	if not (verb in ACTIONS_4A):
-		errors.append("%s: action %s is not ported yet (a later slice)" % [w, verb])
+	if verb != "cull" and not _actions.has(verb):   # cull is read by the Down step, as in the sim
+		errors.append("%s: action %s is not in the engine" % [w, verb])
 		return null
 	var arg: Dictionary = ad.arg if ad.arg is Dictionary else {}
 	match verb:
@@ -123,11 +114,14 @@ func _action(a: Variant, w: String, counters: Dictionary) -> EffectDef.ActionDef
 		"counter":
 			if not counters.has(str(arg.get("id", ""))):
 				errors.append("%s: counter %s is not defined" % [w, str(arg.get("id"))])
+		"consume":
+			for t in arg.get("then", []):
+				var sub: EffectDef.ActionDef = _action(t, w, counters)
+				if sub != null:
+					ad.then.append(sub)
 		"status":
 			var sid: String = str(arg.get("id", ""))
-			if sid == "internal_injury":
-				errors.append("%s: internal_injury is not ported yet (a later slice)" % w)
-			elif not _k.status.has(sid):
+			if sid != "internal_injury" and not _k.status.has(sid):
 				errors.append("%s: status %s is not in the Status Catalogue" % [w, sid])
 		"stacks":
 			if not (str(arg.get("el", "")) in CombatConstants.ELEMENTS):

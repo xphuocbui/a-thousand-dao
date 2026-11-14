@@ -3,7 +3,7 @@ extends RefCounted
 ## One row of a fight's timeline log (ADR-0001: built only when the request turns the log on). The layout matches
 ## the sim's parity log ([code]Fight.plog[/code]) so the parity suite compares them directly.
 
-enum Kind { PULSE, ART, HIT, TICK, QI_TICK, STACKS, STATUS, SOUL, CLEANSE, EFFECT, BANK }
+enum Kind { PULSE, ART, HIT, TICK, QI_TICK, STACKS, STATUS, SOUL, CLEANSE, EFFECT, BANK, CULL, DOWN }
 
 var kind: Kind
 var t_ms: int
@@ -50,6 +50,10 @@ func to_array() -> Array:
 			out = ["effect", t_ms, side, str(art_id)]
 		Kind.BANK:
 			out = ["bank", t_ms, side, str(art_id)]
+		Kind.CULL:
+			out = ["cull", t_ms, side]
+		Kind.DOWN:
+			out = ["down", t_ms, side, str(art_id)]
 	for v in values:
 		out.append(v)
 	return out

@@ -156,7 +156,7 @@ static func scale(f: Fight, s: FighterState, e: EffectDef, ev: Variant) -> float
 ## Effects whose conditions hold (times their scale), timed mods from events, then banked payloads.
 static func mod(f: Fight, s: FighterState, key: String, ctx: Variant) -> float:
 	var always: Array = s.p.always_by_key.get(key, [])
-	if always.is_empty() and s.temp_mods.is_empty() and s.banked.is_empty():
+	if always.is_empty() and s.temp_mods.is_empty() and s.banked.is_empty() and s.state == "":
 		return 0.0
 	var tot: float = 0.0
 	for entry in always:
@@ -169,6 +169,13 @@ static func mod(f: Fight, s: FighterState, key: String, ctx: Variant) -> float:
 	for m in s.temp_mods:
 		if m.key == key and m.until > f.t and matches(f, m.filt, ctx):
 			tot += m.v
+	if s.state != "":
+		var st_mods: Dictionary = s.p.states.get(s.state, {}).get("mods", {})
+		if st_mods.has(key):
+			var v: float = float(st_mods[key])
+			# Unmoved Stance: a stance's speed penalties do not apply
+			if not (v < 0.0 and (key == "art_speed" or key == "basic_speed") and mod(f, s, "unmoved", null) > 0.0):
+				tot += v
 	for x in s.banked:
 		for a in x.actions:
 			if a.verb == "mod" and (a.arg as Dictionary).has(key) and matches(f, a.arg, ctx):
@@ -415,6 +422,146 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 					v = float(arg.set)
 				var ccap: Variant = cdef.get("cap")
 				s.counters[cid] = maxf(0.0, v if ccap == null else minf(float(ccap), v))
+			"timer":
+				var tgt_t: FighterState = s if str(arg.get("side", "own")) == "own" else o
+				var by: float = float(arg.by) * n
+				if tgt_t == o:
+					# a delay: falloff within the window, timer resistance (R1)
+					var recent: Array = []
+					for x in o.delays:
+						if f.t - int(x) < k.delay_window_ms:
+							recent.append(x)
+					o.delays = recent
+					var tr_m: float = f.m(o, "timer_resist", null)
+					by = by * pow(k.delay_falloff, float(o.delays.size())) * (1.0 - (o.p.timer_resist + tr_m) / 100.0)
+					o.delays.append(f.t)
+				var which: String = str(arg.get("which", "all"))
+				var idx: Array = []
+				for i in tgt_t.ready.size():
+					if not (tgt_t == s and int(ev.get("slot", -1)) == i and which == "others"):
+						idx.append(i)
+				if which == "longest" and not idx.is_empty():
+					var best: int = idx[0]
+					for i in idx:
+						if tgt_t.ready[i] > tgt_t.ready[best]:
+							best = i
+					idx = [best]
+				elif which == "next" and not idx.is_empty():
+					var first: int = idx[0]   # least time left, the earlier slot on a tie (Effects rule 6)
+					for i in idx:
+						if tgt_t.ready[i] < tgt_t.ready[first]:
+							first = i
+					idx = [first]
+				for i in idx:
+					var last_ok: int = f.t + k.cooldown_min_ms if tgt_t == s else 0
+					tgt_t.ready[i] = maxi(last_ok if by < 0.0 else 0, tgt_t.ready[i] + CombatConstants.ms(by))
+			"state":
+				var set_to: String = str(arg.set) if arg.get("set") != null else ""
+				s.state = "" if (bool(arg.get("toggle", false)) and s.state == set_to) else set_to
+			"summon":
+				var cd_ms: int = CombatConstants.ms(maxf(k.cooldown_min, float(arg.get("cd", k.basic_cooldown))))
+				s.summons.append([float(arg.get("c", k.summon_c)) * n, StringName(str(arg.get("dtype", "phys"))), cd_ms,
+						f.t + cd_ms, f.t + CombatConstants.ms(float(arg.get("for", k.summon_for)))])
+			"fire_art":
+				if f.depth > int(k.trig_depth):
+					continue
+				var which_a: String = str(arg.get("which", "last"))
+				var ai: int = -1
+				if which_a == "longest":
+					for i in s.p.arts.size():
+						var x: ArtDef = s.p.arts[i]
+						if x.c != 0.0 and x.soul_pct == 0.0 and (ai < 0 or x.cd > s.p.arts[ai].cd):
+							ai = i
+				elif which_a == "last":
+					ai = s.last_art
+				else:
+					for i in s.p.arts.size():
+						if str(s.p.arts[i].id) == which_a:
+							ai = i
+							break
+				if ai < 0:
+					continue
+				var fa: ArtDef = s.p.arts[ai]
+				if fa.c != 0.0 and fa.soul_pct == 0.0:
+					f.hit(s, o, fa.c * float(arg.get("share", 1.0)) * n, fa.dtype, fa, Fight.KIND_ART)
+			"consume":
+				var tgt_c: FighterState = o if str(arg.get("side", "foe")) == "foe" else s
+				var is_debuff: bool = str(arg.get("kind", "debuff")) == "debuff"
+				var lst: Array[FighterState.StackBatch] = tgt_c.debuffs if is_debuff else tgt_c.buffs
+				Fight._sort_by_until(lst)
+				var left: float = float(int(arg.get("n", 1 << 30)))
+				var got: float = 0.0
+				for x in lst.duplicate():
+					if left <= 0.0:
+						break
+					if x.el != str(arg.el):
+						continue
+					var kk: float = minf(left, x.n)
+					x.n -= kk
+					left -= kk
+					got += kk
+					if x.n <= 0.0:
+						lst.erase(x)
+				if is_debuff:
+					tgt_c.touch_debuffs()
+				else:
+					tgt_c.touch_buffs()
+				if not a.then.is_empty():
+					run(f, s, e, a.then, got / float(arg.get("per", 1)), ev)
+			"strip":
+				var left_s: float = float(int(float(arg.get("n", 1)) * n))
+				var pile: String = str(arg.get("el", "")) if arg.get("el") != null else ""
+				if pile == "":
+					# the pile with the most stacks; the sim breaks ties in set order (unstable), so ties are avoided
+					var best_n: float = -1.0
+					for x in o.buffs:
+						var cnt: float = _count(o.buffs, x.el)
+						if cnt > best_n:
+							best_n = cnt
+							pile = x.el
+				Fight._sort_by_until(o.buffs)
+				var taken: float = 0.0
+				for x in o.buffs.duplicate():
+					if left_s <= 0.0:
+						break
+					if x.el != pile:
+						continue
+					var ks: float = minf(left_s, x.n)
+					x.n -= ks
+					left_s -= ks
+					taken += ks
+					if bool(arg.get("steal", false)):
+						f.steal_batch(s, x, ks)
+					if x.n <= 0.0:
+						o.buffs.erase(x)
+				o.touch_buffs()
+				if taken != 0.0 and bool(arg.get("as_status", false)):
+					# Unmaking Glass: each stripped stack counts as a status landed
+					fire(f, s, "status_applied", {"element": pile, "stacks": taken, "strip": true})
+			"refresh":
+				var tgt_r: FighterState = o if str(arg.get("side", "foe")) == "foe" else s
+				var lst_r: Array = tgt_r.debuffs if str(arg.get("kind", "debuff")) == "debuff" else tgt_r.buffs
+				var el_r: String = str(arg.get("el", "")) if arg.get("el") != null else ""
+				for x in lst_r:
+					if x.src_idx != f.side_index(s) or (el_r != "" and x.el != el_r):
+						continue
+					if bool(arg.get("hold", false)):
+						x.until = -1
+					elif x.length != -1 and x.until != -1:
+						x.until = f.t + x.length
+			"protect":
+				s.protect[str(arg.el)] = {"for_first": arg.get("for_first"), "swap_buff": bool(arg.get("swap_buff", false))}
+			"refuse_down", "last_act":
+				pass   # read by the Down step
+			"store_damage":
+				var inj: FighterState.StatusState = o.statuses.get("internal_injury")
+				if inj == null:
+					var spec := StatusSpec.new()
+					spec.id = "internal_injury"
+					spec.extra["every"] = arg.get("every", k.injury_every)
+					f.apply_status(s, o, spec)
+					inj = o.statuses["internal_injury"]
+				inj.stored += float(arg.get("share", 0.0)) * float(ev.get("amount", 0.0)) * n
 			"bank":
 				pass
 			_:

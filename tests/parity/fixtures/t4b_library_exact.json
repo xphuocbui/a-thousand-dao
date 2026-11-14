@@ -1,0 +1,286 @@
+{
+  "name": "t4b_library_exact",
+  "slice": 4,
+  "chance_free": true,
+  "seed": 41,
+  "doc": "Slice 4b, chance-free, the library Effects 4a could not run: timers on the foe's next art (Deep Freeze, Rime Lock at 10 Ice stacks, Gripping Root on Physical Wood hits, Plucked Time on song soul hits), protect (Embers Never Die swaps the cleanse onto Fire buffs; Moss Ledger shields Poison for its first 4 s), refresh (Fan the Pyre), strip as a status (Unmaking Glass, on a side with one buff pile, so the sim's unstable tie never arises) and Final Clause (on down, which the sim never raises: it never fires in either engine).",
+  "a": {
+    "name": "frost-ember-root",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "effects": [
+      {
+        "id": "eff:Deep Freeze",
+        "on": "status_applied",
+        "filter": {
+          "element": "ice"
+        },
+        "if": [
+          {
+            "read": "foe.debuff.ice",
+            "op": ">=",
+            "value": 10
+          }
+        ],
+        "limit": {
+          "cooldown": 2
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Deep Freeze (closes)",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "cost_red": -0.1
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Rime Lock",
+        "on": "status_applied",
+        "filter": {
+          "element": "ice"
+        },
+        "if": [
+          {
+            "read": "foe.debuff.ice",
+            "op": ">=",
+            "value": 10
+          }
+        ],
+        "limit": {
+          "cooldown": 4
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Embers Never Die",
+        "on": "fight_start",
+        "do": [
+          {
+            "protect": {
+              "el": "fire",
+              "swap_buff": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Fan the Pyre",
+        "on": "hit_landed",
+        "filter": {
+          "element": "fire"
+        },
+        "do": [
+          {
+            "refresh": {
+              "el": "fire",
+              "side": "foe",
+              "kind": "debuff"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Fan the Pyre (closes)",
+        "on": "always",
+        "do": [
+          {
+            "mod": {
+              "dmg_more": -0.08,
+              "element": "fire"
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Gripping Root",
+        "on": "hit_landed",
+        "filter": {
+          "dtype": "phys",
+          "element": "wood"
+        },
+        "limit": {
+          "cooldown": 2
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Moss Ledger",
+        "on": "fight_start",
+        "do": [
+          {
+            "protect": {
+              "el": "wood",
+              "for_first": 4
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Plucked Time",
+        "on": "soul_hit",
+        "filter": {
+          "tags": [
+            "song"
+          ]
+        },
+        "limit": {
+          "cooldown": 1
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "next",
+              "by": 0.4
+            }
+          }
+        ]
+      },
+      {
+        "id": "eff:Final Clause",
+        "on": "down",
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "fire_art": {
+              "which": "longest",
+              "share": 1.0
+            }
+          }
+        ]
+      }
+    ],
+    "divine_sense": 1.4,
+    "arts": [
+      {
+        "name": "ice-needle",
+        "c": 1.0,
+        "cost": 0.04,
+        "cd": 1.5,
+        "element": "ice",
+        "dtype": "cold",
+        "debuff": [
+          3,
+          6.0
+        ]
+      },
+      {
+        "name": "ember-lash",
+        "c": 1.4,
+        "cost": 0.05,
+        "cd": 3.0,
+        "element": "fire",
+        "dtype": "fire",
+        "buff": [
+          2,
+          6.0
+        ],
+        "debuff": [
+          3,
+          4.0
+        ]
+      },
+      {
+        "name": "root-grip",
+        "c": 1.6,
+        "cost": 0.05,
+        "cd": 3.5,
+        "element": "wood",
+        "dtype": "phys",
+        "debuff": [
+          2,
+          5.0
+        ]
+      },
+      {
+        "name": "plucked-song",
+        "c": 0.0,
+        "cost": 0.04,
+        "cd": 4.0,
+        "soul_pct": 0.01,
+        "tags": [
+          "song"
+        ]
+      }
+    ]
+  },
+  "b": {
+    "name": "glass-cleanser",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "effects": [
+      {
+        "id": "eff:Unmaking Glass",
+        "on": "hit_landed",
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "strip": {
+              "n": 1,
+              "as_status": true
+            }
+          }
+        ]
+      }
+    ],
+    "M": 3.8,
+    "cleanse_pulse": 1,
+    "cleanse_cost": 0.01,
+    "arts": [
+      {
+        "name": "glass-cut",
+        "c": 2.0,
+        "cost": 0.05,
+        "cd": 2.5
+      },
+      {
+        "name": "clear-mind",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 4.0,
+        "cleanse": 4
+      },
+      {
+        "name": "heavy-glass",
+        "c": 2.6,
+        "cost": 0.07,
+        "cd": 4.5
+      }
+    ]
+  }
+}

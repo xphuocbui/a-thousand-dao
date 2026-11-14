@@ -91,4 +91,9 @@ var listeners: Dictionary = {}
 var layers: PackedFloat64Array = []
 ## A boss (the boss readable).
 var boss: bool = false
+## Stances and forms (R29) by id: {"mods": {key: value}, "suppress": [art ids], "start": bool}; the one it starts in
+## ("" none). Refusals of Down per fight (Effects rule 11).
+var states: Dictionary = {}
+var state_start: String = ""
+var refusals: int = 1
 var companions: Array[Companion] = []

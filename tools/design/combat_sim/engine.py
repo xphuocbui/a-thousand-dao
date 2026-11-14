@@ -556,7 +556,9 @@ class Fight:
                 self.tick(src, s, tick, TICK_TYPE[el], el)
         # status ticks
         for sid, stt in list(s.statuses.items()):
-            d = STATUS[sid]
+            d = STATUS.get(sid)
+            if d is None:   # Internal Injury is not a catalogue status: released below (fixed 2026-11-14, was KeyError)
+                continue
             if d["kind"] == "tick" and stt["stacks"] > 0:
                 src = stt["src"]
                 tick = src.U * d["c_tick"] * stt["stacks"] * src.b.M * supp(src, s, self.mod(src, "pierce") / 100)
@@ -578,7 +580,7 @@ class Fight:
         if st and st.get("stored", 0) > 0 and self.t >= st.get("next", 0):
             amt = st["stored"]
             st["stored"] = 0
-            st["next"] = self.t + ms(st.get("every", 3))
+            st["next"] = self.t + ms(st.get("every", K["injury_every"]))
             s.hp -= amt
             st["src"].dealt += amt
         # regeneration; Stagnation dampens both pools by 1 % per stack [Status Catalogue, 2026-11-10]
@@ -1105,7 +1107,7 @@ class Fight:
             raise EngineError("unknown status %r" % sid)
         if sid == "internal_injury":
             st = target.statuses.setdefault(sid, {"stacks": 1, "until": None, "src": src, "stored": 0.0})
-            st["every"] = spec.get("every", 3)
+            st["every"] = spec.get("every", K["injury_every"])
             return
         d = STATUS[sid]
         if self.t < target.lockouts.get(sid, -1):
@@ -1324,8 +1326,8 @@ class Fight:
                 s.state = None if (arg.get("toggle") and s.state == arg.get("set")) else arg.get("set")
             elif verb == "summon":
                 cd = ms(max(K["cooldown_min"], arg.get("cd", K["basic_cooldown"])))
-                s.summons.append([arg.get("c", 0.5) * n, arg.get("dtype", "phys"), cd, self.t + cd,
-                                  self.t + ms(arg.get("for", 10))])
+                s.summons.append([arg.get("c", K["summon_c"]) * n, arg.get("dtype", "phys"), cd, self.t + cd,
+                                  self.t + ms(arg.get("for", K["summon_for"]))])
             elif verb == "fire_art":
                 if self.depth > K["trig_depth"]:
                     continue
@@ -1346,7 +1348,7 @@ class Fight:
                 by = arg["by"] * n
                 if tgt is o:   # a delay: falloff within the window, timer resistance [R1]
                     o.delays = [x for x in o.delays if self.t - x < ms(K["delay_window"])]
-                    by = by * 0.5 ** len(o.delays) * (1 - (o.b.timer_resist + self.mod(o, "timer_resist")) / 100)
+                    by = by * K["delay_falloff"] ** len(o.delays) * (1 - (o.b.timer_resist + self.mod(o, "timer_resist")) / 100)
                     o.delays.append(self.t)
                 which = arg.get("which", "all")
                 idx = [i for i in range(len(tgt.ready)) if not (tgt is s and ev.get("slot") == i and which == "others")]
@@ -1451,7 +1453,7 @@ class Fight:
             elif verb == "store_damage":
                 st = o.statuses.get("internal_injury")
                 if st is None:
-                    self.apply_status(s, o, {"id": "internal_injury", "every": arg.get("every", 3)})
+                    self.apply_status(s, o, {"id": "internal_injury", "every": arg.get("every", K["injury_every"])})
                     st = o.statuses["internal_injury"]
                 st["stored"] = st.get("stored", 0.0) + arg.get("share", 0.0) * ev.get("amount", 0.0) * n
             else:
@@ -1465,6 +1467,8 @@ class Fight:
                     for a in e.get("do", []):
                         if "cull" in a and s.hp <= a["cull"] * s.hp_max and self.holds(s.foe, e.get("if")):
                             s.hp = 0.0
+                            if self.plog is not None:
+                                self.plog.append(["cull", self.t, s.label])
         downs = [s for s in (self.A, self.B) if s.hp <= 0]
         for s in downs:
             refuse = [e for e in s.b.effects if e.get("on") == "down" and any("refuse_down" in a for a in e.get("do", []))
@@ -1473,7 +1477,9 @@ class Fight:
                 e = refuse[0]
                 self.mark(s, e)
                 s.refusals_left -= 1
-                s.hp = 1.0
+                s.hp = K["refuse_down_health"]
+                if self.plog is not None:
+                    self.plog.append(["down", self.t, s.label, "refused"])
                 continue
             for e in s.b.effects:
                 for a in e.get("do", []):
@@ -1482,6 +1488,8 @@ class Fight:
                         la = a["last_act"]
                         self.hit(s, s.foe, la.get("c", 0.0), la.get("dtype", "phys"), None, kind="trigger", trig=True)
             s.down = True
+            if self.plog is not None:
+                self.plog.append(["down", self.t, s.label, "down"])
         for s in (self.A, self.B):
             if not s.down and s.hp <= 0:
                 s.down = True

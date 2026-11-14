@@ -31,6 +31,10 @@ class StatusState extends RefCounted:
 	var layer: int = 4
 	var crossing: bool = false
 	var no_lockout: bool = false
+	## Internal Injury (not a catalogue status): damage stored, release period (s), next release (ms).
+	var stored: float = 0.0
+	var every: float = 3.0
+	var next_release: int = 0
 
 
 ## A ward shield bar in this fight: its definition, what is left, when it was last hit (ms), pieces left.
@@ -126,6 +130,12 @@ var state: String = ""
 var fire_log: Array = []
 var cur_ev: Variant = null
 var last_art: int = -1
+## Slice 4b: delays this side took (ms, for the falloff), summons ([c, dtype, cd ms, next ms, until ms]), the
+## elements whose own debuff batches a cleanse skips ({for_first, swap_buff}), refusals of Down left.
+var delays: Array = []
+var summons: Array = []
+var protect: Dictionary = {}
+var refusals_left: int = 1
 
 var _reserve_keep: float
 var _k: CombatConstants
@@ -154,6 +164,8 @@ func _init(profile: FighterProfile, side_label: String, k: CombatConstants) -> v
 	for i in n:
 		charges[i] = p.arts[i].charges
 	comp_ready.resize(p.companions.size())
+	state = p.state_start
+	refusals_left = p.refusals
 	for cid in p.counter_def:
 		counters[cid] = 0.0
 		counter_times[cid] = []

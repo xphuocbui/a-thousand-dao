@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "_doc": "Combat engine constants, the one source for both engines (ADR-0001 Implementation Guidelines). Read by tools/design/combat_sim/engine.py and src/gameplay/combat/fight/combat_constants.gd. K: Combat GDD constants (seconds unless named otherwise); U: per-realm unit; SUPP: realm suppression by realm gap (Formulas H); BLOCK_UNIT: block points to health per realm. health_units / qi_units: health_max = health_units x U x n_body x health_mult x d_r and qi_base = qi_units x U x n_qi; cost_red_cap and reserve_cap cap those shares; pay_keep_health: an art paid in health must leave this much; min_hit: a hit that reaches health removes at least this. BUFF / DEBUFF: per element, the stat each stack of an element buff or debuff adds (Effects rule 9a, #44). STATUS: the Status Catalogue (Effects GDD): kind tick or curse, damage type and c_tick for ticks, dur in pulses (null = until cleansed), cap (null = none) and each curse's numbers. TICK_TYPE: the damage type of an element debuff's tick. ELEM_TYPE: an elem art's usual damage type by element. status_chance_min / status_chance_max: a status chance below 1, or any chance against status resistance, is clamped to this range (Combat Formulas F). purity_stack_power: each point of an element's purity adds this to its stacks' power (Spiritual Roots rule 8a, Formulas H); water_ice_share: Water and Ice count this share of each other's purity. cleanse_min_stacks: after the cleansing ward's share, a debuff batch below this many stacks is gone. EVENTS / MOD_KEYS / ACTIONS: the Effect vocabulary both engines accept (Effects GDD rules 5-6); a record using anything else stops the load. trig_floor_u: trigger damage budget floor, in U (Combat Formulas G: budget = trig_budget x max(direct damage, trig_floor_u x U)).",
+  "_doc": "Combat engine constants, the one source for both engines (ADR-0001 Implementation Guidelines). Read by tools/design/combat_sim/engine.py and src/gameplay/combat/fight/combat_constants.gd. K: Combat GDD constants (seconds unless named otherwise); U: per-realm unit; SUPP: realm suppression by realm gap (Formulas H); BLOCK_UNIT: block points to health per realm. health_units / qi_units: health_max = health_units x U x n_body x health_mult x d_r and qi_base = qi_units x U x n_qi; cost_red_cap and reserve_cap cap those shares; pay_keep_health: an art paid in health must leave this much; min_hit: a hit that reaches health removes at least this. BUFF / DEBUFF: per element, the stat each stack of an element buff or debuff adds (Effects rule 9a, #44). STATUS: the Status Catalogue (Effects GDD): kind tick or curse, damage type and c_tick for ticks, dur in pulses (null = until cleansed), cap (null = none) and each curse's numbers. TICK_TYPE: the damage type of an element debuff's tick. ELEM_TYPE: an elem art's usual damage type by element. status_chance_min / status_chance_max: a status chance below 1, or any chance against status resistance, is clamped to this range (Combat Formulas F). purity_stack_power: each point of an element's purity adds this to its stacks' power (Spiritual Roots rule 8a, Formulas H); water_ice_share: Water and Ice count this share of each other's purity. cleanse_min_stacks: after the cleansing ward's share, a debuff batch below this many stacks is gone. EVENTS / MOD_KEYS / ACTIONS: the Effect vocabulary both engines accept (Effects GDD rules 5-6); a record using anything else stops the load. trig_floor_u: trigger damage budget floor, in U (Combat Formulas G: budget = trig_budget x max(direct damage, trig_floor_u x U)). delay_falloff: each delay a fighter took within delay_window multiplies the next by this (R1). summon_c / summon_for: a summon's coefficient and seconds when its Effect gives none. injury_every: seconds between Internal Injury releases when none is given. refuse_down_health: the health a refused Down leaves (Effects rule 11).",
   "K": {
     "fatigue_start": 60.0,
     "fatigue_units": 0.5,
@@ -66,7 +66,12 @@
     "purity_stack_power": 0.002,
     "water_ice_share": 0.5,
     "cleanse_min_stacks": 0.05,
-    "trig_floor_u": 0.5
+    "trig_floor_u": 0.5,
+    "delay_falloff": 0.5,
+    "summon_c": 0.5,
+    "summon_for": 10,
+    "injury_every": 3,
+    "refuse_down_health": 1.0
   },
   "U": [
     6.31,

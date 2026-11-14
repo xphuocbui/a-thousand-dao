@@ -152,6 +152,26 @@ func _idx(s: FighterState) -> int:
 	return 0 if s == a else 1
 
 
+## The side index of [param s] (0 = A, 1 = B), as stack batches and statuses name their source.
+func side_index(s: FighterState) -> int:
+	return _idx(s)
+
+
+## Gives [param s] a stolen buff batch of [param n] stacks shaped like [param x] (the strip action's steal): same
+## element and expiry, its length the time left, [param s] its source; its power reads [param s]'s profile.
+func steal_batch(s: FighterState, x: FighterState.StackBatch, n: float) -> void:
+	var nb := FighterState.StackBatch.new()
+	nb.el = x.el
+	nb.n = n
+	nb.until = x.until
+	nb.src_idx = _idx(s)
+	nb.src_p = s.p
+	nb.length = -1 if x.until == -1 else x.until - t
+	nb.power = StackMath.stack_power(k, s.p, x.el, "buff")
+	s.buffs.append(nb)
+	s.touch_buffs()
+
+
 ## The other side.
 func foe_of(s: FighterState) -> FighterState:
 	return b if s == a else a
@@ -162,14 +182,14 @@ func is_mod_key(key: String) -> bool:
 	return _mod_keys.has(key)
 
 
-## Whether [param s] has any Effect mod source now (always-on mods, timed mods, banked payloads).
+## Whether [param s] has any mod source now (always-on Effect mods, timed mods, banked payloads, a stance).
 func has_mods(s: FighterState) -> bool:
-	return not (s.p.always_by_key.is_empty() and s.temp_mods.is_empty() and s.banked.is_empty())
+	return not (s.p.always_by_key.is_empty() and s.temp_mods.is_empty() and s.banked.is_empty() and s.state == "")
 
 
 ## The Effect mods on [param s] for stat [param key] in context [param ctx] (0 when it has none).
 func m(s: FighterState, key: String, ctx: Variant) -> float:
-	if s.p.always_by_key.is_empty() and s.temp_mods.is_empty() and s.banked.is_empty():
+	if not has_mods(s):
 		return 0.0
 	return EffectRunner.mod(self, s, key, ctx)
 
@@ -253,6 +273,8 @@ func pulse(s: FighterState) -> void:
 	# status ticks
 	for sid in s.statuses.keys():
 		var stt: FighterState.StatusState = s.statuses[sid]
+		if not k.status.has(sid):   # Internal Injury is not a catalogue status: released below
+			continue
 		var d: Dictionary = k.status[sid]
 		if str(d.kind) == "tick" and stt.stacks > 0.0:
 			var src2: FighterState = _side(stt.src_idx)
@@ -270,6 +292,14 @@ func pulse(s: FighterState) -> void:
 					stt.stacks = 0.0
 				else:
 					src2.qi -= fee
+	# stored damage released (R26 Internal Injury)
+	var inj: FighterState.StatusState = s.statuses.get("internal_injury")
+	if inj != null and inj.stored > 0.0 and t >= inj.next_release:
+		var amt: float = inj.stored
+		inj.stored = 0.0
+		inj.next_release = t + CombatConstants.ms(inj.every)
+		s.hp -= amt
+		_side(inj.src_idx).dealt += amt
 	# regeneration; Stagnation dampens both pools by regen_dampen % per stack
 	var stag: float = 1.0 + s.st("stagnation") * k.stagnation_dampen / 100.0
 	var kk: float = k.regen_k
@@ -419,10 +449,13 @@ func act(s: FighterState) -> void:
 	var o: FighterState = foe_of(s)
 	var p: FighterProfile = s.p
 	var speed_base: float = 1.0 + s.bsum("speed") + p.art_speed_pct / 100.0
+	var sup: Array = s.p.states.get(s.state, {}).get("suppress", []) if s.state != "" else []
 	for i in p.arts.size():
 		if t < s.ready[i]:
 			continue
 		var art: ArtDef = p.arts[i]
+		if not sup.is_empty() and sup.has(str(art.id)):
+			continue
 		if not art.tags.is_empty() and s.st("silence") > 0.0:
 			var sil: FighterState.StatusState = s.statuses["silence"]
 			if sil.tag != "" and art.tags.has(StringName(sil.tag)):
@@ -484,6 +517,12 @@ func act(s: FighterState) -> void:
 	while t >= s.basic_ready:
 		hit(s, o, 1.0 + p.basic_coef_add + m(s, "basic_coef", null), &"phys", null, KIND_BASIC)
 		s.basic_ready += CombatConstants.ms(basic_cd(s) * slow(s))
+	for sm in s.summons.duplicate():
+		while t >= int(sm[3]) and int(sm[3]) < int(sm[4]):
+			hit(s, o, float(sm[0]), sm[1], null, KIND_COMPANION)
+			sm[3] = int(sm[3]) + int(sm[2])
+		if t >= int(sm[4]):
+			s.summons.erase(sm)
 	for j in p.companions.size():
 		var comp: FighterProfile.Companion = p.companions[j]
 		while t >= s.comp_ready[j]:
@@ -738,6 +777,15 @@ func add_stacks(src: FighterState, target: FighterState, el: String, n: float, d
 ## pulses; stacks add up to the cap; the duration restarts; then status_applied. Public for mechanism tests.
 func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> void:
 	var sid: String = spec.id
+	if sid == "internal_injury":
+		var ii: FighterState.StatusState = target.statuses.get(sid)
+		if ii == null:
+			ii = FighterState.StatusState.new()
+			ii.stacks = 1.0
+			ii.src_idx = _idx(src)
+			target.statuses[sid] = ii
+		ii.every = float(spec.extra.get("every", k.injury_every))
+		return
 	var d: Dictionary = k.status[sid]
 	if t < int(target.lockouts.get(sid, -1)):
 		return
@@ -753,7 +801,7 @@ func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> 
 	if is_curse and not target.statuses.has(sid):
 		var live: int = 0
 		for other in target.statuses:
-			if str(k.status[other].kind) == "curse":
+			if str(k.status.get(other, {}).get("kind", "")) == "curse":
 				live += 1
 		if live >= k.curse_slots:
 			return
@@ -797,6 +845,31 @@ func cleanse(s: FighterState, n: int, el: String = "") -> float:
 		if el != "" and x.el != el:
 			i += 1
 			continue
+		var owner: FighterState = _side(x.src_idx)
+		var guard: Dictionary = owner.protect.get(x.el, {})
+		if not guard.is_empty():
+			var ff: Variant = guard.get("for_first")
+			var started: int = (x.until - x.length) if (x.until != -1 and x.length != -1) else -1
+			if ff == null or started == -1 or t - started < CombatConstants.ms(float(ff)):
+				if bool(guard.get("swap_buff", false)):   # Embers Never Die: the source loses its own buff stacks instead
+					var lose: float = minf(left, EffectRunner._count(owner.buffs, x.el))
+					var mine: Array[FighterState.StackBatch] = []
+					for y in owner.buffs:
+						if y.el == x.el:
+							mine.append(y)
+					_sort_by_until(mine)
+					for y in mine:
+						var ky: float = minf(lose, y.n)
+						y.n -= ky
+						lose -= ky
+					var kept_b: Array[FighterState.StackBatch] = []
+					for y in owner.buffs:
+						if y.n > 0.0:
+							kept_b.append(y)
+					owner.buffs = kept_b
+					owner.touch_buffs()
+				i += 1
+				continue
 		var take: float = minf(left, x.n)
 		x.n -= take
 		left -= take
@@ -876,11 +949,53 @@ func _supp(att: FighterState, dfn: FighterState, pierce: float) -> float:
 	return 1.0 - k.supp[gap] * (1.0 - minf(k.pierce_cap, maxf(0.0, pierce)))
 
 
+## The Down step (Effects rule 11; R5, R15c): a foe's cull Effect drops a side at or below its share; a side at
+## 0 refuses Down with a refuse_down Effect while it has refusals (left at refuse_down_health), else its last acts
+## strike and it goes Down.
 func _defeat_check() -> void:
-	if a.hp <= 0.0:
-		a.down = true
-	if b.hp <= 0.0:
-		b.down = true
+	for s in [a, b]:
+		if s.hp > 0.0:
+			var foe: FighterState = foe_of(s)
+			for e in foe.p.effects:
+				for act_def in e.actions:
+					if act_def.verb == "cull" and s.hp <= float(act_def.arg) * s.hp_max and EffectRunner.holds(self, foe, e.conds, null):
+						s.hp = 0.0
+						if _log_enabled:
+							_row(FightLogRow.Kind.CULL, s.label, &"", &"", [])
+	var downs: Array = []
+	for s in [a, b]:
+		if s.hp <= 0.0:
+			downs.append(s)
+	for s in downs:
+		var refuse: EffectDef = null
+		for e in s.p.effects:
+			if e.on == "down" and EffectRunner.allowed(self, s, e):
+				var has_refuse := false
+				for act_def in e.actions:
+					if act_def.verb == "refuse_down":
+						has_refuse = true
+				if has_refuse:
+					refuse = e
+					break
+		if refuse != null and s.refusals_left > 0:
+			EffectRunner.mark(self, s, refuse)
+			s.refusals_left -= 1
+			s.hp = k.refuse_down_health
+			if _log_enabled:
+				_row(FightLogRow.Kind.DOWN, s.label, &"", &"refused", [])
+			continue
+		for e in s.p.effects:
+			for act_def in e.actions:
+				if act_def.verb == "last_act" and EffectRunner.allowed(self, s, e):
+					EffectRunner.mark(self, s, e)
+					var la: Dictionary = act_def.arg
+					hit(s, foe_of(s), float(la.get("c", 0.0)), StringName(str(la.get("dtype", "phys"))), null, KIND_TRIGGER, true)
+		s.down = true
+		if _log_enabled:
+			_row(FightLogRow.Kind.DOWN, s.label, &"", &"down", [])
+	for s in [a, b]:
+		if not s.down and s.hp <= 0.0:
+			s.down = true
 
 
 ## Logs an Effect firing or a banked payload (parity rows), when the log is on.

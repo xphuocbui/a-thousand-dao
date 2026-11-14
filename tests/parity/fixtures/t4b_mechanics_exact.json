@@ -1,0 +1,401 @@
+{
+  "name": "t4b_mechanics_exact",
+  "slice": 4,
+  "chance_free": true,
+  "seed": 43,
+  "doc": "Slice 4b, chance-free, hand-written: stances (a starting stance with mods and a suppressed art, a toggle, Unmoved Stance cancelling its speed penalty early on), a summon, fire_art (last, longest, named), timers (own others hastened, foe all, foe longest, with the delay falloff), consume with a then-payload, strip with steal, refresh with hold, Internal Injury (stored damage released every 2 s), the Down step (one refusal, a last act) and a cull on the foe. The consumed Earth stacks are B's own buffs targeted as debuffs on A's foe, so consume finds none and its then runs at 0 (as the sim does).",
+  "a": {
+    "name": "stance-master",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "refusals": 1,
+    "states": [
+      {
+        "id": "iron",
+        "start": true,
+        "mods": {
+          "block": 20,
+          "art_speed": -20
+        },
+        "suppress": [
+          "flurry"
+        ]
+      },
+      {
+        "id": "flow",
+        "mods": {
+          "art_speed": 30,
+          "dmg_more": 0.1
+        }
+      }
+    ],
+    "arts": [
+      {
+        "name": "flurry",
+        "c": 0.8,
+        "cost": 0.03,
+        "cd": 1.5,
+        "split": [
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "name": "heavy-palm",
+        "c": 2.4,
+        "cost": 0.06,
+        "cd": 5.0
+      },
+      {
+        "name": "fire-brand",
+        "c": 1.2,
+        "cost": 0.04,
+        "cd": 3.0,
+        "element": "fire",
+        "dtype": "fire",
+        "buff": [
+          3,
+          6.0
+        ]
+      },
+      {
+        "name": "spirit-spear",
+        "c": 1.6,
+        "cost": 0.05,
+        "cd": 4.0
+      }
+    ],
+    "effects": [
+      {
+        "id": "m:unmoved",
+        "on": "always",
+        "if": [
+          {
+            "read": "time",
+            "op": "<",
+            "value": 6
+          }
+        ],
+        "do": [
+          {
+            "mod": {
+              "unmoved": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:switch",
+        "on": "pulse",
+        "if": [
+          {
+            "read": "time",
+            "op": ">=",
+            "value": 8
+          }
+        ],
+        "limit": {
+          "cooldown": 10
+        },
+        "do": [
+          {
+            "state": {
+              "set": "flow",
+              "toggle": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:summon",
+        "on": "fight_start",
+        "do": [
+          {
+            "summon": {
+              "c": 0.6,
+              "cd": 1.5,
+              "for": 12
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:echo-last",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "heavy-palm"
+        },
+        "limit": {
+          "cooldown": 6
+        },
+        "do": [
+          {
+            "fire_art": {
+              "which": "last",
+              "share": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:echo-long",
+        "on": "pulse",
+        "limit": {
+          "per_fight": 2
+        },
+        "if": [
+          {
+            "read": "time",
+            "op": ">=",
+            "value": 4
+          }
+        ],
+        "do": [
+          {
+            "fire_art": {
+              "which": "longest",
+              "share": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:echo-named",
+        "on": "was_hit",
+        "limit": {
+          "cooldown": 7
+        },
+        "do": [
+          {
+            "fire_art": {
+              "which": "spirit-spear",
+              "share": 0.4
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:haste-own",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "spirit-spear"
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "own",
+              "which": "others",
+              "by": -0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:delay-foe",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "limit": {
+          "cooldown": 3
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "all",
+              "by": 0.6
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:delay-long",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "fire-brand"
+        },
+        "do": [
+          {
+            "timer": {
+              "side": "foe",
+              "which": "longest",
+              "by": 0.8
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:consume",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "heavy-palm"
+        },
+        "do": [
+          {
+            "consume": {
+              "el": "earth",
+              "side": "foe",
+              "kind": "debuff",
+              "n": 4,
+              "per": 2,
+              "then": [
+                {
+                  "gain_qi": {
+                    "share": 0.02
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:steal",
+        "on": "hit_landed",
+        "filter": {
+          "art_id": "spirit-spear"
+        },
+        "do": [
+          {
+            "strip": {
+              "el": "metal",
+              "n": 2,
+              "steal": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:hold",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "fire-brand"
+        },
+        "do": [
+          {
+            "refresh": {
+              "el": "fire",
+              "side": "own",
+              "kind": "buff",
+              "hold": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:wound",
+        "on": "hit_landed",
+        "filter": {
+          "kind": "art"
+        },
+        "do": [
+          {
+            "store_damage": {
+              "share": 0.3,
+              "every": 2
+            }
+          }
+        ]
+      },
+      {
+        "id": "m:cull",
+        "on": "always",
+        "do": [
+          {
+            "cull": 0.08
+          }
+        ]
+      }
+    ]
+  },
+  "b": {
+    "name": "metal-earth-wall",
+    "realm": 1,
+    "M": 3.9,
+    "crit": 0.0,
+    "evade": 0.0,
+    "arts": [
+      {
+        "name": "metal-skin",
+        "c": 0.0,
+        "cost": 0.03,
+        "cd": 4.0,
+        "element": "metal",
+        "buff": [
+          4,
+          8.0
+        ]
+      },
+      {
+        "name": "earth-press",
+        "c": 1.6,
+        "cost": 0.05,
+        "cd": 3.0,
+        "element": "earth",
+        "dtype": "phys"
+      },
+      {
+        "name": "boulder",
+        "c": 2.8,
+        "cost": 0.07,
+        "cd": 4.0
+      }
+    ],
+    "refusals": 1,
+    "states": [
+      {
+        "id": "bulwark",
+        "start": true,
+        "mods": {
+          "block": 10,
+          "dmg_more": 0.05
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "w:refuse",
+        "on": "down",
+        "limit": {
+          "per_fight": 1
+        },
+        "do": [
+          {
+            "refuse_down": {}
+          }
+        ]
+      },
+      {
+        "id": "w:last",
+        "on": "down",
+        "do": [
+          {
+            "last_act": {
+              "c": 3.0,
+              "dtype": "force"
+            }
+          }
+        ]
+      },
+      {
+        "id": "w:earth-self",
+        "on": "art_fired",
+        "filter": {
+          "art_id": "earth-press"
+        },
+        "do": [
+          {
+            "stacks": {
+              "el": "earth",
+              "n": 3,
+              "for": 6,
+              "side": "own"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

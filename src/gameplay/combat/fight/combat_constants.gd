@@ -25,7 +25,7 @@ const REQUIRED_K := [
 	"min_batch", "curse_slots", "curse_duration_max", "slowed_time_pct", "soul_beta", "rho_min", "soul_cap",
 	"soul_lockout", "curse_heal_taken_max", "status_chance_min", "status_chance_max", "purity_stack_power",
 	"water_ice_share", "cleanse_min_stacks", "trig_cap", "trig_depth", "trig_budget", "trig_floor_u", "layer_caps",
-	"l1_soft",
+	"l1_soft", "delay_window", "delay_falloff", "summon_c", "summon_for", "injury_every", "refuse_down_health",
 ]
 
 var fatigue_start: float
@@ -83,6 +83,15 @@ var trig_budget: float
 var trig_floor_u: float
 var layer_caps: PackedFloat64Array
 var l1_soft: PackedFloat64Array
+## Timers (R1): a delay's falloff per delay taken within delay_window seconds. Summons' default coefficient and
+## seconds; Internal Injury's default release period (s); the health a refused Down leaves (Effects rule 11).
+var delay_window: float
+var delay_window_ms: int
+var delay_falloff: float
+var summon_c: float
+var summon_for: float
+var injury_every: float
+var refuse_down_health: float
 ## The Effect vocabulary (Effects GDD rules 5-6) and an "elem" art's usual damage type by element.
 var events: Array = []
 var mod_keys: Array = []
@@ -204,6 +213,13 @@ static func from_dict(d: Dictionary) -> CombatConstants:
 	k.trig_floor_u = float(kd.trig_floor_u)
 	k.layer_caps = PackedFloat64Array(kd.layer_caps)
 	k.l1_soft = PackedFloat64Array(kd.l1_soft)
+	k.delay_window = float(kd.delay_window)
+	k.delay_window_ms = ms(k.delay_window)
+	k.delay_falloff = float(kd.delay_falloff)
+	k.summon_c = float(kd.summon_c)
+	k.summon_for = float(kd.summon_for)
+	k.injury_every = float(kd.injury_every)
+	k.refuse_down_health = float(kd.refuse_down_health)
 	k.events = d.get("EVENTS", [])
 	k.mod_keys = d.get("MOD_KEYS", [])
 	k.actions = d.get("ACTIONS", [])

@@ -95,15 +95,16 @@ func test_log_off_builds_no_rows() -> void:
 func test_loader_refuses_an_unported_or_unknown_field_by_name() -> void:
 	var k := CombatConstants.load_file()
 	var cases := [
-		[_dummy({"effects": [{"id": "x", "on": "crit", "do": [{"timer": {"by": -1.0}}]}]}), "timer"],
+		[_dummy({"effects": [{"id": "x", "on": "crit", "do": [{"teleport_foe": {}}]}]}), "teleport_foe"],
 		[_dummy({"effects": [{"id": "x", "on": "teleported", "do": []}]}), "teleported"],
 		[_dummy({"effects": [{"id": "x", "on": "always", "do": [{"mod": {"luck": 5}}]}]}), "luck"],
 		[_dummy({"effects": [{"id": "x", "on": "crit", "if": [{"read": "own.mood"}], "do": []}]}), "own.mood"],
-		[_dummy({"effects": [{"id": "x", "on": "down", "do": []}]}), "down"],
-		[_dummy({"states": [{"id": "stance", "mods": {}}]}), "states"],
+		[_dummy({"effects": [{"id": "x", "on": "step_unlocked", "do": []}]}), "step_unlocked"],
+		[_dummy({"effects": [{"id": "x", "on": "crit", "do": [{"state": {"set": "nowhere"}}]}]}), "nowhere"],
+		[_dummy({"states": [{"id": "stance", "mods": {"luck": 3}}]}), "luck"],
+		[_dummy({}, [{"name": "two-step", "steps": [{"c_mult": 2.0}]}]), "steps"],
 		[_dummy({"teleport": 1.0}), "teleport"],
 		[_dummy({}, [{"name": "guarded", "guards": [{"read": "own.hp"}]}]), "guards"],
-		[_dummy({}, [{"name": "inner-wound", "statuses": [{"id": "internal_injury"}]}]), "internal_injury"],
 		[_dummy({}, [{"name": "seal", "statuses": [{"id": "no_such_status"}]}]), "no_such_status"],
 		[_dummy({}, [{"name": "dream", "pool": "dream_pool"}]), "pool"],
 		[_dummy({}, [{"name": "deep-soul", "soul_part": 0.5}]), "Soul part"],
@@ -324,10 +325,9 @@ func test_stack_duration_lengthens_only_its_element_and_kind() -> void:
 
 # --- slice 4a: the Effect interpreter ------------------------------------------------------------------------------
 
-func test_every_library_effect_compiles_or_is_refused_as_a_later_slice() -> void:
-	# ADR-0001 decision 3: assets/data/combat_effects.json is read by both engines. Slice 4a compiles the records of
-	# 44 library Effects; the other 10 need timers, protect, refresh, strip or the Down step and must be refused by
-	# name ("not ported yet"), never accepted silently or rejected for another reason.
+func test_every_library_effect_compiles() -> void:
+	# ADR-0001 decision 3: assets/data/combat_effects.json is read by both engines. From slice 4b every library
+	# Effect compiles (4a compiled 44 and refused 10 by name as later).
 	var k := CombatConstants.load_file()
 	var lib: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/data/combat_effects.json")).effects
 	var ok := 0
@@ -347,8 +347,8 @@ func test_every_library_effect_compiles_or_is_refused_as_a_later_slice() -> void
 		else:
 			other.append("%s: %s" % [name, "; ".join(c.errors)])
 	assert_eq(other, [], "no library Effect fails for any reason but a later slice")
-	assert_eq(ok, 44, "44 library Effects compile in slice 4a")
-	assert_eq(later.size(), 10, "10 wait for a later slice: %s" % str(later))
+	assert_eq(ok, 54, "all 54 library Effects compile from slice 4b on")
+	assert_eq(later.size(), 0, "none waits for a later slice: %s" % str(later))
 
 
 func test_sealed_meridian_locks_the_sealed_fighters_own_layer() -> void:

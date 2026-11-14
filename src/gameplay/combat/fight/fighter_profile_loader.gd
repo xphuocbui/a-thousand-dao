@@ -33,10 +33,9 @@ const BUILD_FLOATS := {
 }
 ## Build fields with no effect until a later slice ports what reads them (accepted, not used yet): refusals with
 ## the Down step (slice 4b).
-const BUILD_NEUTRAL := ["name", "refusals", "tags"]
+const BUILD_NEUTRAL := ["name", "tags"]
 ## Build fields a later slice ports; they must be zero or empty here.
 const BUILD_NOT_PORTED := [
-	"states",
 ]
 ## Art fields slices 1-3 read.
 const ART_PORTED := [
@@ -69,7 +68,7 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 	for key in d:
 		var name: String = str(key)
 		if BUILD_FLOATS.has(name) or name in ["realm", "resist", "arts", "companions", "shields", "wards", "purity",
-				"stack_eff", "stack_dur", "cleanse_pulse", "effects", "counters", "layers", "boss"] \
+				"stack_eff", "stack_dur", "cleanse_pulse", "effects", "counters", "layers", "boss", "states", "refusals"] \
 				or name in BUILD_NEUTRAL:
 			continue
 		if name in BUILD_NOT_PORTED:
@@ -93,6 +92,20 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 			errors.append("%s: resist type %s is not one of %s" % [where, str(t), str(DTYPES)])
 		p.resist[StringName(str(t))] = float(resist[t])
 	p.boss = bool(d.get("boss", false))
+	p.refusals = int(d.get("refusals", 1))
+	for st in d.get("states", []):
+		if not (st is Dictionary) or str(st.get("id", "")) == "":
+			errors.append("%s: a state has no id" % where)
+			continue
+		var mods: Dictionary = st.get("mods", {})
+		if absf(float(mods.get("cost_red", 0.0))) > 1.0:
+			errors.append("%s: state %s: cost_red %s is a share of the cost (0.1 = 10 %%), not points" % [where, str(st.id), str(mods.cost_red)])
+		for mk in mods:
+			if not (str(mk) in _k.mod_keys):
+				errors.append("%s: state %s: mod key %s is not in the engine" % [where, str(st.id), str(mk)])
+		p.states[str(st.id)] = st
+		if bool(st.get("start", false)) and p.state_start == "":
+			p.state_start = str(st.id)
 	if d.get("layers") is Array:
 		p.layers = PackedFloat64Array(d.layers)
 	for c in d.get("counters", []):
@@ -131,6 +144,10 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 	errors.append_array(eff_comp.errors)
 	_compiler = null
 	_index_effects(p)
+	for e in p.effects:
+		for a in e.actions:
+			if a.verb == "state" and a.arg is Dictionary and a.arg.get("set") != null and not p.states.has(str(a.arg.set)):
+				errors.append("%s: Effect %s: state %s is not defined" % [where, e.id, str(a.arg.set)])
 	return p if errors.size() == n0 else null
 
 
@@ -160,17 +177,14 @@ func _index_effects(p: FighterProfile) -> void:
 func _status(d: Dictionary, where: String) -> StatusSpec:
 	var spec := StatusSpec.new()
 	spec.id = str(d.get("id", ""))
-	if spec.id == "internal_injury":
-		errors.append("%s: internal_injury is not ported yet (the Effect slice)" % where)
-		return null
-	if not _k.status.has(spec.id):
+	if spec.id != "internal_injury" and not _k.status.has(spec.id):
 		errors.append("%s: status %s is not in the Status Catalogue" % [where, spec.id])
 		return null
 	for key in d:
 		var name: String = str(key)
 		if name in ["id", "stacks", "chance"]:
 			continue
-		if name in ["dur", "cap", "layer", "tag", "crossing", "no_lockout"]:
+		if name in ["dur", "cap", "layer", "tag", "crossing", "no_lockout", "every"]:
 			spec.extra[name] = d[key]
 		else:
 			errors.append("%s: unknown status field %s" % [where, name])

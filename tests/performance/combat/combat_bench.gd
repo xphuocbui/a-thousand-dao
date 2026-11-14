@@ -71,6 +71,8 @@ static func shapes() -> Array:
 			"a": _doc("t4_mechanics_exact").a, "b": _doc("t4_mechanics_exact").b},
 		{"id": "fx_chancy", "doc": "crit and evade Effects with counters and free hits (slice 4a)",
 			"a": _doc("t4_effects_chancy").a, "b": _doc("t4_effects_chancy").b},
+		{"id": "stances", "doc": "stances, summons, timers, fire_art, strip/steal, Internal Injury, the Down step (slice 4b)",
+			"a": _doc("t4b_mechanics_exact").a, "b": _doc("t4b_mechanics_exact").b},
 	]
 
 
