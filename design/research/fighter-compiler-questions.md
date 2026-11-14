@@ -58,13 +58,18 @@ approved GDDs already define now make them differ:
 4. **Technique arts** (Cultivation Techniques rule 17): a generated common rolls one common-tier art of an element it
    names from a keyed stream on its `tech_id`; the compiler slots slotted techniques' unlocked arts before items'.
 
-**Calibration finding (for the user):** against the typical fighter (10 fights each, up to 60 NPCs a realm), the
-median NPC's win share is 0.00 at Luyện Khí but 1.00 at every realm above: from Trúc Cơ up NPCs out-pool the
-typical fighter (n_qi median 1.30 / 1.78 / 2.24 / 2.56, from technique power) and out-gear it (L3 median 44 / 63 / 49 /
-92 against 40), while Luyện Khí NPCs are under-geared (L3 median 14). So "typical" is not where generated NPCs sit.
-Either the typical reference moves to the generated population, or NPC generation is tuned toward it; that is a
-balance decision. Authored technique templates in game data carry no abilities yet, so most Nguyên Anh and Hóa Thần
-NPCs still fight with the kit.
+**Then (user, problems 1-7, 2026-11-14):** gear defence per the GDD (ward strength, efficiency, W3, B3, block);
+the design technique catalogue exported to game data (`export_techniques.py`), stand-ins carrying one common art;
+rolled pieces' common arts and wards (Item Database rule 21); NPCs slot 1-2 auxiliary techniques; L1 is a
+Character's own attack_pct; L2 is max(typical +40, own damage_more); NPC fights read their Kinh Mạch Đồ allocations;
+the event card shows the fight engine's own odds; capability #4 counts once.
+
+**Calibration (open, the user's call):** against the typical fighter (10 fights each, up to 60 NPCs a realm), the
+median NPC's win share is 0.00 at Luyện Khí, 0.90 at Trúc Cơ and 1.00 above. Luyện Khí NPCs wear one piece and have
+little ward (ward strength median 3 against 31); from Kết Đan up NPCs fill all their art slots (5-7 against the
+kit's 3) and out-build "typical", which is defined at stage 1.00 and talent 45, the start of a realm. Either the
+typical reference moves toward the generated population, or generation is tuned (Luyện Khí gear, art counts), or
+both stand as they are (rankings do not need NPCs at typical; difficulty targets do).
 
 ## Findings from the port that touch content
 - **Fixed 2026-11-14:** `metal-earthbind-drop` laid stacks of element `tho` (Hán-Việt for Earth) where the engine
