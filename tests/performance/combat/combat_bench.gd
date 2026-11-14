@@ -11,12 +11,17 @@ extends Node
 ## or in the editor binary for comparison:
 ##   godot --headless --path . res://tests/performance/combat/combat_bench.tscn -- --runs=200
 ## Prints a table and one line "BENCH_JSON {...}". Exit code 0 when every shape's p95 is within the budget, else 1.
+## With "-- --rating-spike" it runs ADR-0003's WorkerThreadPool spike instead (rating_spike.gd).
 
 const BUDGET_MS := 50.0
 const EXPECTED := "res://tests/parity/expected/"
 
 
 func _ready() -> void:
+	if OS.get_cmdline_user_args().has("--rating-spike"):
+		# ADR-0003's WorkerThreadPool spike shares this export (tests/performance/combat/rating_spike.gd)
+		add_child(preload("res://tests/performance/combat/rating_spike.gd").new())
+		return
 	var runs := 200
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--runs="):
