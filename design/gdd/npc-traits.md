@@ -68,8 +68,9 @@ the LLM game master only reads traits to voice people.
 7. **Stat rows target the stats the trait is about.** Talent rows (`ngo_tinh`, `khi_van`, `dao_tam`, `than_hon`,
    `can_cot`) appear only at the notable grade, on fate-given or gained traits; presence (`mi_luc`) may appear at small
    (user decision 2026-11-14: a small talent row would be invisible). Personality and calling rows use tâm ma and
-   status resistance, cultivation speed, mission income, stealth, escape, healing, health, alchemy and refining success,
-   travel speed. Not the damage layers: traits never touch `attack_pct`, crit or the combat
+   status resistance, cultivation speed, mission income, stealth, escape, evade, healing and healing taken, health,
+   alchemy and refining success, travel speed, and (catalogue, user decision 2026-11-14) qi deviation chance, formation
+   power, thần thức, companion health and herb growth. Not the damage layers: traits never touch `attack_pct`, crit or the combat
    offence rows, so personality cannot decide a fight on its own (builds are the game).
 
 **What traits change: choices and regard (pulls)**
@@ -195,58 +196,18 @@ Nothing else runs per season: opinion and choice weights are computed when read.
 | **World Database** (#3) | in / out | Per person: ≤ 8 trait ids, ≤ 2 expiry seasons, ≤ 2 target ids; the player also `heart_demon_used` |
 | **Save/Load** (#5) | out | Per person: ≤ 8 trait ids, ≤ 2 expiry seasons, ≤ 2 target ids; the player also `heart_demon_used` |
 
-### Provisional trait list (from the Sects seed, 2026-11-14)
+### Trait list
 
-The text below is the seed, kept as written. Sects (`design/gdd/sects.md`, Formulas F15) reads only the pull kinds. This
-design may rename, add or remove traits, but a trait's sect effect must be expressed in those pull kinds.
-
-Not yet decided when the seed was written (now the work of this GDD): fate-given traits, traits gained from events,
-whether the player has traits, stat effects through the Modifier System, how traits are rolled for NPCs, inherited or
-taught, how NPCs regard shared or opposed traits, event-choice weights beyond the sect pulls, what the LLM game master
-reads, and the cost for about 5,000 cultivators in the season tick and the save.
-
-**Personality (3 per leader; never both sides of a set)**
-
-| Trait | Pulls | Opposite | Pulls |
-|---|---|---|---|
-| Brave (dũng mãnh) | war odds 0.9; weariness +5 | Cautious (thận trọng) | war odds 1.2; weariness −10 |
-| Calm (trầm tĩnh) | attitude speed ×0.7 after hostile events | Wrathful (nóng nảy) | attitude speed ×1.5 after hostile events; War readiness +1 |
-| Content (an phận) | Expansion −1 | Ambitious (dã tâm) | Expansion +1; event weight: head-seat challenge ×3 as an elder |
-| Diligent (cần mẫn) | invest share 0.6 | Lazy (biếng nhác) | invest share 0.35 |
-| Forgiving (khoan dung) | event fade 20 % | Vengeful (thù dai) | event fade 0 %, losses ×1.5 |
-| Generous (khoan hậu) | Tax −1; loyalty +1 | Greedy (tham lam) | Tax +1; loyalty −1 |
-| Gregarious (hào sảng) | Openness +1; pact line 35 | Reclusive (ẩn dật) | Openness −1; Recruitment −1 |
-| Honest (chân thật) | pact keeping: never breaks | Deceitful (gian trá) | pact keeping ×2 to break; event weight: betrayal ×2 |
-| Humble (khiêm tốn) | attitude bias +5 from all others | Arrogant (kiêu ngạo) | attitude bias −5 from all others; war odds 0.9 |
-| Just (công chính) | vassal disputes: +2 loyalty to each side | Arbitrary (độc đoán) | vassal disputes: +5 to one side, −5 to the other (seeded) |
-| Patient (nhẫn nại) | weariness +10 | Impatient (nóng vội) | weariness −10; bold |
-| Temperate (điều độ) | treasury draw 1 × stipend | Indulgent (hưởng lạc) | treasury draw 4 × stipend |
-| Trusting (cả tin) | pact line 35 for defence pacts | Paranoid (đa nghi) | War readiness +1; loyalty −1 |
-| Devout (mộ đạo) | alignment factor ×2; attitude bias −10 to the opposite alignment | Pragmatic (thực dụng) | alignment factor ×0 |
-| Stubborn (cố chấp) | never bold; needs halved | Fickle (thất thường) | fickle |
-| Compassionate (từ bi) | weariness −10 for truce; Recruitment +1 | Callous (lạnh lùng) · Cruel (tàn nhẫn) | Callous: half weariness from losses. Cruel: attitude bias −10 to rivals; war odds 0.8; raids cost the target ×1.5 production |
-| Warlike (hiếu chiến) | War readiness +1; event weight: duel challenges ×2 | Peaceable (ôn hòa) | War readiness −1; event weight: duel challenges ×0.5 |
-| Loyal (trung thành) | event weights: betraying own sect ×0.25, head-seat challenge ×0.5 | Faithless (bạc nghĩa) | event weights: betraying own sect ×2, head-seat challenge ×1.5 |
-
-Compassionate is opposed to both Callous and Cruel; Callous and Cruel may be held together. Craven was renamed Cautious
-(thận trọng) and Warlike / Peaceable and Loyal / Faithless were added on 2026-11-14 (user decision), giving **37
-personality traits in 18 sets**. Lovestruck (si tình) is a **targeted gained trait**, not a personality trait.
+The full catalogue lives in `design/gdd/npc-traits-catalogue.md` (2026-11-14): 37 personality traits in 18 opposed sets,
+14 callings, 10 fate-given traits in 5 pairs and 16 gained traits, each with its stat rows, choice-tag weights, regard
+pulls, roll weight and sect pulls. It replaced the provisional list seeded from Sects. Sects (`design/gdd/sects.md`,
+Formulas F15) reads only the pull kinds, so a trait's sect effect must be expressed in those kinds. Compassionate is
+opposed to both Callous and Cruel; Callous and Cruel may be held together.
 
 **Migration of the 12 built flavour traits** (`world_names.json`): tham_lam → Greedy, hao_sang → Gregarious, an_dat →
 Reclusive, da_nghi → Paranoid, chinh_truc → Honest, am_hiem → Deceitful, lanh_dam → Callous, cuong_ngao → Arrogant,
 than_trong → Cautious, hieu_chien → Warlike, trung_thanh → Loyal, si_tinh → Lovestruck (gained, with no target: it is
 dropped on load, since a target cannot be inferred). A person who held two opposed migrated traits keeps the first.
-
-**Calling (1 per leader)**
-
-| Calling | Pulls |
-|---|---|
-| Strategist (binh gia) | first track Military; war odds 0.9 |
-| Steward (chưởng quỹ) | first track Holdings; Tax −1 while Thriving |
-| Diplomat (thuyết khách) | attitude speed ×1.3 toward friendly targets; pact line 35 |
-| Merchant (thương gia) | first track Trade; Openness +1 |
-| Teacher (truyền đạo) | first track Institutions; Recruitment +1 |
-| Schemer (mưu sĩ) | pact keeping ×2 to break; event weights: spying and betrayal against rivals ×2 |
 
 ## Formulas
 
@@ -518,7 +479,7 @@ step unless stated.
   p_any = p_second 0.10, tm_a 2, tm_cap 6, st_a 3, r 0.10, p_s 0.30, k_st 0.25, att0_max 30), with the Modifier
   System prices `khi_huyet_pct` 0.6, `evade_pct` 1.5, `mission_income_pct` 0.7, `tam_ma_resist_pct` 1.5, `co_duyen_pct`
   0.3, `ngo_tinh` 5, `mi_luc` 1.0.
-- **FX-CAT:** the provisional list (37 personality traits in 18 sets, 6 callings) plus test gained traits Scarred (notable),
+- **FX-CAT:** the catalogue's 37 personality traits in 18 sets and its 6 seed callings (`npc-traits-catalogue.md`) plus test gained traits Scarred (notable),
   Renowned (small, bias_all +5), Humbled (small), Grudge (targeted, −50), Lovestruck (targeted, +50), Grieving. Tag weights:
   Wrathful × aggressive 1.5, Vengeful × vengeful 2.0, Wrathful × cautious 0.67, Vengeful × merciful 0.5, Honest × deceitful
   `never`; all other pairs 1.0.
@@ -669,7 +630,7 @@ gained trait.
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
-| 1 | The full catalogue: stat rows and tag weights for all 37 personality traits and 6 callings, callings for ordinary archetypes (Alchemist, Formation master, Beast tamer, Wanderer), and the fate-given and gained lists | user, game-designer | AC-NT-04, AC-NT-35 (content task; the design does not wait on it) |
+| 1 | ~~The full catalogue~~ **Answered 2026-11-14:** `design/gdd/npc-traits-catalogue.md` (37 personality, 14 callings, 10 fate-given, 16 gained); its own open items cover leans, trigger ids and world-price events | user, game-designer | — |
 | 2 | The final choice-tag vocabulary; an interim list stands in Core Rules, and the Event Engine (#23), which has no GDD, owns the final one | game-designer | F2 beyond FX-CAT, AC-NT-09 |
 | 3 | The event budget's unit for granting a gained trait (Event Engine) | systems-designer | rule 11 |
 | 4 | Origin questions that set the player's 3 personality traits (Game UI and origins) | user | AC-NT-25 |
