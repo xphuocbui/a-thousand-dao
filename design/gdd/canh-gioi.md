@@ -1353,6 +1353,7 @@ written, it must list Realms & Bottlenecks in its own Dependencies section.
 | 21 | Combat | The combat power realm term (realm base × stage multiplier) and the realm gap; it reports knockouts for capability #9 and the result of a tribulation |
 | 22 | Heavenly Tribulation | The hand-off after a successful Deity Transformation roll |
 | 31 | Quests | The realm band that sets a quest budget; a time estimate for a `reach` stage (provisional, not exposed yet; `design/gdd/quests.md` rule 5) |
+| 42 | NPC Traits | A heart-demon crisis at a breakthrough may offer one personality swap per realm (`design/gdd/npc-traits.md` rule 15, F8; added 2026-11-14) |
 | 24 / 28 | NPC Build Generation, Living World Tick | NPC realm, stage and level; the fate roll; the intake |
 | 27 | World Generation & History | The world size and starting realm shares that the headcount targets need |
 | 26 | Sects & Missions | Members' and the player's realms for rank gates, stipends, mission pay and war strength (`design/gdd/sects.md`, rule 19, Formulas F8, F12, F13; added 2026-11-14) |

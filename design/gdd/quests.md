@@ -323,6 +323,7 @@ contract this GDD expects.
 | World Database (#3) | in / out | In: source facts, people, places, sects. Out: the quest record and its endings | World DB |
 | Time & Turn (#4) | in | The season end that checks progress and deadlines | Time & Turn |
 | Sects & Missions (#26) | in | The mission action as a `mission` stage, with its income withheld; the sect's board place; the base income that sizes the quest budget | Sects & Missions |
+| NPC Traits (#42) | in | An NPC's starting attitude to the player at the first meeting (att0, `design/gdd/npc-traits.md` F3); quest outcomes may grant gained traits (its rule 11); added 2026-11-14 | NPC Traits |
 | Character Stats (#7) | out | The `quest_boon` sheet line for a lasting gain; stat checks | Character Stats (keys); this GDD (the gain) |
 | Item Database (#13) | in / out | Item classes, rarity bounds, recipe and technique items; the reward items | Item Database |
 | Living World Tick (#28) | out | World effects on NPC wealth, vitality, rank and life (**provisional**) | Living World |

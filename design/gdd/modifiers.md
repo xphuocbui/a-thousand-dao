@@ -720,6 +720,7 @@ an artifact equipped, a pill in effect, a formation laid, an Effect's condition 
 |---|---|---|---|
 | Combat (#21) | out | Damage modifiers into L1 (increased) and L2/L4 (more); crit, accuracy, pierce, art speed, art cost, ward, resistance, block, body shield, evade, soul, status and escape stats; scope matching against hit, art and status tags | Combat (formulas, caps, tags); this system (records, ops, scope) |
 | Character Stats (#7) | out | Every sheet stat's flat and increased sums through the provider interface; precision grid and ceilings | Character Stats |
+| NPC Traits (#42) | in | Trait stat rows as catalogue modifiers with source `trait`: flat and increased only, no `more`, no damage-layer, rare or Pending stats; talents only at notable (`design/gdd/npc-traits.md` rules 5–7, F1; added 2026-11-14) | NPC Traits |
 | Meridian Map (#10) | out | The catalogue, W prices and breadth for acupoints and notables; the tree sets its own budgets and mix | Meridian Map (budgets, layout); this system (prices) |
 | The Way (Đạo) (#39) | out | Catalogue modifiers for Way nodes, including `more` L2 on art nodes | The Way |
 | Cultivation Techniques (#9) | out | Technique bonuses and art "more" (L2) as catalogue modifiers | Cultivation Techniques |

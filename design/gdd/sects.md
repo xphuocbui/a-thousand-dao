@@ -95,7 +95,7 @@ nothing in this paragraph fixes a number.
     **personality, lifestyle and congenital traits** (NPC Traits #42, in the spirit of the character traits of
     grand-strategy games). Elders (trưởng lão) have traits too. Sects read only a leader's **stance pulls**: a plain list
     of dial changes and event weights that each trait carries. Until #42 is designed, a short provisional trait list in data
-    supplies these pulls (`design/gdd/npc-traits.md`, the #42 seed: 33 personality traits in 16 opposed sets and 6
+    supplies these pulls (`design/gdd/npc-traits.md`, the #42 seed: 37 personality traits in 18 opposed sets and 6
     callings, user decision 2026-11-14, modelled on the trait structure of grand-strategy character games). A leader or elder has **3
     personality traits** (never both sides of a set) and **1 calling**. Replacing the table with #42 must not change
     this section; only the pull kinds of F15 are the contract.
@@ -467,7 +467,7 @@ The rebel test is defined as:
 | S_backer | float | ≥ 0 | F8 | Strength of a great sect with a defence pact with the vassal, or attitude ≥ 40 to it and ≤ −40 to the lord; else 0 |
 | S_lord | float | > 0 | F8 | The lord's strength |
 | wars_lord | int | ≥ 1 | World DB | Wars the lord is fighting, counting the rebellion (so at least 1) |
-| rebel_odds | float | 1.0; Ambitious or Brave 0.8; Craven or Content 1.3 (lowest applies) | data file, F15 | Ratio the vassal needs |
+| rebel_odds | float | 1.0; Ambitious or Brave 0.8; Cautious or Content 1.3 (lowest applies) | data file, F15 | Ratio the vassal needs |
 
 **Output Range:** a lone vassal almost never rebels against a lord at peace; it rebels when the lord is fighting
 several wars or a rival great sect backs it.
@@ -514,7 +514,7 @@ defence-pact partners. A **truce** lasts 8 seasons with A_tgt = 0.
 | p_k | int | 15 | data file | For a standing pact |
 | bp | int | 0 – ∞ | calculated | Balance of power: toward the strongest sect only, 1 per 10 % its strength exceeds the runner-up's (damper against one sect snowballing) |
 | k_a | float | 0.15 | data file | Speed toward the target |
-| war_odds | float | 1.0; traits 0.8–1.2 (F15: Cruel 0.8, Craven 1.2) | data file, traits | Strength ratio a leader needs to declare war |
+| war_odds | float | 1.0; traits 0.8–1.2 (F15: Cruel 0.8, Cautious 1.2) | data file, traits | Strength ratio a leader needs to declare war |
 
 **Output Range:** −100 to 100.
 **Example:** chính vs ma, 2 shared borders, a Cruel head (−10 to rivals): A_tgt = −50. From −20, attitude runs −25, −29, −32,
@@ -679,8 +679,9 @@ Prices scale with the buyer's realm, so a service is worth the same number of mi
 
 ### F15. Trait pulls: the contract with NPC Traits (#42)
 
-Each trait carries **pulls** of these kinds, and each kind plugs into one formula. A leader's pulls are the sum of its
-3 personality traits and its calling; an elder's council pull (rule 19a) is separate.
+Each trait carries **pulls** of these kinds, and each kind plugs into one formula. A leader's pulls are the sum over all
+its traits (3 personality, the calling, and any fate-given or gained ones; npc-traits.md Edge Cases); an elder's
+council pull (rule 19a) is separate.
 
 | Pull kind | Read by | How it applies |
 |---|---|---|
@@ -701,7 +702,7 @@ Each trait carries **pulls** of these kinds, and each kind plugs into one formul
 | weariness limit | F9 | Added to the limit 40; Compassionate accepts a truce 10 earlier; Callous adds half weariness from losses |
 | event weights | Event Engine (#23) | Raise or lower the chance of named event kinds (betrayal, spying, head-seat challenge, harsh raids) |
 
-The trait list itself (33 personality traits in 16 opposed sets and 6 callings) lives in
+The trait list itself (37 personality traits in 18 opposed sets and 6 callings) lives in
 `design/gdd/npc-traits.md`, the seed for NPC Traits (#42). Sects owns only the pull kinds above.
 
 **Output Range:** dial pulls from one leader can sum to −3 – +3 on a dial (F6 clamps the target to 0–4). War odds run 0.8
@@ -862,7 +863,7 @@ seed, season, record id). Evidence goes to `tests/unit/sects/`, `tests/integrati
   Openness 2; works_due 5,000; board_cash 20,000; trib_in 976; treasury 60,000; not at war.
 - **FX-V:** a Loyal vassal grossing 1,394, mission fees excluded.
 - **FX-TR:** the provisional trait list in `design/gdd/npc-traits.md`, in particular Greedy (Tax +1, loyalty −1), Cruel (attitude −10 to rivals,
-  war odds 0.8) and Craven (war odds 1.2).
+  war odds 0.8) and Cautious (war odds 1.2).
 - **FX-LLM:** a mock returning scripted event outcomes. **FX-S:** a stub holding strength S constant.
 
 **Kinds, vassals and territory**
@@ -941,7 +942,7 @@ seed, season, record id). Evidence goes to `tests/unit/sects/`, `tests/integrati
   attitude runs −25, −29, −32, −35, −37, −39, −41, with the feud starting in season 7. From −48, attitude reaches −50
   in two seasons (no dead band).
 - **AC-SM-22** F7 lines. **THEN** a pact forms at 40 / 40 and not at 40 / 39; a feud starts at ≤ −40 one way and ends
-  at ≥ −20 (−21 stays a feud); at a ratio of 0.85 a Cruel leader declares war and a neutral one does not; a Craven
+  at ≥ −20 (−21 stays a feud); at a ratio of 0.85 a Cruel leader declares war and a neutral one does not; a Cautious
   leader does not declare at 1.15 and does at 1.20; War readiness 2 never declares. The target's defence-pact partners
   count in S_other.
 - **AC-SM-23** Truce. **THEN** for 8 seasons no war is declared even when the conditions hold, and A_tgt is 0; in season
@@ -1062,7 +1063,7 @@ traits of grand-strategy games (NPC Traits #42).
 | 3 | ~~Contribution at the top may outrun a sect's stock.~~ **Answered 2026-11-14:** contribution also buys services and privileges (rule 19a, F14). Still open: the guidance bonus belongs to Realms & Bottlenecks | user, economy-designer | Realms |
 | 4 | **Decided 2026-11-14:** one anchor key, `world_production_guess` (250,000 a season) in F3. **Handoff:** when Regional Economy & Trade (#43) sets the real value, replace the key, re-derive the Formulas budget table and rerun AC-SM-42 | economy-designer | F3, AC-SM-42 |
 | 5 | ~~Same board as Quests?~~ **Answered 2026-11-14:** one board, two lists with separate rules (rule 24). Quests needs a back-reference line | user | Quests |
-| 6 | **Decided 2026-11-14:** the provisional trait list is in `design/gdd/npc-traits.md` (33 personality traits, 6 callings; 3 + 1 per leader); Sects owns only the pull kinds (F15). Still open for #42: fate-given traits, stat effects, how traits are rolled for NPCs | user | #42 |
+| 6 | **Decided 2026-11-14:** the provisional trait list is in `design/gdd/npc-traits.md` (37 personality traits in 18 sets, 6 callings; 3 + 1 per leader); Sects owns only the pull kinds (F15). Fate-given traits, stat effects and rolling are now designed in `design/gdd/npc-traits.md` (2026-11-14) | user | — |
 | 7 | ~~A Defiant vassal's choice.~~ **Answered 2026-11-14:** ordered checks, F5b | user | — |
 | 8 | ~~Review the small-case defaults.~~ **Answered 2026-11-14:** kept, with the upkeep order changed (calling's track last, lowest level first, Military last at war) | user | — |
 | 9 | **Deferred 2026-11-14 to World Generation & History (#27):** authored starting levels, dials, attitudes, treasuries, alignments and leaders' traits for the great and minor sects, at or below F1's settle levels | user, world-builder | AC-SM-01 |

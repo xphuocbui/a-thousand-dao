@@ -1528,6 +1528,118 @@ formulas:
     notes: "Sects F12. Client pays cash*(1 + sect_mission_fee). floor_cash is the Ket Dan pay for the same mission."
     added: 2026-11-14
     revised: ""
+  - name: trait_row
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+    variables:
+      - B
+      - P_t
+      - price
+      - u
+      - d
+    output_range: ["about 1.2 W (small)", "about 8 W (notable)"]
+    expression: "value = d * floor(B * P_t / (price * u) + 1e-6) * u"
+    notes: "NPC Traits F1. Talent rows only at notable; presence may be small. Sizing guide only, no price check."
+    added: 2026-11-14
+    revised: ""
+  - name: choice_weight
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+    variables:
+      - base_c
+      - m
+      - m_lo
+      - m_hi
+    output_range: ["0.1 x base", "5 x base"]
+    expression: "w(c) = base_c * clamp(prod m(t,g), 0.1, 5), or 0 with an explicit never flag"
+    notes: "NPC Traits F2. Pick by keyed draw (choice, event_id, person_id, season)."
+    added: 2026-11-14
+    revised: ""
+  - name: trait_opinion
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+    variables:
+      - n_sh
+      - n_op
+      - bias_all
+      - bias_dir
+      - tie
+      - sect
+      - target
+    output_range: [-100, 100]
+    expression: "op = clamp(10*n_sh - 10*n_op + bias_all + bias_dir + tie + sect + target, -100, 100)"
+    notes: "NPC Traits F3. Computed on demand, never stored per pair."
+    added: 2026-11-14
+    revised: ""
+  - name: attitude_start
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+    variables:
+      - trait_opinion
+      - k_st
+      - sect_standing
+      - hostile_threshold
+    output_range: [-29, 30]
+    expression: "att0 = clamp(round(op(npc->player) + 0.25 * standing), hostile_threshold + 1, 30)"
+    notes: "NPC Traits F3. Written once at the first meeting; then Quests owns the attitude."
+    added: 2026-11-14
+    revised: ""
+  - name: trait_roll
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+    variables:
+      - b_t
+      - m_arch
+      - m_sect
+      - m_master
+      - fate_p_any
+      - g_f
+    output_range: ["3 personality, 1 calling", "0-2 fate-given"]
+    expression: "w_t = b_t * m_arch * m_sect * m_master; 3 draws removing t and opp(t); fate-given P(0/1/2) = 0.90/0.09/0.01"
+    notes: "NPC Traits F4, F5. Key (traits, person_id); inheritance chance trait_inherit_chance per parent."
+    added: 2026-11-14
+    revised: ""
+  - name: trait_conflict
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+    variables:
+      - tm_against
+      - tm_cap
+      - st_a
+      - r
+      - n_against
+      - n_with
+    output_range: ["heart demon +0..+6 a season", "cost -19 % at most"]
+    expression: "dTamMa = min(tm_a * n_against, tm_cap - used_this_season); cost' = cost * (1 - r)^min(n_with, 2)"
+    notes: "NPC Traits F7. The player is never blocked; in character never heals heart demon."
+    added: 2026-11-14
+    revised: ""
+  - name: trait_swap
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+    variables:
+      - p_s
+      - p_max
+      - dao_tam
+    output_range: [0, 0.6]
+    expression: "P_swap = clamp(0.30 * (100 - eff(dao_tam)) / 55, 0, 0.60)"
+    notes: "NPC Traits F8. Once per realm at a heart-demon crisis; player chooses."
+    added: 2026-11-14
+    revised: ""
 constants:
   - name: root_count_weights
     status: active
@@ -4174,5 +4286,45 @@ constants:
     value: 0.6
     unit: share of production
     notes: "Sects F2. Approached, never reached. Guess."
+    added: 2026-11-14
+    revised: ""
+  - name: trait_fade_seasons
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+    value: 40
+    unit: seasons
+    notes: "NPC Traits F6. Gained traits expire this long after gain or last refresh. Guess."
+    added: 2026-11-14
+    revised: ""
+  - name: fate_p_any
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+    value: 0.1
+    unit: chance
+    notes: "NPC Traits F4. Chance of one fate-given trait; a second at 0.10 of those. Guess."
+    added: 2026-11-14
+    revised: ""
+  - name: trait_inherit_chance
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+    value: 0.5
+    unit: chance per parent
+    notes: "NPC Traits F5. Guess."
+    added: 2026-11-14
+    revised: ""
+  - name: tm_against
+    status: active
+    source: design/gdd/npc-traits.md
+    referenced_by:
+      - design/gdd/npc-traits.md
+    value: 2 per trait, cap 6 a season
+    unit: heart demon
+    notes: "NPC Traits F7. Cap counted across a season, before resistance. Guess."
     added: 2026-11-14
     revised: ""

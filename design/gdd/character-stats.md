@@ -895,6 +895,7 @@ below.
 | 9 | Cultivation Techniques | Technique bonuses and technique power | Spiritual power at `no_tech_power` 0.5 (Cultivation Techniques rule 11) |
 | 13 | Item DB | Equipped treasure affixes, consumables and tools (fertilisers, timed pill effects), lifespan pill years | No item bonuses |
 | 11 | Progression Edges | Destiny perk modifiers and flags | No player edge |
+| 42 | NPC Traits | Trait stat rows (source `trait`); reads fortune for the fate-given roll and Dao heart for the personality swap; adds heart demon for acting against traits (`design/gdd/npc-traits.md` F1, F4, F7, F8; added 2026-11-14) | No trait rows |
 | 17 | Formations | Formation modifiers | No formation bonuses |
 | 14 | Spirit Herbs & Spirit Fields | Spirit Fields mastery `herb_growth_pct` (curve owned there) | No mastery growth bonus |
 | 22 | Heavenly Tribulation | The `tribulation_tempered` line: a lasting modifier source granted once, on surviving the Deity Transformation tribulation, using existing stat keys within `tempered_buff_w` (`design/gdd/thien-kiep.md` rule 9, Formulas E) | No tempered buff |
