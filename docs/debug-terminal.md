@@ -14,7 +14,18 @@ tools\debug-terminal.bat                  (Windows cmd / double-click; sets UTF-
 tools/debug-terminal.sh                   (Git Bash)
 ```
 
-Both run the Godot **console** build headless:
+Both run the **release** build of the game (2026-11-15): Power Rankings is on, and its rating fights run several
+times faster there than in the editor's debug binary (about 36 s of background work a season instead of about 2
+minutes). The launcher re-exports it first (a few seconds, preset "Windows Combat Bench", which needs the 4.7.1
+export templates) whenever `src/`, `assets/data/` or `project.godot` changed since the last export, so it never runs
+stale code or data:
+
+```
+build/bench/combat_bench.console.exe --headless -- --terminal [options]
+```
+
+Set `DEBUG_TERMINAL_EDITOR=1` to run in the editor's console binary instead (slower; useful when debugging scripts),
+which is also the fallback when the export fails:
 
 ```
 C:/Godot/Godot_v4.7.1-stable_win64_console.exe --headless --path . -s res://src/debug_terminal/terminal_main.gd -- [options]
@@ -28,6 +39,7 @@ C:/Godot/Godot_v4.7.1-stable_win64_console.exe --headless --path . -s res://src/
 | `--exit-after-commands` | quit when the file ends (scripts, CI) |
 | `--no-llm` | templates only, this run |
 | `--llm-url URL` / `--llm-model M` | point at another OpenAI-compatible endpoint, this run only |
+| `--set file.key=value` | override a data value for this run only, in memory (e.g. `--set combat_rankings.enabled=false`); an unknown file or key is refused |
 
 Set `GODOT_CONSOLE` if Godot is not at `C:\Godot\`.
 

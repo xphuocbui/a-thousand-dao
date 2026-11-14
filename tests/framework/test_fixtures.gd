@@ -14,6 +14,10 @@ static func game_data() -> GameData:
 		_gd = GameData.load_from("res://assets/data")
 		_gd.world_gen().people.world_cultivators = 80
 		_gd.world_gen().people.world_cultivators_min = 0
+		# Power Rankings is on in the shipped data; with it, every session these suites start would run world-
+		# generation panels and a 10,000-fight batch a season. The suites here test other systems, so it is off;
+		# tests/unit/ranking runs it on its own data.
+		_gd.file("combat_rankings")["enabled"] = false
 	return _gd
 
 

@@ -27,9 +27,11 @@ timeout 900 "$GODOT_CONSOLE" --headless --path . -s -d --remote-debug tcp://127.
 unit=${PIPESTATUS[0]}
 
 echo "== debug terminal smoke session =="
+# The shipped data has Power Rankings and the fight engine on; small rating budgets keep the editor-binary smoke quick
+# while still running world-generation panels and every season's batch.
 out="$(mktemp)"
 timeout 300 "$GODOT_CONSOLE" --headless --path . -s res://src/debug_terminal/terminal_main.gd -- \
-  --no-llm --commands res://tests/integration/debug_terminal/smoke_commands.txt --exit-after-commands >"$out" 2>&1
+  --no-llm --set combat_rankings.season_fight_budget=200 --set combat_rankings.worldgen_fight_budget=200   --commands res://tests/integration/debug_terminal/smoke_commands.txt --exit-after-commands >"$out" 2>&1
 smoke=$?
 errors=$(grep -c "SCRIPT ERROR" "$out" || true)
 echo "smoke exit $smoke, script errors $errors, $(wc -l <"$out") lines of output (kept at $out)"

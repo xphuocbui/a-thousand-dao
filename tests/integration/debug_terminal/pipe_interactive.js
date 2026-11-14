@@ -10,7 +10,9 @@ const path = require("path");
 
 const godot = process.argv[2] || process.env.GODOT_CONSOLE || "C:/Godot/Godot_v4.7.1-stable_win64_console.exe";
 const root = path.resolve(__dirname, "../../..");
-const g = spawn(godot, ["--headless", "--path", root, "-s", "res://src/debug_terminal/terminal_main.gd", "--", "--no-llm", "--achievements-file", ""],
+const g = spawn(godot, ["--headless", "--path", root, "-s", "res://src/debug_terminal/terminal_main.gd", "--", "--no-llm", "--achievements-file", "",
+  // Power Rankings is on in the shipped data: small rating budgets keep this editor-binary check quick
+  "--set", "combat_rankings.season_fight_budget=200", "--set", "combat_rankings.worldgen_fight_budget=200"],
   { stdio: ["pipe", "pipe", "pipe"] });
 let out = "";
 const strip = (s) => s.replace(/\x1b\[[0-9;]*m/g, "");

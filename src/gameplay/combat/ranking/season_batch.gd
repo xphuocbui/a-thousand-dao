@@ -72,6 +72,7 @@ var _service: RatingService
 var _admitted: Array[PanelJob] = []
 var _todo: Array[PairFight] = []
 var _thread: Thread
+var _cancelled := false
 
 
 func _init(service: RatingService) -> void:
@@ -84,7 +85,7 @@ func _init(service: RatingService) -> void:
 func run(threaded: bool) -> void:
 	var left: int = panel_budget
 	var next := 0
-	while next < panels.size():
+	while next < panels.size() and not _cancelled:
 		_admitted = []
 		var reserve := 0
 		while next < panels.size() and reserve + panels[next].max_fights <= left:
@@ -95,8 +96,8 @@ func run(threaded: bool) -> void:
 			break
 		_each(_admitted.size(), _panel_task, threaded)
 		for p in _admitted:
-			left -= int(p.result.fights)
-			panel_fights += int(p.result.fights)
+			left -= int(p.result.get("fights", 0))
+			panel_fights += int(p.result.get("fights", 0))
 	_admitted = []
 	var room: int = maxi(0, budget - panel_fights)
 	_todo = pairs.slice(0, mini(room, pairs.size()))
@@ -110,6 +111,11 @@ func run(threaded: bool) -> void:
 func start() -> void:
 	_thread = Thread.new()
 	_thread.start(run.bind(true))
+
+
+## Stops a running batch at its next fight; its results are then incomplete and must not be applied (quitting).
+func cancel() -> void:
+	_cancelled = true
 
 
 ## Waits for a [method start]ed run to end (returns at once when none is running).
@@ -131,10 +137,14 @@ func _each(n: int, task: Callable, threaded: bool) -> void:
 
 
 func _panel_task(i: int) -> void:
+	if _cancelled:
+		return
 	var p: PanelJob = _admitted[i]
 	p.result = _service.panel_core(p.profile, p.realm, p.id, p.warm, p.start_k, p.coarse, p.counts, game_seed, season)
 
 
 func _pair_task(i: int) -> void:
+	if _cancelled:
+		return
 	var f: PairFight = _todo[i]
 	f.score = _service.fight_score(profiles[f.a], profiles[f.b], f.seed, true)

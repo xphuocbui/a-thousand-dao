@@ -1156,12 +1156,17 @@ func _rating_clock() -> Array:
 	return [seed_value, season_index()]
 
 
-## Completes the pending batch and applies it ([param apply] false only waits, for a life or world being replaced).
+## Completes the pending batch and applies it ([param apply] false stops and drops it instead: quitting, or a life or
+## world being replaced).
 func _finish_ratings(apply: bool = true) -> void:
 	if _rating_batch == null:
 		return
 	var b: SeasonBatch = _rating_batch
 	_rating_batch = null
+	if not apply:
+		b.cancel()   # its results are dropped: a running batch stops at its next fight
+		b.finish()
+		return
 	if ratings_background:
 		b.finish()
 	else:

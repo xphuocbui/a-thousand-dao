@@ -33,7 +33,7 @@ VERSIONED = ("combat_engine.json", "combat_reference_fighters.json", "combat_eff
 # rung scales linh lực as well as offence and health, and linh lực decides sustain fights; at 32 a rung wins 66-69 %
 # (about 120 Elo). The rung-counted knobs (k_max, warm_step, cold_step, coarse_bracket) scale with it.
 KNOBS = {
-    "enabled": False,
+    "enabled": True,
     "A_0": 1000.0,
     "rung_div": 32,
     "k_max": 192,
