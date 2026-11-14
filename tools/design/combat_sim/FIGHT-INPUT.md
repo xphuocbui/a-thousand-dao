@@ -130,7 +130,7 @@ looks like a strong build.
   `than_thuc`).
 - **`--without <effect id>`** removes one Effect: the identity test for an engine piece.
 - **Library pieces** (2026-11-11): an art may be `{"lib": "<art id>"}`, which loads the record from
-  `design/arts/family-*.json` (or a `common` art of `part-*.json`) with its effects, counters and states; other keys
+  `design/arts/family-*.json` or `part-*.json` (every authored art since 2026-11-14) with its effects, counters and states; other keys
   on the entry override its fields. `"techniques": ["<technique id>"]` loads each technique's passives from
   `design/techniques/catalogue-*.json` as one always-on Effect `tech:<id>` (`--without tech:<id>` tests it). Passives
   with no engine stat, and scopes on stats the engine reads without hit context, print as UNMODELLED.

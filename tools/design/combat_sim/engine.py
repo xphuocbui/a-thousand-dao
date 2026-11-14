@@ -1597,6 +1597,9 @@ def validate(b):
                 bad = [k for k in arg if k not in MOD_KEYS and k not in ("for", "dtype", "element", "tags", "kind", "stack")]
                 if bad:
                     raise EngineError("%s: Effect %s: mod keys %s are not in the engine" % (b.name, e["id"], bad))
+            if verb == "stacks" and isinstance(arg, dict) and arg.get("el", "") not in ELEMENTS:
+                # 2026-11-14: an item art wrote the Hán-Việt "tho" for Earth; the Godot loader refused it, the sim ran it
+                raise EngineError("%s: Effect %s: stacks element %r is not an engine element" % (b.name, e["id"], arg.get("el")))
     for st in b.states:
         if abs(st.get("mods", {}).get("cost_red", 0)) > 1:
             raise EngineError("%s: state %s: cost_red %r is a share of the cost (0.1 = 10 %%), not points"

@@ -1,0 +1,126 @@
+"""Parity cases for the Godot FighterCompiler (ADR-0001 step 3): Character-shaped build files and the resolved engine
+Build fight.py compiles from each, so the GDScript port of expand_library() and to_build() can be checked exactly.
+
+Every named item and every library art is in some case: the items are dealt out five to a case, the arts fill each
+case's art slots (its items' arts first), and each case carries a rotating set of stat-sheet lines covering every
+modifier key fight.py maps, folds or skips, plus scoped lines and a key with no engine stat. A Character's sheet lines
+reach fight.py as one technique ("character"), which is exactly how expand_library() treats a technique's passives.
+
+Writes tests/parity/compile/compile_cases.json: {cases: [{name, input, build, unmodelled}]}, input being what the
+Godot compiler takes (its sheet lines under "modifiers"), build the resolved Build (dataclasses.asdict) and
+unmodelled what fight.py reports it does not run.
+
+Run:
+  python -I tools/design/combat_sim/compile_parity_export.py           write the cases
+  python -I tools/design/combat_sim/compile_parity_export.py --check   compare; exit 1 on drift
+"""
+import copy
+import dataclasses
+import json
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import fight as F  # noqa: E402
+
+ROOT = os.path.normpath(os.path.join(HERE, "..", "..", ".."))
+OUT = os.path.join(ROOT, "tests", "parity", "compile", "compile_cases.json")
+ITEMS_PER_CASE = 5
+# the element names a purity uses, in turn (engine names)
+PURITY = [{"fire": 40.0}, {"water": 55.0, "ice": 20.0}, {}, {"metal": 70.0}, {"wood": 30.0, "earth": 30.0},
+          {"thunder": 65.0}, {"wind": 45.0}]
+
+
+def sheet_line_pool():
+    """Stat-sheet lines: every mapped key, every folded key, two skipped keys, an unknown key, and scoped lines."""
+    pool = [{"key": k, "value": 4.0 + (i % 5)} for i, k in enumerate(sorted(F.PASSIVE_MOD))]
+    pool += [{"key": k, "value": 6.0 + (i % 4)} for i, k in enumerate(sorted(F.STATIC))]
+    pool += [{"key": "cultivation_speed_pct", "value": 10.0}, {"key": "khi_van", "value": 3.0},
+             {"key": "made_up_combat_pct", "value": 5.0}]
+    pool += [{"key": "attack_pct", "value": 12.0, "scope": ["fire"]},
+             {"key": "crit_chance_pct", "value": 3.5, "scope": ["sword", "phys"]},
+             {"key": "evade_pct", "value": 2.0, "scope": ["wind"]},             # a mod read without hit context
+             {"key": "stack_effect_pct", "value": 15.0, "scope": ["hoa", "buff"]},
+             {"key": "stack_duration_pct", "value": 10.0, "scope": ["sword"]},  # an unscoped read, reported
+             {"key": "stack_grant", "value": 1.0, "scope": ["debuff", "thuy"]},
+             {"key": "defense_pct", "value": 18.5}, {"key": "ward_efficiency_pct", "value": 12.0},
+             {"key": "linh_luc_regen_inc_pct", "value": 25.0}, {"key": "art_cost_pct", "value": 7.0}]
+    return pool
+
+
+def cases():
+    lib = json.load(open(os.path.join(ROOT, "assets", "data", "combat_library.json"), encoding="utf-8"))
+    items = sorted(lib["items"])
+    art_pool = sorted(lib["arts"])
+    lines = sheet_line_pool()
+    out, used_arts, i = [], set(), 0
+    while i * ITEMS_PER_CASE < len(items) or len(used_arts) < len(art_pool):
+        r = i % 5
+        chunk = items[i * ITEMS_PER_CASE:(i + 1) * ITEMS_PER_CASE]
+        slots = lib["constants"]["slots_by_realm"][r]
+        arts = []
+        for iid in chunk:
+            for aid in lib["items"][iid]["arts"]:
+                if aid not in arts and len(arts) < slots:
+                    arts.append(aid)
+        for aid in art_pool:
+            if len(arts) >= slots:
+                break
+            if aid not in used_arts and aid not in arts:
+                arts.append(aid)
+        used_arts.update(arts)
+        mods = [lines[(i * 7 + j) % len(lines)] for j in range(9)]
+        base = copy.deepcopy(lib["typical"][r])
+        inp = {"name": "case_%02d" % i, "realm": r, "layers": base["layers"], "n_body": base["n_body"],
+               "n_qi": base["n_qi"], "ward": base["ward"], "arts": [{"lib": a} for a in arts], "items": chunk,
+               "modifiers": mods, "purity": PURITY[i % len(PURITY)]}
+        out.append(inp)
+        i += 1
+    return out
+
+
+def compile_case(inp):
+    d = copy.deepcopy(inp)
+    F._library()
+    F._LIB["techs"]["character"] = {"id": "character", "passives": d.pop("modifiers")}
+    d["techniques"] = ["character"]
+    try:
+        exp = F.expand_library(d)
+        b = F.to_build(exp, inp["realm"], [], inp["name"])
+    except F.BadInput as e:
+        return {"name": inp["name"], "input": inp, "refused": str(e)}
+    finally:
+        F._LIB["techs"].pop("character", None)
+    rec = dataclasses.asdict(b)
+    return {"name": inp["name"], "input": inp, "build": rec, "unmodelled": exp["unmodelled"]}
+
+
+def build_all():
+    rows = [compile_case(c) for c in cases()]
+    return {"schema_version": 1,
+            "_doc": "FighterCompiler parity cases, written by tools/design/combat_sim/compile_parity_export.py from "
+                    "fight.py's expand_library() and to_build(); do not edit by hand.",
+            "cases": rows}
+
+
+def main(argv):
+    text = json.dumps(build_all(), indent=1, ensure_ascii=False) + "\n"
+    if "--check" in argv:
+        old = open(OUT, encoding="utf-8").read() if os.path.exists(OUT) else None
+        same = old == text
+        print(("same  " if same else "DRIFT ") + OUT)
+        return 0 if same else 1
+    os.makedirs(os.path.dirname(OUT), exist_ok=True)
+    with open(OUT, "w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
+    doc = json.loads(text)
+    refused = [c for c in doc["cases"] if "refused" in c]
+    print("wrote %s: %d cases, %d refused" % (OUT, len(doc["cases"]), len(refused)))
+    for c in refused:
+        print("  refused", c["name"], c["refused"])
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

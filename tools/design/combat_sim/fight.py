@@ -191,8 +191,8 @@ def check_keys(d, allowed, where):
 
 # ------------------------------------------------------------------ the art library and technique catalogue
 # A build may name library pieces instead of copying them (2026-11-11):
-#   "arts": [{"lib": "<art id>"}]      -> the art record from design/arts/family-*.json (or a `common` art of
-#                                         design/arts/part-*.json), its effects, counters, states
+#   "arts": [{"lib": "<art id>"}]      -> the art record from design/arts/family-*.json or part-*.json (every
+#                                         authored art since 2026-11-14), its effects, counters, states
 #   "techniques": ["<technique id>"]   -> the technique's passives from design/techniques/catalogue-*.json, as one
 #                                         always-on Effect "tech:<id>" (so --without tech:<id> tests it)
 #   "items": ["<item id>"]             -> a named item from design/items/catalogue-*.json (2026-11-12): its plain
@@ -284,8 +284,9 @@ def _library():
                 arts[a["id"]] = a
         for f in sorted(_g.glob(os.path.join(ROOT, "design", "arts", "part-*.json"))):
             for a in json.load(open(f, encoding="utf-8")):
-                if a.get("tier") == "common":   # the common pool generated techniques roll (cong-phap rule 17)
-                    arts.setdefault(a["id"], a)
+                # the common pool generated techniques roll (cong-phap rule 17) and, since 2026-11-14, the authored
+                # part arts too (user decision: every authored art is in the game's library; no id collides)
+                arts.setdefault(a["id"], a)
         for f in sorted(_g.glob(os.path.join(ROOT, "design", "techniques", "catalogue-*.json"))):
             for t in json.load(open(f, encoding="utf-8")):
                 techs[t["id"]] = t
@@ -392,7 +393,7 @@ def expand_library(d):
         if isinstance(a, dict) and "lib" in a:
             src = arts_lib.get(a["lib"])
             if not src:
-                raise BadInput("arts: library art %r not found in design/arts/ (family-*.json, or part-*.json commons), "
+                raise BadInput("arts: library art %r not found in design/arts/ (family-*.json or part-*.json), "
                                "design/items/common-arts.json or an item's arts" % a["lib"])
             x = {k: v for k, v in src.items() if k in LIB_ART_KEYS}
             x["id"] = src["id"]

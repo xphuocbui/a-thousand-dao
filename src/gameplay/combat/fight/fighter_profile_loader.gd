@@ -49,6 +49,8 @@ const ART_NOT_PORTED := [
 
 ## Problems found by the last calls; empty when every profile loaded.
 var errors: PackedStringArray = []
+## Things that load but will not work as written (an undefined counter read reads 0); see EffectCompiler.warnings.
+var warnings: PackedStringArray = []
 var _k: CombatConstants
 ## While loading one fighter: its Effect compiler and counters, so its arts' guards compile against them.
 var _compiler: EffectCompiler
@@ -143,6 +145,7 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 	for i in (d.get("wards", []) as Array).size():
 		p.wards.append(_ward(d.wards[i], "%s.wards[%d]" % [where, i]))
 	errors.append_array(eff_comp.errors)
+	warnings.append_array(eff_comp.warnings)
 	_compiler = null
 	_index_effects(p)
 	for e in p.effects:

@@ -21,6 +21,9 @@ const SIDE_READS := ["hp_share", "hp_missing_share", "qi_share", "qi_missing_sha
 const FILTER_KEYS := ["for", "dtype", "element", "tags", "kind", "stack", "status", "art_id"]
 
 var errors: PackedStringArray = []
+## Records that compile but will not do what they say in this fighter: a read of a counter nothing in the fighter
+## defines reads 0, as in the sim (an art whose engine comes from another piece the fighter does not have).
+var warnings: PackedStringArray = []
 var _k: CombatConstants
 var _events: Dictionary = {}
 var _mod_keys: Dictionary = {}
@@ -200,7 +203,8 @@ func _read(key: String, w: String, counters: Dictionary) -> EffectDef.ReadDef:
 			if pre == "status." and not _k.status.has(r.param) and r.param != "internal_injury":
 				errors.append("%s: read %s: %s is not a status" % [w, key, r.param])
 			if pre == "counter." and not counters.has(r.param):
-				errors.append("%s: read %s: counter %s is not defined" % [w, key, r.param])
+				# the sim reads an undefined counter as 0 (engine.py read()); a write to one is still an error
+				warnings.append("%s: reads counter %s, which nothing in this fighter builds (reads 0)" % [w, r.param])
 			return r
 	if k.begins_with("fired_within."):
 		var parts: PackedStringArray = k.split(".")
