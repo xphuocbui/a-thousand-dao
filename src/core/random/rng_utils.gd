@@ -70,3 +70,13 @@ static func shuffled(rng: RandomNumberGenerator, items: Array) -> Array:
 		out[i] = out[j]
 		out[j] = tmp
 	return out
+
+
+## A string hash the project owns (32-bit FNV-1a over UTF-8), for keyed streams (ADR-0002 decision 4). Unlike Godot's
+## [code]hash()[/code] its values are fixed by this code, so engine upgrades cannot move keyed values in saves.
+## Returns a value from 0 to 2^32 - 1.
+static func stable_hash(s: String) -> int:
+	var h: int = 2166136261
+	for b in s.to_utf8_buffer():
+		h = ((h ^ b) * 16777619) & 0xFFFFFFFF
+	return h

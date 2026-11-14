@@ -742,7 +742,10 @@ func _plan_variants() -> Array:
 	for slot in defs.size():
 		var id: String = str(defs[slot].id)
 		var r := RandomNumberGenerator.new()
-		r.seed = hash("variant:" + id) ^ int(_cfg.seed)
+		# ADR-0002: a pinned key keeps the fixed map; a variant without one uses the project-owned hash
+		var keys: Dictionary = _cfg.get("variant_seed_keys", {})
+		var key: int = int(keys[id]) if keys.has(id) else RngUtils.stable_hash("variant:" + id)
+		r.seed = key ^ int(_cfg.seed)
 		var host_spec: Array = _cfg.variant_hosts[id]
 		var entry: Variant = depth_of[id]
 		var e: int = r.randi_range(int(entry[0]), int(entry[1])) if entry is Array else int(entry)

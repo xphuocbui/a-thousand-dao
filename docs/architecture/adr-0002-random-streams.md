@@ -1,7 +1,7 @@
 # ADR-0002: Random Streams
 
 ## Status
-Proposed (drafted overnight 2026-11-14 by the assistant for the user's review; not accepted)
+Accepted (2026-11-14, by the user, with the project-owned hash). Drafted overnight 2026-11-14 by the assistant.
 
 ## Date
 2026-11-14
@@ -10,7 +10,7 @@ Proposed (drafted overnight 2026-11-14 by the assistant for the user's review; n
 2026-11-14
 
 ## Decision Makers
-The user (to accept or change), with the assistant drafting. Required ADR 3 of architecture.md ("Random-stream
+The user (accepted 2026-11-14), with the assistant drafting. Required ADR 3 of architecture.md ("Random-stream
 policy"), needed before ADR-0001 step 4 wires fights into the session.
 
 ## Summary
@@ -25,10 +25,10 @@ as its own seed. This records what the code already does and makes it binding.
 |-------|-------|
 | **Engine** | Godot 4.7 (4.7.1 installed) |
 | **Domain** | Core (scripting) |
-| **Knowledge Risk** | LOW for `RandomNumberGenerator` (unchanged since 4.0 in the engine reference); see Risks for `hash()` |
+| **Knowledge Risk** | LOW for `RandomNumberGenerator` (unchanged since 4.0 in the engine reference); `hash()` is no longer used for keyed streams (see Risks) |
 | **References Consulted** | `docs/engine-reference/godot/VERSION.md`, `breaking-changes.md` (no RNG changes listed for 4.4-4.7) |
 | **Post-Cutoff APIs Used** | None |
-| **Verification Required** | (1) A save and reload resumes the session stream exactly (already a save/load AC). (2) `hash(String)` gives the same value across 4.7.x patch releases and platforms, or keyed streams use a hash we own (see Risks) |
+| **Verification Required** | (1) A save and reload resumes the session stream exactly (already a save/load AC). (2) Keyed streams use `RngUtils.stable_hash` (pinned by `tests/unit/random/rng_utils_stable_hash_test.gd`), not `hash()`: done |
 
 ## ADR Dependencies
 
@@ -76,7 +76,10 @@ A survey of `src/` (2026-11-14) found no global random calls (`randi()`, `randf(
    takes exactly one draw from the session stream as its seed (`fight_seed = session_rng.randi()`) and draws only from
    its own generator. Its internal changes never move the session stream.
 4. **Keyed streams for order-free values.** A value that must be the same whenever and however often it is asked for is
-   drawn from a generator seeded from a stable key (`seed = stable_hash(key) ^ game_seed`), created where it is used.
+   drawn from a generator seeded from a stable key, created where it is used. The key's hash is
+   `RngUtils.stable_hash` (32-bit FNV-1a over UTF-8), never Godot's `hash()`. Values that differ per life mix in the
+   game seed (`stable_hash(key) ^ game_seed`); values that are the same in every game (the fixed world: the market's
+   par manuals, the Meridian map) use the key alone or the content's own seed.
 5. **Stored, not regenerated.** Nondeterministic outputs (LLM text and plans) that later play depends on are stored in
    the save.
 
@@ -92,13 +95,13 @@ key + game seed ──► stable_hash ──► keyed rng (market prices, map va
 ```gdscript
 # The caller derives the seed; the fight never sees the session stream.
 var request := FightRequest.new()
-request.seed = session.rng.randi()
+request.fight_seed = session.rng.randi()  # `seed` would shadow GDScript's seed()
 ```
 
 ### Implementation Guidelines
 - A function that draws takes a `RandomNumberGenerator` parameter; tests pass a seeded or scripted one.
 - A run with its own generator takes one draw from its caller for its seed, never more.
-- Keyed streams use a hash the project owns (see Risks) and include the game seed.
+- Keyed streams use `RngUtils.stable_hash` and include the game seed when the value should differ between lives.
 - A review rejects a global random call in `src/gameplay` or `src/core` (a lint can grep for them).
 
 ## Alternatives Considered
@@ -129,10 +132,12 @@ request.seed = session.rng.randi()
 - Records existing practice; no code changes are required to comply today.
 
 ## Risks
-- **`hash(String)` stability.** Keyed streams today use Godot's `hash()`. The engine reference does not say whether its
-  value is stable across engine versions or platforms (NOT SOURCEABLE from `docs/engine-reference`). If it changes in an
-  engine upgrade, market base prices and map variants would change for existing saves. Mitigation (proposed): a small
-  project-owned string hash (for example FNV-1a in `RngUtils`) for keyed streams, with a test pinning known values.
+- **`hash(String)` stability (resolved).** The engine reference does not say whether Godot's `hash()` is stable across
+  engine versions or platforms (NOT SOURCEABLE). Keyed streams now use `RngUtils.stable_hash`, pinned to the published
+  FNV-1a vectors. The Meridian map's eight variant keys are pinned in `meridian_tree.json` (`variant_seed_keys`, the
+  values `hash()` gave in 4.7.1), so the fixed map did not change; switching its hash moved the variant plan and the
+  generator then lost hidden clusters on the fixed seed (it skips a cluster that finds no host on about 28% of seeds,
+  under either hash). The market's par manuals changed once (no saves existed).
 - **A system that keeps the session generator** (a back-reference) could draw at unexpected times. Mitigation: pass it
   as an argument only.
 
@@ -149,9 +154,9 @@ request.seed = session.rng.randi()
 None measurable: one `randi()` per fight; keyed streams are created where needed.
 
 ## Migration Plan
-1. Accept this ADR.
-2. (If the Risk is accepted) replace `hash()` in keyed streams with a project-owned hash, in one change with a save
-   version note, since it changes existing keyed values.
+1. Accept this ADR (done 2026-11-14).
+2. Replace `hash()` in keyed streams with `RngUtils.stable_hash` (done 2026-11-14: `Market._rng_for`; the Meridian map
+   via pinned keys with `stable_hash` as the fallback for new variants).
 3. ADR-0001 step 4: `CombatService` derives `fight_seed` from the session stream.
 
 ## Validation Criteria

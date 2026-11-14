@@ -132,7 +132,7 @@ func _par_manual(par: int, element: String) -> Dictionary:
 
 func _rng_for(par: int, element: String) -> RandomNumberGenerator:
 	var r := RandomNumberGenerator.new()
-	r.seed = hash("%d:%s" % [par, element])
+	r.seed = RngUtils.stable_hash("%d:%s" % [par, element])
 	return r
 
 

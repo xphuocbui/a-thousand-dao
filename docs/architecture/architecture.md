@@ -256,7 +256,7 @@ Coverage: 6 of 20 covered (all by ADR-0001; shared rows counted only for their c
 1. Save format and migration policy (`SAVE_VERSION` 4): TR-save-001, 002, 003, TR-quests-001
 2. `GameSession` facade as the API boundary, including the frontend rule and the terminal exemption
 3. Random-stream policy: one session stream, derived streams for fights, world generation and NPC allocation, no
-   global random: TR-sim-001, 002
+   global random: TR-sim-001, 002. **Written: ADR-0002, Accepted 2026-11-14.**
 4. Stat sheet and provider interface: TR-modifiers-001, TR-stats-001, TR-realms-001
 
 **Should decide before its system is built**

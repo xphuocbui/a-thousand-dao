@@ -3,6 +3,8 @@
   "_doc": "Kinh Mạch Đồ. design/gdd/kinh-mach-do.md Parameter keys. Values are W (weighted value); value = W / stat_weights[stat], floored to the stat's grid. Sealed cluster content is theme-pool filler until the authored pass (Open Question 6).",
   "name": "Kinh Mạch Đồ",
   "seed": 20261102,
+  "_variant_seed_keys_doc": "Per-variant stream keys (ADR-0002 decision 4): the values Godot 4.7 hash(\"variant:<id>\") gave when the map was made, pinned so engine upgrades cannot move the map. The variant stream is seeded with key XOR seed. A variant without a key uses RngUtils.stable_hash(\"variant:<id>\").",
+  "variant_seed_keys": {"am": 3891452226, "bang": 2953746860, "hon_don": 2685748377, "hu_khong": 1316567751, "huyet": 2992212163, "loi": 3863884024, "phong": 3001221744, "quang": 3002859600},
   "tree_size_target": 1300,
   "radials_per_sector": 3,
   "ring_anchor_depths": [
