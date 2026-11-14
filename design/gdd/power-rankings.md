@@ -265,6 +265,11 @@ fights are sharper than the health-only measurement suggested); `health_elo` 3,1
 information (gaps as small as 3.5 Elo at realm 4's far end, where fights stall), well outside where NPCs sit. A
 calibration run is about 770,000 `fight.py` fights, 36 minutes. The illustrative numbers in this section's and
 Formulas A, B, E, G's examples keep the test ladder (240 a rung).
+**In a generated world** (measured run 2026-11-14, `production/qa/evidence/combat-port/ratings-world-2026-11-14.md`):
+the typical fighter is not the realm median. After 4 years, median NPC strength is ×0.65 / ×1.14 / ×2.65 / ×3.6 /
+×5.3 typical by realm, so realm medians show power 68 / 1,100 / 23,100 / 306,000 / 5.1 M; realms never overlap.
+**Kept as is (user decision 2026-11-14):** the anchors stay the typical fighters' ratings (Combat Formulas B, the
+difficulty targets); revisit when the Kinh Mạch Đồ and designed builds change where NPCs sit.
 **Output Range:** each gap positive and finite while the guard holds. 5 realms × 64 gaps × 400 fights ≈ 128,000
 fights, about 40 s on `fight.py` (0.3 ms a reference fight) or about 220 s on 8 Godot workers (13.7 ms a fight,
 Open Question 7).
@@ -401,6 +406,11 @@ Provisional and refine by panels in the background, higher realms first: about 8
 same queue, and an NPC refined once can go Stale again, so the drain is not 16 seasons: if the 3,200 fights a season
 of build-change demand were additive it would leave about 1,800 of the 5,000-fight share and take about 44 seasons
 (11 years), with the Luyện Khí refinement last. Which it is, is Open Question 7's measurement.
+**Measured 2026-11-14** (4 years of a 5,177-person world, release build, 16 cores): a full 10,000-fight season takes
+31–47 s on threads; the panel share is full every season (about 170 panels, about 29 fights each) and the queue
+shrinks by about 100 a season, so Trúc Cơ is refined by season 9 and Luyện Khí needs about 8–10 years more; about
+half the planned pair fights drop each season, nearly all from the Kết Đan slice. **Accepted for now (user decision
+2026-11-14):** the defaults stay; revisit with Open Question 9.
 
 ## Edge Cases
 
@@ -592,7 +602,7 @@ Ratings compare within ±0.05 (the stored 0.1).
 - **AC-PR-34a** [Logic] F. **GIVEN** `health_elo` 3,000 and A (1450, v 0.9) against B (1400, v 1), no khí vận, **WHEN** P(A) is computed, **THEN** it is 0.377 (±0.001); with A at v 0.5 it is 0.02 (the floor); **AND GIVEN** v 0.05 and v 0.4 on one side, **THEN** both use v_c 0.4 (−1,194); stored rating, offset and rank are unchanged after the fight.
 - **AC-PR-54** [Integration] B. **GIVEN** a generated 5,000-NPC world after world-generation coarse panels and one year of refinement, **WHEN** bases are read per realm, **THEN** in each realm with at least 20 NPCs the 10th-to-90th percentile spread of `base` is at least 1,000 points (the 2026-11-14 probe measured ×10 to ×23 in typical-health terms) and no 240-point bin holds more than 25 % of the realm's NPCs; the flag stays off until this passes.
 - **AC-PR-56** [Logic] B, Tuning Knobs. **GIVEN** `combat_rankings.json` with `k_max / rung_div` below 6, **WHEN** the data loads, **THEN** it is refused with the knob names logged; **AND GIVEN** the default 32 / 4, **THEN** it loads and the ladder reaches ×256.
-- **AC-PR-55** [Integration] B. **GIVEN** 50 sampled NPCs with a cold full panel, **WHEN** each takes a warm panel from its rating and, separately, a coarse one, **THEN** the warm base is within 1 rung of the cold base for at least 90 % and the coarse base within 3 rungs for at least 90 % (Open Question 8).
+- **AC-PR-55** [Integration] B. **GIVEN** 50 sampled NPCs with a cold full panel, **WHEN** each takes a warm panel from its rating and, separately, a coarse one, **THEN** the warm base is within ×1.19 strength of the cold base (`rung_div / 4` rungs: 8 at 32) for at least 90 % and the coarse base within ×1.68 (`3 · rung_div / 4` rungs: 24 at 32) for at least 85 % (Open Question 8). *Rescaled 2026-11-14 (user decision) from the rung counts written at `rung_div` 4; coarse's bar lowered from 90 % because a coarse base only orders a new world until its full panel runs. Measured: warm 100 %, coarse 88 %.*
 - **AC-PR-35** [Logic] G. **GIVEN** the test ladders and Trúc Cơ stage 2, Luyện Khí stage 0 and Hóa Thần stage 3, **WHEN** R_prov is computed, **THEN** it is 6,127 (power 1,460) / 1000 / 19,329.
 
 **Edge Cases**
@@ -633,5 +643,5 @@ Ratings compare within ±0.05 (the stored 0.1).
 | 5 | ~~How many builds change a season?~~ **Measured 2026-11-14:** 2.3–6.4 % (mean 3.85 %), 95 % stage changes; fits the panel share. **Re-measure** once the world tick gives NPCs techniques and items, which it does not yet | systems-designer | When NPC acquisition is built |
 | 7 | ~~Fight cost~~ **Measured 2026-11-14 (ADR-0003 spike, release export):** a real NPC fight is 12.3 ms single-threaded; `WorkerThreadPool` gives only about ×2.5 on 16 cores (string, StringName and dictionary reference traffic serialises GDScript threads). Resolved by limiting rule 16's load set (`worldgen_fight_budget`) | systems-designer | Done |
 | 9 | Thread scaling: an integer-keyed hot loop (modifier keys, statuses and hit contexts as integers and typed objects instead of string-keyed dictionaries) would speed fights single-threaded and on threads. Revisit once rankings run end to end, if measured season or load times call for it | lead-programmer | After the first playable rankings |
-| 8 | Is a warm search (3–4 probes) as accurate as a cold one, and a coarse one good enough to order a new world (AC-PR-55)? If not, widen `warm_step` or the coarse bracket rule | systems-designer | Implementation |
+| 8 | ~~Is a warm search as accurate as a cold one, and a coarse one good enough to order a new world?~~ **Resolved 2026-11-14 (user):** measured on 50 NPCs, warm within ×1.19 of cold 100 %, coarse within ×1.68 88 %; AC-PR-55 rescaled to strength, coarse at 85 %; no knob change | systems-designer | Done |
 | 6 | Which world events read ranks (challenges for a top-10 place, sect recruitment of high-ranked rogues, rivalries) is for the Living World Tick and Sects to design | world-builder | With the Living World Tick GDD |
