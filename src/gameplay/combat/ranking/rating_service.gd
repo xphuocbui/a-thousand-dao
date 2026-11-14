@@ -366,6 +366,24 @@ func worldgen(game_seed: int, player: Character, player_sheet: StatSheet, start_
 	return out
 
 
+## Rule 13's seed for the player's event fight against rated NPC [param npc_id]: a pair fight keyed on the game seed,
+## the season and the sorted ids, plus its index among that pair's event fights this season (kept on the player's
+## record), so no session draw is taken (ADR-0003 decision 4). The player is never in the batch's pairs, so these
+## indexes never meet a batch fight's.
+func event_fight_seed(player_id: String, npc_id: String, game_seed: int, season: int) -> int:
+	var rec: Dictionary = _db.get_record(TABLE, player_id)
+	var ev: Dictionary = rec.get("event_seeds", {})
+	if int(ev.get("season", -1)) != season:
+		ev = {"season": season, "counts": {}}
+	var idx: int = int(ev.counts.get(npc_id, 0))
+	ev.counts[npc_id] = idx + 1
+	if not rec.is_empty():
+		rec["event_seeds"] = ev
+	var lo: String = player_id if id_less(player_id, npc_id) else npc_id
+	var hi: String = npc_id if lo == player_id else player_id
+	return RngUtils.stable_hash(SeasonBatch.PAIR_KEY % [game_seed, season, lo, hi, idx])
+
+
 # --- Reading ratings ----------------------------------------------------------------------------------------------
 
 ## Formulas F, a world fight between person records [param a] and [param b] (rule 11): each side's rating lowered by

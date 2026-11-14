@@ -351,3 +351,16 @@ func test_a_batch_is_identical_inline_and_on_worker_threads_ac_pr_52() -> void:
 	bg.start()
 	bg.finish()
 	assert_eq(bg.pairs.map(func(f): return f.score), one.pairs.map(func(f): return f.score), "and on a background thread")
+
+
+func test_the_players_event_fights_take_keyed_pair_seeds_ac_pr_23() -> void:
+	# Rule 13 / ADR-0003 decision 4: a rated event fight is a pair fight; it takes no session draw
+	var db := WorldDB.new()
+	var rs := _rs(db)
+	_people(db, 2, 1)
+	var first: int = rs.event_fight_seed("p1", "p2", 7, 1201)
+	var second: int = rs.event_fight_seed("p1", "p2", 7, 1201)
+	assert_eq(first, RngUtils.stable_hash(SeasonBatch.PAIR_KEY % [7, 1201, "p1", "p2", 0]), "the pair key, sorted ids, index 0")
+	assert_eq(second, RngUtils.stable_hash(SeasonBatch.PAIR_KEY % [7, 1201, "p1", "p2", 1]), "a second fight that season is index 1")
+	var next_season: int = rs.event_fight_seed("p1", "p2", 7, 1202)
+	assert_eq(next_season, RngUtils.stable_hash(SeasonBatch.PAIR_KEY % [7, 1202, "p1", "p2", 0]), "a new season counts afresh")

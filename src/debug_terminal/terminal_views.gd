@@ -450,7 +450,8 @@ static func beasts(s: GameSession, io: TerminalIO) -> Array:
 	for b in owned:
 		var loy: float = float(b.get("loyalty", 0)) / float(k.config().loyalty.max)
 		var col: String = C_GREEN if loy >= 0.6 else (C_YELLOW if loy >= 0.3 else C_RED)
-		lines.append("  %-6s %-18s %-22s chiến lực %6.0f (+%.0f to yours)  loyalty %s %d" % [b.id, b.name, s.gd.realm_label(int(b.realm_index), int(b.stage)), float(b.get("power", 0.0)), float(b.get("power", 0.0)) * share, bar(io, loy, 10, col, true), int(b.get("loyalty", 0))])
+		var bp: String = str(s.power_of_person(str(b.id)).text) if s.ratings_on() else "chiến lực %6.0f (+%.0f to yours)" % [float(b.get("power", 0.0)), float(b.get("power", 0.0)) * share]
+		lines.append("  %-6s %-18s %-22s %s  loyalty %s %d" % [b.id, b.name, s.gd.realm_label(int(b.realm_index), int(b.stage)), bp, bar(io, loy, 10, col, true), int(b.get("loyalty", 0))])
 	lines.append(io.paint(" Beasts grow every season, fight beside you, and leave if left hungry. 'release <id>' lets one go.", C_DIM))
 	return lines
 

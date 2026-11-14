@@ -28,6 +28,8 @@ var last_fight: FightResult
 var last_fight_names: Array = []
 ## Power Rankings rule 12: when set and enabled, a fight against a rated NPC moves both offsets at once (Formulas D).
 var ratings: RatingService
+## Callable() -> [game seed, season key] for Power Rankings' keyed event-fight seeds (rule 13); set by GameSession.
+var rating_clock: Callable
 
 
 func _init(gd: GameData, db: WorldDB, builds: BuildGenerator, items: ItemFactory) -> void:
@@ -143,7 +145,12 @@ func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNu
 	req.b = FighterCompiler.compile(enemy, _gd, _db, _builds.sheet_of(enemy), [], errors)   # with its Kinh Mạch Đồ
 	if req.a == null or req.b == null:
 		return {"ran": false, "win": false, "line": "fight engine could not compile: %s" % "; ".join(errors)}
-	req.fight_seed = rng.randi()
+	var rated: bool = ratings != null and ratings.enabled() and enemy.id != "" and _db.has_record("people", enemy.id) 		and rating_clock.is_valid()
+	if rated:   # Power Rankings rule 13 / ADR-0003 decision 4: a rated pair fight takes a keyed seed, no session draw
+		var clock: Array = rating_clock.call()
+		req.fight_seed = ratings.event_fight_seed(c.id, enemy.id, int(clock[0]), int(clock[1]))
+	else:
+		req.fight_seed = rng.randi()
 	req.log_enabled = true   # event fights are rare; the terminal prints the log
 	if _service == null:
 		_service = CombatService.new(CombatConstants.from_game_data(_gd))
@@ -153,7 +160,7 @@ func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNu
 	last_fight = r
 	last_fight_names = [c.name, enemy.name]
 	var code: String = r.win_code()
-	if ratings != null and ratings.enabled() and enemy.id != "" and _db.has_record("people", enemy.id):
+	if rated:
 		var score: float = {"A": 1.0, "B": 0.0}.get(code, 0.5)
 		ratings.apply_fight(ratings.ensure(c), ratings.refresh_person(_db.get_record("people", enemy.id)), score)
 	var word: String = {"A": "VICTORY", "B": "DEFEAT", "draw": "DRAW (a failure)", "time": "TIME LIMIT (a failure)"}[code]

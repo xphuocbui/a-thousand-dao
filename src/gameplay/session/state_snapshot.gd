@@ -2,7 +2,8 @@ class_name StateSnapshot
 extends RefCounted
 ## Captures the player-facing numbers of a [GameSession] so a frontend can show what an
 ## action changed ("Tu vi 14 → 28 · Linh thạch 44 → 39 · gained Trúc Cơ Đan").
-## Read-only and cheap: a handful of fields plus the player's item names.
+## A handful of fields plus the player's item names. With Power Rankings on, the power is the power number, and
+## reading it after a build change runs the player's panel once (Power Rankings Edge Cases), about 0.1–0.5 s.
 ##
 ## Usage:
 ## [codeblock]
@@ -33,7 +34,7 @@ static func take(s: GameSession) -> Dictionary:
 		"tu_vi": c.tu_vi, "age": c.age, "lifespan": CultivationRules.lifespan(c, s.gd, sh).total,
 		"linh_thach": c.linh_thach, "vitality": c.vitality, "dan_doc": c.dan_doc, "tam_ma": c.tam_ma,
 		"tree_points": c.tree_points, "tree_nodes": c.tree_nodes.size(),
-		"power": CombatPower.compute(c, s.gd, s.db, sh).total, "location_id": c.location_id,
+		"power": float(s.player_power().value), "power_label": "Power" if s.ratings_on() else "Chiến lực", "location_id": c.location_id,
 		"location": str(s.db.get_record("places", c.location_id).get("name", "")),
 		"items": items, "skills": skills, "alive": c.alive,
 	}
@@ -67,7 +68,7 @@ static func diff(a: Dictionary, b: Dictionary, gd: GameData) -> Array:
 	if int(b.tree_nodes) != int(a.tree_nodes):
 		out.append(_num("tree_nodes", "Open huyệt", float(a.tree_nodes), float(b.tree_nodes)))
 	if _moved(a.power, b.power):
-		out.append(_num("power", "Chiến lực", float(a.power), float(b.power)))
+		out.append(_num("power", str(b.get("power_label", "Chiến lực")), float(a.power), float(b.power)))
 	if str(b.location_id) != str(a.location_id):
 		out.append(_c("location", a.location, b.location, "%s → %s" % [a.location, b.location]))
 	for k in b.skills.keys():

@@ -172,6 +172,7 @@ func _wire() -> void:
 	validator = EventValidator.new(gd, db, builds)
 	resolver = EventResolver.new(gd, db, builds, items)
 	resolver.ratings = ratings
+	resolver.rating_clock = _rating_clock   # a method, not a lambda: a lambda capturing self would cycle and leak
 	resolver.unseal_fn = _unseal_from_event
 	narrator = Narrator.new(gd, db, llm, templates, validator)
 
@@ -1114,6 +1115,11 @@ func _start_ratings() -> void:
 	_rating_batch = ratings.plan_season(seed_value, season_index(), year, season, player, sheet())
 	if ratings_background:
 		_rating_batch.start()
+
+
+## [game seed, season key] for Power Rankings' keyed event-fight seeds (EventResolver.rating_clock).
+func _rating_clock() -> Array:
+	return [seed_value, season_index()]
 
 
 ## Completes the pending batch and applies it ([param apply] false only waits, for a life or world being replaced).
