@@ -1503,6 +1503,7 @@ formulas:
     source: design/gdd/sects.md
     referenced_by:
       - design/gdd/sects.md
+      - design/gdd/regional-economy-trade.md
     variables:
       - sect_standing
       - rank_m
@@ -1638,6 +1639,174 @@ formulas:
     output_range: [0, 0.545]
     expression: "P_swap = max(0, 0.30 * (100 - eff(dao_tam)) / 55)"
     notes: "NPC Traits F8. Once per realm at a heart-demon crisis; player chooses."
+    added: 2026-11-14
+    revised: ""
+  - name: market_access
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/sects.md
+    variables:
+      - d_r
+      - d_reach
+      - trade_mult
+      - road_danger
+      - war_r
+    output_range: [0, 1]
+    expression: "acc = exp(-d/(d_reach*trade_mult)) * clamp(1 - 0.10*0.92^M*(1-reach) - 0.40*war, 0, 1)"
+    notes: "RET Formula A. d_reach 250 (guess). Linh thach always 1."
+    added: 2026-11-14
+    revised: ""
+  - name: market_supply
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/travel-map.md
+      - design/gdd/sects.md
+    variables:
+      - value_lt
+      - acc_r
+      - collect
+      - s_max
+      - shockS
+      - Imp
+      - Exp
+    output_range: [0, "no maximum"]
+    expression: "S = h_f * sum(value_lt*acc*(1-shockS)) + Imp - Exp; h_f = 0.6 + 0.4*collect/s_max"
+    notes: "RET Formula B. Base-value units (Travel & Map L)."
+    added: 2026-11-14
+    revised: ""
+  - name: market_demand
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/sects.md
+    variables:
+      - pop_cultivators
+      - head_w
+      - W_set
+      - d_scale
+      - spend_T
+      - works_due
+      - P_eff
+    output_range: [0, "no maximum"]
+    expression: "D = d_scale*(sum n*head_w + 50*W_set)*(1+shockD) + 0.5*(sum spend_T*mix + works_due*wmix) + P_eff"
+    notes: "RET Formula C. head_w pegged to stipends 3/20/50/325/2,500; goods_frac 0.5 (guess)."
+    added: 2026-11-14
+    revised: ""
+  - name: stock_update
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - stock
+      - S
+      - D
+      - dk
+      - s_cap
+    output_range: [0, "s_cap*D"]
+    expression: "stock' = min((1-dk)*max(0, stock+S-D), s_cap*D)"
+    notes: "RET Formula D. dk herb 0.20 beast 0.10 special 0.03 ore 0.01; s_cap 2/2/4/6 seasons (guesses). Start stock (c_ref-1)*D."
+    added: 2026-11-14
+    revised: ""
+  - name: market_price
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/travel-map.md
+    variables:
+      - cover
+      - c_ref
+      - epsilon
+      - P_min
+      - P_max
+      - alpha
+      - delta
+    output_range: [0.5, 4.0]
+    expression: "P* = clamp((c/c_ref)^-eps, P_min, P_maxeff); P' = clamp(P*(P*/P)^0.5, P/delta, P*delta); price_index = P'"
+    notes: "RET Formula E. Feeds Travel & Map price_index (D_f). Bands per class; Strained ceiling herb 3.0 ore 2.2 beast 2.5 special 4.0 (guesses)."
+    added: 2026-11-14
+    revised: ""
+  - name: link_flow
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/sects.md
+    variables:
+      - P_A
+      - P_B
+      - D_A
+      - D_B
+      - tariff
+      - tau
+      - trade_mult
+      - safe_AB
+    output_range: [0, "Cap_AB"]
+    expression: "gap = P_B*(1-tar) - P_A*(1+tau); Q = min(0.5*gap/(eps*(P_A/D_A+P_B/D_B)), avail_A); Cap = 6000*min(trade_mult)*safe_AB"
+    notes: "RET Formula F. Tariff paid by the importer's commons pool to its sect."
+    added: 2026-11-14
+    revised: ""
+  - name: shop_price
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/sects.md
+      - design/gdd/item-database.md
+    variables:
+      - V
+      - P
+      - bm
+      - sr
+      - mi_luc
+      - sect_standing
+      - margin
+      - tar_in
+    output_range: [1, "no maximum"]
+    expression: "buy = ceil(V*P*bm*(1-ch)*stp*mg_buy); sell = floor(V*P*sr*(1+ch)*sts*mg_sell*(1-tar_in)); ch clamp +-0.20"
+    notes: "RET Formula G. Raw goods 1.10/0.90 with no charm or standing; finished 1.5/0.6 (built). player_cap 0.10."
+    added: 2026-11-14
+    revised: ""
+  - name: sect_income
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/sects.md
+    variables:
+      - collect
+      - value_lt
+      - own_use
+      - kind_stipend
+      - P
+      - tariff
+    output_range: [0, "no maximum"]
+    expression: "Inc = (0.5+0.5*collect)*mines + sum(max(0, collect*goods*acc - own_use - kind)*P*0.90) + tariffs"
+    notes: "RET Formula I. Replaces Sects F3 collect*V_own and world_production_guess (Sects revision pending)."
+    added: 2026-11-14
+    revised: ""
+  - name: stone_cultivation
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/canh-gioi.md
+    variables:
+      - stones
+      - spt
+      - absorb_cap
+      - rate
+      - purse
+      - reserve
+    output_range: [0, "0.5*rate"]
+    expression: "tv_stone = min(stones/spt[realm], 0.5*rate); NPC stones = 0.3*max(0, purse - reserve)"
+    notes: "RET Formula J. spt 1/4/20/150/1,000 stones per tu vi (guesses). The main money sink. Realms Formulas I stone term pending."
     added: 2026-11-14
     revised: ""
 constants:
@@ -4328,3 +4497,24 @@ constants:
     notes: "NPC Traits F7. The GDD's tm_a (2 per trait) and tm_cap (6 a season). Cap counted across a season through heart_demon_used, before resistance. Guess."
     added: 2026-11-14
     revised: 2026-11-14 # was: GDD symbol names not stated
+  - name: bulk_spread
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+    value: [1.10, 0.90]
+    unit: buy and sell multiple
+    notes: "RET Formula G. Raw goods (herb, ore, beast, special). Guess; user decision 2026-11-14."
+    added: 2026-11-14
+    revised: ""
+  - name: openness_tariff
+    status: active
+    source: design/gdd/regional-economy-trade.md
+    referenced_by:
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/sects.md
+    value: [0.20, 0.12, 0.08, 0.05]
+    unit: share of price, Openness 1-4
+    notes: "RET Formula F. Openness 0 = no link. Guess."
+    added: 2026-11-14
+    revised: ""
