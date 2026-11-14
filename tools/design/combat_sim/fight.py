@@ -202,39 +202,22 @@ def check_keys(d, allowed, where):
 #                                         Item arts and the common arts of design/items/common-arts.json are also
 #                                         library arts.
 LIB_ART_KEYS = ART_KEYS - {"x", "_comment"}
-ELEMENT_EN = {"hoa": "fire", "thuy": "water", "tho": "earth", "kim": "metal", "moc": "wood", "bang": "ice",
-              "loi": "thunder", "phong": "wind"}
-DTYPE_TAG = {"physical": "phys", "fire": "fire", "cold": "cold", "lightning": "lightning", "force": "force",
-             "chaos": "chaos", "soul": "soul"}
-# GDD passive key -> (engine mod key, factor to the engine's unit)
-PASSIVE_MOD = {"attack_pct": ("L1", 1), "damage_more": ("L2", 1), "crit_chance_pct": ("crit", 1),
-               "crit_damage_pct": ("crit_mult", 1), "accuracy_pct": ("acc", 1), "evade_pct": ("evade", 1),
-               "art_speed_pct": ("art_speed", 1), "basic_speed_pct": ("basic_speed", 1),
-               "opening_haste_pct": ("opening_haste", 1), "art_cost_pct": ("cost_red", -0.01),
-               "linh_luc_regen_pct": ("regen", 0.01), "linh_luc_regen_inc_pct": ("regen", 0.00035),
-               "health_regen_pct": ("hregen", 0.01), "health_regen_inc_pct": ("hregen_inc", 1), "healing_pct": ("healing", 1),
-               "leech_health_pct": ("leech_hp", 1), "leech_linh_luc_pct": ("leech_qi", 1),
-               "linh_luc_on_hit_pct": ("gain_on_hit", 1), "resist_pct": ("resist", 1), "block_rating": ("block", 1),
-               "soul_res_pct": ("soul_res", 1), "x_soul": ("x_soul", 1), "timer_resist_pct": ("timer_resist", 1),
-               "ward_bill_pct": ("ward_bill", 1), "basic_coef_add": ("basic_coef", 1),
-               # 2026-11-13: the rest of the combat catalogue keys the builds use
-               "status_duration_pct": ("status_dur", 1), "status_resist_pct": ("status_resist", 1),
-               "healing_taken_pct": ("heal_taken", 1), "linh_luc_on_crit_pct": ("qi_on_crit", 1),
-               "art_cost_health_pct": ("art_cost_hp", 1), "resist_pen_pct": ("pen", 1), "pierce_pct": ("pierce", 1),
-               "stack_grant": ("stack_grant", 1)}
-# Character keys with no part in a fight (cultivation, luck, toxicity, slot count): skipped without a gap note.
-OUT_OF_FIGHT = {"khi_van", "cultivation_speed_pct", "dan_doc_resist_pct", "tam_ma_resist_pct", "artifact_slots",
-                "co_duyen_pct", "lifespan_pct", "mission_income_pct", "herb_growth_pct", "alchemy_success",
-                "refining_success", "travel_speed_pct"}
-# art_speed, cost_red and x_soul are read per art (engine.art_ctx) since 2026-11-13, so their scopes hold
-CTX_MODS = {"L1", "L2", "L3", "L4", "L5", "crit", "crit_mult", "dmg_more", "bypass", "resist", "art_speed", "cost_red", "x_soul",
-            "status_dur", "status_resist", "qi_on_crit", "art_cost_hp", "pen", "stack_grant"}
-# Stats that change the build itself rather than a live modifier (2026-11-13): pools, body shield, ward strength and
-# efficiency, divine sense, stack effect and duration. apply_static() folds them into the build file before loading.
-STATIC = {"khi_huyet_pct", "linh_luc_pct", "body_shield_pct", "defense_pct", "ward_efficiency_pct", "than_thuc_pct",
-          "stack_effect_pct", "stack_duration_pct"}
-EL_ID = {"hoa": "fire", "thuy": "water", "tho": "earth", "kim": "metal", "moc": "wood", "bang": "ice", "loi": "thunder",
-         "phong": "wind"}
+# How a Character's modifier keys reach a fight: one copy in assets/data/combat_engine.json CHARACTER_MODS, shared
+# with the Godot FighterCompiler (user decision 2026-11-14). Same tables as before, now read from the data:
+#   PASSIVE_MOD: GDD passive key -> (engine mod key, factor to the engine's unit)
+#   OUT_OF_FIGHT: character keys with no part in a fight (cultivation, luck, toxicity, slot count): skipped silently
+#   CTX_MODS: mods read per art or hit (engine.art_ctx), so their scopes hold
+#   STATIC: stats that change the build itself (pools, body shield, ward strength and efficiency, divine sense, stack
+#           effect and duration); apply_static() folds them into the build file before loading
+#   ELEMENT_EN / DTYPE_TAG: scope tags naming an element or a damage type
+_CM = engine._C["CHARACTER_MODS"]
+ELEMENT_EN = dict(_CM["scope_element"])
+DTYPE_TAG = dict(_CM["scope_dtype"])
+PASSIVE_MOD = {k: (v[0], v[1]) for k, v in _CM["passive"].items()}
+OUT_OF_FIGHT = set(_CM["out_of_fight"])
+CTX_MODS = set(_CM["ctx_mods"])
+STATIC = set(_CM["static"])
+EL_ID = ELEMENT_EN
 _LIB = {}
 _EFFLIB = {}
 
