@@ -1,5 +1,5 @@
 {
- "status": "approved by the user 2026-11-14 (the names by kind and tile, and the town and village pool)",
+ "status": "approved by the user 2026-11-14 (the names by kind and tile, and the town and village pool); the 16 mine names are a proposal, awaiting approval",
  "note": "Input, edited by hand. Names for the cities, markets and famous wild sites that tools/design/map/places.py places; each entry goes to the nearest place of its kind within 4 tiles of 'tile'. Towns and villages take names from the pool below.",
  "style": "Hán-Việt, romantic, each from a line of classical poetry or myth, themed by the great sect whose land it is in (as the regions are). The last word says the kind: Thành city, Thị market, Phong peak, Sơn mountain, Hồ lake, Đảo island, Lâm forest, Hạp gorge.",
  "places": [
@@ -541,6 +541,182 @@
    "name_han": "萬重峽",
    "gloss": "Gorge of Ten Thousand Mountains",
    "note": "Lý Bạch: khinh chu dĩ quá vạn trùng sơn (the light boat has passed ten thousand mountains)"
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    148,
+    100
+   ],
+   "name_hv": "Bích Ngọc Khoáng",
+   "name_han": "碧玉礦",
+   "gloss": "Green Jade Mine",
+   "note": "Green stone from the green hills of Thúy Vi."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    137,
+    124
+   ],
+   "name_hv": "Vân Mẫu Khoáng",
+   "name_han": "雲母礦",
+   "gloss": "Mica Mine",
+   "note": "Mica, 'mother of clouds', for Vân Khởi Quán, the abbey of rising clouds."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    218,
+    150
+   ],
+   "name_hv": "Thạch Lục Khoáng",
+   "name_han": "石綠礦",
+   "gloss": "Malachite Mine",
+   "note": "Malachite, the green of the pine sea, dug under the trees."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    429,
+    121
+   ],
+   "name_hv": "Băng Lăng Khoáng",
+   "name_han": "冰稜礦",
+   "gloss": "Icicle Mine",
+   "note": "Shafts hung with ice in the frost land of Hàn Sương Châu."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    228,
+    221
+   ],
+   "name_hv": "Xích Kim Khoáng",
+   "name_han": "赤金礦",
+   "gloss": "Red Gold Mine",
+   "note": "Gold the colour of Lạc Hà's sunset, for Thiên Bảo Trai's treasure market."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    317,
+    173
+   ],
+   "name_hv": "Thần Sa Khoáng",
+   "name_han": "辰砂礦",
+   "gloss": "Cinnabar Mine",
+   "note": "Cinnabar from the red badlands, the alchemists' first stone."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    290,
+    175
+   ],
+   "name_hv": "Lưu Hoàng Khoáng",
+   "name_han": "硫黃礦",
+   "gloss": "Sulphur Mine",
+   "note": "Yellow sulphur crusts in the badlands near the wasteland."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    254,
+    186
+   ],
+   "name_hv": "Vẫn Tinh Khoáng",
+   "name_han": "隕星礦",
+   "gloss": "Fallen Star Mine",
+   "note": "Iron from a star that fell on the high plain, for Củng Tinh Quán, whose stars bow to the Pivot."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    391,
+    167
+   ],
+   "name_hv": "Thiên Ngoại Khoáng",
+   "name_han": "天外礦",
+   "gloss": "Mine of the Iron from Beyond the Sky",
+   "note": "Thối Tinh Môn forges star iron, and says this is where it comes from."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    395,
+    174
+   ],
+   "name_hv": "Huyền Thiết Khoáng",
+   "name_han": "玄鐵礦",
+   "gloss": "Black Iron Mine",
+   "note": "Dark heavy iron under Ngọc Hành Sơn."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    363,
+    210
+   ],
+   "name_hv": "Can Tương Khoáng",
+   "name_han": "干將礦",
+   "gloss": "Gan Jiang's Mine",
+   "note": "Can Tương, the swordsmith of legend; Phất Y Cốc's swords are forged from its ore."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    367,
+    217
+   ],
+   "name_hv": "Bạch Ngân Khoáng",
+   "name_han": "白銀礦",
+   "gloss": "Silver Mine",
+   "note": "Silver below the cinnabar mountain of Đan Sơn Mạch."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    314,
+    246
+   ],
+   "name_hv": "Kinh Điện Khoáng",
+   "name_han": "驚電礦",
+   "gloss": "Startling Lightning Mine",
+   "note": "In Kinh Trập Sơn, where the storms strike the ore."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    310,
+    253
+   ],
+   "name_hv": "Tử Kim Khoáng",
+   "name_han": "紫金礦",
+   "gloss": "Purple Gold Mine",
+   "note": "Purple-gold ore, the colour of storm light."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    302,
+    254
+   ],
+   "name_hv": "Vũ Hoa Khoáng",
+   "name_han": "雨花礦",
+   "gloss": "Rain Flower Mine",
+   "note": "Rain-flower pebbles, said to be flowers that fell as rain while a master preached; the richest ground of the sixteen (land density 1.87). In Thính Vũ's land of rain."
+  },
+  {
+   "kind": "mine",
+   "tile": [
+    410,
+    305
+   ],
+   "name_hv": "Đan Thạch Khoáng",
+   "name_han": "丹石礦",
+   "gloss": "Red Stone Mine",
+   "note": "Red stone from the phoenix's cinnabar land, Đan Huyệt Châu."
   }
  ],
  "pool": {

@@ -1,0 +1,376 @@
+{
+ "status": "proposal, awaiting the user's approval (2026-11-14)",
+ "note": "Home regions for the three origins built in assets/data/character_attributes.json (tan_tu, tong_mon, gia_toc). The fixed-world decision says each origin has a few home regions; a character starts knowing its home region, the main roads and every city (Travel & Map rule 14). Clans are households of cultivators living in a town under its sect, not powers (Sects rule 1). #27 may add more origins.",
+ "origins": {
+  "tong_mon": {
+   "name": "Đệ tử tông môn",
+   "home": "the region of the chosen sect's seat",
+   "choices": [
+    {
+     "sect": "Thúy Vi Tông",
+     "kind": "great_seat",
+     "region": 3,
+     "region_name": "Thanh Loan Lĩnh"
+    },
+    {
+     "sect": "Tùng Đào Cung",
+     "kind": "great_seat",
+     "region": 4,
+     "region_name": "Thâm Tùng Hải"
+    },
+    {
+     "sect": "Băng Tâm Các",
+     "kind": "great_seat",
+     "region": 8,
+     "region_name": "Cô Yên Mạc"
+    },
+    {
+     "sect": "Lạc Hà Tông",
+     "kind": "great_seat",
+     "region": 13,
+     "region_name": "Ngư Ca Xuyên"
+    },
+    {
+     "sect": "Thiên Xu Tông",
+     "kind": "great_seat",
+     "region": 14,
+     "region_name": "Thiên Tuyền Nguyên"
+    },
+    {
+     "sect": "Phượng Minh Cung",
+     "kind": "great_seat",
+     "region": 16,
+     "region_name": "Thê Ngô Lĩnh"
+    },
+    {
+     "sect": "Thính Vũ Lâu",
+     "kind": "great_seat",
+     "region": 18,
+     "region_name": "Tiêu Vũ Lâm"
+    },
+    {
+     "sect": "Hàm Nguyệt Trang",
+     "kind": "minor_seat",
+     "region": 1,
+     "region_name": "Lãnh Nguyệt Lâm"
+    },
+    {
+     "sect": "Hồng Lô Cốc",
+     "kind": "minor_seat",
+     "region": 2,
+     "region_name": "Tuyết Hỏa Giác"
+    },
+    {
+     "sect": "Vân Khởi Quán",
+     "kind": "minor_seat",
+     "region": 3,
+     "region_name": "Thanh Loan Lĩnh"
+    },
+    {
+     "sect": "Vạn Hác Viện",
+     "kind": "minor_seat",
+     "region": 4,
+     "region_name": "Thâm Tùng Hải"
+    },
+    {
+     "sect": "Thải Chi Cốc",
+     "kind": "minor_seat",
+     "region": 5,
+     "region_name": "Cửu Khúc Xuyên"
+    },
+    {
+     "sect": "Lãng Đào Môn",
+     "kind": "minor_seat",
+     "region": 5,
+     "region_name": "Cửu Khúc Xuyên"
+    },
+    {
+     "sect": "Cửu Cao Phái",
+     "kind": "minor_seat",
+     "region": 6,
+     "region_name": "Dao Quang Lĩnh"
+    },
+    {
+     "sect": "Lê Hoa Am",
+     "kind": "minor_seat",
+     "region": 7,
+     "region_name": "Ngọc Hồ Sơn"
+    },
+    {
+     "sect": "Dạ Quang Môn",
+     "kind": "minor_seat",
+     "region": 8,
+     "region_name": "Cô Yên Mạc"
+    },
+    {
+     "sect": "Trạc Anh Đài",
+     "kind": "minor_seat",
+     "region": 9,
+     "region_name": "Hàn Sương Châu"
+    },
+    {
+     "sect": "Bình Thủy Môn",
+     "kind": "minor_seat",
+     "region": 10,
+     "region_name": "Cô Vụ Đảo"
+    },
+    {
+     "sect": "Mục Vân Trang",
+     "kind": "minor_seat",
+     "region": 11,
+     "region_name": "Trường Thiên Nguyên"
+    },
+    {
+     "sect": "Thiên Bảo Trai",
+     "kind": "minor_seat",
+     "region": 12,
+     "region_name": "Thu Thủy Loan"
+    },
+    {
+     "sect": "Nam Phố Đường",
+     "kind": "minor_seat",
+     "region": 13,
+     "region_name": "Ngư Ca Xuyên"
+    },
+    {
+     "sect": "Củng Tinh Quán",
+     "kind": "minor_seat",
+     "region": 14,
+     "region_name": "Thiên Tuyền Nguyên"
+    },
+    {
+     "sect": "Thối Tinh Môn",
+     "kind": "minor_seat",
+     "region": 15,
+     "region_name": "Ngọc Hành Sơn"
+    },
+    {
+     "sect": "Phất Y Cốc",
+     "kind": "minor_seat",
+     "region": 15,
+     "region_name": "Ngọc Hành Sơn"
+    },
+    {
+     "sect": "Trúc Thực Viên",
+     "kind": "minor_seat",
+     "region": 16,
+     "region_name": "Thê Ngô Lĩnh"
+    },
+    {
+     "sect": "Lễ Tuyền Phái",
+     "kind": "minor_seat",
+     "region": 17,
+     "region_name": "Triêu Dương Nguyên"
+    },
+    {
+     "sect": "Hồng Đậu Trang",
+     "kind": "minor_seat",
+     "region": 18,
+     "region_name": "Tiêu Vũ Lâm"
+    },
+    {
+     "sect": "Xuyên Lâm Môn",
+     "kind": "minor_seat",
+     "region": 19,
+     "region_name": "Kinh Trập Sơn"
+    },
+    {
+     "sect": "Phần Vũ Đường",
+     "kind": "minor_seat",
+     "region": 20,
+     "region_name": "Đan Huyệt Châu"
+    }
+   ],
+   "start": "at the seat, as an outer disciple"
+  },
+  "tan_tu": {
+   "name": "Tán tu",
+   "home": "a region with a cultivator market (phường thị), where loose cultivators gather",
+   "choices": [
+    {
+     "region": 3,
+     "region_name": "Thanh Loan Lĩnh",
+     "market": [
+      "Lam Yên Thị"
+     ]
+    },
+    {
+     "region": 4,
+     "region_name": "Thâm Tùng Hải",
+     "market": [
+      "Tùng Hạ Thị"
+     ]
+    },
+    {
+     "region": 5,
+     "region_name": "Cửu Khúc Xuyên",
+     "market": [
+      "Đào Sa Thị"
+     ]
+    },
+    {
+     "region": 9,
+     "region_name": "Hàn Sương Châu",
+     "market": [
+      "Tống Khách Thị"
+     ]
+    },
+    {
+     "region": 10,
+     "region_name": "Cô Vụ Đảo",
+     "market": [
+      "Tương Phùng Thị"
+     ]
+    },
+    {
+     "region": 12,
+     "region_name": "Thu Thủy Loan",
+     "market": [
+      "Vật Hoa Thị"
+     ]
+    },
+    {
+     "region": 13,
+     "region_name": "Ngư Ca Xuyên",
+     "market": [
+      "Hạc Đinh Thị"
+     ]
+    },
+    {
+     "region": 14,
+     "region_name": "Thiên Tuyền Nguyên",
+     "market": [
+      "Thiên Quyền Thị"
+     ]
+    },
+    {
+     "region": 16,
+     "region_name": "Thê Ngô Lĩnh",
+     "market": [
+      "Thiều Âm Thị"
+     ]
+    },
+    {
+     "region": 19,
+     "region_name": "Kinh Trập Sơn",
+     "market": [
+      "Hạnh Hoa Thị"
+     ]
+    }
+   ],
+   "start": "at the market"
+  },
+  "gia_toc": {
+   "name": "Con cháu gia tộc",
+   "home": "the region of the clan's town, one clan in each great sect's land",
+   "choices": [
+    {
+     "key": "ta",
+     "name_hv": "Tạ gia",
+     "name_han": "謝家",
+     "town": "Phong Lâm Trấn",
+     "tile": [
+      177,
+      166
+     ],
+     "region": 13,
+     "region_name": "Ngư Ca Xuyên",
+     "lord": "Lạc Hà Tông",
+     "town_holder": "Nam Phố Đường",
+     "note": "Lưu Vũ Tích: cựu thời Vương Tạ đường tiền yến, phi nhập tầm thường bách tính gia, the swallows of the old Vương and Tạ halls now nest in common homes. A great house fallen to a small clan, and the Vương clan's old rival."
+    },
+    {
+     "key": "vuong",
+     "name_hv": "Vương gia",
+     "name_han": "王家",
+     "town": "Đạo Hương Trấn",
+     "tile": [
+      411,
+      194
+     ],
+     "region": 17,
+     "region_name": "Triêu Dương Nguyên",
+     "lord": "Phượng Minh Cung",
+     "town_holder": "Phượng Minh Cung",
+     "note": "The other house of the same line. Far from the Tạ now, in Phượng Minh's rice plain."
+    },
+    {
+     "key": "tham",
+     "name_hv": "Thẩm gia",
+     "name_han": "沈家",
+     "town": "Bạch Sa Trấn",
+     "tile": [
+      56,
+      168
+     ],
+     "region": 2,
+     "region_name": "Tuyết Hỏa Giác",
+     "lord": "Thúy Vi Tông",
+     "town_holder": "Thúy Vi Tông",
+     "note": "A coast clan of the white sands, on Thúy Vi's far west shore."
+    },
+    {
+     "key": "luc",
+     "name_hv": "Lục gia",
+     "name_han": "陸家",
+     "town": "Phong Đăng Trấn",
+     "tile": [
+      337,
+      299
+     ],
+     "region": 19,
+     "region_name": "Kinh Trập Sơn",
+     "lord": "Thính Vũ Lâu",
+     "town_holder": "Thính Vũ Lâu",
+     "note": "A farming clan of good harvests under Thính Vũ's rain."
+    },
+    {
+     "key": "on",
+     "name_hv": "Ôn gia",
+     "name_han": "溫家",
+     "town": "Song Kiều Trấn",
+     "tile": [
+      359,
+      185
+     ],
+     "region": 15,
+     "region_name": "Ngọc Hành Sơn",
+     "lord": "Thiên Xu Tông",
+     "town_holder": "Thiên Xu Tông",
+     "note": "A clan of the twin bridges on Thiên Xu's river road."
+    },
+    {
+     "key": "lam",
+     "name_hv": "Lâm gia",
+     "name_han": "林家",
+     "town": "Lộc Minh Trấn",
+     "tile": [
+      205,
+      100
+     ],
+     "region": 4,
+     "region_name": "Thâm Tùng Hải",
+     "lord": "Tùng Đào Cung",
+     "town_holder": "Lãng Đào Môn",
+     "note": "A clan of the deer-call forest under Tùng Đào's pines."
+    },
+    {
+     "key": "tieu",
+     "name_hv": "Tiêu gia",
+     "name_han": "蕭家",
+     "town": "Hòe Âm Trấn",
+     "tile": [
+      401,
+      117
+     ],
+     "region": 7,
+     "region_name": "Ngọc Hồ Sơn",
+     "lord": "Băng Tâm Các",
+     "town_holder": "Lê Hoa Am",
+     "note": "A clan in the locust shade of the cold north, under Lê Hoa Am."
+    }
+   ],
+   "start": "in the clan's town, with its field already growing"
+  }
+ }
+}

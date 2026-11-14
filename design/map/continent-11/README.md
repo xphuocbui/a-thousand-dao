@@ -12,11 +12,12 @@ fixed-world-decisions.md).
 - **Town and village names:** approved by the user 2026-11-14.
 - **Sacred features:** spirit veins, sacred summits, deep caves and the miasma wasteland, approved by the user
   2026-11-14.
-- **History sites:** famous secret realms, a ruin and blessed lands, plus candidate spots for the hidden ones. A
-  proposal, awaiting the user's approval.
+- **History sites:** famous secret realms, a ruin and blessed lands, plus candidate spots for the hidden ones,
+  approved by the user 2026-11-14.
+- **Mine names and origin home regions:** a proposal, awaiting the user's approval.
 - **Still to do:**
   - the history itself (#27), which names the hidden slots;
-  - mine names, home regions per origin, and the art style.
+  - the map's art style.
 
 ## Files
 
@@ -36,6 +37,7 @@ fixed-world-decisions.md).
 | `sacred.json`, `sacred.png`, `sacred.jpg` | Output of `tools/design/map/sacred.py`: every vein with its tiles, the summits, caves, wasteland and source, the derived features' tiles, the new places and the map check. `sacred.png` is a 16-bit tile image with `base/features.png`'s authored bits (spirit vein 128, sacred summit 256, deep cave 512, miasma source 1024) and 2048 for a wasteland tile. |
 | `history_proposal.json` | Input, edited by hand: the famous secret realms, ruin and blessed lands with names, anchors and data; the hidden slots by kind, count and element; the tile secrets per region; the rules for candidate ground. |
 | `history.json`, `history.jpg` | Output of `tools/design/map/history.py`: the famous sites with tiles (and each large blessed land's tiles), every hidden slot with its candidate tiles, the tile secrets, and the map check. |
+| `origins_proposal.json` | The home regions for each origin, and the seven clans with their towns. Written by hand. |
 | `minor_sects.json`, `minor_sects.jpg` | Output of `tools/design/map/minor_sects.py`: each minor seat's tile, its land, which wants it met, its distance to its lord's seat and to another sect's land; the politics map with the minor seats. |
 
 **Rebuild:**
@@ -434,7 +436,6 @@ All of them were checked against the design files, and five first picks that cla
 | 20 Đan Huyệt Châu | Thạch Cơ (Stone Jetty), Tang Điền (Mulberry Fields) | Cúc Viên (Chrysanthemum Garden), Tang Âm (Mulberry Shade), Hồ Tâm (Lake Heart), Lô Châu (Reed Isle) |
 
 **Not in this pass:**
-- **Mine names:** the 16 mines are not named yet.
 - **Three of rule 6's kinds:**
   - **secret realm and ruin:** they come with the authored history (#27);
   - **cave abode:** opened in play.
@@ -537,7 +538,7 @@ reaches 1.40).
 - **The battle:** who fought on Chiết Kích Nguyên is for #27 too.
 - **The full build:** the fine-cell build (Formula C) will read `sacred.png` and replace these estimates.
 
-## History sites: proposal (awaiting approval)
+## History sites (approved 2026-11-14)
 
 `tools/design/map/history.py` lays the ground the history leaves behind (Travel & Map rules 15, 26, 28–30), from
 `history_proposal.json`. There are two kinds of site:
@@ -616,16 +617,63 @@ reaches 1.40).
 - **Clustered slots.** The cold north-east and the southern mountains hold many slots, because that is where Light,
   Thunder and Darkness ground is.
 
+## Mine names and origins: proposal (awaiting approval)
+
+**Mine names.** The 16 mines (khoáng mạch) are named for the stone and the land, themed like their holders. The name
+is only a name. What a mine yields comes from its land (Travel & Map rule 20), and four names were changed so none
+reads as an item material (Tinh Thiết, Xích Đồng, Lôi Tinh, Hàn Thiết).
+
+| Name | Hán tự | Meaning | Region | Held by | Note |
+|---|---|---|---|---|---|
+| **Bích Ngọc Khoáng** | 碧玉礦 | Green Jade Mine | 3 Thanh Loan Lĩnh | Hồng Lô Cốc | Green stone from the green hills of Thúy Vi. |
+| **Vân Mẫu Khoáng** | 雲母礦 | Mica Mine | 3 Thanh Loan Lĩnh | Vân Khởi Quán | Mica, 'mother of clouds', for Vân Khởi Quán, the abbey of rising clouds. |
+| **Thạch Lục Khoáng** | 石綠礦 | Malachite Mine | 4 Thâm Tùng Hải | Vạn Hác Viện | Malachite, the green of the pine sea, dug under the trees. |
+| **Băng Lăng Khoáng** | 冰稜礦 | Icicle Mine | 9 Hàn Sương Châu | Băng Tâm Các | Shafts hung with ice in the frost land of Hàn Sương Châu. |
+| **Xích Kim Khoáng** | 赤金礦 | Red Gold Mine | 12 Thu Thủy Loan | Thiên Bảo Trai | Gold the colour of Lạc Hà's sunset, for Thiên Bảo Trai's treasure market. |
+| **Thần Sa Khoáng** | 辰砂礦 | Cinnabar Mine | 14 Thiên Tuyền Nguyên | Thiên Xu Tông | Cinnabar from the red badlands, the alchemists' first stone. |
+| **Lưu Hoàng Khoáng** | 硫黃礦 | Sulphur Mine | 14 Thiên Tuyền Nguyên | Thiên Xu Tông | Yellow sulphur crusts in the badlands near the wasteland. |
+| **Vẫn Tinh Khoáng** | 隕星礦 | Fallen Star Mine | 14 Thiên Tuyền Nguyên | Củng Tinh Quán | Iron from a star that fell on the high plain, for Củng Tinh Quán, whose stars bow to the Pivot. |
+| **Thiên Ngoại Khoáng** | 天外礦 | Mine of the Iron from Beyond the Sky | 15 Ngọc Hành Sơn | Thối Tinh Môn | Thối Tinh Môn forges star iron, and says this is where it comes from. |
+| **Huyền Thiết Khoáng** | 玄鐵礦 | Black Iron Mine | 15 Ngọc Hành Sơn | Thiên Xu Tông | Dark heavy iron under Ngọc Hành Sơn. |
+| **Can Tương Khoáng** | 干將礦 | Gan Jiang's Mine | 15 Ngọc Hành Sơn | Phất Y Cốc | Can Tương, the swordsmith of legend; Phất Y Cốc's swords are forged from its ore. |
+| **Bạch Ngân Khoáng** | 白銀礦 | Silver Mine | 15 Ngọc Hành Sơn | Thiên Xu Tông | Silver below the cinnabar mountain of Đan Sơn Mạch. |
+| **Kinh Điện Khoáng** | 驚電礦 | Startling Lightning Mine | 19 Kinh Trập Sơn | Thính Vũ Lâu | In Kinh Trập Sơn, where the storms strike the ore. |
+| **Tử Kim Khoáng** | 紫金礦 | Purple Gold Mine | 19 Kinh Trập Sơn | Thính Vũ Lâu | Purple-gold ore, the colour of storm light. |
+| **Vũ Hoa Khoáng** | 雨花礦 | Rain Flower Mine | 19 Kinh Trập Sơn | Thính Vũ Lâu | Rain-flower pebbles, said to be flowers that fell as rain while a master preached; the richest ground of the sixteen (land density 1.87). In Thính Vũ's land of rain. |
+| **Đan Thạch Khoáng** | 丹石礦 | Red Stone Mine | 20 Đan Huyệt Châu | Phượng Minh Cung | Red stone from the phoenix's cinnabar land, Đan Huyệt Châu. |
+
+**Origins and home regions.** These cover the three origins the game already has (`assets/data/character_attributes.json`). The
+fixed-world decision says each origin has a few home regions. A character starts knowing its home region, the main
+roads and every city (Travel & Map rule 14).
+
+| Origin | Home region | Starts | Choices |
+|---|---|---|---|
+| Đệ tử tông môn (sect disciple) | The region of the chosen sect's seat | At the seat, as an outer disciple | Any of the 29 sects, 7 great and 22 minor, which between them cover all 20 regions |
+| Tán tu (loose cultivator) | A region with a cultivator market, where loose cultivators gather | At the market | 10 regions: 3 Thanh Loan Lĩnh (Lam Yên Thị), 4 Thâm Tùng Hải (Tùng Hạ Thị), 5 Cửu Khúc Xuyên (Đào Sa Thị), 9 Hàn Sương Châu (Tống Khách Thị), 10 Cô Vụ Đảo (Tương Phùng Thị), 12 Thu Thủy Loan (Vật Hoa Thị), 13 Ngư Ca Xuyên (Hạc Đinh Thị), 14 Thiên Tuyền Nguyên (Thiên Quyền Thị), 16 Thê Ngô Lĩnh (Thiều Âm Thị), 19 Kinh Trập Sơn (Hạnh Hoa Thị) |
+| Con cháu gia tộc (clan heir) | The region of the clan's town | In the clan's town, with its field already growing | 7 clans, one in each great sect's land, below |
+
+**The seven clans (gia tộc).** Households of cultivators living in a town under its sect. They are not powers (Sects
+rule 1). Each sits in one of the most livable towns of its lord's land.
+
+| Clan | Hán tự | Town | Region | Lord | Note |
+|---|---|---|---|---|---|
+| **Tạ gia** | 謝家 | Phong Lâm Trấn | 13 Ngư Ca Xuyên | Lạc Hà Tông | Lưu Vũ Tích: cựu thời Vương Tạ đường tiền yến, phi nhập tầm thường bách tính gia, the swallows of the old Vương and Tạ halls now nest in common homes. A great house fallen to a small clan, and the Vương clan's old rival. |
+| **Vương gia** | 王家 | Đạo Hương Trấn | 17 Triêu Dương Nguyên | Phượng Minh Cung | The other house of the same line. Far from the Tạ now, in Phượng Minh's rice plain. |
+| **Thẩm gia** | 沈家 | Bạch Sa Trấn | 2 Tuyết Hỏa Giác | Thúy Vi Tông | A coast clan of the white sands, on Thúy Vi's far west shore. |
+| **Lục gia** | 陸家 | Phong Đăng Trấn | 19 Kinh Trập Sơn | Thính Vũ Lâu | A farming clan of good harvests under Thính Vũ's rain. |
+| **Ôn gia** | 溫家 | Song Kiều Trấn | 15 Ngọc Hành Sơn | Thiên Xu Tông | A clan of the twin bridges on Thiên Xu's river road. |
+| **Lâm gia** | 林家 | Lộc Minh Trấn | 4 Thâm Tùng Hải | Tùng Đào Cung | A clan of the deer-call forest under Tùng Đào's pines. |
+| **Tiêu gia** | 蕭家 | Hòe Âm Trấn | 7 Ngọc Hồ Sơn | Băng Tâm Các | A clan in the locust shade of the cold north, under Lê Hoa Am. |
+
+#27 may add origins (a demonic cultivator's apprentice, a mortal's child) and more clans.
+
 ## Open for the user
 
-1. **Approve the history sites**, or change any of them:
-   - **a famous name or anchor:** edit it in `history_proposal.json`;
-   - **a hidden slot's count or element:** edit `hidden`;
-   - **tile secrets:** change `per_region` or the kinds.
+1. **Approve the mine names and the origins**, or swap any name, clan or home region.
 2. **Next:** World Generation & History (#27) for the fixed world: the authored history, which names the hidden
    slots and fills in the wasteland's war, the ruin and the dead whose abodes these are. It is a GDD
    (`/design-system`), section by section with you.
-3. **Smaller map work, any time:** the 16 mine names, the home region for each origin, and the map's art style.
+3. **The map's art style**, from the style demos (prototypes, 2026-11-11), for the art bible.
 4. The known rough spots above, by hand.
 
 To change the places later:

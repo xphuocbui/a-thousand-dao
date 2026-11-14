@@ -1059,7 +1059,8 @@ def check(M, places, roads, lanes):
         "river_places": sum(1 for p in settled if p.get("river")),
         "arrays": [p.get("name_hv") or p["tile"] for p in places if p.get("array")],
         "unnamed": {k: sum(1 for p in places if p["kind"] == k and not p.get("name_hv"))
-                    for k in ("city", "market", "town", "village", "peak", "volcano", "lake", "island", "forest", "gorge")},
+                    for k in ("city", "market", "town", "village", "mine", "peak", "volcano", "lake", "island", "forest",
+                              "gorge")},
         "params": PP,
     }
 

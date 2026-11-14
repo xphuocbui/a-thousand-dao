@@ -121,12 +121,15 @@ the rewrite is in the list below.
   old battlefield set by hand where three sects meet. The snowline, storm peaks and high plateaus are derived from
   the terrain. Strengths and thresholds are tuned so that 3–5 % of wild land reaches density 1.4 and each variant
   stays in at most 2 % of places (an estimate on tiles, not the fine-cell build).
-- **History sites (2026-11-14, a proposal):** tools/design/map/history.py lays the famous sites, the same every
+- **History sites (2026-11-14, approved the same day):** tools/design/map/history.py lays the famous sites, the same every
   game: 3 secret realms on cycles, a ruin by the wasteland, a large blessed land around each tier-1 seat and a
   one-tile retreat by every great seat. It also offers ground for the hidden ones: 28 slots (secret realms,
   ruins, abodes, blessed lands) with 2–3 candidate tiles each, and 80 tile secrets with 3 each, chosen by the
   ground each kind suits. The history (#27) names the hidden slots, and each game's seed picks one candidate per
   slot (rule 15).
+- **Origins (2026-11-14, a proposal):** a sect disciple starts at its sect's seat (any of the 29 sects). A loose
+  cultivator starts at one of the 10 cultivator markets. A clan heir starts in the town of one of 7 clans, one in
+  each great sect's land (design/map/continent-11/origins_proposal.json).
 
 ## What this changes
 

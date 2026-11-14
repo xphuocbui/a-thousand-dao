@@ -1,5 +1,5 @@
 {
- "status": "proposal, awaiting the user's approval (2026-11-14)",
+ "status": "approved by the user 2026-11-14",
  "note": "Inputs for tools/design/map/history.py. The famous sites are fixed every game; the hidden slots are ground for the history (#27), which names each one and links it to a fact, and each game's seed picks one candidate per slot (Travel & Map rule 15). Counts follow rule 28 and Formula C's table; ΔD3 follows Formula B's targets (large 0.5-1.0, small 0.3-0.6, secret 0.1-0.3). Cycles follow rule 26.",
  "params": {
   "slot_spread": 45,
