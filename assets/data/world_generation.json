@@ -162,6 +162,8 @@
     "artifacts_per_realm": 1,
     "artifacts_max": 3,
     "cong_phap_tier_per_realm": 0.75,
+    "aux_techniques_by_realm": [1, 2, 2, 2, 2],
+    "aux_body_archetypes": ["the_tu"],
     "skill_level_base": 1,
     "skill_level_per_realm": 2,
     "archetype_skills": {

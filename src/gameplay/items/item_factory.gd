@@ -199,9 +199,13 @@ func cong_phap(rng: RandomNumberGenerator, tier_rank: int, names: Array = [], fl
 		tier_rank = int(cfg.commons_tiers[-1])
 	var tier: Dictionary = _gd.cong_phap_tier(tier_rank)
 	var elems: Array = names.duplicate()
-	if elems.is_empty():
+	if kind == "body":
+		elems = []   # rule 17: a body technique names no element (2026-11-14: generated ones rolled names)
+	elif elems.is_empty():
 		elems = _roll_names(rng, cfg, opts.get("root"))
-	var prefix_key: String = elems[0] if elems.size() == 1 else "multi"
+	var prefix_key: String = "body" if elems.is_empty() else (elems[0] if elems.size() == 1 else "multi")
+	if not cfg.element_prefixes.has(prefix_key):
+		prefix_key = "multi"
 	var name: String = flavor_name.substr(0, 40)
 	if name == "":
 		name = "%s %s" % [RngUtils.pick(rng, cfg.element_prefixes[prefix_key]), RngUtils.pick(rng, cfg.suffixes)]
@@ -265,7 +269,9 @@ func manual_from_template(t: Dictionary) -> Dictionary:
 func _catalogue_pick(rng: RandomNumberGenerator, tier_rank: int, kind: String, names: Array) -> Dictionary:
 	var all: Array = _gd.cong_phap_file().get("templates", []).filter(func(t): return int(t.tier) == tier_rank and str(t.tech_kind) == kind)
 	var fit: Array = all.filter(func(t): return not names.is_empty() and names.has(t.names[0] if not t.names.is_empty() else ""))
-	var from: Array = fit if not fit.is_empty() else all
+	# a request naming elements takes only a template that fits them, so the technique is usable (rule 8); with none
+	# the caller generates a common instead (2026-11-14: any template of the tier was returned)
+	var from: Array = fit if not fit.is_empty() else (all if names.is_empty() else [])
 	return RngUtils.pick(rng, from) if not from.is_empty() else {}
 
 

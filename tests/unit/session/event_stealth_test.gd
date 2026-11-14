@@ -19,6 +19,8 @@ func _stealthy(s: GameSession) -> void:
 
 func test_stealth_raises_only_evade_checks() -> void:
 	var s := _session()
+	# a mid thần hồn keeps the chance off its ceiling, so the bonus shows whole whatever the seed rolled
+	s.player.thien_phu["than_hon"] = 40
 	var plain: float = s.resolver.stat_check_chance(s.player, s.sheet(), "than_hon", 50.0, true).total
 	_stealthy(s)
 	var sh: StatSheet = s.sheet()

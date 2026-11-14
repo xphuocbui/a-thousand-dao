@@ -157,6 +157,30 @@ func _equip_build(c: Character, rng: RandomNumberGenerator, arch_id: String) -> 
 	c.main_tech = str(cp.tech_id)
 	# NPC Build Generation sets layers to fit the realm (cong-phap.md rule 19).
 	c.techniques[c.main_tech]["layer"] = mini(3 * (c.realm_index + 1), int(cp.layers))
+	# Auxiliary slots (rule 6; AC-CP-42: at most 2): secret arts of the NPC's own elements, or body techniques for
+	# body cultivators, at the same tier roll and layer rule as the main method (2026-11-14: generation filled none)
+	var n_aux: int = mini(int(cfg.get("aux_techniques_by_realm", [0])[mini(c.realm_index, cfg.get("aux_techniques_by_realm", [0]).size() - 1)]), c.aux_tech.size())
+	var own: Array = c.linh_can.elements.keys()
+	for i in n_aux:
+		var body: bool = Array(cfg.get("aux_body_archetypes", [])).has(arch_id)
+		var t_aux: int = clampi(int(float(c.realm_index) * float(cfg.cong_phap_tier_per_realm) + rng.randf()), 0, 3)
+		var names: Array = [] if body or own.is_empty() else [str(RngUtils.pick(rng, own))]
+		var kind_aux: String = "body" if body else "secret"
+		var aux: Dictionary = _items.cong_phap(rng, t_aux, names, "", {"kind": kind_aux})
+		# an authored template already known: a few more picks, then a generated common of the top common tier
+		for attempt in 3:
+			if aux.is_empty() or not c.techniques.has(str(aux.tech_id)):
+				break
+			aux = _items.cong_phap(rng, t_aux, names, "", {"kind": kind_aux})
+		if not aux.is_empty() and c.techniques.has(str(aux.tech_id)):
+			aux = _items.cong_phap(rng, int(_gd.cong_phap_file().commons_tiers[-1]), names, "", {"kind": kind_aux})
+		if aux.is_empty() or c.techniques.has(str(aux.tech_id)):
+			continue
+		aux["owner_id"] = c.id
+		_db.add("items", aux)
+		CongPhap.learn(c, aux)
+		c.aux_tech[i] = str(aux.tech_id)
+		c.techniques[str(aux.tech_id)]["layer"] = mini(3 * (c.realm_index + 1), int(aux.layers))
 	# Pháp bảo, equipped while a slot is free (item-database.md rule 11).
 	var count: int = mini(int(cfg.artifacts_base) + c.realm_index * int(cfg.artifacts_per_realm), int(cfg.artifacts_max))
 	var bases: Array = arch.get("artifact_bases", [])
