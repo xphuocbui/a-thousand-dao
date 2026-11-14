@@ -69,6 +69,7 @@ const HELP := [
 		["debug herb <herb id> <age>", "give a herb"], ["debug tp <n>", "add Kinh Mạch points"], ["debug heal", "full khí huyết, clear đan độc/tâm ma"],
 		["debug item artifact|cong_phap [grade] [base] | named <id>", "generate an item"], ["buildgen <archetype> [realm 0-4]", "generate and show an NPC build"],
 		["debug templates", "list event templates"],
+		["fightlog [n]", "the last event fight's timeline (with combat_rules.json fight_engine on): last n rows, default 40"],
 	]],
 ]
 
@@ -266,6 +267,8 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 				_r(s.refine(design, int(_arg(args, 1, "-1"))))
 		"beasts", "linhthu", "pets":
 			io.out_lines(TerminalViews.beasts(s, io))
+		"fightlog":
+			io.out_lines(TerminalViews.fight_log(s, io, int(_arg(args, 0, "40"))))
 		"release":
 			_r(s.release_beast(_arg(args, 0, "")))
 		"talisman", "phu", "phuluc":

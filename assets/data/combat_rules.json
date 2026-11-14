@@ -7,6 +7,10 @@
     "khi_huyet_weight": 0.02,
     "linh_luc_weight": 0.02
   },
+  "fight_engine": {
+    "_doc": "ADR-0001 step 4 feature flag: when enabled, an event's combat check runs a real fight (CombatService, both sides compiled by FighterCompiler.compile, the seed one draw from the session stream per ADR-0002) instead of the duel roll; a side that cannot compile falls back to the duel, and the check line says why. Off until the fights are signed off in play.",
+    "enabled": false
+  },
   "duel": {
     "ratio_exponent": 2.0,
     "min_win_chance": 0.02,

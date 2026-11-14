@@ -1,0 +1,159 @@
+ADR-0001 step 4 evidence, 2026-11-14. Debug terminal, Godot 4.7.1 console build, headless, --no-llm.
+combat_rules.json fight_engine.enabled was set to true for this run only (the shipped value is false).
+Commands: new quick Kiem 4242;debug event cuop_tu_chan_duong;choose 1;fightlog 25;
+----
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> new quick Kiem 4242
+Generating the world (seed 4242)...
+A new world: 3 regions, 16 places, 5 sects, 5081 people, 231 recorded events (Thiên Nguyên lịch năm 300).
+Kiem is born: Triple root: Wood [Mộc] 63, Fire [Hỏa] 78, Metal [Kim] 59 + Light [Quang] 62
+
+━━ Kiem — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+
+ ROOT [linh căn]  Triple root — curve row 3, now x0.50 vs a single root
+   Mộc  ▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁  63 Thượng   linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁  78 Thượng   luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁  59 Trung    linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+   Light [Quang] 62  (transmutation)  +12.4% tâm ma resistance
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▁▁▁▁▁▁  40 Trung        Căn cốt   ▆▆▆▁▁▁▁▁▁▁  34 Trung
+   Thần hồn  ▆▆▆▆▁▁▁▁▁▁  41 Trung        Khí vận   ▆▆▆▆▁▁▁▁▁▁  41 Trung
+   Đạo tâm   ▆▆▆▁▁▁▁▁▁▁  29 Hạ           Mị lực    ▆▆▆▆▆▁▁▁▁▁  47 Trung
+
+ TRẠNG THÁI Linh lực 59 · Thần thức 41 · Khí huyết 340/340
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Liệt Hỏa Quyết (layer 1/6)
+            tu vi 5.9 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  120 = offense 63 + defense 57 · extra slots 0/2 ('explain power')
+ KINH MẠCH  1 huyệt open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Đạo Cốt Thiên Sinh — Born with Dao bones: every breakthrough comes easier.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Long Tích Thành (l12) — Thành, Tử Vân Châu. Linh khí 0.92, danger 1, market, bounties
+  Your động phủ is here.
+People here (302):
+  p85    Phương Thần          Trúc Cơ Hậu kỳ         Đan sư | chiến lực 3227 | attitude 0
+  p86    Tạ Trường Không      Trúc Cơ Trung kỳ       Tán tu | chiến lực 2081 | attitude 0
+  p87    Tư Mã Lan            Luyện Khí Sơ kỳ        Tán tu | chiến lực 172 | attitude 0
+  p100   Tần Nghiên           Kết Đan Đại viên mãn   Kiếm tu | chiến lực 49223 | attitude 0
+  p113   Thẩm Thanh Ca        Luyện Khí Trung kỳ     Tán tu | chiến lực 204 | attitude 0
+  p132   Nhạc Thanh Ca        Luyện Khí Đại viên mãn Tán tu | chiến lực 249 | attitude 0
+  p144   Tần Viễn             Luyện Khí Trung kỳ     Tán tu | chiến lực 148 | attitude 0
+  p176   Trương Vô Kỵ         Luyện Khí Hậu kỳ       Tán tu | chiến lực 194 | attitude 0
+  p200   Nhạc Yên             Luyện Khí Hậu kỳ       Tán tu | chiến lực 238 | attitude 0
+  p228   Lục Quân             Luyện Khí Trung kỳ     Tán tu | chiến lực 149 | attitude 0
+  p275   Hàn Uyển             Luyện Khí Sơ kỳ        Tán tu | chiến lực 173 | attitude 0
+  p278   Cung Thiếu Bạch      Luyện Khí Đại viên mãn Tán tu | chiến lực 264 | attitude 0
+  p296   Triệu Thiếu Bạch     Luyện Khí Đại viên mãn Tán tu | chiến lực 241 | attitude 0
+  p301   Chu Khải             Luyện Khí Hậu kỳ       Tán tu | chiến lực 221 | attitude 0
+  p333   Tư Mã Cảnh           Luyện Khí Trung kỳ     Đan sư | chiến lực 205 | attitude 0
+  ... 'db people l12' lists all
+Roads:
+  -> l13   Hồng Diệp Đảo (1 season)
+  -> l15   Lưu Vân Trấn (1 season)
+  -> l7    Bạch Thạch Thành (3 seasons)
+  -> l1    Tử Trúc Thành (3 seasons)
+
+━━ Kiem · Thiên Nguyên lịch năm 300, Xuân · Long Tích Thành ━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +5.9/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · Chiến lực 120 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Long Tích Thành              7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Market                              15 Talk to someone… (302 here)
+ 16 Character sheet                     17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> debug event cuop_tu_chan_duong
+
+╔══ Cướp tu chặn đường ═══════════════════════ [template:cuop_tu_chan_duong]
+║ Trên đường qua Long Tích Thành, Vương Tùng (Luyện Khí Trung kỳ) từ trong
+║ rừng bước ra, kiếm quang lóe lên: "Để lại túi trữ vật, tha cho ngươi một
+║ mạng."
+║
+║  1) Liều mạng giao đấu
+║       ████░░░░░░  39% fight: chiến lực 120 vs 163
+║  2) Bỏ chạy (Thần hồn)
+║       ████░░░░░░  39% Thần hồn 41 vs 50
+║  3) Nộp linh thạch
+║       certain  cost -28 LT
+╚═ type 1-3 to choose
+> choose 1
+> Liều mạng giao đấu
+
+Ngươi đánh lui Vương Tùng, nhặt được chiến lợi phẩm hắn bỏ lại.
+
+  Combat: fight against Vương Tùng, 37.0 s -> VICTORY
+  linh thạch +38 (now 68)
+  gained Thanh Mộc Phi Kiếm [Phàm phẩm Pháp khí, Mộc] ATK 30 DEF 0 [i11346]
+ Δ Linh thạch 30 → 68 (+38) · + Thanh Mộc Phi Kiếm
+
+━━ Kiem · Thiên Nguyên lịch năm 300, Xuân · Long Tích Thành ━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +5.9/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 68 · Chiến lực 120 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Equip Thanh Mộc Phi Kiếm
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Long Tích Thành              8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Refine a pháp bảo…
+ 13 Draw talismans…                     14 Formations (trận pháp)
+ 15 Market                              16 Talk to someone… (303 here)
+ 17 Character sheet                     18 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> fightlog 25
+Fight: Kiem (A) vs Vương Tùng (B) · 37.0 s · A · 229 rows
+  33.00  B  hit     basic basic 20.7 2.8 77.5 2.8 82.3 6.5
+  33.00  A  hit     basic basic 20.7 2.8 79.5 3.2 77.5 2.8
+  34.00  B  pulse   79.5 9.3
+  34.00  A  pulse   77.5 8.9
+  34.00  A  art     quick 5.2 77.5 3.7
+  34.00  A  hit     art quick 62.3 12.8 66.7 0.0 77.5 3.7
+  34.00  A  hit     basic basic 35.1 34.2 32.5 0.0 77.5 3.7
+  34.00  B  hit     basic basic 35.1 15.0 62.5 0.0 32.5 0.0
+  35.00  B  pulse   32.5 6.0
+  35.00  A  pulse   62.5 6.0
+  35.00  A  hit     basic basic 35.1 5.5 27.0 0.5 62.5 6.0
+  35.00  B  hit     basic basic 35.1 5.5 57.0 0.5 27.0 0.5
+  36.00  B  pulse   27.0 6.6
+  36.00  A  pulse   57.0 6.6
+  36.00  B  art     quick 5.2 27.0 1.4
+  36.00  B  hit     art quick 36.6 5.7 51.3 0.9 27.0 1.4
+  36.00  B  hit     basic basic 20.7 15.3 36.0 0.0 27.0 1.4
+  36.00  A  hit     basic basic 20.7 12.4 14.7 0.0 36.0 0.0
+  37.00  B  pulse   14.7 6.0
+  37.00  A  pulse   36.0 6.0
+  37.00  A  art     quick 5.2 36.0 0.9
+  37.00  A  hit     art quick 36.6 5.7 8.9 0.3 36.0 0.9
+  37.00  A  hit     basic basic 20.7 18.1 -9.2 0.0 36.0 0.9
+  37.00  B  hit     basic basic 20.7 15.2 20.8 0.0 -9.2 0.0
+  37.00  B  down    down
+> (end of input)

@@ -21,6 +21,11 @@ var _items: ItemFactory
 var _alchemy: Alchemy
 ## Set by the session: Callable(kind: String) -> String, unseals a cluster and returns its line.
 var unseal_fn: Callable
+## Runs real fights when combat_rules.json fight_engine.enabled is on (ADR-0001 step 4); made on first use.
+var _service: CombatService
+## The last event fight, with its timeline log (the debug terminal's `fightlog`), or null; its two sides' names.
+var last_fight: FightResult
+var last_fight_names: Array = []
 
 
 func _init(gd: GameData, db: WorldDB, builds: BuildGenerator, items: ItemFactory) -> void:
@@ -83,11 +88,18 @@ func resolve(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: 
 		"combat":
 			var enemy_rec: Dictionary = _db.get_record("people", str(choice.check.enemy))
 			var enemy := Character.from_dict(enemy_rec)
-			var mine: float = CombatPower.compute(c, _gd, _db, sheet).total
-			var theirs: float = _builds.power_of(enemy)
-			var duel: Dictionary = CombatPower.duel(mine, theirs, sheet.effective("khi_van", c), float(enemy.base_stat("khi_van")), _gd, rng)
-			success = duel.win
-			check_line = "Combat: chiến lực %.0f vs %s %.0f -> %.0f%% chance, roll %.0f -> %s" % [mine, enemy.name, theirs, duel.chance * 100.0, duel.roll * 100.0, "VICTORY" if success else "DEFEAT"]
+			var fought: Dictionary = fight_check(c, sheet, enemy, rng)
+			if fought.ran:
+				success = fought.win
+				check_line = fought.line
+			else:
+				var mine: float = CombatPower.compute(c, _gd, _db, sheet).total
+				var theirs: float = _builds.power_of(enemy)
+				var duel: Dictionary = CombatPower.duel(mine, theirs, sheet.effective("khi_van", c), float(enemy.base_stat("khi_van")), _gd, rng)
+				success = duel.win
+				check_line = "Combat: chiến lực %.0f vs %s %.0f -> %.0f%% chance, roll %.0f -> %s" % [mine, enemy.name, theirs, duel.chance * 100.0, duel.roll * 100.0, "VICTORY" if success else "DEFEAT"]
+				if str(fought.line) != "":
+					check_line += " (%s)" % fought.line
 			if success and not enemy.is_beast and c.has_capability(9):
 				var p9: Dictionary = _gd.capability(9).params
 				var drained: Dictionary = CultivationRules.add_tu_vi(c, _gd, float(p9.stage_frac) * CultivationRules.stage_cost(c, _gd))
@@ -114,6 +126,34 @@ func resolve(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: 
 			c.death_cause = "Tử nạn: %s" % event.title
 			died = true
 	return {"success": success, "lines": lines.filter(func(l): return l != ""), "items": items, "died": died, "check_line": check_line, "outcome_text": outcome.text}
+
+
+## The fight engine's combat check (ADR-0001 step 4), when combat_rules.json fight_engine.enabled is on: both sides
+## compiled by [method FighterCompiler.compile], the fight seeded by one draw from [param rng] (ADR-0002 decision 3),
+## and only a win for [param c] succeeds (a draw or the time limit is a failure). Returns {ran, win, line}; ran is
+## false when the flag is off (line "") or a side cannot compile (line says why), and the caller rolls the duel.
+func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNumberGenerator) -> Dictionary:
+	if not bool(_gd.combat().get("fight_engine", {}).get("enabled", false)):
+		return {"ran": false, "win": false, "line": ""}
+	var errors: Array = []
+	var req := FightRequest.new()
+	req.a = FighterCompiler.compile(c, _gd, _db, sheet, [], errors)
+	req.b = FighterCompiler.compile(enemy, _gd, _db, StatSheet.build(enemy, _gd, _db, null), [], errors)
+	if req.a == null or req.b == null:
+		return {"ran": false, "win": false, "line": "fight engine could not compile: %s" % "; ".join(errors)}
+	req.fight_seed = rng.randi()
+	req.log_enabled = true   # event fights are rare; the terminal prints the log
+	if _service == null:
+		_service = CombatService.new(CombatConstants.from_game_data(_gd))
+	var r: FightResult = _service.resolve(req)
+	if r == null:
+		return {"ran": false, "win": false, "line": "fight engine refused the fight: %s" % "; ".join(_service.errors)}
+	last_fight = r
+	last_fight_names = [c.name, enemy.name]
+	var code: String = r.win_code()
+	var word: String = {"A": "VICTORY", "B": "DEFEAT", "draw": "DRAW (a failure)", "time": "TIME LIMIT (a failure)"}[code]
+	return {"ran": true, "win": code == "A",
+		"line": "Combat: fight against %s, %.1f s -> %s" % [enemy.name, r.seconds, word]}
 
 
 func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: Dictionary, fx: Dictionary, items: Array) -> String:

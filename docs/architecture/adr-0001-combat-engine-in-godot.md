@@ -306,6 +306,20 @@ static func clash(a: RatingProfile, b: RatingProfile, gd: GameData, rng: RandomN
   52.2, 59.8); realm 4 sits at the top of the target.
 - The Formulas K agreement test waits for step 5 (the rating profile).
 
+**Status 2026-11-14 (steps 3 and 4):**
+- Step 3 done: `FighterCompiler.compile(c, gd, db, sheet, report, errors)` with the realm's typical layers (user
+  decision 2026-11-14, until the Meridian Map), from `assets/data/combat_library.json` and `combat_engine.json`
+  CHARACTER_MODS. Its build-file step (`BuildFileCompiler`, a port of fight.py's `expand_library()` and `to_build()`)
+  matches fight.py on 58 cases holding every named item and every art (`tests/parity/compile_parity_test.gd`); that
+  covers the 5 build-file mechanism tests' ground (ward parsing, armour ward slots, static lines) except the layer and
+  field budgets, which are designer observations and stay in fight.py.
+- Step 4: `CombatService` runs an event's combat check when `combat_rules.json` `fight_engine.enabled` is on (off in
+  the shipped data); the seed is one `randi()` from the session stream (ADR-0002); a side that cannot compile falls
+  back to the duel. A draw or the time limit fails the check. The debug terminal's fight log is not done yet.
+- Engine fixes found by the compile (both engines, fixture `t7_fixes_exact`): a step's own `hp_cost`; the Down step's
+  events (`down` at step 2, `refused` after a refusal; refusals read their conditions); `strip`'s tie order; stacking
+  None statuses ignore a recast.
+
 ## Related
 - `design/gdd/combat.md`, `combat-defence.md`, `combat-damage-types.md`, `effects.md`, `modifiers.md`,
   `item-database.md`, `character-stats.md`

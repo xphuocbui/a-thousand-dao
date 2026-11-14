@@ -841,3 +841,21 @@ static func _trait_name(s: GameSession, trait_id: String) -> String:
 		if t.id == trait_id:
 			return t.name
 	return trait_id
+
+
+## The last event fight's timeline (ADR-0001 step 4): the result, then its last [param n] log rows as
+## "seconds side what values", A being the player.
+static func fight_log(s: GameSession, io: TerminalIO, n: int) -> Array:
+	var r: FightResult = s.resolver.last_fight
+	if r == null:
+		return [io.paint("No event fight yet (set combat_rules.json fight_engine.enabled to true to run real fights).", C_DIM)]
+	var names: Array = s.resolver.last_fight_names
+	var lines: Array = [io.paint("Fight: %s (A) vs %s (B)" % [names[0], names[1]], C_BOLD) + " · %.1f s · %s · %d rows" % [r.seconds, r.win_code(), r.log_rows.size()]]
+	var start: int = maxi(0, r.log_rows.size() - maxi(1, n))
+	for i in range(start, r.log_rows.size()):
+		var row: Array = r.log_rows[i].to_array()
+		var parts: PackedStringArray = []
+		for j in range(3, row.size()):
+			parts.append("%.1f" % row[j] if (row[j] is float) else str(row[j]))
+		lines.append("%7.2f  %s  %-7s %s" % [float(row[1]) / 1000.0, str(row[2]), str(row[0]), " ".join(parts)])
+	return lines
