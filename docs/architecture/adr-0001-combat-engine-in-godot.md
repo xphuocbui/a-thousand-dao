@@ -286,7 +286,7 @@ static func clash(a: RatingProfile, b: RatingProfile, gd: GameData, rng: RandomN
 3. `FighterCompiler` from a Character, reporting what it cannot compile.
 4. `CombatService` behind a flag in the Event Engine's combat check; the debug terminal prints the fight log.
 5. `RatingProfile` for the world tick and `display_power` on screens; then remove `CombatPower.duel`.
-   **Amended 2026-11-14:** replaced by fight-based ratings (ADR-0003, Proposed; `design/gdd/power-rankings.md`):
+   **Amended 2026-11-14:** replaced by fight-based ratings (ADR-0003, Accepted 2026-11-14; `design/gdd/power-rankings.md`):
    the shown power and world fights come from ratings measured in fights; the closed-form profile stays only for
    `rating_clash` in wars.
 

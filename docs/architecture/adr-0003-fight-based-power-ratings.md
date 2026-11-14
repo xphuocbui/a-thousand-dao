@@ -1,7 +1,7 @@
 # ADR-0003: Fight-Based Power Ratings
 
 ## Status
-Proposed (drafted 2026-11-14 by the assistant from the user's Power Rankings decisions; for the user to accept)
+Accepted (2026-11-14, by the user). Drafted the same day by the assistant from the user's Power Rankings decisions.
 
 ## Date
 2026-11-14
@@ -166,7 +166,7 @@ var a_wins: bool = rs.world_fight(a_id, b_id, session.rng)
 - **Load Time**: none (calibration is data).
 
 ## Migration Plan
-1. Accept this ADR; amend ADR-0001's Migration Plan step 5 to point here.
+1. Accept this ADR (done 2026-11-14); amend ADR-0001's Migration Plan step 5 to point here (done).
 2. The `WorkerThreadPool` spike.
 3. `RatingService` with panels and provisional ratings, behind the flag.
 4. Matchmaking, round robins, the season batch and saves.
