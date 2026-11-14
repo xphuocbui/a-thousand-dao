@@ -1,0 +1,26 @@
+# Power Rankings local play session (2026-11-14): ratings and the fight engine on in memory only.
+# Run: godot --headless --path . -s res://src/debug_terminal/terminal_main.gd -- --no-llm
+#        --set combat_rankings.enabled=true --set combat_rules.fight_engine.enabled=true
+#        --commands res://production/qa/evidence/power-rankings/01-play-session-commands.txt --exit-after-commands
+new quick Kiem 4242
+status
+sheet
+explain power
+rankings
+rankings top
+rankings 2
+look
+cul 4
+rankings
+debug event cuop_tu_chan_duong
+choose 1
+fightlog 8
+explain power
+debug tuvi 5000
+breakthrough
+explain power
+cul 1
+explain power
+bequan 1
+rankings 1
+beasts

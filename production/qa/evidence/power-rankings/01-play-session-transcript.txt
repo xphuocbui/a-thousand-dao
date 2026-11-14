@@ -1,0 +1,560 @@
+Power Rankings local play session, 2026-11-15. Godot 4.7.1 release export (build/bench/combat_bench.exe --headless -- --terminal), --no-llm.
+combat_rankings.enabled and combat_rules.fight_engine.enabled set true for this run only with --set (in memory; the shipped values stay false).
+Commands: 01-play-session-commands.txt (the last line, run here as 'debug linh_thu', is now 'beasts'). Exit 0, no SCRIPT ERROR.
+----
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+data override (this run only): combat_rankings.enabled = true
+data override (this run only): combat_rules.fight_engine.enabled = true
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> new quick Kiem 4242
+Generating the world (seed 4242)...
+A new world: 3 regions, 16 places, 5 sects, 5061 people, 223 recorded events (Thiên Nguyên lịch năm 300).
+Kiem is born: Single root: Fire [Hỏa] 21
+Power Rankings: the player's panel (40 fights) and 528 coarse panels (3444 fights) rated at load.
+
+━━ Kiem — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+
+ ROOT [linh căn]  Single root — curve row 1, now x1.00 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁  21 Hạ       luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  48 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  48 Trung
+   Thần hồn  ▆▆▆▆▁▁▁▁▁▁  42 Trung        Khí vận   ▆▆▆▆▆▆▆▁▁▁  74 Thượng  +15
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▆▆▁▁▁  74 Thượng
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 42 · Khí huyết 480/480
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Chu Tước Tâm Pháp (layer 1/6)
+            tu vi 4.1 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  123 = offense 63 + defense 60 · extra slots 0/2 ('explain power')
+ KINH MẠCH  1 huyệt open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Thiên Đố Kỳ Duyên — Heaven's favour: more khí vận, and cơ duyên come twice as often.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Cổ Mộc Thành (l2) — Thành, Huyền Băng Nguyên. Linh khí 0.90, danger 1, market, bounties
+  Your động phủ is here.
+People here (296):
+  p69    Mạc Hiên             Trúc Cơ Trung kỳ       Đan sư | power 952 | attitude 0
+  p70    Giang Quân           Trúc Cơ Đại viên mãn   Thể tu | power 1,870 | attitude 0
+  p71    Bạch Nguyệt          Trúc Cơ Trung kỳ       Linh thực sư | power 952 | attitude 0
+  p89    Lạc Tuyết            Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p104   Phương Khinh Vũ      Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p141   Mạc Thiếu Bạch       Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p166   Cung Thanh Ca        Luyện Khí Trung kỳ     Tán tu | power 51 | attitude 0
+  p167   Chu Bất Phàm         Luyện Khí Hậu kỳ       Tán tu | power 54 | attitude 0
+  p168   Cố Dao               Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p177   Giang Linh           Luyện Khí Sơ kỳ        Thể tu | power 51 | attitude 0
+  p184   Bạch Vân             Trúc Cơ Sơ kỳ          Trận sư | power 1,040 | attitude 0
+  p196   Doãn Tâm             Trúc Cơ Sơ kỳ          Thể tu | power 952 | attitude 0
+  p230   Thượng Quan Tịch     Luyện Khí Hậu kỳ       Tán tu | power 51 | attitude 0
+  p259   Bạch Dao             Luyện Khí Sơ kỳ        Trận sư | power 51 | attitude 0
+  p278   Lạc Linh             Luyện Khí Trung kỳ     Tán tu | power 51 | attitude 0
+  ... 'db people l2' lists all
+Roads:
+  -> l1    Tử Trúc Thành (1 season)
+  -> l3    Hắc Phong Cốc (1 season)
+  -> l4    Thanh Dương Cốc (1 season)
+
+━━ Kiem · Thiên Nguyên lịch năm 300, Xuân · Cổ Mộc Thành ━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +4.1/season, next level in 2.5 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 21 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Cổ Mộc Thành                 7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Market                              15 Talk to someone… (296 here)
+ 16 Character sheet                     17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> status
+━━ Kiem · Thiên Nguyên lịch năm 300, Xuân · Cổ Mộc Thành ━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +4.1/season, next level in 2.5 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 21 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+> sheet
+━━ Kiem — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+
+ ROOT [linh căn]  Single root — curve row 1, now x1.00 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁  21 Hạ       luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  48 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  48 Trung
+   Thần hồn  ▆▆▆▆▁▁▁▁▁▁  42 Trung        Khí vận   ▆▆▆▆▆▆▆▁▁▁  74 Thượng  +15
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▆▆▁▁▁  74 Thượng
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 42 · Khí huyết 480/480
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Chu Tước Tâm Pháp (layer 1/6)
+            tu vi 4.1 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  123 = offense 63 + defense 60 · extra slots 0/2 ('explain power')
+ KINH MẠCH  1 huyệt open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Thiên Đố Kỳ Duyên — Heaven's favour: more khí vận, and cơ duyên come twice as often.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+> explain power
+Power 21  (Power Rankings: the power number of your rating)
+  rating -7991.4 = base -7991.4 (ladder panel) + offset +0.0 (from 0 rated fights)
+  state rated
+  Luyện Khí's typical fighter rates 1000 and shows power 100; each realm is ×10 power
+  your rating is -8991 from it, rung -77 of the realm's ladder (each rung is ×1.022 strength)
+
+Realm Luyện Khí Sơ kỳ: base 100
+Offense = 63.40
+    Realm share                        = 50
+    Công pháp Chu Tước Tâm Pháp        +12.18  -> 62.18
+    Linh lực 61 x 0.02                 +1.22  -> 63.40
+Defense = 59.60
+    Realm share                        = 50
+    Khí huyết 480 x 0.02               +9.60  -> 59.60
+Chiến lực = 123.00
+    Offense                            = 63.40
+    Defense                            +59.60  -> 123.00
+Extra slots 0 / 2, the next at thần thức 79
+> rankings
+Luyện Khí ranking: 3935 listed
+     1. p681   Hàn Vũ               Luyện Khí Đại viên mãn power        105  rating   1279.6  [stale] 
+     2. p4838  Phương Mộng          Luyện Khí Đại viên mãn power        105  rating   1279.6  [stale] 
+     3. p354   Lý Lăng              Luyện Khí Đại viên mãn power        105  rating   1279.6  [stale] 
+     4. p2692  Trương Kiếm          Luyện Khí Đại viên mãn power        105  rating   1279.6  [stale] 
+     5. p3755  Diệp Yên             Luyện Khí Đại viên mãn power        105  rating   1279.6  [stale] 
+     6. p2199  Lạc Trần             Luyện Khí Đại viên mãn power        105  rating   1279.6  [stale] 
+     7. p623   Kỷ Tử Yên            Luyện Khí Đại viên mãn power        105  rating   1279.6  [stale] 
+     8. p441   Chu Nghiên           Luyện Khí Đại viên mãn power        105  rating   1279.6  [stale] 
+     9. p4296  Kỷ Bách              Luyện Khí Đại viên mãn power        102  rating   1120.4  [stale] 
+    10. p2063  Tư Mã Bách           Luyện Khí Đại viên mãn power        102  rating   1120.4  [stale] 
+    11. p3788  Cung Tùng            Luyện Khí Hậu kỳ       power        100  rating   1000.0  [stale] 
+    12. p1448  Doãn Hạo             Luyện Khí Đại viên mãn power        100  rating   1000.0  [stale] 
+    13. p2623  Lục Thiếu Bạch       Luyện Khí Hậu kỳ       power        100  rating   1000.0  [stale] 
+    14. p4703  Bạch Vô Kỵ           Luyện Khí Đại viên mãn power        100  rating   1000.0  [stale] 
+    15. p4606  Kỷ Thiếu Bạch        Luyện Khí Đại viên mãn power        100  rating   1000.0  [stale] 
+    16. p2272  Âu Dương Bất Phàm    Luyện Khí Trung kỳ     power        100  rating   1000.0  [stale] 
+    17. p921   Tư Mã Khải           Luyện Khí Hậu kỳ       power        100  rating   1000.0  [stale] 
+    18. p1921  Tô Cảnh              Luyện Khí Đại viên mãn power         95  rating    720.4  [stale] 
+    19. p1839  Tần Uyển             Luyện Khí Trung kỳ     power         95  rating    720.4  [stale] 
+    20. p4897  Đông Phương Thiên    Luyện Khí Hậu kỳ       power         95  rating    720.4  [stale] 
+   215. p1648  Đông Phương Bất Phàm Luyện Khí Sơ kỳ        power         26  rating  -6699.8  [stale] 
+   216. p2165  Tần Mặc              Luyện Khí Hậu kỳ       power         26  rating  -6699.8  [stale] 
+   217. p5061  Kiem                 Luyện Khí Sơ kỳ        power         21  rating  -7991.4  <- you
+   218. p1583  Tần Lăng             Luyện Khí Sơ kỳ        power         19  rating  -8383.9  [stale] 
+   219. p4956  Cố Nham              Luyện Khí Sơ kỳ        power         15  rating -10067.9  [stale] 
+> rankings top
+Vấn Đỉnh Bảng (the Summit-Asking List): 27 listed
+     1. p3585  Triệu Bất Phàm       Hóa Thần Hậu kỳ        power  4,010,000  rating  70544.9  [stale] 
+     2. p2650  Lý Huyền             Hóa Thần Sơ kỳ         power  4,010,000  rating  70544.9  [stale] 
+     3. p1116  Cung Tử Yên          Hóa Thần Trung kỳ      power  3,890,000  rating  70354.0  [stale] 
+     4. p1391  Âu Dương Tuyết       Nguyên Anh Sơ kỳ       power    664,000  rating  58994.0  [stale] 
+     5. p4776  Đông Phương Nhược    Nguyên Anh Đại viên mãn power    465,000  rating  56713.9  [stale] 
+     6. p2769  Cố Vũ                Nguyên Anh Hậu kỳ      power    346,000  rating  54815.6  [stale] 
+     7. p2352  Bạch Tử Yên          Nguyên Anh Trung kỳ    power    346,000  rating  54815.6  [stale] 
+     8. p21    Chu Thanh Ca         Nguyên Anh Trung kỳ    power    346,000  rating  54815.6  [stale] 
+     9. p263   Tô Nguyệt            Nguyên Anh Đại viên mãn power    346,000  rating  54815.6  [stale] 
+    10. p1454  Đông Phương Thanh Ca Nguyên Anh Sơ kỳ       power    346,000  rating  54815.6  [stale] 
+    11. p4967  Mộ Dung Dao          Nguyên Anh Trung kỳ    power    346,000  rating  54815.6  [stale] 
+    12. p846   Tần Nguyệt           Nguyên Anh Sơ kỳ       power    346,000  rating  54815.6  [stale] 
+    13. p4613  Cố Tâm               Nguyên Anh Đại viên mãn power    336,000  rating  54624.7  [stale] 
+    14. p4875  Tạ Khinh Vũ          Nguyên Anh Hậu kỳ      power    326,000  rating  54433.9  [stale] 
+    15. p3442  Đông Phương Tịch     Nguyên Anh Hậu kỳ      power    190,000  rating  50950.5  [stale] 
+    16. p2629  Doãn Kiếm            Nguyên Anh Sơ kỳ       power    190,000  rating  50950.5  [stale] 
+    17. p632   Tư Mã Quân           Nguyên Anh Trung kỳ    power    190,000  rating  50950.5  [stale] 
+    18. p1894  Thượng Quan Kiếm     Nguyên Anh Trung kỳ    power    190,000  rating  50950.5  [stale] 
+    19. p4075  Lý Hằng              Nguyên Anh Đại viên mãn power    190,000  rating  50950.5  [stale] 
+    20. p834   Lạc Tuyết            Nguyên Anh Sơ kỳ       power    190,000  rating  50950.5  [stale] 
+> rankings 2
+Kết Đan ranking: 219 listed
+     1. p2582  Vương Nhược          Kết Đan Sơ kỳ          power     59,500  rating  42938.3  [stale] 
+     2. p1204  Tần Mặc              Kết Đan Hậu kỳ         power     59,500  rating  42938.3  [stale] 
+     3. p2715  Trương Hạo           Kết Đan Đại viên mãn   power     58,100  rating  42747.4  [stale] 
+     4. p943   Doãn Phong           Kết Đan Đại viên mãn   power     56,600  rating  42556.6  [stale] 
+     5. p2445  Triệu Kiếm           Kết Đan Đại viên mãn   power     56,600  rating  42556.6  [stale] 
+     6. p736   Lục Dao              Kết Đan Trung kỳ       power     56,600  rating  42556.6  [stale] 
+     7. p2749  Trương Nghiên        Kết Đan Hậu kỳ         power     56,600  rating  42556.6  [stale] 
+     8. p3     Tần Bách             Kết Đan Đại viên mãn   power     33,600  rating  38637.7  [stale] 
+     9. p3378  Kỷ Dao               Kết Đan Sơ kỳ          power     33,600  rating  38637.7  [stale] 
+    10. p1666  Lâm Uyển             Kết Đan Đại viên mãn   power     33,600  rating  38637.7  [stale] 
+    11. p1908  Tiêu Kiếm            Kết Đan Đại viên mãn   power     33,600  rating  38637.7  [stale] 
+    12. p2398  Bạch Viễn            Kết Đan Trung kỳ       power     33,600  rating  38637.7  [stale] 
+    13. p2128  Cung Thần            Kết Đan Đại viên mãn   power     33,600  rating  38637.7  [stale] 
+    14. p2277  Tư Mã Huyền          Kết Đan Đại viên mãn   power     33,600  rating  38637.7  [stale] 
+    15. p291   Lý Viễn              Kết Đan Đại viên mãn   power     33,600  rating  38637.7  [stale] 
+    16. p4176  Thẩm Uyển            Kết Đan Đại viên mãn   power     33,600  rating  38637.7  [stale] 
+    17. p3944  Kỷ Minh              Kết Đan Hậu kỳ         power     33,600  rating  38637.7  [stale] 
+    18. p3389  Kỷ Dật               Kết Đan Hậu kỳ         power     33,600  rating  38637.7  [stale] 
+    19. p3396  Tần Kiếm             Kết Đan Đại viên mãn   power     33,600  rating  38637.7  [stale] 
+    20. p2999  Tần Tịch             Kết Đan Đại viên mãn   power     33,600  rating  38637.7  [stale] 
+> look
+Cổ Mộc Thành (l2) — Thành, Huyền Băng Nguyên. Linh khí 0.90, danger 1, market, bounties
+  Your động phủ is here.
+People here (296):
+  p69    Mạc Hiên             Trúc Cơ Trung kỳ       Đan sư | power 952 | attitude 0
+  p70    Giang Quân           Trúc Cơ Đại viên mãn   Thể tu | power 1,870 | attitude 0
+  p71    Bạch Nguyệt          Trúc Cơ Trung kỳ       Linh thực sư | power 952 | attitude 0
+  p89    Lạc Tuyết            Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p104   Phương Khinh Vũ      Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p141   Mạc Thiếu Bạch       Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p166   Cung Thanh Ca        Luyện Khí Trung kỳ     Tán tu | power 51 | attitude 0
+  p167   Chu Bất Phàm         Luyện Khí Hậu kỳ       Tán tu | power 54 | attitude 0
+  p168   Cố Dao               Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p177   Giang Linh           Luyện Khí Sơ kỳ        Thể tu | power 51 | attitude 0
+  p184   Bạch Vân             Trúc Cơ Sơ kỳ          Trận sư | power 1,040 | attitude 0
+  p196   Doãn Tâm             Trúc Cơ Sơ kỳ          Thể tu | power 952 | attitude 0
+  p230   Thượng Quan Tịch     Luyện Khí Hậu kỳ       Tán tu | power 51 | attitude 0
+  p259   Bạch Dao             Luyện Khí Sơ kỳ        Trận sư | power 51 | attitude 0
+  p278   Lạc Linh             Luyện Khí Trung kỳ     Tán tu | power 51 | attitude 0
+  ... 'db people l2' lists all
+Roads:
+  -> l1    Tử Trúc Thành (1 season)
+  -> l3    Hắc Phong Cốc (1 season)
+  -> l4    Thanh Dương Cốc (1 season)
+> cul 4
+Tu luyện 4 season(s): +16 tu vi. Now Luyện Khí Sơ kỳ (16 / 40).
+  [tin đồn] Tin đồn: Giang Thiên vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Lâm Huyền vừa đột phá Trúc Cơ.
+  [tin đồn] Mạc Vũ và Lạc Dao đại chiến tại Thanh Dương Cốc; Lạc Dao thắng.
+ Δ 1 year passed · Tu vi 0 → 16 (+16)
+
+━━ Kiem · Thiên Nguyên lịch năm 301, Xuân · Cổ Mộc Thành ━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁ 16/40  +4.1/season, next level in 1.5 years
+ Tuổi  17/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 21 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Cổ Mộc Thành                 7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Market                              15 Talk to someone… (296 here)
+ 16 Character sheet                     17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> rankings
+Luyện Khí ranking: 3899 listed
+     1. p354   Lý Lăng              Luyện Khí Đại viên mãn power        106  rating   1327.5  [stale] 
+     2. p623   Kỷ Tử Yên            Luyện Khí Đại viên mãn power        106  rating   1327.5  [stale] 
+     3. p4838  Phương Mộng          Luyện Khí Đại viên mãn power        105  rating   1303.6  [stale] 
+     4. p2692  Trương Kiếm          Luyện Khí Đại viên mãn power        105  rating   1287.6  [stale] 
+     5. p2199  Lạc Trần             Luyện Khí Đại viên mãn power        104  rating   1245.3  [stale] 
+     6. p4296  Kỷ Bách              Luyện Khí Đại viên mãn power        103  rating   1154.7  [stale] 
+     7. p2063  Tư Mã Bách           Luyện Khí Đại viên mãn power        102  rating   1106.7  [stale] 
+     8. p3788  Cung Tùng            Luyện Khí Đại viên mãn power        100  rating   1024.0  [stale] 
+     9. p1448  Doãn Hạo             Luyện Khí Đại viên mãn power        100  rating   1024.0  [stale] 
+    10. p2623  Lục Thiếu Bạch       Luyện Khí Hậu kỳ       power        100  rating   1024.0  [stale] 
+    11. p4703  Bạch Vô Kỵ           Luyện Khí Đại viên mãn power        100  rating   1024.0  [stale] 
+    12. p4606  Kỷ Thiếu Bạch        Luyện Khí Đại viên mãn power        100  rating   1024.0  [stale] 
+    13. p2272  Âu Dương Bất Phàm    Luyện Khí Trung kỳ     power        100  rating   1024.0  [stale] 
+    14. p921   Tư Mã Khải           Luyện Khí Đại viên mãn power        100  rating   1024.0  [stale] 
+    15. p415   Âu Dương Thần        Luyện Khí Đại viên mãn power         96  rating    760.4  [stale] 
+    16. p414   Mạc Lan              Luyện Khí Trung kỳ     power         96  rating    760.4  [stale] 
+    17. p683   Vương Lăng           Luyện Khí Trung kỳ     power         96  rating    760.4  [stale] 
+    18. p1921  Tô Cảnh              Luyện Khí Đại viên mãn power         96  rating    744.4  [stale] 
+    19. p4697  Lục Lan              Luyện Khí Hậu kỳ       power         96  rating    744.4  [stale] 
+    20. p2776  Âu Dương Yên         Luyện Khí Hậu kỳ       power         96  rating    744.4  [stale] 
+   211. p1648  Đông Phương Bất Phàm Luyện Khí Trung kỳ     power         26  rating  -6723.8  [stale] 
+   212. p2165  Tần Mặc              Luyện Khí Hậu kỳ       power         26  rating  -6723.8  [stale] 
+   213. p5061  Kiem                 Luyện Khí Sơ kỳ        power         21  rating  -7991.4  <- you
+   214. p1583  Tần Lăng             Luyện Khí Sơ kỳ        power         19  rating  -8383.9  [stale] 
+   215. p4956  Cố Nham              Luyện Khí Trung kỳ     power         15  rating -10067.9  [stale] 
+  last season batch: 57 of 4737 panels (1648 fights), 1685 of 3333 pair fights
+> debug event cuop_tu_chan_duong
+
+╔══ Cướp tu chặn đường ═══════════════════════ [template:cuop_tu_chan_duong]
+║ Trên đường qua Cổ Mộc Thành, Tạ Thần (Luyện Khí Đại viên mãn) từ trong
+║ rừng bước ra, kiếm quang lóe lên: "Để lại túi trữ vật, tha cho ngươi một
+║ mạng."
+║
+║  1) Liều mạng giao đấu
+║       ░░░░░░░░░░   0% fight: won 0 of 24 trial fights
+║  2) Bỏ chạy (Thần hồn)
+║       █████░░░░░  47% Thần hồn 42 vs 50
+║  3) Nộp linh thạch  — needs 32 linh thạch (you have 30)
+╚═ type 1-3 to choose
+> choose 1
+> Liều mạng giao đấu
+
+Tạ Thần quá mạnh. Ngươi trọng thương, túi trữ vật bị cướp sạch một phần.
+
+  Combat: fight against Tạ Thần, 24.0 s -> DEFEAT
+  khí huyết -50% (now 50%)
+  linh thạch -30 (now 0)
+ Δ Linh thạch 30 → 0 (-30) · Khí huyết 100% → 50%
+
+━━ Kiem · Thiên Nguyên lịch năm 301, Xuân · Cổ Mộc Thành ━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁ 16/40  +4.1/season, next level in 1.5 years
+ Tuổi  17/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▁▁▁▁▁  50%  LT 0 · power 21 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Earn linh thạch (mission / bounty)
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Cổ Mộc Thành                 8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Market
+ 15 Talk to someone… (297 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> fightlog 8
+Fight: Kiem (A) vs Tạ Thần (B) · 24.0 s · B · 196 rows
+  24.00  A  art     kindle-palm 2.0 2.1 1.5
+  24.00  A  hit     art kindle-palm 15.3 3.1 718.0 179.1 2.1 1.5
+  24.00  A  stacks  B fire 2.0 32000.0 0.0
+  24.00  A  hit     basic basic 11.7 2.1 715.9 175.8 2.1 1.5
+  24.00  B  art     still-water-palm 7.9 715.9 167.9
+  24.00  B  hit     art still-water-palm 85.1 81.5 -79.4 0.0 715.9 167.9
+  24.00  B  hit     basic basic 31.4 31.1 -110.5 0.0 715.9 167.9
+  24.00  A  down    down
+> explain power
+Power 21  (Power Rankings: the power number of your rating)
+  rating -7991.4 = base -7991.4 (ladder panel) + offset +0.0 (from 1 rated fights)
+  state rated
+  Luyện Khí's typical fighter rates 1000 and shows power 100; each realm is ×10 power
+  your rating is -8991 from it, rung -77 of the realm's ladder (each rung is ×1.022 strength)
+
+Realm Luyện Khí Sơ kỳ: base 100
+Offense = 63.40
+    Realm share                        = 50
+    Công pháp Chu Tước Tâm Pháp        +12.18  -> 62.18
+    Linh lực 61 x 0.02                 +1.22  -> 63.40
+Defense = 59.60
+    Realm share                        = 50
+    Khí huyết 480 x 0.02               +9.60  -> 59.60
+Chiến lực = 61.50
+    Offense                            = 63.40
+    Defense                            +59.60  -> 123.00
+    Injured (khí huyết 50%)            x0.50  -> 61.50
+Extra slots 0 / 2, the next at thần thức 79
+> debug tuvi 5000
+tu vi added; +3 stages; now Luyện Khí Đại viên mãn 230
+ Δ Luyện Khí Sơ kỳ → Luyện Khí Đại viên mãn · Kinh Mạch points 2 → 51 (+49)
+   Power 21 → 43 (+22)
+
+━━ Kiem · Thiên Nguyên lịch năm 301, Xuân · Cổ Mộc Thành ━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Đại viên mãn L10 (tầng 10)  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 230/230  BÌNH CẢNH
+ Tuổi  17/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▁▁▁▁▁  50%  LT 0 · power 43 · 51 Kinh Mạch pt
+ ‼ Bình cảnh! Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to train);
+   Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y: plant a
+   seed (8 LT). (Without it: 0%.)  → plant hoang_tinh_sam
+ ➤ 51 Kinh Mạch point(s) to spend.  → tree
+ BOTTLENECK  bar 230 / 230 (full)
+   pill: none held
+   talisman: available
+   attempts this step: 0 pill (next insight +0.00), 0/3 bare
+   qi deviation if this fails: 0%
+   this attempt: 0.4% (bare)
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 51 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Earn linh thạch (mission / bounty)
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Cổ Mộc Thành                 8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Market
+ 15 Talk to someone… (297 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> breakthrough
+Breakthrough chance = 0.00
+    Bare attempt, no truc_co_dan       = 0.00
+Roll 61 vs 0%.
+Breakthrough failed: -69 tu vi, tâm ma +15.0, khí huyết now 9%.
+  [tin đồn] Tin đồn: Tư Mã Tâm vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Triệu Kiếm vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Giang Hạo vừa đột phá Trúc Cơ.
+ Δ 1 season passed · Tu vi 230 → 161 (-69) · Khí huyết 50% → 35%
+   Tâm ma 0 → 15 (+15)
+
+━━ Kiem · Thiên Nguyên lịch năm 301, Hạ · Cổ Mộc Thành ━━━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Đại viên mãn L10 (tầng 10)  ▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁ 161/230  +4.1/season, next level in 4.3 years
+ Tuổi  17/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▁▁▁▁▁▁  35%  LT 0 · power 43 · 51 Kinh Mạch pt · Tâm ma 15
+ ! Khí huyết 35%: you are wounded and weaker in fights. Rest (cultivate)
+   before exploring.  → cul 4
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ BOTTLENECK  bar 161 / 230
+   pill: none held
+   talisman: available
+   attempts this step: 0 pill (next insight +0.00), 1/3 bare
+   qi deviation if this fails: 0%
+   this attempt: 0.4% (bare)
+  1 Rest and cultivate a year
+  2 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  3 Spend 51 Kinh Mạch point(s)
+  4 Plant something (plot 2 is empty)
+  5 Closed-door 5 years                  6 Explore Cổ Mộc Thành
+  7 Mission / bounty                     8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Market
+ 15 Talk to someone… (297 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> explain power
+Power 43  (Power Rankings: the power number of your rating)
+  rating -3808.4 = base -3808.4 (ladder panel) + offset +0.0 (from 0 rated fights)
+  state rated
+  Luyện Khí's typical fighter rates 1000 and shows power 100; each realm is ×10 power
+  your rating is -4808 from it, rung -42 of the realm's ladder (each rung is ×1.022 strength)
+
+Realm Luyện Khí Đại viên mãn: base 145
+Offense = 91.93
+    Realm share                        = 72.50
+    Công pháp Chu Tước Tâm Pháp        +17.66  -> 90.16
+    Linh lực 88 x 0.02                 +1.77  -> 91.93
+Defense = 86.42
+    Realm share                        = 72.50
+    Khí huyết 696 x 0.02               +13.92  -> 86.42
+Chiến lực = 71.34
+    Offense                            = 91.93
+    Defense                            +86.42  -> 178.35
+    Injured (khí huyết 35%)            x0.40  -> 71.34
+Extra slots 0 / 2, the next at thần thức 79
+> cul 1
+Tu luyện 1 season(s): +4 tu vi. Now Luyện Khí Đại viên mãn (165 / 230).
+  [tin đồn] Tin đồn: Nhạc Uyển vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Nhạc Thanh Ca vừa đột phá Kết Đan.
+  [tin đồn] Mạc Hiên và Ôn Minh đại chiến tại Tử Trúc Thành; Ôn Minh thắng.
+ Δ 1 season passed · Tu vi 161 → 165 (+4) · Khí huyết 35% → 60%
+
+━━ Kiem · Thiên Nguyên lịch năm 301, Thu · Cổ Mộc Thành ━━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Đại viên mãn L10 (tầng 10)  ▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁ 165/230  +4.1/season, next level in 4.0 years
+ Tuổi  17/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▁▁▁▁  60%  LT 0 · power 43 · 51 Kinh Mạch pt · Tâm ma 15
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 51 Kinh Mạch point(s) to spend.  → tree
+ BOTTLENECK  bar 165 / 230
+   pill: none held
+   talisman: available
+   attempts this step: 0 pill (next insight +0.00), 1/3 bare
+   qi deviation if this fails: 0%
+   this attempt: 0.4% (bare)
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 51 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Earn linh thạch (mission / bounty)
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Cổ Mộc Thành                 8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Market
+ 15 Talk to someone… (297 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> explain power
+Power 43  (Power Rankings: the power number of your rating)
+  rating -3808.4 = base -3808.4 (ladder panel) + offset +0.0 (from 0 rated fights)
+  state rated
+  Luyện Khí's typical fighter rates 1000 and shows power 100; each realm is ×10 power
+  your rating is -4808 from it, rung -42 of the realm's ladder (each rung is ×1.022 strength)
+
+Realm Luyện Khí Đại viên mãn: base 145
+Offense = 91.93
+    Realm share                        = 72.50
+    Công pháp Chu Tước Tâm Pháp        +17.66  -> 90.16
+    Linh lực 88 x 0.02                 +1.77  -> 91.93
+Defense = 86.42
+    Realm share                        = 72.50
+    Khí huyết 696 x 0.02               +13.92  -> 86.42
+Chiến lực = 107.01
+    Offense                            = 91.93
+    Defense                            +86.42  -> 178.35
+    Injured (khí huyết 60%)            x0.60  -> 107.01
+Extra slots 0 / 2, the next at thần thức 79
+> bequan 1
+Bế quan 1.0 năm: +20 tu vi (x1.2 efficiency). Now Luyện Khí Đại viên mãn, age 18.
+  50 things happened in the world while you were secluded; 'news' shows them.
+  [tin đồn] Tin đồn: Chu Trần vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Doãn Lạc Anh vừa đột phá Trúc Cơ.
+  [tin đồn] Mộ Dung Dao và Hàn Minh đại chiến tại Vạn Hoa Cốc; Hàn Minh thắng.
+ Δ 1 year passed · Tu vi 165 → 185 (+20) · Khí huyết 60% → 100%
+   Tâm ma 15 → 14 (-1)
+
+━━ Kiem · Thiên Nguyên lịch năm 302, Thu · Cổ Mộc Thành ━━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Đại viên mãn L10 (tầng 10)  ▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁ 185/230  +4.1/season, next level in 2.8 years
+ Tuổi  18/120  ▆▆▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 0 · power 43 · 51 Kinh Mạch pt · Tâm ma 14
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 51 Kinh Mạch point(s) to spend.  → tree
+ BOTTLENECK  bar 185 / 230
+   pill: none held
+   talisman: available
+   attempts this step: 0 pill (next insight +0.00), 1/3 bare
+   qi deviation if this fails: 0%
+   this attempt: 0.4% (bare)
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 51 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Earn linh thạch (mission / bounty)
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Cổ Mộc Thành                 8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Market
+ 15 Talk to someone… (297 here)         16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> rankings 1
+Trúc Cơ ranking: 896 listed
+     1. p3873  Doãn Mặc             Trúc Cơ Đại viên mãn   power      3,300  rating  22133.9  
+     2. p249   Lục Tử Yên           Trúc Cơ Đại viên mãn   power      3,300  rating  22133.2  
+     3. p276   Mạc Lan              Trúc Cơ Đại viên mãn   power      3,140  rating  21800.5  
+     4. p3374  Diệp Mặc             Trúc Cơ Đại viên mãn   power      3,130  rating  21779.1  
+     5. p252   Doãn Hạo             Trúc Cơ Đại viên mãn   power      2,850  rating  21164.3  
+     6. p1002  Âu Dương Huyền       Trúc Cơ Đại viên mãn   power      2,800  rating  21036.5  
+     7. p192   Đông Phương Nghiên   Trúc Cơ Đại viên mãn   power      2,760  rating  20937.8  
+     8. p1669  Mạc Vân              Trúc Cơ Đại viên mãn   power      2,750  rating  20925.2  
+     9. p4544  Tạ Lan               Trúc Cơ Đại viên mãn   power      2,700  rating  20799.7  
+    10. p515   Trương Hiên          Trúc Cơ Đại viên mãn   power      2,680  rating  20760.4  
+    11. p4561  Lý Viễn              Trúc Cơ Hậu kỳ         power      2,630  rating  20615.0  
+    12. p1781  Chu Nghiên           Trúc Cơ Hậu kỳ         power      2,560  rating  20457.2  
+    13. p3276  Vương Tâm            Trúc Cơ Đại viên mãn   power      2,510  rating  20303.0  
+    14. p377   Mạc Tuyết            Trúc Cơ Đại viên mãn   power      2,500  rating  20282.1  
+    15. p1562  Trương Lạc Anh       Trúc Cơ Đại viên mãn   power      2,470  rating  20216.0  
+    16. p24    Kỷ Lăng              Trúc Cơ Đại viên mãn   power      2,460  rating  20167.0  
+    17. p165   Âu Dương Hằng        Trúc Cơ Đại viên mãn   power      2,440  rating  20132.7  
+    18. p1754  Tạ Lan               Trúc Cơ Đại viên mãn   power      2,430  rating  20111.8  
+    19. p779   Mộ Dung Kiếm         Trúc Cơ Đại viên mãn   power      2,380  rating  19962.3  
+    20. p2354  Ôn Vân               Trúc Cơ Hậu kỳ         power      2,370  rating  19926.2  
+  last season batch: 59 of 4266 panels (1648 fights), 1685 of 3333 pair fights
+> debug linh_thu
+debug event [id] | templates | tuvi <n> | lt <n> | herb <id> <age> | tp <n> | heal | item artifact|cong_phap [grade] [base] | named <id>
+> (end of input)
