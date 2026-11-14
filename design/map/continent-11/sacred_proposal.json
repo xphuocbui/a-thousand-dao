@@ -1,0 +1,326 @@
+{
+ "status": "proposal, awaiting the user's approval (2026-11-14)",
+ "note": "Inputs for tools/design/map/sacred.py. Strengths, reaches and thresholds are first guesses for Formula C's feature data (A_f, R_f, a_f) and the R30 thresholds; the names are given by kind and tile, like place_names.json.",
+ "params": {
+  "km_per_tile": 24.7,
+  "depth_full_km": 555,
+  "depth_density": 0.2,
+  "vein_reach_km": 222,
+  "vein_grades": {
+   "1": {
+    "density": 0.9,
+    "tiles": 19
+   },
+   "2": {
+    "density": 0.7,
+    "tiles": 13
+   },
+   "3": {
+    "density": 0.4,
+    "tiles": 5
+   }
+  },
+  "wild_vein_h": [
+   0.6,
+   3.8
+  ],
+  "wild_vein_seat_gap": 12,
+  "wild_vein_great_gap": 30,
+  "wild_vein_place_gap": 8,
+  "wild_vein_gap": 40,
+  "wild_vein_border_tiles": 14,
+  "wild_vein_border_bonus": 0.15,
+  "generated_density": {
+   "hot_spring": [
+    0.3,
+    111
+   ],
+   "lava": [
+    0.1,
+    111
+   ]
+  },
+  "variant_reach_km": 111,
+  "snow_reach_km": 62,
+  "variant_place_share_max": 0.02,
+  "summit_radius": 18,
+  "summit_min_km": 2.2,
+  "summit_place_gap": 6,
+  "cave_h": [
+   0.6,
+   3.5
+  ],
+  "cave_relief_min": 0.6,
+  "cave_relief_near_seat": 0.3,
+  "cave_site_gap": 15,
+  "cave_place_gap": 6,
+  "cave_karst_gap": 20,
+  "cave_near_seat": 35,
+  "cave_gap": 60,
+  "waste_radius": 10,
+  "waste_place_margin": 3,
+  "waste_max_sea_share": 0.1,
+  "waste_road_weight": 0.5,
+  "waste_rough_weight": 0.3,
+  "waste_meet_bonus": 0.05,
+  "waste_shape": [
+   0.75,
+   0.4
+  ],
+  "source_reach_km": 111,
+  "source_density": -0.2,
+  "snowline_km": 4.3,
+  "storm_km": 2.5,
+  "storm_rain_mm": 3000,
+  "plateau_km": 2.0,
+  "plateau_relief_km": 0.3,
+  "plateau_min_tiles": 12
+ },
+ "sacred_summits": {
+  "peaks": [
+   "Lăng Tuyệt Phong",
+   "Trích Tinh Phong"
+  ],
+  "new_in_sects": [
+   "phuong_minh",
+   "lac_ha",
+   "tung_dao",
+   "thuy_vi"
+  ]
+ },
+ "miasma_wasteland": {
+  "centre": [
+   244,
+   211
+  ],
+  "why": "Set by hand (R27: the wasteland is authored). The scorched badlands where Thiên Xu, Lạc Hà and Thính Vũ meet: no road, no place within 17 tiles. Without a centre the tool searches for open, poor ground where sects meet."
+ },
+ "deep_caves": {
+  "count": 3,
+  "near_seats": [
+   "da_quang"
+  ]
+ },
+ "names": [
+  {
+   "kind": "vein",
+   "tile": [
+    147,
+    95
+   ],
+   "name_hv": "Thanh Lam Mạch",
+   "name_han": "青嵐脈",
+   "gloss": "Vein of the Green Haze",
+   "note": "Under Thúy Vi Tông. Lam is the mountain haze; thúy vi is the green of a hillside seen through it."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    236,
+    124
+   ],
+   "name_hv": "Phục Linh Mạch",
+   "name_han": "茯苓脈",
+   "gloss": "Poria Vein",
+   "note": "Under Tùng Đào Cung. Poria grows on old pine roots and was said to be pine sap a thousand years under the earth."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    455,
+    139
+   ],
+   "name_hv": "Hàn Quang Mạch",
+   "name_han": "寒光脈",
+   "gloss": "Vein of Cold Light",
+   "note": "Under Băng Tâm Các. The cold light of Vương Xương Linh's ice heart in its jade pot (nhất phiến băng tâm tại ngọc hồ)."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    198,
+    205
+   ],
+   "name_hv": "Dung Kim Mạch",
+   "name_han": "熔金脈",
+   "gloss": "Vein of Molten Gold",
+   "note": "Under Lạc Hà Tông. Lý Thanh Chiếu: lạc nhật dung kim, the setting sun melting into gold."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    281,
+    182
+   ],
+   "name_hv": "Tử Vi Mạch",
+   "name_han": "紫微脈",
+   "gloss": "Vein of the Pole Star",
+   "note": "Under Thiên Xu Tông. Tử Vi is the enclosure of the pole star, which the Dipper circles."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    369,
+    250
+   ],
+   "name_hv": "Lãm Huy Mạch",
+   "name_han": "覽輝脈",
+   "gloss": "Vein of the Beheld Radiance",
+   "note": "Under Phượng Minh Cung. Giả Nghị: the phoenix soars a thousand fathoms and comes down only where it sees the radiance of virtue."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    253,
+    249
+   ],
+   "name_hv": "Tế Vũ Mạch",
+   "name_han": "細雨脈",
+   "gloss": "Vein of Fine Rain",
+   "note": "Under Thính Vũ Lâu. Đỗ Phủ's good rain slips in with the night wind and moistens all things without a sound."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    378,
+    149
+   ],
+   "name_hv": "Tinh Tủy Mạch",
+   "name_han": "星髓脈",
+   "gloss": "Star Marrow Vein",
+   "note": "A wild vein high in Dao Quang Lĩnh, near Trích Tinh Phong, 4 tiles from Băng Tâm's border."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    242,
+    171
+   ],
+   "name_hv": "Thương Tùng Mạch",
+   "name_han": "蒼松脈",
+   "gloss": "Vein of the Grey Pines",
+   "note": "A wild vein under the old pine sea, 4 tiles from Thiên Xu's border."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    219,
+    247
+   ],
+   "name_hv": "Trường Hà Mạch",
+   "name_han": "長河脈",
+   "gloss": "Vein of the Long River",
+   "note": "Vương Duy: trường hà lạc nhật viên, the long river and the round setting sun. On the border with Thính Vũ."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    333,
+    257
+   ],
+   "name_hv": "Kinh Lôi Mạch",
+   "name_han": "驚雷脈",
+   "gloss": "Vein of the Startling Thunder",
+   "note": "In Kinh Trập Sơn, the mountains of the thunder that wakes the sleepers; within reach of the storm peaks, so it carries Thunder. 5 tiles from Thiên Xu's border."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    419,
+    121
+   ],
+   "name_hv": "Băng Phách Mạch",
+   "name_han": "冰魄脈",
+   "gloss": "Vein of the Ice Soul",
+   "note": "Băng phách, the ice soul, is an old name for the moon. Under the ice mountains of Ngọc Hồ Sơn, within reach of the storm peaks."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    33,
+    196
+   ],
+   "name_hv": "Hỏa Ngọc Mạch",
+   "name_han": "火玉脈",
+   "gloss": "Fire Jade Vein",
+   "note": "Under a volcano on an island off Tuyết Hỏa Giác, far out in the western sea, where Lạc Hà's waters begin."
+  },
+  {
+   "kind": "vein",
+   "tile": [
+    375,
+    217
+   ],
+   "name_hv": "Đan Sơn Mạch",
+   "name_han": "丹山脈",
+   "gloss": "Vein of the Cinnabar Mountain",
+   "note": "Sơn Hải Kinh's cinnabar mountain is where the phoenix is born. 3 tiles from Thiên Xu's border."
+  },
+  {
+   "kind": "peak",
+   "tile": [
+    400,
+    296
+   ],
+   "name_hv": "Cao Cương Phong",
+   "name_han": "高岡峰",
+   "gloss": "Peak of the High Ridge",
+   "note": "Kinh Thi: phượng hoàng minh hĩ, vu bỉ cao cương, the phoenix sings on that high ridge. A sacred summit (Light)."
+  },
+  {
+   "kind": "deep_cave",
+   "tile": [
+    398,
+    167
+   ],
+   "name_hv": "Cửu U Động",
+   "name_han": "九幽洞",
+   "gloss": "Cave of the Nine Depths",
+   "note": "A shaft into the dark under Ngọc Hành Sơn, a few days' ride from Dạ Quang Môn."
+  },
+  {
+   "kind": "deep_cave",
+   "tile": [
+    318,
+    256
+   ],
+   "name_hv": "Tàng Trập Động",
+   "name_han": "藏蟄洞",
+   "gloss": "Cave of the Sleepers",
+   "note": "Where the creatures of Kinh Trập Sơn sleep until the spring thunder wakes them."
+  },
+  {
+   "kind": "deep_cave",
+   "tile": [
+    470,
+    129
+   ],
+   "name_hv": "Huyền Minh Động",
+   "name_han": "玄冥洞",
+   "gloss": "Cave of the Dark North",
+   "note": "Huyền Minh is the god of winter and the dark north. A lava tube under a dead volcano of Hàn Sương Châu."
+  },
+  {
+   "kind": "wasteland",
+   "tile": [
+    244,
+    211
+   ],
+   "name_hv": "Chiết Kích Nguyên",
+   "name_han": "折戟原",
+   "gloss": "Plain of Broken Halberds",
+   "note": "Đỗ Mục: chiết kích trầm sa thiết vị tiêu, a broken halberd sunk in the sand, its iron not yet worn away. Who fought here is for the history (#27)."
+  },
+  {
+   "kind": "miasma_source",
+   "tile": [
+    244,
+    211
+   ],
+   "name_hv": "Vạn Cốt Trủng",
+   "name_han": "萬骨冢",
+   "gloss": "Barrow of Ten Thousand Bones",
+   "note": "Tào Tùng: nhất tướng công thành vạn cốt khô, one general's glory, ten thousand bones dried."
+  }
+ ]
+}

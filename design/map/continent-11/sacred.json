@@ -1,0 +1,3929 @@
+{
+ "source": "tools/design/map/sacred.py",
+ "bits": {
+  "spirit_vein": 128,
+  "sacred_summit": 256,
+  "deep_cave": 512,
+  "miasma_source": 1024,
+  "miasma_land": 2048
+ },
+ "check": {
+  "places_total": 212,
+  "new_places": {
+   "spirit_vein": 7,
+   "peak": 1
+  },
+  "vein_tiles": 326,
+  "wilderness_tiles": 84999,
+  "wilderness_at_1_4": 3025,
+  "wilderness_share_at_1_4": 0.0356,
+  "explained_by_veins_or_rich_hearts": 0.99,
+  "variant_places_max": 0.02,
+  "variants": {
+   "Ice": {
+    "tiles": 59,
+    "places": 4,
+    "share": 0.019,
+    "which": {
+     "Chúc Long Sơn": [
+      "ice field"
+     ],
+     "Thính Vũ Lâu": [
+      "snowline"
+     ],
+     "Trích Tinh Phong": [
+      "snowline"
+     ],
+     "Lăng Tuyệt Phong": [
+      "snowline"
+     ]
+    }
+   },
+   "Thunder": {
+    "tiles": 51,
+    "places": 4,
+    "share": 0.019,
+    "which": {
+     "Cùng Mục Phong": [
+      "storm peaks"
+     ],
+     "Kinh Lôi Mạch": [
+      "storm peaks"
+     ],
+     "Băng Phách Mạch": [
+      "storm peaks"
+     ],
+     "Cao Cương Phong": [
+      "storm peaks"
+     ]
+    }
+   },
+   "Wind": {
+    "tiles": 26,
+    "places": 0,
+    "share": 0.0,
+    "which": {}
+   },
+   "Light": {
+    "tiles": 3,
+    "places": 3,
+    "share": 0.014,
+    "which": {
+     "Trích Tinh Phong": [
+      "sacred summit"
+     ],
+     "Lăng Tuyệt Phong": [
+      "sacred summit"
+     ],
+     "Cao Cương Phong": [
+      "sacred summit"
+     ]
+    }
+   },
+   "Darkness": {
+    "tiles": 143,
+    "places": 2,
+    "share": 0.009,
+    "which": {
+     "Tiều Ca Trấn": [
+      "karst core"
+     ],
+     "Thu Diệp Thôn": [
+      "karst core"
+     ]
+    }
+   }
+  },
+  "spirit_vein_place_density": [
+   1.86,
+   1.83,
+   1.81,
+   1.84,
+   1.84,
+   2.06,
+   1.82
+  ],
+  "great_seat_land_density": {
+   "Thúy Vi Tông": 1.8,
+   "Tùng Đào Cung": 1.84,
+   "Băng Tâm Các": 1.51,
+   "Lạc Hà Tông": 1.61,
+   "Thiên Xu Tông": 2.0,
+   "Phượng Minh Cung": 2.01,
+   "Thính Vũ Lâu": 2.4
+  },
+  "minor_seat_land_density_mean": 1.3,
+  "minor_seats_at_1_4": 5,
+  "place_land_density_mean_estimate": 1.024,
+  "places_at_1_4_land_only": 24,
+  "waste_tiles": 299,
+  "waste_road_tiles": 0,
+  "waste_between": [
+   "Thiên Xu Tông",
+   "Lạc Hà Tông",
+   "Thính Vũ Lâu"
+  ],
+  "derived_tiles": {
+   "snowline": 29,
+   "storm_peaks": 51,
+   "high_plateau": 26
+  },
+  "params": {
+   "km_per_tile": 24.7,
+   "depth_full_km": 555,
+   "depth_density": 0.2,
+   "vein_reach_km": 222,
+   "vein_grades": {
+    "1": {
+     "density": 0.9,
+     "tiles": 19
+    },
+    "2": {
+     "density": 0.7,
+     "tiles": 13
+    },
+    "3": {
+     "density": 0.4,
+     "tiles": 5
+    }
+   },
+   "wild_vein_h": [
+    0.6,
+    3.8
+   ],
+   "wild_vein_seat_gap": 12,
+   "wild_vein_great_gap": 30,
+   "wild_vein_place_gap": 8,
+   "wild_vein_gap": 40,
+   "wild_vein_border_tiles": 14,
+   "wild_vein_border_bonus": 0.15,
+   "generated_density": {
+    "hot_spring": [
+     0.3,
+     111
+    ],
+    "lava": [
+     0.1,
+     111
+    ]
+   },
+   "variant_reach_km": 111,
+   "snow_reach_km": 62,
+   "variant_place_share_max": 0.02,
+   "summit_radius": 18,
+   "summit_min_km": 2.2,
+   "summit_place_gap": 6,
+   "cave_h": [
+    0.6,
+    3.5
+   ],
+   "cave_relief_min": 0.6,
+   "cave_relief_near_seat": 0.3,
+   "cave_site_gap": 15,
+   "cave_place_gap": 6,
+   "cave_karst_gap": 20,
+   "cave_near_seat": 35,
+   "cave_gap": 60,
+   "waste_radius": 10,
+   "waste_place_margin": 3,
+   "waste_max_sea_share": 0.1,
+   "waste_road_weight": 0.5,
+   "waste_rough_weight": 0.3,
+   "waste_meet_bonus": 0.05,
+   "waste_shape": [
+    0.75,
+    0.4
+   ],
+   "source_reach_km": 111,
+   "source_density": -0.2,
+   "snowline_km": 4.3,
+   "storm_km": 2.5,
+   "storm_rain_mm": 3000,
+   "plateau_km": 2.0,
+   "plateau_relief_km": 0.3,
+   "plateau_min_tiles": 12
+  },
+  "unused_names": [],
+  "unnamed": 0
+ },
+ "places": [
+  {
+   "kind": "spirit_vein",
+   "tile": [
+    378,
+    149
+   ],
+   "region": 6,
+   "elevation_km": 3.02,
+   "kind_hv": "linh mạch",
+   "region_name": "Dao Quang Lĩnh",
+   "biome": "high mountain",
+   "territory": "Thiên Xu Tông",
+   "holder": "Thiên Xu Tông",
+   "name_hv": "Tinh Tủy Mạch",
+   "name_han": "星髓脈",
+   "gloss": "Star Marrow Vein",
+   "note": "A wild vein high in Dao Quang Lĩnh, near Trích Tinh Phong, 4 tiles from Băng Tâm's border.",
+   "land_density_estimate": 1.86
+  },
+  {
+   "kind": "spirit_vein",
+   "tile": [
+    242,
+    171
+   ],
+   "region": 4,
+   "elevation_km": 1.4,
+   "kind_hv": "linh mạch",
+   "region_name": "Thâm Tùng Hải",
+   "biome": "high mountain",
+   "territory": "Tùng Đào Cung",
+   "holder": "Tùng Đào Cung",
+   "name_hv": "Thương Tùng Mạch",
+   "name_han": "蒼松脈",
+   "gloss": "Vein of the Grey Pines",
+   "note": "A wild vein under the old pine sea, 4 tiles from Thiên Xu's border.",
+   "land_density_estimate": 1.83
+  },
+  {
+   "kind": "spirit_vein",
+   "tile": [
+    219,
+    247
+   ],
+   "region": 12,
+   "elevation_km": 1.22,
+   "kind_hv": "linh mạch",
+   "region_name": "Thu Thủy Loan",
+   "biome": "high mountain",
+   "territory": "Lạc Hà Tông",
+   "holder": "Lạc Hà Tông",
+   "name_hv": "Trường Hà Mạch",
+   "name_han": "長河脈",
+   "gloss": "Vein of the Long River",
+   "note": "Vương Duy: trường hà lạc nhật viên, the long river and the round setting sun. On the border with Thính Vũ.",
+   "land_density_estimate": 1.81
+  },
+  {
+   "kind": "spirit_vein",
+   "tile": [
+    333,
+    257
+   ],
+   "region": 19,
+   "elevation_km": 3.19,
+   "kind_hv": "linh mạch",
+   "region_name": "Kinh Trập Sơn",
+   "biome": "high mountain",
+   "territory": "Thính Vũ Lâu",
+   "holder": "Thính Vũ Lâu",
+   "name_hv": "Kinh Lôi Mạch",
+   "name_han": "驚雷脈",
+   "gloss": "Vein of the Startling Thunder",
+   "note": "In Kinh Trập Sơn, the mountains of the thunder that wakes the sleepers; within reach of the storm peaks, so it carries Thunder. 5 tiles from Thiên Xu's border.",
+   "land_density_estimate": 1.84
+  },
+  {
+   "kind": "spirit_vein",
+   "tile": [
+    419,
+    121
+   ],
+   "region": 7,
+   "elevation_km": 2.78,
+   "kind_hv": "linh mạch",
+   "region_name": "Ngọc Hồ Sơn",
+   "biome": "high mountain",
+   "territory": "Băng Tâm Các",
+   "holder": "Băng Tâm Các",
+   "name_hv": "Băng Phách Mạch",
+   "name_han": "冰魄脈",
+   "gloss": "Vein of the Ice Soul",
+   "note": "Băng phách, the ice soul, is an old name for the moon. Under the ice mountains of Ngọc Hồ Sơn, within reach of the storm peaks.",
+   "land_density_estimate": 1.84
+  },
+  {
+   "kind": "spirit_vein",
+   "tile": [
+    33,
+    196
+   ],
+   "region": 2,
+   "elevation_km": 1.36,
+   "kind_hv": "linh mạch",
+   "region_name": "Tuyết Hỏa Giác",
+   "biome": "volcano",
+   "territory": "Thúy Vi Tông",
+   "holder": "Thúy Vi Tông",
+   "name_hv": "Hỏa Ngọc Mạch",
+   "name_han": "火玉脈",
+   "gloss": "Fire Jade Vein",
+   "note": "Under a volcano on an island off Tuyết Hỏa Giác, far out in the western sea, where Lạc Hà's waters begin.",
+   "land_density_estimate": 2.06
+  },
+  {
+   "kind": "spirit_vein",
+   "tile": [
+    375,
+    217
+   ],
+   "region": 16,
+   "elevation_km": 1.34,
+   "kind_hv": "linh mạch",
+   "region_name": "Thê Ngô Lĩnh",
+   "biome": "high mountain",
+   "territory": "Phượng Minh Cung",
+   "holder": "Phượng Minh Cung",
+   "name_hv": "Đan Sơn Mạch",
+   "name_han": "丹山脈",
+   "gloss": "Vein of the Cinnabar Mountain",
+   "note": "Sơn Hải Kinh's cinnabar mountain is where the phoenix is born. 3 tiles from Thiên Xu's border.",
+   "land_density_estimate": 1.82
+  },
+  {
+   "kind": "peak",
+   "tile": [
+    400,
+    296
+   ],
+   "region": 16,
+   "elevation_km": 2.56,
+   "sacred": true,
+   "kind_hv": "sơn",
+   "region_name": "Thê Ngô Lĩnh",
+   "biome": "high mountain",
+   "territory": "Phượng Minh Cung",
+   "holder": null,
+   "name_hv": "Cao Cương Phong",
+   "name_han": "高岡峰",
+   "gloss": "Peak of the High Ridge",
+   "note": "Kinh Thi: phượng hoàng minh hĩ, vu bỉ cao cương, the phoenix sings on that high ridge. A sacred summit (Light).",
+   "land_density_estimate": 1.12
+  }
+ ],
+ "spirit_veins": [
+  {
+   "grade": 1,
+   "anchor": [
+    147,
+    95
+   ],
+   "under": "Thúy Vi Tông",
+   "kind": "seat",
+   "tiles": [
+    [
+     147,
+     86
+    ],
+    [
+     147,
+     87
+    ],
+    [
+     147,
+     88
+    ],
+    [
+     147,
+     89
+    ],
+    [
+     147,
+     90
+    ],
+    [
+     147,
+     91
+    ],
+    [
+     147,
+     92
+    ],
+    [
+     146,
+     93
+    ],
+    [
+     146,
+     94
+    ],
+    [
+     147,
+     95
+    ],
+    [
+     148,
+     95
+    ],
+    [
+     149,
+     95
+    ],
+    [
+     150,
+     94
+    ],
+    [
+     150,
+     93
+    ],
+    [
+     149,
+     92
+    ],
+    [
+     148,
+     92
+    ],
+    [
+     147,
+     93
+    ],
+    [
+     147,
+     94
+    ],
+    [
+     146,
+     95
+    ]
+   ],
+   "name_hv": "Thanh Lam Mạch",
+   "name_han": "青嵐脈",
+   "gloss": "Vein of the Green Haze",
+   "note": "Under Thúy Vi Tông. Lam is the mountain haze; thúy vi is the green of a hillside seen through it.",
+   "region": 3,
+   "land_density_estimate": 1.8
+  },
+  {
+   "grade": 1,
+   "anchor": [
+    236,
+    124
+   ],
+   "under": "Tùng Đào Cung",
+   "kind": "seat",
+   "tiles": [
+    [
+     240,
+     117
+    ],
+    [
+     239,
+     117
+    ],
+    [
+     238,
+     117
+    ],
+    [
+     237,
+     118
+    ],
+    [
+     237,
+     119
+    ],
+    [
+     237,
+     120
+    ],
+    [
+     237,
+     121
+    ],
+    [
+     237,
+     122
+    ],
+    [
+     237,
+     123
+    ],
+    [
+     236,
+     124
+    ],
+    [
+     235,
+     125
+    ],
+    [
+     234,
+     125
+    ],
+    [
+     233,
+     125
+    ],
+    [
+     232,
+     125
+    ],
+    [
+     231,
+     126
+    ],
+    [
+     230,
+     126
+    ],
+    [
+     229,
+     127
+    ],
+    [
+     228,
+     128
+    ],
+    [
+     227,
+     128
+    ]
+   ],
+   "name_hv": "Phục Linh Mạch",
+   "name_han": "茯苓脈",
+   "gloss": "Poria Vein",
+   "note": "Under Tùng Đào Cung. Poria grows on old pine roots and was said to be pine sap a thousand years under the earth.",
+   "region": 4,
+   "land_density_estimate": 1.84
+  },
+  {
+   "grade": 1,
+   "anchor": [
+    455,
+    139
+   ],
+   "under": "Băng Tâm Các",
+   "kind": "seat",
+   "tiles": [
+    [
+     453,
+     130
+    ],
+    [
+     454,
+     131
+    ],
+    [
+     455,
+     132
+    ],
+    [
+     456,
+     133
+    ],
+    [
+     456,
+     134
+    ],
+    [
+     456,
+     135
+    ],
+    [
+     456,
+     136
+    ],
+    [
+     456,
+     137
+    ],
+    [
+     456,
+     138
+    ],
+    [
+     455,
+     139
+    ],
+    [
+     454,
+     140
+    ],
+    [
+     453,
+     141
+    ],
+    [
+     453,
+     142
+    ],
+    [
+     453,
+     143
+    ],
+    [
+     453,
+     144
+    ],
+    [
+     452,
+     145
+    ],
+    [
+     452,
+     146
+    ],
+    [
+     453,
+     147
+    ],
+    [
+     454,
+     148
+    ]
+   ],
+   "name_hv": "Hàn Quang Mạch",
+   "name_han": "寒光脈",
+   "gloss": "Vein of Cold Light",
+   "note": "Under Băng Tâm Các. The cold light of Vương Xương Linh's ice heart in its jade pot (nhất phiến băng tâm tại ngọc hồ).",
+   "region": 8,
+   "land_density_estimate": 1.51
+  },
+  {
+   "grade": 1,
+   "anchor": [
+    198,
+    205
+   ],
+   "under": "Lạc Hà Tông",
+   "kind": "seat",
+   "tiles": [
+    [
+     204,
+     211
+    ],
+    [
+     203,
+     210
+    ],
+    [
+     202,
+     209
+    ],
+    [
+     201,
+     208
+    ],
+    [
+     200,
+     208
+    ],
+    [
+     199,
+     208
+    ],
+    [
+     198,
+     208
+    ],
+    [
+     197,
+     207
+    ],
+    [
+     197,
+     206
+    ],
+    [
+     198,
+     205
+    ],
+    [
+     199,
+     206
+    ],
+    [
+     200,
+     207
+    ],
+    [
+     201,
+     207
+    ],
+    [
+     202,
+     208
+    ],
+    [
+     203,
+     209
+    ],
+    [
+     204,
+     210
+    ],
+    [
+     205,
+     210
+    ],
+    [
+     206,
+     211
+    ],
+    [
+     207,
+     211
+    ]
+   ],
+   "name_hv": "Dung Kim Mạch",
+   "name_han": "熔金脈",
+   "gloss": "Vein of Molten Gold",
+   "note": "Under Lạc Hà Tông. Lý Thanh Chiếu: lạc nhật dung kim, the setting sun melting into gold.",
+   "region": 13,
+   "land_density_estimate": 1.61
+  },
+  {
+   "grade": 1,
+   "anchor": [
+    281,
+    182
+   ],
+   "under": "Thiên Xu Tông",
+   "kind": "seat",
+   "tiles": [
+    [
+     277,
+     174
+    ],
+    [
+     278,
+     174
+    ],
+    [
+     279,
+     175
+    ],
+    [
+     279,
+     176
+    ],
+    [
+     280,
+     177
+    ],
+    [
+     281,
+     178
+    ],
+    [
+     281,
+     179
+    ],
+    [
+     281,
+     180
+    ],
+    [
+     281,
+     181
+    ],
+    [
+     281,
+     182
+    ],
+    [
+     281,
+     183
+    ],
+    [
+     280,
+     184
+    ],
+    [
+     280,
+     185
+    ],
+    [
+     281,
+     186
+    ],
+    [
+     281,
+     187
+    ],
+    [
+     281,
+     188
+    ],
+    [
+     282,
+     189
+    ],
+    [
+     282,
+     190
+    ],
+    [
+     283,
+     191
+    ]
+   ],
+   "name_hv": "Tử Vi Mạch",
+   "name_han": "紫微脈",
+   "gloss": "Vein of the Pole Star",
+   "note": "Under Thiên Xu Tông. Tử Vi is the enclosure of the pole star, which the Dipper circles.",
+   "region": 14,
+   "land_density_estimate": 2.0
+  },
+  {
+   "grade": 1,
+   "anchor": [
+    369,
+    250
+   ],
+   "under": "Phượng Minh Cung",
+   "kind": "seat",
+   "tiles": [
+    [
+     360,
+     252
+    ],
+    [
+     361,
+     252
+    ],
+    [
+     362,
+     252
+    ],
+    [
+     363,
+     252
+    ],
+    [
+     364,
+     252
+    ],
+    [
+     365,
+     252
+    ],
+    [
+     366,
+     251
+    ],
+    [
+     367,
+     250
+    ],
+    [
+     368,
+     250
+    ],
+    [
+     369,
+     250
+    ],
+    [
+     370,
+     251
+    ],
+    [
+     371,
+     251
+    ],
+    [
+     372,
+     250
+    ],
+    [
+     372,
+     249
+    ],
+    [
+     372,
+     248
+    ],
+    [
+     372,
+     247
+    ],
+    [
+     373,
+     246
+    ],
+    [
+     373,
+     245
+    ],
+    [
+     374,
+     244
+    ]
+   ],
+   "name_hv": "Lãm Huy Mạch",
+   "name_han": "覽輝脈",
+   "gloss": "Vein of the Beheld Radiance",
+   "note": "Under Phượng Minh Cung. Giả Nghị: the phoenix soars a thousand fathoms and comes down only where it sees the radiance of virtue.",
+   "region": 16,
+   "land_density_estimate": 2.01
+  },
+  {
+   "grade": 1,
+   "anchor": [
+    253,
+    249
+   ],
+   "under": "Thính Vũ Lâu",
+   "kind": "seat",
+   "tiles": [
+    [
+     255,
+     240
+    ],
+    [
+     255,
+     241
+    ],
+    [
+     255,
+     242
+    ],
+    [
+     255,
+     243
+    ],
+    [
+     255,
+     244
+    ],
+    [
+     254,
+     245
+    ],
+    [
+     254,
+     246
+    ],
+    [
+     254,
+     247
+    ],
+    [
+     254,
+     248
+    ],
+    [
+     253,
+     249
+    ],
+    [
+     252,
+     249
+    ],
+    [
+     251,
+     249
+    ],
+    [
+     250,
+     248
+    ],
+    [
+     249,
+     248
+    ],
+    [
+     248,
+     248
+    ],
+    [
+     247,
+     248
+    ],
+    [
+     246,
+     248
+    ],
+    [
+     245,
+     247
+    ],
+    [
+     245,
+     246
+    ]
+   ],
+   "name_hv": "Tế Vũ Mạch",
+   "name_han": "細雨脈",
+   "gloss": "Vein of Fine Rain",
+   "note": "Under Thính Vũ Lâu. Đỗ Phủ's good rain slips in with the night wind and moistens all things without a sound.",
+   "region": 18,
+   "land_density_estimate": 2.4
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    303,
+    75
+   ],
+   "under": "Hàm Nguyệt Trang",
+   "kind": "seat",
+   "tiles": [
+    [
+     301,
+     73
+    ],
+    [
+     302,
+     74
+    ],
+    [
+     303,
+     75
+    ],
+    [
+     304,
+     74
+    ],
+    [
+     304,
+     73
+    ]
+   ],
+   "region": 1,
+   "land_density_estimate": 1.32
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    108,
+    78
+   ],
+   "under": "Hồng Lô Cốc",
+   "kind": "seat",
+   "tiles": [
+    [
+     107,
+     80
+    ],
+    [
+     107,
+     79
+    ],
+    [
+     108,
+     78
+    ],
+    [
+     109,
+     79
+    ],
+    [
+     109,
+     80
+    ]
+   ],
+   "region": 2,
+   "land_density_estimate": 1.31
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    140,
+    125
+   ],
+   "under": "Vân Khởi Quán",
+   "kind": "seat",
+   "tiles": [
+    [
+     138,
+     126
+    ],
+    [
+     139,
+     125
+    ],
+    [
+     140,
+     125
+    ],
+    [
+     141,
+     125
+    ],
+    [
+     142,
+     125
+    ]
+   ],
+   "region": 3,
+   "land_density_estimate": 1.5
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    215,
+    149
+   ],
+   "under": "Vạn Hác Viện",
+   "kind": "seat",
+   "tiles": [
+    [
+     213,
+     148
+    ],
+    [
+     214,
+     148
+    ],
+    [
+     215,
+     149
+    ],
+    [
+     216,
+     148
+    ],
+    [
+     217,
+     147
+    ]
+   ],
+   "region": 4,
+   "land_density_estimate": 1.3
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    256,
+    72
+   ],
+   "under": "Thải Chi Cốc",
+   "kind": "seat",
+   "tiles": [
+    [
+     254,
+     70
+    ],
+    [
+     255,
+     71
+    ],
+    [
+     256,
+     72
+    ],
+    [
+     257,
+     73
+    ],
+    [
+     258,
+     74
+    ]
+   ],
+   "region": 5,
+   "land_density_estimate": 1.3
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    238,
+    76
+   ],
+   "under": "Lãng Đào Môn",
+   "kind": "seat",
+   "tiles": [
+    [
+     238,
+     74
+    ],
+    [
+     238,
+     75
+    ],
+    [
+     238,
+     76
+    ],
+    [
+     238,
+     77
+    ],
+    [
+     238,
+     78
+    ]
+   ],
+   "region": 5,
+   "land_density_estimate": 1.3
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    355,
+    142
+   ],
+   "under": "Cửu Cao Phái",
+   "kind": "seat",
+   "tiles": [
+    [
+     357,
+     141
+    ],
+    [
+     356,
+     141
+    ],
+    [
+     355,
+     142
+    ],
+    [
+     354,
+     142
+    ],
+    [
+     353,
+     142
+    ]
+   ],
+   "region": 6,
+   "land_density_estimate": 1.3
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    410,
+    140
+   ],
+   "under": "Lê Hoa Am",
+   "kind": "seat",
+   "tiles": [
+    [
+     412,
+     139
+    ],
+    [
+     411,
+     139
+    ],
+    [
+     410,
+     140
+    ],
+    [
+     410,
+     141
+    ],
+    [
+     410,
+     142
+    ]
+   ],
+   "region": 7,
+   "land_density_estimate": 1.53
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    431,
+    171
+   ],
+   "under": "Dạ Quang Môn",
+   "kind": "seat",
+   "tiles": [
+    [
+     429,
+     169
+    ],
+    [
+     430,
+     170
+    ],
+    [
+     431,
+     171
+    ],
+    [
+     431,
+     172
+    ],
+    [
+     431,
+     173
+    ]
+   ],
+   "region": 8,
+   "land_density_estimate": 1.11
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    458,
+    97
+   ],
+   "under": "Trạc Anh Đài",
+   "kind": "seat",
+   "tiles": [
+    [
+     458,
+     95
+    ],
+    [
+     458,
+     96
+    ],
+    [
+     458,
+     97
+    ],
+    [
+     458,
+     98
+    ],
+    [
+     458,
+     99
+    ]
+   ],
+   "region": 9,
+   "land_density_estimate": 1.3
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    125,
+    247
+   ],
+   "under": "Bình Thủy Môn",
+   "kind": "seat",
+   "tiles": [
+    [
+     123,
+     245
+    ],
+    [
+     124,
+     246
+    ],
+    [
+     125,
+     247
+    ],
+    [
+     126,
+     248
+    ],
+    [
+     127,
+     249
+    ]
+   ],
+   "region": 10,
+   "land_density_estimate": 1.2
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    129,
+    168
+   ],
+   "under": "Mục Vân Trang",
+   "kind": "seat",
+   "tiles": [
+    [
+     129,
+     168
+    ],
+    [
+     129,
+     169
+    ],
+    [
+     129,
+     170
+    ]
+   ],
+   "region": 11,
+   "land_density_estimate": 1.2
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    227,
+    215
+   ],
+   "under": "Thiên Bảo Trai",
+   "kind": "seat",
+   "tiles": [
+    [
+     229,
+     213
+    ],
+    [
+     228,
+     214
+    ],
+    [
+     227,
+     215
+    ],
+    [
+     226,
+     216
+    ],
+    [
+     225,
+     217
+    ]
+   ],
+   "region": 12,
+   "land_density_estimate": 1.1
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    181,
+    161
+   ],
+   "under": "Nam Phố Đường",
+   "kind": "seat",
+   "tiles": [
+    [
+     183,
+     159
+    ],
+    [
+     182,
+     160
+    ],
+    [
+     181,
+     161
+    ],
+    [
+     181,
+     162
+    ],
+    [
+     181,
+     163
+    ]
+   ],
+   "region": 13,
+   "land_density_estimate": 1.32
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    260,
+    181
+   ],
+   "under": "Củng Tinh Quán",
+   "kind": "seat",
+   "tiles": [
+    [
+     260,
+     179
+    ],
+    [
+     260,
+     180
+    ],
+    [
+     260,
+     181
+    ],
+    [
+     259,
+     182
+    ],
+    [
+     258,
+     182
+    ]
+   ],
+   "region": 14,
+   "land_density_estimate": 1.3
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    387,
+    160
+   ],
+   "under": "Thối Tinh Môn",
+   "kind": "seat",
+   "tiles": [
+    [
+     385,
+     161
+    ],
+    [
+     386,
+     160
+    ],
+    [
+     387,
+     160
+    ],
+    [
+     388,
+     161
+    ],
+    [
+     388,
+     162
+    ]
+   ],
+   "region": 15,
+   "land_density_estimate": 1.54
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    335,
+    225
+   ],
+   "under": "Phất Y Cốc",
+   "kind": "seat",
+   "tiles": [
+    [
+     337,
+     224
+    ],
+    [
+     336,
+     225
+    ],
+    [
+     335,
+     225
+    ],
+    [
+     334,
+     226
+    ],
+    [
+     333,
+     227
+    ]
+   ],
+   "region": 15,
+   "land_density_estimate": 1.2
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    364,
+    278
+   ],
+   "under": "Trúc Thực Viên",
+   "kind": "seat",
+   "tiles": [
+    [
+     362,
+     278
+    ],
+    [
+     363,
+     278
+    ],
+    [
+     364,
+     278
+    ],
+    [
+     365,
+     278
+    ],
+    [
+     366,
+     278
+    ]
+   ],
+   "region": 16,
+   "land_density_estimate": 1.2
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    409,
+    211
+   ],
+   "under": "Lễ Tuyền Phái",
+   "kind": "seat",
+   "tiles": [
+    [
+     411,
+     210
+    ],
+    [
+     410,
+     210
+    ],
+    [
+     409,
+     211
+    ],
+    [
+     408,
+     212
+    ],
+    [
+     407,
+     213
+    ]
+   ],
+   "region": 17,
+   "land_density_estimate": 1.2
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    181,
+    305
+   ],
+   "under": "Hồng Đậu Trang",
+   "kind": "seat",
+   "tiles": [
+    [
+     179,
+     303
+    ],
+    [
+     180,
+     304
+    ],
+    [
+     181,
+     305
+    ],
+    [
+     182,
+     305
+    ],
+    [
+     183,
+     304
+    ]
+   ],
+   "region": 18,
+   "land_density_estimate": 1.4
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    342,
+    265
+   ],
+   "under": "Xuyên Lâm Môn",
+   "kind": "seat",
+   "tiles": [
+    [
+     340,
+     265
+    ],
+    [
+     341,
+     265
+    ],
+    [
+     342,
+     265
+    ],
+    [
+     343,
+     265
+    ],
+    [
+     344,
+     266
+    ]
+   ],
+   "region": 19,
+   "land_density_estimate": 1.53
+  },
+  {
+   "grade": 3,
+   "anchor": [
+    491,
+    240
+   ],
+   "under": "Phần Vũ Đường",
+   "kind": "seat",
+   "tiles": [
+    [
+     491,
+     238
+    ],
+    [
+     491,
+     239
+    ],
+    [
+     491,
+     240
+    ],
+    [
+     492,
+     241
+    ],
+    [
+     493,
+     242
+    ]
+   ],
+   "region": 20,
+   "land_density_estimate": 1.22
+  },
+  {
+   "grade": 2,
+   "anchor": [
+    378,
+    149
+   ],
+   "kind": "wild",
+   "territory": "Thiên Xu Tông",
+   "near_border": true,
+   "tiles": [
+    [
+     378,
+     143
+    ],
+    [
+     379,
+     144
+    ],
+    [
+     380,
+     145
+    ],
+    [
+     380,
+     146
+    ],
+    [
+     379,
+     147
+    ],
+    [
+     379,
+     148
+    ],
+    [
+     378,
+     149
+    ],
+    [
+     378,
+     150
+    ],
+    [
+     378,
+     151
+    ],
+    [
+     378,
+     152
+    ],
+    [
+     379,
+     153
+    ],
+    [
+     379,
+     154
+    ],
+    [
+     380,
+     155
+    ]
+   ],
+   "name_hv": "Tinh Tủy Mạch",
+   "name_han": "星髓脈",
+   "gloss": "Star Marrow Vein",
+   "note": "A wild vein high in Dao Quang Lĩnh, near Trích Tinh Phong, 4 tiles from Băng Tâm's border.",
+   "region": 6,
+   "land_density_estimate": 1.86
+  },
+  {
+   "grade": 2,
+   "anchor": [
+    242,
+    171
+   ],
+   "kind": "wild",
+   "territory": "Tùng Đào Cung",
+   "near_border": true,
+   "tiles": [
+    [
+     236,
+     169
+    ],
+    [
+     237,
+     169
+    ],
+    [
+     238,
+     169
+    ],
+    [
+     239,
+     169
+    ],
+    [
+     240,
+     170
+    ],
+    [
+     241,
+     171
+    ],
+    [
+     242,
+     171
+    ],
+    [
+     243,
+     172
+    ],
+    [
+     244,
+     173
+    ],
+    [
+     245,
+     174
+    ],
+    [
+     245,
+     175
+    ],
+    [
+     245,
+     176
+    ],
+    [
+     245,
+     177
+    ]
+   ],
+   "name_hv": "Thương Tùng Mạch",
+   "name_han": "蒼松脈",
+   "gloss": "Vein of the Grey Pines",
+   "note": "A wild vein under the old pine sea, 4 tiles from Thiên Xu's border.",
+   "region": 4,
+   "land_density_estimate": 1.83
+  },
+  {
+   "grade": 2,
+   "anchor": [
+    219,
+    247
+   ],
+   "kind": "wild",
+   "territory": "Lạc Hà Tông",
+   "near_border": true,
+   "tiles": [
+    [
+     214,
+     244
+    ],
+    [
+     214,
+     245
+    ],
+    [
+     215,
+     246
+    ],
+    [
+     216,
+     246
+    ],
+    [
+     217,
+     246
+    ],
+    [
+     218,
+     246
+    ],
+    [
+     219,
+     247
+    ],
+    [
+     220,
+     246
+    ],
+    [
+     220,
+     245
+    ],
+    [
+     220,
+     244
+    ],
+    [
+     221,
+     243
+    ],
+    [
+     222,
+     242
+    ],
+    [
+     222,
+     241
+    ]
+   ],
+   "name_hv": "Trường Hà Mạch",
+   "name_han": "長河脈",
+   "gloss": "Vein of the Long River",
+   "note": "Vương Duy: trường hà lạc nhật viên, the long river and the round setting sun. On the border with Thính Vũ.",
+   "region": 12,
+   "land_density_estimate": 1.81
+  },
+  {
+   "grade": 2,
+   "anchor": [
+    333,
+    257
+   ],
+   "kind": "wild",
+   "territory": "Thính Vũ Lâu",
+   "near_border": true,
+   "tiles": [
+    [
+     327,
+     256
+    ],
+    [
+     328,
+     256
+    ],
+    [
+     329,
+     256
+    ],
+    [
+     330,
+     255
+    ],
+    [
+     331,
+     255
+    ],
+    [
+     332,
+     256
+    ],
+    [
+     333,
+     257
+    ],
+    [
+     334,
+     257
+    ],
+    [
+     335,
+     258
+    ],
+    [
+     336,
+     258
+    ],
+    [
+     337,
+     258
+    ],
+    [
+     338,
+     257
+    ],
+    [
+     339,
+     256
+    ]
+   ],
+   "name_hv": "Kinh Lôi Mạch",
+   "name_han": "驚雷脈",
+   "gloss": "Vein of the Startling Thunder",
+   "note": "In Kinh Trập Sơn, the mountains of the thunder that wakes the sleepers; within reach of the storm peaks, so it carries Thunder. 5 tiles from Thiên Xu's border.",
+   "region": 19,
+   "land_density_estimate": 1.84
+  },
+  {
+   "grade": 2,
+   "anchor": [
+    419,
+    121
+   ],
+   "kind": "wild",
+   "territory": "Băng Tâm Các",
+   "near_border": false,
+   "tiles": [
+    [
+     417,
+     115
+    ],
+    [
+     417,
+     116
+    ],
+    [
+     417,
+     117
+    ],
+    [
+     417,
+     118
+    ],
+    [
+     418,
+     119
+    ],
+    [
+     419,
+     120
+    ],
+    [
+     419,
+     121
+    ],
+    [
+     419,
+     122
+    ],
+    [
+     420,
+     123
+    ],
+    [
+     421,
+     124
+    ],
+    [
+     421,
+     125
+    ],
+    [
+     420,
+     126
+    ],
+    [
+     419,
+     126
+    ]
+   ],
+   "name_hv": "Băng Phách Mạch",
+   "name_han": "冰魄脈",
+   "gloss": "Vein of the Ice Soul",
+   "note": "Băng phách, the ice soul, is an old name for the moon. Under the ice mountains of Ngọc Hồ Sơn, within reach of the storm peaks.",
+   "region": 7,
+   "land_density_estimate": 1.84
+  },
+  {
+   "grade": 2,
+   "anchor": [
+    33,
+    196
+   ],
+   "kind": "wild",
+   "territory": "Thúy Vi Tông",
+   "near_border": true,
+   "tiles": [
+    [
+     28,
+     192
+    ],
+    [
+     29,
+     192
+    ],
+    [
+     30,
+     192
+    ],
+    [
+     31,
+     193
+    ],
+    [
+     32,
+     194
+    ],
+    [
+     33,
+     195
+    ],
+    [
+     33,
+     196
+    ]
+   ],
+   "name_hv": "Hỏa Ngọc Mạch",
+   "name_han": "火玉脈",
+   "gloss": "Fire Jade Vein",
+   "note": "Under a volcano on an island off Tuyết Hỏa Giác, far out in the western sea, where Lạc Hà's waters begin.",
+   "region": 2,
+   "land_density_estimate": 2.06
+  },
+  {
+   "grade": 2,
+   "anchor": [
+    375,
+    217
+   ],
+   "kind": "wild",
+   "territory": "Phượng Minh Cung",
+   "near_border": true,
+   "tiles": [
+    [
+     371,
+     215
+    ],
+    [
+     372,
+     214
+    ],
+    [
+     373,
+     214
+    ],
+    [
+     374,
+     214
+    ],
+    [
+     375,
+     215
+    ],
+    [
+     375,
+     216
+    ],
+    [
+     375,
+     217
+    ],
+    [
+     374,
+     218
+    ],
+    [
+     374,
+     219
+    ],
+    [
+     375,
+     220
+    ],
+    [
+     376,
+     220
+    ],
+    [
+     377,
+     221
+    ],
+    [
+     378,
+     222
+    ]
+   ],
+   "name_hv": "Đan Sơn Mạch",
+   "name_han": "丹山脈",
+   "gloss": "Vein of the Cinnabar Mountain",
+   "note": "Sơn Hải Kinh's cinnabar mountain is where the phoenix is born. 3 tiles from Thiên Xu's border.",
+   "region": 16,
+   "land_density_estimate": 1.82
+  }
+ ],
+ "sacred_summits": [
+  {
+   "tile": [
+    410,
+    146
+   ],
+   "peak": "Lăng Tuyệt Phong",
+   "elevation_km": 5.24
+  },
+  {
+   "tile": [
+    380,
+    161
+   ],
+   "peak": "Trích Tinh Phong",
+   "elevation_km": 4.72
+  },
+  {
+   "tile": [
+    400,
+    296
+   ],
+   "peak": null,
+   "elevation_km": 2.56,
+   "new": true,
+   "name_hv": "Cao Cương Phong",
+   "name_han": "高岡峰",
+   "gloss": "Peak of the High Ridge",
+   "note": "Kinh Thi: phượng hoàng minh hĩ, vu bỉ cao cương, the phoenix sings on that high ridge. A sacred summit (Light)."
+  }
+ ],
+ "deep_caves": [
+  {
+   "tile": [
+    398,
+    167
+   ],
+   "near": "da_quang",
+   "relief_km": 1.4,
+   "elevation_km": 1.22,
+   "name_hv": "Cửu U Động",
+   "name_han": "九幽洞",
+   "gloss": "Cave of the Nine Depths",
+   "note": "A shaft into the dark under Ngọc Hành Sơn, a few days' ride from Dạ Quang Môn."
+  },
+  {
+   "tile": [
+    318,
+    256
+   ],
+   "near": null,
+   "relief_km": 1.69,
+   "elevation_km": 1.62,
+   "name_hv": "Tàng Trập Động",
+   "name_han": "藏蟄洞",
+   "gloss": "Cave of the Sleepers",
+   "note": "Where the creatures of Kinh Trập Sơn sleep until the spring thunder wakes them."
+  },
+  {
+   "tile": [
+    470,
+    129
+   ],
+   "near": null,
+   "relief_km": 1.46,
+   "elevation_km": 0.81,
+   "name_hv": "Huyền Minh Động",
+   "name_han": "玄冥洞",
+   "gloss": "Cave of the Dark North",
+   "note": "Huyền Minh is the god of winter and the dark north. A lava tube under a dead volcano of Hàn Sương Châu."
+  }
+ ],
+ "miasma_wasteland": {
+  "tiles": 299,
+  "source": [
+   244,
+   211
+  ],
+  "name_hv": "Chiết Kích Nguyên",
+  "name_han": "折戟原",
+  "gloss": "Plain of Broken Halberds",
+  "note": "Đỗ Mục: chiết kích trầm sa thiết vị tiêu, a broken halberd sunk in the sand, its iron not yet worn away. Who fought here is for the history (#27).",
+  "between": [
+   "Thiên Xu Tông",
+   "Lạc Hà Tông",
+   "Thính Vũ Lâu"
+  ],
+  "tile_list": [
+   [
+    234,
+    209
+   ],
+   [
+    234,
+    210
+   ],
+   [
+    234,
+    211
+   ],
+   [
+    234,
+    212
+   ],
+   [
+    235,
+    208
+   ],
+   [
+    235,
+    209
+   ],
+   [
+    235,
+    210
+   ],
+   [
+    235,
+    211
+   ],
+   [
+    235,
+    212
+   ],
+   [
+    235,
+    213
+   ],
+   [
+    235,
+    214
+   ],
+   [
+    235,
+    215
+   ],
+   [
+    236,
+    206
+   ],
+   [
+    236,
+    207
+   ],
+   [
+    236,
+    208
+   ],
+   [
+    236,
+    209
+   ],
+   [
+    236,
+    210
+   ],
+   [
+    236,
+    211
+   ],
+   [
+    236,
+    212
+   ],
+   [
+    236,
+    213
+   ],
+   [
+    236,
+    214
+   ],
+   [
+    236,
+    215
+   ],
+   [
+    236,
+    216
+   ],
+   [
+    237,
+    205
+   ],
+   [
+    237,
+    206
+   ],
+   [
+    237,
+    207
+   ],
+   [
+    237,
+    208
+   ],
+   [
+    237,
+    209
+   ],
+   [
+    237,
+    210
+   ],
+   [
+    237,
+    211
+   ],
+   [
+    237,
+    212
+   ],
+   [
+    237,
+    213
+   ],
+   [
+    237,
+    214
+   ],
+   [
+    237,
+    215
+   ],
+   [
+    237,
+    216
+   ],
+   [
+    238,
+    203
+   ],
+   [
+    238,
+    204
+   ],
+   [
+    238,
+    205
+   ],
+   [
+    238,
+    206
+   ],
+   [
+    238,
+    207
+   ],
+   [
+    238,
+    208
+   ],
+   [
+    238,
+    209
+   ],
+   [
+    238,
+    210
+   ],
+   [
+    238,
+    211
+   ],
+   [
+    238,
+    212
+   ],
+   [
+    238,
+    213
+   ],
+   [
+    238,
+    214
+   ],
+   [
+    238,
+    215
+   ],
+   [
+    238,
+    216
+   ],
+   [
+    238,
+    217
+   ],
+   [
+    239,
+    203
+   ],
+   [
+    239,
+    204
+   ],
+   [
+    239,
+    205
+   ],
+   [
+    239,
+    206
+   ],
+   [
+    239,
+    207
+   ],
+   [
+    239,
+    208
+   ],
+   [
+    239,
+    209
+   ],
+   [
+    239,
+    210
+   ],
+   [
+    239,
+    211
+   ],
+   [
+    239,
+    212
+   ],
+   [
+    239,
+    213
+   ],
+   [
+    239,
+    214
+   ],
+   [
+    239,
+    215
+   ],
+   [
+    239,
+    216
+   ],
+   [
+    239,
+    217
+   ],
+   [
+    239,
+    218
+   ],
+   [
+    240,
+    202
+   ],
+   [
+    240,
+    203
+   ],
+   [
+    240,
+    204
+   ],
+   [
+    240,
+    205
+   ],
+   [
+    240,
+    206
+   ],
+   [
+    240,
+    207
+   ],
+   [
+    240,
+    208
+   ],
+   [
+    240,
+    209
+   ],
+   [
+    240,
+    210
+   ],
+   [
+    240,
+    211
+   ],
+   [
+    240,
+    212
+   ],
+   [
+    240,
+    213
+   ],
+   [
+    240,
+    214
+   ],
+   [
+    240,
+    215
+   ],
+   [
+    240,
+    216
+   ],
+   [
+    240,
+    217
+   ],
+   [
+    240,
+    218
+   ],
+   [
+    240,
+    219
+   ],
+   [
+    241,
+    202
+   ],
+   [
+    241,
+    203
+   ],
+   [
+    241,
+    204
+   ],
+   [
+    241,
+    205
+   ],
+   [
+    241,
+    206
+   ],
+   [
+    241,
+    207
+   ],
+   [
+    241,
+    208
+   ],
+   [
+    241,
+    209
+   ],
+   [
+    241,
+    210
+   ],
+   [
+    241,
+    211
+   ],
+   [
+    241,
+    212
+   ],
+   [
+    241,
+    213
+   ],
+   [
+    241,
+    214
+   ],
+   [
+    241,
+    215
+   ],
+   [
+    241,
+    216
+   ],
+   [
+    241,
+    217
+   ],
+   [
+    241,
+    218
+   ],
+   [
+    241,
+    219
+   ],
+   [
+    241,
+    220
+   ],
+   [
+    242,
+    202
+   ],
+   [
+    242,
+    203
+   ],
+   [
+    242,
+    204
+   ],
+   [
+    242,
+    205
+   ],
+   [
+    242,
+    206
+   ],
+   [
+    242,
+    207
+   ],
+   [
+    242,
+    208
+   ],
+   [
+    242,
+    209
+   ],
+   [
+    242,
+    210
+   ],
+   [
+    242,
+    211
+   ],
+   [
+    242,
+    212
+   ],
+   [
+    242,
+    213
+   ],
+   [
+    242,
+    214
+   ],
+   [
+    242,
+    215
+   ],
+   [
+    242,
+    216
+   ],
+   [
+    242,
+    217
+   ],
+   [
+    242,
+    218
+   ],
+   [
+    242,
+    219
+   ],
+   [
+    242,
+    220
+   ],
+   [
+    243,
+    202
+   ],
+   [
+    243,
+    203
+   ],
+   [
+    243,
+    204
+   ],
+   [
+    243,
+    205
+   ],
+   [
+    243,
+    206
+   ],
+   [
+    243,
+    207
+   ],
+   [
+    243,
+    208
+   ],
+   [
+    243,
+    209
+   ],
+   [
+    243,
+    210
+   ],
+   [
+    243,
+    211
+   ],
+   [
+    243,
+    212
+   ],
+   [
+    243,
+    213
+   ],
+   [
+    243,
+    214
+   ],
+   [
+    243,
+    215
+   ],
+   [
+    243,
+    216
+   ],
+   [
+    243,
+    217
+   ],
+   [
+    243,
+    218
+   ],
+   [
+    243,
+    219
+   ],
+   [
+    243,
+    220
+   ],
+   [
+    243,
+    221
+   ],
+   [
+    244,
+    202
+   ],
+   [
+    244,
+    203
+   ],
+   [
+    244,
+    204
+   ],
+   [
+    244,
+    205
+   ],
+   [
+    244,
+    206
+   ],
+   [
+    244,
+    207
+   ],
+   [
+    244,
+    208
+   ],
+   [
+    244,
+    209
+   ],
+   [
+    244,
+    210
+   ],
+   [
+    244,
+    211
+   ],
+   [
+    244,
+    212
+   ],
+   [
+    244,
+    213
+   ],
+   [
+    244,
+    214
+   ],
+   [
+    244,
+    215
+   ],
+   [
+    244,
+    216
+   ],
+   [
+    244,
+    217
+   ],
+   [
+    244,
+    218
+   ],
+   [
+    244,
+    219
+   ],
+   [
+    244,
+    220
+   ],
+   [
+    244,
+    221
+   ],
+   [
+    245,
+    203
+   ],
+   [
+    245,
+    204
+   ],
+   [
+    245,
+    205
+   ],
+   [
+    245,
+    206
+   ],
+   [
+    245,
+    207
+   ],
+   [
+    245,
+    208
+   ],
+   [
+    245,
+    209
+   ],
+   [
+    245,
+    210
+   ],
+   [
+    245,
+    211
+   ],
+   [
+    245,
+    212
+   ],
+   [
+    245,
+    213
+   ],
+   [
+    245,
+    214
+   ],
+   [
+    245,
+    215
+   ],
+   [
+    245,
+    216
+   ],
+   [
+    245,
+    217
+   ],
+   [
+    245,
+    218
+   ],
+   [
+    245,
+    219
+   ],
+   [
+    245,
+    220
+   ],
+   [
+    245,
+    221
+   ],
+   [
+    246,
+    203
+   ],
+   [
+    246,
+    204
+   ],
+   [
+    246,
+    205
+   ],
+   [
+    246,
+    206
+   ],
+   [
+    246,
+    207
+   ],
+   [
+    246,
+    208
+   ],
+   [
+    246,
+    209
+   ],
+   [
+    246,
+    210
+   ],
+   [
+    246,
+    211
+   ],
+   [
+    246,
+    212
+   ],
+   [
+    246,
+    213
+   ],
+   [
+    246,
+    214
+   ],
+   [
+    246,
+    215
+   ],
+   [
+    246,
+    216
+   ],
+   [
+    246,
+    217
+   ],
+   [
+    246,
+    218
+   ],
+   [
+    246,
+    219
+   ],
+   [
+    246,
+    220
+   ],
+   [
+    246,
+    221
+   ],
+   [
+    247,
+    203
+   ],
+   [
+    247,
+    204
+   ],
+   [
+    247,
+    205
+   ],
+   [
+    247,
+    206
+   ],
+   [
+    247,
+    207
+   ],
+   [
+    247,
+    208
+   ],
+   [
+    247,
+    209
+   ],
+   [
+    247,
+    210
+   ],
+   [
+    247,
+    211
+   ],
+   [
+    247,
+    212
+   ],
+   [
+    247,
+    213
+   ],
+   [
+    247,
+    214
+   ],
+   [
+    247,
+    215
+   ],
+   [
+    247,
+    216
+   ],
+   [
+    247,
+    217
+   ],
+   [
+    247,
+    218
+   ],
+   [
+    247,
+    219
+   ],
+   [
+    247,
+    220
+   ],
+   [
+    248,
+    204
+   ],
+   [
+    248,
+    205
+   ],
+   [
+    248,
+    206
+   ],
+   [
+    248,
+    207
+   ],
+   [
+    248,
+    208
+   ],
+   [
+    248,
+    209
+   ],
+   [
+    248,
+    210
+   ],
+   [
+    248,
+    211
+   ],
+   [
+    248,
+    212
+   ],
+   [
+    248,
+    213
+   ],
+   [
+    248,
+    214
+   ],
+   [
+    248,
+    215
+   ],
+   [
+    248,
+    216
+   ],
+   [
+    248,
+    217
+   ],
+   [
+    248,
+    218
+   ],
+   [
+    248,
+    219
+   ],
+   [
+    249,
+    205
+   ],
+   [
+    249,
+    206
+   ],
+   [
+    249,
+    207
+   ],
+   [
+    249,
+    208
+   ],
+   [
+    249,
+    209
+   ],
+   [
+    249,
+    210
+   ],
+   [
+    249,
+    211
+   ],
+   [
+    249,
+    212
+   ],
+   [
+    249,
+    213
+   ],
+   [
+    249,
+    214
+   ],
+   [
+    249,
+    215
+   ],
+   [
+    249,
+    216
+   ],
+   [
+    249,
+    217
+   ],
+   [
+    249,
+    218
+   ],
+   [
+    250,
+    206
+   ],
+   [
+    250,
+    207
+   ],
+   [
+    250,
+    208
+   ],
+   [
+    250,
+    209
+   ],
+   [
+    250,
+    210
+   ],
+   [
+    250,
+    211
+   ],
+   [
+    250,
+    212
+   ],
+   [
+    250,
+    213
+   ],
+   [
+    250,
+    214
+   ],
+   [
+    250,
+    215
+   ],
+   [
+    250,
+    216
+   ],
+   [
+    250,
+    217
+   ],
+   [
+    251,
+    206
+   ],
+   [
+    251,
+    207
+   ],
+   [
+    251,
+    208
+   ],
+   [
+    251,
+    209
+   ],
+   [
+    251,
+    210
+   ],
+   [
+    251,
+    211
+   ],
+   [
+    251,
+    212
+   ],
+   [
+    251,
+    213
+   ],
+   [
+    251,
+    214
+   ],
+   [
+    251,
+    215
+   ],
+   [
+    251,
+    216
+   ],
+   [
+    251,
+    217
+   ],
+   [
+    252,
+    207
+   ],
+   [
+    252,
+    208
+   ],
+   [
+    252,
+    209
+   ],
+   [
+    252,
+    210
+   ],
+   [
+    252,
+    211
+   ],
+   [
+    252,
+    212
+   ],
+   [
+    252,
+    213
+   ],
+   [
+    252,
+    214
+   ],
+   [
+    252,
+    215
+   ],
+   [
+    252,
+    216
+   ],
+   [
+    252,
+    217
+   ],
+   [
+    253,
+    207
+   ],
+   [
+    253,
+    208
+   ],
+   [
+    253,
+    209
+   ],
+   [
+    253,
+    210
+   ],
+   [
+    253,
+    211
+   ],
+   [
+    253,
+    212
+   ],
+   [
+    253,
+    213
+   ],
+   [
+    253,
+    214
+   ],
+   [
+    253,
+    215
+   ],
+   [
+    253,
+    216
+   ],
+   [
+    254,
+    210
+   ],
+   [
+    254,
+    211
+   ],
+   [
+    254,
+    212
+   ],
+   [
+    254,
+    213
+   ],
+   [
+    254,
+    214
+   ],
+   [
+    254,
+    215
+   ]
+  ]
+ },
+ "miasma_source": {
+  "tile": [
+   244,
+   211
+  ],
+  "name_hv": "Vạn Cốt Trủng",
+  "name_han": "萬骨冢",
+  "gloss": "Barrow of Ten Thousand Bones",
+  "note": "Tào Tùng: nhất tướng công thành vạn cốt khô, one general's glory, ten thousand bones dried."
+ },
+ "derived": {
+  "snowline": [
+   [
+    413,
+    144
+   ],
+   [
+    406,
+    145
+   ],
+   [
+    407,
+    145
+   ],
+   [
+    408,
+    145
+   ],
+   [
+    410,
+    145
+   ],
+   [
+    411,
+    145
+   ],
+   [
+    412,
+    145
+   ],
+   [
+    406,
+    146
+   ],
+   [
+    407,
+    146
+   ],
+   [
+    408,
+    146
+   ],
+   [
+    409,
+    146
+   ],
+   [
+    410,
+    146
+   ],
+   [
+    411,
+    146
+   ],
+   [
+    410,
+    147
+   ],
+   [
+    411,
+    147
+   ],
+   [
+    380,
+    155
+   ],
+   [
+    381,
+    156
+   ],
+   [
+    379,
+    159
+   ],
+   [
+    379,
+    160
+   ],
+   [
+    380,
+    160
+   ],
+   [
+    380,
+    161
+   ],
+   [
+    379,
+    162
+   ],
+   [
+    381,
+    162
+   ],
+   [
+    382,
+    162
+   ],
+   [
+    377,
+    163
+   ],
+   [
+    383,
+    166
+   ],
+   [
+    383,
+    169
+   ],
+   [
+    384,
+    170
+   ],
+   [
+    254,
+    248
+   ]
+  ],
+  "storm_peaks": [
+   [
+    417,
+    116
+   ],
+   [
+    417,
+    118
+   ],
+   [
+    418,
+    119
+   ],
+   [
+    419,
+    119
+   ],
+   [
+    419,
+    121
+   ],
+   [
+    343,
+    247
+   ],
+   [
+    342,
+    248
+   ],
+   [
+    341,
+    249
+   ],
+   [
+    340,
+    250
+   ],
+   [
+    339,
+    251
+   ],
+   [
+    340,
+    251
+   ],
+   [
+    338,
+    252
+   ],
+   [
+    339,
+    252
+   ],
+   [
+    340,
+    252
+   ],
+   [
+    340,
+    253
+   ],
+   [
+    341,
+    253
+   ],
+   [
+    342,
+    253
+   ],
+   [
+    338,
+    254
+   ],
+   [
+    339,
+    254
+   ],
+   [
+    340,
+    254
+   ],
+   [
+    341,
+    254
+   ],
+   [
+    337,
+    255
+   ],
+   [
+    339,
+    255
+   ],
+   [
+    340,
+    255
+   ],
+   [
+    341,
+    255
+   ],
+   [
+    342,
+    255
+   ],
+   [
+    337,
+    256
+   ],
+   [
+    338,
+    256
+   ],
+   [
+    339,
+    256
+   ],
+   [
+    340,
+    256
+   ],
+   [
+    341,
+    256
+   ],
+   [
+    342,
+    256
+   ],
+   [
+    336,
+    257
+   ],
+   [
+    337,
+    257
+   ],
+   [
+    338,
+    257
+   ],
+   [
+    339,
+    257
+   ],
+   [
+    341,
+    257
+   ],
+   [
+    342,
+    257
+   ],
+   [
+    335,
+    258
+   ],
+   [
+    336,
+    258
+   ],
+   [
+    337,
+    258
+   ],
+   [
+    338,
+    258
+   ],
+   [
+    339,
+    258
+   ],
+   [
+    335,
+    259
+   ],
+   [
+    336,
+    259
+   ],
+   [
+    337,
+    259
+   ],
+   [
+    338,
+    259
+   ],
+   [
+    337,
+    260
+   ],
+   [
+    337,
+    261
+   ],
+   [
+    337,
+    262
+   ],
+   [
+    400,
+    296
+   ]
+  ],
+  "high_plateau": [
+   [
+    258,
+    214
+   ],
+   [
+    257,
+    215
+   ],
+   [
+    258,
+    216
+   ],
+   [
+    259,
+    217
+   ],
+   [
+    260,
+    218
+   ],
+   [
+    259,
+    219
+   ],
+   [
+    260,
+    220
+   ],
+   [
+    261,
+    221
+   ],
+   [
+    262,
+    220
+   ],
+   [
+    263,
+    219
+   ],
+   [
+    264,
+    218
+   ],
+   [
+    264,
+    217
+   ],
+   [
+    265,
+    216
+   ],
+   [
+    264,
+    216
+   ],
+   [
+    263,
+    218
+   ],
+   [
+    262,
+    219
+   ],
+   [
+    260,
+    221
+   ],
+   [
+    261,
+    220
+   ],
+   [
+    259,
+    220
+   ],
+   [
+    261,
+    218
+   ],
+   [
+    259,
+    218
+   ],
+   [
+    258,
+    218
+   ],
+   [
+    258,
+    217
+   ],
+   [
+    257,
+    217
+   ],
+   [
+    259,
+    216
+   ],
+   [
+    260,
+    215
+   ]
+  ]
+ }
+}

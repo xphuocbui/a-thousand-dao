@@ -113,8 +113,14 @@ the rewrite is in the list below.
   70 villages, 16 mines and 24 famous wild sites, placed by how livable the land is. It also lays trunk and branch
   roads, sea lanes along the coasts and 7 teleport arrays. The cities, markets and famous sites are named from
   classical poetry, themed per sect, and the user approved all of this on 2026-11-14. Towns and villages take short
-  names from a pool, by the land at their tile. Spirit veins, secret realms, ruins and blessed lands wait for the
-  sacred features and the authored history (#27).
+  names from a pool, by the land at their tile; the user approved those names on 2026-11-14 too. Secret realms,
+  ruins and blessed lands wait for the authored history (#27).
+- **Sacred features (2026-11-14, a proposal):** tools/design/map/sacred.py lays a spirit vein along the ridge
+  under every sect seat, plus one famous wild vein in each great sect's land, mostly near a border, as a new
+  spirit vein place. It also lays 3 sacred summits (Light), 3 deep caves (Darkness) and one miasma wasteland, an
+  old battlefield set by hand where three sects meet. The snowline, storm peaks and high plateaus are derived from
+  the terrain. Strengths and thresholds are tuned so that 3–5 % of wild land reaches density 1.4 and each variant
+  stays in at most 2 % of places (an estimate on tiles, not the fine-cell build).
 
 ## What this changes
 

@@ -9,9 +9,11 @@ fixed-world-decisions.md).
 - **Approved by the user on 2026-11-14:** the great sects, their names and territories, the region names, and
   the 22 minor sects with their seats.
 - **Places, roads and arrays:** 204 places, approved by the user 2026-11-14.
-- **Town and village names:** a proposal, awaiting the user's approval.
+- **Town and village names:** approved by the user 2026-11-14.
+- **Sacred features:** spirit veins, sacred summits, deep caves and the miasma wasteland. A proposal, awaiting the
+  user's approval.
 - **Still to do:**
-  - sacred features, secret spots and history sites.
+  - secret spots and history sites, with the authored history (#27).
 
 ## Files
 
@@ -27,6 +29,8 @@ fixed-world-decisions.md).
 | `minor_sects_proposal.json` | Input, edited by hand. For each minor sect: names, lord, region, alignment, element leanings, craft, and the land its seat looks for. |
 | `places_proposal.json`, `place_names.json` | Input, edited by hand: how many places of each kind, cities per sect, which seats get a market; and the names of the cities, markets and famous sites, by kind and tile. |
 | `places.json`, `roads.png`, `places.jpg` | Output of `tools/design/map/places.py`: every place with its tile, region, holder, land, port and river flags and names; the sea lanes; the road index image (1 road, 2 trunk road, 3 sea lane); the map. |
+| `sacred_proposal.json` | Input, edited by hand: vein strengths and lengths, reaches, the derived features' thresholds, the wasteland's centre, and the names by kind and tile. |
+| `sacred.json`, `sacred.png`, `sacred.jpg` | Output of `tools/design/map/sacred.py`: every vein with its tiles, the summits, caves, wasteland and source, the derived features' tiles, the new places and the map check. `sacred.png` is a 16-bit tile image with `base/features.png`'s authored bits (spirit vein 128, sacred summit 256, deep cave 512, miasma source 1024) and 2048 for a wasteland tile. |
 | `minor_sects.json`, `minor_sects.jpg` | Output of `tools/design/map/minor_sects.py`: each minor seat's tile, its land, which wants it met, its distance to its lord's seat and to another sect's land; the politics map with the minor seats. |
 
 **Rebuild:**
@@ -44,6 +48,7 @@ reads the saved images, so run it again after any rebuild):
 python -I tools/design/map/minor_sects.py --map design/map/continent-11 \
     --sects design/map/continent-11/minor_sects_proposal.json
 python -I tools/design/map/places.py --map design/map/continent-11
+python -I tools/design/map/sacred.py --map design/map/continent-11
 ```
 
 `design/map/.gdignore` keeps Godot from importing these design files.
@@ -384,7 +389,7 @@ All of them were checked against the design files, and five first picks that cla
 | Gorge | **Viên Đề Hạp** | 猿啼峽 | Gorge of the Crying Gibbons | 8 Cô Yên Mạc | Băng Tâm Các |  |
 | Gorge | **Vạn Trùng Hạp** | 萬重峽 | Gorge of Ten Thousand Mountains | 15 Ngọc Hành Sơn | Thiên Xu Tông |  |
 
-**Town and village names** (a proposal, 2026-11-14):
+**Town and village names** (approved 2026-11-14):
 - **The pool:** 170 short Hán-Việt names, written by hand, each with its Hán tự and meaning. They are humbler than
   the famous names: Triều Âm (Tide Song), Liễu Ngạn (Willow Bank), Đạo Hương (Rice Scent), Tiều Ca (Woodcutters'
   Song), Đà Linh (Camel Bells).
@@ -424,24 +429,122 @@ All of them were checked against the design files, and five first picks that cla
 
 **Not in this pass:**
 - **Mine names:** the 16 mines are not named yet.
-- **Four of rule 6's kinds:**
-  - **spirit vein, secret realm and ruin:** they come with the hand-placed sacred features (spirit veins, sacred
-    summits, storm peaks, the miasma wasteland) and the authored history (#27);
+- **Three of rule 6's kinds:**
+  - **secret realm and ruin:** they come with the authored history (#27);
   - **cave abode:** opened in play.
+
+  The spirit veins are placed with the sacred features, below.
 
   Until they exist, AC-TM-24 ("every kind at least once") is not yet met.
 - **The famous blessed lands** (rule 28): they also come with the history.
 
+## Sacred features: proposal (awaiting approval)
+
+The authored features of Travel & Map rule 4, which the generator never makes (map-making rules R27, R29), and the
+three it derives from the terrain (R30). `tools/design/map/sacred.py` lays them from `sacred_proposal.json`.
+
+**What it lays:**
+
+| Feature | Pushes | How many | Where |
+|---|---|---|---|
+| Spirit vein (linh mạch) | density | 36 veins, 326 tiles | A **great vein** (19 tiles, +0.9 density) along the ridge under each great seat; a **small vein** (5 tiles, +0.4) under each minor seat; one **famous wild vein** (13 tiles, +0.7) in each great sect's land. Reach 222 km. |
+| Sacred summit | Light | 3 | Lăng Tuyệt Phong and Trích Tinh Phong (the two highest peaks), and **Cao Cương Phong**, the highest free summit in the south and west, a new peak place. |
+| Deep cave | Darkness | 3 | In rugged ground with no place within reach (111 km): one near Dạ Quang Môn, the others spread over the other sects. |
+| Miasma wasteland (tử địa) and its source | Darkness, danger | 299 tiles | One old battlefield, set by hand: the scorched badlands where Thiên Xu Tông, Lạc Hà Tông and Thính Vũ Lâu meet. Its tiles become the miasma biome. |
+| Snowline (derived) | a little Ice | 29 tiles | Land at 4.3 km or higher; reach 62 km. |
+| Storm peaks (derived) | Thunder | 51 tiles | Land at 2.5 km or higher with 3,000 mm of rain or more. |
+| High plateau (derived) | Wind | 26 tiles | Land at 2.0 km or higher, with relief under 0.3 km, in patches of 12 tiles or more. |
+
+**How a vein is drawn:** from its seat (or its wild spot) it follows the ridge both ways. Each step goes onto the
+highest dry tile, turning at most 45 degrees. A wild vein takes the richest wild ground in its sect's land: at least
+30 tiles from a great seat, 12 from a minor seat and 8 from any place, between 0.6 and 3.8 km up, with a bonus within
+14 tiles of another sect's border. Veins are what sects fight over, so six of the seven sit near a border.
+
+**Great veins** (under the seats):
+
+| Name | Hán tự | Meaning | Region | Seat | Tiles | Land density* | The line behind it |
+|---|---|---|---|---|---|---|---|
+| **Thanh Lam Mạch** | 青嵐脈 | Vein of the Green Haze | 3 | Thúy Vi Tông | 19 | 1.8 | Under Thúy Vi Tông. Lam is the mountain haze; thúy vi is the green of a hillside seen through it. |
+| **Phục Linh Mạch** | 茯苓脈 | Poria Vein | 4 | Tùng Đào Cung | 19 | 1.84 | Under Tùng Đào Cung. Poria grows on old pine roots and was said to be pine sap a thousand years under the earth. |
+| **Hàn Quang Mạch** | 寒光脈 | Vein of Cold Light | 8 | Băng Tâm Các | 19 | 1.51 | Under Băng Tâm Các. The cold light of Vương Xương Linh's ice heart in its jade pot (nhất phiến băng tâm tại ngọc hồ). |
+| **Dung Kim Mạch** | 熔金脈 | Vein of Molten Gold | 13 | Lạc Hà Tông | 19 | 1.61 | Under Lạc Hà Tông. Lý Thanh Chiếu: lạc nhật dung kim, the setting sun melting into gold. |
+| **Tử Vi Mạch** | 紫微脈 | Vein of the Pole Star | 14 | Thiên Xu Tông | 19 | 2.0 | Under Thiên Xu Tông. Tử Vi is the enclosure of the pole star, which the Dipper circles. |
+| **Lãm Huy Mạch** | 覽輝脈 | Vein of the Beheld Radiance | 16 | Phượng Minh Cung | 19 | 2.01 | Under Phượng Minh Cung. Giả Nghị: the phoenix soars a thousand fathoms and comes down only where it sees the radiance of virtue. |
+| **Tế Vũ Mạch** | 細雨脈 | Vein of Fine Rain | 18 | Thính Vũ Lâu | 19 | 2.4 | Under Thính Vũ Lâu. Đỗ Phủ's good rain slips in with the night wind and moistens all things without a sound. |
+
+**Famous wild veins** (each a new spirit vein place, held by its great sect):
+
+| Name | Hán tự | Meaning | Region | Land of | Tiles | Land density* | Note |
+|---|---|---|---|---|---|---|---|
+| **Tinh Tủy Mạch** | 星髓脈 | Star Marrow Vein | 6 | Thiên Xu Tông | 13 | 1.86 | A wild vein high in Dao Quang Lĩnh, near Trích Tinh Phong, 4 tiles from Băng Tâm's border. |
+| **Thương Tùng Mạch** | 蒼松脈 | Vein of the Grey Pines | 4 | Tùng Đào Cung | 13 | 1.83 | A wild vein under the old pine sea, 4 tiles from Thiên Xu's border. |
+| **Trường Hà Mạch** | 長河脈 | Vein of the Long River | 12 | Lạc Hà Tông | 13 | 1.81 | Vương Duy: trường hà lạc nhật viên, the long river and the round setting sun. On the border with Thính Vũ. |
+| **Kinh Lôi Mạch** | 驚雷脈 | Vein of the Startling Thunder | 19 | Thính Vũ Lâu | 13 | 1.84 | In Kinh Trập Sơn, the mountains of the thunder that wakes the sleepers; within reach of the storm peaks, so it carries Thunder. 5 tiles from Thiên Xu's border. |
+| **Băng Phách Mạch** | 冰魄脈 | Vein of the Ice Soul | 7 | Băng Tâm Các | 13 | 1.84 | Băng phách, the ice soul, is an old name for the moon. Under the ice mountains of Ngọc Hồ Sơn, within reach of the storm peaks. |
+| **Hỏa Ngọc Mạch** | 火玉脈 | Fire Jade Vein | 2 | Thúy Vi Tông | 7 | 2.06 | Under a volcano on an island off Tuyết Hỏa Giác, far out in the western sea, where Lạc Hà's waters begin. |
+| **Đan Sơn Mạch** | 丹山脈 | Vein of the Cinnabar Mountain | 16 | Phượng Minh Cung | 13 | 1.82 | Sơn Hải Kinh's cinnabar mountain is where the phoenix is born. 3 tiles from Thiên Xu's border. |
+
+**The other named features:**
+
+| Kind | Name | Hán tự | Meaning | Tile | Note |
+|---|---|---|---|---|---|
+| Sacred summit (new peak) | **Cao Cương Phong** | 高岡峰 | Peak of the High Ridge | [400, 296], 2.56 km | Kinh Thi: phượng hoàng minh hĩ, vu bỉ cao cương, the phoenix sings on that high ridge. A sacred summit (Light). |
+| Deep cave | **Cửu U Động** | 九幽洞 | Cave of the Nine Depths | [398, 167] | A shaft into the dark under Ngọc Hành Sơn, a few days' ride from Dạ Quang Môn. |
+| Deep cave | **Tàng Trập Động** | 藏蟄洞 | Cave of the Sleepers | [318, 256] | Where the creatures of Kinh Trập Sơn sleep until the spring thunder wakes them. |
+| Deep cave | **Huyền Minh Động** | 玄冥洞 | Cave of the Dark North | [470, 129] | Huyền Minh is the god of winter and the dark north. A lava tube under a dead volcano of Hàn Sương Châu. |
+| Miasma wasteland | **Chiết Kích Nguyên** | 折戟原 | Plain of Broken Halberds | around [244, 211] | Đỗ Mục: chiết kích trầm sa thiết vị tiêu, a broken halberd sunk in the sand, its iron not yet worn away. Who fought here is for the history (#27). |
+| Its source | **Vạn Cốt Trủng** | 萬骨冢 | Barrow of Ten Thousand Bones | [244, 211] | Tào Tùng: nhất tướng công thành vạn cốt khô, one general's glory, ten thousand bones dried. |
+
+*Land density is the tool's estimate of Formula C on tiles: biome base, depth into the biome, and feature pushes. It
+leaves out the place-kind offset and the prebuilt works, which add to every seat (AC-TM-115: a seat on land at 1.00
+reaches 1.40).
+
+**Map check** (the tool reports; it does not judge):
+- **Places:** 212, inside rule 6's 150–250 (204 before, plus 7 spirit veins and 1 peak).
+- **Wild land at density 1.4 or more:** 3.6 % of wilderness tiles (AC-TM-127
+  wants 3–5 %). 99 % of them are near a vein or deep in a rich biome
+  (it wants at least 70 %).
+- **Variants** (AC-TM-07: each in at most 2 % of places, so at most 4):
+  - Ice: 4 (Chúc Long Sơn, Thính Vũ Lâu, Trích Tinh Phong, Lăng Tuyệt Phong);
+  - Thunder: 4 (Cùng Mục Phong, Kinh Lôi Mạch, Băng Phách Mạch, Cao Cương Phong);
+  - Light: 3 (Trích Tinh Phong, Lăng Tuyệt Phong, Cao Cương Phong);
+  - Darkness: 2 (Tiều Ca Trấn, Thu Diệp Thôn);
+  - Wind: 0 (none).
+- **Spirit vein places:** land density 1.81–2.06
+  (Formula C's band is 1.4–2.0).
+- **Great seats:** 1.51–2.4 on land
+  alone. Minor seats average 1.3, which the prebuilt works lift past 1.4.
+- **The wasteland:** 299 tiles, no place inside, 0 road tiles.
+
+**Rough spots:**
+- **Hỏa Ngọc Mạch** reads 2.06, just over the vein band, because it sits on a volcano with hot springs. A spirit-vein
+  place offset of −0.1 would fix it.
+- **Thính Vũ Lâu's seat** hits the 2.40 clamp: a great vein, deep jungle and a hot spring together.
+- **The north-east is crowded:** two sacred summits, two wild veins and a deep cave sit within 25 tiles. That is where
+  the highest mountains are.
+- **No Wind place:** the high plateaus are small and empty. Wind roots will have to open a cave abode there.
+- **No deep cave near Hồng Đậu Trang:** its jungle is flat lowland, so there is nowhere for a deep cave.
+
+**Not yet:**
+- **Hidden things:** pocket veins and other tile secrets, the secret realms, ruins and blessed lands come from the
+  history (#27) as candidate spots.
+- **The battle:** who fought on Chiết Kích Nguyên is for #27 too.
+- **The full build:** the fine-cell build (Formula C) will read `sacred.png` and replace these estimates.
+
 ## Open for the user
 
-1. **Approve the town and village names**, or swap any of them.
-2. **Next:** the sacred features and the history sites.
+1. **Approve the sacred features**, or change any of them:
+   - **a name:** swap it in `sacred_proposal.json`;
+   - **the wasteland:** move its `centre`, or remove it and the tool picks the spot;
+   - **more or fewer veins, caves or summits:** change the counts and strengths.
+2. **Next:** the history sites (secret realms, ruins, blessed lands, candidate spots for secrets), which lean on
+   the authored history (#27).
+3. The known rough spots above, by hand.
 
 To change the places later:
 - **Names:** swap any in `place_names.json`.
 - **A city or a famous site:** move it by giving its name a new tile.
 - **How many cities a sect has:** change `cities_by_sect`.
-3. The known rough spots above, by hand.
 
 To change anything approved later:
 - **A border:** change a sect's start tile or tier.
