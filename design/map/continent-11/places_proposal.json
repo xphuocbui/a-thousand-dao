@@ -1,0 +1,12 @@
+{
+ "status": "proposal, awaiting the user's approval (2026-11-14)",
+ "note": "Input, edited by hand, for tools/design/map/places.py. Counts of each place kind (Travel & Map rule 6: 150-250 places in all); which sect seats get a cultivator market (phường thị) beside them; which places carry a teleport array (rule 11). Names live in place_names.json, keyed by kind and tile; the tool matches a name to the nearest place of that kind within 4 tiles.",
+ "counts": {"city": 15, "town": 40, "village": 70, "mine": 16,
+            "peak": 7, "lake": 5, "island": 5, "forest": 3, "gorge": 2, "volcano": 2},
+ "cities_by_sect": {"thien_xu": 2, "tung_dao": 2, "lac_ha": 3, "thinh_vu": 2, "bang_tam": 2, "thuy_vi": 2,
+                    "phuong_minh": 2},
+ "markets_beside": ["thien_xu", "tung_dao", "lac_ha", "thinh_vu", "bang_tam", "thuy_vi", "phuong_minh",
+                    "thien_bao", "binh_thuy", "lang_dao"],
+ "arrays": "the first city of each great sect (its best-placed city); 7 arrays, each owned by that sect",
+ "minor_domain_tiles": 10
+}

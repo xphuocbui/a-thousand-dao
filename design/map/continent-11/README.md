@@ -8,7 +8,10 @@ fixed-world-decisions.md).
 - **Layout:** v3. Sect territories are drawn first, then regions inside them.
 - **Approved by the user on 2026-11-14:** the great sects, their names and territories, the region names, and
   the 22 minor sects with their seats.
-- **Still to do:** famous places, towns, roads and arrays.
+- **Places, roads and arrays:** 204 places, a proposal, awaiting the user's approval (2026-11-14).
+- **Still to do:**
+  - town and village names;
+  - sacred features, secret spots and history sites.
 
 ## Files
 
@@ -22,6 +25,8 @@ fixed-world-decisions.md).
 | `regions_overview.jpg` | Region borders and numbers over the detail map. |
 | `politics_proposal.json`, `politics_proposal.jpg` | Output: each sect's regions, seat tile, share of the land and shape, and the map with territories tinted. |
 | `minor_sects_proposal.json` | Input, edited by hand. For each minor sect: names, lord, region, alignment, element leanings, craft, and the land its seat looks for. |
+| `places_proposal.json`, `place_names.json` | Input, edited by hand: how many places of each kind, cities per sect, which seats get a market; and the names of the cities, markets and famous sites, by kind and tile. |
+| `places.json`, `roads.png`, `places.jpg` | Output of `tools/design/map/places.py`: every place with its tile, region, holder, land, port and river flags and names; the sea lanes; the road index image (1 road, 2 trunk road, 3 sea lane); the map. |
 | `minor_sects.json`, `minor_sects.jpg` | Output of `tools/design/map/minor_sects.py`: each minor seat's tile, its land, which wants it met, its distance to its lord's seat and to another sect's land; the politics map with the minor seats. |
 
 **Rebuild:**
@@ -38,6 +43,7 @@ reads the saved images, so run it again after any rebuild):
 ```
 python -I tools/design/map/minor_sects.py --map design/map/continent-11 \
     --sects design/map/continent-11/minor_sects_proposal.json
+python -I tools/design/map/places.py --map design/map/continent-11
 ```
 
 `design/map/.gdignore` keeps Godot from importing these design files.
@@ -261,10 +267,141 @@ Those are the vassals a neighbour could court (Sects rule 6).
 
 The line each name comes from is in `minor_sects_proposal.json` (`note`).
 
+## Places, roads and arrays: proposal (awaiting approval)
+
+Travel & Map rule 6 asks for 150–250 named places of the kinds it lists. Rules 9–11 add roads, rivers, sea lanes and
+teleport arrays, and AC-TM-128 asks that every settlement can reach every other and that no inhabited island lacks a
+port. This pass places **204**:
+
+| Kind | Count | How it is placed |
+|---|---|---|
+| Great sect seats, minor sect seats | 7, 22 | Approved above |
+| City (thành) | 15 | At most one a region. Count per sect set by hand: 3 for Lạc Hà Tông, 2 for each of the others. Each takes the most livable tile in its region: river mouths, coasts and mild lowland. All 15 are river ports, and 14 are sea ports. |
+| Cultivator market (phường thị) | 10 | Beside each great seat (7) and beside the three trading vassals: Thiên Bảo Trai, Bình Thủy Môn and Lãng Đào Môn |
+| Town (trấn), village (thôn) | 40, 70 | By livable land per region, at least 1 town and 2 villages in each. **Unnamed for now.** |
+| Mine (khoáng mạch) | 16 | On the biggest ore-vein clusters, one more per 40 ore tiles. Thiên Xu Tông holds 7, as befits the richest ore. |
+| Famous wild sites | 24 | The 7 highest isolated summits, the 2 biggest volcanoes, 5 biggest lakes, 5 biggest empty islands, 3 deepest forests and 2 deepest river gorges |
+
+**Livability** of a tile:
+- **The biome's base:** grassland is best; glacier and volcano are worst.
+- **Climate:** mild temperature and enough rain.
+- **The lie of the land:** lower and flatter is better.
+- **Water:** a river (more where rivers gather), a coast, a lakeshore, and most of all a river mouth.
+
+**Holders** (Sects rules 1–3):
+- **Vassals' sites:** a town, village or mine within 10 tiles of a minor sect's seat belongs to that vassal. A vassal
+  with none takes its nearest one, so all 22 vassals hold at least one site.
+- **The great sects' sites:** cities, markets and every other settlement and mine.
+- **No holder:** the wild sites.
+
+**Roads and lanes:**
+- **Trunk roads** join cities, markets and great seats. They are drawn as a spanning tree, plus links where the tree
+  makes a detour of more than 1.8 times. They follow the cheapest ground over relief, height, swamp and jungle and avoid
+  needless river crossings, and they merge where they can.
+- **Branch roads:** every town, village, minor seat and mine takes one to the nearest road.
+- **Sea lanes** hug the coast:
+  - cities, markets and island towns each link to their nearest two ports;
+  - every inhabited island links to another landmass.
+- **Rivers:** 72 settlements sit on a river and serve as river ports.
+
+**Teleport arrays:** 7, one in the best-placed city of each great sect. Each is owned by that sect. Fees and access
+follow Formula K and Sects rule 19a.
+
+**Map check:**
+
+| Measure | Result |
+|---|---|
+| Places | 204 (rule 6 asks 150–250) |
+| Settlements cut off from the rest (by road or lane) | none |
+| Inhabited islands without a port | none |
+| Roads | 68,400 km, of which trunk 31,500 km |
+| Sea lanes, ports | 17, 80 |
+| Settlements a region | 3 (the ice mountains of Ngọc Hồ Sơn) to 10 (the warm island Cô Vụ Đảo) |
+
+**Names** follow the region names. They are Hán-Việt and romantic, each from a line of poetry or myth, and themed by
+the sect whose land they are in:
+- **Thiên Xu's land:** stars.
+- **Lạc Hà's:** Vương Bột.
+- **Phượng Minh's:** the phoenix.
+- **Băng Tâm's:** Vương Xương Linh's frontier.
+- **Thính Vũ's:** rain.
+
+The last word says the kind: Thành city, Thị market, Phong peak, Sơn mountain, Hồ lake, Đảo island, Lâm forest,
+Hạp gorge.
+
+All of them were checked against the design files, and five first picks that clashed were replaced. The names are in
+`place_names.json`, with the line each comes from (`note`).
+
+| Kind | Name | Hán tự | Meaning | Region | Land of | Note |
+|---|---|---|---|---|---|---|
+| City | **Yên Ba Thành** | 煙波城 | City of the Misty Waves | 2 Tuyết Hỏa Giác | Thúy Vi Tông | teleport array |
+| City | **Hàn Tân Thành** | 寒津城 | City of the Cold Ford | 3 Thanh Loan Lĩnh | Thúy Vi Tông |  |
+| City | **Tùng Gian Thành** | 松間城 | City Among the Pines | 4 Thâm Tùng Hải | Tùng Đào Cung | teleport array |
+| City | **Đào Thanh Thành** | 濤聲城 | City of the Wave Sound | 5 Cửu Khúc Xuyên | Tùng Đào Cung |  |
+| City | **Khai Dương Thành** | 開陽城 | City Opening to the Sun | 6 Dao Quang Lĩnh | Thiên Xu Tông |  |
+| City | **Trường Vân Thành** | 長雲城 | City of the Long Clouds | 8 Cô Yên Mạc | Băng Tâm Các | teleport array |
+| City | **Liên Giang Thành** | 連江城 | City Where the Rain Meets the River | 9 Hàn Sương Châu | Băng Tâm Các |  |
+| City | **Đàm Ảnh Thành** | 潭影城 | City of the Pool's Reflections | 10 Cô Vụ Đảo | Lạc Hà Tông |  |
+| City | **Nhạn Thanh Thành** | 雁聲城 | City of the Wild Geese's Cry | 11 Trường Thiên Nguyên | Lạc Hà Tông |  |
+| City | **Tử Điện Thành** | 紫電城 | City of the Purple Lightning | 12 Thu Thủy Loan | Lạc Hà Tông | teleport array |
+| City | **Tinh Hán Thành** | 星漢城 | City of the Star River | 15 Ngọc Hành Sơn | Thiên Xu Tông | teleport array |
+| City | **Lai Nghi Thành** | 來儀城 | City Where the Phoenix Comes | 17 Triêu Dương Nguyên | Phượng Minh Cung | teleport array |
+| City | **Thu Trì Thành** | 秋池城 | City of the Autumn Pools | 18 Tiêu Vũ Lâm | Thính Vũ Lâu | teleport array |
+| City | **Không Mông Thành** | 空濛城 | City of the Hazy Rain | 19 Kinh Trập Sơn | Thính Vũ Lâu |  |
+| City | **Ngũ Thải Thành** | 五采城 | City of the Five Colours | 20 Đan Huyệt Châu | Phượng Minh Cung |  |
+| Market | **Lam Yên Thị** | 嵐煙市 | Market of the Mountain Mist | 3 Thanh Loan Lĩnh | Thúy Vi Tông | beside Thúy Vi Tông |
+| Market | **Tùng Hạ Thị** | 松下市 | Market Beneath the Pines | 4 Thâm Tùng Hải | Tùng Đào Cung | beside Tùng Đào Cung |
+| Market | **Đào Sa Thị** | 淘沙市 | Market of the Washed Sands | 5 Cửu Khúc Xuyên | Tùng Đào Cung | beside Lãng Đào Môn |
+| Market | **Tống Khách Thị** | 送客市 | Market of Farewells | 9 Hàn Sương Châu | Băng Tâm Các | beside Băng Tâm Các |
+| Market | **Tương Phùng Thị** | 相逢市 | Market of Chance Meetings | 10 Cô Vụ Đảo | Lạc Hà Tông | beside Bình Thủy Môn |
+| Market | **Vật Hoa Thị** | 物華市 | Market of the Land's Riches | 12 Thu Thủy Loan | Lạc Hà Tông | beside Thiên Bảo Trai |
+| Market | **Hạc Đinh Thị** | 鶴汀市 | Market of the Crane Shoal | 13 Ngư Ca Xuyên | Lạc Hà Tông | beside Lạc Hà Tông |
+| Market | **Thiên Quyền Thị** | 天權市 | Market of the Heavenly Balance | 14 Thiên Tuyền Nguyên | Thiên Xu Tông | beside Thiên Xu Tông |
+| Market | **Thiều Âm Thị** | 韶音市 | Market of the Shao Music | 16 Thê Ngô Lĩnh | Phượng Minh Cung | beside Phượng Minh Cung |
+| Market | **Hạnh Hoa Thị** | 杏花市 | Market of the Apricot Blossom | 19 Kinh Trập Sơn | Thính Vũ Lâu | beside Thính Vũ Lâu |
+| Peak | **Phụ Tinh Phong** | 輔星峰 | Peak of the Companion Star | 6 Dao Quang Lĩnh | Thiên Xu Tông | 4.28 km |
+| Peak | **Trích Tinh Phong** | 摘星峰 | Peak Where One Picks the Stars | 6 Dao Quang Lĩnh | Thiên Xu Tông | 4.72 km |
+| Peak | **Hồi Lộ Phong** | 迴路峰 | Peak of the Winding Road | 7 Ngọc Hồ Sơn | Băng Tâm Các | 3.51 km |
+| Peak | **Lăng Tuyệt Phong** | 凌絕峰 | Peak Above All | 7 Ngọc Hồ Sơn | Băng Tâm Các | 5.24 km |
+| Peak | **Thanh Ải Phong** | 青靄峰 | Peak of the Blue Haze | 15 Ngọc Hành Sơn | Thiên Xu Tông | 3.07 km |
+| Peak | **Cùng Mục Phong** | 窮目峰 | Peak of the Farthest Sight | 15 Ngọc Hành Sơn | Thiên Xu Tông | 2.62 km |
+| Peak | **Liệt Khuyết Phong** | 列缺峰 | Peak of the Lightning Rift | 19 Kinh Trập Sơn | Thính Vũ Lâu | 4.0 km |
+| Volcano | **Chúc Long Sơn** | 燭龍山 | Mountain of the Torch Dragon | 7 Ngọc Hồ Sơn | Băng Tâm Các | 1.35 km |
+| Volcano | **Sương Diễm Sơn** | 霜焰山 | Mountain of Frost and Flame | 9 Hàn Sương Châu | Băng Tâm Các | 1.16 km |
+| Lake | **Hạo Nguyệt Hồ** | 皓月湖 | Lake of the Bright Moon | 1 Lãnh Nguyệt Lâm | Tùng Đào Cung | 118 tiles |
+| Lake | **Phiến Băng Hồ** | 片冰湖 | Lake of the Piece of Ice | 9 Hàn Sương Châu | Băng Tâm Các | 11 tiles |
+| Lake | **Tinh Lạc Hồ** | 星落湖 | Lake Where the Stars Fall | 14 Thiên Tuyền Nguyên | Thiên Xu Tông | 18 tiles |
+| Lake | **Triêu Hà Hồ** | 朝霞湖 | Lake of the Dawn Clouds | 17 Triêu Dương Nguyên | Phượng Minh Cung | 50 tiles |
+| Lake | **Tàn Hà Hồ** | 殘荷湖 | Lake of the Last Lotus | 18 Tiêu Vũ Lâm | Thính Vũ Lâu | 9 tiles |
+| Island | **Phù Chử Đảo** | 鳧渚島 | Isle of the Wild Ducks | 11 Trường Thiên Nguyên | Lạc Hà Tông | 59 tiles |
+| Island | **Tịch Chiếu Đảo** | 夕照島 | Isle of the Evening Glow | 11 Trường Thiên Nguyên | Lạc Hà Tông | 78 tiles |
+| Island | **Tương Phi Đảo** | 湘妃島 | Isle of the Xiang Consorts | 16 Thê Ngô Lĩnh | Phượng Minh Cung | 51 tiles |
+| Island | **Dục Nhật Đảo** | 浴日島 | Isle Where the Sun Bathes | 20 Đan Huyệt Châu | Phượng Minh Cung | 50 tiles |
+| Island | **Đồ Nam Đảo** | 圖南島 | Isle of the Southward Flight | 20 Đan Huyệt Châu | Phượng Minh Cung | 117 tiles |
+| Forest | **Phản Cảnh Lâm** | 返景林 | Forest of the Returning Light | 1 Lãnh Nguyệt Lâm | Tùng Đào Cung |  |
+| Forest | **Vô Tung Lâm** | 無蹤林 | Forest Without Tracks | 9 Hàn Sương Châu | Băng Tâm Các |  |
+| Forest | **Đả Diệp Lâm** | 打葉林 | Forest of the Beaten Leaves | 19 Kinh Trập Sơn | Thính Vũ Lâu |  |
+| Gorge | **Viên Đề Hạp** | 猿啼峽 | Gorge of the Crying Gibbons | 8 Cô Yên Mạc | Băng Tâm Các |  |
+| Gorge | **Vạn Trùng Hạp** | 萬重峽 | Gorge of Ten Thousand Mountains | 15 Ngọc Hành Sơn | Thiên Xu Tông |  |
+
+**Not in this pass:**
+- **Town and village names:** 110 of them, for a later naming pass.
+- **Four of rule 6's kinds:**
+  - **spirit vein, secret realm and ruin:** they come with the hand-placed sacred features (spirit veins, sacred
+    summits, storm peaks, the miasma wasteland) and the authored history (#27);
+  - **cave abode:** opened in play.
+
+  Until they exist, AC-TM-24 ("every kind at least once") is not yet met.
+- **The famous blessed lands** (rule 28): they also come with the history.
+
 ## Open for the user
 
-1. **Next:** the famous places (Travel & Map rule 6), towns, roads and teleport arrays.
-2. The known rough spots above, by hand.
+1. **Approve the places, roads and arrays**, or change any of them:
+   - **names:** swap any in `place_names.json`;
+   - **a city or a famous site:** move it by giving its name a new tile;
+   - **how many cities a sect has:** change `cities_by_sect`.
+2. **Then:** town and village names, the sacred features and the history sites.
+3. The known rough spots above, by hand.
 
 To change anything approved later:
 - **A border:** change a sect's start tile or tier.
