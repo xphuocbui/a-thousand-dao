@@ -1,6 +1,6 @@
 # Power Rankings
 
-> **Status**: Approved 2026-11-14 (lean re-review of the ladder revision; the earlier reviews' blockers resolved). **Changed after approval, 2026-11-14 (user decision after the ADR-0003 threading spike):** rule 16 coarse-panels only Kết Đan and above and the player's starting place at load, capped by `worldgen_fight_budget`; the rest start Provisional; Open Questions 7 (resolved) and 9 (new). A re-review of that change is recommended. The ladder revision (user decisions from measured fights: ladder panel, measured anchors, coarse panels at load; `design/research/power-rankings-measurements.md`) was re-reviewed and approved the same day. Decisions by the user in-session; specialists consulted in lean mode: `systems-designer` (Formulas), `qa-lead` (Acceptance Criteria). CD-GDD-ALIGN skipped (lean mode)
+> **Status**: Approved 2026-11-14 (lean re-review of the ladder revision; the earlier reviews' blockers resolved). **Changed after approval, 2026-11-14 (user decision after the ADR-0003 threading spike):** rule 16 coarse-panels only Kết Đan and above and the player's starting place at load, capped by `worldgen_fight_budget`; the rest start Provisional; Open Questions 7 (resolved) and 9 (new). Calibration (ADR-0003 step 3) raised `rung_div` to 32 by the saturation guard's own remedy and rescaled the rung-counted knobs (Tuning Knobs). A re-review of these changes is recommended. The ladder revision (user decisions from measured fights: ladder panel, measured anchors, coarse panels at load; `design/research/power-rankings-measurements.md`) was re-reviewed and approved the same day. Decisions by the user in-session; specialists consulted in lean mode: `systems-designer` (Formulas), `qa-lead` (Acceptance Criteria). CD-GDD-ALIGN skipped (lean mode)
 > **Author**: the user + Claude
 > **Last Updated**: 2026-11-14 (ladder revision: Formulas A-C, E-G, Season budget; rules 3, 4, 16; Player Fantasy; Vấn Đỉnh Bảng)
 > **Last Verified**: 2026-11-14
@@ -259,6 +259,12 @@ measure; calibration fails and names the realm and rungs, and `rung_div` is rais
 | calibration_probe_fights | int | 40 | data file | Fights a probe when measuring an anchor |
 | health_elo | float | about 3,000 | calculated | Elo per tenfold of health (Formulas F) |
 
+**Measured 2026-11-14** (`combat_rankings.json`, `rung_div` 32, `k_max` 192): rung gaps near typical 110–144 Elo;
+anchors 1,000 / 14,195 / 29,506 / 46,842 / 61,627 (realm steps 13,000–17,000 Elo, far above the illustrative 4,400:
+fights are sharper than the health-only measurement suggested); `health_elo` 3,134. The ladder ends carry little
+information (gaps as small as 3.5 Elo at realm 4's far end, where fights stall), well outside where NPCs sit. A
+calibration run is about 770,000 `fight.py` fights, 36 minutes. The illustrative numbers in this section's and
+Formulas A, B, E, G's examples keep the test ladder (240 a rung).
 **Output Range:** each gap positive and finite while the guard holds. 5 realms × 64 gaps × 400 fights ≈ 128,000
 fights, about 40 s on `fight.py` (0.3 ms a reference fight) or about 220 s on 8 Godot workers (13.7 ms a fight,
 Open Question 7).
@@ -477,11 +483,11 @@ All in `combat_rankings.json` unless noted. Ranges are starting points to be con
 
 | Knob | Default | Safe range | Affects |
 |---|---|---|---|
-| `rung_div` | 4 | 3–8 | Rungs per doubling of strength (about 240 Elo a rung at 4); raise if the saturation guard fires |
-| `k_max` | 32 | 24–48 | Ladder reach `2^(k_max / rung_div)` either side: ×1/256 to ×256 at rung_div 4. Keep `k_max / rung_div ≥ 6` (×64, the widest NPC the 2026-11-14 probe found); AC-PR-56 checks it |
+| `rung_div` | 32 | 24–64 | Rungs per doubling of strength (about 120 Elo a rung at 32, measured); raise if the saturation guard fires. *Raised from 4 on 2026-11-14 by the guard: at 4 adjacent rungs won 96–100 %, because a rung scales linh lực too and linh lực decides sustain fights* |
+| `k_max` | 192 | 192–384 | Ladder reach `2^(k_max / rung_div)` either side: ×1/256 to ×256 at rung_div 32. Keep `k_max / rung_div ≥ 6` (×64, the widest NPC the 2026-11-14 probe found); AC-PR-56 checks it |
 | `probe_fights` / `coarse_probe_fights` | 4 / 2 | 2–8 / 2–4 | Panel accuracy against compute |
-| `warm_step` / `cold_step` | 2 / 8 | 1–4 / 4–16 | First step of a search; fewer probes when the guess is good |
-| `coarse_bracket` | 4 | 2–8 | Where a world-generation coarse search stops; world-generation load time |
+| `warm_step` / `cold_step` | 16 / 64 | 8–32 / 32–128 | First step of a search; fewer probes when the guess is good (scaled with `rung_div`: the same strength steps as 2 / 8 at rung_div 4) |
+| `coarse_bracket` | 32 | 16–64 | Where a world-generation coarse search stops; world-generation load time (scaled with `rung_div`) |
 | `worldgen_fight_budget` | 8,000 | 2,000–20,000 | Coarse-panel fights at a new game's load (rule 16): about 40 s at 200 fights a second; higher orders more of the world at load and lengthens it |
 | `prior_games` | 1 | 0.5–2 | Finite result off the ladder end; pull toward the start rung |
 | `calibration_fights` / `calibration_probe_fights` | 400 / 40 | 200–800 / 20–80 | Rung-gap and anchor accuracy, once per data version |
