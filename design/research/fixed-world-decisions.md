@@ -115,12 +115,18 @@ the rewrite is in the list below.
   classical poetry, themed per sect, and the user approved all of this on 2026-11-14. Towns and villages take short
   names from a pool, by the land at their tile; the user approved those names on 2026-11-14 too. Secret realms,
   ruins and blessed lands wait for the authored history (#27).
-- **Sacred features (2026-11-14, a proposal):** tools/design/map/sacred.py lays a spirit vein along the ridge
+- **Sacred features (2026-11-14, approved the same day):** tools/design/map/sacred.py lays a spirit vein along the ridge
   under every sect seat, plus one famous wild vein in each great sect's land, mostly near a border, as a new
   spirit vein place. It also lays 3 sacred summits (Light), 3 deep caves (Darkness) and one miasma wasteland, an
   old battlefield set by hand where three sects meet. The snowline, storm peaks and high plateaus are derived from
   the terrain. Strengths and thresholds are tuned so that 3–5 % of wild land reaches density 1.4 and each variant
   stays in at most 2 % of places (an estimate on tiles, not the fine-cell build).
+- **History sites (2026-11-14, a proposal):** tools/design/map/history.py lays the famous sites, the same every
+  game: 3 secret realms on cycles, a ruin by the wasteland, a large blessed land around each tier-1 seat and a
+  one-tile retreat by every great seat. It also offers ground for the hidden ones: 28 slots (secret realms,
+  ruins, abodes, blessed lands) with 2–3 candidate tiles each, and 80 tile secrets with 3 each, chosen by the
+  ground each kind suits. The history (#27) names the hidden slots, and each game's seed picks one candidate per
+  slot (rule 15).
 
 ## What this changes
 

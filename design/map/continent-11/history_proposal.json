@@ -1,0 +1,73 @@
+{
+ "status": "proposal, awaiting the user's approval (2026-11-14)",
+ "note": "Inputs for tools/design/map/history.py. The famous sites are fixed every game; the hidden slots are ground for the history (#27), which names each one and links it to a fact, and each game's seed picks one candidate per slot (Travel & Map rule 15). Counts follow rule 28 and Formula C's table; ΔD3 follows Formula B's targets (large 0.5-1.0, small 0.3-0.6, secret 0.1-0.3). Cycles follow rule 26.",
+ "params": {
+  "slot_spread": 45,
+  "slot_spread_max": 70,
+  "cand_gap_min": 6,
+  "relax": [0.7, 0.45, 0.25],
+  "large_min_tiles": 60,
+  "retreat_ring": [2, 7],
+  "rules": {
+   "realm": {"place_gap": 6, "h": [0.0, 5.0], "fit_min": 0.5, "density_weight": 0.6, "gap": 10, "anchor_gap": 60, "cand_gap": 12},
+   "ruin": {"d_max": 1.6, "place_gap": 8, "h": [0.0, 2.5], "fit_min": 0.4, "density_weight": 0.4, "gap": 8, "anchor_gap": 50, "cand_gap": 12},
+   "abode": {"d_max": 1.6, "place_gap": 6, "h": [0.3, 4.0], "fit_min": 0.4, "density_weight": 0.4, "gap": 8, "anchor_gap": 40, "cand_gap": 12},
+   "blessed_large": {"place_gap": 8, "h": [0.0, 4.0], "fit_min": 0.5, "density_weight": 0.5, "gap": 20, "anchor_gap": 60, "cand_gap": 20},
+   "blessed_small": {"place_gap": 5, "h": [0.0, 5.0], "fit_min": 0.5, "density_weight": 0.6, "gap": 6, "anchor_gap": 35, "cand_gap": 10},
+   "secret": {"place_gap": 2, "h": [0.0, 5.0], "fit_min": 0.3, "density_weight": 0.3, "gap": 3, "anchor_gap": 0, "cand_gap": 6}
+  }
+ },
+ "famous": {
+  "secret_realms": [
+   {"names": {"name_hv": "Thiết Mã Cảnh", "name_han": "鐵馬境", "gloss": "Realm of the Armoured Horses", "note": "Lục Du: thiết mã băng hà nhập mộng lai, armoured horses and frozen rivers come into my dreams. Its gate opens inside Chiết Kích Nguyên, near the barrow; whose war it holds is for the history (#27)."},
+    "anchor": {"near_source": true, "min": 2, "radius": 5, "place_gap": 3, "fit": "realm"},
+    "cycle": {"every_seasons": 120, "open_seasons": 4, "rumour_lead": 4}},
+   {"names": {"name_hv": "Phù Tang Cảnh", "name_han": "扶桑境", "gloss": "Realm of the Sunrise Mulberry", "note": "Sơn Hải Kinh: in the hot valley stands the Phù Tang tree, where the ten suns bathe. Its gate is on the island Dục Nhật Đảo, where the sun bathes."},
+    "anchor": {"near_place": "Dục Nhật Đảo", "min": 1, "radius": 5, "place_gap": 1, "fit": "realm"},
+    "cycle": {"every_seasons": 60, "open_seasons": 3, "rumour_lead": 4}},
+   {"names": {"name_hv": "Đào Nguyên Cảnh", "name_han": "桃源境", "gloss": "Realm of the Peach Blossom Spring", "note": "Đào Uyên Minh: a fisherman follows a stream of peach petals through a cave into a hidden valley, and can never find it again. Its gate is a cave by a forest stream."},
+    "anchor": {"in_sects": ["tung_dao", "thuy_vi"], "place_gap": 8, "seat_gap": 25, "fit": "Wood"},
+    "cycle": {"every_seasons": 80, "open_seasons": 2, "rumour_lead": 4}}
+  ],
+  "ruins": [
+   {"names": {"name_hv": "Cố Lũy", "name_han": "故壘", "gloss": "The Old Ramparts", "note": "Tô Thức: cố lũy tây biên, nhân đạo thị Tam Quốc Chu lang Xích Bích, west of the old ramparts, they say, is where the Three Kingdoms fought. Fallen walls on the edge of Chiết Kích Nguyên; whose they were is for the history (#27)."},
+    "anchor": {"by_waste": true, "radius": 8}}
+  ],
+  "blessed_large": [
+   {"sect": "thien_xu", "element": "Metal", "dD3": 0.8, "push": 40, "tiles": 120,
+    "names": {"name_hv": "Bắc Thần Phúc Địa", "name_han": "北辰福地", "gloss": "Blessed Land of the North Star", "note": "Luận Ngữ: like the North Star, which keeps its place while all the stars turn toward it. Around Thiên Xu Tông's seat."}},
+   {"sect": "tung_dao", "element": "Wood", "dD3": 0.8, "push": 40, "tiles": 110,
+    "names": {"name_hv": "Thiên Xích Phúc Địa", "name_han": "千尺福地", "gloss": "Blessed Land of the Thousand-Foot Pines", "note": "Đỗ Phủ: thanh tùng hận bất cao thiên xích, I only regret the green pine is not a thousand feet tall. Around Tùng Đào Cung's seat."}},
+   {"sect": "lac_ha", "element": "Earth", "dD3": 0.8, "push": 40, "tiles": 110,
+    "names": {"name_hv": "Địa Linh Phúc Địa", "name_han": "地靈福地", "gloss": "Blessed Land Where the Earth Is Alive", "note": "Vương Bột, Đằng Vương Các Tự (the text Lạc Hà is named from): nhân kiệt địa linh, great men where the earth is alive with spirit. Around Lạc Hà Tông's seat."}}
+  ],
+  "blessed_small": [
+   {"sect": "thien_xu", "element": "Earth", "dD3": 0.5, "push": 40, "names": {"name_hv": "Tuyền Cơ Đài", "name_han": "璇璣臺", "gloss": "Terrace of the Armillary", "note": "Tuyền cơ, the bowl of the Dipper and the armillary that tracks it. The sect head's retreat."}},
+   {"sect": "tung_dao", "element": "Water", "dD3": 0.5, "push": 40, "names": {"name_hv": "Thạch Thượng Tuyền", "name_han": "石上泉", "gloss": "Spring Over the Stones", "note": "Vương Duy: minh nguyệt tùng gian chiếu, thanh tuyền thạch thượng lưu; the city Tùng Gian took the first half. The sect head's retreat."}},
+   {"sect": "lac_ha", "element": "Wood", "dD3": 0.5, "push": 40, "names": {"name_hv": "Châu Liêm Đình", "name_han": "珠簾亭", "gloss": "Pavilion of the Pearl Blinds", "note": "Vương Bột: châu liêm mộ quyển Tây Sơn vũ, at dusk the pearl blinds roll up on the rain over the western hills. The sect head's retreat."}},
+   {"sect": "thinh_vu", "element": "Thunder", "dD3": 0.5, "push": 40, "names": {"name_hv": "Văn Lôi Đài", "name_han": "聞雷臺", "gloss": "Terrace Where Thunder Is Heard", "note": "Where the rain the tower listens to turns to thunder. The sect head's retreat."}},
+   {"sect": "bang_tam", "element": "Ice", "dD3": 0.5, "push": 40, "names": {"name_hv": "Tố Tâm Động", "name_han": "素心洞", "gloss": "Cave of the Plain Heart", "note": "The ice heart in its jade pot, kept plain. The sect head's retreat."}},
+   {"sect": "thuy_vi", "element": "Wood", "dD3": 0.5, "push": 40, "names": {"name_hv": "Hoành Thúy Đình", "name_han": "橫翠亭", "gloss": "Pavilion Across the Green", "note": "Lý Bạch: thương thương hoành thúy vi, grey-green, the emerald haze lies across the hills. The sect head's retreat."}},
+   {"sect": "phuong_minh", "element": "Fire", "dD3": 0.5, "push": 40, "names": {"name_hv": "Bích Ngô Đình", "name_han": "碧梧亭", "gloss": "Pavilion of the Green Wutong", "note": "Đỗ Phủ: bích ngô thê lão phượng hoàng chi, on the green wutong the old phoenix perches. The sect head's retreat."}}
+  ]
+ },
+ "hidden": [
+  {"id": "R", "kind": "secret_realm", "count": 3, "candidates": 3, "rule": "realm", "fit": "realm", "H": 1000},
+  {"id": "V", "kind": "ruin", "count": 4, "candidates": 3, "rule": "ruin", "fit": "ruin", "H": 1000, "why": "the grounds of a vanished sect"},
+  {"id": "A", "kind": "abode", "count": 6, "candidates": 3, "rule": "abode", "fit": "abode", "H": 1000, "why": "a dead cultivator's cave abode"},
+  {"id": "L", "kind": "blessed_large", "count": 2, "candidates": 3, "rule": "blessed_large", "elements": ["Water", "Fire"], "tiles": 90, "dD3": 0.7, "push": 40, "H": 3000},
+  {"id": "S", "kind": "blessed_small", "count": 13, "candidates": 3, "rule": "blessed_small",
+   "elements": ["Metal", "Metal", "Earth", "Water", "Fire", "Wind", "Wind", "Light", "Light", "Darkness", "Darkness", "Ice", "Thunder"],
+   "dD3": 0.4, "push": 40, "H": 1000}
+ ],
+ "tile_secrets": {
+  "per_region": 4,
+  "candidates": 3,
+  "kinds": [
+   {"kind": "hidden spring", "fit": "spring", "H": 300, "match_push": 20},
+   {"kind": "pocket vein", "fit": "pocket_vein", "H": 100, "dD3": 0.2},
+   {"kind": "rare herb patch", "fit": "herb_patch", "H": 200},
+   {"kind": "buried cache", "fit": "cache", "H": 1000}
+  ]
+ }
+}

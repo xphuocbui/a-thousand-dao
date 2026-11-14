@@ -10,10 +10,13 @@ fixed-world-decisions.md).
   the 22 minor sects with their seats.
 - **Places, roads and arrays:** 204 places, approved by the user 2026-11-14.
 - **Town and village names:** approved by the user 2026-11-14.
-- **Sacred features:** spirit veins, sacred summits, deep caves and the miasma wasteland. A proposal, awaiting the
-  user's approval.
+- **Sacred features:** spirit veins, sacred summits, deep caves and the miasma wasteland, approved by the user
+  2026-11-14.
+- **History sites:** famous secret realms, a ruin and blessed lands, plus candidate spots for the hidden ones. A
+  proposal, awaiting the user's approval.
 - **Still to do:**
-  - secret spots and history sites, with the authored history (#27).
+  - the history itself (#27), which names the hidden slots;
+  - mine names, home regions per origin, and the art style.
 
 ## Files
 
@@ -31,6 +34,8 @@ fixed-world-decisions.md).
 | `places.json`, `roads.png`, `places.jpg` | Output of `tools/design/map/places.py`: every place with its tile, region, holder, land, port and river flags and names; the sea lanes; the road index image (1 road, 2 trunk road, 3 sea lane); the map. |
 | `sacred_proposal.json` | Input, edited by hand: vein strengths and lengths, reaches, the derived features' thresholds, the wasteland's centre, and the names by kind and tile. |
 | `sacred.json`, `sacred.png`, `sacred.jpg` | Output of `tools/design/map/sacred.py`: every vein with its tiles, the summits, caves, wasteland and source, the derived features' tiles, the new places and the map check. `sacred.png` is a 16-bit tile image with `base/features.png`'s authored bits (spirit vein 128, sacred summit 256, deep cave 512, miasma source 1024) and 2048 for a wasteland tile. |
+| `history_proposal.json` | Input, edited by hand: the famous secret realms, ruin and blessed lands with names, anchors and data; the hidden slots by kind, count and element; the tile secrets per region; the rules for candidate ground. |
+| `history.json`, `history.jpg` | Output of `tools/design/map/history.py`: the famous sites with tiles (and each large blessed land's tiles), every hidden slot with its candidate tiles, the tile secrets, and the map check. |
 | `minor_sects.json`, `minor_sects.jpg` | Output of `tools/design/map/minor_sects.py`: each minor seat's tile, its land, which wants it met, its distance to its lord's seat and to another sect's land; the politics map with the minor seats. |
 
 **Rebuild:**
@@ -49,6 +54,7 @@ python -I tools/design/map/minor_sects.py --map design/map/continent-11 \
     --sects design/map/continent-11/minor_sects_proposal.json
 python -I tools/design/map/places.py --map design/map/continent-11
 python -I tools/design/map/sacred.py --map design/map/continent-11
+python -I tools/design/map/history.py --map design/map/continent-11
 ```
 
 `design/map/.gdignore` keeps Godot from importing these design files.
@@ -438,7 +444,7 @@ All of them were checked against the design files, and five first picks that cla
   Until they exist, AC-TM-24 ("every kind at least once") is not yet met.
 - **The famous blessed lands** (rule 28): they also come with the history.
 
-## Sacred features: proposal (awaiting approval)
+## Sacred features (approved 2026-11-14)
 
 The authored features of Travel & Map rule 4, which the generator never makes (map-making rules R27, R29), and the
 three it derives from the terrain (R30). `tools/design/map/sacred.py` lays them from `sacred_proposal.json`.
@@ -531,15 +537,96 @@ reaches 1.40).
 - **The battle:** who fought on Chiết Kích Nguyên is for #27 too.
 - **The full build:** the fine-cell build (Formula C) will read `sacred.png` and replace these estimates.
 
+## History sites: proposal (awaiting approval)
+
+`tools/design/map/history.py` lays the ground the history leaves behind (Travel & Map rules 15, 26, 28–30), from
+`history_proposal.json`. There are two kinds of site:
+- **Famous sites** are the same every game and shown on the overview.
+- **Hidden slots** are ground for the history (#27). Each slot has 2–3 candidate tiles in the wilderness, and each
+  game's seed picks one. The history names the slot and links it to a fact, such as a dead cultivator or a vanished
+  sect. Candidates of one slot sit within 45 tiles of each other, so the story's geography holds, and at least 6
+  apart, so a guide can't give the spot away.
+
+**Famous sites:**
+
+| Kind | Name | Hán tự | Meaning | Where | Held by; data | The line behind it |
+|---|---|---|---|---|---|---|
+| Secret realm | **Thiết Mã Cảnh** | 鐵馬境 | Realm of the Armoured Horses | Thiên Tuyền Nguyên, [244, 206] | Thiên Xu Tông; opens every 120 seasons for 4 | Lục Du: thiết mã băng hà nhập mộng lai, armoured horses and frozen rivers come into my dreams. Its gate opens inside Chiết Kích Nguyên, near the barrow; whose war it holds is for the history (#27). |
+| Secret realm | **Phù Tang Cảnh** | 扶桑境 | Realm of the Sunrise Mulberry | Đan Huyệt Châu, [466, 338] | Phượng Minh Cung; opens every 60 seasons for 3 | Sơn Hải Kinh: in the hot valley stands the Phù Tang tree, where the ten suns bathe. Its gate is on the island Dục Nhật Đảo, where the sun bathes. |
+| Secret realm | **Đào Nguyên Cảnh** | 桃源境 | Realm of the Peach Blossom Spring | Tuyết Hỏa Giác, [108, 146] | Thúy Vi Tông; opens every 80 seasons for 2 | Đào Uyên Minh: a fisherman follows a stream of peach petals through a cave into a hidden valley, and can never find it again. Its gate is a cave by a forest stream. |
+| Ruin | **Cố Lũy** | 故壘 | The Old Ramparts | Thiên Tuyền Nguyên, [254, 199] | Thiên Xu Tông | Tô Thức: cố lũy tây biên, nhân đạo thị Tam Quốc Chu lang Xích Bích, west of the old ramparts, they say, is where the Three Kingdoms fought. Fallen walls on the edge of Chiết Kích Nguyên; whose they were is for the history (#27). |
+| Large blessed land | **Bắc Thần Phúc Địa** | 北辰福地 | Blessed Land of the North Star | 120 tiles round Thiên Xu Tông | Metal, ΔD3 +0.8 | Luận Ngữ: like the North Star, which keeps its place while all the stars turn toward it. Around Thiên Xu Tông's seat. |
+| Large blessed land | **Thiên Xích Phúc Địa** | 千尺福地 | Blessed Land of the Thousand-Foot Pines | 110 tiles round Tùng Đào Cung | Wood, ΔD3 +0.8 | Đỗ Phủ: thanh tùng hận bất cao thiên xích, I only regret the green pine is not a thousand feet tall. Around Tùng Đào Cung's seat. |
+| Large blessed land | **Địa Linh Phúc Địa** | 地靈福地 | Blessed Land Where the Earth Is Alive | 110 tiles round Lạc Hà Tông | Earth, ΔD3 +0.8 | Vương Bột, Đằng Vương Các Tự (the text Lạc Hà is named from): nhân kiệt địa linh, great men where the earth is alive with spirit. Around Lạc Hà Tông's seat. |
+| Small blessed land | **Tuyền Cơ Đài** | 璇璣臺 | Terrace of the Armillary | [280, 177], by Thiên Xu Tông | Earth, ΔD3 +0.5 | Tuyền cơ, the bowl of the Dipper and the armillary that tracks it. The sect head's retreat. |
+| Small blessed land | **Thạch Thượng Tuyền** | 石上泉 | Spring Over the Stones | [237, 118], by Tùng Đào Cung | Water, ΔD3 +0.5 | Vương Duy: minh nguyệt tùng gian chiếu, thanh tuyền thạch thượng lưu; the city Tùng Gian took the first half. The sect head's retreat. |
+| Small blessed land | **Châu Liêm Đình** | 珠簾亭 | Pavilion of the Pearl Blinds | [200, 205], by Lạc Hà Tông | Wood, ΔD3 +0.5 | Vương Bột: châu liêm mộ quyển Tây Sơn vũ, at dusk the pearl blinds roll up on the rain over the western hills. The sect head's retreat. |
+| Small blessed land | **Văn Lôi Đài** | 聞雷臺 | Terrace Where Thunder Is Heard | [254, 251], by Thính Vũ Lâu | Thunder, ΔD3 +0.5 | Where the rain the tower listens to turns to thunder. The sect head's retreat. |
+| Small blessed land | **Tố Tâm Động** | 素心洞 | Cave of the Plain Heart | [456, 136], by Băng Tâm Các | Ice, ΔD3 +0.5 | The ice heart in its jade pot, kept plain. The sect head's retreat. |
+| Small blessed land | **Hoành Thúy Đình** | 橫翠亭 | Pavilion Across the Green | [147, 88], by Thúy Vi Tông | Wood, ΔD3 +0.5 | Lý Bạch: thương thương hoành thúy vi, grey-green, the emerald haze lies across the hills. The sect head's retreat. |
+| Small blessed land | **Bích Ngô Đình** | 碧梧亭 | Pavilion of the Green Wutong | [365, 252], by Phượng Minh Cung | Fire, ΔD3 +0.5 | Đỗ Phủ: bích ngô thê lão phượng hoàng chi, on the green wutong the old phoenix perches. The sect head's retreat. |
+
+- **The three tier-1 sects** each sit inside a large blessed land of 110–120 tiles. Those 3 hold ~3 Hóa Thần.
+- **Each great sect** keeps a one-tile retreat for its head, 2–7 tiles from its seat, leaning to one of its elements.
+- **The secret realms** follow rule 26: a 4-season rumour lead, and the sect whose land holds the gate sets the quota
+  (Sects rule 19a).
+
+**Hidden slots:**
+
+| Kind | Slots | Candidate spots | Elements |
+|---|---|---|---|
+| Secret realm | 3 | 9 | — |
+| Ruin of a vanished sect | 4 | 12 | — |
+| Dead cultivator's cave abode | 6 | 18 | — |
+| Large blessed land | 2 | 5 | Water, Fire |
+| Small blessed land | 13 | 37 | Metal, Metal, Earth, Water, Fire, Wind, Wind, Light, Light, Darkness, Darkness, Ice, Thunder |
+| Tile secret (spring, pocket vein, herb patch, cache) | 80 (4 per region) | 240 | — |
+
+**How the candidates are chosen:**
+- **Abodes:** rugged, rich ground, because a cultivator picks a strong spot.
+- **Ruins:** open, watered ground, the old grounds of a sect.
+- **Secret realms:** strange ground, near the dark, storms, ice, fire or on an islet.
+- **Blessed lands:** ground that suits their element: forest for Wood, volcanoes for Fire, high summits for Light.
+  A large one must have room for its whole area (90 tiles), with no place inside.
+- **Tile secrets:** each by its kind. A spring goes by water or warm ground, a pocket vein by a ridge or a vein, a herb
+  patch on rich forest, and a cache a few days from a settlement.
+- **Thin slots:** where good ground runs out, the tool relaxes the fit and the gaps step by step, and records it
+  (11 slots: A-3, A-4, A-5, A-6, L-2, S-8, S-9, S-10, S-11, S-13, S1-1).
+
+**Map check:**
+- **Places:** 229, counting one spot per hidden slot, inside rule 6's 150–250.
+- **Secret realms:** 6 (2.6 %); Formula C's table has 3 %.
+- **Ruins and abodes:** 11 (4.8 %); the table has 5 %.
+- **Blessed lands:** 5 large and 20 small, inside rule 28's 2–5 and 10–30.
+  - Their elements cover all ten: Darkness 2, Earth 3, Fire 3, Ice 2, Light 2, Metal 3, Thunder 2, Water 3, Wind 2, Wood 3. Every variant
+    root has at least two homes worth finding.
+  - Areas are 90–120 tiles, inside AC-TM-114's 40–180.
+- **Every candidate** is dry land with no place on it.
+
+**Rough spots:**
+- **Secret realm density.** Formula C wants a secret realm place at 1.5–2.2, but the gate tiles read
+  0.4–1.85. Thiết Mã Cảnh's gate stands in the
+  wasteland, at 0.4. The realm's density should be its inside, set per realm, not its gate's. Travel & Map needs to say
+  so (an open question).
+- **Too many rich candidates.** 53 % of ruin and abode candidates read
+  1.4 or more, against the table's 30 %. Every candidate is capped at 1.6. The place-kind offset can bring the share
+  down.
+- **Variants on hidden places.** The variant check (at most 2 % of places) covers the fixed places only. Thiết Mã
+  Cảnh's gate adds a third Darkness place. A hidden spot that lands near a feature can add one more each game.
+- **Clustered slots.** The cold north-east and the southern mountains hold many slots, because that is where Light,
+  Thunder and Darkness ground is.
+
 ## Open for the user
 
-1. **Approve the sacred features**, or change any of them:
-   - **a name:** swap it in `sacred_proposal.json`;
-   - **the wasteland:** move its `centre`, or remove it and the tool picks the spot;
-   - **more or fewer veins, caves or summits:** change the counts and strengths.
-2. **Next:** the history sites (secret realms, ruins, blessed lands, candidate spots for secrets), which lean on
-   the authored history (#27).
-3. The known rough spots above, by hand.
+1. **Approve the history sites**, or change any of them:
+   - **a famous name or anchor:** edit it in `history_proposal.json`;
+   - **a hidden slot's count or element:** edit `hidden`;
+   - **tile secrets:** change `per_region` or the kinds.
+2. **Next:** World Generation & History (#27) for the fixed world: the authored history, which names the hidden
+   slots and fills in the wasteland's war, the ruin and the dead whose abodes these are. It is a GDD
+   (`/design-system`), section by section with you.
+3. **Smaller map work, any time:** the 16 mine names, the home region for each origin, and the map's art style.
+4. The known rough spots above, by hand.
 
 To change the places later:
 - **Names:** swap any in `place_names.json`.

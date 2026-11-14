@@ -1,5 +1,5 @@
 {
- "status": "proposal, awaiting the user's approval (2026-11-14)",
+ "status": "approved by the user 2026-11-14",
  "note": "Inputs for tools/design/map/sacred.py. Strengths, reaches and thresholds are first guesses for Formula C's feature data (A_f, R_f, a_f) and the R30 thresholds; the names are given by kind and tile, like place_names.json.",
  "params": {
   "km_per_tile": 24.7,
