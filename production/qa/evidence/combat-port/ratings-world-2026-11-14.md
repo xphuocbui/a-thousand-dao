@@ -70,9 +70,12 @@ AC-PR-55's rung counts were written for `rung_div` 4 and were not rescaled when 
 were). In strength terms warm panels pass and coarse ones fall just short of 90 %. Fights: cold 32 (40 at most),
 warm 24, coarse 6 (10 at most).
 
-## Not covered here
+## Corrected 2026-11-15: no save/load drift
 
-- AC-PR-48's "next season equals a run that never saved": a reloaded game's world tick drifts from an unsaved one's
-  within one season **with ratings off too** (12 of 197 people differ in an 80-cultivator world; a different world
-  duel is drawn). A Save / Load finding outside Power Rankings; the rating records and the re-planned batch do survive
-  a save (rating_session_test).
+This file first reported that a reloaded game's world drifted from an unsaved one within a season, ratings on or off.
+That was wrong: the test serialised the save with Godot's default `JSON.stringify` (sorted keys, short floats), not
+as `SaveStore` writes saves (unsorted keys, full precision). With the real settings a reloaded game matches a
+never-saved one exactly for 8 seasons with ratings off. With ratings on one stored rating came back a bit off from
+JSON's float parse; ratings are now re-snapped to 0.1 on load, and AC-PR-48 holds in full
+(`rating_session_test.gd`, `test_a_reloaded_game_rates_exactly_as_one_never_saved_ac_pr_48`, watched failing
+without the fix).

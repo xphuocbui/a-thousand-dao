@@ -109,30 +109,31 @@ func test_background_and_blocking_seasons_give_identical_ratings_ac_pr_52() -> v
 	assert_eq(a.rng.state, b.rng.state, "the session stream moved the same")
 
 
-func test_ratings_and_the_seasons_pending_work_survive_a_save_ac_pr_48() -> void:
-	# The pending batch is not saved: it is planned again from the saved state, so it must come out identical. (A
-	# reloaded game's world tick itself drifts from an unsaved one's after a season, ratings on or off: a Save / Load
-	# finding outside Power Rankings, reported 2026-11-14; once fixed this test can compare the next season too.)
+func test_a_reloaded_game_rates_exactly_as_one_never_saved_ac_pr_48() -> void:
+	# Serialised as SaveStore writes saves (unsorted keys, full precision; src/core/save/save_store.gd). The pending
+	# batch is not saved: it is planned again from the saved state, so it must come out identical, and the next season
+	# must rate exactly as in a game never saved (stored ratings are re-snapped on load: JSON does not give back every
+	# double bit-exact).
 	var a := _session(35)
 	a.cultivate(1)
-	var saved: Dictionary = JSON.parse_string(JSON.stringify(a.to_dict()))
+	var saved: Dictionary = JSON.parse_string(JSON.stringify(a.to_dict(), "", false, true))
 	var llm := LlmService.new(_gd_on())
 	llm.enabled = false
 	var b := GameSession.new(_gd_on(), llm, TestFixtures.tree())
 	b.ratings_background = false
 	b.load_dict(saved)
-	var ra: Dictionary = _ratings(a)
-	var rb: Dictionary = _ratings(b)
-	assert_eq(rb.size(), ra.size(), "every rating record")
-	for id in ra:
-		assert_eq(str(rb[id]), str(ra[id]), "%s: base, offset, n and state" % id)
+	assert_eq(_ratings(b), _ratings(a), "every rating record after the load")
 	var pa: SeasonBatch = a._rating_batch
 	var pb: SeasonBatch = b._rating_batch
 	assert_eq(pb.panels.map(func(p): return [p.id, p.warm, p.start_k, p.counts.size()]),
 		pa.panels.map(func(p): return [p.id, p.warm, p.start_k, p.counts.size()]), "the same panels in the same order")
 	assert_eq(pb.pairs.map(func(f): return f.seed), pa.pairs.map(func(f): return f.seed), "the same pair fights and seeds")
-	assert_eq(str(b.db.get_record(RatingService.TABLE, RatingService.SEASON_RECORD).kd_ids),
-		str(a.db.get_record(RatingService.TABLE, RatingService.SEASON_RECORD).kd_ids), "the year's Kết Đan round robin")
+	a._pass_season("cultivate")
+	b._pass_season("cultivate")
+	a._finish_ratings()
+	b._finish_ratings()
+	assert_eq(_ratings(b), _ratings(a), "the next season rates exactly the same")
+	assert_eq(b.rng.state, a.rng.state, "and the session stream matches")
 
 
 func test_a_world_fight_is_formulas_f_on_the_ratings_ac_pr_19_34() -> void:

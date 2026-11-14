@@ -92,6 +92,17 @@ func _ensure(id: String, realm: int, stage: int) -> Dictionary:
 	return rec
 
 
+## After a load: re-snaps every stored base and offset to 0.1. Godot's JSON parse does not give back every double
+## bit-exact (14.7 can return a bit off), and snapping both versions of a number gives the same double, so a reloaded
+## game rates exactly as one never saved (AC-PR-48).
+func normalise_loaded() -> void:
+	for rec in _db.all(TABLE):
+		if rec.has("base"):
+			rec["base"] = _snap(float(rec.base))
+			rec["offset"] = _snap(float(rec.offset))
+			rec["n"] = int(rec.get("n", 0))
+
+
 ## [param c]'s rating, base + offset (Core Rules rule 2).
 func rating(c: Character) -> float:
 	var rec: Dictionary = ensure(c)

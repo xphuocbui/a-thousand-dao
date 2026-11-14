@@ -1253,6 +1253,7 @@ func load_dict(d: Dictionary) -> Dictionary:
 	for k in cdu.keys():
 		co_duyen_used[int(k)] = int(cdu[k])
 	epitaph_text = str(d.get("epitaph", ""))
+	ratings.normalise_loaded()
 	if not life_over:
 		_start_ratings()   # the season's batch is planned again from the saved state (rule 14's pending work)
 	return {"ok": true, "lines": ["Loaded %s — %s, %s." % [player.name, gd.realm_label(player.realm_index, player.stage), clock_label()]]}
