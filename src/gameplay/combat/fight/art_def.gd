@@ -59,3 +59,16 @@ var tags: Array[StringName] = []
 var tags_s: Array = []
 ## The art's own context for scoped reads (the sim's art_ctx): dtype, element, tags, kind "art", art_id.
 var ctx: Dictionary = {}
+## Multi-step arts and empowers (slice 5; Combat 13, Effects 6): the steps tried in order, and the empowers checked
+## on every firing.
+var steps: Array = []
+var empower: Array = []
+
+
+## A shallow copy (the sim's copy.copy): lists are shared, since compiled records are read-only.
+func copy() -> ArtDef:
+	var b := ArtDef.new()
+	for prop in get_property_list():
+		if prop.usage & PROPERTY_USAGE_SCRIPT_VARIABLE:
+			b.set(prop.name, get(prop.name))
+	return b

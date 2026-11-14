@@ -99,10 +99,8 @@ func test_loader_refuses_an_unported_or_unknown_field_by_name() -> void:
 		[_dummy({"effects": [{"id": "x", "on": "teleported", "do": []}]}), "teleported"],
 		[_dummy({"effects": [{"id": "x", "on": "always", "do": [{"mod": {"luck": 5}}]}]}), "luck"],
 		[_dummy({"effects": [{"id": "x", "on": "crit", "if": [{"read": "own.mood"}], "do": []}]}), "own.mood"],
-		[_dummy({"effects": [{"id": "x", "on": "step_unlocked", "do": []}]}), "step_unlocked"],
 		[_dummy({"effects": [{"id": "x", "on": "crit", "do": [{"state": {"set": "nowhere"}}]}]}), "nowhere"],
 		[_dummy({"states": [{"id": "stance", "mods": {"luck": 3}}]}), "luck"],
-		[_dummy({}, [{"name": "two-step", "steps": [{"c_mult": 2.0}]}]), "steps"],
 		[_dummy({"teleport": 1.0}), "teleport"],
 		[_dummy({}, [{"name": "guarded", "guards": [{"read": "own.hp"}]}]), "guards"],
 		[_dummy({}, [{"name": "seal", "statuses": [{"id": "no_such_status"}]}]), "no_such_status"],
@@ -362,3 +360,55 @@ func test_sealed_meridian_locks_the_sealed_fighters_own_layer() -> void:
 	assert_near(before, 4.2, 1e-12, "no seal: the fighter's M")
 	assert_near(after, 4.2 / (1.0 + minf(70.0, k.layer_caps[1]) / 100.0), 1e-9, "L2 sealed: its 70 points count as nothing")
 	assert_near(f.layers_m(f.b, null, null), f.b.p.m, 1e-12, "the sealer's own M is untouched")
+
+
+# --- slice 5: multi-step arts and empowers -------------------------------------------------------------------------
+
+func test_multistep_art_walks_its_forms_and_returns_to_the_first() -> void:
+	# test_engine.py t_multistep: step 2 needs 3 Fire debuff stacks on the foe and consumes them (x2); step 3 needs a
+	# red-sun art fired within 2 s (x4); then back to the first form.
+	var art := {"name": "three-forms", "c": 1.0, "cost": 0.02, "cd": 2.0, "element": "fire", "tags": ["palm"],
+		"group": "red-sun", "steps": [
+			{"unlock": [{"read": "foe.debuff.fire", "op": ">=", "value": 3}],
+			 "pay": [{"consume": {"el": "fire", "side": "foe", "n": 3}}], "c_mult": 2.0},
+			{"unlock": [{"read": "own.fired_within.2.group.red-sun", "op": ">=", "value": 1}], "c_mult": 4.0}]}
+	var f := _fight(_dummy({}, [art]), _dummy({"ward_pts": 0.0, "block": 0.0}))
+	var unit: float = CombatConstants.load_file().u[0] * f.a.p.m
+	var dealt: Array = []
+	for row in [[2000, 0], [4000, 3], [6000, 0], [8000, 0]]:
+		f.t = row[0]
+		if row[1] > 0:
+			f.add_stacks(f.a, f.b, "fire", float(row[1]), 99.0, false)
+		f.a.ready[0] = row[0]
+		f.a.basic_ready = 1000000000
+		var hp0: float = f.b.hp
+		f.act(f.a)
+		dealt.append(snappedf((hp0 - f.b.hp) / unit, 0.001))
+	assert_eq(dealt, [1.0, 2.0, 4.0, 1.0], "forms 1 -> 2 (consumes 3) -> 3 (group fired) -> back to 1")
+	assert_eq(EffectRunner._count(f.b.debuffs, "fire"), 0.0, "step 2 consumed the Fire stacks")
+
+
+func test_empower_triples_the_strike_when_the_foe_is_dry() -> void:
+	# test_engine.py t_empower: x3 when the foe's linh luc is at or below 10 %.
+	var art := {"name": "dry-strike", "c": 1.0, "cost": 0.02, "cd": 2.0,
+		"empower": [{"if": [{"read": "foe.qi_share", "op": "<=", "value": 0.1}], "c_mult": 3.0}]}
+	var f := _fight(_dummy({}, [art]), _dummy({"ward_pts": 0.0, "block": 0.0}))
+	var unit: float = CombatConstants.load_file().u[0] * f.a.p.m
+	var out: Array = []
+	for share in [1.0, 0.05]:
+		f.b.qi = share * f.b.qi_max()
+		f.t = 2000 * (out.size() + 1)
+		f.a.ready[0] = f.t
+		f.a.basic_ready = 1000000000
+		var hp0: float = f.b.hp
+		f.act(f.a)
+		out.append(snappedf((hp0 - f.b.hp) / unit, 0.001))
+	assert_eq(out, [1.0, 3.0], "x3 when the foe's linh luc is dry")
+
+
+func test_step_field_neither_engine_runs_is_refused() -> void:
+	# A step's hp_cost is not in the sim's override table, so the sim ignores it; the loader refuses it by name.
+	var loader := FighterProfileLoader.new(CombatConstants.load_file())
+	var d := _dummy({}, [{"name": "pricey", "c": 1.0, "steps": [{"unlock": [], "c_mult": 2.0, "hp_cost": 0.05}]}])
+	assert_true(loader.from_sim_build(d, "case") == null, "refused")
+	assert_true("; ".join(loader.errors).contains("hp_cost"), "names hp_cost")

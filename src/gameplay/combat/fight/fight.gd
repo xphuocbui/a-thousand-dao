@@ -72,7 +72,7 @@ func _init(profile_a: FighterProfile, profile_b: FighterProfile, constants: Comb
 	_fx = not (profile_a.effects.is_empty() and profile_b.effects.is_empty())
 	for p in [profile_a, profile_b]:
 		for art in p.arts:
-			if not art.guards.is_empty():   # guards read the fire log (since, fired_within)
+			if not art.guards.is_empty() or not art.steps.is_empty() or not art.empower.is_empty():   # these read the fire log
 				_fx = true
 	_open(a)
 	_open(b)
@@ -466,6 +466,8 @@ func act(s: FighterState) -> void:
 			continue
 		if not pay(s, art):
 			continue
+		var base_id: StringName = art.id
+		art = shape(s, i, art)
 		var speed: float = speed_base + m(s, "art_speed", art.ctx) / 100.0
 		var cd: float = maxf(k.cooldown_min, art.cd / speed) * slow(s)
 		s.charges[i] -= 1
@@ -476,7 +478,7 @@ func act(s: FighterState) -> void:
 			s.charges[i] = art.charges
 		s.fired[i] += 1
 		if _fx:   # only Effect reads (fired_within, since) look at the fire log
-			s.fire_log.append([t, str(art.id), art.tags_s, art.group])
+			s.fire_log.append([t, str(base_id), art.tags_s, art.group])
 			var log_keep: Array = []
 			for row in s.fire_log:
 				if t - int(row[0]) <= FIRE_LOG_MS:
@@ -529,6 +531,35 @@ func act(s: FighterState) -> void:
 			hit(s, o, comp.c, comp.dtype, null, KIND_COMPANION)
 			var ccd: float = comp.cd / (1.0 + m(s, "companion_speed", null) / 100.0)
 			s.comp_ready[j] += CombatConstants.ms(maxf(k.cooldown_min, ccd))
+
+
+## The art as it fires (the sim's shape; Combat 13, Effects 6): a multi-step art fires as its next step when that
+## step's unlock holds (paying its pay, raising step_unlocked), else as its first form; then each empower whose
+## conditions hold pays and adds its override (raising empowered). Public for mechanism tests.
+func shape(s: FighterState, i: int, art: ArtDef) -> ArtDef:
+	var fired: ArtDef = art
+	if not art.steps.is_empty():
+		var nxt: int = s.step[i] + 1
+		if nxt <= art.steps.size() and EffectRunner.holds(self, s, art.steps[nxt - 1].conds, null):
+			var sd: ArtOverride.StepDef = art.steps[nxt - 1]
+			fired = sd.art
+			if not sd.pay.is_empty():
+				EffectRunner.run(self, s, sd.pay_effect, sd.pay, 1.0, {"art_id": str(art.id)})
+			s.step[i] = nxt if nxt < art.steps.size() else 0
+			if _log_enabled:
+				_row(FightLogRow.Kind.STEP, s.label, &"", art.id, [float(nxt)])
+			_event(s, "step_unlocked", {"art_id": str(art.id), "step": nxt})
+		else:
+			s.step[i] = 0
+	for em in art.empower:
+		if EffectRunner.holds(self, s, em.conds, null):
+			if not em.pay.is_empty():
+				EffectRunner.run(self, s, em.pay_effect, em.pay, 1.0, {"art_id": str(art.id)})
+			fired = em.ov.apply(fired)
+			if _log_enabled:
+				_row(FightLogRow.Kind.EMPOWER, s.label, &"", art.id, [])
+			_event(s, "empowered", {"art_id": str(art.id)})
+	return fired
 
 
 ## Pays [param art]'s cost for [param s] (Combat E, R12; Effects): Ice stacks and Heavy Breath raise it, cost

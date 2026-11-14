@@ -41,11 +41,10 @@ const BUILD_NOT_PORTED := [
 const ART_PORTED := [
 	"name", "c", "cost", "cd", "element", "dtype", "m_mult", "split", "charges", "heal", "qi_restore", "hp_cost",
 	"bypass", "tags", "pool", "convert", "buff", "debuff", "cleanse", "statuses", "soul_pct", "soul_part", "guards",
-	"group",
+	"group", "steps", "empower",
 ]
 const ART_NEUTRAL := []
 const ART_NOT_PORTED := [
-	"steps", "empower",
 ]
 
 ## Problems found by the last calls; empty when every profile loaded.
@@ -54,6 +53,8 @@ var _k: CombatConstants
 ## While loading one fighter: its Effect compiler and counters, so its arts' guards compile against them.
 var _compiler: EffectCompiler
 var _counters_for_arts: Dictionary = {}
+## Steps whose art is built once the base art is complete: [base ArtDef, StepDef, ArtOverride].
+var _pending_steps: Array = []
 
 
 ## [param k] supplies defaults that live in the constants (a companion's cooldown).
@@ -193,6 +194,62 @@ func _status(d: Dictionary, where: String) -> StatusSpec:
 	return spec
 
 
+func _cmp() -> EffectCompiler:
+	if _compiler == null:
+		_compiler = EffectCompiler.new(_k)
+	return _compiler
+
+
+func _pay(actions: Array, where: String) -> Array[EffectDef.ActionDef]:
+	var out: Array[EffectDef.ActionDef] = []
+	var e: EffectDef = _cmp().compile({"id": "pay", "on": "art_fired", "do": actions}, where, _counters_for_arts)
+	if e != null:
+		out = e.actions
+	return out
+
+
+## The pseudo Effect a step's or empower's pay runs as (the sim's {"id": name-step, "on": "art_fired"}).
+func _pseudo(id: String) -> EffectDef:
+	var e := EffectDef.new()
+	e.id = id
+	e.on = "art_fired"
+	return e
+
+
+## Compiles a step's or empower's override. Keys the sim's override() ignores are refused here, so authored
+## content never silently does nothing ([param skip] are its unlock/if and pay keys).
+func _override(spec: Dictionary, where: String, skip: Array) -> ArtOverride:
+	var ov := ArtOverride.new()
+	for key in spec:
+		var name: String = str(key)
+		if name in skip:
+			continue
+		if name == "c_mult":
+			ov.has_c_mult = true
+			ov.c_mult = float(spec[key])
+		elif name == "add_statuses":
+			for j in (spec[key] as Array).size():
+				var st: StatusSpec = _status(spec[key][j], "%s.add_statuses[%d]" % [where, j])
+				if st != null:
+					ov.add_statuses.append(st)
+		elif ArtOverride.FIELDS.has(name):
+			ov.keys.append(name)
+			if name == "statuses":
+				var sts: Array[StatusSpec] = []
+				for j in (spec[key] as Array).size():
+					var st2: StatusSpec = _status(spec[key][j], "%s.statuses[%d]" % [where, j])
+					if st2 != null:
+						sts.append(st2)
+				ov.values[name] = sts
+			else:
+				ov.values[name] = spec[key]
+			if name in ["dtype", "kind"] and not (str(spec[key]) in DTYPES):
+				errors.append("%s: dtype %s is not one of %s" % [where, str(spec[key]), str(DTYPES)])
+		else:
+			errors.append("%s: field %s is not run by either engine (the sim's override ignores it)" % [where, name])
+	return ov
+
+
 ## A ward shield from the sim's Shield record (size, body, standing, stops, pieces, floor).
 func _shield(d: Dictionary, where: String) -> WardShieldDef:
 	for key in d:
@@ -295,6 +352,25 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 		var spec: StatusSpec = _status(d.statuses[j], "%s.statuses[%d]" % [where, j])
 		if spec != null:
 			a.statuses.append(spec)
+	for j in (d.get("steps", []) as Array).size():
+		var sd := ArtOverride.StepDef.new()
+		var spec: Dictionary = d.steps[j]
+		var sw: String = "%s.steps[%d]" % [where, j]
+		sd.conds = _cmp().compile_conds(spec.get("unlock", []), sw, _counters_for_arts)
+		sd.pay = _pay(spec.get("pay", []), sw)
+		sd.pay_effect = _pseudo(str(d.get("name", "")) + "-step")
+		sd.art = null
+		_pending_steps.append([a, sd, _override(spec, sw, ["unlock", "pay"])])
+		a.steps.append(sd)
+	for j in (d.get("empower", []) as Array).size():
+		var ed := ArtOverride.EmpowerDef.new()
+		var espec: Dictionary = d.empower[j]
+		var ew: String = "%s.empower[%d]" % [where, j]
+		ed.conds = _cmp().compile_conds(espec.get("if", []), ew, _counters_for_arts)
+		ed.pay = _pay(espec.get("pay", []), ew)
+		ed.pay_effect = _pseudo(str(d.get("name", "")) + "-empower")
+		ed.ov = _override(espec, ew, ["if", "pay"])
+		a.empower.append(ed)
 	var conv: Dictionary = d.get("convert", {})
 	if float(conv.get("share", 0.0)) != 0.0:
 		a.convert_to = StringName(str(conv.get("to", "")))
@@ -305,6 +381,11 @@ func _art(d: Dictionary, where: String) -> ArtDef:
 		a.tags.append(StringName(str(t)))
 		a.tags_s.append(str(t))
 	a.ctx = {"dtype": str(a.dtype), "element": str(a.element), "tags": a.tags_s, "kind": "art", "art_id": str(a.id)}
+	# a step's art is the base art with the step applied (the base art is complete only now)
+	for pend in _pending_steps:
+		if pend[0] == a:
+			pend[1].art = (pend[2] as ArtOverride).apply(a)
+	_pending_steps = _pending_steps.filter(func(x): return x[0] != a)
 	if not (str(a.dtype) in DTYPES):
 		errors.append("%s: dtype %s is not one of %s" % [where, str(a.dtype), str(DTYPES)])
 	if not (str(a.element) in ELEMENTS):

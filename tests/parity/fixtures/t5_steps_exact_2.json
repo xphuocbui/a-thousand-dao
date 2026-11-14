@@ -1,0 +1,633 @@
+{
+  "name": "t5_steps_exact_2",
+  "slice": 5,
+  "chance_free": true,
+  "seed": 48,
+  "doc": "Slice 5 (multi-step arts and empowers), chance-free, with real design arts (design/arts family files, converted as fight.py does): marrow-tithe-strike, last-breath-fist, bulwark-knuckle against scorch-fist, hollowing-strike, fraying-thread.",
+  "a": {
+    "name": "steps-2",
+    "crit": 0.0,
+    "evade": 0.0,
+    "arts": [
+      {
+        "name": "marrow-tithe-strike",
+        "c": 1.4,
+        "cost": 0.06,
+        "cd": 8,
+        "element": "",
+        "dtype": "phys",
+        "tags": [
+          "fist",
+          "body",
+          "tithe"
+        ],
+        "group": "unbroken-flesh-canon",
+        "hp_cost": 0.08,
+        "qi_restore": 0.15,
+        "steps": [
+          {
+            "unlock": [
+              {
+                "any": [
+                  {
+                    "read": "own.counter.debt",
+                    "op": ">=",
+                    "value": 4
+                  },
+                  {
+                    "read": "own.hp_share",
+                    "op": "<=",
+                    "value": 0.5
+                  }
+                ]
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "debt",
+                  "add": -4
+                }
+              }
+            ],
+            "c_mult": 4.0,
+            "qi_restore": 0.3
+          },
+          {
+            "unlock": [
+              {
+                "read": "own.counter.debt",
+                "op": ">=",
+                "value": 6
+              },
+              {
+                "any": [
+                  {
+                    "read": "own.hp_share",
+                    "op": "<=",
+                    "value": 0.3
+                  },
+                  {
+                    "read": "own.fired_within.2.group.unbroken-flesh-canon",
+                    "op": ">=",
+                    "value": 3
+                  }
+                ]
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "debt",
+                  "add": -6
+                }
+              }
+            ],
+            "c_mult": 11.0,
+            "qi_restore": 0.5
+          }
+        ]
+      },
+      {
+        "name": "last-breath-fist",
+        "c": 2.8,
+        "cost": 0.1,
+        "cd": 5,
+        "element": "",
+        "dtype": "phys",
+        "tags": [
+          "fist",
+          "heavy",
+          "breath"
+        ],
+        "group": "unbroken-flesh-canon",
+        "steps": [
+          {
+            "unlock": [
+              {
+                "any": [
+                  {
+                    "read": "own.hp_share",
+                    "op": "<=",
+                    "value": 0.5
+                  },
+                  {
+                    "read": "own.counter.debt",
+                    "op": ">=",
+                    "value": 3
+                  }
+                ]
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "debt",
+                  "add": -3
+                }
+              }
+            ],
+            "c_mult": 3.0
+          },
+          {
+            "unlock": [
+              {
+                "read": "own.counter.debt",
+                "op": ">=",
+                "value": 5
+              },
+              {
+                "any": [
+                  {
+                    "read": "own.hp_share",
+                    "op": "<=",
+                    "value": 0.25
+                  },
+                  {
+                    "read": "own.fired_within.2.group.unbroken-flesh-canon",
+                    "op": ">=",
+                    "value": 3
+                  }
+                ]
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "debt",
+                  "add": -5
+                }
+              }
+            ],
+            "c_mult": 6.0,
+            "add_statuses": [
+              {
+                "id": "exposed",
+                "stacks": 1,
+                "dur": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "bulwark-knuckle",
+        "c": 1.4,
+        "cost": 0.08,
+        "cd": 6,
+        "element": "",
+        "dtype": "phys",
+        "tags": [
+          "fist",
+          "body",
+          "bulwark"
+        ],
+        "group": "unbroken-flesh-canon",
+        "steps": [
+          {
+            "unlock": [
+              {
+                "any": [
+                  {
+                    "read": "own.body_shield_share",
+                    "op": ">=",
+                    "value": 0.2
+                  },
+                  {
+                    "read": "own.counter.ram",
+                    "op": ">=",
+                    "value": 3
+                  }
+                ]
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "ram",
+                  "add": -3
+                }
+              }
+            ],
+            "c_mult": 3.5
+          },
+          {
+            "unlock": [
+              {
+                "read": "own.body_shield_share",
+                "op": ">=",
+                "value": 0.3
+              },
+              {
+                "any": [
+                  {
+                    "read": "own.state.mountain-root",
+                    "op": "==",
+                    "value": 1
+                  },
+                  {
+                    "read": "own.counter.ram",
+                    "op": ">=",
+                    "value": 5
+                  },
+                  {
+                    "read": "own.fired_within.2.group.unbroken-flesh-canon",
+                    "op": ">=",
+                    "value": 3
+                  }
+                ]
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "ram",
+                  "add": -5
+                }
+              }
+            ],
+            "c_mult": 10.0,
+            "dtype": "force"
+          }
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "tithe-ledger",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "tithe"
+          ]
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "debt",
+              "add": 2
+            }
+          },
+          {
+            "mod": {
+              "cost_red": 0.4,
+              "for": 5
+            }
+          },
+          {
+            "shield": {
+              "body": 0.04
+            }
+          }
+        ]
+      },
+      {
+        "id": "tithe-wound",
+        "on": "was_hit",
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "debt",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "tithe-feast",
+        "on": "always",
+        "scale": {
+          "read": "own.hp_missing_share",
+          "per": 0.1
+        },
+        "do": [
+          {
+            "mod": {
+              "regen": 0.2
+            }
+          }
+        ]
+      },
+      {
+        "id": "breath-hunger",
+        "on": "always",
+        "scale": {
+          "read": "own.hp_missing_share",
+          "per": 0.1
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.07,
+              "tags": [
+                "breath"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "bulwark-raise",
+        "on": "art_fired",
+        "filter": {
+          "tags": [
+            "bulwark"
+          ]
+        },
+        "do": [
+          {
+            "shield": {
+              "body": 0.12
+            }
+          }
+        ]
+      },
+      {
+        "id": "bulwark-weight",
+        "on": "always",
+        "scale": {
+          "read": "own.body_shield_share",
+          "per": 0.04
+        },
+        "do": [
+          {
+            "mod": {
+              "dmg_more": 0.06,
+              "tags": [
+                "bulwark"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "bulwark-ram",
+        "on": "was_hit",
+        "if": [
+          {
+            "read": "own.body_shield_share",
+            "op": ">",
+            "value": 0
+          }
+        ],
+        "limit": {
+          "per_pulse": 2
+        },
+        "do": [
+          {
+            "counter": {
+              "id": "ram",
+              "add": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "bulwark-burst",
+        "on": "shield_broken",
+        "limit": {
+          "per_pulse": 1
+        },
+        "do": [
+          {
+            "free_hit": {
+              "c": 1.5,
+              "dtype": "force"
+            }
+          },
+          {
+            "counter": {
+              "id": "ram",
+              "add": 2
+            }
+          }
+        ]
+      }
+    ],
+    "realm": 1,
+    "counters": [
+      {
+        "id": "debt"
+      },
+      {
+        "id": "ram"
+      }
+    ]
+  },
+  "b": {
+    "name": "empower-2",
+    "crit": 0.0,
+    "evade": 0.0,
+    "arts": [
+      {
+        "name": "scorch-fist",
+        "c": 1.88,
+        "cost": 0.06,
+        "cd": 3,
+        "element": "fire",
+        "dtype": "phys",
+        "tags": [
+          "fire",
+          "fist"
+        ],
+        "convert": {
+          "to": "fire",
+          "share": 0.75
+        },
+        "debuff": [
+          2,
+          5
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "foe.debuff.fire",
+                "op": ">=",
+                "value": 8
+              }
+            ],
+            "convert": {
+              "to": "fire",
+              "share": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "name": "hollowing-strike",
+        "c": 1.5,
+        "cost": 0.1,
+        "cd": 5,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "force",
+          "fist",
+          "heavy"
+        ],
+        "group": "hollow-tide-scripture",
+        "statuses": [
+          {
+            "id": "qi_disruption",
+            "stacks": 1,
+            "dur": 3
+          }
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "foe.qi_share",
+                "op": "<=",
+                "value": 0.4
+              },
+              {
+                "read": "own.counter.drink",
+                "op": ">=",
+                "value": 3
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "drink",
+                  "add": -3
+                }
+              }
+            ],
+            "c_mult": 2.8,
+            "qi_restore": 0.1
+          },
+          {
+            "if": [
+              {
+                "read": "foe.status.qi_disruption",
+                "op": ">=",
+                "value": 1
+              }
+            ],
+            "c_mult": 1.8
+          }
+        ]
+      },
+      {
+        "name": "fraying-thread",
+        "c": 0.25,
+        "cost": 0.08,
+        "cd": 3,
+        "element": "",
+        "dtype": "elem",
+        "tags": [
+          "chaos",
+          "thread",
+          "curse"
+        ],
+        "group": "ruin-ledger-scripture",
+        "statuses": [
+          {
+            "id": "sundered",
+            "stacks": 1,
+            "dur": 2
+          }
+        ],
+        "empower": [
+          {
+            "if": [
+              {
+                "read": "own.counter.fray",
+                "op": ">=",
+                "value": 6
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "fray",
+                  "add": -6
+                }
+              }
+            ],
+            "c_mult": 1.7
+          },
+          {
+            "if": [
+              {
+                "read": "own.counter.fray",
+                "op": "<",
+                "value": 6
+              },
+              {
+                "read": "foe.distinct_statuses",
+                "op": ">=",
+                "value": 3
+              }
+            ],
+            "c_mult": 1.1
+          },
+          {
+            "if": [
+              {
+                "read": "own.counter.fray",
+                "op": "<",
+                "value": 6
+              },
+              {
+                "read": "foe.distinct_statuses",
+                "op": "<",
+                "value": 3
+              },
+              {
+                "read": "own.counter.fray",
+                "op": ">=",
+                "value": 3
+              },
+              {
+                "read": "own.fired_within.1.group.ruin-ledger-scripture",
+                "op": ">=",
+                "value": 2
+              }
+            ],
+            "pay": [
+              {
+                "counter": {
+                  "id": "fray",
+                  "add": -3
+                }
+              }
+            ],
+            "c_mult": 2.0
+          }
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "id": "fray-grow",
+        "on": "status_applied",
+        "do": [
+          {
+            "counter": {
+              "id": "fray",
+              "add": 1
+            }
+          }
+        ]
+      }
+    ],
+    "realm": 1,
+    "counters": [
+      {
+        "id": "drink",
+        "each_for": 10
+      },
+      {
+        "id": "fray",
+        "each_for": 12
+      }
+    ]
+  }
+}

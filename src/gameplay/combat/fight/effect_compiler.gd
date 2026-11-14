@@ -11,8 +11,8 @@ extends RefCounted
 ## if not c.errors.is_empty(): push_error("\n".join(c.errors))
 ## [/codeblock]
 
-## Events nothing raises before a later slice (multi-step arts and empowers, slice 5).
-const EVENTS_LATER := ["step_unlocked", "empowered"]
+## Events nothing raises yet (none since slice 5).
+const EVENTS_LATER := []
 const OPS := ["<=", ">=", "<", ">", "=="]
 ## Readables with no parameter, on a side.
 const SIDE_READS := ["hp_share", "hp_missing_share", "qi_share", "qi_missing_share", "distinct_statuses", "fired",

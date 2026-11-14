@@ -1,0 +1,905 @@
+{
+ "fixture": "t5_chancy",
+ "slice": 5,
+ "chance_free": false,
+ "seeds": 1000,
+ "ref_seeds": 10000,
+ "generated_by": "tools/design/combat_sim/parity_export.py (order=random)",
+ "a": {
+  "name": "steps-1",
+  "realm": 1,
+  "M": 3.273,
+  "layers": null,
+  "crit": 0.2,
+  "crit_mult": 1.7,
+  "evade": 0.1,
+  "acc": 0.0,
+  "n_body": 1.0883,
+  "n_qi": 1.053,
+  "ward_pts": 448.0,
+  "drain": 0.959,
+  "block": 15.0,
+  "regen_bonus": 0.0,
+  "hregen": 0.0,
+  "cost_red": 0.0,
+  "gain_on_hit": 0.0,
+  "leech_qi": 0.0,
+  "leech_hp": 0.0,
+  "hp_pay": 0.0,
+  "healing": 0.0,
+  "cleanse_pulse": 0,
+  "cleanse_cost": 0.0,
+  "cleanse_share": 0.0,
+  "art_speed_pct": 0.0,
+  "basic_speed_pct": 0.0,
+  "opening_haste_pct": 0.0,
+  "basic_coef_add": 0.0,
+  "ward_layer": 1.0,
+  "body_pts": 0.0,
+  "body_block": 0.0,
+  "bs_mult": 1.0,
+  "body_shield": 0.0,
+  "resist": {},
+  "shields": [],
+  "arts": [
+   {
+    "name": "coiling-thrust",
+    "c": 1.3,
+    "cost": 0.08,
+    "cd": 3,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "spear",
+     "reach",
+     "coil"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "hunters-reach-canon",
+    "steps": [
+     {
+      "unlock": [
+       {
+        "any": [
+         {
+          "read": "own.counter.coil",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "read": "foe.status.slowed_time",
+          "op": ">=",
+          "value": 3
+         },
+         {
+          "read": "own.fired_within.1.group.hunters-reach-canon",
+          "op": ">=",
+          "value": 2
+         }
+        ]
+       }
+      ],
+      "pay": [
+       {
+        "counter": {
+         "id": "coil",
+         "add": -4
+        }
+       }
+      ],
+      "c_mult": 1.6
+     },
+     {
+      "unlock": [
+       {
+        "read": "own.counter.coil",
+        "op": ">=",
+        "value": 6
+       },
+       {
+        "any": [
+         {
+          "read": "foe.status.slowed_time",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "read": "own.since.nocked-arrow",
+          "op": "<=",
+          "value": 3
+         }
+        ]
+       }
+      ],
+      "pay": [
+       {
+        "counter": {
+         "id": "coil",
+         "add": -6
+        }
+       }
+      ],
+      "c_mult": 3.5,
+      "split": [
+       0.2,
+       0.2,
+       0.2,
+       0.2,
+       0.2
+      ],
+      "add_statuses": [
+       {
+        "id": "exposed",
+        "stacks": 1,
+        "dur": 3
+       }
+      ]
+     }
+    ],
+    "empower": []
+   },
+   {
+    "name": "nocked-arrow",
+    "c": 1.3,
+    "cost": 0.06,
+    "cd": 3,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "bow",
+     "held",
+     "reach"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "hunters-reach-canon",
+    "steps": [
+     {
+      "unlock": [
+       {
+        "any": [
+         {
+          "read": "foe.status.slowed_time",
+          "op": ">=",
+          "value": 2
+         },
+         {
+          "read": "own.counter.coil",
+          "op": ">=",
+          "value": 3
+         },
+         {
+          "read": "own.fired_within.1.group.hunters-reach-canon",
+          "op": ">=",
+          "value": 2
+         }
+        ]
+       }
+      ],
+      "c_mult": 1.8
+     },
+     {
+      "unlock": [
+       {
+        "read": "own.counter.coil",
+        "op": ">=",
+        "value": 4
+       },
+       {
+        "any": [
+         {
+          "read": "own.since.nocked-arrow",
+          "op": ">=",
+          "value": 7
+         },
+         {
+          "read": "foe.hp_share",
+          "op": "<=",
+          "value": 0.35
+         },
+         {
+          "read": "foe.status.slowed_time",
+          "op": ">=",
+          "value": 4
+         }
+        ]
+       }
+      ],
+      "c_mult": 3.0,
+      "split": [
+       0.25,
+       0.25,
+       0.25,
+       0.25
+      ]
+     }
+    ],
+    "empower": []
+   },
+   {
+    "name": "phantom-sword",
+    "c": 1.2,
+    "cost": 0.08,
+    "cd": 3,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "sword",
+     "echo",
+     "afterimage"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "afterimage-sword-canon",
+    "steps": [
+     {
+      "unlock": [
+       {
+        "any": [
+         {
+          "read": "own.counter.afterimage",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "read": "own.state.flurry",
+          "op": ">=",
+          "value": 1
+         },
+         {
+          "read": "foe.status.bleed",
+          "op": ">=",
+          "value": 3
+         }
+        ]
+       }
+      ],
+      "c_mult": 1.3
+     },
+     {
+      "unlock": [
+       {
+        "read": "own.counter.afterimage",
+        "op": ">=",
+        "value": 7
+       },
+       {
+        "any": [
+         {
+          "read": "own.fired_within.1.group.afterimage-sword-canon",
+          "op": ">=",
+          "value": 3
+         },
+         {
+          "read": "own.hp_share",
+          "op": "<=",
+          "value": 0.4
+         },
+         {
+          "read": "own.state.flurry",
+          "op": ">=",
+          "value": 1
+         }
+        ]
+       }
+      ],
+      "pay": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": -6
+        }
+       }
+      ],
+      "c_mult": 2.8,
+      "split": [
+       0.34,
+       0.33,
+       0.33
+      ]
+     }
+    ],
+    "empower": []
+   }
+  ],
+  "purity": {},
+  "effects": [
+   {
+    "id": "coil-wind",
+    "on": "art_fired",
+    "filter": {
+     "tags": [
+      "reach"
+     ]
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "coil",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "nock-bank",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "nocked-arrow"
+    },
+    "held": {
+     "until": "art_fired",
+     "cap": 4
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.5,
+       "dtype": "phys"
+      }
+     },
+     {
+      "status": {
+       "id": "slowed_time",
+       "stacks": 1,
+       "dur": 3,
+       "side": "foe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "nock-crit-bank",
+    "on": "crit",
+    "held": {
+     "until": "art_fired",
+     "cap": 4
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.3,
+       "dtype": "phys"
+      }
+     }
+    ]
+   },
+   {
+    "id": "afterimage-hit",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "phantom-sword"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "afterimage",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "afterimage-crit",
+    "on": "crit",
+    "do": [
+     {
+      "counter": {
+       "id": "afterimage",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "afterimage-echo",
+    "on": "crit",
+    "limit": {
+     "cooldown": 1.5
+    },
+    "if": [
+     {
+      "read": "own.counter.afterimage",
+      "op": ">=",
+      "value": 3
+     }
+    ],
+    "do": [
+     {
+      "fire_art": {
+       "which": "last",
+       "share": 0.6
+      }
+     },
+     {
+      "counter": {
+       "id": "afterimage",
+       "add": -3
+      }
+     }
+    ]
+   }
+  ],
+  "counters": [
+   {
+    "id": "coil",
+    "decay_per_pulse": 0.1
+   },
+   {
+    "id": "afterimage",
+    "decay_per_pulse": 0.1
+   }
+  ],
+  "companions": [],
+  "divine_sense": 1.0,
+  "soul_res": 0.0,
+  "x_soul": 0.0,
+  "tam_ma": 0.0,
+  "timer_resist": 0.0,
+  "ward_bill_pct": 0.0,
+  "refusals": 1,
+  "boss": false,
+  "tags": [],
+  "states": [],
+  "reserved": 0.0,
+  "stack_eff": {},
+  "stack_dur": {},
+  "wards": []
+ },
+ "b": {
+  "name": "empower-1",
+  "realm": 1,
+  "M": 3.6,
+  "layers": null,
+  "crit": 0.2,
+  "crit_mult": 1.7,
+  "evade": 0.1,
+  "acc": 0.0,
+  "n_body": 1.0883,
+  "n_qi": 1.053,
+  "ward_pts": 448.0,
+  "drain": 0.959,
+  "block": 15.0,
+  "regen_bonus": 0.0,
+  "hregen": 0.0,
+  "cost_red": 0.0,
+  "gain_on_hit": 0.0,
+  "leech_qi": 0.0,
+  "leech_hp": 0.0,
+  "hp_pay": 0.0,
+  "healing": 0.0,
+  "cleanse_pulse": 0,
+  "cleanse_cost": 0.0,
+  "cleanse_share": 0.0,
+  "art_speed_pct": 0.0,
+  "basic_speed_pct": 0.0,
+  "opening_haste_pct": 0.0,
+  "basic_coef_add": 0.0,
+  "ward_layer": 1.0,
+  "body_pts": 0.0,
+  "body_block": 0.0,
+  "bs_mult": 1.0,
+  "body_shield": 0.0,
+  "resist": {},
+  "shields": [],
+  "arts": [
+   {
+    "name": "flying-sword",
+    "c": 1.5,
+    "cost": 0.12,
+    "cd": 8,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "sword",
+     "summon",
+     "heavy"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "afterimage-sword-canon",
+    "steps": [],
+    "empower": [
+     {
+      "if": [
+       {
+        "read": "own.counter.afterimage",
+        "op": ">=",
+        "value": 3
+       },
+       {
+        "any": [
+         {
+          "read": "own.fired_within.1.group.afterimage-sword-canon",
+          "op": ">=",
+          "value": 3
+         },
+         {
+          "read": "foe.status.bleed",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "read": "own.since.flying-sword",
+          "op": ">=",
+          "value": 10
+         }
+        ]
+       }
+      ],
+      "pay": [
+       {
+        "summon": {
+         "c": 0.3,
+         "dtype": "phys",
+         "cd": 1.5,
+         "for": 12
+        }
+       },
+       {
+        "summon": {
+         "c": 0.3,
+         "dtype": "phys",
+         "cd": 1.5,
+         "for": 12
+        }
+       }
+      ],
+      "c_mult": 2.8
+     }
+    ]
+   },
+   {
+    "name": "triple-draw",
+    "c": 1.4,
+    "cost": 0.06,
+    "cd": 6,
+    "element": "",
+    "dtype": "phys",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "saber",
+     "heavy",
+     "burst"
+    ],
+    "guards": [],
+    "statuses": [
+     {
+      "id": "bleed",
+      "stacks": 1
+     }
+    ],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 3,
+    "group": "afterimage-sword-canon",
+    "steps": [],
+    "empower": [
+     {
+      "if": [
+       {
+        "read": "own.counter.draw",
+        "op": ">=",
+        "value": 2
+       },
+       {
+        "any": [
+         {
+          "read": "foe.status.bleed",
+          "op": ">=",
+          "value": 2
+         },
+         {
+          "read": "own.fired_within.1.group.afterimage-sword-canon",
+          "op": ">=",
+          "value": 3
+         },
+         {
+          "read": "own.hp_share",
+          "op": "<=",
+          "value": 0.4
+         }
+        ]
+       }
+      ],
+      "c_mult": 1.9
+     }
+    ]
+   },
+   {
+    "name": "bastion-reprisal",
+    "c": 2.2,
+    "cost": 0.12,
+    "cd": 9,
+    "element": "earth",
+    "dtype": "elem",
+    "buff": [],
+    "debuff": [],
+    "heal": 0.0,
+    "qi_restore": 0.0,
+    "cleanse": 0,
+    "m_mult": 1.0,
+    "tags": [
+     "earth",
+     "ward",
+     "bulwark"
+    ],
+    "guards": [],
+    "statuses": [],
+    "split": [],
+    "soul_pct": 0.0,
+    "soul_part": 0.0,
+    "bypass": 0.0,
+    "pool": "qi",
+    "convert": {},
+    "hp_cost": 0.0,
+    "charges": 1,
+    "group": "mountain-heart-canon",
+    "steps": [],
+    "empower": [
+     {
+      "if": [
+       {
+        "any": [
+         {
+          "read": "own.body_shield_share",
+          "op": ">=",
+          "value": 0.1
+         },
+         {
+          "read": "own.state.mountain",
+          "op": ">=",
+          "value": 1
+         }
+        ]
+       }
+      ],
+      "c_mult": 3.0
+     },
+     {
+      "if": [
+       {
+        "read": "own.buff.earth",
+        "op": ">=",
+        "value": 8
+       }
+      ],
+      "pay": [
+       {
+        "consume": {
+         "el": "earth",
+         "side": "own",
+         "kind": "buff",
+         "n": 8
+        }
+       }
+      ],
+      "c_mult": 2.5
+     }
+    ]
+   }
+  ],
+  "purity": {},
+  "effects": [
+   {
+    "id": "flying-sword-call",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "flying-sword"
+    },
+    "do": [
+     {
+      "summon": {
+       "c": 0.3,
+       "dtype": "phys",
+       "cd": 1.5,
+       "for": 12
+      }
+     }
+    ]
+   },
+   {
+    "id": "flying-sword-trail",
+    "on": "hit_landed",
+    "filter": {
+     "kind": "companion"
+    },
+    "limit": {
+     "per_pulse": 3
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "afterimage",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "draw-count",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "triple-draw"
+    },
+    "do": [
+     {
+      "counter": {
+       "id": "draw",
+       "add": 1
+      }
+     }
+    ]
+   },
+   {
+    "id": "draw-snowball",
+    "on": "hit_landed",
+    "filter": {
+     "art_id": "triple-draw"
+    },
+    "scale": {
+     "read": "own.counter.draw",
+     "per": 1
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 0.15,
+       "dtype": "phys"
+      }
+     }
+    ]
+   },
+   {
+    "id": "bastion-raise",
+    "on": "art_fired",
+    "filter": {
+     "art_id": "bastion-reprisal"
+    },
+    "do": [
+     {
+      "shield": {
+       "body": 0.12
+      }
+     }
+    ]
+   },
+   {
+    "id": "bastion-burst",
+    "on": "shield_broken",
+    "limit": {
+     "per_pulse": 1
+    },
+    "do": [
+     {
+      "free_hit": {
+       "c": 2.5,
+       "dtype": "phys"
+      }
+     },
+     {
+      "stacks": {
+       "el": "earth",
+       "n": 6,
+       "for": 8,
+       "side": "foe"
+      }
+     },
+     {
+      "counter": {
+       "id": "strata",
+       "add": 2
+      }
+     }
+    ]
+   }
+  ],
+  "counters": [
+   {
+    "id": "afterimage",
+    "decay_per_pulse": 0.1
+   },
+   {
+    "id": "draw",
+    "each_for": 4
+   },
+   {
+    "id": "strata"
+   }
+  ],
+  "companions": [],
+  "divine_sense": 1.0,
+  "soul_res": 0.0,
+  "x_soul": 0.0,
+  "tam_ma": 0.0,
+  "timer_resist": 0.0,
+  "ward_bill_pct": 0.0,
+  "refusals": 1,
+  "boss": false,
+  "tags": [],
+  "states": [],
+  "reserved": 0.0,
+  "stack_eff": {},
+  "stack_dur": {},
+  "wards": []
+ },
+ "stats": {
+  "mean_t": 40.37447000000003,
+  "share": {
+   "A": 0.4168,
+   "B": 0.5717,
+   "draw": 0.0115,
+   "time": 0.0
+  }
+ },
+ "rows": [
+
+ ]
+}

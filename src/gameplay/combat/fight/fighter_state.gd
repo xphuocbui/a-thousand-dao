@@ -87,6 +87,8 @@ var qi: float
 var ready: PackedInt64Array = []
 var charges: PackedInt32Array = []
 var fired: PackedInt32Array = []
+## Per art: the step a multi-step art tries next (0 = its first form).
+var step: PackedInt32Array = []
 ## Next basic attack (ms) and next hit per companion (ms).
 var basic_ready: int = 0
 var comp_ready: PackedInt64Array = []
@@ -161,6 +163,7 @@ func _init(profile: FighterProfile, side_label: String, k: CombatConstants) -> v
 	ready.resize(n)
 	charges.resize(n)
 	fired.resize(n)
+	step.resize(n)
 	for i in n:
 		charges[i] = p.arts[i].charges
 	comp_ready.resize(p.companions.size())

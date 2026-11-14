@@ -90,7 +90,10 @@ static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -
 					last = int(row[0])
 			return (f.t - last) / 1000.0 if last >= 0 else 1e9
 		"step":
-			return 0.0   # multi-step arts arrive with their slice; until then every step index is 0, as in the sim
+			for i in x.p.arts.size():
+				if str(x.p.arts[i].id) == r.param:
+					return float(x.step[i])
+			return 0.0
 	return 0.0
 
 

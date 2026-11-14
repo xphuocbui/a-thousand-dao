@@ -770,6 +770,8 @@ class Fight:
                 if st.get("pay"):
                     self.do(s, {"id": a.name + "-step", "on": "art_fired"}, st["pay"], 1.0, {"art_id": a.name})
                 s.step[i] = nxt if nxt < len(a.steps) else 0
+                if self.plog is not None:
+                    self.plog.append(["step", self.t, s.label, a.name, nxt])
                 self.fire_event(s, "step_unlocked", {"art_id": a.name, "step": nxt})
             else:
                 s.step[i] = 0
@@ -780,6 +782,8 @@ class Fight:
                 if em.get("pay"):
                     self.do(s, {"id": a.name + "-empower", "on": "art_fired"}, em["pay"], 1.0, {"art_id": a.name})
                 fired = override(fired, em)
+                if self.plog is not None:
+                    self.plog.append(["empower", self.t, s.label, a.name])
                 self.fire_event(s, "empowered", {"art_id": a.name})
         return fired
 
