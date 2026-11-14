@@ -43,12 +43,13 @@ the LLM game master only reads traits to voice people.
      exception (rule 15).
    - **Calling** (nghề nghiệp): **1** per person, the person's lifestyle (strategist, steward, alchemist, swordsman...). It
      follows the person's chosen path and may change when the path does (rule 14).
-   - **Fate-given** (bẩm sinh; not *thiên định*, which is Character Stats' Fated birth mode): **0–2** per person, born with (heaven-favoured, ill-starred...). Rare, never lost.
+   - **Fate-given** (bẩm sinh; not *thiên định*, which is Character Stats' Fated birth mode): **0–2** per person, born with (heaven-favoured, ill-starred...). Rare, never lost. Fate-given traits come in opposed pairs too (Heaven-favoured / Ill-starred), and a person never holds both sides: the second draw (F4) removes the first trait and its opposite from the pool, as for personality.
    - **Gained** (hậu thiên): **0–2** per person, from events (scarred, embittered, humbled, renowned...). Added and lost in
      play (rules 11–13).
 3. **A person's traits** are a short list of trait ids on the person record in the World Database, plus, for each gained
    trait, the season it expires and, for a **targeted** gained trait (Lovestruck, a grudge), one person id as its target
-   (user decision 2026-11-14). At most 8 ids per person (3 + 1 + 2 + 2). Everything else, the
+   (user decision 2026-11-14). The **player** record also holds one int, `heart_demon_used` (F7's season counter, reset
+   each season, saved so a mid-season save keeps the cap). At most 8 ids per person (3 + 1 + 2 + 2). Everything else, the
    modifiers and the pulls, is derived from the catalogue when read.
 4. **Both NPCs and the player have traits** (user decision 2026-11-14). The record and the rules are the same.
 
@@ -97,11 +98,14 @@ the LLM game master only reads traits to voice people.
     traits. When both slots are full, a new one replaces the oldest held gained trait whose grade is at most its own;
     if there is none, the grant is refused and logged (F6).
 12. **Gained traits fade.** Each gained trait expires `fade_seasons` (a guess: 40) after it was gained. The expiry moves
-    forward whenever the trait's trigger happens again. At its expiry the trait is removed (Formulas F6). People change
+    forward whenever the trait's trigger happens again; the trigger is a **trigger id** carried by the catalogue trait
+    and raised by the Event Engine when an outcome matches it (a trait with no trigger id never refreshes). At its expiry the trait is removed (Formulas F6). People change
     slowly in both directions: a scarred warrior stops flinching after a long peace, and a renowned one is forgotten.
 13. **Deeds remove traits.** An event outcome may remove a named gained trait (an atonement, a reconciliation, a rite).
-    A gained trait that is opposed to a held **gained** trait replaces it outright; one opposed to a personality trait is
-    held beside it (Edge Cases). "Stronger" means the notable grade over the small.
+    A gained trait that is opposed to a held **gained** trait replaces it outright when its grade is **equal or higher**
+    (notable over small); a small trait opposed to a held notable one is refused and logged, like a full-slot grant
+    (rule 11). One opposed to a personality trait is held beside it (Edge Cases). Every replacement rule in this
+    document uses "grade at most its own" (rule 11); "stronger" in the States table means the same.
 14. **A calling follows the path.** A person who changes their path (a sect rank into a different duty, a new craft
     mastery, a new technique focus) may be offered a new calling by the event engine; the new one replaces the old.
 15. **One narrow change to personality.** A breakthrough that ends in a heart-demon crisis (Realms & Bottlenecks) may offer
@@ -140,6 +144,12 @@ the LLM game master only reads traits to voice people.
     event touched, so the
     season tick is proportional to events, not to the 5,000 cultivators.
 
+**Interim choice-tag vocabulary (provisional, 2026-11-14 review).** Every event choice carries one or more of:
+`aggressive`, `merciful`, `greedy`, `generous`, `deceitful`, `honest`, `loyal`, `disloyal`, `cautious`, `bold`, `vengeful`,
+`forgiving`, `devout`, `pragmatic`, `social`, `solitary`, `ambitious`, `humble`, `diligent`, `indulgent`. This list is handed
+to the Event Engine (#23), which owns the final vocabulary and may rename, add or remove tags; the trait-by-tag table in the
+catalogue follows it. Until then the tested set is FX-CAT's tags.
+
 ### States and Transitions
 
 Traits have no state machine of their own beyond the life of each trait on a person. Each kind follows one line:
@@ -149,7 +159,7 @@ Traits have no state machine of their own beyond the life of each trait on a per
 | Personality (3) | At creation (roll, inheritance, origin or authored) | Once per realm: a heart-demon crisis may swap one to its opposite (rule 15) | Never otherwise |
 | Calling (1) | At creation, from the path | When the path changes, an event may offer a new calling (rule 14) | Replaced only |
 | Fate-given (0–2) | At birth (rule 17) | Never | Never |
-| Gained (0–2) | An event outcome (rule 11) | Its expiry moves forward when its trigger repeats (rule 12) | Expires, removed by a deed, or replaced by a stronger or opposed one (rules 12–13) |
+| Gained (0–2) | An event outcome (rule 11) | Its expiry moves forward when its trigger repeats (rule 12) | Expires, removed by a deed, or replaced by a trait of equal or higher grade, including an opposed one (rules 11–13) |
 
 **A gained trait's life**
 
@@ -158,7 +168,7 @@ Traits have no state machine of their own beyond the life of each trait on a per
  none ──────────────────────────────────────────────▶ held (expires = now + fade_seasons)
   ▲                                                     │  trigger repeats: expires = now + fade_seasons
   │                                                     │
-  └──── expiry reached  /  a deed removes it  /  replaced by a stronger or opposed trait
+  └──── expiry reached  /  a deed removes it  /  replaced by an equal-or-higher-grade or opposed trait
 ```
 
 **Season tick order** (inside the Living World Tick, after events resolve):
@@ -182,8 +192,8 @@ Nothing else runs per season: opinion and choice weights are computed when read.
 | **NPC Builds** (#24) | in / out | In: archetype and path for the roll weights. Out: the trait list replaces today's `traits_per_person` flavour roll |
 | **World Generation & History** (#27) | in | Authored people's fixed traits; parents and masters for inheritance |
 | **Realms & Bottlenecks** (#8) | in | The heart-demon crisis that offers rule 15's swap |
-| **World Database** (#3) | in / out | Per person: ≤ 8 trait ids, ≤ 2 expiry seasons, ≤ 2 target ids |
-| **Save/Load** (#5) | out | Per person: ≤ 8 trait ids, ≤ 2 expiry seasons, ≤ 2 target ids |
+| **World Database** (#3) | in / out | Per person: ≤ 8 trait ids, ≤ 2 expiry seasons, ≤ 2 target ids; the player also `heart_demon_used` |
+| **Save/Load** (#5) | out | Per person: ≤ 8 trait ids, ≤ 2 expiry seasons, ≤ 2 target ids; the player also `heart_demon_used` |
 
 ### Provisional trait list (from the Sects seed, 2026-11-14)
 
@@ -305,7 +315,7 @@ The opinion formula is defined as:
 | target | int | ±50 | catalogue | A targeted gained trait toward its target (Lovestruck +50, grudge −50) |
 | standing | float | −100 – 100 | Sects F10 | The player's standing with the NPC's sect |
 | k_st | float | 0.25 | data file | Weight of standing |
-| hostile_threshold | int | −30 | Quests (read only) | The floor is −29: traits alone never make a stranger hostile |
+| hostile_threshold | int | −30 | Sects & Missions (`session_actions.json`, read only; Quests reads it too) | The floor is −29: traits alone never make a stranger hostile |
 | att0_max | int | 30 | data file | Ceiling at a first meeting |
 
 **Output Range:** op −100 to 100; att0 −29 to 30. After the first meeting the stored attitude moves as Quests says.
@@ -318,7 +328,8 @@ The trait_roll formula is defined as:
 
 Personality: `w_t = b_t · m_arch(t) · m_sect(t) · m_master(t)`; 3 draws, each removing t and opp(t) from the pool.
 Calling: 1 draw from `w_c` over the callings the path allows. Fate-given: P(0 / 1 / 2) = 0.90 / 0.09 / 0.01, then
-`w_f = b_f · g_f`. Key ("traits", person_id).
+`w_f = b_f · g_f`; the second draw removes the first trait and its opposite from the pool (a person never holds
+Heaven-favoured with Ill-starred). Key ("traits", person_id).
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -347,7 +358,7 @@ personality traits not held and not opposed, chosen uniformly. F4 fills the rest
 | m_master | float | 3 | data file | Lean toward a master known at creation |
 
 **Output Range:** 0–2 inherited traits (about 1 with two known parents).
-**Example:** a disciple shares about 0.60 of the master's 3 traits, against 0.24 at random (3 · 3/37; checked by
+**Example:** a disciple shares 0.60 of the master's traits on average (an expected count out of 3, not a 60 % fraction), against 0.24 at random (3 · 3/37; checked by
 `qa-lead` over 100,000 rolls). A master taken later passes on
 only a calling (rule 14).
 
@@ -355,7 +366,7 @@ only a calling (rule 14).
 
 The fade formula is defined as:
 
-`expires = s_last + F`; removed when `now ≥ expires`; a refresh sets `s_last = now`
+`expires` is the stored field (rule 3): set to `now + F` on a grant and on a refresh; removed when `now ≥ expires`
 Replacement: an opposed trait replaces outright; otherwise the new trait replaces the oldest held one whose grade is ≤ its
 own; if none, the grant is refused and logged. Steady state: `N_gained ≈ λ · F`.
 
@@ -363,7 +374,7 @@ own; if none, the grant is refused and logged. Steady state: `N_gained ≈ λ ·
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | F | int | 40 seasons | data file | `fade_seasons` |
-| s_last | int | season | World DB | Gained or last refreshed |
+| expires | int | season | World DB | Stored expiry season, reset to now + F by a grant or refresh |
 | λ | float | about 25 grants a season (unknown) | Event Engine | World grant rate |
 
 **Output Range:** about 1,000 gained traits held at once; 18 % of people hold one or more, 1.8 % hold two.
@@ -373,9 +384,11 @@ own; if none, the grant is refused and logged. Steady state: `N_gained ≈ λ ·
 
 The trait_conflict formula is defined as:
 
-`Δtâm_ma = min(tm_a · n_against, tm_cap − used_this_season)` per choice, the cap counted across all of a season's
-choices and applied before Character Stats' heart-demon resistance;
-in a sect context, `Δstanding = −st_a`; acting in character: `cost' = cost · (1 − r)^min(n_with, 2)`
+`Δtâm_ma = min(tm_a · n_against, tm_cap − heart_demon_used)` per choice, the cap counted across all of a season's
+choices (`heart_demon_used`, the player record's saved counter, adds the pre-resistance gain and resets each season) and
+applied before Character Stats' heart-demon resistance;
+when the choice carries a **sect id** (a sect-affecting choice, set by the Event Engine), `Δstanding = −st_a` with that sect;
+acting in character: `cost' = cost · (1 − r)^min(n_with, 2)`
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -384,7 +397,7 @@ in a sect context, `Δstanding = −st_a`; acting in character: `cost' = cost ·
 | tm_cap | float | 6 | data file | Cap a season, so heart demon cannot become a soft lock |
 | st_a | int | 3 | data file | Standing cost |
 | r | float | 0.10 | data file | Cost reduction in character |
-| n_against, n_with | int | 0–8 | calculated | Traits with aversion or affinity for the choice's tags |
+| n_against, n_with | int | 0–8 | calculated | Per held trait t, take its product `p_t = Π_{g ∈ tags(c)} m(t, g)` over the choice's tags: t counts **against** when `p_t < 1`, **with** when `p_t > 1`, and neither when `p_t = 1` (so a trait with an affinity and an aversion across one choice's tags nets out by product; `never` counts as against) |
 
 **Output Range:** heart demon +0 to +6 a season; costs down by at most 19 %. Acting in character never heals heart demon.
 **Example:** an Honest, Loyal player who breaks an oath gains 4 heart demon (3.8 with 5 % resistance). A Greedy player pays
@@ -394,14 +407,13 @@ in a sect context, `Δstanding = −st_a`; acting in character: `cost' = cost ·
 
 The swap formula is defined as:
 
-`P_swap = clamp(p_s · (100 − eff(dao_tam)) / 55, 0, p_max)`; the trait is chosen uniformly among those that may swap,
+`P_swap = max(0, p_s · (100 − eff(dao_tam)) / 55)` (the maximum is 0.545 at Dao heart 1, so no cap is needed); the trait is chosen uniformly among those that may swap,
 key ("swap", person_id, realm)
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | p_s | float | 0.30 | data file | Chance at Dao heart 45 |
-| p_max | float | 0.60 | data file | Cap |
 | eff(dao_tam) | float | 1–150 | Character Stats B | Effective Dao heart |
 
 **Output Range:** 0 to 0.54 in practice (0 at Dao heart 100 or more).
@@ -424,8 +436,8 @@ Cruel is held. Compassionate swaps to Callous or Cruel by a seeded pick (key ("s
 - **A gained trait is opposed to a personality trait** (Humbled on an Arrogant person). It is allowed: gained traits
   colour, they do not erase. Opinion counts the pair as opposed only between two people, never within one.
 - **A targeted gained trait's target dies.** The target id is cleared from the save and the target term drops to 0. A
-  Grudge stays until it expires, keeping its own tag weights (vengeful affinity 1.5 on every choice), so it reads as a
-  general bitterness. Lovestruck whose target dies is replaced by Grieving (a gained trait) at once.
+  Grudge stays until it expires, keeping its own tag weights (vengeful affinity 1.5 on choices tagged `vengeful`, as F2
+  multiplies over a choice's own tags only), so it reads as a general bitterness. Lovestruck whose target dies is replaced by Grieving (a gained trait) at once.
 - **The player is the target of an NPC's grudge.** The target term (−50) enters the NPC's opinion of the player; the stored
   attitude to the player is not changed by it, so Quests' attitude rules stay the only writer of that number.
 
@@ -448,7 +460,8 @@ Cruel is held. Compassionate swaps to Callous or Cruel by a seeded pick (key ("s
 
 **Migration and authored people**
 
-- **An old save holds the 12 built flavour ids.** They map as the migration table says; si_tinh is dropped (no target); a
+- **An old save holds the 12 built flavour ids.** The migration also retires `traits_per_person`
+  (`assets/data/world_generation.json`, read in `build_generator.gd`), which F4 replaces. They map as the migration table says; si_tinh is dropped (no target); a
   person with fewer than 3 personality traits after mapping is filled by F4 with its seeded key, and every migrated
   person rolls a calling and fate-given traits by F4 with the same key.
 - **An authored person's fixed traits break a rule** (two opposed, four personality). The world data load fails and names
@@ -467,14 +480,14 @@ Cruel is held. Compassionate swaps to Callous or Cruel by a seeded pick (key ("s
 
 | System | Hard / soft | Interface | Lists NPC Traits back? |
 |---|---|---|---|
-| Modifier System (#40) | Hard | Stat List keys, F and I operations, grades (small 1.2, notable 8), rounding grid | **No: add traits as a modifier source** |
-| Character Stats (#7) | Hard | Talents (fortune for F4, Dao heart for F8); the sheet that sums the rows; heart-demon gain (F7) | **No** |
+| Modifier System (#40) | Hard | Stat List keys, F and I operations, grades (small 1.2, notable 8), rounding grid | Yes (modifiers.md, added 2026-11-14) |
+| Character Stats (#7) | Hard | Talents (fortune for F4, Dao heart for F8); the sheet that sums the rows; heart-demon gain (F7) | Yes (character-stats.md, added 2026-11-14) |
 | World Database (#3) | Hard | Person records: trait ids, expiries, targets, parents, master | — (no GDD) |
 | NPC Builds (#24) | Hard | Archetype and path for the roll leans; replaces `traits_per_person` | — (no GDD) |
 | Time & Turn (#4) | Hard | The season clock for expiries | — (no GDD) |
 | Event Engine (#23) | Hard | Choice tags on every choice; outcomes that grant or remove gained traits | — (no GDD) |
 | World Generation & History (#27) | Soft | Authored people's traits, ties, parents and masters | — (no GDD) |
-| Realms & Bottlenecks (#8) | Soft | The heart-demon crisis that offers rule 15's swap | **No** |
+| Realms & Bottlenecks (#8) | Soft | The heart-demon crisis that offers rule 15's swap | Yes (canh-gioi.md, added 2026-11-14) |
 | Sects & Missions (#26) | Soft | Sect leans for the roll (F4); standing for att0 (F3); sect attitude (F3) | Yes (F15, rule 11) |
 
 **Downstream (they read this system)**
@@ -485,12 +498,12 @@ Cruel is held. Compassionate swaps to Callous or Cruel by a seeded pick (key ("s
 | Living World Tick (#28) | Hard | Trait season steps; choice weights for NPC actions | — (no GDD) |
 | Event Engine (#23) | Hard | Choice weights, trait-gated options, event-kind weights | — (no GDD) |
 | NPC Interaction & Dialogue (#30) | Soft | Opinion, att0, tone hints | — (no GDD) |
-| Quests (#31) | Soft | att0 at first meeting; gained traits from outcomes | **No: one line needed** |
+| Quests (#31) | Soft | att0 at first meeting; gained traits from outcomes | Yes (quests.md, added 2026-11-14) |
 | LLM Game Master (#29) | Soft | Names and descriptions; proposals validated | — (no GDD) |
 | Save/Load (#5) | Hard | ≤ 8 ids, ≤ 2 expiries and ≤ 2 targets per person | — (no GDD) |
 
-**One-way links to fix in Phase 5:** Modifier System, Character Stats, Realms & Bottlenecks and Quests do not mention
-NPC Traits yet.
+**Links:** Modifier System, Character Stats, Realms & Bottlenecks, Quests and Sects & Missions all list NPC Traits back.
+Every other row marked "no GDD" is fixed when that system is designed.
 
 ## Acceptance Criteria
 
@@ -502,7 +515,7 @@ step unless stated.
 
 **Fixtures**
 - **FX-D:** the Formulas defaults in `assets/data/traits.json` (s = o = 10, F 40, m_lo 0.1, m_hi 5, h 0.5, m_master 3,
-  p_any = p_second 0.10, tm_a 2, tm_cap 6, st_a 3, r 0.10, p_s 0.30, p_max 0.60, k_st 0.25, att0_max 30), with the Modifier
+  p_any = p_second 0.10, tm_a 2, tm_cap 6, st_a 3, r 0.10, p_s 0.30, k_st 0.25, att0_max 30), with the Modifier
   System prices `khi_huyet_pct` 0.6, `evade_pct` 1.5, `mission_income_pct` 0.7, `tam_ma_resist_pct` 1.5, `co_duyen_pct`
   0.3, `ngo_tinh` 5, `mi_luc` 1.0.
 - **FX-CAT:** the provisional list (37 personality traits in 18 sets, 6 callings) plus test gained traits Scarred (notable),
@@ -548,13 +561,15 @@ step unless stated.
   receives Tax +1, loyalty −1, war odds 0.8 (lowest of 0.8 / 1.2 / 0.9) and first track Military; **GIVEN** the leader
   also holds a gained trait with a Tax pull, **THEN** it is summed too. Every catalogue pull is one of Sects F15's kinds, or
   the lint fails.
-- **AC-NT-09** [Integration] Rule 9, never blocked. **GIVEN** every event template, each of the 43 single traits and 1,000
-  keyed random trait sets, **THEN** the player's selectable options with traits are a superset of those with no traits; no
+- **AC-NT-09** [Integration] Rule 9, never blocked. **GIVEN** every event template, each single trait in the loaded catalogue (FX-CAT: 37 personality, 6 callings and
+  the 6 test gained traits) and 1,000 keyed random trait sets, **THEN** the player's selectable options with traits are a superset of those with no traits; no
   option is disabled or hidden.
-- **AC-NT-10** [Logic] F7. **GIVEN** an Honest, Loyal player at 0 % resistance breaking an oath in a sect context, **THEN**
+- **AC-NT-10** [Logic] F7. **GIVEN** an Honest, Loyal player at 0 % resistance breaking an oath on a choice carrying a sect id, **THEN**
   heart demon +4 and standing −3 (3.8 at 5 % resistance); 3 traits against give +6 (5.7 at 5 %), 4 against +6; a second
   against-choice (2 traits) the same season after +4 adds only +2, and the cap resets next season. In-character costs: 100
-  → 90 with 1 trait, 81 with 2, 81 with 3; in character never lowers heart demon.
+  → 90 with 1 trait, 81 with 2, 81 with 3; in character never lowers heart demon. **GIVEN** a Wrathful person (aggressive
+  1.5, cautious 0.67) and a choice tagged aggressive and cautious (product 1.005), **THEN** the trait counts as neither
+  with nor against; a choice tagged only cautious counts it against.
 
 **Gaining and losing (F6, rules 11–15)**
 
@@ -565,8 +580,9 @@ step unless stated.
   **WHEN** a small trait arrives in season 130, **THEN** it replaces Renowned; **WHEN** a notable one arrives instead, **THEN**
   it replaces Scarred; **GIVEN** two notable traits held, **WHEN** a small one arrives, **THEN** it is refused and logged and
   the event's other outcomes apply.
-- **AC-NT-13** [Logic] Rule 13. **GIVEN** a gained trait opposed to a held gained trait, **THEN** it replaces it whatever
-  its age; **GIVEN** Humbled on an Arrogant person, **THEN** both are held, and the pair never counts in n_op within one
+- **AC-NT-13** [Logic] Rule 13. **GIVEN** a gained trait opposed to a held gained trait of equal or lower grade, **THEN**
+  it replaces it whatever its age; **GIVEN** a small trait opposed to a held notable one, **THEN** the grant is refused
+  and logged; **GIVEN** Humbled on an Arrogant person, **THEN** both are held, and the pair never counts in n_op within one
   person.
 - **AC-NT-14** [Logic] Rule 13, deeds. **WHEN** an outcome removes a held gained trait, **THEN** it is gone that season;
   removing one not held is a logged no-op; removing a personality or fate-given trait by event is refused.
@@ -638,7 +654,7 @@ step unless stated.
 **World statistics** [Integration] (bands are guesses)
 
 - **AC-NT-35** **GIVEN** FX-W5K, **THEN** people with ≥ 1 fate-given trait are 8.5–11.5 % and with 2 are 0.6–1.4 %; opposed
-  personality pairs held together are exactly 0; people with fewer than 3 personality traits ≤ 0.1 %; with uniform weights
+  personality pairs held together are exactly 0, and so are Heaven-favoured with Ill-starred; people with fewer than 3 personality traits ≤ 0.1 %; with uniform weights
   each personality trait is held by 7.0–9.3 %, and with default leans by 4–13 %; everyone holds exactly 1 calling.
 - **AC-NT-36** **GIVEN** FX-W5K after 200 seasons of FX-EV, **THEN** the gained-trait stock is 850–1,100 (λ · F = 1,000),
   people holding ≥ 1 are 15.5–20.5 %, and holding 2 are 1.0–2.8 %.
@@ -653,8 +669,8 @@ gained trait.
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
-| 1 | The full catalogue: stat rows and tag weights for all 37 personality traits and 6 callings, callings for ordinary archetypes (Alchemist, Formation master, Beast tamer, Wanderer), and the fate-given and gained lists | user, game-designer | AC-NT-04, AC-NT-35 |
-| 2 | The choice-tag vocabulary every event choice carries; owned with the Event Engine (#23), which has no GDD | game-designer | F2, AC-NT-09 |
+| 1 | The full catalogue: stat rows and tag weights for all 37 personality traits and 6 callings, callings for ordinary archetypes (Alchemist, Formation master, Beast tamer, Wanderer), and the fate-given and gained lists | user, game-designer | AC-NT-04, AC-NT-35 (content task; the design does not wait on it) |
+| 2 | The final choice-tag vocabulary; an interim list stands in Core Rules, and the Event Engine (#23), which has no GDD, owns the final one | game-designer | F2 beyond FX-CAT, AC-NT-09 |
 | 3 | The event budget's unit for granting a gained trait (Event Engine) | systems-designer | rule 11 |
 | 4 | Origin questions that set the player's 3 personality traits (Game UI and origins) | user | AC-NT-25 |
 | 5 | The world grant rate λ (about 25 a season) depends on event volume, unknown until the Event Engine is designed | systems-designer | AC-NT-36 |

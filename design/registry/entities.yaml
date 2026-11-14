@@ -1605,27 +1605,28 @@ formulas:
       - fate_p_any
       - g_f
     output_range: ["3 personality, 1 calling", "0-2 fate-given"]
-    expression: "w_t = b_t * m_arch * m_sect * m_master; 3 draws removing t and opp(t); fate-given P(0/1/2) = 0.90/0.09/0.01"
-    notes: "NPC Traits F4, F5. Key (traits, person_id); inheritance chance trait_inherit_chance per parent."
+    expression: "w_t = b_t * m_arch * m_sect * m_master; 3 draws removing t and opp(t); fate-given P(0/1/2) = 0.90/0.09/0.01, the second fate-given draw removing the first trait and its opposite"
+    notes: "NPC Traits F4, F5. Key (traits, person_id); inheritance chance trait_inherit_chance per parent. The GDD writes the fate-given count chances as p_any and p_second (constant fate_p_any = p_any)."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14 # was: no opposed rule on the second fate-given draw
   - name: trait_conflict
     status: active
     source: design/gdd/npc-traits.md
     referenced_by:
       - design/gdd/npc-traits.md
     variables:
-      - tm_against
+      - tm_a
       - tm_cap
       - st_a
       - r
       - n_against
       - n_with
+      - heart_demon_used
     output_range: ["heart demon +0..+6 a season", "cost -19 % at most"]
-    expression: "dTamMa = min(tm_a * n_against, tm_cap - used_this_season); cost' = cost * (1 - r)^min(n_with, 2)"
-    notes: "NPC Traits F7. The player is never blocked; in character never heals heart demon."
+    expression: "dTamMa = min(tm_a * n_against, tm_cap - heart_demon_used); dStanding = -st_a when the choice carries a sect id; cost' = cost * (1 - r)^min(n_with, 2); a trait counts against when its tag-weight product over the choice's tags is < 1, with when > 1"
+    notes: "NPC Traits F7. The player is never blocked; in character never heals heart demon. heart_demon_used is the player record's saved per-season counter (pre-resistance gain). Constant tm_against = tm_a."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14 # was: variable tm_against, counter used_this_season, n_against/n_with by tag count
   - name: trait_swap
     status: active
     source: design/gdd/npc-traits.md
@@ -1633,10 +1634,9 @@ formulas:
       - design/gdd/npc-traits.md
     variables:
       - p_s
-      - p_max
       - dao_tam
-    output_range: [0, 0.6]
-    expression: "P_swap = clamp(0.30 * (100 - eff(dao_tam)) / 55, 0, 0.60)"
+    output_range: [0, 0.545]
+    expression: "P_swap = max(0, 0.30 * (100 - eff(dao_tam)) / 55)"
     notes: "NPC Traits F8. Once per realm at a heart-demon crisis; player chooses."
     added: 2026-11-14
     revised: ""
@@ -4305,9 +4305,9 @@ constants:
       - design/gdd/npc-traits.md
     value: 0.1
     unit: chance
-    notes: "NPC Traits F4. Chance of one fate-given trait; a second at 0.10 of those. Guess."
+    notes: "NPC Traits F4. Chance of one fate-given trait; a second at 0.10 of those (the GDD's p_any and p_second, both 0.10). Guess."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14 # was: GDD symbol names not stated
   - name: trait_inherit_chance
     status: active
     source: design/gdd/npc-traits.md
@@ -4325,6 +4325,6 @@ constants:
       - design/gdd/npc-traits.md
     value: 2 per trait, cap 6 a season
     unit: heart demon
-    notes: "NPC Traits F7. Cap counted across a season, before resistance. Guess."
+    notes: "NPC Traits F7. The GDD's tm_a (2 per trait) and tm_cap (6 a season). Cap counted across a season through heart_demon_used, before resistance. Guess."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14 # was: GDD symbol names not stated
