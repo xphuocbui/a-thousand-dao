@@ -138,7 +138,7 @@ func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNu
 	var errors: Array = []
 	var req := FightRequest.new()
 	req.a = FighterCompiler.compile(c, _gd, _db, sheet, [], errors)
-	req.b = FighterCompiler.compile(enemy, _gd, _db, StatSheet.build(enemy, _gd, _db, null), [], errors)
+	req.b = FighterCompiler.compile(enemy, _gd, _db, _builds.sheet_of(enemy), [], errors)   # with its Kinh Mạch Đồ
 	if req.a == null or req.b == null:
 		return {"ran": false, "win": false, "line": "fight engine could not compile: %s" % "; ".join(errors)}
 	req.fight_seed = rng.randi()

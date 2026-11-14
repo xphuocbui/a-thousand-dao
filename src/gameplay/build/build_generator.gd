@@ -88,9 +88,14 @@ func refresh_power(person_id: String) -> float:
 	return p
 
 
+## The stat sheet of [param c] with its Kinh Mạch Đồ allocations (chiến lực and fights read the same sheet).
+func sheet_of(c: Character) -> StatSheet:
+	return StatSheet.build(c, _gd, _db, _tree)
+
+
 ## Chiến lực of a character under the shared rules.
 func power_of(c: Character) -> float:
-	var sheet := StatSheet.build(c, _gd, _db, _tree)
+	var sheet := sheet_of(c)
 	var power: float = CombatPower.compute(c, _gd, _db, sheet).total
 	# An NPC's capabilities act through their simplified npc_effect (Formulas G).
 	for id in c.capabilities:
