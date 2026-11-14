@@ -701,9 +701,10 @@ council pull (rule 19a) is separate.
 | war odds | F7 | Replaces `war_odds`; with several, the lowest applies |
 | weariness limit | F9 | Added to the limit 40; Compassionate accepts a truce 10 earlier; Callous adds half weariness from losses |
 | event weights | Event Engine (#23) | Raise or lower the chance of named event kinds (betrayal, spying, head-seat challenge, harsh raids) |
+| rebel odds | F8 | Replaces `rebel_odds` 1.0 for a vassal's head: Ambitious or Brave 0.8; Cautious or Content 1.3 (lowest applies, as for war odds) |
 
-The trait list itself (37 personality traits in 18 opposed sets and 6 callings) lives in
-`design/gdd/npc-traits.md`, the seed for NPC Traits (#42). Sects owns only the pull kinds above.
+The trait list itself (37 personality traits in 18 opposed sets, 14 callings, 10 fate-given and 16 gained traits) lives in
+`design/gdd/npc-traits-catalogue.md` (rules in `design/gdd/npc-traits.md`, NPC Traits #42). Sects owns only the pull kinds above.
 
 **Output Range:** dial pulls from one leader can sum to −3 – +3 on a dial (F6 clamps the target to 0–4). War odds run 0.8
 – 1.2, weariness limits 20 – 60, invest share 0.35 – 0.6.

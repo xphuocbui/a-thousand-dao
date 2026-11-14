@@ -1,6 +1,6 @@
 # NPC Traits — Catalogue
 
-> **Status**: In Design (started 2026-11-14; NPC Traits Open Question 1)
+> **Status**: Approved (design-review re-review lean 2026-11-14: 0 blocking, 7 recommended; see `design/gdd/reviews/npc-traits-catalogue-review-log.md`). Earlier: Needs Revision (first review 2026-11-14, both blockers resolved); In Design (started 2026-11-14; NPC Traits Open Question 1)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-14
 > **Rules**: `design/gdd/npc-traits.md` (approved 2026-11-14). This file is content only: it adds no rule, and where it
@@ -10,7 +10,7 @@
 
 Every trait in the game: 37 personality traits in 18 opposed sets, 14 callings, 10 fate-given traits in 5 pairs and
 16 gained traits. Each entry gives its stat rows (F1), its choice-tag weights (F2), its regard pulls (F3), its roll
-weight (F4) and, for personality and callings, its sect pulls (Sects F15). `assets/data/traits.json` is built from this
+weight (F4) and, where it has them, its sect pulls (Sects F15: personality, callings and six gained traits). `assets/data/traits.json` is built from this
 file when the system is implemented. All numbers are **guesses** and are not price-checked until the game is finished.
 
 ## Conventions
@@ -70,12 +70,12 @@ Boon and cost are one row each at the small grade (rule 6). Sect pulls are the s
 
 | # | Trait | Boon | Cost | Choice tags | Regard | b_t | Sect pulls (F15) |
 |---|---|---|---|---|---|---|---|
-| 1 | Brave (dũng mãnh) | H +2.0 % | E −0.8 pp | bold 2.0 · aggressive 1.5 · cautious 0.5 | | | war odds 0.9; weariness +5 |
-| | Cautious (thận trọng) | E +0.8 pp | H −2.0 % | cautious 2.0 · bold 0.5 · aggressive 0.67 | | | war odds 1.2; weariness −10 |
+| 1 | Brave (dũng mãnh) | H +2.0 % | E −0.8 pp | bold 2.0 · aggressive 1.5 · cautious 0.5 | | | war odds 0.9; weariness +5; rebel odds 0.8 |
+| | Cautious (thận trọng) | E +0.8 pp | H −2.0 % | cautious 2.0 · bold 0.5 · aggressive 0.67 | | | war odds 1.2; weariness −10; rebel odds 1.3 |
 | 2 | Calm (trầm tĩnh) | Q −1.2 % | S −3.0 pp | aggressive 0.67 · vengeful 0.67 | | | attitude speed ×0.7 after hostile events |
 | | Wrathful (nóng nảy) | S +3.0 pp | Q +1.2 % | aggressive 1.5 · cautious 0.67 | | | attitude speed ×1.5 after hostile events; War readiness +1 |
-| 3 | Content (an phận) | T +0.8 % | C −0.5 % | humble 1.5 · ambitious 0.5 | | | Expansion −1 |
-| | Ambitious (dã tâm) | C +0.5 % | T −0.8 % | ambitious 2.0 · bold 1.5 · humble 0.67 | | | Expansion +1; head-seat challenge ×3 as an elder |
+| 3 | Content (an phận) | T +0.8 % | C −0.5 % | humble 1.5 · ambitious 0.5 | | | Expansion −1; rebel odds 1.3 |
+| | Ambitious (dã tâm) | C +0.5 % | T −0.8 % | ambitious 2.0 · bold 1.5 · humble 0.67 | | | Expansion +1; head-seat challenge ×3 as an elder; rebel odds 0.8 |
 | 4 | Diligent (cần mẫn) | M +1.7 % | Ht −2.4 % | diligent 2.0 · indulgent 0.5 | | | invest share 0.6 |
 | | Lazy (biếng nhác) | Ht +2.4 % | M −1.7 % | indulgent 1.5 · diligent 0.5 | | | invest share 0.35 |
 | 5 | Forgiving (khoan dung) | Ht +2.4 % | S −3.0 pp | forgiving 2.0 · merciful 1.5 · vengeful 0.5 | | | event fade 20 % |
@@ -199,7 +199,7 @@ and talent rows are allowed there (rule 7). Each pair follows one pattern:
 |---|---|---|---|---|---|---|
 | Fortune | Heaven-favoured (thiên quyến) | Fo +26.6 % | envy ×1.5 | bold 1.5 | | khi_van |
 | | Ill-starred (mệnh khắc) | Fo −26.6 % · T +5.3 % | | cautious 1.5 | | khi_van (inverse) |
-| Comprehension | Wise-born (tuệ căn) | Ng +1.60 | envy ×1.5; sought as a disciple ×2 | | | ngo_tinh |
+| Comprehension | Wise-born (tuệ căn) | Ng +1.60 | envy ×1.5; rival sects poach them as a disciple ×2 | | | ngo_tinh |
 | | Dull-witted (độn căn) | Ng −1.60 · Dt +2.66 | | humble 1.5 | | ngo_tinh (inverse) |
 | Root bone | Iron-boned (thiết cốt) | Cc +2.66 | duel challenges against them ×1.5 | bold 1.5 | | can_cot |
 | | Frail (thể nhược) | Cc −2.66 · Ng +1.60 | | cautious 1.5 | | can_cot (inverse) |
@@ -207,6 +207,8 @@ and talent rows are allowed there (rule 7). Each pair follows one pattern:
 | | Hollow-souled (hồn khuyết) | Th −2.66 · H +13.3 % | | | | than_hon (inverse) |
 | Dao heart | Pure-hearted (xích tử tâm) | Dt +2.66 | deceptions against them ×1.5 | honest 1.5 · deceitful 0.67 | | dao_tam |
 | | Demon-seeded (ma chủng) | C +3.6 % · T −5.3 % | | aggressive 1.5 · merciful 0.67 | bias_dir −10 from righteous-aligned people | dao_tam (inverse) |
+
+None of the ten is root-bound, so F4's root-bound clause is unused here. `g_f` reads each talent's value **before** trait rows, so Wise-born does not raise its own odds and Dull-witted does not lower them.
 
 Heaven-favoured and Ill-starred are the values AC-NT-03 already tests. Demon-seeded is the one flaw whose pair is
 cultivation speed against heart demon: it is the "fast but dangerous" birth, and righteous people sense it. Fate-given
@@ -265,6 +267,30 @@ Notes:
 
 - **The provisional list in npc-traits.md.** Done 2026-11-14: the GDD's section is now "Trait list", a pointer to this
   file plus the migration table, so the trait list lives in one place.
+
+- **Roll weights below 1.0** (Cruel 0.5, Arbitrary 0.7). Done 2026-11-14: F4's `b_t` range now reads 0.5–1.0.
+- **Rebel odds** (Brave, Ambitious ×0.8; Cautious, Content ×1.3), read by Sects `rebel_odds` (sects.md F8). Done
+  2026-11-14: F15 now lists rebel odds as a pull kind and points its trait list at this file.
+
+## Dependencies
+
+- `design/gdd/npc-traits.md`: the rules, F1–F4, rules 5–7 and the tag vocabulary.
+- `design/gdd/sects.md` F15: the pull kinds the sect-pull column must stay inside (rebel odds included).
+- `design/gdd/modifiers.md`: stat keys and prices. `companion_health_pct` is Designed, not Live.
+- Open owners with no GDD yet: Event Engine #23 (trigger ids, tags, world-price events), NPC Builds #24 (`m_arch`), World Generation #27 (`m_sect`), Talismans (Talisman maker's stat).
+
+## Validation (acceptance criteria for `traits.json`)
+
+Each is a Logic check run against the built `assets/data/traits.json`.
+
+- **AC-NTC-01** Every stat row equals `d · floor(B · 1.0 / (price · u) + 1e-6) · u` for its grade (1.2 or 8) and no row floors to 0.
+- **AC-NTC-02** Each of the 20 tags is the 2.0 of exactly one personality trait; no trait has more than three weights or more than one 2.0; the opposite of a tag's core trait holds it at 0.5 (Honest × `deceitful` is `never`).
+- **AC-NTC-03** Callings carry only 1.5 or 0.67 weights; each archetype's calling weights sum to 10; all 14 callings are reachable.
+- **AC-NTC-04** Every personality and calling trait has exactly one boon and one cost row at the small grade; no row uses `attack_pct`, crit or a combat offence key.
+- **AC-NTC-05** Every gained trait has a trigger id; every targeted trait is exactly Grudge, Lovestruck, Sworn sibling or Life-debt; each of the four opposed gained traits names its pair.
+- **AC-NTC-06** Every fate-given flaw nets about zero W (its notable cost equals its notable boon within one grid step); talent rows appear only on fate-given or gained traits at the notable grade.
+- **AC-NTC-07** Counts: 37 personality in 18 sets, 14 callings, 10 fate-given in 5 pairs, 16 gained.
+- **AC-NTC-08** Brave, Ambitious carry rebel odds 0.8 and Cautious, Content 1.3, matching sects.md F8.
 
 ## Open items
 

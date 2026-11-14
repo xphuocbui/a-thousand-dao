@@ -295,7 +295,7 @@ Heaven-favoured with Ill-starred). Key ("traits", person_id).
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| b_t, b_f | float | 1.0 | data file | Base weights |
+| b_t, b_f | float | b_f 1.0; b_t 0.5–1.0 (1.0 except Cruel 0.5, Arbitrary 0.7; catalogue) | data file | Base weights |
 | m_arch, m_sect | float | 0.5 / 1 / 2 | data file | Leans (a martial sect ×2 on Brave and Warlike) |
 | m_master | float | 3 on the master's traits | data file (F5) | Teaching |
 | p_any, p_second | float | 0.10; 0.10 | data file | Fate-given count |
