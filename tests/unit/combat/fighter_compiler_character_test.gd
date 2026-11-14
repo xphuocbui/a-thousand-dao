@@ -261,3 +261,22 @@ func test_rolled_pieces_give_their_bases_common_art_and_ward() -> void:
 	assert_false(bool(d.wards[1].own_slot), "the bell's ward takes an ordinary slot")
 	var p: FighterProfile = FighterCompiler.compile(c, gd, db, StatSheet.build(c, gd, db, null))
 	assert_eq(p.wards.size(), 2, "both wards reach the fighter")
+
+
+func test_own_damage_more_replaces_the_typical_l2_stand_in() -> void:
+	# L2 = max(typical 40, own unscoped damage_more): nothing counts twice
+	var gd := game_data()
+	var db := WorldDB.new()
+	var c := TestFixtures.character({"hoa": 50}, 50, 1)
+	var sheet := StatSheet.build(c, gd, db, null)
+	sheet.add_mod("test", "damage_more", 25.0)
+	var d: Dictionary = FighterCompiler.character_build_file(c, gd, db, sheet)
+	assert_near(float(d.layers[1]), 15.0, 1e-9, "the base keeps only what the own 25 does not cover")
+	var rec: Dictionary = BuildFileCompiler.new(gd).compile(d)
+	var p: FighterProfile = FighterProfileLoader.new(CombatConstants.from_game_data(gd)).from_sim_build(rec, "x")
+	var l2 := 0.0
+	for e in p.effects:
+		for a in e.actions:
+			if a.verb == "mod" and a.arg.has("L2"):
+				l2 += float(a.arg.L2)
+	assert_near(float(rec.layers[1]) + l2, 40.0, 1e-9, "15 + 25 = the typical 40, not 65")

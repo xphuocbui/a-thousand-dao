@@ -13,7 +13,8 @@ extends RefCounted
 ## - realm: the Character's realm (0-4).
 ## - layers and the main ward: the typical fighter's at that realm, until the Meridian Map gives a Character layers
 ##   of its own (the sheet's ward and stack lines then act on them, as on a build file), except L1, which is the
-##   Character's own attack_pct alone (Combat Formulas B; user decision 2026-11-14), and L3, the gear layer
+##   Character's own attack_pct alone (Combat Formulas B; user decision 2026-11-14), L2, which is the larger of the
+##   typical +40 and the Character's own unscoped damage_more, and L3, the gear layer
 ##   (Combat Formulas B): 100 x the worn artifacts' attack as built / (power_base x stage_mult), so no gear is L3 0.
 ## - defence from gear (Combat Defence & Healing A0, A2; combat_rules.json fighter_gear): ward strength and efficiency
 ##   start at the ward gear term (the sheet's defense_pct and ward_efficiency_pct lines add on top), ward layer W3 and
@@ -163,6 +164,18 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 			wards.append(w)
 	d["items"] = items
 	d["modifiers"] = lines
+	# L2 (art "more", Combat Formulas B): the typical +40 stands in for sources few Characters have yet (Way art
+	# nodes); the Character's own unscoped damage_more replaces that much of it, so L2 = max(typical, own) and nothing
+	# counts twice (2026-11-14, the L1 principle)
+	var own_l2 := 0.0
+	for ln in lines:
+		if str(ln.key) == "damage_more" and Array(ln.get("scope", [])).is_empty():
+			own_l2 += float(ln.value)
+	for named in items:
+		for mline in lib.items[named].get("modifiers", []):
+			if str(mline.key) == "damage_more" and Array(mline.get("scope", [])).is_empty():
+				own_l2 += float(mline.value)
+	d.layers[1] = maxf(0.0, float(d.layers[1]) - own_l2)
 	if not wards.is_empty():
 		d["wards"] = wards
 	if arts.is_empty():
