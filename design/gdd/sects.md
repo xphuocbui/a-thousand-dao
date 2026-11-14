@@ -502,7 +502,7 @@ The attitude formula is defined as:
 attitude always reaches its target, with no dead band)
 
 Lines: a **pact** forms when A ≥ 40 both ways. A **feud** starts when A ≤ −40 one way and ends when A ≥ −20. **War** is
-declared from a feud when War readiness ≥ 3 and S_self / S_other ≥ war_odds, where S_other includes the target's
+declared from a feud when War readiness ≥ 3 and S_self / S_other ≥ war_odds' (F18: war_odds lowered by Expansion above 2), where S_other includes the target's
 defence-pact partners. A **truce** lasts 8 seasons with A_tgt = 0.
 
 **Variables:**
@@ -766,7 +766,7 @@ earns contribution faster than a sect's stock refills). Each needs the 400-seaso
 
 **Money and development**
 
-- **The treasury would go below 0.** It never does. Cuts follow F3's order: investment, then upkeep (tracks lose levels
+- **The treasury would go below 0.** It never does. Cuts follow F3's order: investment, then the head's draw, then upkeep (tracks lose levels
   after 2 unpaid seasons), then stipends (members leave, and loyalty falls for vassals).
 - **A track falls below the level an existing work needs.** The work stays, but it cannot be raised, and it fades like an
   unpaid work if the sect stops paying its upkeep (Travel & Map rule 31).
@@ -826,7 +826,7 @@ earns contribution faster than a sect's stock refills). Each needs the 400-seaso
 | World Generation & History (#27) | Hard | The authored sects, vassals, leaders, starting levels, dials, attitudes and history | No (rework pending) | Index lists it |
 | World Database (#3) | Hard | Sect, person, site and war records | No | — |
 | Time & Turn (#4) | Hard | The season tick and seasons spent | No | — |
-| Character Stats and Realms (#8) | Hard | Members' and the player's realms for gates, stipends, pay and war strength | Yes | **No: add Sects to Realms' dependents** |
+| Character Stats and Realms (#8) | Hard | Members' and the player's realms for gates, stipends, pay and war strength | Yes | Yes (`canh-gioi.md` row 26) |
 | Living World Tick (#28) | Hard | Calls the sect season tick | No | — |
 | NPC Traits (#42) | Soft | Stance pulls, event weights and war odds per trait; a provisional table stands in until #42 exists | No | Index notes it |
 | Regional Economy & Trade (#43) | Soft (Hard once built) | Production value and prices; until it exists, Travel & Map Formula L's `value_lt` is used | No | Index lists Sects |
@@ -844,7 +844,7 @@ earns contribution faster than a sect's stock refills). Each needs the 400-seaso
 | Item Database | Soft | Sect rewards from named templates, through contribution | Yes |
 | Market (#20) | Soft | Sect stock, prices by standing | No GDD |
 | Guidance Layer (#35) | Soft | Sect states, offers and threats | No GDD |
-| Combat | Soft | Trials and mission fights use the combat engine as built; wars do not | **No: add a one-line note** |
+| Combat | Soft | Trials and mission fights use the combat engine as built; wars do not | Yes (`combat.md` Dependencies) |
 
 **One-way links to fix in Phase 5:** Realms (`canh-gioi.md`) and Combat (`combat.md`) do not mention Sects. Character
 Stats needs no change: Sects reads realm only.
@@ -892,7 +892,7 @@ seed, season, record id). Evidence goes to `tests/unit/sects/`, `tests/integrati
 - **AC-SM-08** F3. **GIVEN** FX-T1, **WHEN** the season runs, **THEN** Inc = 30,630, Cost = 13,506, R = 54,024,
   invest = 11,550 and Tr' = 65,574. **GIVEN** a treasury of 30,000 instead, **THEN** invest = 0 and Tr' = 47,124.
 - **AC-SM-09** Edge (never below 0; cut order). **GIVEN** a minor sect with treasury 0, income 500, tribute due 100,
-  stipends 430 and upkeep 200, **THEN** tribute 100 is paid, stipends get 400 of 430 (and 7 % of members leave), upkeep
+  stipends 430, upkeep 200 and no head's draw, **THEN** tribute 100 is paid, stipends get 400 of 430 (and 7 % of members leave), upkeep
   gets 0 and every track's unpaid count rises by 1, invest = 0 and Tr' = 0. Over 10,000 seeded random states, Tr' is
   never below 0.
 - **AC-SM-10** States. **THEN** a treasury below next season's stipends gives Strained; two fully paid seasons after

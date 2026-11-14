@@ -665,7 +665,7 @@ All of these work in the Debug Terminal first, with numbered menus as elsewhere.
 | This GDD | Refers to | Mechanic or value | Note |
 |---|---|---|---|
 | Rules 3, 4, 9; Formulas A | `assets/data/events_budgets.json` (Event Engine, no GDD) | Per-realm limits, `linh_thach_max`, `tu_vi_pct_max`, `tree_point_max`, `relationship_max` | Read only |
-| Formulas A, D | `assets/data/session_actions.json` (Sects & Missions, no GDD) | `sect_base_income`, `income_realm_scale`, `hostile_threshold` −30 | Read only |
+| Formulas A, D | `assets/data/session_actions.json` (Sects & Missions, `design/gdd/sects.md`) | `sect_base_income`, `income_realm_scale`, `hostile_threshold` −30 | Read only |
 | Rule 5, Formulas B | combat.md rule 1, Formulas K | The fight, F = Off × ehp | Read only |
 | Formulas B | thien-kiep.md Formulas C | r as the share of effective health a fight costs | The estimate is reused, not owned here |
 | Rule 11, Formulas D | kinh-mach-do.md; registry `stat_power_weights` | W prices, `w̄_target` 2.07 W | Read only |
