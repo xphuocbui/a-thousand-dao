@@ -16,6 +16,10 @@ a fight in `m()` (1.44 million mod look-ups in 300 fights, 885,000 of them for k
 A/B shows the timers' own overhead inflated the small, frequent calls. That profile is not to be trusted for
 ranking hot spots.
 
+A third attempt ran the season batch's certain pair fights (budget less the panel share) alongside its panel waves
+instead of after them. Release terminal, same commands with and without it: a 5-year closed-door 145 s against
+145 s, `cul 4` 102 s against 102 s. No gain, so it was reverted as well.
+
 ## 2. The limit is not shared data
 
 | Spike mode (`--rating-spike --fights=1000`) | 16 threads |
