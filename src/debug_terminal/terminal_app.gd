@@ -29,6 +29,7 @@ const HELP := [
 		["chronicle", "your life story so far"],
 		["rankings [realm|top]", "Power Rankings: a realm's ranking by rating, or the Vấn Đỉnh Bảng (when ratings are on)"],
 		["sect", "your sect, rank, standing and contribution; or the sect whose seat is here"],
+		["continent [region id | place <id>]", "the authored continent (read only: regions, sects, places, routes and trip times)"],
 		["join [sect id] | promote | leave [desert]", "join a sect at its seat; rise a rank (realm, contribution, standing); leave, or desert"],
 		["achievements", "thành tựu across lives (Thiên Định lives only; debug commands disqualify a life)"],
 	]],
@@ -200,6 +201,8 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 			io.out_lines(TerminalViews.field(s))
 		"recipes":
 			io.out_lines(TerminalViews.recipes(s))
+		"continent", "map11":
+			io.out_lines(TerminalViews.continent(s, args))
 		"sect", "tongmon":
 			_r(s.sect_status())
 		"join":

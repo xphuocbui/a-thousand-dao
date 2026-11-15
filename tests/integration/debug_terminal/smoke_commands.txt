@@ -62,6 +62,10 @@ sect
 join
 promote
 leave
+continent
+continent 4
+continent place 2
+continent place 9
 explore
 look
 news 5

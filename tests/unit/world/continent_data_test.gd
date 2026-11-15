@@ -58,3 +58,14 @@ func test_broken_references_are_named() -> void:
 	assert_true(Array(cd.errors).any(func(e): return e.contains("route 1-99999")), "the bad route: %s" % "; ".join(cd.errors))
 	assert_true(Array(cd.errors).any(func(e): return e.contains("holder nobody")), "the bad holder")
 	assert_false(ContinentData.from_dict({}).errors.is_empty(), "no data is an error")
+
+
+func test_trip_time_is_formula_d() -> void:
+	var travel: Dictionary = game_data().file("travel_rules")
+	# the GDD's example, its road part: 36 grassland road tiles (c_t 1) with travel_speed_pct +20
+	assert_near(ContinentData.trip_seasons({"kind": "road", "cost": 36.0}, travel, 20.0), 36.0 / 64.8, 1e-9, "0.556 seasons")
+	assert_near(ContinentData.trip_seasons({"kind": "lane", "cost": 90.0}, travel), 1.0, 1e-9, "90 sea tiles in a season")
+	assert_near(ContinentData.trip_seasons({"kind": "road", "cost": 54.0}, travel, -90.0), 4.0, 1e-9, "the floor: never below x0.25")
+	var cd := _cd()
+	for rt in cd.routes:
+		assert_true(float(rt.cost) >= float(rt.tiles) - 1e-6, "%d-%d: terrain never speeds a road (c_t >= 1)" % [rt.a, rt.b])

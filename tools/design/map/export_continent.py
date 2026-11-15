@@ -37,18 +37,46 @@ def load(path):
         return json.load(fh)
 
 
-def road_routes(roads, w, h, places):
+def road_tile_costs(m, travel, w, h):
+    """Travel & Map Formula D's road c_t per tile: 1 + r_share x (c_wild - 1), with c_wild the share-weighted biome
+    cost of the tile's land parts (lake and sea parts are walked around and left out of the weights)."""
+    legend = load(os.path.join(m, "base", "meta.json"))["legend"]["biome_ids"]
+    cost = travel["biome_cost"]
+    r_share = float(travel["road_terrain_share"])
+    ids = Image.open(os.path.join(m, "base", "mix_biome.png")).convert("RGB").load()
+    shares = Image.open(os.path.join(m, "base", "mix_share.png")).convert("RGB").load()
+    out = [1.0] * (w * h)
+    for y in range(h):
+        for x in range(w):
+            num = den = 0.0
+            for b, sh in zip(ids[x, y], shares[x, y]):
+                if b == 255 or sh == 0:
+                    continue
+                name = legend.get(str(b), "")
+                if name in cost:
+                    num += sh * float(cost[name])
+                    den += sh
+            c_wild = num / den if den > 0 else 1.0
+            out[y * w + x] = 1.0 + r_share * (c_wild - 1.0)
+    return out
+
+
+def road_routes(roads, w, h, places, ct=None):
     """Road links between neighbouring places: a Dijkstra over road tiles (8 neighbours; a diagonal step counts sqrt 2
     tiles) from every place at once gives each road tile to its nearest place, and two places are joined where their
     road areas meet, with length = distance to the meeting tiles from each side plus the step between them. A place
     whose tile is off the road starts from its nearest road tile within 4 tiles, that far along. A link is "trunk" when
-    both sides' paths to the meeting point run on trunk road. Returns {(a_id, b_id): (tiles, all_trunk)}, a_id < b_id."""
+    both sides' paths to the meeting point run on trunk road. With [ct] (road c_t per tile) the split and the lengths are
+    by travel cost (each step costs its length times the entered tile's c_t), and the tile length is tracked beside it.
+    Returns {(a_id, b_id): (tiles, all_trunk, cost)}, a_id < b_id."""
     def is_road(i):
         return roads[i] in (1, 2)
     best = {}
+    tl = {}
     owner = {}
     trunk = {}
     pq = []
+    step_c = (lambda j, d: d * ct[j]) if ct is not None else (lambda j, d: d)
     for p in places:
         x0, y0 = p["tile"]
         i0 = y0 * w + x0
@@ -64,6 +92,7 @@ def road_routes(roads, w, h, places):
         for c, i in seeds:
             if c < best.get(i, float("inf")):
                 best[i] = c
+                tl[i] = c
                 owner[i] = p["id"]
                 trunk[i] = roads[i] == 2
                 heapq.heappush(pq, (c, i))
@@ -78,9 +107,11 @@ def road_routes(roads, w, h, places):
                 j = ny * w + nx
                 if not is_road(j):
                     continue
-                nc = c + (math.sqrt(2.0) if ox and oy else 1.0)
+                d = math.sqrt(2.0) if ox and oy else 1.0
+                nc = c + step_c(j, d)
                 if nc < best.get(j, float("inf")):
                     best[j] = nc
+                    tl[j] = tl[i] + d
                     owner[j] = owner[i]
                     trunk[j] = trunk[i] and roads[j] == 2
                     heapq.heappush(pq, (nc, j))
@@ -94,11 +125,12 @@ def road_routes(roads, w, h, places):
                 b = owner.get(j)
                 if b is None or b == a:
                     continue
-                length = best[i] + best[j] + (math.sqrt(2.0) if ox and oy else 1.0)
+                d = math.sqrt(2.0) if ox and oy else 1.0
+                cost = best[i] + best[j] + step_c(j, d)
                 key = (min(a, b), max(a, b))
                 t = trunk[i] and trunk[j]
-                if key not in out or length < out[key][0]:
-                    out[key] = (length, t)
+                if key not in out or cost < out[key][2]:
+                    out[key] = (tl[i] + tl[j] + d, t, cost)
     return out
 
 
@@ -138,6 +170,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--map", default="design/map/continent-11")
     ap.add_argument("--out", default="assets/data/world_continent.json")
+    ap.add_argument("--travel", default="assets/data/travel_rules.json")
     a = ap.parse_args()
     m = a.map
     places_doc = load(os.path.join(m, "places.json"))
@@ -150,6 +183,8 @@ def main():
     img = Image.open(os.path.join(m, "roads.png"))
     w, h = img.size
     roads = list(img.getdata()) if not hasattr(img, "get_flattened_data") else list(img.get_flattened_data())
+    travel = load(a.travel)
+    ct = road_tile_costs(m, travel, w, h)
 
     great = politics["great_sects"]
     great_by_name = {g["name_hv"]: g for g in great}
@@ -212,9 +247,9 @@ def main():
                           "seat": seat["id"] if seat else None})
 
     routes = []
-    for (x, y), (tiles, trunk) in sorted(road_routes(roads, w, h, places).items()):
-        routes.append({"a": x, "b": y, "kind": "trunk" if trunk else "road", "tiles": round(tiles, 2),
-                       "km": round(tiles * km_per_tile, 1)})
+    for (x, y), (tiles, trunk, cost) in sorted(road_routes(roads, w, h, places, ct).items()):
+        routes.append({"a": x, "b": y, "kind": "trunk" if trunk else "road", "tiles": round(tiles, 3),
+                       "km": round(tiles * km_per_tile, 1), "cost": round(cost, 3)})
     missing_lanes = []
     for na, nb in places_doc.get("sea_lanes", []):
         pa, pb = by_name.get(na), by_name.get(nb)
@@ -226,7 +261,8 @@ def main():
             tl = math.dist(pa["tile"], pb["tile"])
             missing_lanes.append([na, nb])
         x, y = sorted((pa["id"], pb["id"]))
-        routes.append({"a": x, "b": y, "kind": "lane", "tiles": round(tl, 2), "km": round(tl * km_per_tile, 1)})
+        routes.append({"a": x, "b": y, "kind": "lane", "tiles": round(tl, 3), "km": round(tl * km_per_tile, 1),
+                       "cost": round(tl, 3)})   # Formula D: c_t = 1 at sea
 
     out = {
         "schema_version": 1,
@@ -236,8 +272,9 @@ def main():
                  "great_sects / minor_sects: key, names, tier or lord, leans, seat (place id). places: id, kind, tile "
                  "[x, y] on the 540 x 360 grid (25 km tiles), region, holder and territory (great sect keys), land "
                  "flags, names (holder: the great or minor sect key holding the place, "" for an unheld wild site); sacred places follow the 204 settled and wild ones. routes: a, b (place ids, a < b), "
-                 "kind road | trunk | lane, length in tiles and km (Travel & Map Formula D turns them into travel "
-                 "time). arrays: the teleport-array cities. origins: the origin home choices (approved)."),
+                 "kind road | trunk | lane, length in tiles and km, and cost: Travel & Map Formula D's sum of c_t "
+                 "along the route (road tiles 1 + r_share x (c_wild - 1) from the tile's biome mix, sea 1; "
+                 "ContinentData.trip_seasons divides it by the mode's speed). arrays: the teleport-array cities. origins: the origin home choices (approved)."),
         "source": m.replace("\\", "/"),
         "grid": [w, h],
         "km_per_tile": km_per_tile,

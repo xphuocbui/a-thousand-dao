@@ -1,0 +1,137 @@
+The authored continent in the debug terminal (read only), release build, --no-llm, 2026-11-15. Commands: 01-continent-view-commands.txt.
+----
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> new quick Kiem 4242
+Generating the world (seed 4242)...
+A new world: 3 regions, 16 places, 5 sects, 5061 people, 223 recorded events (Thiên Nguyên lịch năm 300).
+Kiem is born: Single root: Fire [Hỏa] 21
+Power Rankings: the player's panel (40 fights) and 528 coarse panels (3444 fights) rated at load.
+
+━━ Kiem — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+
+ ROOT [linh căn]  Single root — curve row 1, now x1.00 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁  21 Hạ       luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  48 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  48 Trung
+   Thần hồn  ▆▆▆▆▁▁▁▁▁▁  42 Trung        Khí vận   ▆▆▆▆▆▆▆▁▁▁  74 Thượng  +15
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▆▆▁▁▁  74 Thượng
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 42 · Khí huyết 480/480
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Chu Tước Tâm Pháp (layer 1/6)
+            tu vi 4.1 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  123 = offense 63 + defense 60 · extra slots 0/2 ('explain power')
+ KINH MẠCH  1 huyệt open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Thiên Đố Kỳ Duyên — Heaven's favour: more khí vận, and cơ duyên come twice as often.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Cổ Mộc Thành (l2) — Thành, Huyền Băng Nguyên. Linh khí 0.90, danger 1, market, bounties
+  Your động phủ is here.
+People here (296):
+  p69    Mạc Hiên             Trúc Cơ Trung kỳ       Đan sư | power 952 | attitude 0
+  p70    Giang Quân           Trúc Cơ Đại viên mãn   Thể tu | power 1,870 | attitude 0
+  p71    Bạch Nguyệt          Trúc Cơ Trung kỳ       Linh thực sư | power 952 | attitude 0
+  p89    Lạc Tuyết            Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p104   Phương Khinh Vũ      Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p141   Mạc Thiếu Bạch       Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p166   Cung Thanh Ca        Luyện Khí Trung kỳ     Tán tu | power 51 | attitude 0
+  p167   Chu Bất Phàm         Luyện Khí Hậu kỳ       Tán tu | power 54 | attitude 0
+  p168   Cố Dao               Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p177   Giang Linh           Luyện Khí Sơ kỳ        Thể tu | power 51 | attitude 0
+  p184   Bạch Vân             Trúc Cơ Sơ kỳ          Trận sư | power 1,040 | attitude 0
+  p196   Doãn Tâm             Trúc Cơ Sơ kỳ          Thể tu | power 952 | attitude 0
+  p230   Thượng Quan Tịch     Luyện Khí Hậu kỳ       Tán tu | power 51 | attitude 0
+  p259   Bạch Dao             Luyện Khí Sơ kỳ        Trận sư | power 51 | attitude 0
+  p278   Lạc Linh             Luyện Khí Trung kỳ     Tán tu | power 51 | attitude 0
+  ... 'db people l2' lists all
+Roads:
+  -> l1    Tử Trúc Thành (1 season)
+  -> l3    Hắc Phong Cốc (1 season)
+  -> l4    Thanh Dương Cốc (1 season)
+
+━━ Kiem · Thiên Nguyên lịch năm 300, Xuân · Cổ Mộc Thành ━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +4.1/season, next level in 2.5 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 21 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Cổ Mộc Thành                 7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Market                              15 Talk to someone… (296 here)
+ 16 Character sheet                     17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> continent
+The continent (authored; not yet the world you play in): 20 regions, 7 great and 22 minor sects, 212 places, 196 routes.
+  Lạc Hà Tông    tier 1  seat Lạc Hà Tông            regions 10, 11, 12, 13  vassals 4
+  Thiên Xu Tông  tier 1  seat Thiên Xu Tông          regions 6, 14, 15  vassals 4
+  Tùng Đào Cung  tier 1  seat Tùng Đào Cung          regions 1, 4, 5  vassals 4
+  Băng Tâm Các   tier 2  seat Băng Tâm Các           regions 7, 8, 9  vassals 3
+  Phượng Minh Cung tier 2  seat Phượng Minh Cung       regions 16, 17, 20  vassals 3
+  Thính Vũ Lâu   tier 2  seat Thính Vũ Lâu           regions 18, 19  vassals 2
+  Thúy Vi Tông   tier 2  seat Thúy Vi Tông           regions 2, 3  vassals 2
+Regions:
+   1 Lãnh Nguyệt Lâm    Tùng Đào Cung    7 places
+   2 Tuyết Hỏa Giác     Thúy Vi Tông     9 places
+   3 Thanh Loan Lĩnh    Thúy Vi Tông    11 places
+   4 Thâm Tùng Hải      Tùng Đào Cung   11 places
+   5 Cửu Khúc Xuyên     Tùng Đào Cung    9 places
+   6 Dao Quang Lĩnh     Thiên Xu Tông   10 places
+   7 Ngọc Hồ Sơn        Băng Tâm Các     8 places
+   8 Cô Yên Mạc         Băng Tâm Các     8 places
+   9 Hàn Sương Châu     Băng Tâm Các    12 places
+  10 Cô Vụ Đảo          Lạc Hà Tông     11 places
+  11 Trường Thiên Nguyên Lạc Hà Tông     12 places
+  12 Thu Thủy Loan      Lạc Hà Tông     12 places
+  13 Ngư Ca Xuyên       Lạc Hà Tông      9 places
+  14 Thiên Tuyền Nguyên Thiên Xu Tông   10 places
+  15 Ngọc Hành Sơn      Thiên Xu Tông   14 places
+  16 Thê Ngô Lĩnh       Phượng Minh Cung  11 places
+  17 Triêu Dương Nguyên Phượng Minh Cung  11 places
+  18 Tiêu Vũ Lâm        Thính Vũ Lâu    10 places
+  19 Kinh Trập Sơn      Thính Vũ Lâu    16 places
+  20 Đan Huyệt Châu     Phượng Minh Cung  11 places
+'continent <region id>' lists a region's places; 'continent place <id>' shows a place and its routes.
+> continent 4
+Thâm Tùng Hải (深松海) Deep Sea of Pines, held by Tùng Đào Cung
+  2    great_seat  Tùng Đào Cung            
+  11   minor_seat  Vạn Hác Viện             
+  32   city        Tùng Gian Thành          City Among the Pines
+  46   market      Tùng Hạ Thị              Market Beneath the Pines
+  60   town        Lộc Minh Trấn            Deer Call Town
+  61   town        Cổ Độ Trấn               Old Ferry Town
+  105  village     Bạch Hoa Thôn            White Birch Village
+  106  village     Thanh Tùng Thôn          Green Pine Village
+  107  village     Tùng Phong Thôn          Pine Wind Village
+  167  mine        Thạch Lục Khoáng         Malachite Mine
+  206  spirit_vein Thương Tùng Mạch         Vein of the Grey Pines
+> continent place 2
+Tùng Đào Cung [2] great_seat, temperate forest, region 4 Thâm Tùng Hải, held by Tùng Đào Cung
+  -> 33   Đào Thanh Thành        trunk    298 km  0.25 seasons
+  -> 46   Tùng Hạ Thị            trunk    212 km  0.18 seasons
+> continent place 9
+Hồng Lô Cốc [9] minor_seat, tundra, region 2 Tuyết Hỏa Giác, held by Hồng Lô Cốc
+  no road or sea lane reaches it
+> (end of input)

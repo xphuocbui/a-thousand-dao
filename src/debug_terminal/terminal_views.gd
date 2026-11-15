@@ -369,6 +369,67 @@ static func rankings(s: GameSession, which: String) -> Array:
 	return lines
 
 
+## The authored continent, read only (assets/data/world_continent.json; the game is not played on it yet):
+## [param args] [] the regions and great sects; [region id] that region's places; ["place", id] one place and its
+## routes with Travel & Map Formula D trip times at the player's travel speed.
+static func continent(s: GameSession, args: Array) -> Array:
+	var cd := ContinentData.from_game_data(s.gd)
+	if not cd.errors.is_empty():
+		return ["The continent data has problems:"] + Array(cd.errors).slice(0, 10)
+	var lines: Array = []
+	var gs: Dictionary = cd.great_sects
+	if args.is_empty():
+		lines.append("The continent (authored; not yet the world you play in): %d regions, %d great and %d minor sects, %d places, %d routes." % [
+			cd.regions.size(), gs.size(), cd.minor_sects.size(), cd.places.size(), cd.routes.size()])
+		var keys: Array = gs.keys()
+		keys.sort_custom(func(x, y): return int(gs[x].tier) < int(gs[y].tier) or (int(gs[x].tier) == int(gs[y].tier) and str(x) < str(y)))
+		for key in keys:
+			var g: Dictionary = gs[key]
+			var vassals: int = cd.minor_sects.values().filter(func(m): return str(m.lord) == key).size()
+			lines.append("  %-14s tier %d  seat %-22s regions %s  vassals %d" % [str(g.name), int(g.tier),
+				str(cd.places[int(g.seat)].name), ", ".join((g.regions as Array).map(func(r): return str(int(r)))), vassals])
+		lines.append("Regions:")
+		var ids: Array = cd.regions.keys()
+		ids.sort()
+		for id in ids:
+			var r: Dictionary = cd.regions[id]
+			var n: int = cd.places.values().filter(func(p): return int(p.region) == id).size()
+			lines.append("  %2d %-18s %-14s %3d places" % [id, str(r.name), str(gs.get(str(r.holder), {}).get("name", r.holder)), n])
+		lines.append("'continent <region id>' lists a region's places; 'continent place <id>' shows a place and its routes.")
+		return lines
+	if str(args[0]) == "place" and args.size() > 1:
+		var pid: int = int(args[1])
+		if not cd.places.has(pid):
+			return ["No place %d." % pid]
+		var p: Dictionary = cd.places[pid]
+		lines.append("%s [%d] %s, %s, region %d %s, held by %s" % [str(p.name), pid, str(p.kind), str(p.get("biome", "")),
+			int(p.region), str(cd.regions[int(p.region)].name), str((gs.get(str(p.holder), cd.minor_sects.get(str(p.holder), {}))).get("name", "no one"))])
+		if str(p.get("gloss", "")) != "":
+			lines.append("  %s %s" % [str(p.get("name_han", "")), str(p.gloss)])
+		var travel: Dictionary = s.gd.file("travel_rules")
+		var tsp: float = s.sheet().total("travel_speed_pct") if s.player != null else 0.0
+		for r in cd.neighbours(pid):
+			lines.append("  -> %-4d %-22s %-5s %6.0f km  %.2f seasons" % [int(r.to), str(cd.places[int(r.to)].name), str(r.kind),
+				float(r.km), ContinentData.trip_seasons(r, travel, tsp)])
+		if cd.neighbours(pid).is_empty():
+			lines.append("  no road or sea lane reaches it")
+		return lines
+	var rid: int = int(args[0])
+	if not cd.regions.has(rid):
+		return ["No region %s." % str(args[0])]
+	var reg: Dictionary = cd.regions[rid]
+	lines.append("%s (%s) %s, held by %s" % [str(reg.name), str(reg.get("name_han", "")), str(reg.get("gloss", "")),
+		str(gs.get(str(reg.holder), {}).get("name", reg.holder))])
+	var here: Array = cd.places.values().filter(func(p): return int(p.region) == rid)
+	var rank := func(p: Dictionary) -> int:
+		var i: int = ContinentData.SETTLED.find(str(p.kind))
+		return i if i >= 0 else ContinentData.SETTLED.size()   # wild and sacred places after the settlements
+	here.sort_custom(func(x, y): return rank.call(x) < rank.call(y) if rank.call(x) != rank.call(y) else int(x.id) < int(y.id))
+	for p in here:
+		lines.append("  %-4d %-11s %-24s %s" % [int(p.id), str(p.kind), str(p.name), str(p.get("gloss", ""))])
+	return lines
+
+
 ## Breakdown of any derived number or stat key.
 static func explain(s: GameSession, what: String) -> Array:
 	var c: Character = s.player

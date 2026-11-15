@@ -28,7 +28,7 @@ var regions: Dictionary = {}
 var great_sects: Dictionary = {}
 var minor_sects: Dictionary = {}
 var places: Dictionary = {}
-## Every route record {a, b, kind, tiles, km}, a < b.
+## Every route record {a, b, kind, tiles, km, cost}, a < b (cost: Formula D's sum of c_t along it).
 var routes: Array = []
 ## The teleport-array cities' place ids.
 var arrays: PackedInt32Array = []
@@ -71,7 +71,8 @@ static func from_dict(d: Dictionary) -> ContinentData:
 		for end in [[rt.a, rt.b], [rt.b, rt.a]]:
 			if not cd._adj.has(end[0]):
 				cd._adj[end[0]] = []
-			cd._adj[end[0]].append({"to": end[1], "kind": str(rt.kind), "tiles": float(rt.tiles), "km": float(rt.km)})
+			cd._adj[end[0]].append({"to": end[1], "kind": str(rt.kind), "tiles": float(rt.tiles), "km": float(rt.km),
+				"cost": float(rt.get("cost", rt.tiles))})
 	for id in d.get("arrays", []):
 		cd.arrays.append(int(id))
 	cd.origins = d.get("origins", {})
@@ -79,9 +80,18 @@ static func from_dict(d: Dictionary) -> ContinentData:
 	return cd
 
 
-## The routes leaving place [param place_id]: [{to, kind, tiles, km}] ([] for a place no route reaches).
+## The routes leaving place [param place_id]: [{to, kind, tiles, km, cost}] ([] for a place no route reaches).
 func neighbours(place_id: int) -> Array:
 	return _adj.get(place_id, [])
+
+
+## Travel & Map Formula D for route [param route] (a route record or a [method neighbours] entry): its cost over the
+## mode's speed (road and trunk by road, lane by sea; [param travel] is travel_rules.json), the speed raised by
+## [param travel_speed_pct] but never below travel_speed_floor. In seasons.
+static func trip_seasons(route: Dictionary, travel: Dictionary, travel_speed_pct: float = 0.0) -> float:
+	var v: float = float(travel.speed.sea) if str(route.kind) == "lane" else float(travel.speed.road)
+	var f: float = maxf(float(travel.travel_speed_floor), 1.0 + travel_speed_pct / 100.0)
+	return float(route.get("cost", route.get("tiles", 0.0))) / (v * f)
 
 
 ## Every place reachable from [param place_id] along routes (roads, trunk roads, sea lanes), itself included, as a

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "_doc": "Travel & Map Formula D (design/gdd/travel-map.md; values as written there, 25 km tiles). speed: tiles a season by mode (road, wilderness, river down and up, sea; flight by realm id). Values the GDD marks as guesses are listed in guesses. biome_cost: c_p, the travel cost of a tile part by biome (lake and sea are walked around: they carry no cost and are left out of the weights; a sea tile is impassable on foot). road_terrain_share: r_share, how much terrain slows a road (road c_t = 1 + r_share x (c_wild - 1)). travel_speed_floor: f_min, the least travel_speed_pct can slow travel to. partial_season_efficiency: eta, the cultivation rate of a trip's last part-season. flight_drain_per_season: f_drain. tools/design/map/export_continent.py reads biome_cost and road_terrain_share to cost each route; ContinentData.trip_seasons turns a route's cost into seasons.",
+  "speed": {
+    "road": 54,
+    "wilderness": 18,
+    "river_down": 80,
+    "river_up": 45,
+    "sea": 90,
+    "flight": {"ket_dan": 135, "nguyen_anh": 200, "hoa_than": 290, "do_kiep": 400}
+  },
+  "guesses": ["speed.river_down", "speed.river_up", "speed.sea", "speed.flight (above ket_dan)", "flight_drain_per_season"],
+  "biome_cost": {
+    "grassland": 1.0, "steppe": 1.0, "salt_flats": 1.0,
+    "badlands": 1.25,
+    "temperate_forest": 1.5, "bamboo_forest": 1.5, "desert": 1.5, "tundra": 1.5, "highland": 1.5,
+    "jungle": 2.0, "swamp": 2.0, "mangrove": 2.0, "karst": 2.0, "volcano": 2.0, "miasma": 2.0,
+    "high_mountain": 2.5, "glacier": 2.5
+  },
+  "road_terrain_share": 0.25,
+  "travel_speed_floor": 0.25,
+  "partial_season_efficiency": 1.0,
+  "flight_drain_per_season": 0.6
+}
