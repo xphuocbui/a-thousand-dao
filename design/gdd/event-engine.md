@@ -727,5 +727,5 @@ lint check; [UI] retained screenshot; [Playtest] a documented playtest question.
 | 4 | Scar threshold and size (Travel & Map Open Question 5): which events may scar the land, and by how much | user + Travel & Map | With the first scarring content |
 | 5 | Content volume and order: the audit guesses 150–250 events. How many stories, how many per fixed-cast person, and which first (start origins, history's hidden places, sect quarrels)? | user | Before content authoring |
 | 6 | All numbers marked *guess* (p_npc0, f_lo/f_hi, m_chain, m_story_max, n_items, n_max, cooldown, wait_seasons, stories_max, n_sample, N_max): measure in playtests and the Balance Harness | Balance Harness | First playable |
-| 7 | Do quest stage events (Quests #31) spend the quest's own budget B or a chain budget? Proposed: the quest budget replaces the chain budget for its stages | user + Quests | Quests redesign |
+| 7 | **Answered 2026-11-15** (Quests rule 19): a quest runs as a story, and its budget B replaces the chain budget for its stages; quest stories are held under the quest `active_cap`, not `stories_active_max` | — | — |
 | 8 | Is the hook list complete (rule 6)? Candidates not yet in: `on_craft_done`, `on_market_trade`, `on_teaching`, `on_birthday` | user | Before content authoring |

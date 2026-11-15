@@ -1,6 +1,8 @@
 # Quests
 
-> **Status**: Approved (design-review 2026-11-08, lean, sixth pass): no blockers, 8 recommendations open. Numbers are guesses; Event Engine, LLM GM and Dialogue contracts are provisional. See `reviews/quests-review-log.md`
+> **Status**: Approved (design-review 2026-11-08, lean, sixth pass): no blockers, 8 recommendations open. Numbers are guesses. See `reviews/quests-review-log.md`
+>
+> **Revision 2026-11-15 (user decisions; not yet re-reviewed)**: no LLM. Every quest comes from an authored template with role slots and parameter ranges (rules 3, 4); a quest runs as an Event Engine story (rule 19); templates may use every stage kind, with `defeat` and `reach` tested at the offer. Event Engine (#23) and NPC Interaction & Dialogue (#30) now have GDDs. Rules 3, 4, 12, 13, 19, Formulas A and C variables, Edge Cases, Dependencies, Acceptance Criteria and Open Questions changed. Everything else is as approved 2026-11-08.
 > **Author**: user + agents
 > **Last Updated**: 2026-11-07
 > **Last Verified**: 2026-11-07
@@ -14,17 +16,19 @@ pay mostly in items, access and relationships, about level with missions in mone
 into things the player can act on, and a finished quest changes the people tied to it, while every number stays inside
 an engine-set budget.
 
-> **Quick reference** — Layer: `Presentation` · Priority: `Vertical Slice` · Key deps: `Event Engine, LLM Game Master, NPC Interaction & Dialogue, World Database`
+> **Quick reference** — Layer: `Presentation` · Priority: `Vertical Slice` · Key deps: `Event Engine, NPC Interaction & Dialogue, World Database; soft: LLM Game Master (parked)`
 
 ## Overview
 
 A quest is a thread of two to five linked stages that runs across several seasons and is held as engine state in the
 World Database. Each stage is an ordinary event (Event Engine) or a mission-like action, with its checks, effects and
-reward budgets validated and clamped as for any event. The engine sets the brief and owns the state. For a quest offered
-by a person or sect, the LLM Game Master designs the whole quest at offer time, inside that brief, and the engine
-validates the plan and then freezes it, so no number reaches the player unchecked (Pillar 2). A quest is born from a recorded fact, and it is never invented from nothing (Pillar 5): a registered person,
+reward budgets validated and clamped as for any event. The engine owns the state. Every quest, from a person, a sect or a board, is an authored **quest template**: its role
+slots are bound to real people, places and items from the source fact, and its parameters are drawn inside the tier's
+budget. The engine validates the bound plan and freezes it at the offer, so no number reaches the player unchecked
+(Pillar 2). A quest runs as an Event Engine **story** (rule 19): its stages are the story's stages, and its budget B
+stands in for the chain budget. A quest is born from a recorded fact, and it is never invented from nothing (Pillar 5): a registered person,
 sect or place offers it because of something in the world's history, such as a grudge, a shortage or a death. Where no
-person fits, a standing board at a sect hall or town offers a quest from a fixed list as the fallback.
+person fits, a standing board at a sect hall or town offers an Errand or Ordinary quest from the same template list.
 A player who takes a quest commits seasons to it and can fail it or let it lapse, which makes it a plan with a cost
 (Pillar 4). The reward is mostly buildable assets (items, techniques, materials), access and relationships, with only a small share in spirit stones.
 In rare cases it may be a bounded permanent gain or a valuable insight, and the rarest quests can pay an item above the
@@ -38,8 +42,8 @@ Quests are not Sects & Missions (#26): a mission stays a repeatable, stateless, 
 
 ### Core Rules
 
-Named values are defined in Formulas and live in `quest_rules.json`. Event Engine, LLM Game Master and NPC Interaction
-& Dialogue have no GDD yet, so every contract with them is **provisional**. Rules marked **(assumption)** are the
+Named values are defined in Formulas and live in `quest_rules.json`. Event Engine and NPC Interaction & Dialogue gained GDDs on 2026-11-15; the contracts with them are as written
+there, and rows still marked **provisional** wait for those GDDs' reviews. Rules marked **(assumption)** are the
 author's reading and wait for confirmation (Open Questions).
 
 1. **A quest is a record in the World Database.** It holds: a quest id, the `offerer` (a registered person or sect,
@@ -53,33 +57,49 @@ author's reading and wait for confirmation (Open Questions).
    - **A board offers it.** (At a sect hall or large town the board also lists that sect's one-season missions as a
      second list with its own rules: `design/gdd/sects.md` rule 24, added 2026-11-14.) A sect hall or town has a standing board (`board_size` open quests, refreshed each
      season), which the player can read whether or not a person has an offer. A board quest comes from the fixed list
-     in `quest_templates.json`, with no LLM call (user decision 2026-11-06), and is always Errand or Ordinary (rule 14). It
+     in `quest_templates.json`, chosen like any offer (rule 3), and is always Errand or Ordinary (rule 14). It
      has no individual offerer but is still tied to a place and a recorded fact of that place.
 
-   An offer is considered at the points where the Event Engine already looks for events (the season's random-event
-   check and arrival at a place), and never more than `offers_per_season` per character per season. Board quests do
+   An offer is considered at the points where the Event Engine already looks for events (the season pulse and the `on_arrive`
+   hook, Event Engine rules 5 and 6), and never more than `offers_per_season` per character per season. Board quests do
    not count against that limit, because a board is a list.
-3. **The engine sets the brief; the LLM designs the quest (user decision 2026-11-06).** For each person or sect offer
-   the engine builds a brief: the offerer and source fact, the player's realm band, the stage count range `stages_min`
-   to `stages_max`, the allowed stage kinds (rule 5), the deadline range, the budget rates and caps (Formulas A), the offerer's stake,
-   the possible adversaries and the world effect limits (rules 15–17).
-   The brief cannot hold B itself, because B depends on the stages the LLM returns. The LLM returns the whole quest at
-   once: every stage, with its text, its checks and its effects, and the reward plan.
-4. **The plan is validated, then frozen.** The validator checks every stage as an event would be checked (the
-   `events_budgets` limits: allowed check stats, effect types and per-realm maxima), checks the whole plan against the
-   quest budget (Formulas A) and checks the stage graph (rule 5). A plan that fails once is repaired by the LLM at
-   most `repair_tries` times with the validator's reasons, and then replaced by an ordinary **template quest** from
-   the fixed list for that place type (`quest_templates.json`), so a failed
-   Major or Legendary plan drops to Ordinary. **Templates use only the stage kinds `event`, `visit`, `deliver`, `craft`
-   and `mission` (design-review 2026-11-07).** `defeat` and `reach` depend on the player's power and progress at the
-   offer, which a load-time check cannot see, so a template holding either is rejected at load. A template that
-   passes the load check against the realm bounds passes the validator at the offer too, with two exceptions. The load check
-   assumes `travel_seasons` at `template_travel_max` (4, a guess, in `quest_rules.json`), so a trip longer than that can push
-   `window_sum` over `deadline_max`. And rule 15's person-offer test can fail. In either case a failing fallback makes no
-   offer, and a board omits it (design-review 2026-11-07). A plan over any limit is rejected, not trimmed: the event clamp at payment stays as
-   the last guard and should never bite on a validated plan. Once offered, the plan
-   never changes: nothing is regenerated in a later season, so a reload after the offer gives the same quest. The LLM may still narrate
-   a stage when it begins, but the stage's checks, effects and numbers are the frozen ones.
+3. **Quests come from authored templates (user decision 2026-11-15; replaces the 2026-11-06 LLM design).** Every quest,
+   whether offered by a person, a sect or a board, is built from a **quest template** in `quest_templates.json`. A
+   template holds: an id and name; its tier; its offer kind (person, sect or board); the **source-fact kinds** it
+   answers (a grudge, a shortage, a death, an unpaid debt…); place-kind and realm-band filters; **role slots**
+   (`offerer`, `adversary`, a target person, a place, an item class, a sect), each with its own binding rule (for
+   example "the nearest living person of this calling" or "a known place of this kind within travel range"); its
+   **stages** (rule 5) naming slots and windows; **parameter ranges** (item class, amounts, seasons) drawn inside the
+   tier's limits; its `if_target_lost` per stage; its `outcomes` (rule 18); and its Vietnamese texts (the offer, each
+   stage, the ending lines), with placeholders for the slots and two or three variants. At an offer the engine:
+   1. chooses the source fact (rule 2);
+   2. lists the templates whose offer kind, fact kind, place kind and realm band fit;
+   3. binds each template's slots from the fact and the World DB, and drops a template whose slot cannot bind;
+   4. draws the tier by `tier_share` among tiers that still have a template, falling to the next lower tier when one has none
+      (a Legendary draw below `legendary_min_realm` is a Major, rule 14);
+   5. draws one template of that tier by weight (Event Engine Formulas B: base weight times modifiers);
+   6. draws the parameters inside their ranges;
+   7. validates the bound plan (rule 4).
+
+   Every draw uses the one seeded stream of rule 12. The LLM is not part of this path. An LLM may help to **draft
+   templates at authoring time**, and they are reviewed like any data. Templates for Major and Legendary quests are
+   hand-authored, and the Legendary ones are tied to the fixed world: a fixed-cast person, a history site, a sect
+   quarrel (World Generation & History).
+4. **The bound plan is validated, then frozen.** The plan is the template with its slots and parameters filled in. The
+   validator checks every stage as an event would be checked (the `events_budgets` limits: allowed check stats,
+   effect types and per-realm maxima), checks the whole plan against the quest budget (Formulas A), the stage graph
+   (rule 5), rule 15 (the quest serves its offerer), and the two stage kinds that depend on the player: a `defeat`
+   stage against the fight ratio (Formulas B) and a `reach` stage against the time the player needs (Realms' estimate,
+   **provisional**). A bound plan that fails is **not repaired**: the engine drops that template for this offer and
+   tries the next by weight, up to `offer_tries` (Formulas C), and when none passes it makes no offer that season (on a
+   board the slot stays empty). A `defeat` or `reach` template that fails only because of the player's current power
+   is not offered now and may be offered later, when it passes. **At load** the data loader rejects a template with an
+   unknown stage kind, slot, condition or effect, a person or sect template without a benefit entry (rule 15), one with
+   two `reach` stages or none that costs a season, or whose windows plus `template_travel_max` (4, a guess, in
+   `quest_rules.json`) exceed `deadline_max`; all other limits are checked at the offer, where travel is known. A plan
+   over any limit is rejected, not trimmed: the event clamp at payment stays as the last guard and should never bite on
+   a validated plan. Once offered, the plan never changes, and it is stored with the quest, so a reload gives the same
+   quest. Stage text is the template's.
 5. **Stages.** A quest has `stages_min` to `stages_max` stages by tier (rule 14), taken in order. Each stage has one
    kind from a closed list, a place if it needs one, a season window and an effect set:
 
@@ -105,8 +125,8 @@ author's reading and wait for confirmation (Open Questions).
    **A stage's target can be lost (user decision 2026-11-06, design-review re-review).** A stage that names a person (a
    `visit` meeting, a `defeat` opponent, a `deliver` recipient) has a **target**. The target is lost when that person
    dies or the sect they were named for is gone. Each such stage carries `if_target_lost`, one value from a closed list,
-   chosen by the LLM when it designs the plan and frozen with it (not decided during play, so a reload gives the same
-   outcome). Templates set it too. The default, used when a plan omits it, is `orphan`:
+   set by the template and frozen with the plan (not decided during play, so a reload gives the same
+   outcome). The default, used when a template omits it, is `orphan`:
 
    | `if_target_lost` | When the target is lost | Allowed on |
    |---|---|---|
@@ -173,14 +193,14 @@ author's reading and wait for confirmation (Open Questions).
     charged to B, a quest pays at most one, and the validator allows it only for a player in Nascent Soul who holds none, so
     it always does something. **A recipe is deferred (user decision 2026-11-07):** the validator rejects it until Alchemy
     has recipe knowledge to learn (Open Question 11).
-12. **Randomness.** The offer, the choice of source fact, the brief and the template fallback use one seeded stream
-    derived from the world seed, character id, season and offer index. Stage checks use the Event Engine's own stream.
-    The same save always gives the same brief. The LLM is not deterministic, so its plan is only fixed once stored:
-    every save after the offer holds the same plan, and a reload to before the offer may return a different plan for
-    the same brief. Board quests use no LLM, so they are always the same.
-13. **Anything new must be registered first (Pillar 5).** If the LLM's plan names a person, a place, an item or a
-    sect that is not in the World DB, the validator rejects the plan unless the Event Engine's rule for creating a
-    new entity allows it (provisional), in which case the entity is registered before the quest is offered.
+12. **Randomness.** The offer, the choice of source fact, the template draw, the slot binding and the parameters use one
+    seeded stream derived from the world seed, character id, season and offer index (a keyed stream, ADR-0002
+    decision 4). The same save always gives the same offer, so a reload to before an offer returns the same quest.
+    Stage checks use the Event Engine's own stream.
+13. **Anything new must be registered first (Pillar 5).** A template binds only to registered people, places, items
+    and sects, except a slot marked `new_person`, which creates a person through the Event Engine's validator (its
+    rule 21: NPC Builds, registered in the World DB before the quest is offered). A slot that cannot bind drops the
+    template for this offer (rule 3).
 14. **Quest tiers (user decision 2026-11-06).** Every quest has one of four tiers, drawn at the offer with `tier_share`
     and shown on it. All values are guesses:
 
@@ -191,7 +211,7 @@ author's reading and wait for confirmation (Open Questions).
     | Major | 8 % | 4–5 | 2.0 | 2.0 | 0.60 | 32 | Lasting gain, insight or recipe |
     | Legendary (truyền kỳ) | 2 % | 5 | 2.5 | 3.0 | 0.80 | 40 | As Major, plus one above-cap item |
 
-    Boards offer Errand and Ordinary quests only. Legendary quests exist from `legendary_min_realm` (Core Formation): a
+    Boards offer Errand and Ordinary quests only. Major and Legendary templates are hand-authored (rule 3). Legendary quests exist from `legendary_min_realm` (Core Formation): a
     Legendary drawn below it becomes Major. A Legendary quest may pay **one above-cap item**, up to
     `legendary_rarity_bonus` (1) above the realm's rarity cap, which reaches `rarity_max` 6 from Core Formation. The
     item must still fit inside B at its price. There is no limit per life (user decision 2026-11-06). The Event Engine's
@@ -203,8 +223,8 @@ author's reading and wait for confirmation (Open Questions).
       gains something for the offerer's side (`offerer`, `offerer_ties` or `offerer_sect`), and no `completed` entry
       harms that side. This is a structured test the validator can run. `stake` is display text only and is not
       validated. **Templates:** every template tagged for person or sect offers must carry such an entry, or it is
-      rejected at load. If a fallback template for a person offer still fails this rule (for instance no role resolves),
-      no offer is made that season.
+      rejected at load. If a bound template fails this rule (for instance no role resolves), it is dropped for
+      this offer (rule 4).
     - **No hostility:** the attitude of the NPC making the offer is above `hostile_threshold`. A sect's offer always
       comes through a member, whose attitude is the one read and who is the quest's root (rule 16). It is read at the offer only, so a later fall does not end
       an accepted quest.
@@ -249,8 +269,8 @@ author's reading and wait for confirmation (Open Questions).
     Every ending is logged as a new World DB event naming the people involved, and the source fact follows rule 7. The
     new event can source later offers from anyone who passes rule 15. An NPC turned hostile cannot offer the player a
     quest, so their grudge reaches play through the Event Engine's hostile events (**provisional**).
-18. **The quest format (user decision 2026-11-07).** Every quest, whether an LLM plan or an entry in
-    `quest_templates.json`, may carry an optional `outcomes` list of rewards and penalties for NPCs, sects and direct
+18. **The quest format (user decision 2026-11-07).** Every quest template in
+    `quest_templates.json` may carry an optional `outcomes` list of rewards and penalties for NPCs, sects and direct
     ties. Each entry names an ending, a role, an effect and an amount. Roles let a template work without naming anyone:
 
     | Role | Resolves to | Effects allowed |
@@ -281,11 +301,27 @@ author's reading and wait for confirmation (Open Questions).
     ]
     ```
 
+19. **A quest runs as an Event Engine story (user decision 2026-11-15).** On acceptance the engine starts a story
+    (Event Engine rule 12) whose stages are the plan's stages, in order. The quest record (rule 1) still owns the
+    offerer, the source fact, the deadline, the stake, the outcomes, the endings and the rewards. The story holds the
+    stage reached and the quest's flags and variables, namespaced `quest.<id>.`. An `event` stage fires its Event
+    Engine event, and a stage of any other kind (`visit`, `deliver`, `craft`, `mission`, `reach`, `defeat`) is a story
+    stage whose condition is checked at the season end (rule 8); `defeat` opens an Event Engine fight request (its
+    rule 17). The quest's budget B (Formulas A) **replaces the chain budget** for the story (answers Event Engine Open
+    Question 7): each stage pays from what is left as its stage pay (rule 9), and `cap_mult` (0.5 to 3.0 of `E_r`)
+    already sits inside the Event Engine's `story_budget_mult_max` (3). B is in raw `E_r` units and is not scaled by
+    fortune; each effect is still clamped by the Event Engine's per-event ceiling. Quest stories are held under
+    `active_cap` and do not count toward the Event Engine's `stories_active_max`. An `event` stage counts toward the
+    player's `player_events_per_season_max` as any event does, and may wait a season for room, which the stage window
+    allows. A quest ending maps to a story ending: Completed and a finished Orphaned quest are done, Failed is failed,
+    Lapsed is timed out, Dropped is failed with no penalty (penalties are the quest's, rule 10). The quest writes the
+    one World DB ending record; the story writes none.
+
 ### States and Transitions
 
 | State | Entered when | Leaves when |
 |---|---|---|
-| Offered | An offer passes validation (or the template fallback does) | The player accepts or refuses, the offer times out, or the offerer, sect or a named place is lost |
+| Offered | An offer passes validation | The player accepts or refuses, the offer times out, or the offerer, sect or a named place is lost |
 | Active | The player accepts and has a free slot | The last stage is done, or it fails, lapses or is orphaned |
 | Stage k | Stage k-1 is done (or the quest was accepted, for stage 1) | Stage k's condition is met, or the deadline passes |
 | Completed | The last stage is done in time | Terminal (the final reward is paid; the source fact is spent) |
@@ -312,14 +348,14 @@ author's reading and wait for confirmation (Open Questions).
 
 ### Interactions with Other Systems
 
-Event Engine, LLM Game Master and NPC Interaction & Dialogue have no GDD yet. Rows marked **provisional** hold the
-contract this GDD expects.
+Event Engine (#23) and NPC Interaction & Dialogue (#30) have GDDs (2026-11-15). Rows still marked **provisional** wait
+for the rest of the systems they name.
 
 | System | Direction | What flows | Owner of the interface |
 |---|---|---|---|
-| Event Engine (#23) | in / out | Out: the brief, the stage events, the budgets. In: the validated stage, the check result and its Breakdown (**provisional**) | Event Engine (events, budgets, validator, resolver); this GDD (the quest plan and its quest budget) |
-| LLM Game Master (#29) | out / in | Person and sect offers only. Out: the brief. In: the whole quest plan, repaired on a failed validation (**provisional**) | LLM Game Master (the provider); this GDD (the brief and the repair limit) |
-| NPC Interaction & Dialogue (#30) | out / in | Out: the offer and the stage talk. In: a conversation completes a `visit` (**provisional**) | Dialogue |
+| Event Engine (#23) | in / out | Out: the stage events, the story (rule 19) and the quest budget B in place of the chain budget. In: the validator, the stage check result with its Breakdown, the pacing guard | Event Engine (events, stories, validator, resolver); this GDD (the quest plan and its budget B) |
+| LLM Game Master (#29), parked | in | None. Quests runs without it. It could draft templates at authoring time or voice a stage, and never sets a number | — |
+| NPC Interaction & Dialogue (#30) | out / in | Out: the "Ask for work" verb hands to the offer (rule 2). In: a greeting completes a `visit` stage (its rule 8) | Dialogue (the verb); this GDD (the offer) |
 | World Database (#3) | in / out | In: source facts, people, places, sects. Out: the quest record and its endings | World DB |
 | Time & Turn (#4) | in | The season end that checks progress and deadlines | Time & Turn |
 | Sects & Missions (#26) | in | The mission action as a `mission` stage, with its income withheld; the sect's board place; the base income that sizes the quest budget | Sects & Missions |
@@ -361,7 +397,7 @@ The quest_budget formula is defined as:
 | s_i | int | 0–4 | data file (by stage kind) | Seasons a stage costs: `event`, `deliver`, `defeat` 1; `craft` 2; `mission` its stated 1–4; `visit`, `reach` 0 |
 | travel_seasons | int | 0+ | calculated (Travel & Map, **provisional**) | Shortest travel between the stage places, from the offer place |
 | S_plan | int | ≥ 1 | calculated | Minimum seasons the plan costs. Rule 5 requires a stage that costs a season, so it is never 0 |
-| n | int | 2–5 | LLM, validated | Stage count |
+| n | int | 2–5 | data file (template), validated | Stage count |
 | quest_reward_mult | float | 1.25 / 1.5 / 2.0 / 2.5 by tier | data file | Budget per season, in units of `I_r` |
 | cap_mult | float | 0.5 / 1.0 / 2.0 / 3.0 by tier | data file | Hard cap on B, in units of `E_r` |
 | stage_reward_share | float | 0.2–0.4, default 0.30 | data file | Share of B paid across the stages before the last |
@@ -453,7 +489,7 @@ Offer values, all in `quest_rules.json`:
 | `reoffer_cooldown` | 8 after Declined, Lapsed, Orphaned or Dropped; 16 after Failed; a Completed fact is spent and never re-offered | Seasons before a source fact can be offered again |
 | `offers_per_season` | 1 | Person or sect offers per character per season |
 | `board_size` | 3 | Open quests per board; the oldest is replaced each season |
-| `repair_tries` | 2 | LLM repairs before the template fallback |
+| `offer_tries` | 6 | Templates tried, by weight, before no offer is made that season |
 | `quest_final_effects_max` | 6 (a guess) | Most reward effects the final stage may pay. Every other stage keeps the Event Engine's `max_effects_per_outcome` (3). All other clamps still apply (design-review 2026-11-06) |
 
 ### D. Lasting gains and endings
@@ -466,8 +502,8 @@ The quest_gain_cap formula is defined as:
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| amount_key, W_key | float | ≥ 0; > 0 | LLM, validated; data file (`stat_power_weights`) | A stat key's amount and W price |
-| tree_points | int | 0 up to the realm's `tree_point_max` | LLM, validated | Meridian tree points paid |
+| amount_key, W_key | float | ≥ 0; > 0 | data file (template), validated; data file (`stat_power_weights`) | A stat key's amount and W price |
+| tree_points | int | 0 up to the realm's `tree_point_max` | data file (template), validated | Meridian tree points paid |
 | tree_point_w | float | 2.07 | data file (Meridian Map `w̄_target`) | W price of a tree point |
 | quest_boon_w | float | 4–12, default 8 | data file | Most W in one lasting gain |
 | quest_gain_cap_w | float | 24–60, default 48 | data file | Lifetime W from quests, about 4 % of the 1,172 W a full tree holds at Deity Transformation |
@@ -530,12 +566,13 @@ its master **−15** and its sect head **−7**.
 
 **Offers and plans**
 
-- **If the LLM is unavailable or times out:** the template fallback runs at once, with no repair tries, and the player sees an ordinary offer.
-- **If the plan fails after `repair_tries`:** an ordinary template quest replaces it, even for a Major or Legendary plan. Templates pass the same validator at load (with no `defeat` or `reach` stage, rule 4), so a template that fails is rejected at load and can never reach play.
+- **If no template fits** the fact (offer kind, fact kind, place kind, realm band, or a slot that cannot bind): no offer, and on a board the slot stays empty that season.
+- **If a bound plan fails validation:** that template is dropped for this offer and the next by weight is tried, up to `offer_tries`. When a tier has no template left, the draw falls to the next lower tier, so a failed Major becomes an Ordinary offer. When none passes, no offer is made that season.
+- **If a `defeat` template fails the fight ratio, or a `reach` template cannot be met in its window, at the offer:** it is not offered now, and is offered later when the player's power or realm changes.
 - **If no source fact fits and the place has no board:** no quest is offered that season.
 - **If the player holds `active_cap` quests:** person and sect offers are not generated, and a board can be read but its quests cannot be accepted.
 - **If the plan names an unregistered person, place, item or sect:** rule 13 applies, and without a registered entity the plan fails validation.
-- **If the player reloads to before an offer:** the brief is the same, but the LLM may return a different plan (rule 12). The template fallback is identical.
+- **If the player reloads to before an offer:** the same fact, template, slots and parameters are drawn (rule 12), so the same quest is offered.
 - **If the offerer dies, or the sect or a named place is gone, while the quest is only Offered:** it is Withdrawn, with no cooldown and no penalty.
 
 **Stages**
@@ -574,7 +611,7 @@ its master **−15** and its sect head **−7**.
 - **If the adversary's tie is also the player's master or sect head:** it reacts as any tie, so the offer's shown adversary is the player's warning.
 - **If the root has no master, disciples or sect:** only the root reacts.
 - **If a plan's `completed` outcomes harm the offerer's side, or hold no gain for that side:** it fails validation (rule 15).
-- **If the fallback template for a person offer fails rule 15:** no offer is made that season (rule 15).
+- **If a bound template for a person offer fails rule 15:** it is dropped for this offer and the next by weight is tried (rules 4, 15).
 - **If the adversary is killed at a knockout and the quest later Fails, Lapses or is dropped:** the adversary stays dead and the ties' reaction stays applied (rule 17).
 - **If an outcome's role does not resolve at the offer:** it is dropped and not shown (rule 18).
 - **If an `offerer_ties` or `adversary_ties` role has nobody:** the entry does nothing.
@@ -589,7 +626,7 @@ its master **−15** and its sect head **−7**.
 - **Killing the offerer to skip stages:** Failed, not Orphaned (rule 10).
 - **Taking quests against a rival to farm its enemies' favour:** only the offerer's side gains, and only by the plan's budgeted relationship, while the adversary's side falls.
 - **Taking a quest only to hurt the offerer through `failed` penalties:** abandoning in stage 1 applies none. Later it costs the stages done, the relationship loss and the cooldown, and pays nothing.
-- **Prompting the LLM for a big reward:** the validator and the budget decide every number, whatever the plan's text says.
+- **A template asking for a huge reward:** a template over its tier's limits is rejected at load, and at the offer the budget and the validator decide every number.
 - **Re-running a settled grievance:** a Completed quest spends its source fact (rule 7), so the same request is never offered again.
 
 ## Dependencies
@@ -598,8 +635,8 @@ its master **−15** and its sect head **−7**.
 
 | System | Type | Interface | State |
 |---|---|---|---|
-| Event Engine (#23) | Hard | Budgets, validator, resolver, stage events | Built, no GDD; **provisional** |
-| LLM Game Master (#29) | Soft | The plan from a brief. The template fallback keeps quests running without it | Built, no GDD; **provisional** |
+| Event Engine (#23) | Hard | Budgets, validator, resolver, stage events, stories (rule 19) | GDD designed 2026-11-15 |
+| LLM Game Master (#29) | None | Not used. It could draft templates at authoring time | Parked 2026-11-15 |
 | World Database (#3) | Hard | Source facts, entities, the quest record | Built, no GDD |
 | Time & Turn (#4) | Hard | Season end | Built, no GDD |
 | Config (#1), Sim Core (#2), Save/Load (#5) | Hard | `quest_rules.json`, `quest_templates.json`, seeded stream, saving | Built, no GDD |
@@ -608,7 +645,7 @@ its master **−15** and its sect head **−7**.
 | Meridian Map (#10) | Soft | `stat_power_weights`, `w̄_target`, tree points | GDD in review; lists this system |
 | Item Database (#13) | Hard | Prices, rarity bounds, item classes | GDD approved; lists this system |
 | Realms & Bottlenecks (#8) | Soft | Realm band; time estimate for `reach` | GDD in review; lists this system |
-| NPC Interaction & Dialogue (#30) | Soft | Offers, `visit` by conversation | Built (thin), no GDD; **provisional** |
+| NPC Interaction & Dialogue (#30) | Soft | The "Ask for work" verb, `visit` by greeting | GDD designed 2026-11-15 |
 | Travel & Map (#25) | Soft | Places, arrival, travel seasons | Built, no GDD; **provisional** |
 | Combat (#21) | Soft | `defeat` fights, fight power F | Approved for rules; build on hold; lists this system |
 | Living World Tick (#28) | Soft | NPC fields changed by world effects; its population rule replaces the dead | Built (abstract), no GDD; **provisional** |
@@ -622,7 +659,7 @@ its master **−15** and its sect head **−7**.
 | The Way (#39) | Soft | Quests and standing that Hiệp Đạo's Du Hiệp and Bồ Đề Đạo's Thiện Hạnh read; prices Dao nodes against the same `w_target` | In review (`dao.md`) |
 | Heavenly Tribulation (#22) | Soft | None at runtime. Its reward content pass waits on this GDD (its Open Question 9) | Approved for rules |
 
-**Bidirectional check.** Character Stats, Meridian Map, Item Database, Realms, Combat and Heavenly Tribulation list this system (added
+**Bidirectional check.** The Event Engine and NPC Interaction & Dialogue GDDs list this system (2026-11-15). Character Stats, Meridian Map, Item Database, Realms, Combat and Heavenly Tribulation list this system (added
 2026-11-06 and 2026-11-07). The other upstream systems have no GDD to list it in.
 
 **Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
@@ -690,7 +727,7 @@ Evidence: `tests/unit/quests/`, `tests/integration/quests/`, `production/qa/evid
 
 - **FX-R:** Formulas A–D defaults, with the shipped `events_budgets.json` and `session_actions.json`.
 - **FX-P:** Qi Refining player, relationship 0, `quest_gain_total_w` 0, free slots. **FX-NS:** `F_player` 1.41e7.
-- **FX-LLM:** mock; returns scripted plans or timeouts in order, and records briefs.
+- **FX-TPL:** a small template list with slots and parameter ranges; records each draw (fact, template, slots, parameters).
 - **FX-STUB:** injected fight function; returns scripted results.
 - **FX-PLAN:** ordinary, `event`, `craft`, `deliver`, no travel, windows 2, 3, 2: S_plan 4, B 60, pays 4, 9, 47, cash at most 12, deadline 11.
 - **FX-MAJ:** Qi Refining major, `craft` ×3, `event`, `deliver`: S_plan 8, B 160, pays 12, 12, 12, 6, 118.
@@ -700,20 +737,20 @@ Evidence: `tests/unit/quests/`, `tests/integration/quests/`, `production/qa/evid
 
 - **AC-QS-01** Rule 1. Given accepted FX-PLAN, then the record holds id, offerer, source fact, plan, deadline 11, state and stage 1.
 - **AC-QS-02** Rule 2. Given two offer points in a season, then 1 person offer is made, and board quests do not count.
-- **AC-QS-03** Edge. Given no fitting fact and no board, then no offer and no LLM call.
+- **AC-QS-03** Edge. Given no fitting fact and no board, then no offer.
 - **AC-QS-04** Formulas C. Given a full board, when a season passes, then 3 stay open and the oldest is replaced.
-- **AC-QS-05** Rule 2. Given a board refresh, then FX-LLM records no call, every quest comes from the template list, and each is Errand or Ordinary.
-- **AC-QS-06** Rule 3 (**provisional**). Given a person offer, then the brief lists offerer, fact, realm band, the tier's stage range, kinds, deadline range, budget rates and caps, and holds no B.
-- **AC-QS-07** Rule 12. Given one save run twice with different mock plans, then the briefs are byte-identical and the stored plans differ. With the mock timing out, the templates are identical.
+- **AC-QS-05** Rule 2. Given a board refresh, then every quest comes from the template list, and each is Errand or Ordinary.
+- **AC-QS-06** Rule 3. Given a person offer, then the stored plan holds the template id, its bound slots, its drawn parameters and the tier, and no value above the tier's limits.
+- **AC-QS-07** Rule 12. Given one save run twice, then the fact, template, slots, parameters and plan are byte-identical; after a reload to before the offer, the same quest is offered.
 - **AC-QS-08** Rule 14. Given 10,000 fixed seeds of person offers at Core Formation (otherwise FX-P), then 0.45, 0.45, 0.08 and 0.02 (±0.01) are Errand, Ordinary, Major and Legendary. At Qi Refining the Legendary draws count as Major (0.45, 0.45, 0.10, 0.00).
 - **AC-QS-09** Rule 12. Given a stage check, then the offer stream is unchanged.
 
-**Validation** [Logic] (**provisional**: Event Engine and LLM contracts)
+**Validation** [Logic]
 
-- **AC-QS-10** Rule 4. Given an invalid then a valid plan, then 1 repair carries the reasons and the plan stands.
-- **AC-QS-11** Rule 4. Given a valid plan on call 3, it stands. Given 3 invalid plans, an ordinary template is offered and no call 4 is made.
-- **AC-QS-12** Rule 4. Given a Major or Legendary plan invalid on all 3 calls, then the offered quest is Ordinary.
-- **AC-QS-13** Edge. Given a timeout, then 1 call, no repairs, and a template is offered.
+- **AC-QS-10** Rule 4. Given a bound plan that fails validation and a valid next template, then the invalid one is dropped for this offer, the valid one is offered, and nothing is repaired.
+- **AC-QS-11** Rule 4. Given 6 invalid templates, then no offer is made and no seventh is tried; given a valid template on try 6, it stands.
+- **AC-QS-12** Rule 4. Given every Major template invalid for the player, then an Ordinary template is offered.
+- **AC-QS-13** Rule 4. Given a `defeat` template whose fight ratio is above the tier's maximum at the offer, then it is not offered; after the player's power rises to pass it, it is.
 - **AC-QS-14** Rule 5. n 2 and 5 pass; 1 and 6 are rejected. Errand 3 passes and 4 is rejected. Major 4 passes and 3 is rejected. Legendary 5 passes and 4 is rejected. An unknown kind is rejected.
 - **AC-QS-15** Rule 5, Edge. Two `reach` are rejected. `visit` plus `reach` is rejected (no stage costs a season). `event` plus `reach` passes.
 - **AC-QS-16** Rule 5. Given a Realms stub estimate of 6, window 6 passes and 5 is rejected. A `reach` already met at the offer is rejected.
@@ -793,7 +830,7 @@ Evidence: `tests/unit/quests/`, `tests/integration/quests/`, `production/qa/evid
 - **AC-QS-69** A `mission` stage, in a sect or on bounty: mission income paid is 0 and the stage completes.
 - **AC-QS-70** FX-PLAN with a `reach` before `deliver`: S_plan 4, B 60, pays 4, 9, 0, 47.
 - **AC-QS-71** A paid `quest_boon` line survives save and reload, and `quest_gain_total_w` matches.
-- **AC-QS-72** Reload at stage 2: plan byte-identical, zero LLM calls.
+- **AC-QS-72** Reload at stage 2: plan byte-identical.
 - **AC-QS-73** Mock narration differs on stage start: checks, effects and numbers do not.
 - **AC-QS-74** Degenerate. A 4-season `mission` then a `visit`, abandoned before the `visit`: 18 paid, 0.45 `I_r` per season.
 - **AC-QS-75** [Bot: Balance Harness] **Provisional**, Open Question 3. Fixed-seed board farming, everything sold, is within ±10 % (a guess) of mission income.
@@ -833,7 +870,7 @@ Evidence: `tests/unit/quests/`, `tests/integration/quests/`, `production/qa/evid
 - **AC-QS-94** Rule 5. Given the current stage's own target dies, then the quest is Dropped at once for `orphan` and for `drop`, with no penalty and paid stage pay kept.
 - **AC-QS-95** Rule 5. Given FX-SKIP with `skip` on stage 2 whose recipient dies before it begins: when it begins it completes with 0 stage pay, stage 3 starts, and the final pay stays 58 (not 62). `skip` on the last stage is rejected by the validator, and so is an unknown clause value.
 - **AC-QS-96** Rule 5, Rule 10. Given a stage target killed by the player, their party or their sect, the quest is Failed with the normal relationship loss, whatever the clause says. A `defeat` whose plan allows a kill completes on the kill.
-- **AC-QS-97** Rule 5, Rule 12. Given a reload after a target dies, the same clause applies and zero LLM calls are made.
+- **AC-QS-97** Rule 5, Rule 12. Given a reload after a target dies, the same clause applies.
 
 **Added by design-review second re-review 2026-11-06** [Logic]. **FX-SKIP:** ordinary, `event`, `deliver` (to a person), `craft`, `deliver`, no travel: S_plan 5, B 75, pays 4, 4, 9, 58.
 
@@ -881,7 +918,7 @@ Evidence: `tests/unit/quests/`, `tests/integration/quests/`, `production/qa/evid
 - **AC-QS-130** Rule 17. Given AC-QS-129 and the quest then Fails, Lapses or is dropped, the adversary stays dead and the ties' changes stay. Given a quest that never reaches the knockout, no `death` applies.
 - **AC-QS-131** Rule 17, 18. Given `outcomes` entries counted against `world_effects_max`: Ordinary with 2 entries on `completed` is rejected, and 1 `completed` plus 1 `failed` passes. A `death` entry counts under `completed`.
 - **AC-QS-132** Rule 18. `amount_share` 0.3 on FX-PLAN (B 60) gives 18, and a negative `amount_share` is a loss. `amount_share` 0.51 on a `wealth` entry (above `world_wealth_share` 0.5) is rejected.
-- **AC-QS-133** Rule 15. A template tagged for person offers with no `completed` gain for the offerer's side is rejected at load. A person offer whose fallback template fails rule 15 makes no offer that season and makes no LLM call after the fallback.
+- **AC-QS-133** Rule 15. A template tagged for person offers with no `completed` gain for the offerer's side is rejected at load. A person offer whose bound template fails rule 15 is dropped for this offer and the next by weight is tried.
 - **AC-QS-134** Rule 18, Formula E. Given a board quest at a sect's place with `offerer` `wealth` on `completed`: on Completed the head gains the wealth, and the attitude of the head, their ties and any adversary is unchanged. On Failed and Lapsed attitudes are also unchanged. A board template paying a relationship reward with the head is rejected at load.
 - **AC-QS-135** Rule 11. Given a Major plan for a Nascent Soul player with no insight, an `insight` passes and B is unchanged. It is rejected for a player who holds one, for any other realm, on an Errand or Ordinary plan, and as a second insight in one quest.
 - **AC-QS-136** Rule 11, Edge. Given an active quest planning an `insight` and the player gains one elsewhere before payment, the insight pays nothing, nothing replaces it, and the rest of the final pay stands.
@@ -893,28 +930,41 @@ Evidence: `tests/unit/quests/`, `tests/integration/quests/`, `production/qa/evid
 
 - **AC-QS-140** Rule 16. Given a sect's offer through member M (master X, sect Y): `offerer` resolves to M, `offerer_ties` to X and M's disciples, `offerer_sect` to Y. On Failed, M takes −15, X −7 and Y's head −3. A sect offer whose member's attitude is −30 makes no offer.
 - **AC-QS-141** Rule 16, 17. Given a Major plan whose adversary is a sect with head H, `adversary` resolves to H. An offerer gain plus a completed `wealth` and `injury` on `adversary` give H −15 and H's master −7 (H is the sect head, so no separate head tie reacts, as in AC-QS-108). A sect adversary whose head is already dead resolves nothing, and the entry is dropped.
-- **AC-QS-142** Rule 4, 16. Given a template holding `defeat` or `reach`, then it is rejected at load. A template whose stages with `template_travel_max` 4 added fit `deadline_max` loads, and one that exceeds it at that travel is rejected at load. A fallback for an offer with travel above 4 that would exceed `deadline_max` makes no offer, and a board omits it.
+- **AC-QS-142** Rule 4. Given a template whose stages with `template_travel_max` 4 added fit `deadline_max`, then it loads, and one that exceeds it at that travel is rejected at load. A bound plan for an offer with travel above 4 that would exceed `deadline_max` is dropped for this offer, and a board omits it. (Revised 2026-11-15: `defeat` and `reach` templates now load, AC-QS-149.)
 
 **Added by design-review fifth pass 2026-11-07** [Logic]
 
-- **AC-QS-143** Rule 4. Given a template whose windows plus `template_travel_max` 4 exceed `deadline_max`, then it is rejected at load. Given an Errand template at `window_sum` 8 and an offer with travel 5 (13 over 12), then the fallback makes no offer, and on a board it is omitted.
+- **AC-QS-143** Rule 4. Given a template whose windows plus `template_travel_max` 4 exceed `deadline_max`, then it is rejected at load. Given an Errand template at `window_sum` 8 and an offer with travel 5 (13 over 12), then that template is dropped for this offer, and on a board it is omitted.
 - **AC-QS-144** Rule 17, 18. Given a Major plan with 3 `completed` entries (an offerer gain, adversary `wealth`, adversary `injury`), it passes rules 15 and 17. Given a 4th, it is rejected. Given an `injury` entry with `amount` 0.4, it is 40 % of vitality, and `rank` with an `amount` is rejected.
 - **AC-QS-145** Edge. Given a player who dies in stage 2 with an active quest whose plan has a `failed` outcome, then that outcome applies and the source fact is on the 16-season cooldown. Given a death in stage 1, no `failed` outcome applies and the cooldown still does.
 
 **Not covered.** No AC for per-kind completion of `event`. The `reach` estimate does not exist yet, so AC-QS-16 uses a stub.
 
+- **AC-QS-146** Rule 3. Given a template whose slot names "the nearest living person of calling X" and no such person exists, then the template is dropped for this offer and the next is tried.
+- **AC-QS-147** Rule 3. Given a template with a parameter range of 3 to 5 seasons, then 1,000 seeded offers all draw within it and none above the tier's `deadline_max`.
+- **AC-QS-148** Rule 3. Given a Legendary draw at Qi Refining, then a Major template is offered (rule 14).
+- **AC-QS-149** Rule 4. Given a template with a `reach` and a `defeat` stage, **WHEN** loaded, **THEN** all stage kinds load; a template with two `reach` stages is rejected at load.
+- **AC-QS-150** Rule 13. Given a slot marked `new_person`, then the person is registered in the World DB before the offer is shown; given an unmarked slot with no registered match, the template is dropped.
+- **AC-QS-151** [Integration] Rule 19, Event Engine. Given an accepted quest, then a story starts with the plan's stages; an `event` stage fires its Event Engine event, and the quest's stage pay equals Formulas A and is drawn from B, not from a second chain budget.
+- **AC-QS-152** [Integration] Rule 19. Given a Completed quest, a Failed one and a Dropped one, then the story ends done, failed and failed, the quest writes one World DB record each and the story writes none.
+- **AC-QS-153** [Integration] Rule 19. Given 3 active quests and 3 other active stories, then both are held: quest stories do not count toward the Event Engine's `stories_active_max`.
+- **AC-QS-154** [Integration] Rule 2, NPC Interaction & Dialogue. Given a person with an offer, **WHEN** the player chooses "Ask for work", **THEN** the offer is shown under rule 2's limits; given none, the line says so.
+
 ## Open Questions
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
-| 1 | Event Engine, LLM Game Master and Dialogue have no GDD. Confirm the brief, the repair call, the new effect types (rule 9) and the rule for new entities (rule 13). `qa-lead` reports that today's event validator clamps and drops, and never rejects on budget, so plan-level rejection (rule 4) is new work, as are the final-stage cap of 6 effects, the Legendary rarity exception and the `if_target_lost` clause; size all of it | systems-designer | Implementation |
+| 1 | **Partly answered 2026-11-15:** Event Engine and Dialogue have GDDs, and the LLM brief and repair call are gone. Still to size: plan-level rejection (rule 4) is new work (today's validator clamps and drops and never rejects on budget), as are the new effect types (rule 9), the final-stage cap of 6 effects, the Legendary rarity exception and the `if_target_lost` clause | systems-designer | Implementation |
 | 2 | Rule 6 (assumption): is showing the first stage in full and later stages by kind and place the right reveal? | user | UI Requirements |
 | 3 | Measure quests against missions in the Balance Harness, then re-fit `quest_reward_mult`, `cap_mult`, `stage_reward_share` and `tier_share` | systems-designer, Balance Harness | Approval of the numbers |
 | 4 | r has no win-chance meaning yet. Re-fit `quest_fight_ratio_max` once Combat Open Questions 6 and 20 are measured. `defeat` waits on the full fight | systems-designer | `defeat` stages |
-| 5 | A person or sect offer needs one LLM call, plus up to `repair_tries` repairs. What latency and cost are acceptable? | technical-director | Implementation |
+| 5 | ~~LLM latency and cost per offer~~ **Moot 2026-11-15:** no LLM call; an offer costs a template draw and a validation | — | — |
 | 6 | Which stat keys may a `quest_boon` use? | user, systems-designer | Content pass |
 | 7 | Feasibility was not checked against the pinned engine: there is no `scripting` module under `docs/engine-reference/godot/modules/` | technical-director | Architecture |
 | 8 | The Item Database's `realm_rarity_cap` must name the Legendary exception (rule 14). Rarity 6 items are also scarce today, so this reward needs more hand-authored top items | user, economy-designer | Content pass |
 | 9 | World effects write NPC wealth, vitality, rank and life. Confirm those fields and that deaths keep Realms' headcount targets when the Living World is documented | systems-designer | Implementation |
 | 10 | **Answered 2026-11-14 by `design/gdd/sects.md`** (rule 21, Formulas F10–F11): standing sets offers, prices, recruitment, manual sales and hostility. ~~`sect_standing` is new and nothing reads it yet. What should it change: offers, prices, recruits, or sect wars?~~ | user, game-designer | Effect of `standing` |
 | 11 | A `recipe` reward has nothing to teach: Alchemy has no recipe knowledge today, and an `items_recipes.json` `price` is the pill's price, not the knowledge's. Decide whether recipes become learnable, then set the reward's price and rarity (rule 11) | user, economy-designer | `recipe` rewards |
+| 12 | Template volume: how many templates per tier and per source-fact kind does the first playable need (the no-LLM audit guesses 40 to 80 in all), and which Legendary templates tie to which fixed-cast person or history site | user | Before content authoring |
+| 13 | Do quests that share a person with an Event Engine story (a fixed-cast person with their own arc) block each other? Proposed: they share flags and may chain, with no extra rule | user + Event Engine | Content pass |
+| 14 | **Answered 2026-11-15** (Event Engine Open Question 7): a quest's B replaces the chain budget for its story (rule 19) | — | — |
