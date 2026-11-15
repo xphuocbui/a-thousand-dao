@@ -48,7 +48,9 @@ func test_drawing_spends_ink_and_materials_and_passes_a_season() -> void:
 
 func test_combat_uses_attack_and_defense_talismans_and_the_card_shows_them() -> void:
 	var s := _session()
-	var enemy_id: String = s.builds.create_person(s.rng, {"realm_index": 0, "archetype": "kiem_tu", "location_id": s.player.location_id})
+	# An evenly matched opponent (stage 0, as the new player): real fights are sharp, so against a stronger NPC the
+	# odds are 0 with or without talismans (measured 2026-11-15: none 0, attack 0.17, both 1.00 at stage 0).
+	var enemy_id: String = s.builds.create_person(s.rng, {"realm_index": 0, "stage": 0, "archetype": "kiem_tu", "location_id": s.player.location_id})
 	var ev: Dictionary = _event(s, {"type": "combat", "enemy": enemy_id})
 	s.pending_event = ev
 	var plain: float = Advisor.choice_odds(s, 0).chance

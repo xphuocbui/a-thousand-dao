@@ -11,8 +11,7 @@ func test_the_flag_is_on_in_the_shipped_data_and_off_in_the_shared_test_fixture(
 	# Turned on 2026-11-15 (user decision); the shared fixture turns it off for the other suites (test_fixtures.gd)
 	var shipped := GameData.load_from("res://assets/data")
 	assert_true(RatingService.new(shipped, WorldDB.new()).enabled(), "combat_rankings.json enabled is true")
-	# the event-fight engine stays off until the compiler builds talismans, formations and pills (user decision 2026-11-15)
-	assert_false(bool(shipped.combat().fight_engine.enabled), "combat_rules.json fight_engine.enabled is false")
+	assert_true(bool(shipped.combat().fight_engine.enabled), "combat_rules.json fight_engine.enabled is true (2026-11-15)")
 	assert_false(_service(game_data()).enabled(), "the shared fixture keeps ratings off")
 
 

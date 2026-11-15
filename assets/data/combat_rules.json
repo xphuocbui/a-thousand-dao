@@ -23,7 +23,7 @@
   },
   "fight_engine": {
     "_doc": "ADR-0001 step 4 feature flag: when enabled, an event's combat check runs a real fight (CombatService, both sides compiled by FighterCompiler.compile, the seed one draw from the session stream per ADR-0002) instead of the duel roll; a side that cannot compile falls back to the duel, and the check line says why. Off until the fights are signed off in play. odds_samples: how many fights the event card's odds are estimated from (seeded from a keyed stream on the two fighters, so the session stream never moves and the card is stable).",
-    "enabled": false,
+    "enabled": true,
     "odds_samples": 24
   },
   "duel": {
