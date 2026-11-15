@@ -38,6 +38,9 @@ var _ai: PackedInt32Array = []
 var _bi: PackedInt32Array = []
 var _sets: Array = []
 var _private := false
+## With --private-k each chunk also has its own deep copy of the combat constants (to tell contention on the shared
+## constants dictionaries from engine-wide locks).
+var _ks: Array = []
 var _pending := false
 var _seeds: PackedInt64Array = []
 var _mt: Array = []
@@ -64,14 +67,26 @@ func _ready() -> void:
 		elif arg == "--private":
 			_chunks = OS.get_processor_count()
 			_private = true
+		elif arg == "--private-k":
+			_chunks = OS.get_processor_count()
+			_private = true
+			_ks = [null]
 	var t0 := Time.get_ticks_usec()
 	var gd := GameData.load_from("res://assets/data")
+	# Power Rankings is on in the shipped data: off here, or the session's background season batch would share the
+	# CPU with the measured fights (and hold the process open at exit).
+	gd.file("combat_rankings")["enabled"] = false
 	var llm := LlmService.new(gd)
 	llm.enabled = false
 	var s := GameSession.new(gd, llm, MeridianTree.generate(gd))
 	s.new_game(4242, {"mode": "roll", "name": "Spike", "gender": "male", "origin": "tan_tu"})
+	s.shutdown()
 	_report.worldgen_ms = (Time.get_ticks_usec() - t0) / 1000.0
 	_k = CombatConstants.from_game_data(gd)
+	if not _ks.is_empty():
+		_ks = []
+		for chunk in _chunks:
+			_ks.append(CombatConstants.from_dict(gd.file("combat_engine").duplicate(true)))
 	# compile on the main thread, grouped by realm (fights are same-realm, as matchmaking and panels are)
 	var by_realm := {}
 	var chars: Array = []
@@ -151,12 +166,13 @@ func _task(i: int) -> void:
 func _chunk_task(c: int) -> void:
 	var n: int = _seeds.size()
 	var profiles: Array = _sets[c + 1] if _private else _sets[0]
+	var kk: CombatConstants = _ks[c] if not _ks.is_empty() else _k
 	for i in range(c * n / _chunks, (c + 1) * n / _chunks):
-		_fight(i, _mt, profiles)
+		_fight(i, _mt, profiles, kk)
 
 
-func _fight(i: int, into: Array, profiles: Array) -> void:
-	var r: FightResult = Fight.new(profiles[_ai[i]], profiles[_bi[i]], _k, _seeds[i], Fight.Order.COIN, false).run()
+func _fight(i: int, into: Array, profiles: Array, kk: CombatConstants = null) -> void:
+	var r: FightResult = Fight.new(profiles[_ai[i]], profiles[_bi[i]], kk if kk != null else _k, _seeds[i], Fight.Order.COIN, false).run()
 	var o: Outcome = into[i]
 	o.t_ms = r.t_ms
 	o.winner = int(r.winner)
