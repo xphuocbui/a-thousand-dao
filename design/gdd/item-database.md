@@ -239,6 +239,10 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
         realm, Kết Đan or higher (`holder_realm_min` 2, user decision 2026-11-13), made at the holder's realm tier
         (NPC Builds equips it where a slot fits), or as Lost at a place, at a tier from Kết Đan up. After that, rule 14 moves it like any other item: trade, gift,
         theft, or its holder's death.
+      - **Legendary items are authored as lore first** (user decision 2026-11-15). World Generation & History writes
+        each one as a record: name, look, maker, history, and a current holder or the region where it was lost. It
+        becomes a unique named template, placed by this rule, only once its Effects are hand-designed. Until then it
+        is a codex and history record only and is not placed in the world.
       - **Quest and sect rewards:** a quest may name a named template as its reward; sect rewards wait on Sects & Missions.
       - **Crafting:** Artifact Refining may hold a recipe for a **repeatable** named item. A unique item is never crafted.
     - **e. Markets never stock or restock a named item.** One sold to a Market becomes that Market's stock, as rule 14

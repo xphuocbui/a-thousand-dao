@@ -1,0 +1,54 @@
+
+/* batch 6: land units coloured per year, eras, annals, items */
+:root { --g-city: #6b5a8e; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --g-city: #c6b3ef; } }
+:root[data-theme="dark"] { --g-city: #c6b3ef; }
+.units { position: absolute; inset: 0; width: 100%; height: 100%; }
+.unit { position: absolute; inset: 0; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat; background-color: transparent; transition: background-color .8s ease, opacity .8s ease; }
+.unit.gone { opacity: .72; }
+.unit.flash { animation: flash 1.4s ease 1; }
+.era-chap { padding: 22px 0 4px; display: grid; gap: 3px; }
+.era-chap b { font: 600 1.25rem var(--f-display); }
+.era-chap span { font: 500 0.75rem var(--f-data); color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.era-chap p { margin: 0; color: var(--muted); font-size: 0.86rem; }
+.held { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 0.78rem; color: var(--map-muted); }
+.held span { display: inline-flex; gap: 5px; align-items: center; }
+.held i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+.ann { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.ann-map { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 58px); background: var(--map-frame); border-radius: 6px; padding: 10px;
+  display: grid; gap: 8px; color: var(--map-fg); min-width: 0; }
+.ann-map .mapbox { cursor: pointer; }
+.rlab { font: 600 24px var(--f-body); paint-order: stroke; stroke: #0b0f12; stroke-width: 6px; stroke-linejoin: round; cursor: pointer; }
+.rlab.on { fill: #ffd36b; font-size: 30px; }
+.reg-head { display: grid; gap: 4px; }
+.reg-head h3 { margin: 0; font: 600 1.35rem var(--f-display); }
+.reg-head .meta { font: 500 0.78rem var(--f-data); color: var(--muted); }
+.reg-hist { display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.8rem; }
+.reg-hist span { padding: 2px 8px; border-radius: 3px; background: var(--chip); display: inline-flex; gap: 6px; align-items: center; }
+.reg-hist i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+.alist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-left: 2px solid var(--line); }
+.alist li { display: grid; grid-template-columns: 56px 1fr; gap: 10px; padding: 9px 0 9px 12px; position: relative; }
+.alist li::before { content: ""; position: absolute; left: -6px; top: 15px; width: 10px; height: 10px; border-radius: 50%; background: var(--panel); border: 2px solid var(--g-land); }
+.alist li.lm::before { border-color: var(--gold); background: var(--gold); }
+.alist .y { font: 600 1rem var(--f-display); font-variant-numeric: tabular-nums; }
+.alist .t { margin: 0; font-size: 0.92rem; }
+.alist .t[lang="vi"] { font-family: var(--f-display); }
+.alist .where { color: var(--muted); font: 500 0.72rem var(--f-data); min-height: 0; }
+.alist .lmtag { font: 600 0.68rem var(--f-data); color: var(--gold); letter-spacing: .05em; text-transform: uppercase; }
+.items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.it { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; }
+.it h4 { margin: 0; font: 600 1.05rem var(--f-display); display: flex; gap: 8px; flex-wrap: wrap; align-items: baseline; }
+.it h4 small { font: 400 0.82rem var(--f-body); color: var(--muted); }
+.it .meta { font: 500 0.72rem var(--f-data); color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.it p { margin: 0; font-size: 0.88rem; }
+.it .st { font-size: 0.84rem; }
+.it .st b { font-weight: 600; }
+.it.lost { border-style: dashed; }
+.it .pair { font-size: 0.8rem; color: var(--muted); }
+.legend-row { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.8rem; color: var(--muted); }
+.legend-row span { display: inline-flex; gap: 6px; align-items: center; }
+@media (max-width: 900px) {
+  .ann { grid-template-columns: minmax(0, 1fr); }
+  .ann-map { position: relative; top: 0; }
+}

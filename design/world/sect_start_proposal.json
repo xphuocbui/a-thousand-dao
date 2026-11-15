@@ -1,25 +1,27 @@
 {
- "status": "APPROVED by the user 2026-11-15 (World Generation & History Core Rule 7, Open Question 3). Dials and attitudes are not authored: they start at their formula targets (user decision 2026-11-15). Authored here: alignment, the four development levels, the treasury and the loyalty of vassals. Leaders' traits are still to do (NPC Traits).",
+ "status": "APPROVED by the user 2026-11-15 (World Generation & History Core Rule 7, Open Question 3). Dials and attitudes are not authored: they start at their formula targets (user decision 2026-11-15). Authored here: alignment, the four development levels, the treasury and the loyalty of vassals. Leaders' traits are still to do (NPC Traits). Revised 2026-11-15 after the territory history: Thiên Xu Tông is trung lập and authored at the tier-1 cap on every track with a 90,000 treasury (user decision: the neutral middle kingdom and the strongest sect); Military recomputed from the new war counts; Củng Tinh Quán and Thối Tinh Môn follow their lord to trung lập. Holdings and Trade are recomputed again after the cities batch. Holdings and Trade adjusted after the cities batch (15 towns promoted): each changed by the step the promotion makes under the approved formula (Tùng Đào Trade −1, Lạc Hà Holdings −1, Thính Vũ and Băng Tâm Trade +1, Thúy Vi Holdings +1).",
  "rules": {
   "great_levels": "floor(settle x idx) per track, settle 12 (tier-1) and 9 (tier-2), idx 0.6 + 0.4 x relative score within the tier: Holdings = 3 mines + towns + villages/2; Trade = 3 markets + 2 cities + towns/2; Military = wars in the chronicle; Institutions = age/100 + 3 per Hoa Than elder. Weakness: Military uses wars only.",
   "minor_levels": "settle 4: primary track 4, secondary 3, the rest 2 (craft decides the tracks)",
   "treasury": "1.5 x the one-year reserve R of the tier season budget: tier-1 60,000, tier-2 30,000, minor 7,000 (guesses until AC-SM-42)",
   "loyalty": "60 + 5 same alignment, -5 if one side is trung lap, -20 chinh vs ma (mirrors F7); break line 30",
-  "alignment_great": "Thinh Vu Lau is ma dao (user decision 2026-11-15, example option); Lac Ha trung lap; the other five chinh dao"
+  "alignment_great": "Thinh Vu Lau is ma dao (user decision 2026-11-15; history: the Night Rain Edict of 905); Thien Xu Tong and Lac Ha trung lap; the other four chinh dao",
+  "military_counts": "wars per design/world/territory_history_proposal.json war_counts",
+  "thien_xu_override": "Thien Xu Tong's levels and treasury are authored, not formula: 12 on every track, treasury 90,000 (user decision 2026-11-15)"
  },
  "great_sects": [
   {
    "key": "thien_xu",
    "name_hv": "Thiên Xu Tông",
    "tier": 1,
-   "alignment": "chinh",
+   "alignment": "trung",
    "levels": {
     "holdings": 12,
-    "institutions": 9,
+    "institutions": 12,
     "military": 12,
-    "trade": 7
+    "trade": 12
    },
-   "treasury": 60000
+   "treasury": 90000
   },
   {
    "key": "tung_dao",
@@ -29,8 +31,8 @@
    "levels": {
     "holdings": 7,
     "institutions": 12,
-    "military": 7,
-    "trade": 8
+    "military": 9,
+    "trade": 7
    },
    "treasury": 60000
   },
@@ -40,7 +42,7 @@
    "tier": 1,
    "alignment": "trung",
    "levels": {
-    "holdings": 10,
+    "holdings": 9,
     "institutions": 7,
     "military": 7,
     "trade": 12
@@ -55,8 +57,8 @@
    "levels": {
     "holdings": 9,
     "institutions": 9,
-    "military": 9,
-    "trade": 7
+    "military": 7,
+    "trade": 8
    },
    "treasury": 30000
   },
@@ -69,7 +71,7 @@
     "holdings": 6,
     "institutions": 7,
     "military": 9,
-    "trade": 5
+    "trade": 6
    },
    "treasury": 30000
   },
@@ -79,7 +81,7 @@
    "tier": 2,
    "alignment": "chinh",
    "levels": {
-    "holdings": 5,
+    "holdings": 6,
     "institutions": 5,
     "military": 5,
     "trade": 7
@@ -94,7 +96,7 @@
    "levels": {
     "holdings": 7,
     "institutions": 6,
-    "military": 5,
+    "military": 9,
     "trade": 9
    },
    "treasury": 30000
@@ -105,7 +107,7 @@
    "key": "thoi_tinh",
    "name_hv": "Thối Tinh Môn",
    "lord": "thien_xu",
-   "alignment": "chinh",
+   "alignment": "trung",
    "levels": {
     "holdings": 4,
     "institutions": 2,
@@ -127,13 +129,13 @@
     "trade": 2
    },
    "treasury": 7000,
-   "loyalty": 65
+   "loyalty": 55
   },
   {
    "key": "cung_tinh",
    "name_hv": "Củng Tinh Quán",
    "lord": "thien_xu",
-   "alignment": "chinh",
+   "alignment": "trung",
    "levels": {
     "holdings": 3,
     "institutions": 4,
@@ -155,7 +157,7 @@
     "trade": 2
    },
    "treasury": 7000,
-   "loyalty": 65
+   "loyalty": 55
   },
   {
    "key": "ham_nguyet",

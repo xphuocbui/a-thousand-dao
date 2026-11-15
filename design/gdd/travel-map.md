@@ -9,7 +9,7 @@
 ## Summary
 
 Travel & Map is the one fixed continent the cultivator lives in, the same in every game: seas and islands on a grid
-of 25 km tiles, each a natural mix of up to three of nineteen biomes, about 20 regions and 150–250 places, each with
+of 25 km tiles, each a natural mix of up to three of nineteen biomes, about 20 regions and 200–300 places, each with
 its own qi density and element shares. The qi follows
 the terrain: the heart of a jungle is richer in Wood than its edge, and the ground beside a lava flow is the most fiery.
 Where you live and
@@ -28,7 +28,7 @@ features such as lava flows, ice fields and ore veins). Each tile holds a natura
 its cells, so a tile can be part steppe, part foothills with a river through it, and biomes change gradually where they
 meet (user decision 2026-11-13). From these the map build computes the land's spiritual qi: the density (linh khí) and how much of each element (and variant)
 the ground holds. The qi follows the terrain. The heart of a biome is purer than its edge, and features such as a lava
-flow or an ice field push their element outward. On top of that terrain sit about 20 regions and 150–250 named places
+flow or an ice field push their element outward. On top of that terrain sit about 20 regions and 200–300 named places
 (towns, markets, mountains, valleys, lakes, islands, spirit veins, mines, sect seats), the same sects and starting
 borders in every game, and the hidden ruins, caves and secret realms that the world's history left behind, whose exact
 spots are rolled each game from a few hand-picked candidates.
@@ -154,12 +154,12 @@ names rather than a place.
 
 **Places**
 
-6. **Named places sit on tiles.** About 150–250 places across about 20 regions. A place sits in one part of its tile
+6. **Named places sit on tiles.** About 200–300 places across about 20 regions (raised from 150–250, user decision 2026-11-15, for more cities and the ruined cities of the history). A place sits in one part of its tile
    (rule 2) and reads that part's terrain and qi, and its kind adds to it: a mountain place on a tile that is 30 % high
    mountain sits in the mountain part. The kinds:
    - **settlements:** city (thành), town (trấn), market (phường thị), village (thôn);
    - **wild sites:** mountain (sơn), valley (cốc), lake (hồ), forest (lâm), island (đảo);
-   - **special sites:** spirit vein, mine (khoáng mạch), sect seat, secret realm (bí cảnh), ruin (di tích) and cave
+   - **special sites:** spirit vein, mine (khoáng mạch), sect seat, secret realm (bí cảnh), ruin (di tích; a ruined city is a ruin with a former-city record, from World Generation's territory history) and cave
      abode (động phủ).
 
    A settlement lowers danger, and cities and markets have trade (towns and villages do not, as built).
@@ -584,8 +584,8 @@ swamp, mangrove, glacier 0.8; temperate forest, lake, highland 0.9; jungle, bamb
 depth and features.
 
 **Map targets**, checked on the one map by the map check script instead of over 100 seeds:
-- 15–21 % of places at density 1.4 or more (Core Formation; user decision 2026-11-10 to keep 18 %, which is 27–45
-  places at 150–250 places);
+- 15–21 % of places at density 1.4 or more (Core Formation; user decision 2026-11-10 to keep 18 %, which is 36–54
+  places at 200–300 places);
 - mean place density 1.05–1.20 (today 1.13);
 - about 4 % of wilderness land tiles at 1.4 or more, mostly veins and the deep heart of rich biomes, so a cave abode
   opened at random is rarely a Core Formation spot;
@@ -1265,7 +1265,7 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 
 ### Places
 
-- **AC-TM-24** [Harness] Rule 6. GIVEN FX-TM-MAP, THEN the map has 150–250 places and 18–22 regions. Every place
+- **AC-TM-24** [Harness] Rule 6. GIVEN FX-TM-MAP, THEN the map has 200–300 places and 18–22 regions. Every place
   kind in rule 6 appears at least once.
 - **AC-TM-25** [Logic] Rule 6, Formula E `d_t`. GIVEN a town on jungle (base danger 2), THEN its danger is 1. GIVEN a
   village on grassland (danger 1), THEN it stays 1.

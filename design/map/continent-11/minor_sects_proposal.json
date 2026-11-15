@@ -4,7 +4,7 @@
  "style": "Hán-Việt, romantic, each from a line of classical poetry or prose; smaller suffixes than the great sects: Môn (gate), Phái (school), Cốc (valley), Trang (manor), Quán (abbey), Viện (academy), Trai (studio), Đường (hall), Am (hermitage), Đài (terrace), Viên (garden).",
  "minor_sects": [
   {"key": "thoi_tinh", "name_hv": "Thối Tinh Môn", "name_han": "淬星門", "gloss": "Gate of the Quenched Stars",
-   "lord": "thien_xu", "region": 15, "alignment": "chính đạo", "leans": ["Metal", "Fire"],
+   "lord": "thien_xu", "region": 15, "alignment": "trung lập", "leans": ["Metal", "Fire"],
    "craft": "weapon forging (luyện khí) from star iron", "want": ["ore", "river", "mountain"],
    "note": "Star iron quenched in the river; its name follows its lord's stars of the Dipper"},
   {"key": "phat_y", "name_hv": "Phất Y Cốc", "name_han": "拂衣谷", "gloss": "Valley of the Brushed Sleeve",
@@ -12,7 +12,7 @@
    "craft": "sword cultivation; wandering swordsmen for hire", "want": ["river", "grassland", "mountain"],
    "note": "Lý Bạch, Hiệp Khách Hành: sự liễu phất y khứ, thâm tàng thân dữ danh (deed done, he brushes his sleeve and goes, hiding body and name)"},
   {"key": "cung_tinh", "name_hv": "Củng Tinh Quán", "name_han": "拱星觀", "gloss": "Abbey of the Bowing Stars",
-   "lord": "thien_xu", "region": 14, "alignment": "chính đạo", "leans": ["Earth", "Metal"],
+   "lord": "thien_xu", "region": 14, "alignment": "trung lập", "leans": ["Earth", "Metal"],
    "craft": "formations (trận pháp) and star divination", "want": ["highland", "lake", "steppe"],
    "note": "Luận Ngữ: like the pole star, which keeps its place while all the stars bow to it (chúng tinh củng chi); a vassal whose name honours its lord, the Heavenly Pivot"},
   {"key": "cuu_cao", "name_hv": "Cửu Cao Phái", "name_han": "九皋派", "gloss": "School of the Nine Marshes",

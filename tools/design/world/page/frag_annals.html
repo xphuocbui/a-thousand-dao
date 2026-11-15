@@ -1,0 +1,28 @@
+  <section id="annals">
+    <div class="eyebrow">The annals · 312 lesser events · approved 2026-11-15</div>
+    <h2>The annals of the twenty regions</h2>
+    <p class="lede">The second tier of the history: towns and villages founded, mines opened, beasts, storms, births and local tales. Each region has 14–18, and they feed its codex entry, its rumours and what its people talk about. Pick a region on the map or in the list. Landmark events that happened there are mixed in, marked in gold.</p>
+    <div class="ann">
+      <div class="ann-map">
+        <div class="mapbox" id="amapbox">
+          <img src="chron-base.jpg" alt="The continent of seed 11 with its twenty regions" width="1620" height="1080">
+          <canvas class="units" id="aunits" width="1620" height="1080"></canvas>
+          <svg id="amap" viewBox="0 0 1620 1080" role="img" aria-label="Regions; click one to read its annals"></svg>
+        </div>
+        <div class="chron-tools" id="aregs" role="toolbar" aria-label="Regions"></div>
+      </div>
+      <div id="apanel" style="display:grid;gap:12px;min-width:0"></div>
+    </div>
+  </section>
+
+  <section id="items">
+    <div class="eyebrow">Legendary items · lore first · approved 2026-11-15</div>
+    <h2>Thirty-four legendary items</h2>
+    <p class="lede">Each one is a unique named item from the history. Sixteen are held by living people in year 1,200, and eighteen are lost: in a fixed ruin or famous site, or in one of the hidden places that moves each game. Their Effects are still to be designed (Item Database rule 20d), so none is placed in the world yet. Three pairs belong together, and one is a secret.</p>
+    <div class="chron-tools" role="toolbar" aria-label="Filter items">
+      <button class="fchip" type="button" id="i-all" data-i="all" aria-pressed="true">All 34</button>
+      <button class="fchip" type="button" id="i-held" data-i="held" aria-pressed="false">Held, 16</button>
+      <button class="fchip" type="button" id="i-lost" data-i="lost" aria-pressed="false">Lost, 18</button>
+    </div>
+    <div class="items-grid" id="igrid"></div>
+  </section>

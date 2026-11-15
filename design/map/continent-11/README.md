@@ -37,6 +37,8 @@ fixed-world-decisions.md).
 | `sacred.json`, `sacred.png`, `sacred.jpg` | Output of `tools/design/map/sacred.py`: every vein with its tiles, the summits, caves, wasteland and source, the derived features' tiles, the new places and the map check. `sacred.png` is a 16-bit tile image with `base/features.png`'s authored bits (spirit vein 128, sacred summit 256, deep cave 512, miasma source 1024) and 2048 for a wasteland tile. |
 | `history_proposal.json` | Input, edited by hand: the famous secret realms, ruin and blessed lands with names, anchors and data; the hidden slots by kind, count and element; the tile secrets per region; the rules for candidate ground. |
 | `history.json`, `history.jpg` | Output of `tools/design/map/history.py`: the famous sites with tiles (and each large blessed land's tiles), every hidden slot with its candidate tiles, the tile secrets, and the map check. |
+| `history_places_proposal.json` | Input, edited by hand (approved 2026-11-15): the towns promoted to cities, every city's founding year, the fixed ruins of fallen sects and ruined cities, and the named parts of regions that changed hands (World Generation & History Core Rule 15). |
+| `history_places.json` | Output of `tools/design/map/history_places.py`: the promotions, city years, ruin records and part tiles, and the check (place counts, spacing, each vanished sect's ruin-slot candidates on its own land, and the density targets before and after). A layer like `sacred.json`: no earlier file is edited, and `export_continent.py` merges it. |
 | `origins_proposal.json` | The home regions for each origin, and the seven clans with their towns. Written by hand. |
 | `minor_sects.json`, `minor_sects.jpg` | Output of `tools/design/map/minor_sects.py`: each minor seat's tile, its land, which wants it met, its distance to its lord's seat and to another sect's land; the politics map with the minor seats. |
 
@@ -57,6 +59,7 @@ python -I tools/design/map/minor_sects.py --map design/map/continent-11 \
 python -I tools/design/map/places.py --map design/map/continent-11
 python -I tools/design/map/sacred.py --map design/map/continent-11
 python -I tools/design/map/history.py --map design/map/continent-11
+python -I tools/design/map/history_places.py --map design/map/continent-11
 ```
 
 `design/map/.gdignore` keeps Godot from importing these design files.
@@ -255,9 +258,9 @@ Those are the vassals a neighbour could court (Sects rule 6).
 
 | # | Name | Hán tự | Meaning | Lord | Region | Alignment | Leans | Craft |
 |---|---|---|---|---|---|---|---|---|
-| 1 | **Thối Tinh Môn** | 淬星門 | Gate of the Quenched Stars | Thiên Xu Tông | 15 Ngọc Hành Sơn | chính đạo | Metal, Fire | weapon forging (luyện khí) from star iron |
+| 1 | **Thối Tinh Môn** | 淬星門 | Gate of the Quenched Stars | Thiên Xu Tông | 15 Ngọc Hành Sơn | trung lập (2026-11-15, following its lord) | Metal, Fire | weapon forging (luyện khí) from star iron |
 | 2 | **Phất Y Cốc** | 拂衣谷 | Valley of the Brushed Sleeve | Thiên Xu Tông | 15 Ngọc Hành Sơn | chính đạo | Metal, Wind | sword cultivation; wandering swordsmen for hire |
-| 3 | **Củng Tinh Quán** | 拱星觀 | Abbey of the Bowing Stars | Thiên Xu Tông | 14 Thiên Tuyền Nguyên | chính đạo | Earth, Metal | formations (trận pháp) and star divination |
+| 3 | **Củng Tinh Quán** | 拱星觀 | Abbey of the Bowing Stars | Thiên Xu Tông | 14 Thiên Tuyền Nguyên | trung lập (2026-11-15, following its lord) | Earth, Metal | formations (trận pháp) and star divination |
 | 4 | **Cửu Cao Phái** | 九皋派 | School of the Nine Marshes | Thiên Xu Tông | 6 Dao Quang Lĩnh | chính đạo | Wind, Wood | spirit beasts: crane riders and beast tamers |
 | 5 | **Hàm Nguyệt Trang** | 含月莊 | Manor That Holds the Moon | Tùng Đào Cung | 1 Lãnh Nguyệt Lâm | chính đạo | Water, Ice | water arts; spirit fish and lake pearls |
 | 6 | **Vạn Hác Viện** | 萬壑院 | Academy of the Ten Thousand Ravines | Tùng Đào Cung | 4 Thâm Tùng Hải | chính đạo | Wood, Wind | sound cultivation: the zither (cầm) and its arts |

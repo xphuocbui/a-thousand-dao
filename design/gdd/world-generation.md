@@ -9,7 +9,7 @@
 ## Summary
 
 World Generation & History builds the world a new game starts in, once, before play. The continent, its 29 sects, its
-places, a chronicle of about 40–60 events and a cast of 60–100 fixed characters (each with a fully authored build) are
+places, a two-tier chronicle (about 150–250 landmark events and 300–500 annals) and a cast of 60–100 fixed characters (each with a fully authored build) are
 the same in every game. The ordinary cultivators (about 5,000) and the exact spots of hidden ruins, secret realms and
 tile secrets are rolled from the game's seed. The player starts in a world with a learnable geography and a remembered
 past, and replay variety comes from people and secrets, not from coastlines (Pillar 5, A World That Remembers).
@@ -19,7 +19,7 @@ past, and replay variety comes from people and secrets, not from coastlines (Pil
 ## Overview
 
 World Generation & History builds the world a new game begins in. Most of it is authored once and is the same in
-every game: the continent with its 20 regions and 204 places, the 7 great sects and 22 minor sects with their lands
+every game: the continent with its 20 regions and about 230 places (30 cities and 17 ruins of the history among them), the 7 great sects and 22 minor sects with their lands
 and seats, the famous sites and sacred features, and the history that led up to the starting year. A small part is
 rolled from the game's seed, and it is the only part that differs between games:
 
@@ -55,11 +55,19 @@ Without this system the other systems have a map but no past, no population and 
    9. the player, placed by origin.
 2. **Authored data is data, never rolled.** The base, sects, chronicle and cast are read-only files in fixed formats.
    No step may change them. The same files and the same game seed always give the same World Database.
-3. **The chronicle is a landmark chronicle** of about 40–60 hand-written events: sect foundings, wars and falls, famous
-   deaths, treasures found or lost, and the origin of every secret realm, ruin, abode and blessed land. Each event has
-   an id, a year before the start, a kind, its sects and people (by authored id), a place, and one line of canon text
-   in Vietnamese, which is the text the player reads (in the codex, rumours and event cards; rule 14). It is the
-   only world history. Nothing in it is generated.
+3. **The chronicle has two tiers** (user decision 2026-11-15, replacing the single 40–60 event chronicle).
+   - The **landmark chronicle** is about 150–250 hand-written events: sect foundings, wars and falls, land changing
+     hands (rule 15), cities founded and ruined, famous deaths, legendary items made, found or lost, and the origin of
+     every secret realm, ruin, abode and blessed land.
+   - The **annals** are about 300–500 lesser events, each tied to a region and often to a place: border skirmishes,
+     disasters and beast tides, towns and markets founded, mines opened and worked out, duels and local tales.
+
+   Every event in either tier has an id, a year before the start, a kind, its sects and people (by authored id), a
+   place or region, and one line of canon text in Vietnamese, which is the text the player reads (rule 14).
+   Landmarks fill the codex timeline and event cards; annals feed the codex entry of their region or place, rumours
+   and NPC talk. Together the two tiers are the only world history. Nothing in either is generated.
+   An event may be marked **secret** (user decision 2026-11-15): it is in the World Database's log, but hidden from
+   the codex, rumours and NPC talk until the player discovers it.
 4. **An event never names a rolled tile.** It names a place, a region, or a hidden **slot** (28 of them). Which tile
    the slot sits on is decided per game (rule 9). Any text about a hidden place, whether a rumour, a clue, a history
    line or a future LLM retelling, may say its region, never its tile, until it is discovered or revealed (Travel &
@@ -67,7 +75,9 @@ Without this system the other systems have a map but no past, no population and 
 5. **The fixed cast is 60–100 people** (user decision 2026-11-15). Each is authored with a name, sex, birth year, sect
    and rank (or none), realm, home place, start location, NPC Traits (4 kinds), parents and master, and their fate in
    the chronicle. Roughly: the 29 sect heads, then famous dead legends (records only), wanderers, elders and rivals. A
-   dead person is a record only. A living one is a full person in the World Database.
+   dead person is a record only. A living one is a full person in the World Database. The 60–100 count covers the
+   living cast and the core legends; dead people named only by the wider chronicle (rule 3) are records outside the
+   count (user decision 2026-11-15).
 6. **Every living fixed character has a fully authored build** (user decision 2026-11-15): techniques, arts, gear and
    Kinh Mạch Đồ choices, written in the same format NPC Build Generation emits and checked by the same validator.
    Nothing about their build is rolled. Their Power Rankings rating is not authored: it is measured like everyone
@@ -77,9 +87,12 @@ Without this system the other systems have a map but no past, no population and 
    development levels (Holdings, Institutions, Military, Trade) and its treasury, and each minor sect also its
    starting loyalty, as Sects & Missions Open Question 9 deferred. The leader's traits come with the cast (rule 5).
    Every level must be at or below that GDD's F1 settle level (12 for a tier-1 sect, 9 for tier-2, 4 for a minor
-   sect), and every loyalty above the break line of 30. **Dials and attitudes are not authored** (user decision
-   2026-11-15): at step 2 the engine sets each dial and every attitude to its formula target (Sects rule 13 and F7),
-   so all sects start at peace with no authored pact or feud. The table is data, in
+   sect), and every loyalty above the break line of 30. **Dials are not authored** (user decision
+   2026-11-15): at step 2 the engine sets each dial to its formula target (Sects rule 13). **Attitudes start at their
+   F7 target, and the target includes authored grudges** (user decision 2026-11-15, replacing "no authored feud"). A
+   grudge is a pair of sects, a value (guess: −5 to −30) and the landmark war or fall that left it; it is Sects F7's
+   term `g` and fades toward 0 by `grudge_fade` (guess: 1) a year. No pact is authored. Checking reports every pair
+   whose starting attitude is at or below the feud line (−40), so a feud at the start is always a choice. The table is data, in
    `design/world/sect_start_proposal.json`.
 8. **The random cultivators fill the headcount left over.** For each realm, the target headcount (5,000 in all, never
    below 3,000, shares from Realms & Bottlenecks) minus the fixed cast's living members in that realm. A realm the
@@ -110,6 +123,12 @@ Without this system the other systems have a map but no past, no population and 
     personal-history record keeps its facts (ids, year, kind, place) separate from its text, so a later LLM layer,
     when it is switched on, can retell the same facts in its own words. It may never add a fact, a number or a hidden
     tile (rule 4), and the template text is the fallback whenever the LLM is off or fails.
+15. **Territory has a history** (user decision 2026-11-15). Land changes hands by region, or by a named part of a
+    region, only at dated landmark events (a conquest, a fall, a gift, a vassal changing lord). Each such event lists
+    the land it moves, from whom and to whom. A past year's map is worked out backwards from the approved year-1,200
+    territories by undoing those changes in reverse order, so year 1,200 always gives the approved map. Land with no
+    holder in a past year is wild. Cities and towns record a founding year, and a ruined city records its founding
+    and ruin years and the event that ruined it.
 
 ### States and Transitions
 
@@ -386,7 +405,10 @@ the new-game screen **before** writing epics.
 | The fixed world's decisions and the authored map | `design/research/fixed-world-decisions.md`, `design/map/continent-11/` | Overview, Core Rules 1–5, 9 |
 | `world_headcount_targets` | `design/registry/entities.yaml` (owner Realms) | Formula A |
 | The authored cast: 69 people, 4 vanished sects, 10 master ties, the 29 sects' founding years | `design/world/cast_proposal.json` (approved 2026-11-15) | Core Rules 5, 6, 7; Formula B; AC-WG-07 |
-| The authored chronicle: 42 events, one origin event for each of the 28 hidden slots | `design/world/chronicle_proposal.json` (approved 2026-11-15) | Core Rules 3, 4, 11; AC-WG-04, AC-WG-05 |
+| The authored chronicle: 195 landmark events (one origin event for each of the 28 hidden slots among them) and 312 annals | `design/world/chronicle_proposal.json`, `design/world/annals_proposal.json` (approved 2026-11-15) | Core Rules 3, 4, 11; AC-WG-04, AC-WG-05 |
+| The territory history: 6 eras, every land change, 16 wars, 7 more fallen sects, grudges | `design/world/territory_history_proposal.json` (approved 2026-11-15) | Core Rules 7, 15; AC-WG-37, AC-WG-38 |
+| Dead records named only by the wider chronicle (14) and the legendary items as lore (34) | `design/world/records_proposal.json`, `design/world/legendary_items_proposal.json` (approved 2026-11-15) | Core Rule 5; Item Database rule 20d |
+| The history's places: 15 promoted cities, every city's founding year, 17 fixed ruins, the named parts | `design/map/continent-11/history_places_proposal.json` and `tools/design/map/history_places.py` (approved 2026-11-15) | Core Rule 15; Travel & Map rule 6 |
 | The 29 sects' start states: alignment, four levels, treasury, loyalty | `design/world/sect_start_proposal.json` (approved 2026-11-15) | Core Rule 7; AC-WG-10 |
 | Traits for the 51 living cast members: 3 personality, 1 calling, 5 fate-given | `design/world/leader_traits_proposal.json` (approved 2026-11-15) | Core Rule 5; NPC Traits #42 |
 
@@ -405,9 +427,10 @@ Trade and Trade Goods, and the `realm_distribution` weights in `assets/data/worl
   cultivators and the reserves differ.
 - **AC-WG-03** [Logic] Rule 2. GIVEN any built world, WHEN the regions, places, sects, chronicle and cast tables are
   hashed and compared with the authored files, THEN there are zero differences.
-- **AC-WG-04** [Config/Data] Rule 3. GIVEN the chronicle file, THEN it holds 40–60 events, each with an id, a year
-  before the start, a kind, ids that exist, a place and one line of text.
-- **AC-WG-05** [Integration] Rule 3. GIVEN a built world, THEN the event log holds exactly the chronicle's events
+- **AC-WG-04** [Config/Data] Rule 3. GIVEN the chronicle files, THEN the landmark file holds 150–250 events and the
+  annals file 300–500, each with an id, a year before the start, a kind, ids that exist, a place or region and one
+  line of text.
+- **AC-WG-05** [Integration] Rule 3. GIVEN a built world, THEN the event log holds exactly the events of both tiers
   (same ids, years and text) and no other event dated before the start.
 - **AC-WG-06** [Logic] Rule 4. GIVEN the chronicle, THEN no event contains the tile of a hidden slot. GIVEN a built
   world, WHEN any text about an undiscovered hidden place is built (a template rumour or clue, or an LLM fact packet
@@ -491,6 +514,17 @@ Trade and Trade Goods, and the `realm_distribution` weights in `assets/data/worl
 - **AC-WG-36** [Integration] Rule 14. GIVEN the LLM switched off, WHEN a world is built and its history and people are
   shown, THEN every chronicle line, personal history and sect and place description has text, and generation makes
   zero LLM calls.
+- **AC-WG-37** [Logic] Rule 15. GIVEN the landmark chronicle, WHEN the territory changes are undone back to any year,
+  THEN every tile has at most one holder (a region and a named part of it may differ), no land is held by a sect
+  before its founding year or after its fall, every vanished sect's ruin-slot candidates lie on land it or its lord
+  held while it lived,
+  and replaying the changes forward from year 0 gives exactly the approved year-1,200 territories.
+- **AC-WG-38** [Logic] Rule 7, grudges. GIVEN a grudge of −20 between two sects, WHEN the world is built, THEN that
+  pair's F7 target includes −20; after 5 years at `grudge_fade` 1 it includes −15, and after 20 years 0. GIVEN no
+  grudge, THEN the pair starts at its plain F7 target.
+- **AC-WG-39** [Integration] Rule 3, secret events. GIVEN a built world with a secret event (C097), WHEN the codex,
+  rumours and NPC talk are built before the player discovers it, THEN none of them shows the event or its text; WHEN
+  it is discovered, THEN it shows like any other event.
 
 **Gaps found:** there is no criterion for whether the world *feels* learnable and remembered; that is a playtest
 question, not a test. AC-WG-34 and AC-WG-35 cannot run today: no 5,000-person fixed-world build exists yet, and Game

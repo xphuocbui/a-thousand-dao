@@ -1,0 +1,922 @@
+{
+ "status": "APPROVED by the user 2026-11-15 (batch 1 of the wider chronicle, reworked once: Thiên Xu Tông is the neutral middle kingdom that polices the continent and is the strongest sect). World Generation & History Core Rules 3, 7 and 15.",
+ "note": "The political backbone the landmark chronicle and the annals hang on. Years are chronicle years (start 1,200). Land moves only at dated changes (Core Rule 15); a past year's map is the year-1,200 map with later changes undone. Region ids follow regions.json. A 'part' is a named piece of a region whose tiles the map tools draw later. The 42 events of chronicle_proposal.json are unchanged; the wars and events here become landmark events in batch 4, with people and Vietnamese text. Holders are per tile: a region and a part of it may have different holders (the Petal Shore 230-620, the Cold Ford coast 672-905).",
+ "eras": [
+  {
+   "from": 0,
+   "to": 119,
+   "name": "The Wild Age",
+   "name_hv": "Hoang Kỷ",
+   "name_han": "荒紀",
+   "gist": "Hermits and beasts. Cửu Thiều Cung (70) is the only sect."
+  },
+  {
+   "from": 120,
+   "to": 339,
+   "name": "The Age of First Gates",
+   "name_hv": "Khai Môn Kỷ",
+   "name_han": "開門紀",
+   "gist": "Thiên Xu and the first great sects open their gates; Thiên Xu claims the heart of the continent. Ends with the War of the Nine Shao, Thiên Xu's first judgement."
+  },
+  {
+   "from": 340,
+   "to": 509,
+   "name": "The Age of Seven Seats",
+   "name_hv": "Thất Tọa Kỷ",
+   "name_han": "七座紀",
+   "gist": "The other great sects are founded and grab land; three old sects end. Ends when Tùng Đào and Lạc Hà try to take the heart and lose the War of the Pivot."
+  },
+  {
+   "from": 510,
+   "to": 789,
+   "name": "The Age of the North Star Compact",
+   "name_hv": "Bắc Thần Kỷ",
+   "name_han": "北辰紀",
+   "gist": "Land changes hands only by a fall, a gift, an oath or a war licensed by Thiên Xu's writ. Thiên Xu enforces the Compact."
+  },
+  {
+   "from": 790,
+   "to": 805,
+   "name": "The War of Broken Halberds",
+   "name_hv": "Chiết Kích Chi Chiến",
+   "name_han": "折戟之戰",
+   "gist": "Lạc Hà and Thính Vũ break the Compact together; Thiên Xu wins at the cost of its marshal, and the 805 truce renews the Compact."
+  },
+  {
+   "from": 806,
+   "to": 1200,
+   "name": "The Age of Vein Wars",
+   "name_hv": "Tranh Mạch Kỷ",
+   "name_han": "爭脈紀",
+   "gist": "No sect dares an open war of conquest; neighbours fight short wars over the wild veins near their borders, and Thiên Xu ends or decides them."
+  }
+ ],
+ "thien_xu_role": "The Pivot (user decision 2026-11-15). Trung lập; the strongest sect; never wins land by conquest; its borders (Thiên Tuyền Nguyên 120, Ngọc Hành Sơn 230, Dao Quang Lĩnh 250) never change after 250. Its wars are judgements, enforcement and hunts. Live peacekeeper rules wait (Sects & Missions open question).",
+ "land_changes": [
+  {
+   "year": 70,
+   "land": 16,
+   "from": null,
+   "to": "cuu_thieu",
+   "how": "founding",
+   "chronicle_event": "C045"
+  },
+  {
+   "year": 120,
+   "land": 14,
+   "from": null,
+   "to": "thien_xu",
+   "how": "founding",
+   "chronicle_event": "C002"
+  },
+  {
+   "year": 120,
+   "land": 17,
+   "from": null,
+   "to": "cuu_thieu",
+   "how": "claim",
+   "chronicle_event": "C049"
+  },
+  {
+   "year": 160,
+   "land": 19,
+   "from": null,
+   "to": "khai_loi",
+   "how": "founding",
+   "chronicle_event": "C052"
+  },
+  {
+   "year": 180,
+   "land": 3,
+   "from": null,
+   "to": "khong_son",
+   "how": "founding",
+   "chronicle_event": "C054"
+  },
+  {
+   "year": 200,
+   "land": 4,
+   "from": null,
+   "to": "tung_dao",
+   "how": "founding",
+   "chronicle_event": "C003"
+  },
+  {
+   "year": 210,
+   "land": 7,
+   "from": null,
+   "to": "ho_thien",
+   "how": "founding",
+   "chronicle_event": "C058"
+  },
+  {
+   "year": 230,
+   "land": 15,
+   "from": null,
+   "to": "thien_xu",
+   "how": "claim",
+   "chronicle_event": "C059"
+  },
+  {
+   "year": 230,
+   "land": "part:petal_shore",
+   "parts_of": [
+    12,
+    18
+   ],
+   "from": null,
+   "to": "lac_anh",
+   "how": "founding",
+   "chronicle_event": "C060"
+  },
+  {
+   "year": 250,
+   "land": 6,
+   "from": null,
+   "to": "thien_xu",
+   "how": "claim",
+   "chronicle_event": "C064"
+  },
+  {
+   "year": 250,
+   "land": 20,
+   "from": null,
+   "to": "xich_thanh",
+   "how": "founding",
+   "chronicle_event": "C065"
+  },
+  {
+   "year": 260,
+   "land": 5,
+   "from": null,
+   "to": "tung_dao",
+   "how": "claim",
+   "chronicle_event": "C066"
+  },
+  {
+   "year": 290,
+   "land": 13,
+   "from": null,
+   "to": "lac_ha",
+   "how": "founding",
+   "chronicle_event": "C004"
+  },
+  {
+   "year": 300,
+   "land": 9,
+   "from": null,
+   "to": "han_giang",
+   "how": "founding",
+   "chronicle_event": "C073"
+  },
+  {
+   "year": 330,
+   "land": 1,
+   "from": null,
+   "to": "tung_dao",
+   "how": "claim",
+   "chronicle_event": "C077"
+  },
+  {
+   "year": 330,
+   "land": 12,
+   "from": null,
+   "to": "lac_ha",
+   "how": "claim",
+   "except": "part:petal_shore",
+   "chronicle_event": "C078"
+  },
+  {
+   "year": 340,
+   "land": 16,
+   "from": "cuu_thieu",
+   "to": null,
+   "how": "fall",
+   "war": "nine_shao",
+   "chronicle_event": "C005"
+  },
+  {
+   "year": 340,
+   "land": 17,
+   "from": "cuu_thieu",
+   "to": null,
+   "how": "fall",
+   "war": "nine_shao",
+   "chronicle_event": "C005"
+  },
+  {
+   "year": 380,
+   "land": 18,
+   "from": null,
+   "to": "thinh_vu",
+   "how": "founding",
+   "except": "part:petal_shore",
+   "chronicle_event": "C006"
+  },
+  {
+   "year": 400,
+   "land": 10,
+   "from": null,
+   "to": "co_pham",
+   "how": "founding",
+   "chronicle_event": "C086"
+  },
+  {
+   "year": 420,
+   "land": 11,
+   "from": null,
+   "to": "lac_ha",
+   "how": "claim",
+   "chronicle_event": "C088"
+  },
+  {
+   "year": 425,
+   "land": 7,
+   "from": "ho_thien",
+   "to": null,
+   "how": "fall",
+   "event": "eruption_of_chuc_long",
+   "chronicle_event": "C090"
+  },
+  {
+   "year": 440,
+   "land": 8,
+   "from": null,
+   "to": "bang_tam",
+   "how": "founding",
+   "chronicle_event": "C007"
+  },
+  {
+   "year": 470,
+   "land": 7,
+   "from": null,
+   "to": "bang_tam",
+   "how": "claim",
+   "chronicle_event": "C095"
+  },
+  {
+   "year": 480,
+   "land": 19,
+   "from": "khai_loi",
+   "to": "thinh_vu",
+   "how": "fall",
+   "event": "C008",
+   "chronicle_event": "C008"
+  },
+  {
+   "year": 480,
+   "land": 16,
+   "from": null,
+   "to": "phuong_minh",
+   "how": "founding",
+   "chronicle_event": "C009"
+  },
+  {
+   "year": 498,
+   "land": 9,
+   "from": "han_giang",
+   "to": "bang_tam",
+   "how": "conquest",
+   "war": "frost_coast",
+   "chronicle_event": "C099"
+  },
+  {
+   "year": 500,
+   "land": 3,
+   "from": "khong_son",
+   "to": "thuy_vi",
+   "how": "gift",
+   "event": "gift_of_the_empty_mountain",
+   "chronicle_event": "C100"
+  },
+  {
+   "year": 500,
+   "land": 10,
+   "from": "co_pham",
+   "to": "lac_ha",
+   "how": "oath",
+   "event": "strait_oath",
+   "chronicle_event": "C101"
+  },
+  {
+   "year": 520,
+   "land": 17,
+   "from": null,
+   "to": "phuong_minh",
+   "how": "claim",
+   "chronicle_event": "C108"
+  },
+  {
+   "year": 560,
+   "land": 2,
+   "from": null,
+   "to": "thuy_vi",
+   "how": "claim",
+   "chronicle_event": "C115"
+  },
+  {
+   "year": 590,
+   "land": 20,
+   "from": "xich_thanh",
+   "to": "phuong_minh",
+   "how": "conquest by writ",
+   "war": "vermilion_caves",
+   "chronicle_event": "C119"
+  },
+  {
+   "year": 610,
+   "land": "part:petal_shore",
+   "parts_of": [
+    12,
+    18
+   ],
+   "from": "lac_anh",
+   "to": null,
+   "how": "fall",
+   "event": "C012",
+   "chronicle_event": "C012"
+  },
+  {
+   "year": 620,
+   "land": "part:petal_shore_bay",
+   "parts_of": [
+    12
+   ],
+   "from": null,
+   "to": "lac_ha",
+   "how": "judgement",
+   "war": "petal_shore",
+   "chronicle_event": "C128"
+  },
+  {
+   "year": 620,
+   "land": "part:petal_shore_forest",
+   "parts_of": [
+    18
+   ],
+   "from": null,
+   "to": "thinh_vu",
+   "how": "judgement",
+   "war": "petal_shore",
+   "chronicle_event": "C128"
+  },
+  {
+   "year": 672,
+   "land": "part:cold_ford_coast",
+   "parts_of": [
+    3
+   ],
+   "from": "thuy_vi",
+   "to": "tung_dao",
+   "how": "conquest (no writ; the Pivot let it stand)",
+   "war": "haze_and_pine",
+   "holds": "Hàn Tân Thành",
+   "chronicle_event": "C136"
+  },
+  {
+   "year": 905,
+   "land": "part:cold_ford_coast",
+   "parts_of": [
+    3
+   ],
+   "from": "tung_dao",
+   "to": "thuy_vi",
+   "how": "conquest by writ",
+   "war": "cold_ford",
+   "chronicle_event": "C166"
+  }
+ ],
+ "wars": [
+  {
+   "key": "nine_shao",
+   "years": [
+    335,
+    340
+   ],
+   "name": "War of the Nine Shao",
+   "name_hv": "Cửu Thiều Chi Chiến",
+   "sides": [
+    [
+     "thien_xu"
+    ],
+    [
+     "cuu_thieu"
+    ]
+   ],
+   "outcome": "Cửu Thiều Cung destroyed for arts that bent the minds of others' disciples; Thiên Xu takes none of its land. Thiên Xu's first judgement.",
+   "approved_event": "C005"
+  },
+  {
+   "key": "frost_coast",
+   "years": [
+    492,
+    498
+   ],
+   "name": "War of the Frost Coast",
+   "name_hv": "Hàn Ngạn Chi Chiến",
+   "sides": [
+    [
+     "bang_tam"
+    ],
+    [
+     "han_giang"
+    ]
+   ],
+   "outcome": "Hàn Giang Môn falls; Hàn Sương Châu goes to Băng Tâm. One of the last land-grabs before the Compact."
+  },
+  {
+   "key": "pivot",
+   "years": [
+    502,
+    509
+   ],
+   "name": "War of the Pivot",
+   "name_hv": "Tranh Xu Chi Chiến",
+   "sides": [
+    [
+     "tung_dao",
+     "lac_ha"
+    ],
+    [
+     "thien_xu"
+    ]
+   ],
+   "outcome": "Tùng Đào and Lạc Hà try to take the heart of the continent, the crossroads of every route. Thiên Xu beats both, takes no land, and imposes the North Star Compact in 510."
+  },
+  {
+   "key": "vermilion_caves",
+   "years": [
+    584,
+    590
+   ],
+   "name": "War of the Vermilion Caves",
+   "name_hv": "Đan Huyệt Chi Chiến",
+   "sides": [
+    [
+     "phuong_minh"
+    ],
+    [
+     "xich_thanh"
+    ]
+   ],
+   "outcome": "Xích Thành Môn had turned to burning villages; Phượng Minh fights it under Thiên Xu's writ and takes Đan Huyệt Châu."
+  },
+  {
+   "key": "petal_shore",
+   "years": [
+    612,
+    620
+   ],
+   "name": "War of the Petal Shore",
+   "name_hv": "Lạc Anh Chi Chiến",
+   "sides": [
+    [
+     "thinh_vu"
+    ],
+    [
+     "lac_ha"
+    ]
+   ],
+   "outcome": "The two fight over the land of the vanished Lạc Anh Phái; the Pivot's judgement of 620 splits it, the bay to Lạc Hà and the forest to Thính Vũ."
+  },
+  {
+   "key": "haze_and_pine",
+   "years": [
+    668,
+    672
+   ],
+   "name": "Haze-and-Pine War",
+   "name_hv": "Yên Tùng Chi Chiến",
+   "sides": [
+    [
+     "tung_dao"
+    ],
+    [
+     "thuy_vi"
+    ]
+   ],
+   "outcome": "Tùng Đào takes the Cold Ford coast with Hàn Tân Thành without a writ; the Pivot lets it stand."
+  },
+  {
+   "key": "desert_road",
+   "years": [
+    722,
+    728
+   ],
+   "name": "Desert Road War",
+   "name_hv": "Sa Lộ Chi Chiến",
+   "sides": [
+    [
+     "bang_tam"
+    ],
+    [
+     "phuong_minh"
+    ]
+   ],
+   "outcome": "Over the caravan road between Cô Yên Mạc and Triêu Dương Nguyên. Thiên Xu imposes a truce; no land changes."
+  },
+  {
+   "key": "pirate_purge",
+   "years": [
+    776,
+    781
+   ],
+   "name": "The Pirate Purge",
+   "name_hv": "Thanh Hải Chi Dịch",
+   "sides": [
+    [
+     "thien_xu",
+     "phuong_minh",
+     "lac_ha"
+    ],
+    [
+     "thon_hai"
+    ]
+   ],
+   "outcome": "Called and led by Thiên Xu with Phượng Minh's and Lạc Hà's fleets; the ma đạo pirates of Thôn Hải Môn are destroyed."
+  },
+  {
+   "key": "broken_halberds",
+   "years": [
+    790,
+    805
+   ],
+   "name": "War of Broken Halberds",
+   "name_hv": "Chiết Kích Chi Chiến",
+   "sides": [
+    [
+     "lac_ha",
+     "thinh_vu"
+    ],
+    [
+     "thien_xu"
+    ]
+   ],
+   "outcome": "Lạc Hà and Thính Vũ break the Compact together. The war ends in one day at Chiết Kích Nguyên in 803; Thiên Xu holds but loses its marshal and ten thousand dead; the 805 truce renews the Compact and leaves the poisoned plain empty.",
+   "approved_event": "C016, C017, C018"
+  },
+  {
+   "key": "pha_quan",
+   "years": [
+    870,
+    874
+   ],
+   "name": "Phá Quân Rebellion",
+   "name_hv": "Phá Quân Chi Loạn",
+   "sides": [
+    [
+     "pha_quan"
+    ],
+    [
+     "thien_xu"
+    ]
+   ],
+   "outcome": "A Thiên Xu vassal that wanted conquest rises against its lord and is destroyed; Cửu Cao Phái receives its holdings."
+  },
+  {
+   "key": "cold_ford",
+   "years": [
+    901,
+    905
+   ],
+   "name": "Cold Ford War",
+   "name_hv": "Hàn Tân Chi Chiến",
+   "sides": [
+    [
+     "thuy_vi"
+    ],
+    [
+     "tung_dao"
+    ]
+   ],
+   "outcome": "Thúy Vi retakes the Cold Ford coast under Thiên Xu's writ."
+  },
+  {
+   "key": "long_lake",
+   "years": [
+    940,
+    944
+   ],
+   "name": "Long Lake War",
+   "name_hv": "Trường Hồ Chi Chiến",
+   "sides": [
+    [
+     "tung_dao"
+    ],
+    [
+     "bang_tam"
+    ]
+   ],
+   "outcome": "Over Hạo Nguyệt Hồ and its pearls on the Lãnh Nguyệt Lâm border; settled by Thiên Xu's arbitration with no land change."
+  },
+  {
+   "key": "thunder_vein",
+   "years": [
+    1040,
+    1046
+   ],
+   "name": "Thunder Vein War",
+   "name_hv": "Kinh Lôi Chi Chiến",
+   "sides": [
+    [
+     "phuong_minh"
+    ],
+    [
+     "thinh_vu"
+    ]
+   ],
+   "outcome": "Phượng Minh tries to take Kinh Lôi Mạch; the Pivot ends the war and Thính Vũ keeps the vein."
+  },
+  {
+   "key": "da_quang",
+   "years": [
+    1119,
+    1121
+   ],
+   "name": "Taming of Dạ Quang",
+   "name_hv": "Hàng Dạ Quang",
+   "sides": [
+    [
+     "bang_tam"
+    ],
+    [
+     "da_quang"
+    ]
+   ],
+   "outcome": "The independent desert raiders of Dạ Quang Môn are beaten and made a vassal of Băng Tâm; hence their low loyalty."
+  },
+  {
+   "key": "cinnabar_vein",
+   "years": [
+    1150,
+    1158
+   ],
+   "name": "Cinnabar Vein War",
+   "name_hv": "Đan Sơn Chi Chiến",
+   "sides": [
+    [
+     "thinh_vu"
+    ],
+    [
+     "phuong_minh",
+     "thien_xu"
+    ]
+   ],
+   "outcome": "Thính Vũ attacks Phượng Minh's Đan Sơn Mạch; Thiên Xu steps in on Phượng Minh's side and Thính Vũ is beaten."
+  },
+  {
+   "key": "ferry",
+   "years": [
+    1172,
+    1175
+   ],
+   "name": "Ferry War",
+   "name_hv": "Độ Khẩu Chi Chiến",
+   "sides": [
+    [
+     "tung_dao"
+    ],
+    [
+     "lac_ha"
+    ]
+   ],
+   "outcome": "Over river tolls on the Ngư Ca border; no land changes."
+  }
+ ],
+ "other_events": [
+  {
+   "key": "eruption_of_chuc_long",
+   "year": 425,
+   "text": "Chúc Long Sơn erupts under the ice and buries Hồ Thiên Phái; Ngọc Hồ Sơn lies empty until Băng Tâm claims it in 470."
+  },
+  {
+   "key": "gift_of_the_empty_mountain",
+   "year": 500,
+   "text": "Không Sơn Viện's last master, with no heir, gives Thanh Loan Lĩnh to Phùng Yên Hà, who founds Thúy Vi Tông there (C010). Vân Khởi Quán (540) is founded by the academy's last student."
+  },
+  {
+   "key": "strait_oath",
+   "year": 500,
+   "text": "Cô Phàm Các swears to Lạc Hà Tông; Cô Vụ Đảo becomes Lạc Hà's and the sea sect its vassal until it is lost at sea in 705 (C015)."
+  },
+  {
+   "key": "north_star_compact",
+   "year": 510,
+   "text": "After the War of the Pivot, Thiên Xu imposes the Bắc Thần Ước (北辰約): land changes hands only by a fall, a gift, an oath or a war licensed by its writ, and it enforces the Compact."
+  },
+  {
+   "key": "thinh_vu_headship",
+   "year": 880,
+   "text": "Phó Tiêu Tương, founder of Thính Vũ Lâu, dies; Mạnh Dạ Vũ, then 180, becomes head."
+  },
+  {
+   "key": "night_rain_edict",
+   "year": 905,
+   "text": "Mạnh Dạ Vũ's Night Rain Edict (Dạ Vũ Lệnh) opens the Tower to ma đạo arts; Thính Vũ Lâu turns to the ma đạo, and its chính vassal Xuyên Lâm Môn cools toward it (user decision 2026-11-15)."
+  },
+  {
+   "key": "kim_coc_collapse",
+   "year": 1003,
+   "text": "Kim Cốc Viên, Lạc Hà's merchant vassal, collapses in a market crash and a great fire; its city in Thu Thủy Loan is left a ruin and Thiên Bảo Trai takes its trade."
+  },
+  {
+   "key": "star_marrow_petition",
+   "year": 1188,
+   "text": "Băng Tâm Các claims Tinh Tủy Mạch, Thiên Xu's wild vein near its border, before the Pivot; the claim is rejected and Sở Ngọc Hồ withdraws."
+  }
+ ],
+ "fallen_sects": [
+  {
+   "key": "khong_son",
+   "name_hv": "Không Sơn Viện",
+   "name_han": "空山院",
+   "gloss": "Academy of the Empty Mountain",
+   "line": "Vương Duy: không sơn bất kiến nhân (on the empty mountain no one is seen)",
+   "founded": 180,
+   "fell": 500,
+   "land": [
+    3
+   ],
+   "cause": "no heir; its master gave the hills to Thúy Vi's founder",
+   "ruin": "a fixed ruin, placed in batch 2"
+  },
+  {
+   "key": "ho_thien",
+   "name_hv": "Hồ Thiên Phái",
+   "name_han": "胡天派",
+   "gloss": "School of the Northern Sky",
+   "line": "Sầm Tham: Hồ thiên bát nguyệt tức phi tuyết (in the northern sky snow flies in the eighth month)",
+   "founded": 210,
+   "fell": 425,
+   "land": [
+    7
+   ],
+   "cause": "buried by the eruption of Chúc Long Sơn",
+   "ruin": "a fixed ruin, placed in batch 2"
+  },
+  {
+   "key": "xich_thanh",
+   "name_hv": "Xích Thành Môn",
+   "name_han": "赤城門",
+   "gloss": "Gate of the Red Wall",
+   "line": "Tôn Xước, Du Thiên Thai Sơn Phú: Xích Thành hà khởi nhi kiến tiêu (Red Wall rises like a rosy cloud as a marker)",
+   "founded": 250,
+   "fell": 590,
+   "land": [
+    20
+   ],
+   "cause": "turned to burning villages; destroyed by Phượng Minh under writ. Phần Vũ Đường (1020) later revives its fire arts in the same vents",
+   "ruin": "a fixed ruin, placed in batch 2"
+  },
+  {
+   "key": "han_giang",
+   "name_hv": "Hàn Giang Môn",
+   "name_han": "寒江門",
+   "gloss": "Gate of the Cold River",
+   "line": "Liễu Tông Nguyên, Giang Tuyết: độc điếu hàn giang tuyết (fishing alone in the snow of the cold river), the poem of Vô Tung Lâm in the same region",
+   "founded": 300,
+   "fell": 498,
+   "land": [
+    9
+   ],
+   "cause": "conquered by Băng Tâm in the War of the Frost Coast",
+   "ruin": "a fixed ruin, placed in batch 2"
+  },
+  {
+   "key": "thon_hai",
+   "name_hv": "Thôn Hải Môn",
+   "name_han": "吞海門",
+   "gloss": "Gate That Swallows the Sea",
+   "line": "",
+   "alignment": "ma",
+   "founded": 640,
+   "fell": 781,
+   "land": [],
+   "where": "the southern gulf and its isles",
+   "cause": "ma đạo pirates destroyed in the Pirate Purge",
+   "ruin": "a fixed ruin, placed in batch 2"
+  },
+  {
+   "key": "pha_quan",
+   "name_hv": "Phá Quân Môn",
+   "name_han": "破軍門",
+   "gloss": "Gate of the Army-Breaker Star",
+   "line": "Phá Quân, the seventh star of the Northern Dipper; Thiên Xu's vassals are named for its stars",
+   "founded": 720,
+   "fell": 874,
+   "land": [],
+   "where": "Dao Quang Lĩnh, as a vassal of Thiên Xu",
+   "cause": "rebelled to make war on its neighbours; destroyed",
+   "ruin": "a fixed ruin, placed in batch 2"
+  },
+  {
+   "key": "kim_coc",
+   "name_hv": "Kim Cốc Viên",
+   "name_han": "金谷園",
+   "gloss": "Garden of the Golden Valley",
+   "line": "Đỗ Mục, Kim Cốc Viên: phồn hoa sự tán trục hương trần (all splendour scatters with the scented dust)",
+   "founded": 760,
+   "fell": 1003,
+   "land": [],
+   "where": "Thu Thủy Loan, as a merchant vassal of Lạc Hà",
+   "cause": "a market crash and a great fire",
+   "ruin": "its city becomes a ruined city in batch 2"
+  }
+ ],
+ "vassal_lord_changes": [
+  {
+   "sect": "co_pham",
+   "year": 500,
+   "from": null,
+   "to": "lac_ha",
+   "how": "the Strait Oath"
+  },
+  {
+   "sect": "da_quang",
+   "year": 1121,
+   "from": null,
+   "to": "bang_tam",
+   "how": "beaten in the Taming of Dạ Quang"
+  },
+  {
+   "sect": "cuu_cao",
+   "year": 874,
+   "note": "receives the holdings of the destroyed Phá Quân Môn"
+  }
+ ],
+ "grudges": [
+  {
+   "pair": [
+    "thien_xu",
+    "thinh_vu"
+   ],
+   "g": -15,
+   "from": [
+    "broken_halberds",
+    "cinnabar_vein"
+   ]
+  },
+  {
+   "pair": [
+    "phuong_minh",
+    "thinh_vu"
+   ],
+   "g": -15,
+   "from": [
+    "thunder_vein",
+    "cinnabar_vein"
+   ]
+  },
+  {
+   "pair": [
+    "thien_xu",
+    "lac_ha"
+   ],
+   "g": -10,
+   "from": [
+    "broken_halberds"
+   ]
+  },
+  {
+   "pair": [
+    "tung_dao",
+    "lac_ha"
+   ],
+   "g": -10,
+   "from": [
+    "ferry"
+   ]
+  },
+  {
+   "pair": [
+    "thuy_vi",
+    "tung_dao"
+   ],
+   "g": -5,
+   "from": [
+    "cold_ford"
+   ]
+  },
+  {
+   "pair": [
+    "tung_dao",
+    "bang_tam"
+   ],
+   "g": -5,
+   "from": [
+    "long_lake"
+   ]
+  }
+ ],
+ "war_counts": {
+  "thien_xu": 7,
+  "tung_dao": 6,
+  "lac_ha": 5,
+  "phuong_minh": 5,
+  "bang_tam": 5,
+  "thinh_vu": 4,
+  "thuy_vi": 2,
+  "note": "wars in this file plus the 1090 coalition hunt (C024), counted the way the sect start counts them"
+ },
+ "grudge_decisions": "User 2026-11-15: keep Phượng Minh-Thính Vũ starting in a feud (F7 target about -50); keep F7's bp toward the strongest sect, Thiên Xu included (respected and resented)."
+}

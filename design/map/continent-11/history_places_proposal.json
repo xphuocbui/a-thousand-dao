@@ -1,0 +1,459 @@
+{
+ "status": "APPROVED by the user 2026-11-15 (batch 2 of the wider chronicle): 15 towns promoted to cities, founding years for all 30 cities, 17 fixed ruins of fallen sects and ruined cities, and the two named parts of the territory history. World Generation & History Core Rule 15; Travel & Map rule 6 (200-300 places). Revised the same day after review: Thảo Đường and Lãng Hoa promoted instead of the vassal-held Thanh Điền and Vọng Hải; Vân Môn Thành lived from 130; the tool writes history_places.json and never edits places.json.",
+ "note": "Read by tools/design/map/history_places.py, which runs after places.py, sacred.py and history.py. A promoted town keeps its approved name with Thành for Trấn. Ruin tiles were proposed by a scratch search (wild land, at least 5 tiles from any place and 4 from any hidden-slot candidate) and picked by hand. Years are chronicle years; the events behind them are written in batch 4.",
+ "promote": [
+  {
+   "town": "Thạch Kiều Trấn",
+   "founded": 150,
+   "why": "Thiên Xu's capital below the seat, the crossroads of the heart; the North Star Compact is signed here in 510"
+  },
+  {
+   "town": "Thanh Bách Trấn",
+   "founded": 520,
+   "why": "Thiên Xu's northern road city"
+  },
+  {
+   "town": "Tang Ma Trấn",
+   "founded": 330,
+   "why": "the oldest city of Lạc Hà's river country"
+  },
+  {
+   "town": "Cổ Độ Trấn",
+   "founded": 320,
+   "why": "the old ferry on Tùng Đào's southern river"
+  },
+  {
+   "town": "Triều Âm Trấn",
+   "founded": 540,
+   "why": "the island's western port, after the Strait Oath"
+  },
+  {
+   "town": "Thanh Khê Trấn",
+   "founded": 560,
+   "why": "Phượng Minh's port on the gulf"
+  },
+  {
+   "town": "Hoàng Vân Trấn",
+   "founded": 600,
+   "why": "the granary of the rice plain"
+  },
+  {
+   "town": "Mộc Lan Trấn",
+   "founded": 620,
+   "why": "Băng Tâm's coast city"
+  },
+  {
+   "town": "Xuân Thảo Trấn",
+   "founded": 640,
+   "why": "built on the forest land the Pivot gave Thính Vũ in 620"
+  },
+  {
+   "town": "Thảo Đường Trấn",
+   "founded": 680,
+   "why": "the farm city of the plain (Thảo Đường, not the vassal-held Thanh Điền)"
+  },
+  {
+   "town": "Mục Ca Trấn",
+   "founded": 700,
+   "why": "Thúy Vi's cape city"
+  },
+  {
+   "town": "Hồi Lan Trấn",
+   "founded": 760,
+   "why": "the desert coast port, after the Desert Road War"
+  },
+  {
+   "town": "Thạch Cơ Trấn",
+   "founded": 776,
+   "why": "the stone jetty built for the Pirate Purge fleet"
+  },
+  {
+   "town": "Lãng Hoa Trấn",
+   "founded": 800,
+   "why": "the sea-spray port that grew after the pirates fell (Lãng Hoa, not the vassal-held Vọng Hải)"
+  },
+  {
+   "town": "Ngũ Cốc Trấn",
+   "founded": 1010,
+   "why": "took Kim Cốc's trade after its fall"
+  }
+ ],
+ "city_years": {
+  "Không Mông Thành": {
+   "founded": 200,
+   "why": "Khải Lôi Môn's city; Thính Vũ's from 480"
+  },
+  "Tùng Gian Thành": {
+   "founded": 240,
+   "why": "the city below Tùng Đào Cung"
+  },
+  "Tinh Hán Thành": {
+   "founded": 260,
+   "why": "Thiên Xu's port on the inland sea"
+  },
+  "Khai Dương Thành": {
+   "founded": 280,
+   "why": "Thiên Xu's city in Dao Quang Lĩnh"
+  },
+  "Đào Thanh Thành": {
+   "founded": 300,
+   "why": "the river city of Cửu Khúc Xuyên"
+  },
+  "Ngũ Thải Thành": {
+   "founded": 300,
+   "why": "founded under Xích Thành Môn; Phượng Minh's from 590"
+  },
+  "Liên Giang Thành": {
+   "founded": 350,
+   "why": "founded by Hàn Giang Môn; Băng Tâm's from 498"
+  },
+  "Tử Điện Thành": {
+   "founded": 360,
+   "why": "founded under Lạc Anh Phái on the Petal Shore; Lạc Hà's from the 620 judgement, which renamed it for its armoury"
+  },
+  "Thu Trì Thành": {
+   "founded": 400,
+   "why": "the city below Thính Vũ Lâu"
+  },
+  "Đàm Ảnh Thành": {
+   "founded": 410,
+   "why": "founded under Cô Phàm Các; Lạc Hà's from 500"
+  },
+  "Hàn Tân Thành": {
+   "founded": 430,
+   "why": "a Không Sơn city at the Cold Ford; Thúy Vi's from 500, Tùng Đào's 672-905, Thúy Vi's again from 905"
+  },
+  "Nhạn Thanh Thành": {
+   "founded": 450,
+   "why": "the city of the western plain"
+  },
+  "Trường Vân Thành": {
+   "founded": 470,
+   "why": "Băng Tâm's desert-edge city"
+  },
+  "Lai Nghi Thành": {
+   "founded": 530,
+   "why": "Phượng Minh's city on the plain"
+  },
+  "Yên Ba Thành": {
+   "founded": 590,
+   "why": "Thúy Vi's cape port"
+  }
+ },
+ "ruins": [
+  {
+   "key": "khong_son",
+   "tile": [
+    156,
+    111
+   ],
+   "name_hv": "Không Sơn Viện",
+   "name_han": "空山院",
+   "gloss": "Academy of the Empty Mountain",
+   "former": "sect",
+   "lived": [
+    180,
+    500
+   ],
+   "history": "gift_of_the_empty_mountain",
+   "note": "Left empty after its master gave the hills to Thúy Vi's founder; quiet and never looted."
+  },
+  {
+   "key": "ho_thien",
+   "tile": [
+    400,
+    24
+   ],
+   "name_hv": "Hồ Thiên Phái",
+   "name_han": "胡天派",
+   "gloss": "School of the Northern Sky",
+   "former": "sect",
+   "lived": [
+    210,
+    425
+   ],
+   "history": "eruption_of_chuc_long",
+   "note": "Buried by the eruption of Chúc Long Sơn under the ice."
+  },
+  {
+   "key": "xich_thanh",
+   "tile": [
+    491,
+    208
+   ],
+   "name_hv": "Xích Thành Môn",
+   "name_han": "赤城門",
+   "gloss": "Gate of the Red Wall",
+   "former": "sect",
+   "lived": [
+    250,
+    590
+   ],
+   "history": "vermilion_caves",
+   "note": "The red-cliff gate Phượng Minh destroyed under Thiên Xu's writ."
+  },
+  {
+   "key": "han_giang",
+   "tile": [
+    440,
+    116
+   ],
+   "name_hv": "Hàn Giang Môn",
+   "name_han": "寒江門",
+   "gloss": "Gate of the Cold River",
+   "former": "sect",
+   "lived": [
+    300,
+    498
+   ],
+   "history": "frost_coast",
+   "note": "The fishers' sect of the frost coast, conquered by Băng Tâm."
+  },
+  {
+   "key": "thon_hai",
+   "tile": [
+    472,
+    359
+   ],
+   "name_hv": "Thôn Hải Môn",
+   "name_han": "吞海門",
+   "gloss": "Gate That Swallows the Sea",
+   "former": "sect",
+   "lived": [
+    640,
+    781
+   ],
+   "history": "pirate_purge",
+   "note": "The pirates' hold on an islet of the southern gulf."
+  },
+  {
+   "key": "pha_quan",
+   "tile": [
+    376,
+    164
+   ],
+   "name_hv": "Phá Quân Môn",
+   "name_han": "破軍門",
+   "gloss": "Gate of the Army-Breaker Star",
+   "former": "sect",
+   "lived": [
+    720,
+    874
+   ],
+   "history": "pha_quan",
+   "note": "The mountain fort of the vassal that rebelled against Thiên Xu."
+  },
+  {
+   "key": "kim_coc",
+   "tile": [
+    182,
+    273
+   ],
+   "name_hv": "Kim Cốc Thành",
+   "name_han": "金谷城",
+   "gloss": "City of the Golden Valley",
+   "former": "city",
+   "lived": [
+    760,
+    1003
+   ],
+   "history": "kim_coc_collapse",
+   "note": "Kim Cốc Viên's merchant city, burned in the crash of 1003."
+  },
+  {
+   "key": "van_mon",
+   "tile": [
+    410,
+    216
+   ],
+   "name_hv": "Vân Môn Thành",
+   "name_han": "雲門城",
+   "gloss": "City of the Cloud Gate",
+   "former": "city",
+   "lived": [
+    130,
+    340
+   ],
+   "history": "nine_shao",
+   "note": "Cửu Thiều's city, named for the ancient Vân Môn music, twin of the Thiều; abandoned after the War of the Nine Shao."
+  },
+  {
+   "key": "loi_trach",
+   "tile": [
+    265,
+    289
+   ],
+   "name_hv": "Lôi Trạch Thành",
+   "name_han": "雷澤城",
+   "gloss": "City of the Thunder Marsh",
+   "former": "city",
+   "lived": [
+    170,
+    480
+   ],
+   "history": "C008",
+   "note": "Khải Lôi's river-mouth city, burned by the lightning of Hầu Xuân Lôi's tribulation."
+  },
+  {
+   "key": "hong_vu",
+   "tile": [
+    196,
+    275
+   ],
+   "name_hv": "Hồng Vũ Thành",
+   "name_han": "紅雨城",
+   "gloss": "City of the Red Rain",
+   "former": "city",
+   "lived": [
+    260,
+    618
+   ],
+   "history": "petal_shore",
+   "note": "Lý Hạ: peach petals falling like red rain. Lạc Anh's city on the Petal Shore, burned in the war over its land."
+  },
+  {
+   "key": "vo_dinh",
+   "tile": [
+    229,
+    209
+   ],
+   "name_hv": "Vô Định Thành",
+   "name_han": "無定城",
+   "gloss": "City of the Vô Định River",
+   "former": "city",
+   "lived": [
+    600,
+    803
+   ],
+   "history": "broken_halberds",
+   "note": "Trần Đào: the bones by the Vô Định river that wives still dream of. Burned in the battle of 803 and left to the miasma."
+  },
+  {
+   "key": "dong_luu",
+   "tile": [
+    259,
+    110
+   ],
+   "name_hv": "Đông Lưu Thành",
+   "name_han": "東流城",
+   "gloss": "City Where All Flows East",
+   "former": "city",
+   "lived": [
+    90,
+    280
+   ],
+   "history": "C030",
+   "note": "Lý Bạch: all things since ancient times flow east like water. A mortal town left dry when the river changed its course."
+  },
+  {
+   "key": "ho_khieu",
+   "tile": [
+    208,
+    104
+   ],
+   "name_hv": "Hổ Khiếu Trấn",
+   "name_han": "虎嘯鎮",
+   "gloss": "Town of the Tiger's Roar",
+   "former": "town",
+   "lived": [
+    380,
+    734
+   ],
+   "history": "beast_tide_734",
+   "note": "A forest town overrun by a beast tide."
+  },
+  {
+   "key": "bich_khong",
+   "tile": [
+    97,
+    256
+   ],
+   "name_hv": "Bích Không Cảng",
+   "name_han": "碧空港",
+   "gloss": "Harbour of the Blue Sky",
+   "former": "city",
+   "lived": [
+    410,
+    705
+   ],
+   "history": "C015",
+   "note": "Lý Bạch: the lone sail vanishes into the blue sky. Cô Phàm's harbour, emptied when the fleet was lost."
+  },
+  {
+   "key": "co_thanh",
+   "tile": [
+    435,
+    174
+   ],
+   "name_hv": "Cô Thành",
+   "name_han": "孤城",
+   "gloss": "The Lone Fortress",
+   "former": "city",
+   "lived": [
+    520,
+    726
+   ],
+   "history": "desert_road",
+   "note": "Vương Xương Linh, the poet of Băng Tâm: the lone fortress looks far toward the jade gate. Destroyed in the Desert Road War."
+  },
+  {
+   "key": "chau_le",
+   "tile": [
+    446,
+    199
+   ],
+   "name_hv": "Châu Lệ Cảng",
+   "name_han": "珠淚港",
+   "gloss": "Harbour of Pearl Tears",
+   "former": "city",
+   "lived": [
+    600,
+    762
+   ],
+   "history": "thon_hai_raid_762",
+   "note": "Lý Thương Ẩn: the pearl in the moonlit sea has tears. Burned by Thôn Hải's raiders."
+  },
+  {
+   "key": "thiet_toa",
+   "tile": [
+    235,
+    176
+   ],
+   "name_hv": "Thiết Tỏa Quan",
+   "name_han": "鐵鎖關",
+   "gloss": "Fort of the Iron Chain",
+   "former": "fort",
+   "lived": [
+    503,
+    508
+   ],
+   "history": "pivot",
+   "note": "Lưu Vũ Tích: the thousand-fathom iron chain sank to the river bed. The Tùng Đào and Lạc Hà fort that Thiên Xu broke in the War of the Pivot."
+  }
+ ],
+ "parts": [
+  {
+   "key": "petal_shore",
+   "anchor_place": "Hồng Vũ Thành",
+   "regions": [
+    12,
+    18
+   ],
+   "tiles": 520,
+   "split_by_region": {
+    "12": "petal_shore_bay",
+    "18": "petal_shore_forest"
+   },
+   "must_include_slot": "V-1",
+   "note": "grows from Hồng Vũ Thành until it holds every V-1 candidate, then on to its size"
+  },
+  {
+   "key": "cold_ford_coast",
+   "anchor_place": "Hàn Tân Thành",
+   "regions": [
+    3
+   ],
+   "tiles": 420
+  }
+ ]
+}

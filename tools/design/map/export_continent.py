@@ -263,6 +263,33 @@ def main():
         q["territory"] = sect_key(s.get("territory"))
         places.append(q)
         next_id += 1
+    # the territory history's layer (history_places.py): promoted cities, city founding years, fixed ruins
+    hp_path = os.path.join(m, "history_places.json")
+    if os.path.exists(hp_path):
+        hp = load(hp_path)
+        by_id = {p["id"]: p for p in places}
+        for pr in hp.get("promotions", []):
+            q = by_id[pr["place_id"]]
+            q["kind"] = "city"
+            q["name"] = pr["name_hv"]
+            for k in ("name_han", "gloss"):
+                if pr.get(k):
+                    q[k] = pr[k]
+            q["founded"] = pr["founded"]
+        for cy in hp.get("city_years", []):
+            by_id[cy["place_id"]]["founded"] = cy["founded"]
+        for r in hp.get("ruins", []):
+            q = {"id": next_id, "kind": "ruin", "tile": r["tile"], "region": r["region"], "biome": r.get("biome", ""),
+                 "elevation_km": r.get("elevation_km", 0.0), "port": False, "river": r.get("river", False),
+                 "coast": r.get("coast", False), "livability": r.get("livability", 0.0), "name": r["name_hv"],
+                 "on_road": False, "array": False, "former": r["former"], "lived": r["lived"]}
+            for k in ("name_han", "gloss", "note"):
+                if r.get(k):
+                    q[k] = r[k]
+            q["holder"] = sect_key(r.get("holder"))
+            q["territory"] = sect_key(r.get("territory"))
+            places.append(q)
+            next_id += 1
     by_key = {p["key"]: p for p in places if p.get("key")}
     by_name = {p["name"]: p for p in places}
 

@@ -1,0 +1,419 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Continent 11 Layout</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one atlas column; maps full width, then the proposal table, then the region gazetteer. */
+:root {
+  --bg: #eef1ee; --panel: #f8faf8; --fg: #1d2622; --muted: #5b6a63; --line: #c9d3cd; --accent: #2f6f5b;
+  --f-head: "IBM Plex Sans Condensed", "Arial Narrow", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --f-data: "IBM Plex Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #141a17; --panel: #1b231f; --fg: #e3ebe6; --muted: #9aaba2; --line: #2f3b35; --accent: #7cc4a8; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #141a17; --panel: #1b231f; --fg: #e3ebe6; --muted: #9aaba2; --line: #2f3b35; --accent: #7cc4a8; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--f-body); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 36px; }
+h1, h2 { font-family: var(--f-head); font-weight: 600; text-wrap: balance; margin: 0; }
+h1 { font-size: 2rem; letter-spacing: 0.01em; }
+h2 { font-size: 1.35rem; }
+h3 { font-family: var(--f-head); font-weight: 600; font-size: 1.1rem; margin: 8px 0 0; }
+p { margin: 0; max-width: 68ch; }
+.eyebrow { font: 500 0.75rem var(--f-data); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+header { display: grid; gap: 10px; }
+.lede { color: var(--muted); }
+section { display: grid; gap: 14px; min-width: 0; }
+figure { margin: 0; display: grid; gap: 8px; }
+figure a { display: block; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+figure img { display: block; width: 100%; height: auto; }
+figcaption { color: var(--muted); font-size: 0.86rem; max-width: 80ch; }
+.status { display: inline-flex; gap: 8px; flex-wrap: wrap; }
+.pill { font: 500 0.78rem var(--f-data); padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); }
+.pill.wait { border-color: var(--accent); color: var(--accent); }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); }
+table { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 600 0.75rem var(--f-data); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sw { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 8px; vertical-align: -1px; border: 1px solid rgba(0,0,0,.35); }
+.name { font-weight: 600; white-space: nowrap; }
+.han { font-weight: 400; color: var(--muted); margin-left: 20px; }
+.checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.check { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 12px 14px; display: grid; gap: 2px; }
+.check b { font: 500 1.4rem var(--f-data); font-variant-numeric: tabular-nums; }
+.check span { color: var(--muted); font-size: 0.84rem; }
+.was { color: var(--muted); font: 400 0.85rem var(--f-data); }
+ol { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; max-width: 70ch; }
+a { color: var(--accent); }
+.sw.dia { transform: rotate(45deg) scale(.8); border-radius: 1px; }
+td.ma { color: var(--accent); font-weight: 600; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">The fixed world · seed 11 · 540 × 360 tiles of 25 km · layout v3</div>
+    <h1>Continent 11: sects, places, sacred ground and history sites</h1>
+    <p class="lede">Redrawn so each sect holds a compact block of land. Territories are now grown first, around each sect's home, with borders on crests, rivers and watersheds. Each territory is then split into its own regions. Every region belongs to a sect.</p>
+    <div class="status"><span class="pill">Approved 2026-11-14: great sects, territories, region names, minor sects</span><span class="pill">Places, roads, arrays: approved</span><span class="pill">Town and village names: approved</span><span class="pill">Sacred features: approved</span><span class="pill">History sites: approved</span><span class="pill">Mine names, origins: approved</span></div>
+  </header>
+
+  <section>
+    <h2>The seven great sects</h2>
+    <figure>
+      <a href="politics4.jpg" target="_blank" rel="noopener"><img src="politics4.jpg" alt="Continent 11 with seven compact great-sect territories tinted and seats starred" width="1620" height="1250"></a>
+      <figcaption>Each tint is a great sect's territory, and the star is its seat. Thick lines are borders between sects; thin lines are borders between regions inside one territory. Open the image for full size.</figcaption>
+    </figure>
+    <div class="checks">
+      <div class="check"><b>1.07–1.74</b><span>territory elongation, long axis over short axis (1 is round). <span class="was">v2 was 1.34–3.28</span></span></div>
+      <div class="check"><b>50 %</b><span>of the land held by the three tier-1 sects, one for each of the ~3 Hóa Thần</span></div>
+      <div class="check"><b>84 %</b><span>of region edges on crest, river, lake or coast. Land-only: 40 %, or 64 % with watersheds</span></div>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Sect</th><th>Meaning</th><th>Tier</th><th>Leans</th><th>Regions</th><th>Land</th><th>What it holds</th></tr></thead>
+        <tbody>
+          <tr><td class="name"><span class="sw" style="background:rgb(196,72,56)"></span>Thiên Xu Tông<br><span class="han">天樞宗</span></td><td>Sect of the Heavenly Pivot. Thiên Xu is the first star of the Northern Dipper, the pivot the sky turns on.</td><td class="num">1</td><td>Metal, Earth</td><td class="num">6, 14, 15</td><td class="num">16.1 %</td><td>The heart of the continent: the central basin and the central range by the inland sea. It has the richest ore of any sect and peaks to 4.7 km, and every route crosses it.</td></tr>
+          <tr><td class="name"><span class="sw" style="background:rgb(52,150,96)"></span>Tùng Đào Cung<br><span class="han">松濤宮</span></td><td>Palace of the Pine Waves: wind in endless pine forest that sounds like surf.</td><td class="num">1</td><td>Wood, Water</td><td class="num">1, 4, 5</td><td class="num">16.3 %</td><td>The northern forest: the great river basin, the long lake and the inner forest. It is 84 % forest, the purest Wood land.</td></tr>
+          <tr><td class="name"><span class="sw" style="background:rgb(214,160,40)"></span>Lạc Hà Tông<br><span class="han">落霞宗</span></td><td>Sect of the Drifting Sunset Clouds, after Vương Bột: <i>lạc hà dữ cô vụ tề phi</i>. The sunset is in the west, and so is the sect.</td><td class="num">1</td><td>Earth, Wood</td><td class="num">10–13</td><td class="num">17.8 %</td><td>The west: the dry west peninsula, the west-central river country, the south-west steppe coast and the island across the strait.</td></tr>
+          <tr><td class="name"><span class="sw" style="background:rgb(92,96,206)"></span>Thính Vũ Lâu<br><span class="han">聽雨樓</span></td><td>Tower Where One Listens to the Rain.</td><td class="num">2</td><td>Metal, Water, Thunder</td><td class="num">18, 19</td><td class="num">12.4 %</td><td>The south: the southern peaks, the richest region for ore, and the jungle coast where the rain comes off the sea.</td></tr>
+          <tr><td class="name"><span class="sw" style="background:rgb(90,190,220)"></span>Băng Tâm Các<br><span class="han">冰心閣</span></td><td>Pavilion of the Ice Heart, after Vương Xương Linh: <i>nhất phiến băng tâm tại ngọc hồ</i>.</td><td class="num">2</td><td>Water, Ice</td><td class="num">7, 8, 9</td><td class="num">13.0 %</td><td>The north-east: the only ice fields, the highest peak (5.2 km), the forest peninsula and the dry steppe behind the range.</td></tr>
+          <tr><td class="name"><span class="sw" style="background:rgb(150,96,60)"></span>Thúy Vi Tông<br><span class="han">翠微宗</span></td><td>Sect of the Emerald Haze: the blue-green mist on distant hills.</td><td class="num">2</td><td>Wood, Earth</td><td class="num">2, 3</td><td class="num">11.6 %</td><td>The north-west: the hills with karst and ore, and the cape with its volcanic isles.</td></tr>
+          <tr><td class="name"><span class="sw" style="background:rgb(226,92,150)"></span>Phượng Minh Cung<br><span class="han">鳳鳴宮</span></td><td>Palace of the Phoenix's Call: the fire bird of the south.</td><td class="num">2</td><td>Fire, Wood</td><td class="num">16, 17, 20</td><td class="num">12.8 %</td><td>The south-east around the gulf: the volcano coast, the rain-forest range (the wettest land) and the grassland coast of the inland sea.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede">Changes from v2: Lạc Hà Tông moved west to fill the west and match its sunset name. Thính Vũ Lâu took the southern peaks. Phượng Minh Cung kept the volcanoes but gave the eastern drylands to Băng Tâm Các. Element leanings follow each sect's new land.</p>
+  </section>
+
+  <section>
+    <h2>The 20 regions</h2>
+    <p class="lede">Each sect's regions share a theme. Thiên Xu Tông's are stars of the Northern Dipper, like its own name. Lạc Hà Tông's come from Vương Bột's <i>Đằng Vương Các Tự</i>, the same text as its name. Phượng Minh Cung's come from the phoenix odes. Băng Tâm Các's follow its poem and the cold. Thính Vũ Lâu's follow rain and thunder. The last word names the land: Lâm forest, Lĩnh ridge, Sơn mountains, Nguyên plain, Xuyên river land, Mạc desert, Giác cape, Loan bay, Châu land by the water, Đảo island, and Hải, here a sea of pines.</p>
+    <figure>
+      <a href="regions3.jpg" target="_blank" rel="noopener"><img src="regions3.jpg" alt="Continent 11 with 20 numbered regions" width="1620" height="1080" loading="lazy"></a>
+      <figcaption>Regions are drawn inside each territory: 2–4 a sect, by land share. Sizes run 0.69–1.44× the mean of 4,271 tiles. To fix by hand: a straight run on the Thúy Vi / Tùng Đào border near the north coast.</figcaption>
+    </figure>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>#</th><th>Region</th><th>Meaning</th><th>Sect</th><th>Tiles</th><th>Main land (share %)</th><th>The image behind it</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td class="name">Lãnh Nguyệt Lâm<br><span class="han">冷月林</span></td><td>Forest of the Cold Moon</td><td>Tùng Đào Cung</td><td class="num">4,620</td><td>Temperate forest 78, tundra 14, swamp 5</td><td>The long lake under the northern moon</td></tr>
+          <tr><td class="num">2</td><td class="name">Tuyết Hỏa Giác<br><span class="han">雪火角</span></td><td>Cape of Snow and Fire</td><td>Thúy Vi Tông</td><td class="num">4,729</td><td>Temperate forest 71, tundra 17, swamp 4</td><td>A cold cape with volcanic isles and hot springs</td></tr>
+          <tr><td class="num">3</td><td class="name">Thanh Loan Lĩnh<br><span class="han">青巒嶺</span></td><td>Ridges of the Blue Peaks</td><td>Thúy Vi Tông</td><td class="num">5,169</td><td>Temperate forest 68, high mountain 14, tundra 13</td><td>The hills whose haze names Thúy Vi Tông</td></tr>
+          <tr><td class="num">4</td><td class="name">Thâm Tùng Hải<br><span class="han">深松海</span></td><td>Deep Sea of Pines</td><td>Tùng Đào Cung</td><td class="num">4,981</td><td>Temperate forest 88, high mountain 8, tundra 1</td><td>Pine forest as wide as a sea</td></tr>
+          <tr><td class="num">5</td><td class="name">Cửu Khúc Xuyên<br><span class="han">九曲川</span></td><td>Land of the Nine-Bend River</td><td>Tùng Đào Cung</td><td class="num">4,362</td><td>Temperate forest 85, tundra 7, swamp 5</td><td>The great northern river basin</td></tr>
+          <tr><td class="num">6</td><td class="name">Dao Quang Lĩnh<br><span class="han">瑤光嶺</span></td><td>Ridge of the Jade Light</td><td>Thiên Xu Tông</td><td class="num">4,573</td><td>Temperate forest 60, high mountain 23, steppe 9</td><td>Dao Quang (Alkaid), a star of the Northern Dipper like Thiên Xu</td></tr>
+          <tr><td class="num">7</td><td class="name">Ngọc Hồ Sơn<br><span class="han">玉壺山</span></td><td>Mountains of the Jade Vessel</td><td>Băng Tâm Các</td><td class="num">3,354</td><td>Temperate forest 46, high mountain 33, tundra 9</td><td>Băng tâm tại ngọc hồ: the ice heart sits in the jade vessel</td></tr>
+          <tr><td class="num">8</td><td class="name">Cô Yên Mạc<br><span class="han">孤煙漠</span></td><td>Desert of the Lone Smoke</td><td>Băng Tâm Các</td><td class="num">3,452</td><td>Steppe 44, desert 20, high mountain 15</td><td>Vương Duy: đại mạc cô yên trực, a lone column of smoke over the great desert</td></tr>
+          <tr><td class="num">9</td><td class="name">Hàn Sương Châu<br><span class="han">寒霜洲</span></td><td>Land of Cold Frost</td><td>Băng Tâm Các</td><td class="num">4,341</td><td>Temperate forest 69, tundra 12, high mountain 9</td><td>The north-east forest peninsula</td></tr>
+          <tr><td class="num">10</td><td class="name">Cô Vụ Đảo<br><span class="han">孤鶩島</span></td><td>Isle of the Lone Wild Duck</td><td>Lạc Hà Tông</td><td class="num">4,099</td><td>Grassland 53, bamboo forest 20, jungle 18</td><td>Vương Bột: lạc hà dữ cô vụ tề phi, the same line as Lạc Hà Tông</td></tr>
+          <tr><td class="num">11</td><td class="name">Trường Thiên Nguyên<br><span class="han">長天原</span></td><td>Plain of the Endless Sky</td><td>Lạc Hà Tông</td><td class="num">3,845</td><td>Grassland 59, steppe 23, temperate forest 17</td><td>Vương Bột: thu thủy cộng trường thiên nhất sắc</td></tr>
+          <tr><td class="num">12</td><td class="name">Thu Thủy Loan<br><span class="han">秋水灣</span></td><td>Bay of Autumn Water</td><td>Lạc Hà Tông</td><td class="num">4,307</td><td>Steppe 39, grassland 37, badlands 9</td><td>The same line: autumn water one colour with the endless sky</td></tr>
+          <tr><td class="num">13</td><td class="name">Ngư Ca Xuyên<br><span class="han">漁歌川</span></td><td>River Land of the Fishermen&#x27;s Songs</td><td>Lạc Hà Tông</td><td class="num">2,928</td><td>Temperate forest 36, grassland 25, steppe 20</td><td>Vương Bột: ngư chu xướng vãn, fishing boats singing at dusk</td></tr>
+          <tr><td class="num">14</td><td class="name">Thiên Tuyền Nguyên<br><span class="han">天璇原</span></td><td>Plain of the Heavenly Jade Wheel</td><td>Thiên Xu Tông</td><td class="num">5,082</td><td>High mountain 27, steppe 26, highland 21</td><td>Thiên Tuyền (Merak), the Dipper star beside Thiên Xu</td></tr>
+          <tr><td class="num">15</td><td class="name">Ngọc Hành Sơn<br><span class="han">玉衡山</span></td><td>Mountains of the Jade Balance</td><td>Thiên Xu Tông</td><td class="num">4,110</td><td>High mountain 46, steppe 20, grassland 15</td><td>Ngọc Hành (Alioth), a star of the Northern Dipper</td></tr>
+          <tr><td class="num">16</td><td class="name">Thê Ngô Lĩnh<br><span class="han">棲梧嶺</span></td><td>Ridge Where the Phoenix Roosts</td><td>Phượng Minh Cung</td><td class="num">3,517</td><td>High mountain 38, grassland 23, bamboo forest 16</td><td>The phoenix rests only in the wutong tree (ngô đồng)</td></tr>
+          <tr><td class="num">17</td><td class="name">Triêu Dương Nguyên<br><span class="han">朝陽原</span></td><td>Plain of the Morning Sun</td><td>Phượng Minh Cung</td><td class="num">3,963</td><td>Grassland 47, steppe 33, high mountain 11</td><td>Kinh Thi: the phoenix calls, the wutong grows facing the morning sun</td></tr>
+          <tr><td class="num">18</td><td class="name">Tiêu Vũ Lâm<br><span class="han">蕉雨林</span></td><td>Forest of Rain on Banana Leaves</td><td>Thính Vũ Lâu</td><td class="num">4,393</td><td>Grassland 35, jungle 18, high mountain 12</td><td>Rain on banana leaves, a classic image of listening to rain</td></tr>
+          <tr><td class="num">19</td><td class="name">Kinh Trập Sơn<br><span class="han">驚蟄山</span></td><td>Mountains of the Waking Thunder</td><td>Thính Vũ Lâu</td><td class="num">6,167</td><td>High mountain 32, grassland 25, bamboo forest 18</td><td>Kinh Trập: the solar term when spring thunder wakes sleeping creatures</td></tr>
+          <tr><td class="num">20</td><td class="name">Đan Huyệt Châu<br><span class="han">丹穴洲</span></td><td>Coast of the Vermilion Caves</td><td>Phượng Minh Cung</td><td class="num">3,433</td><td>Grassland 41, jungle 35, steppe 9</td><td>Sơn Hải Kinh: the phoenix is born on Mount Đan Huyệt; here the caves are volcanic vents</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>The 22 minor sects</h2>
+    <p class="lede">Each minor sect is a vassal of the great sect whose land it sits in: it pays tribute, sends levies and holds sites, never a whole region (Sects &amp; Missions rules 1–7). There are 4 under each tier-1 sect and 2–3 under each tier-2 sect, at least one in every region, and 22 leaves room under the cap of 25 for sects founded in play. Each name comes from a line of classical poetry, and each suffix is humbler than a great sect's: Môn, Phái, Cốc, Trang, Quán, Viện, Trai, Đường, Am, Đài, Viên. Some echo their lord: Củng Tinh Quán's stars bow to the Heavenly Pivot, and Lãng Đào Môn's waves answer Tùng Đào's pines.</p>
+    <figure>
+      <a href="minor1.jpg" target="_blank" rel="noopener"><img src="minor1.jpg" alt="Continent 11 with the 22 minor sect seats as diamonds in their lords' colours" width="1620" height="1450" loading="lazy"></a>
+      <figcaption>Diamonds are minor seats, in their lord's colour; a dot inside marks ma đạo. Each seat is the tile in its region that best fits the land the sect wants: the forge on ore by a river, the hermitage by the ice fields, the alchemists on the volcanic isle.</figcaption>
+    </figure>
+    <div class="checks">
+      <div class="check"><b>22 / 22</b><span>seats on the land each sect wanted first; 83 % of all wants met</span></div>
+      <div class="check"><b>15 · 5 · 2</b><span>chính đạo · trung lập · ma đạo. A first guess; alignment belongs to World Generation &amp; History (#27)</span></div>
+      <div class="check"><b>3</b><span>seats within 5 tiles of another great sect: Thối Tinh Môn, Hồng Đậu Trang, Xuyên Lâm Môn. Vassals a neighbour could court</span></div>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>#</th><th>Minor sect</th><th>Meaning</th><th>Lord</th><th>Region</th><th>Alignment</th><th>Leans</th><th>Craft</th><th>The line behind it</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td class="name"><span class="sw dia" style="background:rgb(196,72,56)"></span>Thối Tinh Môn<br><span class="han">淬星門</span></td><td>Gate of the Quenched Stars</td><td>Thiên Xu Tông</td><td>15 Ngọc Hành Sơn</td><td>chính đạo</td><td>Metal, Fire</td><td>weapon forging (luyện khí) from star iron</td><td>Star iron quenched in the river; its name follows its lord&#x27;s stars of the Dipper</td></tr>
+          <tr><td class="num">2</td><td class="name"><span class="sw dia" style="background:rgb(196,72,56)"></span>Phất Y Cốc<br><span class="han">拂衣谷</span></td><td>Valley of the Brushed Sleeve</td><td>Thiên Xu Tông</td><td>15 Ngọc Hành Sơn</td><td>chính đạo</td><td>Metal, Wind</td><td>sword cultivation; wandering swordsmen for hire</td><td>Lý Bạch, Hiệp Khách Hành: sự liễu phất y khứ, thâm tàng thân dữ danh (deed done, he brushes his sleeve and goes, hiding body and name)</td></tr>
+          <tr><td class="num">3</td><td class="name"><span class="sw dia" style="background:rgb(196,72,56)"></span>Củng Tinh Quán<br><span class="han">拱星觀</span></td><td>Abbey of the Bowing Stars</td><td>Thiên Xu Tông</td><td>14 Thiên Tuyền Nguyên</td><td>chính đạo</td><td>Earth, Metal</td><td>formations (trận pháp) and star divination</td><td>Luận Ngữ: like the pole star, which keeps its place while all the stars bow to it (chúng tinh củng chi); a vassal whose name honours its lord, the Heavenly Pivot</td></tr>
+          <tr><td class="num">4</td><td class="name"><span class="sw dia" style="background:rgb(196,72,56)"></span>Cửu Cao Phái<br><span class="han">九皋派</span></td><td>School of the Nine Marshes</td><td>Thiên Xu Tông</td><td>6 Dao Quang Lĩnh</td><td>chính đạo</td><td>Wind, Wood</td><td>spirit beasts: crane riders and beast tamers</td><td>Kinh Thi, Hạc Minh: hạc minh vu cửu cao, thanh văn vu thiên (the crane cries in the nine marshes and is heard in the sky)</td></tr>
+          <tr><td class="num">5</td><td class="name"><span class="sw dia" style="background:rgb(52,150,96)"></span>Hàm Nguyệt Trang<br><span class="han">含月莊</span></td><td>Manor That Holds the Moon</td><td>Tùng Đào Cung</td><td>1 Lãnh Nguyệt Lâm</td><td>chính đạo</td><td>Water, Ice</td><td>water arts; spirit fish and lake pearls</td><td>The long northern lake holds the cold moon of its region, Lãnh Nguyệt Lâm</td></tr>
+          <tr><td class="num">6</td><td class="name"><span class="sw dia" style="background:rgb(52,150,96)"></span>Vạn Hác Viện<br><span class="han">萬壑院</span></td><td>Academy of the Ten Thousand Ravines</td><td>Tùng Đào Cung</td><td>4 Thâm Tùng Hải</td><td>chính đạo</td><td>Wood, Wind</td><td>sound cultivation: the zither (cầm) and its arts</td><td>Lý Bạch, on hearing a monk play the zither: như thính vạn hác tùng (like pines in ten thousand ravines), the pine waves of its lord</td></tr>
+          <tr><td class="num">7</td><td class="name"><span class="sw dia" style="background:rgb(52,150,96)"></span>Thải Chi Cốc<br><span class="han">採芝谷</span></td><td>Valley of the Lingzhi Pickers</td><td>Tùng Đào Cung</td><td>5 Cửu Khúc Xuyên</td><td>chính đạo</td><td>Wood, Water</td><td>herb fields and alchemy (luyện đan)</td><td>Thải Chi Ca, the song of the Four Hoary Hermits of Mount Thương who left the world to pick lingzhi</td></tr>
+          <tr><td class="num">8</td><td class="name"><span class="sw dia" style="background:rgb(52,150,96)"></span>Lãng Đào Môn<br><span class="han">浪淘門</span></td><td>Gate of the Washing Waves</td><td>Tùng Đào Cung</td><td>5 Cửu Khúc Xuyên</td><td>chính đạo</td><td>Water, Wood</td><td>river fleets, ferries and river trade</td><td>Lưu Vũ Tích, Lãng Đào Sa: cửu khúc Hoàng Hà vạn lý sa (the nine-bend river and its ten thousand li of sand), the poem behind its region&#x27;s name</td></tr>
+          <tr><td class="num">9</td><td class="name"><span class="sw dia" style="background:rgb(214,160,40)"></span>Bình Thủy Môn<br><span class="han">萍水門</span></td><td>Gate of Duckweed and Water</td><td>Lạc Hà Tông</td><td>10 Cô Vụ Đảo</td><td>trung lập</td><td>Water, Wood</td><td>sea trade, ships and the strait crossing</td><td>Vương Bột: bình thủy tương phùng, tận thị tha hương chi khách (duckweed meets water: all here are strangers far from home)</td></tr>
+          <tr><td class="num">10</td><td class="name"><span class="sw dia" style="background:rgb(214,160,40)"></span>Mục Vân Trang<br><span class="han">牧雲莊</span></td><td>Manor of the Cloud Herders</td><td>Lạc Hà Tông</td><td>11 Trường Thiên Nguyên</td><td>trung lập</td><td>Wind, Earth</td><td>spirit horses and herd beasts of the open plain</td><td>Herding clouds under the endless sky of Trường Thiên Nguyên</td></tr>
+          <tr><td class="num">11</td><td class="name"><span class="sw dia" style="background:rgb(214,160,40)"></span>Thiên Bảo Trai<br><span class="han">天寶齋</span></td><td>Studio of Heaven&#x27;s Treasures</td><td>Lạc Hà Tông</td><td>12 Thu Thủy Loan</td><td>trung lập</td><td>Metal, Earth</td><td>artifact refining and a treasure market</td><td>Vương Bột: vật hoa thiên bảo (the riches of the land are the treasures of heaven)</td></tr>
+          <tr><td class="num">12</td><td class="name"><span class="sw dia" style="background:rgb(214,160,40)"></span>Nam Phố Đường<br><span class="han">南浦堂</span></td><td>Hall of the Southern Shore</td><td>Lạc Hà Tông</td><td>13 Ngư Ca Xuyên</td><td>chính đạo</td><td>Wood, Water</td><td>talismans (phù lục) and scribes</td><td>Vương Bột: họa đống triêu phi Nam Phố vân (at dawn the painted beams fly with the clouds of the southern shore)</td></tr>
+          <tr><td class="num">13</td><td class="name"><span class="sw dia" style="background:rgb(92,96,206)"></span>Xuyên Lâm Môn<br><span class="han">穿林門</span></td><td>Gate Through the Forest</td><td>Thính Vũ Lâu</td><td>19 Kinh Trập Sơn</td><td>chính đạo</td><td>Thunder, Wood</td><td>staff and footwork; guides through the rain forest</td><td>Tô Thức, Định Phong Ba: mạc thính xuyên lâm đả diệp thanh (pay no heed to the rain piercing the forest and beating the leaves)</td></tr>
+          <tr><td class="num">14</td><td class="name"><span class="sw dia" style="background:rgb(92,96,206)"></span>Hồng Đậu Trang<br><span class="han">紅豆莊</span></td><td>Manor of the Red Beans</td><td>Thính Vũ Lâu</td><td>18 Tiêu Vũ Lâm</td><td class="ma">ma đạo</td><td>Poison, Wood</td><td>poisons and charms behind a gracious door</td><td>Vương Duy, Tương Tư: hồng đậu sinh Nam Quốc (red beans grow in the south); the lovesick bean is a deadly poison</td></tr>
+          <tr><td class="num">15</td><td class="name"><span class="sw dia" style="background:rgb(90,190,220)"></span>Lê Hoa Am<br><span class="han">梨花庵</span></td><td>Hermitage of the Pear Blossom</td><td>Băng Tâm Các</td><td>7 Ngọc Hồ Sơn</td><td>chính đạo</td><td>Ice, Water</td><td>ice cultivation; a hermitage near the ice fields</td><td>Sầm Tham: thiên thụ vạn thụ lê hoa khai (snow, as if a thousand trees burst into pear blossom overnight)</td></tr>
+          <tr><td class="num">16</td><td class="name"><span class="sw dia" style="background:rgb(90,190,220)"></span>Trạc Anh Đài<br><span class="han">濯纓臺</span></td><td>Terrace Where the Hat Strings Are Washed</td><td>Băng Tâm Các</td><td>9 Hàn Sương Châu</td><td>trung lập</td><td>Water, Ice</td><td>fishers and sea hunters of the frost coast</td><td>Khuất Nguyên, Ngư Phủ: the fisherman&#x27;s song, when the water is clear, wash your hat strings in it</td></tr>
+          <tr><td class="num">17</td><td class="name"><span class="sw dia" style="background:rgb(90,190,220)"></span>Dạ Quang Môn<br><span class="han">夜光門</span></td><td>Gate of the Night-Glowing Cup</td><td>Băng Tâm Các</td><td>8 Cô Yên Mạc</td><td class="ma">ma đạo</td><td>Fire, Metal</td><td>blood sabres and caravan raiding in the desert</td><td>Vương Hàn, Lương Châu Từ: bồ đào mỹ tửu dạ quang bôi (grape wine in the night-glowing cup); of those who go to war, how many return?</td></tr>
+          <tr><td class="num">18</td><td class="name"><span class="sw dia" style="background:rgb(150,96,60)"></span>Hồng Lô Cốc<br><span class="han">紅爐谷</span></td><td>Valley of the Red Furnace</td><td>Thúy Vi Tông</td><td>2 Tuyết Hỏa Giác</td><td>chính đạo</td><td>Fire, Wood</td><td>alchemy over volcanic fire</td><td>Hồng lô điểm tuyết (a snowflake on a red furnace, gone at once), the cape of snow and fire</td></tr>
+          <tr><td class="num">19</td><td class="name"><span class="sw dia" style="background:rgb(150,96,60)"></span>Vân Khởi Quán<br><span class="han">雲起觀</span></td><td>Abbey Where the Clouds Rise</td><td>Thúy Vi Tông</td><td>3 Thanh Loan Lĩnh</td><td>chính đạo</td><td>Earth, Wood</td><td>a Daoist abbey of mountain hermits and teachers</td><td>Vương Duy: hành đáo thủy cùng xứ, tọa khán vân khởi thời (walk to where the water ends, sit and watch the clouds rise)</td></tr>
+          <tr><td class="num">20</td><td class="name"><span class="sw dia" style="background:rgb(226,92,150)"></span>Trúc Thực Viên<br><span class="han">竹實園</span></td><td>Garden of the Bamboo Seed</td><td>Phượng Minh Cung</td><td>16 Thê Ngô Lĩnh</td><td>chính đạo</td><td>Wood, Fire</td><td>spirit farming: spirit grain and beast feed</td><td>The phoenix eats nothing but the seed of the bamboo (Trang Tử)</td></tr>
+          <tr><td class="num">21</td><td class="name"><span class="sw dia" style="background:rgb(226,92,150)"></span>Lễ Tuyền Phái<br><span class="han">醴泉派</span></td><td>School of the Sweet Spring</td><td>Phượng Minh Cung</td><td>17 Triêu Dương Nguyên</td><td>chính đạo</td><td>Water, Wood</td><td>healing, spirit wine and the lake springs</td><td>The phoenix drinks from nothing but the sweet spring (Trang Tử, Thu Thủy)</td></tr>
+          <tr><td class="num">22</td><td class="name"><span class="sw dia" style="background:rgb(226,92,150)"></span>Phần Vũ Đường<br><span class="han">焚羽堂</span></td><td>Hall of the Burning Feathers</td><td>Phượng Minh Cung</td><td>20 Đan Huyệt Châu</td><td>trung lập</td><td>Fire, Earth</td><td>body tempering in the volcanic vents</td><td>The phoenix burns its own feathers to be reborn; here, in the vents of Mount Đan Huyệt</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Places, roads and arrays</h2>
+    <p class="lede">204 places, inside the 150–250 that Travel &amp; Map rule 6 asks for. There are 15 cities, 10 cultivator markets, 40 towns, 70 villages, 16 mines and 24 famous wild sites, on top of the 29 sect seats. Each settlement sits where the land is most livable: grassland and forest, mild and wet enough, low and flat, best of all at a river mouth. Trunk roads join the cities, markets and great seats along the cheapest ground. Every other place takes a branch to the nearest road. Sea lanes hug the coasts, and the 7 teleport arrays sit in each great sect's best-placed city.</p>
+    <figure>
+      <a href="places1.jpg" target="_blank" rel="noopener"><img src="places1.jpg" alt="Continent 11 with cities, markets, towns, villages, mines, famous sites, roads, sea lanes and teleport arrays" width="1620" height="1200" loading="lazy"></a>
+      <figcaption>Squares are cities (ringed in purple: a teleport array), and gold squares are markets. Circles are towns, dots are villages, and grey triangles are mines. Brown triangles are famous peaks, red ones are volcanoes, and coloured circles are famous lakes, islands, forests and gorges. Gold-lined roads are trunk roads, and dashed lines are sea lanes. Towns and villages are named in the table below, not on the map.</figcaption>
+    </figure>
+    <div class="checks">
+      <div class="check"><b>0</b><span>settlements cut off from the rest, and 0 inhabited islands without a port (AC-TM-128)</span></div>
+      <div class="check"><b>68,400 km</b><span>of road, 31,500 km of it trunk; 17 sea lanes; 72 river ports</span></div>
+      <div class="check"><b>22 / 22</b><span>vassals hold at least one town, village or mine besides their seat</span></div>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Kind</th><th>Name</th><th>Meaning</th><th>Region</th><th>Land of</th><th></th><th>The line behind it</th></tr></thead>
+        <tbody>
+          <tr><td>City</td><td class="name">Yên Ba Thành<br><span class="han">煙波城</span></td><td>City of the Misty Waves</td><td>2 Tuyết Hỏa Giác</td><td>Thúy Vi Tông</td><td><b>teleport array</b></td><td>Thôi Hiệu, Hoàng Hạc Lâu: yên ba giang thượng sử nhân sầu (mist on the river waves makes one sad); the haze of Thúy Vi</td></tr>
+          <tr><td>City</td><td class="name">Hàn Tân Thành<br><span class="han">寒津城</span></td><td>City of the Cold Ford</td><td>3 Thanh Loan Lĩnh</td><td>Thúy Vi Tông</td><td></td><td>The northern ford and port of the cold coast</td></tr>
+          <tr><td>City</td><td class="name">Tùng Gian Thành<br><span class="han">松間城</span></td><td>City Among the Pines</td><td>4 Thâm Tùng Hải</td><td>Tùng Đào Cung</td><td><b>teleport array</b></td><td>Vương Duy: minh nguyệt tùng gian chiếu (the bright moon shines among the pines)</td></tr>
+          <tr><td>City</td><td class="name">Đào Thanh Thành<br><span class="han">濤聲城</span></td><td>City of the Wave Sound</td><td>5 Cửu Khúc Xuyên</td><td>Tùng Đào Cung</td><td></td><td>The pine waves of Tùng Đào Cung, heard from the city below its seat</td></tr>
+          <tr><td>City</td><td class="name">Khai Dương Thành<br><span class="han">開陽城</span></td><td>City Opening to the Sun</td><td>6 Dao Quang Lĩnh</td><td>Thiên Xu Tông</td><td></td><td>Khai Dương (Mizar), a star of the Northern Dipper like Thiên Xu</td></tr>
+          <tr><td>City</td><td class="name">Trường Vân Thành<br><span class="han">長雲城</span></td><td>City of the Long Clouds</td><td>8 Cô Yên Mạc</td><td>Băng Tâm Các</td><td><b>teleport array</b></td><td>Vương Xương Linh, Tòng Quân Hành: Thanh Hải trường vân ám tuyết sơn (long clouds darken the snow mountains); the same poet as Băng Tâm</td></tr>
+          <tr><td>City</td><td class="name">Liên Giang Thành<br><span class="han">連江城</span></td><td>City Where the Rain Meets the River</td><td>9 Hàn Sương Châu</td><td>Băng Tâm Các</td><td></td><td>Vương Xương Linh: hàn vũ liên giang dạ nhập Ngô (cold rain joins the river by night), the first line of the Băng Tâm poem</td></tr>
+          <tr><td>City</td><td class="name">Đàm Ảnh Thành<br><span class="han">潭影城</span></td><td>City of the Pool&#x27;s Reflections</td><td>10 Cô Vụ Đảo</td><td>Lạc Hà Tông</td><td></td><td>Vương Bột, Đằng Vương Các: nhàn vân đàm ảnh nhật du du (idle clouds and their reflections in the pool, day after day)</td></tr>
+          <tr><td>City</td><td class="name">Nhạn Thanh Thành<br><span class="han">雁聲城</span></td><td>City of the Wild Geese&#x27;s Cry</td><td>11 Trường Thiên Nguyên</td><td>Lạc Hà Tông</td><td></td><td>Vương Bột: nhạn trận kinh hàn (the wild geese in formation, startled by the cold)</td></tr>
+          <tr><td>City</td><td class="name">Tử Điện Thành<br><span class="han">紫電城</span></td><td>City of the Purple Lightning</td><td>12 Thu Thủy Loan</td><td>Lạc Hà Tông</td><td><b>teleport array</b></td><td>Vương Bột: tử điện thanh sương, Vương tướng quân chi vũ khố (the purple-lightning and blue-frost swords of General Vương&#x27;s armoury)</td></tr>
+          <tr><td>City</td><td class="name">Tinh Hán Thành<br><span class="han">星漢城</span></td><td>City of the Star River</td><td>15 Ngọc Hành Sơn</td><td>Thiên Xu Tông</td><td><b>teleport array</b></td><td>Tào Tháo, Quan Thương Hải: tinh Hán xán lạn, nhược xuất kỳ lý (the bright Milky Way seems to rise out of the sea); Thiên Xu&#x27;s port on the inland sea</td></tr>
+          <tr><td>City</td><td class="name">Lai Nghi Thành<br><span class="han">來儀城</span></td><td>City Where the Phoenix Comes</td><td>17 Triêu Dương Nguyên</td><td>Phượng Minh Cung</td><td><b>teleport array</b></td><td>Kinh Thư: Tiêu Thiều cửu thành, phượng hoàng lai nghi (when the Shao music was played nine times, the phoenix came)</td></tr>
+          <tr><td>City</td><td class="name">Thu Trì Thành<br><span class="han">秋池城</span></td><td>City of the Autumn Pools</td><td>18 Tiêu Vũ Lâm</td><td>Thính Vũ Lâu</td><td><b>teleport array</b></td><td>Lý Thương Ẩn: Ba Sơn dạ vũ trướng thu trì (night rain on the mountain swells the autumn pools)</td></tr>
+          <tr><td>City</td><td class="name">Không Mông Thành<br><span class="han">空濛城</span></td><td>City of the Hazy Rain</td><td>19 Kinh Trập Sơn</td><td>Thính Vũ Lâu</td><td></td><td>Tô Thức: sơn sắc không mông vũ diệc kỳ (the hills hazy in the rain are lovely too)</td></tr>
+          <tr><td>City</td><td class="name">Ngũ Thải Thành<br><span class="han">五采城</span></td><td>City of the Five Colours</td><td>20 Đan Huyệt Châu</td><td>Phượng Minh Cung</td><td></td><td>Sơn Hải Kinh: the bird of Mount Đan Huyệt is five-coloured, the phoenix</td></tr>
+          <tr><td>Market</td><td class="name">Lam Yên Thị<br><span class="han">嵐煙市</span></td><td>Market of the Mountain Mist</td><td>3 Thanh Loan Lĩnh</td><td>Thúy Vi Tông</td><td>beside Thúy Vi Tông</td><td>Below Thúy Vi Tông&#x27;s seat, in the haze that names it</td></tr>
+          <tr><td>Market</td><td class="name">Tùng Hạ Thị<br><span class="han">松下市</span></td><td>Market Beneath the Pines</td><td>4 Thâm Tùng Hải</td><td>Tùng Đào Cung</td><td>beside Tùng Đào Cung</td><td>Giả Đảo: tùng hạ vấn đồng tử (beneath the pine I asked the boy where his master was)</td></tr>
+          <tr><td>Market</td><td class="name">Đào Sa Thị<br><span class="han">淘沙市</span></td><td>Market of the Washed Sands</td><td>5 Cửu Khúc Xuyên</td><td>Tùng Đào Cung</td><td>beside Lãng Đào Môn</td><td>Lưu Vũ Tích, Lãng Đào Sa: after a thousand washings the sand gives up its gold; beside Lãng Đào Môn</td></tr>
+          <tr><td>Market</td><td class="name">Tống Khách Thị<br><span class="han">送客市</span></td><td>Market of Farewells</td><td>9 Hàn Sương Châu</td><td>Băng Tâm Các</td><td>beside Băng Tâm Các</td><td>Vương Xương Linh: bình minh tống khách (at dawn I see my guest off), the Băng Tâm poem</td></tr>
+          <tr><td>Market</td><td class="name">Tương Phùng Thị<br><span class="han">相逢市</span></td><td>Market of Chance Meetings</td><td>10 Cô Vụ Đảo</td><td>Lạc Hà Tông</td><td>beside Bình Thủy Môn</td><td>Vương Bột: bình thủy tương phùng (duckweed and water meet by chance); beside Bình Thủy Môn</td></tr>
+          <tr><td>Market</td><td class="name">Vật Hoa Thị<br><span class="han">物華市</span></td><td>Market of the Land&#x27;s Riches</td><td>12 Thu Thủy Loan</td><td>Lạc Hà Tông</td><td>beside Thiên Bảo Trai</td><td>Vương Bột: vật hoa thiên bảo (the riches of the land are heaven&#x27;s treasures); beside Thiên Bảo Trai</td></tr>
+          <tr><td>Market</td><td class="name">Hạc Đinh Thị<br><span class="han">鶴汀市</span></td><td>Market of the Crane Shoal</td><td>13 Ngư Ca Xuyên</td><td>Lạc Hà Tông</td><td>beside Lạc Hà Tông</td><td>Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles); below Lạc Hà Tông&#x27;s seat</td></tr>
+          <tr><td>Market</td><td class="name">Thiên Quyền Thị<br><span class="han">天權市</span></td><td>Market of the Heavenly Balance</td><td>14 Thiên Tuyền Nguyên</td><td>Thiên Xu Tông</td><td>beside Thiên Xu Tông</td><td>Thiên Quyền (Megrez), the Dipper star of authority and measure; below Thiên Xu Tông&#x27;s seat</td></tr>
+          <tr><td>Market</td><td class="name">Thiều Âm Thị<br><span class="han">韶音市</span></td><td>Market of the Shao Music</td><td>16 Thê Ngô Lĩnh</td><td>Phượng Minh Cung</td><td>beside Phượng Minh Cung</td><td>The music that brings the phoenix; below Phượng Minh Cung&#x27;s seat</td></tr>
+          <tr><td>Market</td><td class="name">Hạnh Hoa Thị<br><span class="han">杏花市</span></td><td>Market of the Apricot Blossom</td><td>19 Kinh Trập Sơn</td><td>Thính Vũ Lâu</td><td>beside Thính Vũ Lâu</td><td>Lục Du: tiểu lâu nhất dạ thính xuân vũ, thâm hạng minh triều mại hạnh hoa (all night in the small tower I listened to the spring rain; tomorrow the lanes will sell apricot blossom); below Thính Vũ Lâu</td></tr>
+          <tr><td>Peak</td><td class="name">Phụ Tinh Phong<br><span class="han">輔星峰</span></td><td>Peak of the Companion Star</td><td>6 Dao Quang Lĩnh</td><td>Thiên Xu Tông</td><td>4.28 km</td><td>Phụ tinh (Alcor), the faint star beside the Dipper</td></tr>
+          <tr><td>Peak</td><td class="name">Trích Tinh Phong<br><span class="han">摘星峰</span></td><td>Peak Where One Picks the Stars</td><td>6 Dao Quang Lĩnh</td><td>Thiên Xu Tông</td><td>4.72 km</td><td>Lý Bạch: thủ khả trích tinh thần (one could pluck the stars by hand); 4.7 km, the roof of the heartland</td></tr>
+          <tr><td>Peak</td><td class="name">Hồi Lộ Phong<br><span class="han">迴路峰</span></td><td>Peak of the Winding Road</td><td>7 Ngọc Hồ Sơn</td><td>Băng Tâm Các</td><td>3.51 km</td><td>Sầm Tham, Bạch Tuyết Ca: sơn hồi lộ chuyển bất kiến quân (the mountain turns, the road bends, and you are gone)</td></tr>
+          <tr><td>Peak</td><td class="name">Lăng Tuyệt Phong<br><span class="han">凌絕峰</span></td><td>Peak Above All</td><td>7 Ngọc Hồ Sơn</td><td>Băng Tâm Các</td><td>5.24 km</td><td>Đỗ Phủ, Vọng Nhạc: hội đương lăng tuyệt đỉnh, nhất lãm chúng sơn tiểu (I shall stand on the very top and see all mountains small); 5.2 km, the highest on the continent</td></tr>
+          <tr><td>Peak</td><td class="name">Thanh Ải Phong<br><span class="han">青靄峰</span></td><td>Peak of the Blue Haze</td><td>15 Ngọc Hành Sơn</td><td>Thiên Xu Tông</td><td>3.07 km</td><td>Vương Duy, Chung Nam Sơn: thanh ải nhập khán vô (the blue haze, walked into, is gone)</td></tr>
+          <tr><td>Peak</td><td class="name">Cùng Mục Phong<br><span class="han">窮目峰</span></td><td>Peak of the Farthest Sight</td><td>15 Ngọc Hành Sơn</td><td>Thiên Xu Tông</td><td>2.62 km</td><td>Vương Chi Hoán: dục cùng thiên lý mục, cánh thướng nhất tầng lâu (to see a thousand li further, climb one storey more)</td></tr>
+          <tr><td>Peak</td><td class="name">Liệt Khuyết Phong<br><span class="han">列缺峰</span></td><td>Peak of the Lightning Rift</td><td>19 Kinh Trập Sơn</td><td>Thính Vũ Lâu</td><td>4.0 km</td><td>Lý Bạch, Mộng du Thiên Mỗ: liệt khuyết phích lịch, khâu loan băng thôi (lightning and thunder, and the ridges crumble)</td></tr>
+          <tr><td>Volcano</td><td class="name">Chúc Long Sơn<br><span class="han">燭龍山</span></td><td>Mountain of the Torch Dragon</td><td>7 Ngọc Hồ Sơn</td><td>Băng Tâm Các</td><td>1.35 km</td><td>Sơn Hải Kinh: in the dark far north the Torch Dragon lights the world; a volcano on the ice</td></tr>
+          <tr><td>Volcano</td><td class="name">Sương Diễm Sơn<br><span class="han">霜焰山</span></td><td>Mountain of Frost and Flame</td><td>9 Hàn Sương Châu</td><td>Băng Tâm Các</td><td>1.16 km</td><td>Fire under the frost of the north-east peninsula</td></tr>
+          <tr><td>Lake</td><td class="name">Hạo Nguyệt Hồ<br><span class="han">皓月湖</span></td><td>Lake of the Bright Moon</td><td>1 Lãnh Nguyệt Lâm</td><td>Tùng Đào Cung</td><td></td><td>The long lake of Lãnh Nguyệt Lâm, the biggest on the continent; Hàm Nguyệt Trang holds its moon</td></tr>
+          <tr><td>Lake</td><td class="name">Phiến Băng Hồ<br><span class="han">片冰湖</span></td><td>Lake of the Piece of Ice</td><td>9 Hàn Sương Châu</td><td>Băng Tâm Các</td><td></td><td>Vương Xương Linh: nhất phiến băng tâm (one piece of ice heart); beside Băng Tâm Các</td></tr>
+          <tr><td>Lake</td><td class="name">Tinh Lạc Hồ<br><span class="han">星落湖</span></td><td>Lake Where the Stars Fall</td><td>14 Thiên Tuyền Nguyên</td><td>Thiên Xu Tông</td><td></td><td>A high lake, 1.2 km up, that holds the Dipper at night; beside Củng Tinh Quán</td></tr>
+          <tr><td>Lake</td><td class="name">Triêu Hà Hồ<br><span class="han">朝霞湖</span></td><td>Lake of the Dawn Clouds</td><td>17 Triêu Dương Nguyên</td><td>Phượng Minh Cung</td><td></td><td>The east&#x27;s dawn clouds answer Lạc Hà&#x27;s sunset clouds in the west; beside Lễ Tuyền Phái</td></tr>
+          <tr><td>Lake</td><td class="name">Tàn Hà Hồ<br><span class="han">殘荷湖</span></td><td>Lake of the Last Lotus</td><td>18 Tiêu Vũ Lâm</td><td>Thính Vũ Lâu</td><td></td><td>Lý Thương Ẩn: lưu đắc khô hà thính vũ thanh (keep the withered lotus, to listen to the rain); beside Thính Vũ Lâu</td></tr>
+          <tr><td>Island</td><td class="name">Phù Chử Đảo<br><span class="han">鳧渚島</span></td><td>Isle of the Wild Ducks</td><td>11 Trường Thiên Nguyên</td><td>Lạc Hà Tông</td><td></td><td>Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles)</td></tr>
+          <tr><td>Island</td><td class="name">Tịch Chiếu Đảo<br><span class="han">夕照島</span></td><td>Isle of the Evening Glow</td><td>11 Trường Thiên Nguyên</td><td>Lạc Hà Tông</td><td></td><td>The westernmost island, last to see the sunset of Lạc Hà</td></tr>
+          <tr><td>Island</td><td class="name">Tương Phi Đảo<br><span class="han">湘妃島</span></td><td>Isle of the Xiang Consorts</td><td>16 Thê Ngô Lĩnh</td><td>Phượng Minh Cung</td><td></td><td>Its spotted bamboo, stained by the tears of the two consorts of Thuấn</td></tr>
+          <tr><td>Island</td><td class="name">Dục Nhật Đảo<br><span class="han">浴日島</span></td><td>Isle Where the Sun Bathes</td><td>20 Đan Huyệt Châu</td><td>Phượng Minh Cung</td><td></td><td>Sơn Hải Kinh: in the far south-east the suns bathe in the sea before they rise</td></tr>
+          <tr><td>Island</td><td class="name">Đồ Nam Đảo<br><span class="han">圖南島</span></td><td>Isle of the Southward Flight</td><td>20 Đan Huyệt Châu</td><td>Phượng Minh Cung</td><td></td><td>Trang Tử: the great Bằng rises ninety thousand li, then sets out for the south</td></tr>
+          <tr><td>Forest</td><td class="name">Phản Cảnh Lâm<br><span class="han">返景林</span></td><td>Forest of the Returning Light</td><td>1 Lãnh Nguyệt Lâm</td><td>Tùng Đào Cung</td><td></td><td>Vương Duy, Lộc Trại: phản cảnh nhập thâm lâm (the evening light comes back into the deep forest); the heart of the northern forest</td></tr>
+          <tr><td>Forest</td><td class="name">Vô Tung Lâm<br><span class="han">無蹤林</span></td><td>Forest Without Tracks</td><td>9 Hàn Sương Châu</td><td>Băng Tâm Các</td><td></td><td>Liễu Tông Nguyên, Giang Tuyết: vạn kính nhân tung diệt (on ten thousand paths, no human trace)</td></tr>
+          <tr><td>Forest</td><td class="name">Đả Diệp Lâm<br><span class="han">打葉林</span></td><td>Forest of the Beaten Leaves</td><td>19 Kinh Trập Sơn</td><td>Thính Vũ Lâu</td><td></td><td>Tô Thức: xuyên lâm đả diệp thanh (rain piercing the forest, beating the leaves), the line of Xuyên Lâm Môn nearby</td></tr>
+          <tr><td>Gorge</td><td class="name">Viên Đề Hạp<br><span class="han">猿啼峽</span></td><td>Gorge of the Crying Gibbons</td><td>8 Cô Yên Mạc</td><td>Băng Tâm Các</td><td></td><td>Lý Bạch: lưỡng ngạn viên thanh đề bất trú (on both banks the gibbons cry without end)</td></tr>
+          <tr><td>Gorge</td><td class="name">Vạn Trùng Hạp<br><span class="han">萬重峽</span></td><td>Gorge of Ten Thousand Mountains</td><td>15 Ngọc Hành Sơn</td><td>Thiên Xu Tông</td><td></td><td>Lý Bạch: khinh chu dĩ quá vạn trùng sơn (the light boat has passed ten thousand mountains)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Town and village names</h3>
+    <p class="lede">The 110 towns (Trấn) and villages (Thôn) take short names from a pool of 170 written by hand. Each name fits the place's own tile: its coast, lake or river, its hills, its cold, or its biome. Every name is used once.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Region</th><th>Towns (Trấn)</th><th>Villages (Thôn)</th></tr></thead>
+        <tbody>
+          <tr><td>1 Lãnh Nguyệt Lâm</td><td>Quy Điểu <span class="han">Homing Birds</span></td><td>Tuyết Lộc <span class="han">Snow Deer</span>, Hàn Yên <span class="han">Cold Smoke</span>, Noãn Ốc <span class="han">Warm Houses</span></td></tr>
+          <tr><td>2 Tuyết Hỏa Giác</td><td>Mục Ca <span class="han">Herders&#x27; Song</span>, Bạch Sa <span class="han">White Sands</span></td><td>Mạch Lãng <span class="han">Wheat Waves</span>, Phong Phàm <span class="han">Wind in the Sails</span>, Hòa Thử <span class="han">Grain and Millet</span>, Ẩn Loan <span class="han">Hidden Cove</span></td></tr>
+          <tr><td>3 Thanh Loan Lĩnh</td><td>Bách Diệp <span class="han">Cypress Leaf</span>, Tiều Ca <span class="han">Woodcutters&#x27; Song</span></td><td>Ô Đề <span class="han">Crows&#x27; Cry</span>, Lâm Tuyền <span class="han">Woods and Springs</span>, Thu Diệp <span class="han">Autumn Leaves</span></td></tr>
+          <tr><td>4 Thâm Tùng Hải</td><td>Lộc Minh <span class="han">Deer Call</span>, Cổ Độ <span class="han">Old Ferry</span></td><td>Bạch Hoa <span class="han">White Birch</span>, Thanh Tùng <span class="han">Green Pine</span>, Tùng Phong <span class="han">Pine Wind</span></td></tr>
+          <tr><td>5 Cửu Khúc Xuyên</td><td>Hà Bạn <span class="han">Riverside</span>, Lâm Hạ <span class="han">Under the Trees</span></td><td>Tuyết Ốc <span class="han">Snow Houses</span>, Hàn Mai <span class="han">Winter Plum</span>, Bạch Lang <span class="han">White Wolf</span></td></tr>
+          <tr><td>6 Dao Quang Lĩnh</td><td>Bích Khê <span class="han">Jade Brook</span>, Thanh Bách <span class="han">Green Cypress</span></td><td>Ba Quang <span class="han">Glinting Waves</span>, Hạc Quy <span class="han">Crane&#x27;s Return</span>, Lộc Uyển <span class="han">Deer Park</span></td></tr>
+          <tr><td>7 Ngọc Hồ Sơn</td><td>Hòe Âm <span class="han">Locust Shade</span></td><td>Đỗ Quyên <span class="han">Azalea</span>, Hoàng Oanh <span class="han">Oriole</span></td></tr>
+          <tr><td>8 Cô Yên Mạc</td><td>Hồi Lan <span class="han">Turning Waves</span></td><td>Ngư Đàm <span class="han">Fish Pool</span>, Liên Đường <span class="han">Lotus Pond</span>, Mã Minh <span class="han">Neighing Horses</span></td></tr>
+          <tr><td>9 Hàn Sương Châu</td><td>Mộc Lan <span class="han">Magnolia</span>, Kê Minh <span class="han">Cockcrow</span></td><td>Tiều Lộ <span class="han">Woodcutters&#x27; Path</span>, Lâm Ẩn <span class="han">Hidden in the Woods</span>, Lô Hoa <span class="han">Reed Flowers</span></td></tr>
+          <tr><td>10 Cô Vụ Đảo</td><td>Xích Ngạn <span class="han">Red Shore</span>, Hải Yến <span class="han">Sea Swallow</span>, Triều Âm <span class="han">Tide Song</span></td><td>Bối Sa <span class="han">Shell Sands</span>, Lãng Thạch <span class="han">Wave Rock</span>, Dương Liễu <span class="han">Willows</span>, Tình Sa <span class="han">Sunlit Sands</span>, Nguyệt Loan <span class="han">Moon Cove</span></td></tr>
+          <tr><td>11 Trường Thiên Nguyên</td><td>Thanh Điền <span class="han">Green Fields</span>, Thảo Đường <span class="han">Grass Pond</span>, Ngư Lương <span class="han">Fish Weir</span></td><td>Điền Viên <span class="han">Fields and Gardens</span>, Yến Quy <span class="han">Swallows&#x27; Return</span>, Chu Tân <span class="han">Boat Ford</span>, Lô Cảng <span class="han">Reed Harbour</span>, Diêm Điền <span class="han">Salt Pans</span></td></tr>
+          <tr><td>12 Thu Thủy Loan</td><td>Liễu Ngạn <span class="han">Willow Bank</span>, Hòa Phong <span class="han">Gentle Breeze</span>, Ngũ Cốc <span class="han">Five Grains</span></td><td>Khê Thanh <span class="han">Brook Sound</span>, Khê Đầu <span class="han">Brook Head</span>, Hải Môn <span class="han">Sea Gate</span>, Tân Khẩu <span class="han">Harbour Mouth</span></td></tr>
+          <tr><td>13 Ngư Ca Xuyên</td><td>Phong Lâm <span class="han">Maple Wood</span>, Tang Ma <span class="han">Mulberry and Hemp</span></td><td>Hoa Khê <span class="han">Flower Brook</span>, Ngân Than <span class="han">Silver Shoal</span>, Phương Thảo <span class="han">Fragrant Grass</span>, Thủy Khẩu <span class="han">Water&#x27;s Mouth</span></td></tr>
+          <tr><td>14 Thiên Tuyền Nguyên</td><td>Thạch Kiều <span class="han">Stone Bridge</span></td><td>Mộc Hương <span class="han">Wood Scent</span>, Thụ Âm <span class="han">Tree Shade</span></td></tr>
+          <tr><td>15 Ngọc Hành Sơn</td><td>Song Kiều <span class="han">Twin Bridges</span></td><td>Thủy Đối <span class="han">Water Mill</span>, Thanh Mạch <span class="han">Green Wheat</span>, Châu Bạng <span class="han">Pearl Oyster</span></td></tr>
+          <tr><td>16 Thê Ngô Lĩnh</td><td>Mạch Điền <span class="han">Wheat Fields</span>, Thanh Khê <span class="han">Clear Brook</span></td><td>Đào Khê <span class="han">Peach Brook</span>, Hà Loan <span class="han">River Bend</span>, Bích Lãng <span class="han">Jade Waves</span></td></tr>
+          <tr><td>17 Triêu Dương Nguyên</td><td>Hoàng Vân <span class="han">Yellow Clouds of Grain</span>, Đạo Hương <span class="han">Rice Scent</span>, Lục Dã <span class="han">Green Meadows</span></td><td>Thủy Điền <span class="han">Paddy Fields</span>, Âu Lộ <span class="han">Gulls and Herons</span>, Ngân Hạnh <span class="han">Ginkgo</span>, Lý Hoa <span class="han">Plum Blossom</span>, Hoàng Ngưu <span class="han">Yellow Ox</span></td></tr>
+          <tr><td>18 Tiêu Vũ Lâm</td><td>Bình Dã <span class="han">Open Plain</span>, Xuân Thảo <span class="han">Spring Grass</span></td><td>Kiều Bạn <span class="han">Bridgeside</span>, Bình Độ <span class="han">Calm Ferry</span>, Hoa Điền <span class="han">Flower Fields</span>, Yên Kiều <span class="han">Misty Bridge</span></td></tr>
+          <tr><td>19 Kinh Trập Sơn</td><td>Lãng Hoa <span class="han">Spray Flowers</span>, Vọng Hải <span class="han">Sea Watch</span>, Phong Đăng <span class="han">Rich Harvest</span></td><td>Ương Ca <span class="han">Planting Song</span>, Song Khê <span class="han">Twin Brooks</span>, Thượng Độ <span class="han">Upper Ferry</span>, Hà Châu <span class="han">River Isle</span></td></tr>
+          <tr><td>20 Đan Huyệt Châu</td><td>Thạch Cơ <span class="han">Stone Jetty</span>, Tang Điền <span class="han">Mulberry Fields</span></td><td>Cúc Viên <span class="han">Chrysanthemum Garden</span>, Tang Âm <span class="han">Mulberry Shade</span>, Hồ Tâm <span class="han">Lake Heart</span>, Lô Châu <span class="han">Reed Isle</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede">Not yet: names for the 16 mines; the secret realms, ruins and famous blessed lands, which come with the written history (#27).</p>
+  </section>
+
+  <section>
+    <h2>Sacred features</h2>
+    <p class="lede">The features the generator never makes, laid by hand-tuned rules, plus three the terrain makes. A spirit vein (linh mạch) runs along the ridge under every sect seat: a great vein under each of the 7 great seats and a small one under each of the 22 minor seats. Each great sect also holds one famous wild vein, a new spirit vein place. Six of the seven sit near another sect's border, because veins are what sects fight over. Three sacred summits give Light, and three deep caves give Darkness. One miasma wasteland, Chiết Kích Nguyên, is an old battlefield, set by hand in the scorched badlands where three sects meet. The snowline, storm peaks and high plateaus are read from height, rain and flatness.</p>
+    <figure>
+      <a href="sacred1.jpg" target="_blank" rel="noopener"><img src="sacred1.jpg" alt="Continent 11 with spirit veins, sacred summits, deep caves, the miasma wasteland, storm peaks, snowline and high plateaus" width="1620" height="1080" loading="lazy"></a>
+      <figcaption>Green lines are spirit veins, and diamonds are the wild vein places. The green glow is land at density 1.4 or more (the tool's estimate). Gold stars are sacred summits, ringed dark circles are deep caves, and the purple patch is the miasma wasteland with its source. Violet tiles are storm peaks, white is the snowline, light blue is ice fields, and dark tiles are karst cores.</figcaption>
+    </figure>
+    <div class="checks">
+      <div class="check"><b>3.6 %</b><span>of wild land at density 1.4 or more; AC-TM-127 wants 3–5 %. 99 % of it is near a vein or deep in a rich biome.</span></div>
+      <div class="check"><b>≤ 4 places</b><span>for each variant, inside AC-TM-07's 2 %: Ice 4; Thunder 4; Wind 0; Light 3; Darkness 2</span></div>
+      <div class="check"><b>212</b><span>places now, with 7 spirit veins and 1 new peak</span></div>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Kind</th><th>Name</th><th>Meaning</th><th>Land of</th><th>Land density*</th><th>The line behind it</th></tr></thead>
+        <tbody>
+          <tr><td>Great vein</td><td class="name">Thanh Lam Mạch<br><span class="han">青嵐脈</span></td><td>Vein of the Green Haze</td><td>under Thúy Vi Tông</td><td>1.8</td><td>Under Thúy Vi Tông. Lam is the mountain haze; thúy vi is the green of a hillside seen through it.</td></tr>
+          <tr><td>Great vein</td><td class="name">Phục Linh Mạch<br><span class="han">茯苓脈</span></td><td>Poria Vein</td><td>under Tùng Đào Cung</td><td>1.84</td><td>Under Tùng Đào Cung. Poria grows on old pine roots and was said to be pine sap a thousand years under the earth.</td></tr>
+          <tr><td>Great vein</td><td class="name">Hàn Quang Mạch<br><span class="han">寒光脈</span></td><td>Vein of Cold Light</td><td>under Băng Tâm Các</td><td>1.51</td><td>Under Băng Tâm Các. The cold light of Vương Xương Linh&#x27;s ice heart in its jade pot (nhất phiến băng tâm tại ngọc hồ).</td></tr>
+          <tr><td>Great vein</td><td class="name">Dung Kim Mạch<br><span class="han">熔金脈</span></td><td>Vein of Molten Gold</td><td>under Lạc Hà Tông</td><td>1.61</td><td>Under Lạc Hà Tông. Lý Thanh Chiếu: lạc nhật dung kim, the setting sun melting into gold.</td></tr>
+          <tr><td>Great vein</td><td class="name">Tử Vi Mạch<br><span class="han">紫微脈</span></td><td>Vein of the Pole Star</td><td>under Thiên Xu Tông</td><td>2.0</td><td>Under Thiên Xu Tông. Tử Vi is the enclosure of the pole star, which the Dipper circles.</td></tr>
+          <tr><td>Great vein</td><td class="name">Lãm Huy Mạch<br><span class="han">覽輝脈</span></td><td>Vein of the Beheld Radiance</td><td>under Phượng Minh Cung</td><td>2.01</td><td>Under Phượng Minh Cung. Giả Nghị: the phoenix soars a thousand fathoms and comes down only where it sees the radiance of virtue.</td></tr>
+          <tr><td>Great vein</td><td class="name">Tế Vũ Mạch<br><span class="han">細雨脈</span></td><td>Vein of Fine Rain</td><td>under Thính Vũ Lâu</td><td>2.4</td><td>Under Thính Vũ Lâu. Đỗ Phủ&#x27;s good rain slips in with the night wind and moistens all things without a sound.</td></tr>
+          <tr><td>Wild vein (place)</td><td class="name">Tinh Tủy Mạch<br><span class="han">星髓脈</span></td><td>Star Marrow Vein</td><td>Thiên Xu Tông</td><td>1.86</td><td>A wild vein high in Dao Quang Lĩnh, near Trích Tinh Phong, 4 tiles from Băng Tâm&#x27;s border.</td></tr>
+          <tr><td>Wild vein (place)</td><td class="name">Thương Tùng Mạch<br><span class="han">蒼松脈</span></td><td>Vein of the Grey Pines</td><td>Tùng Đào Cung</td><td>1.83</td><td>A wild vein under the old pine sea, 4 tiles from Thiên Xu&#x27;s border.</td></tr>
+          <tr><td>Wild vein (place)</td><td class="name">Trường Hà Mạch<br><span class="han">長河脈</span></td><td>Vein of the Long River</td><td>Lạc Hà Tông</td><td>1.81</td><td>Vương Duy: trường hà lạc nhật viên, the long river and the round setting sun. On the border with Thính Vũ.</td></tr>
+          <tr><td>Wild vein (place)</td><td class="name">Kinh Lôi Mạch<br><span class="han">驚雷脈</span></td><td>Vein of the Startling Thunder</td><td>Thính Vũ Lâu</td><td>1.84</td><td>In Kinh Trập Sơn, the mountains of the thunder that wakes the sleepers; within reach of the storm peaks, so it carries Thunder. 5 tiles from Thiên Xu&#x27;s border.</td></tr>
+          <tr><td>Wild vein (place)</td><td class="name">Băng Phách Mạch<br><span class="han">冰魄脈</span></td><td>Vein of the Ice Soul</td><td>Băng Tâm Các</td><td>1.84</td><td>Băng phách, the ice soul, is an old name for the moon. Under the ice mountains of Ngọc Hồ Sơn, within reach of the storm peaks.</td></tr>
+          <tr><td>Wild vein (place)</td><td class="name">Hỏa Ngọc Mạch<br><span class="han">火玉脈</span></td><td>Fire Jade Vein</td><td>Thúy Vi Tông</td><td>2.06</td><td>Under a volcano on an island off Tuyết Hỏa Giác, far out in the western sea, where Lạc Hà&#x27;s waters begin.</td></tr>
+          <tr><td>Wild vein (place)</td><td class="name">Đan Sơn Mạch<br><span class="han">丹山脈</span></td><td>Vein of the Cinnabar Mountain</td><td>Phượng Minh Cung</td><td>1.82</td><td>Sơn Hải Kinh&#x27;s cinnabar mountain is where the phoenix is born. 3 tiles from Thiên Xu&#x27;s border.</td></tr>
+          <tr><td>Sacred summit (new peak)</td><td class="name">Cao Cương Phong<br><span class="han">高岡峰</span></td><td>Peak of the High Ridge</td><td>Phượng Minh Cung</td><td>2.56 km</td><td>Kinh Thi: phượng hoàng minh hĩ, vu bỉ cao cương, the phoenix sings on that high ridge. A sacred summit (Light).</td></tr>
+          <tr><td>Deep cave</td><td class="name">Cửu U Động<br><span class="han">九幽洞</span></td><td>Cave of the Nine Depths</td><td></td><td></td><td>A shaft into the dark under Ngọc Hành Sơn, a few days&#x27; ride from Dạ Quang Môn.</td></tr>
+          <tr><td>Deep cave</td><td class="name">Tàng Trập Động<br><span class="han">藏蟄洞</span></td><td>Cave of the Sleepers</td><td></td><td></td><td>Where the creatures of Kinh Trập Sơn sleep until the spring thunder wakes them.</td></tr>
+          <tr><td>Deep cave</td><td class="name">Huyền Minh Động<br><span class="han">玄冥洞</span></td><td>Cave of the Dark North</td><td></td><td></td><td>Huyền Minh is the god of winter and the dark north. A lava tube under a dead volcano of Hàn Sương Châu.</td></tr>
+          <tr><td>Miasma wasteland</td><td class="name">Chiết Kích Nguyên<br><span class="han">折戟原</span></td><td>Plain of Broken Halberds</td><td>Thiên Xu Tông, Lạc Hà Tông, Thính Vũ Lâu</td><td></td><td>Đỗ Mục: chiết kích trầm sa thiết vị tiêu, a broken halberd sunk in the sand, its iron not yet worn away. Who fought here is for the history (#27).</td></tr>
+          <tr><td>Its source</td><td class="name">Vạn Cốt Trủng<br><span class="han">萬骨冢</span></td><td>Barrow of Ten Thousand Bones</td><td>Thiên Xu Tông, Lạc Hà Tông, Thính Vũ Lâu</td><td></td><td>Tào Tùng: nhất tướng công thành vạn cốt khô, one general&#x27;s glory, ten thousand bones dried.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede">*The tool's estimate of Formula C on tiles, before the place-kind offset and the prebuilt works that lift every seat. Rough spots: Hỏa Ngọc Mạch reads 2.06, just over the vein band of 1.4–2.0. The north-east is crowded with summits, veins and a cave, because the highest mountains are there. No place has Wind, since the high plateaus are small and empty. Hồng Đậu Trang has no deep cave near it, because its jungle is flat.</p>
+  </section>
+
+  <section>
+    <h2>History sites</h2>
+    <p class="lede">What the history leaves on the land, in two kinds. <b>Famous sites</b> are the same every game: three secret realms (bí cảnh) that open on cycles, the ruin Cố Lũy at the edge of the wasteland, a large blessed land (phúc địa) around each tier-1 seat, and a one-tile retreat by every great seat. <b>Hidden slots</b> are ground for the written history (#27). Each has 2–3 candidate spots in the wild, and each game's seed picks one, so the same story lies somewhere different and a guide can't give it away. The history names each slot and ties it to a dead cultivator, a vanished sect or a lost blessed land.</p>
+    <figure>
+      <a href="history1.jpg" target="_blank" rel="noopener"><img src="history1.jpg" alt="Continent 11 with famous secret realms, ruin and blessed lands, and the candidate spots for hidden ones" width="1620" height="1080" loading="lazy"></a>
+      <figcaption>Blue hexagons are famous secret realms, the orange square is the famous ruin, and gold areas and diamonds are famous blessed lands. Rings joined by thin lines are one hidden slot's candidates: blue for secret realms, orange for ruins, white for cave abodes, gold for small blessed lands. Orange patches are the candidate areas for hidden large blessed lands. Pale dots are tile-secret candidates.</figcaption>
+    </figure>
+    <div class="checks">
+      <div class="check"><b>229</b><span>places, counting one spot per hidden slot; 6 secret realms and 11 ruins and abodes, near Formula C's 3 % and 5 %</span></div>
+      <div class="check"><b>5 + 20</b><span>large and small blessed lands (rule 28: 2–5 and 10–30), covering all ten elements, with at least 2 for every variant</span></div>
+      <div class="check"><b>321</b><span>candidate spots for 28 hidden slots and 80 tile secrets; each on wild land, at least 6 tiles from its slot's other candidates</span></div>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Kind</th><th>Name</th><th>Meaning</th><th>Where</th><th>Held by; data</th><th>The line behind it</th></tr></thead>
+        <tbody>
+          <tr><td>Secret realm</td><td class="name">Thiết Mã Cảnh<br><span class="han">鐵馬境</span></td><td>Realm of the Armoured Horses</td><td>Thiên Tuyền Nguyên</td><td>Thiên Xu Tông; opens every 120 seasons for 4</td><td>Lục Du: thiết mã băng hà nhập mộng lai, armoured horses and frozen rivers come into my dreams. Its gate opens inside Chiết Kích Nguyên, near the barrow; whose war it holds is for the history (#27).</td></tr>
+          <tr><td>Secret realm</td><td class="name">Phù Tang Cảnh<br><span class="han">扶桑境</span></td><td>Realm of the Sunrise Mulberry</td><td>Đan Huyệt Châu</td><td>Phượng Minh Cung; opens every 60 seasons for 3</td><td>Sơn Hải Kinh: in the hot valley stands the Phù Tang tree, where the ten suns bathe. Its gate is on the island Dục Nhật Đảo, where the sun bathes.</td></tr>
+          <tr><td>Secret realm</td><td class="name">Đào Nguyên Cảnh<br><span class="han">桃源境</span></td><td>Realm of the Peach Blossom Spring</td><td>Tuyết Hỏa Giác</td><td>Thúy Vi Tông; opens every 80 seasons for 2</td><td>Đào Uyên Minh: a fisherman follows a stream of peach petals through a cave into a hidden valley, and can never find it again. Its gate is a cave by a forest stream.</td></tr>
+          <tr><td>Ruin</td><td class="name">Cố Lũy<br><span class="han">故壘</span></td><td>The Old Ramparts</td><td>Thiên Tuyền Nguyên</td><td>Thiên Xu Tông</td><td>Tô Thức: cố lũy tây biên, nhân đạo thị Tam Quốc Chu lang Xích Bích, west of the old ramparts, they say, is where the Three Kingdoms fought. Fallen walls on the edge of Chiết Kích Nguyên; whose they were is for the history (#27).</td></tr>
+          <tr><td>Large blessed land</td><td class="name">Bắc Thần Phúc Địa<br><span class="han">北辰福地</span></td><td>Blessed Land of the North Star</td><td>120 tiles round the seat</td><td>Thiên Xu Tông; Metal, +0.8</td><td>Luận Ngữ: like the North Star, which keeps its place while all the stars turn toward it. Around Thiên Xu Tông&#x27;s seat.</td></tr>
+          <tr><td>Large blessed land</td><td class="name">Thiên Xích Phúc Địa<br><span class="han">千尺福地</span></td><td>Blessed Land of the Thousand-Foot Pines</td><td>110 tiles round the seat</td><td>Tùng Đào Cung; Wood, +0.8</td><td>Đỗ Phủ: thanh tùng hận bất cao thiên xích, I only regret the green pine is not a thousand feet tall. Around Tùng Đào Cung&#x27;s seat.</td></tr>
+          <tr><td>Large blessed land</td><td class="name">Địa Linh Phúc Địa<br><span class="han">地靈福地</span></td><td>Blessed Land Where the Earth Is Alive</td><td>110 tiles round the seat</td><td>Lạc Hà Tông; Earth, +0.8</td><td>Vương Bột, Đằng Vương Các Tự (the text Lạc Hà is named from): nhân kiệt địa linh, great men where the earth is alive with spirit. Around Lạc Hà Tông&#x27;s seat.</td></tr>
+          <tr><td>Small blessed land</td><td class="name">Tuyền Cơ Đài<br><span class="han">璇璣臺</span></td><td>Terrace of the Armillary</td><td>by the seat</td><td>Thiên Xu Tông; Earth, +0.5</td><td>Tuyền cơ, the bowl of the Dipper and the armillary that tracks it. The sect head&#x27;s retreat.</td></tr>
+          <tr><td>Small blessed land</td><td class="name">Thạch Thượng Tuyền<br><span class="han">石上泉</span></td><td>Spring Over the Stones</td><td>by the seat</td><td>Tùng Đào Cung; Water, +0.5</td><td>Vương Duy: minh nguyệt tùng gian chiếu, thanh tuyền thạch thượng lưu; the city Tùng Gian took the first half. The sect head&#x27;s retreat.</td></tr>
+          <tr><td>Small blessed land</td><td class="name">Châu Liêm Đình<br><span class="han">珠簾亭</span></td><td>Pavilion of the Pearl Blinds</td><td>by the seat</td><td>Lạc Hà Tông; Wood, +0.5</td><td>Vương Bột: châu liêm mộ quyển Tây Sơn vũ, at dusk the pearl blinds roll up on the rain over the western hills. The sect head&#x27;s retreat.</td></tr>
+          <tr><td>Small blessed land</td><td class="name">Văn Lôi Đài<br><span class="han">聞雷臺</span></td><td>Terrace Where Thunder Is Heard</td><td>by the seat</td><td>Thính Vũ Lâu; Thunder, +0.5</td><td>Where the rain the tower listens to turns to thunder. The sect head&#x27;s retreat.</td></tr>
+          <tr><td>Small blessed land</td><td class="name">Tố Tâm Động<br><span class="han">素心洞</span></td><td>Cave of the Plain Heart</td><td>by the seat</td><td>Băng Tâm Các; Ice, +0.5</td><td>The ice heart in its jade pot, kept plain. The sect head&#x27;s retreat.</td></tr>
+          <tr><td>Small blessed land</td><td class="name">Hoành Thúy Đình<br><span class="han">橫翠亭</span></td><td>Pavilion Across the Green</td><td>by the seat</td><td>Thúy Vi Tông; Wood, +0.5</td><td>Lý Bạch: thương thương hoành thúy vi, grey-green, the emerald haze lies across the hills. The sect head&#x27;s retreat.</td></tr>
+          <tr><td>Small blessed land</td><td class="name">Bích Ngô Đình<br><span class="han">碧梧亭</span></td><td>Pavilion of the Green Wutong</td><td>by the seat</td><td>Phượng Minh Cung; Fire, +0.5</td><td>Đỗ Phủ: bích ngô thê lão phượng hoàng chi, on the green wutong the old phoenix perches. The sect head&#x27;s retreat.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Hidden slots</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Kind</th><th>Slots</th><th>Candidate spots</th><th>Elements</th></tr></thead>
+        <tbody>
+          <tr><td>Secret realms</td><td>3</td><td>9</td><td>—</td></tr>
+          <tr><td>Ruins of vanished sects</td><td>4</td><td>12</td><td>—</td></tr>
+          <tr><td>Dead cultivators' cave abodes</td><td>6</td><td>18</td><td>—</td></tr>
+          <tr><td>Large blessed lands</td><td>2</td><td>5</td><td>Water, Fire</td></tr>
+          <tr><td>Small blessed lands</td><td>13</td><td>37</td><td>Metal, Metal, Earth, Water, Fire, Wind, Wind, Light, Light, Darkness, Darkness, Ice, Thunder</td></tr>
+          <tr><td>Tile secrets (spring, pocket vein, herb patch, cache)</td><td>80</td><td>240</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede">Rough spots. A secret realm's gate tile reads 0.4–1.85, below Formula C's 1.5–2.2 (Thiết Mã Cảnh's gate stands in the wasteland), so a realm's density should be its inside, set per realm; Travel &amp; Map needs to say so. 53 % of ruin and abode candidates read 1.4 or more, against the table's 30 %. The cold north-east and the southern mountains hold many slots, because the Light, Thunder and Darkness ground is there.</p>
+  </section>
+
+  <section>
+    <h2>Mine names and origins</h2>
+    <p class="lede">The 16 mines are named for their stone and their land, themed like their holders. Thối Tinh Môn, which forges star iron, digs at the Mine of the Iron from Beyond the Sky, and Phất Y Cốc's swords come from Can Tương's mine. A name is only a name: what a mine yields comes from its land.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Name</th><th>Meaning</th><th>Region</th><th>Held by</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Bích Ngọc Khoáng<br><span class="han">碧玉礦</span></td><td>Green Jade Mine</td><td>3 Thanh Loan Lĩnh</td><td>Hồng Lô Cốc</td><td>Green stone from the green hills of Thúy Vi.</td></tr>
+          <tr><td class="name">Vân Mẫu Khoáng<br><span class="han">雲母礦</span></td><td>Mica Mine</td><td>3 Thanh Loan Lĩnh</td><td>Vân Khởi Quán</td><td>Mica, &#x27;mother of clouds&#x27;, for Vân Khởi Quán, the abbey of rising clouds.</td></tr>
+          <tr><td class="name">Thạch Lục Khoáng<br><span class="han">石綠礦</span></td><td>Malachite Mine</td><td>4 Thâm Tùng Hải</td><td>Vạn Hác Viện</td><td>Malachite, the green of the pine sea, dug under the trees.</td></tr>
+          <tr><td class="name">Băng Lăng Khoáng<br><span class="han">冰稜礦</span></td><td>Icicle Mine</td><td>9 Hàn Sương Châu</td><td>Băng Tâm Các</td><td>Shafts hung with ice in the frost land of Hàn Sương Châu.</td></tr>
+          <tr><td class="name">Xích Kim Khoáng<br><span class="han">赤金礦</span></td><td>Red Gold Mine</td><td>12 Thu Thủy Loan</td><td>Thiên Bảo Trai</td><td>Gold the colour of Lạc Hà&#x27;s sunset, for Thiên Bảo Trai&#x27;s treasure market.</td></tr>
+          <tr><td class="name">Thần Sa Khoáng<br><span class="han">辰砂礦</span></td><td>Cinnabar Mine</td><td>14 Thiên Tuyền Nguyên</td><td>Thiên Xu Tông</td><td>Cinnabar from the red badlands, the alchemists&#x27; first stone.</td></tr>
+          <tr><td class="name">Lưu Hoàng Khoáng<br><span class="han">硫黃礦</span></td><td>Sulphur Mine</td><td>14 Thiên Tuyền Nguyên</td><td>Thiên Xu Tông</td><td>Yellow sulphur crusts in the badlands near the wasteland.</td></tr>
+          <tr><td class="name">Vẫn Tinh Khoáng<br><span class="han">隕星礦</span></td><td>Fallen Star Mine</td><td>14 Thiên Tuyền Nguyên</td><td>Củng Tinh Quán</td><td>Iron from a star that fell on the high plain, for Củng Tinh Quán, whose stars bow to the Pivot.</td></tr>
+          <tr><td class="name">Thiên Ngoại Khoáng<br><span class="han">天外礦</span></td><td>Mine of the Iron from Beyond the Sky</td><td>15 Ngọc Hành Sơn</td><td>Thối Tinh Môn</td><td>Thối Tinh Môn forges star iron, and says this is where it comes from.</td></tr>
+          <tr><td class="name">Huyền Thiết Khoáng<br><span class="han">玄鐵礦</span></td><td>Black Iron Mine</td><td>15 Ngọc Hành Sơn</td><td>Thiên Xu Tông</td><td>Dark heavy iron under Ngọc Hành Sơn.</td></tr>
+          <tr><td class="name">Can Tương Khoáng<br><span class="han">干將礦</span></td><td>Gan Jiang&#x27;s Mine</td><td>15 Ngọc Hành Sơn</td><td>Phất Y Cốc</td><td>Can Tương, the swordsmith of legend; Phất Y Cốc&#x27;s swords are forged from its ore.</td></tr>
+          <tr><td class="name">Bạch Ngân Khoáng<br><span class="han">白銀礦</span></td><td>Silver Mine</td><td>15 Ngọc Hành Sơn</td><td>Thiên Xu Tông</td><td>Silver below the cinnabar mountain of Đan Sơn Mạch.</td></tr>
+          <tr><td class="name">Kinh Điện Khoáng<br><span class="han">驚電礦</span></td><td>Startling Lightning Mine</td><td>19 Kinh Trập Sơn</td><td>Thính Vũ Lâu</td><td>In Kinh Trập Sơn, where the storms strike the ore.</td></tr>
+          <tr><td class="name">Tử Kim Khoáng<br><span class="han">紫金礦</span></td><td>Purple Gold Mine</td><td>19 Kinh Trập Sơn</td><td>Thính Vũ Lâu</td><td>Purple-gold ore, the colour of storm light.</td></tr>
+          <tr><td class="name">Vũ Hoa Khoáng<br><span class="han">雨花礦</span></td><td>Rain Flower Mine</td><td>19 Kinh Trập Sơn</td><td>Thính Vũ Lâu</td><td>Rain-flower pebbles, said to be flowers that fell as rain while a master preached; the richest ground of the sixteen (land density 1.87). In Thính Vũ&#x27;s land of rain.</td></tr>
+          <tr><td class="name">Đan Thạch Khoáng<br><span class="han">丹石礦</span></td><td>Red Stone Mine</td><td>20 Đan Huyệt Châu</td><td>Phượng Minh Cung</td><td>Red stone from the phoenix&#x27;s cinnabar land, Đan Huyệt Châu.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Where each origin starts</h3>
+    <p class="lede">These are for the three origins the game already has. A <b>sect disciple</b> starts at the seat of the chosen sect, any of the 29. A <b>loose cultivator</b> (tán tu) starts at one of the 10 cultivator markets: 3 Thanh Loan Lĩnh, 4 Thâm Tùng Hải, 5 Cửu Khúc Xuyên, 9 Hàn Sương Châu, 10 Cô Vụ Đảo, 12 Thu Thủy Loan, 13 Ngư Ca Xuyên, 14 Thiên Tuyền Nguyên, 16 Thê Ngô Lĩnh, 19 Kinh Trập Sơn. A <b>clan heir</b> starts in the town of one of seven clans, one in each great sect's land, with the clan's field already growing. Clans are households under their sect, not powers.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Clan</th><th>Town</th><th>Region</th><th>Lord</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Tạ gia<br><span class="han">謝家</span></td><td>Phong Lâm Trấn</td><td>13 Ngư Ca Xuyên</td><td>Lạc Hà Tông</td><td>Lưu Vũ Tích: cựu thời Vương Tạ đường tiền yến, phi nhập tầm thường bách tính gia, the swallows of the old Vương and Tạ halls now nest in common homes. A great house fallen to a small clan, and the Vương clan&#x27;s old rival.</td></tr>
+          <tr><td class="name">Vương gia<br><span class="han">王家</span></td><td>Đạo Hương Trấn</td><td>17 Triêu Dương Nguyên</td><td>Phượng Minh Cung</td><td>The other house of the same line. Far from the Tạ now, in Phượng Minh&#x27;s rice plain.</td></tr>
+          <tr><td class="name">Thẩm gia<br><span class="han">沈家</span></td><td>Bạch Sa Trấn</td><td>2 Tuyết Hỏa Giác</td><td>Thúy Vi Tông</td><td>A coast clan of the white sands, on Thúy Vi&#x27;s far west shore.</td></tr>
+          <tr><td class="name">Lục gia<br><span class="han">陸家</span></td><td>Phong Đăng Trấn</td><td>19 Kinh Trập Sơn</td><td>Thính Vũ Lâu</td><td>A farming clan of good harvests under Thính Vũ&#x27;s rain.</td></tr>
+          <tr><td class="name">Ôn gia<br><span class="han">溫家</span></td><td>Song Kiều Trấn</td><td>15 Ngọc Hành Sơn</td><td>Thiên Xu Tông</td><td>A clan of the twin bridges on Thiên Xu&#x27;s river road.</td></tr>
+          <tr><td class="name">Lâm gia<br><span class="han">林家</span></td><td>Lộc Minh Trấn</td><td>4 Thâm Tùng Hải</td><td>Tùng Đào Cung</td><td>A clan of the deer-call forest under Tùng Đào&#x27;s pines.</td></tr>
+          <tr><td class="name">Tiêu gia<br><span class="han">蕭家</span></td><td>Hòe Âm Trấn</td><td>7 Ngọc Hồ Sơn</td><td>Băng Tâm Các</td><td>A clan in the locust shade of the cold north, under Lê Hoa Am.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Next</h2>
+    <ol>
+      <li>Then World Generation &amp; History (#27): the written history that names the hidden slots and tells whose war made the wasteland. It is a GDD, written section by section with you, best run as <code>/design-system</code> in a fresh session.</li>
+      <li>Any time: the map's art style, and the two rough borders.</li>
+    </ol>
+  </section>
+</div>
+
+</body></html>

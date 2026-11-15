@@ -505,7 +505,7 @@ are added.
 
 The attitude formula is defined as:
 
-`A_tgt = align[a, b] + b_k · borders + p_k · pact + Σ pull − bp` · `ΔA = sign(A_tgt − A) · min(5, |A_tgt − A|, max(1, round(k_a · |A_tgt − A|))) + events` (round half away from zero;
+`A_tgt = align[a, b] + b_k · borders + p_k · pact + Σ pull + g − bp` · `ΔA = sign(A_tgt − A) · min(5, |A_tgt − A|, max(1, round(k_a · |A_tgt − A|))) + events` (round half away from zero;
 attitude always reaches its target, with no dead band)
 
 Lines: a **pact** forms when A ≥ 40 both ways. A **feud** starts when A ≤ −40 one way and ends when A ≥ −20. **War** is
@@ -519,6 +519,7 @@ defence-pact partners. A **truce** lasts 8 seasons with A_tgt = 0.
 | align | int | same alignment +20; chính vs ma −30; else 0 | data file | Alignment term |
 | b_k | int | −5 | data file | Per shared border region |
 | p_k | int | 15 | data file | For a standing pact |
+| g | int | −30 – 0 | World Generation rule 7 | Authored grudge from the history (user decision 2026-11-15); fades toward 0 by `grudge_fade` (guess 1) a year; 0 for pairs with none |
 | bp | int | 0 – ∞ | calculated | Balance of power: toward the strongest sect only, 1 per 10 % its strength exceeds the runner-up's (damper against one sect snowballing) |
 | k_a | float | 0.15 | data file | Speed toward the target |
 | war_odds | float | 1.0; traits 0.8–1.2 (F15: Cruel 0.8, Cautious 1.2) | data file, traits | Strength ratio a leader needs to declare war |
@@ -1134,3 +1135,4 @@ traits of grand-strategy games (NPC Traits #42).
 | 8 | ~~Review the small-case defaults.~~ **Answered 2026-11-14:** kept, with the upkeep order changed (calling's track last, lowest level first, Military last at war) | user | — |
 | 9 | **Deferred 2026-11-14 to World Generation & History (#27):** authored starting levels, dials, attitudes, treasuries, alignments and leaders' traits for the great and minor sects, at or below F1's settle levels | user, world-builder | AC-SM-01 |
 | 10 | ~~Sect-forbidden manuals.~~ **Answered 2026-11-14:** owner tag, black market ×1.5, discoverable leak (rule 23a, F16) | user | — |
+| 11 | **Thiên Xu Tông as peacekeeper in play.** The history (World Generation rule 15, `design/world/territory_history_proposal.json`) makes Thiên Xu the neutral middle kingdom that enforces the North Star Compact of year 510: land changes hands only by a fall, a gift, an oath or a war licensed by its writ. Should play keep this, with a writ needed for a war of conquest and Thiên Xu stepping in against a sect that wars without one? Lore and starting strength only for now (user decision 2026-11-15) | user | — |
