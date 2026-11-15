@@ -290,6 +290,20 @@ def main():
             q["territory"] = sect_key(r.get("territory"))
             places.append(q)
             next_id += 1
+        for s in hp.get("minor_seats", []):
+            q = {"id": next_id, "kind": "minor_seat", "tile": s["tile"], "region": s["region"], "biome": s.get("biome", ""),
+                 "elevation_km": s.get("elevation_km", 0.0), "port": False, "river": s.get("river", False),
+                 "coast": s.get("coast", False), "livability": s.get("livability", 0.0), "name": s["name_hv"],
+                 "key": s["key"], "on_road": False, "array": False}
+            for k in ("name_han", "gloss", "note"):
+                if s.get(k):
+                    q[k] = s[k]
+            q["holder"] = s["key"]
+            q["territory"] = sect_key(s.get("territory"))
+            places.append(q)
+            next_id += 1
+            minor.append({k: s[k] for k in ("key", "name_hv", "name_han", "gloss", "alignment", "leans", "craft", "lord",
+                                           "region") if k in s})
     by_key = {p["key"]: p for p in places if p.get("key")}
     by_name = {p["name"]: p for p in places}
 

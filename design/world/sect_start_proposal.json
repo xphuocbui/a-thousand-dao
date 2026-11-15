@@ -1,5 +1,5 @@
 {
- "status": "APPROVED by the user 2026-11-15 (World Generation & History Core Rule 7, Open Question 3). Dials and attitudes are not authored: they start at their formula targets (user decision 2026-11-15). Authored here: alignment, the four development levels, the treasury and the loyalty of vassals. Leaders' traits are still to do (NPC Traits). Revised 2026-11-15 after the territory history: Thiên Xu Tông is trung lập and authored at the tier-1 cap on every track with a 90,000 treasury (user decision: the neutral middle kingdom and the strongest sect); Military recomputed from the new war counts; Củng Tinh Quán and Thối Tinh Môn follow their lord to trung lập. Holdings and Trade are recomputed again after the cities batch. Holdings and Trade adjusted after the cities batch (15 towns promoted): each changed by the step the promotion makes under the approved formula (Tùng Đào Trade −1, Lạc Hà Holdings −1, Thính Vũ and Băng Tâm Trade +1, Thúy Vi Holdings +1).",
+ "status": "APPROVED by the user 2026-11-15 (World Generation & History Core Rule 7, Open Question 3). Dials and attitudes are not authored: they start at their formula targets (user decision 2026-11-15). Authored here: alignment, the four development levels, the treasury and the loyalty of vassals. Leaders' traits are still to do (NPC Traits). Revised 2026-11-15 after the territory history: Thiên Xu Tông is trung lập and authored at the tier-1 cap on every track with a 90,000 treasury (user decision: the neutral middle kingdom and the strongest sect); Military recomputed from the new war counts; Củng Tinh Quán and Thối Tinh Môn follow their lord to trung lập. Holdings and Trade are recomputed again after the cities batch. Holdings and Trade adjusted after the cities batch (15 towns promoted): each changed by the step the promotion makes under the approved formula (Tùng Đào Trade −1, Lạc Hà Holdings −1, Thính Vũ and Băng Tâm Trade +1, Thúy Vi Holdings +1). Revised again 2026-11-15: Thính Vũ Lâu promoted to tier 1 and authored as the ma đạo pole (Holdings 10, Trade 9, Military 12, Institutions 10, treasury 60,000; user decision); the others' levels stepped for the new tier pools; Thu Phần Các added as its third vassal.",
  "rules": {
   "great_levels": "floor(settle x idx) per track, settle 12 (tier-1) and 9 (tier-2), idx 0.6 + 0.4 x relative score within the tier: Holdings = 3 mines + towns + villages/2; Trade = 3 markets + 2 cities + towns/2; Military = wars in the chronicle; Institutions = age/100 + 3 per Hoa Than elder. Weakness: Military uses wars only.",
   "minor_levels": "settle 4: primary track 4, secondary 3, the rest 2 (craft decides the tracks)",
@@ -7,7 +7,8 @@
   "loyalty": "60 + 5 same alignment, -5 if one side is trung lap, -20 chinh vs ma (mirrors F7); break line 30",
   "alignment_great": "Thinh Vu Lau is ma dao (user decision 2026-11-15; history: the Night Rain Edict of 905); Thien Xu Tong and Lac Ha trung lap; the other four chinh dao",
   "military_counts": "wars per design/world/territory_history_proposal.json war_counts",
-  "thien_xu_override": "Thien Xu Tong's levels and treasury are authored, not formula: 12 on every track, treasury 90,000 (user decision 2026-11-15)"
+  "thien_xu_override": "Thien Xu Tong's levels and treasury are authored, not formula: 12 on every track, treasury 90,000 (user decision 2026-11-15)",
+  "thinh_vu_override": "Thinh Vu Lau is tier 1 and its levels and treasury are authored, not formula: 10/9/12/10, treasury 60,000 (user decision 2026-11-15)"
  },
  "great_sects": [
   {
@@ -31,7 +32,7 @@
    "levels": {
     "holdings": 7,
     "institutions": 12,
-    "military": 9,
+    "military": 10,
     "trade": 7
    },
    "treasury": 60000
@@ -43,8 +44,8 @@
    "alignment": "trung",
    "levels": {
     "holdings": 9,
-    "institutions": 7,
-    "military": 7,
+    "institutions": 8,
+    "military": 8,
     "trade": 12
    },
    "treasury": 60000
@@ -52,15 +53,15 @@
   {
    "key": "thinh_vu",
    "name_hv": "Thính Vũ Lâu",
-   "tier": 2,
+   "tier": 1,
    "alignment": "ma",
    "levels": {
-    "holdings": 9,
-    "institutions": 9,
-    "military": 7,
-    "trade": 8
+    "holdings": 10,
+    "institutions": 10,
+    "military": 12,
+    "trade": 9
    },
-   "treasury": 30000
+   "treasury": 60000
   },
   {
    "key": "bang_tam",
@@ -69,7 +70,7 @@
    "alignment": "chinh",
    "levels": {
     "holdings": 6,
-    "institutions": 7,
+    "institutions": 9,
     "military": 9,
     "trade": 6
    },
@@ -81,7 +82,7 @@
    "tier": 2,
    "alignment": "chinh",
    "levels": {
-    "holdings": 6,
+    "holdings": 7,
     "institutions": 5,
     "military": 5,
     "trade": 7
@@ -94,7 +95,7 @@
    "tier": 2,
    "alignment": "chinh",
    "levels": {
-    "holdings": 7,
+    "holdings": 9,
     "institutions": 6,
     "military": 9,
     "trade": 9
@@ -410,6 +411,20 @@
    },
    "treasury": 7000,
    "loyalty": 55
+  },
+  {
+   "key": "thu_phan",
+   "name_hv": "Thu Phần Các",
+   "lord": "thinh_vu",
+   "alignment": "ma",
+   "levels": {
+    "holdings": 2,
+    "institutions": 3,
+    "military": 4,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
   }
  ]
 }

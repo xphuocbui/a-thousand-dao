@@ -68,6 +68,7 @@ def main():
     for arr in hist["famous"].values():
         names |= {f["name_hv"] for f in arr}
     names |= {p["name_hv"] for p in hp["promotions"]} | {r["name_hv"] for r in hp["ruins"]}
+    names |= {m["name_hv"] for m in hp.get("minor_seats", [])}
     region_names = {r["name_hv"] for r in regions}
     slots = {s["slot"] for s in hist["hidden"]}
     ids = [e["id"] for e in chron + annals]
@@ -139,8 +140,9 @@ def main():
     founded = dict(cast["great_sect_founding_years"])
     founded.update(cast["minor_sect_founding_years"])
     lords = {m["key"]: m.get("lord") for m in load(os.path.join(MAP, "minor_sects.json"))["minor_sects"]}
+    lords.update({m["key"]: m["lord"] for m in hp.get("minor_seats", [])})
     cache = {}
-    for q in places:
+    for q in places + hp.get("minor_seats", []):
         if q["kind"] not in ("great_seat", "minor_seat"):
             continue
         y = founded[q["key"]]
@@ -154,7 +156,7 @@ def main():
     named = [(q.get("name_hv"), q["tile"]) for q in places] + [(q.get("name_hv"), q["tile"]) for q in sac["places"]]
     named += [(c.get("name_hv"), c["tile"]) for c in sac.get("deep_caves", [])]
     named += [(c.get("name_hv") or c.get("peak"), c["tile"]) for c in sac.get("sacred_summits", [])]
-    named += [(r["name_hv"], r["tile"]) for r in hp["ruins"]]
+    named += [(r["name_hv"], r["tile"]) for r in hp["ruins"]] + [(m["name_hv"], m["tile"]) for m in hp.get("minor_seats", [])]
     for s in hist["hidden"]:
         for c in s["candidates"]:
             t = c.get("tile") or c["centre"]

@@ -1,5 +1,5 @@
 {
- "status": "approved by the user 2026-11-14",
+ "status": "approved by the user 2026-11-14; Thu Phần Các added 2026-11-15",
  "note": "Home regions for the three origins built in assets/data/character_attributes.json (tan_tu, tong_mon, gia_toc). The fixed-world decision says each origin has a few home regions; a character starts knowing its home region, the main roads and every city (Travel & Map rule 14). Clans are households of cultivators living in a town under its sect, not powers (Sects rule 1). #27 may add more origins.",
  "origins": {
   "tong_mon": {
@@ -179,6 +179,12 @@
      "kind": "minor_seat",
      "region": 20,
      "region_name": "Đan Huyệt Châu"
+    },
+    {
+     "sect": "Thu Phần Các",
+     "kind": "minor_seat",
+     "region": 19,
+     "region_name": "Kinh Trập Sơn"
     }
    ],
    "start": "at the seat, as an outer disciple"

@@ -118,7 +118,7 @@ lies inside each territory. The 15–25 minor sects come later and sit inside th
 | **Thiên Xu Tông** | 天樞宗 | Sect of the Heavenly Pivot. Thiên Xu is the first star of the Northern Dipper, the pivot the sky turns on. | 1 | Metal, Earth | 6, 14, 15 | 16.1 % | 1.25 |
 | **Tùng Đào Cung** | 松濤宮 | Palace of the Pine Waves: wind in endless pine forest that sounds like surf. | 1 | Wood, Water | 1, 4, 5 | 16.3 % | 1.69 |
 | **Lạc Hà Tông** | 落霞宗 | Sect of the Drifting Sunset Clouds, after Vương Bột's line *lạc hà dữ cô vụ tề phi*. The sunset is in the west, and so is the sect. | 1 | Earth, Wood | 10, 11, 12, 13 | 17.8 % | 1.63 |
-| **Thính Vũ Lâu** | 聽雨樓 | Tower Where One Listens to the Rain. | 2 | Metal, Water, Thunder | 18, 19 | 12.4 % | 1.74 |
+| **Thính Vũ Lâu** | 聽雨樓 | Tower Where One Listens to the Rain. | 1 (promoted 2026-11-15) | Metal, Water, Thunder | 18, 19 | 12.4 % | 1.74 |
 | **Băng Tâm Các** | 冰心閣 | Pavilion of the Ice Heart, after Vương Xương Linh's line *nhất phiến băng tâm tại ngọc hồ*. | 2 | Water, Ice | 7, 8, 9 | 13.0 % | 1.20 |
 | **Thúy Vi Tông** | 翠微宗 | Sect of the Emerald Haze: the blue-green mist on distant hills. | 2 | Wood, Earth | 2, 3 | 11.6 % | 1.54 |
 | **Phượng Minh Cung** | 鳳鳴宮 | Palace of the Phoenix's Call: the fire bird of the south. | 2 | Fire, Wood | 16, 17, 20 | 12.8 % | 1.07 |
@@ -147,8 +147,8 @@ lies inside each territory. The 15–25 minor sects come later and sit inside th
 - **Element leanings** follow each sect's new land.
 
 **Why these numbers:**
-- **Tier 1 has 3 sects** to match the ~3 Hóa Thần (difficulty targets): each would have one at its head. The tier-1
-  sects hold 50 % of the land.
+- **Tier 1 had 3 sects** to match the ~3 Hóa Thần (difficulty targets), holding 50 % of the land. Since 2026-11-15 it
+  has 4: Thính Vũ Lâu, the only ma đạo great sect, was promoted (user decision), so tier 1 holds 62 %.
 - **The ~27 Nguyên Anh** leave each great sect 2–3, and the rest are loose or demonic cultivators.
 
 **Seats** are picked by the tool, and their tiles are in `politics_proposal.json`. Hand-placed sacred summits or spirit

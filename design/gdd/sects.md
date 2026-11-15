@@ -38,7 +38,7 @@ nothing in this paragraph fixes a number.
 **What a sect is**
 
 1. **Three kinds of holder.**
-   - **Great sect** (đại tông môn): the 7 authored powers (3 tier-1, 4 tier-2). Each holds regions. A great sect has no lord.
+   - **Great sect** (đại tông môn): the 7 authored powers (4 tier-1, 3 tier-2; Thính Vũ Lâu promoted to tier 1, user decision 2026-11-15). Each holds regions. A great sect has no lord.
    - **Minor sect** (tiểu tông môn): 15–25 authored sects, each inside one great sect's territory and bound to it as a
      vassal. A minor sect holds sites (its seat, towns, mines, fields), never a whole region.
    - **Loose cultivator** (tán tu): belongs to no sect and owns only cave abodes (Travel & Map rule 24).
@@ -927,8 +927,8 @@ seed, season, record id). Evidence goes to `tests/unit/sects/`, `tests/integrati
 
 **Kinds, vassals and territory**
 
-- **AC-SM-01** [Config] Rules 1–3, 7. **GIVEN** the authored world loaded, **THEN** there are 7 great sects (3 tier-1,
-  4 tier-2) with no lord; 15–25 minor sects, each with exactly one lord that is a great sect whose territory holds its
+- **AC-SM-01** [Config] Rules 1–3, 7. **GIVEN** the authored world loaded, **THEN** there are 7 great sects (4 tier-1,
+  3 tier-2) with no lord; 15–25 minor sects, each with exactly one lord that is a great sect whose territory holds its
   seat; every region has one great-sect holder and every site one holder; no lord is a minor sect.
 - **AC-SM-02** [Logic] Rule 7. **GIVEN** a founding, or a winning rebel choosing a lord, **WHEN** lords are offered,
   **THEN** no minor sect is ever offered or accepted as a lord.

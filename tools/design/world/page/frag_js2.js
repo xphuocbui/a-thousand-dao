@@ -129,7 +129,7 @@
     list.innerHTML = h.join("") + '<li class="empty" id="cempty" hidden>No events match this filter.</li>';
     setTexts();
   }
-  var nowText = "The chronicle ends and every game begins. 51 people are alive, the Pivot keeps the North Star Compact over seven great sects and 22 vassals, and each hidden place lies at the spot this game's seed picked. The map shows where the living cast can be found.";
+  var nowText = "The chronicle ends and every game begins. 54 people are alive, the Pivot keeps the North Star Compact over seven great sects and 23 vassals, and each hidden place lies at the spot this game's seed picked. The map shows where the living cast can be found.";
   function setTexts() {
     list.querySelectorAll(".ev").forEach(function (li) {
       var e = byId[li.dataset.id], p = li.querySelector(".ev-t");
@@ -233,7 +233,7 @@
         h.push('<circle cx="' + xy[0] + '" cy="' + xy[1] + '" r="' + (6 + Math.min(ks.length, 5)) + '" fill="#fff3d0" stroke="#0b0f12" stroke-width="2.5"><title>' + esc(ks.map(function (k) { return P[k].name; }).join(", ")) + "</title></circle>");
       });
       ["mac_quy_khu", "thoi_khinh_hong", "tu_khong_hac_nien", "trieu_huyet_y"].forEach(function (k) { var p = P[k]; h.push(label(p.home_p[0], p.home_p[1] + 26, p.name, "#fff3d0", 22)); });
-      where = "<b>Year 1,200.</b> Light dots are the homes of the 51 living people. Hover a dot for names.";
+      where = "<b>Year 1,200.</b> Light dots are the homes of the 54 living people. Hover a dot for names.";
     } else if (e.slot) {
       var cs = SL[e.slot].c, pts = cs.map(function (c) { return c.p.join(","); });
       if (cs.length > 1) h.push('<polyline points="' + pts.concat(cs.length > 2 ? [pts[0]] : []).join(" ") + '" fill="none" stroke="#ffd36b" stroke-width="2" stroke-dasharray="7 6" opacity=".8"/>');

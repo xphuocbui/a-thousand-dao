@@ -1,5 +1,5 @@
 {
- "status": "APPROVED by the user 2026-11-15 (batch 2 of the wider chronicle): 15 towns promoted to cities, founding years for all 30 cities, 17 fixed ruins of fallen sects and ruined cities, and the two named parts of the territory history. World Generation & History Core Rule 15; Travel & Map rule 6 (200-300 places). Revised the same day after review: Thảo Đường and Lãng Hoa promoted instead of the vassal-held Thanh Điền and Vọng Hải; Vân Môn Thành lived from 130; the tool writes history_places.json and never edits places.json.",
+ "status": "APPROVED by the user 2026-11-15 (batch 2 of the wider chronicle): 15 towns promoted to cities, founding years for all 30 cities, 17 fixed ruins of fallen sects and ruined cities, and the two named parts of the territory history. World Generation & History Core Rule 15; Travel & Map rule 6 (200-300 places). Revised the same day after review: Thảo Đường and Lãng Hoa promoted instead of the vassal-held Thanh Điền and Vọng Hải; Vân Môn Thành lived from 130; the tool writes history_places.json and never edits places.json. 2026-11-15: Thu Phần Các's seat added (minor_seats).",
  "note": "Read by tools/design/map/history_places.py, which runs after places.py, sacred.py and history.py. A promoted town keeps its approved name with Thành for Trấn. Ruin tiles were proposed by a scratch search (wild land, at least 5 tiles from any place and 4 from any hidden-slot candidate) and picked by hand. Years are chronicle years; the events behind them are written in batch 4.",
  "promote": [
   {
@@ -454,6 +454,27 @@
     3
    ],
    "tiles": 420
+  }
+ ],
+ "minor_seats": [
+  {
+   "key": "thu_phan",
+   "tile": [
+    257,
+    282
+   ],
+   "name_hv": "Thu Phần Các",
+   "name_han": "秋墳閣",
+   "gloss": "Pavilion of the Autumn Graves",
+   "lord": "thinh_vu",
+   "alignment": "ma đạo",
+   "leans": [
+    "Darkness",
+    "Metal"
+   ],
+   "craft": "soul arts and grave wards",
+   "founded": 960,
+   "note": "Lý Hạ: thu phần quỷ xướng Bão gia thi, ghosts sing old poems in the autumn graves. A bamboo hill 10 tiles from the ruins of Lôi Trạch Thành."
   }
  ]
 }

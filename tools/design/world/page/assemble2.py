@@ -30,9 +30,9 @@ rep("<h1>Continent 11: sects, places, sacred ground and history sites</h1>",
     "<h1>Continent 11: the land and its 1,200 years</h1>")
 rep("Each territory is then split into its own regions. Every region belongs to a sect.</p>",
     "Each territory is then split into its own regions. Every region belongs to a sect. The written history now sits on the same map: the chronicle tells how each sect, ruin and hidden place came to be, and the page ends where every game begins.</p>\n"
-    '    <a class="lead-card" href="#chronicle"><b>0 → 1,200</b><span>Read the chronicle on the map: 195 landmark events in six eras, 16 wars, 18 sects that rose and fell, 30 cities and 17 ruins, 34 legendary items, and 312 annals of the twenty regions.</span></a>')
+    '    <a class="lead-card" href="#chronicle"><b>0 → 1,200</b><span>Read the chronicle on the map: 200 landmark events in six eras, 16 wars, 18 sects that rose and fell, 30 cities and 17 ruins, 34 legendary items, and 316 annals of the twenty regions.</span></a>')
 rep('<span class="pill">Mine names, origins: approved</span></div>',
-    '<span class="pill">Mine names, origins: approved</span><span class="pill">Chronicle, cast, traits, sect start: approved 2026-11-15</span><span class="pill">Wider history: 195 landmarks, 312 annals, items, cities, ruins: approved 2026-11-15</span></div>')
+    '<span class="pill">Mine names, origins: approved</span><span class="pill">Chronicle, cast, traits, sect start: approved 2026-11-15</span><span class="pill">Wider history: 200 landmarks, 316 annals, items, cities, ruins; Thính Vũ Lâu tier 1: approved 2026-11-15</span></div>')
 rep("  </header>\n",
     "  </header>\n\n"
     '  <nav class="toc" aria-label="Sections">'
@@ -62,7 +62,7 @@ for k, s in data["sects"].items():
 # minor sect table: founded column
 rep("<th>Alignment</th><th>Leans</th>", "<th>Alignment</th><th>Founded</th><th>Leans</th>")
 for k, s in data["sects"].items():
-    if not s.get("minor"):
+    if not s.get("minor") or k == "thu_phan":  # Thu Phần Các's row is added below, Founded included
         continue
     pat = re.compile(r'(<tr><td class="num">\d+</td><td class="name"><span class="sw dia"[^>]*></span>' + re.escape(s["name"]) +
                      r'<br>.*?<td(?: class="ma")?>(?:chính đạo|trung lập|ma đạo)</td>)')
@@ -73,7 +73,18 @@ rep("chính đạo · trung lập · ma đạo. A first guess; alignment belongs
     "chính đạo · trung lập · ma đạo, as the sect start of 2026-11-15 sets them: Củng Tinh Quán and Thối Tinh Môn follow their neutral lord. Founding years run from 150 (Củng Tinh Quán) to 1,020 (Phần Vũ Đường)")
 
 
-rep("<b>15 · 5 · 2</b>", "<b>13 · 7 · 2</b>")
+rep("<b>15 · 5 · 2</b>", "<b>13 · 7 · 3</b>")
+rep("<b>50 %</b><span>of the land held by the three tier-1 sects, one for each of the ~3 Hóa Thần</span>", "<b>62 %</b><span>of the land held by the four tier-1 sects: Thính Vũ Lâu, the only ma đạo great sect, was promoted on 2026-11-15</span>")
+i = H.index("Thính Vũ Lâu<br><span class=\"han\">聽雨樓</span>")
+j = H.index("<td class=\"num\">2</td>", i)
+assert j - i < 400
+H = H[:j] + "<td class=\"num\">1</td>" + H[j + len("<td class=\"num\">2</td>"):]
+rep("<h2>The 22 minor sects</h2>", "<h2>The 23 minor sects</h2>")
+i = H.index("<h2>The 23 minor sects</h2>")
+j = H.index("</p>", i)
+H = H[:j] + " Since 2026-11-15 there are 23: Thu Phần Các, Thính Vũ Lâu's third vassal and its second ma đạo one, was founded in 960 among the graves of Lôi Trạch Thành." + H[j:]
+i = H.index("</tbody>", H.index("<h2>The 23 minor sects</h2>"))
+H = H[:i] + '<tr><td class="num">23</td><td class="name"><span class="sw dia" style="background:rgb(92,96,206)"></span>Thu Phần Các<br><span class="han">秋墳閣</span></td><td>Pavilion of the Autumn Graves</td><td>Thính Vũ Lâu</td><td>19 Kinh Trập Sơn</td><td class="ma">ma đạo</td><td class="num">960</td><td>Darkness, Metal</td><td>soul arts and grave wards</td><td>Lý Hạ: thu phần quỷ xướng Bão gia thi (in the autumn graves ghosts sing old poems); its seat looks over the ruins of Lôi Trạch Thành</td></tr>' + H[i:]
 for nm in ("Thối Tinh Môn", "Củng Tinh Quán"):
     pat = re.compile(r'(<td class="name"><span class="sw dia"[^>]*></span>' + re.escape(nm) + r'<br>.*?)<td>chính đạo</td>')
     m = pat.search(H)

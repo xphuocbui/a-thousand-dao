@@ -1,5 +1,5 @@
 {
-  "status": "ROSTER APPROVED by the user 2026-11-15 (batches 1 to 4: 69 people, 4 vanished sects, 10 master ties, 29 sect founding years). Still pending: traits and a fully authored build for each of the 51 living people (World Generation & History Core Rules 5 and 6).",
+  "status": "ROSTER APPROVED by the user 2026-11-15 (batches 1 to 4: 69 people, 4 vanished sects, 10 master ties, 29 sect founding years). Still pending: traits and a fully authored build for each of the 51 living people (World Generation & History Core Rules 5 and 6). Batch 5 approved 2026-11-15: two Nguyên Anh elders of Thính Vũ Lâu and the head of its new vassal Thu Phần Các (72 people).",
   "note": "Years are on the chronicle's scale: year 0 is its first event and the starting year is 1,200 (user decision 2026-11-15). born is a chronicle year (negative = before year 0). Realm keys follow cultivation_realms.json. Traits and builds are pending (NPC Traits and a fully authored build are required for every living member, Core Rules 5 and 6). Names are Hán-Việt, romantic, from classical poetry, none from known novels.",
   "budget_note": "At the 3,000-person minimum world the realm targets are 2,361 / 506 / 115 / 16 / 2, so the whole living cast must fit under 16 Nguyên Anh and 2 Hóa Thần (Formula B). Batch 1 uses 7 Nguyên Anh and both Hóa Thần slots: at the minimum world there is no random Hóa Thần at all.",
   "great_sect_founding_years": {
@@ -18,7 +18,8 @@
     "xuyen_lam": 690, "hong_dau": 910,
     "le_hoa": 600, "trac_anh": 830, "da_quang": 970,
     "van_khoi": 540, "hong_lo": 650,
-    "le_tuyen": 660, "truc_thuc": 760, "phan_vu": 1020
+    "le_tuyen": 660, "truc_thuc": 760, "phan_vu": 1020,
+    "thu_phan": 960
   },
   "vanished_sects": [
     {"key": "lac_anh", "name_hv": "Lạc Anh Phái", "name_han": "落英派", "gloss": "School of the Fallen Petals", "founded": 230, "fell": 610, "cause": "split by an inheritance quarrel; the last head vanished", "ruin_slot": "V-1", "last_head": "khuong_vong_nguyet", "story_region": "none (the ground can lie in Thính Vũ Lâu's or Lạc Hà Tông's land)"},
@@ -104,7 +105,10 @@
     {"key": "kim_van_ly", "batch": 4, "name_hv": "Kim Vạn Lý", "name_han": "金萬里", "gloss": "Ten thousand li of gold", "sex": "M", "born": 850, "realm": "ket_dan", "alive": true, "sect": "", "rank": "", "home": "Nhạn Thanh Thành", "role": "The richest merchant of the western plains (age 350)"},
     {"key": "doan_thuong_hai", "batch": 4, "name_hv": "Đoạn Thương Hải", "name_han": "段滄海", "gloss": "Broken on the blue sea", "sex": "M", "born": 720, "realm": "nguyen_anh", "alive": true, "sect": "", "rank": "", "home": "Đàm Ảnh Thành", "role": "The only man to survive a Hóa Thần tribulation that killed his master (age 480); blind since, lives by the island sea"},
     {"key": "ve_van_co", "batch": 4, "name_hv": "Vệ Văn Cơ", "name_han": "衛文機", "gloss": "Letters and the loom of fate", "sex": "M", "born": 980, "realm": "ket_dan", "alive": true, "sect": "", "rank": "", "home": "Tinh Hán Thành", "role": "A freelance formation master (age 220)"},
-    {"key": "lam_da_hac", "batch": 4, "name_hv": "Lâm Dã Hạc", "name_han": "林野鶴", "gloss": "A crane in the wild woods", "sex": "M", "born": 1145, "realm": "truc_co", "alive": true, "sect": "", "rank": "", "home": "Tùng Hạ Thị", "role": "A loose cultivator, a rising talent with no sect (age 55)"}
+    {"key": "lam_da_hac", "batch": 4, "name_hv": "Lâm Dã Hạc", "name_han": "林野鶴", "gloss": "A crane in the wild woods", "sex": "M", "born": 1145, "realm": "truc_co", "alive": true, "sect": "", "rank": "", "home": "Tùng Hạ Thị", "role": "A loose cultivator, a rising talent with no sect (age 55)"},
+    {"key": "co_da_lan", "batch": 5, "name_hv": "Cố Dạ Lan", "name_han": "顧夜闌", "gloss": "The night is far gone", "sex": "F", "born": 640, "realm": "nguyen_anh", "alive": true, "sect": "thinh_vu", "rank": "truong_lao", "home": "Thính Vũ Lâu", "role": "War elder of Thính Vũ Lâu (age 560); came to the Tower in 906 at the Night Rain Edict and has never lost a duel"},
+    {"key": "le_tieu_hon", "batch": 5, "name_hv": "Lệ Tiêu Hồn", "name_han": "厲銷魂", "gloss": "The soul melts away (Giang Yêm, Biệt Phú)", "sex": "M", "born": 820, "realm": "nguyen_anh", "alive": true, "sect": "thinh_vu", "rank": "truong_lao", "home": "Thính Vũ Lâu", "role": "Master of Thính Vũ Lâu's soul vaults and keeper of Kinh Lôi Mạch (age 380)"},
+    {"key": "ly_han_bich", "batch": 5, "name_hv": "Lý Hận Bích", "name_han": "李恨碧", "gloss": "The blood of resentment turns to jade (Lý Hạ: hận huyết thiên niên thổ trung bích)", "sex": "F", "born": 830, "realm": "ket_dan", "alive": true, "sect": "thu_phan", "rank": "tong_chu", "vassal_of": "thinh_vu", "home": "Thu Phần Các", "role": "Founder and head of Thu Phần Các (960), soul arts and grave wards among the graves of Lôi Trạch Thành (ma đạo)"}
   ],
   "ties": [
     {"master": "do_tinh_ha", "disciple": "doan_ngoc_hanh"},
@@ -119,11 +123,11 @@
     {"master": "ky_tung_an", "disciple": "thoi_khinh_hong"}
   ],
   "check": {
-    "living": 51,
+    "living": 54,
     "dead_records": 18,
-    "living_by_realm": {"nguyen_anh": 14, "ket_dan": 30, "truc_co": 4, "luyen_khi": 1, "hoa_than": 2},
-    "fits_minimum_world": "14 of 16 Nguyên Anh, 30 of 115 Kết Đan, 4 of 506 Trúc Cơ, 1 of 2,361 Luyện Khí, 2 of 2 Hóa Thần",
-    "sect_heads": "29 of 29 (7 great, 22 minor)",
-    "total_people": 69
+    "living_by_realm": {"nguyen_anh": 16, "ket_dan": 31, "truc_co": 4, "luyen_khi": 1, "hoa_than": 2},
+    "fits_minimum_world": "16 of 16 Nguyên Anh, 31 of 115 Kết Đan, 4 of 506 Trúc Cơ, 1 of 2,361 Luyện Khí, 2 of 2 Hóa Thần",
+    "sect_heads": "30 of 30 (7 great, 23 minor)",
+    "total_people": 72
   }
 }

@@ -1,5 +1,5 @@
 {
- "status": "LEADERS APPROVED by the user 2026-11-15. Leaders' traits (World Generation & History Core Rules 5 and 7; NPC Traits #42). 3 personality traits from 3 different sets and 1 calling per sect head. The second batch (the 22 other living cast members, with 5 fate-given traits) is APPROVED too (user 2026-11-15): all 51 living people have traits.",
+ "status": "LEADERS APPROVED by the user 2026-11-15. Leaders' traits (World Generation & History Core Rules 5 and 7; NPC Traits #42). 3 personality traits from 3 different sets and 1 calling per sect head. The second batch (the 22 other living cast members, with 5 fate-given traits) is APPROVED too (user 2026-11-15): all 51 living people have traits. Batch 5 (2026-11-15): Lý Hận Bích, Cố Dạ Lan and Lệ Tiêu Hồn.",
  "traits": {
   "doan_ngoc_hanh": {
    "calling": "Strategist",
@@ -232,6 +232,14 @@
     "Impatient",
     "Forgiving"
    ]
+  },
+  "ly_han_bich": {
+   "calling": "Formation master",
+   "personality": [
+    "Vengeful",
+    "Diligent",
+    "Arbitrary"
+   ]
   }
  },
  "others": {
@@ -440,6 +448,24 @@
     "Calm",
     "Just",
     "Devout"
+   ],
+   "fate_given": []
+  },
+  "co_da_lan": {
+   "calling": "Duelist",
+   "personality": [
+    "Wrathful",
+    "Brave",
+    "Loyal"
+   ],
+   "fate_given": []
+  },
+  "le_tieu_hon": {
+   "calling": "Schemer",
+   "personality": [
+    "Patient",
+    "Cruel",
+    "Reclusive"
    ],
    "fate_given": []
   }

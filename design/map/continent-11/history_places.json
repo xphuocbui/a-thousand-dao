@@ -10,22 +10,22 @@
    "lake": 5,
    "market": 10,
    "mine": 16,
-   "minor_seat": 22,
+   "minor_seat": 23,
    "peak": 7,
    "ruin": 17,
    "town": 25,
    "village": 70,
    "volcano": 2
   },
-  "places_after": 229,
-  "with_one_spot_per_hidden_slot": 257,
+  "places_after": 230,
+  "with_one_spot_per_hidden_slot": 258,
   "rule_6_range": [
    200,
    300
   ],
   "share_at_1_4": {
    "before": 0.113,
-   "after": 0.105,
+   "after": 0.104,
    "target": [
     0.15,
     0.21
@@ -843,6 +843,40 @@
    ],
    "history_key": "thiet_toa",
    "history": "pivot",
+   "on_road": false
+  }
+ ],
+ "minor_seats": [
+  {
+   "kind": "minor_seat",
+   "kind_hv": "tông môn",
+   "tile": [
+    257,
+    282
+   ],
+   "region": 19,
+   "region_name": "Kinh Trập Sơn",
+   "biome": "bamboo forest",
+   "elevation_km": 0.13,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.42,
+   "territory": "Thính Vũ Lâu",
+   "holder": "Thính Vũ Lâu",
+   "key": "thu_phan",
+   "name_hv": "Thu Phần Các",
+   "name_han": "秋墳閣",
+   "gloss": "Pavilion of the Autumn Graves",
+   "note": "Lý Hạ: thu phần quỷ xướng Bão gia thi, ghosts sing old poems in the autumn graves. A bamboo hill 10 tiles from the ruins of Lôi Trạch Thành.",
+   "lord": "thinh_vu",
+   "alignment": "ma đạo",
+   "leans": [
+    "Darkness",
+    "Metal"
+   ],
+   "craft": "soul arts and grave wards",
+   "founded": 960,
    "on_road": false
   }
  ],

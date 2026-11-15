@@ -12,6 +12,8 @@ What it writes, to <map>/history_places.json:
 - **city_years**: the founding year of every other city;
 - **ruins**: each fixed ruin as a full place record of kind `ruin`, with `former` (sect, city, town or fort), `lived`
   [from, to] and the history key that ruined it; its region, territory and terrain are read from its tile;
+- **minor_seats**: vassal seats the history adds (Thu Phần Các, 2026-11-15) as full place records of kind
+  `minor_seat`, spaced and checked like the ruins;
 - **parts**: each named part grown from its anchor place over the listed regions, nearest tiles first, until it holds
   every candidate of `must_include_slot` and reaches its size; `split_by_region` names the pieces across a border.
 
@@ -145,6 +147,28 @@ def main():
             "former": r["former"], "lived": r["lived"], "history_key": r["key"], "history": r["history"],
             "on_road": False})
 
+    minor_seats = []
+    for m in prop.get("minor_seats", []):
+        x, y = m["tile"]
+        i = y * W + x
+        if not M.dry[i]:
+            problems.append(m["name_hv"] + " is not on dry land")
+        if any(math.dist((x, y), t) < 5 for t in taken):
+            problems.append(m["name_hv"] + " is within 5 tiles of another place")
+        if any(math.dist((x, y), t) < 4 for t in cands):
+            problems.append(m["name_hv"] + " is within 4 tiles of a hidden-slot candidate")
+        if terr_name(i) is None or M.greats[M.terr[i]]["key"] != m["lord"]:
+            problems.append(m["name_hv"] + " is not on its lord's land")
+        taken.append((x, y))
+        minor_seats.append({
+            "kind": "minor_seat", "kind_hv": "tông môn", "tile": [x, y], "region": M.rid[i],
+            "region_name": M.regs[M.rid[i]]["name_hv"], "biome": BIOME_NAME.get(M.b[i], ""),
+            "elevation_km": round(M.h[i], 2), "port": False, "river": bool(M.river[i]), "coast": bool(M.coast[i]),
+            "livability": round(M.live[i], 2), "territory": terr_name(i), "holder": terr_name(i),
+            "key": m["key"], "name_hv": m["name_hv"], "name_han": m["name_han"], "gloss": m["gloss"], "note": m["note"],
+            "lord": m["lord"], "alignment": m["alignment"], "leans": m["leans"], "craft": m["craft"],
+            "founded": m["founded"], "on_road": False})
+
     slot_cands = {s["slot"]: [c.get("tile") or c["centre"] for c in s["candidates"]] for s in hist["hidden"]}
     parts = []
     for pt in prop["parts"]:
@@ -190,7 +214,7 @@ def main():
     D = tile_density(M, d)
     dens = lambda t: D[t[1] * W + t[0]]
     base = [p["tile"] for p in places] + [p["tile"] for p in sac["places"]]
-    after = base + [r["tile"] for r in ruins]
+    after = base + [r["tile"] for r in ruins] + [m["tile"] for m in minor_seats]
     share = lambda ts: round(sum(1 for t in ts if dens(t) >= 1.4) / len(ts), 3)
     mean = lambda ts: round(sum(dens(t) for t in ts) / len(ts), 3)
     kinds = Counter(p["kind"] for p in places)
@@ -198,6 +222,7 @@ def main():
         kinds["town"] -= 1
         kinds["city"] += 1
     kinds["ruin"] += len(ruins)
+    kinds["minor_seat"] += len(minor_seats)
     check = {
         "kinds_after": dict(sorted(kinds.items())),
         "places_after": len(after), "with_one_spot_per_hidden_slot": len(after) + len(hist["hidden"]),
@@ -208,7 +233,7 @@ def main():
         "problems": problems,
     }
     out = {"source": "tools/design/map/history_places.py", "check": check, "promotions": promotions,
-           "city_years": city_years, "ruins": ruins, "parts": parts}
+           "city_years": city_years, "ruins": ruins, "minor_seats": minor_seats, "parts": parts}
     with open(os.path.join(d, "history_places.json"), "w", encoding="utf-8", newline="\n") as fh:
         json.dump(out, fh, ensure_ascii=False, indent=1)
     print(json.dumps(check, ensure_ascii=False, indent=1))

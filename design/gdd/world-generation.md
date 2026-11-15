@@ -8,7 +8,7 @@
 
 ## Summary
 
-World Generation & History builds the world a new game starts in, once, before play. The continent, its 29 sects, its
+World Generation & History builds the world a new game starts in, once, before play. The continent, its 30 sects, its
 places, a two-tier chronicle (about 150–250 landmark events and 300–500 annals) and a cast of 60–100 fixed characters (each with a fully authored build) are
 the same in every game. The ordinary cultivators (about 5,000) and the exact spots of hidden ruins, secret realms and
 tile secrets are rolled from the game's seed. The player starts in a world with a learnable geography and a remembered
@@ -45,7 +45,7 @@ Without this system the other systems have a map but no past, no population and 
 
 1. **The world is built in nine ordered steps.** Each step reads only what earlier steps wrote:
    1. the authored base (continent, regions, places, roads, sacred features);
-   2. the sects (29, with leaders and starting state);
+   2. the sects (30, with leaders and starting state);
    3. the chronicle (authored history);
    4. the fixed cast (authored people);
    5. the seeded rolls (hidden spots, tile secrets, reserves);
@@ -74,7 +74,7 @@ Without this system the other systems have a map but no past, no population and 
    Map rule 15).
 5. **The fixed cast is 60–100 people** (user decision 2026-11-15). Each is authored with a name, sex, birth year, sect
    and rank (or none), realm, home place, start location, NPC Traits (4 kinds), parents and master, and their fate in
-   the chronicle. Roughly: the 29 sect heads, then famous dead legends (records only), wanderers, elders and rivals. A
+   the chronicle. Roughly: the 30 sect heads, then famous dead legends (records only), wanderers, elders and rivals. A
    dead person is a record only. A living one is a full person in the World Database. The 60–100 count covers the
    living cast and the core legends; dead people named only by the wider chronicle (rule 3) are records outside the
    count (user decision 2026-11-15).
@@ -83,7 +83,7 @@ Without this system the other systems have a map but no past, no population and 
    Nothing about their build is rolled. Their Power Rankings rating is not authored: it is measured like everyone
    else's. **Risk:** these builds depend on the Meridian Map, whose shape is a placeholder (parked). A tree change
    makes them fail the load check (Edge Cases) until they are redone.
-7. **Sect start state is authored in part.** Each of the 29 sects has a table row with its alignment, its four
+7. **Sect start state is authored in part.** Each of the 30 sects has a table row with its alignment, its four
    development levels (Holdings, Institutions, Military, Trade) and its treasury, and each minor sect also its
    starting loyalty, as Sects & Missions Open Question 9 deferred. The leader's traits come with the cast (rule 5).
    Every level must be at or below that GDD's F1 settle level (12 for a tier-1 sect, 9 for tier-2, 4 for a minor
@@ -110,7 +110,7 @@ Without this system the other systems have a map but no past, no population and 
     chronicle covers 1,200 years (user decision 2026-11-15): year 0 is its first event and the starting year is 1,200.
     The old generator's 300 years was a placeholder. The span is authored, not rolled.
 12. **The player is made last,** after the world exists. The player is never in the random pool. The origin sets the
-    start place, from the approved origins list (29 sect seats, 10 cultivator markets, 7 clan towns), and the
+    start place, from the approved origins list (30 sect seats, 10 cultivator markets, 7 clan towns), and the
     player's rule for their home region (Travel & Map rule 14).
 13. **The save holds the world.** Generation runs once, at a new game, and the result is written to the save. Loading a
     save never regenerates; the seed is only a record. The terrain is not copied into the save: it is read from the
@@ -156,7 +156,7 @@ Without this system the other systems have a map but no past, no population and 
 | **World Database** (#3) | out | Regions, places, sects, people, items, the chronicle (as events) and the Power Rankings table; plus the per-game ledger of rolled hidden spots and reserves | World Database for the tables; this GDD for what is written |
 | **Save/Load** (#5) | out | The built world in one write, the game seed and the authored-data version | Save/Load |
 | **Travel & Map** (#25) | out / in | In: the authored continent, the 28 hidden slots with their candidate tiles, the 80 tile secrets, and the site reserve sizes. Out: the rolled spot for each, in the ledger | Travel & Map owns candidate rules (rules 15, 28, 29); this GDD owns the roll |
-| **Sects & Missions** (#26) | out / in | Out: the 29 sects, leaders, vassal ties and authored starting state (Core Rule 7). In: the F1 settle levels that cap that state | Sects & Missions owns F1; this GDD owns the starting table |
+| **Sects & Missions** (#26) | out / in | Out: the 30 sects, leaders, vassal ties and authored starting state (Core Rule 7). In: the F1 settle levels that cap that state | Sects & Missions owns F1; this GDD owns the starting table |
 | **Realms & Bottlenecks** (#8) | in | `world_cultivators` and its minimum, realm shares, and the minimum age for each realm | Realms |
 | **NPC Builds** (#24) | in | Builds for the random cultivators; the validator that checks every fixed character's authored build | NPC Builds |
 | **NPC Traits** (#42) | in / out | Out: the fixed cast's authored traits, parents and masters. In: trait rolls for the random cultivators | NPC Traits owns the rolls; this GDD owns the authored values |
@@ -375,7 +375,7 @@ playtested:
 
 ## UI Requirements
 
-- **Origin list** (new-game screen): the 46 choices in three groups (sect disciple: 29 seats, loose cultivator: 10
+- **Origin list** (new-game screen): the 47 choices in three groups (sect disciple: 30 seats, loose cultivator: 10
   markets, clan heir: 7 towns). Each shows its place, region and sect or clan. The numbers it implies are visible
   (Pillar 2).
 - **Build progress:** the nine steps in plain words, the current step marked, a running count of people made, and a
@@ -404,12 +404,12 @@ the new-game screen **before** writing epics.
 | Keyed streams; the load budget | ADR-0002; ADR-0003 decision 12 | Formulas C, D; Core Rule 13; AC-WG-34 |
 | The fixed world's decisions and the authored map | `design/research/fixed-world-decisions.md`, `design/map/continent-11/` | Overview, Core Rules 1–5, 9 |
 | `world_headcount_targets` | `design/registry/entities.yaml` (owner Realms) | Formula A |
-| The authored cast: 69 people, 4 vanished sects, 10 master ties, the 29 sects' founding years | `design/world/cast_proposal.json` (approved 2026-11-15) | Core Rules 5, 6, 7; Formula B; AC-WG-07 |
+| The authored cast: 72 people, 4 vanished sects, 10 master ties, the 30 sects' founding years | `design/world/cast_proposal.json` (approved 2026-11-15) | Core Rules 5, 6, 7; Formula B; AC-WG-07 |
 | The authored chronicle: 195 landmark events (one origin event for each of the 28 hidden slots among them) and 312 annals | `design/world/chronicle_proposal.json`, `design/world/annals_proposal.json` (approved 2026-11-15) | Core Rules 3, 4, 11; AC-WG-04, AC-WG-05 |
 | The territory history: 6 eras, every land change, 16 wars, 7 more fallen sects, grudges | `design/world/territory_history_proposal.json` (approved 2026-11-15) | Core Rules 7, 15; AC-WG-37, AC-WG-38 |
 | Dead records named only by the wider chronicle (14) and the legendary items as lore (34) | `design/world/records_proposal.json`, `design/world/legendary_items_proposal.json` (approved 2026-11-15) | Core Rule 5; Item Database rule 20d |
 | The history's places: 15 promoted cities, every city's founding year, 17 fixed ruins, the named parts | `design/map/continent-11/history_places_proposal.json` and `tools/design/map/history_places.py` (approved 2026-11-15) | Core Rule 15; Travel & Map rule 6 |
-| The 29 sects' start states: alignment, four levels, treasury, loyalty | `design/world/sect_start_proposal.json` (approved 2026-11-15) | Core Rule 7; AC-WG-10 |
+| The 30 sects' start states: alignment, four levels, treasury, loyalty | `design/world/sect_start_proposal.json` (approved 2026-11-15) | Core Rule 7; AC-WG-10 |
 | Traits for the 51 living cast members: 3 personality, 1 calling, 5 fate-given | `design/world/leader_traits_proposal.json` (approved 2026-11-15) | Core Rule 5; NPC Traits #42 |
 
 **Still to change in other files:** the Sects Open Question 9 and Travel & Map Open Question 13 should point here now
@@ -436,13 +436,13 @@ Trade and Trade Goods, and the `realm_distribution` weights in `assets/data/worl
   world, WHEN any text about an undiscovered hidden place is built (a template rumour or clue, or an LLM fact packet
   when it is on), THEN it names the region and no tile.
 - **AC-WG-07** [Config/Data] Rule 5. GIVEN the cast file, THEN it has 60–100 records (a warning outside that range),
-  every living record has every field, and it includes the 29 sect heads.
+  every living record has every field, and it includes the 30 sect heads.
 - **AC-WG-08** [Integration] Rule 6. GIVEN each living cast member, WHEN the authored build is run through the NPC
   Builds validator, THEN it passes. WHEN a fight sheet is built from it under two different game seeds, THEN the two
   sheets are identical.
 - **AC-WG-09** [Logic] Rule 6. GIVEN a cast build that names a Meridian Map node that does not exist, WHEN Checking
   runs, THEN the state is Failed, the message names the person and the node, and nothing is saved.
-- **AC-WG-10** [Config/Data] Rule 7. GIVEN the sect start-state table, THEN it has 29 rows, every development level
+- **AC-WG-10** [Config/Data] Rule 7. GIVEN the sect start-state table, THEN it has 30 rows, every development level
   is at or below Sects' F1 settle level (12, 9 or 4 by tier), every minor sect's loyalty is above 30, and the table
   holds no dial or attitude.
 - **AC-WG-11** [Logic] Rule 8. GIVEN N = 5,000 and a cast of 65, THEN every realm's count equals its target and the
@@ -456,7 +456,7 @@ Trade and Trade Goods, and the `realm_distribution` weights in `assets/data/worl
 - **AC-WG-15** [Integration] Rule 10. GIVEN a built world, THEN the ledger has one row for each of the 28 slots, 80
   tile secrets and each resource site, and no player-facing table contains a ledger tile.
 - **AC-WG-16** [Integration] Rule 11. GIVEN 5 different seeds, THEN the starting date is the authored date in all 5.
-- **AC-WG-17** [Integration] Rule 12. GIVEN each of the 46 origin choices (29 sect seats, 10 markets, 7 clan towns),
+- **AC-WG-17** [Integration] Rule 12. GIVEN each of the 47 origin choices (30 sect seats, 10 markets, 7 clan towns),
   WHEN the player is made, THEN the player starts at that origin's place, is not in the random pool (the world holds
   N + 1 people) and is created after step 8.
 - **AC-WG-18** [Integration] Rule 13. GIVEN a saved new game, WHEN it is loaded, THEN the generator is called 0 times
@@ -500,7 +500,7 @@ Trade and Trade Goods, and the `realm_distribution` weights in `assets/data/worl
 - **AC-WG-30** [Integration] Power Rankings. GIVEN a built world, THEN every living person has a rating row, the
   fights run at build stay within `worldgen_fight_budget` (8,000), and the people outside the load set are
   Provisional or Stale as Power Rankings rule 16 says.
-- **AC-WG-31** [Integration] Sects & Missions. GIVEN a built world, THEN each of the 29 sects has exactly one living
+- **AC-WG-31** [Integration] Sects & Missions. GIVEN a built world, THEN each of the 30 sects has exactly one living
   head and Sects' F1 check passes on the start state.
 - **AC-WG-32** [Integration] Travel & Map. GIVEN a built world, THEN each rolled hidden spot equals one of the
   authored candidates, so it satisfies Travel & Map's ground rules for its kind.

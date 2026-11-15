@@ -149,6 +149,10 @@ extra_col = {"cuu_thieu": [170, 140, 200], "khai_loi": [128, 128, 170], "khong_s
              "ho_thien": [196, 208, 228], "lac_anh": [232, 150, 170], "xich_thanh": [160, 62, 44],
              "han_giang": [100, 140, 162], "co_pham": [110, 170, 190], "thon_hai": [80, 80, 90],
              "pha_quan": [120, 60, 60], "kim_coc": [200, 170, 80]}
+for m in HP.get("minor_seats", []):
+    sects[m["key"]] = {"name": m["name_hv"], "han": m["name_han"], "seat": px(m["tile"]), "minor": True,
+                       "lord": m["lord"], "col": sects[m["lord"]]["col"]}
+    loc[m["name_hv"]] = px(m["tile"])
 for f in T["fallen_sects"]:
     sects[f["key"]] = {"name": f["name_hv"], "han": f["name_han"], "gloss": f["gloss"], "founded": f["founded"],
                        "fell": f["fell"], "cause": f["cause"], "vanished": True, "fallen": True}
@@ -163,6 +167,9 @@ for g in S0["great_sects"] + S0["minor_sects"]:
 
 people = old["people"]
 cast = load(os.path.join(WORLD, "cast_proposal.json"))
+for k, y in cast["minor_sect_founding_years"].items():
+    if k in sects:
+        sects[k]["founded"] = y
 for p in cast["people"]:
     if p["key"] in people:
         people[p["key"]]["role"] = p.get("role", "")

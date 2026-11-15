@@ -121,8 +121,11 @@ for v in cast["vanished_sects"]:
 for k, y in cast["great_sect_founding_years"].items():
     sects[k]["founded"] = y
 for k, y in cast["minor_sect_founding_years"].items():
-    sects[k]["founded"] = y
+    if k in sects:  # sects added by the history layer come in step 2
+        sects[k]["founded"] = y
 for g in start["great_sects"] + start["minor_sects"]:
+    if g["key"] not in sects:
+        continue
     s = sects[g["key"]]
     s["align"] = g["alignment"]
     s["levels"] = g["levels"]
