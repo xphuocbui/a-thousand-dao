@@ -2235,6 +2235,41 @@ formulas:
     notes: "About 25-28 NPC events a season at the start; NPC choices use NPC Traits F2."
     added: 2026-11-15
     revised: ""
+  - name: npc_acceptance_score
+    status: active
+    source: design/gdd/npc-interaction-dialogue.md
+    referenced_by:
+      - design/gdd/npc-interaction-dialogue.md
+    variables:
+      - b_v
+      - att
+      - pr
+      - dr
+      - M
+      - standing
+      - flag_v
+    output_range: "about -220 to 190; accept when >= 0"
+    expression: "S = b_v + 1*att + 0.25*(eff(mi_luc)-50) + g_v*|dr| + 10*log2(M) + 0.2*standing + sum flag_v"
+    notes: "User decision 2026-11-15: CK3-style score, no dice. M is NPC Traits F2's clamped trait product for the verb's tags. #46 bond verbs use it too."
+    added: 2026-11-15
+    revised: ""
+  - name: attitude_change_presence
+    status: active
+    source: design/gdd/npc-interaction-dialogue.md
+    referenced_by:
+      - design/gdd/npc-interaction-dialogue.md
+      - design/gdd/character-stats.md
+      - design/gdd/quests.md
+    variables:
+      - delta_v
+      - pr
+      - V
+      - W_r
+    output_range: "attitude -100 to 100 (integer)"
+    expression: "gain = round_half_up(delta_v * (1 + 0.01*(eff(mi_luc)-50))); losses unscaled; gift delta_v = 15*(1-exp(-V/W_r))*M_greedy*0.5^n_gift; yearly drift 1 point toward opinion"
+    notes: "Fills Character Stats Formulas H 'the scale belongs to NPC Interaction'. W_r = event_budget_linh_thach_max at the receiver's realm."
+    added: 2026-11-15
+    revised: ""
 constants:
   - name: root_count_weights
     status: active
@@ -5216,6 +5251,7 @@ constants:
     source: design/gdd/event-engine.md
     referenced_by:
       - design/gdd/event-engine.md
+      - design/gdd/npc-interaction-dialogue.md
       - design/gdd/quests.md
       - design/gdd/travel-map.md
       - design/gdd/regional-economy-trade.md
@@ -5263,5 +5299,17 @@ constants:
     value: 40
     unit: NPC events per season, world-wide
     notes: "Guess; with npc_sample_per_season 200 and p_npc0 0.10."
+    added: 2026-11-15
+    revised: ""
+  - name: attitude_bands
+    status: active
+    source: design/gdd/npc-interaction-dialogue.md
+    referenced_by:
+      - design/gdd/npc-interaction-dialogue.md
+      - design/gdd/quests.md
+      - design/gdd/npc-traits.md
+    value: "hostile <= -30; cold -29..-10; neutral -9..9; warm 10..29; friendly 30..59; close >= 60"
+    unit: attitude to the player
+    notes: "Hostile and friendly are the existing session_actions.json talk thresholds (-30, 30); cold, warm and close added 2026-11-15."
     added: 2026-11-15
     revised: ""

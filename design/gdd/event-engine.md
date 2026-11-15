@@ -89,6 +89,7 @@ NPC-capable run for NPCs, and only for some people; a chain or story shares **on
    `on_discover` (a hidden place found), `on_breakthrough` (success and failure), `on_realm_enter`, `on_join_sect`,
    `on_leave_sect`, `on_rank_change`, `on_known_death` (someone the root knows, or holds a flag on, dies),
    `on_fight_end` (an event fight), `on_secret_realm` (announced, opened, closing), `on_tribulation_end`,
+   `on_talk` (the player greets a person: NPC Interaction & Dialogue rule 18, added 2026-11-15),
    `on_season_start` and `on_year_start`. A hook lists its events and its own chance (1.0 for a scripted moment). A
    hook fires at most one event per occurrence. Another system that wants a new hook asks for it here.
 7. **The pick.** Eligible events are those whose kind fits, whose conditions hold, whose scopes bind, and which are

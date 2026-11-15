@@ -84,7 +84,7 @@ Guidance, Debug Terminal, Game UI, Audio.
 | 27 | World Generation & History | Narrative | MVP | **Designed** 2026-11-15 (pending review). The GDD covers the fixed world: an authored chronicle of about 40–60 events, a fixed cast of 60–100 people with fully authored builds, 29 sect start states, and per-game rolls for hidden spots, tile secrets, reserves and the ordinary cultivators. Built only as the old random generator, to be reworked. Authoring pass still to do: the cast, the chronicle and the sect start-state table (GDD Open Questions 1–3) | design/gdd/world-generation.md | World DB, NPC Builds, Item DB, Config, Sim Core |
 | 28 | Living World Tick | Narrative | Vertical Slice | Implemented (abstract) | — | World DB, Realms, NPC Builds, Edges (NPC half), Time & Turn |
 | 29 | LLM Game Master: events, narration, epitaph, provider config | Narrative | MVP | **Parked** 2026-11-15 (user decision): the game must be playable without an LLM; template fallbacks carry events, narration, talk and epitaph, and player-facing text is Vietnamese. Built code stays (mock-tested only). Content gap: design/research/no-llm-content-audit.md | — | Event Engine, World DB, Config |
-| 30 | NPC Interaction & Dialogue | Narrative | Vertical Slice | Implemented (thin) | — | World DB, LLM GM, Time & Turn |
+| 30 | NPC Interaction & Dialogue | Narrative | Vertical Slice | Implemented (thin: one talk a season, 3 greetings); **Designed** 2026-11-15 (CK-style verbs with acceptance scores, line library by tone and seniority, `on_talk` scenes; not yet design-reviewed; bond verbs wait for #46) | design/gdd/npc-interaction-dialogue.md | World DB, NPC Traits, Character Stats, Event Engine, Time & Turn; soft: Quests, Sects, Market, Regional Economy & Trade, Combat, Power Rankings, Travel & Map, Công Pháp |
 | 31 | Quests | Narrative | Vertical Slice | Approved (2026-11-08); numbers are guesses; Event Engine, LLM GM and Dialogue contracts provisional. Not built. History: the GDD header and its review log. | design/gdd/quests.md | Event Engine, LLM GM, Dialogue, World DB |
 | 32 | Achievements (Thành Tựu) | Meta | Vertical Slice | Implemented | quick spec: design/quick-specs/phu-luc-linh-thu-thanh-tuu.md | Character Stats, Realms, World DB, Save/Load |
 | 33 | Balance Simulation Harness | Meta | MVP | Implemented | — | Time & Turn, Character Stats, Realms, Event Engine, Market, Edges |
@@ -326,13 +326,13 @@ Four were found; all are resolved by splitting a contract, not by designing the 
 | Systems identified | 45 (43 numbered, plus Combat's sub-systems #21a and #21b) |
 | Systems implemented (debug terminal) | 32, of which 6 carry caveats: 19 (beasts only), 21 (old duel only), 26 (thin), 28 (abstract), 29 (mock-tested only), 30 (thin). The built game predates this week's design (old Meridian map, ceilings, variant sectors, hidden clusters) |
 | Systems not built | 10: 12, 21a, 21b, 22, 31, 34, 37, 38, 40, 41 (plus spirit insects inside 19; #39 the Way) |
-| GDDs | 21: 6, 7, 8, 9, 10, 13, 21, 21a, 21b, 22, 23, 25, 26, 27, 31, 39, 40, 41, 43, 45, and the Way's catalogue inside 39 |
+| GDDs | 22: 6, 7, 8, 9, 10, 13, 21, 21a, 21b, 22, 23, 25, 26, 27, 30, 31, 39, 40, 41, 43, 45, and the Way's catalogue inside 39 |
 | GDDs approved | 8: 21, 21a, 21b, 40, 41, 43 (approved 2026-11-14), 22 and 31 (approved for rules; numbers provisional) |
 | GDDs in review | 7: 6, 7, 8, 9, 10, 13, 39 (review and confirming re-review fixes applied 2026-11-10); 25 and 26 designed, pending review; 45 designed 2026-11-14, pending review |
 | Built MVP systems without a GDD | 14: 1, 2, 3, 4, 5, 11, 14, 15, 20, 24, 27 (people and history), 29, 33, 36 |
 | Quick specs covering systems | 4 (cover parts of 6, 8, 11, 16, 17, 18, 19, 32) |
 | MVP systems designed | 16 / 28 (#23 Event Engine designed 2026-11-15) (26 MVP plus #21a, #21b, #40, #41 counted; #43 designed 2026-11-14) |
-| Vertical Slice systems designed | 1 / 8 (31) |
+| Vertical Slice systems designed | 2 / 8 (30, 31) |
 | Library content (2026-11-12) | 223 arts (design/arts), 31 công pháp (design/techniques), 94 Ways (1 drawn), 168 named items in 13 families (design/items, 2026-11-12, patched 2026-11-13, accepted for now; 35 new Effects not yet in effects.md), keystones not written, 31 builds tested in the engine (design/builds/engine-v2) |
 | Combat engine | Python reference only (tools/design/combat_sim/engine.py); not in Godot |
 
