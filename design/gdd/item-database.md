@@ -416,9 +416,11 @@ The pill_value formula is defined as:
 
 `pill_value = int(price · (1 + 0.5 · quality))`
 
-The pill_margin lint is defined as (**change**: new, warning only):
+The craft margin lint is Trade Goods Formula J (`craft_margin`; **change** 2026-11-14: it replaces `pill_margin`, which
+bought herbs at the retail markup 1.5, now that raw goods trade at the bulk spread, Regional Economy & Trade Formula G):
 
-`pill_margin = price · yield · sell_ratio / (Σ herb_value(min_age) · qty · buy_markup)`
+`margin = price · yield · sell_ratio · ps_mean / (Σ herb_value(min_age) · qty · bm_raw)`, warning when the margin is above
+2.5 and the profit per brew is at least `margin_warn_profit` (600, Trade Goods)
 
 **Variables:**
 
@@ -427,16 +429,22 @@ The pill_margin lint is defined as (**change**: new, warning only):
 | price | int | 12–40,000 | data file (`items_recipes.json`) | Recipe base price |
 | quality | int | 0–3 | record | Pill quality rank |
 | yield | int | 1–2 | data file | Pills per brew |
-| buy_markup, sell_ratio | float | 1.5, 0.6 | data file (`session_actions.json`) | The Market's margin, shown here only for the lint |
+| bm_raw, sell_ratio | float | 1.10, 0.6 | #43 Formula G (raw bulk buy); data file (`session_actions.json`) | Raw-goods buy factor and the Market's sell ratio, shown here only for the lint |
+| ps_mean | float | 0–1 | Alchemy | Mean brew success; 1 in the lint fixture (FX-D) |
 
 **Output Range:** `pill_value` runs from 12 to 100,000 and truncates. A margin below 1 means a pill loses money when
 its herbs are bought at the Market, even at 100 % brew success.
 
-**Today's margins (user decision 2026-11-06: no change).** Every recipe costs less than it sells for at herb value.
-Only Tĩnh Tâm Đan fails the lint, at 0.85; Huyết Khí Đan is thin at 1.07. Both are pills to use, not to trade. The lint
-warns on any new recipe below 1.
+**Today's margins (2026-11-14, at raw buy 1.10 and 100 % success; reopens the 2026-11-06 "no change" decision, by user
+decision).** Every recipe pays: Tụ Khí 3.27, Thanh Độc 3.64, Hồi Xuân 2.45, Hoàng Long 2.81, Tĩnh Tâm 1.15, Trúc Cơ 2.30,
+Huyết Khí 1.45, Ngưng Nguyên 5.38, Tẩy Tủy 9.74, Diên Thọ 4.96, Hóa Anh 1.81, Hóa Thần 1.77. Ngưng Nguyên, Tẩy Tủy and
+Diên Thọ warn (+1,346 to +2,395 a brew). **Decided 2026-11-14 (user): raise their inputs, keep their prices**: Ngưng
+Nguyên 4 Kim Tủy Quả at age 84 + 1 Xích Huyết Đằng at 18 (1.89); Tẩy Tủy 4 Xích Huyết Đằng at 80 + 3 Băng Tâm Thảo at 120
+(1.89); Diên Thọ 2 Vạn Niên Mộc Linh at 200 + 1 Kim Tủy Quả at 100 (1.91). A new Qi Refining pill, **Thiết Cốt Đan** (3
+Thiết Tuyến Thảo at age 1, yield 2, price 15: 1.82), uses the new Metal herb. Tụ Khí, Thanh Độc and Hoàng Long are above
+2.5 but earn +10 to +70 a brew and do not warn. With these recipes no recipe warns.
 
-**Example:** Hồi Xuân Đan, price 18, quality 1: int(18 × 1.5) = **27**. Tĩnh Tâm Đan: 150 × 1 × 0.6 = 90 against 71 × 1.5 = 106.5, so **0.85**.
+**Example:** Hồi Xuân Đan, price 18, quality 1: int(18 × 1.5) = **27**. Tĩnh Tâm Đan: 150 × 1 × 0.6 = 90 against 71 × 1.10 = 78.1, so **1.15**.
 
 ### D. Artifacts
 
@@ -598,7 +606,7 @@ All thresholds are proposals with no source; set them after the first run.
 | Value created against removed, per kind and year | Above 1.5 over 50 years |
 | Share of records at rank 5–6 | Above 5 % |
 | Breakthrough main herbs in random Market stock | Any (a hard invariant) |
-| Lowest pill margin among unrestricted recipes | Below 1 for a new recipe |
+| Craft margin (Trade Goods Formula J) among unrestricted recipes | Above 2.5 with a profit per brew of 600 or more |
 | Equipped artifacts their owner cannot control | Above 25 % |
 
 ### I. Named-item budget
@@ -737,6 +745,7 @@ Formulas F) and is not priced here.
 | Spirit Herbs (#14), Alchemy (#15) | Hard | Herbs, pills, potency | Built, no GDD |
 | Artifact Refining (#16), Formations (#17), Talismans (#18), Spirit Beasts (#19) | Hard | Crafted items, ingredients, roles; Refining's recipes for repeatable named items and, if Open Question 17 holds, raising a named item's tier (rule 20) | Quick specs only |
 | Market (#20) | Hard | Value, flags, stock generation | Built, no GDD |
+| Trade Goods (#45) | Hard | Templates, values and rarity of the 23 trade goods; the `trade` block; the craft margin lint (its Formula J replaces `pill_margin`) | Designed 2026-11-14, pending review |
 | Combat (#21) | Hard for the full fight | Role tags, attack, defence, consumable arts; item arts by role, in the art slots, powered by the piece's number (rule 21, Open Question 23) | GDD designed, build on hold; today's duel reads artifacts directly |
 | Combat Defence & Healing (#21a) | Hard for the full fight | Role tags and defence numbers, mapped to `a_w` and `a_b`; a second body_gear piece may be worn in an extra slot and counts (rule 11, Open Question 22) | Approved; build on hold |
 | Combat Damage Types (#21b) | Hard for the full fight | Each base's `damage_type`; named items' art parts | Approved; build on hold |
@@ -881,7 +890,7 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 
 - **AC-ID-19** [Logic] Formulas B. Hoàng Tinh Sâm at age 5 is 0.5, value 10; age 10 is 1.0, 20; age 20 is 1.5, 30; age 40 is 2.0, 40. Age 2,560 and age 100,000 are 5.0, value 100. Kim Tủy Quả at age 42 is 0.8742, value 131. At age 0, Ngưng Khí Thảo is 0.1, value 1, and Hóa Thần Quả is 0.1, value 300.
 - **AC-ID-20** [Logic] Formulas C. Hồi Xuân Đan at quality 0 is 18, at 1 is 27, at 3 is 45. Hóa Thần Đan at 3 is 100,000. An FX-O recipe at price 15, quality 1, is 22.
-- **AC-ID-21** [Logic] Formulas C, lint. Given FX-D, margins (±0.01) are Tụ Khí 2.40, Thanh Độc 2.67, Hồi Xuân 1.80, Hoàng Long 2.06, Tĩnh Tâm 0.85, Trúc Cơ 1.68, Huyết Khí 1.07, Ngưng Nguyên 3.95, Tẩy Tủy 7.14, Diên Thọ 3.64, Hóa Anh 1.33, Hóa Thần 1.30. Exactly one warning names `tinh_tam_dan`, and the game still loads. The lint tests the unrounded margin: an FX-O recipe at 0.99 warns and loads, and at exactly 1.00 it does not warn.
+- **AC-ID-21** [Logic] Formulas C, lint (revised 2026-11-14 with Trade Goods Formula J and the recipe revision). Given FX-D at raw buy 1.10 and 100 % success, margins (±0.01) are Tụ Khí 3.27, Thanh Độc 3.64, Hồi Xuân 2.45, Hoàng Long 2.81, Tĩnh Tâm 1.15, Trúc Cơ 2.30, Huyết Khí 1.45, Ngưng Nguyên 1.89, Tẩy Tủy 1.89, Diên Thọ 1.91, Hóa Anh 1.81, Hóa Thần 1.77, Thiết Cốt 1.82; no warning is logged, and the game loads. The lint tests the unrounded margin: an FX-O recipe at 2.51 with a profit of 600 warns and loads; at exactly 2.50, or with a profit of 599, it does not warn.
 - **AC-ID-22** [Logic] Rule 9. Every item in FX-D has a value of at least 1. Tinh Thiết is 15, Linh Căn Quả 4,000, FX-K's key 800, Hỏa Cầu Phù 12, Phá Cảnh Phù 300. Given FX-N, a quality-1 Hồi Xuân Đan (27) buys at 41 and sells at 16, and a 640 artifact buys at 960 and sells at 384.
 - **AC-ID-23** [Logic] Rule 2, Edge Cases. Given a saved Phi Kiếm (attack 510, value 640) and a generated manual, when reloaded under FX-O with base attack, multipliers, scales and manual pricing changed, both records and their `value_of` are unchanged.
 - **AC-ID-24** [Logic] Rule 2. Given FX-O with Hoàng Tinh Sâm `base_value` 30, an age-40 herb is worth 60. With `mature_years` 20 as well, potency 1.5 and value 45. With Hồi Xuân Đan `price` 20, quality 1 is worth 30.
@@ -1044,3 +1053,4 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 | 22 | Extra slots take any piece (rule 11), so armour can stack: each worn armour adds its body defence to `a_b` (Combat Defence & Healing Formulas A2) and, since 2026-11-13, a ward slot of its own. Allowed; measure it at the harness run before limiting anything (user decision 2026-11-13). The option weighed: only the best piece's body defence counts | Balance Harness, Combat Defence & Healing owner | Rule 11 |
 | 23 | ~~How an item art's power reads its piece's number~~ **Closed 2026-11-13:** through the gear layers as today (rule 21): attack feeds L3, defence feeds `a_w` / `a_b`; an item art is an ordinary art | — | — |
 | 24 | ~~Common arts, common wards, reserve arts~~ **Closed 2026-11-12/13:** each weapon base has a common art (`design/items/common-arts.json`), armour and ward gear use the starter wards, named items carry their reserve arts | — | — |
+| 25 | **Hand-off from Regional Economy & Trade (#43, 2026-11-14), pending:** items gain an `origin_market` tag (the market where they were bought, gathered or looted; empty on old saves, which then pay no tariff). Selling an item in another market pays that market's import tariff (#43 rule 16, Formula G). Raw goods also need their **good class** (herb, ore, beast, special) and finished goods their **main input's class** (#43 rule 4) **Hand-off from Trade Goods (#45, 2026-11-14), pending:** each raw herb and material template gains a `trade` block (`good_class`, `element`, `source`, `weight`; Trade Goods rule 1); 6 new templates (Thiết Tuyến Thảo, Tử Kim Sa, Yêu Cốt, Yêu Thú Bì, Linh Tuyền Thủy, Địa Hỏa Tinh; values are Trade Goods guesses); every catalogue good needs a recipe that uses it (Trade Goods rule 4a); a crafted item takes its main input's `origin_market` (Trade Goods Formula I); the three margin outliers need recipe changes (Trade Goods Open Question 1); Linh Thạch Khoáng stays outside trade. **Decided 2026-11-14 (user):** the 6 goods' values (3 maturing in 1 year, 180, 10, 12, 8, 80); the recipe revision for the three outliers and the new Thiết Cốt Đan (Formula C's margins); a storage-item kind with capacities by rarity 150 / 400 / 1,000 / 2,500 / 6,000 / 15,000 (30 with none; the best one counts; no slot; trade goods only for MVP; Trade Goods rule 16a) | Item Database, #43 | The Item Database revision |

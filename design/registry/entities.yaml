@@ -674,33 +674,35 @@ formulas:
       - design/gdd/power-rankings.md
     variables:
       - A_0
-      - realm_step
-      - r
+      - A_r
       - R_a
       - R_b
-    output_range: "E in (0, 1); anchors 1000-2600"
-    expression: "A_r = A_0 + realm_step*r; E = 1/(1+10^((R_b-R_a)/400))"
-    notes: "Power Rankings Formulas A."
+    output_range: "E in (0, 1); anchors measured, about 4,400 apart (illustrative 1000/5400/9800/14200/18300)"
+    expression: "E = 1/(1+10^((R_b-R_a)/400)); A_0 = 1000; A_r (r >= 1) measured by ladder_calibration"
+    notes: "Power Rankings Formulas A. Revised 2026-11-14 from measured fights: true Elo, anchors measured (was A_r = A_0 + 400*r)."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: panel_base
     status: active
     source: design/gdd/power-rankings.md
     referenced_by:
       - design/gdd/power-rankings.md
     variables:
-      - panel_fights
+      - rung_div
+      - k_max
+      - probe_fights
+      - warm_step
+      - cold_step
+      - coarse_bracket
       - prior_games
-      - R_i
-      - S_i
-      - A_r
-    output_range: "A_r +/- 800"
-    expression: "base = clamp(R*, A_r-800, A_r+800); R* solves sum_i panel_fights*E(R*,R_i) + prior_games*E(R*,A_r) = sum_i S_i + prior_games*0.5"
-    notes: "Power Rankings Formulas B; bisection, 24 steps."
+      - L_rk
+    output_range: "about L_{r,-k_max} - 400 to L_{r,k_max} + 400"
+    expression: "Ladder search (gallop then bisect) over rungs k (typical x 2^(k/rung_div) strength); R* solves sum_p n_p*E(R*,L_{r,k_p}) + prior_games*E(R*,L_{r,k_0}) = sum_p S_p + prior_games*0.5"
+    notes: "Power Rankings Formulas B. Revised 2026-11-14: a ladder replaces the 3-4 fixed members and the +/-800 clamp."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: member_calibration
-    status: active
+    status: deprecated
     source: design/gdd/power-rankings.md
     referenced_by:
       - design/gdd/power-rankings.md
@@ -709,8 +711,23 @@ formulas:
       - S
       - prior_games
     output_range: "A_r to A_r+800"
-    expression: "top_end_r = clamp(A_r + 400*log10(s'/(1-s')), A_r, A_r+800); s' = (S + prior_games*0.5)/(N + prior_games)"
-    notes: "Power Rankings Formulas C; once per data version."
+    expression: "top_end_r = clamp(A_r + 400*log10(s'/(1-s')), A_r, A_r+800)"
+    notes: "Superseded 2026-11-14 by ladder_calibration: the top-end member saturated (beats x256 typical)."
+    added: 2026-11-14
+    revised: 2026-11-14
+  - name: ladder_calibration
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    variables:
+      - calibration_fights
+      - calibration_probe_fights
+      - prior_games
+      - S
+    output_range: "rung gaps about 200-280; health_elo about 3,000"
+    expression: "gap_{r,k} = 400*log10(s'/(1-s')), s' = (S + prior_games*0.5)/(N + prior_games); L_{r,k+1} = L_{r,k} + gap; A_{r+1} = panel_base search of typical r+1 on ladder r; health_elo = gap(health x1.2)/log10(1.2)"
+    notes: "Power Rankings Formulas C; export tool, once per data version; fails when an adjacent-rung share is above 0.99."
     added: 2026-11-14
     revised: ""
   - name: offset_update
@@ -739,13 +756,12 @@ formulas:
     variables:
       - B_p
       - R
-      - A_0
-      - realm_step
-    output_range: "1 to 316,000,000"
-    expression: "power = max(1, round_3sf(B_p[0]*10^((R-A_0)/realm_step)))"
-    notes: "Power Rankings Formulas E. Replaces display_power as the shown and stored number."
+      - A_r
+    output_range: "1 upward; typical fighters 100/1,000/10,000/100,000/1,000,000"
+    expression: "power = max(1, round_3sf(B_p[r*]*10^((R-A_{r*})/(A_{r*+1}-A_{r*})))), r* the anchor segment holding R"
+    notes: "Power Rankings Formulas E. Replaces display_power as the shown and stored number. Revised 2026-11-14: log-linear between measured anchors."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: world_fight
     status: active
     source: design/gdd/power-rankings.md
@@ -755,29 +771,30 @@ formulas:
       - R
       - v
       - v_c
+      - health_elo
       - eff_khi_van
       - khi_van_per_point
       - p_min
       - p_max
     output_range: "0.02-0.98"
-    expression: "R_roll = R + 400*log10(max(v,v_c)); P(A) = clamp(E(R_roll_a,R_roll_b) + (kv_A-kv_B)*khi_van_per_point, p_min, p_max)"
-    notes: "Power Rankings Formulas F. One session-stream draw per fight; no fight runs."
+    expression: "R_roll = R + health_elo*log10(max(v,v_c)); P(A) = clamp(E(R_roll_a,R_roll_b) + (kv_A-kv_B)*khi_van_per_point, p_min, p_max)"
+    notes: "Power Rankings Formulas F. One session-stream draw per fight; no fight runs. Revised 2026-11-14: injury factor health_elo (measured, about 3,000), was 400."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: provisional_rating
     status: active
     source: design/gdd/power-rankings.md
     referenced_by:
       - design/gdd/power-rankings.md
     variables:
-      - A_r
-      - stage_step
-      - stage
-    output_range: "1000-2735"
-    expression: "R_prov = A_r + stage_step*stage"
-    notes: "Power Rankings Formulas G."
+      - stage_mult
+      - L_rk
+      - rung_div
+    output_range: "A_r to about A_r + 1,030"
+    expression: "R_prov = L_r(stage_mult[stage]^2), rung k = rung_div*log2(f), linear between rungs"
+    notes: "Power Rankings Formulas G. Revised 2026-11-14: read off the ladder (was A_r + 45*stage)."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   # Superseded by design/gdd/combat-defence.md (2026-11-07): ward_payment, defence_resistance. Kept active until
   # the Combat revision (systems-index #43) replaces combat.md rule 22 and Formulas D, then set to deprecated.
   - name: ward_block
@@ -866,6 +883,7 @@ formulas:
     source: design/gdd/item-database.md
     referenced_by:
       - design/gdd/item-database.md
+      - design/gdd/trade-goods.md
     variables:
       - base_value
       - herb_potency
@@ -879,6 +897,7 @@ formulas:
     source: design/gdd/item-database.md
     referenced_by:
       - design/gdd/item-database.md
+      - design/gdd/trade-goods.md
     variables:
       - price
       - quality
@@ -892,6 +911,7 @@ formulas:
     source: design/gdd/item-database.md
     referenced_by:
       - design/gdd/item-database.md
+      - design/gdd/trade-goods.md
     variables:
       - grade
       - tier
@@ -1547,21 +1567,25 @@ formulas:
     source: design/gdd/sects.md
     referenced_by:
       - design/gdd/sects.md
+      - design/gdd/regional-economy-trade.md
     variables:
-      - collect
-      - V_own
+      - Inc_mine
+      - Inc_goods
+      - Inc_tariff
+      - Turn_m
+      - share_s
       - tf
-      - open
       - trib_in
       - sect_mission_fee
       - board_cash
       - stip_r
       - works_due
     output_range: ["see Sects season budgets", "-"]
-    expression: "Inc = collect*V_own + tf*V_own*trade_mult*open[O] + trib_in + fee*board_cash; Cost = stipends + upkeep + works_due + trib_out + war_cost; R = 4*Cost; invest = max(0, Tr + Inc - Cost - R)*0.5"
-    notes: "Sects F3. V_own from Travel & Map Formula L value_lt until Regional Economy & Trade (#43). Cut order: investment, upkeep, stipends; tribute first."
+    # was: Inc = collect*V_own + tf*V_own*trade_mult*open[O] + ... before 2026-11-14
+    expression: "Inc = Inc_mine + Inc_goods + Inc_tariff + tf*trade_mult*share_s*Turn_m + trib_in + fee*board_cash, tf = 0.05 + 0.025*Tax; Cost = stipends - kind + (1-goods_frac)*(upkeep + works_due) + trib_out + war_cost + draw (cash only, 2026-11-14) (draw_mult*head stipend, Temperate 1, Indulgent 4); R = 4*Cost; invest = max(0, Tr + Inc - Cost - R)*0.5"
+    notes: "Sects F3. Inc_mine, Inc_goods, Inc_tariff from Regional Economy & Trade Formula I; V_own is a weight only (share_s). FX-T1 Inc 29,668, Cost 9,578, Tr' 64,423 (re-derived 2026-11-14; was Cost 13,831, Tr' 68,145). Cut order: investment, upkeep, stipends; tribute first."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: sect_tribute_rate
     status: active
     source: design/gdd/sects.md
@@ -1796,6 +1820,7 @@ formulas:
     referenced_by:
       - design/gdd/regional-economy-trade.md
       - design/gdd/sects.md
+      - design/gdd/trade-goods.md
     variables:
       - pop_cultivators
       - basket
@@ -1806,9 +1831,12 @@ formulas:
       - works_due
       - P_eff
     output_range: [0, "no maximum"]
-    # was: sum n*head_w before 2026-11-14
-    expression: "D = d_scale*(sum n*basket*fill + 50*W_set)*(1+shockD) + 0.5*(sum spend_T*mix + works_due*wmix) + P_eff"
-    notes: "RET Formula C. basket pegged to stipends 3/20/50/325/2,500 (L2); fill from NPC wealth; goods_frac 0.5 (guess)."
+    # was: sum n*head_w before 2026-11-14; bmix added 2026-11-14 (design-review)
+    # was: fill without a floor; calibration to S = D (design-review 7, 2026-11-14)
+    # was: no craft_in term (before Trade Goods #45, 2026-11-14)
+    expression: "D = d_scale*bmix*(sum n*basket*max(fill, sub_floor) + 50*W_set)*(1+shockD) + 0.5*(sum spend_T*mix + works_due*wmix) + craft_in + P_eff"
+    # was: bmix herb 0.5 ore 0.2 beast 0.2 special 0.1 (before Trade Goods #45, 2026-11-14)
+    notes: "RET Formula C. basket pegged to stipends 3/20/50/325/2,500 (L2); bmix herb 0.40 ore 0.2 beast 0.2 special 0.1 pill 0.10 (Trade Goods #45); d_scale calibrated in 0.5-3 (AC-RE-51) so world S/D = 1 + dk*(c_ref-1) (steady state at P = 1; AC-RE-57); fill from NPC wealth; sub_floor herb 0.5 beast 0.5 ore 0 special 0 (guess; user decision 2026-11-14, design-review 7), the part above fill moves goods and price, no money; goods_frac 0.5 (guess)."
     added: 2026-11-14
     revised: 2026-11-14
   - name: stock_update
@@ -1816,23 +1844,27 @@ formulas:
     source: design/gdd/regional-economy-trade.md
     referenced_by:
       - design/gdd/regional-economy-trade.md
+      - design/gdd/trade-goods.md
     variables:
       - stock
       - S
       - D
       - dk
       - s_cap
-    output_range: [0, "s_cap*D"]
-    expression: "stock' = min((1-dk)*max(0, stock+S-D), s_cap*D)"
-    notes: "RET Formula D. dk herb 0.20 beast 0.10 special 0.03 ore 0.01; s_cap 2/2/4/6 seasons (guesses). Start stock (c_ref-1)*D."
+    output_range: [0, "s_cap*max(D, D_min)"]
+    # was: cap s_cap*D (design-review 7, 2026-11-14)
+    expression: "stock' = min((1-dk)*max(0, stock+S-D), s_cap*max(D, D_min)); D_min = max(1, 0.05*calibrated D)"
+    # was: start stock (c_ref-1)*D (design-review 6, 2026-11-14)
+    notes: "RET Formula D. dk herb 0.20 beast 0.10 special 0.03 ore 0.01; s_cap 2/2/4/6 seasons (guesses). Start stock max(0, c_ref*D - S) per market and class."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: market_price
     status: active
     source: design/gdd/regional-economy-trade.md
     referenced_by:
       - design/gdd/regional-economy-trade.md
       - design/gdd/travel-map.md
+      - design/gdd/trade-goods.md
     variables:
       - cover
       - c_ref
@@ -1842,16 +1874,18 @@ formulas:
       - alpha
       - delta
     output_range: [0.5, 4.0]
-    expression: "P* = clamp((c/c_ref)^-eps, P_min, P_maxeff); P' = clamp(P*(P*/P)^0.5, P/delta, P*delta); price_index = P'"
-    notes: "RET Formula E. Feeds Travel & Map price_index (D_f). Bands per class; Strained ceiling herb 3.0 ore 2.2 beast 2.5 special 4.0 (guesses)."
+    # was: P' = P*(P*/P)^0.5 and price_index = P' (design-review 4, 2026-11-14): GDD Formula E has P' = P*(P*/P)^alpha and price_index = p_loc
+    expression: "P* = P_maxeff if c = 0 else clamp((c/c_ref)^-eps, P_min, P_maxeff); P' = clamp(P*(P*/P)^alpha, P/delta, P*delta); price_index[r,k] = p_loc[r,k] (= P' at access 1)"
+    notes: "RET Formula E. Feeds Travel & Map price_index (D_f). Bands per class; Strained ceiling herb 3.0 ore 2.2 beast 2.5 special 4.0 (guesses). Cover divides by max(D, D_min), D_min = max(1, 0.05*calibrated D) (design-review 7, 2026-11-14); link_flow uses the same floor."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: link_flow
     status: active
     source: design/gdd/regional-economy-trade.md
     referenced_by:
       - design/gdd/regional-economy-trade.md
       - design/gdd/sects.md
+      - design/gdd/trade-goods.md
     variables:
       - P_A
       - P_B
@@ -1861,11 +1895,13 @@ formulas:
       - tau
       - trade_mult
       - safe_AB
+      - cover
     output_range: [0, "Cap_AB"]
-    expression: "gap = P_B*(1-tar) - P_A*(1+tau); Q = min(0.5*gap/(eps*(P_A/D_A+P_B/D_B)), avail_A); Cap = 6000*min(trade_mult)*safe_AB"
-    notes: "RET Formula F. Tariff paid by the importer's commons pool to its sect."
+    # was: Q_close without cover, avail from S (before 2026-11-14 design-review)
+    expression: "gap = P_B*(1-tar) - P_A*(1+tau); Q = min(0.5*gap/(eps*(P_A/(max(c_A,0.5)*D_A)+P_B/(max(c_B,0.5)*D_B))), avail_A); avail_A = max(0, stock_A+S_pre_A-D_A); Cap = 6000*min(trade_mult)*safe_AB"
+    notes: "RET Formula F. Tariff paid by the importer's commons pool to its sect. Links resolved in ascending (id_A, id_B) order, classes herb/ore/beast/special, avail depleted per flow (AC-RE-50)."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: shop_price
     status: active
     source: design/gdd/regional-economy-trade.md
@@ -1873,6 +1909,7 @@ formulas:
       - design/gdd/regional-economy-trade.md
       - design/gdd/sects.md
       - design/gdd/item-database.md
+      - design/gdd/trade-goods.md
     variables:
       - V
       - P
@@ -1883,16 +1920,20 @@ formulas:
       - margin
       - tar_in
     output_range: [1, "no maximum"]
-    expression: "buy = ceil(V*P*bm*(1-ch)*stp*mg_buy); sell = floor(V*P*sr*(1+ch)*sts*mg_sell*(1-tar_in)); ch clamp +-0.20"
-    notes: "RET Formula G. Raw goods 1.10/0.90 with no charm or standing; finished 1.5/0.6 (built). player_cap 0.10."
+    # was: priced from P, no finished-goods band (design-review 4, 2026-11-14)
+    # was: sell without slip (design-review 6, 2026-11-14)
+    # was: no sf factor (before Trade Goods #45, 2026-11-14)
+    expression: "buy = max(1, ceil(V*p_loc*sf*bm*(1-ch)*stp*mg_buy - 1e-6)); sell = max(1, floor(V*p_loc*sf*sr*(1+ch)*sts*mg_sell*(1-tar_in)*slip + 1e-6)); slip = (1 + (q_sold+V)/Dp)^(-eps); Dp = max(1, D_r*w_p/sum w); ch clamp +-0.20; finished goods use p_loc clamped to P*(1 +- loc_band_fin)"
+    notes: "RET Formula G. Raw goods 1.10/0.90 with no charm or standing; finished 1.5/0.6 (built). player_cap 0.10. loc_band_fin 0.25 (guess; user decision 2026-11-14, design-review 3); raw goods keep loc_band 0.5. Sell slippage per place per season, q_sold resets each tick (user decision 2026-11-14, design-review 6). sf = Trade Goods scarcity_factor (1 for crafted classes and manuals); finished goods price from their own crafted class (RET rule 4, amended 2026-11-14)."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: sect_income
     status: active
     source: design/gdd/regional-economy-trade.md
     referenced_by:
       - design/gdd/regional-economy-trade.md
       - design/gdd/sects.md
+      - design/gdd/trade-goods.md
     variables:
       - collect
       - value_lt
@@ -1901,10 +1942,11 @@ formulas:
       - P
       - tariff
     output_range: [0, "no maximum"]
-    expression: "Inc = (0.5+0.5*collect)*mines + sum(max(0, collect*goods*acc - own_use - kind)*P*0.90) + tariffs"
-    notes: "RET Formula I. Replaces Sects F3 collect*V_own and world_production_guess (Sects revision pending)."
+    expression: "Inc = (0.5+0.5*collect)*mines + sum(max(0, collect*goods*acc - own_use - kind)*P*0.90) + tariffs; Buy_short = sum max(0, own_use + kind - collect*goods*acc)*P (cash out to the commons pool)"
+    notes: "RET Formula I. Replaces Sects F3 collect*V_own and world_production_guess (Sects revision pending). own_use and kind_stipend are in kind, not cash (design-review 5, 2026-11-14): the goods_frac share of sect spending pays no cash to the commons. A shortfall beyond what the sect collected is bought in cash at P (design-review 6). Treasury surplus: Sects F3 invest is the only spender; inv_miss (0.5) of invest posted as missions (no fee on own board), the rest to a track as spend_T (cash half burned); F3 Tr' subtracts only the cash share c_inv; excess over R settles at N*(1-c_inv*inv_frac)/(c_inv*inv_frac) (RET Formula H; user decision 2026-11-14, design-review 7, replaces the design-review 6 band rule tb_seasons/tb_spend). Every F3 line has one payer (RET Formula H)."
+    # was: treasury band tb_seasons 4, tb_spend 0.5, half burned half missions (design-review 6; replaced design-review 7, 2026-11-14)
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: stone_cultivation
     status: active
     source: design/gdd/regional-economy-trade.md
@@ -1919,8 +1961,8 @@ formulas:
       - purse
       - reserve
     output_range: [0, "0.5*rate"]
-    # was: NPC stones = 0.3*max(0, purse - reserve) before 2026-11-14
-    expression: "tv_stone = min(stones/spt[realm], 0.5*rate); NPC stones = 0.3*max(0, purse - reserve) - basket_spend"
+    # was: NPC stones = 0.3*max(0, purse - reserve) before 2026-11-14; basket term moved inside the max 2026-11-14 (design-review 3)
+    expression: "tv_stone = min(stones/spt[realm], 0.5*rate); NPC stones = 0.3*max(0, purse - reserve - basket_spend)"
     notes: "RET Formula J. spt 1/4/20/150/1,000 stones per tu vi (guesses). The main money sink; the provision basket (L2) is bought first. Realms Formulas I stone term pending."
     added: 2026-11-14
     revised: 2026-11-14
@@ -1930,6 +1972,7 @@ formulas:
     referenced_by:
       - design/gdd/regional-economy-trade.md
       - design/gdd/travel-map.md
+      - design/gdd/trade-goods.md
     variables:
       - P
       - value_lt
@@ -1938,16 +1981,20 @@ formulas:
       - epsilon
       - loc_band
     output_range: ["P*(1-0.5)", "P*(1+0.5)"]
-    expression: "p_loc = clamp(P * ((value_lt+1)/(D_r+1))^(-eps*(1-acc)), P*(1-loc_band), P*(1+loc_band)); price_index[r] = p_loc"
-    notes: "RET Formula L1. loc_band 0.5 (guess). Shops price from p_loc; Travel & Map D_f reads it."
+    # rho normalisation and D_r definition added 2026-11-14 (design-review 2)
+    # was: bal = ((value_lt+1)/(D_r+1))/rho, no player term (design-review 6, 2026-11-14)
+    expression: "p_loc = clamp(P * bal^(-eps*(1-acc)), P*(1-loc_band), P*(1+loc_band)); bal = ((value_lt+sell_pl+1)/(D_r+buy_pl+1))/rho; rho = sum value_lt / sum D_r over the market (1 if either sum is 0; no player term); D_r = d_scale*bmix*(sum n*basket*max(fill, sub_floor) + 50*W_set[r]) + goods_frac*works_due[r]*wmix; price_index[r] = p_loc"
+    # was: D_r used fill without the sub_floor (design-review 7, 2026-11-14)
+    notes: "RET Formula L1. loc_band 0.5 (guess). Shops price from p_loc; Travel & Map D_f reads it. rho keeps d_scale from biasing local prices. buy_pl/sell_pl: the player's trades in the region this season, uncapped (user decision 2026-11-14, design-review 6)."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: provision_basket
     status: active
     source: design/gdd/regional-economy-trade.md
     referenced_by:
       - design/gdd/regional-economy-trade.md
       - design/gdd/canh-gioi.md
+      - design/gdd/trade-goods.md
     variables:
       - basket
       - bmix
@@ -1956,8 +2003,150 @@ formulas:
       - purse
       - reserve
     output_range: [0, 0.15]
-    expression: "basket_cost = sum basket*bmix*p_loc; fill = min(1, spent/basket_cost); prov = 0.15*fill; NPC basket_spend = min(basket_cost, 0.3*max(0, purse-reserve))"
-    notes: "RET Formula L2. basket 3/20/50/325/2,500 (= stipends); bmix herb 0.5 ore 0.2 beast 0.2 special 0.1 (guess). A bonus only, no penalty (user decision 2026-11-14). Realms Formulas I factor (1+prov) pending."
+    expression: "basket_cost = sum basket*bmix*p_loc; fill = min(1, spent/basket_cost); prov = 0.15*fill; NPC basket_spend = min(basket_cost, max(0, purse-reserve))"
+    # was: capped at 0.3 of the excess; the whole excess may now go to the basket (design-review 2, 2026-11-14); s_spend governs stones only
+    # was: bmix herb 0.5 ore 0.2 beast 0.2 special 0.1 (before Trade Goods #45, 2026-11-14)
+    notes: "RET Formula L2. basket 3/20/50/325/2,500 (= stipends); bmix herb 0.40 ore 0.2 beast 0.2 special 0.1 pill 0.10 (Trade Goods #45) (guess). A bonus only, no penalty (user decision 2026-11-14). fill used in Formula C is last season's. Realms Formulas I factor (1+prov) pending."
+    added: 2026-11-14
+    revised: 2026-11-14
+  - name: scarcity_factor
+    status: active
+    source: design/gdd/trade-goods.md
+    referenced_by:
+      - design/gdd/trade-goods.md
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - sh
+      - wsh_g
+      - sigma
+      - eta
+    output_range: [0.39, 2.66]
+    # was: w = wsh (no floor); mean over the whole pool by sh (before design-review 6, 2026-11-15)
+    expression: "w = max(wsh, 0.005); sf_raw = ((sh + 0.12*w)/(1.12*w))^-0.18; sf = sf_raw / sum(X'/stock_sh * sf_raw) over the shelved goods; shop uses sf; raw share-0 limit 1.49 only with no shelved good or wsh = 0"
+    notes: "Trade Goods Formula D. No clamp: bounds from sigma/eta (raw 1.49 absent, 0.80 at a source with 3.75x world share, 0.72 at f=1/7, 0.50 at f=0.02). Normalised per class pool (user decision 2026-11-14). Crafted classes sf = 1. A line in RET Formula G shop price (pending #43 revision)."
+    added: 2026-11-14
+    revised: ""
+  - name: site_yield
+    status: active
+    source: design/gdd/trade-goods.md
+    referenced_by:
+      - design/gdd/trade-goods.md
+      - design/gdd/travel-map.md
+    variables:
+      - fit
+      - rarity
+      - omega
+      - value_lt
+    output_range: [0, "value_lt"]
+    expression: "w = fit * 0.5^(rarity-1); value_g = value_lt * w / sum(w), whole units by largest remainder (ties to lower good_id), weights fixed point x1e6; remainder carried as rem[s,g]"
+    notes: "Trade Goods Formula A. Parts sum to value_lt exactly; fallback good counts as fit 1 and only when nothing else is eligible. Travel & Map contract gains by_good (pending note)."
+    added: 2026-11-14
+    revised: ""
+  - name: crafted_class
+    status: active
+    source: design/gdd/trade-goods.md
+    referenced_by:
+      - design/gdd/trade-goods.md
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/item-database.md
+    variables:
+      - V_q0
+      - band_edges
+      - D_cal
+    output_range: tier [1, 6]
+    expression: "tier = 1 + #(pill_band_edges < V_q0); D_min = max(band floor, 0.05*D_cal); plan_ref = D_cal*(1 + dk*(c_ref-1)); price/stock by RET Formulas D, E"
+    notes: "Trade Goods Formula E. ~15 classes (pill 1-5, artifact 1-6, talisman ~1-4). pill dk 0.05 s_cap 3 c_ref 1.5 eps 0.7 P 0.6/1.8/2.5 delta 1.15; talisman 0.03/3/1.5/0.7 0.6/1.8/2.5 1.20; artifact 0.01/6/2.0/0.6 0.7/1.6/2.2 1.10 (guesses). Amends RET rule 4 (pending #43 revision)."
+    added: 2026-11-14
+    revised: ""
+  - name: craft_plan
+    status: active
+    source: design/gdd/trade-goods.md
+    referenced_by:
+      - design/gdd/trade-goods.md
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - P_crafted
+      - P_inputs
+      - a
+      - plan_ref
+      - kappa
+      - alpha_p
+      - delta_p
+    output_range: "bounded by price bands; pills 0.45-2.24 x plan_ref (outer limit)"
+    # was: D_g split other demand by sh over all goods; plan could rise at fill < 1 (before design-review 6, 2026-11-15); v_g = sh*(stock+S) (before design-review 7, 2026-11-15); plan' <= plan at fill_c < 1, D_k - craft_in_k unclamped, no draw scale (before design-review 10, 2026-11-15)
+    expression: "r = P_c / sum(a*P_k); plan* = plan_ref*r^0.5*(c_ref/max(cover,0.1))^0.5; plan' = clamp(p*(plan*/p)^0.3, p/1.15, p*1.15), p = max(plan, 0.05*plan_ref), and plan' <= plan when fill_c < fill_tol (0.95); v_g = sh*stock_k + S_own_g + sell_pl_g (pre-draw value, cd <= v_g); fill_g = min(1, (v_g - buy_pl_g)/D_g) (player purchase served first, design-review 8), D_g = need_g + (v_g/sum shelved v)*max(0, D_k - craft_in_k), 0 if unshelved; an any-material slot is a group filled from shelved goods, each read in its own band, its need spread by v_g - buy_pl_g; fill_c = min over slots, then draw scale: fill_c *= min over drawn g of min(1, (v_g - buy_pl_g)/cd_raw_g), cd_raw_g = sum_c need[c,g]*fill_c, so cd_g <= v_g - buy_pl_g; out = plan*fill_c; cd = sum_c need*fill_c (post-scale); plan_ref 0 gives 0"
+    notes: "Trade Goods Formula F. No loop-gain stability claim (removed in design-review 1; cover damping lambda_c 0.5, AC-TG-36). Output placed by crafting settlement weight sw_r. Workshop output in kind (no cash)."
+    added: 2026-11-14
+    revised: ""
+  - name: craft_in
+    status: active
+    source: design/gdd/trade-goods.md
+    referenced_by:
+      - design/gdd/trade-goods.md
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - plan
+      - a
+      - mu
+      - ps
+    output_range: [0, "no maximum"]
+    # was: craft_in = plan*a/(mu*ps), unscaled by fill (before design-review 6, 2026-11-15)
+    expression: "need[g] = sum_c plan*a[c,g] / (mu_c*ps_c); craft_in[g] = sum_c plan*fill_c,prev*a[c,g] / (mu_c*ps_c); craft_in[k] = sum over g in k; ps 0.8"
+    notes: "Trade Goods Formula G. Added to RET Formula C demand and L1 D_r; d_scale re-solved (pending #43 revision). Goods only, no money."
+    added: 2026-11-14
+    revised: ""
+  - name: crafted_demand
+    status: active
+    source: design/gdd/trade-goods.md
+    referenced_by:
+      - design/gdd/trade-goods.md
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/sects.md
+      - design/gdd/canh-gioi.md
+    variables:
+      - bmix_pill
+      - fill
+      - bt_rate
+      - V_bt
+      - spend_Mil
+      - mil_cr
+    output_range: [0, "no maximum"]
+    expression: "D = basket pill share (n*basket*0.10*fill, realm tier) + breakthrough pills (n*bt_rate*V_bt) + Military (goods_frac*spend_Mil*mil_cr*omega_t) + P_eff"
+    notes: "Trade Goods Formula H. mil_cr artifact 0.2 talisman 0.1, ore/beast mix x0.7 (amends AC-RE-11: 1,000 -> artifacts 100, talismans 50, ore 210, beast 140). kind_pill = min(kind_stipend, bmix_pill) = 0.10, other 0.05 in herbs. Breakthrough terms are a Realms handoff."
+    added: 2026-11-14
+    revised: ""
+  - name: crafted_origin
+    status: active
+    source: design/gdd/trade-goods.md
+    referenced_by:
+      - design/gdd/trade-goods.md
+      - design/gdd/item-database.md
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - V_i
+      - q_i
+      - origin_market
+    output_range: "one market id"
+    expression: "origin = origin_market of argmax(V_i*q_i); tie: shared origin, else crafter's market, else lowest tied market id; untagged -> crafter's market"
+    notes: "Trade Goods Formula I (user decision 2026-11-14). Crafting never removes a tariff tag. Item DB origin_market tag pending."
+    added: 2026-11-14
+    revised: ""
+  - name: craft_margin
+    status: active
+    source: design/gdd/trade-goods.md
+    referenced_by:
+      - design/gdd/trade-goods.md
+      - design/gdd/item-database.md
+    variables:
+      - sr_fin
+      - V_out
+      - ps_mean
+      - bm_raw
+      - V_in
+    output_range: "target 1.2-2.0; warn above 2.5"
+    # was: no yield and no profit test (2026-11-14, same day)
+    expression: "margin = (0.6*V_out*yield*ps_mean) / (1.10*sum(V_in*q)) at P = 1, herbs at the lowest held age step >= min_age; warn when margin > 2.5 and profit per brew >= margin_warn_profit (600)"
+    notes: "Trade Goods Formula J; replaces Item DB pill_margin (user decision 2026-11-14). Shipped margins at ps 1: Ngung Nguyen 5.38, Tay Tuy 9.74, Dien Tho 4.96 warn (recipe revision pending); Tu Khi 3.27, Thanh Doc 3.64, Hoang Long 2.81 earn +10 to +70 a brew and do not warn. Item DB Formula C and AC-ID-21 revised to use it."
     added: 2026-11-14
     revised: ""
 constants:
@@ -3671,6 +3860,7 @@ constants:
     source: design/gdd/item-database.md
     referenced_by:
       - design/gdd/item-database.md
+      - design/gdd/trade-goods.md
     value: "20, 150, 1500, 8000, 60000"
     unit: spirit stones
     added: 2026-11-06
@@ -4149,8 +4339,8 @@ constants:
       - design/gdd/quests.md
       - design/gdd/sects.md
     value: "-100 to 100, starts at 0"
-    unit: sect standing
-    notes: "New World DB sect field, provisional. Read by Sects rule 21 and Formulas F10-F11 (prices, recruits, sales, hostility), answering quests.md Open Question 10."
+    unit: sect standing (float, per sect and player)
+    notes: "World DB table owned by Sects, per (sect, player); was an int per sect (changed 2026-11-14). Read by Sects rule 21 and Formulas F10-F11 (prices, recruits, sales, hostility), answering quests.md Open Question 10."
     added: 2026-11-07
     revised: 2026-11-14
   - name: resist_cap
@@ -4573,6 +4763,7 @@ constants:
     source: design/gdd/sects.md
     referenced_by:
       - design/gdd/sects.md
+      - design/gdd/regional-economy-trade.md
     value: 0.2
     unit: share of mission cash
     notes: "Sects F3/F12. Paid by the client on top of the reward (user decision 2026-11-14: client pays). Guess."
@@ -4670,35 +4861,35 @@ constants:
     added: 2026-11-14
     revised: ""
   - name: rankings_realm_step
-    status: active
+    status: deprecated
     source: design/gdd/power-rankings.md
     referenced_by:
       - design/gdd/power-rankings.md
     value: 400
     unit: rating points
-    notes: "Power Rankings Formulas A; 10:1 odds per realm."
+    notes: "Power Rankings Formulas A; 10:1 odds per realm. Deprecated 2026-11-14: anchors are measured (about 4,400 a realm), rating_scale."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: rankings_stage_step
-    status: active
+    status: deprecated
     source: design/gdd/power-rankings.md
     referenced_by:
       - design/gdd/power-rankings.md
     value: 45
     unit: rating points per stage
-    notes: "Power Rankings Formulas G."
+    notes: "Power Rankings Formulas G. Deprecated 2026-11-14: provisional ratings are read off the ladder, provisional_rating."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: rankings_panel_fights
-    status: active
+    status: deprecated
     source: design/gdd/power-rankings.md
     referenced_by:
       - design/gdd/power-rankings.md
     value: 4
     unit: fights per panel member
-    notes: "Power Rankings Formulas B."
+    notes: "Power Rankings Formulas B. Deprecated 2026-11-14: replaced by rankings_probe_fights (ladder panel)."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-14
   - name: rankings_offset_cap
     status: active
     source: design/gdd/power-rankings.md
@@ -4706,7 +4897,7 @@ constants:
       - design/gdd/power-rankings.md
     value: 200
     unit: rating points
-    notes: "Power Rankings Formulas D."
+    notes: "Power Rankings Formulas D; under one ladder rung (x1.2 strength)."
     added: 2026-11-14
     revised: ""
   - name: rankings_offset_keep
@@ -4739,3 +4930,164 @@ constants:
     notes: "Power Rankings rule 14; safe range 0.3-0.7."
     added: 2026-11-14
     revised: ""
+  - name: rankings_rung_div
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 4
+    unit: rungs per doubling of strength
+    notes: "Power Rankings Formulas B; about 240 Elo a rung; safe 3-8."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_k_max
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 32
+    unit: rungs either side of typical
+    notes: "Power Rankings Formulas B; x1/256 to x256 at rung_div 4."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_probe_fights
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 4
+    unit: fights per probe
+    notes: "Power Rankings Formulas B; coarse world-generation search uses rankings_coarse_probe_fights."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_coarse_probe_fights
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 2
+    unit: fights per probe
+    notes: "Power Rankings Formulas B, rule 16."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_warm_step
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 2
+    unit: rungs
+    notes: "Power Rankings Formulas B; first step of a warm search."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_cold_step
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 8
+    unit: rungs
+    notes: "Power Rankings Formulas B; first step of a cold search."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_coarse_bracket
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 4
+    unit: rungs
+    notes: "Power Rankings Formulas B, rule 16; where a coarse search stops."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_prior_games
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 1
+    unit: pseudo-games
+    notes: "Power Rankings Formulas B, C."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_calibration_fights
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 400
+    unit: fights per rung gap
+    notes: "Power Rankings Formulas C."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_calibration_probe_fights
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 40
+    unit: fights per probe
+    notes: "Power Rankings Formulas C; anchor measurement."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_K_0
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 48
+    unit: rating points
+    notes: "Power Rankings Formulas D; K with no rated fights."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_K_min
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 16
+    unit: rating points
+    notes: "Power Rankings Formulas D; K floor."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_n_half
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 10
+    unit: rated fights
+    notes: "Power Rankings Formulas D; K halves here."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_match_fights
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: [1, 2, 2, 0, 0]
+    unit: fights per NPC per season, by realm
+    notes: "Power Rankings rule 7, Season budget."
+    added: 2026-11-14
+    revised: ""
+  - name: rankings_match_window
+    status: active
+    source: design/gdd/power-rankings.md
+    referenced_by:
+      - design/gdd/power-rankings.md
+    value: 5
+    unit: places
+    notes: "Power Rankings rule 7; widens once by itself."
+    added: 2026-11-14
+    revised: ""
+  - name: bmix_pill
+    status: active
+    source: design/gdd/trade-goods.md
+    referenced_by:
+      - design/gdd/trade-goods.md
+      - design/gdd/regional-economy-trade.md
+    value: 0.10
+    unit: share of basket value
+    notes: "Trade Goods Formula H. Pill share of the provision basket, taken from herb (herb 0.5 -> 0.40). Applied to RET Formulas C and L2 on 2026-11-14. Raise to 0.15 only if calibrated herb d_scale <= 2.4."
+    added: 2026-11-14
+    revised: 2026-11-14

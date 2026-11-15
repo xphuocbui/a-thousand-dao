@@ -999,7 +999,7 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 | Config (#1), Sim Core (#2), Save/Load (#5) | Hard | `world_map.json`, `map_resources.json`, `map_works.json`; seeded streams for the per-game rolls; saving the seed and the changes | Built, no GDD |
 | Spiritual Roots (#6) | Hard | Purities, owned and road-raised, for the element match | GDD in review; **no row for this system yet** |
 | Character Stats (#7) | Hard | `travel_speed_pct`, divine sense, realm, `density_bonus` | GDD in review; lists this system |
-| Sects & Missions (#26) | Soft | Who holds regions, sites and arrays; who may rent or use them; tax and conflict | Built (thin), no GDD; **provisional** |
+| Sects & Missions (#26) | Soft | Who holds regions, sites and arrays; who may rent or use them; tax and conflict | GDD designed 2026-11-14 (`design/gdd/sects.md`), pending re-review |
 | Formations (#17) | Soft | Gathering formations as works on layers 1 and 2 | Quick spec only |
 | Event Engine (#23) | Soft | Encounters, clue items, secret realm openings, scars | Built, no GDD |
 
@@ -1009,7 +1009,8 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 |---|---|---|---|
 | Realms & Bottlenecks (#8) | Hard | Stacked density and match for the cultivation rate; the Core Formation density check; the leftover-season rate | GDD in review; lists this system (its rows need the layer stack and the match) |
 | Spirit Herbs & Fields (#14) | Hard | Herb fit at the field's place | Built, no GDD |
-| Regional Economy & Trade (#43) | Hard | The seasonal production contract; the demand hook (`price_index`) | Not started |
+| Regional Economy & Trade (#43) | Hard | The seasonal production contract; the demand hook (`price_index`) | GDD designed 2026-11-14 (`design/gdd/regional-economy-trade.md`), in review; it reads the contract and writes `price_index` per region (its local price). Trade Goods (#45, 2026-11-14) splits each site's `value_lt` among named goods (contract v2 `by_good`, Trade Goods Formula A); `unit_value[k]` becomes only a value-to-count conversion |
+| Trade Goods (#45) | Soft | Reads site kinds, biomes, features, density and herb fit; adds the `by_good` split to the production contract | GDD designed 2026-11-14 (`design/gdd/trade-goods.md`), pending review |
 | Market (#20) | Soft | Market places; regional production until #43 replaces it | Built, no GDD |
 | Living World Tick (#28), NPC Builds (#24) | Hard | NPC homes (settled share, graded residences, hermit picks), reserves, cycles, fading works | Built, no GDD |
 | Combat (#21) | Soft | Encounters on the way; a flier's pool on arrival | Approved; **no row for this system yet** |
@@ -1667,7 +1668,7 @@ Blocked on other GDDs:
 
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
-| 1 | Money supply: does mine output add to the mission and stipend faucets, or replace them? If it adds, the supply roughly doubles | economy-designer, #43 | Regional Economy & Trade design |
+| 1 | ~~Money supply: does mine output add to the mission and stipend faucets, or replace them?~~ **Answered 2026-11-14 (user decision, Regional Economy & Trade rule 5):** mine output **replaces** the mission faucet. Mines are the only source of new money; missions, stipends, tribute and taxes only move it between holders, and stone cultivation is the main sink. `site_grade_value` stays as is unless #43's harness run moves the money balance | — | — |
 | 2 | Does the linh lực pool refill at each season start? Flight drain assumes so | Combat | Before the travel build |
 | 3 | Realms' season-start rate rule needs an exception for the leftover share of a travel season | Realms | With its Open Question 23 |
 | 4 | Realms' bot re-run with the match, settled and hermit NPCs and graded homes: do the player edge and the NPC targets (1 in 8 / 12 / 15 / 20; about 27 Nascent Soul, about 3 Hóa Thần) hold, now that the match has no ceiling and no stack cap? | Realms, Balance Harness | Before the map's numbers are approved |

@@ -1,6 +1,6 @@
 # Sects & Missions (Tông Môn & Nhiệm Vụ)
 
-> **Status**: In Design (redesign of the thin built system, started 2026-11-14)
+> **Status**: In Design (redesign of the thin built system, started 2026-11-14; **F3 revised 2026-11-14** for Regional Economy & Trade #43: income reads its Formula I, the market tax applies to cash turnover; consistency check 2026-11-14)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-14
 > **Last Verified**: 2026-11-14
@@ -100,10 +100,10 @@ nothing in this paragraph fixes a number.
     personality traits** (never both sides of a set) and **1 calling**. Replacing the table with #42 must not change
     this section; only the pull kinds of F15 are the contract.
 12. **Five stance dials**, each a level the leader sets:
-    - **Tax** (thuế): the tribute rate on vassals and the rate on towns and markets in the territory.
-    - **Expansion** (khuếch trương): how readily the sect claims, buys or fights for new sites.
+    - **Tax** (thuế): the tribute rate on vassals (F4) and the rate on towns and markets in the territory (`tf`, F3).
+    - **Expansion** (khuếch trương): how readily the sect goes to war for sites, vassals and regions, and how big a goal it names (F18). A peaceful purchase or claim of sites is not designed here.
     - **Openness** (mở cửa): trade tariffs, array fees, and whether outsiders may buy manuals and enter the seat.
-    - **War readiness** (chiến bị): the share of income put into Military, and how quickly the sect goes to war.
+    - **War readiness** (chiến bị): the Military share of what the sect invests (F19), and how quickly the sect goes to war.
     - **Recruitment** (thu đồ): how wide the sect opens its gate, and how it ranks who enters.
 13. **How a stance is set.** The sect starts each season with a stance that is the **sum of its needs** (an empty
     treasury raises Tax, a hostile neighbour raises War readiness, a failing track raises its investment) and
@@ -174,7 +174,7 @@ nothing in this paragraph fixes a number.
     gathering and escort work, a feud posts hunts, a dispute with a vassal posts diplomacy. The sect's tracks, stance and
     needs set which kinds appear and how well they pay. **One board, two lists** (user decision 2026-11-14): the board the
     player reads at a sect hall or large town shows this list of missions and, beside it, the Quests standing board
-    (Quests rule 3, `board_size`). Each list keeps its own rules, count and refresh; a quest's `mission` stage may point at
+    (Quests rule 2, `board_size`). Each list keeps its own rules, count and refresh; a quest's `mission` stage may point at
     a mission on the same board.
 25. **A mission stays a one-season income action** (Quests: repeatable, stateless). Its reward is linh thạch scaled by the
     player's realm (kept: `sect_base_income`, `income_realm_scale`), contribution, and standing. Above Kết Đan the cash
@@ -209,10 +209,10 @@ go first, then their vassals, so tribute and levy see the lord's new stance.
 2. **Pay:** tribute to the lord (vassals), then stipends, then upkeep (F3's order). Tribute paid in season s counts in
    the lord's income in season s + 1, because the lord collects before its vassals pay.
 3. **Set stance:** needs plus trait pulls give the target, and each dial moves one step toward it (rule 13).
-4. **Invest:** the treasury share that War readiness and the leader's traits allow goes into one track (rule 8).
+4. **Invest:** the treasury share F3 allows (`inv_frac`, or the leader's invest share) goes into the track F19 picks, and War readiness sets the Military share of F19's mix (rule 8); the money accumulates there until it pays the next level's cost, then the level rises.
 5. **Politics:** attitudes move, states change (below), wars resolve (rule 17).
 6. **Loyalty:** vassals' loyalty moves, and a vassal under the break line decides whether to act (rule 6).
-7. **Members:** recruitment, promotions, deaths, desertions, succession (rule 15).
+7. **Members:** intake (F17), rank by realm, stipend-shortfall desertions (F3), succession (rule 15). Deaths and breakthroughs come from the world tick and Realms; war losses from F9.
 8. **Publish:** the sect's development levels and holdings go to the production contract and the map.
 
 **A sect's own state**
@@ -322,7 +322,9 @@ Formula L). A sect gathering array costs 193,313 to reach level 5 (Travel & Map,
 | Members (LK / TC / KĐ / NA / HT) | ~400 (300 / 75 / 20 / 4 / 1) | ~250 (181 / 55 / 12 / 2 / 0) | ~55 (43 / 10 / 2 / 0 / 0) |
 | Income | 20,000–31,000 | 8,000–9,000 | ~1,800 |
 | Stipends | ~7,200 | ~2,900 | ~430 |
-| Left to invest | 6,000–18,000 | ~3,400 | ~650 |
+| Left to invest | 10,000–22,000 (FX-T1: 20,090) | ~3,400 | ~650 |
+
+*(2026-11-14: costs now count cash only (F3), so "left to invest" rises; the tier-1 range is re-derived from FX-T1, the tier-2 and minor figures are the earlier estimates until AC-SM-42 is re-run.)*
 
 ### F1. Track cost, upkeep and effective level
 
@@ -378,33 +380,38 @@ repay. The level-5 sect array (193,313) needs Holdings 9 (a great sect's fractio
 
 The treasury formula is defined as:
 
-`Inc = collect · V_own + tf · V_own · trade_mult · open[O] + Σ trib_in + fee · Σ board_cash`
-`Cost = Σ_r n_r · stip_r + Σ upkeep + works_due + trib_out + war_cost`
-`R = 4 · Cost` · `invest = max(0, Tr + Inc − Cost − R) · inv_frac` · `Tr' = Tr + Inc − Cost − invest`
+`Inc = Inc_mine + Inc_goods + Inc_tariff + tf · trade_mult · share_s · Turn_m + Σ trib_in + fee · Σ board_cash` · `tf = tf0 + tf_step · Tax` · `share_s = V_own[s] / Σ_{s' in m} V_own[s']`
+`Cost = Σ_r n_r · stip_r − kind + (1 − goods_frac) · (Σ upkeep + works_due) + trib_out + war_cost + draw` · `draw = draw_mult · stip_head` *(cash only, user decision 2026-11-14: the in-kind share of stipends, upkeep and works is paid from collected goods and shows only as lower `Inc_goods`, so it is not also a cost)*
+`R = 4 · Cost` · `invest = max(0, Tr + Inc − Cost − R) · inv_frac` · `Tr' = Tr + Inc − Cost − c_inv · invest` · `c_inv = inv_miss + (1 − inv_miss) · (1 − goods_frac)`
+*(Regional Economy & Trade Formula H, design-review 7, user decision 2026-11-14: `invest` is the only spender of a treasury's surplus. `inv_miss` (0.5) of it is posted as missions from the treasury, with no mission fee on the sect's own board; the rest goes to the track F19 picks, where the `goods_frac` share is met in kind from collected goods, lowering `Inc_goods`, and only the cash half leaves the treasury. So `Tr'` subtracts the cash share `c_inv` (0.75), not all of `invest`. A player head cannot take missions from their own sect's treasury.)*
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| V_own | float | 0 – ∞ | calculated: `value_lt_own · world_production_guess / Σ_world value_lt` until #43, then #43's value | Production value of the sect's land: its sites' `value_lt` (Travel & Map Formula L) scaled so the world sums to the anchor |
-| world_production_guess | int | 250,000 a season | data file (guess; replaced by Regional Economy & Trade #43) | The one anchor for all production outside Travel & Map's mine values (user decision 2026-11-14) |
-| tf | float | 0.10 | data file | Share of the land's trade the sect taxes |
-| open[O] | float | 0.6 / 0.8 / 1.0 / 1.15 / 1.3 by Openness 0–4 | data file | More trade at higher Openness |
+| Inc_mine, Inc_goods, Inc_tariff | float | ≥ 0 | Regional Economy & Trade Formula I | Mine cash the sect collects, collected goods actually sold (after its own use and stipends in kind), and tariffs on imports. Goods are money only once sold |
+| Turn_m | float | ≥ 0 | Regional Economy & Trade (Formulas C–E) | Money paid for goods in the sect's market this season (goods actually bought × P) |
+| V_own, share_s | float | ≥ 0; 0–1 | Regional Economy & Trade Formula I | Production value of the sect's land, shown and used only as a weight: share_s is the sect's share of its market's V_own, so minor sects tax their part of the market |
+| tf | float | 0.05 – 0.15 | calculated | Share of the land's trade the sect taxes: `tf0` 0.05 + `tf_step` 0.025 · Tax, so 0.05 / 0.10 / 0.15 at Tax 0 / 2 / 4 (user decision 2026-11-14). The same Tax dial sets the tribute rate (F4) |
+| draw, draw_mult, stip_head | float | draw_mult Temperate 1 (default), Indulgent 4 | F15, data file | The head's draw from the treasury, on top of the head's stipend: `draw_mult` times the stipend of the head's realm, paid every season (user decision 2026-11-14). F13 sets the embezzlement ceiling |
+| open[O] | float | 0.6 / 0.8 / 1.0 / 1.15 / 1.3 by Openness 0–4 | data file | Retired from the tax (2026-11-14): Openness now acts through links and tariffs (Regional Economy & Trade rules 12–14); kept for array fees and outsider access |
 | trib_in, trib_out | float | ≥ 0 | F4 | Tribute received and paid |
 | fee | float | 0.20 | data file | The sect's fee on missions posted on its boards, paid by the client on top of the reward |
 | board_cash | float | ≥ 0 | F12 | Cash paid out on the sect's boards this season |
 | n_r, stip_r | int | stip 3 / 20 / 50 / 325 / 2,500 | World DB; built (yearly ÷ 4) | Members and stipend by realm |
 | works_due | float | ≥ 0 | Travel & Map Formula L (`works_upkeep_due_lt`) | Upkeep of layer-2 works |
+| kind, goods_frac | float | ≥ 0; 0.5 | Regional Economy & Trade Formula I (`kind_stipend`), Formula C | Stipends paid in goods (pills and herbs), and the share of upkeep and works met in kind; neither is cash |
 | war_cost | float | ≥ 0 | F9 | Cost of a war season |
 | R | float | ≥ 0 | calculated | One year's reserve; the Thriving test |
 | inv_frac | float | 0.5 | data file | Share of the treasury above the reserve that is invested (damper against hoarding) |
 
-Order of cuts when money runs short: investment first, then upkeep, then stipends. Tribute is paid before stipends.
+Order of cuts when money runs short: investment first, then the head's draw, then upkeep, then stipends. Tribute is paid before stipends, and the draw is paid last.
 
 **Output Range:** see the season budgets above. A minor sect's margin is thin on purpose: minor sects fall and are
 replaced; great sects rarely fall.
-**Example (tier-1):** V_own 50,000 at levels 6/6/6/6, Openness 2: collect 16,154 + trade 9,500 + tribute 976 (four vassals as in F4)
-+ fees 4,000 = **30,630**. Costs: stipends 7,200 + track upkeep 1,306 + works 5,000 = **13,506**. Surplus 17,124 a season.
-With a treasury of 60,000 and R = 54,024, it invests 0.5 · (60,000 + 17,124 − 54,024) = 11,550, leaving 65,574.
+**Example (tier-1):** FX-T1 at levels 6/6/6/6, Openness 2, Tax 2 (tf 0.10): mine cash 7,938 + goods sold 5,834 + tariffs
+1,800 (Regional Economy & Trade Formula I) + market tax 0.10 · 1.9 · 0.8 · 60,000 = 9,120 + tribute 976 (four vassals as in F4)
++ fees 4,000 = **29,668**. Cash costs: stipends 7,200 less 1,100 paid in kind (6,100) + half of track upkeep 1,306 and works 5,000 (3,153) + a Temperate Nguyên Anh head's draw 325 = **9,578**. Surplus 20,090 a season.
+With a treasury of 60,000 and R = 38,312, it invests 0.5 · (60,000 + 20,090 − 38,312) = 20,889. Of that, 10,445 is reserved for missions (paid on completion, returned if untaken; Regional Economy & Trade Formula H) and 10,444 goes to a track, half in kind (5,222, taken from collected goods, so `Inc_goods` falls by that much) and half in cash and burned (5,222). The treasury commits 15,667 in cash (`c_inv` 0.75) and ends at 60,000 + 20,090 − 15,667 = 64,423, before the in-kind adjustment to `Inc_goods`. *(Re-derived 2026-11-14 for the cash-only Cost; was Cost 13,831, R 55,324, invest 10,257, Tr' 68,145.)*
 
 ### F4. Tribute
 
@@ -485,7 +492,7 @@ The stance formula is defined as:
 |----------|------|-------|--------|-------------|
 | dial | int | 0–4 (2 neutral) | World DB | Each of the five dials |
 | need_d | int | −2 – 2 | calculated | **Tax:** +1 if the treasury is under R, +2 if Strained, −1 if Thriving or a vassal is Restless or worse. **War readiness:** +1 per feud, +2 at war. **Recruitment:** +1 under 0.8 · capacity, −1 over capacity. **Openness:** −1 if Strained or at war. **Expansion:** +1 if Thriving and a neighbour is weaker than 1 / 1.5, −2 at war |
-| pull_d | int | −2 – 2 | NPC Traits #42 (provisional table until then) | The leader's trait pulls on that dial |
+| pull_d | int | −3 – 3 | NPC Traits #42 (provisional table until then) | The leader's trait pulls on that dial |
 | bold | int | 0 / 1 | calculated | 1 if the leader's absolute pulls, summed over all five dials, are 3 or more |
 
 Needs on one dial add up (a feud and a war give War readiness +3), and their sum is clamped to −2 – 2 before pulls
@@ -547,10 +554,10 @@ The war_score formula is defined as:
 `loss_share_a = 0.04 · S_d / (S_a + S_d)` (members lost, lowest realm first) · `war_cost = 0.5 · stipends` ·
 `W' = W + 1 + 50 · loss_share + max(0, −Δws_self) / 2`
 
-The goal falls at |ws| ≥ 25 for a site, 40 for a vassal, 75 for a region. A great sect's **seat region** is a valid goal
+The goal falls to the attacker at ws ≥ 25 for a site, 40 for a vassal, 75 for a region. **If the defender leads to the same threshold (ws ≤ −threshold), the attack has failed** (user decision 2026-11-14): the goal stays with the defender, the war ends in an 8-season truce (F7), the attacker loses 1 Military level, and the defender's attitude to the attacker falls by 10. A defender wins nothing else. A great sect's **seat region** is a valid goal
 only while its strength S < 0.5 · S0 (its strength at the start of the game, stored); otherwise a war may not name it,
 and a war that named it ends in a truce when the defender recovers above that line. The side ahead accepts a truce when its W ≥
-40 + trait pulls. A side past its own limit with |ws| ≥ goal / 2 concedes the goal. A side behind and past its limit with
+40 + trait pulls. The side that is **behind** (the lower ws for it), once past its own limit with |ws| ≥ goal / 2, concedes the goal to the side ahead. A side behind and past its limit with
 |ws| < goal / 2 offers a truce; it is accepted only if the side ahead is past its own limit too, otherwise the war
 goes on. Military drops 1 level every 4 war
 seasons. **Spoils:** a captured site produces at ×0.5 for 8 seasons, and its works' upkeep passes to the winner. A fallen
@@ -575,13 +582,13 @@ in season 13, when ws 39 ≥ 37.5 and the defender is past its limit.
 The standing formula is defined as:
 
 `ΔSt = Σ e · (1 − St / 100)` for gains when St ≥ 0, and the full e otherwise. Allies and vassals of the sect take
-0.5 of a fall (without desertion's −30 floor). St is stored as a float.
+0.5 of a fall (without desertion's −30 floor). St is stored as a float **per (sect, player)** in a World DB table that Sects owns (user decision 2026-11-14); Quests' `standing` effect writes into it, and displays round it.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | St | float | −100 – 100 | World DB | The sect's standing with the player |
-| e | int | mission +3 · km; failed mission −5; theft −20; killing a member −10 · (realm index + 1); desertion −40 and set to at most −30 | data file | Events. Quests world effects stay within ±10 |
+| e | int | mission +3 · km; failed mission −5; theft −20; killing a member −10 · (realm index + 1); desertion −40 and set to at most −30; leak discovered −40 with the seller and with the holder (rule 23a, F16); levy refused −10 with the player's own sect (Edge Cases) | data file | Events. Quests world effects stay within ±10 |
 
 **Output Range:** ±100 approached smoothly. Quests `hostile_threshold` −30 marks the player hostile.
 **Example:** at St 50 a mission gives +1.5.
@@ -653,7 +660,7 @@ The promotion formula is defined as:
 | seat_density | float | ≥ 1.5 | Travel & Map | Qi density of the seat abode |
 | linh_thach_max | int | per realm | built (`events_budgets.json`) | The realm's event budget, used as a price scale |
 | St_host | float | ≥ 20 | F10 | Standing with the great sect whose land it is |
-| head_draw | float | ≤ 4 · stipend | data file | A head's draw from the treasury; more is embezzlement, an event with a standing and loyalty cost |
+| head_draw | float | ≤ 4 · stipend | data file | The F3 `draw` ceiling: a draw above it is embezzlement, an event with a standing and loyalty cost |
 
 **Example:** founding at Kết Đan costs about 30,000 linh thạch. 20,000 buys Holdings 3 and Institutions 3 (19,620), and the
 rest seeds the treasury. A Kết Đan elder reaches 3,000 contribution in about 13 wartime raids or 20
@@ -690,7 +697,7 @@ council pull (rule 19a) is separate.
 | fickle | F6 | Each season the target moves by a seeded draw from {−1, 0, +1} on one seeded dial |
 | invest share | F3 | Replaces `inv_frac` (Diligent 0.6, Lazy 0.35) |
 | first track | F3 | The track that receives the season's investment when no need names one |
-| treasury draw | F13 | Replaces the head's draw (Temperate 1 × stipend; Indulgent 4 × stipend, paid every season, not embezzlement) |
+| treasury draw | F3, F13 | Replaces `draw_mult` (Temperate 1 × stipend; Indulgent 4 × stipend, paid every season, not embezzlement) |
 | loyalty term | F5 | Added to `Σ pull` |
 | attitude bias | F7 | Added to `A_tgt` (to all, to rivals, or to the opposite alignment, as stated) |
 | attitude speed | F7 | Multiplies `k_a` (after hostile events, or toward friendly targets, as stated) |
@@ -700,6 +707,10 @@ council pull (rule 19a) is separate.
 | pact keeping | F7, rule 14 | Honest never breaks a pact; Deceitful and Schemer double the weight of breaking one |
 | war odds | F7 | Replaces `war_odds`; with several, the lowest applies |
 | weariness limit | F9 | Added to the limit 40; Compassionate accepts a truce 10 earlier; Callous adds half weariness from losses |
+| conditional dial delta | F6 | A dial delta that applies only while a state holds (Steward: Tax −1 while Thriving) |
+| dispute ruling | Edge Cases (vassal quarrels) | Loyalty change to each side. Default with no such trait: +2 to the side with the lower loyalty, 0 to the other. Just +2 to each; Arbitrary +5 to one side and −5 to the other (seeded) |
+| raid loss multiplier | F9 | Multiplies the production lost on the target's land in a war season (Cruel ×1.5); the base loss is set with #43 |
+| pact scope | F7 | A pact line that applies only to one kind of pact (Trusting: defence pacts) |
 | event weights | Event Engine (#23) | Raise or lower the chance of named event kinds (betrayal, spying, head-seat challenge, harsh raids) |
 | rebel odds | F8 | Replaces `rebel_odds` 1.0 for a vassal's head: Ambitious or Brave 0.8; Cautious or Content 1.3 (lowest applies, as for war odds) |
 
@@ -731,6 +742,48 @@ The leak_discovery formula is defined as:
 **Example:** a sale 50 tiles from a tier-1 seat with Military 6: p = 0.15 · 1.6 · 0.75 = **0.18** a season, so about 98 %
 found within 20 seasons. At 300 tiles: 0.15 · 1.6 · 0.1 = 0.024, about 38 % within 20 seasons.
 
+### F17. Member intake
+
+The intake formula is defined as:
+
+`target = 0.9 · capacity` · `intake = round(rec_k[Recruitment] · (target − n))` Luyện Khí members a season, when `n < target` and the sect is not Strained or Collapsing
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| capacity | int | 0 – ∞ | F2 | Members the seat houses |
+| n | int | ≥ 0 | World DB | Current members, all realms |
+| rec_k | float | 0.05 / 0.08 / 0.10 / 0.15 / 0.20 by Recruitment 0–4 | data file | Share of the gap filled each season |
+
+Higher realms are never recruited in bulk: members reach them through Realms' breakthroughs, and the best outsiders join by rule 20.
+Rank follows realm (rule 19). Deaths come from the world tick, losses from F9, desertion from F3's shortfall.
+
+**Output Range:** 0 – 0.2 · target a season; 0 at or above target. **Example:** a minor sect at capacity 56 with 38 members and Recruitment 2: target 50, intake round(0.10 · 12) = **1**.
+
+### F18. War target and goal
+
+The war_goal rule is defined as:
+
+Target = the sect this one is in a feud with that has the lowest S_other (F8) among those passing the F7 war-odds test, where `war_odds' = max(0.6, war_odds − 0.1 · max(0, Expansion − 2))`. Goal tier by Expansion:
+
+| Expansion | Goal |
+|---|---|
+| 0–1 | A site: the target's highest `value_lt` site on a shared border |
+| 2–3 | A vassal of the target, if it has one on a shared border; else a site |
+| 4 | A region of the target on a shared border (its seat region only under F9's protection rule); else a vassal or site |
+
+Thresholds are F9's 25 / 40 / 75. The goal is fixed at declaration. **Output Range:** one goal per war. **Example:** Expansion 4, a feud with a sect at 0.9 of its strength: war_odds' = max(0.6, 1.0 − 0.2) = 0.8, so it declares at an S ratio of 0.8 or more and names a border region.
+
+### F19. Investment track
+
+The invest_track rule is defined as:
+
+1. A track that fell, or had unpaid upkeep, in the last 4 seasons.
+2. Else the track with the largest `deficit_T = mix_T − C_T / ΣC`. **War readiness sets the Military share of the mix:** `mix_Military = clamp(0.30 + 0.10 · (War readiness − 2), 0.10, 0.50)` (0.10 / 0.20 / 0.30 / 0.40 / 0.50 at War readiness 0–4; user decision 2026-11-14). The other three tracks split the rest in the ratio Holdings 0.25 : Institutions 0.20 : Trade 0.25, so at War readiness 2 the mix is Holdings 0.25 · Institutions 0.20 · Military 0.30 · Trade 0.25.
+3. Ties, and a sect with ΣC = 0, go to the leader's first track (F15), else the cheapest next level.
+
+**Output Range:** exactly one track a season. **Example:** FX-T1 (6/6/6/6) at peace: C shares (Holdings / Institutions / Military / Trade) are 0.25 / 0.31 / 0.25 / 0.19, against the mix 0.25 / 0.20 / 0.30 / 0.25 the deficits are 0 / −0.11 / +0.05 / +0.06, so Trade is chosen.
+
 **Highest risks** (from the specialists): the F3 money flow (mission fees and V_own depend on #43); F9 wars ending in
 truce too often or chính–ma feuds never ending; minor-sect solvency; the contribution stock at the top realms (a Hóa Thần
 earns contribution faster than a sect's stock refills). Each needs the 400-season simulation run.
@@ -757,7 +810,7 @@ earns contribution faster than a sect's stock refills). Each needs the 400-seaso
 - **A region changes hands and a vassal's seat is in it.** Unless the war's goal was that vassal, the new holder becomes
   its lord at loyalty 40 (Restless). Its other sites in other regions go with it.
 - **Two vassals of one lord quarrel.** They may not fight (rule 16). Their quarrel becomes a diplomacy mission on the lord's
-  boards and an event the lord's head decides. Each side's loyalty moves with the ruling.
+  boards and an event the lord's head decides. Each side's loyalty moves with the ruling (F15 dispute ruling; default +2 to the lower-loyalty side).
 - **A vassal rebels while its lord is already at war.** A sect fighting several wars splits its strength S evenly between
   them, and pays war_cost and suffers losses in each.
 - **A vassal cannot pay tribute.** It pays what it has; the shortfall costs 5 loyalty and counts as Defiant pay for the
@@ -834,6 +887,7 @@ earns contribution faster than a sect's stock refills). Each needs the 400-seaso
 | Living World Tick (#28) | Hard | Calls the sect season tick | No | — |
 | NPC Traits (#42) | Soft | Stance pulls, event weights and war odds per trait; a provisional table stands in until #42 exists | No | Index notes it |
 | Regional Economy & Trade (#43) | Soft (Hard once built) | Production value and prices; until it exists, Travel & Map Formula L's `value_lt` is used | No | Index lists Sects |
+| Trade Goods (#45) | Soft | Sect workshops' output is in kind and meets the sect's kind pills and Military use first; `kind_stipend` (15 %) is 0.10 in pills and 0.05 in herbs; Military's goods mix is ore 0.42, beast 0.28, artifact 0.2, talisman 0.1 (Trade Goods Formula H; #43 Formulas C, I; amended 2026-11-14) | Yes (designed 2026-11-14, pending review) | Trade Goods lists Sects |
 | Event Engine (#23) and LLM Game Master (#29) | Soft | Event outcomes that move attitude, loyalty and standing, within budgets | No | — |
 | Market (#20) | Soft | Item prices, `linh_thach_max` | No | — |
 
@@ -850,7 +904,7 @@ earns contribution faster than a sect's stock refills). Each needs the 400-seaso
 | Guidance Layer (#35) | Soft | Sect states, offers and threats | No GDD |
 | Combat | Soft | Trials and mission fights use the combat engine as built; wars do not | Yes (`combat.md` Dependencies) |
 
-**One-way links to fix in Phase 5:** Realms (`canh-gioi.md`) and Combat (`combat.md`) do not mention Sects. Character
+**Back-links:** Realms (`canh-gioi.md`), Combat (`combat.md`), Quests, Cultivation Techniques and Item Database already list Sects. Character
 Stats needs no change: Sects reads realm only.
 
 ## Acceptance Criteria
@@ -862,8 +916,9 @@ seed, season, record id). Evidence goes to `tests/unit/sects/`, `tests/integrati
 
 **Fixtures**
 - **FX-D:** the Formulas defaults in `sects.json`, plus the built stipends, `session_actions.json` and `events_budgets.json`.
-- **FX-T1:** a tier-1 great sect: members 300 / 75 / 20 / 4 / 1; own tracks 6/6/6/6 with no vassal investment; V_own 50,000;
-  Openness 2; works_due 5,000; board_cash 20,000; trib_in 976; treasury 60,000; not at war.
+- **FX-T1:** a tier-1 great sect: members 300 / 75 / 20 / 4 / 1; own tracks 6/6/6/6 with no vassal investment; mines 12,000 and goods 38,000 (value_lt · acc;
+  V_own 50,000), own use 5,000, stipends in kind 1,100, herb P 1.05, Inc_tariff 1,800, market turnover 60,000, share_s 0.8;
+  Openness 2; Tax 2; works_due 5,000; board_cash 20,000; trib_in 976; treasury 60,000; a Temperate Nguyên Anh head; not at war.
 - **FX-V:** a Loyal vassal grossing 1,394, mission fees excluded.
 - **FX-TR:** the provisional trait list in `design/gdd/npc-traits.md`, in particular Greedy (Tax +1, loyalty −1), Cruel (attitude −10 to rivals,
   war odds 0.8) and Cautious (war odds 1.2).
@@ -889,12 +944,13 @@ seed, season, record id). Evidence goes to `tests/unit/sects/`, `tests/integrati
   second; **WHEN** one unpaid season is followed by a paid one, **THEN** it stays 7. A level-0 track never goes below 0.
 - **AC-SM-07** F2. **THEN** H 0 gives collect 0.0857 and H 1,000 gives collect < 0.6; FX-T1 gives collect 0.3231,
   trade_mult 1.9, capacity 400, mil_mult 1.6 and road danger 0.6064; a minor sect at I 6 houses 62; work_max is 4 at
-  H 8 and 5 at H 9; Holdings 6 → 7 on V_own 50,000 costs 15,059, adds 989 a season and 150.6 of upkeep.
+  H 8 and 5 at H 9; Holdings 6 → 7 on FX-T1 (mines 12,000, goods 38,000) costs 15,059, adds about 829 a season (mine cash
+  119, goods sold 710) and 150.6 of upkeep.
 
 **Treasury and states (F3)** [Logic]
 
-- **AC-SM-08** F3. **GIVEN** FX-T1, **WHEN** the season runs, **THEN** Inc = 30,630, Cost = 13,506, R = 54,024,
-  invest = 11,550 and Tr' = 65,574. **GIVEN** a treasury of 30,000 instead, **THEN** invest = 0 and Tr' = 47,124.
+- **AC-SM-08** F3. **GIVEN** FX-T1, **WHEN** the season runs, **THEN** Inc = 29,668, Cost = 9,578 (cash only: draw 325, kind stipends 1,100 and the in-kind half of upkeep and works excluded), R = 38,312,
+  invest = 20,889 and Tr' = 64,423 (only the cash share `c_inv` 0.75 of invest, 15,667, leaves the treasury; Regional Economy & Trade Formula H). **GIVEN** a treasury of 15,000 instead, **THEN** invest = 0 and Tr' = 35,090. **GIVEN** Tax 0 / 4, **THEN** tf is 0.05 / 0.15 and the market tax is 4,560 / 13,680. A grep of the income code finds no read of `world_production_guess` and no `collect · V_own` term. **GIVEN** an Indulgent head, **THEN** the draw is 1,300 and is cut before upkeep when money runs short.
 - **AC-SM-09** Edge (never below 0; cut order). **GIVEN** a minor sect with treasury 0, income 500, tribute due 100,
   stipends 430, upkeep 200 and no head's draw, **THEN** tribute 100 is paid, stipends get 400 of 430 (and 7 % of members leave), upkeep
   gets 0 and every track's unpaid count rises by 1, invest = 0 and Tr' = 0. Over 10,000 seeded random states, Tr' is
@@ -975,6 +1031,7 @@ seed, season, record id). Evidence goes to `tests/unit/sects/`, `tests/integrati
   in season 5 with a successor whose limit is 30, **THEN** season 5 still uses 40 and the side accepts a truce in season
   6. **GIVEN** two wars that target the same site, **THEN** they resolve in declaration order and the second's goal is set
   against the holder after the first.
+- **AC-SM-58** [Logic] F9 (defender leads). **GIVEN** a site-goal war (FX-S, ε 1) with the defender leading, **WHEN** ws reaches −25, **THEN** the site stays with the defender, a truce of 8 seasons starts, the attacker loses 1 Military level and the defender's attitude to the attacker falls by 10; the same at −40 (vassal) and −75 (region). **GIVEN** ws −24, **THEN** the war goes on.
 
 **Members and the player (F10, F11, F13)** [Logic]
 
@@ -1053,6 +1110,12 @@ seed, season, record id). Evidence goes to `tests/unit/sects/`, `tests/integrati
   **THEN** p = 0.18 a season, no check runs after 20 seasons, and on discovery the seller's and holder's standing each
   fall by 40. **GIVEN** a sale 300 tiles away, **THEN** p = 0.024.
 
+- **AC-SM-53** [Logic] F17. **GIVEN** capacity 56, 38 members and Recruitment 2, **THEN** intake is 1 Luyện Khí; **GIVEN** 50 or more members, **THEN** intake is 0; **GIVEN** a Strained sect, **THEN** intake is 0.
+- **AC-SM-54** [Logic] F18. **GIVEN** Expansion 4, war_odds 1.0 and a feuding target at S ratio 0.8, **THEN** it declares and names a border region; **GIVEN** Expansion 1, **THEN** the goal is a site; **GIVEN** Expansion 2 and a target with a bordering vassal, **THEN** the goal is that vassal. **GIVEN** a seat region above the protection line, **THEN** it is never named.
+- **AC-SM-55** [Logic] F19. **GIVEN** FX-T1 at peace, **THEN** Trade is chosen; **GIVEN** a track that fell 2 seasons ago, **THEN** it is chosen first; **GIVEN** War readiness 0 / 2 / 3 / 4, **THEN** the Military mix is 0.10 / 0.30 / 0.40 / 0.50 and the other three split the rest 0.25 : 0.20 : 0.25 (at 4: Holdings 0.179, Institutions 0.143, Trade 0.179).
+- **AC-SM-56** [Logic] F10, rule 23a. **GIVEN** a discovered leak, **THEN** the seller and the holder each lose 40 standing with the owner; **GIVEN** a refused levy, **THEN** −10 with the player's own sect. Standing is stored per (sect, player) as a float.
+- **AC-SM-57** [Logic] F15 dispute ruling. **GIVEN** two vassals at loyalty 40 and 70 and a head with no ruling trait, **THEN** they become 42 and 70; **GIVEN** a Just head, **THEN** 42 and 72; **GIVEN** a Steward at Thriving, **THEN** its Tax pull is −1 and it is 0 otherwise.
+
 ## Open Questions
 
 User direction, 2026-11-14 (built into this GDD): major sects are the powers; minor sects are their vassals; sects decide
@@ -1064,7 +1127,7 @@ traits of grand-strategy games (NPC Traits #42).
 | 1 | ~~May a winning rebel that takes a whole region become a great sect?~~ **Answered 2026-11-14:** yes, tier 2, if its head is Nguyên Anh or above; otherwise it picks a lord | user | — |
 | 2 | ~~May a great sect fall in play?~~ **Answered 2026-11-14:** yes, but its seat region can be taken only while its strength is below half its starting strength (rule 17, F9) | user | — |
 | 3 | ~~Contribution at the top may outrun a sect's stock.~~ **Answered 2026-11-14:** contribution also buys services and privileges (rule 19a, F14). Still open: the guidance bonus belongs to Realms & Bottlenecks | user, economy-designer | Realms |
-| 4 | **Decided 2026-11-14:** one anchor key, `world_production_guess` (250,000 a season) in F3. **Handoff:** when Regional Economy & Trade (#43) sets the real value, replace the key, re-derive the Formulas budget table and rerun AC-SM-42 | economy-designer | F3, AC-SM-42 |
+| 4 | ~~One anchor key, `world_production_guess` (250,000 a season) in F3~~ **Closed 2026-11-14 by Regional Economy & Trade (#43):** F3 reads its Formula I; the anchor survives only as its check AC-RE-36. Re-derive the Formulas budget table and rerun AC-SM-42 with the harness | economy-designer | AC-SM-42 |
 | 5 | ~~Same board as Quests?~~ **Answered 2026-11-14:** one board, two lists with separate rules (rule 24). Quests needs a back-reference line | user | Quests |
 | 6 | **Decided 2026-11-14:** the provisional trait list is in `design/gdd/npc-traits.md` (37 personality traits in 18 sets, 6 callings; 3 + 1 per leader); Sects owns only the pull kinds (F15). Fate-given traits, stat effects and rolling are now designed in `design/gdd/npc-traits.md` (2026-11-14) | user | — |
 | 7 | ~~A Defiant vassal's choice.~~ **Answered 2026-11-14:** ordered checks, F5b | user | — |
