@@ -166,7 +166,7 @@ function draw(){
   const {s,tx,ty}=view;ctx.setTransform(dpr*s,0,0,dpr*s,dpr*tx,dpr*ty);const u=1/s;const showH=hid.checked;const hf=Math.min(1,.56+.44*Math.max(0,(s/baseS-1)/2.2));
   // faint guide rings and the five lands' glow
   ctx.save();
-  if(D.regions&&D.regions.length&&modeSel.value!=='kind'){for(const r of [17,30.5,44.5,58.5,70,76]){ctx.strokeStyle='rgba(201,176,122,'+(r===76?.16:.05)+')';ctx.lineWidth=u*(r===76?1.4:1);ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.stroke();}
+  if(D.regions&&D.regions.length&&modeSel.value!=='kind'){for(const r of [17,30.5,44.5,58.5,70,76].map(r=>r+(+D.push||0))){ctx.strokeStyle='rgba(201,176,122,'+(r===76?.16:.05)+')';ctx.lineWidth=u*(r===76?1.4:1);ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.stroke();}
   const lands=[['fire',0],['earth',72],['metal',144],['water',216],['wood',288]];
   for(const [k,a] of lands){const t=(a-90)*Math.PI/180,g=ctx.createRadialGradient(Math.cos(t)*40,Math.sin(t)*40,2,Math.cos(t)*40,Math.sin(t)*40,44);g.addColorStop(0,EL[k]+'1c');g.addColorStop(1,EL[k]+'00');ctx.fillStyle=g;ctx.beginPath();ctx.arc(Math.cos(t)*40,Math.sin(t)*40,44,0,Math.PI*2);ctx.fill();}}
   // a faint calligraphic glyph behind each land, as PoE sets class art behind its starts (colour views only)

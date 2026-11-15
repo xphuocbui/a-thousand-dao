@@ -35,16 +35,20 @@ KEYSTONES = {
              "closes": "Crit chance cap 0.50 → 0.25"},
 }
 C = (0.0, common.ISLAND_R)
+# the outer band (2026-11-15, user: islands of about 500 nodes, like the Chaos land)
+BAND = {"r": 17.6, "span": (-112, 112)}
+BAND_OUT = 24.5
 
 
 def INSIDE(u, v, lim):
-    return math.dist((u, v), C) < 15.5 or (math.dist((u, v), C) < 18.2 and v > C[1] - 3) or (-1.2 < u < 3.4 and 75.0 < v < 85) or (abs(u) < 5.2 and 84.2 < v < 87)
+    return islands.in_band(u, v, C, BAND, BAND_OUT) or math.dist((u, v), C) < 15.5 or (math.dist((u, v), C) < 18.2 and v > C[1] - 3) or (-1.2 < u < 3.4 and 75.0 < v < 85) or (abs(u) < 5.2 and 84.2 < v < 87)
 
 
 def build(T):
     S, inner, outer = islands.mandala(T, pens, {"centre": C, "theme": "light", "key": "light", "name": "Light", "road": "light",
                                                  "inner": (6, 2.6), "outer": (12, 6.4), "inner_figs": ("arrow", "kite"),
-                                                 "crown": {"span": (-72, 72), "n": 7, "figs": ["sun", "lotus", "spoked"], "k": 0.62}})
+                                                 "crown": {"span": (-72, 72), "n": 7, "figs": ["sun", "lotus", "spoked"], "k": 0.62},
+                                                 "band": BAND})
     bot = min(outer, key=lambda i: T.pt(i)[1])
     jb = T.junction((0.0, 78.6), road="light")
     br_ = T.road([bot, jb], step=3.6, road="light")
@@ -68,3 +72,4 @@ def build(T):
         if not pens.pict(T, o, a, kind, "light", names=names, k=0.82, turns=(0, 10, -10, 20, -20)):
             T.fit_failures.pop()
             pens.pict(T, o, a, "kite", "light", names=names[:1], k=0.8)
+    islands.band_fill(T, pens, landkit, "light", C, BAND_OUT, BAND)

@@ -19,7 +19,9 @@ BLEND_LANDS = {"fe": ("fire", "earth"), "em": ("earth", "metal"), "mw": ("metal"
 RIM = 76.0
 HALO = (77.0, 83.0)          # the hidden band beyond the rim: sealed and open clusters (Kinh Mạch Đồ rules 6-13)
 LIGHTNING_R = 73.6           # the lightning roads run just inside the rim through Wood and Water (zoning draft 3)
-HUB_R = 9.9                  # the centre hub (Đan Điền) is drawn inside this radius
+LAND_PUSH = 9.0              # 2026-11-15 (user: a Chaos land of about 450 nodes): build_tree pushes every land and island
+                             # out by this much (push.py), and the hub is drawn in the room it leaves
+HUB_R = 9.9 + LAND_PUSH      # the centre hub (Đan Điền) is drawn inside this radius
 ISLAND_R = 93.0              # Light, Darkness and Thunder islands sit outside the circle at this radius
 
 # ---- talents on the roads (open point 4, provisional) -------------------------------------------------------------

@@ -62,6 +62,9 @@ def mandala(T, pens, cfg):
         for j in (0, len(crown) // 2, len(crown) - 1):
             o = min(outer, key=lambda i: math.dist(T.pt(i), T.pt(crown[j])))
             T.link(o, crown[j], kind="highway")
+        band = cfg.get("band")
+        if band:
+            _band_roads(T, pens, C, band, crown, cfg["road"])
         for j, c in enumerate(crown):
             a = pens.toward(T, c, (2 * T.pt(c)[0] - C[0], 2 * T.pt(c)[1] - C[1]))
             for kind in cr["figs"][j % len(cr["figs"]):] + cr["figs"][:j % len(cr["figs"])] + ["kite"]:
@@ -78,6 +81,43 @@ def mandala(T, pens, cfg):
                 break
             T.fit_failures.pop()
     return S, inner, outer
+
+
+def _band_roads(T, pens, C, band, crown, road):
+    """The island's outer band (2026-11-15, user: islands of about 500 nodes, like the Chaos land): an arc road round
+    the far side of the island at band['r'], over band['span'] degrees off straight out, joined to the crown by spokes
+    from its two ends and its middle. Drawn before any figure, so the figures keep clear of it."""
+    r, (a0, a1) = band["r"], band["span"]
+    n = max(3, int(round(math.radians(a1 - a0) * r / band.get("step", 4.4))) + 1)
+    angs = [a0 + (a1 - a0) * j / (n - 1) for j in range(n)]
+    arc = [T.junction(pens.circ(C, r, [a])[0], road=road) for a in angs]
+    for a, b in zip(arc, arc[1:]):
+        T.link(a, b, centre=C, kind="highway")
+    for j in (0, len(crown) // 2, len(crown) - 1):
+        t = min(arc, key=lambda i: math.dist(T.pt(i), T.pt(crown[j])))
+        T.road([crown[j], t], step=3.8, road=road, straight=True)
+    T.band = arc
+
+
+def band_fill(T, pens, landkit, theme, C, r_out, band):
+    """Dress the band's road nodes and fill the island's open space, with every figure keeping all its notables (the
+    variant lands are smaller than an element land and stronger per point, user 2026-11-15)."""
+    inside = lambda u, v: in_band(u, v, C, band, r_out) and math.dist((u, v), C) > 11.0
+    cfg = {"left": theme, "right": theme, "elem": theme, "half": 180, "airy_r": 0, "rich": True,
+           "hole_rmin": 76.0, "hole_rmax": C[1] + r_out + 1.0, "centre_sparse": 0.0, "within": inside}
+    # only the band's own roads: the bridge, the shadow road and the shrine stay as drawn (bare highways, by design)
+    roads = [i for i, n in enumerate(T.nodes) if n["kind"] == "travel" and inside(*T.pt(i))]
+    landkit.dress_roads(T, roads, cfg, per=2, inner_r=0, outer_r=999)
+    landkit.fill_holes(T, cfg, clr=2.0, rounds=2)
+
+
+def in_band(u, v, C, band, r_out):
+    """True inside the island's outer band: within r_out of the centre and within the band's span (plus a margin)."""
+    d = math.dist((u, v), C)
+    if d >= r_out:
+        return False
+    a = math.degrees(math.atan2(u - C[0], v - C[1]))
+    return band["span"][0] - 10 <= a <= band["span"][1] + 10
 
 
 def gate(T, pens, br, theme, kinds, k=0.7, others=None):

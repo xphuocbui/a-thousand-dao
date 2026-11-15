@@ -16,6 +16,10 @@ import os
 # KMD_LIGHT=1 builds the lighter variant (open point 1, the budget): one fill pass at a wider clearance, one figure
 # per road node in the blend zones
 LIGHT = os.environ.get("KMD_LIGHT") == "1"
+# Hole-fill passes in the lean variant (2026-11-15, open for the user). The cluster rules cut the dead-end nodes
+# that used to fill space: with one pass Earth has 34 square units open at clearance 2.0 (16 before the rules) and
+# the tree 6,939 nodes; with two passes, 24 square units and 7,402 nodes (7,115 before)
+LIGHT_FILL_ROUNDS = 1
 
 from_pens = None   # set by use()
 
@@ -162,10 +166,62 @@ def pick_theme(T, p, cfg, salt=0):
     return cands[int(h01(round(u, 1), round(v, 1), salt) * len(cands))]
 
 
+THIN_NOTABLES = False
+
+
+def roles_for(T, kind, cfg, p):
+    """The notables a dressing or fill figure keeps: thinned by the cluster rules, or all of the template's where the
+    land asks for rich gold (cfg['rich'], the Chaos centre: fewer nodes, stronger ones, user 2026-11-15)."""
+    return None if cfg.get("rich") else thin_notables(kind, gold_keep(T, p))
+THIN_SLACK = 2
+_RULE_THIN = {}
+
+
+def rule_thin(kind):
+    """The template's roles with the fewest notables that still pass cluster rules 1-4 on the figure alone."""
+    if kind in _RULE_THIN:
+        return _RULE_THIN[kind]
+    import itertools
+    cr = _cluster_rules()
+    pts, rl, es = P_.PICT[kind]
+    gold = [j for j, r in enumerate(rl) if r == "N"]
+    best = rl
+    for n in range(1, len(gold)):
+        for keep in itertools.combinations(gold, n):
+            roles = "".join("N" if (r == "N" and j in keep) else ("s" if r == "N" else r) for j, r in enumerate(rl))
+            res = cr.check_cluster(cr.Graph(cr.template_graph(pts, roles, es)), 0)
+            if kind in cr.ASYM_FORMS or kind in P_.ASYM:
+                res["R1"] = None
+            # and no long detours: an unrewarded loop may be at most THIN_SLACK steps longer than the short way (a
+            # ring's two halves), not a wing five nodes out and back (the phoenix, 2026-11-15)
+            if all(res[k] in (True, None) for k in ("R1", "R2", "R3", "R4")) and res["max_slack"] <= THIN_SLACK:
+                best = roles
+                break
+        if best is not rl:
+            break
+    _RULE_THIN[kind] = best
+    return best
+
+
+def _cluster_rules():
+    import importlib.util as _u
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    sp = _u.spec_from_file_location("cluster_rules", os.path.join(here, "cluster_rules.py"))
+    m = _u.module_from_spec(sp); sp.loader.exec_module(m)
+    return m
+
+
 def thin_notables(kind, keep):
     """Keep only the last  notables of a filler figure (judge round 5: too much gold; the hand-drawn
-    constellations keep all of theirs). The last notables are the ones farthest along the figure."""
+    constellations keep all of theirs). The last notables are the ones farthest along the figure.
+
+    Cluster rules (user, 2026-11-15) override the judges here: thinning may only drop notables in ways that keep the
+    figure mirrored, its far ends gold and at least one notable (design/research/meridian-land-authoring.md, Cluster
+    rules 1-4). So a figure keeps the fewest of its template's notables that still pass those rules, never fewer than
+    one; `keep` no longer goes to zero. THIN_NOTABLES = True restores the old rule."""
     pts, rl, es = P_.PICT[kind]
+    if not THIN_NOTABLES:
+        return rule_thin(kind)
     deg = [0] * len(pts)
     for e in es:
         deg[e[0]] += 1; deg[e[1]] += 1
@@ -254,7 +310,7 @@ def dress_roads(T, road_nodes, cfg, per=2, inner_r=36, outer_r=56):
         have = {T.nodes[x]["cluster"] for x in nbrs(T, i) if T.nodes[x]["cluster"] is not None}
         r = math.hypot(*T.pt(i))
         out = math.degrees(math.atan2(*T.pt(i)))
-        if r < 33:
+        if r < cfg.get("airy_r", 33):
             sizes = ["s"]       # judge round 8: the land near the starts stays airy (one figure per road node)
         elif r < inner_r:
             sizes = ["s", "s"]
@@ -268,6 +324,8 @@ def dress_roads(T, road_nodes, cfg, per=2, inner_r=36, outer_r=56):
             cap = per + 1
         dirs = [0, 180, 60, -60, 120, -120, 30, -30, 150, -150, 90, -90]
         k = 0
+        if not have and len(sizes) >= 2 and cap >= 2 and h01(i, "mirror pair") < PAIR_SHARE and mirror_pair(T, i, out, sizes, cfg, used):
+            continue
         for size in sizes:
             if len(have) + k >= cap:
                 break
@@ -279,7 +337,7 @@ def dress_roads(T, road_nodes, cfg, per=2, inner_r=36, outer_r=56):
                 for kind in apart(T, fig_for(th, size, (i, k), used), tip)[:6]:
                     scale = {"s": 0.75, "m": 0.82, "b": 0.95}[size]
                     got = P_.pict(T, i, ang, kind, th, k=scale, turns=(0, 12, -12, 25, -25), shrink=(1.0, 0.9),
-                                  roles=thin_notables(kind, gold_keep(T, tip)))
+                                  roles=roles_for(T, kind, cfg, tip))
                     if got:
                         used[kind] = used.get(kind, 0) + 1
                         mark(T, kind, tip)
@@ -289,6 +347,48 @@ def dress_roads(T, road_nodes, cfg, per=2, inner_r=36, outer_r=56):
                     break
             if got:
                 k += 1
+
+
+PAIR_SHARE = 0.06     # tuned so 5-10 % of facing pairs come out mirrored (cluster rule 6)
+
+
+def mirror_pair(T, i, out, sizes, cfg, used):
+    """Cluster rule 6 (user, 2026-11-15): now and then a road node carries the same figure on both sides, mirrored
+    across the road. Both figures hang straight out (no turn), at the smaller of the node's two sizes."""
+    size = "s" if "s" in sizes[:2] else sizes[1]
+    scale = {"s": 0.75, "m": 0.82, "b": 0.95}[size]
+    for d in sorted((90, -90, 60, -60, 120, -120), key=lambda d: h01(i, ("pair", d))):
+        ang = out + d
+        tip = (T.pt(i)[0] + 2.5 * math.sin(math.radians(ang)), T.pt(i)[1] + 2.5 * math.cos(math.radians(ang)))
+        th = pick_theme(T, tip, cfg, salt=(i, "pair"))
+        for kind in apart(T, fig_for(th, size, (i, "pair"), used), tip)[:4]:
+            if kind in P_.ASYM:
+                continue
+            snap = (len(T.nodes), len(T.edges), len(T.clusters), dict(T.bank_pos))
+            first = P_.pict(T, i, ang, kind, th, k=scale, turns=(0,), shrink=(1.0,), roles=roles_for(T, kind, cfg, tip))
+            if not first:
+                T.fit_failures.pop()
+                continue
+            second = P_.pict(T, i, ang + 180, kind, th, k=scale, turns=(0,), shrink=(1.0,), roles=roles_for(T, kind, cfg, tip))
+            if second:
+                used[kind] = used.get(kind, 0) + 2
+                mark(T, kind, tip)
+                return True
+            T.fit_failures.pop()
+            _undo(T, snap)       # the twin did not fit: take the first half back out
+    return False
+
+
+def _undo(T, snap):
+    """Take back everything drawn since snap: nodes, links, clusters, the spatial index and the name banks."""
+    n0, e0, c0, banks = snap
+    del T.nodes[n0:]; del T.edges[e0:]; del T.clusters[c0:]
+    for cell in list(T.gn):
+        T.gn[cell] = [j for j in T.gn[cell] if j < n0]
+    for cell in list(T.gs):
+        T.gs[cell] = [s for s in T.gs[cell] if s[2] < n0 and s[3] < n0]
+    T.bank_pos.clear(); T.bank_pos.update(banks)
+    T.cur = None
 
 
 def nbrs(T, i):
@@ -363,9 +463,11 @@ def fill_holes(T, cfg, clr=2.0, rounds=2, max_fills=200, only=None):
     used = cfg.setdefault("_used", {})
     n = 0
     for rd in range(rounds):
-        hs = holes(T, clr - 0.15 * rd)
+        hs = holes(T, clr - 0.15 * rd, rmin=cfg.get("hole_rmin", 12.0), rmax=cfg.get("hole_rmax"))
         if only:
             hs = [h for h in hs if any(math.dist(h["peak"], c) < rr for c, rr in only)]
+        if cfg.get("within"):
+            hs = [h for h in hs if cfg["within"](*h["peak"])]
         rings = [c["mastery"] for c in T.clusters if c.get("mastery") and len(c["nodes"]) >= 8]
         for h in hs:
             if n >= max_fills:
@@ -376,7 +478,7 @@ def fill_holes(T, cfg, clr=2.0, rounds=2, max_fills=200, only=None):
             # judge round 8: PoE 2 thins out toward its starts and thickens toward the rim; ours was even. Holes near
             # the centre need more room before they are filled, so density rises from the starts outward.
             rr_ = math.hypot(*p)
-            if not only and h["widest"] < clr - 0.15 * rd + 0.75 * max(0.0, (46.0 - rr_) / 28.0):
+            if not only and h["widest"] < clr - 0.15 * rd + 0.75 * cfg.get("centre_sparse", 1.0) * max(0.0, (46.0 - rr_) / 28.0):
                 continue
             th = pick_theme(T, p, cfg, salt=("hole", rd))
             big = h["widest"] > 2.6 or h["area"] > 9
@@ -387,7 +489,7 @@ def fill_holes(T, cfg, clr=2.0, rounds=2, max_fills=200, only=None):
             order = apart(T, [f for f in order if f in SYMMETRIC or f in THEME_FIGS.get(th, [])][:5] + rest[:4], p)
             for kind in order:
                 ok = P_.place_in(T, p, kind, th, k=0.95 if big else 0.82, ang=math.degrees(math.atan2(*p)),
-                                 roles=thin_notables(kind, gold_keep(T, p)))
+                                 roles=roles_for(T, kind, cfg, p))
                 if ok:
                     used[kind] = used.get(kind, 0) + 1
                     mark(T, kind, p)
@@ -528,7 +630,7 @@ def land_finish(T, cfg, roads, halo_items, per=2):
     order = [i for i in dict.fromkeys(order) if T.nodes[i]["kind"] == "travel"]
     dress_roads(T, sorted(order, key=lambda i: math.hypot(*T.pt(i))), cfg, per=per)
     inner_hidden(T, [q[3] for q in cfg.get("quiet", [])][:2])
-    fill_holes(T, cfg, clr=2.35 if LIGHT else 2.0, rounds=1 if LIGHT else 2)
+    fill_holes(T, cfg, clr=2.35 if LIGHT else 2.0, rounds=LIGHT_FILL_ROUNDS if LIGHT else 2)
     # dense knots (judge rounds 9-11: build a few obvious dense hubs beside the quiet fields)
     knots = [(T.P(r, a), rad) for r, a, rad in cfg.get("dense", [])]
     if knots and not LIGHT:
@@ -703,7 +805,7 @@ def blend_finish(T, cfg, roads, halo_items):
     dress_roads(T, sorted(set(allroads), key=lambda i: math.hypot(*T.pt(i))), cfg, per=1 if LIGHT else cfg.get("per", 2))
     # rule 6: about 15 % of hidden clusters sit inside the tree; the lands held all of them, so each blend zone adds one
     inner_hidden(T, [BLEND_INNER[int(T.R.AXIS // 72) % len(BLEND_INNER)]], rlo=38, rhi=64)
-    fill_holes(T, cfg, clr=2.35 if LIGHT else cfg.get("clr", 2.0), rounds=1 if LIGHT else 2)
+    fill_holes(T, cfg, clr=2.35 if LIGHT else cfg.get("clr", 2.0), rounds=LIGHT_FILL_ROUNDS if LIGHT else 2)
     if not LIGHT:
         fill_holes(T, cfg, clr=PLUG_CLR, rounds=1)     # 2026-11-09 (user): plug the gaps that were still loose
     halo(T, halo_items)

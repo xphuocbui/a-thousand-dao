@@ -157,13 +157,15 @@ PICT = {
     # crosses and stars (Lust for Sacrifice, Blade Flurry, Expendable Army)
     "cross": ([(0, 0), (0, 1.1), (0, 2.2), (0, 3.3), (-1.1, 1.1), (-2.2, 1.1), (1.1, 1.1), (2.2, 1.1)], "sssNsNsN",
               [(0, 1), (1, 2), (2, 3), (1, 4), (4, 5), (1, 6), (6, 7)]),
-    "xcross": ([(0, 0), (0, 1.1), (-0.85, 1.95), (-1.7, 2.8), (0.85, 1.95), (1.7, 2.8), (-0.85, 0.25), (0.85, 0.25)], "sssNsNss",
-               [(0, 1), (1, 2), (2, 3), (1, 4), (4, 5), (1, 6), (1, 7)]),
-    "star": ([(0, 0), (0, 1.2), (0, 2.35), (-0.95, 1.75), (-1.9, 2.3), (0.95, 1.75), (1.9, 2.3), (-1.0, 0.65), (1.0, 0.65)], "ssNsNsNss",
-             [(0, 1), (1, 2), (1, 3), (3, 4), (1, 5), (5, 6), (1, 7), (1, 8)]),
-    # a sword: hilt, crossguard, blade, notable at the point (Focused Thrust's spear)
-    "sword": ([(0, 0), (0, 1.0), (-1.0, 1.0), (1.0, 1.0), (0, 2.1), (0, 3.2), (0, 4.3)], "ssssssN",
-              [(0, 1), (1, 2), (1, 3), (1, 4), (4, 5), (5, 6)]),
+    # cluster rules 2026-11-15: the lower legs of the X and the star are the way in (a diamond under the hub), not
+    # dead ends beside it
+    "xcross": ([(0, 0), (0, 1.25), (-0.85, 2.1), (-1.7, 2.95), (0.85, 2.1), (1.7, 2.95), (-0.75, 0.62), (0.75, 0.62)], "sssNsNss",
+               [(0, 6), (6, 1), (0, 7), (7, 1), (1, 2), (2, 3), (1, 4), (4, 5)]),
+    "star": ([(0, 0), (0, 1.25), (0, 2.4), (-0.95, 1.8), (-1.9, 2.35), (0.95, 1.8), (1.9, 2.35), (-0.75, 0.62), (0.75, 0.62)], "ssNsNsNss",
+             [(0, 7), (7, 1), (0, 8), (8, 1), (1, 2), (1, 3), (3, 4), (1, 5), (5, 6)]),
+    # a sword: grip, a diamond crossguard round the blade's root, blade, notable at the point (Focused Thrust's spear)
+    "sword": ([(0, 0), (0, 0.95), (-1.0, 1.55), (1.0, 1.55), (0, 2.15), (0, 3.25), (0, 4.35)], "ssssssN",
+              [(0, 1), (1, 2), (1, 3), (2, 4), (3, 4), (4, 5), (5, 6)]),
     # an arrowhead (Piercing Shot)
     "arrow": ([(0, 0), (0, 1.1), (0, 2.2), (-0.9, 2.65), (0.9, 2.65), (0, 3.4)], "sssssN", [(0, 1), (1, 2), (2, 3), (2, 4), (3, 5), (4, 5)]),
     # hourglass for lifespan (Lasting Toxins without handles)
@@ -172,23 +174,26 @@ PICT = {
     # a heart for Tâm Cảnh (Mystical Rage)
     "heart": ([(0, 0), (-0.95, 0.85), (-1.45, 1.95), (-0.8, 2.75), (0, 2.15), (0.8, 2.75), (1.45, 1.95), (0.95, 0.85)], "sssNsNss",
               [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 0)]),
-    # an eye for thần thức: two lids and a pupil
-    "eye": ([(0, 0), (-0.85, 0.25), (-1.6, 1.25), (-0.85, 2.25), (0, 2.5), (0.85, 2.25), (1.6, 1.25), (0.85, 0.25), (0, 1.25)], "ssssssssN",
-            [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 0), (0, 8), (8, 4)]),
+    # an eye for thần thức: two lids meeting at the corners, the pupil on the line between them, the brow notable on
+    # top (cluster rules 2026-11-15: the pupil hung off the entry and wasted both lids)
+    "eye": ([(0, 0), (-0.85, 0.25), (-1.6, 1.25), (-0.85, 2.25), (0, 2.5), (0.85, 2.25), (1.6, 1.25), (0.85, 0.25), (0, 1.25)], "ssssNsssN",
+            [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 0), (2, 8), (8, 6)]),
     # a hexagon with a notable at its crown (Smoke Inhalation)
     "hex": ([(0, 0), (-1.0, 0.6), (-1.0, 1.8), (0, 2.4), (1.0, 1.8), (1.0, 0.6)], "sssNss", [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 0)]),
-    # two kites in a column (Supportive Ancestors' totem)
-    "totem": ([(0, 0), (-0.8, 0.9), (0.8, 0.9), (0, 1.8), (-0.8, 2.7), (0.8, 2.7), (0, 3.6)], "ssssNsN",
+    # two kites in a column (Supportive Ancestors' totem); notables on the waist and the top, both on the axis
+    "totem": ([(0, 0), (-0.8, 0.9), (0.8, 0.9), (0, 1.8), (-0.8, 2.7), (0.8, 2.7), (0, 3.6)], "sssNssN",
               [(0, 1), (0, 2), (1, 3), (2, 3), (3, 4), (3, 5), (4, 6), (5, 6)]),
 }
 # a cash coin (đồng tiền) for Metal: a ring of eight round a square hole, joined at the corners
 _coin_ring = _ring_pts(0, 1.55, 1.55, [180 + 45 * j for j in range(8)])
 _coin_sq = [(-0.5, 1.05), (-0.5, 2.05), (0.5, 2.05), (0.5, 1.05)]
-PICT["coin"] = (_coin_ring + _coin_sq, "ssssNsss" + "sNsN",
+PICT["coin"] = (_coin_ring + _coin_sq, "ssssNsss" + "sNNs",      # the hole's two far corners, mirrored (2026-11-15)
                 [(j, (j + 1) % 8, (0, 1.55)) for j in range(8)] + [(8, 9), (9, 10), (10, 11), (11, 8), (1, 8), (3, 9), (5, 10), (7, 11)])
-# a lollipop (PoE 2: 11 % of clusters) and a small wheel on a stem
-PICT["lollipop"] = ([(0, 0)] + _ring_pts(0, 2.1, 1.0, [180, 252, 324, 36, 108]), "sssNss",
-                    [(0, 1)] + [(1 + j, 1 + (j + 1) % 5, (0, 2.1)) for j in range(5)])
+# a lollipop (PoE 2: 11 % of clusters) and a small wheel on a stem. The lollipop's ring is four round, so its notable
+# sits on the axis opposite the stem and both halves of the ring lead to it (cluster rules 2026-11-15; it was five
+# round with the notable off to one side)
+PICT["lollipop"] = ([(0, 0)] + _ring_pts(0, 2.1, 1.0, [180, 270, 0, 90]), "sssNs",
+                    [(0, 1)] + [(1 + j, 1 + (j + 1) % 4, (0, 2.1)) for j in range(4)])
 PICT["wheel"] = ([(0, 0)] + _ring_pts(0, 2.35, 1.25, [180, 240, 300, 0, 60, 120]), "sssNsNs",
                  [(0, 1)] + [(1 + j, 1 + (j + 1) % 6, (0, 2.35)) for j in range(6)])
 # ---- symmetric figures from the shape audit (PoE 2's lattices, lenses and rings) ------------------------------
@@ -199,19 +204,23 @@ def _ring_edges(first, n, centre):
 # theta: a ring of eight split by a diameter through a notable at its centre (Mending Deflection)
 _th = _ring_pts(0, 1.5, 1.5, [180 + 45 * j for j in range(8)])
 PICT["theta"] = (_th + [(0, 1.5)], "ssssNsss" + "N", _ring_edges(0, 8, (0, 1.5)) + [(2, 8), (6, 8)])
-# snowflake: a hexagon of six round a centre notable, each corner joined to it, three corners grown into points
-_sf_in = _ring_pts(0, 1.2, 1.2, [180 + 60 * j for j in range(6)])
-_sf_out = _ring_pts(0, 1.2, 2.35, [0, 120, 240])
-PICT["snowflake"] = (_sf_in + [(0, 1.2)] + _sf_out, "ssssss" + "N" + "Nss",
-                     [(j, (j + 1) % 6) for j in range(6)] + [(j, 6) for j in range(6)] + [(3, 7), (5, 8), (1, 9)])
-# concentric rings: a ring of eight round a ring of four, joined left and right (Illuminated Crown)
+# snowflake: entered at its hub; three arms, the arms' inner nodes joined in a hexagonal arc, a notable at each tip
+# (cluster rules 2026-11-15: radial figures are entered at the hub and every arm ends in a payoff. It was a hexagon
+# round a centre notable one step from the entry, with three plain points)
+_sf_mid = _ring_pts(0, 1.2, 1.15, [300, 0, 60])
+_sf_tip = _ring_pts(0, 1.2, 2.3, [300, 0, 60])
+PICT["snowflake"] = ([(0, 0), (0, 1.2)] + _sf_mid + _sf_tip, "ss" + "sss" + "NNN",
+                     [(0, 1), (1, 2), (1, 3), (1, 4), (2, 5), (3, 6), (4, 7), (2, 3, (0, 1.2)), (3, 4, (0, 1.2))])
+# concentric rings: a ring of eight round an arc of three, joined left and right (Illuminated Crown). The inner ring
+# lost its bottom node, which led nowhere (2026-11-15)
 _co_out = _ring_pts(0, 1.65, 1.65, [180 + 45 * j for j in range(8)])
-_co_in = _ring_pts(0, 1.65, 0.75, [180, 270, 0, 90])
-PICT["concentric"] = (_co_out + _co_in, "ssssNsss" + "ssNs",
-                      _ring_edges(0, 8, (0, 1.65)) + _ring_edges(8, 4, (0, 1.65)) + [(2, 9), (6, 11)])
-# bowtie: two triangles meeting at a centre node
-PICT["bowtie"] = ([(0, 0), (0, 1.15), (-1.15, 0.55), (-1.15, 1.85), (1.15, 0.55), (1.15, 1.85), (0, 2.3)], "sssNsNs",
-                  [(0, 1), (1, 2), (2, 3), (3, 1), (1, 4), (4, 5), (5, 1), (1, 6)])
+_co_in = _ring_pts(0, 1.65, 0.75, [270, 0, 90])
+PICT["concentric"] = (_co_out + _co_in, "ssssNsss" + "sNs",
+                      _ring_edges(0, 8, (0, 1.65)) + [(8, 9, (0, 1.65)), (9, 10, (0, 1.65)), (2, 8), (6, 10)])
+# bowtie: two wings meeting at a centre node, each wing a diamond with its notable at the outer point
+# (2026-11-15: the wings' outer corners were dead ends)
+PICT["bowtie"] = ([(0, 0), (0, 1.15), (-1.0, 0.5), (-1.0, 1.8), (-1.85, 1.15), (1.0, 0.5), (1.0, 1.8), (1.85, 1.15)], "ssssNssN",
+                  [(0, 1), (1, 2), (2, 4), (1, 3), (3, 4), (1, 5), (5, 7), (1, 6), (6, 7)])
 # lens: two hubs joined by three lanes, notables on the middle and top lanes (PoE 1's Witch bridge, small)
 PICT["lens"] = ([(0, 0), (-0.9, 0.4), (-1.65, 1.5), (0.9, 0.4), (1.65, 1.5), (-0.8, 1.5), (0, 1.5), (0.8, 1.5), (-0.9, 2.6), (0, 3.0), (0.9, 2.6)],
                 "ssssssNssNs",
@@ -324,13 +333,22 @@ def nearest(T, ids, target):
     return min(ids, key=lambda i: math.dist(T.pt(i), p))
 
 
-def place_in(T, centre, kind, theme, k=1.0, names=None, ang=0.0, themes=None, name=None, to=None, max_reach=5.5, roles=None):
+def place_in(T, centre, kind, theme, k=1.0, names=None, ang=0.0, themes=None, name=None, to=None, max_reach=5.5, roles=None,
+             axial=True):
     """Draw a figure centred in an open space and join it to the nearest road node (or, failing that, the nearest
-    node of another cluster) by its own nearest node, through a short stem when the gap is long."""
+    node of another cluster) by its own nearest node, through a short stem when the gap is long.
+
+    axial (cluster rules, 2026-11-15): the joined node is the figure's entry and the figure faces the node it joins,
+    so its mirror line runs through that node; the entry must still be the figure's nearest node to it. `ang` is then
+    only a fallback for figures that cannot face their road. axial=False keeps the old join by any nearest node."""
     pts, rl, es = PICT[kind]
     rl = roles or rl
     k = max(k, DENSE.get(kind, 0.0))
     cx0 = sum(x for x, _ in pts) / len(pts); cy0 = sum(y for _, y in pts) / len(pts)
+    if axial:
+        got = _place_axial(T, centre, kind, theme, pts, rl, es, k, cx0, cy0, names, themes, name, to, max_reach)
+        if got is not None or kind not in ASYM:
+            return got
     best = None
     for dc in ((0, 0), (0.5, 0), (-0.5, 0), (0, 0.5), (0, -0.5), (0.7, 0.7), (-0.7, 0.7), (0.7, -0.7), (-0.7, -0.7)):
         for d in (0, 15, -15, 30, -30, 45, -45, 60, -60, 90, 180):
@@ -392,6 +410,77 @@ def place_in(T, centre, kind, theme, k=1.0, names=None, ang=0.0, themes=None, na
     T.clusters[T.cur]["mastery"] = (cx, cy)
     T.end()
     chain_ = [t] + stem_ids + [ids[j]]
+    for x, y in zip(chain_, chain_[1:]):
+        T.link(x, y)
+    return stem_ids + ids
+
+
+def _place_axial(T, centre, kind, theme, pts, rl, es, k, cx0, cy0, names, themes, name, to, max_reach):
+    """place_in's axial join: pick the road node first, turn the figure so its axis points from that node through the
+    space's centre, and join it at its entry (node 0) through a straight stem."""
+    road = to if to is not None else [i for i, n in enumerate(T.nodes) if n["kind"] in ("travel", "start")]
+    other = [i for i, n in enumerate(T.nodes) if n["kind"] == "small" and n.get("cluster") is not None
+             and bool(n.get("hidden")) == bool(T.clusters and getattr(T, "placing_hidden", False))]
+    best = None
+    for pool in (road, other):
+        # each candidate road node fixes the figure's turn, so the search widens over nodes, offsets and scale
+        # instead of over angles (2026-11-15: the first version, 12 nodes and 9 offsets, left Earth twice as open)
+        offs = [(0, 0)] + [(r_ * math.cos(math.radians(a_)), r_ * math.sin(math.radians(a_))) for r_ in (0.5, 1.0) for a_ in range(0, 360, 45)]
+        floor = DENSE.get(kind, 0.66)
+        for dc in offs:
+            c = (centre[0] + dc[0], centre[1] + dc[1])
+            near = sorted(pool, key=lambda t: math.dist(T.pt(t), c))[:24]
+            for t in near:
+                tp = T.pt(t)
+                gap = math.dist(tp, c)
+                if gap < 1e-6:
+                    continue
+                dy = ((c[0] - tp[0]) / gap, (c[1] - tp[1]) / gap); dx = (dy[1], -dy[0])
+                for kk in [s_ for s_ in (k, k * 0.92, k * 0.85) if s_ >= floor * 0.98] or [k]:
+                    W = lambda x, y, c=c, dx=dx, dy=dy, kk=kk: (c[0] + (x - cx0) * kk * dx[0] + (y - cy0) * kk * dy[0],
+                                                                c[1] + (x - cx0) * kk * dx[1] + (y - cy0) * kk * dy[1])
+                    P_ = [W(x, y) for x, y in pts]
+                    reach = math.dist(tp, P_[0])
+                    if reach < 0.9 or reach > max_reach:
+                        continue
+                    if any(math.dist(tp, P_[m]) < reach - 1e-6 for m in range(1, len(P_))):
+                        continue        # the entry must be the figure's nearest node to the road node
+                    ct = T.nodes[t].get("cluster")
+                    if ct is not None and any(math.dist(T.pt(m), P_[0]) < reach - 1e-6 for m in T.clusters[ct]["nodes"]):
+                        continue        # joining another cluster: it too must be joined at its nearest node
+                    segs = [(P_[e[0]], P_[e[1]]) for e in es]
+                    n_stem = max(0, int(reach / 1.25) - 1) if reach > 2.2 else 0
+                    S_ = [(tp[0] + (P_[0][0] - tp[0]) * (q + 1) / (n_stem + 1), tp[1] + (P_[0][1] - tp[1]) * (q + 1) / (n_stem + 1))
+                          for q in range(n_stem)]
+                    chain_ = [tp] + S_ + [P_[0]]
+                    csegs = [(chain_[q], chain_[q + 1]) for q in range(len(chain_) - 1)]
+                    if T.fits(S_ + P_, segs + csegs, skip={t}):
+                        best = (W, P_, S_, t)
+                        break
+                if best:
+                    break
+            if best:
+                break
+        if best:
+            break
+    if best is None:
+        T.fit_failures.append(f"{kind} ({theme}) facing a road in the space at ({centre[0]:.1f},{centre[1]:.1f}): "
+                              f"last reason {getattr(T, 'why', '?')}")
+        return None
+    W, P_, S_, t = best
+    T.cluster(name or f"{theme} {kind}", kind)
+    stem_ids = [T.node(xy, "s", theme) for xy in S_]
+    nm = iter(names or [])
+    ids = [T.node(xy, r_, (themes or {}).get(q, theme), name=next(nm, None) if r_ == "N" else None) for q, (xy, r_) in enumerate(zip(P_, rl))]
+    for e in es:
+        if len(e) == 3:
+            T.link(ids[e[0]], ids[e[1]], centre=W(*e[2]))
+        else:
+            T.link(ids[e[0]], ids[e[1]])
+    cx = sum(T.pt(i)[0] for i in ids) / len(ids); cy = sum(T.pt(i)[1] for i in ids) / len(ids)
+    T.clusters[T.cur]["mastery"] = (cx, cy)
+    T.end()
+    chain_ = [t] + stem_ids + [ids[0]]
     for x, y in zip(chain_, chain_[1:]):
         T.link(x, y)
     return stem_ids + ids

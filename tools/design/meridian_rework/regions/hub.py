@@ -33,7 +33,20 @@ THEMES = common.THEMES
 KEYSTONES = {
     "WUJI": {"name": "Return to Wuji (Phản Bổn Quy Vô Cực) [proposal]", "rule": "Every element counts as your own for element affinity.",
              "closes": "No identity (district) node gives more than half"},
+    # 2026-11-15, the Chaos land (user: comparable and stronger). Placeholders for the content pass
+    "CYCLE": {"name": "Five Phases Turn (Ngũ Hành Luân Chuyển) [proposal]", "rule": "Each art you use counts as the element that the last one generates.",
+              "closes": "Your single strongest element gives no bonus"},
+    "VOID": {"name": "Primordial Void (Hồng Mông) [proposal]", "rule": "Every element land you hold a notable in raises all your element damage.",
+             "closes": "Element purity counts for half"},
+    "SEED": {"name": "Seed of Chaos (Hỗn Độn Chủng) [proposal]", "rule": "Your breakthrough guard also covers the next realm.",
+             "closes": "Cultivation speed −20 %"},
 }
+# the Chaos land (2026-11-15): a dantian ring road and five dantian roads out to the push edge; every road node
+# dressed, the holes filled, the figures keep all their notables (stronger per point, fewer points than a land)
+CFG = {"left": "chaos", "right": "chaos", "elem": "chaos", "half": 180, "airy_r": 0, "rich": True,
+       "hole_rmin": 4.6, "centre_sparse": 0.0}
+RING_R = 10.6
+SPOKE_R = (6.0, RING_R, 14.6, common.HUB_R - 1.0)
 
 
 def INSIDE(u, v, lim):
@@ -62,14 +75,29 @@ def build(T):
     T.nodes[e2]["cluster"] = T.cur; T.clusters[T.cur]["nodes"].append(e2)
     T.end()
     T.link(e2, ring[4]); T.link(e2, ring[5])
-    # five dantian roads out to the blend zones
-    spokes = {}
+    # five dantian roads out to the blend zones, crossing the dantian ring road (2026-11-15: out to the push edge)
+    spokes, ringj = {}, {}
     for a, key in ((36, "fe"), (108, "em"), (180, "mw"), (252, "ww"), (324, "wf")):
-        j1 = T.junction(P(6.0, a), road="hub")
-        j2 = T.junction(P(8.9, a), road="hub")
-        T.link(ring[a // 36], j1, kind="highway"); T.link(j1, j2, kind="highway")
-        T.port("s" + key, j2)
-        spokes[key] = (j1, j2)
+        js = [T.junction(P(r, a), road="hub") for r in SPOKE_R]
+        T.link(ring[a // 36], js[0], kind="highway")
+        for x, y in zip(js, js[1:]):
+            T.link(x, y, kind="highway")
+        T.port("s" + key, js[-1])
+        spokes[key] = (js[0], js[-1])
+        ringj[a] = js[1]
+        for s_ in (-24, 24):
+            ringj[a + s_] = T.junction(P(RING_R, a + s_), road="hub")
+    ra = sorted(ringj)
+    for x, y in zip(ra, ra[1:] + ra[:1]):
+        T.link(ringj[x], ringj[y], centre=(0, 0), kind="highway")
+    # three Chaos keystones on spurs off the land axes (the land cradles point down the axes; keystones crowding the
+    # centre are an open complaint, Meridian GDD Open Question 20), pointing out toward the push edge
+    for key, choices in (("CYCLE", (60, 12)), ("VOID", (204, 156, 228, 132)), ("SEED", (300, 348))):
+        n0 = len(T.fit_failures)
+        for a in choices:
+            if landkit.keystone_spur(T, ringj[a], a, key, "chaos"):
+                del T.fit_failures[n0:]
+                break
     # a universal figure facing each element land (toward its near keystone)
     faces = ((0, "heart", "lotus", ["Bright Mirror Heart (Minh Kính Tâm)", "Still Heart (Tĩnh Tâm)", "Unmoved Mind (Bất Động Tâm)"]),
              (72, "lifespan", "gourd2", ["Crane's Age (Hạc Thọ)", "Long Years (Trường Thọ)"]),
@@ -81,11 +109,7 @@ def build(T):
             if pens.pict(T, ring[a // 36], a, f, th, names=names, k=0.74, gap=0.9, turns=(0, 8, -8, 16, -16, 24, -24), shrink=(1.0, 0.92, 0.85)):
                 break
             T.fit_failures.pop()
-    # small companions on the dantian roads
-    for key, (j1, j2) in spokes.items():
-        a = {"fe": 36, "em": 108, "mw": 180, "ww": 252, "wf": 324}[key]
-        for d, th in ((60, landkit.UNIVERSAL[(a // 36) % 8]), (-60, landkit.UNIVERSAL[(a // 36 + 3) % 8])):
-            for kind in ("kite", "V", "arrow"):
-                if pens.pict(T, j2, a + d, kind, th, k=0.68, turns=(0, 10, -10, 20, -20)):
-                    break
-                T.fit_failures.pop()
+    # the Chaos land: every road node of the ring and the dantian roads dressed, then the open spaces filled
+    roads = [i for i, n in enumerate(T.nodes) if n["kind"] == "travel"]
+    landkit.dress_roads(T, sorted(roads, key=lambda i: math.hypot(*T.pt(i))), CFG, per=2, inner_r=0, outer_r=99)
+    landkit.fill_holes(T, CFG, clr=2.0, rounds=2)

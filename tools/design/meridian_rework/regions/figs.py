@@ -59,26 +59,28 @@ def _pol(cx, cy, r, a):
 
 def cauldron():
     """Đan lô, the pill cauldron: legs, a round belly, a rim with two ears and a lid knob (alchemy)."""
+    # cluster rules 2026-11-15: the legs stand on the entry (a way in beside the belly), both ears are notables
     f = Fig(); C = (0, 2.1)
     e = f.n(0, 0); b = f.n(*_pol(*C, 1.3, 180))
     l2, r2 = f.n(*_pol(*C, 1.3, 228)), f.n(*_pol(*C, 1.3, 132))
-    lr, rr = f.n(*_pol(*C, 1.3, 270), "N"), f.n(*_pol(*C, 1.3, 90))
+    lr, rr = f.n(*_pol(*C, 1.3, 270)), f.n(*_pol(*C, 1.3, 90))
     mid = f.n(0, 2.1); knob = f.n(0, 3.15, "N")
-    fl, fr = f.n(-1.85, 0.5), f.n(1.85, 0.5)
-    el, er = f.n(-2.15, 2.85), f.n(2.15, 2.85, "N")
+    fl, fr = f.n(-1.4, 0.45), f.n(1.4, 0.45)
+    el, er = f.n(-2.15, 2.85, "N"), f.n(2.15, 2.85, "N")
     f.l(e, b); f.l(b, l2, centre=C); f.l(b, r2, centre=C); f.l(l2, lr, centre=C); f.l(r2, rr, centre=C)
-    f.l(lr, mid); f.l(mid, rr); f.l(mid, knob); f.l(l2, fl); f.l(r2, fr); f.l(lr, el); f.l(rr, er)
+    f.l(lr, mid); f.l(mid, rr); f.l(mid, knob); f.l(e, fl); f.l(fl, l2); f.l(e, fr); f.l(fr, r2); f.l(lr, el); f.l(rr, er)
     return f.out()
 
 
 def sun():
-    """A sun wheel: a ring of eight with rays (Fire's centre, the Light island)."""
+    """A sun wheel: a ring of eight with three rays, each ending in a notable (Fire's centre, the Light island).
+    2026-11-15: five rays, four of them plain dead ends, became three gold ones."""
     f = Fig(); C = (0, 2.35)
     e = f.n(0, 0)
-    ring = [f.n(*_pol(*C, 1.3, 180 + 45 * k), "N" if k in (2, 6) else "s") for k in range(8)]
+    ring = [f.n(*_pol(*C, 1.3, 180 + 45 * k)) for k in range(8)]
     f.l(e, ring[0]); f.ringl(ring, C)
-    for k in (1, 3, 4, 5, 7):
-        f.l(ring[k], f.n(*_pol(*C, 2.45, 180 + 45 * k), "N" if k == 4 else "s"))
+    for k in (2, 4, 6):
+        f.l(ring[k], f.n(*_pol(*C, 2.45, 180 + 45 * k), "N"))
     return f.out()
 
 
@@ -86,20 +88,21 @@ def flame():
     """Three flame tongues from one base, the tall one in the middle (burning)."""
     f = Fig()
     e = f.n(0, 0); l1, l2 = f.n(-0.6, 1.15), f.n(-0.5, 2.35); r1, r2 = f.n(0.6, 1.15), f.n(0.5, 2.35); tip = f.n(0, 3.45, "N")
-    sl, slt = f.n(-1.5, 1.7), f.n(-2.05, 2.75, "N"); sr, srt = f.n(1.5, 1.7), f.n(2.05, 2.75)
+    sl, slt = f.n(-1.5, 1.7), f.n(-2.05, 2.75, "N"); sr, srt = f.n(1.5, 1.7), f.n(2.05, 2.75, "N")   # both side tongues gold
     f.l(e, l1, -0.12); f.l(l1, l2, -0.1); f.l(l2, tip, -0.15); f.l(e, r1, 0.12); f.l(r1, r2, 0.1); f.l(r2, tip, 0.15)
     f.l(l1, sl, 0.1); f.l(sl, slt, 0.15); f.l(r1, sr, -0.1); f.l(sr, srt, -0.15)
     return f.out()
 
 
 def lotus():
-    """A lotus seen from above: six petal tips round a ring of six (Fire Lotus, Heart)."""
+    """A lotus seen from above: petal tips round a ring of six (Fire Lotus, Heart). The stem petal is the way in and
+    the three upper petals are notables; 2026-11-15 the two plain lower petals, which led nowhere, were dropped."""
     f = Fig(); C = (0, 2.3)
-    tips = [f.n(*_pol(*C, 2.3, 180 + 60 * k), "N" if k in (2, 3, 4) else "s") for k in range(6)]
+    tips = {k: f.n(*_pol(*C, 2.3, 180 + 60 * k), "s" if k == 0 else "N") for k in (0, 2, 3, 4)}
     ring = [f.n(*_pol(*C, 1.15, 210 + 60 * k)) for k in range(6)]
     f.ringl(ring, C)
-    for k in range(6):
-        f.l(tips[k], ring[k]); f.l(tips[k], ring[k - 1])
+    for k, t in tips.items():
+        f.l(t, ring[k]); f.l(t, ring[k - 1])
     return f.out()
 
 
@@ -116,15 +119,16 @@ def phoenix():
 
 
 def bagua():
-    """An eight-sided formation disc with trigram spurs (formations)."""
+    """An eight-sided formation disc: its crown is a notable and two trigram spurs on the upper diagonals end in gold
+    (formations). 2026-11-15: five spurs, four of them plain dead ends, became two gold ones."""
     f = Fig(); C = (0, 2.6)
     e = f.n(0, 0)
-    ring = [f.n(*_pol(*C, 1.6, 180 + 45 * k), "N" if k in (2, 6) else "s") for k in range(8)]
+    ring = [f.n(*_pol(*C, 1.6, 180 + 45 * k), "N" if k == 4 else "s") for k in range(8)]
     f.l(e, ring[0])
     for a, b in zip(ring, ring[1:] + ring[:1]):
         f.l(a, b)
-    for k in (1, 3, 4, 5, 7):
-        f.l(ring[k], f.n(*_pol(*C, 2.7, 180 + 45 * k), "N" if k == 4 else "s"))
+    for k in (3, 5):
+        f.l(ring[k], f.n(*_pol(*C, 2.7, 180 + 45 * k), "N"))
     return f.out()
 
 
@@ -141,28 +145,32 @@ def shan():
 
 def turtle():
     """The black-earth turtle: a hexagonal shell, four legs and a head (Earth's body, defence)."""
+    # 2026-11-15: the front feet are both notables and the head is the far one; the hind feet, dead ends beside the
+    # tail, are gone
     f = Fig(); C = (0, 2.0)
     e = f.n(0, 0)   # the tail
-    shell = [f.n(*_pol(*C, 1.25, 180 + 60 * k), "N" if k == 3 else "s") for k in range(6)]
+    shell = [f.n(*_pol(*C, 1.25, 180 + 60 * k)) for k in range(6)]
     f.l(e, shell[0])
     for a, b in zip(shell, shell[1:] + shell[:1]):
         f.l(a, b)
     neck = f.n(0, 4.3); hd = f.n(0, 5.35, "N")
     f.l(shell[3], neck); f.l(neck, hd)
-    for k, s in ((1, -1), (5, 1), (2, -1), (4, 1)):
+    for k, s in ((2, -1), (4, 1)):
         x, y = f.p[shell[k]]
-        f.l(shell[k], f.n(x + s * 0.95, y + (0.55 if k in (2, 4) else -0.45), "N" if k == 2 else "s"))
+        f.l(shell[k], f.n(x + s * 0.95, y + 0.55, "N"))
     return f.out()
 
 
 def paw():
-    """A beast's paw print: a round pad and four toes (beasts)."""
-    f = Fig(); C = (0, 2.05)
+    """A beast's paw print: a round pad and three toes, each toe a notable (beasts).
+    2026-11-15 (user: "the notable is too close to the start, and there are too many minor nodes that make no sense
+    after taking the 2 notable"): the pad is six round so both halves lead up to the toes, and every toe is gold."""
+    f = Fig(); C = (0, 2.0)
     e = f.n(0, 0)
-    pad = [f.n(*_pol(*C, 1.0, 180 + 72 * k)) for k in range(5)]
+    pad = [f.n(*_pol(*C, 1.0, 180 + 60 * k)) for k in range(6)]
     f.l(e, pad[0]); f.ringl(pad, C)
-    for k, a in ((1, 300), (2, 342), (3, 18), (4, 60)):
-        f.l(pad[k], f.n(*_pol(*C, 2.25, a), "N" if a in (342, 18) else "s"))
+    for k in (2, 3, 4):
+        f.l(pad[k], f.n(*_pol(*C, 2.2, 180 + 60 * k), "N"))
     return f.out()
 
 
@@ -173,11 +181,11 @@ def tree():
     f.path([e, t1, t2])
     f.l(t2, f.n(0, 3.35, "N"))
     for s in (-1, 1):
-        # judge rounds 15-20: branches that stopped on a plain node read as unfinished. Both boughs end in gold, and
-        # the low branches curl into a leaf (a closed loop)
-        b1 = f.n(s * 1.0, 2.75); b2 = f.n(s * 1.95, 3.3, "N"); lo = f.n(s * 1.05, 1.55)
-        la = f.n(s * 1.95, 1.45); lb = f.n(s * 1.75, 2.15)
-        f.l(t2, b1, s * 0.1); f.l(b1, b2, s * 0.1); f.l(t1, lo, s * 0.1); f.l(lo, la, s * 0.1); f.l(la, lb, s * 0.15); f.l(lb, lo, s * 0.1)
+        # judge rounds 15-20: branches that stopped on a plain node read as unfinished. Both boughs end in gold.
+        # 2026-11-15: the low branch climbs from the trunk to the bough (a second way up) instead of curling into a
+        # leaf that led nowhere
+        b1 = f.n(s * 1.0, 2.75); b2 = f.n(s * 1.95, 3.3, "N"); lo = f.n(s * 1.25, 1.6)
+        f.l(t2, b1, s * 0.1); f.l(b1, b2, s * 0.1); f.l(t1, lo, s * 0.1); f.l(lo, b1, s * 0.1)
     return f.out()
 
 
@@ -187,7 +195,8 @@ def vine():
     prev = f.n(0, 0)
     for k in range(3):
         y0 = 2.3 * k
-        a = f.n(-0.62, y0 + 1.15); b = f.n(0.62, y0 + 1.15, "N" if k == 1 else "s"); nxt = f.n(0, y0 + 2.3, "N" if k == 2 else "s")
+        # 2026-11-15: the notables sit on the vine's knots (the axis), not on one side of a loop
+        a = f.n(-0.62, y0 + 1.15); b = f.n(0.62, y0 + 1.15); nxt = f.n(0, y0 + 2.3, "N" if k in (1, 2) else "s")
         f.l(prev, a, -0.25); f.l(a, nxt, -0.25); f.l(prev, b, 0.25); f.l(b, nxt, 0.25)
         prev = nxt
     return f.out()
@@ -201,7 +210,7 @@ def wave():
     ids = [f.n(x, y, "N" if (x, y) in ((-0.6, 3.45), (-0.3, 1.85)) else "s") for x, y in pts]
     f.l(e, ids[0], 0.12)
     f.path(ids, 0.18)
-    r1 = f.n(0.95, 0.8); r2 = f.n(1.8, 1.45); f.l(e, r1, -0.12); f.l(r1, r2, -0.12)
+    # 2026-11-15: the small swell beside the crest led nowhere and is gone
     return f.out()
 
 
@@ -216,21 +225,16 @@ def spiral():
 
 
 def flake():
-    """A great snowflake: six arms from a hub, three of them with a twig (Ice)."""
-    f = Fig(); C = (0, 2.3)
-    hub = None
+    """A great snowflake (Ice): a small hexagonal core, three arms from its upper corners, a notable at each tip.
+    2026-11-15: it was a notable hub with five arms and three twigs, eleven of its sixteen nodes leading nowhere."""
+    f = Fig(); C = (0, 2.0)
     e = f.n(0, 0)
-    hub = f.n(*C, "N")
-    for k in range(6):
+    core = [f.n(*_pol(*C, 0.95, 180 + 60 * k)) for k in range(6)]
+    f.l(e, core[0]); f.ringl(core, C)
+    for k in (2, 3, 4):
         a = 180 + 60 * k
-        p1 = f.n(*_pol(*C, 1.15, a)) if k else None
-        p2 = f.n(*_pol(*C, 2.3, a), "N" if k == 3 else "s") if k else e
-        if k:
-            f.l(hub, p1); f.l(p1, p2)
-        else:
-            mid = f.n(*_pol(*C, 1.15, a)); f.l(e, mid); f.l(mid, hub); p1 = mid
-        if k in (1, 3, 5):
-            f.l(p1, f.n(*_pol(*C, 1.95, a + 28)))
+        m = f.n(*_pol(*C, 2.0, a)); t = f.n(*_pol(*C, 3.05, a), "N")
+        f.l(core[k], m); f.l(m, t)
     return f.out()
 
 
@@ -259,15 +263,17 @@ def eclipse():
 
 
 def drum():
-    """The thunder god's drum ring: a ring with small drums hung round it (Thunder)."""
+    """The thunder god's drum ring: a ring with two drums hung on its upper sides (Thunder, lifespan).
+    2026-11-15 (the user's example, the lifespan drum): the crown is the notable and each drum is a small diamond whose
+    outer point is gold. It had four drums of two plain nodes each, ten of its fifteen nodes leading nowhere."""
     f = Fig(); C = (0, 2.4)
     e = f.n(0, 0)
     ring = [f.n(*_pol(*C, 1.4, 180 + 60 * k), "N" if k == 3 else "s") for k in range(6)]
     f.l(e, ring[0]); f.ringl(ring, C)
-    for k in (1, 2, 4, 5):
+    for k in (2, 4):
         a = 180 + 60 * k
-        d1 = f.n(*_pol(*C, 2.45, a - 14)); d2 = f.n(*_pol(*C, 2.45, a + 14), "N" if k == 2 else "s")
-        f.l(ring[k], d1); f.l(ring[k], d2); f.l(d1, d2, centre=C)
+        d1 = f.n(*_pol(*C, 2.3, a - 17)); d2 = f.n(*_pol(*C, 2.3, a + 17)); dn = f.n(*_pol(*C, 3.1, a), "N")
+        f.l(ring[k], d1); f.l(ring[k], d2); f.l(d1, dn); f.l(d2, dn)
     return f.out()
 
 
@@ -276,7 +282,8 @@ def fan():
     f = Fig()
     e = f.n(0, 0); piv = f.n(0, 0.95)
     f.l(e, piv)
-    edge = [f.n(*_pol(0, 0.95, 2.5, a), "N" if a in (-50, 50) else "s") for a in (-50, -25, 0, 25, 50)]
+    # 2026-11-15: every rib ends in gold, so the edge between two ribs is a shortcut, not a dead end
+    edge = [f.n(*_pol(0, 0.95, 2.5, a), "N" if a in (-50, 0, 50) else "s") for a in (-50, -25, 0, 25, 50)]
     for k in (0, 2, 4):
         f.l(piv, edge[k])
     f.ringl(edge, (0, 0.95), closed=False)
@@ -296,13 +303,13 @@ def cloud():
 
 def fish():
     """A koi: a lens-shaped body, a forked tail and an eye (Water)."""
+    # 2026-11-15: the tail fins beside the entry led nowhere and are gone; the eye joins both flanks
     f = Fig()
     e = f.n(0, 0)   # the tail joint
-    tl, tr = f.n(-0.85, -0.1), f.n(0.85, -0.1)
     l1, l2 = f.n(-0.85, 1.2), f.n(-0.7, 2.45); r1, r2 = f.n(0.85, 1.2), f.n(0.7, 2.45); hd = f.n(0, 3.45, "N")
     eye = f.n(0, 2.0, "N")
-    f.l(e, tl); f.l(e, tr); f.l(e, l1, -0.2); f.l(l1, l2, -0.1); f.l(l2, hd, -0.2); f.l(e, r1, 0.2); f.l(r1, r2, 0.1); f.l(r2, hd, 0.2)
-    f.l(l2, eye)
+    f.l(e, l1, -0.2); f.l(l1, l2, -0.1); f.l(l2, hd, -0.2); f.l(e, r1, 0.2); f.l(r1, r2, 0.1); f.l(r2, hd, 0.2)
+    f.l(l2, eye); f.l(eye, r2)
     return f.out()
 
 
@@ -324,32 +331,34 @@ def antler():
     beam = [(0, 0), (0.3, 1.1), (0.25, 2.2), (-0.15, 3.25), (-0.75, 4.15)]
     ids = [f.n(x, y, "N" if k == 4 else "s") for k, (x, y) in enumerate(beam)]
     f.path(ids, -0.1)
-    for k, dx, dy, ro in ((1, 1.05, 0.45, "s"), (2, 1.1, 0.55, "N"), (3, 0.95, 0.6, "s")):
+    for k, dx, dy, ro in ((2, 1.1, 0.55, "N"),):   # 2026-11-15: only the gold tine; the two plain tines led nowhere
         x, y = beam[k]
         f.l(ids[k], f.n(x + dx, y + dy, ro))
     return f.out()
 
 
 def rosette():
-    """A small flower: a hub ringed by five petals (herbs, fields)."""
+    """A small flower: six petals round a gold heart, the top petal gold too (herbs, fields).
+    2026-11-15: the heart is reached from the two upper side petals, so both halves of the ring lead somewhere; it was
+    joined to every petal, which left the ring as dead ends, and its gold petal sat off to one side."""
     f = Fig(); C = (0, 1.9)
     e = f.n(0, 0)
-    pts = [f.n(*_pol(*C, 1.15, 180 + 72 * k), "N" if k == 3 else "s") for k in range(5)]
+    pts = [f.n(*_pol(*C, 1.15, 180 + 60 * k), "N" if k == 3 else "s") for k in range(6)]
     hub = f.n(*C, "N")
-    f.l(e, pts[0])
-    for k in range(5):
-        f.l(hub, pts[k])
-        f.l(pts[k], pts[(k + 1) % 5], centre=C)
+    f.l(e, pts[0]); f.ringl(pts, C)
+    f.l(pts[2], hub); f.l(hub, pts[4])
     return f.out()
 
 
 def gourd2():
     """A wine gourd (hồ lô): a big ring under a small one (lifespan, alchemy)."""
+    # 2026-11-15: gold on both sides of the big belly and on the small one's crown (the small ring is six round so it
+    # has a crown on the axis); the belly's one notable sat on one side
     f = Fig(); C1, C2 = (0, 1.6), (0, 4.15)
-    lo = [f.n(*_pol(*C1, 1.6, 180 + 45 * k), "N" if k == 2 else "s") for k in range(8)]
+    lo = [f.n(*_pol(*C1, 1.6, 180 + 45 * k), "N" if k in (2, 6) else "s") for k in range(8)]
     f.p[0] = (0.0, 0.0)
     f.ringl(lo, C1)
-    hi = [lo[4]] + [f.n(*_pol(*C2, 0.95, 180 + 72 * k), "N" if k == 3 else "s") for k in range(1, 5)]
+    hi = [lo[4]] + [f.n(*_pol(*C2, 0.95, 180 + 60 * k), "N" if k == 3 else "s") for k in range(1, 6)]
     f.ringl(hi, C2)
     return f.out()
 
@@ -373,21 +382,26 @@ def shield():
     e = f.n(0, 0)
     l1, l2, l3 = f.n(-0.95, 0.75), f.n(-1.45, 1.85), f.n(-1.3, 3.0)
     r1, r2, r3 = f.n(0.95, 0.75), f.n(1.45, 1.85), f.n(1.3, 3.0)
-    t = f.n(0, 3.15, "N"); boss = f.n(0, 1.75, "N")
-    f.path([e, l1, l2, l3, t], 0.08); f.path([e, r1, r2, r3, t], -0.08); f.l(e, boss)
+    t = f.n(0, 3.15, "N"); boss = f.n(0, 1.85, "N")
+    # 2026-11-15: the boss hangs across the shield's waist, not off the entry, so it is three steps in
+    f.path([e, l1, l2, l3, t], 0.08); f.path([e, r1, r2, r3, t], -0.08); f.l(l2, boss); f.l(boss, r2)
     return f.out()
 
 
 def pagoda():
-    """A three-roof pagoda: a mast with three widening roofs (insight, the hidden realms)."""
+    """A three-roof pagoda: three roofs narrowing upward, each roof's eaves the way up to the next floor, a gold
+    middle floor and a gold finial (insight, the hidden realms). 2026-11-15: the eaves hung off the mast as six dead
+    ends and the first notable was one step in; the floors now stand on the eaves."""
     f = Fig()
-    m = [f.n(0, y) for y in (0, 1.05, 2.1, 3.15)]
-    f.path(m)
-    for k, (y, w) in enumerate(((0.75, 1.55), (1.8, 1.25), (2.85, 0.95))):
+    m = [f.n(0, y) for y in (0, 0.95)]
+    floors = [(1.45, 1.55, 2.25, "N"), (2.75, 1.2, 3.35, "s"), (3.85, 0.9, 4.45, "N")]   # eave height, width, floor, role
+    prev = m[1]
+    f.l(m[0], m[1])
+    for y, w, fy, ro in floors:
         a, b = f.n(-w, y), f.n(w, y)
-        f.l(m[k + 1], a); f.l(m[k + 1], b)
-    f.l(m[3], f.n(0, 4.2, "N"))
-    f.r[m[2]] = "N"
+        fl = f.n(0, fy, ro)
+        f.l(prev, a); f.l(prev, b); f.l(a, fl); f.l(b, fl)
+        prev = fl
     return f.out()
 
 

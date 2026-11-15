@@ -101,6 +101,86 @@ on a link, or crosses one.
 | Crossings, nodes closer than 0.6, links grazing a node | 0 | 0 |
 | Open space with clearance > 2 units (outside mastery spots) | none | about 5 square units |
 
+## Cluster rules (user, 2026-11-15)
+
+Set while reviewing the 2026-11-12 lean tree. Measured on that tree in the symmetry page,
+https://claude.ai/artifact/NhVpEF4ArVTssfs6mNCNtT (its wasted-node numbers use the strict, shortest-route measure);
+the pilot that applies them is https://claude.ai/artifact/KytMXG91CpDnhJ5tGe24AQ (version `gen-2026-11-15-lean-rules-3`). `tools/design/meridian_rework/cluster_rules.py` checks them on any
+version, and the editor runs the same checks live.
+
+1. **A cluster mirrors about the line through its entry, notables included.** Every node, minor or notable, has a
+   twin of the same kind across that line, or sits on it. A cluster with several outside links may mirror about a
+   line that maps those links onto each other. "Symmetric clusters including the symmetry with its notable node."
+   - Exempt for now: the themed figures drawn lopsided on purpose (bolt, spiral, wave, antler and the other
+     `ASYM` figures). The user has not yet said whether they stay.
+2. **No dead-end minor nodes.** Every minor node lies on some route between the cluster's entry, its notables and
+   its other outside links. So the far ends of a figure are notables or keystones, and nothing hangs off a figure
+   that leads nowhere (the lifespan drum's triangles). "A far end node of a cluster, unless it is used to
+   connect/shorten the path to another notable, should not be a far node of a cluster."
+   - A longer route round a loop is allowed: it is an alternative path, and in the content pass it must carry
+     different modifiers from the short way (user: in PoE a longer route "offers a different modifier to the shorter
+     path (so basically an alternative), or is used as a connector to another notable node in the same cluster").
+   - Measured over clusters that hold a notable: dead ends are 0.2 % of PoE 1's minor nodes and 1.6 % of PoE 2's (PoE
+     2 has a few); the 11-12 tree had 18 %. Counting every node off the shortest routes instead gives 9 %, 6 % and 33 %.
+3. **No notable at the door.** Follow the stem in to where the figure opens: the first notable sits at least two steps
+   past that point (PoE 2: 97 % of figures at least three deep). A radial figure (pinwheel, star, fan, snowflake) is
+   entered at its hub, and either the hub is its first notable or each arm ends in one. "Would be better if the first
+   notable is the center of the blade, or the start connects to the center of the blade."
+4. **Every cluster holds at least one notable.** The 11-12 tree had 82 clusters with none.
+5. **Sister sets, rarely.** One figure carrying one notable per element, with matching wording, like PoE 2's
+   Stormwalker, Frostwalker and Flamewalker (one mirrored figure) or PoE 1's three Walkers (three parallel lanes).
+   About one per land, best in the blend zones and the hub.
+6. **Mirrored pairs across a road, rarely: 5–10 % of facing pairs.** Where a road node carries one cluster on each
+   side, the two usually stay a big one and a small one (Dos, below). In 5–10 % of those facing pairs, the two are the
+   same figure mirrored across the road.
+
+**Where the rules live in the tools (2026-11-15).**
+- `cluster_rules.py <version.json> [--region r] [--list]` reports rules 1–4 and 6 for a version;
+  `--templates` checks every figure in `pens.PICT` on its own; all 58 pass (the taiji, the centre start, is left as
+  drawn and is exempt from rule 1 with the whirl, since both turn about their centre). The editor's Checks tab runs the same tests after every edit, rings dead-end minor nodes
+  cyan, and shows the mirrored-pair rate; its counts match the script's.
+- `pens.place_in` joins a figure at its entry and turns it to face the road node, so its mirror line runs through
+  that node (`axial=True`); the entry must still be the figure's nearest node to the road (Don'ts, below).
+- `landkit.thin_notables` no longer strips gold freely (the judges' "too much gold" rule, `THIN_NOTABLES = True` to
+  restore). It keeps the fewest template notables that still pass rules 1–4 on the figure, never fewer than one, and
+  leaves no plain loop more than `THIN_SLACK` (2) steps longer than the short way. Hand-drawn constellations keep all
+  their notables, as before.
+- `landkit.mirror_pair` gives a hashed `PAIR_SHARE` (0.06) of the land road nodes the same figure on both sides; the
+  tree comes out at 5 of 61 facing pairs (8 %), three of them the islands' gateway pairs.
+- `landkit.LIGHT_FILL_ROUNDS` (1): hole-fill passes in the lean variant. The cut dead-end nodes used to fill space:
+  with one pass Earth has 34 square units open at clearance 2.0 (16 before the rules); two passes give 24 and grow
+  the tree from 6,979 to about 7,400 nodes (7,115 before). Open for the user.
+- Not reached by the templates: hand-drawn set pieces (the Metal pilot, start webs, keystone spurs, the big
+  constellations) and road connectors. `cluster_rules.py --list` names them.
+
+**Land sizes (user, 2026-11-15).** "Each land has roughly the same amount of nodes, including the chaos land. Adding
+more is preferable to trimming." Then: 930 is too big for Chaos, "make it comparable and stronger"; the islands take
+the same treatment. Version `gen-2026-11-15-lean-chaos-2`:
+
+| Land | Nodes | How |
+|---|---|---|
+| Fire, Earth, Metal, Water, Wood | 903–962 | unchanged |
+| Chaos (the centre) | 494 | `push.py` moves every land and island out by `common.LAND_PUSH` (9) after drawing; the hub (`hub.py`) fills the room: a dantian ring road, five dantian roads, three new keystones (proposals) off the land axes, every road node dressed, holes filled |
+| Light, Darkness, Thunder | 544–588 | an outer band on each island's far side (`islands.band`, `band_fill`), joined to the crown by three spokes; Darkness's shadow road, bridge and the Shadow Shrine (kept separate, user) stay bare |
+| Blend zones | 424–486 | unchanged |
+
+- Chaos and the islands are smaller than a land and stronger per point: their figures keep all their notables
+  (`cfg["rich"]`), about 1 notable per 4 nodes against about 1 per 6.6 in the lands.
+- The push is rigid: roads move straight out, every cluster moves as one piece with the node it hangs from, an
+  island's core moves whole, and `push.repair` re-places the few clusters the push brought too close to something.
+  `build_tree.py --push D` overrides the amount, but the hub is drawn to `HUB_R` (9.9 + `LAND_PUSH`) either way, so
+  change `LAND_PUSH` instead; a smaller push alone would put the hub over the lands. Versions record the push
+  (`"push"`), and the editor and tree viewer shift their guide rings by it.
+- The push opens the inner bands of the lands: sideways spacing grows about 1.5× at the start ring and 1.3× at ring 1,
+  because the holes were filled before the push. Visible in Fire's start web; a fill pass after the push is open.
+- The Meridian GDD's measured distances and map size describe the unpushed map; they are stale until the content
+  pass re-measures them.
+
+How to fix a failing figure, in order of preference: move its notable to the far point on its axis (a ring puts it
+opposite the entry, so both halves are routes to it); give a radial figure its notables at the arm tips in mirrored
+pairs, or make the hub the notable and enter there; cut an arm that leads nowhere, or join it to a neighbour as a
+shortcut. Keep notable counts and cluster sizes close to the targets above while doing so.
+
 ## Dos
 
 - Draw by hand. The pens only nudge a figure (a turn of up to 60°, or a shrink to 85 %) to clear its neighbours.

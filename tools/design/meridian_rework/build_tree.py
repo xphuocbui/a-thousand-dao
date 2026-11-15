@@ -2,7 +2,9 @@
 
 Usage (from the repo root):
   python -I tools/design/meridian_rework/build_tree.py [<out_dir>] [--only r1,r2] [--no-geometry] [--keep-hidden]
-                                                       [--name <version>] [--note "..."] [--no-version]
+                                                       [--name <version>] [--note "..."] [--no-version] [--push D]
+
+--push D moves every land and island out by D after drawing (push.py; default common.LAND_PUSH, 0 turns it off).
 
 Every run writes a NEW graph version to design/meridian-map/versions/ (gen-<date>[-lean], suffixed -2, -3 ... when
 taken) and never overwrites one: the editor (editor/serve.py) owns the versions after that (user decision
@@ -24,6 +26,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import kit  # noqa: E402
+import push  # noqa: E402
 import versions  # noqa: E402
 
 # region file, in drawing order
@@ -33,6 +36,15 @@ LANDS = ["fire", "earth", "metal", "water", "wood"]
 BLEND_BETWEEN = {"blend_fe": ("fire", "earth"), "blend_em": ("earth", "metal"), "blend_mw": ("metal", "water"),
                  "blend_ww": ("water", "wood"), "blend_wf": ("wood", "fire")}
 RING_PORTS = ["r0", "r1", "r2", "r3", "r4"]
+
+
+def _land_push():
+    sp = importlib.util.spec_from_file_location("common_", os.path.join(HERE, "regions", "common.py"))
+    m = importlib.util.module_from_spec(sp); sp.loader.exec_module(m)
+    return m.LAND_PUSH
+
+
+LAND_PUSH = _land_push()
 
 
 def joins():
@@ -56,7 +68,7 @@ def load(region):
 
 
 def main():
-    flags_with_value = ("--only", "--name", "--note")
+    flags_with_value = ("--only", "--name", "--note", "--push")
     pos = [a for i, a in enumerate(sys.argv[1:], 1) if not a.startswith("--") and sys.argv[i - 1] not in flags_with_value]
     OUT = pos[0] if pos else None
     opt = lambda k: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else None
@@ -117,6 +129,10 @@ def main():
         elif (a, pa) in ports or (b, pb) in ports:
             missing.append(f"{a}.{pa} <-> {b}.{pb}: only {'first' if (a, pa) in ports else 'second'} side drawn")
     loose = [f"{r}.{p}" for (r, p) in ports if (r, p) not in used]
+    # ---- the lands and islands move out to make room for the Chaos land at the centre (push.py, user 2026-11-15) ----
+    D_push = float(opt("--push")) if opt("--push") is not None else LAND_PUSH
+    if D_push:
+        push.apply(nodes, edges, clusters, D_push)
     # ---- hidden clusters are scrapped (user decision 2026-11-09; Meridian Map GDD rules 6-15 retired, 2026-11-10):
     # the regions still draw the hidden band, so drop it here unless --keep-hidden asks for the old drawing --------
     if "--keep-hidden" not in sys.argv:
@@ -143,7 +159,7 @@ def main():
             "clusters": [{"id": c["id"], "theme": c["themes"][0] if c["themes"] else "", "form": c["form"], "name": c["name"],
                           "region": c["region"], "hidden": c["hidden"], "n": len(c["nodes"]),
                           "centre": [round(v, 3) for v in c["mastery"]] if c["mastery"] else None} for c in clusters],
-            "metrics": metrics, "themes": themes, "regions": regions_meta}
+            "metrics": metrics, "themes": themes, "regions": regions_meta, "push": D_push}
     if OUT:
         json.dump(data, open(os.path.join(OUT, "tree.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
         tpl = open(os.path.join(HERE, "tree_viewer.html"), encoding="utf-8").read()

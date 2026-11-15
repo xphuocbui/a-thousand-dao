@@ -41,6 +41,10 @@ BEND = (round(86.4 * math.sin(math.radians(BRIDGE_A)), 2), round(86.4 * math.cos
 BRIDGE_END = (round(78.4 * math.sin(math.radians(BRIDGE_A)), 2), round(78.4 * math.cos(math.radians(BRIDGE_A)), 2))
 SHADOW_R = 85.4
 SHRINE_R, SHRINE_A = 93.0, -77.0     # the Shadow Shrine at the shadow road's eastern turn (world 103°), at the islands' radius
+# the outer band (2026-11-15, user: islands of about 500 nodes; the Shadow Shrine stays separate). It stops short of the
+# shadow road (leaving at about -122 degrees off straight out) and the bridge to Water (about +112)
+BAND = {"r": 17.6, "span": (-98, 92)}
+BAND_OUT = 24.5
 
 
 def _seg_d(p, a, b):
@@ -50,7 +54,7 @@ def _seg_d(p, a, b):
 
 
 def INSIDE(u, v, lim):
-    if math.dist((u, v), C) < 15.5 or (math.dist((u, v), C) < 18.2 and v > C[1] - 3) or _seg_d((u, v), C, BEND) < 3.4 or _seg_d((u, v), BEND, BRIDGE_END) < 2.4:
+    if islands.in_band(u, v, C, BAND, BAND_OUT) or math.dist((u, v), C) < 15.5 or (math.dist((u, v), C) < 18.2 and v > C[1] - 3) or _seg_d((u, v), C, BEND) < 3.4 or _seg_d((u, v), BEND, BRIDGE_END) < 2.4:
         return True
     r, a = math.hypot(u, v), math.degrees(math.atan2(u, v))
     return (83.9 < r < 94.0 and -92 < a < -4) or (76.6 < r < 86 and -88 < a < -76) or (math.dist((u, v), (SHRINE_R * math.sin(math.radians(SHRINE_A)), SHRINE_R * math.cos(math.radians(SHRINE_A)))) < 13.0 and r > 83.9)
@@ -60,7 +64,8 @@ def build(T):
     P = T.P
     S, inner, outer = islands.mandala(T, pens, {"centre": C, "theme": "dark", "key": "dark", "name": "Darkness", "road": "shadow",
                                                  "inner": (10, 3.7), "inner_shift": (0.0, 1.15), "outer": (10, 6.2), "polygon": True, "inner_figs": ("V", "kite"),
-                                                 "crown": {"span": (-42, 74), "n": 5, "figs": ["eclipse", "spiral", "eye"], "k": 0.66}})
+                                                 "crown": {"span": (-42, 74), "n": 5, "figs": ["eclipse", "spiral", "eye"], "k": 0.66},
+                                                 "band": BAND})
     br = min(outer, key=lambda i: math.dist(T.pt(i), BEND))
     jbend = T.junction(BEND, road="shadow")
     brd = T.road([br, jbend], step=3.8, road="shadow", straight=True)
@@ -154,3 +159,4 @@ def build(T):
                 T.fit_failures.pop()
             if done:
                 break
+    islands.band_fill(T, pens, landkit, "dark", C, BAND_OUT, BAND)

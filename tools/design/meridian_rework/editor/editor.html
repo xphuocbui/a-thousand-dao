@@ -385,7 +385,7 @@ function draw(){draw.pending=false;
   const [vx0,vy0]=toW(-40,-40),[vx1,vy1]=toW(W+40,H+40);const inV=n=>n.x>=vx0&&n.x<=vx1&&n.y>=vy0&&n.y<=vy1;
   ctx.setTransform(dpr*s,0,0,dpr*s,dpr*tx,dpr*ty);
   // guide rings of the kit (faint) and the grid when grid snapping is on
-  ctx.lineWidth=u;ctx.strokeStyle='rgba(201,176,122,.07)';for(const r of [17,30.5,44.5,58.5,70,76]){ctx.beginPath();ctx.arc(0,0,r,0,7);ctx.stroke();}
+  ctx.lineWidth=u;ctx.strokeStyle='rgba(201,176,122,.07)';for(const r of [17,30.5,44.5,58.5,70,76].map(r=>r+(+M.extra.push||0))){ctx.beginPath();ctx.arc(0,0,r,0,7);ctx.stroke();}
   const gs=+opt.snap;if(gs&&s*gs>=7){ctx.strokeStyle='rgba(255,255,255,.05)';ctx.beginPath();for(let x=Math.floor(vx0/gs)*gs;x<=vx1;x+=gs){ctx.moveTo(x,vy0);ctx.lineTo(x,vy1);}for(let y=Math.floor(vy0/gs)*gs;y<=vy1;y+=gs){ctx.moveTo(vx0,y);ctx.lineTo(vx1,y);}ctx.stroke();}
   // edges, batched by colour and width
   const groups=new Map();const selN=SEL;
@@ -419,7 +419,8 @@ function draw(){draw.pending=false;
     for(const id of CHK.unreach){const n=M.nodes.get(id);if(n&&inV(n)){mag.moveTo(n.x+R,n.y);mag.arc(n.x,n.y,R,0,7);}}
     for(const [a] of CHK.overlap){const n=M.nodes.get(a);if(n&&inV(n)){amb.moveTo(n.x+R,n.y);amb.arc(n.x,n.y,R,0,7);}}
     for(const c of CHK.cross){const [x,y]=c[2];if(x<vx0||x>vx1||y<vy0||y>vy1)continue;const d=R*.8;red.moveTo(x-d,y-d);red.lineTo(x+d,y+d);red.moveTo(x+d,y-d);red.lineTo(x-d,y+d);}
-    ctx.lineWidth=1.8*u;ctx.strokeStyle='#ff5a5a';ctx.stroke(red);ctx.strokeStyle='#ffb347';ctx.stroke(amb);ctx.strokeStyle='#ff6bd6';ctx.stroke(mag);}
+    const cy_=new Path2D();if(CHK.rules)for(const id of CHK.rules.dead){const n=M.nodes.get(id);if(n&&inV(n)){const r=R*.7;cy_.moveTo(n.x+r,n.y);cy_.arc(n.x,n.y,r,0,7);}}
+    ctx.lineWidth=1.8*u;ctx.strokeStyle='#ff5a5a';ctx.stroke(red);ctx.strokeStyle='#ffb347';ctx.stroke(amb);ctx.strokeStyle='#ff6bd6';ctx.stroke(mag);ctx.strokeStyle='#4fd1ff';ctx.stroke(cy_);}
   // found and selected rings
   if(found.length){const p=new Path2D();for(const id of found){const n=M.nodes.get(id);if(!n||!inV(n))continue;const r=radPx(n)*u+4.5*u;p.moveTo(n.x+r,n.y);p.arc(n.x,n.y,r,0,7);}ctx.strokeStyle='#ffd166';ctx.lineWidth=1.8*u;ctx.stroke(p);}
   if(selN.size){const p=new Path2D();for(const id of selN){const n=M.nodes.get(id);if(!n||!inV(n))continue;const r=radPx(n)*u+2.6*u;p.moveTo(n.x+r,n.y);p.arc(n.x,n.y,r,0,7);}ctx.strokeStyle='#3fb8ff';ctx.lineWidth=2.2*u;ctx.stroke(p);}
@@ -849,6 +850,55 @@ function picker(which){if(!SEL.size)return;const ns=[...SEL].map(i=>M.nodes.get(
 // Checks: run in the background after edits; click an issue to go to it
 let chkTimer=null;
 function scheduleChecks(){clearTimeout(chkTimer);chkTimer=setTimeout(runChecks,700);}
+// Cluster rules (design/research/meridian-land-authoring.md, "Cluster rules", user 2026-11-15). The same tests as
+// tools/design/meridian_rework/cluster_rules.py, which reports them for a whole version: 1 mirrored, notables included;
+// 2 no dead-end minor nodes; 3 no notable at the door; 4 at least one notable; 6 the share of mirrored road pairs.
+const CR_ASYM=new Set(['bolt','spiral','wave','antler','L','stairs','zig','koi','shared zigzag','pinwheel','taiji','whirl']);
+const crPay=n=>n.kind==='notable'||n.kind==='keystone',crMinor=n=>n.kind==='small'||n.kind==='travel',crCls=n=>crPay(n)?'p':(n.kind==='start'?'s':'m');
+function crNb(u){const o=[];for(const eid of adj.get(u)||[]){const e=M.edges.get(eid);if(e)o.push(other(e,u));}return o;}
+function crBfs(src,S){const d=new Map([[src,0]]),q=[src];for(let h=0;h<q.length;h++){const u=q[h];for(const v of crNb(u))if(S.has(v)&&!d.has(v)){d.set(v,d.get(u)+1);q.push(v);}}return d;}
+function crMirror(pts,cx,cy,ux,uy){for(const [x,y,c] of pts){const px=x-cx,py=y-cy,t=px*ux+py*uy,mx=2*t*ux-px+cx,my=2*t*uy-py+cy;if(!pts.some(([X,Y,C])=>C===c&&Math.hypot(X-mx,Y-my)<0.3))return false;}return true;}
+function crBlocks(S){const idx=new Map(),low=new Map(),st=[],out=[];let c=0;      // biconnected components (Tarjan)
+  const dfs=(u,p)=>{idx.set(u,c);low.set(u,c);c++;for(const v of crNb(u)){if(!S.has(v)||v===p)continue;
+    if(!idx.has(v)){st.push([u,v]);dfs(v,u);low.set(u,Math.min(low.get(u),low.get(v)));
+      if(low.get(v)>=idx.get(u)){const comp=new Set();for(;;){const e=st.pop();comp.add(e[0]);comp.add(e[1]);if(e[0]===u&&e[1]===v)break;}out.push(comp);}}
+    else if(idx.get(v)<idx.get(u)){st.push([u,v]);low.set(u,Math.min(low.get(u),idx.get(v)));}}};
+  for(const s of S)if(!idx.has(s))dfs(s,null);return out;}
+// minor nodes on no simple route between two terminals (entries, payoffs): dead-end spurs and loops hanging off one point
+function crDead(S,term){const N=M.nodes;if(term.size<2)return [...S].filter(i=>crMinor(N.get(i))&&!term.has(i));
+  const B=crBlocks(S);let alive=B.map((_,k)=>k),changed=true;
+  while(changed){changed=false;const cnt=new Map();for(const k of alive)for(const v of B[k])cnt.set(v,(cnt.get(v)||0)+1);
+    for(const k of alive){const cuts=[...B[k]].filter(v=>cnt.get(v)>1);if(cuts.length<=1&&![...B[k]].some(v=>!cuts.includes(v)&&term.has(v))){alive=alive.filter(x=>x!==k);changed=true;break;}}}
+  const keep=new Set();for(const k of alive)for(const v of B[k])keep.add(v);
+  return [...S].filter(i=>crMinor(N.get(i))&&!keep.has(i)&&!term.has(i));}
+function clusterRules(){const N=M.nodes,mem=new Map();
+  for(const n of N.values()){if(n.cluster==null||n.hidden)continue;const c=M.clusters.get(n.cluster);if(!c||c.hidden)continue;let l=mem.get(n.cluster);if(!l)mem.set(n.cluster,l=[]);l.push(n.id);}
+  const r1=[],r2=[],r3=[],r4=[];let dead=[];
+  for(const [cid,ids] of mem){const S=new Set(ids),form=(M.clusters.get(cid)||{}).form||'';
+    const ports=new Set(),outside=new Set();for(const i of ids)for(const j of crNb(i))if(!S.has(j)){ports.add(i);outside.add(j);}
+    const pay=ids.filter(i=>crPay(N.get(i)));
+    let cx=0,cy=0;for(const i of ids){cx+=N.get(i).x;cy+=N.get(i).y;}cx/=ids.length;cy/=ids.length;
+    if(!CR_ASYM.has(form)&&ids.length>=3){const pts=ids.map(i=>{const n=N.get(i);return [n.x,n.y,crCls(n)];});let ok=false;
+      if(outside.size===1){const o=N.get([...outside][0]),L=Math.hypot(cx-o.x,cy-o.y)||1;ok=crMirror(pts,cx,cy,(cx-o.x)/L,(cy-o.y)/L);}
+      else{const all=pts.concat([...outside].map(j=>{const n=N.get(j);return [n.x,n.y,'o'];}));for(let a=0;a<180&&!ok;a++){const t=a*Math.PI/180;ok=crMirror(all,cx,cy,Math.cos(t),Math.sin(t));}}
+      if(!ok)r1.push({c:cid,ns:ids});}
+    const d=crDead(S,new Set([...ports,...pay]));if(d.length){r2.push({c:cid,ns:d});dead=dead.concat(d);}
+    if(ports.size===1&&pay.length){let prev=null,cur=[...ports][0],walked=0;
+      while(!crPay(N.get(cur))){const nx=crNb(cur).filter(v=>S.has(v)&&v!==prev);if(nx.length!==1)break;prev=cur;cur=nx[0];walked++;}
+      if(crPay(N.get(cur))&&crNb(cur).filter(v=>S.has(v)&&v!==prev).length<=1){if(walked<2)r3.push({c:cid,ns:[cur]});}
+      else{const S2=new Set(S);if(prev!=null)S2.delete(prev);const D=crBfs(cur,S2);let far=0,near=99;for(const [k,v] of D){if(v>far)far=v;if(crPay(N.get(k))&&v<near)near=v;}
+        const hub=crPay(N.get(cur))&&crNb(cur).filter(v=>S.has(v)).length>=3;
+        if(far>=3&&near<2&&!hub)r3.push({c:cid,ns:pay.filter(g=>D.get(g)===near)});}}
+    if(!pay.length)r4.push({c:cid,ns:ids});}
+  // rule 6: road nodes with one cluster on each side; how many carry the same figure mirrored across the road
+  let pairs=0,mirrored=0;const TAU=2*Math.PI;
+  for(const n of N.values()){if(n.kind!=='travel'||n.hidden)continue;const cs=new Map();for(const j of crNb(n.id)){const c=N.get(j).cluster;if(c!=null&&mem.has(c)&&!cs.has(c))cs.set(c,j);}
+    if(cs.size!==2)continue;const [[c1,j1],[c2,j2]]=[...cs],J1=N.get(j1),J2=N.get(j2);
+    const a1=Math.atan2(J1.y-n.y,J1.x-n.x),a2=Math.atan2(J2.y-n.y,J2.x-n.x),dd=Math.abs((((a1-a2+Math.PI)%TAU)+TAU)%TAU-Math.PI);
+    if(Math.abs(dd-Math.PI)>25*Math.PI/180)continue;pairs++;
+    const C1=M.clusters.get(c1)||{},C2=M.clusters.get(c2)||{},A=mem.get(c1),B=mem.get(c2);
+    if(C1.form===C2.form&&A.length===B.length&&crMirror(A.concat(B).map(i=>{const m=N.get(i);return [m.x,m.y,crCls(m)];}),n.x,n.y,-Math.sin(a1),Math.cos(a1)))mirrored++;}
+  return {r1,r2,r3,r4,dead,pairs,mirrored,clusters:mem.size};}
 function runChecks(){const t0=performance.now(),N=M.nodes,spacing=+($('#ck-sp')?.value||0.6);
   const sts=starts(),reach=new Set(),per={};
   for(const s of sts){const d=bfs(s.id);for(const k of d.keys())reach.add(k);
@@ -871,7 +921,8 @@ function runChecks(){const t0=performance.now(),N=M.nodes,spacing=+($('#ck-sp')?
   const isolated=[],empty=[],free=[];let gen=0,catN=0;for(const n of N.values()){if(!(adj.get(n.id)||new Set()).size)isolated.push(n.id);
     if((n.kind==='small'||n.kind==='notable'||n.kind==='keystone')&&!n.mods.length)empty.push(n.id);const r=n.mod_refs||[];if(r.some(x=>x==null))free.push(n.id);if(r.some(x=>x==='gen'))gen++;if(r.some(x=>x&&x!=='gen'))catN++;}
   const pairs=new Map(),dup=[];for(const e of es){const k=pk(e.a,e.b);if(pairs.has(k))dup.push(e.id);else pairs.set(k,e.id);}
-  CHK={unreach,overlap,cross,graze,isolated,empty,free,dup,per,gen,catN,ms:Math.round(performance.now()-t0),at:new Date()};
+  const rules=clusterRules();
+  CHK={unreach,overlap,cross,graze,isolated,empty,free,dup,per,gen,catN,rules,ms:Math.round(performance.now()-t0),at:new Date()};
   if(tab==='checks')renderChecks();draw.req();refreshCounts();}
 let rcT=null;function renderChecksSoon(){clearTimeout(rcT);rcT=setTimeout(()=>{if(tab==='checks')renderChecks();},200);}
 function renderChecks(){const p=$('#pane-checks');if(!CHK){p.innerHTML='<h2>Checks</h2><p class="hint">Running…</p>';return;}const C=CHK;const live=id=>M.nodes.has(id);C.unreach=C.unreach.filter(live);C.isolated=C.isolated.filter(live);C.empty=C.empty.filter(live);C.free=C.free.filter(live);C.overlap=C.overlap.filter(([a,b])=>live(a)&&live(b));C.cross=C.cross.filter(([a,b])=>M.edges.has(a)&&M.edges.has(b));C.graze=C.graze.filter(([e,n])=>M.edges.has(e)&&live(n));const nm=id=>{const n=M.nodes.get(id);return n?esc(n.name||KLABEL[n.kind])+` <span class="hint">#${id}</span>`:'#'+id;};
@@ -881,9 +932,15 @@ function renderChecks(){const p=$('#pane-checks');if(!CHK){p.innerHTML='<h2>Chec
     'Links passing over a node':[C.graze,([e,n])=>{const E=M.edges.get(e);return E?`${nm(E.a)}–${nm(E.b)} over ${nm(n)}`:'(changed)';},''],
     'Nodes with no links':[C.isolated,id=>nm(id),''],'Duplicate links':[C.dup,id=>{const E=M.edges.get(id);return E?`${nm(E.a)}–${nm(E.b)}`:'(changed)';},''],
     'Minor, notable or keystone with nothing on it':[C.empty,id=>nm(id),''],'Nodes with free-text lines':[C.free,id=>nm(id),'Lines typed by hand, not from the catalogues. Fine while drafting; worth a look before a version ships.']};
+  const R=C.rules,cn=x=>{const c=M.clusters.get(x.c);return esc(c?(c.name||'cluster')+(c.form?` · ${c.form}`:''):'(deleted)')+` <span class="hint">${x.ns.length} nodes</span>`;};
+  if(R){lists['Cluster not mirrored (rule 1)']=[R.r1,cn,'Mirror the cluster, notables included, about the line through its entry. Themed lopsided figures (bolt, spiral, wave, antler…) are exempt.'];
+    lists['Dead-end minor nodes (rule 2)']=[R.r2,cn,'Minor nodes that lead nowhere: cut them, make the far end a notable, or join them on as a shortcut. Cyan rings on the map. A longer way round a loop is fine.'];
+    lists['Notable at the door (rule 3)']=[R.r3,cn,'The first notable sits at least two steps past where the figure opens, unless it is the hub.'];
+    lists['Cluster with no notable (rule 4)']=[R.r4,cn,''];}
   p.innerHTML=`<h2>Checks</h2><div class="hint">Last run ${C.at.toLocaleTimeString()} in ${C.ms} ms. They re-run on their own after each edit. <button id="ck-run" style="margin-left:6px">Run now</button></div>
    <div class="row" style="margin-top:8px"><label for="ck-sp">Spacing</label><input type="number" id="ck-sp" value="${$('#ck-sp')?.value||0.6}" step="0.05" min="0.1" title="Two nodes closer than this count as too close (the kit uses 0.6)"></div>
    ${Object.entries(lists).map(([t,[l,f,h]],i)=>sec(t,l,f,i!==7,h)).join('')}
+   ${R?`<div class="hint" style="margin:4px 0 4px">Rule 6, mirrored pairs across a road: ${R.mirrored} of ${R.pairs} facing pairs (${R.pairs?Math.round(100*R.mirrored/R.pairs):0} %; aim for 5–10 %).</div>`:''}
    <div class="hint" style="margin:4px 0 10px">Modifier sources: ${C.catN.toLocaleString()} nodes use catalogue lines, ${C.gen.toLocaleString()} still hold generator placeholders. Colour by <i>Modifier source</i> to see them.</div>
    <h3>From each start</h3><div class="row"><label for="ck-start">Distances</label><select id="ck-start">${starts().map(s=>`<option value="${s.id}" ${s.id===startId?'selected':''}>${esc(s.name)}</option>`).join('')}</select></div>
    <table><tr><th>Start</th><th title="Nodes within 9 points">≤ 9</th><th title="Points to the first notable">Notable</th><th title="Points to the nearest keystone">Key</th><th title="Points to the farthest node">Far</th></tr>
@@ -893,7 +950,7 @@ function renderChecks(){const p=$('#pane-checks');if(!CHK){p.innerHTML='<h2>Chec
   p.querySelectorAll('[data-start]').forEach(b=>b.onclick=()=>{select([+b.dataset.start]);frame([+b.dataset.start],200);});
   p.querySelectorAll('.issue[data-k]').forEach(b=>b.onclick=()=>{const [l]=lists[b.dataset.k],x=l[+b.dataset.i];let ns=[],es=[];
     if(b.dataset.k==='Crossing links'){es=[x[0],x[1]].filter(i=>M.edges.has(i));}else if(b.dataset.k==='Too close together')ns=[x[0],x[1]];else if(b.dataset.k==='Links passing over a node'){es=[x[0]];ns=[x[1]];}
-    else if(b.dataset.k==='Duplicate links')es=[x];else ns=[x];ns=ns.filter(i=>M.nodes.has(i));
+    else if(b.dataset.k==='Duplicate links')es=[x];else if(x&&x.ns)ns=x.ns;else ns=[x];ns=ns.filter(i=>M.nodes.has(i));
     const fr=new Set(ns);for(const id of es){const e=M.edges.get(id);if(e){fr.add(e.a);fr.add(e.b);}}select(ns,es);frame(fr,Math.min(W,H)/2.6);});}
 
 // ---------------------------------------------------------------------------------------------------------------
