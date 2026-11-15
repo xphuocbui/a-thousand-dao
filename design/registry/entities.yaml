@@ -2181,6 +2181,60 @@ formulas:
     notes: "World Generation Formula C. Rolls each hidden slot, tile secret and resource-site reserve once per game (Travel & Map rules 15, 28, 29). n below 2 is refused by Checking."
     added: 2026-11-15
     revised: ""
+  - name: event_pulse_chance
+    status: active
+    source: design/gdd/event-engine.md
+    referenced_by:
+      - design/gdd/event-engine.md
+      - design/gdd/quests.md
+    variables:
+      - p_base
+      - p_danger
+      - d
+      - b_explore
+      - b_cd0
+      - cd_pct
+    output_range: [0.18, 1.0]
+    expression: "clamp(0.12 + 0.06*d + b_explore(0.55 exploring) + b_cd0*(1 + cd_pct/100) [edge, bottleneck, allowance left], 0, 1); NPC root: p_npc0 = 0.10"
+    notes: "Season pulse for the player (events_templates.json random_event_chance); travel stretches use Travel & Map Formula E instead. Quests offers ride the same check."
+    added: 2026-11-15
+    revised: ""
+  - name: event_chain_budget
+    status: active
+    source: design/gdd/event-engine.md
+    referenced_by:
+      - design/gdd/event-engine.md
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/character-stats.md
+      - design/gdd/quests.md
+    variables:
+      - cap_r
+      - c_kv
+      - m
+      - n_items
+      - balance
+    output_range: "0 to m x one event ceiling (m = 1.5 chain, <= 3 story)"
+    expression: "B_ev = cap_r * c_kv; B_ch = m * B_ev; grant = min(request, B_left, B_ev, balance[source]); on realm change B_left' = (B_left/B_ch) * B_ch_new"
+    notes: "User decision 2026-11-15: one budget per chain or story. Losses are capped per event and do not spend it. Items: count cap per chain/story; value budget later (Event Engine OQ1)."
+    added: 2026-11-15
+    revised: ""
+  - name: npc_event_volume
+    status: active
+    source: design/gdd/event-engine.md
+    referenced_by:
+      - design/gdd/event-engine.md
+      - design/gdd/npc-traits.md
+    variables:
+      - p_npc0
+      - n_cast
+      - n_known
+      - n_sample
+      - N_max
+    output_range: [0, 40]
+    expression: "E[N] = min(N_max, p_npc0 * (n_cast + n_known + n_sample))"
+    notes: "About 25-28 NPC events a season at the start; NPC choices use NPC Traits F2."
+    added: 2026-11-15
+    revised: ""
 constants:
   - name: root_count_weights
     status: active
@@ -2385,6 +2439,7 @@ constants:
     source: design/gdd/character-stats.md
     referenced_by:
       - design/gdd/character-stats.md
+      - design/gdd/event-engine.md
     value: "0.75 + 0.005 * fortune"
     unit: multiplier
     notes: "Event Engine reward budgets."
@@ -5154,5 +5209,59 @@ constants:
     value: "28 hidden slots (3 secret realms, 4 ruins, 6 abodes, 2 large and 13 small blessed lands), 80 tile secrets; 2-3 candidates each"
     unit: per world
     notes: "From design/map/continent-11/history.json (approved 2026-11-14). Candidate sets are pairwise disjoint (checked 2026-11-15), so slot_pick needs no collision rule."
+    added: 2026-11-15
+    revised: ""
+  - name: event_budget_linh_thach_max
+    status: active
+    source: design/gdd/event-engine.md
+    referenced_by:
+      - design/gdd/event-engine.md
+      - design/gdd/quests.md
+      - design/gdd/travel-map.md
+      - design/gdd/regional-economy-trade.md
+    value: [80, 600, 5000, 40000, 300000]
+    unit: linh thach per event, by realm (before the fortune ceiling)
+    notes: "events_budgets.json per_realm.linh_thach_max; Quests E_r, Travel teleport fee base, Regional Economy Formula K budget."
+    added: 2026-11-15
+    revised: ""
+  - name: chain_budget_mult
+    status: active
+    source: design/gdd/event-engine.md
+    referenced_by:
+      - design/gdd/event-engine.md
+    value: 1.5
+    unit: event ceilings per chain
+    notes: "User decision 2026-11-15 (guess until play). Story multiplier at most story_budget_mult_max."
+    added: 2026-11-15
+    revised: ""
+  - name: story_budget_mult_max
+    status: active
+    source: design/gdd/event-engine.md
+    referenced_by:
+      - design/gdd/event-engine.md
+    value: 3
+    unit: event ceilings per story
+    notes: "User decision 2026-11-15 (guess). Item grants: chain 2, story at most 4."
+    added: 2026-11-15
+    revised: ""
+  - name: player_events_per_season_max
+    status: active
+    source: design/gdd/event-engine.md
+    referenced_by:
+      - design/gdd/event-engine.md
+      - design/gdd/quests.md
+    value: 2
+    unit: events per season
+    notes: "User decision 2026-11-15 (guess); follow-ups included; default cooldown 8 seasons."
+    added: 2026-11-15
+    revised: ""
+  - name: npc_events_per_season_max
+    status: active
+    source: design/gdd/event-engine.md
+    referenced_by:
+      - design/gdd/event-engine.md
+    value: 40
+    unit: NPC events per season, world-wide
+    notes: "Guess; with npc_sample_per_season 200 and p_npc0 0.10."
     added: 2026-11-15
     revised: ""

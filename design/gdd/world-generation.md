@@ -319,6 +319,7 @@ fight budget (`worldgen_fight_budget`) belongs to Power Rankings.
 | Power Rankings (#44) | Soft | Every person created, for provisional ratings and coarse panels | yes (row added 2026-11-15) |
 | Regional Economy & Trade (#43) | Hard | Site reserves | yes (row added 2026-11-15) |
 | Trade Goods (#45) | Hard | The fixed world, for the yield tables built at world build | yes (row added 2026-11-15) |
+| Event Engine (#23) | Soft | The fixed cast, history's hidden places and the chronicle as story anchors; authored stories started at world generation (Event Engine rule 12) | yes (row added 2026-11-15) |
 | Living World Tick (#28) | Hard | A Loaded world and the chronicle | no GDD |
 | LLM Game Master (#29, parked) | Soft, optional | The same facts and texts, to retell later (Core Rule 14); never required | no GDD |
 | Game UI (#37) | Soft | Build progress, failure reasons and the origin list | no GDD |
