@@ -71,6 +71,24 @@ func test_trip_time_is_formula_d() -> void:
 		assert_true(float(rt.cost) >= float(rt.tiles) - 1e-6, "%d-%d: terrain never speeds a road (c_t >= 1)" % [rt.a, rt.b])
 
 
+func test_each_origin_starts_where_the_fixed_world_decisions_say() -> void:
+	# a sect disciple at any of the 29 seats, a loose cultivator at one of the 10 markets, a clan heir in one of 7 towns
+	var cd := _cd()
+	var kinds := func(oid: String) -> Array:
+		var out := {}
+		for id in cd.origin_homes.get(oid, []):
+			out[str(cd.places[id].kind)] = true
+		var k: Array = out.keys()
+		k.sort()
+		return k
+	assert_eq(cd.origin_homes.get("tong_mon", []).size(), 29, "29 seats")
+	assert_eq(kinds.call("tong_mon"), ["great_seat", "minor_seat"], "only seats")
+	assert_eq(cd.origin_homes.get("tan_tu", []).size(), 10, "10 markets")
+	assert_eq(kinds.call("tan_tu"), ["market"], "only markets")
+	assert_eq(cd.origin_homes.get("gia_toc", []).size(), 7, "7 clan towns")
+	assert_eq(kinds.call("gia_toc"), ["town"], "only towns")
+
+
 # --- The tile grid (ContinentGrid) --------------------------------------------------------------------------------
 
 func _grid() -> ContinentGrid:

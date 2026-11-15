@@ -32,8 +32,9 @@ var places: Dictionary = {}
 var routes: Array = []
 ## The teleport-array cities' place ids.
 var arrays: PackedInt32Array = []
-## The origins' home choices, as approved.
+## The origins' home choices, as approved, and per origin id the place ids its characters may start at.
 var origins: Dictionary = {}
+var origin_homes: Dictionary = {}
 ## Problems found while loading; empty when the data is consistent.
 var errors: PackedStringArray = []
 var _adj: Dictionary = {}   # place id -> [{to, kind, tiles, km}]
@@ -76,6 +77,9 @@ static func from_dict(d: Dictionary) -> ContinentData:
 	for id in d.get("arrays", []):
 		cd.arrays.append(int(id))
 	cd.origins = d.get("origins", {})
+	var oh: Dictionary = d.get("origin_homes", {})
+	for oid in oh:
+		cd.origin_homes[str(oid)] = (oh[oid] as Array).map(func(x): return int(x))
 	cd._validate()
 	return cd
 
@@ -163,6 +167,10 @@ func _validate() -> void:
 	for id in arrays:
 		if not places.has(id) or not bool(places[id].get("array", false)):
 			errors.append("array %d is not a teleport-array place" % id)
+	for oid in origin_homes:
+		for id in origin_homes[oid]:
+			if not places.has(id):
+				errors.append("origin %s: home %d is not a place" % [oid, id])
 
 
 func _check_seat(key: String, s: Dictionary, kind: String) -> void:

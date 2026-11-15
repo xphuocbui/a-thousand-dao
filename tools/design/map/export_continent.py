@@ -289,6 +289,28 @@ def main():
                           "craft": s.get("craft", ""), "lord": s.get("lord", ""), "region": s.get("region"),
                           "seat": seat["id"] if seat else None})
 
+    # origins: each approved home choice resolved to the place it starts at (fixed-world decisions: a sect disciple at
+    # its sect's seat, a loose cultivator at a cultivator market, a clan heir in its clan's town)
+    seat_by_name = {}
+    for g in great_out + minor_out:
+        if g["seat"] is not None:
+            seat_by_name[g["name"]] = g["seat"]
+    origin_homes = {}
+    unresolved = []
+    for oid, od in origins.get("origins", {}).items():
+        homes = []
+        for ch in od.get("choices", []):
+            names = []
+            if "sect" in ch:
+                pid = seat_by_name.get(ch["sect"])
+                homes.append(pid) if pid is not None else unresolved.append([oid, ch["sect"]])
+                continue
+            names = ch.get("market", []) if "market" in ch else [ch.get("town", "")]
+            for nm in names:
+                pl = by_name.get(nm)
+                homes.append(pl["id"]) if pl is not None else unresolved.append([oid, nm])
+        origin_homes[oid] = homes
+
     routes = []
     for (x, y), (tiles, trunk, cost) in sorted(road_routes(roads, w, h, places, ct).items()):
         routes.append({"a": x, "b": y, "kind": "trunk" if trunk else "road", "tiles": round(tiles, 3),
@@ -318,7 +340,7 @@ def main():
                  "kind road | trunk | lane, length in tiles and km, and cost: Travel & Map Formula D's sum of c_t "
                  "along the route (road tiles 1 + r_share x (c_wild - 1) from the tile's biome mix, sea 1; "
                  "ContinentData.trip_seasons divides it by the mode's speed). grid_file: the tile grid (ContinentGrid; "
-                 "the layers are listed in the exporter); legend: biome ids and feature bits as the grid stores them. arrays: the teleport-array cities. origins: the origin home choices (approved)."),
+                 "the layers are listed in the exporter); legend: biome ids and feature bits as the grid stores them. arrays: the teleport-array cities. origins: the origin home choices (approved); origin_homes: per origin id, the place ids a character of that origin may start at."),
         "source": m.replace("\\", "/"),
         "grid": [w, h],
         "km_per_tile": km_per_tile,
@@ -329,6 +351,7 @@ def main():
         "routes": routes,
         "arrays": [p["id"] for p in places if p.get("array")],
         "origins": origins.get("origins", {}),
+        "origin_homes": origin_homes,
         "grid_file": "res://" + a.grid.replace("\\", "/"),
         "legend": {"biome_ids": load(os.path.join(m, "base", "meta.json"))["legend"]["biome_ids"],
                    "feature_bits": load(os.path.join(m, "base", "meta.json"))["legend"]["feature_bits"]},
@@ -342,7 +365,7 @@ def main():
         kinds[r["kind"]] = kinds.get(r["kind"], 0) + 1
     print(json.dumps({"regions": len(regions), "great_sects": len(great_out), "minor_sects": len(minor_out),
                       "places": len(places), "routes": kinds, "arrays": len(out["arrays"]),
-                      "lanes_not_traced": missing_lanes, "out": a.out, "grid": a.grid, "grid_bytes": grid_bytes},
+                      "lanes_not_traced": missing_lanes, "origins_unresolved": unresolved, "out": a.out, "grid": a.grid, "grid_bytes": grid_bytes},
                      ensure_ascii=False))
     return 0
 
