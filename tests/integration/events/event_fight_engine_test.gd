@@ -33,8 +33,9 @@ func _resolve(seed_v: int, on: bool) -> Array:
 	return [r, before, s.rng.state]
 
 
-func test_the_flag_is_off_by_default_and_the_duel_runs() -> void:
-	assert_false(bool(game_data().combat().fight_engine.enabled), "off in the shipped data")
+## The shipped flag is on (user decision 2026-11-15, commit 046dc4d); switched off, the duel roll still runs.
+func test_the_flag_is_on_in_shipped_data_and_off_runs_the_duel() -> void:
+	assert_true(bool(game_data().combat().fight_engine.enabled), "on in the shipped data")
 	var r: Dictionary = _resolve(11, false)[0]
 	assert_true(str(r.check_line).contains("chiến lực"), "the duel line: %s" % r.check_line)
 
