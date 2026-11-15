@@ -189,23 +189,23 @@
   "realm_distribution": [
     {
       "realm": "luyen_khi",
-      "weight": 79.4
+      "weight": 3936
     },
     {
       "realm": "truc_co",
-      "weight": 16.7
+      "weight": 844
     },
     {
       "realm": "ket_dan",
-      "weight": 3.8
+      "weight": 191
     },
     {
       "realm": "nguyen_anh",
-      "weight": 0.53
+      "weight": 27
     },
     {
       "realm": "hoa_than",
-      "weight": 0.06
+      "weight": 3
     }
   ],
   "archetypes": [
