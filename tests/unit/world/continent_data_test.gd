@@ -69,3 +69,55 @@ func test_trip_time_is_formula_d() -> void:
 	var cd := _cd()
 	for rt in cd.routes:
 		assert_true(float(rt.cost) >= float(rt.tiles) - 1e-6, "%d-%d: terrain never speeds a road (c_t >= 1)" % [rt.a, rt.b])
+
+
+# --- The tile grid (ContinentGrid) --------------------------------------------------------------------------------
+
+func _grid() -> ContinentGrid:
+	return ContinentGrid.from_continent(game_data())
+
+
+func test_the_grid_loads_every_layer_at_the_continents_size() -> void:
+	var g := _grid()
+	assert_eq(g.errors.size(), 0, "no errors: %s" % "; ".join(g.errors))
+	assert_eq([g.width, g.height], [540, 360], "540 x 360")
+
+
+func test_the_grid_agrees_with_the_places() -> void:
+	# every place sits in its region's tiles, on its main biome, and a place on a road is on a road tile
+	var g := _grid()
+	var cd := _cd()
+	var bad_region: Array = []
+	var bad_biome: Array = []
+	var bad_road: Array = []
+	for id in cd.places:
+		var p: Dictionary = cd.places[id]
+		var x: int = int(p.tile[0])
+		var y: int = int(p.tile[1])
+		if g.region(x, y) != int(p.region):
+			bad_region.append(str(p.name))
+		if str(p.get("biome", "")) != "" and g.biome_name(g.main_biome(x, y)).replace("_", " ") != str(p.biome).to_lower():
+			bad_biome.append("%s %s/%s" % [str(p.name), g.biome_name(g.main_biome(x, y)), str(p.biome)])
+		if bool(p.get("on_road", false)) and g.road(x, y) == ContinentGrid.ROAD_NONE:
+			bad_road.append(str(p.name))
+	assert_eq(bad_region, [], "places in their regions")
+	assert_eq(bad_biome, [], "places on their main biome")
+	assert_eq(bad_road, [], "places on roads are on road tiles")
+
+
+func test_land_tiles_have_shares_summing_to_100_and_values_in_range() -> void:
+	var g := _grid()
+	var odd: Array = []
+	for y in range(0, g.height, 7):
+		for x in range(0, g.width, 7):
+			var mix: Array = g.biome_mix(x, y)
+			var tot := 0
+			for part in mix:
+				tot += int(part[1])
+			if tot != 100:
+				odd.append("%d,%d sums %d" % [x, y, tot])
+			if g.temperature_c(x, y) < -50.0 or g.temperature_c(x, y) > 77.5:
+				odd.append("%d,%d temperature %.1f" % [x, y, g.temperature_c(x, y)])
+	assert_eq(odd, [], "every sampled tile's mix sums to 100")
+	var seat: Dictionary = _cd().places[int(_cd().great_sects["thien_xu"].seat)]
+	assert_eq(g.elevation_m(int(seat.tile[0]), int(seat.tile[1])), 2070, "Thiên Xu Tông's seat at 2,070 m (politics: 2.07 km)")

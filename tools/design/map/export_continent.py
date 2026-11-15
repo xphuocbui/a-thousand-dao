@@ -24,12 +24,54 @@ import heapq
 import json
 import math
 import os
+import struct
 import sys
+import zlib
 
 from PIL import Image
 
 N8 = [(-1, -1), (0, -1), (1, -1), (-1, 0), (1, 0), (-1, 1), (0, 1), (1, 1)]
 SETTLED = ("great_seat", "minor_seat", "city", "market", "town", "village", "mine")
+
+
+GRID_MAGIC = b"DAOGRID1"
+
+
+def write_grid(m, roads, w, h, out_path):
+    """The tile grid as a binary file the game reads exactly (Godot would import a PNG as a texture, and 16-bit values
+    would not survive): "DAOGRID1", u16 width, u16 height, u16 layer count, then per layer a 4-byte tag, u8 bytes a
+    value, u8 signed, u32 raw length, u32 compressed length and the zlib-compressed values in row order, little-endian.
+    Layers: BIO1-3 the tile's biome ids largest first (255 none), SHR1-3 their shares in %, MAIN the main biome (sea when
+    sea is half the tile or more), ELEV metres (signed), TEMP (annual mean C + 50) x 2, RAIN annual mm, FEAT feature
+    bits, ROAD 0 none / 1 road / 2 trunk / 3 sea lane, REGN region id (0 sea)."""
+    base = os.path.join(m, "base")
+    mix_b = Image.open(os.path.join(base, "mix_biome.png")).convert("RGB")
+    mix_s = Image.open(os.path.join(base, "mix_share.png")).convert("RGB")
+    flat = lambda im: list(im.getdata()) if not hasattr(im, "get_flattened_data") else list(im.get_flattened_data())
+    mb, ms = flat(mix_b), flat(mix_s)
+    layers = []
+    for k in range(3):
+        layers.append((b"BIO%d" % (k + 1), 1, 0, [v[k] for v in mb]))
+    for k in range(3):
+        layers.append((b"SHR%d" % (k + 1), 1, 0, [v[k] for v in ms]))
+    layers.append((b"MAIN", 1, 0, flat(Image.open(os.path.join(base, "biome.png")))))
+    layers.append((b"ELEV", 2, 1, [v - 10000 for v in flat(Image.open(os.path.join(base, "elevation.png")))]))
+    layers.append((b"TEMP", 1, 0, flat(Image.open(os.path.join(base, "temperature.png")))))
+    layers.append((b"RAIN", 2, 0, flat(Image.open(os.path.join(base, "rainfall.png")))))
+    layers.append((b"FEAT", 2, 0, flat(Image.open(os.path.join(base, "features.png")))))
+    layers.append((b"ROAD", 1, 0, roads))
+    layers.append((b"REGN", 1, 0, flat(Image.open(os.path.join(m, "regions.png")))))
+    blob = bytearray(GRID_MAGIC + struct.pack("<HHH", w, h, len(layers)))
+    for tag, nb, signed, vals in layers:
+        assert len(vals) == w * h, tag
+        fmt = {(1, 0): "B", (2, 0): "H", (2, 1): "h"}[(nb, signed)]
+        raw = struct.pack("<%d%s" % (len(vals), fmt), *vals)
+        comp = zlib.compress(raw, 9)
+        blob += tag + struct.pack("<BBII", nb, signed, len(raw), len(comp)) + comp
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    with open(out_path, "wb") as fh:
+        fh.write(blob)
+    return len(blob)
 
 
 def load(path):
@@ -171,6 +213,7 @@ def main():
     ap.add_argument("--map", default="design/map/continent-11")
     ap.add_argument("--out", default="assets/data/world_continent.json")
     ap.add_argument("--travel", default="assets/data/travel_rules.json")
+    ap.add_argument("--grid", default="assets/map/continent_11_grid.bin")
     a = ap.parse_args()
     m = a.map
     places_doc = load(os.path.join(m, "places.json"))
@@ -274,7 +317,8 @@ def main():
                  "flags, names (holder: the great or minor sect key holding the place, "" for an unheld wild site); sacred places follow the 204 settled and wild ones. routes: a, b (place ids, a < b), "
                  "kind road | trunk | lane, length in tiles and km, and cost: Travel & Map Formula D's sum of c_t "
                  "along the route (road tiles 1 + r_share x (c_wild - 1) from the tile's biome mix, sea 1; "
-                 "ContinentData.trip_seasons divides it by the mode's speed). arrays: the teleport-array cities. origins: the origin home choices (approved)."),
+                 "ContinentData.trip_seasons divides it by the mode's speed). grid_file: the tile grid (ContinentGrid; "
+                 "the layers are listed in the exporter); legend: biome ids and feature bits as the grid stores them. arrays: the teleport-array cities. origins: the origin home choices (approved)."),
         "source": m.replace("\\", "/"),
         "grid": [w, h],
         "km_per_tile": km_per_tile,
@@ -285,7 +329,11 @@ def main():
         "routes": routes,
         "arrays": [p["id"] for p in places if p.get("array")],
         "origins": origins.get("origins", {}),
+        "grid_file": "res://" + a.grid.replace("\\", "/"),
+        "legend": {"biome_ids": load(os.path.join(m, "base", "meta.json"))["legend"]["biome_ids"],
+                   "feature_bits": load(os.path.join(m, "base", "meta.json"))["legend"]["feature_bits"]},
     }
+    grid_bytes = write_grid(m, roads, w, h, a.grid)
     os.makedirs(os.path.dirname(a.out), exist_ok=True)
     with open(a.out, "w", encoding="utf-8") as fh:
         json.dump(out, fh, ensure_ascii=False, indent=1)
@@ -294,7 +342,8 @@ def main():
         kinds[r["kind"]] = kinds.get(r["kind"], 0) + 1
     print(json.dumps({"regions": len(regions), "great_sects": len(great_out), "minor_sects": len(minor_out),
                       "places": len(places), "routes": kinds, "arrays": len(out["arrays"]),
-                      "lanes_not_traced": missing_lanes, "out": a.out}, ensure_ascii=False))
+                      "lanes_not_traced": missing_lanes, "out": a.out, "grid": a.grid, "grid_bytes": grid_bytes},
+                     ensure_ascii=False))
     return 0
 
 

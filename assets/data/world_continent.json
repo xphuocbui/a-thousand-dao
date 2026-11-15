@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "_doc": "The authored continent (design/map/continent-11, approved by the user 2026-11-13/14), exported by tools/design/map/export_continent.py; do not edit by hand, edit the design data and re-export. regions: id, name, holder (great sect key), centre tile, size, neighbours, biome shares. great_sects / minor_sects: key, names, tier or lord, leans, seat (place id). places: id, kind, tile [x, y] on the 540 x 360 grid (25 km tiles), region, holder and territory (great sect keys), land flags, names (holder: the great or minor sect key holding the place,  for an unheld wild site); sacred places follow the 204 settled and wild ones. routes: a, b (place ids, a < b), kind road | trunk | lane, length in tiles and km, and cost: Travel & Map Formula D's sum of c_t along the route (road tiles 1 + r_share x (c_wild - 1) from the tile's biome mix, sea 1; ContinentData.trip_seasons divides it by the mode's speed). arrays: the teleport-array cities. origins: the origin home choices (approved).",
+ "_doc": "The authored continent (design/map/continent-11, approved by the user 2026-11-13/14), exported by tools/design/map/export_continent.py; do not edit by hand, edit the design data and re-export. regions: id, name, holder (great sect key), centre tile, size, neighbours, biome shares. great_sects / minor_sects: key, names, tier or lord, leans, seat (place id). places: id, kind, tile [x, y] on the 540 x 360 grid (25 km tiles), region, holder and territory (great sect keys), land flags, names (holder: the great or minor sect key holding the place,  for an unheld wild site); sacred places follow the 204 settled and wild ones. routes: a, b (place ids, a < b), kind road | trunk | lane, length in tiles and km, and cost: Travel & Map Formula D's sum of c_t along the route (road tiles 1 + r_share x (c_wild - 1) from the tile's biome mix, sea 1; ContinentData.trip_seasons divides it by the mode's speed). grid_file: the tile grid (ContinentGrid; the layers are listed in the exporter); legend: biome ids and feature bits as the grid stores them. arrays: the teleport-array cities. origins: the origin home choices (approved).",
  "source": "design/map/continent-11",
  "grid": [
   540,
@@ -8708,6 +8708,43 @@
     }
    ],
    "start": "in the clan's town, with its field already growing"
+  }
+ },
+ "grid_file": "res://assets/map/continent_11_grid.bin",
+ "legend": {
+  "biome_ids": {
+   "0": "temperate_forest",
+   "1": "bamboo_forest",
+   "2": "jungle",
+   "3": "grassland",
+   "4": "steppe",
+   "5": "desert",
+   "6": "salt_flats",
+   "7": "badlands",
+   "8": "swamp",
+   "9": "mangrove",
+   "10": "highland",
+   "11": "high_mountain",
+   "12": "karst",
+   "13": "volcano",
+   "14": "tundra",
+   "15": "glacier",
+   "16": "miasma",
+   "17": "lake",
+   "18": "sea"
+  },
+  "feature_bits": {
+   "lava": 1,
+   "hot_spring": 2,
+   "ice_field": 4,
+   "river": 8,
+   "lake": 16,
+   "ore_vein": 32,
+   "karst_core": 64,
+   "spirit_vein": 128,
+   "sacred_summit": 256,
+   "deep_cave": 512,
+   "miasma_source": 1024
   }
  }
 }

@@ -17,7 +17,8 @@ tools/debug-terminal.sh                   (Git Bash)
 Both run the **release** build of the game (2026-11-15): Power Rankings is on, and its rating fights run several
 times faster there than in the editor's debug binary (about 36 s of background work a season instead of about 2
 minutes). The launcher re-exports it first (a few seconds, preset "Windows Combat Bench", which needs the 4.7.1
-export templates) whenever `src/`, `assets/data/` or `project.godot` changed since the last export, so it never runs
+export templates and, in `export_presets.cfg` (local, not in git), `include_filter="*.json, *.bin"` and
+`debug/export_console_wrapper=2` so the data, the continent grid and the console executable are exported) whenever `src/`, `assets/data/` or `project.godot` changed since the last export, so it never runs
 stale code or data:
 
 ```

@@ -406,6 +406,15 @@ static func continent(s: GameSession, args: Array) -> Array:
 			int(p.region), str(cd.regions[int(p.region)].name), str((gs.get(str(p.holder), cd.minor_sects.get(str(p.holder), {}))).get("name", "no one"))])
 		if str(p.get("gloss", "")) != "":
 			lines.append("  %s %s" % [str(p.get("name_han", "")), str(p.gloss)])
+		var grid := ContinentGrid.from_continent(s.gd)
+		if grid.errors.is_empty():
+			var x: int = int(p.tile[0])
+			var y: int = int(p.tile[1])
+			var mix: Array = grid.biome_mix(x, y).map(func(part): return "%s %d%%" % [grid.biome_name(int(part[0])), int(part[1])])
+			lines.append("  tile %d,%d: %s; %d m, %.1f °C, %d mm rain" % [x, y, ", ".join(mix), grid.elevation_m(x, y),
+				grid.temperature_c(x, y), grid.rainfall_mm(x, y)])
+		else:
+			lines.append("  (tile grid unavailable: %s)" % grid.errors[0])
 		var travel: Dictionary = s.gd.file("travel_rules")
 		var tsp: float = s.sheet().total("travel_speed_pct") if s.player != null else 0.0
 		for r in cd.neighbours(pid):

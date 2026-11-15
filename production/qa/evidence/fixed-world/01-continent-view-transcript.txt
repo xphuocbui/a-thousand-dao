@@ -129,9 +129,11 @@ Thâm Tùng Hải (深松海) Deep Sea of Pines, held by Tùng Đào Cung
   206  spirit_vein Thương Tùng Mạch         Vein of the Grey Pines
 > continent place 2
 Tùng Đào Cung [2] great_seat, temperate forest, region 4 Thâm Tùng Hải, held by Tùng Đào Cung
+  tile 236,124: temperate_forest 100%; 807 m, 3.0 °C, 744 mm rain
   -> 33   Đào Thanh Thành        trunk    298 km  0.25 seasons
   -> 46   Tùng Hạ Thị            trunk    212 km  0.18 seasons
 > continent place 9
 Hồng Lô Cốc [9] minor_seat, tundra, region 2 Tuyết Hỏa Giác, held by Hồng Lô Cốc
+  tile 108,78: tundra 73%, volcano 27%; 297 m, 4.0 °C, 872 mm rain
   no road or sea lane reaches it
 > (end of input)
