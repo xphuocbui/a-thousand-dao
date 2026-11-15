@@ -31,8 +31,9 @@ static func sect_successor(db: WorldDB, gd: GameData, dead: Dictionary) -> Strin
 	if sid == "":
 		return ""
 	var ladder: Array = gd.world_gen().sects.rank_ladder
+	# the player is never picked: they stand for an open seat by their own choice (Sects & Missions rule 28)
 	var members: Array = db.find("people", func(p): return p.alive and str(p.get("sect_id", "")) == sid \
-		and str(p.id) != str(dead.id) and not p.get("is_beast", false))
+		and str(p.id) != str(dead.id) and not p.get("is_beast", false) and not bool(p.get("is_player", false)))
 	if members.is_empty():
 		return ""
 	var at: int = ladder.find(str(dead.get("sect_rank", "")))

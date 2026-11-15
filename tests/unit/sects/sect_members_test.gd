@@ -142,3 +142,17 @@ func test_the_advisor_points_to_joining_and_to_a_promotion() -> void:
 	var g: Array = Advisor.goals(s).filter(func(x): return str(x.id) == "sect_promote")
 	assert_eq(g.size(), 1, "a met gate suggests promotion")
 	assert_eq(str(g[0].command), "promote", "with the command")
+
+
+func test_the_player_is_never_made_head_by_succession_rule_28() -> void:
+	# Regression (night 2026-11-15): with promotion the player can be the strongest elder, and the world tick's
+	# succession picked them as head with no choice of theirs. Rule 28: the player stands for an open seat by choice.
+	var gd := game_data()
+	var db := WorldDB.new()
+	db.put("sects", {"id": "s1", "name": "Thanh Vân Tông", "leader_id": "p1", "members": ["p1", "p2", "p3"], "status": "active"})
+	db.put("people", {"id": "p1", "alive": false, "sect_id": "s1", "sect_rank": "tong_chu", "realm_index": 3, "stage": 0})
+	db.put("people", {"id": "p2", "alive": true, "sect_id": "s1", "sect_rank": "truong_lao", "realm_index": 3, "stage": 3, "is_player": true})
+	db.put("people", {"id": "p3", "alive": true, "sect_id": "s1", "sect_rank": "truong_lao", "realm_index": 2, "stage": 0})
+	assert_eq(Inheritance.sect_successor(db, gd, db.get_record("people", "p1")), "p3", "the NPC elder, though the player is stronger")
+	db.get_record("people", "p3")["alive"] = false
+	assert_eq(Inheritance.sect_successor(db, gd, db.get_record("people", "p1")), "", "no NPC left: no successor, never the player")
