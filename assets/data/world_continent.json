@@ -1,0 +1,8517 @@
+{
+ "schema_version": 1,
+ "_doc": "The authored continent (design/map/continent-11, approved by the user 2026-11-13/14), exported by tools/design/map/export_continent.py; do not edit by hand, edit the design data and re-export. regions: id, name, holder (great sect key), centre tile, size, neighbours, biome shares. great_sects / minor_sects: key, names, tier or lord, leans, seat (place id). places: id, kind, tile [x, y] on the 540 x 360 grid (25 km tiles), region, holder and territory (great sect keys), land flags, names (holder: the great or minor sect key holding the place,  for an unheld wild site); sacred places follow the 204 settled and wild ones. routes: a, b (place ids, a < b), kind road | trunk | lane, length in tiles and km (Travel & Map Formula D turns them into travel time). arrays: the teleport-array cities. origins: the origin home choices (approved).",
+ "source": "design/map/continent-11",
+ "grid": [
+  540,
+  360
+ ],
+ "km_per_tile": 25.0,
+ "regions": [
+  {
+   "id": 1,
+   "name": "Lãnh Nguyệt Lâm",
+   "name_han": "冷月林",
+   "gloss": "Forest of the Cold Moon",
+   "holder": "tung_dao",
+   "centre_tile": [
+    320,
+    84
+   ],
+   "tiles": 4620,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 5,
+     "border_tiles": 100,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 42,
+      "open": 58
+     }
+    },
+    {
+     "region": 6,
+     "border_tiles": 75,
+     "natural_share": 0.05,
+     "kinds": {
+      "divide": 28,
+      "open": 43,
+      "river": 4
+     }
+    },
+    {
+     "region": 7,
+     "border_tiles": 53,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 24,
+      "open": 29
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 77.6
+    },
+    {
+     "biome": "Tundra",
+     "share": 14.5
+    },
+    {
+     "biome": "Swamp",
+     "share": 5.1
+    },
+    {
+     "biome": "Lake",
+     "share": 2.5
+    }
+   ],
+   "mean_temp_c": 1.1,
+   "mean_rain_mm": 757
+  },
+  {
+   "id": 2,
+   "name": "Tuyết Hỏa Giác",
+   "name_han": "雪火角",
+   "gloss": "Cape of Snow and Fire",
+   "holder": "thuy_vi",
+   "centre_tile": [
+    88,
+    100
+   ],
+   "tiles": 4729,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 3,
+     "border_tiles": 86,
+     "natural_share": 0.35,
+     "kinds": {
+      "divide": 20,
+      "mountain": 22,
+      "open": 36,
+      "upland": 8
+     }
+    },
+    {
+     "region": 11,
+     "border_tiles": 5,
+     "natural_share": 0.8,
+     "kinds": {
+      "divide": 1,
+      "mountain": 4
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 71.3
+    },
+    {
+     "biome": "Tundra",
+     "share": 17.2
+    },
+    {
+     "biome": "Swamp",
+     "share": 3.9
+    },
+    {
+     "biome": "High mountain",
+     "share": 3.5
+    },
+    {
+     "biome": "Grassland",
+     "share": 1.7
+    }
+   ],
+   "mean_temp_c": 6.0,
+   "mean_rain_mm": 972
+  },
+  {
+   "id": 3,
+   "name": "Thanh Loan Lĩnh",
+   "name_han": "青巒嶺",
+   "gloss": "Ridges of the Blue Peaks",
+   "holder": "thuy_vi",
+   "centre_tile": [
+    159,
+    90
+   ],
+   "tiles": 5169,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 2,
+     "border_tiles": 86,
+     "natural_share": 0.35,
+     "kinds": {
+      "divide": 20,
+      "mountain": 22,
+      "open": 36,
+      "upland": 8
+     }
+    },
+    {
+     "region": 4,
+     "border_tiles": 86,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 44,
+      "open": 42
+     }
+    },
+    {
+     "region": 13,
+     "border_tiles": 25,
+     "natural_share": 0.56,
+     "kinds": {
+      "divide": 11,
+      "mountain": 14
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 67.6
+    },
+    {
+     "biome": "High mountain",
+     "share": 14.3
+    },
+    {
+     "biome": "Tundra",
+     "share": 12.9
+    },
+    {
+     "biome": "Swamp",
+     "share": 2.8
+    },
+    {
+     "biome": "Karst peaks",
+     "share": 1.7
+    }
+   ],
+   "mean_temp_c": 2.2,
+   "mean_rain_mm": 887
+  },
+  {
+   "id": 4,
+   "name": "Thâm Tùng Hải",
+   "name_han": "深松海",
+   "gloss": "Deep Sea of Pines",
+   "holder": "tung_dao",
+   "centre_tile": [
+    218,
+    119
+   ],
+   "tiles": 4981,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 3,
+     "border_tiles": 86,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 44,
+      "open": 42
+     }
+    },
+    {
+     "region": 5,
+     "border_tiles": 181,
+     "natural_share": 0.19,
+     "kinds": {
+      "divide": 60,
+      "open": 86,
+      "river": 12,
+      "mountain": 20,
+      "upland": 3
+     }
+    },
+    {
+     "region": 13,
+     "border_tiles": 79,
+     "natural_share": 0.1,
+     "kinds": {
+      "divide": 25,
+      "mountain": 4,
+      "open": 46,
+      "river": 4
+     }
+    },
+    {
+     "region": 14,
+     "border_tiles": 40,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 33,
+      "upland": 7
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 88.4
+    },
+    {
+     "biome": "High mountain",
+     "share": 8.4
+    },
+    {
+     "biome": "Tundra",
+     "share": 1.4
+    }
+   ],
+   "mean_temp_c": 4.9,
+   "mean_rain_mm": 866
+  },
+  {
+   "id": 5,
+   "name": "Cửu Khúc Xuyên",
+   "name_han": "九曲川",
+   "gloss": "Land of the Nine-Bend River",
+   "holder": "tung_dao",
+   "centre_tile": [
+    256,
+    101
+   ],
+   "tiles": 4362,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 1,
+     "border_tiles": 100,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 42,
+      "open": 58
+     }
+    },
+    {
+     "region": 4,
+     "border_tiles": 181,
+     "natural_share": 0.19,
+     "kinds": {
+      "divide": 60,
+      "open": 86,
+      "river": 12,
+      "mountain": 20,
+      "upland": 3
+     }
+    },
+    {
+     "region": 6,
+     "border_tiles": 50,
+     "natural_share": 0.14,
+     "kinds": {
+      "divide": 17,
+      "open": 26,
+      "river": 1,
+      "mountain": 6
+     }
+    },
+    {
+     "region": 14,
+     "border_tiles": 28,
+     "natural_share": 0.71,
+     "kinds": {
+      "upland": 8,
+      "divide": 1,
+      "mountain": 12,
+      "open": 7
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 85.2
+    },
+    {
+     "biome": "Tundra",
+     "share": 7.2
+    },
+    {
+     "biome": "Swamp",
+     "share": 4.8
+    },
+    {
+     "biome": "High mountain",
+     "share": 2.6
+    }
+   ],
+   "mean_temp_c": 2.2,
+   "mean_rain_mm": 697
+  },
+  {
+   "id": 6,
+   "name": "Dao Quang Lĩnh",
+   "name_han": "瑤光嶺",
+   "gloss": "Ridge of the Jade Light",
+   "holder": "thien_xu",
+   "centre_tile": [
+    333,
+    148
+   ],
+   "tiles": 4573,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 1,
+     "border_tiles": 75,
+     "natural_share": 0.05,
+     "kinds": {
+      "divide": 28,
+      "open": 43,
+      "river": 4
+     }
+    },
+    {
+     "region": 5,
+     "border_tiles": 50,
+     "natural_share": 0.14,
+     "kinds": {
+      "divide": 17,
+      "open": 26,
+      "river": 1,
+      "mountain": 6
+     }
+    },
+    {
+     "region": 7,
+     "border_tiles": 38,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 38
+     }
+    },
+    {
+     "region": 14,
+     "border_tiles": 94,
+     "natural_share": 0.27,
+     "kinds": {
+      "divide": 28,
+      "open": 41,
+      "river": 8,
+      "mountain": 14,
+      "upland": 3
+     }
+    },
+    {
+     "region": 15,
+     "border_tiles": 99,
+     "natural_share": 0.64,
+     "kinds": {
+      "mountain": 52,
+      "divide": 5,
+      "open": 31,
+      "upland": 11
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 60.4
+    },
+    {
+     "biome": "High mountain",
+     "share": 23.2
+    },
+    {
+     "biome": "Steppe",
+     "share": 9.3
+    },
+    {
+     "biome": "Badlands",
+     "share": 6.0
+    }
+   ],
+   "mean_temp_c": 5.3,
+   "mean_rain_mm": 562
+  },
+  {
+   "id": 7,
+   "name": "Ngọc Hồ Sơn",
+   "name_han": "玉壺山",
+   "gloss": "Mountains of the Jade Vessel",
+   "holder": "bang_tam",
+   "centre_tile": [
+    392,
+    100
+   ],
+   "tiles": 3354,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 1,
+     "border_tiles": 53,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 24,
+      "open": 29
+     }
+    },
+    {
+     "region": 6,
+     "border_tiles": 38,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 38
+     }
+    },
+    {
+     "region": 8,
+     "border_tiles": 64,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 61,
+      "river": 3
+     }
+    },
+    {
+     "region": 9,
+     "border_tiles": 10,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 10
+     }
+    },
+    {
+     "region": 15,
+     "border_tiles": 10,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 4,
+      "upland": 2,
+      "river": 4
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 45.7
+    },
+    {
+     "biome": "High mountain",
+     "share": 33.4
+    },
+    {
+     "biome": "Tundra",
+     "share": 8.7
+    },
+    {
+     "biome": "Swamp",
+     "share": 6.7
+    },
+    {
+     "biome": "Glacier",
+     "share": 4.0
+    }
+   ],
+   "mean_temp_c": 1.4,
+   "mean_rain_mm": 1033
+  },
+  {
+   "id": 8,
+   "name": "Cô Yên Mạc",
+   "name_han": "孤煙漠",
+   "gloss": "Desert of the Lone Smoke",
+   "holder": "bang_tam",
+   "centre_tile": [
+    445,
+    156
+   ],
+   "tiles": 3452,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 7,
+     "border_tiles": 64,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 61,
+      "river": 3
+     }
+    },
+    {
+     "region": 9,
+     "border_tiles": 89,
+     "natural_share": 0.24,
+     "kinds": {
+      "mountain": 18,
+      "open": 54,
+      "divide": 14,
+      "upland": 3
+     }
+    },
+    {
+     "region": 15,
+     "border_tiles": 8,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 8
+     }
+    },
+    {
+     "region": 17,
+     "border_tiles": 60,
+     "natural_share": 0.28,
+     "kinds": {
+      "mountain": 7,
+      "open": 18,
+      "river": 10,
+      "divide": 25
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Steppe",
+     "share": 44.0
+    },
+    {
+     "biome": "Desert",
+     "share": 20.0
+    },
+    {
+     "biome": "High mountain",
+     "share": 15.1
+    },
+    {
+     "biome": "Grassland",
+     "share": 7.9
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 6.9
+    },
+    {
+     "biome": "Badlands",
+     "share": 5.4
+    }
+   ],
+   "mean_temp_c": 8.3,
+   "mean_rain_mm": 264
+  },
+  {
+   "id": 9,
+   "name": "Hàn Sương Châu",
+   "name_han": "寒霜洲",
+   "gloss": "Land of Cold Frost",
+   "holder": "bang_tam",
+   "centre_tile": [
+    461,
+    98
+   ],
+   "tiles": 4341,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 7,
+     "border_tiles": 10,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 10
+     }
+    },
+    {
+     "region": 8,
+     "border_tiles": 89,
+     "natural_share": 0.24,
+     "kinds": {
+      "mountain": 18,
+      "open": 54,
+      "divide": 14,
+      "upland": 3
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 69.1
+    },
+    {
+     "biome": "Tundra",
+     "share": 11.9
+    },
+    {
+     "biome": "High mountain",
+     "share": 9.1
+    },
+    {
+     "biome": "Steppe",
+     "share": 3.6
+    },
+    {
+     "biome": "Swamp",
+     "share": 3.3
+    },
+    {
+     "biome": "Badlands",
+     "share": 1.0
+    }
+   ],
+   "mean_temp_c": 4.5,
+   "mean_rain_mm": 947
+  },
+  {
+   "id": 10,
+   "name": "Cô Vụ Đảo",
+   "name_han": "孤鶩島",
+   "gloss": "Isle of the Lone Wild Duck",
+   "holder": "lac_ha",
+   "centre_tile": [
+    84,
+    269
+   ],
+   "tiles": 4099,
+   "landmass": "island",
+   "neighbours": [],
+   "biomes": [
+    {
+     "biome": "Grassland",
+     "share": 53.2
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 19.8
+    },
+    {
+     "biome": "Jungle",
+     "share": 18.0
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 4.6
+    },
+    {
+     "biome": "Steppe",
+     "share": 3.5
+    }
+   ],
+   "mean_temp_c": 25.4,
+   "mean_rain_mm": 1224
+  },
+  {
+   "id": 11,
+   "name": "Trường Thiên Nguyên",
+   "name_han": "長天原",
+   "gloss": "Plain of the Endless Sky",
+   "holder": "lac_ha",
+   "centre_tile": [
+    128,
+    198
+   ],
+   "tiles": 3845,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 2,
+     "border_tiles": 5,
+     "natural_share": 0.8,
+     "kinds": {
+      "divide": 1,
+      "mountain": 4
+     }
+    },
+    {
+     "region": 12,
+     "border_tiles": 40,
+     "natural_share": 0.0,
+     "kinds": {
+      "open": 32,
+      "divide": 8
+     }
+    },
+    {
+     "region": 13,
+     "border_tiles": 47,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 5,
+      "open": 42
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Grassland",
+     "share": 58.8
+    },
+    {
+     "biome": "Steppe",
+     "share": 22.9
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 16.7
+    }
+   ],
+   "mean_temp_c": 16.6,
+   "mean_rain_mm": 511
+  },
+  {
+   "id": 12,
+   "name": "Thu Thủy Loan",
+   "name_han": "秋水灣",
+   "gloss": "Bay of Autumn Water",
+   "holder": "lac_ha",
+   "centre_tile": [
+    188,
+    253
+   ],
+   "tiles": 4307,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 11,
+     "border_tiles": 40,
+     "natural_share": 0.0,
+     "kinds": {
+      "open": 32,
+      "divide": 8
+     }
+    },
+    {
+     "region": 13,
+     "border_tiles": 79,
+     "natural_share": 0.2,
+     "kinds": {
+      "mountain": 12,
+      "open": 37,
+      "upland": 1,
+      "divide": 26,
+      "river": 3
+     }
+    },
+    {
+     "region": 14,
+     "border_tiles": 23,
+     "natural_share": 0.7,
+     "kinds": {
+      "mountain": 15,
+      "open": 7,
+      "upland": 1
+     }
+    },
+    {
+     "region": 18,
+     "border_tiles": 155,
+     "natural_share": 0.24,
+     "kinds": {
+      "mountain": 33,
+      "upland": 1,
+      "open": 85,
+      "divide": 33,
+      "river": 3
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Steppe",
+     "share": 39.2
+    },
+    {
+     "biome": "Grassland",
+     "share": 37.2
+    },
+    {
+     "biome": "Badlands",
+     "share": 8.9
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 4.8
+    },
+    {
+     "biome": "High mountain",
+     "share": 3.4
+    },
+    {
+     "biome": "Jungle",
+     "share": 2.7
+    }
+   ],
+   "mean_temp_c": 21.6,
+   "mean_rain_mm": 634
+  },
+  {
+   "id": 13,
+   "name": "Ngư Ca Xuyên",
+   "name_han": "漁歌川",
+   "gloss": "River Land of the Fishermen's Songs",
+   "holder": "lac_ha",
+   "centre_tile": [
+    197,
+    182
+   ],
+   "tiles": 2928,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 3,
+     "border_tiles": 25,
+     "natural_share": 0.56,
+     "kinds": {
+      "divide": 11,
+      "mountain": 14
+     }
+    },
+    {
+     "region": 4,
+     "border_tiles": 79,
+     "natural_share": 0.1,
+     "kinds": {
+      "divide": 25,
+      "mountain": 4,
+      "open": 46,
+      "river": 4
+     }
+    },
+    {
+     "region": 11,
+     "border_tiles": 47,
+     "natural_share": 0.0,
+     "kinds": {
+      "divide": 5,
+      "open": 42
+     }
+    },
+    {
+     "region": 12,
+     "border_tiles": 79,
+     "natural_share": 0.2,
+     "kinds": {
+      "mountain": 12,
+      "open": 37,
+      "upland": 1,
+      "divide": 26,
+      "river": 3
+     }
+    },
+    {
+     "region": 14,
+     "border_tiles": 19,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 15,
+      "upland": 4
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 36.3
+    },
+    {
+     "biome": "Grassland",
+     "share": 24.9
+    },
+    {
+     "biome": "Steppe",
+     "share": 19.7
+    },
+    {
+     "biome": "Badlands",
+     "share": 8.7
+    },
+    {
+     "biome": "Karst peaks",
+     "share": 4.7
+    },
+    {
+     "biome": "High mountain",
+     "share": 3.8
+    }
+   ],
+   "mean_temp_c": 14.1,
+   "mean_rain_mm": 580
+  },
+  {
+   "id": 14,
+   "name": "Thiên Tuyền Nguyên",
+   "name_han": "天璇原",
+   "gloss": "Plain of the Heavenly Jade Wheel",
+   "holder": "thien_xu",
+   "centre_tile": [
+    278,
+    190
+   ],
+   "tiles": 5082,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 4,
+     "border_tiles": 40,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 33,
+      "upland": 7
+     }
+    },
+    {
+     "region": 5,
+     "border_tiles": 28,
+     "natural_share": 0.71,
+     "kinds": {
+      "upland": 8,
+      "divide": 1,
+      "mountain": 12,
+      "open": 7
+     }
+    },
+    {
+     "region": 6,
+     "border_tiles": 94,
+     "natural_share": 0.27,
+     "kinds": {
+      "divide": 28,
+      "open": 41,
+      "river": 8,
+      "mountain": 14,
+      "upland": 3
+     }
+    },
+    {
+     "region": 12,
+     "border_tiles": 23,
+     "natural_share": 0.7,
+     "kinds": {
+      "mountain": 15,
+      "open": 7,
+      "upland": 1
+     }
+    },
+    {
+     "region": 13,
+     "border_tiles": 19,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 15,
+      "upland": 4
+     }
+    },
+    {
+     "region": 15,
+     "border_tiles": 79,
+     "natural_share": 0.89,
+     "kinds": {
+      "upland": 20,
+      "mountain": 47,
+      "open": 9,
+      "river": 3
+     }
+    },
+    {
+     "region": 18,
+     "border_tiles": 19,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 12,
+      "upland": 7
+     }
+    },
+    {
+     "region": 19,
+     "border_tiles": 64,
+     "natural_share": 1.0,
+     "kinds": {
+      "upland": 30,
+      "mountain": 34
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "High mountain",
+     "share": 27.0
+    },
+    {
+     "biome": "Steppe",
+     "share": 25.6
+    },
+    {
+     "biome": "Highland",
+     "share": 21.4
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 14.5
+    },
+    {
+     "biome": "Badlands",
+     "share": 5.5
+    },
+    {
+     "biome": "Grassland",
+     "share": 3.0
+    }
+   ],
+   "mean_temp_c": 9.0,
+   "mean_rain_mm": 328
+  },
+  {
+   "id": 15,
+   "name": "Ngọc Hành Sơn",
+   "name_han": "玉衡山",
+   "gloss": "Mountains of the Jade Balance",
+   "holder": "thien_xu",
+   "centre_tile": [
+    346,
+    206
+   ],
+   "tiles": 4110,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 6,
+     "border_tiles": 99,
+     "natural_share": 0.64,
+     "kinds": {
+      "mountain": 52,
+      "divide": 5,
+      "open": 31,
+      "upland": 11
+     }
+    },
+    {
+     "region": 7,
+     "border_tiles": 10,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 4,
+      "upland": 2,
+      "river": 4
+     }
+    },
+    {
+     "region": 8,
+     "border_tiles": 8,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 8
+     }
+    },
+    {
+     "region": 14,
+     "border_tiles": 79,
+     "natural_share": 0.89,
+     "kinds": {
+      "upland": 20,
+      "mountain": 47,
+      "open": 9,
+      "river": 3
+     }
+    },
+    {
+     "region": 16,
+     "border_tiles": 76,
+     "natural_share": 0.75,
+     "kinds": {
+      "mountain": 53,
+      "upland": 4,
+      "open": 18,
+      "divide": 1
+     }
+    },
+    {
+     "region": 17,
+     "border_tiles": 21,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 21
+     }
+    },
+    {
+     "region": 19,
+     "border_tiles": 63,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 49,
+      "upland": 14
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "High mountain",
+     "share": 46.2
+    },
+    {
+     "biome": "Steppe",
+     "share": 20.3
+    },
+    {
+     "biome": "Grassland",
+     "share": 15.1
+    },
+    {
+     "biome": "Desert",
+     "share": 7.2
+    },
+    {
+     "biome": "Badlands",
+     "share": 4.2
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 4.1
+    }
+   ],
+   "mean_temp_c": 13.0,
+   "mean_rain_mm": 611
+  },
+  {
+   "id": 16,
+   "name": "Thê Ngô Lĩnh",
+   "name_han": "棲梧嶺",
+   "gloss": "Ridge Where the Phoenix Roosts",
+   "holder": "phuong_minh",
+   "centre_tile": [
+    376,
+    262
+   ],
+   "tiles": 3517,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 15,
+     "border_tiles": 76,
+     "natural_share": 0.75,
+     "kinds": {
+      "mountain": 53,
+      "upland": 4,
+      "open": 18,
+      "divide": 1
+     }
+    },
+    {
+     "region": 17,
+     "border_tiles": 63,
+     "natural_share": 0.48,
+     "kinds": {
+      "mountain": 26,
+      "upland": 4,
+      "open": 29,
+      "divide": 4
+     }
+    },
+    {
+     "region": 19,
+     "border_tiles": 57,
+     "natural_share": 0.39,
+     "kinds": {
+      "mountain": 18,
+      "divide": 21,
+      "open": 14,
+      "river": 4
+     }
+    },
+    {
+     "region": 20,
+     "border_tiles": 50,
+     "natural_share": 0.64,
+     "kinds": {
+      "divide": 14,
+      "open": 4,
+      "upland": 1,
+      "mountain": 31
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "High mountain",
+     "share": 38.0
+    },
+    {
+     "biome": "Grassland",
+     "share": 23.2
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 15.5
+    },
+    {
+     "biome": "Jungle",
+     "share": 10.8
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 5.3
+    },
+    {
+     "biome": "Steppe",
+     "share": 4.7
+    }
+   ],
+   "mean_temp_c": 22.3,
+   "mean_rain_mm": 1864
+  },
+  {
+   "id": 17,
+   "name": "Triêu Dương Nguyên",
+   "name_han": "朝陽原",
+   "gloss": "Plain of the Morning Sun",
+   "holder": "phuong_minh",
+   "centre_tile": [
+    433,
+    206
+   ],
+   "tiles": 3963,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 8,
+     "border_tiles": 60,
+     "natural_share": 0.28,
+     "kinds": {
+      "mountain": 7,
+      "open": 18,
+      "river": 10,
+      "divide": 25
+     }
+    },
+    {
+     "region": 15,
+     "border_tiles": 21,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 21
+     }
+    },
+    {
+     "region": 16,
+     "border_tiles": 63,
+     "natural_share": 0.48,
+     "kinds": {
+      "mountain": 26,
+      "upland": 4,
+      "open": 29,
+      "divide": 4
+     }
+    },
+    {
+     "region": 20,
+     "border_tiles": 48,
+     "natural_share": 0.0,
+     "kinds": {
+      "open": 36,
+      "divide": 12
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Grassland",
+     "share": 46.8
+    },
+    {
+     "biome": "Steppe",
+     "share": 33.3
+    },
+    {
+     "biome": "High mountain",
+     "share": 11.2
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 6.1
+    },
+    {
+     "biome": "Lake",
+     "share": 1.2
+    }
+   ],
+   "mean_temp_c": 19.5,
+   "mean_rain_mm": 559
+  },
+  {
+   "id": 18,
+   "name": "Tiêu Vũ Lâm",
+   "name_han": "蕉雨林",
+   "gloss": "Forest of Rain on Banana Leaves",
+   "holder": "thinh_vu",
+   "centre_tile": [
+    229,
+    272
+   ],
+   "tiles": 4393,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 12,
+     "border_tiles": 155,
+     "natural_share": 0.24,
+     "kinds": {
+      "mountain": 33,
+      "upland": 1,
+      "open": 85,
+      "divide": 33,
+      "river": 3
+     }
+    },
+    {
+     "region": 14,
+     "border_tiles": 19,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 12,
+      "upland": 7
+     }
+    },
+    {
+     "region": 19,
+     "border_tiles": 128,
+     "natural_share": 0.38,
+     "kinds": {
+      "upland": 10,
+      "mountain": 33,
+      "divide": 66,
+      "river": 6,
+      "open": 13
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Grassland",
+     "share": 35.2
+    },
+    {
+     "biome": "Jungle",
+     "share": 17.6
+    },
+    {
+     "biome": "High mountain",
+     "share": 12.0
+    },
+    {
+     "biome": "Steppe",
+     "share": 10.1
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 8.2
+    },
+    {
+     "biome": "Badlands",
+     "share": 7.4
+    }
+   ],
+   "mean_temp_c": 22.3,
+   "mean_rain_mm": 929
+  },
+  {
+   "id": 19,
+   "name": "Kinh Trập Sơn",
+   "name_han": "驚蟄山",
+   "gloss": "Mountains of the Waking Thunder",
+   "holder": "thinh_vu",
+   "centre_tile": [
+    301,
+    272
+   ],
+   "tiles": 6167,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 14,
+     "border_tiles": 64,
+     "natural_share": 1.0,
+     "kinds": {
+      "upland": 30,
+      "mountain": 34
+     }
+    },
+    {
+     "region": 15,
+     "border_tiles": 63,
+     "natural_share": 1.0,
+     "kinds": {
+      "mountain": 49,
+      "upland": 14
+     }
+    },
+    {
+     "region": 16,
+     "border_tiles": 57,
+     "natural_share": 0.39,
+     "kinds": {
+      "mountain": 18,
+      "divide": 21,
+      "open": 14,
+      "river": 4
+     }
+    },
+    {
+     "region": 18,
+     "border_tiles": 128,
+     "natural_share": 0.38,
+     "kinds": {
+      "upland": 10,
+      "mountain": 33,
+      "divide": 66,
+      "river": 6,
+      "open": 13
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "High mountain",
+     "share": 32.0
+    },
+    {
+     "biome": "Grassland",
+     "share": 24.8
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 17.7
+    },
+    {
+     "biome": "Jungle",
+     "share": 12.9
+    },
+    {
+     "biome": "Steppe",
+     "share": 5.7
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 3.7
+    }
+   ],
+   "mean_temp_c": 21.8,
+   "mean_rain_mm": 1035
+  },
+  {
+   "id": 20,
+   "name": "Đan Huyệt Châu",
+   "name_han": "丹穴洲",
+   "gloss": "Coast of the Vermilion Caves",
+   "holder": "phuong_minh",
+   "centre_tile": [
+    460,
+    282
+   ],
+   "tiles": 3433,
+   "landmass": "main",
+   "neighbours": [
+    {
+     "region": 16,
+     "border_tiles": 50,
+     "natural_share": 0.64,
+     "kinds": {
+      "divide": 14,
+      "open": 4,
+      "upland": 1,
+      "mountain": 31
+     }
+    },
+    {
+     "region": 17,
+     "border_tiles": 48,
+     "natural_share": 0.0,
+     "kinds": {
+      "open": 36,
+      "divide": 12
+     }
+    }
+   ],
+   "biomes": [
+    {
+     "biome": "Grassland",
+     "share": 41.1
+    },
+    {
+     "biome": "Jungle",
+     "share": 35.3
+    },
+    {
+     "biome": "Steppe",
+     "share": 8.7
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 5.5
+    },
+    {
+     "biome": "High mountain",
+     "share": 3.8
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 2.1
+    }
+   ],
+   "mean_temp_c": 25.8,
+   "mean_rain_mm": 1450
+  }
+ ],
+ "great_sects": [
+  {
+   "key": "thien_xu",
+   "name": "Thiên Xu Tông",
+   "name_han": "天樞宗",
+   "gloss": "Sect of the Heavenly Pivot",
+   "tier": 1,
+   "leans": [
+    "Metal",
+    "Earth"
+   ],
+   "regions": [
+    6,
+    14,
+    15
+   ],
+   "seat_region": 14,
+   "seat": 5
+  },
+  {
+   "key": "tung_dao",
+   "name": "Tùng Đào Cung",
+   "name_han": "松濤宮",
+   "gloss": "Palace of the Pine Waves",
+   "tier": 1,
+   "leans": [
+    "Wood",
+    "Water"
+   ],
+   "regions": [
+    1,
+    4,
+    5
+   ],
+   "seat_region": 4,
+   "seat": 2
+  },
+  {
+   "key": "lac_ha",
+   "name": "Lạc Hà Tông",
+   "name_han": "落霞宗",
+   "gloss": "Sect of the Drifting Sunset Clouds",
+   "tier": 1,
+   "leans": [
+    "Earth",
+    "Wood"
+   ],
+   "regions": [
+    10,
+    11,
+    12,
+    13
+   ],
+   "seat_region": 13,
+   "seat": 4
+  },
+  {
+   "key": "thinh_vu",
+   "name": "Thính Vũ Lâu",
+   "name_han": "聽雨樓",
+   "gloss": "Tower Where One Listens to the Rain",
+   "tier": 2,
+   "leans": [
+    "Metal",
+    "Water",
+    "Thunder"
+   ],
+   "regions": [
+    18,
+    19
+   ],
+   "seat_region": 18,
+   "seat": 7
+  },
+  {
+   "key": "bang_tam",
+   "name": "Băng Tâm Các",
+   "name_han": "冰心閣",
+   "gloss": "Pavilion of the Ice Heart",
+   "tier": 2,
+   "leans": [
+    "Water",
+    "Ice"
+   ],
+   "regions": [
+    7,
+    8,
+    9
+   ],
+   "seat_region": 8,
+   "seat": 3
+  },
+  {
+   "key": "thuy_vi",
+   "name": "Thúy Vi Tông",
+   "name_han": "翠微宗",
+   "gloss": "Sect of the Emerald Haze",
+   "tier": 2,
+   "leans": [
+    "Wood",
+    "Earth"
+   ],
+   "regions": [
+    2,
+    3
+   ],
+   "seat_region": 3,
+   "seat": 1
+  },
+  {
+   "key": "phuong_minh",
+   "name": "Phượng Minh Cung",
+   "name_han": "鳳鳴宮",
+   "gloss": "Palace of the Phoenix's Call",
+   "tier": 2,
+   "leans": [
+    "Fire",
+    "Wood"
+   ],
+   "regions": [
+    16,
+    17,
+    20
+   ],
+   "seat_region": 16,
+   "seat": 6
+  }
+ ],
+ "minor_sects": [
+  {
+   "key": "thoi_tinh",
+   "name": "Thối Tinh Môn",
+   "name_han": "淬星門",
+   "gloss": "Gate of the Quenched Stars",
+   "alignment": "chính đạo",
+   "leans": [
+    "Metal",
+    "Fire"
+   ],
+   "craft": "weapon forging (luyện khí) from star iron",
+   "lord": "thien_xu",
+   "region": 15,
+   "seat": 23
+  },
+  {
+   "key": "phat_y",
+   "name": "Phất Y Cốc",
+   "name_han": "拂衣谷",
+   "gloss": "Valley of the Brushed Sleeve",
+   "alignment": "chính đạo",
+   "leans": [
+    "Metal",
+    "Wind"
+   ],
+   "craft": "sword cultivation; wandering swordsmen for hire",
+   "lord": "thien_xu",
+   "region": 15,
+   "seat": 24
+  },
+  {
+   "key": "cung_tinh",
+   "name": "Củng Tinh Quán",
+   "name_han": "拱星觀",
+   "gloss": "Abbey of the Bowing Stars",
+   "alignment": "chính đạo",
+   "leans": [
+    "Earth",
+    "Metal"
+   ],
+   "craft": "formations (trận pháp) and star divination",
+   "lord": "thien_xu",
+   "region": 14,
+   "seat": 22
+  },
+  {
+   "key": "cuu_cao",
+   "name": "Cửu Cao Phái",
+   "name_han": "九皋派",
+   "gloss": "School of the Nine Marshes",
+   "alignment": "chính đạo",
+   "leans": [
+    "Wind",
+    "Wood"
+   ],
+   "craft": "spirit beasts: crane riders and beast tamers",
+   "lord": "thien_xu",
+   "region": 6,
+   "seat": 14
+  },
+  {
+   "key": "ham_nguyet",
+   "name": "Hàm Nguyệt Trang",
+   "name_han": "含月莊",
+   "gloss": "Manor That Holds the Moon",
+   "alignment": "chính đạo",
+   "leans": [
+    "Water",
+    "Ice"
+   ],
+   "craft": "water arts; spirit fish and lake pearls",
+   "lord": "tung_dao",
+   "region": 1,
+   "seat": 8
+  },
+  {
+   "key": "van_hac",
+   "name": "Vạn Hác Viện",
+   "name_han": "萬壑院",
+   "gloss": "Academy of the Ten Thousand Ravines",
+   "alignment": "chính đạo",
+   "leans": [
+    "Wood",
+    "Wind"
+   ],
+   "craft": "sound cultivation: the zither (cầm) and its arts",
+   "lord": "tung_dao",
+   "region": 4,
+   "seat": 11
+  },
+  {
+   "key": "thai_chi",
+   "name": "Thải Chi Cốc",
+   "name_han": "採芝谷",
+   "gloss": "Valley of the Lingzhi Pickers",
+   "alignment": "chính đạo",
+   "leans": [
+    "Wood",
+    "Water"
+   ],
+   "craft": "herb fields and alchemy (luyện đan)",
+   "lord": "tung_dao",
+   "region": 5,
+   "seat": 12
+  },
+  {
+   "key": "lang_dao",
+   "name": "Lãng Đào Môn",
+   "name_han": "浪淘門",
+   "gloss": "Gate of the Washing Waves",
+   "alignment": "chính đạo",
+   "leans": [
+    "Water",
+    "Wood"
+   ],
+   "craft": "river fleets, ferries and river trade",
+   "lord": "tung_dao",
+   "region": 5,
+   "seat": 13
+  },
+  {
+   "key": "binh_thuy",
+   "name": "Bình Thủy Môn",
+   "name_han": "萍水門",
+   "gloss": "Gate of Duckweed and Water",
+   "alignment": "trung lập",
+   "leans": [
+    "Water",
+    "Wood"
+   ],
+   "craft": "sea trade, ships and the strait crossing",
+   "lord": "lac_ha",
+   "region": 10,
+   "seat": 18
+  },
+  {
+   "key": "muc_van",
+   "name": "Mục Vân Trang",
+   "name_han": "牧雲莊",
+   "gloss": "Manor of the Cloud Herders",
+   "alignment": "trung lập",
+   "leans": [
+    "Wind",
+    "Earth"
+   ],
+   "craft": "spirit horses and herd beasts of the open plain",
+   "lord": "lac_ha",
+   "region": 11,
+   "seat": 19
+  },
+  {
+   "key": "thien_bao",
+   "name": "Thiên Bảo Trai",
+   "name_han": "天寶齋",
+   "gloss": "Studio of Heaven's Treasures",
+   "alignment": "trung lập",
+   "leans": [
+    "Metal",
+    "Earth"
+   ],
+   "craft": "artifact refining and a treasure market",
+   "lord": "lac_ha",
+   "region": 12,
+   "seat": 20
+  },
+  {
+   "key": "nam_pho",
+   "name": "Nam Phố Đường",
+   "name_han": "南浦堂",
+   "gloss": "Hall of the Southern Shore",
+   "alignment": "chính đạo",
+   "leans": [
+    "Wood",
+    "Water"
+   ],
+   "craft": "talismans (phù lục) and scribes",
+   "lord": "lac_ha",
+   "region": 13,
+   "seat": 21
+  },
+  {
+   "key": "xuyen_lam",
+   "name": "Xuyên Lâm Môn",
+   "name_han": "穿林門",
+   "gloss": "Gate Through the Forest",
+   "alignment": "chính đạo",
+   "leans": [
+    "Thunder",
+    "Wood"
+   ],
+   "craft": "staff and footwork; guides through the rain forest",
+   "lord": "thinh_vu",
+   "region": 19,
+   "seat": 28
+  },
+  {
+   "key": "hong_dau",
+   "name": "Hồng Đậu Trang",
+   "name_han": "紅豆莊",
+   "gloss": "Manor of the Red Beans",
+   "alignment": "ma đạo",
+   "leans": [
+    "Poison",
+    "Wood"
+   ],
+   "craft": "poisons and charms behind a gracious door",
+   "lord": "thinh_vu",
+   "region": 18,
+   "seat": 27
+  },
+  {
+   "key": "le_hoa",
+   "name": "Lê Hoa Am",
+   "name_han": "梨花庵",
+   "gloss": "Hermitage of the Pear Blossom",
+   "alignment": "chính đạo",
+   "leans": [
+    "Ice",
+    "Water"
+   ],
+   "craft": "ice cultivation; a hermitage near the ice fields",
+   "lord": "bang_tam",
+   "region": 7,
+   "seat": 15
+  },
+  {
+   "key": "trac_anh",
+   "name": "Trạc Anh Đài",
+   "name_han": "濯纓臺",
+   "gloss": "Terrace Where the Hat Strings Are Washed",
+   "alignment": "trung lập",
+   "leans": [
+    "Water",
+    "Ice"
+   ],
+   "craft": "fishers and sea hunters of the frost coast",
+   "lord": "bang_tam",
+   "region": 9,
+   "seat": 17
+  },
+  {
+   "key": "da_quang",
+   "name": "Dạ Quang Môn",
+   "name_han": "夜光門",
+   "gloss": "Gate of the Night-Glowing Cup",
+   "alignment": "ma đạo",
+   "leans": [
+    "Fire",
+    "Metal"
+   ],
+   "craft": "blood sabres and caravan raiding in the desert",
+   "lord": "bang_tam",
+   "region": 8,
+   "seat": 16
+  },
+  {
+   "key": "hong_lo",
+   "name": "Hồng Lô Cốc",
+   "name_han": "紅爐谷",
+   "gloss": "Valley of the Red Furnace",
+   "alignment": "chính đạo",
+   "leans": [
+    "Fire",
+    "Wood"
+   ],
+   "craft": "alchemy over volcanic fire",
+   "lord": "thuy_vi",
+   "region": 2,
+   "seat": 9
+  },
+  {
+   "key": "van_khoi",
+   "name": "Vân Khởi Quán",
+   "name_han": "雲起觀",
+   "gloss": "Abbey Where the Clouds Rise",
+   "alignment": "chính đạo",
+   "leans": [
+    "Earth",
+    "Wood"
+   ],
+   "craft": "a Daoist abbey of mountain hermits and teachers",
+   "lord": "thuy_vi",
+   "region": 3,
+   "seat": 10
+  },
+  {
+   "key": "truc_thuc",
+   "name": "Trúc Thực Viên",
+   "name_han": "竹實園",
+   "gloss": "Garden of the Bamboo Seed",
+   "alignment": "chính đạo",
+   "leans": [
+    "Wood",
+    "Fire"
+   ],
+   "craft": "spirit farming: spirit grain and beast feed",
+   "lord": "phuong_minh",
+   "region": 16,
+   "seat": 25
+  },
+  {
+   "key": "le_tuyen",
+   "name": "Lễ Tuyền Phái",
+   "name_han": "醴泉派",
+   "gloss": "School of the Sweet Spring",
+   "alignment": "chính đạo",
+   "leans": [
+    "Water",
+    "Wood"
+   ],
+   "craft": "healing, spirit wine and the lake springs",
+   "lord": "phuong_minh",
+   "region": 17,
+   "seat": 26
+  },
+  {
+   "key": "phan_vu",
+   "name": "Phần Vũ Đường",
+   "name_han": "焚羽堂",
+   "gloss": "Hall of the Burning Feathers",
+   "alignment": "trung lập",
+   "leans": [
+    "Fire",
+    "Earth"
+   ],
+   "craft": "body tempering in the volcanic vents",
+   "lord": "phuong_minh",
+   "region": 20,
+   "seat": 29
+  }
+ ],
+ "places": [
+  {
+   "id": 1,
+   "kind": "great_seat",
+   "tile": [
+    147,
+    95
+   ],
+   "region": 3,
+   "biome": "temperate forest",
+   "elevation_km": 1.54,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.01,
+   "name": "Thúy Vi Tông",
+   "name_han": "翠微宗",
+   "key": "thuy_vi",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 2,
+   "kind": "great_seat",
+   "tile": [
+    236,
+    124
+   ],
+   "region": 4,
+   "biome": "temperate forest",
+   "elevation_km": 0.81,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.13,
+   "name": "Tùng Đào Cung",
+   "name_han": "松濤宮",
+   "key": "tung_dao",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 3,
+   "kind": "great_seat",
+   "tile": [
+    455,
+    139
+   ],
+   "region": 8,
+   "biome": "badlands",
+   "elevation_km": 0.91,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.01,
+   "name": "Băng Tâm Các",
+   "name_han": "冰心閣",
+   "key": "bang_tam",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 4,
+   "kind": "great_seat",
+   "tile": [
+    198,
+    205
+   ],
+   "region": 13,
+   "biome": "steppe",
+   "elevation_km": 0.25,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.26,
+   "name": "Lạc Hà Tông",
+   "name_han": "落霞宗",
+   "key": "lac_ha",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 5,
+   "kind": "great_seat",
+   "tile": [
+    281,
+    182
+   ],
+   "region": 14,
+   "biome": "high mountain",
+   "elevation_km": 2.07,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Thiên Xu Tông",
+   "name_han": "天樞宗",
+   "key": "thien_xu",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 6,
+   "kind": "great_seat",
+   "tile": [
+    369,
+    250
+   ],
+   "region": 16,
+   "biome": "high mountain",
+   "elevation_km": 1.68,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.01,
+   "name": "Phượng Minh Cung",
+   "name_han": "鳳鳴宮",
+   "key": "phuong_minh",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 7,
+   "kind": "great_seat",
+   "tile": [
+    253,
+    249
+   ],
+   "region": 18,
+   "biome": "volcano",
+   "elevation_km": 2.19,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Thính Vũ Lâu",
+   "name_han": "聽雨樓",
+   "key": "thinh_vu",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 8,
+   "kind": "minor_seat",
+   "tile": [
+    303,
+    75
+   ],
+   "region": 1,
+   "biome": "temperate forest",
+   "elevation_km": 0.09,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.18,
+   "name": "Hàm Nguyệt Trang",
+   "name_han": "含月莊",
+   "key": "ham_nguyet",
+   "holder": "ham_nguyet",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 9,
+   "kind": "minor_seat",
+   "tile": [
+    108,
+    78
+   ],
+   "region": 2,
+   "biome": "tundra",
+   "elevation_km": 0.3,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.05,
+   "name": "Hồng Lô Cốc",
+   "name_han": "紅爐谷",
+   "key": "hong_lo",
+   "holder": "hong_lo",
+   "territory": "thuy_vi",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 10,
+   "kind": "minor_seat",
+   "tile": [
+    140,
+    125
+   ],
+   "region": 3,
+   "biome": "high mountain",
+   "elevation_km": 0.88,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.01,
+   "name": "Vân Khởi Quán",
+   "name_han": "雲起觀",
+   "key": "van_khoi",
+   "holder": "van_khoi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 11,
+   "kind": "minor_seat",
+   "tile": [
+    215,
+    149
+   ],
+   "region": 4,
+   "biome": "temperate forest",
+   "elevation_km": 0.84,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.17,
+   "name": "Vạn Hác Viện",
+   "name_han": "萬壑院",
+   "key": "van_hac",
+   "holder": "van_hac",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 12,
+   "kind": "minor_seat",
+   "tile": [
+    256,
+    72
+   ],
+   "region": 5,
+   "biome": "temperate forest",
+   "elevation_km": 0.02,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.23,
+   "name": "Thải Chi Cốc",
+   "name_han": "採芝谷",
+   "key": "thai_chi",
+   "holder": "thai_chi",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 13,
+   "kind": "minor_seat",
+   "tile": [
+    238,
+    76
+   ],
+   "region": 5,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.15,
+   "name": "Lãng Đào Môn",
+   "name_han": "浪淘門",
+   "key": "lang_dao",
+   "holder": "lang_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 14,
+   "kind": "minor_seat",
+   "tile": [
+    355,
+    142
+   ],
+   "region": 6,
+   "biome": "temperate forest",
+   "elevation_km": 0.31,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.2,
+   "name": "Cửu Cao Phái",
+   "name_han": "九皋派",
+   "key": "cuu_cao",
+   "holder": "cuu_cao",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 15,
+   "kind": "minor_seat",
+   "tile": [
+    410,
+    140
+   ],
+   "region": 7,
+   "biome": "high mountain",
+   "elevation_km": 0.68,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Lê Hoa Am",
+   "name_han": "梨花庵",
+   "key": "le_hoa",
+   "holder": "le_hoa",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 16,
+   "kind": "minor_seat",
+   "tile": [
+    431,
+    171
+   ],
+   "region": 8,
+   "biome": "steppe",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.32,
+   "name": "Dạ Quang Môn",
+   "name_han": "夜光門",
+   "key": "da_quang",
+   "holder": "da_quang",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 17,
+   "kind": "minor_seat",
+   "tile": [
+    458,
+    97
+   ],
+   "region": 9,
+   "biome": "temperate forest",
+   "elevation_km": 0.07,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.42,
+   "name": "Trạc Anh Đài",
+   "name_han": "濯纓臺",
+   "key": "trac_anh",
+   "holder": "trac_anh",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 18,
+   "kind": "minor_seat",
+   "tile": [
+    125,
+    247
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.84,
+   "name": "Bình Thủy Môn",
+   "name_han": "萍水門",
+   "key": "binh_thuy",
+   "holder": "binh_thuy",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 19,
+   "kind": "minor_seat",
+   "tile": [
+    129,
+    168
+   ],
+   "region": 11,
+   "biome": "grassland",
+   "elevation_km": 0.04,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.98,
+   "name": "Mục Vân Trang",
+   "name_han": "牧雲莊",
+   "key": "muc_van",
+   "holder": "muc_van",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 20,
+   "kind": "minor_seat",
+   "tile": [
+    227,
+    215
+   ],
+   "region": 12,
+   "biome": "steppe",
+   "elevation_km": 0.4,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.2,
+   "name": "Thiên Bảo Trai",
+   "name_han": "天寶齋",
+   "key": "thien_bao",
+   "holder": "thien_bao",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 21,
+   "kind": "minor_seat",
+   "tile": [
+    181,
+    161
+   ],
+   "region": 13,
+   "biome": "temperate forest",
+   "elevation_km": 0.06,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.71,
+   "name": "Nam Phố Đường",
+   "name_han": "南浦堂",
+   "key": "nam_pho",
+   "holder": "nam_pho",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 22,
+   "kind": "minor_seat",
+   "tile": [
+    260,
+    181
+   ],
+   "region": 14,
+   "biome": "highland",
+   "elevation_km": 1.36,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.05,
+   "name": "Củng Tinh Quán",
+   "name_han": "拱星觀",
+   "key": "cung_tinh",
+   "holder": "cung_tinh",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 23,
+   "kind": "minor_seat",
+   "tile": [
+    387,
+    160
+   ],
+   "region": 15,
+   "biome": "high mountain",
+   "elevation_km": 0.88,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Thối Tinh Môn",
+   "name_han": "淬星門",
+   "key": "thoi_tinh",
+   "holder": "thoi_tinh",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 24,
+   "kind": "minor_seat",
+   "tile": [
+    335,
+    225
+   ],
+   "region": 15,
+   "biome": "grassland",
+   "elevation_km": 1.02,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.28,
+   "name": "Phất Y Cốc",
+   "name_han": "拂衣谷",
+   "key": "phat_y",
+   "holder": "phat_y",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 25,
+   "kind": "minor_seat",
+   "tile": [
+    364,
+    278
+   ],
+   "region": 16,
+   "biome": "grassland",
+   "elevation_km": 0.03,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.59,
+   "name": "Trúc Thực Viên",
+   "name_han": "竹實園",
+   "key": "truc_thuc",
+   "holder": "truc_thuc",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 26,
+   "kind": "minor_seat",
+   "tile": [
+    409,
+    211
+   ],
+   "region": 17,
+   "biome": "grassland",
+   "elevation_km": 0.02,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.95,
+   "name": "Lễ Tuyền Phái",
+   "name_han": "醴泉派",
+   "key": "le_tuyen",
+   "holder": "le_tuyen",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 27,
+   "kind": "minor_seat",
+   "tile": [
+    181,
+    305
+   ],
+   "region": 18,
+   "biome": "jungle",
+   "elevation_km": 0.04,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.35,
+   "name": "Hồng Đậu Trang",
+   "name_han": "紅豆莊",
+   "key": "hong_dau",
+   "holder": "hong_dau",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 28,
+   "kind": "minor_seat",
+   "tile": [
+    342,
+    265
+   ],
+   "region": 19,
+   "biome": "high mountain",
+   "elevation_km": 1.14,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.01,
+   "name": "Xuyên Lâm Môn",
+   "name_han": "穿林門",
+   "key": "xuyen_lam",
+   "holder": "xuyen_lam",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 29,
+   "kind": "minor_seat",
+   "tile": [
+    491,
+    240
+   ],
+   "region": 20,
+   "biome": "grassland",
+   "elevation_km": 0.04,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.63,
+   "name": "Phần Vũ Đường",
+   "name_han": "焚羽堂",
+   "key": "phan_vu",
+   "holder": "phan_vu",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 30,
+   "kind": "city",
+   "tile": [
+    127,
+    132
+   ],
+   "region": 2,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.7,
+   "name": "Yên Ba Thành",
+   "name_han": "煙波城",
+   "gloss": "City of the Misty Waves",
+   "note": "Thôi Hiệu, Hoàng Hạc Lâu: yên ba giang thượng sử nhân sầu (mist on the river waves makes one sad); the haze of Thúy Vi",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": true
+  },
+  {
+   "id": 31,
+   "kind": "city",
+   "tile": [
+    131,
+    76
+   ],
+   "region": 3,
+   "biome": "tundra",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 0.34,
+   "name": "Hàn Tân Thành",
+   "name_han": "寒津城",
+   "gloss": "City of the Cold Ford",
+   "note": "The northern ford and port of the cold coast",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 32,
+   "kind": "city",
+   "tile": [
+    193,
+    124
+   ],
+   "region": 4,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.62,
+   "name": "Tùng Gian Thành",
+   "name_han": "松間城",
+   "gloss": "City Among the Pines",
+   "note": "Vương Duy: minh nguyệt tùng gian chiếu (the bright moon shines among the pines)",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": true
+  },
+  {
+   "id": 33,
+   "kind": "city",
+   "tile": [
+    245,
+    131
+   ],
+   "region": 5,
+   "biome": "temperate forest",
+   "elevation_km": 0.08,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.65,
+   "name": "Đào Thanh Thành",
+   "name_han": "濤聲城",
+   "gloss": "City of the Wave Sound",
+   "note": "The pine waves of Tùng Đào Cung, heard from the city below its seat",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 34,
+   "kind": "city",
+   "tile": [
+    347,
+    127
+   ],
+   "region": 6,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.16,
+   "name": "Khai Dương Thành",
+   "name_han": "開陽城",
+   "gloss": "City Opening to the Sun",
+   "note": "Khai Dương (Mizar), a star of the Northern Dipper like Thiên Xu",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 35,
+   "kind": "city",
+   "tile": [
+    439,
+    177
+   ],
+   "region": 8,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.83,
+   "name": "Trường Vân Thành",
+   "name_han": "長雲城",
+   "gloss": "City of the Long Clouds",
+   "note": "Vương Xương Linh, Tòng Quân Hành: Thanh Hải trường vân ám tuyết sơn (long clouds darken the snow mountains); the same poet as Băng Tâm",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": true
+  },
+  {
+   "id": 36,
+   "kind": "city",
+   "tile": [
+    487,
+    123
+   ],
+   "region": 9,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.07,
+   "name": "Liên Giang Thành",
+   "name_han": "連江城",
+   "gloss": "City Where the Rain Meets the River",
+   "note": "Vương Xương Linh: hàn vũ liên giang dạ nhập Ngô (cold rain joins the river by night), the first line of the Băng Tâm poem",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 37,
+   "kind": "city",
+   "tile": [
+    87,
+    258
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.36,
+   "name": "Đàm Ảnh Thành",
+   "name_han": "潭影城",
+   "gloss": "City of the Pool's Reflections",
+   "note": "Vương Bột, Đằng Vương Các: nhàn vân đàm ảnh nhật du du (idle clouds and their reflections in the pool, day after day)",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 38,
+   "kind": "city",
+   "tile": [
+    146,
+    221
+   ],
+   "region": 11,
+   "biome": "steppe",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.21,
+   "name": "Nhạn Thanh Thành",
+   "name_han": "雁聲城",
+   "gloss": "City of the Wild Geese's Cry",
+   "note": "Vương Bột: nhạn trận kinh hàn (the wild geese in formation, startled by the cold)",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 39,
+   "kind": "city",
+   "tile": [
+    184,
+    278
+   ],
+   "region": 12,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.41,
+   "name": "Tử Điện Thành",
+   "name_han": "紫電城",
+   "gloss": "City of the Purple Lightning",
+   "note": "Vương Bột: tử điện thanh sương, Vương tướng quân chi vũ khố (the purple-lightning and blue-frost swords of General Vương's armoury)",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": true
+  },
+  {
+   "id": 40,
+   "kind": "city",
+   "tile": [
+    377,
+    184
+   ],
+   "region": 15,
+   "biome": "steppe",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.29,
+   "name": "Tinh Hán Thành",
+   "name_han": "星漢城",
+   "gloss": "City of the Star River",
+   "note": "Tào Tháo, Quan Thương Hải: tinh Hán xán lạn, nhược xuất kỳ lý (the bright Milky Way seems to rise out of the sea); Thiên Xu's port on the inland sea",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": true
+  },
+  {
+   "id": 41,
+   "kind": "city",
+   "tile": [
+    414,
+    220
+   ],
+   "region": 17,
+   "biome": "steppe",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.21,
+   "name": "Lai Nghi Thành",
+   "name_han": "來儀城",
+   "gloss": "City Where the Phoenix Comes",
+   "note": "Kinh Thư: Tiêu Thiều cửu thành, phượng hoàng lai nghi (when the Shao music was played nine times, the phoenix came)",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": true
+  },
+  {
+   "id": 42,
+   "kind": "city",
+   "tile": [
+    229,
+    308
+   ],
+   "region": 18,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.22,
+   "name": "Thu Trì Thành",
+   "name_han": "秋池城",
+   "gloss": "City of the Autumn Pools",
+   "note": "Lý Thương Ẩn: Ba Sơn dạ vũ trướng thu trì (night rain on the mountain swells the autumn pools)",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": true
+  },
+  {
+   "id": 43,
+   "kind": "city",
+   "tile": [
+    304,
+    275
+   ],
+   "region": 19,
+   "biome": "grassland",
+   "elevation_km": -0.04,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.14,
+   "name": "Không Mông Thành",
+   "name_han": "空濛城",
+   "gloss": "City of the Hazy Rain",
+   "note": "Tô Thức: sơn sắc không mông vũ diệc kỳ (the hills hazy in the rain are lovely too)",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 44,
+   "kind": "city",
+   "tile": [
+    414,
+    287
+   ],
+   "region": 20,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.16,
+   "name": "Ngũ Thải Thành",
+   "name_han": "五采城",
+   "gloss": "City of the Five Colours",
+   "note": "Sơn Hải Kinh: the bird of Mount Đan Huyệt is five-coloured, the phoenix",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 45,
+   "kind": "market",
+   "tile": [
+    141,
+    89
+   ],
+   "region": 3,
+   "biome": "temperate forest",
+   "elevation_km": 0.18,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.17,
+   "name": "Lam Yên Thị",
+   "name_han": "嵐煙市",
+   "gloss": "Market of the Mountain Mist",
+   "note": "Below Thúy Vi Tông's seat, in the haze that names it",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 46,
+   "kind": "market",
+   "tile": [
+    230,
+    118
+   ],
+   "region": 4,
+   "biome": "temperate forest",
+   "elevation_km": 0.18,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.31,
+   "name": "Tùng Hạ Thị",
+   "name_han": "松下市",
+   "gloss": "Market Beneath the Pines",
+   "note": "Giả Đảo: tùng hạ vấn đồng tử (beneath the pine I asked the boy where his master was)",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 47,
+   "kind": "market",
+   "tile": [
+    243,
+    72
+   ],
+   "region": 5,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.31,
+   "name": "Đào Sa Thị",
+   "name_han": "淘沙市",
+   "gloss": "Market of the Washed Sands",
+   "note": "Lưu Vũ Tích, Lãng Đào Sa: after a thousand washings the sand gives up its gold; beside Lãng Đào Môn",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 48,
+   "kind": "market",
+   "tile": [
+    458,
+    131
+   ],
+   "region": 9,
+   "biome": "temperate forest",
+   "elevation_km": 0.19,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.24,
+   "name": "Tống Khách Thị",
+   "name_han": "送客市",
+   "gloss": "Market of Farewells",
+   "note": "Vương Xương Linh: bình minh tống khách (at dawn I see my guest off), the Băng Tâm poem",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 49,
+   "kind": "market",
+   "tile": [
+    123,
+    239
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.89,
+   "name": "Tương Phùng Thị",
+   "name_han": "相逢市",
+   "gloss": "Market of Chance Meetings",
+   "note": "Vương Bột: bình thủy tương phùng (duckweed and water meet by chance); beside Bình Thủy Môn",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 50,
+   "kind": "market",
+   "tile": [
+    219,
+    214
+   ],
+   "region": 12,
+   "biome": "steppe",
+   "elevation_km": 0.15,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.25,
+   "name": "Vật Hoa Thị",
+   "name_han": "物華市",
+   "gloss": "Market of the Land's Riches",
+   "note": "Vương Bột: vật hoa thiên bảo (the riches of the land are heaven's treasures); beside Thiên Bảo Trai",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 51,
+   "kind": "market",
+   "tile": [
+    192,
+    200
+   ],
+   "region": 13,
+   "biome": "steppe",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.83,
+   "name": "Hạc Đinh Thị",
+   "name_han": "鶴汀市",
+   "gloss": "Market of the Crane Shoal",
+   "note": "Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles); below Lạc Hà Tông's seat",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 52,
+   "kind": "market",
+   "tile": [
+    288,
+    185
+   ],
+   "region": 14,
+   "biome": "grassland",
+   "elevation_km": 0.44,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.33,
+   "name": "Thiên Quyền Thị",
+   "name_han": "天權市",
+   "gloss": "Market of the Heavenly Balance",
+   "note": "Thiên Quyền (Megrez), the Dipper star of authority and measure; below Thiên Xu Tông's seat",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 53,
+   "kind": "market",
+   "tile": [
+    371,
+    258
+   ],
+   "region": 16,
+   "biome": "bamboo forest",
+   "elevation_km": 0.14,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.52,
+   "name": "Thiều Âm Thị",
+   "name_han": "韶音市",
+   "gloss": "Market of the Shao Music",
+   "note": "The music that brings the phoenix; below Phượng Minh Cung's seat",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 54,
+   "kind": "market",
+   "tile": [
+    259,
+    244
+   ],
+   "region": 19,
+   "biome": "steppe",
+   "elevation_km": 0.07,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.57,
+   "name": "Hạnh Hoa Thị",
+   "name_han": "杏花市",
+   "gloss": "Market of the Apricot Blossom",
+   "note": "Lục Du: tiểu lâu nhất dạ thính xuân vũ, thâm hạng minh triều mại hạnh hoa (all night in the small tower I listened to the spring rain; tomorrow the lanes will sell apricot blossom); below Thính Vũ Lâu",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 55,
+   "kind": "town",
+   "tile": [
+    352,
+    109
+   ],
+   "region": 1,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.53,
+   "name": "Quy Điểu Trấn",
+   "name_han": "歸鳥鎮",
+   "gloss": "Homing Birds Town",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 56,
+   "kind": "town",
+   "tile": [
+    78,
+    157
+   ],
+   "region": 2,
+   "biome": "grassland",
+   "elevation_km": 0.09,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.16,
+   "name": "Mục Ca Trấn",
+   "name_han": "牧歌鎮",
+   "gloss": "Herders' Song Town",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 57,
+   "kind": "town",
+   "tile": [
+    56,
+    168
+   ],
+   "region": 2,
+   "biome": "grassland",
+   "elevation_km": 0.08,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.2,
+   "name": "Bạch Sa Trấn",
+   "name_han": "白沙鎮",
+   "gloss": "White Sands Town",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 58,
+   "kind": "town",
+   "tile": [
+    151,
+    120
+   ],
+   "region": 3,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.08,
+   "name": "Bách Diệp Trấn",
+   "name_han": "柏葉鎮",
+   "gloss": "Cypress Leaf Town",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 59,
+   "kind": "town",
+   "tile": [
+    168,
+    141
+   ],
+   "region": 3,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.89,
+   "name": "Tiều Ca Trấn",
+   "name_han": "樵歌鎮",
+   "gloss": "Woodcutters' Song Town",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 60,
+   "kind": "town",
+   "tile": [
+    205,
+    100
+   ],
+   "region": 4,
+   "biome": "temperate forest",
+   "elevation_km": -0.06,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.02,
+   "name": "Lộc Minh Trấn",
+   "name_han": "鹿鳴鎮",
+   "gloss": "Deer Call Town",
+   "holder": "lang_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 61,
+   "kind": "town",
+   "tile": [
+    215,
+    164
+   ],
+   "region": 4,
+   "biome": "bamboo forest",
+   "elevation_km": 0.14,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.96,
+   "name": "Cổ Độ Trấn",
+   "name_han": "古渡鎮",
+   "gloss": "Old Ferry Town",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 62,
+   "kind": "town",
+   "tile": [
+    255,
+    118
+   ],
+   "region": 5,
+   "biome": "temperate forest",
+   "elevation_km": 0.02,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.57,
+   "name": "Hà Bạn Trấn",
+   "name_han": "河畔鎮",
+   "gloss": "Riverside Town",
+   "holder": "thai_chi",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 63,
+   "kind": "town",
+   "tile": [
+    281,
+    136
+   ],
+   "region": 5,
+   "biome": "temperate forest",
+   "elevation_km": 0.06,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.58,
+   "name": "Lâm Hạ Trấn",
+   "name_han": "林下鎮",
+   "gloss": "Under the Trees Town",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 64,
+   "kind": "town",
+   "tile": [
+    286,
+    148
+   ],
+   "region": 6,
+   "biome": "temperate forest",
+   "elevation_km": 0.08,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.68,
+   "name": "Bích Khê Trấn",
+   "name_han": "碧溪鎮",
+   "gloss": "Jade Brook Town",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 65,
+   "kind": "town",
+   "tile": [
+    300,
+    159
+   ],
+   "region": 6,
+   "biome": "temperate forest",
+   "elevation_km": 0.12,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.7,
+   "name": "Thanh Bách Trấn",
+   "name_han": "青柏鎮",
+   "gloss": "Green Cypress Town",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 66,
+   "kind": "town",
+   "tile": [
+    401,
+    117
+   ],
+   "region": 7,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.19,
+   "name": "Hòe Âm Trấn",
+   "name_han": "槐蔭鎮",
+   "gloss": "Locust Shade Town",
+   "holder": "le_hoa",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 67,
+   "kind": "town",
+   "tile": [
+    493,
+    156
+   ],
+   "region": 8,
+   "biome": "grassland",
+   "elevation_km": 0.03,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.81,
+   "name": "Hồi Lan Trấn",
+   "name_han": "迴瀾鎮",
+   "gloss": "Turning Waves Town",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 68,
+   "kind": "town",
+   "tile": [
+    444,
+    111
+   ],
+   "region": 9,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.73,
+   "name": "Mộc Lan Trấn",
+   "name_han": "木蘭鎮",
+   "gloss": "Magnolia Town",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 69,
+   "kind": "town",
+   "tile": [
+    495,
+    141
+   ],
+   "region": 9,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.76,
+   "name": "Kê Minh Trấn",
+   "name_han": "雞鳴鎮",
+   "gloss": "Cockcrow Town",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 70,
+   "kind": "town",
+   "tile": [
+    57,
+    237
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.12,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.83,
+   "name": "Xích Ngạn Trấn",
+   "name_han": "赤岸鎮",
+   "gloss": "Red Shore Town",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 71,
+   "kind": "town",
+   "tile": [
+    107,
+    245
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.88,
+   "name": "Hải Yến Trấn",
+   "name_han": "海燕鎮",
+   "gloss": "Sea Swallow Town",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 72,
+   "kind": "town",
+   "tile": [
+    62,
+    289
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.23,
+   "name": "Triều Âm Trấn",
+   "name_han": "潮音鎮",
+   "gloss": "Tide Song Town",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 73,
+   "kind": "town",
+   "tile": [
+    134,
+    173
+   ],
+   "region": 11,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.29,
+   "name": "Thanh Điền Trấn",
+   "name_han": "青田鎮",
+   "gloss": "Green Fields Town",
+   "holder": "muc_van",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 74,
+   "kind": "town",
+   "tile": [
+    152,
+    174
+   ],
+   "region": 11,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.21,
+   "name": "Thảo Đường Trấn",
+   "name_han": "草塘鎮",
+   "gloss": "Grass Pond Town",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 75,
+   "kind": "town",
+   "tile": [
+    167,
+    177
+   ],
+   "region": 11,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.15,
+   "name": "Ngư Lương Trấn",
+   "name_han": "漁梁鎮",
+   "gloss": "Fish Weir Town",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 76,
+   "kind": "town",
+   "tile": [
+    199,
+    271
+   ],
+   "region": 12,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.06,
+   "name": "Liễu Ngạn Trấn",
+   "name_han": "柳岸鎮",
+   "gloss": "Willow Bank Town",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 77,
+   "kind": "town",
+   "tile": [
+    169,
+    282
+   ],
+   "region": 12,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.85,
+   "name": "Hòa Phong Trấn",
+   "name_han": "和風鎮",
+   "gloss": "Gentle Breeze Town",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 78,
+   "kind": "town",
+   "tile": [
+    151,
+    290
+   ],
+   "region": 12,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.83,
+   "name": "Ngũ Cốc Trấn",
+   "name_han": "五穀鎮",
+   "gloss": "Five Grains Town",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 79,
+   "kind": "town",
+   "tile": [
+    177,
+    166
+   ],
+   "region": 13,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.94,
+   "name": "Phong Lâm Trấn",
+   "name_han": "楓林鎮",
+   "gloss": "Maple Wood Town",
+   "holder": "nam_pho",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 80,
+   "kind": "town",
+   "tile": [
+    183,
+    181
+   ],
+   "region": 13,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.38,
+   "name": "Tang Ma Trấn",
+   "name_han": "桑麻鎮",
+   "gloss": "Mulberry and Hemp Town",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 81,
+   "kind": "town",
+   "tile": [
+    294,
+    211
+   ],
+   "region": 14,
+   "biome": "steppe",
+   "elevation_km": 0.87,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.4,
+   "name": "Thạch Kiều Trấn",
+   "name_han": "石橋鎮",
+   "gloss": "Stone Bridge Town",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 82,
+   "kind": "town",
+   "tile": [
+    359,
+    185
+   ],
+   "region": 15,
+   "biome": "grassland",
+   "elevation_km": 0.5,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.0,
+   "name": "Song Kiều Trấn",
+   "name_han": "雙橋鎮",
+   "gloss": "Twin Bridges Town",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 83,
+   "kind": "town",
+   "tile": [
+    395,
+    241
+   ],
+   "region": 16,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.47,
+   "name": "Mạch Điền Trấn",
+   "name_han": "麥田鎮",
+   "gloss": "Wheat Fields Town",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 84,
+   "kind": "town",
+   "tile": [
+    395,
+    255
+   ],
+   "region": 16,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.2,
+   "name": "Thanh Khê Trấn",
+   "name_han": "清溪鎮",
+   "gloss": "Clear Brook Town",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 85,
+   "kind": "town",
+   "tile": [
+    412,
+    182
+   ],
+   "region": 17,
+   "biome": "grassland",
+   "elevation_km": 0.05,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.35,
+   "name": "Hoàng Vân Trấn",
+   "name_han": "黃雲鎮",
+   "gloss": "Yellow Clouds of Grain Town",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 86,
+   "kind": "town",
+   "tile": [
+    411,
+    194
+   ],
+   "region": 17,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.59,
+   "name": "Đạo Hương Trấn",
+   "name_han": "稻香鎮",
+   "gloss": "Rice Scent Town",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 87,
+   "kind": "town",
+   "tile": [
+    405,
+    205
+   ],
+   "region": 17,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 1.1,
+   "name": "Lục Dã Trấn",
+   "name_han": "綠野鎮",
+   "gloss": "Green Meadows Town",
+   "holder": "le_tuyen",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 88,
+   "kind": "town",
+   "tile": [
+    210,
+    276
+   ],
+   "region": 18,
+   "biome": "grassland",
+   "elevation_km": 0.09,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.95,
+   "name": "Bình Dã Trấn",
+   "name_han": "平野鎮",
+   "gloss": "Open Plain Town",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 89,
+   "kind": "town",
+   "tile": [
+    257,
+    290
+   ],
+   "region": 18,
+   "biome": "grassland",
+   "elevation_km": 0.04,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.95,
+   "name": "Xuân Thảo Trấn",
+   "name_han": "春草鎮",
+   "gloss": "Spring Grass Town",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 90,
+   "kind": "town",
+   "tile": [
+    278,
+    261
+   ],
+   "region": 19,
+   "biome": "steppe",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 0.97,
+   "name": "Lãng Hoa Trấn",
+   "name_han": "浪花鎮",
+   "gloss": "Spray Flowers Town",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 91,
+   "kind": "town",
+   "tile": [
+    352,
+    288
+   ],
+   "region": 19,
+   "biome": "bamboo forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.03,
+   "name": "Vọng Hải Trấn",
+   "name_han": "望海鎮",
+   "gloss": "Sea Watch Town",
+   "holder": "xuyen_lam",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 92,
+   "kind": "town",
+   "tile": [
+    337,
+    299
+   ],
+   "region": 19,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.24,
+   "name": "Phong Đăng Trấn",
+   "name_han": "豐登鎮",
+   "gloss": "Rich Harvest Town",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 93,
+   "kind": "town",
+   "tile": [
+    465,
+    229
+   ],
+   "region": 20,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.88,
+   "name": "Thạch Cơ Trấn",
+   "name_han": "石磯鎮",
+   "gloss": "Stone Jetty Town",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 94,
+   "kind": "town",
+   "tile": [
+    481,
+    241
+   ],
+   "region": 20,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.88,
+   "name": "Tang Điền Trấn",
+   "name_han": "桑田鎮",
+   "gloss": "Mulberry Fields Town",
+   "holder": "phan_vu",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 95,
+   "kind": "village",
+   "tile": [
+    356,
+    72
+   ],
+   "region": 1,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.44,
+   "name": "Tuyết Lộc Thôn",
+   "name_han": "雪鹿村",
+   "gloss": "Snow Deer Village",
+   "holder": "ham_nguyet",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 96,
+   "kind": "village",
+   "tile": [
+    358,
+    108
+   ],
+   "region": 1,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.5,
+   "name": "Hàn Yên Thôn",
+   "name_han": "寒煙村",
+   "gloss": "Cold Smoke Village",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 97,
+   "kind": "village",
+   "tile": [
+    364,
+    108
+   ],
+   "region": 1,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.47,
+   "name": "Noãn Ốc Thôn",
+   "name_han": "暖屋村",
+   "gloss": "Warm Houses Village",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 98,
+   "kind": "village",
+   "tile": [
+    87,
+    156
+   ],
+   "region": 2,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.0,
+   "name": "Mạch Lãng Thôn",
+   "name_han": "麥浪村",
+   "gloss": "Wheat Waves Village",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 99,
+   "kind": "village",
+   "tile": [
+    80,
+    163
+   ],
+   "region": 2,
+   "biome": "grassland",
+   "elevation_km": 0.05,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.0,
+   "name": "Phong Phàm Thôn",
+   "name_han": "風帆村",
+   "gloss": "Wind in the Sails Village",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 100,
+   "kind": "village",
+   "tile": [
+    65,
+    173
+   ],
+   "region": 2,
+   "biome": "grassland",
+   "elevation_km": 0.03,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.0,
+   "name": "Hòa Thử Thôn",
+   "name_han": "禾黍村",
+   "gloss": "Grain and Millet Village",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 101,
+   "kind": "village",
+   "tile": [
+    49,
+    177
+   ],
+   "region": 2,
+   "biome": "grassland",
+   "elevation_km": 0.05,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.1,
+   "name": "Ẩn Loan Thôn",
+   "name_han": "隱灣村",
+   "gloss": "Hidden Cove Village",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 102,
+   "kind": "village",
+   "tile": [
+    179,
+    130
+   ],
+   "region": 3,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.86,
+   "name": "Ô Đề Thôn",
+   "name_han": "烏啼村",
+   "gloss": "Crows' Cry Village",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 103,
+   "kind": "village",
+   "tile": [
+    166,
+    132
+   ],
+   "region": 3,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.86,
+   "name": "Lâm Tuyền Thôn",
+   "name_han": "林泉村",
+   "gloss": "Woods and Springs Village",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 104,
+   "kind": "village",
+   "tile": [
+    136,
+    141
+   ],
+   "region": 3,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.85,
+   "name": "Thu Diệp Thôn",
+   "name_han": "秋葉村",
+   "gloss": "Autumn Leaves Village",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 105,
+   "kind": "village",
+   "tile": [
+    197,
+    118
+   ],
+   "region": 4,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.79,
+   "name": "Bạch Hoa Thôn",
+   "name_han": "白樺村",
+   "gloss": "White Birch Village",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 106,
+   "kind": "village",
+   "tile": [
+    198,
+    128
+   ],
+   "region": 4,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.96,
+   "name": "Thanh Tùng Thôn",
+   "name_han": "青松村",
+   "gloss": "Green Pine Village",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 107,
+   "kind": "village",
+   "tile": [
+    221,
+    160
+   ],
+   "region": 4,
+   "biome": "temperate forest",
+   "elevation_km": 0.2,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.82,
+   "name": "Tùng Phong Thôn",
+   "name_han": "松風村",
+   "gloss": "Pine Wind Village",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 108,
+   "kind": "village",
+   "tile": [
+    251,
+    123
+   ],
+   "region": 5,
+   "biome": "temperate forest",
+   "elevation_km": 0.03,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.59,
+   "name": "Tuyết Ốc Thôn",
+   "name_han": "雪屋村",
+   "gloss": "Snow Houses Village",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 109,
+   "kind": "village",
+   "tile": [
+    273,
+    124
+   ],
+   "region": 5,
+   "biome": "temperate forest",
+   "elevation_km": 0.02,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.54,
+   "name": "Hàn Mai Thôn",
+   "name_han": "寒梅村",
+   "gloss": "Winter Plum Village",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 110,
+   "kind": "village",
+   "tile": [
+    279,
+    130
+   ],
+   "region": 5,
+   "biome": "temperate forest",
+   "elevation_km": 0.04,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.53,
+   "name": "Bạch Lang Thôn",
+   "name_han": "白狼村",
+   "gloss": "White Wolf Village",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 111,
+   "kind": "village",
+   "tile": [
+    354,
+    124
+   ],
+   "region": 6,
+   "biome": "grassland",
+   "elevation_km": 0.09,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.73,
+   "name": "Ba Quang Thôn",
+   "name_han": "波光村",
+   "gloss": "Glinting Waves Village",
+   "holder": "cuu_cao",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 112,
+   "kind": "village",
+   "tile": [
+    281,
+    142
+   ],
+   "region": 6,
+   "biome": "temperate forest",
+   "elevation_km": 0.07,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.6,
+   "name": "Hạc Quy Thôn",
+   "name_han": "鶴歸村",
+   "gloss": "Crane's Return Village",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 113,
+   "kind": "village",
+   "tile": [
+    296,
+    152
+   ],
+   "region": 6,
+   "biome": "temperate forest",
+   "elevation_km": 0.1,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.64,
+   "name": "Lộc Uyển Thôn",
+   "name_han": "鹿苑村",
+   "gloss": "Deer Park Village",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 114,
+   "kind": "village",
+   "tile": [
+    376,
+    113
+   ],
+   "region": 7,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.72,
+   "name": "Đỗ Quyên Thôn",
+   "name_han": "杜鵑村",
+   "gloss": "Azalea Village",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 115,
+   "kind": "village",
+   "tile": [
+    378,
+    119
+   ],
+   "region": 7,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.72,
+   "name": "Hoàng Oanh Thôn",
+   "name_han": "黃鶯村",
+   "gloss": "Oriole Village",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 116,
+   "kind": "village",
+   "tile": [
+    470,
+    174
+   ],
+   "region": 8,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.76,
+   "name": "Ngư Đàm Thôn",
+   "name_han": "魚潭村",
+   "gloss": "Fish Pool Village",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 117,
+   "kind": "village",
+   "tile": [
+    432,
+    180
+   ],
+   "region": 8,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 1.05,
+   "name": "Liên Đường Thôn",
+   "name_han": "蓮塘村",
+   "gloss": "Lotus Pond Village",
+   "holder": "da_quang",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 118,
+   "kind": "village",
+   "tile": [
+    426,
+    182
+   ],
+   "region": 8,
+   "biome": "grassland",
+   "elevation_km": 0.03,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.79,
+   "name": "Mã Minh Thôn",
+   "name_han": "馬鳴村",
+   "gloss": "Neighing Horses Village",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 119,
+   "kind": "village",
+   "tile": [
+    454,
+    102
+   ],
+   "region": 9,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.64,
+   "name": "Tiều Lộ Thôn",
+   "name_han": "樵路村",
+   "gloss": "Woodcutters' Path Village",
+   "holder": "trac_anh",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 120,
+   "kind": "village",
+   "tile": [
+    448,
+    106
+   ],
+   "region": 9,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.66,
+   "name": "Lâm Ẩn Thôn",
+   "name_han": "林隱村",
+   "gloss": "Hidden in the Woods Village",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 121,
+   "kind": "village",
+   "tile": [
+    492,
+    128
+   ],
+   "region": 9,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.78,
+   "name": "Lô Hoa Thôn",
+   "name_han": "蘆花村",
+   "gloss": "Reed Flowers Village",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 122,
+   "kind": "village",
+   "tile": [
+    111,
+    238
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.03,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.88,
+   "name": "Bối Sa Thôn",
+   "name_han": "貝沙村",
+   "gloss": "Shell Sands Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 123,
+   "kind": "village",
+   "tile": [
+    131,
+    249
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.83,
+   "name": "Lãng Thạch Thôn",
+   "name_han": "浪石村",
+   "gloss": "Wave Rock Village",
+   "holder": "binh_thuy",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 124,
+   "kind": "village",
+   "tile": [
+    48,
+    261
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.82,
+   "name": "Dương Liễu Thôn",
+   "name_han": "楊柳村",
+   "gloss": "Willows Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 125,
+   "kind": "village",
+   "tile": [
+    95,
+    261
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.39,
+   "name": "Tình Sa Thôn",
+   "name_han": "晴沙村",
+   "gloss": "Sunlit Sands Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 126,
+   "kind": "village",
+   "tile": [
+    57,
+    274
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.04,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.82,
+   "name": "Nguyệt Loan Thôn",
+   "name_han": "月灣村",
+   "gloss": "Moon Cove Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 127,
+   "kind": "village",
+   "tile": [
+    139,
+    168
+   ],
+   "region": 11,
+   "biome": "grassland",
+   "elevation_km": 0.02,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.1,
+   "name": "Điền Viên Thôn",
+   "name_han": "田園村",
+   "gloss": "Fields and Gardens Village",
+   "holder": "muc_van",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 128,
+   "kind": "village",
+   "tile": [
+    147,
+    170
+   ],
+   "region": 11,
+   "biome": "grassland",
+   "elevation_km": 0.02,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.13,
+   "name": "Yến Quy Thôn",
+   "name_han": "燕歸村",
+   "gloss": "Swallows' Return Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 129,
+   "kind": "village",
+   "tile": [
+    127,
+    176
+   ],
+   "region": 11,
+   "biome": "grassland",
+   "elevation_km": -0.05,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.12,
+   "name": "Chu Tân Thôn",
+   "name_han": "舟津村",
+   "gloss": "Boat Ford Village",
+   "holder": "muc_van",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 130,
+   "kind": "village",
+   "tile": [
+    158,
+    176
+   ],
+   "region": 11,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.16,
+   "name": "Lô Cảng Thôn",
+   "name_han": "蘆港村",
+   "gloss": "Reed Harbour Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 131,
+   "kind": "village",
+   "tile": [
+    129,
+    190
+   ],
+   "region": 11,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.1,
+   "name": "Diêm Điền Thôn",
+   "name_han": "鹽田村",
+   "gloss": "Salt Pans Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 132,
+   "kind": "village",
+   "tile": [
+    201,
+    265
+   ],
+   "region": 12,
+   "biome": "grassland",
+   "elevation_km": 0.02,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.99,
+   "name": "Khê Thanh Thôn",
+   "name_han": "溪聲村",
+   "gloss": "Brook Sound Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 133,
+   "kind": "village",
+   "tile": [
+    190,
+    273
+   ],
+   "region": 12,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.08,
+   "name": "Khê Đầu Thôn",
+   "name_han": "溪頭村",
+   "gloss": "Brook Head Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 134,
+   "kind": "village",
+   "tile": [
+    178,
+    282
+   ],
+   "region": 12,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.85,
+   "name": "Hải Môn Thôn",
+   "name_han": "海門村",
+   "gloss": "Sea Gate Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 135,
+   "kind": "village",
+   "tile": [
+    161,
+    283
+   ],
+   "region": 12,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.85,
+   "name": "Tân Khẩu Thôn",
+   "name_han": "津口村",
+   "gloss": "Harbour Mouth Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 136,
+   "kind": "village",
+   "tile": [
+    186,
+    169
+   ],
+   "region": 13,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.44,
+   "name": "Hoa Khê Thôn",
+   "name_han": "花溪村",
+   "gloss": "Flower Brook Village",
+   "holder": "nam_pho",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 137,
+   "kind": "village",
+   "tile": [
+    212,
+    171
+   ],
+   "region": 13,
+   "biome": "grassland",
+   "elevation_km": 0.09,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.22,
+   "name": "Ngân Than Thôn",
+   "name_han": "銀灘村",
+   "gloss": "Silver Shoal Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 138,
+   "kind": "village",
+   "tile": [
+    173,
+    175
+   ],
+   "region": 13,
+   "biome": "grassland",
+   "elevation_km": 0.02,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.24,
+   "name": "Phương Thảo Thôn",
+   "name_han": "芳草村",
+   "gloss": "Fragrant Grass Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 139,
+   "kind": "village",
+   "tile": [
+    187,
+    186
+   ],
+   "region": 13,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.26,
+   "name": "Thủy Khẩu Thôn",
+   "name_han": "水口村",
+   "gloss": "Water's Mouth Village",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 140,
+   "kind": "village",
+   "tile": [
+    283,
+    154
+   ],
+   "region": 14,
+   "biome": "temperate forest",
+   "elevation_km": 0.11,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.62,
+   "name": "Mộc Hương Thôn",
+   "name_han": "木香村",
+   "gloss": "Wood Scent Village",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 141,
+   "kind": "village",
+   "tile": [
+    302,
+    165
+   ],
+   "region": 14,
+   "biome": "temperate forest",
+   "elevation_km": 0.23,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.6,
+   "name": "Thụ Âm Thôn",
+   "name_han": "樹陰村",
+   "gloss": "Tree Shade Village",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 142,
+   "kind": "village",
+   "tile": [
+    371,
+    185
+   ],
+   "region": 15,
+   "biome": "grassland",
+   "elevation_km": 0.2,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.05,
+   "name": "Thủy Đối Thôn",
+   "name_han": "水碓村",
+   "gloss": "Water Mill Village",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 143,
+   "kind": "village",
+   "tile": [
+    354,
+    189
+   ],
+   "region": 15,
+   "biome": "grassland",
+   "elevation_km": 0.51,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.91,
+   "name": "Thanh Mạch Thôn",
+   "name_han": "青麥村",
+   "gloss": "Green Wheat Village",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 144,
+   "kind": "village",
+   "tile": [
+    372,
+    192
+   ],
+   "region": 15,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.89,
+   "name": "Châu Bạng Thôn",
+   "name_han": "珠蚌村",
+   "gloss": "Pearl Oyster Village",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 145,
+   "kind": "village",
+   "tile": [
+    379,
+    234
+   ],
+   "region": 16,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.08,
+   "name": "Đào Khê Thôn",
+   "name_han": "桃溪村",
+   "gloss": "Peach Brook Village",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 146,
+   "kind": "village",
+   "tile": [
+    389,
+    237
+   ],
+   "region": 16,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.13,
+   "name": "Hà Loan Thôn",
+   "name_han": "河灣村",
+   "gloss": "River Bend Village",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 147,
+   "kind": "village",
+   "tile": [
+    358,
+    279
+   ],
+   "region": 16,
+   "biome": "bamboo forest",
+   "elevation_km": -0.04,
+   "port": true,
+   "river": true,
+   "coast": true,
+   "livability": 1.08,
+   "name": "Bích Lãng Thôn",
+   "name_han": "碧浪村",
+   "gloss": "Jade Waves Village",
+   "holder": "truc_thuc",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 148,
+   "kind": "village",
+   "tile": [
+    413,
+    176
+   ],
+   "region": 17,
+   "biome": "grassland",
+   "elevation_km": 0.06,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.07,
+   "name": "Thủy Điền Thôn",
+   "name_han": "水田村",
+   "gloss": "Paddy Fields Village",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 149,
+   "kind": "village",
+   "tile": [
+    474,
+    185
+   ],
+   "region": 17,
+   "biome": "grassland",
+   "elevation_km": -0.01,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.02,
+   "name": "Âu Lộ Thôn",
+   "name_han": "鷗鷺村",
+   "gloss": "Gulls and Herons Village",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 150,
+   "kind": "village",
+   "tile": [
+    412,
+    188
+   ],
+   "region": 17,
+   "biome": "temperate forest",
+   "elevation_km": 0.04,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.13,
+   "name": "Ngân Hạnh Thôn",
+   "name_han": "銀杏村",
+   "gloss": "Ginkgo Village",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 151,
+   "kind": "village",
+   "tile": [
+    459,
+    196
+   ],
+   "region": 17,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 1.07,
+   "name": "Lý Hoa Thôn",
+   "name_han": "李花村",
+   "gloss": "Plum Blossom Village",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 152,
+   "kind": "village",
+   "tile": [
+    410,
+    200
+   ],
+   "region": 17,
+   "biome": "grassland",
+   "elevation_km": 0.02,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 1.12,
+   "name": "Hoàng Ngưu Thôn",
+   "name_han": "黃牛村",
+   "gloss": "Yellow Ox Village",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 153,
+   "kind": "village",
+   "tile": [
+    204,
+    276
+   ],
+   "region": 18,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.0,
+   "name": "Kiều Bạn Thôn",
+   "name_han": "橋畔村",
+   "gloss": "Bridgeside Village",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 154,
+   "kind": "village",
+   "tile": [
+    243,
+    288
+   ],
+   "region": 18,
+   "biome": "grassland",
+   "elevation_km": 0.1,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.93,
+   "name": "Bình Độ Thôn",
+   "name_han": "平渡村",
+   "gloss": "Calm Ferry Village",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 155,
+   "kind": "village",
+   "tile": [
+    249,
+    290
+   ],
+   "region": 18,
+   "biome": "grassland",
+   "elevation_km": 0.07,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.93,
+   "name": "Hoa Điền Thôn",
+   "name_han": "花田村",
+   "gloss": "Flower Fields Village",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 156,
+   "kind": "village",
+   "tile": [
+    199,
+    298
+   ],
+   "region": 18,
+   "biome": "grassland",
+   "elevation_km": 0.05,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.92,
+   "name": "Yên Kiều Thôn",
+   "name_han": "煙橋村",
+   "gloss": "Misty Bridge Village",
+   "holder": "hong_dau",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 157,
+   "kind": "village",
+   "tile": [
+    319,
+    278
+   ],
+   "region": 19,
+   "biome": "grassland",
+   "elevation_km": 0.28,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.9,
+   "name": "Ương Ca Thôn",
+   "name_han": "秧歌村",
+   "gloss": "Planting Song Village",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 158,
+   "kind": "village",
+   "tile": [
+    263,
+    280
+   ],
+   "region": 19,
+   "biome": "grassland",
+   "elevation_km": 0.04,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.9,
+   "name": "Song Khê Thôn",
+   "name_han": "雙溪村",
+   "gloss": "Twin Brooks Village",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 159,
+   "kind": "village",
+   "tile": [
+    321,
+    290
+   ],
+   "region": 19,
+   "biome": "grassland",
+   "elevation_km": 0.15,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.83,
+   "name": "Thượng Độ Thôn",
+   "name_han": "上渡村",
+   "gloss": "Upper Ferry Village",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 160,
+   "kind": "village",
+   "tile": [
+    315,
+    293
+   ],
+   "region": 19,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.88,
+   "name": "Hà Châu Thôn",
+   "name_han": "河洲村",
+   "gloss": "River Isle Village",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 161,
+   "kind": "village",
+   "tile": [
+    485,
+    223
+   ],
+   "region": 20,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.81,
+   "name": "Cúc Viên Thôn",
+   "name_han": "菊園村",
+   "gloss": "Chrysanthemum Garden Village",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 162,
+   "kind": "village",
+   "tile": [
+    481,
+    247
+   ],
+   "region": 20,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.84,
+   "name": "Tang Âm Thôn",
+   "name_han": "桑陰村",
+   "gloss": "Mulberry Shade Village",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 163,
+   "kind": "village",
+   "tile": [
+    472,
+    260
+   ],
+   "region": 20,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": true,
+   "river": false,
+   "coast": true,
+   "livability": 0.8,
+   "name": "Hồ Tâm Thôn",
+   "name_han": "湖心村",
+   "gloss": "Lake Heart Village",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 164,
+   "kind": "village",
+   "tile": [
+    410,
+    294
+   ],
+   "region": 20,
+   "biome": "grassland",
+   "elevation_km": 0.02,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.79,
+   "name": "Lô Châu Thôn",
+   "name_han": "蘆洲村",
+   "gloss": "Reed Isle Village",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 165,
+   "kind": "mine",
+   "tile": [
+    148,
+    100
+   ],
+   "region": 3,
+   "biome": "temperate forest",
+   "elevation_km": 1.0,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.02,
+   "name": "Bích Ngọc Khoáng",
+   "name_han": "碧玉礦",
+   "gloss": "Green Jade Mine",
+   "note": "Green stone from the green hills of Thúy Vi.",
+   "holder": "hong_lo",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 166,
+   "kind": "mine",
+   "tile": [
+    137,
+    124
+   ],
+   "region": 3,
+   "biome": "high mountain",
+   "elevation_km": 0.43,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.02,
+   "name": "Vân Mẫu Khoáng",
+   "name_han": "雲母礦",
+   "gloss": "Mica Mine",
+   "note": "Mica, 'mother of clouds', for Vân Khởi Quán, the abbey of rising clouds.",
+   "holder": "van_khoi",
+   "territory": "thuy_vi",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 167,
+   "kind": "mine",
+   "tile": [
+    218,
+    150
+   ],
+   "region": 4,
+   "biome": "high mountain",
+   "elevation_km": 0.79,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.02,
+   "name": "Thạch Lục Khoáng",
+   "name_han": "石綠礦",
+   "gloss": "Malachite Mine",
+   "note": "Malachite, the green of the pine sea, dug under the trees.",
+   "holder": "van_hac",
+   "territory": "tung_dao",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 168,
+   "kind": "mine",
+   "tile": [
+    429,
+    121
+   ],
+   "region": 9,
+   "biome": "high mountain",
+   "elevation_km": 0.94,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Băng Lăng Khoáng",
+   "name_han": "冰稜礦",
+   "gloss": "Icicle Mine",
+   "note": "Shafts hung with ice in the frost land of Hàn Sương Châu.",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 169,
+   "kind": "mine",
+   "tile": [
+    228,
+    221
+   ],
+   "region": 12,
+   "biome": "badlands",
+   "elevation_km": 0.4,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.07,
+   "name": "Xích Kim Khoáng",
+   "name_han": "赤金礦",
+   "gloss": "Red Gold Mine",
+   "note": "Gold the colour of Lạc Hà's sunset, for Thiên Bảo Trai's treasure market.",
+   "holder": "thien_bao",
+   "territory": "lac_ha",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 170,
+   "kind": "mine",
+   "tile": [
+    317,
+    173
+   ],
+   "region": 14,
+   "biome": "badlands",
+   "elevation_km": 0.54,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.05,
+   "name": "Thần Sa Khoáng",
+   "name_han": "辰砂礦",
+   "gloss": "Cinnabar Mine",
+   "note": "Cinnabar from the red badlands, the alchemists' first stone.",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 171,
+   "kind": "mine",
+   "tile": [
+    290,
+    175
+   ],
+   "region": 14,
+   "biome": "badlands",
+   "elevation_km": 0.37,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.06,
+   "name": "Lưu Hoàng Khoáng",
+   "name_han": "硫黃礦",
+   "gloss": "Sulphur Mine",
+   "note": "Yellow sulphur crusts in the badlands near the wasteland.",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 172,
+   "kind": "mine",
+   "tile": [
+    254,
+    186
+   ],
+   "region": 14,
+   "biome": "highland",
+   "elevation_km": 1.42,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.05,
+   "name": "Vẫn Tinh Khoáng",
+   "name_han": "隕星礦",
+   "gloss": "Fallen Star Mine",
+   "note": "Iron from a star that fell on the high plain, for Củng Tinh Quán, whose stars bow to the Pivot.",
+   "holder": "cung_tinh",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 173,
+   "kind": "mine",
+   "tile": [
+    391,
+    167
+   ],
+   "region": 15,
+   "biome": "high mountain",
+   "elevation_km": 0.69,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.01,
+   "name": "Thiên Ngoại Khoáng",
+   "name_han": "天外礦",
+   "gloss": "Mine of the Iron from Beyond the Sky",
+   "note": "Thối Tinh Môn forges star iron, and says this is where it comes from.",
+   "holder": "thoi_tinh",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 174,
+   "kind": "mine",
+   "tile": [
+    395,
+    174
+   ],
+   "region": 15,
+   "biome": "high mountain",
+   "elevation_km": 0.65,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.01,
+   "name": "Huyền Thiết Khoáng",
+   "name_han": "玄鐵礦",
+   "gloss": "Black Iron Mine",
+   "note": "Dark heavy iron under Ngọc Hành Sơn.",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 175,
+   "kind": "mine",
+   "tile": [
+    363,
+    210
+   ],
+   "region": 15,
+   "biome": "high mountain",
+   "elevation_km": 1.0,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.01,
+   "name": "Can Tương Khoáng",
+   "name_han": "干將礦",
+   "gloss": "Gan Jiang's Mine",
+   "note": "Can Tương, the swordsmith of legend; Phất Y Cốc's swords are forged from its ore.",
+   "holder": "phat_y",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 176,
+   "kind": "mine",
+   "tile": [
+    367,
+    217
+   ],
+   "region": 15,
+   "biome": "high mountain",
+   "elevation_km": 0.34,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.03,
+   "name": "Bạch Ngân Khoáng",
+   "name_han": "白銀礦",
+   "gloss": "Silver Mine",
+   "note": "Silver below the cinnabar mountain of Đan Sơn Mạch.",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 177,
+   "kind": "mine",
+   "tile": [
+    314,
+    246
+   ],
+   "region": 19,
+   "biome": "high mountain",
+   "elevation_km": 0.84,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.02,
+   "name": "Kinh Điện Khoáng",
+   "name_han": "驚電礦",
+   "gloss": "Startling Lightning Mine",
+   "note": "In Kinh Trập Sơn, where the storms strike the ore.",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 178,
+   "kind": "mine",
+   "tile": [
+    310,
+    253
+   ],
+   "region": 19,
+   "biome": "high mountain",
+   "elevation_km": 0.97,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.01,
+   "name": "Tử Kim Khoáng",
+   "name_han": "紫金礦",
+   "gloss": "Purple Gold Mine",
+   "note": "Purple-gold ore, the colour of storm light.",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 179,
+   "kind": "mine",
+   "tile": [
+    302,
+    254
+   ],
+   "region": 19,
+   "biome": "high mountain",
+   "elevation_km": 1.87,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Vũ Hoa Khoáng",
+   "name_han": "雨花礦",
+   "gloss": "Rain Flower Mine",
+   "note": "Rain-flower pebbles, said to be flowers that fell as rain while a master preached; the richest ground of the sixteen (land density 1.87). In Thính Vũ's land of rain.",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 180,
+   "kind": "mine",
+   "tile": [
+    410,
+    305
+   ],
+   "region": 20,
+   "biome": "high mountain",
+   "elevation_km": 0.58,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.02,
+   "name": "Đan Thạch Khoáng",
+   "name_han": "丹石礦",
+   "gloss": "Red Stone Mine",
+   "note": "Red stone from the phoenix's cinnabar land, Đan Huyệt Châu.",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "on_road": true,
+   "array": false
+  },
+  {
+   "id": 181,
+   "kind": "peak",
+   "tile": [
+    370,
+    140
+   ],
+   "region": 6,
+   "biome": "glacier",
+   "elevation_km": 4.28,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Phụ Tinh Phong",
+   "name_han": "輔星峰",
+   "gloss": "Peak of the Companion Star",
+   "note": "Phụ tinh (Alcor), the faint star beside the Dipper",
+   "holder": "",
+   "territory": "thien_xu",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 182,
+   "kind": "peak",
+   "tile": [
+    380,
+    161
+   ],
+   "region": 6,
+   "biome": "high mountain",
+   "elevation_km": 4.72,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Trích Tinh Phong",
+   "name_han": "摘星峰",
+   "gloss": "Peak Where One Picks the Stars",
+   "note": "Lý Bạch: thủ khả trích tinh thần (one could pluck the stars by hand); 4.7 km, the roof of the heartland",
+   "holder": "",
+   "territory": "thien_xu",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 183,
+   "kind": "peak",
+   "tile": [
+    393,
+    139
+   ],
+   "region": 7,
+   "biome": "high mountain",
+   "elevation_km": 3.51,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Hồi Lộ Phong",
+   "name_han": "迴路峰",
+   "gloss": "Peak of the Winding Road",
+   "note": "Sầm Tham, Bạch Tuyết Ca: sơn hồi lộ chuyển bất kiến quân (the mountain turns, the road bends, and you are gone)",
+   "holder": "",
+   "territory": "bang_tam",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 184,
+   "kind": "peak",
+   "tile": [
+    410,
+    146
+   ],
+   "region": 7,
+   "biome": "glacier",
+   "elevation_km": 5.24,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Lăng Tuyệt Phong",
+   "name_han": "凌絕峰",
+   "gloss": "Peak Above All",
+   "note": "Đỗ Phủ, Vọng Nhạc: hội đương lăng tuyệt đỉnh, nhất lãm chúng sơn tiểu (I shall stand on the very top and see all mountains small); 5.2 km, the highest on the continent",
+   "holder": "",
+   "territory": "bang_tam",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 185,
+   "kind": "peak",
+   "tile": [
+    351,
+    213
+   ],
+   "region": 15,
+   "biome": "high mountain",
+   "elevation_km": 3.07,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Thanh Ải Phong",
+   "name_han": "青靄峰",
+   "gloss": "Peak of the Blue Haze",
+   "note": "Vương Duy, Chung Nam Sơn: thanh ải nhập khán vô (the blue haze, walked into, is gone)",
+   "holder": "",
+   "territory": "thien_xu",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 186,
+   "kind": "peak",
+   "tile": [
+    342,
+    248
+   ],
+   "region": 15,
+   "biome": "high mountain",
+   "elevation_km": 2.62,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Cùng Mục Phong",
+   "name_han": "窮目峰",
+   "gloss": "Peak of the Farthest Sight",
+   "note": "Vương Chi Hoán: dục cùng thiên lý mục, cánh thướng nhất tầng lâu (to see a thousand li further, climb one storey more)",
+   "holder": "",
+   "territory": "thien_xu",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 187,
+   "kind": "peak",
+   "tile": [
+    325,
+    255
+   ],
+   "region": 19,
+   "biome": "high mountain",
+   "elevation_km": 4.0,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Liệt Khuyết Phong",
+   "name_han": "列缺峰",
+   "gloss": "Peak of the Lightning Rift",
+   "note": "Lý Bạch, Mộng du Thiên Mỗ: liệt khuyết phích lịch, khâu loan băng thôi (lightning and thunder, and the ridges crumble)",
+   "holder": "",
+   "territory": "thinh_vu",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 188,
+   "kind": "volcano",
+   "tile": [
+    404,
+    27
+   ],
+   "region": 7,
+   "biome": "volcano",
+   "elevation_km": 1.35,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Chúc Long Sơn",
+   "name_han": "燭龍山",
+   "gloss": "Mountain of the Torch Dragon",
+   "note": "Sơn Hải Kinh: in the dark far north the Torch Dragon lights the world; a volcano on the ice",
+   "holder": "",
+   "territory": "bang_tam",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 189,
+   "kind": "volcano",
+   "tile": [
+    429,
+    80
+   ],
+   "region": 9,
+   "biome": "volcano",
+   "elevation_km": 1.16,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Sương Diễm Sơn",
+   "name_han": "霜焰山",
+   "gloss": "Mountain of Frost and Flame",
+   "note": "Fire under the frost of the north-east peninsula",
+   "holder": "",
+   "territory": "bang_tam",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 190,
+   "kind": "lake",
+   "tile": [
+    315,
+    89
+   ],
+   "region": 1,
+   "biome": "lake",
+   "elevation_km": -0.04,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Hạo Nguyệt Hồ",
+   "name_han": "皓月湖",
+   "gloss": "Lake of the Bright Moon",
+   "note": "The long lake of Lãnh Nguyệt Lâm, the biggest on the continent; Hàm Nguyệt Trang holds its moon",
+   "holder": "",
+   "territory": "tung_dao",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 191,
+   "kind": "lake",
+   "tile": [
+    466,
+    123
+   ],
+   "region": 9,
+   "biome": "lake",
+   "elevation_km": -0.04,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Phiến Băng Hồ",
+   "name_han": "片冰湖",
+   "gloss": "Lake of the Piece of Ice",
+   "note": "Vương Xương Linh: nhất phiến băng tâm (one piece of ice heart); beside Băng Tâm Các",
+   "holder": "",
+   "territory": "bang_tam",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 192,
+   "kind": "lake",
+   "tile": [
+    265,
+    186
+   ],
+   "region": 14,
+   "biome": "lake",
+   "elevation_km": 1.18,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Tinh Lạc Hồ",
+   "name_han": "星落湖",
+   "gloss": "Lake Where the Stars Fall",
+   "note": "A high lake, 1.2 km up, that holds the Dipper at night; beside Củng Tinh Quán",
+   "holder": "",
+   "territory": "thien_xu",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 193,
+   "kind": "lake",
+   "tile": [
+    408,
+    203
+   ],
+   "region": 17,
+   "biome": "lake",
+   "elevation_km": -0.04,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Triêu Hà Hồ",
+   "name_han": "朝霞湖",
+   "gloss": "Lake of the Dawn Clouds",
+   "note": "The east's dawn clouds answer Lạc Hà's sunset clouds in the west; beside Lễ Tuyền Phái",
+   "holder": "",
+   "territory": "phuong_minh",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 194,
+   "kind": "lake",
+   "tile": [
+    247,
+    256
+   ],
+   "region": 18,
+   "biome": "lake",
+   "elevation_km": 0.12,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Tàn Hà Hồ",
+   "name_han": "殘荷湖",
+   "gloss": "Lake of the Last Lotus",
+   "note": "Lý Thương Ẩn: lưu đắc khô hà thính vũ thanh (keep the withered lotus, to listen to the rain); beside Thính Vũ Lâu",
+   "holder": "",
+   "territory": "thinh_vu",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 195,
+   "kind": "island",
+   "tile": [
+    123,
+    151
+   ],
+   "region": 11,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.93,
+   "name": "Phù Chử Đảo",
+   "name_han": "鳧渚島",
+   "gloss": "Isle of the Wild Ducks",
+   "note": "Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles)",
+   "holder": "",
+   "territory": "lac_ha",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 196,
+   "kind": "island",
+   "tile": [
+    29,
+    188
+   ],
+   "region": 11,
+   "biome": "grassland",
+   "elevation_km": 0.05,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 1.0,
+   "name": "Tịch Chiếu Đảo",
+   "name_han": "夕照島",
+   "gloss": "Isle of the Evening Glow",
+   "note": "The westernmost island, last to see the sunset of Lạc Hà",
+   "holder": "",
+   "territory": "lac_ha",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 197,
+   "kind": "island",
+   "tile": [
+    391,
+    276
+   ],
+   "region": 16,
+   "biome": "bamboo forest",
+   "elevation_km": 0.18,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.56,
+   "name": "Tương Phi Đảo",
+   "name_han": "湘妃島",
+   "gloss": "Isle of the Xiang Consorts",
+   "note": "Its spotted bamboo, stained by the tears of the two consorts of Thuấn",
+   "holder": "",
+   "territory": "phuong_minh",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 198,
+   "kind": "island",
+   "tile": [
+    469,
+    335
+   ],
+   "region": 20,
+   "biome": "temperate forest",
+   "elevation_km": 0.23,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.55,
+   "name": "Dục Nhật Đảo",
+   "name_han": "浴日島",
+   "gloss": "Isle Where the Sun Bathes",
+   "note": "Sơn Hải Kinh: in the far south-east the suns bathe in the sea before they rise",
+   "holder": "",
+   "territory": "phuong_minh",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 199,
+   "kind": "island",
+   "tile": [
+    432,
+    346
+   ],
+   "region": 20,
+   "biome": "grassland",
+   "elevation_km": 0.08,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.67,
+   "name": "Đồ Nam Đảo",
+   "name_han": "圖南島",
+   "gloss": "Isle of the Southward Flight",
+   "note": "Trang Tử: the great Bằng rises ninety thousand li, then sets out for the south",
+   "holder": "",
+   "territory": "phuong_minh",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 200,
+   "kind": "forest",
+   "tile": [
+    301,
+    114
+   ],
+   "region": 1,
+   "biome": "temperate forest",
+   "elevation_km": 0.18,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.14,
+   "name": "Phản Cảnh Lâm",
+   "name_han": "返景林",
+   "gloss": "Forest of the Returning Light",
+   "note": "Vương Duy, Lộc Trại: phản cảnh nhập thâm lâm (the evening light comes back into the deep forest); the heart of the northern forest",
+   "holder": "",
+   "territory": "tung_dao",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 201,
+   "kind": "forest",
+   "tile": [
+    472,
+    88
+   ],
+   "region": 9,
+   "biome": "temperate forest",
+   "elevation_km": 0.24,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.15,
+   "name": "Vô Tung Lâm",
+   "name_han": "無蹤林",
+   "gloss": "Forest Without Tracks",
+   "note": "Liễu Tông Nguyên, Giang Tuyết: vạn kính nhân tung diệt (on ten thousand paths, no human trace)",
+   "holder": "",
+   "territory": "bang_tam",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 202,
+   "kind": "forest",
+   "tile": [
+    347,
+    280
+   ],
+   "region": 19,
+   "biome": "bamboo forest",
+   "elevation_km": 0.15,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.38,
+   "name": "Đả Diệp Lâm",
+   "name_han": "打葉林",
+   "gloss": "Forest of the Beaten Leaves",
+   "note": "Tô Thức: xuyên lâm đả diệp thanh (rain piercing the forest, beating the leaves), the line of Xuyên Lâm Môn nearby",
+   "holder": "",
+   "territory": "thinh_vu",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 203,
+   "kind": "gorge",
+   "tile": [
+    401,
+    160
+   ],
+   "region": 8,
+   "biome": "high mountain",
+   "elevation_km": 0.21,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.06,
+   "name": "Viên Đề Hạp",
+   "name_han": "猿啼峽",
+   "gloss": "Gorge of the Crying Gibbons",
+   "note": "Lý Bạch: lưỡng ngạn viên thanh đề bất trú (on both banks the gibbons cry without end)",
+   "holder": "",
+   "territory": "bang_tam",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 204,
+   "kind": "gorge",
+   "tile": [
+    336,
+    221
+   ],
+   "region": 15,
+   "biome": "high mountain",
+   "elevation_km": 0.67,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.09,
+   "name": "Vạn Trùng Hạp",
+   "name_han": "萬重峽",
+   "gloss": "Gorge of Ten Thousand Mountains",
+   "note": "Lý Bạch: khinh chu dĩ quá vạn trùng sơn (the light boat has passed ten thousand mountains)",
+   "holder": "",
+   "territory": "thien_xu",
+   "on_road": false,
+   "array": false
+  },
+  {
+   "id": 205,
+   "kind": "spirit_vein",
+   "tile": [
+    378,
+    149
+   ],
+   "region": 6,
+   "biome": "high mountain",
+   "elevation_km": 3.02,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Tinh Tủy Mạch",
+   "on_road": false,
+   "array": false,
+   "name_han": "星髓脈",
+   "gloss": "Star Marrow Vein",
+   "note": "A wild vein high in Dao Quang Lĩnh, near Trích Tinh Phong, 4 tiles from Băng Tâm's border.",
+   "holder": "thien_xu",
+   "territory": "thien_xu"
+  },
+  {
+   "id": 206,
+   "kind": "spirit_vein",
+   "tile": [
+    242,
+    171
+   ],
+   "region": 4,
+   "biome": "high mountain",
+   "elevation_km": 1.4,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Thương Tùng Mạch",
+   "on_road": false,
+   "array": false,
+   "name_han": "蒼松脈",
+   "gloss": "Vein of the Grey Pines",
+   "note": "A wild vein under the old pine sea, 4 tiles from Thiên Xu's border.",
+   "holder": "tung_dao",
+   "territory": "tung_dao"
+  },
+  {
+   "id": 207,
+   "kind": "spirit_vein",
+   "tile": [
+    219,
+    247
+   ],
+   "region": 12,
+   "biome": "high mountain",
+   "elevation_km": 1.22,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Trường Hà Mạch",
+   "on_road": false,
+   "array": false,
+   "name_han": "長河脈",
+   "gloss": "Vein of the Long River",
+   "note": "Vương Duy: trường hà lạc nhật viên, the long river and the round setting sun. On the border with Thính Vũ.",
+   "holder": "lac_ha",
+   "territory": "lac_ha"
+  },
+  {
+   "id": 208,
+   "kind": "spirit_vein",
+   "tile": [
+    333,
+    257
+   ],
+   "region": 19,
+   "biome": "high mountain",
+   "elevation_km": 3.19,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Kinh Lôi Mạch",
+   "on_road": false,
+   "array": false,
+   "name_han": "驚雷脈",
+   "gloss": "Vein of the Startling Thunder",
+   "note": "In Kinh Trập Sơn, the mountains of the thunder that wakes the sleepers; within reach of the storm peaks, so it carries Thunder. 5 tiles from Thiên Xu's border.",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu"
+  },
+  {
+   "id": 209,
+   "kind": "spirit_vein",
+   "tile": [
+    419,
+    121
+   ],
+   "region": 7,
+   "biome": "high mountain",
+   "elevation_km": 2.78,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Băng Phách Mạch",
+   "on_road": false,
+   "array": false,
+   "name_han": "冰魄脈",
+   "gloss": "Vein of the Ice Soul",
+   "note": "Băng phách, the ice soul, is an old name for the moon. Under the ice mountains of Ngọc Hồ Sơn, within reach of the storm peaks.",
+   "holder": "bang_tam",
+   "territory": "bang_tam"
+  },
+  {
+   "id": 210,
+   "kind": "spirit_vein",
+   "tile": [
+    33,
+    196
+   ],
+   "region": 2,
+   "biome": "volcano",
+   "elevation_km": 1.36,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Hỏa Ngọc Mạch",
+   "on_road": false,
+   "array": false,
+   "name_han": "火玉脈",
+   "gloss": "Fire Jade Vein",
+   "note": "Under a volcano on an island off Tuyết Hỏa Giác, far out in the western sea, where Lạc Hà's waters begin.",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi"
+  },
+  {
+   "id": 211,
+   "kind": "spirit_vein",
+   "tile": [
+    375,
+    217
+   ],
+   "region": 16,
+   "biome": "high mountain",
+   "elevation_km": 1.34,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Đan Sơn Mạch",
+   "on_road": false,
+   "array": false,
+   "name_han": "丹山脈",
+   "gloss": "Vein of the Cinnabar Mountain",
+   "note": "Sơn Hải Kinh's cinnabar mountain is where the phoenix is born. 3 tiles from Thiên Xu's border.",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh"
+  },
+  {
+   "id": 212,
+   "kind": "peak",
+   "tile": [
+    400,
+    296
+   ],
+   "region": 16,
+   "biome": "high mountain",
+   "elevation_km": 2.56,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Cao Cương Phong",
+   "on_road": false,
+   "array": false,
+   "name_han": "高岡峰",
+   "gloss": "Peak of the High Ridge",
+   "note": "Kinh Thi: phượng hoàng minh hĩ, vu bỉ cao cương, the phoenix sings on that high ridge. A sacred summit (Light).",
+   "holder": "",
+   "territory": "phuong_minh"
+  }
+ ],
+ "routes": [
+  {
+   "a": 1,
+   "b": 45,
+   "kind": "trunk",
+   "tiles": 9.66,
+   "km": 241.4
+  },
+  {
+   "a": 1,
+   "b": 102,
+   "kind": "trunk",
+   "tiles": 59.53,
+   "km": 1488.2
+  },
+  {
+   "a": 1,
+   "b": 165,
+   "kind": "road",
+   "tiles": 5.41,
+   "km": 135.4
+  },
+  {
+   "a": 2,
+   "b": 33,
+   "kind": "trunk",
+   "tiles": 11.9,
+   "km": 297.5
+  },
+  {
+   "a": 2,
+   "b": 46,
+   "kind": "trunk",
+   "tiles": 8.49,
+   "km": 212.1
+  },
+  {
+   "a": 3,
+   "b": 35,
+   "kind": "trunk",
+   "tiles": 47.11,
+   "km": 1177.8
+  },
+  {
+   "a": 3,
+   "b": 48,
+   "kind": "trunk",
+   "tiles": 10.07,
+   "km": 251.8
+  },
+  {
+   "a": 4,
+   "b": 50,
+   "kind": "trunk",
+   "tiles": 26.73,
+   "km": 668.2
+  },
+  {
+   "a": 4,
+   "b": 51,
+   "kind": "trunk",
+   "tiles": 8.07,
+   "km": 201.8
+  },
+  {
+   "a": 5,
+   "b": 52,
+   "kind": "trunk",
+   "tiles": 8.24,
+   "km": 206.1
+  },
+  {
+   "a": 5,
+   "b": 81,
+   "kind": "road",
+   "tiles": 52.14,
+   "km": 1303.6
+  },
+  {
+   "a": 5,
+   "b": 192,
+   "kind": "road",
+   "tiles": 30.38,
+   "km": 759.4
+  },
+  {
+   "a": 6,
+   "b": 53,
+   "kind": "trunk",
+   "tiles": 9.41,
+   "km": 235.4
+  },
+  {
+   "a": 6,
+   "b": 145,
+   "kind": "road",
+   "tiles": 26.14,
+   "km": 653.6
+  },
+  {
+   "a": 7,
+   "b": 54,
+   "kind": "trunk",
+   "tiles": 11.49,
+   "km": 287.1
+  },
+  {
+   "a": 8,
+   "b": 190,
+   "kind": "road",
+   "tiles": 25.8,
+   "km": 645.0
+  },
+  {
+   "a": 10,
+   "b": 166,
+   "kind": "road",
+   "tiles": 3.41,
+   "km": 85.4
+  },
+  {
+   "a": 11,
+   "b": 107,
+   "kind": "road",
+   "tiles": 15.24,
+   "km": 381.1
+  },
+  {
+   "a": 11,
+   "b": 167,
+   "kind": "road",
+   "tiles": 3.41,
+   "km": 85.4
+  },
+  {
+   "a": 12,
+   "b": 47,
+   "kind": "road",
+   "tiles": 18.31,
+   "km": 457.8
+  },
+  {
+   "a": 13,
+   "b": 46,
+   "kind": "road",
+   "tiles": 48.38,
+   "km": 1209.6
+  },
+  {
+   "a": 13,
+   "b": 47,
+   "kind": "road",
+   "tiles": 9.24,
+   "km": 231.1
+  },
+  {
+   "a": 14,
+   "b": 34,
+   "kind": "road",
+   "tiles": 25.97,
+   "km": 649.3
+  },
+  {
+   "a": 14,
+   "b": 142,
+   "kind": "road",
+   "tiles": 53.53,
+   "km": 1338.2
+  },
+  {
+   "a": 15,
+   "b": 66,
+   "kind": "road",
+   "tiles": 27.56,
+   "km": 688.9
+  },
+  {
+   "a": 16,
+   "b": 35,
+   "kind": "road",
+   "tiles": 11.07,
+   "km": 276.8
+  },
+  {
+   "a": 17,
+   "b": 119,
+   "kind": "road",
+   "tiles": 12.9,
+   "km": 322.5
+  },
+  {
+   "a": 18,
+   "b": 49,
+   "kind": "road",
+   "tiles": 11.07,
+   "km": 276.8
+  },
+  {
+   "a": 18,
+   "b": 123,
+   "kind": "road",
+   "tiles": 6.83,
+   "km": 170.7
+  },
+  {
+   "a": 19,
+   "b": 73,
+   "kind": "road",
+   "tiles": 7.07,
+   "km": 176.8
+  },
+  {
+   "a": 20,
+   "b": 50,
+   "kind": "road",
+   "tiles": 11.49,
+   "km": 287.1
+  },
+  {
+   "a": 21,
+   "b": 79,
+   "kind": "road",
+   "tiles": 6.66,
+   "km": 166.4
+  },
+  {
+   "a": 22,
+   "b": 172,
+   "kind": "road",
+   "tiles": 8.07,
+   "km": 201.8
+  },
+  {
+   "a": 22,
+   "b": 192,
+   "kind": "road",
+   "tiles": 9.99,
+   "km": 249.8
+  },
+  {
+   "a": 23,
+   "b": 173,
+   "kind": "road",
+   "tiles": 15.24,
+   "km": 381.1
+  },
+  {
+   "a": 24,
+   "b": 204,
+   "kind": "road",
+   "tiles": 6.41,
+   "km": 160.4
+  },
+  {
+   "a": 25,
+   "b": 53,
+   "kind": "road",
+   "tiles": 25.97,
+   "km": 649.3
+  },
+  {
+   "a": 25,
+   "b": 147,
+   "kind": "road",
+   "tiles": 9.49,
+   "km": 237.1
+  },
+  {
+   "a": 26,
+   "b": 41,
+   "kind": "road",
+   "tiles": 14.49,
+   "km": 362.1
+  },
+  {
+   "a": 26,
+   "b": 87,
+   "kind": "road",
+   "tiles": 10.24,
+   "km": 256.1
+  },
+  {
+   "a": 27,
+   "b": 134,
+   "kind": "road",
+   "tiles": 27.9,
+   "km": 697.5
+  },
+  {
+   "a": 28,
+   "b": 147,
+   "kind": "road",
+   "tiles": 26.38,
+   "km": 659.6
+  },
+  {
+   "a": 29,
+   "b": 94,
+   "kind": "road",
+   "tiles": 11.24,
+   "km": 281.1
+  },
+  {
+   "a": 30,
+   "b": 31,
+   "kind": "trunk",
+   "tiles": 69.6,
+   "km": 1739.9
+  },
+  {
+   "a": 30,
+   "b": 104,
+   "kind": "road",
+   "tiles": 15.07,
+   "km": 376.8
+  },
+  {
+   "a": 30,
+   "b": 166,
+   "kind": "road",
+   "tiles": 15.31,
+   "km": 382.8
+  },
+  {
+   "a": 31,
+   "b": 45,
+   "kind": "trunk",
+   "tiles": 17.14,
+   "km": 428.6
+  },
+  {
+   "a": 32,
+   "b": 102,
+   "kind": "trunk",
+   "tiles": 16.49,
+   "km": 412.1
+  },
+  {
+   "a": 32,
+   "b": 105,
+   "kind": "road",
+   "tiles": 12.49,
+   "km": 312.1
+  },
+  {
+   "a": 32,
+   "b": 106,
+   "kind": "road",
+   "tiles": 9.24,
+   "km": 231.1
+  },
+  {
+   "a": 33,
+   "b": 108,
+   "kind": "road",
+   "tiles": 19.66,
+   "km": 491.4
+  },
+  {
+   "a": 34,
+   "b": 55,
+   "kind": "road",
+   "tiles": 56.11,
+   "km": 1402.8
+  },
+  {
+   "a": 34,
+   "b": 111,
+   "kind": "road",
+   "tiles": 8.24,
+   "km": 206.1
+  },
+  {
+   "a": 35,
+   "b": 116,
+   "kind": "road",
+   "tiles": 40.53,
+   "km": 1013.2
+  },
+  {
+   "a": 35,
+   "b": 117,
+   "kind": "road",
+   "tiles": 13.9,
+   "km": 347.5
+  },
+  {
+   "a": 36,
+   "b": 121,
+   "kind": "road",
+   "tiles": 7.07,
+   "km": 176.8
+  },
+  {
+   "a": 36,
+   "b": 191,
+   "kind": "trunk",
+   "tiles": 27.49,
+   "km": 687.1
+  },
+  {
+   "a": 37,
+   "b": 70,
+   "kind": "road",
+   "tiles": 38.7,
+   "km": 967.5
+  },
+  {
+   "a": 37,
+   "b": 72,
+   "kind": "road",
+   "tiles": 41.36,
+   "km": 1033.9
+  },
+  {
+   "a": 37,
+   "b": 125,
+   "kind": "road",
+   "tiles": 11.49,
+   "km": 287.1
+  },
+  {
+   "a": 38,
+   "b": 51,
+   "kind": "trunk",
+   "tiles": 54.7,
+   "km": 1367.5
+  },
+  {
+   "a": 38,
+   "b": 73,
+   "kind": "road",
+   "tiles": 61.01,
+   "km": 1525.3
+  },
+  {
+   "a": 38,
+   "b": 133,
+   "kind": "road",
+   "tiles": 102.95,
+   "km": 2573.8
+  },
+  {
+   "a": 39,
+   "b": 133,
+   "kind": "road",
+   "tiles": 9.83,
+   "km": 245.7
+  },
+  {
+   "a": 39,
+   "b": 134,
+   "kind": "road",
+   "tiles": 8.24,
+   "km": 206.1
+  },
+  {
+   "a": 40,
+   "b": 142,
+   "kind": "road",
+   "tiles": 9.83,
+   "km": 245.7
+  },
+  {
+   "a": 40,
+   "b": 173,
+   "kind": "road",
+   "tiles": 27.14,
+   "km": 678.6
+  },
+  {
+   "a": 41,
+   "b": 83,
+   "kind": "road",
+   "tiles": 31.46,
+   "km": 786.4
+  },
+  {
+   "a": 41,
+   "b": 117,
+   "kind": "road",
+   "tiles": 50.77,
+   "km": 1269.2
+  },
+  {
+   "a": 42,
+   "b": 153,
+   "kind": "road",
+   "tiles": 47.53,
+   "km": 1188.2
+  },
+  {
+   "a": 42,
+   "b": 155,
+   "kind": "road",
+   "tiles": 43.46,
+   "km": 1086.4
+  },
+  {
+   "a": 43,
+   "b": 89,
+   "kind": "road",
+   "tiles": 63.46,
+   "km": 1586.4
+  },
+  {
+   "a": 43,
+   "b": 157,
+   "kind": "road",
+   "tiles": 20.97,
+   "km": 524.3
+  },
+  {
+   "a": 43,
+   "b": 178,
+   "kind": "road",
+   "tiles": 25.31,
+   "km": 632.8
+  },
+  {
+   "a": 44,
+   "b": 164,
+   "kind": "road",
+   "tiles": 11.49,
+   "km": 287.1
+  },
+  {
+   "a": 44,
+   "b": 180,
+   "kind": "road",
+   "tiles": 23.56,
+   "km": 588.9
+  },
+  {
+   "a": 44,
+   "b": 212,
+   "kind": "trunk",
+   "tiles": 27.44,
+   "km": 685.9
+  },
+  {
+   "a": 46,
+   "b": 105,
+   "kind": "road",
+   "tiles": 36.31,
+   "km": 907.8
+  },
+  {
+   "a": 48,
+   "b": 191,
+   "kind": "trunk",
+   "tiles": 15.31,
+   "km": 382.8
+  },
+  {
+   "a": 49,
+   "b": 122,
+   "kind": "road",
+   "tiles": 18.9,
+   "km": 472.5
+  },
+  {
+   "a": 50,
+   "b": 169,
+   "kind": "road",
+   "tiles": 14.49,
+   "km": 362.1
+  },
+  {
+   "a": 51,
+   "b": 139,
+   "kind": "road",
+   "tiles": 21.24,
+   "km": 531.1
+  },
+  {
+   "a": 52,
+   "b": 171,
+   "kind": "road",
+   "tiles": 19.31,
+   "km": 482.8
+  },
+  {
+   "a": 54,
+   "b": 81,
+   "kind": "road",
+   "tiles": 58.28,
+   "km": 1457.1
+  },
+  {
+   "a": 54,
+   "b": 90,
+   "kind": "road",
+   "tiles": 31.31,
+   "km": 782.8
+  },
+  {
+   "a": 54,
+   "b": 169,
+   "kind": "road",
+   "tiles": 48.53,
+   "km": 1213.2
+  },
+  {
+   "a": 55,
+   "b": 96,
+   "kind": "road",
+   "tiles": 6.41,
+   "km": 160.4
+  },
+  {
+   "a": 55,
+   "b": 190,
+   "kind": "road",
+   "tiles": 49.43,
+   "km": 1235.7
+  },
+  {
+   "a": 56,
+   "b": 99,
+   "kind": "road",
+   "tiles": 8.49,
+   "km": 212.1
+  },
+  {
+   "a": 57,
+   "b": 100,
+   "kind": "road",
+   "tiles": 11.66,
+   "km": 291.4
+  },
+  {
+   "a": 58,
+   "b": 165,
+   "kind": "road",
+   "tiles": 25.14,
+   "km": 628.6
+  },
+  {
+   "a": 59,
+   "b": 102,
+   "kind": "road",
+   "tiles": 16.73,
+   "km": 418.2
+  },
+  {
+   "a": 59,
+   "b": 103,
+   "kind": "road",
+   "tiles": 11.49,
+   "km": 287.1
+  },
+  {
+   "a": 60,
+   "b": 105,
+   "kind": "road",
+   "tiles": 33.56,
+   "km": 838.9
+  },
+  {
+   "a": 61,
+   "b": 107,
+   "kind": "road",
+   "tiles": 11.07,
+   "km": 276.8
+  },
+  {
+   "a": 61,
+   "b": 137,
+   "kind": "road",
+   "tiles": 9.9,
+   "km": 247.5
+  },
+  {
+   "a": 62,
+   "b": 108,
+   "kind": "road",
+   "tiles": 9.83,
+   "km": 245.7
+  },
+  {
+   "a": 63,
+   "b": 110,
+   "kind": "road",
+   "tiles": 8.24,
+   "km": 206.1
+  },
+  {
+   "a": 63,
+   "b": 112,
+   "kind": "road",
+   "tiles": 6.0,
+   "km": 150.0
+  },
+  {
+   "a": 64,
+   "b": 112,
+   "kind": "road",
+   "tiles": 17.14,
+   "km": 428.6
+  },
+  {
+   "a": 64,
+   "b": 140,
+   "kind": "road",
+   "tiles": 10.07,
+   "km": 251.8
+  },
+  {
+   "a": 65,
+   "b": 113,
+   "kind": "road",
+   "tiles": 11.24,
+   "km": 281.1
+  },
+  {
+   "a": 65,
+   "b": 140,
+   "kind": "road",
+   "tiles": 20.73,
+   "km": 518.2
+  },
+  {
+   "a": 65,
+   "b": 141,
+   "kind": "road",
+   "tiles": 6.83,
+   "km": 170.7
+  },
+  {
+   "a": 65,
+   "b": 171,
+   "kind": "road",
+   "tiles": 29.31,
+   "km": 732.8
+  },
+  {
+   "a": 66,
+   "b": 114,
+   "kind": "road",
+   "tiles": 31.38,
+   "km": 784.6
+  },
+  {
+   "a": 67,
+   "b": 69,
+   "kind": "road",
+   "tiles": 17.83,
+   "km": 445.7
+  },
+  {
+   "a": 68,
+   "b": 119,
+   "kind": "road",
+   "tiles": 20.31,
+   "km": 507.8
+  },
+  {
+   "a": 68,
+   "b": 120,
+   "kind": "road",
+   "tiles": 8.41,
+   "km": 210.4
+  },
+  {
+   "a": 68,
+   "b": 168,
+   "kind": "road",
+   "tiles": 20.31,
+   "km": 507.8
+  },
+  {
+   "a": 68,
+   "b": 191,
+   "kind": "road",
+   "tiles": 27.8,
+   "km": 695.0
+  },
+  {
+   "a": 69,
+   "b": 121,
+   "kind": "road",
+   "tiles": 15.41,
+   "km": 385.4
+  },
+  {
+   "a": 71,
+   "b": 122,
+   "kind": "road",
+   "tiles": 14.9,
+   "km": 372.5
+  },
+  {
+   "a": 71,
+   "b": 125,
+   "kind": "road",
+   "tiles": 24.63,
+   "km": 615.7
+  },
+  {
+   "a": 72,
+   "b": 126,
+   "kind": "road",
+   "tiles": 17.9,
+   "km": 447.5
+  },
+  {
+   "a": 73,
+   "b": 74,
+   "kind": "road",
+   "tiles": 28.21,
+   "km": 705.3
+  },
+  {
+   "a": 73,
+   "b": 127,
+   "kind": "road",
+   "tiles": 7.07,
+   "km": 176.8
+  },
+  {
+   "a": 73,
+   "b": 129,
+   "kind": "road",
+   "tiles": 9.9,
+   "km": 247.5
+  },
+  {
+   "a": 73,
+   "b": 131,
+   "kind": "road",
+   "tiles": 22.38,
+   "km": 559.6
+  },
+  {
+   "a": 74,
+   "b": 128,
+   "kind": "road",
+   "tiles": 9.24,
+   "km": 231.1
+  },
+  {
+   "a": 74,
+   "b": 130,
+   "kind": "road",
+   "tiles": 6.83,
+   "km": 170.7
+  },
+  {
+   "a": 75,
+   "b": 130,
+   "kind": "road",
+   "tiles": 9.41,
+   "km": 235.4
+  },
+  {
+   "a": 75,
+   "b": 138,
+   "kind": "road",
+   "tiles": 17.07,
+   "km": 426.8
+  },
+  {
+   "a": 76,
+   "b": 132,
+   "kind": "road",
+   "tiles": 7.66,
+   "km": 191.4
+  },
+  {
+   "a": 76,
+   "b": 133,
+   "kind": "road",
+   "tiles": 11.24,
+   "km": 281.1
+  },
+  {
+   "a": 77,
+   "b": 134,
+   "kind": "road",
+   "tiles": 9.0,
+   "km": 225.0
+  },
+  {
+   "a": 77,
+   "b": 135,
+   "kind": "road",
+   "tiles": 8.41,
+   "km": 210.4
+  },
+  {
+   "a": 78,
+   "b": 135,
+   "kind": "road",
+   "tiles": 12.9,
+   "km": 322.5
+  },
+  {
+   "a": 79,
+   "b": 136,
+   "kind": "road",
+   "tiles": 11.07,
+   "km": 276.8
+  },
+  {
+   "a": 79,
+   "b": 138,
+   "kind": "road",
+   "tiles": 11.83,
+   "km": 295.7
+  },
+  {
+   "a": 80,
+   "b": 138,
+   "kind": "road",
+   "tiles": 13.07,
+   "km": 326.8
+  },
+  {
+   "a": 82,
+   "b": 142,
+   "kind": "road",
+   "tiles": 23.8,
+   "km": 595.0
+  },
+  {
+   "a": 82,
+   "b": 143,
+   "kind": "road",
+   "tiles": 11.49,
+   "km": 287.1
+  },
+  {
+   "a": 83,
+   "b": 84,
+   "kind": "road",
+   "tiles": 17.66,
+   "km": 441.4
+  },
+  {
+   "a": 83,
+   "b": 146,
+   "kind": "road",
+   "tiles": 15.07,
+   "km": 376.8
+  },
+  {
+   "a": 85,
+   "b": 117,
+   "kind": "road",
+   "tiles": 40.18,
+   "km": 1004.6
+  },
+  {
+   "a": 85,
+   "b": 148,
+   "kind": "road",
+   "tiles": 8.66,
+   "km": 216.4
+  },
+  {
+   "a": 85,
+   "b": 150,
+   "kind": "road",
+   "tiles": 20.97,
+   "km": 524.3
+  },
+  {
+   "a": 86,
+   "b": 150,
+   "kind": "road",
+   "tiles": 8.07,
+   "km": 201.8
+  },
+  {
+   "a": 86,
+   "b": 152,
+   "kind": "road",
+   "tiles": 7.24,
+   "km": 181.1
+  },
+  {
+   "a": 88,
+   "b": 153,
+   "kind": "road",
+   "tiles": 9.07,
+   "km": 226.8
+  },
+  {
+   "a": 89,
+   "b": 155,
+   "kind": "road",
+   "tiles": 45.11,
+   "km": 1127.8
+  },
+  {
+   "a": 89,
+   "b": 158,
+   "kind": "road",
+   "tiles": 19.66,
+   "km": 491.4
+  },
+  {
+   "a": 90,
+   "b": 158,
+   "kind": "road",
+   "tiles": 33.07,
+   "km": 826.8
+  },
+  {
+   "a": 91,
+   "b": 92,
+   "kind": "road",
+   "tiles": 30.49,
+   "km": 762.1
+  },
+  {
+   "a": 91,
+   "b": 147,
+   "kind": "road",
+   "tiles": 11.49,
+   "km": 287.1
+  },
+  {
+   "a": 91,
+   "b": 212,
+   "kind": "trunk",
+   "tiles": 57.16,
+   "km": 1429.1
+  },
+  {
+   "a": 92,
+   "b": 159,
+   "kind": "road",
+   "tiles": 32.9,
+   "km": 822.5
+  },
+  {
+   "a": 93,
+   "b": 94,
+   "kind": "road",
+   "tiles": 22.63,
+   "km": 565.7
+  },
+  {
+   "a": 93,
+   "b": 151,
+   "kind": "road",
+   "tiles": 43.77,
+   "km": 1094.2
+  },
+  {
+   "a": 94,
+   "b": 161,
+   "kind": "road",
+   "tiles": 25.46,
+   "km": 636.4
+  },
+  {
+   "a": 94,
+   "b": 162,
+   "kind": "road",
+   "tiles": 6.83,
+   "km": 170.7
+  },
+  {
+   "a": 95,
+   "b": 97,
+   "kind": "road",
+   "tiles": 50.04,
+   "km": 1251.0
+  },
+  {
+   "a": 96,
+   "b": 97,
+   "kind": "road",
+   "tiles": 8.24,
+   "km": 206.1
+  },
+  {
+   "a": 97,
+   "b": 114,
+   "kind": "road",
+   "tiles": 26.56,
+   "km": 663.9
+  },
+  {
+   "a": 108,
+   "b": 109,
+   "kind": "road",
+   "tiles": 31.38,
+   "km": 784.6
+  },
+  {
+   "a": 109,
+   "b": 112,
+   "kind": "road",
+   "tiles": 35.94,
+   "km": 898.5
+  },
+  {
+   "a": 114,
+   "b": 115,
+   "kind": "road",
+   "tiles": 7.41,
+   "km": 185.4
+  },
+  {
+   "a": 117,
+   "b": 118,
+   "kind": "road",
+   "tiles": 6.83,
+   "km": 170.7
+  },
+  {
+   "a": 117,
+   "b": 151,
+   "kind": "road",
+   "tiles": 47.67,
+   "km": 1191.7
+  },
+  {
+   "a": 124,
+   "b": 126,
+   "kind": "road",
+   "tiles": 16.73,
+   "km": 418.2
+  },
+  {
+   "a": 133,
+   "b": 153,
+   "kind": "road",
+   "tiles": 27.73,
+   "km": 693.2
+  },
+  {
+   "a": 137,
+   "b": 139,
+   "kind": "road",
+   "tiles": 35.21,
+   "km": 880.3
+  },
+  {
+   "a": 142,
+   "b": 144,
+   "kind": "road",
+   "tiles": 7.41,
+   "km": 185.4
+  },
+  {
+   "a": 143,
+   "b": 204,
+   "kind": "road",
+   "tiles": 50.04,
+   "km": 1251.0
+  },
+  {
+   "a": 145,
+   "b": 146,
+   "kind": "road",
+   "tiles": 11.83,
+   "km": 295.7
+  },
+  {
+   "a": 145,
+   "b": 176,
+   "kind": "road",
+   "tiles": 28.9,
+   "km": 722.5
+  },
+  {
+   "a": 148,
+   "b": 174,
+   "kind": "road",
+   "tiles": 24.73,
+   "km": 618.2
+  },
+  {
+   "a": 149,
+   "b": 151,
+   "kind": "road",
+   "tiles": 19.56,
+   "km": 488.9
+  },
+  {
+   "a": 153,
+   "b": 156,
+   "kind": "road",
+   "tiles": 27.38,
+   "km": 684.6
+  },
+  {
+   "a": 154,
+   "b": 155,
+   "kind": "road",
+   "tiles": 11.9,
+   "km": 297.5
+  },
+  {
+   "a": 157,
+   "b": 159,
+   "kind": "road",
+   "tiles": 20.14,
+   "km": 503.6
+  },
+  {
+   "a": 159,
+   "b": 160,
+   "kind": "road",
+   "tiles": 8.07,
+   "km": 201.8
+  },
+  {
+   "a": 162,
+   "b": 163,
+   "kind": "road",
+   "tiles": 16.73,
+   "km": 418.2
+  },
+  {
+   "a": 170,
+   "b": 171,
+   "kind": "road",
+   "tiles": 29.49,
+   "km": 737.1
+  },
+  {
+   "a": 173,
+   "b": 174,
+   "kind": "road",
+   "tiles": 11.24,
+   "km": 281.1
+  },
+  {
+   "a": 175,
+   "b": 176,
+   "kind": "road",
+   "tiles": 8.66,
+   "km": 216.4
+  },
+  {
+   "a": 177,
+   "b": 178,
+   "kind": "road",
+   "tiles": 9.24,
+   "km": 231.1
+  },
+  {
+   "a": 178,
+   "b": 179,
+   "kind": "road",
+   "tiles": 10.07,
+   "km": 251.8
+  },
+  {
+   "a": 38,
+   "b": 49,
+   "kind": "lane",
+   "tiles": 31.14,
+   "km": 778.6
+  },
+  {
+   "a": 38,
+   "b": 71,
+   "kind": "lane",
+   "tiles": 49.46,
+   "km": 1236.4
+  },
+  {
+   "a": 37,
+   "b": 71,
+   "kind": "lane",
+   "tiles": 22.73,
+   "km": 568.2
+  },
+  {
+   "a": 37,
+   "b": 70,
+   "kind": "lane",
+   "tiles": 41.8,
+   "km": 1045.0
+  },
+  {
+   "a": 38,
+   "b": 39,
+   "kind": "lane",
+   "tiles": 74.18,
+   "km": 1854.6
+  },
+  {
+   "a": 39,
+   "b": 49,
+   "kind": "lane",
+   "tiles": 78.43,
+   "km": 1960.7
+  },
+  {
+   "a": 35,
+   "b": 36,
+   "kind": "lane",
+   "tiles": 107.94,
+   "km": 2698.5
+  },
+  {
+   "a": 30,
+   "b": 56,
+   "kind": "lane",
+   "tiles": 56.11,
+   "km": 1402.8
+  },
+  {
+   "a": 30,
+   "b": 57,
+   "kind": "lane",
+   "tiles": 90.98,
+   "km": 2274.6
+  },
+  {
+   "a": 41,
+   "b": 44,
+   "kind": "lane",
+   "tiles": 102.25,
+   "km": 2556.4
+  },
+  {
+   "a": 49,
+   "b": 71,
+   "kind": "lane",
+   "tiles": 28.56,
+   "km": 713.9
+  },
+  {
+   "a": 56,
+   "b": 57,
+   "kind": "lane",
+   "tiles": 20.9,
+   "km": 522.5
+  },
+  {
+   "a": 70,
+   "b": 72,
+   "kind": "lane",
+   "tiles": 70.84,
+   "km": 1771.0
+  },
+  {
+   "a": 37,
+   "b": 72,
+   "kind": "lane",
+   "tiles": 117.05,
+   "km": 2926.3
+  },
+  {
+   "a": 70,
+   "b": 71,
+   "kind": "lane",
+   "tiles": 51.8,
+   "km": 1295.0
+  },
+  {
+   "a": 56,
+   "b": 98,
+   "kind": "lane",
+   "tiles": 5.0,
+   "km": 125.0
+  },
+  {
+   "a": 57,
+   "b": 101,
+   "kind": "lane",
+   "tiles": 7.07,
+   "km": 176.8
+  }
+ ],
+ "arrays": [
+  30,
+  32,
+  35,
+  39,
+  40,
+  41,
+  42
+ ],
+ "origins": {
+  "tong_mon": {
+   "name": "Đệ tử tông môn",
+   "home": "the region of the chosen sect's seat",
+   "choices": [
+    {
+     "sect": "Thúy Vi Tông",
+     "kind": "great_seat",
+     "region": 3,
+     "region_name": "Thanh Loan Lĩnh"
+    },
+    {
+     "sect": "Tùng Đào Cung",
+     "kind": "great_seat",
+     "region": 4,
+     "region_name": "Thâm Tùng Hải"
+    },
+    {
+     "sect": "Băng Tâm Các",
+     "kind": "great_seat",
+     "region": 8,
+     "region_name": "Cô Yên Mạc"
+    },
+    {
+     "sect": "Lạc Hà Tông",
+     "kind": "great_seat",
+     "region": 13,
+     "region_name": "Ngư Ca Xuyên"
+    },
+    {
+     "sect": "Thiên Xu Tông",
+     "kind": "great_seat",
+     "region": 14,
+     "region_name": "Thiên Tuyền Nguyên"
+    },
+    {
+     "sect": "Phượng Minh Cung",
+     "kind": "great_seat",
+     "region": 16,
+     "region_name": "Thê Ngô Lĩnh"
+    },
+    {
+     "sect": "Thính Vũ Lâu",
+     "kind": "great_seat",
+     "region": 18,
+     "region_name": "Tiêu Vũ Lâm"
+    },
+    {
+     "sect": "Hàm Nguyệt Trang",
+     "kind": "minor_seat",
+     "region": 1,
+     "region_name": "Lãnh Nguyệt Lâm"
+    },
+    {
+     "sect": "Hồng Lô Cốc",
+     "kind": "minor_seat",
+     "region": 2,
+     "region_name": "Tuyết Hỏa Giác"
+    },
+    {
+     "sect": "Vân Khởi Quán",
+     "kind": "minor_seat",
+     "region": 3,
+     "region_name": "Thanh Loan Lĩnh"
+    },
+    {
+     "sect": "Vạn Hác Viện",
+     "kind": "minor_seat",
+     "region": 4,
+     "region_name": "Thâm Tùng Hải"
+    },
+    {
+     "sect": "Thải Chi Cốc",
+     "kind": "minor_seat",
+     "region": 5,
+     "region_name": "Cửu Khúc Xuyên"
+    },
+    {
+     "sect": "Lãng Đào Môn",
+     "kind": "minor_seat",
+     "region": 5,
+     "region_name": "Cửu Khúc Xuyên"
+    },
+    {
+     "sect": "Cửu Cao Phái",
+     "kind": "minor_seat",
+     "region": 6,
+     "region_name": "Dao Quang Lĩnh"
+    },
+    {
+     "sect": "Lê Hoa Am",
+     "kind": "minor_seat",
+     "region": 7,
+     "region_name": "Ngọc Hồ Sơn"
+    },
+    {
+     "sect": "Dạ Quang Môn",
+     "kind": "minor_seat",
+     "region": 8,
+     "region_name": "Cô Yên Mạc"
+    },
+    {
+     "sect": "Trạc Anh Đài",
+     "kind": "minor_seat",
+     "region": 9,
+     "region_name": "Hàn Sương Châu"
+    },
+    {
+     "sect": "Bình Thủy Môn",
+     "kind": "minor_seat",
+     "region": 10,
+     "region_name": "Cô Vụ Đảo"
+    },
+    {
+     "sect": "Mục Vân Trang",
+     "kind": "minor_seat",
+     "region": 11,
+     "region_name": "Trường Thiên Nguyên"
+    },
+    {
+     "sect": "Thiên Bảo Trai",
+     "kind": "minor_seat",
+     "region": 12,
+     "region_name": "Thu Thủy Loan"
+    },
+    {
+     "sect": "Nam Phố Đường",
+     "kind": "minor_seat",
+     "region": 13,
+     "region_name": "Ngư Ca Xuyên"
+    },
+    {
+     "sect": "Củng Tinh Quán",
+     "kind": "minor_seat",
+     "region": 14,
+     "region_name": "Thiên Tuyền Nguyên"
+    },
+    {
+     "sect": "Thối Tinh Môn",
+     "kind": "minor_seat",
+     "region": 15,
+     "region_name": "Ngọc Hành Sơn"
+    },
+    {
+     "sect": "Phất Y Cốc",
+     "kind": "minor_seat",
+     "region": 15,
+     "region_name": "Ngọc Hành Sơn"
+    },
+    {
+     "sect": "Trúc Thực Viên",
+     "kind": "minor_seat",
+     "region": 16,
+     "region_name": "Thê Ngô Lĩnh"
+    },
+    {
+     "sect": "Lễ Tuyền Phái",
+     "kind": "minor_seat",
+     "region": 17,
+     "region_name": "Triêu Dương Nguyên"
+    },
+    {
+     "sect": "Hồng Đậu Trang",
+     "kind": "minor_seat",
+     "region": 18,
+     "region_name": "Tiêu Vũ Lâm"
+    },
+    {
+     "sect": "Xuyên Lâm Môn",
+     "kind": "minor_seat",
+     "region": 19,
+     "region_name": "Kinh Trập Sơn"
+    },
+    {
+     "sect": "Phần Vũ Đường",
+     "kind": "minor_seat",
+     "region": 20,
+     "region_name": "Đan Huyệt Châu"
+    }
+   ],
+   "start": "at the seat, as an outer disciple"
+  },
+  "tan_tu": {
+   "name": "Tán tu",
+   "home": "a region with a cultivator market (phường thị), where loose cultivators gather",
+   "choices": [
+    {
+     "region": 3,
+     "region_name": "Thanh Loan Lĩnh",
+     "market": [
+      "Lam Yên Thị"
+     ]
+    },
+    {
+     "region": 4,
+     "region_name": "Thâm Tùng Hải",
+     "market": [
+      "Tùng Hạ Thị"
+     ]
+    },
+    {
+     "region": 5,
+     "region_name": "Cửu Khúc Xuyên",
+     "market": [
+      "Đào Sa Thị"
+     ]
+    },
+    {
+     "region": 9,
+     "region_name": "Hàn Sương Châu",
+     "market": [
+      "Tống Khách Thị"
+     ]
+    },
+    {
+     "region": 10,
+     "region_name": "Cô Vụ Đảo",
+     "market": [
+      "Tương Phùng Thị"
+     ]
+    },
+    {
+     "region": 12,
+     "region_name": "Thu Thủy Loan",
+     "market": [
+      "Vật Hoa Thị"
+     ]
+    },
+    {
+     "region": 13,
+     "region_name": "Ngư Ca Xuyên",
+     "market": [
+      "Hạc Đinh Thị"
+     ]
+    },
+    {
+     "region": 14,
+     "region_name": "Thiên Tuyền Nguyên",
+     "market": [
+      "Thiên Quyền Thị"
+     ]
+    },
+    {
+     "region": 16,
+     "region_name": "Thê Ngô Lĩnh",
+     "market": [
+      "Thiều Âm Thị"
+     ]
+    },
+    {
+     "region": 19,
+     "region_name": "Kinh Trập Sơn",
+     "market": [
+      "Hạnh Hoa Thị"
+     ]
+    }
+   ],
+   "start": "at the market"
+  },
+  "gia_toc": {
+   "name": "Con cháu gia tộc",
+   "home": "the region of the clan's town, one clan in each great sect's land",
+   "choices": [
+    {
+     "key": "ta",
+     "name_hv": "Tạ gia",
+     "name_han": "謝家",
+     "town": "Phong Lâm Trấn",
+     "tile": [
+      177,
+      166
+     ],
+     "region": 13,
+     "region_name": "Ngư Ca Xuyên",
+     "lord": "Lạc Hà Tông",
+     "town_holder": "Nam Phố Đường",
+     "note": "Lưu Vũ Tích: cựu thời Vương Tạ đường tiền yến, phi nhập tầm thường bách tính gia, the swallows of the old Vương and Tạ halls now nest in common homes. A great house fallen to a small clan, and the Vương clan's old rival."
+    },
+    {
+     "key": "vuong",
+     "name_hv": "Vương gia",
+     "name_han": "王家",
+     "town": "Đạo Hương Trấn",
+     "tile": [
+      411,
+      194
+     ],
+     "region": 17,
+     "region_name": "Triêu Dương Nguyên",
+     "lord": "Phượng Minh Cung",
+     "town_holder": "Phượng Minh Cung",
+     "note": "The other house of the same line. Far from the Tạ now, in Phượng Minh's rice plain."
+    },
+    {
+     "key": "tham",
+     "name_hv": "Thẩm gia",
+     "name_han": "沈家",
+     "town": "Bạch Sa Trấn",
+     "tile": [
+      56,
+      168
+     ],
+     "region": 2,
+     "region_name": "Tuyết Hỏa Giác",
+     "lord": "Thúy Vi Tông",
+     "town_holder": "Thúy Vi Tông",
+     "note": "A coast clan of the white sands, on Thúy Vi's far west shore."
+    },
+    {
+     "key": "luc",
+     "name_hv": "Lục gia",
+     "name_han": "陸家",
+     "town": "Phong Đăng Trấn",
+     "tile": [
+      337,
+      299
+     ],
+     "region": 19,
+     "region_name": "Kinh Trập Sơn",
+     "lord": "Thính Vũ Lâu",
+     "town_holder": "Thính Vũ Lâu",
+     "note": "A farming clan of good harvests under Thính Vũ's rain."
+    },
+    {
+     "key": "on",
+     "name_hv": "Ôn gia",
+     "name_han": "溫家",
+     "town": "Song Kiều Trấn",
+     "tile": [
+      359,
+      185
+     ],
+     "region": 15,
+     "region_name": "Ngọc Hành Sơn",
+     "lord": "Thiên Xu Tông",
+     "town_holder": "Thiên Xu Tông",
+     "note": "A clan of the twin bridges on Thiên Xu's river road."
+    },
+    {
+     "key": "lam",
+     "name_hv": "Lâm gia",
+     "name_han": "林家",
+     "town": "Lộc Minh Trấn",
+     "tile": [
+      205,
+      100
+     ],
+     "region": 4,
+     "region_name": "Thâm Tùng Hải",
+     "lord": "Tùng Đào Cung",
+     "town_holder": "Lãng Đào Môn",
+     "note": "A clan of the deer-call forest under Tùng Đào's pines."
+    },
+    {
+     "key": "tieu",
+     "name_hv": "Tiêu gia",
+     "name_han": "蕭家",
+     "town": "Hòe Âm Trấn",
+     "tile": [
+      401,
+      117
+     ],
+     "region": 7,
+     "region_name": "Ngọc Hồ Sơn",
+     "lord": "Băng Tâm Các",
+     "town_holder": "Lê Hoa Am",
+     "note": "A clan in the locust shade of the cold north, under Lê Hoa Am."
+    }
+   ],
+   "start": "in the clan's town, with its field already growing"
+  }
+ }
+}
