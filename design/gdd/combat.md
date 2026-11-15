@@ -738,7 +738,7 @@ These formulas moved to Combat Defence & Healing in the Combat revision (#43, 20
 
 Body guard is retired; the body defends with block, body shields and resistance (that GDD's rule 12).
 **Retired keys:** `pass_kind`, `drain_kind`, `pass_tag`, `pass_min`, `drain_min`, `default_ward_pass` and
-`default_ward_drain` (replaced by `default_resist` 0.30 and `default_drain` 2.0), `hit_cost_share`,
+`default_ward_drain` (replaced by `default_resist` 60 points and `default_drain` 0.40), `hit_cost_share`,
 `upkeep_share` (now on each ward record), `guard_base`, `guard_pool_slope`, `guard_cap`, `guard_max_mit`,
 `guard_half`, `guard_share_kind`, `body_guard_pct`, `trig_ward_strength`, `trig_ward_seconds` (Combat revision
 D9) and `ward_art_duration`.

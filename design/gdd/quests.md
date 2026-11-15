@@ -230,7 +230,7 @@ author's reading and wait for confirmation (Open Questions).
     | Effect | Lowest tier | Limit |
     |---|---|---|
     | `wealth` | Errand | An NPC gains or loses spirit stones, at most `world_wealth_share` of B |
-    | `standing` | Errand | A sect's `sect_standing` moves by up to `world_standing_max`. This is a new sect field (**provisional**) |
+    | `standing` | Errand | The player's standing with a sect moves by up to `world_standing_max`; Sects owns the per-(sect, player) float table (`design/gdd/sects.md` F10) |
     | `injury` | Ordinary | An NPC loses up to `world_injury_max` of its vitality |
     | `rank` | Major | An NPC's `sect_rank` moves one step. A sect head's rank never moves, and nobody becomes head this way |
     | `death` | Major | Only the adversary, and only by the player's knockout in a `defeat` stage. This entry is what allows that stage's kill, so below Major a `defeat` cannot kill |
@@ -513,7 +513,7 @@ The quest_reaction formula is defined as:
 | world_wealth_share | float | 0–1, default 0.5 | data file | Most of B one `wealth` effect may move |
 | world_injury_max | float | 0–1, default 0.4 | data file | Most vitality an `injury` may take |
 | world_standing_max | int | 0–20, default 10 | data file | Most one `standing` effect may move a sect |
-| sect_standing | int | −100 to 100, starts at 0 | calculated (World DB, new field) | A sect's standing. Nothing reads it yet (Open Question 10) |
+| sect_standing | float | −100 to 100, starts at 0 | Sects (World DB table per sect and player) | The player's standing with a sect, read by Sects F10–F11 (answers Open Question 10) |
 
 **Output Range:** attitude stays within `relationship_min` and `relationship_max` (−100 to 100). A tie with two roles on one
 side reacts only by the larger share. An NPC on both sides takes both changes, the offerer's side first. Failed and Lapsed
@@ -603,7 +603,7 @@ its master **−15** and its sect head **−7**.
 | World Database (#3) | Hard | Source facts, entities, the quest record | Built, no GDD |
 | Time & Turn (#4) | Hard | Season end | Built, no GDD |
 | Config (#1), Sim Core (#2), Save/Load (#5) | Hard | `quest_rules.json`, `quest_templates.json`, seeded stream, saving | Built, no GDD |
-| Sects & Missions (#26) | Hard | Mission action, base income, `hostile_threshold`, sect boards | Built, no GDD |
+| Sects & Missions (#26) | Hard | Mission action, base income, `hostile_threshold`, sect boards | GDD designed 2026-11-14 |
 | Character Stats (#7) | Hard | The `quest_boon` modifier source; stat checks | GDD in review; lists this system as a modifier source |
 | Meridian Map (#10) | Soft | `stat_power_weights`, `w̄_target`, tree points | GDD in review; lists this system |
 | Item Database (#13) | Hard | Prices, rarity bounds, item classes | GDD approved; lists this system |

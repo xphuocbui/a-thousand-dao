@@ -52,3 +52,52 @@ Reviewed-Content-Hash: design/gdd/systems-index.md 7c9f758dd4c649fcb721d766697fa
 Reviewed-Content-Hash: assets/data/world_generation.json 040a8757ebf71a85c03c9d77378017171d65e7d0
 Reviewed-Content-Hash: assets/data/combat_rules.json 4c701ffe5141439b8630a1bf9a83216a6de7b00e
 Reviewed-Content-Hash: docs/architecture/adr-0003-fight-based-power-ratings.md 22879fbc9c947417c066118df93304a02d03e02b
+
+## Review — 2026-11-14 — Verdict: NEEDS REVISION
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 1 | Recommended: 8
+Summary: Re-review of the same-day ladder revision (measured anchors, ladder panel, coarse panels at load). Every worked example and AC number checks by hand and the budget arithmetic reconciles. The one blocker was that rule 13 and ADR-0003 decision 4 keyed seeds on fighter pairs only, so ladder-panel fights (a rung, not a second fighter) had no defined seed. Fixed in the same session; the GDD changed after this review, so a fresh re-review decides Approved.
+Prior verdict resolved: Yes (prior APPROVED covered the pre-ladder text)
+Findings:
+- [BLOCKING] Core Rules 13 / ADR-0003 decision 4: no seed key for panel fights. Resolved: keyed on game seed, season, fighter id, realm, rung, fight index (season 0 at world generation); AC-PR-23 extended; ADR amended.
+- [RECOMMENDED] Tuning Knobs: rung_div and k_max tuned independently; reach could drop to x8. Resolved: k_max / rung_div >= 6, AC-PR-56.
+- [RECOMMENDED] Edge Cases, beasts: stale "12 fights". Resolved.
+- [RECOMMENDED] Formulas C example: odds 3.420 should be 3.431. Resolved.
+- [RECOMMENDED] AC-PR-15: "id band" undefined. Resolved (tenth of the realm in id order).
+- [RECOMMENDED] Formulas C compute cost mixed fight.py and Godot figures. Resolved.
+- [RECOMMENDED] UI example 819 Trúc Cơ vs 835. Resolved.
+- [RECOMMENDED] Registry: K_0, K_min, n_half, prior_games, calibration_fights, match_fights, match_window still have no constant entries; add with combat_rankings.json. Open.
+- [RECOMMENDED] AC and Open Question numbering out of sequence (53 before 52, 54/55 among Formulas, OQ 6 after 8). Open, cosmetic.
+Reviewed-Content-Hash: design/gdd/power-rankings.md b12793a007ae16a1b78ad9c7f3e62be1dfa8675d
+Reviewed-Content-Hash: design/registry/entities.yaml d9a8f57cf6626230081b6c247368dd4942fafd94
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/combat.md 72b483c4ca7795f7be805af929dc2983d454547f
+Reviewed-Content-Hash: design/gdd/systems-index.md 5d6c63dc878577f79c1c56ede12af4692e6db9b4
+Reviewed-Content-Hash: assets/data/world_generation.json 040a8757ebf71a85c03c9d77378017171d65e7d0
+Reviewed-Content-Hash: assets/data/combat_rules.json 4c701ffe5141439b8630a1bf9a83216a6de7b00e
+Reviewed-Content-Hash: docs/architecture/adr-0003-fight-based-power-ratings.md 58104e301fe7c3fb2c20d1e8d473e37cfbe913a3
+
+## Review — 2026-11-14 — Verdict: APPROVED
+Review mode: lean · Workflow: standard
+Scope signal: L
+Specialists: none (lean)
+Blocking items: 0 | Recommended: 6
+Summary: Re-review of the ladder revision after the previous entry's one blocker (no seed key for panel fights) was fixed: rule 13, AC-PR-23 and ADR-0003 decision 4 now key panel fights on game seed, season, fighter, realm, rung and fight index. Every worked example and AC number, the search traces (AC-PR-06, AC-PR-29) and the season-budget arithmetic check by hand; all 22 registry constants match, including the ones earlier reviews found missing. Remaining items are a tuning risk and small text fixes.
+Prior verdict resolved: Yes
+Findings:
+- [RECOMMENDED] Formulas A / Season budget: the refinement drain (~80,000 fights against ~1,800-5,000 a season, higher realms first) can leave Luyện Khí on coarse bases (±3 rungs, ~720 Elo, beyond offset_cap) for years; state the expected early ordering accuracy or give Luyện Khí a minimum panel share.
+- [RECOMMENDED] Status header and systems-index #44 still said re-review pending. Fixed with this approval.
+- [RECOMMENDED] Formulas A: realm_step "about 4,400" vs 4,100 for A_4 - A_3 in the illustrative anchors; say 4,100 to 4,400.
+- [RECOMMENDED] Dependencies: bidirectional note cites ADR-0003 decisions 9-11; the ladder revision's decision 12 supersedes parts of them; cite 9-12.
+- [RECOMMENDED] Registry: no entries for health_elo or v_c.
+- [RECOMMENDED] Tuning Knobs: safe ranges of k_max and rung_div allow a pair (24 / 8) that AC-PR-56 refuses; state the pair constraint there.
+Reviewed-Content-Hash: design/gdd/power-rankings.md 18710f326f7d01e740afe52d265389e6222253d5
+Reviewed-Content-Hash: design/registry/entities.yaml 4e3aa15522ae3f2341b11d6717256ac3d9f23a0a
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md a63d8fba9b7142eeb43791f061e2e1533c429b43
+Reviewed-Content-Hash: design/gdd/combat.md 72b483c4ca7795f7be805af929dc2983d454547f
+Reviewed-Content-Hash: design/gdd/systems-index.md 06a0048cac063dbaf726c1616bbe42859e83d979
+Reviewed-Content-Hash: assets/data/world_generation.json 040a8757ebf71a85c03c9d77378017171d65e7d0
+Reviewed-Content-Hash: assets/data/combat_rules.json 4c701ffe5141439b8630a1bf9a83216a6de7b00e
+Reviewed-Content-Hash: docs/architecture/adr-0003-fight-based-power-ratings.md 58104e301fe7c3fb2c20d1e8d473e37cfbe913a3
