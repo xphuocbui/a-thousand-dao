@@ -478,6 +478,7 @@ half the planned pair fights drop each season, nearly all from the Kết Đan sl
 | Realms & Bottlenecks (#8) | Hard, upstream | Realm, stage, `power_base` | In review |
 | Character Stats, Cultivation Techniques, Item Database, Kinh Mạch Đồ | Hard, upstream | The build every panel compiles, and the build-change signals of Core Rules rule 5 | Approved or in review; built |
 | NPC Build Generation (#24) | Hard, upstream | New NPCs (Provisional) | Built; no GDD |
+| World Generation & History (#27) | Soft, upstream | Creates every person at world build and runs this GDD's start there (Provisional ratings and rule 16's capped coarse panels, `worldgen_fight_budget`) as its build step 8 | Designed 2026-11-15, pending review; its Dependencies lists #44 |
 | Living World Tick (#28) | Hard, both ways | Calls the season batch and asks for world-fight outcomes (Core Rules rules 11, 14) | Built (abstract); no GDD |
 | Event Engine (#23) | Soft, both ways | Sends the player's rated fights; reads power numbers | Built; no GDD |
 | Sects & Missions (#26) | Soft, downstream | Reads ratings and power numbers for ranks, leaders and wars | Approved |

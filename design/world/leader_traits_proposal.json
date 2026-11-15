@@ -1,0 +1,447 @@
+{
+ "status": "LEADERS APPROVED by the user 2026-11-15. Leaders' traits (World Generation & History Core Rules 5 and 7; NPC Traits #42). 3 personality traits from 3 different sets and 1 calling per sect head. The second batch (the 22 other living cast members, with 5 fate-given traits) is APPROVED too (user 2026-11-15): all 51 living people have traits.",
+ "traits": {
+  "doan_ngoc_hanh": {
+   "calling": "Strategist",
+   "personality": [
+    "Honest",
+    "Just",
+    "Cautious"
+   ]
+  },
+  "dam_tung_lai": {
+   "calling": "Teacher",
+   "personality": [
+    "Calm",
+    "Humble",
+    "Generous"
+   ]
+  },
+  "to_van_chieu": {
+   "calling": "Merchant",
+   "personality": [
+    "Gregarious",
+    "Pragmatic",
+    "Diligent"
+   ]
+  },
+  "manh_da_vu": {
+   "calling": "Schemer",
+   "personality": [
+    "Paranoid",
+    "Arbitrary",
+    "Patient"
+   ]
+  },
+  "so_ngoc_ho": {
+   "calling": "Strategist",
+   "personality": [
+    "Reclusive",
+    "Calm",
+    "Just"
+   ]
+  },
+  "ngu_lam_son": {
+   "calling": "Steward",
+   "personality": [
+    "Content",
+    "Temperate",
+    "Peaceable"
+   ]
+  },
+  "hoa_trieu_duong": {
+   "calling": "Diplomat",
+   "personality": [
+    "Ambitious",
+    "Brave",
+    "Forgiving"
+   ]
+  },
+  "cat_luu_quang": {
+   "calling": "Refiner",
+   "personality": [
+    "Diligent",
+    "Stubborn",
+    "Temperate"
+   ]
+  },
+  "thach_tang_danh": {
+   "calling": "Duelist",
+   "personality": [
+    "Reclusive",
+    "Humble",
+    "Brave"
+   ]
+  },
+  "tham_bac_than": {
+   "calling": "Formation master",
+   "personality": [
+    "Patient",
+    "Devout",
+    "Honest"
+   ]
+  },
+  "ung_hac_minh": {
+   "calling": "Beast tamer",
+   "personality": [
+    "Compassionate",
+    "Gregarious",
+    "Brave"
+   ]
+  },
+  "kieu_nguyet_chau": {
+   "calling": "Steward",
+   "personality": [
+    "Calm",
+    "Greedy",
+    "Gregarious"
+   ]
+  },
+  "ha_thinh_tung": {
+   "calling": "Teacher",
+   "personality": [
+    "Reclusive",
+    "Calm",
+    "Content"
+   ]
+  },
+  "nghiem_linh_chi": {
+   "calling": "Herbalist",
+   "personality": [
+    "Diligent",
+    "Compassionate",
+    "Patient"
+   ]
+  },
+  "giang_cuu_khuc": {
+   "calling": "Merchant",
+   "personality": [
+    "Gregarious",
+    "Greedy",
+    "Brave"
+   ]
+  },
+  "bui_phieu_binh": {
+   "calling": "Merchant",
+   "personality": [
+    "Gregarious",
+    "Fickle",
+    "Pragmatic"
+   ]
+  },
+  "khau_muc_van": {
+   "calling": "Beast tamer",
+   "personality": [
+    "Content",
+    "Patient",
+    "Honest"
+   ]
+  },
+  "phan_vat_hoa": {
+   "calling": "Merchant",
+   "personality": [
+    "Greedy",
+    "Arrogant",
+    "Ambitious"
+   ]
+  },
+  "chau_phi_van": {
+   "calling": "Talisman maker",
+   "personality": [
+    "Diligent",
+    "Honest",
+    "Devout"
+   ]
+  },
+  "uc_diep_thanh": {
+   "calling": "Wanderer",
+   "personality": [
+    "Stubborn",
+    "Honest",
+    "Brave"
+   ]
+  },
+  "nghe_hong_dau": {
+   "calling": "Schemer",
+   "personality": [
+    "Deceitful",
+    "Gregarious",
+    "Vengeful"
+   ]
+  },
+  "thai_le_tuyet": {
+   "calling": "Teacher",
+   "personality": [
+    "Compassionate",
+    "Reclusive",
+    "Calm"
+   ]
+  },
+  "doan_thanh_lang": {
+   "calling": "Wanderer",
+   "personality": [
+    "Diligent",
+    "Peaceable",
+    "Humble"
+   ]
+  },
+  "hang_da_boi": {
+   "calling": "Duelist",
+   "personality": [
+    "Warlike",
+    "Wrathful",
+    "Arrogant"
+   ]
+  },
+  "dong_hong_lo": {
+   "calling": "Alchemist",
+   "personality": [
+    "Patient",
+    "Diligent",
+    "Stubborn"
+   ]
+  },
+  "tong_toa_van": {
+   "calling": "Teacher",
+   "personality": [
+    "Calm",
+    "Devout",
+    "Humble"
+   ]
+  },
+  "ninh_truc_thuc": {
+   "calling": "Herbalist",
+   "personality": [
+    "Diligent",
+    "Content",
+    "Generous"
+   ]
+  },
+  "mai_le_tuyen": {
+   "calling": "Alchemist",
+   "personality": [
+    "Compassionate",
+    "Gregarious",
+    "Indulgent"
+   ]
+  },
+  "hung_phan_vu": {
+   "calling": "Duelist",
+   "personality": [
+    "Brave",
+    "Impatient",
+    "Forgiving"
+   ]
+  }
+ },
+ "others": {
+  "do_tinh_ha": {
+   "calling": "Strategist",
+   "personality": [
+    "Patient",
+    "Vengeful",
+    "Loyal"
+   ],
+   "fate_given": []
+  },
+  "ho_tung_nguyet": {
+   "calling": "Teacher",
+   "personality": [
+    "Diligent",
+    "Forgiving",
+    "Gregarious"
+   ],
+   "fate_given": []
+  },
+  "tram_tich_duong": {
+   "calling": "Merchant",
+   "personality": [
+    "Stubborn",
+    "Greedy",
+    "Cautious"
+   ],
+   "fate_given": []
+  },
+  "quan_vu_thanh": {
+   "calling": "Diplomat",
+   "personality": [
+    "Loyal",
+    "Patient",
+    "Gregarious"
+   ],
+   "fate_given": []
+  },
+  "tiet_han_mai": {
+   "calling": "Formation master",
+   "personality": [
+    "Cautious",
+    "Honest",
+    "Stubborn"
+   ],
+   "fate_given": []
+  },
+  "quyen_thanh_lam": {
+   "calling": "Steward",
+   "personality": [
+    "Diligent",
+    "Humble",
+    "Loyal"
+   ],
+   "fate_given": []
+  },
+  "vu_ngo_dong": {
+   "calling": "Beast tamer",
+   "personality": [
+    "Gregarious",
+    "Generous",
+    "Impatient"
+   ],
+   "fate_given": []
+  },
+  "doan_hi_hoa": {
+   "calling": "Strategist",
+   "personality": [
+    "Ambitious",
+    "Brave",
+    "Diligent"
+   ],
+   "fate_given": []
+  },
+  "dam_thanh_giang": {
+   "calling": "Alchemist",
+   "personality": [
+    "Humble",
+    "Patient",
+    "Compassionate"
+   ],
+   "fate_given": []
+  },
+  "to_mo_van": {
+   "calling": "Talisman maker",
+   "personality": [
+    "Brave",
+    "Diligent",
+    "Forgiving"
+   ],
+   "fate_given": [
+    "Wise-born"
+   ]
+  },
+  "manh_luu_ly": {
+   "calling": "Schemer",
+   "personality": [
+    "Ambitious",
+    "Deceitful",
+    "Impatient"
+   ],
+   "fate_given": []
+  },
+  "so_han_y": {
+   "calling": "Duelist",
+   "personality": [
+    "Calm",
+    "Stubborn",
+    "Loyal"
+   ],
+   "fate_given": []
+  },
+  "tu_khong_hac_nien": {
+   "calling": "Wanderer",
+   "personality": [
+    "Reclusive",
+    "Just",
+    "Brave"
+   ],
+   "fate_given": []
+  },
+  "trieu_huyet_y": {
+   "calling": "Schemer",
+   "personality": [
+    "Vengeful",
+    "Deceitful",
+    "Impatient"
+   ],
+   "fate_given": [
+    "Demon-seeded"
+   ]
+  },
+  "lac_dan_thanh": {
+   "calling": "Alchemist",
+   "personality": [
+    "Greedy",
+    "Gregarious",
+    "Diligent"
+   ],
+   "fate_given": []
+  },
+  "gia_hoi_xuan": {
+   "calling": "Herbalist",
+   "personality": [
+    "Compassionate",
+    "Humble",
+    "Patient"
+   ],
+   "fate_given": []
+  },
+  "kim_van_ly": {
+   "calling": "Merchant",
+   "personality": [
+    "Greedy",
+    "Ambitious",
+    "Gregarious"
+   ],
+   "fate_given": []
+  },
+  "doan_thuong_hai": {
+   "calling": "Wanderer",
+   "personality": [
+    "Calm",
+    "Patient",
+    "Reclusive"
+   ],
+   "fate_given": [
+    "Heaven-favoured"
+   ]
+  },
+  "ve_van_co": {
+   "calling": "Formation master",
+   "personality": [
+    "Cautious",
+    "Pragmatic",
+    "Diligent"
+   ],
+   "fate_given": []
+  },
+  "lam_da_hac": {
+   "calling": "Wanderer",
+   "personality": [
+    "Brave",
+    "Ambitious",
+    "Honest"
+   ],
+   "fate_given": [
+    "Iron-boned"
+   ]
+  },
+  "mac_quy_khu": {
+   "calling": "Wanderer",
+   "personality": [
+    "Reclusive",
+    "Patient",
+    "Humble"
+   ],
+   "fate_given": [
+    "Spirit-eyed"
+   ]
+  },
+  "thoi_khinh_hong": {
+   "calling": "Teacher",
+   "personality": [
+    "Calm",
+    "Just",
+    "Devout"
+   ],
+   "fate_given": []
+  }
+ }
+}

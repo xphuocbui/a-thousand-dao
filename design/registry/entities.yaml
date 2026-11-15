@@ -1,3 +1,4 @@
+
 # Game World Entity Registry
 #
 # PURPOSE: Single source of truth for all named game-world facts that appear
@@ -2150,6 +2151,36 @@ formulas:
     notes: "Trade Goods Formula J; replaces Item DB pill_margin (user decision 2026-11-14). Shipped margins at ps 1: Ngung Nguyen 5.38, Tay Tuy 9.74, Dien Tho 4.96 warn (recipe revision pending); Tu Khi 3.27, Thanh Doc 3.64, Hoang Long 2.81 earn +10 to +70 a brew and do not warn. Item DB Formula C and AC-ID-21 revised to use it."
     added: 2026-11-14
     revised: ""
+  - name: realm_target
+    status: active
+    source: design/gdd/world-generation.md
+    referenced_by:
+      - design/gdd/world-generation.md
+    variables:
+      - world_cultivators
+      - world_cultivators_min
+      - c_r
+    output_range: "sum of T_r = N exactly; N 5,000 -> 3,935 / 844 / 191 / 27 / 3; N 3,000 -> 2,361 / 506 / 115 / 16 / 2"
+    expression: "N = max(world_cultivators, world_cultivators_min); raw_r = N * c_r / sum(c); T_r = floor(raw_r), plus 1 for the (N - sum of floors) realms with the largest fractions (ties to the lower realm)"
+    notes: "World Generation Formula A (user decision 2026-11-15 for the fixed world). Weights c_r start as Realms' solved headcounts (realm_start_share). Realms owns the headcount targets (world_headcount_targets); this formula only rounds them for a world of size N."
+    added: 2026-11-15
+    revised: ""
+  - name: slot_pick
+    status: active
+    source: design/gdd/world-generation.md
+    referenced_by:
+      - design/gdd/world-generation.md
+      - design/gdd/travel-map.md
+    variables:
+      - game_seed
+      - kind
+      - slot_id
+      - n
+    output_range: "i from 0 to n-1, n 2-4 (the authored data holds 2 or 3)"
+    expression: 'i = stable_hash(game_seed + ":" + kind + ":" + slot_id) mod n; the slot takes candidate i of its authored list. Order-free (ADR-0002 keyed stream); candidate sets are pairwise disjoint, so no collision rule'
+    notes: "World Generation Formula C. Rolls each hidden slot, tile secret and resource-site reserve once per game (Travel & Map rules 15, 28, 29). n below 2 is refused by Checking."
+    added: 2026-11-15
+    revised: ""
 constants:
   - name: root_count_weights
     status: active
@@ -2432,6 +2463,7 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
+      - design/gdd/world-generation.md
     value: "5,000 simulated cultivators (world_cultivators), at least 3,000 (world_cultivators_min): Nascent Soul about 27, Deity Transformation about 3"
     unit: cultivators per world
     notes: "User decision 2026-11-05. Cohort targets, not caps; the player does not count. Mortals are not simulated."
@@ -5092,3 +5124,35 @@ constants:
     notes: "Trade Goods Formula H. Pill share of the provision basket, taken from herb (herb 0.5 -> 0.40). Applied to RET Formulas C and L2 on 2026-11-14. Raise to 0.15 only if calibrated herb d_scale <= 2.4."
     added: 2026-11-14
     revised: 2026-11-14
+  - name: realm_start_share
+    status: active
+    source: design/gdd/world-generation.md
+    referenced_by:
+      - design/gdd/world-generation.md
+      - design/gdd/canh-gioi.md
+    value: [3936, 844, 191, 27, 3]
+    unit: relative weights, Qi Refining to Deity Transformation
+    notes: "World Generation Formula A weights c_r. They are Realms' solved headcounts at 5,000 (canh-gioi.md Formulas C2). The old world_generation.json realm_distribution (79.4 / 16.7 / 3.8 / 0.53 / 0.06) is replaced by these when the generator is reworked."
+    added: 2026-11-15
+    revised: ""
+  - name: fixed_cast_size
+    status: active
+    source: design/gdd/world-generation.md
+    referenced_by:
+      - design/gdd/world-generation.md
+    value: [60, 100]
+    unit: people
+    notes: "User decision 2026-11-15. Authored special characters, the same in every game, including the 29 sect heads. Living members count toward the realm headcounts; the target is a warning, not a failing check. Each living member has a fully authored build."
+    added: 2026-11-15
+    revised: ""
+  - name: hidden_slot_counts
+    status: active
+    source: design/gdd/world-generation.md
+    referenced_by:
+      - design/gdd/world-generation.md
+      - design/gdd/travel-map.md
+    value: "28 hidden slots (3 secret realms, 4 ruins, 6 abodes, 2 large and 13 small blessed lands), 80 tile secrets; 2-3 candidates each"
+    unit: per world
+    notes: "From design/map/continent-11/history.json (approved 2026-11-14). Candidate sets are pairwise disjoint (checked 2026-11-15), so slot_pick needs no collision rule."
+    added: 2026-11-15
+    revised: ""

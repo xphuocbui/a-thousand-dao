@@ -1,0 +1,413 @@
+{
+ "status": "APPROVED by the user 2026-11-15 (World Generation & History Core Rule 7, Open Question 3). Dials and attitudes are not authored: they start at their formula targets (user decision 2026-11-15). Authored here: alignment, the four development levels, the treasury and the loyalty of vassals. Leaders' traits are still to do (NPC Traits).",
+ "rules": {
+  "great_levels": "floor(settle x idx) per track, settle 12 (tier-1) and 9 (tier-2), idx 0.6 + 0.4 x relative score within the tier: Holdings = 3 mines + towns + villages/2; Trade = 3 markets + 2 cities + towns/2; Military = wars in the chronicle; Institutions = age/100 + 3 per Hoa Than elder. Weakness: Military uses wars only.",
+  "minor_levels": "settle 4: primary track 4, secondary 3, the rest 2 (craft decides the tracks)",
+  "treasury": "1.5 x the one-year reserve R of the tier season budget: tier-1 60,000, tier-2 30,000, minor 7,000 (guesses until AC-SM-42)",
+  "loyalty": "60 + 5 same alignment, -5 if one side is trung lap, -20 chinh vs ma (mirrors F7); break line 30",
+  "alignment_great": "Thinh Vu Lau is ma dao (user decision 2026-11-15, example option); Lac Ha trung lap; the other five chinh dao"
+ },
+ "great_sects": [
+  {
+   "key": "thien_xu",
+   "name_hv": "Thiên Xu Tông",
+   "tier": 1,
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 12,
+    "institutions": 9,
+    "military": 12,
+    "trade": 7
+   },
+   "treasury": 60000
+  },
+  {
+   "key": "tung_dao",
+   "name_hv": "Tùng Đào Cung",
+   "tier": 1,
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 7,
+    "institutions": 12,
+    "military": 7,
+    "trade": 8
+   },
+   "treasury": 60000
+  },
+  {
+   "key": "lac_ha",
+   "name_hv": "Lạc Hà Tông",
+   "tier": 1,
+   "alignment": "trung",
+   "levels": {
+    "holdings": 10,
+    "institutions": 7,
+    "military": 7,
+    "trade": 12
+   },
+   "treasury": 60000
+  },
+  {
+   "key": "thinh_vu",
+   "name_hv": "Thính Vũ Lâu",
+   "tier": 2,
+   "alignment": "ma",
+   "levels": {
+    "holdings": 9,
+    "institutions": 9,
+    "military": 9,
+    "trade": 7
+   },
+   "treasury": 30000
+  },
+  {
+   "key": "bang_tam",
+   "name_hv": "Băng Tâm Các",
+   "tier": 2,
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 6,
+    "institutions": 7,
+    "military": 9,
+    "trade": 5
+   },
+   "treasury": 30000
+  },
+  {
+   "key": "thuy_vi",
+   "name_hv": "Thúy Vi Tông",
+   "tier": 2,
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 5,
+    "institutions": 5,
+    "military": 5,
+    "trade": 7
+   },
+   "treasury": 30000
+  },
+  {
+   "key": "phuong_minh",
+   "name_hv": "Phượng Minh Cung",
+   "tier": 2,
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 7,
+    "institutions": 6,
+    "military": 5,
+    "trade": 9
+   },
+   "treasury": 30000
+  }
+ ],
+ "minor_sects": [
+  {
+   "key": "thoi_tinh",
+   "name_hv": "Thối Tinh Môn",
+   "lord": "thien_xu",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 4,
+    "institutions": 2,
+    "military": 3,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "phat_y",
+   "name_hv": "Phất Y Cốc",
+   "lord": "thien_xu",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 3,
+    "institutions": 2,
+    "military": 4,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "cung_tinh",
+   "name_hv": "Củng Tinh Quán",
+   "lord": "thien_xu",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 3,
+    "institutions": 4,
+    "military": 2,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "cuu_cao",
+   "name_hv": "Cửu Cao Phái",
+   "lord": "thien_xu",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 4,
+    "institutions": 2,
+    "military": 3,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "ham_nguyet",
+   "name_hv": "Hàm Nguyệt Trang",
+   "lord": "tung_dao",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 4,
+    "institutions": 2,
+    "military": 2,
+    "trade": 3
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "van_hac",
+   "name_hv": "Vạn Hác Viện",
+   "lord": "tung_dao",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 3,
+    "institutions": 4,
+    "military": 2,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "thai_chi",
+   "name_hv": "Thải Chi Cốc",
+   "lord": "tung_dao",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 4,
+    "institutions": 3,
+    "military": 2,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "lang_dao",
+   "name_hv": "Lãng Đào Môn",
+   "lord": "tung_dao",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 2,
+    "institutions": 2,
+    "military": 3,
+    "trade": 4
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "binh_thuy",
+   "name_hv": "Bình Thủy Môn",
+   "lord": "lac_ha",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 2,
+    "institutions": 2,
+    "military": 3,
+    "trade": 4
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "muc_van",
+   "name_hv": "Mục Vân Trang",
+   "lord": "lac_ha",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 4,
+    "institutions": 2,
+    "military": 3,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "thien_bao",
+   "name_hv": "Thiên Bảo Trai",
+   "lord": "lac_ha",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 3,
+    "institutions": 2,
+    "military": 2,
+    "trade": 4
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "nam_pho",
+   "name_hv": "Nam Phố Đường",
+   "lord": "lac_ha",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 2,
+    "institutions": 4,
+    "military": 2,
+    "trade": 3
+   },
+   "treasury": 7000,
+   "loyalty": 55
+  },
+  {
+   "key": "xuyen_lam",
+   "name_hv": "Xuyên Lâm Môn",
+   "lord": "thinh_vu",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 2,
+    "institutions": 2,
+    "military": 4,
+    "trade": 3
+   },
+   "treasury": 7000,
+   "loyalty": 40
+  },
+  {
+   "key": "hong_dau",
+   "name_hv": "Hồng Đậu Trang",
+   "lord": "thinh_vu",
+   "alignment": "ma",
+   "levels": {
+    "holdings": 2,
+    "institutions": 3,
+    "military": 4,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "le_hoa",
+   "name_hv": "Lê Hoa Am",
+   "lord": "bang_tam",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 3,
+    "institutions": 4,
+    "military": 2,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "trac_anh",
+   "name_hv": "Trạc Anh Đài",
+   "lord": "bang_tam",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 4,
+    "institutions": 2,
+    "military": 3,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 55
+  },
+  {
+   "key": "da_quang",
+   "name_hv": "Dạ Quang Môn",
+   "lord": "bang_tam",
+   "alignment": "ma",
+   "levels": {
+    "holdings": 2,
+    "institutions": 2,
+    "military": 4,
+    "trade": 3
+   },
+   "treasury": 7000,
+   "loyalty": 40
+  },
+  {
+   "key": "hong_lo",
+   "name_hv": "Hồng Lô Cốc",
+   "lord": "thuy_vi",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 4,
+    "institutions": 3,
+    "military": 2,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "van_khoi",
+   "name_hv": "Vân Khởi Quán",
+   "lord": "thuy_vi",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 3,
+    "institutions": 4,
+    "military": 2,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "truc_thuc",
+   "name_hv": "Trúc Thực Viên",
+   "lord": "phuong_minh",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 4,
+    "institutions": 2,
+    "military": 2,
+    "trade": 3
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "le_tuyen",
+   "name_hv": "Lễ Tuyền Phái",
+   "lord": "phuong_minh",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 2,
+    "institutions": 4,
+    "military": 2,
+    "trade": 3
+   },
+   "treasury": 7000,
+   "loyalty": 65
+  },
+  {
+   "key": "phan_vu",
+   "name_hv": "Phần Vũ Đường",
+   "lord": "phuong_minh",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 3,
+    "institutions": 2,
+    "military": 4,
+    "trade": 2
+   },
+   "treasury": 7000,
+   "loyalty": 55
+  }
+ ]
+}
