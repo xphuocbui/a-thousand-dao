@@ -283,7 +283,7 @@ static func sheet(s: GameSession, io: TerminalIO) -> Array:
 	var sect: Dictionary = s.db.get_record("sects", c.sect_id)
 	lines.append(rule(io, "%s — %s%s" % [c.name, level_text(gd, c), "" if c.alive else " (đã mất)"], "━"))
 	lines.append(" Tuổi %d / %d · Xuất thân %s · Tông môn %s%s · %s" % [int(c.age), int(life), origin.get("name", c.origin), sect.get("name", "—"),
-		(" (%s)" % c.sect_rank) if c.sect_rank != "" else "", "Thiên Định (achievements on)" if c.birth_mode == "thien_dinh" else "Tự Định (casual)"])
+		(" (%s)" % s.sect_members.rank_name(c.sect_rank)) if c.sect_rank != "" else "", "Thiên Định (achievements on)" if c.birth_mode == "thien_dinh" else "Tự Định (casual)"])
 	lines.append("")
 	lines.append_array(root_block(gd, c, io))
 	lines.append("")

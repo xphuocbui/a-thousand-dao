@@ -1,0 +1,192 @@
+Sects & Missions, the member's side: release terminal (build/bench/combat_bench.console.exe --headless -- --terminal), --no-llm, shipped data (ratings and the fight engine on), 2026-11-15. Commands: 01-member-session-commands.txt.
+----
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> new quick Kiem 4242
+Generating the world (seed 4242)...
+A new world: 3 regions, 16 places, 5 sects, 5061 people, 223 recorded events (Thiên Nguyên lịch năm 300).
+Kiem is born: Single root: Fire [Hỏa] 21
+Power Rankings: the player's panel (40 fights) and 528 coarse panels (3444 fights) rated at load.
+
+━━ Kiem — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+
+ ROOT [linh căn]  Single root — curve row 1, now x1.00 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁  21 Hạ       luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  48 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  48 Trung
+   Thần hồn  ▆▆▆▆▁▁▁▁▁▁  42 Trung        Khí vận   ▆▆▆▆▆▆▆▁▁▁  74 Thượng  +15
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▆▆▁▁▁  74 Thượng
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 42 · Khí huyết 480/480
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Chu Tước Tâm Pháp (layer 1/6)
+            tu vi 4.1 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  123 = offense 63 + defense 60 · extra slots 0/2 ('explain power')
+ KINH MẠCH  1 huyệt open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Thiên Đố Kỳ Duyên — Heaven's favour: more khí vận, and cơ duyên come twice as often.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Cổ Mộc Thành (l2) — Thành, Huyền Băng Nguyên. Linh khí 0.90, danger 1, market, bounties
+  Your động phủ is here.
+People here (296):
+  p69    Mạc Hiên             Trúc Cơ Trung kỳ       Đan sư | power 952 | attitude 0
+  p70    Giang Quân           Trúc Cơ Đại viên mãn   Thể tu | power 1,870 | attitude 0
+  p71    Bạch Nguyệt          Trúc Cơ Trung kỳ       Linh thực sư | power 952 | attitude 0
+  p89    Lạc Tuyết            Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p104   Phương Khinh Vũ      Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p141   Mạc Thiếu Bạch       Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p166   Cung Thanh Ca        Luyện Khí Trung kỳ     Tán tu | power 51 | attitude 0
+  p167   Chu Bất Phàm         Luyện Khí Hậu kỳ       Tán tu | power 54 | attitude 0
+  p168   Cố Dao               Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p177   Giang Linh           Luyện Khí Sơ kỳ        Thể tu | power 51 | attitude 0
+  p184   Bạch Vân             Trúc Cơ Sơ kỳ          Trận sư | power 1,040 | attitude 0
+  p196   Doãn Tâm             Trúc Cơ Sơ kỳ          Thể tu | power 952 | attitude 0
+  p230   Thượng Quan Tịch     Luyện Khí Hậu kỳ       Tán tu | power 51 | attitude 0
+  p259   Bạch Dao             Luyện Khí Sơ kỳ        Trận sư | power 51 | attitude 0
+  p278   Lạc Linh             Luyện Khí Trung kỳ     Tán tu | power 51 | attitude 0
+  ... 'db people l2' lists all
+Roads:
+  -> l1    Tử Trúc Thành (1 season)
+  -> l3    Hắc Phong Cốc (1 season)
+  -> l4    Thanh Dương Cốc (1 season)
+
+━━ Kiem · Thiên Nguyên lịch năm 300, Xuân · Cổ Mộc Thành ━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +4.1/season, next level in 2.5 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 21 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Kinh Mạch point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Cổ Mộc Thành                 7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Market                              15 Talk to someone… (296 here)
+ 16 Character sheet                     17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> sect
+You are a loose cultivator (tán tu).
+> join
+No sect has its seat here: a sect recruits at its seat ('map' marks them S).
+> go l3
+You travel 1 season(s) and arrive at Hắc Phong Cốc.
+  [tin đồn] Tin đồn: Nhạc Hạo vừa đột phá Kết Đan.
+  [tin đồn] Tin đồn: Âu Dương Thanh Ca vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Tần Tử Yên vừa đột phá Trúc Cơ.
+ Δ 1 season passed · Cổ Mộc Thành → Hắc Phong Cốc
+
+━━ Kiem · Thiên Nguyên lịch năm 300, Hạ · Hắc Phong Cốc ━━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +5.7/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 21 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Spend 2 Kinh Mạch point(s)
+  2 Cultivate 1 year                     3 Closed-door 5 years
+  4 Explore Hắc Phong Cốc                5 Travel…
+  6 Alchemy…                             7 Refine a pháp bảo…
+  8 Draw talismans…                      9 Talk to someone… (311 here)
+ 10 Character sheet                     11 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> choose 2
+No event is waiting.
+> sect
+You are a loose cultivator (tán tu).
+  Kim Quang Sơn Trang [s4] has its seat here: you may join ('join')
+> join
+You join Kim Quang Sơn Trang as an outer disciple (ngoại môn).
+> sect
+Kim Quang Sơn Trang [s4], outer disciple (ngoại môn). Standing 0, contribution 0.
+  Next rank inner disciple (nội môn): realm Trúc Cơ needed; contribution 0 of 400.
+> mission
+Sect mission for Kim Quang Sơn Trang: +10 linh thạch (now 40).
+  +3 contribution (now 3), standing +3.0 (now 3).
+  [tin đồn] Tin đồn: Âu Dương Minh vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Lâm Tùng vừa đột phá Trúc Cơ.
+  [tin đồn] Triệu Linh và Tô Uyển đại chiến tại Mê Vụ Trấn; Triệu Linh thắng.
+ Δ 1 season passed · Linh thạch 30 → 40 (+10)
+
+━━ Kiem · Thiên Nguyên lịch năm 300, Thu · Hắc Phong Cốc ━━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +5.7/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 40 · power 21 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Spend 2 Kinh Mạch point(s)
+  2 Cultivate 1 year                     3 Closed-door 5 years
+  4 Explore Hắc Phong Cốc                5 Mission / bounty
+  6 Travel…                              7 Alchemy…
+  8 Refine a pháp bảo…                   9 Draw talismans…
+ 10 Talk to someone… (311 here)         11 Character sheet
+ 12 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> choose 2
+No event is waiting.
+> mission
+Sect mission for Kim Quang Sơn Trang: +10 linh thạch (now 50).
+  +3 contribution (now 6), standing +2.9 (now 6).
+  [tin đồn] Tin đồn: Ôn Minh vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Ôn Lạc Anh vừa đột phá Nguyên Anh.
+  [tin đồn] Âu Dương Tuyết và Mộ Dung Uyển đại chiến tại Thiên Trì Cốc; Mộ Dung Uyển thắng.
+ Δ 1 season passed · Linh thạch 40 → 50 (+10)
+
+━━ Kiem · Thiên Nguyên lịch năm 300, Đông · Hắc Phong Cốc ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +5.7/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 50 · power 21 · 2 Kinh Mạch pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).
+ ➤ 2 Kinh Mạch point(s) to spend.  → tree
+  1 Spend 2 Kinh Mạch point(s)
+  2 Cultivate 1 year                     3 Closed-door 5 years
+  4 Explore Hắc Phong Cốc                5 Mission / bounty
+  6 Travel…                              7 Alchemy…
+  8 Refine a pháp bảo…                   9 Draw talismans…
+ 10 Talk to someone… (311 here)         11 Character sheet
+ 12 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> choose 2
+No event is waiting.
+> sect
+Kim Quang Sơn Trang [s4], outer disciple (ngoại môn). Standing 6, contribution 6.
+  Next rank inner disciple (nội môn): realm Trúc Cơ needed; contribution 6 of 400.
+> promote
+No promotion yet: realm Trúc Cơ needed; contribution 6 of 400.
+> leave
+You leave Kim Quang Sơn Trang on good terms.
+> sect
+You are a loose cultivator (tán tu).
+  Kim Quang Sơn Trang [s4] has its seat here: you may join ('join')
+  Kim Quang Sơn Trang: standing 6
+> join
+You join Kim Quang Sơn Trang as an outer disciple (ngoại môn).
+> leave desert
+You desert Kim Quang Sơn Trang. Its standing with you falls to -34: it now treats you as hostile.
+> sect
+You are a loose cultivator (tán tu).
+  Kim Quang Sơn Trang [s4] has its seat here: cannot join: the sect's standing with you is -34, below its recruit line 0
+  Kim Quang Sơn Trang: standing -34 (hostile)
+> join
+You cannot join: the sect's standing with you is -34, below its recruit line 0.
+> (end of input)

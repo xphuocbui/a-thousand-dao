@@ -43,6 +43,8 @@ var beasts: BeastKeeper
 var formations: Formations
 var market: Market
 var ticker: WorldTicker
+## Sects & Missions, the member's side (standing, contribution, joining, promotion, leaving).
+var sect_members: SectMembers
 ## Power Rankings (design/gdd/power-rankings.md; ADR-0003), behind combat_rankings.json "enabled".
 var ratings: RatingService
 ## Runs each season's rating batch on a background thread while the season is played (ADR-0003 decision 6); false
@@ -170,6 +172,7 @@ func _wire() -> void:
 	formations = Formations.new(gd, db)
 	market = Market.new(gd, db, items)
 	ticker = WorldTicker.new(gd, db, builds)
+	sect_members = SectMembers.new(gd, db)
 	ratings = RatingService.new(gd, db)
 	ratings.sheet_fn = builds.sheet_of
 	ticker.ratings = ratings
@@ -192,6 +195,7 @@ func _place_player() -> void:
 			player.sect_id = s.id
 			player.sect_rank = str(gd.session().sect.join_rank)
 			s.members.append(player.id)
+			sect_members.record(str(s.id), player.id)
 			home = db.get_record("places", s.hq_place_id)
 	if home.is_empty():
 		var types: Array = gd.session().home_place_types
@@ -496,6 +500,11 @@ func mission() -> Dictionary:
 	var earned: int = int(roundf(income.total))
 	player.linh_thach += earned
 	var lines: Array = ["%s: +%d linh thạch (now %d)." % [kind, earned, player.linh_thach]]
+	if not sect.is_empty() and sect.hq_place_id == player.location_id:
+		# Sects rule 25, F10, F12: contribution and standing with the sect
+		var rw: Dictionary = sect_members.mission_reward(player, earned)
+		lines.append("  +%d contribution (now %d), standing %+.1f (now %.0f)." % [int(rw.contribution),
+			sect_members.contribution(sect.id, player.id), float(rw.standing), sect_members.standing(sect.id, player.id)])
 	if rng.randf() < float(cfg.injury_chance):
 		player.vitality = maxf(player.vitality - float(cfg.injury_khi_huyet_loss_pct) / 100.0, 0.05)
 		lines.append("  You were wounded: khí huyết -%d%%." % int(cfg.injury_khi_huyet_loss_pct))
@@ -1111,6 +1120,77 @@ func _end_life(cause: String) -> void:
 ## Lines shown when the life ends.
 func death_lines() -> Array:
 	return ["", "======== %s ========" % "ĐẠO TIÊU THÂN VẪN", epitaph_text, "", "Your life is over. 'chronicle' shows your story; 'new' begins another life."]
+
+
+# --- Sects: the member's side ----------------------------------------------------
+
+## The player's sect, rank, standing and contribution, the next promotion's needs, and any other sect's standing
+## with the player (Sects rules 19-22). Returns {ok, lines}.
+func sect_status() -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	var lines: Array = []
+	if player.sect_id == "":
+		lines.append("You are a loose cultivator (tán tu).")
+		var here: Dictionary = db.get_record("sects", str(db.get_record("places", player.location_id).get("sect_id", "")))
+		if not here.is_empty():
+			var cj: Dictionary = sect_members.can_join(player, here)
+			lines.append("  %s [%s] has its seat here: %s" % [here.name, here.id, "you may join ('join')" if cj.ok else "cannot join: " + "; ".join(cj.reasons)])
+	else:
+		var s: Dictionary = db.get_record("sects", player.sect_id)
+		lines.append("%s [%s], %s. Standing %.0f, contribution %d." % [s.get("name", player.sect_id), player.sect_id,
+			sect_members.rank_name(player.sect_rank), sect_members.standing(player.sect_id, player.id), sect_members.contribution(player.sect_id, player.id)])
+		var need: Dictionary = sect_members.promotion_needs(player)
+		if (need.missing as Array).is_empty():
+			lines.append("  You may be promoted to %s ('promote'): %d contribution." % [sect_members.rank_name(str(need.rank)), int(need.gate.contribution)])
+		else:
+			lines.append("  Next rank %s: %s." % [sect_members.rank_name(str(need.rank)) if need.rank != "" else "-", "; ".join(need.missing)])
+	for rec in db.all(SectMembers.TABLE):
+		if str(rec.person) == player.id and str(rec.sect) != player.sect_id and float(rec.standing) != 0.0:
+			lines.append("  %s: standing %.0f%s" % [db.get_record("sects", str(rec.sect)).get("name", rec.sect), float(rec.standing),
+				" (hostile)" if sect_members.hostile(str(rec.sect), player.id) else ""])
+	return {"ok": true, "lines": lines}
+
+
+## Joins the sect whose seat is here, or [param sect_id] (Sects rule 20). No time passes. Returns {ok, lines}.
+func join_sect(sect_id: String = "") -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	var sid: String = sect_id if sect_id != "" else str(db.get_record("places", player.location_id).get("sect_id", ""))
+	if sid == "":
+		return {"ok": false, "lines": ["No sect has its seat here: a sect recruits at its seat ('map' marks them S)."]}
+	var s: Dictionary = db.get_record("sects", sid)
+	var cj: Dictionary = sect_members.can_join(player, s)
+	if not cj.ok:
+		return {"ok": false, "lines": ["You cannot join: %s." % "; ".join(cj.reasons)]}
+	sect_members.join(player, s)
+	_log("player_joined_sect", {"a": player.id, "s1": s.id})
+	sync_player()
+	return {"ok": true, "lines": ["You join %s as an %s." % [s.name, sect_members.rank_name(player.sect_rank)]]}
+
+
+## Promotion to the next rank when its gate is met (Sects F13). No time passes. Returns {ok, lines}.
+func promote() -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	var r: Dictionary = sect_members.promote(player)
+	if r.ok:
+		sync_player()
+	return r
+
+
+## Leaves the player's sect on good terms, or deserts it ([param desert]; Sects rule 22). Returns {ok, lines}.
+func leave_sect(desert: bool) -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	var r: Dictionary = sect_members.leave(player, desert)
+	if r.ok:
+		sync_player()
+	return r
 
 
 # --- Power Rankings ---------------------------------------------------------------

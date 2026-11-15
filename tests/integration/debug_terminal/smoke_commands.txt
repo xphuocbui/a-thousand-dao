@@ -58,6 +58,10 @@ recipes
 debug lt 500
 market
 mission
+sect
+join
+promote
+leave
 explore
 look
 news 5

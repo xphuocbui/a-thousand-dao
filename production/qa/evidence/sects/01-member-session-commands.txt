@@ -1,0 +1,21 @@
+# Sects & Missions, the member's side (design/gdd/sects.md rules 19-22, 25; F10, F12, F13), 2026-11-15.
+new quick Kiem 4242
+sect
+join
+go l3
+choose 2
+sect
+join
+sect
+mission
+choose 2
+mission
+choose 2
+sect
+promote
+leave
+sect
+join
+leave desert
+sect
+join

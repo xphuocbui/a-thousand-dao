@@ -28,6 +28,8 @@ const HELP := [
 		["inv", "inventory"], ["field", "linh điền (herb plots, ripeness)"], ["recipes", "đan phương with odds"],
 		["chronicle", "your life story so far"],
 		["rankings [realm|top]", "Power Rankings: a realm's ranking by rating, or the Vấn Đỉnh Bảng (when ratings are on)"],
+		["sect", "your sect, rank, standing and contribution; or the sect whose seat is here"],
+		["join [sect id] | promote | leave [desert]", "join a sect at its seat; rise a rank (realm, contribution, standing); leave, or desert"],
 		["achievements", "thành tựu across lives (Thiên Định lives only; debug commands disqualify a life)"],
 	]],
 	["Actions (cost time)", [
@@ -198,6 +200,14 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 			io.out_lines(TerminalViews.field(s))
 		"recipes":
 			io.out_lines(TerminalViews.recipes(s))
+		"sect", "tongmon":
+			_r(s.sect_status())
+		"join":
+			_r(s.join_sect(_arg(args, 0, "")))
+		"promote":
+			_r(s.promote())
+		"leave":
+			_r(s.leave_sect(_arg(args, 0, "") == "desert"))
 		"rankings", "rank", "bang":
 			io.out_lines(TerminalViews.rankings(s, _arg(args, 0, "")))
 		"chronicle", "story":

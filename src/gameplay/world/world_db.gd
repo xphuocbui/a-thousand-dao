@@ -19,8 +19,10 @@ extends RefCounted
 signal record_added(table: String, record_id: String)
 signal event_logged(event_id: String)
 
-## "ratings" holds Power Rankings records under their person's id (RatingService); its prefix is never generated.
-const TABLES := {"people": "p", "sects": "s", "places": "l", "regions": "r", "items": "i", "events": "e", "ratings": "q"}
+## "ratings" holds Power Rankings records under their person's id (RatingService); "standing" holds each (sect, person)
+## record of Sects & Missions under "<sect id>:<person id>" (SectMembers). Neither prefix is ever generated.
+const TABLES := {"people": "p", "sects": "s", "places": "l", "regions": "r", "items": "i", "events": "e", "ratings": "q",
+	"standing": "y"}
 
 var _tables: Dictionary = {}
 var _next_id: Dictionary = {}

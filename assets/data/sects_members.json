@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "_doc": "Sects & Missions, the member's side (design/gdd/sects.md rules 19-22, 25; Formulas F10, F12, F13). standing_events: F10's e values (a gain is smoothed by 1 - St/100 when St >= 0; a fall is taken in full). desertion: the fall and the ceiling standing is then set to (F10). ally_share: share of a fall the sect's allies and vassals take (F10; none exist until pacts and vassalage are built). hostile_threshold: Quests hostile_threshold, the standing at or below which the sect treats the player as hostile and will not sell or recruit (F11). recruit_line_base / recruit_line_per_dial: the recruit line 20 - 10 x Recruitment (F11). default_dials: PROVISIONAL stance dials (0-4) every sect uses until the stance dials of rule 12 are built. join_realm_floor: lowest realm index a sect recruits (rule 20). rank_names: how each rank of the ladder (world_generation.json sects.rank_ladder) is shown. contribution_per_cash: F12 c_share, contribution per linh thach of a sect mission's cash. promotion: F13 gates of a great sect for each rank reached by promotion (realm index, contribution spent, standing); the head seat is not reached by promotion (rule 28: an open seat or a trial).",
+  "standing_events": {
+    "mission": 3,
+    "failed_mission": -5,
+    "theft": -20,
+    "kill_member_per_realm": -10,
+    "leak_discovered": -40,
+    "levy_refused": -10
+  },
+  "desertion": {
+    "fall": -40,
+    "ceiling": -30
+  },
+  "ally_share": 0.5,
+  "hostile_threshold": -30,
+  "recruit_line_base": 20,
+  "recruit_line_per_dial": 10,
+  "default_dials": {
+    "recruitment": 2,
+    "openness": 2
+  },
+  "join_realm_floor": 0,
+  "contribution_per_cash": 0.25,
+  "rank_names": {
+    "ngoai_mon": "outer disciple (ngoại môn)",
+    "noi_mon": "inner disciple (nội môn)",
+    "truong_lao": "elder (trưởng lão)",
+    "tong_chu": "sect head (tông chủ)"
+  },
+  "promotion": {
+    "noi_mon": {"realm": 1, "contribution": 400, "standing": 0},
+    "truong_lao": {"realm": 2, "contribution": 3000, "standing": 40}
+  }
+}
