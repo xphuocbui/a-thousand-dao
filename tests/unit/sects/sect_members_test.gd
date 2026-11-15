@@ -123,3 +123,22 @@ func test_in_a_session_a_member_earns_contribution_on_sect_missions() -> void:
 	assert_true(s.sect_members.standing(sect.id, s.player.id) > 0.0, "standing rose")
 	var st: Dictionary = s.sect_status()
 	assert_true(str(st.lines).contains(str(sect.name)), "the status names the sect: %s" % str(st.lines))
+
+
+func test_the_advisor_points_to_joining_and_to_a_promotion() -> void:
+	var gd := game_data()
+	var llm := LlmService.new(gd)
+	llm.enabled = false
+	var s := GameSession.new(gd, llm, TestFixtures.tree())
+	s.new_game(92, {"mode": "roll", "name": "Đệ Tử", "gender": "male", "origin": "tan_tu"})
+	var sect: Dictionary = s.db.find("sects", func(x): return x.status == "active")[0]
+	s.player.location_id = sect.hq_place_id
+	var ids: Array = Advisor.goals(s).map(func(g): return str(g.id))
+	assert_true(ids.has("sect_join"), "a sect seated here suggests joining: %s" % str(ids))
+	s.join_sect()
+	assert_false(Advisor.goals(s).map(func(g): return str(g.id)).has("sect_join"), "not once a member")
+	s.player.realm_index = 1
+	s.sect_members.record(sect.id, s.player.id)["contribution"] = 400
+	var g: Array = Advisor.goals(s).filter(func(x): return str(x.id) == "sect_promote")
+	assert_eq(g.size(), 1, "a met gate suggests promotion")
+	assert_eq(str(g[0].command), "promote", "with the command")

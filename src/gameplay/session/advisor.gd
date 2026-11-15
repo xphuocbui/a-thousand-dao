@@ -52,6 +52,7 @@ static func goals(s: GameSession) -> Array:
 	for b in s.beasts.owned(c):
 		if int(b.get("loyalty", 0)) < int(cfg.beast_loyalty_warning):
 			out.append(_g("beast_" + str(b.id), "warn", "%s is hungry and may leave (loyalty %d); feeding costs %d LT a year." % [b.name, int(b.get("loyalty", 0)), s.beasts.feed_cost(c)], "beasts", "Check your linh thú"))
+	out.append_array(_sect_goals(s, c))
 	if c.tree_points > 0:
 		out.append(_g("tree", "goal", "%d Kinh Mạch point(s) to spend." % c.tree_points, "tree", "Spend %d Kinh Mạch point(s)" % c.tree_points))
 	out.append_array(_field_goals(s, c, gd, sh))
@@ -79,6 +80,25 @@ static func goals(s: GameSession) -> Array:
 		var sb: int = SEVERITY_ORDER[b[0].severity]
 		return sa < sb or (sa == sb and a[1] < b[1]))
 	return indexed.map(func(x): return x[0])
+
+
+## Sects & Missions (rules 20, F13): a sect seated here that would take a loose cultivator, and a promotion whose gate
+## is met.
+static func _sect_goals(s: GameSession, c: Character) -> Array:
+	var out: Array = []
+	if s.sect_members == null:
+		return out
+	if c.sect_id == "":
+		var here: Dictionary = s.db.get_record("sects", str(s.db.get_record("places", c.location_id).get("sect_id", "")))
+		if not here.is_empty() and bool(s.sect_members.can_join(c, here).ok):
+			out.append(_g("sect_join", "tip", "%s has its seat here and would take you as an %s." % [here.name,
+				s.sect_members.rank_name(str(s.gd.session().sect.join_rank))], "join", "Join %s" % here.name))
+	else:
+		var need: Dictionary = s.sect_members.promotion_needs(c)
+		if (need.missing as Array).is_empty():
+			out.append(_g("sect_promote", "goal", "You may be promoted to %s (%d contribution)." % [
+				s.sect_members.rank_name(str(need.rank)), int(need.gate.contribution)], "promote", "Seek promotion"))
+	return out
 
 
 ## Warnings from the ladder and techniques: a full bar wasting tu vi, a main method past its
