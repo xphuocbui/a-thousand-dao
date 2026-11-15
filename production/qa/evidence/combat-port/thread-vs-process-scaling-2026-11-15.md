@@ -48,6 +48,29 @@ processes started together.
 Against ×2.45 for 16 threads in one process. A 10,000-fight season batch is about 49 s on threads today; spread over
 16 worker processes it would be about 10–15 s plus the cost of handing work over (not measured).
 
+## 3b. End to end with worker processes (experiment)
+
+`--process-probe` (new, `tests/performance/combat/process_workers_probe.gd`; not part of the game): the coordinator
+compiles 300 real NPCs, writes their build files and 3,000 seeded fights to a job file, starts N copies of the release
+binary as workers (each loads the game data, rebuilds the fighters from the build files and runs its share), waits for
+them and compares every result with the same fights run in one thread on the original profiles.
+
+| Setup | 3,000 fights | Against one thread |
+|---|---|---|
+| One thread | 36.0 s (12.0 ms a fight) | ×1 |
+| 16 threads in one process (spike rate) | ~14.7 s | ×2.45 |
+| 8 worker processes, start to last exit | 6.10 s (fights alone 5.32 s) | ×5.9 (×6.8) |
+| 16 worker processes, start to last exit | 5.48 s (fights alone 4.34 s) | ×6.6 (×8.3) |
+
+Every result identical (3,000 of 3,000). A worker starts and loads in about 0.1 s. For a 10,000-fight season that is
+about 18 s against 49 s on threads.
+
+**A requirement found on the way:** the work must travel in Godot's binary Variant format (`store_var`), not JSON. With
+JSON, 1,652 of 3,000 results differed: Godot's JSON float parse is not correctly rounded even at full precision
+(3.8798222222222227 comes back 3.8798222222222223), so a fighter rebuilt from a JSON build file is not bit-identical
+(`block`, `n_qi`, `n_body`, layer points). The same parse is behind the stored ratings that needed re-snapping after a
+load (AC-PR-48).
+
 ## 4. Fix to the measurements
 
 With Power Rankings on in the shipped data, the spike's `new_game` started a background season batch that shared the

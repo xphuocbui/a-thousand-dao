@@ -23,6 +23,10 @@ func _ready() -> void:
 	if OS.get_cmdline_user_args().has("--scale-probe"):
 		add_child(preload("res://tests/performance/combat/scale_probe.gd").new())
 		return
+	if OS.get_cmdline_user_args().has("--process-probe") or OS.get_cmdline_user_args().has("--fight-worker"):
+		# experiment: rating fights over worker processes (tests/performance/combat/process_workers_probe.gd)
+		add_child(preload("res://tests/performance/combat/process_workers_probe.gd").new())
+		return
 	if OS.get_cmdline_user_args().has("--fight-rate"):
 		# single-threaded real NPC fight rate, for process-scaling runs (tests/performance/combat/fight_rate_probe.gd)
 		add_child(preload("res://tests/performance/combat/fight_rate_probe.gd").new())
