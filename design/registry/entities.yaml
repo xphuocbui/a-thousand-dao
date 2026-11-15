@@ -1836,7 +1836,7 @@ formulas:
     # was: no craft_in term (before Trade Goods #45, 2026-11-14)
     expression: "D = d_scale*bmix*(sum n*basket*max(fill, sub_floor) + 50*W_set)*(1+shockD) + 0.5*(sum spend_T*mix + works_due*wmix) + craft_in + P_eff"
     # was: bmix herb 0.5 ore 0.2 beast 0.2 special 0.1 (before Trade Goods #45, 2026-11-14)
-    notes: "RET Formula C. basket pegged to stipends 3/20/50/325/2,500 (L2); bmix herb 0.40 ore 0.2 beast 0.2 special 0.1 pill 0.10 (Trade Goods #45); d_scale calibrated in 0.5-3 (AC-RE-51) so world S/D = 1 + dk*(c_ref-1) (steady state at P = 1; AC-RE-57); fill from NPC wealth; sub_floor herb 0.5 beast 0.5 ore 0 special 0 (guess; user decision 2026-11-14, design-review 7), the part above fill moves goods and price, no money; goods_frac 0.5 (guess)."
+    notes: "RET Formula C. basket pegged to stipends 3/20/50/325/2,500 (L2); bmix herb 0.40 ore 0.2 beast 0.2 special 0.1 pill 0.10 (Trade Goods #45); d_scale calibrated in 0.5-3 (AC-RE-51) so world S/D = 1 + dk*(c_ref-1) (steady state at P = 1; AC-RE-57); fill from NPC wealth; sub_floor herb 0.5 beast 0.5 ore 0 special 0 (guess; user decision 2026-11-14, design-review 7), the part above fill moves goods and price, no money; goods_frac 0.5 (guess). Raw classes by rarity band (amended 2026-11-15, Trade Goods OQ14): D[(kind,b)] = bs[kind,b]*D_kind + craft_in + P_eff, bs = season-0 world supply share of the band."
     added: 2026-11-14
     revised: 2026-11-14
   - name: stock_update
@@ -1855,7 +1855,7 @@ formulas:
     # was: cap s_cap*D (design-review 7, 2026-11-14)
     expression: "stock' = min((1-dk)*max(0, stock+S-D), s_cap*max(D, D_min)); D_min = max(1, 0.05*calibrated D)"
     # was: start stock (c_ref-1)*D (design-review 6, 2026-11-14)
-    notes: "RET Formula D. dk herb 0.20 beast 0.10 special 0.03 ore 0.01; s_cap 2/2/4/6 seasons (guesses). Start stock max(0, c_ref*D - S) per market and class."
+    notes: "RET Formula D. dk herb 0.20 beast 0.10 special 0.03 ore 0.01; s_cap 2/2/4/6 seasons (guesses). Start stock max(0, c_ref*D - S) per market and class. Amended 2026-11-15 (Trade Goods OQ14): the class total of Trade Goods Formula B; craft draw and player buys first, then the shared draw (exports first, then dk, the rest of demand max(0, D - craft_in), s_cap overflow) from shelved goods only, capped at shelved value; stock' = sum X', stock_sh' = sum of X' >= V_g. Raw classes per rarity band."
     added: 2026-11-14
     revised: 2026-11-14
   - name: market_price
@@ -1876,7 +1876,7 @@ formulas:
     output_range: [0.5, 4.0]
     # was: P' = P*(P*/P)^0.5 and price_index = P' (design-review 4, 2026-11-14): GDD Formula E has P' = P*(P*/P)^alpha and price_index = p_loc
     expression: "P* = P_maxeff if c = 0 else clamp((c/c_ref)^-eps, P_min, P_maxeff); P' = clamp(P*(P*/P)^alpha, P/delta, P*delta); price_index[r,k] = p_loc[r,k] (= P' at access 1)"
-    notes: "RET Formula E. Feeds Travel & Map price_index (D_f). Bands per class; Strained ceiling herb 3.0 ore 2.2 beast 2.5 special 4.0 (guesses). Cover divides by max(D, D_min), D_min = max(1, 0.05*calibrated D) (design-review 7, 2026-11-14); link_flow uses the same floor."
+    notes: "RET Formula E. Raw classes read shelved cover c = (stock_sh + S_sh)/max(D, D_min), D_min per rarity band (amended 2026-11-15, Trade Goods OQ14). Feeds Travel & Map price_index (D_f). Bands per class; Strained ceiling herb 3.0 ore 2.2 beast 2.5 special 4.0 (guesses). Cover divides by max(D, D_min), D_min = max(1, 0.05*calibrated D) (design-review 7, 2026-11-14); link_flow uses the same floor."
     added: 2026-11-14
     revised: 2026-11-14
   - name: link_flow
@@ -1898,8 +1898,9 @@ formulas:
       - cover
     output_range: [0, "Cap_AB"]
     # was: Q_close without cover, avail from S (before 2026-11-14 design-review)
-    expression: "gap = P_B*(1-tar) - P_A*(1+tau); Q = min(0.5*gap/(eps*(P_A/(max(c_A,0.5)*D_A)+P_B/(max(c_B,0.5)*D_B))), avail_A); avail_A = max(0, stock_A+S_pre_A-D_A); Cap = 6000*min(trade_mult)*safe_AB"
-    notes: "RET Formula F. Tariff paid by the importer's commons pool to its sect. Links resolved in ascending (id_A, id_B) order, classes herb/ore/beast/special, avail depleted per flow (AC-RE-50)."
+    # was: avail_A = max(0, stock_A+S_pre_A-D_A) (before Trade Goods OQ14, 2026-11-15)
+    expression: "gap = P_B*(1-tar) - P_A*(1+tau); Q = min(0.5*gap/(eps*(P_A/(max(c_A,0.5)*D_A)+P_B/(max(c_B,0.5)*D_B))), avail_A); avail_A = max(0, sum over shelved g of X_pre_A,g - max(0, D_A - craft_in_A)); Cap = 6000*min(trade_mult)*safe_AB"
+    notes: "RET Formula F. Tariff paid by the importer's commons pool to its sect. Links resolved in ascending (id_A, id_B) order, classes herb/ore/beast/special (bands low to high, then crafted classes by id), avail depleted per flow (AC-RE-50). Exports first in the shared draw; every sum over markets in market-id order (Trade Goods OQ14, 2026-11-15)."
     added: 2026-11-14
     revised: 2026-11-14
   - name: shop_price

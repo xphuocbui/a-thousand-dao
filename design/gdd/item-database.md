@@ -192,8 +192,10 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     place, untouched, for `lost_decay_years` is removed and logged. Named, bound and reserved items, and items at rarity
     `lost_decay_rarity_max` or above, never decay.
 15. **Time moves state only through its owning system.** The Item Database never changes a record on its
-    own. A herb's age is advanced on the season tick by the Spirit Herb system, and a nurtured treasure's
-    years are held and advanced on the character.
+    own. A **Planted** herb's age is advanced on the season tick by the Spirit Herb system, and a nurtured treasure's
+    years are held and advanced on the character. A harvested herb's age is fixed from then on, carried, stored,
+    shelved or pooled, so holding herbs earns nothing *(amended 2026-11-15, Trade Goods rule 10)*. A herb gathered from
+    wild ground gets its age when gathered (Trade Goods Formula K: `mature_years · 2^j`, seeded).
 16. **Items an LLM event invents are bounded.** An event may ask for an item of a kind, a rarity and an
     element. The engine picks the numbers inside the budget in `events_budgets.json` (a treasure must also be on the
     realm's whitelist), creates and registers the record, and only then lets the narration name it. The narration never changes a record
@@ -283,7 +285,7 @@ An item record has these states. A stack with `qty` 0 never exists; it is remove
 | Created | Generated or authored, and added to the table | It gets an owner |
 | Held | An owner holds it | It is equipped, used, transferred or lost |
 | Equipped | An equippable item is in the owner's equipped list | It is unequipped, transferred or the owner dies |
-| Planted | A herb is put in a field plot | It is harvested or dies |
+| Planted | A herb is put in a field plot; the only state in which its age advances (rule 15) | It is harvested (its age is then fixed) or dies |
 | Lost | Its owner is a place (dropped, abandoned; an owner died with no killer, or the item was bound) | A character finds it |
 | Consumed | A consumable is used up, or a craft takes an ingredient | The record is removed |
 
@@ -309,7 +311,7 @@ World have no GDD yet (quick specs at most). Rows marked **provisional** hold th
 | Modifier System (#40) | in | The catalogue keys and prices affixes and named modifiers use; rare modifiers only on named items | Modifier System |
 | Effects System (#41) | in | The Effect records named items host (rule 20) | Effects System |
 | The Way (#39) | in | `artifact_slots` from Kim Đạo's facet (rule 11) | the Way |
-| Alchemy (#15), Spirit Herbs (#14) | in / out | Herbs and pills created and consumed; herb age advanced on the tick (**provisional**) | Alchemy, Spirit Herbs |
+| Alchemy (#15), Spirit Herbs (#14) | in / out | Herbs and pills created and consumed; a Planted herb's age advanced on the tick (**provisional**); harvested ages fixed (rule 15) | Alchemy, Spirit Herbs |
 | Artifact Refining (#16), Formations (#17), Talismans (#18), Spirit Beasts (#19) | in / out | Crafted items created and ingredients consumed (**provisional**) | each crafting system |
 | Market (#20) | out | Value, the reserved and bound flags (**provisional**) | Market (price and stock); this GDD (value) |
 | Event Engine (#23) | in / out | Item requests within a budget; rewards created through generation (**provisional**) | Event Engine (the request); this GDD (the record) |
@@ -406,6 +408,9 @@ The herb_value formula is defined as:
 | base_value | int | 2–3,000 | data file | Value at maturity |
 
 **Output Range:** potency 0.1–5, at 1.0 at maturity, 1.5 at twice that age and 2.0 at four times. Value is at least 1.
+`age` advances only while the herb is Planted (rule 15; amended 2026-11-15, Trade Goods rule 10). A wild-gathered herb
+is at age `mature_years · 2^j` (Trade Goods Formula K), so its potency is `1 + 0.5 · j`; market pools and shelves
+hold herbs at `mature_years` only.
 
 **Example:** Hoàng Tinh Sâm (mature 10, base 20): age 5 gives potency 0.5, value **10**; age 40 gives 2.0, value **40**.
 Kim Tủy Quả (mature 50, base 150) at age 42 gives 0.874, value **131**.
@@ -439,7 +444,9 @@ its herbs are bought at the Market, even at 100 % brew success.
 decision).** Every recipe pays: Tụ Khí 3.27, Thanh Độc 3.64, Hồi Xuân 2.45, Hoàng Long 2.81, Tĩnh Tâm 1.15, Trúc Cơ 2.30,
 Huyết Khí 1.45, Ngưng Nguyên 5.38, Tẩy Tủy 9.74, Diên Thọ 4.96, Hóa Anh 1.81, Hóa Thần 1.77. Ngưng Nguyên, Tẩy Tủy and
 Diên Thọ warn (+1,346 to +2,395 a brew). **Decided 2026-11-14 (user): raise their inputs, keep their prices**: Ngưng
-Nguyên 4 Kim Tủy Quả at age 84 + 1 Xích Huyết Đằng at 18 (1.89); Tẩy Tủy 4 Xích Huyết Đằng at 80 + 3 Băng Tâm Thảo at 120
+Nguyên 4 Kim Tủy Quả at age 84 + 1 Xích Huyết Đằng at 18 (1.73: Trade Goods Formula J prices each herb at the lowest
+age step a held herb can have, so Kim Tủy Quả at `min_age` 84 counts at age 100, value 225; corrected 2026-11-15 from
+1.89, which priced it at `herb_value(84)`); Tẩy Tủy 4 Xích Huyết Đằng at 80 + 3 Băng Tâm Thảo at 120
 (1.89); Diên Thọ 2 Vạn Niên Mộc Linh at 200 + 1 Kim Tủy Quả at 100 (1.91). A new Qi Refining pill, **Thiết Cốt Đan** (3
 Thiết Tuyến Thảo at age 1, yield 2, price 15: 1.82), uses the new Metal herb. Tụ Khí, Thanh Độc and Hoàng Long are above
 2.5 but earn +10 to +70 a brew and do not warn. With these recipes no recipe warns.
@@ -745,7 +752,7 @@ Formulas F) and is not priced here.
 | Spirit Herbs (#14), Alchemy (#15) | Hard | Herbs, pills, potency | Built, no GDD |
 | Artifact Refining (#16), Formations (#17), Talismans (#18), Spirit Beasts (#19) | Hard | Crafted items, ingredients, roles; Refining's recipes for repeatable named items and, if Open Question 17 holds, raising a named item's tier (rule 20) | Quick specs only |
 | Market (#20) | Hard | Value, flags, stock generation | Built, no GDD |
-| Trade Goods (#45) | Hard | Templates, values and rarity of the 23 trade goods; the `trade` block; the craft margin lint (its Formula J replaces `pill_margin`) | Designed 2026-11-14, pending review |
+| Trade Goods (#45) | Hard | Templates, values and rarity of the 23 trade goods; the `trade` block; the craft margin lint (its Formula J replaces `pill_margin`); harvested herb ages fixed and wild ages by its Formula K (rule 15, Formula B) | Approved 2026-11-15 (design-review 12); its Open Question 14 amendments applied here 2026-11-15 |
 | Combat (#21) | Hard for the full fight | Role tags, attack, defence, consumable arts; item arts by role, in the art slots, powered by the piece's number (rule 21, Open Question 23) | GDD designed, build on hold; today's duel reads artifacts directly |
 | Combat Defence & Healing (#21a) | Hard for the full fight | Role tags and defence numbers, mapped to `a_w` and `a_b`; a second body_gear piece may be worn in an extra slot and counts (rule 11, Open Question 22) | Approved; build on hold |
 | Combat Damage Types (#21b) | Hard for the full fight | Each base's `damage_type`; named items' art parts | Approved; build on hold |
@@ -810,7 +817,8 @@ The terminal shows rarity through a colour and always through a word as well, so
 - **Finding something:** a rare item is announced with its rarity and what it could do for this build, so the moment reads as
   luck the player can use.
 - **Nothing is mysterious:** every item's value and derived numbers are one step away (rule 17).
-- **Time is visible:** a herb shows its age and what its next doubling is worth, so waiting feels like saving.
+- **Time is visible:** a herb shows its age; a Planted herb also shows what its next doubling is worth, so tending a
+  field feels like saving (a harvested herb's age is fixed, rule 15).
 
 ## UI Requirements
 
@@ -990,7 +998,7 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 - **AC-ID-80** [UI] Equip panel. Given FX-E, a retained screenshot shows the pieces, base and extra slots used (4 of 4 extra, E past the count), the thần thức the next extra slot needs, and each role. FX-L's unequip shows the preview.
 - **AC-ID-81** [UI] Use preview. Given Linh Căn Quả, the transcript shows the effect and choice. Backing out leaves every record unchanged.
 - **AC-ID-82** [UI] Visual requirements. With colour switched off, every rarity still reads as a word (Open Question 13).
-- **AC-ID-83** [UI] Game Feel. Given Hoàng Tinh Sâm at age 40, the transcript shows age 40, value 40, and at the next doubling age 80, potency 2.5, value 50.
+- **AC-ID-83** [UI] Game Feel. Given a Planted Hoàng Tinh Sâm at age 40, the transcript shows age 40, value 40, and at the next doubling age 80, potency 2.5, value 50.
 - **AC-ID-84** [Logic] Rule 12. Given a breakthrough pill attempt, the result has `needs_confirm` and a preview before anything is consumed, and backing out leaves the pill, talisman and character unchanged. Given a quality-0 Hồi Xuân Đan at toxicity 95, using it shows no preview and toxicity is clamped at 100.
 - **AC-ID-85** [Config/Data] Rule 19 and rule 20, one case each:
   - (a) a rolled artifact carrying an Effect fails the lint;
@@ -1053,4 +1061,4 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 | 22 | Extra slots take any piece (rule 11), so armour can stack: each worn armour adds its body defence to `a_b` (Combat Defence & Healing Formulas A2) and, since 2026-11-13, a ward slot of its own. Allowed; measure it at the harness run before limiting anything (user decision 2026-11-13). The option weighed: only the best piece's body defence counts | Balance Harness, Combat Defence & Healing owner | Rule 11 |
 | 23 | ~~How an item art's power reads its piece's number~~ **Closed 2026-11-13:** through the gear layers as today (rule 21): attack feeds L3, defence feeds `a_w` / `a_b`; an item art is an ordinary art | — | — |
 | 24 | ~~Common arts, common wards, reserve arts~~ **Closed 2026-11-12/13:** each weapon base has a common art (`design/items/common-arts.json`), armour and ward gear use the starter wards, named items carry their reserve arts | — | — |
-| 25 | **Hand-off from Regional Economy & Trade (#43, 2026-11-14), pending:** items gain an `origin_market` tag (the market where they were bought, gathered or looted; empty on old saves, which then pay no tariff). Selling an item in another market pays that market's import tariff (#43 rule 16, Formula G). Raw goods also need their **good class** (herb, ore, beast, special) and finished goods their **main input's class** (#43 rule 4) **Hand-off from Trade Goods (#45, 2026-11-14), pending:** each raw herb and material template gains a `trade` block (`good_class`, `element`, `source`, `weight`; Trade Goods rule 1); 6 new templates (Thiết Tuyến Thảo, Tử Kim Sa, Yêu Cốt, Yêu Thú Bì, Linh Tuyền Thủy, Địa Hỏa Tinh; values are Trade Goods guesses); every catalogue good needs a recipe that uses it (Trade Goods rule 4a); a crafted item takes its main input's `origin_market` (Trade Goods Formula I); the three margin outliers need recipe changes (Trade Goods Open Question 1); Linh Thạch Khoáng stays outside trade. **Decided 2026-11-14 (user):** the 6 goods' values (3 maturing in 1 year, 180, 10, 12, 8, 80); the recipe revision for the three outliers and the new Thiết Cốt Đan (Formula C's margins); a storage-item kind with capacities by rarity 150 / 400 / 1,000 / 2,500 / 6,000 / 15,000 (30 with none; the best one counts; no slot; trade goods only for MVP; Trade Goods rule 16a) | Item Database, #43 | The Item Database revision |
+| 25 | **Hand-off from Regional Economy & Trade (#43, 2026-11-14), pending:** items gain an `origin_market` tag (the market where they were bought, gathered or looted; empty on old saves, which then pay no tariff). Selling an item in another market pays that market's import tariff (#43 rule 16, Formula G). Raw goods also need their **good class** (herb, ore, beast, special) and finished goods their **main input's class** (#43 rule 4) **Hand-off from Trade Goods (#45, 2026-11-14), pending:** each raw herb and material template gains a `trade` block (`good_class`, `element`, `source`, `weight`; Trade Goods rule 1); 6 new templates (Thiết Tuyến Thảo, Tử Kim Sa, Yêu Cốt, Yêu Thú Bì, Linh Tuyền Thủy, Địa Hỏa Tinh; values are Trade Goods guesses); every catalogue good needs a recipe that uses it (Trade Goods rule 4a); a crafted item takes its main input's `origin_market` (Trade Goods Formula I); the three margin outliers need recipe changes (Trade Goods Open Question 1); Linh Thạch Khoáng stays outside trade. **Decided 2026-11-14 (user):** the 6 goods' values (3 maturing in 1 year, 180, 10, 12, 8, 80); the recipe revision for the three outliers and the new Thiết Cốt Đan (Formula C's margins); a storage-item kind with capacities by rarity 150 / 400 / 1,000 / 2,500 / 6,000 / 15,000 (30 with none; the best one counts; no slot; trade goods only for MVP; Trade Goods rule 16a). **Applied 2026-11-15 (Trade Goods Open Question 14):** a harvested herb's age is fixed and only a Planted herb ages (rule 15, Formula B, States); wild-gathered ages by Trade Goods Formula K; the Ngưng Nguyên margin corrected to 1.73 (Formula C). The `trade` block, the 6 templates, the recipe changes and the storage-item kind still wait on the data revision | Item Database, #43 | The Item Database revision |

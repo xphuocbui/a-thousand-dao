@@ -232,7 +232,9 @@ names rather than a place.
     Growth runs at the fit, up to a small bonus (about ×1.2) on ideal ground. Below a floor (about 0.2) the herb can't
     be planted. The screen shows the number, a word (excellent, good, fair, poor, unplantable) and a line per factor,
     so a poor fit says why. Spirit Fields read the fit of the field's place (its part), and wild herb grounds appear in
-    parts where fit is 0.6 or more.
+    parts where fit is 0.6 or more. A herb a cultivator gathers at a wild herb ground gets its age when gathered, by Trade Goods
+    Formula K (most at `mature_years`, a seeded share older on dense, rarely reached ground; amended 2026-11-15); the
+    commons' harvest that feeds the markets counts at `mature_years`.
 19. **About ten resource kinds**, kept in data: linh thạch, the five element ores, wild herbs (by element), beast
     materials and a few special goods. Each maps to Item Database materials and herbs.
 20. **Resource sites** are places of the kinds mine (including linh thạch mines), spirit vein, herb ground and beast
@@ -865,11 +867,17 @@ The aggregation formula is defined as:
 
 `qty[region,k] = Σ_{s in region} production[s,k]`; `value_lt = qty · unit_value[k]`; `territory[k]` sums the held regions' sites and any held sites outside them; each site counts once
 
-**Region record** `map_production_region` (once a season, about 20 × 9 entries): `contract_version` (1), `season_index`,
+**Region record** `map_production_region` (once a season, about 20 × 9 entries): `contract_version` (2; was 1 before Trade Goods, 2026-11-15), `season_index`,
 `region_id`, `holder_id` (sect id, "" for wild), `pop_cultivators[5]` (heads by realm, from the Living World Tick),
 `pop_settlement_weight` (city 8, town 4, market 3, village 1 *(guess)*), and `production` per kind: `qty`, `value_lt`,
 `sites`, `reserve_mean` (weighted by base output), `bands` {rich, worked, thinned}, `top_rarity` (1–6),
 `by_element` (herbs only), `demand_factor_used` (echoes D_f so #43 can audit its loop).
+**`by_good`** (contract v2, amended 2026-11-15 by Trade Goods Open Question 14): per kind, each named good's part of
+`value_lt`, split per site by Trade Goods Formula A (largest remainder, integer arithmetic) and summed over the
+region's sites, so the parts sum to `value_lt` exactly and #43's supply is unchanged. Each site keeps **`rem[s,g]`**,
+the value of each good below one whole unit (`V_g`), and adds it to the next season's part before units are counted,
+so a rare good at a modest site yields a unit every few seasons instead of never (Trade Goods rule 6). `unit_value[k]`
+is then only a value-to-count conversion for the kind.
 
 **Territory record** `map_production_territory`: `contract_version`, `season_index`, `sect_id`, `region_ids[]`,
 `extra_site_ids[]`, `pop_cultivators[5]`, `pop_settlement_weight`, `production` (as above), `works_upkeep_due_lt`
@@ -1010,7 +1018,7 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 | Realms & Bottlenecks (#8) | Hard | Stacked density and match for the cultivation rate; the Core Formation density check; the leftover-season rate | GDD in review; lists this system (its rows need the layer stack and the match) |
 | Spirit Herbs & Fields (#14) | Hard | Herb fit at the field's place | Built, no GDD |
 | Regional Economy & Trade (#43) | Hard | The seasonal production contract; the demand hook (`price_index`) | GDD designed 2026-11-14 (`design/gdd/regional-economy-trade.md`), in review; it reads the contract and writes `price_index` per region (its local price). Trade Goods (#45, 2026-11-14) splits each site's `value_lt` among named goods (contract v2 `by_good`, Trade Goods Formula A); `unit_value[k]` becomes only a value-to-count conversion |
-| Trade Goods (#45) | Soft | Reads site kinds, biomes, features, density and herb fit; adds the `by_good` split to the production contract | GDD designed 2026-11-14 (`design/gdd/trade-goods.md`), pending review |
+| Trade Goods (#45) | Soft | Reads site kinds, biomes, features, density and herb fit; adds the `by_good` split to the production contract (v2, Formula L), the per-site `rem[s,g]` carry and gathered herb ages (rule 18, its Formula K) | Approved 2026-11-15 (design-review 12; `design/gdd/trade-goods.md`); its Open Question 14 amendments applied here 2026-11-15 |
 | Market (#20) | Soft | Market places; regional production until #43 replaces it | Built, no GDD |
 | Living World Tick (#28), NPC Builds (#24) | Hard | NPC homes (settled share, graded residences, hermit picks), reserves, cycles, fading works | Built, no GDD |
 | Combat (#21) | Soft | Encounters on the way; a flier's pool on arrival | Approved; **no row for this system yet** |
@@ -1477,10 +1485,10 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 - **AC-TM-93** [Logic] Formula L. GIVEN a sect holding region R1 plus a listed extra site inside R1, THEN that site
   counts once. An extra site outside R1 is added once.
 - **AC-TM-94** [Integration] Rule 25, production contract. GIVEN FX-TM-WORLD, WHEN one season passes:
-  - THEN every region has one `map_production_region` record with `contract_version` 1, `season_index`, `region_id`,
+  - THEN every region has one `map_production_region` record with `contract_version` 2, `season_index`, `region_id`,
     `holder_id` ("" for wild), `pop_cultivators[5]` and `pop_settlement_weight`;
-  - per kind, it has `qty`, `value_lt`, `sites`, `reserve_mean`, `bands`, `top_rarity`, `by_element` (herbs only) and
-    `demand_factor_used`, which is 1.0;
+  - per kind, it has `qty`, `value_lt`, `sites`, `reserve_mean`, `bands`, `top_rarity`, `by_element` (herbs only),
+    `by_good` (summing to `value_lt` exactly) and `demand_factor_used`, which is 1.0;
   - every holding sect has one `map_production_territory` record, with `works_upkeep_due_lt`;
   - `pop_cultivators` sums to the Living World Tick's head count for the region.
 - **AC-TM-95** [Integration] Rule 25. GIVEN 9 seasons run, THEN the World Database holds seasons 2–9 only. GIVEN the map

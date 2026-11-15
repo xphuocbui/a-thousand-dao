@@ -1,6 +1,6 @@
 # Regional Economy & Trade (Vùng Kinh Tế & Thương Lộ)
 
-> **Status**: Approved (design-review 11, lean, 2026-11-14: 0 blocking, 9 recommended); amended 2026-11-14 by Trade Goods (#45): crafted classes (rule 4), `craft_in` and crafted demand (rule 9, Formula C), the scarcity factor (Formula G), in-kind workshops (Formula H), the `kind_stipend` split (Formula I), `bmix` herb 0.40 and pill 0.10 (Formulas C, L2). Earlier: Needs Revision (design-review 10, lean, 2026-11-14: review-9 blocker resolved; 1 blocker, the tick order of F3 invest and spend_T, revised the same day, awaiting a re-review; design-review 9, lean, 2026-11-14: review-8 blockers confirmed resolved; 1 blocker, Sects AC-SM-08's stale Tr', revised the same day, awaiting a re-review; earlier: design-review 8, lean: 2 small blockers revised; design-system 2026-11-14, guided and lean: CD-GDD-ALIGN skipped, Lean mode; specialists consulted for Formulas (systems-designer, economy-designer) and Acceptance Criteria (qa-lead))
+> **Status**: Approved (design-review 11, lean, 2026-11-14: 0 blocking, 9 recommended); amended 2026-11-14 by Trade Goods (#45): crafted classes (rule 4), `craft_in` and crafted demand (rule 9, Formula C), the scarcity factor (Formula G), in-kind workshops (Formula H), the `kind_stipend` split (Formula I), `bmix` herb 0.40 and pill 0.10 (Formulas C, L2); amended 2026-11-15 by Trade Goods Open Question 14 (user approved): raw rarity bands (rule 4, Formula C, per-band `D_min`), shelved stock (rule 8, Formulas D, E, F: unshelved goods skip the draw; price, cover and `avail_A` read shelved value; exports first; `max(0, D − craft_in)`; market-id-order world sums). Earlier: Needs Revision (design-review 10, lean, 2026-11-14: review-9 blocker resolved; 1 blocker, the tick order of F3 invest and spend_T, revised the same day, awaiting a re-review; design-review 9, lean, 2026-11-14: review-8 blockers confirmed resolved; 1 blocker, Sects AC-SM-08's stale Tr', revised the same day, awaiting a re-review; earlier: design-review 8, lean: 2 small blockers revised; design-system 2026-11-14, guided and lean: CD-GDD-ALIGN skipped, Lean mode; specialists consulted for Formulas (systems-designer, economy-designer) and Acceptance Criteria (qa-lead))
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-14
 > **Last Verified**: 2026-11-14
@@ -72,7 +72,12 @@ home alive turns travel into cultivation resources; the one who ignores it pays 
    goods), by **good class**, and the **crafted classes** of Trade Goods (#45): pills, talismans and artifacts, each split
    by tier (Trade Goods rule 11, Formula E). A finished good prices from its own crafted class. Technique manuals are not
    priced (P = 1.0). The named goods inside a class are Trade Goods' compositions; this system keeps prices per class.
-   *(Amended 2026-11-14 by Trade Goods; closes Open Questions 1 and 17.)*
+   *(Amended 2026-11-14 by Trade Goods; closes Open Questions 1 and 17.)* **Raw classes by rarity band** *(amended
+   2026-11-15, Trade Goods rule 8a)*: each raw kind is priced in bands, `band = ceil(rarity / 2)` (rarity 1–2, 3–4,
+   5–6), and only bands that hold goods exist, so the MVP has 8 raw classes (herb 1–3, ore 1–2, beast 1, special 1–2).
+   A band takes its kind's parameters (`dk`, `s_cap`, `c_ref`, ε, the price bands, δ) and its own `D_min` (Formula E);
+   the kind's demand is split across its bands by Formula C. Wherever this document writes a raw class k, read
+   (kind, band).
 5. **Linh thạch is money, not a good.** It has no price. Mines make it (Travel & Map rule 21), and it is the only source
    of new money. Missions, stipends, tribute, taxes and purchases move money and never create it (**mine output replaces
    the mission faucet; user decision 2026-11-14, Travel & Map Open Question 1**). Event and loot money is drawn from a
@@ -90,7 +95,10 @@ home alive turns travel into cultivation resources; the one who ignores it pays 
    Trade level and Military safety. A region far from the seat uses part of its output locally and loses the rest to
    spoilage and loss. The hub is the seat's market place. Access is derived from Travel & Map data, not stored per place.
 8. **Stock carries over.** What a market does not sell in a season stays as stock. Stock decays by good class (herbs
-   fast, ores almost never). Price depends on **cover**: stock plus supply, divided by demand.
+   fast, ores almost never). Price depends on **cover**: stock plus supply, divided by demand. *(Amended 2026-11-15,
+   Trade Goods rule 6 and Formula B.)* A named good whose pool value is under one unit is **unshelved**: spoilage,
+   exports, demand and the `s_cap` overflow skip it, so it builds up, and price, cover and exports read only the
+   **shelved stock** (`stock_sh`).
 9. **Demand.** Demand for a good is population demand (the provision baskets NPCs actually buy, rules 21–22, plus
    settlement weight), plus the sect's own use (Institutions use herbs, Military uses ores and beast parts, works use
    ores), plus the player's purchases, plus the inputs workshops draw for crafting (`craft_in`, Trade Goods Formula G).
@@ -219,7 +227,8 @@ price bands, spreads, exploits). All values live in a new data file, `assets/dat
 Formula L), because a good class holds items worth 10 to 120 each and raw counts cannot be added. Cover is unitless.
 Prices come from cover only. Money never sets a price; inflation shows only as purses growing, which H bounds.
 
-**Good classes** k: herb, ore, beast, special. Linh thạch is money (rule 5) and has no k.
+**Good classes** k: herb, ore, beast, special, each by rarity band (rule 4, amended 2026-11-15: 8 raw classes in the
+MVP), plus Trade Goods' crafted classes. Linh thạch is money (rule 5) and has no k.
 
 **Anchors.** Mines make about 124,000 linh thạch a season (Travel & Map L). Non-mine goods are about 250,000 a season
 in base value (Sects `world_production_guess`, which this GDD turns into an acceptance check, I). Census 3,936 / 844 /
@@ -290,6 +299,13 @@ The market_demand formula is defined as:
 | shockD | float | −0.5–0.8 (summed, clamped) | Event Engine | Demand shocks |
 | P_eff | float | ±player_cap · D_pre | calculated (G) | The player's bounded net buying; D_pre is D without P_eff |
 
+**Raw rarity bands** *(amended 2026-11-15, Trade Goods rule 8a)*: for a raw class (κ, b) of kind κ and band b,
+`D[m,(κ,b)] = bs[κ,b] · D_kind[m,κ] + craft_in[m,(κ,b)] + P_eff[m,(κ,b)]`, clamped at 0, where `D_kind` is the formula
+above without its `craft_in` and `P_eff` terms, and `bs[κ,b] = Σ_m S[m,(κ,b)] / Σ_m S[m,κ]` is the band's share of
+the kind's **season-0** world supply (fixed at calibration; sums are in market-id order). `craft_in` and `P_eff`
+already belong to one band, so they are not split, and the bands of a kind sum to its demand (AC-TG-43). A kind with
+one band has `bs` 1.
+
 **Output Range:** ≥ 0.
 **Example:** heads 600 / 130 / 30 / 5 / 1 → 10,025; plus 60 · 50 = 3,000; × bmix[herb] 0.5 × d_scale 2.2 = 14,328; plus Institutions
 spending 327 · 0.5 = 163; plus the player's 400 = **14,891**.
@@ -323,8 +339,16 @@ The stock_update formula is defined as:
 | s_cap[k] | float | herb 2, beast 2, special 4, ore 6 (seasons of demand) | data file *(guess)* | Storage bound (Pillar 2); overflow is lost |
 | short | float | ≥ 0 | calculated | Unmet demand, shown in the ledger; never carried as backlog |
 
-**Output Range:** 0 to s_cap · D. Market stock is pooled goods in base value; an herb item the player holds still ages
-by Item Database Formula B. Spoilage applies to the market pool only.
+**Output Range:** 0 to s_cap · D. Market stock is pooled goods in base value; a harvested herb's age is fixed, so a
+herb the player holds never changes value (only a Planted herb ages, Item Database Formula B; Trade Goods rule 10).
+Spoilage applies to the market pool only.
+**Shelved stock** *(amended 2026-11-15, Trade Goods Formula B)*: with named goods, this formula is the class total of
+Trade Goods Formula B's per-good update, and it holds as written only while every good is shelved. In general the
+workshops' draw (`craft_in`) and the player's purchases take specific goods first; the shared draw then takes
+**exports first**, then spoilage `dk`, the rest of demand `max(0, D − craft_in)` and the `s_cap` overflow, from
+**shelved** goods only, in proportion, and is **capped at the shelved value**. What the cap leaves undrawn stays as
+unmet demand and unspoiled stock. The ledger stock is `stock' = Σ_g X'[m,g]`; price, cover and link flows read the
+shelved stock `stock_sh' = Σ_{g: X' ≥ V_g} X'[m,g]` (Formulas E, F).
 **Starting stock** is `max(0, c_ref[k] · D − S)` per market and class at calibration, so each market's cover starts
 at `c_ref` and its price at 1.0. A market whose season-0 supply alone exceeds `c_ref · D` starts with stock 0 and a
 cover above `c_ref` (a glut market, price below 1.0 from season 1); the calibration tool lists it (AC-RE-51).
@@ -349,6 +373,12 @@ The market_price formula is defined as:
 | α | float | 0.5 | data file *(guess)* | Partial adjustment toward P* |
 | δ[k] | float | herb 1.25, ore 1.10, beast 1.20, special 1.30 | data file *(guess)* | Largest move a season (multiplicative) |
 | D_min[k] | float | `max(1, 0.05 · calibrated D[m,k])`, ≥ 1 base value | data file | Demand floor used wherever D divides or caps (D, E, F). The absolute floor of 1 keeps a market with no heads, settlements or spending finite *(design-review 7: 0.05 · calibrated demand was 0 there, and F divided by raw D)* |
+
+**Shelved cover** *(amended 2026-11-15, Trade Goods Formula B)*: for a raw class, cover reads the shelved parts,
+`c = (stock_sh + S_sh) / max(D, D_min[k])`, with `S_sh` the supply of the class's shelved goods this season. A class
+whose goods are all under one unit has c = 0 and reads as short, so its price rises and it draws imports instead of
+looking full while its shelves are empty. With every good shelved this is the formula above. Each raw band has its
+own `D_min = max(1, 0.05 · calibrated D[m,(κ,b)])`.
 
 **Output Range:** P from P_min to P_max (P_maxeff while Strained). A herb shock reaches its ceiling in 3–4 seasons, an
 ore shock in about 5 (from 1.0 with cover 0, a herb price crosses 2.0 in season 4 and an ore price crosses 1.6 in
@@ -392,7 +422,14 @@ The link_flow formula is defined as (A the cheaper market, B the dearer):
 Flows use last season's prices. **Resolution order (deterministic, AC-RE-50):** links are processed in ascending
 `(id_A, id_B)` order of their two market ids, and within a link the classes in the order herb, ore, beast, special.
 `avail_A` is **depleted** by each flow taken from A, so a market on several links cannot export the same stock twice; a
-link's `Cap_AB` is spent by its classes in that order before scaling. No random choice enters. **Output Range:** 0 to Cap_AB. Linked prices settle within (1 + tariff)(1 + transport),
+link's `Cap_AB` is spent by its classes in that order before scaling. No random choice enters. *(Amended 2026-11-15,
+Trade Goods Formula B.)* Within a kind the raw bands run low to high, and the crafted classes follow the raw ones in
+crafted-class id order. For a raw class, `avail_A = max(0, Σ_{g shelved} X_pre[A,g] − max(0, D_A − craft_in_A))`
+replaces the form above: it reads shelved value only (`X_pre`, Trade Goods Formula B, already has the craft draw and
+the player's purchases taken out), and the inner `max` stops a negative `P_eff` (down to −0.10 · `D_pre`) from lifting
+`avail_A` above the shelved value where demand is mostly workshops. Exports come first in the shared draw (Formula D),
+so they always fit. Every sum over markets (calibration, Trade Goods' `wsh_g`) runs in **market-id order**, never
+processing order, so results are bit-identical whatever order markets tick in. **Output Range:** 0 to Cap_AB. Linked prices settle within (1 + tariff)(1 + transport),
 about 1.15–1.25 apart; unlinked markets can sit 3–5× apart.
 **Example:** herbs (ε 0.7). P_A 0.90, D_A 20,000, cover 1.25; P_B 1.30, D_B 15,000, cover 1.0; Openness 2 (0.12);
 200 tiles; trade_mult 1.9 / 1.6; safe_AB 0.97: τ = 0.10714; gap = 1.144 − 0.99643 = 0.14757; Q_close = 0.14757 /
@@ -739,8 +776,8 @@ report raised. Review manually before production.
 - **If the player sells an item with no `origin_market`** (from an old save): it is treated as local, with no tariff.
 - **If the player carries goods into a market that closed or embargoed them on the way**: they cannot sell there;
   the goods keep their origin tag.
-- **If a herb the player holds ages while carried**: its value follows Item Database Formula B; market spoilage applies
-  only to market stock.
+- **If the player carries a harvested herb**: its age is fixed, so its value never changes (Trade Goods rule 10, amended
+  2026-11-15; only a Planted herb ages by Item Database Formula B); market spoilage applies only to market stock.
 
 **Local prices and baskets**
 - **If a local price passes its band**: it is clamped to P · (1 ± loc_band), and the breakdown says so.
@@ -775,7 +812,7 @@ report raised. Review manually before production.
 | Character Stats | Soft | Mị lực for finished-goods prices | Approved | Yes (Mị lực is already read by Market) |
 | Game UI (#37) | Soft | The market ledger and price breakdown | Not started | Index |
 | Balance Simulation Harness (#33) | Soft | Runs the economy tick for 400 seasons and checks the health metrics (Formula H) | Built | Index |
-| Trade Goods (#45) | Hard (amends rules 4, 9, 19; Formulas C, E, G, H, I, L2) | In: named goods and compositions, scarcity factors, crafted classes, the craft plan, `craft_in`, crafted demand. Out: class prices, local prices, stock, flows, baskets | Designed 2026-11-14, pending review | Yes (Trade Goods Dependencies lists #43) |
+| Trade Goods (#45) | Hard (amends rules 4, 9, 19; Formulas C, E, G, H, I, L2) | In: named goods and compositions, scarcity factors, crafted classes, the craft plan, `craft_in`, crafted demand. Out: class prices, local prices, stock, flows, baskets | Approved 2026-11-15 (design-review 12); its Open Question 14 amendments applied here 2026-11-15 | Yes (Trade Goods Dependencies lists #43) |
 
 ## Tuning Knobs
 
