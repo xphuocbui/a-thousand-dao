@@ -1,4 +1,8 @@
-# Đạo Đồ: big-cluster content, DRAFT for approval (2026-11-18)
+# Đạo Đồ: big-cluster content (APPROVED 2026-11-18)
+
+**Approved by the user 2026-11-18** ("approve go with recommend"): the list as drafted, with the recommended answers
+to the open questions: #14 Portable Cave Abode in the hub (H2); #22 and #23 stay far out; Darkness keeps 5; one
+sustain line per land is enough (small and medium clusters may carry more).
 
 Step 4 of the 11-18 plan (`rules-2026-11-18.md` decision 6.5): content first, for big clusters only. Claude drafted
 this list; the user approves or edits it before anything is drawn. Built from `design/gdd/dao-do.md` (rule 17's 25
