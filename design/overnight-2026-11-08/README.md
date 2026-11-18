@@ -18,7 +18,7 @@ Reading times assume about 200 words a minute (these are dense, table-heavy file
 | ★ [`consistency.md`](consistency.md) | `/consistency-check` across 14 GDDs and the registry, report only | 44 findings: **17 new** (4 high), 16 already covered by #43, 11 already in the review summary. The trouble is mostly the older GDDs, none of which mention the four new ones | 8 min for the top and the High table; 18 min in full |
 | ★ [`build-test.md`](build-test.md) | The 69 overnight builds (2026-11-07) checked against the new libraries | **19 buildable now, 16 need 1–2 pieces, 34 no longer work.** Plain builds survive; enabler builds mostly don't. Best next piece: Head of Water (Thủy Đầu), an over-cost art, which serves 3 builds | 8 min for the result and the ranked list; 18 min in full |
 | ★ [`modifier-variety.md`](modifier-variety.md) | 24 new plain modifiers in 5 groups, each with an empty **Accept?** column | Top picks: status duration on you; shield recharge delay; damage and resistance against creatures or cultivators; block against one type; cultivation speed in seclusion (bế quan) or travel; pill quality | 12 min |
-| ~~`tree-shapes.md`~~ | *Removed 2026-11-08.* Three non-wheel shapes for the Meridian Map redesign | None adopted: the user keeps the old PoE-like layout. Their answers and the PoE study that replaced the brief are in `design/research/passive-tree-study.md` | — |
+| ~~`tree-shapes.md`~~ | *Removed 2026-11-08.* Three non-wheel shapes for the Đạo Đồ redesign | None adopted: the user keeps the old PoE-like layout. Their answers and the PoE study that replaced the brief are in `design/research/passive-tree-study.md` | — |
 | `README.md` | This file | — | 2 min |
 
 The four new review logs (`design/gdd/reviews/{combat-defence,combat-damage-types,modifiers,effects}-review-log.md`,
@@ -49,7 +49,7 @@ about 6–9 min each) are the per-pass audit trail. You don't need them unless y
 | Python check in the #43 draft | **Not run** (needed approval). The numbers were worked by hand and agree with Defence AC-CD-06, 22, 32 |
 | Registry edits | **Not made**: Defence blocker 1, Damage Types item 5, consistency K1, K2, N2's note, N17 |
 | `docs/consistency-failures.md` | **Not updated.** The 17 new conflicts are logged only in consistency.md |
-| kinh-mach-do.md (268 KB) | Only partly read for consistency and tree-shapes (targeted sections). Its numbers were not checked |
+| dao-do.md (268 KB) | Only partly read for consistency and tree-shapes (targeted sections). Its numbers were not checked |
 | Modifier rows with no owner | Row 13 (demonic foes) and row 23 (sect contribution) have no owning GDD. Road encounter rate was dropped. Formations and talismans exist only as quick specs |
 | Wheel rejection wording | tree-shapes could not find your words about the wheel in the index (only "not adopted"), so it asks you. For the record, the session checkpoint has them: "looks so bad, much worse than the old one" |
 | Specialist agents | None ran (lean mode) |

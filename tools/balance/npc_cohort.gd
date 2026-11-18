@@ -14,7 +14,7 @@ func _init() -> void:
 	var gd := GameData.load_from("res://assets/data")
 	gd.world_gen().people.world_cultivators = 0
 	gd.world_gen().people.world_cultivators_min = 0
-	var tree := MeridianTree.generate(gd)
+	var tree := DaoDoTree.generate(gd)
 	var llm := LlmService.new(gd)
 	llm.enabled = false
 	for cohort in ["no edge", "all edges"]:

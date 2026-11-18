@@ -139,7 +139,7 @@ A manual on keeping the dead from spoiling, annotated by someone who stopped car
 ### Hidden cluster idea: Sick Meridians (Bệnh Mạch)
 
 Theme: Way of Alchemy, the study of what poisons the body. Earth affinity, outer, sealed. Seal condition: a
-technique that lists it. Size 8, so one notable. The small acupoints give damage over time and status duration.
+technique that lists it. Size 8, so one notable. The small Dao marks give damage over time and status duration.
 The notable is Bare Vessel. It serves any build that strips linh lực, not only this one.
 
 ## Đạo

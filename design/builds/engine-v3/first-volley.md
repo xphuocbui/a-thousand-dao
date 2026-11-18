@@ -77,7 +77,7 @@ The sword is named as the item that matters most because it is the only item wit
 
 **What changed in `layers`:** `[360, 0, 250, 0, 0]` became `[270, 0, 130, 0, 0]`. The claimed share of the typical-to-top-end gap fell from 46 % to 21 % (budget at Nguyên Anh (nguyen_anh): 23 %); `fight.py` now prints `layer_budget`, not `OVER_BUDGET`.
 
-**Why:** the layers hold only what the Meridian Map and the old file's own sources give. The techniques' passives and the items' modifiers already run as Effects, so none of them is added again. L1 (base damage, the volley itself) was cut least, since the concept is a burst of lightning arts at the opening; L3 was cut most (250 to 130), as the build needs it least. L1 also counts as 235 rather than 270 past the soft knee. No technique, item or art was changed or removed.
+**Why:** the layers hold only what the Đạo Đồ and the old file's own sources give. The techniques' passives and the items' modifiers already run as Effects, so none of them is added again. L1 (base damage, the volley itself) was cut least, since the concept is a burst of lightning arts at the opening; L3 was cut most (250 to 130), as the build needs it least. L1 also counts as 235 rather than 270 past the soft knee. No technique, item or art was changed or removed.
 
 **How the fights moved** (mean time, wins-losses, 20 fights; old = file before the revision, new = after):
 

@@ -36,7 +36,7 @@ At 0.5 s the stamp comes down: 45,000 stones, and Lạc goes to 28 %, paying the
 | Multiplier | Earth damage | +30 | Increased | art | L1 | ○ | Tree | From Long Firing |
 | Multiplier | Body damage | +17.5 | Increased | art, basic | L1 | ○ | Tree | From Long Firing |
 | Multiplier | Long Firing Method | +40 to Earth arts | More | art | L2 | ○ | Technique | From Long Firing |
-| Multiplier | Load-Bearing | 4 acupoints and the notable: +9 per artifact, +36 at four | Per | art | L2 | ○ | Tree | From Long Firing, the notable taken at last |
+| Multiplier | Load-Bearing | 4 Dao marks and the notable: +9 per artifact, +36 at four | Per | art | L2 | ○ | Tree | From Long Firing, the notable taken at last |
 | Multiplier | Weapon attack | Inside L3 146, the Ore Line's two seals | Gear | any | L3 | ● | Artifacts | From Long Firing |
 | Multiplier | Attack pill | +20 | More | any | L4 | ● | Pill | every build |
 | Survival | Standing Verdict | Per-hit ward, pass 0.30 and 0.20, fee 0.05 | Rule swap | any | none | ○ | Ward | From Fortieth Breath |

@@ -47,7 +47,7 @@ In the order you will find them.
    - **Độc Đạo** (Ten Thousand Poisons), facet **Nọc** (Venom). It holds **Spillover (Dật Độc)**, Poison stack
      duration, Chaos penetration and Rot Deepens. Spillover is *in the game* (designed); the placement is *not in the
      game yet (staged: noc-spillover)*. Rot Deepens is *not in the game yet (staged: content ledger, Rot Deepens)*.
-   - **Meridian Map keystone Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô)** in the Fire land. *Not in the game yet
+   - **Đạo Đồ keystone Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô)** in the Fire land. *Not in the game yet
      (staged: embers-feed-the-hearth).*
    - **Sealed cluster Sick Meridians (Bệnh Mạch)**, ending in **Bare Vessel**. *Not in the game yet (staged: content
      ledger, Bare Vessel; Sick Meridians).*
@@ -123,7 +123,7 @@ exist only on paper so far; the ID is from the staging catalogue unless noted.
 | Twin-Wick Incense Clock (Song Tâm Hương Chung) | Effect (enabler) | Opens your "while" and "after" bonuses (layer L5) to your ticks; without it Bare Vessel does nothing for them. Kill on a strong foe falls from about 11 s to about 8 s | Named item, bell (Chuông), burned mountain temple ruins or a Nguyên Anh cultivator of this path | not in the game yet (staged: incense-clock) | core |
 | Ash Ledger (Tro Trướng) | Effect | 20 % of the tick damage resistance stops burns their linh lực; makes the first clock blind to resistance | Hỏa Đạo (Burning Heaven), facet Tro Tàn (Ash), notable | not in the game yet (staged: ash-ledger, tro-tan-ledger) | core |
 | Green Flame Scripture (Thanh Diễm Quyết) and its five arts (Ember Rain, Rot Seed, Spring Sap, Red Censer, Green Censer) | Effect (arts) plus +40 more damage over time | The two clocks themselves, plus a sustain buff; the passive is your L2 "more" | Công pháp (technique), Địa giai then Thiên giai copy | not in the game yet (staged: green-flame-scripture, ember-rain, rot-seed, spring-sap, red-censer, green-censer) | core |
-| Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô) | Effect (keystone) | Burn ticks refill a quarter of their damage as your linh lực; pays the arts' bill. Its close costs you nothing | Meridian Map, Fire land | not in the game yet (staged: embers-feed-the-hearth) | core |
+| Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô) | Effect (keystone) | Burn ticks refill a quarter of their damage as your linh lực; pays the arts' bill. Its close costs you nothing | Đạo Đồ, Fire land | not in the game yet (staged: embers-feed-the-hearth) | core |
 | Spillover (Dật Độc) | Effect | 25 % of landed tick damage burns their linh lực; the first clock runs whatever their resistance | Độc Đạo (Ten Thousand Poisons), facet Nọc (Venom), notable | in the game (designed); placement not in the game yet (staged: noc-spillover) | core |
 | Stack effect for Fire debuffs and Wood debuffs | Modifier | About +36 % on every stack, outside the layers | Tree notables and smalls, Hỏa Đạo, Độc Đạo | in the game (designed) | core |
 | Fire and Chaos penetration | Modifier | +120 points each; pushes resistance negative so it amplifies | Tree, Hỏa Đạo Tro Tàn, Độc Đạo Nọc | in the game (designed) | core |

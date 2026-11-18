@@ -30,9 +30,9 @@ For four seconds you have only your basic attack, and you lose 45 % of your heal
 
 ## The Stack
 
-A walk across the Earth sector, 55 nodes, 47 acupoints and 8 notables, 120.4 W, a little over the quarter of Core's tree a typical life spends on attack. Sizes assume purity 50.
+A walk across the Earth sector, 55 nodes, 47 Dao marks and 8 notables, 120.4 W, a little over the quarter of Core's tree a typical life spends on attack. Sizes assume purity 50.
 
-`Take` is acupoints + notables. `Without` is the whole row removed from `variants/long-firing-mixed.fight.json`: `--without "[id]"`, or the named file. It reads win time, own health, own linh lực, enemy health at t = 7. **The full fight is 8 s, 15 %, 37 %, 33 %.**
+`Take` is Dao marks + notables. `Without` is the whole row removed from `variants/long-firing-mixed.fight.json`: `--without "[id]"`, or the named file. It reads win time, own health, own linh lực, enemy health at t = 7. **The full fight is 8 s, 15 %, 37 %, 33 %.**
 
 ### The Earth road: both lines walk it
 
@@ -58,7 +58,7 @@ Fire makes Earth. This line is what the kiln makes: a hard body, a paid ward, an
 | 11 | Ward strength (Hộ Lực) | 1 + 0 | +1.2 / +8 | +1.2 | Increased | none | ● | `no-ward`: 8 s, 14 %, 37 %, 33 % |
 | 12 | Regeneration (Hồi Khí) | 1 + 0 | +0.15 / +1 | +0.15 % | Increased | none | ● | `regen_bonus_pct`: 8 s, 15 %, 36 %, 33 % |
 
-**All 12 rows removed one at a time still win.** Row 1, 2 or 6 moves the win to 10 s on 2 %, which is the widest any row goes. Rows 11 and 12 are one acupoint each and move almost nothing alone. Thinning Ward was built for a curser and is taken here unplanned, for the moment their pool falls: without it the two Lintels deal 623 health, not 647.
+**All 12 rows removed one at a time still win.** Row 1, 2 or 6 moves the win to 10 s on 2 %, which is the widest any row goes. Rows 11 and 12 are one Dao mark each and move almost nothing alone. Thinning Ward was built for a curser and is taken here unplanned, for the moment their pool falls: without it the two Lintels deal 623 health, not 647.
 
 ### The Ore Line (Khoáng Mạch), toward Metal: the rival
 

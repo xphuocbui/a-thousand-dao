@@ -30,7 +30,7 @@ Thanh is behind on health at every second until the last: 88 to 90, 57 to 63, 34
 
 ## The Stack
 
-Sizes are the catalogue's where it has a row, and first guesses elsewhere. **Nodes** run in walking order: 75 nodes, 61 acupoints and 14 notables, 185.2 W, paid by 117 W of plain attack (L1 176, not the typical's 293) and 68 W from outside combat. Wood damage then sits exactly on L1's soft cap of 200. Sector rows scale with purity, so these sizes assume purity 50: 0.5 + purity / 100 (Meridian Map rule 4). ● means the key exists today.
+Sizes are the catalogue's where it has a row, and first guesses elsewhere. **Nodes** run in walking order: 75 nodes, 61 Dao marks and 14 notables, 185.2 W, paid by 117 W of plain attack (L1 176, not the typical's 293) and 68 W from outside combat. Wood damage then sits exactly on L1's soft cap of 200. Sector rows scale with purity, so these sizes assume purity 50: 0.5 + purity / 100 (Đạo Đồ rule 4). ● means the key exists today.
 
 `Own` is health at the end of the fight, and `At 5 s` the enemy's health one second before it. Full fight: **29 % and 36 %**. Rows marked `-w` are `--without "Row"` on `variants/evergreen-mixed.fight.json`, with no extra file. The others are `variants/evergreen-no-[name].fight.json`.
 
@@ -38,17 +38,17 @@ Sizes are the catalogue's where it has a row, and first guesses elsewhere. **Nod
 
 | Nodes | Type | Row | Each | Total | Form | Layer | Rung | Status | Removed by | Own | At 5 s |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1–6 | acupoint ×6 | Wood damage | +2 % | +12 | Increased | L1 | Multiplier | ○ | `-w` | 29 % | 43 % |
+| 1–6 | Dao mark ×6 | Wood damage | +2 % | +12 | Increased | L1 | Multiplier | ○ | `-w` | 29 % | 43 % |
 | 7 | notable | **Green Heart (Thanh Tâm)** | +12 % Wood damage | +12 | Increased | L1 | Multiplier | ○ | `-w` | 29 % | 43 % |
-| 8–13 | acupoint ×6 | Linh lực regeneration | +0.15 % a second | +0.9 | Increased | none | Fuel | ● | `regeneration` | 29 %, pool 1 % | 40 % |
+| 8–13 | Dao mark ×6 | Linh lực regeneration | +0.15 % a second | +0.9 | Increased | none | Fuel | ● | `regeneration` | 29 %, pool 1 % | 40 % |
 | 14 | notable | **Deep Drink (Thâm Ẩm)** | +1 % a second | +1 | Increased | none | Fuel | ● | `deep-drink` | 29 %, pool 1 % | 41 % |
-| 15–17 | acupoint ×3 | Wood art cost | −1 % | −3 | Increased | none | Fuel | ○ | `art-cost` | 29 %, pool 4 % | 36 % |
+| 15–17 | Dao mark ×3 | Wood art cost | −1 % | −3 | Increased | none | Fuel | ○ | `art-cost` | 29 %, pool 4 % | 36 % |
 | 18 | notable | **Thin Leaf (Bạc Diệp)** | −6 % Wood art cost | −6 | Increased | none | Fuel | ○ | `thin-leaf` | 29 %, pool 3 % | 36 % |
-| 19–30 | acupoint ×12 | Maximum health | +1 % | +12 | Increased | none | Survival | ● | `health` | 20 % | 36 % |
+| 19–30 | Dao mark ×12 | Maximum health | +1 % | +12 | Increased | none | Survival | ● | `health` | 20 % | 36 % |
 | 31 | notable | **Old Bark (Lão Bì)** | +6.5 % health | +6.5 | Increased | none | Survival | ● | `old-bark` | 25 % | 36 % |
-| 32–43 | acupoint ×12 | Maximum linh lực | +1.2 % | +14.4 | Increased | none | Fuel | ● | `linh-luc` | 21 %, pool 0 % | 36 % |
+| 32–43 | Dao mark ×12 | Maximum linh lực | +1.2 % | +14.4 | Increased | none | Fuel | ● | `linh-luc` | 21 %, pool 0 % | 36 % |
 | 44 | notable | **Full Trunk (Mãn Thân)** | +8 % linh lực | +8 | Increased | none | Fuel | ● | see below | | |
-| 45–56 | acupoint ×12 | Ward efficiency | +1.2 % | +14.4 | Increased | none | Survival | ● | `ward-efficiency` | 29 %, pool 0 % | 36 % |
+| 45–56 | Dao mark ×12 | Ward efficiency | +1.2 % | +14.4 | Increased | none | Survival | ● | `ward-efficiency` | 29 %, pool 0 % | 36 % |
 | 57 | notable | **Slow Sap (Hoãn Dịch)** | +8 % ward efficiency | +8 | Increased | none | Survival | ● | see below | | |
 
 ### The Crown (Thụ Quan), nodes 58 to 75: the build
@@ -59,11 +59,11 @@ Sizes are the catalogue's where it has a row, and first guesses elsewhere. **Nod
 | 59 | notable | Slow Sap, a second time | +8 % ward efficiency | +16 with node 57 | Increased | none | Survival | ● | `slow-sap`, both | 28 %, pool 0 % | 36 % |
 | 60 | notable | **Spring Vein (Tuyền Mạch)** | +1 % regeneration a second | +1 | Increased | none | Fuel | ● | `spring-vein` | 29 %, pool 1 % | 41 % |
 | 61 | notable | **Sap Rise (Dịch Thăng)** | +4 to Wood arts per 1 % of regeneration bonus | +11.6, 24 at most | Per | L2 | Multiplier | ○ | `-w` | 29 % | 48 % |
-| 62–64 | acupoint ×3 | **Living Wood (Hoạt Mộc)** | +2 to Wood arts | +6 | More | L2 | Multiplier | ○ | `-w` | 29 % | 43 % |
+| 62–64 | Dao mark ×3 | **Living Wood (Hoạt Mộc)** | +2 to Wood arts | +6 | More | L2 | Multiplier | ○ | `-w` | 29 % | 43 % |
 | 65 | notable | Living Wood | +12 to Wood arts | +12 | More | L2 | Multiplier | ○ | `-w` | 29 % | 48 % |
-| 66–68 | acupoint ×3 | Sustained Note (Dư Âm) | +0.2 to arts per second of the fight | +0.6 a second | Per | L2 | Multiplier | ○ reused | `-w` | 29 % | 38 % |
+| 66–68 | Dao mark ×3 | Sustained Note (Dư Âm) | +0.2 to arts per second of the fight | +0.6 a second | Per | L2 | Multiplier | ○ reused | `-w` | 29 % | 38 % |
 | 69 | notable | Sustained Note | +1 a second, to the `time_limit` | +1 a second | Per | L2 | Multiplier | ○ reused | `-w` | 29 % | 40 % |
-| 70–73 | acupoint ×4 | Steady Thread (Ổn Tuyến), Wood tag | +2 while your linh lực is 50 % or above | +8 | Conditional | L5 | Multiplier | ○ reused | `-w` | 29 % | 45 % |
+| 70–73 | Dao mark ×4 | Steady Thread (Ổn Tuyến), Wood tag | +2 while your linh lực is 50 % or above | +8 | Conditional | L5 | Multiplier | ○ reused | `-w` | 29 % | 45 % |
 | 74 | notable | Steady Thread, Wood tag | +12, same condition | +12 | Conditional | L5 | Multiplier | ○ reused | `-w` | 29 % | 47 % |
 | 75 | notable | **Late Leaf (Vãn Diệp)** | +12 to Wood arts after the fourth second | +12 | Conditional | L5 | Multiplier | ○ | `-w` | 29 % | 41 % |
 
@@ -73,14 +73,14 @@ Each art carries Thorn (Thích): `c_tick` 0.15, 3 pulses, chance 0.60, a body ti
 
 | Nodes | Type | Row | Each | Form | Layer | Rung | Status |
 |---|---|---|---|---|---|---|---|
-| 58–61 | acupoint ×4 | Wood art speed | +1 % | Increased | none | Rate | ○ |
+| 58–61 | Dao mark ×4 | Wood art speed | +1 % | Increased | none | Rate | ○ |
 | 62 | notable | **Quick Shoot (Tấn Manh)** | +6 % Wood art speed | Increased | none | Rate | ○ |
-| 63–65 | acupoint ×3 | Status chance | +1 % | Increased | none | Base | ○ reused |
+| 63–65 | Dao mark ×3 | Status chance | +1 % | Increased | none | Base | ○ reused |
 | 66 | notable | **Catching Thorn (Câu Thích)** | +6 % status chance | Increased | none | Base | ○ |
-| 67–70 | acupoint ×4 | Damage over time | +2 % | Increased | L1 | Multiplier | ○ reused |
+| 67–70 | Dao mark ×4 | Damage over time | +2 % | Increased | L1 | Multiplier | ○ reused |
 | 71 | notable | **Deep Thorn (Thâm Thích)** | +12 to Wood over-time statuses | More | L2 | Multiplier | ○ |
 | 72 | notable | Stoked (Thiêm Sài), Wood tag | +3 to arts per stack on the enemy | Per | L2 | Multiplier | ○ reused |
-| 73–75 | acupoint ×3 | Maximum health | +1 % | Increased | none | Survival | ● |
+| 73–75 | Dao mark ×3 | Maximum health | +1 % | Increased | none | Survival | ● |
 
 ### Spurs: on the map, on neither line
 
@@ -118,7 +118,7 @@ Against the mixed enemy, equal realm: **wins at 6 s on 29 %.** All files are `va
 | Five pool rows: Maximum linh lực, Full Trunk, Ward efficiency, Slow Sap, Spring Vein | `five-pool` | **Loses at 6 s, enemy on 49 %** |
 | Five damage rows: Green Heart, Living Wood, Sustained Note, Steady Thread (all notables), Sap Rise | `five-damage` | **Loses at 6 s, enemy on 2 %** |
 | Five of the trunk: Regeneration, Deep Drink, Maximum health, Old Bark, Wood art cost | `five-trunk` | Wins at 7 s on overkill, both at 0 % |
-| Four acupoint rows and one notable: Wood damage, Living Wood, Sustained Note, Steady Thread, Late Leaf | `five-kept` | Wins at 6 s on 21 % |
+| Four Dao mark rows and one notable: Wood damage, Living Wood, Sustained Note, Steady Thread, Late Leaf | `five-kept` | Wins at 6 s on 21 % |
 | All 75 nodes, plain attack back to 293 | `no-road` | **Loses at 5 s, enemy on 57 %** |
 
 **Not every five is lost.** The pool rows are the cliff: take five of them and it does not matter that your arts are unchanged, since the enemy still stands on 49 %. Damage rows are a slope. And five trunk rows survive only on overkill, with both fighters down.

@@ -40,7 +40,7 @@ The cultivator opens with Spark Palm and Kindling Seal, which put Burn stacks on
 
 ## Enabler
 
-**Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô).** A Meridian Map keystone in the Fire land (a Fire-land notable the player reaches by the second realm), already proposed in the missing-pieces catalogue. An Effect on the tick event with the action "restore linh lực". Needs rule: the Effects action list must allow it (effects.md rule 6).
+**Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô).** A Đạo Đồ keystone in the Fire land (a Fire-land notable the player reaches by the second realm), already proposed in the missing-pieces catalogue. An Effect on the tick event with the action "restore linh lực". Needs rule: the Effects action list must allow it (effects.md rule 6).
 
 ## The Stack
 
@@ -150,7 +150,7 @@ Art lint: c_art ≤ 1 + 24 × cost + 0.25 × (cooldown − 1). Spark 1.73, Seal 
 
 ### Hidden cluster idea: Kindled Meridians (Hỏa Mạch Thiêu)
 
-Theme: Fire land, element affinity Fire, sealed, seal condition: a Fire technique (Xích Diễm Địa Quyết lists it in `seal_clusters`). Size 5 acupoints: three small Fire damage and Fire art cost points, one notable Status duration, one notable carrying Embers Feed the Hearth at the far end. No capability. An idea for the tree rework, not data.
+Theme: Fire land, element affinity Fire, sealed, seal condition: a Fire technique (Xích Diễm Địa Quyết lists it in `seal_clusters`). Size 5 Dao marks: three small Fire damage and Fire art cost points, one notable Status duration, one notable carrying Embers Feed the Hearth at the far end. No capability. An idea for the tree rework, not data.
 
 ## Đạo
 

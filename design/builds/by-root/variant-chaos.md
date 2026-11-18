@@ -5,8 +5,7 @@
 puts the Chaos start at the centre.
 
 **Chaos's linh lực.** Through its five parents' keystones, or a centre keystone (New): **Primordial Breath (Hỗn
-Nguyên Khí)**: "you regenerate linh lực +0.1 pp for each element whose buff stacks you hold". How to create: Meridian
-Map keystone at the Chaos start; reads element stack counts.
+Nguyên Khí)**: "you regenerate linh lực +0.1 pp for each element whose buff stacks you hold". How to create: Đạo Đồ keystone at the Chaos start; reads element stack counts.
 
 ---
 

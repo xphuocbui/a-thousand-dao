@@ -61,7 +61,7 @@ A life created with `edge: false` (balance baseline) gets none of the four.
 Each NPC gets an edge score e in [0, 1] from sources in character_edges.json → `npc`:
 
     e = strong root (purity and variant root [biến dị linh căn]) + sect value (rank) + rich family + blessing (a perk, with its birth effects)
-    p_step: per gate, Realms & Bottlenecks Formulas C2 (Meridian Map Formulas G keeps base_step 0.30 and max_step 0.70)
+    p_step: per gate, Realms & Bottlenecks Formulas C2 (Đạo Đồ Formulas G keeps base_step 0.30 and max_step 0.70)
 
 The world tick rolls each NPC's fate once per realm when it reaches the bottleneck (bình cảnh): with
 probability p_step it is fated to break through (then does so within a few years); otherwise
@@ -127,9 +127,9 @@ lever that applies only to lives without the edge (e.g. a baseline-only breakthr
 penalty) or a larger sample (96+ lives per arm); both are design decisions for the
 Realms & Bottlenecks (Cảnh Giới & Bình Cảnh) GDD, not more blind tuning.
 
-## Meridian Map (Kinh Mạch Đồ) hooks (see design/gdd/kinh-mach-do.md)
+## Đạo Đồ hooks (see design/gdd/dao-do.md)
 
-Two rules from the Meridian Map GDD act on this spec's numbers; the GDD owns them and
+Two rules from the Đạo Đồ GDD act on this spec's numbers; the GDD owns them and
 the registry names them (`breakthrough_guard`, `npc_unseal_chance`,
 `npc_cluster_holder_max_share`).
 
@@ -143,5 +143,5 @@ the registry names them (`breakthrough_guard`, `npc_unseal_chance`,
   this spec's edge curve (`base_step` 0.30, `max_step` 0.70, the NPC's edge score e):
   `a = a_max[r]·(base_step + min(e,1)·(max_step − base_step))/max_step`. Holders must stay
   under 15% of NPCs per realm, with a median combat power (chiến lực) uplift under 15%.
-- **Recalibration.** The level ladder and the rescaled acupoint (huyệt) values (GDD Formulas A and A2)
+- **Recalibration.** The level ladder and the rescaled Dao mark (đạo văn) values (GDD Formulas A and A2)
   change the points a life earns, so the calibration rounds above must be rerun on them.

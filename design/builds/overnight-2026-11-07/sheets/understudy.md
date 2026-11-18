@@ -151,7 +151,7 @@ Gilt invitations are not an item. They are why you want to be the side that open
 
 ### Hidden cluster idea: Green Room (Hậu Đài)
 
-Theme: performance and the second self. Water, outer, sealed by a technique that lists it, here the Libretto. Size 10. Small acupoints of linh lực and thần thức. Notables: Returned Force, and a second for Longer Breath's condition. Capability: a Cue guard on any art. An idea for the tree rework, not data.
+Theme: performance and the second self. Water, outer, sealed by a technique that lists it, here the Libretto. Size 10. Small Dao marks of linh lực and thần thức. Notables: Returned Force, and a second for Longer Breath's condition. Capability: a Cue guard on any art. An idea for the tree rework, not data.
 
 ## Đạo
 

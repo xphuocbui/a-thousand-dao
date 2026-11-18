@@ -129,7 +129,7 @@ The main technique can be anything. Its arts stay unslotted.
 
 ### Hidden cluster idea: Callus Road (Kiển Lộ)
 
-Theme: body cultivation (luyện thể), the slow hardening of flesh, wider than any one build. Earth affinity, outer, sealed. Seal condition: a technique that lists it. Size 7. Small acupoints give Basic attack damage and body guard. Notables: Ten Thousand Strikes, and On the Beat or Bare Vessel for a character who has not found Measured Breath or Sick Meridians.
+Theme: body cultivation (luyện thể), the slow hardening of flesh, wider than any one build. Earth affinity, outer, sealed. Seal condition: a technique that lists it. Size 7. Small Dao marks give Basic attack damage and body guard. Notables: Ten Thousand Strikes, and On the Beat or Bare Vessel for a character who has not found Measured Breath or Sick Meridians.
 
 ## Đạo
 

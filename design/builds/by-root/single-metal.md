@@ -8,7 +8,7 @@ Thiên Kinh), and the body art Diamond Body (Kim Cang Thể).
 
 **Metal's linh lực keystone (New, every Metal build):** **Edge Returns the Breath (Phong Hồi Khí)**: each crit
 with a Physical hit restores 0.8 % of maximum linh lực (starting number, `notes.md` § 9). How to create: a keystone in the Metal land of the
-Meridian Map; an Effect (trigger on crit) whose payload is `linh_luc_on_crit_pct`, closing cost "your
+Đạo Đồ; an Effect (trigger on crit) whose payload is `linh_luc_on_crit_pct`, closing cost "your
 non-Physical hits cannot crit".
 
 ---
@@ -68,7 +68,7 @@ fatigue at 60 s punishes a long, low-health fight.
 
 **New pieces.**
 - **Whetstone Vow (Ma Thạch Thệ)**, keystone: "art costs paid in health are halved; you can never heal above 80 %
-  health". How to create: Meridian Map keystone with a closing cost, payload `art_cost_health_pct`.
+  health". How to create: Đạo Đồ keystone with a closing cost, payload `art_cost_health_pct`.
 
 ## 3. Hammer and Anvil (Chùy Châm)
 

@@ -75,7 +75,7 @@ A character owns one. Each is T3 with a 4 W line, 34 W. Both ask what the animal
 
 ## Lint (Formulas D1), First Guess
 
-Priced by Meridian Map F1: `khi_huyet_pct` 1.2 W. `art_speed_pct`, `linh_luc_regen_pct` and `body_guard_pct` are not in F1, so they are priced from the catalogue's notable sizes at 8 W: +3, +1 and +8. Combat Open Question 21 says art speed still has no agreed price. Passives use `credit(T)`, itself a *guess*, and every branch rests on unpriced modifiers, so all sums below are first guesses. V̄ 12.42.
+Priced by Đạo Đồ F1: `khi_huyet_pct` 1.2 W. `art_speed_pct`, `linh_luc_regen_pct` and `body_guard_pct` are not in F1, so they are priced from the catalogue's notable sizes at 8 W: +3, +1 and +8. Combat Open Question 21 says art speed still has no agreed price. Passives use `credit(T)`, itself a *guess*, and every branch rests on unpriced modifiers, so all sums below are first guesses. V̄ 12.42.
 
 | Part | Check | Sum | Band | Result |
 |---|---|---|---|---|

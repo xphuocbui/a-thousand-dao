@@ -41,7 +41,7 @@
    ]
   },
   {
-   "id": "Sword damage (acupoints)",
+   "id": "Sword damage (Dao marks)",
    "layer": 1,
    "points": 20,
    "channels": [
@@ -57,7 +57,7 @@
    ]
   },
   {
-   "id": "Flying sword attack (acupoints)",
+   "id": "Flying sword attack (Dao marks)",
    "layer": 3,
    "points": 7.02,
    "channels": [

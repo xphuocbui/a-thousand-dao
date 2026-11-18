@@ -13,7 +13,7 @@ I did not cut further to reach 10–20 s against the typical foe, because the bu
 
 The Mountain-Mooring Anchor now matters against the top-end foe: without it that fight takes 31.8 s. The Iron Skin Renewed and Shattering Ward tests still show no change.
 
-The report lists what the build now lacks to stay strong. The main items are Metal debuff-stack pieces, an Earth thần thức piece, and Meridian Map nodes for Earth `attack_pct` and body layers.
+The report lists what the build now lacks to stay strong. The main items are Metal debuff-stack pieces, an Earth thần thức piece, and Đạo Đồ nodes for Earth `attack_pct` and body layers.
 
 Files are in `design/builds/engine-v3/`:
 - `builds/deity-warden.fight.json`

@@ -5,7 +5,7 @@ Asked for with "one_drop": {...} on the side that carries the keystone:
   "stains": 0            each one takes "stain" (default 4) off purity: the Clear Line
   "enemy_purity": 50     the target's highest purity, unless its own spec says "purity"
   "scale": 50            colour x (1 + (clean purity - theirs) / scale x (1 + spread_pct / 100)) each
-  "spread_pct": 0        pulse, never below x1. Steeped and its acupoints add to spread_pct
+  "spread_pct": 0        pulse, never below x1. Steeped and its Dao marks add to spread_pct
   "start": 0.01          the share an art with "drop": true leaves when it lands, times (1 - evade)
   "clean_hands": 0.005   Clean Hands: added to start per empty art slot
   "turn_cap": 0.25       Phan Thu Luat's cap on one turned hit, as a share of their maximum health

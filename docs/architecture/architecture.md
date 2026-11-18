@@ -4,7 +4,7 @@
 - Version: 1
 - Last Updated: 2026-11-13
 - Engine: Godot 4.7.1 (installed; `docs/engine-reference/godot/VERSION.md` pins the 4.7 line), GDScript
-- GDDs Covered (15): `linh-can`, `character-stats`, `canh-gioi`, `cong-phap`, `kinh-mach-do`, `item-database`,
+- GDDs Covered (15): `linh-can`, `character-stats`, `canh-gioi`, `cong-phap`, `dao-do`, `item-database`,
   `combat`, `combat-defence`, `combat-damage-types`, `modifiers`, `effects`, `dao`, `thien-kiep`, `quests`,
   `travel-map`; plus the Technical Considerations of `game-concept.md`. Not scanned as GDDs: `systems-index.md`
   (used for the layer map), `gdd-cross-review-2026-11-05.md` (a review record).
@@ -38,7 +38,7 @@ Platform (Godot, Windows) is the engine and OS, not code we write. Within our co
 |---|---|---|
 | **Foundation** | #1 Config, #2 Sim Core (seeded RNG, `Breakdown`), #3 World DB, #4 Time & Turn, #5 Save/Load, LLM transport (`LlmClient`) | Data files, random streams, the one record of the world, saved state, the network call |
 | **Core (rules kernel)** | #6 Spiritual Roots, #7 Character Stats (stat sheet), #40 Modifiers, #41 Effects, #8 Realms, #13 Item DB, #9 Cultivation Techniques | The stat sheet and every number that is summed |
-| **Feature** | #14 Herbs, #15 Alchemy, #16–19 Refining / Formations / Talismans / Beasts, #10 Meridian Map, #11 Edges, #24 NPC Builds, #27 World Gen, #25 Travel & Map, #20 Market, #26 Sects, #21 / #21a / #21b Combat (ADR-0001), #22 Tribulation, #23 Event Engine, #28 Living World, #39 The Way, #43 Regional Economy, #31 Quests, #42 NPC Traits | Each system's own rules and records |
+| **Feature** | #14 Herbs, #15 Alchemy, #16–19 Refining / Formations / Talismans / Beasts, #10 Đạo Đồ, #11 Edges, #24 NPC Builds, #27 World Gen, #25 Travel & Map, #20 Market, #26 Sects, #21 / #21a / #21b Combat (ADR-0001), #22 Tribulation, #23 Event Engine, #28 Living World, #39 The Way, #43 Regional Economy, #31 Quests, #42 NPC Traits | Each system's own rules and records |
 | **Application facade** (top of Feature) | `GameSession` | The turn loop, the pending event, the save/load API |
 | **Presentation** | #29 LLM Game Master and #30 Dialogue (narration only), #35 Guidance, #36 Debug Terminal, #37 Game UI, #38 Audio, #34 Localization, #32 Achievements, #12 Codex | Text, screens, sound |
 | **Tooling** (outside the shipped game) | #33 Balance Harness, the Python combat sim, the parity suite, the map build tool | Design-time measurement |
@@ -156,7 +156,7 @@ and `item-database.md` AC-ID-68 already requires a version above 3: that is `SAV
 ```
 1. GameData.load_from()  → reads every JSON in assets/data (including combat_engine.json) → validated
 2. LlmService(gd)        → provider config; mock or real client
-3. MeridianTree.generate(gd)
+3. DaoDoTree.generate(gd)
 4. GameSession._init     → holds gd, llm, tree
 5. new_game(seed, spec)  → rng.seed → WorldGenerator.generate → db → _wire() → player → place → sync_player
    load_dict(d)          → the same wiring, state from the save
@@ -193,7 +193,7 @@ signal breakthrough_succeeded(realm_index: int)
 read-only after load; a malformed file stops the load with the file named.
 
 **3. `StatSheet` (Core)** — `total(stat) -> float`, `has_flag(stat) -> bool`, `effective(thien_phu_id, c) -> float`.
-Every provider (Meridian Map, Way, techniques, items, edges) contributes through one provider interface; no system
+Every provider (Đạo Đồ, Way, techniques, items, edges) contributes through one provider interface; no system
 reads another's records to compute a stat. Every total comes with its `Breakdown`.
 
 **4. Event Engine** — `Narrator.generate_event(ctx, rng, template_id) -> Dictionary`,
@@ -229,7 +229,7 @@ produced no performance, determinism or persistence lines in the scan and contri
 |---|---|---|---|---|
 | TR-sim-001 | combat, linh-can, character-stats, item-database, effects (AC-EF-02) | Everything is deterministic from the seed | Core | ADR-0001 (fights only) |
 | TR-sim-002 | effects, quests | A counted chance consumes no random draw; sampling tests use fixed seed lists | Core | gap |
-| TR-save-001 | canh-gioi, character-stats, cong-phap, item-database, kinh-mach-do, linh-can | A save/load round trip is deep-equal for every record kind | Save/Load | gap |
+| TR-save-001 | canh-gioi, character-stats, cong-phap, item-database, dao-do, linh-can | A save/load round trip is deep-equal for every record kind | Save/Load | gap |
 | TR-save-002 | canh-gioi, item-database | Save versions: 1 migrates, 2 is refused, 3 loads; version above 3 required | Save/Load | gap |
 | TR-save-003 | travel-map | Saving stores the seed and the changes; map and authored history come from data | Save/Load | gap |
 | TR-combat-001 | combat:394, ADR-0001 | No clock, no engine nodes, no global state; headless | Core | ADR-0001 |
@@ -239,7 +239,7 @@ produced no performance, determinism or persistence lines in the scan and contri
 | TR-modifiers-001 | modifiers, character-stats | Every stat total comes from one provider interface with a `Breakdown` | Core | gap (combat part by ADR-0001) |
 | TR-items-001 | item-database | About 200,000 items at 5,000 cultivators | Performance | gap |
 | TR-world-001 | canh-gioi, item-database, travel-map | 5,000 cultivators (never under 3,000), per-region work once a season | Performance | gap |
-| TR-meridian-001 | kinh-mach-do | NPC allocation at most 50 ms at 566 points, 5 ms at 120 | Performance | gap |
+| TR-meridian-001 | dao-do | NPC allocation at most 50 ms at 566 points, 5 ms at 120 | Performance | gap |
 | TR-dao-001 | dao | 94 Ways, each a graph of about 150 nodes | Core | gap |
 | TR-travel-001 | travel-map | One authored tile continent from index images, stored by a build tool | Core / Rendering | gap |
 | TR-quests-001 | quests | A stored quest brief is fixed; the LLM plan is saved, not regenerated | Save/Load | gap |

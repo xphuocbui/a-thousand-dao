@@ -36,7 +36,7 @@
     {"type": "technique", "name": "Thirty-Six Exits", "han_viet": "Tam Thập Lục Lộ Quyết", "fit": "Needs key",
      "effect": "Secret, Huyền giai, Water. Carries Cold Feet, Full Sleeve, Folded Corner, Skipped Bill, Dies Later and Goat in Passing, and seals Hidden Doors."},
     {"type": "cluster", "name": "Hidden Doors", "han_viet": "Ám Môn", "fit": "Needs key",
-     "effect": "Sealed, Water, size 6, four Escape chance acupoints, notables Terror and Beneath Notice. Theme: escape."},
+     "effect": "Sealed, Water, size 6, four Escape chance Dao marks, notables Terror and Beneath Notice. Theme: escape."},
     {"type": "concept", "name": "The Creditors' Book", "han_viet": "Trái Chủ Bộ", "fit": "Needs rule",
      "effect": "A per-life list of creditor and share. Against a creditor the share stands in the ledger at t = 0, and lands whole at the first pulse if no Slow Wound runs. An entry ends with the creditor's life."}
   ],

@@ -92,7 +92,7 @@ The user's rule is that extra slots are free, and thần thức buys more of the
   - The nurtured piece is now one you choose with `nurture <item id>`.
   - It grows +1 % a year up to +50 % as before.
   - Choosing another, or unequipping it, restarts the growth.
-  - Recorded in the Meridian Map GDD catalogue row and the capability data; tested.
+  - Recorded in the Đạo Đồ GDD catalogue row and the capability data; tested.
 
 **For you to decide (not in the GDD yet):**
 
@@ -234,7 +234,7 @@ balance.** The one change is a rule-conformance fix (below).
   - The fast builds carry L1 266–400, L2 225–265, L3 250, L4 130–150 and L5 100. Every layer is at or near its cap,
     which is the top-end reference enemy, built to beat typical in about 2 s.
   - Typical carries L2–L5 of 40 / 40 / 20 / 10.
-- **The question:** what can a Nascent Soul character really reach from the Meridian Map, techniques and gear? A
+- **The question:** what can a Nascent Soul character really reach from the Đạo Đồ, techniques and gear? A
   **layer budget per realm** in the build-file rules would settle it.
   - If you want designed builds to win in about 10–20 s rather than 2, that budget is the lever, not the content.
   - Nothing changed tonight.

@@ -51,7 +51,7 @@ arts cost +40 %; its pool runs dry first. Without Ice, use Rime Lock's cousin on
 
 **New pieces.**
 - **Frost on the Blade content**: "your sword hits that deal Cold also grant 1 Ice debuff stack for 8 s". How to
-  create: Meridian Map content pass on the drawn placeholder keystone.
+  create: Đạo Đồ content pass on the drawn placeholder keystone.
 
 ## 3. The Tide Mercenary (Triều Dung Binh)
 

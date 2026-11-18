@@ -101,7 +101,7 @@ The build's modifiers, in order up the ladder. Sizes on new modifiers are first 
 | Spiritual root (linh căn) | Single Metal (Kim), purity 90 or more | Metal stacks are multiplied by (1 + 0.002 × purity): 95 gives ×1.19. Metal is the Way's requirement and the arts' element |
 | Key talents | Thần hồn (soul strength) first, as high as events allow; then comprehension | Thần thức = thần hồn × realm multiplier × stage × (1 + `than_thuc_pct`). Every point is 1.5 units of rack at +50 %. Events raise thần hồn (in the game) |
 | The Way (Đạo) | Kim Đạo · Bách Luyện: Binh Khố facet (artifact slots, Full Rack, Edge Past the Rack, Cold Iron Order notables, the capstone Garrison Mind); Lò Rèn for Ore Weight and artifact power lines. Second Way: Hồn Đạo, Thần Thức lines (`than_thuc_pct`) and Hồn Hộ (soul resistance) for the close | Binh Khố is the facet dao.md § Catalogue already names "the Armoury: artifact slots" |
-| Meridian Map capabilities | #2 Divided Divine Sense (+1 slot, +20 % thần thức), #3 Treasure Nurtured Within (first piece costs no thần thức, +1 % a year to +50 %), #1 Twin Arms in Harmony (a pair of one kind, +15 % attack) | All in the game. #3 makes the heaviest piece free, so it goes first in equip order |
+| Đạo Đồ capabilities | #2 Divided Divine Sense (+1 slot, +20 % thần thức), #3 Treasure Nurtured Within (first piece costs no thần thức, +1 % a year to +50 %), #1 Twin Arms in Harmony (a pair of one kind, +15 % attack) | All in the game. #3 makes the heaviest piece free, so it goes first in equip order |
 
 ## Công Pháp
 
@@ -195,7 +195,7 @@ The rack's history: forty pegs of black oak from the Cold Pass armoury, the iron
 
 ### Hidden cluster idea: Peg Wall (Đinh Bích)
 
-Theme: the armoury (artifacts carried and controlled), wider than this build: any gear-heavy cultivator, flying-sword users, sect quartermasters. Metal affinity. Sealed, 8 acupoints; seal: the Pass-Garrison Armoury Scripture lists it in `seal_clusters`. Smalls: `than_thuc_pct` +0.9 (×2), `than_thuc_cost_pct` −1.5 (×2), `artifact_power_pct` +0.9, Weapon efficiency −1; notables `than_thuc_pct` +6 and, farthest, Humming Shields. No capability. An idea for the tree rework, not data. Note: Item DB rule 3 records the Meridian Map's hidden clusters as retired (2026-11-10); this is offered as a region idea for the rework.
+Theme: the armoury (artifacts carried and controlled), wider than this build: any gear-heavy cultivator, flying-sword users, sect quartermasters. Metal affinity. Sealed, 8 Dao marks; seal: the Pass-Garrison Armoury Scripture lists it in `seal_clusters`. Smalls: `than_thuc_pct` +0.9 (×2), `than_thuc_cost_pct` −1.5 (×2), `artifact_power_pct` +0.9, Weapon efficiency −1; notables `than_thuc_pct` +6 and, farthest, Humming Shields. No capability. An idea for the tree rework, not data. Note: Item DB rule 3 records the Đạo Đồ's hidden clusters as retired (2026-11-10); this is offered as a region idea for the rework.
 
 ## Đạo
 

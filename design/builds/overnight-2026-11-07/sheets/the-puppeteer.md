@@ -53,7 +53,7 @@ Plain rows do most of the work, on tags that any beast or banner build could wan
 | Multiplier | Whetstone Ash (Ma Thạch Hôi) | +60, on the artifact source tag, prepared | More | companion | L4 | ◐ reused | Coating | Remnant Host |
 | Multiplier | Full Trough (Mãn Tào) | +40 at four times the feed due. Here the feed is lacquer and incense | Per | companion | L4 | ◐ reused | Upkeep | Herd-Child |
 | Multiplier | In Step (Đồng Bộ) | +50 to a hit landing after one of your arts in the instant | Conditional | companion | L5 | ◐ reused | Tree | Herd-Child |
-| Multiplier | Vow Renewed (Trùng Thệ) | +4 small, +25 notable, on companion hits once a body has fallen | Conditional | companion | L5 | ○ | Acupoint, notable | any beast that outlives a keeper, any queue |
+| Multiplier | Vow Renewed (Trùng Thệ) | +4 small, +25 notable, on companion hits once a body has fallen | Conditional | companion | L5 | ○ | Dao mark, notable | any beast that outlives a keeper, any queue |
 | Fuel | Ward efficiency, Maximum linh lực | Plain rows, +80 of 120 and +80 | Increased | any | none | ● | Tree | everyone |
 | Survival | Ward strength | Plain row, +80 of 120 | Increased | any | none | ● | Tree | everyone |
 | Identity | Borne Body (Tá Thể) | Above | Rule swap | any | none | ○ | Technique | any golem, any possessed relic |

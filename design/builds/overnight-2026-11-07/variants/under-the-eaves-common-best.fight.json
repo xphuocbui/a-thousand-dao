@@ -176,39 +176,39 @@
  ],
  "walk": {
   "Art damage": {
-   "acupoints": 8,
+   "dao_marks": 8,
    "notables": 1
   },
   "Short Art": {
-   "acupoints": 7,
+   "dao_marks": 7,
    "notables": 8
   },
   "Steady Breath": {
-   "acupoints": 2,
+   "dao_marks": 2,
    "notables": 1
   },
   "Maximum health": {
-   "acupoints": 13,
+   "dao_marks": 13,
    "notables": 2
   },
   "Maximum linh luc": {
-   "acupoints": 13,
+   "dao_marks": 13,
    "notables": 1
   },
   "Ward strength": {
-   "acupoints": 5,
+   "dao_marks": 5,
    "notables": 0
   },
   "Ward efficiency": {
-   "acupoints": 4,
+   "dao_marks": 4,
    "notables": 0
   },
   "Damage while above 50 % health": {
-   "acupoints": 2,
+   "dao_marks": 2,
    "notables": 1
   },
   "Evade": {
-   "acupoints": 7,
+   "dao_marks": 7,
    "notables": 0
   }
  },

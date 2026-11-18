@@ -10,13 +10,13 @@
 
 The Way (Đạo) is the system of Daos: Sword, Space, Time, Yin and Yang, and many more. A
 character glimpses a Dao through an event, picks it from three offered, and builds its graph
-of about 150 nodes, drawn in clusters like a Meridian Map land, with the same skill points that buy acupoints,
+of about 150 nodes, drawn in clusters like a Đạo Đồ land, with the same skill points that buy Dao marks,
 at a flat 1 point a node. A node is worth about twice the same node on the map, so a
 Dao feels special. A Dao defines builds with stat lines, Effects and several capstones (an art is rare), and
 NPCs from Core Formation hold Daos too. It exists because Pillar 1 wants distinct builds, and
 a Dao is the strongest way to tell two lives apart.
 
-> **Quick reference** — Layer: `Feature` · Priority: `Alpha (provisional)` · Key deps: `Spiritual Roots (Linh Căn), Meridian Map (Kinh Mạch Đồ), Character Stats, Modifier System, Effects System, Event Engine`; soft: `Cultivation Techniques, Realms & Bottlenecks, Combat (arts)`
+> **Quick reference** — Layer: `Feature` · Priority: `Alpha (provisional)` · Key deps: `Spiritual Roots (Linh Căn), Đạo Đồ, Character Stats, Modifier System, Effects System, Event Engine`; soft: `Cultivation Techniques, Realms & Bottlenecks, Combat (arts)`
 
 ## Overview
 
@@ -24,8 +24,8 @@ The Way (Đạo) is the system of comprehended Daos (ngộ đạo): Sword, Space
 Yang, and many more. A Dao is not rolled into the root. An event gives a character a glimpse
 of one, and the character then builds it up by spending skill points on its graph: stat
 lines, Effects (rules) and capstones (keystones) that define the build; arts come from cultivation techniques, and a Dao holds one only rarely. A Dao is a
-specialisation the character pays for, and its premium is deliberate. Every node costs 1 of the same points that buy acupoints
-on the Meridian Map (Kinh Mạch Đồ); a stat node is worth about twice the same node on the map, and the
+specialisation the character pays for, and its premium is deliberate. Every node costs 1 of the same points that buy Dao marks
+on the Đạo Đồ; a stat node is worth about twice the same node on the map, and the
 Effects come on top, so a point spent on a Dao is the best point a life spends. The root and the cultivation technique (công pháp)
 are prerequisites, never the source. One glimpse a realm caps a life at four Daos, and the
 points cap how deep each one goes. From Core Formation (Kết Đan), an NPC may hold one Dao,
@@ -45,7 +45,7 @@ A Way is not given. One season, in a waterfall's noise or a dying master's last 
 something larger than a technique: the turning of the four seasons, the loneliness of a sword, the patience of an
 old man fishing a cold river. Three Ways show themselves and one is taken. From then on the player owns a map of
 that idea, a constellation of small truths with a few great ones at its edges, and every point spent there feels
-like understanding, not bookkeeping: a node is worth twice its weight on the Meridian Map because it means more.
+like understanding, not bookkeeping: a node is worth twice its weight on the Đạo Đồ because it means more.
 
 Two lives with the same root and the same technique stop being the same person once their Ways differ, and two
 lives on the same Way part again at its capstones. The name a build earns (One Sword, Winter Never Ends, the Lone
@@ -65,13 +65,13 @@ before you are waiting in it.
    - the **start**: one node, given free at the glimpse;
    - **roads**: a few travel nodes from the start into each facet, stat lines with the Way's road modifier;
    - **five facets**: named sectors of the graph, each one face of the theme (rule 12), each holding several
-     **clusters** (figures of small nodes and notables, as on the Meridian Map) hung on its road nodes and
+     **clusters** (figures of small nodes and notables, as on the Đạo Đồ) hung on its road nodes and
      chained beyond them;
    - the **capstones**: the Dao's keystones, 2–6 nodes (`dao_keystone_count`, default 5), usually one on a
      short stem beyond each facet's outer cluster (user decision 2026-11-10: "why not all 3, if not more?").
 
-   It is a graph drawn by hand with the Meridian Map kit and its authoring rules
-   (`design/research/meridian-land-authoring.md`): roads carry clusters, a cluster joins at its nearest node,
+   It is a graph drawn by hand with the Đạo Đồ kit and its authoring rules
+   (`design/research/dao-do-land-authoring.md`): roads carry clusters, a cluster joins at its nearest node,
    notables come after two or three small nodes, figures are chosen for the theme. The Sword pilot fans five
    facets upward from a start at the bottom (user: "actually looks pretty good"). **Each Dao gets its own
    outline** (user decision 2026-11-11), still a cluster graph drawn with the kit; the Sword fan used by drafts
@@ -122,7 +122,7 @@ before you are waiting in it.
    gate odds are calibrated without them, and re-running that calibration is the price of
    adding one. Any breakthrough chance a stat line gives counts under the q-extras ceiling
    (`q_extras_ceiling_pp`, 10 pp) and nowhere else: it is a separate q-extras source, not the
-   Meridian Map tree's contribution, so the tree's own curve (`tree_breakthrough_k`, Meridian Map Formulas F) neither
+   Đạo Đồ tree's contribution, so the tree's own curve (`tree_breakthrough_k`, Đạo Đồ Formulas F) neither
    limits it nor is raised by it (user decision 2026-11-06). Realms & Bottlenecks lists the Way
    among the q extras. **Effects** that change breakthrough or heart-demon odds (a riskier breakthrough for a
    reward, rerolled odds, heart demon gain or decay) may go beyond that ceiling (user decision 2026-11-10, review
@@ -146,24 +146,24 @@ before you are waiting in it.
    inside the effect, before it resolves, and the effect opens exactly that one Dao (Event
    Engine, provisional contract). A glimpse
    gives only the graph to look at: no points and no stats. At most `dao_glimpses_per_realm`
-   are given per realm, so a Dao stays an event in a life. Points already spent on acupoints are
+   are given per realm, so a Dao stays an event in a life. Points already spent on Dao marks are
    gone, so the Guidance Layer's Advisor tells the player, from the first realm that allows a
    glimpse, that this realm's glimpse is still unused and that Dao nodes need unspent points (UI
    Requirements; user decision 2026-11-06). The Way reserves nothing.
-7. **Points buy nodes.** A node is bought with the same skill points that buy Meridian Map
-   acupoints (Kinh Mạch points, paid by Realms & Bottlenecks' levels and breakthroughs). Every
+7. **Points buy nodes.** A node is bought with the same skill points that buy Đạo Đồ
+   Dao marks (Đạo Đồ points, paid by Realms & Bottlenecks' levels and breakthroughs). Every
    node costs a flat `dao_node_cost`, 1 point, whatever it gives (user decision 2026-11-10, replacing 3 when the
    graph grew to about 150 nodes).
    There is no separate currency and no study time (user decision 2026-11-05). A character buys a node only in a Dao it has glimpsed.
 8. **Order within a graph.** A node can be bought if it shares an edge with a
-   node already bought, as on the Meridian Map. Each capstone is placed so that every route to it is
+   node already bought, as on the Đạo Đồ. Each capstone is placed so that every route to it is
    long: the shortest path from the start to any capstone costs at least `dao_capstone_depth` (10) points,
    and the outer band has no roads, so it runs through clusters (the data lint checks the depth; 2026-11-10,
-   replacing "one whole branch and one node in each other branch"). A bought node is never refunded (as on the Meridian Map).
+   replacing "one whole branch and one node in each other branch"). A bought node is never refunded (as on the Đạo Đồ).
 9. **Glimpses cap the count, points cap the depth.** One glimpse a realm from Foundation
    Establishment (rule 6) means at most one new Dao per realm: four in a life on the current ladder, Foundation
    Establishment to Deity Transformation. How deep each goes is what the
-   character's points allow, and each point spent here is not spent on an acupoint (user
+   character's points allow, and each point spent here is not spent on a Dao mark (user
    decision 2026-11-05). No other rule limits the count or the depth, with one exception: **Phân Thân's capstone,
    The Avatar Walks**, opens a **fifth Dao** at a real cost stated in its `closes` (Đạo shared rule R15b, user
    decision 2026-11-11). Nothing else raises the count.
@@ -171,7 +171,7 @@ before you are waiting in it.
    **Nothing carries to a new life by default** (R15a, 2026-11-11). Only pieces of Luân Hồi (Memory of Lives) and
    Sư (Pass the Lamp) pass on a small inheritance named in their records (one remembered technique, a lineage
    bonus), reported when the character dies.
-10. **A Dao node beats the acupoints it replaces, and a facet's rules are bounded by slots.**
+10. **A Dao node beats the Dao marks it replaces, and a facet's rules are bounded by slots.**
     - **Stat nodes carry the premium.** A small or road node is worth twice a map small node (2.4 W against
       1.2) and a stat notable twice a map notable (16 W against 8) (user decisions 2026-11-06 and 2026-11-10),
       so a Dao feels special and is extra power by design. Formulas D1 lints every
@@ -202,7 +202,7 @@ before you are waiting in it.
 11. **NPCs hold Daos from Core Formation** by an abstract roll, like their breakthrough fate
     (user decision 2026-11-05). An NPC holds **at most one Dao**: it keeps its first
     successful roll and later rolls are ignored (review decision 2026-11-05). The Dao points
-    `P_npc` (Formulas D3) are deducted from the points the Meridian Map allocator gives the
+    `P_npc` (Formulas D3) are deducted from the points the Đạo Đồ allocator gives the
     NPC, and those points are worth `dao_premium` times what they buy on the map, the same
     premium the player gets (rule 10; user decision 2026-11-06). The Dao's effect is a power
     multiplier, not the graph, and it emits no per-season simulation. The Dao's id is stored in
@@ -215,7 +215,7 @@ before you are waiting in it.
     2026-11-06): with the name hidden, a player can tell the Dao from its nodes. Sword's graph is
     blades and cutting, a craft Dao's is the furnace and the field, Time's is years and ageing.
     - **Stat lines** use only the Dao's `theme_stats`, a list in its data. There is no filler:
-      a line any Dao could hold belongs on the Meridian Map instead.
+      a line any Dao could hold belongs on the Đạo Đồ instead.
     - **Capstones and `major` Effects** belong to one Dao: no such id appears in two Daos' graphs. `minor`
       Effects may be shared from a common pool (rule 3), at most `dao_shared_minor_max` (4) per Dao, so the
       name-hidden test (AC-DAO-20) still holds.
@@ -257,13 +257,13 @@ its roll (rule 11) and has no per-node state.
 
 ### Interactions with Other Systems
 
-Spiritual Roots, Character Stats, Cultivation Techniques, Realms & Bottlenecks, the Meridian Map, the Item
+Spiritual Roots, Character Stats, Cultivation Techniques, Realms & Bottlenecks, the Đạo Đồ, the Item
 Database, Combat (with Combat Damage Types and Combat Defence & Healing), the Modifier System, the Effects System,
 Heavenly Tribulation and Quests have GDDs. Every other interface is provisional.
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
-| Meridian Map (Kinh Mạch Đồ) | in / out | in: the character's points (its Formulas A) and its W-per-point target. Out: the points spent on Dao nodes, which are not available for acupoints. One shared pool | Meridian Map (the points); this GDD (Dao costs) |
+| Đạo Đồ | in / out | in: the character's points (its Formulas A) and its W-per-point target. Out: the points spent on Dao nodes, which are not available for Dao marks. One shared pool | Đạo Đồ (the points); this GDD (Dao costs) |
 | Spiritual Roots (Linh Căn) | in | the root as a read-only requirement: elements, purities, variants | Spiritual Roots |
 | Cultivation Techniques (Công Pháp) | in | a technique's kind and tier, as a requirement | Cultivation Techniques |
 | Character Stats | out | the Dao's stat lines as modifiers, with the Dao and node as their source; Effect and capstone nodes as Effect records (Effects System) | Character Stats (provider interface); this GDD (the lines) |
@@ -284,8 +284,8 @@ Heavenly Tribulation and Quests have GDDs. Every other interface is provisional.
 > its gloss, and four mundane Ways folded into others. Then a short-name pass ("something sounds cool alone on its
 > own, like Đao Đạo and Xạ Đạo"): every Way is named by a short **X Đạo**, and the poetic phrase is kept as its
 > title (hiệu), shown under the name, e.g. **Điếu Đạo** · *Hàn Giang Độc Điếu*. Each Way is a facet list and a capstone idea, not yet a
-> graph. Graphs are drawn one Way at a time as Meridian kit regions,
-> `tools/design/meridian_rework/regions/dao_<slug>.py`; the first is Kiếm Đạo (the pilot, approved 2026-11-10).
+> graph. Graphs are drawn one Way at a time as Đạo Đồ kit regions,
+> `tools/design/dao_do_rework/regions/dao_<slug>.py`; the first is Kiếm Đạo (the pilot, approved 2026-11-10).
 > Requirements are first guesses and use the root's element purity (Spiritual Roots), at least `dao_req_purity_min` (30); "—" means none,
 > and those Ways count toward `dao_open_min`. A † marks a Way or facet that holds a seed moved out of the root.
 
@@ -457,7 +457,7 @@ followers and should be reshaped onto shrines and ground when drawn.
 ## Formulas
 
 Values marked *guess* need a bot run and a content pass before they are trusted. Stat lines
-are priced with the Meridian Map's weights (its Formulas F1, in W: 1 W is the value of +1 %
+are priced with the Đạo Đồ's weights (its Formulas F1, in W: 1 W is the value of +1 %
 attack).
 
 ### D1. A Dao's cost and value
@@ -467,9 +467,9 @@ The dao_node_value formula is defined as:
 `cost(n) = c` ; `W_small = m · c · s` ; `W_notable = m · c · b` ; `C_dao = c · (N − 1)`
 
 and a data lint on every Dao, five parts (revised 2026-11-10, Sword pilot v2: 1 point a node, small and notable
-nodes as on the Meridian Map, Effects and arts bounded by slots, consistency N4):
+nodes as on the Đạo Đồ, Effects and arts bounded by slots, consistency N4):
 1. **size and shape:** `110 ≤ N ≤ 170`; the graph is connected and every node is reachable from the start; no two
-   edges cross and no node sits closer than 0.6 to another or on a link (the Meridian Map kit's checks); each
+   edges cross and no node sits closer than 0.6 to another or on a link (the Đạo Đồ kit's checks); each
    facet's clusters lie in its own sector; every capstone's shortest route from the start holds at least
    `dao_capstone_depth` points; the Dao holds 2–6 capstones;
 2. **each stat node:** a small or road node is `(1 ± t) · W_small` and a stat notable is `(1 ± t) · W_notable`, with
@@ -492,7 +492,7 @@ nodes as on the Meridian Map, Effects and arts bounded by slots, consistency N4)
    D-01): Character Stats rule 14 turned those ceilings into diminishing-return curves with no clamp, so the curves
    keep stacking in check and AC-DAO-10 guards the gates.
 
-The cost is flat, so strong and weak nodes cost the same, as on the Meridian Map. Stat nodes carry the premium
+The cost is flat, so strong and weak nodes cost the same, as on the Đạo Đồ. Stat nodes carry the premium
 node by node; Effects and the rare art carry no W (Effects System rule 4) and are held by the slot table. The
 curves are character-wide, so several Daos on one key share their diminishing return; the Advisor shows the
 marginal gain before a buy (Edge Cases).
@@ -503,7 +503,7 @@ marginal gain before a buy (Edge Cases).
 | c | int | 1 | data file (`dao_node_cost`) | Points per node, flat (user decision 2026-11-10, replacing 3) |
 | m | float | 2 | data file (`dao_premium`) | How much a Dao node beats the same node on the map (user decision 2026-11-06) |
 | s, b | float | 1.2, 8 | Modifier System (`grade_small`, `grade_notable`) | The map's small and notable budgets in W |
-| w̄ | float | 2.07 | Meridian Map Formulas A2 (`w̄_target`) | Mean W per point on the map |
+| w̄ | float | 2.07 | Đạo Đồ Formulas A2 (`w̄_target`) | Mean W per point on the map |
 | `dao_rate_cap_pct` | float | 10 | data file, *guess* | Most `cultivation_speed_pct` one Dao may give, in percent (user decision 2026-11-06) |
 | N | int | 110–170 | data file (`dao_node_count` 150) | Nodes in a Dao, the start included (user decision 2026-11-10: ×2–3 the 45-node graph; the Sword pilot holds 158) |
 | K | int | 2–6 | data file (`dao_keystone_count` 5) | Capstones in a Dao |
@@ -521,7 +521,7 @@ Over all of its points the pilot's stat lines are 530 ÷ 157 = 3.38 W per point,
 ×2 premium (review D-02). Four Mastered Daos would need about 600 points, more than a life holds, so a life masters one or two and goes
 part-way into the rest. Open Question 4 measures the whole with the balance harness.
 
-**Example:** the Sword pilot (`tools/design/meridian_rework/regions/dao_sword.py`, approved 2026-11-10):
+**Example:** the Sword pilot (`tools/design/dao_do_rework/regions/dao_sword.py`, approved 2026-11-10):
 158 nodes, the start free, so 157 points to master. A facet holds a big constellation at the end of its road,
 one figure chained beyond it and one or two figures on its road nodes; Sword Intent's notables are 2 `minor`
 Effects, 1 `major` (Flowing Water) and stat notables at 16 W, which the slot table allows. Its capstones sit 11–12
@@ -566,7 +566,7 @@ The npc_dao formula is defined as:
 
 An NPC rolls once per realm entered from Core Formation, with chance `npc_dao_chance`, until
 its first success (rule 11: at most one Dao). On success it takes one Dao uniformly from those
-it qualifies for. The Meridian Map allocator gets `map_points`, and `power_mult` multiplies the
+it qualifies for. The Đạo Đồ allocator gets `map_points`, and `power_mult` multiplies the
 resulting combat power, as a capability's `npc_effect` does. `power_mult` restores the W the
 deducted points would have bought on the map and adds the premium, so an NPC with a Dao is
 stronger than one without, as a player's is (user decision 2026-11-06, on the deduction from
@@ -579,12 +579,12 @@ must confirm (Open Question 5).
 | `npc_dao_chance` | float | 0.5 | data file, *guess* | Chance of a Dao per realm from Core Formation, until the first success |
 | `npc_dao_share` | float | 0.25 | data file, *guess* | Share of an NPC's points it has put into its Dao |
 | `dao_premium` | float | 2 | data file (Formulas D1) | What a Dao point is worth against a map point, the player's value |
-| points_total(level) | int | 161–566 | Meridian Map Formulas A | The NPC's points: an NPC's level is the first level of its stage |
+| points_total(level) | int | 161–566 | Đạo Đồ Formulas A | The NPC's points: an NPC's level is the first level of its stage |
 | P_npc | int | 40–141 | calculated | Points put into the Dao, deducted from the map |
-| map_points | int | 121–425 | calculated | Points the Meridian Map allocator gets |
+| map_points | int | 121–425 | calculated | Points the Đạo Đồ allocator gets |
 
 **Output Range:** `power_mult` 1.00 (no Dao) to about 1.67. Below the cap it is a plateau
-of 1.660–1.667 at the Meridian Map's stage totals (161 points, Core Formation early: 1.661; 216, Core Formation
+of 1.660–1.667 at the Đạo Đồ's stage totals (161 points, Core Formation early: 1.661; 216, Core Formation
 great perfection: 1.667; 278, Nascent Soul early: 1.660; 458, Deity Transformation early: 1.663; 566: 1.664). With a 149-point Dao
 (revised 2026-11-10) the cap would bind only from 596 points, past a life's 566, so it never binds.
 The ratio `P_npc ÷ points_total` never exceeds `npc_dao_share`, so `power_mult` never exceeds
@@ -622,7 +622,7 @@ power_mult = (209 + 138) ÷ 209 = **1.660**, +24.8 %.
 - **If a node's stat line is on a curve key** (lifespan, herb growth, alchemy; Character Stats rule 14): it adds
   through the curve like every other source, and before the buy the Advisor shows its marginal gain. On a key that
   still clamps (the q-extras ceiling, crit caps) it is clamped and the sheet shows the clamp line.
-- **If a Dao's Effect does the same thing as a Meridian Map keystone or another host's Effect:** both
+- **If a Dao's Effect does the same thing as a Đạo Đồ keystone or another host's Effect:** both
   apply and stack, unless the Effect's own `limits` say otherwise (Effects System). A Dao's capstones and
   `major` Effects have their own ids (rule 12).
 - **If a character already holds a shared `minor` through one Dao and tries to buy it in another:** the buy is
@@ -630,7 +630,7 @@ power_mult = (209 + 138) ÷ 209 = **1.660**, +24.8 %.
   if it also carries a stat line; otherwise it is a dead end the Advisor marks.
 - **If a node is not joined to anything bought:** the buy is refused and the screen shows the nearest
   bought node it could be reached from.
-- **If the character has points but no glimpsed Dao:** the points go to the Meridian Map as
+- **If the character has points but no glimpsed Dao:** the points go to the Đạo Đồ as
   before. The Way never forces a spend.
 - **There is no respec.** A bought node stays, and a point spent here is never returned to the map.
 
@@ -671,7 +671,7 @@ power_mult = (209 + 138) ÷ 209 = **1.660**, +24.8 %.
 
 ## Dependencies
 
-Spiritual Roots, Character Stats, Cultivation Techniques, Realms & Bottlenecks, the Meridian Map, the Item
+Spiritual Roots, Character Stats, Cultivation Techniques, Realms & Bottlenecks, the Đạo Đồ, the Item
 Database, Combat (with its Damage Types and Defence & Healing sub-systems), the Modifier System, the Effects System,
 Heavenly Tribulation and Quests have GDDs. Every other interface is provisional. When each remaining GDD is written,
 it must list the Way in its own Dependencies section.
@@ -686,7 +686,7 @@ it must list the Way in its own Dependencies section.
 | 7 | Character Stats | The stat sheet that takes a Dao's lines as modifiers, with their source |
 | 40 | Modifier System | The stat-line catalogue and its W prices (Formulas D1) |
 | 41 | Effects System | The Effect record, tiers and host rules for Effect and capstone nodes |
-| 10 | Meridian Map (Kinh Mạch Đồ) | The points a character has (its Formulas A) and the W-per-point target node values are set against |
+| 10 | Đạo Đồ | The points a character has (its Formulas A) and the W-per-point target node values are set against |
 | 23 | Event Engine | The `dao_glimpse` effect: without it no character can gain a Dao |
 
 **Upstream: needed for a part of the system (soft)**
@@ -706,7 +706,7 @@ it must list the Way in its own Dependencies section.
 
 | # | System | What it takes |
 |---|---|---|
-| 10 | Meridian Map | The points spent on Dao nodes, which its unspent figure subtracts |
+| 10 | Đạo Đồ | The points spent on Dao nodes, which its unspent figure subtracts |
 | 6 | Spiritual Roots | Open Question 9 is answered here: the relocated mutations are Daos |
 | 9 | Cultivation Techniques | Open Question 11 closes: no shipped template names a relocated id |
 | 23 | Event Engine | A new effect, `dao_glimpse`, with a per-realm limit |
@@ -714,8 +714,8 @@ it must list the Way in its own Dependencies section.
 | 35 / 36 / 37 | Guidance Layer, Debug Terminal, Game UI | The Dao list, trees with costs and the glimpse offer |
 | 5 | Save/Load | The Daos glimpsed and the nodes bought |
 
-**Cycle and how it is broken:** the Way and the Meridian Map share one pool of points. The
-Meridian Map owns the total (its Formulas A); the Way keeps its own count of points spent, and
+**Cycle and how it is broken:** the Way and the Đạo Đồ share one pool of points. The
+Đạo Đồ owns the total (its Formulas A); the Way keeps its own count of points spent, and
 the map's unspent figure is the total minus both counts. Neither system calls the other each turn.
 
 **Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
@@ -734,7 +734,7 @@ Question 4, 5).
 | Knob | Value | Safe range | What it moves |
 |---|---|---|---|
 | `dao_node_cost` | 1 | 1–2 | Points per node, flat. Moves a Dao's total cost and the stat-node budgets (Formulas D1) with it |
-| `dao_premium` | 2 | 1.5–3 | How much a stat node beats the acupoints it replaces, for the player and for NPCs. 3 lets Daos outshine the map |
+| `dao_premium` | 2 | 1.5–3 | How much a stat node beats the Dao marks it replaces, for the player and for NPCs. 3 lets Daos outshine the map |
 | `dao_node_count`, `dao_full_points` | 150, 149 | 110–170, 109–169 at cost 1 | How much of a life's points a Dao takes (4 Mastered Daos ≈ 600 of 566, so a life masters one or two), and the authoring load |
 | `dao_capstone_depth` | 10 | 8–16 | How deep the signatures sit: points before a Dao names the build |
 | `dao_keystone_count` | 5 | 2–6 | How many signatures a Dao offers, and so how many builds it names |
@@ -777,11 +777,11 @@ Specified for the Debug Terminal now and the Game UI later.
 - **The Advisor** shows a stat line's marginal gain before a buy on a curve key, and warns when it would sit above a
   cap.
 - **Drawing a graph:** the Debug Terminal lists nodes by facet; the Game UI draws the authored layout (about 150
-  nodes, as the Meridian Map viewer does) and must stay responsive at that size (review D-17).
+  nodes, as the Đạo Đồ viewer does) and must stay responsive at that size (review D-17).
 - **The unused-glimpse heads-up:** from Foundation Establishment, while the realm's glimpse is
   unused, the Advisor says so, shows the character's unspent points, and notes that a Dao graph
   is 110–170 nodes (109–169 points) and its first capstone at least 10. It is information only and never forces or blocks a spend.
-- **The shared pool:** the unspent count is the same figure the Meridian Map shows.
+- **The shared pool:** the unspent count is the same figure the Đạo Đồ shows.
 
 ## Cross-References
 
@@ -789,7 +789,7 @@ Specified for the Debug Terminal now and the Game UI later.
 |---|---|
 | `design/gdd/linh-can.md` | Open Question 9 is answered by this GDD, and rule 16 points here |
 | `design/gdd/cong-phap.md` | Open Question 11 closes: no shipped template names a relocated mutation |
-| `design/gdd/kinh-mach-do.md` | List the Way in Dependencies: its unspent points subtract the Way's spent count |
+| `design/gdd/dao-do.md` | List the Way in Dependencies: its unspent points subtract the Way's spent count |
 | `design/gdd/character-stats.md` | A Dao is a new modifier source on the stat sheet |
 | `design/gdd/canh-gioi.md` | The gate calibration holds because Daos add no cap raise (rule 4); a Dao stat line's breakthrough chance is a q-extras source under the 10 pp ceiling, while Effects on breakthrough and heart-demon odds may exceed it and need the recalibration (2026-11-10, review D-05) (added 2026-11-06) |
 | `design/gdd/systems-index.md` | Row 39 and the design order |
@@ -855,7 +855,7 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
   a neighbour of it is bought, and while its rival is held. A buy below cost is refused and names the shortfall. No node is ever
   refunded.
 - **AC-DAO-08** [Integration] A character with 200 points who masters a 149-point Dao has 51
-  left, and the Meridian Map allocation sees 51. The map refuses a 52nd acupoint.
+  left, and the Đạo Đồ allocation sees 51. The map refuses a 52nd Dao mark.
 - **AC-DAO-09** [Logic] A Dao's breakthrough-chance line above the q-extras ceiling is clamped and the sheet shows
   the clamp line. A Dao's herb-growth line adds through Character Stats' curve (no clamp line).
 - **AC-DAO-10** [Integration, Bot: `autoplay.gd`] `autoplay.gd --edge on --perk dao_cot --dao <id>` (the Đạo Cốt perk is
@@ -876,7 +876,7 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 
 **NPCs**
 
-- **AC-DAO-11** [Logic] Formulas D3 at `dao_full_points` 149, on the Meridian Map's stage totals: 161 points
+- **AC-DAO-11** [Logic] Formulas D3 at `dao_full_points` 149, on the Đạo Đồ's stage totals: 161 points
   (Core Formation early) gives P_npc 40, map_points 121, power_mult 1.661; 216 (Core Formation great perfection)
   P_npc 54, 162, 1.667; 278 (Nascent Soul early) P_npc 69, 209, 1.660; 458 (Deity Transformation early) P_npc 114,
   344, 1.663; 566 P_npc 141, 425, 1.664 (each ±0.001; the cap never binds). An NPC with no Dao has power_mult 1.000.
@@ -905,15 +905,15 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 
 **Added by the 2026-11-05 and 2026-11-06 reviews**
 
-- **AC-DAO-16** [Integration] An NPC with a Dao (Formulas D3): the Meridian Map allocator is
+- **AC-DAO-16** [Integration] An NPC with a Dao (Formulas D3): the Đạo Đồ allocator is
   called with `map_points`, not `points_total`, and the resulting combat power is multiplied by
   `power_mult`. An NPC with no Dao is called with `points_total` and a multiplier of 1.000.
 - **AC-DAO-17** [Logic] With E empty the glimpse is skipped and the realm's allowance is kept; a
   declined offer uses the allowance and leaves every offered Dao in E.
-- **AC-DAO-18** [Integration] A Dao stat line and a Meridian Map acupoint that give breakthrough chance both apply.
+- **AC-DAO-18** [Integration] A Dao stat line and a Đạo Đồ Dao mark that give breakthrough chance both apply.
   The Dao line's share counts only under the 10 pp q-extras ceiling (a Dao Effect on breakthrough odds may exceed
   it, rule 4 and AC-DAO-29):
-  with the tree's curve giving 8 pp (Meridian Map Formulas F) and a Dao line of 4 pp, the extras clamp at 10 pp
+  with the tree's curve giving 8 pp (Đạo Đồ Formulas F) and a Dao line of 4 pp, the extras clamp at 10 pp
   and the sheet shows the clamp line. With the tree's curve at 5.5 pp and a Dao line of 4 pp, the extras are 9.5 pp
   and nothing is clamped.
 - **AC-DAO-19** [Logic] A node removed by a data change is refunded, and a node that needed it
@@ -932,10 +932,10 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 | # | Question | Owner | Blocks |
 |---|---|---|---|
 | 1 | The `dao_glimpse` contract: which events grant it, how often (the rate), and what the validator checks. The Event Engine is already implemented, so read its code before settling the contract. The rate also decides how often the unused-glimpse heads-up fires | Event Engine | Any Dao in play |
-| 2 | The catalogue (in progress 2026-11-10): the consolidated roster, then a graph of about 150 nodes for each Way (Sword pilot v2 approved 2026-11-10), each from its theme (rule 12), with each Way's requirement and `theme_stats`. Pilot: Sword. Graphs live in `tools/design/meridian_rework/regions/dao_<slug>.py` | game-designer, user | Content pass |
+| 2 | The catalogue (in progress 2026-11-10): the consolidated roster, then a graph of about 150 nodes for each Way (Sword pilot v2 approved 2026-11-10), each from its theme (rule 12), with each Way's requirement and `theme_stats`. Pilot: Sword. Graphs live in `tools/design/dao_do_rework/regions/dao_<slug>.py` | game-designer, user | Content pass |
 | 3 | **Closed 2026-11-10:** Combat is designed; arts follow Combat rule 13 and are bounded by its art rules and the slot table, so they need no W credit | — | — |
 | 4 | The slot table, `dao_node_tol` 0.2, `dao_capstone_depth` 10 and `dao_keystone_count` 5 are guesses (several capstones in one life may stack strongly: the harness checks a Dao with all its non-rival capstones), and Effects and arts are unpriced. `dao_premium` 2 already puts a Mastered Dao's stat lines above what its points buy on the map (the Sword pilot: about 530 W against the 325 W its points buy on the map, Formulas D1), and the Effects, capstones and rare art come on top. Measure a life with one, two and four Daos against combat and NPC power with the balance harness once the pilot and a few Ways exist | systems-designer | A content pass and a bot run |
-| 5 | `npc_dao_chance` and `npc_dao_share` are guesses, and so is the assumption behind `power_mult` (map power close to linear in points). A bot run must confirm that a Dao-holding NPC ends up about 25 % above a Dao-less NPC of its level (16 % if only the stat lines count: 1 + 0.63 × 0.25), check the joint NPC uplift with the Meridian Map's road purity and keystones (Meridian Map Open Question 8), and re-run the world census, since stronger NPCs may change who dies | NPC Builds, bot run | AC-DAO-11, 12 |
+| 5 | `npc_dao_chance` and `npc_dao_share` are guesses, and so is the assumption behind `power_mult` (map power close to linear in points). A bot run must confirm that a Dao-holding NPC ends up about 25 % above a Dao-less NPC of its level (16 % if only the stat lines count: 1 + 0.63 × 0.25), check the joint NPC uplift with the Đạo Đồ's road purity and keystones (Đạo Đồ Open Question 8), and re-run the world census, since stronger NPCs may change who dies | NPC Builds, bot run | AC-DAO-11, 12 |
 | 6 | May a perk or a sect grant an early glimpse (a birth edge)? It would touch Progression Edges | game-designer | The edge |
-| 7 | Do Dao trees sit on the Meridian Map screen or on their own? | ux-designer | The UI |
+| 7 | Do Dao trees sit on the Đạo Đồ screen or on their own? | ux-designer | The UI |
 | 8 | **Closed 2026-11-10:** Combat is designed, so the Way ships with arts and Effects; its tier in the index stays Alpha (provisional) | — | — |

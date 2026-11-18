@@ -91,11 +91,11 @@ var equipped: Array = []
 ## (Item Database rule 11). An unpinned piece is placed by [method EquipSlots.assign].
 var equip_slots: Dictionary = {}
 
-# --- Meridian tree --------------------------------------------------------------
-## Allocated Kinh Mạch Đồ node ids (root included).
+# --- Đạo Đồ --------------------------------------------------------------
+## Allocated Đạo Đồ node ids (root included).
 var tree_nodes: Array = [0]
 var tree_points: int = 0
-## Capability ids held (Character Stats rule 16). Only the Meridian Map adds to it.
+## Capability ids held (Character Stats rule 16). Only the Đạo Đồ adds to it.
 var capabilities: Array = []
 ## Hidden cluster ids unsealed in this life.
 var unsealed: Array = []
@@ -103,7 +103,7 @@ var unsealed: Array = []
 var discovered: Array = []
 ## Recorded fills of open clusters: cluster id (string) -> {source}. Canonical once written.
 var fills: Dictionary = {}
-## Tree display: "silhouette" or "visible" (Meridian Map rule 13).
+## Tree display: "silhouette" or "visible" (Đạo Đồ rule 13).
 var tree_visibility: String = "silhouette"
 ## Open-cluster unseals used per realm index (string).
 var open_unseals: Dictionary = {}
@@ -159,7 +159,7 @@ func has_capability(capability_id: int) -> bool:
 	return capabilities.has(capability_id)
 
 
-## Adds a capability; a duplicate is ignored. Called only by the Meridian Map's grant.
+## Adds a capability; a duplicate is ignored. Called only by the Đạo Đồ's grant.
 func grant_capability(capability_id: int) -> void:
 	if not capabilities.has(capability_id):
 		capabilities.append(capability_id)

@@ -1,7 +1,7 @@
 class_name BuildGenerator
 extends RefCounted
 ## Generates complete NPC builds with the same rules the player uses: linh căn and
-## thiên phú, a công pháp, pháp bảo limited by thần thức, Kinh Mạch Đồ points spent
+## thiên phú, a công pháp, pháp bảo limited by thần thức, Đạo Đồ points spent
 ## greedily toward the archetype's focus sectors, and đạo nghệ skills. Every build is
 ## registered in the WorldDB (person + owned items) and its chiến lực cached.
 ## Design: game-concept.md (one ruleset for everyone; Dwarf Fortress-style people).
@@ -15,12 +15,12 @@ extends RefCounted
 ## [/codeblock]
 
 var _gd: GameData
-var _tree: MeridianTree
+var _tree: DaoDoTree
 var _db: WorldDB
 var _items: ItemFactory
 
 
-func _init(gd: GameData, tree: MeridianTree, db: WorldDB) -> void:
+func _init(gd: GameData, tree: DaoDoTree, db: WorldDB) -> void:
 	_gd = gd
 	_tree = tree
 	_db = db
@@ -88,7 +88,7 @@ func refresh_power(person_id: String) -> float:
 	return p
 
 
-## The stat sheet of [param c] with its Kinh Mạch Đồ allocations (chiến lực and fights read the same sheet).
+## The stat sheet of [param c] with its Đạo Đồ allocations (chiến lực and fights read the same sheet).
 func sheet_of(c: Character) -> StatSheet:
 	return StatSheet.build(c, _gd, _db, _tree)
 
@@ -125,7 +125,7 @@ func roll_realm(rng: RandomNumberGenerator) -> int:
 	return _gd.realm_index(str(RngUtils.weighted_pick(rng, dist).realm))
 
 
-## Total Kinh Mạch Đồ points a cultivator at this realm/stage has earned (Realms rule 12: an
+## Total Đạo Đồ points a cultivator at this realm/stage has earned (Realms rule 12: an
 ## NPC's level is the first level of its stage).
 func tree_points_for(realm_index: int, stage: int) -> int:
 	return Ladder.points_total(_gd, Ladder.stage_first_level(_gd, realm_index, stage))
@@ -204,13 +204,13 @@ func _allocate_tree(c: Character, rng: RandomNumberGenerator, arch_id: String) -
 	var focus: Array = _gd.archetype(arch_id).get("tree_focus", []).duplicate()
 	if focus.is_empty():
 		focus = [c.linh_can.strongest_element()]
-	c.tree_nodes = [MeridianTree.ROOT_ID]
+	c.tree_nodes = [DaoDoTree.ROOT_ID]
 	c.tree_points = tree_points_for(c.realm_index, c.stage)
 	_roll_unseals(c, rng)
 	var scores: Dictionary = cfg.tree_kind_scores
 	# Each reachable node is scored once, so spending stays cheap on the full map.
 	var ranked: Array = []
-	var seen: Dictionary = {MeridianTree.ROOT_ID: true}
+	var seen: Dictionary = {DaoDoTree.ROOT_ID: true}
 	var add_frontier := func(id: int) -> void:
 		for nb in _tree.neighbors(id):
 			if seen.has(nb) or not _tree.accessible(c, nb):
@@ -228,7 +228,7 @@ func _allocate_tree(c: Character, rng: RandomNumberGenerator, arch_id: String) -
 			s += rng.randf() * 0.5
 			var at: int = ranked.bsearch_custom([s, nb], func(a, b): return float(a[0]) < float(b[0]))
 			ranked.insert(at, [s, nb])
-	add_frontier.call(MeridianTree.ROOT_ID)
+	add_frontier.call(DaoDoTree.ROOT_ID)
 	while c.tree_points > 0 and not ranked.is_empty():
 		var best: int = ranked.pop_back()[1]
 		c.tree_nodes.append(best)

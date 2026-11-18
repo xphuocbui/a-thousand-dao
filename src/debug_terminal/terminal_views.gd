@@ -49,7 +49,7 @@ static func hud(s: GameSession, io: TerminalIO) -> Array:
 	extras.append("LT %d" % c.linh_thach)
 	extras.append(str(s.player_power().text))
 	if c.tree_points > 0:
-		extras.append(io.paint("%d Kinh Mạch pt" % c.tree_points, C_MAGENTA))
+		extras.append(io.paint("%d Đạo Đồ pt" % c.tree_points, C_MAGENTA))
 	if c.dan_doc >= 1.0:
 		extras.append("Đan độc %.0f" % c.dan_doc)
 	if c.tam_ma >= 1.0:
@@ -81,7 +81,7 @@ static func goal_lines(io: TerminalIO, g: Dictionary) -> Array:
 static func goals(s: GameSession, io: TerminalIO) -> Array:
 	var gl: Array = Advisor.goals(s)
 	if gl.is_empty():
-		return ["Nothing pressing. Cultivate, explore, or plan your Kinh Mạch Đồ."]
+		return ["Nothing pressing. Cultivate, explore, or plan your Đạo Đồ."]
 	var lines: Array = [io.paint("What matters now", C_BOLD)]
 	for g in gl:
 		lines.append_array(goal_lines(io, g))
@@ -301,7 +301,7 @@ static func sheet(s: GameSession, io: TerminalIO) -> Array:
 	lines.append(io.paint(" ĐẠO NGHỆ", C_BOLD) + "   %s" % (", ".join(skills) if not skills.is_empty() else "none yet (practice raises them)"))
 	var power: Dictionary = CombatPower.compute(c, gd, s.db, sh)
 	lines.append(io.paint(" CHIẾN LỰC", C_BOLD) + "  %.0f = offense %.0f + defense %.0f · extra slots %d/%d ('explain power')" % [power.total, power.offense, power.defense, power.extra_used, power.extra_limit])
-	lines.append(io.paint(" KINH MẠCH", C_BOLD) + "  %d huyệt open, %d point(s) unspent ('tree')" % [c.tree_nodes.size(), c.tree_points])
+	lines.append(io.paint(" ĐẠO ĐỒ", C_BOLD) + "  %d đạo văn open, %d point(s) unspent ('tree')" % [c.tree_nodes.size(), c.tree_points])
 	if not c.perks.is_empty():
 		var pk: PackedStringArray = []
 		for id in c.perks:
@@ -830,12 +830,12 @@ static func event(s: GameSession, io: TerminalIO = null) -> Array:
 	return lines
 
 
-## Kinh Mạch Đồ summary: points, frontier with bonuses, and reachable notables/keystones.
+## Đạo Đồ summary: points, frontier with bonuses, and reachable notables/keystones.
 static func tree_summary(s: GameSession, io: TerminalIO) -> Array:
 	var c: Character = s.player
-	var t: MeridianTree = s.tree
-	var lines: Array = ["Kinh Mạch Đồ (%d of %d huyệt shown): %d unsealed cluster(s), capabilities: %s." % [c.tree_nodes.size(), t.reported_size(c), c.unsealed.size(), ", ".join(c.capabilities.map(func(id): return str(s.gd.capability(int(id)).get("name", id)))) if not c.capabilities.is_empty() else "none"]]
-	lines.append("%d huyệt open, %d unspent points. Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets" % [c.tree_nodes.size(), c.tree_points])
+	var t: DaoDoTree = s.tree
+	var lines: Array = ["Đạo Đồ (%d of %d đạo văn shown): %d unsealed cluster(s), capabilities: %s." % [c.tree_nodes.size(), t.reported_size(c), c.unsealed.size(), ", ".join(c.capabilities.map(func(id): return str(s.gd.capability(int(id)).get("name", id)))) if not c.capabilities.is_empty() else "none"]]
+	lines.append("%d đạo văn open, %d unspent points. Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets" % [c.tree_nodes.size(), c.tree_points])
 	lines.append("Openable now:")
 	for nid in t.frontier(c):
 		var nd: Dictionary = t.node(nid)
@@ -844,7 +844,7 @@ static func tree_summary(s: GameSession, io: TerminalIO) -> Array:
 	return lines
 
 
-## Hidden clusters as the visibility mode allows (Meridian Map rule 13). Silhouette shows the
+## Hidden clusters as the visibility mode allows (Đạo Đồ rule 13). Silhouette shows the
 ## place and theme; a condition appears after a discovery. An open cluster's content stays
 ## hidden in both modes until its story moment.
 static func tree_clusters(s: GameSession, io: TerminalIO) -> Array:
@@ -862,7 +862,7 @@ static func tree_clusters(s: GameSession, io: TerminalIO) -> Array:
 			cond = "seal: %s, gate %s" % [k.seal.type, s.gd.realm(int(k.gate)).name]
 		var content: String = ""
 		if known and (str(k.kind) == "sealed" or c.unsealed.has(int(id))):
-			content = ", %d huyệt" % int(k.size)
+			content = ", %d đạo văn" % int(k.size)
 			if int(k.capability) > 0:
 				content += ", capability %s" % s.gd.capability(int(k.capability)).name
 		elif visible and str(k.kind) == "open":
@@ -875,7 +875,7 @@ static func tree_clusters(s: GameSession, io: TerminalIO) -> Array:
 static func tree_targets(s: GameSession) -> Array:
 	var c: Character = s.player
 	var dist: Dictionary = s.tree.distances(c)
-	var t: MeridianTree = s.tree
+	var t: DaoDoTree = s.tree
 	var rows: Array = []
 	for nd in t.nodes.values():
 		if not (nd.kind in ["notable", "keystone", "bridge_notable", "apex"]) or c.tree_nodes.has(nd.id) or not dist.has(int(nd.id)):
@@ -889,10 +889,10 @@ static func tree_targets(s: GameSession) -> Array:
 
 ## One node in detail.
 static func tree_node(s: GameSession, nid: int) -> Array:
-	var t: MeridianTree = s.tree
+	var t: DaoDoTree = s.tree
 	var nd: Dictionary = t.node(nid)
 	if nd.is_empty():
-		return ["No huyệt #%d." % nid]
+		return ["No đạo văn #%d." % nid]
 	var c: Character = s.player
 	var path: Array = t.path_to(c, s.gd, nid)
 	return [
@@ -900,13 +900,13 @@ static func tree_node(s: GameSession, nid: int) -> Array:
 		"  bonus: %s" % t.describe_mods(nid, c.linh_can, s.gd),
 		"  %s" % nd.get("desc", "") if nd.get("desc", "") != "" else "",
 		"  links: %s" % ", ".join(nd.links.map(func(x): return "#%d" % int(x))),
-		"  path from your open huyệt: %s (%d points)" % [", ".join(path.map(func(x): return "#%d" % int(x))), path.size()] if not c.tree_nodes.has(nid) else "",
+		"  path from your open đạo văn: %s (%d points)" % [", ".join(path.map(func(x): return "#%d" % int(x))), path.size()] if not c.tree_nodes.has(nid) else "",
 	].filter(func(l): return l != "")
 
 
-## ASCII map of the tree, PoE-style: sectors around Đan Điền.
+## ASCII map of the tree, PoE-style: sectors around Đạo Nguyên.
 static func tree_map(s: GameSession, io: TerminalIO) -> Array:
-	var t: MeridianTree = s.tree
+	var t: DaoDoTree = s.tree
 	var c: Character = s.player
 	var w: int = 79
 	var h: int = 41
@@ -954,7 +954,7 @@ static func tree_map(s: GameSession, io: TerminalIO) -> Array:
 	var legend: PackedStringArray = []
 	for e in s.gd.element_cycle():
 		legend.append(elem(io, s.gd, e, s.gd.element_name(e)))
-	lines.append("@ Đan Điền  # open  + openable  N notable  K keystone  o gate  . huyệt  : kỳ kinh bridge")
+	lines.append("@ Đạo Nguyên  # open  + openable  N notable  K keystone  o gate  . đạo văn  : kỳ kinh bridge")
 	lines.append("Sectors clockwise from the top: " + " → ".join(legend) + "  (tương sinh order)")
 	return lines
 

@@ -51,7 +51,7 @@ Sizes on new modifiers are first guesses. `[C]` was taken on the stack: a +X per
 | Reach | Held at Table, reused | Old heads only. A child lets the enemy leave | Trigger | any | none | ○ | Technique | Reused from The Not-Yet-Full |
 | Fuel | **Lien (Thế Chấp)** | Each living entry in your Book reserves 5 % of maximum linh lực, to 30 % | Trade | any | none | ○ | Creditors' Book | any debtor, any oath that holds power in escrow |
 | Fuel | Thrift, reused unplanned | A quarter of ward efficiency also lowers art cost | Redirect | art | none | ○ | Tree | Reused from The Long Carry, for a pool under Lien |
-| Survival | Maximum health (Khí Huyết) | Plain acupoints and notables, to `n_body` 1.4 | Increased | any | none | ● | Tree | any build |
+| Survival | Maximum health (Khí Huyết) | Plain Dao marks and notables, to `n_body` 1.4 | Increased | any | none | ● | Tree | any build |
 | Survival | Maximum linh lực (Linh Hải) | Plain, to `n_qi` 1.3 | Increased | any | none | ● | Tree | any build |
 | Survival | Ward strength (Hộ Lực), Ward efficiency (Hộ Hiệu) | Plain, with gear, to 80 and 80 | Increased | any | none | ● | Tree, gear | any build |
 | Survival | Body guard (Hộ Thể) | Plain, to +40 | Increased | any | none | ● | Tree | any build |

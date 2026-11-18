@@ -137,19 +137,19 @@
  ],
  "walk": {
   "Ward strength": {
-   "acupoints": 20,
+   "dao_marks": 20,
    "notables": 0
   },
   "Maximum health": {
-   "acupoints": 37,
+   "dao_marks": 37,
    "notables": 9
   },
   "Linh luc regeneration": {
-   "acupoints": 4,
+   "dao_marks": 4,
    "notables": 4
   },
   "Ward efficiency": {
-   "acupoints": 0,
+   "dao_marks": 0,
    "notables": 1
   }
  },
@@ -158,7 +158,7 @@
   "hp": 54
  },
  "unmodelled": [
-  "W: 61 acupoints, 14 notables, 185.2 W, plus 176 W of attack and health outside the walk (attack 122, health +45 % at 1.2 W a point): Pine Rain's 361.2 W. Method bonus read as Evergreen's L2 20, not the +40 Low Flame gives Fire arts, so nothing outside W changes and the result understates the lamps. Gear as Evergreen (L3 40, ws and we 84.1). Thần thức, fortune and heart demon are not read."
+  "W: 61 Dao marks, 14 notables, 185.2 W, plus 176 W of attack and health outside the walk (attack 122, health +45 % at 1.2 W a point): Pine Rain's 361.2 W. Method bonus read as Evergreen's L2 20, not the +40 Low Flame gives Fire arts, so nothing outside W changes and the result understates the lamps. Gear as Evergreen (L3 40, ws and we 84.1). Thần thức, fortune and heart demon are not read."
  ],
  "enemy_overrides": {
   "ward": {

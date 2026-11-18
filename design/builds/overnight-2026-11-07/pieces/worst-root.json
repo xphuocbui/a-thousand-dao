@@ -21,7 +21,7 @@
      "effect": "A part under the line, before the ward, skips the ward. At or over it, the ward works as usual.", "second_home": "any build of very small hits"},
     {"type": "modifier", "name": "Dull Hand", "han_viet": "Độn Thủ", "form": "Trade", "channel": "any", "layer": "L1", "fit": "Needs key",
      "effect": "attack_pct -0.5 per purity point of the root.", "second_home": "signature"},
-    {"type": "acupoint", "name": "Split Hit Damage", "han_viet": "Phân Kích Thương", "form": "Increased", "channel": "any", "layer": "L1", "fit": "Needs key",
+    {"type": "dao_mark", "name": "Split Hit Damage", "han_viet": "Phân Kích Thương", "form": "Increased", "channel": "any", "layer": "L1", "fit": "Needs key",
      "effect": "Small +2, notable +12, on hits with three or more parts.", "second_home": "any Conversion build"},
     {"type": "notable", "name": "Many Streams", "han_viet": "Đa Lưu", "form": "More", "channel": "art", "layer": "L2", "fit": "Needs key",
      "effect": "+20 to arts that split.", "second_home": "The Kept Hearth, any Conversion build"},

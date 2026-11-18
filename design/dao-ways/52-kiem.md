@@ -1,7 +1,7 @@
 # 52 · Kiếm Đạo · *Kiếm Tâm Thông Minh* (the Sword)
 
 > **Approved pilot** (2026-11-10). The source of truth is the drawn region
-> `tools/design/meridian_rework/regions/dao_sword.py`; this file only summarises it in the same shape as the other
+> `tools/design/dao_do_rework/regions/dao_sword.py`; this file only summarises it in the same shape as the other
 > drafts, so the folder reads as one catalogue. Edit the region, not this file.
 > **Needs:** none. **Road:** `attack_pct` sword +2.
 

@@ -135,7 +135,7 @@ Each sits within the art lint because the cooldown pays for the coefficient.
 
 ### Hidden cluster idea: Cold Landing (Lãnh Độ)
 
-Theme Heart State (Tâm Cảnh), Water, outer, sealed by a technique through `seal_clusters`, size 10. Small acupoints: Dao heart and body guard. Notables: Every Blow, then Both Hands with Already Waited as its capability. An idea for the tree rework, not data.
+Theme Heart State (Tâm Cảnh), Water, outer, sealed by a technique through `seal_clusters`, size 10. Small Dao marks: Dao heart and body guard. Notables: Every Blow, then Both Hands with Already Waited as its capability. An idea for the tree rework, not data.
 
 ## Progression
 

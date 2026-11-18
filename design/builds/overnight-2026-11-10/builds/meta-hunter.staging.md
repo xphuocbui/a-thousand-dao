@@ -61,7 +61,7 @@
 | health-paid-cost-readable | Health paid on art costs | Readable | The health a side has paid on art costs this fight and in the last pulse (Effects rule 5) | Needs rule | meta-hunter |
 | quarry-knowledge | Quarry knowledge | Concept | A sect's listed quarry makes the fight non-blind for L4 against that pattern (Combat rule 12) | Needs rule | meta-hunter |
 | incoming-status-stack-cap | Incoming status stack cap | Concept | Caps a status's stacks on the wearer and turns the excess into a bonus (Effects rule 9) | Needs rule | meta-hunter |
-| steady-hand-cluster | Steady Hand (Ổn Thủ) | Cluster idea | Heart State, Metal, sealed by the Ledger Seal; 8 acupoints: leech, curse resistance, art cost, notables Spilled Ink and Spent Blood | Needs key | meta-hunter |
+| steady-hand-cluster | Steady Hand (Ổn Thủ) | Cluster idea | Heart State, Metal, sealed by the Ledger Seal; 8 Dao marks: leech, curse resistance, art cost, notables Spilled Ink and Spent Blood | Needs key | meta-hunter |
 
 ## Reused
 

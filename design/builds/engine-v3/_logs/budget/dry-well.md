@@ -2,7 +2,7 @@
 
 **Claimed share (nguyen_anh, budget 23 %):** 25 % before → 23 % after (`layer_budget`).
 
-**`layers` (L1–L5):** `[160, 0, 250, 0, 0]` → `[160, 0, 230, 0, 0]`. Only L3 (gear) cut, by 20. Reason: the seven items and two techniques already run as Effects, no Meridian Map source is named for the L3 value, and the concept (Ice stacks, drain bills, art speed) needs gear damage least. I measured the slope: L3 150 would claim 13 % and fight almost identically (top_end nguyen_anh+0 61.8 s, 0 wins), so the build has headroom; I took the smallest cut that fits.
+**`layers` (L1–L5):** `[160, 0, 250, 0, 0]` → `[160, 0, 230, 0, 0]`. Only L3 (gear) cut, by 20. Reason: the seven items and two techniques already run as Effects, no Đạo Đồ source is named for the L3 value, and the concept (Ice stacks, drain bills, art speed) needs gear damage least. I measured the slope: L3 150 would claim 13 % and fight almost identically (top_end nguyen_anh+0 61.8 s, 0 wins), so the build has headroom; I took the smallest cut that fits.
 
 **Fights (20 each, `--matrix`):**
 

@@ -8,7 +8,7 @@
 
 ## Node modifiers
 
-The everyday tree nodes: one stat and one number. Values are sized to the Meridian Map's node values, where a small acupoint is 1.2 W, a notable is 8 W and 1 W = +1 % attack. Damage, ward strength, linh lực, health, thần thức, artifact power and formation power follow the registry's `stat_power_weights`; every other number is a first guess, rounded for reading, until the bot measures it. A narrower modifier gets a bigger number, because it only helps some builds.
+The everyday tree nodes: one stat and one number. Values are sized to the Đạo Đồ's node values, where a small Dao mark is 1.2 W, a notable is 8 W and 1 W = +1 % attack. Damage, ward strength, linh lực, health, thần thức, artifact power and formation power follow the registry's `stat_power_weights`; every other number is a first guess, rounded for reading, until the bot measures it. A narrower modifier gets a bigger number, because it only helps some builds.
 
 ### Damage
 

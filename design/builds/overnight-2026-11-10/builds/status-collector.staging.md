@@ -60,7 +60,7 @@
 |---|---|---|---|---|---|
 | status-roster-twelve | Distinct-status roster (the twelve) | Rule table | what counts as one kind: six element debuff families, Bleed, Qi Disruption, Corpse Rot, up to three curses | Needs rule (effects.md Marked Prey "distinct statuses") | status-collector |
 | status-apply-tag | `status_apply` tag | Key | tag on arts that apply a status, scope of Thrifty Brand and the Gourd | Needs key | status-collector |
-| many-hands-cluster | Many Hands (Quần Thủ) | Cluster idea | sealed Wood cluster of 8 acupoints: status chance, duration, Thrifty Brand, art speed; far notables Crowded Ledger and Extra Curse Slot; sealed by the Canon | Needs key | status-collector |
+| many-hands-cluster | Many Hands (Quần Thủ) | Cluster idea | sealed Wood cluster of 8 Dao marks: status chance, duration, Thrifty Brand, art speed; far notables Crowded Ledger and Extra Curse Slot; sealed by the Canon | Needs key | status-collector |
 
 ## Reused
 

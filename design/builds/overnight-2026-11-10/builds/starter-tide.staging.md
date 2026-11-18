@@ -39,7 +39,7 @@
 
 | ID | Name | Kind | What it is | Fit | Used by |
 |---|---|---|---|---|---|
-| full-cistern-cluster | Full Cistern (Mãn Trì) | Cluster idea | Water, sealed by the Canon, 8 acupoints: max linh lực, regeneration, ward efficiency; notables Still Water and a +8 % pool | Needs key | starter-tide |
+| full-cistern-cluster | Full Cistern (Mãn Trì) | Cluster idea | Water, sealed by the Canon, 8 Dao marks: max linh lực, regeneration, ward efficiency; notables Still Water and a +8 % pool | Needs key | starter-tide |
 | pool-share-on-ward | Pool share read by a ward | Key and rule | The ward's drain reads current linh lực share as a condition | Needs rule (combat-defence.md Formulas A) | starter-tide |
 
 ## Reused

@@ -132,17 +132,17 @@ Your shopping list, core first. "Core" makes the gale work; "strong" makes it to
 | Linh lực on hit | Modifier | +0.5 % of maximum per hit, paid 13 times a second: half your income | Tree family notable (+0.29), fan (+0.15), scripture layer 7 (+0.10), Hồi Khí affix | Key in the game (designed); fan, scripture, affix staged | Core |
 | Art cost −50 % | Modifier | Halves every stroke; the cap | Tree notables (−20 [Wind], −13.3), scripture layer 11 (−20) | Key in the game (designed); scripture staged | Core |
 | Slipstream (Thuận Phong) | Effect | Surplus art speed divides each art's cost by up to 3: the bill falls from 15 % to about 6.6 % a second | Phong Đạo Cuồng Phong major; scripture layer 9 | Not in the game yet (staged: slipstream) | Core |
-| Breath Between Blows (Gian Tức) | Effect (keystone) | +7.2 % of maximum linh lực a second (6 firings a pulse): the Kết Đan bill | Meridian Map keystone, Wind land | Not in the game yet (staged: breath-between-blows) | Core at Kết Đan |
+| Breath Between Blows (Gian Tức) | Effect (keystone) | +7.2 % of maximum linh lực a second (6 firings a pulse): the Kết Đan bill | Đạo Đồ keystone, Wind land | Not in the game yet (staged: breath-between-blows) | Core at Kết Đan |
 | Granary-Mother's Fan (Thương Mẫu Phiến) | Modifiers and an Effect | +1 art slot (+2 hits a second), +30 % art speed, +0.15 % linh lực on hit, +6 % leech, Steady Breath | Named artifact | Not in the game yet (staged: winnowing-fan) | Strong |
 | Wind stack effect and duration | Modifier | More art speed per stack (Slipstream) and more evade shred | Phong Đạo Phiêu lines | Key in the game (designed); Way staged | Strong |
 | Light Chaff (Khinh Khang) | Modifier (L2 more, [quick, cheap]) | +60 and +40 ×2 to your thinnest layer | Scripture layer 3; Phong Đạo notables | Not in the game yet (staged: light-chaff) | Strong |
-| Overheat (Quá Nhiệt) | Effect | +30 L5 on every art once compile art speed passes +310 % | Phong Đạo minor, Meridian Map | In the game (designed; not built) | Strong |
-| Glass Meridians (Lưu Ly Kinh Mạch) | Effect (trade) | +40 % art speed for −25 % health | Meridian Map keystone | In the game (designed; not built) | Strong |
+| Overheat (Quá Nhiệt) | Effect | +30 L5 on every art once compile art speed passes +310 % | Phong Đạo minor, Đạo Đồ | In the game (designed; not built) | Strong |
+| Glass Meridians (Lưu Ly Kinh Mạch) | Effect (trade) | +40 % art speed for −25 % health | Đạo Đồ keystone | In the game (designed; not built) | Strong |
 | Eruption (Phún Trào) | Effect | +25 L5 when six arts share one timer | Phong Đạo notable | Not in the game yet (staged: eruption, arts-fired-this-instant) | Strong |
 | Steady Breath (Bình Tức) | Effect | +12 L5 while your pool is half full or more: all fight | The fan | In the game (designed); fan staged | Strong |
 | Health leech | Modifier | Heals a share of a very high damage rate; your main health sustain | Fan (+6), Hấp Huyết affix | Key in the game (designed); fan and affix staged | Strong |
 | Echo (Hồi Âm) and Trigger limit (Dư Hưởng) | Effect and rare cap shift | About 3 more hits a second; a 7th trigger firing a pulse | Echo: Way, technique or item host; Trigger limit: Phong Đạo capstone | Echo in the game (designed); Trigger limit staged | Nice |
-| Still Water (Tĩnh Thủy) | Effect | Surplus linh lực heals at half | Meridian Map keystone | In the game (designed; not built) | Nice |
+| Still Water (Tĩnh Thủy) | Effect | Surplus linh lực heals at half | Đạo Đồ keystone | In the game (designed; not built) | Nice |
 | Threshing Floor (Cốc Trường) region | Modifiers | Art speed, art cost, linh lực on hit +0.19, art speed [quick] +20 | Tree region in the Wind land (an idea for the tree rework) | Not in the game yet (staged: threshing-floor-cluster) | Nice |
 | Nine Rods Array and Iron-Sand Hand Bath | Modifier (L4) | +80 and +50 (Physical arts) in foreseen fights | Formation; coating | Not in the game yet (staged: nine-rods-array, iron-sand-hand-bath) | Nice |
 | Basic attack speed | Modifier | Basic attack every 0.5 s: +1 hit a second | Tree or technique lines | Not in the game yet (staged: basic-attack-speed) | Nice |

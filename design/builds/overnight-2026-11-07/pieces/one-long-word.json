@@ -20,7 +20,7 @@
  ],
  "new": [
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Lingering Word",
    "han_viet": "Dư Ngôn",
    "form": "Increased",
@@ -42,7 +42,7 @@
    "second_home": "any curse build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Sharpened Word",
    "han_viet": "Lợi Ngôn",
    "form": "Increased",
@@ -64,7 +64,7 @@
    "second_home": "any curse build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Quick Tongue",
    "han_viet": "Tấn Thiệt",
    "form": "Increased",
@@ -86,7 +86,7 @@
    "second_home": "any curse build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Thrifty Word",
    "han_viet": "Tiết Ngôn",
    "form": "Increased",
@@ -97,7 +97,7 @@
    "second_home": "any curse build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Marked Target",
    "han_viet": "Tiêu Ký",
    "form": "Per",
@@ -108,7 +108,7 @@
    "second_home": "any curse build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Thinning Ward",
    "han_viet": "Bạc Hộ",
    "form": "Conditional",
@@ -130,7 +130,7 @@
    "second_home": "any one-curse build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Set Jaw",
    "han_viet": "Giảo Nha",
    "form": "More",
@@ -141,7 +141,7 @@
    "second_home": "any one-curse build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "One Thought",
    "han_viet": "Nhất Niệm",
    "form": "Increased",
@@ -185,7 +185,7 @@
    "second_home": "Stand-In, any three-curse build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Nibbling Word",
    "han_viet": "Thực Ngôn",
    "form": "Per",
@@ -207,7 +207,7 @@
    "second_home": "any hit-and-curse build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Small Word",
    "han_viet": "Tiểu Ngôn",
    "form": "Increased",

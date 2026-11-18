@@ -72,7 +72,7 @@ The build's modifiers, in order up the ladder. Sizes on new modifiers are first 
 | 5. Reach | Pressing Mountain (Áp Sơn) | First pulse and every 4th after: the laid formation places Sundered (Physical) | Trigger (Effect) | reach | none | ○ | Trận Đạo Trận Pháp | curse-engine, triple-convert |
 | 5. Reach | Taken Ground (Chiếm Địa) | Where your formation counts, the enemy's L4 counts at most +20 | Rule swap (Effect) | enemy's L4 | L4 | ○ (2026-11-07) | Alarm Array | level-ground, sect arrays |
 | 6. Past the cap | **Overbuilt Walls (Lũy Thặng)** | L4 points your prepared sources bring to slot 1 past 150 → +1 ward strength per 1.5 points, cap +100 | Overflow (Effect) | defence | none | ○ | Trận Đạo Trận Pháp `major`; technique L12 | every build past L4's cap |
-| 6. Past the cap | Formation Within a Formation (Trận Trung Trận) | Your formations may exceed their maximum by 2 levels; those levels cost double upkeep | Cap shift (keystone) | preparation | none | ◐ (Effects GDD) | Meridian Map keystone | every formation user |
+| 6. Past the cap | Formation Within a Formation (Trận Trung Trận) | Your formations may exceed their maximum by 2 levels; those levels cost double upkeep | Cap shift (keystone) | preparation | none | ◐ (Effects GDD) | Đạo Đồ keystone | every formation user |
 | 7. Fuel | Hot Spring Array (Ôn Tuyền Trận) | Linh lực and health regeneration on its ground | Formation | sustain | none | ○ (staging) | Home formation | unkillable, Hot Spring |
 | 7. Fuel | Warm Stone (heal art), `linh_luc_regen_pct` | Refunding heal at 70 % health; tree regeneration | Art; Increased | sustain | none | ○ / ● | Technique; tree | every sustain build |
 | 8. Survival | Hộ Sơn Trận | `defense_pct` +10 a level at home, level 7 with the keystone, × formation power | Formation stat | defence | none | ● (in the game) | Home formation | every abode owner |
@@ -208,7 +208,7 @@ The Threshold Flags were cut from the founder's doorframe by the last disciple, 
 
 ### Hidden cluster idea: Quartermaster's Ledger (Quân Nhu Bạ)
 
-Theme: preparation kept like a household (stores, arrays, pills), wider than this build. Earth affinity. Sealed: the Hearth-Mountain Scripture lists it in `seal_clusters`. Nine acupoints. Smalls: `formation_power_pct` +1.2 (×2), `pill_effect_pct` +1.2 (×2), `dan_doc_resist_pct` +2 (×2, first guess), `formation_upkeep_pct` −8. Notables: `formation_power_pct` +8, and farthest, Talisman stock +1 (the tree catalogue's rare one-off). No capability. An idea for the tree rework, not data.
+Theme: preparation kept like a household (stores, arrays, pills), wider than this build. Earth affinity. Sealed: the Hearth-Mountain Scripture lists it in `seal_clusters`. Nine Dao marks. Smalls: `formation_power_pct` +1.2 (×2), `pill_effect_pct` +1.2 (×2), `dan_doc_resist_pct` +2 (×2, first guess), `formation_upkeep_pct` −8. Notables: `formation_power_pct` +8, and farthest, Talisman stock +1 (the tree catalogue's rare one-off). No capability. An idea for the tree rework, not data.
 
 ## Đạo
 

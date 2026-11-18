@@ -30,9 +30,9 @@ For a second and a half only your basic attack lands. Then two thin hits, and tw
 
 ## The Stack
 
-A walk across the Water sector, 110 nodes, 90 acupoints and 20 notables, 268 W. That is under the quarter of Deity's tree (293 W) that a typical life spends on attack. Sector rows scale with purity, so these sizes assume purity 50 (Meridian Map rule 21's 0.5 + purity/100).
+A walk across the Water sector, 110 nodes, 90 Dao marks and 20 notables, 268 W. That is under the quarter of Deity's tree (293 W) that a typical life spends on attack. Sector rows scale with purity, so these sizes assume purity 50 (Đạo Đồ rule 21's 0.5 + purity/100).
 
-`Take` is acupoints + notables. `Without` is the whole row removed from `variants/one-ladle-mixed.fight.json`: `--without "[id]"`, or the named file. It reads win time, own health, own linh lực, enemy health at t = 3. **The full fight is 4.5 s, 50 %, 28 %, 61 %.**
+`Take` is Dao marks + notables. `Without` is the whole row removed from `variants/one-ladle-mixed.fight.json`: `--without "[id]"`, or the named file. It reads win time, own health, own linh lực, enemy health at t = 3. **The full fight is 4.5 s, 50 %, 28 %, 61 %.**
 
 ### The Water road: both lines walk it
 

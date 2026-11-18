@@ -49,7 +49,7 @@ Three heavy Wood arts every second, far past what any sea could pay. The ward st
 "di_thuc": [{"stat": "graft_cost_share_pct", "per_purity": 1.00}, {"stat": "graft_art_more", "per_purity": 0.50}]
 ```
 
-**Meridian Map.** A graft has no sector of its own. It is a base element with a flag, so its element sector reads `0.5 + purity / 100` exactly as rule 8 says: 1.25 at purity 75, 0.75 at 25. The scale moves as purity falls, so bought acupoints lose value decade by decade. If the root dies the sector reads the absent 0.25, and nothing is refunded. Bridges average as usual. The player watches one arm of the wheel go dim. Roads stay exact.
+**Đạo Đồ.** A graft has no sector of its own. It is a base element with a flag, so its element sector reads `0.5 + purity / 100` exactly as rule 8 says: 1.25 at purity 75, 0.75 at 25. The scale moves as purity falls, so bought Dao marks lose value decade by decade. If the root dies the sector reads the absent 0.25, and nothing is refunded. Bridges average as usual. The player watches one arm of the wheel go dim. Roads stay exact.
 
 **Existing variants.** The graft breaks rule 11 in one place only: it counts as a base element while it lives, so it changes `n_base`, the tier, the pairs and the curve row, and a Fire root given a Metal graft makes Thunder eligible (rule 13's roll). Variants are never lost, so a Thunder formed that way stays when the graft dies, its purity recomputed to the clamp of 1 and its sector at 0.51. Tẩy Tủy Đan works on a graft, when it is the weakest owned element, and does not touch the clock. Linh Căn Quả cannot add an element a graft holds. Mutation Awakening rolls as normal.
 

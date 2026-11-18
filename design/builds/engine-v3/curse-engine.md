@@ -45,7 +45,7 @@ No `--without eff:` test: no item Effect was written (see UNMODELLED).
 
 **What changed in `layers`:** `[330, 0, 150, 80, 0]` became `[310, 0, 0, 80, 0]`. The claimed share of the typical-to-top-end gap fell from 38 % to 22 % (Nascent Soul [Nguyên Anh] budget: 23 %).
 
-**Why:** the 150 points of L3 (gear) were the items' own modifiers, which already run as Effects (`item:<id>`) and through `techniques`, so they were counted twice. L3 was cut to 0. L1 (Meridian Map) was trimmed 330 to 310 to get under the line. L4 keeps the 80 from the Nine Rods formation, the layer the concept (stacking curses) needs most; L2 and L5 were already 0 (Weight of Names and Marked Prey run as Effects on L5).
+**Why:** the 150 points of L3 (gear) were the items' own modifiers, which already run as Effects (`item:<id>`) and through `techniques`, so they were counted twice. L3 was cut to 0. L1 (Đạo Đồ) was trimmed 330 to 310 to get under the line. L4 keeps the 80 from the Nine Rods formation, the layer the concept (stacking curses) needs most; L2 and L5 were already 0 (Weight of Names and Marked Prey run as Effects on L5).
 
 **How the fights moved** (old -> new, mean seconds and wins out of 20):
 

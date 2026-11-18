@@ -21,7 +21,7 @@
  ],
  "new": [
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Sword damage",
    "han_viet": "",
    "form": "Increased",
@@ -47,7 +47,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Crit chance with swords",
    "han_viet": "",
    "form": "Increased",
@@ -73,7 +73,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Crit damage",
    "han_viet": "",
    "form": "Increased",
@@ -99,7 +99,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Accuracy",
    "han_viet": "",
    "form": "Increased",
@@ -125,7 +125,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Realm pierce",
    "han_viet": "",
    "form": "Increased",
@@ -151,7 +151,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward strength",
    "han_viet": "",
    "form": "Increased",
@@ -177,7 +177,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Follow Through",
    "han_viet": "Thuận Thế",
    "form": "Per",
@@ -203,7 +203,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Damage to an enemy with no linh lực",
    "han_viet": "",
    "form": "Conditional",
@@ -229,7 +229,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Flying sword attack",
    "han_viet": "",
    "form": "Increased",
@@ -255,7 +255,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Long Flight",
    "han_viet": "Trường Phi",
    "form": "More",
@@ -281,7 +281,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Steady Thread",
    "han_viet": "Ổn Tuyến",
    "form": "Conditional",
@@ -307,7 +307,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Many Threads",
    "han_viet": "Đa Tuyến",
    "form": "Per",
@@ -320,7 +320,7 @@
    "walked_nodes": 3
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Weapon efficiency",
    "han_viet": "",
    "form": "Increased",
@@ -346,7 +346,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "First firing comes sooner",
    "han_viet": "",
    "form": "Timing",
@@ -372,7 +372,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Sword art speed",
    "han_viet": "",
    "form": "Increased",
@@ -398,7 +398,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Short Edge",
    "han_viet": "Đoản Phong",
    "form": "More",
@@ -424,7 +424,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Spent Breath",
    "han_viet": "Khí Tận",
    "form": "Conditional",
@@ -450,7 +450,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Many Forms",
    "han_viet": "Đa Thức",
    "form": "Per",
@@ -463,7 +463,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Sword art cost",
    "han_viet": "",
    "form": "Increased",
@@ -489,7 +489,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Linh lực regained on a crit",
    "han_viet": "",
    "form": "Trigger",

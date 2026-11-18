@@ -7,7 +7,7 @@ Dark Water Heaven Canon (Huyền Thủy Thiên Kinh). A pure Water root can tran
 
 **Water's linh lực keystone (New, every Water build):** **The Spring Never Fails (Tuyền Bất Kiệt)**: each Water
 stack you hold adds +0.025 pp linh lực regeneration, outside diminishing returns (fitted 2026-11-10, `notes.md` § 9).
-How to create: Meridian Map keystone in the Water land; an Effect reading your Water stack count, payload a flat
+How to create: Đạo Đồ keystone in the Water land; an Effect reading your Water stack count, payload a flat
 regeneration share that Combat Formulas E adds after the diminishing-returns step; closing cost "your maximum linh
 lực from other sources is halved".
 

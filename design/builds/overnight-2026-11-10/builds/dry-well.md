@@ -99,7 +99,7 @@ In the order you will meet them.
 - **Cracked Clay (Nẻ Đất)**: your Cold hits deal +4 more (L5) per 10 of your Ice stacks on the target, up to +20.
   Before the dry point it is your only L5; with Bare Vessel it fills L5's cap exactly. *Not in the game yet (staged:
   cracked-clay).*
-- **Frost Tithe (Sương Thuế)**, an Ice keystone on the meridian map: you gain 9 % of the extra art cost your Ice makes
+- **Frost Tithe (Sương Thuế)**, an Ice keystone on the Đạo Đồ: you gain 9 % of the extra art cost your Ice makes
   them pay. *Not in the game yet (staged: frost-tithe).*
 - **Still Water (Tĩnh Thủy)**: linh lực lost to a full pool heals you at half. When Water Table overfills you in the
   opening, the overflow becomes health. *In the game (designed; not built yet).*
@@ -153,16 +153,16 @@ the game's data yet. Pieces marked "catalogue only" are in the tree modifier cat
 | Cold Depths (Hàn Uyên) | Modifier (+40 "more" on Cold, L2) | The build's L2. Four of them with the scripture give 220 of 300 | Vụ Đạo Hàn Vụ ×3; Băng Đạo (Sương Giá) glimpse ×1 | not in the game yet (staged: cold-depths) | strong |
 | Bare Vessel (Lộ Đỉnh) | Effect | +80 "more" (L5) on your hits once they are under 5 % linh lực: the payoff of the dry point | Vụ Đạo Chìm notable | not in the game yet (earlier build's piece, `design/builds/content-ledger.md`; placed in Vụ Đạo by vu-chim-drowning) | strong |
 | Cracked Clay (Nẻ Đất) | Effect | +4 "more" (L5) per 10 Ice stacks, up to +20, so the hits before the dry point count too. With Bare Vessel it fills L5 exactly | Vụ Đạo Hàn Vụ minor; Băng Đạo Sương Giá minor | not in the game yet (staged: cracked-clay) | strong |
-| Frost Tithe (Sương Thuế) | Effect (keystone) | You gain 9 % of the extra art cost your Ice makes them pay: more fuel in the opening | Meridian Map keystone, Water land's Ice reach | not in the game yet (staged: frost-tithe) | strong |
+| Frost Tithe (Sương Thuế) | Effect (keystone) | You gain 9 % of the extra art cost your Ice makes them pay: more fuel in the opening | Đạo Đồ keystone, Water land's Ice reach | not in the game yet (staged: frost-tithe) | strong |
 | Nine Rods Array (Cửu Can Trận) | Effect from a formation (Ringing Ground, +80 L4) | Half of L4's cap (150) in foreseen fights | Formation, laid before a foreseen fight | not in the game yet (staged: nine-rods-array) | strong |
 | Cold-Marrow Pill (Hàn Tủy Đan) | Modifier (+70 "more" on Cold, L4) | The other half of L4: with the array it reaches the cap | Pill taken before a foreseen fight (an Ice root shrugs off its toxicity) | not in the game yet (staged: cold-marrow-pill) | strong |
 | Owed Water (Thủy Trái) | Effect | Keeps a dry foe dry through its regeneration and pays you half of each repayment; your only income after the dry point | Vụ Đạo Chìm major | not in the game yet (staged: owed-water) | strong |
 | Damage, then Cold damage (`attack_pct`, `attack_pct` [cold]) | Modifier | Fills L1. Aim for about 300 points; past 200 each point counts half | Tree notables (+8 % each, Cold +12 %); Way W; the technique; Cực phẩm needle (Châm) | in the game (the Cold-tagged notables are designed) | strong |
 | Ward strength and ward efficiency (`defense_pct`, `ward_efficiency_pct`) | Modifier | Survives the opening: the drain ward and shields take the first volley. Aim for about +150 and +100 | Tree notables (+8 % each); the Giáp robe; the scripture (+15) | in the game | strong |
 | Mountain Screen and Thousand-Layer Cloud | Effect (reserved shields, about 6,110 points) | Shields that start full, so the opening hits do not need linh lực | Ward slots, Kết Đan (second slot) and Nguyên Anh (third) | in the game (designed in the defence GDD) | strong |
-| Sheathed Blade (Ẩn Phong) | Effect (keystone) | The blades wait ready for the dry point; this makes an art that waited hit harder per second waited | Meridian Map keystone idea | not in the game yet (catalogue only: tree modifier catalogue, Rule-benders) | nice |
+| Sheathed Blade (Ẩn Phong) | Effect (keystone) | The blades wait ready for the dry point; this makes an art that waited hit harder per second waited | Đạo Đồ keystone idea | not in the game yet (catalogue only: tree modifier catalogue, Rule-benders) | nice |
 | Damage to an enemy with no linh lực | Modifier | +15 % on a notable, a second payoff for the dry point | Tree notable | not in the game yet (catalogue only: tree modifier catalogue, Damage) | nice |
-| Spirit Severing (Đoạn Linh) | Effect (keystone) | Your hits also burn their linh lực: a second clock beside the bills | Meridian Map keystone idea | not in the game yet (catalogue only: tree modifier catalogue, Rule-benders) | nice |
+| Spirit Severing (Đoạn Linh) | Effect (keystone) | Your hits also burn their linh lực: a second clock beside the bills | Đạo Đồ keystone idea | not in the game yet (catalogue only: tree modifier catalogue, Rule-benders) | nice |
 | Unyielding Breath (Bất Khuất) | Effect (keystone) | Once a fight, a killing blow leaves you at 1 health: lives through one volley from a foe faster than 1.5 s (the build's main weakness) | Existing keystone | catalogue only (a designed keystone in the tree modifier catalogue, Rule-benders; this guide calls it existing) | nice |
 | Still Water (Tĩnh Thủy) | Effect | Overflow of linh lực in the opening heals you at half | Vụ Đạo or the tree | in the game (designed; not built yet) | nice |
 | Maximum linh lực (`linh_luc_pct`) | Modifier | A bigger own well, since you do not regenerate. The scripture gives 20, the gourd 10 | Tree notables (+8 % each); scripture; gourd | in the game | nice |

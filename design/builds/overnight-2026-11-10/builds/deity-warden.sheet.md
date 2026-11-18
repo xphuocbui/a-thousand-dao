@@ -130,7 +130,7 @@ The Warden's Seal was cut from the vault door itself; the Key is the Seal's miss
 
 ### Hidden cluster idea: Turning Year (Luân Niên)
 
-Theme Tứ Thời Đạo, Metal and Earth affinity, sealed by defeating the Warden. Eight acupoints: ward strength, block, ward efficiency, status resistance in small points; notables: Fast-Art Ward, Lustral Share; capability: swap your ward model once. An idea for the tree rework.
+Theme Tứ Thời Đạo, Metal and Earth affinity, sealed by defeating the Warden. Eight Dao marks: ward strength, block, ward efficiency, status resistance in small points; notables: Fast-Art Ward, Lustral Share; capability: swap your ward model once. An idea for the tree rework.
 
 ## Đạo
 

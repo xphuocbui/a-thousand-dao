@@ -19,14 +19,14 @@ extends RefCounted
 var current_year: int = 0
 
 var _gd: GameData
-var _tree: MeridianTree
+var _tree: DaoDoTree
 var _db: WorldDB
 var _builds: BuildGenerator
 var _items: ItemFactory
 var _used_names: Dictionary = {}
 
 
-func _init(gd: GameData, tree: MeridianTree) -> void:
+func _init(gd: GameData, tree: DaoDoTree) -> void:
 	_gd = gd
 	_tree = tree
 

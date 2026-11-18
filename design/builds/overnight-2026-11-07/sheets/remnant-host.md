@@ -121,7 +121,7 @@ The build slots no arts. Numbers are thần thức used of thần thức held.
 
 ### Hidden cluster idea: Many Threads (Thiên Ti Mạch)
 
-Theme: Divine Sense (`than_thuc`). Metal affinity, outer, sealed. Seal: a technique that lists it, for its `seal_seasons`. Size 10, so two notables. Small acupoints give `than_thuc_pct` and `than_thuc_cost_pct`. Notables: Bare Vessel, then Spare Mind at the far end as the cluster's capability. Anyone who runs many pieces wants it, with or without the banner.
+Theme: Divine Sense (`than_thuc`). Metal affinity, outer, sealed. Seal: a technique that lists it, for its `seal_seasons`. Size 10, so two notables. Small Dao marks give `than_thuc_pct` and `than_thuc_cost_pct`. Notables: Bare Vessel, then Spare Mind at the far end as the cluster's capability. Anyone who runs many pieces wants it, with or without the banner.
 
 ## Đạo
 

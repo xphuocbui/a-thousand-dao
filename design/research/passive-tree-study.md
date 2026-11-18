@@ -1,8 +1,8 @@
 # Passive Tree Study: what makes the PoE trees work
 
-> **Status**: Reference study for the Meridian Map (Kinh Mạch Đồ) rework, 2026-11-08. Requested by the user:
+> **Status**: Reference study for the Đạo Đồ rework, 2026-11-08. Requested by the user:
 > study the PoE 1 and PoE 2 passive trees (connections, pathing, shape) and write down their characteristics
-> before the rework starts. The user prefers the old Kinh Mạch Đồ layout because "it looks more PoE like" and
+> before the rework starts. The user prefers the old Đạo Đồ layout because "it looks more PoE like" and
 > wants it as good as PoE (memory: skill-tree-rework-later).
 > **Viewer**: the "Passive Tree Survey" artifact (https://claude.ai/artifact/BzNDez5fo2xRxKqNrdDJ16) redraws all
 > three trees from data, with shortest paths and point costs on hover.
@@ -64,22 +64,22 @@
 - **PoE 1**: Grinding Gear Games' public tree export (`grindinggear/skilltree-export`, `data.json`, 3.x).
 - **PoE 2**: the 0.5 tree from the Path of Building community (`PathOfBuilding-PoE2`, `src/TreeData/0_5/tree.json`).
 - **Ours**: today's generator output (seed 20261102), exported with `tools/balance/export_tree.gd` and laid out by
-  `tools/meridian-map/build.js`.
+  `tools/dao-do/build.js`.
 - Ascendancies, cluster jewels, Bloodline and other side nodes are left out. PoE 1 masteries are counted
   separately, not as path nodes. "Points" means nodes on the shortest path, ignoring level and quest rules.
 - Our sealed clusters connect through gates that the drawn graph does not include, so about 30 of our notables
   show as unreachable by plain links. That affects only our reach figures.
-- The script is `tools/design/meridian_rework/poe_study/analyse.py`. Run it again on each rework iteration to
+- The script is `tools/design/dao_do_rework/poe_study/analyse.py`. Run it again on each rework iteration to
   measure it against these numbers.
 
 ## Measured side by side
 
-| Measure | PoE 1 | PoE 2 | Kinh Mạch Đồ today |
+| Measure | PoE 1 | PoE 2 | Đạo Đồ today |
 |---|---|---|---|
 | Allocatable nodes | 2,006 | 4,115 | 1,536 |
 | Notables / keystones / jewel sockets | 454 / 48 / 21 | 984 / 33 / 18 | 193 / 19 / 0 |
 | Travel nodes (attribute or road) | 202 (+10 to one attribute) | 326 (+5 to an attribute you pick) | 534 roads |
-| Starts | 7 (6 on a ring + Scion in the centre) | 6 (each shared by two classes) | 1 (Đan Điền) |
+| Starts | 7 (6 on a ring + Scion in the centre) | 6 (each shared by two classes) | 1 (Đạo Nguyên) |
 | Start ring radius (share of the tree's radius) | 0.34 | 0.09–0.13 | centre |
 | Start distance, neighbour / opposite (points) | 12 / 26 | 12 / 30 | — |
 | Nearest keystone from a start | 6–8 | 9–13 | 22 (the centre keystone at 1 left out) |
@@ -159,7 +159,7 @@
 Added at the user's request (2026-11-08): "they scatter a lot of things everywhere, take crit for example, it
 is all over the tree. same as health". A cluster here is a group that holds a notable or keystone. PoE 1's
 themes come from its mastery names (315 of 422 clusters have one). PoE 2's come from the stat text, so they
-are approximate. The script is `tools/design/meridian_rework/poe_study/themes.py`. The viewer's "Where a theme
+are approximate. The script is `tools/design/dao_do_rework/poe_study/themes.py`. The viewer's "Where a theme
 sits" mode shows each theme on the map.
 
 ### Two kinds of theme
@@ -216,7 +216,7 @@ Spread 1.0 means a theme's clusters sit as far apart as clusters in general; low
     only once, so a second Life cluster offers a different Life choice. That is what makes repeating a theme
     around the tree worth taking.
 
-### Applying it to Kinh Mạch Đồ (for discussion)
+### Applying it to Đạo Đồ (for discussion)
 
 - **Our scatter is mechanical.** Each of our 14 themes appears about once per element sector (5 copies, 5
   directions, spread 0.9–1.3), whatever the theme. Universal and identity themes are spread the same way, and no
@@ -241,7 +241,7 @@ Spread 1.0 means a theme's clusters sit as far apart as clusters in general; low
 
 ### Third pass (2026-11-08): start webs, entries, notables per cluster
 
-Measured after the user's review of Metal pilot v4 ("too generated"; `tools/design/meridian_rework/poe_study/study3.py`,
+Measured after the user's review of Metal pilot v4 ("too generated"; `tools/design/dao_do_rework/poe_study/study3.py`,
 `crop2.py`).
 
 23. **Roads join a cluster at its nearest node.** PoE 2: 79 % of links into a cluster land on the cluster's nearest
@@ -262,13 +262,13 @@ Measured after the user's review of Metal pilot v4 ("too generated"; `tools/desi
     Witch: Arcanist's Dominion and Deep Wisdom), and a trident of three notables. Neighbouring clusters reach each
     other through a node or two, so a district reads as one fabric.
 
-Metal pilot v5 (`tools/design/meridian_rework/`) is drawn by hand to these rules, on the original map's layout of
+Metal pilot v5 (`tools/design/dao_do_rework/`) is drawn by hand to these rules, on the original map's layout of
 spokes and rings, which the user preferred over v4's square lattice.
 
 ### Cluster shape audit (2026-11-08)
 
 Every PoE group holding a notable or keystone was sorted by its inner links and their geometry (`tools/design/
-meridian_rework/poe_study/audit.py`, which writes the gallery `audit/gallery.html`). Counts are PoE 2 (621 clusters), with PoE 1 (387) after the
+dao_do_rework/poe_study/audit.py`, which writes the gallery `audit/gallery.html`). Counts are PoE 2 (621 clusters), with PoE 1 (387) after the
 slash.
 
 | Shape | PoE 2 | PoE 1 | Median nodes | What it looks like (examples) |
@@ -300,7 +300,7 @@ slash.
     A small cluster (up to 4 nodes) shares its travel node with a cluster of 6+ nodes 58 % of the time (PoE 1:
     38 %).
 
-## Where today's Kinh Mạch Đồ differs
+## Where today's Đạo Đồ differs
 
 | Ours today | PoE | Likely fix in the rework |
 |---|---|---|

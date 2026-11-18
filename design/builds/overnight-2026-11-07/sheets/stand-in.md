@@ -142,7 +142,7 @@ Slots 4 and 5 stay open at Core Formation, for a talisman or an escape art. Neit
 
 ### Hidden cluster idea: Hundred Ills (Bách Bệnh)
 
-Theme: curses and bad states, on either side of a fight. Wood, outer, sealed by the Sutra, size 9. Small acupoints are curse duration and status resistance. Notables Virulence and one more affliction read. An idea for the tree rework, not data.
+Theme: curses and bad states, on either side of a fight. Wood, outer, sealed by the Sutra, size 9. Small Dao marks are curse duration and status resistance. Notables Virulence and one more affliction read. An idea for the tree rework, not data.
 
 ## Progression
 

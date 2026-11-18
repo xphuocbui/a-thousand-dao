@@ -1,8 +1,8 @@
 class_name Ladder
 extends RefCounted
 ## The cultivation ladder: levels 1-110, realm bands, stages, level costs, the stage multiplier
-## and Kinh Mạch points. Pure functions of data. Design: design/gdd/canh-gioi.md rules 1-6,
-## Formulas A-B; points: design/gdd/kinh-mach-do.md Formulas A.
+## and Đạo Đồ points. Pure functions of data. Design: design/gdd/canh-gioi.md rules 1-6,
+## Formulas A-B; points: design/gdd/dao-do.md Formulas A.
 ##
 ## Usage:
 ## [codeblock]
@@ -99,7 +99,7 @@ static func stage_total_cost(gd: GameData, realm_idx: int, stage: int) -> float:
 	return total
 
 
-## Kinh Mạch Formulas A: points earned by [param level], before event grants. Whole numbers
+## Đạo Đồ Formulas A: points earned by [param level], before event grants. Whole numbers
 ## from data: each realm's great bonus on entry, and its three small bonuses.
 static func points_total(gd: GameData, level: int) -> int:
 	var cfg: Dictionary = gd.ladder()

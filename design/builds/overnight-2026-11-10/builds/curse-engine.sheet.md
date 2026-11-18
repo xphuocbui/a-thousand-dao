@@ -264,7 +264,7 @@ Exposed.
 ### Hidden cluster idea: Nine Knots (Cửu Kết)
 
 Theme: binding and curses, wider than one build (any curse kit, seal arts). Element affinity Metal. Kind: sealed.
-Seal: the Straw-Man Litany Scripture lists it in `seal_clusters`. Size 9 acupoints. Smalls: `curse_effect_pct` +4
+Seal: the Straw-Man Litany Scripture lists it in `seal_clusters`. Size 9 Dao marks. Smalls: `curse_effect_pct` +4
 (×2), `art_speed_pct` [curse] +3 (×2), `art_cost_pct` [curse] −3, status duration [curse] +4 (×2). Notables:
 `curse_effect_pct` +25, and farthest, Tolled Seal (`damage_more` +40 [seal], reused from the content ledger). No
 capability. An idea for the tree rework, not data.

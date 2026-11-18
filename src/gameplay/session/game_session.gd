@@ -28,7 +28,7 @@ const SAVE_VERSION := 3
 const SAVE_VERSIONS_READ := [1, 3]
 
 var gd: GameData
-var tree: MeridianTree
+var tree: DaoDoTree
 var llm: LlmService
 var db: WorldDB
 var rng := RandomNumberGenerator.new()
@@ -84,10 +84,10 @@ var epitaph_text: String = ""
 var _notices: Array = []
 
 
-func _init(game_data: GameData, llm_service: LlmService, meridian_tree: MeridianTree = null) -> void:
+func _init(game_data: GameData, llm_service: LlmService, dao_do_tree: DaoDoTree = null) -> void:
 	gd = game_data
 	llm = llm_service
-	tree = meridian_tree if meridian_tree != null else MeridianTree.generate(gd)
+	tree = dao_do_tree if dao_do_tree != null else DaoDoTree.generate(gd)
 
 
 # --- Life cycle -------------------------------------------------------------------
@@ -431,7 +431,7 @@ func cultivate(seasons: int) -> Dictionary:
 			break
 	_bulk_end()
 	lines.push_front("Tu luyện %d season(s): +%.0f tu vi%s. Now %s (%.0f / %.0f)." % [done, total,
-		(", +%d stage(s), +%d Kinh Mạch points" % [stages, points]) if stages > 0 else "",
+		(", +%d stage(s), +%d Đạo Đồ points" % [stages, points]) if stages > 0 else "",
 		gd.realm_label(player.realm_index, player.stage), player.tu_vi, CultivationRules.level_requirement(player, gd)])
 	if CultivationRules.at_bottleneck(player, gd):
 		lines.insert(1, "  Bình cảnh! Further tu vi is wasted. Use 'breakthrough' (a %s helps greatly)." % str(gd.realm(player.realm_index + 1).entry_requirement.item_tag))
@@ -756,7 +756,7 @@ func use_item(item_id: String, element: String = "") -> Dictionary:
 	if r.ok and float(r.get("tu_vi", 0.0)) > 0.0:
 		var res: Dictionary = CultivationRules.add_tu_vi(player, gd, float(r.tu_vi))
 		if res.stages > 0:
-			lines.append("  Stage up! Now %s (+%d Kinh Mạch points)." % [gd.realm_label(player.realm_index, player.stage), res.tree_points])
+			lines.append("  Stage up! Now %s (+%d Đạo Đồ points)." % [gd.realm_label(player.realm_index, player.stage), res.tree_points])
 		if res.bottleneck:
 			lines.append("  Bình cảnh reached.")
 	sync_player()
@@ -950,7 +950,7 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 			lines.append("Roll %.0f vs %.0f%%." % [res.roll * 100.0, res.chance * 100.0])
 	if res.success:
 		_log("player_breakthrough", {"a": player.id, "realm": next.name})
-		lines.append("*** BREAKTHROUGH! You are now %s. +%d Kinh Mạch points. Lifespan rises to %.0f. ***" % [gd.realm_label(player.realm_index, player.stage), res.points, CultivationRules.lifespan(player, gd, sheet()).total])
+		lines.append("*** BREAKTHROUGH! You are now %s. +%d Đạo Đồ points. Lifespan rises to %.0f. ***" % [gd.realm_label(player.realm_index, player.stage), res.points, CultivationRules.lifespan(player, gd, sheet()).total])
 		lines.append_array(_on_breakthrough_succeeded())
 	else:
 		_log("player_breakthrough_fail", {"a": player.id, "realm": next.name})
@@ -982,7 +982,7 @@ func _on_breakthrough_succeeded() -> Array:
 	return [TreasureEffects.variants_text(gd, player.linh_can, formed).strip_edges()] if not formed.is_empty() else []
 
 
-## Opens a Kinh Mạch Đồ node; with [param walk_path] opens the whole shortest path.
+## Opens a Đạo Đồ node; with [param walk_path] opens the whole shortest path.
 func tree_allocate(node_id: int, walk_path: bool) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1324,7 +1324,7 @@ func load_dict(d: Dictionary) -> Dictionary:
 		CongPhap.migrate_record(rec, db, gd)
 		if old_ladder:
 			# The old map's ids mean nothing on the new map: the points come back unspent.
-			rec["tree_nodes"] = [MeridianTree.ROOT_ID]
+			rec["tree_nodes"] = [DaoDoTree.ROOT_ID]
 			rec["tree_points"] = Ladder.points_total(gd, int(rec.level))
 	_wire()
 	player = Character.from_dict(db.get_record("people", str(d.player_id)))
@@ -1356,7 +1356,7 @@ func _herb_id(what: String) -> String:
 	return what
 
 
-## Uses a Meridian Seal key on the nearest item-sealed cluster the realm allows.
+## Uses a Dao Seal key on the nearest item-sealed cluster the realm allows.
 func _use_seal_key(item_id: String) -> Dictionary:
 	var cid: int = pick_cluster("sealed", "item")
 	if cid < 0:
@@ -1381,7 +1381,7 @@ func _unseal_from_event(kind: String) -> String:
 	return unseal_cluster(sealed_id, "event") if sealed_id >= 0 else ""
 
 
-## Unseals a hidden cluster for the player if its gate allows (Meridian Map rule 9). An open
+## Unseals a hidden cluster for the player if its gate allows (Đạo Đồ rule 9). An open
 ## cluster gets its template fill here, recorded as canonical. Returns the text line.
 func unseal_cluster(cluster_id: int, source: String) -> String:
 	var k: Dictionary = tree.clusters.get(cluster_id, {})
@@ -1394,7 +1394,7 @@ func unseal_cluster(cluster_id: int, source: String) -> String:
 		player.fills[str(cluster_id)] = {"source": "template"}
 	db.log_event(year, season, "cluster_unsealed", "%s khai mở %s." % [player.name, k.name], [player.id], [], [], {"cluster": cluster_id, "source": source})
 	sync_player()
-	return "A hidden cluster opens: %s (%d huyệt, %s)." % [k.name, int(k.size), k.location]
+	return "A hidden cluster opens: %s (%d đạo văn, %s)." % [k.name, int(k.size), k.location]
 
 
 ## The cluster to unseal: rule 10's choice (lowest reach, then lowest id) among clusters of
@@ -1417,7 +1417,7 @@ func pick_cluster(kind: String, seal: String = "") -> int:
 	return best
 
 
-## Technique seals (Meridian Map rule 7): after enough cultivating seasons in the main slot, a
+## Technique seals (Đạo Đồ rule 7): after enough cultivating seasons in the main slot, a
 ## main method opens a technique-sealed cluster of its element. Until sealed clusters are
 ## authored with their own techniques, naming the cluster's element is what "lists" it.
 func _check_technique_seals() -> Array:

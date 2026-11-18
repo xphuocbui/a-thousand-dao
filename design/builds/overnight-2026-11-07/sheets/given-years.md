@@ -125,7 +125,7 @@ All inside the lint (`sheets/given-years.fight.json` prints it). **Description:*
 
 ### Hidden cluster idea: Evening Table (Vãn Thực Mạch)
 
-Theme Longevity, Earth, outer, sealed by event: sit a last season with someone whose lifespan is ending. Size 8, so it gates at Core Formation. Small acupoints: health and `linh_luc_pct`. **Notables:** Short Wick and Nothing to Lose. **Keystone, as the capability on the farthest notable:** The Set Day. An idea for the tree rework, not data.
+Theme Longevity, Earth, outer, sealed by event: sit a last season with someone whose lifespan is ending. Size 8, so it gates at Core Formation. Small Dao marks: health and `linh_luc_pct`. **Notables:** Short Wick and Nothing to Lose. **Keystone, as the capability on the farthest notable:** The Set Day. An idea for the tree rework, not data.
 
 ## Progression
 

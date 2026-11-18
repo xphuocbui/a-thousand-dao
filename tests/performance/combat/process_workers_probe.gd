@@ -38,7 +38,7 @@ func _coordinator(args: PackedStringArray) -> void:
 	gd.file("combat_rankings")["enabled"] = false
 	var llm := LlmService.new(gd)
 	llm.enabled = false
-	var s := GameSession.new(gd, llm, MeridianTree.generate(gd))
+	var s := GameSession.new(gd, llm, DaoDoTree.generate(gd))
 	s.new_game(4242, {"mode": "roll", "name": "P", "gender": "male", "origin": "tan_tu"})
 	s.shutdown()
 	var k := CombatConstants.from_game_data(gd)

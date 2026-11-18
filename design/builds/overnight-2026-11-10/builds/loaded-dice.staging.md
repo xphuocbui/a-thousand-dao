@@ -76,4 +76,4 @@ First-guess numbers throughout. Nothing here is in game data.
 |---|---|---|---|---|---|
 | counted-payout-event | Counted payout (Chi Trả) | New event | A counted meter reaching 1 emits an event Effects and Per modifiers can read (Stacked Meter, Jackpot, Winnings) | Needs rule | loaded-dice |
 | fight-fortune | Fortune in the fight (Khí Vận Chiến) | New key | An in-fight khí vận value that preparation (formation, pill, talisman, artifact) can raise, read by Combat Formulas I and the Loaded Table | Needs key | loaded-dice |
-| gamblers-row | Gambler's Row (Phố Cược) | Cluster idea | Sealed cluster, Thunder/Metal, 9 acupoints: small khí vận, crit chance, crit damage; notable Stacked Meter; seal: win three fights against a higher realm | Needs key | loaded-dice |
+| gamblers-row | Gambler's Row (Phố Cược) | Cluster idea | Sealed cluster, Thunder/Metal, 9 Dao marks: small khí vận, crit chance, crit damage; notable Stacked Meter; seal: win three fights against a higher realm | Needs key | loaded-dice |

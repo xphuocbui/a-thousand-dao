@@ -105,11 +105,11 @@ for k, d in [("crit_chance_pct", "crit chance"), ("crit_damage_pct", "crit damag
     add(src="combat-key", status="Designed", name=d, key=k, text=f"{d} (pct), Combat Parameter keys",
         used_by="combat.md")
 
-# ---------- C. meridian capabilities ----------
-caps = json.load(open(P("assets/data/meridian_capabilities.json"), encoding="utf-8"))["capabilities"]
+# ---------- C. Đạo Đồ capabilities ----------
+caps = json.load(open(P("assets/data/dao_do_capabilities.json"), encoding="utf-8"))["capabilities"]
 for c in caps:
     add(src="capability", status="Live", name=c["name_en"], vi=c["name"], text=c["desc"],
-        kind="rule-bender", key=f"capability #{c['id']} ({c['tier']})", used_by="meridian_capabilities")
+        kind="rule-bender", key=f"capability #{c['id']} ({c['tier']})", used_by="dao_do_capabilities")
 
 # ---------- D. tree catalogue ----------
 for sec, hdr, cells in md_tables(P("design/quick-specs/tree-modifier-catalogue.md")):

@@ -130,7 +130,7 @@ A digestive exercise, written by a palace physician for a prince with a stomach 
 
 ### Hidden cluster idea: High Table (Thượng Tịch)
 
-Theme: defeat, which any duellist or headhunter can want. Earth affinity. Sealed by the Bottomless Sutra's `seal_clusters`. Size 8: small acupoints of Damage and Health, notables Varied Diet, Between Courses and Years at Table, and capability #9 Great Essence-Draining Art on the outermost notable.
+Theme: defeat, which any duellist or headhunter can want. Earth affinity. Sealed by the Bottomless Sutra's `seal_clusters`. Size 8: small Dao marks of Damage and Health, notables Varied Diet, Between Courses and Years at Table, and capability #9 Great Essence-Draining Art on the outermost notable.
 
 ## The Tally Ladder
 

@@ -46,9 +46,9 @@ Sizes on new modifiers are first guesses.
 | Rung | Modifier | Effect | Form | Channel | Layer | Status | Home | Second home |
 |---|---|---|---|---|---|---|---|---|
 | 1 Base | Burn stacks | 2 to 4 stacks per cast, `c_tick` 0.019 per stack | none | tick | none | ● | Arts | any Fire build |
-| 2 Rate | Art speed (Fire tag) | +2 / +4 / +6 % art speed | Increased | art | none | ○ tree row | Tree acupoints | Ninth Bell, any fast-art build |
-| 2 Rate | First firing comes sooner | −4 to −8 % to the first art's wait | Timing | art | none | ○ tree row | Tree acupoints | any opener |
-| 3 Mult L1 | Fire damage, Damage over time | +2 % small nodes, 26 to 55 points by realm | Increased | tick, art | L1 | ○ tree rows | Tree acupoints | any Fire or poison build |
+| 2 Rate | Art speed (Fire tag) | +2 / +4 / +6 % art speed | Increased | art | none | ○ tree row | Tree Dao marks | Ninth Bell, any fast-art build |
+| 2 Rate | First firing comes sooner | −4 to −8 % to the first art's wait | Timing | art | none | ○ tree row | Tree Dao marks | any opener |
+| 3 Mult L1 | Fire damage, Damage over time | +2 % small nodes, 26 to 55 points by realm | Increased | tick, art | L1 | ○ tree rows | Tree Dao marks | any Fire or poison build |
 | 3 Mult L2 | Deep Heat (Nhiệt Thâm) | +0.4 % more Burn tick damage per Burn stack on the target, up to 20 stacks | Per | tick | L2 | ○ new | Công pháp Canon, cluster notable | Wildfire (Wood-Fire) builds, any Burn build |
 | 3 Mult L2 | Technique "more" on Fire arts | +20 points L2 from the Canon at layers | More | art | L2 | ○ | Công pháp | any Fire technique |
 | 3 Mult L3 | Ember Rod, Hạ-phẩm robe | 40 points gear | Flat gear | art, tick | L3 | ● / ○ | Artifacts | any Fire build |
@@ -153,7 +153,7 @@ Empty slots are real: the sect teaches few arts and leaves room for a talisman o
 
 ### Hidden cluster idea: Hearth Keeper's Line (Lô Thủ Mạch)
 
-Theme: Fire, an open cluster in the Fire land. Seven acupoints: three small Fire-damage/DoT points, two Fire art cost, one regeneration, then a notable (Deep Heat) and the keystone Embers Feed the Hearth farthest from the entry. No capability. An idea for the tree rework, not data.
+Theme: Fire, an open cluster in the Fire land. Seven Dao marks: three small Fire-damage/DoT points, two Fire art cost, one regeneration, then a notable (Deep Heat) and the keystone Embers Feed the Hearth farthest from the entry. No capability. An idea for the tree rework, not data.
 
 ## Đạo
 

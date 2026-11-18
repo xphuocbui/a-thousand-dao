@@ -160,7 +160,7 @@ The Seal's history: it was a counting-board lid, burned black at one corner wher
 
 ### Hidden cluster idea: Steady Hand (Ổn Thủ)
 
-Theme: Heart State (the Hall teaches a stilled hand). Element affinity: Metal. Kind: sealed. Seal condition: an item, the Ledger Seal, or the technique listing it in `seal_clusters`. Size: 8 acupoints: small acupoints of leech, status resistance against curses and art cost; a notable "Spilled Ink" (Overflow); a notable "Spent Blood" (Per, cap +40); no capability. An idea for the tree rework, not data.
+Theme: Heart State (the Hall teaches a stilled hand). Element affinity: Metal. Kind: sealed. Seal condition: an item, the Ledger Seal, or the technique listing it in `seal_clusters`. Size: 8 Dao marks: small Dao marks of leech, status resistance against curses and art cost; a notable "Spilled Ink" (Overflow); a notable "Spent Blood" (Per, cap +40); no capability. An idea for the tree rework, not data.
 
 ## Đạo
 

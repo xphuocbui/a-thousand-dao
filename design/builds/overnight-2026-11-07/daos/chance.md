@@ -111,7 +111,7 @@ A character owns one. Each is T3 with a 4 W line, 34 W. No cap moves. Slip uses 
 
 ## Lint (Formulas D1), First Guess
 
-Priced by Meridian Map F1: `khi_van` 5 W. `evade_pct` and `status_resist_pct` are not in F1, so they are priced from the catalogue's notable sizes at 8 W: +2.5 is 3.2 W a point, +6 is 1.33 W a point. Passives and arts use `credit(T)`, which is itself a *guess*, and every branch rests on unpriced modifiers, so all sums below are first guesses. V̄ 12.42.
+Priced by Đạo Đồ F1: `khi_van` 5 W. `evade_pct` and `status_resist_pct` are not in F1, so they are priced from the catalogue's notable sizes at 8 W: +2.5 is 3.2 W a point, +6 is 1.33 W a point. Passives and arts use `credit(T)`, which is itself a *guess*, and every branch rests on unpriced modifiers, so all sums below are first guesses. V̄ 12.42.
 
 | Part | Check | Sum | Band | Result |
 |---|---|---|---|---|

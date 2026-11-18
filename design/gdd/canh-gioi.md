@@ -35,7 +35,7 @@ grouped into five realms, from Qi Refining (Luyện Khí) through Foundation Est
 (Hóa Thần). Each season the character cultivates, which fills a cultivation base (tu vi)
 bar at a rate shaped by spiritual root (linh căn), cultivation technique (công pháp),
 comprehension (ngộ tính), local spiritual qi (linh khí) and pill toxicity (đan độc). A full
-bar raises the level. Every level pays a Meridian Map (Kinh Mạch Đồ) point, and the small
+bar raises the level. Every level pays a Đạo Đồ point, and the small
 breakthroughs inside a realm (the middle stage, the late stage and great perfection:
 trung kỳ, hậu kỳ, đại viên mãn) raise stats and pay bonus points. Great breakthroughs pay
 the largest sums, so points arrive mostly at the moments that matter. At the top of each realm
@@ -97,9 +97,9 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
      the season changes the curve factor from the next season.
    - When the bar reaches the current level's cost, the level rises and the surplus
      carries over; several levels can rise in one season. Costs are data (Formulas).
-4. **Level reward.** Each level gained pays 1 Meridian Map point. Breakthroughs pay far
+4. **Level reward.** Each level gained pays 1 Đạo Đồ point. Breakthroughs pay far
    more (rules 5 and 9): a level is steady progress, and a breakthrough is the payoff.
-   Points are a pure function of the highest level reached (the Meridian Map's Formulas
+   Points are a pure function of the highest level reached (the Đạo Đồ's Formulas
    A), so climbing adds them directly. `add_tu_vi` returns what happened as a value:
    `levels_gained` (levels above the highest reached) and `stages_reached` (stages
    entered), and its caller feeds the log and UI from that. Only `breakthrough_succeeded`
@@ -111,7 +111,7 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
 5. **Small breakthroughs.** Reaching the middle stage, the late stage or great perfection
    of any realm is a small breakthrough. It needs no roll and no item: it happens as the
    level is reached. It pays that stage's `small_breakthrough_bonus` (Parameter keys; the
-   Meridian Map owns the arithmetic) and raises stats (rule 6).
+   Đạo Đồ owns the arithmetic) and raises stats (rule 6).
 6. **Stat rise.** Spiritual power (linh lực), divine sense (thần thức), vitality (khí
    huyết) and the realm term of combat power (chiến lực) equal the realm's base × a stage
    multiplier. The multiplier is 1.0 in the early stage and rises by `stage_power_step` at
@@ -138,7 +138,7 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
    - **Pill attempt** (the pill is held and the condition is met): the entry pill's
      chance, plus:
      - the **q extras**: pill quality, comprehension, Dao heart, the tree's breakthrough
-       chance (after the Meridian Map's curve, `tree_breakthrough_k` 8 pp, Formulas F there, which shapes
+       chance (after the Đạo Đồ's curve, `tree_breakthrough_k` 8 pp, Formulas F there, which shapes
        the tree's own contribution only), a Dao stat line's breakthrough chance (the Way,
        `dao.md` rule 4: counted here, outside the tree's curve) and item and event
        bonuses (fortuitous encounters [cơ duyên]). Their sum is capped character-wide at
@@ -170,7 +170,7 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
    - **Capability #13 Endless Talismans** (30 % chance a used talisman is not consumed):
      a talisman it keeps still counts as used this step.
    - **Gift pills.** A talisman may go on an attempt with a gift or bought pill.
-   - **With #22.** The Meridian Map's q_desp is computed from the attempt's chance without
+   - **With #22.** The Đạo Đồ's q_desp is computed from the attempt's chance without
      τ, using its Formulas E2 guard with the talisman term: when a talisman is on the
      attempt, the guard's #22 term uses (1 − q − τ) instead of (1 − q). τ is then added to
      that attempt. So the lift stays at δ_max (Open Question 16, answered 2026-11-04).
@@ -273,15 +273,15 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
       kills at once, before the season's cultivation.
 15. **The top.** At level 110 there is no next realm, so there is no bottleneck and the
     bar stops. What lies beyond Deity Transformation is deferred (the same open question as
-    in the Meridian Map GDD).
+    in the Đạo Đồ GDD).
 
-**Capability hooks hosted here** (catalogue in the Meridian Map GDD)
+**Capability hooks hosted here** (catalogue in the Đạo Đồ GDD)
 
 16. **#9 Great Essence-Draining Art (Hấp Tinh Đại Pháp):** knocking out a cultivator adds
     cultivation base equal to 5 % of the total cost of the current stage. Combat reports
     the knockout, and the heart demon +2 goes through Character Stats.
 17. **#22 Last Radiance (Hồi Quang Phản Chiếu):** with under 5 years of lifespan left, one
-    pill attempt per realm uses the raised chance q_desp (the Meridian Map GDD, Formulas E2).
+    pill attempt per realm uses the raised chance q_desp (the Đạo Đồ GDD, Formulas E2).
     At the last two gates E2 works on suppressed values (Formulas H).
 18. **#23 Burning Life to Break Through (Thiêu Thọ Phá Cảnh):** after a failed pill attempt, once
     per realm, the character may burn burn_cost years (the greater of 10 and 5 % of the
@@ -298,7 +298,7 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
     At most one of #22 and #23 acts per realm step.
     The extra roll counts as a pill attempt for failure insight (rule 10): its chance
     includes the step's insight, including the +0.02 the failed attempt just added, and
-    its failure adds insight to later attempts. The Meridian Map's E2 counts that later
+    its failure adds insight to later attempts. The Đạo Đồ's E2 counts that later
     insight in its guard: q_retry = min(q, (δ_max − ι) ÷ (1 − S)), where ι is the insight
     the roll's failure would add (f × 0.02, or 0 at the cap), so the lift stays at δ_max
     (user decision 2026-11-04; Formulas H, Open Question 17).
@@ -331,7 +331,7 @@ Small breakthroughs are events inside Climbing, not states.
 
 ### Interactions with Other Systems
 
-Character Stats, Spiritual Roots, Cultivation Techniques, the Meridian Map, the Item Database, the Way, Combat (with
+Character Stats, Spiritual Roots, Cultivation Techniques, the Đạo Đồ, the Item Database, the Way, Combat (with
 its sub-systems), the Modifier and Effects Systems, Heavenly Tribulation and Quests have GDDs. Time & Turn and the
 other systems below have none yet, so their interfaces are provisional.
 
@@ -341,7 +341,7 @@ other systems below have none yet, so their interfaces are provisional.
 | Spiritual Roots (Linh Căn) | in / out | in: the effective element count `n_eff` (innate variants count, derived ones do not) and the curve factor, looked up by realm and stage, and the per-element purity of Earth, Wood and Fire (uncapped) for plots, growth and brew success. Out: the `breakthrough_succeeded` event (player only, rule 9), which triggers Mutation Awakening (its rule 10; capability #24) | Spiritual Roots (the curve, the roll); this GDD (the event) |
 | Time & Turn | in / out | in: seasons, age, death by old age; out: the bottleneck state and the ripening year of the next brew, for a one-click "retreat until ripe" (cross-GDD review 04g, F2; Open Question 18) | Time & Turn |
 | Item DB | in | breakthrough pills (the realm's entry pill tag and quality), breakthrough talismans (consumed) | Item DB |
-| Meridian Map (Kinh Mạch Đồ) | out | the highest level reached (points are a function of it, rule 4), the `breakthrough_succeeded` event, and the ladder constants (bands, `great_breakthrough_bonus`, `small_breakthrough_bonus`), which this GDD owns | Meridian Map (point arithmetic); this GDD (the ladder and its constants) |
+| Đạo Đồ | out | the highest level reached (points are a function of it, rule 4), the `breakthrough_succeeded` event, and the ladder constants (bands, `great_breakthrough_bonus`, `small_breakthrough_bonus`), which this GDD owns | Đạo Đồ (point arithmetic); this GDD (the ladder and its constants) |
 | Cultivation Techniques (Công Pháp) | in / out | in: technique speed in the rate; out: the realm for the tier cap | Cultivation Techniques |
 | Progression Edges | in | perks, talismans and fortuitous encounters as attempt bonuses; the NPC edge score e | Progression Edges (the edges); this GDD (where they plug in) |
 | Event Engine | out / in | out: the bottleneck flag (raises event chance and unlocks protagonist-only templates), realm-keyed budgets; in: events that grant cultivation base | Event Engine |
@@ -487,7 +487,7 @@ attempts made earlier in the realm step, #23's extra roll included (rule 10).
 | k_q·rank | float | 0–0.075 | data file | Pill quality, 0.015 per grade |
 | k_n·ngo | float | 0–0.075 | data file | Comprehension (ngộ tính), 0.0005 per point; pill attempts only |
 | k_d·dao | float | 0–0.025 | data file | Dao heart (đạo tâm), 0.00025 per point; pill attempts only |
-| q_tree | float | 0+ (0.0555 at 8 pp of lines, 0.0879 at 16) | calculated (Meridian Map) | The tree's breakthrough chance after the Meridian Map's curve (`tree_breakthrough_k` 8 pp), then counted under X_q |
+| q_tree | float | 0+ (0.0555 at 8 pp of lines, 0.0879 at 16) | calculated (Đạo Đồ) | The tree's breakthrough chance after the Đạo Đồ's curve (`tree_breakthrough_k` 8 pp), then counted under X_q |
 | q_way | float | 0+ | calculated (the Way) | Breakthrough odds from the Way's Effects (`dao.md` rule 4), outside X_q (review D3); each has a bot fixture |
 | q_event | float | 0+ | calculated | Item and event bonuses (fortuitous encounters), the Primordial Chaos root variant's `breakthrough_chance` (Spiritual Roots Formulas E) and any Dao node's `breakthrough_chance` (`dao.md` rule 4), counted under X_q |
 | X_q | float | 0.10 | data file (`breakthrough.q_extras_ceiling_pp`, 10) | Character-wide ceiling on the summed q extras (**new** 2026-11-04, cross-GDD review 04g, F14). Sized in the entry-age model so a fully built life with no edge stays at or below about 0.55 per gate (Formulas E) |
@@ -559,7 +559,7 @@ The npc_fate formula is defined as:
 | base_g | float | 0.123 / 0.078 / 0.059 / 0.032 | data file (`npc.gate_steps`) | Fate at e = 0, solved for the arrival targets |
 | max_g | float | 0.70 / 0.70 / 0.30 / 0.20 | data file (`npc.gate_steps`) | Fate at e ≥ 1, equal to the player's edge target |
 | k_g | float | 6 at every gate | data file (`npc.gate_steps`, `edge_power`) | Edge power. Most of an edge's value comes near e = 1 (*guess*) |
-| p_add | float | 0–0.15 | calculated (Meridian Map Formulas G) | The sum of the held capabilities' `p_step_add` (#6, #22 and #23, 0.05 each). Effect on the mean is under 0.001 |
+| p_add | float | 0–0.15 | calculated (Đạo Đồ Formulas G) | The sum of the held capabilities' `p_step_add` (#6, #22 and #23, 0.05 each). Effect on the mean is under 0.001 |
 | p_step | float | 0.032–0.70 | calculated | The NPC's chance to be fated at this gate |
 
 **Output Range:** 0.123–0.70, 0.078–0.70, 0.059–0.30 and 0.032–0.20 at the four gates. The
@@ -925,7 +925,7 @@ about 0.85, which is what the q-extras ceiling was sized for (Formulas C; cross-
   - Plots are used at best play (Formulas D's plant order, the Advisor's plant plan); no
     Diên Thọ Đan.
 - **What a life can add on top.**
-  - #22 or #23: up to the Meridian Map guard's +0.10 (with #23's failure-insight term,
+  - #22 or #23: up to the Đạo Đồ guard's +0.10 (with #23's failure-insight term,
     Formulas H).
   - The realm step's talisman: about +0.04 (0.30 → 0.34).
   - A tree that maximises its 8 pp: about +0.08 (0.30 → 0.37–0.39); the q-extras ceiling
@@ -1022,7 +1022,7 @@ The heart_demon_per_failure formula is defined as:
 | NS: heart demon | `nascent_tam_ma_max` | 20 (user decision) | One failure (+15) still allows the next attempt. Two quick failures (about 30) force a 10-year wait or a calming pill (Tĩnh Tâm Đan, −25). Kills add no heart demon (Character Stats), so it tests failed breakthroughs, events and capability #9 across the realm |
 | DT: insight | `condition.type` "insight" | kept once gained (user decision) | One enlightenment event unlocks every later attempt in that realm step, so supply (B) is not limited by insights |
 
-### H. Guard hook (for the Meridian Map's Formulas E2)
+### H. Guard hook (for the Đạo Đồ's Formulas E2)
 
 The guard_success formula is defined as:
 
@@ -1033,7 +1033,7 @@ The guard_success formula is defined as:
 |----------|------|-------|--------|-------------|
 | q_i | float | 0.01–0.95 | calculated | q_pill of each pill attempt made this realm step, plus one per held pill whose condition is met now; bare attempts excluded. An attempt made counts its q_pill including τ if a talisman was on it, and including the failure insight it carried; a held pill counts without τ, at the step's current failure insight. Insight only grows within a step, so a held pill's real attempt is at least that good. Leaving τ out of held pills keeps S_guard a lower bound (cross-GDD review 04g, C11 and F13) |
 | s_max | float | 0.95 | data file (`guard.s_max`) | Cap that keeps 1 − S away from 0 |
-| S_guard | float | 0–0.95 | calculated | Lower bound on the unknown S, used in place of S in the Meridian Map's E2 |
+| S_guard | float | 0–0.95 | calculated | Lower bound on the unknown S, used in place of S in the Đạo Đồ's E2 |
 
 **Output Range:** 0–0.95. Future pills only raise the true S, so using a lower bound can
 only shrink capabilities #22 and #23's lift: the +0.10 guard holds by construction. The
@@ -1044,12 +1044,12 @@ Question 17, answered). The extra roll's chance includes the step's insight, and
 failure adds +0.02 to the next pill attempt. That later insight is outside the roll's own
 lift, so with E2's earlier q_retry = min(q, δ_max ÷ (1 − S)) the lift could reach 0.1009
 at the CF→NS baseline (one failed attempt, one held pill) and 0.111 at q 0.30. The
-Meridian Map's E2 now uses `q_retry = min(q, (δ_max − ι) ÷ (1 − S))`, where ι is the
+Đạo Đồ's E2 now uses `q_retry = min(q, (δ_max − ι) ÷ (1 − S))`, where ι is the
 insight the roll's failure would add (f × 0.02, or 0 at the cap). The insight term adds at
 most ι, so the lift stays at or below δ_max by construction (0.097 and 0.092 in those
 cases). q is the extra roll's own chance, without τ.
 
-**At the last two gates** every value in this section and in the Meridian Map's E2 is after
+**At the last two gates** every value in this section and in the Đạo Đồ's E2 is after
 heavenly suppression (user decision 2026-11-05): q and S_guard use suppressed chances, the
 talisman's part is τ_a = f · τ, and the insight is ι = f · ι_pp. E2's 2q term then holds the
 lift to about +0.06 at CF→NS and +0.04 at NS→DT, well under δ_max.
@@ -1104,7 +1104,7 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
   - `condition`: FE null; CF `{type: "density_min", value: 1.4}`; NS
     `{type: "tam_ma_max", value: 20}`; DT `{type: "insight", consumed: false}`.
 - Removed: `tu_vi_required` (replaced by the cost curve) and `tree_points_per_stage` (the
-  Meridian Map owns points).
+  Đạo Đồ owns points).
 
 **`cultivation_realms.json`, global:**
 - `level_cap` 110.
@@ -1127,16 +1127,16 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
   the values of `vitality_floor` and `tam_ma_natural_decay`; Character Stats reads them
   (Open Question 11).
 
-**`cultivation_realms.json`, ladder constants owned here (the Meridian Map reads them):**
+**`cultivation_realms.json`, ladder constants owned here (the Đạo Đồ reads them):**
 - `bare_attempt_cap` 3 (bare attempts per realm step).
-- Read from the Meridian Map: `tree_breakthrough_k` 8 pp (the curve scale on the tree's share of
-  `breakthrough_chance`, Meridian Map Formulas F; replaced the 8 pp cap 2026-11-10).
+- Read from the Đạo Đồ: `tree_breakthrough_k` 8 pp (the curve scale on the tree's share of
+  `breakthrough_chance`, Đạo Đồ Formulas F; replaced the 8 pp cap 2026-11-10).
 - `great_breakthrough_bonus` 30 / 40 / 61 / 100 (Foundation Establishment, Core Formation, Nascent Soul, Deity Transformation; paid in full on success, rule 9). With the entry level's own point, the jumps are +31 / +41 / +62 / +101.
-- `small_breakthrough_bonus`, per realm, for the middle stage, late stage and great perfection: QR 13 / 13 / 14, FE 3 / 3 / 3, CF 5 / 5 / 6, NS 20 / 20 / 20, DT 33 / 33 / 33 (**new** 2026-11-05; replaces `pct_trung`, `pct_hau` and `pct_dai`). Sized so the points at great perfection stay 51 / 120 / 216 / 357 / 566, the totals the Meridian Map's acupoint values are built on (its Formulas A2). FE and CF pay little here because their many levels carry those realms' points.
+- `small_breakthrough_bonus`, per realm, for the middle stage, late stage and great perfection: QR 13 / 13 / 14, FE 3 / 3 / 3, CF 5 / 5 / 6, NS 20 / 20 / 20, DT 33 / 33 / 33 (**new** 2026-11-05; replaces `pct_trung`, `pct_hau` and `pct_dai`). Sized so the points at great perfection stay 51 / 120 / 216 / 357 / 566, the totals the Đạo Đồ's Dao mark values are built on (its Formulas A2). FE and CF pay little here because their many levels carry those realms' points.
 
 **Other files:**
 - `character_attributes.json`: `tam_ma_natural_decay` 0.25.
-- `character_edges.json`: new `npc.gate_steps`, four `{base, max, edge_power}` entries (Formulas C2). `npc.base_step` and `npc.max_step` stay as the Meridian Map's edge curve (its Formulas G).
+- `character_edges.json`: new `npc.gate_steps`, four `{base, max, edge_power}` entries (Formulas C2). `npc.base_step` and `npc.max_step` stay as the Đạo Đồ's edge curve (its Formulas G).
 - `world_generation.json`: new `people.world_cultivators` 5,000 and `people.world_cultivators_min` 3,000, `realm_distribution` becomes the settled shares of about 79 / 17 / 4 / 0.5 / 0.06 % (**change**, was 55 / 28 / 12 / 4 / 1; Open Question 21).
 - `character_edges.json`: new `npc.intake_sect_share` 0.9 (the share of new cultivators who join a sect) and `npc.intake_rank_shares` (elder 0.06, inner 0.30, the rest outer; a new cultivator is never a leader).
 - `cultivation_realms.json`, `cultivation` block: `closed_door_efficiency` 1.2 (rule 3).
@@ -1185,7 +1185,7 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
     level if the character is already in the early stage;
   - it never crosses a realm boundary;
   - the bar resets to 0 and the stage multiplier is recomputed;
-  - points already earned are kept, because the Meridian Map counts the highest level
+  - points already earned are kept, because the Đạo Đồ counts the highest level
     reached.
 - **If a slow root cannot reach the bottleneck before its lifespan ends:** that is a valid
   outcome, not a bug. The Advisor shows the estimated years to the bottleneck against the
@@ -1301,7 +1301,7 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
 - **If a save holds the old stage ladder (realm, stage, cultivation base in the stage):**
   - it migrates to level = the first level of the matching stage + ⌊(cultivation base
     fraction) × the stage's levels⌋, and the bar restarts at 0;
-  - the old map's acupoint ids mean nothing on the new map, so the map resets to its root
+  - the old map's Dao mark ids mean nothing on the new map, so the map resets to its root
     and every point comes back unspent: points_total at the new level;
   - a level past the realm's last is clamped to great perfection; only a full last stage
     keeps a full bottleneck bar, and every other save at great perfection has bar 0;
@@ -1320,7 +1320,7 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
 > **Power Rankings (#44, 2026-11-14)** reads realm, stage and `power_base` for its anchors, provisional ratings and power number (`design/gdd/power-rankings.md` Formulas A, E, G). A breakthrough makes the fighter Provisional at the new realm until its panel runs.
 
 Spiritual Roots (`linh-can.md`), Character Stats (`character-stats.md`), Cultivation
-Techniques (`cong-phap.md`) and the Meridian Map (Kinh Mạch Đồ, `kinh-mach-do.md`) have
+Techniques (`cong-phap.md`) and the Đạo Đồ (Đạo Đồ, `dao-do.md`) have
 GDDs among the systems below, and each lists Realms & Bottlenecks. Every other interface is provisional. When each remaining GDD is
 written, it must list Realms & Bottlenecks in its own Dependencies section.
 
@@ -1350,7 +1350,7 @@ written, it must list Realms & Bottlenecks in its own Dependencies section.
 
 | # | System | What it takes |
 |---|---|---|
-| 10 | Meridian Map | The highest level reached (rule 4) and the `breakthrough_succeeded` event; the ladder constants; S_guard for its guard (E2). Rule 8 consumes Formulas E2's q_desp with τ_a (#22 on a talisman attempt); E2's q includes the step's failure insight, and its q_retry subtracts the insight #23's failed roll would add (Formulas H) |
+| 10 | Đạo Đồ | The highest level reached (rule 4) and the `breakthrough_succeeded` event; the ladder constants; S_guard for its guard (E2). Rule 8 consumes Formulas E2's q_desp with τ_a (#22 on a talisman attempt); E2's q includes the step's failure insight, and its q_retry subtracts the insight #23's failed roll would add (Formulas H) |
 | 6 | Spiritual Roots (Linh Căn) | The `breakthrough_succeeded` event, for Mutation Awakening (its rule 10). Spiritual Roots is also upstream (the curve); the event breaks the cycle, since neither system calls the other |
 | 21 | Combat | The combat power realm term (realm base × stage multiplier) and the realm gap; it reports knockouts for capability #9 and the result of a tribulation |
 | 22 | Heavenly Tribulation | The hand-off after a successful Deity Transformation roll |
@@ -1418,9 +1418,9 @@ other numbers in this GDD; ranges marked *guess* wait for a bot run.
 | Breakthrough recipe main herb `min_age` and qty (Item DB): ginseng, Kim Tủy Quả, NS herb, DT herb | 40 / 42 / 60 / 100 years at qty 2 / 2 / 4 / 4, with companions at 10 / 18 / 10 / 80 (**change** after 04g, F2: NS and DT were 2 × 130 + 40 and 2 × 230 + 80; 04f was 40 / 50 / 100 / 200) | QR→FE 36–46, FE→CF 38–44, CF→NS 55–65, NS→DT 95–110 (*derived* in the entry-age model at today's `pill_chance`: mean success 0.31–0.28, 0.33–0.28, 0.33–0.28 and 0.31–0.28; all inside the brew guarantee's 46 / 46 / 82 / 141, Formulas D). Steps are uneven: QR→FE drops from 0.28 at 46 to 0.24 at 47, and FE→CF from 0.28 at 44 to 0.26 at 47 | **The coarse baseline lever**: moves B in whole brews, so it shifts the per-element-count steps; gift pills ignore it, so it moves the baseline more than the edge |
 | Fortuitous encounter weights (Progression Edges) | favour pills and herbs at age | enough for about 1.2–1.4 gift pills per gate (after 04g) | The edge's 0.70 |
 | `bare_attempt_cap` | 3 | 2–5, jointly with `base_chance` under the same 0.03 limit (see the row above) | How much a patient life can add from bare attempts |
-| `great_breakthrough_bonus`, `small_breakthrough_bonus` | 30 / 40 / 61 / 100, and per realm QR 13 / 13 / 14, FE 3 / 3 / 3, CF 5 / 5 / 6, NS 20 / 20 / 20, DT 33 / 33 / 33 | Move points between them freely, as long as the great perfection totals stay 51 / 120 / 216 / 357 / 566; changing those totals needs a Meridian Map value retune (its Formulas A2) | How much of a realm's points land on the great breakthrough |
+| `great_breakthrough_bonus`, `small_breakthrough_bonus` | 30 / 40 / 61 / 100, and per realm QR 13 / 13 / 14, FE 3 / 3 / 3, CF 5 / 5 / 6, NS 20 / 20 / 20, DT 33 / 33 / 33 | Move points between them freely, as long as the great perfection totals stay 51 / 120 / 216 / 357 / 566; changing those totals needs a Đạo Đồ value retune (its Formulas A2) | How much of a realm's points land on the great breakthrough |
 | `chance_min`, `chance_max` | 0.01, 0.95 | fixed: the guard's s_max needs 0.95 | Clamp on pill attempts |
-| `guard.s_max` | 0.95 | fixed; must equal `chance_max` (the Meridian Map calls the same value `q_max`) | Keeps the Meridian Map's guard finite |
+| `guard.s_max` | 0.95 | fixed; must equal `chance_max` (the Đạo Đồ calls the same value `q_max`) | Keeps the Đạo Đồ's guard finite |
 
 ## Visual/Audio Requirements
 
@@ -1486,7 +1486,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | Document | Relationship |
 |---|---|
 | `design/gdd/game-concept.md` | Realm Ladder, Character Stats (draft formulas, heart demon, Dao heart) and Pillars 2–4 |
-| `design/gdd/kinh-mach-do.md` | Points arithmetic (Formulas A), the breakthrough guard (E2, which now takes S_guard from Formulas H here), and capabilities #9, #22 and #23 hosted here; the ladder constants it reads (bonuses, shares) are owned and registered here |
+| `design/gdd/dao-do.md` | Points arithmetic (Formulas A), the breakthrough guard (E2, which now takes S_guard from Formulas H here), and capabilities #9, #22 and #23 hosted here; the ladder constants it reads (bonuses, shares) are owned and registered here |
 | `design/gdd/linh-can.md` | The element-count curve (Formulas B), the generating-pair speed bonus (Formulas C), Mutation Awakening on `breakthrough_succeeded` (rule 10), and the birth mix the 0.30 / 0.70 targets average over (Formulas A) |
 | `design/gdd/character-stats.md` | The stat sheet (`cultivation_speed_pct` stacking, Formulas I), the comprehension factor (Formulas J), the bonus ceilings and lifespan bonus (rule 14, Formulas I), comprehension, Dao heart, heart demon and vitality keys shared with this GDD |
 | `design/gdd/cong-phap.md` | Technique speed `tech` in the rate (Formulas A, including the tier cap and crude floor), slot-dependent bonuses (rule 12) that rule 14's confirmation covers, and the breakthrough-preview ×0.25 warning |
@@ -1790,7 +1790,7 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - At great perfection it uses the bottleneck bar; when Capped it adds 0.
   - [Integration] The heart demon +2 arrives through Character Stats.
 - **AC-CG-48** [Logic] Rule 17, #22.
-  - With 4.75 years left the next pill attempt uses q_desp (from the Meridian Map); with
+  - With 4.75 years left the next pill attempt uses q_desp (from the Đạo Đồ); with
     5.00 years left it does not.
   - A bare attempt neither uses nor spends it.
   - It applies once per realm step and never on a step where #23 was used.
@@ -1817,7 +1817,7 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 
 **Cross-system contracts**
 
-- **AC-CG-51** [Integration] The contract with the Meridian Map and Spiritual Roots.
+- **AC-CG-51** [Integration] The contract with the Đạo Đồ and Spiritual Roots.
   - `add_tu_vi` returns `levels_gained` (each new highest level, ascending) and
     `stages_reached` (each stage entered), and the points they paid.
   - After a stage loss, re-climbing returns no `levels_gained` and pays no points;
@@ -1826,7 +1826,7 @@ Drafted with `qa-lead`, which recomputed every GDD number.
     none on a failure, a bare failure or a stage loss.
   - A fated NPC's stage advance or breakthrough (AC-CG-53) fires no
     `breakthrough_succeeded` event.
-- **AC-CG-52** [Integration] For the AC-CG-50 state, the Meridian Map's guard reads S_guard
+- **AC-CG-52** [Integration] For the AC-CG-50 state, the Đạo Đồ's guard reads S_guard
   from this system and, with the failure-insight term (Formulas H; ι 0.02), computes
   q_retry = min(0.3825, 0.08 ÷ 0.6375) = 0.1255 and a roll lift of 0.080.
 
@@ -1870,7 +1870,7 @@ Drafted with `qa-lead`, which recomputed every GDD number.
   - A great-perfection save with a partial bar → bar 0.
   - The map is back at its root, and unspent points = points_total(level).
 - **AC-CG-58** [Config/Data] A data test of `cultivation_realms.json`:
-  - `bare_attempt_cap` is 3, `great_breakthrough_bonus` is [30, 40, 61, 100] and `small_breakthrough_bonus` is [[13, 13, 14], [3, 3, 3], [5, 5, 6], [20, 20, 20], [33, 33, 33]] (this GDD owns them; the Meridian Map reads them), and points_total at each realm's last level is 51 / 120 / 216 / 357 / 566;
+  - `bare_attempt_cap` is 3, `great_breakthrough_bonus` is [30, 40, 61, 100] and `small_breakthrough_bonus` is [[13, 13, 14], [3, 3, 3], [5, 5, 6], [20, 20, 20], [33, 33, 33]] (this GDD owns them; the Đạo Đồ reads them), and points_total at each realm's last level is 51 / 120 / 216 / 357 / 566;
   - `pct_trung`, `pct_hau`, `pct_dai`, `bar_mult` and `layers` are absent;
   - the bands are contiguous over 1–110;
   - every Parameter key has its GDD value, and the conditions match Formula G;
@@ -1997,7 +1997,7 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 
 | # | Question | Owner | Blocks |
 |---|---|---|---|
-| 1 | What lies beyond Deity Transformation? Deferred by the user (the Meridian Map's Open Question 2) | user | Nothing for now |
+| 1 | What lies beyond Deity Transformation? Deferred by the user (the Đạo Đồ's Open Question 2) | user | Nothing for now |
 | 2 | The Heavenly Tribulation's survival chance p_t, which sets the Deity Transformation roll target (0.20 ÷ p_t) | Heavenly Tribulation GDD | Formulas E for Deity Transformation |
 | 3 | ~~When can a baseline life craft a breakthrough talisman?~~ **Answered 2026-11-04 (cross-GDD review 04f):** the talisman is no longer in the baseline at any gate. It is a crafted build bonus limited to one per realm step (rule 8), and AC-CG-60's ceiling run includes it | — | — |
 | 4 | The Nascent Soul and Deity Transformation pill recipes: proposed 4 herbs at 60 + 1 at 10 and 4 at 100 + 1 at 80 (Formulas D; changed 2026-11-04 after cross-GDD review 04g, F2, from 2 × 130 + 40 and 2 × 230 + 80; guesses), including a new top-rarity herb for Deity Transformation. Each recipe must meet the brew guarantee (main herb `min_age` ≤ 82 for NS and ≤ 141 for DT at qty 4). The shorter herbs cut the years at a full bar up to the third attempt from 234 to 184 at CF→NS and from 431 to 371 at NS→DT (54 % and 57 % of W, against 48 % and 41 % at the first two gates). F2 is accepted as partial (user decision 2026-11-04): the rest of the wait stays while B is 3 at the median, and Time & Turn owes a one-click "retreat until ripe" (Open Question 18) | Item DB, economy-designer | Those two gates |
@@ -2011,14 +2011,14 @@ Drafted with `qa-lead`, which recomputed every GDD number.
 | 12 | Herb growth from knowledge and affinity: the curve by which Spirit Fields craft mastery adds `herb_growth_pct` (counted through Character Stats' curve, scale 10), and whether a root holding a herb's own element (Metal for Kim Tủy Quả) should also speed that herb, beyond Wood's general term. An own-element term would be a root term, so it would bypass the curve; it must still stay inside `bonus_ceiling_target` (AC-CG-60) | Spirit Herbs & Spirit Fields, user | Formulas D growth term |
 | 13 | ~~The q extras at low base odds (cross-GDD review 04f): pill quality, comprehension, Dao heart and the tree (up to 0.075 / 0.075 / 0.025 / 0.08) carry far more weight at a low baseline q. Should AC-CG-60 include them, and should their per-point values or the `tree_breakthrough_cap` shrink?~~ **Answered 2026-11-04 (user decision, cross-GDD review 04g, F14):** a character-wide `q_extras_ceiling_pp` of 10 caps their sum (Formulas C). A fully built life with no edge reaches 0.52–0.55 per gate (0.76–0.81 uncapped), and edge plus full build 0.83–0.86 (0.94–0.96 uncapped). Đạo Cốt and other destiny perks, the talisman and failure insight are outside it. **`field_plots`** was answered earlier the same day: fields are a build (user decision; Formulas D, AC-CG-60), and the tree gives no plots at its launch values | — | — |
 | 14 | Diên Thọ Đan shares Kim Tủy Quả with the CF pill (cross-GDD review 04f, C6), so both compete for FE plots, and a lifespan pill raises W and so can add a brew. The bot does not grow it at gates for now (Formulas D). Should the bot plan it, and should the lifespan pill take a different herb? | Item DB, economy-designer | AC-CG-30 bot policy |
-| 15 | Growth pays in steps under discrete brews (cross-GDD review 04f, F7), but the Meridian Map prices `herb_growth_pct` (0.9 W per %), `field_plots` (10 W) and lifespan linearly. Should those prices follow the steps? Under the q-extras ceiling (04g, F14), the tree's `breakthrough_chance` also stops paying past about 5.75 pp on a typical life (the other extras are 4.25 pp of the 10), so its price may need to follow the ceiling too | Meridian Map, user | Meridian Map Formulas F prices |
-| 16 | ~~The talisman with #22 (rule 8): the Meridian Map's E2 guard divides by 1 − q, so a talisman on the same attempt lets #22 lift S by up to δ_max · (1 − q) ÷ (1 − q − τ) = 0.106 at q 0.1225. Should E2 use 1 − q − τ in its fourth term (which restores the 0.10 bound exactly), or should a talisman be barred from #22's attempt?~~ **Answered 2026-11-04: the Meridian Map's Formulas E2 now uses (1 − q − τ) in the #22 guard term when a talisman is on the attempt, so the lift stays at δ_max (user decision).** Rule 8 agrees | Meridian Map, user | AC-KMD guard bound with a talisman |
-| 17 | ~~#23 and failure insight (rule 18, Formulas H): the extra roll's failure adds +0.02 to the next pill attempt, outside the Meridian Map's q_retry term, so #23's lift could exceed δ_max (worst case 0.1009 at the CF→NS baseline, 0.111 at q 0.30).~~ **Answered 2026-11-04 (user decision):** the Meridian Map's E2 uses q_retry = min(q, (δ_max − ι) ÷ (1 − S)), ι the insight the roll's failure would add (0.02, or 0 at the cap), which restores the bound by construction (0.097 and 0.092 in those cases). Applied in kinh-mach-do by its owner | — | — |
+| 15 | Growth pays in steps under discrete brews (cross-GDD review 04f, F7), but the Đạo Đồ prices `herb_growth_pct` (0.9 W per %), `field_plots` (10 W) and lifespan linearly. Should those prices follow the steps? Under the q-extras ceiling (04g, F14), the tree's `breakthrough_chance` also stops paying past about 5.75 pp on a typical life (the other extras are 4.25 pp of the 10), so its price may need to follow the ceiling too | Đạo Đồ, user | Đạo Đồ Formulas F prices |
+| 16 | ~~The talisman with #22 (rule 8): the Đạo Đồ's E2 guard divides by 1 − q, so a talisman on the same attempt lets #22 lift S by up to δ_max · (1 − q) ÷ (1 − q − τ) = 0.106 at q 0.1225. Should E2 use 1 − q − τ in its fourth term (which restores the 0.10 bound exactly), or should a talisman be barred from #22's attempt?~~ **Answered 2026-11-04: the Đạo Đồ's Formulas E2 now uses (1 − q − τ) in the #22 guard term when a talisman is on the attempt, so the lift stays at δ_max (user decision).** Rule 8 agrees | Đạo Đồ, user | AC-KMD guard bound with a talisman |
+| 17 | ~~#23 and failure insight (rule 18, Formulas H): the extra roll's failure adds +0.02 to the next pill attempt, outside the Đạo Đồ's q_retry term, so #23's lift could exceed δ_max (worst case 0.1009 at the CF→NS baseline, 0.111 at q 0.30).~~ **Answered 2026-11-04 (user decision):** the Đạo Đồ's E2 uses q_retry = min(q, (δ_max − ι) ÷ (1 − S)), ι the insight the roll's failure would add (0.02, or 0 at the cap), which restores the bound by construction (0.097 and 0.092 in those cases). Applied in dao-do by its owner | — | — |
 | 18 | Time & Turn's one-click "retreat until ripe" (cross-GDD review 04g, F2, accepted as partial): at a full bar the years waiting for herbs stay at 54 % (CF→NS) and 57 % (NS→DT) of W for a root-free 3-element life at the median W (48 % and 41 % at QR→FE and FE→CF). The wait must cost no attention: one action advances seasons until the next brew can be made or an event, attack or warning needs the player. What interrupts it, and how it shows the years skipped? | Time & Turn, Guidance Layer | Pillar 4 at the CF and NS bottlenecks |
 | 19 | ~~Does #22 and #23's +0.10 guard swamp the last two gates?~~ **Answered 2026-11-05 (independent review):** no. E2 works on suppressed values, so its 2q term holds the lift to about +0.06 and +0.04 (Formulas H) | — | — |
 | 20 | ~~Core Formation pile-up~~ **Answered 2026-11-05 (user decision):** NPC odds of 1 in 8 / 12 / 15 / 20 settle Core Formation at about 4 % of cultivators | — | — |
 | 21 | The world of 5,000 simulated cultivators (never fewer than 3,000) is built: world generation places them from the settled realm shares, and the season tick runs at about 60–90 ms. ~~Sect leaders' realm~~ **Answered 2026-11-10:** Nascent Soul leads great sects and Core Formation may lead lesser ones, so `leader_realm_min` stays Core Formation; sect tiers come with the Sects system (#26) | World Generation, Living World Tick | Sect leaders' realm |
 | 22 | `gate_factor` 0.32 / 0.20 comes from a scratch model; AC-CG-31 sets its final value. `npc.gate_steps` is solved from the game's own edge scores and checked by AC-CG-69 | Balance Simulation Harness | The late-gate targets |
-| 23 | **Re-run the gate calibration under the 2026-11-10 changes:** the entry-age model and AC-CG-30 / AC-CG-60 with Character Stats' curves (herb growth, lifespan) and dampened alchemy, uncapped purity and plots as build levers, the Meridian Map's curved tree share and drawn map, and the Way's breakthrough Effects (q_way). Every "provisional, pre-curves" figure in Formulas D and E is replaced from it; Character Stats then retunes only the curve scales | systems-designer, Balance Harness | `bonus_ceiling_target` figures; implementation sign-off |
+| 23 | **Re-run the gate calibration under the 2026-11-10 changes:** the entry-age model and AC-CG-30 / AC-CG-60 with Character Stats' curves (herb growth, lifespan) and dampened alchemy, uncapped purity and plots as build levers, the Đạo Đồ's curved tree share and drawn map, and the Way's breakthrough Effects (q_way). Every "provisional, pre-curves" figure in Formulas D and E is replaced from it; Character Stats then retunes only the curve scales | systems-designer, Balance Harness | `bonus_ceiling_target` figures; implementation sign-off |
 | 24 | **Hand-off from Regional Economy & Trade (#43, 2026-11-14), pending:** Formulas I gains (a) a **stone term**: cultivators absorb linh thạch for tu vi at `spt` 1 / 4 / 20 / 150 / 1,000 stones per tu vi by realm, adding at most `absorb_cap` 0.5 of the season's normal rate (#43 Formula J); and (b) a **provisioned factor** `(1 + prov)`, prov 0 to `prov_max` 0.15 by basket fill, never a penalty (#43 Formula L2). The bot then re-runs the NPC targets (1 in 8 / 12 / 15 / 20; about 27 Nascent Soul, about 3 Hóa Thần) and the player edge with both (#43 Open Questions 2 and 12) | systems-designer, Balance Harness | The Realms revision |
 | 25 | **Hand-off from Trade Goods (#45, 2026-11-14), pending:** crafted-pill demand includes breakthrough pills. Per realm, Realms supplies the share of cultivators attempting a breakthrough this season (`bt_rate`), the value of the breakthrough pill they buy (`V_bt`) and that pill's tier (`tp_bt`) (Trade Goods Formula H) | Realms, Trade Goods | The Realms revision |

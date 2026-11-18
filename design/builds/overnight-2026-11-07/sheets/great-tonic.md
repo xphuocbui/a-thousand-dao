@@ -130,7 +130,7 @@ A physician's dosing manual with no upper bound on the dose.
 
 ### Hidden cluster idea: Swollen Channels (Ứ Mạch)
 
-Theme: wards and how force moves through them. Water affinity, outer, sealed. Seal condition: a technique that lists it. Size 8, so one notable. The small acupoints give ward strength and ward efficiency. The notable is Strong Decoction, and Bare Vessel sits on the same path as in Sick Meridians, because any build that empties a pool wants it. A cultivator with any return ward can use this.
+Theme: wards and how force moves through them. Water affinity, outer, sealed. Seal condition: a technique that lists it. Size 8, so one notable. The small Dao marks give ward strength and ward efficiency. The notable is Strong Decoction, and Bare Vessel sits on the same path as in Sick Meridians, because any build that empties a pool wants it. A cultivator with any return ward can use this.
 
 ## Đạo
 

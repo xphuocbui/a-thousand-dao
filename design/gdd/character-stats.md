@@ -40,7 +40,7 @@ alike. It has three layers.
   vitality, spiritual power (linh lực) and the realm term of combat power (chiến lực). Each
   is a realm base × the stage multiplier × talent and modifiers.
 
-Every modifier from anywhere (root variants and generating pairs, the Meridian Map and
+Every modifier from anywhere (root variants and generating pairs, the Đạo Đồ and
 its capabilities, the cultivation technique, magic treasures, consumables and tools,
 destiny perks, formations, craft mastery) lands on one stat sheet with its source, so any
 total can be explained. Craft mastery (đạo nghệ) levels sit alongside, rise only by
@@ -48,7 +48,7 @@ practice, and may add modifiers on their own craft keys (rule 12).
 
 The system exists because every other system speaks through it. It owns the stat keys,
 their units and meaning, and the character's capability set. It never decides when stats
-rise (Realms & Bottlenecks does) or what a node gives (the Meridian Map does). It carries
+rise (Realms & Bottlenecks does) or what a node gives (the Đạo Đồ does). It carries
 two pillars:
 - **Pillar 3:** talent is the hand you are dealt, and power is what you build with it.
 - **Pillar 2:** every number on the sheet has a visible breakdown.
@@ -56,7 +56,7 @@ two pillars:
 ## Detailed Design
 
 This section documents the system as built in the debug terminal, plus the contracts
-Realms & Bottlenecks and the Meridian Map rely on. Open Question 6 lists what is specified
+Realms & Bottlenecks and the Đạo Đồ rely on. Open Question 6 lists what is specified
 here but not built yet.
 
 ### Core Rules
@@ -133,7 +133,7 @@ here but not built yet.
    - **The floor:** a failed breakthrough, a mission wound or a fight stops at 5 %
      (`vitality_floor`). A vitality-loss event effect has no floor.
    - **Fatal event:** a vitality-loss event effect that brings vitality to 0 or below is a
-     fatal event, and the character dies. Capability #5 can survive it (the Meridian Map's
+     fatal event, and the character dies. Capability #5 can survive it (the Đạo Đồ's
      catalogue).
    - **Recovery:** `injury_recovery_frac_per_season` of maximum each season.
    - A great breakthrough refills it.
@@ -180,7 +180,7 @@ here but not built yet.
     twelve source kinds:
     - root variants (biến dị linh căn: purity-scaled role lines, Formulas G);
     - Spiritual Roots generating pairs (`cultivation_speed_pct` +3 each, Formulas I);
-    - Meridian Map acupoints and capabilities;
+    - Đạo Đồ Dao marks and capabilities;
     - the active cultivation technique;
     - equipped magic treasures (artifact-local keys excluded: Combat applies them);
     - Item DB consumables and tools (fertilisers, timed pill effects), while they act;
@@ -208,8 +208,8 @@ here but not built yet.
     - `lifespan_years` and `lifespan_pct` stack by these rules; Realms & Bottlenecks owns
       the lifespan formula (its rule 14): (realm lifespan + the lifespan bonus, curved
       by rule 14 below and Formulas I) × (1 + `lifespan_pct` ÷ 100).
-14. **Curves and caps.** The Meridian Map's acupoints' summed `breakthrough_chance` follows that system's curve,
-    `k · ln(1 + Σ / k)` with `tree_breakthrough_k` (8 pp; Meridian Map Formulas F, replacing the 8 pp clamp on
+14. **Curves and caps.** The Đạo Đồ's Dao marks' summed `breakthrough_chance` follows that system's curve,
+    `k · ln(1 + Σ / k)` with `tree_breakthrough_k` (8 pp; Đạo Đồ Formulas F, replacing the 8 pp clamp on
     2026-11-10). It is applied to the tree's modifiers only, and the sheet shows the curve line. Other sources of the
     same key are not curved by it. The summed per-attempt extras that `breakthrough_chance`
     joins (pill quality, comprehension, Dao heart, the tree's share, the Chaos variant's line, event bonuses; destiny
@@ -265,7 +265,7 @@ here but not built yet.
     - `points`: resistance and penetration counted in points (`resist_pct`, `resist_pen_pct`: damage ÷ (1 + R/100),
       no cap; Combat Defence & Healing rule 3), so 1 point is not 1 pp; and layer points for `damage_more`.
 
-    Precision follows the Meridian Map's Formulas F: 0.1 for `pct` keys, `points` keys (`resist_pct`,
+    Precision follows the Đạo Đồ's Formulas F: 0.1 for `pct` keys, `points` keys (`resist_pct`,
     `resist_pen_pct`, `damage_more`), `stealth` and `lifespan_years`; 0.01 for the six talent keys (`ngo_tinh`, `can_cot`,
     `than_hon`, `khi_van`, `dao_tam`, `mi_luc`), `dan_doc_decay`, `density_bonus`, and the two regeneration keys
     `health_regen_pct` and `linh_luc_regen_pct` (Modifier System re-review MD 16, 2026-11-08); 0.001 for the three
@@ -287,19 +287,19 @@ here but not built yet.
     `resist_cap_pct` is retired (resistance has no cap since 2026-11-10). A Stat List key still marked Pending in the
     Modifier System is reserved here and validated once its owner leaves Pending. A key not in this table is rejected
     by data validation, and an LLM-written fill is
-    repaired (the Meridian Map's validator). The six talent keys display by their
+    repaired (the Đạo Đồ's validator). The six talent keys display by their
     `character_attributes.json` names; `character_stat_labels.json` gives their unit.
 
 **Capabilities**
 
 16. **The capability set.** Each character, player or NPC, holds a set of capability ids
     (`capabilities`).
-    - Only the Meridian Map adds to it, when a capability notable is opened. The add
-      function is reachable only from the Meridian Map's grant, enforced by the API
+    - Only the Đạo Đồ adds to it, when a capability notable is opened. The add
+      function is reachable only from the Đạo Đồ's grant, enforced by the API
       shape and code review.
     - Host systems read it.
     - It is saved with the character.
-    - An NPC's simplified `npc_effect` is applied by its host, as the Meridian Map
+    - An NPC's simplified `npc_effect` is applied by its host, as the Đạo Đồ
       specifies.
 17. **#4 Blood Commands Spirit (Huyết Ngự Linh), hosted here:**
     - spiritual power gains 20 % of maximum vitality, as a sheet line;
@@ -341,7 +341,7 @@ Vitality bands, for display and the Advisor:
 
 ### Interactions with Other Systems
 
-Spiritual Roots, Realms & Bottlenecks, Cultivation Techniques, the Meridian Map, the Way, the Item Database,
+Spiritual Roots, Realms & Bottlenecks, Cultivation Techniques, the Đạo Đồ, the Way, the Item Database,
 Combat (with Combat Defence & Healing and Combat Damage Types), the Modifier System, the Effects System, Heavenly
 Tribulation and Quests have GDDs. Time & Turn, the Event Engine and the crafts have none yet; their interfaces are
 provisional.
@@ -353,7 +353,7 @@ provisional.
 | The Way (Đạo) | in | Dao stat lines and Effects on notables as modifier sources (rule 12) | the Way |
 | Modifier System, Effects System | in | the Stat List (keys, ops, prices, grids) and the Effect records whose payloads are sheet modifiers | Modifier System; Effects System |
 | Combat Defence & Healing, Heavenly Tribulation, Quests | in | defence keys in points; `tribulation_tempered` and `quest_boon` modifiers (rule 12) | each owner |
-| Meridian Map (Kinh Mạch Đồ) | in | acupoint modifiers {source, stat, value}; capability ids into the set | Meridian Map (what nodes give); this GDD (keys, units, the set) |
+| Đạo Đồ | in | Dao mark modifiers {source, stat, value}; capability ids into the set | Đạo Đồ (what nodes give); this GDD (keys, units, the set) |
 | Cultivation Techniques | in | technique bonuses (modifiers) and technique power for spiritual power | Cultivation Techniques |
 | Item DB (magic treasures, pills) | in | equipped treasure affixes; pill effects (toxicity, talent pills, heart demon pills) | Item DB |
 | Progression Edges | in | destiny perk modifiers and flags | Progression Edges |
@@ -460,7 +460,7 @@ At talent 45, with technique power 1.0 and no bonuses (stage ×1.00 / ×1.45):
 | NS | 1,350 / 1,958 | 22,500 / 32,625 | 50,000 / 72,500 | 100,000 / 145,000 |
 | DT | 4,500 / 6,525 | 67,500 / 97,875 | 400,000 / 580,000 | 1,000,000 / 1,450,000 |
 
-Capability #4 can only be opened from Core Formation on (Meridian Map: capability
+Capability #4 can only be opened from Core Formation on (Đạo Đồ: capability
 clusters are gated at Core Formation or later). At physique 45 and stage ×1.00 it adds
 about +22 % spiritual power at CF, +9 % at NS and +3 % at DT, so 20 % stays. The share
 scales with physique: at physique 100 it is about +50 % at CF, and at 150 about +75 %.
@@ -664,7 +664,7 @@ treasure term.
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | v_i | int (precision units) | per key | calculated | One modifier, quantized once when it enters the sheet |
-| k_tree | float | 8 pp | data file (`tree_breakthrough_k`, owned by the Meridian Map) | Curve scale on the tree's share (Meridian Map Formulas F) |
+| k_tree | float | 8 pp | data file (`tree_breakthrough_k`, owned by the Đạo Đồ) | Curve scale on the tree's share (Đạo Đồ Formulas F) |
 | k | float | `herb_growth_pct` 10 (curve scale; was a ceiling) | data file (`bonus_curves`) | Curve scale on the positive modifiers of every source; `alchemy_success` now dampens failure instead (no k), craft mastery's sheet modifiers included (rule 12; Alchemy's level term is not one, rule 14); penalties are added after it (rule 14) |
 | f_life | float | 0.15 (guess) | data file (`bonus_curves.lifespan_frac`) | Scale of the lifespan bonus curve as a share of the realm's base lifespan (was a ceiling) |
 | L_realm | int | 120 / 200 / 500 / 1,000 / 2,000 | data file (Realms & Bottlenecks) | The realm's base lifespan |
@@ -696,7 +696,7 @@ are ordinary entries in the sum.
   as 29.
 - Computed modifiers (#25's heart demon ÷ 2, NPC simplifications) are floored when they
   enter, with a tolerance: floor(x × units + 1e-6).
-- Flooring, as the Meridian Map's Formulas F does, can never overstate a bonus.
+- Flooring, as the Đạo Đồ's Formulas F does, can never overstate a bonus.
 - Derived values (C) stay floats and are rounded only on display.
 
 **Example:** heart demon 54.25 → #25 adds 27.125 → stored **27.1**. Tree modifiers of
@@ -827,7 +827,7 @@ display names come from `character_attributes.json` (rule 15).
 **Stat sheet**
 
 - **If data names an unknown stat key:** loading fails with a data validation error. An
-  unknown key in an LLM-written fill is repaired by the Meridian Map's validator.
+  unknown key in an LLM-written fill is repaired by the Đạo Đồ's validator.
 - **If a magic treasure is unequipped:** its modifiers leave the sheet immediately, unless
   the change would put the lifespan cap at or below the character's age. Then Realms
   rule 14's confirmation comes first, and declining leaves the treasure equipped.
@@ -871,7 +871,7 @@ display names come from `character_attributes.json` (rule 15).
 
 ## Dependencies
 
-Spiritual Roots, Realms & Bottlenecks, Cultivation Techniques, the Meridian Map and the Way
+Spiritual Roots, Realms & Bottlenecks, Cultivation Techniques, the Đạo Đồ and the Way
 (Đạo) have GDDs among the systems below; every other interface is provisional. When each GDD is written, it must list Character Stats in
 its own Dependencies section.
 
@@ -890,7 +890,7 @@ below.
 | # | System | What it provides | Without it |
 |---|---|---|---|
 | 8 | Realms & Bottlenecks | Realm, level and stage multiplier, held on the character | Every realm-scaled value stays at QR early |
-| 10 | Meridian Map | Acupoint modifiers and capability ids | No tree bonuses |
+| 10 | Đạo Đồ | Dao mark modifiers and capability ids | No tree bonuses |
 | 39 | The Way (Đạo) | Dao stat-line modifiers and Effect payloads with the Dao and node as their source (`design/gdd/dao.md` rules 3 and 4; Effects on notables, not capability-style records; no cap raises and no root factors) | No Dao bonuses |
 | 9 | Cultivation Techniques | Technique bonuses and technique power | Spiritual power at `no_tech_power` 0.5 (Cultivation Techniques rule 11) |
 | 13 | Item DB | Equipped treasure affixes, consumables and tools (fertilisers, timed pill effects), lifespan pill years | No item bonuses |
@@ -955,7 +955,7 @@ Ranges marked *derived* follow from another constraint in this GDD or an approve
 | Fortune reward ceiling | 0.75 + 0.005 × fortune | base 0.6–0.9 | LLM reward size |
 | Fortune in checks, duels | 0.002, 0.001 per point | 0–0.004, 0–0.002 | Luck against skill |
 | `mi_luc_price_per_point` | 0.004 | 0.002–0.004; *derived*: ≤ 0.4286 ÷ (effective talent clamp − 50), which is 0.00429 at clamp 150, or buy-sell loops profit | Prices |
-| Precision grid | 0.1 / 0.01 / 1 | fixed (Meridian Map, Formulas F) | Stacking |
+| Precision grid | 0.1 / 0.01 / 1 | fixed (Đạo Đồ, Formulas F) | Stacking |
 | `ngo_tinh_divisor` | 200 | 150–300 | How much comprehension speeds cultivation: ×1.225 at 45 (200), ×1.30 at 45 (150). Moving it moves every realm's years (Realms years table) |
 | `bonus_curves` (was `bonus_ceilings`) | `herb_growth_pct` 10, `lifespan_frac` 0.15 as curve scales; `alchemy_success` now dampens failure (2026-11-10) | `herb_growth_pct` k 5–10 and `lifespan_frac` 0.10–0.15, at most the current values until the bot run (AC-CG-60) confirms headroom; *derived*: the derived limit is Realms' `bonus_ceiling_target`: with `gate_factor` set to 1, each gate's birth-mix mean S at the reference stack through the curves, best plot play and one talisman ≤ 0.45, measured ≤ 0.48 (Realms AC-CG-60), which owns the computed figures. The target covers lives without extra plots; those are builds outside the target, per Realms AC-CG-60. Penalties apply after the curve (rule 14) | How far a dedicated alchemy build can push breakthrough odds and lifespan |
 
@@ -994,7 +994,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `design/gdd/thien-kiep.md`, `quests.md` | `tribulation_tempered` and `quest_boon` modifiers |
 | `design/gdd/game-concept.md` | Character Stats (three layers, draft formulas), birth modes, Pillars 2 and 3 |
 | `design/gdd/canh-gioi.md` | Stage multiplier (Formulas B), heart demon gain and decay, the Nascent Soul condition, qi deviation (rule 10, which must read `qi_deviation_pct`); Realms Formulas D (pill supply reads `herb_growth_pct`, `alchemy_success` and h); `bonus_ceiling_target` (AC-CG-60); this GDD answers its Open Questions 6 and 7 |
-| `design/gdd/kinh-mach-do.md` | Acupoint modifiers, stat weights and precision (Formulas F), capabilities #4 and #25, the tree's breakthrough curve (`tree_breakthrough_k`) |
+| `design/gdd/dao-do.md` | Dao mark modifiers, stat weights and precision (Formulas F), capabilities #4 and #25, the tree's breakthrough curve (`tree_breakthrough_k`) |
 | `design/gdd/linh-can.md` | Element purities, base element count, root variant role lines and the generating-pair `cultivation_speed_pct` modifiers that enter the sheet |
 | `design/gdd/cong-phap.md` | Technique bonuses through the provider interface, `tech_power` (Formulas C), and the slot-dependent lifespan years that Realms rule 14's confirmation covers |
 | `design/glossary.md` | Terms |
@@ -1188,7 +1188,7 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
 - **AC-CS-35** [Logic] Rule 15.
   - A fixture with the key `atack_pct` fails validation, naming the key and its source.
   - Every rule 15 key passes.
-  - [Integration] The same key in an LLM fill is repaired by the Meridian Map's validator
+  - [Integration] The same key in an LLM fill is repaired by the Đạo Đồ's validator
     and never reaches the sheet.
 - **AC-CS-36** [Config/Data] Parameter keys.
   - Every listed `derived` value is present.
@@ -1202,8 +1202,8 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
 
 - **AC-CS-37** [Integration] Rule 16. Opening notable #4 adds id 4; granting it again
   keeps the set at size 1; the sheet shows #4's lines.
-- **AC-CS-38** [Integration] Rule 12. An acupoint giving comprehension +1.5 lands with
-  source exactly `Kinh Mạch: <name> #<id>`, and effective comprehension rises by 1.5.
+- **AC-CS-38** [Integration] Rule 12. A Dao mark giving comprehension +1.5 lands with
+  source exactly `Đạo Đồ: <name> #<id>`, and effective comprehension rises by 1.5.
 - **AC-CS-39** [Logic] Rule 18, #25.
   - The attack line is absent at heart demon 50.0, +25.0 at 50.1, and +27.1 at 54.25.
   - At 30 there is no attack line but `qi_deviation_pct` +100.
@@ -1254,7 +1254,7 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   - presence by its label;
   - state values with their ranges, the four derived values and craft mastery.
 - **AC-CS-48** [UI] `explain`.
-  - `explain breakthrough_chance` shows two Meridian Map lines, the curve line 9.5 → 6.26, the
+  - `explain breakthrough_chance` shows two Đạo Đồ lines, the curve line 9.5 → 6.26, the
     perk +12 and a total of 18.26.
   - `explain mi_luc` at 5 − 10 shows the clamp to 1.
 - **AC-CS-49** [UI] Thresholds.
@@ -1306,9 +1306,9 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
   and fails at 20.1.
 
 **Not testable here, by design:**
-- That only the Meridian Map adds capabilities: a code-review and API-shape item.
+- That only the Đạo Đồ adds capabilities: a code-review and API-shape item.
 - Event effects "inside the budget": blocked by Open Question 4.
-- Combat-owned pieces beyond the fortune delta, and NPC `npc_effect` values (Meridian Map
+- Combat-owned pieces beyond the fortune delta, and NPC `npc_effect` values (Đạo Đồ
   GDD).
 - The talents' unbuilt roles, the attitude scale and Visual/Audio: Open Questions 2–5.
 
@@ -1323,4 +1323,4 @@ Drafted with `qa-lead`, which recomputed every GDD number in double precision.
 | 5 | The talents' unbuilt roles: soul strength's formation complexity and detection | the respective systems | Rule 1 |
 | 6 | Specified here, not built yet: the provider interface for modifier sources; a talent pill's gain preview (AC-CS-06); the Advisor's per-pill warnings and the Nascent Soul heart demon warning (AC-CS-50; only the general toxicity and heart demon warnings exist); the vitality band names and heart demon bands on the sheet (AC-CS-49); load-time rejection of unknown stat keys and off-grid authored values (AC-CS-34, AC-CS-35); capability #9's +2 heart demon; Spirit Fields mastery's `herb_growth_pct` and timed consumables as sheet sources (AC-CS-30); automated tests for most ACs (`tests/unit/character/` covers few, and none carry AC ids) | implementation story | Building this GDD |
 | 7 | ~~`lifespan_pct` is outside the lifespan ceiling; who may grant it?~~ **Answered 2026-11-05 (user decision):** the perk `tho_nguyen` (+20) and the Wood keystone (+25) are accepted, bound +45 in total (rule 14). Still open: any other source (a Way, a treasure) needs a price and must fit the bound, since it multiplies the whole cap and feeds pill supply through the growing years W; and no bot run has measured these two against the gate targets (AC-CG-60 does not include them) | user, Realms & Bottlenecks | Any new `lifespan_pct` source |
-| 8 | **Realms calibration after the no-caps change (2026-11-10).** The rule 14 ceilings became curves, `alchemy_success` dampens failure and `max_plots` is gone. Realms' gate odds assumed the ceilings and 12 plots at most (12 plots already gave 0.78–0.88 against the 0.30 target): re-run its calibration and, if a gate drifts, tune the curve scales, not caps (review D4: Realms first). Realms text to revise: rule 14 (lifespan "at most 15 %"), Formulas D (`n_plots` clamp to 12, `p_brew`'s additive `alchemy_success`, `herb_growth_pct` "at most 10"), AC-CG-60, its Open Question 12, the `bonus_ceiling_target` note; the tree share is now a curve (Meridian Map Formulas F) | user, systems-designer | Realms & Bottlenecks |
+| 8 | **Realms calibration after the no-caps change (2026-11-10).** The rule 14 ceilings became curves, `alchemy_success` dampens failure and `max_plots` is gone. Realms' gate odds assumed the ceilings and 12 plots at most (12 plots already gave 0.78–0.88 against the 0.30 target): re-run its calibration and, if a gate drifts, tune the curve scales, not caps (review D4: Realms first). Realms text to revise: rule 14 (lifespan "at most 15 %"), Formulas D (`n_plots` clamp to 12, `p_brew`'s additive `alchemy_success`, `herb_growth_pct` "at most 10"), AC-CG-60, its Open Question 12, the `bonus_ceiling_target` note; the tree share is now a curve (Đạo Đồ Formulas F) | user, systems-designer | Realms & Bottlenecks |

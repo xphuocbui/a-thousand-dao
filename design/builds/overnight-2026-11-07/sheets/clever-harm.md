@@ -32,7 +32,7 @@ Break the Topic lands at 1 s with Model Answer on it, and the first thing the en
 
 ## Enabler
 
-**First on the List (Bảng Thủ)**, exactly as `daos/examination.md` states it, through `rules/first_on_list.py`. Comprehension 101.8 gives x1 203.6, ×3.02. Earned at a Foundation glimpse with 15 nodes, 45 points, about 93 W of acupoints not bought.
+**First on the List (Bảng Thủ)**, exactly as `daos/examination.md` states it, through `rules/first_on_list.py`. Comprehension 101.8 gives x1 203.6, ×3.02. Earned at a Foundation glimpse with 15 nodes, 45 points, about 93 W of Dao marks not bought.
 
 ## The Stack
 
@@ -103,7 +103,7 @@ Slot order as above, 4 of 4. **Break the Topic, description:** the opening line,
 
 ### Hidden cluster idea: Examination Cells (Hào Xá Mạch)
 
-Theme comprehension and study, no element, inner, sealed by a technique that lists it. Size 6. Small acupoints: comprehension, heart demon resistance. Notables: Past Papers, Already Read. No capability. Any scholar's route to a lead, and a thể tu will never want it.
+Theme comprehension and study, no element, inner, sealed by a technique that lists it. Size 6. Small Dao marks: comprehension, heart demon resistance. Notables: Past Papers, Already Read. No capability. Any scholar's route to a lead, and a thể tu will never want it.
 
 ## Matchups
 

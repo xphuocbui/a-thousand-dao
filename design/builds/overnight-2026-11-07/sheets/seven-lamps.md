@@ -30,7 +30,7 @@ Almost nothing happens for 11 s, and that is the plan. Against a boss with five 
 
 ## The Stack
 
-A walk of 198 nodes, 159 acupoints and 39 notables, 503 W. Cluster rows scale with purity (Meridian Map rule 4), so these sizes assume purity 50 on ground the root holds. Only road rows are exact, and a cluster in a sector the root lacks pays ×0.25, so the wheel's Water and Wood placement would need a Water or Wood root. That is the whole 293 W attack quarter of a Deity's tree plus 210 W of the half a typical life spends outside fights. Fifteen rows, and M stays under typical.
+A walk of 198 nodes, 159 Dao marks and 39 notables, 503 W. Cluster rows scale with purity (Đạo Đồ rule 4), so these sizes assume purity 50 on ground the root holds. Only road rows are exact, and a cluster in a sector the root lacks pays ×0.25, so the wheel's Water and Wood placement would need a Water or Wood root. That is the whole 293 W attack quarter of a Deity's tree plus 210 W of the half a typical life spends outside fights. Fifteen rows, and M stays under typical.
 
 `Without` is the whole row removed from `variants/seven-lamps-boss.fight.json`: `--without "[id]"`, or the named file. It reads win time, own health, own linh lực, enemy health at t = 11. **The full fight is 16 s, 36 %, 30 %, 83 %.**
 

@@ -1,5 +1,5 @@
 extends SceneTree
-## Exports the generated Kinh Mạch Đồ as JSON for viewers and analysis. It reports the map as
+## Exports the generated Đạo Đồ as JSON for viewers and analysis. It reports the map as
 ## generated and judges nothing.
 ##
 ##   Godot_console.exe --headless --path . -s res://tools/balance/export_tree.gd -- <out.json>
@@ -7,9 +7,9 @@ extends SceneTree
 
 func _init() -> void:
 	var args: PackedStringArray = OS.get_cmdline_user_args()
-	var out_path: String = args[0] if args.size() > 0 else "user://meridian_map.json"
+	var out_path: String = args[0] if args.size() > 0 else "user://dao_do_map.json"
 	var gd := GameData.load_from("res://assets/data")
-	var tree := MeridianTree.generate(gd)
+	var tree := DaoDoTree.generate(gd)
 	var nodes: Array = []
 	for id in tree.nodes.keys():
 		var n: Dictionary = tree.nodes[id]

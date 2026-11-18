@@ -16,7 +16,7 @@ The spiritual root is the talent a cultivator is born with: one to five base ele
 powers that element's stacks in a fight, rule 8a), plus, in about 1 life in 8, one
 of six variant roots in play (Light, Darkness, Ice, Wind, Thunder, Chaos; Void and Blood are archived).
 - **Variants** arise by convergence of owned elements, transmutation of one element, or
-  innately at birth. Each has a purity-scaled role and its own Meridian Map start and land.
+  innately at birth. Each has a purity-scaled role and its own Đạo Đồ start and land.
   Innate ones count as an extra element for the speed curve.
 - **Speed and roles.** Many-element roots cultivate slower early and far faster late, each
   generating pair adds +3 %, and every element and variant has a craft, economy or combat
@@ -49,7 +49,7 @@ The root shapes the life from the first season:
   partly toward that curve.
 - **Roles.** Each base element and each variant has a craft or economy role (Wood grows
   herbs, Fire brews pills, Wind speeds travel, Blood deepens vitality, and so on).
-- **Meridian Map.** Purity scales each land's acupoints; the root decides where a life may start, and walking a
+- **Đạo Đồ.** Purity scales each land's Dao marks; the root decides where a life may start, and walking a
   land's roads raises that land's purity (rare, uncapped).
 - **Techniques.** Purity sets how well a cultivation technique (công pháp) that names an
   element or variant runs.
@@ -77,7 +77,7 @@ are slow and fragile in Qi Refining, then you pull away from everyone who starte
 A variant root is a gift you did not earn, and each kind feels different to get. Thunder
 is what happens when Fire and Metal in you meet. Ice is your Water running pure. Wind
 simply arrives, and the rarest of them make a life you will retell. A
-variant also gives you a start on the Meridian Map and makes its land yours.
+variant also gives you a start on the Đạo Đồ and makes its land yours.
 
 Nothing is ever taken from the root, so every change is a step forward in a build you
 chose to pursue.
@@ -191,10 +191,10 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    ceiling. The earlier holder-raised ceilings belonged to craft mutations that moved to the Way and are gone
    from this system.
 8. **Purity as a scale.**
-   - **Meridian Map:** a land's acupoints scale by 0.5 + purity ÷ 100 for an owned element or variant, and by
-     0.25 + purity ÷ 100 for one the root does not own (0.25 at purity 0; user decision 2026-11-10, Meridian re-review
-     D-R2, so two road nodes do not double a land); blend zones average their two lands; roads are exact and grant purity (Meridian Map rule 4). Variant
-     roots have their own lands (Meridian Map rule 20; rule 12).
+   - **Đạo Đồ:** a land's Dao marks scale by 0.5 + purity ÷ 100 for an owned element or variant, and by
+     0.25 + purity ÷ 100 for one the root does not own (0.25 at purity 0; user decision 2026-11-10, Đạo Đồ re-review
+     D-R2, so two road nodes do not double a land); blend zones average their two lands; roads are exact and grant purity (Đạo Đồ rule 4). Variant
+     roots have their own lands (Đạo Đồ rule 20; rule 12).
    - **Cultivation techniques:** a technique's speed scales by the average purity of the
      elements and variants it names ÷ 100. A technique may name an element or variant the root
      does not own once rare sources (rule 8a) have raised its purity to `tech_foreign_purity_min` (10, Cultivation
@@ -213,8 +213,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
       unless their record sets one; an NPC cultivator uses its root.
     - **Ice and Water share at half rate:** Ice's P is Ice purity + `pair_share` (½) × Water purity, and Water's P is
       Water purity + ½ × Ice purity.
-    - **Purity past 100** comes only from rare sources. Defined: a land's roads on the Meridian Map (an element
-      land's for its element, a variant land's for its variant; Meridian Map rule 4) and a Linh Căn Quả raise (rule
+    - **Purity past 100** comes only from rare sources. Defined: a land's roads on the Đạo Đồ (an element
+      land's for its element, a variant land's for its variant; Đạo Đồ rule 4) and a Linh Căn Quả raise (rule
       13). Intended, not yet defined: rare items and Đạo nodes (Open Question 14). Every source is small, so high
       purity is hard to gather. Innate variants (Wind) gain purity this way too (user decision 2026-11-10, review D4).
     - **Elements and variants the root does not own** can gain purity from those sources, starting at 0. That purity
@@ -272,13 +272,13 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
       (rule 8a).
     - **Mutation Awakening (Biến Dị Khai Mở).** This system subscribes to Realms &
       Bottlenecks' `breakthrough_succeeded` event (a successful move to the next realm).
-      On each event, if the Meridian Map capability #24 is in the character's capability
+      On each event, if the Đạo Đồ capability #24 is in the character's capability
       set (Character Stats rule 16), it gives one more roll to every **derived** variant
       that is not owned, not declined (rule 2) and whose requirement is met, including
       ones that failed earlier. Innate variants are not re-rolled. The chance is the same formula at the
       current purities, and a variant that forms is owned from then on.
     - **At most two Awakening passes per life.** Every capability sits behind the Core
-      Formation gate (Meridian Map rule 16), so only Core Formation → Nascent Soul and
+      Formation gate (Đạo Đồ rule 16), so only Core Formation → Nascent Soul and
       Nascent Soul → Deity Transformation can fire it.
 11. **What a variant is and is not.**
     - It counts as an owned id for techniques, crafts and recipes that name it, and its
@@ -286,10 +286,10 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
     - It does **not** count as a base element: it forms no generating pair, is not
       counted in the tier or `n_base`, and does not scale an element land. An innate
       variant counts once toward `n_eff` (rule 3).
-12. **Variant lands (Meridian Map contract, revised 2026-11-10).** The Meridian Map gives the variant roots their own
+12. **Variant lands (Đạo Đồ contract, revised 2026-11-10).** The Đạo Đồ gives the variant roots their own
     starts and lands (Wind's land, Ice's start in Water's land, the Light, Darkness and Thunder islands, the Primordial
-    Chaos hub; its rule 20), open to everyone. A root holding a variant may start at its start (Meridian Map rule
-    3), and the land's acupoints scale by the variant's purity (0.25 at purity 0). The old hidden, locked variant
+    Chaos hub; its rule 20), open to everyone. A root holding a variant may start at its start (Đạo Đồ rule
+    3), and the land's Dao marks scale by the variant's purity (0.25 at purity 0). The old hidden, locked variant
     sectors are retired. This system supplies the owned set and each variant's purity.
 
 **Changing the root**
@@ -353,8 +353,8 @@ All four are saved.
 | Birth | Elements, purities and variants set (rules 2, 9, 10) | Once per life |
 | Tẩy Tủy Đan | Weakest base element +max(1, round(6 × potency)), capped at 100; no roll; derived variants' purity recomputed | 3 per life; refused (and kept) beyond that, or when every owned element is at least 100 |
 | Linh Căn Quả | New element at 20–35, then the newly eligible derived variants roll (or +8 to one element: no roll, derived purities recomputed) | Events only, Foundation Establishment on |
-| Variant formed | Added with its purity and origin; the root may start at its Meridian Map start (rule 12) | Requirement met; not already owned; not declined; a first roll needs the variant outside the rolled set, an Awakening roll does not |
-| Realm breakthrough | Every unowned derived variant whose requirement is met rolls once more (rule 10) | Mutation Awakening (Meridian Map #24) held; a successful realm change |
+| Variant formed | Added with its purity and origin; the root may start at its Đạo Đồ start (rule 12) | Requirement met; not already owned; not declined; a first roll needs the variant outside the rolled set, an Awakening roll does not |
+| Realm breakthrough | Every unowned derived variant whose requirement is met rolls once more (rule 10) | Mutation Awakening (Đạo Đồ #24) held; a successful realm change |
 
 ### Interactions with Other Systems
 
@@ -363,7 +363,7 @@ All four are saved.
 | Character Stats | out | per-element purity, `n_base`, `n_eff`, the variant set with purities (into the sheet through the variant roles), the generating-pair bonus modifier | this GDD (the root); Character Stats (the sheet, the element and variant role formulas) |
 | Realms & Bottlenecks | out / in | out: the curve factor by `n_eff` and stage group. In: the player-only `breakthrough_succeeded` event, which triggers the Mutation Awakening roll (rule 10) | this GDD (the curve, the roll); Realms (the stage groups, the event) |
 | Effects System | out | purity's stack power (Formulas H) for element stacks (Effects System rule 9a), with the applier's purity for a debuff | this GDD |
-| Meridian Map | out / in | out: purity per element (acupoint scaling), `n_base` (the center keystone needs all five), the owned variants with purities (which variant starts the root may pick and how variant lands scale; the purity the roads grant comes back in). In: whether capability #24 (Mutation Awakening) is held, read from the character's capability set; the Meridian Map never calls this system | Meridian Map (the scaling rule, the capability, the variant sectors' geometry); Character Stats (the capability set); this GDD (the roll, rule 10) |
+| Đạo Đồ | out / in | out: purity per element (Dao mark scaling), `n_base` (the center keystone needs all five), the owned variants with purities (which variant starts the root may pick and how variant lands scale; the purity the roads grant comes back in). In: whether capability #24 (Mutation Awakening) is held, read from the character's capability set; the Đạo Đồ never calls this system | Đạo Đồ (the scaling rule, the capability, the variant sectors' geometry); Character Stats (the capability set); this GDD (the roll, rule 10) |
 | Cultivation Techniques | out | purity of the elements and variants a technique names; `n_base` for the technique count gain | Cultivation Techniques |
 | Crafts (Alchemy, Spirit Fields, Artifact Refining, Formations) | out | element purities for their roles. Craft mutations no longer exist here | each craft |
 | The Way (Đạo) | out | the root as read-only prerequisites (elements, purities, variants). The Way owns the relocated mutations (rule 16) | the Way (`dao.md`, in review; requirements at `dao_req_purity_min`) |
@@ -677,8 +677,8 @@ linear in purity, `power_W(100) ≈ 2 · power_W(50)`.
 |----------|------|-------|--------|-------------|
 | per_purity_{v,k} | float | table below | data file (`variant_effects`) | Displayed units of key k per purity point, at most 2 decimals |
 | purity_v | int | 8 and up | calculated | Variant purity (Formulas D2, uncapped since 2026-11-10) |
-| u_k | float | 0.1 (all keys here) | constant (Meridian Map Formulas F precision) | The displayed unit. Values are whole counts of u_k and are only rounded **down**, in integer arithmetic on hundredths, so rounding can lower a price but never raise it |
-| w_k | float | table below | constant (design-only; Meridian Map Formulas F weights, not runtime data) | W per displayed unit |
+| u_k | float | 0.1 (all keys here) | constant (Đạo Đồ Formulas F precision) | The displayed unit. Values are whole counts of u_k and are only rounded **down**, in integer arithmetic on hundredths, so rounding can lower a price but never raise it |
+| w_k | float | table below | constant (design-only; Đạo Đồ Formulas F weights, not runtime data) | W per displayed unit |
 | floor_band, ceiling_band | float | 10 / 30 W (common); 20 / 60 W (Chaos) | data file (`variant_power_band`, `variant_power_band_apex`) | The band |
 | power_W | float | 0–about 60 | calculated | The variant's price |
 
@@ -696,8 +696,8 @@ linear in purity, `power_W(100) ≈ 2 · power_W(50)`.
 | | **Chaos total** | | | | | **29.3** | **58.6** | **yes (apex band)** |
 
 **Output Range:**
-- These bands price the role line only. A variant's Meridian Map land is open to everyone and scales by its
-  purity (Meridian Map rule 20); the old sector value (Formulas H3) is retired.
+- These bands price the role line only. A variant's Đạo Đồ land is open to everyone and scales by its
+  purity (Đạo Đồ rule 20); the old sector value (Formulas H3) is retired.
 - **Common band: 10–30 W**, the old order-1 band, now flat for all seven non-Chaos
   variants. Every one has a purity-50 price of 14.4–15.0 W (≥ 10) and a purity-100 price
   of 28.8–30.0 W (≤ 30). Ice is trimmed to 0.18 to stay under the ceiling at its 1.6
@@ -711,7 +711,7 @@ linear in purity, `power_W(100) ≈ 2 · power_W(50)`.
   would price 60.8 W at purity 100, over the band, so cultivation speed is 0.13.
 - Chaos's `breakthrough_chance` line is not tree-capped (the cap is per source) but joins
   Realms & Bottlenecks' per-attempt extras ceiling in its Formulas C, which Realms owns.
-- `co_duyen_pct` and `travel_speed_pct` have no Meridian weight, because the map excludes
+- `co_duyen_pct` and `travel_speed_pct` have no Đạo Đồ weight, because the map excludes
   them from fills. 0.3 W per point is a *guess* carried from the earlier pricing of travel
   speed, applied to both (Open Question 2).
 
@@ -771,7 +771,7 @@ generating cycle.
 ### G. Purity as a scale (owned elsewhere)
 
 Restated for reference (each reads the full purity, with no cap; user decision 2026-11-10):
-- **The Meridian Map** owns acupoint scaling (roads are exact and grant purity): `0.5 + purity / 100` for an owned
+- **The Đạo Đồ** owns Dao mark scaling (roads are exact and grant purity): `0.5 + purity / 100` for an owned
   element or variant and `0.25 + purity / 100` for one the root does not own (0.25 at purity 0), and blend zones average their two lands.
 - **Cultivation Techniques** owns the technique factor: the average purity of the elements
   and variants it names ÷ 100, about 0.5 for a typical root.
@@ -780,7 +780,7 @@ Restated for reference (each reads the full purity, with no cap; user decision 2
 
 **Example:** with Fire 86 and Thunder 47:
 A technique naming both Fire and Thunder runs at (86 + 47) ÷ 2 ÷ 100 = **0.665**. A
-Wood–Fire blend-zone acupoint on Wood 40 and Fire 86 is (0.9 + 1.36) ÷ 2 = 1.13. The Thunder island scales by
+Wood–Fire blend-zone Dao mark on Wood 40 and Fire 86 is (0.9 + 1.36) ÷ 2 = 1.13. The Thunder island scales by
 0.5 + 0.47 = 0.97.
 
 ### H. Purity and element stacks (new, 2026-11-10)
@@ -822,7 +822,7 @@ Water 70 and Ice 40: Ice's P = 40 + 35 = 75 (×1.15); Water's P = 70 + 20 = 90 (
 | `chaos_factor` | 5 **(new)** | Chance factor for Chaos (five parents) |
 | `innate_chance` | {phong: 0.025, huyet: 0.015, hu_khong: 0.005} **(new)** | Flat birth chance per innate variant |
 | `variant_purity_factor` | 0.8 **(renamed from `bien_di_purity_factor`)** | Discount on the geometric mean for derived purity |
-| `awakening_capability` | 24 | The Meridian Map capability that unlocks Mutation Awakening |
+| `awakening_capability` | 24 | The Đạo Đồ capability that unlocks Mutation Awakening |
 | `awakening_max_passes` | 2 **(new)** | Mutation Awakening passes per life. Structural, not a limit the code enforces: only CF→NS and NS→DT can fire it, and no pass counter is saved |
 | `variant_power_band` | [10, 30] W **(replaces `bien_di_power_band`)** | Common band: floor at purity 50, ceiling at purity 100 |
 | `variant_power_band_apex` | [20, 60] W **(new)** | Chaos band |
@@ -847,7 +847,7 @@ four-value form), `herb_age_root_pct` (Time moved to the Way).
 | Linh Căn Quả purity range, raise | 20–35, 8 | `items_treasures.json` | Purity of the added element, and the raise when all five are owned |
 | `npc_builds.archetype_keep_chance` | 0.2 (*guess*) | `world_generation.json` | Chance an NPC keeps an archetype its root does not fit (rule 15). Owned by NPC Builds |
 
-Design-only constants (not runtime): the Meridian Map stat weights used by Formulas E, with
+Design-only constants (not runtime): the Đạo Đồ stat weights used by Formulas E, with
 `travel_speed_pct` and `co_duyen_pct` at 0.3 W per point as a guess.
 
 ## Edge Cases
@@ -858,7 +858,7 @@ production.
 **Birth**
 
 - **If purity passes 100 through rare sources:** every use reads the full value: stacks (Formulas H), technique
-  speed, the Meridian Map's land scaling and the element roles (Character Stats Formulas G).
+  speed, the Đạo Đồ's land scaling and the element roles (Character Stats Formulas G).
 - **If an element the root does not own gains purity:** that purity counts everywhere a purity is read (stacks, land
   scaling at 0.25 + purity ÷ 100, roles, and techniques naming it from purity 10); the root still does not own it (rule 8a), so `n_base`, pairs, the curve
   row and variant eligibility are unchanged.
@@ -889,7 +889,7 @@ production.
 **Effective count**
 
 - **If an innate variant puts `n_eff` above `n_base`:** the curve uses `n_eff`, but the
-  pair bonus, the tier name and the Meridian center keystone use `n_base`. A Dual root +
+  pair bonus, the tier name and the Đạo Đồ center keystone use `n_base`. A Dual root +
   Wind cultivates on the 3-element curve with at most one pair.
 - **If a root reaches `n_eff` 5 through innate variants:** it uses the five-element curve
   row but is not a five-element root. It cannot hold Chaos, does not hold all five pairs
@@ -925,11 +925,11 @@ production.
   requires it is recomputed, with no roll. Its role values (Formulas E) follow the new
   purity at once. Innate purity changes only through its land's roads (rule 8a).
 
-**Meridian Map lands**
+**Đạo Đồ lands**
 
-- **If a variant forms mid-life (Awakening, Linh Căn Quả):** its land was already open to everyone; its acupoints
-  now scale by the variant's purity. The start is not changed (Meridian Map rule 3).
-- **If a variant's purity rises:** its land's acupoint scale (0.5 + purity ÷ 100) rises with it, like an element
+- **If a variant forms mid-life (Awakening, Linh Căn Quả):** its land was already open to everyone; its Dao marks
+  now scale by the variant's purity. The start is not changed (Đạo Đồ rule 3).
+- **If a variant's purity rises:** its land's Dao mark scale (0.5 + purity ÷ 100) rises with it, like an element
   land's.
 
 **Use by other systems**
@@ -982,7 +982,7 @@ production.
 |---|---|---|
 | 7 | Character Stats | Purities, `n_base`, `n_eff`, the variant set with purities and the variant role lines (Formulas E), the pair-bonus modifiers (through its provider interface). **No longer**: Time's `herb_age_root_pct` or the holder-raised ceilings (relocated mutations) |
 | 8 | Realms & Bottlenecks | The curve factor by `n_eff` and stage group. **No longer**: Time's `herb_age_root_pct` in its Formulas D herb factor h |
-| 10 | Meridian Map | Purity per element and variant; which starts a root may pick; variant lands (rule 12); it grants purity through its roads (rule 8a) |
+| 10 | Đạo Đồ | Purity per element and variant; which starts a root may pick; variant lands (rule 12); it grants purity through its roads (rule 8a) |
 | 9 | Cultivation Techniques | Purity of the elements and variants a technique names; `n_base` for the count gain (unchanged) |
 | 14–18 | Crafts | Element purities for their roles. **No longer**: craft mutations |
 | 39 | The Way (Đạo) | The root as read-only prerequisites (elements and variants at `dao_req_purity_min`); the relocated mutations live on as its Ways and facets (rule 16; `dao.md` Catalogue) |
@@ -1002,18 +1002,18 @@ production.
 - **Spiritual Roots ↔ Realms & Bottlenecks.** Realms reads the curve factor; Spiritual
   Roots takes the stage group as a lookup argument and subscribes to the
   `breakthrough_succeeded` event. Neither system calls the other.
-- **Spiritual Roots ↔ Character Stats and the Meridian Map.** Both read purities, counts
-  and variants. This system reads only the capability set, which the Meridian Map writes
-  and Character Stats holds; the Meridian Map never calls it (its capability-host rule).
+- **Spiritual Roots ↔ Character Stats and the Đạo Đồ.** Both read purities, counts
+  and variants. This system reads only the capability set, which the Đạo Đồ writes
+  and Character Stats holds; the Đạo Đồ never calls it (its capability-host rule).
 - **Spiritual Roots → the Way.** One-way: the Way reads the root; this system reads
   nothing from the Way.
 - Item DB and the Event Engine invoke the change rules (rule 13), and Progression Edges
   invokes the birth perk (rule 2); this system reads nothing from them.
 
-**Bidirectional check.** Character Stats, Realms & Bottlenecks, the Meridian Map and
+**Bidirectional check.** Character Stats, Realms & Bottlenecks, the Đạo Đồ and
 Cultivation Techniques each list this system. All four were aligned to the redesign on
 2026-11-04. Realms was revised on 2026-11-05 (110 levels, harder last two gates): the curve
-contract is unchanged, and Awakening's reach in Formulas D3 now follows its odds. The Meridian Map gives variant roots their own starts and lands (its rule 20, revised 2026-11-10; the old variant
+contract is unchanged, and Awakening's reach in Formulas D3 now follows its odds. The Đạo Đồ gives variant roots their own starts and lands (its rule 20, revised 2026-11-10; the old variant
 sectors are retired), and the Way's row is in the systems index.
 
 **Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
@@ -1057,7 +1057,7 @@ land scale at once; retune `variant_effects` in the same pass. Raising any
 Deferred to the Game UI GDD (system 37). Intent: each element and each variant has its
 colour (the data already holds an ANSI colour per element; variants need one each in the
 data pass); a variant shows its origin (the elements it converged or transmuted from, or
-"innate"); a variant forming is a celebrated moment, and its Meridian land brightening to its
+"innate"); a variant forming is a celebrated moment, and its Đạo Đồ land brightening to its
 full scale is part of that moment.
 
 ## Game Feel
@@ -1080,7 +1080,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 - **Variants.** Each owned variant's origin, requirement and role lines (via `explain`; not
   built yet, Open Question 12). Variants that rolled and failed, or were declined, are not
   shown as available.
-- **Meridian Map.** The map shows every land, owned or not; an unowned element's or variant's land shows its
+- **Đạo Đồ.** The map shows every land, owned or not; an unowned element's or variant's land shows its
   lower scale (0.25 + purity ÷ 100).
 - **Root changes.** Before a Linh Căn Quả is used, the screen lists each missing element
   to pick from, and for each one the new tier, the new `n_eff`, the speed before and after,
@@ -1095,7 +1095,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `design/gdd/game-concept.md` | Spiritual Root System: tiers, the trade-off, root mutations, changing roots. Now has a "Variant roots" section (eight variants, three origins) and names the Way (Đạo); re-check its remaining Spiritual Root prose against this GDD at its next edit |
 | `design/gdd/canh-gioi.md` | Stage groups and the years-per-realm costs (Formulas A); the `breakthrough_succeeded` event (Mutation Awakening). **Cross-edit done** (its status line, 2026-11-04): curve keyed by `n_eff`, Time's `herb_age_root_pct` removed, AC-CG-60 runs with Awakening off |
 | `design/gdd/character-stats.md` | Element and variant role formulas (Formulas G), the stat sheet and provider interface, rule 14 (ceilings). **Cross-edit done** (its status line, 2026-11-04): variant role lines added, holder-raised ceilings and Time's root factor removed, `co_duyen_pct` is a sheet key. Its Formulas G example no longer names Time (checked 2026-11-05) |
-| `design/gdd/kinh-mach-do.md` | Acupoint scaling (rule 4), stat weights W (Formulas F). Its rule 20 gives variant roots their own starts and lands (rule 12); its rule 4 grants purity through roads. Still open there: weights for `travel_speed_pct` and `co_duyen_pct` (Open Question 2) |
+| `design/gdd/dao-do.md` | Dao mark scaling (rule 4), stat weights W (Formulas F). Its rule 20 gives variant roots their own starts and lands (rule 12); its rule 4 grants purity through roads. Still open there: weights for `travel_speed_pct` and `co_duyen_pct` (Open Question 2) |
 | `design/gdd/cong-phap.md` | Rule 8's purity contract (`match`); usability of techniques naming an id the root lacks (its rule 8). `count_gain` stays keyed by `n_base` (rule 3). Wording aligned to variant roots (its status line). **Pending**: techniques naming relocated mutations are re-pointed to the Way |
 | `design/gdd/dao.md` (the Way, system 39) | Owns the relocated mutations as Ways and facets and reads the root (rule 16) |
 | `design/quick-specs/phu-luc-linh-thu-thanh-tuu.md` | Tẩy Tủy Đan and Linh Căn Quả |
@@ -1339,15 +1339,15 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 - **AC-LC-31** [Logic · BLOCKING] Formula D3, reach, over 50,000 fixture lives of a birth roll plus two passes. Thunder on {Fire 86, Metal 40} is owned in 50.0 % ± 0.9 pp and Light on {Fire 86} in 27.9 % ± 0.85 pp.
 - **AC-LC-32** [Integration · BLOCKING] Zero rolls. With #24 held, a breakthrough on {Wood 40} makes 0 draws and writes 0 World Database records. The same holds for {Fire 86} + Light, and for a root whose only unowned eligible variants are declined.
 
-**Meridian Map and techniques**
+**Đạo Đồ and techniques**
 
-- **AC-LC-33** [Integration · BLOCKING] Rule 12, variant lands (Meridian Map rule 20).
+- **AC-LC-33** [Integration · BLOCKING] Rule 12, variant lands (Đạo Đồ rule 20).
   - Every variant land is drawn and walkable for every root; nothing is hidden or refused for not owning the variant.
-  - Its acupoints scale by 0.5 + purity ÷ 100 when the variant is owned, and by 0.25 + purity ÷ 100 when it is not
+  - Its Dao marks scale by 0.5 + purity ÷ 100 when the variant is owned, and by 0.25 + purity ÷ 100 when it is not
     (0.25 at purity 0).
   - A root holding a variant at birth may pick that variant's start; a variant forming mid-life (Awakening or a
     Linh Căn Quả) changes its land's scale and not the character's start, and refunds nothing.
-  - An NPC owning a variant may take its start (its strongest purity, Meridian Map rule 3).
+  - An NPC owning a variant may take its start (its strongest purity, Đạo Đồ rule 3).
   - Across every later root change and a save/load, nothing about the land's visibility changes.
 - **AC-LC-34** [Integration · BLOCKING] Formula G and rule 8, with {Wood 40, Fire 86} and {Fire 86, Metal 40} + Thunder 47, Wind 62.
   - Land scale: Thunder 0.97, then 1.01 after a pill lifts it to 51; Wind 1.12, unchanged by the pill.
@@ -1425,11 +1425,11 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - **Provisional** (not built, Open Question 12): `explain` for Thunder shows its origin, its requirement (Fire and Metal), purity 47 and +14.1 attack with source "Biến dị: Lôi".
   - `explain rate` shows the curve row read (3 for the first fixture). **Provisional** (not built, Open Question 12): it also shows each pair source.
   - The Linh Căn Quả preview on the first fixture in FE early stage lists each missing element, and Metal shows Dual → Triple, the factor 0.9 → 0.75 and the added +3 % pair.
-- **AC-LC-53** [Logic · BLOCKING] Rule 8a. **GIVEN** a {Fire} root that gains 30 Metal purity from Metal land's roads, **THEN** Metal stacks have power 1.06, Metal-land acupoints scale by 0.55 (0.25 + 0.30, the unowned rate; not 0.80), Metal's element role reads 30, `n_base` stays 1, no pair bonus is added, and no variant rolls. A Metal technique is
+- **AC-LC-53** [Logic · BLOCKING] Rule 8a. **GIVEN** a {Fire} root that gains 30 Metal purity from Metal land's roads, **THEN** Metal stacks have power 1.06, Metal-land Dao marks scale by 0.55 (0.25 + 0.30, the unowned rate; not 0.80), Metal's element role reads 30, `n_base` stays 1, no pair bonus is added, and no variant rolls. A Metal technique is
   usable (30 ≥ `tech_foreign_purity_min` 10) at speed 0.30; at Metal 8 it is not.
 - **AC-LC-54** [Logic · BLOCKING] Formulas H. **GIVEN** Fire purity 86, **THEN** Fire stack power is 1.172; **GIVEN** 40 more from roads (126), **THEN** 1.252, and the root's technique speed and sector scaling read 126 too. **GIVEN** Water 70 and Ice 40, **THEN** Ice's stack power is 1.15 and Water's 1.18.
 - **AC-LC-55** [Logic · BLOCKING] Debuff purity. **GIVEN** a player with Fire 120 applying Burn to a beast with no `stack_purity`, **THEN** the Burn stacks have power 1.24; **GIVEN** the beast applies its own Fire debuff to the player, **THEN** its stacks have power 1.0.
-- **AC-LC-56** [Logic · BLOCKING] Rare sources. A Wind 50 root that opens 10 Wind-land road nodes has Wind 55 (Meridian Map `road_purity` 0.5); a Thunder variant built on Fire 160 and Metal 140 has purity round(0.8 × √22400) = 120.
+- **AC-LC-56** [Logic · BLOCKING] Rare sources. A Wind 50 root that opens 10 Wind-land road nodes has Wind 55 (Đạo Đồ `road_purity` 0.5); a Thunder variant built on Fire 160 and Metal 140 has purity round(0.8 × √22400) = 120.
 - **AC-LC-57** [Logic · BLOCKING] Rule 13, fruit onto a road-raised element. **GIVEN** a {Fire} root with Metal at road purity 40 and a Linh Căn Quả that picks Metal and draws 28, **THEN** Metal becomes owned at 40 (one purity draw, no loss); with road purity 15 and the same draw, Metal is owned at 28.
 
 **Not testable here, by design:**
@@ -1443,10 +1443,10 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 | # | Question | Owner | Blocks |
 |---|---|---|---|
 | 1 | Awakening frequency and pacing. Formulas D3 puts Awakening at about 0.176 passes per life with every life holding #24 (about 13.2–13.5 % of lives with a variant); a bot run must supply the real figure. The same run checks the tight timing spots (single roots at NS and DT, five-element roots in QR) and the share of lives that innate variants move up a curve row (4.3 %) | Realms & Bottlenecks calibration, systems-designer | Formulas B, D3 |
-| 2 | `travel_speed_pct` (Wind) and `co_duyen_pct` (Void) have no Meridian Map weight; Formulas E prices both at 0.3 W per point, a guess. Void's purity-100 value (+100 %) matches the Cơ duyên edge's `co_duyen_pct` +100, which also carries `khi_van` 15. What Void's `co_duyen_pct` actually does, and what "secret realms" means, is undefined in any GDD; deferred by the user 2026-11-05 | Meridian Map, systems-designer | Formulas E |
-| 3 | Meridian Map capability #24 (Mutation Awakening) still needs a price. It now affects only five derived variants: Light on Fire 86 goes from 10.3 % to 27.9 % over its two possible passes | Meridian Map | Capability pricing |
-| 4 | ~~The variant sectors (rule 12) are a contract only~~ **Closed 2026-11-04; superseded 2026-11-10:** the sectors are retired; Meridian Map rule 20 draws variant lands open to everyone | — | — |
-| 5 | A five-element root's early power. Before the redesign it started with about 109 W (keystone, pair bonus, mean mutations) against the Meridian Map's ~106 W end-of-QR target (cross-review D2). Recompute with the variant prices (a five-element root averages more derived variants: 16 % Chaos, 15 % each convergence, 6 % each transmutation) and the variant sectors (Meridian Map Formulas H3: 88.5 W at purity 50) | Meridian Map, game-designer | Player Fantasy, Formulas C |
+| 2 | `travel_speed_pct` (Wind) and `co_duyen_pct` (Void) have no Đạo Đồ weight; Formulas E prices both at 0.3 W per point, a guess. Void's purity-100 value (+100 %) matches the Cơ duyên edge's `co_duyen_pct` +100, which also carries `khi_van` 15. What Void's `co_duyen_pct` actually does, and what "secret realms" means, is undefined in any GDD; deferred by the user 2026-11-05 | Đạo Đồ, systems-designer | Formulas E |
+| 3 | Đạo Đồ capability #24 (Mutation Awakening) still needs a price. It now affects only five derived variants: Light on Fire 86 goes from 10.3 % to 27.9 % over its two possible passes | Đạo Đồ | Capability pricing |
+| 4 | ~~The variant sectors (rule 12) are a contract only~~ **Closed 2026-11-04; superseded 2026-11-10:** the sectors are retired; Đạo Đồ rule 20 draws variant lands open to everyone | — | — |
+| 5 | A five-element root's early power. Before the redesign it started with about 109 W (keystone, pair bonus, mean mutations) against the Đạo Đồ's ~106 W end-of-QR target (cross-review D2). Recompute with the variant prices (a five-element root averages more derived variants: 16 % Chaos, 15 % each convergence, 6 % each transmutation) and the variant sectors (Đạo Đồ Formulas H3: 88.5 W at purity 50) | Đạo Đồ, game-designer | Player Fantasy, Formulas C |
 | 6 | Linh Căn Quả is rare by design and has no per-life counter, yet one fruit can add a curve row and make Chaos or a convergence eligible. Its frequency is owned by the Event Engine budgets (`events_budgets.json` `treasures`): set a target frequency there | Item DB, Event Engine | Rule 13 |
 | 7 | ~~RNG stream for the rolls after birth~~ **Closed 2026-11-05:** as built, a player's fruit and Mutation Awakening draw from the session's one seeded RNG, in call order, and its state is saved with the game (Formulas F) | — | — |
 | 8 | Single roots (45 % of lives) need 1,657 years for a whole life against 513 for a dual root. With innate variants a single root can now move up a row (Wind, Blood, Void); state single roots' late-game identity after the Open Question 1 bot run | game-designer, Realms calibration | Player Fantasy |
@@ -1454,6 +1454,6 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 | 10 | ~~Implementation changes: `bien_di` → `variants` + `variant_effects`; the three origin kinds and chance keys; `n_eff` wherever a count is looked up; innate draws in the birth order; the declined mark in the rolled set; removing the relocated mutations and their dead keys (`herb_age_root_pct`, holder-raised ceilings)~~ **Built 2026-11-05** | — | — |
 | 11 | ~~The built fruit picks a random element at grant~~ **Closed 2026-11-05:** the build picks at use (`treasure_effects.gd`), and the item holds no element | — | — |
 | 12 | UI Requirements not built in the Debug Terminal: `explain` for a variant id (origin, requirement, purity, role lines); each pair source in `explain rate` (it shows one summed line); where parity comes; the Tẩy Tủy Đan preview. AC-LC-51's two provisional bullets wait on the first two | implementation story | AC-LC-51 |
-| 13 | Void and Blood are archived (user, 2026-11-09). To apply in code: set `innate_chance` huyet and hu_khong to 0 and reject them in Self-made; update the about 20 acceptance criteria that name them (AC-LC-04 to AC-LC-51) and their tests (scripted births, the 4.34 % innate share, Void picks); recheck Realms' calibration, which assumed about 4.3 % of lives move up a curve row. Decide whether the Meridian Map keeps their variant sectors | game-designer, gameplay-programmer | Code pass |
-| 14 | Price a point of purity in W for stack builds (+0.2 % stack power), with the #44 simulator (the Meridian Map guesses `purity_price` 0.3 W); set how much purity each rare source grants: roads are set (`road_purity` 0.5), the Linh Căn Quả raise is 8; rare items (Item DB) and Đạo nodes (the Way) are intended but undefined | systems-designer, Item DB, the Way | Meridian Map content pass |
+| 13 | Void and Blood are archived (user, 2026-11-09). To apply in code: set `innate_chance` huyet and hu_khong to 0 and reject them in Self-made; update the about 20 acceptance criteria that name them (AC-LC-04 to AC-LC-51) and their tests (scripted births, the 4.34 % innate share, Void picks); recheck Realms' calibration, which assumed about 4.3 % of lives move up a curve row. Decide whether the Đạo Đồ keeps their variant sectors | game-designer, gameplay-programmer | Code pass |
+| 14 | Price a point of purity in W for stack builds (+0.2 % stack power), with the #44 simulator (the Đạo Đồ guesses `purity_price` 0.3 W); set how much purity each rare source grants: roads are set (`road_purity` 0.5), the Linh Căn Quả raise is 8; rare items (Item DB) and Đạo nodes (the Way) are intended but undefined | systems-designer, Item DB, the Way | Đạo Đồ content pass |
 | 15 | Re-price the variant bands for purity above 100 (a derived variant now follows its parents, and variant lands grant purity; review D1, D4) | systems-designer | Formulas E |

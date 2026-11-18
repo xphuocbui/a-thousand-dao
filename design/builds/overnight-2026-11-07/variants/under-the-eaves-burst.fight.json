@@ -163,23 +163,23 @@
  ],
  "walk": {
   "Art damage": {
-   "acupoints": 6,
+   "dao_marks": 6,
    "notables": 0
   },
   "Short Art": {
-   "acupoints": 2,
+   "dao_marks": 2,
    "notables": 7
   },
   "Maximum health": {
-   "acupoints": 25,
+   "dao_marks": 25,
    "notables": 1
   },
   "Damage while above 50 % health": {
-   "acupoints": 21,
+   "dao_marks": 21,
    "notables": 6
   },
   "Evade": {
-   "acupoints": 7,
+   "dao_marks": 7,
    "notables": 0
   }
  },

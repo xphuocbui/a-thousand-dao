@@ -28,7 +28,7 @@
  ],
  "new": [
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Metal damage",
    "han_viet": "Kim Thương",
    "form": "Increased",
@@ -50,7 +50,7 @@
    "second_home": "any Metal build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Crit chance",
    "han_viet": "Bạo Suất",
    "form": "Increased",
@@ -61,7 +61,7 @@
    "second_home": "every crit build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Weapon attack",
    "han_viet": "Binh Lực",
    "form": "Increased",
@@ -83,7 +83,7 @@
    "second_home": "any build carrying weapons"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Artifact power",
    "han_viet": "Khí Uy",
    "form": "Increased",
@@ -127,7 +127,7 @@
    "second_home": "any Metal hit build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Honed Edge",
    "han_viet": "Ma Lợi",
    "form": "More",
@@ -138,7 +138,7 @@
    "second_home": "any Metal build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Accuracy",
    "han_viet": "Chuẩn Xác",
    "form": "Increased",
@@ -160,7 +160,7 @@
    "second_home": "any build facing evaders"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Realm pierce",
    "han_viet": "Xuyên Cảnh",
    "form": "Increased",
@@ -193,7 +193,7 @@
    "second_home": "any fast crit build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ore Vein",
    "han_viet": "Khoáng Mạch",
    "form": "Per",
@@ -226,7 +226,7 @@
    "second_home": "any Metal build fighting Fire sects"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Armour defence",
    "han_viet": "Giáp Hậu",
    "form": "Increased",
@@ -237,7 +237,7 @@
    "second_home": "any ward-gear build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Artifact thần thức cost",
    "han_viet": "Khinh Khí",
    "form": "Increased",

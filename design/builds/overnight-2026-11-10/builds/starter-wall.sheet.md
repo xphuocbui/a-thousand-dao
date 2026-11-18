@@ -158,7 +158,7 @@ Shield and armour keep to the rule that an item's defence feeds the ward or the 
 
 ### Hidden cluster idea: Settled Earth (Định Thổ)
 
-Theme: Earth Đạo and body. Element: Earth. Sealed. Seal condition: a body technique equipped. Size 8 acupoints: small points of health, linh lực regeneration and Earth stack duration; a notable of Stone Does Not Hurry on the outer edge. No capability. An idea for the tree rework, not data.
+Theme: Earth Đạo and body. Element: Earth. Sealed. Seal condition: a body technique equipped. Size 8 Dao marks: small points of health, linh lực regeneration and Earth stack duration; a notable of Stone Does Not Hurry on the outer edge. No capability. An idea for the tree rework, not data.
 
 ## Đạo
 

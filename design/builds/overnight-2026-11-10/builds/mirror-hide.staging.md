@@ -61,7 +61,7 @@
 |---|---|---|---|---|---|
 | return-channel | Return channel (Phản) | Rule | Free hit per incoming hit part, `ret_cap` per hit, depth 1, outside the trigger budget | Needs rule (combat.md Formulas G2) | mirror-hide |
 | incoming-hit-readable | Incoming hit readable | Rule | An Effect can read the size of the hit that reached the defence path | Needs rule | mirror-hide |
-| scarred-hide-cluster | Scarred Hide (Sẹo Bì) | Cluster idea | Body Tempering, Earth, sealed, 8 acupoints; capability Return Cap Shift | Needs key | mirror-hide |
+| scarred-hide-cluster | Scarred Hide (Sẹo Bì) | Cluster idea | Body Tempering, Earth, sealed, 8 Dao marks; capability Return Cap Shift | Needs key | mirror-hide |
 
 ## Reused
 

@@ -3,7 +3,7 @@ extends RefCounted
 ## Aggregates every stat modifier a character has, keeping the source of each one so any total
 ## can be explained. Design: design/gdd/character-stats.md rules 12-15, Formulas I.
 ##
-## Stat keys are shared with data files (meridian_tree.json, items_*.json,
+## Stat keys are shared with data files (dao_do_tree.json, items_*.json,
 ## character_elements.json), e.g. cultivation_speed_pct, attack_pct, field_plots.
 ## Stats that are local to one artifact (artifact_attack_pct, artifact_defense_pct,
 ## element_affinity_pct, artifact_slots) are excluded here and applied by CombatPower and EquipSlots.
@@ -37,7 +37,7 @@ var _gd: GameData = null
 
 
 ## Collects all modifiers for [param c]. [param db] resolves item ids; [param tree] may be null.
-static func build(c: Character, gd: GameData, db: WorldDB, tree: MeridianTree) -> StatSheet:
+static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> StatSheet:
 	var sheet := StatSheet.new()
 	sheet._gd = gd
 	var pair_pct: float = float(gd.attributes().linh_can.pair_bonus_pct)
@@ -124,7 +124,7 @@ func tree_breakthrough() -> float:
 	var raw: float = _sum("breakthrough_chance", func(m): return m.kind == KIND_TREE)
 	if _gd == null:
 		return raw
-	return minf(raw, float(_gd.meridian_config().tree_breakthrough_cap))
+	return minf(raw, float(_gd.dao_do_config().tree_breakthrough_cap))
 
 
 ## Destiny perks' share of breakthrough_chance (percentage points).

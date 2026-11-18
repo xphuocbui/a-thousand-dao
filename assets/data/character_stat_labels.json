@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "_doc": "Display names for modifier stat keys (Kinh Mạch huyệt, biến dị, pháp bảo affixes, công pháp bonuses). unit: pct = percent, flat = plain number, years, flag = on/off. Thiên phú keys use their names from character_attributes.json.",
+  "_doc": "Display names for modifier stat keys (đạo văn, biến dị, pháp bảo affixes, công pháp bonuses). unit: pct = percent, flat = plain number, years, flag = on/off. Thiên phú keys use their names from character_attributes.json.",
   "labels": {
     "cultivation_speed_pct": {
       "name": "tu luyện speed",

@@ -155,7 +155,7 @@ The Needle is a registrar's pen: it records one line per hit, which the Breakdow
 
 ### Hidden cluster idea: Many Hands (Quần Thủ)
 
-Theme: statuses (Effects System). Element affinity: Wood. Kind: sealed, seal condition: the Register Canon (`seal_clusters`). Size 8 acupoints: small status chance, status duration, Thrifty Brand, art speed; a notable at the middle (status duration +12 %); the far notable holds Crowded Ledger, and the last holds Extra Curse Slot. No capability.
+Theme: statuses (Effects System). Element affinity: Wood. Kind: sealed, seal condition: the Register Canon (`seal_clusters`). Size 8 Dao marks: small status chance, status duration, Thrifty Brand, art speed; a notable at the middle (status duration +12 %); the far notable holds Crowded Ledger, and the last holds Extra Curse Slot. No capability.
 
 ## Đạo
 

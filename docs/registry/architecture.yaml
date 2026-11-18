@@ -105,7 +105,7 @@ interfaces:
       - rating-profile
       - npc-builds
     adr: docs/architecture/adr-0001-combat-engine-in-godot.md
-    signal_signature: "FighterCompiler.compile(c: Character, gd: GameData, db: WorldDB, tree: MeridianTree) -> FighterProfile (cached; never mutated by a fight)"
+    signal_signature: "FighterCompiler.compile(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> FighterProfile (cached; never mutated by a fight)"
     referenced_by:
       - docs/architecture/adr-0001-combat-engine-in-godot.md
     added: 2026-11-13

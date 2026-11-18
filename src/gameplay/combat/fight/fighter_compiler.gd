@@ -11,7 +11,7 @@ extends RefCounted
 ## [method character_build_file] writes the build file, then [BuildFileCompiler] (a port of fight.py's build-file path,
 ## parity-tested on every item and art) resolves it and [FighterProfileLoader] loads it. The build file:
 ## - realm: the Character's realm (0-4).
-## - layers and the main ward: the typical fighter's at that realm, until the Meridian Map gives a Character layers
+## - layers and the main ward: the typical fighter's at that realm, until the Đạo Đồ gives a Character layers
 ##   of its own (the sheet's ward and stack lines then act on them, as on a build file), except L1, which is the
 ##   Character's own attack_pct alone (Combat Formulas B; user decision 2026-11-14), L2, which is the larger of the
 ##   typical +40 and the Character's own unscoped damage_more, and L3, the gear layer

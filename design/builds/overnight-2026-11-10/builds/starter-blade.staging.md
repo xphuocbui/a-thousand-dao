@@ -55,7 +55,7 @@
 
 | ID | Name | Kind | What it is | Fit | Used by |
 |---|---|---|---|---|---|
-| whetstone-row-cluster | Whetstone Row (Ma Thạch Hàng) | Cluster idea | Armoury-craft cluster, Metal affinity, sealed by the Plain Iron Sword Manual; 7 acupoints (sword crit chance, basic attack damage, sword art speed) and Hot Edge as the notable | Needs key (sword-scoped crit key) | starter-blade |
+| whetstone-row-cluster | Whetstone Row (Ma Thạch Hàng) | Cluster idea | Armoury-craft cluster, Metal affinity, sealed by the Plain Iron Sword Manual; 7 Dao marks (sword crit chance, basic attack damage, sword art speed) and Hot Edge as the notable | Needs key (sword-scoped crit key) | starter-blade |
 
 ## Reused
 

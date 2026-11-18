@@ -109,7 +109,7 @@ None that cost thần thức, by the keystone. That is the most visible thing ab
 
 ### Hidden cluster idea: Paper Sky (Chỉ Thiên Mạch)
 
-Theme Divine Sense, Metal, outer, sealed by technique (Paper Kite Manual lists it), size 8, so it gates at Core Formation. Small acupoints: `x_soul` and thần thức. **Notables:** Light Hand and Unseen Hand. **Keystone, as the capability on the farthest notable:** Along the Thread. An idea for the tree rework, not data.
+Theme Divine Sense, Metal, outer, sealed by technique (Paper Kite Manual lists it), size 8, so it gates at Core Formation. Small Dao marks: `x_soul` and thần thức. **Notables:** Light Hand and Unseen Hand. **Keystone, as the capability on the farthest notable:** Along the Thread. An idea for the tree rework, not data.
 
 ## Progression
 

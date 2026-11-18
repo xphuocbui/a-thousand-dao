@@ -126,7 +126,7 @@ Slotted talismans count in a blind fight (Combat rule 12), which is why the slee
 
 ### Hidden cluster idea: Hidden Doors (Ám Môn)
 
-Theme: escape, which is wider than this build. Water affinity. Sealed, seal condition: Thirty-Six Exits lists it in `seal_clusters`. Size 6: four small Escape chance acupoints, notables Terror and Beneath Notice at the far end. No capability.
+Theme: escape, which is wider than this build. Water affinity. Sealed, seal condition: Thirty-Six Exits lists it in `seal_clusters`. Size 6: four small Escape chance Dao marks, notables Terror and Beneath Notice at the far end. No capability.
 
 ## Progression
 

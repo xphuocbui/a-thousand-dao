@@ -21,7 +21,7 @@ seasons.
 Choosing which technique to commit seasons to, and when to switch at a tier
 ceiling, is a core build decision of Pillar 3.
 
-> **Quick reference** — Layer: `Core` · Priority: `MVP` · Key deps: `Spiritual Roots, Realms & Bottlenecks, Character Stats, Item DB; soft: Time & Turn, Meridian Map`
+> **Quick reference** — Layer: `Core` · Priority: `MVP` · Key deps: `Spiritual Roots, Realms & Bottlenecks, Character Stats, Item DB; soft: Time & Turn, Đạo Đồ`
 
 ## Overview
 
@@ -140,7 +140,7 @@ which technique you commit your seasons to. The decision has two sides:
 6. **Slots.** A character has one main slot and `aux_slots` auxiliary slots (2).
    - The main slot takes a main method; auxiliary slots take secret arts or body
      techniques.
-   - Capability #6 Twin Technique Cultivation (Meridian Map) adds a second main
+   - Capability #6 Twin Technique Cultivation (Đạo Đồ) adds a second main
      slot. Its method cultivates at 50 % speed with its full bonuses (Formulas A).
    - Slots can be changed at the start of any season, at no cost, except that a change
      which would end the life needs the confirmation of Realms rule 14 (rule 12). The technique
@@ -165,7 +165,7 @@ which technique you commit your seasons to. The decision has two sides:
      other cost.
 8. **A named id the root lacks.**
    - A technique is **usable** only if every element and variant it names is owned by the root, or has been raised
-     by rare sources (Spiritual Roots rule 8a: Meridian roads, a Linh Căn Quả) to at least `tech_foreign_purity_min`
+     by rare sources (Spiritual Roots rule 8a: Dao paths, a Linh Căn Quả) to at least `tech_foreign_purity_min`
      (10, the birth minimum; user decision 2026-11-10, re-review D-1). Body techniques are always usable. Purity
      never falls, so a technique usable this way stays usable.
    - An unusable technique cannot be slotted.
@@ -235,9 +235,9 @@ which technique you commit your seasons to. The decision has two sides:
 
 **Hooks for other systems**
 
-15. **Meridian seals: retired** (2026-11-10). The Meridian Map's sealed and hidden clusters were scrapped (user
+15. **Dao Seals: retired** (2026-11-10). The Đạo Đồ's sealed and hidden clusters were scrapped (user
     decision 2026-11-09) and its rule 7 retired with them, so techniques open nothing on the map and count no seasons
-    for it. `seal_clusters`, `seal_seasons` (the Meridian Map's `cong_phap_seasons`) and the main-slot season counts
+    for it. `seal_clusters`, `seal_seasons` (the Đạo Đồ's `cong_phap_seasons`) and the main-slot season counts
     are retired; old saves drop the counts on load. Công pháp and items may get their own side trees later
     (`design/research/side-trees-thoughts.md`); that is new design, not this rule.
 16. **The starting technique.** Each life starts knowing one generated Yellow main
@@ -307,7 +307,7 @@ every transition. Losing the manual item never unlearns a technique.
 | Spiritual Roots | in | the purity of each named element and variant; root changes that make a technique usable | Spiritual Roots |
 | Realms & Bottlenecks | in / out | in: the current realm, for layer gates and the tier cap. Out: `tech`, the speed factor in the cultivation rate (Realms Formulas I); slot changes that Realms rule 14's lifespan confirmation covers | this GDD (the factor); Realms (the rate) |
 | Character Stats | in / out | in: effective Comprehension (mastery, technique strength) and Physique (body techniques). Out: technique bonuses through the provider interface, and `tech_power` for spiritual power | this GDD (values); Character Stats (the interface) |
-| Meridian Map | in / out | in: capability #6 (second main slot). Out: nothing since the seals were retired (rule 15) | Meridian Map |
+| Đạo Đồ | in / out | in: capability #6 (second main slot). Out: nothing since the seals were retired (rule 15) | Đạo Đồ |
 | Time & Turn | in | whether the season was spent cultivating (full or idle mastery rate) | Time & Turn |
 | Item DB | in / out | manuals as items pointing at templates; generated commons stored as records | Item DB (storage); this GDD (the record schema) |
 | Combat | out | the unlocked divine abilities (Combat art records); `tech_power` through spiritual power | this GDD (which and when); Combat (effects) |
@@ -383,7 +383,7 @@ element, or several elements, still gives less, as before.
 | g (`count_gain`) | float | 1.00 / 1.22 / 1.33 / 1.41 / 1.46 by base element count; 1.27 for five elements in QR (derived; see above) | data file | Element-count gain divided out of κ |
 | match | float | 0.08 and up (0.08: a derived variant at its purity floor of 8; above 1.0 past purity 100) | calculated (Spiritual Roots) | Average purity of the named ids ÷ 100, uncapped |
 | beyond_realm_mult | float | 0.25 | data file (value from Realms rule 13) | Tier cap |
-| f2 (`second_main_mult`) | float | 0.5 | data file (value from Meridian Map #6) | Second main method's speed share |
+| f2 (`second_main_mult`) | float | 0.5 | data file (value from Đạo Đồ #6) | Second main method's speed share |
 | no_cong_phap_mult | float | 0.3 (as built) | data file | Crude cultivation multiplier |
 | strongest_purity | int | 10 and up | calculated (Spiritual Roots) | Highest base-element purity (uncapped) |
 | tech | float | 0.03 and up: 2.9 for the main slot at purity 100, 4.35 with #6; higher past purity 100 | calculated | The `tech` term of Realms Formulas I |
@@ -563,7 +563,7 @@ is Wood–Earth, Earth–Water, Water–Fire, Fire–Metal and Metal–Wood.
 |----------|------|-------|--------|-------------|
 | v_full | float | per bonus (`bonus_pool` min–max, or authored) | data file | Value at great completion, before F and H |
 | b_floor (`bonus_layer_floor`) | float | 0.3 (guess; safe 0.2–0.5) | data file | Share of the bonus at layer 1 |
-| avg_purity | float | 8 and up (uncapped) | calculated (Spiritual Roots) | As in A, but in the Meridian Map's 0.5 + purity ÷ 100 form |
+| avg_purity | float | 8 and up (uncapped) | calculated (Spiritual Roots) | As in A, but in the Đạo Đồ's 0.5 + purity ÷ 100 form |
 | physique | float | 1–150 | calculated (Character Stats) | Effective Physique (căn cốt) |
 | F_cap (`body_factor_cap`) | float | 1.5 (guess; safe 1.2–1.5) | data file | Cap on the body-technique factor |
 | H (`harmony`) | float | 0.60–1.15 (one of 0.60 / 1.00 / 1.15, or an average of them) | data file | Harmony multiplier |
@@ -837,7 +837,7 @@ This section was drafted without `systems-designer` (lean mode). Several design 
 | # | System | What it supplies | Without it |
 |---|---|---|---|
 | 4 | Time & Turn | Whether a season was spent cultivating | Every season counts at the full rate |
-| 10 | Meridian Map | Capability #6 (second main slot) | No second slot |
+| 10 | Đạo Đồ | Capability #6 (second main slot) | No second slot |
 
 **Downstream:**
 
@@ -845,7 +845,7 @@ This section was drafted without `systems-designer` (lean mode). Several design 
 |---|---|---|
 | 8 | Realms & Bottlenecks | `tech`, the speed factor in the cultivation rate (Formulas A) |
 | 7 | Character Stats | Technique bonuses through the provider interface; `tech_power` for spiritual power |
-| 10 | Meridian Map | Capability #6 (second main slot); the seals are retired (rule 15) |
+| 10 | Đạo Đồ | Capability #6 (second main slot); the seals are retired (rule 15) |
 | 21 | Combat | The unlocked divine abilities; `tech_power` through spiritual power |
 | 21a | Combat Defence & Healing | Body techniques' block, body shield and resistance (rule 2) |
 | 21b | Combat Damage Types | Typed damage parts on each ability's art |
@@ -870,10 +870,10 @@ This section was drafted without `systems-designer` (lean mode). Several design 
   values at the season start, and bonuses apply to the sheet built for that
   season. A technique bonus that raised Comprehension would therefore affect
   mastery from the following season.
-- **Cultivation Techniques ↔ Meridian Map.** The Meridian Map supplies #6 through the capability set in
+- **Cultivation Techniques ↔ Đạo Đồ.** The Đạo Đồ supplies #6 through the capability set in
   Character Stats (the capability-host rule); since the seals were retired (rule 15) nothing flows back.
 
-**Bidirectionality.** The related GDDs list this system: Spiritual Roots, Character Stats, Realms, the Meridian Map,
+**Bidirectionality.** The related GDDs list this system: Spiritual Roots, Character Stats, Realms, the Đạo Đồ,
 Combat, Combat Defence & Healing, Combat Damage Types, the Modifier and Effects Systems, the Way and Item DB.
 
 **Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
@@ -903,7 +903,7 @@ All keys are in `items_cong_phap.json` unless noted.
 | `layer_weights` | 0.25 / 0.33 / 0.42 | must sum to 1 | Whether a realm's last layer is the slow one |
 | `layer_cost_mult` | 1.0 / 1.2 / 1.4 / 1.6 | 1.0–2.0 | The ramp cost of a higher tier |
 | `catchup_mult` | 0.25 | 0.1–0.5 | The cost of a fresh technique's lower-realm layers, and so the switch cost at each tier ceiling (27 / 60 / 114 seasons at the defaults) |
-| `second_main_mult` | 0.5 | value from Meridian Map #6 | #6's speed; additive, up to +50 % (Open Question 2) |
+| `second_main_mult` | 0.5 | value from Đạo Đồ #6 | #6's speed; additive, up to +50 % (Open Question 2) |
 | `second_main_mastery` | 1.0 | 0.5–1.0 | Whether the #6 slot doubles as a mastery route for the next method |
 | `power_mult` | 1.0 / 1.3 / 1.7 / 2.2 | Heaven ≤ 2.2 before `comp_strength` (the Character Stats range is 2.2 × 1.525) | Spiritual power and combat by tier |
 | `power_layer_floor` | 0.6 | 0.4–0.8 | How much a found high-tier technique is worth before it is mastered |
@@ -975,7 +975,7 @@ These apply to the Debug Terminal now and to the Game UI later.
 | `design/gdd/linh-can.md` | Rule 8 (the purity scale of named ids, a locked contract); the fallback that rule leaves to this GDD is rule 8 here |
 | `design/gdd/canh-gioi.md` | Formulas I (the `tech` term), rule 13 (the ×0.25 tier cap), rule 14 (the lifespan confirmation for slot changes), the years-per-realm table that Formulas A calibrates against |
 | `design/gdd/character-stats.md` | The provider interface, the bonus curves (rule 14, Formulas I), spiritual power (`tech_power`, range 0.5–3.355), effective Comprehension and Physique, the precision and tolerance rules, Market rounding |
-| `design/gdd/kinh-mach-do.md` | Capability #6 (the second main slot); rule 7's technique seals are retired |
+| `design/gdd/dao-do.md` | Capability #6 (the second main slot); rule 7's technique seals are retired |
 | `design/gdd/combat.md`, `combat-defence.md`, `combat-damage-types.md` | Art records (rule 13), body defence (rule 2, Iron Body tiers), typed damage parts |
 | `design/gdd/modifiers.md`, `effects.md` | Modifier keys, tags and `more` on L2; the Effects techniques host |
 | `design/gdd/dao.md`, `item-database.md` | Way requirements on technique kinds; manuals as items |
@@ -1337,7 +1337,7 @@ applied above).
   - an Earth main method at k 9 gives **9,087.27** (6,000 × 1.514545);
   - an empty main slot gives 3,000.00;
   - a Heaven method in the #6 slot changes neither.
-- **AC-CP-38** [Integration] Meridian Map (Kinh Mạch Đồ). (The seal cases are retired with rule 15.)
+- **AC-CP-38** [Integration] Đạo Đồ. (The seal cases are retired with rule 15.)
   - Without capability #6, slotting a second main method is refused.
 - **AC-CP-39** [Integration] Combat.
   - The compiled combat profile has no technique line, and `tech_power` reaches it only
@@ -1464,7 +1464,7 @@ tail shares and cannot show the strongest-purity gain that `g` divides out. The
 | # | Question | Owner | Blocks |
 |---|---|---|---|
 | 1 | Confirm the hand-computed Formulas A check (mean tech₀.₅ 0.91–0.98 per realm) and the Formulas B pacing with a bot run, and re-run Realms AC-CG-33 and AC-CG-33a with the new factor. User decisions 2026-11-04: keep κ 2.0; the strongest-element starter's speed-up for multi-element roots is divided out per element count by `count_gain` (cross-GDD review N6, replacing the earlier `climb_total` plan, which could not fit its safe range); five elements in QR use 1.27, not 1.46, to keep the QR tail at about 6 %. The bot confirms `count_gain` (AC-CP-48); pill supply stays the breakthrough lever. The hand model puts NS and DT over AC-CP-48's ±10 % band for 3 and 4 elements, so that run must decide whether the band or the expectation moves | Realms & Bottlenecks calibration (bot) | Formulas A and B sign-off |
-| 2 | #6 Twin Technique Cultivation is additive, up to +50 % speed, which can shorten realm years by about a third. Check it against its Meridian Map price; the alternative `max(main, 0.5 × second)` would make it nearly worthless | Meridian Map, systems-designer | Capability pricing |
+| 2 | #6 Twin Technique Cultivation is additive, up to +50 % speed, which can shorten realm years by about a third. Check it against its Đạo Đồ price; the alternative `max(main, 0.5 × second)` would make it nearly worthless | Đạo Đồ, systems-designer | Capability pricing |
 | 3 | What each divine ability does: owned by Combat (its art records, Combat Open Question 13) | Combat GDD | Rule 13 effects |
 | 4 | Author the catalogue: about 40 templates, with an MVP handful per kind (main method, secret art, body technique), including variant techniques, heirlooms and the rule 18 par methods for each element. Also give every template a source: `kim_cang_the`, `long_tuong_cong`, `phong_hanh_quyet` and `am_anh_bi_thuat` cannot be obtained in play, because Profound rolls are always generated and callers ask only for main methods and secret arts, so rule 2's body-technique route does not exist yet | content (writer, systems-designer) | Rule 17, rule 18 |
 | 5 | About 8 % of one-element lives (purity 21 or less) and about 6 % of five-element lives (purity 53 or less) breach the 60-year QR ceiling. The median holds. A match floor would close the tail, but it would change the Spiritual Roots rule 8 contract | game-designer, Spiritual Roots | Pillar 4 tail |
@@ -1474,6 +1474,6 @@ tail shares and cannot show the strongest-purity gain that `g` divides out. The
 | 9 | Rule 18 needs at least 10 authored single-element par methods (5 Earth, 5 Heaven; the Profound ones can be commons) out of about 40. Those 10 now exist in the data, and the build stocks all 15 as reserved market copies. Placing one per element per realm through sects and quests in every world would still strain the 15 / 5 Earth and Heaven rarity weights. Options: allow generated Earth and Heaven methods for guarantee placements only; guarantee only the elements present in the starting province; or grow the catalogue | game-designer, content | Rules 17 and 18 |
 | 10 | There is no Player Fantasy section (advisory at the standard tier) | game-designer | — |
 | 11 | Techniques naming a relocated mutation (Spiritual Roots rule 16) are re-pointed when the Way (Đạo) is designed. Until then such a template would fail the `names` validation; no shipped template names one | game-designer, the Way | Rule 17 catalogue |
-| 12 | ~~Rule 15's interim sector rule~~ **Closed 2026-11-10:** the seals are retired with the Meridian Map's sealed clusters | — | — |
+| 12 | ~~Rule 15's interim sector rule~~ **Closed 2026-11-10:** the seals are retired with the Đạo Đồ's sealed clusters | — | — |
 | 13 | Rules with no built path yet: <ul><li>the load-time validator (Edge Cases, AC-CP-34): nothing in `src/` reads `bonus_budget` or `bonus_single_cap`;</li><li>emptying the #6 slot when capability #6 is lost, and rule 8's guard for the #6 slot;</li><li>the unfixed tier roll (Formulas E, AC-CP-25): every caller fixes the tier, the market uses the realm index as the tier, and the tier `weight` values are unread.</li></ul> | implementation story | Edge Cases, AC-CP-25, AC-CP-34 |
 | 14 | Comprehension strength (Formulas F) lifts `tech_power` up to 3.355; Combat's qi pool (Combat Formulas A) is sized from spiritual power, so re-check its anchors when the fight is built (the old ward fit is retired) | systems-designer, user | Formulas F, Combat Formulas A |

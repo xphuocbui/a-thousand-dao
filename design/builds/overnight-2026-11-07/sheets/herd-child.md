@@ -134,7 +134,7 @@ Two existing rules give the bond its price. Feed is `feed_lt_by_realm` at the be
 
 ### Hidden cluster idea: Old Yoke (Cổ Ách)
 
-Theme Beast Taming (Ngự Thú), Earth, outer, sealed by a technique through `seal_clusters`, size 10. Small acupoints: Companion damage and Companion attack speed. Notables: In Step, then Broad Back with Fights as Itself as its capability. An idea for the tree rework, not data.
+Theme Beast Taming (Ngự Thú), Earth, outer, sealed by a technique through `seal_clusters`, size 10. Small Dao marks: Companion damage and Companion attack speed. Notables: In Step, then Broad Back with Fights as Itself as its capability. An idea for the tree rework, not data.
 
 ## Đạo
 

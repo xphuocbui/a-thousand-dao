@@ -2,7 +2,7 @@
 
 dry-well now prints `layer_budget` instead of `OVER_BUDGET`: it claims 23 % of the gap at nguyen_anh, down from 25 % (the budget is 23 %).
 
-**The change.** `layers` went from `[160, 0, 250, 0, 0]` to `[160, 0, 230, 0, 0]`. I cut only L3 (gear), since that is the layer the build needs least. The seven items already run as Effects, and the file names no Meridian Map source for the 250. I kept L1 at 160. I removed no techniques, items or arts. I chose 230 as the smallest cut that fits the budget, though the budget alone doesn't settle this. A harder cut to L3 150 claims 13 % and fights almost identically (about 62 s against the top-end enemy, no wins).
+**The change.** `layers` went from `[160, 0, 250, 0, 0]` to `[160, 0, 230, 0, 0]`. I cut only L3 (gear), since that is the layer the build needs least. The seven items already run as Effects, and the file names no Đạo Đồ source for the 250. I kept L1 at 160. I removed no techniques, items or arts. I chose 230 as the smallest cut that fits the budget, though the budget alone doesn't settle this. A harder cut to L3 150 claims 13 % and fights almost identically (about 62 s against the top-end enemy, no wins).
 
 **Fights** (20 each, `--matrix`, before → after):
 

@@ -30,30 +30,30 @@ For two seconds it looks like losing: the enemy stands on 87 %, you are on 65 %.
 
 ## The Stack
 
-Sizes on new rows are first guesses, taken from the catalogue where it has a row. **Nodes** are in walking order: 30 nodes, 24 acupoints and 6 notables, 76.8 W at the Meridian Map's prices. Status ○ for a catalogue row means the row is in the catalogue and its key is not yet in Character Stats. Sector rows scale with purity, so these sizes assume purity 50: 0.5 + purity / 100 (Meridian Map rule 4). Fierce-road removal results are in **The New Test**.
+Sizes on new rows are first guesses, taken from the catalogue where it has a row. **Nodes** are in walking order: 30 nodes, 24 Dao marks and 6 notables, 76.8 W at the Đạo Đồ's prices. Status ○ for a catalogue row means the row is in the catalogue and its key is not yet in Character Stats. Sector rows scale with purity, so these sizes assume purity 50: 0.5 + purity / 100 (Đạo Đồ rule 4). Fierce-road removal results are in **The New Test**.
 
 ### Trunk, nodes 1 to 12 (both roads)
 
 | Nodes | Type | Row | Each | Total | Rung | Form | Layer | Status | Second home |
 |---|---|---|---|---|---|---|---|---|---|
-| 1–3, 9–11 | acupoint ×6 | Fire damage | +2 % | +12 | Multiplier | Increased | L1 | ○ catalogue | any Fire build |
+| 1–3, 9–11 | Dao mark ×6 | Fire damage | +2 % | +12 | Multiplier | Increased | L1 | ○ catalogue | any Fire build |
 | 4 | notable | **Red Heart (Xích Tâm)** | +12 % Fire damage | +12 | Multiplier | Increased | L1 | ○ catalogue | any Fire build |
-| 5–7 | acupoint ×3 | Fire art cost | −1 % | −3 | Fuel | Increased | none | ○ catalogue | any Fire build |
+| 5–7 | Dao mark ×3 | Fire art cost | −1 % | −3 | Fuel | Increased | none | ○ catalogue | any Fire build |
 | 8 | notable | **Dry Wood (Can Sài)** | −6 % Fire art cost | −6 | Fuel | Increased | none | ○ catalogue | any Fire build |
-| 12 | acupoint | Fire art speed | +1 % | +1 | Rate | Increased | none | ○ catalogue | any Fire build |
+| 12 | Dao mark | Fire art speed | +1 % | +1 | Rate | Increased | none | ○ catalogue | any Fire build |
 
 ### Fierce Fire (Mãnh Hỏa), nodes 13 to 30: the build
 
 | Nodes | Type | Row | Each | Total | Rung | Form | Layer | Status | Second home |
 |---|---|---|---|---|---|---|---|---|---|
-| 13–15 | acupoint ×3 | Fire art speed | +1 % | +4 with node 12 | Rate | Increased | none | ○ catalogue | any Fire build |
+| 13–15 | Dao mark ×3 | Fire art speed | +1 % | +4 with node 12 | Rate | Increased | none | ○ catalogue | any Fire build |
 | 16 | notable | **Quick Draught (Cấp Phong)** | +6 % Fire art speed | +6 | Rate | Increased | none | ○ catalogue | any Fire build |
-| 17–20 | acupoint ×4 | Crit chance with Fire | +0.8 % | +3.2 | Crit | Increased | none | ○ tag swap of the Sword row | any Fire hit build |
+| 17–20 | Dao mark ×4 | Crit chance with Fire | +0.8 % | +3.2 | Crit | Increased | none | ○ tag swap of the Sword row | any Fire hit build |
 | 21 | notable | **White Point (Bạch Điểm)** | +5 % crit chance with Fire | +5 | Crit | Increased | none | ○ tag swap of the Sword row | any Fire hit build |
-| 22–23 | acupoint ×2 | Crit damage | +1.5 % | +3 | Crit | Increased | none | ● catalogue | every crit build |
-| 24–25 | acupoint ×2 | **Thin Ward (Bạc Hộ)** | +0.05 points per 1 % of the enemy's linh lực missing, Fire arts | up to +10 | Reach | Per | L2 | ○ new | any ward-breaker |
+| 22–23 | Dao mark ×2 | Crit damage | +1.5 % | +3 | Crit | Increased | none | ● catalogue | every crit build |
+| 24–25 | Dao mark ×2 | **Thin Ward (Bạc Hộ)** | +0.05 points per 1 % of the enemy's linh lực missing, Fire arts | up to +10 | Reach | Per | L2 | ○ new | any ward-breaker |
 | 26 | notable | **Full Bellows (Mãn Bễ)** | +12 points to Fire arts with a cooldown of 2.5 s or more | +12 | Multiplier | More | L2 | ○ new | any slow Fire art |
-| 27–29 | acupoint ×3 | Maximum linh lực | +1.2 % | +3.6 | Fuel, Survival | Increased | none | ● catalogue | every build |
+| 27–29 | Dao mark ×3 | Maximum linh lực | +1.2 % | +3.6 | Fuel, Survival | Increased | none | ● catalogue | every build |
 | 30 | notable | **Open Door (Khai Môn)** | +15 % damage to an enemy under 5 % linh lực | +15 | Reach | Conditional | L1 | ○ catalogue, read at 5 % | any ward-breaker |
 | Technique | not a node | **Bare Vessel (Lộ Đỉnh)**, lesser grade | +30 points to hits while the enemy is under 5 % linh lực | +30 | Reach | Conditional | L5 | ○ **reused** | see below |
 
@@ -61,13 +61,13 @@ Sizes on new rows are first guesses, taken from the catalogue where it has a row
 
 | Nodes | Type | Row | Each | Total | Rung | Form | Layer | Status | Second home |
 |---|---|---|---|---|---|---|---|---|---|
-| 13–15 | acupoint ×3 | Status chance | +1 % | +3 | Base | Increased | none | ○ catalogue | any status build |
+| 13–15 | Dao mark ×3 | Status chance | +1 % | +3 | Base | Increased | none | ○ catalogue | any status build |
 | 16 | notable | **Catching Flame (Dẫn Hỏa)** | +6 % status chance | +6 | Base | Increased | none | ○ catalogue | any status build |
-| 17–19 | acupoint ×3 | Status duration | +2 % | +6 | Base | Increased | none | ○ catalogue | any status build |
+| 17–19 | Dao mark ×3 | Status duration | +2 % | +6 | Base | Increased | none | ○ catalogue | any status build |
 | 20 | notable | **Long Burn (Trường Nhiên)** | +12 % status duration | +12 | Base | Increased | none | ○ catalogue | any status build |
-| 21–24 | acupoint ×4 | Maximum linh lực | +1.2 % | +4.8 | Fuel, Survival | Increased | none | ● catalogue | every build |
-| 25–27 | acupoint ×3 | Ward efficiency | +1.2 % | +3.6 | Survival | Increased | none | ● catalogue | any long fight |
-| 28 | acupoint | **Heat Held (Dư Nhiệt)** | +2.5 points to Fire arts while the enemy is Burning | +2.5 | Multiplier | Conditional | L5 | ○ new | any burn build |
+| 21–24 | Dao mark ×4 | Maximum linh lực | +1.2 % | +4.8 | Fuel, Survival | Increased | none | ● catalogue | every build |
+| 25–27 | Dao mark ×3 | Ward efficiency | +1.2 % | +3.6 | Survival | Increased | none | ● catalogue | any long fight |
+| 28 | Dao mark | **Heat Held (Dư Nhiệt)** | +2.5 points to Fire arts while the enemy is Burning | +2.5 | Multiplier | Conditional | L5 | ○ new | any burn build |
 | 29 | notable | **Keeping Heat (Trì Nhiệt)** | +15 points to Fire arts while the enemy is Burning | +15 | Multiplier | Conditional | L5 | ○ new | any burn build |
 | 30 | notable | **Stoked (Thiêm Sài)** | +3 points to Fire arts per stack on the enemy | up to +30 | Multiplier | Per | L2 | ○ new | any status build |
 
@@ -75,17 +75,17 @@ Sizes on new rows are first guesses, taken from the catalogue where it has a row
 
 | Type | Row | Each | Rung | Form | Layer | Status | Why a walker leaves it, or takes it |
 |---|---|---|---|---|---|---|---|
-| acupoint | Damage over time | +2 % | Multiplier | Increased | L1 | ○ catalogue | Clips at equal realm. Four of them instead of linh lực: Slow Fire ends on 16 %, not 21 % (`-slow-wall-dot`). Wants a fight one realm up |
+| Dao mark | Damage over time | +2 % | Multiplier | Increased | L1 | ○ catalogue | Clips at equal realm. Four of them instead of linh lực: Slow Fire ends on 16 %, not 21 % (`-slow-wall-dot`). Wants a fight one realm up |
 | notable | **Deep Coals (Thâm Than)** | +12 points to Fire over-time statuses | Multiplier | More | L2 | ○ new | As above, not tested alone |
-| acupoint | Ward strength against Fire | +2 % | Survival | Increased | none | ○ catalogue | The Fire ward resistance row. Against a Fire enemy, three of them for the linh lực nodes: 6 s on 16 %, so the pool is worth more (`-fire-ward-mixed`) |
+| Dao mark | Ward strength against Fire | +2 % | Survival | Increased | none | ○ catalogue | The Fire ward resistance row. Against a Fire enemy, three of them for the linh lực nodes: 6 s on 16 %, so the pool is worth more (`-fire-ward-mixed`) |
 | notable | **Burnt Hands (Thục Thủ)** | +12 % ward strength against Fire | Survival | Increased | none | ○ catalogue | For a Fire sect's own duels, not tested alone |
 | notable | **Slag (Xỉ Hỏa)** | 40 % of Fire hits become Lava, keeping their Fire tags | Multiplier | Conversion | none | ○ catalogue one-off | Combat's own example, AC-CB-19. A fair swap, no better (`-slag-mixed`) |
-| acupoint | Lava damage | +2.5 % | Multiplier | Increased | L1 | ○ catalogue | Only on the converted share. Three of them with Slag, for Open Door and the crit damage nodes: enemy on 12 % at 4 s, not 13 % |
+| Dao mark | Lava damage | +2.5 % | Multiplier | Increased | L1 | ○ catalogue | Only on the converted share. Three of them with Slag, for Open Door and the crit damage nodes: enemy on 12 % at 4 s, not 13 % |
 
 **Identity piece:** none, on purpose. The critic's new test replaces the identity test: no row may be the build. The `pieces` file carries `identity_id: null`.
 **The unplanned use:** Bare Vessel's authors drain a pool over seconds and then hit. Here the condition turns true inside one instant: the volley empties the pool, and Last Cinder, resolving after it in slot order, already reads it. Without it the enemy stands on 24 % at 4 s, not 13 %. Without it and Open Door together, the fight runs to 6 s and ends on 11 % (`-mixed-pair-dry`).
-**Bare Vessel's grades, stated plainly.** One modifier, four sizes tonight: +2.5 as an acupoint, +25 as a notable, +30 lesser grade and +80 greater grade on techniques and sealed clusters. This row is the lesser grade on a technique, not a tree node, at twice the +10 to +15 of the Conditional notables on the roads. It stays, because a change alters fights. At +15 the main fight ends the same (`-mixed-bv15`), but the split goes from a win at 5 s on 10 % to a loss at 6 s on overkill (`-split-mixed-bv15`), and the cost pair from a win at 6 s on 9 % to a loss at 7 s on overkill (`-mixed-pair-cost-bv15`).
-**Empty rungs:** Past the cap is a sacrifice: the soft cap on L1 is the cap, and the answer to it is to stop buying L1. Survival is thin by choice, 3 acupoints.
+**Bare Vessel's grades, stated plainly.** One modifier, four sizes tonight: +2.5 as a Dao mark, +25 as a notable, +30 lesser grade and +80 greater grade on techniques and sealed clusters. This row is the lesser grade on a technique, not a tree node, at twice the +10 to +15 of the Conditional notables on the roads. It stays, because a change alters fights. At +15 the main fight ends the same (`-mixed-bv15`), but the split goes from a win at 5 s on 10 % to a loss at 6 s on overkill (`-split-mixed-bv15`), and the cost pair from a win at 6 s on 9 % to a loss at 7 s on overkill (`-mixed-pair-cost-bv15`).
+**Empty rungs:** Past the cap is a sacrifice: the soft cap on L1 is the cap, and the answer to it is to stop buying L1. Survival is thin by choice, 3 Dao marks.
 
 | Layer | Points at Nascent Soul | Multiplier | Sources |
 |---|---|---|---|
@@ -230,7 +230,7 @@ Also carries Bare Vessel, lesser grade, at layer 9. **Fit:** Needs key · **Budg
 
 ### Hidden cluster idea: The Two Heats (Nhị Hỏa Mạch)
 
-Theme Spiritual Power, Fire affinity, sealed by the Two Heats Manual, two clusters of 12 acupoints past a shared road, with the rest of each 18-node road on open acupoints beside them. The payoff notables sit farthest from the entry: Open Door and Stoked. No capability. Tree nodes are not authored here, so this is an idea for the rework.
+Theme Spiritual Power, Fire affinity, sealed by the Two Heats Manual, two clusters of 12 Dao marks past a shared road, with the rest of each 18-node road on open Dao marks beside them. The payoff notables sit farthest from the entry: Open Door and Stoked. No capability. Tree nodes are not authored here, so this is an idea for the rework.
 
 ## Progression
 

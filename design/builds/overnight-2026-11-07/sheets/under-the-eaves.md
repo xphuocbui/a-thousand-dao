@@ -33,17 +33,17 @@ Pine Rain pours. By 2 s the kit's pool is on 6 %, and Hà is on 76 %. Nothing an
 | Rung | Modifier | Effect | Form | Channel | Layer | Status | Home | Second home |
 |---|---|---|---|---|---|---|---|---|
 | Survival | **Standing Verdict** | Per-hit ward, pass 0.30 and 0.20, fee 0.05 | Rule swap | any | none | ○ | Ward | From Fortieth Breath |
-| Survival | Ward strength | +24: 20 acupoints | Increased | any | none | ● | Tree | every build |
+| Survival | Ward strength | +24: 20 Dao marks | Increased | any | none | ● | Tree | every build |
 | Survival | Ward efficiency | +8: 1 notable | Increased | any | none | ● | Tree | every per-hit ward |
 | Survival | Maximum health | +95.5 on the walk, +45 off it | Increased | any | none | ● | Tree | every build |
-| Fuel | Regeneration | +4.6: 4 acupoints, 4 notables | Increased | any | none | ● | Tree | every build |
+| Fuel | Regeneration | +4.6: 4 Dao marks, 4 notables | Increased | any | none | ● | Tree | every build |
 | Multiplier | Damage (`attack_pct`) | +122 | Increased | any | L1 | ● | Tree | every build |
 | Multiplier | Gear | L3 40, kept from Evergreen | Gear | any | L3 | ● | Artifacts | every build |
 
 **Identity piece:** the ward. `--without ward` on `variants/under-the-eaves-vs-pine-rain.fight.json` loses at 1 s with the kit on 98 %.
 **Empty rungs:** crit past the base, L2 past the method, L4, L5. All sacrifices.
 
-**W:** 61 acupoints and 14 notables, 185.2 W, plus 176 W outside the walk: attack 122, health 54 at 1.2 W a point. Total 361.2, as Pine Rain's.
+**W:** 61 Dao marks and 14 notables, 185.2 W, plus 176 W outside the walk: attack 122, health 54 at 1.2 W a point. Total 361.2, as Pine Rain's.
 
 ## Foundation
 

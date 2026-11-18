@@ -56,8 +56,8 @@ Most important first. Stop each one when the note says.
 | Piece | Modifier or Effect | What it adds to this build | Where it comes from | In the game or staged | Priority |
 |---|---|---|---|---|---|
 | Health nodes | Maximum health (`khi_huyet_pct`) | A bigger bar for the whole climb | Tree, small and notable nodes | in the game | core |
-| Regeneration nodes | Linh lực regeneration | Ward and heal never run dry | Tree acupoints | in the game | core |
-| Ward nodes | Ward strength and efficiency | Stronger, cheaper ward | Tree acupoints | in the game | core |
+| Regeneration nodes | Linh lực regeneration | Ward and heal never run dry | Tree Dao marks | in the game | core |
+| Ward nodes | Ward strength and efficiency | Stronger, cheaper ward | Tree Dao marks | in the game | core |
 | Plain Shield (Thuẫn) | Artifact defence, affix Kiên | Feeds the ward layer W3 | Artifact, base `thuan` | in the game | core |
 | Hard-Worn Plate (Giáp) | Artifact defence, affix Hộ Thân | Feeds the body layer B3 and adds health | Artifact, base `giap` | in the game | core |
 | Mending Breath | Heal art with a guard | Health back when it matters | Hậu Thổ Địa Quyết, layer 6 | staged (mending-breath) | core |

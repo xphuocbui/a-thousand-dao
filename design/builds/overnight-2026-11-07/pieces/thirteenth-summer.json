@@ -23,7 +23,7 @@
      "effect": "Qi, song. c_art 145.23, cost 0.04, authored cooldown 576 s at purity 60 and one waking."},
     {"type": "art", "name": "Scrabble", "han_viet": "Bào Thổ", "fit": "Needs key", "effect": "Body. c_art 1.48, cost 0.04, 1 s."},
     {"type": "art", "name": "Dry Click", "han_viet": "Khô Minh", "fit": "Needs key", "effect": "Qi. c_art 1.48, cost 0.04, 1 s."},
-    {"type": "acupoint", "name": "Slow Art Damage", "han_viet": "Hoãn Pháp Thương", "form": "Increased", "channel": "art", "layer": "L1", "fit": "Needs key",
+    {"type": "dao_mark", "name": "Slow Art Damage", "han_viet": "Hoãn Pháp Thương", "form": "Increased", "channel": "art", "layer": "L1", "fit": "Needs key",
      "effect": "Small +3, notable +15, on arts with an authored cooldown of 10 s or more.", "second_home": "The Fortieth Breath, any long-cooldown art"},
     {"type": "notable", "name": "Heavy Note", "han_viet": "Trọng Âm", "form": "More", "channel": "art", "layer": "L2", "fit": "Needs key",
      "effect": "+20 to arts with an authored cooldown of 20 s or more.", "second_home": "The Fortieth Breath, Forum Build"},

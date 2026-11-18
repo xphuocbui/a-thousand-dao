@@ -484,7 +484,7 @@
             "difficulty": 55
           },
           "success": {
-            "text": "Kinh mạch rung động, một huyệt đạo mới như tự mở ra.",
+            "text": "Đạo Đồ rung động, một đạo văn mới như tự mở ra.",
             "effects": [
               {
                 "type": "tu_vi",
@@ -1278,7 +1278,7 @@
       ]
     },
     {
-      "id": "mach_an_co_vat",
+      "id": "dao_an_co_vat",
       "weight": 2,
       "place_types": [
         "son",
@@ -1291,7 +1291,7 @@
       "npc": {
         "mode": "none"
       },
-      "title": "Mạch Ấn cổ vật",
+      "title": "Đạo Ấn cổ vật",
       "text": "Giữa đống phế vật ở {place}, một phiến ngọc khắc đồ hình kinh mạch tỏa sáng khi ngươi chạm vào.",
       "choices": [
         {
@@ -1304,7 +1304,7 @@
             "effects": [
               {
                 "type": "treasure",
-                "treasure": "mach_an"
+                "treasure": "dao_an"
               }
             ]
           },

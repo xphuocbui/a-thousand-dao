@@ -6,7 +6,7 @@ Công pháp: Deep Earth Earth Scripture (Hậu Thổ Địa Quyết), Deep Earth
 body art Dragon-Elephant (Long Tượng Công). Formation: Mountain Guard Array (Hộ Sơn Trận).
 
 **Earth's linh lực keystone (New, every Earth build):** **The Stone Remembers (Thạch Ký)**: 0.9 % of the damage
-your block and resistance prevent returns as linh lực (starting number, `notes.md` § 9). How to create: Meridian Map keystone in the Earth land; an
+your block and resistance prevent returns as linh lực (starting number, `notes.md` § 9). How to create: Đạo Đồ keystone in the Earth land; an
 Effect on the "damage prevented" read (new readable: prevented points per hit), action "restore linh lực";
 closing cost "your evade is 0".
 

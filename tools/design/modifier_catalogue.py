@@ -95,7 +95,7 @@ stat(OFF, "Status duration", 0.6, 0.1, " %", implied="over_time", status="Pendin
 DEF = "Combat: defence"
 stat(DEF, "Resistance (`resist_pct`)", 0.04, 1, " pts", status="Designed", scopes=[
     ("— (all resistance)", [], 1), ("against type: physical or force", ["physical"], 2),
-    ("against type: fire, cold, lightning, light", ["<type>"], 4), ("against type: chaos (rare, rule 13: never on acupoints, notables or rolled affixes)", ["chaos"], 1),
+    ("against type: fire, cold, lightning, light", ["<type>"], 4), ("against type: chaos (rare, rule 13: never on Dao marks, notables or rolled affixes)", ["chaos"], 1),
     ("against foe: cultivator (Pending)", ["cultivator"], 1), ("against foe: creature (Pending)", ["creature"], 1)])
 stat(DEF, "Block (`block_rating`)", 0.4, 1, " rating", status="Designed", scopes=[
     ("—", [], 1), ("against type: physical or force (Pending)", ["physical"], 2), ("against type: fire, cold, lightning, light (Pending)", ["<type>"], 4)])

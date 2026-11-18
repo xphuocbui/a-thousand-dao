@@ -259,7 +259,7 @@ Each owner adds their own (Mountain Notches).
 Hidden clusters and `seal_clusters` are retired (cong-phap.md rule 15), so this is an open region for the tree
 rework, as slow-thunder's Winter Breath. Theme: crossing realms (Realms system), wider than one build. Metal
 affinity. Open, no seal. Size 8: small
-acupoints of realm pierce +1.2, accuracy +0.5, Physical penetration +15, soul resistance +1; notables Needle's Eye
+Dao marks of realm pierce +1.2, accuracy +0.5, Physical penetration +15, soul resistance +1; notables Needle's Eye
 +40 [pierce] (middle) and Beneath Notice (far). No capability. An idea for the tree rework, not data.
 
 ## Đạo

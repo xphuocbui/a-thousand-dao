@@ -41,7 +41,7 @@
 | Life-earned permanent bonuses (`_combos-and-risks.md` 1) | **No ceiling** | keep as drafted; earned power is the reward. Watch the macro difficulty targets |
 | Floor on non-soul resistance (combos 2) | **No floor, keep the 2026-11-10 ruling** | negative resistance amplifies; shred stays uncapped |
 | The cost lock (combos 3) | **Keep it; merge Băng's Absolute Zero and dry-well's Cold Toll into one piece** | no cap on Ice cost raise |
-| Way outlines on the tree | **Own outline per Way** | each Way's ~150-node cluster graph gets its own shape (Meridian kit, no silhouettes); Hỏa's Sword-layout draft is a placeholder |
+| Way outlines on the tree | **Own outline per Way** | each Way's ~150-node cluster graph gets its own shape (Đạo Đồ kit, no silhouettes); Hỏa's Sword-layout draft is a placeholder |
 
 ## Build-run system suggestions (`design/builds/overnight-2026-11-10/RUN-SUMMARY.md` § 2, top 9)
 

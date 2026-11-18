@@ -148,7 +148,7 @@ Refining and Foundation Establishment through its crafts, caution and engine.
 
 ### Variant roots (biến dị linh căn)
 
-Eight rarer roots (six in play: Void and Blood are archived) sit beside the five elements, and each has a role and a hidden Meridian Map
+Eight rarer roots (six in play: Void and Blood are archived) sit beside the five elements, and each has a role and a hidden Đạo Đồ
 sector of its own. They arise in three ways.
 
 | Origin | Variants |

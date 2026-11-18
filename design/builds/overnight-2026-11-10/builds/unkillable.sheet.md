@@ -253,7 +253,7 @@ when the sect moved; the tree grew the bark back in a season, and the mantle sti
 
 Theme: the slow growth at a tree's centre, meaning health regeneration and healing. This is wider than one build:
 every healer, Wood body and NPC guardian reads it. Wood affinity. Kind: sealed, and the Thousand-Root Spring
-Scripture lists it in `seal_clusters`. Size 8 acupoints:
+Scripture lists it in `seal_clusters`. Size 8 Dao marks:
 
 - Smalls: `health_regen_pct` +0.12 (×3), `healing_pct` +2 (×2), `stack_duration_pct` [moc, buff] +4.
 - Notables: `health_regen_inc_pct` +20, and, farthest, **Sap Rises** (+1 % healing per Wood buff stack). Quiet Channels

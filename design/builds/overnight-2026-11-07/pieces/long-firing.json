@@ -20,7 +20,7 @@
  ],
  "new": [
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Earth damage",
    "han_viet": "Thổ Thương",
    "form": "Increased",
@@ -46,7 +46,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Maximum health",
    "han_viet": "Khí Huyết",
    "form": "Increased",
@@ -72,7 +72,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Body guard",
    "han_viet": "Hộ Thể",
    "form": "Increased",
@@ -98,7 +98,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Earth art cost",
    "han_viet": "Tiết Thổ",
    "form": "Increased",
@@ -124,7 +124,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Settled Weight",
    "han_viet": "Trầm Trọng",
    "form": "More",
@@ -150,7 +150,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Damage while above 50 % health",
    "han_viet": "Toàn Khu",
    "form": "Conditional",
@@ -176,7 +176,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Unbroken Glaze",
    "han_viet": "Toàn Dứu",
    "form": "Conditional",
@@ -202,7 +202,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Fired Clay",
    "han_viet": "Đào Thể",
    "form": "Per",
@@ -228,7 +228,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward efficiency",
    "han_viet": "Hộ Hiệu",
    "form": "Increased",
@@ -254,7 +254,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward strength",
    "han_viet": "Hộ Lực",
    "form": "Increased",
@@ -280,7 +280,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Linh lực regeneration",
    "han_viet": "Hồi Khí",
    "form": "Increased",
@@ -306,7 +306,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Body damage",
    "han_viet": "Thể Thương",
    "form": "Increased",
@@ -332,7 +332,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Weapon attack",
    "han_viet": "Khí Phong",
    "form": "Increased",
@@ -358,7 +358,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Armour defence",
    "han_viet": "Giáp Hậu",
    "form": "Increased",
@@ -384,7 +384,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Load-Bearing",
    "han_viet": "Phụ Trọng",
    "form": "Per",
@@ -410,7 +410,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Worn Slope",
    "han_viet": "Hao Pha",
    "form": "Per",
@@ -436,7 +436,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Damage while below 50 % health",
    "han_viet": "Sạt Lở",
    "form": "Conditional",
@@ -462,7 +462,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Body guard against qi hits",
    "han_viet": "Nội Giáp",
    "form": "Conditional",
@@ -488,7 +488,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward strength against Water",
    "han_viet": "Khắc Thủy",
    "form": "Conditional",
@@ -514,7 +514,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward strength against Wood",
    "han_viet": "Hộ Căn",
    "form": "Conditional",
@@ -540,7 +540,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Status resistance",
    "han_viet": "Kháng Độc",
    "form": "Increased",

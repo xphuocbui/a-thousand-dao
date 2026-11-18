@@ -152,7 +152,7 @@ Craft skill levels are written "talisman skill level", "formation skill level", 
 Taming level" (Phù lục, Trận Pháp, Ngự thú).
 
 System names (systems index): Spiritual Roots (Linh Căn), Realms & Bottlenecks (Cảnh Giới
-& Bình Cảnh), Cultivation Techniques (Công Pháp), Meridian Map (Kinh Mạch Đồ), Spirit
+& Bình Cảnh), Cultivation Techniques (Công Pháp), Đạo Đồ, Spirit
 Herbs & Spirit Fields (Linh Thảo & Linh Điền), Alchemy (Luyện Đan), Artifact Refining
 (Luyện Khí), Formations (Trận Pháp), Talismans (Phù Lục), Spirit Beasts & Spirit Insects
 (Linh Thú & Linh Trùng), Market & Spirit Stone Economy, Heavenly Tribulation (Thiên Kiếp),
@@ -162,16 +162,21 @@ Realm abbreviations in tables: QR = Qi Refining (Luyện Khí), FE = Foundation 
 (Trúc Cơ), CF = Core Formation (Kết Đan), NS = Nascent Soul (Nguyên Anh), DT = Deity
 Transformation (Hóa Thần); early / mid / late / GP = sơ / trung / hậu kỳ / đại viên mãn.
 
-## Meridian Map (skill tree)
+## Đạo Đồ (skill tree)
+
+Đạo Đồ is written Hán-Việt first, like Way and sect names (renamed from Meridian Map /
+Kinh Mạch Đồ on 2026-11-18). It is not The Way (Đạo): a Dao's own graph is never called a "đồ".
+Its points are Đạo Đồ points (formerly Kinh Mạch points). Body-meridian lore keeps the word
+"meridian": the Sealed Meridian status, Glass, Sick and Kindled Meridians, Meridian Pin.
 
 | English | Hán-Việt | Notes |
 |---|---|---|
-| Meridian Map | Kinh Mạch Đồ | The skill tree |
-| acupoint | huyệt | A tree node |
-| dantian | Đan Điền | The tree's root |
-| meridian road | kinh lộ | Highway of small acupoints |
-| junction acupoint | hội huyệt | Where meridian roads meet |
-| Meridian Seal | Mạch Ấn | Key item that unseals a cluster |
+| Đạo Đồ | Đạo Đồ | The skill tree |
+| Dao mark | đạo văn | A tree node (formerly acupoint, huyệt) |
+| Dao Source | Đạo Nguyên | The tree's root (formerly dantian, Đan Điền) |
+| Dao path | đạo lộ | Highway of small Dao marks |
+| crossing | giao lộ | Where Dao paths meet |
+| Dao Seal | Đạo Ấn | Key item that unseals a cluster |
 | Five Elements Cycle | Ngũ Hành Luân Chuyển | The center keystone |
 | Fated / Self-made life | Thiên Định / Tự Định | Default Silhouette / Visible mode |
 
@@ -197,4 +202,4 @@ Cluster themes:
 
 Capability names keep their Hán-Việt name in parentheses after an English name, e.g.
 *Twin Arms in Harmony (Song Khí Hợp Bích)*. The English names are set in
-`design/gdd/kinh-mach-do.md` rule 17.
+`design/gdd/dao-do.md` rule 17.

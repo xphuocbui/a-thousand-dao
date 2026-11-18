@@ -72,7 +72,7 @@ Most important first.
 |---|---|---|---|---|---|
 | Thunderhead | Effect (overflow, held) | Up to +3.0 coefficient on the Ice-Breaking Peal (4.23 → 7.23) | Động Tĩnh Đạo, Tĩnh Cực Sinh Động major; scripture layer 9 | Staged: thunderhead | core |
 | Long Winter Thunder Scripture | Công pháp | All four arts, Long Fuse +50, slow art speed +30, slow art cost −20, Heavy Sky +40, Final Clause | Main technique, Địa giai | Staged: long-winter-thunder-scripture | core |
-| Still Water | Effect (overflow) | About 1.2 % of health a second while the pool overflows | Động Tĩnh Đạo Tĩnh minor; Meridian Map | In the game (Effects GDD) | core |
+| Still Water | Effect (overflow) | About 1.2 % of health a second while the pool overflows | Động Tĩnh Đạo Tĩnh minor; Đạo Đồ | In the game (Effects GDD) | core |
 | Linh lực regeneration | Modifier `linh_luc_regen_pct` | Every point is more thunderhead and more healing | Tree notables (+1), Ice-Jam Seal (+1.0), Tĩnh lines | In the game | core |
 | Art cost, slow arts | Modifier `art_cost_pct` [slow] | Peals at 1.2 % instead of 2 %, so more overflow | Scripture layer 8; tree notable; Winter Breath region | In the game (key); region staged: winter-breath-region | core |
 | Long Fuse | Modifier, L2 [slow, cheap] | +40 to +50 more on every peal | Scripture layer 2; Tĩnh Cực Sinh Động notables ×2; Winter Breath far notable | Staged: long-fuse | core |

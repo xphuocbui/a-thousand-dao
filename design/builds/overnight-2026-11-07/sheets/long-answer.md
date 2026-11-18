@@ -35,14 +35,14 @@ At 2 s Khúc is on 69 %, and Short Reply stands on 95 % with its pool at 59 %. L
 | Survival | **Stone Ward** | Per-pulse ward, common pass, upkeep 0.10 | Rule swap | any | none | ○ | Ward | From Long Firing |
 | Survival | Ward strength | +40.4 on the road, +55 off it | Increased | any | none | ● | Tree | every build |
 | Survival | Maximum health | +29 on the road, +91.7 off it | Increased | any | none | ● | Tree | every build |
-| Fuel | Regeneration | +0.15: 1 acupoint | Increased | any | none | ● | Tree | every build |
+| Fuel | Regeneration | +0.15: 1 Dao mark | Increased | any | none | ● | Tree | every build |
 | Multiplier | Damage (`attack_pct`) | +6 | Increased | any | L1 | ● | Tree | every build |
 | Multiplier | Plain Speech Method, gear, pill | L2 10, L3 30, L4 20, kept from One Long Word | Gear | any | L2 to L4 | ○ | Technique, items | From One Long Word |
 
 **Identity piece:** the ward. `--without ward` on `variants/long-answer-vs-short-reply.fight.json` loses at 1.5 s with the kit on 97 %.
 **Empty rungs:** crit, reach, L5, the curse road. All sacrifices.
 
-**W:** road 24 acupoints and 6 notables, 76.8 W, plus 171 W outside it: attack 6, ward strength 55, health 110 at 1.2 W a point. Total 247.8, as Short Reply's.
+**W:** road 24 Dao marks and 6 notables, 76.8 W, plus 171 W outside it: attack 6, ward strength 55, health 110 at 1.2 W a point. Total 247.8, as Short Reply's.
 
 ## Foundation
 

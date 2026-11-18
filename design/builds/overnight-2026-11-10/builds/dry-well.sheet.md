@@ -123,7 +123,7 @@ The build's modifiers, in order up the ladder. Sizes on new modifiers are first 
 | 5 Reach | `resist_pen_pct` [force] | +300 points | Flat | qi burn tick | none | ◐ | Chìm lines | any Force build |
 | 6 Past the cap | **Owed Water (Thủy Trái)** | Burn and bills an empty pool cannot pay become their debt (cap 40 %); they repay it before refilling, half to you | Overflow | burn past 0 | none | ○ new | Vụ Đạo Chìm major | two-clocks, soul-lance |
 | 7 Fuel | Water Table (enabler) | 30 % of bills paid against your hits → your linh lực | Trade | own linh lực | none | ● | Well-Drawing Gourd | Force anti-ward |
-| 7 Fuel | Frost Tithe (Sương Thuế) | 9 % of the extra cost your Ice adds → your linh lực | Trigger | own linh lực | none | ○ reused (by-root) | Meridian Map keystone, Ice reach | every Ice build |
+| 7 Fuel | Frost Tithe (Sương Thuế) | 9 % of the extra cost your Ice adds → your linh lực | Trigger | own linh lực | none | ○ reused (by-root) | Đạo Đồ keystone, Ice reach | every Ice build |
 | 7 Fuel | Still Water | Linh lực lost to a full pool heals at half | Overflow | own health | none | ● | Vụ Đạo or tree | ward casters |
 | 8 Survival | Mountain Screen, Thousand-Layer Cloud | Reserved shields, about 6,110 points at ws 150, up from t = 0 | — | — | — | ● | Ward slots | everyone |
 | 8 Survival | Spring at the Well's Mouth | Heal 1,640 every 2 s below 70 % health, refunded | — | — | — | ○ new art | Dry Well Scripture | Water builds |
@@ -250,7 +250,7 @@ knows what it drew. Whoever carries it stops refilling on their own, as if they 
 
 | Priority | Node, cluster or keystone | Value | Why | Fit |
 |---|---|---|---|---|
-| 1 | Frost Tithe (Meridian Map keystone, Water land's Ice reach; by-root) | 9 % of the extra cost your Ice adds → linh lực | Fuel in the opening | Needs rule |
+| 1 | Frost Tithe (Đạo Đồ keystone, Water land's Ice reach; by-root) | 9 % of the extra cost your Ice adds → linh lực | Fuel in the opening | Needs rule |
 | 2 | Well-Rope (Tỉnh Thằng), sealed cluster | below | Weighted Bucket, Ice duration and effect, art speed | Needs key |
 | 3 | `attack_pct` [cold] notables | +12 % each | L1 | Fits today (designed) |
 | 4 | Art speed [bang] notables | +6 % each | The needle's rate | Fits today (designed) |
@@ -259,7 +259,7 @@ knows what it drew. Whoever carries it stops refilling on their own, as if they 
 ### Hidden cluster idea: Well-Rope (Tỉnh Thằng)
 
 Theme: making the other side pay for its defence (wider than this build: any anti-ward build). Water or Ice affinity.
-Sealed, 8 acupoints; seal: the Dry Well Scripture lists it in `seal_clusters`. Smalls: `ward_bill_pct` +2.5,
+Sealed, 8 Dao marks; seal: the Dry Well Scripture lists it in `seal_clusters`. Smalls: `ward_bill_pct` +2.5,
 `stack_duration_pct` [bang, debuff] +4, `art_speed_pct` [bang] +2. Notables: `ward_bill_pct` +15, and farthest,
 `stack_effect_pct` [bang, debuff] +24. No capability. An idea for the tree rework, not data.
 

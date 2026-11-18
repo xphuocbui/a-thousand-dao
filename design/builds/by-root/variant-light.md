@@ -6,7 +6,7 @@ here.
 
 **Light's linh lực.** No stacks; Fire's keystone (Embers Feed the Hearth) works if it also burns, or a Light-island
 keystone (New): **Dawn Tithe (Bình Minh Thuế)**: "while the foe is Exposed, your hits restore linh lực". How to
-create: Meridian Map keystone on the Light island; reads statuses on the target.
+create: Đạo Đồ keystone on the Light island; reads statuses on the target.
 
 ---
 

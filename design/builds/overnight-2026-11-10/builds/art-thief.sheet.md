@@ -151,7 +151,7 @@ Talismans are left out on purpose: each takes an art slot, and an art slot is a 
 
 ### Hidden cluster idea: Hollow Hall (Hư Đường)
 
-Theme: the Way of Copying and Emptiness, wider than this build (any mimic, student or NPC scribe). Element affinity: Water. Kind: sealed. Seal condition: a technique, the Hollow Hall Sutra lists it in `seal_clusters`. Size: 8 acupoints, 2 notables. The small acupoints are +1.2 % maximum linh lực, +0.15 % regeneration, +0.5 % art speed on stolen arts, and −0.5 % art cost. The notables are Faithful Copy (+6 fidelity points) and Own Medicine. The payoff farthest from the entry is a keystone-style notable: Wide Sleeve (+1 loan slot, own arts cost 20 % more). It carries no capability. An idea for the tree rework, not data.
+Theme: the Way of Copying and Emptiness, wider than this build (any mimic, student or NPC scribe). Element affinity: Water. Kind: sealed. Seal condition: a technique, the Hollow Hall Sutra lists it in `seal_clusters`. Size: 8 Dao marks, 2 notables. The small Dao marks are +1.2 % maximum linh lực, +0.15 % regeneration, +0.5 % art speed on stolen arts, and −0.5 % art cost. The notables are Faithful Copy (+6 fidelity points) and Own Medicine. The payoff farthest from the entry is a keystone-style notable: Wide Sleeve (+1 loan slot, own arts cost 20 % more). It carries no capability. An idea for the tree rework, not data.
 
 ## Đạo
 

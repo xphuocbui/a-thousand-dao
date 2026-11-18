@@ -26,13 +26,13 @@
 
 *Live* in game data · *Designed* in a GDD, not built · *Idea* in the Nov 6 tree catalogue · *Proposal* from the
 overnight run. Sources: `assets/data/character_stat_labels.json` and the files that use its keys, `combat.md`
-§ Parameter keys, `meridian_capabilities.json`, `design/quick-specs/tree-modifier-catalogue.md`, and the
+§ Parameter keys, `dao_do_capabilities.json`, `design/quick-specs/tree-modifier-catalogue.md`, and the
 overnight `summary/1-modifiers.md` and `2-techniques-and-effects.md` § Enablers. 624 entries read, 556 after merging.
 
 ## Part 1: Modifiers
 
 Grouped by the stat they change. Rows that are the same modifier on a different tag are folded into one
-**template** (`<tag> art cost`), with the tags seen so far. **Breadth** answers the Meridian Map question:
+**template** (`<tag> art cost`), with the tags seen so far. **Breadth** answers the Đạo Đồ question:
 *universal* helps every build, *family* a broad group (an element, arts, soul), *narrow* a few.
 
 | Group | Modifiers | Universal | Family | Narrow |
@@ -360,7 +360,7 @@ condition or scaling looks at.
 | [Conversion](#conversion) | 15 | 0 | 0 | 15 | Changes a hit's tags or kind, or makes one quantity count as another. |
 | [Overflow](#overflow) | 9 | 0 | 1 | 8 | Uses what a cap clips. |
 | [Rule change](#rule-change) | 63 | 5 | 8 | 50 | Changes a rule outright, with no number to stack. |
-| [Keystone](#keystone) | 72 | 25 | 37 | 10 | A strong rule with a price. Meridian capabilities are here too. |
+| [Keystone](#keystone) | 72 | 25 | 37 | 10 | A strong rule with a price. Đạo Đồ capabilities are here too. |
 | [Enabler](#enabler) | 27 | 0 | 1 | 26 | Opens a channel, a rule or a resource and closes something in exchange; the piece a build is built on. |
 
 **What conditions read** (a fixed list of readable quantities is a candidate GDD rule): own health 14, in-fight events 14, life / years 14, own linh lực 13, slots / loadout 12, element relation 11, attribute 10, heart demon / toxicity 10, owned stat (compile) 10, realm gap 9, enemy linh lực 9, fight time 8, preparation / ground 8, hit tags / kind 3, craft skill 2, enemy health 1.
@@ -682,7 +682,7 @@ condition or scaling looks at.
 | **Late Bloom** (Hậu Phát) | Speed and tempo | fight time | Art speed rises for every 5 s the fight lasts → Sustain build that outlasts bursts | Idea | catalogue |
 | **Soul Pressure** (Thần Uy) | Speed and tempo |  | With a soul twice the enemy's, its first arts fire later → Intimidation | Idea | catalogue |
 | **Soul Wound** (Thương Hồn) | Speed and tempo |  | Soul hits briefly lower the enemy's art speed → Soul as control, not damage | Idea | catalogue |
-| **Treasure Nurtured Within** (Dưỡng Bảo Nội Thể) | Linh lực: cost, reservation, payment |  | The first equipped treasure costs no divine sense and grows +1% per year, up to +50%. | Live | Meridian capability |
+| **Treasure Nurtured Within** (Dưỡng Bảo Nội Thể) | Linh lực: cost, reservation, payment |  | The first equipped treasure costs no divine sense and grows +1% per year, up to +50%. | Live | Đạo Đồ capability |
 | **Blood Casting** (Huyết Tế) | Linh lực: cost, reservation, payment | own linh lực | Arts cost health when linh lực runs out → Never stops casting, kills itself if careless | Idea | catalogue |
 | **First Move** (Tiên Thủ) | Linh lực: cost, reservation, payment |  | Your first art of the fight costs no linh lực → Alpha strike | Idea | catalogue |
 | **Along the Thread** (Duyên Tuyến) | Linh lực: cost, reservation, payment |  | On your soul arts, thần thức the defender has bound to artifacts counts at half. You may equip nothing that costs thần thức. Each kill by a soul art… | Proposal | overnight · 1 build |
@@ -693,43 +693,43 @@ condition or scaling looks at.
 | **Twin Wards** (Song Hộ) | Ward |  | A second ward stays up at half strength; breaks "one ward at a time" → Layered resistance | Idea | catalogue |
 | **One Drop** (Nhất Tích) | Ward |  | Your first hit leaves 1 % colour. Each pulse colour x (1 + (clean purity - their highest purity) / 50 x spread). That share of their art hits resolve… | Proposal | overnight · 1 build |
 | **Slip of the Hand** (Thất Thủ) | Ward |  | Every art that would hit, on either side, first rolls 0.05 + (other's fortune - caster's fortune) x 0.001. A slip resolves on its caster, through the… | Proposal | overnight · 1 build |
-| **Blood Commands Spirit** (Huyết Ngự Linh) | Health and healing |  | 20% of vitality counts as spiritual power; below 30% vitality, -20% attack. | Live | Meridian capability |
-| **Soul Leaves the Body** (Linh Hồn Xuất Khiếu) | Health and healing | realm gap | Once per realm, survive a death in an event at 5% vitality, losing one stage. | Live | Meridian capability |
+| **Blood Commands Spirit** (Huyết Ngự Linh) | Health and healing |  | 20% of vitality counts as spiritual power; below 30% vitality, -20% attack. | Live | Đạo Đồ capability |
+| **Soul Leaves the Body** (Linh Hồn Xuất Khiếu) | Health and healing | realm gap | Once per realm, survive a death in an event at 5% vitality, losing one stage. | Live | Đạo Đồ capability |
 | **Iron Marrow** (Thiết Tủy) | Health and healing |  | Body guard rises as health falls → Gets harder to finish | Idea | catalogue |
 | **Unyielding Breath** (Bất Khuất) | Health and healing | own health, in-fight events | Once per fight, a killing blow leaves you at 1 health → Reliable escape window | Idea | catalogue |
-| **Beast Soul Union** (Thú Hồn Hợp Thể) | Soul and thần thức |  | The strongest spirit beast adds its full combat power instead of half. | Live | Meridian capability |
-| **Divided Divine Sense** (Thần Thức Phân Hóa) | Soul and thần thức |  | +1 magic treasure slot and +20% divine sense. | Live | Meridian capability |
-| **Burning Life to Break Through** (Thiêu Thọ Phá Cảnh) | Statuses, ticks and curses | realm gap, life / years | After a failed pill attempt, burn 10 years (5% of the realm's lifespan if more) to retry at once. | Live | Meridian capability |
+| **Beast Soul Union** (Thú Hồn Hợp Thể) | Soul and thần thức |  | The strongest spirit beast adds its full combat power instead of half. | Live | Đạo Đồ capability |
+| **Divided Divine Sense** (Thần Thức Phân Hóa) | Soul and thần thức |  | +1 magic treasure slot and +20% divine sense. | Live | Đạo Đồ capability |
+| **Burning Life to Break Through** (Thiêu Thọ Phá Cảnh) | Statuses, ticks and curses | realm gap, life / years | After a failed pill attempt, burn 10 years (5% of the realm's lifespan if more) to retry at once. | Live | Đạo Đồ capability |
 | **Burning Lifespan** (Nhiên Thọ) | Statuses, ticks and curses | own health | Once per fight, a large surge of power when health is low (cost: Years of lifespan) | Idea | catalogue |
 | **Five Phases Cycle** (Ngũ Hành Tương Sinh) | Statuses, ticks and curses |  | Arts firing in generating order (Wood, Fire, Earth, Metal, Water) each gain a stacking bonus; breaking the order resets it → Slot order and cooldowns… | Idea | catalogue |
 | **Elemental Fist** (Ngũ Hành Quyền) | Conversion |  | The basic attack carries your main element's tags → Basic attack benefits from element bonuses | Idea | catalogue |
 | **Turning Phase** (Chuyển Hành) | Conversion | element relation | When an art carrying an element reaches you, your ward's phase becomes what it generates, from your next hit on, and your Ring Steps start there, so… | Proposal | overnight · 1 build |
 | **Bonded Spirit** (Linh Khế) | Companions and beasts |  | The companion's hits carry your art speed and your statuses → Beast master | Idea | catalogue |
 | **Wounded Beast** (Thương Thú) | Companions and beasts |  | Low vitality before the fight raises damage instead of only hurting you → Fights on while injured | Idea | catalogue |
-| **Twin Arms in Harmony** (Song Khí Hợp Bích) | Artifacts and gear |  | Two magic treasures of the same kind work as a pair: +15% attack for the pair. | Live | Meridian capability |
-| **Endless Talismans** (Phù Lục Bất Tận) | Preparation: formations, talismans, pills, ground |  | 30% chance a used talisman is not consumed. | Live | Meridian capability |
-| **Formation Within a Formation** (Trận Trung Trận) | Preparation: formations, talismans, pills, ground |  | Formations may exceed their maximum by 2 levels; upkeep for those levels x2. | Live | Meridian capability |
-| **Last Radiance** (Hồi Quang Phản Chiếu) | Preparation: formations, talismans, pills, ground | realm gap, life / years | With under 5 years of lifespan left, one pill attempt per realm is up to x2, capped. | Live | Meridian capability |
-| **Portable Cave Abode** (Động Phủ Tùy Thân) | Preparation: formations, talismans, pills, ground |  | Formations and spirit fields work wherever you are; the field can be tended anywhere. | Live | Meridian capability |
-| **Strange Pill Reborn** (Dị Đan Hóa Sinh) | Preparation: formations, talismans, pills, ground |  | A failed brew has a 30% chance of a random lesser pill instead of ash. | Live | Meridian capability |
+| **Twin Arms in Harmony** (Song Khí Hợp Bích) | Artifacts and gear |  | Two magic treasures of the same kind work as a pair: +15% attack for the pair. | Live | Đạo Đồ capability |
+| **Endless Talismans** (Phù Lục Bất Tận) | Preparation: formations, talismans, pills, ground |  | 30% chance a used talisman is not consumed. | Live | Đạo Đồ capability |
+| **Formation Within a Formation** (Trận Trung Trận) | Preparation: formations, talismans, pills, ground |  | Formations may exceed their maximum by 2 levels; upkeep for those levels x2. | Live | Đạo Đồ capability |
+| **Last Radiance** (Hồi Quang Phản Chiếu) | Preparation: formations, talismans, pills, ground | realm gap, life / years | With under 5 years of lifespan left, one pill attempt per realm is up to x2, capped. | Live | Đạo Đồ capability |
+| **Portable Cave Abode** (Động Phủ Tùy Thân) | Preparation: formations, talismans, pills, ground |  | Formations and spirit fields work wherever you are; the field can be tended anywhere. | Live | Đạo Đồ capability |
+| **Strange Pill Reborn** (Dị Đan Hóa Sinh) | Preparation: formations, talismans, pills, ground |  | A failed brew has a 30% chance of a random lesser pill instead of ash. | Live | Đạo Đồ capability |
 | **Home Ground** (Địa Lợi) | Preparation: formations, talismans, pills, ground |  | Ground tags always count in your favour → Chooses where to fight | Idea | catalogue |
 | **Standing Array** (Thường Trận) | Preparation: formations, talismans, pills, ground |  | Your formation also counts in blind fights → Always-prepared formation master | Idea | catalogue |
 | **One Root** (Đồng Căn) | Slots and loadout | slots / loadout | A bonus if every slotted art shares one element → Pure element | Idea | catalogue |
 | **Heaven's Favour** (Thiên Quyến) | Escape |  | Once per fight, reroll a failed escape → Fortune build | Idea | catalogue |
-| **Child of Fortune** (Khí Vận Chi Tử) | Fortune | realm gap | Once per realm, reroll a failed event check. | Live | Meridian capability |
-| **Reading Heaven's Secrets** (Thiên Cơ Diễn Toán) | Fortune |  | See every choice's success and failure outcomes before choosing. | Live | Meridian capability |
-| **Concealed Breath** (Liễm Tức Ẩn Thân) | Realm and suppression |  | Others see you two stages lower; hostile events -30% frequency. | Live | Meridian capability |
-| **Dao in Dreams** (Mộng Trung Ngộ Đạo) | Life and cultivation |  | Seasons spent travelling also cultivate, at 50% rate. | Live | Meridian capability |
-| **Embryonic Breath** (Thai Tức Quy Nguyên) | Life and cultivation |  | Age at three-quarters speed during closed-door cultivation. | Live | Meridian capability |
-| **Great Essence-Draining Art** (Hấp Tinh Đại Pháp) | Life and cultivation |  | Defeating a cultivator gives cultivation base worth 5% of the current stage; heart demon +2. | Live | Meridian capability |
-| **Heart Demon Turned to Strength** (Tâm Ma Hóa Lực) | Life and cultivation |  | Heart demon above 50 adds attack; qi deviation chance x2. | Live | Meridian capability |
-| **Mutation Awakening** (Biến Dị Khai Mở) | Life and cultivation |  | Each completed realm breakthrough gives one more roll to every unowned, non-declined derived variant whose requirement is met. | Live | Meridian capability |
-| **Twin Technique Cultivation** (Song Tu Công Pháp) | Life and cultivation |  | A second main method at 50% speed with its full bonuses. | Live | Meridian capability |
+| **Child of Fortune** (Khí Vận Chi Tử) | Fortune | realm gap | Once per realm, reroll a failed event check. | Live | Đạo Đồ capability |
+| **Reading Heaven's Secrets** (Thiên Cơ Diễn Toán) | Fortune |  | See every choice's success and failure outcomes before choosing. | Live | Đạo Đồ capability |
+| **Concealed Breath** (Liễm Tức Ẩn Thân) | Realm and suppression |  | Others see you two stages lower; hostile events -30% frequency. | Live | Đạo Đồ capability |
+| **Dao in Dreams** (Mộng Trung Ngộ Đạo) | Life and cultivation |  | Seasons spent travelling also cultivate, at 50% rate. | Live | Đạo Đồ capability |
+| **Embryonic Breath** (Thai Tức Quy Nguyên) | Life and cultivation |  | Age at three-quarters speed during closed-door cultivation. | Live | Đạo Đồ capability |
+| **Great Essence-Draining Art** (Hấp Tinh Đại Pháp) | Life and cultivation |  | Defeating a cultivator gives cultivation base worth 5% of the current stage; heart demon +2. | Live | Đạo Đồ capability |
+| **Heart Demon Turned to Strength** (Tâm Ma Hóa Lực) | Life and cultivation |  | Heart demon above 50 adds attack; qi deviation chance x2. | Live | Đạo Đồ capability |
+| **Mutation Awakening** (Biến Dị Khai Mở) | Life and cultivation |  | Each completed realm breakthrough gives one more roll to every unowned, non-declined derived variant whose requirement is met. | Live | Đạo Đồ capability |
+| **Twin Technique Cultivation** (Song Tu Công Pháp) | Life and cultivation |  | A second main method at 50% speed with its full bonuses. | Live | Đạo Đồ capability |
 | **The Set Day** (Định Nhật) | Life and cultivation | life / years | Once a life, name a kin and a day at most ten years off. Your age jumps to that distance from your cap, theirs falls by half the years given, never b… | Proposal | overnight · 1 build |
-| **Blink Mark** (Thuấn Di Ấn) | Crafting and economy |  | Once a year, travel instantly to any visited place. | Live | Meridian capability |
-| **Divided Furnace Flame** (Đan Hỏa Phân Lô) | Crafting and economy |  | Brew two recipes in one season. | Live | Meridian capability |
-| **Hundred Herbs Kept Alive** (Bách Thảo Tàng Linh) | Crafting and economy |  | Harvested herbs keep aging in the bag at half speed. | Live | Meridian capability |
-| **Ten Thousand Beasts, One Heart** (Vạn Thú Đồng Tâm) | Other rules |  | +2 spirit beasts kept; loyalty never drops below 30. | Live | Meridian capability |
+| **Blink Mark** (Thuấn Di Ấn) | Crafting and economy |  | Once a year, travel instantly to any visited place. | Live | Đạo Đồ capability |
+| **Divided Furnace Flame** (Đan Hỏa Phân Lô) | Crafting and economy |  | Brew two recipes in one season. | Live | Đạo Đồ capability |
+| **Hundred Herbs Kept Alive** (Bách Thảo Tàng Linh) | Crafting and economy |  | Harvested herbs keep aging in the bag at half speed. | Live | Đạo Đồ capability |
+| **Ten Thousand Beasts, One Heart** (Vạn Thú Đồng Tâm) | Other rules |  | +2 spirit beasts kept; loyalty never drops below 30. | Live | Đạo Đồ capability |
 | **Echo** (Hồi Âm) | Other rules |  | An art has a chance to fire again at half power. Counts as a trigger, so the trigger budget applies → Combo | Idea | catalogue |
 | **Seeing Eye** (Động Sát) | Other rules |  | Reveals more of the enemy's profile while preparing (Combat Open Question 4) → Information as power | Idea | catalogue |
 | **Ten Thousand Names** (Vạn Danh) | Other rules |  | Đạo keystone. A bare hit counts as carrying every tag for your own modifiers and none for the enemy's. | Proposal | overnight · 1 build |

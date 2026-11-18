@@ -90,28 +90,28 @@
  ],
  "walk": {
   "Ward strength": {
-   "acupoints": 9,
+   "dao_marks": 9,
    "notables": 1
   },
   "Maximum health": {
-   "acupoints": 9,
+   "dao_marks": 9,
    "notables": 3
   },
   "Art damage": {
-   "acupoints": 8,
+   "dao_marks": 8,
    "notables": 0
   },
   "Ward efficiency": {
-   "acupoints": 1,
+   "dao_marks": 1,
    "notables": 2
   },
   "Linh luc regeneration": {
-   "acupoints": 1,
+   "dao_marks": 1,
    "notables": 0
   }
  },
  "outside_walk": {},
  "unmodelled": [
-  "W at the Map's prices: 28 acupoints, 6 notables, 81.6 W, the counts Thin Shavings walks. The four needles and mail shirt kept (L3 114.4, gear ws and we 17). Rows read at full size. Arts unchanged from their sheets. Thần thức, fortune and heart demon are not read."
+  "W at the Map's prices: 28 Dao marks, 6 notables, 81.6 W, the counts Thin Shavings walks. The four needles and mail shirt kept (L3 114.4, gear ws and we 17). Rows read at full size. Arts unchanged from their sheets. Thần thức, fortune and heart demon are not read."
  ]
 }

@@ -4,7 +4,7 @@ extends RefCounted
 ## factory functions that build characters with exact values (no random inputs).
 
 static var _gd: GameData = null
-static var _tree: MeridianTree = null
+static var _tree: DaoDoTree = null
 
 
 ## The project's real data, loaded once. Worlds stay small here so suites run fast: a test that
@@ -21,10 +21,10 @@ static func game_data() -> GameData:
 	return _gd
 
 
-## The Kinh Mạch Đồ generated from the real data, built once.
-static func tree() -> MeridianTree:
+## The Đạo Đồ generated from the real data, built once.
+static func tree() -> DaoDoTree:
 	if _tree == null:
-		_tree = MeridianTree.generate(game_data())
+		_tree = DaoDoTree.generate(game_data())
 	return _tree
 
 
@@ -40,5 +40,5 @@ static func character(purities: Dictionary, stat_value: int = 50, realm_index: i
 	c.stage = stage
 	c.level = Ladder.stage_first_level(game_data(), realm_index, stage)
 	c.level_peak = c.level
-	c.tree_nodes = [MeridianTree.ROOT_ID]
+	c.tree_nodes = [DaoDoTree.ROOT_ID]
 	return c

@@ -21,7 +21,7 @@
  ],
  "new": [
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Linh lực regeneration",
    "han_viet": "Hồi Khí",
    "form": "Increased",
@@ -47,7 +47,7 @@
    "walked_nodes": 4
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Art cost",
    "han_viet": "Tiết Khí",
    "form": "Increased",
@@ -73,7 +73,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward efficiency",
    "han_viet": "Hộ Hiệu",
    "form": "Increased",
@@ -99,7 +99,7 @@
    "walked_nodes": 3
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward strength",
    "han_viet": "Hộ Lực",
    "form": "Increased",
@@ -125,7 +125,7 @@
    "walked_nodes": 7
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward strength against body hits",
    "han_viet": "Hộ Thể",
    "form": "Conditional",
@@ -151,7 +151,7 @@
    "walked_nodes": 6
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Maximum health",
    "han_viet": "Khí Huyết",
    "form": "Increased",
@@ -177,7 +177,7 @@
    "walked_nodes": 3
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Body guard",
    "han_viet": "Hộ Thân",
    "form": "Increased",
@@ -203,7 +203,7 @@
    "walked_nodes": 4
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Art damage",
    "han_viet": "Pháp Thương",
    "form": "Increased",
@@ -229,7 +229,7 @@
    "walked_nodes": 3
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Damage to an enemy with no linh lực",
    "han_viet": "Tận Khí",
    "form": "Conditional",
@@ -255,7 +255,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Spared Breath",
    "han_viet": "Dư Tức",
    "form": "Per",
@@ -281,7 +281,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Deep Breath",
    "han_viet": "Thâm Tức",
    "form": "Per",
@@ -307,7 +307,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Late Hour",
    "han_viet": "Vãn Thời",
    "form": "Conditional",
@@ -333,7 +333,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Patient Art",
    "han_viet": "Nại Pháp",
    "form": "More",
@@ -359,7 +359,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Steady Breath",
    "han_viet": "Bình Tức",
    "form": "Conditional",
@@ -385,7 +385,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Art speed",
    "han_viet": "Tấn Pháp",
    "form": "Increased",
@@ -411,7 +411,7 @@
    "walked_nodes": 4
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Short Art",
    "han_viet": "Đoản Pháp",
    "form": "More",
@@ -437,7 +437,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Quickened",
    "han_viet": "Tấn Thế",
    "form": "Per",
@@ -463,7 +463,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Running Low",
    "han_viet": "Cạn Khí",
    "form": "Conditional",
@@ -489,7 +489,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Linh lực regained on a crit",
    "han_viet": "Hồi Bạo",
    "form": "Trigger",
@@ -515,7 +515,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward strength against qi hits",
    "han_viet": "Hộ Khí",
    "form": "Conditional",
@@ -541,7 +541,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "First firing comes sooner",
    "han_viet": "Tiên Phát",
    "form": "Timing",
@@ -567,7 +567,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Status resistance",
    "han_viet": "Kháng Tà",
    "form": "Increased",

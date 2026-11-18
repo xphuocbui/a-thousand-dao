@@ -80,7 +80,7 @@ No `--without eff:` run: no item Effect could be written for the engine (see UNM
 
 **What changed in `layers`:** `[160, 0, 250, 0, 0]` → `[160, 0, 230, 0, 0]`. Only L3 (gear) moved, down 20 points. The claimed share of the typical-to-top-end gap went from 25 % to 23 %, the nguyen_anh budget (`fight.py` now prints `layer_budget`, not `OVER_BUDGET`).
 
-**Why:** the seven Ice items already run as Effects (`item:<id>`) and the two techniques as `tech:<id>`, so their modifiers are not claimed again in `layers`, and the file names no Meridian Map source for the 250 in L3. L3 (gear) is the layer the concept needs least: the build wins through Ice stacks, drain bills and art speed, not flat gear damage. L1 (160) is kept. This is the smallest cut that fits the budget; no technique, item or art was removed.
+**Why:** the seven Ice items already run as Effects (`item:<id>`) and the two techniques as `tech:<id>`, so their modifiers are not claimed again in `layers`, and the file names no Đạo Đồ source for the 250 in L3. L3 (gear) is the layer the concept needs least: the build wins through Ice stacks, drain bills and art speed, not flat gear damage. L1 (160) is kept. This is the smallest cut that fits the budget; no technique, item or art was removed.
 
 **How the fights moved (mean time and wins, 20 fights each):**
 

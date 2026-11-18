@@ -30,7 +30,7 @@ You stand still. For a moment you are losing: at t = 3 you are on 58 %, and they
 
 ## The Stack
 
-A walk of 94 nodes, 70 acupoints and 24 notables, 276 W. Cluster rows scale with purity (Meridian Map rule 4), so these sizes assume purity 50 on ground the root holds. Only road rows are exact. That is the 185 W attack quarter of a Nascent Soul's tree and 91 W of the half a typical life spends outside fights.
+A walk of 94 nodes, 70 Dao marks and 24 notables, 276 W. Cluster rows scale with purity (Đạo Đồ rule 4), so these sizes assume purity 50 on ground the root holds. Only road rows are exact. That is the 185 W attack quarter of a Nascent Soul's tree and 91 W of the half a typical life spends outside fights.
 
 `Without` is the whole row removed from `variants/guide-hound-mixed.fight.json`: `--without "[id]"`, or the named file. It reads win time, own health, own linh lực, enemy health at t = 3. **The full fight is 4.35 s, 53 %, 37 %, 65 %.**
 

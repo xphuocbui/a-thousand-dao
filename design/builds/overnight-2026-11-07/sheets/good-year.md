@@ -111,7 +111,7 @@ The hand is a farmer's, the ink is mostly soil, and the last page is a planting 
 
 ### Hidden cluster idea: Furrow Line (Lũng Mạch)
 
-Theme spirit fields, Earth, outer, sealed by the Furrow Scripture. Size 10. Small acupoints: `field_plots` +1 at six nodes. Notables: Held Acres, Surplus, Rich Soil. Capability #14, Portable Cave Abode, on the far notable. A hermit who never fights would still walk it for the plots.
+Theme spirit fields, Earth, outer, sealed by the Furrow Scripture. Size 10. Small Dao marks: `field_plots` +1 at six nodes. Notables: Held Acres, Surplus, Rich Soil. Capability #14, Portable Cave Abode, on the far notable. A hermit who never fights would still walk it for the plots.
 
 ## What the Numbers Showed
 

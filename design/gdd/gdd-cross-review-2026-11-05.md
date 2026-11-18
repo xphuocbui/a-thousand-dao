@@ -2,7 +2,7 @@
 
 **Verdict: CONCERNS.** No blocking items.
 
-Run by a fresh read-only agent at lean scope, after independent reviews of all five GDDs and their fixes. Scope: canh-gioi, linh-can, kinh-mach-do, character-stats, cong-phap, game-concept, systems-index and the entity registry.
+Run by a fresh read-only agent at lean scope, after independent reviews of all five GDDs and their fixes. Scope: canh-gioi, linh-can, dao-do, character-stats, cong-phap, game-concept, systems-index and the entity registry.
 
 ## Consistent across the documents
 
@@ -17,14 +17,14 @@ Run by a fresh read-only agent at lean scope, after independent reviews of all f
 
 1. game-concept.md's trade-off table used the old 13-layer Qi Refining columns.
 2. systems-index.md statuses contradicted each other and the GDD headers.
-3. kinh-mach-do.md called the Realms-owned bands and bonuses provisional.
+3. dao-do.md called the Realms-owned bands and bonuses provisional.
 4. phu-luc-linh-thu-thanh-tuu.md gave old Linh Căn Quả ranges.
 
 ## Info
 
 - At 5,000 cultivators a world holds about 3 Deity Transformation, so an era can hold none. No GDD assumes a named one exists.
 - Single-root lives take 1,657 years across the ladder against 513 for a dual root (Spiritual Roots Open Question 8). A pillar tension, not a defect.
-- One life's stack (5 elements, 8 variants, 25 capabilities, about 1,300 acupoints, technique layers, stage multipliers, gate odds) is a Guidance risk for Pillar 2.
+- One life's stack (5 elements, 8 variants, 25 capabilities, about 1,300 Dao marks, technique layers, stage multipliers, gate odds) is a Guidance risk for Pillar 2.
 
 ## Not checked
 

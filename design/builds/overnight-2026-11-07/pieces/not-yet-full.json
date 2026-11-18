@@ -46,7 +46,7 @@
     {"type": "technique", "name": "Bottomless Sutra", "han_viet": "Vô Để Kinh", "fit": "Needs key",
      "effect": "Main, Địa giai, Earth. Carries the five arts and First Taste, and seals High Table."},
     {"type": "cluster", "name": "High Table", "han_viet": "Thượng Tịch", "fit": "Needs key",
-     "effect": "Sealed, Earth, size 8, Damage and Health acupoints, notables Varied Diet, Between Courses and Years at Table, capability #9 outermost. Theme: defeat."},
+     "effect": "Sealed, Earth, size 8, Damage and Health Dao marks, notables Varied Diet, Between Courses and Years at Table, capability #9 outermost. Theme: defeat."},
     {"type": "concept", "name": "The Reckoning", "han_viet": "Thanh Toán", "fit": "Needs rule",
      "effect": "Cultivators defeated is a public number. At each threshold NPC loadouts change, and at 1,000 the Event Engine sends hunters in a run with Tribulation's carry-over rules."}
   ],

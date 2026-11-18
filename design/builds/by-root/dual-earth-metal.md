@@ -55,7 +55,7 @@ ordinary, the gear is not.
 
 **New pieces.**
 - **Mother Lode content (Mẫu Khoáng)**: "artifacts you refine roll one extra affix; your thần thức cost per artifact
-  is +20 %". How to create: Meridian Map content pass, a passive on Artifact Refining.
+  is +20 %". How to create: Đạo Đồ content pass, a passive on Artifact Refining.
 
 ## 3. The Avalanche (Tuyết Lở Thạch)
 

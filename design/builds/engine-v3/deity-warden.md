@@ -37,7 +37,7 @@ Foes: typical and top-end Hóa Thần, 20 fights each. The old column is the eng
 
 **What changed:** `layers` went from `[400, 300, 250, 150, 100]` (86 % of the typical-to-top-end gap at Hóa Thần, budget 30 %) to `[170, 130, 130, 70, 40]` (28 %). Nothing else in the file changed: the techniques, items, arts, Effects, ward and body blocks are as before.
 
-**Why:** the old layers were the Mountain Heart Canon, Iron Hide Manual and gear passives counted by hand into the file. Those already run on their own (techniques as `tech:<id>`, items as `item:<id>` and their Effects), so the file counted them twice. The old L1 of 400 also sat past the soft knee (counted as 300). What `layers` keeps is the Meridian Map and the other named sources only. The cuts fell on the layers a defensive wall needs least: L1 (attack) from 400 to 170, L2 from 300 to 130, L3 and L4 about halved, L5 from 100 to 40. The ward and body blocks (`ward.layers`, `body.layers`) are not offence layers and were left alone, so the wall itself keeps its strength.
+**Why:** the old layers were the Mountain Heart Canon, Iron Hide Manual and gear passives counted by hand into the file. Those already run on their own (techniques as `tech:<id>`, items as `item:<id>` and their Effects), so the file counted them twice. The old L1 of 400 also sat past the soft knee (counted as 300). What `layers` keeps is the Đạo Đồ and the other named sources only. The cuts fell on the layers a defensive wall needs least: L1 (attack) from 400 to 170, L2 from 300 to 130, L3 and L4 about halved, L5 from 100 to 40. The ward and body blocks (`ward.layers`, `body.layers`) are not offence layers and were left alone, so the wall itself keeps its strength.
 
 **How the fights moved (old -> new, 20 fights each, all still won with full health left):**
 
@@ -57,7 +57,7 @@ Foes: typical and top-end Hóa Thần, 20 fights each. The old column is the eng
 | Ring | Iron Skin Renewed + body shield | Same Effect, a second host | Ring of Renewed Iron Skin | Catalogue (taken) | Medium |
 | Extra | Shattering Ward, Unmoved Stance | Shield breaks burst; stances without slowness | Unmoving Gate Shield (a Core Formation gate elder, or a flooded quarry) | Catalogue (taken) | High |
 | Extra | Body shield + shield-break rule, `than_thuc_pct` | Room in the thần thức budget | A thần thức ring or necklace for the earth family | Missing | Medium |
-| Any | `stack_effect_pct` / `stack_duration_pct` [tho] on the Warden's own buff | Mountain Heart Canon and Iron Hide passives did not run either | Meridian Map or a technique | Missing as engine stats | Low |
+| Any | `stack_effect_pct` / `stack_duration_pct` [tho] on the Warden's own buff | Mountain Heart Canon and Iron Hide passives did not run either | Đạo Đồ or a technique | Missing as engine stats | Low |
 | Any | Metal debuff stacks (Closing Palm role) | The Metal half of the root has no art | Metal family, a Metal weapon or ring | Missing | Medium |
 
 ## Missing pieces

@@ -64,7 +64,7 @@ In priority order.
 | Hearth-Mountain Scripture | Công pháp: 3 seals, heal, escape; Laid Stone, Five Preparations, Primed Talismans | The whole art kit and four Effects | Main method, Địa giai, Earth | Staged: `hearth-mountain-scripture` | core |
 | Nine Rods Array | L4 +80 (Ringing Ground) × formation power | The biggest single L4 source; counts in an ambush when laid at home | Formation | Staged: `nine-rods-array` | core |
 | Hộ Sơn Trận to level 7 | `defense_pct` +10 per level at home | +112 ward strength with formation power +60 | Home formation; levels 6–7 need Formation Within a Formation | In the game (levels 6–7 need the keystone, in the Effects design) | core |
-| Formation Within a Formation | Keystone: +2 formation levels, double upkeep for them | Hộ Sơn and Nine Rods past their maximum | Meridian Map keystone (capability #15) | In the Effects design | core |
+| Formation Within a Formation | Keystone: +2 formation levels, double upkeep for them | Hộ Sơn and Nine Rods past their maximum | Đạo Đồ keystone (capability #15) | In the Effects design | core |
 | Formation power | `formation_power_pct` +8 notables | Multiplies every array you own | Tree notables; Trận Đạo Arrays and Ward Arrays lines; Quartermaster's Ledger cluster | In the game (key live); cluster staged: `quartermaster-cluster` | core |
 | Mountain-Root Pill | L4 +60 [tho] × pill potency | +75 to +94 L4 before every chosen fight | Pill (alchemy, Earth herbs) | Staged: `mountain-root-pill` | core |
 | Five Preparations | Per Effect: L5 +10 per kind, cap +50 | Up to +50 % more damage at home | Scripture layer 9; Trận Đạo Cave Dwelling | Staged: `five-preparations` | strong |

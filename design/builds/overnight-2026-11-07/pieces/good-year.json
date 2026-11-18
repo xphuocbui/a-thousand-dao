@@ -21,7 +21,7 @@
    "effect": "+2 points to both tick caps while the target's linh lực is 50 % or more.", "second_home": "any tick build, against wards and deep pools"},
   {"type": "modifier", "name": "What They Had Left", "han_viet": "Dư Niên", "form": "Trigger", "channel": "none", "layer": "none", "fit": "Needs key",
    "effect": "A cultivator you kill and plough in adds the years they had left to one plot.", "second_home": "any build that eats people, such as The Not-Yet-Full"},
-  {"type": "acupoint", "name": "Field plots", "han_viet": "Điền Số", "form": "Increased", "channel": "none", "layer": "none", "fit": "Fits today",
+  {"type": "dao_mark", "name": "Field plots", "han_viet": "Điền Số", "form": "Increased", "channel": "none", "layer": "none", "fit": "Fits today",
    "effect": "+1 field_plots. The key exists, and the tree gives none today.", "second_home": "any farmer"},
   {"type": "art", "name": "Scythe Day", "han_viet": "Khai Liêm", "fit": "Needs key", "effect": "Qi hit, Wood, c_art 2.9, cost 0.12, 3 s, guarded on enemy health below 50 %."},
   {"type": "technique", "name": "Furrow Scripture", "han_viet": "Lũng Điền Kinh", "fit": "Needs key", "effect": "Main, Thiên giai, Wood and Earth. herb_growth_pct 10, khi_huyet_pct 15, linh_luc_pct 20. Unlocks Sown Field and Scythe Day."},

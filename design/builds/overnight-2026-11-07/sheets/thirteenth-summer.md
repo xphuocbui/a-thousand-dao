@@ -50,7 +50,7 @@ For half a second nothing happens. Then one note, and the fight is over or the s
 
 One waking at purity 60: 0.2 × 60 × 48 seasons = 576 s, and `c_art` 145.23 at cost 0.04, which is what the lint sells for 576 s.
 
-**Meridian Map.** Element sectors are untouched: the root reads no element. Its own sector follows rule 12, with a spur off an inner radial like the other innate variants, scaled by `0.5 + purity / 100`, so 1.10 at purity 60. Theme: `art_cost_pct`, `body_guard_pct`, `than_thuc_pct`, all weighted stats. Points accrue only while awake, so the tree fills slowly, and at Qi Refining this sheet takes it as thin.
+**Đạo Đồ.** Element sectors are untouched: the root reads no element. Its own sector follows rule 12, with a spur off an inner radial like the other innate variants, scaled by `0.5 + purity / 100`, so 1.10 at purity 60. Theme: `art_cost_pct`, `body_guard_pct`, `than_thuc_pct`, all weighted stats. Points accrue only while awake, so the tree fills slowly, and at Qi Refining this sheet takes it as thin.
 
 **Existing variants.** As an innate variant it counts once toward `n_eff` (rule 3), so a single root cultivates on the dual curve. Wind, Blood and Void roll independently. Wind's travel is worth little in a four-season life. Void's fortunate encounters are worth a lot, since a whole life's events fit in thirty summers. Mutation Awakening is untouched. Capability #7, Embryonic Breath, does not stack with the buried rate.
 

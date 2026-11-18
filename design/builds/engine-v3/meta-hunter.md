@@ -46,7 +46,7 @@ Twenty fights each. "Old" is the engine-v2 file run on the current engine (the e
 
 **What changed.** The file's `layers` went from [200, 280, 250, 150, 80] to [70, 110, 100, 70, 0]. The old values claimed 80 % of the typical-to-top-end gap, against a 23 % budget at nguyên_anh; the new values claim 22 %. No technique, item, art or Effect was touched.
 
-**Why.** The techniques' passives and the items' modifiers already run as Effects, so they were being counted twice. The Meridian Map should supply only a small remainder. Cut first: L5 (80 → 0), which the file's own note said was left at 0 anyway and which Marked Prey already feeds as an Effect. Then L4 (150 → 70), since the hunt needs preparation less than marks and seals. L2 and L3 (the status and seal layers the concept leans on) were kept highest.
+**Why.** The techniques' passives and the items' modifiers already run as Effects, so they were being counted twice. The Đạo Đồ should supply only a small remainder. Cut first: L5 (80 → 0), which the file's own note said was left at 0 anyway and which Marked Prey already feeds as an Effect. Then L4 (150 → 70), since the hunt needs preparation less than marks and seals. L2 and L3 (the status and seal layers the concept leans on) were kept highest.
 
 **How the fights moved** (20 fights each, old → new; the numbers in "Before and after" above are from the earlier gear test and are replaced by these).
 
@@ -57,7 +57,7 @@ Twenty fights each. "Old" is the engine-v2 file run on the current engine (the e
 | typical, hóa_thần+1 | 2.6 → 12.9 | 20 → 20 |
 | top_end, hóa_thần+1 | 5.3 → 27.7 | 20 → 19 (1 loss) |
 
-The build still beats a typical same-realm foe faster than the 10–20 s the budget rule expects (5.3 s), so it remains strong: its strength now comes from its techniques and items, not from the Meridian Map.
+The build still beats a typical same-realm foe faster than the 10–20 s the budget rule expects (5.3 s), so it remains strong: its strength now comes from its techniques and items, not from the Đạo Đồ.
 
 ## Upgrades to look for
 

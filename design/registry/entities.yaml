@@ -162,13 +162,13 @@ formulas:
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/linh-can.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     variables:
       - order
       - parent_purities
     output_range: [0, 0.5]
     expression: "f_order * prod(purity_p/100); f_1 = 0.5, f_o = 0.25/(o-1); purity = round(0.8 * geomean(current parent purities)), recomputed when a parent changes"
-    notes: "Each mutation rolls once, at first eligibility, plus one extra roll per realm breakthrough while Mutation Awakening (Meridian Map #24) is held (at most 2 such rolls per life: capabilities sit behind the Core Formation gate); 13.5% of births have one."
+    notes: "Each mutation rolls once, at first eligibility, plus one extra roll per realm breakthrough while Mutation Awakening (Đạo Đồ #24) is held (at most 2 such rolls per life: capabilities sit behind the Core Formation gate); 13.5% of births have one."
     added: 2026-11-04
     revised: 2026-11-04
   - name: generating_pair_bonus
@@ -224,7 +224,7 @@ formulas:
     referenced_by:
       - design/gdd/character-stats.md
       - design/gdd/canh-gioi.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     variables:
       - heart_demon
       - dao_tam
@@ -308,7 +308,7 @@ formulas:
     # 2026-11-10: lint rewritten for graph Ways (110-170 nodes, cost 1; per stat-node band; slot table; capstone depth). Was: 19-22 nodes, branch and keystone-route means.
     output_range: [1.92, 19.2]
     expression: "W_small = dao_premium * dao_node_cost * grade_small (2.4 W), W_notable = dao_premium * dao_node_cost * grade_notable (16 W); lint: 110-170 nodes, connected, no crossings, capstones >= dao_capstone_depth points; each small/road node and stat notable within dao_node_tol (20 %) of its budget; W per point >= 0.9 * premium * w_target; slot table per facet (<=1 major, <=2 minor Effects on notables); 2-6 capstones; cultivation_speed_pct <= dao_rate_cap_pct per Dao (the key-headroom check was dropped 2026-11-10, review D-01)"
-    notes: "Every node costs a flat 1 point (the start is free); w_target is the Meridian Map's 2.07 W per point. Stat nodes carry the x2 premium node by node; Effects and capstones are unpriced (the Sword pilot measures 3.38 W per point over all points, 1.63x the map). output_range spans the small and notable bands at the defaults (cost 1, premium 2)."
+    notes: "Every node costs a flat 1 point (the start is free); w_target is the Đạo Đồ's 2.07 W per point. Stat nodes carry the x2 premium node by node; Effects and capstones are unpriced (the Sword pilot measures 3.38 W per point over all points, 1.63x the map). output_range spans the small and notable bands at the defaults (cost 1, premium 2)."
     added: 2026-11-05
     revised: 2026-11-06
   - name: dao_offer
@@ -336,7 +336,7 @@ formulas:
       - dao_full_points
     output_range: [1.0, 1.667]
     expression: "P_npc = min(dao_full_points, floor(npc_dao_share * points_total(level))); map_points = points_total - P_npc; power_mult = (map_points + dao_premium * P_npc) / map_points"
-    notes: "An NPC's simplified Dao effect on combat power; rolls once per realm from Core Formation until the first success (one Dao per NPC). P_npc is deducted from the Meridian Map allocation, and those points earn the player's dao_premium (user decision 2026-11-06), about 25 % over a Dao-less NPC of the level (16 % from the stat lines alone); assumes map power near linear in points, a bot run must confirm."
+    notes: "An NPC's simplified Dao effect on combat power; rolls once per realm from Core Formation until the first success (one Dao per NPC). P_npc is deducted from the Đạo Đồ allocation, and those points earn the player's dao_premium (user decision 2026-11-06), about 25 % over a Dao-less NPC of the level (16 % from the stat lines alone); assumes map power near linear in points, a bot run must confirm."
     added: 2026-11-05
     revised: 2026-11-06
     # was: power_mult = points_total / map_points, output_range [1.0, 1.334] (before user decision 2026-11-06)
@@ -346,20 +346,20 @@ formulas:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     variables:
       - q_i
       - s_max
     output_range: [0, 0.95]
     expression: "S_guard = min(1 - prod(1 - q_i) over pill attempts made plus held pills with the condition met, s_max)"
-    notes: "Lower bound on realm-step success; used as S by the Meridian Map breakthrough guard (E2)."
+    notes: "Lower bound on realm-step success; used as S by the Đạo Đồ breakthrough guard (E2)."
     added: 2026-11-03
     revised: ""
   - name: points_total
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/canh-gioi.md
       - design/gdd/dao.md
     variables:
@@ -371,14 +371,14 @@ formulas:
       - pts_event
     output_range: [2, 566]
     expression: "pts_birth + (L - 1) + sum of realm bonuses reached + pts_event"
-    notes: "Kinh Mạch points earned by highest level L; Cảnh Giới owns the ladder (provisional). Whole numbers from data, no rounding. 51/120/216/357/566 at each đại viên mãn; these totals are what acupoint values are built on."
+    notes: "Đạo Đồ points earned by highest level L; Cảnh Giới owns the ladder (provisional). Whole numbers from data, no rounding. 51/120/216/357/566 at each đại viên mãn; these totals are what Dao mark values are built on."
     added: 2026-11-03
     revised: 2026-11-05
   - name: breakthrough_guard
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/quick-specs/progression-and-edges.md
       - design/gdd/canh-gioi.md
     variables:
@@ -395,11 +395,11 @@ formulas:
     added: 2026-11-03
     revised: 2026-11-05
   - name: npc_unseal_chance
-    # 2026-11-10 (Meridian Map major revision): hidden clusters scrapped (rules 6-15 retired).
+    # 2026-11-10 (Đạo Đồ major revision): hidden clusters scrapped (rules 6-15 retired).
     status: deprecated
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/quick-specs/progression-and-edges.md
     variables:
       - a_max
@@ -413,11 +413,11 @@ formulas:
     added: 2026-11-03
     revised: 2026-11-10
   - name: cluster_fill_budget
-    # 2026-11-10 (Meridian Map major revision): the LLM fill and the fill budget are retired with the hidden clusters.
+    # 2026-11-10 (Đạo Đồ major revision): the LLM fill and the fill budget are retired with the hidden clusters.
     status: deprecated
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     variables:
       - P
       - n
@@ -498,7 +498,7 @@ formulas:
       - design/gdd/character-stats.md
       - design/gdd/cong-phap.md
       - design/gdd/linh-can.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     variables:
       - L_realm
       - bonus_curves
@@ -530,14 +530,14 @@ formulas:
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/linh-can.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     variables:
       - f_v
       - required_purities
       - innate_chance
     output_range: [0, 1]
     expression: "derived: min(1, f_v * prod(purity_e/100)); innate: flat innate_chance; derived purity = round(0.8 * geomean(current required purities)), recomputed; innate purity drawn once from the birth distribution"
-    notes: "Rolls once at first eligibility; innate at birth only. Mutation Awakening (Meridian Map #24) re-rolls unowned, non-declined derived variants, at most 2 passes per life. 12.14% of births hold a variant; about 12.4-13.5% of lives with Awakening under the current gate odds (estimate)."
+    notes: "Rolls once at first eligibility; innate at birth only. Mutation Awakening (Đạo Đồ #24) re-rolls unowned, non-declined derived variants, at most 2 passes per life. 12.14% of births hold a variant; about 12.4-13.5% of lives with Awakening under the current gate odds (estimate)."
     added: 2026-11-04
     revised: ""
   - name: fight_unit
@@ -1104,7 +1104,7 @@ formulas:
       - quest_gain_total_w
     output_range: [0, 8]
     expression: "gain_w = sum(amount_key*W_key) + tree_points*tree_point_w; gain_w <= min(quest_boon_w, quest_gain_cap_w - quest_gain_total_w)"
-    notes: "Applied at the offer and again at payment. W prices from stat_power_weights; tree_point_w is the Meridian Map target 2.07."
+    notes: "Applied at the offer and again at payment. W prices from stat_power_weights; tree_point_w is the Đạo Đồ target 2.07."
     added: 2026-11-06
     revised: ""
   - name: quest_reaction
@@ -2276,7 +2276,7 @@ constants:
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/linh-can.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: [45, 32, 15, 6.5, 1.5]
     unit: percent
     notes: "For 1-5 base elements (user decision; was 45/30/15/7/3)."
@@ -2288,7 +2288,7 @@ constants:
     referenced_by:
       - design/gdd/linh-can.md
       - design/gdd/character-stats.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: "N(50, 20) clamped 10-100, rounded"
     unit: purity
     notes: "2.4% clamp to 10, 0.67% to 100; mean 50.1."
@@ -2345,10 +2345,10 @@ constants:
     referenced_by:
       - design/gdd/character-stats.md
       - design/gdd/linh-can.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: "ceilings 30/60/100/150 W; floors 10/15/30/50 W"
     unit: W by order
-    notes: "Priced with the Meridian Map stat weights. Every key under a character-wide ceiling (herb_growth_pct 10 at 0.9 W per %, alchemy_success 3 at 2.7 W per pp, lifespan years 18 at the QR ceiling at 2.5 W per year) is priced at what the ceiling lets through, marginal over the mutation's guaranteed ancestors (W10; cross-GDD review 04f B1; linh-can fourth pass, 2026-11-04). Out of band until the data retune (Spiritual Roots Open Question 1): over the ceiling Life, Array, Stars, Refined Metal, Taiji; under the floor Lava (8.1 W; a proposed raise 3 -> 5 gives 13.5 W, user to confirm in the data pass), Death, Reincarnation. Holder-raised ceilings (effect kind ceiling_raise, Character Stats rule 14; cross-GDD review 04g F15): the raise is priced in full as headroom, w_k*(c'_k - c_k), with c_k the base ceiling or the highest raise among guaranteed ancestors, and the mutation's own line is priced against c_k, so the raised band is never paid twice. Pill Fire alchemy_success 3 -> 6, 31.2 W; Spirit Farming herb_growth_pct 10 -> 20, 49 W; field_plots at 20 W per plot (Meridian Map Formulas F), so Space is 50 W. Time is repriced at 110.5 W (cultivation_speed_pct +40 and a herb_age_root_pct +25 root factor, priced in full since root factors are not ceilinged; user decision 2026-11-04)."
+    notes: "Priced with the Đạo Đồ stat weights. Every key under a character-wide ceiling (herb_growth_pct 10 at 0.9 W per %, alchemy_success 3 at 2.7 W per pp, lifespan years 18 at the QR ceiling at 2.5 W per year) is priced at what the ceiling lets through, marginal over the mutation's guaranteed ancestors (W10; cross-GDD review 04f B1; linh-can fourth pass, 2026-11-04). Out of band until the data retune (Spiritual Roots Open Question 1): over the ceiling Life, Array, Stars, Refined Metal, Taiji; under the floor Lava (8.1 W; a proposed raise 3 -> 5 gives 13.5 W, user to confirm in the data pass), Death, Reincarnation. Holder-raised ceilings (effect kind ceiling_raise, Character Stats rule 14; cross-GDD review 04g F15): the raise is priced in full as headroom, w_k*(c'_k - c_k), with c_k the base ceiling or the highest raise among guaranteed ancestors, and the mutation's own line is priced against c_k, so the raised band is never paid twice. Pill Fire alchemy_success 3 -> 6, 31.2 W; Spirit Farming herb_growth_pct 10 -> 20, 49 W; field_plots at 20 W per plot (Đạo Đồ Formulas F), so Space is 50 W. Time is repriced at 110.5 W (cultivation_speed_pct +40 and a herb_age_root_pct +25 root factor, priced in full since root factors are not ceilinged; user decision 2026-11-04)."
     added: 2026-11-04
     revised: 2026-11-04
   - name: herb_age_root_pct
@@ -2443,7 +2443,7 @@ constants:
     source: design/gdd/character-stats.md
     referenced_by:
       - design/gdd/character-stats.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: 0.2
     unit: share of max vitality
     notes: "Capability #4; added after linh_luc_pct."
@@ -2485,7 +2485,7 @@ constants:
     source: design/gdd/character-stats.md
     referenced_by:
       - design/gdd/character-stats.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/modifiers.md
     # was: no 0.001 keys and no stack_grant before 2026-11-10 (character-stats review CS-03).
     value: "0.1: pct keys, points keys (resist_pct, resist_pen_pct, damage_more), stealth, lifespan_years; 0.01: the six talent keys, dan_doc_decay, density_bonus, health_regen_pct, linh_luc_regen_pct; 0.001: linh_luc_on_hit_pct, linh_luc_on_crit_pct, linh_luc_on_kill_pct; 1: stack_grant, field_plots, alchemy_yield, block_rating, convert_pct, flags"
@@ -2532,7 +2532,7 @@ constants:
     referenced_by:
       - design/gdd/canh-gioi.md
       - design/gdd/character-stats.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: [1, 1, 0.32, 0.20]
     unit: multiplier on pill and bare chance
     notes: "Heavenly suppression (thiên đạo áp chế) at QR->FE, FE->CF, CF->NS, NS->DT. Sized for the player's edge mean of 0.70 / 0.70 / 0.30 / 0.20. Scratch model; AC-CG-31 sets the final value."
@@ -2575,7 +2575,7 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: {failure_insight_pp: 2, failure_insight_cap: 4}
     unit: percentage points on later pill attempts in the same realm step
     notes: "Each failed pill attempt (including #23's extra roll) adds failure_insight_pp to later pill attempts in the step, up to the cap; resets only on a successful breakthrough; bare attempts neither use nor add it; outside the q-extras ceiling; saved. User decision 2026-11-04 (cross-GDD review 04g F13)."
@@ -2586,7 +2586,7 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/dao.md
     value: 10
     unit: percentage points
@@ -2716,13 +2716,13 @@ constants:
     revised: 2026-11-10
   - name: w_target
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/dao.md
     value: 2.07
     unit: W per point
-    notes: "Target mean W per skill point, owned by the Meridian Map (Formulas A2); the drawn map's w_map 2.15 is a lint within +/-5 % of it (re-review D-R3, user 2026-11-10). The Way prices a Dao node against it (dao_node_value) and Quests price a lasting gain with it. Registered by design-review 2026-11-06."
+    notes: "Target mean W per skill point, owned by the Đạo Đồ (Formulas A2); the drawn map's w_map 2.15 is a lint within +/-5 % of it (re-review D-R3, user 2026-11-10). The Way prices a Dao node against it (dao_node_value) and Quests price a lasting gain with it. Registered by design-review 2026-11-06."
     added: 2026-11-06
     revised: ""
   - name: dao_branch_tol
@@ -2807,7 +2807,7 @@ constants:
       - design/gdd/linh-can.md
     value: 10
     unit: purity
-    notes: "A technique may name an element or variant the root does not own once rare sources (Meridian roads, a Linh Can Qua) raise its purity to this (rule 8; user decision 2026-11-10, re-review D-1). The birth minimum purity_min."
+    notes: "A technique may name an element or variant the root does not own once rare sources (Dao paths, a Linh Can Qua) raise its purity to this (rule 8; user decision 2026-11-10, re-review D-1). The birth minimum purity_min."
     added: 2026-11-10
     revised: ""
   - name: dao_shared_minor_max
@@ -3015,7 +3015,7 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/quick-specs/progression-and-edges.md
     value: "player edge 0.70/0.70/0.30/0.20; no edge 0.30 at the first two gates; NPC arrival means 1 in 8 / 12 / 15 / 20"
     unit: realm-step success
@@ -3036,18 +3036,18 @@ constants:
     status: active
     source: design/gdd/canh-gioi.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/canh-gioi.md
     value: 110
     unit: level
-    notes: "Highest cultivation level; 1 Kinh Mạch point per level gained."
+    notes: "Highest cultivation level; 1 Đạo Đồ point per level gained."
     added: 2026-11-03
     revised: 2026-11-05
   - name: realm_level_bands
     status: active
     source: design/gdd/canh-gioi.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/canh-gioi.md
     value: "Luyện Khí 1-10, Trúc Cơ 11-40, Kết Đan 41-80, Nguyên Anh 81-100, Hóa Thần 101-110"
     unit: levels
@@ -3058,7 +3058,7 @@ constants:
     status: active
     source: design/gdd/canh-gioi.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/canh-gioi.md
     value: [30, 40, 61, 100]
     unit: points
@@ -3070,7 +3070,7 @@ constants:
     status: active
     source: design/gdd/canh-gioi.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/canh-gioi.md
     value: "Luyện Khí 13/13/14, Trúc Cơ 3/3/3, Kết Đan 5/5/6, Nguyên Anh 20/20/20, Hóa Thần 33/33/33"
     unit: points at trung kỳ / hậu kỳ / đại viên mãn
@@ -3079,29 +3079,29 @@ constants:
     revised: 2026-11-05
   - name: kinh_mach_birth_points
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: 2
     unit: points
     notes: "Points at birth."
     added: 2026-11-03
     revised: ""
-  - name: huyet_value_small
+  - name: mark_value_small
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: 1.2
     unit: W
     notes: "S0 after the A2 rescale; 1 W = +1% attack."
     added: 2026-11-03
     revised: ""
-  - name: huyet_value_notable
+  - name: mark_value_notable
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: 8
     unit: W
     notes: "N0 after the A2 rescale."
@@ -3109,37 +3109,37 @@ constants:
     revised: ""
   - name: keystone_min_power
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/linh-can.md
     value: 50
     unit: W
-    notes: "Weakest keystone positive side; rule keystones with no F weight pass by list (AC-KMD-06); no acupoint in a cluster may exceed it."
+    notes: "Weakest keystone positive side; rule keystones with no F weight pass by list (AC-KMD-06); no Dao mark in a cluster may exceed it."
     added: 2026-11-03
     revised: ""
   - name: stat_power_weights
     status: active
-    # Owner moved 2026-11-07 from design/gdd/kinh-mach-do.md (Formulas F) to modifiers.md (Formulas A), which
-    # now owns one W price per modifiable stat (user decision 2026-11-07). kinh-mach-do.md stays a reader.
+    # Owner moved 2026-11-07 from design/gdd/dao-do.md (Formulas F) to modifiers.md (Formulas A), which
+    # now owns one W price per modifiable stat (user decision 2026-11-07). dao-do.md stays a reader.
     source: design/gdd/modifiers.md
     referenced_by:
       - design/gdd/modifiers.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/combat.md
       - design/gdd/quests.md
       - design/gdd/thien-kiep.md
-    value: "Keyed by stat key and operation (re-review MD 6). attack_pct I 1.0 (damage_more M in points, Formulas D); crit_chance_pct 1.0; crit_damage_pct 0.3; accuracy_pct 0.5; pierce_pct 1.0; resist_pen_pct 3.0; x_soul 1.0; art_speed_pct 0.6; art_cost_pct 1.2; convert_pct 0.8 (G); basic attack speed 0.4 (Pending); status duration 0.6 (Pending); status stack cap 10 rare (Pending); resist_pct 1.25 (one stored price; effective 1.0 Physical/Force, 0.83 others); resist_cap_pct 5 rare; block_rating 0.4; body_shield_pct F 0.51, I 0.6 (Pending); recharge_delay_pct 0.6; cast_ward_duration_pct 0.5; defense_pct 1.0; ward_efficiency_pct 1.0; khi_huyet_pct 0.6; evade_pct 1.5; soul_res_pct 0.6; status_resist_pct 0.4; status_duration_taken_pct 0.3; health_regen_pct 3.0; healing_pct 0.5; healing_taken_pct 0.5; bonus_ward_slots 30 rare; linh_luc_pct 1.0; linh_luc_regen_pct 8; than_thuc_pct 1.3; reserve_eff_pct 0.8; artifact_power_pct 1.3; artifact_attack_pct 0.6; artifact_defense_pct 0.6; element_affinity_pct 1.3; than_thuc_cost_pct 0.8; bonus_slots 20 rare; artifact slots 25 rare (Pending); formation_power_pct 1.0; pill_effect_pct 1.0; talisman power 0.7, keep chance 0.3, stock 10 rare, drawing 2.0 (Pending); companion share 0.4, beast slots 15 rare, taming 1.0 (Pending); formation_upkeep_pct 0.15; talisman_ink_pct 0.15; escape_pct 1.0; stealth 1.5; co_duyen_pct 0.3; cultivation_speed_pct 2.2; breakthrough_chance 5; lifespan_years 300/L_r; lifespan_pct 3.0; tam_ma_resist_pct 1.5; qi_deviation_pct 1.0; dan_doc_resist_pct 1.6; dan_doc_decay 8; density_bonus 140; alchemy_success 2.7; alchemy_yield 20 rare; refining_success 2.0; herb_growth_pct 0.9; field_plots 20 rare (no tree acupoint can hold a plot at launch values); mission_income_pct 0.7; travel_speed_pct 0.3; pill_quality_chance 1.0; refine_grade_chance 1.5; buy_price_pct 0.3; sell_price_pct 0.3; ngo_tinh 5; khi_van 5; can_cot 3.0; than_hon 3.0; dao_tam 3.0; mi_luc 1.0"
+    value: "Keyed by stat key and operation (re-review MD 6). attack_pct I 1.0 (damage_more M in points, Formulas D); crit_chance_pct 1.0; crit_damage_pct 0.3; accuracy_pct 0.5; pierce_pct 1.0; resist_pen_pct 3.0; x_soul 1.0; art_speed_pct 0.6; art_cost_pct 1.2; convert_pct 0.8 (G); basic attack speed 0.4 (Pending); status duration 0.6 (Pending); status stack cap 10 rare (Pending); resist_pct 1.25 (one stored price; effective 1.0 Physical/Force, 0.83 others); resist_cap_pct 5 rare; block_rating 0.4; body_shield_pct F 0.51, I 0.6 (Pending); recharge_delay_pct 0.6; cast_ward_duration_pct 0.5; defense_pct 1.0; ward_efficiency_pct 1.0; khi_huyet_pct 0.6; evade_pct 1.5; soul_res_pct 0.6; status_resist_pct 0.4; status_duration_taken_pct 0.3; health_regen_pct 3.0; healing_pct 0.5; healing_taken_pct 0.5; bonus_ward_slots 30 rare; linh_luc_pct 1.0; linh_luc_regen_pct 8; than_thuc_pct 1.3; reserve_eff_pct 0.8; artifact_power_pct 1.3; artifact_attack_pct 0.6; artifact_defense_pct 0.6; element_affinity_pct 1.3; than_thuc_cost_pct 0.8; bonus_slots 20 rare; artifact slots 25 rare (Pending); formation_power_pct 1.0; pill_effect_pct 1.0; talisman power 0.7, keep chance 0.3, stock 10 rare, drawing 2.0 (Pending); companion share 0.4, beast slots 15 rare, taming 1.0 (Pending); formation_upkeep_pct 0.15; talisman_ink_pct 0.15; escape_pct 1.0; stealth 1.5; co_duyen_pct 0.3; cultivation_speed_pct 2.2; breakthrough_chance 5; lifespan_years 300/L_r; lifespan_pct 3.0; tam_ma_resist_pct 1.5; qi_deviation_pct 1.0; dan_doc_resist_pct 1.6; dan_doc_decay 8; density_bonus 140; alchemy_success 2.7; alchemy_yield 20 rare; refining_success 2.0; herb_growth_pct 0.9; field_plots 20 rare (no tree Dao mark can hold a plot at launch values); mission_income_pct 0.7; travel_speed_pct 0.3; pill_quality_chance 1.0; refine_grade_chance 1.5; buy_price_pct 0.3; sell_price_pct 0.3; ngo_tinh 5; khi_van 5; can_cot 3.0; than_hon 3.0; dao_tam 3.0; mi_luc 1.0"
     unit: W per displayed unit
     notes: "Shared by the fill validator, NPC Builds and Character Stats; guesses (G in Formulas A) until the bot confirms. Full table registered 2026-11-08 (re-review MD 13)."
     added: 2026-11-03
     revised: 2026-11-08
   - name: hidden_cluster_count
-    # 2026-11-10 (Meridian Map major revision): hidden clusters scrapped (user decision 2026-11-09).
+    # 2026-11-10 (Đạo Đồ major revision): hidden clusters scrapped (user decision 2026-11-09).
     status: deprecated
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: 75
     unit: clusters
     notes: "Launch release; 48 sealed and 27 open on the launch seed, sizes N(8, 2) clamped 3-12."
@@ -3147,19 +3147,19 @@ constants:
     revised: 2026-11-10
   - name: capability_count
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: 25
     unit: capabilities
-    notes: "Authored catalogue (Meridian Map rule 17); each sits on a notable or keystone with cap_realm_min Core Formation. Six have effects.md records; the rest are provisional one-liners (re-review D-R1, 2026-11-10). The sealed-cluster placement is retired."
+    notes: "Authored catalogue (Đạo Đồ rule 17); each sits on a notable or keystone with cap_realm_min Core Formation. Six have effects.md records; the rest are provisional one-liners (re-review D-R1, 2026-11-10). The sealed-cluster placement is retired."
     added: 2026-11-03
     revised: ""
   - name: road_purity
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/linh-can.md
     value: 0.5
     unit: purity per element-land road node
@@ -3168,9 +3168,9 @@ constants:
     revised: ""
   - name: purity_price
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: 0.3
     unit: W per purity point
     notes: "Value of one purity point for the map lint (Formulas A2): a road node is 0.15 W. A guess."
@@ -3178,9 +3178,9 @@ constants:
     revised: ""
   - name: tree_breakthrough_k
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/canh-gioi.md
     value: 8
     unit: percentage points
@@ -3189,68 +3189,68 @@ constants:
     revised: ""
   - name: cap_realm_min
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: "Core Formation"
     unit: realm
     notes: "A capability notable cannot be opened below this realm (rule 16); replaces the sealed-cluster size gate."
     added: 2026-11-10
     revised: ""
   - name: npc_cluster_holder_max_share
-    # 2026-11-10 (Meridian Map major revision): NPC unsealing retired with the hidden clusters.
+    # 2026-11-10 (Đạo Đồ major revision): NPC unsealing retired with the hidden clusters.
     status: deprecated
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/quick-specs/progression-and-edges.md
     value: 0.15
     unit: share of NPCs per realm
     notes: "Target ceiling for NPCs holding any hidden cluster."
     added: 2026-11-03
     revised: 2026-11-10
-  - name: huyet_value_highway
-    # 2026-11-10 (Meridian Map major revision): roads grant purity now: road_purity x purity_price replaces H0.
+  - name: mark_value_highway
+    # 2026-11-10 (Đạo Đồ major revision): roads grant purity now: road_purity x purity_price replaces H0.
     status: deprecated
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: 1.2
     unit: W
-    notes: "H0, the value of a kinh lộ (highway) huyệt, hội included; generic road_stats, exact on every root (rule 21); the 5 gates keep their element's lead stat and scale by purity; never breakthrough_chance."
+    notes: "H0, the value of a đạo lộ (highway) đạo văn, hội included; generic road_stats, exact on every root (rule 21); the 5 gates keep their element's lead stat and scale by purity; never breakthrough_chance."
     added: 2026-11-03
     revised: 2026-11-10
   - name: visible_huyet_count
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     # was: 772 (generated map) before 2026-11-10; the drawn lean build.
     value: 7115
-    unit: huyệt
-    notes: "The drawn lean tree (a shape placeholder, user 2026-11-10): 7,115 visible acupoints, 11 starts, 40 keystones, 811 clusters; no hidden clusters. Re-measure when the layout changes."
+    unit: đạo văn
+    notes: "The drawn lean tree (a shape placeholder, user 2026-11-10): 7,115 visible Dao marks, 11 starts, 40 keystones, 811 clusters; no hidden clusters. Re-measure when the layout changes."
     added: 2026-11-03
     revised: 2026-11-10
   - name: tree_size_target
-    # 2026-11-10 (Meridian Map major revision): the map is the drawn lean build; see visible_huyet_count.
+    # 2026-11-10 (Đạo Đồ major revision): the map is the drawn lean build; see visible_huyet_count.
     status: deprecated
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: "≈ 1,300"
-    unit: huyệt
+    unit: đạo văn
     notes: "772 visible plus about 525 hidden at launch; the rim is append-only (rule 19)."
     added: 2026-11-03
     revised: 2026-11-10
   - name: tree_breakthrough_chance_cap
-    # 2026-11-10 (Meridian Map major revision): the tree's breakthrough share is a curve; see tree_breakthrough_k.
+    # 2026-11-10 (Đạo Đồ major revision): the tree's breakthrough share is a curve; see tree_breakthrough_k.
     status: deprecated
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: 8
     unit: percentage points
-    notes: "Ceiling on the summed breakthrough_chance of all Kinh Mạch huyệt in a life (player and NPC). Guess until the bot run confirms it; the visible tree alone must stay at or under 4."
+    notes: "Ceiling on the summed breakthrough_chance of all đạo văn in a life (player and NPC). Guess until the bot run confirms it; the visible tree alone must stay at or under 4."
     added: 2026-11-03
     revised: 2026-11-10
   - name: tech_norm
@@ -3289,21 +3289,21 @@ constants:
     revised: ""
   - name: cong_phap_seal_seasons
     status: deprecated
-    # 2026-11-10: retired with Cultivation Techniques rule 15 (the Meridian Map's sealed clusters were scrapped, user 2026-11-09).
+    # 2026-11-10: retired with Cultivation Techniques rule 15 (the Đạo Đồ's sealed clusters were scrapped, user 2026-11-09).
     source: design/gdd/cong-phap.md
     referenced_by:
       - design/gdd/cong-phap.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: [24, 24, 48, 48]
     unit: seasons (Yellow, Profound, Earth, Heaven)
-    notes: "The Meridian Map's cong_phap_seasons; key seal_seasons. Counts only cultivating seasons with the technique in the main slot. Interim (Cultivation Techniques rule 15, Open Question 12): seal_clusters is unread; any main method lists the technique-sealed clusters of sectors it names, and those clusters share the technique's one count."
+    notes: "The Đạo Đồ's cong_phap_seasons; key seal_seasons. Counts only cultivating seasons with the technique in the main slot. Interim (Cultivation Techniques rule 15, Open Question 12): seal_clusters is unread; any main method lists the technique-sealed clusters of sectors it names, and those clusters share the technique's one count."
     added: 2026-11-04
     revised: 2026-11-10
   - name: second_main_mult
     status: active
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/cong-phap.md
     value: 0.5
     unit: multiplier
@@ -3341,7 +3341,7 @@ constants:
       - design/gdd/character-stats.md
       - design/gdd/canh-gioi.md
       - design/gdd/cong-phap.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/linh-can.md
     value: {herb_growth_pct: 10, alchemy_success: 3, lifespan_frac: 0.15}
     unit: pct / percentage points / share of the realm's base lifespan
@@ -3355,7 +3355,7 @@ constants:
       - design/gdd/character-stats.md
       - design/gdd/canh-gioi.md
       - design/gdd/cong-phap.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/linh-can.md
     value: {herb_growth_pct: 10, lifespan_frac: 0.15}
     unit: curve scale (pct) / share of the realm's base lifespan
@@ -3400,10 +3400,10 @@ constants:
     referenced_by:
       - design/gdd/linh-can.md
       - design/gdd/character-stats.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: "common 10-30 W; Chaos 20-60 W"
     unit: W, floor at purity 50, ceiling at purity 100
-    notes: "Priced with the Meridian Map stat weights; travel_speed_pct and co_duyen_pct at 0.3 W per point are a guess (Spiritual Roots Open Question 2). Replaces bien_di_power_band."
+    notes: "Priced with the Đạo Đồ stat weights; travel_speed_pct and co_duyen_pct at 0.3 W per point are a guess (Spiritual Roots Open Question 2). Replaces bien_di_power_band."
     added: 2026-11-04
     revised: ""
   - name: variant_catalogue_size
@@ -3417,23 +3417,23 @@ constants:
     added: 2026-11-04
     revised: ""
   - name: variant_sector_size
-    # 2026-11-10 (Meridian Map major revision): variant sectors retired; variant roots have starts and lands (rule 20).
+    # 2026-11-10 (Đạo Đồ major revision): variant sectors retired; variant roots have starts and lands (rule 20).
     status: deprecated
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/linh-can.md
     value: 30
-    unit: acupoints per variant sector
-    notes: "8 roads and clusters of 4, 9 and 9, with 5 notables (1 apex). 8 sectors: 240 acupoints, 268 edges, 10 host links, outside the base map totals (tree_size_target). Locked and undrawn until the root owns the variant (Meridian Map rule 20)."
+    unit: Dao marks per variant sector
+    notes: "8 roads and clusters of 4, 9 and 9, with 5 notables (1 apex). 8 sectors: 240 Dao marks, 268 edges, 10 host links, outside the base map totals (tree_size_target). Locked and undrawn until the root owns the variant (Đạo Đồ rule 20)."
     added: 2026-11-04
     revised: 2026-11-10
   - name: variant_sector_value
-    # 2026-11-10 (Meridian Map major revision): variant sectors retired (rule 20).
+    # 2026-11-10 (Đạo Đồ major revision): variant sectors retired (rule 20).
     status: deprecated
-    source: design/gdd/kinh-mach-do.md
+    source: design/gdd/dao-do.md
     referenced_by:
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
       - design/gdd/linh-can.md
     value: "premium 1.25, apex ratio 1.1; 88.5 W per sector, 2.95 W per point"
     unit: W, unscaled (purity factor 1.0)
@@ -4449,9 +4449,9 @@ constants:
     source: design/gdd/quests.md
     referenced_by:
       - design/gdd/quests.md
-      - design/gdd/kinh-mach-do.md
+      - design/gdd/dao-do.md
     value: 3
-    unit: meridian tree points per life
+    unit: Đạo Đồ points per life
     notes: "Guess. Tree points from quests; also bounded by quest_gain_cap_w."
     added: 2026-11-07
     revised: ""
@@ -4705,7 +4705,7 @@ constants:
       - design/gdd/modifiers.md
     value: 1.2
     unit: W
-    notes: "Reference budget of one acupoint at premium 1 (Formulas E)."
+    notes: "Reference budget of one Dao mark at premium 1 (Formulas E)."
     added: 2026-11-07
     revised: ""
   - name: grade_notable

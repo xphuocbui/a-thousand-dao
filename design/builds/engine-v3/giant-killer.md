@@ -69,7 +69,7 @@ Rule: `layers` may claim at most 17 % at `ket_dan` of the gap between the typica
 
 **What changed in `layers`:** `[200, 225, 250, 130, 100]` -> `[200, 70, 54, 20, 10]` (claim now 17 %). L5 and L4 were cut to the typical enemy's own values (10 and 20) because the "Against the Heavens" piece is unmodelled and a punch-up identity needs the realm-gap piece the engine lacks anyway. L1 (200, the attack side a crit cleave needs most) was kept whole. The 46 points of the gap left over went to L2 (+30, 70) and L3 (+14, 54).
 
-**Why:** the build's own techniques and items already run as Effects, so they were double counted by the large L2-L4 claims; `layers` should hold only what the Meridian Map and other named sources give, and this file names none beyond the old assumed numbers.
+**Why:** the build's own techniques and items already run as Effects, so they were double counted by the large L2-L4 claims; `layers` should hold only what the Đạo Đồ and other named sources give, and this file names none beyond the old assumed numbers.
 
 **How the fights moved (old -> new, mean time and wins, 20 seeds):**
 

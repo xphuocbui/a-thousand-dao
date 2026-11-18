@@ -1,7 +1,7 @@
 class_name CombatPower
 extends RefCounted
 ## Chiến lực (combat power) — never raised directly; always computed from realm,
-## công pháp, equipped pháp bảo (limited by thần thức), Kinh Mạch Đồ and biến dị,
+## công pháp, equipped pháp bảo (limited by thần thức), Đạo Đồ and biến dị,
 ## and always shown as a breakdown (pillar: Power Is Built, Not Given).
 ## Duels compare powers with a ratio curve so vượt cấp is possible only through
 ## what you built. Data: combat_rules.json, items_artifacts.json.

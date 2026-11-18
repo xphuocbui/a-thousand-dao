@@ -145,7 +145,7 @@ Lint check: Tide Pulse limit 1 x (1 + 24 x 0.03) + 0.25 x 2 = 2.22, used 2.0. De
 
 ### Hidden cluster idea: Full Cistern (Mãn Trì)
 
-Theme: Water Way (Thủy Đạo), the Depths (Uyên). Water affinity, sealed, 8 acupoints, sealed by the Reading the Tide Canon (`seal_clusters`). Small acupoints: max linh lực, regeneration, ward efficiency. Two notables: Still Water and a pool notable of +8 %. No capability. An idea for the tree rework, not data.
+Theme: Water Way (Thủy Đạo), the Depths (Uyên). Water affinity, sealed, 8 Dao marks, sealed by the Reading the Tide Canon (`seal_clusters`). Small Dao marks: max linh lực, regeneration, ward efficiency. Two notables: Still Water and a pool notable of +8 %. No capability. An idea for the tree rework, not data.
 
 ## Đạo
 

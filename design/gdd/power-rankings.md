@@ -64,7 +64,7 @@ a won fight); curiosity about who is above them and why; never confusion about w
    rating that best explains those results against the rungs' known ratings (Formulas B). A panel runs when the fighter is created and again
    whenever its build changes (rule 5).
 5. **What changes a build.** A stage change; a technique learned, slotted, unslotted or raised a layer; an
-   item equipped or removed; a Kinh Mạch Đồ point spent; a capability gained; a change to talents or linh căn. The
+   item equipped or removed; a Đạo Đồ point spent; a capability gained; a change to talents or linh căn. The
    fighter's state becomes Stale (States below) and it keeps its current rating until the new panel runs. A
    breakthrough to a new realm is not a Stale change: the fighter becomes Provisional at its new realm (Formulas G,
    Edge Cases).
@@ -154,7 +154,7 @@ matchmaking or round-robin fight updates its offset as usual.
 |---|---|---|---|
 | Combat | in | `FighterCompiler.compile`, `CombatService` fights, the reference fighters, `rating_clash` for wars | Combat |
 | Realms | in | Realm and stage (anchors, provisional ratings, the panel's realms), power base `B_p` | Realms |
-| Character Stats, Cultivation Techniques, Item Database, Kinh Mạch Đồ | in | Build-change signals (rule 5) | each system raises; Power Rankings listens |
+| Character Stats, Cultivation Techniques, Item Database, Đạo Đồ | in | Build-change signals (rule 5) | each system raises; Power Rankings listens |
 | NPC Build Generation | in | New NPCs (Provisional) | NPC Build Generation |
 | Living World Tick | in / out | In: the season hook that runs the batch, deaths. Out: world-fight outcomes (rule 11) | Living World Tick asks, Power Rankings answers |
 | Event Engine | in / out | In: the player's rated fights (rule 12). Out: power numbers for enemy choice and text | Event Engine |
@@ -275,7 +275,7 @@ Formulas A, B, E, G's examples keep the test ladder (240 a rung).
 the typical fighter is not the realm median. After 4 years, median NPC strength is ×0.65 / ×1.14 / ×2.65 / ×3.6 /
 ×5.3 typical by realm, so realm medians show power 68 / 1,100 / 23,100 / 306,000 / 5.1 M; realms never overlap.
 **Kept as is (user decision 2026-11-14):** the anchors stay the typical fighters' ratings (Combat Formulas B, the
-difficulty targets); revisit when the Kinh Mạch Đồ and designed builds change where NPCs sit.
+difficulty targets); revisit when the Đạo Đồ and designed builds change where NPCs sit.
 **Output Range:** each gap positive and finite while the guard holds. 5 realms × 64 gaps × 400 fights ≈ 128,000
 fights, about 40 s on `fight.py` (0.3 ms a reference fight) or about 220 s on 8 Godot workers (13.7 ms a fight,
 Open Question 7).
@@ -476,7 +476,7 @@ half the planned pair fights drop each season, nearly all from the Kết Đan sl
 | Combat (#21) | Hard, upstream | The fight engine, `FighterCompiler.compile`, `CombatService`, the reference fighters; `rating_clash` for wars | Approved; engine built (ADR-0001). Formulas K's `display_power` is replaced by this GDD's power number (user decision 2026-11-14), and rule 17's "individual NPC duels run the full fight" by Core Rules rule 11's rating roll for world fights. **Combat amended 2026-11-14** (combat.md rule 17, Formulas K, AC-CB-65) |
 | Combat Defence & Healing (#21a) | Hard, upstream | The defence the compiled fighters carry | Approved; built |
 | Realms & Bottlenecks (#8) | Hard, upstream | Realm, stage, `power_base` | In review |
-| Character Stats, Cultivation Techniques, Item Database, Kinh Mạch Đồ | Hard, upstream | The build every panel compiles, and the build-change signals of Core Rules rule 5 | Approved or in review; built |
+| Character Stats, Cultivation Techniques, Item Database, Đạo Đồ | Hard, upstream | The build every panel compiles, and the build-change signals of Core Rules rule 5 | Approved or in review; built |
 | NPC Build Generation (#24) | Hard, upstream | New NPCs (Provisional) | Built; no GDD |
 | World Generation & History (#27) | Soft, upstream | Creates every person at world build and runs this GDD's start there (Provisional ratings and rule 16's capped coarse panels, `worldgen_fight_budget`) as its build step 8 | Designed 2026-11-15, pending review; its Dependencies lists #44 |
 | Living World Tick (#28) | Hard, both ways | Calls the season batch and asks for world-fight outcomes (Core Rules rules 11, 14) | Built (abstract); no GDD |

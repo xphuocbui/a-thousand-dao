@@ -58,7 +58,7 @@ Priority list, most important first.
 | Unstruck Body | Effect (enabler) | makes evaded hits pay | Reed-Shadow Scripture layer 6 | staged: unstruck-body | core |
 | Evade Pays | Effect | linh lực and Wind stacks per evade | enabler | staged: evade-pays | core |
 | Carried Off | Effect | removes your debuff stacks, the answer to ticks | enabler | staged: carried-off | core |
-| Evade | Increased | the cap of 40 % | tree acupoints, Drift Facet, sash, pill | in the game | core |
+| Evade | Increased | the cap of 40 % | tree Dao marks, Drift Facet, sash, pill | in the game | core |
 | Surplus Breeze | Overflow | evade above the cap becomes art speed | Phong Đạo Drift Facet notable | staged: surplus-breeze | core |
 | Wind-Fed Edge | Per (L2) | up to +20 % more Wind damage | Reed-Shadow Scripture bonus | staged: wind-fed-edge | strong |
 | Reply | Effect | free counter per 4 evades | enabler | staged: reply | strong |

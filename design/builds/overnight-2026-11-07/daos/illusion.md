@@ -79,7 +79,7 @@ A character owns one. Each is T3 with a 3.9 W line, 33.9 W. Both read the thần
 
 ## Lint (Formulas D1), First Guess
 
-Priced by Meridian Map F1: `than_thuc_pct` 1.3 W. `evade_pct` and `linh_luc_regen_pct` are not in F1, so they are priced from the catalogue's notable sizes at 8 W: +2.5 and +1. `mi_luc` has no weight anywhere, so it is a *guess* at 5 W, the other talents' price. Passives and arts use `credit(T)`, itself a *guess*, and every branch rests on unpriced modifiers, so all sums below are first guesses. V̄ 12.42.
+Priced by Đạo Đồ F1: `than_thuc_pct` 1.3 W. `evade_pct` and `linh_luc_regen_pct` are not in F1, so they are priced from the catalogue's notable sizes at 8 W: +2.5 and +1. `mi_luc` has no weight anywhere, so it is a *guess* at 5 W, the other talents' price. Passives and arts use `credit(T)`, itself a *guess*, and every branch rests on unpriced modifiers, so all sums below are first guesses. V̄ 12.42.
 
 | Part | Check | Sum | Band | Result |
 |---|---|---|---|---|

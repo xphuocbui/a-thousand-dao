@@ -144,7 +144,7 @@ The chopping block is struck ten thousand times and does not complain. Gives `t_
 
 ### Hidden cluster idea: Standing Post (Trạm Trang)
 
-Theme: body refinement, the stillness a body technique trains. Metal affinity, outer, sealed. Seal condition: a technique that lists it, here the Forty-Breath Sentence. Size 10, so 2 notables at `huyet_per_notable` 5, and it may carry a capability. The small acupoints give health, body guard and a little regeneration. The notables are Bare Rack and, farthest from the entry, Withheld Hand as the capability. A fist saint would come here for Bare Rack and stop short of the keystone.
+Theme: body refinement, the stillness a body technique trains. Metal affinity, outer, sealed. Seal condition: a technique that lists it, here the Forty-Breath Sentence. Size 10, so 2 notables at `marks_per_notable` 5, and it may carry a capability. The small Dao marks give health, body guard and a little regeneration. The notables are Bare Rack and, farthest from the entry, Withheld Hand as the capability. A fist saint would come here for Bare Rack and stop short of the keystone.
 
 ## Progression
 

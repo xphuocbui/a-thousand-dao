@@ -6,34 +6,34 @@ Every piece the builds in this folder use that does not exist yet, with how to c
 for the library: modifiers, Effects, items, công pháp, Đạo, keystones.
 
 Where a piece names a system rule, that system's owner would have to accept it. Effects are unpriced (Effects
-rule 4); arts and items pass their own lints; keystones belong to the Meridian Map content pass, which waits on
+rule 4); arts and items pass their own lints; keystones belong to the Đạo Đồ content pass, which waits on
 the modifier library (user, 2026-11-09).
 
 ## Linh lực keystones, one per element or variant (user decision 2026-11-09)
 
 | Piece | What it does and how to create it | Used by |
 |---|---|---|
-| **Breath Between Blows (Gian Tức)** | each art you fire restores 1.2 % of maximum linh lực (starting number, `notes.md` § 9). How to create: Meridian Map keystone in the Wind land; an Effect on the art-fired event, action "restore linh lực"; closing cost "your arts with an authored cooldown above 6 s cannot be slotted". | `variant-wind.md` |
-| **Dawn Tithe (Bình Minh Thuế)** | "while the foe is Exposed, your hits restore linh lực". How to create: Meridian Map keystone on the Light island; reads statuses on the target. | `variant-light.md` |
-| **Edge Returns the Breath (Phong Hồi Khí)** | each crit with a Physical hit restores 0.8 % of maximum linh lực (starting number, `notes.md` § 9). How to create: a keystone in the Metal land of the Meridian Map; an Effect (trigger on crit) whose payload is `linh_luc_on_crit_pct`, closing cost "your non-Physical hits cannot crit". | `single-metal.md` |
-| **Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô)** | each Burn tick you deal restores linh lực equal to 25 % of its damage (starting number, `notes.md` § 9). How to create: Meridian Map keystone in the Fire land; an Effect on the tick event, action "restore linh lực"; closing cost "your direct Fire hits deal 15 % less". | `single-fire.md` |
-| **Frost Tithe (Sương Thuế)** | you gain 9 % of the extra cost your Ice stacks make the foe pay as linh lực (starting number, `notes.md` § 9). How to create: Meridian Map keystone in the Water land's Ice reach; an Effect on the foe's art-cost event (readable: the extra cost from your stacks), action "restore linh lực". | `variant-ice.md` |
-| **Night Tithe (Dạ Thuế)** | "when you hit a foe that has not yet hit you, restore linh lực". How to create: Meridian Map keystone on the Darkness island; reads "hits taken this fight". | `variant-darkness.md` |
-| **Primordial Breath (Hỗn Nguyên Khí)** | "you regenerate linh lực +0.1 pp for each element whose buff stacks you hold". How to create: Meridian Map keystone at the Chaos start; reads element stack counts. | `variant-chaos.md` |
-| **Root Drinks the Rot (Căn Ẩm Hủ)** | 3.7 % of the damage you deal to a target bearing your Poison returns as linh lực (starting number, `notes.md` § 9). How to create: Meridian Map keystone in the Wood land; an Effect (reads the target's Wood debuff count) whose payload is `leech_linh_luc_pct` scoped to poisoned targets; closing cost "your leech is 0 against an unpoisoned target". | `single-wood.md` |
-| **Storm Battery (Lôi Trì)** | every crit restores 1.9 % of maximum linh lực (starting number, `notes.md` § 9). How to create: Meridian Map keystone on the Thunder island; an Effect on the crit event (any type), payload `linh_luc_on_crit_pct`; closing cost "your non-crit hits deal 10 % less". | `variant-thunder.md` |
-| **The Spring Never Fails (Tuyền Bất Kiệt)** | each Water stack you hold adds +0.025 pp linh lực regeneration, outside diminishing returns (fitted 2026-11-10, `notes.md` § 9). How to create: Meridian Map keystone in the Water land; an Effect reading your Water stack count, payload a flat regeneration share that Combat Formulas E adds after the diminishing-returns step; closing cost "your maximum linh lực from other sources is halved". | `single-water.md` |
-| **The Stone Remembers (Thạch Ký)** | 0.9 % of the damage your block and resistance prevent returns as linh lực (starting number, `notes.md` § 9). How to create: Meridian Map keystone in the Earth land; an Effect on the "damage prevented" read (new readable: prevented points per hit), action "restore linh lực"; closing cost "your evade is 0". | `single-earth.md` |
+| **Breath Between Blows (Gian Tức)** | each art you fire restores 1.2 % of maximum linh lực (starting number, `notes.md` § 9). How to create: Đạo Đồ keystone in the Wind land; an Effect on the art-fired event, action "restore linh lực"; closing cost "your arts with an authored cooldown above 6 s cannot be slotted". | `variant-wind.md` |
+| **Dawn Tithe (Bình Minh Thuế)** | "while the foe is Exposed, your hits restore linh lực". How to create: Đạo Đồ keystone on the Light island; reads statuses on the target. | `variant-light.md` |
+| **Edge Returns the Breath (Phong Hồi Khí)** | each crit with a Physical hit restores 0.8 % of maximum linh lực (starting number, `notes.md` § 9). How to create: a keystone in the Metal land of the Đạo Đồ; an Effect (trigger on crit) whose payload is `linh_luc_on_crit_pct`, closing cost "your non-Physical hits cannot crit". | `single-metal.md` |
+| **Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô)** | each Burn tick you deal restores linh lực equal to 25 % of its damage (starting number, `notes.md` § 9). How to create: Đạo Đồ keystone in the Fire land; an Effect on the tick event, action "restore linh lực"; closing cost "your direct Fire hits deal 15 % less". | `single-fire.md` |
+| **Frost Tithe (Sương Thuế)** | you gain 9 % of the extra cost your Ice stacks make the foe pay as linh lực (starting number, `notes.md` § 9). How to create: Đạo Đồ keystone in the Water land's Ice reach; an Effect on the foe's art-cost event (readable: the extra cost from your stacks), action "restore linh lực". | `variant-ice.md` |
+| **Night Tithe (Dạ Thuế)** | "when you hit a foe that has not yet hit you, restore linh lực". How to create: Đạo Đồ keystone on the Darkness island; reads "hits taken this fight". | `variant-darkness.md` |
+| **Primordial Breath (Hỗn Nguyên Khí)** | "you regenerate linh lực +0.1 pp for each element whose buff stacks you hold". How to create: Đạo Đồ keystone at the Chaos start; reads element stack counts. | `variant-chaos.md` |
+| **Root Drinks the Rot (Căn Ẩm Hủ)** | 3.7 % of the damage you deal to a target bearing your Poison returns as linh lực (starting number, `notes.md` § 9). How to create: Đạo Đồ keystone in the Wood land; an Effect (reads the target's Wood debuff count) whose payload is `leech_linh_luc_pct` scoped to poisoned targets; closing cost "your leech is 0 against an unpoisoned target". | `single-wood.md` |
+| **Storm Battery (Lôi Trì)** | every crit restores 1.9 % of maximum linh lực (starting number, `notes.md` § 9). How to create: Đạo Đồ keystone on the Thunder island; an Effect on the crit event (any type), payload `linh_luc_on_crit_pct`; closing cost "your non-crit hits deal 10 % less". | `variant-thunder.md` |
+| **The Spring Never Fails (Tuyền Bất Kiệt)** | each Water stack you hold adds +0.025 pp linh lực regeneration, outside diminishing returns (fitted 2026-11-10, `notes.md` § 9). How to create: Đạo Đồ keystone in the Water land; an Effect reading your Water stack count, payload a flat regeneration share that Combat Formulas E adds after the diminishing-returns step; closing cost "your maximum linh lực from other sources is halved". | `single-water.md` |
+| **The Stone Remembers (Thạch Ký)** | 0.9 % of the damage your block and resistance prevent returns as linh lực (starting number, `notes.md` § 9). How to create: Đạo Đồ keystone in the Earth land; an Effect on the "damage prevented" read (new readable: prevented points per hit), action "restore linh lực"; closing cost "your evade is 0". | `single-earth.md` |
 
-## Keystone content for the Meridian Map
+## Keystone content for the Đạo Đồ
 
 | Piece | What it does and how to create it | Used by |
 |---|---|---|
-| **Clay in the Kiln (Nê Nhập Diêu)** | keystone content for Earthen Kiln: "each Fire art you fire grants 1 Earth buff stack for 15 s; your Earth arts cost 25 % more". How to create: Meridian Map content pass. | `dual-fire-earth.md` (3. The Kiln Fortress) |
-| **Five Elements Cycle content** | "your arts gain +2 % for each element whose buff stacks you hold". How to create: Meridian Map content pass for the centre keystone. | `five-elements.md` (1. The Wheel of Generation) |
-| **Frost on the Blade content** | "your sword hits that deal Cold also grant 1 Ice debuff stack for 8 s". How to create: Meridian Map content pass on the drawn placeholder keystone. | `dual-metal-water.md` (2. Frost on the Blade) |
-| **Mother Lode content (Mẫu Khoáng)** | "artifacts you refine roll one extra affix; your thần thức cost per artifact is +20 %". How to create: Meridian Map content pass, a passive on Artifact Refining. | `dual-earth-metal.md` (2. The Ore Vein) |
-| **Whetstone Vow (Ma Thạch Thệ)** | keystone: "art costs paid in health are halved; you can never heal above 80 % health". How to create: Meridian Map keystone with a closing cost, payload `art_cost_health_pct`. | `single-metal.md` (2. Blood on the Whetstone) |
+| **Clay in the Kiln (Nê Nhập Diêu)** | keystone content for Earthen Kiln: "each Fire art you fire grants 1 Earth buff stack for 15 s; your Earth arts cost 25 % more". How to create: Đạo Đồ content pass. | `dual-fire-earth.md` (3. The Kiln Fortress) |
+| **Five Elements Cycle content** | "your arts gain +2 % for each element whose buff stacks you hold". How to create: Đạo Đồ content pass for the centre keystone. | `five-elements.md` (1. The Wheel of Generation) |
+| **Frost on the Blade content** | "your sword hits that deal Cold also grant 1 Ice debuff stack for 8 s". How to create: Đạo Đồ content pass on the drawn placeholder keystone. | `dual-metal-water.md` (2. Frost on the Blade) |
+| **Mother Lode content (Mẫu Khoáng)** | "artifacts you refine roll one extra affix; your thần thức cost per artifact is +20 %". How to create: Đạo Đồ content pass, a passive on Artifact Refining. | `dual-earth-metal.md` (2. The Ore Vein) |
+| **Whetstone Vow (Ma Thạch Thệ)** | keystone: "art costs paid in health are halved; you can never heal above 80 % health". How to create: Đạo Đồ keystone with a closing cost, payload `art_cost_health_pct`. | `single-metal.md` (2. Blood on the Whetstone) |
 
 ## Effects
 

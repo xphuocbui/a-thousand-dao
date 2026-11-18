@@ -33,17 +33,17 @@ At 1 s the first answer lands, and Thin Shavings falls to 64 % with its pool on 
 | Rung | Modifier | Effect | Form | Channel | Layer | Status | Home | Second home |
 |---|---|---|---|---|---|---|---|---|
 | Survival | **Vinegar Cloth** | Per-hit ward, pass 0.34 and 0.24, fee 0.04 | Rule swap | any | none | ○ | Ward | From The Held Door |
-| Survival | Ward strength | +18.8: 9 acupoints, 1 notable | Increased | any | none | ● | Tree | every build |
-| Survival | Ward efficiency | +17.2: 1 acupoint, 2 notables | Increased | any | none | ● | Tree | every per-hit ward |
-| Survival | Maximum health | +28.5: 9 acupoints, 3 notables | Increased | any | none | ● | Tree | every build |
-| Fuel | Regeneration | +0.15: 1 acupoint | Increased | any | none | ● | Tree | every build |
-| Multiplier | Art damage | +12: 8 acupoints | Increased | art | L1 | ○ | Tree | every art build |
+| Survival | Ward strength | +18.8: 9 Dao marks, 1 notable | Increased | any | none | ● | Tree | every build |
+| Survival | Ward efficiency | +17.2: 1 Dao mark, 2 notables | Increased | any | none | ● | Tree | every per-hit ward |
+| Survival | Maximum health | +28.5: 9 Dao marks, 3 notables | Increased | any | none | ● | Tree | every build |
+| Fuel | Regeneration | +0.15: 1 Dao mark | Increased | any | none | ● | Tree | every build |
+| Multiplier | Art damage | +12: 8 Dao marks | Increased | art | L1 | ○ | Tree | every art build |
 | Multiplier | Needles and mail | L3 114.4, kept from Thin Shavings | Gear | any | L3 | ● | Artifacts | Grindstone |
 
 **Identity piece:** the ward. `--without ward` on `variants/wet-cloth-vs-thin-shavings.fight.json` loses at 1 s with the kit on 64 %.
 **Empty rungs:** crit past the base, reach, L4, L5. All sacrifices.
 
-**W:** 28 acupoints and 6 notables, 81.6 W, the counts Thin Shavings walks. L1 12 on arts, L2 20 from the method, L3 114.4.
+**W:** 28 Dao marks and 6 notables, 81.6 W, the counts Thin Shavings walks. L1 12 on arts, L2 20 from the method, L3 114.4.
 
 ## Foundation
 

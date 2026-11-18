@@ -351,19 +351,19 @@ func place_type(type_id: String) -> Dictionary:
 
 # --- Other files --------------------------------------------------------------
 
-## meridian_tree.json content.
+## dao_do_tree.json content.
 func tree_config() -> Dictionary:
-	return file("meridian_tree")
+	return file("dao_do_tree")
 
 
-## meridian_tree.json content (alias read by the stat sheet).
-func meridian_config() -> Dictionary:
-	return file("meridian_tree")
+## dao_do_tree.json content (alias read by the stat sheet).
+func dao_do_config() -> Dictionary:
+	return file("dao_do_tree")
 
 
 ## The capability catalogue, in id order.
 func capabilities() -> Array:
-	return file("meridian_capabilities").get("capabilities", [])
+	return file("dao_do_capabilities").get("capabilities", [])
 
 
 ## The capability with [param capability_id], or {}.

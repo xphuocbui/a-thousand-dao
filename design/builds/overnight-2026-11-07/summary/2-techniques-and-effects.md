@@ -202,7 +202,7 @@ New roots.
 
 ## Tree clusters (28)
 
-Hidden and sealed clusters for the Meridian Map.
+Hidden and sealed clusters for the Đạo Đồ.
 
 | Name | What it does | Fit | Build |
 |---|---|---|---|
@@ -217,8 +217,8 @@ Hidden and sealed clusters for the Meridian Map.
 | **Furrow Line** (Lũng Mạch) | Theme spirit fields, Earth, outer, sealed by the Furrow Scripture, size 10. Notables Held Acres, Surplus, Rich Soil. Capability #14. | Needs key | Good Year |
 | **Gilt Line** (Kim Tuyến Mạch) | Theme NPC Interaction and presence, Metal, outer, sealed by event: win twenty ticketed bouts. Size 10. Notables Shown Face, In Step, All Eyes; capability Called Blow. | Needs key | Loud Sword |
 | **Green Room** (Hậu Đài) | Water, outer, sealed by a technique, size 10. Notables Returned Force and a second for Longer Breath's condition. Capability: a Cue guard on any art. | Needs key | Understudy |
-| **Hidden Doors** (Ám Môn) | Sealed, Water, size 6, four Escape chance acupoints, notables Terror and Beneath Notice. Theme: escape. | Needs key | Best Plan |
-| **High Table** (Thượng Tịch) | Sealed, Earth, size 8, Damage and Health acupoints, notables Varied Diet, Between Courses and Years at Table, capability #9 outermost. Theme: defeat. | Needs key | Not-Yet-Full |
+| **Hidden Doors** (Ám Môn) | Sealed, Water, size 6, four Escape chance Dao marks, notables Terror and Beneath Notice. Theme: escape. | Needs key | Best Plan |
+| **High Table** (Thượng Tịch) | Sealed, Earth, size 8, Damage and Health Dao marks, notables Varied Diet, Between Courses and Years at Table, capability #9 outermost. Theme: defeat. | Needs key | Not-Yet-Full |
 | **Hundred Ills** (Bách Bệnh) | Curses and bad states, Wood, outer, sealed by a technique, size 9. Notable Virulence. | Needs key | Stand-In |
 | **Hungry Courses** (Cơ Mạch) | Linh lực and starving it, Earth, outer, sealed by a technique, size 10. Notables Held Acres and Thrift, capability Requisition. | Needs key | Corner |
 | **Long Table** (Trường Tịch Mạch) | Sealed by the Wedding Hearth Sutra, theme the Way of Alchemy, Fire, size 8. Notables Cook's Hand, then Fine Work. | Needs key | Wedding Furnace |
@@ -231,7 +231,7 @@ Hidden and sealed clusters for the Meridian Map.
 | **Standing Post** (Trạm Trang) | Theme body refinement, Metal, outer, sealed by a technique, size 10, notables Bare Rack and Withheld Hand as the capability. | Needs key | Fortieth Breath |
 | **Struck Register** (Tước Bạ Mạch) | Heart State theme, Water, outer, sealed by technique, size 12. Notables: Borrowed Name with Bare Vessel's line, then Struck Name as the capability. | Needs key | Struck Name |
 | **Swollen Channels** (Ứ Mạch) | Sealed, Water, size 8. Wards and how force moves through them. Notable: Strong Decoction. | Needs key | Great Tonic |
-| **The Clear Vat** (Thanh Hang) | Wood sector, sealed by technique, eleven nodes: six Spread acupoints, Steeped, Clean Hands, Mordant, Bluer Than the Plant, One Drop at the far end. | Needs key | Indigo Drop |
+| **The Clear Vat** (Thanh Hang) | Wood sector, sealed by technique, eleven nodes: six Spread Dao marks, Steeped, Clean Hands, Mordant, Bluer Than the Plant, One Drop at the far end. | Needs key | Indigo Drop |
 | **Unmoved Body** (Bất Động Thân) | Body refinement, Earth, outer, sealed by a technique, size 10. Notables Still Sea and Iron Marrow. | Needs key | Incense Vigil |
 | **Waster Heap** (Phế Đôi) | Sealed, Earth, size 8. Wounds and vitality. Sealed by a technique or three failed great breakthroughs. Notable: Reopened. | Needs key | Turned-Away |
 

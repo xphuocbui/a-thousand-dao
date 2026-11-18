@@ -34,4 +34,4 @@ Health left stays at 100 % in all four. The typical fight (5.7 s) is still under
 - An offence source that is not a layer: Metal debuff stacks (Closing Palm role) and an Earth/Metal stack-strength piece, so the Metal half of the root contributes (metal family).
 - A thần thức piece for the earth family, so more extra slots can be carried.
 - Pieces the engine cannot yet run, which a Warden would want: a cleanse-on-a-clock treasure, a soul art (Deaf Verdict), a ward that pays per hit and drains.
-- Meridian Map nodes for Earth `attack_pct` and body layers (the only legitimate source left for `layers`).
+- Đạo Đồ nodes for Earth `attack_pct` and body layers (the only legitimate source left for `layers`).

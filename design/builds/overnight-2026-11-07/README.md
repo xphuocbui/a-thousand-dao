@@ -1,6 +1,6 @@
 # Overnight Build Campaign: Start Here
 
-> **To be re-evaluated and filtered (user decision 2026-11-07).** This campaign went builds-first. Its builds and content are not adopted: they will be filtered against the Modifier System, the redesigned Meridian Map and the Đạo catalogue once those exist, and reused as test cases. Its Đạo trees are not adopted. The rule findings in `decisions.md` stand on their own. See `design/gdd/systems-index.md`, "Build design order".
+> **To be re-evaluated and filtered (user decision 2026-11-07).** This campaign went builds-first. Its builds and content are not adopted: they will be filtered against the Modifier System, the redesigned Đạo Đồ and the Đạo catalogue once those exist, and reused as test cases. Its Đạo trees are not adopted. The rule findings in `decisions.md` stand on their own. See `design/gdd/systems-index.md`, "Build design order".
 >
 > **Status**: Proposals only. Nothing here is implemented or in game data, and no GDD, registry, catalogue or data file was changed by this campaign. Not committed.
 > **Last updated**: 2026-11-07 morning, after the campaign ended. 69 builds. Counts: see `index.md`.
@@ -8,14 +8,14 @@
 ## Read these, in this order
 
 1. **`decisions.md` (10 minutes):** the 12 rulings that matter, 19 faults in existing GDDs, and quick yeses. If you read one file, read this.
-2. **`wheel.md`:** every plain modifier path on one Meridian Map, with the five element borders. This is the page for your tree rework.
+2. **`wheel.md`:** every plain modifier path on one Đạo Đồ, with the five element borders. This is the page for your tree rework.
 3. **`index.md`:** every build on one line, with its pitch. **`panel.md`:** each build against five kinds of enemy.
 4. **Builds to read first**, below.
 5. **`content-ledger.md`:** every new piece by type. **`daos/`:** full Đạo trees. **`critic/`:** independent reviews, blunt ones.
 
 ## The big findings
 
-**Your modifier idea works, and it has a shape.** The first three waves produced only exotic signature pieces, so the campaign turned to what you asked for first: ordinary stackable modifiers. There are now about 400 plain acupoint and notable rows across twelve paths, with no rule changes needed. Remove any single row and the fight barely moves; remove five and it is usually lost. That is the stacking you described.
+**Your modifier idea works, and it has a shape.** The first three waves produced only exotic signature pieces, so the campaign turned to what you asked for first: ordinary stackable modifiers. There are now about 400 plain Dao mark and notable rows across twelve paths, with no rule changes needed. Remove any single row and the fight barely moves; remove five and it is usually lost. That is the stacking you described.
 
 **The plain paths are strongest across their borders.** The five element paths already meet at natural borders on your map, each with its own theme: Wood and Fire is stacks and ticks, Fire and Earth is heavy arts, Earth and Metal is gear, Metal and Water is crit, Water and Wood is income. Crossing two paths at a border took builds from winning 1 or 2 of 5 enemy types to 4 or 5, with plain rows only.
 

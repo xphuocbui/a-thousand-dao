@@ -64,7 +64,7 @@
 | loan-slot | Loan slot (Tá Vị) | Concept (Combat rule 13) | An empty art slot at fight start that records one copy of a foe's art; one per art id; never a soul, ward or escape art; copies end with the fight | Needs rule | art-thief |
 | stolen-tag | Stolen tag | Key (Combat rule 6, tags) | A tag every copy carries, so modifiers can scope to copies | Needs key | art-thief |
 | enemy-art-cast-readable | Foe's art cast readable | Rule (Combat rule 10) | An Effect or the loan rule can read the id and record of an art the foe has just cast | Needs rule | art-thief |
-| hollow-hall-cluster | Hollow Hall (Hư Đường) | Cluster idea | Water, sealed by the sutra; 8 acupoints, 2 notables and an outer notable; Faithful Copy, Warm Hand, Own Medicine, Stolen Breath, Wide Sleeve | Needs key | art-thief |
+| hollow-hall-cluster | Hollow Hall (Hư Đường) | Cluster idea | Water, sealed by the sutra; 8 Dao marks, 2 notables and an outer notable; Faithful Copy, Warm Hand, Own Medicine, Stolen Breath, Wide Sleeve | Needs key | art-thief |
 
 ## Reused
 

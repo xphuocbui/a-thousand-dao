@@ -67,7 +67,7 @@ Old = the engine-v2 file run again today (its guide figures of 1.4 s and 3.0 s a
 
 What changed in `layers`: `[266, 265, 250, 130, 0]` became `[150, 150, 120, 0, 0]`. The claimed share of the typical-to-top-end gap fell from 75 % to 23 %, which is the nguyen_anh budget.
 
-Why: the techniques' passives and the items' modifiers already run as Effects (`tech:*`, `item:*`), so the old file counted the gear twice by also writing it into `layers`. `layers` now holds only what the Meridian Map and other named sources give: a mid-sized base in the first three layers. The fourth layer (130) was cut first because the concept (many weapons, walls and strikes) needs it least, and the gear already lifts the fifth layer through the `full-rack`, `opened-seams` and `steady-breath` Effects. The Effects, techniques, items and arts are unchanged.
+Why: the techniques' passives and the items' modifiers already run as Effects (`tech:*`, `item:*`), so the old file counted the gear twice by also writing it into `layers`. `layers` now holds only what the Đạo Đồ and other named sources give: a mid-sized base in the first three layers. The fourth layer (130) was cut first because the concept (many weapons, walls and strikes) needs it least, and the gear already lifts the fifth layer through the `full-rack`, `opened-seams` and `steady-breath` Effects. The Effects, techniques, items and arts are unchanged.
 
 How the fights moved (old over-budget file -> new, mean time and wins of 20):
 

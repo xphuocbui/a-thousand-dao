@@ -97,7 +97,7 @@ convergences, Thunder and Darkness, are both overcoming pairs, and Water over Fi
 
 It sits in the 10 to 30 W common band (Spiritual Roots Formulas E). **Its cost** is the second line: every pill
 poisons you more. For most cultivators that is a real price. For a Taster it is a discount, and the first line
-is what makes the clean window worth reaching. Like any variant it needs its own Meridian Map sector (rule 12),
+is what makes the clean window worth reaching. Like any variant it needs its own Đạo Đồ sector (rule 12),
 and rule 9's catalogue grows to nine.
 
 ## Công Pháp
@@ -271,7 +271,7 @@ window and Bitter Pearl, which are caller effects; Inured Flesh, because referen
 | Bitter Pearl | Needs rule | Character Stats rule 7 and Edge Cases: what the clamp at 100 clips, and a stored grain count |
 | Fever, Bitter Measure, Inured Flesh | Needs key | Per-toxicity keys; `art_speed_pct` still has to reach Character Stats (Open Question 21) |
 | Bare Vessel, Corpse-Wax Coating, Sick Meridians | Needs key | As in Burial Shroud |
-| Cinnabar | Needs key | A `variants` row, `variant_effects`, a Meridian sector and a `pill_effect_pct` weight |
+| Cinnabar | Needs key | A `variants` row, `variant_effects`, a Đạo Đồ sector and a `pill_effect_pct` weight |
 | Dregs | Needs key | A recipe record and a failed-brew output |
 | Taster's Canon, three arts, Poison Đạo | Needs key | The art record format and ability catalogue (Open Question 13); `dao.json` |
 

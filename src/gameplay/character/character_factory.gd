@@ -61,7 +61,7 @@ static func _base_player(gd: GameData, player_name: String, gender: String, orig
 	c.age = float(start.age)
 	c.linh_thach = int(start.linh_thach)
 	c.tree_points = int(start.tree_points)
-	c.tree_nodes = [MeridianTree.ROOT_ID]
+	c.tree_nodes = [DaoDoTree.ROOT_ID]
 	return c
 
 

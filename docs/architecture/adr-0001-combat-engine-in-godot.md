@@ -38,7 +38,7 @@ Combat GDD's rating profile (Formulas K).
 | **Depends On** | None (no earlier ADR exists) |
 | **Enables** | A later ADR for the combat presentation (fight log and UI), and one for Event Engine fight requests if that interface needs more than this ADR fixes |
 | **Blocks** | Any epic or story that makes fights read arts, wards, Effects or item stats in the game |
-| **Ordering Note** | The fighter compiler needs Meridian Map stats through the stat sheet only (Combat GDD: the Map reaches Combat only as stat modifiers), so the parked Meridian Map does not block it |
+| **Ordering Note** | The fighter compiler needs Đạo Đồ stats through the stat sheet only (Combat GDD: the Map reaches Combat only as stat modifiers), so the parked Đạo Đồ does not block it |
 
 ## Context
 
@@ -63,7 +63,7 @@ families, 54 library Effects) is being balanced against the sim, so the game mus
   per hit, reserved, cast), block, shields, body shield, health; healing and regeneration; fatigue; the Down step.
 - Run element stacks as batches, the Status Catalogue's statuses and curses, and the Effects System's records
   (events, conditions, scaling, limits, held payloads, actions, readables).
-- Build each fighter from a Character: realm and stage, the stat sheet (Meridian Map, Way, techniques' passives,
+- Build each fighter from a Character: realm and stage, the stat sheet (Đạo Đồ, Way, techniques' passives,
   items' modifiers), slotted arts (techniques, worn items' arts and common arts), wards (main, extra, armour's own
   slot), item and technique Effects, reserve arts.
 - Serve the Event Engine's fight request and return a result with life costs for the caller to apply.
@@ -110,7 +110,7 @@ Port the sim engine to GDScript as **the canonical fight engine**. The Python si
 ```
 Character ──► FighterCompiler ──► FighterProfile (immutable, cached)
  (sheet, techniques, items,              │                     │
-  Way, Meridian Map via sheet)           │                     └──► RatingProfile (Formulas K) ─► world tick, mass battles,
+  Way, Đạo Đồ via sheet)           │                     └──► RatingProfile (Formulas K) ─► world tick, mass battles,
                                          ▼                                                         display_power
 Event Engine / player action ──► CombatService.resolve(request)
                                          │
@@ -128,7 +128,7 @@ Python sim (tools/design/combat_sim) ◄─── parity suite (tests/parity) �
 
 ```gdscript
 class_name FighterCompiler extends RefCounted
-static func compile(c: Character, gd: GameData, db: WorldDB, tree: MeridianTree) -> FighterProfile
+static func compile(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> FighterProfile
 static func from_data(profile_id: String, realm: int, gd: GameData) -> FighterProfile   # creatures, waves, references
 
 class_name CombatService extends RefCounted
@@ -246,8 +246,7 @@ static func clash(a: RatingProfile, b: RatingProfile, gd: GameData, rng: RandomN
   across several fight shapes (a 30–60 s mirror, a long stall, a many-Effect build), judging the p95, not the mean.
   Fallback if the budget is missed: move only the Effect runner to a GDExtension (Alternative 1, reopened for that
   part only).
-- **The fighter compiler guesses** where game data is thin (no art system for some sources yet, the parked Meridian
-  Map). Mitigation: the compiler reports what it could not compile, like the sim's UNMODELLED lines, never silently.
+- **The fighter compiler guesses** where game data is thin (no art system for some sources yet, the parked Đạo Đồ). Mitigation: the compiler reports what it could not compile, like the sim's UNMODELLED lines, never silently.
 - **Godot 4.7 specifics** past the LLM cutoff. Mitigation: plain GDScript the codebase already uses; verify
   determinism and timing in a headless export early. Typed dictionaries (`Dictionary[K, V]`) are not covered by the
   engine reference docs, so the design prefers typed RefCounted objects for fixed-shape data.
@@ -311,7 +310,7 @@ static func clash(a: RatingProfile, b: RatingProfile, gd: GameData, rng: RandomN
 
 **Status 2026-11-14 (steps 3 and 4):**
 - Step 3 done: `FighterCompiler.compile(c, gd, db, sheet, report, errors)` with the realm's typical layers (user
-  decision 2026-11-14, until the Meridian Map), from `assets/data/combat_library.json` and `combat_engine.json`
+  decision 2026-11-14, until the Đạo Đồ), from `assets/data/combat_library.json` and `combat_engine.json`
   CHARACTER_MODS. Its build-file step (`BuildFileCompiler`, a port of fight.py's `expand_library()` and `to_build()`)
   matches fight.py on 58 cases holding every named item and every art (`tests/parity/compile_parity_test.gd`); that
   covers the 5 build-file mechanism tests' ground (ward parsing, armour ward slots, static lines) except the layer and

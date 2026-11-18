@@ -185,7 +185,7 @@ author's reading and wait for confirmation (Open Questions).
     An orphaned quest whose deadline falls in the same season end is Dropped at that season end (the order is in rule 8), with no penalty.
     Every ending is recorded in the World DB with the stages done, the seasons spent and the rewards paid.
 11. **The rare rewards (user decision 2026-11-06).** A quest may pay, rarely, one **lasting gain** (a permanent stat
-    line within a W budget, held as the sheet modifier source `quest_boon` in Character Stats, or meridian tree
+    line within a W budget, held as the sheet modifier source `quest_boon` in Character Stats, or Đạo Đồ
     points) or a **valuable insight or recipe**. Only Major and Legendary quests (rule 14) may pay these. At most one lasting gain per
     quest, and the character's total lasting gains from quests are capped (Formulas D) so quests can never become the
     main source of power (Pillar 3). The cap is applied again at payment, because two frozen plans can both expect the
@@ -503,8 +503,8 @@ The quest_gain_cap formula is defined as:
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | amount_key, W_key | float | ≥ 0; > 0 | data file (template), validated; data file (`stat_power_weights`) | A stat key's amount and W price |
-| tree_points | int | 0 up to the realm's `tree_point_max` | data file (template), validated | Meridian tree points paid |
-| tree_point_w | float | 2.07 | data file (Meridian Map `w̄_target`) | W price of a tree point |
+| tree_points | int | 0 up to the realm's `tree_point_max` | data file (template), validated | Đạo Đồ points paid |
+| tree_point_w | float | 2.07 | data file (Đạo Đồ `w̄_target`) | W price of a tree point |
 | quest_boon_w | float | 4–12, default 8 | data file | Most W in one lasting gain |
 | quest_gain_cap_w | float | 24–60, default 48 | data file | Lifetime W from quests, about 4 % of the 1,172 W a full tree holds at Deity Transformation |
 | quest_gain_total_w | float | 0 to the cap | calculated | W already gained from quests this life |
@@ -642,7 +642,7 @@ its master **−15** and its sect head **−7**.
 | Config (#1), Sim Core (#2), Save/Load (#5) | Hard | `quest_rules.json`, `quest_templates.json`, seeded stream, saving | Built, no GDD |
 | Sects & Missions (#26) | Hard | Mission action, base income, `hostile_threshold`, sect boards | GDD designed 2026-11-14 |
 | Character Stats (#7) | Hard | The `quest_boon` modifier source; stat checks | GDD in review; lists this system as a modifier source |
-| Meridian Map (#10) | Soft | `stat_power_weights`, `w̄_target`, tree points | GDD in review; lists this system |
+| Đạo Đồ (#10) | Soft | `stat_power_weights`, `w̄_target`, tree points | GDD in review; lists this system |
 | Item Database (#13) | Hard | Prices, rarity bounds, item classes | GDD approved; lists this system |
 | Realms & Bottlenecks (#8) | Soft | Realm band; time estimate for `reach` | GDD in review; lists this system |
 | NPC Interaction & Dialogue (#30) | Soft | The "Ask for work" verb, `visit` by greeting | GDD designed 2026-11-15 |
@@ -659,7 +659,7 @@ its master **−15** and its sect head **−7**.
 | The Way (#39) | Soft | Quests and standing that Hiệp Đạo's Du Hiệp and Bồ Đề Đạo's Thiện Hạnh read; prices Dao nodes against the same `w_target` | In review (`dao.md`) |
 | Heavenly Tribulation (#22) | Soft | None at runtime. Its reward content pass waits on this GDD (its Open Question 9) | Approved for rules |
 
-**Bidirectional check.** The Event Engine and NPC Interaction & Dialogue GDDs list this system (2026-11-15). Character Stats, Meridian Map, Item Database, Realms, Combat and Heavenly Tribulation list this system (added
+**Bidirectional check.** The Event Engine and NPC Interaction & Dialogue GDDs list this system (2026-11-15). Character Stats, Đạo Đồ, Item Database, Realms, Combat and Heavenly Tribulation list this system (added
 2026-11-06 and 2026-11-07). The other upstream systems have no GDD to list it in.
 
 **Combat sub-systems (back-references added by the Combat revision #43, 2026-11-08).** This system and the four
@@ -706,7 +706,7 @@ All of these work in the Debug Terminal first, with numbered menus as elsewhere.
 | Formulas A, D | `assets/data/session_actions.json` (Sects & Missions, `design/gdd/sects.md`) | `sect_base_income`, `income_realm_scale`, `hostile_threshold` −30 | Read only |
 | Rule 5, Formulas B | combat.md rule 1, Formulas K | The fight, F = Off × ehp | Read only |
 | Formulas B | thien-kiep.md Formulas C | r as the share of effective health a fight costs | The estimate is reused, not owned here |
-| Rule 11, Formulas D | kinh-mach-do.md; registry `stat_power_weights` | W prices, `w̄_target` 2.07 W | Read only |
+| Rule 11, Formulas D | dao-do.md; registry `stat_power_weights` | W prices, `w̄_target` 2.07 W | Read only |
 | Formulas D | thien-kiep.md Formulas E | `tempered_buff_w` 60, the 1,172 W full tree | Read only |
 | Rule 11 | character-stats.md | `quest_boon` as a modifier source | Listed in its Dependencies |
 | Rule 11 | canh-gioi.md rule 7; `event_resolver.gd` effect `insight` | The Nascent Soul breakthrough insight | Read only |

@@ -40,7 +40,7 @@ Both price their modifiers on one scale (Formulas I: 12.8 W per affix a grade al
 
 | Source | Plain W |
 |---|---|
-| A Meridian Map small node / notable | 1.2 / 8 |
+| A Đạo Đồ small node / notable | 1.2 / 8 |
 | A technique's passives (Hoàng / Huyền / Địa / Thiên) | 8 / 16 / 24 / 32 |
 | One named item, Hạ / Trung / Thượng / Cực | 12.8 / 25.6 / 38.3 / 51.1 |
 | A full named loadout at Core Formation | about 210–230 |

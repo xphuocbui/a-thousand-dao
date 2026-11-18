@@ -124,7 +124,7 @@ Each **Effect** is a hit. **Description:** the small bell, the middle bell, and 
 ### Hidden cluster idea: Measured Breath (Điều Tức)
 
 Theme: Heart State, the discipline of a steady mind. Metal affinity, outer, sealed. Seal condition: a technique
-that lists it. Size 7, so it can hold a capability. The small acupoints give art speed and regeneration. The notable is On the
+that lists it. Size 7, so it can hold a capability. The small Dao marks give art speed and regeneration. The notable is On the
 Beat. Bare Vessel can also sit here for a character who has not found Sick Meridians.
 
 ## Đạo

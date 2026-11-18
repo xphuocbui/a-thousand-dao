@@ -27,7 +27,7 @@
 
 | ID | Name | Kind | What it is | Fit | Used by |
 |---|---|---|---|---|---|
-| kindled-meridians | Kindled Meridians (Hỏa Mạch Thiêu) | cluster idea | sealed Fire cluster, 5 acupoints: three small Fire damage and Fire art cost, a Status duration notable, Embers Feed the Hearth at the far end; seal: a Fire technique | Needs key | starter-flame |
+| kindled-meridians | Kindled Meridians (Hỏa Mạch Thiêu) | cluster idea | sealed Fire cluster, 5 Dao marks: three small Fire damage and Fire art cost, a Status duration notable, Embers Feed the Hearth at the far end; seal: a Fire technique | Needs key | starter-flame |
 
 ## Reused
 

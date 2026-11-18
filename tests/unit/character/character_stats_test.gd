@@ -188,7 +188,7 @@ func test_lifespan_pct_sources_stay_inside_the_bound_ac56() -> void:
 			if str(fx.stat) == "lifespan_pct":
 				total += float(fx.value)
 				sources.append(str(p.id))
-	var keystones: Dictionary = gd.file("meridian_tree").keystones
+	var keystones: Dictionary = gd.file("dao_do_tree").keystones
 	for e in keystones.keys():
 		for ks in keystones[e]:
 			for m in ks.mods:

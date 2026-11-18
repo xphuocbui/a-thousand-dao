@@ -73,7 +73,7 @@ Gear barely mattered. Against a typical foe the fight stayed at 2.9 s, and on to
 
 **What changed in `layers`:** `[400, 250, 250, 150, 52]` became `[200, 130, 130, 80, 30]`. Nothing else in the file changed (techniques, items, arts, ward, body, effects are as before).
 
-**Why:** the Hóa Thần budget is 30 % of the gap between the typical and top-end enemy's layers; the file claimed 76 %. The build's techniques and items already run as Effects, so `layers` should hold only the Meridian Map and other named outside sources. All five layers were cut about in half. The concept (many different curses on one foe, paid by count) lives in the arts, the Marked Prey Effect and the stack items, not in raw layers, so no single layer was spared. The file now claims 28 %.
+**Why:** the Hóa Thần budget is 30 % of the gap between the typical and top-end enemy's layers; the file claimed 76 %. The build's techniques and items already run as Effects, so `layers` should hold only the Đạo Đồ and other named outside sources. All five layers were cut about in half. The concept (many different curses on one foe, paid by count) lives in the arts, the Marked Prey Effect and the stack items, not in raw layers, so no single layer was spared. The file now claims 28 %.
 
 **How the fights moved** (20 fights each, same realm):
 

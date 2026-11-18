@@ -286,7 +286,7 @@ The guild gave it to whoever finished the canon; most who earned it had already 
 
 Theme: what fire leaves behind: slag, soot, smoke (wider than this build: any Fire build with a Chaos or Physical
 side reads it). Element affinity Fire. Kind: sealed; seal condition: the Three Smeltings Canon lists it in
-`seal_clusters`. Size 9 acupoints, one notable per `huyet_per_notable`, the payoff farthest. Smalls: `attack_pct`
+`seal_clusters`. Size 9 Dao marks, one notable per `marks_per_notable`, the payoff farthest. Smalls: `attack_pct`
 [fire, chaos] +2.4 % (×2), `attack_pct` [physical] +1.5 %, `convert_pct` Fire → Chaos +2 pp (×2), `resist_pen_pct` [chaos] +18;
 notables `convert_pct` Fire → Chaos +15 pp and, farthest, `attack_pct` [fire, chaos] +16 %. No capability.
 

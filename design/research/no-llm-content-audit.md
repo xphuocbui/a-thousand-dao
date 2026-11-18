@@ -8,7 +8,7 @@ Using an LLM at *authoring* time to draft data that is then reviewed is not rule
 
 | Text | Offline fallback today | State |
 |---|---|---|
-| Events | 19 templates, `assets/data/events_templates.json` (`EventTemplateSource`) | Thin, and stale: the templates key to the old generator's place types (`thanh`, `tran`, `phuong_thi`, `son`, `coc`, `ho`, `bi_canh`, `dao`), not the fixed world's 13 kinds (great_seat, minor_seat, city, market, town, village, mine, peak, volcano, lake, island, forest, gorge). `mach_an_co_vat` uses Mạch Ấn, which Item DB retired |
+| Events | 19 templates, `assets/data/events_templates.json` (`EventTemplateSource`) | Thin, and stale: the templates key to the old generator's place types (`thanh`, `tran`, `phuong_thi`, `son`, `coc`, `ho`, `bi_canh`, `dao`), not the fixed world's 13 kinds (great_seat, minor_seat, city, market, town, village, mine, peak, volcano, lake, island, forest, gorge). `dao_an_co_vat` uses Đạo Ấn, which Item DB retired |
 | Narration of a choice | The template's outcome line (`Narrator.narrate`) | Works; one line per outcome |
 | NPC talk | 3 greetings by attitude band plus one random line from the person's history (`Narrator._talk_template`) | Very thin: no traits, calling, realm or sect in the voice |
 | Epitaph / life chronicle | The raw fact list (`Narrator.epitaph`) | Not prose |

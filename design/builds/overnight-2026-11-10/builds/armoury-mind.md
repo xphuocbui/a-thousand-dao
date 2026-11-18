@@ -52,7 +52,7 @@ In the order a player usually finds them.
    the Way's requirement. *In the game.*
 2. **Talents: soul strength (thần hồn) first, then comprehension (ngộ tính).** Every point of soul strength is about
    1.5 units of rack. Some events raise it. *In the game.*
-3. **Meridian Map capabilities:** #3 Treasure Nurtured Within (your first piece costs no divine sense and grows +1 % a
+3. **Đạo Đồ capabilities:** #3 Treasure Nurtured Within (your first piece costs no divine sense and grows +1 % a
    year, to +50 %), #2 Divided Divine Sense (+1 piece, +20 % divine sense), #1 Twin Arms in Harmony (a pair of one
    kind, +15 % attack). *In the game.*
 4. **The Way (Đạo): Kim Đạo · Bách Luyện (Hundred Temperings), the Binh Khố facet (the Armoury).** Wanted: an artifact
@@ -128,8 +128,8 @@ Most important first.
 |---|---|---|---|---|---|
 | Garrison Mind | Effect (enabler): a strike and a Metal stack per weapon piece each pulse | Up to +64 % Physical damage taken; the reason the count matters | Scripture layer 11; Kim Đạo capstone | Staged: `garrison-mind` | core |
 | Pass-Garrison Armoury Scripture | `than_thuc_pct` +22.5, six arts, seven passives | The budget and the whole loadout | Main technique | Staged: `pass-garrison-scripture` | core |
-| Treasure Nurtured Within | Capability #3: first piece free, +1 %/year to +50 % | 30 units of divine sense back; a Seal at 234 L3 points alone | Meridian Map capability | In the game | core |
-| Divided Divine Sense | Capability #2: +1 slot, +20 % divine sense | A seventh piece and room to pay for it | Meridian Map capability | In the game | core |
+| Treasure Nurtured Within | Capability #3: first piece free, +1 %/year to +50 % | 30 units of divine sense back; a Seal at 234 L3 points alone | Đạo Đồ capability | In the game | core |
+| Divided Divine Sense | Capability #2: +1 slot, +20 % divine sense | A seventh piece and room to pay for it | Đạo Đồ capability | In the game | core |
 | Full Rack | Effect: L5 +10 per piece past the third, cap +50 | +40 at seven pieces, +50 at eight | Scripture layer 12; Binh Khố `major`; the named rack | Staged: `full-rack` | core |
 | Thần thức | `than_thuc_pct` | More pieces controlled | Tree, Hồn Đạo Thần Thức lines | Stat in the game; Way lines staged (`hon-than-thuc-weight`) | core |
 | Top-grade pieces with Liệt / Kiên / Linh | `artifact_attack_pct`, `artifact_defense_pct`, `than_thuc_cost_pct` (local) | L3 with fewer pieces; thicker walls; cheaper pegs | Generated artifacts | In the game | core |
@@ -144,7 +144,7 @@ Most important first.
 | Kindred Vessels affix | `artifact_power_pct` +4–10 | Every piece lifts every piece: L3 and walls | Generated artifacts | Staged: `kindred-affix` | nice |
 | Weapon efficiency | `than_thuc_cost_pct` on weapon pieces, −6 % notable | Cheaper strikers | Tree; the named rack | Staged: `weapon-efficiency` | nice |
 | Nine Rods Array, Iron-Sand Hand Bath | L4 +80, +50 | L4 at 130 in foreseen fights | Formation, coating | Staged (other builds) | nice |
-| Twin Arms in Harmony | Capability #1: +15 % attack for a pair | Only penetration once L3 is full | Meridian Map | In the game | nice |
+| Twin Arms in Harmony | Capability #1: +15 % attack for a pair | Only penetration once L3 is full | Đạo Đồ | In the game | nice |
 | Thousand-Weight Thought | Effect: bound thần thức → soul attack damage | A soul art as a side channel, if you ever want one | Hồn Đạo Thần Thức facet | Staged: `thousand-weight-thought` (another build) | nice |
 
 ## Realm by realm

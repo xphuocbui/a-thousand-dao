@@ -5,9 +5,9 @@ answers below are decisions; the rest is proposal. No GDD or drawing has been ch
 
 ## What the user said (2026-11-09)
 
-1. **Scrap the hidden clusters idea.** The sealed and open clusters on the Meridian Map (Kinh Mạch Đồ), unsealed by an
+1. **Scrap the hidden clusters idea.** The sealed and open clusters on the Đạo Đồ, unsealed by an
    event, an item or a cultivation technique (công pháp), are dropped.
-2. **Công pháp and items have their own skill trees**, each an island that does not connect to the Meridian Map. There
+2. **Công pháp and items have their own skill trees**, each an island that does not connect to the Đạo Đồ. There
    may be hundreds of them in the future, so they can't all sit on the map. The idea is a PoE ascendancy-like feature:
    another tab or window.
 
@@ -18,11 +18,11 @@ The element islands on the map (Light, Darkness, Thunder) are not affected: they
 | Question | User's answer |
 |---|---|
 | Which công pháp and items get a tree? | **Every công pháp; some items.** |
-| Which points feed the trees, and is there a cap? | **The same skill points as the Meridian Map. Nodes in a tree can take several upgrades (ranks). No cap on how many trees a character works.** |
+| Which points feed the trees, and is there a cap? | **The same skill points as the Đạo Đồ. Nodes in a tree can take several upgrades (ranks). No cap on how many trees a character works.** |
 | Do the capabilities move into these trees? | "If they are skills, yes." They are not (see below). Follow-up: **a công pháp tree or an item tree can hold capabilities.** |
 | What happens to the LLM-written story-moment content? | **It becomes its own tree island too**, in the same tab. |
 
-**Capabilities are not skills.** The 25 capabilities (thần thông, kinh-mach-do.md rules 16–17) are passive rule
+**Capabilities are not skills.** The 25 capabilities (thần thông, dao-do.md rules 16–17) are passive rule
 changes, such as +1 magic treasure slot, brewing two recipes in a season, or rerolling a failed event check. None is an
 action the character uses, so by the user's rule they stay out of the side trees. The earlier decision already gives
 them a home on the main map: slot raises become keystones with a real closing cost, and closeless ones become major
@@ -41,7 +41,7 @@ in a side tree, whichever fits its theme; which one each of the 25 goes to is st
 
 - **One tab, many trees.** The tab lists the trees the character has: every công pháp they cultivate, items with a
   tree, and each story-moment island. Hundreds exist in the world; a switcher picks which tree fills the window.
-- **Shared points, ranked nodes.** Every point spent in a side tree is a point not spent on the Meridian Map, so the
+- **Shared points, ranked nodes.** Every point spent in a side tree is a point not spent on the Đạo Đồ, so the
   tab is a real choice, not free power. A node can take several points, each rank stronger.
 - **Small and templated** (proposal). Ascendancy-sized, about 10–30 nodes. A few hand-drawn skeletons, each reused by
   many công pháp with their own content, keep hundreds affordable to author.
@@ -53,7 +53,7 @@ in a side tree, whichever fits its theme; which one each of the 25 goes to is st
 ## The main map is a placeholder (user, 2026-11-09)
 
 "The main map should just be a placeholder for now, there will be a point where we fill in the
-modifiers/capabilities/keystones/notable nodes." The drawn Meridian Map is layout only: every notable name, keystone
+modifiers/capabilities/keystones/notable nodes." The drawn Đạo Đồ is layout only: every notable name, keystone
 (including the 40 drawn, all marked [proposal]), modifier and capability on it is a stand-in. Content is filled in one
 later pass, after the modifier library exists. So sorting the capabilities between the main map and the side trees
 waits for that pass.
@@ -72,20 +72,20 @@ waits for that pass.
 |---|---|
 | Capabilities (thần thông), rules 16–17, 25 entries | Main-map keystones and major Effects, or nodes in a công pháp or item tree, by theme |
 | Sealed clusters opened by a công pháp (`seal_clusters` in cong-phap.md, rule 15's interim sector rule) | The công pháp's own tree |
-| The Meridian Seal (Mạch Ấn) item opening the nearest sealed cluster | Dropped, or repurposed |
+| The Dao Seal (Đạo Ấn) item opening the nearest sealed cluster | Dropped, or repurposed |
 | Open clusters written by the LLM at a story moment (rules 10–11) | A story-moment tree island in the tab |
 | NPCs unsealing clusters at generation (rule 14) | NPCs get the trees of the công pháp and items they hold |
-| About 525 acupoints in the GDD budget (about 690 in the drawing) | Removed from the main map |
+| About 525 Dao marks in the GDD budget (about 690 in the drawing) | Removed from the main map |
 | "Cluster unsealed" events in the World Database | Tree events (a story island written, a tree completed), or dropped |
 
 ## Not done yet
 
-- **Drawing.** The rim band of hidden clusters is still in `tools/design/meridian_rework/` (`landkit.halo`, the
+- **Drawing.** The rim band of hidden clusters is still in `tools/design/dao_do_rework/` (`landkit.halo`, the
   inner hidden clusters, `HALO_EXTRA`) and the published tree. Removing it frees the rim for visible clusters.
-- **GDDs.** Rewriting kinh-mach-do.md (rules 6–17, Formulas H, the state table, budgets), cong-phap.md
-  (`seal_clusters`, rule 15), item-database.md (Mạch Ấn) and NPC Builds is the user's call, section by section. The side
+- **GDDs.** Rewriting dao-do.md (rules 6–17, Formulas H, the state table, budgets), cong-phap.md
+  (`seal_clusters`, rule 15), item-database.md (Đạo Ấn) and NPC Builds is the user's call, section by section. The side
   trees likely need their own GDD.
-- **Code.** The debug terminal builds hidden clusters (`src/gameplay/meridian/`).
+- **Code.** The debug terminal builds hidden clusters (`src/gameplay/dao_do/`).
 
 ## Open questions
 

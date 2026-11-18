@@ -8,7 +8,7 @@ lists what the *game data* lacked for the Character path, and the decisions that
 1. **Arts and wards:** export all 223 authored arts and the parsed ward records. Done: `assets/data/combat_library.json`
    (282 arts with the common and item arts, 171 items, 38 of 40 wards run) from
    `tools/design/combat_sim/export_combat_library.py`; fight.py's library now resolves the authored part arts too.
-2. **Layers and pools:** typical for the realm until the Meridian Map returns. Done: `FighterCompiler.compile()`.
+2. **Layers and pools:** typical for the realm until the Đạo Đồ returns. Done: `FighterCompiler.compile()`.
 3. **Modifier table:** in `combat_engine.json` `CHARACTER_MODS`, read by fight.py and the compiler. Done.
 4. (ADR-0002 accepted with a project-owned hash; not a compiler question.)
 
@@ -33,7 +33,7 @@ Effect; ordinary pieces' affixes (scoped ones too) join the sheet lines.
 |---|---|---|---|---|
 | 1 | **Arts** | None for techniques; named items list art ids only (`items_named.json` "arts"); the 223 authored arts live in `design/arts/` | Converts a design art: `c_art` -> c, `cost_share / cost_scale` -> cost, `cooldown` -> cd, `kind` -> dtype; the art's own Effects and counters join the fighter | Export authored arts to `assets/data/combat_arts.json` (an exporter like the reference fighters, one source)? All 223, or only arts placed on techniques and items? |
 | 2 | **Wards** | Named items' wards have an id, a name and an empty "rule"; no payload or payment | `parse_ward()` reads the GDD wording (payload, payment, activation) from the design catalogue, then scales by ward strength and efficiency | Export the parsed ward records with the item catalogue? |
-| 3 | **Damage layers and pools** | The stat sheet has no layer points; build files hand-set `layers`, `n_body`, `n_qi`, ward strength | Hand-set fields, budgeted per realm (`layer_budget`, `field_budget`) | Until the Meridian Map returns (it is parked; memory "build stats from pieces"), start every Character at its realm's **typical** layers and pools and add item and technique modifiers? (Recommended: it keeps every fight inside the tuned envelope.) |
+| 3 | **Damage layers and pools** | The stat sheet has no layer points; build files hand-set `layers`, `n_body`, `n_qi`, ward strength | Hand-set fields, budgeted per realm (`layer_budget`, `field_budget`) | Until the Đạo Đồ returns (it is parked; memory "build stats from pieces"), start every Character at its realm's **typical** layers and pools and add item and technique modifiers? (Recommended: it keeps every fight inside the tuned envelope.) |
 | 4 | **Modifiers** | The stat sheet sums item, technique, edge and root modifiers by key | `PASSIVE_MOD` maps 33 keys to engine mods (`crit_chance_pct` -> crit, `resist_pct` -> resist, `art_cost_pct` -> cost_red x -0.01, ...); `OUT_OF_FIGHT` skips 12; `STATIC` folds 8 into build fields (`apply_static`) | Move `PASSIVE_MOD`, `OUT_OF_FIGHT` and `STATIC` into `combat_engine.json` so the compiler and fight.py read one copy? |
 | 5 | **Effects** | Named items list Effect names; the library is in `assets/data/combat_effects.json` | `add_library_effect()` resolves by name, counting worn pieces for "count" Effects | None beyond porting: the library is already shared |
 | 6 | **Slots** | Item slots (rule 11) exist; art slots by realm are in fight.py's constants | `slots_by_realm` + `bonus_slots`; extra wards fill ward slots, then art slots | Port as specified |
@@ -61,7 +61,7 @@ approved GDDs already define now make them differ:
 **Then (user, problems 1-7, 2026-11-14):** gear defence per the GDD (ward strength, efficiency, W3, B3, block);
 the design technique catalogue exported to game data (`export_techniques.py`), stand-ins carrying one common art;
 rolled pieces' common arts and wards (Item Database rule 21); NPCs slot 1-2 auxiliary techniques; L1 is a
-Character's own attack_pct; L2 is max(typical +40, own damage_more); NPC fights read their Kinh Mạch Đồ allocations;
+Character's own attack_pct; L2 is max(typical +40, own damage_more); NPC fights read their Đạo Đồ allocations;
 the event card shows the fight engine's own odds; capability #4 counts once.
 
 **Calibration (open, the user's call):** against the typical fighter (10 fights each, up to 60 NPCs a realm), the

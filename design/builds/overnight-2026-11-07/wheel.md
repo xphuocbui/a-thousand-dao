@@ -1,6 +1,6 @@
-# The Wheel: Every Plain Stack on One Meridian Map (Kinh Mạch Đồ)
+# The Wheel: Every Plain Stack on One Đạo Đồ
 
-> **Status**: A proposal for the tree rework, written overnight on 2026-11-07. **No tree data was touched:** `assets/data/meridian_tree.json`, the GDDs, the registry and the catalogue are as they were. Nothing here is implemented, and the placements and folded sizes below are an agent's reading, not the user's decision. Folded sizes have not been run unless a file is named.
+> **Status**: A proposal for the tree rework, written overnight on 2026-11-07. **No tree data was touched:** `assets/data/dao_do_tree.json`, the GDDs, the registry and the catalogue are as they were. Nothing here is implemented, and the placements and folded sizes below are an agent's reading, not the user's decision. Folded sizes have not been run unless a file is named.
 
 **The one idea.** Each element's two rival lines lean toward its two sector borders. So every border is met from both sides, and each border has one natural theme. Seven form paths (Sword, Poison, Curse, Body, Soul, Companion, Sustain) have no element, so they run across the wheel and borrow a border at each fork.
 
@@ -24,10 +24,10 @@ Clockwise from the top, as Map rule 1 lays the gates. Fire makes Earth, Earth ma
 
 ## What the Map already gives a border
 
-- **Every border:** 2 bridge clusters of 5 and 3 gap clusters of 3, 5 and 6, so 24 cluster acupoints and 5 crossings (rules 1, 21).
-- **Scaling (rule 4):** a sector acupoint pays 0.5 + purity / 100, or 0.25 if you lack the element. A bridge pays the average of its two sectors. A gap cluster pays as sector s of the border between s and s + 1.
+- **Every border:** 2 bridge clusters of 5 and 3 gap clusters of 3, 5 and 6, so 24 cluster Dao marks and 5 crossings (rules 1, 21).
+- **Scaling (rule 4):** a sector Dao mark pays 0.5 + purity / 100, or 0.25 if you lack the element. A bridge pays the average of its two sectors. A gap cluster pays as sector s of the border between s and s + 1.
 - **So borders are not symmetric, and the rework must decide this.** On a one-element root at purity 50, a bridge pays ×0.625. A gap cluster pays ×1.00 to the line leaning clockwise (Bramble, Fierce, Ore, Edge, Soaking) and **×0.25** to the line leaning the other way (Slow Fire, Kiln, Point, Cold, Crown). Every element has one line of each kind, or else the rule rewards two-element roots, which may be what you want.
-- **A shape to borrow (rule 20):** a variant sector is 30 acupoints: a road chain, two clusters and an apex. That is the Plain Stack's shape: a trunk, two lines and a payoff. Four paths are already 30 nodes. Hidden clusters (rule 6) hold 3 to 12 acupoints, with notables farthest from the entry.
+- **A shape to borrow (rule 20):** a variant sector is 30 Dao marks: a road chain, two clusters and an apex. That is the Plain Stack's shape: a trunk, two lines and a payoff. Four paths are already 30 nodes. Hidden clusters (rule 6) hold 3 to 12 Dao marks, with notables farthest from the entry.
 
 ## The five borders
 
@@ -77,7 +77,7 @@ The critic's Section 2 duplicates, folded. The first eight are the same effect u
 | Ward strength against [element], notable | +12 % | Burnt Hands, Tempered, Green Wall, Khắc Hỏa, Hộ Đê, Khắc Thủy, Hộ Căn | Fire, Metal, Wood, Water, Earth. Not run: no element on a hit |
 | Curse duration, notable | +15 % | Slow to Lift, Long Memory | Curse |
 | Curse art speed, notable | +6 % | Between Breaths, Hurrying Word | Curse |
-| Per curse on the target, acupoint | +1 | Marked Target (L1), Nibbling Word (L2). **Pick a layer:** they differ | Curse |
+| Per curse on the target, Dao mark | +1 | Marked Target (L1), Nibbling Word (L2). **Pick a layer:** they differ | Curse |
 | Per 1 % regeneration, notable | +3, reading one base | Spring Head (+3, regeneration owned), Sap Rise (+4, bonus only), Deep Breath (+2) | Water, Wood, Sustain |
 | Per artifact, at most 6 | +1 / +5 | Ore Vein, Load-Bearing | Metal, Earth. Many Threads is its sword cousin |
 | [Element] over-time status, notable | +12 | Deep Coals, Deep Thorn | Fire, Wood |
@@ -96,7 +96,7 @@ Six rows pay for the same moment, in 6 of the 8 first sheets. Proposal: three ru
 | **Wasting** | Per 1 % of enemy linh lực missing | L2 | +0.02 / +0.12 | Wasting (Hao Tổn, +0.2), Thin Ward (also written Bạc Hộ, +0.05) | Poison, Water, Soul, Companion, Sustain; Fire. Failing Lamp is its soul twin, on `x_soul` |
 | **Bare** | Enemy under 5 % linh lực | L5 | +2.5 / +15 | Bare Vessel on a node, Open Door and the catalogue's no linh lực row (Khô Hải, Tận Khí) | Curse +2.5, Poison +25; Fire, Poison, Soul, Sustain +15 at L1 |
 
-**Bare Vessel's grades, stated plainly.** Acupoint +2.5, notable +25, lesser grade +30, greater grade +80. The last two sit on techniques and sealed clusters and stay outside this table. Two sheets now say so. Numbers were not changed, because a change alters fights:
+**Bare Vessel's grades, stated plainly.** Dao mark +2.5, notable +25, lesser grade +30, greater grade +80. The last two sit on techniques and sealed clusters and stay outside this table. Two sheets now say so. Numbers were not changed, because a change alters fights:
 
 - **Second Sickness at +15:** every Breath result holds, except that one lost fight ends with the enemy on 39 %, not 35 % (`second-sickness-breath-*-bv15`). So Bare Vessel is **not** why Breath beats Blood, whatever the critic suspected.
 - **Fierce Fire at +15:** the main fight holds (`fierce-fire-mixed-bv15`), but the split and the cost pair turn from wins into losses (`fierce-fire-split-mixed-bv15`, `fierce-fire-mixed-pair-cost-bv15`).
@@ -120,6 +120,6 @@ Noted, not rewritten.
 ## What the rework inherits
 
 - **Lengths do not compare.** Walks are 30, 34, 55, 70, 75, 99, 110, 131 and 198 nodes across five realms. Pick one length per realm first.
-- **No path pays road tax.** 430 of 772 visible acupoints are generic road, which leaves about 68 cluster acupoints a sector. A real 30-node walk holds 10 or more nodes of nothing, and the 110-node Water walk does not fit in one sector at all.
+- **No path pays road tax.** 430 of 772 visible Dao marks are generic road, which leaves about 68 cluster Dao marks a sector. A real 30-node walk holds 10 or more nodes of nothing, and the 110-node Water walk does not fit in one sector at all.
 - **One enemy still sorts the paths.** In the critic's probe, a mixed enemy on a per-pulse ward at 0.125 beat 7 of the 14 lines that had won. Test any new shape on `panel.md`, not on the mixed enemy alone.
 - **Not yet fixed, outside this pass.** The Seven Lamps still runs Stone Ward at the illegal 0.125 and calls 0.15 safe. Daily Lesson, Guide Hound and Seven Lamps still say "any purity" on sector ground. Long Firing's row in `panel.md` and the ledger's Stone Ward line wait for the next merge and panel run.

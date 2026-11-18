@@ -143,36 +143,36 @@
  ],
  "walk": {
   "Fire damage, Red Heart": {
-   "acupoints": 6,
+   "dao_marks": 6,
    "notables": 1
   },
   "Fire art cost, Dry Wood": {
-   "acupoints": 3,
+   "dao_marks": 3,
    "notables": 1
   },
   "Fire art speed": {
-   "acupoints": 1,
+   "dao_marks": 1,
    "notables": 0
   },
   "Short Art": {
-   "acupoints": 6,
+   "dao_marks": 6,
    "notables": 1
   },
   "Steady Breath": {
-   "acupoints": 6,
+   "dao_marks": 6,
    "notables": 1
   },
   "Running Low": {
-   "acupoints": 2,
+   "dao_marks": 2,
    "notables": 1
   },
   "Maximum health": {
-   "acupoints": 0,
+   "dao_marks": 0,
    "notables": 1
   }
  },
  "unmodelled": [
-  "Second-way control for plain-vs-exotic.md. W at the Map's prices: acupoint 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Meridian Map rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
+  "Second-way control for plain-vs-exotic.md. W at the Map's prices: Dao mark 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Đạo Đồ rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
   "The second line's rows with the first line's arts."
  ]
 }

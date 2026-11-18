@@ -2,7 +2,7 @@ class_name Advisor
 extends RefCounted
 ## Reads a [GameSession] and says what matters now: dangers (thọ nguyên, khí huyết,
 ## đan độc, tâm ma), the concrete path to the next breakthrough (which pill, which herbs,
-## how many years), unspent Kinh Mạch points, craftable pills, idle pháp bảo, empty plots.
+## how many years), unspent Đạo Đồ points, craftable pills, idle pháp bảo, empty plots.
 ## Read-only: it never changes the session. Any frontend can show the result (the debug
 ## terminal's menu and HUD today, a Godot HUD later). Thresholds: session_advisor.json.
 ##
@@ -54,7 +54,7 @@ static func goals(s: GameSession) -> Array:
 			out.append(_g("beast_" + str(b.id), "warn", "%s is hungry and may leave (loyalty %d); feeding costs %d LT a year." % [b.name, int(b.get("loyalty", 0)), s.beasts.feed_cost(c)], "beasts", "Check your linh thú"))
 	out.append_array(_sect_goals(s, c))
 	if c.tree_points > 0:
-		out.append(_g("tree", "goal", "%d Kinh Mạch point(s) to spend." % c.tree_points, "tree", "Spend %d Kinh Mạch point(s)" % c.tree_points))
+		out.append(_g("tree", "goal", "%d Đạo Đồ point(s) to spend." % c.tree_points, "tree", "Spend %d Đạo Đồ point(s)" % c.tree_points))
 	out.append_array(_field_goals(s, c, gd, sh))
 	out.append_array(_craft_goals(s, c, gd, sh))
 	out.append_array(_gear_goals(s, c, gd, sh))
@@ -317,7 +317,7 @@ static func actions(s: GameSession) -> Array:
 		std.append({"label": "Talk to someone… (%d here)" % people.size(), "command": "talk", "group": "place"})
 	if not c.beasts.is_empty():
 		std.append({"label": "Linh thú (%d)" % c.beasts.size(), "command": "beasts", "group": "self"})
-	std.append({"label": "Kinh Mạch Đồ", "command": "tree", "group": "self"})
+	std.append({"label": "Đạo Đồ", "command": "tree", "group": "self"})
 	std.append({"label": "Character sheet", "command": "sheet", "group": "self"})
 	std.append({"label": "Inventory", "command": "inv", "group": "self"})
 	for a in std:

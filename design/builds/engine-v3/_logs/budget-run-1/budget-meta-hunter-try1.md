@@ -10,7 +10,7 @@ A report or a "Budget revision" section built on guessed numbers would put false
 3. Run `--matrix`, update the guide, and write the report.
 
 **What I read, so the next attempt starts faster:**
-- The build's own pieces already run as Effects: the two techniques' passives, the eight items' modifiers, Edge Returns the Breath and Marked Prey. `layers` should keep only Meridian Map and other named sources, so most of the current values probably double-count.
+- The build's own pieces already run as Effects: the two techniques' passives, the eight items' modifiers, Edge Returns the Breath and Marked Prey. `layers` should keep only Đạo Đồ and other named sources, so most of the current values probably double-count.
 - Marked Prey adds L5 +4 per distinct foe status (cap +16) on top of `layers[4]`.
 - The guide's current fights are 2.3 s and 4.5 s at nguyên_anh (typical and top-end), all 20-0. After the cut I expect them to lengthen toward the 10–20 s target, but I haven't run anything to confirm it.
 

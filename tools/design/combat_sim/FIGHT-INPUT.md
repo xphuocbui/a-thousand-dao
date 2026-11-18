@@ -178,7 +178,7 @@ looks like a strong build.
   | `art_speed_pct` | 0 | 100 (a guess) |
 
   Sustain fields (regeneration, healing, leech) are not budgeted, nor are the pools (`n_body`, `n_qi`), which also
-  hold the item and technique pool modifiers the loader folds in. Once the Meridian Map is back, build files derive
+  hold the item and technique pool modifiers the loader folds in. Once the Đạo Đồ is back, build files derive
   these from their pieces instead (user decision 2026-11-13).
 - **Named Effects from the library** (2026-11-13): `assets/data/combat_effects.json` (moved from `tools/design/combat_sim/effects_library.json` on 2026-11-14, ADR-0001) holds an engine form
   of every Effect the item catalogue names (its rule text beside it). A worn item's Effect is added from it unless the

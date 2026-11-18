@@ -124,44 +124,44 @@
  ],
  "walk": {
   "Metal damage, Bright Steel": {
-   "acupoints": 12,
+   "dao_marks": 12,
    "notables": 1
   },
   "Art damage": {
-   "acupoints": 0,
+   "dao_marks": 0,
    "notables": 1
   },
   "Metal art cost": {
-   "acupoints": 4,
+   "dao_marks": 4,
    "notables": 0
   },
   "Maximum health": {
-   "acupoints": 6,
+   "dao_marks": 6,
    "notables": 0
   },
   "Ward strength": {
-   "acupoints": 2,
+   "dao_marks": 2,
    "notables": 0
   },
   "Short Art": {
-   "acupoints": 4,
+   "dao_marks": 4,
    "notables": 1
   },
   "Qi damage": {
-   "acupoints": 0,
+   "dao_marks": 0,
    "notables": 1
   },
   "Damage while above 50 % health": {
-   "acupoints": 0,
+   "dao_marks": 0,
    "notables": 1
   },
   "Steady Breath": {
-   "acupoints": 0,
+   "dao_marks": 0,
    "notables": 1
   }
  },
  "unmodelled": [
-  "Second-way control for plain-vs-exotic.md. W at the Map's prices: acupoint 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Meridian Map rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
+  "Second-way control for plain-vs-exotic.md. W at the Map's prices: Dao mark 1.2, notable 8. Rows are read at full size, which assumes ground the root holds (Đạo Đồ rule 4). Art lint: c_art at the ceiling, 1.355 at cost 0.04 and 0.5 s.",
   "The four needles and the mail shirt kept (L3 114.4). The whole road re-spent, because L1 was empty. Three cheap qi arts.",
   "Swap: thin-shavings opens, wet-cloth on the enemy side."
  ],

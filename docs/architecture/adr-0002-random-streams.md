@@ -51,7 +51,7 @@ A survey of `src/` (2026-11-14) found no global random calls (`randi()`, `randf(
 `pick_random()`); every draw goes through a `RandomNumberGenerator` instance:
 - `GameSession.rng`: the session stream, seeded at `new_game`, saved as `rng_seed` and `rng_state` strings, restored by
   `load_dict`; passed to world generation, the world tick, events, cultivation and crafting.
-- Keyed streams: `Market` seeds a local generator with `hash("<par>:<element>")`; `MeridianGenerator` seeds one with the
+- Keyed streams: `Market` seeds a local generator with `hash("<par>:<element>")`; `DaoDoGenerator` seeds one with the
   config seed and one per variant with `hash("variant:" + id) ^ seed`.
 - `Fight` (ADR-0001) seeds its own generator from the request's seed.
 
@@ -79,7 +79,7 @@ A survey of `src/` (2026-11-14) found no global random calls (`randi()`, `randf(
    drawn from a generator seeded from a stable key, created where it is used. The key's hash is
    `RngUtils.stable_hash` (32-bit FNV-1a over UTF-8), never Godot's `hash()`. Values that differ per life mix in the
    game seed (`stable_hash(key) ^ game_seed`); values that are the same in every game (the fixed world: the market's
-   par manuals, the Meridian map) use the key alone or the content's own seed.
+   par manuals, the Đạo Đồ) use the key alone or the content's own seed.
 5. **Stored, not regenerated.** Nondeterministic outputs (LLM text and plans) that later play depends on are stored in
    the save.
 
@@ -134,7 +134,7 @@ request.fight_seed = session.rng.randi()  # `seed` would shadow GDScript's seed(
 ## Risks
 - **`hash(String)` stability (resolved).** The engine reference does not say whether Godot's `hash()` is stable across
   engine versions or platforms (NOT SOURCEABLE). Keyed streams now use `RngUtils.stable_hash`, pinned to the published
-  FNV-1a vectors. The Meridian map's eight variant keys are pinned in `meridian_tree.json` (`variant_seed_keys`, the
+  FNV-1a vectors. The Đạo Đồ's eight variant keys are pinned in `dao_do_tree.json` (`variant_seed_keys`, the
   values `hash()` gave in 4.7.1), so the fixed map did not change; switching its hash moved the variant plan and the
   generator then lost hidden clusters on the fixed seed (it skips a cluster that finds no host on about 28% of seeds,
   under either hash). The market's par manuals changed once (no saves existed).
@@ -155,7 +155,7 @@ None measurable: one `randi()` per fight; keyed streams are created where needed
 
 ## Migration Plan
 1. Accept this ADR (done 2026-11-14).
-2. Replace `hash()` in keyed streams with `RngUtils.stable_hash` (done 2026-11-14: `Market._rng_for`; the Meridian map
+2. Replace `hash()` in keyed streams with `RngUtils.stable_hash` (done 2026-11-14: `Market._rng_for`; the Đạo Đồ
    via pinned keys with `stable_hash` as the fallback for new variants).
 3. ADR-0001 step 4: `CombatService` derives `fight_seed` from the session stream.
 
@@ -166,4 +166,4 @@ None measurable: one `randi()` per fight; keyed streams are created where needed
 
 ## Related
 - `docs/architecture/architecture.md` (Required ADR 3), ADR-0001, `src/core/random/rng_utils.gd`,
-  `src/gameplay/session/game_session.gd`, `src/gameplay/economy/market.gd`, `src/gameplay/meridian/meridian_generator.gd`
+  `src/gameplay/session/game_session.gd`, `src/gameplay/economy/market.gd`, `src/gameplay/dao_do/dao_do_generator.gd`

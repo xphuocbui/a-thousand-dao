@@ -154,7 +154,7 @@ Formation records, in the shape of `crafting_formations.json`:
 
 ### Hidden cluster idea: Bund and Channel (Điền Thủy Mạch)
 
-Theme: formations and the land they sit on, wider than this build. Earth affinity. Outer, sealed by a technique (Paddy Keeper's Canon lists it). Size 10: small acupoints of Formation power and Herb growth, a notable for Known Ground, a notable for Deep Bund, and Field Walls as the capability at the far end. An idea for the tree rework, not data.
+Theme: formations and the land they sit on, wider than this build. Earth affinity. Outer, sealed by a technique (Paddy Keeper's Canon lists it). Size 10: small Dao marks of Formation power and Herb growth, a notable for Known Ground, a notable for Deep Bund, and Field Walls as the capability at the far end. An idea for the tree rework, not data.
 
 ## Đạo
 

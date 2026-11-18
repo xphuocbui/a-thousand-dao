@@ -146,7 +146,7 @@ Passives (first guesses): Rot Deepens +20 L2 on the poison tag; Long Roots, pois
 
 ### Hidden cluster idea: Bitter Sap Row (Khổ Dịch)
 
-Theme: Wood poison, a system the game has. Wood affinity, sealed, seal condition: carrying a Wood technique at layer 3. Size 7 acupoints: smalls of Poison damage and Status duration; one notable, Watched Rot; no capability. Wider than this build: any poison or curse build can walk it.
+Theme: Wood poison, a system the game has. Wood affinity, sealed, seal condition: carrying a Wood technique at layer 3. Size 7 Dao marks: smalls of Poison damage and Status duration; one notable, Watched Rot; no capability. Wider than this build: any poison or curse build can walk it.
 
 ## Đạo
 

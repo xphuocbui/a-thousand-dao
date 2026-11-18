@@ -15,7 +15,7 @@
  "new": [
   {"type": "enabler", "name": "Borne Body", "han_viet": "Tá Thể", "form": "Rule swap", "channel": "any", "layer": "none", "fit": "Needs rule",
    "effect": "The side's health, n_body and guard are the first puppet's in slot order, its blow is the companion channel, and when it falls the next walks on at full health, leaving statuses and curses behind. Closes the operator's own body and an art slot a puppet.", "second_home": "any golem, any possessed relic"},
-  {"type": "acupoint", "name": "Vow Renewed", "han_viet": "Trùng Thệ", "form": "Conditional", "channel": "companion", "layer": "L5", "fit": "Needs key",
+  {"type": "dao_mark", "name": "Vow Renewed", "han_viet": "Trùng Thệ", "form": "Conditional", "channel": "companion", "layer": "L5", "fit": "Needs key",
    "effect": "+4 points to companion hits once a body has fallen.", "second_home": "any beast that outlives a keeper, any queue"},
   {"type": "notable", "name": "Vow Renewed", "han_viet": "Trùng Thệ", "form": "Conditional", "channel": "companion", "layer": "L5", "fit": "Needs key",
    "effect": "+25 points to companion hits once a body has fallen.", "second_home": "any beast that outlives a keeper, any queue"},

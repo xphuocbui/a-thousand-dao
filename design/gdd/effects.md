@@ -298,7 +298,7 @@ different.
     - **Arts pay for the stacks they grant** in the art lint (Formulas D). Effects stay unpriced (rule 4).
     - **Enemies, beasts and tribulations** use the same rules; a tribulation may forbid cleansing in its own rules.
     - **Linh lực for every element** comes from keystones in each element's tree, not from stacks (user decision
-      2026-11-09; Meridian Map content pass).
+      2026-11-09; Đạo Đồ content pass).
 
 **The hard cases**
 
@@ -348,7 +348,7 @@ different.
 **Keystones, enablers and hosts**
 
 13. **Who may carry Effects.** Hosts are set per Effect, from:
-    - the Meridian Map (keystones; its 25 live capabilities are re-expressed in this catalogue: those with a
+    - the Đạo Đồ (keystones; its 25 live capabilities are re-expressed in this catalogue: those with a
       real closing cost as keystones, the rest as rule changes or another kind, user decision 2026-11-07;
       re-review EF 8);
     - the Way (Đạo): notables and capstones in its graph (dao.md rule 3);
@@ -474,7 +474,7 @@ or a cleanse lock (rule 16, R27); the 3 curse slots and this clamp still hold.
 > Echo, Shattering Ward, Blood Drinker, Final Clause, Marked Prey, Gorged,
 > Field Walls, Overheat, Elemental Fist, Measured Stroke, Talisman Sleeve and Great Essence-Draining Art. Every
 > other starter Effect is `minor`. Statuses carry no tier; the art or Effect that applies them does.
-> **Hosts:** MM Meridian Map, Way node or capstone, Tech technique or art, Item named item, Tal talisman, Form
+> **Hosts:** MM Đạo Đồ, Way node or capstone, Tech technique or art, Item named item, Tal talisman, Form
 > formation, Beast spirit beast, Root spiritual root. Every record is `npc: true` except Seal of Full Payment and the four life
 > Effects, which NPC Builds summarises its own way.
 
@@ -651,7 +651,7 @@ keystones; #9 and #11 above are re-expressed already. The ones with a real cost 
 | Combat Defence & Healing (#21a) | out | Heals and restores, reservations, ward changes | Combat Defence & Healing (rules); this GDD (sources) |
 | Combat Damage Types (#21b) | out | Conditional conversion Effect records (none yet); statuses' damage types | Combat Damage Types (the conversion rules and steps); this GDD (the records) |
 | Character Stats (#7), Realms (#8) | in / out | Readable sheet values at compile. Out: reported heart demon, lifespan years, seasons, toxicity, spirit stones, root purity, cultivation base and stage (applied by the caller; rule 10) | Character Stats; Realms |
-| Meridian Map (#10), The Way (#39), Cultivation Techniques (#9) | out | Keystones, Way nodes and capstones, technique and art Effects | each host |
+| Đạo Đồ (#10), The Way (#39), Cultivation Techniques (#9) | out | Keystones, Way nodes and capstones, technique and art Effects | each host |
 | Item DB (#13), Talismans (#18), Formations (#17), Alchemy (#15), Spirit Beasts (#19) | out | Named items' Effects, talisman statuses, ground Effects, pill Effects, beast Effects | each host |
 | Event Engine (#23), Time & Turn (#4) | in / out | Life Effects (season, place, events) | Event Engine |
 | NPC Builds | out | Effects marked `npc: true` | NPC Builds |
@@ -828,7 +828,7 @@ at 0.25 takes a batch of 8 Burn stacks to 6, then 4.5, then 3.4.
 | Heavenly Tribulation (#22) | Soft | Its waves run the Down step (refusals and last acts) like any fight | Approved for rules | Yes (Dependencies note, Combat revision #43) |
 | Combat Damage Types (#21b) | Hard | Damage types of statuses; conversion | Needs revision | Yes |
 | Character Stats (#7), Realms (#8) | Soft | Readable sheet values; applying reported life costs | In review | Not yet |
-| Meridian Map (#10) | Soft (host) | Keystones; its 25 live capabilities move here as Effects | Redesign planned | Not yet |
+| Đạo Đồ (#10) | Soft (host) | Keystones; its 25 live capabilities move here as Effects | Redesign planned | Not yet |
 | The Way (#39), Cultivation Techniques (#9) | Soft (hosts) | Nodes, capstones, technique and art Effects | Approved; in review | Not yet |
 | Item DB (#13), Talismans (#18), Formations (#17), Alchemy (#15), Spirit Beasts (#19) | Soft (hosts) | Named-item, talisman, ground, pill and beast Effects | Approved; implemented | Not yet |
 | Event Engine (#23) | Soft | Life Effects; World DB reads | Implemented | Not yet |
@@ -877,7 +877,7 @@ at 0.25 takes a batch of 8 Burn stacks to 6, then 4.5, then 3.4.
 | Rule 9 | combat.md rules 7–8, Formulas F | Statuses, curses, tick formula, curse bounds | Read; the status catalogue moves here |
 | Rules 9–12 | overnight `decisions.md` decisions 4, 5, 9, 11 | Life costs, Down, counted chance, standing statuses | Adopted (user decisions 2026-11-07) |
 | Rule 10 | combat.md rule 14 | A fight ends with a result, never a consequence | Read |
-| Rule 13 | `meridian_capabilities.json` | The 25 live capabilities | Become keystones (those with a real closing cost) or rule-change Effects in this catalogue |
+| Rule 13 | `dao_do_capabilities.json` | The 25 live capabilities | Become keystones (those with a real closing cost) or rule-change Effects in this catalogue |
 
 ## Tuning Knobs
 
@@ -1024,8 +1024,8 @@ not prices. Safe ranges are design estimates.
 | 1 | **How Effects get priced** (plan agreed 2026-11-08). Not by formula: an Effect's value depends on the build. At the end of the project, once the fight engine and content exist: (a) run reference builds against reference enemies with and without each Effect in `tools/balance/` (autoplay bot, NPC cohort, the overnight fight calculator), deterministic and logged; (b) convert the change in time-to-kill and survival to W, using +1 % increased damage as the yardstick; (c) take the value to the builds that want the Effect, not an average across all builds; (d) fix only outliers that break the macro targets (player edge about 0.70; one realm up wins, two realms up about half the time, never three). Until then tiers bound builds, designers size by eye, and the LLM Game Master grants no Effect | user + systems-designer | Balance pass |
 | 2 | ~~Combat Formulas F's curse bounds need restating for the new defence: add `curse_heal_taken_max` 0.5, `curse_soul_shred_max` 0.30 and a reapply lockout; restate `curse_shred_max` as resistance points across Sundered and Exposed; retire or remap `curse_pass_raise_max` (no ward pass any more)~~ **Done 2026-11-08:** restated in Combat Formulas F by the Combat revision (#43): `curse_heal_taken_max` 0.50, `curse_soul_shred_max` 30 pp, `curse_reapply_lockout` 2 pulses, `curse_shred_max` on resistance, `curse_pass_raise_max` retired | user + systems-designer | Combat revision (#43) |
 | 3 | Closed 2026-11-08: Combat Defence & Healing rule 5 now defines `cannot_slot_wards` and `no_default_ward` (re-review EF 16, CD 11) | — | Closed |
-| 4 | Which of the 25 live capabilities close nothing (about 12) and become rule changes, and where each sits in the redesigned tree | user | Meridian Map redesign |
-| 5 | About 30 inventory Effects are deferred, not rejected (Five Phases Cycle, Sheathed Blade, Against the Heavens, Home Ground, Standing Array, Seeing Eye, Soul Pressure, Mirror Ward, Spirit Severing, Focused Mind, Empty Hand, One Root, Heaven's Favour and others). Revisit at the tree rework and as Combat keys arrive | game-designer | Meridian Map redesign |
+| 4 | Which of the 25 live capabilities close nothing (about 12) and become rule changes, and where each sits in the redesigned tree | user | Đạo Đồ redesign |
+| 5 | About 30 inventory Effects are deferred, not rejected (Five Phases Cycle, Sheathed Blade, Against the Heavens, Home Ground, Standing Array, Seeing Eye, Soul Pressure, Mirror Ward, Spirit Severing, Focused Mind, Empty Hand, One Root, Heaven's Favour and others). Revisit at the tree rework and as Combat keys arrive | game-designer | Đạo Đồ redesign |
 | 6 | The Way, techniques and items will add most Effects. Each new one follows rule 1's record and rules 5–7's limits; a build session should check this catalogue before inventing a piece | user | Way and technique design |
 | 7 | Rerolling a chance (Heaven's Favour) needs a new action; decide whether rerolls exist at all next to counted chance | user | When a reroll piece is wanted |
 | 8 | Register this GDD's entities: the status catalogue's new curse bounds, `counted_chance`, `standing_status` and the Down step. **Done:** all are in `design/registry/entities.yaml` (checked 2026-11-08); `counted_chance`'s output range is corrected to `floor(counted_start / 1000 + Σ p)` (re-review EF 17) | user | Done |

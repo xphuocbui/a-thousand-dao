@@ -14,7 +14,7 @@
 | One Long Word, Foundation, 76.8 path | First | W 7.0 | L 32 | L 89 | L 53 | L 83 | 1 |
 | | Short Reply (Đoản Đáp) | W 1.5 | W 2.0 | W 6.0 | W 2.0 | W 1.0 | 5 |
 
-W time, or L and the health the enemy kept. W counts 1.2 an acupoint, 8 a notable and 1 an L1 point, which reproduces the totals on the plain sheets. Files: `[slug]-second-way`. Each line keeps its acupoint and notable counts. Fierce Fire and Evergreen keep their trunks. Short Reply keeps Standing Word, drops the curse road, and moves 92 W from ward (`ws` and `we` 84 to 38) into L1 (5 to 97).
+W time, or L and the health the enemy kept. W counts 1.2 a Dao mark, 8 a notable and 1 an L1 point, which reproduces the totals on the plain sheets. Files: `[slug]-second-way`. Each line keeps its Dao mark and notable counts. Fierce Fire and Evergreen keep their trunks. Short Reply keeps Standing Word, drops the curse road, and moves 92 W from ward (`ws` and `we` 84 to 38) into L1 (5 to 97).
 ## What the winning change had in common
 1. **One kit, four times.** Every line fills its slots with the cheapest legal art: cost 0.04, 0.5 s, `c_art` 1.355. First firing equals cooldown, so the first hit lands at 0.5 s and not at 3 s.
 2. **Rows on empty layers.** Short Art (L2) is in all four, with Steady Breath (L5) in three. Thin Shavings and Short Reply also fill an empty L1. Fierce Fire's L1 is already at 185, so it has no such cheap step.

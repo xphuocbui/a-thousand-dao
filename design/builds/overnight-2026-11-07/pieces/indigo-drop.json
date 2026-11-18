@@ -66,7 +66,7 @@
    "second_home": "any spreading status"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Spread",
    "han_viet": "Thấm",
    "form": "Increased",
@@ -103,7 +103,7 @@
    "name": "The Clear Vat",
    "han_viet": "Thanh Hang",
    "fit": "Needs key",
-   "effect": "Wood sector, sealed by technique, eleven nodes: six Spread acupoints, Steeped, Clean Hands, Mordant, Bluer Than the Plant, One Drop at the far end."
+   "effect": "Wood sector, sealed by technique, eleven nodes: six Spread Dao marks, Steeped, Clean Hands, Mordant, Bluer Than the Plant, One Drop at the far end."
   },
   {
    "type": "technique",

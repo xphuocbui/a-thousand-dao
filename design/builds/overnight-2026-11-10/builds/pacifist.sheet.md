@@ -143,7 +143,7 @@ The robe was sewn from a dead monk's habit; each patch is a cut the wearer once 
 
 ### Hidden cluster idea: Dried Pond Ledger (Đồ Hội Thổ)
 
-Theme: Way of Debts (Nhân Quả) with Water affinity. Sealed; seal condition: held the technique at layer 6. Seven acupoints: small points of regeneration, ward efficiency and curse effect; a notable of Patient Ward, and at the far end a notable that adds +5 Seal cap (Extra Curse Slot style). Reuse of Measured Breath (Điều Tức) for art speed and regeneration. An idea for the tree rework.
+Theme: Way of Debts (Nhân Quả) with Water affinity. Sealed; seal condition: held the technique at layer 6. Seven Dao marks: small points of regeneration, ward efficiency and curse effect; a notable of Patient Ward, and at the far end a notable that adds +5 Seal cap (Extra Curse Slot style). Reuse of Measured Breath (Điều Tức) for art speed and regeneration. An idea for the tree rework.
 
 ## Đạo
 

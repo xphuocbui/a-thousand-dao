@@ -132,7 +132,7 @@ seventh ring overflows into nothing, and that is the build's one honest waste. C
 
 | Piece | Choice | Why |
 |---|---|---|
-| Spiritual root (linh căn) | Single Metal (Kim), purity 90+ | Fastest early cultivation; purity powers the Metal stacks the hall lays (× (1 + 0.002 × P), Effects rule 9a) and scales the Metal land's acupoints (0.5 + P/100) |
+| Spiritual root (linh căn) | Single Metal (Kim), purity 90+ | Fastest early cultivation; purity powers the Metal stacks the hall lays (× (1 + 0.002 × P), Effects rule 9a) and scales the Metal land's Dao marks (0.5 + P/100) |
 | Key talents | Divine sense (thần hồn) high; comprehension | Thần thức past 1.75 × and 3.5 × `ds_ref` gives +1 and +2 ward slots (Combat Defence Formulas D) |
 | The Way (Đạo) | Đại Đạo, The Great Way Is Simple (Đại Đạo Chí Giản), no requirement: Giản, Nhất and Bỏ facets, capstone | The catalogue's own "power per empty slot" and "one art, one ward" Way |
 
@@ -152,7 +152,7 @@ seventh ring overflows into nothing, and that is the build's one honest waste. C
  "origin": "authored"}
 ```
 
-No `seal_clusters`: the field is retired with the Meridian Map's hidden clusters (cong-phap.md rule 15).
+No `seal_clusters`: the field is retired with the Đạo Đồ's hidden clusters (cong-phap.md rule 15).
 Passives (no field yet): L3 Opening Haste +30; L5 Whetted Edge +40 [kim] L2; L8 `art_speed_pct` +20; L10 `art_cost_pct` −15.
 
 **Fit:** Needs key (combat passives and ability records have no field) · **Budget:** 15/15 + 20/20 + 15/15 = 3.0 of 3.0; each 1.0 ≤ 1.5.
@@ -239,7 +239,7 @@ for thirty years, notched where it split a general's helm; every heir is told ne
 Hidden clusters and `seal_clusters` were retired on 2026-11-10 (cong-phap.md rule 15), so this is a region idea for
 the tree rework, or the Whetstone Scripture's side tree if techniques get those (`design/research/side-trees-thoughts.md`).
 Theme: the uncluttered life (loadout and slots), wider than one build: any cultivator who carries little.
-Element affinity Metal. 8 acupoints.
+Element affinity Metal. 8 Dao marks.
 Smalls: `art_speed_pct` +2 (×2), `art_cost_pct` −0.5 (×2), `linh_luc_regen_pct` +0.15, `than_thuc_pct` +0.9;
 notables Whole Weight (+40 [costly, slow] L2) and, farthest, Undivided. No capability. An idea for the tree rework, not data.
 

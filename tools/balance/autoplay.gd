@@ -14,7 +14,7 @@ extends SceneTree
 ## isolating the linh căn curve; 0 (default) rolls characters like Thiên Định.
 ##
 ## Policy, in order each turn: answer events by best odds · break through when a pill is in
-## hand (or thọ nguyên is nearly gone) · spend Kinh Mạch points · follow the Advisor's
+## hand (or thọ nguyên is nearly gone) · spend Đạo Đồ points · follow the Advisor's
 ## ingredient plan (plant, harvest, transplant) · buy missing rare herbs or the pill at the
 ## nearest markets · craft the breakthrough pill, else train Đan Đạo · spend spare linh
 ## thạch on trận pháp and luyện khí (keeping the plan's reserve and five years of upkeep)
@@ -30,7 +30,7 @@ const MAX_TURNS := 14000
 const cfg_recipes := 4
 
 var gd: GameData
-var tree: MeridianTree
+var tree: DaoDoTree
 var verbose: bool = false
 var edge_on: bool = true
 ## Birth perk for --edge on lives; "" takes a random one.
@@ -50,7 +50,7 @@ func _init() -> void:
 	var world: int = int(_list_arg(args, "--world", "300")[0])
 	gd.world_gen().people.world_cultivators = world
 	gd.world_gen().people.world_cultivators_min = world
-	tree = MeridianTree.generate(gd)
+	tree = DaoDoTree.generate(gd)
 	var rows: Array = []
 	var started: int = Time.get_ticks_msec()
 	for seed_v in seeds:

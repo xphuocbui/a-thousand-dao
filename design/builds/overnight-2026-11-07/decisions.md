@@ -83,7 +83,7 @@
 - `thien-kiep.md` rule 7: silent on healing inside a wave, and on whether a deferred-damage ledger carries. Its edge cases say Combat has no revive, while the catalogue holds Unyielding Breath.
 - `combat.md` rule 13: its art sources omit formations, no talisman firing cost is stated, and `crafting_talismans.json` spends talismans at the start of a fight, not as arts.
 - `item-database.md` rule 11: a cultivator may wear three mail shirts, the whole edge of one build.
-- `kinh-mach-do.md` rule 4: on a one-element root a gap cluster pays ×1.00 to one line and ×0.25 to its rival. Decide this at the tree rework.
+- `dao-do.md` rule 4: on a one-element root a gap cluster pays ×1.00 to one line and ×0.25 to its rival. Decide this at the tree rework.
 - `tree-modifier-catalogue.md`: crit at catalogue size is a trap, paying only after about 16 nodes.
 - Tools, not GDDs: `fight_calc.py` gives soul sense no realm scale, and both reference enemies spend themselves broke and carry no element.
 

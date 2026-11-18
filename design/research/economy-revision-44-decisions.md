@@ -322,8 +322,7 @@ re-check. New: the resistance ceiling (`resist_cap_max` 0.90) must rise if 0.90 
 ## F1. Linh lực for every element — **decided** (user, 2026-11-09)
 
 **Every elemental build has a way to generate linh lực, but not through the element stacks.** The buffs stay as
-decided (only Water's touches linh lực). The mana engines come as **keystones in each element's tree** (the Meridian
-Map's element lands, and công pháp trees where they fit). The per-element flavour table proposed here was **not
+decided (only Water's touches linh lực). The mana engines come as **keystones in each element's tree** (the Đạo Đồ's element lands, and công pháp trees where they fit). The per-element flavour table proposed here was **not
 adopted**; the keystones are written in the tree content pass, after the modifier library (the map is a placeholder,
 user 2026-11-09).
 
@@ -374,8 +373,7 @@ recommendations. Each is marked provisional in its GDD header; review and change
 - **General Catalogue regenerated:** 266 → 342 modifiers (`tools/design/modifier_catalogue.py`; matches the GDD).
 - **Finding left for the user (modifiers.md Open Question 9):** maximum health is now worth about **0.21 W per %**
   in fights, against its 1.2 price (`pricefit2.py`); maximum linh lực stays near 1.0 and all resistance near 1.25.
-  Health has become the cheap pool. Re-pricing `khi_huyet_pct` touches Character Stats, Realms and the Meridian
-  Map, so it was not changed. Thể tu and health builds need a look.
+  Health has become the cheap pool. Re-pricing `khi_huyet_pct` touches Character Stats, Realms and the Đạo Đồ, so it was not changed. Thể tu and health builds need a look.
 
 **Part 5, character-stats.md:** the Combat row of the key table now lists every key Combat's Parameter keys name
 (closes consistency C14) and the #44 keys, with their precision.
@@ -402,7 +400,7 @@ From `design/builds/by-root/notes.md`. Apply these in the next session:
   `art_cost_health_pct` uncapped; still re-price it with the simulator (now a 0.5 W guess). Update builds notes.md § 2.
 - **R3 Maximum health:** **lower the price** of `khi_huyet_pct` (modifiers.md Open Question 9; the simulator gives
   about 0.21 W per %). Touches modifiers.md Stat List and price table, the generated catalogue, Character Stats and
-  the Meridian Map's pricing table; close modifiers.md Open Question 9.
+  the Đạo Đồ's pricing table; close modifiers.md Open Question 9.
 - **R4 Stack prices:** ok. Water's buff charge falls for long batches (or is capped); Metal's weights rise about
   30 % (effects.md Formulas D, its AC-EF-69 example, and `tools/design/combat_sim/keystonefit.py` weights).
 - **R5 Parts 4–5 review:** the user reviews the section "Parts 4 and 5" above and answers keep or change per bullet.
@@ -419,7 +417,7 @@ From `design/builds/by-root/notes.md`. Apply these in the next session:
 - **Applied 2026-11-10:** Stagnation dampens **both** pools (user: "both please"): effects.md Status Catalogue,
   combat.md rule 8, Formulas F curse table, edge case, AC-CB-35; modifiers.md rule 6a defines `dampened`.
 - **R2 applied 2026-11-10:** `art_cost_health_pct` is "art costs X % shifted to health", dampen-shaped (linh lực pays cost ÷ (1 + X/100)), no cap, 0.35 W per point (simulator); Combat Formulas E and modifiers.md Stat List, price table and catalogue updated.
-- **R3 applied 2026-11-10:** `khi_huyet_pct` 1.2 → **0.6** W per %, body shield 1.0 → **0.51** (pegged 0.85 × health); modifiers.md (Stat List, price table, catalogue, Open Question 9 closed), kinh-mach-do.md price table, combat-defence.md Formulas I, registry weights.
+- **R3 applied 2026-11-10:** `khi_huyet_pct` 1.2 → **0.6** W per %, body shield 1.0 → **0.51** (pegged 0.85 × health); modifiers.md (Stat List, price table, catalogue, Open Question 9 closed), dao-do.md price table, combat-defence.md Formulas I, registry weights.
 
 ### R4 replaced: equal-value element stacks (user, 2026-11-10) — NOT YET APPLIED
 

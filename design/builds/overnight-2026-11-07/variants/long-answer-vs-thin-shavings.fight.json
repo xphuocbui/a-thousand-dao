@@ -90,23 +90,23 @@
  ],
  "walk": {
   "Ward strength": {
-   "acupoints": 6,
+   "dao_marks": 6,
    "notables": 5
   },
   "Maximum health": {
-   "acupoints": 2,
+   "dao_marks": 2,
    "notables": 1
   },
   "Ward efficiency": {
-   "acupoints": 3,
+   "dao_marks": 3,
    "notables": 0
   },
   "Linh luc regeneration": {
-   "acupoints": 14,
+   "dao_marks": 14,
    "notables": 0
   },
   "Art damage": {
-   "acupoints": 3,
+   "dao_marks": 3,
    "notables": 0
   }
  },

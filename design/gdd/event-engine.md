@@ -130,7 +130,7 @@ NPC-capable run for NPCs, and only for some people; a chain or story shares **on
     (World Generation & History), the fixed cast, the sects' quarrels.
 13. **The effect vocabulary.** Effects an outcome may carry: spirit stones (linh thạch), cultivation base (tu vi),
     vitality loss (khí huyết, as a percentage), heart demon (tâm ma), pill toxicity (đan độc), attitude of a person to
-    the player, a herb, a material, an artifact, a technique (công pháp), a pill, a talisman, a treasure, a Kinh Mạch Đồ
+    the player, a herb, a material, an artifact, a technique (công pháp), a pill, a talisman, a treasure, a Đạo Đồ
     point, the Deity Transformation insight, unsealing a cluster, a breakthrough pill or missing herb for a protagonist
     (cơ duyên gifts, Progression Edges), grant or remove a gained trait (NPC Traits rules 11 and 13), raise a trait's
     trigger id (NPC Traits rule 12), a sect standing change, a sect loyalty or attitude change within Sects' own bounds,
@@ -175,7 +175,7 @@ NPC-capable run for NPCs, and only for some people; a chain or story shares **on
 **NPCs**
 
 19. **Some events, some people.** An event marked `npc` may run for an NPC root. It must not carry player-only effects
-    (cơ duyên gifts, Kinh Mạch Đồ points for the player, unsealing). Each season, after the Living World Tick's own steps,
+    (cơ duyên gifts, Đạo Đồ points for the player, unsealing). Each season, after the Living World Tick's own steps,
     NPC events run for: every living fixed-cast person, every person the player knows (met, holds a flag on, or with an
     attitude other than 0), and a keyed sample of `npc_sample_per_season` other people. Each rolls the NPC pulse
     (Formulas A), capped at `npc_events_per_season_max` for the world.
@@ -497,8 +497,7 @@ then the hook event; the pulse event is dropped (rule 10).
 | LLM Game Master (#29), parked | Soft | A future source through the validator |
 | Debug Terminal, Game UI | Hard | The pending event, options, chances, outcome summaries, warnings, news |
 
-**Bidirectional check.** Character Stats, Realms (canh-gioi), Combat, Công Pháp, Đạo, Effects, Item Database, Kinh
-Mạch Đồ, Linh Căn, NPC Traits, Power Rankings, Quests, Regional Economy & Trade, Sects, Thiên Kiếp and Travel & Map
+**Bidirectional check.** Character Stats, Realms (canh-gioi), Combat, Công Pháp, Đạo, Effects, Item Database, Đạo Đồ, Linh Căn, NPC Traits, Power Rankings, Quests, Regional Economy & Trade, Sects, Thiên Kiếp and Travel & Map
 already list the Event Engine in their Dependencies. World Generation & History lists it too (row added 2026-11-15,
 with this GDD). The systems index row 23 was updated with this
 GDD's dependencies (2026-11-15).
@@ -511,7 +510,7 @@ GDD's dependencies (2026-11-15).
   effect yet** (Open Questions).
 - Travel & Map Open Question 5 (scar threshold and size): still open; the effect exists (rule 13) and its numbers wait
   (Open Questions).
-- `events_templates.json` must be rekeyed to the fixed world's place kinds, and `mach_an_co_vat` (retired Mạch Ấn)
+- `events_templates.json` must be rekeyed to the fixed world's place kinds, and `dao_an_co_vat` (retired Đạo Ấn)
   removed or rewritten (rule 4).
 
 ## Visual/Audio Requirements
@@ -593,7 +592,7 @@ lint check; [UI] retained screenshot; [Playtest] a documented playtest question.
 - **AC-EV-03** [Logic] Rule 3. **GIVEN** a follow-up-only event with weight 100, **WHEN** 1,000 pulses run, **THEN** it
   never fires from the pulse.
 - **AC-EV-04** [Config/Data] Rule 4. **GIVEN** a data file whose record uses condition `foo`, place kind `thanh` or
-  effect `mach_an`, **WHEN** the game data loads, **THEN** loading fails with the file, the record id and the unknown
+  effect `dao_an`, **WHEN** the game data loads, **THEN** loading fails with the file, the record id and the unknown
   name in the message.
 - **AC-EV-05** [Logic] Rule 4. **GIVEN** conditions `all[realm ≥ truc_co, not flag X, any[place_kind = peak, place_kind
   = gorge]]`, **WHEN** tested for a Trúc Cơ root at a gorge without X, then with X, **THEN** true, then false.

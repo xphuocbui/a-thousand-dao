@@ -27,7 +27,7 @@
  ],
  "new": [
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Wood damage",
    "han_viet": "Mộc Thương",
    "form": "Increased",
@@ -49,7 +49,7 @@
    "second_home": "any Wood build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Linh lực regeneration",
    "han_viet": "Hồi Khí",
    "form": "Increased",
@@ -82,7 +82,7 @@
    "second_home": "every long fight"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Wood art cost",
    "han_viet": "Mộc Pháp Phí",
    "form": "Increased",
@@ -148,7 +148,7 @@
    "second_home": "any regeneration build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Living Wood",
    "han_viet": "Hoạt Mộc",
    "form": "More",
@@ -181,7 +181,7 @@
    "second_home": "any slow build"
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Wood art speed",
    "han_viet": "Mộc Pháp Tốc",
    "form": "Increased",

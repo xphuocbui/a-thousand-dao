@@ -69,7 +69,7 @@ Gear mattered little in the first geared version, and the build was over budget 
 
 **What changed.** `layers` went from [400, 260, 250, 150, 100] to [210, 120, 80, 40, 30]. The claimed share of the typical-to-top-end gap fell from 103 % to 22 % (nguyen_anh budget 23 %, `layer_budget` printed). Nothing else in the file changed: techniques, items, arts, ward, body and effects are as before.
 
-**Why.** The old values were the whole Map-and-gear total written as a layer claim. The techniques' passives and the items' modifiers already run as Effects, so counting them again in `layers` double-booked them. `layers` now holds only the Meridian Map share the concept needs.
+**Why.** The old values were the whole Map-and-gear total written as a layer claim. The techniques' passives and the items' modifiers already run as Effects, so counting them again in `layers` double-booked them. `layers` now holds only the Đạo Đồ share the concept needs.
 
 **What was cut first.** L5 (100 to 30), L4 (150 to 40) and L3 (250 to 80) were cut hardest: an evade-and-speed build lives on its dodge and art speed, which come from items, not these layers. L1 (400 to 210) and L2 (260 to 120) were kept highest because crit and art output run through them.
 

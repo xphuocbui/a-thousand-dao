@@ -76,15 +76,15 @@
  ],
  "walk": {
   "Ward strength": {
-   "acupoints": 8,
+   "dao_marks": 8,
    "notables": 0
   },
   "Maximum health": {
-   "acupoints": 8,
+   "dao_marks": 8,
    "notables": 3
   },
   "Art damage": {
-   "acupoints": 8,
+   "dao_marks": 8,
    "notables": 3
   }
  },

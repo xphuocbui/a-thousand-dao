@@ -172,7 +172,7 @@ The knuckle rings' history: four iron rings worn smooth by a quarry master who s
 
 ### Hidden cluster idea: Porter's Shoulder (Phu Kiên)
 
-Theme: the breath you do not spend (wider than one build: ward casters and companion owners who cast little read it too). Earth affinity. Sealed: Uncarved Stone Fist lists it in `seal_clusters`. Eight acupoints. Smalls: `basic_coef_add` +0.04 (×2), `linh_luc_regen_pct` +0.15 (×2), `attack_pct` [basic] +2, `ward_efficiency_pct` +1.2. Notables: `basic_speed_pct` +12 and, farthest, Quiet Channels. No capability. An idea for the tree rework, not data.
+Theme: the breath you do not spend (wider than one build: ward casters and companion owners who cast little read it too). Earth affinity. Sealed: Uncarved Stone Fist lists it in `seal_clusters`. Eight Dao marks. Smalls: `basic_coef_add` +0.04 (×2), `linh_luc_regen_pct` +0.15 (×2), `attack_pct` [basic] +2, `ward_efficiency_pct` +1.2. Notables: `basic_speed_pct` +12 and, farthest, Quiet Channels. No capability. An idea for the tree rework, not data.
 
 ## Đạo
 

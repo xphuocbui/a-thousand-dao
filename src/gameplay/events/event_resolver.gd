@@ -142,7 +142,7 @@ func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNu
 	var errors: Array = []
 	var req := FightRequest.new()
 	req.a = FighterCompiler.compile(c, _gd, _db, sheet, [], errors)
-	req.b = FighterCompiler.compile(enemy, _gd, _db, _builds.sheet_of(enemy), [], errors)   # with its Kinh Mạch Đồ
+	req.b = FighterCompiler.compile(enemy, _gd, _db, _builds.sheet_of(enemy), [], errors)   # with its Đạo Đồ
 	if req.a == null or req.b == null:
 		return {"ran": false, "win": false, "line": "fight engine could not compile: %s" % "; ".join(errors)}
 	var rated: bool = ratings != null and ratings.enabled() and enemy.id != "" and _db.has_record("people", enemy.id) 		and rating_clock.is_valid()
@@ -208,7 +208,7 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 			return "linh thạch %+d (now %d)" % [amt, c.linh_thach]
 		"tu_vi":
 			var res: Dictionary = CultivationRules.add_tu_vi(c, _gd, float(fx.amount))
-			return "tu vi +%.0f%s" % [float(fx.amount), (" (+%d stage(s), +%d Kinh Mạch points)" % [res.stages, res.tree_points]) if res.stages > 0 else ""]
+			return "tu vi +%.0f%s" % [float(fx.amount), (" (+%d stage(s), +%d Đạo Đồ points)" % [res.stages, res.tree_points]) if res.stages > 0 else ""]
 		"khi_huyet_loss_pct":
 			c.vitality = c.vitality - float(fx.amount) / 100.0
 			return "khí huyết -%.0f%% (now %d%%)" % [float(fx.amount), int(maxf(c.vitality, 0.0) * 100.0)]
@@ -236,7 +236,7 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 			return str(unseal_fn.call(str(fx.type).trim_prefix("unseal_"))) if unseal_fn.is_valid() else ""
 		"tree_point":
 			c.tree_points += int(fx.amount)
-			return "+%d Kinh Mạch point(s)" % int(fx.amount)
+			return "+%d Đạo Đồ point(s)" % int(fx.amount)
 		"herb":
 			var h: Dictionary
 			if str(fx.get("herb", "")) != "":

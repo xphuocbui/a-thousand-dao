@@ -152,7 +152,7 @@ A body-first Earth-Metal method written by the Garrison's armourers: the practit
 
 ### Hidden cluster idea: Scarred Hide (Sẹo Bì)
 
-Theme: Body Tempering (Thể Luyện), element Earth. Sealed, authored. Seal condition: a technique that lists it in `seal_clusters` (the Scripture) or carrying 40 blows from higher-realm foes in one life. Size: 8 acupoints. Small: block, body regeneration, health, Return Share. Notables: Return Damage, Hide Hardens, Bank Deeper (Held Reflection bank +1 U). Capability on the last notable (outer sealed cluster): the Return cap rises by 0.25.
+Theme: Body Tempering (Thể Luyện), element Earth. Sealed, authored. Seal condition: a technique that lists it in `seal_clusters` (the Scripture) or carrying 40 blows from higher-realm foes in one life. Size: 8 Dao marks. Small: block, body regeneration, health, Return Share. Notables: Return Damage, Hide Hardens, Bank Deeper (Held Reflection bank +1 U). Capability on the last notable (outer sealed cluster): the Return cap rises by 0.25.
 
 ## Đạo
 

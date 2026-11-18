@@ -73,15 +73,15 @@
  ],
  "walk": {
   "Ward strength": {
-   "acupoints": 7,
+   "dao_marks": 7,
    "notables": 4
   },
   "Maximum health": {
-   "acupoints": 16,
+   "dao_marks": 16,
    "notables": 2
   },
   "Linh luc regeneration": {
-   "acupoints": 1,
+   "dao_marks": 1,
    "notables": 0
   }
  },
@@ -91,7 +91,7 @@
   "hp": 110
  },
  "unmodelled": [
-  "W: road 24 acupoints, 6 notables, 76.8 W, plus 171 W outside it (attack 6, ward strength 55, health +91.7 % at 1.2 W a point), the 247.8 W of Short Reply. Method and gear as One Long Word (L2 10, L3 30, L4 20, gear ws and we 40). Arts are One Long Word's, Standing Word at Short Reply's unrowed values. Stone Ward at the legal 0.10. Thần thức, fortune and heart demon are not read.",
+  "W: road 24 Dao marks, 6 notables, 76.8 W, plus 171 W outside it (attack 6, ward strength 55, health +91.7 % at 1.2 W a point), the 247.8 W of Short Reply. Method and gear as One Long Word (L2 10, L3 30, L4 20, gear ws and we 40). Arts are One Long Word's, Standing Word at Short Reply's unrowed values. Stone Ward at the legal 0.10. Thần thức, fortune and heart demon are not read.",
   "Punisher probe, one change from long-answer-common: the ward record is verdict."
  ],
  "enemy_overrides": {

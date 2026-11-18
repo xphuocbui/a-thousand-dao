@@ -57,11 +57,11 @@ The build's modifiers, in order up the ladder. Sizes on new modifiers are first 
 | 6. Past the cap | **Taut String (Huyền Căng)** | Opening haste that the 0.5 s floor clips becomes L5 on that first firing: +1 per 5 pp clipped, cap +30 (here +16.7) | Overflow | art | L5 | ○ | Drawn Bowstring cluster | signature |
 | 7. Fuel | First Move (Tiên Thủ) | The Breaker's first firing costs nothing: the first volley costs 234 linh lực (6 %) | Rule swap | art | none | ● (designed) | Herald's Banner | every alpha strike |
 | 7. Fuel | `art_cost_pct` −20, `linh_luc_on_crit_pct` +1.26 | Reload volleys cost 546 (14 %); each crit returns 49 | Increased, flat | art | none | ◐ | Tree | any art build |
-| 8. Survival | Unyielding Breath (Bất Khuất) | Once a fight, a blow that would put you Down leaves you at 1. Closes −15 % health | Trade | — | none | ● (designed) | Meridian Map keystone | body builds, escape builds |
+| 8. Survival | Unyielding Breath (Bất Khuất) | Once a fight, a blow that would put you Down leaves you at 1. Closes −15 % health | Trade | — | none | ● (designed) | Đạo Đồ keystone | body builds, escape builds |
 | 8. Survival | Rolling Thunder's guard | Enemy health at or below 50 %: waits through the volley, fires in the follow-up instant | (rule) | art | none | ● (rule 13 guard) | Art record | any execute |
-| 8. Survival | Flowing Water (Lưu Thủy) | Each crit pulls your other arts' timers 0.5 s closer (3 a pulse): with 2 crits the second volley comes at 1.0 s | Trigger | art | none | ● (designed) | Meridian Map | crit tempo builds |
+| 8. Survival | Flowing Water (Lưu Thủy) | Each crit pulls your other arts' timers 0.5 s closer (3 a pulse): with 2 crits the second volley comes at 1.0 s | Trigger | art | none | ● (designed) | Đạo Đồ | crit tempo builds |
 | 8. Survival | Final Clause (Mạt Khoản) | As you go Down, your longest-cooldown art (the Breaker, by slot order) fires free | Trigger | art | none | ● (designed) | Technique layer 12 | dark paths, burst builds |
-| 8. Survival | Glass Meridians (Lưu Ly Kinh Mạch) | +40 % art speed; closes −25 % health, body shields half | Trade | art | none | ● (designed) | Meridian Map | tempo, crit casters |
+| 8. Survival | Glass Meridians (Lưu Ly Kinh Mạch) | +40 % art speed; closes −25 % health, body shields half | Trade | art | none | ● (designed) | Đạo Đồ | tempo, crit casters |
 | 9. Identity | **Opening Haste** | See rung 2. Delete it and the volley comes at 1.333 s, after the enemy's first basic attack | Timing | art | none | ○ | as above | as above |
 
 **Forms used:** Flat base, Increased, More, Timing, Conditional, Per, Overflow, Conversion, Rule swap, Trigger, Trade (11).
@@ -164,7 +164,7 @@ Equipped artifacts: two seals, the banner and ward gear (four of `equip.max_slot
 
 ### Hidden cluster idea: Drawn Bowstring (Mãn Huyền)
 
-Theme: the first stroke of any fight (wider than this build: assassins, soul openers, talisman openers). Affinity: Thunder or Wind. Kind: sealed; seal: the Lôi Đế Chân Kinh lists it in `seal_clusters`. Size: 8 acupoints. Smalls: opening haste +4, art speed +2, crit chance +1.2. Notables: opening haste +12; the farthest, Taut String. No capability. An idea for the tree rework, not data.
+Theme: the first stroke of any fight (wider than this build: assassins, soul openers, talisman openers). Affinity: Thunder or Wind. Kind: sealed; seal: the Lôi Đế Chân Kinh lists it in `seal_clusters`. Size: 8 Dao marks. Smalls: opening haste +4, art speed +2, crit chance +1.2. Notables: opening haste +12; the farthest, Taut String. No capability. An idea for the tree rework, not data.
 
 ## Đạo
 

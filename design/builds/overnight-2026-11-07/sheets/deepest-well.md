@@ -150,7 +150,7 @@ A boring manual with the words for water and for linh lực used interchangeably
 
 ### Hidden cluster idea: Dry Courses (Can Mạch)
 
-Theme: linh lực and wards. Earth affinity. Sealed by a technique (`seal_clusters`), outer, size 9. Small acupoints: ward efficiency, maximum linh lực, qi damage. Notables in order: Thrift, Rich Seam, Longer Breath, the payoff farthest from the entry. No capability. Bulk Order sits on a small branch. An idea for the tree rework, not data.
+Theme: linh lực and wards. Earth affinity. Sealed by a technique (`seal_clusters`), outer, size 9. Small Dao marks: ward efficiency, maximum linh lực, qi damage. Notables in order: Thrift, Rich Seam, Longer Breath, the payoff farthest from the entry. No capability. Bulk Order sits on a small branch. An idea for the tree rework, not data.
 
 ## Progression
 

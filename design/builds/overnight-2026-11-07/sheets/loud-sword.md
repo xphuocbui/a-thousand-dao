@@ -124,7 +124,7 @@ Full Title, The Answer and Losing Face are this technique's passives, which is a
 
 ### Hidden cluster idea: Gilt Line (Kim Tuyến Mạch)
 
-Theme NPC Interaction and presence, Metal, outer, sealed by event: win twenty ticketed bouts. Size 10. Small acupoints: crit chance, evade, `mi_luc`. Notables: Shown Face, In Step, then All Eyes. Capability: Called Blow. An idea for the tree rework, not data.
+Theme NPC Interaction and presence, Metal, outer, sealed by event: win twenty ticketed bouts. Size 10. Small Dao marks: crit chance, evade, `mi_luc`. Notables: Shown Face, In Step, then All Eyes. Capability: Called Blow. An idea for the tree rework, not data.
 
 ## Progression
 

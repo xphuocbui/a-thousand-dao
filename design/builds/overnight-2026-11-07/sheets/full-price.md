@@ -143,7 +143,7 @@ The coefficients of 13 and 25 pass the art lint and exceed Formulas C's stated r
 
 ### Hidden cluster idea: Counting Beads (Toán Châu)
 
-Theme: the Market economy, wider than one build. Metal affinity, outer, sealed. Seal condition: a technique that lists it. Size 7. Small acupoints give art cost and Metal damage. The notable is Full Sea, the payoff farthest from the entry.
+Theme: the Market economy, wider than one build. Metal affinity, outer, sealed. Seal condition: a technique that lists it. Size 7. Small Dao marks give art cost and Metal damage. The notable is Full Sea, the payoff farthest from the entry.
 
 ## Đạo
 

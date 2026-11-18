@@ -152,19 +152,19 @@
  ],
  "walk": {
   "Ward strength": {
-   "acupoints": 20,
+   "dao_marks": 20,
    "notables": 9
   },
   "Maximum health": {
-   "acupoints": 27,
+   "dao_marks": 27,
    "notables": 4
   },
   "Ward efficiency": {
-   "acupoints": 1,
+   "dao_marks": 1,
    "notables": 0
   },
   "Art damage": {
-   "acupoints": 13,
+   "dao_marks": 13,
    "notables": 1
   }
  },

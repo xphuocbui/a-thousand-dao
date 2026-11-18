@@ -46,7 +46,7 @@ Most important first.
 
 | Piece | Modifier or Effect | What it adds to this build | Where it comes from | In the game or staged | Priority |
 |---|---|---|---|---|---|
-| Embers Feed the Hearth | Effect (Trigger + Trade) | linh lực back on every Burn tick | Fire-land keystone on the Meridian Map | staged | core |
+| Embers Feed the Hearth | Effect (Trigger + Trade) | linh lực back on every Burn tick | Fire-land keystone on the Đạo Đồ | staged | core |
 | Kindled Wound | Effect (Conditional) | +15 layer 5 on Fire arts | Hỏa Đạo node or technique | in the game | core |
 | Linh lực regeneration | Modifier (Increased) | keeps the pool up | tree small nodes, Primer | in the game | core |
 | Fire art cost | Modifier (Increased) | more casts from the same pool | tree small nodes | staged | core |

@@ -59,7 +59,7 @@ rule}], `exception` (a reason, when the item breaks the rule 21 blueprint), `sou
 6. **The general Heaven-Purchasing Coin carries Bought Fate** (once a fight a roll against you flips, paid in spirit
    stones), so the metal Heaven-Minted Coin alone carries Seal of Full Payment, for Gold Rain.
 7. **Edge Returns the Breath and Whetstone Vow stay item Effects** (metal), though `missing-pieces.md` proposed them as
-   Meridian Map keystones; a future tree keystone can be a stronger version with a harsher cost.
+   Đạo Đồ keystones; a future tree keystone can be a stronger version with a harsher cost.
 8. **The 27 new Effects are accepted for now** (each marked `status` in its record). They are not in `effects.md` yet;
    promoting them is a separate, section-by-section step.
 

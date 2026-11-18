@@ -6,15 +6,14 @@ Files follow `[system]_[name].json`, keys are `snake_case`, and each file carrie
 `int()` where an integer is meant. Loaded by `src/gameplay/game_data.gd` (`GameData`).
 
 Design source: the GDDs in `design/gdd/` own the values of the files they name
-(Spiritual Roots, Character Stats, Realms & Bottlenecks, Cultivation Techniques, Meridian
-Map). Systems with no GDD yet keep first-pass drafts from `design/gdd/game-concept.md`.
+(Spiritual Roots, Character Stats, Realms & Bottlenecks, Cultivation Techniques, Đạo Đồ). Systems with no GDD yet keep first-pass drafts from `design/gdd/game-concept.md`.
 
 | File | What it defines | Read by |
 |---|---|---|
 | `cultivation_realms.json` | Realm ladder and breakthrough rules | `CultivationRules`, `CombatPower`, `BuildGenerator` |
 | `character_attributes.json` | Thiên phú, roll distribution, grade bands, linh căn rolls, element-count curve, derived constants, start values, origins | `CharacterFactory`, `LinhCan`, `CultivationRules`, `CharacterRules` |
-| `meridian_capabilities.json` | The 25 capabilities: tier, parameters, NPC effect | `GameData`, every host system |
-| `character_elements.json` | Five elements, their economy roles, the 8 variant roots and their role lines | `LinhCan`, `MeridianTree`, `StatSheet`, `CharacterRules` |
+| `dao_do_capabilities.json` | The 25 capabilities: tier, parameters, NPC effect | `GameData`, every host system |
+| `character_elements.json` | Five elements, their economy roles, the 8 variant roots and their role lines | `LinhCan`, `DaoDoTree`, `StatSheet`, `CharacterRules` |
 | `items_herbs.json` | Linh thảo templates and potency curve | `ItemFactory`, `HerbField`, `Alchemy` |
 | `items_recipes.json` | Alchemy rules and đan phương | `Alchemy`, `PillEffects`, `Market` |
 | `items_artifacts.json` | Pháp bảo grades, tiers, bases, affixes, equip slots, named-item rules | `ItemFactory`, `CombatPower`, `EquipSlots` |
@@ -22,7 +21,7 @@ Map). Systems with no GDD yet keep first-pass drafts from `design/gdd/game-conce
 | `items_rarity.json` | The shared rarity ladder (kind offsets, pill price bands, `rarity_max`) and Lost-item decay (`lost_decay_years` 30, `lost_decay_rarity_max` 4) | `ItemRarity`, `WorldTicker` |
 | `items_cong_phap.json` | Công pháp tiers, name parts, bonus pool | `ItemFactory` |
 | `items_materials.json` | Materials (trade goods, future crafting) | `ItemFactory` |
-| `meridian_tree.json` | Kinh Mạch Đồ generator: rings, pools, notables, keystones | `MeridianTree` |
+| `dao_do_tree.json` | Đạo Đồ generator: rings, pools, notables, keystones | `DaoDoTree` |
 | `world_generation.json` | Regions, places, sects, people, NPC builds, history, ticks, texts | `WorldGenerator`, `WorldTicker`, `BuildGenerator`, `GameSession` |
 | `world_names.json` | Hán-Việt name parts and personality traits | `BuildGenerator`, `WorldGenerator`, `EventContext` |
 | `combat_rules.json` | Chiến lực shares, duel curve, demon beasts | `CombatPower`, `BuildGenerator` |
@@ -53,7 +52,7 @@ insight).
 `ladder`: level_cap, stage_power_step, bare_attempt_cap, great_breakthrough_bonus,
 small_breakthrough_bonus (per realm, three each), pts_birth, and legacy_tu_vi_required (read only to migrate old saves).
 `breakthrough`: pill and talent terms, q_extras_ceiling_pp, failure_insight_pp and _cap,
-chance_min/max, failure penalties, vitality_floor. `guard.s_max` feeds Meridian Formulas E2.
+chance_min/max, failure penalties, vitality_floor. `guard.s_max` feeds Đạo Đồ Formulas E2.
 
 ### character_attributes.json
 - `thien_phu[]`: `{id, name, desc}` — the six innate stats besides linh căn.
@@ -135,11 +134,11 @@ secret or body, names, layers, bonuses, abilities, seal_clusters, origin).
 ### items_materials.json
 - `materials[]`: `id`, `name`, `element`, `base_value`, `rarity`, `desc`.
 
-### meridian_tree.json
+### dao_do_tree.json
 
-Schema 2 (design/gdd/kinh-mach-do.md Parameter keys). Topology (radials_per_sector,
+Schema 2 (design/gdd/dao-do.md Parameter keys). Topology (radials_per_sector,
 ring_anchor_depths, ring_interior, base_cluster_slots, entry_count_weights, shapes), values
-(huyet_value_*, stat_weights in W per displayed unit), hidden clusters (cluster_count, size
+(mark_value_*, stat_weights in W per displayed unit), hidden clusters (cluster_count, size
 keys, inner_share, sealed_share, size_realm_gates, cap_min_n, premium), themes and
 element_themes, keystones and center_keystone, the variant sector keys, tree_breakthrough_cap,
 npc_unseal_share and open_unseals_per_realm. Sealed cluster content is theme-pool filler until
@@ -154,7 +153,7 @@ the authored pass (the GDD's Open Question 6).
   `age_min_by_realm[]`, `age_max_lifespan_frac`, `traits_per_person`, `female_chance`,
   `loose_tan_tu_share`.
 - `npc_builds`: artifact counts, `cong_phap_tier_per_realm`, skill levels, `archetype_skills`,
-  Kinh Mạch greedy scoring (`tree_focus_weight`, `tree_kind_scores`),
+  Đạo Đồ greedy scoring (`tree_focus_weight`, `tree_kind_scores`),
   `artifact_root_element_chance`, `archetype_keep_chance`, `leader_realm_min`, `elder_realm_min`.
 - `realm_distribution[]`, `archetypes[]` (`elements`, `tree_focus`, `artifact_bases`, `weight`).
 - `history`: `years` simulated, `events_per_year`, `event_weights[]`, `legendary_artifacts`,
@@ -199,7 +198,7 @@ injury), `market` (markups, Mị lực price factor, stock sizes and caps), `tal
 choice/effect counts, text lengths, `allowed_check_stats`, `allowed_effect_types`,
 `per_realm{}` maxima (linh thạch gain/loss, tu vi as a fraction of the stage requirement,
 artifact grade, herb rarity/age, material rarity, công pháp tier, pill price, khí huyết
-loss %, tâm ma, đan độc, relationship, Kinh Mạch points), `check` (stat check chance =
+loss %, tâm ma, đan độc, relationship, Đạo Đồ points), `check` (stat check chance =
 base + (stat − difficulty) × per_point + (Khí vận − neutral) × kv_per_point, clamped),
 default item offsets, `npc_realm_offset`, `context` sizes, `free_exit_choice` (label/text of the
 free choice the validator adds when every choice of an event costs linh thạch, so a broke
@@ -224,7 +223,7 @@ cost in hand); `menu`: `cultivate_seasons`, `closed_door_years`, `max_goal_entri
 ### character_stat_labels.json — readable names for modifier stat keys
 `labels{stat: {name, unit}}`; unit `pct` (+n%), `flat`, `years`, `flag` (name only).
 Thiên phú ids use their names from character_attributes.json. Read by
-`GameData.format_mod` (Kinh Mạch huyệt, biến dị, affixes, công pháp bonuses).
+`GameData.format_mod` (đạo văn, biến dị, affixes, công pháp bonuses).
 
 ### crafting_refining.json — luyện khí (spec: design/quick-specs/luyen-khi-and-tran-phap.md)
 `skill`; per artifact tier arrays `difficulty`, `min_level`, `materials`, `min_rarity`,

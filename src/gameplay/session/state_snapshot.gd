@@ -64,9 +64,9 @@ static func diff(a: Dictionary, b: Dictionary, gd: GameData) -> Array:
 		if _moved(a[k[0]], b[k[0]]):
 			out.append(_num(k[0], k[1], float(a[k[0]]), float(b[k[0]])))
 	if int(b.tree_points) != int(a.tree_points):
-		out.append(_num("tree_points", "Kinh Mạch points", float(a.tree_points), float(b.tree_points)))
+		out.append(_num("tree_points", "Đạo Đồ points", float(a.tree_points), float(b.tree_points)))
 	if int(b.tree_nodes) != int(a.tree_nodes):
-		out.append(_num("tree_nodes", "Open huyệt", float(a.tree_nodes), float(b.tree_nodes)))
+		out.append(_num("tree_nodes", "Open đạo văn", float(a.tree_nodes), float(b.tree_nodes)))
 	if _moved(a.power, b.power):
 		out.append(_num("power", str(b.get("power_label", "Chiến lực")), float(a.power), float(b.power)))
 	if str(b.location_id) != str(a.location_id):

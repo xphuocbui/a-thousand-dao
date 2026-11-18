@@ -30,7 +30,7 @@ At t = 1 they lose 32 % of their health and 37 % of their linh lực. At t = 2 t
 
 ## Where The Enemy's Thần Thức Comes From
 
-Earlier sheets used 57 and 85, derived from nothing. Character Stats Formulas C and the Meridian Map give a real figure. Every life walks roads, a typical life spends 45 % of its points there (Formulas, `h_r`), one road node in four is `than_thuc_pct` (`road_stats`), and each is +0.9 %. Nobody has to choose to have a soul.
+Earlier sheets used 57 and 85, derived from nothing. Character Stats Formulas C and the Đạo Đồ give a real figure. Every life walks roads, a typical life spends 45 % of its points there (Formulas, `h_r`), one road node in four is `than_thuc_pct` (`road_stats`), and each is +0.9 %. Nobody has to choose to have a soul.
 
 | Who | Talent (thần hồn) | Roads | Rows | Sense before `M_ts` |
 |---|---|---|---|---|
@@ -43,7 +43,7 @@ So rho is 1.50 at equal realm, from a talent the mean life lacks. `talent-50` lo
 
 ## The Stack
 
-70 nodes, 56 acupoints and 14 notables, 179.2 W, under the quarter of Nascent Soul's tree a typical life spends on attack. Sector rows assume purity 50.
+70 nodes, 56 Dao marks and 14 notables, 179.2 W, under the quarter of Nascent Soul's tree a typical life spends on attack. Sector rows assume purity 50.
 
 `Without` is the whole row removed from `variants/third-look-mixed.fight.json`: `--without "[id]"`, or the named file. It reads win time, own health. **The full fight is 4 s on 30 %.** `At the edge` is the same removal from `hold-sense`, the fight the build only just wins, 10 s on 0 %. It reads how the fight ends.
 
@@ -137,7 +137,7 @@ Same fight, whole rows, each file `variants/third-look-[name].fight.json`.
 
 `five-gentle` keeps every row that holds the look at the cap and Ward efficiency, so not every five is lost.
 
-**One stat instead:** the same 180 W as 150 acupoints of thần thức alone (`plain-sense`, +135 %) looks further than this build ever will and still **loses** at 4 s on overkill, because nothing paid for the three seconds.
+**One stat instead:** the same 180 W as 150 Dao marks of thần thức alone (`plain-sense`, +135 %) looks further than this build ever will and still **loses** at 4 s on overkill, because nothing paid for the three seconds.
 
 ## The Choice
 

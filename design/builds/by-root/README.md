@@ -17,7 +17,7 @@ Each build has:
   - **Linh căn**: the root and why it fits.
   - **Công pháp**: the cultivation technique.
   - **Đạo**: the Way it takes, and which branch.
-  - **Keystone**: Meridian Map keystones or capabilities (thần thông). The map is a placeholder (user,
+  - **Keystone**: Đạo Đồ keystones or capabilities (thần thông). The map is a placeholder (user,
     2026-11-09), so keystones are named by what they do.
   - **Effects**: rule pieces, from the Effects System's starter catalogue or new.
   - **Modifiers**: the plain numbers it stacks, from the Modifier System's General Catalogue.

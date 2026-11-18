@@ -41,7 +41,7 @@
    ]
   },
   {
-   "id": "Sword damage (acupoints)",
+   "id": "Sword damage (Dao marks)",
    "layer": 1,
    "points": 20,
    "channels": [
@@ -67,7 +67,7 @@
    ]
   },
   {
-   "id": "Long Flight (acupoints)",
+   "id": "Long Flight (Dao marks)",
    "layer": 2,
    "points": 6,
    "channels": [
@@ -83,7 +83,7 @@
    ]
   },
   {
-   "id": "Steady Thread (acupoints)",
+   "id": "Steady Thread (Dao marks)",
    "layer": 5,
    "points": 8,
    "channels": [
@@ -109,7 +109,7 @@
    }
   },
   {
-   "id": "Many Threads (acupoints)",
+   "id": "Many Threads (Dao marks)",
    "layer": 2,
    "points": 9,
    "channels": [

@@ -85,7 +85,7 @@ an unused overcoming pair, like Thunder and Darkness. A derived variant reaches 
 | **Total** | | | | **11.5 W** | **23 W** |
 
 It sits in the 10 to 30 W band. **Its cost** is the second line: what is preserved does not grow quickly. It needs a
-Meridian Map sector (rule 12).
+Đạo Đồ sector (rule 12).
 
 ## Công Pháp
 
@@ -161,7 +161,7 @@ The Short Stick is the same strip of cedar the old law used, cut in half by peop
 ### Hidden cluster idea: Unmoved Body (Bất Động Thân)
 
 Theme: body refinement. Earth affinity, outer, sealed. Seal condition: a technique that lists it. Size 10, so two
-notables, and no capability. The small acupoints give body guard, health and regeneration. The notables are
+notables, and no capability. The small Dao marks give body guard, health and regeneration. The notables are
 **Still Sea** and **Iron Marrow**. Any thể tu could want the body lines even with no Vow.
 
 ## Đạo
@@ -275,7 +275,7 @@ Without Still Sea (`--without still_sea`) the saint with the ward off is Down at
 | Turned Blade | Needs rule | Compile: L1 and L3 points feed `body_guard_pct` |
 | Unyielding Breath | Needs rule | As the catalogue says; Thiên Kiếp says Combat has no revive effect |
 | Still Sea, Iron Marrow, Fair Measure | Needs key | Keys on the wound cap, guard by health, years owed |
-| Amber | Needs key | A `variants` row, `variant_effects`, a Meridian sector |
+| Amber | Needs key | A `variants` row, `variant_effects`, a Đạo Đồ sector |
 | Standing Stele Sutra, three arts, Way of Keeping | Needs key | Art format and ability catalogue (Open Question 13); `dao.json` |
 
 ## Also Considered

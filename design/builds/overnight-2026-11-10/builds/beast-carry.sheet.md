@@ -60,7 +60,7 @@ The build's modifiers, in order up the ladder. Sizes on new modifiers are first 
 | Rung | Modifier | Effect | Form | Channel | Layer | Status | Home | Second home |
 |---|---|---|---|---|---|---|---|---|
 | 1 Base | Companion power share | +pp to `c_comp` (+1 pp = +0.01), up to `c_comp_cap` | Flat base | companion | none | ◐ (Modifier System, Pending) | Tree, Thú Đạo Linh Khế lines, Beast-Bond affix | Salamander Keeper, Living Sword (by-root) |
-| 1 Base | Beast Soul Union (Thú Hồn Hợp Thể) | Strongest companion's share ×2; −1 art slot | Trade | companion | none | ● (Effects keystone, capability #17) | Meridian Map keystone | any companion build |
+| 1 Base | Beast Soul Union (Thú Hồn Hợp Thể) | Strongest companion's share ×2; −1 art slot | Trade | companion | none | ● (Effects keystone, capability #17) | Đạo Đồ keystone | any companion build |
 | 1 Base | Element-tagged companion (Moss-Fang Bite) | The tiger's bite carries [moc] and lays 1 Poison stack for 6 s | Rule swap | companion, tick | none | ○ (by-root missing-pieces) | Creature record | Salamander Keeper, Living Sword, Artisan General |
 | 2 Rate | Lent Hand (Tá Thủ), in the Contract | Your basic attack timer becomes a second companion strike | Redirect | companion | none | ○ | Enabler | Guide Hound-type keepers who cast nothing |
 | 2 Rate | Bonded Spirit (Linh Khế) | Your companion's timers carry your art speed, stopping at `cooldown_min` | Redirect | companion | none | ○ (tree catalogue keystone) | Thú Đạo Linh Khế notable | any beast keeper with art speed |

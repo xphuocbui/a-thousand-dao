@@ -180,8 +180,8 @@ $RECYCLE.BIN/
 # === gdUnit4 run reports ===
 reports/
 
-# Meridian Map editor: the one-step-back copy kept before each save over a version
-design/meridian-map/versions/.prev/
+# Đạo Đồ editor: the one-step-back copy kept before each save over a version
+design/dao-do/versions/.prev/
 
 # Prototype image sets kept local (user decision 2026-11-14: binary images would bloat history; commit a chosen subset)
 prototypes/map-style-demos/gallery/

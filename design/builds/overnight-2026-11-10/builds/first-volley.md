@@ -85,20 +85,20 @@ Your shopping list for improving this build, core first. "Core" pieces turn a pl
 | L2 "more" for Lightning | Modifier | Fills the 300 cap (×4.0): the largest single multiplier you control | Canon passive +50, the arts' own +40, Lôi Đạo three notables +40, two auxiliary Lightning secret techniques +45 | Canon and Way pieces not in the game yet (staged: loi-de-chan-kinh-abilities, thiem-dien-before-the-sound); auxiliary techniques: none in the data yet | Core |
 | Two Cực phẩm Nguyên Anh seals (Ấn) with the Liệt affix | Modifier (gear attack, L3) | Fill the gear layer to its 250 cap by themselves (×3.5) | Item affix on weapon seals | In the game | Core |
 | Lôi Đế Chân Kinh arts, slot order Breaker first | Effect (art kit) | Cloud-Splitting Bolt empties the ward pool; three cheap followers land through it | Công pháp Lôi Đế Chân Kinh, layers 1 to 11 | Not in the game yet (staged: cloud-splitting-bolt, forked-light, thunder-needle, iron-spark, rolling-thunder) | Core |
-| Unyielding Breath (Bất Khuất) | Effect | Wins every 0.5 s floor tie against a top-end opener | Meridian Map keystone | In the game (designed; not built) | Core |
+| Unyielding Breath (Bất Khuất) | Effect | Wins every 0.5 s floor tie against a top-end opener | Đạo Đồ keystone | In the game (designed; not built) | Core |
 | First Move (Tiên Thủ) | Effect | Makes the Breaker free, so the first volley costs only 6 % of your linh lực and your ward stays full | Herald's Banner | In the game (designed); the banner is not in the game yet (staged: herald-banner) | Strong |
 | Unanswered (Vô Ứng) | Effect | +40 L5 while the enemy has fired no art; decides floor ties and big pools | Lôi Đạo Thiểm Điện major | Not in the game yet (staged: unanswered) | Strong |
 | Thunder-Gall Pill (Lôi Đởm Đan) and Nine Rods Array (Cửu Can Trận) | Modifier (preparation, L4) | +70 and +80: fills the 150 cap (×2.5) in foreseen fights; the largest jump from 91 to 228 | Pill (alchemy), formation (Ringing Ground) | Not in the game yet (staged: thunder-gall-pill, nine-rods-array) | Strong |
 | Eruption (Phún Trào) | Effect | +5 L5 per other art fired in the instant: +15 for a four-art volley | Way notable or canon passive | Not in the game yet (staged: eruption, arts-fired-this-instant) | Strong |
 | Taut String (Huyền Căng) | Effect | Turns opening haste past the floor into up to +30 L5 | Drawn Bowstring cluster, far notable | Not in the game yet (staged: taut-string, drawn-bowstring-cluster) | Strong |
-| Flowing Water (Lưu Thủy) | Effect | Each crit pulls your other arts 0.5 s closer: second volley at 1.0 s instead of 1.833 s | Meridian Map keystone | In the game (designed; not built) | Strong |
+| Flowing Water (Lưu Thủy) | Effect | Each crit pulls your other arts 0.5 s closer: second volley at 1.0 s instead of 1.833 s | Đạo Đồ keystone | In the game (designed; not built) | Strong |
 | Final Clause (Mạt Khoản) | Effect | A last free Breaker as you go Down; can swing a double knockout | Canon layer 12 | Effect designed; canon ability not in the game yet (staged: loi-de-chan-kinh-abilities) | Strong |
-| Glass Meridians (Lưu Ly Kinh Mạch) | Effect (trade) | +40 % art speed for −25 % health | Meridian Map keystone | In the game (designed; not built) | Strong |
+| Glass Meridians (Lưu Ly Kinh Mạch) | Effect (trade) | +40 % art speed for −25 % health | Đạo Đồ keystone | In the game (designed; not built) | Strong |
 | Thunder Needle's Leaking Ward (Lậu Hộ) | Effect (curse) | Survivor's drain ward bills 50 % more, so the second volley breaks it faster | Thunder Needle art | Not in the game yet (staged: thunder-needle) | Nice |
 | Linh lực on crit and art cost −20 % | Modifier | Pay for two or three reload volleys | Tree notables | Art cost in the game; linh lực on crit: catalogue only (not built) | Nice |
 | Accuracy | Modifier | +15 against evasive foes (40 % cap down to about 25 %) | Tree notables | In the game | Nice |
 | Iron Spark's Physical conversion | Modifier (conversion) | 60 % turns Physical and goes around a Lightning-only resistance wall | Iron Spark art | Not in the game yet (staged: iron-spark) | Nice |
-| Cold Feet (Hàn Túc) | Effect | Lightning Step's first firing at the floor: a ready exit after a refusal | Meridian Map | In the game (designed; not built) | Nice |
+| Cold Feet (Hàn Túc) | Effect | Lightning Step's first firing at the floor: a ready exit after a refusal | Đạo Đồ | In the game (designed; not built) | Nice |
 | Thunderclap | Effect (control art) | Delays every enemy art 1 s; the boss loadout in slot 6 | By-root missing pieces | Not in the game yet (see by-root missing pieces; no staged id in this build) | Nice |
 
 ## Realm by realm

@@ -122,7 +122,7 @@ The build's modifiers, in order up the ladder. Sizes on new modifiers are first 
 | 6 Past the cap | **Ash Ledger (Tro Trướng)** | 20 % of tick damage stopped by resistance burns the target's linh lực | Overflow | tick → linh lực | none | ○ new | Hỏa Đạo Tro Tàn | dry-well |
 | 6 Past the cap | Spillover (Dật Độc) | 25 % of tick damage dealt burns linh lực | Overflow | tick → linh lực | none | ◐ | Độc Đạo Nọc | any poison build |
 | 6 Past the cap | **Cinder Debt (Tẫn Trái)** | each of your stacks a cleanse removes burns 0.5 % of the cleanser's max linh lực | Overflow | cleanse → linh lực | none | ○ new | Hỏa Đạo Tro Tàn | starter-venom |
-| 7 Fuel | Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô) | Burn ticks restore 25 % of their damage as your linh lực | Trigger (keystone) | tick → own linh lực | none | ○ reused | Meridian Map, Fire land | single-fire |
+| 7 Fuel | Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô) | Burn ticks restore 25 % of their damage as your linh lực | Trigger (keystone) | tick → own linh lực | none | ○ reused | Đạo Đồ, Fire land | single-fire |
 | 7 Fuel | Linh lực regeneration | +1 pp | Flat | — | none | ◐ | Tree | everyone |
 | 8 Survival | Spring Sap's Wood buff | 30 stacks steady → +3.5 % health a pulse | — | — | none | ● (stacks), ○ (art) | Green Flame Scripture | Wood sustain |
 | 8 Survival | Wards | Common Ward, Mountain Screen; Clear Heart Ward from Nguyên Anh | — | — | — | ● | Ward slots | everyone |

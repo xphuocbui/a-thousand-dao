@@ -42,7 +42,7 @@ def _load(name, path):
 
 tech = _load("lint_techniques", os.path.join(ROOT, "tools", "design", "arts", "lint_techniques.py"))
 arts_lint = _load("lint_arts", os.path.join(ROOT, "tools", "design", "arts", "lint_arts.py"))
-cat = _load("export_catalogue", os.path.join(ROOT, "tools", "design", "meridian_rework", "editor", "export_catalogue.py"))
+cat = _load("export_catalogue", os.path.join(ROOT, "tools", "design", "dao_do_rework", "editor", "export_catalogue.py"))
 
 # item stats the technique lint does not price (modifiers.md Stat List W, per displayed unit)
 ITEM_PRICE = {"artifact_attack_pct": 0.6, "artifact_defense_pct": 0.6, "than_thuc_cost_pct": 0.8,

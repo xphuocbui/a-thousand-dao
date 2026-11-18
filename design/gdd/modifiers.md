@@ -24,7 +24,7 @@ The Modifier System is the shared vocabulary of plain numbers that every build p
 **modifier** adds a number to one stat: "+6 % maximum health", "+12 % Fire damage", "+0.5 crit chance",
 "+3 ngộ tính". Each one has an operation (flat, increased, or "more" into a damage layer), a value priced
 in W, an optional scope of required tags, and classification tags that designers use to group the
-library and players use to filter it. The Meridian Map (Kinh Mạch Đồ), the Way (Đạo), cultivation
+library and players use to filter it. The Đạo Đồ, the Way (Đạo), cultivation
 techniques (công pháp), artifacts (pháp bảo), pills, formations (trận pháp), talismans (phù lục), spirit
 beasts (linh thú) and quests all grant modifiers drawn from this one catalogue, so a "+12 % Fire damage"
 means the same thing and costs the same wherever it appears.
@@ -230,15 +230,15 @@ A tag listed in two families is one tag; its tier is the same in both.
       as [over_time], and element affinity, shield recharge delay, cast ward duration and damage conversion as
       family.
 
-    Narrower modifiers get bigger values for the same price (Formulas B). The Meridian Map leans on
+    Narrower modifiers get bigger values for the same price (Formulas B). The Đạo Đồ leans on
     universal and broad modifiers because every build crosses it, but narrower ones are allowed. The mix
     is the tree's decision, not this system's.
 
 12. **Every value is priced in W** (1 W = the value of +1 % increased damage). A modifier's value is its
     source's W budget, times its breadth multiplier, divided by the stat's price, and floored to the
-    stat's precision (Formulas C). Each source GDD owns its budgets: an acupoint, a notable, a technique
+    stat's precision (Formulas C). Each source GDD owns its budgets: a Dao mark, a notable, a technique
     tier, an artifact affix, a pill. This system owns the prices and the conversion. The two reference
-    grades used in the catalogue are **small** (1.2 W, an acupoint) and **notable** (8 W).
+    grades used in the catalogue are **small** (1.2 W, a Dao mark) and **notable** (8 W).
 
     **Effect payloads are exempt** (re-review MD 3; Effects System rules 3–4, "Effects unpriced"): the values an
     Effect grants are its designer's, with no W. Their stat, operation, scope and grid still validate.
@@ -246,7 +246,7 @@ A tag listed in two families is one tag; its tier is the same in both.
     **`more` is budgeted in layer points, not W** (user decision 2026-11-07). Arts, techniques, Way art
     nodes, formations, talismans and pills size their L2 and L4 points against Combat's layer anchors.
     The realm-indexed exchange rate (Formulas D) is used only when W must buy points, as for the LLM
-    Game Master, quests and NPC Builds. The Meridian Map never grants `more`.
+    Game Master, quests and NPC Builds. The Đạo Đồ never grants `more`.
 
 13. **Rare modifiers appear only where the budget can pay for them** (user decision 2026-11-07). A rare
     modifier raises a count that has no cap of its own: art slots, artifact slots, ward slots, beast slots,
@@ -254,8 +254,8 @@ A tag listed in two families is one tag; its tier is the same in both.
     row** in the Stat List, because they would break a limit if common: and Chaos
     resistance (Combat Damage Types rule 5). A rare count costs 10–30 W, more than a notable holds.
     It may appear only on a source whose own budget covers its price: a keystone, a named item, a quest
-    reward or a Way capstone. An Effect's payload may carry one only when the Effect's host is on this list. It never appears on an acupoint, a tree notable or a rolled affix. Validation
-    reads the **source record's kind** (acupoint, notable, affix, keystone, named item, quest reward,
+    reward or a Way capstone. An Effect's payload may carry one only when the Effect's host is on this list. It never appears on a Dao mark, a tree notable or a rolled affix. Validation
+    reads the **source record's kind** (Dao mark, notable, affix, keystone, named item, quest reward,
     capstone); the modifier record itself carries no source. This
     keeps slot counts bounded (catalogue "Limits").
 
@@ -277,7 +277,7 @@ A tag listed in two families is one tag; its tier is the same in both.
 Every stat a modifier can touch. Each table's heading gives its **domain** and the **family tags** of its stats,
 which rule 9 derives (re-review MD 17). **Ops**: F flat, I increased, M more, D dampened (rule 6a; 2026-11-10). They compose as `(base + Σ F) · (1 + Σ I / 100) ÷ (1 + Σ D / 100)`; on linh lực regeneration the dampen divides the final value, after the regeneration curve. **Target** is what scope matches
 (rule 8); "none" means the stat cannot be scoped, except the pool, hit-event and stack stats below, whose targets are "the pool" (scoped by the art or element that feeds it), "own hit" (the hit's tags) and "the element's stacks" (scoped by element plus a `buff` or `debuff` tag), added by the 2026-11-10 re-review. **W** is the price per displayed unit (per percentage point for pp stats, per point of reduction for
-lower-is-better stats). Values from the Meridian Map's Formulas F weight table move here unchanged (user
+lower-is-better stats). Values from the Đạo Đồ's Formulas F weight table move here unchanged (user
 decision 2026-11-07); the rest come from Formulas A, which marks each as derived or a guess. **Status**:
 - *Live*: in game data today.
 - *Designed*: the key is defined in a GDD but not built.
@@ -543,7 +543,7 @@ and are not here.
 | Resistance (`resist_pct`) | — (all resistance) | universal | +30 pts | +200 pts | Designed | 1 |
 | Resistance (`resist_pct`) | against type: physical or force | broad | +37 pts | +250 pts | Designed | 2 |
 | Resistance (`resist_pct`) | against type: fire, cold, lightning, light | family | +45 pts | +300 pts | Designed | 4 |
-| Resistance (`resist_pct`) | against type: chaos (rare, rule 13: never on acupoints, notables or rolled affixes) | family | +45 pts | +300 pts | Designed | 1 |
+| Resistance (`resist_pct`) | against type: chaos (rare, rule 13: never on Dao marks, notables or rolled affixes) | family | +45 pts | +300 pts | Designed | 1 |
 | Resistance (`resist_pct`) | against foe: cultivator (Pending) | broad | +37 pts | +250 pts | Pending | 1 |
 | Resistance (`resist_pct`) | against foe: creature (Pending) | family | +45 pts | +300 pts | Pending | 1 |
 | Block (`block_rating`) | — | universal | +3 rating | +20 rating | Designed | 1 |
@@ -721,7 +721,7 @@ an artifact equipped, a pill in effect, a formation laid, an Effect's condition 
 | Combat (#21) | out | Damage modifiers into L1 (increased) and L2/L4 (more); crit, accuracy, pierce, art speed, art cost, ward, resistance, block, body shield, evade, soul, status and escape stats; scope matching against hit, art and status tags | Combat (formulas, caps, tags); this system (records, ops, scope) |
 | Character Stats (#7) | out | Every sheet stat's flat and increased sums through the provider interface; precision grid and ceilings | Character Stats |
 | NPC Traits (#42) | in | Trait stat rows as catalogue modifiers with source `trait`: flat and increased only, no `more`, no damage-layer, rare or Pending stats; talents only at notable (`design/gdd/npc-traits.md` rules 5–7, F1; added 2026-11-14) | NPC Traits |
-| Meridian Map (#10) | out | The catalogue, W prices and breadth for acupoints and notables; the tree sets its own budgets and mix | Meridian Map (budgets, layout); this system (prices) |
+| Đạo Đồ (#10) | out | The catalogue, W prices and breadth for Dao marks and notables; the tree sets its own budgets and mix | Đạo Đồ (budgets, layout); this system (prices) |
 | The Way (Đạo) (#39) | out | Catalogue modifiers for Way nodes, including `more` L2 on art nodes | The Way |
 | Cultivation Techniques (#9) | out | Technique bonuses and art "more" (L2) as catalogue modifiers | Cultivation Techniques |
 | Item DB (#13), Artifact Refining (#16) | out | Affix modifiers and artifact stats; rare modifiers only on named items | Item DB |
@@ -754,7 +754,7 @@ worth more per point than a point of L1.
 The stat_price values are defined as a data table (`modifier_prices`), one W price per displayed unit,
 **keyed by stat key and operation** (re-review MD 6): `body_shield_pct` has one entry for F (1.0) and one for I
 (0.6), and `damage_more` is priced in points (Formulas D).
-The Meridian Map's Formulas F weights move here unchanged. **D** marks a price derived from the owning
+The Đạo Đồ's Formulas F weights move here unchanged. **D** marks a price derived from the owning
 formula; **G** marks a guess.
 
 | Stat | W / unit | | Basis |
@@ -771,7 +771,7 @@ formula; **G** marks a guess.
 | Status duration | 0.6 | G | Own multiplier on tick count for a status build. Implied [over_time] |
 | Status stack cap | 10 / stack, rare | G | 5 → 6 stacks is +20 %, under the pool caps |
 | Damage conversion | 0.8 / pp | G | A point of conversion moves a point of damage to a type the build has more modifiers for; worth less than a point of damage on its own. Implied family |
-| Ward strength | 1.0 | — | Meridian Map table |
+| Ward strength | 1.0 | — | Đạo Đồ table |
 | Ward efficiency | 1.0 | G | Combat's guess kept; an effective-health proxy gives 1.17× health's value (Combat Open Question 14) |
 | Maximum health | 0.6 (was 1.2) | D/G | User decision 2026-11-10: fight value about 0.21 (#44 simulator) plus value outside fights (vitality carried between fights, injuries, events) |
 | Body guard | retired | — | Replaced by block and the body shield (Combat Defence & Healing) |
@@ -792,7 +792,7 @@ formula; **G** marks a guess.
 | Soul resistance | 0.6 / pp | D/G | Through rho^−2 against a soul attacker; about 0 otherwise |
 | Status resistance | 0.4 / pp | D/G | Applies only to chance statuses; chance-1 statuses ignore it |
 | Healing | 0.5 / % | G | No heal-build anchor yet (Combat Defence & Healing Formulas I) |
-| Maximum linh lực | 1.0 | — | Meridian Map table |
+| Maximum linh lực | 1.0 | — | Đạo Đồ table |
 | Linh lực regeneration | 22.8 / pp (was 8) | D | #44 simulator: 10 W buys about 0.44 pp/s in a 30–60 s fight. Uses the 0.01 grid |
 | Linh lực regeneration, increased | 0.8 / % | D | 1 % of the 3.5 % base is 0.035 pp, at 22.8 |
 | Linh lực on hit | 42 / pp of max per hit | D | #44 simulator: 10 W buys about 0.24 pp per hit at about 2 hits a second |
@@ -802,15 +802,15 @@ formula; **G** marks a guess.
 | Art costs shifted to health | 0.35 / pp | D | #44 simulator: 10 W buys about 28.5 pp where the curve is near-linear; the dampen shape makes each further point shift less |
 | Stack effect, stack duration, stacks per grant | 0.5 / %, 0.4 / %, 10 / stack | G | Against Effects Formulas D's weights; refit with the harness |
 | Reservation efficiency | 0.8 / % (counts to 50) | D | At a 50 % total reservation (Combat Defence & Healing Formulas I) |
-| Thần thức | 1.3 | — | Meridian Map table |
-| Artifact power | 1.3 | — | Meridian Map table |
+| Thần thức | 1.3 | — | Đạo Đồ table |
+| Artifact power | 1.3 | — | Đạo Đồ table |
 | Artifact attack | 0.6 | D | 0.36 at typical L3 1.4, about 0.6 near the 250 cap, 0 at the cap |
 | Artifact defence | 0.6 | D | Priced per % of the stat: 0.51 through ward gear, about 0.35 on body gear. Combat Defence & Healing Formulas I prices defence *points* at 0.648 on both gears after the raised body-gear mapping; re-derive this price when Item DB adopts that mapping, and keep 0.6 until then (re-review MD 15) |
 | Element affinity | 1.3 | D | Same multiplier as artifact power, on matched artifacts only. Implied family |
 | ~~Artifact thần thức cost~~ | 0.8 / pp reduced | G | Retired 2026-11-13. Thần thức's own 1.3 had a capacity part; it now buys extra item slots (Item DB rule 11), so its price is open for re-derivation |
 | Art slots | 20 / slot, rare | G | Mostly choice; the gain is held back by cost shares (Combat A2) |
 | Artifact slots | 25 / slot, rare | G | |
-| Formation power | 1.0 | — | Meridian Map table |
+| Formation power | 1.0 | — | Đạo Đồ table |
 | Pill effect | 1.0 | G | Pills feed both cultivation and L4 |
 | Talisman power | 0.7 | G | Fills L4 like formation power, but talismans are used up |
 | Talisman keep chance | 0.3 / pp | G | Economy value only |
@@ -819,27 +819,27 @@ formula; **G** marks a guess.
 | Beast slots | 15 / slot, rare | G | |
 | Formation upkeep, talisman ink cost | 0.15 / % reduced | G | Variety guess, 2026-11-08 (Pending) |
 | Escape chance | 1.0 / pp | G | Its worth is a death avoided, outside the fight; `escape_bonus` caps it at 0.3 |
-| Stealth | 1.5 | — | Meridian Map table |
+| Stealth | 1.5 | — | Đạo Đồ table |
 | Fortuitous encounter rate, travel speed | 0.3 | G | Kept from Spiritual Roots Formulas E |
-| Cultivation speed | 2.2 | — | Meridian Map table |
-| Breakthrough chance | 5 / pp | — | Meridian Map table |
-| Lifespan, years | 300 / L_r per year | — | Meridian Map table |
+| Cultivation speed | 2.2 | — | Đạo Đồ table |
+| Breakthrough chance | 5 / pp | — | Đạo Đồ table |
+| Lifespan, years | 300 / L_r per year | — | Đạo Đồ table |
 | Lifespan, share | 3.0 / pp | D | 1 % of L_r is L_r / 100 years × 300 / L_r |
-| Heart demon resistance | 1.5 | — | Meridian Map table |
+| Heart demon resistance | 1.5 | — | Đạo Đồ table |
 | Qi deviation chance | 1.0 / pp reduced | D/G | A plain ×(1 + q) on the deviation chance, weaker than heart demon resistance |
-| Pill toxicity resistance, fading | 1.6; 8 | — | Meridian Map table |
-| Spirit qi density | 140 | — | Meridian Map table |
-| Alchemy success, refining success | 2.7; 2.0 | — | Meridian Map table |
+| Pill toxicity resistance, fading | 1.6; 8 | — | Đạo Đồ table |
+| Spirit qi density | 140 | — | Đạo Đồ table |
+| Alchemy success, refining success | 2.7; 2.0 | — | Đạo Đồ table |
 | Pills per brew | 20 / pill, rare | G | Same convention as field plots |
-| Herb growth, field plots | 0.9; 20, rare | — | Meridian Map table |
+| Herb growth, field plots | 0.9; 20, rare | — | Đạo Đồ table |
 | Talisman drawing success | 2.0 / pp | G | Same as refining success |
 | Taming chance | 1.0 / pp | G | |
-| Mission income | 0.7 | — | Meridian Map table |
+| Mission income | 0.7 | — | Đạo Đồ table |
 | Pill quality chance | 1.0 / pp | G | Variety guess, 2026-11-08 (Pending) |
 | Artifact grade chance | 1.5 / pp | G | Variety guess, 2026-11-08 (Pending) |
 | Buy price | 0.3 / % reduced | G | Variety guess, 2026-11-08 (Pending) |
 | Sell price | 0.3 | G | Variety guess, 2026-11-08 (Pending) |
-| Comprehension, fortune | 5 | — | Meridian Map table |
+| Comprehension, fortune | 5 | — | Đạo Đồ table |
 | Root bone (căn cốt) | 3.0 | D | +1 at talent 45 is +2.22 % health on its own multiplier |
 | Soul (thần hồn) | 3.0 | D | +2.22 % thần thức; soul builds gain double through rho² |
 | Dao heart (đạo tâm) | 3.0 | G | Raises the deviation threshold by 0.5 per point; other uses not checked |
@@ -930,10 +930,10 @@ budget of 8 W buys floor(8 / 0.904 / 0.1) × 0.1 = **8.8 L2 points**.
 
 | Grade | Budget B | Where |
 |---|---|---|
-| small | 1.2 W (S0) | One acupoint at premium 1 |
+| small | 1.2 W (S0) | One Dao mark at premium 1 |
 | notable | 8 W (N0) | One tree notable at premium 1 |
 
-The Meridian Map applies its own premium (1.25–1.75, and up to about 2.15 in shrunk clusters) and root
+The Đạo Đồ applies its own premium (1.25–1.75, and up to about 2.15 in shrunk clusters) and root
 scaling (×1.5), so in-tree values are 1.5–2.1 W and 10–14 W, and at most about 25.8 W. Other sources
 publish their own budgets in W. A lint flags any stat and grade pair that loses more than 15 % to
 rounding (`rounding_lint_threshold`). Known exceptions, accepted (re-review MD 10): breakthrough chance at small
@@ -979,7 +979,7 @@ measures the drift first, and no deflator is applied until it has.
   multiplies a stat up; with no increased modifier the stat is simply divided.
 - **If a single modifier is larger than its stat's cap** (a notable of crit chance above `crit_chance_cap`): it is
   legal but wasteful. A source GDD should size it below the cap. (Health regeneration has no cap since #44.)
-- **If a rare modifier appears on an acupoint, a tree notable or a rolled affix**: validation rejects it
+- **If a rare modifier appears on a Dao mark, a tree notable or a rolled affix**: validation rejects it
   (rule 13).
 
 **Scope**
@@ -1009,7 +1009,7 @@ measures the drift first, and no deflator is applied until it has.
 | Combat Defence & Healing (#21a) | Hard | What the defence stats do; their prices (Formulas I) | Needs revision | Yes |
 | Combat Damage Types (#21b) | Hard | The damage-type family that scopes damage, penetration and resistance; the conversion steps and 2-per-hit limit `convert_pct` obeys | Needs revision | Yes |
 | Character Stats (#7) | Hard | The sheet sums, precision grid, ceilings, the provider interface | In review | Not yet: its Parameter keys need the new stats |
-| Meridian Map (#10) | Soft (reads this) | Catalogue, prices, breadth; owns its own budgets and mix. The W weight table moves here from its Formulas F | Redesign planned | Not yet: its Formulas F should point here |
+| Đạo Đồ (#10) | Soft (reads this) | Catalogue, prices, breadth; owns its own budgets and mix. The W weight table moves here from its Formulas F | Redesign planned | Not yet: its Formulas F should point here |
 | The Way (#39), Cultivation Techniques (#9) | Soft (read this) | Catalogue modifiers, including `more` L2 | Approved; in review | Not yet |
 | Item DB (#13), Artifact Refining (#16) | Soft (read this) | Affix modifiers; rare modifiers on named items only | Approved; built | Not yet |
 | Alchemy (#15), Formations (#17), Talismans (#18), Spirit Beasts (#19) | Soft (read this) | Preparation stats and `more` L4; Pending stats need their keys | Implemented, quick specs | Not yet |
@@ -1062,10 +1062,10 @@ more are written differently so a reader can tell them apart at a glance: "+12 %
 | Rule 8, Stat List | combat-defence.md rules 2–4, 6, 7, 9–12; Formulas A–E, I | What resistance, block, body shield, ward and healing stats do; their prices | Read |
 | Rule 13 | combat-damage-types.md rule 5 | Chaos resistance from rare sources | Read |
 | Rule 8, Stat List (`convert_pct`) | combat-damage-types.md rule 6 | Conversion steps; the modifier step; the 2-per-hit limit; the fixed order of types (rule 1) | Read |
-| Rule 12, Formulas A | kinh-mach-do.md Formulas F | The W weight table | Moved here (user decision 2026-11-07) |
+| Rule 12, Formulas A | dao-do.md Formulas F | The W weight table | Moved here (user decision 2026-11-07) |
 | Formulas D | combat.md Formulas B anchors | Typical L2 1.4, L4 1.2, L1 by realm | Read; answers Combat Open Question 5 |
-| Formulas E | kinh-mach-do.md Formulas A–D | Acupoint 1.2 W, notable 8 W, premium P, w̄_target 2.07 | Read |
-| Stat List | `character_stat_labels.json`, `meridian_capabilities.json` | Live keys and capabilities | Read |
+| Formulas E | dao-do.md Formulas A–D | Dao mark 1.2 W, notable 8 W, premium P, w̄_target 2.07 | Read |
+| Stat List | `character_stat_labels.json`, `dao_do_capabilities.json` | Live keys and capabilities | Read |
 | Rules 1, 6, 8, 9, 15, 16 | effects.md rules 1, 3, 6, 9, 15 | The Modifier / Effect split; L5 only as an Effect payload; Effects grant catalogue modifiers; art tags added for scopes and status tags read by scope; tag vocabulary; NPC and LLM limits | Read; shared boundary |
 
 ## Tuning Knobs
@@ -1075,7 +1075,7 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 
 | Knob | Default | Safe range | What it tunes | Source |
 |---|---|---|---|---|
-| Reference grades | small 1.2 W, notable 8 W | owned by the Meridian Map (Formulas E) | Catalogue sizes; every source's budget scale | Rule 12, Formulas E |
+| Reference grades | small 1.2 W, notable 8 W | owned by the Đạo Đồ (Formulas E) | Catalogue sizes; every source's budget scale | Rule 12, Formulas E |
 | Breadth multipliers | 1.0 / 1.25 / 1.5 / 2.0 / 2.5 | keep the order; the top tier at most 3.0 | How much bigger narrow modifiers are | Rule 11, Formulas B |
 | Tags per scope | 2 | 1–2 (3 makes pinpoint the norm) | How narrow a plain modifier can get | Rule 8 |
 | Stat prices (`modifier_prices`) | the Formulas A table | ±30 % per stat, then harness | Which stats are good value | Formulas A |
@@ -1123,8 +1123,8 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 - **AC-MD-19** [Logic] Formulas C penalty. **GIVEN** −5 % universal art speed, **THEN** it is worth 5 · 0.6 / 1.0 = 3.0 W, with no floor.
 - **AC-MD-20** [Logic] Formulas D. **GIVEN** more_price rounded to 2 decimals, **THEN** L2 is 0.90 / 1.16 / 1.51 / 2.03 / 4.95 and L4 is 1.05 / 1.35 / 1.76 / 2.37 / 5.78 from Qi Refining to Deity Transformation. **GIVEN** +20 L2 at Core Formation, **THEN** it is worth 30.3 W (unrounded rate). **GIVEN** 8 W at Qi Refining, **THEN** it buys 8.8 L2 points. **GIVEN** a fixture with x_i_typ ≥ cap_i, **THEN** the trade is refused and 0 points are granted.
 - **AC-MD-21** [Config/Data] Formulas A, E. **GIVEN** the data, **THEN** the grades are small = 1.2 and notable = 8, and every (key, operation) pair in the Stat List has exactly one `modifier_prices` entry equal to Formulas A (`body_shield_pct` has two: F 0.51 and I 0.6). **GIVEN** regeneration at small, **THEN** the rounding lint flags it on a 0.1 grid (a 33 % loss) and passes it on 0.01.
-- **AC-MD-22** [Logic] Rule 12. **GIVEN** a Meridian Map acupoint or notable carrying `more`, **THEN** it is rejected.
-- **AC-MD-23** [Logic] Rule 13. **GIVEN** +1 `bonus_slots` on a source of kind acupoint, notable or affix, **THEN** it is rejected. **GIVEN** the same on a keystone, a named item, a quest reward or a Way capstone, **THEN** it is accepted. **GIVEN** Chaos resistance on a tree notable, **THEN** it is rejected (rare by its row). **GIVEN** a rare modifier in an Effect's payload whose host is a keystone, **THEN** it is accepted; on an Effect hosted by a notable, rejected.
+- **AC-MD-22** [Logic] Rule 12. **GIVEN** a Đạo Đồ Dao mark or notable carrying `more`, **THEN** it is rejected.
+- **AC-MD-23** [Logic] Rule 13. **GIVEN** +1 `bonus_slots` on a source of kind Dao mark, notable or affix, **THEN** it is rejected. **GIVEN** the same on a keystone, a named item, a quest reward or a Way capstone, **THEN** it is accepted. **GIVEN** Chaos resistance on a tree notable, **THEN** it is rejected (rare by its row). **GIVEN** a rare modifier in an Effect's payload whose host is a keystone, **THEN** it is accepted; on an Effect hosted by a notable, rejected.
 
 **Display and the world**
 
@@ -1151,7 +1151,7 @@ them. Changing a price, tier multiplier or grade means regenerating the General 
 |---|---|---|---|
 | 1 | Realm drift: one W of L1 is worth about 5.5 × less at Deity Transformation, so own-multiplier stats (crit, evade, art speed, soul, `more`) grow cheap. The bot measures it before any deflator (user decision 2026-11-08) | systems-designer | Balance harness |
 | 2 | ~~Derived art tags need Combat to adopt them~~ **Closed 2026-11-08:** the Combat revision (#43) adopted `basic`, `quick`, `slow`, `cheap` and `costly` (D5); the basic attack carries only `basic` (C4) | — | Closed |
-| 3 | The Meridian Map's Formulas F must point to this GDD's price table, and Character Stats' Parameter keys must list the new stats (with the 0.01 grid for both regeneration stats). The other reader GDDs' back-references are added in the Combat revision (#43) and Meridian Map sweeps (re-review MD 9) | user | Meridian Map redesign; Character Stats revision; #43 |
+| 3 | The Đạo Đồ's Formulas F must point to this GDD's price table, and Character Stats' Parameter keys must list the new stats (with the 0.01 grid for both regeneration stats). The other reader GDDs' back-references are added in the Combat revision (#43) and Đạo Đồ sweeps (re-review MD 9) | user | Đạo Đồ redesign; Character Stats revision; #43 |
 | 4 | Pending stats need keys from their owners: basic attack speed, status duration and stack cap (Combat); talisman power, keep chance, stock and drawing (Talismans); companion power share, beast slots, taming (Spirit Beasts); artifact slots (Item DB). From the 2026-11-08 variety rows: status duration on you and foe tags (Combat); typed block, the body shield I op, recharge delay and cast ward duration (Combat Defence & Healing); formation upkeep (Formations); talisman ink (Talismans); pill quality (Alchemy); artifact grade (Artifact Refining); buy and sell price (Market); activity tags (Time & Turn, Realms); the [body_shield] scope (Combat Defence & Healing). A lower-is-better row also needs its owner's floor (rule 7) | user | Each owner's GDD |
 | 5 | Sizes to watch (health regeneration has no cap since #44): a notable of crit chance is 8 pp; art speed and crit are cheap late (question 1) | systems-designer | Balance harness |
 | 6 | Closed 2026-11-08: Chaos resistance is rare by its row (rule 13, Rare table) | — | Closed |

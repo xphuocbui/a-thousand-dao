@@ -50,7 +50,7 @@
 | ID | Name | Kind | What it is | Fit | Used by |
 |---|---|---|---|---|---|
 | poison-stack-count-readable | Target's Poison stacks | Key | The number of the applier's Poison stacks on the target, readable by modifiers and conditions | Needs rule (modifiers.md, effects.md rule 9a) | starter-venom |
-| bitter-sap-cluster | Bitter Sap Row (Khổ Dịch) | Cluster idea | Wood poison, sealed, 7 acupoints: Poison damage and Status duration smalls, Watched Rot notable | Needs key | starter-venom |
+| bitter-sap-cluster | Bitter Sap Row (Khổ Dịch) | Cluster idea | Wood poison, sealed, 7 Dao marks: Poison damage and Status duration smalls, Watched Rot notable | Needs key | starter-venom |
 | cleanser-telegraph | Cleanser telegraph | Concept | A foreseen-fight line that says the enemy cleanses | Needs rule (combat.md rule 12, Guidance Layer) | starter-venom |
 
 ## Reused

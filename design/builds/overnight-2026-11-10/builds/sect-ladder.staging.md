@@ -26,7 +26,7 @@
 | ID | Name | Kind | What it is | Fit | Used by |
 |---|---|---|---|---|---|
 | sect-curriculum | Sect curriculum (Môn Quy Giáo Trình) | Concept | a sect record listing, per realm, technique, arts, items, pill, array and Đạo nodes, plus a talent grade; the NPC generator builds members from it | Needs rule (NPC Builds #24, Sects & Missions #26; no GDD yet) | sect-ladder |
-| hearth-keepers-line | Hearth Keeper's Line (Lô Thủ Mạch) | Cluster idea | open Fire-land cluster, 7 acupoints: 3 Fire damage / DoT, 2 Fire art cost, 1 regeneration, notable Deep Heat, keystone Embers Feed the Hearth at the far end | Needs key | sect-ladder |
+| hearth-keepers-line | Hearth Keeper's Line (Lô Thủ Mạch) | Cluster idea | open Fire-land cluster, 7 Dao marks: 3 Fire damage / DoT, 2 Fire art cost, 1 regeneration, notable Deep Heat, keystone Embers Feed the Hearth at the far end | Needs key | sect-ladder |
 
 ## Reused
 

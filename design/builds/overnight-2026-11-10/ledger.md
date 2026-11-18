@@ -266,7 +266,7 @@
 |---|---|---|---|---|
 | Green Flame Scripture (Thanh Diễm Quyết / Thiên Kinh) | Technique, main, moc + hoa | Needs key | two-clocks (name from by-root dual-wood-fire) | proposal (staging) |
 | Ember Rain, Rot Seed, Red Censer, Green Censer, Spring Sap | Arts | Fits today | two-clocks | proposal (staging) |
-| Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô) | Meridian Map keystone | Needs rule | two-clocks (from by-root single-fire), starter-flame | reused, by-root |
+| Embers Feed the Hearth (Tàn Hỏa Dưỡng Lô) | Đạo Đồ keystone | Needs rule | two-clocks (from by-root single-fire), starter-flame | reused, by-root |
 | Hỏa Đạo Tro Tàn: Ash Ledger notable; Độc Đạo Nọc: Spillover notable | Đạo pieces | Needs rule / Fits today | two-clocks | proposal (staging) |
 | Common Ward, Mountain Screen, Golden Light Shield, Clear Heart Ward, Thousand-Layer Cloud | Wards | Fits today (combat-defence.md Formulas H) | two-clocks | in the defence GDD |
 | Lôi Đế Chân Kinh abilities (the template is in the game; its abilities are new) | Technique, main, loi, Địa giai | Needs key | first-volley | proposal (staging) |
@@ -344,7 +344,7 @@
 | Hồn Đạo: Thần Thức lines and Hồn Hộ lines (reused) | Đạo pieces | Fits today | armoury-mind (made by soul-lance) | reused (staging) |
 | Peg Wall (Đinh Bích) | Cluster idea (tree rework region; clusters retired 2026-11-10) | Needs key / Needs rule | armoury-mind | proposal (staging) |
 | Soul-Guarding Lamp (Hộ Hồn Đăng); Common Ward; Golden Bell | Wards | Fits today | armoury-mind | in the game (ward catalogue) |
-| Capabilities #1 Twin Arms, #2 Divided Divine Sense, #3 Treasure Nurtured Within | Meridian Map capabilities | Fits today | armoury-mind | in the game |
+| Capabilities #1 Twin Arms, #2 Divided Divine Sense, #3 Treasure Nurtured Within | Đạo Đồ capabilities | Fits today | armoury-mind | in the game |
 | Whetstone Scripture (Ma Thạch Kinh; Thiên: Ma Thạch Chân Kinh) | Technique (main, kim; Địa and Thiên) | Needs key | one-art | proposal (staging) |
 | Grindstone Stroke (Ma Thạch Trảm) | Art | Needs key | one-art | proposal (staging) |
 | Single-Notch Sword (Nhất Khuyết Kiếm) | Named artifact, weapon (`phi_kiem`) | Fits today | one-art | proposal (staging) |

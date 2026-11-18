@@ -1,5 +1,5 @@
 extends DaoTestSuite
-## Stealth (from Ám / Vụ / Huyễn biến dị and a Kinh Mạch notable) helps evade checks:
+## Stealth (from Ám / Vụ / Huyễn biến dị and a Đạo Đồ notable) helps evade checks:
 ## escape and hiding choices marked "evade" in templates or by the LLM.
 
 

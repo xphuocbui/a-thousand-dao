@@ -25,7 +25,7 @@
  ],
  "new": [
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Companion damage",
    "han_viet": "Thú Thương",
    "form": "Increased",
@@ -51,7 +51,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Beast damage",
    "han_viet": "Thú Hình",
    "form": "Increased",
@@ -77,7 +77,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Qi damage",
    "han_viet": "Khí Thương",
    "form": "Increased",
@@ -103,7 +103,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Companion attack speed",
    "han_viet": "Thú Tốc",
    "form": "Increased",
@@ -129,7 +129,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Long Loyalty",
    "han_viet": "Trường Trung",
    "form": "Per",
@@ -155,7 +155,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Grown Together",
    "han_viet": "Đồng Trưởng",
    "form": "More",
@@ -181,7 +181,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward strength",
    "han_viet": "Hộ Lực",
    "form": "Increased",
@@ -207,7 +207,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward efficiency",
    "han_viet": "Hộ Hiệu",
    "form": "Increased",
@@ -233,7 +233,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Maximum linh lực",
    "han_viet": "Linh Hải",
    "form": "Increased",
@@ -259,7 +259,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Maximum health",
    "han_viet": "Khí Huyết",
    "form": "Increased",
@@ -285,7 +285,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Still Hand",
    "han_viet": "Tĩnh Thủ",
    "form": "Per",
@@ -311,7 +311,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Behind the Ward",
    "han_viet": "Hộ Hậu",
    "form": "Conditional",
@@ -337,7 +337,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Damage while above 50 % health",
    "han_viet": "Toàn Thân",
    "form": "Conditional",
@@ -363,7 +363,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Urging Word",
    "han_viet": "Thôi Ngôn",
    "form": "Per",
@@ -389,7 +389,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Opened Guard",
    "han_viet": "Khai Hộ",
    "form": "Per",
@@ -415,7 +415,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Power share",
    "han_viet": "Phân Lực",
    "form": "Increased",
@@ -441,7 +441,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Damage to an enemy with no linh lực",
    "han_viet": "Tận Khí",
    "form": "Conditional",
@@ -467,7 +467,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Feed cost",
    "han_viet": "Tiết Liệu",
    "form": "Increased",
@@ -493,7 +493,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Taming chance",
    "han_viet": "Thuần Thú",
    "form": "Increased",

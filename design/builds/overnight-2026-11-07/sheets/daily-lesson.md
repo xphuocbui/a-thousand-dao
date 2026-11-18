@@ -30,24 +30,24 @@ For the first second almost nothing happens. The enemy strikes, the cultivator t
 
 ## The Stack
 
-The node list for the Flown Line, in walking order: 30 nodes, 25 acupoints and 5 notables, 70 W. That is the quarter of Foundation's 120 points a typical life spends on attack, where it buys 62 W of plain `attack_pct`. Catalogue rows keep their catalogue sizes. Sizes on Long Flight, Steady Thread and Many Threads are first guesses at the catalogue's sword rate, and all three sit near the size of Sword damage. Home is the tree for every row.
+The node list for the Flown Line, in walking order: 30 nodes, 25 Dao marks and 5 notables, 70 W. That is the quarter of Foundation's 120 points a typical life spends on attack, where it buys 62 W of plain `attack_pct`. Catalogue rows keep their catalogue sizes. Sizes on Long Flight, Steady Thread and Many Threads are first guesses at the catalogue's sword rate, and all three sit near the size of Sword damage. Home is the tree for every row.
 
 `Without` is the single-removal file, `variants/daily-lesson-no-[slug]-mixed.fight.json`. Every one of the 11 still wins at t = 2 with 52 % health and 42 % linh lực. `Volley` is what the three swords deal, out of 348 with nothing removed.
 
 | Step | Node | Kind | Each | Total | Form | Layer | Rung | Status | Without | Volley |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1–10 | **Sword damage** | acupoint ×10 | +2 % | +20 % | Increased | L1 | Multiplier | ○ | `sword-a` | 295 |
+| 1–10 | **Sword damage** | Dao mark ×10 | +2 % | +20 % | Increased | L1 | Multiplier | ○ | `sword-a` | 295 |
 | 11 | **Sword damage** | notable | +12 % | +12 % | Increased | L1 | Multiplier | ○ | `sword-n` | 316 |
-| 12–13 | **Crit chance with swords** | acupoint ×2 | +0.8 % | +1.6 % | Increased | none | Crit | ○ | `critch-a` | 344 |
+| 12–13 | **Crit chance with swords** | Dao mark ×2 | +0.8 % | +1.6 % | Increased | none | Crit | ○ | `critch-a` | 344 |
 | 14 | **Crit chance with swords** | notable | +5 % | +5 % | Increased | none | Crit | ○ | `critch-n` | 337 |
 | | *The fork: from here the road is the Flown Line* | | | | | | | | | |
-| 15–17 | **Flying sword attack** | acupoint ×3 | +2 % per sword | +7 points | Increased | L3 | Multiplier | ○ | `fly-a` | 338 |
+| 15–17 | **Flying sword attack** | Dao mark ×3 | +2 % per sword | +7 points | Increased | L3 | Multiplier | ○ | `fly-a` | 338 |
 | 18 | **Flying sword attack** | notable | +12 % per sword | +14 points | Increased | L3 | Multiplier | ○ | `fly-n` | 327 |
-| 19–21 | **Long Flight (Trường Phi)**: sword arts with an authored cooldown of 2 s or more | acupoint ×3 | +2 | +6 | More | L2 | Multiplier | ○ | `long-a` | 335 |
+| 19–21 | **Long Flight (Trường Phi)**: sword arts with an authored cooldown of 2 s or more | Dao mark ×3 | +2 | +6 | More | L2 | Multiplier | ○ | `long-a` | 335 |
 | 22 | **Long Flight** | notable | +12 | +12 | More | L2 | Multiplier | ○ | `long-n` | 323 |
-| 23–26 | **Steady Thread (Ổn Tuyến)**: sword arts while your linh lực is at 50 % or above | acupoint ×4 | +2 | +8 | Conditional | L5 | Multiplier | ○ | `steady-a` | 325 |
+| 23–26 | **Steady Thread (Ổn Tuyến)**: sword arts while your linh lực is at 50 % or above | Dao mark ×4 | +2 | +8 | Conditional | L5 | Multiplier | ○ | `steady-a` | 325 |
 | 27 | **Steady Thread** | notable | +12 | +12 | Conditional | L5 | Multiplier | ○ | `steady-n` | 313 |
-| 28–30 | **Many Threads (Đa Tuyến)**: sword arts, per flying sword equipped | acupoint ×3 | +1 per sword | +9 | Per | L2 | Multiplier | ○ | `threads-a` | 329 |
+| 28–30 | **Many Threads (Đa Tuyến)**: sword arts, per flying sword equipped | Dao mark ×3 | +1 per sword | +9 | Per | L2 | Multiplier | ○ | `threads-a` | 329 |
 
 ### The other road: the Held Line
 
@@ -55,14 +55,14 @@ The same 14 trunk nodes, then 16 of these. It is saved whole as `variants/daily-
 
 | Node | Kind | Each | Total | Form | Layer | Rung | Status |
 |---|---|---|---|---|---|---|---|
-| **Sword art speed** | acupoint ×3 | +1 % | +3 % | Increased | none | Rate | ○ |
+| **Sword art speed** | Dao mark ×3 | +1 % | +3 % | Increased | none | Rate | ○ |
 | **Sword art speed** | notable | +6 % | +6 % | Increased | none | Rate | ○ |
-| **Short Edge (Đoản Phong)**: sword arts with an authored cooldown under 2 s | acupoint ×4 | +2 | +8 | More | L2 | Multiplier | ○ |
+| **Short Edge (Đoản Phong)**: sword arts with an authored cooldown under 2 s | Dao mark ×4 | +2 | +8 | More | L2 | Multiplier | ○ |
 | **Short Edge** | notable | +12 | +12 | More | L2 | Multiplier | ○ |
-| **Spent Breath (Khí Tận)**: sword arts while your linh lực is at 50 % or below | acupoint ×2 | +2 | +4 | Conditional | L5 | Multiplier | ○ |
+| **Spent Breath (Khí Tận)**: sword arts while your linh lực is at 50 % or below | Dao mark ×2 | +2 | +4 | Conditional | L5 | Multiplier | ○ |
 | **Spent Breath** | notable | +12 | +12 | Conditional | L5 | Multiplier | ○ |
-| **Many Forms (Đa Thức)**: sword arts, per sword art slotted | acupoint ×2 | +1 per art | +6 | Per | L2 | Multiplier | ○ |
-| **Sword art cost** | acupoint ×2 | −1 % | −2 % | Increased | none | Fuel | ○ |
+| **Many Forms (Đa Thức)**: sword arts, per sword art slotted | Dao mark ×2 | +1 per art | +6 | Per | L2 | Multiplier | ○ |
+| **Sword art cost** | Dao mark ×2 | −1 % | −2 % | Increased | none | Fuel | ○ |
 
 ### Beside the road
 
@@ -109,17 +109,17 @@ All in `variants/daily-lesson-[name].fight.json`, against the mixed enemy at the
 | File | Removed | Result |
 |---|---|---|
 | `five-notables-mixed` | All five notables | Loses at t = 4, enemy on 5 % |
-| `five-acupoints-mixed` | One acupoint row of each kind: Sword, Crit, Fly, Long, Steady | Loses at t = 4 on overkill, both at 0 % |
+| `five-Dao marks-mixed` | One Dao mark row of each kind: Sword, Crit, Fly, Long, Steady | Loses at t = 4 on overkill, both at 0 % |
 | `five-fork-mixed` | Most of the fork: Fly and Long notables, both Steady rows, Many Threads | Loses at t = 4, enemy on 5 % |
-| `five-trunk-mixed` | All four trunk rows and Fly acupoints | Loses at t = 4, enemy on 1 % |
+| `five-trunk-mixed` | All four trunk rows and Fly Dao marks | Loses at t = 4, enemy on 1 % |
 | `five-worst-mixed` | Both Sword rows, Long notable, both Steady rows | Loses at t = 4, enemy on 15 % |
 | `five-closest-mixed` | Both Crit rows, both Fly rows, Steady notable | Loses at t = 4 on overkill, both at 0 % |
-| `five-narrow-mixed` | Crit acupoints, both Long rows, Steady acupoints, Many Threads | **Wins** at t = 4 on overkill, both at 0 % |
-| `five-gentlest-mixed` | Both Crit rows, Fly and Long acupoints, Many Threads | **Wins** at t = 2 on 52 %, volley 295 |
+| `five-narrow-mixed` | Crit Dao marks, both Long rows, Steady Dao marks, Many Threads | **Wins** at t = 4 on overkill, both at 0 % |
+| `five-gentlest-mixed` | Both Crit rows, Fly and Long Dao marks, Many Threads | **Wins** at t = 2 on 52 %, volley 295 |
 
 So the test does not hold for every five. Both of those wins keep the two Sword rows and the Steady notable, the three heaviest rows on the path.
 
-**The edge is two rows wide in the worst case.** `pair-sword-mixed` (both Sword rows) and `pair-steady-mixed` (Sword acupoints and Steady notable) already lose at t = 4 on overkill. `pair-spread-mixed` (Fly and Long notables) still wins at t = 2 with volley 304. Each losing pair is 11 nodes, more than a third of the path.
+**The edge is two rows wide in the worst case.** `pair-sword-mixed` (both Sword rows) and `pair-steady-mixed` (Sword Dao marks and Steady notable) already lose at t = 4 on overkill. `pair-spread-mixed` (Fly and Long notables) still wins at t = 2 with volley 304. Each losing pair is 11 nodes, more than a third of the path.
 
 **What the test does not cover.** It holds for the 30 nodes, not the kit the enemy also carries. `no-full-title-mixed` loses at t = 4 on overkill, and `two-swords-mixed` loses at t = 4 with the enemy on 25 %. `no-path-mixed`, the same person with no nodes at all, loses at t = 4 with the enemy on 30 %.
 
@@ -152,7 +152,7 @@ The Flown Line strips the pool in one blow, so an enemy with a great deal of hea
 
 | Piece | Choice | Why |
 |---|---|---|
-| Spiritual root (linh căn) | Metal, purity 50 | Sets the sector scale. Purity is not a fight input, but the row sizes assume it: 0.5 + purity / 100 (Meridian Map rule 4) |
+| Spiritual root (linh căn) | Metal, purity 50 | Sets the sector scale. Purity is not a fight input, but the row sizes assume it: 0.5 + purity / 100 (Đạo Đồ rule 4) |
 | Key talents | Thần hồn 60 | Thần thức 180 at Foundation and 600 at Core, exactly three swords at each. This is the only source of sense in the build. Fortune is not read |
 | The rest of the tree | The typical life's ward, linh lực and health | Pools and ward points copy the typical enemy, so the stack is the only difference. `n_body` 1.277, `n_qi` 1.19 |
 | The Way (Đạo) | Sword, any | None of the engine lives here |

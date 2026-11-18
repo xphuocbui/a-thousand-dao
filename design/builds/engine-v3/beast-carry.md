@@ -75,7 +75,7 @@ Gear did not matter in these fights. Three of four matchups are unchanged; only 
 
 **What changed:** `layers` went from `[332, 300, 250, 110, 89]` to `[332, 40, 40, 20, 0]`. The claimed share of the typical-to-top-end gap fell from 94 % to 18 % (Nguyên Anh budget 23 %); `fight.py` now prints `layer_budget`.
 
-**Why:** the techniques' passives and the items' modifiers already run as Effects, so the old L2-L5 numbers counted them twice. They were also a reconstruction from the v2 guide's multipliers, not Meridian Map points. L2-L4 are now the typical enemy's values (they claim nothing). L1 (332) is kept whole because the beast's bite is the concept; L5 (89, which stood in for the unmodelled Straining Leash) was cut first. No technique, item or art was removed.
+**Why:** the techniques' passives and the items' modifiers already run as Effects, so the old L2-L5 numbers counted them twice. They were also a reconstruction from the v2 guide's multipliers, not Đạo Đồ points. L2-L4 are now the typical enemy's values (they claim nothing). L1 (332) is kept whole because the beast's bite is the concept; L5 (89, which stood in for the unmodelled Straining Leash) was cut first. No technique, item or art was removed.
 
 **How the fights moved (20 fights each):**
 

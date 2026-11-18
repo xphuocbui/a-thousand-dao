@@ -8,7 +8,7 @@ extends RefCounted
 ## var b := Breakdown.new("Tu luyện / mùa")
 ## b.base("Realm base", 10.0)
 ## b.mul("Linh căn curve", 0.6)
-## b.add_pct("Kinh Mạch Đồ", 12.0)
+## b.add_pct("Đạo Đồ", 12.0)
 ## print(b.total)          # 6.72
 ## print("\n".join(b.lines()))
 ## [/codeblock]

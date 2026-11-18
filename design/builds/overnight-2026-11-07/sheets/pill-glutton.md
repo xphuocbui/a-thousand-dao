@@ -55,11 +55,11 @@ Sizes on new rows are first guesses. Walk it as a path: most of this is the ordi
 | Base | Empty Stomach (Không Phúc) | +20 % potency on the first pill of a preparation | Conditional | any | L4 | ○ | Notable | any breakthrough pill |
 | Multiplier | Damage (`attack_pct`) | 2 notable + 3 small, about +20 | Increased | any | L1 | ● | Tree | everyone |
 | Multiplier | Gorged (Bão Lôi) | +1 point per 1 % of health restored this fight | Per | art, basic | L2 | ◐ reused | Technique | Drink the Lightning |
-| Multiplier | Bright Blood (Xích Huyết) | +2 small, +12 notable, on hits while over the line | Conditional | art, basic | L5 | ○ | Acupoint, notable | any overdose or drug build |
+| Multiplier | Bright Blood (Xích Huyết) | +2 small, +12 notable, on hits while over the line | Conditional | art, basic | L5 | ○ | Dao mark, notable | any overdose or drug build |
 | Certainty | Crit chance | 10 %, ×1.5 | Increased | art, basic | none | ● | Tree | everyone |
 | Fuel | Ward efficiency, Maximum linh lực | Plain rows, +25 and +30 | Increased | any | none | ● | Tree | everyone |
 | Survival | Ward strength, Body guard, Maximum health | Plain rows, +25, +15, +25 | Increased | any | none | ● | Tree | everyone |
-| Survival | Toxicity Tolerance (Nại Độc) | +2 small, +12 notable on `dan_doc_resist_pct`, total +20. Lowers load and toxicity kept | Increased | any | none | ○ row, ● key | Acupoint, notable | anyone who eats pills |
+| Survival | Toxicity Tolerance (Nại Độc) | +2 small, +12 notable on `dan_doc_resist_pct`, total +20. Lowers load and toxicity kept | Increased | any | none | ○ row, ● key | Dao mark, notable | anyone who eats pills |
 | Identity | Over the Line (Quá Tuyến) | Above | Trade | art, basic | L5 | ○ | Cut Fuse | signature |
 
 **Identity piece:** Cut Fuse. Without it (`--without dose_timeline`, which is also a blind fight) the mixed fight is lost at 5 s with the enemy on 71 %. With every pill taken but no fuse (`no-fuse`, all onsets 0) it is lost at 6 s with the enemy on 51 %. The pills are not the build. Their timing is.
@@ -130,7 +130,7 @@ Great Charge goes down first and wakes fifth, for the reason the charges in a sh
 
 ### Hidden cluster idea: Slow Wax (Hoãn Lạp)
 
-Theme: pills and what a body can hold, wider than this build. Earth affinity. Outer, sealed by a technique, and the Seam-Water Method lists it. Size 8: small acupoints of Pill effect and Toxicity Tolerance, a notable for Bright Blood, the payoff Empty Stomach. An idea for the tree rework, not data.
+Theme: pills and what a body can hold, wider than this build. Earth affinity. Outer, sealed by a technique, and the Seam-Water Method lists it. Size 8: small Dao marks of Pill effect and Toxicity Tolerance, a notable for Bright Blood, the payoff Empty Stomach. An idea for the tree rework, not data.
 
 ## Progression
 

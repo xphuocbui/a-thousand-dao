@@ -1,6 +1,6 @@
 """Export the combat library to game data: every authored art, each named item's combat record, the typical fighter
 as a build file per realm, and the fight.py constants a Character's fighter needs (ADR-0001 step 3; user decisions
-2026-11-14: all arts and parsed wards exported, typical layers until the Meridian Map returns).
+2026-11-14: all arts and parsed wards exported, typical layers until the Đạo Đồ returns).
 
 fight.py stays the source: its library (_library), ward parser (parse_ward), reference enemies (enemy_file) and GDD-
 checked constants (C) are read here and written to assets/data/combat_library.json, which the game's FighterCompiler
@@ -13,7 +13,7 @@ What is written:
   items      per named item: the first role of its base, its modifiers (with scope), Effects by name, art ids, wards
              parsed by parse_ward() (unscaled, with what is not run), and reserve arts with their grants.
   typical    the typical fighter's build file at each realm (enemy_file("typical", r)): a Character's base until the
-             Meridian Map gives it layers of its own.
+             Đạo Đồ gives it layers of its own.
   constants  the fight.py constants the compiler reads.
 
 Run:

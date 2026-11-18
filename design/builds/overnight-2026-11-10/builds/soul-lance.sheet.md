@@ -102,9 +102,9 @@ The build's modifiers, in order up the ladder. Sizes on new pieces are first gue
 | 7 Fuel | Lamp-Oil Siphon (Hấp Đăng Du) | When your soul hit takes the foe's linh lực, restore 25 % of the points taken | Trigger | soul → linh lực | none | ○ | Hồn Đạo (shared minor), Phệ Đạo Hắc Khẩu | dry-well, Phệ Đạo soul drain |
 | 7 Fuel | Regeneration, `linh_luc_regen_pct` | +0.15 / +1 | Increased | any | none | ● | Tree | any sustain build |
 | 8 Survival | Ward slots by thần thức | +2 free ward slots at 3.5 × ds_ref (Combat Defence & Healing Formulas D) | Borrow (rule) | defence | none | ● | Combat Defence & Healing | any high-thần-thức build |
-| 8 Survival | Open Sky (Không Thiên) | Ward strength +0.5 per 1 % of thần thức not bound to artifacts, cap +30 | Per | defence | none | ◐ (effects.md) | Meridian Map, Way | ward builds, artifact-free builds |
+| 8 Survival | Open Sky (Không Thiên) | Ward strength +0.5 per 1 % of thần thức not bound to artifacts, cap +30 | Per | defence | none | ◐ (effects.md) | Đạo Đồ, Way | ward builds, artifact-free builds |
 | 9 Identity | **Thousand-Weight Thought (Thiên Quân Niệm)** | Soul attack damage (`x_soul`) +1 per 1 % of your thần thức bound to artifacts, cap +60 | Borrow / Per | soul | own sum | ○ | Hồn Đạo Thần Thức (major), named item | any soul build that carries treasures: Mind Blade (dual-metal-water), Incense Burner (triple-wood-fire-earth) |
-| 9 Identity | Heavier treasures: Bronze Shrine Bell's own `than_thuc_cost_pct` +100; Mother Lode (Mẫu Khoáng), +20 % thần thức cost per refined piece | A cost that every other build avoids, taken on purpose | Trade | soul (via the identity) | none | ○ / by-root | Named item; Meridian Map content | dual-earth-metal (where it is a cost) |
+| 9 Identity | Heavier treasures: Bronze Shrine Bell's own `than_thuc_cost_pct` +100; Mother Lode (Mẫu Khoáng), +20 % thần thức cost per refined piece | A cost that every other build avoids, taken on purpose | Trade | soul (via the identity) | none | ○ / by-root | Named item; Đạo Đồ content | dual-earth-metal (where it is a cost) |
 
 **Forms used (8):** Flat base, Increased, Timing, Rule swap, Trigger, Overflow, Per/Borrow, Trade.
 
@@ -243,13 +243,13 @@ No talisman and no formation: the soul channel ignores L4, so **a blind fight co
 | 5 | Capability #2 Divided Divine Sense | +20 % thần thức, +1 artifact slot | The seventh weight | Fits today |
 | 6 | Realm pierce (`pierce_pct`) | +3 notable | One realm up only | Fits today |
 | 7 | Regeneration (`linh_luc_regen_pct`) | +1 notable | Kết Đan fuel | Fits today |
-| 8 | Open Sky (Meridian Map host) | ward strength per free 1 % | The other end of the dial: +13.5 to +17.5 ws on the build's 27–35 % free thần thức | Fits today (designed) |
+| 8 | Open Sky (Đạo Đồ host) | ward strength per free 1 % | The other end of the dial: +13.5 to +17.5 ws on the build's 27–35 % free thần thức | Fits today (designed) |
 | — | Unyielding Breath (keystone) | — | Optional, against burst foes that would kill before the fourth lance; costs 15 % health | Fits today (designed) |
 
 ### Hidden cluster idea: Lamp Wick (Đăng Tâm)
 
 Theme: divine sense, the mind's weight (wider than this build: artifact masters, formation masters and every soul
-build read it). Water affinity. **Sealed**, 8 acupoints; seal: the Lamp-Threading Scripture lists it in
+build read it). Water affinity. **Sealed**, 8 Dao marks; seal: the Lamp-Threading Scripture lists it in
 `seal_clusters`. Smalls: thần thức +0.9 (×3), soul strength +0.40 (×2), soul attack damage +1.5 (×1). Notables: thần thức
 +6 (middle) and, farthest from the entry, soul attack damage +12 scoped [thuy]. No capability. An idea for the tree
 rework, not data.
@@ -362,6 +362,6 @@ price for soul arts (suggestions.md).
 | Seven arts | Needs key | Art records (Combat rule 13); soul-art size, cleanse art and escape art formats |
 | Hồn Đạo nodes (Thần Thức, Hồn Kích, Hồn Hộ) | Fits today | Graph nodes when Hồn Đạo is drawn |
 | Lamp Wick cluster | Fits today | A cluster idea for the tree rework |
-| Mother Lode (from by-root) | Fits today | Meridian Map content |
+| Mother Lode (from by-root) | Fits today | Đạo Đồ content |
 | Soul-art lint | Needs rule | combat.md Formulas C or E2 |
 | Reference thần thức and soul resistance by realm | Needs rule | combat-defence.md Open Question 12; this sheet's foe values are guesses until it exists |

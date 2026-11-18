@@ -124,7 +124,7 @@ A manual for standing where you can be seen by the drums, and nothing else.
 
 ### Hidden cluster idea: Drum Line (Cổ Liệt Mạch)
 
-Theme formations, Earth, outer, sealed by the Standard-Bearer's Method. Size 9. Small acupoints: formation power, health. Notables: Given to the Ranks, Rotating Ranks. Capability: Field Array. An idea for the tree rework, not data.
+Theme formations, Earth, outer, sealed by the Standard-Bearer's Method. Size 9. Small Dao marks: formation power, health. Notables: Given to the Ranks, Rotating Ranks. Capability: Field Array. An idea for the tree rework, not data.
 
 ## Progression
 

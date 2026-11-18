@@ -19,7 +19,7 @@ for f in sorted(glob.glob('*.md')):
 def cat(n,d,k):
     dl=d.lower().lstrip(': ')
     if k=='root': return '1. Linh lực keystones, one per element or variant (user decision 2026-11-09)'
-    if 'content' in n.lower() or dl.startswith('keystone'): return '2. Keystone content for the Meridian Map'
+    if 'content' in n.lower() or dl.startswith('keystone'): return '2. Keystone content for the Đạo Đồ'
     if any(w in dl for w in ['artifact kind','a ward:','a formation','consumable','pill kind','formation field','an item','an artifact refined']): return '6. Items, wards and formations'
     if dl.startswith('a công pháp') or dl.startswith('a light công pháp'): return '4. Công pháp'
     if dl.startswith('an effect'): return '3. Effects'
@@ -37,7 +37,7 @@ out=["# Missing pieces","",
 "`tools/design/build_catalogue/compile_missing.py` (rerun after editing a build). Nothing here is designed into a GDD; each is a proposal",
 "for the library: modifiers, Effects, items, công pháp, Đạo, keystones.","",
 "Where a piece names a system rule, that system's owner would have to accept it. Effects are unpriced (Effects",
-"rule 4); arts and items pass their own lints; keystones belong to the Meridian Map content pass, which waits on",
+"rule 4); arts and items pass their own lints; keystones belong to the Đạo Đồ content pass, which waits on",
 "the modifier library (user, 2026-11-09).",""]
 for g in sorted(groups):
     out.append(f"## {g[3:]}"); out.append("")

@@ -77,7 +77,7 @@ art fired adds an Earth buff stack ("clay hardens in the kiln").
 
 **New pieces.**
 - **Clay in the Kiln (Nê Nhập Diêu)**, keystone content for Earthen Kiln: "each Fire art you fire grants 1 Earth
-  buff stack for 15 s; your Earth arts cost 25 % more". How to create: Meridian Map content pass.
+  buff stack for 15 s; your Earth arts cost 25 % more". How to create: Đạo Đồ content pass.
 
 ## 4. The Salamander Keeper (Hỏa Tích Chủ)
 

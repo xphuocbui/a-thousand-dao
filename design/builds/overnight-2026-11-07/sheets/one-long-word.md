@@ -36,24 +36,24 @@ This is the node list: 30 nodes, 24 small and 6 notable, on one road. All are tr
 
 | # | Node | Size | Taken | Each | Total | Form | Layer | Second home |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Lingering Word (Dư Ngôn) | acupoint | 3 | +2.5 % curse duration | +7.5 % | Increased | none | Stand-In |
+| 1 | Lingering Word (Dư Ngôn) | Dao mark | 3 | +2.5 % curse duration | +7.5 % | Increased | none | Stand-In |
 | 2 | Slow to Lift (Nan Giải) | notable | 1 | +15 % curse duration | +15 % | Increased | none | Incense Vigil |
-| 3 | Sharpened Word (Lợi Ngôn) | acupoint | 3 | +2 % curse strength, inside Combat's bounds | +6 % | Increased | none | Thousand Scales |
+| 3 | Sharpened Word (Lợi Ngôn) | Dao mark | 3 | +2 % curse strength, inside Combat's bounds | +6 % | Increased | none | Thousand Scales |
 | 4 | Full Weight (Toàn Trọng) | notable | 1 | +12 % curse strength, inside Combat's bounds | +12 % | Increased | none | Herd-Child |
-| 5 | Quick Tongue (Tấn Thiệt) | acupoint | 3 | +1 % curse art speed | +3 % | Increased | none | Not-Yet-Full |
+| 5 | Quick Tongue (Tấn Thiệt) | Dao mark | 3 | +1 % curse art speed | +3 % | Increased | none | Not-Yet-Full |
 | 6 | Between Breaths (Tức Gian) | notable | 1 | +6 % curse art speed | +6 % | Increased | none | Lucky Fool |
-| 7 | Thrifty Word (Tiết Ngôn) | acupoint | 3 | −1 % curse art cost | −3 % | Increased | none | Incense Vigil |
-| 8 | Marked Target (Tiêu Ký) | acupoint | 3 | +1 art damage per curse on the target | +3 per curse | Per | L1 | Stand-In |
-| 9 | Bare Vessel (Lộ Đỉnh), reused | acupoint | 2 | +2.5 hit damage while the enemy has under 5 % linh lực | +5 | Conditional | L5 | any ward-breaker |
-| 10 | Thinning Ward (Bạc Hộ) | acupoint | 2 | +2 art damage while the enemy has under 50 % linh lực | +4 | Conditional | L1 | Deepest Well |
+| 7 | Thrifty Word (Tiết Ngôn) | Dao mark | 3 | −1 % curse art cost | −3 % | Increased | none | Incense Vigil |
+| 8 | Marked Target (Tiêu Ký) | Dao mark | 3 | +1 art damage per curse on the target | +3 per curse | Per | L1 | Stand-In |
+| 9 | Bare Vessel (Lộ Đỉnh), reused | Dao mark | 2 | +2.5 hit damage while the enemy has under 5 % linh lực | +5 | Conditional | L5 | any ward-breaker |
+| 10 | Thinning Ward (Bạc Hộ) | Dao mark | 2 | +2 art damage while the enemy has under 50 % linh lực | +4 | Conditional | L1 | Deepest Well |
 
 ### The Long line (8 nodes): one curse, kept
 
 | # | Node | Size | Taken | Each | Total | Form | Layer | Second home |
 |---|---|---|---|---|---|---|---|---|
 | 11 | Single Grudge (Độc Oán) | notable | 1 | +12 art damage while the target bears exactly one curse | +12 | More | L2 | any one-curse build |
-| 12 | Set Jaw (Giảo Nha) | acupoint | 3 | +2 art damage while the target bears exactly one curse | +6 | More | L2 | any one-curse build |
-| 13 | One Thought (Nhất Niệm) | acupoint | 2 | +2.5 % strength of a curse on an art with a cooldown of 3 s or more | +5 % | Increased | none | any slow curse art |
+| 12 | Set Jaw (Giảo Nha) | Dao mark | 3 | +2 art damage while the target bears exactly one curse | +6 | More | L2 | any one-curse build |
+| 13 | One Thought (Nhất Niệm) | Dao mark | 2 | +2.5 % strength of a curse on an art with a cooldown of 3 s or more | +5 % | Increased | none | any slow curse art |
 | 14 | Long Memory (Trường Ký) | notable | 1 | +15 % curse duration | +15 % | Increased | none | Incense Vigil |
 | 15 | Unbroken Sentence (Bất Đoạn) | notable | 1 | +10 art damage while the enemy has under 50 % linh lực | +10 | Conditional | L5 | any starver |
 
@@ -62,9 +62,9 @@ This is the node list: 30 nodes, 24 small and 6 notable, on one road. All are tr
 | # | Node | Size | Taken | Each | Total | Form | Layer | Second home |
 |---|---|---|---|---|---|---|---|---|
 | 16 | Many Small Ills (Bách Tiểu Tật) | notable | 1 | +5 art damage per curse on the target | +15 at three | Per | L2 | Stand-In |
-| 17 | Nibbling Word (Thực Ngôn) | acupoint | 2 | +1 art damage per curse on the target | +6 at three | Per | L2 | any three-curse build |
+| 17 | Nibbling Word (Thực Ngôn) | Dao mark | 2 | +1 art damage per curse on the target | +6 at three | Per | L2 | any three-curse build |
 | 18 | Crowded Sky (Mãn Thiên) | notable | 1 | +3 art damage per curse on the target | +9 at three | Per | L5 | any hit-and-curse build |
-| 19 | Small Word (Tiểu Ngôn) | acupoint | 3 | +2.5 % strength of a curse on an art costing 5 % or less | +7.5 % | Increased | none | any cheap curse art |
+| 19 | Small Word (Tiểu Ngôn) | Dao mark | 3 | +2.5 % strength of a curse on an art costing 5 % or less | +7.5 % | Increased | none | any cheap curse art |
 | 20 | Hurrying Word (Cấp Ngôn) | notable | 1 | +6 % curse art speed | +6 % | Increased | none | any curse build |
 
 **Why a player cannot have both.** A second curse switches off Single Grudge and Set Jaw. Three curses take three of Foundation's four slots. Nodes 16 to 18 pay three times over for what a lone curse is paid once.
@@ -110,7 +110,7 @@ The duration rows move nothing alone because rounding gives them slack, and they
 |---|---|---|
 | `quietest` | The five rows that changed nothing alone: 1, 2, 14, 5, 6 | **Lost** at 10 s, enemy on 4 % |
 | `reward` | 8, 9, 10, 11, 12 | **Lost** at 8 s, enemy on 9 % |
-| `small` | Five acupoint rows: 7, 1, 5, 9, 8 | **Lost** at 10 s, enemy under 1 % |
+| `small` | Five Dao mark rows: 7, 1, 5, 9, 8 | **Lost** at 10 s, enemy under 1 % |
 | `r1` | 2, 4, 7, 12, 15 | **Lost** at 8 s, enemy on 3 % |
 | `r2` | 1, 4, 8, 9, 12 | **Lost** at 8 s, enemy on 1 % |
 | `r3` | 2, 7, 9, 11, 13 | **Lost** at 8 s, enemy on 2 % |

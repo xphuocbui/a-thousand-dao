@@ -16,7 +16,7 @@ OUT, MD = sys.argv[1], sys.argv[2]
 d = json.load(open(f"{OUT}/inventory.json", encoding="utf-8"))
 
 SRC_LABEL = {
-    "live-key": "game data", "combat-key": "Combat GDD", "capability": "Meridian capability",
+    "live-key": "game data", "combat-key": "Combat GDD", "capability": "Đạo Đồ capability",
     "catalogue-node": "catalogue", "catalogue-oneoff": "catalogue", "catalogue-keystone": "catalogue",
     "catalogue-forged": "catalogue", "catalogue-enabler": "catalogue", "overnight-special": "overnight",
     "overnight-plain": "overnight", "overnight-keystone": "overnight", "overnight-enabler": "overnight",
@@ -31,7 +31,7 @@ EFFECT_TYPES = [
     ("overflow", "Overflow", "Uses what a cap clips."),
     ("rule", "Rule change", "Changes a rule outright, with no number to stack."),
     ("one-off", "Rule change", ""),
-    ("keystone / capability", "Keystone", "A strong rule with a price. Meridian capabilities are here too."),
+    ("keystone / capability", "Keystone", "A strong rule with a price. Đạo Đồ capabilities are here too."),
     ("enabler", "Enabler", "Opens a channel, a rule or a resource and closes something in exchange; the piece a build is built on."),
 ]
 TYPE_OF = {k: v for k, v, _ in EFFECT_TYPES}
@@ -127,7 +127,7 @@ w(f"| **Total** | **{len(mods)}** | **{len(effs)}** |")
 w("")
 w("*Live* in game data · *Designed* in a GDD, not built · *Idea* in the Nov 6 tree catalogue · *Proposal* from the")
 w("overnight run. Sources: `assets/data/character_stat_labels.json` and the files that use its keys, `combat.md`")
-w("§ Parameter keys, `meridian_capabilities.json`, `design/quick-specs/tree-modifier-catalogue.md`, and the")
+w("§ Parameter keys, `dao_do_capabilities.json`, `design/quick-specs/tree-modifier-catalogue.md`, and the")
 w("overnight `summary/1-modifiers.md` and `2-techniques-and-effects.md` § Enablers. 624 entries read, 556 after merging.")
 w("")
 
@@ -135,7 +135,7 @@ w("")
 w("## Part 1: Modifiers")
 w("")
 w("Grouped by the stat they change. Rows that are the same modifier on a different tag are folded into one")
-w("**template** (`<tag> art cost`), with the tags seen so far. **Breadth** answers the Meridian Map question:")
+w("**template** (`<tag> art cost`), with the tags seen so far. **Breadth** answers the Đạo Đồ question:")
 w("*universal* helps every build, *family* a broad group (an element, arts, soul), *narrow* a few.")
 w("")
 mgroups = defaultdict(list)

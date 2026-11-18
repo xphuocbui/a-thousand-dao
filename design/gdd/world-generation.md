@@ -79,9 +79,9 @@ Without this system the other systems have a map but no past, no population and 
    living cast and the core legends; dead people named only by the wider chronicle (rule 3) are records outside the
    count (user decision 2026-11-15).
 6. **Every living fixed character has a fully authored build** (user decision 2026-11-15): techniques, arts, gear and
-   Kinh Mạch Đồ choices, written in the same format NPC Build Generation emits and checked by the same validator.
+   Đạo Đồ choices, written in the same format NPC Build Generation emits and checked by the same validator.
    Nothing about their build is rolled. Their Power Rankings rating is not authored: it is measured like everyone
-   else's. **Risk:** these builds depend on the Meridian Map, whose shape is a placeholder (parked). A tree change
+   else's. **Risk:** these builds depend on the Đạo Đồ, whose shape is a placeholder (parked). A tree change
    makes them fail the load check (Edge Cases) until they are redone.
 7. **Sect start state is authored in part.** Each of the 30 sects has a table row with its alignment, its four
    development levels (Holdings, Institutions, Military, Trade) and its treasury, and each minor sect also its
@@ -276,7 +276,7 @@ fight budget (`worldgen_fight_budget`) belongs to Power Rankings.
 - **If a hidden slot has no origin event in the chronicle, or an event names a slot that is not in the slot list:**
   Failed, naming it.
 - **If a sect has no living leader in the cast, or has two:** Failed, naming the sect.
-- **If a living cast member's authored build fails the NPC Builds validator** (a technique, art, item or Kinh Mạch Đồ
+- **If a living cast member's authored build fails the NPC Builds validator** (a technique, art, item or Đạo Đồ
   node that no longer exists): Failed, naming the person and the missing id. This is the Core Rule 6 risk, and it
   will trigger whenever the tree changes.
 - **If a sect's authored development level is above Sects' F1 settle level, or a vassal's start loyalty is at or
@@ -440,7 +440,7 @@ Trade and Trade Goods, and the `realm_distribution` weights in `assets/data/worl
 - **AC-WG-08** [Integration] Rule 6. GIVEN each living cast member, WHEN the authored build is run through the NPC
   Builds validator, THEN it passes. WHEN a fight sheet is built from it under two different game seeds, THEN the two
   sheets are identical.
-- **AC-WG-09** [Logic] Rule 6. GIVEN a cast build that names a Meridian Map node that does not exist, WHEN Checking
+- **AC-WG-09** [Logic] Rule 6. GIVEN a cast build that names a Đạo Đồ node that does not exist, WHEN Checking
   runs, THEN the state is Failed, the message names the person and the node, and nothing is saved.
 - **AC-WG-10** [Config/Data] Rule 7. GIVEN the sect start-state table, THEN it has 30 rows, every development level
   is at or below Sects' F1 settle level (12, 9 or 4 by tier), every minor sect's loyalty is above 30, and the table
@@ -537,7 +537,7 @@ UI is not built.
 | 1 | ~~Who are the 30–70 cast members besides the 29 sect heads: names, roles, realms, home places?~~ **Answered 2026-11-15:** the roster is drafted and approved in `design/world/cast_proposal.json`: 69 people (51 living: 14 Nguyên Anh, 30 Kết Đan, 4 Trúc Cơ, 1 Luyện Khí, 2 Hóa Thần; 18 dead records), plus 4 vanished sects and 10 master ties. **Traits for all 51 living are approved 2026-11-15** in `design/world/leader_traits_proposal.json` (3 personality traits from 3 sets and 1 calling each; 5 people also hold a fate-given trait). **Still open:** the fully authored builds for the 51 living (Core Rule 6; Open Question 4) | user, world-builder | Roster and traits answered; builds open |
 | 2 | ~~How long is the chronicle in years, and what is the starting year?~~ **Answered 2026-11-15:** 1,200 years, starting year 1,200 (Core Rule 11). The 7 great sects are founded 700–1,100 years ago and the three-sect battlefield war about 400 years back. **The chronicle itself is drafted and approved 2026-11-15** in `design/world/chronicle_proposal.json`: 42 events, with one origin event for each of the 28 hidden slots | user, world-builder | Answered |
 | 3 | ~~The 29 sects' starting levels, dials, attitudes, treasuries, alignments and leaders' traits, under F1's settle levels~~ **Answered in part 2026-11-15:** alignments, levels, treasuries and loyalty are approved in `design/world/sect_start_proposal.json` (Thính Vũ Lâu is ma đạo; Xuyên Lâm Môn and Dạ Quang Môn start at loyalty 40); dials and attitudes start at their formula targets, not authored (Core Rule 7). **The 29 leaders' traits are approved too** (3 personality traits from 3 sets and 1 calling each), in `design/world/leader_traits_proposal.json`. Known weaknesses: Military uses wars only, and the treasuries are guesses until Sects' balance run (AC-SM-42) | user, systems-designer | Leaders' traits open |
-| 4 | When are the 60–100 hand-built cast builds written, given that the Meridian Map shape is parked? If the cost is too high, the fallback is to hand-build the 29 heads and a few dozen of the rest, and generate the others | user | Before the cast is authored |
+| 4 | When are the 60–100 hand-built cast builds written, given that the Đạo Đồ shape is parked? If the cost is too high, the fallback is to hand-build the 29 heads and a few dozen of the rest, and generate the others | user | Before the cast is authored |
 | 5 | ~~Can the player see, type or share a seed?~~ **Answered 2026-11-15:** the seed shows on the pause screen and in the save list, and the new-game screen has an optional seed field (blank = random). Re-rolling stays allowed (Edge Cases) | user, ux-designer | Answered |
 | 6 | ~~Does the save copy the continent's terrain, or read it from files at runtime?~~ **Answered 2026-11-15:** terrain stays in the versioned data files and is not copied; each save records the map version, and a save made on another map version is refused with both versions named (Edge Cases, Seeds and saves). Map hand edits land between releases | user, technical-director | Answered |
 | 7 | ~~Replace the old `realm_distribution` weights with Realms' solved counts~~ **Done 2026-11-15:** `assets/data/world_generation.json` now holds 3,936 / 844 / 191 / 27 / 3. The census at seed 101 starts at 3,877 / 896 / 200 / 25 / 2 (the generator still rolls realms at random; Formula A's exact targets come with the rework). AC-CG-69's 2,000-year run was not re-run | gameplay-programmer | Done; AC-CG-69 re-run open |

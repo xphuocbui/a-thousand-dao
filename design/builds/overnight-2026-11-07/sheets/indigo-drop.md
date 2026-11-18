@@ -30,14 +30,14 @@ At 0.5 s the drop lands for almost nothing. For three seconds you stand behind a
 
 ## The Stack
 
-Sizes are first guesses. Sector rows here pay ×1.5 at purity 100 (Meridian Map rule 21), and roads pay ×1.
+Sizes are first guesses. Sector rows here pay ×1.5 at purity 100 (Đạo Đồ rule 21), and roads pay ×1.
 
 | Rung | Modifier | Effect | Form | Channel | Layer | Status | Home | Second home |
 |---|---|---|---|---|---|---|---|---|
 | Identity | **One Drop (Nhất Tích)** | Your first hit leaves 1 % colour. Each pulse colour × (1 + (clean purity − their highest purity) ÷ 50 × spread). That share of their art hits resolves on them, and that share of their ward does not stop you or them | Rule swap | art | none | ○ | Cluster keystone | signature |
 | Sacrifice | **The Clear Line (Thanh Tuyến)** | Clean purity is purity −4 per stain: each artifact, pill in effect, art naming another element, or second Way | Trade | any | none | ○ | Same keystone | any ascetic path |
 | Base | **Clean Hands (Tịnh Thủ)** | +0.5 % starting colour per empty art slot | Per | any | none | ○ | Cluster notable | any build with empty slots |
-| Rate | **Steeped (Tẩm Lâu)** | +6 % spread on spreading statuses, and six acupoints of +1 %. +18 % at ×1.5 | Increased | status | none | ○ | Cluster | any spreading status |
+| Rate | **Steeped (Tẩm Lâu)** | +6 % spread on spreading statuses, and six Dao marks of +1 %. +18 % at ×1.5 | Increased | status | none | ○ | Cluster | any spreading status |
 | Past the cap | **Bluer Than the Plant (Thanh Ư Lam)** | At 100 %, their basic attack turns too | Overflow | basic | none | ○ | Cluster notable | The Lucky Fool, any self-hit door |
 | Survival | **Mordant (Môi Nhiễm)** | A cleanse leaves half of the colour | Trade | status | none | ○ | Cluster notable | any status that fears a cleanse |
 | Survival | Standing Verdict | Per-hit ward, pass 0.30 and 0.20. Reused, and not the plan: see Matchups | Rule swap | any | none | ○ | Ward | From The Fortieth Breath |
@@ -50,7 +50,7 @@ Sizes are first guesses. Sector rows here pay ×1.5 at purity 100 (Meridian Map 
 
 ### Cluster: The Clear Vat (Thanh Hang)
 
-Wood sector, sealed by a cultivation technique: Clear Vat Canon as the main method for `cong_phap_seasons`. Eleven nodes: six acupoints of spread, Steeped, Clean Hands, Mordant, Bluer Than the Plant, and One Drop farthest from the entry. Anyone can open it. It does nothing unless you are purer than the person you meet.
+Wood sector, sealed by a cultivation technique: Clear Vat Canon as the main method for `cong_phap_seasons`. Eleven nodes: six Dao marks of spread, Steeped, Clean Hands, Mordant, Bluer Than the Plant, and One Drop farthest from the entry. Anyone can open it. It does nothing unless you are purer than the person you meet.
 
 ## Foundation
 

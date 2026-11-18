@@ -144,7 +144,7 @@ History: the Sash was woven from the shed wings of a cicada that, the story goes
 
 | Priority | Node, cluster or keystone | Value | Why | Fit |
 |---|---|---|---|---|
-| 1 | Evade (`evade_pct`) small and notable acupoints | +0.4 / +2.5 pp | to reach 55–65 pp | Fits today |
+| 1 | Evade (`evade_pct`) small and notable Dao marks | +0.4 / +2.5 pp | to reach 55–65 pp | Fits today |
 | 2 | Wind damage notables | +12 % | L1 | Needs key |
 | 3 | Art speed notables | +3 % | rate | Fits today (◐) |
 | 4 | Linh lực regeneration and art cost | +1 % / −3 % | fuel | Fits today |
@@ -153,7 +153,7 @@ History: the Sash was woven from the shed wings of a cicada that, the story goes
 
 ### Hidden cluster idea: Reed Drift (Lô Phiêu)
 
-Theme: Heart State (Điều Tức)-adjacent movement; element affinity Wind; sealed, seal condition "a fight survived with no hit landed" (also the Scripture's `seal_clusters` entry). Size 8 acupoints, one notable per `huyet_per_notable`. Small acupoints: evade, art speed, first firing sooner, status duration (Wind stacks last longer). Notables: Rhythm of the Miss (Hụt Tiết) and Wind-Fed Edge (Phong Dưỡng Nhận). No capability. An idea for the tree rework, not data.
+Theme: Heart State (Điều Tức)-adjacent movement; element affinity Wind; sealed, seal condition "a fight survived with no hit landed" (also the Scripture's `seal_clusters` entry). Size 8 Dao marks, one notable per `marks_per_notable`. Small Dao marks: evade, art speed, first firing sooner, status duration (Wind stacks last longer). Notables: Rhythm of the Miss (Hụt Tiết) and Wind-Fed Edge (Phong Dưỡng Nhận). No capability. An idea for the tree rework, not data.
 
 ## Đạo
 

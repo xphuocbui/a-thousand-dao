@@ -171,7 +171,7 @@ Thần thức: 1,350 of 1,500 at soul strength 50.
 
 ### Hidden cluster idea: Long Table (Trường Tịch Mạch)
 
-Theme: the Way of Alchemy, Fire, sealed by a technique (Wedding Hearth Sutra), size 8. Small acupoints are alchemy success and Fire damage. Notables are Cook's Hand, then Fine Work at the far end. No capability. An idea for the tree rework, not data.
+Theme: the Way of Alchemy, Fire, sealed by a technique (Wedding Hearth Sutra), size 8. Small Dao marks are alchemy success and Fire damage. Notables are Cook's Hand, then Fine Work at the far end. No capability. An idea for the tree rework, not data.
 
 ## Progression
 

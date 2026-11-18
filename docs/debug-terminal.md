@@ -67,7 +67,7 @@ After every action that changes something, the terminal prints three things:
 - **Δ change line**: what the action changed ("1 year passed · Tu vi 0 → 14 (+14) ·
   Linh thạch 44 → 39 (−5) · + Hỏa Linh Chi"), coloured by gain or loss.
 - **HUD**: realm with a tu vi bar and the time to the next tầng (or BÌNH CẢNH), age
-  against thọ nguyên, khí huyết, linh thạch, chiến lực, unspent Kinh Mạch points, and
+  against thọ nguyên, khí huyết, linh thạch, chiến lực, unspent Đạo Đồ points, and
   the two most pressing goals from the Advisor (‼ urgent, ! warning, ➤ goal).
 - **Numbered menu**: the Advisor's goals as concrete actions ("Plant Hoàng Tinh Sâm
   (15 LT) — for Trúc Cơ Đan", "Break through to Trúc Cơ (52%)") followed by what can be
@@ -98,7 +98,7 @@ field / recipes          linh điền and đan phương (what is ripe, what you 
 plant hoang_tinh_sam     a seed for the Trúc Cơ Đan, which needs 30 years of age
 cul 4                    cultivate a year (events may interrupt)
 event / choose 2         read and answer an event
-tree / tree targets      Kinh Mạch Đồ: openable huyệt, notables and keystones by cost
+tree / tree targets      Đạo Đồ: openable đạo văn, notables and keystones by cost
 tree go <id>             open the whole path to a node
 talk <person id> hello   conversation (LLM or template)
 db people <filter>       the world database; db show <id> for anyone's record and history
@@ -109,7 +109,7 @@ help                     every command
 ```
 
 The full command list is `help` (grouped: General, New life, Character, Actions,
-World, Kinh Mạch Đồ, LLM, Debug). Debug commands (`debug event <template>`,
+World, Đạo Đồ, LLM, Debug). Debug commands (`debug event <template>`,
 `debug tuvi`, `debug lt`, `debug herb`, `debug tp`, `debug heal`, `debug item`,
 `buildgen <archetype> <realm>`) exist for testing and balancing.
 
@@ -126,8 +126,8 @@ World, Kinh Mạch Đồ, LLM, Debug). Debug commands (`debug event <template>`,
 | Living world | `world/world_ticker.gd` | each season NPCs age, cultivate, break through, die, duel |
 | Story | `narrative/narrator.gd`, `events/*` | LLM or template events, LLM narration with a number check, NPC talk, an epitaph; `chronicle` |
 | Item generation | `items/item_factory.gd` | linh thảo (age → potency), đan dược (quality), pháp bảo (grade, tier, element, affixes), công pháp (tier, elements, bonuses), materials |
-| Build generation | `build/build_generator.gd` | every NPC gets linh căn, thiên phú, công pháp, artifacts limited by thần thức, Kinh Mạch points spent toward its archetype, đạo nghệ — same rules as the player |
-| Passive tree (PoE-like) | `meridian/meridian_tree.gd`, `meridian_generator.gd` | design/gdd/kinh-mach-do.md: 772 visible acupoints, 75 hidden clusters, 25 capabilities, 8 locked variant sectors; terminal `tree`, `tree clusters`, `tree mode` |
+| Build generation | `build/build_generator.gd` | every NPC gets linh căn, thiên phú, công pháp, artifacts limited by thần thức, Đạo Đồ points spent toward its archetype, đạo nghệ — same rules as the player |
+| Passive tree (PoE-like) | `dao_do/dao_do_tree.gd`, `dao_do_generator.gd` | design/gdd/dao-do.md: 772 visible Dao marks, 75 hidden clusters, 25 capabilities, 8 locked variant sectors; terminal `tree`, `tree clusters`, `tree mode` |
 | LLM events | `narrative/llm_service.gd`, `events/event_validator.gd` | DeepSeek/OpenAI-compatible; the engine clamps every number to `events_budgets.json`, registers new people before they appear, drops unknown effects, and shows each adjustment |
 | Databases | `world/world_db.gd` | people, sects, places, regions, items, events — one JSON-serializable store, event index per entity; terminal `db` |
 | Crafting / economy | `crafting/herb_field.gd`, `alchemy.gd`, `items/pill_effects.gd`, `economy/market.gd` | herbs age by Mộc, alchemy by Hỏa/Đan Đạo, đan độc brake, markets by realm budget |
@@ -153,7 +153,7 @@ src/core/            engine-level, no gameplay knowledge
   llm/               LlmClient (synchronous HTTPClient, OpenAI-compatible)
 src/gameplay/        rules; depend on core, never on the terminal
   game_data.gd       typed access to assets/data
-  character/ cultivation/ meridian/ items/ crafting/ economy/ combat/
+  character/ cultivation/ dao_do/ items/ crafting/ economy/ combat/
   build/ world/ events/ narrative/ session/ meta/
 src/debug_terminal/  frontend: terminal_main (entry), terminal_io, terminal_views, terminal_app
 assets/data/         every gameplay number (schemas: docs/data-schemas.md)
@@ -231,7 +231,7 @@ testing the LLM path offline: `node tools/llm-mock/mock_server.js` then
   the Heavenly Tribulation is absent, so the Deity Transformation roll stands alone; divine
   abilities exist on techniques but Combat reads none; #20's "seen two stages lower" is not
   shown; the Advisor shows brews possible and `Advisor.next_plant` holds the plant plan, but the
-  terminal has no one-click command for it yet. The viewer is built by `tools/meridian-map/`.
+  terminal has no one-click command for it yet. The viewer is built by `tools/dao-do/`.
 - **Open design questions carried from the concept**: turn granularity (season vs year)
   and exact combat resolution (currently a power-ratio duel).
 - Unit tests read the real data files (they are project fixtures, read-only); a

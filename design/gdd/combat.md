@@ -16,7 +16,7 @@ across layers, so an assembled build far outscales a single stacked stat and can
 about half the time two realms up. It replaces today's power-ratio duel, hosts the Way's arts and
 Heavenly Tribulation, and collapses to a rating only for wars and great battles.
 
-> **Quick reference** — Layer: `Feature` · Priority: `MVP` · Key deps: `Combat Defence & Healing, Combat Damage Types, Modifier System, Effects System, Character Stats, Realms, Cultivation Techniques, Meridian Map, Artifact Refining, Formations, Talismans, Spirit Beasts`
+> **Quick reference** — Layer: `Feature` · Priority: `MVP` · Key deps: `Combat Defence & Healing, Combat Damage Types, Modifier System, Effects System, Character Stats, Realms, Cultivation Techniques, Đạo Đồ, Artifact Refining, Formations, Talismans, Spirit Beasts`
 
 ## Overview
 
@@ -25,7 +25,7 @@ cultivators, or a cultivator and a creature, is prepared by the player and then 
 engine as a deterministic, seeded exchange on a timeline of seconds. Every hit is logged with a Breakdown that
 shows which layers of the build produced it, so a player can see why a build won or lost
 (Pillar 2). The fight itself is auto-resolved: the choices that decide it are made before it
-starts, in the build (spiritual root, techniques, Meridian Map [Kinh Mạch Đồ], the Way [Đạo], artifacts [pháp bảo],
+starts, in the build (spiritual root, techniques, Đạo Đồ, the Way [Đạo], artifacts [pháp bảo],
 spirit beasts [linh thú]) and in the preparation (formations [trận pháp] laid, talismans [phù lục] drawn, poison
 applied, ground chosen, arts slotted). This replaces today's single power-ratio duel, which
 cannot host skills or the Way's arts.
@@ -35,7 +35,7 @@ the same day:
 
 - **Scaling layers.** Bonuses add within a layer and multiply across layers, so a build that works
   several layers far outscales one that stacks a single number. Big numbers come from how a build
-  is assembled, not from a stat race (Pillar 3). Meridian Map and Way W stay additive and keep
+  is assembled, not from a stat race (Pillar 3). Đạo Đồ and Way W stay additive and keep
   buying the inside of one layer; the other layers are priced separately.
 - **Tags, conversion and triggers.** Arts, techniques and Way nodes carry tags (element, sword,
   soul, poison), and modifiers key off them. A Dao can convert one damage type to another (Physical to Fire; Combat Damage Types rule 6),
@@ -92,8 +92,7 @@ author's reading and wait for confirmation (see Open Questions).
    resistance and soul wards (rule 24). Curses carry no damage type and deal no damage (rule 8).
 5. **Layers add inside and multiply across.** Every modifier belongs to exactly one layer, fixed by
    its authoring and never chosen in play. Within a layer the bonuses add; across layers the layer
-   totals multiply. The layer list is small and fixed in data. **W stays additive:** the Meridian
-   Map's and the Way's `attack_pct`-style bonuses keep their W price and fill the first
+   totals multiply. The layer list is small and fixed in data. **W stays additive:** the Đạo Đồ's and the Way's `attack_pct`-style bonuses keep their W price and fill the first
    (increased) layer exactly as they do today. The other layers are filled by sources priced
    separately: tagged art modifiers, equipment and companions, preparation and ground, and
    Effects (conditions, triggers, conversions with a rule). A hit's damage is `base × Π layers`, and each layer
@@ -464,7 +463,7 @@ this GDD expects, to be matched when those systems are designed.
 | Character Stats (#7) | in / out | In: vitality, spiritual power and divine sense, `attack_pct`, `defense_pct` (ward strength, which scales ward payloads), `khi_huyet_pct`, `linh_luc_pct`, `than_thuc_pct`, `artifact_power_pct`, the artifact-local keys, `single_artifact`, the defence and offence keys of Parameter keys, the realm term of power, the vitality factor floor. Out: vitality loss after a fight, `+2` heart demon on a cultivator knockout with capability #9, and the life costs Effects report (applied by the caller) | Character Stats (keys, units); Combat (what each key does in the fight) |
 | Realms & Bottlenecks (#8) | in / out | In: realm, stage multiplier, the realm gap `g`. Out: defeats for capability #9, and the result for a tribulation | Realms |
 | Cultivation Techniques (#9) | in | `tech_power` (through spiritual power), the unlocked divine abilities with their unlock layer, and body techniques' block, body shield and resistance (Combat Defence & Healing rule 12, Formulas H) | Cultivation Techniques (which and when); Combat (what they do) |
-| Meridian Map (#10) | in | Only the stat modifiers, through Character Stats. Combat hosts no capability behaviour: each capability has one host, and an effect such as #1 or #3 reaches Combat only as the artifact values its host supplies. For #9, Combat only reports the defeat | Meridian Map |
+| Đạo Đồ (#10) | in | Only the stat modifiers, through Character Stats. Combat hosts no capability behaviour: each capability has one host, and an effect such as #1 or #3 reaches Combat only as the artifact values its host supplies. For #9, Combat only reports the defeat | Đạo Đồ |
 | The Way (#39) | in | Stat lines through Character Stats; Effects on notables; rare art nodes in rule 13's format (dao.md rules 3 and 10) | The Way; Combat (art format) |
 | Item Database (#13) | in | Equipped pieces with their role tags (weapon, ward_gear, body_gear, utility; D2), attack, defence and affixes; the equipped set limited by thần thức; consumable arts' items (item-database.md rules 6, 11) | Item Database (what an item is, its roles and whether it counts); Combat (what a piece adds) |
 | Artifact Refining (#16) | in | Equipped artifacts: attack; defence (ward gear feeds ws, we and block up to a = 1; body gear gives 12 block and 0.60 body shield per a_b, Combat Defence & Healing Formulas A0, A2, B); affixes, thần thức cost, an optional active effect (**provisional**) | Artifact Refining; Combat (how they act) |
@@ -629,7 +628,7 @@ The layer_total formula is defined as:
 
 | # | Layer | Filled by |
 |---|---|---|
-| L1 | Increased | The increased sum of damage modifiers: `attack_pct` and its scoped rows (Modifier System rule 5; Meridian Map and Way W, 1 W = +1). **W fills only this layer** |
+| L1 | Increased | The increased sum of damage modifiers: `attack_pct` and its scoped rows (Modifier System rule 5; Đạo Đồ and Way W, 1 W = +1). **W fills only this layer** |
 | L2 | Art "more" | `damage_more` points on techniques, arts and Way art nodes (Modifier System rule 6, Formulas D); typical +40, up to the cap |
 | L3 | Gear | `100 · Σ artifact attack / (B_p · stage_mult)`, with each artifact's attack after `artifact_power_pct` and its other multipliers, as built |
 | L4 | Preparation and ground | `damage_more` on L4 from formations, talismans, pills, coatings and ground tags (rule 12); typical +20. When blind, x4 holds ground tags only |
@@ -1183,7 +1182,7 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 | Cultivation Techniques (#9) | Hard | `tech_power`, unlocked divine abilities | GDD in review. Its Open Question 3 is answered here once abilities are authored |
 | Time & Turn (#4) | Soft | A fight takes no seasons; preparation time belongs to the preparing system | Built, no GDD |
 | Sim Core (#2), Config (#1) | Hard | Seeded stream, `Breakdown`, `combat_rules.json` | Built, no GDD |
-| Meridian Map (#10) | Soft | Stat keys through Character Stats only | GDD in review |
+| Đạo Đồ (#10) | Soft | Stat keys through Character Stats only | GDD in review |
 | The Way (#39) | Soft | Stat lines, Effects and rare art nodes | GDD in review (2026-11-10). Arts need no W price: the Way's slot table bounds them (dao.md Open Question 3, closed) |
 | Item Database (#13) | Soft | Equipped pieces with role tags, attack, defence and affixes; consumable arts' items | GDD complete (item-database.md rules 6, 11); lists Combat |
 | Artifact Refining (#16) | Soft | Equipped artifacts, ward-gear and body-gear defence, active effects | Quick spec only; **provisional** |
@@ -1205,7 +1204,7 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 | Debug Terminal (#36), Game UI (#37) | Soft | Log, preparation data, `display_power` | Terminal built, Game UI not started |
 | World DB (#3) | Soft | Notable fight record | Built, no GDD |
 
-**Bidirectional check.** Character Stats, Realms, Cultivation Techniques, the Meridian Map and the Way
+**Bidirectional check.** Character Stats, Realms, Cultivation Techniques, the Đạo Đồ and the Way
 already list Combat, and so do the four sub-systems (Combat Defence & Healing, Combat Damage Types, the Modifier
 System and the Effects System); Combat lists them above. No circular dependency is added:
 the assets expose read-only contributions, and hooks such as taming stay with the Event Engine
@@ -1315,7 +1314,7 @@ Defence & Healing Formulas G with x = 0; Guidance, #35; a data knob, Combat revi
 | Rule 20, Formulas A, H | canh-gioi.md | `power_base`, `stage_mult`, the realm ladder | Read only |
 | Rule 14 | canh-gioi.md rule 16; character-stats.md | Capability #9: defeat reported, +2 heart demon | Closed 2026-11-06 (Open Question 12): knockout only; both GDDs still say "defeat" and "kill" |
 | Rule 13, Formulas A, D | cong-phap.md rules 13–14, Formulas C | Divine abilities, `tech_power`, body techniques (block, body shield and resistance, combat-defence.md rule 12), the technique line | `cong_phap_share` line removed; cong-phap.md rule 14 and AC-CP-39 edited 2026-11-06 |
-| Formulas B | kinh-mach-do.md Formulas A and A2; registry `stat_power_weights` | 1 W = +1 %; about 106 W to 1,172 W by realm end | W stays additive |
+| Formulas B | dao-do.md Formulas A and A2; registry `stat_power_weights` | 1 W = +1 %; about 106 W to 1,172 W by realm end | W stays additive |
 | Rule 13, Formulas B | dao.md rules 3 and 10 | Art format, `dao_premium` | Arts are rare on Daos (at most 20 % hold one); most come from cultivation techniques |
 | Interactions, rule 12 | item-database.md rules 6, 11, Formulas E | Role tags (weapon, ward_gear, body_gear, utility; D2 applied 2026-11-08), equipped set, consumable arts | Read only |
 | Rules 4, 22, 23; Formulas A, C, D, F, G, J, K | combat-defence.md | The defence path, wards, body defence, healing, effective health | Replaced old rules 22–23 and Formulas D (Combat revision #43) |

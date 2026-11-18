@@ -128,7 +128,7 @@ All paid in linh lực in the normal way, on the common drain ward.
 
 ### Hidden cluster idea: Open Seams (Khai Phùng Mạch)
 
-Theme: statuses and how they run on a body, wider than this build. Water affinity. Outer, sealed by a technique (Scale-Knife Method lists it, and any poison technique could). Size 10: small acupoints of Damage over time and Status duration, a notable for Thin Bleed (Gall), a notable for Kept Grudge, and Widening Wound as the capability at the far end. An idea for the tree rework, not data.
+Theme: statuses and how they run on a body, wider than this build. Water affinity. Outer, sealed by a technique (Scale-Knife Method lists it, and any poison technique could). Size 10: small Dao marks of Damage over time and Status duration, a notable for Thin Bleed (Gall), a notable for Kept Grudge, and Widening Wound as the capability at the far end. An idea for the tree rework, not data.
 
 ## Đạo
 

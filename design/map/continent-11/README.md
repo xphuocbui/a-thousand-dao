@@ -197,7 +197,7 @@ Names live in `region_names.json`, keyed by the region ids in `regions.png`.
 | 19 | **Kinh Trập Sơn** | 驚蟄山 | Mountains of the Waking Thunder | Thính Vũ Lâu | 6,167 | High mountain 32, grassland 25, bamboo forest 18 | Kinh Trập: the solar term when spring thunder wakes sleeping creatures |
 | 20 | **Đan Huyệt Châu** | 丹穴洲 | Coast of the Vermilion Caves | Phượng Minh Cung | 3,433 | Grassland 41, jungle 35, steppe 9 | Sơn Hải Kinh: the phoenix is born on Mount Đan Huyệt; here the caves are volcanic vents |
 
-Names were checked against the design files. Three first picks clashed with notables in the parked Meridian tree data
+Names were checked against the design files. Three first picks clashed with notables in the parked Đạo Đồ data
 (Kính Hồ, Xuân Lôi, Ngô Đồng) and were replaced.
 
 ## Minor sects (approved 2026-11-14)

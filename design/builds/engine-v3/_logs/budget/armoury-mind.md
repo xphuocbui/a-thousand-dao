@@ -12,7 +12,7 @@ Files changed: `design/builds/engine-v3/builds/armoury-mind.fight.json` (`layers
 - Before: `[266, 265, 250, 130, 0]`
 - After: `[150, 150, 120, 0, 0]`
 
-Why: techniques' passives and items' modifiers already run as Effects, so the old values counted the gear twice. L4 was cut to nothing first (the concept needs it least); L1-L3 were trimmed to a Meridian-Map-sized base. L5 was already 0 in `layers`; the gear lifts it through the build's own Effects.
+Why: techniques' passives and items' modifiers already run as Effects, so the old values counted the gear twice. L4 was cut to nothing first (the concept needs it least); L1-L3 were trimmed to a Đạo Đồ-sized base. L5 was already 0 in `layers`; the gear lifts it through the build's own Effects.
 
 ## Fights (mean time, wins of 20)
 

@@ -293,7 +293,7 @@ Big trade-offs: a strong rule with a real cost.
 
 ## Plain tree rows (210)
 
-The ordinary acupoints and notables that stack on the Meridian Map. A row used by several builds appears once. Small = acupoint, Notable = the bigger version.
+The ordinary Dao marks and notables that stack on the Đạo Đồ. A row used by several builds appears once. Small = Dao mark, Notable = the bigger version.
 
 | Row | Small | Notable | Builds |
 |---|---|---|---|

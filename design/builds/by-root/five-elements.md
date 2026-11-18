@@ -2,7 +2,7 @@
 
 **What the root brings.** All five generating pairs (+15 %), the slowest start and the fastest end; Primordial
 Chaos (Hỗn Độn) can converge from it. Every buff and every debuff but Ice's. The map's centre keystone, the **Five
-Elements Cycle (Ngũ Hành Luân Chuyển)**, needs this root (Meridian Map, intended). The fantasy is mastery of the
+Elements Cycle (Ngũ Hành Luân Chuyển)**, needs this root (Đạo Đồ, intended). The fantasy is mastery of the
 cycle itself: generating and overcoming.
 
 ---
@@ -31,7 +31,7 @@ keystone. The first 15 s are weak; from 30 s every art carries all the stacks be
 **New pieces.**
 - **Five Phases Canon (Ngũ Hành Kinh)**, a công pháp with one art per element.
 - **Five Elements Cycle content**: "your arts gain +2 % for each element whose buff stacks you hold". How to create:
-  Meridian Map content pass for the centre keystone.
+  Đạo Đồ content pass for the centre keystone.
 - **Five-Phase Flag (Ngũ Hành Kỳ)**, an artifact kind: a flag with five element slots; each filled slot adds +5 %
   damage to arts of that element. How to create: add a kind to `items_artifacts.json` (utility role); refined
   with one material of each element.

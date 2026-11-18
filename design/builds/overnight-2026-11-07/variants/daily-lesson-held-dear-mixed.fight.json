@@ -43,7 +43,7 @@
    ]
   },
   {
-   "id": "Sword damage (acupoints)",
+   "id": "Sword damage (Dao marks)",
    "layer": 1,
    "points": 20,
    "channels": [
@@ -59,7 +59,7 @@
    ]
   },
   {
-   "id": "Short Edge (acupoints)",
+   "id": "Short Edge (Dao marks)",
    "layer": 2,
    "points": 8,
    "channels": [
@@ -75,7 +75,7 @@
    ]
   },
   {
-   "id": "Spent Breath (acupoints)",
+   "id": "Spent Breath (Dao marks)",
    "layer": 5,
    "points": 4,
    "channels": [
@@ -101,7 +101,7 @@
    }
   },
   {
-   "id": "Many Forms (acupoints)",
+   "id": "Many Forms (Dao marks)",
    "layer": 2,
    "points": 6,
    "channels": [

@@ -18,7 +18,7 @@ sometimes opened by one enabling piece. In their words, "much like poe, is stack
 concept. Sometimes you need some enabling effect or technique." Modifiers come first.
 
 They also said: "Be extra creative for builds, don't be afraid to add new Dao, Items, Cong phap,
-techniques, meridian tree clusters/keystone/notable nodes, hell even linh can."
+techniques, Đạo Đồ clusters/keystone/notable nodes, hell even linh can."
 
 So be bold. A safe build is a failed build. The reviewer wants to wake up and say "I would never have
 thought of that, and it would work."
@@ -87,7 +87,7 @@ Agents share one temp folder and have overwritten each other's files. Put any sc
 - `identity_id` is the exact value to pass to `--without`: a plug-in name, a `conditional_mods` id, an art id
   or a top-level key. It must be the real identity piece, not a stand-in. Use `null` if it is unmodelled.
 - `type` is one of: `modifier`, `enabler`, `technique`, `art`, `ward`, `artifact`, `talisman`, `pill`,
-  `formation`, `beast`, `acupoint`, `notable`, `keystone`, `cluster`, `dao`, `dao_branch`, `root`, `concept`.
+  `formation`, `beast`, `dao_mark`, `notable`, `keystone`, `cluster`, `dao`, `dao_branch`, `root`, `concept`.
 - List every new piece. For a `modifier`, `form`, `layer` and `second_home` are required.
 
 ## Reuse comes first
@@ -102,7 +102,7 @@ Scope modifiers by tag, never by build, so another build could want them.
 ## Plain modifiers are the backbone
 
 Tonight's first three waves made 161 modifiers and nearly all are exotic. A Path of Exile tree is mostly
-ordinary stackable nodes with a few strange ones. The `acupoint` and `notable` types exist for these: plain,
+ordinary stackable nodes with a few strange ones. The `dao_mark` and `notable` types exist for these: plain,
 tag-scoped, general, at catalogue sizes, needing a key at most, never a rule. Prefer an ordinary modifier
 whenever one can do the job.
 

@@ -6,7 +6,7 @@ and all resistance. Role: stealth and ambush. **No element stacks** (user decisi
 
 **Darkness's linh lực.** Darkness has no stacks, so its mana comes from its Earth and Water parents (The Spring
 Never Fails, The Stone Remembers) or from a Darkness-island keystone (New): **Night Tithe (Dạ Thuế)**: "when you
-hit a foe that has not yet hit you, restore linh lực". How to create: Meridian Map keystone on the Darkness island;
+hit a foe that has not yet hit you, restore linh lực". How to create: Đạo Đồ keystone on the Darkness island;
 reads "hits taken this fight".
 
 ---

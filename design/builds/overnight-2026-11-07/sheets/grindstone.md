@@ -30,7 +30,7 @@ Nothing about it looks special. Both fighters cut each second, and for two secon
 
 ## The Stack
 
-Sizes are the catalogue's where it has a row, and first guesses elsewhere. **Nodes** run in walking order: 34 nodes, 28 acupoints and 6 notables, 81.6 W, taken from the 38 points a typical Qi Refining life spends on attack and outside combat. There is no plain `attack_pct` at all. Sector rows scale with purity, so these sizes assume purity 50: 0.5 + purity / 100 (Meridian Map rule 4). ● means the key exists today. `Own` is health at the end of the fight, and `At 3 s` the enemy's health one second before it. Full fight: **21 % and 18 %**.
+Sizes are the catalogue's where it has a row, and first guesses elsewhere. **Nodes** run in walking order: 34 nodes, 28 Dao marks and 6 notables, 81.6 W, taken from the 38 points a typical Qi Refining life spends on attack and outside combat. There is no plain `attack_pct` at all. Sector rows scale with purity, so these sizes assume purity 50: 0.5 + purity / 100 (Đạo Đồ rule 4). ● means the key exists today. `Own` is health at the end of the fight, and `At 3 s` the enemy's health one second before it. Full fight: **21 % and 18 %**.
 
 Rows marked `-w` are `--without "Row"` on `variants/grindstone-mixed.fight.json`, with no extra file. The others are `variants/grindstone-no-[name].fight.json`.
 
@@ -38,17 +38,17 @@ Rows marked `-w` are `--without "Row"` on `variants/grindstone-mixed.fight.json`
 
 | Nodes | Type | Row | Each | Total | Form | Layer | Rung | Status | Removed by | Own | At 3 s |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1–3 | acupoint ×3 | Metal damage | +2 % | +6 | Increased | L1 | Multiplier | ○ | `-w` | 4 % | 23 % |
+| 1–3 | Dao mark ×3 | Metal damage | +2 % | +6 | Increased | L1 | Multiplier | ○ | `-w` | 4 % | 23 % |
 | 4 | notable | **Bright Steel (Minh Cương)** | +12 % Metal damage | +12 | Increased | L1 | Multiplier | ○ | `-w` | 4 % | 26 % |
-| 5–7 | acupoint ×3 | Crit chance | +0.4 % | +1.2 | Increased | none | Crit | ● | `crit-chance` | 21 % | 21 % |
-| 8–9 | acupoint ×2 | Crit damage | +1.5 % | +3 | Increased | none | Crit | ● | `crit-damage` | 21 % | 19 % |
-| 10–12 | acupoint ×3 | Weapon attack | +1.5 % | +5.1 L3 | Increased | L3 | Multiplier | ● | `-w` | 21 % | 22 % |
+| 5–7 | Dao mark ×3 | Crit chance | +0.4 % | +1.2 | Increased | none | Crit | ● | `crit-chance` | 21 % | 21 % |
+| 8–9 | Dao mark ×2 | Crit damage | +1.5 % | +3 | Increased | none | Crit | ● | `crit-damage` | 21 % | 19 % |
+| 10–12 | Dao mark ×3 | Weapon attack | +1.5 % | +5.1 L3 | Increased | L3 | Multiplier | ● | `-w` | 21 % | 22 % |
 | 13 | notable | **Good Steel (Hảo Cương)** | +10 % weapon attack | +11.4 L3 | Increased | L3 | Multiplier | ● | `-w` | 4 % | 24 % |
-| 14–16 | acupoint ×3 | Artifact power | +0.9 % | +3.5 L3 | Increased | L3 | Multiplier | ● | `-w` | 21 % | 21 % |
-| 17–19 | acupoint ×3 | Maximum linh lực | +1.2 % | +3.6 | Increased | none | Fuel | ● | `linh-luc` | 21 %, pool 2 % | 18 % |
-| 20–22 | acupoint ×3 | Maximum health | +1 % | +3 | Increased | none | Survival | ● | `health` | 19 % | 18 % |
+| 14–16 | Dao mark ×3 | Artifact power | +0.9 % | +3.5 L3 | Increased | L3 | Multiplier | ● | `-w` | 21 % | 21 % |
+| 17–19 | Dao mark ×3 | Maximum linh lực | +1.2 % | +3.6 | Increased | none | Fuel | ● | `linh-luc` | 21 %, pool 2 % | 18 % |
+| 20–22 | Dao mark ×3 | Maximum health | +1 % | +3 | Increased | none | Survival | ● | `health` | 19 % | 18 % |
 | 23 | notable | **Tough Grain (Kiên Văn)** | +6.5 % health | +6.5 | Increased | none | Survival | ● | `tough-grain` | 16 % | 18 % |
-| 24 | acupoint | **Ore Vein (Khoáng Mạch)** | +1 to Metal arts per artifact equipped, 6 at most | +5 | Per | L2 | Multiplier | ○ | `-w` | 21 % | 22 % |
+| 24 | Dao mark | **Ore Vein (Khoáng Mạch)** | +1 to Metal arts per artifact equipped, 6 at most | +5 | Per | L2 | Multiplier | ○ | `-w` | 21 % | 22 % |
 
 ### The Edge (Nhận), nodes 25 to 34: the build
 
@@ -56,31 +56,31 @@ Rows marked `-w` are `--without "Row"` on `variants/grindstone-mixed.fight.json`
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 25 | notable | **Deep Bite (Thâm Thực)** | +10 % crit damage | +10 | Increased | none | Crit | ● | `deep-bite` | 21 % | 21 % |
 | 26 | notable | **Hair's Breadth (Phân Hào)** | +5 % crit chance with Metal | +5 | Increased | none | Crit | ○ | `hairs-breadth` | 21 % | 22 % |
-| 27–28 | acupoint ×2 | Steady Thread (Ổn Tuyến), Metal tag | +2 while your linh lực is 50 % or above | +4 | Conditional | L5 | Multiplier | ○ reused | `-w` | 21 % | 22 % |
+| 27–28 | Dao mark ×2 | Steady Thread (Ổn Tuyến), Metal tag | +2 while your linh lực is 50 % or above | +4 | Conditional | L5 | Multiplier | ○ reused | `-w` | 21 % | 22 % |
 | 29 | notable | Steady Thread, Metal tag | +12, same condition | +12 | Conditional | L5 | Multiplier | ○ reused | `-w` | 4 % | 26 % |
-| 30–31 | acupoint ×2 | **Honed Edge (Ma Lợi)** | +2 to Metal arts | +4 | More | L2 | Multiplier | ○ | `-w` | 21 % | 22 % |
-| 32–34 | acupoint ×3 | Thinning Ward (Bạc Hộ) | +2 art damage while the enemy has under 50 % linh lực | +6 | Conditional | L1 | Reach | ○ reused | `-w` | 21 %, pool 5 % | 21 % |
+| 30–31 | Dao mark ×2 | **Honed Edge (Ma Lợi)** | +2 to Metal arts | +4 | More | L2 | Multiplier | ○ | `-w` | 21 % | 22 % |
+| 32–34 | Dao mark ×3 | Thinning Ward (Bạc Hộ) | +2 art damage while the enemy has under 50 % linh lực | +6 | Conditional | L1 | Reach | ○ reused | `-w` | 21 %, pool 5 % | 21 % |
 
 ### The Point (Tiêm), nodes 25 to 34: the rival
 
 | Nodes | Type | Row | Each | Form | Layer | Rung | Status |
 |---|---|---|---|---|---|---|---|
-| 25–27 | acupoint ×3 | Accuracy | +0.5 % | Increased | none | Reach | ● |
+| 25–27 | Dao mark ×3 | Accuracy | +0.5 % | Increased | none | Reach | ● |
 | 28 | notable | **True Line (Chân Tuyến)** | +3 % accuracy | Increased | none | Reach | ● |
-| 29–30 | acupoint ×2 | Sharpened Word | +2 % curse strength | Increased | none | Reach | ○ reused |
+| 29–30 | Dao mark ×2 | Sharpened Word | +2 % curse strength | Increased | none | Reach | ○ reused |
 | 31 | notable | Full Weight | +12 % curse strength | Increased | none | Reach | ○ reused |
-| 32–33 | acupoint ×2 | Set Jaw | +2 art damage while the target bears exactly one curse | More | L2 | Multiplier | ○ reused |
+| 32–33 | Dao mark ×2 | Set Jaw | +2 art damage while the target bears exactly one curse | More | L2 | Multiplier | ○ reused |
 | 34 | notable | Single Grudge | +12, same condition | More | L2 | Multiplier | ○ reused |
 
 ### Spurs: on the map, on neither line
 
 | Type | Row | Each | Form | Layer | Status | What it is for |
 |---|---|---|---|---|---|---|
-| acupoint, notable | Realm pierce, **Long Needle (Trường Châm)** | +0.5 %, +3 % | Increased | none | ● | Only upward, and thin: by Formulas H a notable adds 0.3 points of a hit one realm up, and 0.75 two up. It is a row for three realms and more |
+| Dao mark, notable | Realm pierce, **Long Needle (Trường Châm)** | +0.5 %, +3 % | Increased | none | ● | Only upward, and thin: by Formulas H a notable adds 0.3 points of a hit one realm up, and 0.75 two up. It is a row for three realms and more |
 | notable | **Cold Dew (Hàn Lộ)** | +0.6 % of maximum linh lực on a crit | Trigger | none | ○ catalogue | Metal generates Water. For a fast build with many crits. In no fight file |
 | notable | **Felling Stroke (Phạt Mộc)** | +12 % Metal damage against a ward that carries Wood | Conditional | L1 | ○ | Metal overcomes Wood. In no fight file |
 | notable | **Tempered (Tôi Hỏa)** | +12 % ward strength against Fire | Increased | none | ○ catalogue | Fire overcomes Metal. In no fight file |
-| acupoint | Armour defence, Artifact thần thức cost | +1.5 %, −0.8 % | Increased | none | ● | For a road that buys a fifth needle or a real ward. In no fight file |
+| Dao mark | Armour defence, Artifact thần thức cost | +1.5 %, −0.8 % | Increased | none | ● | For a road that buys a fifth needle or a real ward. In no fight file |
 
 **Identity piece:** none, on purpose. `identity_id` is `null`.
 **The unplanned use:** Thinning Ward was made for curses that thin a ward over time. Here it needs no curse: two plain cuts take the enemy under 50 %, and it turns on at 3 s. Its removal moves the enemy from 18 % to 21 % health and from 0 % to 2 % linh lực at 3 s, and nothing else, so it is one of the softest rows on the road.
@@ -107,11 +107,11 @@ Against the mixed enemy, equal realm: **wins at 4 s on 21 %.** All files are `va
 | Five notables: Bright Steel, Good Steel, Deep Bite, Hair's Breadth, Steady Thread | `five-notables` | **Loses at 5 s, enemy on 9 %** |
 | Five rows of the trunk's damage: Metal damage, Bright Steel, Weapon attack, Good Steel, Artifact power | `five-trunk` | **Loses at 5 s, enemy on 12 %** |
 | Five spread across rungs: Metal damage, Steady Thread, Honed Edge, Hair's Breadth, Tough Grain | `five-spread` | **Loses at 4 s on overkill, both at 0 %** |
-| Five sets of acupoints: Metal damage, Crit chance, Weapon attack, Artifact power, Honed Edge | `five-acupoints` | Wins at 4 s on 4 % |
+| Five sets of Dao marks: Metal damage, Crit chance, Weapon attack, Artifact power, Honed Edge | `five-Dao marks` | Wins at 4 s on 4 % |
 | Five soft rows: Crit chance, Crit damage, Artifact power, Maximum linh lực, Maximum health | `five-kept` | Wins at 4 s on 19 % |
 | All 34 nodes, the typical's plain attack back in their place | `no-path` | **Loses at 4 s, enemy on 17 %** |
 
-**Not every five is lost.** Rows of acupoints are worth little alone, and five of them cost only the same jab.
+**Not every five is lost.** Rows of Dao marks are worth little alone, and five of them cost only the same jab.
 
 ## The Choice
 

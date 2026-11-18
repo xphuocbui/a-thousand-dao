@@ -81,7 +81,7 @@ In priority order. Each says which layer it fills and when to stop.
 | Fang and Claw | Modifier (L2 more, [companion]) | Up to the L2 cap of 300 | Scripture layer 2 passive; Thú Đạo and Mộc Đạo notables | Staged: fang-and-claw | core |
 | Feed the Fire, Hearth Song | Arts (Fire buff stacks) | 30 stacks (+36 %) per 1 % of pool a second | Scripture layers 3 and 12 | Staged: feed-the-fire, hearth-song | core |
 | Companion power share | Modifier | +0.01 coefficient per point, to the cap | Tree, Thú Đạo lines, Beast-Bond affix | Staged: beast-bond-affix (key Pending in the Modifier System) | strong |
-| Beast Soul Union | Effect (keystone) | Doubles a weaker tiger's share | Meridian Map keystone (capability #17) | In the game (Effects GDD) | strong |
+| Beast Soul Union | Effect (keystone) | Doubles a weaker tiger's share | Đạo Đồ keystone (capability #17) | In the game (Effects GDD) | strong |
 | Tiger-Tally Seal | Named artifact | Share +15, companion speed +20 %, companion damage +20 %, Sure Bite, L3 | A warden's grave, a Cedar-Ridge reward | Staged: tiger-tally-seal | strong |
 | Rain on Both | Effect | Heals reach both bars | Scripture layer 7 | Staged: rain-on-both | strong |
 | Old-Tree Sap, Bark Mantle, Rouse | Arts | Keep the tiger standing | Scripture layers 5, 7, 10 | Staged: old-tree-sap, bark-mantle, rouse | strong |

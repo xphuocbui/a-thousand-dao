@@ -34,17 +34,17 @@ Crackers go every half second, and the pool does not move. The Closing-Day Notic
 
 ## The Stack
 
-A 55-node walk at Core, 46 acupoints and 9 notables, 127 W, about a quarter of the tree. Sizes are first guesses. `Without` is the Wall, from `variants/spring-hand-wall.fight.json --without "[id]"` or the named file: time, own health, sheets burnt. Full fight: 5.5 s, 72 %, 10.4.
+A 55-node walk at Core, 46 Dao marks and 9 notables, 127 W, about a quarter of the tree. Sizes are first guesses. `Without` is the Wall, from `variants/spring-hand-wall.fight.json --without "[id]"` or the named file: time, own health, sheets burnt. Full fight: 5.5 s, 72 %, 10.4.
 
 | Rung | Modifier | Take | Effect | Form | Layer | Status | Home | Second home | Without |
 |---|---|---|---|---|---|---|---|---|---|
-| Multiplier | **Talisman damage (Phù Thương)** | 18 + 2 | +2 / +12 to hits with the talisman tag, +60 | Increased | L1 | ○ new, catalogue tag row | Acupoint, notable | any talisman user | 9.0 s, 39 %, 15.2 |
-| Multiplier | **Talisman power** | 8 + 2 | +2 / +12, +40, read as preparation, so a blind fight loses it | Increased | L4 | ○ catalogue | Acupoint, notable | Brush Fee's Blank Slip | 7.0 s, 50 %, 12.8 |
-| Rate | **Talisman art speed (Phù Tốc)** | 3 + 1 | +1 / +6 %, +9 % | Increased | none | ○ new, catalogue tag row | Acupoint, notable | any talisman user | 6.0 s, 55 %, 11.0 |
-| Fuel | **Good Paper (Thượng Chỉ)** | 3 + 1 | +1 / +6 % to the chance a used talisman is not consumed, +9, to 60 % at most | Increased | none | ○ new | Acupoint, notable | any #13 holder | `bare-30-wall`: 5.8 s, 61 %, 13.3 |
-| Multiplier | **Warm Hand (Thủ Nhiệt)** | 4 + 1 | +0.25 / +1 per talisman fired this fight, +2 a firing, to +40 | Per | L2 | ○ new | Acupoint, notable | any burst of cheap arts | 5.8 s, 61 %, 12.8 |
-| Multiplier | Steady Thread, retagged | 6 + 1 | +2 / +12 to talismans while linh lực is 50 % or above, +24. On a pool nothing spends it is rarely false | Conditional | L5 | ○ reused | Acupoint, notable | Daily Lesson | 5.8 s, 61 %, 12.8 |
-| Fuel | **Steady Brush (Ổn Bút)** | 4 + 1 | +1 / +6 % draw success, +10. Outside the fight | Increased | none | ○ new | Acupoint, notable | any talisman crafter | not in the fight |
+| Multiplier | **Talisman damage (Phù Thương)** | 18 + 2 | +2 / +12 to hits with the talisman tag, +60 | Increased | L1 | ○ new, catalogue tag row | Dao mark, notable | any talisman user | 9.0 s, 39 %, 15.2 |
+| Multiplier | **Talisman power** | 8 + 2 | +2 / +12, +40, read as preparation, so a blind fight loses it | Increased | L4 | ○ catalogue | Dao mark, notable | Brush Fee's Blank Slip | 7.0 s, 50 %, 12.8 |
+| Rate | **Talisman art speed (Phù Tốc)** | 3 + 1 | +1 / +6 %, +9 % | Increased | none | ○ new, catalogue tag row | Dao mark, notable | any talisman user | 6.0 s, 55 %, 11.0 |
+| Fuel | **Good Paper (Thượng Chỉ)** | 3 + 1 | +1 / +6 % to the chance a used talisman is not consumed, +9, to 60 % at most | Increased | none | ○ new | Dao mark, notable | any #13 holder | `bare-30-wall`: 5.8 s, 61 %, 13.3 |
+| Multiplier | **Warm Hand (Thủ Nhiệt)** | 4 + 1 | +0.25 / +1 per talisman fired this fight, +2 a firing, to +40 | Per | L2 | ○ new | Dao mark, notable | any burst of cheap arts | 5.8 s, 61 %, 12.8 |
+| Multiplier | Steady Thread, retagged | 6 + 1 | +2 / +12 to talismans while linh lực is 50 % or above, +24. On a pool nothing spends it is rarely false | Conditional | L5 | ○ reused | Dao mark, notable | Daily Lesson | 5.8 s, 61 %, 12.8 |
+| Fuel | **Steady Brush (Ổn Bút)** | 4 + 1 | +1 / +6 % draw success, +10. Outside the fight | Increased | none | ○ new | Dao mark, notable | any talisman crafter | not in the fight |
 | Multiplier | **Signed Paper (Lạc Khoản)** | 1 | +3 to talismans you drew yourself per talisman skill level, +21 at 7. Bought paper gets none | Per | L2 | ○ new | Cluster notable | any crafter who fights with their own work | 5.8 s, 61 %, 12.2 |
 | Fuel, Identity | Endless Talismans, capability #13 | 1 | 30 % a used talisman is not consumed | Trigger | none | ● reused | Cluster notable | | with Let It Ride, below |
 | Identity | **Let It Ride (Thừa Hứng)** | 1 | A talisman that was not consumed fires once more in the same instant. That firing cannot come back | Trigger | none | ○ new | Cluster notable | any stock art | `no-ride-wall`: 9.0 s, 27 %, 14.0 |
@@ -99,7 +99,7 @@ Without, on the Wall (time, health, sheets): Cracker 9.5 s, 27 %, 8.5. Envelope 
 
 ### Hidden cluster idea: Red Paper Street (Hồng Chỉ Phố)
 
-Theme: Way of Talismans (Phù Đạo), on the map already. Fire affinity. Outer, sealed by a technique, size 9, so it opens at Core at the earliest. Six small acupoints of Talisman damage and power. Notables: Signed Paper, Let It Ride, and Endless Talismans as its capability.
+Theme: Way of Talismans (Phù Đạo), on the map already. Fire affinity. Outer, sealed by a technique, size 9, so it opens at Core at the earliest. Six small Dao marks of Talisman damage and power. Notables: Signed Paper, Let It Ride, and Endless Talismans as its capability.
 
 ## Loadout by Realm
 
@@ -134,7 +134,7 @@ The panel at Core, one file each, `variants/spring-hand-[name].fight.json`. Seas
 | Check | Result | Detail |
 |---|---|---|
 | Budgets | NOT ASSESSED | All five inside the art lint on their ink share, slots 5 of 5, Slow Match 2.0 within 2.22, curses inside Formulas F. But the lint was built on linh lực paid in the fight, and no talisman lint exists |
-| Validity | PASS | Realms, tier, Stone Ward at the legal 0.10, capability #13 from `meridian_capabilities.json`, Way of Talismans on the map |
+| Validity | PASS | Realms, tier, Stone Ward at the legal 0.10, capability #13 from `dao_do_capabilities.json`, Way of Talismans on the map |
 | Stack | PASS | Six forms: Increased, Conditional, Per, Trigger, More, Rule swap. Identity test changes the fight |
 | Scaling | PASS | INFO: `m_static` 1.40 hides the tag rows. Live M is about 7.1 to 9.4 against typical 5.48 |
 | The fight | PASS | Loop runs in all nine matchups. No cap hit |

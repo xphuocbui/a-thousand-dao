@@ -31,7 +31,7 @@
  },
  "new": [
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Thần thức",
    "han_viet": "Thần Thức",
    "form": "Increased",
@@ -57,7 +57,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Soul attack damage",
    "han_viet": "Hồn Thương",
    "form": "Increased",
@@ -83,7 +83,7 @@
    "walked_nodes": 3
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Soul art cost",
    "han_viet": "Tiết Thần",
    "form": "Increased",
@@ -109,7 +109,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Regeneration",
    "han_viet": "Hồi Khí",
    "form": "Increased",
@@ -135,7 +135,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Maximum health",
    "han_viet": "Khí Huyết",
    "form": "Increased",
@@ -161,7 +161,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Ward efficiency",
    "han_viet": "Hộ Hiệu",
    "form": "Increased",
@@ -187,7 +187,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Fine Point",
    "han_viet": "Tiêm Điểm",
    "form": "More",
@@ -213,7 +213,7 @@
    "walked_nodes": 2
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Empty Room",
    "han_viet": "Không Thất",
    "form": "Per",
@@ -239,7 +239,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Clear Head",
    "han_viet": "Thanh Tỉnh",
    "form": "Conditional",
@@ -265,7 +265,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Failing Lamp",
    "han_viet": "Tàn Đăng",
    "form": "Per",
@@ -291,7 +291,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Damage",
    "han_viet": "Công Lực",
    "form": "Increased",
@@ -317,7 +317,7 @@
    "walked_nodes": 4
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Basic attack damage",
    "han_viet": "Bình Kích",
    "form": "Increased",
@@ -343,7 +343,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Damage to an enemy with no linh lực",
    "han_viet": "Khô Hải",
    "form": "Conditional",
@@ -369,7 +369,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Wasting",
    "han_viet": "Hao Tổn",
    "form": "Per",
@@ -395,7 +395,7 @@
    "walked_nodes": 1
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Soul resistance",
    "han_viet": "Kháng Hồn",
    "form": "Increased",
@@ -421,7 +421,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Realm pierce",
    "han_viet": "Xuyên Cảnh",
    "form": "Increased",
@@ -447,7 +447,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Artifact thần thức cost",
    "han_viet": "Khinh Khí",
    "form": "Increased",
@@ -473,7 +473,7 @@
    "walked_nodes": 0
   },
   {
-   "type": "acupoint",
+   "type": "dao_mark",
    "name": "Status resistance",
    "han_viet": "Kháng Độc",
    "form": "Increased",

@@ -133,7 +133,7 @@ Before the keystone these are ordinary qi arts with Water tags. Strike the Name 
 
 ### Hidden cluster idea: Struck Register (Tước Bạ Mạch)
 
-Theme: Heart State (`tam_canh`), what a person is without a name. Water affinity, outer, sealed. Seal: a technique that lists it, for its `seal_seasons`. Size 12, so two notables and one capability, above `cap_min_n`. Small acupoints give `status_resist_pct` and `art_cost_pct`. Notables: Borrowed Name holding Bare Vessel's line, then **Struck Name** at the far end as the capability. The theme is wider than this build: any curse user wants the first half.
+Theme: Heart State (`tam_canh`), what a person is without a name. Water affinity, outer, sealed. Seal: a technique that lists it, for its `seal_seasons`. Size 12, so two notables and one capability, above `cap_min_n`. Small Dao marks give `status_resist_pct` and `art_cost_pct`. Notables: Borrowed Name holding Bare Vessel's line, then **Struck Name** at the far end as the capability. The theme is wider than this build: any curse user wants the first half.
 
 ## Đạo
 

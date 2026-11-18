@@ -96,7 +96,7 @@ Everything else needs a key at most: `ngo_tinh` on a compiled profile, a Per on 
 
 ## Lint (Formulas D1), First Guess
 
-Priced by Meridian Map F1: `ngo_tinh` 5 W, `tam_ma_resist_pct` 1.5 W, `mission_income_pct` 0.7 W. `dao_tam` has no weight anywhere, so it is a *guess* at 5 W, the other talents' price. Passives and arts use `credit(T)`, itself a *guess*, and every branch rests on unpriced modifiers, so all sums below are first guesses. V̄ 12.42.
+Priced by Đạo Đồ F1: `ngo_tinh` 5 W, `tam_ma_resist_pct` 1.5 W, `mission_income_pct` 0.7 W. `dao_tam` has no weight anywhere, so it is a *guess* at 5 W, the other talents' price. Passives and arts use `credit(T)`, itself a *guess*, and every branch rests on unpriced modifiers, so all sums below are first guesses. V̄ 12.42.
 
 | Part | Check | Sum | Band | Result |
 |---|---|---|---|---|

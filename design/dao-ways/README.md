@@ -1,10 +1,10 @@
 # Đạo Ways: content drafts (overnight 2026-11-10/11)
 
 > **Status**: Overnight draft, proposals only. Not in `dao.md`, not in data, not reviewed. Numbers are first
-> guesses. The user decides what moves into the GDD and the Meridian kit regions.
+> guesses. The user decides what moves into the GDD and the Đạo Đồ kit regions.
 > **Source**: the 94-Way roster in `design/gdd/dao.md` § Catalogue (provisional): names, titles, facets and
 > capstone ideas are taken as given. This folder fills in what each Way actually does.
-> **Template**: Kiếm Đạo, the approved pilot (`tools/design/meridian_rework/regions/dao_sword.py`).
+> **Template**: Kiếm Đạo, the approved pilot (`tools/design/dao_do_rework/regions/dao_sword.py`).
 
 ## What each file holds
 

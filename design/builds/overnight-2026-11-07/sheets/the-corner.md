@@ -133,7 +133,7 @@ All paid in linh lực, on the common drain ward. Cost is what the fight file ch
 
 ### Hidden cluster idea: Hungry Courses (Cơ Mạch)
 
-Theme: linh lực and the starving of it. Earth, outer, sealed by the Severed Wheat Sutra, size 10. Small acupoints are burn duration and regeneration denied. Notables Held Acres and Thrift. Capability, farthest from the entry: Requisition. An idea for the tree rework, not data.
+Theme: linh lực and the starving of it. Earth, outer, sealed by the Severed Wheat Sutra, size 10. Small Dao marks are burn duration and regeneration denied. Notables Held Acres and Thrift. Capability, farthest from the entry: Requisition. An idea for the tree rework, not data.
 
 ## Progression
 

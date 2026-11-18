@@ -38,7 +38,7 @@ enemy in about 10-20 s.
 Steps:
 1. Read the build file, its guide, and FIGHT-INPUT.md's "Layer budget" and "Library pieces" sections.
 2. Work out what the build's own pieces really give each layer: its techniques' passives and items' modifiers already
-   run as Effects (do not add them to `layers` again); `layers` should hold only what the Meridian Map and other
+   run as Effects (do not add them to `layers` again); `layers` should hold only what the Đạo Đồ and other
    sources the file names give. Lower `layers` until `python -I tools/design/combat_sim/fight.py
    design/builds/engine-v3/builds/{name}.fight.json` prints `layer_budget` (not OVER_BUDGET). Keep the concept: cut the
    layers the concept needs least first.

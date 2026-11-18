@@ -223,7 +223,7 @@ say it held the wind still in the year it stopped. One fan in a cultivator's han
 
 Hidden clusters and `seal_clusters` are retired (cong-phap.md rule 15), so this is an open region idea in the Wind land
 for the tree rework, not data. Theme: many light strokes (art speed, art cost and per-hit sustain), wider than this
-build: any quick-art kit, curse casters, companion keepers. Wind affinity. Eight acupoints: `art_speed_pct` +2 (×2),
+build: any quick-art kit, curse casters, companion keepers. Wind affinity. Eight Dao marks: `art_speed_pct` +2 (×2),
 `art_cost_pct` −0.5 (×2), `linh_luc_on_hit_pct` +0.03 (×2); notables `linh_luc_on_hit_pct` +0.19 and, farthest,
 `art_speed_pct` +20 scope [quick]. No capability.
 

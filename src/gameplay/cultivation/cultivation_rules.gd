@@ -191,7 +191,7 @@ static func breakthrough_chance(c: Character, gd: GameData, sheet: StatSheet, pi
 	]
 	var q_tree: float = sheet.tree_breakthrough() / 100.0
 	if q_tree != 0.0:
-		extras.append(["Kinh Mạch breakthrough chance", q_tree])
+		extras.append(["Đạo Đồ breakthrough chance", q_tree])
 	var q_event: float = sheet.other_breakthrough() / 100.0
 	if q_event != 0.0:
 		extras.append(["Item and event bonuses", q_event])
@@ -253,7 +253,7 @@ static func guard_success(c: Character, gd: GameData, held_pills: int, q_held: f
 	return minf(1.0 - fail, float(gd.file("cultivation_realms").guard.s_max))
 
 
-## Meridian Map E2: #22's chance for an attempt, without τ. [param s] is S_guard. The attempt
+## Đạo Đồ E2: #22's chance for an attempt, without τ. [param s] is S_guard. The attempt
 ## succeeds with this plus [param tau].
 static func q_desperate(gd: GameData, q: float, tau: float, s: float) -> float:
 	var p: Dictionary = gd.capability(22).params
@@ -263,7 +263,7 @@ static func q_desperate(gd: GameData, q: float, tau: float, s: float) -> float:
 	return minf(minf(2.0 * q, q + float(p.delta_desp)), minf(q_max - tau, q + float(p.delta_max) * (1.0 - q - tau) / (1.0 - s)))
 
 
-## Meridian Map E2: #23's extra roll, at most q. [param insight] is the step's current insight
+## Đạo Đồ E2: #23's extra roll, at most q. [param insight] is the step's current insight
 ## as a fraction; the roll's failure would add iota, so the guard reserves it. [param f] is the
 ## gate's heavenly suppression, which scales iota.
 static func q_retry(gd: GameData, q: float, insight: float, s: float, f: float = 1.0) -> float:

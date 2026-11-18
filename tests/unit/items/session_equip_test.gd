@@ -64,7 +64,7 @@ func test_unequip_forgets_the_pinned_slot() -> void:
 
 
 func test_capability_3_adds_an_extra_slot_and_grows_only_the_chosen_treasure() -> void:
-	# Meridian Map capability #3 (user decision 2026-11-13): +1 extra slot; one chosen treasure grows yearly; choosing
+	# Đạo Đồ capability #3 (user decision 2026-11-13): +1 extra slot; one chosen treasure grows yearly; choosing
 	# another or unequipping it restarts the growth.
 	var s := _session()
 	var gd := game_data()

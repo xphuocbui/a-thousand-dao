@@ -53,7 +53,7 @@ Most important first.
 | Ledger Seal | Entries rule | Switches on Dear Blood, Called Debt, Clean Ledger | Named artifact, taken at the Hall's oath | Staged (`ledger-seal`) | core |
 | Writ of Reckoning | Dear Blood curse | Doubles the cost of a health-payer's style | Sutra layer 3 | Staged (`dear-blood`) | core |
 | Open Ledger Sutra | Tier 3 main technique | The six arts, leech, status resistance | Hall library | Staged (`open-ledger-sutra`) | core |
-| Linh lực leech | `leech_linh_luc_pct` | Regeneration-free sustain | Tree acupoints and notables, weapon affix | In the game (key) | core |
+| Linh lực leech | `leech_linh_luc_pct` | Regeneration-free sustain | Tree Dao marks and notables, weapon affix | In the game (key) | core |
 | Ward gear | Ward strength layers W3 | Top-end defence | Tallyman's Coat, named or rolled | In the game | core |
 | Clean Ledger | Overflow on Stagnation | Immunity to the stall, then a bonus | Seal keystone | Staged (`clean-ledger`) | core |
 | Whetted Edge | +20 % more, Metal tag, L2 | The build's L2 | Kim Đạo passive, technique | Staged (`whetted-edge`) | strong |

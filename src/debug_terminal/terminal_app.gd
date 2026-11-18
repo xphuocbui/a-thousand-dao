@@ -59,9 +59,9 @@ const HELP := [
 		["legends [n]", "history of the world"], ["db stats|people|sects|places|items|events [filter]", "database queries"],
 		["db show <id>", "any record with its history"],
 	]],
-	["Kinh Mạch Đồ", [
-		["tree", "points and openable huyệt"], ["tree map", "ASCII map"], ["tree targets", "notables/keystones by cost"], ["tree clusters", "hidden clusters"], ["tree mode visible|silhouette", "what hidden clusters show"],
-		["tree node <id>", "details"], ["tree alloc [id]", "open one adjacent huyệt (no id: pick)"], ["tree go <id>", "open the whole path"],
+	["Đạo Đồ", [
+		["tree", "points and openable đạo văn"], ["tree map", "ASCII map"], ["tree targets", "notables/keystones by cost"], ["tree clusters", "hidden clusters"], ["tree mode visible|silhouette", "what hidden clusters show"],
+		["tree node <id>", "details"], ["tree alloc [id]", "open one adjacent đạo văn (no id: pick)"], ["tree go <id>", "open the whole path"],
 	]],
 	["LLM", [
 		["llm", "status"], ["llm on|off", "toggle for this run"], ["llm key <key>", "store an API key (user://, not the repo)"],
@@ -70,7 +70,7 @@ const HELP := [
 	]],
 	["Debug", [
 		["debug event [template id]", "force an event"], ["debug tuvi <n>", "add tu vi"], ["debug lt <n>", "add linh thạch"],
-		["debug herb <herb id> <age>", "give a herb"], ["debug tp <n>", "add Kinh Mạch points"], ["debug heal", "full khí huyết, clear đan độc/tâm ma"],
+		["debug herb <herb id> <age>", "give a herb"], ["debug tp <n>", "add Đạo Đồ points"], ["debug heal", "full khí huyết, clear đan độc/tâm ma"],
 		["debug item artifact|cong_phap [grade] [base] | named <id>", "generate an item"], ["buildgen <archetype> [realm 0-4]", "generate and show an NPC build"],
 		["debug templates", "list event templates"],
 		["fightlog [n]", "the last event fight's timeline (with combat_rules.json fight_engine on): last n rows, default 40"],
@@ -856,7 +856,7 @@ func _pick_huyet() -> String:
 		var ok: Dictionary = s.tree.can_allocate(s.player, nid, gd)
 		var why: String = "" if ok.ok or s.player.tree_points <= 0 else io.paint("  (" + str(ok.reason) + ")", "2")
 		rows.append({"label": "#%-4d %-24s %-14s %s%s" % [nid, nd.name, nd.kind, s.tree.describe_mods(nid, s.player.linh_can, gd), why], "value": str(nid)})
-	return _pick("Open which huyệt? (%d point(s))" % s.player.tree_points, rows)
+	return _pick("Open which đạo văn? (%d point(s))" % s.player.tree_points, rows)
 
 
 # --- LLM ------------------------------------------------------------------------------
@@ -910,7 +910,7 @@ func _debug(args: Array) -> void:
 			io.out("Gave %s [%s]." % [s.items.describe(h), s.db.add("items", h)])
 		"tp":
 			c.tree_points += int(_arg(args, 1, "5"))
-			io.out("Kinh Mạch points: %d." % c.tree_points)
+			io.out("Đạo Đồ points: %d." % c.tree_points)
 		"heal":
 			c.vitality = 1.0
 			c.dan_doc = 0.0
@@ -945,6 +945,6 @@ func _buildgen(args: Array) -> void:
 	var c := Character.from_dict(s.db.get_record("people", pid))
 	io.out_lines(TerminalViews.show(s, pid))
 	var sh := StatSheet.build(c, gd, s.db, s.tree)
-	io.out("Kinh Mạch (%d huyệt): %s" % [c.tree_nodes.size(), ", ".join(c.tree_nodes.filter(func(n): return s.tree.node(n).kind in ["notable", "keystone", "bridge_notable"]).map(func(n): return s.tree.node(n).name))])
+	io.out("Đạo Đồ (%d đạo văn): %s" % [c.tree_nodes.size(), ", ".join(c.tree_nodes.filter(func(n): return s.tree.node(n).kind in ["notable", "keystone", "bridge_notable"]).map(func(n): return s.tree.node(n).name))])
 	io.out_lines(CombatPower.compute(c, gd, s.db, sh).lines)
 	io.out("(registered as %s at your location; 'talk %s' works)" % [pid, pid])

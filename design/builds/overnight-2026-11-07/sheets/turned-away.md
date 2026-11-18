@@ -136,7 +136,7 @@ A firing manual for the body, correct in every line but one.
 
 ### Hidden cluster idea: Waster Heap (Phế Đôi)
 
-Theme: wounds and vitality, the heap behind every kiln where failed pots are thrown. Earth affinity, outer, sealed. Seal condition: a technique that lists it, or three failed great breakthroughs in one life, so anyone a gate has beaten can open it. Size 8, so one notable. The small acupoints give health and body guard, because the floor is a share of health. The notable is Reopened. It serves any build that lives at low health.
+Theme: wounds and vitality, the heap behind every kiln where failed pots are thrown. Earth affinity, outer, sealed. Seal condition: a technique that lists it, or three failed great breakthroughs in one life, so anyone a gate has beaten can open it. Size 8, so one notable. The small Dao marks give health and body guard, because the floor is a share of health. The notable is Reopened. It serves any build that lives at low health.
 
 ## Đạo
 

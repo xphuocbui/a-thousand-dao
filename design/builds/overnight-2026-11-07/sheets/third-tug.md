@@ -34,7 +34,7 @@ All catalogue or ledger rows at their listed sizes. Sizes are first guesses wher
 
 | Rung | Modifier | Effect | Form | Channel | Layer | Status | Home | Second home |
 |---|---|---|---|---|---|---|---|---|
-| Rate | **Sword art speed** | +50: 20 acupoints, 5 notables | Increased | art | none | ○ | Tree | From Daily Lesson |
+| Rate | **Sword art speed** | +50: 20 Dao marks, 5 notables | Increased | art | none | ○ | Tree | From Daily Lesson |
 | Multiplier | Damage (`attack_pct`) | +290 | Increased | any | L1 | ● | Tree | every build |
 | Multiplier | Sword damage | +32 | Increased | art | L1 | ○ | Tree | From Daily Lesson |
 | Multiplier | Full Title | +40 | More | art | L2 | ○ | Technique | From The Loud Sword |

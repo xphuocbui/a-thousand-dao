@@ -142,7 +142,7 @@ Fortune needed for a full feed (+0.15): 75. Base 25 + dice 15 + array 20 + pill 
 
 ### Hidden cluster idea: Gambler's Row (Phố Cược)
 
-Theme: Mệnh Đạo and Heart State. Element affinity: Thunder, Metal. Sealed, 9 acupoints. Seal condition: win three fights against a higher realm. Small points: khí vận, crit chance, crit damage; notable: Stacked Meter. No capability.
+Theme: Mệnh Đạo and Heart State. Element affinity: Thunder, Metal. Sealed, 9 Dao marks. Seal condition: win three fights against a higher realm. Small points: khí vận, crit chance, crit damage; notable: Stacked Meter. No capability.
 
 ## Đạo
 

@@ -18,14 +18,14 @@
       "desc": "A fruit that ripens once a millennium; whoever eats it grows a new spiritual root."
     },
     {
-      "id": "mach_an",
-      "name": "Mạch Ấn",
+      "id": "dao_an",
+      "name": "Đạo Ấn",
       "base_value": 800,
       "rarity": 4,
       "effect": {
         "type": "unseal_item"
       },
-      "desc": "A meridian seal key: used once, it opens a hidden cluster."
+      "desc": "A Dao Seal key: used once, it opens a hidden cluster."
     }
   ]
 }

@@ -154,7 +154,7 @@ A Kết Đan upgrade is a better base than `phi_kiem` (the Wren-Feather is good 
 
 ### Hidden cluster idea: Whetstone Row (Ma Thạch Hàng)
 
-Theme: Armoury craft (the sword-polisher's trade); Metal affinity; sealed, seal condition the Plain Iron Sword Manual (`seal_clusters`). Size 7 acupoints and one notable. Small acupoints: sword crit chance, basic attack damage, sword art speed. The notable at the far end is Hot Edge. No capability. Wider than this build: any Metal or weapon build wants it.
+Theme: Armoury craft (the sword-polisher's trade); Metal affinity; sealed, seal condition the Plain Iron Sword Manual (`seal_clusters`). Size 7 Dao marks and one notable. Small Dao marks: sword crit chance, basic attack damage, sword art speed. The notable at the far end is Hot Edge. No capability. Wider than this build: any Metal or weapon build wants it.
 
 ## Đạo
 

@@ -130,9 +130,9 @@ first guesses.
 | Lamp-Clear Pill (Minh Đăng Đan) | Modifier (+25 soul damage for one fight) | Extra push against bosses and soul-warded foes | Pill (đan dược) | Not in the game yet (staged: lamp-clear-pill) | Nice |
 | Bell of Waking (Tỉnh Hồn Chung) | Effect (cleanse) | Washes off Slackened Soul or a Silence naming the soul tag: the answer to a rival lance keeper | Art from the Scripture, layer 12 | Not in the game yet (staged: bell-of-waking) | Nice |
 | Soul-Guarding Lamp (Hộ Hồn Đăng) and Hồn Hộ soul resistance | Effect (ward) and modifier (`soul_res_pct`) | Survives long fights against soul cultivators; holds back 20 % of your spiritual power | Ward slot; Hồn Đạo Hồn Hộ facet | Lamp in the game; Hồn Hộ lines not in the game yet (staged: hon-ho-lines) | Nice |
-| Open Sky (Không Thiên) | Effect | Ward strength for divine sense left free (+13 to +18); the other end of the dial from Thousand-Weight Thought | Skill tree (Meridian Map) or Way | In the game (designed) | Nice |
+| Open Sky (Không Thiên) | Effect | Ward strength for divine sense left free (+13 to +18); the other end of the dial from Thousand-Weight Thought | Skill tree (Đạo Đồ) or Way | In the game (designed) | Nice |
 | Lamp Wick (Đăng Tâm) sealed cluster | Modifiers (divine sense, soul strength, soul damage) | A dense cluster of exactly the three stats the build wants | Tree cluster, opened by the Scripture | Not in the game yet (staged: lamp-wick-cluster) | Nice |
-| Mother Lode (Mẫu Khoáng) | Effect | Heavier refining at Deity Transformation: weight stays bound as divine sense grows | Tree (Meridian Map) content | Not in the game yet (staged: mother-lode) | Nice |
+| Mother Lode (Mẫu Khoáng) | Effect | Heavier refining at Deity Transformation: weight stays bound as divine sense grows | Tree (Đạo Đồ) content | Not in the game yet (staged: mother-lode) | Nice |
 | Realm pierce (`pierce_pct`) and regeneration (`linh_luc_regen_pct`) | Modifiers (+3 and +1 notables) | A little for fights one realm up; fuel until the Siphon carries you | Tree nodes | In the game | Nice |
 | Unyielding Breath (Bất Khuất) | Effect (keystone) | Once per fight a killing blow leaves you at 1 health, against burst builds that kill before the fourth lance | Tree keystone | In the game (designed) | Nice |
 

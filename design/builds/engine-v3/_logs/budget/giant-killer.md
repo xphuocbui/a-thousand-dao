@@ -32,4 +32,4 @@ No techniques, items or arts removed. The file's `_comment` records the cut; the
 - Physical penetration or realm pierce.
 - A modifier raising Metal stack applied per hit so the 6-stack break (shatter-edge-cleave) fires.
 - A drain-ward armour for Metal (current wards are cast or per-hit).
-- Possibly a slower-start fix: the typical same-realm fight is far shorter than budget intent, so more room may exist for the Meridian Map to carry the L2/L3 claim once the tree is drawn.
+- Possibly a slower-start fix: the typical same-realm fight is far shorter than budget intent, so more room may exist for the Đạo Đồ to carry the L2/L3 claim once the tree is drawn.

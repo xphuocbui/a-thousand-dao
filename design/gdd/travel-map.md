@@ -418,7 +418,7 @@ place left by history, rule 15).
 | Item Database | in / out | Maps, jade slips and told secrets as clue items; resources mapped to materials and herbs | Item Database |
 | Quests | out | Places, arrival, travel time for its visit and deliver stages | Quests |
 | Heavenly Tribulation | out | The place's ground tags (biome, element shares) | Heavenly Tribulation |
-| Meridian Map capabilities | in | #8 (seasons spent travelling also cultivate) and #21 (Blink Mark) | Meridian Map / Effects |
+| Đạo Đồ capabilities | in | #8 (seasons spent travelling also cultivate) and #21 (Blink Mark) | Đạo Đồ / Effects |
 | Debug Terminal, Game UI | out | The map display, stat blocks with each layer's line, the known map | UI |
 | Save/Load | out | The seed for the per-game rolls (hidden-place spots, reserves, NPCs) and every change (scars, reserves, ownership, homes, works, secrets known, known maps), not the terrain | Save/Load |
 | Map build and map check (new tool) | in | The index images (fine map and tiles) and hand corrections, turned into the stored map (each tile's mix, rule 2; Formulas C); the map targets report | Map build (tool); this GDD (the rules it computes) |
@@ -1025,12 +1025,12 @@ late in life; that shifts how many reach Nascent Soul and Hóa Thần (about 27 
 | Item Database (#13) | Soft | Maps, jade slips and told secrets as clue items; resources mapped to materials and herbs | GDD in review; **no row for this system yet** |
 | Quests (#31) | Soft | Places, arrival, travel time | Approved; lists this system |
 | Heavenly Tribulation (#22) | Soft | Ground tags (biome, element shares) | Approved for rules; lists this system |
-| Meridian Map (#10) / Effects (#41) | Soft | Capabilities #8 (travel cultivates) and #21 (Blink Mark) act on travel | In review / approved; Meridian lists it |
+| Đạo Đồ (#10) / Effects (#41) | Soft | Capabilities #8 (travel cultivates) and #21 (Blink Mark) act on travel | In review / approved; Đạo Đồ lists it |
 | Debug Terminal (#36), Game UI (#37), Guidance (#35) | Soft | The map, stat blocks with each layer's line, the known map, herb fit lines | Terminal built |
 | Balance Harness (#33) | Hard | Map targets on the one map; the Realms re-run with the uncapped match | Built, no GDD |
 | Map build and map check (new tool) | Hard | Index images (fine map and tiles) to the stored map: tile mixes (rule 2) and Formulas C; map targets | Prototype generator: `tools/design/map/continent_gen.py` |
 
-**Bidirectional check.** Realms, Character Stats, Quests, Heavenly Tribulation and the Meridian Map list this system.
+**Bidirectional check.** Realms, Character Stats, Quests, Heavenly Tribulation and the Đạo Đồ list this system.
 **Spiritual Roots, Combat and the Item Database do not**, so a back-reference row is added to each when this GDD is
 finished (with the user's approval). Realms' existing rows also need wording for the layer stack and the match.
 
@@ -1073,7 +1073,7 @@ finished (with the user's approval). Realms' existing rows also need wording for
 - **Discovery should feel earned:** a clue narrows the search, the search takes visible seasons, and the find is a
   marked moment that is recorded in the world's history.
 - **Choosing ground should feel like build-craft:** the stat block shows *your* match, *your* density and each layer's
-  line, so moving a home is a decision with numbers behind it, like picking a node on the Meridian Map. The land has
+  line, so moving a home is a decision with numbers behind it, like picking a node on the Đạo Đồ. The land has
   gradients: the heart of a biome and the ground beside a feature are stronger, and riskier, than the edge, so the best
   spot for a root is a specific place worth the journey.
 - **Response targets:** the map view renders in under 100 ms; planning a route (pathfinding over the grid) returns in
@@ -1110,7 +1110,7 @@ finished (with the user's approval). Realms' existing rows also need wording for
 | `design/gdd/combat.md`, `combat-defence.md` | Encounters on the way; the linh lực pool a flier arrives with |
 | `design/gdd/item-database.md` | Maps, jade slips and told secrets as clue items; material and herb values; the `linh_thach_max` ladder (`events_budgets.json`) |
 | `design/gdd/quests.md`, `thien-kiep.md` | Travel time for visit stages; ground tags |
-| `design/gdd/kinh-mach-do.md`, `effects.md` | Capabilities #8 (travel cultivates), #15 (formation levels) and #21 (Blink Mark) |
+| `design/gdd/dao-do.md`, `effects.md` | Capabilities #8 (travel cultivates), #15 (formation levels) and #21 (Blink Mark) |
 | `design/quick-specs/luyen-khi-and-tran-phap.md` | Tụ Linh Trận: cost, +0.15 per level, upkeep (kept, now a layer 1 upkept work) |
 | `design/gdd/systems-index.md` | #43 Regional Economy & Trade (the contract's reader), #26 Sects, #17 Formations, #37 Game UI (art style open) |
 | `assets/data/world_generation.json`, `crafting_formations.json`, `items_herbs.json` | Replaced travel keys; formation upkeep becomes seasonal; new herb climate keys |
@@ -1681,7 +1681,7 @@ Blocked on other GDDs:
 | 3 | Realms' season-start rate rule needs an exception for the leftover share of a travel season | Realms | With its Open Question 23 |
 | 4 | Realms' bot re-run with the match, settled and hermit NPCs and graded homes: do the player edge and the NPC targets (1 in 8 / 12 / 15 / 20; about 27 Nascent Soul, about 3 Hóa Thần) hold, now that the match has no ceiling and no stack cap? | Realms, Balance Harness | Before the map's numbers are approved |
 | 5 | Scar threshold and size: which events may scar the land, and by how much | Event Engine (budgets) | Event Engine GDD |
-| 6 | Capability #8 (travel seasons cultivate) under travel with leftover seasons | Meridian Map, Effects | Meridian content pass |
+| 6 | Capability #8 (travel seasons cultivate) under travel with leftover seasons | Đạo Đồ, Effects | Đạo Đồ content pass |
 | 7 | Should `stealth` lower the encounter chance (a factor on `m_mode`)? | user | Before the travel build |
 | 8 | Each herb's climate band (`temp_ideal`, `rain_ideal` and tolerances), and a pill-supply re-check with linear herb fit | content, Spirit Herbs | Content pass |
 | 9 | The move from today's region-and-place graph: Market, Sects, Spirit Fields, Events and the balance bots that rely on it | programming | Architecture / code pass |

@@ -13,7 +13,7 @@ extends RefCounted
 ## Usage:
 ## [codeblock]
 ## var rs := RatingService.new(gd, db)
-## rs.sheet_fn = builds.sheet_of                               # NPC sheets with their Kinh Mạch Đồ
+## rs.sheet_fn = builds.sheet_of                               # NPC sheets with their Đạo Đồ
 ## rs.worldgen(game_seed, player, player_sheet, start_place)    # rule 16, while the game loads
 ## var batch: SeasonBatch = rs.plan_season(game_seed, key, year, s, player, player_sheet)
 ## batch.run(true)
@@ -40,7 +40,7 @@ const TOP_REALMS := [3, 4]
 const KD_REALM := 2
 
 var ladder: RatingLadder
-## Callable(c: Character) -> StatSheet used to compile NPCs; defaults to a sheet without the Kinh Mạch Đồ.
+## Callable(c: Character) -> StatSheet used to compile NPCs; defaults to a sheet without the Đạo Đồ.
 var sheet_fn: Callable
 ## Problems met while rating (compile refusals, fighters off a ladder end), newest last; the caller may clear it.
 var log_lines: PackedStringArray = []
@@ -129,7 +129,7 @@ func mark_stale(c: Character) -> void:
 
 ## A person record's build signature (rule 5): a hash of what a build change changes — realm, stage, level, talents
 ## (without khí vận: AC-PR-08), linh căn, each technique's layer, the slotted techniques, the equipped items' records
-## and slots, opened huyệt, capabilities, perks and the nurtured item. Not chiến lực: it moves with injury, and a
+## and slots, opened đạo văn, capabilities, perks and the nurtured item. Not chiến lực: it moves with injury, and a
 ## technique's mastery moves every season, neither of which is a build change. Numbers are normalised so a save and
 ## load (ints back as floats) leaves it unchanged.
 func build_sig(person: Dictionary) -> String:

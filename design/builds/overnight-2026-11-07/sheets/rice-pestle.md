@@ -30,9 +30,9 @@ Two seconds of trading: you lose a tenth of your health a second, your own blood
 
 ## The Stack
 
-131 nodes, 111 acupoints and 20 notables, 293.2 W: the exact quarter of Deity's tree a typical life spends on attack. Sector rows assume purity 50. Maximum health needs little walking of its own, because one road node in two carries it and roads pay the same on every root (Meridian Map rule 21). So that row asks nothing of your linh căn.
+131 nodes, 111 Dao marks and 20 notables, 293.2 W: the exact quarter of Deity's tree a typical life spends on attack. Sector rows assume purity 50. Maximum health needs little walking of its own, because one road node in two carries it and roads pay the same on every root (Đạo Đồ rule 21). So that row asks nothing of your linh căn.
 
-`Take` is acupoints + notables. `Without` is the whole row removed from `variants/rice-pestle-mixed.fight.json`: `--without "[id]"`, or the named file. It reads win time, own health, enemy health at t = 3. **The full fight is 4 s, 59 %, 34 %.**
+`Take` is Dao marks + notables. `Without` is the whole row removed from `variants/rice-pestle-mixed.fight.json`: `--without "[id]"`, or the named file. It reads win time, own health, enemy health at t = 3. **The full fight is 4 s, 59 %, 34 %.**
 
 ### The Road: both lines walk it
 

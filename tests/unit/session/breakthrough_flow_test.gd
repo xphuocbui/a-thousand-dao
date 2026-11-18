@@ -1,6 +1,6 @@
 extends DaoTestSuite
 ## The great breakthrough through the session: pills, conditions, talismans, Awakening,
-## hidden clusters and capabilities (canh-gioi.md rules 7-11, kinh-mach-do.md rules 7-10, 17).
+## hidden clusters and capabilities (canh-gioi.md rules 7-11, dao-do.md rules 7-10, 17).
 
 
 func _session(purities: Dictionary = {"hoa": 86, "kim": 40}, perkless: bool = true) -> GameSession:
@@ -124,7 +124,7 @@ func test_open_unseals_stop_at_the_realm_allowance() -> void:
 func test_a_seal_key_opens_an_item_sealed_cluster_and_is_consumed() -> void:
 	var s := _session()
 	s.player.realm_index = 3
-	var t: Dictionary = s.items.treasure("mach_an")
+	var t: Dictionary = s.items.treasure("dao_an")
 	t["owner_id"] = s.player.id
 	var tid: String = s.db.add("items", t)
 	var r: Dictionary = s.use_item(tid)

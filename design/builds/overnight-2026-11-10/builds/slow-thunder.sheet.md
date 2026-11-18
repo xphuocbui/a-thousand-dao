@@ -169,7 +169,7 @@ The Ice-Jam Seal is the ferry's anchor-seal: the warden pressed it into the ice 
 
 ### Tree region idea: Winter Breath (Đông Tức)
 
-Theme: the breath you keep (linh lực not spent), wider than one build: ward casters, healers and any slow caster read it. Water affinity. A side-tree region for the rework (hidden clusters and `seal_clusters` are retired, cong-phap.md rule 15). 8 acupoints. Smalls: `linh_luc_regen_pct` +0.15 (×2), `art_cost_pct` [slow] −3 (×2), `ward_efficiency_pct` +1.2, `art_speed_pct` [slow] +3. Notables: `art_cost_pct` [slow] −20, and farthest, Long Fuse (+40 [slow, cheap] L2). One Weighted Bucket notable (`ward_bill_pct` +15) on a side branch. No capability. An idea, not data.
+Theme: the breath you keep (linh lực not spent), wider than one build: ward casters, healers and any slow caster read it. Water affinity. A side-tree region for the rework (hidden clusters and `seal_clusters` are retired, cong-phap.md rule 15). 8 Dao marks. Smalls: `linh_luc_regen_pct` +0.15 (×2), `art_cost_pct` [slow] −3 (×2), `ward_efficiency_pct` +1.2, `art_speed_pct` [slow] +3. Notables: `art_cost_pct` [slow] −20, and farthest, Long Fuse (+40 [slow, cheap] L2). One Weighted Bucket notable (`ward_bill_pct` +15) on a side branch. No capability. An idea, not data.
 
 ## Đạo
 

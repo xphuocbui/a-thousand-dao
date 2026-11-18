@@ -109,35 +109,35 @@
  ],
  "walk": {
   "Steady Breath": {
-   "acupoints": 2,
+   "dao_marks": 2,
    "notables": 0
   },
   "Damage while above 50 % health": {
-   "acupoints": 3,
+   "dao_marks": 3,
    "notables": 0
   },
   "Ward strength": {
-   "acupoints": 9,
+   "dao_marks": 9,
    "notables": 1
   },
   "Ward efficiency": {
-   "acupoints": 2,
+   "dao_marks": 2,
    "notables": 2
   },
   "Maximum health": {
-   "acupoints": 4,
+   "dao_marks": 4,
    "notables": 0
   },
   "Maximum linh luc": {
-   "acupoints": 1,
+   "dao_marks": 1,
    "notables": 0
   },
   "Linh luc regeneration": {
-   "acupoints": 5,
+   "dao_marks": 5,
    "notables": 3
   },
   "Evade": {
-   "acupoints": 2,
+   "dao_marks": 2,
    "notables": 0
   }
  },

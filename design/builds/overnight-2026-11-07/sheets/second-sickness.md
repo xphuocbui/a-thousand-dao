@@ -30,7 +30,7 @@ Thin Dose and Bone Steam land together every 1.9 s. Each is a weak hit that may 
 
 ## The Stack
 
-Read top to bottom as a walk across the Meridian Map. **Take** is what this build opens: `3 + 1` is three acupoints and one notable. **Size** is small / notable, from the catalogue where a row exists. Sizes on new rows are first guesses.
+Read top to bottom as a walk across the Đạo Đồ. **Take** is what this build opens: `3 + 1` is three Dao marks and one notable. **Size** is small / notable, from the catalogue where a row exists. Sizes on new rows are first guesses.
 
 ### The common road: 14 nodes, both lines
 
@@ -192,7 +192,7 @@ The fork is a choice only if each line wins something the other loses. Same base
 
 **Plainly, Into the Breath is the better line on most of this table.** It wins two fights Blood loses, and Blood wins one back. Ticks are 56 % of Blood's health damage and 26 % of Breath's, so Breath is really a hit build opened by poison. This sheet builds Blood because it is the Poison path as asked, not because it is stronger.
 
-**Bare Vessel's grades, stated plainly.** One modifier, four sizes tonight: +2.5 as an acupoint, +25 as a notable here, +30 lesser grade and +80 greater grade on techniques and sealed clusters. The roads' other Conditional notables are +10 to +15, so +25 is out of line. It is not what makes Breath good. Run at +15, every Breath fight above ends the same (each file `breath-[enemy]-bv15`), and the only change is that `breath-guarded-bv15` loses with the enemy on 39 %, not 35 %. The number stays here because that bar moves, and the rework can take +15.
+**Bare Vessel's grades, stated plainly.** One modifier, four sizes tonight: +2.5 as a Dao mark, +25 as a notable here, +30 lesser grade and +80 greater grade on techniques and sealed clusters. The roads' other Conditional notables are +10 to +15, so +25 is out of line. It is not what makes Breath good. Run at +15, every Breath fight above ends the same (each file `breath-[enemy]-bv15`), and the only change is that `breath-guarded-bv15` loses with the enemy on 39 %, not 35 %. The number stays here because that bar moves, and the rework can take +15.
 
 I expected the ward wall to favour Blood outright, since ticks ignore wards. It does not: both die at 9 s, and Blood only gets further.
 
