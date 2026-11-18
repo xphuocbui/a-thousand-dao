@@ -186,3 +186,7 @@ design/dao-do/versions/.prev/
 # Prototype image sets kept local (user decision 2026-11-14: binary images would bloat history; commit a chosen subset)
 prototypes/map-style-demos/gallery/
 prototypes/continent-candidates/
+
+# PoE 1 / PoE 2 passive tree data (GGG's data, read by the Đạo Đồ study tools; kept local, user decision 2026-11-18)
+design/dao-do/reference/poe/
+design/dao-do/reference/poe2/
