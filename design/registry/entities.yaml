@@ -2270,6 +2270,69 @@ formulas:
     notes: "Fills Character Stats Formulas H 'the scale belongs to NPC Interaction'. W_r = event_budget_linh_thach_max at the receiver's realm."
     added: 2026-11-15
     revised: ""
+  - name: pool_allocation
+    status: active
+    source: design/gdd/living-world-tick.md
+    referenced_by:
+      - design/gdd/living-world-tick.md
+      - design/gdd/sects.md
+    variables:
+      - P
+      - d_s
+      - D
+    output_range: "sum of claim_s + loose = P; claim_s <= d_s"
+    expression: "claim_s = d_s if D <= P else floor(P * d_s / D), the leftover P - sum(floors) one each to the largest remainders (ties to the lower sect id); loose = P - sum(claim_s)"
+    notes: "Living World Tick Formulas D (decision 2026-11-15: the tick alone spawns people, Sects F17 sets each sect's demand d_s). Retires the fixed intake_sect_share 0.9 and intake_rank_shares."
+    added: 2026-11-15
+    revised: ""
+  - name: npc_stage_chance
+    status: active
+    source: design/gdd/living-world-tick.md
+    referenced_by:
+      - design/gdd/living-world-tick.md
+      - design/gdd/canh-gioi.md
+    variables:
+      - N_stage
+    output_range: "(0, 1]; 0.0833 at N_stage 12 and m_i 1"
+    expression: "p_stage_i = min(m_i / max(N_stage, 1), 1), m_i from npc_talent_mult (world mean exactly 1)"
+    notes: "Living World Tick Formulas A. Built: flat 1/N_stage; the talent multiplier m_i (decision 2026-11-15) is To build and reopens canh-gioi.md rule 12."
+    added: 2026-11-15
+    revised: ""
+  - name: estate_split
+    status: active
+    source: design/gdd/living-world-tick.md
+    referenced_by:
+      - design/gdd/living-world-tick.md
+      - design/gdd/regional-economy-trade.md
+      - design/gdd/quests.md
+    variables:
+      - purse_dead
+      - to_heir
+      - to_sect
+      - W_dead
+    output_range: "to_heir + to_sect + W_dead = purse_dead, exactly one term non-zero"
+    expression: "purse goes to heir_of if there is one; else to the sect treasury if a member; else W_dead for the place's region"
+    notes: "Living World Tick Formulas F and Core Rule 9 (decision 2026-11-15); the purse follows the items. To build: the built ticker moves items only."
+    added: 2026-11-15
+    revised: ""
+  - name: npc_talent_mult
+    status: active
+    source: design/gdd/living-world-tick.md
+    referenced_by:
+      - design/gdd/living-world-tick.md
+      - design/gdd/canh-gioi.md
+      - design/gdd/linh-can.md
+    variables:
+      - root_i
+      - q_i
+      - talent_gamma
+      - talent_min
+      - talent_max
+    output_range: "about 0.5 - 2.0; mean over living non-beast NPCs exactly 1"
+    expression: "raw_i = root_i * max(q_i, 0.1); s_i = clamp((raw_i / mean_raw)^gamma, m_lo, m_hi); m_i = s_i / mean(s); means recomputed each Spring"
+    notes: "Living World Tick Formulas H (user decision 2026-11-15: light talent and place modifiers on NPC stage speed). gamma 0.5, clamp 0.5-2.0 are guesses. Normalising keeps Realms' average climb by construction."
+    added: 2026-11-15
+    revised: ""
 constants:
   - name: root_count_weights
     status: active
@@ -5311,5 +5374,38 @@ constants:
     value: "hostile <= -30; cold -29..-10; neutral -9..9; warm 10..29; friendly 30..59; close >= 60"
     unit: attitude to the player
     notes: "Hostile and friendly are the existing session_actions.json talk thresholds (-30, 30); cold, warm and close added 2026-11-15."
+    added: 2026-11-15
+    revised: ""
+  - name: npc_cultivation_seasons_per_stage
+    status: active
+    source: design/gdd/living-world-tick.md
+    referenced_by:
+      - design/gdd/living-world-tick.md
+      - design/gdd/canh-gioi.md
+    value: 12
+    unit: seasons per stage (mean)
+    notes: "As built in world_generation.json tick; Living World Tick Formulas A."
+    added: 2026-11-15
+    revised: ""
+  - name: event_chance_per_season
+    status: active
+    source: design/gdd/living-world-tick.md
+    referenced_by:
+      - design/gdd/living-world-tick.md
+      - design/gdd/combat.md
+    value: 0.6
+    unit: chance of one NPC duel per season
+    notes: "As built; a placeholder until Combat OQ 11 sets a violent-death budget (Living World Tick OQ 4)."
+    added: 2026-11-15
+    revised: ""
+  - name: tick_budget_ms
+    status: active
+    source: design/gdd/living-world-tick.md
+    referenced_by:
+      - design/gdd/living-world-tick.md
+      - design/gdd/sects.md
+    value: "mean <= 150, p99 <= 250"
+    unit: ms per season tick on the main thread at 5,000 cultivators
+    notes: "GUESS, not measured (Living World Tick OQ 2). The built 60-90 ms is the people step alone; callee ceilings add about 48 ms."
     added: 2026-11-15
     revised: ""
