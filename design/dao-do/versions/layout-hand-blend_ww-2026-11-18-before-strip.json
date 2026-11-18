@@ -1,0 +1,290 @@
+{
+ "blend_ww": [
+  {
+   "note": "Water and Wood: the reed bank on the way to Thunder. Hand-authored combos first in the blend's narrow wedge (about 6 degrees either side of its axis): -u faces the land before it, +u the land after it."
+  },
+  {
+   "note": "RESTART 2026-11-18 (user: do the same as Fire for the rest of the tree): old fans and patterns removed, roads kept; frame web added, then hand-filled with the shared ring-grid vocabulary inside the blend's 6-degree wedge. -u holds figures of the land before, +u of the land after. Previous: versions/layout-hand-blend_ww-2026-11-18-before-restart.json"
+  },
+  {
+   "note": "FRAME WEB 2026-11-18: reeds: two stems hanging from the rim, of unequal length"
+  },
+  {
+   "road": [
+    [
+     -4.4,
+     83.89
+    ],
+    [
+     -4.65,
+     80.25
+    ],
+    [
+     -4.9,
+     76.6
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     4.4,
+     83.89
+    ],
+    [
+     4.6,
+     79.3
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "note": "FILL 2026-11-18: Water (-u): drops, halo, crescents, cup; Wood (+u): forks, lenses (leaves), horseshoe, cradle; reeds carry the falls"
+  },
+  {
+   "piece": "F drop",
+   "at": [
+    -4.9,
+    76.6
+   ],
+   "facing": -116,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F crescent",
+   "at": [
+    -4.65,
+    80.25
+   ],
+   "facing": -86,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F cup",
+   "at": [
+    -4.65,
+    80.25
+   ],
+   "facing": 64,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    4.6,
+    79.3
+   ],
+   "facing": -123,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F horseshoe",
+   "at": [
+    4.6,
+    79.3
+   ],
+   "facing": 117,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F crescent",
+   "at": [
+    0,
+    74.3
+   ],
+   "facing": -60,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    0,
+    74.3
+   ],
+   "facing": 120,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F drop",
+   "at": [
+    0,
+    69.45
+   ],
+   "facing": -90,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F wheel",
+   "at": [
+    0,
+    64.6
+   ],
+   "facing": -56,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    0,
+    64.6
+   ],
+   "facing": 56,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F drop",
+   "at": [
+    0,
+    84
+   ],
+   "facing": -46,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "Fire lens L",
+   "at": [
+    0,
+    84
+   ],
+   "facing": 46,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "note": "DENSITY 2026-11-18 (from hostscan.py report, hand-picked): small figures off the blend's figures, the land before on -u, the land after on +u"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    4.59,
+    87.07
+   ],
+   "facing": 75.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "bl2"
+  },
+  {
+   "piece": "F crescent",
+   "at": [
+    -2.94,
+    65.41
+   ],
+   "facing": -86.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "bl2"
+  },
+  {
+   "piece": "F drop",
+   "at": [
+    -2.89,
+    70.42
+   ],
+   "facing": -60.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "bl2"
+  },
+  {
+   "piece": "F cup",
+   "at": [
+    6.68,
+    79.62
+   ],
+   "facing": 18.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "bl2"
+  },
+  {
+   "piece": "F wheel",
+   "at": [
+    -1.4,
+    86.71
+   ],
+   "facing": -16.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "bl2"
+  },
+  {
+   "note": "INNER FILL 2026-11-18 (finding from the centre pair at 80 units: our centre had ten dark triangles between the Chaos ring, the land starts and the blend wheels, where PoE 2 is packed): large figures both sides of the blend's inner spoke, from the hubscan2 report, picked by hand; these reach past the blend's 6-degree wedge into ground no land uses"
+  },
+  {
+   "piece": "Fire halo L",
+   "at": [
+    0,
+    19.1
+   ],
+   "facing": -90,
+   "spoke": 1.2,
+   "tag": "bl3"
+  },
+  {
+   "piece": "F crescent",
+   "at": [
+    0,
+    23.7
+   ],
+   "facing": -60,
+   "spoke": 1.2,
+   "tag": "bl3"
+  },
+  {
+   "piece": "Fire lens L",
+   "at": [
+    0,
+    23.7
+   ],
+   "facing": 60,
+   "spoke": 1.2,
+   "tag": "bl3"
+  },
+  {
+   "piece": "F wheel",
+   "at": [
+    0,
+    19.1
+   ],
+   "facing": 120,
+   "spoke": 1.2,
+   "tag": "bl3"
+  },
+  {
+   "note": "WHEEL POCKETS 2026-11-18 (finding from the Earth pair at 36 units: dark pockets beside each blend wheel): large figures off the blend spoke at the wheel, from the hubscan2 report (14-degree window), picked by hand"
+  },
+  {
+   "piece": "Fire halo L",
+   "at": [
+    0,
+    49.63
+   ],
+   "facing": -90,
+   "spoke": 1.2,
+   "tag": "bl4"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    0,
+    45.87
+   ],
+   "facing": 120,
+   "spoke": 1.2,
+   "tag": "bl4"
+  }
+ ]
+}

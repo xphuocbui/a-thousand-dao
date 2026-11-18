@@ -1,0 +1,3 @@
+{"ax": 216, "kind": "wedge", "lim": 30, "rmin": 26.5, "rmax": 97, "avoid": [[0, 27, 5.5], [0, 39.6, 5.5]],
+ "right": ["Koi", "Crescent moon", "Twin curls", "Lens", "Infinity", "Necklace", "Horseshoe", "Eye", "Rainbow", "Comet", "Eclipse", "Wreath", "Halo", "Twin rings", "Lens and satellite", "Prayer beads", "Small fan", "Cup", "Anchor", "Heart"],
+ "left": ["Moth", "Dragonfly", "Lyre", "Prayer beads", "Small fan", "Wreath", "Scallop", "Rose", "Cup", "Lens", "Heart", "Twin curls", "Butterfly", "Drawn bow", "Halo", "Candelabra", "Kite", "Lens and satellite", "Rainbow", "Necklace", "Infinity"]}

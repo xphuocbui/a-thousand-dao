@@ -1,0 +1,169 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> 2
+» new quick
+Generating the world (seed 1)...
+A new world: 4 regions, 22 places, 5 sects, 5060 people, 235 recorded events (Thiên Nguyên lịch năm 300).
+Vô Danh is born: Dual root: Earth [Thổ] 50, Metal [Kim] 54
+Power Rankings: the player's panel (40 fights) and 477 coarse panels (3150 fights) rated at load.
+
+━━ Vô Danh — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+
+ ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          luyện đan success and quality
+   Thổ  ▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁  50 Trung    more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁  54 Trung    linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▁▁▁▁▁▁▁▁  16 Hạ           Căn cốt   ▆▆▆▆▆▆▁▁▁▁  58 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  45 Trung        Khí vận   ▆▆▆▆▆▁▁▁▁▁  47 Trung
+   Đạo tâm   ▆▆▁▁▁▁▁▁▁▁  22 Hạ           Mị lực    ▆▆▆▆▆▁▁▁▁▁  52 Trung
+
+ TRẠNG THÁI Linh lực 51 · Thần thức 45 · Khí huyết 580/580
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Bạch Kim Quyết (layer 1/6)
+            tu vi 4.7 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  123 = offense 61 + defense 62 · extra slots 0/2 ('explain power')
+ ĐẠO ĐỒ  1 đạo văn open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Linh Căn Thuần Tịnh — A pure root: every owned element is purer from birth, and you cultivate faster.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Mê Vụ Trấn (l4) — Trấn, Huyền Băng Nguyên. Linh khí 0.82, danger 1, bounties
+  Your động phủ is here.
+People here (225):
+  p71    Triệu Lạc Anh        Luyện Khí Hậu kỳ       Kiếm tu | power 95 | attitude 0
+  p72    Phương Thanh Ca      Luyện Khí Đại viên mãn Thể tu | power 95 | attitude 0
+  p73    Giang Ngọc           Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p118   Mộ Dung Tùng         Luyện Khí Trung kỳ     Tán tu | power 53 | attitude 0
+  p148   Mạc Vũ               Luyện Khí Trung kỳ     Tán tu | power 51 | attitude 0
+  p160   Cung Trần            Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p171   Lục Tịch             Trúc Cơ Hậu kỳ         Tán tu | power 1,040 | attitude 0
+  p187   Thượng Quan Mặc      Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p201   Lạc Nguyệt           Trúc Cơ Trung kỳ       Pháp tu | power 1,360 | attitude 0
+  p219   Vương Thanh Ca       Luyện Khí Hậu kỳ       Tán tu | power 95 | attitude 0
+  p232   Giang Thanh Ca       Luyện Khí Đại viên mãn Đan sư | power 95 | attitude 0
+  p235   Kỷ Trường Không      Luyện Khí Trung kỳ     Kiếm tu | power 95 | attitude 0
+  p251   Cố Băng              Luyện Khí Sơ kỳ        Trận sư | power 51 | attitude 0
+  p281   Hàn Kiếm             Trúc Cơ Đại viên mãn   Tán tu | power 1,040 | attitude 0
+  p287   Đông Phương Hằng     Luyện Khí Sơ kỳ        Tán tu | power 28 | attitude 0
+  ... 'db people l4' lists all
+Roads:
+  -> l3    Tử Trúc Đảo (1 season)
+  -> l5    Kim Sa Cốc (1 season)
+
+━━ Vô Danh · Thiên Nguyên lịch năm 300, Xuân · Mê Vụ Trấn ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +4.7/season, next level in 2.3 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 22 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Mê Vụ Trấn                   7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Talk to someone… (225 here)         15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> sheet
+━━ Vô Danh — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+
+ ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          luyện đan success and quality
+   Thổ  ▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁  50 Trung    more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁  54 Trung    linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▁▁▁▁▁▁▁▁  16 Hạ           Căn cốt   ▆▆▆▆▆▆▁▁▁▁  58 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  45 Trung        Khí vận   ▆▆▆▆▆▁▁▁▁▁  47 Trung
+   Đạo tâm   ▆▆▁▁▁▁▁▁▁▁  22 Hạ           Mị lực    ▆▆▆▆▆▁▁▁▁▁  52 Trung
+
+ TRẠNG THÁI Linh lực 51 · Thần thức 45 · Khí huyết 580/580
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Bạch Kim Quyết (layer 1/6)
+            tu vi 4.7 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  123 = offense 61 + defense 62 · extra slots 0/2 ('explain power')
+ ĐẠO ĐỒ  1 đạo văn open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Linh Căn Thuần Tịnh — A pure root: every owned element is purer from birth, and you cultivate faster.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+> tree
+Đạo Đồ (1 of 1296 đạo văn shown): 0 unsealed cluster(s), capabilities: none.
+1 đạo văn open, 2 unspent points. Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets
+Openable now:
+  #1    Ngũ Hành Luân Chuyển     keystone       +8% tu luyện speed per linh căn element  (requires 5 base elements in your root)
+  #2    Môn Mộc                  gate           +0.25% khí huyết  (x0.25 from your root)
+  #3    Môn Hỏa                  gate           +0.30% attack  (x0.25 from your root)
+  #4    Môn Thổ                  gate           +1.2% defense
+  #5    Môn Kim                  gate           +1.2% attack  (x1.04 from your root)
+  #6    Môn Thủy                 gate           +0.30% linh lực  (x0.25 from your root)
+> tree map
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+                             K                  N K                           
+                              .         .       ..                            
+                   N.          .   .    .   .  ..       N  .                  
+                     ..        ..       .      ..      .  .                   
+                       N        .       .      .        N                     
+                     N. :N       .      .     .       N:                      
+            NK         ...N      .      .   N .      ..           K           
+             N ..          .      .     .  . .   N  N          ..             
+                . ...    N. :     ..    . . .. .. ::       ...                
+               .     . .  N.       . .  .N  .N          . .     .             
+                    N.  .. ..       .   .. ..  N      ..                      
+           .. .        .. .. .      ..  . .N. ..    ..           . ..         
+               . .. ..    N. ..N  .N .  N .  .  ...  .    .. .. .             
+             .        . .. . .. ... . . ...N  ..    . .. .        .           
+                         .  . ...N.... .. ...  ... . .N    .. N               
+                                  .. .+ ++. .. N  .              .. NN        
+       K  .. .. .. .. .. .. .. .. .. . +@ ...N.. ....N .. .. .. .. .. .  K    
+                               .N  ..........  ..N          . .               
+                      N .. .  . N.  N .  . N  ..         :     N              
+               : ..         N.... .. .  N . ..  ...       .N .N . NN          
+          ..N :    N ..   ..   N..  ..  . N.  ..    ..           N N .        
+       N. . ..          .. N..  .   .     ..   .  .   ..               .      
+      N ..           . .      .. . .      . . ....      . .                   
+     N            ...       ..    ..      .N.. N. ..       ...                
+               ....        .      .       N  .      .          ..             
+             K NN   .    ..      .      .     . .    ..    .      K           
+                        ..       .      N     .  N    ..                      
+                       .        .       .      .        .                     
+                      .    .   ..       .      ..   .    .                    
+                               .        N       ..                            
+                              .         N..      .N                           
+                             K          . N       KN                          
+                                        . N                                   
+                                                                              
+                                                                              
+                                                                              
+@ Đạo Nguyên  # open  + openable  N notable  K keystone  o gate  . đạo văn  : kỳ kinh bridge
+Sectors clockwise from the top: Mộc → Hỏa → Thổ → Kim → Thủy  (tương sinh order)
+> tree node 1
+#1 Ngũ Hành Luân Chuyển — keystone, sector , depth 1
+  bonus: +8% tu luyện speed per linh căn element
+  Requires all five base elements: +8% cultivation speed per element in your linh căn.
+  links: #0
+  path from your open đạo văn: #1 (1 points)
+> quit

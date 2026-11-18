@@ -1,0 +1,706 @@
+{
+ "fire": [
+  {
+   "note": "RESTART 2026-11-17: the roads of experiments/2026-11-17/pass3/fire-pass2.json only (A2 base + the approved lattice); every figure, keystone and combo removed. Figures are hand-placed next, guided by underlay/sketches/poe2-fire-b-4.png. Previous Fire: versions/layout-hand-fire-2026-11-17-before-restart.json."
+  },
+  {
+   "note": "FIRE VOCABULARY (2026-11-17 night): figures on PoE's ring grid, node 0 = entry at the bottom; used at fixed sizes so the land repeats a few forms"
+  },
+  {
+   "note": "STRIP 2026-11-18 (11-18 plan step 1, rules-2026-11-18.md section 1; user: go with the recommendation): every figure removed (pieces, groups, combos, signatures, hung and nested figures, weave joins, inner-zone, centre and emblem fills). Kept: roads and arcs (frame web included) and the keystones; the A2 base roads, starts with their motif, and emblems come from the skeleton. Previous: versions/layout-hand-fire-2026-11-18-before-strip.json"
+  },
+  {
+   "strict": true,
+   "note": "Hand-authored region (2026-11-17): combo pieces are drawn only at their written angle and link length."
+  },
+  {
+   "note": "ROAD LATTICE PROPOSAL (2026-11-17, user: lattice roads, shown beside the current roads before any figure goes on). Kept: the A2 base (start road v 30, middle road v 51, rim ring v 84, spine, emblems, start, blend roads), the great arc, the two keystones, the rim combos. Redrawn: every road between the bands."
+  },
+  {
+   "note": "FLAME (u > 0): straight frames with rounded quarter-circle corners, and the great arc round the star emblem."
+  },
+  {
+   "note": "Band 1 frame: a vertical at u 13 from the start road to the middle road, a horizontal at v 40, a rounded corner into the long vertical at u 25.6"
+  },
+  {
+   "note": "2026-11-18 (user: yes): the 4.6-degree bend at (-21.1, 73.8) straightened: the Ash wall now runs in one straight line from (-21.1, 64.5) to the rim"
+  },
+  {
+   "road": [
+    [
+     13.5,
+     30.1
+    ],
+    [
+     13.25,
+     35.0
+    ],
+    [
+     13.0,
+     40.0
+    ],
+    [
+     12.5,
+     45.5
+    ],
+    [
+     12.1,
+     50.6
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     13.0,
+     40.0
+    ],
+    [
+     16.2,
+     40.0
+    ],
+    [
+     19.4,
+     40.0
+    ],
+    [
+     21.8,
+     40.0
+    ]
+   ]
+  },
+  {
+   "arc": [
+    21.8,
+    43.8
+   ],
+   "r": 3.8,
+   "from": 180,
+   "to": 90,
+   "n": 2
+  },
+  {
+   "note": "The long vertical at u 25.6 crosses the middle road and runs on to v 64"
+  },
+  {
+   "road": [
+    [
+     25.6,
+     43.8
+    ],
+    [
+     25.6,
+     47.4
+    ],
+    [
+     25.6,
+     50.9
+    ],
+    [
+     25.6,
+     57.4
+    ],
+    [
+     25.6,
+     64.0
+    ]
+   ]
+  },
+  {
+   "arc": [
+    0.0,
+    48.0
+   ],
+   "r": 17.0,
+   "from": 15,
+   "to": 80,
+   "n": 6
+  },
+  {
+   "road": [
+    [
+     4.4,
+     64.4
+    ],
+    [
+     0.0,
+     59.5
+    ]
+   ]
+  },
+  {
+   "note": "Band 2: a horizontal at v 64, a rounded corner up the u 30.1 vertical to the rim; the keystone vertical at u 21.7; a horizontal at v 69.5 turning up the u 13.1 vertical to the rim. Two framed cells for figures, the keystone alone in the right one."
+  },
+  {
+   "road": [
+    [
+     21.7,
+     64.0
+    ],
+    [
+     25.6,
+     64.0
+    ],
+    [
+     27.1,
+     64.0
+    ]
+   ]
+  },
+  {
+   "arc": [
+    27.1,
+    67.0
+   ],
+   "r": 3.0,
+   "from": 180,
+   "to": 90,
+   "n": 2
+  },
+  {
+   "road": [
+    [
+     30.1,
+     67.0
+    ],
+    [
+     30.1,
+     72.7
+    ],
+    [
+     30.1,
+     78.4
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     21.7,
+     64.0
+    ],
+    [
+     21.7,
+     69.5
+    ],
+    [
+     21.7,
+     75.0
+    ],
+    [
+     21.7,
+     81.1
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     21.7,
+     69.5
+    ],
+    [
+     19.4,
+     69.5
+    ],
+    [
+     17.1,
+     69.5
+    ]
+   ]
+  },
+  {
+   "arc": [
+    17.1,
+    73.5
+   ],
+   "r": 4.0,
+   "from": 180,
+   "to": 270,
+   "n": 2
+  },
+  {
+   "road": [
+    [
+     13.1,
+     73.5
+    ],
+    [
+     13.1,
+     78.2
+    ],
+    [
+     13.1,
+     83.0
+    ]
+   ]
+  },
+  {
+   "note": "ASH (u < 0): square corners, 45-degree forks and chamfers. Band 1: the diamond made a true 45-degree square, its left side on the u -16.6 vertical, its top on a pole"
+  },
+  {
+   "road": [
+    [
+     -13.5,
+     30.1
+    ],
+    [
+     -12.6,
+     34.0
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -12.6,
+     34.0
+    ],
+    [
+     -8.6,
+     38.0
+    ],
+    [
+     -12.6,
+     42.0
+    ],
+    [
+     -16.6,
+     38.0
+    ],
+    [
+     -12.6,
+     34.0
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -16.6,
+     38.0
+    ],
+    [
+     -16.6,
+     44.35
+    ],
+    [
+     -16.6,
+     50.7
+    ]
+   ]
+  },
+  {
+   "note": "The pole: one straight line from the diamond's top across the middle road to the rim at u -13.1"
+  },
+  {
+   "road": [
+    [
+     -12.6,
+     42.0
+    ],
+    [
+     -12.35,
+     46.3
+    ],
+    [
+     -12.1,
+     50.6
+    ],
+    [
+     -12.24,
+     55.0
+    ],
+    [
+     -12.37,
+     59.5
+    ],
+    [
+     -12.52,
+     64.2
+    ],
+    [
+     -12.67,
+     69.1
+    ],
+    [
+     -12.82,
+     73.7
+    ],
+    [
+     -12.96,
+     78.4
+    ],
+    [
+     -13.1,
+     83.0
+    ]
+   ]
+  },
+  {
+   "note": "Band 2: a horizontal at v 59.5 from the spine to the pole; a trunk at u -25.6 forking at 45 degrees into verticals at u -30.1 and u -21.1, both to the rim; a horizontal at v 69.1 from the pole to the right fork; the keystone between the forks"
+  },
+  {
+   "road": [
+    [
+     0.0,
+     59.5
+    ],
+    [
+     -4.1,
+     59.5
+    ],
+    [
+     -8.2,
+     59.5
+    ],
+    [
+     -12.37,
+     59.5
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -25.6,
+     50.9
+    ],
+    [
+     -25.6,
+     55.5
+    ],
+    [
+     -25.6,
+     60.0
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -25.6,
+     60.0
+    ],
+    [
+     -27.85,
+     62.25
+    ],
+    [
+     -30.1,
+     64.5
+    ],
+    [
+     -30.1,
+     69.1
+    ],
+    [
+     -30.1,
+     73.8
+    ],
+    [
+     -30.1,
+     78.4
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -25.6,
+     60.0
+    ],
+    [
+     -23.35,
+     62.25
+    ],
+    [
+     -21.1,
+     64.5
+    ],
+    [
+     -21.27,
+     69.1
+    ],
+    [
+     -21.44,
+     73.8
+    ],
+    [
+     -21.57,
+     77.5
+    ],
+    [
+     -21.7,
+     81.1
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -12.67,
+     69.1
+    ],
+    [
+     -16.9,
+     69.1
+    ],
+    [
+     -21.1,
+     69.1
+    ]
+   ]
+  },
+  {
+   "note": "FRAME WEB (2026-11-18, user: yes to diagonal frame roads; PoE 2's frame is a web of hubs about 3.7 apart). Ash (u < 0) gets 45-degree lines, Flame (u > 0) gets curves, so the two halves stop mirroring."
+  },
+  {
+   "road": [
+    [
+     -25.64,
+     50.91
+    ],
+    [
+     -23.0,
+     53.6
+    ],
+    [
+     -20.4,
+     56.2
+    ],
+    [
+     -17.8,
+     58.9
+    ],
+    [
+     -15.1,
+     61.5
+    ],
+    [
+     -12.52,
+     64.2
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -30.1,
+     64.5
+    ],
+    [
+     -27.2,
+     67.6
+    ],
+    [
+     -24.3,
+     70.7
+    ],
+    [
+     -21.44,
+     73.8
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -30.1,
+     73.8
+    ],
+    [
+     -28.03,
+     76.85
+    ],
+    [
+     -25.96,
+     79.89
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -12.24,
+     55.0
+    ],
+    [
+     -10.2,
+     57.25
+    ],
+    [
+     -8.2,
+     59.5
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -8.2,
+     59.5
+    ],
+    [
+     -10.36,
+     61.85
+    ],
+    [
+     -12.52,
+     64.2
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -8.6,
+     38.0
+    ],
+    [
+     -5.55,
+     34.2
+    ],
+    [
+     -2.46,
+     30.38
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "arc": [
+    5.13,
+    28.4
+   ],
+   "r": 10.46,
+   "from": -29.4,
+   "to": 50.9,
+   "n": 4,
+   "tag": "frame"
+  },
+  {
+   "note": "BAND 1 (v 27-50), 2026-11-17: interlocked combos after the user's reference images (img.png nested shield, img_6 stacked dome, img_11 diamond chain, img_2 lens with core, img_5 great ring), placed by hand on the restart roads; sketch poe2-fire-b-4 guides density."
+  },
+  {
+   "note": "P1 start pockets: sunrises off the start road, mirrored (PoE 2 mirrors round its starts)"
+  },
+  {
+   "note": "P2 lower spine: diamond chains off the spine, mirrored; the left one weaves into the road diamond"
+  },
+  {
+   "note": "P3 nested: a halo inside the road diamond, through from its bottom to its top corner"
+  },
+  {
+   "note": "P4 / P5: lenses with a core, off the left vertical (outward) and the right vertical (inward)"
+  },
+  {
+   "note": "P6 stacked: a dome standing on the v 40 road with a ring on its crown, a sunrise hanging under the road"
+  },
+  {
+   "note": "P8 great ring: through from the left vertical to the emblem"
+  },
+  {
+   "note": "BAND 1 fill (vocabulary): one figure per gap, each off a road node"
+  },
+  {
+   "note": "LAND SIGNATURES 2026-11-18 (overnight, Claude; the advisor flagged that every region used the same eleven figures): one hand-drawn figure per land, used as an accent in that land only - Water wave (an S of two arcs), Wood branch (a trunk splitting into a curled twig and a bent twig), Earth range (two peaks on a base), Metal bell (a bell outline with a clapper and a handle)"
+  },
+  {
+   "note": "ISLAND SIGNATURES 2026-11-18 (overnight, Claude): Thunder bolt (a zigzag), Light rays (three rays off a stem), Dark moth (two wings on a body); each used only on its island"
+  },
+  {
+   "note": "BAND 2 (v 50-66): rays hung inward from the great arc road, the Fire eye (ring with a wheel inside, through from the arc road to the right road), a facing pair of sunrises across the left cell, a wheel nested in the V"
+  },
+  {
+   "note": "BAND 3 (v 64-89): keystones hang into the two framed boxes off the rim (1.8 clear), a sunrise rises from each box floor, a crescent hangs under the left box, flares spread from the spine above the emblem, zipper flares across the outer columns"
+  },
+  {
+   "keystone": [
+    -17.46,
+    82.16
+   ],
+   "facing": 180,
+   "tag": "b3combo"
+  },
+  {
+   "keystone": [
+    17.46,
+    82.16
+   ],
+   "facing": 180,
+   "tag": "b3combo"
+  },
+  {
+   "note": "DENSITY PASS 3: figures hung off figures (PoE 2 chains clusters): a wheel off the eye's top notable, a crescent off the right sunrise's upper tip"
+  },
+  {
+   "note": "DENSITY PASS 2: halo under the right box, figures outward from the great arc road, a wheel off the V arm, a drop in the left column top, a spur under the rim"
+  },
+  {
+   "note": "HUB PASS band 1: mirrored pairs below the start road, a cradle by the road diamond, corridor and right-road figures"
+  },
+  {
+   "note": "LOWER FILL: mirrored horseshoes angled down beside the start road, cups off the stem below the start"
+  },
+  {
+   "note": "HUB PASS band 2: stars at the right and left road feet, figures outward from the V arm, a crescent between the arc road and the box above the eye"
+  },
+  {
+   "note": "INNER ARC FILL: a crescent and a drop hung off the lower emblem's roof, filling the arc beside the spine"
+  },
+  {
+   "note": "WEAVE: joins between neighbouring figures and roads so pockets become loops (PoE 2 is a mesh); small nodes only, so no notable becomes a door"
+  },
+  {
+   "note": "DENSITY PASS 1: a ring through the narrow left corridor, a ring linking the two facing sunrises (chain combo), lenses beside the upper emblem, more figures off unused hubs"
+  },
+  {
+   "note": "KEYSTONE CRADLES: a cup rises from the top of each box's sunrise and opens toward the keystone (the box spurs that crossed it were removed)"
+  },
+  {
+   "note": "HUB PASS band 3 (PoE 2: figures hug both sides of every road; hubs become stars): picked hub by hub; keystone air kept by hand (scanner checks 0.95 only)"
+  },
+  {
+   "note": "FILL ROUND: remaining free hub sides (keystone air kept: no figure within 1.8)"
+  },
+  {
+   "note": "CHAINS: small figures continuing outward from figure tips (PoE 2 chains clusters); the rim crown is left for the user's manual pass"
+  },
+  {
+   "note": "RIM CLUSTERS GROWN (the user: outer-ring clusters should be bigger, in this hand-fill): crowns on the crown - a crescent on each flare's middle tip, drops on its side tips, horseshoes on the outermost flares; shallow near the spine (Light starts at v 89)"
+  },
+  {
+   "note": "FRAME WEB FILL: figures on both sides of the new hubs; Ash crescents/horseshoes/rails, Flame wheels/drops/cups along its arc"
+  },
+  {
+   "note": "FRAME WEB FILL 2: second round on the new hubs"
+  },
+  {
+   "note": "ASYMMETRY (user 2026-11-18: Fire looked too symmetric): the Ash half of the rim crown carries embers (crescents, horseshoes, wheels) where Flame carries flares; the Ash keystone box holds a halo instead of a sunrise"
+  },
+  {
+   "note": "ASH CROWN, second ember layer (different from Flame's stacked flames)"
+  },
+  {
+   "note": "INNER ZONE 2026-11-18 (finding from the centre pair at 80 units, see progress/log.md): large figures off the start wheel and start road into the dark triangles toward Chaos and the blend wheels; from the hubscan2 report, picked by hand"
+  },
+  {
+   "note": "FIRE DENSITY 2026-11-18 (from hostscan.py report; I picked one spot per figure): embers (drops), cups, wheels, moons and claws hung off figures; Fire's interior was already full, so most go on the rim and the crown"
+  },
+  {
+   "note": "NESTED 2026-11-18 (advisor: the great rings were hollow): a wheel nested inside each great ring, joined to two of the ring's small nodes; spot from groupscan.py, picked by hand"
+  },
+  {
+   "note": "EMBLEM FILL 2026-11-18 (the skeleton emblems were large and empty inside): one or two figures hung inside or against the emblem, off the axis so it stays asymmetric, joined to emblem nodes; from groupscan.py, picked by hand. The emblem roads are untouched."
+  },
+  {
+   "note": "UNMIRROR 2026-11-18 (user: Fire looks too symmetric; mirror.py listed these): each mirrored start-zone and spine piece now stands on one side only, and the -u side gets a different figure at the mirrored spot"
+  }
+ ]
+}

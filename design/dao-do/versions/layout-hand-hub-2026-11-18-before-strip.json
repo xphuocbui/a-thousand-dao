@@ -1,0 +1,586 @@
+{
+ "hub": [
+  {
+   "note": "Chaos, hand-authored combos first: a wheel. Each sector of the ring holds two figures of the land it faces, and a small piece points out toward that land's start. Coordinates in the disc's own frame, centred on it."
+  },
+  {
+   "note": "RESTART 2026-11-18 (user: do the same as Fire for the rest of the tree): old fans and rows removed, disc roads kept, then hand-filled with the shared ring-grid vocabulary round the disc rings. Previous: versions/layout-hand-hub-2026-11-18-before-restart.json"
+  },
+  {
+   "note": "CHAOS FILL 2026-11-18: every land's figures mixed, alternating inward and outward round the ring so no sector repeats another; the inner star sprouts five different figures"
+  },
+  {
+   "piece": "Fire halo L",
+   "at": [
+    -4.48,
+    13.79
+   ],
+   "facing": 162,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F crescent",
+   "at": [
+    11.73,
+    8.52
+   ],
+   "facing": -126,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F cup",
+   "at": [
+    14.5,
+    0
+   ],
+   "facing": -90,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "Fire halo L",
+   "at": [
+    8.52,
+    -11.73
+   ],
+   "facing": -36,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F cradle",
+   "at": [
+    -4.48,
+    -13.79
+   ],
+   "facing": 18,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "Fire lens L",
+   "at": [
+    -11.73,
+    -8.52
+   ],
+   "facing": 54,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F crescent",
+   "at": [
+    -13.79,
+    4.48
+   ],
+   "facing": 108,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    4.48,
+    13.79
+   ],
+   "facing": 18,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F wheel",
+   "at": [
+    13.79,
+    4.48
+   ],
+   "facing": 72,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F horseshoe",
+   "at": [
+    11.73,
+    -8.52
+   ],
+   "facing": 126,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F drop",
+   "at": [
+    4.48,
+    -13.79
+   ],
+   "facing": 162,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F cup",
+   "at": [
+    -8.52,
+    -11.73
+   ],
+   "facing": -144,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "Fire lens L",
+   "at": [
+    -14.5,
+    0
+   ],
+   "facing": -90,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F rails",
+   "at": [
+    -11.73,
+    8.52
+   ],
+   "facing": -54,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F drop",
+   "at": [
+    8.89,
+    -2.89
+   ],
+   "facing": 18,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "Fire halo L",
+   "at": [
+    0,
+    4.2
+   ],
+   "facing": 0,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    3.99,
+    1.3
+   ],
+   "facing": 54,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F drop",
+   "at": [
+    -2.47,
+    -3.4
+   ],
+   "facing": -144,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "piece": "F wheel",
+   "at": [
+    -3.99,
+    1.3
+   ],
+   "facing": -54,
+   "spoke": 1.2,
+   "tag": "i1"
+  },
+  {
+   "note": "CHAOS DENSITY 2026-11-18 (round 2, from hostscan.py report; I picked one spot per figure): small figures of every kind hung off the ring figures, turned every which way"
+  },
+  {
+   "piece": "F wheel",
+   "at": [
+    6.3,
+    -16.23
+   ],
+   "facing": 102.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F drop",
+   "at": [
+    -10.52,
+    -12.39
+   ],
+   "facing": -36.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F cup",
+   "at": [
+    13.09,
+    -11.66
+   ],
+   "facing": -152.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    5.06,
+    -9.53
+   ],
+   "facing": -96.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F drop",
+   "at": [
+    15.13,
+    -8.84
+   ],
+   "facing": 14.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F horseshoe",
+   "at": [
+    7.5,
+    -7.76
+   ],
+   "facing": 24.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F drop",
+   "at": [
+    -7.34,
+    -7.22
+   ],
+   "facing": 122.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F rails",
+   "at": [
+    -19.94,
+    -0.98
+   ],
+   "facing": -149.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F crescent",
+   "at": [
+    -18.82,
+    1.53
+   ],
+   "facing": -22.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    -6.9,
+    2.21
+   ],
+   "facing": -144.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F cup",
+   "at": [
+    16.84,
+    4.45
+   ],
+   "facing": 132.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F wheel",
+   "at": [
+    16.23,
+    6.3
+   ],
+   "facing": 12.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    1.51,
+    8.01
+   ],
+   "facing": 60.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F horseshoe",
+   "at": [
+    -14.38,
+    8.96
+   ],
+   "facing": -144.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    6.36,
+    16.49
+   ],
+   "facing": 134.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "piece": "F cup",
+   "at": [
+    -2.03,
+    11.81
+   ],
+   "facing": 92.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "i2"
+  },
+  {
+   "note": "ISLAND COMBOS 2026-11-18 (advisor: blends and islands had no combos): figures set between figures and joined to two of them; spots from groupscan.py, picked by hand"
+  },
+  {
+   "group": "Fire halo L",
+   "centre": [
+    4.0,
+    -5.6
+   ],
+   "rot": 30,
+   "joins": [
+    [
+     3,
+     [
+      6.99,
+      -5.88
+     ]
+    ],
+    [
+     2,
+     [
+      6.31,
+      -7.68
+     ]
+    ],
+    [
+     6,
+     [
+      2.47,
+      -3.4
+     ]
+    ]
+   ],
+   "tag": "combo"
+  },
+  {
+   "group": "Fire halo L",
+   "centre": [
+    -8.0,
+    7.6
+   ],
+   "rot": 15,
+   "joins": [
+    [
+     3,
+     [
+      -5.5,
+      7.57
+     ]
+    ],
+    [
+     8,
+     [
+      -10.92,
+      5.67
+     ]
+    ]
+   ],
+   "tag": "combo"
+  },
+  {
+   "group": "Fire lens L",
+   "centre": [
+    -6.8,
+    -14.0
+   ],
+   "rot": 165,
+   "joins": [
+    [
+     1,
+     [
+      -4.48,
+      -13.79
+     ]
+    ],
+    [
+     6,
+     [
+      -8.53,
+      -13.84
+     ]
+    ]
+   ],
+   "tag": "combo"
+  },
+  {
+   "group": "Fire chain",
+   "centre": [
+    13.6,
+    3.4
+   ],
+   "rot": 255,
+   "joins": [
+    [
+     1,
+     [
+      12.79,
+      1.23
+     ]
+    ],
+    [
+     0,
+     [
+      13.79,
+      4.48
+     ]
+    ]
+   ],
+   "tag": "combo"
+  },
+  {
+   "note": "CHAOS WEAVE 2026-11-18 (from joinscan.py report, picked by hand; not in list order this time - one join per figure pair, spread over the island)"
+  },
+  {
+   "join": [
+    [
+     -5.57,
+     -9.47
+    ],
+    [
+     -5.23,
+     -10.45
+    ]
+   ],
+   "tag": "wj"
+  },
+  {
+   "join": [
+    [
+     -19.42,
+     -2.46
+    ],
+    [
+     -18.82,
+     -1.53
+    ]
+   ],
+   "tag": "wj"
+  },
+  {
+   "join": [
+    [
+     16.46,
+     -7.56
+    ],
+    [
+     17.04,
+     -8.84
+    ]
+   ],
+   "tag": "wj"
+  },
+  {
+   "join": [
+    [
+     -1.04,
+     11.78
+    ],
+    [
+     -1.87,
+     10.63
+    ]
+   ],
+   "tag": "wj"
+  },
+  {
+   "join": [
+    [
+     -14.27,
+     7.02
+    ],
+    [
+     -13.41,
+     8.26
+    ]
+   ],
+   "tag": "wj"
+  },
+  {
+   "join": [
+    [
+     -6.49,
+     -7.75
+    ],
+    [
+     -6.75,
+     -6.12
+    ]
+   ],
+   "tag": "wj"
+  },
+  {
+   "join": [
+    [
+     2.37,
+     8.51
+    ],
+    [
+     0.6,
+     8.78
+    ]
+   ],
+   "tag": "wj"
+  }
+ ]
+}

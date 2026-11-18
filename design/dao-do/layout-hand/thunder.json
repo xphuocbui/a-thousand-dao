@@ -1,0 +1,28 @@
+{
+ "thunder": [
+  {
+   "note": "Thunder island, hand-authored combos first: a storm. Ranks of bolts and spears round the upper arc, splayed pairs below. Coordinates in the disc's own frame, centred on it."
+  },
+  {
+   "note": "RESTART 2026-11-18 (user: do the same as Fire for the rest of the tree): old fans and rows removed, disc roads kept, then hand-filled with the shared ring-grid vocabulary round the disc rings. Previous: versions/layout-hand-thunder-2026-11-18-before-restart.json"
+  },
+  {
+   "note": "THUNDER FILL 2026-11-18: a storm - west arc spears (rails and lenses), east arc bolts (forks and sparks), a thunderhead halo on top, rumbling wheels and moons below; the halves differ"
+  },
+  {
+   "note": "THUNDER DENSITY 2026-11-18 (round 2, from hostscan.py report; I picked one spot per figure): spear shafts (rails, forks) hung off the west figures, sparks and bolts (drops, forks, wheels) off the east"
+  },
+  {
+   "note": "SIGNATURE ACCENTS 2026-11-18: this island's own hand-drawn figure (Thunder bolt, fire.json ISLAND SIGNATURES) where hubscan2 reported it fits, picked by hand"
+  },
+  {
+   "note": "ISLAND COMBOS 2026-11-18 (advisor: blends and islands had no combos): figures set between figures and joined to two of them; spots from groupscan.py, picked by hand"
+  },
+  {
+   "note": "THUNDER WEAVE 2026-11-18 (from joinscan.py report, picked by hand; not in list order this time - one join per figure pair, spread over the island)"
+  },
+  {
+   "note": "STRIP 2026-11-18 (11-18 plan step 1, rules-2026-11-18.md section 1; user: go with the recommendation): every figure removed (pieces, groups, combos, signatures, hung and nested figures, weave joins, inner-zone, centre and emblem fills). Kept: roads and arcs (frame web included) and the keystones; the A2 base roads, starts with their motif, and emblems come from the skeleton. Previous: versions/layout-hand-thunder-2026-11-18-before-strip.json"
+  }
+ ]
+}

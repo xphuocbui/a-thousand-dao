@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!--ARTIFACT-START-->
+<title>Đạo Đồ Tree View</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* One renderer for PoE 2 and our Đạo Đồ: the same frames, link widths and node sizes for both.
+   Sizes are in map units (our small-node stride = 1.2), so a zoom shows both trees at the same scale. */
+:root{--bg:#0a0c0f;--panel:#13171c;--line:#262d35;--fg:#e2ddd2;--muted:#8f969d;--accent:#c8a050;--on-accent:#1a1408;
+  --f-body:system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:ui-monospace,"Cascadia Mono",Consolas,monospace;color-scheme:dark}
+/* single dark look on purpose: the tree is drawn like the in-game passive tree, on a dark ground */
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:14px/1.45 var(--f-body)}
+.app{display:grid;grid-template-rows:auto 1fr;height:100%}
+.bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--panel);border-bottom:1px solid var(--line)}
+.tab{font:500 13px var(--f-body);padding:7px 11px;border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:4px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.tab:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+select{font:13px var(--f-body);padding:6px 8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:4px}
+label{font-size:13px;color:var(--muted)}
+.status{margin-left:auto;font:12px var(--f-mono);color:var(--muted)}
+.stage{position:relative;overflow:hidden;touch-action:none}
+canvas{display:block;width:100%;height:100%;cursor:grab}
+.tip{position:absolute;pointer-events:none;max-width:320px;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:6px 9px;font-size:12.5px}
+.cap{position:absolute;left:max(10px,env(safe-area-inset-left,0px));right:10px;bottom:8px;font:12px var(--f-mono);color:var(--muted);pointer-events:none}
+body.shot .bar,body.shot .tip{display:none}
+body.shot .app{grid-template-rows:1fr}
+</style>
+<!--ARTIFACT-HEAD-END-->
+</head>
+<body>
+<div class="app">
+  <div class="bar">
+    <div role="tablist" aria-label="Tree" id="tabs"></div>
+    <label for="place">Place</label>
+    <select id="place"></select>
+    <button class="tab" id="fit" type="button">Fit</button>
+    <span class="status" id="status"></span>
+  </div>
+  <div class="stage" id="stage">
+    <canvas id="cv" aria-label="Passive tree. Drag to pan, scroll to zoom."></canvas>
+    <div class="tip" id="tip" hidden></div>
+    <div class="cap" id="cap"></div>
+  </div>
+</div>
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(()=>{
+const D=JSON.parse(document.getElementById('data').textContent);
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d'),stage=document.getElementById('stage');
+const tip=document.getElementById('tip'),cap=document.getElementById('cap'),status=document.getElementById('status');
+// --- style: every size in map units (stride 1.2). Ratios follow Path of Building's PoE 2 node art
+// (small frame 54, notable 80, keystone 120, jewel 76 against a 251 stride).
+const ST={
+  bg:'#0a0c0f',
+  link:{outer:'#3a3024',inner:'#8a7048',wo:.15,wi:.06},
+  small:{r:.26,fill:'#1a1d21',ring:'#8c877a',rw:.05,icon:'#4b5159',ir:.46},
+  travel:{r:.26,fill:'#1a1e1c',ring:'#6f7d72',rw:.05,icon:'#55705e',ir:.42},
+  notable:{r:.38,fill:'#241b12',ring:'#c9a052',rw:.075,ring2:'#5f4727',r2:.78,icon:'#7b5c37',ir:.52},
+  keystone:{r:.57,fill:'#261717',ring:'#d4af63',rw:.09,ring2:'#6a4f2c',r2:.80,icon:'#874636',ir:.52,halo:'#7d6538',hr:1.2},
+  jewel:{r:.36,fill:'#0e1819',ring:'#93bab2',rw:.07,icon:'#2e5c58',ir:.55},
+  start:{r:.30,fill:'#d8c79c',frame:'#b8994f',fr:1.25,fr2:1.45}
+};
+const keys=Object.keys(D.trees);
+const P={};
+for(const k of keys){const t=D.trees[k];let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const n of t.nodes){x0=Math.min(x0,n[0]);y0=Math.min(y0,n[1]);x1=Math.max(x1,n[0]);y1=Math.max(y1,n[1]);}
+  // spatial grid for picking
+  const G=new Map(),cs=4;t.nodes.forEach((n,i)=>{const key=Math.floor(n[0]/cs)+','+Math.floor(n[1]/cs);(G.get(key)||G.set(key,[]).get(key)).push(i);});
+  P[k]={...t,bbox:[x0,y0,x1,y1],G,cs};}
+let GRID=0,cur=keys[0],view={s:10,tx:0,ty:0},W=0,H=0,dpr=1,hover=-1;
+const tabs=document.getElementById('tabs');
+tabs.innerHTML=keys.map(k=>`<button class="tab" role="tab" data-k="${k}">${D.trees[k].label}</button>`).join(' ');
+function resize(){const r=stage.getBoundingClientRect();dpr=window.devicePixelRatio||1;W=r.width;H=r.height;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);}
+function fit(){const [x0,y0,x1,y1]=P[cur].bbox,pad=20;const s=Math.min((W-2*pad)/(x1-x0),(H-2*pad)/(y1-y0));view={s,tx:W/2-s*(x0+x1)/2,ty:H/2-s*(y0+y1)/2};}
+function setView(cx,cy,w){const s=W/w;view={s,tx:W/2-s*cx,ty:H/2-s*cy};}
+function arc(a,b,c){const r=Math.hypot(a[0]-c[0],a[1]-c[1]);const ta=Math.atan2(a[1]-c[1],a[0]-c[0]),tb=Math.atan2(b[1]-c[1],b[0]-c[0]);let d=tb-ta;while(d>Math.PI)d-=2*Math.PI;while(d<-Math.PI)d+=2*Math.PI;ctx.arc(c[0],c[1],r,ta,tb,d<0);}
+function ring(x,y,r,col,w){ctx.strokeStyle=col;ctx.lineWidth=w;ctx.beginPath();ctx.arc(x,y,r,0,2*Math.PI);ctx.stroke();}
+function disc(x,y,r,col){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r,0,2*Math.PI);ctx.fill();}
+function draw(){
+  const t=P[cur],{s,tx,ty}=view,u=1/s;
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle=ST.bg;ctx.fillRect(0,0,W,H);
+  ctx.setTransform(dpr*s,0,0,dpr*s,dpr*tx,dpr*ty);
+  const vx0=-tx/s-3,vy0=-ty/s-3,vx1=(W-tx)/s+3,vy1=(H-ty)/s+3;
+  const inV=n=>n[0]>vx0&&n[0]<vx1&&n[1]>vy0&&n[1]<vy1;
+  const mn=px=>px*u; // a size of px screen pixels, in map units
+  // start frames under everything
+  for(const n of t.nodes){if(n[2]!=='start'||!inV(n))continue;const S=ST.start;
+    ctx.fillStyle='rgba(184,153,79,.07)';ctx.beginPath();ctx.arc(n[0],n[1],S.fr2,0,2*Math.PI);ctx.fill();
+    ring(n[0],n[1],S.fr,S.frame,Math.max(.07,mn(1)));ring(n[0],n[1],S.fr2,S.frame,Math.max(.035,mn(.7)));}
+  // links: dark body then a lighter core
+  ctx.lineCap='round';
+  for(const pass of [0,1]){
+    ctx.strokeStyle=pass?ST.link.inner:ST.link.outer;ctx.lineWidth=Math.max(pass?ST.link.wi:ST.link.wo,mn(pass?.6:1.2));
+    ctx.beginPath();
+    for(const e of t.edges){const a=t.nodes[e[0]],b=t.nodes[e[1]];if(!inV(a)&&!inV(b))continue;
+      ctx.moveTo(a[0],a[1]);if(e.length>2)arc(a,b,[e[2],e[3]]);else ctx.lineTo(b[0],b[1]);}
+    ctx.stroke();}
+  // nodes
+  for(let i=0;i<t.nodes.length;i++){const n=t.nodes[i];if(!inV(n))continue;const ty_=n[2],S=ST[ty_],x=n[0],y=n[1];
+    const r=Math.max(S.r,mn(ty_==='keystone'?3.2:ty_==='notable'||ty_==='jewel'?2.4:1.5));
+    if(ty_==='start'){disc(x,y,r,S.fill);ring(x,y,r,'#6b5a35',Math.max(.05,mn(.6)));continue;}
+    if(ty_==='keystone')ring(x,y,r*S.hr,S.halo,Math.max(.04,mn(.5)));
+    disc(x,y,r,S.fill);
+    if(S.icon)disc(x,y,r*S.ir,S.icon);
+    if(ty_==='jewel'){ctx.fillStyle='#4f8f86';const q=r*.38;ctx.beginPath();ctx.moveTo(x,y-q);ctx.lineTo(x+q,y);ctx.lineTo(x,y+q);ctx.lineTo(x-q,y);ctx.closePath();ctx.fill();}
+    if(S.ring2)ring(x,y,r*S.r2,S.ring2,Math.max(S.rw*.5,mn(.5)));
+    ring(x,y,r,S.ring,Math.max(S.rw,mn(.8)));}
+  if(GRID>0){ctx.lineWidth=mn(1);ctx.font=`${mn(11)}px monospace`;const g0x=Math.floor(vx0/GRID)*GRID,g0y=Math.floor(vy0/GRID)*GRID;
+    for(let x=g0x;x<vx1;x+=GRID){ctx.strokeStyle=x%10===0?'rgba(120,170,255,.45)':'rgba(120,170,255,.18)';ctx.beginPath();ctx.moveTo(x,vy0);ctx.lineTo(x,vy1);ctx.stroke();ctx.fillStyle='rgba(150,190,255,.9)';ctx.fillText('u'+x,x+mn(2),-ty/s+mn(14));}
+    for(let y=g0y;y<vy1;y+=GRID){ctx.strokeStyle=y%10===0?'rgba(120,170,255,.45)':'rgba(120,170,255,.18)';ctx.beginPath();ctx.moveTo(vx0,y);ctx.lineTo(vx1,y);ctx.stroke();ctx.fillStyle='rgba(150,190,255,.9)';ctx.fillText('v'+(-y),-tx/s+mn(4),y-mn(2));}}
+  if(hover>=0){const n=t.nodes[hover];ring(n[0],n[1],Math.max(.6,mn(9)),'#f0e6c8',mn(1.5));}
+  const w=W/s;cap.textContent=`${D.trees[cur].label} · centre ${(-tx/s+W/2/s).toFixed(1)}, ${(-ty/s+H/2/s).toFixed(1)} · width ${w.toFixed(1)} map units (${(w/1.2).toFixed(0)} strides)`;
+}
+function pick(px,py){const t=P[cur],x=(px-view.tx)/view.s,y=(py-view.ty)/view.s,cs=t.cs;let best=-1,bd=(Math.max(12/view.s,.5))**2;
+  const gx=Math.floor(x/cs),gy=Math.floor(y/cs);for(let i=-1;i<=1;i++)for(let j=-1;j<=1;j++){for(const k of t.G.get((gx+i)+','+(gy+j))||[]){const n=t.nodes[k],d=(n[0]-x)**2+(n[1]-y)**2;if(d<bd){bd=d;best=k;}}}return best;}
+const placeSel=document.getElementById('place');
+function fillPlaces(){const pl=D.trees[cur].places||[];placeSel.innerHTML='<option value="">Choose a place</option>'+pl.map((p,i)=>`<option value="${i}">${p[0]}</option>`).join('');}
+placeSel.addEventListener('change',()=>{const p=(D.trees[cur].places||[])[+placeSel.value];if(p){setView(p[1],p[2],p[3]);draw();}});
+function select(k){cur=k;fillPlaces();for(const b of tabs.children)b.setAttribute('aria-selected',b.dataset.k===k);hover=-1;tip.hidden=true;fit();const st=D.trees[k].start;if(st!=null&&D.trees[k].places[st]){const q=D.trees[k].places[st];setView(q[1],q[2],q[3]);placeSel.value=String(st);}draw();
+  const t=D.trees[k];status.textContent=`${t.nodes.length.toLocaleString()} nodes · ${t.edges.length.toLocaleString()} links`;}
+const pts=new Map();let down=null,moved=false;
+let pinch=null;
+cv.addEventListener('pointerdown',e=>{cv.setPointerCapture(e.pointerId);pts.set(e.pointerId,[e.offsetX,e.offsetY]);down=[e.offsetX,e.offsetY];moved=false;
+  if(pts.size===2){const [a,b]=[...pts.values()];pinch={d:Math.hypot(a[0]-b[0],a[1]-b[1]),s:view.s,tx:view.tx,ty:view.ty,c:[(a[0]+b[0])/2,(a[1]+b[1])/2]};}});
+cv.addEventListener('pointermove',e=>{const x=e.offsetX,y=e.offsetY;
+  if(pts.has(e.pointerId)){const p=pts.get(e.pointerId);pts.set(e.pointerId,[x,y]);
+    if(pts.size===2&&pinch){const [a,b]=[...pts.values()],k=Math.hypot(a[0]-b[0],a[1]-b[1])/pinch.d,c=pinch.c;view.s=pinch.s*k;view.tx=c[0]-(c[0]-pinch.tx)*k;view.ty=c[1]-(c[1]-pinch.ty)*k;moved=true;tip.hidden=true;draw();return;}if(Math.hypot(x-down[0],y-down[1])>3)moved=true;if(moved){view.tx+=x-p[0];view.ty+=y-p[1];tip.hidden=true;draw();return;}}
+  const i=pick(x,y);if(i!==hover){hover=i;draw();}
+  if(i<0){tip.hidden=true;return;}const n=P[cur].nodes[i];tip.innerHTML=`<b>${(n[3]||n[2]).replace(/</g,'&lt;')}</b> · ${n[2]}<br><span style="color:var(--muted)">${n[0].toFixed(2)}, ${(-n[1]).toFixed(2)}</span>`;tip.hidden=false;tip.style.left=Math.min(x+14,W-330)+'px';tip.style.top=(y+14)+'px';});
+cv.addEventListener('pointerup',e=>{pts.delete(e.pointerId);if(pts.size<2)pinch=null;});
+cv.addEventListener('pointercancel',e=>{pts.delete(e.pointerId);if(pts.size<2)pinch=null;});
+cv.addEventListener('pointerleave',()=>{hover=-1;tip.hidden=true;draw();});
+cv.addEventListener('wheel',e=>{e.preventDefault();const k=Math.exp(-e.deltaY*.0015),x=e.offsetX,y=e.offsetY;view.tx=x-(x-view.tx)*k;view.ty=y-(y-view.ty)*k;view.s*=k;draw();},{passive:false});
+for(const b of tabs.children)b.addEventListener('click',()=>select(b.dataset.k));
+document.getElementById('fit').addEventListener('click',()=>{fit();draw();});
+// #t=poe2&c=x,y&w=width[&shot]   (y as drawn: screen-down; our map's v is -y)
+const h=new URLSearchParams(location.hash.slice(1));
+if(h.has('shot'))document.body.classList.add('shot');
+if(h.has('clean'))cap.hidden=true;
+if(h.has('grid'))GRID=+h.get('grid')||2;
+resize();select(h.get('t')&&P[h.get('t')]?h.get('t'):keys[0]);
+if(h.has('c')&&h.has('w')){const [cx,cy]=h.get('c').split(',').map(Number);setView(cx,cy,+h.get('w'));draw();}
+new ResizeObserver(()=>{const keep=[(W/2-view.tx)/view.s,(H/2-view.ty)/view.s,W/view.s];resize();setView(...keep);draw();}).observe(stage);
+})();
+</script>
+<!--ARTIFACT-END-->
+</body>
+</html>

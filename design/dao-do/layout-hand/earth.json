@@ -1,0 +1,579 @@
+{
+ "earth": [
+  {
+   "note": "Earth, hand-authored combos first (user 2026-11-16/17: same philosophy as Fire for the whole tree). Right, the Peak side: terrace roads curving round the map's centre (r 40, the belt at about 52, r 62, r 73) joined by rungs, mountains and temples. Left, the Field side: a square grid of field roads, small pairs in the cells, rows along the grid."
+  },
+  {
+   "note": "RESTART 2026-11-18 (user: do the same as Fire for the rest of the tree): the old combos removed, roads kept; frame web added in each side's own language, then hand-filled with the shared ring-grid vocabulary. Previous: versions/layout-hand-earth-2026-11-18-before-restart.json"
+  },
+  {
+   "note": "Peak side: terraces and rungs"
+  },
+  {
+   "note": "STRIP 2026-11-18 (11-18 plan step 1, rules-2026-11-18.md section 1; user: go with the recommendation): every figure removed (pieces, groups, combos, signatures, hung and nested figures, weave joins, inner-zone, centre and emblem fills). Kept: roads and arcs (frame web included) and the keystones; the A2 base roads, starts with their motif, and emblems come from the skeleton. Previous: versions/layout-hand-earth-2026-11-18-before-strip.json"
+  },
+  {
+   "road": [
+    [
+     0.0,
+     36.4
+    ],
+    [
+     4.8,
+     37.6
+    ],
+    [
+     9.68,
+     38.81
+    ]
+   ]
+  },
+  {
+   "arc": [
+    0.0,
+    0.0
+   ],
+   "r": 40.0,
+   "from": 14,
+   "to": 28,
+   "n": 3
+  },
+  {
+   "road": [
+    [
+     9.68,
+     38.81
+    ],
+    [
+     12.4,
+     48.6
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     18.78,
+     35.32
+    ],
+    [
+     20.0,
+     42.5
+    ],
+    [
+     21.3,
+     49.8
+    ]
+   ]
+  },
+  {
+   "arc": [
+    0.0,
+    0.0
+   ],
+   "r": 62.0,
+   "from": 12,
+   "to": 27,
+   "n": 3
+  },
+  {
+   "road": [
+    [
+     16.9,
+     49.2
+    ],
+    [
+     18.13,
+     59.29
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     25.7,
+     50.4
+    ],
+    [
+     28.15,
+     55.24
+    ]
+   ]
+  },
+  {
+   "arc": [
+    0.0,
+    0.0
+   ],
+   "r": 73.0,
+   "from": 10,
+   "to": 25,
+   "n": 3
+  },
+  {
+   "road": [
+    [
+     12.89,
+     60.65
+    ],
+    [
+     12.68,
+     71.89
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     23.23,
+     57.49
+    ],
+    [
+     24.97,
+     68.6
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     18.89,
+     70.51
+    ],
+    [
+     21.7,
+     81.1
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     30.85,
+     66.16
+    ],
+    [
+     30.1,
+     78.4
+    ]
+   ]
+  },
+  {
+   "note": "Field side: the grid"
+  },
+  {
+   "road": [
+    [
+     0.0,
+     36.4
+    ],
+    [
+     -5.2,
+     38.2
+    ],
+    [
+     -10.5,
+     40.0
+    ],
+    [
+     -16.0,
+     40.0
+    ],
+    [
+     -21.3,
+     40.0
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -10.5,
+     40.0
+    ],
+    [
+     -12.4,
+     48.6
+    ],
+    [
+     -12.0,
+     59.0
+    ],
+    [
+     -12.5,
+     69.0
+    ],
+    [
+     -12.8,
+     76.0
+    ],
+    [
+     -13.1,
+     83.0
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -21.3,
+     40.0
+    ],
+    [
+     -21.3,
+     49.8
+    ],
+    [
+     -21.5,
+     59.0
+    ],
+    [
+     -21.8,
+     69.0
+    ],
+    [
+     -21.8,
+     75.5
+    ],
+    [
+     -21.7,
+     81.1
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -25.7,
+     50.4
+    ],
+    [
+     -29.0,
+     59.0
+    ],
+    [
+     -29.5,
+     69.0
+    ],
+    [
+     -30.1,
+     78.4
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -12.0,
+     59.0
+    ],
+    [
+     -16.8,
+     59.0
+    ],
+    [
+     -21.5,
+     59.0
+    ],
+    [
+     -25.3,
+     59.0
+    ],
+    [
+     -29.0,
+     59.0
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -12.5,
+     69.0
+    ],
+    [
+     -17.1,
+     69.0
+    ],
+    [
+     -21.8,
+     69.0
+    ],
+    [
+     -25.6,
+     69.0
+    ],
+    [
+     -29.5,
+     69.0
+    ]
+   ]
+  },
+  {
+   "note": "Axis: the spine on past the rim"
+  },
+  {
+   "road": [
+    [
+     0.0,
+     84.0
+    ],
+    [
+     0.0,
+     89.0
+    ],
+    [
+     0.0,
+     94.0
+    ]
+   ]
+  },
+  {
+   "note": "FRAME WEB 2026-11-18: Peak side - one diagonal per terrace band, alternating, so the bands read as mountain peaks; Field side - one diagonal per grid square, alternating like ploughed furrows. Hubs about 3.5-4 apart (PoE 2's frame)."
+  },
+  {
+   "road": [
+    [
+     9.68,
+     38.81
+    ],
+    [
+     13.12,
+     40.04
+    ],
+    [
+     16.56,
+     41.27
+    ],
+    [
+     20.0,
+     42.5
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     16.9,
+     49.2
+    ],
+    [
+     19.01,
+     51.96
+    ],
+    [
+     21.12,
+     54.73
+    ],
+    [
+     23.23,
+     57.49
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     18.13,
+     59.29
+    ],
+    [
+     20.41,
+     62.39
+    ],
+    [
+     22.69,
+     65.5
+    ],
+    [
+     24.97,
+     68.6
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     24.97,
+     68.6
+    ],
+    [
+     23.88,
+     72.77
+    ],
+    [
+     22.79,
+     76.93
+    ],
+    [
+     21.7,
+     81.1
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -21.3,
+     40.0
+    ],
+    [
+     -18.33,
+     42.87
+    ],
+    [
+     -15.37,
+     45.73
+    ],
+    [
+     -12.4,
+     48.6
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -21.3,
+     49.8
+    ],
+    [
+     -23.87,
+     52.87
+    ],
+    [
+     -26.43,
+     55.93
+    ],
+    [
+     -29.0,
+     59.0
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -21.5,
+     59.0
+    ],
+    [
+     -18.5,
+     62.33
+    ],
+    [
+     -15.5,
+     65.67
+    ],
+    [
+     -12.5,
+     69.0
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -21.8,
+     69.0
+    ],
+    [
+     -24.57,
+     72.13
+    ],
+    [
+     -27.33,
+     75.27
+    ],
+    [
+     -30.1,
+     78.4
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -12.5,
+     69.0
+    ],
+    [
+     -15.57,
+     73.03
+    ],
+    [
+     -18.63,
+     77.07
+    ],
+    [
+     -21.7,
+     81.1
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "note": "Keystones"
+  },
+  {
+   "note": "EARTH FILL 2026-11-18: Field side - rows of rails along the grid and furrows (crop rows), halos and cradles as farmsteads, a crown of rails; Peak side - horseshoes, crescents, wheels and halos as mountains and temples, a crown of horseshoes and crescents; the spine differs on each side; keystones placed first"
+  },
+  {
+   "keystone": [
+    22.79,
+    76.93
+   ],
+   "facing": 106,
+   "tag": "e1"
+  },
+  {
+   "keystone": [
+    -18.63,
+    77.07
+   ],
+   "facing": -157,
+   "tag": "e1"
+  },
+  {
+   "note": "EARTH FILL 2: inward from the rim, the spine's outer cap, remaining free sides"
+  },
+  {
+   "note": "EARTH COMBOS 2026-11-18 (round 2, from groupscan.py reports; I picked each centre, rot and join): sunrises over the ridges entered at their base and tied to a second figure, great rings (terraced fields) between three figures, a dome (temple) between the lower peaks, a lens"
+  },
+  {
+   "note": "EARTH DENSITY 2026-11-18 (round 4, from hostscan.py reports; I picked one spot per figure): stones (drops, wheels), furrow stubs (rails, spurs) and little peaks (forks) hung off figures"
+  },
+  {
+   "note": "INNER ZONE 2026-11-18 (finding from the centre pair at 80 units, see progress/log.md): large figures off the start wheel and start road into the dark triangles toward Chaos and the blend wheels; from the hubscan2 report, picked by hand"
+  },
+  {
+   "note": "SIGNATURE ACCENTS 2026-11-18: this land's own hand-drawn figure (Earth range, defined in fire.json under LAND SIGNATURES) placed where hubscan2 reported it fits, picked by hand"
+  },
+  {
+   "note": "EARTH WEAVE 2026-11-18 (from joinscan.py report, picked by hand): links between neighbouring figures that had one way in, so figures interlock as in PoE 2"
+  },
+  {
+   "note": "EARTH CROWN 2nd LAYER 2026-11-18 (from hostscan.py, outward facings only, picked by hand)"
+  },
+  {
+   "note": "NESTED 2026-11-18 (advisor: the great rings were hollow): a wheel nested inside each great ring, joined to two of the ring's small nodes; spot from groupscan.py, picked by hand"
+  },
+  {
+   "note": "EARTH CROWN 2nd LAYER, right half 2026-11-18 (from hostscan.py, outward facings, picked by hand)"
+  },
+  {
+   "note": "EARTH SPINE CELL 2026-11-18 (defect sheet at 18 units: empty road cell beside the emblem): a halo between the emblem, the road and its neighbour, from groupscan.py, picked by hand"
+  },
+  {
+   "note": "EMBLEM FILL 2026-11-18 (the skeleton emblems were large and empty inside): one or two figures hung inside or against the emblem, off the axis so it stays asymmetric, joined to emblem nodes; from groupscan.py, picked by hand. The emblem roads are untouched."
+  }
+ ]
+}

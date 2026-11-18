@@ -1,0 +1,414 @@
+{
+ "water": [
+  {
+   "note": "Water, hand-authored combos first. Right, the Tide side: a winding river road from the belt to the rim, koi and moons along its bends, a small lake ring with a pair inside. Left, the Mist side: a zigzag cascade road from the rim down to the belt, moths, lyres and blossoms fanned into its pockets. The dark arm leaves the rim at (-14.6, 82.7)."
+  },
+  {
+   "note": "RESTART 2026-11-18 (user: do the same as Fire for the rest of the tree): old combos removed, roads kept; frame web added, then hand-filled with the shared ring-grid vocabulary. Previous: versions/layout-hand-water-2026-11-18-before-restart.json"
+  },
+  {
+   "note": "Tide side: the river and the lake"
+  },
+  {
+   "note": "STRIP 2026-11-18 (11-18 plan step 1, rules-2026-11-18.md section 1; user: go with the recommendation): every figure removed (pieces, groups, combos, signatures, hung and nested figures, weave joins, inner-zone, centre and emblem fills). Kept: roads and arcs (frame web included) and the keystones; the A2 base roads, starts with their motif, and emblems come from the skeleton. Previous: versions/layout-hand-water-2026-11-18-before-strip.json"
+  },
+  {
+   "road": [
+    [
+     21.0,
+     51.4
+    ],
+    [
+     24.5,
+     55.5
+    ],
+    [
+     25.2,
+     60.5
+    ],
+    [
+     22.5,
+     64.8
+    ],
+    [
+     18.5,
+     68.0
+    ],
+    [
+     17.5,
+     72.5
+    ],
+    [
+     19.5,
+     77.0
+    ],
+    [
+     21.7,
+     81.1
+    ]
+   ]
+  },
+  {
+   "arc": [
+    19.5,
+    41.5
+   ],
+   "r": 4.2,
+   "from": 0,
+   "to": 360,
+   "n": 6
+  },
+  {
+   "road": [
+    [
+     19.5,
+     45.7
+    ],
+    [
+     21.0,
+     51.4
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     15.86,
+     39.4
+    ],
+    [
+     13.5,
+     45.5
+    ],
+    [
+     12.0,
+     51.8
+    ]
+   ]
+  },
+  {
+   "note": "Mist side: the cascade"
+  },
+  {
+   "road": [
+    [
+     -21.7,
+     81.1
+    ],
+    [
+     -15.5,
+     76.5
+    ],
+    [
+     -24.5,
+     71.0
+    ],
+    [
+     -15.0,
+     65.5
+    ],
+    [
+     -24.0,
+     60.0
+    ],
+    [
+     -21.0,
+     51.4
+    ]
+   ]
+  },
+  {
+   "note": "Axis"
+  },
+  {
+   "road": [
+    [
+     0.0,
+     84.0
+    ],
+    [
+     0.0,
+     89.0
+    ],
+    [
+     0.0,
+     94.0
+    ]
+   ]
+  },
+  {
+   "note": "Keystones"
+  },
+  {
+   "road": [
+    [
+     -5.23,
+     57.23
+    ],
+    [
+     -8.2,
+     59.4
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -5.54,
+     66.3
+    ],
+    [
+     -8.9,
+     65.2
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -5.54,
+     72.7
+    ],
+    [
+     -7.4,
+     75.7
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     -5.23,
+     46.77
+    ],
+    [
+     -8.3,
+     44.6
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     5.23,
+     57.23
+    ],
+    [
+     8.6,
+     58.4
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     5.54,
+     66.3
+    ],
+    [
+     8.4,
+     64.5
+    ]
+   ]
+  },
+  {
+   "road": [
+    [
+     5.54,
+     72.7
+    ],
+    [
+     9.0,
+     73.6
+    ]
+   ]
+  },
+  {
+   "note": "FRAME WEB 2026-11-18: Tide side - curved currents (true arcs) from the flowers' stems into the river; Mist side - straight steps off the cascade's zigzag vertices (a stair of falls), the lower stem joined to the belt."
+  },
+  {
+   "arc": [
+    9.592,
+    45.584
+   ],
+   "r": 12.855,
+   "from": -4.42,
+   "to": 63.05,
+   "n": 4,
+   "tag": "frame"
+  },
+  {
+   "arc": [
+    15.147,
+    78.883
+   ],
+   "r": 15.887,
+   "from": -154.87,
+   "to": -207.57,
+   "n": 4,
+   "tag": "frame"
+  },
+  {
+   "arc": [
+    12.587,
+    67.923
+   ],
+   "r": 6.715,
+   "from": -32.28,
+   "to": 47.03,
+   "n": 2,
+   "tag": "frame"
+  },
+  {
+   "arc": [
+    18.277,
+    73.71
+   ],
+   "r": 9.86,
+   "from": 154.64,
+   "to": 51.19,
+   "n": 5,
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -15.0,
+     65.5
+    ],
+    [
+     -11.95,
+     65.35
+    ],
+    [
+     -8.9,
+     65.2
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -15.5,
+     76.5
+    ],
+    [
+     -11.45,
+     76.1
+    ],
+    [
+     -7.4,
+     75.7
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -24.0,
+     60.0
+    ],
+    [
+     -20.05,
+     59.85
+    ],
+    [
+     -16.1,
+     59.7
+    ],
+    [
+     -12.15,
+     59.55
+    ],
+    [
+     -8.2,
+     59.4
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -24.5,
+     71.0
+    ],
+    [
+     -25.23,
+     75.44
+    ],
+    [
+     -25.96,
+     79.89
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     -8.3,
+     44.6
+    ],
+    [
+     -11.03,
+     46.94
+    ],
+    [
+     -13.77,
+     49.27
+    ],
+    [
+     -16.5,
+     51.61
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "note": "WATER FILL 2026-11-18: Mist side - drops (falling mist), cups, cradles and halos, a crown of drops and halos; Tide side - crescents (moons), lenses (koi), wheels and horseshoes, a crown alternating moon and koi; a halo nested inside the lake ring; the spine differs on each side; keystones first"
+  },
+  {
+   "keystone": [
+    27.65,
+    76.78
+   ],
+   "facing": -108,
+   "tag": "w1"
+  },
+  {
+   "keystone": [
+    -25.23,
+    75.44
+   ],
+   "facing": 81,
+   "tag": "w1"
+  },
+  {
+   "note": "WATER COMBOS 2026-11-18 (round 2, from groupscan.py reports; I picked each centre, rot and join): figures set between figures and joined to small nodes of two or three neighbours so they interlock - a lake great-ring of moons, moon halos, a koi lens and a chain on the Tide side; a great ring, chains of falling drops, a halo and a lens on the Mist side"
+  },
+  {
+   "note": "WATER DENSITY 2026-11-18 (round 3, from hostscan.py reports; I picked one spot per figure): small figures hung off figures (PoE 2 at 36 units is about twice our density and packs 2-5-node figures into the gaps) - Mist side drops, forks, cups and horseshoes falling off the figures; Tide side moons, wheels, drops and forks"
+  },
+  {
+   "note": "INNER ZONE 2026-11-18 (finding from the centre pair at 80 units, see progress/log.md): large figures off the start wheel and start road into the dark triangles toward Chaos and the blend wheels; from the hubscan2 report, picked by hand"
+  },
+  {
+   "note": "SIGNATURE ACCENTS 2026-11-18: this land's own hand-drawn figure (Water wave, defined in fire.json under LAND SIGNATURES) placed where hubscan2 reported it fits, picked by hand"
+  },
+  {
+   "note": "WATER WEAVE 2026-11-18 (from joinscan.py report, picked by hand): links between neighbouring figures that had one way in, so figures interlock as in PoE 2"
+  },
+  {
+   "note": "WATER CROWN 2nd LAYER 2026-11-18 (from hostscan.py, outward facings only, picked by hand): the user asked for bigger outer-rim clusters; Water's crown was one layer"
+  },
+  {
+   "note": "NESTED 2026-11-18 (advisor: the great rings were hollow): a wheel nested inside each great ring, joined to two of the ring's small nodes; spot from groupscan.py, picked by hand"
+  },
+  {
+   "note": "EMBLEM FILL 2026-11-18 (the skeleton emblems were large and empty inside): one or two figures hung inside or against the emblem, off the axis so it stays asymmetric, joined to emblem nodes; from groupscan.py, picked by hand. The emblem roads are untouched."
+  }
+ ]
+}

@@ -1,0 +1,340 @@
+{
+ "blend_em": [
+  {
+   "note": "Earth and Metal: the forge in the mountain. Hand-authored combos first in the blend's narrow wedge (about 6 degrees either side of its axis): -u faces the land before it, +u the land after it."
+  },
+  {
+   "note": "RESTART 2026-11-18 (user: do the same as Fire for the rest of the tree): old fans and patterns removed, roads kept; frame web added, then hand-filled with the shared ring-grid vocabulary inside the blend's 6-degree wedge. -u holds figures of the land before, +u of the land after. Previous: versions/layout-hand-blend_em-2026-11-18-before-restart.json"
+  },
+  {
+   "note": "FRAME WEB 2026-11-18: chevron: a long slope from the Earth rim down to the 74.3 knot, a short one from the Metal rim to 79.15 (a mountain with a forge door)"
+  },
+  {
+   "road": [
+    [
+     -8.78,
+     83.54
+    ],
+    [
+     -6.58,
+     81.23
+    ],
+    [
+     -4.39,
+     78.92
+    ],
+    [
+     -2.2,
+     76.61
+    ],
+    [
+     0.0,
+     74.3
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     4.4,
+     83.89
+    ],
+    [
+     2.2,
+     81.52
+    ],
+    [
+     0.0,
+     79.15
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     0.0,
+     84.0
+    ],
+    [
+     1.5,
+     89.0
+    ],
+    [
+     2.5,
+     94.0
+    ]
+   ]
+  },
+  {
+   "note": "FILL 2026-11-18: Earth (-u): forks (peaks), cradle, wheel, rails, horseshoe; Metal (+u): bell halo, cup, drop, spur rails; crown mixes both"
+  },
+  {
+   "piece": "F drop",
+   "at": [
+    0,
+    69.45
+   ],
+   "facing": -90,
+   "spoke": 1.2,
+   "tag": "bl1",
+   "note_sym": "2026-11-18: fork and comb faced each other like a mirror"
+  },
+  {
+   "piece": "F rails",
+   "at": [
+    0,
+    69.45
+   ],
+   "facing": 90,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "Fire halo L",
+   "at": [
+    0,
+    74.3
+   ],
+   "facing": 90,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F cradle",
+   "at": [
+    0,
+    74.3
+   ],
+   "facing": -112,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F horseshoe",
+   "at": [
+    -4.39,
+    78.92
+   ],
+   "facing": 47,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    -4.39,
+    78.92
+   ],
+   "facing": -103,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F cup",
+   "at": [
+    2.2,
+    81.52
+   ],
+   "facing": 133,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F cradle",
+   "at": [
+    4.4,
+    83.89
+   ],
+   "facing": -28,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F crescent",
+   "at": [
+    0,
+    84
+   ],
+   "facing": -37,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    1.5,
+    89
+   ],
+   "facing": -76,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "piece": "Fire halo L",
+   "at": [
+    2.5,
+    94
+   ],
+   "facing": 11,
+   "spoke": 1.2,
+   "tag": "bl1"
+  },
+  {
+   "note": "DENSITY 2026-11-18 (from hostscan.py report, hand-picked): small figures off the blend's figures, the land before on -u, the land after on +u"
+  },
+  {
+   "piece": "F cup",
+   "at": [
+    4.71,
+    97.45
+   ],
+   "facing": 71.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "bl2"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    1.75,
+    98.03
+   ],
+   "facing": -49.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "bl2"
+  },
+  {
+   "piece": "F rails",
+   "at": [
+    4.55,
+    87.3
+   ],
+   "facing": 51.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "bl2"
+  },
+  {
+   "piece": "F wheel",
+   "at": [
+    4.58,
+    74.89
+   ],
+   "facing": 40.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "bl2"
+  },
+  {
+   "piece": "F rails",
+   "at": [
+    -7.25,
+    77.29
+   ],
+   "facing": 141.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "bl2"
+  },
+  {
+   "piece": "F horseshoe",
+   "at": [
+    -1.33,
+    90.68
+   ],
+   "facing": 10.0,
+   "spoke": 1.0,
+   "host": true,
+   "tag": "bl2"
+  },
+  {
+   "note": "INNER FILL 2026-11-18 (finding from the centre pair at 80 units: our centre had ten dark triangles between the Chaos ring, the land starts and the blend wheels, where PoE 2 is packed): large figures both sides of the blend's inner spoke, from the hubscan2 report, picked by hand; these reach past the blend's 6-degree wedge into ground no land uses"
+  },
+  {
+   "piece": "F fork",
+   "at": [
+    0,
+    19.1
+   ],
+   "facing": -90,
+   "spoke": 1.2,
+   "tag": "bl3"
+  },
+  {
+   "piece": "Fire lens L",
+   "at": [
+    0,
+    23.7
+   ],
+   "facing": -90,
+   "spoke": 1.2,
+   "tag": "bl3"
+  },
+  {
+   "piece": "F cradle",
+   "at": [
+    0,
+    28.3
+   ],
+   "facing": -90,
+   "spoke": 1.2,
+   "tag": "bl3"
+  },
+  {
+   "piece": "Fire halo L",
+   "at": [
+    0,
+    19.1
+   ],
+   "facing": 60,
+   "spoke": 1.2,
+   "tag": "bl3"
+  },
+  {
+   "piece": "F cup",
+   "at": [
+    0,
+    28.3
+   ],
+   "facing": 90,
+   "spoke": 1.2,
+   "tag": "bl3"
+  },
+  {
+   "note": "WHEEL POCKETS 2026-11-18 (finding from the Earth pair at 36 units: dark pockets beside each blend wheel): large figures off the blend spoke at the wheel, from the hubscan2 report (14-degree window), picked by hand"
+  },
+  {
+   "piece": "Fire halo L",
+   "at": [
+    0,
+    49.63
+   ],
+   "facing": -90,
+   "spoke": 1.2,
+   "tag": "bl4"
+  },
+  {
+   "piece": "Fire lens L",
+   "at": [
+    0,
+    45.87
+   ],
+   "facing": 90,
+   "spoke": 1.2,
+   "tag": "bl4"
+  },
+  {
+   "piece": "F rails",
+   "at": [
+    0,
+    49.63
+   ],
+   "facing": 90,
+   "spoke": 1.2,
+   "tag": "bl4"
+  }
+ ]
+}

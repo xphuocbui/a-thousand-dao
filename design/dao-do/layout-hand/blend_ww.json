@@ -1,0 +1,58 @@
+{
+ "blend_ww": [
+  {
+   "note": "Water and Wood: the reed bank on the way to Thunder. Hand-authored combos first in the blend's narrow wedge (about 6 degrees either side of its axis): -u faces the land before it, +u the land after it."
+  },
+  {
+   "note": "RESTART 2026-11-18 (user: do the same as Fire for the rest of the tree): old fans and patterns removed, roads kept; frame web added, then hand-filled with the shared ring-grid vocabulary inside the blend's 6-degree wedge. -u holds figures of the land before, +u of the land after. Previous: versions/layout-hand-blend_ww-2026-11-18-before-restart.json"
+  },
+  {
+   "note": "FRAME WEB 2026-11-18: reeds: two stems hanging from the rim, of unequal length"
+  },
+  {
+   "note": "STRIP 2026-11-18 (11-18 plan step 1, rules-2026-11-18.md section 1; user: go with the recommendation): every figure removed (pieces, groups, combos, signatures, hung and nested figures, weave joins, inner-zone, centre and emblem fills). Kept: roads and arcs (frame web included) and the keystones; the A2 base roads, starts with their motif, and emblems come from the skeleton. Previous: versions/layout-hand-blend_ww-2026-11-18-before-strip.json"
+  },
+  {
+   "road": [
+    [
+     -4.4,
+     83.89
+    ],
+    [
+     -4.65,
+     80.25
+    ],
+    [
+     -4.9,
+     76.6
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "road": [
+    [
+     4.4,
+     83.89
+    ],
+    [
+     4.6,
+     79.3
+    ]
+   ],
+   "tag": "frame"
+  },
+  {
+   "note": "FILL 2026-11-18: Water (-u): drops, halo, crescents, cup; Wood (+u): forks, lenses (leaves), horseshoe, cradle; reeds carry the falls"
+  },
+  {
+   "note": "DENSITY 2026-11-18 (from hostscan.py report, hand-picked): small figures off the blend's figures, the land before on -u, the land after on +u"
+  },
+  {
+   "note": "INNER FILL 2026-11-18 (finding from the centre pair at 80 units: our centre had ten dark triangles between the Chaos ring, the land starts and the blend wheels, where PoE 2 is packed): large figures both sides of the blend's inner spoke, from the hubscan2 report, picked by hand; these reach past the blend's 6-degree wedge into ground no land uses"
+  },
+  {
+   "note": "WHEEL POCKETS 2026-11-18 (finding from the Earth pair at 36 units: dark pockets beside each blend wheel): large figures off the blend spoke at the wheel, from the hubscan2 report (14-degree window), picked by hand"
+  }
+ ]
+}
