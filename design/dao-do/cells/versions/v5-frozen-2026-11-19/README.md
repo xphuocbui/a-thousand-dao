@@ -15,12 +15,11 @@ unfroze v4. **This is the snapshot the content work keys to.** Not made official
 
 ## Amendment 2026-11-19: Chaos land gate (user decision)
 
-The only deliberate change after the freeze. Every node of the hub and Chaos regions, plus the four small Earth and
-Water clusters 9271, 9272, 9548 and 9549 that hang off the Chaos ring, carries `"gate": "chaos"` (785 nodes; Đạo Đồ
-rule 3). Two Fire road nodes were added by hand so the Fire ribbons inside Chaos's flame motif join the Fire land:
-**8998** at (-5.0, 30.2) between notables 2843 and 2891, and **8999** at (5.0, 30.2) between 2858 and 2888 (edges tagged
-`ph: gate-2026-11-19`). The map now has **8,040 nodes** (753 road). No other id, position or edge changed, so the
-content keyed to this snapshot is unaffected. Checksums below were refreshed.
+The only deliberate change after the freeze. Every node of the hub and Chaos regions, plus the six element pieces
+reachable only through them (Fire ribbon clusters 9139 and 9140; Earth and Water clusters 9271, 9272, 9548 and 9549),
+carries `"gate": "chaos"` (815 nodes; Đạo Đồ rules 3 and 4: gated nodes scale as Chaos land). Two Fire road nodes
+(8998, 8999) were added for an hour the same day and removed again by the user's decision, so the graph itself is
+unchanged: still **8,038 nodes**, 751 road, no id, position or edge changed. Checksums below were refreshed.
 
 ## What changed from v4 (`../v4-frozen-2026-11-19/`)
 

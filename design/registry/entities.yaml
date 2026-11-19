@@ -3238,7 +3238,7 @@ constants:
       - design/gdd/linh-can.md
     value: 30
     unit: purity, each of the five base elements, strictly above
-    notes: "The Chaos land (785 gate: chaos nodes) opens only for a Primordial Chaos root or one with all five base elements above this current purity (any source); rule 3, user decision 2026-11-19."
+    notes: "The Chaos land (815 gate: chaos nodes, the six element pieces reachable only through it included) opens only for a Primordial Chaos root or one with all five base elements above this current purity (any source); rule 3, user decision 2026-11-19."
     added: 2026-11-19
     revised: ""
   - name: purity_price

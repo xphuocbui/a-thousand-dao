@@ -164,14 +164,15 @@ are named parameters; their values and ranges are in Formulas.
      Darkness, Thunder, Ice or Wind start for that variant. A single-element root without variants has one choice.
      The start is owned at once and costs nothing. An NPC takes the start of its highest-purity element, ties broken
      in generating-cycle order (Wood, Fire, Earth, Metal, Water).
-   - **The Chaos land gate** (user decision 2026-11-19). The Chaos land, the 785 Dao marks and roads the map tags
-     `gate: chaos` (the Taiji hub, the Chaos region's swirl and element motifs, and four small Earth and Water
-     clusters that hang off its ring), can be opened only by a root that **holds Primordial Chaos** or whose **five
+   - **The Chaos land gate** (user decision 2026-11-19). The Chaos land, the 815 Dao marks and roads the map tags
+     `gate: chaos` (the Taiji hub, the Chaos region's swirl and element motifs, and six element pieces reachable only
+     through it: two Fire ribbons inside its flame motif and four small Earth and Water clusters off its ring), can be
+     opened only by a root that **holds Primordial Chaos** or whose **five
      base elements are each above `chaos_gate_purity` (30)**. Purity is the current purity from any source (birth,
      pills, fruits, roads; Spiritual Roots rule 8a), and it never falls, so the gate never closes again once passed.
      A root that does not qualify may not open a gated node, and no route (path tool or NPC) passes through one;
-     everything else stays reachable from every other start. The two Fire ribbons inside Chaos's flame motif are
-     joined to the Fire land by their own road nodes (8998, 8999, added 2026-11-19), so they are not gated.
+     everything else stays reachable from every other start. The six element pieces count as Chaos land and scale by
+     Chaos purity like the rest of it (rule 4; user decision 2026-11-19).
 4. **Bonuses.** Each open Dao mark adds its modifiers to the character's stat sheet under the source "Đạo Đồ:
    <name> #<id>". Values are priced by the Modifier System (Formulas F reads `modifier_prices`).
    - **Land Dao marks** (small, notable, cluster) are multiplied by 0.5 + purity/100 for their land's element, or by
@@ -181,7 +182,9 @@ are named parameters; their values and ranges are in Formulas.
      (user decision 2026-11-18: the blend zones became border lines); a variant land's
      (rule 20) uses that variant's purity the same way. A root holding Thunder, Ice, Wind or Chaos scales its parents' lands at
      the owned rate, by the higher of the element's purity and the variant's (Thunder: Fire and Metal; Ice: Water; Wind:
-     Water and Wood; Chaos: all five; Spiritual Roots rule 12, user decisions 2026-11-19). Keystones and the hub are exact.
+     Water and Wood; Chaos: all five; Spiritual Roots rule 12, user decisions 2026-11-19). The Chaos land's Dao marks (every gated Dao mark outside the hub, the
+     six element pieces included) scale by Chaos purity like a variant land (rule 20; user decision 2026-11-19), so a
+     root that passed the gate without holding Chaos reads 0.25 there. Keystones and the hub are exact.
    - **Roads.** An element land's road nodes grant only that element's purity, about `road_purity` (0.5) each, exact
      (Spiritual Roots rule 8a: purity is proficiency and has no cap); a border line's road nodes grant half of each
      neighbour's; an island's roads (Light, Darkness, Thunder) grant that variant's purity the same way (user decision
@@ -296,7 +299,8 @@ are named parameters; their values and ranges are in Formulas.
     and runs rule 1's drawing checks.
 
 **What the player cannot do:** refund or respec; start at a start its root does not hold; open a capability notable
-below Core Formation; open a Chaos-land node without Primordial Chaos or all five base elements above 30 purity.
+below Core Formation; open a Chaos-land node (815, the six pieces off it included) without Primordial Chaos or all five base elements above
+30 purity.
 
 ### States and Transitions
 
@@ -406,7 +410,7 @@ The value_scale formula is defined as:
 | `road_purity` | float | 0.5 (guess) | data file | Purity an element-land road node grants (rule 4); a border-line road node grants half of each neighbour's |
 | `purity_price` | float | 0.3 W per purity point (guess) | data file | What one point of purity is worth, through the Dao mark multiplier and element stacks (Spiritual Roots rule 8a) |
 | R0 | float | 0.15 W | calculated | Value of an element-land road node |
-| n_road, n_sm, n_not | int | 753, 5,493, 1,759 | measured (v5 frozen map, 2026-11-19; two Fire road nodes added for the Chaos gate) | Road nodes, small Dao marks and notables (no starts, no keystones) |
+| n_road, n_sm, n_not | int | 751, 5,493, 1,759 | measured (v5 frozen map, 2026-11-19) | Road nodes, small Dao marks and notables (no starts, no keystones) |
 | w̄_map | float | 2.60 W | calculated | Mean W per Dao mark over the visible map; a data lint (AC-KMD-06), not a power target. The filled content measures 2.58 W, since capability notables carry less (Formulas E) |
 | Keystone | float | ≥ 50 W | data file | A keystone's positive side; its rule and closing cost are its `effects.md` record |
 
@@ -418,7 +422,7 @@ power is set by the route it walks, not the map's mix: the route share of road n
 is re-measured by the bot on the drawn map (AC-KMD-07; the generated map's figure was 95–116 W at Qi Refining's
 end). Hub roads give general stats at S0.
 
-**Example:** (753 × 0.15 + 5,493 × 1.2 + 1,759 × 8) / 8,005 = (113 + 6,592 + 14,072) / 8,005 = **2.595 W**. A typical
+**Example:** (751 × 0.15 + 5,493 × 1.2 + 1,759 × 8) / 8,003 = (113 + 6,592 + 14,072) / 8,003 = **2.596 W**. A typical
 small Dao mark is +1.2% attack (or +0.5% cultivation speed); a notable +8% attack; a Fire road node +0.5 Fire purity.
 
 ### B. Distances from the starts
@@ -1096,8 +1100,9 @@ Drafted with qa-lead.
   share of lives with any element above 100 purity at Deity Transformation great perfection is reported; above
   10 % (guess) `road_purity` is lowered.
 - **AC-KMD-102** [Logic] Chaos land gate (rule 3). On the v5 map:
-    - {Fire 86, Metal 40} cannot open any `gate: chaos` node; the path tool finds no route through one, and all
-      7,255 other nodes stay reachable from the Fire start, including the Fire ribbons through road nodes 8998, 8999.
+    - {Fire 86, Metal 40} cannot open any `gate: chaos` node (815, the Fire ribbons included); the path tool finds no
+      route through one, and all 7,223 other nodes stay reachable from the Fire start.
+    - A Fire-ribbon notable (Ember Heart, 2843) on a Chaos 55 root scales by 0.5 + 0.55 = 1.05, not by Fire purity.
     - A five-element root without Chaos at Fire 30, Earth 40, Metal 50, Water 60, Wood 70 cannot open gated nodes; at
       Fire 31 it can.
     - The Fire 30 root qualifies at once when it opens one Fire road node (Fire 30.5).
