@@ -80,6 +80,34 @@ lands' first cells (1-5).
 The pictures, prompts and measured data are in `design/dao-do/underlays/<place>/` (README there); the scripts in
 `tools/design/dao_do_rework/underlay/` (README there).
 
+### Where the prompts and pictures are kept (for future reference)
+
+| What | Where |
+|---|---|
+| The picked pictures, their prompts (`prompt-*.md`), the empty layouts they were drawn over (`layout*.png`) and the model's replies (`*-meta.json`) | `design/dao-do/underlays/<place>/`: `sun/` (Fusang 2 + Corona 1 combined as `inout-3.png`), `moon/` (Moon 2), `thunder/` (Thunder 3), `shrine/` (Eclipse 2, Lotus 1), `chaos/` (Replace 1, Add beside 1), `pagoda/` (OpenAI's code design, round 2) |
+| Every idea of the 2026-11-19 round for the Shrine, Thunder and Chaos (4 ideas x 2 versions each), their 12 prompts, layouts and contact sheets | `design/dao-do/underlays/ideas-2026-11-19/` (Thunder's drums, dragon, leiwen and lightning tree are unused, ready for its redesign) |
+| The first round of island ideas (sketch 3 style) | `design/dao-do/underlays/first-ideas-*` |
+| Earlier ideas removed in the cleanups (Sun ideas Fusang 1, Crow, Fusburst, Fusflame, Fusrays, Corona 2; Moon 1-4, Thunder 1-3, Chaos 1-3; OpenAI's code designs of all four islands, rounds 1-2) | git history: `git show 6a97947^:design/dao-do/cells/openai/<path>` (removed in 6a97947) and `git show 064c229^:design/dao-do/cells/openai/<path>` (removed in 064c229) |
+| Every picture shown to the user, as JPGs, in the galleries below the tree | the viewer artifact https://claude.ai/artifact/RJmdZHYeMaMAVobqfZNYkn |
+
+The prompt core that made the pictures traceable (reuse it; put the place's description and the art direction
+before it):
+
+```text
+Image 1 is the exact road layout of <the place: its roads, rings, starts>. Turn it into an artistic underlay sketch
+showing <the idea>.
+KEEP image 1 EXACTLY: same framing and scale; every gold road, ring and node, the white start and any red keystone
+stay at exactly the same pixel positions. Only ADD the artwork, <where>.
+HOW IT MUST BE DRAWN (it will be traced into nodes): thin clean single lines with small round beads along them at even
+spacing, a larger bead at each line's end; lines start from a road node or from another line; lines never cross each
+other or the roads; leave clear air between lines; no fills, no shading, no text.
+PALETTE: <colours>.
+FINISH: near-black background; roads stay gold; flat 2D, no glow, no gradients, no frame, no starfield.
+```
+
+When figures already in a cell must stay, add: "those cells already hold small gold node figures: keep every one
+exactly as it is, and weave the lines round them through the empty space, never touching them" (Add beside 1).
+
 ## 3. Rules every piece meets (checked at each build)
 
 - Cluster rules (`tools/design/dao_do_rework/cluster_rules.py`): R0 joined; R2 no dead-end minor node (a loop hung at

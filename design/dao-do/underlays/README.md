@@ -15,6 +15,10 @@ folder"). The scripts that made and measured them are in `tools/design/dao_do_re
 | `chaos/` | `replace-1.png` (the swirl, regularised), `beside-1.png` (the five elements) | `cells/chaos_swirl.py`, `cells/chaos_elements.py` | `elem-graph.json` (skel2.py), `keepout.json` (today's figures round the first cells; regenerate if those cells change) |
 | `pagoda/` | OpenAI's second design (`r2-*`) | `cells/pagoda.py` (the model's code) | `pack.json` (the geometry sent) |
 
+`ideas-2026-11-19/` holds every idea of the 2026-11-19 round for the Shrine, Thunder and Chaos (4 ideas x 2 versions
+each, their prompts, layouts and contact sheets), kept for future reference; Thunder's four are unused so far. Older
+rounds are in git history (see `design/dao-do/method.md`, "Where the prompts and pictures are kept").
+
 Each folder also holds the prompt (`prompt-*.md`) and the empty road layout the picture was drawn over, and the
 model's `*-meta.json`. `first-ideas-*` are the first round of island ideas (sketch 3 style, 2026-11-19).
 
