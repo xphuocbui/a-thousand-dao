@@ -504,7 +504,7 @@ The quest_gain_cap formula is defined as:
 |---|---|---|---|---|
 | amount_key, W_key | float | ≥ 0; > 0 | data file (template), validated; data file (`stat_power_weights`) | A stat key's amount and W price |
 | tree_points | int | 0 up to the realm's `tree_point_max` | data file (template), validated | Đạo Đồ points paid |
-| tree_point_w | float | 2.07 | data file (Đạo Đồ `w̄_target`) | W price of a tree point |
+| tree_point_w | float | 2.58 | data file (Đạo Đồ `w̄_target`; 2.07 before 2026-11-19) | W price of a tree point |
 | quest_boon_w | float | 4–12, default 8 | data file | Most W in one lasting gain |
 | quest_gain_cap_w | float | 24–60, default 48 | data file | Lifetime W from quests, about 4 % of the 1,172 W a full tree holds at Deity Transformation |
 | quest_gain_total_w | float | 0 to the cap | calculated | W already gained from quests this life |
@@ -706,7 +706,7 @@ All of these work in the Debug Terminal first, with numbered menus as elsewhere.
 | Formulas A, D | `assets/data/session_actions.json` (Sects & Missions, `design/gdd/sects.md`) | `sect_base_income`, `income_realm_scale`, `hostile_threshold` −30 | Read only |
 | Rule 5, Formulas B | combat.md rule 1, Formulas K | The fight, F = Off × ehp | Read only |
 | Formulas B | thien-kiep.md Formulas C | r as the share of effective health a fight costs | The estimate is reused, not owned here |
-| Rule 11, Formulas D | dao-do.md; registry `stat_power_weights` | W prices, `w̄_target` 2.07 W | Read only |
+| Rule 11, Formulas D | dao-do.md; registry `stat_power_weights` | W prices, `w̄_target` 2.58 W | Read only |
 | Formulas D | thien-kiep.md Formulas E | `tempered_buff_w` 60, the 1,172 W full tree | Read only |
 | Rule 11 | character-stats.md | `quest_boon` as a modifier source | Listed in its Dependencies |
 | Rule 11 | canh-gioi.md rule 7; `event_resolver.gd` effect `insight` | The Nascent Soul breakthrough insight | Read only |
@@ -838,7 +838,7 @@ Evidence: `tests/unit/quests/`, `tests/integration/quests/`, `production/qa/evid
 **Lint** [Config]
 
 - **AC-QS-76** A template that fails the validator at any realm is rejected at load, and a template marked Major or Legendary is rejected. A template holding a `defeat` or `reach` stage is rejected at load (rule 4).
-- **AC-QS-77** Golden table: `I_r` 10, 80, 600, 4,000, 30,000; `E_r` 80, 600, 5,000, 40,000, 300,000; `tree_point_w` 2.07; floor −29.
+- **AC-QS-77** Golden table: `I_r` 10, 80, 600, 4,000, 30,000; `E_r` 80, 600, 5,000, 40,000, 300,000; `tree_point_w` 2.58; floor −29.
 - **AC-QS-78** `stage_reward_share` 0.2 and 0.4 pass, 0.19 and 0.41 fail. `slack` 0.3 and 1.0 pass, 0.29 and 1.01 fail.
 
 **Terminal** [UI]. Screenshots retained in `production/qa/evidence/debug-terminal/`.

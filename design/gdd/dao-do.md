@@ -393,17 +393,19 @@ The value_scale formula is defined as:
 | `road_purity` | float | 0.5 (guess) | data file | Purity an element-land road node grants (rule 4); a border-line road node grants half of each neighbour's |
 | `purity_price` | float | 0.3 W per purity point (guess) | data file | What one point of purity is worth, through the Dao mark multiplier and element stacks (Spiritual Roots rule 8a) |
 | R0 | float | 0.15 W | calculated | Value of an element-land road node |
-| n_road, n_sm, n_not | int | 616, 5,364, 1,084 | measured (lean build, 2026-11-10) | Road nodes, small Dao marks and notables (no starts, no keystones) |
-| w̄_map | float | 2.15 W | calculated | Mean W per Dao mark over the visible map; a data lint (AC-KMD-06), not a power target |
+| n_road, n_sm, n_not | int | 751, 5,493, 1,759 | measured (v5 frozen map, 2026-11-19) | Road nodes, small Dao marks and notables (no starts, no keystones) |
+| w̄_map | float | 2.60 W | calculated | Mean W per Dao mark over the visible map; a data lint (AC-KMD-06), not a power target. The filled content measures 2.58 W, since capability notables carry less (Formulas E) |
 | Keystone | float | ≥ 50 W | data file | A keystone's positive side; its rule and closing cost are its `effects.md` record |
 
-**Output Range:** w̄_map is 2.15 W at the defaults, a data lint held within ±5 % of `w_target` (2.07 W), the per-point
-target the Way and Quests price against (user decision 2026-11-10, re-review D-R3; this GDD owns it). A life's tree
+**Output Range:** w̄_map is 2.60 W at the defaults (2.58 W in the filled content), a data lint held within ±5 % of
+`w_target` (2.58 W), the per-point target the Way and Quests price against (user decision 2026-11-10, re-review D-R3;
+this GDD owns it). `w_target` was 2.07 W on the lean generated map; the user raised it to 2.58 W on 2026-11-19, when
+the drawn v5 map carried 1,759 notables against the 1,084 assumed and the notable grade stayed at 8 W. A life's tree
 power is set by the route it walks, not the map's mix: the route share of road nodes, small Dao marks and notables
 is re-measured by the bot on the drawn map (AC-KMD-07; the generated map's figure was 95–116 W at Qi Refining's
 end). Hub roads give general stats at S0.
 
-**Example:** (616 × 0.15 + 5,364 × 1.2 + 1,084 × 8) / 7,064 = (92 + 6,437 + 8,672) / 7,064 = **2.152 W**. A typical
+**Example:** (751 × 0.15 + 5,493 × 1.2 + 1,759 × 8) / 8,003 = (113 + 6,592 + 14,072) / 8,003 = **2.596 W**. A typical
 small Dao mark is +1.2% attack (or +0.5% cultivation speed); a notable +8% attack; a Fire road node +0.5 Fire purity.
 
 ### B. Distances from the starts
@@ -784,7 +786,7 @@ list the Đạo Đồ in its own Dependencies section.
 | 33 | Balance Simulation Harness | Re-measures route power (A2) and the calibration runs on the drawn map |
 | 35 / 36 / 37 | Guidance Layer, Debug Terminal, Game UI | The drawn map, the start choice, route previews, purity gained from roads |
 | 12 | Codex & Karmic Carryover | Records capabilities found across lives |
-| 31 | Quests | `stat_power_weights` (via the Modifier System) and `w_target` (2.07 W, Formulas A2) to price a lasting gain; tree points paid by a major quest (`quests.md` Formulas D) |
+| 31 | Quests | `stat_power_weights` (via the Modifier System) and `w_target` (2.58 W, Formulas A2; 2.07 W before 2026-11-19) to price a lasting gain; tree points paid by a major quest (`quests.md` Formulas D) |
 | 39 | The Way (Đạo) | The shared point pool (two-way) |
 
 **Capability hosts.** Each implements the behaviour behind its capabilities, from the `effects.md` record. Hosts do
@@ -950,7 +952,8 @@ Drafted with qa-lead.
     - The data has S0 = 1.2, N0 = 8, `road_purity` 0.5 and `purity_price` 0.3.
     - Every keystone's positive side has power ≥ 50 W at `modifier_prices`, or it is a **rule keystone** whose
       positive side has no price (its `effects.md` record), on the test's golden list.
-    - On the lean map, w̄_map over road nodes, small Dao marks and notables is 2.10–2.20 W (2.152 at the defaults).
+    - On the v5 map, w̄_map over road nodes, small Dao marks and notables is 2.45–2.71 W (2.596 at the defaults, 2.58
+      measured in the filled content, 2026-11-19).
     - Every element-land road node grants only its land's purity; every border-line road node half of each neighbour's;
       no road node carries `breakthrough_chance`.
     - No Dao mark carries `leech_health_pct` or `bonus_ward_slots`; rare modifiers appear only on keystones.

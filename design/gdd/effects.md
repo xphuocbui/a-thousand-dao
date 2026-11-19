@@ -627,6 +627,69 @@ keystones; #9 and #11 above are re-expressed already. The ones with a real cost 
   Severing, Focused Mind, Empty Hand, One Root, Heaven's Favour (a reroll needs a new action), and the
   remaining ~7 capabilities (25 live, less the 6 above and about 12 rule changes; settled with Open Question 4).
 
+### Đạo Đồ Effects (content pass, 2026-11-19)
+
+> Drafted in the Đạo Đồ content pass (`design/dao-do/content-method.md`), approved by the user section by section on
+> 2026-11-19. Every record is `price: unpriced` and `npc: true`, host `MM`. Keystones carry their own tier (rule 4).
+> Fights are duels (Combat rule 1), so none assumes several foes.
+
+**Keystone variants of starter Effects.** A keystone must close something. These five starters close nothing, so the
+tree's keystone adds a closing; the starter records stay as they are.
+
+| Starter | Tree keystone | Closing added |
+|---|---|---|
+| Overheat | Fire, rim (c901 keystone_rim_L) | Your art costs +35 % |
+| Open Sky | Earth (c902 keystone_w) | Artifact power −30 % |
+| Still Water | Water (c904 keystone_dark) | Healing taken from every other source −50 % |
+| Flowing Water | Water (c904 keystone_hook) | Your art costs +40 % |
+| Bare Rack | Wood (c905 keystone_e) | Maximum health −15 % |
+
+**Keystones: Fire and Earth**
+
+| Name | Rule | Reads | Payload / action | Limits | Closes | Hosts | Build families | From |
+|---|---|---|---|---|---|---|---|---|
+| Ever-Burning Furnace (Vĩnh Nhiên Lô) | Every Burn stack your hits apply returns linh lực. | Burn stacks applied (event) | +0.2 pp of maximum linh lực per stack | 10 stacks a pulse | Your linh lực regeneration is 0 | MM | Burn, Fire caster | Đạo Đồ keystone, Fire (c901 keystone_L) |
+| Alchemist's Heart (Đan Tâm) | The first pill you take in each fight counts twice. | Pill use (event) | That pill's effect applies a second time | Once per fight | Pill toxicity fades half as fast | MM | Alchemist, pill fighter | Đạo Đồ keystone, Fire (c901 keystone_rim_R) |
+| Immovable Mountain (Bất Động Sơn) | Slowed Time and timer delays never land on you. | Incoming delay or slow | Refusal | — | Art speed modifiers do nothing for you | MM | Heavy hitter, slow arts, body | Đạo Đồ keystone, Earth (c902 keystone_rim_R) |
+| Earth Vein Tap (Địa Mạch Dẫn) | While your own formation stands, your linh lực regenerates faster; with none, not at all. | Own formation, live | `linh_luc_regen_inc_pct` +50 while it stands | — | No linh lực regeneration while no formation of yours stands | MM | Formation caster | Đạo Đồ keystone, Earth (c902 keystone_rim_L) |
+
+**Keystones: Metal, Water and Wood**
+
+| Name | Rule | Reads | Payload / action | Limits | Closes | Hosts | Build families | From |
+|---|---|---|---|---|---|---|---|---|
+| Ten Thousand Swords Return (Vạn Kiếm Quy Tông) | Your sword arts deal more for each sword artifact you carry. | Carried sword artifacts, compile | L5 +8 per sword artifact | Cap +32 | Only arts with the `sword` form tag may be slotted; your wards are 30 % weaker | MM | Flying swords, sword | Đạo Đồ keystone, Metal (c903 keystone −12) |
+| Autumn Harvest (Thu Hoạch) | Your crits refund the art's cost. | Crit event | Restore the art's linh lực cost | 3 firings per pulse | Your linh lực regeneration is 0 | MM | Crit, Metal caster | Đạo Đồ keystone, Metal (c903 keystone_rim_R) |
+| Thousand Talismans (Thiên Phù) | The talismans you draw before a fight cost no stock for their first two uses. | Talisman use (event) | No stock spent | 2 per fight | Arts that are not talismans deal 30 % less | MM | Talisman | Đạo Đồ keystone, Water (c904 keystone_rim_L); talisman stock is Pending, so the rule switches on with the Talismans GDD |
+| Boundless Sea (Vô Biên Hải) | Your linh lực pool doubles but no longer regenerates on its own: only leech, on-crit and overflow restore it. | — | `linh_luc_pct` × 2 at compile; regeneration to 0 | — | As the rule, and linh lực on hit gives nothing | MM | Big pool, drain, Water caster | Đạo Đồ keystone, Water (c904 keystone_rim_R) |
+| Spirit Garden (Linh Viên) | Herbs in your spirit fields ripen a season sooner. | Field harvest (season) | One season off each growth | — | You can keep at most one spirit beast | MM | Spirit fields, herbs, alchemy supply | Đạo Đồ keystone, Wood (c905 keystone_w) |
+| Ten Thousand Poisons (Vạn Độc) | Your Poison batches last until the fight ends. | Poison batches (rule 9a) | Batch duration to the end of the fight | — | Your hits deal 25 % less (`attack_pct` [hit] −25): poison does the work | MM | Poison, Wood | Đạo Đồ keystone, Wood (c905 keystone_rim_R) |
+| Sun and Rain (Nhật Vũ) | Your health regeneration also restores linh lực, at half the amount (as a share of each pool). | Health regeneration pulse | Restore linh lực | — | Maximum linh lực −30 % (`linh_luc_pct` −30) | MM | Regeneration caster | Đạo Đồ keystone, Wood (c905 keystone_rim_L) |
+
+**Keystones: the islands** (Thunder's keystone is the starter Glass Meridians, which already closes something)
+
+| Name | Rule | Reads | Payload / action | Limits | Closes | Hosts | Build families | From |
+|---|---|---|---|---|---|---|---|---|
+| Heaven's Eye (Thiên Nhãn) | Your crits against an Exposed foe deal more. | Crit event; the foe's Exposed | L5 +20 on that hit | — | Your ward strength is 30 % lower | MM | Light, crit (pairs with Dawn's Daybreak, which applies Exposed) | Đạo Đồ keystone, Light (c931 keystone_gate_R) |
+| Sun That Never Sets (Bất Lạc Nhật) | Each season you cultivate, you also gain 1 point of đạo tâm. | Season end (cultivation) | `dao_tam` +1, permanent | +10 per realm | You can never conceal yourself (stealth counts 0, and Concealed Breath #20 cannot be held); heart-demon resistance −30 % | MM | Long life, cultivation | Đạo Đồ keystone, Light (c931 keystone_gate_L) |
+| Hidden Moon (Ẩn Nguyệt) | Your evade also counts as crit chance, point for point. | Evade, compile | `crit_chance_pct` + evade | — | Your block and body shield count nothing; maximum health −20 % | MM | Evasion, crit, Darkness | Đạo Đồ keystone, Darkness (c933 keystone_pendant) |
+
+**Effects on big pictures** (at most one per picture, on its crown notable; smaller than a keystone, no closing cost)
+
+| Name | Rule | Reads | Payload / action | Limits | Closes | Hosts | Build families | From |
+|---|---|---|---|---|---|---|---|---|
+| Eruption (Bộc Phát) | Your costly Fire arts (cost share 10 % or more) deal more. | The art's cost share (`costly` tag), compile | L5 +15 on those arts | — | — | MM | Fire caster, big costly arts | Đạo Đồ, Fire F8 Volcano (c105 trident) |
+| Wildfire (Dã Hỏa) | When one of your Burn batches runs out, half its stacks rekindle as a new batch. | Batch end (event) | New Burn batch, half the stacks, 2 pulses | Once per batch | — | MM | Burn | Đạo Đồ, Fire F5 Prairie Fire (c53 fleur) |
+| Burning Ground (Địa Hỏa) | Your Earth arts leave burning ground: the foe gains 2 Burn stacks. | Earth art hit | Burn +2 stacks | Once per art firing | — | MM | Earth-Fire hybrid | Đạo Đồ, Earth B1 Kiln Hill (c65 hill) |
+| Grinding Weight (Trọng Ma) | Your slow arts apply a stack of Slowed Time. | Slow art hit | Slowed Time +1 stack | Once per art firing | — | MM | Earth, control | Đạo Đồ, Earth E5 Millstone (c19 ridge) |
+| Thorns (Đảo Thích) | A blocked hit returns a share of its damage to the attacker. | Block event | Physical damage, 30 % of the blocked amount | Once per pulse | — | MM | Block, body | Đạo Đồ, Wood D6 Thorn Hedge (c39 bough) |
+| Tide (Thủy Triều) | Your Water damage rises and falls in a 6-pulse cycle. | Fight time | L5 +0 to +20 by the cycle | — | — | MM | Water caster, tempo | Đạo Đồ, Water W3 Moon over the Tide (c17 turning_wave) |
+| Reflection (Phản Chiếu) | After you evade, your next art deals more. | Evade event | L5 +15 on the next art | Once per evade | — | MM | Evasion, counter | Đạo Đồ, Water B5 Mirror Lake (c11 pond) |
+| Daybreak (Phá Hiểu) | Your first Light hit each fight lays the foe bare (Exposed). | First Light hit | Apply Exposed (3 pulses) | Once per fight | — | MM | Light | Đạo Đồ, Light L4 Dawn (c931 flames_090) |
+| First Thunder (Tiên Lôi) | Your first art each fight fires at `cooldown_min`. | Fight start | Move a timer | First firing only | — | MM | Tempo, opener | Đạo Đồ, Thunder T3 Thunder Step (c932 bolt_out_chain) |
+| Heaven's Verdict (Thiên Phán) | Your slow Thunder arts deal more against a foe below half health. | Foe health, live | L5 +20 | — | — | MM | Burst, Thunder | Đạo Đồ, Thunder T4 Heaven's Hammer (c932 storm_566) |
+| Dark of the Moon (Sóc Ám) | After you evade, your next hit crits. | Evade event | Next hit crits | Once per pulse | — | MM | Evasion, crit | Đạo Đồ, Darkness K3 New Moon (c933 full_moon) |
+| Before Heaven (Tiên Thiên) | Your damage and resistance grow with the number of elements your root owns. | Root elements, compile | L5 +4 and `resist_pct` +40 per owned element | Cap 5 elements | — | MM | Chaos root, hybrids | Đạo Đồ, Hub H4 Before Heaven (c79 swirl_arm_01) |
+
 ### States and Transitions
 
 **An Effect in a fight**

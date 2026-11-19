@@ -474,9 +474,9 @@ nodes as on the Đạo Đồ, Effects and arts bounded by slots, consistency N4)
    `dao_capstone_depth` points; the Dao holds 2–6 capstones;
 2. **each stat node:** a small or road node is `(1 ± t) · W_small` and a stat notable is `(1 ± t) · W_notable`, with
    `t` = `dao_node_tol` 0.2, so no node is a trap or a jackpot. Capstones' stat lines, if any, are not held to a band;
-3. **the mean:** the W per point over the Dao's priced nodes is at least `0.9 · m · w̄` (3.73 W), so the premium
+3. **the mean:** the W per point over the Dao's priced nodes is at least `0.72 · m · w̄` (3.72 W; the factor was 0.9 while w̄ was 2.07, lowered on 2026-11-19 when w̄ rose to 2.58 so the floor holds), so the premium
    holds for the graph as a whole. This implies a floor of about 10 % stat notables among priced nodes
-   (2.4(1 − f) + 16f ≥ 3.73 gives f ≥ 0.098; the Sword pilot has 15 of 136, 11 %), so a Dao heavy in Effect
+   (2.4(1 − f) + 16f ≥ 3.72 gives f ≥ 0.097; the Sword pilot has 15 of 136, 11 %), so a Dao heavy in Effect
    notables must still carry stat notables (re-review D-R11);
 4. **the slot table** (rule 10): Effects and arts sit only on notables; per facet at most 1 `major` Effect and
    2 `minor` Effects (an art's rider counts as one); per Dao at most 1 art, or 2 if the Catalogue names the Dao as
@@ -503,7 +503,7 @@ marginal gain before a buy (Edge Cases).
 | c | int | 1 | data file (`dao_node_cost`) | Points per node, flat (user decision 2026-11-10, replacing 3) |
 | m | float | 2 | data file (`dao_premium`) | How much a Dao node beats the same node on the map (user decision 2026-11-06) |
 | s, b | float | 1.2, 8 | Modifier System (`grade_small`, `grade_notable`) | The map's small and notable budgets in W |
-| w̄ | float | 2.07 | Đạo Đồ Formulas A2 (`w̄_target`) | Mean W per point on the map |
+| w̄ | float | 2.58 | Đạo Đồ Formulas A2 (`w̄_target`; 2.07 before 2026-11-19) | Mean W per point on the map |
 | `dao_rate_cap_pct` | float | 10 | data file, *guess* | Most `cultivation_speed_pct` one Dao may give, in percent (user decision 2026-11-06) |
 | N | int | 110–170 | data file (`dao_node_count` 150) | Nodes in a Dao, the start included (user decision 2026-11-10: ×2–3 the 45-node graph; the Sword pilot holds 158) |
 | K | int | 2–6 | data file (`dao_keystone_count` 5) | Capstones in a Dao |
@@ -804,7 +804,7 @@ and UI transcripts under `production/qa/evidence/debug-terminal/`.
 
 - **AC-DAO-01** [Config/Data] Every Dao in `dao.json` has 110–170 nodes; at the defaults (cost 1, premium 2)
   every small and road node is 1.92–2.88 W and every stat notable 12.8–19.2 W, and the W per point over priced
-  nodes is at least 3.73 (Formulas D1 parts 2–3). A fixture small node at 1.8 W or 3.0 W fails, and so does a
+  nodes is at least 3.72 (Formulas D1 parts 2–3). A fixture small node at 1.8 W or 3.0 W fails, and so does a
   notable at 12 W or 20 W. With `dao_premium` 3 the bands scale to 2.88–4.32 and 19.2–28.8 W.
 - **AC-DAO-27** [Config/Data] Graph lint (Formulas D1 part 1). A fixture Dao fails if: a node is
   unreachable from the start; two edges cross; two nodes sit closer than 0.6; a capstone is 9 points from the

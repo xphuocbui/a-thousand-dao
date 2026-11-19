@@ -307,8 +307,8 @@ formulas:
       - grade_notable
     # 2026-11-10: lint rewritten for graph Ways (110-170 nodes, cost 1; per stat-node band; slot table; capstone depth). Was: 19-22 nodes, branch and keystone-route means.
     output_range: [1.92, 19.2]
-    expression: "W_small = dao_premium * dao_node_cost * grade_small (2.4 W), W_notable = dao_premium * dao_node_cost * grade_notable (16 W); lint: 110-170 nodes, connected, no crossings, capstones >= dao_capstone_depth points; each small/road node and stat notable within dao_node_tol (20 %) of its budget; W per point >= 0.9 * premium * w_target; slot table per facet (<=1 major, <=2 minor Effects on notables); 2-6 capstones; cultivation_speed_pct <= dao_rate_cap_pct per Dao (the key-headroom check was dropped 2026-11-10, review D-01)"
-    notes: "Every node costs a flat 1 point (the start is free); w_target is the Đạo Đồ's 2.07 W per point. Stat nodes carry the x2 premium node by node; Effects and capstones are unpriced (the Sword pilot measures 3.38 W per point over all points, 1.63x the map). output_range spans the small and notable bands at the defaults (cost 1, premium 2)."
+    expression: "W_small = dao_premium * dao_node_cost * grade_small (2.4 W), W_notable = dao_premium * dao_node_cost * grade_notable (16 W); lint: 110-170 nodes, connected, no crossings, capstones >= dao_capstone_depth points; each small/road node and stat notable within dao_node_tol (20 %) of its budget; W per point >= 0.72 * premium * w_target; slot table per facet (<=1 major, <=2 minor Effects on notables); 2-6 capstones; cultivation_speed_pct <= dao_rate_cap_pct per Dao (the key-headroom check was dropped 2026-11-10, review D-01)"
+    notes: "Every node costs a flat 1 point (the start is free); w_target is the Đạo Đồ's 2.58 W per point (2.07 before 2026-11-19). Stat nodes carry the x2 premium node by node; Effects and capstones are unpriced (the Sword pilot measures 3.38 W per point over all points, 1.63x the map). output_range spans the small and notable bands at the defaults (cost 1, premium 2)."
     added: 2026-11-05
     revised: 2026-11-06
   - name: dao_offer
@@ -1104,7 +1104,7 @@ formulas:
       - quest_gain_total_w
     output_range: [0, 8]
     expression: "gain_w = sum(amount_key*W_key) + tree_points*tree_point_w; gain_w <= min(quest_boon_w, quest_gain_cap_w - quest_gain_total_w)"
-    notes: "Applied at the offer and again at payment. W prices from stat_power_weights; tree_point_w is the Đạo Đồ target 2.07."
+    notes: "Applied at the offer and again at payment. W prices from stat_power_weights; tree_point_w is the Đạo Đồ target 2.58."
     added: 2026-11-06
     revised: ""
   - name: quest_reaction
@@ -2783,11 +2783,11 @@ constants:
     referenced_by:
       - design/gdd/dao-do.md
       - design/gdd/dao.md
-    value: 2.07
+    value: 2.58
     unit: W per point
-    notes: "Target mean W per skill point, owned by the Đạo Đồ (Formulas A2); the drawn map's w_map 2.15 is a lint within +/-5 % of it (re-review D-R3, user 2026-11-10). The Way prices a Dao node against it (dao_node_value) and Quests price a lasting gain with it. Registered by design-review 2026-11-06."
+    notes: "Target mean W per skill point, owned by the Đạo Đồ (Formulas A2); the drawn map's w_map (2.60 at the grades on v5, 2.58 filled) is a lint within +/-5 % of it (re-review D-R3, user 2026-11-10; raised from 2.07 by the user 2026-11-19 with v5's 1,759 notables). The Way prices a Dao node against it (dao_node_value) and Quests price a lasting gain with it. Registered by design-review 2026-11-06."
     added: 2026-11-06
-    revised: ""
+    revised: "2026-11-19"
   - name: dao_branch_tol
     # 2026-11-10: retired with the branch lint; replaced by dao_node_tol (per stat-line node).
     status: deprecated
